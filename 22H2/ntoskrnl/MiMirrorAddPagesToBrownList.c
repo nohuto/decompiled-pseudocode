@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMirrorAddPagesToBrownList @ 0x140626B7C
+ * XREFs of MiMirrorAddPagesToBrownList @ 0x140382688
  * Callers:
- *     MiMirrorGatherBrownPages @ 0x140626CE8 (MiMirrorGatherBrownPages.c)
- *     MiMirrorNodeLargePages @ 0x14064F574 (MiMirrorNodeLargePages.c)
+ *     MiMirrorGatherBrownPages @ 0x140382408 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorNodeLargePages @ 0x14038521C (MiMirrorNodeLargePages.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
  */
 
 void __fastcall MiMirrorAddPagesToBrownList(unsigned __int64 a1, unsigned __int64 a2)
@@ -18,19 +18,17 @@ void __fastcall MiMirrorAddPagesToBrownList(unsigned __int64 a1, unsigned __int6
 
   v4 = a1 >> 5;
   v5 = a2;
-  v6 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140C67FA0 + 1) + 4 * v4);
+  v6 = (volatile signed __int32 *)(qword_140C4E728 + 4 * v4);
   v7 = a1 & 0x1F;
   if ( v7 + a2 <= 0x20 )
   {
     if ( a2 == 32 )
     {
       *v6 = 0;
-      goto LABEL_13;
+      goto LABEL_5;
     }
     v8 = ~(((1 << a2) - 1) << v7);
-LABEL_12:
-    _InterlockedAnd(v6, v8);
-    goto LABEL_13;
+    goto LABEL_4;
   }
   if ( (a1 & 0x1F) != 0 )
   {
@@ -52,8 +50,9 @@ LABEL_12:
   if ( v5 )
   {
     v8 = -1 << v5;
-    goto LABEL_12;
+LABEL_4:
+    _InterlockedAnd(v6, v8);
   }
-LABEL_13:
-  RtlSetBitsEx((__int64)&xmmword_140C67F90, a1, a2);
+LABEL_5:
+  RtlSetBitsEx((__int64)&qword_140C4E710, a1, a2);
 }

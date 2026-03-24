@@ -1,8 +1,7 @@
 /*
- * XREFs of wil_atomic_uint32_compare_exchange_relaxed @ 0x14050E528
+ * XREFs of wil_atomic_uint32_compare_exchange_relaxed @ 0x14032C618
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14022FCF0 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x140810F54 (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x140252984 (wil_details_FeatureReporting_RecordUsageInCache.c)
  * Callees:
  *     <none>
  */

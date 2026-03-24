@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsOurKey@CPTPProcessor@@CA_NE_N@Z @ 0x1C00E8904
+ * XREFs of ?IsOurKey@CPTPProcessor@@CA_NE_N@Z @ 0x1C01A6054
  * Callers:
- *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C01DE9BC (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
+ *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C01A665C (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ char __fastcall CPTPProcessor::IsOurKey(unsigned __int64 a1, char a2)
   __int64 v6; // rax
 
   v2 = 0;
-  if ( !a2 && !_InterlockedCompareExchange64(&qword_1C029AC80, 0LL, 0LL) )
+  if ( !a2 && !_InterlockedCompareExchange64(&qword_1C0255ED0, 0LL, 0LL) )
     return 0;
   if ( (unsigned __int8)(a1 - 48) <= 0x3Fu )
   {

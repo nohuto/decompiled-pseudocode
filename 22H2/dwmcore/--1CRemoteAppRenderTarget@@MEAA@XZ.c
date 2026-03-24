@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CRemoteAppRenderTarget@@MEAA@XZ @ 0x1801EA874
+ * XREFs of ??1CRemoteAppRenderTarget@@MEAA@XZ @ 0x180185CCC
  * Callers:
- *     ??_ECRemoteAppRenderTarget@@MEAAPEAXI@Z @ 0x1801EA950 (--_ECRemoteAppRenderTarget@@MEAAPEAXI@Z.c)
+ *     ??_ECRemoteAppRenderTarget@@MEAAPEAXI@Z @ 0x180185DA0 (--_ECRemoteAppRenderTarget@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x1801EB5D8 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x180186930 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
  */
 
 void __fastcall CRemoteAppRenderTarget::~CRemoteAppRenderTarget(CRemoteAppRenderTarget *this)
@@ -14,19 +14,19 @@ void __fastcall CRemoteAppRenderTarget::~CRemoteAppRenderTarget(CRemoteAppRender
   __int64 v4; // rcx
 
   *(_QWORD *)this = &CRemoteAppRenderTarget::`vftable'{for `CRenderTarget'};
-  *((_QWORD *)this + 9) = &CRemoteAppRenderTarget::`vftable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 18) = &CRemoteAppRenderTarget::`vftable'{for `IDeviceResourceNotify'};
-  *((_QWORD *)this + 19) = &CRemoteAppRenderTarget::`vftable'{for `IVailRenderTarget'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 4LL) + 80) = &CRemoteAppRenderTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 8LL) + 80) = &CRemoteAppRenderTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 12LL) + 80) = &CRemoteAppRenderTarget::`vftable'{for `IRenderTarget'};
-  v2 = *(int *)(*((_QWORD *)this + 10) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 76) = v2 - 224;
-  v3 = *(int *)(*((_QWORD *)this + 10) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 76) = v3 - 240;
-  v4 = *(int *)(*((_QWORD *)this + 10) + 12LL);
-  *(_DWORD *)((char *)this + v4 + 76) = v4 - 264;
+  *((_QWORD *)this + 8) = &CRemoteAppRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 17) = &CRemoteAppRenderTarget::`vftable'{for `IDeviceResourceNotify'};
+  *((_QWORD *)this + 18) = &CRemoteAppRenderTarget::`vftable'{for `IVailRenderTarget'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CRemoteAppRenderTarget::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 8LL) + 72) = &CRemoteAppRenderTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 72) = &CRemoteAppRenderTarget::`vftable'{for `IRenderTarget'};
+  v2 = *(int *)(*((_QWORD *)this + 9) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 68) = v2 - 224;
+  v3 = *(int *)(*((_QWORD *)this + 9) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 68) = v3 - 240;
+  v4 = *(int *)(*((_QWORD *)this + 9) + 12LL);
+  *(_DWORD *)((char *)this + v4 + 68) = v4 - 264;
   CRemoteAppRenderTarget::ReleaseSwapChain(this);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 168);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 160);
   CRenderTarget::~CRenderTarget(this);
 }

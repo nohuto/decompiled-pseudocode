@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindIntersectionOfCornersAndLines@CVisualDepthGeometry@@AEBAXPEBV1@PEAUfloat3@Numerics@Foundation@Windows@@PEAH@Z @ 0x18026ACD4
+ * XREFs of ?FindIntersectionOfCornersAndLines@CVisualDepthGeometry@@AEBAXPEBV1@PEAUfloat3@Numerics@Foundation@Windows@@PEAH@Z @ 0x180009BEC
  * Callers:
- *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180008CA8 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A24 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
  * Callees:
- *     ?ContainsPoint@CVisualDepthGeometry@@AEBA_NAEBUfloat2@Numerics@Foundation@Windows@@_N@Z @ 0x180007ACC (-ContainsPoint@CVisualDepthGeometry@@AEBA_NAEBUfloat2@Numerics@Foundation@Windows@@_N@Z.c)
- *     ?PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z @ 0x18026AFB4 (-PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z.c)
+ *     ?PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z @ 0x180009D64 (-PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z.c)
+ *     ?ContainsPoint@CVisualDepthGeometry@@AEBA_NAEBUfloat2@Numerics@Foundation@Windows@@_N@Z @ 0x18000B368 (-ContainsPoint@CVisualDepthGeometry@@AEBA_NAEBUfloat2@Numerics@Foundation@Windows@@_N@Z.c)
  */
 
 void __fastcall CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
@@ -23,7 +23,7 @@ void __fastcall CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
   float v15; // xmm0_4
   float *v16; // r8
   float v17; // xmm4_4
-  char v18; // al
+  bool v18; // al
   __int64 v19; // rdx
   float v20; // eax
   __int64 v21; // rcx
@@ -42,11 +42,11 @@ void __fastcall CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
   do
   {
     v13 = v6 % 4;
-    v14 = *((float *)this + 3 * v13 + 11) - *v4;
+    v14 = *((float *)this + 3 * v13 + 10) - *(v4 - 1);
     v23 = *((float *)this + 3 * v13 + 9) - *(v4 - 2);
-    v15 = *((float *)this + 3 * v13 + 10) - *(v4 - 1);
-    v25 = v14;
-    v24 = v15;
+    v15 = *((float *)this + 3 * v13 + 11) - *v4;
+    v24 = v14;
+    v25 = v15;
     if ( PlaneLineIntersection(
            v8,
            v5,

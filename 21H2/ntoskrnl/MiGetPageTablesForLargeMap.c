@@ -1,48 +1,50 @@
 /*
- * XREFs of MiGetPageTablesForLargeMap @ 0x1403C736C
+ * XREFs of MiGetPageTablesForLargeMap @ 0x1403B8DC4
  * Callers:
- *     MiInsertInSystemSpace @ 0x14026D460 (MiInsertInSystemSpace.c)
- *     MiMapContiguousMemoryLarge @ 0x1403C6E24 (MiMapContiguousMemoryLarge.c)
- *     MiMapSystemImageWithLargePage @ 0x14098325C (MiMapSystemImageWithLargePage.c)
+ *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
+ *     MiMapContiguousMemoryLarge @ 0x1403B8854 (MiMapContiguousMemoryLarge.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA3D0 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     MiObtainSystemVa @ 0x14026B32C (MiObtainSystemVa.c)
- *     MiReturnSystemVa @ 0x14026DAB0 (MiReturnSystemVa.c)
- *     MiMakeZeroedPageTablesEx @ 0x14026DC5C (MiMakeZeroedPageTablesEx.c)
+ *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
+ *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
  */
 
 unsigned __int64 __fastcall MiGetPageTablesForLargeMap(unsigned __int64 a1, int a2, __int64 a3, unsigned int a4)
 {
-  unsigned int v6; // r15d
-  unsigned __int64 v8; // r13
-  __int64 v9; // rdi
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rsi
-  __int64 v12; // r14
-  int v13; // r8d
-  int v15; // [rsp+70h] [rbp+18h]
+  unsigned int v5; // ecx
+  unsigned __int64 v7; // r12
+  int v9; // r13d
+  __int64 v10; // rdi
+  unsigned __int64 v11; // rax
+  unsigned __int64 v12; // r14
+  __int64 v13; // rsi
+  unsigned int v14; // r8d
+  int v16; // [rsp+68h] [rbp+10h]
 
-  v15 = a3;
-  v6 = 13;
+  v5 = 13;
   if ( a2 != 9 )
-    v6 = a2;
-  v8 = a1 & 0xFFFFFFFFFFFFFE00uLL;
-  v9 = (a1 >> 9) + 1;
+    v5 = a2;
+  v16 = v5;
+  v7 = a1 & 0xFFFFFFFFFFFFFE00uLL;
+  v9 = a3;
+  v10 = (a1 >> 9) + 1;
   if ( (a1 & 0x1FF) == 0 )
-    v9 = a1 >> 9;
-  v10 = MiObtainSystemVa(v9, v6, a3);
-  v11 = v10;
-  if ( v10 )
+    v10 = a1 >> 9;
+  v11 = MiObtainSystemVa(v10, v5, a3);
+  v12 = v11;
+  if ( v11 )
   {
-    v12 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v13 = 3 - (a2 != 12);
-    if ( !v15 )
-      v13 = 7 - (a2 != 12);
-    if ( (unsigned int)MiMakeZeroedPageTablesEx(v12, v12 + 8 * (v8 - 1), v13, a2, a4)
-      && (a1 == v8 || (unsigned int)MiMakeZeroedPageTablesEx(v12 + 8 * v8, v12 + 8 * (a1 - 1), a2 == 12, a2, a4)) )
+    v13 = ((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v14 = 3 - (a2 != 12);
+    if ( !v9 )
+      v14 = 7 - (a2 != 12);
+    if ( (unsigned int)MiMakeZeroedPageTablesEx(v13, v13 + 8 * v7 - 8, v14, a2, a4)
+      && (a1 == v7 || (unsigned int)MiMakeZeroedPageTablesEx(v13 + 8 * v7, v13 + 8 * (a1 - 1), a2 == 12, a2, a4)) )
     {
-      return v11;
+      return v12;
     }
-    MiReturnSystemVa(v11, v11 + (v9 << 21), v6);
+    MiReturnSystemVa(v12, v12 + (v10 << 21), v16);
   }
   return 0LL;
 }

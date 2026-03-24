@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpDisconnectPort @ 0x1406196F0 (AlpcpDisconnectPort.c)
  */

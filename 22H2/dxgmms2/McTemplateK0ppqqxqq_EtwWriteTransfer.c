@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppqqxqq_EtwWriteTransfer @ 0x1C002F77C
+ * XREFs of McTemplateK0ppqqxqq_EtwWriteTransfer @ 0x1C0025B80
  * Callers:
- *     ?ChargeEvictionTransfer@VIDMM_PROCESS@@QEAAXK_K@Z @ 0x1C00EEBBC (-ChargeEvictionTransfer@VIDMM_PROCESS@@QEAAXK_K@Z.c)
+ *     ?ChargeEvictionTransfer@VIDMM_PROCESS@@QEAAXK_K@Z @ 0x1C00B8A5C (-ChargeEvictionTransfer@VIDMM_PROCESS@@QEAAXK_K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppqqxqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

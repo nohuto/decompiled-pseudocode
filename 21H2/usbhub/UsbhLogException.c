@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhLogException @ 0x1C004A92C
+ * XREFs of UsbhLogException @ 0x1C004BD0C
  * Callers:
- *     UsbhExceptionWorker @ 0x1C004A720 (UsbhExceptionWorker.c)
+ *     UsbhExceptionWorker @ 0x1C004BB00 (UsbhExceptionWorker.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 _QWORD *__fastcall UsbhLogException(__int64 a1, __int64 a2)
@@ -13,7 +13,7 @@ _QWORD *__fastcall UsbhLogException(__int64 a1, __int64 a2)
   _QWORD **v5; // rcx
   _QWORD *v6; // rbx
   _QWORD *v7; // rax
-  unsigned __int32 v8; // eax
+  unsigned int v8; // eax
   _QWORD *v9; // rax
   _QWORD *v10; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
@@ -32,7 +32,7 @@ _QWORD *__fastcall UsbhLogException(__int64 a1, __int64 a2)
   *v7 = v6;
   *((_QWORD *)v4 + 608) = v6;
   v8 = _InterlockedIncrement(v4 + 1220);
-  if ( v8 > LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink) )
+  if ( v8 > (unsigned int)qword_1C006C4C8 )
   {
     v9 = *v5;
     if ( *v5 != v5 )

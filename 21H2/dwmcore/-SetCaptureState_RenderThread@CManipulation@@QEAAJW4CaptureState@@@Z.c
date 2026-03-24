@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z @ 0x1801F46CC
+ * XREFs of ?SetCaptureState_RenderThread@CManipulation@@QEAAJW4CaptureState@@@Z @ 0x1801D4C34
  * Callers:
- *     ?AddActiveManipulation@InteractionSourceManager@@AEAAXPEAVCManipulation@@@Z @ 0x180263DDC (-AddActiveManipulation@InteractionSourceManager@@AEAAXPEAVCManipulation@@@Z.c)
- *     ?ClearActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x180263FFC (-ClearActiveManipulations@InteractionSourceManager@@AEAAXXZ.c)
- *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x18026473C (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ *     ?AddActiveManipulation@InteractionSourceManager@@AEAAXPEAVCManipulation@@@Z @ 0x180212E78 (-AddActiveManipulation@InteractionSourceManager@@AEAAXPEAVCManipulation@@@Z.c)
+ *     ?ClearActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x1802130C0 (-ClearActiveManipulations@InteractionSourceManager@@AEAAXXZ.c)
+ *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x18021380C (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z @ 0x1801F529C (-_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z @ 0x1801D57A4 (-_GetRenderToManipulationMsgInfo@CManipulation@@AEAAJPEAPEAUIMessageCallSendHost@@PEA_K@Z.c)
  */
 
 __int64 __fastcall CManipulation::SetCaptureState_RenderThread(CManipulation *a1)
@@ -27,15 +27,15 @@ __int64 __fastcall CManipulation::SetCaptureState_RenderThread(CManipulation *a1
   v4 = RenderToManipulationMsgInfo;
   if ( RenderToManipulationMsgInfo < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0LL, RenderToManipulationMsgInfo, 0x34Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, RenderToManipulationMsgInfo, 0x34Cu, 0LL);
   }
   else
   {
     (*(void (__fastcall **)(CManipulation *))(*(_QWORD *)a1 + 8LL))(a1);
-    v5 = CoreUICallSend(v8, &v9, 1LL, 12LL, 1, &unk_18032C3F4);
+    v5 = CoreUICallSend(v8, &v9, 1LL, 10LL, 1, &unk_1802CE76E);
     v4 = v5;
     if ( v5 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x353u);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x355u, 0LL);
   }
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v8);
   return v4;

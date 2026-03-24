@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCompareKnownObjectAces @ 0x140894398
+ * XREFs of RtlpCompareKnownObjectAces @ 0x140894378
  * Callers:
  *     RtlpIsDuplicateAce @ 0x14062CBE0 (RtlpIsDuplicateAce.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  */
 
 bool __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2)

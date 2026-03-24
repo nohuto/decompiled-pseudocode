@@ -1,8 +1,8 @@
 /*
- * XREFs of XpressBuildHuffmanDecodingTable @ 0x14021B6C0
+ * XREFs of XpressBuildHuffmanDecodingTable @ 0x140284C00
  * Callers:
- *     RtlDecompressBufferXpressHuff @ 0x14021B140 (RtlDecompressBufferXpressHuff.c)
- *     RtlDecompressBufferXpressHuffProgress @ 0x1405F1474 (RtlDecompressBufferXpressHuffProgress.c)
+ *     RtlDecompressBufferXpressHuff @ 0x1402846E0 (RtlDecompressBufferXpressHuff.c)
+ *     RtlDecompressBufferXpressHuffProgress @ 0x140591F80 (RtlDecompressBufferXpressHuffProgress.c)
  * Callees:
  *     <none>
  */
@@ -38,9 +38,9 @@ __int64 __fastcall XpressBuildHuffmanDecodingTable(__m128i *a1, __int64 a2)
   __int64 v31; // rcx
   __int16 *v32; // rax
   __int64 v33; // rdx
-  __int16 *v34; // rdx
-  __int64 v35; // rcx
-  __int16 *v36; // rax
+  __int64 v34; // rcx
+  __int16 *v35; // rax
+  __int16 *v36; // rdx
   __int64 v37; // rcx
   __int16 *v38; // rax
   __int64 v39; // rcx
@@ -88,11 +88,11 @@ __int64 __fastcall XpressBuildHuffmanDecodingTable(__m128i *a1, __int64 a2)
     v16 = v15 == v11;
     if ( v15 < v11 )
     {
-      v34 = &a1[194].m128i_i16[v12];
+      v36 = &a1[194].m128i_i16[v12];
       v12 -= (unsigned __int16)(((unsigned __int16)(v11 - v15 - 1) >> 1) + 1);
       do
       {
-        *v34-- = v15;
+        *v36-- = v15;
         v15 += 2;
         v16 = v15 == v11;
       }
@@ -200,18 +200,18 @@ LABEL_22:
                 while ( v31 );
                 break;
               case 6:
-                v35 = 16LL;
-                v36 = &a1[66].m128i_i16[v27 + 1];
+                v34 = 16LL;
+                v35 = &a1[66].m128i_i16[v27 + 1];
                 do
                 {
-                  *(v36 - 1) = v2;
-                  *v36 = v2;
-                  v36[1] = v2;
-                  v36[2] = v2;
-                  v36 += 4;
-                  --v35;
+                  *(v35 - 1) = v2;
+                  *v35 = v2;
+                  v35[1] = v2;
+                  v35[2] = v2;
+                  v35 += 4;
+                  --v34;
                 }
-                while ( v35 );
+                while ( v34 );
                 break;
               case 7:
                 v37 = 32LL;

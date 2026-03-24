@@ -1,21 +1,21 @@
 /*
- * XREFs of ??1CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAA@XZ @ 0x1C022F574
+ * XREFs of ??1CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01F6E5C
  * Callers:
- *     ??_GCCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020BC30 (--_GCCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_GCCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D4050 (--_GCCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::~CCompositionMipmapSurfaceMarshaler(
         DirectComposition::CCompositionMipmapSurfaceMarshaler *this)
 {
-  char *v1; // rdx
+  __int64 v2; // rcx
 
-  v1 = (char *)*((_QWORD *)this + 7);
   *(_QWORD *)this = &DirectComposition::CCompositionMipmapSurfaceMarshaler::`vftable';
-  if ( v1 )
+  v2 = *((_QWORD *)this + 7);
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    Win32FreePool(v2);
     *((_QWORD *)this + 7) = 0LL;
   }
 }

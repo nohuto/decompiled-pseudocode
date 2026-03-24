@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwInstanceInfoInit @ 0x14081B9A0
+ * XREFs of PiSwInstanceInfoInit @ 0x14074CE80
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     PnpConcatPWSTR @ 0x1407FB058 (PnpConcatPWSTR.c)
- *     PiSwInstanceInfoFree @ 0x14096754C (PiSwInstanceInfoFree.c)
+ *     PnpConcatPWSTR @ 0x14068CC14 (PnpConcatPWSTR.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     PiSwInstanceInfoFree @ 0x140734414 (PiSwInstanceInfoFree.c)
  */
 
 __int64 __fastcall PiSwInstanceInfoInit(PVOID *a1, __int64 a2)
@@ -14,6 +14,6 @@ __int64 __fastcall PiSwInstanceInfoInit(PVOID *a1, __int64 a2)
 
   PWSTR = PnpConcatPWSTR(0xC8uLL, 0x57706E50u, a1, 2uLL);
   if ( PWSTR < 0 || (PWSTR = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(a2 + 16), 0xC8uLL, 0x57706E50u, a1 + 1), PWSTR < 0) )
-    PiSwInstanceInfoFree(a1);
+    PiSwInstanceInfoFree((__int64)a1);
   return (unsigned int)PWSTR;
 }

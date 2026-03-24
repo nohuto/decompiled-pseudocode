@@ -1,61 +1,34 @@
 /*
- * XREFs of ViThunkRecoverPristines @ 0x140A9415C
+ * XREFs of ViThunkRecoverPristines @ 0x1409D9194
  * Callers:
- *     VfThunkAddSpecialDriverThunks @ 0x140A93398 (VfThunkAddSpecialDriverThunks.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x1409D88B4 (VfThunkAddSpecialDriverThunks.c)
  * Callees:
- *     ViThunkReplacePristine @ 0x140A94560 (ViThunkReplacePristine.c)
+ *     ViThunkReplacePristine @ 0x1409D9688 (ViThunkReplacePristine.c)
+ *     ViThunkReplaceSpecialPristine @ 0x1409D9770 (ViThunkReplaceSpecialPristine.c)
  */
 
-void __fastcall ViThunkRecoverPristines(__int64 a1, _QWORD *a2)
+void __fastcall ViThunkRecoverPristines(__int64 a1)
 {
-  unsigned int v2; // r11d
-  _QWORD *v3; // r8
-  __int64 i; // r9
-  PVOID *v5; // rcx
-  PVOID *j; // rax
-  unsigned int v7; // edi
-  int v8; // ebx
+  unsigned int v1; // edi
+  __int64 i; // rbx
+  __int64 v4; // r8
+  __int64 v5; // r8
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  __int64 v9; // r8
 
-  v2 = 0;
-  v3 = (_QWORD *)(a1 + 32);
-  for ( i = a1; v2 < *(_DWORD *)(i + 24); ++v2 )
+  v1 = 0;
+  for ( i = a1 + 32; v1 < *(_DWORD *)(a1 + 24); ++v1 )
   {
-    v5 = (PVOID *)ViVerifierDriverAddedSpecialThunkListHead;
-LABEL_10:
-    if ( v5 == &ViVerifierDriverAddedSpecialThunkListHead )
+    if ( (unsigned int)ViThunkReplaceSpecialPristine(i) != 1
+      && (unsigned int)ViThunkReplacePristine(&VfRegularThunks, 48LL, i) != 1
+      && (unsigned int)ViThunkReplacePristine(&VfOrderDependentThunks, 56LL, v4) != 1
+      && (unsigned int)ViThunkReplacePristine(&VfPoolThunks, 48LL, v5) != 1
+      && (unsigned int)ViThunkReplacePristine(&VfMandatoryThunks, v6, v7) != 1 )
     {
-      if ( (unsigned int)ViThunkReplacePristine(&VfRegularThunks, a2, v3, i) != 1
-        && (unsigned int)ViThunkReplacePristine(&VfPoolThunks, a2, v3, i) != 1
-        && (unsigned int)ViThunkReplacePristine(&VfMandatoryThunks, a2, v3, i) != 1 )
-      {
-        ViThunkReplacePristine(&VfDifThunks, a2, v3, i);
-      }
+      ViThunkReplacePristine(&VfXdvThunks, v8, v9);
     }
-    else
-    {
-      for ( j = (PVOID *)v5[3]; ; j = (PVOID *)*j )
-      {
-        if ( j == v5 + 3 )
-        {
-          v5 = (PVOID *)*v5;
-          goto LABEL_10;
-        }
-        v7 = *((_DWORD *)j + 6);
-        a2 = j + 4;
-        v8 = 0;
-        if ( v7 )
-          break;
-LABEL_7:
-        ;
-      }
-      while ( *v3 != a2[1] )
-      {
-        a2 += 2;
-        if ( ++v8 >= v7 )
-          goto LABEL_7;
-      }
-      *v3 = *a2;
-    }
-    v3 += 2;
+    i += 16LL;
   }
 }

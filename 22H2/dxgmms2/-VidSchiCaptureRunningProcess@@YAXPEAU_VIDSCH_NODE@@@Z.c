@@ -1,10 +1,10 @@
 /*
- * XREFs of ?VidSchiCaptureRunningProcess@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00353DC
+ * XREFs of ?VidSchiCaptureRunningProcess@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C002A624
  * Callers:
- *     VidSchiCheckNodeTimeout @ 0x1C00AE620 (VidSchiCheckNodeTimeout.c)
+ *     VidSchiCheckNodeTimeout @ 0x1C007F1B0 (VidSchiCheckNodeTimeout.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 void __fastcall VidSchiCaptureRunningProcess(struct _VIDSCH_NODE *a1)
@@ -26,16 +26,16 @@ void __fastcall VidSchiCaptureRunningProcess(struct _VIDSCH_NODE *a1)
   {
     v2 = *((_QWORD *)a1 + 3);
     v13 = 0;
-    v12[0] = v2 + 1728;
+    v12[0] = v2 + 1712;
     AcquireSpinLock::Acquire((Acquire *)v12);
-    v3 = *((unsigned int *)a1 + 390);
-    if ( (_DWORD)v3 != *((_DWORD *)a1 + 388) )
+    v3 = *((unsigned int *)a1 + 388);
+    if ( (_DWORD)v3 != *((_DWORD *)a1 + 386) )
     {
-      v4 = *((_QWORD *)a1 + v3 + 196);
+      v4 = *((_QWORD *)a1 + v3 + 195);
       if ( v4 )
       {
-        v5 = (char *)a1 + 2036;
-        v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 104) + 40LL) + 2648LL);
+        v5 = (char *)a1 + 2028;
+        v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 104) + 40LL) + 2640LL);
         if ( !v6 )
           goto LABEL_12;
         v7 = 15LL;

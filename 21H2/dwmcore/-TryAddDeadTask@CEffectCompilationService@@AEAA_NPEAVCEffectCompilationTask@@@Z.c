@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TryAddDeadTask@CEffectCompilationService@@AEAA_NPEAVCEffectCompilationTask@@@Z @ 0x1800DA0EC
+ * XREFs of ?TryAddDeadTask@CEffectCompilationService@@AEAA_NPEAVCEffectCompilationTask@@@Z @ 0x1800CA738
  * Callers:
- *     ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800D9D10 (-Release@CEffectCompilationTask@@UEAAKXZ.c)
+ *     ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800CA640 (-Release@CEffectCompilationTask@@UEAAKXZ.c)
  * Callees:
- *     ?pop_front@?$deque@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@QEAAXXZ @ 0x18001A2FC (-pop_front@-$deque@V-$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V-$allocator@V-$ComPtr@VCE.c)
- *     std::find_if_std::_Deque_iterator_std::_Deque_val_std::_Deque_simple_types_Microsoft::WRL::ComPtr_CEffectCompilationTask_________lambda_4dd7fdf0f202170b065b5df198adf56c___ @ 0x1800DA1FC (std--find_if_std--_Deque_iterator_std--_Deque_val_std--_Deque_simple_types_Microsoft--WRL--ComPt.c)
- *     ??$_Emplace_back_internal@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@?$deque@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@AEAAX$$QEAV?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@Z @ 0x1800DAA80 (--$_Emplace_back_internal@V-$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@-$deque@V-$ComPtr@.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     std::find_if_std::_Deque_iterator_std::_Deque_val_std::_Deque_simple_types_Microsoft::WRL::ComPtr_CEffectCompilationTask_________lambda_b07e6d4d1a74fa50f03de8a08b13a0b6___ @ 0x1800CA834 (std--find_if_std--_Deque_iterator_std--_Deque_val_std--_Deque_simple_types_Microsoft--WRL--ComPt.c)
+ *     ?_Push_back_internal@?$deque@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@AEAAX$$QEAV?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@Z @ 0x1800CB15C (-_Push_back_internal@-$deque@V-$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V-$allocator@V-$.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?pop_front@?$deque@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@QEAAXXZ @ 0x18016830C (-pop_front@-$deque@V-$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V-$allocator@V-$ComPtr@VCE.c)
  */
 
 char __fastcall CEffectCompilationService::TryAddDeadTask(
@@ -14,53 +14,61 @@ char __fastcall CEffectCompilationService::TryAddDeadTask(
         struct CEffectCompilationTask *a2)
 {
   struct CEffectCompilationTask *v2; // rdi
-  _QWORD *v4; // r14
+  char *v4; // r14
   __int64 v5; // rdx
-  __int64 v6; // r8
+  __int64 v6; // rcx
   __int64 v7; // rbx
-  _QWORD v9[3]; // [rsp+20h] [rbp-50h] BYREF
-  _QWORD v10[3]; // [rsp+38h] [rbp-38h] BYREF
-  _BYTE v11[32]; // [rsp+50h] [rbp-20h] BYREF
-  struct CEffectCompilationTask *v12; // [rsp+90h] [rbp+20h] BYREF
-  struct CEffectCompilationTask *v13; // [rsp+98h] [rbp+28h] BYREF
+  __int64 v8; // rax
+  __int64 v10; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v11; // [rsp+28h] [rbp-48h]
+  __int64 v12; // [rsp+30h] [rbp-40h]
+  __int128 v13; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+48h] [rbp-28h]
+  _BYTE v15[32]; // [rsp+50h] [rbp-20h] BYREF
+  struct CEffectCompilationTask *v16; // [rsp+90h] [rbp+20h] BYREF
+  struct CEffectCompilationTask *v17; // [rsp+98h] [rbp+28h] BYREF
 
-  v13 = a2;
+  v17 = a2;
   v2 = a2;
-  if ( *((_BYTE *)this + 72) )
+  if ( *((_BYTE *)this + 72) || *((_BYTE *)this + 216) )
     return 0;
-  if ( *((_BYTE *)this + 216) )
-    return 0;
-  v9[1] = 0LL;
-  v4 = (_QWORD *)((char *)this + 176);
+  v11 = 0LL;
+  v4 = (char *)this + 176;
   v5 = *((_QWORD *)this + 25);
   v6 = *((_QWORD *)this + 22);
-  v10[1] = 0LL;
-  v7 = v5 + *((_QWORD *)this + 26);
-  v9[0] = v6;
-  v10[2] = v5;
-  v9[2] = v7;
-  v10[0] = v6 & -(__int64)((CEffectCompilationService *)((char *)this + 176) != 0LL);
-  if ( *(_QWORD *)(((__int64 (__fastcall *)(_BYTE *, _QWORD *, _QWORD *, struct CEffectCompilationTask **))std::find_if_std::_Deque_iterator_std::_Deque_val_std::_Deque_simple_types_Microsoft::WRL::ComPtr_CEffectCompilationTask_________lambda_4dd7fdf0f202170b065b5df198adf56c___)(
-                     v11,
+  v7 = v5 + *((_QWORD *)v4 + 4);
+  v10 = v6;
+  v14 = v5;
+  v13 = 0LL;
+  v12 = v7;
+  v8 = 0LL;
+  if ( v4 )
+    v8 = v6;
+  if ( *(_QWORD *)(std::find_if_std::_Deque_iterator_std::_Deque_val_std::_Deque_simple_types_Microsoft::WRL::ComPtr_CEffectCompilationTask_________lambda_b07e6d4d1a74fa50f03de8a08b13a0b6___(
+                     v15,
+                     &v13,
+                     &v10,
+                     &v17,
                      v10,
-                     v9,
-                     &v13)
+                     v11,
+                     v12,
+                     v8,
+                     *((_QWORD *)&v13 + 1),
+                     v14)
                  + 16) != v7 )
     return 0;
   if ( *((_QWORD *)this + 26) > 0x40uLL )
   {
     *((_BYTE *)this + 216) = 1;
     std::deque<Microsoft::WRL::ComPtr<CEffectCompilationTask>>::pop_front(v4);
-    v2 = v13;
+    v2 = v17;
     *((_BYTE *)this + 216) = 0;
   }
-  v12 = v2;
+  v16 = v2;
   if ( v2 )
     (**(void (__fastcall ***)(struct CEffectCompilationTask *))v2)(v2);
-  std::deque<Microsoft::WRL::ComPtr<CEffectCompilationTask>>::_Emplace_back_internal<Microsoft::WRL::ComPtr<CEffectCompilationTask>>(
-    v4,
-    &v12);
-  if ( v12 )
-    (*(void (__fastcall **)(struct CEffectCompilationTask *))(*(_QWORD *)v12 + 8LL))(v12);
+  std::deque<Microsoft::WRL::ComPtr<CEffectCompilationTask>>::_Push_back_internal(v4, &v16);
+  if ( v16 )
+    (*(void (__fastcall **)(struct CEffectCompilationTask *))(*(_QWORD *)v16 + 8LL))(v16);
   return 1;
 }

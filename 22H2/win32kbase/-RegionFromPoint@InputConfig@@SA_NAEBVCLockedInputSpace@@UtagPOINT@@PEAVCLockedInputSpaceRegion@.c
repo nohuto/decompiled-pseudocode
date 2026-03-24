@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegionFromPoint@InputConfig@@SA_NAEBVCLockedInputSpace@@UtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0063330
+ * XREFs of ?RegionFromPoint@InputConfig@@SA_NAEBVCLockedInputSpace@@UtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0070078
  * Callers:
- *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C00641C0 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
- *     NtInputSpaceRegionFromPoint @ 0x1C0140CB0 (NtInputSpaceRegionFromPoint.c)
+ *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0070008 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
+ *     NtInputSpaceRegionFromPoint @ 0x1C01290C0 (NtInputSpaceRegionFromPoint.c)
  * Callees:
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
  */
 
 char __fastcall InputConfig::RegionFromPoint(
@@ -12,33 +12,27 @@ char __fastcall InputConfig::RegionFromPoint(
         struct tagPOINT a2,
         struct CLockedInputSpaceRegion *a3)
 {
-  __int64 *v5; // rsi
+  _QWORD *v5; // rsi
   char v6; // di
-  __int64 i; // r9
-  _DWORD *v8; // rcx
-  __int64 v9; // rcx
-  __int64 *v10; // r9
+  _QWORD *i; // r9
+  __int64 v8; // rcx
+  _QWORD *v9; // r9
 
   *(_QWORD *)a3 = 0LL;
-  v5 = (__int64 *)(*(_QWORD *)a1 + 1456LL);
+  v5 = (_QWORD *)(*(_QWORD *)a1 + 1424LL);
   KeEnterCriticalRegion();
   v6 = 1;
   ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
-  for ( i = *v5; ; i = *v10 )
+  for ( i = (_QWORD *)*v5; i != v5 && i != (_QWORD *)-16LL; i = (_QWORD *)*v9 )
   {
-    v8 = 0LL;
-    if ( (__int64 *)i != v5 )
-      v8 = (_DWORD *)(i + 16);
-    if ( !v8 )
-      break;
-    if ( PtInRect(v8, *(_QWORD *)&a2) )
+    if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD))PtInRect)(i + 2, a2) )
     {
-      *(_QWORD *)a3 = v9;
-      goto LABEL_7;
+      *(_QWORD *)a3 = v8;
+      goto LABEL_6;
     }
   }
   v6 = 0;
-LABEL_7:
+LABEL_6:
   ExReleaseResourceLite(CInputConfig::slock);
   KeLeaveCriticalRegion();
   return v6;

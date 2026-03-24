@@ -1,7 +1,7 @@
 /*
- * XREFs of GxpBitsToBytes @ 0x140386CC8
+ * XREFs of GxpBitsToBytes @ 0x14039BFFC
  * Callers:
- *     BgpGxRectangleCreate @ 0x140AEEA54 (BgpGxRectangleCreate.c)
+ *     BgpGxRectangleCreate @ 0x1409F32C0 (BgpGxRectangleCreate.c)
  * Callees:
  *     <none>
  */

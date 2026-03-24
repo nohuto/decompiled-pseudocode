@@ -5,12 +5,12 @@
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExNotifyCallback @ 0x14008E560 (ExNotifyCallback.c)
- *     KeExpandKernelStackAndCallout @ 0x14013B080 (KeExpandKernelStackAndCallout.c)
- *     ExInitializeNPagedLookasideList @ 0x14015F940 (ExInitializeNPagedLookasideList.c)
- *     KdDisableDebugger @ 0x1401936B0 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x14028BEE0 (KdEnableDebugger.c)
+ *     KeExpandKernelStackAndCallout @ 0x14013B0A0 (KeExpandKernelStackAndCallout.c)
+ *     ExInitializeNPagedLookasideList @ 0x14015F960 (ExInitializeNPagedLookasideList.c)
+ *     KdDisableDebugger @ 0x1401936D0 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x14028BFE0 (KdEnableDebugger.c)
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     ExCreateCallback @ 0x1406CA3A0 (ExCreateCallback.c)
+ *     ExCreateCallback @ 0x1406CA380 (ExCreateCallback.c)
  *     KiSwInterruptPresent @ 0x1409DE434 (KiSwInterruptPresent.c)
  *     KeKeepData @ 0x1409DF3C0 (KeKeepData.c)
  */
@@ -87,7 +87,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_1401A1720, &__20);
+        ExNotifyCallback(CallbackObject, sub_1401A1740, &__20);
         ObfDereferenceObject(CallbackObject);
         if ( __20 )
           __29 = 1;

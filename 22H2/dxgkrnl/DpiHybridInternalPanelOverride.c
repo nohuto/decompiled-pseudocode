@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiHybridInternalPanelOverride @ 0x1C005ED64
+ * XREFs of DpiHybridInternalPanelOverride @ 0x1C0022BB0
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
  *     <none>
  */

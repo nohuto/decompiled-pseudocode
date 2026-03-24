@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckForConflictingVad @ 0x140214E60
+ * XREFs of MiCheckForConflictingVad @ 0x14025A8CC
  * Callers:
- *     MiCheckForConflictingVadExistence @ 0x140214E40 (MiCheckForConflictingVadExistence.c)
- *     MiLocateLowestConflictingVad @ 0x140223354 (MiLocateLowestConflictingVad.c)
- *     MmGetImageInformation @ 0x14077E790 (MmGetImageInformation.c)
+ *     MiCheckForConflictingVadExistence @ 0x14025A8AC (MiCheckForConflictingVadExistence.c)
+ *     MiLocateLowestConflictingVad @ 0x1403523E0 (MiLocateLowestConflictingVad.c)
+ *     MmGetImageInformation @ 0x1405CF098 (MmGetImageInformation.c)
  * Callees:
  *     <none>
  */
@@ -11,22 +11,25 @@
 __int64 **__fastcall MiCheckForConflictingVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 **v3; // r9
-  unsigned __int64 v4; // r8
+  unsigned __int64 v4; // rdx
+  unsigned __int64 v5; // r8
 
   v3 = *(__int64 ***)(a1 + 2008);
-  v4 = a3 >> 12;
-  while ( v3 )
+  v4 = a2 >> 12;
+  v5 = a3 >> 12;
+  while ( 1 )
   {
-    if ( v4 < (*((unsigned int *)v3 + 6) | ((unsigned __int64)*((unsigned __int8 *)v3 + 32) << 32)) )
+    while ( 1 )
     {
+      if ( !v3 )
+        return 0LL;
+      if ( v5 >= (*((unsigned int *)v3 + 6) | ((unsigned __int64)*((unsigned __int8 *)v3 + 32) << 32)) )
+        break;
       v3 = (__int64 **)*v3;
     }
-    else
-    {
-      if ( a2 >> 12 <= (*((unsigned int *)v3 + 7) | ((unsigned __int64)*((unsigned __int8 *)v3 + 33) << 32)) )
-        return v3;
-      v3 = (__int64 **)v3[1];
-    }
+    if ( v4 <= (*((unsigned int *)v3 + 7) | ((unsigned __int64)*((unsigned __int8 *)v3 + 33) << 32)) )
+      break;
+    v3 = (__int64 **)v3[1];
   }
   return v3;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpInitializeDelayedCloseTable @ 0x140763960
+ * XREFs of CmpInitializeDelayedCloseTable @ 0x140763940
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:

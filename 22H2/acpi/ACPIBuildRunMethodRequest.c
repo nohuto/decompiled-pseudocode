@@ -1,15 +1,16 @@
 /*
- * XREFs of ACPIBuildRunMethodRequest @ 0x1C0013564
+ * XREFs of ACPIBuildRunMethodRequest @ 0x1C0025AF4
  * Callers:
- *     ACPIBuildProcessRunMethodPhaseRecurse @ 0x1C0011C70 (ACPIBuildProcessRunMethodPhaseRecurse.c)
- *     ACPIBuildRegRequest @ 0x1C00133EC (ACPIBuildRegRequest.c)
- *     ACPITableLoad @ 0x1C003F190 (ACPITableLoad.c)
- *     ACPIWakeDeferredRestoreEnables @ 0x1C0044C58 (ACPIWakeDeferredRestoreEnables.c)
- *     ACPIWakeRestoreEnables @ 0x1C0046024 (ACPIWakeRestoreEnables.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
+ *     ACPIBuildRegRequest @ 0x1C004C3DC (ACPIBuildRegRequest.c)
+ *     ACPIWakeDeferredRestoreEnables @ 0x1C006191C (ACPIWakeDeferredRestoreEnables.c)
+ *     ACPIWakeRestoreEnables @ 0x1C00623F4 (ACPIWakeRestoreEnables.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
  */
 
 __int64 __fastcall ACPIBuildRunMethodRequest(
@@ -22,19 +23,19 @@ __int64 __fastcall ACPIBuildRunMethodRequest(
 {
   _QWORD *v10; // rdi
   __int64 **v11; // rbx
-  unsigned int v12; // ebx
-  __int64 *v14; // rax
+  __int64 *v12; // rax
+  unsigned int v14; // ebx
 
   v10 = 0LL;
   v11 = (__int64 **)ExAllocateFromNPagedLookasideList(&BuildRequestLookAsideList);
   if ( !v11 )
   {
-    v12 = -1073741670;
+    v14 = -1073741670;
     if ( !a2 )
-      return v12;
-LABEL_3:
-    a2(a1, a3, v12);
-    return v12;
+      return v14;
+LABEL_15:
+    a2(a1, a3, v14);
+    return v14;
   }
   if ( a2 )
   {
@@ -42,22 +43,22 @@ LABEL_3:
     if ( !v10 )
     {
       ExFreeToNPagedLookasideList(&BuildRequestLookAsideList, v11);
-      v12 = -1073741670;
-      goto LABEL_3;
+      v14 = -1073741670;
+      goto LABEL_15;
     }
   }
-  if ( !*(_DWORD *)(a1 + 732) )
+  if ( !*(_DWORD *)(a1 + 692) )
   {
     ExFreeToNPagedLookasideList(&BuildRequestLookAsideList, v11);
-    v12 = -1073741130;
+    v14 = -1073741130;
     if ( !a2 )
-      return v12;
+      return v14;
     ExFreeToNPagedLookasideList(&BuildRequestLookAsideList, v10);
-    goto LABEL_3;
+    goto LABEL_15;
   }
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 732));
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 692));
   if ( a2 )
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 732));
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 692));
   memset(v11, 0, 0x88uLL);
   *((_DWORD *)v11 + 4) = 1599293264;
   v11[16] = &AcpiBuildRunMethodList;
@@ -81,13 +82,13 @@ LABEL_3:
     *((_DWORD *)v10 + 23) = 1;
   }
   KeAcquireSpinLockAtDpcLevel(&AcpiBuildQueueLock);
-  v14 = (__int64 *)qword_1C006F4B8;
-  if ( *(__int64 **)qword_1C006F4B8 != &AcpiBuildQueueList )
-    goto LABEL_22;
+  v12 = (__int64 *)qword_1C0082418;
+  if ( *(__int64 **)qword_1C0082418 != &AcpiBuildQueueList )
+    goto LABEL_13;
   *v11 = &AcpiBuildQueueList;
-  v11[1] = v14;
-  *v14 = (__int64)v11;
-  qword_1C006F4B8 = (__int64)v11;
+  v11[1] = v12;
+  *v12 = (__int64)v11;
+  qword_1C0082418 = (__int64)v11;
   if ( a2 )
   {
     if ( *v11 == &AcpiBuildQueueList )
@@ -95,13 +96,13 @@ LABEL_3:
       *v10 = &AcpiBuildQueueList;
       v10[1] = v11;
       *v11 = v10;
-      qword_1C006F4B8 = (__int64)v10;
-      goto LABEL_19;
+      qword_1C0082418 = (__int64)v10;
+      goto LABEL_10;
     }
-LABEL_22:
+LABEL_13:
     __fastfail(3u);
   }
-LABEL_19:
+LABEL_10:
   if ( a6 )
     ACPIBuildScheduleDpc();
   KeReleaseSpinLockFromDpcLevel(&AcpiBuildQueueLock);

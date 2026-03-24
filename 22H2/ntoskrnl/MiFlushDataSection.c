@@ -1,70 +1,70 @@
 /*
- * XREFs of MiFlushDataSection @ 0x14020EEA0
+ * XREFs of MiFlushDataSection @ 0x14035A4B0
  * Callers:
- *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140700CC4 (MiCreateImageFileMap.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1402100E8 (MiLockSectionControlArea.c)
- *     MmFlushSection @ 0x140287370 (MmFlushSection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     CcFlushCachePriv @ 0x14029CC14 (CcFlushCachePriv.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcFlushCachePriv @ 0x14022C510 (CcFlushCachePriv.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmFlushSection @ 0x14033D70C (MmFlushSection.c)
+ *     MiLockSectionControlArea @ 0x14033D954 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
 {
-  __int64 v4; // rcx
+  _QWORD *v4; // rcx
   __int64 result; // rax
-  int v6; // esi
-  unsigned __int8 v7; // bl
-  __int64 v8; // rcx
+  int v6; // edi
+  __int64 SchedulerAssist; // r9
+  KIRQL v8; // bl
+  __int64 v9; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
   int v12; // eax
   bool v13; // zf
-  __int128 v14; // [rsp+40h] [rbp-18h] BYREF
-  unsigned __int8 v15; // [rsp+60h] [rbp+8h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-18h] BYREF
+  KIRQL v15; // [rsp+50h] [rbp+8h] BYREF
 
   *a2 = 0;
   v15 = 0;
-  v4 = *(_QWORD *)(a1 + 40);
+  v4 = *(_QWORD **)(a1 + 40);
   v14 = 0LL;
-  result = MiLockSectionControlArea(v4, 1LL, &v15);
+  result = MiLockSectionControlArea(v4, 1, &v15);
   if ( result )
   {
     if ( *(_DWORD *)(result + 92) || *(_QWORD *)(result + 112) > 1uLL )
       *a2 = 1;
     v6 = *(_DWORD *)(result + 88);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(result + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
     {
-      v7 = v15;
+      v8 = v15;
       if ( v15 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v7 = v15;
+        SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
+        v8 = v15;
         v12 = ~(unsigned __int16)(-1LL << (v15 + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
+        v13 = (v12 & *(_DWORD *)(SchedulerAssist + 20)) == 0;
+        *(_DWORD *)(SchedulerAssist + 20) &= v12;
         if ( v13 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     else
     {
-      v7 = v15;
+      v8 = v15;
     }
-    __writecr8(v7);
-    v8 = *(_QWORD *)(a1 + 40);
+    __writecr8(v8);
+    v9 = *(_QWORD *)(a1 + 40);
     if ( v6 )
     {
-      CcFlushCachePriv(v8, (unsigned int)&CcFlushForImageSection, 0, 0, 0, (__int64)&v14, 0LL);
+      CcFlushCachePriv(v9, &CcFlushForImageSection, 0, 0LL, 0, &v14);
       return (unsigned int)v14;
     }
     else
     {
-      return MmFlushSection(v8, 0LL, 0LL, 0LL, &v14, 1);
+      return MmFlushSection(v9, 0LL, 0LL, SchedulerAssist, &v14, 1u);
     }
   }
   return result;

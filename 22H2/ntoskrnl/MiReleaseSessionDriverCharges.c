@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseSessionDriverCharges @ 0x140683154
+ * XREFs of MiReleaseSessionDriverCharges @ 0x140779808
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     MiManageSubsectionView @ 0x1402A03E0 (MiManageSubsectionView.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x140625D6C (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiManageSubsectionView @ 0x140291780 (MiManageSubsectionView.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A864 (MiReturnCrossPartitionControlAreaCharges.c)
  */
 
-int __fastcall MiReleaseSessionDriverCharges(__int64 a1)
+__int64 __fastcall MiReleaseSessionDriverCharges(__int64 a1)
 {
-  __int64 v3[21]; // [rsp+20h] [rbp-A8h] BYREF
+  __int64 v3[19]; // [rsp+20h] [rbp-98h] BYREF
 
-  memset(&v3[1], 0, 0x90uLL);
+  memset(&v3[1], 0, 0x88uLL);
   if ( *(_BYTE *)(a1 + 65) == 1 )
     MiReturnCrossPartitionControlAreaCharges(*(_QWORD *)(a1 + 80));
   v3[0] = *(_QWORD *)(a1 + 80);

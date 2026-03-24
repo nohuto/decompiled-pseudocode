@@ -1,10 +1,10 @@
 /*
- * XREFs of DeRegisterOpRegionHandler @ 0x1C008BA90
+ * XREFs of DeRegisterOpRegionHandler @ 0x1C00B1BD0
  * Callers:
  *     <none>
  * Callees:
- *     OSConvertDeviceHandleToNSHANDLE @ 0x1C000ABBC (OSConvertDeviceHandleToNSHANDLE.c)
- *     UnRegisterOperationRegionHandler @ 0x1C008BE00 (UnRegisterOperationRegionHandler.c)
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C00118BC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C00B1C74 (UnRegisterOperationRegionHandler.c)
  */
 
 NTSTATUS __stdcall DeRegisterOpRegionHandler(PDEVICE_OBJECT DeviceObject, PVOID OperationRegionObject)

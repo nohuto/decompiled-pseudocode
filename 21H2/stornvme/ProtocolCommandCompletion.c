@@ -1,13 +1,13 @@
 /*
- * XREFs of ProtocolCommandCompletion @ 0x1C001F950
+ * XREFs of ProtocolCommandCompletion @ 0x1C0015EE0
  * Callers:
  *     <none>
  * Callees:
- *     ProcessCommand @ 0x1C00039C8 (ProcessCommand.c)
- *     GetNamespaceId @ 0x1C00051C8 (GetNamespaceId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     BuildGetLogPageCommand @ 0x1C0005458 (BuildGetLogPageCommand.c)
- *     NVMeAllocateDmaBuffer @ 0x1C00055C4 (NVMeAllocateDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
  */
 
 __int64 __fastcall ProtocolCommandCompletion(__int64 a1, __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall ProtocolCommandCompletion(__int64 a1, __int64 a2, __int64 a3)
     else
       v11 = *(_DWORD **)(v7 + 24);
     v11[16] = *v8;
-    result = *(unsigned int *)(a1 + 64);
+    result = *(unsigned int *)(a1 + 56);
     if ( (result & 8) != 0 || (v12 = *(_QWORD *)(v10 + 4216)) == 0 )
     {
       *(_DWORD *)(v10 + 4216) = 0;

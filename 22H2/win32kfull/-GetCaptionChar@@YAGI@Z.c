@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetCaptionChar@@YAGI@Z @ 0x1C00AD408
+ * XREFs of ?GetCaptionChar@@YAGI@Z @ 0x1C0043424
  * Callers:
- *     ?DrawMenuMark@@YAHPEAUHDC__@@PEAUtagRECT@@II@Z @ 0x1C0026364 (-DrawMenuMark@@YAHPEAUHDC__@@PEAUtagRECT@@II@Z.c)
- *     DrawFrameControl @ 0x1C01197C0 (DrawFrameControl.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
+ *     ?DrawMenuMark@@YAHPEAUHDC__@@PEAUtagRECT@@II@Z @ 0x1C011B670 (-DrawMenuMark@@YAHPEAUHDC__@@PEAUtagRECT@@II@Z.c)
  * Callees:
  *     <none>
  */

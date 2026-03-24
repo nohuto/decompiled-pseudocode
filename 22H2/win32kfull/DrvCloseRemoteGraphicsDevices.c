@@ -1,67 +1,65 @@
 /*
- * XREFs of DrvCloseRemoteGraphicsDevices @ 0x1C0133778
+ * XREFs of DrvCloseRemoteGraphicsDevices @ 0x1C0163144
  * Callers:
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
-struct Gre::Base::SESSION_GLOBALS *DrvCloseRemoteGraphicsDevices()
+// write access to const memory has been detected, the output may be wrong!
+struct tagGRAPHICS_DEVICE *DrvCloseRemoteGraphicsDevices()
 {
-  Gre::Base *v0; // rcx
-  struct Gre::Base::SESSION_GLOBALS *result; // rax
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v4; // rdi
-  __int64 v5; // rbx
-  __int64 v6; // rsi
-  __int64 v7; // rbp
-  __int64 v8; // rax
-  __int64 DxgkWin32kInterface; // rax
+  struct tagGRAPHICS_DEVICE *result; // rax
+  struct tagGRAPHICS_DEVICE *v1; // rbx
+  struct tagGRAPHICS_DEVICE *v2; // rdi
+  struct tagGRAPHICS_DEVICE *v3; // rsi
+  struct tagGRAPHICS_DEVICE *v4; // rax
+  __int64 v5; // rax
 
   if ( !(unsigned int)UserIsUserCritSecIn() )
-    WdLogSingleEntry0(1LL);
-  result = Gre::Base::Globals(v0);
-  v4 = result;
-  v5 = *((_QWORD *)result + 168);
-  if ( v5 )
   {
-    v6 = *((_QWORD *)result + 168);
+    v5 = WdLogNewEntry5_WdAssertion();
+    WdLogEvent5_WdAssertion(v5);
+  }
+  result = gpRemoteGraphicsDeviceList;
+  v1 = gpRemoteGraphicsDeviceList;
+  if ( gpRemoteGraphicsDeviceList )
+  {
+    v2 = gpRemoteGraphicsDeviceList;
     do
     {
-      v7 = *(_QWORD *)(v5 + 128);
-      if ( (*(_DWORD *)(v5 + 160) & 0x4000000) != 0 )
+      v3 = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)v1 + 16);
+      if ( (*((_DWORD *)v1 + 40) & 0x4000000) != 0 )
       {
-        *(_QWORD *)(v6 + 128) = v7;
-        v8 = v7;
-        if ( v6 != v5 )
-          v8 = v6;
-        v6 = v8;
-        if ( *((_QWORD *)v4 + 168) == v5 )
-          *((_QWORD *)v4 + 168) = v7;
-        if ( *((_QWORD *)v4 + 170) == v5 )
-          *((_QWORD *)v4 + 170) = v8;
-        --*((_DWORD *)v4 + 352);
-        if ( *(_QWORD *)(v5 + 296) )
+        *((_QWORD *)v2 + 16) = v3;
+        v4 = v3;
+        if ( v2 != v1 )
+          v4 = v2;
+        v2 = v4;
+        if ( gpRemoteGraphicsDeviceList == v1 )
+          gpRemoteGraphicsDeviceList = v3;
+        if ( gpRemoteGraphicsDeviceListLast == v1 )
+          gpRemoteGraphicsDeviceListLast = v4;
+        --gcRemoteNextGlobalPhysicalOutputNumber;
+        if ( *((_QWORD *)v1 + 38) )
         {
-          DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v3, v2);
-          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(DxgkWin32kInterface + 400))(
-            *(_QWORD *)(v5 + 272),
+          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))gDxgkInterface[50])(
+            *((_QWORD *)v1 + 35),
             0LL,
-            *(_QWORD *)(v5 + 280));
-          *(_QWORD *)(v5 + 272) = 0LL;
-          *(_QWORD *)(v5 + 288) = 0LL;
-          *(_QWORD *)(v5 + 296) = 0LL;
+            *((_QWORD *)v1 + 36));
+          *((_QWORD *)v1 + 35) = 0LL;
+          *((_QWORD *)v1 + 37) = 0LL;
+          *((_QWORD *)v1 + 38) = 0LL;
         }
-        result = (struct Gre::Base::SESSION_GLOBALS *)DrvCleanupOneGraphicsDevice(v5);
+        result = (struct tagGRAPHICS_DEVICE *)DrvCleanupOneGraphicsDevice(v1);
       }
       else
       {
-        v6 = v5;
+        v2 = v1;
       }
-      v5 = v7;
+      v1 = v3;
     }
-    while ( v7 );
+    while ( v3 );
   }
   return result;
 }

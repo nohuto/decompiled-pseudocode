@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFlags@CHolographicDisplay@@UEAAKXZ @ 0x1801088C0
+ * XREFs of ?GetFlags@CHolographicDisplay@@UEAAKXZ @ 0x1800E3530
  * Callers:
  *     <none>
  * Callees:

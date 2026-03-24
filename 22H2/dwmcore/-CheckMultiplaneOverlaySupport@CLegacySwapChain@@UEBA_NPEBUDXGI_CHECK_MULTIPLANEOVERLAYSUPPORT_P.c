@@ -1,89 +1,77 @@
 /*
- * XREFs of ?CheckMultiplaneOverlaySupport@CLegacySwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x180135410
+ * XREFs of ?CheckMultiplaneOverlaySupport@CLegacySwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1802493D0
  * Callers:
- *     ?CheckMultiplaneOverlaySupport@CLegacySwapChain@@$4PPPPPPPM@BLA@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x18011F720 (-CheckMultiplaneOverlaySupport@CLegacySwapChain@@$4PPPPPPPM@BLA@EBA_NPEBUDXGI_CHECK_MULTIPLANEOV.c)
+ *     ?CheckMultiplaneOverlaySupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1800F6CC0 (-CheckMultiplaneOverlaySupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVER.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ??$emplace_back@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@QEAA?A_T$$QEAV?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@1@@Z @ 0x18011AA28 (--$emplace_back@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@@@-.c)
- *     ??0CCheckMPOCache@@QEAA@PEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x18011AD68 (--0CCheckMPOCache@@QEAA@PEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
- *     ??1?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@QEAA@XZ @ 0x18011AFC0 (--1-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x180135330 (-CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ??$?9UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV?$com_ptr_t@UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@0@$$T@Z @ 0x1800EA854 (--$-9UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV-$com_ptr_t@UIDXGISwapChainD.c)
+ *     ?AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x1800F1758 (-AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
+ *     ?CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1800F17F0 (-CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CLegacySwapChain::CheckMultiplaneOverlaySupport(
-        CLegacySwapChain *this,
+        CD3DDevice **this,
         const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *a2,
         unsigned int a3,
         bool *a4)
 {
-  CCheckMPOCache *v4; // rbx
-  __int64 v9; // rcx
-  int v10; // eax
-  __int64 v11; // rcx
-  DWORD v12; // edi
-  bool v13; // di
-  __int64 v14; // rsi
-  CCheckMPOCache *v15; // rax
-  bool v17; // [rsp+30h] [rbp-D0h] BYREF
-  int v18; // [rsp+34h] [rbp-CCh] BYREF
-  int v19; // [rsp+38h] [rbp-C8h] BYREF
-  void *v20[2]; // [rsp+40h] [rbp-C0h] BYREF
-  struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+50h] [rbp-B0h] BYREF
+  bool v4; // bl
+  CD3DDevice **v5; // r12
+  const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *v10; // rdx
+  unsigned int v11; // r8d
+  CD3DDevice *v13; // rcx
+  int v14; // eax
+  __int64 v15; // rcx
+  DWORD v16; // ebx
+  bool v17; // [rsp+30h] [rbp-99h] BYREF
+  int v18; // [rsp+34h] [rbp-95h] BYREF
+  int v19; // [rsp+38h] [rbp-91h] BYREF
+  struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+40h] [rbp-89h] BYREF
 
-  v4 = 0LL;
-  *a4 = 0;
+  v4 = 0;
+  v5 = this - 35;
   v17 = 0;
-  if ( *((_QWORD *)this + 28) && *((int *)this + 52) >= 1 )
+  *a4 = 0;
+  if ( wil::operator!=<IDXGISwapChainDWM1,wil::err_returncode_policy>(this - 35) && *((int *)this - 41) >= 1 )
   {
-    if ( CD3DDevice::CheckMPOCache(*((CD3DDevice **)this + 10), a2, a3, &v17) )
+    if ( CD3DDevice::CheckMPOCache(*(this - 36), v10, v11, &v17) )
     {
       *a4 = 1;
+      return v17;
+    }
+    v13 = *v5;
+    v18 = 0;
+    v19 = 0;
+    v14 = (*(__int64 (__fastcall **)(CD3DDevice *, _QWORD, const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *, int *, int *))(*(_QWORD *)v13 + 176LL))(
+            v13,
+            a3,
+            a2,
+            &v18,
+            &v19);
+    v16 = v14;
+    if ( v14 >= 0 )
+    {
+      v4 = v17;
+      if ( v18 )
+        v4 = 1;
+      if ( v19 )
+        *a4 = 1;
+      CD3DDevice::AddCheckMPOCache(*(this - 36), a2);
     }
     else
     {
-      v9 = *((_QWORD *)this + 28);
-      v18 = 0;
-      v19 = 0;
-      v10 = (*(__int64 (__fastcall **)(__int64, _QWORD, const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *, int *, int *))(*(_QWORD *)v9 + 176LL))(
-              v9,
-              a3,
-              a2,
-              &v18,
-              &v19);
-      v12 = v10;
-      if ( v10 >= 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x25Bu, 0LL);
+      if ( v16 == -2005270527 || v16 == -2147024809 )
       {
-        v13 = v17;
-        if ( v18 )
-          v13 = 1;
-        v17 = v13;
-        if ( v19 )
-          *a4 = 1;
-        v14 = *((_QWORD *)this + 10);
-        v15 = (CCheckMPOCache *)operator new(0x3F0uLL);
-        if ( v15 )
-          v4 = CCheckMPOCache::CCheckMPOCache(v15, a2);
-        v20[0] = v4;
-        std::vector<std::unique_ptr<ICheckMPOCache>>::emplace_back<std::unique_ptr<CCheckMPOCache>>(
-          (char **)(v14 + 1448),
-          (__int64 *)v20);
-        std::unique_ptr<CCheckMPOCache>::~unique_ptr<CCheckMPOCache>(v20);
+        memset_0(&pExceptionRecord.ExceptionFlags, 0, 0x94uLL);
+        pExceptionRecord.ExceptionCode = v16;
+        RaiseFailFastException(&pExceptionRecord, 0LL, 0);
       }
-      else
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x384u, 0LL);
-        if ( v12 == -2005270527 || v12 == -2147024809 )
-        {
-          memset_0(&pExceptionRecord.ExceptionFlags, 0, 0x94uLL);
-          pExceptionRecord.ExceptionCode = v12;
-          RaiseFailFastException(&pExceptionRecord, 0LL, 0);
-        }
-      }
+      return v17;
     }
   }
-  return v17;
+  return v4;
 }

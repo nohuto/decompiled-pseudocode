@@ -1,27 +1,28 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x140AD23FC
+ * XREFs of ViFreeTrackedPool @ 0x1409D5298
  * Callers:
- *     VerifierFreeTrackedPool @ 0x1405CFBF0 (VerifierFreeTrackedPool.c)
+ *     VerifierFreeTrackedPool @ 0x1405A1BE0 (VerifierFreeTrackedPool.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     MmIsAddressValidEx @ 0x14028CB70 (MmIsAddressValidEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
-__int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3, int a4)
+volatile signed __int32 *__fastcall ViFreeTrackedPool(
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter3,
+        char a3,
+        int a4)
 {
   ULONG_PTR v6; // rsi
   __int64 *v7; // rbx
   ULONG_PTR v8; // r14
   unsigned __int64 v9; // r15
   union _SLIST_HEADER *v10; // rbp
-  _QWORD *v11; // rbx
+  unsigned int v11; // r13d
   unsigned __int64 v12; // rsi
-  volatile signed __int32 *v13; // r9
-  unsigned int v14; // r12d
-  volatile signed __int32 *v15; // r8
-  volatile signed __int64 *v16; // rdx
-  __int64 result; // rax
+  volatile signed __int64 *v13; // rax
+  volatile signed __int32 *result; // rax
 
   v6 = BugCheckParameter3;
   if ( a4 == 1 )
@@ -42,7 +43,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
   v10 = *(union _SLIST_HEADER **)(v9 + 8);
-  if ( (VfRuleClasses & 1) != 0 )
+  if ( (MmVerifierData & 0x800) != 0 )
   {
     if ( (v8 & 3) != 0 || !MmIsAddressValidEx(*v7) )
       VerifierBugCheckIfAppropriate(0xC4u, 0x13AuLL, BugCheckParameter2, v8, (__int64)v7);
@@ -54,31 +55,22 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
       VerifierBugCheckIfAppropriate(0xC4u, 0x13DuLL, BugCheckParameter2, (ULONG_PTR)&v10[2].Region, 2557876544LL);
     if ( *(_QWORD *)v8 != BugCheckParameter2 )
       VerifierBugCheckIfAppropriate(0xC4u, 0x13EuLL, BugCheckParameter2, *(_QWORD *)v8, v8);
-    v11 = (_QWORD *)(v8 + 16);
     if ( *(_QWORD *)(v8 + 16) != v6 )
       VerifierBugCheckIfAppropriate(0xC4u, 0x13FuLL, BugCheckParameter2, v6, v8 + 16);
   }
-  else
-  {
-    v11 = (_QWORD *)(v8 + 16);
-  }
-  *v11 |= 1uLL;
+  *(_QWORD *)(v8 + 16) |= 1uLL;
   RtlpInterlockedPushEntrySList(v10 + 5, (PSLIST_ENTRY)v8);
+  v11 = a3 & 1;
   v12 = -(__int64)v6;
-  v13 = (volatile signed __int32 *)&v10[7];
-  v14 = a3 & 1;
-  if ( !v14 )
-    v13 = (volatile signed __int32 *)&v10[7].HeaderX64 + 1;
-  v15 = &dword_140C139A4;
-  if ( !v14 )
-    v15 = &dword_140C139A8;
-  v16 = &qword_140C139B8;
-  if ( !v14 )
-    v16 = &qword_140C139C0;
-  result = _InterlockedExchangeAdd64((volatile signed __int64 *)&v10[8].Alignment + (v14 ^ 1LL), v12);
-  _InterlockedDecrement(v13);
-  _InterlockedExchangeAdd64(v16, v12);
-  _InterlockedDecrement(v15);
-  _InterlockedIncrement(&dword_140C13990);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)&v10[7].Region + (v11 ^ 1LL), v12);
+  v13 = &qword_140C2A930;
+  _InterlockedDecrement((volatile signed __int32 *)&v10[6].HeaderX64 + (v11 ^ 1LL) + 2);
+  if ( !v11 )
+    v13 = &qword_140C2A938;
+  _InterlockedExchangeAdd64(v13, v12);
+  result = &dword_140C2A920;
+  if ( !v11 )
+    result = &dword_140C2A924;
+  _InterlockedDecrement(result);
   return result;
 }

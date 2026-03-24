@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C0168F64
+ * XREFs of ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C013BD64
  * Callers:
- *     vMatchAPal @ 0x1C016B6C0 (vMatchAPal.c)
- *     ?CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z @ 0x1C0179378 (-CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z.c)
+ *     vMatchAPal @ 0x1C013E780 (vMatchAPal.c)
+ *     ?CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z @ 0x1C014D58C (-CreateSurfacePal@@YAHVXEPALOBJ@@KKK@Z.c)
  * Callees:
  *     <none>
  */

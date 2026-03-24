@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0t_EventWriteTransfer @ 0x18025C0F0
+ * XREFs of McTemplateU0t_EventWriteTransfer @ 0x180153EBC
  * Callers:
- *     ?ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ @ 0x1800D7890 (-ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0t_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3)
@@ -20,8 +20,8 @@ ULONG __fastcall McTemplateU0t_EventWriteTransfer(__int64 a1, __int64 a2, __int6
   v7 = 0;
   v6 = 4;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
-           &CompSurfInfo_ForceUpdateRealization_Stop,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
+           &EVTDESC_SCHEDULE_GLITCH_DETECTED,
            a3,
            2u,
            &v4);

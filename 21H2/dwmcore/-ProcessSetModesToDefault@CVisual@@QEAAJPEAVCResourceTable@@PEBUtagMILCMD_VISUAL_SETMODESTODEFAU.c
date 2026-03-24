@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetModesToDefault@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETMODESTODEFAULT@@@Z @ 0x1800ECCAC
+ * XREFs of ?ProcessSetModesToDefault@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETMODESTODEFAULT@@@Z @ 0x1800D8A30
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
  */
 
 __int64 __fastcall CVisual::ProcessSetModesToDefault(
@@ -13,11 +13,11 @@ __int64 __fastcall CVisual::ProcessSetModesToDefault(
 {
   unsigned int v3; // eax
 
-  *((_BYTE *)this + 104) |= 0x3Eu;
-  v3 = *((_DWORD *)this + 26) & 0xFFF807FF;
-  *(_QWORD *)((char *)this + 196) = 1LL;
-  *((_DWORD *)this + 26) = v3 | 0x400;
-  *(_QWORD *)((char *)this + 204) = 0LL;
+  *((_BYTE *)this + 96) |= 0x3Eu;
+  v3 = *((_DWORD *)this + 24) & 0xFFF807FF;
+  *(_QWORD *)((char *)this + 188) = 1LL;
+  *((_DWORD *)this + 24) = v3 | 0x400;
+  *(_QWORD *)((char *)this + 196) = 0LL;
   CVisual::PropagateFlags((__int64)this, 5u);
   return 0LL;
 }

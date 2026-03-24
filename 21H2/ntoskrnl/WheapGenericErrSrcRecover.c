@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapGenericErrSrcRecover @ 0x140645A90
+ * XREFs of WheapGenericErrSrcRecover @ 0x1405BD030
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 WheapGenericErrSrcRecover()
 {
-  return off_140C02028[0]();
+  return off_140C009D8[0]();
 }

@@ -1,56 +1,36 @@
 /*
- * XREFs of ValidateHwndIAMComponetUIAware @ 0x1C00EC71C
+ * XREFs of ValidateHwndIAMComponetUIAware @ 0x1C0037E84
  * Callers:
- *     NtUserSetWindowCompositionAttribute @ 0x1C00EC2A0 (NtUserSetWindowCompositionAttribute.c)
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0037A00 (NtUserSetWindowCompositionAttribute.c)
  * Callees:
- *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C00426F0 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0220260 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C006B6A0 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0122588 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall ValidateHwndIAMComponetUIAware(__int64 a1)
 {
-  __int64 v2; // rdi
-  __int64 *ThreadWin32Thread; // rax
-  int v4; // esi
-  const struct tagWND *v5; // rbx
-  struct _LIST_ENTRY *i; // rcx
+  const struct tagWND *v2; // rax
+  const struct tagWND *v3; // rbx
   struct tagWND *Host; // rax
-  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( !IS_USERCRIT_OWNED_AT_ALL() )
+  gbValidateHandleForIL = 0;
+  v2 = (const struct tagWND *)ValidateHwnd(a1);
+  v3 = v2;
+  if ( v2 )
   {
-    LODWORD(v9) = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  }
-  v2 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v2 = *ThreadWin32Thread;
-  v4 = *(_DWORD *)(v2 + 1548);
-  *(_DWORD *)(v2 + 1548) = 0;
-  v5 = (const struct tagWND *)ValidateHwnd(a1);
-  for ( i = gIAMThreadList.Flink; i != &gIAMThreadList; i = i->Flink )
-  {
-    if ( i[1].Flink == (struct _LIST_ENTRY *)gptiCurrent )
+    if ( (unsigned int)CoreWindowProp::IsComponent(v2) )
     {
-      if ( i && i[1].Blink == *(struct _LIST_ENTRY **)(gptiCurrent + 456LL) )
-        goto LABEL_15;
-      break;
+      Host = CoreWindowProp::GetHost(v3);
+      if ( Host )
+      {
+        if ( *(_QWORD *)(*((_QWORD *)Host + 2) + 424LL) == *(_QWORD *)(gptiCurrent + 424LL) )
+          gbValidateHandleForIL = 0;
+      }
     }
   }
-  if ( !v5
-    || (*((_DWORD *)v5 + 80) & 0x1000) == 0
-    || (v9 = 0LL, !CWindowProp::GetProp<CoreWindowProp>((__int64)v5, &v9))
-    || !*(_DWORD *)(v9 + 28)
-    || (Host = CoreWindowProp::GetHost(v5)) == 0LL
-    || *(_QWORD *)(*((_QWORD *)Host + 2) + 424LL) != *(_QWORD *)(gptiCurrent + 424LL) )
-  {
-    *(_DWORD *)(v2 + 1548) = v4;
-    return ValidateHwnd(a1);
-  }
-LABEL_15:
-  *(_DWORD *)(v2 + 1548) = v4;
-  return (__int64)v5;
+  if ( (unsigned int)IAMThreadAccessGranted(gptiCurrent) )
+    gbValidateHandleForIL = 0;
+  return ValidateHwnd(a1);
 }

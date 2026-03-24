@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpSnapShotHandleTables @ 0x1408CE234
+ * XREFs of ExpSnapShotHandleTables @ 0x1408CE214
  * Callers:
- *     ExpGetHandleInformation @ 0x1408CB77C (ExpGetHandleInformation.c)
- *     ExpGetHandleInformationEx @ 0x1408CB814 (ExpGetHandleInformationEx.c)
+ *     ExpGetHandleInformation @ 0x1408CB75C (ExpGetHandleInformation.c)
+ *     ExpGetHandleInformationEx @ 0x1408CB7F4 (ExpGetHandleInformationEx.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExLockHandleTableEntry @ 0x140053220 (ExLockHandleTableEntry.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
  */
 

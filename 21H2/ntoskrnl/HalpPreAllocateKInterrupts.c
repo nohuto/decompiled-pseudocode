@@ -1,30 +1,38 @@
 /*
- * XREFs of HalpPreAllocateKInterrupts @ 0x140AF866C
+ * XREFs of HalpPreAllocateKInterrupts @ 0x140A739EC
  * Callers:
- *     HalpInterruptInitSystem @ 0x140A54BA0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x14099B890 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 HalpPreAllocateKInterrupts()
 {
   int MaximumRegisteredProcessorCount; // eax
   int v1; // ebx
-  __int64 Pool2; // rax
+  unsigned int v2; // esi
+  PVOID PoolWithTag; // rax
+  __int64 v4; // rdi
 
   if ( HalpKInterruptPostPhaseZero )
     return 0LL;
   MaximumRegisteredProcessorCount = HalpQueryMaximumRegisteredProcessorCount();
   v1 = 16 * MaximumRegisteredProcessorCount;
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(4608 * MaximumRegisteredProcessorCount), 0x4B6C6148u);
-  if ( Pool2 )
+  v2 = 4608 * MaximumRegisteredProcessorCount;
+  PoolWithTag = ExAllocatePoolWithTag(
+                  NonPagedPoolNx,
+                  (unsigned int)(4608 * MaximumRegisteredProcessorCount),
+                  0x206C6148u);
+  v4 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    HalpKInterruptPostPhaseZero = Pool2;
+    memset(PoolWithTag, 0, v2);
+    HalpKInterruptPostPhaseZero = v4;
     HalpKInterruptPostPhaseZeroTotal = v1;
     return 0LL;
   }
-  HalpInterruptSetProblemEx(0LL, 30, 0, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\kintrupt.c", 0xC8u);
+  HalpInterruptLastProblem = 30;
   return 3221225495LL;
 }

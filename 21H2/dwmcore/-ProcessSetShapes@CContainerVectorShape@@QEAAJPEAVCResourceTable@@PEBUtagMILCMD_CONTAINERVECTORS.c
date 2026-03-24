@@ -1,12 +1,11 @@
 /*
- * XREFs of ?ProcessSetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CONTAINERVECTORSHAPE_SETSHAPES@@PEBXI@Z @ 0x180041C84
+ * XREFs of ?ProcessSetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CONTAINERVECTORSHAPE_SETSHAPES@@PEBXI@Z @ 0x1801BE70C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V?$span@$$CBI$0?0@gsl@@_N@Z @ 0x180041D34 (-SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V-$span@$$CBI$0-0@gsl@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V?$span@$$CBI$0?0@gsl@@_N@Z @ 0x1801BE7B0 (-SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V-$span@$$CBI$0-0@gsl@@_N@Z.c)
  */
 
 __int64 __fastcall CContainerVectorShape::ProcessSetShapes(
@@ -16,30 +15,30 @@ __int64 __fastcall CContainerVectorShape::ProcessSetShapes(
         const void *a4,
         unsigned int a5)
 {
-  gsl::details *v8; // rcx
-  int v9; // eax
-  unsigned int v10; // ecx
-  unsigned int v11; // ebx
-  _QWORD v13[3]; // [rsp+30h] [rbp-18h] BYREF
+  int v5; // eax
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
 
   if ( *((_DWORD *)a3 + 3) != a5 || (a5 & 3) != 0 )
   {
-    v11 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2003303421, 0x2Cu, 0LL);
+    v7 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x2Cu, 0LL);
   }
   else
   {
-    gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v13, (unsigned __int64)a5 >> 2);
-    v13[1] = a4;
-    if ( v13[0] == -1LL || !a4 && v13[0] )
+    LOBYTE(a3) = *((_BYTE *)a3 + 8) != 0;
+    if ( !a4 && (unsigned __int64)a5 >> 2 )
     {
-      gsl::details::terminate(v8);
-      JUMPOUT(0x180041D2DLL);
+      ((void (__fastcall *)(CContainerVectorShape *, struct CResourceTable *, const struct tagMILCMD_CONTAINERVECTORSHAPE_SETSHAPES *))`gsl::details::get_terminate_handler'::`2'::handler)(
+        this,
+        a2,
+        a3);
+      __debugbreak();
     }
-    v9 = CContainerVectorShape::SetShapes(this, a2);
-    v11 = v9;
-    if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x33u, 0LL);
+    v5 = CContainerVectorShape::SetShapes(this, a2);
+    v7 = v5;
+    if ( v5 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x33u, 0LL);
   }
-  return v11;
+  return v7;
 }

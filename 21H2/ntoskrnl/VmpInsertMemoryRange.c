@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpInsertMemoryRange @ 0x140629E84
+ * XREFs of VmpInsertMemoryRange @ 0x1405A3980
  * Callers:
- *     VmCreateMemoryRange @ 0x1409D9340 (VmCreateMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x14092EE00 (VmCreateMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessContextLockExclusive @ 0x14045F78C (VmpProcessContextLockExclusive.c)
- *     VmpFreeMemoryRanges @ 0x1409DA014 (VmpFreeMemoryRanges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A495C (VmpProcessContextLockExclusive.c)
+ *     VmpFreeMemoryRanges @ 0x14092F698 (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __int64 a3)
@@ -26,9 +26,9 @@ __int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __in
   unsigned __int64 v17; // rax
   unsigned __int64 v18; // r10
   unsigned __int64 v19; // rcx
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // r8
-  unsigned __int64 v22; // r9
+  unsigned __int64 v20; // r8
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // rcx
   unsigned __int64 v23; // rdx
   __int64 *v24; // rdx
   __int64 **v25; // rcx
@@ -68,15 +68,15 @@ __int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __in
     v13 ^= (unsigned __int64)v12;
   while ( v13 )
   {
-    if ( (unsigned __int64)v3[7] >= *(_QWORD *)(v13 + 24) )
+    if ( (unsigned __int64)v3[7] < *(_QWORD *)(v13 + 24) )
+    {
+      v15 = *(_QWORD *)v13;
+    }
+    else
     {
       if ( (unsigned __int64)v3[6] <= *(_QWORD *)(v13 + 32) )
         goto LABEL_21;
       v15 = *(_QWORD *)(v13 + 8);
-    }
-    else
-    {
-      v15 = *(_QWORD *)v13;
     }
     if ( (SpinLock[4] & 1) != 0 && v15 )
       v13 ^= v15;
@@ -190,26 +190,26 @@ LABEL_72:
   while ( 1 )
   {
     v19 = *(_QWORD *)(v17 + 24);
-    if ( v18 < v19 )
-    {
-      v20 = *(_QWORD *)v17;
-      goto LABEL_28;
-    }
-    v21 = a2[3];
-    v22 = *(_QWORD *)(v17 + 32);
-    if ( v21 <= v22 )
+    if ( v18 >= v19 )
       break;
-    v20 = *(_QWORD *)(v17 + 8);
+    v22 = *(_QWORD *)v17;
 LABEL_28:
-    if ( (SpinLock[8] & 1) != 0 && v20 )
-      v17 ^= v20;
+    if ( (SpinLock[8] & 1) != 0 && v22 )
+      v17 ^= v22;
     else
-      v17 = v20;
+      v17 = v22;
     if ( !v17 )
       goto LABEL_33;
   }
+  v20 = a2[3];
+  v21 = *(_QWORD *)(v17 + 32);
+  if ( v20 > v21 )
+  {
+    v22 = *(_QWORD *)(v17 + 8);
+    goto LABEL_28;
+  }
   v8 = v17;
-  if ( v19 == v21 && v22 == v18 )
+  if ( v19 == v20 && v21 == v18 )
   {
     v24 = (__int64 *)*v3;
     v25 = (__int64 **)v3[1];

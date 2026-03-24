@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalPciEarlyRestore @ 0x140A48390
+ * XREFs of xHalPciEarlyRestore @ 0x1409902D0
  * Callers:
  *     <none>
  * Callees:

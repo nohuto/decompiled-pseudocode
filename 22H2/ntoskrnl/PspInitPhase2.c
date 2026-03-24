@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInitPhase2 @ 0x140B685A8
+ * XREFs of PspInitPhase2 @ 0x140A4B134
  * Callers:
- *     PsInitSystem @ 0x140B53504 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E30 (RtlGetSystemTimePrecise.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     RtlRandom @ 0x1407E6960 (RtlRandom.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408034B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PspInitializeProtectedProcessParameters @ 0x14084E244 (PspInitializeProtectedProcessParameters.c)
- *     PspInitializeSystemDlls @ 0x140B686FC (PspInitializeSystemDlls.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlGetSystemTimePrecise @ 0x140341F30 (RtlGetSystemTimePrecise.c)
+ *     RtlRandom @ 0x14069FF60 (RtlRandom.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078CF94 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PspInitializeProtectedProcessParameters @ 0x14079E348 (PspInitializeProtectedProcessParameters.c)
+ *     PspInitializeSystemDlls @ 0x140A4B284 (PspInitializeSystemDlls.c)
  */
 
 bool PspInitPhase2()
@@ -16,55 +16,51 @@ bool PspInitPhase2()
   PEPROCESS v0; // rbx
   __int64 UnbiasedInterruptTime; // rax
   _QWORD *v2; // rdx
-  __int64 v3; // rcx
+  char v3; // al
   char v4; // al
-  char v6; // al
-  ULONG Seed; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Seed; // [rsp+30h] [rbp+8h] BYREF
 
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C03048, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C01AB0, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
   v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
-  PsInitialSystemProcess[2].Affinity.StaticBitmap[7] = MEMORY[0xFFFFF78000000008];
+  PsInitialSystemProcess[2].Affinity.Bitmap[7] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;
-  PsInitialSystemProcess[2].Affinity.StaticBitmap[8] = UnbiasedInterruptTime;
+  PsInitialSystemProcess[2].Affinity.Bitmap[8] = UnbiasedInterruptTime;
   v2[141] = PsInitialSystemProcess[1].ThreadListHead.Flink;
-  v2[288] = PsInitialSystemProcess[2].Affinity.StaticBitmap[7];
-  v2[289] = PsInitialSystemProcess[2].Affinity.StaticBitmap[8];
+  v2[288] = PsInitialSystemProcess[2].Affinity.Bitmap[7];
+  v2[289] = PsInitialSystemProcess[2].Affinity.Bitmap[8];
   RtlGetSystemTimePrecise();
   PspWorkOnBehalfEncodingKey = (unsigned __int64)RtlRandom(&Seed) << 32;
   PspWorkOnBehalfEncodingKey = RtlRandom(&Seed) | (unsigned __int64)PspWorkOnBehalfEncodingKey;
   if ( PspSehValidationPolicy )
   {
-    v3 = MmWriteableSharedUserData;
     if ( PspSehValidationPolicy == 2 )
-      v4 = *(_BYTE *)(MmWriteableSharedUserData + 725) & 0xF3 | 8;
+      v3 = MEMORY[0xFFFFF780000002D5] & 0xF3 | 8;
     else
-      v4 = *(_BYTE *)(MmWriteableSharedUserData + 725) & 0xF3 | 4;
-    *(_BYTE *)(MmWriteableSharedUserData + 725) = v4;
+      v3 = MEMORY[0xFFFFF780000002D5] & 0xF3 | 4;
   }
   else
   {
-    v3 = MmWriteableSharedUserData;
-    *(_BYTE *)(MmWriteableSharedUserData + 725) &= 0xF3u;
+    v3 = MEMORY[0xFFFFF780000002D5] & 0xF3;
   }
+  MEMORY[0xFFFFF780000002D5] = v3;
   switch ( PspCurDirDevicesSkippedForDlls )
   {
     case 1:
-      v6 = *(_BYTE *)(v3 + 725) & 0xCF | 0x10;
-      goto LABEL_15;
+      v4 = v3 & 0xCF | 0x10;
+      break;
     case 2:
-      v6 = *(_BYTE *)(v3 + 725) & 0xCF | 0x20;
-LABEL_15:
-      *(_BYTE *)(v3 + 725) = v6;
+      v4 = v3 & 0xCF | 0x20;
       break;
     case -1:
-      *(_BYTE *)(v3 + 725) |= 0x30u;
+      v4 = v3 | 0x30;
       break;
     default:
-      *(_BYTE *)(v3 + 725) &= 0xCFu;
+      v4 = v3 & 0xCF;
       break;
   }
+  MEMORY[0xFFFFF780000002D5] = v4;
   PspInitializeSystemDlls();
-  return (int)PspInitializeProtectedProcessParameters((__int64)PspHostSiloGlobals) >= 0;
+  return (int)PspInitializeProtectedProcessParameters((__int64)&PspHostSiloGlobals) >= 0;
 }

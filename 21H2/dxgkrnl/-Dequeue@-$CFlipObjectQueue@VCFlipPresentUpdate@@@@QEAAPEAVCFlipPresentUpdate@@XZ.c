@@ -1,8 +1,9 @@
 /*
- * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipPresentUpdate@@@@QEAAPEAVCFlipPresentUpdate@@XZ @ 0x1C007D564
+ * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipPresentUpdate@@@@QEAAPEAVCFlipPresentUpdate@@XZ @ 0x1C006B250
  * Callers:
- *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C007C744 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
- *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C007D7EC (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006ACF4 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4FlipPresentProcessResult@@@Z @ 0x1C006AE8C (-ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4Fli.c)
+ *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C006B498 (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

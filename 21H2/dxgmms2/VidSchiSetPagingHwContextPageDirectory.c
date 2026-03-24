@@ -1,11 +1,11 @@
 /*
- * XREFs of VidSchiSetPagingHwContextPageDirectory @ 0x1C00F5C88
+ * XREFs of VidSchiSetPagingHwContextPageDirectory @ 0x1C00D326C
  * Callers:
- *     VidSchSetPagingNodePageDirectory @ 0x1C00B843C (VidSchSetPagingNodePageDirectory.c)
+ *     VidSchSetPagingNodePageDirectory @ 0x1C00D28C8 (VidSchSetPagingNodePageDirectory.c)
  * Callees:
- *     ?DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C0018D8C (-DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C00A71B8 (-RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROO.c)
+ *     ?DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C0016058 (-DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C008B210 (-RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROO.c)
  */
 
 void __fastcall VidSchiSetPagingHwContextPageDirectory(__int64 a1, unsigned int a2, UINT a3, UINT a4, UINT64 a5)
@@ -15,7 +15,7 @@ void __fastcall VidSchiSetPagingHwContextPageDirectory(__int64 a1, unsigned int 
   __int64 v8; // rbx
   struct _DXGKARG_SETROOTPAGETABLE v9; // [rsp+20h] [rbp-48h] BYREF
 
-  v5 = *(_QWORD *)(a1 + 272);
+  v5 = *(_QWORD *)(a1 + 264);
   v7 = *(ADAPTER_RENDER **)(a1 + 8);
   v8 = *(_QWORD *)(v5 + 8LL * a2);
   *(&v9.Address.SegmentId + 1) = 0;
@@ -27,7 +27,7 @@ void __fastcall VidSchiSetPagingHwContextPageDirectory(__int64 a1, unsigned int 
   ADAPTER_RENDER::DdiSetRootPageTable(v7, &v9);
   *(_QWORD *)(v8 + 264) = v9.Address.SegmentOffset;
   VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
-    *(VIDMM_GLOBAL **)(*(_QWORD *)(a1 + 8) + 656LL),
+    *(VIDMM_GLOBAL **)(*(_QWORD *)(a1 + 8) + 648LL),
     0LL,
     &v9,
     (void *)v8);

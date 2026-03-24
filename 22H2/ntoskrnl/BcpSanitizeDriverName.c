@@ -1,7 +1,7 @@
 /*
- * XREFs of BcpSanitizeDriverName @ 0x140672E00
+ * XREFs of BcpSanitizeDriverName @ 0x1405C5308
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1406726E4 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayErrorInformation @ 0x1405C4BF8 (BcpDisplayErrorInformation.c)
  * Callees:
  *     <none>
  */
@@ -14,12 +14,11 @@ __int64 __fastcall BcpSanitizeDriverName(unsigned __int16 *a1, __int64 a2)
   __int64 v6; // r11
   unsigned __int64 v7; // rax
   unsigned int v8; // ecx
-  unsigned __int16 *v9; // r8
-  __int64 v10; // r10
-  __int64 v11; // rbx
-  unsigned __int16 v12; // dx
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rdi
+  __int64 v9; // r8
+  __int64 v10; // r9
+  unsigned __int16 v11; // dx
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // rdi
   __int64 result; // rax
 
   v3 = *a1;
@@ -33,21 +32,21 @@ __int64 __fastcall BcpSanitizeDriverName(unsigned __int16 *a1, __int64 a2)
   v8 = 0;
   if ( (_DWORD)v7 )
   {
-    v9 = *(unsigned __int16 **)(a2 + 8);
+    v9 = 0LL;
     v10 = (unsigned int)v7;
-    v11 = v5 - v6;
     v8 = v7;
     do
     {
-      v12 = *(unsigned __int16 *)((char *)v9 + v11);
-      v13 = v12;
-      if ( (unsigned __int16)(v12 - 32) > 0x3Fu
-        || (v14 = 0x87FFFFFE03FF4001uLL, LOWORD(v13) = v12 - 32, !_bittest64((const __int64 *)&v14, v13)) )
+      v11 = *(_WORD *)(v9 + v5);
+      v12 = v11;
+      if ( (unsigned __int16)(v11 - 32) > 0x3Fu
+        || (v13 = 0x87FFFFFE03FF4001uLL, LOWORD(v12) = v11 - 32, !_bittest64((const __int64 *)&v13, v12)) )
       {
-        if ( (unsigned __int16)(v12 - 97) > 0x19u )
-          v12 = 32;
+        if ( (unsigned __int16)(v11 - 97) > 0x19u )
+          v11 = 32;
       }
-      *v9++ = v12;
+      *(_WORD *)(v9 + v6) = v11;
+      v9 += 2LL;
       --v10;
     }
     while ( v10 );

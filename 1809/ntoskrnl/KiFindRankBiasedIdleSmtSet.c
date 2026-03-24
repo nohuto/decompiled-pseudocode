@@ -1,8 +1,8 @@
 /*
- * XREFs of KiFindRankBiasedIdleSmtSet @ 0x14029845C
+ * XREFs of KiFindRankBiasedIdleSmtSet @ 0x14029855C
  * Callers:
- *     KiChooseTargetProcessor @ 0x1400C43B0 (KiChooseTargetProcessor.c)
- *     KiSelectIdleProcessor @ 0x140166648 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1400C43D0 (KiChooseTargetProcessor.c)
+ *     KiSelectIdleProcessor @ 0x140166668 (KiSelectIdleProcessor.c)
  * Callees:
  *     <none>
  */

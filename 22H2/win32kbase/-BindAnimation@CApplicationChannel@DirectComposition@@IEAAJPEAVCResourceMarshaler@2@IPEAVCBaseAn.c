@@ -1,21 +1,21 @@
 /*
- * XREFs of ?BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C0065550
+ * XREFs of ?BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C00927EC
  * Callers:
- *     ?SetResourceAnimationProperty@CApplicationChannel@DirectComposition@@QEAAJIII@Z @ 0x1C0065480 (-SetResourceAnimationProperty@CApplicationChannel@DirectComposition@@QEAAJIII@Z.c)
+ *     ?SetResourceAnimationProperty@CApplicationChannel@DirectComposition@@QEAAJIII@Z @ 0x1C00926E8 (-SetResourceAnimationProperty@CApplicationChannel@DirectComposition@@QEAAJIII@Z.c)
  * Callees:
- *     ?RemoveFromBatchList@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@PEAPEAV32@@Z @ 0x1C000F250 (-RemoveFromBatchList@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@PEAPEAV.c)
- *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C0027EBC (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?NewAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z @ 0x1C0065720 (-NewAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z.c)
- *     ?NewRemovingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z @ 0x1C0065748 (-NewRemovingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z.c)
- *     ?FindAnimationBindings@CResourceMarshaler@DirectComposition@@QEAAXIPEAPEAVCAnimationBinding@2@00@Z @ 0x1C0065A8C (-FindAnimationBindings@CResourceMarshaler@DirectComposition@@QEAAXIPEAPEAVCAnimationBinding@2@00.c)
- *     ?Create@CAnimationBinding@DirectComposition@@SAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@PEAPEAV12@@Z @ 0x1C0065AD0 (-Create@CAnimationBinding@DirectComposition@@SAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@P.c)
- *     ?Initialize@CAnimationBinding@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C0065B4C (-Initialize@CAnimationBinding@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@IPEAVCBaseAnimati.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?DeleteAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z @ 0x1C020C278 (-DeleteAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z.c)
- *     ?Reassign@CAnimationBinding@DirectComposition@@QEAAXPEAVCBaseAnimation@2@PEAVCApplicationChannel@2@@Z @ 0x1C020D548 (-Reassign@CAnimationBinding@DirectComposition@@QEAAXPEAVCBaseAnimation@2@PEAVCApplicationChannel.c)
- *     ?RemovingToBound@CAnimationBinding@DirectComposition@@QEAAXXZ @ 0x1C020D5E0 (-RemovingToBound@CAnimationBinding@DirectComposition@@QEAAXXZ.c)
- *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C020E5F0 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
+ *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C005F1E4 (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
+ *     ?NewAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z @ 0x1C0092974 (-NewAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z.c)
+ *     ?FindAnimationBindings@CResourceMarshaler@DirectComposition@@QEAAXIPEAPEAVCAnimationBinding@2@00@Z @ 0x1C0092A08 (-FindAnimationBindings@CResourceMarshaler@DirectComposition@@QEAAXIPEAPEAVCAnimationBinding@2@00.c)
+ *     ?Create@CAnimationBinding@DirectComposition@@SAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@PEAPEAV12@@Z @ 0x1C0092A4C (-Create@CAnimationBinding@DirectComposition@@SAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@P.c)
+ *     ?Initialize@CAnimationBinding@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C0092AC8 (-Initialize@CAnimationBinding@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@IPEAVCBaseAnimati.c)
+ *     ?NewRemovingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z @ 0x1C00948E8 (-NewRemovingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z.c)
+ *     ?RemoveFromBatchList@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@PEAPEAV32@@Z @ 0x1C00B4A5C (-RemoveFromBatchList@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@PEAPEAV.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?DeleteAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z @ 0x1C01D4A18 (-DeleteAddingBinding@CApplicationChannel@DirectComposition@@IEAAXPEAVCAnimationBinding@2@@Z.c)
+ *     ?Reassign@CAnimationBinding@DirectComposition@@QEAAXPEAVCBaseAnimation@2@PEAVCApplicationChannel@2@@Z @ 0x1C01D5BA4 (-Reassign@CAnimationBinding@DirectComposition@@QEAAXPEAVCBaseAnimation@2@PEAVCApplicationChannel.c)
+ *     ?RemovingToBound@CAnimationBinding@DirectComposition@@QEAAXXZ @ 0x1C01D5C3C (-RemovingToBound@CAnimationBinding@DirectComposition@@QEAAXXZ.c)
+ *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C01D5CD8 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::BindAnimation(
@@ -28,131 +28,129 @@ __int64 __fastcall DirectComposition::CApplicationChannel::BindAnimation(
   struct DirectComposition::CBaseAnimation **v8; // r12
   struct DirectComposition::CAnimationBinding *v9; // rax
   __int64 v10; // rax
-  __int64 v11; // rax
-  DirectComposition::CApplicationChannel *v12; // rcx
+  DirectComposition::CApplicationChannel *v11; // rcx
+  __int64 v12; // rax
   __int64 v13; // rbx
-  struct DirectComposition::CAnimationBinding **v14; // rbx
-  unsigned int v15; // edi
-  DirectComposition::CAnimationBinding *v16; // r13
-  __int64 v18; // rdi
+  struct DirectComposition::CBaseAnimation **v14; // rbx
+  unsigned int v15; // r13d
+  DirectComposition::CAnimationBinding *v16; // rsi
+  _DWORD *v18; // rsi
   __int64 v19; // rax
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  DirectComposition::CAnimationMarshaler *v22; // rdi
-  struct DirectComposition::CAnimationBinding *v23; // [rsp+30h] [rbp-10h] BYREF
-  struct DirectComposition::CAnimationBinding *v24; // [rsp+38h] [rbp-8h] BYREF
-  struct DirectComposition::CAnimationBinding *v27; // [rsp+98h] [rbp+58h] BYREF
+  _DWORD *v20; // rsi
+  struct DirectComposition::CAnimationBinding *v21; // [rsp+30h] [rbp-10h] BYREF
+  struct DirectComposition::CAnimationBinding *v22; // [rsp+38h] [rbp-8h] BYREF
+  struct DirectComposition::CAnimationBinding *v25; // [rsp+98h] [rbp+58h] BYREF
 
-  v23 = 0LL;
-  v27 = 0LL;
-  v24 = 0LL;
-  DirectComposition::CResourceMarshaler::FindAnimationBindings(a2, a3, &v23, &v27, &v24);
-  v7 = (struct DirectComposition::CBaseAnimation **)v23;
-  v8 = (struct DirectComposition::CBaseAnimation **)v27;
-  v9 = v27;
-  if ( v23 )
-    v9 = v23;
-  v27 = v9;
+  v21 = 0LL;
+  v25 = 0LL;
+  v22 = 0LL;
+  DirectComposition::CResourceMarshaler::FindAnimationBindings(a2, a3, &v21, &v25, &v22);
+  v7 = (struct DirectComposition::CBaseAnimation **)v21;
+  v8 = (struct DirectComposition::CBaseAnimation **)v25;
+  v9 = v25;
+  if ( v21 )
+    v9 = v21;
+  v25 = v9;
   v10 = (**(__int64 (__fastcall ***)(struct DirectComposition::CBaseAnimation *))a4)(a4);
-  v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 80LL))(v10);
-  v13 = v11;
-  if ( !v11 || !*(_DWORD *)(v11 + 156) )
-    goto LABEL_5;
-  DirectComposition::CApplicationChannel::ProcessReturnedBatches((union _SLIST_HEADER *)this);
-  v18 = 0LL;
-  LODWORD(v23) = 0;
-  if ( v27 )
+  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 96LL))(v10, 2LL) )
   {
-    v19 = (***((__int64 (__fastcall ****)(_QWORD))v27 + 3))(*((_QWORD *)v27 + 3));
-    v18 = v19;
-    if ( v19 )
+    v12 = (**(__int64 (__fastcall ***)(struct DirectComposition::CBaseAnimation *))a4)(a4);
+    v13 = v12 ? v12 - 16 : 0LL;
+    if ( v13 && *(_DWORD *)(v13 + 164) )
     {
-      v20 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v19 + 160LL))(v19);
-      if ( v20 )
+      DirectComposition::CApplicationChannel::ProcessReturnedBatches((union _SLIST_HEADER *)this);
+      v18 = 0LL;
+      LODWORD(v21) = 0;
+      if ( v25
+        && (v19 = (***((__int64 (__fastcall ****)(_QWORD))v25 + 3))(*((_QWORD *)v25 + 3)), (v18 = (_DWORD *)v19) != 0LL)
+        && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v19 + 96LL))(v19, 151LL) )
       {
-        LODWORD(v23) = *(_DWORD *)(v20 + 72);
-        goto LABEL_24;
-      }
-    }
-  }
-  (*(void (__fastcall **)(struct DirectComposition::CResourceMarshaler *, _QWORD, struct DirectComposition::CAnimationBinding **))(*(_QWORD *)a2 + 280LL))(
-    a2,
-    a3,
-    &v23);
-  if ( v18 )
-  {
-LABEL_24:
-    v21 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v18 + 80LL))(v18);
-    v22 = (DirectComposition::CAnimationMarshaler *)v21;
-    if ( v21 )
-    {
-      if ( *(_QWORD *)(v13 + 168) || (*(_DWORD *)(v13 + 32) & 0x1000) != 0 || v21 == v13 )
-        return (unsigned int)-1073741811;
-      *(_QWORD *)(v13 + 168) = v21;
-      DirectComposition::CResourceMarshaler::AddRef((DirectComposition::CResourceMarshaler *)(v21 + 16));
-      LOBYTE(v27) = 0;
-      DirectComposition::CAnimationMarshaler::GetAnimationTimeState(
-        v22,
-        (bool *)&v27,
-        (__int64 *)(v13 + 184),
-        (unsigned __int64 *)(v13 + 192));
-      *(_BYTE *)(v13 + 200) ^= (*(_BYTE *)(v13 + 200) ^ (unsigned __int8)v27) & 1;
-      *((_DWORD *)v22 + 8) |= 0x1000u;
-    }
-  }
-  *(_DWORD *)(v13 + 176) = (_DWORD)v23;
-LABEL_5:
-  v14 = (struct DirectComposition::CAnimationBinding **)v24;
-  v15 = 0;
-  if ( !v8 )
-  {
-    if ( v7 && v7[3] != a4 || v24 && *((struct DirectComposition::CBaseAnimation **)v24 + 3) != a4 )
-      goto LABEL_10;
-    if ( v7 )
-      goto LABEL_35;
-    if ( !v24 )
-    {
-LABEL_10:
-      v24 = 0LL;
-      v16 = (DirectComposition::CAnimationBinding *)*((_QWORD *)this + 44);
-      if ( v16 )
-      {
-        *((_QWORD *)this + 44) = 0LL;
-        DirectComposition::CAnimationBinding::Initialize(v16, a2, a3, a4);
+        LODWORD(v21) = v18[14];
       }
       else
       {
-        v15 = DirectComposition::CAnimationBinding::Create(a2, a3, a4, &v24);
-        if ( (v15 & 0x80000000) != 0 )
-          return v15;
-        v16 = v24;
+        (*(void (__fastcall **)(struct DirectComposition::CResourceMarshaler *, _QWORD, struct DirectComposition::CAnimationBinding **))(*(_QWORD *)a2 + 184LL))(
+          a2,
+          a3,
+          &v21);
       }
-      DirectComposition::CApplicationChannel::NewAddingBinding(this, v16);
+      if ( v18 && (*(unsigned __int8 (__fastcall **)(_DWORD *, __int64))(*(_QWORD *)v18 + 96LL))(v18, 2LL) )
+      {
+        v20 = v18 - 4;
+        if ( *(_QWORD *)(v13 + 176) || (*(_DWORD *)(v13 + 32) & 0x1000) != 0 || v20 == (_DWORD *)v13 )
+          return (unsigned int)-1073741811;
+        if ( v20 )
+        {
+          *(_QWORD *)(v13 + 176) = v20;
+          DirectComposition::CResourceMarshaler::AddRef((DirectComposition::CResourceMarshaler *)(v20 + 4));
+          LOBYTE(v25) = 0;
+          DirectComposition::CAnimationMarshaler::GetAnimationTimeState(
+            (DirectComposition::CAnimationMarshaler *)v20,
+            (bool *)&v25,
+            (__int64 *)(v13 + 192),
+            (unsigned __int64 *)(v13 + 200));
+          *(_BYTE *)(v13 + 208) ^= ((unsigned __int8)v25 ^ *(_BYTE *)(v13 + 208)) & 1;
+          v20[8] |= 0x1000u;
+        }
+      }
+      *(_DWORD *)(v13 + 184) = (_DWORD)v21;
     }
   }
-  if ( !v7 )
+  v14 = (struct DirectComposition::CBaseAnimation **)v22;
+  v15 = 0;
+  if ( v8 )
+    goto LABEL_17;
+  if ( v7 && v7[3] != a4 || v22 && *((struct DirectComposition::CBaseAnimation **)v22 + 3) != a4 )
+    goto LABEL_13;
+  if ( v7 )
+    goto LABEL_41;
+  if ( !v22 )
   {
-    if ( v14 && v14[3] == a4 )
+LABEL_13:
+    v25 = 0LL;
+    v16 = (DirectComposition::CAnimationBinding *)*((_QWORD *)this + 44);
+    if ( v16 )
     {
-      if ( *((_QWORD *)this + 57) )
-        DirectComposition::CApplicationChannel::RemoveFromBatchList(
-          v12,
-          v14,
-          (struct DirectComposition::CAnimationBinding ***)this + 57);
-      DirectComposition::CAnimationBinding::RemovingToBound((DirectComposition::CAnimationBinding *)v14);
-      if ( v8 )
-        DirectComposition::CApplicationChannel::DeleteAddingBinding(
-          this,
-          (struct DirectComposition::CAnimationBinding *)v8);
+      *((_QWORD *)this + 44) = 0LL;
+      DirectComposition::CAnimationBinding::Initialize(v16, a2, a3, a4);
     }
-    else if ( v8 && v8[3] != a4 )
+    else
     {
-      DirectComposition::CAnimationBinding::Reassign((DirectComposition::CAnimationBinding *)v8, a4, this);
+      v15 = DirectComposition::CAnimationBinding::Create(a2, a3, a4, &v25);
+      if ( (v15 & 0x80000000) != 0 )
+        return v15;
+      v16 = v25;
     }
+    DirectComposition::CApplicationChannel::NewAddingBinding(this, v16);
+LABEL_17:
+    if ( !v7 )
+    {
+      if ( !v14 )
+      {
+LABEL_19:
+        if ( v8 && v8[3] != a4 )
+          DirectComposition::CAnimationBinding::Reassign((DirectComposition::CAnimationBinding *)v8, a4, this);
+        return v15;
+      }
+      goto LABEL_43;
+    }
+LABEL_41:
+    if ( v7[3] != a4 )
+      DirectComposition::CApplicationChannel::NewRemovingBinding(
+        this,
+        (struct DirectComposition::CAnimationBinding *)v7);
     return v15;
   }
-LABEL_35:
-  if ( v7[3] != a4 )
-    DirectComposition::CApplicationChannel::NewRemovingBinding(this, (struct DirectComposition::CAnimationBinding *)v7);
+LABEL_43:
+  if ( v14[3] != a4 )
+    goto LABEL_19;
+  if ( *((_QWORD *)this + 56) )
+    DirectComposition::CApplicationChannel::RemoveFromBatchList(
+      v11,
+      (struct DirectComposition::CAnimationBinding *)v14,
+      (struct DirectComposition::CAnimationBinding **)this + 56);
+  DirectComposition::CAnimationBinding::RemovingToBound((DirectComposition::CAnimationBinding *)v14);
+  if ( v8 )
+    DirectComposition::CApplicationChannel::DeleteAddingBinding(this, (struct DirectComposition::CAnimationBinding *)v8);
   return v15;
 }

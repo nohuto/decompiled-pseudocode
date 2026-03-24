@@ -1,33 +1,33 @@
 /*
- * XREFs of ?FreePointerCaptureData@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@@Z @ 0x1C01C3AE0
+ * XREFs of ?FreePointerCaptureData@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@@Z @ 0x1C018F2E4
  * Callers:
- *     ?FreeMsgData@CTouchProcessor@@AEAAX_K@Z @ 0x1C01C37D4 (-FreeMsgData@CTouchProcessor@@AEAAX_K@Z.c)
+ *     ?FreeMsgData@CTouchProcessor@@AEAAX_K@Z @ 0x1C018F038 (-FreeMsgData@CTouchProcessor@@AEAAX_K@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CTouchProcessor::FreePointerCaptureData(struct _KTHREAD **this, struct CPointerCaptureData *a2)
 {
-  __int64 v3; // rcx
-  struct CPointerCaptureData **v4; // rax
+  __int64 v3; // rax
+  struct CPointerCaptureData **v4; // rcx
 
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11547);
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10909);
   if ( *((_DWORD *)a2 + 4) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11549);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10911);
   if ( *((_DWORD *)a2 + 8) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11551);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10913);
   if ( *((_DWORD *)a2 + 10) && *((_DWORD *)a2 + 33) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11553);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10915);
   if ( *((_DWORD *)a2 + 40) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11555);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10917);
   if ( *((_DWORD *)a2 + 42) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11557);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10919);
   if ( *((_DWORD *)a2 + 44) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11558);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10920);
   if ( *((_DWORD *)a2 + 74) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11559);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10921);
   v3 = *(_QWORD *)a2;
   if ( *(struct CPointerCaptureData **)(*(_QWORD *)a2 + 8LL) != a2
     || (v4 = (struct CPointerCaptureData **)*((_QWORD *)a2 + 1), *v4 != a2) )
@@ -36,5 +36,5 @@ void __fastcall CTouchProcessor::FreePointerCaptureData(struct _KTHREAD **this, 
   }
   *v4 = (struct CPointerCaptureData *)v3;
   *(_QWORD *)(v3 + 8) = v4;
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)a2);
+  Win32FreePool((__int64)a2);
 }

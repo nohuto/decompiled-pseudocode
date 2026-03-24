@@ -1,33 +1,27 @@
 /*
- * XREFs of MiPersistPage @ 0x14063EA6C
+ * XREFs of MiPersistPage @ 0x1405417DC
  * Callers:
- *     MiMarkFileOnlyPfnBad @ 0x14063E0B0 (MiMarkFileOnlyPfnBad.c)
- *     MiPurgeFileOnlyPfn @ 0x14063EF38 (MiPurgeFileOnlyPfn.c)
+ *     MiFlushFileOnlyMdl @ 0x140541070 (MiFlushFileOnlyMdl.c)
+ *     MiMarkFileOnlyPfnBad @ 0x140541648 (MiMarkFileOnlyPfnBad.c)
+ *     MiPurgeFileOnlyPfn @ 0x140541CB4 (MiPurgeFileOnlyPfn.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021ACC0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14021AEA4 (MiUnmapPageInHyperSpaceWorker.c)
- *     KePersistMemory @ 0x140423FF0 (KePersistMemory.c)
- *     KeInvalidateRangeAllCaches @ 0x140460040 (KeInvalidateRangeAllCaches.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x1402B2140 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402C8FA0 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPersistMemory @ 0x1405417AC (MiPersistMemory.c)
  */
 
-void __fastcall MiPersistPage(__int64 a1)
+void __fastcall MiPersistPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  void *v1; // rax
-  unsigned __int64 v2; // rbx
-  unsigned __int8 v3; // [rsp+38h] [rbp+10h] BYREF
+  void *v4; // rbx
+  __int64 v5; // rdx
+  unsigned __int8 v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0;
-  if ( !byte_140C65BE8 )
+  v6 = 0;
+  if ( !byte_140C4DEE8 )
   {
-    v1 = (void *)MiMapPageInHyperSpaceWorker(a1, &v3, 0x80000000);
-    v2 = (unsigned __int64)v1;
-    if ( !byte_140C65BE8 )
-    {
-      if ( _bittest64(&KeFeatureBits, 0x24u) )
-        KePersistMemory((__int64)v1, 4096LL);
-      else
-        KeInvalidateRangeAllCaches(v1, 0x1000u);
-    }
-    MiUnmapPageInHyperSpaceWorker(v2, v3);
+    v4 = (void *)MiMapPageInHyperSpaceWorker(a1, &v6, 0x80000000, a4);
+    MiPersistMemory(v4, 4096LL);
+    LOBYTE(v5) = v6;
+    MiUnmapPageInHyperSpaceWorker((unsigned __int64)v4, v5, 0x80000000LL);
   }
 }

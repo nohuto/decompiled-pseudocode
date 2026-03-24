@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CLinearGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021D3D0
+ * XREFs of ?EmitUpdateCommands@CLinearGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E6C70
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021CF78 (-EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5922485c3f91bc1b2df0ec0813fc30a5___ @ 0x1C021D2DC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5922485c3f91bc1b2df0ec0813fc30a.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ca98c65f0a9da091ad494ff58c7bb461___ @ 0x1C021D354 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ca98c65f0a9da091ad494ff58c7bb46.c)
+ *     ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E6804 (-EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5922485c3f91bc1b2df0ec0813fc30a5___ @ 0x1C01E6B7C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5922485c3f91bc1b2df0ec0813fc30a.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ca98c65f0a9da091ad494ff58c7bb461___ @ 0x1C01E6BF0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ca98c65f0a9da091ad494ff58c7bb46.c)
  */
 
 char __fastcall DirectComposition::CLinearGradientBrushMarshaler::EmitUpdateCommands(

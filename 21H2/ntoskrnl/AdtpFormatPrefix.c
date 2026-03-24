@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpFormatPrefix @ 0x14064C858
+ * XREFs of AdtpFormatPrefix @ 0x1405C36FC
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14064B9D8 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x14064C4AC (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3354 (AdtpBuildStagingReasonAuditStringInternal.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlIntegerToUnicodeString @ 0x14075AC60 (RtlIntegerToUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlIntegerToUnicodeString @ 0x14062C070 (RtlIntegerToUnicodeString.c)
  */
 
 int __fastcall AdtpFormatPrefix(PUNICODE_STRING Destination, ULONG Value, char a3)

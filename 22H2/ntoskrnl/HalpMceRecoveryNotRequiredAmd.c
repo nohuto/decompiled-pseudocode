@@ -1,24 +1,36 @@
 /*
- * XREFs of HalpMceRecoveryNotRequiredAmd @ 0x140519384
+ * XREFs of HalpMceRecoveryNotRequiredAmd @ 0x1404D04DC
  * Callers:
- *     HalpMceRecovery @ 0x140518F10 (HalpMceRecovery.c)
+ *     HalpMceRecovery @ 0x1404D01E0 (HalpMceRecovery.c)
  * Callees:
- *     HalpMemoryErrorDeferredRecovery @ 0x1405199D4 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1404CFE70 (HalpMemoryErrorDeferredRecovery.c)
  */
 
-void __fastcall HalpMceRecoveryNotRequiredAmd(__int64 a1)
+char __fastcall HalpMceRecoveryNotRequiredAmd(__int64 a1)
 {
   __int64 v1; // rdx
-  char v2; // al
-  __int64 v3; // rcx
+  char result; // al
+  char v3; // al
+  __int64 v4; // rcx
 
   v1 = *(_QWORD *)(a1 + 40);
-  if ( ((v1 & 0x4000000000000000LL) == 0 || HalpMcaOverflowRecoverySupported) && (v1 & 0x400000000000000LL) != 0 )
+  result = 0;
+  if ( (v1 & 0x4000000000000000LL) == 0 || HalpMcaOverflowRecoverySupported )
   {
-    v2 = 0;
-    v3 = *(_QWORD *)(a1 + 48);
-    if ( HalpMcaScalableRasSupported )
-      v2 = (v1 & 0x100000000000LL) != 0;
-    HalpMemoryErrorDeferredRecovery(v3, 0, 0, 0, v1, 0, 1, v2);
+    result = v1 & 0x80;
+    if ( (v1 & 0xEF80) == 0x80
+      || *(_DWORD *)(a1 + 4) == 2 && (result = 0, (v1 & 0xEF00) == 0x100) && (result = v1 & 3, (v1 & 3) != 1) )
+    {
+      result = 0;
+      if ( (v1 & 0x400000000000000LL) != 0 )
+      {
+        v3 = 0;
+        v4 = *(_QWORD *)(a1 + 48);
+        if ( HalpMcaScalableRasSupported )
+          v3 = (v1 & 0x100000000000LL) != 0;
+        return HalpMemoryErrorDeferredRecovery(v4, 0, 0LL, 0, v1, 0, 1, v3);
+      }
+    }
   }
+  return result;
 }

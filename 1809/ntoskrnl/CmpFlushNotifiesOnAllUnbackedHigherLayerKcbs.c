@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x1407F9E50
+ * XREFs of CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x1407F9E30
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 PVOID __fastcall CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs(__int64 a1, __int64 a2, char a3)

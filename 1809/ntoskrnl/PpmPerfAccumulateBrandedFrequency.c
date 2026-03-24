@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfAccumulateBrandedFrequency @ 0x14086B0CC
+ * XREFs of PpmPerfAccumulateBrandedFrequency @ 0x14086B0AC
  * Callers:
- *     PpmPerfGetBrandedFrequency @ 0x14086B10C (PpmPerfGetBrandedFrequency.c)
+ *     PpmPerfGetBrandedFrequency @ 0x14086B0EC (PpmPerfGetBrandedFrequency.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfAccumulateBrandedFrequency(ULONG a1, _DWORD *a2)

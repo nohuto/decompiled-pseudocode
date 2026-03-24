@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedReadVisualReferenceMarshaler @ 0x1C0238FD0
+ * XREFs of CreateSharedReadVisualReferenceMarshaler @ 0x1C01F8540
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedReadVisualReferenceMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0238BB8 (-Create@CSharedReadVisualReferenceMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PE.c)
+ *     ?Create@CSharedReadVisualReferenceMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F8300 (-Create@CSharedReadVisualReferenceMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PE.c)
  */
 
 __int64 __fastcall CreateSharedReadVisualReferenceMarshaler(
@@ -15,7 +15,7 @@ __int64 __fastcall CreateSharedReadVisualReferenceMarshaler(
   struct DirectComposition::CSharedReadVisualReferenceMarshaler *v5; // [rsp+30h] [rbp+8h] BYREF
 
   *a3 = 0LL;
-  if ( *((_DWORD *)a1 + 3) != 200 )
+  if ( *((_DWORD *)a1 + 3) != 199 )
     return 3221225485LL;
   v5 = 0LL;
   result = DirectComposition::CSharedReadVisualReferenceMarshaler::Create(a1, &v5);

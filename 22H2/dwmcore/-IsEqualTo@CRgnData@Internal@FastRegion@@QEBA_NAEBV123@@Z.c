@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x1801DDD94
+ * XREFs of ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x18017C1AC
  * Callers:
- *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x180052F90 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
+ *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x18006D978 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -12,13 +12,13 @@ bool __fastcall FastRegion::Internal::CRgnData::IsEqualTo(
 {
   int v4; // ebx
   int v5; // eax
-  __int64 v6; // rsi
+  __int64 v6; // rdi
   int *v7; // rdx
   __int64 v8; // r10
   signed __int64 v9; // r15
   _DWORD *v10; // rcx
   char *v11; // r9
-  __int64 v12; // rdi
+  __int64 v12; // rsi
   __int64 v13; // rcx
   signed __int64 v14; // r14
 

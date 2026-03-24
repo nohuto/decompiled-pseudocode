@@ -1,108 +1,97 @@
 /*
- * XREFs of MmLinkJobProcess @ 0x14069FC10
+ * XREFs of MmLinkJobProcess @ 0x14071F088
  * Callers:
- *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
+ *     PspEstablishJobHierarchy @ 0x14071EDDC (PspEstablishJobHierarchy.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiInsertSharedCommitNode @ 0x140722090 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x140722410 (MiRemoveSharedCommitNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiRemoveSharedCommitNode @ 0x140638C00 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140638E70 (MiInsertSharedCommitNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-char __fastcall MmLinkJobProcess(__int64 a1, __int64 a2)
+char __fastcall MmLinkJobProcess(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 *v2; // r14
-  __int64 v4; // r12
   int inserted; // r15d
-  struct _KTHREAD *CurrentThread; // r13
-  __int64 v7; // rax
-  __int64 v8; // rbx
-  _QWORD *v9; // rbx
-  _QWORD *v10; // rsi
-  __int64 v11; // r12
+  __int64 v4; // r13
+  volatile signed __int64 *v5; // r12
+  _QWORD *v6; // rsi
+  _QWORD *v7; // r14
+  __int64 v8; // r13
   _QWORD *Pool; // rax
-  __int64 ***v13; // rax
-  _QWORD *v14; // rcx
-  _QWORD *i; // rax
-  _QWORD *v16; // rdx
-  _QWORD *v17; // rax
-  __int64 *v18; // rax
-  __int64 *v19; // rcx
-  __int64 *v20; // rsi
-  __int64 v21; // r12
-  bool v22; // zf
-  $C71981A45BEB2B45F82C232A7085991E *v23; // rax
-  __int64 *v24; // rcx
-  __int64 *v25; // rax
-  __int64 j; // rsi
-  __int64 *v28; // [rsp+20h] [rbp-10h] BYREF
-  __int64 **v29; // [rsp+28h] [rbp-8h]
+  __int64 ***v10; // rax
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rdx
+  _QWORD *v13; // rax
+  __int64 *v14; // rax
+  __int64 *v15; // rcx
+  __int64 *v16; // rsi
+  _QWORD *v17; // r14
+  __int64 *v20; // rcx
+  __int64 *v21; // rax
+  unsigned __int64 i; // rsi
+  __int64 *v23; // [rsp+20h] [rbp-10h] BYREF
+  __int64 **v24; // [rsp+28h] [rbp-8h]
+  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp+48h]
 
-  v2 = (unsigned __int64 *)(a2 + 2352);
-  v4 = a1;
-  v29 = &v28;
   inserted = 0;
-  v28 = (__int64 *)&v28;
+  v24 = &v23;
+  v23 = (__int64 *)&v23;
+  v4 = a1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v7 = KeAbPreAcquire(a2 + 2352, 0LL);
-  v8 = v7;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, v7, (__int64)v2);
-  if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
+  v5 = (volatile signed __int64 *)(a2 + 2352);
+  ExAcquirePushLockExclusiveEx(a2 + 2352, 0LL);
   if ( (*(_DWORD *)(a2 + 2172) & 0x10) == 0 )
   {
-    v9 = (_QWORD *)(a2 + 2360);
-    v10 = *(_QWORD **)(a2 + 2360);
-    if ( v10 != (_QWORD *)(a2 + 2360) )
+    v6 = (_QWORD *)(a2 + 2360);
+    v7 = *(_QWORD **)(a2 + 2360);
+    if ( v7 != (_QWORD *)(a2 + 2360) )
     {
       while ( 1 )
       {
-        v11 = v10[2];
+        v8 = v7[2];
         Pool = MiAllocatePool(256, 0x40uLL, 0x6E53694Du);
         if ( !Pool )
           break;
-        Pool[7] = v11;
-        Pool[4] = *(v10 - 1);
-        v13 = (__int64 ***)(Pool + 5);
-        v14 = v29;
-        if ( *v29 != (__int64 *)&v28 )
-          goto LABEL_43;
-        v13[1] = v29;
-        *v13 = &v28;
-        *v14 = v13;
-        v29 = (__int64 **)v13;
-        v10 = (_QWORD *)*v10;
-        if ( v10 == v9 )
-          goto LABEL_10;
+        Pool[7] = v8;
+        Pool[4] = *(v7 - 1);
+        v10 = (__int64 ***)(Pool + 5);
+        v11 = v24;
+        if ( *v24 != (__int64 *)&v23 )
+          goto LABEL_35;
+        v10[1] = v24;
+        *v10 = &v23;
+        *v11 = v10;
+        v24 = (__int64 **)v10;
+        v7 = (_QWORD *)*v7;
+        if ( v7 == v6 )
+          goto LABEL_6;
       }
       inserted = -1073741670;
-LABEL_10:
+LABEL_6:
       v4 = a1;
     }
-    for ( i = (_QWORD *)*v9; (_QWORD *)*v9 != v9; i = (_QWORD *)*v9 )
-      MiRemoveSharedCommitNode(i[2], a2, 1LL);
+    while ( (_QWORD *)*v6 != v6 )
+      MiRemoveSharedCommitNode(*(_QWORD **)(*v6 + 16LL), a2, 1);
     if ( inserted < 0 )
     {
       while ( 1 )
       {
-        v24 = v28;
-        if ( v28 == (__int64 *)&v28 )
+        v20 = v23;
+        if ( v23 == (__int64 *)&v23 )
           break;
-        if ( (__int64 **)v28[1] != &v28 )
-          goto LABEL_43;
-        v25 = (__int64 *)*v28;
-        if ( *(__int64 **)(*v28 + 8) != v28 )
-          goto LABEL_43;
-        v28 = (__int64 *)*v28;
-        v25[1] = (__int64)&v28;
-        ExFreePoolWithTag(v24 - 5, 0);
+        if ( (__int64 **)v23[1] != &v23 )
+          goto LABEL_35;
+        v21 = (__int64 *)*v23;
+        if ( *(__int64 **)(*v23 + 8) != v23 )
+          goto LABEL_35;
+        v23 = (__int64 *)*v23;
+        v21[1] = (__int64)&v23;
+        ExFreePoolWithTag(v20 - 5, 0);
       }
     }
     else if ( (*(_DWORD *)(a2 + 2172) & 8) == 0 )
@@ -110,63 +99,54 @@ LABEL_10:
       _InterlockedOr((volatile signed __int32 *)(a2 + 2172), 8u);
     }
   }
-  v16 = *(_QWORD **)(v4 + 48);
-  v17 = (_QWORD *)(a2 + 1480);
-  if ( *v16 != v4 + 40 )
-LABEL_43:
+  v12 = *(_QWORD **)(v4 + 48);
+  v13 = (_QWORD *)(a2 + 1480);
+  if ( *v12 != v4 + 40 )
+LABEL_35:
     __fastfail(3u);
-  *v17 = v4 + 40;
-  *(_QWORD *)(a2 + 1488) = v16;
-  *v16 = v17;
-  *(_QWORD *)(v4 + 48) = v17;
+  *v13 = v4 + 40;
+  *(_QWORD *)(a2 + 1488) = v12;
+  *v12 = v13;
+  *(_QWORD *)(v4 + 48) = v13;
   *(_QWORD *)(a2 + 1296) = v4;
   while ( 1 )
   {
-    v18 = v28;
-    if ( v28 == (__int64 *)&v28 )
+    v14 = v23;
+    if ( v23 == (__int64 *)&v23 )
       break;
-    if ( (__int64 **)v28[1] != &v28 )
-      goto LABEL_43;
-    v19 = (__int64 *)*v28;
-    if ( *(__int64 **)(*v28 + 8) != v28 )
-      goto LABEL_43;
-    v28 = (__int64 *)*v28;
-    v19[1] = (__int64)&v28;
-    v20 = v18 - 5;
+    if ( (__int64 **)v23[1] != &v23 )
+      goto LABEL_35;
+    v15 = (__int64 *)*v23;
+    if ( *(__int64 **)(*v23 + 8) != v23 )
+      goto LABEL_35;
+    v23 = (__int64 *)*v23;
+    v15[1] = (__int64)&v23;
+    v16 = v14 - 5;
     if ( inserted >= 0 )
     {
-      v21 = v20[7];
-      if ( v20[4] )
+      v17 = (_QWORD *)v16[7];
+      if ( v16[4] )
       {
         do
         {
-          inserted = MiInsertSharedCommitNode(v21, a2, 1LL);
+          inserted = MiInsertSharedCommitNode(v17, a2, 1);
           if ( inserted < 0 )
             break;
-          v22 = v20[4]-- == 1;
         }
-        while ( !v22 );
-        v2 = (unsigned __int64 *)(a2 + 2352);
+        while ( v16[4]-- != 1 );
       }
     }
-    ExFreePoolWithTag(v20, 0);
+    ExFreePoolWithTag(v16, 0);
   }
   if ( inserted < 0 )
   {
-    for ( j = a2 + 2360; *(_QWORD *)j != j; MiRemoveSharedCommitNode(*(_QWORD *)(*(_QWORD *)j + 16LL), a2, 1LL) )
+    for ( i = a2 + 2360; *(_QWORD *)i != i; MiRemoveSharedCommitNode(*(_QWORD **)(*(_QWORD *)i + 16LL), a2, 1) )
       ;
     _InterlockedAnd((volatile signed __int32 *)(a2 + 2172), 0xFFFFFFF7);
     _InterlockedOr((volatile signed __int32 *)(a2 + 2172), 0x10u);
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v2);
-  LOBYTE(v23) = KeAbPostRelease((ULONG_PTR)v2);
-  v22 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v22 )
-  {
-    v23 = &CurrentThread->152;
-    if ( ($C71981A45BEB2B45F82C232A7085991E *)v23->ApcState.ApcListHead[0].Flink != v23 )
-      LOBYTE(v23) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v23;
+  if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v5);
+  KeAbPostRelease((ULONG_PTR)v5);
+  return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 }

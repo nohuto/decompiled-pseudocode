@@ -1,20 +1,14 @@
 /*
- * XREFs of ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x180020700
+ * XREFs of ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x18004393C
  * Callers:
- *     ??_GVisualCaptureBitsResponse@@UEAAPEAXI@Z @ 0x180020750 (--_GVisualCaptureBitsResponse@@UEAAPEAXI@Z.c)
+ *     ??_GVisualCaptureBitsResponse@@UEAAPEAXI@Z @ 0x180043800 (--_GVisualCaptureBitsResponse@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800FFF80 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x180045030 (--1-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$integr.c)
  */
 
-void __fastcall VisualCaptureBitsResponse::~VisualCaptureBitsResponse(VisualCaptureBitsResponse *this, void *a2)
+void __fastcall VisualCaptureBitsResponse::~VisualCaptureBitsResponse(VisualCaptureBitsResponse *this)
 {
-  wil::details *v3; // rcx
-
   *(_QWORD *)this = &VisualCaptureBitsResponse::`vftable';
-  v3 = (wil::details *)*((_QWORD *)this + 212);
-  if ( v3 )
-    wil::details::CloseHandle(v3, a2);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 211);
+  wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>((char *)this + 1720);
   CaptureBitsResponse::~CaptureBitsResponse(this);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddDirtyRegion@CRenderTargetBitmap@@$4PPPPPPPM@7EAAXAEBVCRegion@@@Z @ 0x18010C8F0
+ * XREFs of ?AddDirtyRegion@CRenderTargetBitmap@@$4PPPPPPPM@7EAAXAEBVCRegion@@@Z @ 0x1800F9310
  * Callers:
  *     <none>
  * Callees:

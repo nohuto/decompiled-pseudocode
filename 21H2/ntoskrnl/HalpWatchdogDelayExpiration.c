@@ -1,16 +1,17 @@
 /*
- * XREFs of HalpWatchdogDelayExpiration @ 0x14050ED80
+ * XREFs of HalpWatchdogDelayExpiration @ 0x1404C2960
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     HalpSetTimer @ 0x140354420 (HalpSetTimer.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
  */
 
 __int64 __fastcall HalpWatchdogDelayExpiration(_QWORD *a1)
 {
   __int64 v1; // rbx
   LARGE_INTEGER v3; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v4; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = HalpWatchdogTimer;
   if ( a1 )
@@ -20,7 +21,7 @@ __int64 __fastcall HalpWatchdogDelayExpiration(_QWORD *a1)
   if ( HalpTimerProcessorsFrozen
     && HalpTimerWatchdogLastReset + 3000000000LL >= (unsigned __int64)RtlGetInterruptTimePrecise(&v3) )
   {
-    return HalpSetTimer(v1, 3u, HalpTimerWatchdogTimeout, 1, (unsigned __int64 *)&v3.QuadPart);
+    return HalpSetTimer(v1, 3u, HalpTimerWatchdogTimeout, 1, &v4);
   }
   return 3221225473LL;
 }

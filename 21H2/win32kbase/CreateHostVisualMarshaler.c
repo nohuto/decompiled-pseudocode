@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateHostVisualMarshaler @ 0x1C009AF90
+ * XREFs of CreateHostVisualMarshaler @ 0x1C008FF70
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CHostVisualMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C009AFE4 (-Create@CHostVisualMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z.c)
+ *     ?Create@CHostVisualMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C008FFC4 (-Create@CHostVisualMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z.c)
  */
 
 __int64 __fastcall CreateHostVisualMarshaler(__int64 a1, int a2, struct DirectComposition::CHostVisualMarshaler **a3)

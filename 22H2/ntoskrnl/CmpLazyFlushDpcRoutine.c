@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLazyFlushDpcRoutine @ 0x1403657A0
+ * XREFs of CmpLazyFlushDpcRoutine @ 0x140324440
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     RtlpComputeEpilogueOffset @ 0x1403F2BC8 (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine5 @ 0x14042B250 (KiCustomAccessRoutine5.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403EB464 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine5 @ 0x140409210 (KiCustomAccessRoutine5.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall CmpLazyFlushDpcRoutine(
@@ -18,7 +18,7 @@ void __fastcall CmpLazyFlushDpcRoutine(
         unsigned __int64 SystemArgument1,
         unsigned __int64 SystemArgument2)
 {
-  _WORD v8[47]; // [rsp+120h] [rbp-68h] BYREF
+  _WORD v8[47]; // [rsp+130h] [rbp-68h] BYREF
 
   memset(v8, 0, sizeof(v8));
   if ( DeferredContext >> 47 != -1 && DeferredContext >> 47 != 0 )
@@ -37,5 +37,5 @@ void __fastcall CmpLazyFlushDpcRoutine(
     *(_QWORD *)(DeferredContext + 168) = 0LL;
   else
     KeSetEvent((PRKEVENT)(DeferredContext + 128), 0, 0);
-  KxReleaseSpinLock((volatile signed __int64 *)(DeferredContext + 152));
+  KxReleaseSpinLock((PKSPIN_LOCK)(DeferredContext + 152));
 }

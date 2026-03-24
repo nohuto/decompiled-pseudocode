@@ -1,24 +1,24 @@
 /*
- * XREFs of ?FxIFRReplay@@YAX_K@Z @ 0x1C005D25C
+ * XREFs of ?FxIFRReplay@@YAX_K@Z @ 0x1C003CF28
  * Callers:
- *     WppTraceCallbackWdf @ 0x1C00334D0 (WppTraceCallbackWdf.c)
+ *     WppTraceCallbackWdf @ 0x1C003A140 (WppTraceCallbackWdf.c)
  * Callees:
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C005CEA8 (-FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C005D084 (-FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z.c)
- *     ?FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z @ 0x1C005D57C (-FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z.c)
- *     WPP_IFR_SF_s @ 0x1C005D984 (WPP_IFR_SF_s.c)
- *     WPP_IFR_SF_sd @ 0x1C005DA8C (WPP_IFR_SF_sd.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ?FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C003CB74 (-FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C003CD50 (-FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z.c)
+ *     ?FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z @ 0x1C003D238 (-FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z.c)
+ *     WPP_IFR_SF_s @ 0x1C003D654 (WPP_IFR_SF_s.c)
+ *     WPP_IFR_SF_sd @ 0x1C003D75C (WPP_IFR_SF_sd.c)
  */
 
 void __fastcall FxIFRReplay(unsigned __int64 LoggerHandle)
 {
   int v2; // ebx
   int v3; // eax
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v5; // rdi
   const wchar_t *v6; // rsi
   unsigned int v7; // r8d
@@ -34,15 +34,15 @@ void __fastcall FxIFRReplay(unsigned __int64 LoggerHandle)
   wchar_t *v17; // [rsp+58h] [rbp-A8h]
   _UNICODE_STRING currentDriverUnicode; // [rsp+60h] [rbp-A0h] BYREF
   _FX_DRIVER_GLOBALS fxGlobalsForReplay; // [rsp+70h] [rbp-90h] BYREF
-  char driverChar[32]; // [rsp+270h] [rbp+170h] BYREF
+  char driverChar[32]; // [rsp+260h] [rbp+160h] BYREF
 
-  multiStringLength = 0;
   memset(&fxGlobalsForReplay, 0, 24);
+  multiStringLength = 0;
   fxGlobalsForReplay.DestroyEvent.m_DbgFlagIsInitialized = 0;
   currentDriverUnicode = 0LL;
   currentDriverAnsi = 0LL;
-  memset(&fxGlobalsForReplay.WdfHandleMask, 0, 224);
-  memset(&fxGlobalsForReplay.ThreadTableLock.m_Lock, 0, 224);
+  memset(&fxGlobalsForReplay.WdfHandleMask, 0, 0xD8uLL);
+  memset(&fxGlobalsForReplay.ThreadTableLock.m_Lock, 0, 216);
   fxGlobalsForReplay.ThreadTableLock.m_DbgFlagIsInitialized = 1;
   fxGlobalsForReplay.WdfLogHeader = 0LL;
   if ( LoggerHandle )
@@ -53,12 +53,12 @@ void __fastcall FxIFRReplay(unsigned __int64 LoggerHandle)
     v2 = v3;
     if ( v3 == -2147483643 || v3 == -1073741789 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, multiStringLength, 1733064774LL);
-      v17 = Pool2;
-      v5 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, multiStringLength, 0x674C7846u);
+      v17 = PoolWithTag;
+      v5 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v2 = FxIFRGetDriverMultiString(multiStringLength, Pool2, &multiStringLength);
+        v2 = FxIFRGetDriverMultiString(multiStringLength, PoolWithTag, &multiStringLength);
         if ( v2 >= 0 )
         {
           v6 = v5;

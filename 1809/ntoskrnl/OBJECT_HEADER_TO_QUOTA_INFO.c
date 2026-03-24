@@ -3,8 +3,8 @@
  * Callers:
  *     ObAdjustSecurityQuota @ 0x1405C99A4 (ObAdjustSecurityQuota.c)
  *     ObpChargeQuotaForObject @ 0x1405C9A24 (ObpChargeQuotaForObject.c)
- *     NtQueryObject @ 0x140660AD0 (NtQueryObject.c)
- *     ObGetObjectInformation @ 0x140861C80 (ObGetObjectInformation.c)
+ *     NtQueryObject @ 0x140660AB0 (NtQueryObject.c)
+ *     ObGetObjectInformation @ 0x140861C60 (ObGetObjectInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,11 @@
 /*
- * XREFs of ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0153CDC
+ * XREFs of ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0081BE4
  * Callers:
- *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C01533C8 (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
+ *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C008181C (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
  * Callees:
- *     ?bXformRound@EXFORMOBJ@@QEAAHAEAV?$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z @ 0x1C015280C (-bXformRound@EXFORMOBJ@@QEAAHAEAV-$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z.c)
- *     ?ssizet_add_to_sizet@?$umptr@U_POINTL@@@@SA_N_K_JPEA_K@Z @ 0x1C01529C4 (-ssizet_add_to_sizet@-$umptr@U_POINTL@@@@SA_N_K_JPEA_K@Z.c)
- *     ??$read@U_POINTFIX@@@?$umptr_r@U_POINTL@@@@QEBA_NPEAU_POINTFIX@@_K_J@Z @ 0x1C0152C18 (--$read@U_POINTFIX@@@-$umptr_r@U_POINTL@@@@QEBA_NPEAU_POINTFIX@@_K_J@Z.c)
- *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C0153F60 (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
+ *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C00BC790 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
+ *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C00BD5B8 (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 void __fastcall EPATHOBJ::growlastrec(
@@ -16,20 +15,19 @@ void __fastcall EPATHOBJ::growlastrec(
         struct _POINTFIX *a4)
 {
   __int64 v4; // rax
-  __int64 v8; // rsi
+  __int64 v8; // rbx
   __int64 v9; // r14
-  int v10; // edx
-  __int64 v11; // rcx
-  unsigned __int64 v12; // r10
-  unsigned __int64 v13; // rax
-  unsigned int v14; // edi
+  __int64 v10; // rcx
+  unsigned __int64 v11; // r10
+  unsigned __int64 v12; // rax
+  unsigned int v13; // edi
+  struct _POINTL *v14; // rdx
   struct _POINTFIX *v15; // rdx
   struct _POINTFIX *v16; // rdx
   __int64 v17; // r8
-  __int64 v18; // rax
-  struct _POINTFIX *v19; // [rsp+58h] [rbp+20h] BYREF
+  int v18; // eax
+  __int64 v19; // rax
 
-  v19 = a4;
   v4 = *((_QWORD *)this + 1);
   v8 = *(_QWORD *)(v4 + 40);
   if ( v8 )
@@ -37,49 +35,38 @@ void __fastcall EPATHOBJ::growlastrec(
     v9 = *(_QWORD *)(v4 + 24);
     if ( v9 )
     {
-      v10 = *((_DWORD *)a3 + 8);
-      if ( v10 == (*(_DWORD *)(v8 + 16) & 0xFFFFFFFC) )
+      if ( *(_DWORD *)a3 == (*(_DWORD *)(v8 + 16) & 0xFFFFFFFC) )
       {
-        LODWORD(v11) = 0;
-        v12 = v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL);
-        v13 = v9 + *(unsigned int *)(v9 + 16);
-        if ( v13 > v12 )
-          v11 = (__int64)(v13 - v12) >> 3;
-        v14 = *((_DWORD *)a3 + 9);
-        if ( (unsigned int)v11 <= v14 )
-          v14 = v11;
-        if ( (v10 & 0x10) != 0 )
-          v14 = 3 * (v14 / 3);
-        if ( v14 )
+        LODWORD(v10) = 0;
+        v11 = v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL);
+        v12 = v9 + *(unsigned int *)(v9 + 16);
+        if ( v12 > v11 )
+          v10 = (__int64)(v12 - v11) >> 3;
+        v13 = *((_DWORD *)a3 + 1);
+        if ( (unsigned int)v10 <= v13 )
+          v13 = v10;
+        if ( (*(_DWORD *)a3 & 0x10) != 0 )
+          v13 = 3 * (v13 / 3);
+        if ( v13 )
         {
+          v14 = (struct _POINTL *)*((_QWORD *)a3 + 1);
           if ( a2 )
-            EXFORMOBJ::bXformRound((__int64 *)a2, (__int64 *)a3, v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL), v14);
+            EXFORMOBJ::bXformRound(a2, v14, (struct _POINTFIX *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)), v13);
           else
-            umptr_r<_POINTL>::read<_POINTFIX>((__int64)a3, (void *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)), v14);
-          if ( !*((_BYTE *)a3 + 25) && !*((_BYTE *)a3 + 24) )
+            memmove((void *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)), v14, 8LL * v13);
+          v15 = (struct _POINTFIX *)(v8 + 24 + 8LL * *(unsigned int *)(v8 + 20));
+          do
           {
-            v15 = (struct _POINTFIX *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL));
-            do
-            {
-              ERECTFX::vInclude((ERECTFX *)(*((_QWORD *)this + 1) + 48LL), v15);
-              v15 = v16 + 1;
-            }
-            while ( v17 != 1 );
-            *(_DWORD *)(v8 + 20) += v14;
-            v18 = *(unsigned int *)(v8 + 20);
-            v19 = 0LL;
-            *(_QWORD *)(v9 + 8) = v8 + 8 * (v18 + 3);
-            *((_DWORD *)a3 + 9) -= v14;
-            if ( umptr<_POINTL>::ssizet_add_to_sizet(*((_QWORD *)a3 + 2), v14, (__int64 *)&v19)
-              && (unsigned __int64)v19 <= *((_QWORD *)a3 + 1) )
-            {
-              *((_QWORD *)a3 + 2) = v19;
-            }
-            else
-            {
-              *((_BYTE *)a3 + 24) = 1;
-            }
+            ERECTFX::vInclude((ERECTFX *)(*((_QWORD *)this + 1) + 48LL), v15);
+            v15 = v16 + 1;
           }
+          while ( v17 != 1 );
+          v18 = *(_DWORD *)(v8 + 20);
+          *((_DWORD *)a3 + 1) -= v13;
+          v19 = v13 + v18;
+          *(_DWORD *)(v8 + 20) = v19;
+          *((_QWORD *)a3 + 1) += 8LL * v13;
+          *(_QWORD *)(v9 + 8) = v8 + 8 * (v19 + 3);
         }
       }
     }

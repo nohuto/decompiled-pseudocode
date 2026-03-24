@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiAcpiGetAcpiChildName @ 0x1C0217958
+ * XREFs of DpiAcpiGetAcpiChildName @ 0x1C0197A74
  * Callers:
- *     DpEvalAcpiMethod @ 0x1C01DED20 (DpEvalAcpiMethod.c)
- *     DpiFdoCreateChildDescriptor @ 0x1C02177D4 (DpiFdoCreateChildDescriptor.c)
+ *     DpEvalAcpiMethod @ 0x1C01651D0 (DpEvalAcpiMethod.c)
+ *     DpiFdoCreateChildDescriptor @ 0x1C01978C4 (DpiFdoCreateChildDescriptor.c)
  * Callees:
- *     DpiAcpiPrepareAcpiChildNameList @ 0x1C02179B4 (DpiAcpiPrepareAcpiChildNameList.c)
+ *     DpiAcpiPrepareAcpiChildNameList @ 0x1C0197AD8 (DpiAcpiPrepareAcpiChildNameList.c)
  */
 
 __int64 __fastcall DpiAcpiGetAcpiChildName(__int64 a1, int a2)
@@ -12,16 +12,16 @@ __int64 __fastcall DpiAcpiGetAcpiChildName(__int64 a1, int a2)
   int v4; // eax
   unsigned int v5; // r8d
   unsigned int v6; // r9d
-  __int64 v7; // rcx
+  __int64 v7; // rdx
 
-  v4 = DpiAcpiPrepareAcpiChildNameList();
+  v4 = DpiAcpiPrepareAcpiChildNameList(a1);
   v5 = 0;
   if ( v4 < 0 )
     return 0LL;
-  v6 = *(_DWORD *)(a1 + 3296);
+  v6 = *(_DWORD *)(a1 + 3280);
   if ( !v6 )
     return 0LL;
-  v7 = *(_QWORD *)(a1 + 3312);
+  v7 = *(_QWORD *)(a1 + 3296);
   while ( a2 != *(_DWORD *)(v7 + 16LL * v5) )
   {
     if ( ++v5 >= v6 )

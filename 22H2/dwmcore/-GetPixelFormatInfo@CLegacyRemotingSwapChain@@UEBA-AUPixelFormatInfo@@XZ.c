@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CLegacyRemotingSwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x1802A3920
+ * XREFs of ?GetPixelFormatInfo@CLegacyRemotingSwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x180251C54
  * Callers:
- *     ?GetPixelFormatInfo@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x180121640 (-GetPixelFormatInfo@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F7C70 (-GetPixelFormatInfo@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CLegacyRemotingSwapChain::GetPixelFormatInfo(__int64 a1, _DWORD *a2)
@@ -11,7 +11,7 @@ _DWORD *__fastcall CLegacyRemotingSwapChain::GetPixelFormatInfo(__int64 a1, _DWO
   __int64 v3; // rdx
   void (__fastcall ***v4)(_QWORD, _DWORD *); // rcx
 
-  v3 = *(_QWORD *)(a1 - 168);
+  v3 = *(_QWORD *)(a1 - 184);
   if ( v3 )
   {
     v4 = (void (__fastcall ***)(_QWORD, _DWORD *))(v3 + 8 + *(int *)(*(_QWORD *)(v3 + 8) + 12LL));

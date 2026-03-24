@@ -1,8 +1,8 @@
 /*
- * XREFs of PfpProcessScenarioPhase @ 0x14071BBDC
+ * XREFs of PfpProcessScenarioPhase @ 0x14071BBBC
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
- *     PfSnSetPrefetcherInformation @ 0x140665EB8 (PfSnSetPrefetcherInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
  * Callees:
  *     PsGetCurrentProcessSessionId @ 0x140002AA0 (PsGetCurrentProcessSessionId.c)
  *     RtlGetActiveConsoleId @ 0x140010890 (RtlGetActiveConsoleId.c)
@@ -11,7 +11,7 @@
  *     PfpScenCtxPrefetchWait @ 0x1405669E0 (PfpScenCtxPrefetchWait.c)
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
  *     PfpScenCtxScenarioSet @ 0x14056EA68 (PfpScenCtxScenarioSet.c)
- *     PfpLogScenarioEvent @ 0x14071BCD4 (PfpLogScenarioEvent.c)
+ *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
  */
 
 __int64 __fastcall PfpProcessScenarioPhase(__int64 a1, char a2)

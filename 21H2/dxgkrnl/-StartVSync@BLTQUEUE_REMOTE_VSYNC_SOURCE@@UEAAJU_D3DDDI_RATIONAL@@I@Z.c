@@ -1,132 +1,130 @@
 /*
- * XREFs of ?StartVSync@BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z @ 0x1C03BFB90
+ * XREFs of ?StartVSync@BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z @ 0x1C0300920
  * Callers:
  *     <none>
  * Callees:
- *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C0002624 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55___ @ 0x1C006D618 (DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55___.c)
- *     _DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55____::_2_::DXGKCALLONEXIT::_DXGKCALLONEXIT @ 0x1C006D638 (_DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55____--_2_--DXGKCALLONEXIT--_DXGKCALLONEX.c)
- *     ?FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER_GUEST@1@PEAUPATH_IDENTIFIER_HOST@1@@Z @ 0x1C033D650 (-FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER_GUEST@1@PEAUPATH_IDENTIFI.c)
- *     ?VmBusSendVsyncControl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJU_LUID@@IPEAX_N@Z @ 0x1C037F4C0 (-VmBusSendVsyncControl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJU_LUID@@IPEAX_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C001AFA4 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
+ *     ?VmBusSendVsyncControl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJU_LUID@@IPEAX_N@Z @ 0x1C024D97C (-VmBusSendVsyncControl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJU_LUID@@IPEAX_N@Z.c)
+ *     ?FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER@1@0@Z @ 0x1C02C3E6C (-FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER@1@0@Z.c)
+ *     ?LogUnexpectedStartFailure@BLTQUEUE_REMOTE_VSYNC_SOURCE@@AEAAXJW4StartExitReason@1@@Z @ 0x1C03007BC (-LogUnexpectedStartFailure@BLTQUEUE_REMOTE_VSYNC_SOURCE@@AEAAXJW4StartExitReason@1@@Z.c)
  */
 
 __int64 __fastcall BLTQUEUE_REMOTE_VSYNC_SOURCE::StartVSync(
         BLTQUEUE_REMOTE_VSYNC_SOURCE *this,
         struct _D3DDDI_RATIONAL a2,
-        unsigned int a3)
+        __int64 a3,
+        __int64 a4)
 {
-  int v3; // edi
-  __int64 v4; // r14
-  DXGDODPRESENT *v7; // rcx
+  __int64 v5; // rsi
   struct DXGADAPTER *Adapter; // rax
+  __int64 v8; // rdx
   __int64 v9; // rdx
   __int64 v10; // rcx
-  struct DXGADAPTER *v11; // rax
-  BLTQUEUE_REMOTE_VSYNC_SOURCE *v12; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  struct DXGADAPTER *v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rdx
   struct DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v14; // rax
-  struct DXGADAPTER *v15; // rax
-  __int64 v16; // rdx
-  DXG_GUEST_GLOBAL_VMBUS *v17; // rcx
-  unsigned int v18; // ebx
-  struct _LUID v19; // rbx
-  unsigned int v20; // r15d
-  struct DXGADAPTER *v21; // rax
-  __int64 v22; // rdx
-  struct _LUID v23; // [rsp+50h] [rbp-19h] BYREF
-  unsigned int v24; // [rsp+58h] [rbp-11h]
-  BLTQUEUE_REMOTE_VSYNC_SOURCE *v25; // [rsp+60h] [rbp-9h] BYREF
-  int *v26; // [rsp+68h] [rbp-1h]
-  int *v27; // [rsp+70h] [rbp+7h]
-  _BYTE v28[64]; // [rsp+80h] [rbp+17h] BYREF
-  int MappingFromGuestId; // [rsp+D0h] [rbp+67h] BYREF
-  int v30; // [rsp+E8h] [rbp+7Fh] BYREF
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  int MappingFromGuestId; // ebx
+  struct DXGADAPTER *v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  struct _KTHREAD **v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // rcx
+  struct _LUID v28; // rbx
+  unsigned int v29; // r14d
+  int v30; // eax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // rbp
+  struct DXGADAPTER *v35; // rax
+  _QWORD *v36; // rdx
+  __int64 v37; // rcx
+  struct _LUID v38; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v39; // [rsp+38h] [rbp-20h]
+  __int64 v40; // [rsp+40h] [rbp-18h] BYREF
+  int v41; // [rsp+48h] [rbp-10h]
 
-  v3 = 0;
-  v4 = a3;
+  v5 = (unsigned int)a3;
   if ( *((_BYTE *)this + 104) )
     return 3221225473LL;
-  v7 = (DXGDODPRESENT *)*((_QWORD *)this + 12);
-  if ( !v7 )
+  if ( !*((_QWORD *)this + 12) )
   {
-    *(_QWORD *)(((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdTrace)(0LL, a2) + 24) = 62LL;
+    *(_QWORD *)(((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))WdLogNewEntry5_WdTrace)(this, a2, a3, a4) + 24) = 62LL;
     return 3221225473LL;
   }
-  if ( a3 == -1 )
+  if ( (_DWORD)a3 == -1 )
   {
-    Adapter = DXGDODPRESENT::GetAdapter(v7);
-    WdLogSingleEntry1(3LL, Adapter);
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))WdLogNewEntry5_WdWarning)(this, a2, a3);
+    Adapter = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
+    *(_QWORD *)(v8 + 24) = Adapter;
+    WdLogEvent5_WdWarning(v8);
     return 3221225473LL;
   }
-  if ( !*((_BYTE *)DXGGLOBAL_GetGlobal() + 304912) )
+  if ( !*((_BYTE *)DXGGLOBAL::GetGlobal((__int64)this, *(_QWORD *)&a2) + 304664) )
   {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v10, v9) + 24) = 76LL;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v10, v9, v11, v12) + 24) = 76LL;
     return 3221225473LL;
   }
-  MappingFromGuestId = 0;
-  v26 = &MappingFromGuestId;
-  v30 = 3;
-  v27 = &v30;
-  v25 = this;
-  DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55_((__int64)v28, (__int64)&v25);
-  v11 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
-  v26 = (int *)(unsigned int)v4;
-  v12 = *(BLTQUEUE_REMOTE_VSYNC_SOURCE **)((char *)v11 + 404);
-  v23 = 0LL;
-  v24 = 0;
-  v25 = v12;
-  Global = DXGGLOBAL_GetGlobal();
+  v13 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
+  v41 = v5;
+  v14 = *(_QWORD *)((char *)v13 + 316);
+  v38 = 0LL;
+  v39 = 0;
+  v40 = v14;
+  Global = DXGGLOBAL::GetGlobal(v14, v15);
   MappingFromGuestId = REMOTEMONITORMAPPING::FindMappingFromGuestId(
-                         (struct _KTHREAD **)Global + 38108,
-                         (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER_GUEST *)&v25,
-                         (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER_HOST *)&v23);
-  if ( MappingFromGuestId < 0 )
+                         (struct _KTHREAD **)Global + 38077,
+                         (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER *)&v40,
+                         (struct REMOTEMONITORMAPPING::PATH_IDENTIFIER *)&v38);
+  if ( MappingFromGuestId >= 0 )
   {
-    v14 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
-    WdLogSingleEntry2(2LL, v14, v4);
-    v15 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to find host mapping for adapter 0x%I64x, target id 0x%I64x",
-      (__int64)v15,
-      v4,
-      0LL,
-      0LL,
-      0LL);
-LABEL_15:
-    v18 = MappingFromGuestId;
-    goto LABEL_16;
+    v24 = (struct _KTHREAD **)*((_QWORD *)DXGGLOBAL::GetGlobal(v18, v17) + 197);
+    if ( !v24 )
+    {
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(0LL, v23, v25, v26) + 24) = 97LL;
+      BLTQUEUE_REMOTE_VSYNC_SOURCE::LogUnexpectedStartFailure(v27, -1073741823, 1);
+      return 3221225473LL;
+    }
+    v28 = v38;
+    v29 = v39;
+    v30 = DXG_GUEST_GLOBAL_VMBUS::VmBusSendVsyncControl(v24, v38, v39, (char *)this + 72, 1);
+    v34 = v30;
+    if ( v30 >= 0 )
+    {
+      KeSetTimerEx((PKTIMER)((char *)this + 8), (LARGE_INTEGER)-300000000LL, 0, 0LL);
+      *((_BYTE *)this + 104) = 1;
+      *(struct _LUID *)((char *)this + 108) = v28;
+      *((_DWORD *)this + 29) = v29;
+    }
+    else
+    {
+      WdLogNewEntry5_WdWarning(v32, v31, v33);
+      v35 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
+      v36[3] = v35;
+      v36[4] = v5;
+      v36[5] = v34;
+      WdLogEvent5_WdWarning(v36);
+      BLTQUEUE_REMOTE_VSYNC_SOURCE::LogUnexpectedStartFailure(v37, v34, 2);
+    }
+    return (unsigned int)v34;
   }
-  v17 = (DXG_GUEST_GLOBAL_VMBUS *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 218);
-  if ( !v17 )
+  else
   {
-    v18 = -1073741823;
-    v3 = 1;
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(0LL, v16) + 24) = 107LL;
-    MappingFromGuestId = -1073741823;
-LABEL_16:
-    v30 = v3;
-    DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55____::_2_::DXGKCALLONEXIT::_DXGKCALLONEXIT((__int64)v28);
-    return v18;
+    WdLogNewEntry5_WdError(v18, v17);
+    v20 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
+    *(_QWORD *)(v21 + 24) = v20;
+    *(_QWORD *)(v21 + 32) = v5;
+    WdLogEvent5_WdError(v21);
+    BLTQUEUE_REMOTE_VSYNC_SOURCE::LogUnexpectedStartFailure(v22, MappingFromGuestId, 0);
+    return (unsigned int)MappingFromGuestId;
   }
-  v19 = v23;
-  v20 = v24;
-  MappingFromGuestId = DXG_GUEST_GLOBAL_VMBUS::VmBusSendVsyncControl(v17, v23, v24, (char *)this + 72, 1);
-  if ( MappingFromGuestId < 0 )
-  {
-    v21 = DXGDODPRESENT::GetAdapter(*((DXGDODPRESENT **)this + 12));
-    WdLogSingleEntry3(3LL, v21, v4, v22);
-    v3 = 2;
-    goto LABEL_15;
-  }
-  KeSetTimerEx((PKTIMER)((char *)this + 8), (LARGE_INTEGER)-300000000LL, 0, 0LL);
-  *((_BYTE *)this + 104) = 1;
-  *(struct _LUID *)((char *)this + 108) = v19;
-  *((_DWORD *)this + 29) = v20;
-  DXGKCALLONEXIT__lambda_f2b9d226f722eaa398f70d82a0c06a55____::_2_::DXGKCALLONEXIT::_DXGKCALLONEXIT((__int64)v28);
-  return (unsigned int)MappingFromGuestId;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGetReasonListByReasonCode @ 0x140762AB4
+ * XREFs of PopGetReasonListByReasonCode @ 0x14067B678
  * Callers:
- *     PopRemoveReasonRecordByReasonCode @ 0x140762A68 (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x140810E2C (PopLogSleepDisabled.c)
- *     PopCheckDisabledReason @ 0x1408193BC (PopCheckDisabledReason.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14067B62C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14077EC0C (PopLogSleepDisabled.c)
+ *     PopCheckDisabledReason @ 0x140791604 (PopCheckDisabledReason.c)
  * Callees:
  *     <none>
  */

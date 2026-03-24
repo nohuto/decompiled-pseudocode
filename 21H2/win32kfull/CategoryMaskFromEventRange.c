@@ -1,8 +1,8 @@
 /*
- * XREFs of CategoryMaskFromEventRange @ 0x1C00E61DC
+ * XREFs of CategoryMaskFromEventRange @ 0x1C00228BC
  * Callers:
- *     _SetWinEventHook @ 0x1C00E5D30 (_SetWinEventHook.c)
- *     DestroyEventHook @ 0x1C00E5FC0 (DestroyEventHook.c)
+ *     _SetWinEventHook @ 0x1C0022664 (_SetWinEventHook.c)
+ *     DestroyEventHook @ 0x1C0022810 (DestroyEventHook.c)
  * Callees:
  *     <none>
  */
@@ -14,14 +14,14 @@ __int64 __fastcall CategoryMaskFromEventRange(unsigned int a1, unsigned int a2)
   __int64 v4; // r10
 
   result = 0LL;
-  v3 = &unk_1C032EE34;
+  v3 = &unk_1C0333AE4;
   LODWORD(v4) = 0;
   do
   {
     if ( *(v3 - 1) > a2 )
       break;
     v4 = (unsigned int)(v4 + 1);
-    if ( *((_DWORD *)&unk_1C032EE30 + 2 * v4) - 1 >= a1 )
+    if ( *((_DWORD *)&unk_1C0333AE0 + 2 * v4) - 1 >= a1 )
       result = *v3 | (unsigned int)result;
     v3 += 2;
   }

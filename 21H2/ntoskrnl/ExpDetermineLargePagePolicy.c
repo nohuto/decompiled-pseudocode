@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDetermineLargePagePolicy @ 0x1403C43E0
+ * XREFs of ExpDetermineLargePagePolicy @ 0x1403C3D48
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1403C3FA0 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x1403C3924 (ExInitializePoolHeapManagement.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1406AD260 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 __fastcall ExpDetermineLargePagePolicy(__int64 a1)
@@ -19,7 +19,11 @@ __int64 __fastcall ExpDetermineLargePagePolicy(__int64 a1)
   *(_QWORD *)&v2 = MmGetNumberOfPhysicalPages(0LL);
   v3 = (unsigned __int64)v2 >> 8;
   v4 = (unsigned __int64)v2 >> 9;
-  if ( (unsigned __int64)v2 >> 8 >= 0x1000 )
+  if ( (unsigned __int64)v2 >> 8 < 0x1000 )
+  {
+    v5 = (unsigned __int64)v2 >> 14;
+  }
+  else
   {
     if ( v3 < 0x4000 )
     {
@@ -27,10 +31,6 @@ __int64 __fastcall ExpDetermineLargePagePolicy(__int64 a1)
       v4 = *((_QWORD *)&v2 + 1) + ((v4 - *((_QWORD *)&v2 + 1)) >> 1);
     }
     v5 = v4 >> 4;
-  }
-  else
-  {
-    v5 = (unsigned __int64)v2 >> 14;
   }
   *(_QWORD *)(a1 + 8) = -1LL;
   *(_QWORD *)a1 = v5;

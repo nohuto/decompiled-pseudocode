@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHandleProperty@CCompositionSurfaceBitmapMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C00AC890
+ * XREFs of ?SetHandleProperty@CCompositionSurfaceBitmapMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C009BC20
  * Callers:
  *     <none>
  * Callees:

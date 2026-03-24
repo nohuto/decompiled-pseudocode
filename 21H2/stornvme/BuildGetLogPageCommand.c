@@ -1,23 +1,22 @@
 /*
- * XREFs of BuildGetLogPageCommand @ 0x1C0005458
+ * XREFs of BuildGetLogPageCommand @ 0x1C0002AA4
  * Callers:
- *     QueryProtocolInfoLogPageData @ 0x1C00014A0 (QueryProtocolInfoLogPageData.c)
- *     QueryProtocolInfoCompletion @ 0x1C0001720 (QueryProtocolInfoCompletion.c)
- *     FirmwareGetInfo @ 0x1C0002AC0 (FirmwareGetInfo.c)
- *     ScsiModeSenseRequest @ 0x1C000335C (ScsiModeSenseRequest.c)
- *     NVMeGetCommandEffectsLog @ 0x1C00088B0 (NVMeGetCommandEffectsLog.c)
- *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C0008A28 (NVMeGetCloudSSDErrorRecoveryLog.c)
- *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C000F748 (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
- *     BuildGetLogPageCommandForTelemetryLog @ 0x1C001A0C4 (BuildGetLogPageCommandForTelemetryLog.c)
- *     IoctlQueryEnduranceInformation @ 0x1C001B91C (IoctlQueryEnduranceInformation.c)
- *     IoctlQueryTemperatureInfoProcess @ 0x1C001BD14 (IoctlQueryTemperatureInfoProcess.c)
- *     LogSenseInformationalExceptions @ 0x1C001C6EC (LogSenseInformationalExceptions.c)
- *     LogSenseTemperature @ 0x1C001C8D4 (LogSenseTemperature.c)
- *     NVMeGetSanitizeLogWorkItem @ 0x1C001DC70 (NVMeGetSanitizeLogWorkItem.c)
- *     ProtocolCommandCompletion @ 0x1C001F950 (ProtocolCommandCompletion.c)
- *     NVMeAsyncEventRequestCompletion @ 0x1C00215A0 (NVMeAsyncEventRequestCompletion.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C0001F7C (QueryProtocolInfoLogPageData.c)
+ *     FirmwareGetInfo @ 0x1C000233C (FirmwareGetInfo.c)
+ *     ScsiModeSenseRequest @ 0x1C000294C (ScsiModeSenseRequest.c)
+ *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C000778C (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
+ *     BuildGetLogPageCommandForTelemetryLog @ 0x1C00110A8 (BuildGetLogPageCommandForTelemetryLog.c)
+ *     IoctlQueryEnduranceInformation @ 0x1C00130A4 (IoctlQueryEnduranceInformation.c)
+ *     IoctlQueryTemperatureInfoProcess @ 0x1C001348C (IoctlQueryTemperatureInfoProcess.c)
+ *     LogSenseInformationalExceptions @ 0x1C0013E64 (LogSenseInformationalExceptions.c)
+ *     LogSenseTemperature @ 0x1C001404C (LogSenseTemperature.c)
+ *     NVMeGetDeviceTelemetryData @ 0x1C001476C (NVMeGetDeviceTelemetryData.c)
+ *     ProtocolCommandCompletion @ 0x1C0015EE0 (ProtocolCommandCompletion.c)
+ *     NVMeAsyncEventRequestCompletion @ 0x1C0017780 (NVMeAsyncEventRequestCompletion.c)
+ *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C0018FC8 (NVMeGetCloudSSDErrorRecoveryLog.c)
+ *     NVMeGetCommandEffectsLog @ 0x1C0019218 (NVMeGetCommandEffectsLog.c)
  * Callees:
- *     SetPrpFromBuffer @ 0x1C000556C (SetPrpFromBuffer.c)
+ *     SetPrpFromBuffer @ 0x1C0002BA8 (SetPrpFromBuffer.c)
  */
 
 __int64 __fastcall BuildGetLogPageCommand(
@@ -37,9 +36,9 @@ __int64 __fastcall BuildGetLogPageCommand(
   unsigned int v15; // edi
   __int64 result; // rax
 
-  v8 = *(_QWORD *)(a1 + 1640);
+  v8 = *(_QWORD *)(a1 + 1624);
   v12 = a4;
-  if ( a3 <= 9u && (v13 = 954, _bittest(&v13, a3)) || (unsigned __int8)(a3 + 0x80) <= 1u )
+  if ( a3 <= 9u && (v13 = 570, _bittest(&v13, a3)) || a3 == 0x80 )
     a6 = -1;
   *(_BYTE *)(a2 + 4136) = a3;
   v14 = *(_DWORD *)(a2 + 4136) & 0xF0007FFF;

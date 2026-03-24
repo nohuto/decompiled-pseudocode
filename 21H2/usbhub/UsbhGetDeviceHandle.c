@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhGetDeviceHandle @ 0x1C003772C
+ * XREFs of UsbhGetDeviceHandle @ 0x1C00389F4
  * Callers:
- *     UsbhCreateDevice @ 0x1C001BC70 (UsbhCreateDevice.c)
- *     UsbhFdoReturnTtDeviceHandle @ 0x1C002A0D8 (UsbhFdoReturnTtDeviceHandle.c)
- *     UsbhGetHubDeviceInformation @ 0x1C002BAD8 (UsbhGetHubDeviceInformation.c)
- *     UsbhInitializeTtHub @ 0x1C002C898 (UsbhInitializeTtHub.c)
- *     UsbhFdoHandleGetDumpDataIoctl @ 0x1C002FB9C (UsbhFdoHandleGetDumpDataIoctl.c)
+ *     UsbhCreateDevice @ 0x1C0019118 (UsbhCreateDevice.c)
+ *     UsbhFdoReturnTtDeviceHandle @ 0x1C002B428 (UsbhFdoReturnTtDeviceHandle.c)
+ *     UsbhGetHubDeviceInformation @ 0x1C002CEE0 (UsbhGetHubDeviceInformation.c)
+ *     UsbhInitializeTtHub @ 0x1C002DCB8 (UsbhInitializeTtHub.c)
+ *     UsbhFdoHandleGetDumpDataIoctl @ 0x1C0030F34 (UsbhFdoHandleGetDumpDataIoctl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhGetDeviceHandle(__int64 a1, __int64 a2)

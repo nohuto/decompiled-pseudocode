@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FxMdlDump@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C006EE0C
+ * XREFs of ?FxMdlDump@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C005BE8C
  * Callers:
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  * Callees:
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
  */
 
 void __fastcall FxMdlDump(_FX_DRIVER_GLOBALS *FxDriverGlobals)

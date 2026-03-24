@@ -1,65 +1,57 @@
 /*
- * XREFs of NtUserPerMonitorDPIPhysicalToLogicalPoint @ 0x1C01FADC0
+ * XREFs of NtUserPerMonitorDPIPhysicalToLogicalPoint @ 0x1C02000C0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z @ 0x1C00F8768 (-DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     DCEPtInRect @ 0x1C00FBB98 (DCEPtInRect.c)
  */
 
-__int64 __fastcall NtUserPerMonitorDPIPhysicalToLogicalPoint(__int64 a1, struct tagPOINT *a2, __int64 a3)
+__int64 __fastcall NtUserPerMonitorDPIPhysicalToLogicalPoint(__int64 a1, unsigned __int64 *a2)
 {
-  __int64 v4; // rbx
-  __int64 v5; // rcx
-  _BYTE *v6; // rdx
+  __int64 v4; // rcx
+  _QWORD *v5; // rdx
   unsigned int CurrentThreadDpiAwarenessContext; // eax
-  unsigned int v8; // r14d
-  struct tagPOINT v9; // r8
-  struct tagPOINT v11; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v13; // [rsp+88h] [rbp+20h] BYREF
+  unsigned int v7; // esi
+  unsigned __int64 v8; // r8
+  unsigned __int64 v10; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v11; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+88h] [rbp+20h] BYREF
 
-  v4 = a1;
-  EnterSharedCrit(a1, a2, a3);
-  if ( !v4 || (v4 = ValidateHwnd(v4)) != 0 )
+  EnterSharedCrit(0LL, 1LL);
+  if ( !a1 || (a1 = ValidateHwnd(a1)) != 0 )
   {
-    v11 = 0LL;
-    v6 = a2;
+    v10 = 0LL;
+    v5 = a2;
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-      v6 = (_BYTE *)MmUserProbeAddress;
-    *v6 = *v6;
-    v6[7] = v6[7];
-    v11 = *a2;
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(MmUserProbeAddress, v6);
-    v8 = CurrentThreadDpiAwarenessContext;
-    if ( v4 )
+      v5 = (_QWORD *)MmUserProbeAddress;
+    *v5 = *v5;
+    v10 = *a2;
+    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(MmUserProbeAddress);
+    v7 = CurrentThreadDpiAwarenessContext;
+    if ( a1 )
     {
       if ( (*(_BYTE *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480) + 224LL) & 1) == 0 )
         W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))GuessMonitorOverrideForCoordinateConversions)(
-              v11,
-              *(unsigned int *)(*(_QWORD *)(v4 + 40) + 288LL),
-              1LL);
-      PhysicalToLogicalDPIPoint(&v11, &v11, *(unsigned int *)(*(_QWORD *)(v4 + 40) + 288LL), &v12);
-      LODWORD(v4) = DCEPtInRect((const struct tagRECT *)(*(_QWORD *)(v4 + 40) + 88LL), v11);
+      v11 = GuessMonitorOverrideForCoordinateConversions(v10, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL), 1LL);
+      PhysicalToLogicalDPIPoint(&v10, &v10, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL), &v11);
+      LODWORD(a1) = DCEPtInRect((_DWORD *)(*(_QWORD *)(a1 + 40) + 88LL), v10);
     }
     else
     {
-      v13 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))GuessMonitorOverrideForCoordinateConversions)(
-              v11,
-              CurrentThreadDpiAwarenessContext,
-              1LL);
-      PhysicalToLogicalDPIPoint(&v11, &v11, v8, &v13);
-      LODWORD(v4) = 1;
-      v9 = v11;
+      v12 = GuessMonitorOverrideForCoordinateConversions(v10, CurrentThreadDpiAwarenessContext, 1LL);
+      PhysicalToLogicalDPIPoint(&v10, &v10, v7, &v12);
+      LODWORD(a1) = 1;
+      v8 = v10;
     }
-    if ( (_DWORD)v4 )
+    if ( (_DWORD)a1 )
     {
-      *a2 = v9;
-      LODWORD(v4) = 1;
+      *a2 = v8;
+      LODWORD(a1) = 1;
     }
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return (int)v4;
+  UserSessionSwitchLeaveCrit(v4);
+  return (int)a1;
 }

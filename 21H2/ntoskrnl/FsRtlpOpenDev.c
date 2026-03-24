@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlpOpenDev @ 0x14085698C
+ * XREFs of FsRtlpOpenDev @ 0x1407C7AFC
  * Callers:
- *     FsRtlpRegisterUncProvider @ 0x1408567A8 (FsRtlpRegisterUncProvider.c)
+ *     FsRtlpRegisterUncProvider @ 0x1407C7918 (FsRtlpRegisterUncProvider.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
  */
 
 NTSTATUS __fastcall FsRtlpOpenDev(PHANDLE FileHandle)
@@ -14,12 +14,13 @@ NTSTATUS __fastcall FsRtlpOpenDev(PHANDLE FileHandle)
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp+17h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+27h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Device\\Mup");
   ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x1402D3F38
+ * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x1402D4038
  * Callers:
- *     PopCalculateCsSummary @ 0x1402DEA58 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x1402DEB58 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */

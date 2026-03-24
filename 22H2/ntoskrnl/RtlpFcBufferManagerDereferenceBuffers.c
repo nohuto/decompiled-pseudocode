@@ -1,18 +1,15 @@
 /*
- * XREFs of RtlpFcBufferManagerDereferenceBuffers @ 0x14035CBB8
+ * XREFs of RtlpFcBufferManagerDereferenceBuffers @ 0x1403A664C
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x14035CAB0 (RtlQueryFeatureConfiguration.c)
- *     RtlQueryAllInternalFeatureConfigurations @ 0x140410DB0 (RtlQueryAllInternalFeatureConfigurations.c)
- *     RtlQueryInternalFeatureConfiguration @ 0x140410E70 (RtlQueryInternalFeatureConfiguration.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x140810588 (CmFcpManagerDrainUsageNotifications.c)
- *     RtlQueryAllFeatureConfigurations @ 0x1409BD4B0 (RtlQueryAllFeatureConfigurations.c)
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26ECC (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A273A0 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A277C8 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B3B6E8 (CmFcManagerStartRuntimePhase.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C100 (RtlQueryFeatureConfiguration.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAB10 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD54 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E0B0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x140919000 (RtlQueryAllFeatureConfigurations.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     RtlReleaseSwapReference @ 0x14035CBF4 (RtlReleaseSwapReference.c)
- *     RtlpFcLeaveRegion @ 0x1407D1610 (RtlpFcLeaveRegion.c)
+ *     RtlReleaseSwapReference @ 0x1403A6688 (RtlReleaseSwapReference.c)
+ *     RtlpFcLeaveRegion @ 0x14078E0A4 (RtlpFcLeaveRegion.c)
  */
 
 __int64 __fastcall RtlpFcBufferManagerDereferenceBuffers(__int64 a1, __int64 a2)

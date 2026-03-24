@@ -1,40 +1,38 @@
 /*
- * XREFs of RIMFreeHidTLCInfo @ 0x1C0191810
+ * XREFs of RIMFreeHidTLCInfo @ 0x1C00AC710
  * Callers:
- *     RIMFreeSpecificDevWorker @ 0x1C0071424 (RIMFreeSpecificDevWorker.c)
- *     rimObsStartStopDeviceRead @ 0x1C01AF320 (rimObsStartStopDeviceRead.c)
+ *     RIMFreeSpecificDevWorker @ 0x1C00BBC8C (RIMFreeSpecificDevWorker.c)
+ *     rimObsStartStopDeviceRead @ 0x1C017F2C4 (rimObsStartStopDeviceRead.c)
  * Callees:
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C006F118 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C006FBD8 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00AC818 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AC85C (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall RIMFreeHidTLCInfo(void ***a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall RIMFreeHidTLCInfo(__int64 a1)
 {
-  __int64 v5; // rax
-  void **v6; // rcx
-  void **v7; // rax
-  char v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v2; // rax
+  _QWORD *v3; // rcx
+  char v4; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v8, (struct _KTHREAD **)(v5 + 288));
-  if ( *((_DWORD *)a1 + 5) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 211);
-  if ( *((_DWORD *)a1 + 6) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 212);
-  if ( *((_DWORD *)a1 + 8) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 213);
-  if ( *((_DWORD *)a1 + 9) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 214);
-  if ( *((_DWORD *)a1 + 10) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 215);
-  v6 = *a1;
-  if ( (*a1)[1] != a1 || (v7 = a1[1], *v7 != a1) )
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v4, (struct RIMLOCK *)&gTLCInfoLock);
+  if ( *(_DWORD *)(a1 + 20) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 179LL);
+  if ( *(_DWORD *)(a1 + 24) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 180LL);
+  if ( *(_DWORD *)(a1 + 32) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 181LL);
+  if ( *(_DWORD *)(a1 + 36) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 182LL);
+  if ( *(_DWORD *)(a1 + 40) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 183LL);
+  v2 = *(_QWORD *)a1;
+  if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) != a1 || (v3 = *(_QWORD **)(a1 + 8), *v3 != a1) )
     __fastfail(3u);
-  *v7 = v6;
-  v6[1] = v7;
-  if ( !*((_DWORD *)a1 + 11) )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)a1);
-  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v8);
+  *v3 = v2;
+  *(_QWORD *)(v2 + 8) = v3;
+  if ( !*(_DWORD *)(a1 + 44) )
+    Win32FreePool(a1);
+  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v4);
 }

@@ -1,144 +1,131 @@
 /*
- * XREFs of DxgkDestroyAllocation2 @ 0x1C01B8360
+ * XREFs of DxgkDestroyAllocation2 @ 0x1C0115940
  * Callers:
- *     ?VmBusDestroyAllocation@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037CEC0 (-VmBusDestroyAllocation@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusDestroyAllocation@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0240750 (-VmBusDestroyAllocation@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z @ 0x1C00164A0 (-SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?DxgkDestroyAllocationHelper@@YAJPEAVDXGPROCESS@@IIPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01B85E0 (-DxgkDestroyAllocationHelper@@YAJPEAVDXGPROCESS@@IIPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAU.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01CA0D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01059F0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?DxgkDestroyAllocationHelper@@YAJPEAVDXGPROCESS@@IIPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0114E00 (-DxgkDestroyAllocationHelper@@YAJPEAVDXGPROCESS@@IIPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAU.c)
  */
 
 __int64 __fastcall DxgkDestroyAllocation2(ULONG64 a1)
 {
   __int64 v2; // rcx
   __int64 v3; // r8
-  char v4; // r14
-  __int64 v5; // rcx
+  char v4; // si
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
   __int64 CurrentProcess; // rax
   __int64 ProcessDxgProcess; // rax
-  struct DXGPROCESS *v8; // rbx
-  struct DXGPROCESS *v9; // r10
-  struct _D3DDDICB_DESTROYALLOCATION2FLAGS v10; // r8^4
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  unsigned int v14; // ebx
-  __int64 v15; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  struct DXGPROCESS *v14; // rdi
+  struct DXGPROCESS *v15; // r10
+  struct _D3DDDICB_DESTROYALLOCATION2FLAGS v16; // rcx^4
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  unsigned int v22; // ebx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
   struct DXGTHREAD *Current; // rax
-  struct _ETHREAD *CurrentThread; // rdi
-  KSPIN_LOCK *Global; // rax
-  __int64 v19; // r8
-  int v20; // [rsp+50h] [rbp-A8h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-A0h]
-  char v22; // [rsp+60h] [rbp-98h]
-  unsigned int *v23[2]; // [rsp+68h] [rbp-90h]
-  unsigned int v24[2]; // [rsp+78h] [rbp-80h]
-  _QWORD v25[10]; // [rsp+80h] [rbp-78h] BYREF
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  int v31; // [rsp+40h] [rbp-98h] BYREF
+  __int64 v32; // [rsp+48h] [rbp-90h]
+  char v33; // [rsp+50h] [rbp-88h]
+  unsigned int *v34[2]; // [rsp+58h] [rbp-80h]
+  unsigned int v35[2]; // [rsp+68h] [rbp-70h]
+  _QWORD v36[10]; // [rsp+70h] [rbp-68h] BYREF
 
-  memset(v25, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v25[1]);
-  v25[8] = MEMORY[0xFFFFF78000000014];
-  LODWORD(v25[3]) = 52;
-  LOBYTE(v25[6]) = -1;
-  v20 = -1;
-  v21 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  memset(v36, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v36[1]);
+  v36[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v36[3]) = 52;
+  LOBYTE(v36[6]) = -1;
+  v31 = -1;
+  v32 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v22 = 1;
-    v20 = 2105;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v33 = 1;
+    v31 = 2105;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(v2, &EventProfilerEnter, v3, 2105);
   }
   else
   {
-    v22 = 0;
+    v33 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v20, 2105);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v31, 2105LL);
   v4 = (unsigned __int8)PsGetCurrentThreadPreviousMode() == 1;
-  CurrentProcess = PsGetCurrentProcess(v5);
+  CurrentProcess = PsGetCurrentProcess(v6, v5, v7, v8);
   ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
-  v8 = (struct DXGPROCESS *)ProcessDxgProcess;
-  if ( ProcessDxgProcess && (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) == 0 )
-    goto LABEL_5;
-  Current = DXGTHREAD::GetCurrent();
-  if ( Current )
+  v14 = (struct DXGPROCESS *)ProcessDxgProcess;
+  if ( (!ProcessDxgProcess || (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) != 0)
+    && (Current = DXGTHREAD::GetCurrent(v12, v11)) != 0LL
+    && (v15 = (struct DXGPROCESS *)*((_QWORD *)Current + 1)) != 0LL
+    || (v15 = v14) != 0LL )
   {
-    v9 = (struct DXGPROCESS *)*((_QWORD *)Current + 3);
-    if ( v9 )
-      goto LABEL_7;
-    goto LABEL_5;
-  }
-  CurrentThread = KeGetCurrentThread();
-  Global = (KSPIN_LOCK *)DXGGLOBAL::GetGlobal();
-  v9 = DXGGLOBAL::SearchDxgThreadList(Global, CurrentThread);
-  if ( !v9 )
-  {
-    WdLogSingleEntry1(2LL, 2923LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Failed to find DXGPROCESS", 2923LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_5:
-    v9 = v8;
-  }
-  if ( !v9 )
-  {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v20);
-    if ( v22 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(BYTE1(Microsoft_Windows_DxgKrnlEnableBits), &EventProfilerExit, v19, v20);
-    return 3221225485LL;
-  }
-LABEL_7:
-  if ( v4 )
-  {
-    if ( a1 >= MmUserProbeAddress )
-      a1 = MmUserProbeAddress;
-    *(_OWORD *)v23 = *(_OWORD *)a1;
-    *(_QWORD *)v24 = *(_QWORD *)(a1 + 16);
-    v10.0 = (struct _D3DDDICB_DESTROYALLOCATION2FLAGS::$D35BDED8E381779C59C0009B00E168F7::$815964D178D3487C3146BEBBE8BF611F)v24[1];
-    if ( (v24[1] & 0x7FFFFFFC) != 0 )
+    if ( v4 )
     {
-      WdLogSingleEntry1(3LL, 10484LL);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v20);
-      if ( v22 )
+      if ( a1 >= MmUserProbeAddress )
+        a1 = MmUserProbeAddress;
+      *(_OWORD *)v34 = *(_OWORD *)a1;
+      *(_QWORD *)v35 = *(_QWORD *)(a1 + 16);
+      v16.0 = (struct _D3DDDICB_DESTROYALLOCATION2FLAGS::$D35BDED8E381779C59C0009B00E168F7::$815964D178D3487C3146BEBBE8BF611F)v35[1];
+      if ( (v35[1] & 0x7FFFFFFC) != 0 )
       {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v11, &EventProfilerExit, v12, v20);
+        v17 = WdLogNewEntry5_WdWarning(*(_QWORD *)v35, v11, v13);
+        *(_QWORD *)(v17 + 24) = 10265LL;
+        WdLogEvent5_WdWarning(v17);
+        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v31, v18);
+        if ( v33 )
+        {
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+            McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v31);
+        }
+        return 3221225485LL;
       }
-      return 3221225485LL;
     }
+    else
+    {
+      *(_OWORD *)v34 = *(_OWORD *)a1;
+      *(_QWORD *)v35 = *(_QWORD *)(a1 + 16);
+      v16.0 = (struct _D3DDDICB_DESTROYALLOCATION2FLAGS::$D35BDED8E381779C59C0009B00E168F7::$815964D178D3487C3146BEBBE8BF611F)v35[1];
+    }
+    v22 = DxgkDestroyAllocationHelper(
+            v15,
+            (unsigned int)v34[0],
+            HIDWORD(v34[0]),
+            v34[1],
+            v35[0],
+            v16,
+            (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v36,
+            v4);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v31, v23);
+    if ( v33 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v31);
+    return v22;
   }
   else
   {
-    *(_OWORD *)v23 = *(_OWORD *)a1;
-    *(_QWORD *)v24 = *(_QWORD *)(a1 + 16);
-    v10.0 = (struct _D3DDDICB_DESTROYALLOCATION2FLAGS::$D35BDED8E381779C59C0009B00E168F7::$815964D178D3487C3146BEBBE8BF611F)v24[1];
+    v27 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v27 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v27);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v31, v28);
+    if ( v33 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v29, &EventProfilerExit, v30, v31);
+    return 3221225485LL;
   }
-  v14 = DxgkDestroyAllocationHelper(
-          v9,
-          (unsigned int)v23[0],
-          HIDWORD(v23[0]),
-          v23[1],
-          v24[0],
-          v10,
-          (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v25,
-          v4);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v20);
-  if ( v22 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(BYTE1(Microsoft_Windows_DxgKrnlEnableBits), &EventProfilerExit, v15, v20);
-  return v14;
 }

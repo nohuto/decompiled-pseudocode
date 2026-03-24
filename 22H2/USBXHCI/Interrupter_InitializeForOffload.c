@@ -1,13 +1,13 @@
 /*
- * XREFs of Interrupter_InitializeForOffload @ 0x1C003DF28
+ * XREFs of Interrupter_InitializeForOffload @ 0x1C003BC78
  * Callers:
- *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033778 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0031E60 (Controller_IncrementNumberOfEndpointsOffloaded.c)
  * Callees:
- *     Interrupter_UpdateERDP @ 0x1C0014AF0 (Interrupter_UpdateERDP.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     Interrupter_UpdateERDP @ 0x1C0014228 (Interrupter_UpdateERDP.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Interrupter_InitializeForOffload(__int64 a1)

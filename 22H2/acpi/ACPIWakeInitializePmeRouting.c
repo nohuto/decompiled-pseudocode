@@ -1,48 +1,48 @@
 /*
- * XREFs of ACPIWakeInitializePmeRouting @ 0x1C0045E48
+ * XREFs of ACPIWakeInitializePmeRouting @ 0x1C000CB58
  * Callers:
- *     PcisuppAcquirePciInterfaces @ 0x1C00998A4 (PcisuppAcquirePciInterfaces.c)
+ *     PcisuppAcquirePciInterfaces @ 0x1C00906FC (PcisuppAcquirePciInterfaces.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C008823C (ACPIInternalSendSynchronousIrp.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
  */
 
 __int64 __fastcall ACPIWakeInitializePmeRouting(PDEVICE_OBJECT DeviceObject)
 {
-  void *Pool2; // rbx
-  int v4; // edi
-  KIRQL v5; // si
+  PVOID PoolWithTag; // rbx
+  int v3; // edi
+  KIRQL v4; // si
   _QWORD v6[9]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(v6, 0, sizeof(v6));
   if ( PciPmeInterface )
     return 0LL;
-  Pool2 = (void *)ExAllocatePool2(64LL, 64LL, 1097884481LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x41706341u);
+  if ( !PoolWithTag )
     return 3221225626LL;
+  memset(v6, 0, sizeof(v6));
   v6[4] = 0LL;
   v6[1] = &GUID_PCI_PME_INTERFACE;
   LOWORD(v6[0]) = 2075;
   LODWORD(v6[2]) = 65600;
-  v6[3] = Pool2;
-  v4 = ACPIInternalSendSynchronousIrp(DeviceObject);
-  if ( v4 >= 0 )
+  v6[3] = PoolWithTag;
+  v3 = ACPIInternalSendSynchronousIrp(DeviceObject);
+  if ( v3 < 0 )
   {
-    v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+    ExFreePoolWithTag(PoolWithTag, 0);
+  }
+  else
+  {
+    v4 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
     if ( PciPmeInterfaceInstantiated )
     {
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {
       PciPmeInterfaceInstantiated = 1;
-      PciPmeInterface = Pool2;
+      PciPmeInterface = PoolWithTag;
     }
-    KeReleaseSpinLock(&AcpiPowerLock, v5);
+    KeReleaseSpinLock(&AcpiPowerLock, v4);
   }
-  else
-  {
-    ExFreePoolWithTag(Pool2, 0);
-  }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

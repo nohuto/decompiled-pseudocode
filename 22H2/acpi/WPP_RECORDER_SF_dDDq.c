@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dDDq @ 0x1C005DEF8
+ * XREFs of WPP_RECORDER_SF_dDDq @ 0x1C000F2A8
  * Callers:
- *     IrqTranslateResources @ 0x1C009A530 (IrqTranslateResources.c)
+ *     IrqTranslateResources @ 0x1C0093510 (IrqTranslateResources.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dDDq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -50,11 +50,5 @@ __int64 WPP_RECORDER_SF_dDDq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
            v7,
            (__int64 *)va,
            4LL,
-           (__int64 *)va1,
-           4LL,
-           (__int64 *)va2,
-           4LL,
-           va3,
-           8LL,
-           0LL);
+           (__int64 *)va1);
 }

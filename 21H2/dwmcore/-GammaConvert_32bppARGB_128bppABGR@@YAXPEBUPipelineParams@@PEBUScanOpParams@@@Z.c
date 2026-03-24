@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GammaConvert_32bppARGB_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B0EF0
+ * XREFs of ?GammaConvert_32bppARGB_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AEB0
  * Callers:
  *     <none>
  * Callees:

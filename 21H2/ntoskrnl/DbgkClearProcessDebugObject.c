@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkClearProcessDebugObject @ 0x1406E9FB0
+ * XREFs of DbgkClearProcessDebugObject @ 0x140772F90
  * Callers:
- *     PspTerminateAllThreads @ 0x1407E6274 (PspTerminateAllThreads.c)
- *     NtRemoveProcessDebug @ 0x140929080 (NtRemoveProcessDebug.c)
+ *     PspTerminateAllThreads @ 0x1406D9E50 (PspTerminateAllThreads.c)
+ *     NtRemoveProcessDebug @ 0x140886150 (NtRemoveProcessDebug.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     DbgkpMarkProcessPeb @ 0x1409279CC (DbgkpMarkProcessPeb.c)
- *     DbgkpWakeTarget @ 0x1409289DC (DbgkpWakeTarget.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     DbgkpMarkProcessPeb @ 0x140884B2C (DbgkpMarkProcessPeb.c)
+ *     DbgkpWakeTarget @ 0x140885B10 (DbgkpWakeTarget.c)
  */
 
 __int64 __fastcall DbgkClearProcessDebugObject(ULONG_PTR BugCheckParameter1, __int64 a2)
@@ -65,7 +65,7 @@ LABEL_22:
       }
     }
     KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v4 + 24));
-    ObfDereferenceObject((PVOID)v4);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v4);
     while ( 1 )
     {
       v11 = P;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRemoveLayerLinkForDiscardedKcb @ 0x14067F518
+ * XREFs of CmpRemoveLayerLinkForDiscardedKcb @ 0x1405CD088
  * Callers:
- *     CmpRemoveHiveFromNamespace @ 0x140207A94 (CmpRemoveHiveFromNamespace.c)
- *     CmpInvalidateSubtreeWorker @ 0x140682700 (CmpInvalidateSubtreeWorker.c)
- *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
+ *     CmpRemoveHiveFromNamespace @ 0x140360E58 (CmpRemoveHiveFromNamespace.c)
+ *     CmpCompleteUnloadKey @ 0x14071BF04 (CmpCompleteUnloadKey.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140771C80 (CmpInvalidateSubtreeWorker.c)
  * Callees:
- *     CmpDelayDerefKeyControlBlock @ 0x1406D8750 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
  */
 
 _QWORD *__fastcall CmpRemoveLayerLinkForDiscardedKcb(__int64 a1)

@@ -1,98 +1,82 @@
 /*
- * XREFs of ?QueryVidPnExclusiveOwnershipCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01ECED0
+ * XREFs of ?QueryVidPnExclusiveOwnershipCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0171E40
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA?AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z @ 0x1C0013B54 (-GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA-AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z.c)
- *     ?GetVidPnSourceOwnerEmulated@ADAPTER_DISPLAY@@QEBAPEAVDXGDEVICE@@I@Z @ 0x1C0020E8C (-GetVidPnSourceOwnerEmulated@ADAPTER_DISPLAY@@QEBAPEAVDXGDEVICE@@I@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA?AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z @ 0x1C000BB90 (-GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA-AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z.c)
+ *     ?GetVidPnSourceOwnerEmulated@ADAPTER_DISPLAY@@QEBAPEAVDXGDEVICE@@I@Z @ 0x1C001C620 (-GetVidPnSourceOwnerEmulated@ADAPTER_DISPLAY@@QEBAPEAVDXGDEVICE@@I@Z.c)
  */
 
-__int64 __fastcall QueryVidPnExclusiveOwnershipCallBack(struct DXGADAPTER *a1, char *a2)
+__int64 __fastcall QueryVidPnExclusiveOwnershipCallBack(struct DXGADAPTER *a1, unsigned int *a2)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
-  ADAPTER_DISPLAY *v6; // rax
-  unsigned int v7; // ebp
-  int VidPnSourceOwnerType; // esi
-  __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int128 v12; // xmm0
-  int v13; // edx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  ADAPTER_DISPLAY *v8; // rax
+  unsigned int i; // esi
+  int VidPnSourceOwnerType; // ebp
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  __int128 v13; // xmm0
   int v14; // edx
-  _QWORD *v15; // rax
-  _BYTE v16[8]; // [rsp+60h] [rbp-28h] BYREF
-  struct DXGADAPTER *v17; // [rsp+68h] [rbp-20h]
-  char v18; // [rsp+70h] [rbp-18h]
+  __int64 v15; // rdx
+  _QWORD *v17; // rax
+  __int64 v18; // rax
+  _BYTE v19[8]; // [rsp+30h] [rbp-28h] BYREF
+  struct DXGADAPTER *v20; // [rsp+38h] [rbp-20h]
+  char v21; // [rsp+40h] [rbp-18h]
 
-  v17 = a1;
-  v18 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v16);
+  v20 = a1;
+  v21 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v19);
   if ( *((_DWORD *)a1 + 50) == 1 )
   {
-    v6 = (ADAPTER_DISPLAY *)*((_QWORD *)a1 + 349);
-    v7 = 0;
-    if ( *((_DWORD *)v6 + 24) )
+    v8 = (ADAPTER_DISPLAY *)*((_QWORD *)a1 + 337);
+    for ( i = 0; i < *((_DWORD *)v8 + 20); ++i )
     {
-      while ( 1 )
+      VidPnSourceOwnerType = ADAPTER_DISPLAY::GetVidPnSourceOwnerType(v8, i);
+      if ( ADAPTER_DISPLAY::GetVidPnSourceOwnerEmulated(*((ADAPTER_DISPLAY **)a1 + 337), i) )
+        VidPnSourceOwnerType = 4;
+      if ( (unsigned int)(VidPnSourceOwnerType - 2) <= 2 )
       {
-        VidPnSourceOwnerType = ADAPTER_DISPLAY::GetVidPnSourceOwnerType(v6, v7);
-        if ( ADAPTER_DISPLAY::GetVidPnSourceOwnerEmulated(*((ADAPTER_DISPLAY **)a1 + 349), v7) )
-          break;
-        if ( VidPnSourceOwnerType == 4 || VidPnSourceOwnerType == 2 || VidPnSourceOwnerType == 3 )
-          goto LABEL_12;
-LABEL_7:
-        v6 = (ADAPTER_DISPLAY *)*((_QWORD *)a1 + 349);
-        if ( ++v7 >= *((_DWORD *)v6 + 24) )
-          goto LABEL_8;
-      }
-      VidPnSourceOwnerType = 4;
-LABEL_12:
-      v10 = 4000LL * v7;
-      v11 = *(_QWORD *)(*((_QWORD *)a1 + 349) + 128LL);
-      if ( *(_QWORD *)(v10 + v11 + 752) == *(_QWORD *)a2 )
-      {
-        v12 = *(_OWORD *)(v10 + v11 + 628);
-        v13 = *((_DWORD *)a2 + 2);
-        if ( (int)v12 <= v13 && SDWORD2(v12) >= v13 )
+        v11 = 3968LL * i;
+        v12 = *(_QWORD *)(*((_QWORD *)a1 + 337) + 112LL);
+        if ( *(_QWORD *)(v11 + v12 + 712) == *(_QWORD *)a2 )
         {
-          v14 = *((_DWORD *)a2 + 3);
-          if ( SDWORD1(v12) <= v14 && SHIDWORD(v12) >= v14 )
+          v13 = *(_OWORD *)(v11 + v12 + 628);
+          v14 = a2[2];
+          if ( (int)v13 <= v14 && SDWORD2(v13) >= v14 )
           {
-            if ( *((_DWORD *)a2 + 4) != -1 )
+            v15 = a2[3];
+            if ( SDWORD1(v13) <= (int)v15 && SHIDWORD(v13) >= (int)v15 )
             {
-              WdLogSingleEntry1(1LL, 10145LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"pCallbackContext->VidPnSourceId == D3DDDI_ID_UNINITIALIZED",
-                10145LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
+              if ( a2[4] != -1 )
+              {
+                v18 = WdLogNewEntry5_WdAssertion(DWORD1(v13), v15);
+                *(_QWORD *)(v18 + 24) = 10123LL;
+                WdLogEvent5_WdAssertion(v18);
+              }
+              a2[4] = i;
+              *(_QWORD *)(a2 + 5) = *(_QWORD *)((char *)a1 + 316);
+              a2[7] = VidPnSourceOwnerType;
             }
-            *((_DWORD *)a2 + 4) = v7;
-            *(_QWORD *)(a2 + 20) = *(_QWORD *)((char *)a1 + 404);
-            *((_DWORD *)a2 + 7) = VidPnSourceOwnerType;
           }
         }
       }
-      goto LABEL_7;
+      v8 = (ADAPTER_DISPLAY *)*((_QWORD *)a1 + 337);
     }
   }
   else
   {
-    v15 = (_QWORD *)WdLogNewEntry5_WdTrace(v5, v4);
-    v15[3] = a1;
-    v15[4] = *((int *)a1 + 102);
-    v15[5] = *((unsigned int *)a1 + 101);
+    v17 = (_QWORD *)WdLogNewEntry5_WdTrace(v5, v4, v6, v7);
+    v17[3] = a1;
+    v17[4] = *((int *)a1 + 80);
+    v17[5] = *((unsigned int *)a1 + 79);
   }
-LABEL_8:
-  if ( v18 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v16);
+  if ( v21 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v19);
   return 0LL;
 }

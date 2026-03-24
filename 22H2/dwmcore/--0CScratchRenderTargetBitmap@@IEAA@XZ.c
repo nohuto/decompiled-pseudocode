@@ -1,15 +1,14 @@
 /*
- * XREFs of ??0CScratchRenderTargetBitmap@@IEAA@XZ @ 0x18003BF2C
+ * XREFs of ??0CScratchRenderTargetBitmap@@IEAA@XZ @ 0x18003DD28
  * Callers:
- *     ?Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z @ 0x18003BEB0 (-Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z.c)
+ *     ?Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z @ 0x18003DEA4 (-Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18003C2F0 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18006171C (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
  */
 
 CScratchRenderTargetBitmap *__fastcall CScratchRenderTargetBitmap::CScratchRenderTargetBitmap(
         CScratchRenderTargetBitmap *this)
 {
-  __int64 v1; // r11
   __int64 v2; // rcx
   __int64 v3; // rcx
   __int64 v4; // rcx
@@ -25,27 +24,27 @@ CScratchRenderTargetBitmap *__fastcall CScratchRenderTargetBitmap::CScratchRende
   *((_QWORD *)this + 32) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
   *((_QWORD *)this + 35) = &CRenderTargetBitmap::`vbtable'{for `IBitmapRealization'};
   CRenderTargetBitmap::CRenderTargetBitmap(this, 1);
-  *(_QWORD *)v1 = &CScratchRenderTargetBitmap::`vftable'{for `CMILCOMBaseT<IUnknown>'};
-  *(_QWORD *)(v1 + 80) = &CScratchRenderTargetBitmap::`vftable';
-  *(_QWORD *)(v1 + 120) = &CScratchRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};
-  *(_QWORD *)(v1 + 152) = &CScratchRenderTargetBitmap::`vftable'{for `IScratchBitmap'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v1 + 16) + 4LL) + v1 + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v1 + 16) + 8LL) + v1 + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v1 + 16) + 12LL) + v1 + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IDeviceResource'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v1 + 16) + 16LL) + v1 + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v1 + 16) + 20LL) + v1 + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IBitmapRealization'};
-  v2 = *(int *)(*(_QWORD *)(v1 + 16) + 4LL);
-  *(_DWORD *)(v2 + v1 + 12) = v2 - 176;
-  v3 = *(int *)(*(_QWORD *)(v1 + 16) + 8LL);
-  *(_DWORD *)(v3 + v1 + 12) = v3 - 192;
-  v4 = *(int *)(*(_QWORD *)(v1 + 16) + 12LL);
-  *(_DWORD *)(v4 + v1 + 12) = v4 - 208;
-  v5 = *(int *)(*(_QWORD *)(v1 + 16) + 16LL);
-  *(_DWORD *)(v5 + v1 + 12) = v5 - 232;
-  v6 = *(int *)(*(_QWORD *)(v1 + 16) + 20LL);
-  result = (CScratchRenderTargetBitmap *)v1;
-  *(_DWORD *)(v6 + v1 + 12) = v6 - 256;
-  *(_QWORD *)(v1 + 168) = 0LL;
-  *(_WORD *)(v1 + 176) = 257;
+  *(_QWORD *)this = &CScratchRenderTargetBitmap::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 10) = &CScratchRenderTargetBitmap::`vftable';
+  *((_QWORD *)this + 15) = &CScratchRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};
+  *((_QWORD *)this + 19) = &CScratchRenderTargetBitmap::`vftable'{for `IScratchBitmap'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 12LL) + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IDeviceResource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 16LL) + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 20LL) + 16) = &CScratchRenderTargetBitmap::`vftable'{for `IBitmapRealization'};
+  v2 = *(int *)(*((_QWORD *)this + 2) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 12) = v2 - 176;
+  v3 = *(int *)(*((_QWORD *)this + 2) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 12) = v3 - 192;
+  v4 = *(int *)(*((_QWORD *)this + 2) + 12LL);
+  *(_DWORD *)((char *)this + v4 + 12) = v4 - 208;
+  v5 = *(int *)(*((_QWORD *)this + 2) + 16LL);
+  *(_DWORD *)((char *)this + v5 + 12) = v5 - 232;
+  v6 = *(int *)(*((_QWORD *)this + 2) + 20LL);
+  result = this;
+  *(_DWORD *)((char *)this + v6 + 12) = v6 - 256;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_WORD *)this + 88) = 257;
   return result;
 }

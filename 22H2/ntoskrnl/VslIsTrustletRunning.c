@@ -1,16 +1,16 @@
 /*
- * XREFs of VslIsTrustletRunning @ 0x14054B838
+ * XREFs of VslIsTrustletRunning @ 0x1404FC7A4
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslIsTrustletRunning(__int64 a1, _BYTE *a2)
+NTSTATUS __fastcall VslIsTrustletRunning(__int64 a1, _BYTE *a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v5[14]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v5, 0, 0x68uLL);

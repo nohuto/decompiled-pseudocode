@@ -1,18 +1,18 @@
 /*
- * XREFs of NtTranslateFilePath @ 0x1408D5E80
+ * XREFs of NtTranslateFilePath @ 0x1408D5E60
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExpTranslateArcPath @ 0x1408D2590 (ExpTranslateArcPath.c)
- *     ExpTranslateEfiPath @ 0x1408D282C (ExpTranslateEfiPath.c)
- *     ExpTranslateNtPath @ 0x1408D2E98 (ExpTranslateNtPath.c)
- *     ExpVerifyFilePath @ 0x1408D33A0 (ExpVerifyFilePath.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExpTranslateArcPath @ 0x1408D2570 (ExpTranslateArcPath.c)
+ *     ExpTranslateEfiPath @ 0x1408D280C (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x1408D2E78 (ExpTranslateNtPath.c)
+ *     ExpVerifyFilePath @ 0x1408D3380 (ExpVerifyFilePath.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtTranslateFilePath(
 
   v26 = *(unsigned int **)&OutputFilePathLength;
   P = 0LL;
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   if ( OutputType - 1 <= 4 )
   {

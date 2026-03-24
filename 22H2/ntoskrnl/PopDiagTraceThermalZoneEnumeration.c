@@ -1,176 +1,176 @@
 /*
- * XREFs of PopDiagTraceThermalZoneEnumeration @ 0x1403736A4
+ * XREFs of PopDiagTraceThermalZoneEnumeration @ 0x1403C4DFC
  * Callers:
- *     PopThermalDeferedTraceThermalZoneEnumeration @ 0x140373B44 (PopThermalDeferedTraceThermalZoneEnumeration.c)
- *     PopThermalWorker @ 0x140801D90 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x1407C0A30 (PopThermalWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopSqmThermalZoneEnumeration @ 0x1408026A8 (PopSqmThermalZoneEnumeration.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopSqmThermalZoneEnumeration @ 0x1408F9EEC (PopSqmThermalZoneEnumeration.c)
  */
 
-_UNKNOWN **__fastcall PopDiagTraceThermalZoneEnumeration(__int64 a1)
+void __fastcall PopDiagTraceThermalZoneEnumeration(char *a1, unsigned __int16 *a2, __int64 a3)
 {
-  _UNKNOWN **result; // rax
-  void *v3; // rsi
-  __int64 v4; // rax
-  __int64 v5; // r13
-  unsigned int v6; // kr00_4
-  unsigned int v7; // kr04_4
-  unsigned int v8; // r14d
-  unsigned int v9; // r15d
-  unsigned int v10; // r12d
-  unsigned int v11; // r9d
-  unsigned int *v12; // r10
-  unsigned int v13; // r8d
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  ULONG v16; // edx
+  void *DeviceAttachmentBaseRefWithTag; // rax
+  void *v5; // rdi
+  __int64 v6; // rax
+  __int64 v7; // r12
+  unsigned int v8; // esi
+  unsigned int v9; // kr00_4
+  unsigned int v10; // r14d
+  unsigned int v11; // kr04_4
+  unsigned int v12; // r15d
+  unsigned int v13; // kr08_4
+  unsigned int *v14; // r10
+  unsigned int v15; // r9d
+  unsigned int v16; // r8d
   __int64 v17; // rax
-  __int64 v18; // rax
-  unsigned int v19; // r8d
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v23; // rax
+  __int64 v18; // rdx
+  unsigned __int16 *v19; // r9
+  __int64 v20; // rax
+  ULONG v21; // edx
+  __int64 v22; // rax
+  unsigned int v23; // r8d
   __int64 v24; // rcx
-  __int64 v25; // rcx
-  int v26; // [rsp+68h] [rbp-A0h] BYREF
-  int v27; // [rsp+6Ch] [rbp-9Ch] BYREF
-  unsigned int v28; // [rsp+70h] [rbp-98h] BYREF
-  unsigned int v29; // [rsp+74h] [rbp-94h] BYREF
-  unsigned int v30; // [rsp+78h] [rbp-90h] BYREF
-  unsigned int v31; // [rsp+7Ch] [rbp-8Ch]
-  unsigned __int16 v32; // [rsp+80h] [rbp-88h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v34; // [rsp+98h] [rbp-70h]
-  int v35; // [rsp+A0h] [rbp-68h]
-  int v36; // [rsp+A4h] [rbp-64h]
-  unsigned int *v37; // [rsp+A8h] [rbp-60h]
-  __int64 v38; // [rsp+B0h] [rbp-58h]
-  __int64 v39; // [rsp+B8h] [rbp-50h]
-  __int64 v40; // [rsp+C0h] [rbp-48h]
-  __int64 v41; // [rsp+C8h] [rbp-40h]
-  __int64 v42; // [rsp+D0h] [rbp-38h]
-  __int64 v43; // [rsp+D8h] [rbp-30h]
-  __int64 v44; // [rsp+E0h] [rbp-28h]
-  _DWORD v45[10]; // [rsp+208h] [rbp+100h] BYREF
-  _UNKNOWN *retaddr; // [rsp+260h] [rbp+158h] BYREF
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  __int64 v29; // rcx
+  unsigned __int16 v30; // [rsp+60h] [rbp-A0h] BYREF
+  __int16 v31; // [rsp+64h] [rbp-9Ch] BYREF
+  unsigned int v32; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v33; // [rsp+6Ch] [rbp-94h] BYREF
+  unsigned int v34; // [rsp+70h] [rbp-90h] BYREF
+  unsigned __int16 *v35; // [rsp+78h] [rbp-88h]
+  unsigned __int16 v36; // [rsp+80h] [rbp-80h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v38; // [rsp+A0h] [rbp-60h]
+  int v39; // [rsp+A8h] [rbp-58h]
+  int v40; // [rsp+ACh] [rbp-54h]
+  unsigned int *v41; // [rsp+B0h] [rbp-50h]
+  __int64 v42; // [rsp+B8h] [rbp-48h]
+  _DWORD *v43; // [rsp+C0h] [rbp-40h]
+  __int64 v44; // [rsp+C8h] [rbp-38h]
+  _DWORD *v45; // [rsp+D0h] [rbp-30h]
+  __int64 v46; // [rsp+D8h] [rbp-28h]
+  _DWORD *v47; // [rsp+E0h] [rbp-20h]
+  __int64 v48; // [rsp+E8h] [rbp-18h]
+  _DWORD v49[10]; // [rsp+210h] [rbp+110h] BYREF
 
-  result = &retaddr;
-  v28 = 0;
-  LOWORD(v27) = 0;
-  LOWORD(v26) = 0;
-  v29 = 0;
+  v35 = a2;
+  v32 = 0;
+  v31 = 0;
   v30 = 0;
+  v33 = 0;
+  v34 = 0;
   if ( PopDiagHandleRegistered )
   {
-    result = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 48), 0x67446F50u);
-    v3 = result;
-    if ( result )
+    DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a3, 0x67446F50u);
+    v5 = DeviceAttachmentBaseRefWithTag;
+    if ( DeviceAttachmentBaseRefWithTag )
+      v6 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
+    else
+      v6 = 0LL;
+    if ( v6 )
     {
-      v4 = *((_QWORD *)result[39] + 5);
-      if ( v4 )
+      v7 = v6 + 128;
+      v36 = *(_WORD *)(v6 + 128) >> 1;
+      v30 = v36;
+      v8 = *((_DWORD *)a1 + 5) / 0xAu;
+      v9 = *((_DWORD *)a1 + 7);
+      v33 = v8;
+      v10 = v9 / 0xA;
+      v11 = *((_DWORD *)a1 + 19);
+      v32 = v9 / 0xA;
+      v12 = v11 / 0xA;
+      v13 = *((_DWORD *)a1 + 6);
+      v34 = v11 / 0xA;
+      if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED) )
       {
-        v5 = v4 + 128;
-        v6 = *(_DWORD *)(a1 + 132);
-        v32 = *(_WORD *)(v4 + 128) >> 1;
-        v7 = *(_DWORD *)(a1 + 140);
-        LOWORD(v26) = v32;
-        v8 = v6 / 0xA;
-        v9 = v7 / 0xA;
-        v10 = *(_DWORD *)(a1 + 188) / 0xAu;
-        v31 = *(_DWORD *)(a1 + 136) / 0xAu;
-        v29 = v6 / 0xA;
-        v28 = v7 / 0xA;
-        v30 = v10;
-        if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED) )
+        *(_QWORD *)&UserData.Size = 2LL;
+        UserData.Ptr = (ULONGLONG)&v30;
+        v14 = v49;
+        v15 = 0;
+        v38 = *(_QWORD *)(v7 + 8);
+        v16 = 6;
+        v40 = 0;
+        v39 = 2 * v36;
+        v42 = 4LL;
+        v41 = &v33;
+        v43 = a1 + 4;
+        v45 = a1 + 8;
+        v47 = a1 + 12;
+        v44 = 4LL;
+        v46 = 4LL;
+        v48 = 4LL;
+        do
         {
-          *(_QWORD *)&UserData.Size = 2LL;
-          v11 = 0;
-          UserData.Ptr = (ULONGLONG)&v26;
-          v12 = v45;
-          v34 = *(_QWORD *)(v5 + 8);
-          v13 = 6;
-          v36 = 0;
-          v35 = 2 * v32;
-          v38 = 4LL;
-          v37 = &v29;
-          v39 = a1 + 116;
-          v41 = a1 + 120;
-          v43 = a1 + 124;
-          v40 = 4LL;
-          v42 = 4LL;
-          v44 = 4LL;
-          do
-          {
-            v14 = v11++;
-            *v12 = *(unsigned int *)((char *)v12 + a1 + 112 - (_QWORD)v45 + 36) / 0xA;
-            ++v12;
-            v15 = v13++;
-            v15 *= 2LL;
-            *(&UserData.Ptr + v15) = (ULONGLONG)&v45[v14];
-            *((_QWORD *)&UserData.Size + v15) = 4LL;
-          }
-          while ( v11 < 0xA );
-          v16 = *(unsigned __int16 *)(a1 + 1040);
-          v17 = 2LL * v13;
-          *(&UserData.Ptr + v17) = (ULONGLONG)&v28;
-          *((_QWORD *)&UserData.Size + v17) = 4LL;
-          v18 = v13 + 1;
-          v19 = v13 + 2;
+          v17 = v15++;
+          *v14 = *(unsigned int *)((char *)v14 + a1 - (char *)v49 + 36) / 0xA;
+          ++v14;
+          v18 = v16++;
           v18 *= 2LL;
-          *(&UserData.Ptr + v18) = (ULONGLONG)&v30;
+          *(&UserData.Ptr + v18) = (ULONGLONG)&v49[v17];
           *((_QWORD *)&UserData.Size + v18) = 4LL;
-          v20 = 2LL * v19;
-          *(&UserData.Ptr + v20) = a1 + 192;
-          *((_QWORD *)&UserData.Size + v20) = 4LL;
-          v21 = v19 + 1;
-          v19 += 2;
-          v21 *= 2LL;
-          *(&UserData.Ptr + v21) = a1 + 136;
-          *((_QWORD *)&UserData.Size + v21) = 4LL;
-          v22 = 2LL * v19;
-          *(&UserData.Ptr + v22) = a1 + 196;
-          *((_QWORD *)&UserData.Size + v22) = 4LL;
-          LOWORD(v27) = (unsigned __int16)v16 >> 1;
-          v23 = v19 + 1;
-          v19 += 2;
-          v23 *= 2LL;
-          *(&UserData.Ptr + v23) = (ULONGLONG)&v27;
-          *((_QWORD *)&UserData.Size + v23) = 2LL;
-          v24 = 2LL * v19;
-          *(&UserData.Ptr + v24) = *(_QWORD *)(a1 + 1048);
-          *(&UserData.Size + 2 * v24) = v16;
-          *(&UserData.Reserved + 2 * v24) = 0;
-          v25 = 2LL * (v19 + 1);
-          *(&UserData.Ptr + v25) = a1 + 200;
-          *((_QWORD *)&UserData.Size + v25) = 4LL;
-          EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED, 0LL, 0, 0LL, 0LL, 0x18u, &UserData);
-          v9 = v28;
-          v8 = v29;
-          v10 = v30;
         }
-        PopSqmThermalZoneEnumeration(
-          v5,
-          a1 + 1040,
-          v8,
-          *(_DWORD *)(a1 + 116),
-          *(_DWORD *)(a1 + 120),
-          *(_DWORD *)(a1 + 124),
-          *(_DWORD *)(a1 + 148) / 0xAu,
-          *(_DWORD *)(a1 + 152) / 0xAu,
-          v9,
-          v10,
-          v31,
-          *(_DWORD *)(a1 + 200));
-        *(_BYTE *)(a1 + 65) |= 0x10u;
+        while ( v15 < 0xA );
+        v19 = v35;
+        v20 = 2LL * v16;
+        v21 = *v35;
+        *(&UserData.Ptr + v20) = (ULONGLONG)&v32;
+        *((_QWORD *)&UserData.Size + v20) = 4LL;
+        v22 = v16 + 1;
+        v23 = v16 + 2;
+        v22 *= 2LL;
+        *(&UserData.Ptr + v22) = (ULONGLONG)&v34;
+        *((_QWORD *)&UserData.Size + v22) = 4LL;
+        v24 = 2LL * v23;
+        *(&UserData.Ptr + v24) = (ULONGLONG)(a1 + 80);
+        *((_QWORD *)&UserData.Size + v24) = 4LL;
+        v25 = v23 + 1;
+        v23 += 2;
+        v25 *= 2LL;
+        *(&UserData.Ptr + v25) = (ULONGLONG)(a1 + 24);
+        *((_QWORD *)&UserData.Size + v25) = 4LL;
+        v26 = 2LL * v23;
+        *(&UserData.Ptr + v26) = (ULONGLONG)(a1 + 84);
+        *((_QWORD *)&UserData.Size + v26) = 4LL;
+        v31 = (unsigned __int16)v21 >> 1;
+        v27 = v23 + 1;
+        v23 += 2;
+        v27 *= 2LL;
+        *(&UserData.Ptr + v27) = (ULONGLONG)&v31;
+        *((_QWORD *)&UserData.Size + v27) = 2LL;
+        v28 = 2LL * v23;
+        *(&UserData.Ptr + v28) = *((_QWORD *)v19 + 1);
+        *(&UserData.Size + 2 * v28) = v21;
+        *(&UserData.Reserved + 2 * v28) = 0;
+        v29 = 2LL * (v23 + 1);
+        *(&UserData.Ptr + v29) = (ULONGLONG)(a1 + 88);
+        *((_QWORD *)&UserData.Size + v29) = 4LL;
+        EtwWrite(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED, 0LL, 0x18u, &UserData);
+        v10 = v32;
+        v8 = v33;
+        v12 = v34;
       }
-      return (_UNKNOWN **)ObfDereferenceObjectWithTag(v3, 0x67446F50u);
+      PopSqmThermalZoneEnumeration(
+        v7,
+        (_DWORD)v35,
+        v8,
+        *((_DWORD *)a1 + 1),
+        *((_DWORD *)a1 + 2),
+        *((_DWORD *)a1 + 3),
+        *((_DWORD *)a1 + 9) / 0xAu,
+        *((_DWORD *)a1 + 10) / 0xAu,
+        v10,
+        v12,
+        v13 / 0xA,
+        *((_DWORD *)a1 + 22));
     }
+    if ( v5 )
+      ObfDereferenceObjectWithTag(v5, 0x67446F50u);
   }
-  return result;
 }

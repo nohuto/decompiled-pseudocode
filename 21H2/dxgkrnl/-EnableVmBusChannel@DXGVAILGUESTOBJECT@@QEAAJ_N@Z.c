@@ -1,44 +1,26 @@
 /*
- * XREFs of ?EnableVmBusChannel@DXGVAILGUESTOBJECT@@QEAAJ_N@Z @ 0x1C005B7E0
+ * XREFs of ?EnableVmBusChannel@DXGVAILGUESTOBJECT@@QEAAJ_N@Z @ 0x1C004D7A0
  * Callers:
- *     ?VailEnsureConnection@DXGSESSIONDATA@@QEAAJXZ @ 0x1C0351B18 (-VailEnsureConnection@DXGSESSIONDATA@@QEAAJXZ.c)
+ *     ?VailEnsureConnection@DXGSESSIONDATA@@QEAAJXZ @ 0x1C02B68B4 (-VailEnsureConnection@DXGSESSIONDATA@@QEAAJXZ.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z @ 0x1C035136C (-EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z.c)
+ *     ?EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z @ 0x1C02B5598 (-EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z.c)
  */
 
-__int64 __fastcall DXGVAILGUESTOBJECT::EnableVmBusChannel(struct _KTHREAD **this)
+__int64 __fastcall DXGVAILGUESTOBJECT::EnableVmBusChannel(struct _KTHREAD **this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
-  struct DXGVMBUSCHANNEL *v5; // rcx
+  __int64 v3; // rax
+  struct DXGVMBUSCHANNEL *v4; // rcx
   __int64 result; // rax
 
-  if ( this[5] != KeGetCurrentThread() )
+  if ( this[4] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 485LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v3,
-          v2,
-          v4,
-          0LL,
-          2,
-          -1,
-          L"m_VailMutex.IsOwner()",
-          485LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 490LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v5 = this[9];
+  v4 = this[8];
   result = 3221225473LL;
-  if ( v5 )
-    return EnableVmBusChannel(v5, 1);
+  if ( v4 )
+    return EnableVmBusChannel(v4, 1);
   return result;
 }

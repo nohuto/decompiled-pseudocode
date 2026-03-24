@@ -1,8 +1,8 @@
 /*
- * XREFs of XFORMOBJ_iGetXform @ 0x1C0077B00
+ * XREFs of XFORMOBJ_iGetXform @ 0x1C00A8CD0
  * Callers:
- *     ?UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077A04 (-UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     NtGdiXFORMOBJ_iGetXform @ 0x1C02CE0E0 (NtGdiXFORMOBJ_iGetXform.c)
+ *     ?UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A8C0C (-UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     NtGdiXFORMOBJ_iGetXform @ 0x1C014E940 (NtGdiXFORMOBJ_iGetXform.c)
  * Callees:
  *     <none>
  */

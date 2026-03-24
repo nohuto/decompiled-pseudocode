@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFwAllocateMemory @ 0x14016F4B8
+ * XREFs of BgpFwAllocateMemory @ 0x14016F4D8
  * Callers:
- *     BgpFwQueryBootGraphicsInformation @ 0x14016F2A0 (BgpFwQueryBootGraphicsInformation.c)
- *     BgpRasPrintGlyph @ 0x14017A1B4 (BgpRasPrintGlyph.c)
- *     RaspAllocateMemory @ 0x14017C044 (RaspAllocateMemory.c)
- *     BcpGetProgressMessages @ 0x1401867B8 (BcpGetProgressMessages.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14016F2C0 (BgpFwQueryBootGraphicsInformation.c)
+ *     BgpRasPrintGlyph @ 0x14017A1D4 (BgpRasPrintGlyph.c)
+ *     RaspAllocateMemory @ 0x14017C064 (RaspAllocateMemory.c)
+ *     BcpGetProgressMessages @ 0x1401867D8 (BcpGetProgressMessages.c)
  *     BgpTxtGetRegionContext @ 0x14094F8BC (BgpTxtGetRegionContext.c)
  *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
  *     BgpTxtCreateRegion @ 0x14095003C (BgpTxtCreateRegion.c)
@@ -13,18 +13,18 @@
  *     TxtpAddCacheEntry @ 0x140951524 (TxtpAddCacheEntry.c)
  *     BgpConsoleInitialize @ 0x140951730 (BgpConsoleInitialize.c)
  *     BgpDisplayCharacterGetContext @ 0x140951948 (BgpDisplayCharacterGetContext.c)
- *     BgpFoInitialize @ 0x1409FA888 (BgpFoInitialize.c)
- *     FopInitializeFonts @ 0x1409FA984 (FopInitializeFonts.c)
- *     FopReadMappingTable @ 0x1409FAAAC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x1409FAC7C (FopValidateFontNameTable.c)
- *     FopReadCmapTable @ 0x1409FAE10 (FopReadCmapTable.c)
- *     FopReadNamingTable @ 0x1409FB144 (FopReadNamingTable.c)
- *     BgpBcInitializeCriticalMode @ 0x1409FB410 (BgpBcInitializeCriticalMode.c)
+ *     BgpFoInitialize @ 0x1409FA898 (BgpFoInitialize.c)
+ *     FopInitializeFonts @ 0x1409FA994 (FopInitializeFonts.c)
+ *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
+ *     FopReadCmapTable @ 0x1409FAE20 (FopReadCmapTable.c)
+ *     FopReadNamingTable @ 0x1409FB154 (FopReadNamingTable.c)
+ *     BgpBcInitializeCriticalMode @ 0x1409FB420 (BgpBcInitializeCriticalMode.c)
  * Callees:
  *     MmAllocatePagesForMdlEx @ 0x140010EE0 (MmAllocatePagesForMdlEx.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     BgpFwReserveAllocate @ 0x14016F644 (BgpFwReserveAllocate.c)
+ *     BgpFwReserveAllocate @ 0x14016F664 (BgpFwReserveAllocate.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NeedsSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEBA_NXZ @ 0x1C0219224
+ * XREFs of ?NeedsSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEBA_NXZ @ 0x1C01E2F94
  * Callers:
- *     ?EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218F4C (-EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E2CD0 (-EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,11 @@ char __fastcall DirectComposition::CGenericInkMarshaler::NeedsSegmentUpdate(
   __int64 v1; // r8
   char v2; // dl
 
-  v1 = *((_QWORD *)this + 18);
+  v1 = *((_QWORD *)this + 17);
   v2 = 0;
   if ( v1
-    && (v1 * (unsigned __int64)*((unsigned int *)this + 39) < *((_QWORD *)this + 16)
-     || *((_BYTE *)this + 160)
+    && (v1 * (unsigned __int64)*((unsigned int *)this + 37) < *((_QWORD *)this + 15)
+     || *((_BYTE *)this + 152)
      || (*((_DWORD *)this + 4) & 0x40) == 0) )
   {
     return 1;

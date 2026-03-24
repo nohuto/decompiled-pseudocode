@@ -1,23 +1,26 @@
 /*
- * XREFs of ?TerminateUmfdHostRetainHandle@UmfdHostLifeTimeManager@@SAPEAXXZ @ 0x1C00F79F0
+ * XREFs of ?TerminateUmfdHostRetainHandle@UmfdHostLifeTimeManager@@SAPEAXXZ @ 0x1C00F4820
  * Callers:
- *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00F741C (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
+ *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00F429C (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
  * Callees:
- *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C001F1E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00F7BD8 (-IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A8434 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A8ED8 (-IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ.c)
  */
 
 HANDLE UmfdHostLifeTimeManager::TerminateUmfdHostRetainHandle(void)
 {
-  NTSTATUS v0; // eax
-  HANDLE v1; // rbx
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  __int64 v2; // r8
+  NTSTATUS v3; // eax
+  HANDLE v4; // rbx
   HANDLE ProcessHandle; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v4; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v7; // [rsp+58h] [rbp+10h] BYREF
 
   AutoSharedPushLock::AutoSharedPushLock(
-    (AutoSharedPushLock *)&v4,
+    (AutoSharedPushLock *)&v7,
     (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
-  if ( UmfdHostLifeTimeManager::IsCurrentProcessUmfdHostNoLock()
+  if ( UmfdHostLifeTimeManager::IsCurrentProcessUmfdHostNoLock(v1, v0, v2)
     || !UmfdHostLifeTimeManager::s_UmfdHostProcess
     || (ProcessHandle = 0LL,
         ObOpenObjectByPointer(
@@ -29,26 +32,26 @@ HANDLE UmfdHostLifeTimeManager::TerminateUmfdHostRetainHandle(void)
           0,
           &ProcessHandle) < 0) )
   {
-    v1 = 0LL;
+    v4 = 0LL;
   }
   else
   {
-    v0 = ZwTerminateProcess(ProcessHandle, 258);
-    if ( (int)(v0 + 0x80000000) < 0 || v0 == -1073741558 )
+    v3 = ZwTerminateProcess(ProcessHandle, 258);
+    if ( (int)(v3 + 0x80000000) < 0 || v3 == -1073741558 )
     {
-      v1 = ProcessHandle;
+      v4 = ProcessHandle;
     }
     else
     {
       ZwClose(ProcessHandle);
-      v1 = 0LL;
+      v4 = 0LL;
       ProcessHandle = 0LL;
     }
   }
-  if ( v4 )
+  if ( v7 )
   {
-    GreReleasePushLockShared(v4);
+    GreReleasePushLockShared(v7);
     KeLeaveCriticalRegion();
   }
-  return v1;
+  return v4;
 }

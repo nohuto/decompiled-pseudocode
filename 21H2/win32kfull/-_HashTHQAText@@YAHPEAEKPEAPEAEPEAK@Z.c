@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z @ 0x1C01D0E30
+ * XREFs of ?_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z @ 0x1C01D5310
  * Callers:
- *     _VerifyTHQBlob @ 0x1C01D19F8 (_VerifyTHQBlob.c)
+ *     _VerifyTHQBlob @ 0x1C01D5F4C (_VerifyTHQBlob.c)
  * Callees:
  *     <none>
  */

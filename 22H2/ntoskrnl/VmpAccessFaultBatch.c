@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpAccessFaultBatch @ 0x140465EE6
+ * XREFs of VmpAccessFaultBatch @ 0x1405A2AAC
  * Callers:
- *     VmAccessFault @ 0x1409DC0A0 (VmAccessFault.c)
+ *     VmAccessFault @ 0x14092E9B0 (VmAccessFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     VmpFaultEntryInsert @ 0x1404661D8 (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x140466396 (VmpFaultEntryRemove.c)
- *     VmpProcessContextLockShared @ 0x140466734 (VmpProcessContextLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessUpdateSlat @ 0x1405FABEC (VmpProcessUpdateSlat.c)
- *     VmpAccessFaultBatchResolve @ 0x1409DCDE8 (VmpAccessFaultBatchResolve.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpFaultEntryInsert @ 0x1405A2FF8 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x1405A31B0 (VmpFaultEntryRemove.c)
+ *     VmpProcessContextLockShared @ 0x1405A4914 (VmpProcessContextLockShared.c)
+ *     VmpProcessUpdateSlat @ 0x1405A498C (VmpProcessUpdateSlat.c)
+ *     VmpAccessFaultBatchResolve @ 0x14092F318 (VmpAccessFaultBatchResolve.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatch(
@@ -23,139 +23,148 @@ __int64 __fastcall VmpAccessFaultBatch(
         __int64 a8)
 {
   int v8; // ebx
-  __int64 *v9; // rax
-  __int64 v10; // rsi
+  __int64 v9; // rsi
+  int v12; // r15d
   int updated; // ebx
-  __int64 v14; // rdi
-  int v15; // r15d
-  __int64 v16; // rcx
-  unsigned __int64 v17; // r13
-  __int64 *v18; // r8
-  unsigned __int64 v19; // rdx
-  unsigned __int8 v20; // cl
-  struct _KPRCB *v21; // r10
-  _DWORD *v22; // r9
-  int v23; // eax
-  bool v24; // zf
-  __int64 *v25; // rdx
-  __int64 v26; // rax
-  __int64 v27; // rcx
+  __int64 v14; // rbp
+  int v15; // r12d
+  unsigned __int64 v16; // r15
+  unsigned __int64 v17; // r8
+  unsigned __int64 v18; // rdx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *SchedulerAssist; // r8
-  int v31; // eax
-  __int64 *v33; // [rsp+30h] [rbp-38h]
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v22; // eax
+  bool v23; // zf
+  __int64 *v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r9
+  _DWORD *v29; // r8
+  int v30; // eax
+  int v32; // [rsp+30h] [rbp-38h]
 
   v8 = a4;
-  v9 = (__int64 *)(a2 + 32);
-  LODWORD(v10) = a3;
-  while ( 1 )
+  LODWORD(v9) = a3;
+  do
   {
-    v33 = v9;
-    VmpFaultEntryInsert(SpinLock, a2, (unsigned int)v10);
-    updated = VmpAccessFaultBatchResolve(a2, v10, v8, a5, a6, a7);
+    VmpFaultEntryInsert(SpinLock, a2, (unsigned int)v9);
+    v12 = 1;
+    v32 = 1;
+    updated = VmpAccessFaultBatchResolve(a2, v9, v8, a5, a6, a7);
     if ( updated < 0 )
-      break;
+      goto LABEL_40;
     v14 = VmpProcessContextLockShared(SpinLock);
     if ( *((_QWORD *)SpinLock + 9) != a8 )
     {
       updated = -1073741558;
-LABEL_31:
-      if ( v14 != -1 )
-      {
-        ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-        if ( KiIrqlFlags )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-            v24 = (v31 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v31;
-            if ( v24 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-          }
-        }
-        __writecr8((unsigned __int8)v14);
-      }
-      break;
+      goto LABEL_30;
     }
     v15 = 0;
-    v16 = 48LL * (unsigned int)v10;
-    v17 = v16 + a2;
-    if ( a2 < v16 + a2 )
+    v16 = a2 + 48LL * (unsigned int)v9;
+    if ( a2 < v16 )
     {
-      v18 = v33;
-      v19 = (v16 - 1) / 0x30uLL + 1;
+      v17 = a2 + 32;
+      v18 = (48 * (unsigned __int64)(unsigned int)v9 - 1) / 0x30 + 1;
       do
       {
-        if ( _bittest64(v18 - 1, 0x34u) || (*((_BYTE *)v18 + 7) & 1) != 0 )
+        if ( (*(_QWORD *)(v17 - 8) & 0x10000000000000LL) != 0 || (*(_BYTE *)(v17 + 7) & 1) != 0 )
         {
-          *v18 |= 0x80000000000000uLL;
+          *(_QWORD *)v17 |= 0x80000000000000uLL;
           ++v15;
         }
-        v18 += 6;
-        --v19;
+        v17 += 48LL;
+        --v18;
       }
-      while ( v19 );
+      while ( v18 );
     }
-    if ( v15 != (_DWORD)v10 )
+    if ( v15 != (_DWORD)v9 )
     {
-      updated = VmpProcessUpdateSlat((_DWORD)SpinLock, a2, v10, a4, (a5 >> 5) & 1);
+      updated = VmpProcessUpdateSlat((_DWORD)SpinLock, a2, v9, a4, (a5 >> 5) & 1);
       if ( updated < 0 )
-        goto LABEL_31;
+        goto LABEL_29;
     }
     ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
     if ( KiIrqlFlags )
     {
-      v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v20 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v21 = KeGetCurrentPrcb();
-        v22 = v21->SchedulerAssist;
-        v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-        v24 = (v23 & v22[5]) == 0;
-        v22[5] &= v23;
-        if ( v24 )
-          KiRemoveSystemWorkPriorityKick(v21);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+          v23 = (v22 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v22;
+          if ( v23 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8((unsigned __int8)v14);
-    VmpFaultEntryRemove(SpinLock, a2, (unsigned int)v10);
+    v14 = -1LL;
+    VmpFaultEntryRemove(SpinLock, a2, (unsigned int)v9);
+    v32 = 0;
     if ( !v15 )
-      return 0;
-    v10 = 0LL;
-    if ( a2 >= v17 )
-      return 0;
-    v25 = v33;
+      break;
+    v9 = 0LL;
+    if ( a2 >= v16 )
+      break;
+    v24 = (__int64 *)(a2 + 32);
     do
     {
-      v26 = *v25;
-      if ( (*v25 & 0x80000000000000LL) != 0 )
+      v25 = *v24;
+      if ( (*v24 & 0x80000000000000LL) != 0 )
       {
-        if ( (v26 & 0x100000000000000LL) == 0 )
+        if ( (v25 & 0x100000000000000LL) == 0 )
         {
-          *(v25 - 1) &= ~0x10000000000000uLL;
-          *v25 = v26 & 0xFFFFFFFFFFFFFLL;
-          v27 = 6 * v10;
-          v10 = (unsigned int)(v10 + 1);
-          *(_OWORD *)(a2 + 8 * v27) = *((_OWORD *)v25 - 2);
-          *(_OWORD *)(a2 + 8 * v27 + 16) = *((_OWORD *)v25 - 1);
-          *(_OWORD *)(a2 + 8 * v27 + 32) = *(_OWORD *)v25;
+          *(v24 - 1) &= ~0x10000000000000uLL;
+          *v24 = v25 & 0xFFFFFFFFFFFFFLL;
+          v26 = 6 * v9;
+          v9 = (unsigned int)(v9 + 1);
+          *(_OWORD *)(a2 + 8 * v26) = *((_OWORD *)v24 - 2);
+          *(_OWORD *)(a2 + 8 * v26 + 16) = *((_OWORD *)v24 - 1);
+          *(_OWORD *)(a2 + 8 * v26 + 32) = *(_OWORD *)v24;
         }
         if ( !--v15 )
           break;
       }
-      v25 += 6;
+      v24 += 6;
     }
-    while ( (unsigned __int64)(v25 - 4) < v17 );
-    if ( !(_DWORD)v10 )
-      return 0;
-    v9 = v33;
+    while ( (unsigned __int64)(v24 - 4) < v16 );
     v8 = a4;
   }
-  VmpFaultEntryRemove(SpinLock, a2, (unsigned int)v10);
+  while ( (_DWORD)v9 );
+  updated = 0;
+LABEL_29:
+  v12 = v32;
+LABEL_30:
+  if ( v14 != -1 )
+  {
+    ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v27 = KeGetCurrentIrql();
+        if ( v27 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v27 >= 2u )
+        {
+          v28 = KeGetCurrentPrcb();
+          v29 = v28->SchedulerAssist;
+          v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+          v23 = (v30 & v29[5]) == 0;
+          v29[5] &= v30;
+          if ( v23 )
+            KiRemoveSystemWorkPriorityKick((__int64)v28);
+        }
+      }
+    }
+    __writecr8((unsigned __int8)v14);
+  }
+  if ( v12 )
+LABEL_40:
+    VmpFaultEntryRemove(SpinLock, a2, (unsigned int)v9);
   return (unsigned int)updated;
 }

@@ -1,37 +1,41 @@
 /*
- * XREFs of IopQueryResourceHandlerInterface @ 0x14081AB14
+ * XREFs of IopQueryResourceHandlerInterface @ 0x140751BBC
  * Callers:
- *     IoTranslateBusAddress @ 0x140560400 (IoTranslateBusAddress.c)
- *     IopSetupArbiterAndTranslators @ 0x14081A55C (IopSetupArbiterAndTranslators.c)
- *     IopDuplicateDetection @ 0x1408373C4 (IopDuplicateDetection.c)
+ *     IoTranslateBusAddress @ 0x14050CC80 (IoTranslateBusAddress.c)
+ *     IopSetupArbiterAndTranslators @ 0x14075160C (IopSetupArbiterAndTranslators.c)
+ *     IopDuplicateDetection @ 0x1407AF4B4 (IopDuplicateDetection.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopSynchronousCall @ 0x1407688B4 (IopSynchronousCall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopSynchronousCall @ 0x14071D3C0 (IopSynchronousCall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopQueryResourceHandlerInterface(int a1, __int64 a2, unsigned __int8 a3, unsigned __int16 **a4)
+__int64 __fastcall IopQueryResourceHandlerInterface(int a1, struct _DEVICE_OBJECT *a2, unsigned __int8 a3, _QWORD *a4)
 {
-  __int64 v4; // rax
-  __int64 v6; // r12
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rax
+  __int64 v6; // r13
   int v9; // ecx
   GUID v10; // xmm0
   unsigned __int16 v11; // bx
-  unsigned __int16 *Pool2; // rax
-  unsigned __int16 *v13; // rsi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v13; // rsi
   int v14; // ebx
   int v16; // ecx
   int v17; // edi
-  _QWORD v18[9]; // [rsp+30h] [rbp-39h] BYREF
-  GUID v19; // [rsp+78h] [rbp+Fh] BYREF
+  bool v18; // zf
+  _QWORD v19[9]; // [rsp+30h] [rbp-39h] BYREF
+  GUID v20; // [rsp+78h] [rbp+Fh] BYREF
 
-  v4 = *(_QWORD *)(a2 + 312);
+  DeviceObjectExtension = a2->DeviceObjectExtension;
   v6 = a3;
-  v19 = 0LL;
-  if ( *(_QWORD *)(*(_QWORD *)(v4 + 40) + 432LL) == *(_QWORD *)(a2 + 8) || (*(_DWORD *)(a2 + 48) & 0x1000) == 0 )
+  v20 = 0LL;
+  if ( (struct _DRIVER_OBJECT *)*((_QWORD *)DeviceObjectExtension->DeviceNode + 54) == a2->DriverObject
+    || (a2->Flags & 0x1000) == 0 )
+  {
     return 3221225659LL;
+  }
   v9 = a1 - 1;
   if ( v9 )
   {
@@ -54,27 +58,24 @@ __int64 __fastcall IopQueryResourceHandlerInterface(int a1, __int64 a2, unsigned
     v10 = GUID_TRANSLATOR_INTERFACE_STANDARD;
     v11 = 52;
   }
-  v19 = v10;
-  Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, v11, 538996816LL);
-  v13 = Pool2;
-  if ( Pool2 )
+  v20 = v10;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11, 0x20207050u);
+  v13 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = v11;
-    memset(v18, 0, sizeof(v18));
-    LOWORD(v18[0]) = 2075;
-    v18[1] = &v19;
-    LOWORD(v18[2]) = v11;
-    v13[1] = 0;
-    WORD1(v18[2]) = 0;
-    v18[3] = v13;
-    v18[4] = v6;
-    v14 = IopSynchronousCall((_QWORD *)a2, (__int64)v18, -1073741637, 0LL, 0LL);
+    memset(PoolWithTag, 0, v11);
+    *(_WORD *)v13 = v11;
+    memset(v19, 0, sizeof(v19));
+    LOWORD(v19[0]) = 2075;
+    LOWORD(v19[2]) = v11;
+    v19[1] = &v20;
+    *((_WORD *)v13 + 1) = 0;
+    WORD1(v19[2]) = 0;
+    v19[3] = v13;
+    v19[4] = v6;
+    v14 = IopSynchronousCall(a2, (__int64)v19, -1073741637, 0LL, 0LL);
     if ( v14 < 0 )
-    {
-LABEL_7:
-      ExFreePoolWithTag(v13, 0);
-      return (unsigned int)v14;
-    }
+      goto LABEL_7;
     v17 = a1 - 1;
     if ( v17 )
     {
@@ -83,19 +84,29 @@ LABEL_7:
         v14 = -1073741811;
         goto LABEL_7;
       }
-      if ( !*((_QWORD *)v13 + 4) )
-      {
-        v14 = -1073741823;
-        goto LABEL_7;
-      }
+      v18 = v13[4] == 0LL;
     }
-    else if ( !*((_QWORD *)v13 + 4) || !*((_QWORD *)v13 + 5) )
+    else
     {
-      v14 = -1073741823;
-      goto LABEL_7;
+      if ( !v13[4] )
+      {
+LABEL_21:
+        v14 = -1073741823;
+LABEL_15:
+        if ( v14 >= 0 )
+        {
+          *a4 = v13;
+          return (unsigned int)v14;
+        }
+LABEL_7:
+        ExFreePoolWithTag(v13, 0);
+        return (unsigned int)v14;
+      }
+      v18 = v13[5] == 0LL;
     }
-    *a4 = v13;
-    return (unsigned int)v14;
+    if ( !v18 )
+      goto LABEL_15;
+    goto LABEL_21;
   }
   return 3221225626LL;
 }

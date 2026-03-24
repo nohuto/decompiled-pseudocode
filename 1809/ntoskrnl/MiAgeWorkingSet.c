@@ -2,20 +2,20 @@
  * XREFs of MiAgeWorkingSet @ 0x14006DE50
  * Callers:
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MiForceAgeWorkingSet @ 0x1402B3020 (MiForceAgeWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x1402B3120 (MiForceAgeWorkingSet.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
  *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     MiGenerateRandomPte @ 0x1401310FC (MiGenerateRandomPte.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     MiGenerateRandomPte @ 0x14013111C (MiGenerateRandomPte.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
@@ -418,7 +418,7 @@ LABEL_107:
       v81 = 8LL;
       v83 = 8LL;
       v85 = 4LL;
-      TlgWriteEx(v53, &unk_14036DEAB, 0LL, 1u, 0LL, 0LL, 0xAu, &pData);
+      TlgWriteEx(v53, &unk_14036DFBB, 0LL, 1u, 0LL, 0LL, 0xAu, &pData);
     }
   }
   return v10 == 4;

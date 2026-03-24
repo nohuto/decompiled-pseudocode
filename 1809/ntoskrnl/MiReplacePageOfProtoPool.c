@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplacePageOfProtoPool @ 0x140124D7C
+ * XREFs of MiReplacePageOfProtoPool @ 0x140124D9C
  * Callers:
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
  * Callees:
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     MiGetPrototypePteRanges @ 0x1401251F4 (MiGetPrototypePteRanges.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeCopyPage @ 0x1401C09B0 (KeCopyPage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiGetPrototypePteRanges @ 0x140125214 (MiGetPrototypePteRanges.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

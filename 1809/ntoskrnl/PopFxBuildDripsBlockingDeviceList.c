@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1402D74D0
+ * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0
  * Callers:
- *     PopDripsWatchdogDfxCallback @ 0x14086E2E0 (PopDripsWatchdogDfxCallback.c)
- *     PopDripsWatchdogPs4Callback @ 0x14086E650 (PopDripsWatchdogPs4Callback.c)
- *     PopDripsCallbackTakeAction @ 0x140879568 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408797A8 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogDfxCallback @ 0x14086E2C0 (PopDripsWatchdogDfxCallback.c)
+ *     PopDripsWatchdogPs4Callback @ 0x14086E630 (PopDripsWatchdogPs4Callback.c)
+ *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopFxAddRefDevice @ 0x1400FE2A8 (PopFxAddRefDevice.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopFxIsDripsBlockingDevice @ 0x1402D837C (PopFxIsDripsBlockingDevice.c)
+ *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopFxIsDripsBlockingDevice @ 0x1402D847C (PopFxIsDripsBlockingDevice.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
- *     IoLockUnlockPnpDeviceTree @ 0x14082463C (IoLockUnlockPnpDeviceTree.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140869614 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14082461C (IoLockUnlockPnpDeviceTree.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
  */
 
 __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, _QWORD *a2)

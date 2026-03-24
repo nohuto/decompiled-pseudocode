@@ -1,14 +1,14 @@
 /*
- * XREFs of imp_WdfFdoInitSetDefaultChildListConfig @ 0x1C0030DD0
+ * XREFs of imp_WdfFdoInitSetDefaultChildListConfig @ 0x1C0045AB0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?_ValidateConfig@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG@@PEA_K@Z @ 0x1C0030EA0 (-_ValidateConfig@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG@@PEA_K@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ?_ValidateConfig@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG@@PEA_K@Z @ 0x1C003C88C (-_ValidateConfig@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG@@PEA_K@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfFdoInitSetDefaultChildListConfig(
@@ -23,7 +23,7 @@ void __fastcall imp_WdfFdoInitSetDefaultChildListConfig(
   unsigned __int64 totalDescriptionSize; // [rsp+48h] [rbp+10h] BYREF
 
   if ( !DeviceInit )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   totalDescriptionSize = 0LL;
   v7 = DeviceInit->DriverGlobals;
   v8 = DeviceInit->DriverGlobals;
@@ -35,28 +35,26 @@ void __fastcall imp_WdfFdoInitSetDefaultChildListConfig(
     {
       WPP_IFR_SF_(v7, 2u, 0x12u, 0x2Eu, WPP_FxDeviceInitApi_cpp_Traceguids);
     }
-    else if ( FxChildList::_ValidateConfig(v7, Config, &totalDescriptionSize) >= 0 )
+    else if ( (int)FxChildList::_ValidateConfig(v7, Config, &totalDescriptionSize) >= 0 )
     {
-      if ( !DefaultDeviceListAttributes )
+      if ( DefaultDeviceListAttributes )
       {
-LABEL_7:
-        *(_OWORD *)&DeviceInit->Fdo.ListConfig.Size = *(_OWORD *)&Config->Size;
-        *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListCreateDevice = *(_OWORD *)&Config->EvtChildListCreateDevice;
-        *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListIdentificationDescriptionCopy = *(_OWORD *)&Config->EvtChildListIdentificationDescriptionCopy;
-        *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListIdentificationDescriptionCleanup = *(_OWORD *)&Config->EvtChildListIdentificationDescriptionCleanup;
-        *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListAddressDescriptionCopy = *(_OWORD *)&Config->EvtChildListAddressDescriptionCopy;
-        *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListAddressDescriptionCleanup = *(_OWORD *)&Config->EvtChildListAddressDescriptionCleanup;
-        return;
-      }
-      if ( (int)FxValidateObjectAttributes(v7, DefaultDeviceListAttributes, 1) >= 0 )
-      {
+        if ( (int)FxValidateObjectAttributes(v7, DefaultDeviceListAttributes, 1) < 0 )
+          goto LABEL_8;
         *(_OWORD *)&DeviceInit->Fdo.ListConfigAttributes.Size = *(_OWORD *)&DefaultDeviceListAttributes->Size;
         *(_OWORD *)&DeviceInit->Fdo.ListConfigAttributes.EvtDestroyCallback = *(_OWORD *)&DefaultDeviceListAttributes->EvtDestroyCallback;
         *(_OWORD *)&DeviceInit->Fdo.ListConfigAttributes.ParentObject = *(_OWORD *)&DefaultDeviceListAttributes->ParentObject;
         DeviceInit->Fdo.ListConfigAttributes.ContextTypeInfo = DefaultDeviceListAttributes->ContextTypeInfo;
-        goto LABEL_7;
       }
+      *(_OWORD *)&DeviceInit->Fdo.ListConfig.Size = *(_OWORD *)&Config->Size;
+      *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListCreateDevice = *(_OWORD *)&Config->EvtChildListCreateDevice;
+      *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListIdentificationDescriptionCopy = *(_OWORD *)&Config->EvtChildListIdentificationDescriptionCopy;
+      *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListIdentificationDescriptionCleanup = *(_OWORD *)&Config->EvtChildListIdentificationDescriptionCleanup;
+      *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListAddressDescriptionCopy = *(_OWORD *)&Config->EvtChildListAddressDescriptionCopy;
+      *(_OWORD *)&DeviceInit->Fdo.ListConfig.EvtChildListAddressDescriptionCleanup = *(_OWORD *)&Config->EvtChildListAddressDescriptionCleanup;
+      return;
     }
+LABEL_8:
     FxVerifierDbgBreakPoint(v7);
   }
 }

@@ -9,17 +9,17 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1405A0888 (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     ExpGetSubscriptionPfn @ 0x1408CF0A4 (ExpGetSubscriptionPfn.c)
+ *     ExpGetSubscriptionPfn @ 0x1408CF084 (ExpGetSubscriptionPfn.c)
  */
 
 __int64 __fastcall ExQueryLicenseValueInternal(
@@ -119,8 +119,8 @@ __int64 __fastcall ExQueryLicenseValueInternal(
   v8 = 0;
   v9 = a1;
   v10 = *a1;
-  v11 = &off_140908800;
-  v12 = &off_140908800;
+  v11 = &off_1409087E0;
+  v12 = &off_1409087E0;
   while ( 1 )
   {
     v13 = *((_WORD *)v12 + 4);
@@ -208,7 +208,7 @@ LABEL_10:
   }
   v44 = 0;
   v49 = 0;
-  v44 = sub_1400076D0((__int64)&qword_140909178, 0LL, (__int64)&v49, 4u, (__int64)v60);
+  v44 = sub_1400076D0((__int64)&qword_140909158, 0LL, (__int64)&v49, 4u, (__int64)v60);
   if ( v49 && qword_14096D398 )
   {
     v33 = *a1 + 2;

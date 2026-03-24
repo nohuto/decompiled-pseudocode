@@ -1,21 +1,28 @@
 /*
- * XREFs of RIMGetCurrentPowerInputMode @ 0x1C00A21D8
+ * XREFs of RIMGetCurrentPowerInputMode @ 0x1C00ACEB8
  * Callers:
- *     RIMHandlePowerDeviceArrival @ 0x1C00A20A0 (RIMHandlePowerDeviceArrival.c)
+ *     RIMHandlePowerDeviceArrival @ 0x1C00ACE0C (RIMHandlePowerDeviceArrival.c)
  * Callees:
- *     ApiSetGetPowerTransitionsState @ 0x1C00A2238 (ApiSetGetPowerTransitionsState.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ApiSetGetPowerTransitionsState @ 0x1C00ACF24 (ApiSetGetPowerTransitionsState.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 RIMGetCurrentPowerInputMode()
 {
-  _DWORD v1[16]; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v1; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v2; // [rsp+30h] [rbp-48h]
+  __int128 v3; // [rsp+40h] [rbp-38h]
+  __int64 v4; // [rsp+50h] [rbp-28h]
+  int v5; // [rsp+58h] [rbp-20h]
 
-  memset(v1, 0, sizeof(v1));
-  ApiSetGetPowerTransitionsState(v1);
-  if ( v1[7] )
+  v1 = 0LL;
+  v4 = 0LL;
+  v2 = 0LL;
+  v5 = 0;
+  v3 = 0LL;
+  ApiSetGetPowerTransitionsState(&v1);
+  if ( HIDWORD(v2) )
     return 1LL;
   else
-    return v1[8] != 0 ? 2 : 0;
+    return (_DWORD)v3 != 0 ? 2 : 0;
 }

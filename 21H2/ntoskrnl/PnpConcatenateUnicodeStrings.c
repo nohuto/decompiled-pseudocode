@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpConcatenateUnicodeStrings @ 0x1407690BC
+ * XREFs of PnpConcatenateUnicodeStrings @ 0x140749024
  * Callers:
- *     IoGetDeviceInstanceName @ 0x1402DDEC0 (IoGetDeviceInstanceName.c)
- *     PiDeviceRegistration @ 0x14076B5DC (PiDeviceRegistration.c)
- *     IoGetDeviceDirectory @ 0x140943540 (IoGetDeviceDirectory.c)
- *     PiCreateDirectoryPath @ 0x140943B34 (PiCreateDirectoryPath.c)
- *     PiCreateRegistryPath @ 0x140943E3C (PiCreateRegistryPath.c)
- *     PipServiceInstanceToDeviceInstance @ 0x140946900 (PipServiceInstanceToDeviceInstance.c)
- *     PiInitializeDevice @ 0x14095975C (PiInitializeDevice.c)
+ *     IoGetDeviceInstanceName @ 0x14036FF20 (IoGetDeviceInstanceName.c)
+ *     PiDeviceRegistration @ 0x14074BDF0 (PiDeviceRegistration.c)
+ *     IoGetDeviceDirectory @ 0x14089E810 (IoGetDeviceDirectory.c)
+ *     PiCreateDirectoryPath @ 0x14089EDF4 (PiCreateDirectoryPath.c)
+ *     PiCreateRegistryPath @ 0x14089F0F4 (PiCreateRegistryPath.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1408A17A0 (PipServiceInstanceToDeviceInstance.c)
+ *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x140769784 (IopAllocateUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
  */
 
 __int64 __fastcall PnpConcatenateUnicodeStrings(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   __int64 result; // rax
 
-  result = IopAllocateUnicodeString(DestinationString);
+  result = IopAllocateUnicodeString(DestinationString, SourceString->Length);
   if ( (int)result >= 0 )
   {
     RtlCopyUnicodeString(DestinationString, SourceString);

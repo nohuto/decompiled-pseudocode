@@ -1,5 +1,5 @@
 /*
- * XREFs of ExGetWakeTimerList @ 0x14031C530
+ * XREFs of ExGetWakeTimerList @ 0x14031C630
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
@@ -9,11 +9,11 @@
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeQueryTimerDueTime @ 0x1402904C8 (KeQueryTimerDueTime.c)
- *     PoStoreDiagnosticContext @ 0x1402D3170 (PoStoreDiagnosticContext.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryTimerDueTime @ 0x1402905C8 (KeQueryTimerDueTime.c)
+ *     PoStoreDiagnosticContext @ 0x1402D3270 (PoStoreDiagnosticContext.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

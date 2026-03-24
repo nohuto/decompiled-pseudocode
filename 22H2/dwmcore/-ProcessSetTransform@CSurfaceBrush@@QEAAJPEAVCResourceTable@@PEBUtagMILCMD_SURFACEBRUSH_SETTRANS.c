@@ -1,11 +1,12 @@
 /*
- * XREFs of ?ProcessSetTransform@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETTRANSFORM@@@Z @ 0x1800F8834
+ * XREFs of ?ProcessSetTransform@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETTRANSFORM@@@Z @ 0x1800CD914
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetTransform@CSurfaceBrush@@QEAAJPEAVCComponentTransform2D@@@Z @ 0x1800F8884 (-SetTransform@CSurfaceBrush@@QEAAJPEAVCComponentTransform2D@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?SetTransform@CSurfaceBrush@@QEAAJPEAVCComponentTransform2D@@@Z @ 0x1800CD980 (-SetTransform@CSurfaceBrush@@QEAAJPEAVCComponentTransform2D@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSurfaceBrush::ProcessSetTransform(
@@ -13,26 +14,32 @@ __int64 __fastcall CSurfaceBrush::ProcessSetTransform(
         struct CResourceTable *a2,
         const struct tagMILCMD_SURFACEBRUSH_SETTRANSFORM *a3)
 {
-  struct CComponentTransform2D *Resource; // rax
-  unsigned int v5; // edx
+  struct CResource *ResourceWithoutType; // rax
+  struct CComponentTransform2D *v5; // rdx
+  struct CResource *v6; // rbx
   __int64 v7; // rcx
   int v8; // eax
   __int64 v9; // rcx
   unsigned int v10; // ebx
 
-  Resource = 0LL;
-  v5 = *((_DWORD *)a3 + 2);
-  if ( v5 && (Resource = (struct CComponentTransform2D *)CResourceTable::GetResource((__int64)a2, v5, 0x1Du)) == 0LL )
+  ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *((_DWORD *)a3 + 2));
+  v5 = 0LL;
+  v6 = ResourceWithoutType;
+  if ( ResourceWithoutType )
   {
-    v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0xCAu, 0LL);
+    if ( !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
+            ResourceWithoutType,
+            27LL) )
+    {
+      v10 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0xC3u, 0LL);
+      return v10;
+    }
+    v5 = v6;
   }
-  else
-  {
-    v8 = CSurfaceBrush::SetTransform(this, Resource);
-    v10 = v8;
-    if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xCEu, 0LL);
-  }
+  v8 = CSurfaceBrush::SetTransform(this, v5);
+  v10 = v8;
+  if ( v8 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xC9u, 0LL);
   return v10;
 }

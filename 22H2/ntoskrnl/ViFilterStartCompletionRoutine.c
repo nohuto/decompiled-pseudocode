@@ -1,9 +1,9 @@
 /*
- * XREFs of ViFilterStartCompletionRoutine @ 0x140AE0A20
+ * XREFs of ViFilterStartCompletionRoutine @ 0x1409E5730
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x140340F40 (IoReleaseRemoveLockEx.c)
+ *     IoReleaseRemoveLockEx @ 0x140303900 (IoReleaseRemoveLockEx.c)
  */
 
 __int64 __fastcall ViFilterStartCompletionRoutine(__int64 a1, __int64 a2)

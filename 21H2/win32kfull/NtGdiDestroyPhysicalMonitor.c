@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDestroyPhysicalMonitor @ 0x1C026FD30
+ * XREFs of NtGdiDestroyPhysicalMonitor @ 0x1C0272130
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C026F91C (-DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z.c)
+ *     ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C0271CFC (-DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z.c)
  */
 
 __int64 __fastcall NtGdiDestroyPhysicalMonitor(CMonitorAPI *a1)

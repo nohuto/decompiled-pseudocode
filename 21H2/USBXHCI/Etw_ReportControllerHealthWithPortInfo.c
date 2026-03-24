@@ -1,10 +1,12 @@
 /*
- * XREFs of Etw_ReportControllerHealthWithPortInfo @ 0x1C0048494
+ * XREFs of Etw_ReportControllerHealthWithPortInfo @ 0x1C004825C
  * Callers:
- *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C000A120 (Controller_WdfEvtWatchdogTimerFunc.c)
- *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0077140 (Controller_WdfEvtDeviceReleaseHardware.c)
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0009E10 (Controller_WdfEvtWatchdogTimerFunc.c)
+ *     RootHub_DetectPortInComplianceMode @ 0x1C001A3A8 (RootHub_DetectPortInComplianceMode.c)
+ *     RootHub_DetectPortInInactiveState @ 0x1C001A4D8 (RootHub_DetectPortInInactiveState.c)
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0075D30 (Controller_WdfEvtDeviceReleaseHardware.c)
  * Callees:
- *     McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnnqqttt_EtwWriteTransfer @ 0x1C0049750 (McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnnqqttt_EtwWriteTransfer.c)
+ *     McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnnqqttt_EtwWriteTransfer @ 0x1C001A9F0 (McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnnqqttt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_ReportControllerHealthWithPortInfo(
@@ -41,12 +43,12 @@ __int64 __fastcall Etw_ReportControllerHealthWithPortInfo(
   LOBYTE(v16) = -1;
   if ( v5 )
   {
-    v22 = v5[20];
-    v21 = v5[21];
-    v20 = v5[24];
-    v19 = v5[25];
-    v18 = v5[26];
-    v14 = v5[28];
+    v22 = v5[21];
+    v21 = v5[22];
+    v20 = v5[25];
+    v19 = v5[26];
+    v18 = v5[27];
+    v14 = v5[29];
   }
   else
   {
@@ -94,7 +96,7 @@ __int64 __fastcall Etw_ReportControllerHealthWithPortInfo(
     return McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnnqqttt_EtwWriteTransfer(
              a2,
              a5,
-             (int)a2 + 180,
+             a2 + 180,
              *(_QWORD *)(a2 + 8),
              *(_DWORD *)(a2 + 244),
              *(_BYTE *)(a2 + 320),
@@ -105,9 +107,9 @@ __int64 __fastcall Etw_ReportControllerHealthWithPortInfo(
              *(_WORD *)(a2 + 248),
              *(_WORD *)(a2 + 252),
              *(_BYTE *)(a2 + 256),
-             a2 + 304,
-             a2 + 309,
-             a2 + 314,
+             (const char *)(a2 + 304),
+             (const char *)(a2 + 309),
+             (const char *)(a2 + 314),
              *(_QWORD *)(a2 + 328),
              *(_DWORD *)(a2 + 464),
              *(_DWORD *)(a2 + 392),

@@ -1,17 +1,17 @@
 /*
- * XREFs of IsNsobjPciBus @ 0x1C008A688
+ * XREFs of IsNsobjPciBus @ 0x1C009DA40
  * Callers:
- *     ACPIBusIrpStartDeviceWorker @ 0x1C0081780 (ACPIBusIrpStartDeviceWorker.c)
- *     ACPIBusIrpStopDevice @ 0x1C0081910 (ACPIBusIrpStopDevice.c)
- *     ACPIFilterIrpStopDevice @ 0x1C0086CB0 (ACPIFilterIrpStopDevice.c)
- *     ACPIInitStopDevice @ 0x1C0087AF4 (ACPIInitStopDevice.c)
- *     ACPIInternalIsPci @ 0x1C0088084 (ACPIInternalIsPci.c)
- *     EnableDisableRegions @ 0x1C008A58C (EnableDisableRegions.c)
- *     IsPciBus @ 0x1C008A754 (IsPciBus.c)
- *     IsPciBusExtension @ 0x1C008A778 (IsPciBusExtension.c)
+ *     ACPIInitStopDevice @ 0x1C0090C3C (ACPIInitStopDevice.c)
+ *     IsPciBus @ 0x1C0099E04 (IsPciBus.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C00A2EE0 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIInternalIsPci @ 0x1C00A306C (ACPIInternalIsPci.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
+ *     ACPIFilterIrpStopDevice @ 0x1C00AFB30 (ACPIFilterIrpStopDevice.c)
+ *     IsPciBusExtension @ 0x1C00B0D78 (IsPciBusExtension.c)
  * Callees:
- *     IsPciBusAsync @ 0x1C0035290 (IsPciBusAsync.c)
- *     AMLIGetNSObjectContext @ 0x1C0048384 (AMLIGetNSObjectContext.c)
+ *     AMLIGetNSObjectContext @ 0x1C0002340 (AMLIGetNSObjectContext.c)
+ *     IsPciBusAsync @ 0x1C0017610 (IsPciBusAsync.c)
  */
 
 char __fastcall IsNsobjPciBus(volatile signed __int32 *a1)
@@ -24,14 +24,14 @@ char __fastcall IsNsobjPciBus(volatile signed __int32 *a1)
 
   memset(Event, 0, sizeof(Event));
   v2 = AMLIGetNSObjectContext((__int64)a1);
-  if ( !v2 )
-    goto LABEL_6;
-  v3 = *(_QWORD *)(v2 + 8);
-  if ( (v3 & 0x2000000) != 0 )
-    return 1;
-  if ( (v3 & 0x100000000LL) != 0 )
-    return 0;
-LABEL_6:
+  if ( v2 )
+  {
+    v3 = *(_QWORD *)(v2 + 8);
+    if ( (v3 & 0x2000000) != 0 )
+      return 1;
+    if ( (v3 & 0x100000000LL) != 0 )
+      return 0;
+  }
   KeInitializeEvent((PRKEVENT)Event, SynchronizationEvent, 0);
   *(_DWORD *)&Event[24] = -1073741275;
   v6 = 0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of IrqArbpFindIrqInAlternatives @ 0x1C00B6D4C
+ * XREFs of IrqArbpFindIrqInAlternatives @ 0x1C00B74EC
  * Callers:
- *     IrqArbGetNextAllocationRange @ 0x1C009A780 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
  * Callees:
  *     <none>
  */

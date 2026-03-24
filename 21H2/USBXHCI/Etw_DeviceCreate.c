@@ -1,10 +1,10 @@
 /*
- * XREFs of Etw_DeviceCreate @ 0x1C0018CBC
+ * XREFs of Etw_DeviceCreate @ 0x1C0019BE8
  * Callers:
- *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006FFE0 (UsbDevice_UcxEvtDeviceAdd.c)
+ *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006F110 (UsbDevice_UcxEvtDeviceAdd.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048C38 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048A00 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_DeviceCreate(__int64 a1, __int64 a2)

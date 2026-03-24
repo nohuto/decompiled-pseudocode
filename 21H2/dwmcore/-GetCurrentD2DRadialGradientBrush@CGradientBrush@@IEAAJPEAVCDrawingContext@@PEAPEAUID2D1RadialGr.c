@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x18023A320
+ * XREFs of ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x1801E6EE8
  * Callers:
- *     ?GetD2DBrush@CRadialGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@@Z @ 0x18023AD60 (-GetD2DBrush@CRadialGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@.c)
+ *     ?GetD2DBrush@CRadialGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@@Z @ 0x1801E80C0 (-GetD2DBrush@CRadialGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@.c)
  * Callees:
- *     ?Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z @ 0x18003FB3C (-Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FindExistingGradient@CGradientSource@@IEAA_NPEAVCD3DDevice@@_NAEBVRetrievalParams@1@@Z @ 0x1800AD330 (-FindExistingGradient@CGradientSource@@IEAA_NPEAVCD3DDevice@@_NAEBVRetrievalParams@1@@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z @ 0x1801E6C94 (-Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z.c)
+ *     ?FindExistingGradient@CGradientSource@@IEAA_NPEAVCD3DDevice@@_NAEBVRetrievalParams@1@@Z @ 0x180209DB8 (-FindExistingGradient@CGradientSource@@IEAA_NPEAVCD3DDevice@@_NAEBVRetrievalParams@1@@Z.c)
  */
 
 __int64 __fastcall CGradientBrush::GetCurrentD2DRadialGradientBrush(
@@ -16,7 +16,7 @@ __int64 __fastcall CGradientBrush::GetCurrentD2DRadialGradientBrush(
 {
   unsigned int v4; // edi
   struct CD3DDevice *v7; // rbx
-  char v8; // r8
+  bool v8; // r8
   int v9; // eax
   __int64 v10; // rcx
   struct ID2D1RadialGradientBrush *v11; // rax
@@ -28,10 +28,10 @@ __int64 __fastcall CGradientBrush::GetCurrentD2DRadialGradientBrush(
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v14);
   v13[0] = 0LL;
   v7 = (struct CD3DDevice *)*((_QWORD *)a2 + 5);
-  v8 = *((_BYTE *)this + 224) == 0;
+  v8 = *((_BYTE *)this + 176) == 0;
   v13[1] = &v14;
   if ( CGradientSource::FindExistingGradient(
-         (CGradientBrush *)((char *)this + 88),
+         (CGradientBrush *)((char *)this + 80),
          v7,
          v8,
          (const struct CGradientSource::RetrievalParams *)v13)
@@ -43,7 +43,7 @@ __int64 __fastcall CGradientBrush::GetCurrentD2DRadialGradientBrush(
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x205u);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x20Au, 0LL);
   }
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v14);
   return v4;

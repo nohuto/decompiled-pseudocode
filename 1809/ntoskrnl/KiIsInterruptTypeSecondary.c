@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIsInterruptTypeSecondary @ 0x14016E3F8
+ * XREFs of KiIsInterruptTypeSecondary @ 0x14016E418
  * Callers:
- *     KeUnmaskInterrupt @ 0x140158A80 (KeUnmaskInterrupt.c)
- *     KeDisconnectInterrupt @ 0x14016D2A0 (KeDisconnectInterrupt.c)
- *     KeMaskInterrupt @ 0x14016D528 (KeMaskInterrupt.c)
- *     KeConnectInterrupt @ 0x14016DB20 (KeConnectInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x140158AA0 (KeUnmaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
+ *     KeMaskInterrupt @ 0x14016D548 (KeMaskInterrupt.c)
+ *     KeConnectInterrupt @ 0x14016DB40 (KeConnectInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall KiIsInterruptTypeSecondary(_DWORD *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationTransaction @ 0x1401BB410
+ * XREFs of ZwSetInformationTransaction @ 0x1401BB430
  * Callers:
  *     <none>
  * Callees:

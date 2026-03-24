@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepSdbBootInitialize @ 0x1408277FC
+ * XREFs of KsepSdbBootInitialize @ 0x1407D1ED8
  * Callers:
- *     KseShimDatabaseBootInitialize @ 0x140B01670 (KseShimDatabaseBootInitialize.c)
+ *     KseShimDatabaseBootInitialize @ 0x140A72134 (KseShimDatabaseBootInitialize.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1402D8494 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     SdbGetDatabaseEdition @ 0x1407ECF00 (SdbGetDatabaseEdition.c)
- *     SdbInitDatabaseInMemory @ 0x1407ECFCC (SdbInitDatabaseInMemory.c)
+ *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     SdbInitDatabaseInMemory @ 0x140756110 (SdbInitDatabaseInMemory.c)
+ *     SdbGetDatabaseEdition @ 0x1407564B0 (SdbGetDatabaseEdition.c)
  */
 
 __int64 __fastcall KsepSdbBootInitialize(void *Src, size_t Size, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall KsepSdbBootInitialize(void *Src, size_t Size, __int64 a3)
   PVOID Paged; // rax
   unsigned int v7; // edi
   void *v8; // rbx
-  _QWORD *inited; // rax
+  __int64 inited; // rax
   __int64 v11; // rax
   __int64 v12; // rax
 
@@ -34,7 +34,7 @@ __int64 __fastcall KsepSdbBootInitialize(void *Src, size_t Size, __int64 a3)
     {
       *(_QWORD *)(a3 + 8) = v8;
       *(_QWORD *)a3 = inited;
-      *(_DWORD *)(a3 + 48) = SdbGetDatabaseEdition(inited[1]);
+      *(_DWORD *)(a3 + 48) = SdbGetDatabaseEdition(*(_QWORD *)(inited + 8));
     }
     else
     {
@@ -44,7 +44,7 @@ __int64 __fastcall KsepSdbBootInitialize(void *Src, size_t Size, __int64 a3)
       KsepHistoryErrors[2 * v12] = 590004;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(1LL, "KSE: SdbInitDatabaseInMemory failed during boot!\n");
-      KsepLogError(1LL, (__int64)"KSE: SdbInitDatabaseInMemory failed during boot!\n");
+      KsepLogError(1, "KSE: SdbInitDatabaseInMemory failed during boot!\n");
       KsepPoolFreePaged(v8);
     }
   }
@@ -56,7 +56,7 @@ __int64 __fastcall KsepSdbBootInitialize(void *Src, size_t Size, __int64 a3)
     KsepHistoryErrors[2 * v11] = 589988;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Failed to allocate memory for shim database during boot!\n");
-    KsepLogError(0LL, (__int64)"KSE: Failed to allocate memory for shim database during boot!\n");
+    KsepLogError(0, "KSE: Failed to allocate memory for shim database during boot!\n");
   }
   return v7;
 }

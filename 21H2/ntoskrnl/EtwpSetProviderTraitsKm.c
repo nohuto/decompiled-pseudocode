@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpSetProviderTraitsKm @ 0x1406DEC48
+ * XREFs of EtwpSetProviderTraitsKm @ 0x14077F148
  * Callers:
- *     EtwSetInformation @ 0x1406DEBF0 (EtwSetInformation.c)
+ *     EtwSetInformation @ 0x14077F0F0 (EtwSetInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpSetProviderTraitsCommon @ 0x14079781C (EtwpSetProviderTraitsCommon.c)
- *     EtwpEventWriteRegistrationStatus @ 0x1409E0824 (EtwpEventWriteRegistrationStatus.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpSetProviderTraitsCommon @ 0x14064323C (EtwpSetProviderTraitsCommon.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x140939AD8 (EtwpEventWriteRegistrationStatus.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, const void *a2, unsigned __int16 a3)
+__int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int16 a3)
 {
   __int16 v4; // ax
   size_t v6; // rsi
   unsigned int v7; // ebx
-  __int64 Pool2; // rax
-  __int64 v9; // rbx
+  const char *PoolWithTag; // rax
+  const char *P; // rbx
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r8
@@ -28,35 +28,34 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, const void *a2, unsigned 
   if ( (v4 & 8) != 0 || (v4 & 1) == 0 )
   {
     v7 = -1073741811;
+LABEL_9:
+    if ( !v7 )
+      return v7;
+    goto LABEL_10;
   }
-  else if ( *(_QWORD *)(a1 + 104) )
+  if ( *(_QWORD *)(a1 + 104) )
   {
     v7 = -1073741823;
+    goto LABEL_10;
   }
-  else
+  PoolWithTag = (const char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)a3 + 28, 0x54777445u);
+  P = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2 = ExAllocatePool2(64LL, (unsigned int)a3 + 28, 1417114693LL);
-    v9 = Pool2;
-    if ( Pool2 )
-    {
-      memmove((void *)(Pool2 + 28), a2, v6);
-      v7 = EtwpSetProviderTraitsCommon(
-             0,
-             0,
-             (unsigned int)&v14,
-             a1,
-             v9,
-             v6,
-             (__int64)&EtwpProviderTraitsKmMutex,
-             (__int64)&EtwpProviderTraitsKmTree);
-      if ( !v7 )
-        return v7;
-    }
-    else
-    {
-      v7 = -1073741670;
-    }
+    memmove((void *)(PoolWithTag + 28), Src, v6);
+    v7 = EtwpSetProviderTraitsCommon(
+           0LL,
+           0,
+           (__int64)&v14,
+           a1,
+           P,
+           v6,
+           &EtwpProviderTraitsKmMutex,
+           (__int64)&EtwpProviderTraitsKmTree);
+    goto LABEL_9;
   }
+  v7 = -1073741670;
+LABEL_10:
   if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED) )
     EtwpEventWriteRegistrationStatus(v11, v10, v12, a1, v7);
   return v7;

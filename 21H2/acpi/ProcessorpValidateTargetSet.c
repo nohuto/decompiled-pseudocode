@@ -1,25 +1,23 @@
 /*
- * XREFs of ProcessorpValidateTargetSet @ 0x1C009AAC0
+ * XREFs of ProcessorpValidateTargetSet @ 0x1C0094208
  * Callers:
- *     ProcessorpFindIdtEntriesApic @ 0x1C0099330 (ProcessorpFindIdtEntriesApic.c)
+ *     ProcessorpFindIdtEntriesApic @ 0x1C0092F20 (ProcessorpFindIdtEntriesApic.c)
  * Callees:
- *     IntPartIsInterruptSteerable @ 0x1C006CC48 (IntPartIsInterruptSteerable.c)
+ *     <none>
  */
 
-char __fastcall ProcessorpValidateTargetSet(__int64 a1)
+bool __fastcall ProcessorpValidateTargetSet(__int64 a1)
 {
   __int64 v1; // rsi
-  char v2; // bl
+  char v3; // bl
   __int64 v4; // r8
   _QWORD *v5; // r8
   _QWORD *v6; // rcx
-  bool v8; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(unsigned __int16 *)(a1 + 8);
-  v2 = 0;
-  v8 = 0;
   if ( (unsigned __int16)v1 >= KeQueryMaximumGroupCount() )
     return 0;
+  v3 = 0;
   v4 = *(_QWORD *)(ProcessorGroupByNumber + 8 * v1);
   if ( !v4 )
     return 0;
@@ -34,8 +32,8 @@ char __fastcall ProcessorpValidateTargetSet(__int64 a1)
   if ( (_QWORD *)*v5 == v5 )
   {
 LABEL_14:
-    if ( IrqMachinePolicy == 6 && (int)IntPartIsInterruptSteerable(a1, &v8) >= 0 )
-      return v8;
+    if ( IrqMachinePolicy == 6 )
+      return KeQueryGroupAffinity(v1) == *(_QWORD *)a1;
   }
   else
   {
@@ -47,5 +45,5 @@ LABEL_14:
     }
     return 1;
   }
-  return v2;
+  return v3;
 }

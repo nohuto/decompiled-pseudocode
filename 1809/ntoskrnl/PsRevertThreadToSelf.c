@@ -1,5 +1,5 @@
 /*
- * XREFs of PsRevertThreadToSelf @ 0x140889320
+ * XREFs of PsRevertThreadToSelf @ 0x140889300
  * Callers:
  *     <none>
  * Callees:

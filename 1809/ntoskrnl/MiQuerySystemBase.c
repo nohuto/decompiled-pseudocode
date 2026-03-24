@@ -1,8 +1,8 @@
 /*
- * XREFs of MiQuerySystemBase @ 0x14013BA9C
+ * XREFs of MiQuerySystemBase @ 0x14013BABC
  * Callers:
- *     MiInitializeSpecialPool @ 0x1407155E8 (MiInitializeSpecialPool.c)
- *     MiInitializeSystemCache @ 0x14072A6BC (MiInitializeSystemCache.c)
+ *     MiInitializeSpecialPool @ 0x1407155C8 (MiInitializeSpecialPool.c)
+ *     MiInitializeSystemCache @ 0x14072A69C (MiInitializeSystemCache.c)
  * Callees:
  *     <none>
  */

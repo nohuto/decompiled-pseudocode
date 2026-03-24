@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIIgnoreResourceMapValidation @ 0x1C005E754
+ * XREFs of ACPIIgnoreResourceMapValidation @ 0x1C005DA44
  * Callers:
- *     ACPIRangeValidatePciResources @ 0x1C0028A0C (ACPIRangeValidatePciResources.c)
+ *     ACPIRangeValidatePciResources @ 0x1C002B280 (ACPIRangeValidatePciResources.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
  */
 
 char __fastcall ACPIIgnoreResourceMapValidation(struct _IO_RESOURCE_DESCRIPTOR *a1)
@@ -36,7 +36,7 @@ char __fastcall ACPIIgnoreResourceMapValidation(struct _IO_RESOURCE_DESCRIPTOR *
           4u,
           0x16u,
           0xEu,
-          (__int64)&WPP_1fd0c010928a3334a25fba642ba00601_Traceguids);
+          (__int64)&WPP_95ceafb9c956380d4634093f153ba036_Traceguids);
       return 1;
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x140160D48
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x140160D68
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F447C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F449C (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
  */

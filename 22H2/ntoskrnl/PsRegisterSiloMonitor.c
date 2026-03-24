@@ -1,14 +1,15 @@
 /*
- * XREFs of PsRegisterSiloMonitor @ 0x140821410
+ * XREFs of PsRegisterSiloMonitor @ 0x1407905D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     PspStorageAllocSlot @ 0x14082150C (PspStorageAllocSlot.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PspStorageAllocSlot @ 0x1407906D8 (PspStorageAllocSlot.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PsRegisterSiloMonitor(__int64 a1, _QWORD *a2)
@@ -16,7 +17,7 @@ __int64 __fastcall PsRegisterSiloMonitor(__int64 a1, _QWORD *a2)
   _WORD *v4; // rax
   struct _LIST_ENTRY *CurrentSilo; // rax
   __int64 v6; // rbp
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   char *v8; // rdi
   int v9; // ebx
 
@@ -29,17 +30,18 @@ __int64 __fastcall PsRegisterSiloMonitor(__int64 a1, _QWORD *a2)
   if ( !PsIsHostSilo((__int64)CurrentSilo) )
     return 3221225569LL;
   v6 = **(unsigned __int16 **)(a1 + 8);
-  Pool2 = ExAllocatePool2(256LL, v6 + 56, 1298950483LL);
-  v8 = (char *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v6 + 56, 0x4D6C6953u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_BYTE *)(Pool2 + 16) = *(_BYTE *)(a1 + 1);
-  *(_BYTE *)(Pool2 + 17) = *(_BYTE *)(a1 + 2);
-  *(_QWORD *)(Pool2 + 24) = *(_QWORD *)(a1 + 16);
-  *(_QWORD *)(Pool2 + 32) = *(_QWORD *)(a1 + 24);
-  *(_QWORD *)(Pool2 + 48) = Pool2 + 56;
-  *(_WORD *)(Pool2 + 42) = v6;
-  RtlCopyUnicodeString((PUNICODE_STRING)(Pool2 + 40), *(PCUNICODE_STRING *)(a1 + 8));
+  memset(PoolWithTag, 0, v6 + 56);
+  v8[16] = *(_BYTE *)(a1 + 1);
+  v8[17] = *(_BYTE *)(a1 + 2);
+  *((_QWORD *)v8 + 3) = *(_QWORD *)(a1 + 16);
+  *((_QWORD *)v8 + 4) = *(_QWORD *)(a1 + 24);
+  *((_QWORD *)v8 + 6) = v8 + 56;
+  *((_WORD *)v8 + 21) = v6;
+  RtlCopyUnicodeString((PUNICODE_STRING)(v8 + 40), *(PCUNICODE_STRING *)(a1 + 8));
   v9 = PspStorageAllocSlot(v8 + 20);
   if ( v9 < 0 )
   {

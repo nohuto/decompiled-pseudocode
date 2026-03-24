@@ -3,10 +3,10 @@
  * Callers:
  *     IopCancelWaitCompletionPacket @ 0x14008DDF0 (IopCancelWaitCompletionPacket.c)
  *     ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ExpShutdownWorkerFactory @ 0x1400FADC0 (ExpShutdownWorkerFactory.c)
+ *     ExpShutdownWorkerFactory @ 0x1400FADE0 (ExpShutdownWorkerFactory.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeDeregisterObjectNotification(volatile signed __int32 *a1, __int64 *a2)

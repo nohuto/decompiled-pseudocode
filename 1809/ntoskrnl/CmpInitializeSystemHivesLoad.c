@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpInitializeSystemHivesLoad @ 0x140756844
+ * XREFs of CmpInitializeSystemHivesLoad @ 0x140756824
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407455D4 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     CmpQueryHiveRedirectionFileList @ 0x1406C8EE4 (CmpQueryHiveRedirectionFileList.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1406C8EC4 (CmpQueryHiveRedirectionFileList.c)
  */
 
 NTSTATUS CmpInitializeSystemHivesLoad()

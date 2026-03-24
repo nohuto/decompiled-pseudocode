@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CanCombineMouseReportBatches@MouseRateLimitHoldingFrame@CMouseSensor@@QEAA_N_JPEAUDEVICEINFO@@_NK@Z @ 0x1C01EC070
+ * XREFs of ?CanCombineMouseReportBatches@MouseRateLimitHoldingFrame@CMouseSensor@@QEAA_N_JPEAUDEVICEINFO@@_NK@Z @ 0x1C01B21B8
  * Callers:
- *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01EC28C (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
+ *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01B2690 (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
  * Callees:
  *     <none>
  */

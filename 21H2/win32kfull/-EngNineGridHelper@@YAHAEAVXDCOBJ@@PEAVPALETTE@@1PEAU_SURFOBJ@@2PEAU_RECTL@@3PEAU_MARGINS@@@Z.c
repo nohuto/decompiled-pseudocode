@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EngNineGridHelper@@YAHAEAVXDCOBJ@@PEAVPALETTE@@1PEAU_SURFOBJ@@2PEAU_RECTL@@3PEAU_MARGINS@@@Z @ 0x1C027BCA0
+ * XREFs of ?EngNineGridHelper@@YAHAEAVXDCOBJ@@PEAVPALETTE@@1PEAU_SURFOBJ@@2PEAU_RECTL@@3PEAU_MARGINS@@@Z @ 0x1C027E130
  * Callers:
- *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C027DD98 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
+ *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C0280128 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
  * Callees:
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     EngNineGrid @ 0x1C00D7950 (EngNineGrid.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     EngNineGrid @ 0x1C00C8F90 (EngNineGrid.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EngNineGridHelper(
@@ -20,49 +20,53 @@ __int64 __fastcall EngNineGridHelper(
         struct _MARGINS *a8)
 {
   unsigned int v8; // edi
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  int v15; // edx
-  __int64 v17; // [rsp+60h] [rbp-69h] BYREF
-  __int64 v18; // [rsp+68h] [rbp-61h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-59h] BYREF
-  __int64 v20; // [rsp+78h] [rbp-51h] BYREF
-  _QWORD v21[4]; // [rsp+80h] [rbp-49h] BYREF
-  struct _RECTL *v22; // [rsp+A0h] [rbp-29h]
-  _DWORD v23[6]; // [rsp+A8h] [rbp-21h] BYREF
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  __int64 v17; // rdx
+  __int64 v19; // [rsp+68h] [rbp-61h] BYREF
+  __int64 v20; // [rsp+70h] [rbp-59h] BYREF
+  __int64 v21; // [rsp+78h] [rbp-51h] BYREF
+  __int64 v22; // [rsp+80h] [rbp-49h] BYREF
+  struct _RECTL *v23; // [rsp+88h] [rbp-41h]
+  int v24; // [rsp+90h] [rbp-39h] BYREF
+  __int64 v25; // [rsp+98h] [rbp-31h]
+  __int64 v26; // [rsp+A0h] [rbp-29h]
+  __int64 v27; // [rsp+A8h] [rbp-21h]
+  _DWORD v28[6]; // [rsp+B0h] [rbp-19h] BYREF
 
   v8 = 0;
-  v22 = a7;
-  v23[1] = *(_DWORD *)a8;
-  v23[2] = *((_DWORD *)a8 + 1);
-  v23[3] = *((_DWORD *)a8 + 2);
-  v23[4] = *((_DWORD *)a8 + 3);
-  v13 = *(_QWORD *)a1;
-  v23[0] = 5;
-  v23[5] = 0;
-  v14 = *(_QWORD *)(v13 + 976);
-  v21[0] = 33488896LL;
+  v23 = a7;
+  v28[0] = 5;
+  v28[5] = 0;
+  v24 = 33488896;
+  v28[1] = *(_DWORD *)a8;
+  v28[2] = *((_DWORD *)a8 + 1);
+  v28[3] = *((_DWORD *)a8 + 2);
+  v28[4] = *((_DWORD *)a8 + 3);
+  v12 = *(_QWORD *)a1;
+  v22 = 0LL;
+  v21 = 0LL;
   v20 = 0LL;
+  v13 = *(_QWORD *)(v12 + 976);
   v19 = 0LL;
-  v15 = *(_DWORD *)(v14 + 184);
-  LODWORD(v13) = *(_DWORD *)(v14 + 176);
-  v18 = 0LL;
-  v17 = 0LL;
   if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                       &v20,
+                       &v22,
                        0LL,
                        0,
                        (__int64)a2,
                        (__int64)a2,
                        (__int64)a3,
                        (__int64)a3,
-                       v15,
-                       v13,
+                       *(_DWORD *)(v13 + 184),
+                       *(_DWORD *)(v13 + 176),
                        0,
                        0) )
   {
     if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                         &v19,
+                         &v21,
                          0LL,
                          0,
                          (__int64)a2,
@@ -74,9 +78,9 @@ __int64 __fastcall EngNineGridHelper(
                          0,
                          0) )
     {
-      v21[1] = v19;
+      v25 = v21;
       if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                           &v18,
+                           &v20,
                            0LL,
                            0,
                            (__int64)a2,
@@ -88,9 +92,9 @@ __int64 __fastcall EngNineGridHelper(
                            0,
                            0) )
       {
-        v21[2] = v18;
+        v26 = v20;
         if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                             &v17,
+                             &v19,
                              0LL,
                              0,
                              (__int64)gppalRGB,
@@ -102,15 +106,15 @@ __int64 __fastcall EngNineGridHelper(
                              0,
                              0) )
         {
-          v21[3] = v17;
-          v8 = EngNineGrid(a4, (__int64)a5, 0LL, v20, (__int64)a6, (__int64)v22, (__int64)v23, (__int64)v21);
+          v27 = v19;
+          v8 = EngNineGrid(a4, (__int64)a5, 0LL, v22, (__int64)a6, (__int64)v23, (__int64)v28, (__int64)&v24);
         }
       }
     }
   }
-  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v17);
-  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v18);
-  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v19);
-  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v20);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v19, v14);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v20, v15);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v21, v16);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v22, v17);
   return v8;
 }

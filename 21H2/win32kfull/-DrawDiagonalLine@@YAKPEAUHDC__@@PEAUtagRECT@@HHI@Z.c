@@ -1,21 +1,21 @@
 /*
- * XREFs of ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x1C025A874
+ * XREFs of ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x1C025DC98
  * Callers:
- *     ?DrawDiagonal@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@2I@Z @ 0x1C025A7AC (-DrawDiagonal@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@2I@Z.c)
- *     ?FillTriangle@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@I@Z @ 0x1C025AAE0 (-FillTriangle@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@I@Z.c)
+ *     ?DrawDiagonal@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@2I@Z @ 0x1C025DBD0 (-DrawDiagonal@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@2I@Z.c)
+ *     ?FillTriangle@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@I@Z @ 0x1C025DF0C (-FillTriangle@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@I@Z.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C007B728 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     GrePolyPatBlt @ 0x1C00C1D4C (GrePolyPatBlt.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GrePolyPatBlt @ 0x1C0045794 (GrePolyPatBlt.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00675D0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
-__int64 __fastcall DrawDiagonalLine(HDC a1, struct tagRECT *a2, int a3, __int64 a4, unsigned int a5)
+__int64 __fastcall DrawDiagonalLine(HDC a1, struct tagRECT *a2, signed int a3, __int64 a4, unsigned int a5)
 {
   __m128i *v7; // rdx
-  int v8; // r11d
+  signed int v8; // r11d
   int v10; // r9d
   int v11; // r8d
-  int v12; // r14d
+  int v12; // r15d
   int v13; // r10d
   int v14; // r13d
   int v15; // eax
@@ -23,22 +23,22 @@ __int64 __fastcall DrawDiagonalLine(HDC a1, struct tagRECT *a2, int a3, __int64 
   int v17; // esi
   int *v18; // rcx
   __int8 *v19; // rbx
-  int v20; // r15d
-  int v21; // r14d
+  int v20; // r14d
+  int v21; // r15d
   int v22; // edi
   int v23; // eax
-  HDC v24; // r14
-  __int64 v25; // r10
+  HDC v24; // r15
+  __int64 v25; // r8
   char v26; // al
   __int64 v27; // rdx
+  LONG v28; // eax
   LONG top; // ecx
-  int v29; // eax
-  LONG v30; // r8d
+  int v30; // eax
   int v31; // eax
   LONG left; // ecx
   int v33; // [rsp+30h] [rbp-D0h] BYREF
   int v34; // [rsp+34h] [rbp-CCh] BYREF
-  int v35; // [rsp+38h] [rbp-C8h]
+  signed int v35; // [rsp+38h] [rbp-C8h]
   unsigned int v36; // [rsp+3Ch] [rbp-C4h]
   HDC v37; // [rsp+40h] [rbp-C0h]
   __m128i v38; // [rsp+48h] [rbp-B8h] BYREF
@@ -95,7 +95,7 @@ __int64 __fastcall DrawDiagonalLine(HDC a1, struct tagRECT *a2, int a3, __int64 
       {
 LABEL_29:
         if ( v8 )
-          GrePolyPatBlt(v24, 15728673, (struct _POLYPATBLT *)v39, v8);
+          GrePolyPatBlt(v24, 0xF00021u, (struct _POLYPATBLT *)v39, v8);
         return (unsigned __int16)v20 | ((unsigned __int16)v22 << 16);
       }
       v26 = v36;
@@ -111,20 +111,20 @@ LABEL_29:
           if ( (v26 & 1) != 0 )
           {
             top = a2->top;
-            v29 = v22 + *(_DWORD *)v19 - top;
+            v30 = *(_DWORD *)v19 + v22 - top;
           }
           else
           {
             top = *(_DWORD *)v19;
-            v29 = a2->bottom - *(_DWORD *)v19;
+            v30 = a2->bottom - *(_DWORD *)v19;
           }
           v39[2 * v27 + 1] = top;
-          v39[2 * v27 + 3] = v29;
+          v39[2 * v27 + 3] = v30;
           *(_QWORD *)&v39[2 * v27 + 4] = 0LL;
-          v30 = *(_DWORD *)v19;
           goto LABEL_25;
         }
         *(_QWORD *)&v39[2 * v27 + 4] = 0LL;
+        v39[2 * v27 + 1] = *(_DWORD *)v19;
         if ( (v26 & 2) != 0 )
         {
           v31 = a2->right - v10;
@@ -140,19 +140,19 @@ LABEL_29:
       }
       else
       {
+        v28 = *(_DWORD *)v19;
         *(_QWORD *)&v39[2 * v27 + 4] = 0LL;
+        v39[2 * v27 + 1] = v28;
         v39[2 * v27] = v10;
         v39[2 * v27 + 2] = v20;
       }
-      v30 = *(_DWORD *)v19;
       v39[2 * v27 + 3] = v22;
-      v39[2 * v27 + 1] = v30;
 LABEL_25:
       v38.m128i_i32[0] = v14 + v10;
-      *(_DWORD *)v19 = v30 - v17;
+      *(_DWORD *)v19 -= v17;
       if ( v25 == 8 )
       {
-        GrePolyPatBlt(v24, 15728673, (struct _POLYPATBLT *)v39, 8);
+        GrePolyPatBlt(v24, 0xF00021u, (struct _POLYPATBLT *)v39, 8u);
         v8 = 0;
         v25 = 0LL;
       }

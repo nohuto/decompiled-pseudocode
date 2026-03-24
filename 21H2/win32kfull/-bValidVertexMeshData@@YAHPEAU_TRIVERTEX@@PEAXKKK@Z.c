@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z @ 0x1C02B0A10
+ * XREFs of ?bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z @ 0x1C02B1F10
  * Callers:
- *     NtGdiEngGradientFill @ 0x1C02B18D0 (NtGdiEngGradientFill.c)
+ *     NtGdiEngGradientFill @ 0x1C02B3070 (NtGdiEngGradientFill.c)
  * Callees:
  *     <none>
  */

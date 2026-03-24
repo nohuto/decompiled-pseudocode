@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockdownSections @ 0x1407607D8
+ * XREFs of MiLockdownSections @ 0x14075E564
  * Callers:
- *     MiConstructLoaderEntry @ 0x14075F4A4 (MiConstructLoaderEntry.c)
- *     MiInitializeLoadedModuleList @ 0x140B09D6C (MiInitializeLoadedModuleList.c)
+ *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     MiUnlockLoaderEntry @ 0x1402D94D8 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1402D96AC (MiLockLoaderEntry.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
+ *     MiUnlockLoaderEntry @ 0x1402E74F0 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402E7728 (MiLockLoaderEntry.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
  */
 
 __int64 __fastcall MiLockdownSections(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiLockdownSections(__int64 a1)
   v1 = *(_QWORD *)(a1 + 48);
   v2 = a1 + 160;
   v3 = 0;
-  if ( (MiFlags & 0x8000) != 0 && (!*(_QWORD *)(a1 + 112) || (*(_DWORD *)(a1 + 196) & 2) != 0) )
+  if ( (MiFlags & 0x10000) != 0 && (!*(_QWORD *)(a1 + 112) || (*(_DWORD *)(a1 + 196) & 2) != 0) )
     v3 = 2;
   result = MiGetSystemRegionType(*(_QWORD *)(a1 + 48));
   v5 = v3 | 1;

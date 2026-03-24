@@ -1,13 +1,13 @@
 /*
- * XREFs of ApiSetEditionUpdateInputTransformFromHitTest @ 0x1C0004F0C
+ * XREFs of ApiSetEditionUpdateInputTransformFromHitTest @ 0x1C0002C4C
  * Callers:
- *     ?ResolveDcompHitTestResultToInputDest@CSpatialProcessor@@CA?AVCInputDest@@AEBU_InputHitTestResult@@K_K@Z @ 0x1C0035090 (-ResolveDcompHitTestResultToInputDest@CSpatialProcessor@@CA-AVCInputDest@@AEBU_InputHitTestResul.c)
+ *     ?ResolveDcompHitTestResultToInputDest@CSpatialProcessor@@AEAA?AVCInputDest@@AEBU_InputHitTestResult@@K_K@Z @ 0x1C00441A4 (-ResolveDcompHitTestResultToInputDest@CSpatialProcessor@@AEAA-AVCInputDest@@AEBU_InputHitTestRes.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-PDEVICE_OBJECT *__fastcall ApiSetEditionUpdateInputTransformFromHitTest(
+__int64 __fastcall ApiSetEditionUpdateInputTransformFromHitTest(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -15,64 +15,42 @@ PDEVICE_OBJECT *__fastcall ApiSetEditionUpdateInputTransformFromHitTest(
         __int64 a5,
         __int64 a6)
 {
-  __int64 v7; // rsi
-  __int64 v8; // rbp
-  PDEVICE_OBJECT v10; // rcx
-  char v11; // bl
-  void *v12; // r9
-  PDEVICE_OBJECT *result; // rax
-  void *v14; // r8
+  __int64 v8; // rsi
+  __int64 result; // rax
 
-  v7 = a3;
   v8 = a2;
-  v10 = WPP_GLOBAL_Control;
-  v11 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v12 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       10,
-      204,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  if ( qword_1C029D000 && (int)qword_1C029D000(v10, a2, a3, v12) >= 0 && qword_1C029D008 )
-    qword_1C029D008(a1, v8, v7, a4, a5, a6);
-  result = &WPP_GLOBAL_Control;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
+      200,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v11 = 0;
-  if ( (_BYTE)a2 || v11 )
+  if ( qword_1C02583C8 )
+    result = qword_1C02583C8();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
   {
-    v14 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-    LOBYTE(v14) = v11;
-    return (PDEVICE_OBJECT *)WPP_RECORDER_AND_TRACE_SF_(
-                               WPP_GLOBAL_Control->AttachedDevice,
-                               a2,
-                               (_DWORD)v14,
-                               WPP_GLOBAL_Control->DeviceExtension,
-                               5,
-                               10,
-                               205,
-                               (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+    result = (__int64)qword_1C02583D0;
+    if ( qword_1C02583D0 )
+      result = qword_1C02583D0(a1, v8, a3, a4, a5, a6);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(a2) = 5;
+      return WPP_RECORDER_SF_(
+               WPP_GLOBAL_Control->DeviceExtension,
+               a2,
+               10,
+               201,
+               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+    }
   }
   return result;
 }

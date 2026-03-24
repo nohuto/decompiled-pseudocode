@@ -1,29 +1,32 @@
 /*
- * XREFs of KiUpdateChildrenCpuTarget @ 0x14057D590
+ * XREFs of KiUpdateChildrenCpuTarget @ 0x140523960
  * Callers:
- *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x1402DDDA8 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402DE080 (KiUpdateCpuTargetByRate.c)
  * Callees:
- *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x1402DDDA8 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402DE080 (KiUpdateCpuTargetByRate.c)
  */
 
-char __fastcall KiUpdateChildrenCpuTarget(_QWORD **a1, char a2)
+char __fastcall KiUpdateChildrenCpuTarget(_QWORD **a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v2; // rbx
-  unsigned __int16 *v5; // rcx
+  _QWORD *v4; // rbx
+  char v5; // si
+  unsigned __int16 *v7; // rcx
   char result; // al
 
-  v2 = *a1;
+  v4 = *a1;
+  v5 = a2;
   do
   {
-    v5 = (unsigned __int16 *)(v2 - 7);
-    if ( (*((_DWORD *)v2 - 13) & 1) != 0 )
-      result = KiUpdateCpuTargetByRate(v5, a2);
+    v7 = (unsigned __int16 *)(v4 - 7);
+    LOBYTE(a2) = v5;
+    if ( (*((_DWORD *)v4 - 13) & 1) != 0 )
+      result = KiUpdateCpuTargetByRate(v7, a2, a3, a4);
     else
-      result = KiUpdateCpuTargetByWeight((LARGE_INTEGER *)v5, a2);
-    v2 = (_QWORD *)*v2;
+      result = KiUpdateCpuTargetByWeight(v7, a2, a3, a4);
+    v4 = (_QWORD *)*v4;
   }
-  while ( v2 != a1 );
+  while ( v4 != a1 );
   return result;
 }

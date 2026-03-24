@@ -1,12 +1,12 @@
 /*
- * XREFs of VfCheckPagePriority @ 0x140AC47A0
+ * XREFs of VfCheckPagePriority @ 0x1409C7C24
  * Callers:
- *     VfCheckNxPagePriority @ 0x1405CE400 (VfCheckNxPagePriority.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE4250 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VfCheckNxPagePriority @ 0x1405A06C0 (VfCheckNxPagePriority.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x1409E6C00 (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x140AC49DC (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1409C7E60 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckPagePriority(int a1, ULONG_PTR a2)
@@ -17,13 +17,13 @@ void __fastcall VfCheckPagePriority(int a1, ULONG_PTR a2)
   {
     v3 = a1;
     ViCiPreprocessOptions(
-      byte_140C0DD9C,
+      byte_140C12E50,
       "The caller 0x%p specified an executable MDL mapping (priority 0x%x).",
       (const void *)0x2002,
       a2);
-    VfReportIssueWithOptions(0xC4u, 0x2002uLL, a2, v3, 0LL, byte_140C0DD9C);
+    VfReportIssueWithOptions(0xC4u, 0x2002uLL, a2, v3, 0LL, byte_140C12E50);
     if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetIncrementCounter(a2, 288LL);
-    _InterlockedIncrement(&dword_140C13A00);
+      ViTargetIncrementCounter(a2, 280LL);
+    _InterlockedIncrement(&dword_140C2A978);
   }
 }

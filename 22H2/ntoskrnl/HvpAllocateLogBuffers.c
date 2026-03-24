@@ -1,109 +1,149 @@
 /*
- * XREFs of HvpAllocateLogBuffers @ 0x1402913E0
+ * XREFs of HvpAllocateLogBuffers @ 0x140361B74
  * Callers:
- *     HvpGenerateLogEntry @ 0x140705808 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140720D30 (HvpGenerateLogEntry.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a3)
+__int64 __fastcall HvpAllocateLogBuffers(PVOID **a1, _DWORD *a2, unsigned int a3)
 {
-  void *Pool2; // r14
-  __int64 v7; // rax
-  unsigned int v8; // ebx
-  __int64 v10; // rbx
-  unsigned int v11; // ecx
-  unsigned int v12; // eax
-  bool v13; // zf
-  __int64 v14; // rcx
-  __int64 v15; // rdi
-  __int64 v16; // rsi
-  void *v17; // r15
-  __int64 v18; // rdx
-  __int64 i; // rbp
+  PVOID *v6; // rdi
+  __int64 v7; // r15
+  __int64 v8; // rsi
+  char v9; // bl
+  PVOID PoolWithTag; // rbp
+  PVOID *v11; // rax
+  unsigned int v12; // ebx
+  PVOID *v14; // rbx
+  __int64 v15; // r14
+  unsigned int v16; // r13d
+  __int64 v17; // rcx
+  size_t v18; // rbx
+  PVOID *v19; // rax
   unsigned int v20; // ecx
-  __int64 v21; // rax
-  PVOID *v22; // rsi
-  __int64 v23; // r13
-  unsigned int v24; // [rsp+20h] [rbp-48h]
-  unsigned int v27; // [rsp+88h] [rbp+20h]
+  __int64 v21; // r14
+  unsigned int v22; // eax
+  unsigned int v23; // r13d
+  PVOID v24; // rax
+  PVOID *v25; // r14
+  unsigned int NumberOfBytes; // [rsp+78h] [rbp+20h]
 
-  Pool2 = (void *)ExAllocatePool2(264LL, a3, 1867074883LL);
-  if ( Pool2 )
+  v6 = 0LL;
+  v7 = 0LL;
+  v8 = 0LL;
+  v9 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolCacheAligned, a3, 0x6F494D43u);
+  if ( PoolWithTag )
   {
-    v7 = ExAllocatePool2(256LL, 24LL, 1867074883LL);
-    if ( v7 )
+    v8 = 1LL;
+    v11 = (PVOID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x6F494D43u);
+    v6 = v11;
+    if ( v11 )
     {
-      *(_DWORD *)v7 = 0;
+      *(_DWORD *)v11 = 0;
+      v11[1] = PoolWithTag;
+      *((_DWORD *)v11 + 4) = a3;
+      *a1 = v11;
       *a2 = 1;
-      v8 = 0;
-      *(_QWORD *)(v7 + 8) = Pool2;
-      *(_DWORD *)(v7 + 16) = a3;
-      *a1 = v7;
-      return v8;
+LABEL_4:
+      v6 = 0LL;
+      v12 = 0;
+      goto LABEL_5;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
-  v10 = 0LL;
-  do
+LABEL_8:
+  if ( !v9 )
+    goto LABEL_37;
+  if ( v6 )
   {
-    v11 = *((_DWORD *)LogEntryChunkSizes + v10) << 12;
-    v12 = a3 / v11;
-    v27 = v11;
-    v13 = a3 % v11 == 0;
-    v14 = a3 / v11 + 1;
-    if ( v13 )
-      v14 = v12;
-    v15 = (unsigned int)v14;
-    v16 = ExAllocatePool2(256LL, 24 * v14, 1867074883LL);
-    v17 = (void *)v16;
-    if ( !v16 )
-      break;
-    v18 = a3;
-    for ( i = 0LL; ; i = (unsigned int)(i + 1) )
+    if ( (_DWORD)v8 )
     {
-      if ( (unsigned int)i >= (unsigned int)v15 )
-      {
-        *a1 = v16;
-        v8 = 0;
-        *a2 = v15;
-        return v8;
-      }
-      v20 = 0;
-      *(_DWORD *)(v16 + 24 * i) = 0;
-      if ( (unsigned int)v18 >= v27 )
-      {
-        v20 = v18 - v27;
-        v18 = v27;
-      }
-      v24 = v20;
-      *(_DWORD *)(v16 + 24 * i + 16) = v18;
-      v21 = ExAllocatePool2(264LL, v18, 1867074883LL);
-      *(_QWORD *)(v16 + 24 * i + 8) = v21;
-      if ( !v21 )
-        break;
-      v18 = v24;
-    }
-    if ( (_DWORD)v15 )
-    {
-      v22 = (PVOID *)(v16 + 8);
-      v23 = v15;
+      v14 = v6 + 1;
+      v15 = (unsigned int)v8;
       do
       {
-        if ( *v22 )
+        if ( *v14 )
         {
-          ExFreePoolWithTag(*v22, 0);
-          *v22 = 0LL;
+          ExFreePoolWithTag(*v14, 0);
+          *v14 = 0LL;
         }
-        v22 += 3;
-        --v23;
+        v14 += 3;
+        --v15;
       }
-      while ( v23 );
+      while ( v15 );
     }
-    ExFreePoolWithTag(v17, 0);
-    v10 = (unsigned int)(v10 + 1);
+    ExFreePoolWithTag(v6, 0);
+    v6 = 0LL;
   }
-  while ( (_DWORD)v10 != 9 );
-  return (unsigned int)-1073741801;
+  v7 = (unsigned int)(v7 + 1);
+  if ( (_DWORD)v7 != 9 )
+  {
+LABEL_37:
+    v16 = *((_DWORD *)LogEntryChunkSizes + v7) << 12;
+    NumberOfBytes = v16;
+    v17 = a3 / v16 + 1;
+    if ( !(a3 % v16) )
+      v17 = a3 / v16;
+    v8 = (unsigned int)v17;
+    v18 = 24 * v17;
+    v19 = (PVOID *)ExAllocatePoolWithTag(PagedPool, 24 * v17, 0x6F494D43u);
+    v6 = v19;
+    if ( v19 )
+    {
+      memset(v19, 0, v18);
+      v20 = a3;
+      v21 = 0LL;
+      while ( (unsigned int)v21 < (unsigned int)v8 )
+      {
+        LODWORD(v6[3 * v21]) = 0;
+        v22 = v20 - v16;
+        v23 = 0;
+        if ( v20 >= NumberOfBytes )
+        {
+          v20 = NumberOfBytes;
+          v23 = v22;
+        }
+        LODWORD(v6[3 * v21 + 2]) = v20;
+        v24 = ExAllocatePoolWithTag(PagedPoolCacheAligned, v20, 0x6F494D43u);
+        v6[3 * v21 + 1] = v24;
+        if ( !v24 )
+        {
+          v9 = 1;
+          goto LABEL_8;
+        }
+        v20 = v23;
+        v21 = (unsigned int)(v21 + 1);
+        v16 = NumberOfBytes;
+      }
+      *a1 = v6;
+      *a2 = v8;
+      goto LABEL_4;
+    }
+  }
+  v12 = -1073741801;
+LABEL_5:
+  if ( v6 )
+  {
+    if ( (_DWORD)v8 )
+    {
+      v25 = v6 + 1;
+      do
+      {
+        if ( *v25 )
+        {
+          ExFreePoolWithTag(*v25, 0);
+          *v25 = 0LL;
+        }
+        v25 += 3;
+        --v8;
+      }
+      while ( v8 );
+    }
+    ExFreePoolWithTag(v6, 0);
+  }
+  return v12;
 }

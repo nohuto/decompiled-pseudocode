@@ -1,7 +1,9 @@
 /*
- * XREFs of ?Cleanup@UMPDSURFOBJ@@SAXPEAX@Z @ 0x1C02C71B0
+ * XREFs of ?Cleanup@UMPDSURFOBJ@@SAXPEAX@Z @ 0x1C016CEA0
  * Callers:
- *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C02C6F80 (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137A1C (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     NtGdiEngCheckAbort @ 0x1C02B20E0 (NtGdiEngCheckAbort.c)
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B4CB0 (NtGdiPATHOBJ_vEnumStartClipLines.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +14,7 @@ void __fastcall UMPDSURFOBJ::Cleanup(_QWORD *a1)
 
   v2 = a1[2];
   if ( v2 )
-    PDEVOBJ::vUnreferencePdev((PDEVOBJ *)&v2);
+    PDEVOBJ::vUnreferencePdev(&v2, 0LL);
   if ( *((_DWORD *)a1 + 2) )
     EngUnlockSurface((SURFOBJ *)*a1);
 }

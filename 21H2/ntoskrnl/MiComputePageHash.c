@@ -1,66 +1,95 @@
 /*
- * XREFs of MiComputePageHash @ 0x14045D34E
+ * XREFs of MiComputePageHash @ 0x14038A190
  * Callers:
- *     MiWritePageFileHash @ 0x14045D8D2 (MiWritePageFileHash.c)
- *     MiArePagefileContentsCorrupted @ 0x1405BC2C4 (MiArePagefileContentsCorrupted.c)
+ *     MiWritePageFileHash @ 0x140389FC4 (MiWritePageFileHash.c)
+ *     MiValidatePagefilePageHash @ 0x14055D71C (MiValidatePagefilePageHash.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x1402BEDD0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x1402CC7C0 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPagingFileOffset @ 0x1402E76C0 (MiGetPagingFileOffset.c)
+ *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiComputePageHash(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
+__int64 __fastcall MiComputePageHash(__int64 a1, _QWORD *a2)
 {
-  _QWORD *v5; // rbx
-  unsigned __int64 v8; // rax
-  unsigned __int8 v9; // bp
-  unsigned __int64 v10; // rdi
-  _QWORD *v11; // r14
-  __int64 i; // rcx
+  unsigned __int64 v2; // r14
+  _QWORD *v3; // rsi
+  unsigned __int8 CurrentIrql; // di
+  unsigned int PagingFileOffset; // eax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  _QWORD *v9; // rcx
+  __int64 v10; // r9
+  __int64 v11; // r10
+  __int64 v12; // rbx
   __int64 v13; // rbx
-  unsigned __int64 v14; // r8
-  unsigned int v15; // edx
   __int64 result; // rax
-  _QWORD v17[4]; // [rsp+20h] [rbp-48h]
-  unsigned __int8 v18; // [rsp+70h] [rbp+8h] BYREF
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v16; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
 
-  v18 = 0;
-  v5 = a4;
-  if ( a4 )
+  v2 = 0LL;
+  v3 = a2;
+  if ( a2 )
   {
-    v10 = 0LL;
-    v9 = 17;
+    CurrentIrql = 17;
   }
   else
   {
-    v8 = MiMapPageInHyperSpaceWorker(0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4), &v18, 0);
-    v9 = v18;
-    v10 = v8;
-    v5 = (_QWORD *)v8;
+    CurrentIrql = KeGetCurrentIrql();
+    __writecr8(2uLL);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    {
+      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    }
+    v2 = MiMapPageInHyperSpaceWorker((a1 + 0x58000000000LL) / 48, 0LL, 0);
+    v3 = (_QWORD *)v2;
   }
-  v11 = v5 + 508;
-  v17[0] = *v5 + (unsigned int)MiGetPagingFileOffset(a2 + 16);
-  v17[1] = v5[1];
-  v17[2] = v5[2];
-  v17[3] = v5[3];
+  PagingFileOffset = MiGetPagingFileOffset(a1 + 16);
+  v8 = v3[1];
+  v9 = v3 + 2;
+  v10 = v3[2];
+  v11 = v3[3];
+  v12 = *v3 + PagingFileOffset;
   do
   {
-    v5 += 4;
-    for ( i = 0LL; i < 4; ++i )
-      v17[i] += v5[i];
+    v9 += 4;
+    v8 += *(v9 - 1);
+    v12 += *(v9 - 2);
+    v10 += *v9;
+    v11 += v9[1];
   }
-  while ( v5 != v11 );
-  v13 = v5[1] + v5[2] + v5[3] + v17[0];
-  if ( v10 )
-    MiUnmapPageInHyperSpaceWorker(v10, v9);
-  v14 = 0xFFFFF6FB7DBEDF68uLL;
-  if ( (*(_QWORD *)(a2 + 40) & 0xFFFFFFFFFFLL) != 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4) )
-    v14 = a3;
-  v15 = v13 + HIDWORD(v13) + (v14 >> 3);
-  result = 3LL;
-  if ( v15 < 3 )
-    v15 = 3;
-  *(_QWORD *)(a1 + 8) = v14 | 1;
-  *(_DWORD *)a1 = v15;
+  while ( v9 - 2 != v3 + 508 );
+  v13 = v8 + v11 + v10 + v12;
+  if ( v2 )
+  {
+    LOBYTE(v7) = 17;
+    MiUnmapPageInHyperSpaceWorker(v2, v7, 0);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v18 = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v20 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(CurrentIrql);
+  }
+  result = (unsigned int)(v13 + HIDWORD(v13));
+  if ( (unsigned int)result < 3 )
+    return 3LL;
   return result;
 }

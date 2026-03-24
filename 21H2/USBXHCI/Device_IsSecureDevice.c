@@ -1,9 +1,9 @@
 /*
- * XREFs of Device_IsSecureDevice @ 0x1C0015008
+ * XREFs of Device_IsSecureDevice @ 0x1C0015934
  * Callers:
- *     Controller_CreateWdfDevice @ 0x1C006C580 (Controller_CreateWdfDevice.c)
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
+ *     Controller_CreateWdfDevice @ 0x1C006D360 (Controller_CreateWdfDevice.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
  *     <none>
  */

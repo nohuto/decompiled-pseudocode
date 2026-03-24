@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteStaleCacheMaps @ 0x1400F0B2C
+ * XREFs of MiDeleteStaleCacheMaps @ 0x1400F0B4C
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF594 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSnapShotHandleTables @ 0x140883F24
+ * XREFs of ExpSnapShotHandleTables @ 0x14094CC30
  * Callers:
- *     ObGetHandleInformation @ 0x1409846C8 (ObGetHandleInformation.c)
- *     ObGetHandleInformationEx @ 0x14098471C (ObGetHandleInformationEx.c)
+ *     ObGetHandleInformation @ 0x1408DCDEC (ObGetHandleInformation.c)
+ *     ObGetHandleInformationEx @ 0x1408DCE40 (ObGetHandleInformationEx.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExLockHandleTableEntry @ 0x1402F344C (ExLockHandleTableEntry.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExpLookupHandleTableEntry @ 0x140733340 (ExpLookupHandleTableEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpSnapShotHandleTables(
@@ -26,7 +26,7 @@ __int64 __fastcall ExpSnapShotHandleTables(
   __int64 *i; // r14
   __int64 v10; // rbp
   __int64 j; // rbx
-  volatile signed __int64 *v12; // rax
+  signed __int64 *v12; // rax
   volatile signed __int64 *v13; // rsi
   __int64 v14; // r15
   signed __int32 v16[8]; // [rsp+0h] [rbp-88h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall ExpSnapShotHandleTables(
     v10 = (__int64)(i - 3);
     for ( j = 0LL; ((v8 + 0x80000000) & 0x80000000) != 0 || v8 == -1073741820; j += 4LL )
     {
-      v12 = (volatile signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v10, j);
+      v12 = (signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v10, j);
       v13 = v12;
       if ( !v12 )
         break;
@@ -67,6 +67,6 @@ __int64 __fastcall ExpSnapShotHandleTables(
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&HandleTableListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&HandleTableListLock);
   KeAbPostRelease((ULONG_PTR)&HandleTableListLock);
-  KiLeaveCriticalRegionUnsafe(v14);
+  KeLeaveCriticalRegionThread(v14);
   return v8;
 }

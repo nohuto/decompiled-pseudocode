@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CRadialGradientBrush::sc_originOffset__ @ 0x180002970
+ * XREFs of _dynamic_initializer_for__CRadialGradientBrush::sc_originOffset__ @ 0x180002420
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CRadialGradientBrush::sc_originOffset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D21E0 = (unsigned __int64)CRadialGradientBrush::SetOriginOffsetProperty;
-  qword_1803D21F0 = v1;
+  xmmword_1803462F0 = (unsigned __int64)CRadialGradientBrush::SetOriginOffsetProperty;
+  qword_180346300 = v1;
   return result;
 }

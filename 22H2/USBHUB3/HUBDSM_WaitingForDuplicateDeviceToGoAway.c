@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_WaitingForDuplicateDeviceToGoAway @ 0x1C0023370
+ * XREFs of HUBDSM_WaitingForDuplicateDeviceToGoAway @ 0x1C0020D70
  * Callers:
  *     <none>
  * Callees:

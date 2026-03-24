@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CSharedSectionBaseMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00CB470
+ * XREFs of ?GetType@CSharedSectionBaseMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00BC380
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 DirectComposition::CSharedSectionBaseMarshaler::GetType()
 {
-  return 169LL;
+  return 170LL;
 }

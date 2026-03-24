@@ -1,13 +1,12 @@
 /*
- * XREFs of ?GetNumModes@DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORSOURCEMODESET__@@QEA_K@Z @ 0x1C021AC10
+ * XREFs of ?GetNumModes@DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORSOURCEMODESET__@@QEA_K@Z @ 0x1C019EC10
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0011D60 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
- *     ??0?$RESOURCE_LOCK@VMonitorDescriptorState@DxgMonitor@@@@QEAA@PEAVMonitorDescriptorState@DxgMonitor@@_N@Z @ 0x1C001CB44 (--0-$RESOURCE_LOCK@VMonitorDescriptorState@DxgMonitor@@@@QEAA@PEAVMonitorDescriptorState@DxgMoni.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL::GetNumModes(
@@ -17,74 +16,95 @@ __int64 __fastcall DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL::GetNumModes(
 {
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // rax
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   int MonitorFromHandle; // eax
-  PERESOURCE v9; // rbx
-  struct _ERESOURCE *v10; // rcx
-  unsigned int v11; // ebx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  int v15; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-18h]
-  char v17; // [rsp+30h] [rbp-10h]
-  PERESOURCE Resource; // [rsp+50h] [rbp+10h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct DXGMONITOR *v15; // rdi
+  struct _ERESOURCE *v16; // rcx
+  unsigned int v17; // edi
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  int v29; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v30; // [rsp+28h] [rbp-18h]
+  char v31; // [rsp+30h] [rbp-10h]
+  struct DXGMONITOR *v32; // [rsp+50h] [rbp+10h] BYREF
 
-  v15 = -1;
-  v16 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v29 = -1;
+  v30 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v17 = 1;
-    v15 = 7016;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v31 = 1;
+    v29 = 7016;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 7016);
   }
   else
   {
-    v17 = 0;
+    v31 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v15, 7016);
-  v7 = WdLogNewEntry5_WdTrace(v6, v5);
-  *(_QWORD *)(v7 + 24) = a1;
-  *(_QWORD *)(v7 + 32) = a2;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v29, 7016LL);
+  v9 = WdLogNewEntry5_WdTrace(v6, v5, v7, v8);
+  *(_QWORD *)(v9 + 24) = a1;
+  *(_QWORD *)(v9 + 32) = a2;
   if ( a2 )
   {
     *a2 = 0LL;
-    Resource = 0LL;
-    MonitorFromHandle = MONITOR_MGR::_GetMonitorFromHandle((struct HDXGMONITOR__ *)a1, (struct DXGMONITOR **)&Resource);
+    v32 = 0LL;
+    MonitorFromHandle = MONITOR_MGR::_GetMonitorFromHandle((struct HDXGMONITOR__ *)a1, &v32);
     if ( MonitorFromHandle == -1073741816 )
     {
-      WdLogSingleEntry1(2LL, a1);
-      v11 = -1071774943;
+      v23 = WdLogNewEntry5_WdError(v14, v13);
+      *(_QWORD *)(v23 + 24) = a1;
+      WdLogEvent5_WdError(v23);
+      v17 = -1071774943;
     }
     else
     {
       if ( MonitorFromHandle < 0 )
-        WdLogSingleEntry0(1LL);
-      v9 = Resource;
-      if ( !Resource )
-        WdLogSingleEntry0(1LL);
-      RESOURCE_LOCK<DxgMonitor::MonitorDescriptorState>::RESOURCE_LOCK<DxgMonitor::MonitorDescriptorState>(
-        &Resource,
-        *(struct _ERESOURCE **)&v9[2].ActiveCount,
-        0);
-      v10 = Resource;
-      v11 = 0;
-      *a2 = LODWORD(Resource[1].OwnerTable);
-      ExReleaseResourceLite(v10);
+      {
+        v24 = WdLogNewEntry5_WdAssertion(v14, v13);
+        WdLogEvent5_WdAssertion(v24);
+      }
+      v15 = v32;
+      if ( !v32 )
+      {
+        v25 = WdLogNewEntry5_WdAssertion(v14, v13);
+        WdLogEvent5_WdAssertion(v25);
+        v28 = WdLogNewEntry5_WdAssertion(v27, v26);
+        WdLogEvent5_WdAssertion(v28);
+      }
+      KeEnterCriticalRegion();
+      ExAcquireResourceSharedLite((PERESOURCE)((char *)v15 + 296), 1u);
+      v16 = (struct _ERESOURCE *)((char *)v15 + 296);
+      *a2 = *((unsigned int *)v15 + 52);
+      v17 = 0;
+      ExReleaseResourceLite(v16);
       KeLeaveCriticalRegion();
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, 0LL, a1);
-    v11 = -1073741811;
+    v22 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v22 + 24) = 0LL;
+    *(_QWORD *)(v22 + 32) = a1;
+    WdLogEvent5_WdError(v22);
+    v17 = -1073741811;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 )
-  {
-    LOBYTE(v12) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v15);
-  }
-  return v11;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v29, v18);
+  if ( v31 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v29);
+  return v17;
 }

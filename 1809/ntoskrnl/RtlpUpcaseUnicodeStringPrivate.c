@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1400A44D8
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1400A44F8
  * Callers:
  *     RtlIsNameInExpression @ 0x1400A3DB0 (RtlIsNameInExpression.c)
  *     RtlIsNameInUnUpcasedExpression @ 0x1400A3E40 (RtlIsNameInUnUpcasedExpression.c)
- *     RtlAreNamesEqual @ 0x14010B2A0 (RtlAreNamesEqual.c)
+ *     RtlAreNamesEqual @ 0x14010B2C0 (RtlAreNamesEqual.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

@@ -1,14 +1,14 @@
 /*
- * XREFs of zzzInternalShowCaret @ 0x1C00062D4
+ * XREFs of zzzInternalShowCaret @ 0x1C006A08C
  * Callers:
- *     zzzShowCaret @ 0x1C00061F8 (zzzShowCaret.c)
- *     NtUserEndPaint @ 0x1C00964C0 (NtUserEndPaint.c)
- *     xxxEndPaint @ 0x1C00CEAA0 (xxxEndPaint.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
+ *     xxxEndPaint @ 0x1C00461A0 (xxxEndPaint.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     NtUserShowCaret @ 0x1C0069B00 (NtUserShowCaret.c)
+ *     zzzShowCaret @ 0x1C0241324 (zzzShowCaret.c)
  * Callees:
- *     ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C0006384 (-CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
- *     ?UT_InvertCaret@@YAXXZ @ 0x1C00065F8 (-UT_InvertCaret@@YAXXZ.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
+ *     ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C002C928 (-CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0044F6C (-UT_InvertCaret@@YAXXZ.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
  */
 
 void zzzInternalShowCaret()
@@ -20,27 +20,27 @@ void zzzInternalShowCaret()
   unsigned int v4; // ecx
 
   v0 = *(_QWORD *)(gptiCurrent + 432LL);
-  v1 = *(_DWORD *)(v0 + 316);
+  v1 = *(_DWORD *)(v0 + 308);
   if ( v1 )
   {
     v2 = v1 - 1;
-    *(_DWORD *)(v0 + 316) = v2;
+    *(_DWORD *)(v0 + 308) = v2;
     if ( !v2 )
     {
-      v3 = *(_DWORD *)(v0 + 312) ^ ((unsigned __int8)*(_DWORD *)(v0 + 312) ^ (unsigned __int8)(*(_DWORD *)(v0 + 312) >> 1)) & 1;
-      *(_DWORD *)(v0 + 312) = v3;
+      v3 = *(_DWORD *)(v0 + 304) ^ ((unsigned __int8)*(_DWORD *)(v0 + 304) ^ (unsigned __int8)(*(_DWORD *)(v0 + 304) >> 1)) & 1;
+      *(_DWORD *)(v0 + 304) = v3;
       if ( (v3 & 1) != 0 )
         UT_InvertCaret();
-      CreateCaretTimer(*(struct tagWND **)(v0 + 304), (struct tagQ *)v0);
+      CreateCaretTimer(*(struct tagWND **)(v0 + 296), (struct tagQ *)v0);
       xxxWindowEvent(0x8002u, gdwDeferWinEvent != 0 ? 2 : 0);
     }
   }
   else
   {
-    v4 = *(_DWORD *)(v0 + 312);
+    v4 = *(_DWORD *)(v0 + 304);
     if ( (v4 & 1) == 0 )
     {
-      *(_DWORD *)(v0 + 312) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 >> 1)) & 1;
+      *(_DWORD *)(v0 + 304) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 >> 1)) & 1;
       if ( (((unsigned __int8)v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 >> 1)) & 1) & 1) != 0 )
         UT_InvertCaret();
     }

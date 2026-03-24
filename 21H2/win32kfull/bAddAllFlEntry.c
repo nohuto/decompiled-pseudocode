@@ -1,152 +1,172 @@
 /*
- * XREFs of bAddAllFlEntry @ 0x1C015E414
+ * XREFs of bAddAllFlEntry @ 0x1C00E6C58
  * Callers:
- *     GreEnableEUDC @ 0x1C00991AC (GreEnableEUDC.c)
- *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00EF8F4 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00E6950 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     GreEnableEUDC @ 0x1C00E95A8 (GreEnableEUDC.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0011B90 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0013268 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C0013CF0 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C0014850 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C0014A8C (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
- *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0014F34 (--0MALLOCOBJ@@QEAA@K@Z.c)
- *     vLinkEudcPFEs @ 0x1C010E458 (vLinkEudcPFEs.c)
- *     bReadUserSystemEUDCRegistry @ 0x1C01194E4 (bReadUserSystemEUDCRegistry.c)
- *     bNotIsKeySymbolicLink @ 0x1C01195E0 (bNotIsKeySymbolicLink.c)
- *     GetUserEUDCRegistryPath @ 0x1C011968C (GetUserEUDCRegistryPath.c)
- *     AddAllFlEntryWorker @ 0x1C012069C (AddAllFlEntryWorker.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C013B0A4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
- *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029532C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
- *     ??1UmfdClientSideFileViewMapper@@QEAA@XZ @ 0x1C029539C (--1UmfdClientSideFileViewMapper@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C009FE08 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A09FC (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1DA4 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1FB8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     vLinkEudcPFEs @ 0x1C00A3EEC (vLinkEudcPFEs.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C00BBC28 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ *     bReadUserSystemEUDCRegistry @ 0x1C00E7068 (bReadUserSystemEUDCRegistry.c)
+ *     bNotIsKeySymbolicLink @ 0x1C00E7194 (bNotIsKeySymbolicLink.c)
+ *     GetUserEUDCRegistryPath @ 0x1C00E7240 (GetUserEUDCRegistryPath.c)
+ *     AddAllFlEntryWorker @ 0x1C00E730C (AddAllFlEntryWorker.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEF24 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011DA70 (EngUnmapFontFileFD.c)
+ *     ?ApplyFontInfEquivalentChangesOnServicingUpdate@@YAXXZ @ 0x1C016BE10 (-ApplyFontInfEquivalentChangesOnServicingUpdate@@YAXXZ.c)
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029794C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
  */
 
-__int64 __fastcall bAddAllFlEntry(int a1)
+__int64 __fastcall bAddAllFlEntry(int a1, unsigned int a2)
 {
-  WCHAR *v2; // rdi
-  unsigned __int16 *v3; // rbx
-  HSEMAPHORE v4; // rcx
-  __int64 v6; // rax
-  int v7; // esi
-  bool v8; // si
-  PFTOBJ *v9; // rcx
-  char v10; // al
-  HANDLE Handle; // [rsp+40h] [rbp-19h] BYREF
-  HANDLE v12; // [rsp+48h] [rbp-11h] BYREF
-  __int64 v13; // [rsp+50h] [rbp-9h] BYREF
-  struct PFE *v14[2]; // [rsp+58h] [rbp-1h] BYREF
-  _QWORD v15[2]; // [rsp+68h] [rbp+Fh] BYREF
-  _QWORD v16[2]; // [rsp+78h] [rbp+1Fh] BYREF
-  int v17; // [rsp+88h] [rbp+2Fh]
-  unsigned int v18; // [rsp+C8h] [rbp+6Fh] BYREF
-  wchar_t *Src; // [rsp+D0h] [rbp+77h] BYREF
-  PCWSTR Path; // [rsp+D8h] [rbp+7Fh] BYREF
+  _WORD *v3; // rbx
+  wchar_t *v4; // rdi
+  HSEMAPHORE v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
+  int v11; // esi
+  bool v12; // r12
+  PFTOBJ *v13; // rcx
+  __int64 v14; // r14
+  unsigned int v15; // r15d
+  unsigned int i; // esi
+  char v17; // al
+  HANDLE v19; // [rsp+40h] [rbp-40h] BYREF
+  struct PFE *v20[2]; // [rsp+48h] [rbp-38h] BYREF
+  _QWORD v21[2]; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-18h] BYREF
+  unsigned int v23; // [rsp+78h] [rbp-8h]
+  unsigned int v24; // [rsp+C8h] [rbp+48h] BYREF
+  wchar_t *Src; // [rsp+D0h] [rbp+50h] BYREF
+  HANDLE Handle; // [rsp+D8h] [rbp+58h] BYREF
 
-  MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&Path, 0x208u);
+  v24 = a2;
+  MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&Handle, 0x208u);
   MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&Src, 0x208u);
-  v2 = (WCHAR *)Path;
-  if ( !Path )
-    goto LABEL_6;
-  v3 = Src;
+  v3 = Handle;
+  if ( !Handle )
+  {
+    if ( !Src )
+      return 0LL;
+    Win32FreePool(Src);
+LABEL_42:
+    if ( v3 )
+      goto LABEL_43;
+    return 0LL;
+  }
+  v4 = Src;
   if ( !Src )
-    goto LABEL_6;
-  v4 = ghsemEUDC1;
+    goto LABEL_42;
+  v5 = ghsemEUDC1;
   *Src = 0;
-  *v2 = 0;
-  GreAcquireSemaphore(v4);
+  *v3 = 0;
+  GreAcquireSemaphore(v5);
   if ( gcEUDCCount > 0 )
   {
     EngSetLastError(0xA7u);
 LABEL_5:
     EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
     GreReleaseSemaphoreInternal(ghsemEUDC1);
-LABEL_6:
-    AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((__int64 *)&Src);
-    AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((__int64 *)&Path);
+    Win32FreePool(v4);
+LABEL_43:
+    Win32FreePool(v3);
     return 0LL;
   }
-  if ( a1 && *(_OWORD *)&gappfeSysEUDC == 0LL && (unsigned int)bReadUserSystemEUDCRegistry(v2) )
+  if ( a1 && *(_OWORD *)&gappfeSysEUDC == 0LL && (unsigned int)bReadUserSystemEUDCRegistry(v3) )
   {
-    *(_OWORD *)v14 = 0LL;
-    if ( !(unsigned int)bAppendSysDirectory(v3, v2) )
+    *(_OWORD *)v20 = 0LL;
+    if ( !(unsigned int)bAppendSysDirectory(v4, v3) )
       goto LABEL_5;
-    Handle = gpPFTPublic;
-    v13 = ghsemPublicPFT;
+    Src = (wchar_t *)gpPFTPublic;
+    v19 = (HANDLE)ghsemPublicPFT;
     GreAcquireSemaphore(ghsemPublicPFT);
-    v6 = -1LL;
+    v10 = -1LL;
     do
-      ++v6;
-    while ( v3[v6] );
-    if ( PUBLIC_PFTOBJ::pPFFGet((PUBLIC_PFTOBJ *)&Handle, v3, (int)v6 + 1, 1, 0LL, 0, 0LL, 1) )
+      ++v10;
+    while ( v4[v10] );
+    if ( PUBLIC_PFTOBJ::pPFFGet((PUBLIC_PFTOBJ *)&Src, v4, (int)v10 + 1, 1, 0LL, 0, 0LL, 1) )
     {
-      v7 = 0;
+      v11 = 0;
     }
     else
     {
-      v15[0] = v14;
-      v15[1] = 0LL;
-      v18 = 0;
-      v12 = 0LL;
-      v7 = PUBLIC_PFTOBJ::bLoadAFont(
-             (PUBLIC_PFTOBJ *)&Handle,
-             v3,
-             &v18,
-             8u,
-             (struct PFF **)&v12,
-             (struct _EUDCLOAD *)v15,
-             0);
+      v21[0] = v20;
+      v21[1] = 0LL;
+      v24 = 0;
+      Handle = 0LL;
+      v11 = PUBLIC_PFTOBJ::bLoadAFont(
+              (PUBLIC_PFTOBJ *)&Src,
+              v4,
+              &v24,
+              8u,
+              (struct PFF **)&Handle,
+              (struct _EUDCLOAD *)v21,
+              0);
     }
-    SEMOBJ::vUnlock((SEMOBJ *)&v13);
-    if ( v7 )
+    SEMOBJ::vUnlock((SEMOBJ *)&v19);
+    if ( v11 )
     {
-      if ( (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlEUDC, v14[0], 1) )
-        goto LABEL_35;
-      v8 = 0;
-      v15[0] = *(_QWORD *)v14[0];
+      if ( (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlEUDC, v20[0], 1) )
+        goto LABEL_39;
+      v12 = 0;
+      v21[0] = *(_QWORD *)v20[0];
       UmfdClientSideFileViewMapper::UmfdClientSideFileViewMapper(
-        (UmfdClientSideFileViewMapper *)v16,
-        (struct PFFOBJ *)v15);
-      if ( v17 == *(_DWORD *)(v16[0] + 36LL) )
-        v8 = (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlEUDC, v14[0], 1) != 0;
-      UmfdClientSideFileViewMapper::~UmfdClientSideFileViewMapper((UmfdClientSideFileViewMapper *)v16);
-      if ( v8 )
+        (UmfdClientSideFileViewMapper *)&v22,
+        (struct PFFOBJ *)v21);
+      v14 = v22;
+      v15 = v23;
+      if ( v23 == *(_DWORD *)(v22 + 36) )
+        v12 = (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlEUDC, v20[0], 1) != 0;
+      for ( i = 0; i < v15; EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v14 + 200) + 8LL * i++)) )
       {
-LABEL_35:
-        *(_OWORD *)&gappfeSysEUDC = *(_OWORD *)v14;
-        wcscpy_s(&Dst, 0x105uLL, v3);
-        ++dword_1C0336378;
-        goto LABEL_23;
+        if ( i >= *(_DWORD *)(v14 + 36) )
+          break;
       }
-      PFTOBJ::bUnloadEUDCFont(v9, v3);
+      if ( v12 )
+      {
+LABEL_39:
+        *(_OWORD *)&gappfeSysEUDC = *(_OWORD *)v20;
+        wcscpy_s(&Dst, 0x105uLL, v4);
+        ++dword_1C033B0B8;
+        goto LABEL_25;
+      }
+      PFTOBJ::bUnloadEUDCFont(v13, v4);
     }
     Dst = 0;
     *(_OWORD *)&gappfeSysEUDC = 0LL;
   }
-LABEL_23:
-  v10 = dword_1C0336380;
-  if ( (dword_1C0336380 & 1) != 0 )
+LABEL_25:
+  v17 = dword_1C033B0C0;
+  if ( (dword_1C033B0C0 & 1) != 0 )
   {
-    AddAllFlEntryWorker(
-      L"\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\FontLink\\SystemLink",
-      0);
-    v10 = dword_1C0336380;
+    if ( gSessionId == (unsigned int)RtlGetCurrentServiceSessionId(v7, v6, v8, v9) )
+      ApplyFontInfEquivalentChangesOnServicingUpdate();
+    AddAllFlEntryWorker(L"\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\FontLink\\SystemLink");
+    v17 = dword_1C033B0C0;
   }
-  if ( (v10 & 4) != 0 )
+  if ( (v17 & 4) != 0 )
   {
     Handle = 0LL;
-    v12 = 0LL;
-    v18 = 0;
-    if ( (int)GetUserEUDCRegistryPath(v2) >= 0 && bNotIsKeySymbolicLink(v2, &Handle, &v12) && v18 )
-      AddAllFlEntryWorker(v2, 1);
+    v19 = 0LL;
+    v24 = 0;
+    if ( (int)GetUserEUDCRegistryPath(v3) >= 0 && (unsigned int)bNotIsKeySymbolicLink(v3, &Handle, &v19) && v24 )
+      AddAllFlEntryWorker(v3);
     if ( Handle )
       ZwClose(Handle);
-    if ( v12 )
-      ZwClose(v12);
+    if ( v19 )
+      ZwClose(v19);
   }
   vLinkEudcPFEs(0LL);
   EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
   GreReleaseSemaphoreInternal(ghsemEUDC1);
-  AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((__int64 *)&Src);
-  AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((__int64 *)&Path);
+  Win32FreePool(v4);
+  Win32FreePool(v3);
   return 1LL;
 }

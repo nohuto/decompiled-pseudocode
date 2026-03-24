@@ -1,23 +1,27 @@
 /*
- * XREFs of CmAllocateExtraParameter @ 0x1407E6860
+ * XREFs of CmAllocateExtraParameter @ 0x1405D3740
  * Callers:
- *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 CmAllocateExtraParameter()
+_QWORD *__fastcall CmAllocateExtraParameter(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  __int64 result; // rax
+  _QWORD *result; // rax
+  _QWORD *v5; // rbx
 
-  result = CmpAllocatePool(256LL, 80LL, 1346719043LL);
+  result = CmpAllocateTransientPoolWithTag(PagedPool, 0x50uLL, 0x50454D43u, a4);
+  v5 = result;
   if ( result )
   {
-    *(_QWORD *)(result + 40) = 32LL;
-    *(_QWORD *)(result + 32) = VrpOriginalKeyNameParameterCleanup;
-    *(_OWORD *)(result + 16) = VRP_ORIGINAL_KEY_NAME_PARAMETER_GUID;
-    result += 48LL;
+    memset(result, 0, 0x50uLL);
+    v5[5] = 32LL;
+    v5[4] = VrpOriginalKeyNameParameterCleanup;
+    result = v5 + 6;
+    *((_OWORD *)v5 + 1) = VRP_ORIGINAL_KEY_NAME_PARAMETER_GUID;
   }
   return result;
 }

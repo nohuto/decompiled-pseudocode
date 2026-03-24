@@ -1,5 +1,5 @@
 /*
- * XREFs of KiXmmExceptionShadow @ 0x140AF7AC0
+ * XREFs of KiXmmExceptionShadow @ 0x140A14AC0
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ void __fastcall __noreturn KiXmmExceptionShadow()
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v4);
     __writegsqword(0x10u, v0);
     v3 = KeGetPcr()->IdtBase + 1056;

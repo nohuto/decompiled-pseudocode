@@ -1,17 +1,17 @@
 /*
- * XREFs of UserCreateHeap @ 0x1C0055C90
+ * XREFs of UserCreateHeap @ 0x1C006BB90
  * Callers:
- *     InitCreateSharedSection @ 0x1C02E2080 (InitCreateSharedSection.c)
+ *     InitCreateSharedSection @ 0x1C0299F28 (InitCreateSharedSection.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 PVOID __fastcall UserCreateHeap(
         __int64 a1,
         __int64 a2,
         void *a3,
-        __int64 a4,
+        unsigned int a4,
         NTSTATUS (__stdcall *a5)(PVOID Base, PVOID *CommitAddress, PSIZE_T CommitSize))
 {
   SIZE_T v6; // r15
@@ -22,11 +22,11 @@ PVOID __fastcall UserCreateHeap(
   __int64 v13; // [rsp+60h] [rbp-61h] BYREF
   struct _RTL_HEAP_PARAMETERS Parameters; // [rsp+70h] [rbp-51h] BYREF
 
-  v6 = (unsigned int)a4;
+  v6 = a4;
   v7 = a2;
   v13 = 0LL;
   v11[1] = 0;
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3, a4);
+  CurrentProcess = PsGetCurrentProcess(a1, a2);
   v12 = 0LL;
   v11[0] = v7;
   if ( (int)((__int64 (__fastcall *)(__int64, __int64, __int64 *, _QWORD, __int64, _DWORD *, __int64 *, int, int, int))MmMapViewOfSection)(

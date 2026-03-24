@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ValidateStaticRequirements@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z @ 0x1C004E04C
+ * XREFs of ?ValidateStaticRequirements@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z @ 0x1C004A4F4
  * Callers:
- *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C004D444 (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
+ *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C0049A08 (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?RegQueryEnabledForTest@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAK@Z @ 0x1C004DB6C (-RegQueryEnabledForTest@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAK@Z.c)
- *     ?RegQuerySoCName@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C004DDD0 (-RegQuerySoCName@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?RegQueryEnabledForTest@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAK@Z @ 0x1C0049FFC (-RegQueryEnabledForTest@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAK@Z.c)
+ *     ?RegQuerySoCName@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C004A260 (-RegQuerySoCName@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
  */
 
 __int64 __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::ValidateStaticRequirements(
@@ -14,13 +14,13 @@ __int64 __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::ValidateS
         bool *a2)
 {
   unsigned int *v3; // rdx
-  NTSTATUS SoCName; // ebx
-  unsigned int v5; // edi
+  NTSTATUS SoCName; // edi
+  unsigned int v5; // ebx
   unsigned __int16 *v6; // rdx
   unsigned int *v7; // r9
   SIZE_T v8; // r15
   wchar_t **v9; // rsi
-  unsigned int v10; // edi
+  unsigned int v10; // ebx
   unsigned int v12[4]; // [rsp+38h] [rbp-D0h] BYREF
   _DWORD SystemInformation[16]; // [rsp+48h] [rbp-C0h] BYREF
   WCHAR String1[264]; // [rsp+88h] [rbp-80h] BYREF
@@ -30,8 +30,8 @@ __int64 __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::ValidateS
   SoCName = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   if ( SoCName >= 0 )
   {
-    v12[0] = 0;
     v5 = (((unsigned int)(SystemInformation[3] * SystemInformation[2]) >> 20) + 256) >> 10;
+    v12[0] = 0;
     if ( (int)DefaultMultiScreenConfig::DisjointExperienceConfig::RegQueryEnabledForTest(
                 (DefaultMultiScreenConfig::DisjointExperienceConfig *)v12,
                 v3) >= 0
@@ -50,7 +50,7 @@ __int64 __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::ValidateS
       if ( SoCName >= 0 )
       {
         v8 = (int)v12[0];
-        v9 = &off_1C0087C50;
+        v9 = &off_1C0077580;
         v10 = 0;
         while ( RtlCompareUnicodeStrings(String1, v8, *v9, *((int *)v9 + 2), 1u) )
         {

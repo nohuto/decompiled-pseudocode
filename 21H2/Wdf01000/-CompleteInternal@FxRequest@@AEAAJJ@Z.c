@@ -1,65 +1,67 @@
 /*
- * XREFs of ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890
+ * XREFs of ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0007EE0
  * Callers:
- *     imp_WdfRequestCompleteWithInformation @ 0x1C0007410 (imp_WdfRequestCompleteWithInformation.c)
- *     imp_WdfRequestComplete @ 0x1C00087D0 (imp_WdfRequestComplete.c)
- *     ?CompleteWithPriority@FxRequest@@QEAAJJD@Z @ 0x1C00383B4 (-CompleteWithPriority@FxRequest@@QEAAJJD@Z.c)
- *     ?Complete@FxRequest@@QEAAJJ@Z @ 0x1C0063FCC (-Complete@FxRequest@@QEAAJJ@Z.c)
+ *     imp_WdfRequestComplete @ 0x1C0005B30 (imp_WdfRequestComplete.c)
+ *     imp_WdfRequestCompleteWithInformation @ 0x1C0007E10 (imp_WdfRequestCompleteWithInformation.c)
+ *     ?Complete@FxRequest@@QEAAJJ@Z @ 0x1C0049B14 (-Complete@FxRequest@@QEAAJJ@Z.c)
+ *     ?CompleteWithPriority@FxRequest@@QEAAJJD@Z @ 0x1C0049BBC (-CompleteWithPriority@FxRequest@@QEAAJJD@Z.c)
  * Callees:
- *     ?_DestroyFileObject@FxFileObject@@SAXPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@@Z @ 0x1C00049B4 (-_DestroyFileObject@FxFileObject@@SAXPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@@Z.c)
- *     ?DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z @ 0x1C0008CE0 (-DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z.c)
- *     ?DestroyChildren@FxObject@@IEAAXXZ @ 0x1C0008EB8 (-DestroyChildren@FxObject@@IEAAXXZ.c)
- *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0009550 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
- *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C000AA34 (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
- *     ?ParentDeleteEvent@FxObject@@AEAAXXZ @ 0x1C000AA68 (-ParentDeleteEvent@FxObject@@AEAAXXZ.c)
- *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C000AB04 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_qqLL @ 0x1C0016980 (WPP_IFR_SF_qqLL.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?PreProcessCompletionForDriverRequest@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C00385B6 (-PreProcessCompletionForDriverRequest@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_D @ 0x1C005B340 (WPP_IFR_SF_D.c)
- *     ?PostProcessCompletionForReserved@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C00687F0 (-PostProcessCompletionForReserved@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z.c)
- *     WPP_IFR_SF_qqDqq @ 0x1C0068C50 (WPP_IFR_SF_qqDqq.c)
- *     WPP_IFR_SF_qqqi @ 0x1C0068D80 (WPP_IFR_SF_qqqi.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z @ 0x1C006D224 (-RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z.c)
- *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
- *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C006DC28 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
- *     ?QueueDeferredDisposeLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C006E3C4 (-QueueDeferredDisposeLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
- *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C006E6F0 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
- *     ?DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ @ 0x1C008F224 (-DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ.c)
- *     ?Vf_VerifierBreakpoint_RequestEarlyDisposeDeferred@FxRequest@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7300 (-Vf_VerifierBreakpoint_RequestEarlyDisposeDeferred@FxRequest@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?Vf_VerifyCompleteInternal@FxRequest@@AEAAXPEAU_FX_DRIVER_GLOBALS@@J@Z @ 0x1C00C7374 (-Vf_VerifyCompleteInternal@FxRequest@@AEAAXPEAU_FX_DRIVER_GLOBALS@@J@Z.c)
- *     ?Vf_VerifyValidateCompletedRequest@FxIoQueue@@QEAAXPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z @ 0x1C00C89A8 (-Vf_VerifyValidateCompletedRequest@FxIoQueue@@QEAAXPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z.c)
+ *     ?ParentDeleteEvent@FxObject@@AEAAXXZ @ 0x1C00040D8 (-ParentDeleteEvent@FxObject@@AEAAXXZ.c)
+ *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C00041EC (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
+ *     ?DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z @ 0x1C00082F0 (-DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z.c)
+ *     ?DestroyChildren@FxObject@@IEAAXXZ @ 0x1C00083F0 (-DestroyChildren@FxObject@@IEAAXXZ.c)
+ *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0008440 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     WPP_IFR_SF_qqLL @ 0x1C0012660 (WPP_IFR_SF_qqLL.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C00155E4 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0039220 (WPP_IFR_SF_D.c)
+ *     ?PostProcessCompletionForReserved@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C004EFA4 (-PostProcessCompletionForReserved@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z.c)
+ *     ?PreProcessCompletionForDriverRequest@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@@@Z @ 0x1C004F008 (-PreProcessCompletionForDriverRequest@FxRequest@@AEAAXW4FxRequestCompletionState@@PEAVFxIoQueue@.c)
+ *     WPP_IFR_SF_qqDqq @ 0x1C004F65C (WPP_IFR_SF_qqDqq.c)
+ *     WPP_IFR_SF_qqqi @ 0x1C004F78C (WPP_IFR_SF_qqqi.c)
+ *     ?_DestroyFileObject@FxFileObject@@SAXPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@@Z @ 0x1C0053328 (-_DestroyFileObject@FxFileObject@@SAXPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ?RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z @ 0x1C005A288 (-RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C005AC78 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
+ *     ?QueueDeferredDisposeLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C005B47C (-QueueDeferredDisposeLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C005B788 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     ?DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ @ 0x1C008DBB8 (-DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ.c)
+ *     ?Vf_VerifierBreakpoint_RequestEarlyDisposeDeferred@FxRequest@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6204 (-Vf_VerifierBreakpoint_RequestEarlyDisposeDeferred@FxRequest@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Vf_VerifyCompleteInternal@FxRequest@@AEAAXPEAU_FX_DRIVER_GLOBALS@@J@Z @ 0x1C00C6278 (-Vf_VerifyCompleteInternal@FxRequest@@AEAAXPEAU_FX_DRIVER_GLOBALS@@J@Z.c)
+ *     ?Vf_VerifyValidateCompletedRequest@FxIoQueue@@QEAAXPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z @ 0x1C00C78DC (-Vf_VerifyValidateCompletedRequest@FxIoQueue@@QEAAXPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequest@@@Z.c)
  */
 
-__int64 __fastcall FxRequest::CompleteInternal(FxRequest *this, _FX_DRIVER_GLOBALS *Status)
+__int64 __fastcall FxRequest::CompleteInternal(
+        FxRequest *this,
+        _FX_DRIVER_GLOBALS *Status,
+        __int64 a3,
+        unsigned __int16 a4)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // r13
-  unsigned int v3; // r15d
-  _IRP *_a2; // rbp
-  _IRP *m_Irp; // r8
-  _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  _IRP *v8; // r9
+  _FX_DRIVER_GLOBALS *m_Globals; // r12
+  unsigned int v5; // ebp
+  _IRP *_a2; // r13
+  __int64 m_Irp; // rdx
+  _IRP *v9; // r8
+  __int64 v10; // rcx
   unsigned __int8 m_IrpAllocation; // al
-  FxRequestCompletionState m_CompletionState; // esi
+  FxRequestCompletionState m_CompletionState; // r15d
   FxIoQueue *m_IoQueue; // rdi
-  FxRequestCompletionState v12; // r12d
-  bool v13; // zf
   FxRequestContext *m_RequestContext; // rcx
-  __int64 v15; // rdx
-  KIRQL v16; // r13
+  KIRQL v15; // si
   FxObject *m_ParentObject; // rcx
   unsigned __int16 m_ObjectFlags; // ax
-  unsigned __int16 v19; // cx
-  _LIST_ENTRY *p_m_ChildListHead; // r14
+  unsigned __int16 v18; // cx
+  char v19; // al
+  _LIST_ENTRY *p_m_ChildListHead; // rsi
   _LIST_ENTRY *Flink; // rcx
   _IRP *v22; // rcx
-  FxDeviceBase *m_DeviceBase; // r14
+  FxDeviceBase *m_DeviceBase; // rsi
   unsigned __int8 v24; // r8
   _FX_DRIVER_GLOBALS *v25; // rdx
   unsigned __int8 v26; // r8
@@ -68,69 +70,64 @@ __int64 __fastcall FxRequest::CompleteInternal(FxRequest *this, _FX_DRIVER_GLOBA
   _LIST_ENTRY *Blink; // rdx
   unsigned __int16 v30; // ax
   unsigned int v32; // edx
-  FxPkgGeneral *m_Lock; // rbp
+  FxPkgGeneral *m_Lock; // r14
   const void *_a1; // rcx
   _IRP *v35; // rax
   _FX_DRIVER_GLOBALS *v36; // rcx
   const void *v37; // rdx
-  _FX_DRIVER_GLOBALS *v38; // rdx
-  _FX_DRIVER_GLOBALS *v39; // rcx
-  const void *v40; // rdx
-  _FX_DRIVER_GLOBALS *v41; // r10
-  const void *v42; // rdx
-  _LIST_ENTRY *v43; // rax
+  _FX_DRIVER_GLOBALS *v38; // rcx
+  const void *v39; // rdx
+  _FX_DRIVER_GLOBALS *v40; // r10
+  const void *v41; // rdx
+  _LIST_ENTRY *v42; // rax
   unsigned __int8 m_RequestBaseFlags; // cl
   const void *id; // rdi
-  __int64 v46; // rax
-  _IRP *v47; // rax
-  unsigned __int64 v48; // r15
-  const void *v49; // rcx
-  unsigned __int8 v50; // cl
-  __int64 v51; // rbp
-  _MDL *v52; // rsi
-  const void *v53; // rdi
-  WDFMEMORY__ *v54; // rax
-  unsigned __int8 v55; // dl
-  unsigned int v56; // r8d
-  __int64 v57; // rbp
-  _MDL *v58; // rsi
-  const void *v59; // rdi
-  WDFMEMORY__ *v60; // rax
-  unsigned __int8 v61; // dl
-  unsigned int v62; // r8d
+  __int64 v45; // rax
+  WDFMEMORY__ *v46; // rax
+  unsigned __int64 v47; // r15
+  const void *v48; // rcx
+  unsigned __int8 v49; // cl
+  __int64 v50; // rbp
+  _MDL *v51; // rsi
+  const void *v52; // rdi
+  WDFMEMORY__ *v53; // rax
+  unsigned __int8 v54; // dl
+  unsigned int v55; // r8d
+  __int64 v56; // rbp
+  _MDL *v57; // rsi
+  const void *v58; // rdi
+  WDFMEMORY__ *v59; // rax
+  unsigned __int8 v60; // dl
+  unsigned int v61; // r8d
   FxTagTracker *m_DeviceObject; // rcx
+  FxVerifierLock *v63; // rcx
   FxVerifierLock *v64; // rcx
-  FxVerifierLock *v65; // rcx
-  KIRQL v66; // al
-  FxObject *v67; // rcx
-  KIRQL v68; // si
-  _FX_DRIVER_GLOBALS *v69; // rcx
-  const void *v70; // rdx
+  KIRQL v65; // al
+  FxObject *v66; // rcx
+  KIRQL v67; // r14
+  _FX_DRIVER_GLOBALS *v68; // rcx
+  const void *v69; // rdx
   const _GUID *traceGuid; // [rsp+20h] [rbp-68h]
   const _GUID *traceGuida; // [rsp+20h] [rbp-68h]
-  FxIrp irp; // [rsp+90h] [rbp+8h] BYREF
   unsigned __int8 PreviousIrql; // [rsp+98h] [rbp+10h] BYREF
-  _FX_DRIVER_GLOBALS *v75; // [rsp+A0h] [rbp+18h]
+  FxIrp irp; // [rsp+A0h] [rbp+18h] BYREF
 
   m_Globals = this->m_Globals;
-  v3 = (unsigned int)Status;
+  v5 = (unsigned int)Status;
   _a2 = this->m_Irp.m_Irp;
-  v75 = m_Globals;
-  m_Irp = _a2;
   if ( !m_Globals->FxVerifierOn
-    || (FxRequest::Vf_VerifyCompleteInternal(this, Status, (int)Status),
-        m_Irp = this->m_Irp.m_Irp,
-        !m_Globals->FxVerifierOn) )
+    || (FxRequest::Vf_VerifyCompleteInternal(this, Status, (int)Status), !m_Globals->FxVerifierOn) )
   {
     this->m_Completed = 1;
   }
-  CurrentStackLocation = m_Irp->Tail.Overlay.CurrentStackLocation;
-  v8 = 0LL;
-  if ( CurrentStackLocation->MajorFunction == 14
-    && (CurrentStackLocation->Parameters.Read.ByteOffset.LowPart & 3) == 0
-    && m_Irp->RequestorMode == 1
-    && !CurrentStackLocation->Parameters.Read.Length
-    && (m_Irp->Flags & 0x40) != 0 )
+  m_Irp = (__int64)this->m_Irp.m_Irp;
+  v9 = 0LL;
+  v10 = *(_QWORD *)(m_Irp + 184);
+  if ( *(_BYTE *)v10 == 14
+    && (*(_DWORD *)(v10 + 24) & 3) == 0
+    && *(_BYTE *)(m_Irp + 64) == 1
+    && !*(_DWORD *)(v10 + 8)
+    && (*(_DWORD *)(m_Irp + 16) & 0x40) != 0 )
   {
     _a1 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
     if ( !this->m_ObjectSize )
@@ -143,76 +140,64 @@ __int64 __fastcall FxRequest::CompleteInternal(FxRequest *this, _FX_DRIVER_GLOBA
       v35 = this->m_Irp.m_Irp;
     }
     v35->Flags &= ~0x40u;
-    v8 = 0LL;
+    v9 = 0LL;
   }
-  if ( (v3 & 0xFFF0000) == 0x200000 )
+  if ( (v5 & 0xFFF0000) == 0x200000 )
   {
-    WPP_IFR_SF_D(m_Globals, (unsigned __int8)Status, 0x10u, 0x11u, WPP_FxRequest_cpp_Traceguids, v3);
-    switch ( v3 )
+    WPP_IFR_SF_D(m_Globals, m_Irp, 0x10u, 0x11u, WPP_FxRequest_cpp_Traceguids, v5);
+    switch ( v5 )
     {
       case 0xC0200201:
-        v3 = -1073741595;
+        v5 = -1073741595;
         break;
       case 0xC0200203:
       case 0xC0200204:
-        v3 = -2147483631;
+        v5 = -2147483631;
         break;
       case 0xC020020A:
       case 0xC0200213:
         goto LABEL_73;
       case 0xC0200214:
-        v3 = -1073741670;
+        v5 = -1073741670;
         break;
       default:
-        WPP_IFR_SF_D(m_Globals, 0xC0000000, 0x10u, 0x12u, WPP_FxRequest_cpp_Traceguids, v3);
+        WPP_IFR_SF_D(m_Globals, 0xC0000000, 0x10u, 0x12u, WPP_FxRequest_cpp_Traceguids, v5);
 LABEL_73:
-        v3 = -1073741808;
+        v5 = -1073741808;
         break;
     }
-    WPP_IFR_SF_d(m_Globals, 2u, 0x10u, 0x13u, WPP_FxRequest_cpp_Traceguids, v3);
-    v8 = 0LL;
+    WPP_IFR_SF_d(m_Globals, 2u, 0x10u, 0x13u, WPP_FxRequest_cpp_Traceguids, v5);
+    v9 = 0LL;
   }
   m_IrpAllocation = this->m_IrpAllocation;
-  if ( !m_IrpAllocation )
-  {
-    m_CompletionState = this->m_CompletionState;
-    m_IoQueue = this->m_IoQueue;
-    v12 = m_CompletionState;
-LABEL_9:
-    v13 = this->m_Reserved == 0;
-    this->m_CompletionState = 0;
-    if ( v13 )
-      this->m_IoQueue = 0LL;
-    goto LABEL_11;
-  }
-  if ( !this->m_CanComplete )
+  if ( m_IrpAllocation && !this->m_CanComplete )
   {
     FxVerifierDbgBreakPoint(m_Globals);
     m_IrpAllocation = this->m_IrpAllocation;
-    v8 = 0LL;
+    v9 = 0LL;
   }
   m_CompletionState = this->m_CompletionState;
   m_IoQueue = this->m_IoQueue;
-  v12 = m_CompletionState;
   if ( !m_IrpAllocation )
-    goto LABEL_9;
-LABEL_11:
+  {
+    this->m_CompletionState = 0;
+    if ( !this->m_Reserved )
+      this->m_IoQueue = 0LL;
+  }
   m_RequestContext = this->m_RequestContext;
   if ( m_RequestContext )
   {
-    ((void (__fastcall *)(FxRequestContext *, FxRequest *, _IRP *, _QWORD))m_RequestContext->ReleaseAndRestore)(
+    ((void (__fastcall *)(FxRequestContext *, FxRequest *, _QWORD))m_RequestContext->ReleaseAndRestore)(
       m_RequestContext,
       this,
-      m_Irp,
       0LL);
-    v8 = 0LL;
+    v9 = 0LL;
   }
   if ( !this->m_Presented )
     FxObject::ClearEvtCallbacks(this);
-  v15 = 1LL;
   if ( this->m_Reserved || this->m_IrpAllocation )
-    goto LABEL_30;
-  v16 = KeAcquireSpinLockRaiseToDpc(&this->m_SpinLock.m_Lock);
+    goto LABEL_32;
+  v15 = KeAcquireSpinLockRaiseToDpc(&this->m_SpinLock.m_Lock);
   if ( this->m_ObjectState != 1 )
     goto LABEL_88;
   m_ParentObject = this->m_ParentObject;
@@ -220,14 +205,14 @@ LABEL_11:
   {
     if ( FxObject::RemoveChildObjectInternal(m_ParentObject, this) == -1073741738 )
     {
-      FxObject::SetObjectStateLocked(this, FxObjectStateWaitingForEarlyDispose);
+      FxObject::SetObjectStateLocked(this, 7u);
 LABEL_88:
-      KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v16);
+      KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v15);
 LABEL_89:
-      v38 = this->m_Globals;
-      if ( v38->FxVerifierOn )
-        FxRequest::Vf_VerifierBreakpoint_RequestEarlyDisposeDeferred(this, v38);
-      goto LABEL_27;
+      m_Irp = (__int64)this->m_Globals;
+      if ( *(_BYTE *)(m_Irp + 316) )
+        FxRequest::Vf_VerifierBreakpoint_RequestEarlyDisposeDeferred(this, (_FX_DRIVER_GLOBALS *)m_Irp);
+      goto LABEL_29;
     }
     this->m_ParentObject = 0LL;
   }
@@ -251,52 +236,61 @@ LABEL_89:
     }
   }
   this->m_ObjectState = 3;
-  if ( (m_ObjectFlags & 0x20) != 0 || (m_ObjectFlags & 0x10) != 0 && v16 )
+  if ( (m_ObjectFlags & 0x20) != 0 || (m_ObjectFlags & 0x10) != 0 && v15 )
   {
     FxObject::QueueDeferredDisposeLocked(this, FxObjectStateDeferedDisposing);
     goto LABEL_88;
   }
   if ( (m_ObjectFlags & 0x200) != 0 )
   {
-    v39 = this->m_Globals;
-    if ( v39->FxVerboseOn )
+    v38 = this->m_Globals;
+    if ( v38->FxVerboseOn )
     {
-      v40 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+      v39 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
       if ( !this->m_ObjectSize )
-        v40 = 0LL;
-      WPP_IFR_SF_qqLL(v39, 5u, 0x14u, 0xAu, WPP_FxObject_hpp_Traceguids, this, v40, 3u, 4u);
+        v39 = 0LL;
+      WPP_IFR_SF_qqLL(v38, 5u, 0x14u, 0xAu, WPP_FxObject_hpp_Traceguids, this, v39, 3u, 4u);
       m_ObjectFlags = this->m_ObjectFlags;
     }
     if ( (m_ObjectFlags & 0x80u) != 0 )
       *((_BYTE *)this + _InterlockedIncrement((volatile signed __int32 *)&this[-1].m_ForwardProgressQueue) - 32) = 4;
   }
   this->m_ObjectState = 4;
-  if ( !FxObject::DisposeChildrenWorker(this, FxObjectStateDeferedDisposing, v16, 1u) )
-    goto LABEL_89;
-  v19 = this->m_ObjectFlags;
-  if ( (v19 & 0x104) == 0x104 )
+  if ( FxObject::DisposeChildrenWorker(this, FxObjectStateDeferedDisposing, v15, 1u) )
   {
-    FxObject::DeletedAndDisposedWorkerLocked(this, v16, 0);
+    v18 = this->m_ObjectFlags;
+    m_Irp = 260LL;
+    if ( (v18 & 0x104) == 0x104 )
+    {
+      FxObject::DeletedAndDisposedWorkerLocked(this, v15, 0);
+    }
+    else
+    {
+      if ( (v18 & 0x200) != 0 )
+      {
+        v40 = this->m_Globals;
+        if ( v40->FxVerboseOn )
+        {
+          v41 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+          if ( !this->m_ObjectSize )
+            v41 = 0LL;
+          WPP_IFR_SF_qqLL(v40, 5u, 0x14u, 0xAu, WPP_FxObject_hpp_Traceguids, this, v41, this->m_ObjectState, 2u);
+          v18 = this->m_ObjectFlags;
+        }
+        if ( (v18 & 0x80u) != 0 )
+          *((_BYTE *)this + _InterlockedIncrement((volatile signed __int32 *)&this[-1].m_ForwardProgressQueue) - 32) = 2;
+      }
+      this->m_ObjectState = 2;
+    }
+    v19 = 1;
   }
   else
   {
-    if ( (v19 & 0x200) != 0 )
-    {
-      v41 = this->m_Globals;
-      if ( v41->FxVerboseOn )
-      {
-        v42 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-        if ( !this->m_ObjectSize )
-          v42 = 0LL;
-        WPP_IFR_SF_qqLL(v41, 5u, 0x14u, 0xAu, WPP_FxObject_hpp_Traceguids, this, v42, this->m_ObjectState, 2u);
-        v19 = this->m_ObjectFlags;
-      }
-      if ( (v19 & 0x80u) != 0 )
-        *((_BYTE *)this + _InterlockedIncrement((volatile signed __int32 *)&this[-1].m_ForwardProgressQueue) - 32) = 2;
-    }
-    this->m_ObjectState = 2;
+    v19 = 0;
   }
-LABEL_27:
+  if ( !v19 )
+    goto LABEL_89;
+LABEL_29:
   p_m_ChildListHead = &this->m_ChildListHead;
   while ( 1 )
   {
@@ -304,98 +298,88 @@ LABEL_27:
     if ( p_m_ChildListHead->Flink == p_m_ChildListHead )
       break;
     if ( Flink->Blink != p_m_ChildListHead )
-      goto LABEL_132;
-    v43 = Flink->Flink;
+      goto LABEL_134;
+    v42 = Flink->Flink;
     if ( Flink->Flink->Blink != Flink )
-      goto LABEL_132;
-    p_m_ChildListHead->Flink = v43;
-    v43->Blink = p_m_ChildListHead;
+      goto LABEL_134;
+    p_m_ChildListHead->Flink = v42;
+    v42->Blink = p_m_ChildListHead;
     Flink->Blink = Flink;
     Flink->Flink = Flink;
     FxObject::ParentDeleteEvent((FxObject *)&Flink[-5].Blink);
   }
-  m_Globals = v75;
-  v15 = 1LL;
-  v8 = 0LL;
-LABEL_30:
+  v9 = 0LL;
+LABEL_32:
   if ( this->m_IrpReferenceCount )
   {
     m_RequestBaseFlags = this->m_RequestBaseFlags;
     if ( (m_RequestBaseFlags & 2) != 0 || (this->m_RequestBaseStaticFlags & 2) != 0 )
     {
-      v46 = ((__int64 (__fastcall *)(FxRequestOutputBuffer *, __int64, _IRP *, _IRP *))this->m_OutputBuffer.GetHandle)(
+      v45 = ((__int64 (__fastcall *)(FxRequestOutputBuffer *, __int64, _IRP *))this->m_OutputBuffer.GetHandle)(
               &this->m_OutputBuffer,
-              1LL,
               m_Irp,
-              v8);
+              v9);
       m_RequestBaseFlags = this->m_RequestBaseFlags;
-      v8 = 0LL;
-      id = (const void *)v46;
+      v9 = 0LL;
+      id = (const void *)v45;
     }
     else
     {
-      id = v8;
+      id = v9;
     }
     if ( (m_RequestBaseFlags & 1) != 0 || (this->m_RequestBaseStaticFlags & 1) != 0 )
-    {
-      v47 = (_IRP *)((__int64 (__fastcall *)(FxRequestSystemBuffer *, __int64))this->m_SystemBuffer.GetHandle)(
-                      &this->m_SystemBuffer,
-                      v15);
-      v8 = 0LL;
-    }
+      v46 = this->m_SystemBuffer.GetHandle(&this->m_SystemBuffer);
     else
-    {
-      v47 = v8;
-    }
-    v48 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v49 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+      v46 = (WDFMEMORY__ *)v9;
+    v47 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+    v48 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
     if ( !this->m_ObjectSize )
-      v49 = v8;
+      v48 = 0LL;
     WPP_IFR_SF_qqDqq(
       m_Globals,
       this->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->MajorFunction,
       (unsigned int)this->m_Irp.m_Irp,
-      (unsigned __int16)v8,
+      a4,
       traceGuid,
-      v49,
+      v48,
       this->m_Irp.m_Irp,
       this->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->MajorFunction,
-      v47,
+      v46,
       id);
-    v50 = this->m_RequestBaseFlags;
-    if ( (v50 & 1) != 0 || (this->m_RequestBaseStaticFlags & 1) != 0 )
+    v49 = this->m_RequestBaseFlags;
+    if ( (v49 & 1) != 0 || (this->m_RequestBaseStaticFlags & 1) != 0 )
     {
-      v51 = this->m_SystemBuffer.GetBufferSize(&this->m_SystemBuffer);
-      v52 = this->m_SystemBuffer.GetMdl(&this->m_SystemBuffer);
-      v53 = (const void *)this->m_SystemBuffer.GetBuffer(&this->m_SystemBuffer);
-      v54 = this->m_SystemBuffer.GetHandle(&this->m_SystemBuffer);
-      WPP_IFR_SF_qqqi(m_Globals, v55, v56, 0x15u, traceGuida, v54, v53, v52, v51);
-      v50 = this->m_RequestBaseFlags;
+      v50 = this->m_SystemBuffer.GetBufferSize(&this->m_SystemBuffer);
+      v51 = this->m_SystemBuffer.GetMdl(&this->m_SystemBuffer);
+      v52 = (const void *)this->m_SystemBuffer.GetBuffer(&this->m_SystemBuffer);
+      v53 = this->m_SystemBuffer.GetHandle(&this->m_SystemBuffer);
+      WPP_IFR_SF_qqqi(m_Globals, v54, v55, 0x15u, traceGuida, v53, v52, v51, v50);
+      v49 = this->m_RequestBaseFlags;
     }
-    if ( (v50 & 2) != 0 || (this->m_RequestBaseStaticFlags & 2) != 0 )
+    if ( (v49 & 2) != 0 || (this->m_RequestBaseStaticFlags & 2) != 0 )
     {
-      v57 = this->m_OutputBuffer.GetBufferSize(&this->m_OutputBuffer);
-      v58 = this->m_OutputBuffer.GetMdl(&this->m_OutputBuffer);
-      v59 = (const void *)this->m_OutputBuffer.GetBuffer(&this->m_OutputBuffer);
-      v60 = this->m_OutputBuffer.GetHandle(&this->m_OutputBuffer);
-      WPP_IFR_SF_qqqi(m_Globals, v61, v62, 0x16u, traceGuida, v60, v59, v58, v57);
+      v56 = this->m_OutputBuffer.GetBufferSize(&this->m_OutputBuffer);
+      v57 = this->m_OutputBuffer.GetMdl(&this->m_OutputBuffer);
+      v58 = (const void *)this->m_OutputBuffer.GetBuffer(&this->m_OutputBuffer);
+      v59 = this->m_OutputBuffer.GetHandle(&this->m_OutputBuffer);
+      WPP_IFR_SF_qqqi(m_Globals, v60, v61, 0x16u, traceGuida, v59, v58, v57, v56);
     }
     if ( !this->m_ObjectSize )
-      v48 = 0LL;
-    FxVerifierBugCheckWorker(m_Globals, WDF_VERIFIER_FATAL_ERROR, v48, this->m_IrpReferenceCount);
+      v47 = 0LL;
+    FxVerifierBugCheckWorker(m_Globals, WDF_VERIFIER_FATAL_ERROR, v47, this->m_IrpReferenceCount);
   }
   irp.m_Irp = _a2;
-  _a2->IoStatus.Status = v3;
+  _a2->IoStatus.Status = v5;
   if ( this->m_IrpAllocation )
   {
-    FxRequest::PreProcessCompletionForDriverRequest(this, v12, m_IoQueue);
-    return v3;
+    FxRequest::PreProcessCompletionForDriverRequest(this, m_CompletionState, m_IoQueue);
+    return v5;
   }
   v22 = irp.m_Irp;
-  this->m_Irp.m_Irp = v8;
+  this->m_Irp.m_Irp = v9;
   if ( v22->Tail.Overlay.CurrentStackLocation->MajorFunction )
   {
-    m_DeviceBase = (FxDeviceBase *)v8;
+    m_DeviceBase = (FxDeviceBase *)v9;
   }
   else
   {
@@ -410,7 +394,7 @@ LABEL_30:
           &irp,
           858,
           "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp",
-          (FxTagRefType)v8,
+          (FxTagRefType)v9,
           v32);
     }
     v22 = irp.m_Irp;
@@ -429,22 +413,22 @@ LABEL_30:
   irp.m_Irp = 0LL;
   if ( this->m_Reserved )
   {
-    FxRequest::PostProcessCompletionForReserved(this, v12, m_IoQueue);
+    FxRequest::PostProcessCompletionForReserved(this, m_CompletionState, m_IoQueue);
   }
   else
   {
     if ( m_CompletionState )
     {
-      if ( (v12 & 0x80u) == 0 )
+      if ( (m_CompletionState & 0x80u) == 0 )
       {
         v25 = m_IoQueue->m_Globals;
         PreviousIrql = 0;
         if ( v25->FxVerifierOn )
           FxIoQueue::Vf_VerifyValidateCompletedRequest(m_IoQueue, v25, this);
         if ( SLOBYTE(m_IoQueue->m_ObjectFlags) < 0
-          && (v64 = *(FxVerifierLock **)&m_IoQueue[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
+          && (v63 = *(FxVerifierLock **)&m_IoQueue[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
         {
-          FxVerifierLock::Lock(v64, &PreviousIrql, v24);
+          FxVerifierLock::Lock(v63, &PreviousIrql, v24);
         }
         else
         {
@@ -455,7 +439,7 @@ LABEL_30:
         if ( v28->Blink != &this->m_OwnerListEntry2
           || (Blink = this->m_OwnerListEntry2.Blink, Blink->Flink != p_m_OwnerListEntry2) )
         {
-LABEL_132:
+LABEL_134:
           __fastfail(3u);
         }
         Blink->Flink = v28;
@@ -466,9 +450,9 @@ LABEL_132:
         if ( m_IoQueue->m_Dispatching )
         {
           if ( SLOBYTE(m_IoQueue->m_ObjectFlags) < 0
-            && (v65 = *(FxVerifierLock **)&m_IoQueue[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
+            && (v64 = *(FxVerifierLock **)&m_IoQueue[-1].m_PowerIdle.m_DbgFlagIsInitialized) != 0LL )
           {
-            FxVerifierLock::Unlock(v65, PreviousIrql, v26);
+            FxVerifierLock::Unlock(v64, PreviousIrql, v26);
           }
           else
           {
@@ -483,32 +467,32 @@ LABEL_132:
       this->m_ObjectFlags |= 4u;
       v30 = this->m_ObjectFlags;
       if ( !this->m_ParentObject )
-        goto LABEL_47;
-      v66 = KeAcquireSpinLockRaiseToDpc(&this->m_SpinLock.m_Lock);
-      v67 = this->m_ParentObject;
-      v68 = v66;
-      if ( v67 )
+        goto LABEL_48;
+      v65 = KeAcquireSpinLockRaiseToDpc(&this->m_SpinLock.m_Lock);
+      v66 = this->m_ParentObject;
+      v67 = v65;
+      if ( v66 )
       {
-        if ( FxObject::RemoveChildObjectInternal(v67, this) == -1073741738 )
+        if ( FxObject::RemoveChildObjectInternal(v66, this) == -1073741738 )
         {
-          FxObject::SetObjectStateLocked(this, FxObjectStateWaitingForParentDeleteAndDisposed);
-          KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v68);
-          goto LABEL_49;
+          FxObject::SetObjectStateLocked(this, 8u);
+          KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v67);
+          goto LABEL_50;
         }
         this->m_ParentObject = 0LL;
       }
-      KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v68);
+      KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v67);
       v30 = this->m_ObjectFlags;
-LABEL_47:
+LABEL_48:
       if ( (v30 & 0x200) != 0 )
       {
-        v69 = this->m_Globals;
-        if ( v69->FxVerboseOn )
+        v68 = this->m_Globals;
+        if ( v68->FxVerboseOn )
         {
-          v70 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+          v69 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
           if ( !this->m_ObjectSize )
-            v70 = 0LL;
-          WPP_IFR_SF_qqLL(v69, 5u, 0x14u, 0xAu, WPP_FxObject_hpp_Traceguids, this, v70, this->m_ObjectState, 0xAu);
+            v69 = 0LL;
+          WPP_IFR_SF_qqLL(v68, 5u, 0x14u, 0xAu, WPP_FxObject_hpp_Traceguids, this, v69, this->m_ObjectState, 0xAu);
           v30 = this->m_ObjectFlags;
         }
         if ( (v30 & 0x80u) != 0 )
@@ -517,13 +501,13 @@ LABEL_47:
       this->m_ObjectState = 10;
       FxObject::DestroyChildren(this);
       this->Release(this, 0LL, 1246, "minkernel\\wdf\\framework\\shared\\object\\fxobjectstatemachine.cpp");
-      goto LABEL_49;
+      goto LABEL_50;
     }
     FxObject::AddRef(this, (void *)0x706D6F43, 925, "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp");
     this->DeleteObject(this);
   }
-LABEL_49:
+LABEL_50:
   if ( m_DeviceBase )
     m_DeviceBase->Release(m_DeviceBase, &irp, 879, "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp");
-  return v3;
+  return v5;
 }

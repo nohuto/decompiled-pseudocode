@@ -1,15 +1,13 @@
 /*
- * XREFs of ?RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE@@E@Z @ 0x1C00892B4
+ * XREFs of ?RecordVaPagingHistorySuspendResumeDevice@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAVVIDMM_DEVICE@@E@Z @ 0x1C0083114
  * Callers:
- *     ?Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0088C50 (-Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
- *     ?IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C0089554 (-IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z.c)
- *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B4D1C (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
- *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00EC158 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C0082E38 (-IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z.c)
+ *     ?Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0083190 (-Resume@VIDMM_DEVICE@@QEAAJ_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B6820 (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B6D04 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0001DD0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0005300 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
- *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017C04 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
- *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F19F4 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySuspendResumeDevice(
@@ -18,25 +16,37 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySuspendResumeDevice(
         struct VIDMM_DEVICE *a3,
         char a4)
 {
-  _QWORD *VaPagingHistoryEntry; // rax
-  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD *v8; // rdi
+  unsigned int v9; // ecx
+  void *v10; // rcx
 
-  if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled || *((_QWORD *)this + 5123) )
+  if ( *((_QWORD *)this + 5123) )
   {
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9,
-      (VIDMM_GLOBAL *)((char *)this + 41000));
-    if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled )
-      VaPagingHistoryEntry = operator new(32, (VIDMM_GLOBAL *)((char *)this + 41024), 0xCu, 0);
-    else
-      VaPagingHistoryEntry = (_QWORD *)VIDMM_GLOBAL::AllocateVaPagingHistoryEntry(this, 12LL, 32LL);
-    if ( VaPagingHistoryEntry )
+    v8 = operator new[](0x20uLL, 0x32356956u, PagedPool);
+    if ( v8 )
     {
-      *VaPagingHistoryEntry = *(_QWORD *)a2;
-      VaPagingHistoryEntry[1] = *((_QWORD *)a2 + 4);
-      VaPagingHistoryEntry[2] = a3;
-      *((_BYTE *)VaPagingHistoryEntry + 24) = a4;
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
+      *((_QWORD *)this + 5126) = KeGetCurrentThread();
+      v9 = *((_DWORD *)this + 10248);
+      if ( v9 == dword_1C00503AC )
+      {
+        *((_DWORD *)this + 10248) = 0;
+        v9 = 0;
+      }
+      v10 = *(void **)(*((_QWORD *)this + 5123) + 24LL * v9 + 16);
+      if ( v10 )
+        operator delete(v10);
+      *v8 = *(_QWORD *)a2;
+      v8[1] = *((_QWORD *)a2 + 4);
+      v8[2] = a3;
+      *((_BYTE *)v8 + 24) = a4;
+      *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248)) = MEMORY[0xFFFFF78000000014];
+      *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248) + 16) = v8;
+      *(_DWORD *)(*((_QWORD *)this + 5123) + 24LL * (unsigned int)(*((_DWORD *)this + 10248))++ + 8) = 12;
+      *((_QWORD *)this + 5126) = 0LL;
+      ExReleasePushLockExclusiveEx((char *)this + 41000, 0LL);
+      KeLeaveCriticalRegion();
     }
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9);
   }
 }

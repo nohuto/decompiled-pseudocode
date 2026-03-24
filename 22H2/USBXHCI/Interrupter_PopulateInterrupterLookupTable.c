@@ -1,58 +1,62 @@
 /*
- * XREFs of Interrupter_PopulateInterrupterLookupTable @ 0x1C0072D84
+ * XREFs of Interrupter_PopulateInterrupterLookupTable @ 0x1C006DDD0
  * Callers:
- *     Interrupter_PrepareHardware @ 0x1C0072C68 (Interrupter_PrepareHardware.c)
+ *     Interrupter_PrepareHardware @ 0x1C006DCA0 (Interrupter_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Interrupter_PopulateInterrupterLookupTable(__int64 a1)
 {
-  _DWORD *v1; // rsi
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
   ULONG ActiveProcessorCount; // eax
-  __int64 Pool2; // rax
-  int v7; // edx
-  unsigned __int16 v8; // dx
+  POOL_TYPE SignalState; // ecx
+  SIZE_T v6; // rsi
+  PVOID PoolWithTag; // rax
+  int v8; // edx
+  unsigned int v9; // r9d
   unsigned int i; // r8d
 
-  v1 = (_DWORD *)(a1 + 24);
-  if ( *(_DWORD *)(*(_QWORD *)(a1 + 8) + 636LL) == 1 && *v1 == 2 || *v1 == 1 )
+  if ( *(_DWORD *)(*(_QWORD *)(a1 + 8) + 588LL) == 1 && *(_DWORD *)(a1 + 24) == 2 || *(_DWORD *)(a1 + 24) == 1 )
   {
     return 0;
   }
   else
   {
     ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+    SignalState = WPP_MAIN_CB.DeviceLock.Header.SignalState;
     *(_DWORD *)(a1 + 48) = ActiveProcessorCount;
-    Pool2 = ExAllocatePool2(64LL, 2 * ActiveProcessorCount, 1229146200LL);
-    v3 = 0;
-    *(_QWORD *)(a1 + 56) = Pool2;
-    if ( Pool2 )
+    v6 = 2 * ActiveProcessorCount;
+    PoolWithTag = ExAllocatePoolWithTag(SignalState, v6, 0x49434858u);
+    v2 = 0;
+    *(_QWORD *)(a1 + 56) = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = 1;
+      memset(PoolWithTag, 0, v6);
+      LOWORD(v9) = 1;
       for ( i = 0; i < *(_DWORD *)(a1 + 48); ++i )
       {
-        *(_WORD *)(*(_QWORD *)(a1 + 56) + 2LL * i) = v8;
-        v8 += ((unsigned __int16)(v8 + 1) == *(_DWORD *)(a1 + 64)) + 1;
-        if ( (unsigned int)v8 >= *v1 )
-          v8 = 1;
+        *(_WORD *)(*(_QWORD *)(a1 + 56) + 2LL * i) = v9;
+        v9 = (unsigned __int16)(v9 + ((unsigned __int16)(v9 + 1) == *(_DWORD *)(a1 + 64)) + 1);
+        if ( v9 >= *(_DWORD *)(a1 + 24) )
+          LOWORD(v9) = 1;
       }
     }
     else
     {
-      v3 = -1073741670;
+      v2 = -1073741670;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v7) = 2;
+        LOBYTE(v8) = 2;
         WPP_RECORDER_SF_(
           *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-          v7,
+          v8,
           9,
-          62,
-          (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids);
+          61,
+          (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids);
       }
     }
   }
-  return v3;
+  return v2;
 }

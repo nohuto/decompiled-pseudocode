@@ -1,267 +1,193 @@
 /*
- * XREFs of MiParseImageLoadConfig @ 0x1406A828C
+ * XREFs of MiParseImageLoadConfig @ 0x140662858
  * Callers:
- *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140702D80 (MiRelocateImage.c)
  * Callees:
- *     MiIsRetpolineEnabled @ 0x14020EBC0 (MiIsRetpolineEnabled.c)
- *     MiIsImportOptimizationEnabled @ 0x14020EBD8 (MiIsImportOptimizationEnabled.c)
- *     MiFreeImageCfgContext @ 0x14020EBF0 (MiFreeImageCfgContext.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     RtlCreateFunctionOverrideFixupInfo @ 0x14036B8AC (RtlCreateFunctionOverrideFixupInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiCreateRetpolineRelocationInformation @ 0x1406A7128 (MiCreateRetpolineRelocationInformation.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1406A723C (MiCaptureRetpolineRelocationTables.c)
- *     LdrCaptureDynamicRelocationTableHeader @ 0x1406A7AD4 (LdrCaptureDynamicRelocationTableHeader.c)
- *     RtlCreateRvaList @ 0x1406A7CA0 (RtlCreateRvaList.c)
- *     MiInitializeRvaStates @ 0x1406A7E48 (MiInitializeRvaStates.c)
- *     MiCaptureImageCfgContext @ 0x1406A7EC0 (MiCaptureImageCfgContext.c)
- *     MiFreeImageRetpolineContext @ 0x1406A88E0 (MiFreeImageRetpolineContext.c)
- *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
- *     MiFreeImageLoadConfig @ 0x140A4A354 (MiFreeImageLoadConfig.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     MiFreeImageCfgContext @ 0x1402F35EC (MiFreeImageCfgContext.c)
+ *     MiIsImportOptimizationEnabled @ 0x1402F3618 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1402F3630 (MiIsRetpolineEnabled.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140662620 (MiCaptureRetpolineRelocationTables.c)
+ *     MiFreeImageRetpolineContext @ 0x140662DCC (MiFreeImageRetpolineContext.c)
+ *     MiCaptureImageCfgContext @ 0x140662E20 (MiCaptureImageCfgContext.c)
+ *     MiLogRelocationRva @ 0x1406632A4 (MiLogRelocationRva.c)
+ *     RtlCreateRvaList @ 0x14066338C (RtlCreateRvaList.c)
+ *     MiCaptureDynamicRelocationTableRva @ 0x14066351C (MiCaptureDynamicRelocationTableRva.c)
+ *     MiCreateRetpolineRelocationInformation @ 0x140663658 (MiCreateRetpolineRelocationInformation.c)
+ *     MiFreeImageLoadConfig @ 0x14076A848 (MiFreeImageLoadConfig.c)
  */
 
-__int64 __fastcall MiParseImageLoadConfig(_QWORD *a1, unsigned __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
+__int64 __fastcall MiParseImageLoadConfig(__int64 a1, __int64 a2, unsigned int a3, __int64 *a4, int a5, __int64 a6)
 {
-  bool v7; // r15
-  __int64 v8; // rbx
-  __int64 v9; // r12
-  int RetpolineRelocationInformation; // edi
-  __int64 v11; // r9
-  _DWORD *v12; // r10
-  __int64 v13; // rdx
-  unsigned int v14; // ebx
-  __int16 *v15; // r12
-  __int16 v16; // ax
-  unsigned int v17; // eax
-  unsigned int *v18; // rdx
-  __int64 v19; // r13
+  ULONG_PTR v10; // r13
+  int RetpolineRelocationInformation; // ebx
+  __int64 v12; // r9
+  __int64 v13; // rcx
+  unsigned int v14; // edi
+  __int16 v15; // ax
+  unsigned int v16; // eax
+  unsigned int *v17; // rdx
+  unsigned int v18; // eax
+  int v19; // edx
   __int64 v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int16 v27; // r12
-  unsigned int v28; // r9d
-  unsigned int v29; // ebx
-  int v30; // eax
-  int v32; // eax
-  int Src; // [rsp+20h] [rbp-3E8h]
-  __int64 v34; // [rsp+28h] [rbp-3E0h]
-  int v35; // [rsp+28h] [rbp-3E0h]
-  __int64 v37; // [rsp+60h] [rbp-3A8h]
-  unsigned int v39; // [rsp+70h] [rbp-398h] BYREF
-  unsigned __int64 v40; // [rsp+78h] [rbp-390h]
-  unsigned int v41; // [rsp+80h] [rbp-388h]
-  unsigned int v42; // [rsp+90h] [rbp-378h]
-  int v43; // [rsp+A0h] [rbp-368h] BYREF
-  unsigned __int64 v44; // [rsp+A8h] [rbp-360h]
-  int v45; // [rsp+B0h] [rbp-358h]
-  unsigned int v46; // [rsp+B4h] [rbp-354h]
-  __int64 v47; // [rsp+B8h] [rbp-350h]
-  __int64 v48; // [rsp+C0h] [rbp-348h]
-  unsigned __int64 v49; // [rsp+C8h] [rbp-340h]
-  _QWORD *v50; // [rsp+D8h] [rbp-330h]
-  unsigned __int64 v51; // [rsp+E0h] [rbp-328h]
-  __int64 v52; // [rsp+E8h] [rbp-320h]
-  __int64 v53; // [rsp+F0h] [rbp-318h]
-  __int64 v54; // [rsp+F8h] [rbp-310h]
-  unsigned int *v55; // [rsp+100h] [rbp-308h]
-  _QWORD v56[3]; // [rsp+108h] [rbp-300h] BYREF
-  _QWORD *v57; // [rsp+120h] [rbp-2E8h]
-  unsigned __int64 v58; // [rsp+128h] [rbp-2E0h]
-  __int64 v59; // [rsp+130h] [rbp-2D8h]
-  int v60[80]; // [rsp+140h] [rbp-2C8h] BYREF
-  _BYTE v61[320]; // [rsp+280h] [rbp-188h] BYREF
+  int v21; // r9d
+  int v22; // eax
+  __int64 v23; // r8
+  int v25; // eax
+  size_t v26; // [rsp+28h] [rbp-350h]
+  unsigned int v27; // [rsp+84h] [rbp-2F4h] BYREF
+  __int64 v28; // [rsp+88h] [rbp-2F0h]
+  __int64 v29; // [rsp+90h] [rbp-2E8h]
+  int v30; // [rsp+98h] [rbp-2E0h]
+  __int64 v31; // [rsp+A0h] [rbp-2D8h]
+  __int64 v32; // [rsp+A8h] [rbp-2D0h]
+  __int64 v33; // [rsp+B0h] [rbp-2C8h]
+  __int64 v34; // [rsp+B8h] [rbp-2C0h]
+  __int64 v35; // [rsp+C0h] [rbp-2B8h]
+  __int64 v36; // [rsp+C8h] [rbp-2B0h]
+  __int64 *v37; // [rsp+D0h] [rbp-2A8h]
+  __int64 v38; // [rsp+D8h] [rbp-2A0h]
+  __int64 v39; // [rsp+E0h] [rbp-298h]
+  __int64 v40; // [rsp+E8h] [rbp-290h]
+  __int64 v41; // [rsp+F0h] [rbp-288h]
+  __int64 *v42; // [rsp+F8h] [rbp-280h]
+  int Src[68]; // [rsp+100h] [rbp-278h] BYREF
+  _BYTE v44[288]; // [rsp+210h] [rbp-168h] BYREF
 
-  v40 = a2;
-  v50 = a1;
-  v57 = a1;
-  v51 = a2;
-  v58 = a2;
-  v52 = a3;
-  v59 = a3;
+  v28 = a1;
+  v35 = a1;
+  v40 = a1;
+  v36 = a2;
+  v41 = a2;
+  v30 = a3;
+  v37 = a4;
   v42 = a4;
-  v45 = a4;
-  v53 = a5;
-  memset(v61, 0, sizeof(v61));
-  v56[0] = 0LL;
-  v39 = 0;
-  v7 = 0;
-  v8 = *a1;
-  v46 = *(_DWORD *)(*(_QWORD *)(v8 + 56) + 64LL);
-  v9 = 0LL;
-  v37 = 0LL;
-  v43 = 0;
+  v38 = a6;
+  memset(v44, 0, 0x118uLL);
+  v27 = 0;
+  v10 = 0LL;
+  v34 = 0LL;
   RetpolineRelocationInformation = 0;
-  memset(v60, 0, sizeof(v60));
-  v11 = *(_QWORD *)(v8 + 56);
-  v47 = v11;
-  v48 = v11;
-  v44 = *(_QWORD *)a3;
-  v49 = v44;
-  v12 = (_DWORD *)(a3 + 96);
-  v55 = (unsigned int *)(a3 + 96);
-  v13 = *(unsigned int *)(a3 + 96);
-  if ( !(_DWORD)v13 )
-    goto LABEL_26;
-  v14 = *(_DWORD *)(a3 + 100);
-  v15 = (__int16 *)(a3 + 48);
-  v54 = a3 + 48;
-  v16 = *(_WORD *)(a3 + 48);
-  if ( v16 == 523 )
+  memset(Src, 0, sizeof(Src));
+  v12 = *(_QWORD *)(*(_QWORD *)a1 + 56LL);
+  v31 = v12;
+  v32 = v12;
+  v29 = *a4;
+  v33 = v29;
+  v13 = *((unsigned int *)a4 + 24);
+  if ( (_DWORD)v13 )
   {
-    v17 = 148;
-  }
-  else
-  {
-    if ( v16 != 267 )
-      goto LABEL_51;
-    v17 = 92;
-  }
-  v41 = v17;
-  if ( (unsigned int)v13 + v17 <= (unsigned int)v13 )
-    goto LABEL_51;
-  v56[2] = a3 + 16;
-  if ( (unsigned int)v13 + v17 > *(_DWORD *)(a3 + 16) )
-    goto LABEL_51;
-  v18 = (unsigned int *)(v40 + v13);
-  v56[1] = v18;
-  if ( v14 >= v17 )
-    goto LABEL_7;
-  if ( *(_WORD *)(v11 + 48) != 332 )
-  {
-LABEL_51:
-    v9 = 0LL;
-    goto LABEL_26;
-  }
-  if ( v14 > 4 )
-    v14 = *v18;
-  if ( v14 < v17 )
-    goto LABEL_25;
-LABEL_7:
-  if ( v14 >= 0x140 )
-    v14 = 320;
-  if ( *v12 + v14 <= *v12 || *v12 + v14 > *(_DWORD *)(a3 + 16) )
-    goto LABEL_25;
-  memmove(v61, v18, v14);
-  v37 = MiReferenceControlAreaFile((__int64)a1);
-  MiLogRelocationRva(*v55, v14, v37, a1);
-  *(_QWORD *)v60 = v57;
-  *(_QWORD *)&v60[2] = v37;
-  *(_QWORD *)&v60[4] = v58;
-  *(_QWORD *)&v60[6] = v44;
-  v60[8] = v45;
-  v60[9] = 0;
-  *(_QWORD *)&v60[10] = v59;
-  *(_QWORD *)&v60[12] = v61;
-  v60[14] = v14;
-  v34 = a3;
-  v19 = (__int64)a1;
-  RetpolineRelocationInformation = MiCaptureImageCfgContext(
-                                     (__int64)a1,
-                                     v37,
-                                     v40,
-                                     v44,
-                                     a4,
-                                     v34,
-                                     (__int64)v61,
-                                     v14,
-                                     &v43,
-                                     (__int64)&v60[16]);
-  if ( RetpolineRelocationInformation >= 0 )
-  {
-    *(_DWORD *)a5 |= v43;
-    v20 = v47;
-    *(_WORD *)(a5 + 4) = *(_WORD *)(v47 + 48) == 452;
-    *(_WORD *)(a5 + 6) = *(_WORD *)(v20 + 48);
-    MiInitializeRvaStates((_DWORD *)a5, &v60[38], &v60[32], (unsigned int *)&v60[36]);
-    if ( !v60[36]
-      || (RetpolineRelocationInformation = RtlCreateRvaList(
-                                             (int)v60,
-                                             v21,
-                                             v22,
-                                             v60[36],
-                                             &v60[32],
-                                             v35,
-                                             (__int64 **)(a5 + 8)),
-          RetpolineRelocationInformation >= 0) )
+    v14 = *((_DWORD *)a4 + 25);
+    v15 = *((_WORD *)a4 + 24);
+    if ( v15 == 523 )
     {
-      if ( MiIsRetpolineEnabled() || MiIsImportOptimizationEnabled() )
-        v7 = *v15 == 523;
-      v27 = *v15;
-      if ( v7 || v27 == 523 )
+      v16 = 148;
+    }
+    else
+    {
+      if ( v15 != 267 )
+        goto LABEL_29;
+      v16 = 92;
+    }
+    if ( (unsigned int)v13 + v16 > (unsigned int)v13 && (unsigned int)v13 + v16 <= *((_DWORD *)a4 + 4) )
+    {
+      v17 = (unsigned int *)(a2 + v13);
+      v39 = a2 + v13;
+      if ( v14 >= v16 )
+        goto LABEL_7;
+      if ( *(_WORD *)(v12 + 48) == 332 )
       {
-        v28 = v14;
-        v29 = a4;
-        v30 = LdrCaptureDynamicRelocationTableHeader(v40, a4, (__int64)v61, v28, v44, v27, &v39, v56);
-        RetpolineRelocationInformation = v30;
-        if ( v30 == -1073741637 )
+        if ( v14 > 4 )
+          v14 = *v17;
+        if ( v14 >= v16 )
         {
-          RetpolineRelocationInformation = 0;
+LABEL_7:
+          if ( v14 >= 0x118 )
+            v14 = 280;
+          v18 = *((_DWORD *)a4 + 24);
+          if ( v18 + v14 > v18 && v18 + v14 <= *((_DWORD *)a4 + 4) )
+          {
+            memmove(v44, v17, v14);
+            v10 = MiReferenceControlAreaFile(v28);
+            MiLogRelocationRva(*((unsigned int *)a4 + 24), v14, v10, v28);
+            *(_QWORD *)Src = v40;
+            *(_QWORD *)&Src[2] = v10;
+            *(_QWORD *)&Src[4] = v41;
+            *(_QWORD *)&Src[6] = v29;
+            Src[8] = v30;
+            Src[9] = 0;
+            *(_QWORD *)&Src[10] = v42;
+            *(_QWORD *)&Src[12] = v44;
+            Src[14] = v14;
+            RetpolineRelocationInformation = MiCaptureImageCfgContext(v28, v10, a2, v29, a3);
+            if ( RetpolineRelocationInformation >= 0 )
+            {
+              v19 = *(_DWORD *)a6;
+              *(_DWORD *)a6 = *(_DWORD *)a6;
+              v20 = v31;
+              *(_DWORD *)(a6 + 4) = *(_WORD *)(v31 + 48) == 452;
+              *(_WORD *)(a6 + 8) = *(_WORD *)(v20 + 48);
+              v21 = 0;
+              if ( (v19 & 1) != 0 )
+              {
+                Src[32] = 1;
+                *(_QWORD *)&Src[38] = MiImageCfgRvaIteratorFirst;
+                *(_QWORD *)&Src[40] = MiImageCfgRvaIteratorNext;
+                v21 = 1;
+                if ( (v19 & 8) != 0 )
+                {
+                  Src[33] = 4;
+                  *(_OWORD *)&Src[48] = 0LL;
+                  v21 = 2;
+                }
+              }
+              Src[35] = v21;
+              if ( !v21
+                || (RetpolineRelocationInformation = RtlCreateRvaList((int)Src, v19, 452, v21, &Src[32], v26, a6 + 16),
+                    RetpolineRelocationInformation >= 0) )
+              {
+                if ( (MiIsRetpolineEnabled() || MiIsImportOptimizationEnabled()) && *((_WORD *)a4 + 24) == 523 )
+                {
+                  v22 = MiCaptureDynamicRelocationTableRva(a2, a3, v29, 523, (__int64)v44, v14, (__int64)&v27);
+                  RetpolineRelocationInformation = v22;
+                  if ( v22 == -1073741637 )
+                  {
+LABEL_21:
+                    RetpolineRelocationInformation = 0;
+                    goto LABEL_22;
+                  }
+                  if ( v22 >= 0 )
+                  {
+                    v25 = MiCaptureRetpolineRelocationTables(a2, a3, v23, v27, (unsigned int *)&Src[24]);
+                    RetpolineRelocationInformation = v25;
+                    if ( v25 == -1073741637 )
+                      goto LABEL_21;
+                    if ( v25 >= 0 )
+                      RetpolineRelocationInformation = MiCreateRetpolineRelocationInformation(
+                                                         &Src[24],
+                                                         (unsigned int)Src[22],
+                                                         a3,
+                                                         a6 + 24);
+                  }
+                }
+              }
+            }
+          }
         }
-        else if ( v30 < 0 )
-        {
-LABEL_25:
-          v9 = v37;
-LABEL_26:
-          v19 = (__int64)a1;
-          goto LABEL_27;
-        }
       }
-      else
-      {
-        v29 = a4;
-      }
-      if ( !v7 )
-        goto LABEL_22;
-      v26 = v39;
-      if ( !v39 )
-        goto LABEL_22;
-      v32 = MiCaptureRetpolineRelocationTables(v40, v29, v46, v39, v56, v35, (__int64 *)&v60[24]);
-      RetpolineRelocationInformation = v32;
-      if ( v32 == -1073741637 )
-      {
-        RetpolineRelocationInformation = 0;
-      }
-      else
-      {
-        if ( v32 < 0 )
-          goto LABEL_25;
-        RetpolineRelocationInformation = MiCreateRetpolineRelocationInformation(
-                                           (__int64)&v60[24],
-                                           v60[22],
-                                           v29,
-                                           (_QWORD *)(a5 + 16));
-        if ( RetpolineRelocationInformation < 0 )
-          goto LABEL_25;
-      }
-LABEL_22:
-      if ( v39 && v27 == 523 )
-        RetpolineRelocationInformation = RtlCreateFunctionOverrideFixupInfo(
-                                           v24,
-                                           v23,
-                                           v25,
-                                           v26,
-                                           Src,
-                                           v35,
-                                           (_QWORD *)(a5 + 24));
-      if ( RetpolineRelocationInformation >= 0 )
-        RetpolineRelocationInformation = 0;
-      goto LABEL_25;
     }
   }
-  v9 = v37;
-LABEL_27:
+LABEL_29:
   if ( RetpolineRelocationInformation < 0 )
-    MiFreeImageLoadConfig(a5);
-  if ( v9 )
-    MiDereferenceControlAreaFile(v19, v9);
-  MiFreeImageCfgContext((__int64)&v60[16]);
-  MiFreeImageRetpolineContext(&v60[24]);
+    MiFreeImageLoadConfig(a6);
+LABEL_22:
+  if ( v10 )
+    MiDereferenceControlAreaFile(v28, v10);
+  MiFreeImageCfgContext((__int64)&Src[16]);
+  MiFreeImageRetpolineContext(&Src[24]);
   return (unsigned int)RetpolineRelocationInformation;
 }

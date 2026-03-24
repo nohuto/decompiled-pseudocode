@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ @ 0x1802920CC
+ * XREFs of ?ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ @ 0x18024F000
  * Callers:
- *     ?Present@CConversionSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x180292ECC (-Present@CConversionSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@.c)
- *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180292F84 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
+ *     ?Present@CConversionSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F27A8 (-Present@CConversionSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@.c)
+ *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024FBE8 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800B4B40 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800D2754 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ConvertSingleResource@CConversionSwapChain@@IEAAJPEAUID3D11ShaderResourceView@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@33@Z @ 0x1802922E8 (-ConvertSingleResource@CConversionSwapChain@@IEAAJPEAUID3D11ShaderResourceView@@AEBUD2D_SIZE_U@@.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B354 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C4980 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ConvertSingleResource@CConversionSwapChain@@IEAAJPEAUID3D11ShaderResourceView@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@33@Z @ 0x18024F1EC (-ConvertSingleResource@CConversionSwapChain@@IEAAJPEAUID3D11ShaderResourceView@@AEBUD2D_SIZE_U@@.c)
  */
 
 __int64 __fastcall CConversionSwapChain::ConvertSingleDesktopPlane(CConversionSwapChain *this)
@@ -42,18 +42,18 @@ __int64 __fastcall CConversionSwapChain::ConvertSingleDesktopPlane(CConversionSw
   int v27[4]; // [rsp+98h] [rbp+2Fh] BYREF
 
   v2 = 0;
-  v3 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*((_QWORD *)this + 43) + 8LL) + 16LL)
-                                            + *((_QWORD *)this + 43)
+  v3 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*((_QWORD *)this + 37) + 8LL) + 16LL)
+                                            + *((_QWORD *)this + 37)
                                             + 8LL);
   (**v3)(v3, v20);
   v4 = v20[0];
-  *((_DWORD *)this + 178) = 0;
-  *((_DWORD *)this + 179) = 0;
-  *((_DWORD *)this + 180) = v4;
-  *((_DWORD *)this + 181) = v20[1];
-  if ( **((_DWORD **)this + 80) )
+  *((_DWORD *)this + 166) = 0;
+  *((_DWORD *)this + 167) = 0;
+  *((_DWORD *)this + 168) = v4;
+  *((_DWORD *)this + 169) = v20[1];
+  if ( **((_DWORD **)this + 74) )
   {
-    v5 = *((_QWORD *)this + 43);
+    v5 = *((_QWORD *)this + 37);
     v6 = v5 + *(int *)(*(_QWORD *)(v5 + 8) + 16LL);
     v7 = *(_QWORD *)(v6 + 8);
     v19 = 0LL;
@@ -63,14 +63,14 @@ __int64 __fastcall CConversionSwapChain::ConvertSingleDesktopPlane(CConversionSw
     v2 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x296u);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x271u, 0LL);
     }
     else
     {
       v12 = (void (__fastcall ***)(_QWORD, int *))((char *)v19 + *(int *)(v19[1] + 12LL) + 8);
       (**v12)(v12, v27);
       FastRegion::Internal::CRgnData::BeginIterator(
-        *((FastRegion::Internal::CRgnData **)this + 80),
+        *((FastRegion::Internal::CRgnData **)this + 74),
         (struct FastRegion::CRegion::Iterator *)v21);
       while ( (unsigned __int64)v23 < v22 )
       {
@@ -86,14 +86,14 @@ __int64 __fastcall CConversionSwapChain::ConvertSingleDesktopPlane(CConversionSw
                 v14,
                 (int)v20,
                 (int)v27,
-                (__int64)this + 712,
+                (int)this + 664,
                 v18,
-                (__int64)this + 712,
+                (__int64)this + 664,
                 (__int64)v26);
         v2 = v15;
         if ( v15 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast((__int64)v16, 0LL, 0LL, v15, 0x2A7u);
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)v16, 0LL, 0, v15, 0x282u, 0LL);
           break;
         }
         FastRegion::Internal::CRgnData::StepIterator(v16, (struct FastRegion::CRegion::Iterator *)v21);

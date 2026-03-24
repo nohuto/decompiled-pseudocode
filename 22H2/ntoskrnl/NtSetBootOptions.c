@@ -1,14 +1,14 @@
 /*
- * XREFs of NtSetBootOptions @ 0x1409FFC00
+ * XREFs of NtSetBootOptions @ 0x140954F70
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x140950524 (IoSetEnvironmentVariableEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899DAC (IoSetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall NtSetBootOptions(int *a1, char a2)
@@ -28,7 +28,7 @@ __int64 __fastcall NtSetBootOptions(int *a1, char a2)
 
   v13 = 0;
   v14[0] = 0;
-  if ( dword_140C31AF0 != 2 )
+  if ( dword_140C197B0 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;

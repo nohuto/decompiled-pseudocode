@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z @ 0x1C00EF5EC
+ * XREFs of ?SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z @ 0x1C00B9318
  * Callers:
- *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEBU_DXGK_ADL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C0096140 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEBU_DX.c)
- *     ?FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z @ 0x1C00983F0 (-FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z.c)
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C009A6B0 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
+ *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C006F458 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
+ *     ?FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z @ 0x1C0070F20 (-FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00723E8 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
  * Callees:
- *     VidSchSuspendResumeDevice @ 0x1C0002D30 (VidSchSuspendResumeDevice.c)
+ *     VidSchSuspendResumeDevice @ 0x1C0012470 (VidSchSuspendResumeDevice.c)
  */
 
 void __fastcall VIDMM_PROCESS::SuspendResumeProcessGpuMmuContexts(
@@ -16,10 +16,10 @@ void __fastcall VIDMM_PROCESS::SuspendResumeProcessGpuMmuContexts(
   int v4; // r15d
   __int64 v5; // rbx
   __int64 v6; // rdx
-  unsigned int i; // esi
+  unsigned int i; // edi
   __int64 v8; // r14
   _QWORD *v9; // rax
-  _QWORD *v10; // rdi
+  _QWORD *v10; // rsi
   __int64 v11; // rax
   __int64 v12; // rcx
 
@@ -41,8 +41,8 @@ void __fastcall VIDMM_PROCESS::SuspendResumeProcessGpuMmuContexts(
           {
             v11 = v10[4];
             v12 = *(_QWORD *)(v11 + 24);
-            if ( v12 && !*(_QWORD *)(v11 + 192) )
-              VidSchSuspendResumeDevice(*(struct _VIDSCH_DEVICE **)(v12 + 800), v4, 0, 1);
+            if ( v12 && !*(_QWORD *)(v11 + 184) )
+              VidSchSuspendResumeDevice(*(struct _VIDSCH_DEVICE **)(v12 + 768), v4, 0, 1);
             v6 = *(_QWORD *)(v5 + 16);
             v10 = (_QWORD *)*v10;
             v9 = (_QWORD *)(v8 + v6 + 40);

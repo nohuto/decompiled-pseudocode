@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeTbFlushing @ 0x140B092F0
+ * XREFs of MiInitializeTbFlushing @ 0x140A55330
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiInitializeTbFlush @ 0x140B09340 (MiInitializeTbFlush.c)
- *     KeGetTbSize @ 0x140B09610 (KeGetTbSize.c)
+ *     MiInitializeTbFlush @ 0x140A55380 (MiInitializeTbFlush.c)
+ *     KeGetTbSize @ 0x140A5564C (KeGetTbSize.c)
  */
 
 __int64 MiInitializeTbFlushing()
@@ -15,12 +15,19 @@ __int64 MiInitializeTbFlushing()
   TbSize = KeGetTbSize();
   if ( !TbSize )
     TbSize = 2048LL;
-  qword_140C507D0 = -1LL;
+  qword_140C4DF90 = -1LL;
   result = MiInitializeTbFlush(TbSize);
-  if ( qword_140C507D0 == TbSize && TbSize != 2048 )
+  if ( qword_140C4DF90 == TbSize )
   {
-    qword_140C507D0 = -1LL;
-    return MiInitializeTbFlush(2048LL);
+    do
+    {
+      if ( TbSize == 2048 )
+        break;
+      qword_140C4DF90 = -1LL;
+      TbSize = 2048LL;
+      result = MiInitializeTbFlush(2048LL);
+    }
+    while ( qword_140C4DF90 == 2048 );
   }
   return result;
 }

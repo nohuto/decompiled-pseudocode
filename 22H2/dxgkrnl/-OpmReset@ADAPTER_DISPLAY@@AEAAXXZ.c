@@ -1,27 +1,31 @@
 /*
- * XREFs of ?OpmReset@ADAPTER_DISPLAY@@AEAAXXZ @ 0x1C02BE330
+ * XREFs of ?OpmReset@ADAPTER_DISPLAY@@AEAAXXZ @ 0x1C02140E4
  * Callers:
- *     ?Reset@ADAPTER_DISPLAY@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02BF7D0 (-Reset@ADAPTER_DISPLAY@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Reset@ADAPTER_DISPLAY@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02151DC (-Reset@ADAPTER_DISPLAY@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::OpmReset(DXGADAPTER **this)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdx
   DXGADAPTER **i; // rax
-  _BYTE v3[24]; // [rsp+50h] [rbp-18h] BYREF
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 6817LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 6817LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 6490LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v3, (struct DXGFASTMUTEX *const)(this + 46), 0);
-  for ( i = (DXGADAPTER **)this[44]; i != this + 44; i = (DXGADAPTER **)*i )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (struct DXGFASTMUTEX *const)(this + 40), 0);
+  for ( i = (DXGADAPTER **)this[38]; i != this + 38; i = (DXGADAPTER **)*i )
     *((_BYTE *)i + 24) = 1;
-  if ( v3[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v3);
+  if ( v7[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7, v5);
 }

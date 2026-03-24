@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpDriverLoadingFailed @ 0x1407630D0
+ * XREFs of PnpDriverLoadingFailed @ 0x1407630B0
  * Callers:
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
  *     IopInitializeBuiltinDriver @ 0x1409CBA80 (IopInitializeBuiltinDriver.c)
  * Callees:
  *     PipIsDevNodeDNStarted @ 0x140007294 (PipIsDevNodeDNStarted.c)
@@ -9,21 +9,21 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PipSetDevNodeState @ 0x140159DB8 (PipSetDevNodeState.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     PoFxAbandonDevice @ 0x1406ED028 (PoFxAbandonDevice.c)
- *     IopReleaseDeviceResources @ 0x1406ED6A4 (IopReleaseDeviceResources.c)
- *     PipSetDevNodeProblem @ 0x1406EF580 (PipSetDevNodeProblem.c)
- *     PipOpenServiceEnumKeys @ 0x140709554 (PipOpenServiceEnumKeys.c)
- *     PipServiceInstanceToDeviceInstance @ 0x1408276D0 (PipServiceInstanceToDeviceInstance.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     PoFxAbandonDevice @ 0x1406ED008 (PoFxAbandonDevice.c)
+ *     IopReleaseDeviceResources @ 0x1406ED684 (IopReleaseDeviceResources.c)
+ *     PipSetDevNodeProblem @ 0x1406EF560 (PipSetDevNodeProblem.c)
+ *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1408276B0 (PipServiceInstanceToDeviceInstance.c)
  */
 
 NTSTATUS __fastcall PnpDriverLoadingFailed(HANDLE Handle, UNICODE_STRING *a2)

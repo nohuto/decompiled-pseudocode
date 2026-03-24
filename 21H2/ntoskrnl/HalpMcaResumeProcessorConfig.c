@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpMcaResumeProcessorConfig @ 0x140A5029C
+ * XREFs of HalpMcaResumeProcessorConfig @ 0x140995A40
  * Callers:
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A62458 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A84D8 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpIsCmciImplemented @ 0x140A5367C (HalpIsCmciImplemented.c)
- *     HalpCmciInitProcessor @ 0x140A53718 (HalpCmciInitProcessor.c)
- *     HalpMcaSetProcessorConfig @ 0x140A53828 (HalpMcaSetProcessorConfig.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpIsCmciImplemented @ 0x140999C64 (HalpIsCmciImplemented.c)
+ *     HalpCmciInitProcessor @ 0x140999D20 (HalpCmciInitProcessor.c)
+ *     HalpMcaSetProcessorConfig @ 0x140999E48 (HalpMcaSetProcessorConfig.c)
  */
 
 __int64 __fastcall HalpMcaResumeProcessorConfig(int a1)
@@ -23,14 +23,14 @@ __int64 __fastcall HalpMcaResumeProcessorConfig(int a1)
   if ( (HalpFeatureBits & 0xC) != 0 )
   {
     result = (__int64)KeGetPcr();
-    for ( i = *(_QWORD *)(result + 216); i; i = *(_QWORD *)(i + 184) )
+    for ( i = *(_QWORD *)(result + 216); i; i = *(_QWORD *)(i + 176) )
     {
-      v4 = *(_QWORD *)(i + 172);
+      v4 = *(_QWORD *)(i + 164);
       if ( a1 )
       {
         if ( a1 == 1 )
         {
-          HalpMcaSetProcessorConfig(HalpMceErrorSource, *(_QWORD *)(i + 172));
+          HalpMcaSetProcessorConfig(HalpMceErrorSource, *(_QWORD *)(i + 164));
           result = HalpIsCmciImplemented();
           if ( (_BYTE)result )
             result = HalpCmciInitProcessor(HalpCmcErrorSource, v4);

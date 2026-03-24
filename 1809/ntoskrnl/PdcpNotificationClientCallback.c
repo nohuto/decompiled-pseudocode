@@ -1,15 +1,15 @@
 /*
- * XREFs of PdcpNotificationClientCallback @ 0x14089AC70
+ * XREFs of PdcpNotificationClientCallback @ 0x14089AC50
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLock @ 0x140091480 (ExfReleasePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PdcPortSendMessage @ 0x14089A620 (PdcPortSendMessage.c)
- *     PdcAcquireRwLockExclusive @ 0x14089AEEC (PdcAcquireRwLockExclusive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PdcPortSendMessage @ 0x14089A600 (PdcPortSendMessage.c)
+ *     PdcAcquireRwLockExclusive @ 0x14089AECC (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcpNotificationClientCallback(__int64 a1, __int64 a2)

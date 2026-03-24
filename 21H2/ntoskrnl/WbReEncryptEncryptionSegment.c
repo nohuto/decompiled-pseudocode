@@ -1,0 +1,55 @@
+/*
+ * XREFs of WbReEncryptEncryptionSegment @ 0x1405D6F68
+ * Callers:
+ *     WbDispatchOperation @ 0x14064EE24 (WbDispatchOperation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1405D702C (WbGetInitializedEncryptionSegment.c)
+ *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
+ *     sub_1405D78F8 @ 0x1405D78F8 (sub_1405D78F8.c)
+ */
+
+__int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3)
+{
+  int InitializedEncryptionSegment; // edi
+  struct _KTHREAD *CurrentThread; // rax
+  unsigned __int64 *v5; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rdi
+  char v8; // si
+  __int64 v10; // [rsp+48h] [rbp+20h] BYREF
+
+  v10 = 0LL;
+  if ( (unsigned int)a3 < 0x10 )
+  {
+    InitializedEncryptionSegment = -1073741811;
+  }
+  else
+  {
+    InitializedEncryptionSegment = WbGetInitializedEncryptionSegment(a1, a2, a3, &v10);
+    if ( InitializedEncryptionSegment >= 0 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->SpecialApcDisable;
+      v5 = (unsigned __int64 *)(v10 + 8);
+      v6 = KeAbPreAcquire(v10 + 8, 0LL, 0);
+      v7 = v6;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
+        ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
+      if ( v7 )
+        *(_BYTE *)(v7 + 26) |= 1u;
+      InitializedEncryptionSegment = sub_1405D78F8(v10);
+      v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL);
+      if ( (v8 & 2) != 0 && (v8 & 4) == 0 )
+        ExfTryToWakePushLock(v5);
+      KeAbPostRelease((ULONG_PTR)v5);
+      KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    }
+  }
+  sub_1405D72F4(v10);
+  return (unsigned int)InitializedEncryptionSegment;
+}

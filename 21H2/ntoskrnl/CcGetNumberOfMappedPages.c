@@ -1,16 +1,16 @@
 /*
- * XREFs of CcGetNumberOfMappedPages @ 0x1403A0A10
+ * XREFs of CcGetNumberOfMappedPages @ 0x140394B70
  * Callers:
  *     <none>
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-__int64 __fastcall CcGetNumberOfMappedPages(__int64 a1, _QWORD *a2, _QWORD *a3)
+char __fastcall CcGetNumberOfMappedPages(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v3; // rdi
-  __int64 result; // rax
+  char result; // al
 
   v3 = *(_QWORD *)(a1 + 8);
   *a2 = 0LL;

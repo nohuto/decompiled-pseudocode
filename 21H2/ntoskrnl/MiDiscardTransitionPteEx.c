@@ -1,30 +1,29 @@
 /*
- * XREFs of MiDiscardTransitionPteEx @ 0x1403941B0
+ * XREFs of MiDiscardTransitionPteEx @ 0x140388E94
  * Callers:
- *     MiConvertStandbyToProto @ 0x140227490 (MiConvertStandbyToProto.c)
- *     MiUnlinkStandbyPfn @ 0x14023608C (MiUnlinkStandbyPfn.c)
- *     MiCopyDataPageToImagePage @ 0x14026F180 (MiCopyDataPageToImagePage.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402710C4 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiHandleTransitionFault @ 0x1403265B0 (MiHandleTransitionFault.c)
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiResolveProtoCombine @ 0x14033A920 (MiResolveProtoCombine.c)
- *     MiReservePageFileSpaceForPage @ 0x14033B190 (MiReservePageFileSpaceForPage.c)
- *     MiActOnPte @ 0x14033E970 (MiActOnPte.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x14038E608 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiMirrorPerformBrownWrites @ 0x140399444 (MiMirrorPerformBrownWrites.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MiWalkResetCommitPte @ 0x140581640 (MiWalkResetCommitPte.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140599EBC (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiGetSlabStandbyPage @ 0x1405B130C (MiGetSlabStandbyPage.c)
- *     MiPurgeSlabEntries @ 0x1405B1568 (MiPurgeSlabEntries.c)
+ *     MiHandleTransitionFault @ 0x140217450 (MiHandleTransitionFault.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
+ *     MiReservePageFileSpaceForPage @ 0x14023D660 (MiReservePageFileSpaceForPage.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiUnlinkStandbyPfn @ 0x1402B07E0 (MiUnlinkStandbyPfn.c)
+ *     MiFreeSlabEntries @ 0x1402BA910 (MiFreeSlabEntries.c)
+ *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
+ *     MiResolveProtoCombine @ 0x14036AB34 (MiResolveProtoCombine.c)
+ *     MiMirrorPerformBrownWrites @ 0x1403822B8 (MiMirrorPerformBrownWrites.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140385120 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiWalkResetCommitPte @ 0x14052CBF0 (MiWalkResetCommitPte.c)
+ *     MiGetSlabStandbyPage @ 0x1405530CC (MiGetSlabStandbyPage.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiSetPfnBlink @ 0x140313CA0 (MiSetPfnBlink.c)
- *     MiRestoreTransitionPte @ 0x14033FAA4 (MiRestoreTransitionPte.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiRestoreTransitionPte @ 0x1402A2DD0 (MiRestoreTransitionPte.c)
+ *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
  */
 
-void __fastcall MiDiscardTransitionPteEx(ULONG_PTR a1, __int16 a2)
+__int64 __fastcall MiDiscardTransitionPteEx(ULONG_PTR a1, __int16 a2)
 {
   MiRestoreTransitionPte(a1, 0);
   MiSetPfnBlink(a1, 0LL, 1);
@@ -32,5 +31,5 @@ void __fastcall MiDiscardTransitionPteEx(ULONG_PTR a1, __int16 a2)
   *(_BYTE *)(a1 + 34) &= 0xC7u;
   *(_BYTE *)(a1 + 35) &= ~0x20u;
   *(_QWORD *)(a1 + 24) |= 0x4000000000000000uLL;
-  MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4), a2 | 2);
+  return MiInsertPageInFreeOrZeroedList((__int64)(a1 + 0x58000000000LL) / 48, a2 | 2u);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CProjectedShadowScene@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001F680
+ * XREFs of ?IsOfType@CProjectedShadowScene@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001E500
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CProjectedShadowScene::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 133;
+  return a2 == 132;
 }

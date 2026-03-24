@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z @ 0x18022EAF4
+ * XREFs of ?SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z @ 0x1801C39E4
  * Callers:
- *     ?RemoveSourceHost@CSuperWetInkManager@@AEAAXPEAVCSuperWetSource@@@Z @ 0x1801CC4DC (-RemoveSourceHost@CSuperWetInkManager@@AEAAXPEAVCSuperWetSource@@@Z.c)
+ *     ?RemoveSourceHost@CSuperWetInkManager@@AEAAXPEAVCSuperWetSource@@@Z @ 0x18019560C (-RemoveSourceHost@CSuperWetInkManager@@AEAAXPEAVCSuperWetSource@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     SendRemotingMetaData @ 0x18022EBC4 (SendRemotingMetaData.c)
- *     McTemplateU0px_EventWriteTransfer @ 0x18022ED2C (McTemplateU0px_EventWriteTransfer.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0xx_EventWriteTransfer @ 0x180155FC8 (McTemplateU0xx_EventWriteTransfer.c)
+ *     SendRemotingMetaData @ 0x1801C3AB4 (SendRemotingMetaData.c)
  */
 
 __int64 __fastcall CSuperWetSource::SendMessageToHostForDestruction(CSuperWetSource *this, __int64 a2)
@@ -32,16 +32,16 @@ __int64 __fastcall CSuperWetSource::SendMessageToHostForDestruction(CSuperWetSou
   v6 = v4;
   if ( v4 >= 0 )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100000) != 0 )
-      McTemplateU0px_EventWriteTransfer(v5, &EVTDESC_UNREGISTER_VAIL_STROKE_ON_HOST, this, a2);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+      McTemplateU0xx_EventWriteTransfer(v5, &EVTDESC_UNREGISTER_VAIL_STROKE_ON_HOST, this, a2);
     return 0LL;
   }
   else
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x71,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
+      (void *)0x74,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
       (const char *)(unsigned int)v4);
     return v6;
   }

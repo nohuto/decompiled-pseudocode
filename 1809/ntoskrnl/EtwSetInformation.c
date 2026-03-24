@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwSetInformation @ 0x14070BDD0
+ * XREFs of EtwSetInformation @ 0x14070BDB0
  * Callers:
- *     BapdWriteEtwEvents @ 0x1401786E8 (BapdWriteEtwEvents.c)
- *     BapdRegisterEtwProvider @ 0x140178AB4 (BapdRegisterEtwProvider.c)
- *     HvlpEtwRegister @ 0x1402782B8 (HvlpEtwRegister.c)
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
+ *     BapdWriteEtwEvents @ 0x140178708 (BapdWriteEtwEvents.c)
+ *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
+ *     HvlpEtwRegister @ 0x1402783B8 (HvlpEtwRegister.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
  *     PopDiagInitialize @ 0x1409D0B90 (PopDiagInitialize.c)
  * Callees:
- *     EtwpSetProviderTraitsKm @ 0x14070BE24 (EtwpSetProviderTraitsKm.c)
+ *     EtwpSetProviderTraitsKm @ 0x14070BE04 (EtwpSetProviderTraitsKm.c)
  */
 
 NTSTATUS __stdcall EtwSetInformation(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetProcessHotPatchContext @ 0x140855210
+ * XREFs of MiGetProcessHotPatchContext @ 0x1408551F0
  * Callers:
- *     MiDeleteImageHotPatchState @ 0x140854CFC (MiDeleteImageHotPatchState.c)
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
- *     MiQueryProcessActivePatches @ 0x140857BB0 (MiQueryProcessActivePatches.c)
+ *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiQueryProcessActivePatches @ 0x140857B90 (MiQueryProcessActivePatches.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C013D9BC
+ * XREFs of McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0126BB8
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     EtwTraceWaitCursor @ 0x1C00AFBD0 (EtwTraceWaitCursor.c)
- *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C013833C (-EtwCaptureStateCallback@@YAXXZ.c)
+ *     ?SetResourceReferenceProperty@CApplicationChannel@DirectComposition@@QEAAJIII@Z @ 0x1C0027434 (-SetResourceReferenceProperty@CApplicationChannel@DirectComposition@@QEAAJIII@Z.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     EtwTraceWaitCursor @ 0x1C009FB70 (EtwTraceWaitCursor.c)
+ *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C0120DF8 (-EtwCaptureStateCallback@@YAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqqq_EtwWriteTransfer(

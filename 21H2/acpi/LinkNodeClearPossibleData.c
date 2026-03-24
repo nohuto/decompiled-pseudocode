@@ -1,9 +1,9 @@
 /*
- * XREFs of LinkNodeClearPossibleData @ 0x1C009B288
+ * XREFs of LinkNodeClearPossibleData @ 0x1C009429C
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009A2E0 (IrqArbCommitAllocation.c)
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009C700 (IrqArbpPrepareForTestOrConflict.c)
- *     IrqArbpQueryConflictIsa @ 0x1C00B6FF8 (IrqArbpQueryConflictIsa.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C00B752C (IrqArbpQueryConflictIsa.c)
  * Callees:
  *     <none>
  */

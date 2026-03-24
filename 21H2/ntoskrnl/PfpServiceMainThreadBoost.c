@@ -1,27 +1,27 @@
 /*
- * XREFs of PfpServiceMainThreadBoost @ 0x1405C614C
+ * XREFs of PfpServiceMainThreadBoost @ 0x14038CF48
  * Callers:
- *     PfpScenCtxScenarioSet @ 0x140A540E0 (PfpScenCtxScenarioSet.c)
+ *     PfpScenCtxScenarioSet @ 0x14099AB98 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, ULONG_PTR *a2)
+__int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rsi
   unsigned int v3; // ebx
   KIRQL v6; // al
   unsigned __int64 v7; // r15
-  ULONG_PTR v8; // rcx
+  __int64 v8; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  bool v13; // zf
+  int v13; // eax
+  bool v14; // zf
 
   v2 = a2[1];
   v3 = 0;
@@ -37,7 +37,7 @@ __int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, ULONG_PTR *a2)
       v8 = *a2;
       *(_QWORD *)(a1 + 88) = *a2;
       *a2 = 0LL;
-      *(_DWORD *)(a1 + 96) = KeSetActualBasePriorityThread(v8, 0xCu);
+      *(_DWORD *)(a1 + 96) = KeSetActualBasePriorityThread(v8, 12);
     }
     KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 104));
     if ( KiIrqlFlags )
@@ -49,11 +49,11 @@ __int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, ULONG_PTR *a2)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v13 = (v12 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v12;
-          if ( v13 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v14 = (v13 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v13;
+          if ( v14 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }

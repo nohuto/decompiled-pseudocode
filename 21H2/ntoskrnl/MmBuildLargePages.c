@@ -1,12 +1,12 @@
 /*
- * XREFs of MmBuildLargePages @ 0x14097F59C
+ * XREFs of MmBuildLargePages @ 0x1408D76D4
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x1409D9B98 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x14092F2C8 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     MiGetLargestPageIndex @ 0x14023A8F8 (MiGetLargestPageIndex.c)
- *     MiPartitionObjectToPartition @ 0x140264ED0 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     MiRebuildLargePage @ 0x14045CDD6 (MiRebuildLargePage.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     MiGetLargestPageIndex @ 0x1402C9DE0 (MiGetLargestPageIndex.c)
+ *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
+ *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
  */
 
 unsigned __int64 __fastcall MmBuildLargePages(__int64 a1, unsigned int a2)
@@ -17,7 +17,7 @@ unsigned __int64 __fastcall MmBuildLargePages(__int64 a1, unsigned int a2)
   __int64 *v6; // rcx
   ULONG_PTR *v7; // rax
   ULONG_PTR *v8; // rdi
-  char v10; // [rsp+48h] [rbp+10h] BYREF
+  char v10; // [rsp+38h] [rbp+10h] BYREF
 
   v10 = 0;
   v2 = 0LL;
@@ -25,29 +25,27 @@ unsigned __int64 __fastcall MmBuildLargePages(__int64 a1, unsigned int a2)
   {
     LargestPageIndex = MiGetLargestPageIndex();
     v5 = LargestPageIndex;
-    if ( LargestPageIndex >= 3 )
-    {
-LABEL_6:
-      if ( v5 == 3 )
-        return v2;
-    }
-    else
+    if ( LargestPageIndex < 3 )
     {
       v6 = &MiLargePageSizes[LargestPageIndex];
-      while ( *v6 != 512 )
+      do
       {
+        if ( *v6 == 512 )
+          break;
         ++v5;
         ++v6;
-        if ( v5 >= 3 )
-          goto LABEL_6;
       }
+      while ( v5 < 3 );
     }
-    v7 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0LL, &v10);
-    v8 = v7;
-    if ( v7 )
-      v2 = MiRebuildLargePage((__int64)v7, a2, v5, 0x200uLL, 1) >> 9;
-    if ( v10 )
-      PsDereferencePartition(v8[22]);
+    if ( v5 != 3 )
+    {
+      v7 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0, &v10);
+      v8 = v7;
+      if ( v7 )
+        v2 = MiRebuildLargePage((__int64)v7, a2, v5, (_DWORD *)0x200) >> 9;
+      if ( v10 )
+        PsDereferencePartition(v8[22]);
+    }
   }
   return v2;
 }

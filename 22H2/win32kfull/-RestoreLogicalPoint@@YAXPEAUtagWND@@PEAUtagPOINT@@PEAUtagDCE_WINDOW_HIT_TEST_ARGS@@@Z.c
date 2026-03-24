@@ -1,33 +1,29 @@
 /*
- * XREFs of ?RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C00AB558
+ * XREFs of ?RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C01673A4
  * Callers:
- *     ?RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C00AB558 (-RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z.c)
- *     ?xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0121240 (-xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_.c)
+ *     ?RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C01673A4 (-RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z.c)
+ *     ?xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0167424 (-xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW.c)
  * Callees:
- *     ?RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C00AB558 (-RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     ?IsCompositionInputWindowForHitTest@@YAHPEAUtagWND@@@Z @ 0x1C0121E78 (-IsCompositionInputWindowForHitTest@@YAHPEAUtagWND@@@Z.c)
- *     ?DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C01513E8 (-DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     ?IsCompositionInputWindowForHitTest@@YAHPEAUtagWND@@@Z @ 0x1C006B720 (-IsCompositionInputWindowForHitTest@@YAHPEAUtagWND@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     ?RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C01673A4 (-RestoreLogicalPoint@@YAXPEAUtagWND@@PEAUtagPOINT@@PEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z.c)
+ *     DCEHitTestWindow @ 0x1C01E4674 (DCEHitTestWindow.c)
  */
 
-void __fastcall RestoreLogicalPoint(struct tagWND *a1, struct tagPOINT *a2, const struct _SUBPIXELS **a3)
+void __fastcall RestoreLogicalPoint(struct tagWND **a1, struct tagPOINT *a2, struct tagDCE_WINDOW_HIT_TEST_ARGS *a3)
 {
   struct tagPOINT *v6; // rdx
   struct tagDCE_WINDOW_HIT_TEST_ARGS *v7; // r8
 
   if ( a1 )
   {
-    if ( a1 != (struct tagWND *)GetDesktopWindow(a1, a2) )
+    if ( a1 != (struct tagWND **)GetDesktopWindow((__int64)a1) )
     {
-      RestoreLogicalPoint(*((struct tagWND **)a1 + 13), v6, v7);
-      if ( *((_QWORD *)a1 + 27) )
+      RestoreLogicalPoint(a1[13], v6, v7);
+      if ( a1[27] )
       {
-        if ( ((_DWORD)a3[4] & 4) == 0 && !(unsigned int)IsCompositionInputWindowForHitTest(a1) )
-          DCEHitTestWindow(
-            (const struct tagRECT *)(*((_QWORD *)a1 + 5) + 88LL),
-            *((const struct _D3DMATRIX **)a1 + 27),
-            a2,
-            a3[5]);
+        if ( (*((_DWORD *)a3 + 8) & 4) == 0 && !(unsigned int)IsCompositionInputWindowForHitTest((struct tagWND *)a1) )
+          DCEHitTestWindow((char *)a1[5] + 88, a1[27], a2, *((_QWORD *)a3 + 5));
       }
     }
   }

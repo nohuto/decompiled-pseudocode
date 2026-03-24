@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFileMapInitializeByNtPath @ 0x1402D8914
+ * XREFs of RtlFileMapInitializeByNtPath @ 0x1403715CC
  * Callers:
- *     AslFileMappingCreate @ 0x14075E160 (AslFileMappingCreate.c)
+ *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
  */
 
 __int64 __fastcall RtlFileMapInitializeByNtPath(__int64 a1, UNICODE_STRING *a2)

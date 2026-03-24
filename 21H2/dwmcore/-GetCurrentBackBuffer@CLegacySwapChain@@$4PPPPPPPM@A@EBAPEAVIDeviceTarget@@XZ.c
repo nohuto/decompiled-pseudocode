@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EBAPEAVIDeviceTarget@@XZ @ 0x180108E10
+ * XREFs of ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EBAPEAVIDeviceTarget@@XZ @ 0x1800F7510
  * Callers:
  *     <none>
  * Callees:

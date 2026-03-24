@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECMesh2DEffect@@OBA@EAAPEAXI@Z @ 0x180124040
+ * XREFs of ??_ECMesh2DEffect@@OBA@EAAPEAXI@Z @ 0x1800F8DE0
  * Callers:
  *     <none>
  * Callees:

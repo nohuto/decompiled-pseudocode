@@ -1,14 +1,14 @@
 /*
- * XREFs of MxRelocatePageTables @ 0x140B5B0A0
+ * XREFs of MxRelocatePageTables @ 0x140A56734
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MxMovePageTables @ 0x140B5B258 (MxMovePageTables.c)
- *     MxSwapPages @ 0x140B5BAA8 (MxSwapPages.c)
+ *     MiInitializePageColorBase @ 0x14023EBF0 (MiInitializePageColorBase.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiIncrementPfn @ 0x1403A720C (MiIncrementPfn.c)
+ *     MxMovePageTables @ 0x140A569B4 (MxMovePageTables.c)
+ *     MxSwapPages @ 0x140A57120 (MxSwapPages.c)
  */
 
 __int64 __fastcall MxRelocatePageTables(int a1)
@@ -19,19 +19,15 @@ __int64 __fastcall MxRelocatePageTables(int a1)
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // rdx
   __int64 v7; // r9
-  __int64 v8; // rbx
-  unsigned __int8 v9; // al
-  unsigned __int64 v10; // rdi
-  __int64 result; // rax
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v15; // zf
-  _OWORD v16[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
+  unsigned __int64 v8; // rbx
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v10; // r8
+  _DWORD *v11; // r9
+  __int128 v13; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v14; // [rsp+58h] [rbp+10h] BYREF
 
-  v16[0] = 0LL;
-  MiInitializePageColorBase(0LL, 0, (__int64)v16);
+  v13 = 0LL;
+  MiInitializePageColorBase(0LL, 0, (__int64)&v13);
   v2 = 0xFFFFF6C000000000uLL;
   v3 = (((unsigned __int64)MmPfnDatabase >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v4 = 3LL;
@@ -43,7 +39,7 @@ __int64 __fastcall MxRelocatePageTables(int a1)
   }
   while ( v4 );
   if ( v2 < v3 )
-    MxMovePageTables(v2, v3 - 8, 3, a1, (__int64)v16);
+    MxMovePageTables(v2, v3 - 8, 3, a1, (__int64)&v13);
   v5 = (((unsigned __int64)(MmPfnDatabase + (MxPfnAllocation << 12)) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v6 = 0xFFFFF6FFFFFFFFF8uLL;
   v7 = 3LL;
@@ -55,30 +51,19 @@ __int64 __fastcall MxRelocatePageTables(int a1)
   }
   while ( v7 );
   if ( v5 < v6 )
-    MxMovePageTables(v5 + 8, v6, 3, a1, (__int64)v16);
-  MxSwapPages(v16, 0xFFFFF6FBC0000000uLL);
-  v17 = MI_READ_PTE_LOCK_FREE(0xFFFFF6FBC0000000uLL);
-  v8 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFFLL)
-     - 0x220000000000LL;
-  v9 = MiLockPageInline(v8);
-  ++*(_WORD *)(v8 + 32);
-  v10 = v9;
-  _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+    MxMovePageTables(v5 + 8, v6, 3, a1, (__int64)&v13);
+  MxSwapPages(&v13, 0xFFFFF6FBC0000000uLL);
+  v14 = MI_READ_PTE_LOCK_FREE(0xFFFFF6FBC0000000uLL);
+  v8 = v14;
+  if ( MiPteInShadowRange((unsigned __int64)&v14)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v8 & 1) != 0
+    && ((v8 & 0x20) == 0 || (v8 & 0x42) == 0) )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v15 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-    }
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink && ((__int64)*(&Flink->Flink + (((unsigned __int64)&v14 >> 3) & 0x1FF)) & 0x20) != 0 )
+      v8 |= 0x20uLL;
   }
-  __writecr8(v10);
-  return result;
+  return MiIncrementPfn(48 * ((v8 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL, (__int64)Flink, v10, v11);
 }

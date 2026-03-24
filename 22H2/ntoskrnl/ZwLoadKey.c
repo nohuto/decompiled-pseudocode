@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwLoadKey @ 0x14041C860
+ * XREFs of ZwLoadKey @ 0x1403FBB20
  * Callers:
- *     DifZwLoadKeyWrapper @ 0x1405F0F00 (DifZwLoadKeyWrapper.c)
- *     BiLoadHive @ 0x140809604 (BiLoadHive.c)
+ *     BiLoadHive @ 0x140785948 (BiLoadHive.c)
  * Callees:
  *     <none>
  */

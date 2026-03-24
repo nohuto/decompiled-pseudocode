@@ -1,49 +1,46 @@
 /*
- * XREFs of VidSchiProfilePerformanceTick @ 0x1C000AA30
+ * XREFs of VidSchiProfilePerformanceTick @ 0x1C000B6D0
  * Callers:
- *     VidSchiSubmitCommandPacketToQueue @ 0x1C0006E60 (VidSchiSubmitCommandPacketToQueue.c)
- *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007CC0 (VidSchSignalSyncObjectsFromGpu.c)
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0008770 (VidSchiProcessDpcCompletedPacket.c)
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00091C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     VidSchiScheduleCommandToRun @ 0x1C000A430 (VidSchiScheduleCommandToRun.c)
- *     VidSchiSelectContext @ 0x1C000A7A0 (VidSchiSelectContext.c)
- *     VidSchiSwitchContextWithCheck @ 0x1C000B640 (VidSchiSwitchContextWithCheck.c)
- *     VidSchiSendToExecutionQueue @ 0x1C000C930 (VidSchiSendToExecutionQueue.c)
- *     VidSchiCheckPreemptionPolicy @ 0x1C000D1C0 (VidSchiCheckPreemptionPolicy.c)
- *     VidSchiProcessIsrCompletedPacket @ 0x1C000F230 (VidSchiProcessIsrCompletedPacket.c)
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C00138CC (VidSchiProcessDpcPreemptedPacket.c)
- *     VidSchiProcessDpcSystemRequest @ 0x1C0013CC4 (VidSchiProcessDpcSystemRequest.c)
- *     VidSchiProcessIsrPreemptedPacket @ 0x1C0017644 (VidSchiProcessIsrPreemptedPacket.c)
- *     VidSchiNeedToForcePreemptNode @ 0x1C0017CD4 (VidSchiNeedToForcePreemptNode.c)
- *     ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CB0C (-VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DB3E (VidSchiSubmitCommandPacketToHwQueue.c)
- *     VidSchiProcessIsrFaultedPacket @ 0x1C003ACFC (VidSchiProcessIsrFaultedPacket.c)
- *     VidSchiReadCommandFromContextQueue @ 0x1C003B38C (VidSchiReadCommandFromContextQueue.c)
- *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0046FE8 (VidSchiCompletePendingCommandInNodeHwQueue.c)
- *     VidSchiWaitForSchedulerEvents @ 0x1C00AE030 (VidSchiWaitForSchedulerEvents.c)
- *     VidSchiWaitForDrainFlipQueue @ 0x1C00B5608 (VidSchiWaitForDrainFlipQueue.c)
- *     VidSchiWaitForCompletePreemption @ 0x1C0106E4C (VidSchiWaitForCompletePreemption.c)
- *     VidSchiWaitForEmptyHwQueue @ 0x1C0106F10 (VidSchiWaitForEmptyHwQueue.c)
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0007740 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007C30 (VidSchSignalSyncObjectsFromGpu.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008B50 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0009610 (VidSchiProcessDpcCompletedPacket.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A0C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B0A0 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiSelectContext @ 0x1C000B3E0 (VidSchiSelectContext.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C000C3B0 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiCheckPreemptionPolicy @ 0x1C000D0F0 (VidSchiCheckPreemptionPolicy.c)
+ *     VidSchiProcessIsrCompletedPacket @ 0x1C000E3C0 (VidSchiProcessIsrCompletedPacket.c)
+ *     VidSchiProcessIsrPreemptedPacket @ 0x1C000FF30 (VidSchiProcessIsrPreemptedPacket.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C0012EAC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C0013290 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiNeedToForcePreemptNode @ 0x1C00156C8 (VidSchiNeedToForcePreemptNode.c)
+ *     VidSchiProcessIsrFaultedPacket @ 0x1C0030180 (VidSchiProcessIsrFaultedPacket.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C0030744 (VidSchiReadCommandFromContextQueue.c)
+ *     ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037870 (-VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C003C024 (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C003CA48 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiWaitForSchedulerEvents @ 0x1C007EC40 (VidSchiWaitForSchedulerEvents.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C00CF594 (VidSchiWaitForCompletePreemption.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00CF658 (VidSchiWaitForDrainFlipQueue.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C00CF730 (VidSchiWaitForEmptyHwQueue.c)
  * Callees:
- *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0001CF4 (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005FB8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EDF4 (McTemplateK0pq_EtwWriteTransfer.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EE6C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0ppqqqPR4PR4_EtwWriteTransfer @ 0x1C0037DD8 (McTemplateK0ppqqqPR4PR4_EtwWriteTransfer.c)
- *     McTemplateK0ppqxqpq_EtwWriteTransfer @ 0x1C0037FA8 (McTemplateK0ppqxqpq_EtwWriteTransfer.c)
- *     McTemplateK0pqqPR2p_EtwWriteTransfer @ 0x1C00383C8 (McTemplateK0pqqPR2p_EtwWriteTransfer.c)
- *     McTemplateK0pqqpxp_EtwWriteTransfer @ 0x1C0038924 (McTemplateK0pqqpxp_EtwWriteTransfer.c)
- *     McTemplateK0pqqqPR3XR3p_EtwWriteTransfer @ 0x1C0038AD8 (McTemplateK0pqqqPR3XR3p_EtwWriteTransfer.c)
- *     McTemplateK0pqqttp_EtwWriteTransfer @ 0x1C0038DE8 (McTemplateK0pqqttp_EtwWriteTransfer.c)
- *     McTemplateK0pqqxqqtppx_EtwWriteTransfer @ 0x1C0039130 (McTemplateK0pqqxqqtppx_EtwWriteTransfer.c)
- *     McTemplateK0pqxqqqxqp_EtwWriteTransfer @ 0x1C00393C8 (McTemplateK0pqxqqqxqp_EtwWriteTransfer.c)
- *     McTemplateK0pqxqt_EtwWriteTransfer @ 0x1C00394BC (McTemplateK0pqxqt_EtwWriteTransfer.c)
- *     McTemplateK0qpqdqPR4XR4p_EtwWriteTransfer @ 0x1C00397AC (McTemplateK0qpqdqPR4XR4p_EtwWriteTransfer.c)
- *     McTemplateK0qtpiixi_EtwWriteTransfer @ 0x1C0039BB4 (McTemplateK0qtpiixi_EtwWriteTransfer.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C00155BC (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0024930 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C00249A8 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqqPR4PR4_EtwWriteTransfer @ 0x1C002D394 (McTemplateK0ppqqqPR4PR4_EtwWriteTransfer.c)
+ *     McTemplateK0ppqxqpq_EtwWriteTransfer @ 0x1C002D51C (McTemplateK0ppqxqpq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqPR2p_EtwWriteTransfer @ 0x1C002D8F0 (McTemplateK0pqqPR2p_EtwWriteTransfer.c)
+ *     McTemplateK0pqqpxp_EtwWriteTransfer @ 0x1C002DD44 (McTemplateK0pqqpxp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqPR3XR3p_EtwWriteTransfer @ 0x1C002DEF8 (McTemplateK0pqqqPR3XR3p_EtwWriteTransfer.c)
+ *     McTemplateK0pqqttp_EtwWriteTransfer @ 0x1C002E080 (McTemplateK0pqqttp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqxqqtppx_EtwWriteTransfer @ 0x1C002E3C8 (McTemplateK0pqqxqqtppx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxqqqxqp_EtwWriteTransfer @ 0x1C002E660 (McTemplateK0pqxqqqxqp_EtwWriteTransfer.c)
+ *     McTemplateK0pqxqt_EtwWriteTransfer @ 0x1C002E754 (McTemplateK0pqxqt_EtwWriteTransfer.c)
+ *     McTemplateK0qtpiixi_EtwWriteTransfer @ 0x1C002EC00 (McTemplateK0qtpiixi_EtwWriteTransfer.c)
  */
 
 void __fastcall VidSchiProfilePerformanceTick(
@@ -56,986 +53,888 @@ void __fastcall VidSchiProfilePerformanceTick(
         __int64 a7,
         __int64 a8)
 {
-  __int64 v8; // r13
-  int v9; // r12d
-  __int64 v10; // r14
-  __int64 v11; // r9
-  int v13; // ebx
+  __int64 v8; // r15
+  __int64 v9; // rsi
+  __int64 v10; // r9
+  int v11; // r10d
+  int v12; // ebx
   __int64 v14; // r9
-  __int64 v15; // rdx
-  unsigned __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // r9
-  int v19; // r10d
-  __int16 v20; // r11
-  __int64 v21; // rcx
-  __int64 v22; // r8
+  __int64 v15; // rcx
+  __int64 v16; // r9
+  unsigned __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  int v20; // r8d
+  __int16 v21; // r9
+  int v22; // edx
   __int64 v23; // rcx
   __int64 v24; // r9
   __int64 v25; // rcx
-  __int64 *v26; // r14
-  __int64 v27; // r8
-  unsigned int *v28; // r12
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r9
-  __int64 v32; // rcx
-  __int64 v33; // r9
-  int v34; // ecx
-  unsigned __int64 v35; // r12
-  __int64 v36; // r13
-  unsigned __int64 v37; // r12
-  _BYTE *Pool2; // rcx
-  __int64 v39; // r12
-  unsigned int v40; // r8d
-  unsigned int v41; // edx
-  int v42; // r9d
-  __int64 v43; // rax
-  __int64 v44; // rdx
-  __int64 v45; // r9
+  __int64 v26; // r8
+  __int64 v27; // rcx
+  __int64 v28; // r9
+  __int64 v29; // rcx
+  __int64 *v30; // rsi
+  int v31; // r8d
+  __int64 v32; // r15
+  _BYTE *PoolWithTag; // r9
+  __int64 v34; // r15
+  _BYTE *v35; // rcx
+  __int64 v36; // r11
+  __int64 v37; // r15
+  unsigned int v38; // r8d
+  unsigned int v39; // edx
+  int v40; // r9d
+  __int64 v41; // rax
+  __int64 v42; // rdx
+  __int64 v43; // r10
+  __int64 v44; // rcx
+  __int64 v45; // r8
   __int64 v46; // rcx
-  __int64 v47; // r8
+  __int64 v47; // r9
   __int64 v48; // rcx
-  __int64 v49; // r9
+  __int64 *v49; // rsi
   __int64 v50; // rcx
-  __int64 *v51; // r14
-  __int64 v52; // rdx
-  __int64 v53; // r9
-  int v54; // eax
+  __int64 v51; // r9
+  int v52; // ecx
+  __int64 v53; // rcx
+  __int64 v54; // r9
   __int64 v55; // rcx
-  __int64 v56; // r9
-  int v57; // ecx
-  __int64 v58; // r12
-  __int64 v59; // r13
-  __int64 v60; // rdx
-  __int64 v61; // r8
-  __int64 v62; // r9
+  __int64 *v56; // rdx
+  __int64 v57; // rax
+  __int64 v58; // rdx
+  int v59; // r8d
+  __int64 v60; // r9
+  int v61; // ecx
+  __int64 v62; // rcx
   __int64 v63; // r9
-  __int64 v64; // rcx
-  __int64 v65; // r9
-  __int64 v66; // rcx
-  __int64 *v67; // rdx
-  __int64 v68; // rax
-  __int64 v69; // rdx
-  int v70; // r8d
-  __int64 v71; // r9
-  int v72; // ecx
-  __int64 v73; // rdx
-  __int64 v74; // r9
+  __int64 v64; // r12
+  __int64 v65; // r15
+  int v66; // r8d
+  __int64 v67; // rdx
+  __int64 v68; // rcx
+  __int64 v69; // r9
+  __int64 v70; // r9
+  __int64 v71; // rcx
+  __int64 v72; // r8
+  __int64 v73; // rcx
+  __int64 *v74; // rsi
   __int64 v75; // r9
   __int64 v76; // rcx
   __int64 v77; // r8
   __int64 v78; // rcx
-  __int64 *v79; // r14
-  __int64 v80; // rax
-  __int64 v81; // r9
-  __int64 v82; // rcx
-  __int64 v83; // r8
-  __int64 v84; // rcx
-  __int64 *v85; // r14
-  __int64 v86; // rdx
-  __int64 v87; // r9
-  __int64 v88; // rcx
-  __int64 v89; // r8
-  __int64 v90; // rcx
-  __int64 v91; // rdx
-  __int64 v92; // rcx
-  __int64 v93; // r9
-  __int64 v94; // rax
-  __int64 v95; // r9
-  __int64 v96; // rcx
-  __int64 v97; // r8
-  __int64 v98; // rcx
-  __int64 *v99; // r14
+  __int64 *v79; // rsi
+  __int64 v80; // r9
+  __int64 v81; // rcx
+  __int64 v82; // r8
+  __int64 v83; // rcx
+  __int64 v84; // rdx
+  __int64 v85; // rax
+  __int64 v86; // r9
+  __int64 v87; // rcx
+  __int64 v88; // r9
+  _BYTE *v89; // rax
+  __int64 v90; // r9
+  __int64 v91; // rcx
+  __int64 v92; // r8
+  __int64 v93; // rcx
+  __int64 *v94; // rsi
+  PVOID v95; // rax
+  __int64 v96; // rdx
+  __int64 v97; // rcx
+  __int64 v98; // r8
+  void *v99; // rdx
   __int64 v100; // rax
   __int64 v101; // r10
-  int v102; // eax
-  __int64 v103; // r11
-  __int64 v104; // rdx
-  __int64 v105; // r9
+  __int64 v102; // r11
+  __int64 v103; // rdx
+  __int64 v104; // r9
+  __int64 v105; // r8
   __int64 v106; // rdx
-  __int64 v107; // r9
-  __int64 v108; // rdx
-  __int64 v109; // r9
-  int v110; // r9d
-  __int64 v111; // rdx
-  __int64 v112; // rcx
-  __int64 v113; // rdx
-  __int64 v114; // rcx
+  __int64 v107; // rcx
+  __int64 v108; // rax
+  __int64 v109; // r8
+  __int64 v110; // rcx
+  __int64 v111; // rax
+  __int64 v112; // r9
+  __int64 v113; // rcx
+  __int64 v114; // r8
   __int64 v115; // rcx
-  __int64 v116; // rax
-  __int64 v117; // r8
+  __int64 *v116; // rsi
+  __int64 v117; // rax
   __int64 v118; // rcx
-  __int64 v119; // r9
-  __int64 v120; // rcx
-  __int64 v121; // r8
-  __int64 v122; // rcx
-  __int64 *v123; // r14
-  __int64 v124; // rax
-  __int64 v125; // rcx
-  __int64 v126; // rax
-  __int64 v127; // r8
-  __int64 v128; // rcx
-  int v129; // [rsp+20h] [rbp-B9h]
-  _BYTE *v131; // [rsp+98h] [rbp-41h]
-  _BYTE v132[16]; // [rsp+A0h] [rbp-39h] BYREF
-  int v133; // [rsp+B0h] [rbp-29h]
-  PVOID P; // [rsp+B8h] [rbp-21h]
-  _BYTE v135[16]; // [rsp+C0h] [rbp-19h] BYREF
-  int v136; // [rsp+D0h] [rbp-9h]
+  __int64 v119; // rax
+  __int64 v120; // r8
+  __int64 v121; // rcx
+  int v122; // [rsp+28h] [rbp-B9h]
+  _BYTE *v124; // [rsp+90h] [rbp-51h]
+  _BYTE v125[16]; // [rsp+98h] [rbp-49h] BYREF
+  int v126; // [rsp+A8h] [rbp-39h]
+  _BYTE *v127; // [rsp+B0h] [rbp-31h]
+  PVOID P; // [rsp+B8h] [rbp-29h]
+  _BYTE v129[16]; // [rsp+C0h] [rbp-21h] BYREF
+  int v130; // [rsp+D0h] [rbp-11h]
 
   v8 = a7;
-  v9 = a8;
-  v10 = 0LL;
-  v11 = a3;
-  v13 = a1;
+  v9 = 0LL;
+  v10 = a3;
+  v11 = a8;
+  v12 = a1;
   if ( !bTracingEnabled )
     goto LABEL_16;
   if ( (_DWORD)a1 == 2 )
   {
-    v15 = *(_QWORD *)(a2 + 504);
+    v17 = ((unsigned __int64)*(unsigned int *)(a2 + 76) + 63) >> 6;
     if ( a5 )
     {
-      v17 = *(_QWORD *)(a5 + 96);
-      v18 = *(_QWORD *)(a5 + 56);
-      v19 = *(_DWORD *)(v17 + 1768);
-      v20 = *(_WORD *)(v17 + 4);
-      if ( !v18 || (*(_DWORD *)(a5 + 112) & 0x40) != 0 )
-        LOBYTE(v18) = a5;
+      v18 = *(_QWORD *)(a5 + 96);
+      v19 = *(_QWORD *)(a5 + 56);
+      v20 = *(_DWORD *)(v18 + 1760);
+      v21 = *(_WORD *)(v18 + 4);
+      if ( !v19 || (*(_DWORD *)(a5 + 112) & 0x40) != 0 )
+        LODWORD(v19) = a5;
     }
     else
     {
-      LOBYTE(v19) = 0;
-      LOBYTE(v20) = 0;
-      LOBYTE(v18) = 0;
+      v20 = 0;
+      LOBYTE(v21) = 0;
+      LODWORD(v19) = 0;
     }
-    if ( (byte_1C0076981 & 2) != 0 )
-    {
-      v16 = ((unsigned __int64)*(unsigned int *)(a2 + 84) + 63) >> 6;
-      McTemplateK0ppqqqPR4PR4_EtwWriteTransfer(
-        v16,
-        v15,
-        *(_QWORD *)(a2 + 456),
-        *(_QWORD *)(a2 + 16),
-        v18,
-        v20,
-        v19,
-        v16,
-        *(_QWORD *)(a2 + 456),
-        v15);
-    }
-    goto LABEL_15;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80u) == 0LL )
+      goto LABEL_26;
+    McTemplateK0ppqqqPR4PR4_EtwWriteTransfer(
+      v17,
+      v19,
+      v20,
+      *(_QWORD *)(a2 + 16),
+      v19,
+      v21,
+      v20,
+      v17,
+      *(_QWORD *)(a2 + 448),
+      *(_QWORD *)(a2 + 496));
+    goto LABEL_75;
   }
   if ( (_DWORD)a1 == 9 )
   {
-LABEL_30:
+LABEL_27:
     if ( a7 )
     {
-      v73 = *(_QWORD *)(a7 + 48);
-      v74 = *(_QWORD *)(v73 + 56);
-      if ( !v74 || (LODWORD(a1) = *(_DWORD *)(v73 + 112), (a1 & 0x40) != 0) )
-        v74 = *(_QWORD *)(a7 + 48);
-      if ( (byte_1C0076981 & 1) != 0 )
+      v62 = *(_QWORD *)(a7 + 48);
+      v63 = *(_QWORD *)(v62 + 56);
+      if ( !v63 || (*(_DWORD *)(v62 + 112) & 0x40) != 0 )
+        v63 = *(_QWORD *)(a7 + 48);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      {
         McTemplateK0pqxqt_EtwWriteTransfer(
-          a1,
-          v73,
-          v13 == 11,
-          v74,
+          v62,
+          v12 == 11,
+          a3,
+          v63,
           *(_DWORD *)(a7 + 88),
           *(_QWORD *)(a7 + 104),
           *(_DWORD *)(a7 + 96),
-          v13 == 11);
+          v12 == 11);
+        goto LABEL_75;
+      }
       goto LABEL_15;
     }
     if ( !a6 )
       goto LABEL_16;
-    v27 = *(unsigned int *)(a6 + 48);
     if ( (_DWORD)a1 == 9 )
     {
-      if ( (_DWORD)v27 == 4 )
+      if ( *(_DWORD *)(a6 + 48) == 4 )
       {
-        v28 = (unsigned int *)(a6 + 112);
-        v29 = *(_QWORD *)(a6 + 88);
-        v27 = *(unsigned int *)(a6 + 112);
-        v30 = (*(_DWORD *)(a6 + 272) >> 1) & 1;
-        if ( v29 )
+        v87 = *(_QWORD *)(a6 + 88);
+        if ( v87 )
         {
-          v31 = *(_QWORD *)(v29 + 56);
-          if ( !v31 || (*(_DWORD *)(v29 + 112) & 0x40) != 0 )
-            v31 = *(_QWORD *)(a6 + 88);
+          v88 = *(_QWORD *)(v87 + 56);
+          if ( !v88 || (*(_DWORD *)(v87 + 112) & 0x40) != 0 )
+            v88 = *(_QWORD *)(a6 + 88);
         }
         else
         {
-          v31 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-          if ( !v31 )
-            v31 = *(_QWORD *)(a6 + 96);
+          v88 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+          if ( !v88 )
+            v88 = *(_QWORD *)(a6 + 96);
         }
-        if ( (byte_1C0076981 & 1) != 0 )
-          McTemplateK0pqqttp_EtwWriteTransfer(v30, v29, v27, v31, 4, v27, v30);
-        goto LABEL_84;
-      }
-    }
-    else if ( (_DWORD)a1 == 11 )
-    {
-      v30 = 1LL;
-      goto LABEL_79;
-    }
-    v30 = 0LL;
-LABEL_79:
-    v52 = *(_QWORD *)(a6 + 88);
-    v28 = (unsigned int *)(a6 + 112);
-    if ( v52 )
-    {
-      v53 = *(_QWORD *)(v52 + 56);
-      if ( !v53 || (*(_DWORD *)(v52 + 112) & 0x40) != 0 )
-        v53 = *(_QWORD *)(a6 + 88);
-    }
-    else
-    {
-      v53 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-      if ( !v53 )
-        v53 = *(_QWORD *)(a6 + 96);
-    }
-    if ( (byte_1C0076981 & 1) != 0 )
-      McTemplateK0pqqttp_EtwWriteTransfer(v30, v52, v27, v53, v27, *(_DWORD *)(a6 + 112), v30);
-LABEL_84:
-    v54 = *(_DWORD *)(a6 + 48);
-    if ( v54 )
-    {
-      if ( ((v54 - 3) & 0xFFFFFFFB) != 0 )
-      {
-LABEL_86:
-        v9 = a8;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        {
+          McTemplateK0pqqttp_EtwWriteTransfer(
+            v87,
+            a2,
+            a3,
+            v88,
+            4,
+            *(_DWORD *)(a6 + 112),
+            (*(_DWORD *)(a6 + 272) & 2) != 0);
+          goto LABEL_75;
+        }
         goto LABEL_15;
       }
     }
-    else if ( (*(_DWORD *)(a6 + 72) & 0x4000) == 0 )
+    else
     {
-      goto LABEL_86;
+      v22 = 1;
+      if ( (_DWORD)a1 == 11 )
+      {
+LABEL_32:
+        v23 = *(_QWORD *)(a6 + 88);
+        if ( v23 )
+        {
+          v24 = *(_QWORD *)(v23 + 56);
+          if ( !v24 || (*(_DWORD *)(v23 + 112) & 0x40) != 0 )
+            v24 = *(_QWORD *)(a6 + 88);
+        }
+        else
+        {
+          v24 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+          if ( !v24 )
+            v24 = *(_QWORD *)(a6 + 96);
+        }
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        {
+          McTemplateK0pqqttp_EtwWriteTransfer(v23, v22, a3, v24, *(_DWORD *)(a6 + 48), *(_DWORD *)(a6 + 112), v22);
+          goto LABEL_75;
+        }
+        goto LABEL_15;
+      }
     }
-    if ( (byte_1C0076983 & 0x20) != 0 )
-    {
-      McTemplateK0q_EtwWriteTransfer(v30, &EventPresentQueueComplete, v27, *v28);
-      v9 = a8;
-      goto LABEL_15;
-    }
-    goto LABEL_86;
+    v22 = 0;
+    goto LABEL_32;
   }
   if ( (_DWORD)a1 != 20 )
   {
-    if ( (_DWORD)a1 == 5 )
+    if ( (_DWORD)a1 != 5 )
     {
-      v32 = *(_QWORD *)(a6 + 88);
-      v33 = *(_QWORD *)(v32 + 56);
-      if ( !v33 || (*(_DWORD *)(v32 + 112) & 0x40) != 0 )
-        v33 = *(_QWORD *)(a6 + 88);
-      if ( (byte_1C0076981 & 1) != 0 )
-        McTemplateK0pqq_EtwWriteTransfer(
-          v32,
-          (unsigned int)&EventQueueSelect,
-          *(_DWORD *)(a6 + 48),
-          v33,
-          *(_DWORD *)(a6 + 48),
-          *(_DWORD *)(a6 + 112));
-      goto LABEL_15;
-    }
-    if ( (_DWORD)a1 != 4 )
-    {
-      switch ( (int)a1 )
+      if ( (_DWORD)a1 != 4 )
       {
-        case 1:
-          v63 = *(_QWORD *)(a5 + 56);
-          if ( !v63 || (*(_DWORD *)(a5 + 112) & 0x40) != 0 )
-            v63 = a5;
-          if ( (byte_1C0076981 & 1) == 0 )
-            goto LABEL_9;
-          McTemplateK0pq_EtwWriteTransfer(a1, &EventAttemptPreemption, a3, v63, a8);
-          goto LABEL_15;
-        case 7:
-          v58 = 0LL;
-          if ( *(_DWORD *)(a7 + 88) == 1 )
-          {
-            v100 = *(_QWORD *)(a7 + 56);
-            if ( v100 )
-            {
-              if ( *(_DWORD *)(v100 + 48) == 8 )
-                v58 = *(_QWORD *)(v100 + 88);
-            }
-          }
-          v59 = *(_QWORD *)(a7 + 48);
-          if ( *(_DWORD *)(v59 + 984) >= 0x80u )
-            VidSchiFlushGpuWorkEntries(*(struct _VIDSCH_CONTEXT **)(a7 + 48), a2, a3);
-          if ( *(_QWORD *)(v59 + 992)
-            || (v94 = operator new[](1024LL, 0x61616956u, 64LL), (*(_QWORD *)(v59 + 992) = v94) != 0LL) )
-          {
-            *(LARGE_INTEGER *)(*(_QWORD *)(v59 + 992) + 8LL * (unsigned int)(*(_DWORD *)(v59 + 984))++) = KeQueryPerformanceCounter(0LL);
-          }
-          else
-          {
-            WdLogSingleEntry0(1LL);
-            ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-              0LL,
-              0x40000LL,
-              0xFFFFFFFFLL,
-              L"Failed to allocate GpuWorkRecords for long haul logging",
-              458LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          v8 = a7;
-          v60 = *(_QWORD *)(a7 + 48);
-          if ( v58 )
-          {
-            v61 = *(_QWORD *)(v58 + 56);
-            if ( !v61 || (*(_DWORD *)(v58 + 112) & 0x40) != 0 )
-              LODWORD(v61) = v58;
-          }
-          else
-          {
-            LODWORD(v61) = 0;
-          }
-          v62 = *(_QWORD *)(v60 + 56);
-          if ( !v62 || (*(_DWORD *)(v60 + 112) & 0x40) != 0 )
-            LODWORD(v62) = *(_QWORD *)(a7 + 48);
-          if ( (byte_1C0076981 & 1) != 0 )
-            McTemplateK0ppqxqpq_EtwWriteTransfer(
-              *(_QWORD *)(a7 + 64),
-              v60,
-              v61,
-              v62,
-              v61,
-              *(_DWORD *)(a7 + 88),
-              *(_QWORD *)(a7 + 104),
-              *(_DWORD *)(a7 + 96),
-              *(_QWORD *)(a7 + 64),
-              *(_DWORD *)(v60 + 436));
-          goto LABEL_111;
-        case 8:
-        case 10:
-        case 12:
-          LODWORD(v69) = 0;
-          v70 = 0;
-          LOBYTE(v71) = 0;
-          v72 = 0;
-          switch ( v13 )
-          {
-            case 8:
-              v72 = 1;
-              break;
-            case 10:
-              v72 = 2;
-              break;
-            case 12:
-              v69 = *(_QWORD *)(a8 + 40);
-              v72 = 9;
-              v70 = *(_DWORD *)(a8 + 32);
-              v71 = *(_QWORD *)(a8 + 64);
-              break;
-          }
-          if ( (byte_1C0076981 & 1) != 0 )
-          {
-            v101 = *(_QWORD *)(a7 + 48);
-            v102 = *(_DWORD *)(a7 + 96);
-            v103 = *(_QWORD *)(v101 + 56);
-            if ( !v103 || (*(_DWORD *)(v101 + 112) & 0x40) != 0 )
-              LODWORD(v103) = *(_QWORD *)(a7 + 48);
-            McTemplateK0pqxqqqxqp_EtwWriteTransfer(
-              v72,
-              v69,
-              v70,
-              v103,
-              *(_DWORD *)(a7 + 88),
-              *(_QWORD *)(a7 + 104),
-              v102,
-              v72,
-              *(_DWORD *)(v101 + 436),
-              v69,
-              v70,
-              v71);
-            v9 = a8;
-          }
-          goto LABEL_15;
-        case 11:
-        case 13:
-          goto LABEL_30;
-        case 14:
-          v14 = *(_QWORD *)(a2 + 16);
-          if ( (byte_1C0076981 & 1) == 0 )
-            goto LABEL_9;
-          v129 = 1;
-          goto LABEL_188;
-        case 15:
-          if ( (byte_1C0076981 & 1) == 0 )
-            goto LABEL_9;
-          McTemplateK0pq_EtwWriteTransfer(a1, &EventExitWorkerThread, a3, *(_QWORD *)(a2 + 16), 1);
-          goto LABEL_15;
-        case 16:
-          v14 = *(_QWORD *)(a2 + 16);
-          if ( (byte_1C0076981 & 1) == 0 )
-            goto LABEL_9;
-          v129 = 3;
-          goto LABEL_188;
-        case 17:
-          if ( (byte_1C0076981 & 1) == 0 )
-            goto LABEL_9;
-          McTemplateK0pq_EtwWriteTransfer(a1, &EventExitWorkerThread, a3, *(_QWORD *)(a2 + 16), 3);
-          goto LABEL_15;
-        case 18:
-          v14 = *(_QWORD *)(a2 + 16);
-          if ( (byte_1C0076981 & 1) == 0 )
-            goto LABEL_9;
-          a1 = 2LL;
-          v129 = 2;
-LABEL_188:
-          McTemplateK0pq_EtwWriteTransfer(a1, &EventEnterWorkerThread, a3, v14, v129);
-          goto LABEL_15;
-        case 19:
-          if ( (byte_1C0076981 & 1) == 0 )
-          {
-LABEL_9:
-            v11 = a3;
-            goto LABEL_16;
-          }
-          McTemplateK0pq_EtwWriteTransfer(2LL, &EventExitWorkerThread, a3, *(_QWORD *)(a2 + 16), 2);
-          break;
-        default:
-          goto LABEL_16;
-      }
-      goto LABEL_15;
-    }
-    v34 = *(_DWORD *)(a6 + 48);
-    if ( v34 == 5 )
-    {
-      v35 = *(unsigned int *)(a6 + 276);
-      v131 = 0LL;
-      v133 = 0;
-      if ( (unsigned int)v35 > 2 )
-      {
-        if ( 0xFFFFFFFFFFFFFFFFuLL / v35 < 8 )
+        switch ( (int)a1 )
         {
-          v36 = 0LL;
-LABEL_50:
-          v37 = *(unsigned int *)(a6 + 276);
-          Pool2 = 0LL;
-          P = 0LL;
-          v136 = 0;
-          if ( (unsigned int)v37 > 2 )
-          {
-            if ( 0xFFFFFFFFFFFFFFFFuLL / v37 < 8 )
-            {
-              v39 = 0LL;
-LABEL_54:
-              if ( v36 && v39 )
-              {
-                v40 = *(_DWORD *)(a6 + 276);
-                v41 = 0;
-                if ( v40 )
-                {
-                  do
-                  {
-                    *(_QWORD *)(8LL * v41 + v36) = *(_QWORD *)(a6 + 8LL * v41 + 280);
-                    v42 = *(_DWORD *)(*(_QWORD *)(a6 + 8LL * v41 + 280) + 48LL);
-                    if ( v42 == 4 || v42 == 2 || (v43 = 0LL, v42 == 5) )
-                      v43 = *(_QWORD *)(a6 + 8LL * v41 + 536);
-                    *(_QWORD *)(8LL * v41++ + v39) = v43;
-                    v40 = *(_DWORD *)(a6 + 276);
-                  }
-                  while ( v41 < v40 );
-                  Pool2 = P;
-                }
-                if ( (byte_1C0076983 & 0x20) != 0 )
-                {
-                  v110 = *(_DWORD *)(a6 + 272);
-                  if ( (v110 & 0x10) != 0 )
-                  {
-                    v111 = *(_QWORD *)(a6 + 88);
-                    if ( v111 )
-                    {
-                      v112 = *(_QWORD *)(v111 + 56);
-                      if ( !v112 || (*(_DWORD *)(v111 + 112) & 0x40) != 0 )
-                        v112 = *(_QWORD *)(a6 + 88);
-                    }
-                    else
-                    {
-                      v112 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-                      if ( !v112 )
-                        v112 = *(_QWORD *)(a6 + 96);
-                    }
-                    McTemplateK0qpqdqPR4XR4p_EtwWriteTransfer(
-                      v112,
-                      v111,
-                      v40,
-                      0,
-                      v112,
-                      *(_DWORD *)(a6 + 112),
-                      v110,
-                      v40,
-                      v36,
-                      v39,
-                      a6);
-                    Pool2 = P;
-                  }
-                }
-                v44 = *(_QWORD *)(a6 + 88);
-                if ( v44 )
-                {
-                  v45 = *(_QWORD *)(v44 + 56);
-                  if ( !v45 || (*(_DWORD *)(v44 + 112) & 0x40) != 0 )
-                    v45 = *(_QWORD *)(a6 + 88);
-                }
-                else
-                {
-                  v45 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-                  if ( !v45 )
-                    v45 = *(_QWORD *)(a6 + 96);
-                }
-                if ( (byte_1C0076981 & 1) != 0 )
-                {
-                  McTemplateK0pqqqPR3XR3p_EtwWriteTransfer(
-                    (_DWORD)Pool2,
-                    v44,
-                    *(_DWORD *)(a6 + 276),
-                    v45,
-                    *(_DWORD *)(a6 + 112),
-                    *(_DWORD *)(a6 + 272),
-                    *(_DWORD *)(a6 + 276),
-                    v36,
-                    v39,
-                    a6);
-                  Pool2 = P;
-                }
-              }
-              if ( Pool2 != v135 && Pool2 )
-                ExFreePoolWithTag(Pool2, 0);
-              P = 0LL;
-              v136 = 0;
-              if ( v131 != v132 && v131 )
-                ExFreePoolWithTag(v131, 0);
-              v8 = a7;
-              v9 = a8;
+          case 1:
+            v14 = *(_QWORD *)(a5 + 56);
+            if ( !v14 || (*(_DWORD *)(a5 + 112) & 0x40) != 0 )
+              v14 = a5;
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
               goto LABEL_15;
-            }
-            Pool2 = (_BYTE *)ExAllocatePool2(64LL, 8 * v37, 945908054LL);
-            P = Pool2;
-          }
-          else
-          {
-            Pool2 = v135;
-            P = v135;
-            if ( (_DWORD)v37 )
+            v122 = a8;
+            v99 = &EventAttemptPreemption;
+            goto LABEL_191;
+          case 7:
+            v64 = 0LL;
+            if ( *(_DWORD *)(a7 + 88) == 1 )
             {
-              memset(v135, 0, 8LL * (unsigned int)v37);
-              Pool2 = P;
+              v85 = *(_QWORD *)(a7 + 56);
+              if ( v85 )
+              {
+                if ( *(_DWORD *)(v85 + 48) == 8 )
+                  v64 = *(_QWORD *)(v85 + 88);
+              }
             }
-          }
-          v136 = v37;
-          v39 = (__int64)Pool2;
-          goto LABEL_54;
-        }
-        v131 = (_BYTE *)ExAllocatePool2(64LL, 8 * v35, 945908054LL);
-      }
-      else
-      {
-        v131 = v132;
-        if ( (_DWORD)v35 )
-          memset(v132, 0, 8LL * (unsigned int)v35);
-      }
-      v36 = (__int64)v131;
-      v133 = v35;
-      goto LABEL_50;
-    }
-    if ( v34 )
-    {
-      switch ( v34 )
-      {
-        case 3:
-          goto LABEL_146;
-        case 4:
-          v92 = *(_QWORD *)(a6 + 88);
-          if ( v92 )
-          {
-            v93 = *(_QWORD *)(v92 + 56);
-            if ( !v93 || (*(_DWORD *)(v92 + 112) & 0x40) != 0 )
-              v93 = *(_QWORD *)(a6 + 88);
-          }
-          else
-          {
-            v93 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-            if ( !v93 )
-              v93 = *(_QWORD *)(a6 + 96);
-          }
-          if ( (byte_1C0076981 & 1) != 0 )
-            McTemplateK0pqqpxp_EtwWriteTransfer(
-              v92,
-              *(_QWORD *)(a6 + 304),
-              *(_QWORD *)(a6 + 280),
-              v93,
-              *(_DWORD *)(a6 + 112),
-              *(_DWORD *)(a6 + 272),
-              *(_QWORD *)(a6 + 280),
-              *(_QWORD *)(a6 + 304),
-              a6);
-          goto LABEL_15;
-        case 7:
-LABEL_146:
-          if ( (byte_1C0076983 & 0x20) != 0 )
-          {
-            v104 = *(_QWORD *)(a6 + 88);
-            if ( v104 )
+            v65 = *(_QWORD *)(a7 + 48);
+            if ( *(_DWORD *)(v65 + 976) >= 0x80u )
+              VidSchiFlushGpuWorkEntries((struct _VIDSCH_CONTEXT *)v65);
+            if ( *(_QWORD *)(v65 + 984)
+              || (v95 = operator new[](0x400uLL, 0x61616956u, (POOL_TYPE)512), (*(_QWORD *)(v65 + 984) = v95) != 0LL) )
             {
-              v105 = *(_QWORD *)(v104 + 56);
-              if ( !v105 || (*(_DWORD *)(v104 + 112) & 0x40) != 0 )
-                v105 = *(_QWORD *)(a6 + 88);
+              *(LARGE_INTEGER *)(*(_QWORD *)(v65 + 984) + 8LL * (unsigned int)(*(_DWORD *)(v65 + 976))++) = KeQueryPerformanceCounter(0LL);
             }
             else
             {
-              v105 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-              if ( !v105 )
-                v105 = *(_QWORD *)(a6 + 96);
+              v100 = WdLogNewEntry5_WdAssertion(v97, v96, v98);
+              WdLogEvent5_WdAssertion(v100);
             }
-            McTemplateK0pqq_EtwWriteTransfer(
-              v34,
-              (unsigned int)&EventPresentQueueSubmit,
-              *(_DWORD *)(a6 + 112),
-              v105,
-              v34,
-              *(_DWORD *)(a6 + 112));
+            if ( v64 )
+            {
+              v67 = *(_QWORD *)(v64 + 56);
+              if ( !v67 || (*(_DWORD *)(v64 + 112) & 0x40) != 0 )
+                LODWORD(v67) = v64;
+            }
+            else
+            {
+              LODWORD(v67) = 0;
+            }
+            v8 = a7;
+            v68 = *(_QWORD *)(a7 + 48);
+            v69 = *(_QWORD *)(v68 + 56);
+            if ( !v69 || (*(_DWORD *)(v68 + 112) & 0x40) != 0 )
+              v69 = *(_QWORD *)(a7 + 48);
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+              McTemplateK0ppqxqpq_EtwWriteTransfer(
+                v68,
+                v67,
+                v66,
+                v69,
+                v67,
+                *(_DWORD *)(a7 + 88),
+                *(_QWORD *)(a7 + 104),
+                *(_DWORD *)(a7 + 96),
+                *(_QWORD *)(a7 + 64),
+                *(_DWORD *)(v68 + 436));
+            goto LABEL_75;
+          case 8:
+          case 10:
+          case 12:
+            LODWORD(v58) = 0;
+            v59 = 0;
+            LOBYTE(v60) = 0;
+            v61 = 0;
+            switch ( v12 )
+            {
+              case 8:
+                v61 = 1;
+                break;
+              case 10:
+                v61 = 2;
+                break;
+              case 12:
+                v58 = *(_QWORD *)(a8 + 40);
+                v61 = 9;
+                v59 = *(_DWORD *)(a8 + 32);
+                v60 = *(_QWORD *)(a8 + 64);
+                break;
+            }
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_26;
+            v101 = *(_QWORD *)(a7 + 48);
+            v102 = *(_QWORD *)(v101 + 56);
+            if ( !v102 || (*(_DWORD *)(v101 + 112) & 0x40) != 0 )
+              v102 = *(_QWORD *)(a7 + 48);
+            McTemplateK0pqxqqqxqp_EtwWriteTransfer(
+              v61,
+              v58,
+              v59,
+              v102,
+              *(_DWORD *)(a7 + 88),
+              *(_QWORD *)(a7 + 104),
+              *(_DWORD *)(a7 + 96),
+              v61,
+              *(_DWORD *)(v101 + 436),
+              v58,
+              v59,
+              v60);
+            goto LABEL_75;
+          case 11:
+          case 13:
+            goto LABEL_27;
+          case 14:
+            v14 = *(_QWORD *)(a2 + 16);
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_15;
+            v122 = 1;
+            goto LABEL_189;
+          case 15:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_15;
+            McTemplateK0pq_EtwWriteTransfer(a1, &EventExitWorkerThread, a3, *(_QWORD *)(a2 + 16), 1);
+            goto LABEL_75;
+          case 16:
+            v14 = *(_QWORD *)(a2 + 16);
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_15;
+            v122 = 3;
+            goto LABEL_189;
+          case 17:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_15;
+            McTemplateK0pq_EtwWriteTransfer(a1, &EventExitWorkerThread, a3, *(_QWORD *)(a2 + 16), 3);
+            goto LABEL_75;
+          case 18:
+            v14 = *(_QWORD *)(a2 + 16);
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_15;
+            a1 = 2LL;
+            v122 = 2;
+LABEL_189:
+            v99 = &EventEnterWorkerThread;
+LABEL_191:
+            McTemplateK0pq_EtwWriteTransfer(a1, v99, a3, v14, v122);
+            goto LABEL_75;
+          case 19:
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_15;
+            McTemplateK0pq_EtwWriteTransfer(2LL, &EventExitWorkerThread, a3, *(_QWORD *)(a2 + 16), 2);
+            goto LABEL_75;
+          default:
+            goto LABEL_16;
+        }
+      }
+      v31 = *(_DWORD *)(a6 + 48);
+      if ( v31 == 5 )
+      {
+        v32 = *(unsigned int *)(a6 + 276);
+        PoolWithTag = 0LL;
+        v124 = 0LL;
+        v126 = 0;
+        if ( (unsigned int)v32 > 2 )
+        {
+          if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)v32 < 8 )
+          {
+            v127 = 0LL;
+            goto LABEL_54;
           }
-          break;
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 8 * v32, 0x38616956u);
+          v124 = PoolWithTag;
+        }
+        else
+        {
+          PoolWithTag = v125;
+          v124 = v125;
+        }
+        v126 = v32;
+        if ( PoolWithTag && (_DWORD)v32 )
+        {
+          memset(PoolWithTag, 0, 8 * v32);
+          PoolWithTag = v124;
+        }
+        v127 = PoolWithTag;
+LABEL_54:
+        v34 = *(unsigned int *)(a6 + 276);
+        v35 = 0LL;
+        P = 0LL;
+        v130 = 0;
+        if ( (unsigned int)v34 > 2 )
+        {
+          if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)v34 < 8 )
+          {
+            v36 = 0LL;
+LABEL_60:
+            v37 = (__int64)v127;
+            if ( v127 && v36 )
+            {
+              v38 = *(_DWORD *)(a6 + 276);
+              v39 = 0;
+              if ( v38 )
+              {
+                do
+                {
+                  *(_QWORD *)(8LL * v39 + v37) = *(_QWORD *)(a6 + 8LL * v39 + 280);
+                  v40 = *(_DWORD *)(*(_QWORD *)(a6 + 8LL * v39 + 280) + 44LL);
+                  if ( v40 == 4 || v40 == 2 || v40 == 5 )
+                    v41 = *(_QWORD *)(a6 + 8LL * v39 + 536);
+                  else
+                    v41 = 0LL;
+                  *(_QWORD *)(8LL * v39++ + v36) = v41;
+                  v38 = *(_DWORD *)(a6 + 276);
+                }
+                while ( v39 < v38 );
+                PoolWithTag = v124;
+                v35 = P;
+              }
+              v42 = *(_QWORD *)(a6 + 88);
+              if ( v42 )
+              {
+                v43 = *(_QWORD *)(v42 + 56);
+                if ( !v43 || (*(_DWORD *)(v42 + 112) & 0x40) != 0 )
+                  v43 = *(_QWORD *)(a6 + 88);
+              }
+              else
+              {
+                v43 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+                if ( !v43 )
+                  v43 = *(_QWORD *)(a6 + 96);
+              }
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+              {
+                McTemplateK0pqqqPR3XR3p_EtwWriteTransfer(
+                  (_DWORD)v35,
+                  v42,
+                  v38,
+                  v43,
+                  *(_DWORD *)(a6 + 112),
+                  *(_DWORD *)(a6 + 272),
+                  v38,
+                  v37,
+                  v36,
+                  a6);
+                PoolWithTag = v124;
+                v35 = P;
+              }
+            }
+            if ( v35 != v129 && v35 )
+            {
+              ExFreePoolWithTag(v35, 0);
+              PoolWithTag = v124;
+            }
+            P = 0LL;
+            v130 = 0;
+            if ( PoolWithTag != v125 && PoolWithTag )
+              ExFreePoolWithTag(PoolWithTag, 0);
+            v8 = a7;
+            goto LABEL_75;
+          }
+          v89 = ExAllocatePoolWithTag((POOL_TYPE)512, 8 * v34, 0x38616956u);
+          PoolWithTag = v124;
+          v35 = v89;
+          P = v89;
+        }
+        else
+        {
+          v35 = v129;
+          P = v129;
+        }
+        v130 = v34;
+        if ( v35 && (_DWORD)v34 )
+        {
+          memset(v35, 0, 8 * v34);
+          PoolWithTag = v124;
+          v35 = P;
+        }
+        v36 = (__int64)v35;
+        goto LABEL_60;
       }
-      v86 = *(_QWORD *)(a6 + 88);
-      if ( v86 )
+      v50 = *(_QWORD *)(a6 + 88);
+      if ( !v31 )
       {
-        v87 = *(_QWORD *)(v86 + 56);
-        if ( !v87 || (*(_DWORD *)(v86 + 112) & 0x40) != 0 )
-          v87 = *(_QWORD *)(a6 + 88);
+        if ( v50 )
+        {
+          v51 = *(_QWORD *)(v50 + 56);
+          if ( !v51 || (*(_DWORD *)(v50 + 112) & 0x40) != 0 )
+            v51 = *(_QWORD *)(a6 + 88);
+        }
+        else
+        {
+          v51 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+          if ( !v51 )
+            v51 = *(_QWORD *)(a6 + 96);
+        }
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        {
+          McTemplateK0pqqxqqtppx_EtwWriteTransfer(
+            (*(_DWORD *)(a6 + 72) >> 14) & 1,
+            *(_DWORD *)(a6 + 324),
+            0,
+            v51,
+            0,
+            *(_DWORD *)(a6 + 112),
+            *(_DWORD *)(a6 + 324),
+            *(_DWORD *)(a6 + 332),
+            *(_DWORD *)(a6 + 340),
+            (*(_DWORD *)(a6 + 72) & 0x4000) != 0,
+            *(_QWORD *)(a6 + 280),
+            a6,
+            *(_QWORD *)(a6 + 752));
+          v11 = a8;
+        }
+        v52 = *(_DWORD *)(a6 + 464);
+        if ( v52 && (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+        {
+          v103 = *(_QWORD *)(a6 + 88);
+          if ( v103 )
+          {
+            v104 = *(_QWORD *)(v103 + 56);
+            if ( !v104 || (*(_DWORD *)(v103 + 112) & 0x40) != 0 )
+              v104 = *(_QWORD *)(a6 + 88);
+          }
+          else
+          {
+            v104 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+            if ( !v104 )
+              v104 = *(_QWORD *)(a6 + 96);
+          }
+          McTemplateK0pqqPR2p_EtwWriteTransfer(v52, v103, v31, v104, *(_DWORD *)(a6 + 112), v52, a6 + 472, a6);
+          goto LABEL_75;
+        }
+LABEL_26:
+        v10 = a3;
+        goto LABEL_16;
       }
-      else
+      if ( v31 == 4 )
       {
-        v87 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-        if ( !v87 )
-          v87 = *(_QWORD *)(a6 + 96);
-      }
-      if ( (byte_1C0076981 & 1) != 0 )
-      {
-        McTemplateK0pqqxqqtppx_EtwWriteTransfer(
-          (*(_DWORD *)(a6 + 72) >> 14) & 1,
+        if ( v50 )
+        {
+          v86 = *(_QWORD *)(v50 + 56);
+          if ( !v86 || (*(_DWORD *)(v50 + 112) & 0x40) != 0 )
+            v86 = *(_QWORD *)(a6 + 88);
+        }
+        else
+        {
+          v86 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+          if ( !v86 )
+            v86 = *(_QWORD *)(a6 + 96);
+        }
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+          goto LABEL_26;
+        McTemplateK0pqqpxp_EtwWriteTransfer(
+          v50,
+          a2,
+          4,
           v86,
-          *(_QWORD *)(a6 + 768),
-          v87,
-          *(_DWORD *)(a6 + 48),
           *(_DWORD *)(a6 + 112),
-          0,
-          0,
-          0,
-          (*(_DWORD *)(a6 + 72) & 0x4000) != 0,
+          *(_DWORD *)(a6 + 272),
           *(_QWORD *)(a6 + 280),
-          a6,
-          *(_QWORD *)(a6 + 768));
-        v9 = a8;
-        goto LABEL_15;
-      }
-    }
-    else
-    {
-      if ( (*(_DWORD *)(a6 + 72) & 0x4000) != 0 && (byte_1C0076983 & 0x20) != 0 )
-      {
-        v106 = *(_QWORD *)(a6 + 88);
-        if ( v106 )
-        {
-          v107 = *(_QWORD *)(v106 + 56);
-          if ( !v107 || (*(_DWORD *)(v106 + 112) & 0x40) != 0 )
-            v107 = *(_QWORD *)(a6 + 88);
-        }
-        else
-        {
-          v107 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-          if ( !v107 )
-            v107 = *(_QWORD *)(a6 + 96);
-        }
-        McTemplateK0pqq_EtwWriteTransfer(
-          0,
-          (unsigned int)&EventPresentQueueSubmit,
-          *(_DWORD *)(a6 + 112),
-          v107,
-          0,
-          *(_DWORD *)(a6 + 112));
-      }
-      v55 = *(_QWORD *)(a6 + 88);
-      if ( v55 )
-      {
-        v56 = *(_QWORD *)(v55 + 56);
-        if ( !v56 || (*(_DWORD *)(v55 + 112) & 0x40) != 0 )
-          LODWORD(v56) = *(_QWORD *)(a6 + 88);
+          *(_QWORD *)(a6 + 304),
+          a6);
       }
       else
       {
-        v56 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-        if ( !v56 )
-          v56 = *(_QWORD *)(a6 + 96);
-      }
-      if ( (byte_1C0076981 & 1) != 0 )
-        McTemplateK0pqqxqqtppx_EtwWriteTransfer(
-          v55,
-          (*(_DWORD *)(a6 + 72) >> 14) & 1,
-          *(_QWORD *)(a6 + 768),
-          v56,
-          *(_DWORD *)(a6 + 48),
-          *(_DWORD *)(a6 + 112),
-          *(_DWORD *)(a6 + 324),
-          *(_DWORD *)(a6 + 332),
-          *(_DWORD *)(a6 + 340),
-          (*(_DWORD *)(a6 + 72) & 0x4000) != 0,
-          *(_QWORD *)(a6 + 280),
-          a6,
-          *(_QWORD *)(a6 + 768));
-      v57 = *(_DWORD *)(a6 + 472);
-      if ( v57 && (byte_1C0076981 & 0x10) != 0 )
-      {
-        v108 = *(_QWORD *)(a6 + 88);
-        if ( v108 )
+        if ( v50 )
         {
-          v109 = *(_QWORD *)(v108 + 56);
-          if ( !v109 || (*(_DWORD *)(v108 + 112) & 0x40) != 0 )
-            v109 = *(_QWORD *)(a6 + 88);
+          v80 = *(_QWORD *)(v50 + 56);
+          if ( !v80 || (*(_DWORD *)(v50 + 112) & 0x40) != 0 )
+            v80 = *(_QWORD *)(a6 + 88);
         }
         else
         {
-          v109 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
-          if ( !v109 )
-            v109 = *(_QWORD *)(a6 + 96);
+          v80 = *(_QWORD *)(*(_QWORD *)(a6 + 96) + 48LL);
+          if ( !v80 )
+            v80 = *(_QWORD *)(a6 + 96);
         }
-        McTemplateK0pqqPR2p_EtwWriteTransfer(v57, v108, a6 + 480, v109, *(_DWORD *)(a6 + 112), v57, a6 + 480, a6);
-        v9 = a8;
-        goto LABEL_15;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+          goto LABEL_26;
+        McTemplateK0pqqxqqtppx_EtwWriteTransfer(
+          (*(_DWORD *)(a6 + 72) >> 14) & 1,
+          a2,
+          v31,
+          v80,
+          v31,
+          *(_DWORD *)(a6 + 112),
+          0,
+          0,
+          0,
+          (*(_DWORD *)(a6 + 72) & 0x4000) != 0,
+          *(_QWORD *)(a6 + 280),
+          a6,
+          *(_QWORD *)(a6 + 752));
       }
+LABEL_75:
+      v11 = a8;
+      v10 = a3;
+      goto LABEL_16;
     }
-LABEL_111:
-    v9 = a8;
+    v15 = *(_QWORD *)(a6 + 88);
+    v16 = *(_QWORD *)(v15 + 56);
+    if ( !v16 || (*(_DWORD *)(v15 + 112) & 0x40) != 0 )
+      v16 = *(_QWORD *)(a6 + 88);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    {
+      McTemplateK0pqq_EtwWriteTransfer(
+        v15,
+        (unsigned int)&EventQueueSelect,
+        a3,
+        v16,
+        *(_DWORD *)(a6 + 48),
+        *(_DWORD *)(a6 + 112));
+      goto LABEL_75;
+    }
 LABEL_15:
-    v11 = a3;
+    v10 = a3;
     goto LABEL_16;
   }
-  if ( (*(_DWORD *)(a2 + 2536) & 4) != 0 && !gulPriorityToYieldPriorityBand[*(unsigned int *)(a5 + 404)] )
+  if ( (*(_DWORD *)(a2 + 2448) & 4) != 0 && !gulPriorityToYieldPriorityBand[*(unsigned int *)(a5 + 404)] )
   {
-    v113 = *(_QWORD *)(a5 + 440);
-    if ( v113 <= 0 && (byte_1C0076981 & 1) != 0 )
+    v105 = *(_QWORD *)(a5 + 440);
+    if ( v105 <= 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
-      v114 = *(_QWORD *)(a5 + 56);
-      if ( !v114 || (*(_DWORD *)(a5 + 112) & 0x40) != 0 )
-        LODWORD(v114) = a5;
+      v106 = *(_QWORD *)(a5 + 56);
+      if ( !v106 || (*(_DWORD *)(a5 + 112) & 0x40) != 0 )
+        LODWORD(v106) = a5;
       McTemplateK0qtpiixi_EtwWriteTransfer(
-        v114,
-        v113,
-        *(_QWORD *)(a5 + 448),
-        *(unsigned __int16 *)(a3 + 4),
         a8 != 0,
-        v114,
+        v106,
+        v105,
+        *(unsigned __int16 *)(v10 + 4),
+        a8 != 0,
+        v106,
         *(_QWORD *)(a5 + 472),
-        v113,
+        v105,
         *(_QWORD *)(a5 + 464),
         *(_QWORD *)(a5 + 448));
-      goto LABEL_15;
+      goto LABEL_75;
     }
   }
 LABEL_16:
-  if ( *(int *)(a2 + 6472) >= 1 )
+  if ( *(int *)(a2 + 6344) >= 1 )
   {
-    if ( v13 == 1 )
+    if ( v12 == 1 )
     {
-      if ( v9 < 0 )
+      if ( v11 < 0 )
       {
-        v9 = -v9;
+        v11 = -v11;
       }
-      else if ( v9 >= 16 )
+      else if ( v11 >= 16 )
       {
-        v9 = 1;
+        v11 = 1;
       }
-      ++*(_DWORD *)(v11 + 2660);
-      ++*(_DWORD *)(v11 + 4LL * v9 + 2660);
-      v64 = *(_QWORD *)(a5 + 96);
-      if ( (*(_DWORD *)(v64 + 12) & 0x40) != 0 )
+      ++*(_DWORD *)(v10 + 2652);
+      ++*(_DWORD *)(v10 + 4LL * v11 + 2652);
+      v53 = *(_QWORD *)(a5 + 96);
+      if ( (*(_DWORD *)(v53 + 12) & 0x10) != 0 )
       {
-        v68 = 0LL;
+        v57 = 0LL;
       }
       else
       {
-        v65 = *(unsigned __int16 *)(v64 + 4);
-        v66 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a5 + 104) + 40LL) + 32LL)
-                        + 8LL * *(unsigned int *)(*(_QWORD *)(v64 + 24) + 4LL));
-        v67 = *(__int64 **)(v66 + 8);
-        if ( (unsigned int)v65 < *(_DWORD *)(v66 + 80) )
-          v67 += v65;
-        v68 = *v67;
-        v11 = a3;
+        v54 = *(unsigned __int16 *)(v53 + 4);
+        v55 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a5 + 104) + 40LL) + 24LL)
+                        + 8LL * *(unsigned int *)(*(_QWORD *)(v53 + 24) + 4LL));
+        v56 = *(__int64 **)(v55 + 8);
+        if ( (unsigned int)v54 < *(_DWORD *)(v55 + 80) )
+          v56 += v54;
+        v57 = *v56;
+        v10 = a3;
       }
-      ++*(_DWORD *)(v68 + 12);
-      ++*(_DWORD *)(v68 + 4LL * v9 + 12);
+      ++*(_DWORD *)(v57 + 12);
+      ++*(_DWORD *)(v57 + 4LL * v11 + 12);
     }
-    else if ( v13 == 3 )
+    else if ( v12 == 3 )
     {
-      ++*(_DWORD *)(v11 + 2656);
-      v88 = *(_QWORD *)(a5 + 96);
-      if ( (*(_DWORD *)(v88 + 12) & 0x40) == 0 )
+      ++*(_DWORD *)(v10 + 2648);
+      v81 = *(_QWORD *)(a5 + 96);
+      if ( (*(_DWORD *)(v81 + 12) & 0x10) == 0 )
       {
-        v89 = *(unsigned __int16 *)(v88 + 4);
-        v90 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a5 + 104) + 40LL) + 32LL)
-                        + 8LL * *(unsigned int *)(*(_QWORD *)(v88 + 24) + 4LL));
-        v91 = *(_QWORD *)(v90 + 8);
-        if ( (unsigned int)v89 < *(_DWORD *)(v90 + 80) )
-          v91 += 8 * v89;
-        if ( *(_QWORD *)v91 )
-          ++*(_DWORD *)(*(_QWORD *)v91 + 8LL);
+        v82 = *(unsigned __int16 *)(v81 + 4);
+        v83 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a5 + 104) + 40LL) + 24LL)
+                        + 8LL * *(unsigned int *)(*(_QWORD *)(v81 + 24) + 4LL));
+        v84 = *(_QWORD *)(v83 + 8);
+        if ( (unsigned int)v82 < *(_DWORD *)(v83 + 80) )
+          v84 += 8 * v82;
+        if ( *(_QWORD *)v84 )
+          ++*(_DWORD *)(*(_QWORD *)v84 + 8LL);
       }
     }
   }
-  if ( *(int *)(a2 + 6472) >= 2 )
+  if ( *(int *)(a2 + 6344) >= 2 )
   {
-    switch ( v13 )
+    switch ( v12 )
     {
       case 4:
-        ++*(_DWORD *)(v11 + 8LL * *(int *)(a6 + 48) + 2724);
-        v46 = *(_QWORD *)(a6 + 96);
-        if ( v46 )
+        ++*(_DWORD *)(v10 + 8LL * *(int *)(a6 + 48) + 2716);
+        v44 = *(_QWORD *)(a6 + 96);
+        if ( !v44 )
         {
-          v115 = *(_QWORD *)(v46 + 40);
-          v116 = *(_QWORD *)(v115 + 16);
-          v117 = *(unsigned __int16 *)(v116 + 4);
-          v118 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v115 + 8) + 40LL) + 32LL)
-                           + 8LL * *(unsigned int *)(*(_QWORD *)(v116 + 24) + 4LL));
-          if ( !v118 )
-          {
-LABEL_75:
-            if ( v10 )
-              ++*(_DWORD *)(v10 + 8LL * *(int *)(a6 + 48) + 76);
-            return;
-          }
-          v51 = *(__int64 **)(v118 + 8);
-          if ( (unsigned int)v117 < *(_DWORD *)(v118 + 80) )
-            v51 += v117;
+          v45 = *(_QWORD *)(a6 + 88);
+          v46 = *(_QWORD *)(v45 + 96);
+          if ( (*(_DWORD *)(v46 + 12) & 0x10) != 0 )
+            goto LABEL_81;
+          v47 = *(unsigned __int16 *)(v46 + 4);
+          v48 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v45 + 104) + 40LL) + 24LL)
+                          + 8LL * *(unsigned int *)(*(_QWORD *)(v46 + 24) + 4LL));
+          v49 = *(__int64 **)(v48 + 8);
+          if ( (unsigned int)v47 < *(_DWORD *)(v48 + 80) )
+            v49 += v47;
+          goto LABEL_80;
         }
-        else
+        v107 = *(_QWORD *)(v44 + 40);
+        v108 = *(_QWORD *)(v107 + 16);
+        v109 = *(unsigned __int16 *)(v108 + 4);
+        v110 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v107 + 8) + 40LL) + 24LL)
+                         + 8LL * *(unsigned int *)(*(_QWORD *)(v108 + 24) + 4LL));
+        if ( v110 )
         {
-          v47 = *(_QWORD *)(a6 + 88);
-          v48 = *(_QWORD *)(v47 + 96);
-          if ( (*(_DWORD *)(v48 + 12) & 0x40) != 0 )
-            goto LABEL_75;
-          v49 = *(unsigned __int16 *)(v48 + 4);
-          v50 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v47 + 104) + 40LL) + 32LL)
-                          + 8LL * *(unsigned int *)(*(_QWORD *)(v48 + 24) + 4LL));
-          v51 = *(__int64 **)(v50 + 8);
-          if ( (unsigned int)v49 < *(_DWORD *)(v50 + 80) )
-            v51 += v49;
+          v49 = *(__int64 **)(v110 + 8);
+          if ( (unsigned int)v109 < *(_DWORD *)(v110 + 80) )
+            v49 += v109;
+LABEL_80:
+          v9 = *v49;
         }
-        v10 = *v51;
-        goto LABEL_75;
+LABEL_81:
+        if ( v9 )
+          ++*(_DWORD *)(v9 + 8LL * *(int *)(a6 + 48) + 76);
+        return;
       case 7:
-        ++*(_DWORD *)(v11 + 16LL * *(int *)(v8 + 88) + 2796);
+        ++*(_DWORD *)(v10 + 16LL * *(int *)(v8 + 88) + 2788);
+        v70 = *(_QWORD *)(v8 + 48);
+        v71 = *(_QWORD *)(v70 + 96);
+        if ( (*(_DWORD *)(v71 + 12) & 0x10) == 0 )
+        {
+          v72 = *(unsigned __int16 *)(v71 + 4);
+          v73 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v70 + 104) + 40LL) + 24LL)
+                          + 8LL * *(unsigned int *)(*(_QWORD *)(v71 + 24) + 4LL));
+          v74 = *(__int64 **)(v73 + 8);
+          if ( (unsigned int)v72 < *(_DWORD *)(v73 + 80) )
+            v74 += v72;
+          v9 = *v74;
+        }
+        ++*(_DWORD *)(v9 + 16LL * *(int *)(v8 + 88) + 148);
+        return;
+      case 8:
+        ++*(_DWORD *)(v10 + 16LL * *(int *)(v8 + 88) + 2792);
         v75 = *(_QWORD *)(v8 + 48);
         v76 = *(_QWORD *)(v75 + 96);
-        if ( (*(_DWORD *)(v76 + 12) & 0x40) == 0 )
+        if ( (*(_DWORD *)(v76 + 12) & 0x10) == 0 )
         {
           v77 = *(unsigned __int16 *)(v76 + 4);
-          v78 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v75 + 104) + 40LL) + 32LL)
+          v78 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v75 + 104) + 40LL) + 24LL)
                           + 8LL * *(unsigned int *)(*(_QWORD *)(v76 + 24) + 4LL));
           v79 = *(__int64 **)(v78 + 8);
           if ( (unsigned int)v77 < *(_DWORD *)(v78 + 80) )
             v79 += v77;
-          v10 = *v79;
+          v9 = *v79;
         }
-        ++*(_DWORD *)(v10 + 16LL * *(int *)(v8 + 88) + 148);
-        return;
-      case 8:
-        v80 = 2 * (*(int *)(v8 + 88) + 175LL);
-        ++*(_DWORD *)(v11 + 8 * v80);
-        v81 = *(_QWORD *)(v8 + 48);
-        v82 = *(_QWORD *)(v81 + 96);
-        if ( (*(_DWORD *)(v82 + 12) & 0x40) == 0 )
-        {
-          v83 = *(unsigned __int16 *)(v82 + 4);
-          v84 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v81 + 104) + 40LL) + 32LL)
-                          + 8LL * *(unsigned int *)(*(_QWORD *)(v82 + 24) + 4LL));
-          v85 = *(__int64 **)(v84 + 8);
-          if ( (unsigned int)v83 < *(_DWORD *)(v84 + 80) )
-            v85 += v83;
-          v10 = *v85;
-        }
-        ++*(_DWORD *)(v10 + 16LL * *(int *)(v8 + 88) + 152);
+        ++*(_DWORD *)(v9 + 16LL * *(int *)(v8 + 88) + 152);
         return;
       case 9:
       case 11:
       case 13:
         if ( !a6 )
           return;
-        ++*(_DWORD *)(v11 + 8LL * *(int *)(a6 + 48) + 2728);
-        v21 = *(_QWORD *)(a6 + 96);
-        if ( v21 )
+        ++*(_DWORD *)(v10 + 8LL * *(int *)(a6 + 48) + 2720);
+        v25 = *(_QWORD *)(a6 + 96);
+        if ( !v25 )
         {
-          v125 = *(_QWORD *)(v21 + 40);
-          v126 = *(_QWORD *)(v125 + 16);
-          v127 = *(unsigned __int16 *)(v126 + 4);
-          v128 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v125 + 8) + 40LL) + 32LL)
-                           + 8LL * *(unsigned int *)(*(_QWORD *)(v126 + 24) + 4LL));
-          if ( !v128 )
-          {
-LABEL_28:
-            if ( v10 )
-              ++*(_DWORD *)(v10 + 8LL * *(int *)(a6 + 48) + 80);
-            return;
-          }
-          v26 = *(__int64 **)(v128 + 8);
-          if ( (unsigned int)v127 < *(_DWORD *)(v128 + 80) )
-            v26 += v127;
+          v26 = *(_QWORD *)(a6 + 88);
+          v27 = *(_QWORD *)(v26 + 96);
+          if ( (*(_DWORD *)(v27 + 12) & 0x10) != 0 )
+            goto LABEL_43;
+          v28 = *(unsigned __int16 *)(v27 + 4);
+          v29 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v26 + 104) + 40LL) + 24LL)
+                          + 8LL * *(unsigned int *)(*(_QWORD *)(v27 + 24) + 4LL));
+          v30 = *(__int64 **)(v29 + 8);
+          if ( (unsigned int)v28 < *(_DWORD *)(v29 + 80) )
+            v30 += v28;
+          goto LABEL_42;
         }
-        else
+        v118 = *(_QWORD *)(v25 + 40);
+        v119 = *(_QWORD *)(v118 + 16);
+        v120 = *(unsigned __int16 *)(v119 + 4);
+        v121 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v118 + 8) + 40LL) + 24LL)
+                         + 8LL * *(unsigned int *)(*(_QWORD *)(v119 + 24) + 4LL));
+        if ( v121 )
         {
-          v22 = *(_QWORD *)(a6 + 88);
-          v23 = *(_QWORD *)(v22 + 96);
-          if ( (*(_DWORD *)(v23 + 12) & 0x40) != 0 )
-            goto LABEL_28;
-          v24 = *(unsigned __int16 *)(v23 + 4);
-          v25 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v22 + 104) + 40LL) + 32LL)
-                          + 8LL * *(unsigned int *)(*(_QWORD *)(v23 + 24) + 4LL));
-          v26 = *(__int64 **)(v25 + 8);
-          if ( (unsigned int)v24 < *(_DWORD *)(v25 + 80) )
-            v26 += v24;
+          v30 = *(__int64 **)(v121 + 8);
+          if ( (unsigned int)v120 < *(_DWORD *)(v121 + 80) )
+            v30 += v120;
+LABEL_42:
+          v9 = *v30;
         }
-        v10 = *v26;
-        goto LABEL_28;
+LABEL_43:
+        if ( v9 )
+          ++*(_DWORD *)(v9 + 8LL * *(int *)(a6 + 48) + 80);
+        break;
       case 10:
-        ++*(_DWORD *)(v11 + 16LL * *(int *)(v8 + 88) + 2804);
-        v95 = *(_QWORD *)(v8 + 48);
-        v96 = *(_QWORD *)(v95 + 96);
-        if ( (*(_DWORD *)(v96 + 12) & 0x40) == 0 )
+        ++*(_DWORD *)(v10 + 16LL * *(int *)(v8 + 88) + 2796);
+        v90 = *(_QWORD *)(v8 + 48);
+        v91 = *(_QWORD *)(v90 + 96);
+        if ( (*(_DWORD *)(v91 + 12) & 0x10) == 0 )
         {
-          v97 = *(unsigned __int16 *)(v96 + 4);
-          v98 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v95 + 104) + 40LL) + 32LL)
-                          + 8LL * *(unsigned int *)(*(_QWORD *)(v96 + 24) + 4LL));
-          v99 = *(__int64 **)(v98 + 8);
-          if ( (unsigned int)v97 < *(_DWORD *)(v98 + 80) )
-            v99 += v97;
-          v10 = *v99;
+          v92 = *(unsigned __int16 *)(v91 + 4);
+          v93 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v90 + 104) + 40LL) + 24LL)
+                          + 8LL * *(unsigned int *)(*(_QWORD *)(v91 + 24) + 4LL));
+          v94 = *(__int64 **)(v93 + 8);
+          if ( (unsigned int)v92 < *(_DWORD *)(v93 + 80) )
+            v94 += v92;
+          v9 = *v94;
         }
-        ++*(_DWORD *)(v10 + 16LL * *(int *)(v8 + 88) + 156);
+        ++*(_DWORD *)(v9 + 16LL * *(int *)(v8 + 88) + 156);
         return;
       case 12:
-        ++*(_DWORD *)(v11 + 16LL * *(int *)(v8 + 88) + 2808);
-        v119 = *(_QWORD *)(v8 + 48);
-        v120 = *(_QWORD *)(v119 + 96);
-        if ( (*(_DWORD *)(v120 + 12) & 0x40) == 0 )
+        v111 = 2 * (*(int *)(v8 + 88) + 175LL);
+        ++*(_DWORD *)(v10 + 8 * v111);
+        v112 = *(_QWORD *)(v8 + 48);
+        v113 = *(_QWORD *)(v112 + 96);
+        if ( (*(_DWORD *)(v113 + 12) & 0x10) == 0 )
         {
-          v121 = *(unsigned __int16 *)(v120 + 4);
-          v122 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v119 + 104) + 40LL) + 32LL)
-                           + 8LL * *(unsigned int *)(*(_QWORD *)(v120 + 24) + 4LL));
-          v123 = *(__int64 **)(v122 + 8);
-          if ( (unsigned int)v121 < *(_DWORD *)(v122 + 80) )
-            v123 += v121;
-          v10 = *v123;
+          v114 = *(unsigned __int16 *)(v113 + 4);
+          v115 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v112 + 104) + 40LL) + 24LL)
+                           + 8LL * *(unsigned int *)(*(_QWORD *)(v113 + 24) + 4LL));
+          v116 = *(__int64 **)(v115 + 8);
+          if ( (unsigned int)v114 < *(_DWORD *)(v115 + 80) )
+            v116 += v114;
+          v9 = *v116;
         }
-        v124 = 2 * (*(int *)(v8 + 88) + 10LL);
-        ++*(_DWORD *)(v10 + 8 * v124);
+        v117 = 2 * (*(int *)(v8 + 88) + 10LL);
+        ++*(_DWORD *)(v9 + 8 * v117);
         return;
       default:
         return;

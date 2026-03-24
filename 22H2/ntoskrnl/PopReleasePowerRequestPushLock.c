@@ -1,14 +1,15 @@
 /*
- * XREFs of PopReleasePowerRequestPushLock @ 0x1407A723C
+ * XREFs of PopReleasePowerRequestPushLock @ 0x1406F4F1C
  * Callers:
- *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14032B928 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
- *     PopPowerRequestCallbackWorker @ 0x14032B9D0 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestCreateCommon @ 0x14032BB98 (PopPowerRequestCreateCommon.c)
+ *     PoClearPowerRequestInternal @ 0x14034AFAC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x14034B170 (PoSetPowerRequestInternal.c)
+ *     PopPowerRequestCleanUp @ 0x14034B808 (PopPowerRequestCleanUp.c)
+ *     PopProcessPowerRequestOverrideQueryResponse @ 0x14034BCB0 (PopProcessPowerRequestOverrideQueryResponse.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
  */
 
 void PopReleasePowerRequestPushLock()
 {
-  PopReleaseRwLock((__int64 *)&PopPowerRequestLock);
+  PopReleaseRwLock((ULONG_PTR)&PopPowerRequestLock);
 }

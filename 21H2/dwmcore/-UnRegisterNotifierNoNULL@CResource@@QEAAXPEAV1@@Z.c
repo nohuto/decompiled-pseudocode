@@ -1,8 +1,8 @@
 /*
- * XREFs of ?UnRegisterNotifierNoNULL@CResource@@QEAAXPEAV1@@Z @ 0x1801A5FAC
+ * XREFs of ?UnRegisterNotifierNoNULL@CResource@@QEAAXPEAV1@@Z @ 0x180173A88
  * Callers:
- *     ??1CProxyGeometry@@MEAA@XZ @ 0x1800CF5F4 (--1CProxyGeometry@@MEAA@XZ.c)
- *     ?ProcessSetViewBox@CProxyGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROXYGEOMETRY_SETVIEWBOX@@@Z @ 0x18023A004 (-ProcessSetViewBox@CProxyGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROXYGEOMETRY_SETVIEWB.c)
+ *     ??1CProxyGeometry@@MEAA@XZ @ 0x1801E6398 (--1CProxyGeometry@@MEAA@XZ.c)
+ *     ?ProcessSetViewBox@CProxyGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROXYGEOMETRY_SETVIEWBOX@@@Z @ 0x1801E663C (-ProcessSetViewBox@CProxyGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROXYGEOMETRY_SETVIEWB.c)
  * Callees:
  *     <none>
  */

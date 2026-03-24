@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECompositionSurfaceObject@@MEAAPEAXI@Z @ 0x1C007C120
+ * XREFs of ??_ECompositionSurfaceObject@@MEAAPEAXI@Z @ 0x1C0065E00
  * Callers:
  *     <none>
  * Callees:

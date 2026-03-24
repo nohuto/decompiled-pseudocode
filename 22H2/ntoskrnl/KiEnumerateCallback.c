@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEnumerateCallback @ 0x1403D56C0
+ * XREFs of KiEnumerateCallback @ 0x140380590
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     KiEnumerateNmiSxCallback @ 0x1403D5724 (KiEnumerateNmiSxCallback.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     KiEnumerateNmiSxCallback @ 0x1403805F4 (KiEnumerateNmiSxCallback.c)
  */
 
 __int64 __fastcall KiEnumerateCallback(int a1, struct _EX_RUNDOWN_REF **a2, __int64 a3, unsigned __int64 *a4)
@@ -27,7 +27,7 @@ __int64 __fastcall KiEnumerateCallback(int a1, struct _EX_RUNDOWN_REF **a2, __in
     if ( ((unsigned __int64)v6 ^ KiBoundsCallback) >= 0xF )
     {
 LABEL_11:
-      ExReleaseRundownProtection_0(v6);
+      ExReleaseRundownProtection(v6);
     }
     else
     {

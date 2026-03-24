@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetPrimitiveTopologyCommand@CSceneMeshMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0219C00
+ * XREFs of ?EmitSetPrimitiveTopologyCommand@CSceneMeshMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D96C8
  * Callers:
- *     ?EmitUpdateCommands@CSceneMeshMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C220 (-EmitUpdateCommands@CSceneMeshMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSceneMeshMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB3F0 (-EmitUpdateCommands@CSceneMeshMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSceneMeshMarshaler::EmitSetPrimitiveTopologyCommand(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CSceneMeshMarshaler::EmitSetPrimitiveTopology
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 631;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 607;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
     *((_DWORD *)v3 + 3) = *((_DWORD *)this + 14);
     *((_DWORD *)this + 4) &= ~0x20u;
     return 1;

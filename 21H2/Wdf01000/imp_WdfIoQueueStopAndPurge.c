@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfIoQueueStopAndPurge @ 0x1C00810A0
+ * XREFs of imp_WdfIoQueueStopAndPurge @ 0x1C0074640
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B8B0 (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
- *     ?FatalError@FxIoQueue@@QEAAXJ@Z @ 0x1C0081C14 (-FatalError@FxIoQueue@@QEAAXJ@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014E1C (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ *     ?FatalError@FxIoQueue@@QEAAXJ@Z @ 0x1C0076104 (-FatalError@FxIoQueue@@QEAAXJ@Z.c)
  */
 
 void __fastcall imp_WdfIoQueueStopAndPurge(
@@ -18,7 +18,7 @@ void __fastcall imp_WdfIoQueueStopAndPurge(
   void *PPObject; // [rsp+30h] [rbp+8h] BYREF
 
   PPObject = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Queue, 0x1003u, &PPObject);
+  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, (unsigned __int64)Queue, 0x1003u, &PPObject);
   v6 = FxIoQueue::QueueIdle((FxIoQueue *)PPObject, 1u, StopAndPurgeComplete, Context);
   if ( v6 < 0 )
     FxIoQueue::FatalError((FxIoQueue *)PPObject, v6);

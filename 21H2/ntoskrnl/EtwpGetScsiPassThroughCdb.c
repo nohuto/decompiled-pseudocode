@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetScsiPassThroughCdb @ 0x14062EE14
+ * XREFs of EtwpGetScsiPassThroughCdb @ 0x1405A8AF4
  * Callers:
- *     EtwpTraceOpticalIo @ 0x14062FCB0 (EtwpTraceOpticalIo.c)
- *     EtwpTraceOpticalIoInit @ 0x14062FF60 (EtwpTraceOpticalIoInit.c)
+ *     EtwpTraceOpticalIo @ 0x1405A9C20 (EtwpTraceOpticalIo.c)
+ *     EtwpTraceOpticalIoInit @ 0x1405A9ED0 (EtwpTraceOpticalIoInit.c)
  * Callees:
- *     IoIs32bitProcess @ 0x1402DF4A0 (IoIs32bitProcess.c)
+ *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
  */
 
 ULONG_PTR *__fastcall EtwpGetScsiPassThroughCdb(IRP *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateUsermodeParameters@QueryFontRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C000C4A0
+ * XREFs of ?CreateUsermodeParameters@QueryFontRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5FD0
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C000CB7C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A66DC (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
  */
 
 __int64 __fastcall QueryFontRequest::CreateUsermodeParameters(QueryFontRequest *this, struct UmfdTls *a2, void **a3)

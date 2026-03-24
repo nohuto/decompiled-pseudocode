@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800FE8DC
+ * XREFs of ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800C3BD8
  * Callers:
- *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x18011F740 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
- *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@7EBAJXZ @ 0x1801207C0 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@7EBAJXZ.c)
- *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJXZ @ 0x180120EA0 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJXZ.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F6CD0 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BI@EBAJXZ @ 0x1800F7190 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BI@EBAJXZ.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJXZ @ 0x1800F7470 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z @ 0x1800FE924 (-CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z.c)
- *     McTemplateU0xq_EventWriteTransfer @ 0x18012E24C (McTemplateU0xq_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z @ 0x1800C3C20 (-CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z.c)
+ *     McTemplateU0xq_EventWriteTransfer @ 0x180152914 (McTemplateU0xq_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CLegacySwapChain::CheckOcclusionState(CLegacySwapChain *this)
@@ -17,20 +17,20 @@ __int64 __fastcall CLegacySwapChain::CheckOcclusionState(CLegacySwapChain *this)
   __int64 v3; // rcx
   unsigned int v4; // ebx
 
-  v1 = (struct IDXGISwapChainDWM1 *)*((_QWORD *)this - 26);
+  v1 = (struct IDXGISwapChainDWM1 *)*((_QWORD *)this - 35);
   if ( v1 )
   {
-    v2 = CD3DDevice::CheckOcclusionState(*((CD3DDevice **)this - 44), v1);
+    v2 = CD3DDevice::CheckOcclusionState(*((CD3DDevice **)this - 36), v1);
     v4 = v2;
     if ( v2 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_1802EE2F0, 2u, v2, 0x218u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_1802ACF58, 2u, v2, 0x15Du, 0LL);
   }
   else
   {
     v4 = -2003304307;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1802EE2F0, 2u, -2003304307, 0x21Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1802ACF58, 2u, -2003304307, 0x161u, 0LL);
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
     McTemplateU0xq_EventWriteTransfer(v3, &EVTDESC_MILEVENT_MEDIA_UCE_CHECKDEVICESTATE, 0LL, v4);
   return v4;
 }

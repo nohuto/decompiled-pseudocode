@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetIsComplete@Timer@@QEBA_NXZ @ 0x1800E9E30
+ * XREFs of ?GetIsComplete@Timer@@QEBA_NXZ @ 0x1800AC604
  * Callers:
- *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180057590 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800AC434 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
  * Callees:
  *     <none>
  */

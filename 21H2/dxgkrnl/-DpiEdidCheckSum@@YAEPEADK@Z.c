@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C00270A4
+ * XREFs of ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C0021030
  * Callers:
- *     DpiIsValidEdid @ 0x1C0027070 (DpiIsValidEdid.c)
+ *     DpiIsValidEdid @ 0x1C0020FFC (DpiIsValidEdid.c)
  * Callees:
  *     <none>
  */

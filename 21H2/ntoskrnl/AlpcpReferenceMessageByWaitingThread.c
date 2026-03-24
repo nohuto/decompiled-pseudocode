@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpReferenceMessageByWaitingThread @ 0x140967470
+ * XREFs of AlpcpReferenceMessageByWaitingThread @ 0x1408C36B8
  * Callers:
- *     AlpcpPortQueryServerInfo @ 0x140966F60 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpPortQueryServerInfo @ 0x1408C3100 (AlpcpPortQueryServerInfo.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x1402240B0 (ObReferenceObjectSafe.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     AlpcpReferenceMessageByWaitingThreadPort @ 0x140967584 (AlpcpReferenceMessageByWaitingThreadPort.c)
+ *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpReferenceMessageByWaitingThreadPort @ 0x1408C37CC (AlpcpReferenceMessageByWaitingThreadPort.c)
  */
 
 __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2)
 {
   __int64 v4; // rbp
-  __int64 *v5; // rdi
+  struct _DMA_ADAPTER *v5; // rdi
   unsigned int v6; // r14d
   __int64 *i; // rsi
   __int64 result; // rax
@@ -31,8 +31,8 @@ __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2)
         ExfTryToWakePushLock(&AlpcpPortListLock);
       KeAbPostRelease((ULONG_PTR)&AlpcpPortListLock);
       if ( v5 )
-        ObfDereferenceObject(v5);
-      v5 = i;
+        HalPutDmaAdapter(v5);
+      v5 = (struct _DMA_ADAPTER *)i;
       v4 = AlpcpReferenceMessageByWaitingThreadPort(a1, i);
       if ( v4 )
       {
@@ -47,7 +47,7 @@ __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2)
   KeAbPostRelease((ULONG_PTR)&AlpcpPortListLock);
 LABEL_14:
   if ( v5 )
-    ObfDereferenceObject(v5);
+    HalPutDmaAdapter(v5);
   result = v6;
   *a2 = v4;
   return result;

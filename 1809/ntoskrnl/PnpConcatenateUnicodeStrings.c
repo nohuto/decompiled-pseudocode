@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpConcatenateUnicodeStrings @ 0x14070F85C
+ * XREFs of PnpConcatenateUnicodeStrings @ 0x14070F83C
  * Callers:
- *     IoGetDeviceInstanceName @ 0x14016D200 (IoGetDeviceInstanceName.c)
- *     PiDeviceRegistration @ 0x1406EE378 (PiDeviceRegistration.c)
- *     IoGetDeviceDirectory @ 0x140824A10 (IoGetDeviceDirectory.c)
- *     PiCreateDirectoryPath @ 0x140824FE8 (PiCreateDirectoryPath.c)
- *     PiCreateRegistryPath @ 0x1408252D0 (PiCreateRegistryPath.c)
- *     PipServiceInstanceToDeviceInstance @ 0x1408276D0 (PipServiceInstanceToDeviceInstance.c)
- *     PiInitializeDevice @ 0x14083C184 (PiInitializeDevice.c)
+ *     IoGetDeviceInstanceName @ 0x14016D220 (IoGetDeviceInstanceName.c)
+ *     PiDeviceRegistration @ 0x1406EE358 (PiDeviceRegistration.c)
+ *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
+ *     PiCreateDirectoryPath @ 0x140824FC8 (PiCreateDirectoryPath.c)
+ *     PiCreateRegistryPath @ 0x1408252B0 (PiCreateRegistryPath.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1408276B0 (PipServiceInstanceToDeviceInstance.c)
+ *     PiInitializeDevice @ 0x14083C164 (PiInitializeDevice.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x14070FF14 (IopAllocateUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x14070FEF4 (IopAllocateUnicodeString.c)
  */
 
 __int64 __fastcall PnpConcatenateUnicodeStrings(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)

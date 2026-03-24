@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogEnterProximity @ 0x140883E4C
+ * XREFs of TtmiLogEnterProximity @ 0x140883E2C
  * Callers:
- *     TtmpEnterProximity @ 0x14087F144 (TtmpEnterProximity.c)
+ *     TtmpEnterProximity @ 0x14087F124 (TtmpEnterProximity.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogEnterProximity(int a1)
@@ -35,7 +35,7 @@ void __fastcall TtmiLogEnterProximity(int a1)
       v4 = a1;
       v7 = 4;
       v10 = 4;
-      TlgWrite(&stru_14096D820, &unk_140371BD9, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140371E2F, 0LL, 0LL, 4u, &pData);
     }
   }
 }

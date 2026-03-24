@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1FxPkgFdo@@MEAA@XZ @ 0x1C008990C
+ * XREFs of ??1FxPkgFdo@@MEAA@XZ @ 0x1C0083FC8
  * Callers:
- *     ??_EFxPkgFdo@@MEAAPEAXI@Z @ 0x1C0089A10 (--_EFxPkgFdo@@MEAAPEAXI@Z.c)
+ *     ??_EFxPkgFdo@@MEAAPEAXI@Z @ 0x1C00840F0 (--_EFxPkgFdo@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0020990 (--1FxPkgPnp@@MEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C007EEF0 (--1FxPkgPnp@@MEAA@XZ.c)
  */
 
 void __fastcall FxPkgFdo::~FxPkgFdo(FxPkgFdo *this)

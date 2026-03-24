@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z @ 0x18029CC6C
+ * XREFs of ?Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z @ 0x18024CB4C
  * Callers:
- *     ?CreateD2DInk@CD2DContext@@UEAAJAEBUD2D1_INK_POINT@@AEBUD2D1_INK_STYLE_PROPERTIES@@PEAPEAVCD2DInk@@@Z @ 0x1802865C0 (-CreateD2DInk@CD2DContext@@UEAAJAEBUD2D1_INK_POINT@@AEBUD2D1_INK_STYLE_PROPERTIES@@PEAPEAVCD2DIn.c)
+ *     ?CreateD2DInk@CD2DContext@@UEAAJAEBUD2D1_INK_POINT@@AEBUD2D1_INK_STYLE_PROPERTIES@@PEAPEAVCD2DInk@@@Z @ 0x18023B080 (-CreateD2DInk@CD2DContext@@UEAAJAEBUD2D1_INK_POINT@@AEBUD2D1_INK_STYLE_PROPERTIES@@PEAPEAVCD2DIn.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddResource@CD2DResourceManager@@QEAAXPEAVCD2DResource@@@Z @ 0x1800EB790 (-AddResource@CD2DResourceManager@@QEAAXPEAVCD2DResource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18029CAE4 (--0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18024C9E4 (--0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ?Initialize@CD2DInk@@IEAAJPEAUID2D1Ink@@PEAUID2D1InkStyle@@@Z @ 0x18024CC2C (-Initialize@CD2DInk@@IEAAJPEAUID2D1Ink@@PEAUID2D1InkStyle@@@Z.c)
  */
 
 __int64 __fastcall CD2DInk::Create(
@@ -18,29 +18,36 @@ __int64 __fastcall CD2DInk::Create(
 {
   CD2DInk *v8; // rax
   __int64 v9; // rcx
-  CD2DInk *v10; // rax
-  CD2DInk *v11; // rbx
-  unsigned int v12; // edi
+  CD2DInk *v10; // rbx
+  unsigned int v11; // edi
+  int v12; // eax
+  __int64 v13; // rcx
 
   *a4 = 0LL;
   v8 = (CD2DInk *)operator new(0x88uLL);
-  if ( v8 && (v10 = CD2DInk::CD2DInk(v8, a1), (v11 = v10) != 0LL) )
+  if ( v8 )
+    v10 = CD2DInk::CD2DInk(v8, a1);
+  else
+    v10 = 0LL;
+  if ( v10 )
   {
     (*(void (__fastcall **)(CD2DInk *))(*(_QWORD *)v10 + 8LL))(v10);
-    *((_QWORD *)v11 + 10) = a2;
-    if ( a2 )
-      (*(void (__fastcall **)(struct ID2D1Ink *))(*(_QWORD *)a2 + 8LL))(a2);
-    *((_QWORD *)v11 + 11) = a3;
-    if ( a3 )
-      (*(void (__fastcall **)(struct ID2D1InkStyle *))(*(_QWORD *)a3 + 8LL))(a3);
-    CD2DResourceManager::AddResource(*((CD2DResourceManager **)v11 + 3), v11);
-    v12 = 0;
-    *a4 = v11;
+    v12 = CD2DInk::Initialize(v10, a2, a3);
+    v11 = v12;
+    if ( v12 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x16u, 0LL);
+      (*(void (__fastcall **)(CD2DInk *))(*(_QWORD *)v10 + 16LL))(v10);
+    }
+    else
+    {
+      *a4 = v10;
+    }
   }
   else
   {
-    v12 = -2147024882;
+    v11 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x13u, 0LL);
   }
-  return v12;
+  return v11;
 }

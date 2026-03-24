@@ -1,27 +1,31 @@
 /*
- * XREFs of ExpTimeZoneCleanupSiloState @ 0x1409F80C4
+ * XREFs of ExpTimeZoneCleanupSiloState @ 0x1405D1AD0
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x1409ACE68 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906288 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     KeFlushQueuedDpcs @ 0x14028F8A0 (KeFlushQueuedDpcs.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeFlushQueuedDpcs @ 0x14035DC40 (KeFlushQueuedDpcs.c)
  */
 
 __int64 __fastcall ExpTimeZoneCleanupSiloState(__int64 a1)
 {
   bool v1; // di
-  __int64 v2; // rbx
+  _QWORD *ServerSiloGlobals; // rax
+  __int64 v3; // rbx
 
   v1 = 0;
-  v2 = *((_QWORD *)PsGetServerSiloGlobals(a1) + 157);
-  if ( v2 )
+  ServerSiloGlobals = PsGetServerSiloGlobals(a1);
+  if ( *((_BYTE *)ServerSiloGlobals + 1049) )
   {
-    if ( *(_QWORD *)(v2 + 560) )
-      v1 = KeCancelTimer((PKTIMER)(v2 + 512)) == 0;
-    if ( *(_QWORD *)(v2 + 720) && !KeCancelTimer((PKTIMER)(v2 + 672)) )
+    v3 = ServerSiloGlobals[133];
+    if ( *(_QWORD *)(v3 + 560) )
+      v1 = KeCancelTimer((PKTIMER)(v3 + 512)) == 0;
+    if ( *(_QWORD *)(v3 + 720) && !KeCancelTimer((PKTIMER)(v3 + 672)) )
       v1 = 1;
-    if ( *(_QWORD *)(v2 + 880) && !KeCancelTimer((PKTIMER)(v2 + 832)) || v1 )
+    if ( *(_QWORD *)(v3 + 880) && !KeCancelTimer((PKTIMER)(v3 + 832)) )
+      v1 = 1;
+    if ( v1 )
       KeFlushQueuedDpcs();
   }
   return 0LL;

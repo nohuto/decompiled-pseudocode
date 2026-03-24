@@ -1,16 +1,16 @@
 /*
- * XREFs of NtUserAssociateInputContext @ 0x1C0106D30
+ * XREFs of NtUserAssociateInputContext @ 0x1C0118BA0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?AssociateInputContextEx@@YA?AW4_AIC_STATUS@@PEAUtagWND@@PEAUtagIMC@@K@Z @ 0x1C0106DEC (-AssociateInputContextEx@@YA-AW4_AIC_STATUS@@PEAUtagWND@@PEAUtagIMC@@K@Z.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     AssociateInputContextEx @ 0x1C0118C60 (AssociateInputContextEx.c)
  */
 
-__int64 __fastcall NtUserAssociateInputContext(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall NtUserAssociateInputContext(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v6; // rdx
   __int64 v7; // rbx
@@ -20,14 +20,14 @@ __int64 __fastcall NtUserAssociateInputContext(__int64 a1, __int64 a2, unsigned 
   __int64 v11; // rcx
   char v13; // [rsp+48h] [rbp+20h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v13);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v13);
   v7 = ValidateHwnd(a1);
   if ( !v7 )
     goto LABEL_10;
   if ( (*gpsi & 4) == 0 )
   {
-    UserSetLastError(120LL, v6);
+    UserSetLastError(120LL, v6, v8);
     goto LABEL_10;
   }
   if ( a2 )
@@ -43,7 +43,7 @@ LABEL_10:
 LABEL_5:
   v10 = AssociateInputContextEx(v7, v9, a3);
 LABEL_6:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v13, v6, v8);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v13);
   UserSessionSwitchLeaveCrit(v11);
   return v10;
 }

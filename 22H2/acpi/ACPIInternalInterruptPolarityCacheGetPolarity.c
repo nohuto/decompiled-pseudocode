@@ -1,77 +1,72 @@
 /*
- * XREFs of ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8E4
+ * XREFs of ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C000E31C
  * Callers:
- *     PnpiCmResourceToBiosExtendedIrq @ 0x1C0093204 (PnpiCmResourceToBiosExtendedIrq.c)
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDD0 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
+ *     PnpiCmResourceToBiosExtendedIrq @ 0x1C00B4CE0 (PnpiCmResourceToBiosExtendedIrq.c)
  * Callees:
- *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E774 (ACPIInternalFindDeviceExtensionNoLock.c)
- *     WPP_RECORDER_SF_Dqqss @ 0x1C002F188 (WPP_RECORDER_SF_Dqqss.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     WPP_RECORDER_SF_Dqqss @ 0x1C0056FF4 (WPP_RECORDER_SF_Dqqss.c)
  */
 
 char __fastcall ACPIInternalInterruptPolarityCacheGetPolarity(__int64 a1, int a2, _DWORD *a3)
 {
   char v3; // di
-  KIRQL v8; // bp
-  _QWORD *DeviceExtensionNoLock; // rbx
-  int v10; // r8d
-  int v11; // r9d
-  __int64 *i; // rax
+  KIRQL v7; // bp
+  _QWORD *i; // rbx
+  int v9; // r9d
+  __int64 *j; // rax
+  int v11; // edx
   __int64 v13; // rax
   void *v14; // rdx
   void *v15; // rcx
-  int v16; // edx
-  int v17; // [rsp+20h] [rbp-38h]
+  int v16; // [rsp+20h] [rbp-38h]
 
   v3 = 0;
   if ( !gAcpiHonorBiosPolarities )
     return 0;
-  v8 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  DeviceExtensionNoLock = (_QWORD *)ACPIInternalFindDeviceExtensionNoLock(a1, RootDeviceExtension);
-LABEL_4:
-  if ( DeviceExtensionNoLock )
+  v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  for ( i = (_QWORD *)ACPIInternalFindDeviceExtensionNoLock(a1, RootDeviceExtension); i; i = (_QWORD *)i[94] )
   {
-    for ( i = (__int64 *)DeviceExtensionNoLock[89]; ; i = (__int64 *)*i )
+    for ( j = (__int64 *)i[84]; j != i + 84; j = (__int64 *)*j )
     {
-      if ( i == DeviceExtensionNoLock + 89 )
+      if ( a2 == *((_DWORD *)j + 4) )
       {
-        v13 = DeviceExtensionNoLock[1];
-        if ( (v13 & 0x20) != 0 )
+        v11 = *((_DWORD *)j + 5);
+        if ( v11 != -1 )
         {
-          v14 = &unk_1C00622D0;
-          v15 = &unk_1C00622D0;
-          if ( (v13 & 0x200000000000LL) != 0 )
-          {
-            v14 = (void *)DeviceExtensionNoLock[76];
-            if ( (v13 & 0x400000000000LL) != 0 )
-              v15 = (void *)DeviceExtensionNoLock[77];
-          }
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_Dqqss(
-              WPP_GLOBAL_Control->DeviceExtension,
-              (_DWORD)v14,
-              v10,
-              v11,
-              v17,
-              a2,
-              (char)DeviceExtensionNoLock,
-              (char)DeviceExtensionNoLock,
-              (__int64)v14,
-              (__int64)v15);
+          *a3 = v11;
+          v3 = 1;
         }
-        DeviceExtensionNoLock = (_QWORD *)DeviceExtensionNoLock[99];
-        goto LABEL_4;
+        goto LABEL_9;
       }
-      if ( a2 == *((_DWORD *)i + 4) )
-        break;
     }
-    v16 = *((_DWORD *)i + 5);
-    if ( v16 != -1 )
+    v13 = i[1];
+    if ( (v13 & 0x20) != 0 )
     {
-      *a3 = v16;
-      v3 = 1;
+      v14 = &unk_1C00701BA;
+      v15 = &unk_1C00701BA;
+      if ( (v13 & 0x200000000000LL) != 0 )
+      {
+        v14 = (void *)i[71];
+        if ( (v13 & 0x400000000000LL) != 0 )
+          v15 = (void *)i[72];
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_Dqqss(
+          WPP_GLOBAL_Control->DeviceExtension,
+          (_DWORD)v14,
+          0,
+          v9,
+          v16,
+          a2,
+          (char)i,
+          (char)i,
+          (__int64)v14,
+          (__int64)v15);
     }
   }
-  KeReleaseSpinLock(&AcpiDeviceTreeLock, v8);
+LABEL_9:
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
   return v3;
 }

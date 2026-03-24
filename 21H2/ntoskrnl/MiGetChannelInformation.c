@@ -1,90 +1,84 @@
 /*
- * XREFs of MiGetChannelInformation @ 0x1407DECE0
+ * XREFs of MiGetChannelInformation @ 0x14069256C
  * Callers:
- *     MmManagePartitionMemoryInformation @ 0x1407DE98C (MmManagePartitionMemoryInformation.c)
- *     MmGetChannelInformation @ 0x14082BB8C (MmGetChannelInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x1406922BC (MmManagePartitionMemoryInformation.c)
+ *     MmGetChannelInformation @ 0x14077DC94 (MmGetChannelInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14036071C (MiUnlockDynamicMemoryExclusive.c)
- *     MiGetNodeChannelPageCounts @ 0x1403608C0 (MiGetNodeChannelPageCounts.c)
- *     MiLockDynamicMemoryExclusive @ 0x140360A00 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1402AC034 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiGetNodeChannelPageCounts @ 0x1402AC224 (MiGetNodeChannelPageCounts.c)
+ *     MiLockDynamicMemoryExclusive @ 0x1402AC3F4 (MiLockDynamicMemoryExclusive.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-char __fastcall MiGetChannelInformation(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall MiGetChannelInformation(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  unsigned int v5; // ebp
-  __int64 v9; // r15
-  unsigned int v10; // edx
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v8; // rbp
+  unsigned int v9; // r8d
+  unsigned int v10; // r14d
   __int64 v11; // rdi
-  unsigned __int64 v12; // rax
-  bool v13; // zf
-  unsigned int v15; // ecx
-  unsigned __int8 *v16; // r8
-  __int64 v17; // [rsp+80h] [rbp+8h] BYREF
+  _QWORD *v12; // r13
+  unsigned int v14; // ecx
+  unsigned __int8 *v15; // rdx
+  __int64 v16; // [rsp+80h] [rbp+8h] BYREF
+  int v17; // [rsp+88h] [rbp+10h]
   __int64 v18; // [rsp+90h] [rbp+18h] BYREF
   unsigned __int64 v19; // [rsp+98h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = 0;
-  v17 = 0LL;
+  v16 = 0LL;
   v18 = 0LL;
   v19 = 0LL;
-  v9 = *(_QWORD *)(a1 + 16) + 24512LL * a2;
+  v8 = *(_QWORD *)(a1 + 16) + 4544LL * a2;
   *a4 = 40LL * (unsigned int)MmNumberOfChannels;
   MiLockDynamicMemoryExclusive(a1, (__int64)CurrentThread);
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx(v9 + 22800, 0LL);
-  v10 = MmNumberOfChannels;
+  ExAcquirePushLockSharedEx(v8 + 4296, 0LL);
+  v9 = MmNumberOfChannels;
+  v10 = 0;
+  v17 = MmNumberOfChannels;
   if ( MmNumberOfChannels )
   {
     v11 = a3 + 4;
+    v12 = (_QWORD *)(v8 + 4144);
     do
     {
-      *(_DWORD *)(v11 - 4) = v5;
-      if ( (*(_DWORD *)(v9 + 22784) & 1) != 0 )
+      *(_DWORD *)(v11 - 4) = v10;
+      if ( (*(_DWORD *)(v8 + 4280) & 1) != 0 )
       {
-        v15 = 0;
-        if ( v10 )
+        v14 = 0;
+        v15 = (unsigned __int8 *)(v8 + 4313);
+        while ( *v15 != v10 )
         {
-          v16 = (unsigned __int8 *)(v9 + 22817);
-          while ( *v16 != v5 )
-          {
-            ++v15;
-            ++v16;
-            if ( v15 >= v10 )
-              goto LABEL_5;
-          }
-          *(_DWORD *)v11 = v15;
+          ++v14;
+          ++v15;
+          if ( v14 >= v9 )
+            goto LABEL_5;
         }
+        *(_DWORD *)v11 = v14;
       }
       else
       {
         *(_DWORD *)v11 = -1;
       }
 LABEL_5:
-      *(_QWORD *)(v11 + 4) = *(_QWORD *)(v9 + 8LL * v5 + 22576);
-      MiGetNodeChannelPageCounts(a1, a2, v5, &v17, &v18, &v19);
-      *(_QWORD *)(v11 + 12) = v17;
+      *(_QWORD *)(v11 + 4) = *v12;
+      MiGetNodeChannelPageCounts(a1, a2, v10++, &v16, &v18, &v19);
+      v9 = v17;
+      ++v12;
+      *(_QWORD *)(v11 + 12) = v16;
       *(_QWORD *)(v11 + 20) = v18;
-      v12 = v19;
       *(_QWORD *)(v11 + 28) = v19;
-      if ( v12 == -1LL )
-        *(_QWORD *)(v11 + 28) = -1LL;
-      v10 = MmNumberOfChannels;
-      ++v5;
       v11 += 40LL;
     }
-    while ( v5 < MmNumberOfChannels );
+    while ( v10 < v9 );
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v9 + 22800), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(v9 + 22800));
-  KeAbPostRelease(v9 + 22800);
-  v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 4296), 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(v8 + 4296));
+  KeAbPostRelease(v8 + 4296);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return MiUnlockDynamicMemoryExclusive(a1, (__int64)CurrentThread);
 }

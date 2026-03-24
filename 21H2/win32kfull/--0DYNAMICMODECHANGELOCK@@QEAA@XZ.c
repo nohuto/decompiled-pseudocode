@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0DYNAMICMODECHANGELOCK@@QEAA@XZ @ 0x1C02B7800
+ * XREFs of ??0DYNAMICMODECHANGELOCK@@QEAA@XZ @ 0x1C0159080
  * Callers:
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
- *     ?pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z @ 0x1C02B93C0 (-pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z.c)
+ *     ?pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z @ 0x1C0158EF0 (-pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
  * Callees:
  *     <none>
  */

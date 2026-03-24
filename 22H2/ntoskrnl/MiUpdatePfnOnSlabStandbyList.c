@@ -1,26 +1,29 @@
 /*
- * XREFs of MiUpdatePfnOnSlabStandbyList @ 0x1403314C8
+ * XREFs of MiUpdatePfnOnSlabStandbyList @ 0x14030F5A0
  * Callers:
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
- *     MiReplaceTransitionPage @ 0x1403304D0 (MiReplaceTransitionPage.c)
+ *     MiInsertPageInList @ 0x1402A6E90 (MiInsertPageInList.c)
+ *     MiReplaceTransitionPage @ 0x140336380 (MiReplaceTransitionPage.c)
  * Callees:
- *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD180 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
- *     MiSetPfnNodeBlinkLow @ 0x140349C98 (MiSetPfnNodeBlinkLow.c)
+ *     <none>
  */
 
-signed __int64 __fastcall MiUpdatePfnOnSlabStandbyList(__int64 a1, int a2)
+unsigned __int64 __fastcall MiUpdatePfnOnSlabStandbyList(unsigned __int64 *a1, int a2)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 v2; // rax
+  unsigned __int64 result; // rax
 
-  v2 = 0LL;
+  v2 = *a1;
   if ( a2 )
   {
-    v2 = (8 * (*(_DWORD *)(a1 + 36) & 0xFFE00000 | 0x1000000000LL)) | (((*(_QWORD *)a1 >> 20) | *(_QWORD *)(a1 + 40) & 0x780000000000000uLL) >> 20);
+    result = v2 | 0x8000000000000000uLL;
   }
   else
   {
-    MiSetPfnNodeBlinkLow(a1, 0LL);
-    *(_DWORD *)(a1 + 36) &= 0xFFE00000;
+    *((_WORD *)a1 + 18) = 0;
+    a1[3] &= 0xFF00000FFFFFFFFFuLL;
+    result = v2 & 0xFFFFFFFFFLL;
+    *((_BYTE *)a1 + 39) = 0;
   }
-  return MiSetNextStandbyPageSameNodeNoLockAsserts(a1, v2);
+  *a1 = result;
+  return result;
 }

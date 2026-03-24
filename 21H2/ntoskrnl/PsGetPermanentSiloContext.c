@@ -1,20 +1,20 @@
 /*
- * XREFs of PsGetPermanentSiloContext @ 0x140211FA0
+ * XREFs of PsGetPermanentSiloContext @ 0x14035FF90
  * Callers:
- *     CmGetRootKeyObjectForSilo @ 0x140690BDC (CmGetRootKeyObjectForSilo.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140690C50 (CmpGetOrCreateContextForSiloNoRef.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140690CFC (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x140691898 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VRegEnabledInJob @ 0x1406928FC (VRegEnabledInJob.c)
- *     CmpParseKey @ 0x1407349A0 (CmpParseKey.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1407F5F80 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
- *     ObInitServerSilo @ 0x140859318 (ObInitServerSilo.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1409262FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlModifyFlags @ 0x140926868 (VrpHandleIoctlModifyFlags.c)
- *     PspDeleteExternalServerSiloState @ 0x1409ABED8 (PspDeleteExternalServerSiloState.c)
- *     ObGetSiloRootDirectoryPath @ 0x140A34854 (ObGetSiloRootDirectoryPath.c)
+ *     CmGetRootKeyObjectForSilo @ 0x1405D263C (CmGetRootKeyObjectForSilo.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VRegEnabledInJob @ 0x1405D5B40 (VRegEnabledInJob.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140715BF8 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x140715CC0 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
+ *     ObInitServerSilo @ 0x1407C90E0 (ObInitServerSilo.c)
+ *     CmCleanupServerSiloState @ 0x1408733DC (CmCleanupServerSiloState.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14088289C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlModifyFlags @ 0x140882F4C (VrpHandleIoctlModifyFlags.c)
+ *     ObGetSiloRootDirectoryPath @ 0x14098080C (ObGetSiloRootDirectoryPath.c)
  * Callees:
  *     <none>
  */
@@ -25,9 +25,9 @@ __int64 __fastcall PsGetPermanentSiloContext(__int64 a1, unsigned int a2, unsign
   __int64 v4; // rcx
 
   if ( a1 )
-    v3 = *(_QWORD *)(a1 + 1496);
+    v3 = *(_QWORD *)(a1 + 1304);
   else
-    v3 = qword_140D32A90;
+    v3 = qword_140D24990;
   *a3 = 0LL;
   if ( a2 >= 0x20 )
   {

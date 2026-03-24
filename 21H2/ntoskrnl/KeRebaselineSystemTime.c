@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRebaselineSystemTime @ 0x140399340
+ * XREFs of KeRebaselineSystemTime @ 0x14038DD98
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140A4AF0C (PopInvokeSystemStateHandler.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     PopInvokeSystemStateHandler @ 0x140992A68 (PopInvokeSystemStateHandler.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER KeRebaselineSystemTime()

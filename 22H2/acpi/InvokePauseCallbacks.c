@@ -1,9 +1,9 @@
 /*
- * XREFs of InvokePauseCallbacks @ 0x1C00539B4
+ * XREFs of InvokePauseCallbacks @ 0x1C0068220
  * Callers:
- *     RunContext @ 0x1C0053F54 (RunContext.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void InvokePauseCallbacks()
@@ -13,16 +13,16 @@ void InvokePauseCallbacks()
 
   while ( 1 )
   {
-    v0 = qword_1C0070080;
-    if ( (__int64 *)qword_1C0070080 == &qword_1C0070080 )
+    v0 = qword_1C00827E0;
+    if ( (__int64 *)qword_1C00827E0 == &qword_1C00827E0 )
       break;
-    if ( *(__int64 **)(qword_1C0070080 + 8) != &qword_1C0070080
-      || (v1 = *(_QWORD *)qword_1C0070080, *(_QWORD *)(*(_QWORD *)qword_1C0070080 + 8LL) != qword_1C0070080) )
+    if ( *(__int64 **)(qword_1C00827E0 + 8) != &qword_1C00827E0
+      || (v1 = *(_QWORD *)qword_1C00827E0, *(_QWORD *)(*(_QWORD *)qword_1C00827E0 + 8LL) != qword_1C00827E0) )
     {
       __fastfail(3u);
     }
-    qword_1C0070080 = *(_QWORD *)qword_1C0070080;
-    *(_QWORD *)(v1 + 8) = &qword_1C0070080;
+    qword_1C00827E0 = *(_QWORD *)qword_1C00827E0;
+    *(_QWORD *)(v1 + 8) = &qword_1C00827E0;
     (*(void (__fastcall **)(_QWORD))(v0 + 16))(*(_QWORD *)(v0 + 24));
   }
 }

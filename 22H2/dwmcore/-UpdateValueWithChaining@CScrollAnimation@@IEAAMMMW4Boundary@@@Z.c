@@ -1,329 +1,338 @@
 /*
- * XREFs of ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x180265738
+ * XREFs of ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x18020403C
  * Callers:
- *     ?CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180266A50 (-CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueSt.c)
- *     ?CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180267180 (-CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack.c)
+ *     ?CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205410 (-CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueSt.c)
+ *     ?CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205B50 (-CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x180132B0E (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180134BEE (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
- *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x180231E64 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
- *     ?ShouldChainAllForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@@Z @ 0x18023576C (-ShouldChainAllForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@@Z.c)
- *     ?ShouldChainForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@_N@Z @ 0x18023582C (-ShouldChainForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@_N@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@55555555555@Z @ 0x180264734 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U3@U3.c)
- *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026500C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
- *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180265330 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
- *     ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180265694 (-UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z.c)
- *     ?TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ @ 0x180275568 (-TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ.c)
- *     ?ChainToParent@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N@Z @ 0x18027655C (-ChainToParent@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N@Z.c)
- *     ?RestoreSupportedInteractionsWithBoundaries@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N2@Z @ 0x1802766A8 (-RestoreSupportedInteractionsWithBoundaries@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N2@.c)
+ *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x1801C8B88 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
+ *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x1801C9B34 (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
+ *     ?ShouldChainAllForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@@Z @ 0x1801CC9F0 (-ShouldChainAllForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@@Z.c)
+ *     ?ShouldChainForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@_N@Z @ 0x1801CCAB0 (-ShouldChainForAxis@CInteractionTracker@@QEBA_NW4ScrollAxis@@PEBVCManipulation@@_N@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$03@@55555555555@Z @ 0x1802030C0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U3@U3.c)
+ *     ?ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z @ 0x180203C10 (-ScrollAxisToString@@YAPEBGW4ScrollAxis@@@Z.c)
+ *     ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180203F88 (-UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180213D70 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
+ *     ?TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ @ 0x180213E24 (-TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ.c)
+ *     ?ChainToParent@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N@Z @ 0x180214FA0 (-ChainToParent@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N@Z.c)
+ *     ?RestoreSupportedInteractionsWithBoundaries@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N2@Z @ 0x1802150F8 (-RestoreSupportedInteractionsWithBoundaries@CChainingHelper@@QEAAXW4ScrollAxis@@W4Boundary@@_N2@.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
 __m128 __fastcall CScrollAnimation::UpdateValueWithChaining(__int64 a1, double a2, float a3, unsigned int a4)
 {
-  __m128 v5; // xmm7
-  struct CInteractionTracker *InteractionTracker; // rsi
-  CScrollAnimation *v8; // rcx
-  struct CInteractionTracker *v9; // rax
-  bool v10; // bl
+  bool v4; // bl
+  __int64 v6; // rax
+  __m128 v7; // xmm7
+  __int64 v9; // rsi
+  __int64 v10; // rcx
   struct CChainingHelper *ActiveChainingHelper; // r14
   InteractionSourceManager *v12; // rsi
   unsigned int v13; // r13d
-  InteractionSourceManager *v14; // rcx
   unsigned __int8 ShouldChainForAxis; // r12
-  InteractionSourceManager *v16; // rcx
-  __int64 v17; // rcx
-  unsigned int v18; // ecx
-  char v19; // al
-  unsigned int v20; // eax
-  int v21; // ecx
-  __int64 v22; // rcx
-  __int64 v23; // r8
+  __int64 v15; // rcx
+  unsigned int v16; // ecx
+  char v17; // al
+  unsigned int v18; // eax
+  int v19; // ecx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  char v23; // cl
   __int64 v24; // r9
-  char v25; // cl
-  __int64 v26; // r9
-  InteractionSourceManager *v27; // rcx
-  struct CManipulation *ActiveManipulation; // rax
-  __int64 v29; // rcx
+  struct CManipulation *v25; // rax
+  __int64 v26; // rcx
   bool ShouldChainAllForAxis; // al
-  __int64 v31; // rcx
-  int v32; // edx
-  int v33; // edx
-  __int64 v34; // r9
-  InteractionSourceManager *v35; // rcx
-  struct CManipulation *v36; // rax
-  __int64 v37; // rcx
-  bool v38; // al
-  int v39; // ecx
-  __int64 v40; // r9
-  InteractionSourceManager *v41; // rcx
+  __int64 v28; // rcx
+  int v29; // edx
+  int v30; // edx
+  __int64 v31; // r9
+  struct CManipulation *v32; // rax
+  __int64 v33; // rcx
+  bool v34; // al
+  int v35; // eax
+  int v36; // edx
+  __int64 v37; // r9
+  struct CManipulation *v38; // rax
+  __int64 v39; // rcx
+  bool v40; // al
+  __int64 v41; // r9
   struct CManipulation *v42; // rax
   __int64 v43; // rcx
   bool v44; // al
-  int v45; // ecx
-  __int64 v46; // r9
-  InteractionSourceManager *v47; // rcx
-  struct CManipulation *v48; // rax
-  __int64 v49; // rcx
-  bool v50; // al
-  __int64 v51; // r9
-  InteractionSourceManager *v52; // rcx
-  struct CManipulation *v53; // rax
+  __int64 v45; // r9
+  struct CManipulation *v46; // rax
+  __int64 v47; // rcx
+  __int64 v48; // r9
+  struct CManipulation *v49; // rax
+  __int64 v50; // rcx
+  bool v51; // al
+  float v52; // xmm0_4
+  float v53; // xmm3_4
   __int64 v54; // rcx
-  __int64 v55; // r9
-  InteractionSourceManager *v56; // rcx
-  struct CManipulation *v57; // rax
-  __int64 v58; // rcx
-  float v59; // xmm0_4
-  float v60; // xmm3_4
-  __int64 v61; // rcx
-  int v63; // [rsp+28h] [rbp-B9h]
-  int v64; // [rsp+9Ch] [rbp-45h] BYREF
-  int v65; // [rsp+A0h] [rbp-41h] BYREF
-  int v66; // [rsp+A4h] [rbp-3Dh] BYREF
-  int v67; // [rsp+A8h] [rbp-39h] BYREF
-  int v68; // [rsp+ACh] [rbp-35h] BYREF
-  int v69; // [rsp+B0h] [rbp-31h] BYREF
-  int v70; // [rsp+B4h] [rbp-2Dh] BYREF
-  float v71; // [rsp+B8h] [rbp-29h] BYREF
-  unsigned int v72; // [rsp+BCh] [rbp-25h] BYREF
-  int v73; // [rsp+C0h] [rbp-21h] BYREF
-  _BYTE v74[12]; // [rsp+C4h] [rbp-1Dh] BYREF
-  wchar_t *v75; // [rsp+D0h] [rbp-11h] BYREF
-  __int64 v76; // [rsp+D8h] [rbp-9h] BYREF
-  struct CInteractionTracker *v77; // [rsp+E0h] [rbp-1h]
+  int v56; // [rsp+28h] [rbp-B9h]
+  int v57; // [rsp+98h] [rbp-49h] BYREF
+  int v58; // [rsp+9Ch] [rbp-45h] BYREF
+  int v59; // [rsp+A0h] [rbp-41h] BYREF
+  int v60; // [rsp+A4h] [rbp-3Dh] BYREF
+  int v61; // [rsp+A8h] [rbp-39h] BYREF
+  int v62; // [rsp+ACh] [rbp-35h] BYREF
+  float v63; // [rsp+B0h] [rbp-31h] BYREF
+  unsigned int v64; // [rsp+B4h] [rbp-2Dh] BYREF
+  int v65; // [rsp+B8h] [rbp-29h] BYREF
+  unsigned __int64 v66; // [rsp+BCh] [rbp-25h] BYREF
+  __int64 v67; // [rsp+C8h] [rbp-19h]
+  wchar_t *v68; // [rsp+D0h] [rbp-11h] BYREF
+  _QWORD v69[6]; // [rsp+D8h] [rbp-9h] BYREF
+  struct CManipulation *ActiveManipulation; // [rsp+148h] [rbp+67h] BYREF
+  int v71; // [rsp+150h] [rbp+6Fh]
+  float v72; // [rsp+158h] [rbp+77h]
 
-  v5 = *(__m128 *)&a2;
-  InteractionTracker = CScrollAnimation::GetInteractionTracker((CScrollAnimation *)a1);
-  v77 = InteractionTracker;
-  v9 = CScrollAnimation::GetInteractionTracker(v8);
-  v10 = 0;
-  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((struct CInteractionTracker *)((char *)v9 + 200));
+  v72 = a3;
+  v71 = LODWORD(a2);
+  v4 = 0;
+  v6 = *(_QWORD *)(a1 + 328);
+  v7 = *(__m128 *)&a2;
+  if ( v6 )
+    v9 = *(_QWORD *)(v6 + 16);
+  else
+    v9 = 0LL;
+  v67 = v9;
+  if ( v6 )
+    v10 = *(_QWORD *)(v6 + 16);
+  else
+    v10 = 0LL;
+  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v10 + 192));
   if ( ActiveChainingHelper )
   {
-    v12 = (struct CInteractionTracker *)((char *)InteractionTracker + 200);
+    v12 = (InteractionSourceManager *)(v9 + 192);
     v13 = 0;
     if ( InteractionSourceManager::HasActiveManipulation(v12) )
-      v13 = *((_DWORD *)InteractionSourceManager::TryGetActiveManipulation(v14) + 105);
+      v13 = *((_DWORD *)InteractionSourceManager::TryGetActiveManipulation(v12) + 103);
     ShouldChainForAxis = 0;
-    *(_QWORD *)&v74[4] = InteractionSourceManager::TryGetActiveManipulation(v12);
-    if ( InteractionSourceManager::TryGetActiveChainingHelper(v16) && *(_QWORD *)&v74[4] )
-      ShouldChainForAxis = CInteractionTracker::ShouldChainForAxis(v17, *(_DWORD *)(a1 + 340), *(__int64 *)&v74[4], 0);
-    if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
+    ActiveManipulation = InteractionSourceManager::TryGetActiveManipulation(v12);
+    if ( InteractionSourceManager::TryGetActiveChainingHelper(v12) && ActiveManipulation )
+      ShouldChainForAxis = CInteractionTracker::ShouldChainForAxis(
+                             v15,
+                             *(_DWORD *)(a1 + 316),
+                             (__int64)ActiveManipulation,
+                             0);
+    if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
     {
-      v18 = *(unsigned __int8 *)(a1 + 452);
-      v19 = *(_BYTE *)(a1 + 452);
-      v72 = a4;
-      v64 = v19 & 1;
-      v66 = ShouldChainForAxis;
-      v67 = LODWORD(a2);
-      v68 = *(_DWORD *)(a1 + 448);
-      v69 = *(_DWORD *)(a1 + 440);
-      v70 = *(_DWORD *)(a1 + 444);
-      v71 = a3;
-      v73 = *(_DWORD *)(a1 + 436);
-      v20 = *(_DWORD *)(a1 + 432);
-      v65 = (v18 >> 1) & 1;
-      v21 = *(_DWORD *)(a1 + 340);
-      *(_QWORD *)v74 = __PAIR64__(v20, v13);
-      v75 = (wchar_t *)ScrollAxisToString(v21);
-      v76 = a1;
+      v16 = *(unsigned __int8 *)(a1 + 428);
+      v17 = *(_BYTE *)(a1 + 428);
+      v64 = a4;
+      LODWORD(ActiveManipulation) = v17 & 1;
+      v58 = ShouldChainForAxis;
+      v59 = v71;
+      v60 = *(_DWORD *)(a1 + 424);
+      v61 = *(_DWORD *)(a1 + 416);
+      v62 = *(_DWORD *)(a1 + 420);
+      v63 = v72;
+      v65 = *(_DWORD *)(a1 + 412);
+      v18 = *(_DWORD *)(a1 + 408);
+      v57 = (v16 >> 1) & 1;
+      v19 = *(_DWORD *)(a1 + 316);
+      v66 = __PAIR64__(v18, v13);
+      v68 = (wchar_t *)ScrollAxisToString(v19);
+      v69[0] = a1;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v20,
+        byte_1802E9C60,
+        v21,
         v22,
-        byte_180381CA5,
-        v23,
-        v24,
-        (__int64)&v76,
-        &v75,
-        (__int64)&v74[4],
-        (__int64)v74,
-        (__int64)&v73,
-        (__int64)&v72,
-        (__int64)&v71,
-        (__int64)&v70,
-        (__int64)&v69,
-        (__int64)&v68,
-        (__int64)&v67,
+        (__int64)v69,
+        &v68,
+        (__int64)&v66 + 4,
         (__int64)&v66,
         (__int64)&v65,
-        (__int64)&v64);
+        (__int64)&v64,
+        (__int64)&v63,
+        (__int64)&v62,
+        (__int64)&v61,
+        (__int64)&v60,
+        (__int64)&v59,
+        (__int64)&v58,
+        (__int64)&v57,
+        (__int64)&ActiveManipulation);
     }
-    v25 = *(_BYTE *)(a1 + 452);
-    if ( (v25 & 2) == 0 && v13 == 2 )
+    v23 = *(_BYTE *)(a1 + 428);
+    if ( (v23 & 2) == 0 && v13 == 2 )
     {
       if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
         && InteractionSourceManager::HasActiveManipulation(v12) )
       {
-        ActiveManipulation = InteractionSourceManager::TryGetActiveManipulation(v27);
-        ShouldChainAllForAxis = CInteractionTracker::ShouldChainAllForAxis(
-                                  v29,
-                                  *(_DWORD *)(a1 + 340),
-                                  (__int64)ActiveManipulation);
+        v25 = InteractionSourceManager::TryGetActiveManipulation(v12);
+        ShouldChainAllForAxis = CInteractionTracker::ShouldChainAllForAxis(v26, *(_DWORD *)(a1 + 316), (__int64)v25);
       }
       else
       {
         ShouldChainAllForAxis = 0;
       }
-      LOBYTE(v26) = ShouldChainForAxis;
-      LOBYTE(v63) = ShouldChainAllForAxis;
+      LOBYTE(v24) = ShouldChainForAxis;
+      LOBYTE(v56) = ShouldChainAllForAxis;
       CChainingHelper::RestoreSupportedInteractionsWithBoundaries(
         ActiveChainingHelper,
-        *(unsigned int *)(a1 + 340),
+        *(unsigned int *)(a1 + 316),
         a4,
-        v26,
-        v63);
-      v31 = 3LL * *(int *)(a1 + 340);
-      *((_BYTE *)ActiveChainingHelper + 4 * v31) &= 0xFAu;
-      *((_DWORD *)ActiveChainingHelper + v31 + 2) = 0;
+        v24,
+        v56);
+      v28 = 3LL * *(int *)(a1 + 316);
+      *((_BYTE *)ActiveChainingHelper + 4 * v28) &= 0xFAu;
+      *((_DWORD *)ActiveChainingHelper + v28 + 2) = 0;
       *((_BYTE *)ActiveChainingHelper + 36) |= 2u;
-      *(_BYTE *)(a1 + 452) |= 2u;
-      v25 = *(_BYTE *)(a1 + 452);
+      *(_BYTE *)(a1 + 428) |= 2u;
+      v23 = *(_BYTE *)(a1 + 428);
     }
-    v32 = *(_DWORD *)(a1 + 432);
-    if ( v32 )
+    v29 = *(_DWORD *)(a1 + 408);
+    if ( v29 )
     {
-      v33 = v32 - 2;
-      if ( !v33 )
+      v30 = v29 - 2;
+      if ( !v30 )
       {
         CScrollAnimation::UpdateChainingDirection((CScrollAnimation *)a1, a3);
-        v39 = *(_DWORD *)(a1 + 436);
-        if ( v39 && ShouldChainForAxis )
+        v35 = *(_DWORD *)(a1 + 412);
+        if ( v35 && ShouldChainForAxis )
         {
-          if ( ((v39 - 1) & 0xFFFFFFFD) == 0 && a4 == v39 && (float)((float)(a3 - *(float *)(a1 + 440)) > 0.0) < 0.0 )
+          if ( v35 == 1 || (v36 = *(_DWORD *)(a1 + 412), v35 == 3) )
+          {
+            v36 = *(_DWORD *)(a1 + 412);
+            if ( a4 == v35 && (float)((float)(a3 - *(float *)(a1 + 416)) > 0.0) < 0.0 )
+            {
+              if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
+                && InteractionSourceManager::HasActiveManipulation(v12) )
+              {
+                v38 = InteractionSourceManager::TryGetActiveManipulation(v12);
+                v40 = CInteractionTracker::ShouldChainAllForAxis(v39, *(_DWORD *)(a1 + 316), (__int64)v38);
+              }
+              else
+              {
+                v40 = 0;
+              }
+              LOBYTE(v37) = v40;
+              CChainingHelper::ChainToParent(ActiveChainingHelper, *(unsigned int *)(a1 + 316), a4, v37);
+              v36 = *(_DWORD *)(a1 + 412);
+            }
+          }
+          if ( (unsigned int)(v36 - 2) <= 1 && a4 == v36 && (float)((float)(a3 - *(float *)(a1 + 416)) > 0.0) > 0.0 )
           {
             if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
               && InteractionSourceManager::HasActiveManipulation(v12) )
             {
-              v42 = InteractionSourceManager::TryGetActiveManipulation(v41);
-              v44 = CInteractionTracker::ShouldChainAllForAxis(v43, *(_DWORD *)(a1 + 340), (__int64)v42);
+              v42 = InteractionSourceManager::TryGetActiveManipulation(v12);
+              v44 = CInteractionTracker::ShouldChainAllForAxis(v43, *(_DWORD *)(a1 + 316), (__int64)v42);
             }
             else
             {
               v44 = 0;
             }
-            LOBYTE(v40) = v44;
-            CChainingHelper::ChainToParent(ActiveChainingHelper, *(unsigned int *)(a1 + 340), a4, v40);
-          }
-          v45 = *(_DWORD *)(a1 + 436);
-          if ( (unsigned int)(v45 - 2) <= 1 && a4 == v45 && (float)((float)(a3 - *(float *)(a1 + 440)) > 0.0) > 0.0 )
-          {
-            if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
-              && InteractionSourceManager::HasActiveManipulation(v12) )
-            {
-              v48 = InteractionSourceManager::TryGetActiveManipulation(v47);
-              v50 = CInteractionTracker::ShouldChainAllForAxis(v49, *(_DWORD *)(a1 + 340), (__int64)v48);
-            }
-            else
-            {
-              v50 = 0;
-            }
-            LOBYTE(v46) = v50;
-            CChainingHelper::ChainToParent(ActiveChainingHelper, *(unsigned int *)(a1 + 340), a4, v46);
+            LOBYTE(v41) = v44;
+            CChainingHelper::ChainToParent(ActiveChainingHelper, *(unsigned int *)(a1 + 316), a4, v41);
           }
           if ( !a4 )
           {
             if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
               && InteractionSourceManager::HasActiveManipulation(v12) )
             {
-              v53 = InteractionSourceManager::TryGetActiveManipulation(v52);
-              v10 = CInteractionTracker::ShouldChainAllForAxis(v54, *(_DWORD *)(a1 + 340), (__int64)v53);
+              v46 = InteractionSourceManager::TryGetActiveManipulation(v12);
+              v4 = CInteractionTracker::ShouldChainAllForAxis(v47, *(_DWORD *)(a1 + 316), (__int64)v46);
             }
-            LOBYTE(v51) = ShouldChainForAxis;
-            LOBYTE(v63) = v10;
+            LOBYTE(v45) = ShouldChainForAxis;
+            LOBYTE(v56) = v4;
             CChainingHelper::RestoreSupportedInteractionsWithBoundaries(
               ActiveChainingHelper,
-              *(unsigned int *)(a1 + 340),
+              *(unsigned int *)(a1 + 316),
               0LL,
-              v51,
-              v63);
-            goto LABEL_70;
+              v45,
+              v56);
+            goto LABEL_79;
           }
+          goto LABEL_77;
         }
-        else
-        {
-          if ( !a4 || !ShouldChainForAxis )
-          {
-            if ( (*(_BYTE *)(a1 + 452) & 1) == 0 )
-            {
-              v59 = *(float *)(a1 + 448);
-              if ( v59 != 0.0 )
-              {
-                v60 = a3 - *(float *)(a1 + 440);
-                if ( (float)(v60 > 0.0) != (float)(v59 > 0.0) && v60 != 0.0 )
-                {
-                  v61 = 3LL * *(int *)(a1 + 340);
-                  *((_BYTE *)ActiveChainingHelper + 4 * v61) &= 0xFAu;
-                  *((_DWORD *)ActiveChainingHelper + v61 + 2) = 0;
-                  *((_BYTE *)ActiveChainingHelper + 36) |= 2u;
-                  *(_DWORD *)(a1 + 448) = 0;
-                }
-              }
-            }
-            goto LABEL_67;
-          }
-          if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
-            && InteractionSourceManager::HasActiveManipulation(v12) )
-          {
-            v57 = InteractionSourceManager::TryGetActiveManipulation(v56);
-            v10 = CInteractionTracker::ShouldChainAllForAxis(v58, *(_DWORD *)(a1 + 340), (__int64)v57);
-          }
-          LOBYTE(v55) = v10;
-          CChainingHelper::ChainToParent(ActiveChainingHelper, *(unsigned int *)(a1 + 340), a4, v55);
-        }
-LABEL_69:
-        v5 = CInteractionTracker::ClampValueToBoundary((__int64)v77, *(unsigned int *)(a1 + 340), a2);
-LABEL_70:
-        *(float *)(a1 + 444) = a3;
-        *(_DWORD *)(a1 + 436) = a4;
-        *(_DWORD *)(a1 + 432) = v13;
-        return v5;
-      }
-      if ( v33 != 1 )
-        goto LABEL_67;
-      if ( *(_DWORD *)(a1 + 436) && ShouldChainForAxis )
-      {
-        if ( v13 == 2 )
+        if ( a4 && ShouldChainForAxis )
         {
           if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
             && InteractionSourceManager::HasActiveManipulation(v12) )
           {
-            v36 = InteractionSourceManager::TryGetActiveManipulation(v35);
-            v38 = CInteractionTracker::ShouldChainAllForAxis(v37, *(_DWORD *)(a1 + 340), (__int64)v36);
+            v49 = InteractionSourceManager::TryGetActiveManipulation(v12);
+            v51 = CInteractionTracker::ShouldChainAllForAxis(v50, *(_DWORD *)(a1 + 316), (__int64)v49);
           }
           else
           {
-            v38 = 0;
+            v51 = 0;
           }
-          LOBYTE(v34) = ShouldChainForAxis;
-          LOBYTE(v63) = v38;
-          CChainingHelper::RestoreSupportedInteractionsWithBoundaries(
-            ActiveChainingHelper,
-            *(unsigned int *)(a1 + 340),
-            a4,
-            v34,
-            v63);
-          goto LABEL_66;
+          LOBYTE(v48) = v51;
+          CChainingHelper::ChainToParent(ActiveChainingHelper, *(unsigned int *)(a1 + 316), a4, v48);
         }
-LABEL_67:
-        if ( !a4 || !ShouldChainForAxis )
-          goto LABEL_70;
-        goto LABEL_69;
+        else if ( (*(_BYTE *)(a1 + 428) & 1) == 0 )
+        {
+          v52 = *(float *)(a1 + 424);
+          if ( v52 != 0.0 )
+          {
+            v53 = a3 - *(float *)(a1 + 416);
+            if ( (float)(v53 > 0.0) != (float)(v52 > 0.0) && v53 != 0.0 )
+            {
+              v54 = 3LL * *(int *)(a1 + 316);
+              *((_BYTE *)ActiveChainingHelper + 4 * v54) &= 0xFAu;
+              *((_DWORD *)ActiveChainingHelper + v54 + 2) = 0;
+              *((_BYTE *)ActiveChainingHelper + 36) |= 2u;
+              *(_DWORD *)(a1 + 424) = 0;
+            }
+          }
+        }
+LABEL_76:
+        if ( !a4 )
+        {
+LABEL_79:
+          *(float *)(a1 + 420) = a3;
+          *(_DWORD *)(a1 + 412) = a4;
+          *(_DWORD *)(a1 + 408) = v13;
+          return v7;
+        }
+LABEL_77:
+        if ( ShouldChainForAxis )
+          v7 = CInteractionTracker::ClampValueToBoundary(v67, *(unsigned int *)(a1 + 316), a2);
+        goto LABEL_79;
+      }
+      if ( v30 != 1 )
+        goto LABEL_76;
+      if ( *(_DWORD *)(a1 + 412) && ShouldChainForAxis )
+      {
+        if ( v13 != 2 )
+          goto LABEL_76;
+        if ( InteractionSourceManager::TryGetActiveChainingHelper(v12)
+          && InteractionSourceManager::HasActiveManipulation(v12) )
+        {
+          v32 = InteractionSourceManager::TryGetActiveManipulation(v12);
+          v34 = CInteractionTracker::ShouldChainAllForAxis(v33, *(_DWORD *)(a1 + 316), (__int64)v32);
+        }
+        else
+        {
+          v34 = 0;
+        }
+        LOBYTE(v31) = ShouldChainForAxis;
+        LOBYTE(v56) = v34;
+        CChainingHelper::RestoreSupportedInteractionsWithBoundaries(
+          ActiveChainingHelper,
+          *(unsigned int *)(a1 + 316),
+          a4,
+          v31,
+          v56);
+        goto LABEL_75;
       }
       if ( v13 != 2 )
-        goto LABEL_67;
-      *(_BYTE *)(a1 + 452) = v25 | 1;
+        goto LABEL_76;
+      *(_BYTE *)(a1 + 428) = v23 | 1;
     }
     else
     {
-      *(_BYTE *)(a1 + 452) = v25 | 1;
+      *(_BYTE *)(a1 + 428) = v23 | 1;
       if ( v13 != 2 )
-        goto LABEL_67;
+        goto LABEL_76;
     }
-    *(_DWORD *)(a1 + 440) = *(_DWORD *)(a1 + 444);
-LABEL_66:
+    *(_DWORD *)(a1 + 416) = *(_DWORD *)(a1 + 420);
+LABEL_75:
     CScrollAnimation::UpdateChainingDirection((CScrollAnimation *)a1, a3);
-    goto LABEL_67;
+    goto LABEL_76;
   }
-  return v5;
+  return v7;
 }

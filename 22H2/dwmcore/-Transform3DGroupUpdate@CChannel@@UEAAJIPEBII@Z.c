@@ -1,17 +1,14 @@
 /*
- * XREFs of ?Transform3DGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x1801D0CB0
+ * XREFs of ?Transform3DGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x180151090
  * Callers:
  *     <none>
  * Callees:
- *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180043D44 (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z @ 0x18004459C (-GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z.c)
- *     ?EndItem@CDataStreamWriter@@QEAAJXZ @ 0x1800BB480 (-EndItem@CDataStreamWriter@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?EndItem@CDataStreamWriter@@QEAAJXZ @ 0x180038118 (-EndItem@CDataStreamWriter@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x18005DC2C (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?AddItemData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x1800BF2E0 (-AddItemData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
  */
 
 __int64 __fastcall CChannel::Transform3DGroupUpdate(
@@ -22,60 +19,38 @@ __int64 __fastcall CChannel::Transform3DGroupUpdate(
 {
   unsigned __int64 v8; // rax
   int v9; // eax
-  unsigned int v10; // ebx
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  unsigned int v13; // ebx
-  CDataStreamWriter *v14; // rcx
-  int v15; // eax
-  __int64 v16; // rcx
-  void *v18; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v19; // [rsp+38h] [rbp-20h]
-  _BYTE v20[24]; // [rsp+40h] [rbp-18h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
+  __m128i si128; // [rsp+30h] [rbp-18h] BYREF
+  struct _RTL_CRITICAL_SECTION *v14; // [rsp+50h] [rbp+8h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v20, (struct CChannel *)this);
-  CChannel::CheckHandle((__int64)this, a2, 188);
-  LODWORD(v18) = 694;
-  v19 = 0;
-  HIDWORD(v18) = a2;
+  v14 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
+  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  CChannel::CheckHandle((__int64)this, a2, 187);
   v8 = 4LL * a4;
+  si128 = _mm_load_si128((const __m128i *)&_xmm);
+  si128.m128i_i32[1] = a2;
   if ( v8 > 0xFFFFFFFF )
   {
-    v10 = -2147024362;
-    v12 = 2707LL;
-    v11 = 2147942934LL;
-    goto LABEL_10;
+    v11 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0, -2147024362, 0xA65u, 0LL);
   }
-  v19 = 4 * a4;
-  v9 = CChannel::BeginCommand(this, &v18, 0xCu, v8);
-  v10 = v9;
-  if ( v9 < 0 )
+  else
   {
-    v11 = (unsigned int)v9;
-    v12 = 2708LL;
-LABEL_10:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v12,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)v11);
-    goto LABEL_11;
-  }
-  v13 = v19;
-  if ( v19 )
-  {
-    v14 = this[22];
-    v18 = 0LL;
-    v15 = CDataStreamWriter::GetItemDataWritePointer(v14, v19, &v18);
-    if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xB2u, 0LL);
+    si128.m128i_i32[3] = 0;
+    si128.m128i_i32[2] = 4 * a4;
+    v9 = CChannel::BeginCommand(this, &si128, 0x10u, v8);
+    v11 = v9;
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xA67u, 0LL);
+    }
     else
-      memcpy_0(v18, a3, v13);
+    {
+      CDataStreamWriter::AddItemData(this[20], a3, si128.m128i_u32[2]);
+      CDataStreamWriter::EndItem(this[20]);
+    }
   }
-  CDataStreamWriter::EndItem(this[22]);
-  v10 = 0;
-LABEL_11:
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v20);
-  return v10;
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v14);
+  return v11;
 }

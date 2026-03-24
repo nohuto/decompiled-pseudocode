@@ -1,52 +1,47 @@
 /*
- * XREFs of MiValidateUserCallTarget @ 0x14096EC0C
+ * XREFs of MiValidateUserCallTarget @ 0x14070F21C
  * Callers:
- *     MiCfgMarkValidEntries @ 0x140753C58 (MiCfgMarkValidEntries.c)
- *     MmValidateUserCallTarget @ 0x14096ECCC (MmValidateUserCallTarget.c)
+ *     MiCfgMarkValidEntries @ 0x14070F9B4 (MiCfgMarkValidEntries.c)
+ *     MmValidateUserCallTarget @ 0x1408D7E78 (MmValidateUserCallTarget.c)
  * Callees:
- *     CfgAddressToBitState @ 0x14059A668 (CfgAddressToBitState.c)
- *     MiIsProcessCfgExportSuppressionEnabled @ 0x14096EBB0 (MiIsProcessCfgExportSuppressionEnabled.c)
- *     MiIsProcessXfgEnabled @ 0x14096EBDC (MiIsProcessXfgEnabled.c)
+ *     MiIsProcessCfgExportSuppressionEnabled @ 0x14025C704 (MiIsProcessCfgExportSuppressionEnabled.c)
+ *     CfgAddressToBitState @ 0x14035B8B0 (CfgAddressToBitState.c)
  */
 
 __int64 __fastcall MiValidateUserCallTarget(unsigned __int64 a1, __int64 a2)
 {
-  __int16 v3; // di
+  char v3; // di
   unsigned int v4; // ebx
-  _KPROCESS *Process; // rbp
+  int v5; // r8d
   int v6; // r8d
-  int v7; // r8d
   int v8; // r8d
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // rax
+  bool v9; // zf
 
   v3 = a1;
   v4 = 0;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  v6 = CfgAddressToBitState(a1, *(const signed __int64 **)a2);
-  if ( v6 )
+  v5 = CfgAddressToBitState(a1, *(const signed __int64 **)a2);
+  if ( v5 )
   {
-    v7 = v6 - 1;
-    if ( !v7 )
-      return (v3 & 0xF) == (unsigned __int64)*(unsigned int *)(a2 + 24);
-    v8 = v7 - 1;
-    if ( v8 )
+    v6 = v5 - 1;
+    if ( v6 )
     {
-      if ( v8 == 1 )
+      v8 = v6 - 1;
+      if ( v8 )
+      {
+        v9 = v8 == 1;
+      }
+      else
+      {
+        if ( MiIsProcessCfgExportSuppressionEnabled() )
+          return v4;
+        v9 = (v3 & 0xF) == (unsigned __int64)*(unsigned int *)(a2 + 24);
+      }
+      if ( v9 )
         return 1;
     }
     else
     {
-      if ( !MiIsProcessCfgExportSuppressionEnabled((__int64)Process) && v9 == *(_DWORD *)(a2 + 24) )
-        return 1;
-      if ( !MiIsProcessXfgEnabled(v10) )
-      {
-        v12 = *(unsigned int *)(a2 + 24);
-        if ( v11 == v12 && (v3 & 0xFFF) != v12 )
-          return 1;
-      }
+      return (v3 & 0xF) == (unsigned __int64)*(unsigned int *)(a2 + 24);
     }
   }
   return v4;

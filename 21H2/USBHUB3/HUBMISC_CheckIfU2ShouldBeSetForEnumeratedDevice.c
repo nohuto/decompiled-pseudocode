@@ -1,8 +1,8 @@
 /*
- * XREFs of HUBMISC_CheckIfU2ShouldBeSetForEnumeratedDevice @ 0x1C002DC74
+ * XREFs of HUBMISC_CheckIfU2ShouldBeSetForEnumeratedDevice @ 0x1C002D5E8
  * Callers:
- *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C001E460 (HUBDSM_UpdatingDeviceInformationInEnum.c)
- *     HUBDSM_ComputingLPMTimeoutValuesInUnconfigured @ 0x1C0023210 (HUBDSM_ComputingLPMTimeoutValuesInUnconfigured.c)
+ *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C001DF20 (HUBDSM_UpdatingDeviceInformationInEnum.c)
+ *     HUBDSM_ComputingLPMTimeoutValuesInUnconfigured @ 0x1C0022DC0 (HUBDSM_ComputingLPMTimeoutValuesInUnconfigured.c)
  * Callees:
  *     <none>
  */

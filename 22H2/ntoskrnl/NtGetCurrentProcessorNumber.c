@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetCurrentProcessorNumber @ 0x1409AE5F0
+ * XREFs of NtGetCurrentProcessorNumber @ 0x1409077E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,15 +8,15 @@
 
 __int64 NtGetCurrentProcessorNumber()
 {
-  unsigned int GroupIndex; // ecx
-  _KPROCESS *Process; // rdx
+  unsigned int GroupIndex; // edx
+  unsigned __int64 v1; // rax
   __int16 v2; // ax
 
   GroupIndex = KeGetCurrentPrcb()->GroupIndex;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].Affinity.StaticBitmap[30] )
+  v1 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( v1 )
   {
-    v2 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+    v2 = *(_WORD *)(v1 + 8);
     if ( v2 == 332 || v2 == 452 )
       return GroupIndex & 0x1F;
   }

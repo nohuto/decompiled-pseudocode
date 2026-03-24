@@ -1,13 +1,13 @@
 /*
- * XREFs of VslFinalizeSecureImageHash @ 0x14054DCA0
+ * XREFs of VslFinalizeSecureImageHash @ 0x1404FE270
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslFinalizeSecureImageHash(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall VslFinalizeSecureImageHash(__int64 a1, __int64 a2)
   *(_QWORD *)&MemoryDescriptorList[32] = a2 & 0xFFFFFFFFFFFFF000uLL;
   *(_DWORD *)&MemoryDescriptorList[44] = a2 & 0xFFF;
   *(_DWORD *)&MemoryDescriptorList[40] = 72;
-  MiProbeAndLockPages((__int64)MemoryDescriptorList, 0, 1);
+  MiProbeAndLockPages((__int64)MemoryDescriptorList, 0, 1u);
   v6[1] = a1;
   v6[2] = a2;
   *(_OWORD *)&v6[3] = *(_OWORD *)&MemoryDescriptorList[48];

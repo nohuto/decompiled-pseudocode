@@ -1,9 +1,9 @@
 /*
- * XREFs of ?BltLnkSrcCopyMsk1@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C02DB0F0
+ * XREFs of ?BltLnkSrcCopyMsk1@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C02DCC60
  * Callers:
  *     <none>
  * Callees:
- *     ?BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z @ 0x1C02DABC0 (-BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z.c)
+ *     ?BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z @ 0x1C02DC730 (-BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z.c)
  */
 
 void __fastcall BltLnkSrcCopyMsk1(

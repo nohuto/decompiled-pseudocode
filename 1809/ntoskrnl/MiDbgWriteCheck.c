@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDbgWriteCheck @ 0x1402BB284
+ * XREFs of MiDbgWriteCheck @ 0x1402BB384
  * Callers:
- *     MiDbgCopyMemory @ 0x1402BA650 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402BA750 (MiDbgCopyMemory.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPagePrivilege @ 0x1400B2A50 (MiGetPagePrivilege.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeFlushSingleCurrentTb @ 0x140156EB8 (KeFlushSingleCurrentTb.c)
- *     MiRealVaToFlushType @ 0x14016A828 (MiRealVaToFlushType.c)
- *     KeSetPagePrivilege @ 0x14028DB20 (KeSetPagePrivilege.c)
- *     MiDbgMarkPfnModified @ 0x1402BAA30 (MiDbgMarkPfnModified.c)
+ *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
+ *     MiRealVaToFlushType @ 0x14016A848 (MiRealVaToFlushType.c)
+ *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
+ *     MiDbgMarkPfnModified @ 0x1402BAB30 (MiDbgMarkPfnModified.c)
  */
 
 unsigned __int64 __fastcall MiDbgWriteCheck(unsigned __int64 a1, __int64 *a2)

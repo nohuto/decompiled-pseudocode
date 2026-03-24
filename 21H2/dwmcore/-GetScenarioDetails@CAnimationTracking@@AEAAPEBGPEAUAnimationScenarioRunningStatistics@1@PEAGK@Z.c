@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetScenarioDetails@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x180076D34
+ * XREFs of ?GetScenarioDetails@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x1800B1DC4
  * Callers:
- *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800745D0 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
- *     ?RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x180077198 (-RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
+ *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800B0708 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
+ *     ?RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x1800B1718 (-RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
  * Callees:
- *     ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x180076E08 (-GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z.c)
+ *     ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x1800B1E34 (-GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z.c)
  */
 
 wchar_t *__fastcall CAnimationTracking::GetScenarioDetails(
@@ -18,14 +18,14 @@ wchar_t *__fastcall CAnimationTracking::GetScenarioDetails(
   v3 = a3;
   if ( *(_DWORD *)a2 )
   {
-    v5 = *((_QWORD *)a2 + 20);
+    v5 = *((_QWORD *)a2 + 19);
     if ( !v5 )
-      return word_18032C468;
+      return word_1802CE8C0;
     if ( !*(_WORD *)(v5 + 38) )
-      return word_18032C468;
+      return word_1802CE8C0;
     v3 = (unsigned __int16 *)(v5 + *(unsigned __int16 *)(v5 + 38));
     if ( !v3 )
-      return word_18032C468;
+      return word_1802CE8C0;
   }
   else
   {

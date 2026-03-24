@@ -1,12 +1,12 @@
 /*
- * XREFs of ViThunkFindExportAddress @ 0x140B5A9DC
+ * XREFs of ViThunkFindExportAddress @ 0x140A4F010
  * Callers:
- *     ViThunkFindAllExportAddresses @ 0x140B5A920 (ViThunkFindAllExportAddresses.c)
+ *     ViThunkFindAllExportAddresses @ 0x140A4EF6C (ViThunkFindAllExportAddresses.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall ViThunkFindExportAddress(__int64 a1, unsigned __int64 a2, int *a3)
+__int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *a3)
 {
   _QWORD *v3; // r14
   _QWORD *v4; // rdi
@@ -18,10 +18,10 @@ __int64 __fastcall ViThunkFindExportAddress(__int64 a1, unsigned __int64 a2, int
   __int64 v11; // r12
   __int64 v12; // r15
   int v13; // ecx
-  unsigned int v14; // r9d
+  __int64 v14; // r8
   char *v15; // rax
   __int64 v16; // r11
-  char v17; // r8
+  char v17; // r9
   int v18; // eax
   unsigned int v19; // r9d
   __int64 v20; // r8
@@ -30,10 +30,10 @@ __int64 __fastcall ViThunkFindExportAddress(__int64 a1, unsigned __int64 a2, int
   int v23; // edx
   __int64 v24; // r10
   unsigned __int16 v25; // cx
-  unsigned __int64 v27; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v27; // [rsp+60h] [rbp+8h] BYREF
   char *v28; // [rsp+68h] [rbp+10h]
 
-  v28 = (char *)a2;
+  v28 = a2;
   v3 = (_QWORD *)(a1 + 16);
   v4 = *(_QWORD **)(a1 + 16);
   *a3 = 0;
@@ -45,20 +45,20 @@ __int64 __fastcall ViThunkFindExportAddress(__int64 a1, unsigned __int64 a2, int
   {
     v8 = v4[6];
     LOBYTE(a2) = 1;
-    v9 = (_DWORD *)RtlImageDirectoryEntryToData(v8, a2, 0, (int)&v27);
+    v9 = (_DWORD *)RtlImageDirectoryEntryToData(v8, (int)a2, 0, (int)&v27);
     v10 = v9;
     if ( v9 )
     {
+      LODWORD(a2) = 0;
       v11 = v8 + (unsigned int)v9[8];
       v12 = v8 + (unsigned int)v9[9];
       v13 = v9[6] - 1;
-      v14 = 0;
-      do
+      while ( 1 )
       {
-        a2 = (v13 + v14) >> 1;
-        v27 = a2;
+        v14 = (unsigned int)(v13 + (_DWORD)a2) >> 1;
+        v27 = v14;
         v15 = v28;
-        v16 = v8 + *(unsigned int *)(v11 + 4 * a2) - (_QWORD)v28;
+        v16 = v8 + *(unsigned int *)(v11 + 4 * v14) - (_QWORD)v28;
         while ( 1 )
         {
           v17 = *v15;
@@ -73,21 +73,24 @@ __int64 __fastcall ViThunkFindExportAddress(__int64 a1, unsigned __int64 a2, int
         }
         v18 = (unsigned __int8)*v15 < (unsigned __int8)v15[v16] ? -1 : 1;
 LABEL_9:
-        if ( v18 < 0 )
-        {
-          if ( !(_DWORD)a2 )
-            goto LABEL_26;
-          v13 = a2 - 1;
-        }
-        else
+        if ( v18 >= 0 )
         {
           if ( v18 <= 0 )
-            break;
-          v14 = a2 + 1;
+            goto LABEL_13;
+          LODWORD(a2) = v14 + 1;
+          goto LABEL_12;
         }
+        if ( !(_DWORD)v14 )
+          break;
+        v13 = v14 - 1;
+LABEL_12:
+        if ( v13 < (unsigned int)a2 )
+          goto LABEL_13;
       }
-      while ( v13 >= v14 );
-      if ( v13 >= (int)v14 )
+      LODWORD(a2) = 1;
+      v13 = 0;
+LABEL_13:
+      if ( v13 >= (int)a2 )
       {
         v19 = v10[5];
         v20 = *(unsigned __int16 *)(v12 + 2 * v27);
@@ -95,7 +98,6 @@ LABEL_9:
           break;
       }
     }
-LABEL_26:
     if ( ++v6 != 2 )
     {
       v4 = (_QWORD *)*v4;

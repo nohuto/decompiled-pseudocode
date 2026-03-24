@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePagingFileMinimum @ 0x14059D5EC
+ * XREFs of MiUpdatePagingFileMinimum @ 0x140543F3C
  * Callers:
- *     MiExtendPagingFiles @ 0x14096F2D4 (MiExtendPagingFiles.c)
+ *     MiExtendPagingFiles @ 0x1408D0630 (MiExtendPagingFiles.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdatePagingFileMinimum(__int64 a1, __int64 a2)

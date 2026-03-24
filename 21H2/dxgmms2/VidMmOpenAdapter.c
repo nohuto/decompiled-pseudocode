@@ -1,12 +1,12 @@
 /*
- * XREFs of VidMmOpenAdapter @ 0x1C0014AF0
+ * XREFs of VidMmOpenAdapter @ 0x1C00124F0
  * Callers:
  *     <none>
  * Callees:
- *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C009A5E0 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0084384 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
  */
 
-int __fastcall VidMmOpenAdapter(struct VIDMM_GLOBAL *a1, __int64 a2)
+__int64 __fastcall VidMmOpenAdapter(struct VIDMM_GLOBAL *a1, __int64 a2)
 {
   __int64 v2; // rax
   VIDMM_PROCESS *v4; // rcx

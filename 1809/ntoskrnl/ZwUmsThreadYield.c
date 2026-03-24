@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwUmsThreadYield @ 0x1401BB930
+ * XREFs of ZwUmsThreadYield @ 0x1401BB950
  * Callers:
  *     <none>
  * Callees:

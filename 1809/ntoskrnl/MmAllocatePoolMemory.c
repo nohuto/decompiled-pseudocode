@@ -2,16 +2,16 @@
  * XREFs of MmAllocatePoolMemory @ 0x140099140
  * Callers:
  *     RtlpHpEnvAllocVA @ 0x14000D060 (RtlpHpEnvAllocVA.c)
- *     MiExpandNonPagedPool @ 0x1401626C8 (MiExpandNonPagedPool.c)
- *     MiAllocatePoolPages @ 0x140162AF0 (MiAllocatePoolPages.c)
- *     MiAllocatePagedPoolPages @ 0x140162C50 (MiAllocatePagedPoolPages.c)
- *     MiExpandPagedPool @ 0x1401641CC (MiExpandPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
+ *     MiAllocatePoolPages @ 0x140162B10 (MiAllocatePoolPages.c)
+ *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
+ *     MiExpandPagedPool @ 0x1401641EC (MiExpandPagedPool.c)
  * Callees:
  *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x1400F696C (MiObtainDynamicVa.c)
- *     MiObtainSessionVa @ 0x1400F7284 (MiObtainSessionVa.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x1400F698C (MiObtainDynamicVa.c)
+ *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
  */
 
 __int64 __fastcall MmAllocatePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, int a3, int a4, int a5)

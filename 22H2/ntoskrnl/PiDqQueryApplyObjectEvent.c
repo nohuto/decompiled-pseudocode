@@ -1,525 +1,485 @@
 /*
- * XREFs of PiDqQueryApplyObjectEvent @ 0x1407871A4
+ * XREFs of PiDqQueryApplyObjectEvent @ 0x140762AE4
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x1407869A0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140762740 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741948 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryEvaluateFilter @ 0x140788864 (PiDqQueryEvaluateFilter.c)
- *     PiDqQueryFreeActiveData @ 0x1407E02C8 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1407E0334 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1407E0934 (PiDqQueryAddObjectToResultSet.c)
- *     PiDqQueryIsObjectInResultSet @ 0x1407E21F4 (PiDqQueryIsObjectInResultSet.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x1407FA968 (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x1407FA9F8 (PiDqQueryAppendActionEntry.c)
- *     PiDqSameUserHive @ 0x14095C620 (PiDqSameUserHive.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14032D970 (RtlLookupElementGenericTableAvl.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x14069FF88 (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1406A73D4 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryFreeActiveData @ 0x1406A74F8 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x1406A8988 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x1406A8A14 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryEvaluateFilter @ 0x1406AC504 (PiDqQueryEvaluateFilter.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406AD0D8 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqSameUserHive @ 0x1408A4C18 (PiDqSameUserHive.c)
  */
 
-char __fastcall PiDqQueryApplyObjectEvent(__int64 a1, __int64 a2)
+char __fastcall PiDqQueryApplyObjectEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v2; // eax
-  __int64 *v3; // rsi
-  _QWORD *v4; // r14
-  char v7; // r15
-  char v8; // r12
-  char v9; // di
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  int v12; // r8d
-  unsigned int v13; // r15d
-  unsigned int v14; // r14d
+  int v4; // eax
+  int AddObjectToResultSet; // r13d
+  char v8; // si
+  char v9; // r10
+  __int64 v10; // rdx
+  int v11; // r8d
+  int v12; // eax
+  unsigned int v13; // r12d
+  unsigned int v14; // r15d
   __int64 v15; // rsi
   __int64 v16; // rdi
-  __int64 v17; // rcx
-  unsigned int v18; // esi
-  unsigned int v19; // r14d
-  __int64 v20; // rdi
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  const wchar_t *v23; // rcx
-  const wchar_t *v24; // rdx
-  __int64 v25; // rcx
-  const wchar_t *v26; // rcx
-  const wchar_t *v27; // rdx
-  __int64 v28; // rcx
-  struct _KTHREAD *v29; // rax
-  char v30; // r15
-  char v31; // cl
-  __int64 v32; // r8
-  int v33; // ecx
-  unsigned int v34; // edi
-  bool v35; // r15
-  struct _KTHREAD *v36; // rax
+  __int64 v17; // rax
+  unsigned int v18; // r15d
+  __int64 v19; // rcx
+  unsigned int v20; // r12d
+  __int64 v21; // rdi
+  __int64 v22; // r8
+  __int64 v23; // rdx
+  bool v24; // zf
   struct _KTHREAD *CurrentThread; // rax
+  bool v26; // r12
+  char v27; // cl
+  bool v28; // di
+  int v29; // esi
+  struct _KTHREAD *v30; // rax
+  __int64 v31; // rcx
+  const wchar_t *v32; // rcx
+  const wchar_t *v33; // rdx
+  __int64 v34; // rcx
+  const wchar_t *v35; // rcx
+  const wchar_t *v36; // rdx
+  unsigned int v37; // r13d
   unsigned int v38; // r12d
-  unsigned int v39; // r15d
-  __int64 v40; // r14
-  __int64 v41; // rsi
-  __int64 v42; // rcx
+  __int64 v39; // r15
+  __int64 v40; // rdi
+  __int64 v41; // r8
+  int v42; // ecx
   __int64 v43; // rcx
-  struct _KTHREAD *v44; // rax
+  int v44; // eax
   struct _KTHREAD *v45; // rax
   struct _KTHREAD *v46; // rax
-  unsigned int v47; // r14d
-  char v48; // r15
-  __int64 v49; // rsi
+  unsigned int v47; // r15d
+  __int64 v48; // rsi
   const wchar_t *i; // rdi
-  const wchar_t *v51; // rdi
-  int v52; // ecx
-  const wchar_t *v53; // rdi
-  __int64 v54; // rdx
-  int AddObjectToResultSet; // [rsp+34h] [rbp-1Ch]
-  _QWORD *v57; // [rsp+40h] [rbp-10h]
-  __int64 v58; // [rsp+48h] [rbp-8h] BYREF
-  __int64 v59; // [rsp+98h] [rbp+48h] BYREF
-  char v60; // [rsp+A0h] [rbp+50h] BYREF
-  char IsObjectInResultSet; // [rsp+A8h] [rbp+58h]
+  __int64 v50; // rax
+  const wchar_t *v51; // rsi
+  __int64 v52; // rax
+  int v53; // ecx
+  const wchar_t *v54; // rdi
+  __int64 v55; // rdx
+  struct _KTHREAD *v56; // rax
+  __int64 *v58; // [rsp+38h] [rbp-18h] BYREF
+  __int64 Buffer; // [rsp+40h] [rbp-10h] BYREF
+  char v60; // [rsp+98h] [rbp+48h]
+  __int64 v61; // [rsp+A0h] [rbp+50h] BYREF
+  char v62; // [rsp+A8h] [rbp+58h] BYREF
 
-  v2 = *(_DWORD *)(a2 + 4);
-  v3 = (__int64 *)(a1 + 64);
-  v4 = (_QWORD *)(a2 + 8);
-  AddObjectToResultSet = 0;
+  v4 = *(_DWORD *)(a2 + 4);
+  LODWORD(v61) = 0;
   v58 = 0LL;
-  IsObjectInResultSet = 0;
-  v7 = 0;
+  AddObjectToResultSet = 0;
   v60 = 0;
+  LOBYTE(a4) = 0;
+  v62 = 0;
   v8 = 0;
-  v57 = (_QWORD *)(a2 + 8);
   v9 = 0;
-  if ( (v2 & 1) != 0 )
+  if ( (v4 & 3) != 0 || (v4 & 8) == 0 && !*(_DWORD *)(a2 + 76) )
+    goto LABEL_25;
+  if ( (v4 & 4) != 0 )
   {
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
-    IsObjectInResultSet = PiDqQueryIsObjectInResultSet(a1, *v4);
-    v7 = IsObjectInResultSet;
-    ExReleasePushLockEx(v3, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    LODWORD(v61) = PiDqSameUserHive(a1 + 32, a2 + 24, &v62, a4);
+    if ( (int)v61 < 0 )
+      goto LABEL_139;
+    v9 = v62;
+    LOBYTE(a4) = 0;
   }
-  else
+  v10 = *(_QWORD *)(a1 + 24);
+  v11 = *(_DWORD *)(v10 + 40) & 4;
+  if ( (*(_DWORD *)(v10 + 40) & 2) != 0 )
   {
-    v57 = (_QWORD *)(a2 + 8);
-  }
-  LODWORD(v10) = *(_DWORD *)(a2 + 4);
-  if ( (v10 & 1) != 0 && !v7 || (v10 & 2) != 0 || (v10 & 8) == 0 && !*(_DWORD *)(a2 + 76) )
-  {
-LABEL_42:
-    if ( (*(_DWORD *)(a2 + 4) & 1) != 0 )
+    if ( !v11 )
     {
-      v30 = IsObjectInResultSet;
+LABEL_52:
+      LOBYTE(AddObjectToResultSet) = 1;
+      v60 = 1;
+      goto LABEL_13;
     }
-    else
+    v47 = 0;
+    if ( !*(_DWORD *)(a2 + 76) )
+      goto LABEL_36;
+    while ( 1 )
     {
-      v29 = KeGetCurrentThread();
-      --v29->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
-      v30 = PiDqQueryIsObjectInResultSet(a1, *(_QWORD *)(a2 + 8));
-      ExReleasePushLockEx(v3, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    }
-    LODWORD(v10) = *(_DWORD *)(a2 + 4);
-    if ( (v10 & 2) != 0 )
-    {
-      if ( !v30 )
+      v48 = 32LL * v47;
+      if ( *(_DWORD *)(v48 + a2 + 100) != 1 || v9 )
       {
-        v34 = 0;
-        v35 = 0;
-        goto LABEL_65;
-      }
-      goto LABEL_94;
-    }
-    if ( (v10 & 1) == 0 && !v9 )
-    {
-      v31 = v30;
-      goto LABEL_61;
-    }
-    v32 = *(_QWORD *)(a1 + 24);
-    v33 = *(_DWORD *)(v32 + 20);
-    if ( v33 )
-    {
-      v52 = v33 - 1;
-      if ( v52 )
-      {
-        if ( v52 != 1 )
-          goto LABEL_62;
-        v31 = 0;
-        v53 = *(const wchar_t **)(v32 + 32);
-        LOBYTE(v59) = 0;
-        if ( !*v53 )
-          goto LABEL_62;
-        LOBYTE(v10) = 0;
-        while ( !(_BYTE)v10 )
+        if ( !*(_QWORD *)(v48 + a2 + 104) )
+          goto LABEL_52;
+        for ( i = *(const wchar_t **)(*(_QWORD *)(a1 + 24) + 56LL); *i; i += v50 + 1 )
         {
-          v31 = wcsicmp(v53, *(const wchar_t **)(*v4 + 16LL)) == 0;
-          v54 = -1LL;
-          LOBYTE(v10) = v31;
-          LOBYTE(v59) = v31;
+          if ( !wcsicmp(*(const wchar_t **)(v48 + a2 + 104), i) )
+            goto LABEL_52;
+          v50 = -1LL;
           do
-            ++v54;
-          while ( v53[v54] );
-          v53 += v54 + 1;
-          if ( !*v53 )
-            goto LABEL_50;
+            ++v50;
+          while ( i[v50] );
         }
       }
-      else
-      {
-        v31 = wcsicmp(*(const wchar_t **)(v32 + 24), *(const wchar_t **)(*v4 + 16LL)) == 0;
-        LOBYTE(v59) = v31;
-        LOBYTE(v10) = v31;
-LABEL_50:
-        if ( !(_BYTE)v10 )
-          goto LABEL_62;
-      }
-    }
-    else
-    {
-      v31 = 1;
-      LOBYTE(v59) = 1;
-    }
-    v10 = *(_QWORD *)(a1 + 24);
-    if ( !*(_DWORD *)(v10 + 20) )
-    {
-      LODWORD(v10) = PiPnpRtlApplyMandatoryFilters(
-                       *(__int64 *)&PiPnpRtlCtx,
-                       *(_QWORD *)(*v4 + 16LL),
-                       *(_DWORD *)(*v4 + 28LL),
-                       0LL,
-                       (struct _SECURITY_SUBJECT_CONTEXT *)(a1 + 32),
-                       &v59);
-      AddObjectToResultSet = v10;
-      if ( (_DWORD)v10 == -1073741772 || (_DWORD)v10 == -1073741275 )
-      {
-        v31 = 0;
-        AddObjectToResultSet = 0;
-        LOBYTE(v59) = 0;
-      }
-      else
-      {
-        if ( (int)v10 < 0 )
-          goto LABEL_96;
-        v31 = v59;
-      }
-    }
-    if ( v31 )
-    {
-      v10 = *(_QWORD *)(a1 + 24);
-      if ( *(_QWORD *)(v10 + 88) )
-      {
-        LODWORD(v10) = PiDqQueryEvaluateFilter(a1, *(_QWORD *)(*v4 + 16LL), &v59);
-        AddObjectToResultSet = v10;
-        if ( (_DWORD)v10 == -1073741772 )
-        {
-          v31 = 0;
-          AddObjectToResultSet = 0;
-        }
-        else
-        {
-          if ( (int)v10 < 0 )
-            goto LABEL_96;
-          v31 = v59;
-        }
-      }
-LABEL_61:
-      if ( v31 )
-      {
-        if ( v30 )
-        {
-          v34 = 2;
-          v35 = v8 != 0;
-          goto LABEL_65;
-        }
-        v44 = KeGetCurrentThread();
-        v34 = 1;
-        --v44->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
-        AddObjectToResultSet = PiDqQueryAddObjectToResultSet(a1, *v4);
-        ExReleasePushLockEx(v3, 0LL);
-        LOBYTE(v10) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-LABEL_64:
-        v35 = v34;
-LABEL_65:
-        if ( AddObjectToResultSet >= 0 )
-        {
-          if ( !v35 )
-            return v10;
-          if ( (int)PiDqQueryActionQueueEntryCreate(v34, *v4, a2, &v58) >= 0 )
-          {
-            v36 = KeGetCurrentThread();
-            --v36->KernelApcDisable;
-            ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
-            PiDqQueryAppendActionEntry(a1, v58);
-LABEL_69:
-            ExReleasePushLockEx(v3, 0LL);
-            LOBYTE(v10) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-            return v10;
-          }
-        }
-LABEL_96:
-        v46 = KeGetCurrentThread();
-        --v46->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
-        *(_DWORD *)(a1 + 216) |= 1u;
-        PiDqQueryFreeActiveData(a1);
-        goto LABEL_69;
-      }
-    }
-LABEL_62:
-    if ( !v30 )
-    {
-      v34 = 0;
-      goto LABEL_64;
-    }
-LABEL_94:
-    v45 = KeGetCurrentThread();
-    v35 = 1;
-    v34 = 3;
-    --v45->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
-    PiDqQueryDeleteObjectFromResultSet(a1, *v4);
-    ExReleasePushLockEx(v3, 0LL);
-    LOBYTE(v10) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    goto LABEL_65;
-  }
-  if ( (v10 & 4) != 0 )
-  {
-    LODWORD(v10) = PiDqSameUserHive(a1 + 32, a2 + 24, &v60);
-    AddObjectToResultSet = v10;
-    if ( (int)v10 < 0 )
-      goto LABEL_96;
-  }
-  v11 = *(_QWORD *)(a1 + 24);
-  v12 = *(_DWORD *)(v11 + 40) & 4;
-  if ( (*(_DWORD *)(v11 + 40) & 2) != 0 )
-  {
-    if ( v12 )
-    {
-      v47 = 0;
-      if ( *(_DWORD *)(a2 + 76) )
-      {
-        v48 = v60;
-        do
-        {
-          v49 = 32LL * v47;
-          if ( *(_DWORD *)(v49 + a2 + 100) != 1 || v48 )
-          {
-            if ( !*(_QWORD *)(v49 + a2 + 104) )
-              goto LABEL_75;
-            v10 = *(_QWORD *)(a1 + 24);
-            for ( i = *(const wchar_t **)(v10 + 56); *i; i += v10 + 1 )
-            {
-              LODWORD(v10) = wcsicmp(*(const wchar_t **)(v49 + a2 + 104), i);
-              if ( !(_DWORD)v10 )
-                goto LABEL_75;
-              v10 = -1LL;
-              do
-                ++v10;
-              while ( i[v10] );
-            }
-          }
-          ++v47;
-        }
-        while ( v47 < *(_DWORD *)(a2 + 76) );
-      }
-    }
-    else
-    {
-LABEL_75:
-      LOBYTE(v59) = 1;
-LABEL_76:
-      v8 = v59;
+      if ( ++v47 >= *(_DWORD *)(a2 + 76) )
+        break;
+      v9 = v62;
     }
   }
   else
   {
-    LODWORD(v10) = *(_DWORD *)(v11 + 64);
-    if ( v12 )
-    {
-      v38 = 0;
-      if ( (_DWORD)v10 )
-      {
-        while ( 1 )
-        {
-          v39 = 0;
-          v40 = *(_QWORD *)(v11 + 72) + 32LL * v38;
-          LOBYTE(v59) = 0;
-          if ( *(_DWORD *)(a2 + 76) )
-            break;
-LABEL_82:
-          v11 = *(_QWORD *)(a1 + 24);
-          if ( ++v38 >= *(_DWORD *)(v11 + 64) )
-            goto LABEL_76;
-        }
-        while ( 1 )
-        {
-          v41 = 32LL * v39;
-          LOBYTE(v59) = 0;
-          LODWORD(v10) = *(_DWORD *)(v41 + a2 + 96);
-          if ( *(_DWORD *)(v40 + 16) == (_DWORD)v10 )
-          {
-            v42 = *(_QWORD *)v40;
-            LOBYTE(v59) = 0;
-            v43 = v42 - *(_QWORD *)(v41 + a2 + 80);
-            if ( !v43 )
-              v43 = *(_QWORD *)(v40 + 8) - *(_QWORD *)(v41 + a2 + 88);
-            if ( !v43 )
-            {
-              LODWORD(v10) = *(_DWORD *)(v41 + a2 + 100);
-              LOBYTE(v59) = 0;
-              if ( *(_DWORD *)(v40 + 20) == (_DWORD)v10 )
-              {
-                if ( (_DWORD)v10 != 1 || (LOBYTE(v59) = 0, v60) )
-                {
-                  if ( !*(_QWORD *)(v41 + a2 + 104) )
-                    goto LABEL_92;
-                  v10 = *(_QWORD *)(a1 + 24);
-                  LOBYTE(v59) = 0;
-                  v51 = *(const wchar_t **)(v10 + 56);
-                  if ( *v51 )
-                    break;
-                }
-              }
-            }
-          }
-LABEL_81:
-          if ( ++v39 >= *(_DWORD *)(a2 + 76) )
-            goto LABEL_82;
-        }
-        while ( 1 )
-        {
-          LODWORD(v10) = wcsicmp(*(const wchar_t **)(v41 + a2 + 104), v51);
-          if ( !(_DWORD)v10 )
-            break;
-          v10 = -1LL;
-          do
-            ++v10;
-          while ( v51[v10] );
-          v51 += v10 + 1;
-          if ( !*v51 )
-          {
-            LOBYTE(v59) = 0;
-            goto LABEL_81;
-          }
-        }
-LABEL_92:
-        v8 = 1;
-      }
-      else
-      {
-        v8 = 0;
-      }
-    }
-    else
+    v12 = *(_DWORD *)(v10 + 64);
+    if ( !v11 )
     {
       v13 = 0;
-      if ( (_DWORD)v10 )
+      if ( v12 )
       {
         do
         {
           v14 = 0;
-          v15 = *(_QWORD *)(v11 + 72) + 32LL * v13;
+          v15 = *(_QWORD *)(v10 + 72) + 32LL * v13;
           if ( *(_DWORD *)(a2 + 76) )
           {
             while ( 1 )
             {
               v16 = 32LL * v14;
-              LODWORD(v10) = *(_DWORD *)(v16 + a2 + 96);
-              if ( *(_DWORD *)(v15 + 16) == (_DWORD)v10 )
+              if ( *(_DWORD *)(v15 + 16) == *(_DWORD *)(v16 + a2 + 96) )
               {
-                v25 = *(_QWORD *)v15 - *(_QWORD *)(v16 + a2 + 80);
+                v31 = *(_QWORD *)v15 - *(_QWORD *)(v16 + a2 + 80);
                 if ( *(_QWORD *)v15 == *(_QWORD *)(v16 + a2 + 80) )
-                  v25 = *(_QWORD *)(v15 + 8) - *(_QWORD *)(v16 + a2 + 88);
-                if ( !v25 )
+                  v31 = *(_QWORD *)(v15 + 8) - *(_QWORD *)(v16 + a2 + 88);
+                if ( !v31 && *(_DWORD *)(v15 + 20) == *(_DWORD *)(v16 + a2 + 100) )
                 {
-                  LODWORD(v10) = *(_DWORD *)(v16 + a2 + 100);
-                  if ( *(_DWORD *)(v15 + 20) == (_DWORD)v10 )
-                  {
-                    v26 = *(const wchar_t **)(v15 + 24);
-                    v27 = *(const wchar_t **)(v16 + a2 + 104);
-                    if ( v26 == v27 || v26 && v27 && (LODWORD(v10) = wcsicmp(v26, v27), !(_DWORD)v10) )
-                    {
-                      if ( *(_DWORD *)(v16 + a2 + 100) != 1 || v60 )
-                        break;
-                    }
-                  }
+                  v32 = *(const wchar_t **)(v15 + 24);
+                  v33 = *(const wchar_t **)(v16 + a2 + 104);
+                  if ( (v32 == v33 || v32 && v33 && !wcsicmp(v32, v33)) && (*(_DWORD *)(v16 + a2 + 100) != 1 || v62) )
+                    break;
                 }
               }
               if ( ++v14 >= *(_DWORD *)(a2 + 76) )
-                goto LABEL_14;
+                goto LABEL_11;
             }
-            v8 = 1;
+            LOBYTE(AddObjectToResultSet) = 1;
+            v60 = 1;
           }
-LABEL_14:
-          v11 = *(_QWORD *)(a1 + 24);
+          else
+          {
+LABEL_11:
+            LOBYTE(AddObjectToResultSet) = v60;
+          }
+          v10 = *(_QWORD *)(a1 + 24);
           ++v13;
         }
-        while ( v13 < *(_DWORD *)(v11 + 64) );
+        while ( v13 < *(_DWORD *)(v10 + 64) );
+        goto LABEL_13;
       }
+LABEL_36:
+      LOBYTE(AddObjectToResultSet) = 0;
+      goto LABEL_13;
     }
+    v37 = 0;
+    if ( !v12 )
+      goto LABEL_36;
+    while ( 1 )
+    {
+      v38 = 0;
+      v39 = *(_QWORD *)(v10 + 72) + 32LL * v37;
+      if ( *(_DWORD *)(a2 + 76) )
+        break;
+LABEL_57:
+      v10 = *(_QWORD *)(a1 + 24);
+      if ( ++v37 >= *(_DWORD *)(v10 + 64) )
+        goto LABEL_74;
+      v9 = v62;
+    }
+    while ( 1 )
+    {
+      v40 = 32LL * v38;
+      if ( *(_DWORD *)(v39 + 16) == *(_DWORD *)(v40 + a2 + 96) )
+      {
+        v43 = *(_QWORD *)v39 - *(_QWORD *)(v40 + a2 + 80);
+        if ( *(_QWORD *)v39 == *(_QWORD *)(v40 + a2 + 80) )
+          v43 = *(_QWORD *)(v39 + 8) - *(_QWORD *)(v40 + a2 + 88);
+        if ( !v43 )
+        {
+          v44 = *(_DWORD *)(v40 + a2 + 100);
+          if ( *(_DWORD *)(v39 + 20) == v44 && (v44 != 1 || v9) )
+          {
+            if ( !*(_QWORD *)(v40 + a2 + 104) )
+              goto LABEL_52;
+            v51 = *(const wchar_t **)(*(_QWORD *)(a1 + 24) + 56LL);
+            if ( *v51 )
+            {
+              while ( wcsicmp(*(const wchar_t **)(v40 + a2 + 104), v51) )
+              {
+                v52 = -1LL;
+                do
+                  ++v52;
+                while ( v51[v52] );
+                v51 += v52 + 1;
+                if ( !*v51 )
+                {
+                  LOBYTE(a4) = v60;
+                  goto LABEL_112;
+                }
+              }
+              LOBYTE(a4) = 1;
+              v60 = 1;
+            }
+LABEL_112:
+            if ( (_BYTE)a4 )
+              break;
+          }
+        }
+      }
+      v9 = v62;
+      if ( ++v38 >= *(_DWORD *)(a2 + 76) )
+        goto LABEL_57;
+    }
+LABEL_74:
+    LOBYTE(AddObjectToResultSet) = v60;
   }
+LABEL_13:
   v17 = *(_QWORD *)(a1 + 24);
-  if ( !*(_DWORD *)(v17 + 20) && (LODWORD(v10) = *(_DWORD *)(a2 + 4), (v10 & 8) != 0) )
+  if ( !*(_DWORD *)(v17 + 20) && (LODWORD(v17) = *(_DWORD *)(a2 + 4), (v17 & 8) != 0) )
   {
-LABEL_26:
-    v9 = 1;
+    v8 = 1;
   }
   else
   {
     v18 = 0;
-LABEL_18:
-    while ( 1 )
+    v8 = 0;
+    do
     {
-      v9 = 0;
       if ( v18 >= *(_DWORD *)(a2 + 76) )
         break;
-      v19 = 0;
-      v20 = 32LL * v18;
-      if ( *(_DWORD *)(v17 + 80) )
+      v19 = *(_QWORD *)(a1 + 24);
+      v20 = 0;
+      v21 = 32LL * v18;
+      if ( *(_DWORD *)(v19 + 80) )
       {
         while ( 1 )
         {
-          v21 = *(_QWORD *)(v17 + 88);
-          v22 = 56LL * v19;
-          LODWORD(v10) = *(_DWORD *)(v20 + a2 + 96);
-          if ( *(_DWORD *)(v22 + v21 + 24) == (_DWORD)v10 )
+          v22 = *(_QWORD *)(v19 + 88);
+          v23 = 56LL * v20;
+          LODWORD(v17) = *(_DWORD *)(v21 + a2 + 96);
+          if ( *(_DWORD *)(v23 + v22 + 24) == (_DWORD)v17 )
           {
-            v28 = *(_QWORD *)(v22 + v21 + 8) - *(_QWORD *)(v20 + a2 + 80);
-            if ( !v28 )
-              v28 = *(_QWORD *)(v22 + v21 + 16) - *(_QWORD *)(v20 + a2 + 88);
-            if ( !v28 )
+            v34 = *(_QWORD *)(v23 + v22 + 8) - *(_QWORD *)(v21 + a2 + 80);
+            if ( !v34 )
+              v34 = *(_QWORD *)(v23 + v22 + 16) - *(_QWORD *)(v21 + a2 + 88);
+            if ( !v34 )
             {
-              LODWORD(v10) = *(_DWORD *)(v20 + a2 + 100);
-              if ( *(_DWORD *)(v22 + v21 + 28) == (_DWORD)v10 )
+              LODWORD(v17) = *(_DWORD *)(v21 + a2 + 100);
+              if ( *(_DWORD *)(v23 + v22 + 28) == (_DWORD)v17 )
               {
-                v23 = *(const wchar_t **)(v22 + v21 + 32);
-                v24 = *(const wchar_t **)(v20 + a2 + 104);
-                if ( v23 == v24 || v23 && v24 && (LODWORD(v10) = wcsicmp(v23, v24), !(_DWORD)v10) )
+                v35 = *(const wchar_t **)(v23 + v22 + 32);
+                v36 = *(const wchar_t **)(v21 + a2 + 104);
+                if ( v35 == v36 || v35 && v36 && (LODWORD(v17) = wcsicmp(v35, v36), !(_DWORD)v17) )
                 {
-                  if ( *(_DWORD *)(v20 + a2 + 100) != 1 || v60 )
-                    goto LABEL_26;
+                  if ( *(_DWORD *)(v21 + a2 + 100) != 1 || v62 )
+                    break;
                 }
               }
             }
           }
-          v17 = *(_QWORD *)(a1 + 24);
-          if ( ++v19 >= *(_DWORD *)(v17 + 80) )
-          {
-            ++v18;
-            goto LABEL_18;
-          }
+          v19 = *(_QWORD *)(a1 + 24);
+          if ( ++v20 >= *(_DWORD *)(v19 + 80) )
+            goto LABEL_20;
         }
+        v8 = 1;
       }
+LABEL_20:
       ++v18;
     }
+    while ( !v8 );
   }
-  if ( v8 || v9 )
+  v24 = (_BYTE)AddObjectToResultSet == 0;
+  AddObjectToResultSet = v61;
+  if ( v24 && !v8 )
   {
-    v4 = v57;
-    v3 = (__int64 *)(a1 + 64);
-    goto LABEL_42;
+LABEL_23:
+    if ( AddObjectToResultSet >= 0 )
+      return v17;
+    goto LABEL_139;
   }
-  return v10;
+LABEL_25:
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
+  Buffer = *(_QWORD *)(a2 + 8);
+  v26 = RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 72), &Buffer) != 0LL;
+  ExReleasePushLockEx(a1 + 64, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  LODWORD(v17) = *(_DWORD *)(a2 + 4);
+  if ( (v17 & 2) != 0 )
+  {
+    if ( !v26 )
+    {
+      v28 = 0;
+      v29 = 0;
+      goto LABEL_32;
+    }
+LABEL_87:
+    v45 = KeGetCurrentThread();
+    v29 = 3;
+    v28 = 1;
+    --v45->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
+    PiDqQueryDeleteObjectFromResultSet(a1, *(void **)(a2 + 8));
+    ExReleasePushLockEx(a1 + 64, 0LL);
+    LOBYTE(v17) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    goto LABEL_32;
+  }
+  if ( (v17 & 1) == 0 && !v8 )
+  {
+    v27 = v26;
+    goto LABEL_29;
+  }
+  v41 = *(_QWORD *)(a1 + 24);
+  v42 = *(_DWORD *)(v41 + 20);
+  if ( !v42 )
+  {
+    v27 = 1;
+LABEL_61:
+    LOBYTE(v17) = v27;
+    LOBYTE(v61) = v27;
+LABEL_62:
+    if ( !(_BYTE)v17 )
+      goto LABEL_30;
+    goto LABEL_63;
+  }
+  v53 = v42 - 1;
+  if ( !v53 )
+  {
+    v27 = wcsicmp(*(const wchar_t **)(v41 + 24), *(const wchar_t **)(*(_QWORD *)(a2 + 8) + 16LL)) == 0;
+    goto LABEL_61;
+  }
+  if ( v53 != 1 )
+    goto LABEL_30;
+  v54 = *(const wchar_t **)(v41 + 32);
+  v27 = 0;
+  LOBYTE(v61) = 0;
+  if ( !*v54 )
+    goto LABEL_30;
+  LOBYTE(v17) = 0;
+  while ( !(_BYTE)v17 )
+  {
+    v27 = wcsicmp(v54, *(const wchar_t **)(*(_QWORD *)(a2 + 8) + 16LL)) == 0;
+    v55 = -1LL;
+    LOBYTE(v17) = v27;
+    LOBYTE(v61) = v27;
+    do
+      ++v55;
+    while ( v54[v55] );
+    v54 += v55 + 1;
+    if ( !*v54 )
+      goto LABEL_62;
+  }
+LABEL_63:
+  v17 = *(_QWORD *)(a1 + 24);
+  if ( !*(_DWORD *)(v17 + 20) )
+  {
+    LODWORD(v17) = PiPnpRtlApplyMandatoryFilters(
+                     *(__int64 *)&PiPnpRtlCtx,
+                     *(const wchar_t **)(*(_QWORD *)(a2 + 8) + 16LL),
+                     *(_DWORD *)(*(_QWORD *)(a2 + 8) + 28LL),
+                     0LL,
+                     (struct _SECURITY_SUBJECT_CONTEXT *)(a1 + 32),
+                     &v61);
+    AddObjectToResultSet = v17;
+    if ( (_DWORD)v17 == -1073741772 || (_DWORD)v17 == -1073741275 )
+    {
+      v27 = 0;
+      AddObjectToResultSet = 0;
+      LOBYTE(v61) = 0;
+    }
+    else
+    {
+      v27 = v61;
+    }
+    if ( AddObjectToResultSet < 0 )
+      goto LABEL_139;
+  }
+  if ( !v27 )
+    goto LABEL_30;
+  v17 = *(_QWORD *)(a1 + 24);
+  if ( *(_QWORD *)(v17 + 88) )
+  {
+    LODWORD(v17) = PiDqQueryEvaluateFilter(a1, *(_QWORD *)(*(_QWORD *)(a2 + 8) + 16LL), (bool *)&v61);
+    AddObjectToResultSet = v17;
+    if ( (_DWORD)v17 == -1073741772 )
+    {
+      v27 = 0;
+      AddObjectToResultSet = 0;
+    }
+    else
+    {
+      v27 = v61;
+    }
+    if ( AddObjectToResultSet < 0 )
+      goto LABEL_139;
+  }
+LABEL_29:
+  if ( v27 )
+  {
+    if ( v26 )
+    {
+      v29 = 2;
+      v28 = v60 != 0;
+    }
+    else
+    {
+      v46 = KeGetCurrentThread();
+      v29 = 1;
+      --v46->KernelApcDisable;
+      ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
+      AddObjectToResultSet = PiDqQueryAddObjectToResultSet(a1, *(_QWORD *)(a2 + 8));
+      ExReleasePushLockEx(a1 + 64, 0LL);
+      LOBYTE(v17) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      v28 = 1;
+    }
+    goto LABEL_32;
+  }
+LABEL_30:
+  if ( v26 )
+    goto LABEL_87;
+  v28 = 0;
+  v29 = 0;
+LABEL_32:
+  if ( AddObjectToResultSet >= 0 )
+  {
+    if ( !v28 )
+      goto LABEL_23;
+    AddObjectToResultSet = PiDqQueryActionQueueEntryCreate(
+                             v29,
+                             *(_QWORD *)(a2 + 8),
+                             (volatile signed __int32 *)a2,
+                             &v58);
+    if ( AddObjectToResultSet >= 0 )
+    {
+      v30 = KeGetCurrentThread();
+      --v30->KernelApcDisable;
+      ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
+      PiDqQueryAppendActionEntry(a1, v58);
+      ExReleasePushLockEx(a1 + 64, 0LL);
+      LOBYTE(v17) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      goto LABEL_23;
+    }
+  }
+LABEL_139:
+  v56 = KeGetCurrentThread();
+  --v56->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
+  *(_DWORD *)(a1 + 216) |= 1u;
+  PiDqQueryFreeActiveData(a1);
+  ExReleasePushLockEx(a1 + 64, 0LL);
+  LOBYTE(v17) = (unsigned __int8)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v17;
 }

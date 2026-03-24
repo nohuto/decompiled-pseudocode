@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C00E399C
+ * XREFs of ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C0182CD4
  * Callers:
- *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C01D4AC0 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
- *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01E1C04 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
- *     ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01E1FE0 (-QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CA50 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01A8C94 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
+ *     ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01A8F40 (-QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,16 +11,18 @@
 char __fastcall CInputDest::HasDelegationThread(CInputDest *this)
 {
   char v1; // dl
-  __int64 v2; // rax
+  bool v2; // zf
 
   v1 = 0;
   if ( *((_DWORD *)this + 23) == 1 )
-    return *(_QWORD *)(*((_QWORD *)this + 10) + 64LL) != 0LL;
+  {
+    v2 = *(_QWORD *)(*((_QWORD *)this + 10) + 64LL) == 0LL;
+    return !v2;
+  }
   if ( *((_DWORD *)this + 23) == 2 )
   {
-    v2 = *((_QWORD *)this + 10);
-    if ( *(_QWORD *)(v2 + 264) || *(_QWORD *)(*(_QWORD *)(v2 + 16) + 1336LL) )
-      return 1;
+    v2 = *(_QWORD *)(*((_QWORD *)this + 10) + 264LL) == 0LL;
+    return !v2;
   }
   return v1;
 }

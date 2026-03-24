@@ -1,40 +1,38 @@
 /*
- * XREFs of EtwpFindAndLockBufferForFlushing @ 0x1408836B4
+ * XREFs of EtwpFindAndLockBufferForFlushing @ 0x14093D5FC
  * Callers:
- *     EtwpBufferingModeFlush @ 0x1409E971C (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall EtwpFindAndLockBufferForFlushing(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r9
-  __int64 v3; // rax
-  bool v4; // zf
+  _QWORD *v2; // r10
+  _QWORD *v3; // r8
+  bool i; // zf
   __int64 v5; // rcx
-  __int64 v6; // rax
 
-  v2 = a1 + 80;
-  v3 = *(_QWORD *)(a1 + 80);
-  v4 = v3 == a1 + 80;
-  v5 = v3 - 56;
-  if ( v4 )
-    v5 = 0LL;
-  if ( !v5 )
-    return v5;
-  while ( *(_QWORD *)(v5 + 24) != a2 )
+  v2 = (_QWORD *)(a1 + 96);
+  v3 = *(_QWORD **)(a1 + 96);
+  for ( i = v3 == (_QWORD *)(a1 + 96); ; i = v3 == v2 )
   {
-    v6 = *(_QWORD *)(v5 + 56);
-    v5 = v6 - 56;
-    if ( v6 == v2 )
-      v5 = 0LL;
-    if ( !v5 )
+    if ( i )
+      v3 = 0LL;
+    if ( !v3 )
+      break;
+    v5 = v3[2];
+    if ( *(_QWORD *)(v5 + 24) == a2 )
+    {
+      if ( !_InterlockedCompareExchange((volatile signed __int32 *)(v5 + 44), 3, 0) )
+      {
+        if ( *(_QWORD *)(v5 + 24) == a2 )
+          return v5;
+        _InterlockedExchange((volatile __int32 *)(v5 + 44), 0);
+      }
       return 0LL;
+    }
+    v3 = (_QWORD *)*v3;
   }
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)(v5 + 44), 3, 0) )
-    return 0LL;
-  if ( *(_QWORD *)(v5 + 24) == a2 )
-    return v5;
-  _InterlockedExchange((volatile __int32 *)(v5 + 44), 0);
   return 0LL;
 }

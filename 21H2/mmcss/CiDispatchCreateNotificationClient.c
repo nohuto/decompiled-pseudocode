@@ -1,12 +1,12 @@
 /*
- * XREFs of CiDispatchCreateNotificationClient @ 0x1C000C370
+ * XREFs of CiDispatchCreateNotificationClient @ 0x1C000C640
  * Callers:
  *     <none>
  * Callees:
- *     WPP_SF_q @ 0x1C0004998 (WPP_SF_q.c)
- *     CiProcessDereference @ 0x1C000A830 (CiProcessDereference.c)
- *     CiProcessLocate @ 0x1C000B2C0 (CiProcessLocate.c)
- *     CiProcessCreate @ 0x1C000B800 (CiProcessCreate.c)
+ *     WPP_SF_q @ 0x1C00046E8 (WPP_SF_q.c)
+ *     CiProcessLocate @ 0x1C000AF50 (CiProcessLocate.c)
+ *     CiProcessCreate @ 0x1C000B400 (CiProcessCreate.c)
+ *     CiProcessDereference @ 0x1C000BA90 (CiProcessDereference.c)
  */
 
 __int64 __fastcall CiDispatchCreateNotificationClient(PIRP Irp, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall CiDispatchCreateNotificationClient(PIRP Irp, __int64 a2)
   unsigned __int64 v6; // rdi
   NTSTATUS v7; // ebx
   char *v8; // rax
-  char *v9; // rsi
+  char *v9; // rbp
   char *v10; // rdi
   __int64 v11; // rdx
   __int64 v12; // r8
@@ -31,9 +31,9 @@ __int64 __fastcall CiDispatchCreateNotificationClient(PIRP Irp, __int64 a2)
   P = v8;
   if ( !v8 )
   {
-    v7 = CiProcessCreate((volatile signed __int64 **)&P);
+    v7 = CiProcessCreate(&P);
     if ( v7 < 0 )
-      goto LABEL_10;
+      goto LABEL_13;
     v8 = (char *)P;
   }
   v9 = v8 + 16;
@@ -41,22 +41,22 @@ __int64 __fastcall CiDispatchCreateNotificationClient(PIRP Irp, __int64 a2)
   v10 = (char *)P;
   *((_QWORD *)v9 + 1) = KeGetCurrentThread();
   if ( *((_QWORD *)v10 + 1) )
-  {
     v7 = -1073741790;
-    *((_QWORD *)v9 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v9, 0LL);
+  else
+    *((_QWORD *)v10 + 1) = v5;
+  *((_QWORD *)v9 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v9, 0LL);
+  if ( v7 < 0 )
+  {
     if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
       WPP_SF_q((__int64)WPP_GLOBAL_Control->AttachedDevice, v11, v12, *((_QWORD *)v10 + 1));
     CiProcessDereference(v10);
   }
   else
   {
-    *((_QWORD *)v10 + 1) = v5;
-    *((_QWORD *)v9 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v9, 0LL);
     *(_QWORD *)(v5 + 24) = v10;
   }
-LABEL_10:
+LABEL_13:
   KeLeaveCriticalRegion();
   Irp->IoStatus.Status = v7;
   Irp->IoStatus.Information = 0LL;

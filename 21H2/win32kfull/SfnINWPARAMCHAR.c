@@ -1,14 +1,15 @@
 /*
- * XREFs of SfnINWPARAMCHAR @ 0x1C0228A00
+ * XREFs of SfnINWPARAMCHAR @ 0x1C022E840
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     RtlWCSMessageWParamCharToMB @ 0x1C014FA38 (RtlWCSMessageWParamCharToMB.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     RtlWCSMessageWParamCharToMB @ 0x1C012DA10 (RtlWCSMessageWParamCharToMB.c)
  */
 
 __int64 __fastcall SfnINWPARAMCHAR(
@@ -24,93 +25,105 @@ __int64 __fastcall SfnINWPARAMCHAR(
   __int64 v11; // r14
   __int64 v12; // rdi
   __int64 v13; // rax
-  __int64 v14; // rcx
+  __int64 v14; // rax
   __int64 v15; // rcx
-  int v16; // ebx
-  __int64 v17; // rdx
+  __int64 v16; // rcx
+  int v17; // ebx
   __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rcx
-  __int64 *v21; // rcx
+  __int64 v19; // rcx
+  __int64 *v20; // rcx
   __int64 result; // rax
-  __int64 v23; // [rsp+58h] [rbp-B0h]
-  __int64 v24; // [rsp+60h] [rbp-A8h] BYREF
-  unsigned int v25; // [rsp+68h] [rbp-A0h]
-  int v26; // [rsp+6Ch] [rbp-9Ch]
-  __int64 v27; // [rsp+70h] [rbp-98h]
-  __int64 v28; // [rsp+78h] [rbp-90h]
-  __int64 v29; // [rsp+80h] [rbp-88h]
-  __int64 v30; // [rsp+88h] [rbp-80h]
-  __int64 v31; // [rsp+90h] [rbp-78h]
-  __int128 v32; // [rsp+B0h] [rbp-58h]
-  __int128 v33; // [rsp+C0h] [rbp-48h] BYREF
-  __int64 v34; // [rsp+D0h] [rbp-38h]
-  __int64 v35; // [rsp+110h] [rbp+8h] BYREF
-  int v36; // [rsp+118h] [rbp+10h] BYREF
-  __int64 v37; // [rsp+120h] [rbp+18h] BYREF
-  unsigned __int64 v38; // [rsp+128h] [rbp+20h] BYREF
+  __int64 v22; // [rsp+40h] [rbp-D8h] BYREF
+  unsigned __int64 v23; // [rsp+48h] [rbp-D0h] BYREF
+  __int128 v24; // [rsp+58h] [rbp-C0h]
+  __int64 v25; // [rsp+68h] [rbp-B0h]
+  _QWORD v26[3]; // [rsp+70h] [rbp-A8h] BYREF
+  __int64 v27; // [rsp+88h] [rbp-90h] BYREF
+  unsigned int v28; // [rsp+90h] [rbp-88h]
+  int v29; // [rsp+94h] [rbp-84h]
+  __int64 v30; // [rsp+98h] [rbp-80h]
+  __int64 v31; // [rsp+A0h] [rbp-78h]
+  __int64 v32; // [rsp+A8h] [rbp-70h]
+  __int64 v33; // [rsp+B0h] [rbp-68h]
+  __int64 v34; // [rsp+B8h] [rbp-60h]
+  __int128 v35; // [rsp+D8h] [rbp-40h]
+  char v36; // [rsp+120h] [rbp+8h] BYREF
+  char v37; // [rsp+128h] [rbp+10h] BYREF
+  __int64 v38; // [rsp+130h] [rbp+18h] BYREF
+  int v39; // [rsp+138h] [rbp+20h] BYREF
 
-  v37 = a3;
-  v38 = 0LL;
-  v36 = 0;
-  v33 = 0LL;
-  v34 = 0LL;
+  v38 = a3;
+  v23 = 0LL;
+  v39 = 0;
+  v26[2] = 0LL;
+  v24 = 0LL;
+  v25 = 0LL;
   ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   v11 = ThreadWin32Thread;
   if ( a1 )
     v12 = a1[5] - *(_QWORD *)(ThreadWin32Thread + 472);
   else
     v12 = 0LL;
-  v26 = 0;
-  v24 = v12;
-  v25 = a2;
+  v29 = 0;
+  v27 = v12;
+  v28 = a2;
   if ( (a7 & 1) != 0 )
   {
     if ( a2 == 47 || a2 == 288 )
     {
-      v35 = (unsigned __int16)v37;
-      RtlWCSMessageWParamCharToMB(a2, (WCHAR *)&v35);
-      v37 = (WORD1(v37) << 16) | (unsigned __int16)v35;
+      v22 = (unsigned __int16)v38;
+      RtlWCSMessageWParamCharToMB(a2, (WCHAR *)&v22);
+      v38 = (WORD1(v38) << 16) | (unsigned __int16)v22;
     }
     else
     {
-      RtlWCSMessageWParamCharToMB(a2, (WCHAR *)&v37);
+      RtlWCSMessageWParamCharToMB(a2, (WCHAR *)&v38);
     }
   }
-  v27 = v37;
-  v28 = a4;
-  v29 = a5;
-  v30 = a6;
-  ThreadLock((__int64)a1, (__int64 *)&v33);
-  v13 = *(_QWORD *)(v11 + 480);
-  v32 = *(_OWORD *)(v13 + 64);
-  v23 = *(_QWORD *)(v13 + 80);
-  *(_QWORD *)(v13 + 72) = v12;
+  v30 = v38;
+  v31 = a4;
+  v32 = a5;
+  v33 = a6;
+  v13 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v26[0] = *(_QWORD *)(v13 + 416);
+  *(_QWORD *)(v13 + 416) = v26;
+  v26[1] = a1;
   if ( a1 )
-    v14 = *a1;
-  else
-    v14 = 0LL;
-  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 64LL) = v14;
+    HMLockObject(a1);
+  v14 = *(_QWORD *)(v11 + 480);
+  v35 = *(_OWORD *)(v14 + 64);
+  v24 = v35;
+  v25 = *(_QWORD *)(v14 + 80);
+  *(_QWORD *)(v14 + 72) = v12;
   if ( a1 )
-    v15 = *(_QWORD *)(a1[5] + 224);
+    v15 = *a1;
   else
     v15 = 0LL;
-  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 80LL) = v15;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a7);
+  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 64LL) = v15;
+  if ( a1 )
+    v16 = *(_QWORD *)(a1[5] + 224);
+  else
+    v16 = 0LL;
+  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 80LL) = v16;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v36);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v37);
   EtwTraceBeginCallback(2LL);
-  v16 = KeUserModeCallback(2LL, &v24, 48LL, &v38, &v36);
+  v17 = KeUserModeCallback(2LL, &v27, 48LL, &v23, &v39);
   EtwTraceEndCallback(2LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a7);
-  ThreadUnlock1(v18, v17, v19);
-  v20 = *(_QWORD *)(v11 + 480);
-  *(_OWORD *)(v20 + 64) = v32;
-  *(_QWORD *)(v20 + 80) = v23;
-  if ( v16 < 0 || v36 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v37);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v36);
+  ThreadUnlock1(v18);
+  v19 = *(_QWORD *)(v11 + 480);
+  *(_OWORD *)(v19 + 64) = v35;
+  *(_QWORD *)(v19 + 80) = v25;
+  if ( v17 < 0 || v39 != 24 )
     return 0LL;
-  v21 = (__int64 *)v38;
-  if ( v38 + 8 < v38 || v38 + 8 > MmUserProbeAddress )
-    v21 = (__int64 *)MmUserProbeAddress;
-  result = *v21;
-  v31 = *v21;
+  v20 = (__int64 *)v23;
+  if ( v23 + 8 < v23 || v23 + 8 > MmUserProbeAddress )
+    v20 = (__int64 *)MmUserProbeAddress;
+  result = *v20;
+  v34 = *v20;
   return result;
 }

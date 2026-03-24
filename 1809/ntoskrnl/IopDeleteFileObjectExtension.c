@@ -2,19 +2,19 @@
  * XREFs of IopDeleteFileObjectExtension @ 0x140092150
  * Callers:
  *     IopDeleteFile @ 0x14063B3C0 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     IopCleanupNotifications @ 0x14016AA18 (IopCleanupNotifications.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PsReleaseSiloHardReference @ 0x1402E9520 (PsReleaseSiloHardReference.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     IopCleanupNotifications @ 0x14016AA38 (IopCleanupNotifications.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsReleaseSiloHardReference @ 0x1402E9620 (PsReleaseSiloHardReference.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140888A44 (PspAdjustKeepAliveCountProcess.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140888A24 (PspAdjustKeepAliveCountProcess.c)
  */
 
 void __fastcall IopDeleteFileObjectExtension(__int64 a1)

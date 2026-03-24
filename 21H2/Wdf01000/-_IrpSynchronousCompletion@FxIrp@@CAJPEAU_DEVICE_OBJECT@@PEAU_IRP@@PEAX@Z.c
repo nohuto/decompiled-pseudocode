@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_IrpSynchronousCompletion@FxIrp@@CAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C00118F0
+ * XREFs of ?_IrpSynchronousCompletion@FxIrp@@CAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C0016D60
  * Callers:
  *     <none>
  * Callees:

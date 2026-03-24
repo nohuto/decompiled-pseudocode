@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z @ 0x1C028B3D4
+ * XREFs of ?bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z @ 0x1C0289A50
  * Callers:
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
- *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C028AB00 (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C02891AC (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 char __fastcall bUnreferenceNetworkedFontFileNode(HANDLE *Buffer)
@@ -12,7 +12,7 @@ char __fastcall bUnreferenceNetworkedFontFileNode(HANDLE *Buffer)
   char v3; // bl
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = *gpxsGlobals;
+  v5 = *(_QWORD *)gpxsGlobals;
   GreAcquireSemaphore(v5);
   if ( (*((_DWORD *)Buffer + 8))-- == 1 )
   {
@@ -21,7 +21,7 @@ char __fastcall bUnreferenceNetworkedFontFileNode(HANDLE *Buffer)
       ZwClose(*Buffer);
       *Buffer = 0LL;
     }
-    RtlDeleteElementGenericTableAvl(*(PRTL_AVL_TABLE *)(gpxsGlobals + 8LL), Buffer);
+    RtlDeleteElementGenericTableAvl(*((PRTL_AVL_TABLE *)gpxsGlobals + 1), Buffer);
     v3 = 1;
   }
   else

@@ -1,41 +1,62 @@
 /*
- * XREFs of WheaSelLogEvent @ 0x140643064
+ * XREFs of WheaSelLogEvent @ 0x1405BE188
  * Callers:
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
  * Callees:
- *     WheaSelLogErrorPkt @ 0x140642F78 (WheaSelLogErrorPkt.c)
- *     WheapLogIpmiSELEvent @ 0x1406460E0 (WheapLogIpmiSELEvent.c)
+ *     WheapLogIpmiSELEvent @ 0x1405BD538 (WheapLogIpmiSELEvent.c)
+ *     WheaSelLogErrorPkt @ 0x1405BE09C (WheaSelLogErrorPkt.c)
  */
 
 __int64 __fastcall WheaSelLogEvent(char *Src)
 {
   int v2; // ecx
-  size_t v3; // rdx
-  char *v4; // rcx
-  int v5; // ecx
+  int v3; // r8d
+  int v4; // r8d
+  size_t v5; // rdx
+  char *v6; // rcx
+  int v7; // ecx
+  bool v8; // zf
 
   v2 = *((_DWORD *)Src + 6);
   if ( (v2 & 0x10) != 0 )
   {
-    v3 = *((unsigned int *)Src + 7);
-    v4 = Src + 32;
-    *((_DWORD *)Src + 4) = 1280201291;
-    return WheapLogIpmiSELEvent(v4, v3);
-  }
-  v5 = *((_DWORD *)Src + 5);
-  if ( v5 != -2147483643 )
-  {
-    v3 = *((unsigned int *)Src + 7);
-    if ( v5 == -2147483606 )
+    if ( (v2 & 0x20) != 0 )
     {
-      v4 = Src + 32;
+      v3 = 6;
     }
     else
     {
-      v3 = (unsigned int)(v3 + 32);
-      v4 = Src;
+      v4 = *((_DWORD *)Src + 4) << 16;
+      if ( (v2 & 0x40) != 0 )
+        v3 = v4 | 7;
+      else
+        v3 = v4 | 1;
     }
-    return WheapLogIpmiSELEvent(v4, v3);
+    v5 = *((unsigned int *)Src + 7);
+    v6 = Src + 32;
+    *((_DWORD *)Src + 4) = 1280201291;
+    return WheapLogIpmiSELEvent(v6, v5, v3);
+  }
+  v7 = *((_DWORD *)Src + 5);
+  if ( v7 != -2147483643 )
+  {
+    v5 = *((unsigned int *)Src + 7);
+    if ( v7 == -2147483606 )
+    {
+      v6 = Src + 32;
+      v3 = (*((_DWORD *)Src + 4) << 16) | 8;
+    }
+    else
+    {
+      v5 = (unsigned int)(v5 + 32);
+      v8 = v7 == -2147483601;
+      v6 = Src;
+      if ( v8 )
+        v3 = 9;
+      else
+        v3 = 0;
+    }
+    return WheapLogIpmiSELEvent(v6, v5, v3);
   }
   return WheaSelLogErrorPkt((__int64)Src);
 }

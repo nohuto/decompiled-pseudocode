@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPowerTransitionTimesInMs @ 0x140142BA4
+ * XREFs of PopPowerTransitionTimesInMs @ 0x140142BC4
  * Callers:
- *     PopDiagTracePowerTransitionTime @ 0x1406DD3FC (PopDiagTracePowerTransitionTime.c)
- *     PopCalculateWakeTimeAdjustment @ 0x14086B65C (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTracePowerTransitionTime @ 0x1406DD3DC (PopDiagTracePowerTransitionTime.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x14086B63C (PopCalculateWakeTimeAdjustment.c)
  * Callees:
  *     PopQpcTimeInMs @ 0x140566420 (PopQpcTimeInMs.c)
  */

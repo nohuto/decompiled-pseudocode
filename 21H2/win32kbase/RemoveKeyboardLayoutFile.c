@@ -1,7 +1,7 @@
 /*
- * XREFs of RemoveKeyboardLayoutFile @ 0x1C0051FC4
+ * XREFs of RemoveKeyboardLayoutFile @ 0x1C000A694
  * Callers:
- *     DestroyKF @ 0x1C0051F60 (DestroyKF.c)
+ *     DestroyKF @ 0x1C0007338 (DestroyKF.c)
  * Callees:
  *     <none>
  */

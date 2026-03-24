@@ -1,76 +1,53 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x1403CBC40
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x14038FD30
  * Callers:
  *     <none>
  * Callees:
- *     EtwGetKernelTraceTimestampSilo @ 0x1402A2E90 (EtwGetKernelTraceTimestampSilo.c)
- *     EtwTraceTimedEvent @ 0x140338BB0 (EtwTraceTimedEvent.c)
- *     HvcallpNoHypervisorPresent @ 0x14036E000 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1405462A8 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x14054656C (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x14038FD8C (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1404F731C (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F759C (HvlpSlowSendSyntheticClusterIpiEx.c)
  */
 
-__int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, unsigned int a2)
+__int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v2; // rbx
-  unsigned int v3; // edi
-  char v4; // si
-  __int16 v5; // bx
-  __int64 v7; // rcx
-  _BYTE *i; // rdx
-  unsigned __int64 v9; // rbx
-  __int64 v10; // [rsp+30h] [rbp-48h] BYREF
-  _OWORD v11[2]; // [rsp+38h] [rbp-40h] BYREF
+  char v4; // al
+  unsigned int v5; // edx
+  __int64 v6; // r8
+  unsigned __int64 v7; // r9
+  unsigned __int64 v8; // r8
+  _BYTE *i; // rcx
+  unsigned __int64 v11; // r8
 
-  if ( (HvlpFlags & 0x80u) != 0 && (unsigned __int16)KiActiveGroups > 1u )
+  v4 = HvlpUseExtendedProcessorSetHypercalls(a1, a2, a1, a4);
+  v7 = 0LL;
+  if ( v4 )
   {
     if ( ((HvlpFlags >> 8) & 0xF) + 4 > 0xE || (HvlEnlightenments & 0x80u) == 0 )
-      return HvlpSlowSendSyntheticClusterIpiEx(a1, a2);
+      return HvlpSlowSendSyntheticClusterIpiEx(v6);
     else
-      return HvlpFastSendSyntheticClusterIpiEx(a1, a2);
+      return HvlpFastSendSyntheticClusterIpiEx(v6);
   }
   else
   {
-    v2 = *(_QWORD *)(a1 + 8);
-    v3 = 0;
-    v10 = 11LL;
+    v8 = *(_QWORD *)(v6 + 8);
     if ( !HvlpVirtualProcessorsIdentityMapped )
     {
-      v7 = 0LL;
-      for ( i = &unk_140D24FA3; ; i += 4 )
+      for ( i = &unk_140D006C3; ; i += 4 )
       {
-        if ( (v2 & 1) != 0 )
+        if ( (v8 & 1) != 0 )
           v7 |= 1LL << *(i - 2);
-        v9 = v2 >> 1;
-        if ( !v9 )
+        v11 = v8 >> 1;
+        if ( !v11 )
           break;
-        if ( (v9 & 1) != 0 )
+        if ( (v11 & 1) != 0 )
           v7 |= 1LL << *i;
-        v2 = v9 >> 1;
-        if ( !v2 )
+        v8 = v11 >> 1;
+        if ( !v8 )
           break;
       }
+      v8 = v7;
     }
-    LODWORD(v10) = 65547;
-    memset(v11, 0, sizeof(v11));
-    if ( (BYTE4(xmmword_140D1EAD0) & 0x10) != 0 )
-    {
-      v4 = 1;
-      EtwGetKernelTraceTimestampSilo((LARGE_INTEGER *)v11, 0xA0000010, 0LL);
-    }
-    else
-    {
-      v4 = 0;
-    }
-    v5 = HvcallCodeVa();
-    if ( v4 )
-    {
-      v10 = 0x10000000BLL;
-      EtwTraceTimedEvent(0xF72u, 0xA0000010, (__int64)&v10, 8, 0x401A02u, (__int64)v11);
-    }
-    if ( v5 )
-      return (unsigned int)-1073741823;
-    return v3;
+    return (unsigned __int16)HvcallInitiateHypercall(65547LL, v5, v8) != 0 ? 0xC0000001 : 0;
   }
 }

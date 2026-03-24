@@ -1,20 +1,20 @@
 /*
- * XREFs of PopRemoveReasonRecordByReasonCode @ 0x1407A8DEC
+ * XREFs of PopRemoveReasonRecordByReasonCode @ 0x1406F441C
  * Callers:
- *     PopFilterCapabilities @ 0x1407A8C44 (PopFilterCapabilities.c)
- *     PopLogDisabledSleepReason @ 0x1407A8F30 (PopLogDisabledSleepReason.c)
- *     PopEnableHiberFile @ 0x140803C60 (PopEnableHiberFile.c)
- *     PopUpdateUpgradeInProgress @ 0x1408620A0 (PopUpdateUpgradeInProgress.c)
+ *     PopUpdateUpgradeInProgress @ 0x1405CF3D0 (PopUpdateUpgradeInProgress.c)
+ *     PopLogDisabledSleepReason @ 0x1406F417C (PopLogDisabledSleepReason.c)
+ *     PopFilterCapabilities @ 0x1406F4274 (PopFilterCapabilities.c)
+ *     PopEnableHiberFile @ 0x14079B350 (PopEnableHiberFile.c)
  * Callees:
- *     PopGetReasonListByReasonCode @ 0x1407A8E38 (PopGetReasonListByReasonCode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PopGetReasonListByReasonCode @ 0x1406F4468 (PopGetReasonListByReasonCode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void PopRemoveReasonRecordByReasonCode()
 {
   _QWORD *ReasonListByReasonCode; // rax
-  __int64 v1; // rdx
-  _QWORD *v2; // rcx
+  __int64 v1; // rcx
+  _QWORD *v2; // rdx
 
   ReasonListByReasonCode = (_QWORD *)PopGetReasonListByReasonCode();
   if ( ReasonListByReasonCode )

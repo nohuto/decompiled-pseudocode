@@ -1,32 +1,36 @@
 /*
- * XREFs of RtlpHpHeapCompact @ 0x140337B54
+ * XREFs of RtlpHpHeapCompact @ 0x14031D368
  * Callers:
- *     ExpHpCompactionRoutine @ 0x140337930 (ExpHpCompactionRoutine.c)
+ *     ExpHpCompactSessionPools @ 0x14026368C (ExpHpCompactSessionPools.c)
+ *     ExpHpCompactionRoutine @ 0x14027B0D0 (ExpHpCompactionRoutine.c)
  * Callees:
- *     RtlpHpVsContextFreeList @ 0x14024EDD0 (RtlpHpVsContextFreeList.c)
- *     RtlpHpLfhContextCompact @ 0x140314E58 (RtlpHpLfhContextCompact.c)
- *     RtlpHpSegContextCompact @ 0x140337C00 (RtlpHpSegContextCompact.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpSegContextCompact @ 0x140286E50 (RtlpHpSegContextCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x1402871AC (RtlpHpLfhContextCompact.c)
+ *     RtlpHpVsContextFreeList @ 0x1402BF0B0 (RtlpHpVsContextFreeList.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpHeapCompact(__int64 a1)
 {
-  int v1; // ebx
-  int v3; // ecx
-  unsigned int v4; // ebx
-  PSLIST_ENTRY v5; // rax
-  __int64 v6; // r8
+  int v2; // r8d
+  int v3; // edx
+  int v4; // ecx
+  int v5; // edi
+  PSLIST_ENTRY v6; // rax
 
-  v1 = *(_DWORD *)(a1 + 20);
-  v3 = *(_DWORD *)(a1 + 220);
-  v4 = v1 & 0x13000003;
-  if ( v3 && v3 == KeGetCurrentThread()[1].CurrentRunTime )
-    v4 |= 1u;
-  v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)(a1 + 768));
-  if ( v5 )
-    RtlpHpVsContextFreeList(a1 + 704, v4, v5);
-  RtlpHpLfhContextCompact(a1 + 896, v4, v6);
-  RtlpHpSegContextCompact(a1 + 320, v4);
-  RtlpHpSegContextCompact(a1 + 512, v4);
+  v2 = *(_DWORD *)(a1 + 220);
+  v3 = *(_DWORD *)(a1 + 20) & 0x13000003;
+  v4 = 0;
+  if ( v2 )
+    LOBYTE(v4) = v2 == KeGetCurrentThread()[1].CurrentRunTime;
+  v5 = v3 | 1;
+  if ( !v4 )
+    v5 = v3;
+  v6 = RtlpInterlockedFlushSList((PSLIST_HEADER)(a1 + 704));
+  if ( v6 )
+    RtlpHpVsContextFreeList(a1 + 640, v5, v6);
+  RtlpHpLfhContextCompact(a1 + 832, v5);
+  RtlpHpSegContextCompact(a1 + 256, v5);
+  RtlpHpSegContextCompact(a1 + 448, v5);
   return 0LL;
 }

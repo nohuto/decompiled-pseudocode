@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UserTextOutWInternal@@YAHPEAUHDC__@@HHPEBGIK@Z @ 0x1C025B7D0
+ * XREFs of ?UserTextOutWInternal@@YAHPEAUHDC__@@HHPEBGIK@Z @ 0x1C025EBB0
  * Callers:
  *     <none>
  * Callees:
- *     GreExtTextOutWInternal @ 0x1C008ABC0 (GreExtTextOutWInternal.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAE5C (GreExtTextOutWInternal.c)
  */
 
 __int64 __fastcall UserTextOutWInternal(HDC a1, LONG a2, LONG a3, unsigned __int16 *a4, unsigned int a5)

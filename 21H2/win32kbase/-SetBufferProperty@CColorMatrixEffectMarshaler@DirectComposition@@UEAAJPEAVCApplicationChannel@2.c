@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02169A0
+ * XREFs of ?SetBufferProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E0820
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1C00DD6E0 (memcmp.c)
- *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215D20 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     memcmp @ 0x1C00CE7B0 (memcmp.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DFED0 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  */
 
 __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::SetBufferProperty(
@@ -26,8 +26,8 @@ __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::SetBufferProp
   }
   else if ( a4 && a5 == 80 )
   {
-    v8 = (_OWORD *)((char *)this + 120);
-    if ( memcmp((char *)this + 120, a4, 0x50uLL) )
+    v8 = (_OWORD *)((char *)this + 112);
+    if ( memcmp((char *)this + 112, a4, 0x50uLL) )
     {
       *v8 = *a4;
       v8[1] = a4[1];

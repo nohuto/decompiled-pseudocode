@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C00222D0
+ * XREFs of HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C001FCD0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_LogBillboardEvent @ 0x1C002CF10 (HUBDTX_LogBillboardEvent.c)
+ *     HUBDTX_LogBillboardEvent @ 0x1C0029E78 (HUBDTX_LogBillboardEvent.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried(__int64 a1)
@@ -12,7 +12,7 @@ __int64 __fastcall HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried(__i
   unsigned int v2; // ebx
 
   v1 = *(_QWORD *)(a1 + 960);
-  if ( *(_BYTE *)(**(_QWORD **)(v1 + 2648) + 3LL) )
+  if ( *(_BYTE *)(**(_QWORD **)(v1 + 2640) + 3LL) )
   {
     return 4089;
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopW32ThreadLock @ 0x1C0110810
+ * XREFs of PopW32ThreadLock @ 0x1C0128430
  * Callers:
- *     xxxValidateClassAndSize @ 0x1C015A2B0 (xxxValidateClassAndSize.c)
+ *     xxxValidateClassAndSize @ 0x1C016824C (xxxValidateClassAndSize.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall PopW32ThreadLock(_QWORD *a1)

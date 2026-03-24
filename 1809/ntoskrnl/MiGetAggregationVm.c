@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetAggregationVm @ 0x1402BF534
+ * XREFs of MiGetAggregationVm @ 0x1402BF634
  * Callers:
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
- *     MiGetAggregateWorkingSetSize @ 0x1402BF50C (MiGetAggregateWorkingSetSize.c)
+ *     MiGetAggregateWorkingSetSize @ 0x1402BF60C (MiGetAggregateWorkingSetSize.c)
  * Callees:
  *     <none>
  */

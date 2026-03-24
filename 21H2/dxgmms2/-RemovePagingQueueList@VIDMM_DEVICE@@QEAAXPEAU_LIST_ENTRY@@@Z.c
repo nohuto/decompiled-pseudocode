@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0014888
+ * XREFs of ?RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0012428
  * Callers:
- *     ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C009A41C (-Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C0084084 (-Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void __fastcall VIDMM_DEVICE::RemovePagingQueueList(VIDMM_DEVICE *this, struct _
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *Blink; // rcx
 
-  v3 = (char *)this + 120;
+  v3 = (char *)this + 112;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v3, 0LL);
   *((_QWORD *)v3 + 1) = KeGetCurrentThread();

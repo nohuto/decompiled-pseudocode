@@ -1,19 +1,19 @@
 /*
- * XREFs of AdtpBuildAccessReasonAuditString @ 0x14066FDD0
+ * XREFs of AdtpBuildAccessReasonAuditString @ 0x1405C22BC
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067033C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140670CE0 (AdtpBuildContextFromSecurityDescriptor.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x140670D88 (AdtpBuildStagingReasonAuditStringInternal.c)
- *     AdtpIsSDValidSelfRelative @ 0x1406711DC (AdtpIsSDValidSelfRelative.c)
- *     RtlLengthSecurityDescriptor @ 0x140710FF0 (RtlLengthSecurityDescriptor.c)
- *     AdtpEtwBuildDashString @ 0x1407EA8B8 (AdtpEtwBuildDashString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AdtpIsSDValidSelfRelative @ 0x1403F90C4 (AdtpIsSDValidSelfRelative.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2834 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x1405C3200 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3294 (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpEtwBuildDashString @ 0x1406A66E0 (AdtpEtwBuildDashString.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406D8E90 (RtlLengthSecurityDescriptor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildAccessReasonAuditString(
@@ -22,372 +22,383 @@ __int64 __fastcall AdtpBuildAccessReasonAuditString(
         _DWORD *a3,
         char a4,
         int a5,
-        __int64 *a6,
+        _QWORD *a6,
         __int64 a7,
         _DWORD *a8,
         char *a9)
 {
   int v9; // r11d
-  unsigned int v10; // esi
-  char v11; // bl
-  char v12; // r14
-  __int64 v13; // r13
-  char *v14; // rdi
-  _DWORD *v15; // r12
-  int v16; // eax
-  int v17; // eax
-  int v18; // eax
+  __int64 v11; // r8
+  int v12; // edi
+  unsigned int v13; // ebx
+  char v14; // si
+  __int64 v15; // r13
+  char v16; // r12
+  char *v17; // r14
+  _DWORD *v18; // rcx
+  int v19; // ecx
+  int v20; // eax
   int IsSDValidSelfRelative; // eax
-  __int64 v20; // r12
-  __int64 *v21; // rbx
   char v22; // r10
-  unsigned int v23; // r14d
-  unsigned int v24; // ecx
-  unsigned __int8 v25; // dl
-  unsigned int v26; // eax
-  _DWORD *v27; // r8
-  unsigned __int16 *v28; // rdi
-  int v29; // eax
-  int v30; // ecx
-  unsigned int v31; // edx
+  __int64 *v23; // r14
+  unsigned int v24; // r12d
+  unsigned int v25; // edx
+  unsigned __int8 v26; // cl
+  unsigned int v27; // eax
+  _DWORD *v28; // r8
+  unsigned __int16 *v29; // rsi
+  int v30; // eax
+  unsigned int v31; // eax
   __int64 v32; // r9
-  unsigned int v33; // r14d
-  int *v34; // rdi
-  int v35; // ebx
-  unsigned __int16 *v36; // r12
-  int v37; // eax
-  unsigned int v38; // ebx
-  __int64 v39; // rax
-  __int64 v40; // rdi
-  char v41; // al
-  __int64 Pool2; // rax
-  unsigned int v43; // r12d
-  unsigned __int16 *v44; // r14
-  const void *v45; // rdx
-  PVOID *v46; // rbx
-  __int64 v47; // rdi
-  int v49; // [rsp+28h] [rbp-D8h]
-  char v51; // [rsp+61h] [rbp-9Fh] BYREF
-  char v52; // [rsp+62h] [rbp-9Eh]
-  char v53; // [rsp+63h] [rbp-9Dh] BYREF
-  unsigned int v54; // [rsp+64h] [rbp-9Ch]
-  int v55; // [rsp+68h] [rbp-98h]
-  unsigned int v56; // [rsp+6Ch] [rbp-94h]
-  __int64 v57; // [rsp+70h] [rbp-90h]
-  __int64 v58; // [rsp+78h] [rbp-88h]
-  _DWORD *v59; // [rsp+80h] [rbp-80h]
-  char *v60; // [rsp+88h] [rbp-78h]
-  _DWORD *v61; // [rsp+90h] [rbp-70h]
-  __int128 v62; // [rsp+98h] [rbp-68h] BYREF
-  PVOID P; // [rsp+A8h] [rbp-58h]
-  __int128 v64; // [rsp+B0h] [rbp-50h] BYREF
-  PVOID v65; // [rsp+C0h] [rbp-40h]
-  __int64 v66; // [rsp+C8h] [rbp-38h]
-  _DWORD *v67; // [rsp+D0h] [rbp-30h]
-  char *v68; // [rsp+D8h] [rbp-28h]
-  _OWORD v69[32]; // [rsp+E0h] [rbp-20h] BYREF
+  int *v33; // r12
+  int v34; // r14d
+  __int64 v35; // rsi
+  int v36; // eax
+  unsigned int v37; // ebx
+  __int64 v38; // rax
+  _WORD *v39; // rsi
+  char v40; // al
+  _WORD *PoolWithTag; // rax
+  unsigned int v42; // r12d
+  unsigned __int16 *v43; // r14
+  const void *v44; // rdx
+  ULONG_PTR *v45; // rbx
+  __int64 v46; // rsi
+  int v48; // [rsp+28h] [rbp-D8h]
+  bool v50; // [rsp+61h] [rbp-9Fh] BYREF
+  char v51; // [rsp+62h] [rbp-9Eh]
+  char v52; // [rsp+63h] [rbp-9Dh] BYREF
+  unsigned int v53; // [rsp+64h] [rbp-9Ch]
+  int v54; // [rsp+68h] [rbp-98h]
+  __int64 v55; // [rsp+70h] [rbp-90h]
+  __int64 v56; // [rsp+78h] [rbp-88h]
+  _DWORD *v57; // [rsp+80h] [rbp-80h]
+  _DWORD *v58; // [rsp+88h] [rbp-78h]
+  char *v59; // [rsp+90h] [rbp-70h]
+  _DWORD *v60; // [rsp+98h] [rbp-68h]
+  __int128 v61; // [rsp+A0h] [rbp-60h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+B0h] [rbp-50h]
+  __int128 v63; // [rsp+B8h] [rbp-48h] BYREF
+  ULONG_PTR v64; // [rsp+C8h] [rbp-38h]
+  __int64 v65; // [rsp+D0h] [rbp-30h]
+  _DWORD *v66; // [rsp+D8h] [rbp-28h]
+  char *v67; // [rsp+E0h] [rbp-20h]
+  _OWORD v68[32]; // [rsp+F0h] [rbp-10h] BYREF
 
   v9 = 0;
-  v66 = a7;
-  v10 = 0;
-  v67 = a8;
-  v11 = 1;
+  v56 = a1;
+  v11 = (__int64)a8;
+  v67 = a9;
   v12 = 0;
-  v68 = a9;
-  v13 = 0LL;
-  v59 = a3;
-  v57 = a2;
-  v58 = a1;
-  v55 = 0;
-  v53 = 0;
+  v13 = 0;
+  v65 = a7;
+  v14 = 1;
+  v15 = 0LL;
+  v16 = 0;
+  v57 = a3;
+  v55 = a2;
+  v66 = a8;
   v54 = 0;
   v52 = 0;
   v51 = 0;
-  v60 = 0LL;
-  v62 = 0LL;
-  P = 0LL;
+  v50 = 0;
+  v59 = 0LL;
+  v61 = 0LL;
+  BugCheckParameter2 = 0LL;
+  v63 = 0LL;
   v64 = 0LL;
-  v65 = 0LL;
   if ( !*a3 )
   {
 LABEL_2:
     if ( a6 )
-      AdtpEtwBuildDashString(a6, a2, a3);
-    goto LABEL_71;
+      AdtpEtwBuildDashString(a6, a2, v11);
+    goto LABEL_70;
   }
-  v56 = 0;
-  v61 = a3 + 1;
-  v14 = (char *)(a3 + 36);
-  v15 = a3 + 1;
+  v17 = (char *)(a3 + 36);
+  LODWORD(a2) = 0;
+  v53 = 0;
+  v60 = a3 + 1;
+  v18 = a3 + 1;
+  v58 = a3 + 1;
   do
   {
-    v16 = *v15 & 0xFF0000;
-    if ( !v16 )
+    v19 = *v18 & 0xFF0000;
+    if ( !v19 )
       goto LABEL_21;
-    if ( v16 == 0x10000 || v16 == 0x20000 )
+    if ( ((v19 - 0x10000) & 0xFFFEFFFF) == 0 )
     {
-LABEL_19:
-      v11 = 0;
-      IsSDValidSelfRelative = AdtpIsSDValidSelfRelative(v14, 0LL);
+LABEL_18:
+      v14 = 0;
+      IsSDValidSelfRelative = AdtpIsSDValidSelfRelative(v17, 0LL);
       v9 = 0;
       if ( IsSDValidSelfRelative < 0 )
-        goto LABEL_15;
-      v12 = 1;
-      goto LABEL_21;
-    }
-    if ( v16 != 196608 && v16 != 0x40000 )
-    {
-      if ( v16 == 327680 )
-        goto LABEL_19;
-      if ( v16 != 393216 )
       {
-        v11 = 0;
+LABEL_13:
+        v12 = -1073741811;
+        goto LABEL_70;
+      }
+      v16 = 1;
+      goto LABEL_20;
+    }
+    if ( ((v19 - 196608) & 0xFFFEFFFF) != 0 )
+    {
+      if ( v19 == 327680 )
+        goto LABEL_18;
+      if ( v19 != 393216 )
+      {
+        v14 = 0;
         goto LABEL_21;
       }
     }
-    v11 = 0;
-    v17 = AdtpIsSDValidSelfRelative(v14, &v51);
+    v14 = 0;
+    v20 = AdtpIsSDValidSelfRelative(v17, &v50);
     v9 = 0;
-    if ( v17 < 0 )
+    v12 = v20;
+    if ( v20 >= 0 )
     {
-      if ( v17 != -1073741736 )
-        goto LABEL_15;
-    }
-    else if ( !v51 )
-    {
-      goto LABEL_15;
-    }
-    v60 = &v14[RtlLengthSecurityDescriptor(v14)];
-    v18 = AdtpIsSDValidSelfRelative(v60, 0LL);
-    v9 = 0;
-    v10 = v18;
-    if ( v18 < 0 )
-    {
+      if ( !v50 )
+        goto LABEL_13;
 LABEL_15:
-      v10 = -1073741811;
-      goto LABEL_71;
+      v59 = &v17[RtlLengthSecurityDescriptor(v17)];
+      v12 = AdtpIsSDValidSelfRelative(v59, 0LL);
+      v9 = 0;
+      goto LABEL_16;
     }
-    v12 = 1;
-    v52 = 1;
+    if ( v20 == -1073741736 )
+      goto LABEL_15;
+LABEL_16:
+    if ( v12 < 0 )
+      goto LABEL_13;
+    v16 = 1;
+    v51 = 1;
+LABEL_20:
+    LODWORD(a2) = v53;
 LABEL_21:
-    ++v15;
-    ++v56;
+    a2 = (unsigned int)(a2 + 1);
+    v18 = v58 + 1;
+    v53 = a2;
+    ++v58;
   }
-  while ( v56 < 0x20 );
-  if ( v11 == 1 )
+  while ( (unsigned int)a2 < 0x20 );
+  if ( v14 == 1 )
     goto LABEL_2;
-  memset(v69, 0, sizeof(v69));
-  if ( v12 == 1 )
-    AdtpBuildContextFromSecurityDescriptor(v14, &v62);
-  if ( v52 == 1 )
-    AdtpBuildContextFromSecurityDescriptor(v60, &v64);
-  v20 = (__int64)v61;
-  v21 = AdtpStandardAccessTypes;
+  memset(v68, 0, sizeof(v68));
+  if ( v16 == 1 )
+    AdtpBuildContextFromSecurityDescriptor(v17, &v61);
+  if ( v51 == 1 )
+    AdtpBuildContextFromSecurityDescriptor(v59, &v63);
   v22 = a4;
+  v23 = AdtpStandardAccessTypes;
   v9 = 0;
-  v23 = 0;
+  v24 = 0;
   while ( 2 )
   {
-    v24 = *(_DWORD *)v21;
+    v25 = *(_DWORD *)v23;
     if ( v22 == 1 )
     {
-      v25 = 0;
-      v26 = *(_DWORD *)v21;
+      v26 = 0;
+      v27 = *(_DWORD *)v23;
       while ( 1 )
       {
-        v26 >>= 1;
-        if ( !v26 )
+        v27 >>= 1;
+        if ( !v27 )
           break;
-        ++v25;
+        ++v26;
       }
-      v27 = v59;
-      if ( (int)v59[v25 + 1] < 0 )
+      v28 = v57;
+      if ( (int)v57[v26 + 1] < 0 )
       {
-        v28 = (unsigned __int16 *)&v69[(unsigned int)v13];
-        v29 = AdtpBuildStagingReasonAuditStringInternal(
-                v58,
-                v57,
-                (unsigned int)&v62,
-                (unsigned int)&v64,
-                v24,
-                v49,
-                v20,
-                (__int64)v28);
+        v29 = (unsigned __int16 *)&v68[(unsigned int)v15];
+        v30 = AdtpBuildStagingReasonAuditStringInternal(
+                v56,
+                v55,
+                (unsigned int)&v61,
+                (unsigned int)&v63,
+                v25,
+                v48,
+                (__int64)v60,
+                (__int64)v29);
         goto LABEL_36;
       }
-LABEL_38:
-      v31 = v54;
     }
     else
     {
-      v27 = v59;
-      v30 = *v59 & v24;
-      if ( !v30 )
-        goto LABEL_38;
-      v28 = (unsigned __int16 *)&v69[(unsigned int)v13];
-      LOBYTE(v49) = *((_BYTE *)v59 + 136);
-      v29 = AdtpBuildAccessReasonAuditStringInternal(v58, v57, v30, v49, v20, (__int64)v28, 0, 0, 0, (__int64)&v53);
+      v28 = v57;
+      if ( (v25 & *v57) != 0 )
+      {
+        v29 = (unsigned __int16 *)&v68[(unsigned int)v15];
+        LOBYTE(v48) = *((_BYTE *)v57 + 136);
+        v30 = AdtpBuildAccessReasonAuditStringInternal(
+                v56,
+                v25 & *v57,
+                v48,
+                (__int64)(v57 + 1),
+                (__int64)v29,
+                0,
+                0,
+                0,
+                (__int64)&v52);
 LABEL_36:
-      v9 = 0;
-      v10 = v29;
-      if ( v29 < 0 )
-        goto LABEL_66;
-      v27 = v59;
-      v31 = *v28 + v54;
-      v22 = a4;
-      v13 = (unsigned int)(v13 + 1);
-      v55 = v13;
-      v54 = v31;
+        v9 = 0;
+        v12 = v30;
+        if ( v30 < 0 )
+          goto LABEL_65;
+        v28 = v57;
+        v13 += *v29;
+        v22 = a4;
+        v15 = (unsigned int)(v15 + 1);
+        v54 = v15;
+      }
     }
-    ++v23;
-    v21 = (__int64 *)((char *)v21 + 4);
-    if ( v23 < 7 )
+    ++v24;
+    v23 = (__int64 *)((char *)v23 + 4);
+    if ( v24 < 7 )
       continue;
     break;
   }
-  if ( *(_WORD *)v27 )
+  if ( *(_WORD *)v28 )
   {
-    v32 = (__int64)(v27 + 1);
-    v33 = 0;
-    v34 = v27 + 1;
-    v35 = 1;
+    v31 = 0;
+    v32 = (__int64)(v28 + 1);
+    v53 = 0;
+    v33 = v28 + 1;
+    v34 = 1;
     do
     {
       if ( v22 == 1 )
       {
-        if ( *v34 < 0 )
+        if ( *v33 < 0 )
         {
-          v36 = (unsigned __int16 *)&v69[(unsigned int)v13];
-          v37 = AdtpBuildStagingReasonAuditStringInternal(
-                  v58,
-                  v57,
-                  (unsigned int)&v62,
-                  (unsigned int)&v64,
-                  v35,
-                  v49,
+          v35 = (unsigned int)v15;
+          v36 = AdtpBuildStagingReasonAuditStringInternal(
+                  v56,
+                  v55,
+                  (unsigned int)&v61,
+                  (unsigned int)&v63,
+                  v34,
+                  v48,
                   v32,
-                  (__int64)v36);
-LABEL_47:
+                  (__int64)&v68[(unsigned int)v15]);
+LABEL_46:
           v9 = 0;
-          v10 = v37;
-          if ( v37 < 0 )
-            goto LABEL_66;
-          v27 = v59;
-          v31 = *v36 + v54;
-          v32 = (__int64)v61;
-          v13 = (unsigned int)(v13 + 1);
+          v12 = v36;
+          if ( v36 < 0 )
+            goto LABEL_65;
+          v28 = v57;
+          v32 = (__int64)v60;
           v22 = a4;
-          v55 = v13;
-          v54 = v31;
+          v13 += LOWORD(v68[v35]);
+          v31 = v53;
+          v15 = (unsigned int)(v15 + 1);
+          v54 = v15;
         }
       }
-      else if ( (*v27 & v35) != 0 )
+      else if ( (v34 & *v28) != 0 )
       {
-        v36 = (unsigned __int16 *)&v69[(unsigned int)v13];
-        LOBYTE(v49) = *((_BYTE *)v27 + 136);
-        v37 = AdtpBuildAccessReasonAuditStringInternal(
-                v58,
-                v57,
-                *v27 & (unsigned int)v35,
-                v49,
+        v35 = (unsigned int)v15;
+        LOBYTE(v48) = *((_BYTE *)v28 + 136);
+        v36 = AdtpBuildAccessReasonAuditStringInternal(
+                v56,
+                (unsigned int)v34 & *v28,
+                v48,
                 v32,
-                (__int64)v36,
+                (__int64)&v68[(unsigned int)v15],
                 0,
                 0,
                 0,
-                (__int64)&v53);
-        goto LABEL_47;
+                (__int64)&v52);
+        goto LABEL_46;
       }
+      ++v31;
       ++v33;
-      ++v34;
-      v35 *= 2;
+      v34 *= 2;
+      v53 = v31;
     }
-    while ( v33 < 0x10 );
+    while ( v31 < 0x10 );
   }
-  v54 = v31 >> 1;
-  v38 = (v31 >> 1) + 1;
-  if ( v66 )
+  v37 = (v13 >> 1) + 1;
+  if ( v65 )
   {
-    if ( v67 )
+    if ( v66 )
     {
-      v39 = (unsigned int)*v67;
-      if ( (unsigned int)v39 + v38 < 0x400 )
+      v38 = (unsigned int)*v66;
+      if ( (unsigned int)v38 + v37 < 0x400 )
       {
-        v40 = v66 + 2 * v39;
-        *v67 = v39 + v38;
-        v41 = 0;
-        goto LABEL_57;
+        v39 = (_WORD *)(v65 + 2 * v38);
+        *v66 = v38 + v37;
+        v40 = 0;
+        goto LABEL_56;
       }
     }
   }
-  Pool2 = ExAllocatePool2(256LL, 2LL * v38, 1799447891LL);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v37, 0x6B416553u);
   v9 = 0;
-  v40 = Pool2;
-  if ( Pool2 )
+  v39 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v41 = 1;
-LABEL_57:
-    v43 = 0;
-    *v68 = v41;
-    if ( (_DWORD)v13 )
+    v40 = 1;
+LABEL_56:
+    v42 = 0;
+    *v67 = v40;
+    if ( (_DWORD)v15 )
     {
-      v44 = (unsigned __int16 *)v69;
+      v43 = (unsigned __int16 *)v68;
       do
       {
-        v45 = (const void *)*((_QWORD *)v44 + 1);
-        if ( v45 )
+        v44 = (const void *)*((_QWORD *)v43 + 1);
+        if ( v44 )
         {
-          memmove((void *)(v40 + v43), v45, *v44);
-          v43 += *v44;
+          memmove((char *)v39 + v42, v44, *v43);
+          v42 += *v43;
           v9 = 0;
         }
-        v44 += 8;
-        --v13;
+        v43 += 8;
+        --v15;
       }
-      while ( v13 );
-      LODWORD(v13) = v55;
+      while ( v15 );
+      LODWORD(v15) = v54;
     }
-    *(_WORD *)(v40 + 2LL * v54) = 0;
+    v39[v37 - 1] = 0;
     if ( a6 )
     {
-      *a6 = v40;
-      a6[1] = 2 * v38;
+      *a6 = v39;
+      a6[1] = 2 * v37;
     }
     else
     {
-      MEMORY[8] = v40;
-      MEMORY[2] = 2 * v38;
-      MEMORY[0] = 2 * v38 - 2;
+      MEMORY[8] = v39;
+      MEMORY[2] = 2 * v37;
+      MEMORY[0] = 2 * v37 - 2;
     }
   }
   else
   {
-    v10 = -1073741801;
+    v12 = -1073741801;
   }
-LABEL_66:
-  if ( (_DWORD)v13 )
+LABEL_65:
+  if ( (_DWORD)v15 )
   {
-    v46 = (PVOID *)v69 + 1;
-    v47 = (unsigned int)v13;
+    v45 = (ULONG_PTR *)v68 + 1;
+    v46 = (unsigned int)v15;
     do
     {
-      if ( *v46 )
+      if ( *v45 )
       {
-        ExFreePoolWithTag(*v46, 0);
+        ExFreeHeapPool(*v45);
         v9 = 0;
       }
-      v46 += 2;
-      --v47;
+      v45 += 2;
+      --v46;
     }
-    while ( v47 );
+    while ( v46 );
   }
-LABEL_71:
-  if ( DWORD2(v62) != v9 && P )
+LABEL_70:
+  if ( DWORD2(v61) != v9 && BugCheckParameter2 )
   {
-    ExFreePoolWithTag(P, 0);
+    ExFreeHeapPool(BugCheckParameter2);
     v9 = 0;
   }
-  if ( DWORD2(v64) != v9 && v65 )
-    ExFreePoolWithTag(v65, 0);
-  return v10;
+  if ( DWORD2(v63) != v9 && v64 )
+    ExFreeHeapPool(v64);
+  return (unsigned int)v12;
 }

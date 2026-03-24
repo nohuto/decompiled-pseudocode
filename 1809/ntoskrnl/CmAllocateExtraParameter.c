@@ -1,11 +1,11 @@
 /*
- * XREFs of CmAllocateExtraParameter @ 0x1407EC528
+ * XREFs of CmAllocateExtraParameter @ 0x1407EC508
  * Callers:
- *     VrpPostOpenOrCreate @ 0x14080AE64 (VrpPostOpenOrCreate.c)
- *     VrpPreOpenOrCreate @ 0x14080C300 (VrpPreOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x14080AE44 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 _QWORD *CmAllocateExtraParameter()

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSetVideoBiosInformation @ 0x140B99C0C
+ * XREFs of CmpSetVideoBiosInformation @ 0x140A592D0
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x140B3A520 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140A58C04 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpGetBiosDate @ 0x140B9947C (CmpGetBiosDate.c)
- *     CmpGetBiosVersion @ 0x140B996AC (CmpGetBiosVersion.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpGetBiosVersion @ 0x140A597C0 (CmpGetBiosVersion.c)
+ *     CmpGetBiosDate @ 0x140A59980 (CmpGetBiosDate.c)
  */
 
 void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandle)
@@ -23,7 +23,7 @@ void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandl
   unsigned int v4; // r14d
   unsigned int v5; // ebx
   unsigned int v6; // ecx
-  _WORD *Pool2; // rdi
+  _WORD *PoolWithTag; // rdi
   _WORD *v8; // rsi
   unsigned int v9; // ebx
   PVOID BaseAddress; // [rsp+50h] [rbp-B0h] BYREF
@@ -75,20 +75,20 @@ void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandl
          0,
          4u) >= 0 )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, 0x1000uLL, 0x20204D43u);
-    if ( CmpGetBiosDate((__int64)BaseAddress, 0x8000u, (__int64)SourceString, 0) )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x20204D43u);
+    if ( (unsigned __int8)CmpGetBiosDate(BaseAddress, 0x8000LL, SourceString, 0LL) )
     {
       RtlInitUnicodeString(&DestinationString, L"VideoBiosDate");
       RtlInitAnsiString(&v14, SourceString);
       if ( RtlAnsiStringToUnicodeString(&UnicodeString, &v14, 1u) >= 0 )
       {
         ZwSetValueKey(KeyHandle, &DestinationString, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);
-        RtlFreeUnicodeString(&UnicodeString);
+        RtlFreeAnsiString(&UnicodeString);
       }
     }
-    if ( Pool2 && CmpGetBiosVersion((__int64)BaseAddress, 0x8000u, (__int64)SourceString) )
+    if ( PoolWithTag && (unsigned __int8)CmpGetBiosVersion(BaseAddress, 0x8000LL, SourceString) )
     {
-      v8 = Pool2;
+      v8 = PoolWithTag;
       do
       {
         RtlInitAnsiString(&v14, SourceString);
@@ -97,22 +97,22 @@ void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandl
           v9 = UnicodeString.Length + 2;
           memmove(v8, UnicodeString.Buffer, v9);
           v4 += v9;
-          RtlFreeUnicodeString(&UnicodeString);
+          RtlFreeAnsiString(&UnicodeString);
           if ( (unsigned __int64)v4 + 260 > 0x1000 )
             break;
           v8 = (_WORD *)((char *)v8 + v9);
         }
       }
-      while ( CmpGetBiosVersion(0LL, 0, (__int64)SourceString) );
+      while ( (unsigned __int8)CmpGetBiosVersion(0LL, 0LL, SourceString) );
       if ( v4 - 1 <= 0xFFD )
       {
         *v8 = 0;
         RtlInitUnicodeString(&DestinationString, L"VideoBiosVersion");
-        ZwSetValueKey(KeyHandle, &DestinationString, 0, 7u, Pool2, v4 + 2);
+        ZwSetValueKey(KeyHandle, &DestinationString, 0, 7u, PoolWithTag, v4 + 2);
       }
     }
     ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
 }

@@ -1,16 +1,15 @@
 /*
- * XREFs of ??1OUTPUTDUPL_CONTEXT@@QEAA@XZ @ 0x1C0325B58
+ * XREFs of ??1OUTPUTDUPL_CONTEXT@@QEAA@XZ @ 0x1C02A0378
  * Callers:
- *     ??_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z @ 0x1C0055A48 (--_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z.c)
+ *     ??_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z @ 0x1C004A69C (--_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z @ 0x1C000272C (--_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0044948 (McTemplateK0p_EtwWriteTransfer.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ??1DXGDXGIKEYEDMUTEX@@QEAA@XZ @ 0x1C031EFF0 (--1DXGDXGIKEYEDMUTEX@@QEAA@XZ.c)
- *     ??1DDAMetaData@@QEAA@XZ @ 0x1C0325B24 (--1DDAMetaData@@QEAA@XZ.c)
- *     ?ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C0328D38 (-ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z @ 0x1C001B2BC (--_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0039F4C (McTemplateK0p_EtwWriteTransfer.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ??1DXGDXGIKEYEDMUTEX@@QEAA@XZ @ 0x1C0298530 (--1DXGDXGIKEYEDMUTEX@@QEAA@XZ.c)
+ *     ?ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C02A2D00 (-ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z.c)
  */
 
 void __fastcall OUTPUTDUPL_CONTEXT::~OUTPUTDUPL_CONTEXT(OUTPUTDUPL_CONTEXT *this, __int64 a2, __int64 a3)
@@ -18,14 +17,17 @@ void __fastcall OUTPUTDUPL_CONTEXT::~OUTPUTDUPL_CONTEXT(OUTPUTDUPL_CONTEXT *this
   __int64 i; // rdi
   void *v5; // rsi
   __int64 v6; // rbp
-  DDAMetaData **v7; // rdi
+  _QWORD **v7; // rdi
   __int64 v8; // r14
-  DDAMetaData *v9; // rsi
-  __int64 v10; // rcx
-  DXGSESSIONMGR *v11; // rdi
+  _QWORD *v9; // rsi
+  AUTOEXPANDALLOCATION *v10; // rcx
+  AUTOEXPANDALLOCATION *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  DXGSESSIONMGR *v14; // rdi
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  AUTOEXPANDALLOCATION **v14; // rdi
+  AUTOEXPANDALLOCATION **v17; // rdi
 
   for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 10); i = (unsigned int)(i + 1) )
   {
@@ -38,14 +40,19 @@ void __fastcall OUTPUTDUPL_CONTEXT::~OUTPUTDUPL_CONTEXT(OUTPUTDUPL_CONTEXT *this
     }
   }
   v6 = 2LL;
-  v7 = (DDAMetaData **)((char *)this + 80);
+  v7 = (_QWORD **)((char *)this + 80);
   v8 = 2LL;
   do
   {
     v9 = *v7;
     if ( *v7 )
     {
-      DDAMetaData::~DDAMetaData(*v7);
+      v10 = (AUTOEXPANDALLOCATION *)v9[4];
+      if ( v10 )
+        AUTOEXPANDALLOCATION::`scalar deleting destructor'(v10);
+      v11 = (AUTOEXPANDALLOCATION *)v9[6];
+      if ( v11 )
+        AUTOEXPANDALLOCATION::`scalar deleting destructor'(v11);
       operator delete(v9);
     }
     *v7 = 0LL;
@@ -55,11 +62,11 @@ void __fastcall OUTPUTDUPL_CONTEXT::~OUTPUTDUPL_CONTEXT(OUTPUTDUPL_CONTEXT *this
   while ( v8 );
   if ( *((_DWORD *)this + 76) )
   {
-    v11 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-    if ( v11 )
+    v14 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 102);
+    if ( v14 )
     {
-      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v10);
-      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v11, CurrentProcessSessionId);
+      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v13, v12);
+      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v14, CurrentProcessSessionId);
     }
     else
     {
@@ -68,19 +75,18 @@ void __fastcall OUTPUTDUPL_CONTEXT::~OUTPUTDUPL_CONTEXT(OUTPUTDUPL_CONTEXT *this
     OUTPUTDUPL_CONTEXT::ReleaseSessionReference(this, SessionDataForSpecifiedSession);
     *((_DWORD *)this + 76) = 0;
   }
-  v14 = (AUTOEXPANDALLOCATION **)((char *)this + 160);
+  v17 = (AUTOEXPANDALLOCATION **)((char *)this + 160);
   do
   {
-    if ( *v14 )
+    if ( *v17 )
     {
-      AUTOEXPANDALLOCATION::`scalar deleting destructor'(*v14);
-      *v14 = 0LL;
+      AUTOEXPANDALLOCATION::`scalar deleting destructor'(*v17);
+      *v17 = 0LL;
     }
-    v14 += 12;
+    v17 += 12;
     --v6;
   }
   while ( v6 );
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0p_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &EventOutputDuplicationDestroy, a3, this);
-  _InterlockedDecrement(&g_DbgGlobalContextCount);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpVolumeContextStart @ 0x14075F728
+ * XREFs of CmpVolumeContextStart @ 0x14075F708
  * Callers:
- *     CmpVolumeContextCreate @ 0x14075F6A0 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCreate @ 0x14075F680 (CmpVolumeContextCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C10 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoVolumeDeviceToGuid @ 0x1405A44B0 (IoVolumeDeviceToGuid.c)
  *     IoVolumeDeviceToGuidPath @ 0x1405A4540 (IoVolumeDeviceToGuidPath.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpUuidCreate @ 0x140680A8C (CmpUuidCreate.c)
+ *     CmpUuidCreate @ 0x140680A6C (CmpUuidCreate.c)
  */
 
 __int64 __fastcall CmpVolumeContextStart(__int64 a1, __int64 a2, struct _DEVICE_OBJECT *a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmOpenInterfaceClassRegKey @ 0x140787DB0
+ * XREFs of _CmOpenInterfaceClassRegKey @ 0x1406B3774
  * Callers:
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     _PnpDispatchInterfaceClass @ 0x1407C6330 (_PnpDispatchInterfaceClass.c)
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1407C6530 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     PiCMOpenClassKey @ 0x140860768 (PiCMOpenClassKey.c)
- *     _CmCreateInterfaceClassWorker @ 0x1408809E0 (_CmCreateInterfaceClassWorker.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140A679E8 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140A6A1EC (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     PiCMOpenClassKey @ 0x1406A693C (PiCMOpenClassKey.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1406B4084 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpDispatchInterfaceClass @ 0x1406B4230 (_PnpDispatchInterfaceClass.c)
+ *     _CmCreateInterfaceClassWorker @ 0x140748170 (_CmCreateInterfaceClassWorker.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140979980 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14097BF74 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
  * Callees:
- *     _CmOpenCommonClassRegKey @ 0x140787DF8 (_CmOpenCommonClassRegKey.c)
+ *     _CmOpenCommonClassRegKey @ 0x1406BE154 (_CmOpenCommonClassRegKey.c)
  */
 
 __int64 __fastcall CmOpenInterfaceClassRegKey(

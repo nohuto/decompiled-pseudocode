@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0FxUsbDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C007BBAC
+ * XREFs of ??0FxUsbDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C006F374
  * Callers:
- *     FxUsbTargetDeviceCreate @ 0x1C0077950 (FxUsbTargetDeviceCreate.c)
+ *     FxUsbTargetDeviceCreate @ 0x1C006A510 (FxUsbTargetDeviceCreate.c)
  * Callees:
- *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00239E0 (--0FxWaitLockInternal@@QEAA@XZ.c)
- *     ??0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GG@Z @ 0x1C0073AB8 (--0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GG@Z.c)
+ *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00622B4 (--0FxWaitLockInternal@@QEAA@XZ.c)
+ *     ??0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GG@Z @ 0x1C006479C (--0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GG@Z.c)
  */
 
 void __fastcall FxUsbDevice::FxUsbDevice(FxUsbDevice *this, _FX_DRIVER_GLOBALS *FxDriverGlobals)
@@ -25,6 +25,5 @@ void __fastcall FxUsbDevice::FxUsbDevice(FxUsbDevice *this, _FX_DRIVER_GLOBALS *
   this->m_ConfigHandle = 0LL;
   this->m_ConfigDescriptor = 0LL;
   this->m_USBDHandle = 0LL;
-  this->m_SspIsochPipeFlags = 0;
   this->m_ObjectFlags |= 0x800u;
 }

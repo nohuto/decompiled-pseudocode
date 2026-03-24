@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhIoctlGetDescriptorForPDO @ 0x1C003DE80
+ * XREFs of UsbhIoctlGetDescriptorForPDO @ 0x1C003F070
  * Callers:
- *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003E348 (UsbhIoctlGetDescriptorFromNodeConnection.c)
+ *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003F534 (UsbhIoctlGetDescriptorFromNodeConnection.c)
  * Callees:
- *     UsbhSyncSendCommandToDevice @ 0x1C0002110 (UsbhSyncSendCommandToDevice.c)
- *     UsbhDerefPdoDeviceHandle @ 0x1C0003470 (UsbhDerefPdoDeviceHandle.c)
- *     UsbhRefPdoDeviceHandle @ 0x1C00036C0 (UsbhRefPdoDeviceHandle.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     memmove @ 0x1C001F540 (memmove.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAcquireFdoPnpLock @ 0x1C0031220 (UsbhAcquireFdoPnpLock.c)
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0015C80 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0016670 (UsbhDerefPdoDeviceHandle.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0032554 (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
  */
 
 __int64 __fastcall UsbhIoctlGetDescriptorForPDO(
@@ -41,7 +41,6 @@ __int64 __fastcall UsbhIoctlGetDescriptorForPDO(
   int v24; // r8d
   char v25; // al
   unsigned __int16 v26; // r11
-  __int64 v27; // r15
 
   Log(a1, 32, 1195659313, a2, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -137,18 +136,15 @@ LABEL_37:
     {
       if ( v22 )
         *a6 = v22;
-      if ( v22 < v26 || (a6[1] = 3, v22 <= v26) )
+      if ( v22 >= v26 )
+        a6[1] = 3;
+      if ( v22 > v26 )
       {
-        v27 = v22;
-      }
-      else
-      {
-        v27 = v22;
         memmove(a6 + 2, *((const void **)v14 + 267), v22 - 2LL);
         v23 = 32;
       }
       *a5 = v22;
-      Log(a1, v23, 1195659320, (__int64)a6, v27);
+      Log(a1, v23, 1195659320, (__int64)a6, v22);
       goto LABEL_37;
     }
     v24 = 1195659321;

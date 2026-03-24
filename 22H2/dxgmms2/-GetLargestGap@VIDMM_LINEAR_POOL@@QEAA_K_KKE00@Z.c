@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z @ 0x1C0101EC8
+ * XREFs of ?GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z @ 0x1C00CD6EC
  * Callers:
- *     ?GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z @ 0x1C00FD140 (-GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z.c)
+ *     ?GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z @ 0x1C00C5940 (-GetLargestGap@VIDMM_SEGMENT@@QEAA_KPEAU_VIDMM_GLOBAL_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@E@Z.c)
  * Callees:
- *     ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C00B099C (-ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z.c)
+ *     ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C0065990 (-ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z.c)
  */
 
 unsigned __int64 __fastcall VIDMM_LINEAR_POOL::GetLargestGap(
@@ -30,8 +30,8 @@ unsigned __int64 __fastcall VIDMM_LINEAR_POOL::GetLargestGap(
   v11 = 0LL;
   if ( v8 != (VIDMM_LINEAR_POOL *)((char *)this + 40) )
   {
-    v12 = 0LL;
     this = 0LL;
+    v12 = 0LL;
     do
     {
       v13 = (unsigned __int64 *)((char *)v8 - 24);
@@ -45,9 +45,9 @@ unsigned __int64 __fastcall VIDMM_LINEAR_POOL::GetLargestGap(
         this = (VIDMM_LINEAR_POOL *)*v13;
         v16 = *v13;
       }
-      v12 = (VIDMM_LINEAR_POOL *)((char *)this + v13[1]);
-      v15 = (unsigned __int64)v12;
-      this = v12;
+      this = (VIDMM_LINEAR_POOL *)((char *)this + v13[1]);
+      v15 = (unsigned __int64)this;
+      v12 = this;
     }
     while ( v8 != v6 );
   }

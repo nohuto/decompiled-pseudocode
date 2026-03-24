@@ -1,55 +1,53 @@
 /*
- * XREFs of KiGetDeepIdleProcessors @ 0x14028F9E0
+ * XREFs of KiGetDeepIdleProcessors @ 0x14035DD30
  * Callers:
- *     KeFlushQueuedDpcs @ 0x14028F8A0 (KeFlushQueuedDpcs.c)
- *     KeRemoveQueueDpcEx @ 0x14031EEF0 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x1403214A0 (KeRemoveQueueDpcEx.c)
+ *     KeFlushQueuedDpcs @ 0x14035DC40 (KeFlushQueuedDpcs.c)
  * Callees:
- *     KiAndAffinityEx @ 0x140252320 (KiAndAffinityEx.c)
- *     KiComplementAffinityEx @ 0x14028FAC4 (KiComplementAffinityEx.c)
- *     PoCopyDeepIdleMask @ 0x14028FB3C (PoCopyDeepIdleMask.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAndAffinityEx @ 0x1402299F0 (KeAndAffinityEx.c)
+ *     KeComplementAffinityEx @ 0x140229BA0 (KeComplementAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x14035DDD0 (PoCopyDeepIdleMask.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiGetDeepIdleProcessors(__int64 a1, __int64 a2)
+__int64 __fastcall KiGetDeepIdleProcessors(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned __int8 CurrentIrql; // bl
-  unsigned __int16 *v5; // rcx
   _DWORD *SchedulerAssist; // r9
-  __int64 v8; // rax
-  unsigned __int8 v9; // al
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v11; // r8
-  int v12; // eax
-  bool v13; // zf
-  signed __int32 v14[10]; // [rsp+0h] [rbp-28h] BYREF
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
+  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedOr(v14, 0);
+  _InterlockedOr(v12, 0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v8) = 4;
-    if ( CurrentIrql != 2 )
-      v8 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   PoCopyDeepIdleMask(a1);
   if ( KiIrqlFlags )
   {
-    v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v11 = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v13 = (v12 & v11[5]) == 0;
-      v11[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v7 = KeGetCurrentIrql();
+      if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v9 = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v11 = (v10 & v9[5]) == 0;
+        v9[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  KiComplementAffinityEx(a2, *(unsigned __int16 *)(a2 + 2), a1);
-  return KiAndAffinityEx(v5, (unsigned __int16 *)&KeActiveProcessors, (_BYTE *)a2, *(_WORD *)(a2 + 2));
+  KeComplementAffinityEx((__int64)a2, a1);
+  return KeAndAffinityEx(a2, (unsigned __int16 *)KeActiveProcessors, a2);
 }

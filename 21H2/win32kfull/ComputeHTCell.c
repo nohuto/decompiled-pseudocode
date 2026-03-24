@@ -1,17 +1,17 @@
 /*
- * XREFs of ComputeHTCell @ 0x1C0096AD0
+ * XREFs of ComputeHTCell @ 0x1C0113064
  * Callers:
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
  * Callees:
- *     ComputeChecksum @ 0x1C00945A4 (ComputeChecksum.c)
- *     GenerateWORDPat @ 0x1C025E348 (GenerateWORDPat.c)
+ *     GenerateWORDPat @ 0x1C0002414 (GenerateWORDPat.c)
+ *     ComputeChecksum @ 0x1C001C090 (ComputeChecksum.c)
  */
 
 __int64 __fastcall ComputeHTCell(unsigned __int16 a1, __int64 a2, __int64 a3)
 {
-  char *v3; // rbx
+  __int64 v3; // r15
   char *v4; // r14
-  char *v5; // rsi
+  char *v5; // rdi
   unsigned int v6; // r12d
   unsigned __int16 v8; // r10
   unsigned int v9; // r9d
@@ -23,26 +23,26 @@ __int64 __fastcall ComputeHTCell(unsigned __int16 a1, __int64 a2, __int64 a3)
   __int128 v15; // xmm0
   __int64 result; // rax
   __int64 v17; // xmm1_8
-  int v18; // eax
-  unsigned int v19; // r15d
-  char *v20; // r10
+  unsigned int v18; // eax
+  char *v19; // r10
+  unsigned int v20; // esi
   unsigned int v21; // r11d
   unsigned int v22; // eax
   char *v23; // r10
   unsigned int v24; // eax
   int v25; // r11d
   unsigned int v26; // eax
-  PVOID v27; // rax
-  void *v28; // r15
-  int v29; // [rsp+40h] [rbp-30h]
+  _WORD *v27; // rax
+  void *v28; // rsi
+  unsigned int v29; // [rsp+40h] [rbp-30h]
   _OWORD v30[2]; // [rsp+48h] [rbp-28h] BYREF
-  int v31; // [rsp+B0h] [rbp+40h] BYREF
-  int v32; // [rsp+C8h] [rbp+58h]
+  unsigned int v31; // [rsp+B0h] [rbp+40h] BYREF
+  unsigned int v32; // [rsp+C8h] [rbp+58h]
 
   LOWORD(v31) = a1;
-  LODWORD(v3) = 0;
-  LODWORD(v4) = 0;
-  LODWORD(v5) = 0;
+  v3 = 0LL;
+  v4 = 0LL;
+  v5 = 0LL;
   v6 = 0;
   memset(v30, 0, sizeof(v30));
   if ( a1 > 0x12u )
@@ -65,45 +65,45 @@ __int64 __fastcall ComputeHTCell(unsigned __int16 a1, __int64 a2, __int64 a3)
     return 4294967281LL;
   v18 = *(unsigned __int16 *)(a2 + 6);
   v12 = *(unsigned __int16 *)(a2 + 4);
-  v3 = *(char **)(a2 + 8);
+  v3 = *(_QWORD *)(a2 + 8);
   v4 = *(char **)(a2 + 16);
+  v19 = (char *)v3;
   v5 = *(char **)(a2 + 24);
-  v19 = v12 * v18;
+  v20 = v12 * v18;
   WORD6(v30[0]) = *(_WORD *)(a2 + 4);
   v32 = v18;
   WORD1(v30[1]) = v18;
   if ( !v3 )
   {
-    v20 = v4;
+    v19 = v4;
     if ( v4 )
-      goto LABEL_16;
-    v20 = v5;
+      goto LABEL_23;
+    v19 = v5;
     if ( v5 )
-      goto LABEL_16;
+      goto LABEL_23;
     return 4294967281LL;
   }
-  v20 = v3;
   if ( v4 && v5 )
   {
-    if ( v3 == v4 && v3 == v5 )
+    if ( (char *)v3 == v4 && (char *)v3 == v5 )
       v21 = 1433629234;
     else
       v21 = 1433629235;
-    goto LABEL_17;
+    goto LABEL_24;
   }
-LABEL_16:
-  v5 = v20;
-  v4 = v20;
-  LODWORD(v3) = (_DWORD)v20;
+LABEL_23:
+  v5 = v19;
+  v4 = v19;
+  v3 = (__int64)v19;
   v21 = 1433629233;
-LABEL_17:
+LABEL_24:
   v22 = ComputeChecksum((char *)&v31, v21, 2u);
-  v24 = ComputeChecksum(v23, v22, v19);
+  v24 = ComputeChecksum(v23, v22, v20);
   v9 = v24;
   if ( v25 == 1433629235 )
   {
-    v26 = ComputeChecksum(v4, v24, v19);
-    v9 = ComputeChecksum(v5, v26, v19);
+    v26 = ComputeChecksum(v4, v24, v20);
+    v9 = ComputeChecksum(v5, v26, v20);
   }
   v13 = v32;
   v10 = 32;
@@ -134,7 +134,7 @@ LABEL_9:
   v28 = v27;
   if ( v27 )
   {
-    if ( (unsigned int)GenerateWORDPat((_DWORD)v3, (_DWORD)v4, (_DWORD)v5, (_DWORD)v27, v29, v32, v31) )
+    if ( (unsigned int)GenerateWORDPat(v3, (__int64)v4, (__int64)v5, v27, v29, v32, v31) )
       goto LABEL_9;
     EngFreeMem(v28);
   }

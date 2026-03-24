@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWaitForBootDevices @ 0x140609790
+ * XREFs of ExpWaitForBootDevices @ 0x1405B32E0
  * Callers:
  *     <none>
  * Callees:
- *     KeThawExecution @ 0x14020D430 (KeThawExecution.c)
- *     KeFreezeExecution @ 0x14020D560 (KeFreezeExecution.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeFreezeExecution @ 0x14051D630 (KeFreezeExecution.c)
+ *     KeThawExecution @ 0x14051DB20 (KeThawExecution.c)
  */
 
 void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
@@ -42,21 +42,24 @@ void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
         v3 = KeAcquireSpinLockRaiseToDpc(&ExBootDeviceListSpinLock);
         v2 = (__int64 *)v2[1];
         v4 = v3;
-        KxReleaseSpinLock((volatile signed __int64 *)&ExBootDeviceListSpinLock);
+        KxReleaseSpinLock(&ExBootDeviceListSpinLock);
         if ( v2 == &ExBootDeviceList )
           break;
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-            v9 = (v8 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v8;
-            if ( v9 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+              v9 = (v8 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v8;
+              if ( v9 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
         __writecr8(v4);
@@ -70,16 +73,19 @@ void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
       }
       if ( KiIrqlFlags )
       {
-        v10 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v10 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v11 = KeGetCurrentPrcb();
-          v12 = v11->SchedulerAssist;
-          v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-          v9 = (v13 & v12[5]) == 0;
-          v12[5] &= v13;
-          if ( v9 )
-            KiRemoveSystemWorkPriorityKick((__int64)v11);
+          v10 = KeGetCurrentIrql();
+          if ( v10 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v10 >= 2u )
+          {
+            v11 = KeGetCurrentPrcb();
+            v12 = v11->SchedulerAssist;
+            v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+            v9 = (v13 & v12[5]) == 0;
+            v12[5] &= v13;
+            if ( v9 )
+              KiRemoveSystemWorkPriorityKick((__int64)v11);
+          }
         }
       }
       __writecr8(v4);

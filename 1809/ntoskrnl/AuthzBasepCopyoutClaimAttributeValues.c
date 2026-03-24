@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCopyoutClaimAttributeValues @ 0x1408EE438
+ * XREFs of AuthzBasepCopyoutClaimAttributeValues @ 0x1408EE418
  * Callers:
- *     AuthzBasepCopyoutClaimAttributes @ 0x1408EE6A8 (AuthzBasepCopyoutClaimAttributes.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x1408EE688 (AuthzBasepCopyoutClaimAttributes.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x140155DBC (RtlStringCbCopyNW.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlStringCbCopyNW @ 0x140155DDC (RtlStringCbCopyNW.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutClaimAttributeValues(

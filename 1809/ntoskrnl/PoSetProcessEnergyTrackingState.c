@@ -1,7 +1,7 @@
 /*
- * XREFs of PoSetProcessEnergyTrackingState @ 0x1406C3A44
+ * XREFs of PoSetProcessEnergyTrackingState @ 0x1406C3A24
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)

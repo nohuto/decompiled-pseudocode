@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSgListBufferSize@FxDmaSystemTransaction@@MEAAKXZ @ 0x1C000BB20
+ * XREFs of ?GetSgListBufferSize@FxDmaSystemTransaction@@MEAAKXZ @ 0x1C000DA50
  * Callers:
  *     <none>
  * Callees:

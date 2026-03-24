@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_Lq @ 0x1C000FA74
+ * XREFs of WPP_IFR_SF_Lq @ 0x1C00127BC
  * Callers:
- *     ?StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C000F808 (-StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z.c)
+ *     ?StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C00129B4 (-StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_Lq(
@@ -20,12 +20,12 @@ void __fastcall WPP_IFR_SF_Lq(
     FxWmiTraceMessage(
       (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
       0x2Bu,
-      WPP_FxPkgIo_cpp_Traceguids,
+      (_GUID *)&WPP_FxPkgIo_cpp_Traceguids,
       0x1Eu,
       &flags,
       4LL,
       &id,
       8LL,
       0LL);
-  FxIFR(globals, 4u, 0xDu, WPP_FxPkgIo_cpp_Traceguids, 0x1Eu, &flags, 4LL, &id, 8LL, 0LL);
+  FxIFR(globals, 4u, 0xDu, (_GUID *)&WPP_FxPkgIo_cpp_Traceguids, 0x1Eu, &flags, 4LL, &id, 8LL, 0LL);
 }

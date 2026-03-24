@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnChanged@CTransform3D@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E3540
+ * XREFs of ?OnChanged@CTransform3D@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800C8C30
  * Callers:
  *     <none>
  * Callees:

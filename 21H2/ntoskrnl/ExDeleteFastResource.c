@@ -1,12 +1,12 @@
 /*
- * XREFs of ExDeleteFastResource @ 0x14039FFC0
+ * XREFs of ExDeleteFastResource @ 0x140393B20
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExDeleteFastResource(__int64 *BugCheckParameter2)

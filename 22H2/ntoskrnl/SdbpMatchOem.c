@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpMatchOem @ 0x1408634B0
+ * XREFs of SdbpMatchOem @ 0x1407D308C
  * Callers:
- *     SdbpCheckKObject @ 0x140757368 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x14075454C (SdbpCheckKObject.c)
  * Callees:
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbpMatchDeviceDWORD @ 0x140A51634 (SdbpMatchDeviceDWORD.c)
- *     SdbpMatchDeviceString @ 0x140A516C0 (SdbpMatchDeviceString.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbpMatchDeviceDWORD @ 0x140965F48 (SdbpMatchDeviceDWORD.c)
+ *     SdbpMatchDeviceString @ 0x140965FD4 (SdbpMatchDeviceString.c)
  */
 
 __int64 __fastcall SdbpMatchOem(__int64 a1, __int64 a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall SdbpMatchOem(__int64 a1, __int64 a2, __int64 a3)
   int v9; // r9d
 
   v5 = 0;
-  FirstTag = SdbFindFirstTag(a1, a2, 28706LL);
+  FirstTag = SdbFindFirstTag(a1, a2, 28706);
   v7 = FirstTag;
   if ( FirstTag )
   {

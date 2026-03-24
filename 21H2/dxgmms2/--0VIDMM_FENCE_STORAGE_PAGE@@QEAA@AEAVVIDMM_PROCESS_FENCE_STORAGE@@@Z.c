@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0VIDMM_FENCE_STORAGE_PAGE@@QEAA@AEAVVIDMM_PROCESS_FENCE_STORAGE@@@Z @ 0x1C007BC70
+ * XREFs of ??0VIDMM_FENCE_STORAGE_PAGE@@QEAA@AEAVVIDMM_PROCESS_FENCE_STORAGE@@@Z @ 0x1C0085040
  * Callers:
- *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x1C0001100 (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STOR.c)
- *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0014018 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@.c)
+ *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0012228 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@@.c)
+ *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x1C0017040 (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAUVIDMM_MONITORED_FENCE_STOR.c)
  * Callees:
  *     <none>
  */
@@ -17,15 +17,15 @@ VIDMM_FENCE_STORAGE_PAGE *__fastcall VIDMM_FENCE_STORAGE_PAGE::VIDMM_FENCE_STORA
   *((_QWORD *)this + 9) = 0LL;
   *((_QWORD *)this + 10) = 0LL;
   *((_DWORD *)this + 22) = 0;
-  *((_DWORD *)this + 23) = 9;
+  *((_DWORD *)this + 23) = 4;
   *((_QWORD *)this + 12) = 0LL;
   *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 15) = 0LL;
-  *((_BYTE *)this + 136) = 0;
+  *((_BYTE *)this + 128) = 0;
+  *((_QWORD *)this + 17) = 0LL;
   *((_QWORD *)this + 18) = 0LL;
-  *((_QWORD *)this + 19) = 0LL;
-  *((_BYTE *)this + 160) = 0;
+  *((_BYTE *)this + 152) = 0;
   *(_QWORD *)this = 0LL;
   *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
@@ -35,6 +35,6 @@ VIDMM_FENCE_STORAGE_PAGE *__fastcall VIDMM_FENCE_STORAGE_PAGE::VIDMM_FENCE_STORA
   *((_QWORD *)this + 8) = (char *)this + 56;
   *((_QWORD *)this + 7) = (char *)this + 56;
   result = this;
-  *((_QWORD *)this + 21) = a2;
+  *((_QWORD *)this + 20) = a2;
   return result;
 }

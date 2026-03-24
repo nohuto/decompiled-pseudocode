@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsVisitDevice @ 0x1409A02C0
+ * XREFs of PopDirectedDripsVisitDevice @ 0x1408F91C0
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FC00 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099FF4C (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsMarkDfxDevice @ 0x1409A0194 (PopDirectedDripsMarkDfxDevice.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1409A0314 (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x1408F8B10 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x1408F8E40 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x1408F9090 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x1408F9214 (PopDirectedDripsVisitPs4Device.c)
  * Callees:
- *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099F220 (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x1408F8110 (PopDirectedDripsDiagTraceBroadcastVisit.c)
  */
 
-signed __int32 __fastcall PopDirectedDripsVisitDevice(__int64 a1, __int64 a2, __int64 a3, int a4)
+char __fastcall PopDirectedDripsVisitDevice(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _QWORD *v4; // r10
   _QWORD *v5; // rax

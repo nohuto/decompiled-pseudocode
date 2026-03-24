@@ -1,10 +1,10 @@
 /*
- * XREFs of AddPalmRejectionDelayZone @ 0x1C01E7134
+ * XREFs of AddPalmRejectionDelayZone @ 0x1C01ADDA4
  * Callers:
- *     NtUserCreatePalmRejectionDelayZone @ 0x1C0157360 (NtUserCreatePalmRejectionDelayZone.c)
+ *     NtUserCreatePalmRejectionDelayZone @ 0x1C012D350 (NtUserCreatePalmRejectionDelayZone.c)
  * Callees:
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0083180 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01E52F4 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006C098 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01AC6D8 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
  */
 
 __int64 __fastcall AddPalmRejectionDelayZone(void *a1, struct tagRECT *a2, void *a3, struct tagRECT *a4, int a5)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetBootEntryOrder @ 0x1401BB170
+ * XREFs of ZwSetBootEntryOrder @ 0x1401BB190
  * Callers:
- *     BiSetBootEntryOrder @ 0x1408F455C (BiSetBootEntryOrder.c)
+ *     BiSetBootEntryOrder @ 0x1408F453C (BiSetBootEntryOrder.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtFilterToken @ 0x1406C6B80
+ * XREFs of NtFilterToken @ 0x1406C6B60
  * Callers:
  *     <none>
  * Callees:
@@ -10,8 +10,8 @@
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     SeCaptureLuidAndAttributesArray @ 0x14060A1F8 (SeCaptureLuidAndAttributesArray.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtFilterToken(

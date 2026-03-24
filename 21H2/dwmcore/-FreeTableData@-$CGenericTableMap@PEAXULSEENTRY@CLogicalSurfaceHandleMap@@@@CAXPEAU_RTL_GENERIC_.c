@@ -1,5 +1,5 @@
 /*
- * XREFs of ?FreeTableData@?$CGenericTableMap@PEAXULSEENTRY@CLogicalSurfaceHandleMap@@@@CAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1800E9570
+ * XREFs of ?FreeTableData@?$CGenericTableMap@PEAXULSEENTRY@CLogicalSurfaceHandleMap@@@@CAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1800D7E40
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ void __fastcall CGenericTableMap<void *,CLogicalSurfaceHandleMap::LSEENTRY>::Fre
         struct _RTL_GENERIC_TABLE *Table,
         PVOID Buffer)
 {
-  DefaultHeap::Free(Buffer);
+  operator delete(Buffer);
 }

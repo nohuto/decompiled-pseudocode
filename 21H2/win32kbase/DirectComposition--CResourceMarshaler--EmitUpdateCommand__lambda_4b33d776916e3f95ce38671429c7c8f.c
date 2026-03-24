@@ -1,9 +1,9 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4b33d776916e3f95ce38671429c7c8f2___ @ 0x1C02370E8
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4b33d776916e3f95ce38671429c7c8f2___ @ 0x1C01F6E90
  * Callers:
- *     ?EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0237320 (-EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F70C0 (-EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4b33d776916e3f95ce38671429c7c8f2___(
@@ -24,12 +24,12 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
   *(_QWORD *)(v5 + 20) = 0LL;
   *((_DWORD *)v5 + 7) = 0;
   *((_DWORD *)v5 + 1) = 87;
-  *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 32);
-  *((_DWORD *)v5 + 3) = *(_DWORD *)(*(_QWORD *)a3 + 76LL);
-  *((_DWORD *)v5 + 4) = *(_DWORD *)(*(_QWORD *)a3 + 80LL);
-  *((_DWORD *)v5 + 5) = *(_DWORD *)(*(_QWORD *)a3 + 84LL);
-  *((_DWORD *)v5 + 7) = *(_DWORD *)(*(_QWORD *)a3 + 88LL);
+  *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 24);
+  *((_DWORD *)v5 + 3) = *(_DWORD *)(*(_QWORD *)a3 + 68LL);
+  *((_DWORD *)v5 + 4) = *(_DWORD *)(*(_QWORD *)a3 + 72LL);
+  *((_DWORD *)v5 + 5) = *(_DWORD *)(*(_QWORD *)a3 + 76LL);
+  *((_DWORD *)v5 + 7) = *(_DWORD *)(*(_QWORD *)a3 + 80LL);
   result = 1;
-  *((_DWORD *)v5 + 6) = *(_DWORD *)(*(_QWORD *)a3 + 92LL);
+  *((_DWORD *)v5 + 6) = *(_DWORD *)(*(_QWORD *)a3 + 84LL);
   return result;
 }

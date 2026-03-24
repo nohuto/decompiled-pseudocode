@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedMatrixTransform3DMarshaler @ 0x1C02395F0
+ * XREFs of CreateSharedMatrixTransform3DMarshaler @ 0x1C01F8960
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedMatrixTransform3DMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C02390D8 (-Create@CSharedMatrixTransform3DMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAP.c)
+ *     ?Create@CSharedMatrixTransform3DMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F8630 (-Create@CSharedMatrixTransform3DMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAP.c)
  */
 
 __int64 __fastcall CreateSharedMatrixTransform3DMarshaler(

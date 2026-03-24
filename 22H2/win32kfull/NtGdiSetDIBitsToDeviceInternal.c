@@ -1,12 +1,10 @@
 /*
- * XREFs of NtGdiSetDIBitsToDeviceInternal @ 0x1C00DD070
+ * XREFs of NtGdiSetDIBitsToDeviceInternal @ 0x1C00AC7C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C0097424 (-GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z.c)
- *     ?init_probe@?$umptr_r@E@@SA?AV1@PEAE_K1@Z @ 0x1C00DD314 (-init_probe@-$umptr_r@E@@SA-AV1@PEAE_K1@Z.c)
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C00ABD84 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
  */
 
 __int64 __fastcall NtGdiSetDIBitsToDeviceInternal(
@@ -19,79 +17,50 @@ __int64 __fastcall NtGdiSetDIBitsToDeviceInternal(
         int a7,
         int a8,
         int a9,
-        __int64 a10,
-        char *Src,
+        char *Address,
+        struct tagBITMAPINFO *Src,
         char a12,
-        unsigned int a13,
-        size_t Size,
+        SIZE_T Size,
+        size_t a14,
         int a15,
         __int64 a16)
 {
-  struct tagBITMAPINFO *v16; // rdi
-  int v17; // r15d
-  unsigned int biSize; // r8d
-  int v19; // eax
-  unsigned int v20; // esi
-  __int64 inited; // rax
-  __int64 v23; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v24; // [rsp+98h] [rbp-70h]
-  __int64 v25; // [rsp+A0h] [rbp-68h]
-  __int16 v26; // [rsp+A8h] [rbp-60h]
-  _BYTE v27[24]; // [rsp+B0h] [rbp-58h] BYREF
-  __int16 v28; // [rsp+C8h] [rbp-40h]
+  unsigned int v16; // ebx
+  HANDLE v17; // rsi
+  int v18; // r14d
+  __int64 v19; // rdx
+  char *v20; // rcx
+  __int64 v22; // [rsp+88h] [rbp-50h] BYREF
+  HANDLE v23; // [rsp+90h] [rbp-48h]
 
-  v16 = 0LL;
-  memset(v27, 0, sizeof(v27));
-  v28 = 0;
+  v16 = 1;
+  v17 = 0LL;
   v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
-  v26 = 0;
-  v17 = a12 & 3;
-  if ( (unsigned int)Size >= 4 )
+  v22 = 0LL;
+  v18 = a12 & 3;
+  if ( !(unsigned int)bCaptureBitmapInfo(Src, v18, (unsigned int)a14, (const struct tagBITMAPINFO **)&v22) )
+    goto LABEL_8;
+  if ( Address )
   {
-    if ( Src )
+    if ( (_DWORD)Size )
     {
-      if ( (unsigned int)Size <= 0x2710000 )
-      {
-        v16 = (struct tagBITMAPINFO *)AllocThreadBufferWithTag((unsigned int)Size, 1886221383LL, 0LL);
-        if ( v16 )
-        {
-          if ( &Src[(unsigned int)Size] < Src || (unsigned __int64)&Src[(unsigned int)Size] > MmUserProbeAddress )
-            *(_BYTE *)MmUserProbeAddress = 0;
-          memmove(v16, Src, (unsigned int)Size);
-          biSize = v16->bmiHeader.biSize;
-          if ( v16->bmiHeader.biSize >= 0x28
-            && (unsigned int)Size >= biSize
-            && (_DWORD)Size == (unsigned int)GreGetBitmapSizeInternal(v16, v17, biSize) )
-          {
-            v19 = 1;
-            goto LABEL_14;
-          }
-          FreeThreadBufferWithTag(v16);
-          v16 = 0LL;
-        }
-      }
+      if ( ((unsigned __int8)Address & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v20 = &Address[(unsigned int)Size];
+      if ( (unsigned __int64)v20 > MmUserProbeAddress || v20 < Address )
+        *(_BYTE *)MmUserProbeAddress = 0;
     }
+    v17 = MmSecureVirtualMemory(Address, (unsigned int)Size, 2u);
+    v23 = v17;
+    if ( !v17 )
+LABEL_8:
+      v16 = 0;
   }
-  v19 = 0;
-LABEL_14:
-  v20 = v19 != 0;
-  if ( v20 == 1 )
-  {
-    if ( a10 )
-    {
-      inited = umptr_r<unsigned char>::init_probe(v27, a10, a13, 4LL);
-      v23 = *(_QWORD *)inited;
-      v24 = *(_QWORD *)(inited + 8);
-      v25 = *(_QWORD *)(inited + 16);
-      v26 = *(_WORD *)(inited + 24);
-      v20 = v23 != 0;
-    }
-    if ( v20 == 1 )
-      v20 = GreSetDIBitsToDeviceInternalImpl(a1, a5, a6, a7, a8, a9, (__int64)&v23, (__int64)v16, v17, Size, a15, a16);
-  }
-  if ( v16 )
-    FreeThreadBufferWithTag(v16);
-  return v20;
+  if ( v16 == 1 )
+    v16 = GreSetDIBitsToDeviceInternal(a1, a5, a6, a7, a8, a9, (__int64)Address, v22, v18, Size, a14, a15, a16);
+  if ( v17 )
+    MmUnsecureVirtualMemory(v17);
+  if ( v22 )
+    FreeThreadBufferWithTag(v22, v19);
+  return v16;
 }

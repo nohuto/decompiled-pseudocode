@@ -1,8 +1,8 @@
 /*
- * XREFs of __security_init_cookie @ 0x1C00F9044
+ * XREFs of __security_init_cookie @ 0x1C00D6044
  * Callers:
- *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00B3A58 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
- *     GsDriverEntry @ 0x1C00F9010 (GsDriverEntry.c)
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C009357C (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ *     GsDriverEntry @ 0x1C00D6010 (GsDriverEntry.c)
  * Callees:
  *     <none>
  */

@@ -1,26 +1,27 @@
 /*
- * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C007F38C
+ * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C009FE14
  * Callers:
- *     ??1RESETFCOBJ@@QEAA@XZ @ 0x1C00743BC (--1RESETFCOBJ@@QEAA@XZ.c)
- *     ?GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RFONTOBJ@@@Z @ 0x1C00745D4 (-GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RF.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C015CBF4 (-vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ.c)
- *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02B6B38 (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C154 (GreGetGlyphOutlineInternal.c)
+ *     ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C00E78C0 (-vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02A7D6C (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall RFONTOBJ::vReleaseCache(RFONTOBJ *this)
 {
-  void *v2; // rcx
+  __int64 v1; // rdx
+  void *v3; // rcx
 
-  v2 = *(void **)(*(_QWORD *)this + 616LL);
-  if ( v2 )
+  v1 = *(_QWORD *)this;
+  v3 = *(void **)(*(_QWORD *)this + 616LL);
+  if ( v3 )
   {
-    Win32FreePool(v2);
+    Win32FreePool(v3);
     *(_QWORD *)(*(_QWORD *)this + 624LL) = 0LL;
     *(_QWORD *)(*(_QWORD *)this + 616LL) = 0LL;
+    v1 = *(_QWORD *)this;
   }
-  EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemCache");
+  EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemCache", *(_QWORD *)(v1 + 504));
   GreReleaseSemaphoreInternal(*(_QWORD *)(*(_QWORD *)this + 504LL));
 }

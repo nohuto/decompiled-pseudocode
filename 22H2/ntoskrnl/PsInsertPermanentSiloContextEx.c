@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInsertPermanentSiloContextEx @ 0x14077CF6C
+ * XREFs of PsInsertPermanentSiloContextEx @ 0x140660CE4
  * Callers:
- *     CmpGetOrCreateContextForSiloNoRef @ 0x14077AC4C (CmpGetOrCreateContextForSiloNoRef.c)
- *     PsInsertPermanentSiloContext @ 0x140865070 (PsInsertPermanentSiloContext.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B70 (ObCreateSiloRootDirectory.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140660BCC (CmpGetOrCreateContextForSiloNoRef.c)
+ *     PsInsertPermanentSiloContext @ 0x1407D44E0 (PsInsertPermanentSiloContext.c)
+ *     ObCreateSiloRootDirectory @ 0x140980520 (ObCreateSiloRootDirectory.c)
  * Callees:
- *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
- *     PspLockJobShared @ 0x1406A3C40 (PspLockJobShared.c)
- *     PspStorageInsertObject @ 0x14077D040 (PspStorageInsertObject.c)
- *     PspIsSiloContext @ 0x14077D1A4 (PspIsSiloContext.c)
- *     PspJobHasChildren @ 0x1407E6AD4 (PspJobHasChildren.c)
+ *     PspJobHasChildren @ 0x1405D91D4 (PspJobHasChildren.c)
+ *     PspUnlockJob @ 0x140618B90 (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x140618BFC (PspLockJobShared.c)
+ *     PspStorageInsertObject @ 0x140660DB8 (PspStorageInsertObject.c)
+ *     PspIsSiloContext @ 0x140660ED8 (PspIsSiloContext.c)
  */
 
 __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, __int64 a3, int a4)
@@ -23,9 +23,9 @@ __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, _
 
   if ( (a4 & 0xFFFFFFFE) != 0 )
     return 3221225485LL;
-  v7 = qword_140D49ED0;
+  v7 = qword_140D24990;
   if ( a1 )
-    v7 = *(_QWORD *)(a1 + 1520);
+    v7 = *(_QWORD *)(a1 + 1304);
   if ( (unsigned __int8)PspIsSiloContext(a3) )
   {
     v10 = (*(_BYTE *)(v8 - 48 + 26) & 0x40) != 0
@@ -40,7 +40,7 @@ __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, _
       return 3221225520LL;
     CurrentThread = KeGetCurrentThread();
     PspLockJobShared(a1, (__int64)CurrentThread);
-    if ( (unsigned __int8)PspJobHasChildren(a1) )
+    if ( PspJobHasChildren(a1) )
     {
       inserted = -1073740529;
       goto LABEL_11;

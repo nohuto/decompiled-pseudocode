@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Reset@CPartitionVerticalBlankScheduler@@QEAAJXZ @ 0x1800AF534
+ * XREFs of ?Reset@CPartitionVerticalBlankScheduler@@QEAAJXZ @ 0x180026D24
  * Callers:
- *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004E180 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18006DC30 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
  * Callees:
- *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800AF5CC (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
- *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800AF654 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x180026DB0 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800270A8 (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPartitionVerticalBlankScheduler::Reset(
@@ -33,13 +33,13 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::Reset(
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x74Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x92Du, 0LL);
   }
   else
   {
-    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 8) + 48LL))(*((_QWORD *)this + 8));
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 8) + 24LL))(*((_QWORD *)this + 8));
     CPartitionVerticalBlankScheduler::Reinitialize(this);
-    *((_BYTE *)this + 4550) = 1;
+    *((_BYTE *)this + 5374) = 1;
     if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
       McGenEventWrite_EventWriteTransfer(
         &Microsoft_Windows_Dwm_Core_Provider_Context,

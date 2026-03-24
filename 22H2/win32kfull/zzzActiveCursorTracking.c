@@ -1,16 +1,16 @@
 /*
- * XREFs of zzzActiveCursorTracking @ 0x1C01B7390
+ * XREFs of zzzActiveCursorTracking @ 0x1C01E25D8
  * Callers:
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C0061584 (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00AE86C (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D1EC (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C0120084 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
  * Callees:
- *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C005B484 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     SetVisible @ 0x1C00EBC94 (SetVisible.c)
- *     GetActiveTrackPwnd @ 0x1C01B68AC (GetActiveTrackPwnd.c)
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C00146EC (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     SetVisible @ 0x1C004BCA0 (SetVisible.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     GetActiveTrackPwnd @ 0x1C01E16AC (GetActiveTrackPwnd.c)
  */
 
-__int64 __fastcall zzzActiveCursorTracking(struct tagWND *a1)
+__int64 __fastcall zzzActiveCursorTracking(__int64 a1)
 {
   __int64 result; // rax
   unsigned __int64 v3; // rax
@@ -25,32 +25,32 @@ __int64 __fastcall zzzActiveCursorTracking(struct tagWND *a1)
   if ( (unsigned int)CInputGlobals::GetLastInputType(gpInputGlobals) == 1
     || (result = CInputGlobals::GetLastInputType(gpInputGlobals), (_DWORD)result == 4) )
   {
-    v3 = LogicalCursorPosFromDpiAwarenessContext(*(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL));
-    v4 = (_DWORD *)(*((_QWORD *)a1 + 5) + 88LL);
+    v3 = LogicalCursorPosFromDpiAwarenessContext(*(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL));
+    v4 = (_DWORD *)(*(_QWORD *)(a1 + 40) + 88LL);
     v8 = v3;
     result = PtInRect(v4, v3);
     if ( !(_DWORD)result
       && (!gspwndCursor || (result = (__int64)GetActiveTrackPwnd((const struct tagWND *)gspwndCursor)) != 0) )
     {
-      v5 = (_DWORD *)*((_QWORD *)a1 + 5);
+      v5 = *(_DWORD **)(a1 + 40);
       LODWORD(v8) = v5[22] + (v5[24] - v5[22]) / 2;
       HIDWORD(v8) = v5[23] + (v5[25] - v5[23]) / 2;
       v9 = v8;
       if ( (unsigned int)IsWindowDesktopComposed(a1) )
-        LogicalToPhysicalDPIPoint(&v9, &v8, *(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL), 0LL);
+        LogicalToPhysicalDPIPoint(&v9, &v8, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL), 0LL);
       CCursorClip::BoundPoint(gpCursorClip, v9, 0LL, 2LL, &v9);
       v8 = v9;
       if ( (unsigned int)IsWindowDesktopComposed(a1) )
-        PhysicalToLogicalDPIPoint(&v8, &v9, *(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL), 0LL);
-      result = PtInRect((_DWORD *)(*((_QWORD *)a1 + 5) + 88LL), v8);
+        PhysicalToLogicalDPIPoint(&v8, &v9, *(unsigned int *)(*(_QWORD *)(a1 + 40) + 288LL), 0LL);
+      result = PtInRect((_DWORD *)(*(_QWORD *)(a1 + 40) + 88LL), v8);
       if ( (_DWORD)result )
       {
         v7 = *(_BYTE *)(v6 + 31) & 0x10;
         if ( (*(_BYTE *)(v6 + 31) & 0x10) == 0 )
-          SetVisible(a1, v7 + 5);
+          SetVisible((struct tagWND *)a1, v7 + 5);
         result = zzzInternalSetCursorPos(v9, HIDWORD(v9), 2, 0);
         if ( !v7 )
-          return SetVisible(a1, 0);
+          return SetVisible((struct tagWND *)a1, 0);
       }
     }
   }

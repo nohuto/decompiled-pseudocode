@@ -4,7 +4,7 @@
  *     KdpLowWriteContent @ 0x140918F7C (KdpLowWriteContent.c)
  *     KdpSetOwedBreakpoints @ 0x14091910C (KdpSetOwedBreakpoints.c)
  * Callees:
- *     KdpWriteInstructionBuffer @ 0x14028CF70 (KdpWriteInstructionBuffer.c)
+ *     KdpWriteInstructionBuffer @ 0x14028D070 (KdpWriteInstructionBuffer.c)
  *     KdpCopyCodeStream @ 0x1409188A8 (KdpCopyCodeStream.c)
  */
 

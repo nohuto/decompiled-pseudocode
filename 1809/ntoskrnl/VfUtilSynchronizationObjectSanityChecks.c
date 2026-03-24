@@ -13,7 +13,7 @@
  *     VerifierExInitializeResourceLite @ 0x14093FC40 (VerifierExInitializeResourceLite.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1402AB8D0 (MmIsNonPagedSystemAddressValid.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1402AB9D0 (MmIsNonPagedSystemAddressValid.c)
  *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */

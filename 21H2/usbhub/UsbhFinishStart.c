@@ -1,23 +1,23 @@
 /*
- * XREFs of UsbhFinishStart @ 0x1C0036EB4
+ * XREFs of UsbhFinishStart @ 0x1C0038168
  * Callers:
- *     UsbhAsyncStartComplete @ 0x1C0041B48 (UsbhAsyncStartComplete.c)
- *     UsbhHubStart @ 0x1C0042CB0 (UsbhHubStart.c)
+ *     UsbhAsyncStartComplete @ 0x1C0042DF8 (UsbhAsyncStartComplete.c)
+ *     UsbhHubStart @ 0x1C0043F60 (UsbhHubStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhSyncPowerOnPorts @ 0x1C001A270 (UsbhSyncPowerOnPorts.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     UsbhLogStartFailure @ 0x1C002CA90 (UsbhLogStartFailure.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhEnablePortIndicators @ 0x1C002E7CC (UsbhEnablePortIndicators.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C000BBF0 (UsbhSyncPowerOnPorts.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     UsbhLogStartFailure @ 0x1C002DEBC (UsbhLogStartFailure.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhEnablePortIndicators @ 0x1C002FBA8 (UsbhEnablePortIndicators.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhFinishStart(__int64 a1, __int64 a2)
@@ -27,8 +27,9 @@ __int64 __fastcall UsbhFinishStart(__int64 a1, __int64 a2)
   int v6; // eax
   __int64 PortData; // rax
   void *Src; // [rsp+28h] [rbp-60h]
-  int v10; // [rsp+A0h] [rbp+18h] BYREF
-  int v11; // [rsp+A8h] [rbp+20h] BYREF
+  int v10; // [rsp+48h] [rbp-40h]
+  int v11; // [rsp+A0h] [rbp+18h] BYREF
+  int v12; // [rsp+A8h] [rbp+20h] BYREF
 
   Log(a1, 16, 1715622740, a1, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -43,15 +44,18 @@ __int64 __fastcall UsbhFinishStart(__int64 a1, __int64 a2)
     UsbhEnablePortIndicators(a1);
     for ( i = 1; i <= *((unsigned __int8 *)FdoExt(a1) + 2938); ++i )
     {
-      v10 = 0;
       v11 = 0;
-      v6 = UsbhQueryPortState(a1, i, (__int64)&v10, &v11);
+      v12 = 0;
+      v6 = UsbhQueryPortState(a1, i, (__int64)&v11, &v12);
       v4 = v6;
       if ( (v6 & 0xC0000000) == 0xC0000000 )
       {
         Log(a1, 16, 1768843569, i + 1LL, v6);
         if ( !Usb_Disconnected(v4) )
-          UsbhException(a1, i, 23, 0, 0, v4, v11, usbfile_bus_c, 511, 0);
+        {
+          LOBYTE(v10) = 0;
+          UsbhException(a1, i, 23, 0, 0, v4, v12, usbfile_bus_c, 511, v10);
+        }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
           LODWORD(Src) = v4;
@@ -59,10 +63,10 @@ __int64 __fastcall UsbhFinishStart(__int64 a1, __int64 a2)
         }
         break;
       }
-      if ( (v10 & 1) != 0 && (v10 & 0x10000) == 0 )
+      if ( (v11 & 1) != 0 && (v11 & 0x10000) == 0 )
       {
         Log(a1, 16, 1768843570, i, v6);
-        if ( (v10 & 2) != 0 )
+        if ( (v11 & 2) != 0 )
         {
           PortData = UsbhGetPortData(a1, i);
           if ( PortData )

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpRundownUnitOfWork @ 0x14071C120
+ * XREFs of CmpRundownUnitOfWork @ 0x14071D7DC
  * Callers:
- *     CmpUndoDeleteKeyForTransEx @ 0x140657ADC (CmpUndoDeleteKeyForTransEx.c)
- *     CmpSetKeySecurity @ 0x140677810 (CmpSetKeySecurity.c)
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmDeleteValueKey @ 0x140714E58 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140913E28 (CmSetLastWriteTimeKey.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x1405CD308 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071C0FC (CmpDereferenceKeyControlBlockUnsafe.c)
- *     UNLOCK_TRANSACTION_LIST @ 0x14071C238 (UNLOCK_TRANSACTION_LIST.c)
- *     LOCK_TRANSACTION_LIST @ 0x14071C25C (LOCK_TRANSACTION_LIST.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     UNLOCK_TRANSACTION_LIST @ 0x14071D8F4 (UNLOCK_TRANSACTION_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14071D920 (LOCK_TRANSACTION_LIST.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
@@ -26,23 +26,23 @@ _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
   _QWORD *v5; // rcx
   _QWORD *result; // rax
   _QWORD *v7; // rdx
-  volatile signed __int64 *v8; // rcx
+  __int64 v8; // rcx
   _QWORD *v9; // r8
   unsigned int v10; // edx
   unsigned int v11; // edx
-  __int64 v12; // rcx
+  __int64 i; // rcx
   unsigned int v13; // r8d
-  __int64 v14; // rdx
-  __int64 v15; // r9
+  __int64 v14; // r9
+  __int64 v15; // rdx
   __int64 v16; // r10
   __int64 v17; // rcx
   __int64 v18; // rax
   __int64 *v19; // rcx
   __int64 v20; // rbx
-  __int64 v21; // rcx
+  __int64 j; // rcx
   unsigned int v22; // edx
-  __int64 v23; // r8
-  __int64 v24; // r9
+  __int64 v23; // r9
+  __int64 v24; // r8
   __int64 v25; // r10
   __int64 v26; // rcx
   __int64 v27; // rax
@@ -63,35 +63,26 @@ _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
     }
     else
     {
-      v12 = 0LL;
-      if ( v10 )
+      for ( i = 0LL; (unsigned int)i < v10; i = (unsigned int)(i + 1) )
       {
-        while ( *(_QWORD **)(*(_QWORD *)(v1 + 8) + 8 * v12) != BugCheckParameter4 )
-        {
-          v12 = (unsigned int)(v12 + 1);
-          if ( (unsigned int)v12 >= v10 )
-            goto LABEL_22;
-        }
+        if ( *(_QWORD **)(*(_QWORD *)(v1 + 8) + 8 * i) == BugCheckParameter4 )
+          break;
       }
-      else
-      {
-LABEL_22:
-        if ( (_DWORD)v12 == v10 )
-          KeBugCheckEx(0x51u, 0x12uLL, 2uLL, v1, (ULONG_PTR)BugCheckParameter4);
-      }
+      if ( (_DWORD)i == v10 )
+        KeBugCheckEx(0x51u, 0x12uLL, 2uLL, v1, (ULONG_PTR)BugCheckParameter4);
       v13 = v10 - 1;
-      if ( (unsigned int)v12 < v10 - 1 )
+      if ( (unsigned int)i < v10 - 1 )
       {
-        v14 = 8LL * (unsigned int)(v12 + 1);
-        v15 = 8 * v12;
-        v16 = v13 - (unsigned int)v12;
+        v14 = 8LL * (unsigned int)i;
+        v15 = 8LL * (unsigned int)(i + 1);
+        v16 = v13 - (unsigned int)i;
         do
         {
           v17 = *(_QWORD *)(v1 + 8);
-          v18 = *(_QWORD *)(v14 + v17);
-          v14 += 8LL;
-          *(_QWORD *)(v15 + v17) = v18;
+          v18 = *(_QWORD *)(v15 + v17);
           v15 += 8LL;
+          *(_QWORD *)(v14 + v17) = v18;
+          v14 += 8LL;
           --v16;
         }
         while ( v16 );
@@ -119,35 +110,26 @@ LABEL_22:
     }
     else
     {
-      v21 = 0LL;
-      if ( v11 )
+      for ( j = 0LL; (unsigned int)j < v11; j = (unsigned int)(j + 1) )
       {
-        while ( *(_QWORD **)(*(_QWORD *)(v3 + 8) + 8 * v21) != BugCheckParameter4 )
-        {
-          v21 = (unsigned int)(v21 + 1);
-          if ( (unsigned int)v21 >= v11 )
-            goto LABEL_33;
-        }
+        if ( *(_QWORD **)(*(_QWORD *)(v3 + 8) + 8 * j) == BugCheckParameter4 )
+          break;
       }
-      else
-      {
-LABEL_33:
-        if ( (_DWORD)v21 == v11 )
-          KeBugCheckEx(0x51u, 0x12uLL, 2uLL, v3, (ULONG_PTR)BugCheckParameter4);
-      }
+      if ( (_DWORD)j == v11 )
+        KeBugCheckEx(0x51u, 0x12uLL, 2uLL, v3, (ULONG_PTR)BugCheckParameter4);
       v22 = v11 - 1;
-      if ( (unsigned int)v21 < v22 )
+      if ( (unsigned int)j < v22 )
       {
-        v23 = 8LL * (unsigned int)(v21 + 1);
-        v24 = 8 * v21;
-        v25 = v22 - (unsigned int)v21;
+        v23 = 8LL * (unsigned int)j;
+        v24 = 8LL * (unsigned int)(j + 1);
+        v25 = v22 - (unsigned int)j;
         do
         {
           v26 = *(_QWORD *)(v3 + 8);
-          v27 = *(_QWORD *)(v23 + v26);
-          v23 += 8LL;
-          *(_QWORD *)(v24 + v26) = v27;
+          v27 = *(_QWORD *)(v24 + v26);
           v24 += 8LL;
+          *(_QWORD *)(v23 + v26) = v27;
+          v23 += 8LL;
           --v25;
         }
         while ( v25 );
@@ -179,7 +161,7 @@ LABEL_33:
   v7 = (_QWORD *)BugCheckParameter4[4];
   if ( v7 == BugCheckParameter4 + 4 )
     return result;
-  v8 = (volatile signed __int64 *)BugCheckParameter4[6];
+  v8 = BugCheckParameter4[6];
   if ( (_QWORD *)v7[1] != result || (v9 = (_QWORD *)BugCheckParameter4[5], (_QWORD *)*v9 != result) )
 LABEL_40:
     __fastfail(3u);

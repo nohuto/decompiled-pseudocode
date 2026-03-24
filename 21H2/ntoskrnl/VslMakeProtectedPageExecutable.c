@@ -1,14 +1,14 @@
 /*
- * XREFs of VslMakeProtectedPageExecutable @ 0x14054EBEC
+ * XREFs of VslMakeProtectedPageExecutable @ 0x1404FCE38
  * Callers:
- *     KeSetPagePrivilege @ 0x14039FDB0 (KeSetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x140512E78 (KeSetPagePrivilege.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslMakeProtectedPageExecutable(__int64 a1, __int128 *a2, int a3)
+NTSTATUS __fastcall VslMakeProtectedPageExecutable(__int64 a1, __int128 *a2, int a3)
 {
   __int128 v6; // xmm0
   _OWORD v8[7]; // [rsp+20h] [rbp-88h] BYREF

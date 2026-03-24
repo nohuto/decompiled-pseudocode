@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateKernelSections @ 0x140B0A37C
+ * XREFs of MiLocateKernelSections @ 0x140A56418
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140B09D6C (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
  */
 
 __int64 __fastcall MiLocateKernelSections(__int64 a1)

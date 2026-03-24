@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpExecutiveResourceConfigRunDown @ 0x1409EEC4C
+ * XREFs of EtwpExecutiveResourceConfigRunDown @ 0x14093DB48
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140827608 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1407922CC (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpExecutiveResourceConfigRunDown(__int64 a1, char a2)
@@ -20,7 +20,7 @@ void __fastcall EtwpExecutiveResourceConfigRunDown(__int64 a1, char a2)
   v8 = 0;
   v2 = *(_DWORD *)a1;
   v3 = a2 != 0;
-  v4 = *(_QWORD *)(a1 + 1096);
+  v4 = *(_QWORD *)(a1 + 1080);
   v5[0] = EtwpExecutiveResourceReleaseSampleRate;
   v5[1] = EtwpExecutiveResourceContentionSampleRate;
   v5[2] = EtwpExecutiveResourceTimeout;

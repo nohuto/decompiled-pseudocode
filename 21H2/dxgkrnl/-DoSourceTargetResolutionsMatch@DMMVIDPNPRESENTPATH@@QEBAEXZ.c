@@ -1,154 +1,125 @@
 /*
- * XREFs of ?DoSourceTargetResolutionsMatch@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C000C448
+ * XREFs of ?DoSourceTargetResolutionsMatch@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0005C38
  * Callers:
- *     ?IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0010A74 (-IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C018AA10 (-UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PE.c)
- *     BmlPinPathContentScaling @ 0x1C01BDD7C (BmlPinPathContentScaling.c)
+ *     ?IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0005AA0 (-IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C0110740 (-UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PE.c)
+ *     BmlPinPathContentScaling @ 0x1C013E9C4 (BmlPinPathContentScaling.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?IsDriverSupportPathIndependentRotation@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C01899C8 (-IsDriverSupportPathIndependentRotation@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?IsDriverSupportPathIndependentRotation@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0110AB0 (-IsDriverSupportPathIndependentRotation@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
  */
 
-char __fastcall DMMVIDPNPRESENTPATH::DoSourceTargetResolutionsMatch(DMMVIDPNPRESENTPATH *this)
+char __fastcall DMMVIDPNPRESENTPATH::DoSourceTargetResolutionsMatch(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rax
-  __int64 v4; // rsi
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rdi
-  __int64 v8; // rbx
-  int v9; // eax
-  int v10; // ecx
-  int v11; // eax
-  char v12; // bl
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rbp
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rsi
+  __int64 v9; // rbx
+  int v10; // eax
+  int v11; // ecx
+  int v12; // ecx
   int v13; // eax
-  int v14; // eax
-  __int64 v16; // rdi
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  __int64 v20; // rdi
-  int v21; // edx
-  int v22; // ecx
-  int v23; // r8d
-  __int64 v24; // [rsp+70h] [rbp+8h]
+  char v14; // di
+  void (__fastcall ***v15)(_QWORD, __int64); // rcx
+  int v16; // ebx
+  void (__fastcall ***v17)(_QWORD, __int64); // rcx
+  int v18; // ebx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // [rsp+30h] [rbp+8h]
 
-  v2 = *((_QWORD *)this + 11);
-  v3 = *(_QWORD *)(v2 + 104);
-  if ( v3 )
+  v3 = *((_QWORD *)this + 11);
+  v4 = *(_QWORD *)(v3 + 104);
+  if ( v4 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(v3 + 96));
-    v4 = *(_QWORD *)(v2 + 104);
+    _InterlockedIncrement((volatile signed __int32 *)(v4 + 96));
+    v5 = *(_QWORD *)(v3 + 104);
   }
   else
   {
-    v4 = 0LL;
+    v5 = 0LL;
   }
-  v5 = *((_QWORD *)this + 12);
-  v6 = *(_QWORD *)(v5 + 104);
-  if ( v6 )
+  v6 = *((_QWORD *)this + 12);
+  v7 = *(_QWORD *)(v6 + 104);
+  if ( v7 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(v6 + 96));
-    v7 = *(_QWORD *)(v5 + 104);
+    _InterlockedIncrement((volatile signed __int32 *)(v7 + 96));
+    v8 = *(_QWORD *)(v6 + 104);
   }
   else
   {
-    v7 = 0LL;
+    v8 = 0LL;
   }
-  v8 = *(_QWORD *)(v7 + 144);
-  v9 = *((_DWORD *)this + 29);
-  v24 = *(_QWORD *)(*(_QWORD *)(v4 + 144) + 76LL);
-  if ( (unsigned int)(v9 - 1) <= 0xF )
-    v9 = (v9 - 1) / 4 + 1;
-  if ( ((v9 - 2) & 0xFFFFFFFD) != 0 )
+  v9 = *(_QWORD *)(v8 + 144);
+  v10 = *((_DWORD *)this + 29);
+  v22 = *(_QWORD *)(*(_QWORD *)(v5 + 144) + 76LL);
+  v11 = v10 - 1;
+  if ( (unsigned int)(v10 - 1) <= 0xF )
   {
-    if ( v9 == 254 && DMMVIDPNPRESENTPATH::IsDriverSupportPathIndependentRotation(this) )
+    a2 = (unsigned int)(v11 >> 31);
+    LODWORD(a2) = v11 % 4;
+    v10 = v11 / 4 + 1;
+  }
+  if ( ((v10 - 2) & 0xFFFFFFFD) != 0 )
+  {
+    if ( v10 == 254 && DMMVIDPNPRESENTPATH::IsDriverSupportPathIndependentRotation(this) )
     {
-      v10 = v24;
-      v11 = HIDWORD(v24);
-      if ( v24 == *(_QWORD *)(v8 + 84) )
-        goto LABEL_18;
+      v12 = v22;
+      v13 = HIDWORD(v22);
+      if ( v22 == *(_QWORD *)(v9 + 84) )
+      {
+LABEL_11:
+        v14 = 1;
+        goto LABEL_12;
+      }
     }
     else
     {
-      v10 = HIDWORD(v24);
-      v11 = v24;
+      v12 = HIDWORD(v22);
+      v13 = v22;
     }
   }
   else
   {
-    v10 = *(_QWORD *)(*(_QWORD *)(v4 + 144) + 76LL);
-    v11 = HIDWORD(*(_QWORD *)(*(_QWORD *)(v4 + 144) + 76LL));
+    v12 = *(_QWORD *)(*(_QWORD *)(v5 + 144) + 76LL);
+    v13 = HIDWORD(*(_QWORD *)(*(_QWORD *)(v5 + 144) + 76LL));
   }
-  if ( v11 != *(_DWORD *)(v8 + 84) || v10 != *(_DWORD *)(v8 + 88) )
+  if ( v13 == *(_DWORD *)(v9 + 84) && v12 == *(_DWORD *)(v9 + 88) )
+    goto LABEL_11;
+  v14 = 0;
+LABEL_12:
+  v15 = (void (__fastcall ***)(_QWORD, __int64))(v8 + 88);
+  v16 = _InterlockedDecrement((volatile signed __int32 *)(v8 + 96));
+  if ( v16 )
   {
-    v12 = 0;
-    goto LABEL_13;
-  }
-LABEL_18:
-  v12 = 1;
-LABEL_13:
-  v13 = _InterlockedDecrement((volatile signed __int32 *)(v7 + 96));
-  if ( v13 )
-  {
-    if ( v13 < 0 )
+    if ( v16 < 0 )
     {
-      v16 = v13;
-      WdLogSingleEntry1(2LL, v13);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v18,
-            v17,
-            v19,
-            0,
-            0,
-            -1,
-            (__int64)L"Client is trying to release a destroyed object (ref count = %I64d)!",
-            v16,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v20 = WdLogNewEntry5_WdError(v15, a2);
+      *(_QWORD *)(v20 + 24) = v16;
+      WdLogEvent5_WdError(v20);
     }
   }
-  else if ( v7 != -88 )
+  else if ( v8 != -88 )
   {
-    (**(void (__fastcall ***)(__int64, __int64))(v7 + 88))(v7 + 88, 1LL);
+    (**v15)(v15, 1LL);
   }
-  v14 = _InterlockedDecrement((volatile signed __int32 *)(v4 + 96));
-  if ( v14 )
+  v17 = (void (__fastcall ***)(_QWORD, __int64))(v5 + 88);
+  v18 = _InterlockedDecrement((volatile signed __int32 *)(v5 + 96));
+  if ( v18 )
   {
-    if ( v14 < 0 )
+    if ( v18 < 0 )
     {
-      v20 = v14;
-      WdLogSingleEntry1(2LL, v14);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v22,
-            v21,
-            v23,
-            0,
-            0,
-            -1,
-            (__int64)L"Client is trying to release a destroyed object (ref count = %I64d)!",
-            v20,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v21 = WdLogNewEntry5_WdError(v17, a2);
+      *(_QWORD *)(v21 + 24) = v18;
+      WdLogEvent5_WdError(v21);
     }
   }
-  else if ( v4 != -88 )
+  else if ( v5 != -88 )
   {
-    (**(void (__fastcall ***)(__int64, __int64))(v4 + 88))(v4 + 88, 1LL);
+    (**v17)(v17, 1LL);
   }
-  return v12;
+  return v14;
 }

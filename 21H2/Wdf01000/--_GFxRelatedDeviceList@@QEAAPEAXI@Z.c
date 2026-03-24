@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C0083258
+ * XREFs of ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C0078D50
  * Callers:
- *     ??1FxPkgPdo@@UEAA@XZ @ 0x1C001FC38 (--1FxPkgPdo@@UEAA@XZ.c)
- *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0020990 (--1FxPkgPnp@@MEAA@XZ.c)
+ *     ??1FxPkgPdo@@UEAA@XZ @ 0x1C0078C78 (--1FxPkgPdo@@UEAA@XZ.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C007EEF0 (--1FxPkgPnp@@MEAA@XZ.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxTransactionedList@@QEAA@XZ @ 0x1C002BAA0 (--1FxTransactionedList@@QEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxTransactionedList@@QEAA@XZ @ 0x1C0061DB0 (--1FxTransactionedList@@QEAA@XZ.c)
  */
 
 FxRelatedDeviceList *__fastcall FxRelatedDeviceList::`scalar deleting destructor'(FxRelatedDeviceList *this)

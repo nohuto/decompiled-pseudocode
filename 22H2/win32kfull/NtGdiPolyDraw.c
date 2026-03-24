@@ -1,29 +1,48 @@
 /*
- * XREFs of NtGdiPolyDraw @ 0x1C02C3FB0
+ * XREFs of NtGdiPolyDraw @ 0x1C02AF4D0
  * Callers:
  *     <none>
  * Callees:
- *     ?init_probe@?$umptr_r@E@@SA?AV1@PEAE_K1@Z @ 0x1C00DD314 (-init_probe@-$umptr_r@E@@SA-AV1@PEAE_K1@Z.c)
- *     ?GrePolyDraw@@YAHPEAUHDC__@@AEAV?$umptr_r@UtagPOINT@@@@AEAV?$umptr_r@E@@K@Z @ 0x1C02AB378 (-GrePolyDraw@@YAHPEAUHDC__@@AEAV-$umptr_r@UtagPOINT@@@@AEAV-$umptr_r@E@@K@Z.c)
- *     ?init_probe@?$umptr_r@UtagPOINT@@@@SA?AV1@PEAUtagPOINT@@_K1@Z @ 0x1C02C1C50 (-init_probe@-$umptr_r@UtagPOINT@@@@SA-AV1@PEAUtagPOINT@@_K1@Z.c)
+ *     GrePolyDraw @ 0x1C029FF08 (GrePolyDraw.c)
  */
 
-__int64 __fastcall NtGdiPolyDraw(HDC a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
+__int64 __fastcall NtGdiPolyDraw(HDC a1, struct _POINTL *Address, char *a3, SIZE_T Size)
 {
-  unsigned int v4; // edi
-  _QWORD v9[4]; // [rsp+20h] [rbp-48h] BYREF
-  _QWORD v10[4]; // [rsp+40h] [rbp-28h] BYREF
+  SIZE_T v4; // r15
+  unsigned int v8; // ebx
+  HANDLE v9; // rsi
+  HANDLE v10; // rdi
+  SIZE_T v11; // rdx
 
-  v4 = 0;
-  if ( a4 <= 0x1FFFFFFF )
+  v4 = (unsigned int)Size;
+  v8 = 1;
+  v9 = 0LL;
+  v10 = 0LL;
+  if ( (unsigned int)Size <= 0x1FFFFFFF )
   {
-    umptr_r<tagPOINT>::init_probe((__int64)v10, a2, a4);
-    umptr_r<unsigned char>::init_probe((__int64)v9, a3, a4, 1LL);
-    if ( v10[0] )
+    v11 = (unsigned int)Size;
+    if ( v11 * 8 )
     {
-      if ( v9[0] )
-        return (unsigned int)GrePolyDraw(a1, (__int64)v10, (__int64)v9, a4);
+      if ( ((unsigned __int8)Address & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( (unsigned __int64)&Address[v11] > MmUserProbeAddress || &Address[v11] < Address )
+        *(_BYTE *)MmUserProbeAddress = 0;
     }
+    if ( (_DWORD)Size
+      && ((unsigned __int64)&a3[(unsigned int)Size] > MmUserProbeAddress || &a3[(unsigned int)Size] < a3) )
+    {
+      *(_BYTE *)MmUserProbeAddress = 0;
+    }
+    v9 = MmSecureVirtualMemory(Address, v11 * 8, 2u);
+    v10 = MmSecureVirtualMemory(a3, v4, 2u);
   }
-  return v4;
+  if ( !v9 || !v10 )
+    v8 = 0;
+  if ( v8 )
+    v8 = GrePolyDraw(a1, Address, a3, v4);
+  if ( v9 )
+    MmUnsecureVirtualMemory(v9);
+  if ( v10 )
+    MmUnsecureVirtualMemory(v10);
+  return v8;
 }

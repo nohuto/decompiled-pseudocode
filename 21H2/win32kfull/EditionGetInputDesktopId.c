@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionGetInputDesktopId @ 0x1C01E3E80
+ * XREFs of EditionGetInputDesktopId @ 0x1C01E97F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-PVOID EditionGetInputDesktopId()
+unsigned __int64 EditionGetInputDesktopId()
 {
-  return WPP_MAIN_CB.Queue.Wcb.CurrentIrp;
+  return gdwRitInputDesktopId;
 }

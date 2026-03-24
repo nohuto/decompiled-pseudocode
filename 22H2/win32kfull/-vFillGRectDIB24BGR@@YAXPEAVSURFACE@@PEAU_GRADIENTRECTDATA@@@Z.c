@@ -1,45 +1,42 @@
 /*
- * XREFs of ?vFillGRectDIB24BGR@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F7880
+ * XREFs of ?vFillGRectDIB24BGR@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02D0B20
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall vFillGRectDIB24BGR(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
 {
   __int64 v3; // r12
-  int v5; // r14d
-  unsigned __int64 v6; // rdi
-  unsigned __int64 v7; // rsi
-  __int64 v8; // rbx
+  int v5; // r15d
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v7; // rdi
+  __int64 v8; // rsi
   __int64 v9; // rax
   __int64 v10; // rdx
-  __int64 v11; // r9
-  int v12; // ecx
-  __int64 v13; // rax
-  const void *v14; // r15
-  _BYTE *v15; // r8
-  __int64 v16; // rdx
-  _BYTE *v17; // rcx
-  char v18; // rax^6
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rax
+  int v11; // ecx
+  __int64 v12; // rax
+  const void *v13; // r14
+  _BYTE *v14; // r8
+  _BYTE *v15; // rcx
+  char v16; // rax^6
+  unsigned __int64 v17; // rax
+  unsigned __int64 v18; // rax
   char *i; // rbx
-  __int64 v22; // r15
-  __int64 v23; // r13
-  __int64 v24; // r8
-  __int64 v25; // rdx
-  __int64 v26; // rax
-  _BYTE *v27; // rdx
-  __int64 v28; // r11
-  __int64 v29; // r12
-  _BYTE *v30; // r8
-  _BYTE *v31; // rax
-  __int64 v32; // [rsp+70h] [rbp+8h]
-  __int64 v33; // [rsp+78h] [rbp+10h]
-  __int64 v34; // [rsp+80h] [rbp+18h]
-  __int64 v35; // [rsp+88h] [rbp+20h]
+  __int64 v20; // r14
+  __int64 v21; // r13
+  __int64 v22; // r8
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  _BYTE *v25; // rdx
+  __int64 v26; // r11
+  __int64 v27; // r12
+  _BYTE *v28; // r8
+  _BYTE *v29; // rax
+  __int64 v30; // [rsp+60h] [rbp+8h]
+  __int64 v31; // [rsp+68h] [rbp+10h]
+  __int64 v32; // [rsp+70h] [rbp+18h]
 
   v3 = *((int *)a1 + 22);
   v5 = *((_DWORD *)a2 + 11);
@@ -48,42 +45,42 @@ void __fastcall vFillGRectDIB24BGR(struct SURFACE *a1, struct _GRADIENTRECTDATA 
   v8 = *((_QWORD *)a2 + 8);
   if ( *((_DWORD *)a2 + 38) )
   {
-    v22 = *((_QWORD *)a2 + 10);
-    v23 = *((_QWORD *)a2 + 11);
-    v24 = *((_QWORD *)a2 + 12);
-    v25 = *((_QWORD *)a1 + 10) + *((_DWORD *)a2 + 9) * (int)v3;
-    v26 = *((int *)a2 + 45);
-    if ( (int)v26 > 0 )
+    v20 = *((_QWORD *)a2 + 10);
+    v21 = *((_QWORD *)a2 + 11);
+    v22 = *((_QWORD *)a2 + 12);
+    v23 = *((_QWORD *)a1 + 10) + (int)v3 * *((_DWORD *)a2 + 9);
+    v24 = *((int *)a2 + 45);
+    if ( (int)v24 > 0 )
     {
-      v6 += v22 * v26;
-      v7 += v23 * v26;
-      v8 += v24 * *((int *)a2 + 45);
+      v6 += v20 * v24;
+      v7 += v21 * v24;
+      v8 += v22 * *((int *)a2 + 45);
     }
-    v27 = (_BYTE *)(3 * *((_DWORD *)a2 + 8) + v25);
+    v25 = (_BYTE *)(3 * *((_DWORD *)a2 + 8) + v23);
     if ( v5 )
     {
-      v28 = *((int *)a1 + 22);
-      v29 = *((_QWORD *)a2 + 12);
+      v26 = *((int *)a1 + 22);
+      v27 = *((_QWORD *)a2 + 12);
       do
       {
         --v5;
-        v30 = v27;
-        v31 = &v27[3 * *((_DWORD *)a2 + 10)];
-        if ( v27 != v31 )
+        v28 = v25;
+        v29 = &v25[3 * *((_DWORD *)a2 + 10)];
+        if ( v25 != v29 )
         {
           do
           {
-            *v30 = BYTE6(v8);
-            v30[1] = BYTE6(v7);
-            v30[2] = BYTE6(v6);
-            v30 += 3;
+            *v28 = BYTE6(v8);
+            v28[1] = BYTE6(v7);
+            v28[2] = BYTE6(v6);
+            v28 += 3;
           }
-          while ( v30 != v31 );
+          while ( v28 != v29 );
         }
-        v6 += v22;
-        v7 += v23;
-        v8 += v29;
-        v27 += v28;
+        v6 += v20;
+        v7 += v21;
+        v8 += v27;
+        v25 += v26;
       }
       while ( v5 );
     }
@@ -92,55 +89,49 @@ void __fastcall vFillGRectDIB24BGR(struct SURFACE *a1, struct _GRADIENTRECTDATA 
   {
     v9 = *((int *)a2 + 44);
     v10 = *((_QWORD *)a2 + 14);
-    v11 = *((_QWORD *)a2 + 16);
-    v33 = v10;
-    v34 = *((_QWORD *)a2 + 15);
-    v35 = v11;
-    BYTE6(v32) = BYTE6(v8);
+    v30 = v10;
+    v31 = *((_QWORD *)a2 + 15);
+    v32 = *((_QWORD *)a2 + 16);
     if ( (int)v9 > 0 )
     {
       v6 += v10 * v9;
       v7 += *((_QWORD *)a2 + 15) * v9;
-      v32 = v8 + v11 * v9;
-      v8 = v32;
+      v8 += *((_QWORD *)a2 + 16) * v9;
     }
-    v12 = *((_DWORD *)a2 + 10);
-    if ( (unsigned int)(v12 - 1) <= 0xD05554 )
+    v11 = *((_DWORD *)a2 + 10);
+    if ( (unsigned int)(v11 - 1) <= 0xD05554 )
     {
-      v13 = AllocFreeTmpBuffer((unsigned int)(3 * v12));
-      v14 = (const void *)v13;
-      if ( v13 )
+      v12 = AllocFreeTmpBuffer((unsigned int)(3 * v11));
+      v13 = (const void *)v12;
+      if ( v12 )
       {
-        v15 = (_BYTE *)v13;
-        v16 = (unsigned int)(3 * *((_DWORD *)a2 + 10));
-        v17 = (_BYTE *)(v13 + (int)v16);
-        if ( (_BYTE *)v13 != v17 )
+        v14 = (_BYTE *)v12;
+        v15 = (_BYTE *)(v12 + 3 * *((_DWORD *)a2 + 10));
+        if ( (_BYTE *)v12 != v15 )
         {
-          v18 = BYTE6(v32);
-          v16 = v33;
           do
           {
-            v8 += v35;
-            *v15 = v18;
-            v19 = HIWORD(v7);
-            v7 += v34;
-            v15[1] = v19;
-            v20 = HIWORD(v6);
-            v6 += v33;
-            v15[2] = v20;
-            v15 += 3;
-            v18 = BYTE6(v8);
+            v16 = BYTE6(v8);
+            v8 += v32;
+            *v14 = v16;
+            v17 = HIWORD(v7);
+            v7 += v31;
+            v14[1] = v17;
+            v18 = HIWORD(v6);
+            v6 += v30;
+            v14[2] = v18;
+            v14 += 3;
           }
-          while ( v15 != v17 );
+          while ( v14 != v15 );
         }
-        for ( i = (char *)(*((_QWORD *)a1 + 10) + 3 * *((_DWORD *)a2 + 8) + (__int64)(*((_DWORD *)a2 + 9) * (int)v3));
+        for ( i = (char *)(*((_QWORD *)a1 + 10) + 3 * *((_DWORD *)a2 + 8) + (__int64)((int)v3 * *((_DWORD *)a2 + 9)));
               v5;
               --v5 )
         {
-          memmove(i, v14, 3 * *((_DWORD *)a2 + 10));
+          memmove(i, v13, 3 * *((_DWORD *)a2 + 10));
           i += v3;
         }
-        FreeTmpBuffer(v14, v16, v15);
+        FreeTmpBuffer(v13);
       }
     }
   }

@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetDeviceContainerRegKeyPath @ 0x14076D6D4
+ * XREFs of _CmGetDeviceContainerRegKeyPath @ 0x1406AA46C
  * Callers:
- *     PiDqGetRelativeObjectRegPath @ 0x140699B5C (PiDqGetRelativeObjectRegPath.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x14076D4A4 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A25AC0 (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x1406A9B6C (PiDqGetRelativeObjectRegPath.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x1406AA244 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x14072C290 (_CmDeleteDeviceContainerRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     _CmValidateDeviceContainerName @ 0x14076D788 (_CmValidateDeviceContainerName.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     _CmValidateDeviceContainerName @ 0x1406AA520 (_CmValidateDeviceContainerName.c)
  */
 
 NTSTATUS __fastcall CmGetDeviceContainerRegKeyPath(
         __int64 a1,
         __int64 a2,
-        int a3,
+        __int64 a3,
         __int64 a4,
         int a5,
         NTSTRSAFE_PWSTR pszDest,
@@ -23,9 +23,9 @@ NTSTATUS __fastcall CmGetDeviceContainerRegKeyPath(
   __int64 v10; // rax
   unsigned __int64 v11; // rax
 
-  if ( !a3 || (a3 & 0xFFFFFEAF) != 0 )
+  if ( !(_DWORD)a3 || (a3 & 0xFFFFFEAF) != 0 )
     return -1073741811;
-  result = CmValidateDeviceContainerName(a1, a2);
+  result = CmValidateDeviceContainerName(a1, a2, a3);
   if ( result >= 0 )
   {
     v10 = -1LL;

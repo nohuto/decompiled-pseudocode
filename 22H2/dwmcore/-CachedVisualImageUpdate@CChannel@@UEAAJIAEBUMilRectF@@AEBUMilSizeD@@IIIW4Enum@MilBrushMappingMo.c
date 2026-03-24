@@ -1,17 +1,17 @@
 /*
- * XREFs of ?CachedVisualImageUpdate@CChannel@@UEAAJIAEBUMilRectF@@AEBUMilSizeD@@IIIW4Enum@MilBrushMappingMode@@W44MilStretch@@@Z @ 0x1800F4630
+ * XREFs of ?CachedVisualImageUpdate@CChannel@@UEAAJIAEBUMilRectF@@AEBUMilSizeD@@IIIW4Enum@MilBrushMappingMode@@W44MilStretch@@@Z @ 0x1800D7950
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005EA34 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::CachedVisualImageUpdate(
-        struct CChannel *a1,
+        __int64 a1,
         unsigned int a2,
         __int128 *a3,
         __int128 *a4,
@@ -21,41 +21,45 @@ __int64 __fastcall CChannel::CachedVisualImageUpdate(
         int a8,
         int a9)
 {
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
+  unsigned int v13; // esi
+  unsigned int v14; // edi
   unsigned int v15; // ebx
-  _BYTE v17[16]; // [rsp+20h] [rbp-60h] BYREF
-  int v18; // [rsp+30h] [rbp-50h] BYREF
-  unsigned int v19; // [rsp+34h] [rbp-4Ch] BYREF
-  __int128 v20; // [rsp+38h] [rbp-48h]
-  __int128 v21; // [rsp+48h] [rbp-38h]
-  unsigned int v22; // [rsp+58h] [rbp-28h]
-  unsigned int v23; // [rsp+5Ch] [rbp-24h]
-  unsigned int v24; // [rsp+60h] [rbp-20h]
-  int v25; // [rsp+64h] [rbp-1Ch]
-  int v26; // [rsp+74h] [rbp-Ch]
+  __int128 v16; // xmm0
+  __int128 v17; // xmm1
+  unsigned int v18; // ebx
+  int v20; // [rsp+20h] [rbp-50h] BYREF
+  unsigned int v21; // [rsp+24h] [rbp-4Ch] BYREF
+  __int128 v22; // [rsp+28h] [rbp-48h]
+  __int128 v23; // [rsp+38h] [rbp-38h]
+  unsigned int v24; // [rsp+48h] [rbp-28h]
+  unsigned int v25; // [rsp+4Ch] [rbp-24h]
+  unsigned int v26; // [rsp+50h] [rbp-20h]
+  int v27; // [rsp+54h] [rbp-1Ch]
+  int v28; // [rsp+64h] [rbp-Ch]
+  struct _RTL_CRITICAL_SECTION *v29; // [rsp+A0h] [rbp+30h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v17, a1);
-  CChannel::CheckHandle((__int64)a1, a2, 18);
-  if ( a5 )
-    CChannel::CheckHandle((__int64)a1, a5, 140);
-  if ( a6 )
-    CChannel::CheckHandle((__int64)a1, a6, 172);
-  if ( a7 )
-    CChannel::CheckHandle((__int64)a1, a7, 196);
-  v18 = 29;
-  memset_0(&v19, 0, 0x44uLL);
-  v13 = *a3;
-  v25 = a8;
-  v14 = *a4;
-  v20 = v13;
-  v19 = a2;
-  v21 = v14;
-  v22 = a5;
-  v23 = a6;
-  v24 = a7;
-  v26 = a9;
-  v15 = CChannel::SendCommand(a1, &v18, 0x48u);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v17);
-  return v15;
+  v29 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
+  CChannel::CheckHandle(a1, a2, 15);
+  v13 = a5;
+  CChannel::CheckOptionalHandle(a1, a5, 140);
+  v14 = a6;
+  CChannel::CheckOptionalHandle(a1, a6, 172);
+  v15 = a7;
+  CChannel::CheckOptionalHandle(a1, a7, 195);
+  v20 = 31;
+  memset_0(&v21, 0, 0x44uLL);
+  v16 = *a3;
+  v27 = a8;
+  v17 = *a4;
+  v22 = v16;
+  v21 = a2;
+  v23 = v17;
+  v24 = v13;
+  v25 = v14;
+  v26 = v15;
+  v28 = a9;
+  v18 = CChannel::SendCommand((CChannel *)a1, &v20, 0x48u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v29);
+  return v18;
 }

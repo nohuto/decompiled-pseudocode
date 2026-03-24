@@ -1,26 +1,25 @@
 /*
- * XREFs of DebugNotify @ 0x1C004DB30
+ * XREFs of DebugNotify @ 0x1C0066140
  * Callers:
  *     <none>
  * Callees:
- *     _strupr_0 @ 0x1C0001A8B (_strupr_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     IsNumber @ 0x1C004E1F4 (IsNumber.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C004F748 (GetNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _strupr_0 @ 0x1C0031D3B (_strupr_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     IsNumber @ 0x1C0066824 (IsNumber.c)
  */
 
-__int64 __fastcall DebugNotify(__int64 a1, char *a2, int a3, int a4)
+__int64 __fastcall DebugNotify(__int64 a1, _BYTE *a2, int a3, int a4)
 {
   unsigned int v4; // ebx
   int v6; // r8d
-  __int64 v7; // rdx
-  __int64 ObjectPath; // rax
-  void *v9; // rdx
-  void *v10; // rdi
+  _QWORD *ObjectPath; // rax
+  void *v8; // rdx
+  void *v9; // rdi
 
   v4 = 0;
   if ( a2 )
@@ -32,7 +31,7 @@ __int64 __fastcall DebugNotify(__int64 a1, char *a2, int a3, int a4)
       {
         if ( (unsigned __int8)IsNumber(a2, 16LL) )
           goto LABEL_17;
-        PrintDebugMessage(221, (_DWORD)a2, 0, 0, 0LL);
+        PrintDebugMessage(221, a2, 0LL, 0LL, 0LL);
         goto LABEL_11;
       }
       goto LABEL_10;
@@ -40,9 +39,9 @@ __int64 __fastcall DebugNotify(__int64 a1, char *a2, int a3, int a4)
     if ( !(unsigned __int8)IsNumber(a2, 16LL) )
     {
       strupr_0(a2);
-      if ( (unsigned int)GetNameSpaceObject(a2) )
+      if ( (unsigned int)GetNameSpaceObject(a2, 0LL, &qword_1C00834A0, 1) )
       {
-        PrintDebugMessage(231, (_DWORD)a2, 0, 0, 0LL);
+        PrintDebugMessage(231, a2, 0LL, 0LL, 0LL);
 LABEL_11:
         v4 = -2;
       }
@@ -53,21 +52,21 @@ LABEL_11:
     if ( a4 != 2 )
     {
 LABEL_10:
-      PrintDebugMessage(222, 0, 0, 0, 0LL);
+      PrintDebugMessage(222, 0LL, 0LL, 0LL, 0LL);
       goto LABEL_11;
     }
-    ObjectPath = GetObjectPath(qword_1C00709F0);
-    v9 = &unk_1C00622D0;
-    v10 = (void *)ObjectPath;
+    ObjectPath = GetObjectPath(qword_1C00834A0);
+    v8 = &unk_1C00701BA;
+    v9 = ObjectPath;
     if ( ObjectPath )
-      v9 = (void *)ObjectPath;
-    ConPrintf("Queuing: Notify(%s, %x) ...\n", v9, qword_1C00709E8);
-    if ( v10 )
-      ExFreePoolWithTag(v10, 0);
-    ghNotify(2LL, (unsigned int)qword_1C00709E8, qword_1C00709F0 + 120, qword_1C00702B0, PciConfigPinToLine, 0LL);
+      v8 = ObjectPath;
+    ConPrintf("Queuing: Notify(%s, %x) ...\n", v8, qword_1C0083498);
+    if ( v9 )
+      ExFreePoolWithTag(v9, 0);
+    ghNotify(2LL, (unsigned int)qword_1C0083498, qword_1C00834A0 + 120, qword_1C00831C8, PciConfigPinToLine, 0LL);
   }
 LABEL_17:
-  if ( qword_1C00709F0 )
-    DereferenceObjectEx(qword_1C00709F0, v7);
+  if ( qword_1C00834A0 )
+    DereferenceObjectEx(qword_1C00834A0);
   return v4;
 }

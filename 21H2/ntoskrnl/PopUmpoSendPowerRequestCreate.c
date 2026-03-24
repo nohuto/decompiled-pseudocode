@@ -1,36 +1,36 @@
 /*
- * XREFs of PopUmpoSendPowerRequestCreate @ 0x1407F01CC
+ * XREFs of PopUmpoSendPowerRequestCreate @ 0x1408F2698
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestNotificationsBegin @ 0x140989DD4 (PopPowerRequestNotificationsBegin.c)
+ *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
+ *     PopPowerRequestNotificationsFlush @ 0x1408E1AE8 (PopPowerRequestNotificationsFlush.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x14036AF00 (PopUmpoSendPowerMessage.c)
- *     PopPowerRequestGetDiagnosticBuffer @ 0x1407F0268 (PopPowerRequestGetDiagnosticBuffer.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopGetPowerRequestDiagnosticBuffer @ 0x1408E18F0 (PopGetPowerRequestDiagnosticBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall PopUmpoSendPowerRequestCreate(__int64 a1)
+void __fastcall PopUmpoSendPowerRequestCreate(int a1)
 {
-  unsigned int v1; // edi
-  __int64 v2; // rsi
-  _DWORD *Pool2; // rax
-  void *v4; // rbx
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  size_t v2; // rdi
+  unsigned __int64 *PoolWithTag; // rax
+  unsigned __int64 *v4; // rbx
+  unsigned __int64 v5; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0LL;
-  v1 = a1;
-  if ( (unsigned int)PopPowerRequestGetDiagnosticBuffer(a1, 0LL, &v5) == -1073741789 )
+  if ( (unsigned int)PopGetPowerRequestDiagnosticBuffer(a1, 0LL, &v5) == -1073741789 )
   {
-    v2 = v5;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, v5 + 16, 1869638997LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    v2 = v5 + 16;
+    PoolWithTag = (unsigned __int64 *)ExAllocatePoolWithTag(PagedPool, v5 + 16, 0x6F706D55u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 15;
-      Pool2[2] = v1;
-      if ( (int)PopPowerRequestGetDiagnosticBuffer(v1, Pool2 + 4, &v5) >= 0 )
-        PopUmpoSendPowerMessage(v4, v2 + 16, 0);
+      memset(PoolWithTag, 0, v2);
+      *(_DWORD *)v4 = 15;
+      *((_DWORD *)v4 + 2) = a1;
+      if ( (int)PopGetPowerRequestDiagnosticBuffer(a1, v4 + 2, &v5) >= 0 )
+        PopUmpoSendPowerMessage(v4, v2, 0);
       ExFreePoolWithTag(v4, 0x6F706D55u);
     }
   }

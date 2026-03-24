@@ -1,16 +1,16 @@
 /*
- * XREFs of IopKeepAliveWorker @ 0x140558DE0
+ * XREFs of IopKeepAliveWorker @ 0x140507660
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AD954 (PspAdjustKeepAliveCountProcess.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140907BD0 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 IopKeepAliveWorker()
@@ -44,20 +44,20 @@ __int64 IopKeepAliveWorker()
   int v26; // eax
   __int64 result; // rax
 
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C47230);
-  qword_140C47260 = (__int64)KeGetCurrentThread();
+  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C45F70);
+  qword_140C45FA0 = (__int64)KeGetCurrentThread();
 LABEL_2:
   v1 = v0;
   while ( 1 )
   {
-    v2 = qword_140C47220;
-    if ( qword_140C47220 == &qword_140C47220 )
+    v2 = qword_140C45F60;
+    if ( qword_140C45F60 == &qword_140C45F60 )
       break;
-    v3 = *((_DWORD *)qword_140C47220 + 8);
-    *((_DWORD *)qword_140C47220 + 8) = 0;
+    v3 = *((_DWORD *)qword_140C45F60 + 8);
+    *((_DWORD *)qword_140C45F60 + 8) = 0;
     if ( v3 )
     {
-      KxReleaseSpinLock(&qword_140C47230);
+      KxReleaseSpinLock(&qword_140C45F70);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -98,11 +98,11 @@ LABEL_2:
           v14 = *(_DWORD *)(v13 + 2508);
         if ( (v14 & 0x7FFFFFFF) == 1 )
         {
-          v15 = KeAcquireSpinLockRaiseToDpc(&qword_140C47230);
+          v15 = KeAcquireSpinLockRaiseToDpc(&qword_140C45F70);
           if ( MEMORY[0xFFFFF78000000014] < *((_QWORD *)v2 + 6) )
           {
             --*((_DWORD *)v2 + 8);
-            KxReleaseSpinLock(&qword_140C47230);
+            KxReleaseSpinLock(&qword_140C45F70);
             if ( KiIrqlFlags )
             {
               if ( (KiIrqlFlags & 1) != 0 )
@@ -124,7 +124,7 @@ LABEL_2:
             KeDelayExecutionThread(0, 1u, (PLARGE_INTEGER)v2 + 6);
             goto LABEL_44;
           }
-          KxReleaseSpinLock(&qword_140C47230);
+          KxReleaseSpinLock(&qword_140C45F70);
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 )
@@ -161,7 +161,7 @@ LABEL_2:
         while ( v3 );
       }
 LABEL_44:
-      v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C47230);
+      v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C45F70);
       goto LABEL_2;
     }
     v4 = *(_QWORD **)v2;
@@ -175,9 +175,9 @@ LABEL_44:
     if ( v6 )
       ExFreePoolWithTag(v2, 0);
   }
-  qword_140C47260 = 0LL;
-  byte_140C47258 = 0;
-  KxReleaseSpinLock(&qword_140C47230);
+  qword_140C45FA0 = 0LL;
+  byte_140C45F98 = 0;
+  KxReleaseSpinLock(&qword_140C45F70);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

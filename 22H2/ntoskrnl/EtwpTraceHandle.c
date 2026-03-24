@@ -1,39 +1,38 @@
 /*
- * XREFs of EtwpTraceHandle @ 0x1409E6C3C
+ * XREFs of EtwpTraceHandle @ 0x1409376CC
  * Callers:
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     ObpCloseHandle @ 0x1406E7730 (ObpCloseHandle.c)
- *     ObCloseHandleTableEntry @ 0x1407402D4 (ObCloseHandleTableEntry.c)
+ *     ObCloseHandleTableEntry @ 0x140642D80 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x14046AAFE (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x1405FE598 (EtwpTraceKernelEventWithFilter.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405A9A4C (EtwpTraceKernelEventWithFilter.c)
+ *     ExCheckSingleFilter @ 0x1405B353C (ExCheckSingleFilter.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceHandle(unsigned __int16 a1, __int64 a2, char *a3, __int64 a4)
 {
   int v5; // r9d
-  unsigned int v6; // edi
-  unsigned int v7; // r14d
+  unsigned int v6; // r12d
+  unsigned int v7; // esi
   bool v8; // zf
-  __int64 v9; // r12
-  unsigned int v10; // esi
+  __int64 v9; // r15
+  unsigned int v10; // edi
   __int64 v11; // r8
   int v12; // ebx
-  _WORD *v13; // r15
+  _WORD *v13; // r14
   int v14; // eax
-  _WORD *Pool2; // rbx
-  unsigned __int16 v16; // r15
-  char *v17; // r14
+  _WORD *PoolWithTag; // rbx
+  unsigned __int16 v16; // r14
+  char *v17; // rsi
   unsigned int v18; // r8d
   int v19; // eax
   int v20; // ecx
   __int64 v21; // rax
-  unsigned int i; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int16 v23; // [rsp+34h] [rbp-CCh]
+  unsigned int NumberOfBytes; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int16 NumberOfBytes_4; // [rsp+34h] [rbp-CCh]
   int v24; // [rsp+38h] [rbp-C8h]
   char *v25; // [rsp+40h] [rbp-C0h] BYREF
   int v26; // [rsp+48h] [rbp-B8h]
@@ -51,10 +50,10 @@ void __fastcall EtwpTraceHandle(unsigned __int16 a1, __int64 a2, char *a3, __int
   v5 = *(_DWORD *)(a4 + 192);
   v6 = 0;
   v30 = a2;
-  v7 = *(_DWORD *)(EtwpHostSiloState + 4248);
+  v7 = *(_DWORD *)(EtwpHostSiloState + 4224);
   v8 = !_BitScanForward((unsigned int *)&v9, v7);
-  v23 = a1;
-  i = 0;
+  NumberOfBytes_4 = a1;
+  NumberOfBytes = 0;
   v28 = 0;
   v24 = v5;
   if ( !v8 )
@@ -63,7 +62,7 @@ void __fastcall EtwpTraceHandle(unsigned __int16 a1, __int64 a2, char *a3, __int
     do
     {
       v7 &= v7 - 1;
-      v11 = 32LL * (unsigned int)v9 + EtwpHostSiloState + 4284;
+      v11 = 32LL * (unsigned int)v9 + EtwpHostSiloState + 4260;
       if ( v11 )
       {
         if ( (*(_DWORD *)(v11 + 16) & 0x40) != 0 )
@@ -91,35 +90,35 @@ LABEL_10:
     while ( !v8 );
     if ( v6 )
     {
-      Pool2 = P;
-      v16 = v23;
+      PoolWithTag = P;
+      v16 = NumberOfBytes_4;
       v17 = v29;
       v26 = v30;
       v27 = *(unsigned __int8 *)(a4 + 40);
       v31 = &v25;
       v25 = v29;
       v32[0] = 14LL;
-      if ( v23 == 4385 )
+      if ( NumberOfBytes_4 == 4385 )
       {
         v18 = 272;
-        for ( i = 272; ; v18 = i )
+        for ( NumberOfBytes = 272; ; v18 = NumberOfBytes )
         {
-          v19 = ObQueryNameStringMode(v17, (__int64)Pool2, v18, &i, 0);
+          v19 = ObQueryNameStringMode(v17, (__int64)PoolWithTag, v18, &NumberOfBytes, 0);
           if ( v19 != -1073741820 )
             break;
-          if ( Pool2 != (_WORD *)P )
-            ExFreePoolWithTag(Pool2, 0);
-          Pool2 = (_WORD *)ExAllocatePool2(256LL, i, 1953985605LL);
-          if ( !Pool2 )
+          if ( PoolWithTag != (_WORD *)P )
+            ExFreePoolWithTag(PoolWithTag, 0);
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x74777445u);
+          if ( !PoolWithTag )
             goto LABEL_23;
         }
         if ( !v19 )
         {
           v20 = 0x2000;
-          if ( *Pool2 < 0x2000u )
-            v20 = (unsigned __int16)*Pool2;
+          if ( *PoolWithTag < 0x2000u )
+            v20 = (unsigned __int16)*PoolWithTag;
           v10 = 2;
-          v32[1] = *((_QWORD *)Pool2 + 1);
+          v32[1] = *((_QWORD *)PoolWithTag + 1);
           v33 = v20;
           v34 = 0;
         }
@@ -129,10 +128,10 @@ LABEL_23:
       v32[v21 - 1] = &EtwpNull;
       v32[v21] = 2LL;
       EtwpTraceKernelEventWithFilter((__int64)&v31, v10 + 1, v6, v16, 0x10501902u);
-      if ( Pool2 )
+      if ( PoolWithTag )
       {
-        if ( Pool2 != (_WORD *)P )
-          ExFreePoolWithTag(Pool2, 0);
+        if ( PoolWithTag != (_WORD *)P )
+          ExFreePoolWithTag(PoolWithTag, 0);
       }
     }
   }

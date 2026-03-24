@@ -1,13 +1,13 @@
 /*
- * XREFs of bMapFile @ 0x1C02875C0
+ * XREFs of bMapFile @ 0x1C028A75C
  * Callers:
- *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C0286184 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
- *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028646C (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
- *     EngMapFile @ 0x1C02870F0 (EngMapFile.c)
+ *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C02892F0 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C02895DC (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     EngMapFile @ 0x1C028A230 (EngMapFile.c)
  * Callees:
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C000D7F0 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
- *     ?bCreateSection@@YAHPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C000FCB0 (-bCreateSection@@YAHPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?bCreateSection@@YAHPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A8558 (-bCreateSection@@YAHPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8CFC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall bMapFile(PCWSTR SourceString, _OWORD *a2, int a3, int *a4)

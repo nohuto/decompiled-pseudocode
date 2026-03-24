@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAlpcCreateSectionView @ 0x14041C720
+ * XREFs of ZwAlpcCreateSectionView @ 0x1403FB360
  * Callers:
- *     DifZwAlpcCreateSectionViewWrapper @ 0x14061D460 (DifZwAlpcCreateSectionViewWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

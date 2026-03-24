@@ -1,17 +1,16 @@
 /*
- * XREFs of Isoch_MapTransfers @ 0x1C000A788
+ * XREFs of Isoch_MapTransfers @ 0x1C0001D00
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C00079C0 (Isoch_WdfEvtIoQueueReadyNotification.c)
- *     Isoch_EvtDmaCallback @ 0x1C0009060 (Isoch_EvtDmaCallback.c)
- *     Isoch_EP_StartMapping @ 0x1C000A800 (Isoch_EP_StartMapping.c)
- *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C000A880 (Isoch_ProcessTransferRingEmptyEvent.c)
- *     Isoch_CommonBufferCallback @ 0x1C0041CA0 (Isoch_CommonBufferCallback.c)
+ *     Isoch_EvtDmaCallback @ 0x1C0001010 (Isoch_EvtDmaCallback.c)
+ *     Isoch_EP_StartMapping @ 0x1C0001C90 (Isoch_EP_StartMapping.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0002AE0 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ *     Isoch_CommonBufferCallback @ 0x1C0040DA0 (Isoch_CommonBufferCallback.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C00422A0 (Isoch_ProcessTransferRingEmptyEvent.c)
  * Callees:
- *     Isoch_MappingLoop @ 0x1C000A6A0 (Isoch_MappingLoop.c)
- *     TR_AttemptStateChange @ 0x1C000A724 (TR_AttemptStateChange.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_MappingLoop @ 0x1C0001D7C (Isoch_MappingLoop.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Isoch_MapTransfers(__int64 a1)
@@ -26,7 +25,7 @@ __int64 __fastcall Isoch_MapTransfers(__int64 a1)
     {
       v4 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
       LOBYTE(v4) = 5;
-      WPP_RECORDER_SF_ddd(
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v4,
         14,
@@ -36,13 +35,13 @@ __int64 __fastcall Isoch_MapTransfers(__int64 a1)
         *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
         i);
     }
-    Isoch_MappingLoop((_QWORD *)a1);
+    Isoch_MappingLoop(a1);
     result = *(unsigned int *)(a1 + 108);
     if ( (_DWORD)result != 2 )
       break;
     if ( !*(_DWORD *)(a1 + 344) )
       return result;
-    result = TR_AttemptStateChange(a1, 2, 3);
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 108), 3, 2);
     if ( (_DWORD)result != 2 )
       return result;
 LABEL_14:
@@ -52,7 +51,7 @@ LABEL_14:
   {
     if ( *(_DWORD *)(a1 + 348) )
     {
-      result = TR_AttemptStateChange(a1, 4, 3);
+      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 108), 3, 4);
       if ( (_DWORD)result == 4 )
       {
         (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01023 + 2560))(

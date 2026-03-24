@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWriteSecurePages @ 0x14058F060
+ * XREFs of PopWriteSecurePages @ 0x14056F2F8
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HvlIterateSecurePagesForHibernation @ 0x1405468D4 (HvlIterateSecurePagesForHibernation.c)
- *     PopWriteHiberPages @ 0x140AA5AA4 (PopWriteHiberPages.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x1404F7A60 (HvlIterateSecurePagesForHibernation.c)
+ *     PopWriteHiberPages @ 0x1409916A0 (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopWriteSecurePages(ULONG_PTR BugCheckParameter3)

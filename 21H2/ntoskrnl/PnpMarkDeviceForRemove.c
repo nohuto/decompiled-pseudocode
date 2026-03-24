@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpMarkDeviceForRemove @ 0x1403A0064
+ * XREFs of PnpMarkDeviceForRemove @ 0x140393BC4
  * Callers:
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PiIrpQueryRemoveDevice @ 0x1409589A4 (PiIrpQueryRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x1407342EC (PiIrpQueryRemoveDevice.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     IopIncrementDeviceObjectRefCount @ 0x1402A6E00 (IopIncrementDeviceObjectRefCount.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x140354BA0 (IopIncrementDeviceObjectRefCount.c)
  */
 
 ULONG_PTR __fastcall PnpMarkDeviceForRemove(ULONG_PTR a1, int a2, ULONG_PTR *a3)
@@ -22,6 +22,8 @@ ULONG_PTR __fastcall PnpMarkDeviceForRemove(ULONG_PTR a1, int a2, ULONG_PTR *a3)
   __int16 v11; // cx
   __int16 v12; // cx
   void *v13; // rcx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
 
   v5 = a1;
   if ( a2 )
@@ -49,7 +51,7 @@ ULONG_PTR __fastcall PnpMarkDeviceForRemove(ULONG_PTR a1, int a2, ULONG_PTR *a3)
             a3[1] = (ULONG_PTR)v13;
             *a3 = v5;
             ObfReferenceObjectWithTag(v13, 0x746C6644u);
-            IopIncrementDeviceObjectRefCount(a3[1], 1);
+            IopIncrementDeviceObjectRefCount(a3[1], 1, v14, v15);
           }
         }
         else

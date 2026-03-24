@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetThreadSchedulingGroup @ 0x1400F3A78
+ * XREFs of KiSetThreadSchedulingGroup @ 0x1400F3A98
  * Callers:
- *     KeSetProcessSchedulingGroup @ 0x1400F358C (KeSetProcessSchedulingGroup.c)
+ *     KeSetProcessSchedulingGroup @ 0x1400F35AC (KeSetProcessSchedulingGroup.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA30 (KiAcquireThreadStateLock.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1400F4698 (KiRemoveThreadFromSchedulingGroup.c)
- *     KeUpdateThreadSchedulingProperties @ 0x1400F4810 (KeUpdateThreadSchedulingProperties.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x1401177B8 (KiRemoveThreadFromSharedReadyQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1400F46B8 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KeUpdateThreadSchedulingProperties @ 0x1400F4830 (KeUpdateThreadSchedulingProperties.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x1401177D8 (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
  */
 
 __int64 __fastcall KiSetThreadSchedulingGroup(__int64 a1, __int64 a2, __int64 a3)

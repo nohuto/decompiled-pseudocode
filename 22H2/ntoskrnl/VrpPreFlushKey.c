@@ -1,42 +1,43 @@
 /*
- * XREFs of VrpPreFlushKey @ 0x140A72CDC
+ * XREFs of VrpPreFlushKey @ 0x140883308
  * Callers:
- *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140308D90 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
 {
-  GUID ActivityId; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v5[2]; // [rsp+40h] [rbp-38h] BYREF
+  GUID ActivityId; // [rsp+30h] [rbp-68h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+40h] [rbp-58h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+60h] [rbp-38h] BYREF
 
   ActivityId = 0LL;
   EtwActivityIdControl(3u, &ActivityId);
   if ( (*(_DWORD *)(a2 + 80) & 1) != 0 )
   {
-    if ( (unsigned int)dword_140C04420 > 5 )
+    if ( (unsigned int)dword_140C02168 > 5 )
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C04420,
-        (unsigned __int8 *)byte_14003A430,
+        (__int64)&dword_140C02168,
+        (unsigned __int8 *)&word_14002423E,
         &ActivityId,
         0LL,
         2u,
-        v5);
+        &v5);
     return 3221226755LL;
   }
   else
   {
-    if ( (unsigned int)dword_140C04420 > 5 )
+    if ( (unsigned int)dword_140C02168 > 5 )
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C04420,
-        (unsigned __int8 *)&dword_14003A3D4,
+        (__int64)&dword_140C02168,
+        (unsigned __int8 *)&byte_14002429F,
         &ActivityId,
         0LL,
         2u,
-        v5);
+        &v6);
     return 0LL;
   }
 }

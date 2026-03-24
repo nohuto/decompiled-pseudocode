@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z @ 0x1C00A9840
+ * XREFs of ?CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z @ 0x1C007434C
  * Callers:
- *     CoreMsgCreatePort @ 0x1C00A9770 (CoreMsgCreatePort.c)
+ *     CoreMsgCreatePort @ 0x1C00744C8 (CoreMsgCreatePort.c)
  * Callees:
- *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C00A99BC (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
- *     ?RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@PEBU_UNICODE_STRING@@@Z @ 0x1C00A9D54 (-RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@PEBU_UNICODE_STRING@@@Z.c)
- *     ?RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBGPEBU_GUID@@@Z @ 0x1C00A9E10 (-RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBGPEBU_GUID@@@Z.c)
- *     ?Create@CoreMsgObject@CoreMessagingK@@SAJDPEBUObjectImplVtbl@2@PEAPEAU12@PEAPEAX@Z @ 0x1C00AA368 (-Create@CoreMsgObject@CoreMessagingK@@SAJDPEBUObjectImplVtbl@2@PEAPEAU12@PEAPEAX@Z.c)
- *     ?CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z @ 0x1C00AAE14 (-CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z.c)
- *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00AAEF4 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     wcsncmp @ 0x1C00D6268 (wcsncmp.c)
+ *     ?Create@CoreMsgObject@CoreMessagingK@@SAJDPEBUObjectImplVtbl@2@PEAPEAU12@PEAPEAX@Z @ 0x1C0072480 (-Create@CoreMsgObject@CoreMessagingK@@SAJDPEBUObjectImplVtbl@2@PEAPEAU12@PEAPEAX@Z.c)
+ *     ?CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z @ 0x1C00736DC (-CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z.c)
+ *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00738E8 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
+ *     ?RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBGPEBU_GUID@@@Z @ 0x1C0073B40 (-RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBGPEBU_GUID@@@Z.c)
+ *     ?RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@PEBU_UNICODE_STRING@@@Z @ 0x1C0073C38 (-RegisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@PEBU_UNICODE_STRING@@@Z.c)
+ *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C007419C (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1C00C552C (wcsncmp.c)
  */
 
 __int64 __fastcall CoreMessagingK::ServerPorts::CreatePort(
@@ -21,7 +21,7 @@ __int64 __fastcall CoreMessagingK::ServerPorts::CreatePort(
 {
   __int64 v6; // rdx
   __int64 v7; // rcx
-  NTSTATUS AlpcPortName; // ebx
+  int AlpcPortName; // ebx
   struct _GUID *v9; // rdi
   const unsigned __int16 *v10; // rcx
   void *v11; // rcx
@@ -38,13 +38,13 @@ __int64 __fastcall CoreMessagingK::ServerPorts::CreatePort(
   {
     AlpcPortName = CoreMessagingK::CoreMsgObject::Create(
                      0,
-                     (const struct CoreMessagingK::ObjectImplVtbl *)&CoreMessagingK::ServerPortInfo::s_Vtbl,
-                     &v14,
+                     (__int64 (**)(void))&CoreMessagingK::ServerPortInfo::s_Vtbl,
+                     (PVOID *)&v14,
                      &v13);
     if ( AlpcPortName >= 0 )
     {
       v9 = (struct _GUID *)((char *)v14 + 8);
-      AlpcPortName = CoreMessagingK::Runtime::CopyString(v7, v6, (char *)v14 + 40);
+      AlpcPortName = CoreMessagingK::Runtime::CopyString(v7, v6, (void **)v14 + 5);
       if ( AlpcPortName >= 0 )
       {
         v15.MaximumLength = 136;

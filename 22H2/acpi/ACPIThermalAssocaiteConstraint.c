@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIThermalAssocaiteConstraint @ 0x1C003FE44
+ * XREFs of ACPIThermalAssocaiteConstraint @ 0x1C000E118
  * Callers:
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAF8 (ACPIThermalAcquireCoolingInterfaces.c)
- *     ACPIThermalActivateConstraint @ 0x1C003FCA0 (ACPIThermalActivateConstraint.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIThermalActivateConstraint @ 0x1C000E3E4 (ACPIThermalActivateConstraint.c)
  * Callees:
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
- *     ACPIThermalReevaluateConstraints @ 0x1C0041A94 (ACPIThermalReevaluateConstraints.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C000E1B0 (ACPIThermalReevaluateConstraints.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
@@ -18,11 +18,9 @@ __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
   _QWORD *v7; // r8
   _QWORD *v8; // r8
   bool v9; // zf
-  char v10; // r9
-  char v11; // r9
 
   result = a2;
-  v3 = *(_QWORD *)(a1 + 656);
+  v3 = *(_QWORD *)(a1 + 616);
   if ( !*(_QWORD *)(a2 + 40) )
   {
     v5 = (_QWORD *)(a2 + 16);
@@ -41,17 +39,14 @@ __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
     *(_QWORD *)(result + 40) = a1;
     if ( v9 )
     {
-      v11 = *(_BYTE *)(result + 55);
-      if ( v11 )
-        AcpiDiagTraceActiveCoolingConstraint(*(_QWORD *)(result + 32), a1, 0, v11);
+      if ( *(_BYTE *)(result + 55) )
+        AcpiDiagTraceActiveCoolingConstraint(*(_QWORD *)(result + 32), a1, 0LL);
     }
-    else
+    else if ( *(_BYTE *)(result + 53) != 100 )
     {
-      v10 = *(_BYTE *)(result + 53);
-      if ( v10 != 100 )
-        AcpiDiagTracePassiveCoolingConstraint(*(_QWORD *)(result + 32), a1, 0, v10);
+      AcpiDiagTracePassiveCoolingConstraint(*(_QWORD *)(result + 32), a1, 0LL);
     }
-    return ACPIThermalReevaluateConstraints(*(PVOID *)(a1 + 656));
+    return ACPIThermalReevaluateConstraints(*(PVOID *)(a1 + 616));
   }
   return result;
 }

@@ -1,37 +1,36 @@
 /*
- * XREFs of ShouldHaveShadow @ 0x1C0107D18
+ * XREFs of ShouldHaveShadow @ 0x1C011B94C
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0043774 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E958 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
  * Callees:
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
  */
 
-__int64 __fastcall ShouldHaveShadow(_QWORD *a1)
+__int64 __fastcall ShouldHaveShadow(__int64 a1)
 {
-  unsigned int v2; // ebx
+  unsigned int v1; // r9d
+  _QWORD *v2; // r10
   __int64 v4; // rax
-  __int64 Prop; // rax
+  unsigned int v5; // eax
 
-  v2 = 0;
-  if ( IsTopLevelWindow((__int64)a1)
-    && !gbDisableAlpha
-    && !gcOverlays
+  if ( (unsigned int)IsTopLevelWindow(a1)
+    && gbDisableAlpha == v1
+    && gcOverlays == v1
     && ((unsigned int)gpdwCPUserPreferencesMask & 0x80040000) == 0x80040000
-    && (*(_BYTE *)(*(_QWORD *)(a1[17] + 8LL) + 10LL) & 2) != 0 )
+    && (*(_BYTE *)(*(_QWORD *)(v2[17] + 8LL) + 10LL) & 2) != 0 )
   {
-    v4 = a1[2];
-    if ( *(_DWORD *)(v4 + 632) > 0x9900u || (*(_DWORD *)(v4 + 648) & 0x400000) == 0 )
+    v4 = v2[2];
+    if ( *(_DWORD *)(v4 + 632) > 0x9900u )
+      v5 = v1;
+    else
+      v5 = *(_DWORD *)(v4 + 648);
+    if ( (v5 & 0x400000) == 0
+      && ((*(_WORD *)(v2[5] + 42LL) & 0x2FFF) != 0x29C
+       || ((unsigned int)gpdwCPUserPreferencesMask & 0x80000200) == 0x80000200
+       || ((unsigned int)gpdwCPUserPreferencesMask & 0x80000002) != 0x80000002) )
     {
-      Prop = GetProp((__int64)a1, (unsigned __int16)atomDWMProp, 1u);
-      if ( (!Prop || *(int *)(Prop + 40) <= 1)
-        && ((*(_WORD *)(a1[5] + 42LL) & 0x2FFF) != 0x29C
-         || !gbDisableAlpha && ((unsigned int)gpdwCPUserPreferencesMask & 0x80000200) == 0x80000200
-         || ((unsigned int)gpdwCPUserPreferencesMask & 0x80000002) != 0x80000002) )
-      {
-        return 1;
-      }
+      return 1;
     }
   }
-  return v2;
+  return v1;
 }

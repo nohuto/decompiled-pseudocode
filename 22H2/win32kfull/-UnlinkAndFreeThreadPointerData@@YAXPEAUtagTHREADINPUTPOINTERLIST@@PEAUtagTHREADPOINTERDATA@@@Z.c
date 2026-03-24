@@ -1,8 +1,8 @@
 /*
- * XREFs of ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C0153382
+ * XREFs of ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01F1074
  * Callers:
- *     xxxCleanupThreadPointerInputInfo @ 0x1C009BA60 (xxxCleanupThreadPointerInputInfo.c)
- *     EditionUnlinkAndFreeThreadPointerData @ 0x1C01C6AA0 (EditionUnlinkAndFreeThreadPointerData.c)
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00FD5D0 (xxxCleanupThreadPointerInputInfo.c)
+ *     EditionUnlinkAndFreeThreadPointerData @ 0x1C01F1D50 (EditionUnlinkAndFreeThreadPointerData.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,6 @@ void __fastcall UnlinkAndFreeThreadPointerData(struct tagTHREADINPUTPOINTERLIST 
 {
   __int64 v4; // rdx
   struct tagTHREADPOINTERDATA **v5; // rax
-  __int64 v6; // rax
 
   v4 = *(_QWORD *)a2;
   if ( *(struct tagTHREADPOINTERDATA **)(v4 + 8) != a2
@@ -21,8 +20,7 @@ void __fastcall UnlinkAndFreeThreadPointerData(struct tagTHREADINPUTPOINTERLIST 
   }
   *v5 = (struct tagTHREADPOINTERDATA *)v4;
   *(_QWORD *)(v4 + 8) = v5;
-  v6 = SGDGetUserSessionState(a1);
-  CTouchProcessor::UnreferenceMsgDataExternal(*(_QWORD *)(v6 + 3424), *((_QWORD *)a2 + 3), 4LL, a2);
+  CTouchProcessor::UnreferenceMsgDataExternal(gpTouchProcessor, *((_QWORD *)a2 + 3), 4LL, a2);
   Win32FreePool(a2);
   --*((_DWORD *)a1 + 4);
 }

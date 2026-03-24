@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00E5FFE
+ * XREFs of ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C014BD94
  * Callers:
- *     EtwTraceLifetimeAccum @ 0x1C008AFC0 (EtwTraceLifetimeAccum.c)
- *     EtwTraceDWMGetDirtyRegion @ 0x1C00AF880 (EtwTraceDWMGetDirtyRegion.c)
- *     EtwTraceMoveRegion @ 0x1C0178750 (EtwTraceMoveRegion.c)
+ *     EtwTraceLifetimeAccum @ 0x1C007F3B0 (EtwTraceLifetimeAccum.c)
+ *     EtwTraceDWMGetDirtyRegion @ 0x1C009CD20 (EtwTraceDWMGetDirtyRegion.c)
+ *     EtwTraceMoveRegion @ 0x1C014C450 (EtwTraceMoveRegion.c)
  * Callees:
- *     ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C008B540 (-sizeSave@RGNOBJ@@QEAAKXZ.c)
- *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C008B580 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
+ *     ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C001F740 (-sizeSave@RGNOBJ@@QEAAKXZ.c)
+ *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C001F780 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
  */
 
 __int64 __fastcall GrepGetRegionPtrData(RECT *a1, DWORD a2, struct _RGNDATA *a3)

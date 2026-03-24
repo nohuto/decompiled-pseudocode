@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptSaveReplayState @ 0x140A62B5C
+ * XREFs of HalpInterruptSaveReplayState @ 0x1409A8BF0
  * Callers:
- *     HalpDpGetInterruptReplayState @ 0x140A621A0 (HalpDpGetInterruptReplayState.c)
+ *     HalpDpGetInterruptReplayState @ 0x1409A8220 (HalpDpGetInterruptReplayState.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D1A88 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSaveReplayState(__int64 a1)
@@ -13,20 +13,16 @@ __int64 __fastcall HalpInterruptSaveReplayState(__int64 a1)
   int v2; // r8d
 
   v1 = *(__int64 (__fastcall **)(_QWORD, __int64))(HalpInterruptController + 152);
-  if ( !v1 )
-  {
+  if ( v1 )
+    v2 = v1(*(_QWORD *)(HalpInterruptController + 16), a1);
+  else
     v2 = -1073741637;
-LABEL_5:
+  if ( v2 < 0 )
     HalpInterruptSetProblemEx(
       HalpInterruptController,
       28,
       v2,
       (__int64)"minkernel\\hals\\lib\\interrupts\\common\\replace.c",
       0x330u);
-    return (unsigned int)v2;
-  }
-  v2 = v1(*(_QWORD *)(HalpInterruptController + 16), a1);
-  if ( v2 < 0 )
-    goto LABEL_5;
   return (unsigned int)v2;
 }

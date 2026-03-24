@@ -1,50 +1,45 @@
 /*
- * XREFs of ?DrvReleaseChangeDisplaySettingLocks@@YAXXZ @ 0x1C0077B28
+ * XREFs of ?DrvReleaseChangeDisplaySettingLocks@@YAXXZ @ 0x1C0014358
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void DrvReleaseChangeDisplaySettingLocks(void)
 {
-  __int64 v0; // rcx
-  __int64 v1; // rcx
-  __int64 v2; // rcx
-  __int64 (*v3)(void); // rax
-  struct _ERESOURCE *v4; // rax
-  __int64 v5; // rcx
+  __int64 (*v0)(void); // rax
+  struct _ERESOURCE *v1; // rax
 
   EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
   if ( ghsemDCVisRgn )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDCVisRgn);
-    PsLeavePriorityRegion(v0);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDCVisRgn);
+    PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
   if ( ghsemGreLock )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemGreLock);
-    PsLeavePriorityRegion(v1);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemGreLock);
+    PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
   if ( ghsemDynamicModeChange )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-    PsLeavePriorityRegion(v2);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+    PsLeavePriorityRegion();
   }
-  v3 = qword_1C029B178;
-  if ( qword_1C029B178 )
-    v3 = (__int64 (*)(void))qword_1C029B178();
-  EtwTraceGreLockReleaseSemaphore(L"GetghsemEnableEUDC()", v3);
-  if ( qword_1C029B178 )
+  v0 = qword_1C02563F8;
+  if ( qword_1C02563F8 )
+    v0 = (__int64 (*)(void))qword_1C02563F8();
+  EtwTraceGreLockReleaseSemaphore(L"GetghsemEnableEUDC()", v0);
+  v1 = (struct _ERESOURCE *)qword_1C02563F8;
+  if ( qword_1C02563F8 )
+    v1 = (struct _ERESOURCE *)qword_1C02563F8();
+  if ( v1 )
   {
-    v4 = (struct _ERESOURCE *)qword_1C029B178();
-    if ( v4 )
-    {
-      ExReleaseResourceAndLeaveCriticalRegion(v4);
-      PsLeavePriorityRegion(v5);
-    }
+    ExReleaseResourceAndLeaveCriticalRegion(v1);
+    PsLeavePriorityRegion();
   }
 }

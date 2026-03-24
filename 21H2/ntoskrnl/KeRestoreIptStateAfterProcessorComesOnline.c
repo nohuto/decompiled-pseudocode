@@ -1,13 +1,13 @@
 /*
- * XREFs of KeRestoreIptStateAfterProcessorComesOnline @ 0x14038C0C8
+ * XREFs of KeRestoreIptStateAfterProcessorComesOnline @ 0x140383554
  * Callers:
- *     PopHandleNextState @ 0x140A4B5A0 (PopHandleNextState.c)
- *     PnprQuiesceProcessorDpc @ 0x140A687F0 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KiRestoreIptState @ 0x140570120 (KiRestoreIptState.c)
+ *     KiRestoreIptState @ 0x14051A3B0 (KiRestoreIptState.c)
  */
 
-struct _KPRCB *__fastcall KeRestoreIptStateAfterProcessorComesOnline(__int64 a1, __int64 a2, __int64 a3)
+struct _KPRCB *KeRestoreIptStateAfterProcessorComesOnline()
 {
   struct _KPRCB *result; // rax
   _XSAVE_AREA *ExtendedState; // rdx
@@ -17,7 +17,7 @@ struct _KPRCB *__fastcall KeRestoreIptStateAfterProcessorComesOnline(__int64 a1,
     result = KeGetCurrentPrcb();
     ExtendedState = result->ExtendedState;
     if ( ExtendedState )
-      return (struct _KPRCB *)KiRestoreIptState((char *)ExtendedState + (unsigned int)KeXStateLength, ExtendedState, a3);
+      return (struct _KPRCB *)KiRestoreIptState((char *)ExtendedState + (unsigned int)KeXStateLength);
   }
   return result;
 }

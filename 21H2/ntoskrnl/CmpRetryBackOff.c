@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpRetryBackOff @ 0x14091BC2C
+ * XREFs of CmpRetryBackOff @ 0x140875040
  * Callers:
- *     CmUnloadKey @ 0x14069E454 (CmUnloadKey.c)
- *     CmpSaveBootControlSet @ 0x14090BC6C (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x14090C34C (CmRestoreKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140913E28 (CmSetLastWriteTimeKey.c)
- *     CmpRollbackTransactionArray @ 0x14091BC64 (CmpRollbackTransactionArray.c)
+ *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
+ *     CmpRollbackTransactionArray @ 0x140875078 (CmpRollbackTransactionArray.c)
+ *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
  */
 
 NTSTATUS __fastcall CmpRetryBackOff(_DWORD *a1)

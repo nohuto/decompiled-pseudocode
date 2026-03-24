@@ -2,9 +2,9 @@
  * XREFs of PipAreDriversLoaded @ 0x1400072C0
  * Callers:
  *     PiControlGetUserFlagsFromDeviceNode @ 0x14059C36C (PiControlGetUserFlagsFromDeviceNode.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
- *     PiDevCfgProcessDeviceCallback @ 0x140750BE0 (PiDevCfgProcessDeviceCallback.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x140750BC0 (PiDevCfgProcessDeviceCallback.c)
  * Callees:
  *     PipAreDriversLoadedWorker @ 0x1400072E0 (PipAreDriversLoadedWorker.c)
  */

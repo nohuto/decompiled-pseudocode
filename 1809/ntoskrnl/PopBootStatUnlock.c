@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBootStatUnlock @ 0x1408775BC
+ * XREFs of PopBootStatUnlock @ 0x14087759C
  * Callers:
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlUnlockBootStatusData @ 0x140718BC0 (RtlUnlockBootStatusData.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlUnlockBootStatusData @ 0x140718BA0 (RtlUnlockBootStatusData.c)
  */
 
 __int64 PopBootStatUnlock()

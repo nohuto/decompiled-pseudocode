@@ -1,7 +1,8 @@
 /*
- * XREFs of ?bSpUpdateAlpha@@YAHPEAVSPRITE@@PEAU_BLENDFUNCTION@@H@Z @ 0x1C027EA7C
+ * XREFs of ?bSpUpdateAlpha@@YAHPEAVSPRITE@@PEAU_BLENDFUNCTION@@H@Z @ 0x1C0164FA0
  * Callers:
- *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00F4380 (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
+ *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00EF73C (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
+ *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0164708 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
  * Callees:
  *     <none>
  */
@@ -25,10 +26,10 @@ __int64 __fastcall bSpUpdateAlpha(struct SPRITE *a1, struct _BLENDFUNCTION *a2, 
         *((struct _BLENDFUNCTION *)a1 + 50) = *a2;
       v6 = *((_QWORD *)a1 + 2);
       *((_DWORD *)a1 + 1) = v5 & 0xFFFFFFF9 | 2;
-      if ( *(_DWORD *)(v6 + 108) <= 3u || (a2->AlphaFormat & 1) == 0 && a2->SourceConstantAlpha == 0xFF )
-        *(_DWORD *)a1 |= 8u;
-      else
+      if ( *(_DWORD *)(v6 + 108) > 3u && ((a2->AlphaFormat & 1) != 0 || a2->SourceConstantAlpha != 0xFF) )
         *(_DWORD *)a1 &= ~8u;
+      else
+        *(_DWORD *)a1 |= 8u;
     }
   }
   return v4;

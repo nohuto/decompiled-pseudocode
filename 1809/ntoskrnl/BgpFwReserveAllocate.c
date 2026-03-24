@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwReserveAllocate @ 0x14016F644
+ * XREFs of BgpFwReserveAllocate @ 0x14016F664
  * Callers:
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall BgpFwReserveAllocate(__int64 a1)

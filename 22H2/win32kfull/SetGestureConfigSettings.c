@@ -1,76 +1,78 @@
 /*
- * XREFs of SetGestureConfigSettings @ 0x1C00509F8
+ * XREFs of SetGestureConfigSettings @ 0x1C012B144
  * Callers:
- *     NtUserSetGestureConfig @ 0x1C0051290 (NtUserSetGestureConfig.c)
+ *     NtUserSetGestureConfig @ 0x1C012AE10 (NtUserSetGestureConfig.c)
  * Callees:
- *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C0050984 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
- *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C0051080 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
- *     ?SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z @ 0x1C00511E8 (-SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z.c)
- *     ?FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z @ 0x1C00BC41C (-FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z.c)
- *     ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C00E300C (-VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     FreeWindowGCData @ 0x1C013CCB8 (FreeWindowGCData.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     FreeWindowGCData @ 0x1C007C080 (FreeWindowGCData.c)
+ *     ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C01101CC (-VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012AFE0 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C012B280 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z @ 0x1C012B2C0 (-SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z.c)
+ *     ?FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z @ 0x1C0133B88 (-FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z.c)
  */
 
 __int64 __fastcall SetGestureConfigSettings(struct tagWND *a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  __int64 v7; // rax
-  _QWORD *v8; // rsi
-  _BYTE *v9; // rax
-  struct tagVWPLGESTUREDATA *GCData; // rsi
-  int v11; // ecx
-  _BYTE *v12; // rcx
-  void *v13; // rbx
-  __int64 v15; // rcx
-  int v16; // [rsp+20h] [rbp-18h]
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // rax
+  _QWORD *v10; // rdi
+  _BYTE *v11; // rax
+  __int64 v12; // rdx
+  struct tagVWPLGESTUREDATA *GCData; // rdi
+  __int64 v14; // r9
+  int v15; // ecx
+  _BYTE *v16; // rcx
+  void *v17; // rbx
+  __int64 v19; // rcx
 
   if ( !(unsigned int)SortGestureConfigArray((struct tagGESTURECONFIG *)a4, a3) )
     goto LABEL_16;
   if ( !GetGCData(a1) )
   {
-    v7 = Win32AllocPoolWithQuotaZInit(24LL, 1684501333LL);
-    v8 = (_QWORD *)v7;
-    if ( !v7
-      || (*(_DWORD *)(v7 + 12) = 0,
-          *(_DWORD *)(v7 + 8) = 0,
-          v9 = (_BYTE *)Win32AllocPoolWithQuotaZInit(1LL, 1835168597LL),
-          (*v8 = v9) == 0LL) )
+    v9 = Win32AllocPoolWithQuota(24LL, 1684501333LL);
+    v10 = (_QWORD *)v9;
+    if ( !v9
+      || (*(_DWORD *)(v9 + 12) = 0,
+          *(_DWORD *)(v9 + 8) = 0,
+          v11 = (_BYTE *)Win32AllocPoolWithQuota(1LL, 1835168597LL),
+          (*v10 = v11) == 0LL) )
     {
-      v15 = 14LL;
+      v19 = 14LL;
       goto LABEL_18;
     }
-    *v9 = 0;
-    v8[2] = 0LL;
-    VWPLAddBase(
-      (struct tagVWPL **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 880LL),
-      (unsigned __int64)v8,
-      a1,
-      5u,
-      v16);
+    *v11 = 0;
+    v10[2] = 0LL;
+    VWPLAddBase((struct tagVWPL **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 872LL), (__int64)v10, a1, 5u);
   }
   GCData = GetGCData(a1);
   if ( *(_DWORD *)a4 )
     return _StoreGestureConfig(a1, a3, (struct tagGESTURECONFIG *)a4);
-  if ( !*(_DWORD *)(a4 + 4) && !*(_DWORD *)(a4 + 8) )
-    FreeWindowGCData(a1);
-  v11 = *(_DWORD *)(a4 + 4);
-  if ( (v11 | *(_DWORD *)(a4 + 8)) != 1 || v11 == *(_DWORD *)(a4 + 8) )
+  v15 = *(_DWORD *)(a4 + 4);
+  if ( !v15 && !*(_DWORD *)(a4 + 8) )
+  {
+    FreeWindowGCData(a1, v12, v8, v14);
+    v15 = *(_DWORD *)(a4 + 4);
+  }
+  v7 = *(unsigned int *)(a4 + 8);
+  if ( (v15 | *(_DWORD *)(a4 + 8)) != 1 || v15 == (_DWORD)v7 )
   {
 LABEL_16:
-    v15 = 87LL;
+    v19 = 87LL;
 LABEL_18:
-    UserSetLastError(v15);
+    UserSetLastError(v19, v7, v8);
     return 0LL;
   }
-  *((_DWORD *)GCData + 2) = v11;
-  v12 = *(_BYTE **)GCData;
+  *((_DWORD *)GCData + 2) = v15;
+  v16 = *(_BYTE **)GCData;
   *((_DWORD *)GCData + 3) = *(_DWORD *)(a4 + 8);
-  *v12 = 0;
-  v13 = (void *)*((_QWORD *)GCData + 2);
-  if ( v13 )
+  *v16 = 0;
+  v17 = (void *)*((_QWORD *)GCData + 2);
+  if ( v17 )
   {
     FreeWindowGCList(*((struct tagGESTURECONFIGLIST ***)GCData + 2));
-    Win32FreePool(v13);
+    Win32FreePool(v17);
     *((_QWORD *)GCData + 2) = 0LL;
   }
   return 1LL;

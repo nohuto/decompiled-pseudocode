@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRemoveUnicodePrefix @ 0x1406C4240
+ * XREFs of RtlRemoveUnicodePrefix @ 0x1406C4220
  * Callers:
  *     <none>
  * Callees:

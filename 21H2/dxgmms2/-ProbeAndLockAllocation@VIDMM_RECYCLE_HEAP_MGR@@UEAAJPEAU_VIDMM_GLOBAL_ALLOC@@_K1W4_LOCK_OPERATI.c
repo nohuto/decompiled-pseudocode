@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProbeAndLockAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C007DDF0
+ * XREFs of ?ProbeAndLockAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C0076B80
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001344 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001400 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C00014D4 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C007E09C (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
- *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00AA464 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000210C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002174 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000255C (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C0076EE4 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
+ *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00C17D8 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
  */
 
 __int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::ProbeAndLockAllocation(
@@ -19,29 +19,39 @@ __int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::ProbeAndLockAllocation(
         struct VIDMM_SEGMENT *a6,
         char a7)
 {
-  struct DXGFASTMUTEX *v7; // r15
-  VIDMM_RECYCLE_MULTIRANGE *v11; // r14
-  int v12; // ebx
-  enum _LOCK_OPERATION v14; // [rsp+20h] [rbp-58h]
-  enum _LOCK_OPERATION v15; // [rsp+20h] [rbp-58h]
-  _BYTE v16[8]; // [rsp+40h] [rbp-38h] BYREF
-  char v17; // [rsp+48h] [rbp-30h]
+  __int64 v7; // rax
+  struct DXGFASTMUTEX *v8; // rdi
+  VIDMM_RECYCLE_MULTIRANGE *v12; // r15
+  int v13; // ebx
+  __int64 v15; // rax
+  enum _LOCK_OPERATION v16; // [rsp+20h] [rbp-58h]
+  enum _LOCK_OPERATION v17; // [rsp+20h] [rbp-58h]
+  char *v18; // [rsp+40h] [rbp-38h] BYREF
+  char v19; // [rsp+48h] [rbp-30h]
 
-  v7 = (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328);
-  v11 = *(VIDMM_RECYCLE_MULTIRANGE **)(*((_QWORD *)a2 + 11) + 24LL);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v16, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v16);
-  v12 = VIDMM_RECYCLE_MULTIRANGE::Lock(v11, a2, a3, a4, v14, a6, a7);
-  if ( v17 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16);
-  if ( v12 < 0 )
+  v7 = *((_QWORD *)a2 + 12);
+  v8 = (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328);
+  v18 = (char *)this + 1328;
+  v19 = 0;
+  v12 = *(VIDMM_RECYCLE_MULTIRANGE **)(v7 + 24);
+  if ( this == (VIDMM_RECYCLE_HEAP_MGR *)-1328LL )
+  {
+    v15 = WdLogNewEntry5_WdAssertion(-1328LL, a2, a3);
+    *(_QWORD *)(v15 + 24) = 762LL;
+    WdLogEvent5_WdAssertion(v15);
+  }
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v18);
+  v13 = VIDMM_RECYCLE_MULTIRANGE::Lock(v12, a2, a3, a4, v16, a6, a7);
+  if ( v19 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v18);
+  if ( v13 < 0 )
   {
     VIDMM_RECYCLE_HEAP_MGR::ProcessDebounceListsGlobally(0);
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v16, v7);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v16);
-    v12 = VIDMM_RECYCLE_MULTIRANGE::Lock(v11, a2, a3, a4, v15, a6, a7);
-    if ( v17 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v18, v8);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v18);
+    v13 = VIDMM_RECYCLE_MULTIRANGE::Lock(v12, a2, a3, a4, v17, a6, a7);
+    if ( v19 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v18);
   }
-  return (unsigned int)v12;
+  return (unsigned int)v13;
 }

@@ -1,102 +1,100 @@
 /*
- * XREFs of CalcForegroundInsertAfter @ 0x1C00EC140
+ * XREFs of CalcForegroundInsertAfter @ 0x1C0038ADC
  * Callers:
- *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C0025CC8 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
- *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C002600C (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     ?CalcForegroundInsertAfterComponentUIAware@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0138C20 (-CalcForegroundInsertAfterComponentUIAware@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C01B5410 (-CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C0036554 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C00369BC (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     ?CalcForegroundInsertAfterComponentUIAware@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0038AB0 (-CalcForegroundInsertAfterComponentUIAware@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C01DFDAC (-CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z.c)
  * Callees:
- *     GetLastTopMostWindow @ 0x1C00ECD80 (GetLastTopMostWindow.c)
- *     ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C01363DC (-GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z.c)
+ *     ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C0038568 (-GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z.c)
+ *     GetLastTopMostWindow @ 0x1C0038C48 (GetLastTopMostWindow.c)
  */
 
-struct tagWND *__fastcall CalcForegroundInsertAfter(struct tagWND *a1)
+struct tagWND *__fastcall CalcForegroundInsertAfter(__int64 a1)
 {
   struct tagWND *LastNonBottomMostWindow; // rax
-  struct tagWND *v3; // r8
-  __int64 v4; // rcx
-  __int64 v5; // rdi
-  struct tagWND *v6; // rdx
-  struct tagWND *v7; // rcx
-  struct tagWND *v8; // rsi
-  _BYTE *v9; // r9
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  __int64 v12; // r9
+  __int64 v3; // r11
+  struct tagWND *v4; // r8
+  __int64 v5; // rcx
+  __int64 v7; // rdi
+  struct tagWND *v8; // rcx
+  struct tagWND *v9; // rdx
+  struct tagWND *v10; // rsi
+  _BYTE *v11; // r10
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // r9
 
-  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 20LL) & 0x20) != 0 )
-    LastNonBottomMostWindow = GetLastNonBottomMostWindow(a1, 1);
+  if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 20LL) & 0x20) != 0 )
+  {
+    LastNonBottomMostWindow = GetLastNonBottomMostWindow((struct tagWND *)a1, 1);
+  }
   else
+  {
     LastNonBottomMostWindow = (struct tagWND *)GetLastTopMostWindow(a1);
-  v3 = LastNonBottomMostWindow;
-  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0xC0) != 0x40 )
-  {
-    v4 = *((_QWORD *)a1 + 2);
-    if ( (*(_DWORD *)(v4 + 488) & 0x20) != 0 || (*(_DWORD *)(*(_QWORD *)(v4 + 424) + 12LL) & 0x80100) != 0 )
-      return v3;
+    v3 = *(_QWORD *)(a1 + 40);
   }
-  if ( !gpqForeground )
-    return v3;
-  v5 = *((_QWORD *)a1 + 2);
-  if ( *(_QWORD *)(v5 + 432) == gpqForeground )
-    return v3;
-  v6 = LastNonBottomMostWindow;
-  if ( LastNonBottomMostWindow )
+  v4 = LastNonBottomMostWindow;
+  if ( (*(_BYTE *)(v3 + 31) & 0xC0) == 0x40
+    || (v5 = *(_QWORD *)(a1 + 16), (*(_DWORD *)(v5 + 488) & 0x20) == 0)
+    && (*(_DWORD *)(*(_QWORD *)(v5 + 424) + 12LL) & 0x80100) == 0 )
   {
-    v7 = LastNonBottomMostWindow;
-    goto LABEL_13;
-  }
-  v7 = *(struct tagWND **)(*((_QWORD *)a1 + 13) + 112LL);
-  if ( !v7 )
-    goto LABEL_22;
-LABEL_13:
-  while ( 1 )
-  {
-    v8 = v7;
-    if ( v7 == a1 )
-      break;
-    v9 = (_BYTE *)*((_QWORD *)v7 + 5);
-    if ( (v9[20] & 0x20) == 0
-      && (*((_QWORD *)v7 + 2) != v5 || (v9[24] & 8) != 0 || (v9[31] & 0xC0) != 0x40 && (v9[31] & 0x10) == 0) )
+    if ( gpqForeground )
     {
-      v7 = (struct tagWND *)*((_QWORD *)v7 + 11);
-      v3 = v8;
-      if ( v7 )
-        continue;
-    }
-    if ( !v7 )
-      goto LABEL_22;
-    break;
-  }
-  if ( (*(_BYTE *)(*((_QWORD *)v7 + 5) + 20LL) & 0x20) != 0 )
-  {
-LABEL_22:
-    v3 = LastNonBottomMostWindow;
-    if ( !LastNonBottomMostWindow )
-      v6 = *(struct tagWND **)(*((_QWORD *)a1 + 13) + 112LL);
-    v10 = *(_QWORD *)(gpqForeground + 128LL);
-    v11 = 0LL;
-    if ( v10 )
-      v11 = *(_QWORD *)(v10 + 16);
-    while ( v6 )
-    {
-      v12 = *((_QWORD *)v6 + 5);
-      if ( (*(_BYTE *)(v12 + 20) & 0x20) != 0 )
-        break;
-      if ( *((_QWORD *)v6 + 2) == v11 )
+      v7 = *(_QWORD *)(a1 + 16);
+      if ( *(_QWORD *)(v7 + 432) != gpqForeground )
       {
-        if ( *((_QWORD *)v6 + 15) )
+        v8 = LastNonBottomMostWindow ? LastNonBottomMostWindow : *(struct tagWND **)(*(_QWORD *)(a1 + 104) + 112LL);
+        v9 = LastNonBottomMostWindow;
+        if ( !v8 )
+          goto LABEL_22;
+        do
         {
-          v3 = v6;
+          v10 = v8;
+          if ( v8 == (struct tagWND *)a1 )
+            break;
+          v11 = (_BYTE *)*((_QWORD *)v8 + 5);
+          if ( (v11[20] & 0x20) != 0
+            || *((_QWORD *)v8 + 2) == v7 && (v11[24] & 8) == 0 && ((v11[31] & 0xC0) == 0x40 || (v11[31] & 0x10) != 0) )
+          {
+            break;
+          }
+          v8 = (struct tagWND *)*((_QWORD *)v8 + 11);
+          v4 = v10;
         }
-        else if ( (*(_BYTE *)(v12 + 31) & 0x10) != 0 )
+        while ( v8 );
+        if ( !v8 || (*(_BYTE *)(*((_QWORD *)v8 + 5) + 20LL) & 0x20) != 0 )
         {
-          v3 = v6;
+LABEL_22:
+          v4 = LastNonBottomMostWindow;
+          if ( !LastNonBottomMostWindow )
+            v9 = *(struct tagWND **)(*(_QWORD *)(a1 + 104) + 112LL);
+          v12 = *(_QWORD *)(gpqForeground + 120LL);
+          v13 = 0LL;
+          if ( v12 )
+            v13 = *(_QWORD *)(v12 + 16);
+          while ( v9 )
+          {
+            v14 = *((_QWORD *)v9 + 5);
+            if ( (*(_BYTE *)(v14 + 20) & 0x20) != 0 )
+              break;
+            if ( *((_QWORD *)v9 + 2) == v13 )
+            {
+              if ( *((_QWORD *)v9 + 15) )
+              {
+                v4 = v9;
+              }
+              else if ( (*(_BYTE *)(v14 + 31) & 0x10) != 0 )
+              {
+                v4 = v9;
+              }
+            }
+            v9 = (struct tagWND *)*((_QWORD *)v9 + 11);
+          }
         }
       }
-      v6 = (struct tagWND *)*((_QWORD *)v6 + 11);
     }
   }
-  return v3;
+  return v4;
 }

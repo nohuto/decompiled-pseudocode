@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x1401B5FB8 (RtlIsImageFullyRetpolined.c)
+ *     RtlIsImageFullyRetpolined @ 0x1401B5FD8 (RtlIsImageFullyRetpolined.c)
  */
 
 __int64 __fastcall MiIsBootImageTargetFullyRetpolined(unsigned __int64 a1)

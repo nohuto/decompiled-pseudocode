@@ -1,21 +1,21 @@
 /*
- * XREFs of IopBootLog @ 0x1406CF254
+ * XREFs of IopBootLog @ 0x1406CF234
  * Callers:
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
- *     PipCallDriverAddDevice @ 0x1406E6C6C (PipCallDriverAddDevice.c)
- *     IopInitializeBootLogging @ 0x14081A034 (IopInitializeBootLogging.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
+ *     IopInitializeBootLogging @ 0x14081A014 (IopInitializeBootLogging.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     IopOpenRegistryKey @ 0x1406C68D0 (IopOpenRegistryKey.c)
- *     IopBootLogToFile @ 0x140819460 (IopBootLogToFile.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     IopOpenRegistryKey @ 0x1406C68B0 (IopOpenRegistryKey.c)
+ *     IopBootLogToFile @ 0x140819440 (IopBootLogToFile.c)
  */
 
 void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
@@ -59,7 +59,7 @@ void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
     ++LODWORD(v4[10].Buffer);
     RtlStringCchPrintfW(pszDest, 0x100uLL, L"%d");
     RtlInitUnicodeString(&v12, pszDest);
-    RtlInitUnicodeString(&ValueName, &word_140766570);
+    RtlInitUnicodeString(&ValueName, &word_140766550);
     if ( BYTE4(qword_14096D020[10].Buffer) )
     {
       IopBootLogToFile(&DestinationString);

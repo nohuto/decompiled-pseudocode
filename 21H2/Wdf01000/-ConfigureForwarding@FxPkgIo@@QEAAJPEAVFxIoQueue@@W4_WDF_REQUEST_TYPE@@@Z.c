@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C00813E0
+ * XREFs of ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C0074C58
  * Callers:
- *     imp_WdfDeviceConfigureRequestDispatching @ 0x1C0062CA0 (imp_WdfDeviceConfigureRequestDispatching.c)
+ *     imp_WdfDeviceConfigureRequestDispatching @ 0x1C00475C0 (imp_WdfDeviceConfigureRequestDispatching.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0026218 (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     ?IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z @ 0x1C0039730 (-IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_Lqd @ 0x1C008178C (WPP_IFR_SF_Lqd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C003BC4C (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ *     WPP_IFR_SF_Lqd @ 0x1C0075394 (WPP_IFR_SF_Lqd.c)
+ *     ?IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z @ 0x1C00767C8 (-IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z.c)
  */
 
 __int64 __fastcall FxPkgIo::ConfigureForwarding(FxPkgIo *this, FxIoQueue *TargetQueue, _WDF_REQUEST_TYPE RequestType)
@@ -44,7 +44,14 @@ __int64 __fastcall FxPkgIo::ConfigureForwarding(FxPkgIo *this, FxIoQueue *Target
     {
       ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(TargetQueue);
       v7 = -1073741808;
-      WPP_IFR_SF_qL(m_Globals, 2u, 0xDu, 0x19u, WPP_FxPkgIo_cpp_Traceguids, ObjectHandleUnchecked, 0xC0000010);
+      WPP_IFR_SF_qL(
+        m_Globals,
+        2u,
+        0xDu,
+        0x19u,
+        (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids,
+        ObjectHandleUnchecked,
+        0xC0000010);
     }
     else
     {
@@ -57,7 +64,7 @@ __int64 __fastcall FxPkgIo::ConfigureForwarding(FxPkgIo *this, FxIoQueue *Target
       }
       v16 = (const void *)FxObject::GetObjectHandleUnchecked(TargetQueue);
       v7 = -1071644156;
-      WPP_IFR_SF_Lqd(m_Globals, v17, v18, 0x1Au, WPP_FxPkgIo_cpp_Traceguids, _a3, v16, -1071644156);
+      WPP_IFR_SF_Lqd(m_Globals, v17, v18, 0x1Au, (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids, _a3, v16, -1071644156);
     }
     FxVerifierDbgBreakPoint(m_Globals);
 LABEL_10:
@@ -66,7 +73,7 @@ LABEL_10:
   }
   globals = (const void *)FxObject::GetObjectHandleUnchecked(v8);
   v7 = -1073741808;
-  WPP_IFR_SF_Lqd(m_Globals, v11, v12, 0x18u, WPP_FxPkgIo_cpp_Traceguids, _a3, globals, -1073741808);
+  WPP_IFR_SF_Lqd(m_Globals, v11, v12, 0x18u, (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids, _a3, globals, -1073741808);
   FxVerifierDbgBreakPoint(m_Globals);
   return v7;
 }

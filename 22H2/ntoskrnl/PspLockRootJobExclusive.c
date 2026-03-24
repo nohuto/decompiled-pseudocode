@@ -1,14 +1,14 @@
 /*
- * XREFs of PspLockRootJobExclusive @ 0x14069F000
+ * XREFs of PspLockRootJobExclusive @ 0x14065CFF0
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1407D861C (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall PspLockRootJobExclusive(__int64 a1, __int64 a2, _QWORD *a3)
@@ -19,11 +19,11 @@ __int64 __fastcall PspLockRootJobExclusive(__int64 a1, __int64 a2, _QWORD *a3)
 
   if ( a2 )
     --*(_WORD *)(a2 + 486);
-  for ( i = *(_QWORD *)(a1 + 1296); ; i = *(_QWORD *)(a1 + 1296) )
+  for ( i = *(_QWORD *)(a1 + 1080); ; i = *(_QWORD *)(a1 + 1080) )
   {
     v7 = i;
     ExAcquireResourceExclusiveLite((PERESOURCE)(i + 56), 1u);
-    if ( v7 == *(_QWORD *)(a1 + 1296) )
+    if ( v7 == *(_QWORD *)(a1 + 1080) )
       break;
     ExReleaseResourceLite((PERESOURCE)(v7 + 56));
   }

@@ -1,33 +1,40 @@
 /*
- * XREFs of ?RecycleLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000DA20
+ * XREFs of ?RecycleLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18009031C
  * Callers:
- *     ?DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z @ 0x18000D964 (-DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z.c)
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x180091088 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x1800121F4 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z @ 0x180012254 (-DiscardEmptyLayers@CBatchOptimizer@@AEAAXHI@Z.c)
+ *     ?AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z @ 0x180079090 (-AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z.c)
+ *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0170 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall CBatchOptimizer::RecycleLayer(CBatchOptimizer *this, __int64 a2)
+void __fastcall CBatchOptimizer::RecycleLayer(CBatchOptimizer *this, int a2)
 {
-  int v2; // eax
-  int *v3; // r10
-  int v4; // r11d
+  __int64 v2; // r8
+  __int64 v3; // r9
+  __int64 v4; // r10
+  __int64 v5; // r8
+  int *v6; // rdx
+  int v7; // r11d
 
-  v2 = *((_DWORD *)this + 8) - 1;
-  if ( (_DWORD)a2 != v2 )
+  v2 = *((int *)this + 8);
+  if ( a2 != (_DWORD)v2 - 1 )
   {
-    a2 = (int)a2;
-    v3 = (int *)((char *)this + 4 * (int)a2 + 48);
-    v4 = *v3;
+    v3 = a2;
+    v4 = *((int *)this + 8);
+    v5 = v2 - 1;
+    v6 = (int *)((char *)this + 4 * a2 + 48);
+    v7 = *v6;
     do
     {
-      ++a2;
-      *v3 = v3[1];
       ++v3;
+      *v6 = v6[1];
+      ++v6;
     }
-    while ( a2 != v2 );
-    *((_DWORD *)this + v2 + 12) = v4;
+    while ( v3 != v5 );
+    *((_DWORD *)this + v4 + 11) = v7;
+    LODWORD(v2) = *((_DWORD *)this + 8);
   }
-  --*((_DWORD *)this + 8);
+  *((_DWORD *)this + 8) = v2 - 1;
 }

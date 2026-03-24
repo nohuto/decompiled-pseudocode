@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDuplicateUnicodeString @ 0x1402D1DA4
+ * XREFs of PnpDuplicateUnicodeString @ 0x14036EEA0
  * Callers:
- *     PiDevCfgConfigureDeviceLocation @ 0x1406E6424 (PiDevCfgConfigureDeviceLocation.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1407455A8 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgQueryDriverNode @ 0x140746270 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgBuildIndirectString @ 0x1407468A0 (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgProcessDeviceCallback @ 0x14084F060 (PiDevCfgProcessDeviceCallback.c)
- *     PiDevCfgAppendMultiSz @ 0x14094A7D4 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14094CFE8 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x14073C7F4 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgBuildIndirectString @ 0x14073D1AC (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140770D0C (PiDevCfgConfigureDeviceLocation.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BDD10 (PiDevCfgProcessDeviceCallback.c)
+ *     PiDevCfgAppendMultiSz @ 0x1408A4C8C (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7648 (PiDevCfgQueryIncludedDriverNode.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
  */
 
 char __fastcall PnpDuplicateUnicodeString(__int64 a1, __int64 a2)

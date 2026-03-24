@@ -4,11 +4,11 @@
  *     CmpInitializeHardwareConfiguration @ 0x1409C1C54 (CmpInitializeHardwareConfiguration.c)
  *     CmpSetupConfigurationTree @ 0x1409C22E8 (CmpSetupConfigurationTree.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _stricmp @ 0x1401953C0 (_stricmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     __report_rangecheckfailure @ 0x140268CCC (__report_rangecheckfailure.c)
- *     CmpInitializeRegistryNode @ 0x140732218 (CmpInitializeRegistryNode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _stricmp @ 0x1401953E0 (_stricmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
+ *     CmpInitializeRegistryNode @ 0x1407321F8 (CmpInitializeRegistryNode.c)
  *     CmpSetupConfigurationTree @ 0x1409C22E8 (CmpSetupConfigurationTree.c)
  */
 

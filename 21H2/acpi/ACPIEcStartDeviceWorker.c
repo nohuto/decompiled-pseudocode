@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIEcStartDeviceWorker @ 0x1C0053300
+ * XREFs of ACPIEcStartDeviceWorker @ 0x1C0053C40
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIEcConnectInterrupt @ 0x1C00AD5A0 (ACPIEcConnectInterrupt.c)
- *     ACPIEcGetGpeVector @ 0x1C00AD6A4 (ACPIEcGetGpeVector.c)
- *     ACPIEcGetUid @ 0x1C00AD748 (ACPIEcGetUid.c)
- *     ACPIEcInstallOpRegionHandler @ 0x1C00AD7DC (ACPIEcInstallOpRegionHandler.c)
- *     ACPIEcGetResources @ 0x1C00AD854 (ACPIEcGetResources.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIEcConnectInterrupt @ 0x1C00AE918 (ACPIEcConnectInterrupt.c)
+ *     ACPIEcGetGpeVector @ 0x1C00AEA1C (ACPIEcGetGpeVector.c)
+ *     ACPIEcGetUid @ 0x1C00AEAC0 (ACPIEcGetUid.c)
+ *     ACPIEcInstallOpRegionHandler @ 0x1C00AEB54 (ACPIEcInstallOpRegionHandler.c)
+ *     ACPIEcGetResources @ 0x1C00AEBCC (ACPIEcGetResources.c)
  */
 
 _UNKNOWN **__fastcall ACPIEcStartDeviceWorker(__int64 a1)
@@ -66,13 +66,13 @@ LABEL_11:
   v4->IoStatus.Status = Resources;
   IofCompleteRequest(v4, 0);
   v10 = v5[1];
-  v11 = (const char *)&unk_1C006FB8B;
-  v12 = (const char *)&unk_1C006FB8B;
+  v11 = (const char *)&unk_1C00701BA;
+  v12 = (const char *)&unk_1C00701BA;
   if ( (v10 & 0x200000000000LL) != 0 )
   {
-    v11 = (const char *)v5[76];
+    v11 = (const char *)v5[71];
     if ( (v10 & 0x400000000000LL) != 0 )
-      v12 = (const char *)v5[77];
+      v12 = (const char *)v5[72];
   }
   result = &WPP_RECORDER_INITIALIZED;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -85,7 +85,7 @@ LABEL_11:
                           4u,
                           5u,
                           0xBu,
-                          (__int64)&WPP_6057e56858b93eac69fe3741b9c48703_Traceguids,
+                          (__int64)&WPP_1c376abaf53c383d7a89b72da0be5001_Traceguids,
                           (char)v4,
                           ACPIDispatchPnpTableNames[v14],
                           Resources,

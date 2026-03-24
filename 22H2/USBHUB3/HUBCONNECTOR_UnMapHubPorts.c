@@ -1,51 +1,53 @@
 /*
- * XREFs of HUBCONNECTOR_UnMapHubPorts @ 0x1C0081B8C
+ * XREFs of HUBCONNECTOR_UnMapHubPorts @ 0x1C007C0FC
  * Callers:
- *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C0078370 (HUBFDO_EvtDeviceReleaseHardware.c)
- *     HUBCONNECTOR_MapHubPorts @ 0x1C0081A4C (HUBCONNECTOR_MapHubPorts.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0073E00 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C00746B0 (HUBFDO_EvtDeviceReleaseHardware.c)
  * Callees:
- *     HUBCONNECTOR_DeRegisterPort @ 0x1C0081180 (HUBCONNECTOR_DeRegisterPort.c)
+ *     HUBCONNECTOR_DeRegisterPort @ 0x1C007B7A4 (HUBCONNECTOR_DeRegisterPort.c)
  */
 
-void __fastcall HUBCONNECTOR_UnMapHubPorts(_WORD *a1)
+__int64 __fastcall HUBCONNECTOR_UnMapHubPorts(__int64 a1)
 {
-  unsigned __int16 v1; // di
-  _QWORD **i; // rbx
-  _QWORD *j; // rax
-  __int64 v5; // rcx
+  unsigned __int16 i; // di
+  __int64 j; // rcx
+  __int64 v4; // rcx
+  __int64 result; // rax
   unsigned __int16 k; // di
-  _QWORD *m; // rax
+  __int64 m; // rcx
   __int64 v8; // rcx
 
-  v1 = a1[73];
-  for ( i = (_QWORD **)(a1 + 1180); v1 <= a1[74]; ++v1 )
+  for ( i = *(_WORD *)(a1 + 146); i <= *(_WORD *)(a1 + 148); ++i )
   {
-    for ( j = *i; ; j = (_QWORD *)*j )
+    for ( j = *(_QWORD *)(a1 + 2360); ; j = *(_QWORD *)(v4 + 248) )
     {
-      v5 = (__int64)(j - 31);
-      if ( i == j )
+      v4 = j - 248;
+      result = v4 - 2112;
+      if ( a1 == v4 - 2112 )
         break;
-      if ( *(_WORD *)(v5 + 200) == v1 )
+      if ( *(_WORD *)(v4 + 200) == i )
       {
-        if ( j != (_QWORD *)248 )
-          HUBCONNECTOR_DeRegisterPort(v5);
+        if ( v4 )
+          result = HUBCONNECTOR_DeRegisterPort(v4);
         break;
       }
     }
   }
-  for ( k = a1[76]; k <= a1[77]; ++k )
+  for ( k = *(_WORD *)(a1 + 152); k <= *(_WORD *)(a1 + 154); ++k )
   {
-    for ( m = *i; ; m = (_QWORD *)*m )
+    for ( m = *(_QWORD *)(a1 + 2360); ; m = *(_QWORD *)(v8 + 248) )
     {
-      v8 = (__int64)(m - 31);
-      if ( i == m )
+      v8 = m - 248;
+      result = v8 - 2112;
+      if ( a1 == v8 - 2112 )
         break;
       if ( *(_WORD *)(v8 + 200) == k )
       {
-        if ( m != (_QWORD *)248 )
-          HUBCONNECTOR_DeRegisterPort(v8);
+        if ( v8 )
+          result = HUBCONNECTOR_DeRegisterPort(v8);
         break;
       }
     }
   }
+  return result;
 }

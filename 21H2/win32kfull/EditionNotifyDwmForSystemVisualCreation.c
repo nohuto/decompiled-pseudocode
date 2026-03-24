@@ -1,27 +1,28 @@
 /*
- * XREFs of EditionNotifyDwmForSystemVisualCreation @ 0x1C010C760
+ * XREFs of EditionNotifyDwmForSystemVisualCreation @ 0x1C0122940
  * Callers:
  *     <none>
  * Callees:
- *     DwmAsyncCreateDCompositionHwndTarget @ 0x1C010C7F8 (DwmAsyncCreateDCompositionHwndTarget.c)
+ *     DwmAsyncCreateDCompositionHwndTarget @ 0x1C01229D4 (DwmAsyncCreateDCompositionHwndTarget.c)
  */
 
 __int64 __fastcall EditionNotifyDwmForSystemVisualCreation(__int64 a1, __int64 a2, CompositionObject *a3)
 {
   int v4; // edi
-  __int64 v5; // rcx
-  void *v6; // rax
-  void *v8; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  void *v7; // rax
+  void *v9; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = 0;
   if ( (unsigned int)IsWindowDesktopComposed(a1) )
   {
-    v8 = 0LL;
-    v4 = CompositionObject::OpenDwmHandle(a3, &v8);
+    v9 = 0LL;
+    v4 = CompositionObject::OpenDwmHandle(a3, &v9);
     if ( v4 >= 0 )
     {
-      v6 = (void *)ReferenceDwmApiPort(v5);
-      return (unsigned int)DwmAsyncCreateDCompositionHwndTarget(v6);
+      v7 = (void *)ReferenceDwmApiPort(v6, v5);
+      return (unsigned int)DwmAsyncCreateDCompositionHwndTarget(v7);
     }
   }
   return (unsigned int)v4;

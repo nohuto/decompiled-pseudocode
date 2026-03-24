@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfInfoLogSysCallExit @ 0x1403122B0
+ * XREFs of PerfInfoLogSysCallExit @ 0x1403123B0
  * Callers:
- *     KiSystemCall64 @ 0x1401CF000 (KiSystemCall64.c)
- *     KiTrackSystemCallExit @ 0x140844DA0 (KiTrackSystemCallExit.c)
+ *     KiSystemCall64 @ 0x1401CF100 (KiSystemCall64.c)
+ *     KiTrackSystemCallExit @ 0x140844D80 (KiTrackSystemCallExit.c)
  * Callees:
  *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
  *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42CC (KeIsExecutingInArbitraryThreadContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 __int64 __fastcall PerfInfoLogSysCallExit(__int64 a1)

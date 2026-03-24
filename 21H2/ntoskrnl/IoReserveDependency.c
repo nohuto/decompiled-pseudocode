@@ -1,12 +1,12 @@
 /*
- * XREFs of IoReserveDependency @ 0x1409425A0
+ * XREFs of IoReserveDependency @ 0x14089D7A0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipSetDependency @ 0x140942DE4 (PipSetDependency.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PipSetDependency @ 0x14089DFF4 (PipSetDependency.c)
  */
 
 __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)
@@ -18,9 +18,11 @@ __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)
   int v8; // [rsp+34h] [rbp-24h]
   _WORD *v9; // [rsp+38h] [rbp-20h]
   int v10; // [rsp+40h] [rbp-18h]
+  int v11; // [rsp+44h] [rbp-14h]
 
   v5[1] = 0;
   v8 = 0;
+  v11 = 0;
   if ( a1 && a2 && *a2 && (a3 & 3) != 0 && (a3 & 0xFFFFFFFC) == 0 )
   {
     v7 = 1;

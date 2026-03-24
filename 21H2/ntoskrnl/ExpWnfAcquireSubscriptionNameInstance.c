@@ -1,34 +1,34 @@
 /*
- * XREFs of ExpWnfAcquireSubscriptionNameInstance @ 0x1407EEEB8
+ * XREFs of ExpWnfAcquireSubscriptionNameInstance @ 0x1406BB228
  * Callers:
- *     ExQueryWnfStateData @ 0x1407EEE10 (ExQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall ExpWnfAcquireSubscriptionNameInstance(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi
-  signed __int64 *v4; // rbx
+  unsigned __int64 *v4; // rbx
   __int64 v5; // rdi
   struct _EX_RUNDOWN_REF *v6; // rcx
 
   v3 = 0LL;
-  v4 = (signed __int64 *)(PsInitialSystemProcess[1].EndPadding[2] + 80);
-  v5 = KeAbPreAcquire((__int64)v4, 0LL);
-  if ( _InterlockedCompareExchange64(v4, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v4, 0, v5, (__int64)v4);
+  v4 = (unsigned __int64 *)(PsInitialSystemProcess[1].EndPadding[7] + 80);
+  v5 = KeAbPreAcquire((ULONG_PTR)v4, 0LL, 0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(v4, v5, (ULONG_PTR)v4);
   if ( v5 )
-    *(_BYTE *)(v5 + 18) = 1;
+    *(_BYTE *)(v5 + 26) |= 1u;
   v6 = *(struct _EX_RUNDOWN_REF **)(a2 + 48);
-  if ( v6 && ExAcquireRundownProtection(v6 + 1) )
+  if ( v6 && ExAcquireRundownProtection_0(v6 + 1) )
     v3 = *(_QWORD *)(a2 + 48);
-  if ( _InterlockedCompareExchange64(v4, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v4);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)v4);
   KeAbPostRelease((ULONG_PTR)v4);
   return v3;
 }

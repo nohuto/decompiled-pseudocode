@@ -1,19 +1,19 @@
 /*
- * XREFs of ?DrainCoreAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C02E9A9C
+ * XREFs of ?DrainCoreAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C0254FF4
  * Callers:
- *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C02ED494 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C0257220 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02D7560 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02281C0 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
  */
 
 void __fastcall DXGDEVICE::DrainCoreAllocations(struct _KTHREAD **this)
 {
-  struct DXGALLOCATION *v2; // rsi
+  struct _KTHREAD *v2; // rsi
   __int64 v3; // rbx
-  struct DXGALLOCATION *v4; // rdi
+  struct _KTHREAD *v4; // rdi
   char v5[8]; // [rsp+20h] [rbp-28h] BYREF
   DXGPUSHLOCK *v6; // [rsp+28h] [rbp-20h]
   int v7; // [rsp+30h] [rbp-18h]
@@ -27,10 +27,10 @@ void __fastcall DXGDEVICE::DrainCoreAllocations(struct _KTHREAD **this)
     do
     {
       v3 = *((_QWORD *)v2 + 7);
-      v4 = (struct DXGALLOCATION *)*((_QWORD *)v2 + 8);
+      v4 = (struct _KTHREAD *)*((_QWORD *)v2 + 8);
       *((_QWORD *)v2 + 7) = 0LL;
       *((_QWORD *)v2 + 8) = 0LL;
-      DXGDEVICE::DestroyCoreAllocations(this, 0LL, v2);
+      DXGDEVICE::DestroyCoreAllocations(this, 0LL, (struct DXGALLOCATION **)v2);
       *((_QWORD *)v2 + 7) = v3;
       *((_QWORD *)v2 + 8) = v4;
       v2 = v4;

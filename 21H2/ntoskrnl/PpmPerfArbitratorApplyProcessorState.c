@@ -1,124 +1,126 @@
 /*
- * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x14023B8E8
+ * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x140398CA4
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14023B798 (PpmPerfApplyProcessorState.c)
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
- *     PoSetProcessorQoS @ 0x14045E06E (PoSetProcessorQoS.c)
+ *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
+ *     PpmPerfApplyProcessorState @ 0x140398B3C (PpmPerfApplyProcessorState.c)
+ *     PoSetProcessorQoS @ 0x14056E55C (PoSetProcessorQoS.c)
  * Callees:
- *     KeUpdateQosGroupingSets @ 0x14023BA30 (KeUpdateQosGroupingSets.c)
- *     PpmEventProcessorPerfStateChange @ 0x14023BABC (PpmEventProcessorPerfStateChange.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeUpdateQosGroupingSets @ 0x140398DFC (KeUpdateQosGroupingSets.c)
+ *     PpmEventProcessorPerfStateChange @ 0x140398E88 (PpmEventProcessorPerfStateChange.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8 a2, char a3, __int64 a4)
 {
   __int64 v4; // r10
-  __int64 v6; // rbp
-  char v7; // r9
-  __int64 v8; // r8
-  char v11; // di
-  char v12; // r13
-  signed int v13; // esi
-  int v14; // edx
-  _DWORD *v15; // rcx
-  int v17; // eax
-  unsigned __int16 v18; // cx
-  unsigned __int16 v19; // r8
-  unsigned int v20; // edx
-  __int64 v21; // r10
-  unsigned __int64 v22; // r11
+  __int64 v5; // r11
+  __int64 v6; // r14
+  char v8; // r9
+  __int64 v10; // r8
+  char v12; // di
+  char v13; // si
+  signed int v14; // ebp
+  int v15; // edx
+  _DWORD *v16; // rcx
+  int v18; // eax
+  unsigned __int16 v19; // cx
+  unsigned __int16 v20; // r8
+  unsigned int v21; // edx
+  __int64 v22; // r10
+  unsigned __int64 v23; // r11
 
-  v4 = *(_QWORD *)(a1 + 33976);
-  v6 = *(_QWORD *)(a1 + 33968);
-  v7 = a3;
-  v8 = 0LL;
-  v11 = 1;
-  v12 = 0;
+  v4 = *(_QWORD *)(a1 + 33136);
+  v5 = a1 + 33128;
+  v6 = *(_QWORD *)(a1 + 33128);
+  v8 = a3;
+  v10 = 0LL;
+  v12 = 1;
+  v13 = 0;
   if ( PpmPerfQosEnabled )
-    v13 = *(_DWORD *)(a1 + 34112);
+    v14 = *(_DWORD *)(a1 + 33264);
   else
-    v13 = 0;
-  v14 = *(_DWORD *)(v6 + 728);
-  if ( v13 == *(_DWORD *)(a1 + 34116) )
+    v14 = 0;
+  v15 = *(_DWORD *)(v6 + 548);
+  if ( v14 != *(_DWORD *)(a1 + 33268) )
   {
-    v15 = (_DWORD *)(v4 + 104);
-    if ( *(_DWORD *)(v4 + 104) != v14 )
+    if ( !*(_BYTE *)(v6 + 355) || (struct _KPRCB *)a1 == KeGetCurrentPrcb() )
     {
-      if ( !v13 )
+      v18 = *(unsigned __int16 *)(a1 + 33272);
+      v16 = (_DWORD *)(v4 + 104);
+      if ( !_bittest(&v18, v14) || *v16 != v15 )
       {
-LABEL_6:
-        *v15 = v14;
-        goto LABEL_8;
-      }
-      if ( !*(_BYTE *)(v6 + 483) || (struct _KPRCB *)a1 == KeGetCurrentPrcb() )
-      {
+        *v16 = v15;
+        v8 = 1;
         a2 = 1;
-        goto LABEL_6;
       }
-      return 0;
+      *(_DWORD *)(a1 + 33268) = v14;
+      v13 = 1;
+      goto LABEL_7;
     }
+    return 0;
   }
-  else
+  v16 = (_DWORD *)(v4 + 104);
+  if ( *(_DWORD *)(v4 + 104) != v15 )
   {
-    if ( *(_BYTE *)(v6 + 483) && (struct _KPRCB *)a1 != KeGetCurrentPrcb() )
-      return 0;
-    v17 = *(unsigned __int16 *)(a1 + 34120);
-    v15 = (_DWORD *)(v4 + 104);
-    if ( !_bittest(&v17, v13) || *v15 != v14 )
+    if ( !v14 )
     {
-      *v15 = v14;
-      v7 = 1;
+LABEL_6:
+      *v16 = v15;
+      v8 = 1;
+      goto LABEL_7;
+    }
+    if ( !*(_BYTE *)(v6 + 355) || (struct _KPRCB *)a1 == KeGetCurrentPrcb() )
+    {
       a2 = 1;
+      goto LABEL_6;
     }
-    *(_DWORD *)(a1 + 34116) = v13;
-    v12 = 1;
+    return 0;
   }
-  if ( !v7 )
-    goto LABEL_14;
-LABEL_8:
-  if ( a3 )
-    *v15 = 0;
-  LOBYTE(a4) = a3;
-  *(_DWORD *)(v4 + 112) = *(_DWORD *)(v4 + 72);
-  LOBYTE(v8) = a2;
-  *(_DWORD *)(v4 + 108) = *(_DWORD *)(v4 + 76);
-  *(_OWORD *)(v4 + 64) = *(_OWORD *)(v6 + 40LL * v13 + 736);
-  *(_OWORD *)(v4 + 80) = *(_OWORD *)(v6 + 40LL * v13 + 752);
-  *(_QWORD *)(v4 + 96) = *(_QWORD *)(v6 + 40LL * v13 + 768);
-  (*(void (__fastcall **)(_QWORD, __int64, __int64, __int64))(v6 + 384))(*(_QWORD *)(v4 + 8), v4 + 64, v8, a4);
-  if ( PopHeteroSystem )
+LABEL_7:
+  if ( v8 )
   {
-    v18 = *(_WORD *)(v6 + 2LL * v13 + 712);
-    v19 = *(_WORD *)(a1 + 34120);
-    if ( v18 != v19 )
+    if ( a3 )
+      *v16 = 0;
+    LOBYTE(a4) = a3;
+    *(_DWORD *)(v4 + 112) = *(_DWORD *)(v4 + 72);
+    LOBYTE(v10) = a2;
+    *(_DWORD *)(v4 + 108) = *(_DWORD *)(v4 + 76);
+    *(_OWORD *)(v4 + 64) = *(_OWORD *)(v6 + 40LL * v14 + 552);
+    *(_OWORD *)(v4 + 80) = *(_OWORD *)(v6 + 40LL * v14 + 568);
+    *(_QWORD *)(v4 + 96) = *(_QWORD *)(v6 + 40LL * v14 + 584);
+    (*(void (__fastcall **)(_QWORD, __int64, __int64, __int64))(v6 + 288))(*(_QWORD *)(v4 + 8), v4 + 64, v10, a4);
+    if ( PopHeteroSystem )
     {
-      *(_WORD *)(a1 + 34120) = v18;
-      v20 = 0;
-      v21 = *(_QWORD *)(a1 + 192);
-      do
+      v19 = *(_WORD *)(v6 + 2LL * v14 + 536);
+      v20 = *(_WORD *)(a1 + 33272);
+      if ( v19 != v20 )
       {
-        if ( (v18 & 1) != (v19 & 1) )
+        *(_WORD *)(a1 + 33272) = v19;
+        v21 = 0;
+        v22 = *(_QWORD *)(a1 + 192);
+        do
         {
-          v22 = *(unsigned __int8 *)(a1 + 209);
-          if ( (v18 & 1) != 0 )
-            _interlockedbittestandset64((volatile signed __int32 *)(v21 + 8LL * v20 + 200), v22);
-          else
-            _interlockedbittestandreset64((volatile signed __int32 *)(v21 + 8LL * v20 + 200), v22);
+          if ( (v19 & 1) != (v20 & 1) )
+          {
+            v23 = *(unsigned __int8 *)(a1 + 209);
+            if ( (v19 & 1) != 0 )
+              _interlockedbittestandset64((volatile signed __int32 *)(v22 + 8LL * v21 + 304), v23);
+            else
+              _interlockedbittestandreset64((volatile signed __int32 *)(v22 + 8LL * v21 + 304), v23);
+          }
+          v19 >>= 1;
+          ++v21;
+          v20 >>= 1;
         }
-        v18 >>= 1;
-        ++v20;
-        v19 >>= 1;
+        while ( v21 < 5 );
       }
-      while ( v20 < 6 );
     }
+    KeUpdateQosGroupingSets(a1, (unsigned int)v14);
+    v5 = a1 + 33128;
+    if ( !a3 )
+      v13 = 1;
   }
-  KeUpdateQosGroupingSets(a1, (unsigned int)v13);
-  if ( a3 )
-  {
-LABEL_14:
-    if ( !v12 )
-      return v11;
-  }
-  PpmEventProcessorPerfStateChange(a1 + 33968, a2, *(unsigned int *)(a1 + 34116));
-  return v11;
+  if ( v13 )
+    PpmEventProcessorPerfStateChange(v5, a2, *(unsigned int *)(a1 + 33268));
+  return v12;
 }

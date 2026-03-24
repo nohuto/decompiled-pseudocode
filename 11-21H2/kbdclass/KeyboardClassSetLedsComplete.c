@@ -1,1 +1,25 @@
-/*\n * XREFs of KeyboardClassSetLedsComplete @ 0x1C00013C0\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_qq @ 0x1C0001480 (WPP_RECORDER_SF_qq.c)\n */\n\n__int64 __fastcall KeyboardClassSetLedsComplete(__int64 a1, IRP *a2, __int64 a3)\n{\n  signed __int64 v5; // rax\n  __int32 v6; // ecx\n\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(a3 + 32), a2, 0x20u);\n  v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 368), 0LL, (signed __int64)a2);\n  if ( v5 && (IRP *)v5 != a2\n    || (v6 = _InterlockedExchange((volatile __int32 *)(a3 + 376), 3), (IRP *)v5 == a2)\n    || !v5 && v6 == 2 )\n  {\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 99);\n    IoFreeIrp(a2);\n  }\n  return 3221225494LL;\n}\n
+/*
+ * XREFs of KeyboardClassSetLedsComplete @ 0x1C00013C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C0001480 (WPP_RECORDER_SF_qq.c)
+ */
+
+__int64 __fastcall KeyboardClassSetLedsComplete(__int64 a1, IRP *a2, __int64 a3)
+{
+  signed __int64 v5; // rax
+  __int32 v6; // ecx
+
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(a3 + 32), a2, 0x20u);
+  v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 368), 0LL, (signed __int64)a2);
+  if ( v5 && (IRP *)v5 != a2
+    || (v6 = _InterlockedExchange((volatile __int32 *)(a3 + 376), 3), (IRP *)v5 == a2)
+    || !v5 && v6 == 2 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 4, 4, 99);
+    IoFreeIrp(a2);
+  }
+  return 3221225494LL;
+}

@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfObjectDereferenceActual @ 0x1C0002160
+ * XREFs of imp_WdfObjectDereferenceActual @ 0x1C00165C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfObjectDereferenceActual(
@@ -14,25 +14,23 @@ void __fastcall imp_WdfObjectDereferenceActual(
         unsigned int Line,
         const char *File)
 {
-  unsigned __int16 *v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rdx
+  __int64 v5; // r10
+  unsigned __int16 *v6; // rcx
+  __int64 v7; // rax
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   if ( !Object )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
-  v5 = (unsigned __int16 *)(~Object & 0xFFFFFFFFFFFFFFF8uLL);
-  if ( (Object & 1) == 0 )
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
+  LOWORD(v5) = 0;
+  v6 = (unsigned __int16 *)(~Object & 0xFFFFFFFFFFFFFFF8uLL);
+  if ( (Object & 1) != 0 )
   {
-    v6 = *(_QWORD *)v5;
-LABEL_4:
-    (*(void (__fastcall **)(unsigned __int16 *, void *, _QWORD, const char *))(v6 + 16))(v5, Tag, Line, File);
-    return;
+    v5 = *v6;
+    v6 = (unsigned __int16 *)((char *)v6 - v5);
   }
-  v7 = *v5;
-  v5 = (unsigned __int16 *)((char *)v5 - v7);
-  v6 = *(_QWORD *)v5;
-  if ( !(_WORD)v7 )
-    goto LABEL_4;
-  (*(void (__fastcall **)(unsigned __int16 *, __int64, void *))(v6 + 32))(v5, v7, Tag);
+  v7 = *(_QWORD *)v6;
+  if ( (_WORD)v5 )
+    (*(void (__fastcall **)(unsigned __int16 *, _QWORD, void *))(v7 + 32))(v6, (unsigned __int16)v5, Tag);
+  else
+    (*(void (__fastcall **)(unsigned __int16 *, void *, _QWORD, const char *))(v7 + 16))(v6, Tag, Line, File);
 }

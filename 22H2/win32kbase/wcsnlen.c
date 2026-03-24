@@ -1,7 +1,7 @@
 /*
- * XREFs of wcsnlen @ 0x1C00CE5EC
+ * XREFs of wcsnlen @ 0x1C00C5A1C
  * Callers:
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01907FC (rimFindMonitorForDigitizerWithQDCData.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165580 (rimFindMonitorForDigitizerWithQDCData.c)
  * Callees:
  *     <none>
  */

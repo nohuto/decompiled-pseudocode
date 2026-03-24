@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkKernelCfgAddressTakenImports @ 0x140A4402C
+ * XREFs of MiMarkKernelCfgAddressTakenImports @ 0x1408D7860
  * Callers:
- *     MiProcessKernelCfgAddressTakenImports @ 0x140A440DC (MiProcessKernelCfgAddressTakenImports.c)
+ *     MiProcessKernelCfgAddressTakenImports @ 0x1408D7910 (MiProcessKernelCfgAddressTakenImports.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     MiMarkKernelCfgTarget @ 0x1402F7A50 (MiMarkKernelCfgTarget.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     MiMarkKernelCfgTarget @ 0x140322C5C (MiMarkKernelCfgTarget.c)
  */
 
 __int64 __fastcall MiMarkKernelCfgAddressTakenImports(__int64 a1)

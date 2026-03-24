@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceBeginPointerSetTargetWindows @ 0x1C014C860
+ * XREFs of EtwTraceBeginPointerSetTargetWindows @ 0x1C0121A80
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceBeginPointerSetTargetWindows(int a1)

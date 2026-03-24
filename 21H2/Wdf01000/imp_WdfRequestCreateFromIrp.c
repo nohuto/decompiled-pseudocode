@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfRequestCreateFromIrp @ 0x1C0064480
+ * XREFs of imp_WdfRequestCreateFromIrp @ 0x1C004A1C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTarget@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@PEAPEAV1@@Z @ 0x1C00063C4 (-_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTar.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTarget@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@PEAPEAV1@@Z @ 0x1C000B22C (-_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTar.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfRequestCreateFromIrp(
@@ -16,7 +16,7 @@ __int64 __fastcall imp_WdfRequestCreateFromIrp(
         unsigned __int8 RequestFreesIrp,
         WDFREQUEST__ **Request)
 {
-  _FX_DRIVER_GLOBALS *v5; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   void *ParentObject; // rdx
   WDFREQUEST__ **v10; // rbx
   int v11; // edx
@@ -25,25 +25,25 @@ __int64 __fastcall imp_WdfRequestCreateFromIrp(
   FxRequest *pRequest; // [rsp+68h] [rbp+10h] BYREF
 
   pRequest = 0LL;
-  v5 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   if ( RequestAttributes )
   {
     ParentObject = RequestAttributes->ParentObject;
     if ( ParentObject )
     {
       v14 = 0LL;
-      FxObjectHandleGetPtr(v5, (unsigned __int64)ParentObject, 0x1000u, (void **)&v14);
-      v5 = (_FX_DRIVER_GLOBALS *)v14[2];
+      FxObjectHandleGetPtr(DriverName, (unsigned __int64)ParentObject, 0x1000u, (void **)&v14);
+      DriverName = (_FX_DRIVER_GLOBALS *)v14[2];
     }
   }
   if ( !Irp )
-    FxVerifierNullBugCheck(v5, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   v10 = Request;
   if ( !Request )
-    FxVerifierNullBugCheck(v5, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   *Request = 0LL;
   v11 = FxRequest::_Create(
-          v5,
+          DriverName,
           RequestAttributes,
           Irp,
           0LL,

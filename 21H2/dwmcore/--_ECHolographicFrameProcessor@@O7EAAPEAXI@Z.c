@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECHolographicFrameProcessor@@O7EAAPEAXI@Z @ 0x18010AD70
+ * XREFs of ??_ECHolographicFrameProcessor@@O7EAAPEAXI@Z @ 0x1800F8590
  * Callers:
  *     <none>
  * Callees:

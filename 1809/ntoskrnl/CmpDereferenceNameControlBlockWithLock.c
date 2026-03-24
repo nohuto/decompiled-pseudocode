@@ -3,8 +3,8 @@
  * Callers:
  *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpCloneToUnbackedKcb @ 0x1407F0AD0 (CmpCloneToUnbackedKcb.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x1407F0AB0 (CmpCloneToUnbackedKcb.c)
  * Callees:
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
  *     CmpLockNameHashEntryExclusive @ 0x1405D66DC (CmpLockNameHashEntryExclusive.c)

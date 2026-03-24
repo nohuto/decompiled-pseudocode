@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1InkDevice@@UEAA@XZ @ 0x1C0243114
+ * XREFs of ??1InkDevice@@UEAA@XZ @ 0x1C0254608
  * Callers:
- *     ??_EInkDevice@@UEAAPEAXI@Z @ 0x1C023DF80 (--_EInkDevice@@UEAAPEAXI@Z.c)
+ *     ??_EInkDevice@@UEAAPEAXI@Z @ 0x1C024EC90 (--_EInkDevice@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C0227F10 (-UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ.c)
- *     ?UnInitialize@InkDevice@@UEAAXXZ @ 0x1C0244810 (-UnInitialize@InkDevice@@UEAAXXZ.c)
+ *     ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C02434A0 (-UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ.c)
+ *     ?UnInitialize@InkDevice@@UEAAXXZ @ 0x1C0255E00 (-UnInitialize@InkDevice@@UEAAXXZ.c)
  */
 
 void __fastcall InkDevice::~InkDevice(InkDevice *this)

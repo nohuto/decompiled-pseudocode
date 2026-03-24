@@ -1,119 +1,71 @@
 /*
- * XREFs of RtlpHpVsChunkCoalesce @ 0x14034D5C0
+ * XREFs of RtlpHpVsChunkCoalesce @ 0x14033FEF0
  * Callers:
- *     RtlpHpVsContextFree @ 0x14034CEB0 (RtlpHpVsContextFree.c)
- *     RtlpHpVsChunkFree @ 0x14036E290 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x140340140 (RtlpHpVsChunkFree.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
- *     RtlpHpVsFreeChunkRemove @ 0x1403513D8 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1403400D0 (RtlpHpVsFreeChunkRemove.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
 {
-  unsigned __int64 v4; // rsi
-  __int64 v5; // r11
-  __int64 v6; // rbx
-  unsigned int v7; // r14d
-  unsigned __int64 v8; // r12
-  __int64 v9; // r15
-  unsigned int v10; // r10d
-  unsigned int v11; // ecx
-  unsigned __int64 v12; // r8
-  unsigned int v13; // edx
-  bool v14; // cf
-  __int64 v15; // r12
-  unsigned __int64 v16; // r13
-  __int64 v17; // r15
-  int v18; // r9d
-  unsigned int v19; // r13d
-  unsigned int v20; // ecx
-  unsigned __int64 v21; // r8
-  unsigned int v22; // edx
-  unsigned __int64 v23; // r8
-  __int64 v24; // r15
-  unsigned __int64 v25; // rdx
-  __int64 v27; // [rsp+60h] [rbp+8h]
-  unsigned int *v29; // [rsp+78h] [rbp+20h]
+  unsigned __int64 v5; // r14
+  __int64 v7; // rbx
+  unsigned int v9; // esi
+  unsigned __int64 v10; // r15
+  __int64 v11; // rdi
+  __int64 v12; // r15
+  unsigned __int64 v13; // r8
+  __int64 v14; // rdi
+  unsigned __int64 v15; // r8
+  __int64 v16; // rdi
+  unsigned __int64 v17; // rdx
 
-  v29 = a4;
-  v27 = a1;
-  v4 = a3;
-  v5 = a2;
-  v6 = a3 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a3;
-  v7 = WORD1(v6);
+  v5 = a3;
+  v7 = a3 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a3;
+  v9 = WORD1(v7);
   *(_BYTE *)(a3 + 6) = BYTE6(a3) ^ BYTE6(RtlpHpHeapGlobals);
-  if ( WORD2(v6) )
+  if ( WORD2(v7) )
   {
-    v8 = a3 - 16LL * WORD2(v6);
-    v9 = RtlpHpHeapGlobals ^ v8 ^ *(_QWORD *)v8;
-    if ( (v9 & 0xFF000000000000LL) == 0 )
+    v10 = a3 - 16LL * WORD2(v7);
+    v11 = v10 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v10;
+    if ( (v11 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16, v8 + 8);
-      v5 = a2;
-      v10 = RtlpHpHeapGlobals ^ v8 ^ *(_DWORD *)v8;
-      v11 = (v8 - a2 + 4127) & 0xFFFFF000;
-      v12 = 16 * HIWORD(v10);
-      v4 = v8;
-      v13 = ((v8 + v12 - a2) & 0xFFFFF000) - v11;
-      v14 = v11 < (((_DWORD)v8 + (_DWORD)v12 - (_DWORD)a2) & 0xFFFFF000);
-      a1 = v27;
-      if ( !v14 )
-        v13 = 0;
-      a4 = (unsigned int *)(v8 & 0xFFF);
-      *(_QWORD *)(v27 + 56) -= (unsigned int)(((unsigned __int64)&a4[v12 / 4 + 1023] + 3) >> 12)
-                             + (v13 >> 12)
-                             - (unsigned int)((v12 + 4095) >> 12)
-                             - (unsigned __int16)v10;
-      v7 += WORD1(v9);
+      RtlpHpVsFreeChunkRemove(a1, a2, a3 - 16LL * WORD2(v7), a4);
+      v5 = v10;
+      v9 += WORD1(v11);
     }
   }
-  v15 = v5 + 48;
-  v16 = v4 + 16LL * v7;
-  if ( v16 < v5 + 48 + 16 * (unsigned __int64)*(unsigned __int16 *)(v5 + 32) )
+  v12 = a2 + 48;
+  v13 = v5 + 16LL * v9;
+  if ( v13 < a2 + 48 + 16 * (unsigned __int64)*(unsigned __int16 *)(a2 + 32) )
   {
-    v17 = RtlpHpHeapGlobals ^ *(_QWORD *)v16 ^ v16;
-    if ( (v17 & 0xFF000000000000LL) == 0 )
+    v14 = v13 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v13;
+    if ( (v14 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16, v16 + 8);
-      v5 = a2;
-      v18 = v4 + 16 * v7;
-      v19 = RtlpHpHeapGlobals ^ *(_DWORD *)v16 ^ v16;
-      v20 = (v18 - a2 + 4127) & 0xFFFFF000;
-      v21 = 16 * HIWORD(v19);
-      v22 = ((v18 + v21 - a2) & 0xFFFFF000) - v20;
-      v14 = v20 < ((v18 + (_DWORD)v21 - (_DWORD)a2) & 0xFFFFF000);
-      a1 = v27;
-      if ( !v14 )
-        v22 = 0;
-      a4 = (unsigned int *)(v18 & 0xFFF);
-      *(_QWORD *)(v27 + 56) -= (unsigned int)(((unsigned __int64)&a4[v21 / 4 + 1023] + 3) >> 12)
-                             + (v22 >> 12)
-                             - (unsigned int)((v21 + 4095) >> 12)
-                             - (unsigned __int16)v19;
-      v7 += WORD1(v17);
+      RtlpHpVsFreeChunkRemove(a1, a2, v13, a4);
+      v9 += WORD1(v14);
     }
   }
   if ( (*(_DWORD *)(a1 + 176) & 1) != 0 )
   {
-    v23 = v4 + 16LL * v7;
-    if ( v23 < v15 + 16 * (unsigned __int64)*(unsigned __int16 *)(v5 + 32) )
+    v15 = v5 + 16LL * v9;
+    if ( v15 < v12 + 16 * (unsigned __int64)*(unsigned __int16 *)(a2 + 32) )
     {
-      v24 = RtlpHpHeapGlobals ^ *(_QWORD *)v23 ^ v23;
-      if ( (v24 & 0xFF000000000000LL) == 0 )
+      v16 = v15 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v15;
+      if ( (v16 & 0xFF000000000000LL) == 0 )
       {
-        RtlpHpVsFreeChunkRemove(a1, v5, v23, a4);
-        v5 = a2;
-        v7 += WORD1(v24);
+        RtlpHpVsFreeChunkRemove(a1, a2, v15, a4);
+        v9 += WORD1(v16);
       }
     }
   }
-  if ( WORD1(v6) != v7 )
+  *a4 = v9;
+  if ( WORD1(v7) != v9 )
   {
-    v25 = v4 + 16LL * v7;
-    *(_WORD *)(v4 + 2) = WORD1(RtlpHpHeapGlobals) ^ v7 ^ WORD1(v4);
-    if ( v25 < v15 + 16 * (unsigned __int64)*(unsigned __int16 *)(v5 + 32) )
-      *(_WORD *)(v25 + 4) = WORD2(RtlpHpHeapGlobals) ^ v7 ^ WORD2(v25);
+    v17 = v5 + 16LL * v9;
+    *(_WORD *)(v5 + 2) = WORD1(RtlpHpHeapGlobals) ^ v9 ^ WORD1(v5);
+    if ( v17 < v12 + 16 * (unsigned __int64)*(unsigned __int16 *)(a2 + 32) )
+      *(_WORD *)(v17 + 4) = WORD2(v17) ^ v9 ^ WORD2(RtlpHpHeapGlobals);
   }
-  *v29 = v7;
-  return v4;
+  return v5;
 }

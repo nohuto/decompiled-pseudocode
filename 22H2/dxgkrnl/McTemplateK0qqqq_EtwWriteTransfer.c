@@ -1,15 +1,20 @@
 /*
- * XREFs of McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0054648
+ * XREFs of McTemplateK0qqqq_EtwWriteTransfer @ 0x1C003BB30
  * Callers:
- *     ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C032CA64 (-LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z.c)
+ *     ?SetDWMTargetVsync@BLTQUEUE@@QEAAXI@Z @ 0x1C005F15C (-SetDWMTargetVsync@BLTQUEUE@@QEAAXI@Z.c)
+ *     ?SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK@Z @ 0x1C005F220 (-SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK@Z.c)
+ *     ?SignalVSyncEvent@BLTQUEUE@@AEAAXXZ @ 0x1C00DDEE4 (-SignalVSyncEvent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C0100EC0 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
+ *     ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C0215834 (-SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z.c)
+ *     ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C029AEC4 (-LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqq_EtwWriteTransfer(
         __int64 a1,
-        __int64 a2,
+        const EVENT_DESCRIPTOR *a2,
         __int64 a3,
         int a4,
         char a5,
@@ -34,12 +39,7 @@ NTSTATUS __fastcall McTemplateK0qqqq_EtwWriteTransfer(
   v11 = &a5;
   v14 = 4LL;
   v13 = &a6;
-  v16 = 4LL;
   v15 = &a7;
-  return McGenEventWrite_EtwWriteTransfer(
-           (REGHANDLE *)&DxgkControlGuid_Context,
-           &Dxgk_Diag_OutputDupl_Release_Frame,
-           a3,
-           5u,
-           &v8);
+  v16 = 4LL;
+  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, a2, a3, 5u, &v8);
 }

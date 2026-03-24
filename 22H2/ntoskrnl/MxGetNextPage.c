@@ -1,124 +1,96 @@
 /*
- * XREFs of MxGetNextPage @ 0x140B46AB4
+ * XREFs of MxGetNextPage @ 0x140A44314
  * Callers:
- *     MxMapVa @ 0x140B468AC (MxMapVa.c)
+ *     MxMapVa @ 0x140A43F9C (MxMapVa.c)
  * Callees:
- *     MxBootDescriptorDepleted @ 0x140B46DCC (MxBootDescriptorDepleted.c)
- *     MxSwitchDescriptors @ 0x140B9A6CC (MxSwitchDescriptors.c)
+ *     MxBootDescriptorDepleted @ 0x140A4445C (MxBootDescriptorDepleted.c)
+ *     MxSwitchDescriptors @ 0x140A9304C (MxSwitchDescriptors.c)
  */
 
-__int64 __fastcall MxGetNextPage(unsigned int a1, int a2)
+__int64 __fastcall MxGetNextPage(int a1, int a2)
 {
-  __int64 v3; // rsi
-  __int64 v5; // rcx
-  __int64 *v6; // rdi
-  __int64 *v7; // r9
-  __int64 v8; // r8
-  __int64 v10; // r8
-  unsigned int i; // r10d
+  unsigned int v2; // r11d
+  __int64 v4; // rbx
+  unsigned int v5; // r8d
+  int v6; // eax
+  __int64 *v7; // r10
+  __int64 v9; // r8
+  __int64 v11; // r8
   int v12; // edx
-  unsigned int v13; // ecx
-  unsigned int v14; // r8d
-  __int64 v15; // rdx
-  __int64 v16; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
 
-  v3 = -1LL;
-  v5 = 5LL * a1;
-  v6 = &MxBootFreeDescriptor[v5];
-  if ( v6[1] )
+  v2 = 0;
+  v4 = -1LL;
+  do
   {
-    if ( a2 )
+    v5 = 0;
+    v6 = a1;
+    do
     {
-      if ( v6[3] == -1 )
-        return -1LL;
-      goto LABEL_4;
+      v7 = (__int64 *)MxFreeDescriptor[v6];
+      if ( v7 && v7[1] && !(a2 == 1 ? v7[3] == -1 : v7[2] == -1) )
+        break;
+      v12 = v6 + 1;
+      v6 = 0;
+      v7 = 0LL;
+      ++v5;
+      if ( v12 != (unsigned __int16)KeNumberNodes )
+        v6 = v12;
     }
-    if ( v6[2] != -1 )
-    {
-LABEL_4:
-      v7 = &MxBootFreeDescriptor[v5];
-      goto LABEL_5;
-    }
+    while ( v5 < (unsigned __int16)KeNumberNodes );
+    if ( v7 )
+      break;
+    ++v2;
   }
-  v7 = (__int64 *)MxSwitchDescriptors(a1);
-  if ( !v7 )
+  while ( v2 < 2 );
+  if ( v5 != (unsigned __int16)KeNumberNodes )
   {
-    for ( i = 0; i < 2; ++i )
+LABEL_10:
+    if ( a2 == 1 )
     {
-      v12 = 0;
-      v13 = a1;
-      while ( 1 )
+      v9 = v7[3];
+      if ( (unsigned __int64)(v9 - *v7) >= 0x200 )
       {
-        v6 = &MxBootFreeDescriptor[5 * v13];
-        if ( v6 && v6[1] )
-        {
-          if ( a2 )
-          {
-            if ( v6[3] != -1 )
-              goto LABEL_7;
-          }
-          else if ( v6[2] != -1 )
-          {
-            goto LABEL_13;
-          }
-        }
-        v14 = v13 + 1;
-        if ( ++v12 >= (unsigned int)(unsigned __int16)KeNumberNodes )
-          break;
-        v13 = 0;
-        if ( v14 != (unsigned __int16)KeNumberNodes )
-          v13 = v14;
+        v7[3] = v9 - 512;
+        return v9;
       }
     }
-  }
-LABEL_5:
-  if ( v7 )
-  {
-    if ( !a2 )
+    else
     {
-LABEL_13:
-      v10 = v6[2];
-      if ( v10 != (v10 & 0xFFFFFFFFFFFFFE00uLL) && v10 != *v6 )
+      v11 = v7[2];
+      if ( v11 != (v11 & 0xFFFFFFFFFFFFFE00uLL) && v11 != *v7 )
       {
-        v6[2] = v10 - 1;
-LABEL_16:
-        MxBootDescriptorDepleted(v6);
-        return v8;
-      }
-      v15 = v6[3];
-      v16 = *v6;
-      if ( v15 == -1 )
-      {
-        if ( v10 != v16 && v16 != (v16 & 0xFFFFFFFFFFFFFE00uLL) )
-          v3 = v16 | 0x1FF;
-        v6[2] = v3;
-        goto LABEL_16;
-      }
-      v6[2] = v15 + 511;
-      if ( (unsigned __int64)(v15 - v16) >= 0x200 )
-      {
-        v6[3] = v15 - 512;
-        goto LABEL_16;
-      }
+        v7[2] = v11 - 1;
 LABEL_18:
-      v6[3] = -1LL;
-      goto LABEL_16;
-    }
-LABEL_7:
-    v8 = v6[3];
-    if ( v8 != -1 )
-    {
-      if ( (unsigned __int64)(v8 - *v6) >= 0x200 )
-      {
-        v6[3] = v8 - 512;
-        return v8;
+        MxBootDescriptorDepleted(v7);
+        return v9;
       }
-      goto LABEL_18;
+      v13 = v7[3];
+      v14 = *v7;
+      if ( v13 == -1 )
+      {
+        if ( v11 != v14 && v14 != (v14 & 0xFFFFFFFFFFFFFE00uLL) )
+          v4 = v14 | 0x1FF;
+        v7[2] = v4;
+        goto LABEL_18;
+      }
+      v7[2] = v13 + 511;
+      if ( (unsigned __int64)(v13 - v14) >= 0x200 )
+      {
+        v7[3] = v13 - 512;
+        goto LABEL_18;
+      }
     }
+    v7[3] = -1LL;
+    goto LABEL_18;
   }
-  else
+  if ( a2 != 1 )
   {
-    byte_140C68042 = 16;
+    v7 = (__int64 *)MxSwitchDescriptors();
+    if ( v7 )
+      goto LABEL_10;
+    byte_140C4E7FA = 16;
   }
   return -1LL;
 }

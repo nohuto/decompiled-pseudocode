@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CHolographicViewer@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029C8E0
+ * XREFs of ?HrFindInterface@CHolographicViewer@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18025A2D0
  * Callers:
  *     <none>
  * Callees:
@@ -24,11 +24,11 @@ __int64 __fastcall CHolographicViewer::HrFindInterface(CHolographicViewer *this,
       v7 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_673232dd_6e24_4a2d_a5e8_245c5f9b5cc8.Data4;
     if ( v7 )
       return (unsigned int)-2147467262;
-    v6 = (unsigned __int64)this + 72;
+    v6 = (unsigned __int64)this + 64;
   }
   else
   {
-    v6 = (unsigned __int64)this + 64;
+    v6 = (unsigned __int64)this + 56;
   }
   *a3 = (void *)(v6 & -(__int64)(this != 0LL));
   return v4;

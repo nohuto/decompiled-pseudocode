@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWnfCheckCrossScopeAccess @ 0x14075ADF8
+ * XREFs of ExpWnfCheckCrossScopeAccess @ 0x14062C0FC
  * Callers:
- *     NtQueryWnfStateNameInformation @ 0x140791110 (NtQueryWnfStateNameInformation.c)
- *     ExpNtUpdateWnfStateData @ 0x140793B84 (ExpNtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140794AD0 (NtQueryWnfStateData.c)
- *     ExpNtDeleteWnfStateData @ 0x14085EB0C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x14060EE80 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406A68E0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD80C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ExpWnfLookupPermanentName @ 0x14075A12C (ExpWnfLookupPermanentName.c)
- *     ExpWnfCheckCallerAccess @ 0x140794654 (ExpWnfCheckCallerAccess.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExpWnfCheckCallerAccess @ 0x14060FAA0 (ExpWnfCheckCallerAccess.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExpWnfLookupPermanentName @ 0x14062C1A8 (ExpWnfLookupPermanentName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfCheckCrossScopeAccess(unsigned __int64 a1)
@@ -31,7 +31,7 @@ LABEL_9:
       return 3221225569LL;
     return 0LL;
   }
-  result = ExpWnfLookupPermanentName(a1, (PSECURITY_DESCRIPTOR **)&P);
+  result = ExpWnfLookupPermanentName(a1, &P);
   if ( (int)result < 0 )
     return result;
   v3 = P;

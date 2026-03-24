@@ -1,10 +1,10 @@
 /*
- * XREFs of ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C009E100
+ * XREFs of ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C0093100
  * Callers:
- *     GreSetLayout @ 0x1C009E0A0 (GreSetLayout.c)
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00DAA60 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     GreSetLayout @ 0x1C00930A0 (GreSetLayout.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00C9DD0 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
  * Callees:
- *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C00CE060 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C00BEA34 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
@@ -18,9 +18,9 @@ __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
   int v10; // eax
   unsigned int v11; // edx
   __int64 v12; // rcx
-  __int64 v13; // [rsp+30h] [rbp+8h]
-  __int64 v14; // [rsp+30h] [rbp+8h]
-  __int64 v15; // [rsp+48h] [rbp+20h]
+  __int64 v13; // [rsp+30h] [rbp+10h]
+  __int64 v14; // [rsp+30h] [rbp+10h]
+  __int64 v15; // [rsp+48h] [rbp+28h]
 
   v3 = *((_QWORD *)this + 122);
   v4 = this;

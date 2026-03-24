@@ -1,7 +1,7 @@
 /*
- * XREFs of ConstructVmSharedMemorySectionHostPath @ 0x1C0241CA8
+ * XREFs of ConstructVmSharedMemorySectionHostPath @ 0x1C0200CF4
  * Callers:
- *     OpenVmSharedMemorySection @ 0x1C0241EC0 (OpenVmSharedMemorySection.c)
+ *     OpenVmSharedMemorySection @ 0x1C0200F0C (OpenVmSharedMemorySection.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ NTSTATUS __fastcall ConstructVmSharedMemorySectionHostPath(
         unsigned int *a2,
         unsigned int *a3)
 {
-  WCHAR *Pool2; // rax
+  WCHAR *PoolWithTag; // rax
   NTSTATUS result; // eax
   int v8; // [rsp+20h] [rbp-88h]
   __int64 v9; // [rsp+20h] [rbp-88h]
@@ -37,9 +37,9 @@ NTSTATUS __fastcall ConstructVmSharedMemorySectionHostPath(
 
   *Destination = 0LL;
   Destination->MaximumLength = 198;
-  Pool2 = (WCHAR *)ExAllocatePool2(64LL, 198LL);
-  Destination->Buffer = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (WCHAR *)ExAllocatePoolWithTag((POOL_TYPE)512, 0xC6uLL, 0x6B684D53u);
+  Destination->Buffer = PoolWithTag;
+  if ( PoolWithTag )
   {
     result = RtlAppendUnicodeToString(Destination, L"\\VmSharedMemory\\Host\\");
     if ( result >= 0 )

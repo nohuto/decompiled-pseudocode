@@ -1,42 +1,44 @@
 /*
- * XREFs of SepDeleteLogonSessionTrack @ 0x14076D84C
+ * XREFs of SepDeleteLogonSessionTrack @ 0x14077A570
  * Callers:
- *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x1406833F0 (SepRmInteractiveLogoffLogonSessionWrkr.c)
- *     SepRmDeleteLogonSessionWrkr @ 0x140880410 (SepRmDeleteLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x1409C8EA0 (SeInitServerSilo.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409CFFC0 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x14077A320 (SepRmInteractiveLogoffLogonSessionWrkr.c)
+ *     SepRmDeleteLogonSessionWrkr @ 0x14077AFE0 (SepRmDeleteLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14091C124 (SeInitServerSilo.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x14092381C (SepDeleteUnreferencedLogonSessionsInSilo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     SepDeleteSessionLowboxEntries @ 0x140309A34 (SepDeleteSessionLowboxEntries.c)
- *     ObRevokeHandles @ 0x140682F10 (ObRevokeHandles.c)
- *     SepDeleteLogonSessionClaims @ 0x14076D9E0 (SepDeleteLogonSessionClaims.c)
- *     ObDestroyHandleRevocationBlock @ 0x14076DE24 (ObDestroyHandleRevocationBlock.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14077DE68 (SepCleanupLUIDDeviceMapDirectory.c)
- *     ObDereferenceDeviceMap @ 0x1407B040C (ObDereferenceDeviceMap.c)
- *     SepDeleteLogonSessionSidValues @ 0x1409CF74C (SepDeleteLogonSessionSidValues.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SepDeleteSessionLowboxEntries @ 0x14034CFD4 (SepDeleteSessionLowboxEntries.c)
+ *     ObfDereferenceDeviceMap @ 0x140625954 (ObfDereferenceDeviceMap.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406F79AC (SepCleanupLUIDDeviceMapDirectory.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1406F7F08 (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteLogonSessionClaims @ 0x1406F7F74 (SepDeleteLogonSessionClaims.c)
+ *     ObRevokeHandles @ 0x14077979C (ObRevokeHandles.c)
+ *     SepDeleteLogonSessionSidValues @ 0x140922FF8 (SepDeleteLogonSessionSidValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
 {
-  void *v4; // rbp
-  unsigned __int64 v5; // r8
+  void *v2; // rsi
+  __int64 v5; // r8
   _DWORD **v6; // r14
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v8; // rdi
-  _DWORD *i; // rbx
+  __int64 v9; // rdx
   __int64 v10; // rcx
-  void *v11; // rax
-  void *v12; // rcx
-  void *v13; // rcx
-  unsigned int v15; // ebx
+  _DWORD *i; // rbx
+  __int64 v12; // rcx
+  void *v13; // rax
+  void *v14; // rcx
+  void *v15; // rcx
+  unsigned int v17; // ebx
 
-  v4 = 0LL;
-  v5 = (unsigned __int64)(unsigned int)(1529154084 * *a1) >> 28;
+  v2 = 0LL;
+  v5 = (unsigned int)(1529154084 * *a1) >> 28;
   v6 = (_DWORD **)(SepLogonSessions + 8 * v5);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -46,55 +48,55 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
   {
     if ( !i )
     {
-      v15 = -1073741729;
+      v17 = -1073741729;
       goto LABEL_26;
     }
-    if ( *((_QWORD *)i + 20) == PsGetCurrentServerSilo() && *a1 == i[2] && a1[1] == i[3] )
+    if ( *((_QWORD *)i + 20) == PsGetCurrentServerSilo(v10, v9) && *a1 == i[2] && a1[1] == i[3] )
       break;
     v6 = (_DWORD **)i;
   }
   if ( a2 )
   {
     i[8] |= 0x10u;
-    ObRevokeHandles((_QWORD *)i + 16);
+    ObRevokeHandles((_QWORD **)i + 16);
     ExReleaseResourceLite(v8);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegion();
     return 0LL;
   }
-  v10 = *((_QWORD *)i + 3);
-  if ( !v10 || (i[8] & 8) == 0 && v10 == 1 )
+  v12 = *((_QWORD *)i + 3);
+  if ( !v12 || (i[8] & 8) == 0 && v12 == 1 )
   {
     *v6 = *(_DWORD **)i;
-    v11 = (void *)*((_QWORD *)i + 5);
-    if ( v11 )
+    v13 = (void *)*((_QWORD *)i + 5);
+    if ( v13 )
     {
       *((_QWORD *)i + 5) = 0LL;
-      v4 = v11;
+      v2 = v13;
     }
     ExReleaseResourceLite(v8);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    if ( v4 )
+    KeLeaveCriticalRegion();
+    if ( v2 )
     {
-      SepCleanupLUIDDeviceMapDirectory(a1, *((_QWORD *)i + 20));
-      ObDereferenceDeviceMap(v4);
+      SepCleanupLUIDDeviceMapDirectory(a1, *((struct _LIST_ENTRY **)i + 20));
+      ObfDereferenceDeviceMap(v2);
     }
-    v12 = (void *)*((_QWORD *)i + 20);
-    if ( v12 )
-      ObfDereferenceObjectWithTag(v12, 0x734C6553u);
-    v13 = (void *)*((_QWORD *)i + 8);
-    if ( v13 )
-      ExFreePoolWithTag(v13, 0);
-    SepDeleteLogonSessionClaims(i);
+    v14 = (void *)*((_QWORD *)i + 20);
+    if ( v14 )
+      ObfDereferenceObjectWithTag(v14, 0x734C6553u);
+    v15 = (void *)*((_QWORD *)i + 8);
+    if ( v15 )
+      ExFreePoolWithTag(v15, 0);
+    SepDeleteLogonSessionClaims((__int64)i);
     if ( SepTokenSidSharingEnabled )
       SepDeleteLogonSessionSidValues(i);
-    ObDestroyHandleRevocationBlock(i + 32);
+    ObDestroyHandleRevocationBlock((struct _EX_RUNDOWN_REF *)i + 16);
     ExFreePoolWithTag(i, 0);
     SepDeleteSessionLowboxEntries();
     return 0LL;
   }
-  v15 = -1073741564;
+  v17 = -1073741564;
 LABEL_26:
   ExReleaseResourceLite(v8);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v15;
+  KeLeaveCriticalRegion();
+  return v17;
 }

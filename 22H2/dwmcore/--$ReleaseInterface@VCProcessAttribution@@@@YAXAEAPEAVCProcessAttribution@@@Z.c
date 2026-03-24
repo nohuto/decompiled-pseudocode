@@ -1,23 +1,28 @@
 /*
- * XREFs of ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800ABA18
+ * XREFs of ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800358E8
  * Callers:
- *     ??1CChannelContext@@EEAA@XZ @ 0x1800AA44C (--1CChannelContext@@EEAA@XZ.c)
- *     ??1CResourceTable@@UEAA@XZ @ 0x1800AA500 (--1CResourceTable@@UEAA@XZ.c)
- *     ?Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z @ 0x1800AAFFC (-Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z.c)
- *     ??1CWindowNode@@MEAA@XZ @ 0x1800AB654 (--1CWindowNode@@MEAA@XZ.c)
+ *     ??1CChannelContext@@UEAA@XZ @ 0x180033CA4 (--1CChannelContext@@UEAA@XZ.c)
+ *     ??_ECResourceTable@@UEAAPEAXI@Z @ 0x180033DC0 (--_ECResourceTable@@UEAAPEAXI@Z.c)
+ *     ?OpenChannel@CComposition@@IEAAJIK_K@Z @ 0x180034B28 (-OpenChannel@CComposition@@IEAAJIK_K@Z.c)
+ *     ?Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z @ 0x180034C18 (-Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z.c)
+ *     ??1CWindowNode@@MEAA@XZ @ 0x180035494 (--1CWindowNode@@MEAA@XZ.c)
+ *     ??1CAsyncFlushResponse@@UEAA@XZ @ 0x180043DAC (--1CAsyncFlushResponse@@UEAA@XZ.c)
+ *     ?Channel_DuplicateHandleOnTarget@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_DUPLICATEHANDLEONTARGET@@@Z @ 0x18005ED8C (-Channel_DuplicateHandleOnTarget@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEB.c)
+ *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x1800CF700 (-CloseChannel@CComposition@@IEAAJI@Z.c)
+ *     ??1CComposition@@MEAA@XZ @ 0x180154BF0 (--1CComposition@@MEAA@XZ.c)
  * Callees:
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
  */
 
-__int64 __fastcall ReleaseInterface<CProcessAttribution>(__int64 *a1)
+unsigned int __fastcall ReleaseInterface<CProcessAttribution>(CDrawListEntry **a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  CDrawListEntry *v2; // rcx
+  unsigned int result; // eax
 
   v2 = *a1;
   if ( v2 )
   {
-    result = CMILRefCountBaseT<IMILRefCount>::InternalRelease(v2);
+    result = CDrawListEntry::Release(v2);
     *a1 = 0LL;
   }
   return result;

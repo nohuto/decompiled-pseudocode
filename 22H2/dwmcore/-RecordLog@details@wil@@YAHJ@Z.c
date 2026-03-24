@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RecordLog@details@wil@@YAHJ@Z @ 0x1801999F8
+ * XREFs of ?RecordLog@details@wil@@YAHJ@Z @ 0x18014DF84
  * Callers:
- *     ?LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@AEBUResultStatus@12@PEBG_NPEAG_KPEAD7PEAUFailureInfo@2@@Z @ 0x1800FCAE8 (-LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@AEBUResultStatus@12@PEBG_NPEAG_KPEAD7PEA.c)
+ *     ?LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBG_NPEAG_KPEAD6PEAUFailureInfo@2@@Z @ 0x18014D7E4 (-LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@JPEBG_NPEAG_KPEAD6PEAUFailureInfo@2@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,64 +1,90 @@
 /*
- * XREFs of ?UpdateWindowTreeDpiAwareness@@YAXPEAUtagPROCESSINFO@@PEAUtagWND@@@Z @ 0x1C008C630
+ * XREFs of ?UpdateWindowTreeDpiAwareness@@YAXPEAUtagPROCESSINFO@@PEAUtagWND@@@Z @ 0x1C0034BF8
  * Callers:
- *     NtUserSetProcessDpiAwarenessContext @ 0x1C008C4A0 (NtUserSetProcessDpiAwarenessContext.c)
+ *     NtUserSetProcessDpiAwarenessContext @ 0x1C0094C20 (NtUserSetProcessDpiAwarenessContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     HMValidateSharedHandleNoRip @ 0x1C0208528 (HMValidateSharedHandleNoRip.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C00B4228 (HMValidateSharedHandleNoRip.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UpdateWindowTreeDpiAwareness(struct tagPROCESSINFO *a1, struct tagWND *a2)
 {
-  __int64 v4; // r15
-  __int64 v5; // rbx
-  __int64 i; // rsi
-  unsigned int v7; // edx
-  char *v8; // rdi
-  __int64 *v9; // r14
-  __int64 v10; // rbx
-  __int64 v11; // rdx
+  int v4; // eax
+  __int64 v5; // rsi
+  unsigned __int64 *i; // r14
+  unsigned __int64 v7; // rdi
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  char *v11; // rbx
+  __int64 v12; // rcx
+  _QWORD *v13; // r15
+  unsigned __int64 v14; // rdi
+  __int64 v15; // rbp
+  __int64 v16; // rbx
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
 
-  if ( qword_1C0296070 && (int)qword_1C0296070() >= 0 )
+  if ( qword_1C0256C70 )
+    v4 = qword_1C0256C70();
+  else
+    v4 = -1073741637;
+  if ( v4 >= 0 && qword_1C0256C78 )
+    v5 = qword_1C0256C78(a2, 1LL);
+  else
+    v5 = 0LL;
+  if ( v5 )
   {
-    v4 = qword_1C0296078 ? qword_1C0296078(a2, 1LL, 0LL) : 0LL;
-    if ( v4 )
+    for ( i = (unsigned __int64 *)(v5 + 32); ; ++i )
     {
-      v5 = *(_QWORD *)(v4 + 32);
-      for ( i = v4 + 32; v5 != 1; i += 8LL )
+      v7 = *i;
+      if ( *i == 1 )
+        break;
+      CurrentThread = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess()
+        || (CurrentProcess = PsGetCurrentProcess(v10, v9),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
       {
-        PsGetThreadWin32Thread(KeGetCurrentThread());
-        if ( (unsigned __int64)(unsigned __int16)v5 < *((_QWORD *)gpsi + 1) )
+        PsGetThreadWin32Thread(CurrentThread);
+      }
+      if ( (unsigned __int64)(unsigned __int16)v7 < *((_QWORD *)gpsi + 1) )
+      {
+        v11 = (char *)qword_1C024FA38 + (unsigned int)(unsigned __int16)v7 * dword_1C024FA40;
+        GetDomainLockRef(14);
+        v13 = gpKernelHandleTable;
+        v14 = v7 >> 16;
+        v15 = 3LL * (unsigned int)((v11 - (char *)qword_1C024FA38) >> 5);
+        if ( ((_WORD)v14 == *((_WORD *)v11 + 13)
+           || (_WORD)v14 == 0xFFFF
+           || !(_WORD)v14 && PsGetCurrentProcessWow64Process(v12))
+          && (v11[25] & 1) == 0
+          && v11[24] == 1 )
         {
-          v7 = dword_1C028FE70 * (unsigned __int16)v5;
-          LOWORD(v5) = WORD1(v5) & 0x7FFF;
-          v8 = (char *)qword_1C028FE68 + v7;
-          v9 = (__int64 *)((char *)gpKernelHandleTable + 24 * ((__int64)v7 >> 5));
-          if ( ((WORD1(v5) & 0x7FFF) == *((_WORD *)v8 + 13)
-             || (_WORD)v5 == 0x7FFF
-             || !(_WORD)v5 && PsGetCurrentProcessWow64Process())
-            && (v8[25] & 1) == 0
-            && v8[24] == 1 )
+          v16 = v13[v15];
+          if ( v16 )
           {
-            v10 = *v9;
-            if ( *v9 )
+            if ( qword_1C0256C80 )
+              v17 = qword_1C0256C80();
+            else
+              v17 = -1073741637;
+            if ( v17 >= 0 && *(struct tagPROCESSINFO **)(*(_QWORD *)(v16 + 16) + 424LL) == a1 )
             {
-              if ( qword_1C0296080 )
-              {
-                if ( (int)qword_1C0296080() >= 0 && *(struct tagPROCESSINFO **)(*(_QWORD *)(v10 + 16) + 424LL) == a1 )
-                {
-                  *(_DWORD *)(*(_QWORD *)(v10 + 40) + 288LL) = *((_DWORD *)a1 + 70);
-                  v11 = HMValidateSharedHandleNoRip(*(_QWORD *)(*(_QWORD *)(v10 + 40) + 256LL));
-                  if ( qword_1C0296088 )
-                    qword_1C0296088(v10, v11);
-                }
-              }
+              *(_DWORD *)(*(_QWORD *)(v16 + 40) + 288LL) = *((_DWORD *)a1 + 70);
+              v18 = HMValidateSharedHandleNoRip(*(_QWORD *)(*(_QWORD *)(v16 + 40) + 256LL));
+              if ( qword_1C0256C88 )
+                qword_1C0256C88(v16, v18);
             }
           }
         }
-        v5 = *(_QWORD *)(i + 8);
       }
-      if ( qword_1C0295768 )
-        qword_1C0295768(v4);
     }
+    if ( qword_1C0256308 )
+      qword_1C0256308(v5);
   }
 }

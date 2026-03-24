@@ -1,22 +1,22 @@
 /*
- * XREFs of CmRmFinalizeRecovery @ 0x1406CDC48
+ * XREFs of CmRmFinalizeRecovery @ 0x1406CDC28
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x1407325A0 (CmpFinishSystemHivesLoad.c)
- *     CmpMountPreloadedHives @ 0x140735800 (CmpMountPreloadedHives.c)
+ *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpTransDereferenceTransaction @ 0x1406940B4 (CmpTransDereferenceTransaction.c)
- *     CmpTransMgrRollback @ 0x140694214 (CmpTransMgrRollback.c)
+ *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
+ *     CmpTransMgrRollback @ 0x1406941F4 (CmpTransMgrRollback.c)
  */
 
 __int64 __fastcall CmRmFinalizeRecovery(__int64 a1)

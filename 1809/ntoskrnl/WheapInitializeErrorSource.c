@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapInitializeErrorSource @ 0x140727DB8
+ * XREFs of WheapInitializeErrorSource @ 0x140727D98
  * Callers:
- *     WheapInitializeDeferredErrorSources @ 0x14031F954 (WheapInitializeDeferredErrorSources.c)
- *     WheaAddErrorSource @ 0x1408DB8A0 (WheaAddErrorSource.c)
+ *     WheapInitializeDeferredErrorSources @ 0x14031FA54 (WheapInitializeDeferredErrorSources.c)
+ *     WheaAddErrorSource @ 0x1408DB880 (WheaAddErrorSource.c)
  *     WheapInitializeErrorSourceTable @ 0x1409AEE9C (WheapInitializeErrorSourceTable.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x14017D234 (WheapInitializeErrorRecordWrapper.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x14017D254 (WheapInitializeErrorRecordWrapper.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

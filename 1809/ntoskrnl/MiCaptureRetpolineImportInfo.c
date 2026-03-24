@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCaptureRetpolineImportInfo @ 0x1401B4F78
+ * XREFs of MiCaptureRetpolineImportInfo @ 0x1401B4F98
  * Callers:
  *     MiApplyImportOptimizationToRuntimeDriver @ 0x140582188 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
@@ -7,8 +7,8 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlCaptureRetpolineImportRvas @ 0x1401B5EA8 (RtlCaptureRetpolineImportRvas.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x1401B5EC8 (RtlCaptureRetpolineImportRvas.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

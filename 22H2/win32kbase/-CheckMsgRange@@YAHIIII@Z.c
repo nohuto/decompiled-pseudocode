@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckMsgRange@@YAHIIII@Z @ 0x1C012E160
+ * XREFs of ?CheckMsgRange@@YAHIIII@Z @ 0x1C011E120
  * Callers:
- *     MiPCheckMsgFilter @ 0x1C00AACF0 (MiPCheckMsgFilter.c)
+ *     MiPCheckMsgFilter @ 0x1C0096920 (MiPCheckMsgFilter.c)
  * Callees:
  *     <none>
  */

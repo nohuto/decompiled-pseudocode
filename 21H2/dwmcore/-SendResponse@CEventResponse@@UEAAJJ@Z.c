@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SendResponse@CEventResponse@@UEAAJJ@Z @ 0x1801D7810
+ * XREFs of ?SendResponse@CEventResponse@@UEAAJJ@Z @ 0x180162C90
  * Callers:
  *     <none>
  * Callees:

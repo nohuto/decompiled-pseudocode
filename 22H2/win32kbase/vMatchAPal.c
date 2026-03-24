@@ -1,115 +1,124 @@
 /*
- * XREFs of vMatchAPal @ 0x1C0158090
+ * XREFs of vMatchAPal @ 0x1C013EA90
  * Callers:
- *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C016C3DC (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
+ *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C0142B10 (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
  * Callees:
- *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C0150CCC (-ulTime@XEPALOBJ@@QEAAKXZ.c)
- *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C015803C (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C013C034 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
  */
 
-_DWORD *vMatchAPal(__int64 a1, ...)
+_DWORD *__fastcall vMatchAPal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  int v3; // eax
-  unsigned int v4; // ecx
-  _DWORD *v5; // rdi
-  __int64 v6; // r13
-  int v7; // ebp
-  int v8; // esi
-  __int64 v9; // r11
-  __int64 v10; // r10
-  __int64 v11; // rcx
-  __int64 i; // r11
-  char *v13; // rcx
-  __int64 v14; // r15
-  __int64 v15; // r12
-  int v16; // eax
-  int v17; // ebx
+  int v5; // eax
+  _DWORD *v6; // rbx
+  unsigned int v7; // ecx
+  _DWORD *v8; // r14
+  __int64 v9; // r15
+  int v10; // ebp
+  int v11; // esi
+  __int64 v12; // r10
+  __int64 v13; // r11
+  __int64 v14; // rcx
+  __int64 v15; // r10
+  __int64 v16; // r12
+  __int64 v17; // r13
+  int v18; // eax
+  int v19; // edi
+  __int64 v20; // rax
+  signed __int32 v21; // ecx
+  __int64 v22; // rdx
+  signed __int32 v23; // eax
+  __int64 v24; // rcx
+  signed __int32 v25; // eax
   _DWORD *result; // rax
-  int v19; // [rsp+20h] [rbp-48h]
-  int v20; // [rsp+20h] [rbp-48h]
-  int v21; // [rsp+24h] [rbp-44h]
-  __int64 v22; // [rsp+78h] [rbp+10h] BYREF
-  va_list va; // [rsp+78h] [rbp+10h]
-  __int64 v24; // [rsp+80h] [rbp+18h] BYREF
-  va_list va1; // [rsp+80h] [rbp+18h]
-  _DWORD *v26; // [rsp+88h] [rbp+20h]
-  _DWORD *v27; // [rsp+90h] [rbp+28h]
-  va_list va2; // [rsp+98h] [rbp+30h] BYREF
+  int v27; // [rsp+20h] [rbp-48h]
+  __int64 v28; // [rsp+78h] [rbp+10h] BYREF
+  int v29; // [rsp+80h] [rbp+18h]
+  _DWORD *v30; // [rsp+88h] [rbp+20h]
 
-  va_start(va2, a1);
-  va_start(va1, a1);
-  va_start(va, a1);
-  v22 = va_arg(va1, _QWORD);
-  v1 = v22;
-  va_copy(va2, va1);
-  v24 = va_arg(va2, _QWORD);
-  v2 = v24;
-  v26 = va_arg(va2, _DWORD *);
-  v27 = va_arg(va2, _DWORD *);
-  v3 = *(_DWORD *)(v22 + 24);
-  if ( (v3 & 0x1000) != 0 )
+  v30 = a4;
+  v28 = a2;
+  v5 = *(_DWORD *)(a2 + 24);
+  v6 = a4;
+  if ( (v5 & 0x1000) != 0 )
   {
-    v4 = 1;
+    v7 = 1;
   }
-  else if ( (v3 & 0x10000) != 0 )
+  else if ( (v5 & 0x10000) != 0 )
   {
-    v4 = 0;
+    v7 = 0;
   }
   else
   {
-    v4 = *(_DWORD *)(v22 + 60) >> 1;
+    v7 = *(_DWORD *)(a2 + 60) >> 1;
   }
-  v5 = *(_DWORD **)(v24 + 72);
-  v6 = *(_QWORD *)(v24 + 80);
-  v7 = 0;
-  v8 = 0;
-  if ( v4 < 256 - v4 )
+  v8 = *(_DWORD **)(a3 + 72);
+  v9 = *(_QWORD *)(a3 + 80);
+  v10 = 0;
+  v11 = 0;
+  if ( v7 < 256 - v7 )
   {
-    v9 = 256 - v4 - v4;
-    v10 = 4LL * v4;
+    v12 = 4LL * v7;
+    v13 = 256 - v7 - v7;
     do
     {
-      v11 = *(_QWORD *)(v1 + 112);
-      v19 = *(_DWORD *)(v10 + v11);
-      HIBYTE(v19) &= 0xDEu;
-      *(_DWORD *)(v10 + v11) = v19;
-      v10 += 4LL;
-      --v9;
+      v14 = *(_QWORD *)(a2 + 112);
+      v29 = *(_DWORD *)(v12 + v14);
+      HIBYTE(v29) &= 0xDEu;
+      *(_DWORD *)(v12 + v14) = v29;
+      v12 += 4LL;
+      --v13;
     }
-    while ( v9 );
+    while ( v13 );
   }
-  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v2 + 28); i = (unsigned int)(i + 1) )
+  v15 = 0LL;
+  if ( *(_DWORD *)(a3 + 28) )
   {
-    v13 = (char *)v5 + i;
-    if ( !v6 || *(_BYTE *)(i + v6 + 4) != v13[4] )
-      ++v8;
-    v14 = (unsigned __int8)v13[4];
-    v15 = *(_QWORD *)(v1 + 112);
-    v16 = *(_DWORD *)(v15 + 4 * v14);
-    v20 = v16;
-    if ( (v16 & 0x20000000) == 0 )
+    do
     {
-      v17 = *(_DWORD *)(*(_QWORD *)(v2 + 112) + 4 * i);
-      v21 = v17;
-      if ( (v17 & 0x2000000) == 0
-        && ((_WORD)v17 != (_WORD)v16 || BYTE2(v17) != BYTE2(v16) || ((HIBYTE(v16) ^ HIBYTE(v17)) & 1) != 0) )
+      if ( !v9 || *(_BYTE *)(v15 + v9 + 4) != *((_BYTE *)v8 + v15 + 4) )
+        ++v11;
+      v16 = *((unsigned __int8 *)v8 + v15 + 4);
+      v17 = *(_QWORD *)(a2 + 112);
+      v18 = *(_DWORD *)(v17 + 4 * v16);
+      v29 = v18;
+      if ( (v18 & 0x20000000) == 0 )
       {
-        HIBYTE(v21) = HIBYTE(v17) & 1;
-        ++v7;
-        HIBYTE(v16) = HIBYTE(v17) & 1;
-        v20 = v21;
+        v19 = *(_DWORD *)(*(_QWORD *)(a3 + 112) + 4 * v15);
+        v27 = v19;
+        if ( (v19 & 0x2000000) == 0
+          && ((_BYTE)v19 != (_BYTE)v29
+           || BYTE1(v19) != BYTE1(v18)
+           || BYTE2(v19) != BYTE2(v18)
+           || ((HIBYTE(v19) ^ HIBYTE(v18)) & 1) != 0) )
+        {
+          HIBYTE(v27) = HIBYTE(v19) & 1;
+          ++v10;
+          HIBYTE(v18) = HIBYTE(v19) & 1;
+          v29 = v27;
+        }
+        HIBYTE(v29) = HIBYTE(v18) | 0x30;
+        *(_DWORD *)(v17 + 4 * v16) = v29;
       }
-      HIBYTE(v20) = HIBYTE(v16) | 0x30;
-      *(_DWORD *)(v15 + 4 * v14) = v20;
+      v15 = (unsigned int)(v15 + 1);
     }
+    while ( (unsigned int)v15 < *(_DWORD *)(a3 + 28) );
+    v6 = v30;
   }
-  XEPALOBJ::vUpdateTime((XEPALOBJ *)va);
-  XEPALOBJ::vUpdateTime((XEPALOBJ *)va1);
-  *v5 = XEPALOBJ::ulTime((XEPALOBJ *)va);
-  *v26 = v7;
-  result = v27;
-  *v27 = v8;
+  v20 = v28;
+  v21 = _InterlockedIncrement((volatile signed __int32 *)&ulXlatePalUnique);
+  *(_DWORD *)(v28 + 32) = v21;
+  v22 = *(_QWORD *)(v20 + 120);
+  if ( v22 != v20 )
+    *(_DWORD *)(v22 + 32) = v21;
+  v23 = _InterlockedExchangeAdd((volatile signed __int32 *)&ulXlatePalUnique, 1u);
+  v24 = *(_QWORD *)(a3 + 120);
+  v25 = v23 + 1;
+  *(_DWORD *)(a3 + 32) = v25;
+  if ( v24 != a3 )
+    *(_DWORD *)(v24 + 32) = v25;
+  *v8 = XEPALOBJ::ulTime((XEPALOBJ *)&v28);
+  result = a5;
+  *v6 = v10;
+  *result = v11;
   return result;
 }

@@ -1,45 +1,47 @@
 /*
- * XREFs of PopCoalescingSetActiveState @ 0x14058D97C
+ * XREFs of PopCoalescingSetActiveState @ 0x14056EB04
  * Callers:
- *     PopCoalescingCallbackWorker @ 0x140987000 (PopCoalescingCallbackWorker.c)
+ *     PopCoalescingCallbackWorker @ 0x1408E6870 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     PopCoalescingSetTimer @ 0x14058DA10 (PopCoalescingSetTimer.c)
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x140844FEC (PopUpdateDiskIdleTimeoutSetting.c)
- *     PopDiagTraceIoCoalescingOff @ 0x14098FCB8 (PopDiagTraceIoCoalescingOff.c)
- *     PopDiagTraceIoCoalescingOn @ 0x14098FCE8 (PopDiagTraceIoCoalescingOn.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     PopCoalescingSetTimer @ 0x14056EBA4 (PopCoalescingSetTimer.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x14079968C (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopDiagTraceIoCoalescingOff @ 0x1408EA97C (PopDiagTraceIoCoalescingOff.c)
+ *     PopDiagTraceIoCoalescingOn @ 0x1408EA9AC (PopDiagTraceIoCoalescingOn.c)
  */
 
 __int64 __fastcall PopCoalescingSetActiveState(char a1)
 {
   unsigned int v1; // ebx
-  int v2; // ecx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
+  int v3; // edx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
 
   v1 = 0;
   if ( a1 )
   {
-    v2 = PopDppeCoalescingSpindownTimeout;
+    v3 = PopDppeCoalescingSpindownTimeout;
     if ( PopCoalescingEnforced )
-      v2 = PopEnforcedCoalescingSpindownTimeout;
+      v3 = PopEnforcedCoalescingSpindownTimeout;
     PopCoalescingState |= 1u;
     PopCoalescingLastFlushTime = MEMORY[0xFFFFF78000000008];
-    PopCurrentCoalescingSpindownTimeout = v2;
+    PopCurrentCoalescingSpindownTimeout = v3;
     PopCoalescingSetTimer();
-    PopUpdateDiskIdleTimeoutSetting();
-    LOBYTE(v1) = PopCoalescingEnforced == 0;
-    return PopDiagTraceIoCoalescingOn(v4, v3, v5, v1);
   }
   else
   {
     PopCoalescingState &= ~1u;
     PopCurrentCoalescingSpindownTimeout = 0;
     KeCancelTimer(&PopCoalescingTimer);
-    PopCheckResiliencyScenarios();
-    PopUpdateDiskIdleTimeoutSetting();
-    return PopDiagTraceIoCoalescingOff();
+    PopCheckResiliencyScenarios(v5, v4);
   }
+  PopUpdateDiskIdleTimeoutSetting();
+  if ( !a1 )
+    return PopDiagTraceIoCoalescingOff();
+  LOBYTE(v1) = PopCoalescingEnforced == 0;
+  return PopDiagTraceIoCoalescingOn(v7, v6, v8, v1);
 }

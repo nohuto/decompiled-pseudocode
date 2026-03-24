@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmCheckComputeEnergy @ 0x140222C20
+ * XREFs of PpmCheckComputeEnergy @ 0x14022B420
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char PpmCheckComputeEnergy()
@@ -43,7 +43,7 @@ char PpmCheckComputeEnergy()
   v21[0] = 0LL;
   if ( PopComputeEnergy )
   {
-    v0 = qword_140D06E48[0];
+    v0 = qword_140CFC848[0];
     v1 = 0;
     v20[0] = 64;
     v20[1] = 64;
@@ -64,14 +64,14 @@ LABEL_4:
         _mm_lfence();
         v4 = KiProcessorBlock[v3];
       }
-      v5 = *(unsigned __int8 *)(v4 + 34056);
+      v5 = *(unsigned __int8 *)(v4 + 33208);
       v6 = 4 * v5;
       v20[v5] = v3;
       v7 = 8 * v5;
-      *(_QWORD *)((char *)&v24 + v7) += *(_QWORD *)(v4 + 34072);
-      *(_QWORD *)((char *)&v23 + v7) += *(_QWORD *)(v4 + 34080);
-      v8 = *(_QWORD *)(v4 + 33968);
-      v9 = *(_QWORD *)(v4 + 33976);
+      *(_QWORD *)((char *)&v24 + v7) += *(_QWORD *)(v4 + 33224);
+      *(_QWORD *)((char *)&v23 + v7) += *(_QWORD *)(v4 + 33232);
+      v8 = *(_QWORD *)(v4 + 33128);
+      v9 = *(_QWORD *)(v4 + 33136);
       if ( v8 && v9 )
       {
         if ( *(_BYTE *)(v9 + 100) )
@@ -81,7 +81,7 @@ LABEL_4:
         else
         {
           v10 = *(_DWORD *)(v9 + 72);
-          v11 = *(_DWORD *)(v8 + 512);
+          v11 = *(_DWORD *)(v8 + 368);
           if ( v10 >= v11 )
             v10 = v11;
         }
@@ -91,12 +91,12 @@ LABEL_4:
         v10 = 100;
       }
       *(_DWORD *)((char *)&v21[2] + v6) = v10;
-      *(_QWORD *)(v4 + 34072) = 0LL;
-      *(_QWORD *)(v4 + 34080) = 0LL;
+      *(_QWORD *)(v4 + 33224) = 0LL;
+      *(_QWORD *)(v4 + 33232) = 0LL;
     }
-    while ( ++v1 < (unsigned int)(unsigned __int16)KeActiveProcessors )
+    while ( ++v1 < (unsigned int)(unsigned __int16)KeActiveProcessors[0] )
     {
-      v0 = qword_140D06E48[v1];
+      v0 = qword_140CFC848[v1];
       if ( v0 )
         goto LABEL_4;
     }
@@ -129,7 +129,7 @@ LABEL_4:
           }
         }
         Prcb = KeGetPrcb(v15);
-        *(_QWORD *)(Prcb + 34064) += v21[0];
+        *(_QWORD *)(Prcb + 33216) += v21[0];
       }
       ++v12;
       ++v13;

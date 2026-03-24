@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C0244D7C
+ * XREFs of ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C025639C
  * Callers:
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0240F88 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0251FE8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 InteractiveControlDevice *__fastcall InteractiveControlDevice::InteractiveControlDevice(InteractiveControlDevice *this)
@@ -33,7 +33,7 @@ InteractiveControlDevice *__fastcall InteractiveControlDevice::InteractiveContro
   *((_QWORD *)this + 47) = 0LL;
   *((_QWORD *)this + 48) = 0LL;
   *((_DWORD *)this + 98) = 196613;
-  memset_0((char *)this + 72, 0, 0xB8uLL);
+  memset((char *)this + 72, 0, 0xB8uLL);
   result = this;
   *((_DWORD *)this + 8) = 0;
   return result;

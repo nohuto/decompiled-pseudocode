@@ -1,41 +1,31 @@
 /*
- * XREFs of VrpIncrementSiloCount @ 0x14077D33C
+ * XREFs of VrpIncrementSiloCount @ 0x1405D2494
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A578 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmRegisterInternalCallback @ 0x140851BAC (CmRegisterInternalCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmRegisterInternalCallback @ 0x1405D2538 (CmRegisterInternalCallback.c)
  */
 
 __int64 VrpIncrementSiloCount()
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v1; // esi
-  __int64 v2; // rax
-  __int64 v3; // rcx
-  signed __int8 v4; // cf
-  __int64 v5; // rdi
-  char v6; // bl
-  _QWORD v8[3]; // [rsp+30h] [rbp-18h] BYREF
+  int v1; // edi
+  __int64 v2; // rcx
+  char v3; // bl
+  _QWORD v5[3]; // [rsp+30h] [rbp-18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v1 = 0;
   --CurrentThread->KernelApcDisable;
-  v2 = KeAbPreAcquire((__int64)&VrpActiveSilosLock, 0LL);
-  v4 = _interlockedbittestandset64((volatile signed __int32 *)&VrpActiveSilosLock, 0LL);
-  v5 = v2;
-  if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&VrpActiveSilosLock, v2, (__int64)&VrpActiveSilosLock);
-  if ( v5 )
-    *(_BYTE *)(v5 + 18) = 1;
-  if ( VrpNumActiveSilos || (v8[0] = 917516LL, v8[1] = L"189900", v1 = CmRegisterInternalCallback(v3, v8), v1 >= 0) )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&VrpActiveSilosLock, 0LL);
+  if ( VrpNumActiveSilos || (v5[0] = 917516LL, v5[1] = L"189900", v1 = CmRegisterInternalCallback(v2, v5), v1 >= 0) )
     ++VrpNumActiveSilos;
-  v6 = _InterlockedExchangeAdd64((volatile signed __int64 *)&VrpActiveSilosLock, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v6 & 2) != 0 && (v6 & 4) == 0 )
+  v3 = _InterlockedExchangeAdd64((volatile signed __int64 *)&VrpActiveSilosLock, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v3 & 2) != 0 && (v3 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&VrpActiveSilosLock);
   KeAbPostRelease((ULONG_PTR)&VrpActiveSilosLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

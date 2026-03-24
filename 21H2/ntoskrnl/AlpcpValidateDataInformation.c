@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpValidateDataInformation @ 0x140966E38
+ * XREFs of AlpcpValidateDataInformation @ 0x1408C2FD8
  * Callers:
- *     AlpcpReplyLegacySynchronousRequest @ 0x1406652DC (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendMessage @ 0x1407A9ED0 (AlpcpSendMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpValidateDataInformation(__int64 a1, __int64 a2)

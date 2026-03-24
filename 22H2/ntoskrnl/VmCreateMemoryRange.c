@@ -1,44 +1,56 @@
 /*
- * XREFs of VmCreateMemoryRange @ 0x1409DC590
+ * XREFs of VmCreateMemoryRange @ 0x14092EE50
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     VmpInsertMemoryRange @ 0x1405F941C (VmpInsertMemoryRange.c)
- *     VmpAllocateMemoryRanges @ 0x1409DD064 (VmpAllocateMemoryRanges.c)
- *     VmpDecodePreallocationRangeHandle @ 0x1409DD208 (VmpDecodePreallocationRangeHandle.c)
- *     VmpFreeMemoryRanges @ 0x1409DD25C (VmpFreeMemoryRanges.c)
- *     VmpProcessContextSetup @ 0x1409DD7D0 (VmpProcessContextSetup.c)
- *     VmpValidateMemoryRangeParameters @ 0x1409DD93C (VmpValidateMemoryRangeParameters.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VmpInsertMemoryRange @ 0x1405A38C0 (VmpInsertMemoryRange.c)
+ *     VmpAllocateMemoryRanges @ 0x14092F59C (VmpAllocateMemoryRanges.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x14092F694 (VmpDecodePreallocationRangeHandle.c)
+ *     VmpFreeMemoryRanges @ 0x14092F6E8 (VmpFreeMemoryRanges.c)
+ *     VmpProcessContextCleanup @ 0x14092FB0C (VmpProcessContextCleanup.c)
+ *     VmpValidateMemoryRangeParameters @ 0x14092FB20 (VmpValidateMemoryRangeParameters.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  _QWORD *MemoryRanges; // rsi
-  _KPROCESS *Process; // rbx
-  unsigned __int64 v11; // rdi
-  int inserted; // edi
-  __int64 v13; // rax
-  struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v15; // rbp
-  __int64 v16; // rdx
-  unsigned __int64 v17; // r15
-  unsigned __int64 v18; // r12
+  _QWORD *MemoryRanges; // rdi
+  _KPROCESS *Process; // rsi
+  signed __int64 v11; // rbx
+  PVOID PoolWithTag; // rax
+  int inserted; // ebx
+  PVOID v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  unsigned __int64 v17; // r14
+  unsigned __int64 v18; // r15
 
   MemoryRanges = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( !VmTbFlushEnabled )
     VmTbFlushEnabled = 1;
-  v11 = Process[2].Affinity.StaticBitmap[5];
+  v11 = Process[2].Affinity.Bitmap[5];
   if ( !v11 )
   {
-    inserted = VmpProcessContextSetup(a4);
-    if ( inserted < 0 )
-      return (unsigned int)inserted;
-    v11 = Process[2].Affinity.StaticBitmap[5];
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x70uLL, 0x63506D56u);
+    v11 = (signed __int64)PoolWithTag;
+    if ( !PoolWithTag )
+      return (unsigned int)-1073741670;
+    memset(PoolWithTag, 0, 0x70uLL);
+    *(_QWORD *)(v11 + 72) = a4;
+    *(_QWORD *)(v11 + 16) = 0LL;
+    *(_QWORD *)(v11 + 24) = 0LL;
+    *(_QWORD *)(v11 + 32) = 0LL;
+    *(_QWORD *)(v11 + 48) = 0LL;
+    *(_QWORD *)(v11 + 56) = 0LL;
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Process[2].Affinity.Bitmap[5], v11, 0LL) )
+    {
+      VmpProcessContextCleanup(v11);
+      ExFreePoolWithTag(v14, 0);
+      v11 = Process[2].Affinity.Bitmap[5];
+    }
   }
   if ( a5 )
     MemoryRanges = (_QWORD *)VmpDecodePreallocationRangeHandle(v11);
@@ -48,8 +60,8 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
   }
   else
   {
-    v13 = *(_QWORD *)(v11 + 72);
-    if ( v13 == -1 || v13 == a4 )
+    v15 = *(_QWORD *)(v11 + 72);
+    if ( v15 == -1 || v15 == a4 )
     {
       if ( !MemoryRanges )
       {
@@ -57,10 +69,6 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
         if ( !MemoryRanges )
           return (unsigned int)-1073741670;
       }
-      CurrentThread = KeGetCurrentThread();
-      v15 = (volatile signed __int64 *)(v11 + 88);
-      --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx(v11 + 88, 0LL);
       v16 = MemoryRanges[5];
       v17 = a2 >> 12;
       MemoryRanges[3] = v17;
@@ -74,10 +82,6 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
         MemoryRanges = 0LL;
         inserted = 0;
       }
-      if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v15);
-      KeAbPostRelease((ULONG_PTR)v15);
-      KeLeaveCriticalRegion();
     }
     else
     {

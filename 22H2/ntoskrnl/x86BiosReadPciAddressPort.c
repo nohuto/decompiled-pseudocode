@@ -1,7 +1,7 @@
 /*
- * XREFs of x86BiosReadPciAddressPort @ 0x140508304
+ * XREFs of x86BiosReadPciAddressPort @ 0x1404BF25C
  * Callers:
- *     x86BiosReadIoSpace @ 0x1403C21B0 (x86BiosReadIoSpace.c)
+ *     x86BiosReadIoSpace @ 0x140398FB0 (x86BiosReadIoSpace.c)
  * Callees:
  *     <none>
  */

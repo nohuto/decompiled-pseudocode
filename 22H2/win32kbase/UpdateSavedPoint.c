@@ -1,29 +1,26 @@
 /*
- * XREFs of UpdateSavedPoint @ 0x1C01E93A0
+ * XREFs of UpdateSavedPoint @ 0x1C01AF4E0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
  */
 
-_DWORD *__fastcall UpdateSavedPoint(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 UpdateSavedPoint()
 {
-  _DWORD *result; // rax
-  _DWORD *v5; // r8
-  int v6; // edx
+  __int64 result; // rax
+  __int64 v1; // r8
 
-  result = (_DWORD *)anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
-  v5 = result;
+  result = anonymous_namespace_::GetMouseProcessor();
+  v1 = result;
   if ( result )
   {
     *((_QWORD *)gpsi + 619) = 0LL;
-    v6 = *((_DWORD *)gpsi + 1241);
-    result[15] = *((_DWORD *)gpsi + 1240);
-    result[16] = v6;
-    result[17] = 18;
-    result = (_DWORD *)gptCursorAsync;
-    *((_QWORD *)v5 + 431) = 0LL;
-    *((_QWORD *)v5 + 430) = result;
+    *(_QWORD *)(result + 68) = *((_QWORD *)gpsi + 620);
+    *(_DWORD *)(result + 76) = 18;
+    result = (__int64)gptCursorAsync;
+    *(_QWORD *)(v1 + 3440) = 0LL;
+    *(_QWORD *)(v1 + 3432) = result;
   }
   return result;
 }

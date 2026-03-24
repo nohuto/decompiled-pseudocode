@@ -1,11 +1,11 @@
 /*
- * XREFs of ??$FreeIsolatedType@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C016B8A0
+ * XREFs of ??$FreeIsolatedType@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C002A4A0
  * Callers:
- *     ?Allocate@SURFACE@@SAPEAV1@_KG@Z @ 0x1C008B768 (-Allocate@SURFACE@@SAPEAV1@_KG@Z.c)
- *     ?Free@SURFACE@@SAXPEAV1@@Z @ 0x1C016BB6C (-Free@SURFACE@@SAXPEAV1@@Z.c)
+ *     ?Free@SURFACE@@SAXPEAV1@@Z @ 0x1C002A450 (-Free@SURFACE@@SAXPEAV1@@Z.c)
+ *     ?Allocate@SURFACE@@SAPEAV1@_KG@Z @ 0x1C007F630 (-Allocate@SURFACE@@SAPEAV1@_KG@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 PSLIST_ENTRY __fastcall FreeIsolatedType<NSInstrumentation::CLookAsideTypeIsolation<180224,704>>(
@@ -16,8 +16,8 @@ PSLIST_ENTRY __fastcall FreeIsolatedType<NSInstrumentation::CLookAsideTypeIsolat
   __int64 v4; // rbx
 
   result = (PSLIST_ENTRY)gpTypeIsolation;
-  v3 = *(_QWORD *)gpTypeIsolation;
-  if ( *(_QWORD *)gpTypeIsolation )
+  v3 = (__int64)*gpTypeIsolation;
+  if ( *gpTypeIsolation )
   {
     memset(ListEntry, 0, 0x2C0uLL);
     ++*(_DWORD *)(v3 + 76);

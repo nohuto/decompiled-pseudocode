@@ -1,11 +1,11 @@
 /*
- * XREFs of OSNotifyCreatePowerResource @ 0x1C002A294
+ * XREFs of OSNotifyCreatePowerResource @ 0x1C002DF34
  * Callers:
- *     OSNotifyCreate @ 0x1C0009DF0 (OSNotifyCreate.c)
+ *     OSNotifyCreate @ 0x1C001D650 (OSNotifyCreate.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     ACPIBuildPowerResourceRequest @ 0x1C002A2E8 (ACPIBuildPowerResourceRequest.c)
- *     ACPIBuildPowerResourceExtension @ 0x1C002A3B8 (ACPIBuildPowerResourceExtension.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     ACPIBuildPowerResourceRequest @ 0x1C002DF88 (ACPIBuildPowerResourceRequest.c)
+ *     ACPIBuildPowerResourceExtension @ 0x1C002E058 (ACPIBuildPowerResourceExtension.c)
  */
 
 __int64 __fastcall OSNotifyCreatePowerResource(__int64 a1)

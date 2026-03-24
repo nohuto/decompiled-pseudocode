@@ -1,599 +1,472 @@
 /*
- * XREFs of MmLoadSystemImageEx @ 0x14075FC44
+ * XREFs of MmLoadSystemImageEx @ 0x14075BAFC
  * Callers:
- *     IopLoadCrashdumpDriver @ 0x1403B670C (IopLoadCrashdumpDriver.c)
- *     MmLoadSystemImage @ 0x14075FC00 (MmLoadSystemImage.c)
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     IopLoadCrashdmpImage @ 0x14081CF60 (IopLoadCrashdmpImage.c)
- *     MiLoadImportDll @ 0x14082ECCC (MiLoadImportDll.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140971848 (MiApplyHotPatchToLoadedDriver.c)
- *     MiMapAndApplyPatchInSession @ 0x140975FF0 (MiMapAndApplyPatchInSession.c)
+ *     IopLoadCrashdumpDriver @ 0x1403A7488 (IopLoadCrashdumpDriver.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     MmLoadSystemImage @ 0x14075BAC0 (MmLoadSystemImage.c)
+ *     IopLoadCrashdmpImage @ 0x14078EA30 (IopLoadCrashdmpImage.c)
+ *     MiLoadImportDll @ 0x1407AC3E0 (MiLoadImportDll.c)
+ *     PnprLoadPluginDriver @ 0x1408ADE48 (PnprLoadPluginDriver.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140203DC0 (HalSystemVectorDispatchEntry.c)
- *     MiSetImageProtection @ 0x14027E128 (MiSetImageProtection.c)
- *     MiDereferenceControlAreaFile @ 0x140280D08 (MiDereferenceControlAreaFile.c)
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MiReferenceActiveSubsection @ 0x140286DE0 (MiReferenceActiveSubsection.c)
- *     MiControlAreaRequiresCharge @ 0x140287380 (MiControlAreaRequiresCharge.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140287450 (MiCheckPurgeAndUpMapCount.c)
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     MiIsRetpolineEnabled @ 0x14029C6C4 (MiIsRetpolineEnabled.c)
- *     IoIsDeviceEjectable @ 0x14029E72C (IoIsDeviceEjectable.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     MiUpdateDriverLoadInProgress @ 0x1402D8E2C (MiUpdateDriverLoadInProgress.c)
- *     MiSessionInsertImage @ 0x1402D9A54 (MiSessionInsertImage.c)
- *     MiSessionLookupImage @ 0x1402DBF3C (MiSessionLookupImage.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x14058C0E4 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiValidateStrongCodeDriverImage @ 0x140590908 (MiValidateStrongCodeDriverImage.c)
- *     MiMapRetpolineStubs @ 0x1405A1F60 (MiMapRetpolineStubs.c)
- *     MiCompactServiceTable @ 0x1406CCD8C (MiCompactServiceTable.c)
- *     MiUseLargeDriverPage @ 0x1406E7320 (MiUseLargeDriverPage.c)
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     MiProcessLoadConfigForDriver @ 0x14075C2E0 (MiProcessLoadConfigForDriver.c)
- *     KseDriverLoadImage @ 0x14075CCC8 (KseDriverLoadImage.c)
- *     MiConstructLoaderEntry @ 0x14075F4A4 (MiConstructLoaderEntry.c)
- *     MiObtainSectionForDriver @ 0x1407603D4 (MiObtainSectionForDriver.c)
- *     MiGenerateSystemImageNames @ 0x140760554 (MiGenerateSystemImageNames.c)
- *     MiHandleDriverNonPagedSections @ 0x1407608BC (MiHandleDriverNonPagedSections.c)
- *     MiDriverLoadSucceeded @ 0x140761234 (MiDriverLoadSucceeded.c)
- *     MiFinalizeDriverCfgState @ 0x14076146C (MiFinalizeDriverCfgState.c)
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x1407614BC (MiApplyImportOptimizationToRuntimeDriver.c)
- *     MiLogRetpolineImageLoadEvents @ 0x1407615BC (MiLogRetpolineImageLoadEvents.c)
- *     MiResolveImageImports @ 0x140761604 (MiResolveImageImports.c)
- *     MiMapSystemImage @ 0x140761714 (MiMapSystemImage.c)
- *     MiGetSystemAddressForImage @ 0x140761A2C (MiGetSystemAddressForImage.c)
- *     MiApplyRequiredSessionDriverHotPatches @ 0x140761E94 (MiApplyRequiredSessionDriverHotPatches.c)
- *     MiBackSingleImageWithPagefile @ 0x14080F7F4 (MiBackSingleImageWithPagefile.c)
- *     MiLogFailedDriverLoad @ 0x14096C4AC (MiLogFailedDriverLoad.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x14096C6C4 (MiLogStrongCodeDriverLoadFailure.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140970C20 (MiMarkKernelImageRetpolineBits.c)
- *     MiCreatePatchTableProtos @ 0x140972D10 (MiCreatePatchTableProtos.c)
- *     MiFindHotPatchRecord @ 0x1409730F0 (MiFindHotPatchRecord.c)
- *     MiFreePatchTableProtos @ 0x140973418 (MiFreePatchTableProtos.c)
- *     MiLoadHotPatch @ 0x140974020 (MiLoadHotPatch.c)
- *     MiCreateSessionDriverProtos @ 0x140981070 (MiCreateSessionDriverProtos.c)
- *     MiMapSystemImageWithLargePage @ 0x14098325C (MiMapSystemImageWithLargePage.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfDriverLoadImage @ 0x140A7C1B8 (VfDriverLoadImage.c)
+ *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
+ *     MiControlAreaRequiresCharge @ 0x14025ACBC (MiControlAreaRequiresCharge.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     MiSetImageProtection @ 0x1402E67C8 (MiSetImageProtection.c)
+ *     IoIsDeviceEjectable @ 0x1402E96BC (IoIsDeviceEjectable.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiReferenceActiveSubsection @ 0x140315D00 (MiReferenceActiveSubsection.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140315FB0 (MiCheckPurgeAndUpMapCount.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     MiSessionInsertImage @ 0x1403A2974 (MiSessionInsertImage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A924 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiValidateStrongCodeDriverImage @ 0x140535824 (MiValidateStrongCodeDriverImage.c)
+ *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiFinalizeDriverImage @ 0x14075BA88 (MiFinalizeDriverImage.c)
+ *     MiObtainSectionForDriver @ 0x14075C358 (MiObtainSectionForDriver.c)
+ *     MiGenerateSystemImageNames @ 0x14075C4D0 (MiGenerateSystemImageNames.c)
+ *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
+ *     MiApplyRequiredDriverHotPatches @ 0x14075C848 (MiApplyRequiredDriverHotPatches.c)
+ *     MiFinalizeDriverCfgState @ 0x14075C8B8 (MiFinalizeDriverCfgState.c)
+ *     MiHandleDriverNonPagedSections @ 0x14075C910 (MiHandleDriverNonPagedSections.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075CB78 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiFinalizeImageRetpolineState @ 0x14075CC88 (MiFinalizeImageRetpolineState.c)
+ *     MiProcessLoadConfigForDriver @ 0x14075CD3C (MiProcessLoadConfigForDriver.c)
+ *     MiResolveImageImports @ 0x14075CFC4 (MiResolveImageImports.c)
+ *     MiMapSystemImage @ 0x14075D0C4 (MiMapSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
+ *     MiGetSystemAddressForImage @ 0x14075E8AC (MiGetSystemAddressForImage.c)
+ *     MiUseLargeDriverPage @ 0x140770E88 (MiUseLargeDriverPage.c)
+ *     MiBackSingleImageWithPagefile @ 0x140780C14 (MiBackSingleImageWithPagefile.c)
+ *     MiCompactServiceTable @ 0x14078A028 (MiCompactServiceTable.c)
+ *     MiRelocateAmount @ 0x1407D5494 (MiRelocateAmount.c)
+ *     MiLogFailedDriverLoad @ 0x1408C7DA0 (MiLogFailedDriverLoad.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x1408C7FCC (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiCreatePatchTableProtos @ 0x1408C98E8 (MiCreatePatchTableProtos.c)
+ *     MiFreePatchTableProtos @ 0x1408C9EC4 (MiFreePatchTableProtos.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA3D0 (MiMapSystemImageWithLargePage.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA7D8 (MiCreateSessionDriverProtos.c)
+ *     MiSessionApplyNonPagedImageCharges @ 0x1408DA95C (MiSessionApplyNonPagedImageCharges.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmLoadSystemImageEx(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
-        unsigned int a5,
-        _QWORD *a6,
-        unsigned __int64 *a7)
+        unsigned int a4,
+        _QWORD *a5,
+        unsigned __int64 *a6)
 {
-  unsigned int v7; // r14d
-  char v9; // bl
-  __int64 v10; // rdx
-  __int64 v11; // r10
-  signed int Image; // edi
-  unsigned int v13; // r15d
-  struct _KTHREAD *Lock; // r12
-  int v15; // eax
-  char *v16; // rsi
-  void *v17; // rcx
-  __int64 *v18; // r12
-  __int64 *v19; // r13
-  unsigned __int64 v20; // r8
-  int v21; // ecx
+  struct _LIST_ENTRY *v10; // rax
+  int v11; // r15d
+  signed int active; // ebx
+  char v13; // r13
+  int v14; // eax
+  _QWORD *v15; // rdi
+  void *v16; // rcx
+  __int64 *v17; // r12
+  unsigned int v18; // esi
+  char v19; // bl
+  unsigned __int64 v20; // r13
+  struct _KTHREAD *v21; // rsi
+  __int64 v22; // r14
+  __int64 *v23; // rcx
+  char v24; // dl
+  int v25; // eax
+  PVOID v26; // r8
+  __int64 v27; // rbx
+  __int64 v28; // r13
+  __int64 v29; // rax
+  int v30; // esi
   int inserted; // eax
-  int v23; // r11d
-  int v24; // eax
-  PVOID v25; // r8
-  int v26; // edi
-  __int64 v27; // r12
-  __int64 v28; // rax
-  __int64 v29; // r15
-  __int64 v30; // r15
-  unsigned __int64 v31; // rax
-  __int64 v32; // rdx
-  unsigned __int64 v33; // r8
-  int v34; // r12d
-  __int64 *v35; // r15
-  __int64 *v36; // r13
-  __int64 v37; // rdx
-  unsigned __int64 *v38; // rcx
-  int v39; // r14d
-  bool v41; // sf
-  struct _LIST_ENTRY *v42; // rax
-  struct _LIST_ENTRY *v43; // rax
+  unsigned __int64 v32; // rax
   void *PatchTableProtos; // rax
-  int v45; // eax
-  unsigned __int64 v46; // rdi
-  _QWORD *v47; // rdi
-  __int64 v48; // rcx
-  int v49; // r9d
-  int HotPatchRecord; // eax
-  int v51; // r14d
-  unsigned __int64 v52; // rax
-  char v53; // [rsp+30h] [rbp-D0h]
-  int v54; // [rsp+34h] [rbp-CCh]
-  __int64 v55; // [rsp+38h] [rbp-C8h]
-  int v56; // [rsp+40h] [rbp-C0h]
-  unsigned __int64 SystemAddressForImage; // [rsp+48h] [rbp-B8h]
-  int v58; // [rsp+50h] [rbp-B0h] BYREF
-  int v59; // [rsp+54h] [rbp-ACh] BYREF
-  PVOID v60; // [rsp+58h] [rbp-A8h]
-  PVOID P; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 *v62; // [rsp+68h] [rbp-98h]
+  __int64 v35; // rsi
+  int v36; // eax
+  PVOID v37; // rcx
+  ULONG_PTR v38; // rax
+  __int64 v39; // rdx
+  unsigned __int64 v40; // r8
+  __int64 v41; // r15
+  _QWORD *v42; // rbx
+  char v43; // [rsp+30h] [rbp-D0h]
+  char v44[3]; // [rsp+31h] [rbp-CFh] BYREF
+  int v45; // [rsp+34h] [rbp-CCh]
+  int v46; // [rsp+38h] [rbp-C8h]
+  char v47; // [rsp+3Ch] [rbp-C4h]
+  int v48; // [rsp+40h] [rbp-C0h]
+  struct _KTHREAD *Lock; // [rsp+48h] [rbp-B8h]
+  int v50; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID v51; // [rsp+58h] [rbp-A8h]
+  __int64 SystemAddressForImage; // [rsp+60h] [rbp-A0h]
+  PVOID P; // [rsp+68h] [rbp-98h] BYREF
   PVOID Object; // [rsp+70h] [rbp-90h]
-  int v64; // [rsp+78h] [rbp-88h] BYREF
+  __int64 *v55; // [rsp+78h] [rbp-88h]
   UNICODE_STRING String1; // [rsp+80h] [rbp-80h] BYREF
-  char *v66; // [rsp+90h] [rbp-70h] BYREF
-  struct _LIST_ENTRY *v67; // [rsp+98h] [rbp-68h]
-  PVOID v68[2]; // [rsp+A0h] [rbp-60h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
-  _OWORD v70[14]; // [rsp+C0h] [rbp-40h] BYREF
+  _QWORD *v57; // [rsp+90h] [rbp-70h] BYREF
+  struct _LIST_ENTRY *v58; // [rsp+98h] [rbp-68h]
+  PVOID v59[2]; // [rsp+A0h] [rbp-60h] BYREF
+  _OWORD v60[14]; // [rsp+B0h] [rbp-50h] BYREF
+  char v63; // [rsp+1B8h] [rbp+B8h]
 
-  v7 = a5;
-  v66 = 0LL;
-  v60 = 0LL;
-  v67 = 0LL;
-  v56 = 1;
-  v9 = 0;
-  v58 = 1;
-  *(_OWORD *)v68 = 0LL;
+  v57 = 0LL;
+  v51 = 0LL;
+  v63 = 0;
+  v58 = 0LL;
+  v47 = 0;
+  v48 = 1;
+  v50 = 1;
+  *(_OWORD *)v59 = 0LL;
   String1 = 0LL;
-  *a7 = 0LL;
-  v70[0] = 0LL;
-  if ( *((_BYTE *)PsGetCurrentServerSiloGlobals() + 1368) )
+  *a6 = 0LL;
+  v60[0] = 0LL;
+  if ( *((_BYTE *)PsGetCurrentServerSiloGlobals(a1, a2) + 1176) )
   {
-    v42 = (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry();
-    v43 = PsAttachSiloToCurrentThread(v42);
-    v11 = a1;
-    v9 = 4;
-    v10 = a2;
-    v67 = v43;
+    v10 = (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry();
+    v58 = PsAttachSiloToCurrentThread(v10);
+    v47 = 1;
   }
-  v59 = v7 & 1;
-  if ( (v7 & 1) == 0 )
+  v11 = a4 & 1;
+  if ( (a4 & 1) == 0 )
   {
-    if ( (v7 & 4) == 0 )
-      goto LABEL_5;
-LABEL_98:
-    Image = -1073741582;
-    goto LABEL_76;
-  }
-  if ( (v7 & 2) != 0 || (v7 & 0x80000004) == 4 )
-    goto LABEL_98;
-  if ( (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x1000000000000LL) == 0 && (v7 & 0x40000000) == 0 )
-  {
-    Image = -1073741801;
-    goto LABEL_76;
-  }
-  v56 = v58;
+    if ( (a4 & 4) == 0 )
+      goto LABEL_10;
 LABEL_5:
-  Image = MiGenerateSystemImageNames(v11, v10, a3, &String1, v70, v68);
-  if ( Image < 0 )
-    goto LABEL_76;
-  v54 = 1;
-  LOBYTE(a5) = 1;
-  v13 = 0;
-  v53 = 0;
-  P = 0LL;
-  Lock = MmAcquireLoadLock();
-  v55 = (__int64)Lock;
-  v15 = MiObtainSectionForDriver((PCUNICODE_STRING)v68, &P);
-  v16 = (char *)P;
-  Image = v15;
-  if ( v15 < 0 )
-  {
-    v39 = 1;
-    v23 = 1;
-    goto LABEL_70;
+    active = -1073741582;
+    goto LABEL_66;
   }
-  v17 = (void *)*((_QWORD *)P + 14);
-  Object = v17;
-  if ( v17 )
+  if ( (a4 & 2) != 0 || (a4 & 0x80000004) == 4 )
+    goto LABEL_5;
+  if ( (PsGetCurrentProcess()[1].DirectoryTableBase & 0x1000000000000LL) == 0 )
   {
-    v18 = (__int64 *)MiSectionControlArea((__int64)v17);
-    v62 = v18;
-    v13 = *(_DWORD *)(*v18 + 8);
+    active = -1073741801;
+    goto LABEL_66;
+  }
+LABEL_10:
+  active = MiGenerateSystemImageNames(a1, a2, a3, &String1, v60, v59);
+  if ( active < 0 )
+    goto LABEL_66;
+  v13 = 0;
+  v46 = 1;
+  P = 0LL;
+  v44[0] = 1;
+  v43 = 0;
+  v45 = 0;
+  Lock = MmAcquireLoadLock();
+  v14 = MiObtainSectionForDriver((PCUNICODE_STRING)v59, &P);
+  v15 = P;
+  active = v14;
+  if ( v14 < 0 )
+    goto LABEL_116;
+  v16 = (void *)*((_QWORD *)P + 14);
+  Object = v16;
+  if ( v16 )
+  {
+    v17 = (__int64 *)MiSectionControlArea((__int64)v16);
+    v18 = *(_DWORD *)(*v17 + 8);
   }
   else
   {
-    v18 = 0LL;
-    v62 = 0LL;
+    v17 = 0LL;
+    v18 = 0;
   }
-  if ( !Image )
+  if ( active )
   {
-    v9 |= 2 * (v7 & 1) + 1;
-    *((_DWORD *)v16 + 16) = v13 << 12;
-    SystemAddressForImage = MiGetSystemAddressForImage(v17, v7, &v58);
-    if ( !SystemAddressForImage )
+    v23 = v15 + 6;
+    v20 = v15[6];
+    SystemAddressForImage = v20;
+    v55 = v15 + 6;
+    if ( (a4 & 1) != 0 )
     {
-      ObDereferenceObjectDeferDelete(Object);
-      ExFreePoolWithTag(v16, 0);
-      v39 = 1;
-      v16 = 0LL;
-      v23 = 1;
-      Image = -1073741670;
-      goto LABEL_122;
-    }
-    MiCheckPurgeAndUpMapCount((__int64)v18);
-    v19 = (__int64 *)(v16 + 48);
-    *((_QWORD *)v16 + 6) = SystemAddressForImage;
-    MiUpdateDriverLoadInProgress((__int64)v16, 0);
-    v9 |= 8u;
-    v56 = v58;
-    LOBYTE(v23) = 1;
-LABEL_21:
-    if ( (v9 & 3) != 1 )
-    {
-LABEL_24:
-      if ( (v9 & 2) != 0 && dword_140C4F478 )
+      inserted = MiSessionInsertImage(v20, v17);
+      active = inserted;
+      if ( inserted < 0 )
       {
-        if ( ((unsigned __int8)v9 & (unsigned __int8)v23) != 0 )
-        {
-          if ( !(unsigned int)MiCreateSessionDriverProtos(v18, *v19, 0LL)
-            || (PatchTableProtos = (void *)MiCreatePatchTableProtos(), (v60 = PatchTableProtos) == 0LL) )
-          {
-            Image = -1073741670;
-            goto LABEL_121;
-          }
-          v25 = PatchTableProtos;
-        }
+LABEL_37:
+        MmReleaseLoadLock((__int64)Lock);
+        goto LABEL_61;
+      }
+      if ( inserted == 272 )
+      {
+LABEL_42:
+        *a5 = v15;
+        *a6 = v20;
+        if ( (v15[13] & 0x4000000) != 0 )
+          active = -1073741411;
         else
+          active = v11 == 0 ? 0xC000010E : 0;
+        goto LABEL_37;
+      }
+      v23 = v55;
+      v24 = 1;
+      v43 = 1;
+    }
+    else
+    {
+      v24 = 0;
+    }
+    if ( active != 272 )
+    {
+      ++*((_WORD *)v15 + 54);
+      v19 = 0;
+      goto LABEL_46;
+    }
+    goto LABEL_42;
+  }
+  v19 = 1;
+  v63 = 1;
+  *((_DWORD *)v15 + 16) = v18 << 12;
+  SystemAddressForImage = MiGetSystemAddressForImage(v16, a4, &v50);
+  v20 = SystemAddressForImage;
+  if ( !SystemAddressForImage )
+  {
+    ObDereferenceObjectDeferDelete(Object);
+    ExFreePoolWithTag(v15, 0);
+    v21 = Lock;
+    active = -1073741670;
+    v22 = a1;
+LABEL_59:
+    MmReleaseLoadLock((__int64)v21);
+    if ( !v44[0] )
+      MiLogFailedDriverLoad(v22, 0LL, 0LL, (unsigned int)active);
+    goto LABEL_61;
+  }
+  MiCheckPurgeAndUpMapCount((__int64)v17);
+  v23 = v15 + 6;
+  v24 = a4 & 1;
+  v55 = v15 + 6;
+  v15[6] = v20;
+  v43 = a4 & 1;
+  if ( !(_BYTE)v11 )
+  {
+    v25 = MiControlAreaRequiresCharge((__int64)v17, 3LL);
+    v46 = v25;
+    if ( !v25 )
+    {
+      active = -1073740277;
+LABEL_52:
+      v13 = v45;
+LABEL_53:
+      v21 = Lock;
+      v22 = a1;
+      goto LABEL_54;
+    }
+    if ( v25 == 2 )
+    {
+      active = MiReferenceActiveSubsection(v17 + 16, 136, 0x11u);
+      if ( active < 0 )
+      {
+        v13 = v45;
+        v25 = 1;
+        v21 = Lock;
+        v22 = a1;
+        goto LABEL_112;
+      }
+    }
+    v48 = v50;
+    goto LABEL_25;
+  }
+  v48 = v50;
+LABEL_46:
+  if ( v24 != 1 || !dword_140C4CCB0 )
+  {
+LABEL_25:
+    v26 = v51;
+    goto LABEL_26;
+  }
+  if ( v19 == 1 )
+  {
+    if ( !(unsigned int)MiCreateSessionDriverProtos(v17, *v23, 0LL)
+      || (PatchTableProtos = (void *)MiCreatePatchTableProtos(), (v51 = PatchTableProtos) == 0LL) )
+    {
+      active = -1073741670;
+      goto LABEL_51;
+    }
+    v26 = PatchTableProtos;
+  }
+  else
+  {
+    v26 = (PVOID)v15[36];
+    v51 = v26;
+  }
+LABEL_26:
+  active = MiMapSystemImage(Object, v20, v26, a4);
+  if ( active < 0 )
+  {
+LABEL_51:
+    v25 = v46;
+    goto LABEL_52;
+  }
+  if ( (a4 & 1) == 0 )
+  {
+    _InterlockedExchangeAdd(&dword_140C4EFD0, v18);
+    v15 = P;
+    v48 = v50;
+  }
+  v27 = SystemAddressForImage;
+  v28 = 0LL;
+  v45 = 1;
+  if ( (a4 & 0x21) == 0
+    && SystemAddressForImage == *(_QWORD *)(*v17 + 32)
+    && (unsigned int)MiUseLargeDriverPage(&String1)
+    && (v29 = MiMapSystemImageWithLargePage(Object, v18, v27), (v28 = v29) != 0) )
+  {
+    _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD48 + 3, -v18);
+    v30 = v50;
+    v27 = v29;
+    v15 = P;
+    SystemAddressForImage = v29;
+    v48 = v50;
+    *v55 = v29;
+  }
+  else
+  {
+    v30 = v48;
+  }
+  v44[0] = 0;
+  if ( v63 != 1 )
+    goto LABEL_84;
+  v35 = RtlImageNtHeader(v27);
+  if ( !v35 )
+  {
+    active = -1073741279;
+    goto LABEL_51;
+  }
+  if ( *(_WORD *)(v35 + 4) != 0x8664 || *(_WORD *)(v35 + 24) != 523 )
+  {
+    active = -1073741520;
+    goto LABEL_51;
+  }
+  if ( (MiFlags & 0x10000) == 0 || (active = MiValidateStrongCodeDriverImage(v35, a4), active >= 0) )
+  {
+    v30 = v48;
+    active = MiConstructLoaderEntry((_DWORD)v15, (unsigned int)&String1, (unsigned int)v59, a4, v48, (__int64)&v57);
+    if ( active < 0 )
+      goto LABEL_51;
+    ExFreePoolWithTag(v15, 0);
+    v37 = v51;
+    v15 = v57;
+    if ( v51 )
+    {
+      v51 = 0LL;
+      v57[36] = v37;
+    }
+LABEL_84:
+    v45 = 5;
+    if ( v46 == 2 )
+      *((_DWORD *)v15 + 49) |= 0x80u;
+    if ( !v28 && (a4 & 1) == 0 )
+    {
+      if ( !v30 )
+        goto LABEL_93;
+      v38 = MiReferenceControlAreaFile((__int64)v17);
+      if ( IoIsDeviceEjectable(*(_QWORD *)(v38 + 8)) || (*(_DWORD *)(v39 + 52) & 0x11) != 0 )
+        v30 = 0;
+      MiDereferenceControlAreaFile((__int64)v17, v40);
+      if ( !v30 )
+LABEL_93:
+        MiBackSingleImageWithPagefile(v15);
+    }
+    active = MiResolveImageImports((_DWORD)v15, a2, (unsigned int)v60, (unsigned int)&String1, (__int64)v44);
+    if ( active < 0
+      || (active = MiProcessLoadConfigForDriver(v15, v17 + 16), active < 0)
+      || (active = MiFinalizeImageRetpolineState(v15), active < 0) )
+    {
+      v13 = v45;
+    }
+    else
+    {
+      v41 = SystemAddressForImage;
+      if ( (*(_BYTE *)(*(_QWORD *)(*v17 + 56) + 46LL) & 0x40) == 0 )
+      {
+        v42 = (_QWORD *)(SystemAddressForImage + *(unsigned int *)(*(_QWORD *)(v17[12] + 32) + 64LL));
+        MiSetImageProtection((__int64)v15, (unsigned __int64)v42, 8u);
+        *v42 = v41 - MiRelocateAmount(v17);
+        if ( v17[18] )
+          MiSetImageProtection((__int64)v15, (unsigned __int64)v42, 8u);
+      }
+      active = MiFinalizeDriverImage((__int64)v15);
+      v13 = 23;
+      if ( active >= 0 )
+      {
+        active = MiApplyImportOptimizationToRuntimeDriver(v15, v17, a4);
+        if ( active >= 0 )
         {
-          v25 = (PVOID)*((_QWORD *)v16 + 36);
-          v60 = v25;
-        }
-      }
-      else
-      {
-        v25 = v60;
-      }
-      Image = MiMapSystemImage(Object, SystemAddressForImage, v25, v7);
-      if ( Image < 0 )
-      {
-LABEL_121:
-        v39 = v54;
-        v23 = 1;
-        goto LABEL_122;
-      }
-      if ( v59 )
-      {
-        v26 = v56;
-      }
-      else
-      {
-        _InterlockedExchangeAdd(&dword_140C53550, v13);
-        v26 = v58;
-        v16 = (char *)P;
-        v56 = v58;
-      }
-      v27 = 0LL;
-      v53 = 1;
-      if ( (v7 & 0x40000021) != 0 )
-        goto LABEL_32;
-      if ( SystemAddressForImage != *(_QWORD *)(*v62 + 32) )
-      {
-        v28 = SystemAddressForImage;
-        goto LABEL_33;
-      }
-      if ( (unsigned int)MiUseLargeDriverPage(&String1)
-        && (v28 = MiMapSystemImageWithLargePage(Object, v13, SystemAddressForImage), (v27 = v28) != 0) )
-      {
-        _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4F4F8 + 3, -v13);
-        v26 = v58;
-        v16 = (char *)P;
-        v56 = v58;
-        SystemAddressForImage = v28;
-        *v19 = v28;
-      }
-      else
-      {
-LABEL_32:
-        v28 = SystemAddressForImage;
-      }
-LABEL_33:
-      LOBYTE(a5) = 0;
-      if ( (v9 & 1) != 0 )
-      {
-        v29 = RtlImageNtHeader(v28);
-        if ( !v29 )
-        {
-          Image = -1073741279;
-          goto LABEL_129;
-        }
-        if ( *(_WORD *)(v29 + 4) != 0x8664 || *(_WORD *)(v29 + 24) != 523 )
-        {
-          Image = -1073741520;
-          goto LABEL_129;
-        }
-        if ( (MiFlags & 0x8000) != 0 && (v7 & 0x40000000) == 0 )
-        {
-          Image = MiValidateStrongCodeDriverImage(v29, v7);
-          if ( Image < 0 )
+          if ( v43 != 1 || (a4 & 4) == 0 || (active = MiCompactServiceTable(v15), active >= 0) )
           {
-            memset(&v70[1], 0, 0xA0uLL);
-            DWORD2(v70[8]) = *(_DWORD *)(v29 + 88);
-            v45 = *(_DWORD *)(v29 + 8);
-            *(UNICODE_STRING *)((char *)&v70[6] + 8) = String1;
-            HIDWORD(v70[10]) = v45;
-            MiLogStrongCodeDriverLoadFailure("SectionWXable");
-            goto LABEL_129;
-          }
-          v26 = v56;
-        }
-        Image = MiConstructLoaderEntry(
-                  (__int64)v16,
-                  (const void **)&String1,
-                  (const void **)v68,
-                  v7,
-                  v26,
-                  (__int64 *)&v66);
-        if ( Image < 0 )
-        {
-LABEL_129:
-          v39 = v54;
-          v23 = 1;
-          goto LABEL_122;
-        }
-        MiUpdateDriverLoadInProgress((__int64)v16, 1);
-        v9 &= ~8u;
-        ExFreePoolWithTag(v16, 0);
-        v16 = v66;
-        v26 = v56;
-        if ( v60 )
-        {
-          *((_QWORD *)v66 + 36) = v60;
-          v60 = 0LL;
-        }
-      }
-      v53 = 5;
-      if ( v54 == 2 )
-        *((_DWORD *)v16 + 49) |= 0x80u;
-      if ( !v27 && !v59 )
-      {
-        if ( !v26 )
-          goto LABEL_100;
-        v30 = (__int64)v62;
-        v31 = MiReferenceControlAreaFile((__int64)v62);
-        if ( IoIsDeviceEjectable(*(_QWORD *)(v31 + 8)) || (*(_DWORD *)(v32 + 52) & 0x11) != 0 )
-          v26 = 0;
-        MiDereferenceControlAreaFile(v30, v33);
-        if ( !v26 )
-LABEL_100:
-          MiBackSingleImageWithPagefile(v16);
-      }
-      v34 = v7 & 0x40000000;
-      if ( (v7 & 0x10000000) == 0 )
-      {
-        Image = MiResolveImageImports(
-                  (_DWORD)v16,
-                  a2,
-                  (unsigned int)v70,
-                  (unsigned int)&String1,
-                  (v7 & 0x40000000) != 0,
-                  (__int64)&a5);
-        if ( Image < 0 )
-          goto LABEL_129;
-        v53 = 21;
-      }
-      v35 = v62;
-      v36 = v62 + 16;
-      if ( v34 || (Image = MiProcessLoadConfigForDriver((__int64)v16), Image >= 0) )
-      {
-        if ( !MiIsRetpolineEnabled() )
-          goto LABEL_56;
-        v46 = *((_QWORD *)v16 + 6);
-        if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v46) )
-          MiMapRetpolineStubs(v46, (unsigned __int64)*((unsigned int *)v16 + 16) >> 12);
-        Image = MiMarkKernelImageRetpolineBits(v16, 1LL);
-        if ( Image >= 0 )
-        {
-LABEL_56:
-          MiLogRetpolineImageLoadEvents(v16);
-          if ( (*(_BYTE *)(*(_QWORD *)(*v35 + 56) + 46LL) & 0x40) == 0 )
-          {
-            v47 = (_QWORD *)(SystemAddressForImage + *(unsigned int *)(*(_QWORD *)(v35[12] + 32) + 60LL));
-            MiSetImageProtection((__int64)v16, (unsigned __int64)v47, 8, 4LL);
-            v48 = *(_QWORD *)(v35[12] + 32);
-            if ( v48 )
-              v48 = *(_QWORD *)(v48 + 40);
-            *v47 = SystemAddressForImage - v48;
-            if ( v36[2] )
-              MiSetImageProtection((__int64)v16, (unsigned __int64)v47, 8, 256LL);
-          }
-          if ( v34
-            || (VfDriverLoadImage(v16, v37, 0LL), v53 |= 2u, Image = KseDriverLoadImage((__int64)v16), Image >= 0)
-            && (Image = MiApplyImportOptimizationToRuntimeDriver(v16, v35, v7), Image >= 0) )
-          {
-            if ( (v9 & 2) == 0 || (v7 & 4) == 0 || (Image = MiCompactServiceTable((__int64)v16), Image >= 0) )
+            active = MiHandleDriverNonPagedSections(v15, a4, 1LL);
+            if ( active >= 0 )
             {
-              Image = MiHandleDriverNonPagedSections(v16, v7, 1LL);
-              if ( Image >= 0 )
+              v13 = 31;
+              if ( v43 == 1 )
+                MiSessionApplyNonPagedImageCharges(v41);
+              active = MiFinalizeDriverCfgState(v15, a4, v17 + 16);
+              if ( active >= 0 )
               {
-                if ( (v9 & 2) != 0 )
-                  *((_BYTE *)MiSessionLookupImage(SystemAddressForImage) + 64) = 1;
-                if ( v34 )
+                active = MiApplyRequiredDriverHotPatches(v15);
+                if ( active >= 0 )
                 {
-                  LOBYTE(v13) = v53;
-                  goto LABEL_69;
+                  v22 = a1;
+                  MiDriverLoadSucceeded((_DWORD)v15, (_DWORD)Object, a1, (unsigned int)v59, (__int64)&String1, v63);
+                  v21 = Lock;
+                  MmReleaseLoadLock((__int64)Lock);
+                  active = 0;
+                  *a5 = v15;
+                  *a6 = v41;
+                  goto LABEL_111;
                 }
-                Image = MiFinalizeDriverCfgState(v16, v7, v36);
-                if ( Image >= 0 )
-                {
-                  if ( (v9 & 1) != 0 )
-                  {
-                    DestinationString = 0LL;
-                    if ( (dword_140C533E4 & 1) == 0 )
-                    {
-LABEL_68:
-                      MiDriverLoadSucceeded(
-                        (_DWORD)v16,
-                        (_DWORD)Object,
-                        a1,
-                        (unsigned int)v68,
-                        (__int64)&String1,
-                        v9 & 1);
-                      LOBYTE(v13) = v53 | 8;
-LABEL_69:
-                      Lock = (struct _KTHREAD *)v55;
-                      MmReleaseLoadLock(v55);
-                      Image = 0;
-                      v38 = a7;
-                      v23 = 1;
-                      v39 = v54;
-                      *a6 = v16;
-                      *v38 = SystemAddressForImage;
-LABEL_70:
-                      if ( (v9 & 8) != 0 )
-                      {
-                        MiUpdateDriverLoadInProgress((__int64)v16, v23);
-                        v9 &= ~8u;
-                      }
-                      if ( Image < 0 )
-                      {
-                        if ( v16 )
-                        {
-                          if ( v39 == 2 && (v13 & 4) == 0 )
-                          {
-                            v52 = MiSectionControlArea(*((_QWORD *)v16 + 14));
-                            MiReturnCrossPartitionControlAreaCharges(v52);
-                          }
-                          MiUnloadSystemImage((__int64)v16, v13);
-                        }
-                        MmReleaseLoadLock((__int64)Lock);
-                        if ( !(_BYTE)a5 )
-                          MiLogFailedDriverLoad(a1, 0LL, 0LL, (unsigned int)Image);
-                      }
-                      goto LABEL_73;
-                    }
-                    RtlInitUnicodeString(&DestinationString, 0LL);
-                    v49 = *((_DWORD *)v16 + 39);
-                    v64 = *((_DWORD *)v16 + 30);
-                    v59 = v49;
-                    HotPatchRecord = MiFindHotPatchRecord((int)&qword_140C533B0, 0, v64, v49, &DestinationString);
-                    v51 = HotPatchRecord;
-                    if ( HotPatchRecord >= 0 )
-                    {
-                      v51 = MiLoadHotPatch(&DestinationString, 0LL, &v64, &v59);
-                      RtlFreeUnicodeString(&DestinationString);
-                    }
-                    else if ( HotPatchRecord == -1073741275 )
-                    {
-                      v51 = 0;
-                    }
-                    Image = v51;
-                    v41 = v51 < 0;
-                  }
-                  else
-                  {
-                    if ( (v9 & 2) == 0 )
-                      goto LABEL_68;
-                    Image = MiApplyRequiredSessionDriverHotPatches(v16);
-                    v41 = Image < 0;
-                  }
-                  if ( v41 )
-                    goto LABEL_129;
-                  goto LABEL_68;
-                }
-                goto LABEL_129;
               }
             }
           }
         }
       }
-      goto LABEL_121;
     }
-    v24 = MiControlAreaRequiresCharge((__int64)v18);
-    v54 = v24;
-    if ( v24 )
+LABEL_116:
+    v25 = v46;
+    goto LABEL_53;
+  }
+  memset(&v60[1], 0, 0xA0uLL);
+  DWORD2(v60[8]) = *(_DWORD *)(v35 + 88);
+  v36 = *(_DWORD *)(v35 + 8);
+  *(UNICODE_STRING *)((char *)&v60[6] + 8) = String1;
+  HIDWORD(v60[10]) = v36;
+  MiLogStrongCodeDriverLoadFailure("SectionWXable");
+  v13 = v45;
+  v21 = Lock;
+  v22 = a1;
+LABEL_111:
+  v25 = v46;
+LABEL_112:
+  if ( active < 0 )
+  {
+LABEL_54:
+    if ( v15 )
     {
-      if ( v24 == 2 )
+      if ( v25 == 2 && (v13 & 4) == 0 )
       {
-        Image = MiReferenceActiveSubsection(v18 + 16, 136, 0x11u);
-        v23 = 1;
-        if ( Image < 0 )
-        {
-          v39 = 1;
-          goto LABEL_122;
-        }
+        v32 = MiSectionControlArea(v15[14]);
+        MiReturnCrossPartitionControlAreaCharges(v32);
       }
-      goto LABEL_24;
+      MiUnloadSystemImage((__int64)v15, v13);
     }
-    Image = -1073740277;
-    v39 = 0;
-LABEL_122:
-    Lock = (struct _KTHREAD *)v55;
-    LOBYTE(v13) = v53;
-    goto LABEL_70;
+    goto LABEL_59;
   }
-  v19 = (__int64 *)(v16 + 48);
-  v20 = *((_QWORD *)v16 + 6);
-  v21 = v7 & 0x40000000;
-  SystemAddressForImage = v20;
-  if ( (*((_DWORD *)v16 + 49) & 0x20) != 0 )
-  {
-    if ( !v21 )
-    {
-      MmReleaseLoadLock(v55);
-      Image = -1073740608;
-      goto LABEL_73;
-    }
-  }
-  else if ( !v21 )
-  {
-    goto LABEL_12;
-  }
-  if ( (v7 & 0x20000000) == 0 )
-    goto LABEL_16;
-LABEL_12:
-  if ( !v59 )
-  {
-    if ( Image != 272 )
-    {
-LABEL_90:
-      LOBYTE(v23) = 1;
-      ++*((_WORD *)v16 + 54);
-      goto LABEL_21;
-    }
-LABEL_16:
-    *a6 = v16;
-    *a7 = v20;
-    if ( (*((_DWORD *)v16 + 26) & 0x4000000) != 0 )
-      Image = -1073741411;
-    else
-      Image = (v7 & 0x40000001) != 1 ? 0xC000010E : 0;
-    goto LABEL_18;
-  }
-  inserted = MiSessionInsertImage(v20, v18, v20);
-  Image = inserted;
-  if ( inserted >= 0 )
-  {
-    if ( inserted == 272 )
-    {
-      v20 = SystemAddressForImage;
-      goto LABEL_16;
-    }
-    v9 |= 2u;
-    goto LABEL_90;
-  }
-LABEL_18:
-  MmReleaseLoadLock(v55);
-LABEL_73:
+LABEL_61:
   if ( a2 )
-    ExFreePoolWithTag(v68[1], 0);
-  if ( (v9 & 1) != 0 && v60 )
-    MiFreePatchTableProtos(v60);
-LABEL_76:
-  if ( (v9 & 4) != 0 )
-    PsDetachSiloFromCurrentThread(v67);
-  return (unsigned int)Image;
+    ExFreePoolWithTag(v59[1], 0);
+  if ( v63 == 1 && v51 )
+    MiFreePatchTableProtos(v51);
+LABEL_66:
+  if ( v47 )
+    PsDetachSiloFromCurrentThread(v58);
+  return (unsigned int)active;
 }

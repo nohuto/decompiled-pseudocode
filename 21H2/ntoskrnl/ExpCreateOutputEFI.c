@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCreateOutputEFI @ 0x1409FBE5C
+ * XREFs of ExpCreateOutputEFI @ 0x14094FA9C
  * Callers:
- *     ExpConvertSignatureName @ 0x1409FBB20 (ExpConvertSignatureName.c)
- *     ExpTranslateNtPath @ 0x1409FEC6C (ExpTranslateNtPath.c)
+ *     ExpConvertSignatureName @ 0x14094F760 (ExpConvertSignatureName.c)
+ *     ExpTranslateNtPath @ 0x1409528B4 (ExpTranslateNtPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExpFindDiskSignature @ 0x1409FC5BC (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x1409FC9E0 (ExpGetDriveGeometry.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpFindDiskSignature @ 0x140950200 (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x14095065C (ExpGetDriveGeometry.c)
  */
 
 __int64 __fastcall ExpCreateOutputEFI(
@@ -33,19 +33,17 @@ __int64 __fastcall ExpCreateOutputEFI(
   unsigned __int64 v20; // rcx
   char v21; // r8
   char *v22; // rdi
-  unsigned __int8 v23; // r9
-  unsigned __int8 v24; // al
-  unsigned int v25; // [rsp+30h] [rbp-68h] BYREF
-  int v26; // [rsp+34h] [rbp-64h] BYREF
-  int *v27; // [rsp+38h] [rbp-60h]
-  __int128 v28; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v29; // [rsp+50h] [rbp-48h]
+  unsigned int v23; // [rsp+30h] [rbp-68h] BYREF
+  int v24; // [rsp+34h] [rbp-64h] BYREF
+  int *v25; // [rsp+38h] [rbp-60h]
+  __int128 v26; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v27; // [rsp+50h] [rbp-48h]
 
   v8 = 0;
   v9 = 0LL;
   v10 = a4;
-  v27 = a4;
-  v25 = 0;
+  v25 = a4;
+  v23 = 0;
   v13 = 54;
   if ( Src )
   {
@@ -66,24 +64,23 @@ LABEL_15:
     return v8;
   }
   v17 = *v10;
-  v29 = 0LL;
-  v26 = v17;
-  v28 = 0LL;
-  result = ExpFindDiskSignature((_DWORD)a3, (unsigned int)&v26, (unsigned int)&v25, 0, 0LL, a8);
+  v27 = 0LL;
+  v24 = v17;
+  v26 = 0LL;
+  result = ExpFindDiskSignature((_DWORD)a3, (unsigned int)&v24, (unsigned int)&v23, 0, 0LL, a8);
   if ( (int)result >= 0 )
   {
-    result = ExpGetDriveGeometry(v25, &v28);
+    result = ExpGetDriveGeometry(v23, &v26);
     if ( (int)result >= 0 )
     {
       memset(a1, 0, v16);
-      v19 = v27;
-      v20 = HIDWORD(v29);
+      v19 = v25;
+      v20 = HIDWORD(v27);
       v21 = 1;
       *(_DWORD *)a1 = 1;
       *((_DWORD *)a1 + 1) = v16;
       *((_DWORD *)a1 + 2) = 4;
       v22 = a1 + 12;
-      v23 = 42;
       *(_DWORD *)v22 = 2752772;
       *((_DWORD *)v22 + 1) = *v19;
       *((_QWORD *)v22 + 1) = *a5 / v20;
@@ -98,19 +95,16 @@ LABEL_15:
         *((_DWORD *)v22 + 6) = *(_DWORD *)a3;
       }
       v22[40] = v21;
-      v24 = 0;
       v22[41] = v21;
       if ( Src )
       {
-        v22 += 42;
+        v22 += *((unsigned __int16 *)v22 + 1);
         *(_WORD *)v22 = 1028;
         *((_WORD *)v22 + 1) = v9 + 4;
         memmove(v22 + 4, Src, v9 - 2);
         *(_WORD *)&v22[2 * (v9 >> 1) + 2] = 0;
-        v24 = v22[3];
-        v23 = v22[2];
       }
-      *(_DWORD *)&v22[v23 | ((unsigned __int64)v24 << 8)] = 327551;
+      *(_DWORD *)&v22[*((unsigned __int16 *)v22 + 1)] = 327551;
       goto LABEL_15;
     }
   }

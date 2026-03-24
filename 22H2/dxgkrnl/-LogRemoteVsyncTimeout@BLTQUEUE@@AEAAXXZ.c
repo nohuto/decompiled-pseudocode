@@ -1,12 +1,12 @@
 /*
- * XREFs of ?LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ @ 0x1C03D1D04
+ * XREFs of ?LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ @ 0x1C02FDF54
  * Callers:
- *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C01D38A0 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
+ *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C0127404 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0014CD0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2@Z @ 0x1C006D874 (--$Write@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_E.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00213AC (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2@Z @ 0x1C005E9E0 (--$Write@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_E.c)
  */
 
 void __fastcall BLTQUEUE::LogRemoteVsyncTimeout(BLTQUEUE *this)
@@ -18,26 +18,26 @@ void __fastcall BLTQUEUE::LogRemoteVsyncTimeout(BLTQUEUE *this)
   __int64 v5; // [rsp+38h] [rbp-40h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+40h] [rbp-38h] BYREF
 
-  if ( (unsigned int)dword_1C013F8A8 > 5 )
+  if ( (unsigned int)dword_1C00B19E8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C013F8A8, 0x400000080000LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C00B19E8, 0x400000080000LL) )
     {
       v4 = 33556480LL;
       v5 = 1LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
         v1,
-        byte_1C00AB114,
+        byte_1C00818F4,
         v2,
         (__int64)&v5,
         (__int64)&v4);
-      v3 = dword_1C013F8A8;
+      v3 = dword_1C00B19E8;
     }
     if ( v3 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C013F8A8, 0x80000LL) )
+      if ( tlgKeywordOn((__int64)&dword_1C00B19E8, 0x80000LL) )
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_1C013F8A8,
-          (unsigned __int8 *)dword_1C00AB08C,
+          (__int64)&dword_1C00B19E8,
+          (unsigned __int8 *)dword_1C0081888,
           0LL,
           0LL,
           2u,

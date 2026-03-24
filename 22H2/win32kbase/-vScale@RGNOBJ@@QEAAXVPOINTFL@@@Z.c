@@ -1,52 +1,50 @@
 /*
- * XREFs of ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C0157A50
+ * XREFs of ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C013E7B0
  * Callers:
- *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C015D110 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
+ *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0140CD8 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
  * Callees:
- *     bFToL @ 0x1C00038EC (bFToL.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0157978 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ *     bFToL @ 0x1C0082B80 (bFToL.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C013E6D8 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
  */
 
-__int64 __fastcall RGNOBJ::vScale(__int64 *a1, __int64 a2)
+void __fastcall RGNOBJ::vScale(__int64 *a1, __int64 a2)
 {
-  __int64 v2; // rax
-  unsigned int v4; // ebp
-  __int64 result; // rax
+  __int64 v2; // rbx
+  unsigned int v4; // esi
+  _DWORD *v5; // rbx
   unsigned int v6; // r8d
-  _DWORD *v7; // rbx
-  __int64 i; // rsi
+  __int64 i; // rdi
+  int v8; // eax
   int v9; // eax
-  int v10; // eax
+  __int64 v10; // rbx
   __int64 v11; // [rsp+20h] [rbp-38h] BYREF
   __int128 v12; // [rsp+28h] [rbp-30h] BYREF
 
   v2 = *a1;
   v11 = a2;
-  v4 = *(_DWORD *)(v2 + 52);
-  result = SGDGetSessionState(a1);
+  v4 = *(_DWORD *)(v2 + 84);
   if ( v4 > 1 )
   {
+    v5 = *(_DWORD **)(v2 + 88);
     v6 = 6;
-    v7 = *(_DWORD **)(*a1 + 32);
     do
     {
-      for ( i = 0LL; (unsigned int)i < *v7; i = (unsigned int)(i + 1) )
-        bFToL((float)(int)v7[i + 3] * *(float *)&v11, &v7[i + 3], v6);
-      v9 = v7[1];
-      if ( v9 != 0x80000000 )
-        bFToL((float)v9 * *((float *)&v11 + 1), v7 + 1, v6);
-      v10 = v7[2];
-      if ( v10 != 0x7FFFFFFF )
-        bFToL((float)v10 * *((float *)&v11 + 1), v7 + 2, v6);
-      v7 = (_DWORD *)((char *)v7 + (unsigned int)(4 * *v7 + 16));
+      for ( i = 0LL; (unsigned int)i < *v5; i = (unsigned int)(i + 1) )
+        bFToL((float)(int)v5[i + 3] * *(float *)&v11, &v5[i + 3], v6);
+      v8 = v5[1];
+      if ( v8 != 0x80000000 )
+        bFToL((float)v8 * *((float *)&v11 + 1), v5 + 1, v6);
+      v9 = v5[2];
+      if ( v9 != 0x7FFFFFFF )
+        bFToL((float)v9 * *((float *)&v11 + 1), v5 + 2, v6);
+      v5 = (_DWORD *)((char *)v5 + (unsigned int)(4 * *v5 + 16));
       --v4;
     }
     while ( v4 );
-    v12 = *(_OWORD *)(*a1 + 56);
+    v10 = *a1;
+    v12 = *(_OWORD *)(*a1 + 96);
     ERECTL::vScale((ERECTL *)&v12, (const struct POINTFL *)&v11);
-    result = *a1;
-    *(_OWORD *)(*a1 + 56) = v12;
+    *(_OWORD *)(v10 + 96) = v12;
   }
-  return result;
 }

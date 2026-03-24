@@ -1,23 +1,23 @@
 /*
- * XREFs of ExCopyWakeTimerInfo @ 0x14060B5A0
+ * XREFs of ExCopyWakeTimerInfo @ 0x1405B5FB0
  * Callers:
- *     PopHandleWakeSources @ 0x140AA0F1C (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140998400 (PopHandleWakeSources.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExCopyWakeTimerInfo(_QWORD *Src, _QWORD *a2)
+__int64 __fastcall ExCopyWakeTimerInfo(SIZE_T *Src, _QWORD *a2)
 {
-  void *Pool2; // rax
-  void *v5; // rdi
+  PVOID PoolWithTag; // rax
+  PVOID v5; // rdi
   __int64 result; // rax
 
-  Pool2 = (void *)ExAllocatePool2(256LL, *Src, 1398239828LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, *Src, 0x53577254u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memmove(Pool2, Src, *Src);
+  memmove(PoolWithTag, Src, *Src);
   result = 0LL;
   *a2 = v5;
   return result;

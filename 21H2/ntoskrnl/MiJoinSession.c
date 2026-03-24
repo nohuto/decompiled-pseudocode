@@ -1,7 +1,7 @@
 /*
- * XREFs of MiJoinSession @ 0x1407F1C84
+ * XREFs of MiJoinSession @ 0x1406D09C0
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1407F17B4 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall MiJoinSession(volatile signed __int32 **a1)
   Process = CurrentThread->ApcState.Process;
   if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     return 1LL;
-  v3 = (volatile signed __int32 *)Process[1].Affinity.StaticBitmap[25];
+  v3 = (volatile signed __int32 *)Process[1].AffinityPadding[5];
   if ( !v3 )
     return 1LL;
   v4 = *v3;

@@ -1,7 +1,7 @@
 /*
  * XREFs of SeReleaseSecurityDescriptor @ 0x140631850
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
  *     ObDeleteCapturedInsertInfo @ 0x1405B7BB0 (ObDeleteCapturedInsertInfo.c)
  *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
@@ -16,9 +16,9 @@
  *     AlpcpConnectPort @ 0x1406144A4 (AlpcpConnectPort.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  *     IopAllocRealFileObject @ 0x14063BB00 (IopAllocRealFileObject.c)
- *     ObpFreeObject @ 0x140645F60 (ObpFreeObject.c)
- *     NtOpenObjectAuditAlarm @ 0x1406D93B0 (NtOpenObjectAuditAlarm.c)
- *     CmpCopySaclToVirtualKey @ 0x1407F4B70 (CmpCopySaclToVirtualKey.c)
+ *     ObpFreeObject @ 0x140645F40 (ObpFreeObject.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406D9390 (NtOpenObjectAuditAlarm.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407F4B50 (CmpCopySaclToVirtualKey.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

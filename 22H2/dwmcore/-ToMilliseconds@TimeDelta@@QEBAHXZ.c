@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ToMilliseconds@TimeDelta@@QEBAHXZ @ 0x1800E4894
+ * XREFs of ?ToMilliseconds@TimeDelta@@QEBAHXZ @ 0x1800ACF80
  * Callers:
- *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056CD0 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18023C520 (-CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABBA8 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D74E0 (-CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ?ToMicroseconds@TimeDelta@@QEBA_JXZ @ 0x1800E48F4 (-ToMicroseconds@TimeDelta@@QEBA_JXZ.c)
+ *     ?ToMicroseconds@TimeDelta@@QEBA_JXZ @ 0x1800ACFE0 (-ToMicroseconds@TimeDelta@@QEBA_JXZ.c)
  */
 
 __int64 __fastcall TimeDelta::ToMilliseconds(TimeDelta *this)

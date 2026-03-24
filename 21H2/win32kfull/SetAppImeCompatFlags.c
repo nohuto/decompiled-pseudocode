@@ -1,26 +1,30 @@
 /*
- * XREFs of SetAppImeCompatFlags @ 0x1C009D250
+ * XREFs of SetAppImeCompatFlags @ 0x1C0014428
  * Callers:
- *     SetAppCompatFlags @ 0x1C009CB70 (SetAppCompatFlags.c)
+ *     SetAppCompatFlags @ 0x1C0013E30 (SetAppCompatFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SetAppImeCompatFlags(__int64 a1, const UNICODE_STRING *a2)
 {
-  unsigned int v2; // ebx
+  unsigned int v2; // esi
   __int64 CurrentProcessWin32Process; // rax
-  int v7; // edi
+  __int64 i; // rbx
+  int v8; // edi
+  const UNICODE_STRING *v9; // r14
   ULONG Value; // [rsp+40h] [rbp-C0h] BYREF
   DWORD DefaultLocaleId; // [rsp+44h] [rbp-BCh] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
-  WCHAR SourceString[80]; // [rsp+60h] [rbp-A0h] BYREF
+  PCUNICODE_STRING String1[3]; // [rsp+58h] [rbp-A8h]
+  WCHAR SourceString[80]; // [rsp+70h] [rbp-90h] BYREF
 
-  v2 = 0;
-  DestinationString = 0LL;
   Value = 0;
   DefaultLocaleId = 0;
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
+  v2 = 0;
+  String1[1] = 0LL;
+  DestinationString = 0LL;
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
   if ( (unsigned int)FastGetProfileStringW(
                        0LL,
                        (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x80u) != 0 ? 44 : 30,
@@ -37,15 +41,24 @@ __int64 __fastcall SetAppImeCompatFlags(__int64 a1, const UNICODE_STRING *a2)
     *(_DWORD *)(*(_QWORD *)(a1 + 424) + 776LL) = Value;
   if ( !gpastrSetupExe )
     return 0LL;
-  v7 = 0;
-  if ( giSetupExe > 0 )
+  String1[0] = a2;
+  for ( i = 0LL; i < 1; ++i )
   {
-    while ( RtlCompareUnicodeString(a2, &gpastrSetupExe[v7], 1u) )
+    if ( v2 )
+      break;
+    v8 = 0;
+    if ( giSetupExe > 0 )
     {
-      if ( ++v7 >= giSetupExe )
-        return v2;
+      v9 = String1[i];
+      while ( RtlCompareUnicodeString(v9, &gpastrSetupExe[v8], 1u) )
+      {
+        if ( ++v8 >= giSetupExe )
+          goto LABEL_17;
+      }
+      v2 = 1;
     }
-    return 1;
+LABEL_17:
+    ;
   }
   return v2;
 }

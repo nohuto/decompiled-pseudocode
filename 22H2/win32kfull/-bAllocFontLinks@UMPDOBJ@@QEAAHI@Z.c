@@ -1,41 +1,40 @@
 /*
- * XREFs of ?bAllocFontLinks@UMPDOBJ@@QEAAHI@Z @ 0x1C02C0538
+ * XREFs of ?bAllocFontLinks@UMPDOBJ@@QEAAHI@Z @ 0x1C02ACC3C
  * Callers:
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C02BFF40 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013C6B4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall UMPDOBJ::bAllocFontLinks(UMPDOBJ *this, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall UMPDOBJ::bAllocFontLinks(UMPDOBJ *this, unsigned int a2)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rsi
-  void *v7; // rcx
-  __int64 v8; // rax
-  void *v9; // rcx
+  unsigned int v2; // ebx
+  __int64 v3; // rsi
+  void *v5; // rcx
+  void *v6; // rax
+  bool v7; // zf
 
-  v4 = 0;
-  v5 = a2;
-  if ( a2 > *((_DWORD *)this + 108) )
+  v2 = 0;
+  v3 = a2;
+  if ( a2 > *((_DWORD *)this + 104) )
   {
-    v7 = (void *)*((_QWORD *)this + 50);
-    if ( v7 )
+    v5 = (void *)*((_QWORD *)this + 48);
+    if ( v5 )
     {
-      Win32FreePool(v7);
-      *((_DWORD *)this + 108) = 0;
+      Win32FreePool(v5);
+      *((_DWORD *)this + 104) = 0;
     }
-    if ( 4 * (_DWORD)v5 )
-      v8 = Win32AllocPool((unsigned int)(4 * v5), 1886221639LL, a3, a4);
-    else
-      v8 = 0LL;
-    *((_QWORD *)this + 50) = v8;
+    *((_QWORD *)this + 48) = PALLOCMEM2((unsigned int)(4 * v3), 1886221639LL, 0);
   }
-  v9 = (void *)*((_QWORD *)this + 50);
-  if ( v9 )
+  v6 = (void *)*((_QWORD *)this + 48);
+  v7 = v6 == 0LL;
+  if ( v6 )
   {
-    *((_DWORD *)this + 108) = v5;
-    memset_0(v9, 0, 4 * v5);
+    *((_DWORD *)this + 104) = v3;
+    memset(v6, 0, 4 * v3);
+    v7 = *((_QWORD *)this + 48) == 0LL;
   }
-  LOBYTE(v4) = *((_QWORD *)this + 50) != 0LL;
-  return v4;
+  LOBYTE(v2) = !v7;
+  return v2;
 }

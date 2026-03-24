@@ -1,12 +1,12 @@
 /*
- * XREFs of RIMSetPointerDeviceInputSpace @ 0x1C0198928
+ * XREFs of RIMSetPointerDeviceInputSpace @ 0x1C0164DC0
  * Callers:
- *     NtSetPointerDeviceInputSpace @ 0x1C0156860 (NtSetPointerDeviceInputSpace.c)
+ *     NtSetPointerDeviceInputSpace @ 0x1C012CCD0 (NtSetPointerDeviceInputSpace.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C003C1A0 (--0CLockedInputSpace@@QEAA@XZ.c)
- *     RIMSetDeviceOutputConfig @ 0x1C0198794 (RIMSetDeviceOutputConfig.c)
- *     ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C01E3A20 (-GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C0044158 (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     RIMSetDeviceOutputConfig @ 0x1C0164C1C (RIMSetDeviceOutputConfig.c)
+ *     ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C01B329C (-GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z.c)
  */
 
 __int64 __fastcall RIMSetPointerDeviceInputSpace(__int64 a1, struct _LUID *a2, __int128 *a3)
@@ -25,10 +25,10 @@ __int64 __fastcall RIMSetPointerDeviceInputSpace(__int64 a1, struct _LUID *a2, _
   RIMLockExclusive(v3 + 104);
   if ( (*(_DWORD *)(v4 + 200) & 0x80u) != 0 )
   {
-    v8 = *(_QWORD *)(v4 + 472);
+    v8 = *(_QWORD *)(v4 + 480);
     if ( *(_DWORD *)(v8 + 24) != 7 )
     {
-      RIMLockExclusive(v3 + 792);
+      RIMLockExclusive(v3 + 568);
       CLockedInputSpace::CLockedInputSpace((CLockedInputSpace *)v11);
       if ( a2 )
       {
@@ -57,8 +57,8 @@ LABEL_10:
       *(_OWORD *)(v8 + 252) = v9;
       RIMSetDeviceOutputConfig((struct RIMDEV *)v4, (struct tagHID_POINTER_DEVICE_INFO *)v8, 1u, 0LL);
 LABEL_12:
-      *(_QWORD *)(v3 + 800) = 0LL;
-      ExReleasePushLockExclusiveEx(v3 + 792, 0LL);
+      *(_QWORD *)(v3 + 576) = 0LL;
+      ExReleasePushLockExclusiveEx(v3 + 568, 0LL);
       KeLeaveCriticalRegion();
       ExReleaseResourceLite(*v12);
       KeLeaveCriticalRegion();

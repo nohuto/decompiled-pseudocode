@@ -1,28 +1,27 @@
 /*
- * XREFs of MiShareExistingControlArea @ 0x140723D4C
+ * XREFs of MiShareExistingControlArea @ 0x14065547C
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1407233C0 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x1406545A0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     IoSetTopLevelIrp @ 0x1402A1D10 (IoSetTopLevelIrp.c)
- *     MiValidateControlAreaPartition @ 0x1402A24D4 (MiValidateControlAreaPartition.c)
- *     PsIsCurrentThreadPrefetching @ 0x1403471B0 (PsIsCurrentThreadPrefetching.c)
- *     MmChangeSectionBackingFile @ 0x14035E968 (MmChangeSectionBackingFile.c)
- *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     MiValidateExistingImage @ 0x1406AA324 (MiValidateExistingImage.c)
- *     FsRtlReleaseFile @ 0x140723980 (FsRtlReleaseFile.c)
+ *     IoSetTopLevelIrp @ 0x1402D73D0 (IoSetTopLevelIrp.c)
+ *     MiValidateControlAreaPartition @ 0x1402D79E4 (MiValidateControlAreaPartition.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1402FFBC0 (PsIsCurrentThreadPrefetching.c)
+ *     MmChangeSectionBackingFile @ 0x14031C484 (MmChangeSectionBackingFile.c)
+ *     FsRtlReleaseFile @ 0x140655100 (FsRtlReleaseFile.c)
+ *     MiValidateExistingImage @ 0x14066A3F8 (MiValidateExistingImage.c)
+ *     FsRtlGetFileSize @ 0x140702130 (FsRtlGetFileSize.c)
  */
 
 __int64 __fastcall MiShareExistingControlArea(__int64 a1)
 {
-  __int64 v1; // r14
+  __int64 v1; // rsi
   struct _FILE_OBJECT *v3; // rdi
-  int v4; // esi
-  int v5; // edx
-  bool v6; // zf
-  __int64 v7; // rsi
-  LARGE_INTEGER v8; // rax
+  int v4; // ebp
+  __int64 v5; // rbp
+  NTSTATUS v6; // esi
+  LARGE_INTEGER v7; // rax
   __int64 result; // rax
-  LARGE_INTEGER v10; // rcx
+  LARGE_INTEGER v9; // rcx
   LARGE_INTEGER FileSize; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 64);
@@ -39,59 +38,59 @@ __int64 __fastcall MiShareExistingControlArea(__int64 a1)
     }
     return (unsigned int)v4;
   }
-  if ( (*(_DWORD *)(v1 + 56) & 0x200) != 0 && !PsIsCurrentThreadPrefetching() )
-    MmChangeSectionBackingFile(0LL, v3, ((*(_DWORD *)(a1 + 16) & 0x1000000) != 0) + 1);
-  v5 = *(_DWORD *)a1 | 4;
-  v6 = (*(_BYTE *)a1 & 1) == 0;
-  *(_DWORD *)a1 = v5;
-  v7 = *(_QWORD *)v1;
-  if ( v6 && (*(_BYTE *)(v1 + 56) & 0x20) == 0 )
+  else
   {
-    v4 = FsRtlGetFileSize(v3, &FileSize);
-    IoSetTopLevelIrp(*(PIRP *)(a1 + 184));
-    FsRtlReleaseFile(v3);
-    *(_DWORD *)a1 &= ~2u;
-    if ( v4 >= 0 )
+    if ( (*(_DWORD *)(v1 + 56) & 0x200) != 0 && !PsIsCurrentThreadPrefetching() )
+      MmChangeSectionBackingFile(0LL, v3, ((*(_DWORD *)(a1 + 16) & 0x1000000) != 0) + 1);
+    *(_DWORD *)a1 |= 4u;
+    v5 = *(_QWORD *)v1;
+    if ( (*(_DWORD *)a1 & 1) == 0 && (*(_BYTE *)(v1 + 56) & 0x20) == 0 )
     {
-      v8 = FileSize;
+      v6 = FsRtlGetFileSize(v3, &FileSize);
+      IoSetTopLevelIrp(*(PIRP *)(a1 + 184));
+      FsRtlReleaseFile(v3);
+      *(_DWORD *)a1 &= ~2u;
+      if ( v6 < 0 )
+        return (unsigned int)v6;
+      v7 = FileSize;
       if ( !FileSize.QuadPart && !*(_QWORD *)(a1 + 152) )
         return 3221225758LL;
-      goto LABEL_12;
     }
-    return (unsigned int)v4;
-  }
-  if ( (v5 & 2) != 0 )
-  {
-    IoSetTopLevelIrp(*(PIRP *)(a1 + 184));
-    FsRtlReleaseFile(v3);
-    *(_DWORD *)a1 &= ~2u;
-  }
-  if ( (*(_DWORD *)(a1 + 16) & 0x1000000) != 0 )
-  {
-    result = MiValidateExistingImage((unsigned int *)a1);
-    if ( (int)result < 0 )
-      return result;
-  }
-  v8.QuadPart = _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 24), -1LL, -1LL);
-LABEL_12:
-  v10 = *(LARGE_INTEGER *)(a1 + 152);
-  if ( v10.QuadPart )
-  {
-    if ( v8.QuadPart < (unsigned __int64)v10.QuadPart )
+    else
     {
-      if ( (*(_DWORD *)(a1 + 28) & 0x44) == 0 )
-        return 3221225536LL;
+      if ( (*(_DWORD *)a1 & 2) != 0 )
+      {
+        IoSetTopLevelIrp(*(PIRP *)(a1 + 184));
+        FsRtlReleaseFile(v3);
+        *(_DWORD *)a1 &= ~2u;
+      }
+      if ( (*(_DWORD *)(a1 + 16) & 0x1000000) != 0 )
+      {
+        result = MiValidateExistingImage(a1);
+        if ( (int)result < 0 )
+          return result;
+      }
+      v7.QuadPart = _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 24), -1LL, -1LL);
+    }
+    v9 = *(LARGE_INTEGER *)(a1 + 152);
+    if ( v9.QuadPart )
+    {
+      if ( v7.QuadPart < (unsigned __int64)v9.QuadPart )
+      {
+        if ( (*(_DWORD *)(a1 + 28) & 0x44) == 0 )
+          return 3221225536LL;
+      }
+      else
+      {
+        *(_DWORD *)a1 |= 8u;
+      }
+      *(LARGE_INTEGER *)(a1 + 128) = v9;
     }
     else
     {
       *(_DWORD *)a1 |= 8u;
+      *(LARGE_INTEGER *)(a1 + 128) = v7;
     }
-    *(LARGE_INTEGER *)(a1 + 128) = v10;
+    return 0LL;
   }
-  else
-  {
-    *(_DWORD *)a1 |= 8u;
-    *(LARGE_INTEGER *)(a1 + 128) = v8;
-  }
-  return 0LL;
 }

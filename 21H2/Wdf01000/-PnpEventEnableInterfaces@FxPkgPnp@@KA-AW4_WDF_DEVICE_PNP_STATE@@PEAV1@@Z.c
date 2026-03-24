@@ -1,19 +1,19 @@
 /*
- * XREFs of ?PnpEventEnableInterfaces@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C002E180
+ * XREFs of ?PnpEventEnableInterfaces@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A400
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpEnableInterfacesAndRegisterWmi@FxPkgPnp@@IEAAJXZ @ 0x1C002E1A4 (-PnpEnableInterfacesAndRegisterWmi@FxPkgPnp@@IEAAJXZ.c)
+ *     ?PnpEnableInterfacesAndRegisterWmi@FxPkgPnp@@IEAAJXZ @ 0x1C007A100 (-PnpEnableInterfacesAndRegisterWmi@FxPkgPnp@@IEAAJXZ.c)
  */
 
-__int64 __fastcall FxPkgPnp::PnpEventEnableInterfaces(FxPkgPnp *This)
+__int64 __fastcall FxPkgPnp::PnpEventEnableInterfaces(FxPkgPnp *This, _FX_DRIVER_GLOBALS *a2)
 {
-  int v1; // eax
-  unsigned int v2; // ecx
+  int v2; // eax
+  unsigned int v3; // ecx
 
-  v1 = FxPkgPnp::PnpEnableInterfacesAndRegisterWmi(This);
-  v2 = 281;
-  if ( v1 < 0 )
+  v2 = FxPkgPnp::PnpEnableInterfacesAndRegisterWmi(This, a2);
+  v3 = 281;
+  if ( v2 < 0 )
     return 296;
-  return v2;
+  return v3;
 }

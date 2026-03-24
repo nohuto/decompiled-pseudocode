@@ -1,103 +1,109 @@
 /*
- * XREFs of ??$_Insert_range@PEAPEAVCTransform@@@?$vector@PEAVCTransform@@V?$allocator@PEAVCTransform@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCTransform@@@std@@@std@@@1@PEAPEAVCTransform@@1Uforward_iterator_tag@1@@Z @ 0x18019B990
+ * XREFs of ??$_Insert_range@PEAPEAVCTransform@@@?$vector@PEAVCTransform@@V?$allocator@PEAVCTransform@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCTransform@@@std@@@std@@@1@PEAPEAVCTransform@@1Uforward_iterator_tag@1@@Z @ 0x18001B35C
  * Callers:
- *     ?SetOrAppendChildren@?$CTransformGroupGeneratedT@VCTransformGroup@@VCTransform@@@@AEAAJAEBV?$span@PEAVCTransform@@$0?0@gsl@@_N@Z @ 0x1801A3EA4 (-SetOrAppendChildren@-$CTransformGroupGeneratedT@VCTransformGroup@@VCTransform@@@@AEAAJAEBV-$spa.c)
+ *     ?SetOrAppendChildren@?$CTransformGroupGeneratedT@VCTransformGroup@@VCTransform@@@@AEAAJAEBV?$span@PEAVCTransform@@$0?0@gsl@@_N@Z @ 0x18001B2B8 (-SetOrAppendChildren@-$CTransformGroupGeneratedT@VCTransformGroup@@VCTransform@@@@AEAAJAEBV-$spa.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B7030 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     ?_Change_array@?$vector@PEAVCTransform@@V?$allocator@PEAVCTransform@@@std@@@std@@AEAAXQEAPEAVCTransform@@_K1@Z @ 0x1801A64FC (-_Change_array@-$vector@PEAVCTransform@@V-$allocator@PEAVCTransform@@@std@@@std@@AEAAXQEAPEAVCTr.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
 void __fastcall std::vector<CTransform *>::_Insert_range<CTransform * *>(
-        __int64 a1,
-        _BYTE *a2,
+        _QWORD *a1,
+        char *a2,
         const void *a3,
         __int64 a4)
 {
-  _BYTE *v4; // r13
-  _BYTE *v5; // rsi
-  size_t v6; // r15
-  unsigned __int64 v7; // rdi
+  size_t v4; // r12
+  __int64 v5; // r15
+  unsigned __int64 v6; // rbp
+  char v7; // r13
   __int64 v10; // rcx
-  unsigned __int64 v11; // rbp
-  __int64 v12; // rdx
-  unsigned __int64 v13; // r8
+  __int64 v11; // rdi
+  __int64 v12; // rdi
+  unsigned __int64 v13; // r14
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rdx
-  SIZE_T size_of; // rax
-  char *v17; // r15
-  size_t v18; // r8
-  const void *v19; // rdx
+  unsigned __int64 v16; // rax
+  SIZE_T v17; // rcx
+  char *v18; // rdi
+  char *v19; // rdx
   char *v20; // rcx
-  __int64 v21; // r12
-  unsigned __int64 v22; // rbp
-  char *v23; // rdi
-  unsigned __int64 v24; // [rsp+20h] [rbp-58h]
-  __int64 v25; // [rsp+88h] [rbp+10h]
-  size_t Size; // [rsp+98h] [rbp+20h]
+  size_t v21; // r8
+  size_t v22; // r14
+  __int64 v23; // r15
+  char *v24; // rdi
+  __int64 v25; // [rsp+60h] [rbp+8h]
 
-  v4 = *(_BYTE **)a1;
-  v5 = *(_BYTE **)(a1 + 8);
-  v6 = a4 - (_QWORD)a3;
-  Size = a4 - (_QWORD)a3;
-  v7 = (a4 - (__int64)a3) >> 3;
-  if ( v7 )
+  v4 = a4 - (_QWORD)a3;
+  v5 = (__int64)&a2[-*a1] >> 3;
+  v6 = (a4 - (__int64)a3) >> 3;
+  v7 = 1;
+  if ( v6 == 1 && a2 == (char *)a1[1] || (v7 = 0, v6) )
   {
-    v10 = *(_QWORD *)(a1 + 16);
-    if ( v7 <= (v10 - (__int64)v5) >> 3 )
+    v10 = a1[2];
+    v11 = a1[1];
+    if ( v6 <= (v10 - v11) >> 3 )
     {
-      v21 = 8 * v7;
-      v22 = (v5 - a2) >> 3;
-      if ( v7 >= v22 )
+      v22 = v11 - (_QWORD)a2;
+      v23 = 8 * v6;
+      if ( v6 >= (v11 - (__int64)a2) >> 3 )
       {
-        v23 = &a2[v21];
-        memmove_0(&a2[v21], a2, v5 - a2);
-        *(_QWORD *)(a1 + 8) = &v23[8 * v22];
+        v24 = &a2[v23];
+        memmove_0(&a2[v23], a2, v22);
+        a1[1] = &v24[v22];
       }
       else
       {
-        memmove_0(v5, &v5[-v21], 8 * v7);
-        *(_QWORD *)(a1 + 8) = &v5[v21];
-        memmove_0(&a2[8 * v7], a2, (size_t)&v5[-8LL * v7 - (_QWORD)a2]);
+        memmove_0((void *)a1[1], (const void *)(v11 - v23), 8 * v6);
+        a1[1] = v23 + v11;
+        memmove_0(&a2[8 * v6], a2, v11 + -8LL * v6 - (_QWORD)a2);
       }
-      memmove_0(a2, a3, v6);
+      memmove_0(a2, a3, v4);
     }
     else
     {
-      v11 = 0x1FFFFFFFFFFFFFFFLL;
-      v12 = (v5 - v4) >> 3;
-      if ( v7 > 0x1FFFFFFFFFFFFFFFLL - v12 )
-        std::_Xlength_error("vector too long");
-      v13 = v12 + v7;
-      v14 = (v10 - (__int64)v4) >> 3;
-      v24 = v12 + v7;
+      v12 = (v11 - *a1) >> 3;
+      if ( v6 > 0x1FFFFFFFFFFFFFFFLL - v12 )
+        std::_Xlength_error("vector<T> too long");
+      v13 = v12 + v6;
+      v14 = (v10 - *a1) >> 3;
       v15 = v14 >> 1;
-      if ( v14 <= 0x1FFFFFFFFFFFFFFFLL - (v14 >> 1) )
+      if ( v14 > 0x1FFFFFFFFFFFFFFFLL - (v14 >> 1) )
       {
-        v11 = v15 + v14;
-        if ( v15 + v14 < v13 )
-          v11 = v13;
-      }
-      size_of = std::_Get_size_of_n<8>(v11);
-      v17 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-      v25 = (a2 - v4) >> 3;
-      memmove_0(&v17[8 * v25], a3, Size);
-      if ( v7 == 1 && a2 == v5 )
-      {
-        v18 = v5 - v4;
-        v19 = v4;
-        v20 = v17;
+        v16 = v12 + v6;
       }
       else
       {
-        memmove_0(v17, v4, a2 - v4);
-        v18 = v5 - a2;
-        v19 = a2;
-        v20 = &v17[8 * v7 + 8 * v25];
+        v16 = v15 + v14;
+        if ( v15 + v14 < v13 )
+          v16 = v12 + v6;
       }
-      memmove_0(v20, v19, v18);
-      std::vector<CTransform *>::_Change_array(a1, v17, v24, v11);
+      v17 = 8 * v16;
+      v25 = 8 * v16;
+      if ( v16 > 0x1FFFFFFFFFFFFFFFLL )
+        v17 = -1LL;
+      v18 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v17);
+      memmove_0(&v18[8 * v5], a3, v4);
+      v19 = (char *)*a1;
+      v20 = v18;
+      if ( v7 )
+      {
+        v21 = a1[1] - *a1;
+      }
+      else
+      {
+        memmove_0(v18, v19, a2 - v19);
+        v21 = a1[1] - (_QWORD)a2;
+        v20 = &v18[8 * v5 + 8 * v6];
+        v19 = a2;
+      }
+      memmove_0(v20, v19, v21);
+      if ( *a1 )
+        std::_Deallocate<16,0>(*a1, (a1[2] - *a1) & 0xFFFFFFFFFFFFFFF8uLL);
+      *a1 = v18;
+      a1[1] = &v18[8 * v13];
+      a1[2] = &v18[v25];
     }
   }
 }

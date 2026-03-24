@@ -1,26 +1,26 @@
 /*
- * XREFs of ?InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z @ 0x1802A8950
+ * XREFs of ?InitColorKey@CColorKeyBitmap@@IEAAJAEBUPixelFormatInfo@@@Z @ 0x180267EA4
  * Callers:
- *     ?Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z @ 0x1802A9064 (-Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z.c)
+ *     ?Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z @ 0x180268590 (-Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z.c)
  * Callees:
- *     ?Convert_MilColorF_scRGB_To_MilColorF_sRGB@@YA?AU_D3DCOLORVALUE@@PEBU1@@Z @ 0x18005BCC8 (-Convert_MilColorF_scRGB_To_MilColorF_sRGB@@YA-AU_D3DCOLORVALUE@@PEBU1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800E1DE8 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
- *     floor @ 0x1801018EC (floor.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Convert_MilColorF_scRGB_To_MilColorF_sRGB@@YA?AU_D3DCOLORVALUE@@PEBU1@@Z @ 0x1800CC204 (-Convert_MilColorF_scRGB_To_MilColorF_sRGB@@YA-AU_D3DCOLORVALUE@@PEBU1@@Z.c)
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800D1948 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     floor @ 0x1800E8198 (floor.c)
  */
 
 __int64 __fastcall CColorKeyBitmap::InitColorKey(CColorKeyBitmap *this, const struct PixelFormatInfo *a2)
 {
   __int64 v3; // rcx
-  unsigned int v4; // r15d
+  unsigned int v4; // r12d
   const __m128i *v6; // rbx
   __m128i v7; // xmm6
-  const __m128i *v8; // r14
+  const __m128i *v8; // r15
   struct _D3DCOLORVALUE v9; // xmm0
   int v10; // eax
   int v11; // eax
   unsigned __int8 v12; // di
-  unsigned __int8 v13; // bp
+  unsigned __int8 v13; // r14
   int v14; // ebx
   int v15; // ebx
   unsigned __int8 v16; // al
@@ -30,7 +30,7 @@ __int64 __fastcall CColorKeyBitmap::InitColorKey(CColorKeyBitmap *this, const st
   unsigned __int8 v20; // al
   int v21; // eax
   unsigned __int8 v22; // di
-  unsigned __int8 v23; // bp
+  unsigned __int8 v23; // r14
   int v24; // ebx
   int v25; // ebx
   unsigned __int8 v26; // al
@@ -97,9 +97,9 @@ __int64 __fastcall CColorKeyBitmap::InitColorKey(CColorKeyBitmap *this, const st
   int v87; // edi
   unsigned int v88; // edx
   unsigned int v89; // ecx
-  unsigned int v91; // [rsp+20h] [rbp-68h]
-  __m128i v92; // [rsp+30h] [rbp-58h]
-  struct _D3DCOLORVALUE v93; // [rsp+40h] [rbp-48h] BYREF
+  unsigned int v91; // [rsp+20h] [rbp-40h]
+  __m128i v92; // [rsp+30h] [rbp-30h]
+  struct _D3DCOLORVALUE v93; // [rsp+40h] [rbp-20h] BYREF
 
   v3 = *((unsigned int *)a2 + 2);
   v4 = 0;
@@ -110,35 +110,34 @@ __int64 __fastcall CColorKeyBitmap::InitColorKey(CColorKeyBitmap *this, const st
       v91 = 213;
 LABEL_4:
       v4 = -2003292288;
-      MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0LL, -2003292288, v91);
+      MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2003292288, v91, 0LL);
       return v4;
     }
-    v6 = (const __m128i *)((char *)this + 48);
-    v7 = _mm_loadu_si128((const __m128i *)this + 3);
-    v8 = (const __m128i *)((char *)this + 64);
-    *(struct _D3DCOLORVALUE *)&v9.r = (struct _D3DCOLORVALUE)_mm_loadu_si128((const __m128i *)this + 4);
+    v6 = (const __m128i *)((char *)this + 56);
+    v7 = _mm_loadu_si128((const __m128i *)((char *)this + 56));
+    v8 = (const __m128i *)((char *)this + 72);
+    *(struct _D3DCOLORVALUE *)&v9.r = (struct _D3DCOLORVALUE)_mm_loadu_si128((const __m128i *)((char *)this + 72));
     v92 = v7;
   }
   else
   {
-    v6 = (const __m128i *)((char *)this + 48);
-    v8 = (const __m128i *)((char *)this + 64);
+    v6 = (const __m128i *)((char *)this + 56);
+    v8 = (const __m128i *)((char *)this + 72);
     v7 = _mm_loadu_si128((const __m128i *)Convert_MilColorF_scRGB_To_MilColorF_sRGB(
                                             &v93,
-                                            (const struct _D3DCOLORVALUE *)this + 3));
+                                            (const struct _D3DCOLORVALUE *)((char *)this + 56)));
     v92 = v7;
     *(struct _D3DCOLORVALUE *)&v9.r = (struct _D3DCOLORVALUE)_mm_loadu_si128((const __m128i *)Convert_MilColorF_scRGB_To_MilColorF_sRGB(
                                                                                                 &v93,
-                                                                                                (const struct _D3DCOLORVALUE *)this
-                                                                                              + 4));
+                                                                                                (const struct _D3DCOLORVALUE *)((char *)this + 72)));
   }
   v10 = *(_DWORD *)a2;
   *(struct _D3DCOLORVALUE *)&v93.r = *(struct _D3DCOLORVALUE *)&v9.r;
   switch ( v10 )
   {
     case 2:
-      *(__m128i *)((char *)this + 100) = v7;
-      *(struct _D3DCOLORVALUE *)((char *)this + 132) = *(struct _D3DCOLORVALUE *)&v9.r;
+      *(__m128i *)((char *)this + 108) = v7;
+      *(struct _D3DCOLORVALUE *)((char *)this + 140) = *(struct _D3DCOLORVALUE *)&v9.r;
       return v4;
     case 10:
       v33 = HIWORD(v92.m128i_i32[0]) & 0x8000;
@@ -242,11 +241,11 @@ LABEL_4:
         v56 = v55 | 0x7FFF;
       }
       r = v93.r;
-      *((_WORD *)this + 46) = v35;
-      *((_WORD *)this + 48) = v49;
-      *((_WORD *)this + 49) = v56;
+      *((_WORD *)this + 50) = v35;
+      *((_WORD *)this + 52) = v49;
+      *((_WORD *)this + 53) = v56;
       v62 = LODWORD(r) & 0x7FFFFFFF;
-      *((_WORD *)this + 47) = v42;
+      *((_WORD *)this + 51) = v42;
       v63 = HIWORD(LODWORD(r)) & 0x8000;
       if ( (LODWORD(r) & 0x7FFFFFFFu) <= 0x47FFEFFF )
       {
@@ -346,10 +345,10 @@ LABEL_4:
       {
         v85 = v84 | 0x7FFF;
       }
-      *((_WORD *)this + 62) = v64;
-      *((_WORD *)this + 63) = v71;
-      *((_WORD *)this + 64) = v78;
-      *((_WORD *)this + 65) = v85;
+      *((_WORD *)this + 66) = v64;
+      *((_WORD *)this + 67) = v71;
+      *((_WORD *)this + 68) = v78;
+      *((_WORD *)this + 69) = v85;
       break;
     case 28:
       *(struct _D3DCOLORVALUE *)&v93.r = (struct _D3DCOLORVALUE)_mm_loadu_si128(v6);
@@ -371,10 +370,10 @@ LABEL_4:
       v27 = (__m128)_mm_loadu_si128(v8);
       v28 = v26 | v25;
       *(struct _D3DCOLORVALUE *)&v93.r = (struct _D3DCOLORVALUE)v27;
-      *((_BYTE *)this + 90) = v28;
-      *((_BYTE *)this + 88) = BYTE2(v28);
-      *((_BYTE *)this + 89) = BYTE1(v28);
-      *((_BYTE *)this + 91) = HIBYTE(v28);
+      *((_BYTE *)this + 98) = v28;
+      *((_BYTE *)this + 96) = BYTE2(v28);
+      *((_BYTE *)this + 97) = BYTE1(v28);
+      *((_BYTE *)this + 99) = HIBYTE(v28);
       v29 = (int)floor((float)(_mm_shuffle_ps(v27, v27, 255).m128_f32[0] * 255.0) + 0.5);
       if ( v29 <= 255 )
       {
@@ -385,10 +384,10 @@ LABEL_4:
       v30 = ((v22 << 8) | Convert_scRGB_Channel_To_sRGB_Byte(v93.r)) << 8;
       v31 = Convert_scRGB_Channel_To_sRGB_Byte(v93.g);
       v32 = Convert_scRGB_Channel_To_sRGB_Byte(v93.b) | ((v31 | v30) << 8);
-      *((_BYTE *)this + 122) = v32;
-      *((_BYTE *)this + 120) = BYTE2(v32);
-      *((_BYTE *)this + 123) = HIBYTE(v32);
-      *((_BYTE *)this + 121) = BYTE1(v32);
+      *((_BYTE *)this + 130) = v32;
+      *((_BYTE *)this + 128) = BYTE2(v32);
+      *((_BYTE *)this + 131) = HIBYTE(v32);
+      *((_BYTE *)this + 129) = BYTE1(v32);
       break;
     default:
       if ( (unsigned int)(v10 - 87) > 1 )
@@ -414,7 +413,7 @@ LABEL_4:
       v16 = Convert_scRGB_Channel_To_sRGB_Byte(v93.b);
       v17 = (__m128)_mm_loadu_si128(v8);
       *(struct _D3DCOLORVALUE *)&v93.r = (struct _D3DCOLORVALUE)v17;
-      *((_DWORD *)this + 21) = v16 | v15;
+      *((_DWORD *)this + 23) = v16 | v15;
       v18 = (int)floor((float)(_mm_shuffle_ps(v17, v17, 255).m128_f32[0] * 255.0) + 0.5);
       if ( v18 <= 255 )
       {
@@ -424,7 +423,7 @@ LABEL_4:
       }
       v19 = ((v12 << 8) | Convert_scRGB_Channel_To_sRGB_Byte(v93.r)) << 8;
       v20 = Convert_scRGB_Channel_To_sRGB_Byte(v93.g);
-      *((_DWORD *)this + 29) = Convert_scRGB_Channel_To_sRGB_Byte(v93.b) | ((v20 | v19) << 8);
+      *((_DWORD *)this + 31) = Convert_scRGB_Channel_To_sRGB_Byte(v93.b) | ((v20 | v19) << 8);
       break;
   }
   return v4;

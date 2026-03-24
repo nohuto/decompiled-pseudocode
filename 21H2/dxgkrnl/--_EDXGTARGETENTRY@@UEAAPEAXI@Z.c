@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_EDXGTARGETENTRY@@UEAAPEAXI@Z @ 0x1C004EE80
+ * XREFs of ??_EDXGTARGETENTRY@@UEAAPEAXI@Z @ 0x1C004D590
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpFreeHandleForAtom @ 0x1406AD4C0
+ * XREFs of RtlpFreeHandleForAtom @ 0x1406AD4A0
  * Callers:
- *     RtlpFreeAllAtom @ 0x140126790 (RtlpFreeAllAtom.c)
- *     RtlEmptyAtomTable @ 0x140893640 (RtlEmptyAtomTable.c)
+ *     RtlpFreeAllAtom @ 0x1401267B0 (RtlpFreeAllAtom.c)
+ *     RtlEmptyAtomTable @ 0x140893620 (RtlEmptyAtomTable.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)

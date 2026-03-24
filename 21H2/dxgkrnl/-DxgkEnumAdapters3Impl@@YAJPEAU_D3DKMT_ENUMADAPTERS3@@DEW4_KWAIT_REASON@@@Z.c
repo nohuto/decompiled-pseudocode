@@ -1,258 +1,230 @@
 /*
- * XREFs of ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x1C01BEDD0
+ * XREFs of ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x1C0174E30
  * Callers:
- *     NtDxgkEnumAdapters3 @ 0x1C01BEDA0 (NtDxgkEnumAdapters3.c)
- *     DxgkEnumAdapters3Internal @ 0x1C02D1330 (DxgkEnumAdapters3Internal.c)
+ *     NtDxgkEnumAdapters3 @ 0x1C0174E00 (NtDxgkEnumAdapters3.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C016D80C (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?GetMaximumAdapterCountInSession@DXGGLOBAL@@QEAAKXZ @ 0x1C01BFEEC (-GetMaximumAdapterCountInSession@DXGGLOBAL@@QEAAKXZ.c)
- *     ?DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z @ 0x1C01BFF20 (-DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_ADAPTERINFO@@$07@@QEAAPEAU_D3DKMT_ADAPTERINFO@@I@Z @ 0x1C01C0250 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_ADAPTERINFO@@$07@@QEAAPEAU_D3DKMT_ADAPTERINFO@.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C00E37E4 (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0133BB0 (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z @ 0x1C0133BD4 (-DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_ADAPTERINFO@@$07@@QEAAPEAU_D3DKMT_ADAPTERINFO@@I@Z @ 0x1C0134298 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_ADAPTERINFO@@$07@@QEAAPEAU_D3DKMT_ADAPTERINFO@.c)
  */
 
-__int64 __fastcall DxgkEnumAdapters3Impl(__m128i *a1, char a2, unsigned __int8 a3, enum _KWAIT_REASON a4)
+__int64 __fastcall DxgkEnumAdapters3Impl(struct _D3DKMT_ENUMADAPTERS3 *a1, __int64 a2, char a3, enum _KWAIT_REASON a4)
 {
-  char *v6; // rcx
+  char v5; // r12
+  struct _D3DKMT_ENUMADAPTERS3 *v6; // rdi
   __m128i v7; // xmm6
   __int64 v8; // xmm7_8
   char *v9; // r14
   int v10; // esi
   DXGGLOBAL *Global; // rax
-  unsigned int MaximumAdapterCountInSession; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __m128i v17; // xmm6
-  size_t v18; // r8
-  const void *v19; // rdx
-  DXGGLOBAL *v21; // rax
-  unsigned int v22; // r15d
-  __int64 v23; // rdx
-  unsigned int v24; // eax
-  unsigned int v25; // edi
-  PVOID v26; // rcx
-  bool v27; // zf
-  DXGGLOBAL *v28; // rax
+  __int64 v12; // rdx
+  int MaximumAdapterCount; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int128 v16; // xmm6
+  size_t v17; // r8
+  const void *v18; // rdx
+  DXGGLOBAL *v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  unsigned int v24; // r15d
+  unsigned int v25; // edx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rcx
+  unsigned int v30; // eax
+  __int64 v31; // rax
+  unsigned int v32; // edi
+  __int64 v33; // rax
+  PVOID v34; // rcx
+  bool v35; // zf
+  __int64 v36; // rax
+  DXGGLOBAL *v37; // rax
+  __int64 v38; // rdx
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
   struct _KTHREAD **i; // rdi
-  int v30; // ecx
-  __int64 v32; // [rsp+60h] [rbp-148h] BYREF
-  void *Src[2]; // [rsp+68h] [rbp-140h]
-  __int64 v34; // [rsp+78h] [rbp-130h]
-  _BYTE v35[24]; // [rsp+80h] [rbp-128h]
-  _KWAIT_REASON v36; // [rsp+98h] [rbp-110h]
-  PVOID P; // [rsp+A0h] [rbp-108h] BYREF
-  _BYTE v38[160]; // [rsp+A8h] [rbp-100h] BYREF
-  int v39; // [rsp+148h] [rbp-60h]
+  int v43; // ecx
+  __int64 v44; // [rsp+28h] [rbp-150h] BYREF
+  void *Src[2]; // [rsp+30h] [rbp-148h]
+  __int64 v46; // [rsp+40h] [rbp-138h]
+  _BYTE v47[24]; // [rsp+48h] [rbp-130h]
+  _KWAIT_REASON v48; // [rsp+60h] [rbp-118h]
+  PVOID P; // [rsp+70h] [rbp-108h] BYREF
+  _BYTE v50[160]; // [rsp+78h] [rbp-100h] BYREF
+  int v51; // [rsp+118h] [rbp-60h]
 
-  v36 = a4;
+  v48 = a4;
+  v5 = a2;
+  v6 = a1;
   if ( !a1 )
   {
-    v25 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkEnumAdapters3 caller specified NULL D3DKMT_ENUMADAPTERS3, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return v25;
+    v31 = WdLogNewEntry5_WdError(0LL, a2);
+    v32 = -1073741811;
+    *(_QWORD *)(v31 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v31);
+    return v32;
   }
-  *(_OWORD *)&v35[8] = 0LL;
-  v32 = 0LL;
+  *(_OWORD *)&v47[8] = 0LL;
+  v44 = 0LL;
   *(_OWORD *)Src = 0LL;
   P = 0LL;
-  v39 = 0;
-  if ( a2 == 1 )
+  v51 = 0;
+  if ( (_BYTE)a2 == 1 )
   {
-    v6 = &a1[1].m128i_i8[8];
-    if ( v6 < (char *)a1 || (unsigned __int64)v6 > MmUserProbeAddress )
+    a1 = (struct _D3DKMT_ENUMADAPTERS3 *)((char *)a1 + 24);
+    if ( a1 < v6 || (unsigned __int64)a1 > MmUserProbeAddress )
+    {
+      a1 = (struct _D3DKMT_ENUMADAPTERS3 *)MmUserProbeAddress;
       *(_BYTE *)MmUserProbeAddress = 0;
-    v7 = *a1;
-    *(__m128i *)v35 = *a1;
-    v8 = a1[1].m128i_i64[0];
-    *(_QWORD *)&v35[16] = v8;
+    }
+    v7 = *(__m128i *)v6;
+    *(_OWORD *)v47 = *(_OWORD *)v6;
+    v8 = *((_QWORD *)v6 + 2);
+    *(_QWORD *)&v47[16] = v8;
   }
   else
   {
-    v7 = *a1;
-    *(__m128i *)v35 = *a1;
-    v8 = a1[1].m128i_i64[0];
-    *(_QWORD *)&v35[16] = v8;
+    v7 = *(__m128i *)a1;
+    *(_OWORD *)v47 = *(_OWORD *)a1;
+    v8 = *((_QWORD *)a1 + 2);
+    *(_QWORD *)&v47[16] = v8;
   }
   if ( (v7.m128i_i64[0] & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
   {
-    v25 = -1073741811;
-    WdLogSingleEntry2(2LL, v7.m128i_i64[0], -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkEnumAdapters3 caller specified an invalid filter 0x%I64x, returning 0x%I64x",
-      v7.m128i_i64[0],
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-    v26 = P;
-    v27 = P == v38;
+    v33 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v33 + 24) = v7.m128i_i64[0];
+    v32 = -1073741811;
+    *(_QWORD *)(v33 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v33);
+    v34 = P;
+    v35 = P == v50;
 LABEL_46:
-    if ( !v27 && v26 )
-      ExFreePoolWithTag(v26, 0);
-    return v25;
+    if ( !v35 && v34 )
+      ExFreePoolWithTag(v34, 0);
+    return v32;
   }
-  v34 = v7.m128i_i64[0];
-  v9 = *(char **)&v35[16];
-  if ( !*(_QWORD *)&v35[16] )
+  v46 = v7.m128i_i64[0];
+  v9 = *(char **)&v47[16];
+  if ( !*(_QWORD *)&v47[16] )
   {
     v10 = 0;
-    Global = DXGGLOBAL_GetGlobal();
-    MaximumAdapterCountInSession = DXGGLOBAL::GetMaximumAdapterCountInSession(Global);
+    Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+    MaximumAdapterCount = DXGGLOBAL::GetMaximumAdapterCount(Global, v12);
 LABEL_10:
-    *(_DWORD *)&v35[8] = MaximumAdapterCountInSession;
+    *(_DWORD *)&v47[8] = MaximumAdapterCount;
     goto LABEL_11;
   }
-  v21 = DXGGLOBAL_GetGlobal();
-  v22 = _mm_cvtsi128_si32(_mm_srli_si128(v7, 8));
-  *(_DWORD *)&v35[8] = v22;
-  if ( DXGGLOBAL::GetMaximumAdapterCountInSession(v21) < v22 )
+  v20 = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  v24 = _mm_cvtsi128_si32(_mm_srli_si128(v7, 8));
+  *(_DWORD *)&v47[8] = v24;
+  if ( (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(v20, v21) < v24 )
   {
-    v28 = DXGGLOBAL_GetGlobal();
-    v22 = DXGGLOBAL::GetMaximumAdapterCountInSession(v28);
-    *(_DWORD *)&v35[8] = v22;
+    v37 = DXGGLOBAL::GetGlobal(v23, v22);
+    v24 = DXGGLOBAL::GetMaximumAdapterCount(v37, v38);
+    *(_DWORD *)&v47[8] = v24;
   }
-  v23 = 1LL;
-  if ( v22 > 1 )
-    v23 = v22;
-  PagedPoolZeroedArray<_D3DKMT_ADAPTERINFO,8>::AllocateElements(&P, v23);
+  v25 = 1;
+  if ( v24 > 1 )
+    v25 = v24;
+  PagedPoolZeroedArray<_D3DKMT_ADAPTERINFO,8>::AllocateElements(&P, v25);
   if ( !P )
   {
-    v25 = -1073741801;
-    WdLogSingleEntry1(2LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to allocate memory for D3DKMT_ADAPTERINFO buffer, returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v26 = P;
-    v27 = P == v38;
+    v36 = WdLogNewEntry5_WdError(v27, v26);
+    v32 = -1073741801;
+    *(_QWORD *)(v36 + 24) = -1073741801LL;
+    WdLogEvent5_WdError(v36);
+    v34 = P;
+    v35 = P == v50;
     goto LABEL_46;
   }
   Src[1] = P;
-  HIDWORD(v32) = v22;
-  v10 = DxgkEnumAdaptersInternal((struct ENUMADAPTERSINTERNAL *)&v32, a2, a3, v36);
-  if ( (unsigned int)v32 > v22 )
+  HIDWORD(v44) = v24;
+  LOBYTE(v28) = a3;
+  v10 = DxgkEnumAdaptersInternal((struct ENUMADAPTERSINTERNAL *)&v44, v5, v28, v48);
+  if ( (unsigned int)v44 > v24 )
   {
-    WdLogSingleEntry1(1LL, 1412LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"EnumAdaptersInternal.NumAdapters <= EnumAdapters.NumAdapters",
-      1412LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v39 = WdLogNewEntry5_WdAssertion(v29, v14);
+    *(_QWORD *)(v39 + 24) = 1399LL;
+    WdLogEvent5_WdAssertion(v39);
   }
-  if ( (unsigned int)v32 > HIDWORD(v32) )
+  v15 = HIDWORD(v44);
+  if ( (unsigned int)v44 > HIDWORD(v44) )
   {
-    WdLogSingleEntry1(1LL, 1413LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"EnumAdaptersInternal.NumAdapters <= EnumAdaptersInternal.AdaptersBufferCount",
-      1413LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v40 = WdLogNewEntry5_WdAssertion(HIDWORD(v44), v14);
+    *(_QWORD *)(v40 + 24) = 1400LL;
+    WdLogEvent5_WdAssertion(v40);
   }
-  v24 = (unsigned int)Src[0];
-  if ( (unsigned int)v32 > LODWORD(Src[0]) )
+  v30 = (unsigned int)Src[0];
+  if ( (unsigned int)v44 > LODWORD(Src[0]) )
   {
-    WdLogSingleEntry1(1LL, 1414LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"EnumAdaptersInternal.NumAdapters <= EnumAdaptersInternal.RequiredAdaptersBufferCount",
-      1414LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v24 = (unsigned int)Src[0];
+    v41 = WdLogNewEntry5_WdAssertion(v15, v14);
+    *(_QWORD *)(v41 + 24) = 1401LL;
+    WdLogEvent5_WdAssertion(v41);
+    v30 = (unsigned int)Src[0];
   }
   if ( v10 < 0 )
     goto LABEL_52;
-  if ( HIDWORD(v32) >= v24 )
+  if ( HIDWORD(v44) >= v30 )
   {
-    MaximumAdapterCountInSession = v32;
+    MaximumAdapterCount = v44;
     goto LABEL_10;
   }
   v10 = -1073741789;
-  *(_DWORD *)&v35[8] = 0;
+  *(_DWORD *)&v47[8] = 0;
 LABEL_11:
-  v17 = *(__m128i *)v35;
+  v16 = *(_OWORD *)v47;
   if ( v10 >= 0 )
   {
-    if ( a2 == 1 )
+    if ( v5 == 1 )
     {
-      if ( (unsigned __int64)&a1[1].m128i_u64[1] > MmUserProbeAddress || &a1[1].m128i_u64[1] <= (unsigned __int64 *)a1 )
+      if ( (unsigned __int64)v6 + 24 > MmUserProbeAddress || (struct _D3DKMT_ENUMADAPTERS3 *)((char *)v6 + 24) <= v6 )
         *(_BYTE *)MmUserProbeAddress = 0;
-      *a1 = v17;
-      a1[1].m128i_i64[0] = v8;
+      *(_OWORD *)v6 = v16;
+      *((_QWORD *)v6 + 2) = v8;
     }
     else
     {
-      *a1 = *(__m128i *)v35;
-      a1[1].m128i_i64[0] = v8;
+      *(_OWORD *)v6 = *(_OWORD *)v47;
+      *((_QWORD *)v6 + 2) = v8;
     }
     if ( v9 )
     {
-      if ( a2 == 1 )
+      if ( v5 == 1 )
       {
-        v18 = 20LL * (unsigned int)v32;
-        v19 = Src[1];
-        if ( (unsigned __int64)&v9[v18] > MmUserProbeAddress || &v9[v18] <= v9 )
+        v17 = 20LL * (unsigned int)v44;
+        v18 = Src[1];
+        if ( (unsigned __int64)&v9[v17] > MmUserProbeAddress || &v9[v17] <= v9 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v9, v19, v18);
+        memmove(v9, v18, v17);
       }
       else
       {
-        memmove(v9, Src[1], 20LL * (unsigned int)v32);
+        memmove(v9, Src[1], 20LL * (unsigned int)v44);
       }
     }
     goto LABEL_23;
   }
 LABEL_52:
-  for ( i = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v14, v13, v15, v16);
+  for ( i = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v15, v14);
         ;
-        DXGADAPTER::DestroyHandle(i, *((_DWORD *)Src[1] + 5 * (unsigned int)(v30 - 1))) )
+        DXGADAPTER::DestroyHandle(i, *((unsigned int *)Src[1] + 5 * (unsigned int)(v43 - 1))) )
   {
-    v30 = v32;
-    if ( !(_DWORD)v32 )
+    v43 = v44;
+    if ( !(_DWORD)v44 )
       break;
-    LODWORD(v32) = v32 - 1;
+    LODWORD(v44) = v44 - 1;
   }
 LABEL_23:
-  if ( P != v38 )
+  if ( P != v50 )
   {
     if ( P )
       ExFreePoolWithTag(P, 0);

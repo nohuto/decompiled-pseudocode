@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z @ 0x1C004DBB8
+ * XREFs of ?CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z @ 0x1C00A0014
  * Callers:
- *     ?CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z @ 0x1C004DB5C (-CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z.c)
+ *     ?CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z @ 0x1C009FFB8 (-CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,30 +19,33 @@ void __fastcall CitpBitmapUpdateBits(struct _CIT_BITMAP *a1, unsigned int a2, in
   v6 = (unsigned int)(v3 + 1);
   if ( v3 != -1 )
   {
-    do
+    while ( 1 )
     {
       if ( v5 >= *((_QWORD *)a1 + 1) )
         return;
-      if ( !v4 )
-      {
-        if ( v6 >= 8 )
-        {
-          v6 -= 8LL;
-          *(_BYTE *)(v5 + *(_QWORD *)a1) = -1;
-          goto LABEL_11;
-        }
-LABEL_5:
-        *(_BYTE *)(*(_QWORD *)a1 + v5) |= 1 << v4;
-        if ( !--v6 )
-          return;
-        ++v4;
-      }
-      if ( v4 < 8 )
-        goto LABEL_5;
-      v4 = 0LL;
-LABEL_11:
+      if ( v4 )
+        goto LABEL_10;
+      if ( v6 < 8 )
+        break;
+      v6 -= 8LL;
+      *(_BYTE *)(v5 + *(_QWORD *)a1) = -1;
+LABEL_6:
       ++v5;
+      if ( !v6 )
+        return;
     }
-    while ( v6 );
+    while ( 1 )
+    {
+      *(_BYTE *)(*(_QWORD *)a1 + v5) |= 1 << v4;
+      if ( !--v6 )
+        return;
+      ++v4;
+LABEL_10:
+      if ( v4 >= 8 )
+      {
+        v4 = 0LL;
+        goto LABEL_6;
+      }
+    }
   }
 }

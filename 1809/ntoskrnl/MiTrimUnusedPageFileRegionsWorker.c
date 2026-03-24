@@ -1,5 +1,5 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x1402B8970
+ * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x1402B8A70
  * Callers:
  *     <none>
  * Callees:
@@ -20,14 +20,14 @@
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124818 (MiPageFileLargestBitmapsRun.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x1401B8890 (ZwFsControlFile.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiQueueSyncModifiedWriterApc @ 0x1402B87F8 (MiQueueSyncModifiedWriterApc.c)
- *     MiContractWsSwapPageFile @ 0x14066B7A4 (MiContractWsSwapPageFile.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1401B88B0 (ZwFsControlFile.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1402B88F8 (MiQueueSyncModifiedWriterApc.c)
+ *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
  */
 
 void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)

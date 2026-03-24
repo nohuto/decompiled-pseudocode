@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionParseDesktop @ 0x1C009DB40
+ * XREFs of EditionParseDesktop @ 0x1C004E980
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C009DCA4 (-xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX.c)
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0122344 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004EFF4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C0122A70 (-xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX.c)
  */
 
 __int64 __fastcall EditionParseDesktop(
@@ -19,56 +19,50 @@ __int64 __fastcall EditionParseDesktop(
         int a9,
         void **a10)
 {
-  unsigned int DesktopEx2; // esi
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  bool v16; // bl
-  __int64 v17; // r8
-  __int64 v18; // r9
-  _QWORD *i; // rdi
-  const UNICODE_STRING *v20; // rax
+  void **v10; // r14
+  _DWORD *v12; // rsi
+  unsigned int DesktopEx2; // edi
+  __int64 v16; // rcx
+  _QWORD *i; // rbx
+  const UNICODE_STRING *v18; // rdx
+  __int64 v20; // [rsp+68h] [rbp+10h] BYREF
 
+  v20 = a2;
+  v10 = a10;
+  v12 = a8;
   DesktopEx2 = -1073741772;
   *a10 = 0LL;
-  if ( a8 && *a8 != *(_DWORD *)SGDGetUserSessionState(a1) )
+  if ( v12 && *v12 != gSessionId )
     return 3221225485LL;
-  v16 = IS_USERCRIT_OWNED_EXCLUSIVE();
-  if ( !v16 )
-    EnterCrit(1LL, 0LL);
+  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v20);
   for ( i = (_QWORD *)*((_QWORD *)a1 + 2); ; i = (_QWORD *)i[4] )
   {
     if ( !i )
     {
-      if ( a8 )
-        DesktopEx2 = xxxCreateDesktopEx2(a1, a3, a4, String1, a8[1], a10);
-      goto LABEL_14;
+      if ( v12 )
+        DesktopEx2 = xxxCreateDesktopEx2(a1, a3, a4, String1, v12[1], v10);
+      goto LABEL_13;
     }
-    if ( ObQueryNameInfo(i) )
-    {
-      v20 = (const UNICODE_STRING *)(ObQueryNameInfo(i) + 8);
-      if ( v20 )
-      {
-        if ( RtlEqualUnicodeString(String1, v20, (a5 & 0x40) != 0) )
-          break;
-      }
-    }
+    v18 = ObQueryNameInfo(i) ? (const UNICODE_STRING *)(ObQueryNameInfo(i) + 8) : 0LL;
+    if ( v18 && RtlEqualUnicodeString(String1, v18, (a5 & 0x40) != 0) )
+      break;
   }
-  if ( !a8 )
+  if ( !v12 )
   {
     DesktopEx2 = 0;
-    goto LABEL_13;
+    goto LABEL_12;
   }
   if ( a5 < 0 )
   {
     DesktopEx2 = 0x40000000;
-LABEL_13:
+LABEL_12:
     ObfReferenceObject(i);
-    *a10 = i;
-    goto LABEL_14;
+    *v10 = i;
+    goto LABEL_13;
   }
   DesktopEx2 = -1073741771;
-LABEL_14:
-  if ( !v16 )
-    UserSessionSwitchLeaveCrit(v15, v14, v17, v18);
+LABEL_13:
+  if ( !(_DWORD)v20 )
+    UserSessionSwitchLeaveCrit(v16);
   return DesktopEx2;
 }

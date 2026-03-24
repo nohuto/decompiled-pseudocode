@@ -3,7 +3,7 @@
  * Callers:
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
  *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBF4 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBD4 (SepAdtClassifyObjectIntoSubCategory.c)
  * Callees:
  *     <none>
  */

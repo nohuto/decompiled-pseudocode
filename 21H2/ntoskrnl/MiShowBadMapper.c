@@ -1,189 +1,93 @@
 /*
- * XREFs of MiShowBadMapper @ 0x140593B18
+ * XREFs of MiShowBadMapper @ 0x14052D1EC
  * Callers:
- *     MiInsertPhysicalPteMapping @ 0x140213558 (MiInsertPhysicalPteMapping.c)
- *     MiDeletePteRun @ 0x1402C8FD0 (MiDeletePteRun.c)
- *     MiFillSystemPtes @ 0x140308F00 (MiFillSystemPtes.c)
- *     MiMapMdlCommon @ 0x1403D77D4 (MiMapMdlCommon.c)
+ *     MiFillSystemPtes @ 0x140226EF0 (MiFillSystemPtes.c)
+ *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
+ *     MiInsertPhysicalPteMapping @ 0x140298318 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlCommon @ 0x1403C8C44 (MiMapMdlCommon.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     MmLockLoadedModuleListExclusive @ 0x1402D8E9C (MmLockLoadedModuleListExclusive.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
+ *     MiLookupDataTableEntry @ 0x1402E776C (MiLookupDataTableEntry.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140372568 (MmLockLoadedModuleListExclusive.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, unsigned int a3)
+__int64 __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, char a2)
 {
-  char v3; // bl
-  unsigned int v4; // r14d
-  ULONG_PTR v5; // r15
-  unsigned int v6; // r12d
-  unsigned __int16 MaximumLength; // di
-  BOOL v8; // esi
-  wchar_t *Buffer; // rbx
-  _QWORD *v10; // r14
-  unsigned __int64 *v11; // r13
-  _QWORD *v12; // rax
-  _QWORD *v13; // r15
-  int v14; // eax
-  int v15; // ecx
+  __int64 result; // rax
+  char v5; // si
+  __int64 v6; // r8
+  __int64 v7; // r9
+  unsigned int v8; // ebx
+  unsigned __int64 *v9; // rdi
+  __int64 v10; // rax
   unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v12; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v19; // eax
-  bool v20; // zf
-  __int64 v21; // r10
-  unsigned __int8 v22[8]; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v24; // [rsp+50h] [rbp-B0h] BYREF
-  ULONG_PTR v25; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING Destination; // [rsp+60h] [rbp-A0h] BYREF
-  ULONG BackTraceHash[4]; // [rsp+70h] [rbp-90h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v28; // [rsp+80h] [rbp-80h] BYREF
-  ULONG_PTR *v29; // [rsp+A0h] [rbp-60h]
-  __int64 v30; // [rsp+A8h] [rbp-58h]
-  int *v31; // [rsp+B0h] [rbp-50h]
-  __int64 v32; // [rsp+B8h] [rbp-48h]
-  _DWORD *v33; // [rsp+C0h] [rbp-40h]
-  __int64 v34; // [rsp+C8h] [rbp-38h]
-  wchar_t *v35; // [rsp+D0h] [rbp-30h]
-  _DWORD v36[2]; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 *v37; // [rsp+E0h] [rbp-20h]
-  __int64 v38; // [rsp+E8h] [rbp-18h]
-  PVOID BackTrace[16]; // [rsp+F0h] [rbp-10h] BYREF
+  int v15; // eax
+  bool v16; // zf
+  unsigned __int8 v17[4]; // [rsp+30h] [rbp-68h] BYREF
+  ULONG BackTraceHash[3]; // [rsp+34h] [rbp-64h] BYREF
+  PVOID BackTrace[8]; // [rsp+40h] [rbp-58h] BYREF
 
-  v3 = a3;
-  LODWORD(v23) = BugCheckParameter3;
-  v4 = BugCheckParameter3;
-  v25 = BugCheckParameter2;
-  v5 = BugCheckParameter2;
-  v24 = a3;
-  v6 = 0;
-  MaximumLength = 128;
   BackTraceHash[0] = 0;
-  v22[0] = 0;
-  memset(BackTrace, 0, sizeof(BackTrace));
-  Destination = 0LL;
-  v8 = dword_140D0521C != 0;
-  if ( (v3 & 1) != 0 && !KdPitchDebugger && !(_BYTE)KdDebuggerNotPresent )
+  v17[0] = 0;
+  result = (__int64)memset(BackTrace, 0, sizeof(BackTrace));
+  v5 = byte_140C4E7FB;
+  if ( byte_140C4E7FB )
+    goto LABEL_23;
+  if ( (a2 & 1) != 0 && KdPitchDebugger == byte_140C4E7FB && (_BYTE)KdDebuggerNotPresent == byte_140C4E7FB )
+LABEL_24:
+    KeBugCheckEx(0x1Au, 0x1233uLL, BugCheckParameter2, 0LL, 0LL);
+  if ( (a2 & 4) != 0 )
   {
-    v8 = 1;
-LABEL_5:
-    Buffer = Destination.Buffer;
-    goto LABEL_42;
-  }
-  if ( v8 )
-    goto LABEL_5;
-  RtlCaptureStackBackTrace(1u, 0x10u, BackTrace, BackTraceHash);
-  Destination.MaximumLength = 128;
-  Destination.Buffer = (wchar_t *)MiAllocatePool(64, 0x80uLL, 0x20206D4Du);
-  Buffer = Destination.Buffer;
-  if ( !Destination.Buffer )
-  {
-    MaximumLength = 0;
-    Destination.MaximumLength = 0;
-  }
-  v10 = 0LL;
-  MmLockLoadedModuleListExclusive(v22);
-  v11 = (unsigned __int64 *)BackTrace;
-  while ( *v11 > 0x7FFFFFFEFFFFLL )
-  {
-    v12 = MiLookupDataTableEntry(*v11, 0);
-    v13 = v12;
-    if ( v12 )
+    RtlCaptureStackBackTrace(1u, 8u, BackTrace, BackTraceHash);
+    MmLockLoadedModuleListExclusive(v17);
+    v8 = 0;
+    v9 = (unsigned __int64 *)BackTrace;
+    while ( *v9 > 0x7FFFFFFEFFFFLL )
     {
-      if ( (v24 & 2) != 0 && (v12[13] & 0x2000000) != 0 && (VfRuleClasses & 0x400000) == 0 )
+      v10 = MiLookupDataTableEntry(*v9, 0LL, v6, v7);
+      if ( v10 && (*(_DWORD *)(v10 + 104) & 0x2000000) != 0 && (MmVerifierData & 0x400000) == 0 )
       {
-        v8 = 1;
+        v5 = 1;
         break;
       }
-      if ( Buffer && (!v10 || v10 != v12) )
-      {
-        v14 = *((unsigned __int16 *)v12 + 44);
-        v15 = v14 + 2;
-        if ( !v10 )
-          v15 = v14;
-        if ( (unsigned int)Destination.Length + v15 <= MaximumLength )
-        {
-          if ( v10 )
-            RtlAppendUnicodeToString(&Destination, L" ");
-          RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)(v13 + 11));
-          Buffer = Destination.Buffer;
-          v10 = v13;
-          MaximumLength = Destination.MaximumLength;
-        }
-        else
-        {
-          MaximumLength = Destination.Length;
-          Destination.MaximumLength = Destination.Length;
-        }
-      }
+      ++v8;
+      ++v9;
+      if ( v8 >= 8 )
+        break;
     }
-    ++v6;
-    ++v11;
-    if ( v6 >= 0x10 )
-      break;
-  }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags )
-  {
-    if ( (KiIrqlFlags & 1) != 0 )
+    ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && v22[0] <= 0xFu && CurrentIrql >= 2u )
+      v12 = v17[0];
+      if ( v17[0] <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << (v22[0] + 1));
-        v20 = (v19 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v19;
-        if ( v20 )
+        v12 = v17[0];
+        v15 = ~(unsigned __int16)(-1LL << (v17[0] + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        Buffer = Destination.Buffer;
       }
     }
+    else
+    {
+      v12 = v17[0];
+    }
+    result = v12;
+    __writecr8(v12);
+LABEL_23:
+    if ( v5 == 1 )
+      goto LABEL_24;
   }
-  __writecr8(v22[0]);
-  if ( !v8
-    && *(_QWORD *)&qword_140C53448
-    && **(_DWORD **)&qword_140C53448 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140C53448, 0x400000000080LL) )
-  {
-    v4 = v23;
-    v5 = v25;
-    v29 = &v25;
-    v31 = (int *)&v24;
-    v30 = 8LL;
-    v33 = v36;
-    v36[0] = Destination.Length;
-    v23 = 2164260864LL;
-    v37 = &v23;
-    v24 = v4;
-    v32 = 4LL;
-    v34 = 2LL;
-    v35 = Buffer;
-    v36[1] = 0;
-    v38 = 8LL;
-    tlgWriteEx_EtwWriteEx(v21, (unsigned __int8 *)&unk_14002CC90, 0LL, 1u, 0, 0, 7u, &v28);
-  }
-  else
-  {
-    v4 = v23;
-    v5 = v25;
-  }
-LABEL_42:
-  if ( Buffer )
-    ExFreePoolWithTag(Buffer, 0);
-  if ( v8 )
-    KeBugCheckEx(0x1Au, 0x1233uLL, v5, v4, 0LL);
+  return result;
 }

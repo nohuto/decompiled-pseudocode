@@ -2,8 +2,8 @@
  * XREFs of MiAllocateVirtualMemory @ 0x1405ED650
  * Callers:
  *     NtAllocateVirtualMemory @ 0x1405ECE60 (NtAllocateVirtualMemory.c)
- *     MiAllocateVirtualMemoryCommon @ 0x140675D10 (MiAllocateVirtualMemoryCommon.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406E0BB0 (MmStoreAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x140675CF0 (MiAllocateVirtualMemoryCommon.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406E0B90 (MmStoreAllocateVirtualMemory.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -20,12 +20,12 @@
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
  *     MiFlushRelease @ 0x1400792CC (MiFlushRelease.c)
  *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
- *     MiAllowProtectionChange @ 0x1400F15C8 (MiAllowProtectionChange.c)
- *     MiFlushAcquire @ 0x14012C144 (MiFlushAcquire.c)
- *     MiResetVirtualMemory @ 0x140132AB4 (MiResetVirtualMemory.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiCommitEnclavePages @ 0x1402BCE34 (MiCommitEnclavePages.c)
+ *     MiAllowProtectionChange @ 0x1400F15E8 (MiAllowProtectionChange.c)
+ *     MiFlushAcquire @ 0x14012C164 (MiFlushAcquire.c)
+ *     MiResetVirtualMemory @ 0x140132AD4 (MiResetVirtualMemory.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiCommitEnclavePages @ 0x1402BCF34 (MiCommitEnclavePages.c)
  *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
@@ -33,9 +33,9 @@
  *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
  *     MiCommitPagefileBackedSection @ 0x14061DFB0 (MiCommitPagefileBackedSection.c)
- *     EtwTiLogAllocExecVm @ 0x14067665C (EtwTiLogAllocExecVm.c)
- *     MiLogMemResetInfo @ 0x14084E090 (MiLogMemResetInfo.c)
- *     PerfInfoLogVirtualAlloc @ 0x1408B9120 (PerfInfoLogVirtualAlloc.c)
+ *     EtwTiLogAllocExecVm @ 0x14067663C (EtwTiLogAllocExecVm.c)
+ *     MiLogMemResetInfo @ 0x14084E070 (MiLogMemResetInfo.c)
+ *     PerfInfoLogVirtualAlloc @ 0x1408B9100 (PerfInfoLogVirtualAlloc.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemory(__int64 a1, int a2, unsigned __int64 *a3)

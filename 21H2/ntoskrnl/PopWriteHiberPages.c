@@ -1,24 +1,24 @@
 /*
- * XREFs of PopWriteHiberPages @ 0x140A4DC74
+ * XREFs of PopWriteHiberPages @ 0x140990EBC
  * Callers:
- *     PopWriteSecurePages @ 0x1405D0014 (PopWriteSecurePages.c)
- *     PopWriteSecurePagesCallback @ 0x1405D00BC (PopWriteSecurePagesCallback.c)
- *     PopWriteHeaderPages @ 0x140A4DEAC (PopWriteHeaderPages.c)
- *     PopWriteChecksumPages @ 0x140A6B504 (PopWriteChecksumPages.c)
- *     PopWriteImageHeader @ 0x140A6B59C (PopWriteImageHeader.c)
+ *     PopWriteSecurePages @ 0x14056F3B8 (PopWriteSecurePages.c)
+ *     PopWriteSecurePagesCallback @ 0x14056F460 (PopWriteSecurePagesCallback.c)
+ *     PopWriteHeaderPages @ 0x140990C94 (PopWriteHeaderPages.c)
+ *     PopWriteChecksumPages @ 0x1409B1C88 (PopWriteChecksumPages.c)
+ *     PopWriteImageHeader @ 0x1409B1D20 (PopWriteImageHeader.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PopInternalError @ 0x1405C6A8C (_PopInternalError.c)
- *     MmGetNumberOfPhysicalPages @ 0x1406AD260 (MmGetNumberOfPhysicalPages.c)
- *     PopCheckpointSystemSleep @ 0x140A4B974 (PopCheckpointSystemSleep.c)
- *     PopGetIoLocation @ 0x140A4D8D8 (PopGetIoLocation.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140A6B37C (PopGetRemainingHibernateRangeDataSize.c)
- *     PopRecordHibernateDiagnosticInfo @ 0x140A6B414 (PopRecordHibernateDiagnosticInfo.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PopInternalError @ 0x140565378 (_PopInternalError.c)
+ *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
+ *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
+ *     PopGetIoLocation @ 0x1409940F8 (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x1409B1294 (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x1409B1764 (PopRecordHibernateDiagnosticInfo.c)
  */
 
 __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   __int64 v6; // rsi
   __int64 result; // rax
   ULONG_PTR BugCheckParameter4; // rdi
-  unsigned __int64 v10; // r12
+  __int64 v10; // r12
   unsigned __int64 v11; // r14
   unsigned int v12; // ecx
   __int64 v13; // r8
@@ -53,23 +53,23 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   v21 = 0LL;
   IoLocation = 0LL;
   if ( (PopWatchdogTimerCount & 0x1F) == 0 )
-    result = off_140C01F10[0]();
+    result = off_140C008C0[0]();
   ++PopWatchdogTimerCount;
   if ( *(int *)(v6 + 188) >= 0 )
   {
-    if ( (a4 + a3) << 12 > qword_140C22BD0 )
+    if ( (a4 + a3) << 12 > qword_140C23850 )
     {
-      PopCheckpointSystemSleep(22);
+      PopCheckpointSystemSleep(22LL);
       if ( (unsigned int)(*(_DWORD *)(v6 + 184) - 4) <= 1 )
         BugCheckParameter4 = PopGetRemainingHibernateRangeDataSize(v6);
       *(_QWORD *)MaxDataSize = MmGetNumberOfPhysicalPages(0);
       IoAddTriageDumpDataBlock((ULONG)MaxDataSize, (PVOID)8);
       PopRecordHibernateDiagnosticInfo(v6);
       IoAddTriageDumpDataBlock((ULONG)&PopHibernateDiagnosticInfo, (PVOID)0x80);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140C22BD0, *(unsigned int *)(v6 + 184), BugCheckParameter4);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_140C23850, *(unsigned int *)(v6 + 184), BugCheckParameter4);
     }
     if ( a3 > 0xFFFFFFFFFFFFFLL )
-      PopInternalError(0xA2336uLL);
+      PopInternalError(0xA2044uLL);
     result = *(_QWORD *)(v6 + 160);
     v10 = a4 << 12;
     v26 = result;
@@ -109,8 +109,8 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       v17 = __rdtsc();
       v18 = (*(__int64 (__fastcall **)(__int64 *, _QWORD *))(*(_QWORD *)(v6 + 168) + 64LL))(&IoLocation, v27);
       v19 = __rdtsc();
-      dword_140C22EF0 += v14;
-      qword_140C22D18 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
+      dword_140C23B70 += v14;
+      qword_140C23998 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
       result = v25;
       v11 -= v25;
       v10 += v25;

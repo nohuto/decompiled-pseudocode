@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreePartitionPageRun @ 0x140860364
+ * XREFs of MiFreePartitionPageRun @ 0x140860344
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1402D0018 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
  * Callees:
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
  */
 
 ULONG_PTR *__fastcall MiFreePartitionPageRun(ULONG_PTR *a1, ULONG_PTR a2, unsigned __int64 a3, int a4)

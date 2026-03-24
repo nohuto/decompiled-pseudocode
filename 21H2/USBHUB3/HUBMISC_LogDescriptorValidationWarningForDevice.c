@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C00316F0
+ * XREFs of HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C0031010
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0013230 (McTemplateK0ppqq_EtwWriteTransfer.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0030374 (HUBMISC_VerifierDbgBreak.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  */
 
 void __fastcall HUBMISC_LogDescriptorValidationWarningForDevice(__int64 a1, ULONG a2)

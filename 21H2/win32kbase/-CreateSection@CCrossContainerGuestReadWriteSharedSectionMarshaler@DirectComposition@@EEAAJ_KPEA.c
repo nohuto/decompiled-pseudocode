@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C02385A0
+ * XREFs of ?CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C01F7DE0
  * Callers:
  *     <none>
  * Callees:
- *     DCompositionIsVailContainer @ 0x1C0210ED4 (DCompositionIsVailContainer.c)
- *     CreateVmSharedMemorySection @ 0x1C02419A0 (CreateVmSharedMemorySection.c)
+ *     DCompositionIsVailContainer @ 0x1C01D2018 (DCompositionIsVailContainer.c)
+ *     CreateVmSharedMemorySection @ 0x1C02009D8 (CreateVmSharedMemorySection.c)
  */
 
 __int64 __fastcall DirectComposition::CCrossContainerGuestReadWriteSharedSectionMarshaler::CreateSection(
-        UUID *this,
+        DirectComposition::CCrossContainerGuestReadWriteSharedSectionMarshaler *this,
         __int64 a2,
         void **a3)
 {
@@ -22,8 +22,8 @@ __int64 __fastcall DirectComposition::CCrossContainerGuestReadWriteSharedSection
   if ( (unsigned int)DCompositionIsVailContainer() )
   {
     v9[0] = a2;
-    ExUuidCreate(this + 5);
-    v6 = CreateVmSharedMemorySection(&v10, &this[5], v7, v9);
+    ExUuidCreate((UUID *)((char *)this + 72));
+    v6 = CreateVmSharedMemorySection(&v10, (char *)this + 72, v7, v9);
     if ( v6 >= 0 )
       *a3 = v10;
   }

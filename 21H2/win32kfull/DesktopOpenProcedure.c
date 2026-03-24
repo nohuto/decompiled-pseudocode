@@ -1,5 +1,5 @@
 /*
- * XREFs of DesktopOpenProcedure @ 0x1C00FEB60
+ * XREFs of DesktopOpenProcedure @ 0x1C0110F70
  * Callers:
  *     <none>
  * Callees:

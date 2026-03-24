@@ -1,9 +1,9 @@
 /*
- * XREFs of IoPageRead @ 0x140160600
+ * XREFs of IoPageRead @ 0x140160620
  * Callers:
  *     <none>
  * Callees:
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
  */
 
 NTSTATUS __stdcall IoPageRead(

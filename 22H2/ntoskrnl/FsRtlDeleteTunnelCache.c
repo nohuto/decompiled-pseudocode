@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlDeleteTunnelCache @ 0x140872790
+ * XREFs of FsRtlDeleteTunnelCache @ 0x14076E980
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
@@ -14,7 +14,7 @@ void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
   TUNNEL *v3; // rdi
   LIST_ENTRY *v4; // rcx
 
-  if ( *(_DWORD *)((char *)&NlsMbCodePageTag + 2) )
+  if ( TunnelMaxEntries )
   {
     p_TimerQueue = &Cache->TimerQueue;
     Cache->Cache = 0LL;

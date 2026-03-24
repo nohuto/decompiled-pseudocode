@@ -1,58 +1,65 @@
 /*
- * XREFs of PcisuppSetRoutingInfo @ 0x1C009CD80
+ * XREFs of PcisuppSetRoutingInfo @ 0x1C0092104
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
  * Callees:
- *     ACPIAmliBuildObjectPathname @ 0x1C0006528 (ACPIAmliBuildObjectPathname.c)
- *     IrqPolicyGetSubKey @ 0x1C009B108 (IrqPolicyGetSubKey.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C00116E4 (ACPIAmliBuildObjectPathname.c)
+ *     IrqPolicyGetSubKey @ 0x1C0094FF8 (IrqPolicyGetSubKey.c)
  */
 
-NTSTATUS __fastcall PcisuppSetRoutingInfo(struct _DEVICE_OBJECT *a1, __int64 a2)
+__int64 __fastcall PcisuppSetRoutingInfo(__int64 a1, __int64 a2)
 {
-  NTSTATUS result; // eax
-  int v4; // ebx
+  char *Data; // rbx
+  __int64 result; // rax
+  int v5; // edi
+  NTSTATUS v6; // eax
+  __int64 v7; // rcx
   __int64 DataSize; // rax
-  __int64 v6; // rcx
-  _BYTE *Data; // rdi
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  HANDLE KeyHandle; // [rsp+60h] [rbp+20h] BYREF
-  _BYTE *v10; // [rsp+68h] [rbp+28h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp+30h] BYREF
+  char *v11; // [rsp+78h] [rbp+38h] BYREF
 
   KeyHandle = 0LL;
+  Data = 0LL;
   DestinationString = 0LL;
-  result = IrqPolicyGetSubKey(a1, L"Routing Info", 1u, &KeyHandle);
-  if ( result >= 0 )
+  result = IrqPolicyGetSubKey(a1, L"Routing Info", 1LL, &KeyHandle);
+  if ( (int)result >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"Flags");
-    v4 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (PVOID)(a2 + 12), 1u);
-    if ( v4 >= 0 )
+    v5 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (PVOID)(a2 + 12), 1u);
+    if ( v5 < 0 )
     {
-      if ( *(_QWORD *)a2 )
-      {
-        v6 = *(_QWORD *)(*(_QWORD *)a2 + 600LL);
-        v10 = 0LL;
-        v4 = ACPIAmliBuildObjectPathname(v6, (PVOID *)&v10, 0);
-        if ( v4 >= 0 )
-        {
-          Data = v10;
-          RtlInitUnicodeString(&DestinationString, L"LinkNode");
-          DataSize = -1LL;
-          do
-            ++DataSize;
-          while ( Data[DataSize] );
-          v4 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, Data, DataSize);
-          if ( Data )
-            ExFreePoolWithTag(Data, 0);
-        }
-      }
-      else
-      {
-        RtlInitUnicodeString(&DestinationString, L"StaticVector");
-        v4 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (PVOID)(a2 + 8), 4u);
-      }
+LABEL_8:
+      ZwClose(KeyHandle);
+      return (unsigned int)v5;
     }
-    ZwClose(KeyHandle);
-    return v4;
+    if ( *(_QWORD *)a2 )
+    {
+      v7 = *(_QWORD *)(*(_QWORD *)a2 + 560LL);
+      v11 = 0LL;
+      v5 = ACPIAmliBuildObjectPathname(v7, &v11, 0);
+      if ( v5 < 0 )
+      {
+LABEL_6:
+        if ( Data )
+          ExFreePoolWithTag(Data, 0);
+        goto LABEL_8;
+      }
+      Data = v11;
+      RtlInitUnicodeString(&DestinationString, L"LinkNode");
+      DataSize = -1LL;
+      do
+        ++DataSize;
+      while ( Data[DataSize] );
+      v6 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, Data, DataSize);
+    }
+    else
+    {
+      RtlInitUnicodeString(&DestinationString, L"StaticVector");
+      v6 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (PVOID)(a2 + 8), 4u);
+    }
+    v5 = v6;
+    goto LABEL_6;
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of InbvEnableDisplayString @ 0x1403DF6A0
+ * XREFs of InbvEnableDisplayString @ 0x1403D0380
  * Callers:
- *     <none>
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ char __fastcall InbvEnableDisplayString(char a1)
 {
   char result; // al
 
-  result = byte_140C54D0C;
-  byte_140C54D0C = a1;
+  result = byte_140C50B70;
+  byte_140C50B70 = a1;
   return result;
 }

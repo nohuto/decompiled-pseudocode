@@ -1,10 +1,10 @@
 /*
- * XREFs of PiIommuFreeExtension @ 0x140763A00
+ * XREFs of PiIommuFreeExtension @ 0x1407639E0
  * Callers:
- *     PipDmgDestroyIommuExtension @ 0x1406F92C4 (PipDmgDestroyIommuExtension.c)
- *     PiIommuAllocateExtension @ 0x140750558 (PiIommuAllocateExtension.c)
+ *     PipDmgDestroyIommuExtension @ 0x1406F92A4 (PipDmgDestroyIommuExtension.c)
+ *     PiIommuAllocateExtension @ 0x140750538 (PiIommuAllocateExtension.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

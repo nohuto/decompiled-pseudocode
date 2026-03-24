@@ -1,21 +1,21 @@
 /*
- * XREFs of IopBootLog @ 0x140748300
+ * XREFs of IopBootLog @ 0x140771A20
  * Callers:
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     PipCallDriverAddDevice @ 0x1407743C8 (PipCallDriverAddDevice.c)
- *     IopInitializeBootLogging @ 0x1409346B0 (IopInitializeBootLogging.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     IopInitializeBootLogging @ 0x140891718 (IopInitializeBootLogging.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IopOpenRegistryKey @ 0x1406DE960 (IopOpenRegistryKey.c)
- *     IopBootLogToFile @ 0x140933C14 (IopBootLogToFile.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
+ *     IopBootLogToFile @ 0x140890EC4 (IopBootLogToFile.c)
  */
 
 void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
@@ -38,13 +38,13 @@ void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
   ValueName = 0LL;
   v10 = 0LL;
   Sourcea = 0LL;
-  if ( qword_140D3B028 )
+  if ( qword_140D2D030 )
   {
-    ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D3B028[4], 1u);
-    v4 = qword_140D3B028;
-    v5 = qword_140D3B028;
+    ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D2D030[4], 1u);
+    v4 = qword_140D2D030;
+    v5 = qword_140D2D030;
     if ( !a2 )
-      v5 = qword_140D3B028 + 1;
+      v5 = qword_140D2D030 + 1;
     RtlCopyUnicodeString(&DestinationString, v5);
     RtlInitUnicodeString(&Sourcea, L" ");
     RtlAppendUnicodeStringToString(&DestinationString, &Sourcea);
@@ -62,8 +62,8 @@ void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
     ++LODWORD(v4[10].Buffer);
     RtlStringCchPrintfW(pszDest, 0x100uLL, L"%d");
     RtlInitUnicodeString(&v11, pszDest);
-    RtlInitUnicodeString(&ValueName, &word_140867F00);
-    if ( BYTE4(qword_140D3B028[10].Buffer) )
+    RtlInitUnicodeString(&ValueName, &word_1407D7BA0);
+    if ( BYTE4(qword_140D2D030[10].Buffer) )
     {
       IopBootLogToFile(&DestinationString);
     }
@@ -86,6 +86,6 @@ void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
         ZwClose(*(HANDLE *)&DestinationString.Length);
       }
     }
-    ExReleaseResourceLite((PERESOURCE)&qword_140D3B028[4]);
+    ExReleaseResourceLite((PERESOURCE)&qword_140D2D030[4]);
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00447B8
+ * XREFs of Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00441A0
  * Callers:
- *     Bulk_EP_IsTransferEventLikelyDuplicate @ 0x1C0044680 (Bulk_EP_IsTransferEventLikelyDuplicate.c)
- *     Bulk_ValidateED0TrbPointerOnMismatch @ 0x1C0044C48 (Bulk_ValidateED0TrbPointerOnMismatch.c)
+ *     Bulk_EP_IsTransferEventLikelyDuplicate @ 0x1C0043EE0 (Bulk_EP_IsTransferEventLikelyDuplicate.c)
+ *     Bulk_ValidateED0TrbPointerOnMismatch @ 0x1C0044778 (Bulk_ValidateED0TrbPointerOnMismatch.c)
  * Callees:
- *     TR_DoesSegmentContainDequeuePointer @ 0x1C000B6E4 (TR_DoesSegmentContainDequeuePointer.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C000FA58 (StageQueue_ForwardScanGetNextStage.c)
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000BE44 (TR_DoesSegmentContainDequeuePointer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
  */
 
 char __fastcall Bulk_IsTransferEventLikelyDuplicate_Internal(_QWORD *a1, signed __int64 a2, _BYTE *a3)

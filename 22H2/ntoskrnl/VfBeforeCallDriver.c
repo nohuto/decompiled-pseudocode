@@ -1,23 +1,25 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x140ACE5AC
+ * XREFs of VfBeforeCallDriver @ 0x1409D1088
  * Callers:
- *     IovCallDriver @ 0x140AC21D0 (IovCallDriver.c)
- *     IovpCallDriverNoIrpTracking @ 0x140AC296C (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x140AC29B4 (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x1409C4CC4 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x1409C5494 (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x1409C5504 (IovpCallDriverWithStackBuffer.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x14022EBF0 (KeAreInterruptsEnabled.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfBugCheckNoStackUsage @ 0x1405CF910 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x140ACE1FC (VfGetPristineDispatchRoutine.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x140ACEDD0 (ViIrpCheckKernelAddressForIrp.c)
+ *     KeAreInterruptsEnabled @ 0x1402D0E60 (KeAreInterruptsEnabled.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfBugCheckNoStackUsage @ 0x1405A18E8 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x1409D0CDC (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x1409D1898 (ViIrpCheckKernelAddressForIrp.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DDD34 (VfDeadlockBeforeCallDriver.c)
  */
 
 __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   ULONG_PTR v7; // rdx
+  unsigned int v8; // ebx
   unsigned __int8 CurrentIrql; // al
-  __int64 v9; // rax
+  __int64 v10; // rax
 
   if ( *(_BYTE *)(a2 + 64) != 1 && (MmVerifierData & 0x100) != 0 && !*(_QWORD *)(a2 + 8) )
   {
@@ -29,13 +31,13 @@ __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
   }
   if ( a3 )
   {
-    if ( !KeAreInterruptsEnabled() && (VfRuleClasses & 0x400000) == 0 )
+    if ( !KeAreInterruptsEnabled() && (MmVerifierData & 0x400000) == 0 )
     {
       *(_BYTE *)(a3 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-      *(_OWORD *)&xmmword_140D70508 = 0LL;
+      *(_OWORD *)&xmmword_140D4A040 = 0LL;
       *(_QWORD *)&VfBugcheckTmpData = 196LL;
       BugCheckParameter1 = 192LL;
-      qword_140D70500 = a2;
+      qword_140D4A038 = a2;
       VfBugCheckNoStackUsage();
     }
     *(_QWORD *)(a3 + 48) = VfGetPristineDispatchRoutine(
@@ -46,18 +48,23 @@ __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
     *(_DWORD *)(a3 + 188) = KeGetCurrentThread()->WaitBlock[3].SpareLong;
     if ( *(char *)(a2 + 67) == *(char *)(a2 + 66) + 1 )
     {
-      v9 = *(_QWORD *)(a2 + 80);
-      if ( v9 )
+      v10 = *(_QWORD *)(a2 + 80);
+      if ( v10 )
       {
-        if ( !*(_BYTE *)(a2 + 64) && *(_DWORD *)(v9 + 4) )
+        if ( !*(_BYTE *)(a2 + 64) && *(_DWORD *)(v10 + 4) )
           *(_DWORD *)(a3 + 152) |= 2u;
       }
     }
+    v8 = VfDeadlockBeforeCallDriver(a2);
     if ( !VfIoDisabled )
     {
       *(_DWORD *)(a3 + 152) |= 1u;
       IovpCallDriver1(a3);
     }
   }
-  return 0LL;
+  else
+  {
+    return (unsigned int)VfDeadlockBeforeCallDriver(a2);
+  }
+  return v8;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDirectedDripsDiagBroadcastTreeEnd @ 0x14099E420
+ * XREFs of PopDirectedDripsDiagBroadcastTreeEnd @ 0x1408F6CB8
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099F5D8 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8CF0 (PopDirectedDripsBuildBroadcastTreePartial.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall PopDirectedDripsDiagBroadcastTreeEnd(__int64 a1, int a2, int a3, char a4)
+char __fastcall PopDirectedDripsDiagBroadcastTreeEnd(__int64 a1, int a2, int a3, char a4)
 {
-  __int64 result; // rax
+  char result; // al
 
   if ( a1 )
   {

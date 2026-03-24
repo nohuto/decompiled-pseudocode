@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampCaptureApcRundown @ 0x1409EE8E0
+ * XREFs of EtwpCovSampCaptureApcRundown @ 0x140942060
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCovSampCaptureApcRelease @ 0x140635B34 (EtwpCovSampCaptureApcRelease.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1405AE54C (EtwpCovSampCaptureApcRelease.c)
  */
 
-char __fastcall EtwpCovSampCaptureApcRundown(__int64 a1)
+__int64 __fastcall EtwpCovSampCaptureApcRundown(__int64 a1)
 {
   return EtwpCovSampCaptureApcRelease(a1 - 56);
 }

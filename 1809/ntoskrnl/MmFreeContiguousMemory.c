@@ -1,19 +1,19 @@
 /*
- * XREFs of MmFreeContiguousMemory @ 0x140122FA0
+ * XREFs of MmFreeContiguousMemory @ 0x140122FC0
  * Callers:
- *     HvlpFreeOverlayPages @ 0x14013FBE0 (HvlpFreeOverlayPages.c)
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x140271634 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     IopInitializeInMemoryDumpData @ 0x140281648 (IopInitializeInMemoryDumpData.c)
+ *     HvlpFreeOverlayPages @ 0x14013FC00 (HvlpFreeOverlayPages.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x140271734 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     IopInitializeInMemoryDumpData @ 0x140281748 (IopInitializeInMemoryDumpData.c)
  *     ViReleaseDmaAdapter @ 0x14092E59C (ViReleaseDmaAdapter.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
  *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9218 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VfFreeMemoryNotification @ 0x140925CB8 (VfFreeMemoryNotification.c)
  */

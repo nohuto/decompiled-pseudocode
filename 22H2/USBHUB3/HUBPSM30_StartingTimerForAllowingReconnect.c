@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_StartingTimerForAllowingReconnect @ 0x1C0012AF0
+ * XREFs of HUBPSM30_StartingTimerForAllowingReconnect @ 0x1C0011640
  * Callers:
  *     <none>
  * Callees:

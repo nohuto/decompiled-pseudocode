@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpBugcheckPowerTimeout @ 0x140560DE0
+ * XREFs of PnpBugcheckPowerTimeout @ 0x14050D7E0
  * Callers:
- *     PopBuildDeviceNotifyListWatchdog @ 0x140A6BD80 (PopBuildDeviceNotifyListWatchdog.c)
+ *     PopBuildDeviceNotifyListWatchdog @ 0x1409B25A0 (PopBuildDeviceNotifyListWatchdog.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __noreturn PnpBugcheckPowerTimeout()
@@ -16,7 +16,7 @@ void __noreturn PnpBugcheckPowerTimeout()
   {
     v0 = PnpDeviceEventThread;
     if ( !PnpDeviceEventThread )
-      v0 = PnpDeviceActionThread;
+      v0 = PnpDeviceActionThread[0];
   }
   BugCheckParameter4[1] = (ULONG_PTR)&PnpDeviceCompletionQueue;
   BugCheckParameter4[2] = ExWorkerQueue;

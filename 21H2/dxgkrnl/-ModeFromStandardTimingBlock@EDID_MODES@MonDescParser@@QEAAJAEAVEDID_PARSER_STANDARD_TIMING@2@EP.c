@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ModeFromStandardTimingBlock@EDID_MODES@MonDescParser@@QEAAJAEAVEDID_PARSER_STANDARD_TIMING@2@EPEAU_VideoModeDescriptor@@@Z @ 0x1C0022720
+ * XREFs of ?ModeFromStandardTimingBlock@EDID_MODES@MonDescParser@@QEAAJAEAVEDID_PARSER_STANDARD_TIMING@2@EPEAU_VideoModeDescriptor@@@Z @ 0x1C001F4A4
  * Callers:
- *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C00221E8 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001EF74 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
- *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C002288C (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
- *     ?CalculateVerticalActivePixelsFrom@MonDescParser@@YAJGGGPEAG@Z @ 0x1C0022D2C (-CalculateVerticalActivePixelsFrom@MonDescParser@@YAJGGGPEAG@Z.c)
- *     ?IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ @ 0x1C0022F88 (-IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ.c)
+ *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C001F600 (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
+ *     ?CalculateVerticalActivePixelsFrom@MonDescParser@@YAJGGGPEAG@Z @ 0x1C001FAA0 (-CalculateVerticalActivePixelsFrom@MonDescParser@@YAJGGGPEAG@Z.c)
+ *     ?IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ @ 0x1C001FCFC (-IsUnused@EDID_PARSER_STANDARD_TIMING@MonDescParser@@QEBA_NXZ.c)
  */
 
 int __fastcall MonDescParser::EDID_MODES::ModeFromStandardTimingBlock(
@@ -20,12 +20,12 @@ int __fastcall MonDescParser::EDID_MODES::ModeFromStandardTimingBlock(
   unsigned int v10; // ebx
   unsigned __int16 v11; // r11
   int v12; // edx
-  unsigned __int16 v13; // ax
-  unsigned __int16 v14; // cx
+  unsigned __int16 v13; // dx
+  unsigned __int16 v14; // r8
   int result; // eax
   unsigned __int16 v16; // dx
   unsigned __int8 v17; // al
-  __int64 v18; // rdx
+  __int64 v18; // rcx
   unsigned __int8 v19; // al
   int v20; // edx
   unsigned __int16 *v21; // [rsp+20h] [rbp-28h]
@@ -38,23 +38,23 @@ int __fastcall MonDescParser::EDID_MODES::ModeFromStandardTimingBlock(
   v9 = v8[1] >> 6;
   v10 = (v8[1] & 0x3F) + 60;
   v11 = 8 * (*v8 + 31);
-  if ( !v9 )
+  if ( v9 )
   {
-    v18 = **(_QWORD **)this;
-    v19 = *(_BYTE *)(v18 + 18);
-    if ( (v19 != 1 || *(_BYTE *)(v18 + 19) < 3u) && v19 < 3u )
+    v12 = v9 - 1;
+    if ( !v12 )
     {
-      v16 = v11;
-      goto LABEL_7;
+      v13 = 4;
+      v14 = 3;
+LABEL_5:
+      result = MonDescParser::CalculateVerticalActivePixelsFrom(
+                 (MonDescParser *)v11,
+                 v13,
+                 v14,
+                 (unsigned __int16)&v22,
+                 v21);
+      v16 = v22;
+      goto LABEL_6;
     }
-    v14 = 10;
-LABEL_15:
-    v13 = 16;
-    goto LABEL_5;
-  }
-  v12 = v9 - 1;
-  if ( v12 )
-  {
     v20 = v12 - 1;
     if ( !v20 )
     {
@@ -65,16 +65,22 @@ LABEL_15:
     if ( v20 != 1 )
       return -1071841276;
     v14 = 9;
+LABEL_15:
+    v13 = 16;
+    goto LABEL_5;
+  }
+  v18 = **(_QWORD **)this;
+  v19 = *(_BYTE *)(v18 + 18);
+  if ( v19 == 1 && *(_BYTE *)(v18 + 19) >= 3u || v19 >= 3u )
+  {
+    v14 = 10;
     goto LABEL_15;
   }
-  v13 = 4;
-  v14 = 3;
-LABEL_5:
-  result = MonDescParser::CalculateVerticalActivePixelsFrom((MonDescParser *)v11, v13, v14, (unsigned __int16)&v22, v21);
+  v16 = v11;
+  result = 0;
+LABEL_6:
   if ( result < 0 )
     return result;
-  v16 = v22;
-LABEL_7:
   if ( v16 < 0x64u )
     return -1071841276;
   if ( v11 != 1024 || v16 != 768 || (v17 = 1, v10 != 43) )

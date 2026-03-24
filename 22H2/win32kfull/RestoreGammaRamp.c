@@ -1,21 +1,26 @@
 /*
- * XREFs of RestoreGammaRamp @ 0x1C00B45D0
+ * XREFs of RestoreGammaRamp @ 0x1C011D9E0
  * Callers:
- *     xxxSwitchDesktopWithFade @ 0x1C00B444C (xxxSwitchDesktopWithFade.c)
+ *     xxxSwitchDesktopWithFade @ 0x1C011D7D0 (xxxSwitchDesktopWithFade.c)
  * Callees:
- *     <none>
+ *     GreSetDeviceGammaRamp @ 0x1C00287C8 (GreSetDeviceGammaRamp.c)
  */
 
 void __fastcall RestoreGammaRamp(unsigned int *a1)
 {
   unsigned int i; // edi
-  __int64 v3; // rcx
+  __int64 v3; // rsi
+  HDC v4; // rcx
 
   for ( i = 0; i < *a1; ++i )
   {
-    v3 = *(_QWORD *)&a1[386 * i + 386];
-    if ( v3 )
-      GreDeleteDC(v3);
+    v3 = 386LL * i;
+    v4 = *(HDC *)&a1[v3 + 386];
+    if ( v4 )
+    {
+      GreSetDeviceGammaRamp(v4, &a1[v3 + 388], 0, 1);
+      GreDeleteDC(*(_QWORD *)&a1[v3 + 386]);
+    }
   }
   Win32FreePool(a1);
 }

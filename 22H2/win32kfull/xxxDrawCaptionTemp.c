@@ -1,326 +1,308 @@
 /*
- * XREFs of xxxDrawCaptionTemp @ 0x1C022C094
+ * XREFs of xxxDrawCaptionTemp @ 0x1C0158B14
  * Callers:
- *     xxxDrawCaptionBar @ 0x1C00C689C (xxxDrawCaptionBar.c)
- *     NtUserDrawCaption @ 0x1C01CEC30 (NtUserDrawCaption.c)
- *     NtUserDrawCaptionTemp @ 0x1C01CEDA0 (NtUserDrawCaptionTemp.c)
- *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C02243DC (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCAB8 (xxxDrawCaptionBar.c)
+ *     NtUserDrawCaption @ 0x1C01F7B70 (NtUserDrawCaption.c)
+ *     NtUserDrawCaptionTemp @ 0x1C01F7CE0 (NtUserDrawCaptionTemp.c)
+ *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C023E3AC (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
  * Callees:
- *     GreGetLayout @ 0x1C0024844 (GreGetLayout.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     GetDPIMetrics @ 0x1C0041140 (GetDPIMetrics.c)
- *     _HasCaptionIcon @ 0x1C00631C8 (_HasCaptionIcon.c)
- *     xxxGetWindowSmIcon @ 0x1C0065C34 (xxxGetWindowSmIcon.c)
- *     GreGetTextExtentW @ 0x1C007A468 (GreGetTextExtentW.c)
- *     ?GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C007DC34 (-GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z.c)
- *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C0095A30 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
- *     TextCopy @ 0x1C0095B3C (TextCopy.c)
- *     GreExtTextOutW @ 0x1C00A1DB0 (GreExtTextOutW.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     GreSetBkMode @ 0x1C0115C14 (GreSetBkMode.c)
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     xxxGetWindowText @ 0x1C01F2D84 (xxxGetWindowText.c)
- *     xxxClientExtTextOutW @ 0x1C021212C (xxxClientExtTextOutW.c)
- *     xxxClientGetTextExtentPointW @ 0x1C0212AAC (xxxClientGetTextExtentPointW.c)
- *     CALL_LPK @ 0x1C0225FD4 (CALL_LPK.c)
- *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C022B9A4 (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
- *     ?FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z @ 0x1C022BC94 (-FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z.c)
- *     DrawTextExWorker @ 0x1C024D1FC (DrawTextExWorker.c)
- *     GreGetTextAlign @ 0x1C02D7C60 (GreGetTextAlign.c)
- *     GreSetTextAlign @ 0x1C02D7D04 (GreSetTextAlign.c)
+ *     xxxGetWindowSmIcon @ 0x1C0038CA8 (xxxGetWindowSmIcon.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     GreSetBkMode @ 0x1C0045E9C (GreSetBkMode.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     _HasCaptionIcon @ 0x1C0061CF8 (_HasCaptionIcon.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAC5C (GreExtTextOutWInternal.c)
+ *     GetDPIMetrics @ 0x1C00E0A9C (GetDPIMetrics.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     GreGetTextMetricsW @ 0x1C00E3244 (GreGetTextMetricsW.c)
+ *     GreGetTextExtentW @ 0x1C00E337C (GreGetTextExtentW.c)
+ *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00FCF38 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
+ *     TextCopy @ 0x1C00FD05C (TextCopy.c)
+ *     GreSetTextAlign @ 0x1C01241C0 (GreSetTextAlign.c)
+ *     GreGetTextAlign @ 0x1C0125448 (GreGetTextAlign.c)
+ *     CALL_LPK @ 0x1C0158EEC (CALL_LPK.c)
+ *     xxxClientExtTextOutW @ 0x1C0158F28 (xxxClientExtTextOutW.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0159250 (xxxClientGetTextExtentPointW.c)
+ *     ?FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z @ 0x1C0159600 (-FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z.c)
+ *     xxxGetWindowText @ 0x1C0159724 (xxxGetWindowText.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C0246EAC (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
+ *     DrawTextExWorker @ 0x1C025E630 (DrawTextExWorker.c)
  */
 
 __int64 __fastcall xxxDrawCaptionTemp(
-        _QWORD *a1,
-        Gre::Base *a2,
+        __int64 a1,
+        HDC a2,
         struct tagRECT *a3,
         __int64 a4,
         struct tagCURSOR *a5,
-        __int64 a6,
-        __int16 a7)
+        unsigned __int16 **a6,
+        unsigned int a7)
 {
-  struct tagCURSOR *WindowSmIcon; // r13
   LONG left; // eax
-  int v13; // ebx
-  HBRUSH v14; // rax
-  int v15; // r12d
-  HBRUSH v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  unsigned int Layout; // eax
-  unsigned int v22; // ebx
-  int v23; // r12d
-  __int128 *v24; // r13
+  struct tagCURSOR *WindowSmIcon; // r13
+  int v12; // r12d
+  int v13; // r14d
+  HBRUSH v14; // rcx
   int WindowText; // eax
+  __int64 v16; // r14
+  unsigned __int64 v17; // rcx
+  int v18; // edx
+  LONG v19; // r12d
+  WCHAR *v20; // r10
+  unsigned int v21; // r13d
+  WCHAR *SourceString; // r8
+  LONG v23; // r10d
+  int *v24; // r11
+  HBRUSH v26; // rax
+  unsigned int Layout; // eax
+  unsigned int v28; // r14d
+  int v29; // r12d
   struct _LARGE_UNICODE_STRING *StrName; // rax
-  __int64 v27; // r12
-  unsigned __int64 v28; // rcx
-  __int64 DPIMetrics; // rax
-  __int64 v30; // rcx
-  int v31; // edx
-  __int64 DPIServerInfo; // rax
-  int v33; // ebx
-  __int64 v34; // rcx
-  __int64 v35; // rax
-  int TextMetricsW; // ebx
-  __int64 v37; // rcx
-  int v38; // ecx
-  const WCHAR *v39; // r10
-  int v40; // eax
-  const WCHAR *SourceString; // r9
-  int v42; // r8d
-  int v43; // r10d
-  int v44; // edx
-  const WCHAR *v45; // r8
-  unsigned int v46; // r10d
-  unsigned int v47; // eax
-  int v48; // [rsp+40h] [rbp-C0h]
-  HBRUSH v49; // [rsp+48h] [rbp-B8h]
-  int v50; // [rsp+50h] [rbp-B0h]
-  unsigned int v51; // [rsp+58h] [rbp-A8h]
-  int v52; // [rsp+60h] [rbp-A0h]
-  int v53; // [rsp+64h] [rbp-9Ch]
-  __int64 v54; // [rsp+68h] [rbp-98h] BYREF
-  struct tagTHREADINFO *v55; // [rsp+70h] [rbp-90h]
-  __int128 v56; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v57; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v58; // [rsp+98h] [rbp-68h] BYREF
-  int v59; // [rsp+A0h] [rbp-60h]
-  __int64 v60; // [rsp+A4h] [rbp-5Ch]
-  __int64 v61; // [rsp+B0h] [rbp-50h]
-  _OWORD v62[4]; // [rsp+B8h] [rbp-48h] BYREF
-  _OWORD v63[5]; // [rsp+100h] [rbp+0h] BYREF
-  char v64[512]; // [rsp+150h] [rbp+50h] BYREF
+  int TextMetricsW; // eax
+  __int64 v32; // rcx
+  int v33; // ecx
+  int TextAlign; // eax
+  int v35; // r8d
+  WCHAR *v36; // r9
+  int v37; // r10d
+  int *v38; // r11
+  unsigned int v39; // eax
+  int v40; // [rsp+50h] [rbp-B0h]
+  HBRUSH v41; // [rsp+58h] [rbp-A8h]
+  int v42; // [rsp+60h] [rbp-A0h]
+  int v43; // [rsp+64h] [rbp-9Ch]
+  unsigned __int16 **v44; // [rsp+68h] [rbp-98h]
+  __int64 v46; // [rsp+70h] [rbp-90h]
+  int v47; // [rsp+7Ch] [rbp-84h]
+  int v48; // [rsp+80h] [rbp-80h]
+  struct _POINTL v49; // [rsp+88h] [rbp-78h] BYREF
+  __int64 ThreadWin32Thread; // [rsp+90h] [rbp-70h]
+  __int128 v51; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v52; // [rsp+A8h] [rbp-58h] BYREF
+  int v53; // [rsp+B0h] [rbp-50h]
+  __int64 v54; // [rsp+B4h] [rbp-4Ch]
+  __int128 v55; // [rsp+C0h] [rbp-40h] BYREF
+  _OWORD v56[5]; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 v57; // [rsp+120h] [rbp+20h]
+  char v58[512]; // [rsp+160h] [rbp+60h] BYREF
 
-  WindowSmIcon = a5;
-  *(_QWORD *)&v56 = a6;
   left = a3->left;
-  v61 = a4;
-  v51 = 1;
-  v50 = 0;
-  v54 = 0LL;
+  WindowSmIcon = a5;
+  v44 = a6;
+  v42 = 0;
+  v49 = 0LL;
+  v43 = 0;
   if ( a3->right <= left )
     return 0LL;
-  if ( a1 && !a5 && (unsigned int)HasCaptionIcon((__int64)a1) && (a7 & 2) == 0 && (*(_BYTE *)(a1[5] + 30LL) & 8) != 0 )
-    WindowSmIcon = (struct tagCURSOR *)xxxGetWindowSmIcon((ULONG_PTR)a1, a7 & 0x2000);
-  v48 = *(_DWORD *)(gpsi + 4572LL);
-  if ( (a7 & 1) == 0 )
+  if ( a1
+    && !a5
+    && (unsigned int)HasCaptionIcon(a1)
+    && (a7 & 2) == 0
+    && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 30LL) & 8) != 0 )
   {
-    if ( (a7 & 0x10) != 0 )
+    WindowSmIcon = (struct tagCURSOR *)xxxGetWindowSmIcon(a1, a7 & 0x2000);
+  }
+  v40 = *(_DWORD *)(gpsi + 4572LL);
+  if ( (a7 & 1) != 0 )
+  {
+    if ( (a7 & 0x10) == 0 )
     {
-      v13 = *(_DWORD *)(gpsi + 4628LL);
-      v14 = *(HBRUSH *)(gpsi + 4816LL);
-      goto LABEL_19;
+      v12 = *(_DWORD *)(gpsi + 4604LL);
+      v13 = *(_DWORD *)(gpsi + 4576LL);
+      v14 = *(HBRUSH *)(gpsi + 4712LL);
+      goto LABEL_11;
     }
-    v15 = *(_DWORD *)(gpsi + 4644LL);
-    v13 = *(_DWORD *)(gpsi + 4580LL);
-    v16 = *(HBRUSH *)(gpsi + 4720LL);
-    goto LABEL_21;
-  }
-  if ( (a7 & 0x10) == 0 )
-  {
-    v15 = *(_DWORD *)(gpsi + 4604LL);
-    v13 = *(_DWORD *)(gpsi + 4576LL);
-    v16 = *(HBRUSH *)(gpsi + 4712LL);
-LABEL_21:
-    v49 = v16;
-    if ( (a7 & 0x20) == 0 )
-      goto LABEL_24;
-    v50 = 1;
-LABEL_23:
-    v48 = GreSetBkMode((HDC)a2, 1);
-    goto LABEL_24;
-  }
-  if ( *(_WORD *)(gpsi + 6996LL) < 8u
-    || (v13 = *(_DWORD *)(gpsi + 4648LL), v13 != *(_DWORD *)(gpsi + 4568LL))
-    || v13 == *(_DWORD *)(gpsi + 4588LL) )
-  {
-    v15 = *(_DWORD *)(gpsi + 4628LL);
-    v13 = *(_DWORD *)(gpsi + 4648LL);
-    v49 = *(HBRUSH *)(gpsi + 4944LL);
-    goto LABEL_23;
-  }
-  v14 = *(HBRUSH *)(gpsi + 4856LL);
-LABEL_19:
-  v15 = *(_DWORD *)(gpsi + 4640LL);
-  v49 = v14;
-LABEL_24:
-  v52 = GreSetTextColor((__int64)a2, v15);
-  v53 = GreSetBkColor((HDC)a2, v13);
-  if ( WindowSmIcon )
-  {
-    v19 = 2LL;
-    if ( (a7 & 2) == 0 )
+    if ( *(_WORD *)(gpsi + 6996LL) < 8u
+      || (v13 = *(_DWORD *)(gpsi + 4648LL), v13 != *(_DWORD *)(gpsi + 4568LL))
+      || v13 == *(_DWORD *)(gpsi + 4588LL) )
     {
-      if ( (a7 & 4) != 0 )
-      {
-        Layout = GreGetLayout((HDC)a2);
-        v22 = Layout;
-        v23 = Layout & 1;
-        if ( (Layout & 1) != 0 )
-          GreSetLayout(a2, 0xFFFFFFFFLL, Layout | 8);
-        DrawCaptionIcon((HDC)a2, a3, WindowSmIcon, v49, a7);
-        if ( v23 )
-          GreSetLayout(a2, 0xFFFFFFFFLL, v22);
-      }
-      else
-      {
-        v18 = (unsigned int)(a3->bottom - a3->top);
-        a3->left += v18;
-      }
+      v12 = *(_DWORD *)(gpsi + 4628LL);
+      v13 = *(_DWORD *)(gpsi + 4648LL);
+      v41 = *(HBRUSH *)(gpsi + 4944LL);
+      goto LABEL_13;
+    }
+    v26 = *(HBRUSH *)(gpsi + 4856LL);
+LABEL_62:
+    v12 = *(_DWORD *)(gpsi + 4640LL);
+    v41 = v26;
+    goto LABEL_14;
+  }
+  if ( (a7 & 0x10) != 0 )
+  {
+    v13 = *(_DWORD *)(gpsi + 4628LL);
+    v26 = *(HBRUSH *)(gpsi + 4816LL);
+    goto LABEL_62;
+  }
+  v12 = *(_DWORD *)(gpsi + 4644LL);
+  v13 = *(_DWORD *)(gpsi + 4580LL);
+  v14 = *(HBRUSH *)(gpsi + 4720LL);
+LABEL_11:
+  v41 = v14;
+  if ( (a7 & 0x20) != 0 )
+  {
+    v42 = 1;
+LABEL_13:
+    v40 = GreSetBkMode(a2, 1);
+  }
+LABEL_14:
+  v47 = GreSetTextColor(a2, v12);
+  v48 = GreSetBkColor(a2, v13);
+  if ( WindowSmIcon && (a7 & 2) == 0 )
+  {
+    if ( (a7 & 4) != 0 )
+    {
+      Layout = GreGetLayout(a2);
+      v28 = Layout;
+      v29 = Layout & 1;
+      if ( (Layout & 1) != 0 )
+        GreSetLayout(a2, 0xFFFFFFFFLL, Layout | 8);
+      DrawCaptionIcon(a2, a3, WindowSmIcon, v41, a7);
+      if ( v29 )
+        GreSetLayout(a2, 0xFFFFFFFFLL, v28);
+    }
+    else
+    {
+      a3->left += a3->bottom - a3->top;
     }
   }
-  if ( (a7 & 8) == 0 )
-    goto LABEL_87;
-  v57 = 0LL;
-  v24 = (__int128 *)v56;
-  v55 = PtiCurrentShared(v18, v17, v19, v20);
-  if ( !(_QWORD)v56 )
+  if ( (a7 & 8) != 0 )
   {
+    v51 = 0LL;
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    if ( a6 )
+    {
+      v17 = *((unsigned __int16 *)a6 + 1) - 2LL;
+      if ( v17 >= *(unsigned __int16 *)a6 )
+        LOWORD(v17) = *(_WORD *)a6;
+      *(_WORD *)a6 = v17;
+      v16 = (unsigned __int16)v17 >> 1;
+      a6[1][v16] = 0;
+      goto LABEL_25;
+    }
     if ( a1 )
     {
       if ( (a7 & 0x2000) == 0 )
       {
-        WindowText = xxxGetWindowText((struct tagWND *)a1, v64);
-LABEL_39:
-        v28 = (unsigned __int16)WindowText;
-        LODWORD(v27) = WindowText;
-        LOWORD(v28) = 2 * WindowText;
-        LOWORD(v57) = 2 * WindowText;
-LABEL_41:
-        LOWORD(v28) = v28 + 2;
-        *((_QWORD *)&v57 + 1) = v64;
-        WORD1(v57) = v28;
-        v24 = &v57;
-        goto LABEL_45;
+        WindowText = xxxGetWindowText(a1, v58);
+LABEL_23:
+        v17 = (unsigned __int16)WindowText;
+        LODWORD(v16) = WindowText;
+        LOWORD(v17) = 2 * WindowText;
+LABEL_24:
+        LOWORD(v51) = v17;
+        LOWORD(v17) = v17 + 2;
+        WORD1(v51) = v17;
+        *((_QWORD *)&v51 + 1) = v58;
+        v44 = (unsigned __int16 **)&v51;
+LABEL_25:
+        if ( a4 )
+        {
+          v46 = GreSelectFont(a2);
+          memset(v56, 0, 0x44uLL);
+          TextMetricsW = GreGetTextMetricsW(a2, (struct _TMW_INTERNAL *)v56);
+          v57 = v56[0];
+          if ( TextMetricsW )
+            v33 = v57;
+          else
+            v33 = *(_DWORD *)(GetDPIServerInfo(v32) + 40);
+          v19 = (a3->top + a3->bottom - v33) / 2;
+        }
+        else
+        {
+          if ( (a7 & 2) != 0 )
+            v18 = *(_DWORD *)(GetDPIMetrics(v17) + 44);
+          else
+            v18 = *(_DWORD *)(GetDPIServerInfo(v17) + 20);
+          v19 = (a3->top + a3->bottom - v18) / 2;
+          v46 = GreSelectFont(a2);
+        }
+        if ( v42 )
+          FillCaptionGradient(a2, a3, a7 & 1);
+        else
+          FillRect(a2, a3, v41);
+        if ( v41 == *(HBRUSH *)(gpsi + 4944LL) )
+        {
+          GreSetTextColor(a2, *(_DWORD *)(gpsi + 4640LL));
+          GreSetBkColor(a2, *(_DWORD *)(gpsi + 4636LL));
+        }
+        if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
+        {
+          xxxClientGetTextExtentPointW(a2, v20);
+          v21 = 1;
+        }
+        else
+        {
+          v21 = 1;
+          GreGetTextExtentW(a2, v20, v16, (struct tagSIZE *)&v49, 1);
+        }
+        if ( a1 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 0x20) != 0 )
+        {
+          TextAlign = GreGetTextAlign(a2);
+          v43 = GreSetTextAlign(a2, TextAlign | 0x100u);
+        }
+        if ( (a7 & 0x4000) != 0 || (_DWORD)v16 && v49.x > a3->right - a3->left - 2 )
+        {
+          v54 = 0LL;
+          v52 = 20LL;
+          v53 = 2;
+          if ( (a7 & 0x4000) != 0 )
+          {
+            v39 = 34853;
+          }
+          else if ( !a1 || (v39 = 34854, (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 0x10) == 0) )
+          {
+            v39 = 34852;
+          }
+          DrawTextExWorker(a2, v44[1], v16, a3, v39, (struct tagDRAWTEXTPARAMS *)&v52);
+          v21 = 0;
+        }
+        else if ( a1 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 0x10) != 0 )
+        {
+          if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
+            xxxClientExtTextOutW(a2, (__int64)a3, v36, v16);
+          else
+            GreExtTextOutWInternal(a2, v37 - v35 - 2, v19, 4, a3, v36, v16, v38, v38, (unsigned int)v38);
+        }
+        else if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
+        {
+          xxxClientExtTextOutW(a2, (__int64)a3, SourceString, v16);
+        }
+        else
+        {
+          GreExtTextOutWInternal(a2, v23, v19, 4, a3, SourceString, v16, v24, v24, (unsigned int)v24);
+        }
+        if ( a1 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 25LL) & 0x20) != 0 )
+          GreSetTextAlign(a2, v43);
+        if ( v46 )
+          GreSelectFont(a2);
+        goto LABEL_50;
       }
-      if ( *(_DWORD *)(a1[5] + 184LL) )
+      if ( *(_DWORD *)(*(_QWORD *)(a1 + 40) + 184LL) )
       {
-        v56 = 0LL;
+        v55 = 0LL;
         StrName = tagWND::ProtectedLargeUnicodeStringWNDstrName::getStrName(
-                    (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(a1 + 23),
-                    (struct _LARGE_UNICODE_STRING *)&v56);
-        WindowText = TextCopy((__int64)StrName, v64, 0xFFu);
-        goto LABEL_39;
+                    (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(a1 + 184),
+                    (struct _LARGE_UNICODE_STRING *)&v55);
+        WindowText = TextCopy((__int64)StrName, v58, 0xFFu);
+        goto LABEL_23;
       }
     }
-    *(_WORD *)v64 = 0;
-    v28 = 0LL;
-    LOWORD(v57) = 0;
-    LODWORD(v27) = 0;
-    goto LABEL_41;
+    *(_WORD *)v58 = 0;
+    v17 = 0LL;
+    LODWORD(v16) = 0;
+    goto LABEL_24;
   }
-  v28 = *(unsigned __int16 *)(v56 + 2) - 2LL;
-  if ( v28 >= *(unsigned __int16 *)v56 )
-    LOWORD(v28) = *(_WORD *)v56;
-  *(_WORD *)v56 = v28;
-  v27 = (unsigned __int16)v28 >> 1;
-  *(_WORD *)(*((_QWORD *)v24 + 1) + 2 * v27) = 0;
-LABEL_45:
-  if ( v61 )
-  {
-    *(_QWORD *)&v56 = GreSelectFontInternal((__int64)a2, v61, 1);
-    memset_0(v63, 0, 0x44uLL);
-    v35 = SGDGetSessionState(v34);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v62, *(struct Gre::Full::SESSION_GLOBALS **)(v35 + 32));
-    TextMetricsW = GrepGetTextMetricsW((HDC)a2, (struct _TMW_INTERNAL *)v63, 1027);
-    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v62);
-    v62[0] = v63[0];
-    if ( TextMetricsW )
-      v38 = v62[0];
-    else
-      v38 = *(_DWORD *)(GetDPIServerInfo(v37) + 40);
-    v33 = (a3->top + a3->bottom - v38) / 2;
-  }
-  else
-  {
-    if ( (a7 & 2) != 0 )
-    {
-      DPIMetrics = GetDPIMetrics(v28);
-      v30 = *(_QWORD *)(DPIMetrics + 32);
-      v31 = *(_DWORD *)(DPIMetrics + 44);
-    }
-    else
-    {
-      DPIServerInfo = GetDPIServerInfo(v28);
-      v30 = *(_QWORD *)(DPIServerInfo + 8);
-      v31 = *(_DWORD *)(DPIServerInfo + 20);
-    }
-    v33 = (a3->top + a3->bottom - v31) / 2;
-    *(_QWORD *)&v56 = GreSelectFontInternal((__int64)a2, v30, 1);
-  }
-  if ( v50 )
-    FillCaptionGradient((HDC)a2, a3, a7 & 1);
-  else
-    FillRect((HDC)a2, a3, v49);
-  if ( v49 == *(HBRUSH *)(gpsi + 4944LL) )
-  {
-    GreSetTextColor((__int64)a2, *(_DWORD *)(gpsi + 4640LL));
-    GreSetBkColor((HDC)a2, *(_DWORD *)(gpsi + 4636LL));
-  }
-  if ( (unsigned int)CALL_LPK((__int64)v55) )
-    xxxClientGetTextExtentPointW(a2, v39, v27, &v54);
-  else
-    GreGetTextExtentW((__int64)a2, (__int64)v39, v27, (__int64)&v54);
-  if ( a1 && (*(_BYTE *)(a1[5] + 25LL) & 0x20) != 0 )
-  {
-    GreGetTextAlign((HDC)a2);
-    GreSetTextAlign((HDC)a2);
-  }
-  if ( (a7 & 0x4000) != 0 || (_DWORD)v27 && (int)v54 > a3->right - a3->left - 2 )
-  {
-    v60 = 0LL;
-    v58 = 20LL;
-    v59 = 2;
-    if ( (a7 & 0x4000) != 0 )
-    {
-      v47 = 34853;
-    }
-    else if ( !a1 || (v47 = 34854, (*(_BYTE *)(a1[5] + 25LL) & 0x10) == 0) )
-    {
-      v47 = 34852;
-    }
-    DrawTextExWorker((HDC)a2, *((unsigned __int16 **)v24 + 1), v27, a3, v47, (struct tagDRAWTEXTPARAMS *)&v58);
-    v51 = 0;
-  }
-  else
-  {
-    if ( a1 && (*(_BYTE *)(a1[5] + 25LL) & 0x10) != 0 )
-    {
-      v40 = CALL_LPK((__int64)v55);
-      v44 = v43 - v42 - 2;
-      if ( v40 )
-        xxxClientExtTextOutW(a2, v44, v33, 4, a3, SourceString, v27);
-      else
-        GreExtTextOutW((__int64)a2, v44, v33, 4u, (__int64)a3, (__int64)SourceString, v27);
-LABEL_83:
-      if ( (*(_BYTE *)(a1[5] + 25LL) & 0x20) != 0 )
-        GreSetTextAlign((HDC)a2);
-      goto LABEL_85;
-    }
-    if ( (unsigned int)CALL_LPK((__int64)v55) )
-      xxxClientExtTextOutW(a2, v46, v33, 4, a3, v45, v27);
-    else
-      GreExtTextOutW((__int64)a2, v46, v33, 4u, (__int64)a3, (__int64)v45, v27);
-  }
-  if ( a1 )
-    goto LABEL_83;
-LABEL_85:
-  if ( (_QWORD)v56 )
-    GreSelectFontInternal((__int64)a2, v56, 1);
-LABEL_87:
-  GreSetTextColor((__int64)a2, v52);
-  GreSetBkColor((HDC)a2, v53);
-  if ( v49 == *(HBRUSH *)(gpsi + 4944LL) )
-    GreSetBkMode((HDC)a2, v48);
-  return v51;
+  v21 = 1;
+LABEL_50:
+  GreSetTextColor(a2, v47);
+  GreSetBkColor(a2, v48);
+  if ( v41 == *(HBRUSH *)(gpsi + 4944LL) )
+    GreSetBkMode(a2, v40);
+  return v21;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpIsKernelCfgActive @ 0x1408CBAA0
+ * XREFs of ExpIsKernelCfgActive @ 0x1408CBA80
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14018DD30 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 ExpIsKernelCfgActive()

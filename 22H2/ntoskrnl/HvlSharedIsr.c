@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlSharedIsr @ 0x14045ED00
+ * XREFs of HvlSharedIsr @ 0x1404F1B80
  * Callers:
- *     HvlEnlightenProcessor @ 0x140382F20 (HvlEnlightenProcessor.c)
- *     KiHvInterruptSubDispatch @ 0x1404261A0 (KiHvInterruptSubDispatch.c)
+ *     HvlEnlightenProcessor @ 0x1403A7298 (HvlEnlightenProcessor.c)
+ *     KiHvInterruptSubDispatch @ 0x140404320 (KiHvInterruptSubDispatch.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403CE3B8 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x14045EDF0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlpHandleIommuFaultMessage @ 0x1405482EC (HvlpHandleIommuFaultMessage.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403905F8 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1404F1E10 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpHandleIommuFaultMessage @ 0x1404F9274 (HvlpHandleIommuFaultMessage.c)
  */
 
 char __fastcall HvlSharedIsr(__int64 a1)
 {
-  __int64 v1; // rax
+  int v1; // eax
   unsigned int LpIndexFromProcessorIndex; // eax
   __int64 v3; // rbx
   unsigned int *v4; // rcx
@@ -25,8 +25,8 @@ char __fastcall HvlSharedIsr(__int64 a1)
     LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(a1);
     v3 = *((_QWORD *)HvlpGetLpcbByLpIndex(LpIndexFromProcessorIndex) + 5);
     _m_prefetchw((const void *)(v3 + 1024));
-    LODWORD(v1) = *(_DWORD *)(v3 + 1024);
-    if ( (_DWORD)v1 )
+    v1 = *(_DWORD *)(v3 + 1024);
+    if ( v1 )
     {
       v4 = (unsigned int *)(v3 + 1040);
       if ( *(_DWORD *)(v3 + 1024) == -2147483612 )
@@ -35,7 +35,7 @@ char __fastcall HvlSharedIsr(__int64 a1)
       }
       else
       {
-        v5 = qword_140D18E20 + 104LL * *v4;
+        v5 = qword_140CF6888 + 104LL * *v4;
         *(_DWORD *)(v5 + 4) = 2;
         KiInsertQueueDpc(v5 + 8, 0LL, 0LL, 0LL, 0);
       }
@@ -46,15 +46,6 @@ char __fastcall HvlSharedIsr(__int64 a1)
         LOBYTE(v1) = 0;
         __writemsr(0x40000084u, 0LL);
       }
-    }
-  }
-  else if ( KiEpfCompletionQueue )
-  {
-    v1 = *(_QWORD *)(KiEpfCompletionQueue + 8);
-    if ( *(_QWORD *)KiEpfCompletionQueue != v1 )
-    {
-      _InterlockedIncrement(&dword_140C41768);
-      LOBYTE(v1) = KiInsertQueueDpc((ULONG_PTR)&KiEpfCompletionDpc, 0LL, 0LL, 0LL, 0);
     }
   }
   return v1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenThread @ 0x140663470
+ * XREFs of NtOpenThread @ 0x140625CD0
  * Callers:
  *     <none>
  * Callees:
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
+ *     PsOpenThread @ 0x140625D00 (PsOpenThread.c)
  */
 
 __int64 __fastcall NtOpenThread(int a1, int a2, int a3, int a4)

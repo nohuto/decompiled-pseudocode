@@ -1,15 +1,15 @@
 /*
- * XREFs of imp_WdfDmaTransactionFreeResources @ 0x1C0054340
+ * XREFs of imp_WdfDmaTransactionFreeResources @ 0x1C0030340
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ @ 0x1C0056064 (-ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ @ 0x1C00331E8 (-ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ.c)
  */
 
 void __fastcall imp_WdfDmaTransactionFreeResources(
@@ -27,7 +27,7 @@ void __fastcall imp_WdfDmaTransactionFreeResources(
 
   pDmaTrans = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)DmaTransaction,
     0x1401u,
     (void **)&pDmaTrans);

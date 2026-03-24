@@ -1,7 +1,7 @@
 /*
- * XREFs of ObpInitInfoBlockOffsets @ 0x140B64918
+ * XREFs of ObpInitInfoBlockOffsets @ 0x140A6887C
  * Callers:
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -55,7 +55,7 @@ __int64 ObpInitInfoBlockOffsets()
     v13 = v12;
     result = (unsigned int)v12 + 4;
     v15 = v12 + 4;
-    if ( (v0 & 0x80u) == 0 )
+    if ( (v0 & 0x80) == 0 )
       v15 = v13;
     ++v0;
     *v1++ = v15;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExRundownCompletedCacheAware @ 0x1402D3210
+ * XREFs of ExRundownCompletedCacheAware @ 0x1403614B0
  * Callers:
- *     ExReInitializeRundownProtectionCacheAware @ 0x1402D31C0 (ExReInitializeRundownProtectionCacheAware.c)
+ *     ExReInitializeRundownProtectionCacheAware @ 0x140361460 (ExReInitializeRundownProtectionCacheAware.c)
  * Callees:
  *     <none>
  */

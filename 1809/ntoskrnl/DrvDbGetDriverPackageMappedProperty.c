@@ -1,23 +1,23 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x1406D2A04
+ * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x1406D29E4
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x1406D28C0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1406D2A04 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140901BE4 (DrvDbGetDriverPackageMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140901F0C (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbDispatchDriverPackage @ 0x1406D28A0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406D29E4 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140901BC4 (DrvDbGetDriverPackageMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140901EEC (DrvDbGetDriverPackageSignerScore.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1406D2A04 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C98 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x1406D3A9C (DrvDbGetRegValueMappedProperty.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B304 (_PnpCtxRegEnumKeyWithCallback.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140901F0C (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406D29E4 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406D3A7C (DrvDbGetRegValueMappedProperty.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B2E4 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140901EEC (DrvDbGetDriverPackageSignerScore.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedProperty(

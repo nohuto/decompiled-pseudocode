@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpRundownUnitOfWork @ 0x1407692E8
+ * XREFs of CmpRundownUnitOfWork @ 0x14071CBAC
  * Callers:
- *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x140769424 (CmpTransMgrFreeVolatileData.c)
- *     CmSetKeyFlags @ 0x140A15A64 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15F98 (CmSetLastWriteTimeKey.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x1405CD308 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071C8A0 (CmpTransMgrFreeVolatileData.c)
+ *     CmSetKeyFlags @ 0x14086DCC8 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E18C (CmSetLastWriteTimeKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     UNLOCK_TRANSACTION_LIST @ 0x1407684B8 (UNLOCK_TRANSACTION_LIST.c)
- *     LOCK_TRANSACTION_LIST @ 0x1407684DC (LOCK_TRANSACTION_LIST.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140769400 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     UNLOCK_TRANSACTION_LIST @ 0x14071CCC4 (UNLOCK_TRANSACTION_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14071CCF0 (LOCK_TRANSACTION_LIST.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071CD1C (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
 {
   ULONG_PTR v1; // rsi
   ULONG_PTR v3; // rsi
-  __int64 v4; // rcx
-  _QWORD *v5; // rax
+  __int64 v4; // rax
+  _QWORD *v5; // rcx
   _QWORD *result; // rax
   _QWORD *v7; // rdx
   __int64 v8; // rcx
@@ -32,17 +32,17 @@ _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
   unsigned int v11; // edx
   __int64 i; // rcx
   unsigned int v13; // r8d
-  __int64 v14; // rdx
-  __int64 v15; // r9
+  __int64 v14; // r9
+  __int64 v15; // rdx
   __int64 v16; // r10
   __int64 v17; // rcx
   __int64 v18; // rax
   __int64 *v19; // rcx
   __int64 v20; // rbx
   __int64 j; // rcx
-  unsigned int v22; // r8d
-  __int64 v23; // rdx
-  __int64 v24; // r9
+  unsigned int v22; // edx
+  __int64 v23; // r9
+  __int64 v24; // r8
   __int64 v25; // r10
   __int64 v26; // rcx
   __int64 v27; // rax
@@ -73,16 +73,16 @@ _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
       v13 = v10 - 1;
       if ( (unsigned int)i < v10 - 1 )
       {
-        v14 = 8LL * (unsigned int)(i + 1);
-        v15 = 8 * i;
+        v14 = 8LL * (unsigned int)i;
+        v15 = 8LL * (unsigned int)(i + 1);
         v16 = v13 - (unsigned int)i;
         do
         {
           v17 = *(_QWORD *)(v1 + 8);
-          v18 = *(_QWORD *)(v14 + v17);
-          v14 += 8LL;
-          *(_QWORD *)(v15 + v17) = v18;
+          v18 = *(_QWORD *)(v15 + v17);
           v15 += 8LL;
+          *(_QWORD *)(v14 + v17) = v18;
+          v14 += 8LL;
           --v16;
         }
         while ( v16 );
@@ -118,18 +118,18 @@ _QWORD *__fastcall CmpRundownUnitOfWork(_QWORD *BugCheckParameter4)
       if ( (_DWORD)j == v11 )
         KeBugCheckEx(0x51u, 0x12uLL, 2uLL, v3, (ULONG_PTR)BugCheckParameter4);
       v22 = v11 - 1;
-      if ( (unsigned int)j < v11 - 1 )
+      if ( (unsigned int)j < v22 )
       {
-        v23 = 8LL * (unsigned int)(j + 1);
-        v24 = 8 * j;
+        v23 = 8LL * (unsigned int)j;
+        v24 = 8LL * (unsigned int)(j + 1);
         v25 = v22 - (unsigned int)j;
         do
         {
           v26 = *(_QWORD *)(v3 + 8);
-          v27 = *(_QWORD *)(v23 + v26);
-          v23 += 8LL;
-          *(_QWORD *)(v24 + v26) = v27;
+          v27 = *(_QWORD *)(v24 + v26);
           v24 += 8LL;
+          *(_QWORD *)(v23 + v26) = v27;
+          v23 += 8LL;
           --v25;
         }
         while ( v25 );

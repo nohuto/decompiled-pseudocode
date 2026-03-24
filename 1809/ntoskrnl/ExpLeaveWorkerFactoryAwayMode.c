@@ -2,10 +2,10 @@
  * XREFs of ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8
  * Callers:
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1400CDD90 (NtReleaseWorkerFactoryWorker.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400CE200 (ExpWorkerFactoryCheckCreate.c)
- *     ExpShutdownWorkerFactory @ 0x1400FADC0 (ExpShutdownWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1401060E0 (NtSetInformationWorkerFactory.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1400CDDB0 (NtReleaseWorkerFactoryWorker.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400CE220 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpShutdownWorkerFactory @ 0x1400FADE0 (ExpShutdownWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeDeregisterObjectNotification @ 0x14008DF20 (KeDeregisterObjectNotification.c)

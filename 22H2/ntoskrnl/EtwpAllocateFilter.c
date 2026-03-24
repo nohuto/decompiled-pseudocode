@@ -1,157 +1,116 @@
 /*
- * XREFs of EtwpAllocateFilter @ 0x14077DBC0
+ * XREFs of EtwpAllocateFilter @ 0x1407B8918
  * Callers:
- *     EtwpValidateFilterDescriptors @ 0x14077DD04 (EtwpValidateFilterDescriptors.c)
- *     EtwpValidateTraceControlFilterDescriptors @ 0x1409F5374 (EtwpValidateTraceControlFilterDescriptors.c)
+ *     EtwpValidateFilterDescriptors @ 0x1407B8760 (EtwpValidateFilterDescriptors.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x140940D3C (EtwpValidateTraceControlFilterDescriptors.c)
  * Callees:
- *     EtwpCreatePerfectHashFunction @ 0x14077D990 (EtwpCreatePerfectHashFunction.c)
- *     EtwpAllocateEventNameFilter @ 0x1409F462C (EtwpAllocateEventNameFilter.c)
- *     EtwpAllocateLevelKwFilter @ 0x1409F49F8 (EtwpAllocateLevelKwFilter.c)
- *     EtwpAllocatePayloadFilterData @ 0x1409F4A7C (EtwpAllocatePayloadFilterData.c)
- *     EtwpAllocatePidFilter @ 0x1409F4B14 (EtwpAllocatePidFilter.c)
- *     EtwpAllocateSchematizedFilter @ 0x1409F4BA4 (EtwpAllocateSchematizedFilter.c)
- *     EtwpAllocateStringFilterData @ 0x1409F4C34 (EtwpAllocateStringFilterData.c)
+ *     EtwpCreatePerfectHashFunction @ 0x1407B89F0 (EtwpCreatePerfectHashFunction.c)
+ *     EtwpAllocateEventNameFilter @ 0x140940108 (EtwpAllocateEventNameFilter.c)
+ *     EtwpAllocatePayloadFilterData @ 0x1409404C0 (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocateStringFilterData @ 0x14094054C (EtwpAllocateStringFilterData.c)
  */
 
 __int64 __fastcall EtwpAllocateFilter(int a1, __int64 *a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
-  __int64 v6; // r11
+  unsigned int v4; // r10d
+  __int64 v6; // rbx
   __int64 v7; // rdx
-  __int64 v8; // r8
-  unsigned int v9; // eax
-  _WORD *v10; // rdx
-  __int64 v11; // r11
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  unsigned int v14; // eax
-  _WORD *v15; // rdx
+  __int64 v8; // r11
+  __int64 v9; // rcx
+  _WORD *v10; // rax
+  __int64 v11; // r9
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  _WORD *v16; // rax
+  __int64 v17; // rdx
 
-  result = 0LL;
+  v4 = 0;
   switch ( a1 )
   {
-    case -2147483644:
-      result = EtwpAllocatePidFilter(a2, a3 + 8);
-      if ( (int)result >= 0 )
-        *(_DWORD *)a3 |= 0x80000004;
-      return result;
     case -2147483640:
-      result = EtwpAllocateStringFilterData(a2, a3 + 16);
-      if ( (int)result >= 0 )
-        *(_DWORD *)a3 |= 0x80000008;
-      return result;
+      v14 = a3;
+      return (unsigned int)EtwpAllocateStringFilterData(a2, v14);
     case -2147483632:
-      result = EtwpAllocateStringFilterData(a2, a3 + 24);
-      if ( (int)result >= 0 )
-        *(_DWORD *)a3 |= 0x80000010;
-      return result;
+      v14 = a3 + 8;
+      return (unsigned int)EtwpAllocateStringFilterData(a2, v14);
     case -2147483616:
-      result = EtwpAllocateStringFilterData(a2, a3 + 32);
-      if ( (int)result >= 0 )
-        *(_DWORD *)a3 |= 0x80000020;
-      return result;
+      v14 = a3 + 16;
+      return (unsigned int)EtwpAllocateStringFilterData(a2, v14);
     case -2147450880:
-      result = EtwpAllocateStringFilterData(a2, a3 + 40);
-      if ( (int)result >= 0 )
-        *(_DWORD *)a3 |= 0x80008000;
-      return result;
+      v14 = a3 + 24;
+      return (unsigned int)EtwpAllocateStringFilterData(a2, v14);
     case -2147479552:
-      v11 = *a2;
-      if ( !*(_QWORD *)(a3 + 48) )
+      v6 = *a2;
+      v15 = *((unsigned int *)a2 + 2);
+      if ( (unsigned int)(v15 - 6) <= 0x3FA )
       {
-        v12 = *((unsigned int *)a2 + 2);
-        if ( (unsigned int)(v12 - 6) <= 0x3FA )
+        v8 = *(unsigned __int16 *)(v6 + 2);
+        if ( v15 == 2 * v8 + 4 )
         {
-          v13 = *(unsigned __int16 *)(v11 + 2);
-          if ( v12 == 2 * v13 + 4 && (unsigned __int16)(v13 - 1) <= 0x3Fu )
+          v9 = 1LL;
+          if ( (unsigned __int16)(v8 - 1) <= 0x3Fu )
           {
-            v14 = 0;
-            if ( *(_WORD *)(v11 + 2) )
+            if ( *(_WORD *)(v6 + 2) )
             {
-              v15 = (_WORD *)(v11 + 4);
-              while ( *v15 != 0xFFFF )
+              v16 = (_WORD *)(v6 + 4);
+              while ( *v16 != 0xFFFF )
               {
-                ++v14;
-                ++v15;
-                if ( v14 >= (unsigned int)v13 )
-                  goto LABEL_43;
+                ++v4;
+                ++v16;
+                if ( v4 >= (unsigned int)v8 )
+                  goto LABEL_31;
               }
-              return 3221225485LL;
+              return (unsigned int)-1073741811;
             }
-LABEL_43:
-            result = EtwpCreatePerfectHashFunction(*(_BYTE *)v11, (_WORD *)(v11 + 4), v13, (__int64 *)(a3 + 48));
-            if ( (int)result >= 0 )
-              *(_DWORD *)a3 |= 0x80001000;
-            return result;
+LABEL_31:
+            v11 = a3 + 40;
+LABEL_15:
+            LOBYTE(v9) = *(_BYTE *)v6;
+            return (unsigned int)EtwpCreatePerfectHashFunction(v9, v6 + 4, (unsigned __int16)v8, v11);
           }
         }
       }
-      return 3221225485LL;
-  }
-  if ( a1 != -2147483136 )
-  {
-    switch ( a1 )
-    {
-      case -2147482624:
-        result = EtwpAllocateEventNameFilter(a2, a3 + 96);
-        if ( (int)result >= 0 )
-          *(_DWORD *)a3 |= 0x80000400;
-        return result;
-      case -2147475456:
-        result = EtwpAllocateEventNameFilter(a2, a3 + 56);
-        if ( (int)result >= 0 )
-          *(_DWORD *)a3 |= 0x80002000;
-        return result;
-      case -2147467264:
-        result = EtwpAllocateLevelKwFilter(a2, a3 + 64);
-        if ( (int)result >= 0 )
-          *(_DWORD *)a3 |= 0x80004000;
-        return result;
-    }
-    if ( a1 != -2147483392 )
-    {
-      if ( a1 == 0x80000000 )
+      return (unsigned int)-1073741811;
+    case -2147483136:
+      v6 = *a2;
+      v7 = *((unsigned int *)a2 + 2);
+      if ( (unsigned int)(v7 - 6) <= 0x3FA )
       {
-        result = EtwpAllocateSchematizedFilter(a2, a3 + 88);
-        if ( (int)result >= 0 )
-          *(_DWORD *)a3 |= 0x80000000;
+        v8 = *(unsigned __int16 *)(v6 + 2);
+        if ( v7 == 2 * v8 + 4 )
+        {
+          v9 = 1LL;
+          if ( (unsigned __int16)(v8 - 1) <= 0x3Fu )
+          {
+            if ( *(_WORD *)(v6 + 2) )
+            {
+              v10 = (_WORD *)(v6 + 4);
+              while ( *v10 != 0xFFFF )
+              {
+                ++v4;
+                ++v10;
+                if ( v4 >= (unsigned int)v8 )
+                  goto LABEL_14;
+              }
+              return (unsigned int)-1073741811;
+            }
+LABEL_14:
+            v11 = a3 + 32;
+            goto LABEL_15;
+          }
+        }
       }
-      return result;
-    }
-    if ( a4 )
-    {
-      result = EtwpAllocatePayloadFilterData(a4, a2, a3 + 80);
-      if ( (int)result >= 0 )
-        *(_DWORD *)a3 |= 0x80000100;
-      return result;
-    }
-    return 3221225485LL;
+      return (unsigned int)-1073741811;
+    case -2147482624:
+      v17 = a3 + 48;
+      return (unsigned int)EtwpAllocateEventNameFilter(a2, v17);
+    case -2147475456:
+      v17 = a3 + 56;
+      return (unsigned int)EtwpAllocateEventNameFilter(a2, v17);
   }
-  v6 = *a2;
-  if ( *(_QWORD *)(a3 + 72) )
-    return 3221225485LL;
-  v7 = *((unsigned int *)a2 + 2);
-  if ( (unsigned int)(v7 - 6) > 0x3FA )
-    return 3221225485LL;
-  v8 = *(unsigned __int16 *)(v6 + 2);
-  if ( v7 != 2 * v8 + 4 || (unsigned __int16)(v8 - 1) > 0x3Fu )
-    return 3221225485LL;
-  v9 = 0;
-  if ( *(_WORD *)(v6 + 2) )
-  {
-    v10 = (_WORD *)(v6 + 4);
-    while ( *v10 != 0xFFFF )
-    {
-      ++v9;
-      ++v10;
-      if ( v9 >= (unsigned int)v8 )
-        goto LABEL_16;
-    }
-    return 3221225485LL;
-  }
-LABEL_16:
-  result = EtwpCreatePerfectHashFunction(*(_BYTE *)v6, (_WORD *)(v6 + 4), v8, (__int64 *)(a3 + 72));
-  if ( (int)result >= 0 )
-    *(_DWORD *)a3 |= 0x80000200;
-  return result;
+  if ( a1 != -2147483392 )
+    return v4;
+  if ( a4 )
+    return (unsigned int)EtwpAllocatePayloadFilterData(a4, a2, a3 + 72);
+  return 3221225485LL;
 }

@@ -1,21 +1,20 @@
 /*
- * XREFs of HalpAllocateKInterrupt @ 0x14037D9A8
+ * XREFs of HalpAllocateKInterrupt @ 0x1403A2198
  * Callers:
- *     HalpCreateInterrupt @ 0x14037D8F8 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x1403A1FE4 (HalpCreateInterrupt.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall HalpAllocateKInterrupt(int a1, int a2)
 {
-  char *v2; // r9
-  char *Pool2; // r10
+  char *v2; // r10
+  char *PoolWithTag; // r9
   unsigned __int64 v6; // rcx
 
   v2 = (char *)&HalpKInterruptHeap;
-  Pool2 = (char *)&HalpKInterruptHeap + 288 * (unsigned int)HalpKInterruptHeapUsed;
-  while ( v2 < Pool2 )
+  PoolWithTag = (char *)&HalpKInterruptHeap + 288 * (unsigned int)HalpKInterruptHeapUsed;
+  while ( v2 < PoolWithTag )
   {
     if ( *((_DWORD *)v2 + 24) == a1 && *((_DWORD *)v2 + 22) == a2 )
       return v2;
@@ -37,13 +36,13 @@ char *__fastcall HalpAllocateKInterrupt(int a1, int a2)
   }
   else if ( HalpKInterruptPostPhaseZeroUsed >= (unsigned int)HalpKInterruptPostPhaseZeroTotal )
   {
-    Pool2 = (char *)ExAllocatePool2(64LL, 288LL, 1265393992LL);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x120uLL, 0x206C6148u);
   }
   else
   {
-    Pool2 = (char *)(HalpKInterruptPostPhaseZero + 288LL * (unsigned int)HalpKInterruptPostPhaseZeroUsed++);
+    PoolWithTag = (char *)(HalpKInterruptPostPhaseZero + 288LL * (unsigned int)HalpKInterruptPostPhaseZeroUsed++);
   }
-  if ( !Pool2 )
-    HalpInterruptSetProblemEx(0, 30, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\kintrupt.c", 326);
-  return Pool2;
+  if ( !PoolWithTag )
+    HalpInterruptLastProblem = 30;
+  return PoolWithTag;
 }

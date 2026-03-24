@@ -1,36 +1,50 @@
 /*
- * XREFs of ObpEnumFindHandleProcedure @ 0x1407B5460
+ * XREFs of ObpEnumFindHandleProcedure @ 0x140664BC0
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
  */
 
-bool __fastcall ObpEnumFindHandleProcedure(__int64 a1, __int64 *a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall ObpEnumFindHandleProcedure(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  unsigned __int64 HandlePointer; // rdx
-  bool v8; // bl
-  __int64 v10; // rcx
-  _QWORD *v11; // rcx
-  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned __int8 v5; // bl
+  __int64 v7; // rbx
+  _DWORD *v8; // rcx
+  __int64 v9; // r11
+  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  HandlePointer = ExGetHandlePointer(a2);
-  v8 = 0;
-  if ( !*a4 || *a4 == HandlePointer )
+  if ( !*a4 || *a4 == ((*(__int64 *)a2 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) )
   {
-    v10 = a4[1];
-    if ( !v10
-      || ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*(_BYTE *)(HandlePointer + 24) ^ BYTE1(HandlePointer))) == *(_BYTE *)(v10 + 40) )
+    v7 = a4[1];
+    if ( !v7
+      || v7 == ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(((*(__int64 *)a2 >> 16) & 0xFFFFFFFFFFFFFFF0uLL)
+                                                                                     + 0x18) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(WORD1(*(_QWORD *)a2) & 0xFFF0) >> 8)] )
     {
-      v11 = (_QWORD *)a4[2];
-      if ( !v11 || *v11 == __PAIR64__(a2[1] & 0x1FFFFFF, ((__int64)*(unsigned int *)a2 >> 17) & 7) )
-        v8 = 1;
+      v8 = (_DWORD *)a4[2];
+      if ( !v8 )
+        goto LABEL_11;
+      v9 = (*(__int64 *)a2 >> 17) & 7;
+      if ( (*(_DWORD *)(a2 + 8) & 0x2000000) != 0 )
+        LOBYTE(v9) = v9 | 8;
+      if ( *v8 == (v9 & 7) && v8[1] == (*(_DWORD *)(a2 + 8) & 0x1FFFFFF) )
+LABEL_11:
+        v5 = 1;
+      else
+        v5 = 0;
+    }
+    else
+    {
+      v5 = 0;
     }
   }
-  _InterlockedExchangeAdd64(a2, 1uLL);
-  _InterlockedOr(v12, 0);
+  else
+  {
+    v5 = 0;
+  }
+  _InterlockedExchangeAdd64((volatile signed __int64 *)a2, 1uLL);
+  _InterlockedOr(v10, 0);
   if ( *(_QWORD *)(a1 + 48) )
     ExfUnblockPushLock((volatile __int64 *)(a1 + 48), 0LL);
-  return v8;
+  return v5;
 }

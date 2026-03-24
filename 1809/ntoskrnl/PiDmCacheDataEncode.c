@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmCacheDataEncode @ 0x1406F269C
+ * XREFs of PiDmCacheDataEncode @ 0x1406F267C
  * Callers:
  *     PiDmObjectUpdateCachedObjectProperty @ 0x140599A98 (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectCreate @ 0x1406F1C50 (PiDmObjectCreate.c)
- *     PiDmObjectProcessPropertyChange @ 0x1406F223C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectCreate @ 0x1406F1C30 (PiDmObjectCreate.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406F221C (PiDmObjectProcessPropertyChange.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
  *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)

@@ -1,14 +1,14 @@
 /*
- * XREFs of VidSchiTryEnterIndependentFlip @ 0x1C003C784
+ * XREFs of VidSchiTryEnterIndependentFlip @ 0x1C0031EC8
  * Callers:
- *     VidSchiUpdatePresentParameters @ 0x1C0006020 (VidSchiUpdatePresentParameters.c)
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00091C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     VidSchiCompleteFlipEntry @ 0x1C0010C40 (VidSchiCompleteFlipEntry.c)
- *     VidSchConfirmToken @ 0x1C003E7D0 (VidSchConfirmToken.c)
- *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C00416F4 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     VidSchiUpdatePresentParameters @ 0x1C0003B80 (VidSchiUpdatePresentParameters.c)
+ *     VidSchiCompleteFlipEntry @ 0x1C00041E0 (VidSchiCompleteFlipEntry.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A0C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchConfirmToken @ 0x1C0033A70 (VidSchConfirmToken.c)
+ *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036548 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
- *     ?VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z @ 0x1C003549C (-VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z.c)
- *     VidSchiFlushPendingTokenList @ 0x1C003A7F0 (VidSchiFlushPendingTokenList.c)
+ *     ?VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z @ 0x1C002A6E4 (-VidSchiCheckPlaneIndependentFlipCondition@@YA_NPEAU_VIDSCH_GLOBAL@@II@Z.c)
+ *     VidSchiFlushPendingTokenList @ 0x1C002FA78 (VidSchiFlushPendingTokenList.c)
  */
 
 void __fastcall VidSchiTryEnterIndependentFlip(

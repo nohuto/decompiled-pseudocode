@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetRenderOptions@CPolygon@@QEBAXPEAUMilRenderOptions@@@Z @ 0x1802136CC
+ * XREFs of ?GetRenderOptions@CPolygon@@QEBAXPEAUMilRenderOptions@@@Z @ 0x1801F7808
  * Callers:
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
  * Callees:
  *     <none>
  */

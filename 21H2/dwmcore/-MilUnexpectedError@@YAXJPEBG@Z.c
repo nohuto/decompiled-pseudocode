@@ -1,14 +1,14 @@
 /*
- * XREFs of ?MilUnexpectedError@@YAXJPEBG@Z @ 0x18026BE1C
+ * XREFs of ?MilUnexpectedError@@YAXJPEBG@Z @ 0x180216A00
  * Callers:
- *     ?ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z @ 0x18007327C (-ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z.c)
- *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18007A020 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
- *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800C085C (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
+ *     ?ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z @ 0x18005D870 (-ReleaseOnChannel@CHandleTable@@QEAAJPEAVCChannel@@I@Z.c)
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18006DBD0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800A3070 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
  * Callees:
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180025E3C (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x18026BB08 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18026C098 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x180024090 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B20C4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021698C (-IsKernelDebuggerPresent@@YAHXZ.c)
  */
 
 void __fastcall MilUnexpectedError(unsigned int a1, const unsigned __int16 *a2)
@@ -26,8 +26,7 @@ void __fastcall MilUnexpectedError(unsigned int a1, const unsigned __int16 *a2)
   DbgPrintEx(0x65u, 0, "%S\n", v9);
   *(_DWORD *)Response = 0;
   if ( RegGetHKLMDword(L"Software\\Microsoft\\Avalon.Graphics", L"BreakOnUnexpectedErrors", (unsigned int *)Response)
-    && *(_DWORD *)Response
-    && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
+    && *(_DWORD *)Response )
   {
     while ( 1 )
     {
@@ -50,8 +49,8 @@ void __fastcall MilUnexpectedError(unsigned int a1, const unsigned __int16 *a2)
           "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
           L"This break is due to an unexpected HRESULT in the caller, not this method.\n"
            "***   Investigate the stack capture to determine the source of the HRESULT.\n",
-          word_18032C468,
-          word_18032C468,
+          word_1802CE8C0,
+          word_1802CE8C0,
           "Function: ",
           L"MilUnexpectedError",
           ", ",
@@ -84,18 +83,18 @@ void __fastcall MilUnexpectedError(unsigned int a1, const unsigned __int16 *a2)
           if ( Response[0] != 112 )
           {
             if ( Response[0] != 116 )
-              goto LABEL_26;
-LABEL_24:
+              goto LABEL_24;
+LABEL_22:
             CurrentThread = GetCurrentThread();
             TerminateThread(CurrentThread, 0xC0000001);
-            goto LABEL_26;
+            goto LABEL_24;
           }
-LABEL_25:
+LABEL_23:
           CurrentProcess = GetCurrentProcess();
           TerminateProcess(CurrentProcess, 0xC0000001);
-          goto LABEL_26;
+          goto LABEL_24;
         }
-LABEL_27:
+LABEL_25:
         DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
       }
       switch ( Response[0] )
@@ -107,13 +106,13 @@ LABEL_27:
         case 'G':
           return;
         case 'I':
-          goto LABEL_27;
-        case 'P':
           goto LABEL_25;
+        case 'P':
+          goto LABEL_23;
         case 'T':
-          goto LABEL_24;
+          goto LABEL_22;
       }
-LABEL_26:
+LABEL_24:
       DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
     }
   }

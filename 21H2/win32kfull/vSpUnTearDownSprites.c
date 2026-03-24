@@ -1,45 +1,45 @@
 /*
- * XREFs of vSpUnTearDownSprites @ 0x1C0282B00
+ * XREFs of vSpUnTearDownSprites @ 0x1C02863D0
  * Callers:
- *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0273A8C (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
- *     ?GreUnTearDownSprites@@YAXPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027CD50 (-GreUnTearDownSprites@@YAXPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
+ *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0276178 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
+ *     ?GreUnTearDownSprites@@YAXPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027F390 (-GreUnTearDownSprites@@YAXPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
  * Callees:
- *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0085EEC (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C0085FE0 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
- *     ??0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z @ 0x1C0086B34 (--0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z.c)
- *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B68CC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ??1ENUMAREAS@@QEAA@XZ @ 0x1C00FAE0C (--1ENUMAREAS@@QEAA@XZ.c)
- *     ?bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C00FAE48 (-bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z.c)
- *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0155820 (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0155D28 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
- *     ?bEnumLayers@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@@Z @ 0x1C015667C (-bEnumLayers@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C008BED0 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C008C4D8 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ??1ENUMAREAS@@QEAA@XZ @ 0x1C00F001C (--1ENUMAREAS@@QEAA@XZ.c)
+ *     ??0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z @ 0x1C00F0084 (--0ENUMAREAS@@QEAA@PEAU_SPRITESTATE@@PEAU_RECTL@@K1@Z.c)
+ *     ?bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C00F0280 (-bEnum@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F06FC (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0164404 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
+ *     ?bEnumLayers@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@@Z @ 0x1C0164D40 (-bEnumLayers@ENUMAREAS@@QEAAHPEAPEAVSPRITE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0283974 (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
  */
 
-void __fastcall vSpUnTearDownSprites(__int64 a1, const struct _RECTL *a2, int a3)
+void __fastcall vSpUnTearDownSprites(const struct _RECTL *a1, const struct _RECTL *a2, int a3)
 {
-  struct _SPRITESTATE *v3; // rbx
+  struct _SPRITESTATE *p_right; // rbx
   int v5; // eax
   struct SPRITE *v6; // r8
   int v7; // edi
   struct SPRITE *v8; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-C8h] BYREF
+  const struct _RECTL *v9; // [rsp+38h] [rbp-C8h] BYREF
   _BYTE v10[96]; // [rsp+40h] [rbp-C0h] BYREF
-  struct _SPRITESTATE *v11[24]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 *v11[24]; // [rsp+A0h] [rbp-60h] BYREF
   struct _RECTL v12; // [rsp+160h] [rbp+60h] BYREF
   struct _RECTL v13; // [rsp+170h] [rbp+70h] BYREF
 
   v8 = 0LL;
-  v3 = (struct _SPRITESTATE *)(a1 + 80);
+  p_right = (struct _SPRITESTATE *)&a1[5].right;
   v9 = a1;
   v13 = 0LL;
   v12 = 0LL;
-  if ( *(_DWORD *)(a1 + 136) && bIntersect(a2, (const struct _RECTL *)(a1 + 120), &v12) )
+  if ( a1[9].left && bIntersect(a2, a1 + 8, &v12) )
   {
     SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v11, (struct PDEVOBJ *)&v9);
     if ( a3 )
-      vSpComputeUnlockedRegion(v3);
-    ENUMAREAS::ENUMAREAS((ENUMAREAS *)v10, v3, &v12, 0, 0LL);
+      vSpComputeUnlockedRegion(p_right);
+    ENUMAREAS::ENUMAREAS((ENUMAREAS *)v10, p_right, &v12, 0, 0LL);
     do
     {
       v5 = ENUMAREAS::bEnum((ENUMAREAS *)v10, &v8, &v13);
@@ -49,7 +49,7 @@ void __fastcall vSpUnTearDownSprites(__int64 a1, const struct _RECTL *a2, int a3
       {
         while ( 1 )
         {
-          vSpReadFromScreen(v3, (struct _POINTL *)v6 + 21, *((struct _SURFOBJ **)v6 + 20), &v13);
+          vSpReadFromScreen(p_right, (struct _POINTL *)v6 + 21, *((struct _SURFOBJ **)v6 + 20), &v13);
           if ( !(unsigned int)ENUMAREAS::bEnumLayers((ENUMAREAS *)v10, &v8) )
             break;
           v6 = v8;
@@ -57,7 +57,7 @@ void __fastcall vSpUnTearDownSprites(__int64 a1, const struct _RECTL *a2, int a3
       }
     }
     while ( v7 );
-    vSpRedrawArea(v3, &v12, 1);
+    vSpRedrawArea(p_right, &v12, 1);
     ENUMAREAS::~ENUMAREAS((ENUMAREAS *)v10);
     SPRITEDDIACCESS::~SPRITEDDIACCESS(v11);
   }

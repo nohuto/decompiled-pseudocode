@@ -1,141 +1,172 @@
 /*
- * XREFs of xxxSetWindowPlacement @ 0x1C00C4790
+ * XREFs of xxxSetWindowPlacement @ 0x1C011A0A8
  * Callers:
- *     NtUserSetWindowPlacement @ 0x1C00C44B0 (NtUserSetWindowPlacement.c)
+ *     NtUserSetWindowPlacement @ 0x1C0119F50 (NtUserSetWindowPlacement.c)
  * Callees:
- *     ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C000FEF4 (-CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z.c)
- *     ?_ShowWindowAsync@@YAHPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@H_K@Z @ 0x1C0012F3C (-_ShowWindowAsync@@YAHPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@H_K@Z.c)
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002678C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     GetMonitorWorkRect @ 0x1C00C46A8 (GetMonitorWorkRect.c)
- *     GetMonitorRect @ 0x1C00C46EC (GetMonitorRect.c)
- *     UpdateCheckpoint @ 0x1C00C79F4 (UpdateCheckpoint.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     WPUpdateCheckPointSettings @ 0x1C01F2D48 (WPUpdateCheckPointSettings.c)
+ *     UpdateCheckpoint @ 0x1C0041198 (UpdateCheckpoint.c)
+ *     GetMonitorWorkRect @ 0x1C0041390 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0041D58 (GetMonitorRect.c)
+ *     _MonitorFromRect @ 0x1C0042270 (_MonitorFromRect.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z @ 0x1C00491B4 (-xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C011A434 (-CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z.c)
+ *     WPUpdateCheckPointSettings @ 0x1C011A5F4 (WPUpdateCheckPointSettings.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall xxxSetWindowPlacement(struct tagWND *a1, __int64 a2)
 {
-  struct tagMONITOR *v2; // rdi
-  unsigned int CurrentThreadDpiAwarenessContext; // eax
-  unsigned __int8 v6; // al
-  __int64 v7; // rdx
-  int v8; // r12d
+  struct tagMONITOR *v2; // r12
+  int v5; // r15d
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
+  __int64 v8; // rcx
+  int v9; // ebx
+  __int64 v10; // rcx
+  int v11; // eax
+  BOOL v12; // r14d
   __int64 DesktopWindow; // rax
-  __int64 v10; // rdx
-  __int128 *MonitorWorkRect; // rax
-  struct tagPOINT v12; // rcx
-  BOOL v13; // r14d
-  struct tagPOINT v14; // rax
-  int v15; // r15d
-  __int64 v16; // rax
-  int v17; // r13d
-  __int64 v18; // rdx
-  __int64 v19; // rcx
+  __int64 v14; // rdx
+  struct tagPOINT v15; // rcx
+  struct tagPOINT v16; // rax
+  int v17; // ebx
+  __int64 v18; // rax
+  int v19; // r13d
+  __int64 v20; // rdx
+  __int64 v21; // rcx
   __int64 updated; // rax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  unsigned int v23; // edx
-  int v24; // ecx
-  __int64 v25; // rcx
-  int v26; // edi
-  char v27; // al
-  int v28; // edi
-  struct tagPOINT v30; // [rsp+40h] [rbp-29h] BYREF
-  struct tagPOINT v31; // [rsp+48h] [rbp-21h] BYREF
-  __int128 v32; // [rsp+50h] [rbp-19h] BYREF
-  _BYTE v33[16]; // [rsp+60h] [rbp-9h] BYREF
-  struct tagRECT v34; // [rsp+70h] [rbp+7h] BYREF
+  __int64 v23; // r8
+  unsigned int v24; // edx
+  int v25; // ecx
+  __int64 v26; // rdx
+  int v27; // ebx
+  char v28; // al
+  unsigned __int64 v29; // r9
+  int v30; // ebx
+  int v32; // ecx
+  __int64 v33; // r10
+  struct tagQ *v34; // rdx
+  struct tagPOINT v35; // [rsp+40h] [rbp-39h] BYREF
+  struct tagPOINT v36; // [rsp+48h] [rbp-31h] BYREF
+  __int128 v37; // [rsp+50h] [rbp-29h]
+  __int128 v38; // [rsp+60h] [rbp-19h] BYREF
+  __int128 v39; // [rsp+70h] [rbp-9h] BYREF
+  struct tagRECT v40; // [rsp+80h] [rbp+7h] BYREF
 
   v2 = 0LL;
-  v30 = 0LL;
-  v31 = 0LL;
-  v34 = 0LL;
-  v32 = 0LL;
-  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(a1);
-  v6 = ShouldVirtualizeWindowRect(a1, CurrentThreadDpiAwarenessContext);
-  v7 = *((_QWORD *)a1 + 13);
-  v8 = v6;
-  v34 = *(struct tagRECT *)(a2 + 28);
-  DesktopWindow = GetDesktopWindow(a1, v7);
-  if ( v10 == DesktopWindow )
+  v35 = 0LL;
+  v36 = 0LL;
+  v37 = 0LL;
+  v5 = 1;
+  v12 = 0;
+  if ( a1 )
   {
-    v2 = (struct tagMONITOR *)MonitorFromRect(&v34, 1LL);
-    MonitorWorkRect = GetMonitorWorkRect(&v32, (__int64)v2);
-    v10 = *((_QWORD *)a1 + 13);
-    v32 = *MonitorWorkRect;
-  }
-  v12 = *(struct tagPOINT *)(a2 + 12);
-  v30 = v12;
-  v13 = v12.x != -1 && v12.y != -1;
-  v14 = *(struct tagPOINT *)(a2 + 20);
-  v31 = v14;
-  if ( v14.x == -1 || v14.y == -1 )
-    v15 = 0;
-  else
-    v15 = 64;
-  v16 = GetDesktopWindow(a1, v10);
-  v17 = DWORD1(v32);
-  if ( v18 == v16 && *(char *)(*((_QWORD *)a1 + 5) + 24LL) >= 0 )
-  {
-    v19 = *(_QWORD *)GetMonitorRect((__int64)v33, (__int64)v2);
-    v34.bottom += v17 - HIDWORD(v19);
-    v34.left += v32 - v19;
-    v34.right += v32 - v19;
-    v34.top += v17 - HIDWORD(v19);
-    if ( v13 )
+    if ( (*(_BYTE *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480) + 224LL) & 1) == 0 )
     {
-      v30.x += v32 - v19;
-      v30.y += v17 - HIDWORD(v19);
+      v6 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480);
+      if ( (*(_BYTE *)(v6 + 224) & 0x20) == 0 )
+      {
+        v7 = *(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL);
+        if ( (((unsigned __int16)(v7 >> 8) ^ (unsigned __int16)((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v6) >> 8)) & 0x1FF) != 0
+          || ((v8 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL), (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2)
+           && (v8 & 0x20000000) != 0
+            ? (v9 = 1)
+            : (v9 = 0),
+              (W32GetCurrentThreadDpiAwarenessContext(v8) & 0xF) == 2
+           && (W32GetCurrentThreadDpiAwarenessContext(v10) & 0x20000000) != 0
+            ? (v11 = 1)
+            : (v11 = 0),
+              v9 != v11) )
+        {
+          v12 = 1;
+        }
+      }
     }
-    CheckPlacementBounds(&v34, &v30, &v31, v2);
   }
-  if ( v8 )
-    TransformRectBetweenCoordinateSpaces(&v34, &v34, a1, 0LL);
-  updated = UpdateCheckpoint(a1);
-  v22 = updated;
+  v40 = *(struct tagRECT *)(a2 + 28);
+  DesktopWindow = GetDesktopWindow((__int64)a1);
+  if ( v14 == DesktopWindow )
+  {
+    v2 = (struct tagMONITOR *)MonitorFromRect(&v40, 1u, 0);
+    v37 = *GetMonitorWorkRect(&v38, (__int64)v2);
+  }
+  v15 = *(struct tagPOINT *)(a2 + 12);
+  v35 = v15;
+  if ( v15.x == -1 || v15.y == -1 )
+    v5 = 0;
+  v16 = *(struct tagPOINT *)(a2 + 20);
+  v36 = v16;
+  if ( v16.x == -1 || v16.y == -1 )
+    v17 = 0;
+  else
+    v17 = 64;
+  v18 = GetDesktopWindow((__int64)a1);
+  v19 = DWORD1(v37);
+  if ( v20 == v18 && *(char *)(*((_QWORD *)a1 + 5) + 24LL) >= 0 )
+  {
+    v21 = *(_QWORD *)GetMonitorRect(&v39, (__int64)v2);
+    v40.bottom += DWORD1(v37) - HIDWORD(v21);
+    v40.left += v37 - v21;
+    v40.right += v37 - v21;
+    v40.top += DWORD1(v37) - HIDWORD(v21);
+    if ( v5 )
+    {
+      v35.x += v37 - v21;
+      v35.y += DWORD1(v37) - HIDWORD(v21);
+    }
+    CheckPlacementBounds(&v40, &v35, &v36, v2);
+  }
+  if ( v12 )
+    TransformRectBetweenCoordinateSpaces(&v40, &v40, a1, 0LL);
+  updated = UpdateCheckpoint((__int64)a1);
+  v23 = updated;
   if ( updated )
   {
-    v23 = *(_DWORD *)(updated + 48) & 0xFFFFFFDF;
-    *(struct tagRECT *)updated = v34;
-    *(struct tagPOINT *)(updated + 32) = v30;
-    v21 = (32 * v13) | v23;
-    *(_DWORD *)(updated + 48) = v21;
-    v24 = v21 ^ (*(_DWORD *)(a2 + 4) ^ v21) & 1;
+    *(struct tagRECT *)updated = v40;
+    *(struct tagPOINT *)(updated + 32) = v35;
+    v24 = *(_DWORD *)(updated + 48) & 0xFFFFFFDF | (32 * v5);
     *(_DWORD *)(updated + 48) = v24;
-    *(struct tagPOINT *)(updated + 40) = v31;
-    *(_DWORD *)(updated + 48) = v15 & 0xFFFFFFFD | v24 & 0xFFFFFFBD;
+    v25 = v24 ^ ((unsigned __int8)v24 ^ (unsigned __int8)*(_DWORD *)(a2 + 4)) & 1;
+    *(_DWORD *)(updated + 48) = v25;
+    *(struct tagPOINT *)(updated + 40) = v36;
+    *(_DWORD *)(updated + 48) = v17 & 0xFFFFFFFD | v25 & 0xFFFFFFBD;
   }
-  v25 = *((_QWORD *)a1 + 5);
-  v26 = ((*(_DWORD *)(a2 + 4) & 4) << 12) | 0x14;
-  v27 = *(_BYTE *)(v25 + 31);
-  if ( (v27 & 0x20) != 0 )
+  v26 = *((_QWORD *)a1 + 5);
+  v27 = ((*(_DWORD *)(a2 + 4) & 4) << 12) | 0x14;
+  v28 = *(_BYTE *)(v26 + 31);
+  if ( (v28 & 0x20) != 0 )
   {
-    if ( (!v22 || (*(_DWORD *)(v22 + 48) & 1) != 0) && v13 )
+    if ( (!v23 || (*(_DWORD *)(v23 + 48) & 1) != 0) && v5 )
     {
-      if ( v8 )
-        TransformPointBetweenCoordinateSpaces(&v30, &v30, a1, 0LL);
-      xxxSetWindowPos(a1, 0LL, (unsigned int)v30.x, (unsigned int)v30.y, 0, 0, v26 | 1);
+      if ( v12 )
+        TransformPointBetweenCoordinateSpaces(&v35, &v35, a1, 0LL);
+      xxxSetWindowPos(a1, 0LL, (unsigned int)v35.x, (unsigned int)v35.y, 0, 0, v27 | 1);
     }
   }
-  else if ( (v27 & 1) != 0 )
+  else if ( (v28 & 1) != 0 )
   {
-    if ( v22 )
+    if ( v23 )
     {
-      if ( (*(_BYTE *)(v25 + 19) & 0x40) != 0 )
-        *(_DWORD *)(v22 + 48) &= ~0x40u;
-      if ( (*(_DWORD *)(v22 + 48) & 0x40) != 0 )
+      v32 = *(_DWORD *)(v23 + 48);
+      if ( (*(_BYTE *)(v26 + 19) & 0x40) != 0 )
       {
-        if ( *((_QWORD *)a1 + 13) == GetDesktopWindow(a1, v21) )
+        v32 &= ~0x40u;
+        *(_DWORD *)(v23 + 48) = v32;
+      }
+      if ( (v32 & 0x40) != 0 )
+      {
+        if ( *((_QWORD *)a1 + 13) == GetDesktopWindow((__int64)a1) )
         {
-          v31.x += v32;
-          v31.y += v17;
+          v36.x += v37;
+          v36.y += v19;
         }
-        if ( v8 )
-          TransformPointBetweenCoordinateSpaces(&v31, &v31, a1, 0LL);
-        xxxSetWindowPos(a1, 0LL, (unsigned int)v31.x, (unsigned int)v31.y, 0, 0, v26 | 1);
+        if ( v12 )
+          TransformPointBetweenCoordinateSpaces(&v36, &v36, a1, 0LL);
+        xxxSetWindowPos(a1, 0LL, (unsigned int)v36.x, (unsigned int)v36.y, 0, 0, v27 | 1);
       }
     }
   }
@@ -144,23 +175,33 @@ __int64 __fastcall xxxSetWindowPlacement(struct tagWND *a1, __int64 a2)
     xxxSetWindowPos(
       a1,
       0LL,
-      (unsigned int)v34.left,
-      (unsigned int)v34.top,
-      v34.right - v34.left,
-      v34.bottom - v34.top,
-      v26);
+      (unsigned int)v40.left,
+      (unsigned int)v40.top,
+      v40.right - v40.left,
+      v40.bottom - v40.top,
+      v27);
   }
-  if ( (*(_DWORD *)(a2 + 4) & 4) == 0 || *(_QWORD *)(*((_QWORD *)a1 + 2) + 432LL) == *(_QWORD *)(gptiCurrent + 432LL) )
+  v29 = *(unsigned int *)(a2 + 4);
+  if ( (v29 & 4) == 0
+    || (v33 = *((_QWORD *)a1 + 2), v34 = *(struct tagQ **)(v33 + 432), v34 == *(struct tagQ **)(gptiCurrent + 432LL)) )
   {
-    v28 = 0;
-    xxxShowWindowEx((ULONG_PTR)a1, *(_WORD *)(a2 + 8), 0);
+    v30 = 0;
+    xxxShowWindowEx(a1, *(_BYTE *)(a2 + 8), 0);
   }
   else
   {
-    _ShowWindowAsync((struct tagTHREADINFO **)a1, 0, *(_DWORD *)(a2 + 8), *(unsigned int *)(a2 + 4));
-    v28 = 1;
+    v30 = 1;
+    PostEventMessageEx(
+      (struct tagTHREADINFO *)v33,
+      v34,
+      1u,
+      a1,
+      0,
+      v29,
+      *(unsigned int *)(a2 + 8) | (unsigned __int64)(gdwPUDFlags & 0x10000),
+      0LL);
   }
-  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x20) != 0 && !v28 )
+  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x20) != 0 && !v30 )
     WPUpdateCheckPointSettings(a1, *(unsigned int *)(a2 + 4));
   return 1LL;
 }

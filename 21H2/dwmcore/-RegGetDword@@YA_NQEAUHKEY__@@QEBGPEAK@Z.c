@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z @ 0x18026BAA0
+ * XREFs of ?RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z @ 0x180024114
  * Callers:
- *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x18026BB08 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x180024090 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
  * Callees:
  *     <none>
  */

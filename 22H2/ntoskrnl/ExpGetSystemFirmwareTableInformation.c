@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpGetSystemFirmwareTableInformation @ 0x14077EDF0
+ * XREFs of ExpGetSystemFirmwareTableInformation @ 0x14069061C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     ExpGetSystemFlushInformation @ 0x14077D590 (ExpGetSystemFlushInformation.c)
- *     ExpGetSystemPlatformBinary @ 0x14085FAF8 (ExpGetSystemPlatformBinary.c)
- *     ExGetSystemFirmwareTable @ 0x140860D40 (ExGetSystemFirmwareTable.c)
- *     ExEnumerateSystemFirmwareTables @ 0x1409F5D90 (ExEnumerateSystemFirmwareTables.c)
+ *     ExpGetSystemFlushInformation @ 0x1406904F0 (ExpGetSystemFlushInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x1407CFE44 (ExpGetSystemPlatformBinary.c)
+ *     ExGetSystemFirmwareTable @ 0x1407D0FA0 (ExGetSystemFirmwareTable.c)
+ *     ExEnumerateSystemFirmwareTables @ 0x140949EC0 (ExEnumerateSystemFirmwareTables.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PsIsProcessAppContainer @ 0x14077F59C (PsIsProcessAppContainer.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC894 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PsIsProcessAppContainer @ 0x140690804 (PsIsProcessAppContainer.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950450 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetSystemFirmwareTableInformation(char *Src, char a2, unsigned int a3, _DWORD *a4)
@@ -30,37 +30,38 @@ __int64 __fastcall ExpGetSystemFirmwareTableInformation(char *Src, char a2, unsi
   struct _KTHREAD *CurrentThread; // rax
   __int64 (__fastcall *v12)(_DWORD *); // r14
   __int64 v13; // rcx
-  int v14; // eax
-  __int64 *v16; // rax
-  _DWORD *Pool2; // rax
-  _DWORD *v19; // [rsp+30h] [rbp-78h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v20; // [rsp+38h] [rbp-70h] BYREF
-  _QWORD *v21; // [rsp+58h] [rbp-50h]
-  int v22; // [rsp+60h] [rbp-48h]
-  int v23; // [rsp+64h] [rbp-44h]
+  __int64 *v14; // rax
+  int v15; // eax
+  _DWORD *PoolWithQuotaTag; // rax
+  int v19; // [rsp+30h] [rbp-88h] BYREF
+  _DWORD *v20; // [rsp+38h] [rbp-80h]
+  struct _EVENT_DATA_DESCRIPTOR v21; // [rsp+40h] [rbp-78h] BYREF
+  int *v22; // [rsp+60h] [rbp-58h]
+  int v23; // [rsp+68h] [rbp-50h]
+  int v24; // [rsp+6Ch] [rbp-4Ch]
 
   v7 = 0;
   v8 = 0LL;
-  v19 = 0LL;
+  v20 = 0LL;
   if ( a3 < 0x10 )
   {
     *a4 = 16;
     v7 = -1073741820;
-    goto LABEL_12;
+    goto LABEL_14;
   }
   v9 = Src;
   v10 = a3 - 16;
   if ( !a2 )
     goto LABEL_3;
-  Pool2 = (_DWORD *)ExAllocatePool2(257LL, a3, 1413894721LL);
-  v8 = Pool2;
-  v19 = Pool2;
-  if ( !Pool2 )
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, a3, 0x54465241u);
+  v8 = PoolWithQuotaTag;
+  v20 = PoolWithQuotaTag;
+  if ( !PoolWithQuotaTag )
   {
     v7 = -1073741670;
-    goto LABEL_12;
+    goto LABEL_14;
   }
-  memmove(Pool2, Src, a3);
+  memmove(PoolWithQuotaTag, Src, a3);
   v9 = v8;
   if ( !(unsigned __int8)PsIsProcessAppContainer(KeGetCurrentThread()->ApcState.Process)
     || *v8 == 1381190978 && (unsigned __int8)ExpFirmwareAccessAppContainerCheck(0LL) )
@@ -76,14 +77,14 @@ LABEL_3:
     {
       while ( *(_DWORD *)v13 != *v9 )
       {
-        v16 = *(__int64 **)(v13 + 24);
-        v13 = (__int64)(v16 - 3);
-        if ( &ExpFirmwareTableProviderListHead == v16 )
-          goto LABEL_6;
+        v14 = *(__int64 **)(v13 + 24);
+        v13 = (__int64)(v14 - 3);
+        if ( &ExpFirmwareTableProviderListHead == v14 )
+          goto LABEL_8;
       }
       v12 = *(__int64 (__fastcall **)(_DWORD *))(v13 + 8);
     }
-LABEL_6:
+LABEL_8:
     if ( v12 )
       v7 = v12(v9);
     ExReleaseResourceLite(&ExpFirmwareTableResource);
@@ -96,13 +97,13 @@ LABEL_6:
           memmove(Src + 16, v8 + 4, (unsigned int)v8[3]);
         if ( (int)(v7 + 0x80000000) < 0 || v7 == -1073741789 )
           *((_DWORD *)Src + 3) = v8[3];
-        v14 = v8[3];
+        v15 = v8[3];
       }
       else
       {
-        v14 = v9[3];
+        v15 = v9[3];
       }
-      *a4 = v14 + 16;
+      *a4 = v15 + 16;
     }
     else
     {
@@ -112,22 +113,22 @@ LABEL_6:
   else
   {
     v7 = -1073741790;
-    if ( (unsigned int)dword_140C038A8 > 5 && tlgKeywordOn((__int64)&dword_140C038A8, 0x200000000000LL) )
+    if ( (unsigned int)dword_140C04510 > 5 && tlgKeywordOn((__int64)&dword_140C04510, 0x200000000000LL) )
     {
-      LODWORD(v19) = *v8;
-      v21 = &v19;
-      v22 = 4;
-      v23 = 0;
+      v19 = *v8;
+      v22 = &v19;
+      v23 = 4;
+      v24 = 0;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C038A8,
-        (unsigned __int8 *)byte_140035DDB,
+        (__int64)&dword_140C04510,
+        (unsigned __int8 *)byte_14002D9E1,
         0LL,
         0LL,
         3u,
-        &v20);
+        &v21);
     }
   }
-LABEL_12:
+LABEL_14:
   if ( v8 )
     ExFreePoolWithTag(v8, 0x54465241u);
   return (unsigned int)v7;

@@ -1,37 +1,49 @@
 /*
- * XREFs of ?SwizzleNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBD@Z @ 0x180101E40
+ * XREFs of ?SwizzleNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBD@Z @ 0x1800457A0
  * Callers:
- *     DecodeInputTexcoord @ 0x180027E90 (DecodeInputTexcoord.c)
- *     AppendShaderBody @ 0x180028430 (AppendShaderBody.c)
+ *     AppendShaderBody @ 0x180046EEC (AppendShaderBody.c)
+ *     DecodeInputTexcoord @ 0x1800471A0 (DecodeInputTexcoord.c)
  * Callees:
- *     ??$_Find@W4ShaderLinkingArgument@@@?$_Hash@V?$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@V?$_Uhash_compare@W4ShaderLinkingArgument@@U?$hash@W4ShaderLinkingArgument@@@std@@U?$equal_to@W4ShaderLinkingArgument@@@3@@std@@V?$allocator@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@5@$0A@@std@@@std@@AEBAPEAU?$_List_node@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@PEAX@1@AEBW4ShaderLinkingArgument@@_K@Z @ 0x18002A988 (--$_Find@W4ShaderLinkingArgument@@@-$_Hash@V-$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShade.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D9B98 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ?_End@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@2@_K@Z @ 0x180048CC8 (-_End@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBVC.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3864 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
  */
 
-__int64 __fastcall CShaderLinkingGraphBuilder::SwizzleNode(__int64 a1, __int16 a2)
+__int64 __fastcall CShaderLinkingGraphBuilder::SwizzleNode(unsigned __int64 a1, __int16 a2, __int64 a3)
 {
-  __int64 appended; // rax
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
-  __int16 v8; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v5; // rbx
+  _QWORD *v6; // rax
+  unsigned int v7; // ecx
+  __int64 v8; // r10
+  unsigned int v9; // ebx
+  __int16 v11; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
 
-  v8 = a2;
-  appended = std::_Fnv1a_append_bytes(a1, (const unsigned __int8 *const)&v8, 2uLL);
-  v4 = std::_Hash<std::_Umap_traits<enum ShaderLinkingArgument,CShaderLinkingGraphBuilder::Node,std::_Uhash_compare<enum ShaderLinkingArgument,std::hash<enum ShaderLinkingArgument>,std::equal_to<enum ShaderLinkingArgument>>,std::allocator<std::pair<enum ShaderLinkingArgument const,CShaderLinkingGraphBuilder::Node>>,0>>::_Find<enum ShaderLinkingArgument>(
-         a1 + 16,
-         (__int64)&v8,
-         appended);
-  if ( v4 == *(_QWORD *)(a1 + 24) )
+  v12 = a3;
+  v11 = a2;
+  v5 = *(_QWORD *)(a1 + 64) & std::_Fnv1a_append_bytes(a1, (const unsigned __int8 *const)&v11, 2uLL);
+  while ( 1 )
   {
-    v6 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0x9Eu, 0LL);
+    v6 = (_QWORD *)std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::_End(
+                     a1 + 16,
+                     &v12,
+                     v5);
+    if ( v8 == *v6 )
+      break;
+    if ( *(_WORD *)(v8 + 16) == a2 )
+      goto LABEL_4;
+  }
+  v8 = *(_QWORD *)(a1 + 24);
+LABEL_4:
+  if ( v8 == *(_QWORD *)(a1 + 24) )
+  {
+    v9 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024809, 0x9Du, 0LL);
   }
   else
   {
-    strcpy_s((char *)(v4 + 33), 5uLL, "xy");
+    strcpy_s((char *)(v8 + 33), 5uLL, "xy");
     return 0;
   }
-  return v6;
+  return v9;
 }

@@ -1,67 +1,64 @@
 /*
- * XREFs of EtwpLogKernelEvent @ 0x140233C80
+ * XREFs of EtwpLogKernelEvent @ 0x1402D0790
  * Callers:
- *     EtwpTraceFileIo @ 0x14020BEE0 (EtwpTraceFileIo.c)
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     EtwpTraceFileName @ 0x140213570 (EtwpTraceFileName.c)
- *     EtwTraceSiloKernelEvent @ 0x140214970 (EtwTraceSiloKernelEvent.c)
- *     KiExecuteAllDpcs @ 0x1402444A0 (KiExecuteAllDpcs.c)
- *     KiProcessExpiredTimerList @ 0x140252A30 (KiProcessExpiredTimerList.c)
- *     EtwTraceTimedEvent @ 0x140338BB0 (EtwTraceTimedEvent.c)
- *     EtwpCCSwapFlush @ 0x140388764 (EtwpCCSwapFlush.c)
- *     EtwTraceSiloTimedEvent @ 0x140466F3A (EtwTraceSiloTimedEvent.c)
- *     EtwpTraceStackWalk @ 0x14046896C (EtwpTraceStackWalk.c)
- *     EtwpTraceCachedStack @ 0x140468E38 (EtwpTraceCachedStack.c)
- *     EtwpTraceStackKey @ 0x140468F10 (EtwpTraceStackKey.c)
- *     EtwpTraceLastBranchRecord @ 0x140469446 (EtwpTraceLastBranchRecord.c)
- *     EtwTracePool @ 0x1405FD220 (EtwTracePool.c)
- *     EtwTraceSiloDcEvent @ 0x1405FD5B0 (EtwTraceSiloDcEvent.c)
- *     EtwpLogMemInfo @ 0x1405FDEB4 (EtwpLogMemInfo.c)
- *     EtwpTraceKernelEventWithFilter @ 0x1405FE598 (EtwpTraceKernelEventWithFilter.c)
- *     PerfInfoLogIpiSend @ 0x1405FEB30 (PerfInfoLogIpiSend.c)
- *     EtwpWriteProcessorTrace @ 0x140602D40 (EtwpWriteProcessorTrace.c)
- *     EtwpEnumerateAddressSpace @ 0x1406ADAFC (EtwpEnumerateAddressSpace.c)
- *     EtwpTraceImageRundown @ 0x14080B4E4 (EtwpTraceImageRundown.c)
- *     EtwpLogGroupMask @ 0x140827580 (EtwpLogGroupMask.c)
- *     EtwpTraceProcessRundown @ 0x140827CF4 (EtwpTraceProcessRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140827F58 (EtwpLogAlwaysPresentRundown.c)
- *     EtwpSysModuleRunDown @ 0x140827FC8 (EtwpSysModuleRunDown.c)
- *     EtwpSystemImageEnumCallback @ 0x14083C5E0 (EtwpSystemImageEnumCallback.c)
- *     EtwpLogSessionWorkingSetInfo @ 0x1408A746C (EtwpLogSessionWorkingSetInfo.c)
- *     EtwpProcessPerfCtrsRundown @ 0x1408A85E0 (EtwpProcessPerfCtrsRundown.c)
- *     EtwpLogMemInfoWsHelper @ 0x1409E6118 (EtwpLogMemInfoWsHelper.c)
- *     EtwpLogTxREvent @ 0x1409E62EC (EtwpLogTxREvent.c)
- *     EtwLogPfnInfoRundown @ 0x1409EE7A8 (EtwLogPfnInfoRundown.c)
- *     EtwpClockSourceRunDown @ 0x1409EEACC (EtwpClockSourceRunDown.c)
- *     EtwpExecutiveResourceConfigRunDown @ 0x1409EEC4C (EtwpExecutiveResourceConfigRunDown.c)
- *     EtwpLogPmcCounterRundown @ 0x1409EEE0C (EtwpLogPmcCounterRundown.c)
- *     EtwpObjectHandleEnumCallback @ 0x1409EF1C0 (EtwpObjectHandleEnumCallback.c)
- *     EtwpObjectTypeRundown @ 0x1409EF4A0 (EtwpObjectTypeRundown.c)
- *     EtwpPoolRunDown @ 0x1409EF5FC (EtwpPoolRunDown.c)
- *     EtwpProcessorRundown @ 0x1409EF810 (EtwpProcessorRundown.c)
- *     EtwpSampledProfileRunDown @ 0x1409EFCC4 (EtwpSampledProfileRunDown.c)
- *     EtwpSpinLockConfigRunDown @ 0x1409EFE70 (EtwpSpinLockConfigRunDown.c)
+ *     KiExecuteAllDpcs @ 0x140246C20 (KiExecuteAllDpcs.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A0AC (EtwTraceSiloKernelEvent.c)
+ *     PerfInfoLogInterrupt @ 0x1402F2A90 (PerfInfoLogInterrupt.c)
+ *     EtwTraceTimedEvent @ 0x14030654C (EtwTraceTimedEvent.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     EtwpCCSwapFlush @ 0x1403AA0E8 (EtwpCCSwapFlush.c)
+ *     EtwpTraceFileName @ 0x1403B8880 (EtwpTraceFileName.c)
+ *     EtwpTraceStackWalk @ 0x1405A7074 (EtwpTraceStackWalk.c)
+ *     EtwTracePool @ 0x1405A7C04 (EtwTracePool.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A80D0 (EtwTraceSiloDcEvent.c)
+ *     EtwTraceSiloTimedEvent @ 0x1405A8108 (EtwTraceSiloTimedEvent.c)
+ *     EtwpLogMemInfo @ 0x1405A8AF8 (EtwpLogMemInfo.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405A9A4C (EtwpTraceKernelEventWithFilter.c)
+ *     PerfInfoLogIpiSend @ 0x1405AA120 (PerfInfoLogIpiSend.c)
+ *     EtwpTraceCachedStack @ 0x1405ADC14 (EtwpTraceCachedStack.c)
+ *     EtwpTraceStackKey @ 0x1405ADCEC (EtwpTraceStackKey.c)
+ *     EtwpTraceLastBranchRecord @ 0x1405B01F4 (EtwpTraceLastBranchRecord.c)
+ *     EtwpWriteProcessorTrace @ 0x1405B04B0 (EtwpWriteProcessorTrace.c)
+ *     EtwpEnumerateAddressSpace @ 0x14061A8BC (EtwpEnumerateAddressSpace.c)
+ *     EtwpLogGroupMask @ 0x140792248 (EtwpLogGroupMask.c)
+ *     EtwpTraceProcessRundown @ 0x1407928AC (EtwpTraceProcessRundown.c)
+ *     EtwpSysModuleRunDown @ 0x140792B28 (EtwpSysModuleRunDown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140792E10 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpTraceImageRundown @ 0x1407AE428 (EtwpTraceImageRundown.c)
+ *     EtwpSystemImageEnumCallback @ 0x1407B8D10 (EtwpSystemImageEnumCallback.c)
+ *     EtwpLogMemInfoWsHelper @ 0x140936D80 (EtwpLogMemInfoWsHelper.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x140937054 (EtwpLogSessionWorkingSetInfo.c)
+ *     EtwpLogTxREvent @ 0x140937258 (EtwpLogTxREvent.c)
+ *     EtwLogPfnInfoRundown @ 0x14093D6A8 (EtwLogPfnInfoRundown.c)
+ *     EtwpClockSourceRunDown @ 0x14093D9BC (EtwpClockSourceRunDown.c)
+ *     EtwpExecutiveResourceConfigRunDown @ 0x14093DB48 (EtwpExecutiveResourceConfigRunDown.c)
+ *     EtwpLogPmcCounterRundown @ 0x14093DD08 (EtwpLogPmcCounterRundown.c)
+ *     EtwpObjectHandleEnumCallback @ 0x14093DF40 (EtwpObjectHandleEnumCallback.c)
+ *     EtwpObjectTypeRundown @ 0x14093E1F4 (EtwpObjectTypeRundown.c)
+ *     EtwpPoolRunDown @ 0x14093E350 (EtwpPoolRunDown.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x14093E7A4 (EtwpProcessPerfCtrsRundown.c)
+ *     EtwpProcessorRundown @ 0x14093E8DC (EtwpProcessorRundown.c)
+ *     EtwpSampledProfileRunDown @ 0x14093ED58 (EtwpSampledProfileRunDown.c)
+ *     EtwpSpinLockConfigRunDown @ 0x14093EF04 (EtwpSpinLockConfigRunDown.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x14022EBF0 (KeAreInterruptsEnabled.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     EtwpReserveTraceBuffer @ 0x1402340E0 (EtwpReserveTraceBuffer.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259BB0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321C20 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpUpdateEventsLostCount @ 0x140366014 (EtwpUpdateEventsLostCount.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14036A548 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpSendTraceEvent @ 0x1403A18C8 (EtwpSendTraceEvent.c)
- *     EtwpCloseLogger @ 0x1403C1EC0 (EtwpCloseLogger.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpReserveWithPmcCounters @ 0x140467858 (EtwpReserveWithPmcCounters.c)
- *     EtwpStackTraceDispatcher @ 0x140468650 (EtwpStackTraceDispatcher.c)
- *     EtwpTraceLastBranchRecord @ 0x140469446 (EtwpTraceLastBranchRecord.c)
- *     EtwpTraceLostSystemEvent @ 0x1405FC780 (EtwpTraceLostSystemEvent.c)
- *     EtwpReserveWithPebsIndex @ 0x1405FE2F0 (EtwpReserveWithPebsIndex.c)
- *     EtwpInvokeEventCallback @ 0x140601008 (EtwpInvokeEventCallback.c)
- *     EtwpTraceProcessorTrace @ 0x140602C84 (EtwpTraceProcessorTrace.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14026D960 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KeAreInterruptsEnabled @ 0x1402D0E60 (KeAreInterruptsEnabled.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0E80 (EtwpReserveTraceBuffer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402DEA70 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpUpdateEventsLostCount @ 0x14036C6C8 (EtwpUpdateEventsLostCount.c)
+ *     EtwpCloseLogger @ 0x1403799A8 (EtwpCloseLogger.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A6E40 (EtwpStackTraceDispatcher.c)
+ *     EtwpReserveWithPebsIndex @ 0x1405A9374 (EtwpReserveWithPebsIndex.c)
+ *     EtwpReserveWithPmcCounters @ 0x1405A9408 (EtwpReserveWithPmcCounters.c)
+ *     EtwpSendTraceEvent @ 0x1405AAAA8 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB5B8 (EtwpInvokeEventCallback.c)
+ *     EtwpTraceLastBranchRecord @ 0x1405B01F4 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceProcessorTrace @ 0x1405B03F8 (EtwpTraceProcessorTrace.c)
  */
 
 void __fastcall EtwpLogKernelEvent(
@@ -74,50 +71,52 @@ void __fastcall EtwpLogKernelEvent(
 {
   __int64 v6; // r15
   unsigned int v7; // r13d
+  __int64 v10; // rdi
   unsigned __int8 v11; // bl
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rax
-  __int64 v15; // rsi
-  unsigned int v16; // r15d
-  unsigned int v17; // r10d
-  __m128i v18; // xmm5
-  __m128i v19; // xmm4
-  unsigned int v20; // r15d
-  __int64 v21; // r9
-  __m128i v22; // xmm3
+  __int64 v12; // r14
+  __int64 v13; // rax
+  __int64 v14; // r14
+  unsigned int v15; // r15d
+  unsigned int v16; // r10d
+  __m128i v17; // xmm5
+  __m128i v18; // xmm4
+  unsigned int v19; // r15d
+  __int64 v20; // r9
+  __m128i v21; // xmm3
+  __m128i v22; // xmm0
   __int64 v23; // r9
   __int64 v24; // rdx
-  __m128i v25; // xmm2
-  __int64 v26; // rcx
-  __m128i v27; // xmm4
+  __int64 v25; // rcx
+  __m128i v26; // xmm3
+  __m128i v27; // xmm3
   __m128i v28; // xmm4
-  _DWORD *v29; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // rax
-  _DWORD *v32; // r8
-  char *v33; // rax
-  char *v34; // r12
-  __int64 v35; // r14
-  unsigned int v36; // edi
-  unsigned __int16 v37; // r15
+  __m128i v29; // xmm4
+  _DWORD *v30; // rcx
+  __int64 v31; // rdx
+  int v32; // eax
+  __int64 v33; // rax
+  _DWORD *v34; // r8
+  char *v35; // rax
+  char *v36; // r12
+  __int64 v37; // r14
   signed __int64 *v38; // roff
   signed __int64 v39; // rax
   __int64 v40; // rdx
   signed __int64 v41; // rtt
-  unsigned int v42; // r14d
-  struct _KTHREAD *v43; // rcx
-  int v45; // eax
-  __int64 v46; // rax
-  __int64 v47; // r8
+  int v42; // edx
+  unsigned __int16 v43; // r15
+  unsigned int v44; // esi
+  unsigned int v45; // edi
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v47; // rax
   __int64 v48; // rax
   unsigned int v49; // r8d
   __int64 v50; // rcx
   unsigned int v51; // edx
   __int64 v52; // rcx
   __int64 v53; // rcx
-  unsigned int ReserveTraceBufferStatus; // eax
-  _DWORD Size[3]; // [rsp+34h] [rbp-3Ch] BYREF
+  unsigned int Size; // [rsp+30h] [rbp-40h]
+  __int64 v55; // [rsp+38h] [rbp-38h] BYREF
   void *v56; // [rsp+40h] [rbp-30h]
   __int64 v57; // [rsp+48h] [rbp-28h]
   __int64 v58; // [rsp+50h] [rbp-20h]
@@ -128,13 +127,14 @@ void __fastcall EtwpLogKernelEvent(
   v7 = 0;
   v59 = 0LL;
   v60 = 0LL;
-  *(_QWORD *)&Size[1] = 0LL;
+  v55 = 0LL;
+  v10 = a1;
   v11 = 0;
-  if ( KeAreInterruptsEnabled() && KeGetCurrentIrql() < 2u )
+  if ( (unsigned __int8)KeAreInterruptsEnabled(a1, a2) && KeGetCurrentIrql() < 2u )
   {
     CurrentThread = KeGetCurrentThread();
-    v13 = (unsigned int)v6;
     --CurrentThread->KernelApcDisable;
+    v12 = v6;
     if ( !ExAcquireRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(a2 + 448) + 8 * v6), 1u) )
     {
       KeLeaveCriticalRegion();
@@ -144,188 +144,185 @@ void __fastcall EtwpLogKernelEvent(
   }
   else
   {
-    v13 = v6;
+    v12 = v6;
   }
-  v14 = *(_QWORD *)(a2 + 456);
-  v58 = 8 * v13;
-  v15 = *(_QWORD *)(8 * v13 + v14);
-  v57 = v15;
-  if ( (v15 & 1) != 0 )
+  v13 = *(_QWORD *)(a2 + 456);
+  v58 = 8 * v12;
+  v14 = *(_QWORD *)(8 * v12 + v13);
+  v57 = v14;
+  if ( (v14 & 1) != 0 )
   {
     EtwpCloseLogger((unsigned int)v6, a2, v11);
     return;
   }
-  if ( v15 )
+  if ( v14 )
   {
-    Size[0] = 0;
+    Size = 0;
+    v15 = 0;
     v16 = 0;
-    v17 = 0;
     if ( a4 )
     {
-      if ( a4 < 8 )
-        goto LABEL_12;
-      v18 = 0LL;
-      v19 = 0LL;
-      v20 = 2;
-      do
+      if ( a4 >= 8 )
       {
-        v21 = 2LL * v17;
-        v17 += 8;
-        v22 = _mm_unpacklo_epi32(
-                _mm_cvtsi32_si128(*(_DWORD *)(a1 + 8 * v21 + 8)),
-                _mm_cvtsi32_si128(*(_DWORD *)(a1 + 16LL * (v20 - 1) + 8)));
-        v23 = 2LL * (v20 + 5);
-        v24 = 2LL * (v20 + 3);
-        v25 = _mm_cvtsi32_si128(*(_DWORD *)(a1 + 16LL * (v20 + 4) + 8));
-        v18 = _mm_add_epi32(
-                v18,
-                _mm_unpacklo_epi64(
-                  v22,
-                  _mm_unpacklo_epi32(
-                    _mm_cvtsi32_si128(*(_DWORD *)(a1 + 16LL * v20 + 8)),
-                    _mm_cvtsi32_si128(*(_DWORD *)(a1 + 16LL * (v20 + 1) + 8)))));
-        v26 = 2LL * (v20 + 2);
-        v20 += 8;
-        v19 = _mm_add_epi32(
-                v19,
-                _mm_unpacklo_epi64(
-                  _mm_unpacklo_epi32(
-                    _mm_cvtsi32_si128(*(_DWORD *)(a1 + 8 * v26 + 8)),
-                    _mm_cvtsi32_si128(*(_DWORD *)(a1 + 8 * v24 + 8))),
-                  _mm_unpacklo_epi32(v25, _mm_cvtsi32_si128(*(_DWORD *)(a1 + 8 * v23 + 8)))));
-      }
-      while ( v17 < (a4 & 0xFFFFFFF8) );
-      v27 = _mm_add_epi32(v19, v18);
-      v28 = _mm_add_epi32(v27, _mm_srli_si128(v27, 8));
-      v16 = _mm_cvtsi128_si32(_mm_add_epi32(v28, _mm_srli_si128(v28, 4)));
-      Size[0] = v16;
-      if ( v17 < a4 )
-      {
-LABEL_12:
-        v29 = (_DWORD *)(16LL * v17 + a1 + 8);
-        v30 = a4 - v17;
+        v17 = 0LL;
+        v18 = 0LL;
+        v19 = 2;
         do
         {
-          v16 += *v29;
-          v29 += 4;
-          --v30;
+          v20 = 2LL * v16;
+          v16 += 8;
+          v21 = _mm_unpacklo_epi32(
+                  _mm_cvtsi32_si128(*(_DWORD *)(v10 + 8 * v20 + 8)),
+                  _mm_cvtsi32_si128(*(_DWORD *)(v10 + 16LL * v19 + 8)));
+          v22 = _mm_cvtsi32_si128(*(_DWORD *)(v10 + 16LL * (v19 + 4) + 8));
+          v23 = 2LL * (v19 + 5);
+          v24 = 2LL * (v19 + 3);
+          v25 = 2LL * (v19 + 2);
+          v26 = _mm_add_epi32(
+                  _mm_unpacklo_epi32(
+                    v21,
+                    _mm_unpacklo_epi32(
+                      _mm_cvtsi32_si128(*(_DWORD *)(v10 + 16LL * (v19 - 1) + 8)),
+                      _mm_cvtsi32_si128(*(_DWORD *)(v10 + 16LL * (v19 + 1) + 8)))),
+                  v17);
+          v19 += 8;
+          v17 = v26;
+          v27 = _mm_add_epi32(
+                  _mm_unpacklo_epi32(
+                    _mm_unpacklo_epi32(_mm_cvtsi32_si128(*(_DWORD *)(v10 + 8 * v25 + 8)), v22),
+                    _mm_unpacklo_epi32(
+                      _mm_cvtsi32_si128(*(_DWORD *)(v10 + 8 * v24 + 8)),
+                      _mm_cvtsi32_si128(*(_DWORD *)(v10 + 8 * v23 + 8)))),
+                  v18);
+          v18 = v27;
         }
-        while ( v30 );
-        Size[0] = v16;
+        while ( v16 < (a4 & 0xFFFFFFF8) );
+        v28 = _mm_add_epi32(v27, v17);
+        v29 = _mm_add_epi32(v28, _mm_srli_si128(v28, 8));
+        v15 = _mm_cvtsi128_si32(_mm_add_epi32(v29, _mm_srli_si128(v29, 4)));
+        Size = v15;
+      }
+      if ( v16 < a4 )
+      {
+        v30 = (_DWORD *)(16LL * v16 + v10 + 8);
+        v31 = a4 - v16;
+        do
+        {
+          v15 += *v30;
+          v30 += 4;
+          --v31;
+        }
+        while ( v31 );
+        Size = v15;
       }
     }
     if ( (a6 & 0x100) != 0 )
     {
       if ( (a6 & 0x10000000) != 0 )
       {
-        v48 = EtwpReserveTraceBuffer(v15, v16 + 24, (unsigned int)&v59, (unsigned int)&Size[1], a6);
-        v32 = (_DWORD *)v48;
+        v48 = EtwpReserveTraceBuffer(v14, v15 + 24, (unsigned int)&v59, (unsigned int)&v55, a6);
+        v34 = (_DWORD *)v48;
         if ( !v48 )
-          goto LABEL_44;
+          goto LABEL_34;
         *(_DWORD *)v48 = (unsigned __int8)a6 | 0xC0040000;
-        *(_QWORD *)(v48 + 16) = *(_QWORD *)&Size[1];
-        *(_WORD *)(v48 + 4) = v16 + 24;
+        *(_QWORD *)(v48 + 16) = v55;
+        *(_WORD *)(v48 + 4) = v15 + 24;
         *(_WORD *)(v48 + 6) = a5;
         *(_DWORD *)(v48 + 8) = KeGetCurrentThread()[1].CurrentRunTime;
         *(_DWORD *)(v48 + 12) = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-        v33 = (char *)(v48 + 24);
+        v35 = (char *)(v48 + 24);
       }
       else
       {
         v56 = KeGetCurrentThread();
-        v31 = EtwpReserveTraceBuffer(v15, v16 + 32, (unsigned int)&v59, (unsigned int)&Size[1], a6);
-        if ( !v31 )
-          goto LABEL_44;
-        v32 = v56;
-        *(_DWORD *)v31 = (unsigned __int8)a6 | 0xC0020000;
-        *(_QWORD *)(v31 + 16) = *(_QWORD *)&Size[1];
-        *(_WORD *)(v31 + 4) = v16 + 32;
-        *(_WORD *)(v31 + 6) = a5;
-        *(_DWORD *)(v31 + 8) = v32[308];
-        *(_DWORD *)(v31 + 12) = v32[306];
-        *(_DWORD *)(v31 + 24) = v32[163];
-        *(_DWORD *)(v31 + 28) = v32[183];
-        v33 = (char *)(v31 + 32);
+        v47 = EtwpReserveTraceBuffer(v14, v15 + 32, (unsigned int)&v59, (unsigned int)&v55, a6);
+        if ( !v47 )
+          goto LABEL_34;
+        v34 = v56;
+        *(_DWORD *)v47 = (unsigned __int8)a6 | 0xC0020000;
+        *(_QWORD *)(v47 + 16) = v55;
+        *(_WORD *)(v47 + 4) = v15 + 32;
+        *(_WORD *)(v47 + 6) = a5;
+        *(_DWORD *)(v47 + 8) = v34[288];
+        *(_DWORD *)(v47 + 12) = v34[286];
+        *(_DWORD *)(v47 + 24) = v34[163];
+        *(_DWORD *)(v47 + 28) = v34[183];
+        v35 = (char *)(v47 + 32);
       }
     }
     else
     {
-      v45 = *(_DWORD *)(v15 + 816);
-      if ( (v45 & 0xC00) == 0 )
-        goto LABEL_37;
-      if ( (v45 & 0x400) != 0 && a5 == 1316 )
+      v32 = *(_DWORD *)(v14 + 832);
+      if ( (v32 & 0xC00) == 0 )
       {
-        v33 = (char *)EtwpReserveWithPebsIndex(v15, 1316, v16, (unsigned int)&v59, (__int64)&Size[1], a6);
+LABEL_17:
+        v33 = EtwpReserveTraceBuffer(v14, v15 + 16, (unsigned int)&v59, (unsigned int)&v55, a6);
+        if ( !v33 )
+          goto LABEL_34;
+        *(_QWORD *)(v33 + 8) = v55;
+        *(_DWORD *)v33 = (unsigned __int8)a6 | 0xC0110000;
+        *(_WORD *)(v33 + 4) = v15 + 16;
+        *(_WORD *)(v33 + 6) = a5;
+        v35 = (char *)(v33 + 16);
         goto LABEL_19;
       }
-      if ( (v45 & 0x800) == 0 || (v49 = 0, !*(_DWORD *)(*(_QWORD *)(v15 + 1016) + 8LL)) )
+      if ( (v32 & 0x400) != 0 && a5 == 1316 )
       {
-LABEL_37:
-        v46 = EtwpReserveTraceBuffer(v15, v16 + 16, (unsigned int)&v59, (unsigned int)&Size[1], a6);
-        if ( !v46 )
-          goto LABEL_44;
-        *(_QWORD *)(v46 + 8) = *(_QWORD *)&Size[1];
-        *(_DWORD *)v46 = (unsigned __int8)a6 | 0xC0110000;
-        *(_WORD *)(v46 + 4) = v16 + 16;
-        *(_WORD *)(v46 + 6) = a5;
-        v33 = (char *)(v46 + 16);
-        goto LABEL_19;
-      }
-      while ( 1 )
-      {
-        v50 = *(_QWORD *)(v15 + 1016);
-        if ( *(_WORD *)(v50 + 2LL * v49 + 12) == a5 )
-          break;
-        if ( ++v49 >= *(_DWORD *)(v50 + 8) )
-          goto LABEL_37;
-      }
-      v33 = (char *)EtwpReserveWithPmcCounters(v15, a5, v16, (unsigned int)&v59, (__int64)&Size[1], a6);
-    }
-LABEL_19:
-    v56 = v33;
-    if ( v33 )
-    {
-      v34 = v33;
-      if ( !a4 )
-        goto LABEL_24;
-      while ( 1 )
-      {
-        v35 = *(unsigned int *)(a1 + 8);
-        if ( (unsigned int)v35 > v16 )
-          break;
-        memmove(v34, *(const void **)a1, (unsigned int)v35);
-        v34 += v35;
-        v16 -= v35;
-        ++v7;
-        a1 += 16LL;
-        if ( v7 >= a4 )
-        {
-          v15 = v57;
-          goto LABEL_24;
-        }
-      }
-      memset(v56, 0, Size[0]);
-      v15 = v57;
-      EtwpUpdateEventsLostCount(v57);
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_SYSTEM_EVENT) )
-      {
-        v37 = a5;
-        v36 = a6;
-        EtwpTraceLostSystemEvent(a5, v15 + 136, a6, 3221225476LL);
+        v35 = (char *)EtwpReserveWithPebsIndex(v14, 1316, v15, (unsigned int)&v59, (__int64)&v55, a6);
       }
       else
       {
-LABEL_24:
-        v36 = a6;
-        v37 = a5;
+        if ( (v32 & 0x800) == 0 )
+          goto LABEL_17;
+        v49 = 0;
+        if ( !*(_DWORD *)(*(_QWORD *)(v14 + 1000) + 8LL) )
+          goto LABEL_17;
+        while ( 1 )
+        {
+          v50 = *(_QWORD *)(v14 + 1000);
+          if ( *(_WORD *)(v50 + 2LL * v49 + 12) == a5 )
+            break;
+          if ( ++v49 >= *(_DWORD *)(v50 + 8) )
+            goto LABEL_17;
+        }
+        v35 = (char *)EtwpReserveWithPmcCounters(v14, a5, v15, (unsigned int)&v59, (__int64)&v55, a6);
       }
-      if ( (*(_DWORD *)(v15 + 12) & 0x80000) != 0
+    }
+LABEL_19:
+    v56 = v35;
+    if ( v35 )
+    {
+      v36 = v35;
+      if ( a4 )
+      {
+        while ( 1 )
+        {
+          v37 = *(unsigned int *)(v10 + 8);
+          if ( (unsigned int)v37 > v15 )
+            break;
+          memmove(v36, *(const void **)v10, (unsigned int)v37);
+          v36 += v37;
+          v15 -= v37;
+          ++v7;
+          v10 += 16LL;
+          if ( v7 >= a4 )
+          {
+            v14 = v57;
+            goto LABEL_24;
+          }
+        }
+        memset(v56, 0, Size);
+        v14 = v57;
+        EtwpUpdateEventsLostCount(v57);
+      }
+LABEL_24:
+      if ( (*(_DWORD *)(v14 + 12) & 0x80000) != 0
         && (!(_BYTE)KdDebuggerNotPresent && !KdPitchDebugger || KdEventLoggingPresent) )
       {
-        EtwpSendTraceEvent(v15, &v59, v32);
+        EtwpSendTraceEvent(v14, &v59, v34);
       }
-      if ( *(_QWORD *)(v15 + 1288) )
-        EtwpInvokeEventCallback(v15, &v59, 0LL, 0LL);
+      if ( *(_QWORD *)(v14 + 1272) )
+        EtwpInvokeEventCallback(v14, &v59, 0LL, 0LL);
       v38 = (signed __int64 *)*((_QWORD *)&v59 + 1);
       _m_prefetchw(*((const void **)&v59 + 1));
       v39 = *v38;
@@ -348,60 +345,61 @@ LABEL_43:
             goto LABEL_43;
         }
       }
-      if ( (*(_DWORD *)(v15 + 816) & 0x80u) != 0
-        && ((*(char *)(((unsigned __int64)(v37 & 0x1FFF) >> 3) + *(_QWORD *)(v15 + 1000)) >> (v37 & 7)) & 1) != 0 )
+      v42 = *(_DWORD *)(v14 + 832);
+      if ( (v42 & 0x80u) != 0 )
       {
-        EtwpStackTraceDispatcher(v15, &Size[1], 0LL, v36);
-      }
-      v42 = 0;
-      if ( (*(_DWORD *)(v15 + 816) & 0x8000) != 0 )
-      {
-        v51 = 0;
-        if ( *(_DWORD *)(*(_QWORD *)(v15 + 1024) + 8LL) )
+        v43 = a5;
+        if ( _bittest(*(const signed __int32 **)(v14 + 984), a5 & 0x1FFF) )
         {
-          while ( 1 )
-          {
-            v52 = *(_QWORD *)(v15 + 1024);
-            if ( *(_WORD *)(v52 + 2LL * v51 + 12) == v37 )
-              break;
-            if ( ++v51 >= *(_DWORD *)(v52 + 8) )
-              goto LABEL_32;
-          }
-          EtwpTraceLastBranchRecord(v15, &Size[1], 0LL, v36);
-        }
-      }
+          v44 = a6;
+          EtwpStackTraceDispatcher(v14, &v55, 0LL, a6);
+          v42 = *(_DWORD *)(v14 + 832);
 LABEL_32:
-      if ( (*(_DWORD *)(v15 + 816) & 0x4000000) != 0 && *(_DWORD *)(*(_QWORD *)(v15 + 1032) + 24LL) )
-      {
-        while ( 1 )
-        {
-          v53 = *(_QWORD *)(v15 + 1032);
-          if ( *(_WORD *)(v53 + 2LL * v42 + 28) == v37 )
-            break;
-          if ( ++v42 >= *(_DWORD *)(v53 + 24) )
-            goto LABEL_33;
-        }
-        EtwpTraceProcessorTrace(v15, &Size[1], 0LL, v36);
-      }
-      goto LABEL_33;
-    }
-LABEL_44:
-    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_SYSTEM_EVENT) )
-    {
-      ReserveTraceBufferStatus = EtwpGetReserveTraceBufferStatus(v15, v16, v47);
-      EtwpTraceLostSystemEvent(a5, v15 + 136, a6, ReserveTraceBufferStatus);
-    }
+          v45 = 0;
+          if ( (v42 & 0x8000) != 0 )
+          {
+            v51 = 0;
+            if ( *(_DWORD *)(*(_QWORD *)(v14 + 1008) + 8LL) )
+            {
+              while ( 1 )
+              {
+                v52 = *(_QWORD *)(v14 + 1008);
+                if ( *(_WORD *)(v52 + 2LL * v51 + 12) == v43 )
+                  break;
+                if ( ++v51 >= *(_DWORD *)(v52 + 8) )
+                  goto LABEL_33;
+              }
+              EtwpTraceLastBranchRecord(v14, &v55, 0LL, v44);
+            }
+          }
 LABEL_33:
+          if ( (*(_DWORD *)(v14 + 832) & 0x4000000) != 0 && *(_DWORD *)(*(_QWORD *)(v14 + 1016) + 24LL) )
+          {
+            while ( 1 )
+            {
+              v53 = *(_QWORD *)(v14 + 1016);
+              if ( *(_WORD *)(v53 + 2LL * v45 + 28) == v43 )
+                break;
+              if ( ++v45 >= *(_DWORD *)(v53 + 24) )
+                goto LABEL_34;
+            }
+            EtwpTraceProcessorTrace(v14, &v55, 0LL, v44);
+          }
+          goto LABEL_34;
+        }
+      }
+      else
+      {
+        v43 = a5;
+      }
+      v44 = a6;
+      goto LABEL_32;
+    }
+LABEL_34:
     if ( v11 )
     {
       ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(a2 + 448) + v58), 1u);
-      v43 = KeGetCurrentThread();
-      if ( v43->KernelApcDisable++ == -1
-        && ($C71981A45BEB2B45F82C232A7085991E *)v43->ApcState.ApcListHead[0].Flink != &v43->152
-        && !v43->SpecialApcDisable )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
   }
 }

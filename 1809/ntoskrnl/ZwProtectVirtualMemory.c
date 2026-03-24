@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwProtectVirtualMemory @ 0x1401B8B70
+ * XREFs of ZwProtectVirtualMemory @ 0x1401B8B90
  * Callers:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
- *     KiOpPatchCode @ 0x14029C4E8 (KiOpPatchCode.c)
+ *     KiOpPatchCode @ 0x14029C5E8 (KiOpPatchCode.c)
  *     WbMakeUserDataPagesKernelWritable @ 0x1405849A0 (WbMakeUserDataPagesKernelWritable.c)
- *     MiCheckForUserStackOverflow @ 0x1406A3A2C (MiCheckForUserStackOverflow.c)
+ *     MiCheckForUserStackOverflow @ 0x1406A3A0C (MiCheckForUserStackOverflow.c)
  * Callees:
  *     <none>
  */

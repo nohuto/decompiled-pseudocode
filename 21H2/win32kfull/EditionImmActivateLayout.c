@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionImmActivateLayout @ 0x1C0121D80
+ * XREFs of EditionImmActivateLayout @ 0x1C01368B0
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxImmActivateLayout@@YAXPEAUtagTHREADINFO@@PEAUtagKL@@@Z @ 0x1C0121D98 (-xxxImmActivateLayout@@YAXPEAUtagTHREADINFO@@PEAUtagKL@@@Z.c)
+ *     xxxImmActivateLayout @ 0x1C01368C8 (xxxImmActivateLayout.c)
  */
 
-void __fastcall EditionImmActivateLayout(struct tagTHREADINFO *a1, struct tagKL *a2)
+__int64 EditionImmActivateLayout()
 {
-  xxxImmActivateLayout(a1, a2);
+  return xxxImmActivateLayout();
 }

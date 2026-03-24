@@ -1,28 +1,31 @@
 /*
- * XREFs of ?IsWarpFastPathEnabled@CDrawingContext@@QEBA_NXZ @ 0x1800B4274
+ * XREFs of ?IsWarpFastPathEnabled@CDrawingContext@@QEBA_NXZ @ 0x1800BA628
  * Callers:
- *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x180010390 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
- *     ?GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800B5120 (-GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCac.c)
+ *     ?GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180057FC0 (-GenerateDrawList@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCac.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2_F@@PEAVCDrawListCache@@@Z @ 0x1800B9780 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2.c)
  * Callees:
- *     ?Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ @ 0x1800B2900 (-Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ.c)
- *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x1800DBDB4 (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
+ *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x18008D0E8 (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
+ *     ??$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z @ 0x1800C1EDC (--$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z.c)
  */
 
-char __fastcall CDrawingContext::IsWarpFastPathEnabled(CDrawingContext *this)
+bool __fastcall CDrawingContext::IsWarpFastPathEnabled(CDrawingContext *this)
 {
-  char v1; // bl
-  CMILMatrix *TopByReference; // rax
+  __int64 v1; // r11
+  const struct CMILMatrix *TopByReference; // rax
 
-  v1 = 0;
-  if ( *(_QWORD *)(*((_QWORD *)this + 5) + 568LL) )
+  LOBYTE(v1) = 0;
+  if ( *(_QWORD *)(*((_QWORD *)this + 5) + 608LL) )
   {
     if ( !CCommonRegistryData::UseHWDrawListEntriesOnWARP )
     {
-      TopByReference = CMatrixStack::GetTopByReference((CDrawingContext *)((char *)this + 400));
-      if ( CMILMatrix::Is2DAxisAlignedPreserving(TopByReference) )
+      TopByReference = CMatrixStack::GetTopByReference((CDrawingContext *)((char *)this + 408));
+      if ( (unsigned __int8)CMILMatrix::Is2DAxisAlignedPreserving<1>(TopByReference) )
       {
-        if ( (*((_DWORD *)this + 164) || !*((_DWORD *)this + 146)) && !*((_QWORD *)this + 428) )
-          return 1;
+        if ( (*((_DWORD *)this + 174) != (_DWORD)v1 || *((_DWORD *)this + 156) <= (unsigned int)v1)
+          && *((_QWORD *)this + 435) == v1 )
+        {
+          LOBYTE(v1) = 1;
+        }
       }
     }
   }

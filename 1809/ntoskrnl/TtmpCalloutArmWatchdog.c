@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpCalloutArmWatchdog @ 0x14087DBD0
+ * XREFs of TtmpCalloutArmWatchdog @ 0x14087DBB0
  * Callers:
- *     TtmpStartCallout @ 0x14087E600 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPreventControlAreaDeletion @ 0x1400E94D8
+ * XREFs of MiPreventControlAreaDeletion @ 0x1400E94F8
  * Callers:
- *     MiTrimSharedPage @ 0x1400E9750 (MiTrimSharedPage.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6520 (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
  * Callees:
  *     MiBuildWakeList @ 0x14001E4A8 (MiBuildWakeList.c)
  *     MiReferenceSubsection @ 0x1400770E4 (MiReferenceSubsection.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, int a2, ULONG_PTR *a3, __int64 **a4)

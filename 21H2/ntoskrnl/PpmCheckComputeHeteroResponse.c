@@ -1,261 +1,213 @@
 /*
- * XREFs of PpmCheckComputeHeteroResponse @ 0x1405D7BF0
+ * XREFs of PpmCheckComputeHeteroResponse @ 0x140577C10
  * Callers:
  *     <none>
  * Callees:
- *     PpmParkCalculateUnparkCount @ 0x14023C670 (PpmParkCalculateUnparkCount.c)
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x1405D857C (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
- *     PpmEventTraceHeteroResponse @ 0x1405DAE60 (PpmEventTraceHeteroResponse.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     PpmParkCalculateUnparkCount @ 0x1402B6320 (PpmParkCalculateUnparkCount.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x1405783BC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x14057840C (PpmHeteroUtilityToNormalizedUtility.c)
+ *     PpmEventTraceHeteroResponse @ 0x14057A890 (PpmEventTraceHeteroResponse.c)
  */
 
 char PpmCheckComputeHeteroResponse()
 {
-  unsigned int v0; // ecx
-  char v1; // si
-  __int64 v2; // rdi
-  __int16 v3; // ax
-  __int64 v4; // r14
-  __int64 v5; // rcx
-  __int64 v6; // r15
-  __int64 v7; // r13
-  int v8; // eax
-  size_t v9; // rbx
-  _DWORD *Prcb; // rax
-  unsigned int v11; // ecx
-  int v12; // edx
-  int v13; // r8d
-  unsigned int v14; // edx
-  __int64 v15; // rcx
-  __int64 v16; // r10
-  __int64 v17; // rax
-  __int64 v18; // r9
-  __int64 v19; // rdx
-  __int64 *v20; // r8
-  __int64 v21; // rax
-  __int64 v22; // rax
-  unsigned int *v23; // rcx
-  __int64 v24; // rdx
-  __int64 v25; // rax
-  unsigned __int8 v26; // al
-  unsigned int v27; // r12d
-  __int64 v28; // rbx
-  __int64 *v29; // rdi
-  __int64 v30; // rdx
-  __int64 v31; // r9
-  __int64 v32; // r8
-  __int64 v33; // rax
-  int v34; // ecx
-  int v35; // r12d
-  unsigned int v36; // r15d
-  unsigned int v37; // edx
-  bool v38; // zf
+  __int64 *v0; // r15
+  unsigned int v1; // r13d
+  char v2; // si
+  __int64 v3; // rbx
+  int v4; // r14d
+  __int16 v5; // ax
+  __int64 v6; // r14
+  __int64 v7; // rcx
+  unsigned int v8; // r12d
+  __int64 v9; // rdi
+  __int64 Prcb; // rax
+  __int64 v11; // rdx
+  unsigned int v12; // eax
+  __int64 v13; // rcx
+  size_t v14; // r10
+  __int64 v15; // rax
+  __int64 v16; // r9
+  __int64 v17; // rdx
+  _QWORD *v18; // r8
+  __int64 v19; // rax
+  __int64 v20; // rax
+  unsigned int v21; // r14d
+  unsigned int v22; // edi
+  int v23; // ecx
+  int v24; // r14d
+  unsigned int v25; // edx
+  char v26; // al
+  bool v27; // zf
   size_t NumOfElements; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 v41; // [rsp+40h] [rbp-C8h]
-  __int64 v42; // [rsp+48h] [rbp-C0h]
-  __int64 *v43; // [rsp+50h] [rbp-B8h]
-  __int64 v44; // [rsp+58h] [rbp-B0h]
-  __int128 v45; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v46; // [rsp+70h] [rbp-98h]
-  _DWORD v47[64]; // [rsp+78h] [rbp-90h] BYREF
-  _DWORD Base[64]; // [rsp+178h] [rbp+70h] BYREF
-  _QWORD v49[64]; // [rsp+278h] [rbp+170h] BYREF
+  int v30; // [rsp+40h] [rbp-C8h]
+  __int128 v31; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v32; // [rsp+58h] [rbp-B0h]
+  _DWORD Base[64]; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD v34[64]; // [rsp+168h] [rbp+60h] BYREF
 
-  v46 = 0LL;
-  v45 = 0LL;
-  v43 = &PpmCurrentProfile[534 * dword_140C232CC + 5];
-  if ( PpmHeteroPolicy == 4 )
+  v32 = 0LL;
+  v31 = 0LL;
+  v0 = &PpmCurrentProfile[342 * dword_140C23E8C];
+  if ( PpmHeteroPolicy != 4 )
   {
-    v0 = 0;
-    LODWORD(v42) = 0;
-    if ( PpmParkNumNodes )
-    {
-      while ( 1 )
-      {
-        v1 = 0;
-        v2 = PpmParkNodes + 336LL * v0;
-        v44 = v2;
-        if ( !PpmHeteroHgsParkingEnabled || *(_BYTE *)(v2 + 129) || PpmHeteroPolicy )
-          break;
-LABEL_55:
-        LODWORD(v42) = ++v0;
-        if ( v0 >= PpmParkNumNodes )
-          goto LABEL_56;
-      }
-      v3 = *(_WORD *)(v2 + 4);
-      v4 = 0LL;
-      v5 = *(_QWORD *)(v2 + 8);
-      v6 = 0LL;
-      LODWORD(NumOfElements) = 0;
-      *(_QWORD *)&v45 = 0LL;
-      v7 = *(unsigned __int8 *)(v2 + 139);
-      LOWORD(v46) = v3;
-      *((_QWORD *)&v45 + 1) = v5;
-      while ( 1 )
-      {
-        v8 = KeEnumerateNextProcessor(&NumOfElements, (unsigned __int16 **)&v45);
-        v9 = (unsigned int)NumOfElements;
-        if ( v8 )
-          break;
-        Prcb = (_DWORD *)KeGetPrcb(NumOfElements);
-        v11 = Prcb[8502];
-        if ( PpmCheckCurrentPipelineId != 5 )
-          v11 -= Prcb[8504];
-        v12 = Prcb[8507];
-        if ( v12 )
-          v11 = (v12 * v11) >> 16;
-        Base[v9] = v11;
-        v13 = Prcb[8507];
-        v14 = Prcb[8505];
-        if ( v13 )
-          v14 = (v13 * v14) >> 16;
-        v4 += v14;
-        v47[v9] = v14;
-        v6 += v11;
-        LODWORD(NumOfElements) = v9 + 1;
-      }
-      qsort(Base, (unsigned int)NumOfElements, 4uLL, PpmUtilityComparer);
-      qsort(v47, v9, 4uLL, PpmUtilityComparer);
-      v15 = *(unsigned __int8 *)(v2 + 6);
-      v16 = 0LL;
-      v17 = *(_QWORD *)(v2 + 96);
-      v18 = 0LL;
-      v41 = 0LL;
-      if ( (_DWORD)v15 )
-      {
-        v19 = (unsigned int)v15;
-        v20 = (__int64 *)(v17 + 8 * v15);
-        do
-        {
-          v18 += v6 * *v20;
-          v15 = (unsigned int)(v15 - 1);
-          v49[v15] = v18;
-          v21 = *v20--;
-          v22 = v19 * v21;
-          --v19;
-          v16 += v22;
-        }
-        while ( (_DWORD)v15 );
-        v41 = v16;
-      }
-      if ( (_DWORD)v7 )
-      {
-        v23 = v47;
-        v24 = v7;
-        do
-        {
-          v25 = *v23++;
-          v4 -= v25;
-          --v24;
-        }
-        while ( v24 );
-      }
-      v26 = *(_BYTE *)(v2 + 129);
-      if ( PpmHeteroHgsParkingEnabled )
-        v26 = *(_BYTE *)(v2 + 6);
-      v27 = v26;
-      LODWORD(v28) = v7;
-      if ( (unsigned int)v7 < v26 )
-      {
-        v29 = v43;
-        while ( 1 )
-        {
-          v30 = (unsigned int)Base[(unsigned int)v28];
-          v31 = *((unsigned __int8 *)v29 + (unsigned int)v28 + 2209);
-          v32 = v49[(unsigned int)v28];
-          LODWORD(NumOfElements) = *((unsigned __int8 *)v29 + (unsigned int)v28 + 2209);
-          if ( !(unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(v16, v30, v32, v31) )
-            break;
-          if ( !(unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(v41, v4, 0LL, (unsigned int)NumOfElements) )
-            break;
-          v33 = (unsigned int)v47[(unsigned int)v28];
-          LODWORD(v28) = v28 + 1;
-          v4 -= v33;
-          if ( (unsigned int)v28 >= v27 )
-            break;
-          v16 = v41;
-        }
-        v2 = v44;
-        if ( (unsigned int)v28 > (unsigned int)v7 )
-        {
-          v34 = 2;
-          goto LABEL_40;
-        }
-        v16 = v41;
-      }
-      if ( (_DWORD)v28 )
-      {
-        while ( 1 )
-        {
-          v35 = v28;
-          v28 = (unsigned int)(v28 - 1);
-          v4 += (unsigned int)v47[v28];
-          v36 = *((unsigned __int8 *)v43 + v28 + 161);
-          if ( (unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(
-                               v16,
-                               (unsigned int)Base[v28],
-                               v49[v28],
-                               *((unsigned __int8 *)v43 + v28 + 161)) )
-          {
-            if ( (unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(v41, v4, 0LL, v36) )
-              break;
-          }
-          if ( !(_DWORD)v28 )
-            goto LABEL_39;
-          v16 = v41;
-        }
-        LODWORD(v28) = v35;
-      }
-LABEL_39:
-      v34 = (unsigned int)v28 < (unsigned int)v7;
-LABEL_40:
-      if ( *(char *)(v2 + 148) == v34 )
-      {
-        v37 = (unsigned __int8)++*(_BYTE *)(v2 + 147);
-      }
-      else
-      {
-        v37 = 1;
-        *(_BYTE *)(v2 + 148) = v34;
-        *(_BYTE *)(v2 + 147) = 1;
-        v1 = 4;
-      }
-      if ( PpmCheckCurrentPipelineId == 5 )
-      {
-        v1 |= 0x10u;
-      }
-      else if ( v34 == 2 )
-      {
-        if ( v37 < *((unsigned __int8 *)v43 + 160) )
-        {
-LABEL_52:
-          v38 = PpmHeteroHgsParkingEnabled == 0;
-          *(_BYTE *)(v2 + 146) = *(_BYTE *)(v2 + 146) & 0xF9 | 4;
-          if ( !v38 )
-          {
-            *(_BYTE *)(v2 + 296) = v28;
-            v1 |= 0x80u;
-          }
-          PpmEventTraceHeteroResponse(v2, (unsigned int)Base, (unsigned int)v49, v41, v28, v1 | 1);
-          v0 = v42;
-          goto LABEL_55;
-        }
-        v1 |= 0x20u;
-      }
-      else
-      {
-        if ( v34 != 1 || v37 < *((unsigned __int8 *)v43 + 159) )
-          goto LABEL_52;
-        v1 |= 0x40u;
-      }
-      *(_BYTE *)(v2 + 139) = v28;
-      goto LABEL_52;
-    }
+LABEL_43:
+    PpmParkCalculateUnparkCount();
+    return 1;
   }
-LABEL_56:
-  PpmParkCalculateUnparkCount();
+  v1 = 0;
+  v30 = 0;
+  if ( PpmParkNumNodes )
+  {
+    while ( 1 )
+    {
+      v2 = 0;
+      v3 = PpmParkNodes + 272LL * v1;
+      if ( *(_BYTE *)(v3 + 129) )
+        break;
+      v4 = 1;
+      v30 = 1;
+LABEL_41:
+      if ( ++v1 >= PpmParkNumNodes )
+      {
+        if ( v4 )
+          goto LABEL_43;
+        return 1;
+      }
+    }
+    v5 = *(_WORD *)(v3 + 4);
+    v6 = 0LL;
+    v7 = *(_QWORD *)(v3 + 8);
+    LODWORD(NumOfElements) = 0;
+    *(_QWORD *)&v31 = 0LL;
+    v8 = *(unsigned __int8 *)(v3 + 139);
+    LOWORD(v32) = v5;
+    *((_QWORD *)&v31 + 1) = v7;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&NumOfElements, (unsigned __int16 **)&v31) )
+    {
+      v9 = (unsigned int)NumOfElements;
+      Prcb = KeGetPrcb(NumOfElements);
+      v11 = *(unsigned int *)(Prcb + 33168);
+      if ( PpmCheckCurrentPipelineId != 5 )
+        v11 = (unsigned int)(v11 - *(_DWORD *)(Prcb + 33176));
+      v12 = PpmHeteroUtilityToNormalizedUtility(Prcb + 33128, v11);
+      v6 += v12;
+      Base[v9] = v12;
+      LODWORD(NumOfElements) = v9 + 1;
+    }
+    qsort(Base, (unsigned int)NumOfElements, 4uLL, PpmUtilityComparer);
+    v13 = *(unsigned __int8 *)(v3 + 6);
+    v14 = 0LL;
+    v15 = *(_QWORD *)(v3 + 96);
+    v16 = 0LL;
+    NumOfElements = 0LL;
+    if ( (_DWORD)v13 )
+    {
+      v17 = (unsigned int)v13;
+      v18 = (_QWORD *)(v15 + 8 * v13);
+      do
+      {
+        v16 += v6 * *v18;
+        v19 = v17;
+        v13 = (unsigned int)(v13 - 1);
+        --v17;
+        v34[v13] = v16;
+        v20 = *v18-- * v19;
+        v14 += v20;
+      }
+      while ( (_DWORD)v13 );
+      NumOfElements = v14;
+    }
+    v21 = *(unsigned __int8 *)(v3 + 129);
+    v22 = v8;
+    if ( v8 >= v21 )
+      goto LABEL_21;
+    do
+    {
+      if ( !(unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(
+                            v14,
+                            (unsigned int)Base[v22],
+                            v34[v22],
+                            *((unsigned __int8 *)v0 + v22 + 1481)) )
+        break;
+      v14 = NumOfElements;
+      ++v22;
+    }
+    while ( v22 < v21 );
+    if ( v22 <= v8 )
+    {
+      do
+      {
+        v14 = NumOfElements;
+LABEL_21:
+        if ( !v22 )
+          goto LABEL_24;
+        v24 = v22--;
+      }
+      while ( !(unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(
+                               v14,
+                               (unsigned int)Base[v22],
+                               v34[v22],
+                               *((unsigned __int8 *)v0 + v22 + 201)) );
+      v22 = v24;
+LABEL_24:
+      v23 = v22 < v8;
+    }
+    else
+    {
+      v23 = 2;
+    }
+    if ( *(char *)(v3 + 148) == v23 )
+    {
+      v25 = (unsigned __int8)++*(_BYTE *)(v3 + 147);
+    }
+    else
+    {
+      v25 = 1;
+      *(_BYTE *)(v3 + 148) = v23;
+      *(_BYTE *)(v3 + 147) = 1;
+      v2 = 4;
+    }
+    if ( PpmCheckCurrentPipelineId == 5 )
+    {
+      v2 |= 0x10u;
+LABEL_36:
+      *(_BYTE *)(v3 + 139) = v22;
+      goto LABEL_37;
+    }
+    if ( v23 == 2 )
+    {
+      if ( v25 >= *((unsigned __int8 *)v0 + 200) )
+      {
+        v2 |= 0x20u;
+        goto LABEL_36;
+      }
+    }
+    else if ( v23 == 1 && v25 >= *((unsigned __int8 *)v0 + 199) )
+    {
+      v2 |= 0x40u;
+      goto LABEL_36;
+    }
+LABEL_37:
+    v26 = *(_BYTE *)(v3 + 146) | 6;
+    v27 = *(_BYTE *)(v3 + 139) == 0;
+    *(_BYTE *)(v3 + 146) = v26;
+    if ( v27 )
+    {
+      v4 = 1;
+      *(_BYTE *)(v3 + 146) = v26 & 0xFD;
+      v30 = 1;
+    }
+    else
+    {
+      v4 = v30;
+    }
+    PpmEventTraceHeteroResponse(v3, (unsigned int)Base, (unsigned int)v34, NumOfElements, v22, v2 | (2 - (v4 != 0)));
+    goto LABEL_41;
+  }
   return 1;
 }

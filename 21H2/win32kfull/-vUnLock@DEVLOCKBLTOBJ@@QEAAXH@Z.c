@@ -1,23 +1,27 @@
 /*
- * XREFs of ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0275B60
+ * XREFs of ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0278350
  * Callers:
- *     SimBitBlt @ 0x1C0275CB8 (SimBitBlt.c)
+ *     SimBitBlt @ 0x1C02784A8 (SimBitBlt.c)
  * Callees:
- *     ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C002CE74 (-bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00E9590 (-bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C027137C (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
- *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0271428 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C02734E4 (-bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C027358C (-bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273624 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273720 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this)
 {
   int v1; // eax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // rdx
+  __int64 v6; // r8
   __int64 ThreadWin32Thread; // rax
-  __int64 v4; // rdx
-  int v5; // eax
-  __int64 v6; // rdx
-  signed __int32 v7[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v8; // rdx
+  int v9; // eax
+  __int64 v10; // rdx
+  signed __int32 v11[10]; // [rsp+0h] [rbp-28h] BYREF
 
   v1 = *((_DWORD *)this + 28);
   if ( (v1 & 0x1000) != 0 )
@@ -27,14 +31,14 @@ void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this)
     if ( (*((_DWORD *)this + 28) & 0x8000) != 0 )
     {
       DEVLOCKBLTOBJ::bDisposeTrgDco(this);
-      _InterlockedOr(v7, 0);
-      DEVLOCKBLTOBJ::bDisposeSrcDco(this);
+      _InterlockedOr(v11, 0);
+      DEVLOCKBLTOBJ::bDisposeSrcDco(this, v5, v6);
       *((_DWORD *)this + 28) &= ~0x8000u;
     }
     else
     {
-      DEVLOCKBLTOBJ::bDisposeSrcDco(this);
-      _InterlockedOr(v7, 0);
+      DEVLOCKBLTOBJ::bDisposeSrcDco(this, v3, v4);
+      _InterlockedOr(v11, 0);
       DEVLOCKBLTOBJ::bDisposeTrgDco(this);
     }
     GreDecLockCount();
@@ -58,21 +62,21 @@ void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this)
     *(_QWORD *)this = 0LL;
     *((_QWORD *)this + 3) = 0LL;
   }
-  v4 = *((_QWORD *)this + 1);
-  if ( v4 )
+  v8 = *((_QWORD *)this + 1);
+  if ( v8 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemSrc", v4);
+    EtwTraceGreLockReleaseSemaphore(L"hsemSrc", v8);
     GreReleaseSemaphoreInternal(*((_QWORD *)this + 1));
     *((_QWORD *)this + 1) = 0LL;
     *((_QWORD *)this + 4) = 0LL;
   }
-  v5 = *((_DWORD *)this + 28);
-  if ( (v5 & 8) != 0 )
-    *((_DWORD *)this + 28) = v5 & 0xFFFFFFF7;
-  v6 = *((_QWORD *)this + 2);
-  if ( v6 )
+  v9 = *((_DWORD *)this + 28);
+  if ( (v9 & 8) != 0 )
+    *((_DWORD *)this + 28) = v9 & 0xFFFFFFF7;
+  v10 = *((_QWORD *)this + 2);
+  if ( v10 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v6);
+    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v10);
     GreReleaseSemaphoreInternal(*((_QWORD *)this + 2));
     *((_QWORD *)this + 2) = 0LL;
   }

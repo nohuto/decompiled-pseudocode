@@ -1,40 +1,41 @@
 /*
- * XREFs of ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180265694
+ * XREFs of ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180203F88
  * Callers:
- *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x180265738 (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
+ *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x18020403C (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
  * Callees:
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180134BEE (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
- *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026500C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180213D70 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
  */
 
 void __fastcall CScrollAnimation::UpdateChainingDirection(CScrollAnimation *this, float a2)
 {
   char v2; // r8
-  float v4; // xmm0_4
-  char v5; // r8
-  struct CInteractionTracker *InteractionTracker; // rax
+  unsigned int v4; // xmm0_4
+  __int64 v5; // rcx
+  float v6; // xmm0_4
+  char v7; // r8
+  __int64 v8; // rax
   struct CChainingHelper *ActiveChainingHelper; // rax
-  __int64 v8; // rdx
+  __int64 v10; // rdx
 
-  v2 = *((_BYTE *)this + 452);
+  v2 = *((_BYTE *)this + 428);
   if ( (v2 & 1) != 0 )
   {
-    v4 = (float)(int)((__PAIR64__((float)(a2 - *((float *)this + 110)) > 0.0, a2 - *((float *)this + 110))
-                     - COERCE_UNSIGNED_INT(0.0)) >> 32);
-    *((float *)this + 112) = v4;
-    v5 = (v4 == 0.0) | v2 & 0xFE;
-    *((_BYTE *)this + 452) = v5;
-    if ( (v5 & 1) == 0 )
+    *(float *)&v4 = a2 - *((float *)this + 104);
+    v5 = 0LL;
+    v6 = (float)(int)((__PAIR64__(*(float *)&v4 > 0.0, v4) - COERCE_UNSIGNED_INT(0.0)) >> 32);
+    *((float *)this + 106) = v6;
+    v7 = (v6 == 0.0) | v2 & 0xFE;
+    *((_BYTE *)this + 428) = v7;
+    if ( (v7 & 1) == 0 )
     {
-      InteractionTracker = CScrollAnimation::GetInteractionTracker(this);
-      ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((struct CInteractionTracker *)((char *)InteractionTracker + 200));
-      if ( ActiveChainingHelper )
-      {
-        v8 = 3LL * *((int *)this + 85);
-        *((_BYTE *)ActiveChainingHelper + 4 * v8) |= 4u;
-        *((_DWORD *)ActiveChainingHelper + v8 + 2) = -805306369;
-        *((_BYTE *)ActiveChainingHelper + 36) |= 2u;
-      }
+      v8 = *((_QWORD *)this + 41);
+      if ( v8 )
+        v5 = *(_QWORD *)(v8 + 16);
+      ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v5 + 192));
+      v10 = *((int *)this + 79);
+      *((_BYTE *)ActiveChainingHelper + 12 * v10) |= 4u;
+      *((_DWORD *)ActiveChainingHelper + 3 * v10 + 2) = -805306369;
+      *((_BYTE *)ActiveChainingHelper + 36) |= 2u;
     }
   }
 }

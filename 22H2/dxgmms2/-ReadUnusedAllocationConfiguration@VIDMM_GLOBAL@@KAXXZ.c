@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReadUnusedAllocationConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BFC74
+ * XREFs of ?ReadUnusedAllocationConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093FAC
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0468 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0091434 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 void VIDMM_GLOBAL::ReadUnusedAllocationConfiguration(void)
@@ -27,20 +27,20 @@ void VIDMM_GLOBAL::ReadUnusedAllocationConfiguration(void)
   int v15; // [rsp+68h] [rbp-98h] BYREF
   _QWORD v16[112]; // [rsp+70h] [rbp-90h] BYREF
 
-  xmmword_1C0076360 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
-  xmmword_1C0076380 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
-  xmmword_1C0076370 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
-  xmmword_1C00763A0 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  xmmword_1C00502B0 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  xmmword_1C00502D0 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  xmmword_1C00502C0 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  xmmword_1C00502F0 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
   v6 = 1000000;
   v11 = 1000000;
-  xmmword_1C0076390 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  xmmword_1C00502E0 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
   v1 = 1;
   v3 = 15;
   v8 = 1;
   v12 = 15;
   v13 = 15;
-  qword_1C0076358 = 1LL;
-  xmmword_1C0076430 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  qword_1C00502A8 = 1LL;
+  xmmword_1C0050380 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
   v2 = 0;
   v4 = 45;
   v5 = 120;
@@ -49,23 +49,23 @@ void VIDMM_GLOBAL::ReadUnusedAllocationConfiguration(void)
   v10 = 5;
   v14 = 30;
   v15 = 30;
-  xmmword_1C0076420 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
+  xmmword_1C0050370 = (__int128)_mm_load_si128((const __m128i *)&_xmm);
   memset(v16, 0, sizeof(v16));
   v16[7] = 0LL;
   LODWORD(v16[1]) = 288;
   LODWORD(v16[4]) = 67108868;
   LODWORD(v16[6]) = 4;
   v16[2] = L"UnusedTrimmingPeriod";
-  v16[3] = &qword_1C0076358;
+  v16[3] = &qword_1C00502A8;
   v16[5] = &v1;
   v16[9] = L"Unused.MinimumThreshold";
-  v16[10] = &xmmword_1C0076360;
+  v16[10] = &xmmword_1C00502B0;
   v16[12] = &v2;
   v16[16] = L"Unused.LowThreshold";
-  v16[17] = (char *)&xmmword_1C0076360 + 8;
+  v16[17] = (char *)&xmmword_1C00502B0 + 8;
   v16[19] = &v3;
   v16[23] = L"Unused.NormalThreshold";
-  v16[24] = &xmmword_1C0076370;
+  v16[24] = &xmmword_1C00502C0;
   v16[26] = &v4;
   LODWORD(v16[8]) = 288;
   LODWORD(v16[11]) = 67108868;
@@ -80,27 +80,27 @@ void VIDMM_GLOBAL::ReadUnusedAllocationConfiguration(void)
   LODWORD(v16[27]) = 4;
   v16[28] = 0LL;
   v16[30] = L"Unused.HighThreshold";
-  v0 = &xmmword_1C0076420;
+  v0 = &xmmword_1C0050370;
   LODWORD(v16[29]) = 288;
-  v16[31] = (char *)&xmmword_1C0076370 + 8;
+  v16[31] = (char *)&xmmword_1C00502C0 + 8;
   v16[33] = &v5;
   v16[37] = L"Unused.MaximumThreshold";
-  v16[38] = &xmmword_1C0076380;
+  v16[38] = &xmmword_1C00502D0;
   v16[40] = &v6;
   v16[44] = L"Unused.SelfTrimMinimumThreshold";
-  v16[45] = (char *)&xmmword_1C0076380 + 8;
+  v16[45] = (char *)&xmmword_1C00502D0 + 8;
   v16[47] = &v7;
   v16[51] = L"Unused.SelfTrimLowThreshold";
-  v16[52] = &xmmword_1C0076390;
+  v16[52] = &xmmword_1C00502E0;
   v16[54] = &v8;
   v16[58] = L"Unused.SelfTrimNormalThreshold";
-  v16[59] = (char *)&xmmword_1C0076390 + 8;
+  v16[59] = (char *)&xmmword_1C00502E0 + 8;
   v16[61] = &v9;
   v16[65] = L"Unused.SelfTrimHighThreshold";
-  v16[66] = &xmmword_1C00763A0;
+  v16[66] = &xmmword_1C00502F0;
   v16[68] = &v10;
   v16[72] = L"Unused.SelfTrimMaximumThreshold";
-  v16[73] = (char *)&xmmword_1C00763A0 + 8;
+  v16[73] = (char *)&xmmword_1C00502F0 + 8;
   v16[75] = &v11;
   v16[79] = L"Unused.EvictApertureOfferLowThreshold";
   v16[82] = &v12;
@@ -132,20 +132,20 @@ void VIDMM_GLOBAL::ReadUnusedAllocationConfiguration(void)
   LODWORD(v16[76]) = 4;
   v16[77] = 0LL;
   LODWORD(v16[78]) = 288;
-  v16[80] = &xmmword_1C0076420;
+  v16[80] = &xmmword_1C0050370;
   LODWORD(v16[81]) = 67108868;
   LODWORD(v16[83]) = 4;
   v16[84] = 0LL;
   LODWORD(v16[85]) = 288;
   v16[86] = L"Unused.EvictApertureOfferNormalThreshold";
   LODWORD(v16[88]) = 67108868;
-  v16[87] = (char *)&xmmword_1C0076420 + 8;
+  v16[87] = (char *)&xmmword_1C0050370 + 8;
   v16[89] = &v13;
   v16[93] = L"Unused.EvictApertureOfferHighThreshold";
-  v16[94] = &xmmword_1C0076430;
+  v16[94] = &xmmword_1C0050380;
   v16[96] = &v14;
   v16[100] = L"Unused.EvictApertureOfferMaximumThreshold";
-  v16[101] = (char *)&xmmword_1C0076430 + 8;
+  v16[101] = (char *)&xmmword_1C0050380 + 8;
   LODWORD(v16[90]) = 4;
   LODWORD(v16[92]) = 288;
   LODWORD(v16[95]) = 67108868;
@@ -157,21 +157,21 @@ void VIDMM_GLOBAL::ReadUnusedAllocationConfiguration(void)
   v16[91] = 0LL;
   v16[98] = 0LL;
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", v16, 0LL, 0LL);
-  qword_1C0076358 *= 10000000LL;
-  *(_QWORD *)&xmmword_1C0076360 = 10000000 * xmmword_1C0076360;
-  *((_QWORD *)&xmmword_1C0076360 + 1) *= 10000000LL;
-  *(_QWORD *)&xmmword_1C0076370 = 10000000 * xmmword_1C0076370;
-  *((_QWORD *)&xmmword_1C0076370 + 1) *= 10000000LL;
-  *(_QWORD *)&xmmword_1C0076380 = 10000000 * xmmword_1C0076380;
-  *((_QWORD *)&xmmword_1C0076380 + 1) *= 10000000LL;
-  *(_QWORD *)&xmmword_1C0076390 = 10000000 * xmmword_1C0076390;
-  *((_QWORD *)&xmmword_1C0076390 + 1) *= 10000000LL;
-  *(_QWORD *)&xmmword_1C00763A0 = 10000000 * xmmword_1C00763A0;
-  *((_QWORD *)&xmmword_1C00763A0 + 1) *= 10000000LL;
+  qword_1C00502A8 *= 10000000LL;
+  *(_QWORD *)&xmmword_1C00502B0 = 10000000 * xmmword_1C00502B0;
+  *((_QWORD *)&xmmword_1C00502B0 + 1) *= 10000000LL;
+  *(_QWORD *)&xmmword_1C00502C0 = 10000000 * xmmword_1C00502C0;
+  *((_QWORD *)&xmmword_1C00502C0 + 1) *= 10000000LL;
+  *(_QWORD *)&xmmword_1C00502D0 = 10000000 * xmmword_1C00502D0;
+  *((_QWORD *)&xmmword_1C00502D0 + 1) *= 10000000LL;
+  *(_QWORD *)&xmmword_1C00502E0 = 10000000 * xmmword_1C00502E0;
+  *((_QWORD *)&xmmword_1C00502E0 + 1) *= 10000000LL;
+  *(_QWORD *)&xmmword_1C00502F0 = 10000000 * xmmword_1C00502F0;
+  *((_QWORD *)&xmmword_1C00502F0 + 1) *= 10000000LL;
   do
   {
     *(_QWORD *)v0 *= 10000000LL;
     v0 = (__int128 *)((char *)v0 + 8);
   }
-  while ( (__int64)v0 < (__int64)&qword_1C0076440 );
+  while ( (__int64)v0 < (__int64)&qword_1C0050390 );
 }

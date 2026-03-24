@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRtcAcknowledgeInterrupt @ 0x14051FA80
+ * XREFs of HalpRtcAcknowledgeInterrupt @ 0x1404D5920
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpRtcStop @ 0x14051FCD0 (HalpRtcStop.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpRtcStop @ 0x1404D5B60 (HalpRtcStop.c)
  */
 
 __int64 __fastcall HalpRtcAcknowledgeInterrupt(_QWORD *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall HalpRtcAcknowledgeInterrupt(_QWORD *a1)
   else
   {
     LOBYTE(a1) = 1;
-    ((void (__fastcall *)(_QWORD *))qword_140D0E128)(a1);
+    ((void (__fastcall *)(_QWORD *))qword_140CF4558)(a1);
   }
   do
     result = ((__int64 (__fastcall *)(_QWORD, __int64, char *))HalpTimerRtcApi)(0LL, 12LL, &v4);

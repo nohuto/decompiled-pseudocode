@@ -1,24 +1,24 @@
 /*
- * XREFs of ?AcquireVirtualGpuByLuid@DXGVIRTUALMACHINE@@QEAAPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAU_LUID@@@Z @ 0x1C034334C
+ * XREFs of ?AcquireVirtualGpuByLuid@DXGVIRTUALMACHINE@@QEAAPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAU_LUID@@@Z @ 0x1C00DC9E4
  * Callers:
- *     ?VmBusProcessPacket@@YAXPEAX@Z @ 0x1C0383490 (-VmBusProcessPacket@@YAXPEAX@Z.c)
+ *     ?VmBusProcessPacketCblt@@YAXPEAX@Z @ 0x1C00DA1F0 (-VmBusProcessPacketCblt@@YAXPEAX@Z.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 struct DXGK_VIRTUAL_GPU_PARAV *__fastcall DXGVIRTUALMACHINE::AcquireVirtualGpuByLuid(
         DXGVIRTUALMACHINE *this,
         struct _LUID *a2)
 {
-  volatile signed __int32 *v2; // rdi
-  _QWORD *v5; // rsi
+  char *v2; // rbp
+  _QWORD *v5; // rdi
   _QWORD **v6; // rbx
-  _QWORD *i; // rcx
-  _QWORD *v8; // rdx
+  _QWORD *i; // r8
+  _QWORD *v8; // rcx
   signed __int32 v9; // eax
   signed __int32 v10; // ett
 
-  v2 = (volatile signed __int32 *)((char *)this + 64);
+  v2 = (char *)this + 64;
   v5 = 0LL;
   DXGPUSHLOCK::AcquireShared((DXGVIRTUALMACHINE *)((char *)this + 64));
   v6 = (_QWORD **)((char *)this + 40);
@@ -27,25 +27,24 @@ struct DXGK_VIRTUAL_GPU_PARAV *__fastcall DXGVIRTUALMACHINE::AcquireVirtualGpuBy
     v8 = i - 17;
     if ( *((_BYTE *)i + 16) && *((_DWORD *)v8 + 7) == a2->LowPart && *((_DWORD *)v8 + 8) == a2->HighPart )
     {
-      if ( !*((_BYTE *)v8 + 156) )
+      if ( !*((_BYTE *)v8 + 154) )
       {
         v5 = i - 17;
-        _m_prefetchw(v8 + 46);
-        v9 = *((_DWORD *)v8 + 92);
+        _m_prefetchw(v8 + 43);
+        v9 = *((_DWORD *)v8 + 86);
         while ( v9 )
         {
           v10 = v9;
-          v9 = _InterlockedCompareExchange((volatile signed __int32 *)v8 + 92, v9 + 1, v9);
+          v9 = _InterlockedCompareExchange((volatile signed __int32 *)v8 + 86, v9 + 1, v9);
           if ( v10 == v9 )
-            goto LABEL_13;
+            goto LABEL_12;
         }
         v5 = 0LL;
       }
       break;
     }
   }
-LABEL_13:
-  _InterlockedDecrement(v2 + 4);
+LABEL_12:
   ExReleasePushLockSharedEx(v2, 0LL);
   KeLeaveCriticalRegion();
   return (struct DXGK_VIRTUAL_GPU_PARAV *)v5;

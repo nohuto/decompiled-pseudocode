@@ -1,21 +1,19 @@
 /*
- * XREFs of CmpWalkPath @ 0x1408266C8
+ * XREFs of CmpWalkPath @ 0x1407ACB30
  * Callers:
- *     CmpPreserveSystemHiveData @ 0x140A225AC (CmpPreserveSystemHiveData.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140B5C4DC (CmSelectQualifiedInstallLanguage.c)
- *     CmpGetSystemControlValues @ 0x140B5C934 (CmpGetSystemControlValues.c)
+ *     CmpPreserveSystemHiveData @ 0x1408796BC (CmpPreserveSystemHiveData.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmpWalkUnicodeStringPath @ 0x140826710 (CmpWalkUnicodeStringPath.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407ACB78 (CmpWalkUnicodeStringPath.c)
  */
 
-__int64 __fastcall CmpWalkPath(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, PCWSTR SourceString)
+__int64 __fastcall CmpWalkPath(__int64 a1, unsigned int a2, const WCHAR *a3)
 {
-  unsigned int v3; // ebx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = BugCheckParameter4;
   DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, SourceString);
-  return CmpWalkUnicodeStringPath(BugCheckParameter3, v3);
+  RtlInitUnicodeString(&DestinationString, a3);
+  return CmpWalkUnicodeStringPath(a1, a2, &DestinationString);
 }

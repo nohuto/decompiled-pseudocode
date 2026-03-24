@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C008451C
+ * XREFs of ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C009E8AC
  * Callers:
- *     NtDCompositionCreateAndBindSharedSection @ 0x1C0084460 (NtDCompositionCreateAndBindSharedSection.c)
+ *     NtDCompositionCreateAndBindSharedSection @ 0x1C009E7F0 (NtDCompositionCreateAndBindSharedSection.c)
  * Callees:
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0085EE4 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     ?InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C00866B8 (-InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00263C8 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     ?InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C009E954 (-InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::CreateAndBindSharedSection(
@@ -15,28 +15,30 @@ __int64 __fastcall DirectComposition::CApplicationChannel::CreateAndBindSharedSe
         void **a4)
 {
   unsigned __int64 v5; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  DirectComposition::CDCompMappedSharedSectionMarshaler *v10; // rdi
-  int v11; // ebx
+  DirectComposition::CDCompMappedSharedSectionMarshaler *v8; // rdi
+  int v9; // ebx
 
   v5 = (unsigned int)(a2 - 1);
-  if ( a2
-    && v5 < *((_QWORD *)this + 10)
-    && (_mm_lfence(),
-        v8 = *((_QWORD *)this + 7),
-        v9 = v5 * *((_QWORD *)this + 11),
-        (v10 = *(DirectComposition::CDCompMappedSharedSectionMarshaler **)(v9 + v8)) != 0LL)
-    && ((*(unsigned int (__fastcall **)(_QWORD))(*(_QWORD *)v10 + 8LL))(*(_QWORD *)(v9 + v8)) == 168
-     || (*(unsigned int (__fastcall **)(DirectComposition::CDCompMappedSharedSectionMarshaler *))(*(_QWORD *)v10 + 8LL))(v10) == 46) )
+  if ( a2 && v5 < *((_QWORD *)this + 10) )
   {
-    v11 = DirectComposition::CDCompMappedSharedSectionMarshaler::InitializeSection(v10, a3, a4);
-    if ( v11 >= 0 )
-      DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v10);
+    _mm_lfence();
+    v8 = *(DirectComposition::CDCompMappedSharedSectionMarshaler **)(v5 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v8 = 0LL;
+  }
+  if ( v8
+    && ((*(unsigned int (__fastcall **)(DirectComposition::CDCompMappedSharedSectionMarshaler *))(*(_QWORD *)v8 + 8LL))(v8) == 169
+     || (*(unsigned int (__fastcall **)(DirectComposition::CDCompMappedSharedSectionMarshaler *))(*(_QWORD *)v8 + 8LL))(v8) == 46) )
+  {
+    v9 = DirectComposition::CDCompMappedSharedSectionMarshaler::InitializeSection(v8, a3, a4);
+    if ( v9 >= 0 )
+      DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v8);
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return (unsigned int)v11;
+  return (unsigned int)v9;
 }

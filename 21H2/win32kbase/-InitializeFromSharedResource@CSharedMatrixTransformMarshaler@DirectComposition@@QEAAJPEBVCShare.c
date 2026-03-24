@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeFromSharedResource@CSharedMatrixTransformMarshaler@DirectComposition@@QEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C0239494
+ * XREFs of ?InitializeFromSharedResource@CSharedMatrixTransformMarshaler@DirectComposition@@QEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C01F8804
  * Callers:
- *     ?Create@CSharedMatrixTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0239270 (-Create@CSharedMatrixTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEA.c)
+ *     ?Create@CSharedMatrixTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F86D8 (-Create@CSharedMatrixTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEA.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ NTSTATUS __fastcall DirectComposition::CSharedMatrixTransformMarshaler::Initiali
 {
   NTSTATUS result; // eax
 
-  *((_DWORD *)this + 20) = 1065353216;
-  *((_DWORD *)this + 23) = 1065353216;
+  *((_DWORD *)this + 18) = 1065353216;
+  *((_DWORD *)this + 21) = 1065353216;
   result = ObReferenceObjectByPointer((char *)a2 - 24, 3u, ExCompositionObjectType, 0);
   if ( result >= 0 )
-    *((_QWORD *)this + 13) = a2;
+    *((_QWORD *)this + 12) = a2;
   return result;
 }

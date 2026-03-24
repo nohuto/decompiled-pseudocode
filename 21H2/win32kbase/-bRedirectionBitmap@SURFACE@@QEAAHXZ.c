@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C00826C8
+ * XREFs of ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C0079A08
  * Callers:
- *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C0082504 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
+ *     ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C00797E4 (-bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z.c)
  * Callees:
  *     <none>
  */

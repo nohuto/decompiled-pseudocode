@@ -1,22 +1,23 @@
 /*
- * XREFs of ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E75E
+ * XREFs of ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0141070
  * Callers:
- *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C015E01A (-vAddEndCap@WIDENER@@IEAAXXZ.c)
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F21F8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
- *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02F2418 (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C013EF20 (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C01409F0 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CEC3C (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
- *     ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02F33DC (-vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C01410FC (-vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
  */
 
 _QWORD *__fastcall WIDENER::vecInPerp(WIDENER *a1, _QWORD *a2)
 {
-  struct LINEDATA *v4; // rdx
-  _QWORD *result; // rax
+  __int64 v4; // rdx
 
-  v4 = (struct LINEDATA *)*((_QWORD *)a1 + 88);
+  v4 = *((_QWORD *)a1 + 88);
   if ( (*(_DWORD *)v4 & 4) == 0 )
-    WIDENER::vVecPerpCompute(a1, v4);
-  result = a2;
-  *a2 = *(_QWORD *)(*((_QWORD *)a1 + 88) + 64LL);
-  return result;
+  {
+    WIDENER::vVecPerpCompute(a1, (struct LINEDATA *)v4);
+    v4 = *((_QWORD *)a1 + 88);
+  }
+  *a2 = *(_QWORD *)(v4 + 64);
+  return a2;
 }

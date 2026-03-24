@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C007EEC0
+ * XREFs of ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C006C050
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C007EDB4 (--1CFlipResourceState@@MEAA@XZ.c)
+ *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C006BF5C (--1CFlipResourceState@@MEAA@XZ.c)
  */
 
 CFlipResourceState *__fastcall CFlipResourceState::`vector deleting destructor'(CFlipResourceState *P, char a2)

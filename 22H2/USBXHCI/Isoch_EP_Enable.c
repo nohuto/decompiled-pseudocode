@@ -1,9 +1,9 @@
 /*
- * XREFs of Isoch_EP_Enable @ 0x1C0001DD0
+ * XREFs of Isoch_EP_Enable @ 0x1C0001E70
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C0007CC0 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
  */
 
 __int64 __fastcall Isoch_EP_Enable(__int64 a1)
@@ -14,12 +14,12 @@ __int64 __fastcall Isoch_EP_Enable(__int64 a1)
   {
     v2 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
     LOBYTE(v2) = 4;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
       v2,
       14,
       13,
-      (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+      (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL));
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C0151912
+ * XREFs of ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C01E3D10
  * Callers:
- *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00D1BD4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
- *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00D1C18 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
- *     ScaleDpiOffsetWithSubpixel @ 0x1C01BA068 (ScaleDpiOffsetWithSubpixel.c)
- *     ScaleDpiValueWithSubpixel @ 0x1C01BA0E8 (ScaleDpiValueWithSubpixel.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00F14BC (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00F1500 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ *     ScaleDpiOffsetWithSubpixel @ 0x1C01E588C (ScaleDpiOffsetWithSubpixel.c)
+ *     ScaleDpiValueWithSubpixel @ 0x1C01E590C (ScaleDpiValueWithSubpixel.c)
  * Callees:
  *     <none>
  */

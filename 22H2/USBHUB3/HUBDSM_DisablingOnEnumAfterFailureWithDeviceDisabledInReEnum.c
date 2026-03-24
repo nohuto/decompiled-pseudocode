@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DisablingOnEnumAfterFailureWithDeviceDisabledInReEnum @ 0x1C0023890
+ * XREFs of HUBDSM_DisablingOnEnumAfterFailureWithDeviceDisabledInReEnum @ 0x1C00210B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingOnEnumAfterFailureWithDeviceDisabledInReEnum(__int64 a1)

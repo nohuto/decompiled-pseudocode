@@ -1,10 +1,10 @@
 /*
- * XREFs of FopFreeMappingTable @ 0x140AED2AC
+ * XREFs of FopFreeMappingTable @ 0x1409F4308
  * Callers:
- *     FopFreeFontData @ 0x140AED2D8 (FopFreeFontData.c)
- *     FopReadMappingTable @ 0x140B9DAAC (FopReadMappingTable.c)
+ *     FopFreeFontData @ 0x1409F4294 (FopFreeFontData.c)
+ *     FopReadMappingTable @ 0x140A96050 (FopReadMappingTable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
  */
 
 void __fastcall FopFreeMappingTable(__int64 a1)

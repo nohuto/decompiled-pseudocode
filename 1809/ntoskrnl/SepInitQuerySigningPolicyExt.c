@@ -1,11 +1,11 @@
 /*
- * XREFs of SepInitQuerySigningPolicyExt @ 0x140763B10
+ * XREFs of SepInitQuerySigningPolicyExt @ 0x140763AF0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     RtlCheckRegistryKey @ 0x1406C7680 (RtlCheckRegistryKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     RtlCheckRegistryKey @ 0x1406C7660 (RtlCheckRegistryKey.c)
  */
 
 __int64 __fastcall SepInitQuerySigningPolicyExt(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
@@ -28,11 +28,11 @@ __int64 __fastcall SepInitQuerySigningPolicyExt(PRTL_RUN_ONCE a1, PVOID a2, PVOI
       SeFailIfExtensionNotSupported = 1;
       return 1;
     }
-    if ( !qword_1404DC690 )
+    if ( !qword_1404DC688 )
       return 1;
-    v6 = *(_QWORD *)((char *)qword_1404DC690 + 4) - 0x4754D8390CDAD82ELL;
-    if ( *(_QWORD *)((char *)qword_1404DC690 + 4) == 0x4754D8390CDAD82ELL )
-      v6 = *(_QWORD *)((char *)qword_1404DC690 + 12) - 0x2B3182B24A84A189LL;
+    v6 = *(_QWORD *)((char *)qword_1404DC688 + 4) - 0x4754D8390CDAD82ELL;
+    if ( *(_QWORD *)((char *)qword_1404DC688 + 4) == 0x4754D8390CDAD82ELL )
+      v6 = *(_QWORD *)((char *)qword_1404DC688 + 12) - 0x2B3182B24A84A189LL;
     if ( v6 || RtlCheckRegistryKey(2u, (PWSTR)L"SecureBoot\\AllowSigningPolicyExtension") < 0 )
       return 1;
 LABEL_3:

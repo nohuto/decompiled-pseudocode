@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C00A21E0
+ * XREFs of ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C008142C
  * Callers:
- *     ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C00B2DD0 (-eqLength@EFLOAT@@QEAA-AV1@AEBVPOINTFL@@@Z.c)
+ *     ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C0094520 (-eqLength@EFLOAT@@QEAA-AV1@AEBVPOINTFL@@@Z.c)
  * Callees:
  *     <none>
  */

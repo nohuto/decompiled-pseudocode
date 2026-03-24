@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiDeviceResetMarkDeviceRemoved @ 0x1C0023C24
+ * XREFs of AcpiDeviceResetMarkDeviceRemoved @ 0x1C0052AEC
  * Callers:
- *     ACPIBusAndFilterIrpQueryPnpDeviceState @ 0x1C007DF20 (ACPIBusAndFilterIrpQueryPnpDeviceState.c)
+ *     ACPIBusAndFilterIrpQueryPnpDeviceState @ 0x1C009E770 (ACPIBusAndFilterIrpQueryPnpDeviceState.c)
  * Callees:
  *     <none>
  */
@@ -17,13 +17,13 @@ char __fastcall AcpiDeviceResetMarkDeviceRemoved(__int64 a1)
 
   v2 = 1;
   v3 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-  v4 = (_QWORD **)(*(_QWORD *)(*(_QWORD *)(a1 + 952) + 72LL) + 48LL);
+  v4 = (_QWORD **)(*(_QWORD *)(*(_QWORD *)(a1 + 912) + 72LL) + 48LL);
   v5 = *v4;
   while ( v5 != v4 )
   {
     v6 = *(v5 - 1);
     v5 = (_QWORD *)*v5;
-    v7 = *(_QWORD *)(v6 + 784);
+    v7 = *(_QWORD *)(v6 + 744);
     if ( v7 && (*(_DWORD *)(v7 + 48) & 0x4000000) == 0 )
     {
       v2 = 0;

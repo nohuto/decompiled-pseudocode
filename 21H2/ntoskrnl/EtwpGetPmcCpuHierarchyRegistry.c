@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpGetPmcCpuHierarchyRegistry @ 0x1409E10D8
+ * XREFs of EtwpGetPmcCpuHierarchyRegistry @ 0x14093A464
  * Callers:
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E0DC0 (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E1200 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x14093A150 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A58C (EtwpLoadMicroarchitecturalProfileGroup.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall EtwpGetPmcCpuHierarchyRegistry(const WCHAR *a1, _DWORD *a2, __int64 a3)
@@ -58,5 +58,5 @@ __int64 __fastcall EtwpGetPmcCpuHierarchyRegistry(const WCHAR *a1, _DWORD *a2, _
   LODWORD(v18[25]) = 4;
   v16 = 4;
   v17 = a2;
-  return RtlpQueryRegistryValues(0x40000000, a1, (__int64)v18, 0LL);
+  return RtlpQueryRegistryValues(0x40000000LL, a1, (__int64)v18, 0LL);
 }

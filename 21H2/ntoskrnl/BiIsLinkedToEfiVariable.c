@@ -1,9 +1,9 @@
 /*
- * XREFs of BiIsLinkedToEfiVariable @ 0x140A20648
+ * XREFs of BiIsLinkedToEfiVariable @ 0x1409726E0
  * Callers:
- *     BiIsLinkedToFirmwareVariable @ 0x140803438 (BiIsLinkedToFirmwareVariable.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x1407849A8 (BiIsLinkedToFirmwareVariable.c)
  * Callees:
- *     BiGetObjectDescription @ 0x140800ADC (BiGetObjectDescription.c)
+ *     BiGetObjectDescription @ 0x140781FD8 (BiGetObjectDescription.c)
  */
 
 bool __fastcall BiIsLinkedToEfiVariable(__int64 a1, int *a2)

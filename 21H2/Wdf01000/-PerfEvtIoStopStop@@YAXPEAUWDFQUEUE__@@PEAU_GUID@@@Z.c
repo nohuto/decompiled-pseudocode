@@ -1,28 +1,33 @@
 /*
- * XREFs of ?PerfEvtIoStopStop@@YAXPEAUWDFQUEUE__@@PEAU_GUID@@@Z @ 0x1C0061974
+ * XREFs of ?PerfEvtIoStopStop@@YAXPEAUWDFQUEUE__@@PEAU_GUID@@@Z @ 0x1C0043F78
  * Callers:
- *     VfEvtIoStop @ 0x1C00C6AD0 (VfEvtIoStop.c)
+ *     VfEvtIoStop @ 0x1C00C59F0 (VfEvtIoStop.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0061A00 (McTemplateK0pp_EtwWriteTransfer.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C002E6B8 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0044000 (McTemplateK0pp_EtwWriteTransfer.c)
  */
 
-void __fastcall PerfEvtIoStopStop(unsigned __int64 Queue, _GUID *pActivityId)
+void __fastcall PerfEvtIoStopStop(WDFQUEUE__ *Queue, _GUID *pActivityId)
 {
-  unsigned __int16 *v3; // r8
-  _FX_DRIVER_GLOBALS *v4; // rbx
+  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  unsigned __int64 v4; // rcx
   const void *Context; // rax
   _MCGEN_TRACE_CONTEXT *v6; // rcx
-  FxIoQueue *pQueue; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int16 offset; // [rsp+50h] [rbp+18h] BYREF
+  FxIoQueue *pQueue; // [rsp+58h] [rbp+20h] BYREF
 
+  offset = 0;
   pQueue = 0LL;
-  v3 = (unsigned __int16 *)(~Queue & 0xFFFFFFFFFFFFFFF8uLL);
-  if ( (Queue & 1) != 0 )
-    v3 = (unsigned __int16 *)((char *)v3 - *v3);
-  v4 = (_FX_DRIVER_GLOBALS *)*((_QWORD *)v3 + 2);
-  FxObjectHandleGetPtr(v4, Queue, 0x1003u, (void **)&pQueue);
+  m_Globals = FxObject::_GetObjectFromHandle((unsigned __int64)Queue, &offset)->m_Globals;
+  FxObjectHandleGetPtr(m_Globals, v4, 0x1003u, (void **)&pQueue);
   Context = (const void *)FxObject::GetObjectHandleUnchecked(pQueue->m_DeviceBase);
-  if ( ((__int64)WPP_GLOBAL_WDF_Control.Queue.Wcb.BufferChainingDpc & 1) != 0 )
-    McTemplateK0pp_EtwWriteTransfer(v6, &FX_EVTIOSTOP_STOP, pActivityId, v4->Driver->m_DriverDeviceAdd.Method, Context);
+  if ( ((__int64)WPP_GLOBAL_WDF_Control.Queue.ListEntry.Flink & 1) != 0 )
+    McTemplateK0pp_EtwWriteTransfer(
+      v6,
+      &FX_EVTIOSTOP_STOP,
+      pActivityId,
+      m_Globals->Driver->m_DriverDeviceAdd.Method,
+      Context);
 }

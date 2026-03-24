@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLocateRelatedBlocks @ 0x1405B5194
+ * XREFs of RtlpLocateRelatedBlocks @ 0x1405938FC
  * Callers:
- *     RtlpHpHeapHandleError @ 0x1405B5104 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x14059386C (RtlpHpHeapHandleError.c)
  * Callees:
  *     <none>
  */
@@ -24,22 +24,21 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
   int v17; // edx
   int v18; // eax
   unsigned __int16 v19; // ax
-  unsigned __int64 v20; // rcx
-  unsigned __int16 v21; // dx
+  unsigned __int64 j; // rcx
+  unsigned __int16 v21; // ax
   int v22; // ecx
   unsigned __int16 v23; // r10
-  int v24; // ecx
-  int v25; // eax
-  unsigned __int16 v26; // ax
-  __int64 v27; // rdx
-  int v28; // ecx
-  unsigned __int16 v29; // ax
-  int v30; // ecx
-  int v31; // [rsp+8h] [rbp-50h]
-  int v32; // [rsp+18h] [rbp-40h]
-  int v33; // [rsp+28h] [rbp-30h]
-  int v34; // [rsp+38h] [rbp-20h]
-  int v35; // [rsp+48h] [rbp-10h]
+  int v24; // eax
+  unsigned __int16 v25; // cx
+  __int64 v26; // rdx
+  int v27; // ecx
+  unsigned __int16 v28; // ax
+  int v29; // ecx
+  int v30; // [rsp+8h] [rbp-48h]
+  int v31; // [rsp+18h] [rbp-38h]
+  int v32; // [rsp+28h] [rbp-28h]
+  int v33; // [rsp+38h] [rbp-18h]
+  int v34; // [rsp+48h] [rbp-8h]
 
   v4 = (__int64 *)(a1 + 288);
   for ( result = *v4; ; result = *(_QWORD *)result )
@@ -50,7 +49,7 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
       for ( i = *v7; (unsigned __int64 *)i != v7; i = *(_QWORD *)i )
       {
         if ( (i & 0xFFFFFFFFFFFF0000uLL) <= a2 && *(_QWORD *)(i + 40) + (i & 0xFFFFFFFFFFFF0000uLL) > a2 )
-          dword_140C0C278 = 5;
+          dword_140C11918 = 5;
       }
       return result;
     }
@@ -86,10 +85,10 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
       {
         v18 = *(_DWORD *)(v11 + 8);
         v17 = *(_DWORD *)(a1 + 124);
-        LOWORD(v31) = v18;
+        LOWORD(v30) = v18;
         if ( (v17 & v18) != 0 )
-          v31 = *(_DWORD *)(a1 + 136) ^ v18;
-        v19 = v31;
+          v30 = *(_DWORD *)(a1 + 136) ^ v18;
+        v19 = v30;
       }
       else
       {
@@ -101,30 +100,24 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
     }
     while ( v11 < a2 );
   }
-  v20 = (unsigned __int64)(v12 - 2);
-  if ( (unsigned __int64)(v12 - 2) > a2 )
+  for ( j = (unsigned __int64)(v12 - 2); j > a2; j += -16LL * v21 )
   {
-    v21 = *(_WORD *)(a1 + 140);
-    do
-    {
-      v15 = v20;
-      if ( *(_WORD *)(v20 + 12) == v21 )
-        break;
-      v20 += -16LL * (unsigned __int16)(*(_WORD *)(v20 + 12) ^ v21);
-    }
-    while ( v20 > a2 );
+    v15 = j;
+    v21 = *(_WORD *)(a1 + 140) ^ *(_WORD *)(j + 12);
+    if ( !v21 )
+      break;
   }
-  qword_140C0C2A8 = v16;
-  qword_140C0C2B0 = v15;
+  qword_140C11948 = v16;
+  qword_140C11950 = v15;
   if ( !v16 || !v15 )
-    goto LABEL_41;
+    goto LABEL_70;
   if ( *(_DWORD *)(a1 + 124) )
   {
     v22 = *(_DWORD *)(v16 + 8);
-    LOWORD(v32) = v22;
+    LOWORD(v31) = v22;
     if ( (v22 & *(_DWORD *)(a1 + 124)) != 0 )
-      v32 = *(_DWORD *)(a1 + 136) ^ v22;
-    v23 = v32;
+      v31 = *(_DWORD *)(a1 + 136) ^ v22;
+    v23 = v31;
   }
   else
   {
@@ -133,69 +126,69 @@ __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
   result = v16 + 16LL * v23;
   if ( result != v15 - 16 * (*(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(v15 + 12)) )
   {
-    dword_140C0C278 = 4;
+    dword_140C11918 = 4;
   }
   else
   {
-LABEL_41:
-    v24 = *(_DWORD *)(a1 + 124);
-    if ( v24 )
+LABEL_70:
+    if ( *(_DWORD *)(a1 + 124) )
     {
-      v25 = *(_DWORD *)(v16 + 8);
+      v32 = *(_DWORD *)(v16 + 8);
       v24 = *(_DWORD *)(a1 + 124);
-      LOWORD(v33) = v25;
-      if ( (v24 & v25) != 0 )
-        v33 = *(_DWORD *)(a1 + 136) ^ v25;
-      v26 = v33;
+      if ( (v24 & v32) != 0 )
+        v32 ^= *(_DWORD *)(a1 + 136);
+      v25 = v32;
     }
     else
     {
-      v26 = *(_WORD *)(v16 + 8);
+      v25 = *(_WORD *)(v16 + 8);
+      v24 = 0;
     }
-    v27 = 2LL * v26;
+    v26 = 2LL * v25;
     if ( v15 )
     {
-      qword_140C0C2B8 = *(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(v15 + 12);
+      qword_140C11958 = *(unsigned __int16 *)(a1 + 140) ^ (unsigned __int64)*(unsigned __int16 *)(v15 + 12);
       v24 = *(_DWORD *)(a1 + 124);
     }
     if ( v16 )
     {
       if ( v24 )
       {
-        v28 = *(_DWORD *)(v16 + 8);
-        LOWORD(v34) = v28;
-        if ( (v28 & *(_DWORD *)(a1 + 124)) != 0 )
-          v34 = *(_DWORD *)(a1 + 136) ^ v28;
-        v29 = v34;
+        v27 = *(_DWORD *)(v16 + 8);
+        LOWORD(v33) = v27;
+        if ( (v27 & *(_DWORD *)(a1 + 124)) != 0 )
+          v33 = *(_DWORD *)(a1 + 136) ^ v27;
+        v28 = v33;
       }
       else
       {
-        v29 = *(_WORD *)(v16 + 8);
+        v28 = *(_WORD *)(v16 + 8);
       }
-      qword_140C0C2C0 = v29;
+      qword_140C11960 = v28;
+      v24 = *(_DWORD *)(a1 + 124);
     }
-    if ( *(_DWORD *)(a1 + 124) )
+    if ( v24 )
     {
-      v30 = *(_DWORD *)(v16 + 8 * v27 + 8);
-      LOWORD(v35) = v30;
-      if ( (v30 & *(_DWORD *)(a1 + 124)) != 0 )
-        v35 = *(_DWORD *)(a1 + 136) ^ v30;
-      LOWORD(result) = v35;
+      v29 = *(_DWORD *)(v16 + 8 * v26 + 8);
+      LOWORD(v34) = v29;
+      if ( (v29 & *(_DWORD *)(a1 + 124)) != 0 )
+        v34 = *(_DWORD *)(a1 + 136) ^ v29;
+      LOWORD(result) = v34;
     }
     else
     {
-      LOWORD(result) = *(_WORD *)(v16 + 8 * v27 + 8);
+      LOWORD(result) = *(_WORD *)(v16 + 8 * v26 + 8);
     }
     result = (unsigned __int16)result;
-    if ( qword_140C0C2B8 == (unsigned __int16)result )
+    if ( qword_140C11958 == (unsigned __int16)result )
     {
       result = *(unsigned __int16 *)(a1 + 140);
-      if ( qword_140C0C2C0 != (result ^ *(unsigned __int16 *)(v16 + 8 * v27 + 12)) )
-        dword_140C0C278 = 7;
+      if ( qword_140C11960 != (result ^ *(unsigned __int16 *)(v16 + 8 * v26 + 12)) )
+        dword_140C11918 = 7;
     }
     else
     {
-      dword_140C0C278 = 6;
+      dword_140C11918 = 6;
     }
   }
   return result;

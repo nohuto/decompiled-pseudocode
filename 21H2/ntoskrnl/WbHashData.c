@@ -1,20 +1,20 @@
 /*
- * XREFs of WbHashData @ 0x1407E20B8
+ * XREFs of WbHashData @ 0x140687B80
  * Callers:
- *     sub_1407E2020 @ 0x1407E2020 (sub_1407E2020.c)
+ *     sub_140687AE4 @ 0x140687AE4 (sub_140687AE4.c)
  * Callees:
- *     BCryptGetProperty @ 0x1407E21D4 (BCryptGetProperty.c)
- *     BCryptDestroyHash @ 0x1407E2260 (BCryptDestroyHash.c)
- *     BCryptFinishHash @ 0x1407E22B4 (BCryptFinishHash.c)
- *     BCryptCreateHash @ 0x1407E2328 (BCryptCreateHash.c)
- *     BCryptHashData @ 0x1407E23BC (BCryptHashData.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
+ *     BCryptGetProperty @ 0x140687C9C (BCryptGetProperty.c)
+ *     BCryptDestroyHash @ 0x140687D28 (BCryptDestroyHash.c)
+ *     BCryptFinishHash @ 0x140687D7C (BCryptFinishHash.c)
+ *     BCryptCreateHash @ 0x140687DF0 (BCryptCreateHash.c)
+ *     BCryptHashData @ 0x140687E84 (BCryptHashData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD *a4)
 {
-  NTSTATUS Property; // ebx
+  int Property; // ebx
   ULONG v9; // r9d
   ULONG v10; // r9d
   ULONG v11; // r9d
@@ -32,10 +32,10 @@ __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD 
   v21[0] = 0LL;
   *(_DWORD *)pbOutput = 0;
   v19 = 0;
-  if ( *(__int64 *)((char *)&qword_140C5A704 + 4) )
+  if ( *(__int64 *)((char *)&qword_140C53DC4 + 4) )
   {
     Property = BCryptCreateHash(
-                 *(BCRYPT_ALG_HANDLE *)((char *)&qword_140C5A704 + 4),
+                 *(BCRYPT_ALG_HANDLE *)((char *)&qword_140C53DC4 + 4),
                  &phHash,
                  0LL,
                  0,
@@ -45,7 +45,7 @@ __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD 
     if ( Property >= 0 )
     {
       Property = BCryptGetProperty(
-                   *(BCRYPT_HANDLE *)((char *)&qword_140C5A704 + 4),
+                   *(BCRYPT_HANDLE *)((char *)&qword_140C53DC4 + 4),
                    L"HashDigestLength",
                    pbOutput,
                    v9,
@@ -74,7 +74,7 @@ __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD 
           }
         }
         if ( v12 )
-          ExFreePoolWithTag(v12, 0);
+          ExFreePoolWithTag(v12, 0x42524157u);
       }
     }
     if ( phHash )

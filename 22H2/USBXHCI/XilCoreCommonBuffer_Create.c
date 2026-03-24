@@ -1,12 +1,12 @@
 /*
- * XREFs of XilCoreCommonBuffer_Create @ 0x1C001BECC
+ * XREFs of XilCoreCommonBuffer_Create @ 0x1C0015D00
  * Callers:
- *     CommonBuffer_Create @ 0x1C0072F6C (CommonBuffer_Create.c)
+ *     CommonBuffer_Create @ 0x1C006E368 (CommonBuffer_Create.c)
  * Callees:
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A54 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  */
 
-void __fastcall XilCoreCommonBuffer_Create(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall XilCoreCommonBuffer_Create(__int64 a1, __int64 a2, __int64 a3)
 {
   *(_QWORD *)(a3 + 8) = a1;
   *(_QWORD *)a3 = a2;
@@ -29,7 +29,7 @@ void __fastcall XilCoreCommonBuffer_Create(__int64 a1, __int64 a2, __int64 a3)
   *(_DWORD *)(a3 + 44) = 4;
   *(_DWORD *)(a3 + 48) = 8;
   *(_DWORD *)(a3 + 52) = 16;
-  XilCoreCommonBuffer_AllocateBuffers((__int64 **)a3, a3 + 32, 8);
+  XilCoreCommonBuffer_AllocateBuffers(a3, a3 + 32, 8LL);
   *(_DWORD *)(a3 + 96) = 4096;
   *(_QWORD *)(a3 + 136) = a3 + 128;
   *(_QWORD *)(a3 + 128) = a3 + 128;
@@ -40,5 +40,5 @@ void __fastcall XilCoreCommonBuffer_Create(__int64 a1, __int64 a2, __int64 a3)
   *(_DWORD *)(a3 + 108) = 1;
   *(_DWORD *)(a3 + 112) = 1;
   *(_DWORD *)(a3 + 116) = 2;
-  XilCoreCommonBuffer_AllocateBuffers((__int64 **)a3, a3 + 96, 4);
+  return XilCoreCommonBuffer_AllocateBuffers(a3, a3 + 96, 4LL);
 }

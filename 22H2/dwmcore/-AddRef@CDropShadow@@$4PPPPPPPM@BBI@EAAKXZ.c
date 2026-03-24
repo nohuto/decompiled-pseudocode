@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CDropShadow@@$4PPPPPPPM@BBI@EAAKXZ @ 0x18011DE40
+ * XREFs of ?AddRef@CDropShadow@@$4PPPPPPPM@BBI@EAAKXZ @ 0x1800F5D90
  * Callers:
  *     <none>
  * Callees:

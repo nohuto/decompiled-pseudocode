@@ -3,10 +3,10 @@
  * Callers:
  *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
  *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66C8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     SeValidateSecurityQos @ 0x14064A558 (SeValidateSecurityQos.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     SeValidateSecurityQos @ 0x14064A538 (SeValidateSecurityQos.c)
  */
 
 __int64 __fastcall AlpcpValidateAndSetPortAttributes(

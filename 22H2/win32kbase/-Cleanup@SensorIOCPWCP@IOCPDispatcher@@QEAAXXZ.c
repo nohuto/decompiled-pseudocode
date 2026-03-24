@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ @ 0x1C0084EDC
+ * XREFs of ?Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ @ 0x1C00A935C
  * Callers:
- *     ?HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C005779C (-HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
- *     ?CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ @ 0x1C0084E8C (-CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ.c)
+ *     ?HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C00A4C88 (-HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
+ *     ?CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ @ 0x1C00A930C (-CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

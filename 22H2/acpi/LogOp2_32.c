@@ -1,298 +1,288 @@
 /*
- * XREFs of LogOp2_32 @ 0x1C0057348
+ * XREFs of LogOp2_32 @ 0x1C0002198
  * Callers:
- *     LogOp2 @ 0x1C00572F0 (LogOp2.c)
+ *     LogOp2 @ 0x1C0009AD0 (LogOp2.c)
  * Callees:
- *     memcmp @ 0x1C0001C50 (memcmp.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memcmp @ 0x1C00320A0 (memcmp.c)
  */
 
 __int64 __fastcall LogOp2_32(__int64 a1, _QWORD *a2)
 {
-  int v2; // ebx
-  __int64 v5; // r9
-  int v6; // edi
-  __int16 v7; // cx
-  _WORD *v8; // rax
-  unsigned int v9; // eax
-  unsigned int v10; // r9d
-  __int64 v11; // rax
-  unsigned int v12; // edx
-  bool v13; // zf
-  bool v14; // zf
-  unsigned int v15; // r14d
-  unsigned int v16; // ebp
-  size_t v17; // r8
-  int v18; // eax
-  __int64 v19; // rcx
-  __int16 v20; // dx
-  _WORD *v21; // rax
-  unsigned int v22; // eax
-  int v23; // r9d
-  __int64 v24; // rax
+  __int64 v2; // r8
+  int v3; // edi
+  unsigned int v4; // ebx
+  __int64 v7; // rcx
+  __int16 v8; // ax
+  unsigned int v9; // ebp
+  unsigned int v10; // ebx
+  size_t v11; // r8
+  const void *v12; // rdx
+  const void *v13; // rcx
+  int v14; // eax
+  bool v15; // cc
+  bool v16; // zf
+  __int64 v18; // r9
+  __int16 v19; // ax
+  unsigned int v20; // eax
+  int v21; // eax
+  __int64 v22; // rcx
+  unsigned int v23; // ebx
+  unsigned int v24; // eax
   unsigned int v25; // edx
-  bool v26; // zf
-  bool v27; // sf
-  bool v28; // zf
-  unsigned int v29; // r14d
-  unsigned int v30; // ebp
-  size_t v31; // r8
-  const void *v32; // rdx
-  const void *v33; // rcx
-  int v34; // eax
-  __int64 v35; // rcx
-  __int16 v36; // dx
-  _WORD *v37; // rax
-  bool v38; // zf
-  unsigned __int8 *v39; // rax
-  __int64 v40; // r8
-  int v41; // edx
-  int v42; // ecx
-  unsigned int v43; // r14d
-  unsigned int v44; // ebp
-  size_t v45; // r8
-  const void *v46; // rdx
-  const void *v47; // rcx
-  int v48; // eax
-  int v49; // r9d
-  __int64 v50; // rax
-  __int64 v51; // rax
+  bool v26; // cc
+  unsigned int v27; // ebp
+  unsigned int v28; // ebx
+  size_t v29; // r8
+  int v30; // eax
+  bool v31; // cc
+  __int64 v32; // rcx
+  __int16 v33; // ax
+  unsigned int v34; // eax
+  int v35; // eax
+  __int64 v36; // rcx
+  unsigned int v37; // edx
+  unsigned int v38; // r8d
+  bool v39; // cc
+  unsigned int v40; // ebp
+  unsigned int v41; // ebx
+  size_t v42; // r8
+  const void *v43; // rdx
+  const void *v44; // rcx
+  unsigned __int8 *v45; // rax
+  __int64 v46; // r8
+  int v47; // edx
+  int v48; // ecx
+  __int64 v49; // rax
 
-  v2 = 0;
-  LOBYTE(v5) = 0;
-  v6 = 0;
-  switch ( *(_DWORD *)(a2[7] + 8LL) )
+  v2 = a2[7];
+  v3 = 0;
+  LOBYTE(v4) = 0;
+  if ( *(_DWORD *)(v2 + 8) == 144 )
   {
-    case 0x90:
-      v6 = ValidateArgTypes(a1, a2[10], 1, "II");
-      if ( v6 < 0 )
-        return (unsigned int)v6;
-      v51 = a2[10];
-      if ( *(_DWORD *)(v51 + 16) )
+    LOBYTE(v2) = 1;
+    v3 = ValidateArgTypes(a1, a2[10], v2, "II");
+    if ( v3 < 0 )
+      return (unsigned int)v3;
+    v49 = a2[10];
+    if ( !*(_DWORD *)(v49 + 16) )
+      goto LABEL_15;
+LABEL_92:
+    if ( !*(_DWORD *)(v49 + 56) )
+      goto LABEL_15;
+LABEL_93:
+    LOBYTE(v4) = 1;
+    goto LABEL_15;
+  }
+  if ( *(_DWORD *)(v2 + 8) == 145 )
+  {
+    LOBYTE(v2) = 1;
+    v3 = ValidateArgTypes(a1, a2[10], v2, "II");
+    if ( v3 < 0 )
+      return (unsigned int)v3;
+    v49 = a2[10];
+    if ( *(_DWORD *)(v49 + 16) )
+      goto LABEL_93;
+    goto LABEL_92;
+  }
+  if ( *(_DWORD *)(v2 + 8) != 147 )
+  {
+    if ( *(_DWORD *)(v2 + 8) == 148 )
+    {
+      LOBYTE(v2) = 1;
+      v3 = ValidateArgTypes(a1, a2[10], v2, "DD");
+      if ( v3 < 0 )
+        return (unsigned int)v3;
+      v32 = a2[10];
+      v33 = *(_WORD *)(v32 + 2);
+      if ( v33 != 1 )
       {
-        LOBYTE(v5) = 1;
-        if ( *(_DWORD *)(v51 + 56) )
-          break;
-      }
-      goto LABEL_87;
-    case 0x91:
-      v6 = ValidateArgTypes(a1, a2[10], 1, "II");
-      if ( v6 < 0 )
-        return (unsigned int)v6;
-      v50 = a2[10];
-      if ( *(_DWORD *)(v50 + 16) || *(_DWORD *)(v50 + 56) )
-      {
-        LOBYTE(v5) = 1;
-        break;
-      }
-LABEL_87:
-      LOBYTE(v5) = 0;
-      break;
-    case 0x93:
-      v6 = ValidateArgTypes(a1, a2[10], 1, "DD");
-      if ( v6 < 0 )
-        return (unsigned int)v6;
-      v35 = a2[10];
-      v36 = *(_WORD *)(v35 + 2);
-      v37 = (_WORD *)(v35 + 42);
-      if ( v36 == 1 && *v37 == 1 )
-      {
-        v38 = *(_DWORD *)(v35 + 16) == *(_DWORD *)(v35 + 56);
-      }
-      else if ( v36 == 2 )
-      {
-        if ( *v37 != 2 )
-          goto LABEL_57;
-        v39 = *(unsigned __int8 **)(v35 + 32);
-        v40 = *(_QWORD *)(v35 + 72) - (_QWORD)v39;
-        do
+        if ( v33 == 2 )
         {
-          v41 = v39[v40];
-          v42 = *v39 - v41;
-          if ( v42 )
-            break;
-          ++v39;
-        }
-        while ( v41 );
-        v38 = v42 == 0;
-      }
-      else
-      {
-        if ( v36 != 3 || *v37 != 3 )
-          goto LABEL_57;
-        v43 = *(_DWORD *)(v35 + 24);
-        v44 = *(_DWORD *)(v35 + 64);
-        v45 = v44;
-        v46 = *(const void **)(v35 + 72);
-        v47 = *(const void **)(v35 + 32);
-        if ( v43 <= v44 )
-          v45 = v43;
-        v48 = memcmp(v47, v46, v45);
-        v49 = v48;
-        if ( v43 >= v44 )
-        {
-          if ( v43 > v44 && !v48 )
-            v49 = 1;
-        }
-        else if ( !v48 )
-        {
-          v49 = -1;
-        }
-        v38 = v49 == 0;
-      }
-      LOBYTE(v5) = v38;
-      break;
-    case 0x94:
-      v6 = ValidateArgTypes(a1, a2[10], 1, "DD");
-      if ( v6 < 0 )
-        return (unsigned int)v6;
-      v19 = a2[10];
-      v20 = *(_WORD *)(v19 + 2);
-      v21 = (_WORD *)(v19 + 42);
-      if ( v20 == 1 && *v21 == 1 )
-      {
-        LOBYTE(v5) = *(_DWORD *)(v19 + 16) > *(_DWORD *)(v19 + 56);
-        break;
-      }
-      if ( v20 == 2 )
-      {
-        if ( *v21 != 2 )
-          goto LABEL_57;
-        v22 = *(_DWORD *)(v19 + 64);
-        if ( *(_DWORD *)(v19 + 24) <= v22 )
-          v22 = *(_DWORD *)(v19 + 24);
-        v23 = strncmp(*(const char **)(v19 + 32), *(const char **)(v19 + 72), v22);
-        v24 = a2[10];
-        v25 = *(_DWORD *)(v24 + 24);
-        if ( v25 < *(_DWORD *)(v24 + 64) )
-        {
-          v26 = v23 == 0;
-          v27 = v23 < 0;
-          if ( v23 )
+          if ( *(_WORD *)(v32 + 42) != 2 )
+            goto LABEL_20;
+          v34 = *(_DWORD *)(v32 + 64);
+          if ( *(_DWORD *)(v32 + 24) <= v34 )
+            v34 = *(_DWORD *)(v32 + 24);
+          v35 = strncmp(*(const char **)(v32 + 32), *(const char **)(v32 + 72), v34);
+          v36 = a2[10];
+          v37 = *(_DWORD *)(v36 + 24);
+          v38 = *(_DWORD *)(v36 + 64);
+          v39 = v37 <= v38;
+          if ( v37 < v38 )
           {
-LABEL_56:
-            LOBYTE(v5) = !v27 && !v26;
-            break;
+            if ( !v35 )
+              v35 = -1;
+            v39 = v37 <= v38;
           }
-          goto LABEL_50;
         }
-        if ( v25 > *(_DWORD *)(v24 + 64) )
+        else
         {
-          v28 = v23 == 0;
-          goto LABEL_53;
+          if ( v33 != 3 || *(_WORD *)(v32 + 42) != 3 )
+            goto LABEL_20;
+          v40 = *(_DWORD *)(v32 + 24);
+          v41 = *(_DWORD *)(v32 + 64);
+          v42 = v41;
+          v43 = *(const void **)(v32 + 72);
+          v44 = *(const void **)(v32 + 32);
+          if ( v40 <= v41 )
+            v42 = v40;
+          v35 = memcmp(v44, v43, v42);
+          v39 = v40 <= v41;
+          if ( v40 < v41 )
+          {
+            if ( !v35 )
+              v35 = -1;
+            v39 = v40 <= v41;
+          }
+        }
+        if ( !v39 && !v35 )
+          v35 = 1;
+        LOBYTE(v4) = v35 > 0;
+        goto LABEL_15;
+      }
+      if ( *(_WORD *)(v32 + 42) == 1 )
+      {
+        LOBYTE(v4) = *(_DWORD *)(v32 + 16) > *(_DWORD *)(v32 + 56);
+        goto LABEL_15;
+      }
+    }
+    else
+    {
+      if ( *(_DWORD *)(v2 + 8) != 149 )
+        goto LABEL_15;
+      LOBYTE(v2) = 1;
+      v3 = ValidateArgTypes(a1, a2[10], v2, "DD");
+      if ( v3 < 0 )
+        return (unsigned int)v3;
+      v18 = a2[10];
+      v19 = *(_WORD *)(v18 + 2);
+      if ( v19 == 1 )
+      {
+        if ( *(_WORD *)(v18 + 42) == 1 )
+        {
+          LOBYTE(v4) = *(_DWORD *)(v18 + 16) < *(_DWORD *)(v18 + 56);
+          goto LABEL_15;
         }
       }
-      else
+      else if ( v19 == 2 )
       {
-        if ( v20 != 3 || *v21 != 3 )
-          goto LABEL_57;
-        v29 = *(_DWORD *)(v19 + 24);
-        v30 = *(_DWORD *)(v19 + 64);
-        v31 = v30;
-        v32 = *(const void **)(v19 + 72);
-        v33 = *(const void **)(v19 + 32);
-        if ( v29 <= v30 )
-          v31 = v29;
-        v34 = memcmp(v33, v32, v31);
-        v23 = v34;
-        if ( v29 >= v30 )
+        if ( *(_WORD *)(v18 + 42) == 2 )
         {
-          if ( v29 <= v30 )
-            goto LABEL_55;
-          v28 = v34 == 0;
-LABEL_53:
-          if ( v28 )
+          v20 = *(_DWORD *)(v18 + 64);
+          if ( *(_DWORD *)(v18 + 24) <= v20 )
+            v20 = *(_DWORD *)(v18 + 24);
+          v21 = strncmp(*(const char **)(v18 + 32), *(const char **)(v18 + 72), v20);
+          v22 = a2[10];
+          v23 = v21;
+          v24 = *(_DWORD *)(v22 + 24);
+          v25 = *(_DWORD *)(v22 + 64);
+          v26 = v24 <= v25;
+          if ( v24 < v25 )
+          {
+            if ( !v23 )
+              v23 = -1;
+            v26 = v24 <= v25;
+          }
+          if ( !v26 && !v23 )
             v23 = 1;
-          goto LABEL_55;
+          v4 = v23 >> 31;
+          goto LABEL_15;
         }
-        if ( !v34 )
-LABEL_50:
-          v23 = -1;
       }
-LABEL_55:
-      v26 = v23 == 0;
-      v27 = v23 < 0;
-      goto LABEL_56;
-    case 0x95:
-      v6 = ValidateArgTypes(a1, a2[10], 1, "DD");
-      if ( v6 < 0 )
-        return (unsigned int)v6;
-      v5 = a2[10];
-      v7 = *(_WORD *)(v5 + 2);
-      v8 = (_WORD *)(v5 + 42);
-      if ( v7 == 1 && *v8 == 1 )
+      else if ( v19 == 3 && *(_WORD *)(v18 + 42) == 3 )
       {
-        LOBYTE(v5) = *(_DWORD *)(v5 + 16) < *(_DWORD *)(v5 + 56);
-        break;
-      }
-      if ( v7 == 2 )
-      {
-        if ( *v8 == 2 )
+        v27 = *(_DWORD *)(v18 + 24);
+        v28 = *(_DWORD *)(v18 + 64);
+        v29 = v28;
+        if ( v27 <= v28 )
+          v29 = v27;
+        v30 = memcmp(*(const void **)(v18 + 32), *(const void **)(v18 + 72), v29);
+        v31 = v27 <= v28;
+        if ( v27 < v28 )
         {
-          v9 = *(_DWORD *)(v5 + 64);
-          if ( *(_DWORD *)(v5 + 24) <= v9 )
-            v9 = *(_DWORD *)(v5 + 24);
-          v10 = strncmp(*(const char **)(v5 + 32), *(const char **)(v5 + 72), v9);
-          v11 = a2[10];
-          v12 = *(_DWORD *)(v11 + 24);
-          if ( v12 < *(_DWORD *)(v11 + 64) )
-          {
-            v13 = v10 == 0;
-            goto LABEL_24;
-          }
-          if ( v12 > *(_DWORD *)(v11 + 64) )
-          {
-            v14 = v10 == 0;
-            goto LABEL_28;
-          }
-          goto LABEL_30;
+          if ( !v30 )
+            v30 = -1;
+          v31 = v27 <= v28;
         }
+        if ( !v31 && !v30 )
+          v30 = 1;
+        LOBYTE(v4) = v30 < 0;
+        goto LABEL_15;
       }
-      else if ( v7 == 3 && *v8 == 3 )
-      {
-        v15 = *(_DWORD *)(v5 + 24);
-        v16 = *(_DWORD *)(v5 + 64);
-        v17 = v16;
-        if ( v15 <= v16 )
-          v17 = v15;
-        v18 = memcmp(*(const void **)(v5 + 32), *(const void **)(v5 + 72), v17);
-        v10 = v18;
-        if ( v15 < v16 )
-        {
-          v13 = v18 == 0;
-LABEL_24:
-          if ( v13 )
-            v10 = -1;
-          goto LABEL_30;
-        }
-        if ( v15 > v16 )
-        {
-          v14 = v18 == 0;
-LABEL_28:
-          if ( v14 )
-            v10 = 1;
-        }
-LABEL_30:
-        LODWORD(v5) = v10 >> 31;
-        break;
-      }
-LABEL_57:
-      v6 = -1073741811;
-      LogError(-1073741811);
-      AcpiDiagTraceAmlError(a1, -1073741811);
-      PrintDebugMessage(238, 0LL, 0LL, 0LL, 0LL);
-      return (unsigned int)v6;
+    }
+LABEL_20:
+    v3 = -1073741811;
+    LogError(3221225485LL);
+    AcpiDiagTraceAmlError(a1, 3221225485LL);
+    PrintDebugMessage(238, 0, 0, 0, 0LL);
+    return (unsigned int)v3;
   }
-  *(_WORD *)(a2[11] + 2LL) = 1;
-  if ( (_BYTE)v5 )
+  LOBYTE(v2) = 1;
+  v3 = ValidateArgTypes(a1, a2[10], v2, "DD");
+  if ( v3 < 0 )
+    return (unsigned int)v3;
+  v7 = a2[10];
+  v8 = *(_WORD *)(v7 + 2);
+  if ( v8 == 1 )
   {
-    IsCompatableDSDTRevision();
-    v2 = -1;
+    if ( *(_WORD *)(v7 + 42) != 1 )
+      goto LABEL_20;
+    v16 = *(_DWORD *)(v7 + 16) == *(_DWORD *)(v7 + 56);
   }
-  *(_DWORD *)(a2[11] + 16LL) = v2;
-  return (unsigned int)v6;
+  else
+  {
+    if ( v8 != 2 )
+    {
+      if ( v8 == 3 && *(_WORD *)(v7 + 42) == 3 )
+      {
+        v9 = *(_DWORD *)(v7 + 24);
+        v10 = *(_DWORD *)(v7 + 64);
+        v11 = v10;
+        v12 = *(const void **)(v7 + 72);
+        v13 = *(const void **)(v7 + 32);
+        if ( v9 <= v10 )
+          v11 = v9;
+        v14 = memcmp(v13, v12, v11);
+        v15 = v9 <= v10;
+        if ( v9 < v10 )
+        {
+          if ( !v14 )
+            v14 = -1;
+          v15 = v9 <= v10;
+        }
+        if ( !v15 && !v14 )
+          v14 = 1;
+        v16 = v14 == 0;
+        goto LABEL_14;
+      }
+      goto LABEL_20;
+    }
+    if ( *(_WORD *)(v7 + 42) != 2 )
+      goto LABEL_20;
+    v45 = *(unsigned __int8 **)(v7 + 32);
+    v46 = *(_QWORD *)(v7 + 72) - (_QWORD)v45;
+    do
+    {
+      v47 = v45[v46];
+      v48 = *v45 - v47;
+      if ( v48 )
+        break;
+      ++v45;
+    }
+    while ( v47 );
+    v16 = v48 == 0;
+  }
+LABEL_14:
+  LOBYTE(v4) = v16;
+LABEL_15:
+  *(_WORD *)(a2[11] + 2LL) = 1;
+  if ( (_BYTE)v4 )
+    IsCompatableDSDTRevision();
+  *(_DWORD *)(a2[11] + 16LL) = -((_BYTE)v4 != 0);
+  return (unsigned int)v3;
 }

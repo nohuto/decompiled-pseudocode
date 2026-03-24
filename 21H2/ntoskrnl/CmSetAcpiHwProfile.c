@@ -1,28 +1,28 @@
 /*
- * XREFs of CmSetAcpiHwProfile @ 0x140837F88
+ * XREFs of CmSetAcpiHwProfile @ 0x1407A5908
  * Callers:
- *     IopExecuteHardwareProfileChange @ 0x14095E13C (IopExecuteHardwareProfileChange.c)
- *     CmpCreateHardwareProfiles @ 0x140B183B4 (CmpCreateHardwareProfiles.c)
+ *     IopExecuteHardwareProfileChange @ 0x1408B8B44 (IopExecuteHardwareProfileChange.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     CmpFilterAcpiDockingState @ 0x1408384CC (CmpFilterAcpiDockingState.c)
- *     CmpGetAcpiProfileInformation @ 0x1408386A0 (CmpGetAcpiProfileInformation.c)
- *     CmpOpenDevicesControlSet @ 0x140838DE4 (CmpOpenDevicesControlSet.c)
- *     CmpAddAcpiAliasEntry @ 0x14091D950 (CmpAddAcpiAliasEntry.c)
- *     CmpCloneHwProfile @ 0x14091DBC4 (CmpCloneHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x14091E6AC (CmpMoveBiosAliasTable.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CmpFilterAcpiDockingState @ 0x1407A5E48 (CmpFilterAcpiDockingState.c)
+ *     CmpGetAcpiProfileInformation @ 0x1407A601C (CmpGetAcpiProfileInformation.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6764 (CmpOpenDevicesControlSet.c)
+ *     CmpAddAcpiAliasEntry @ 0x140876F0C (CmpAddAcpiAliasEntry.c)
+ *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x140877C18 (CmpMoveBiosAliasTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmSetAcpiHwProfile(
@@ -33,339 +33,349 @@ __int64 __fastcall CmSetAcpiHwProfile(
         _BYTE *a5)
 {
   PVOID PoolWithTag; // rdi
+  HANDLE *v7; // rsi
   NTSTATUS AcpiProfileInformation; // ebx
-  void *v9; // r12
-  int v10; // ebx
-  unsigned int v11; // esi
-  int v12; // eax
-  __int64 v13; // rcx
-  int v14; // r14d
-  unsigned int v15; // edx
-  _DWORD *v16; // rcx
-  unsigned int v17; // edx
-  __int64 v18; // rax
+  void *v10; // r12
+  int v11; // ebx
+  unsigned int v12; // esi
+  int v13; // eax
+  __int64 v14; // rcx
+  int v15; // r14d
+  unsigned int v16; // edx
+  _DWORD *v17; // rcx
+  unsigned int v18; // edx
   __int64 v19; // rax
-  _DWORD *v20; // rcx
-  unsigned int v21; // edx
-  __int64 v22; // rax
+  __int64 v20; // rax
+  _DWORD *v21; // rcx
+  unsigned int v22; // edx
   __int64 v23; // rax
-  HANDLE v25; // rcx
-  NTSTATUS v26; // eax
+  __int64 v24; // rax
+  HANDLE v26; // rcx
+  NTSTATUS v27; // eax
   int Length; // [rsp+20h] [rbp-E0h]
-  unsigned int v28; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v29; // [rsp+40h] [rbp-C0h] BYREF
   int Data; // [rsp+44h] [rbp-BCh] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE v33; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE v34; // [rsp+68h] [rbp-98h] BYREF
   ULONG ResultLength; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int v35; // [rsp+74h] [rbp-8Ch] BYREF
+  unsigned int v36; // [rsp+74h] [rbp-8Ch] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
-  PVOID P; // [rsp+A8h] [rbp-58h] BYREF
-  ULONG Disposition; // [rsp+B0h] [rbp-50h] BYREF
-  HANDLE v39; // [rsp+B8h] [rbp-48h] BYREF
-  PVOID v40; // [rsp+C0h] [rbp-40h] BYREF
-  HANDLE v41; // [rsp+C8h] [rbp-38h] BYREF
-  void *v42; // [rsp+D0h] [rbp-30h] BYREF
-  HANDLE *v43; // [rsp+D8h] [rbp-28h]
-  __int128 v44; // [rsp+E0h] [rbp-20h] BYREF
+  HANDLE *v38; // [rsp+A8h] [rbp-58h]
+  PVOID P; // [rsp+B0h] [rbp-50h] BYREF
+  ULONG Disposition; // [rsp+B8h] [rbp-48h] BYREF
+  HANDLE v41; // [rsp+C0h] [rbp-40h] BYREF
+  PVOID v42; // [rsp+C8h] [rbp-38h] BYREF
+  HANDLE v43; // [rsp+D0h] [rbp-30h] BYREF
+  void *v44; // [rsp+D8h] [rbp-28h] BYREF
+  __int128 v45; // [rsp+E0h] [rbp-20h] BYREF
   int KeyValueInformation; // [rsp+F0h] [rbp-10h] BYREF
-  int v46; // [rsp+F4h] [rbp-Ch]
-  unsigned int v47; // [rsp+F8h] [rbp-8h]
+  int v47; // [rsp+F4h] [rbp-Ch]
+  unsigned int v48; // [rsp+F8h] [rbp-8h]
   SIZE_T NumberOfBytes; // [rsp+FCh] [rbp-4h]
   wchar_t Dst[128]; // [rsp+1F0h] [rbp+F0h] BYREF
 
-  v42 = 0LL;
+  v44 = 0LL;
   KeyHandle = 0LL;
-  v33 = 0LL;
-  Handle = 0LL;
-  v41 = 0LL;
-  v39 = 0LL;
   PoolWithTag = 0LL;
+  v34 = 0LL;
+  Handle = 0LL;
+  v43 = 0LL;
+  v41 = 0LL;
+  v7 = a4;
   ResultLength = 0;
   Data = 0;
-  v35 = 0;
-  v28 = 0;
+  v36 = 0;
+  v29 = 0;
   Disposition = 0;
-  v40 = 0LL;
+  v42 = 0LL;
   P = 0LL;
   *a5 = 0;
-  v43 = a4;
-  v44 = 0LL;
+  v38 = a4;
+  v45 = 0LL;
   DestinationString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  AcpiProfileInformation = CmpOpenDevicesControlSet(a1, &v42, &v44);
-  if ( AcpiProfileInformation >= 0 )
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  AcpiProfileInformation = CmpOpenDevicesControlSet(a1, &v44, &v45);
+  if ( AcpiProfileInformation < 0 )
+    goto LABEL_56;
+  v10 = v44;
+  ObjectAttributes.RootDirectory = v44;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)L"$&";
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  AcpiProfileInformation = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( AcpiProfileInformation < 0 )
   {
-    v9 = v42;
-    ObjectAttributes.RootDirectory = v42;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)L"$&";
-    ObjectAttributes.Length = 48;
-    ObjectAttributes.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    AcpiProfileInformation = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-    if ( AcpiProfileInformation < 0 )
-    {
-      KeyHandle = 0LL;
-      goto LABEL_68;
-    }
+    KeyHandle = 0LL;
+  }
+  else
+  {
     AcpiProfileInformation = CmpGetAcpiProfileInformation(
                                (int)KeyHandle,
                                (int)&P,
-                               (int)&v40,
+                               (int)&v42,
                                (int)Dst,
                                &KeyValueInformation);
     if ( AcpiProfileInformation < 0 )
-      goto LABEL_68;
+      goto LABEL_56;
     ObjectAttributes.Length = 48;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)L"24";
-    ObjectAttributes.RootDirectory = v9;
+    ObjectAttributes.RootDirectory = v10;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    AcpiProfileInformation = ZwOpenKey(&v33, 0x20019u, &ObjectAttributes);
+    AcpiProfileInformation = ZwOpenKey(&v34, 0x20019u, &ObjectAttributes);
     if ( AcpiProfileInformation < 0 )
     {
-      v33 = 0LL;
-      goto LABEL_68;
+      v34 = 0LL;
     }
-    RtlInitUnicodeString(&DestinationString, L"CurrentDockInfo");
-    ObjectAttributes.RootDirectory = KeyHandle;
-    ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = &DestinationString;
-    ObjectAttributes.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    AcpiProfileInformation = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
-    if ( AcpiProfileInformation < 0 )
+    else
     {
-      Handle = 0LL;
-      goto LABEL_68;
-    }
-    RtlInitUnicodeString(&DestinationString, L"DockingState");
-    if ( ZwQueryValueKey(
-           Handle,
-           &DestinationString,
-           KeyValueFullInformation,
-           &KeyValueInformation,
-           0x100u,
-           &ResultLength) < 0
-      || v46 != 4 )
-    {
-      goto LABEL_67;
-    }
-    v10 = *(int *)((char *)&KeyValueInformation + v47);
-    RtlInitUnicodeString(&DestinationString, L"AcpiSerialNumber");
-    if ( ZwQueryValueKey(
-           Handle,
-           &DestinationString,
-           KeyValueFullInformation,
-           &KeyValueInformation,
-           0x100u,
-           &ResultLength) >= 0
-      && v46 == 3 )
-    {
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20204D43u);
-      if ( !PoolWithTag )
-      {
-        AcpiProfileInformation = -1073741670;
-        goto LABEL_68;
-      }
-      memmove(PoolWithTag, (char *)&KeyValueInformation + v47, (unsigned int)NumberOfBytes);
-    }
-    RtlInitUnicodeString(&DestinationString, L"CurrentConfig");
-    if ( ZwQueryValueKey(
-           KeyHandle,
-           &DestinationString,
-           KeyValueFullInformation,
-           &KeyValueInformation,
-           0x100u,
-           &ResultLength) < 0
-      || v46 != 4 )
-    {
-LABEL_67:
-      AcpiProfileInformation = -1073741492;
-      goto LABEL_68;
-    }
-    v11 = *(int *)((char *)&KeyValueInformation + v47);
-    AcpiProfileInformation = CmpFilterAcpiDockingState(
-                               (_DWORD)a1,
-                               v10,
-                               (_DWORD)PoolWithTag,
-                               v11,
-                               (__int64)P,
-                               (__int64)v40);
-    if ( AcpiProfileInformation < 0 )
-      goto LABEL_68;
-    v12 = a2(P, &v35, 0LL);
-    AcpiProfileInformation = v12;
-    if ( v35 != -1 )
-    {
-      if ( v12 < 0 )
-        goto LABEL_68;
+      RtlInitUnicodeString(&DestinationString, L"CurrentDockInfo");
+      ObjectAttributes.RootDirectory = KeyHandle;
       ObjectAttributes.Length = 48;
-      ObjectAttributes.ObjectName = (PUNICODE_STRING)L"\"$";
-      ObjectAttributes.RootDirectory = v9;
+      ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      AcpiProfileInformation = ZwOpenKey(&v39, 0x20019u, &ObjectAttributes);
+      AcpiProfileInformation = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
       if ( AcpiProfileInformation < 0 )
       {
-        v39 = 0LL;
-        goto LABEL_68;
-      }
-      v13 = 32LL * v35;
-      v14 = *(_DWORD *)((char *)P + v13 + 32);
-      v15 = *(_DWORD *)((char *)P + v13 + 28);
-      v28 = v15;
-      if ( (v14 & 8) != 0 )
-      {
-        AcpiProfileInformation = CmpMoveBiosAliasTable(KeyHandle, Handle, v11, v15, Dst);
-        if ( AcpiProfileInformation < 0 )
-          goto LABEL_68;
-        v15 = v28;
-      }
-      if ( (v14 & 4) != 0 || v15 != v11 )
-      {
-        v25 = Handle;
-        *a5 = 1;
-        ZwClose(v25);
         Handle = 0LL;
-        if ( (v14 & 4) != 0 )
-        {
-          LOWORD(Length) = *a1;
-          v26 = CmpCloneHwProfile(KeyHandle, v39, v33, v28, Length, &v33, &v28);
-        }
-        else
-        {
-          ZwClose(v33);
-          swprintf_s(Dst, 0x80uLL, L"%04d", v28);
-          RtlInitUnicodeString(&DestinationString, Dst);
-          ObjectAttributes.RootDirectory = v39;
-          ObjectAttributes.Length = 48;
-          ObjectAttributes.ObjectName = &DestinationString;
-          ObjectAttributes.Attributes = 576;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          v26 = ZwOpenKey(&v33, 0x20019u, &ObjectAttributes);
-        }
-        AcpiProfileInformation = v26;
-        if ( v26 < 0 )
-        {
-          v33 = 0LL;
-          goto LABEL_68;
-        }
-        RtlInitUnicodeString(&DestinationString, L"CurrentDockInfo");
-        ObjectAttributes.RootDirectory = KeyHandle;
-        ObjectAttributes.Length = 48;
-        ObjectAttributes.ObjectName = &DestinationString;
-        ObjectAttributes.Attributes = 576;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        AcpiProfileInformation = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
-        if ( AcpiProfileInformation < 0 )
-        {
-          Handle = 0LL;
-          goto LABEL_68;
-        }
-        RtlInitUnicodeString(&DestinationString, L"CurrentConfig");
-        if ( ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &v28, 4u) < 0 )
-          goto LABEL_67;
       }
-      Data = *a1;
-      RtlInitUnicodeString(&DestinationString, L"DockingState");
-      ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
-      RtlInitUnicodeString(&DestinationString, L"AcpiSerialNumber");
-      AcpiProfileInformation = ZwSetValueKey(Handle, &DestinationString, 0, 3u, a1 + 2, a1[1]);
-      if ( (v14 & 2) == 0 )
-        AcpiProfileInformation = CmpAddAcpiAliasEntry(KeyHandle, a1, v28, Dst);
-      if ( v28 != v11 )
+      else
       {
-        ObjectAttributes.Length = 48;
-        ObjectAttributes.ObjectName = (PUNICODE_STRING)L"24";
-        ObjectAttributes.RootDirectory = v9;
-        ObjectAttributes.Attributes = 832;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        ZwCreateKey(&v41, 0x20u, &ObjectAttributes, 0, 0LL, 8u, &Disposition);
-        *(_QWORD *)&DestinationString.Length = 0x1000000LL;
-        DestinationString.Buffer = Dst;
-        RtlUnicodeStringPrintf(
-          &DestinationString,
-          L"\\Registry\\Machine\\%wZ\\CurrentControlSet\\Hardware Profiles\\%04d",
-          &v44,
-          v28);
-        AcpiProfileInformation = ZwSetValueKey(
-                                   v41,
-                                   &CmSymbolicLinkValueName,
-                                   0,
-                                   6u,
-                                   DestinationString.Buffer,
-                                   DestinationString.Length);
+        RtlInitUnicodeString(&DestinationString, L"DockingState");
+        if ( ZwQueryValueKey(
+               Handle,
+               &DestinationString,
+               KeyValueFullInformation,
+               &KeyValueInformation,
+               0x100u,
+               &ResultLength) >= 0
+          && v47 == 4 )
+        {
+          v11 = *(int *)((char *)&KeyValueInformation + v48);
+          RtlInitUnicodeString(&DestinationString, L"AcpiSerialNumber");
+          if ( ZwQueryValueKey(
+                 Handle,
+                 &DestinationString,
+                 KeyValueFullInformation,
+                 &KeyValueInformation,
+                 0x100u,
+                 &ResultLength) >= 0
+            && v47 == 3 )
+          {
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20204D43u);
+            if ( !PoolWithTag )
+            {
+              AcpiProfileInformation = -1073741670;
+              goto LABEL_56;
+            }
+            memmove(PoolWithTag, (char *)&KeyValueInformation + v48, (unsigned int)NumberOfBytes);
+          }
+          RtlInitUnicodeString(&DestinationString, L"CurrentConfig");
+          if ( ZwQueryValueKey(
+                 KeyHandle,
+                 &DestinationString,
+                 KeyValueFullInformation,
+                 &KeyValueInformation,
+                 0x100u,
+                 &ResultLength) >= 0
+            && v47 == 4 )
+          {
+            v12 = *(int *)((char *)&KeyValueInformation + v48);
+            AcpiProfileInformation = CmpFilterAcpiDockingState(
+                                       (_DWORD)a1,
+                                       v11,
+                                       (_DWORD)PoolWithTag,
+                                       v12,
+                                       (__int64)P,
+                                       (__int64)v42);
+            if ( AcpiProfileInformation < 0 )
+              goto LABEL_56;
+            v13 = a2(P, &v36, 0LL);
+            AcpiProfileInformation = v13;
+            if ( v36 == -1 )
+              goto LABEL_22;
+            if ( v13 < 0 )
+              goto LABEL_56;
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)L"\"$";
+            ObjectAttributes.RootDirectory = v10;
+            ObjectAttributes.Attributes = 576;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            AcpiProfileInformation = ZwOpenKey(&v41, 0x20019u, &ObjectAttributes);
+            if ( AcpiProfileInformation < 0 )
+            {
+              v41 = 0LL;
+LABEL_22:
+              v7 = v38;
+              goto LABEL_23;
+            }
+            v14 = 32LL * v36;
+            v15 = *(_DWORD *)((char *)P + v14 + 32);
+            v16 = *(_DWORD *)((char *)P + v14 + 28);
+            v29 = v16;
+            if ( (v15 & 8) != 0 )
+            {
+              AcpiProfileInformation = CmpMoveBiosAliasTable(KeyHandle, Handle, v12, v16, Dst);
+              if ( AcpiProfileInformation < 0 )
+                goto LABEL_56;
+              v16 = v29;
+            }
+            if ( (v15 & 4) == 0 && v16 == v12 )
+              goto LABEL_18;
+            v26 = Handle;
+            *a5 = 1;
+            ZwClose(v26);
+            Handle = 0LL;
+            if ( (v15 & 4) != 0 )
+            {
+              LOWORD(Length) = *a1;
+              v27 = CmpCloneHwProfile(KeyHandle, v41, v34, v29, Length, &v34, &v29);
+            }
+            else
+            {
+              ZwClose(v34);
+              swprintf_s(Dst, 0x80uLL, L"%04d", v29);
+              RtlInitUnicodeString(&DestinationString, Dst);
+              ObjectAttributes.RootDirectory = v41;
+              ObjectAttributes.Length = 48;
+              ObjectAttributes.ObjectName = &DestinationString;
+              ObjectAttributes.Attributes = 576;
+              *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+              v27 = ZwOpenKey(&v34, 0x20019u, &ObjectAttributes);
+            }
+            AcpiProfileInformation = v27;
+            if ( v27 < 0 )
+            {
+              v34 = 0LL;
+              goto LABEL_22;
+            }
+            RtlInitUnicodeString(&DestinationString, L"CurrentDockInfo");
+            ObjectAttributes.RootDirectory = KeyHandle;
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = &DestinationString;
+            ObjectAttributes.Attributes = 576;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            AcpiProfileInformation = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
+            if ( AcpiProfileInformation < 0 )
+            {
+              Handle = 0LL;
+              goto LABEL_22;
+            }
+            RtlInitUnicodeString(&DestinationString, L"CurrentConfig");
+            if ( ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &v29, 4u) >= 0 )
+            {
+LABEL_18:
+              Data = *a1;
+              RtlInitUnicodeString(&DestinationString, L"DockingState");
+              ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
+              RtlInitUnicodeString(&DestinationString, L"AcpiSerialNumber");
+              AcpiProfileInformation = ZwSetValueKey(Handle, &DestinationString, 0, 3u, a1 + 2, a1[1]);
+              if ( (v15 & 2) == 0 )
+                AcpiProfileInformation = CmpAddAcpiAliasEntry(KeyHandle, a1, v29, Dst);
+              if ( v29 != v12 )
+              {
+                ObjectAttributes.Length = 48;
+                ObjectAttributes.ObjectName = (PUNICODE_STRING)L"24";
+                ObjectAttributes.RootDirectory = v10;
+                ObjectAttributes.Attributes = 832;
+                *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+                ZwCreateKey(&v43, 0x20u, &ObjectAttributes, 0, 0LL, 8u, &Disposition);
+                *(_QWORD *)&DestinationString.Length = 0x1000000LL;
+                DestinationString.Buffer = Dst;
+                RtlUnicodeStringPrintf(
+                  &DestinationString,
+                  L"\\Registry\\Machine\\%wZ\\CurrentControlSet\\Hardware Profiles\\%04d",
+                  &v45,
+                  v29);
+                AcpiProfileInformation = ZwSetValueKey(
+                                           v43,
+                                           &CmSymbolicLinkValueName,
+                                           0,
+                                           6u,
+                                           DestinationString.Buffer,
+                                           DestinationString.Length);
+              }
+              goto LABEL_22;
+            }
+          }
+          AcpiProfileInformation = -1073741492;
+          goto LABEL_56;
+        }
+        AcpiProfileInformation = -1073741492;
       }
-    }
-    if ( AcpiProfileInformation >= 0 )
-    {
-      *v43 = v33;
-      goto LABEL_24;
     }
   }
-LABEL_68:
-  if ( v33 )
-    ZwClose(v33);
-LABEL_24:
-  if ( v41 )
-    ZwClose(v41);
+LABEL_23:
+  if ( AcpiProfileInformation >= 0 )
+  {
+    *v7 = v34;
+    goto LABEL_25;
+  }
+LABEL_56:
+  if ( v34 )
+    ZwClose(v34);
+LABEL_25:
+  if ( v43 )
+    ZwClose(v43);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )
     ZwClose(Handle);
-  if ( v39 )
-    ZwClose(v39);
+  if ( v41 )
+    ZwClose(v41);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);
-  v16 = P;
+  v17 = P;
   if ( P )
   {
-    v17 = 0;
+    v18 = 0;
     Data = 0;
     if ( *((_DWORD *)P + 1) )
     {
-      v18 = 0LL;
+      v19 = 0LL;
       do
       {
-        v19 = 8 * v18;
-        if ( *(_QWORD *)&v16[v19 + 4] )
+        v20 = 8 * v19;
+        if ( *(_QWORD *)&v17[v20 + 4] )
         {
-          ExFreePoolWithTag(*(PVOID *)&v16[v19 + 4], 0);
-          v17 = Data;
-          v16 = P;
+          ExFreePoolWithTag(*(PVOID *)&v17[v20 + 4], 0);
+          v18 = Data;
+          v17 = P;
         }
-        Data = ++v17;
-        v18 = v17;
+        Data = ++v18;
+        v19 = v18;
       }
-      while ( v17 < v16[1] );
+      while ( v18 < v17[1] );
     }
-    ExFreePoolWithTag(v16, 0);
+    ExFreePoolWithTag(v17, 0);
   }
-  v20 = v40;
-  if ( v40 )
+  v21 = v42;
+  if ( v42 )
   {
-    v21 = 0;
+    v22 = 0;
     Data = 0;
-    if ( *((_DWORD *)v40 + 1) )
+    if ( *((_DWORD *)v42 + 1) )
     {
-      v22 = 0LL;
+      v23 = 0LL;
       do
       {
-        v23 = 3 * (v22 + 1);
-        if ( *(_QWORD *)&v20[2 * v23] )
+        v24 = 3 * (v23 + 1);
+        if ( *(_QWORD *)&v21[2 * v24] )
         {
-          ExFreePoolWithTag(*(PVOID *)&v20[2 * v23], 0);
-          v21 = Data;
-          v20 = v40;
+          ExFreePoolWithTag(*(PVOID *)&v21[2 * v24], 0);
+          v22 = Data;
+          v21 = v42;
         }
-        Data = ++v21;
-        v22 = v21;
+        Data = ++v22;
+        v23 = v22;
       }
-      while ( v21 < v20[1] );
+      while ( v22 < v21[1] );
     }
-    ExFreePoolWithTag(v20, 0);
+    ExFreePoolWithTag(v21, 0);
   }
   return (unsigned int)AcpiProfileInformation;
 }

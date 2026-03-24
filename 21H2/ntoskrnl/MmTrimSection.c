@@ -1,15 +1,15 @@
 /*
- * XREFs of MmTrimSection @ 0x14027F03C
+ * XREFs of MmTrimSection @ 0x1402EF648
  * Callers:
- *     CcCoherencyFlushAndPurgeCache @ 0x14027EF40 (CcCoherencyFlushAndPurgeCache.c)
- *     CcPurgeCacheSection @ 0x14027F0E0 (CcPurgeCacheSection.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1402EF550 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcPurgeCacheSection @ 0x1402F0920 (CcPurgeCacheSection.c)
  * Callees:
- *     MiTrimSection @ 0x14027E174 (MiTrimSection.c)
- *     MiComputeFlushRange @ 0x140283E8C (MiComputeFlushRange.c)
- *     MiFlushRelease @ 0x1402867DC (MiFlushRelease.c)
+ *     MiComputeFlushRange @ 0x140274890 (MiComputeFlushRange.c)
+ *     MiTrimSection @ 0x1402EF6E0 (MiTrimSection.c)
+ *     MiFlushRelease @ 0x140315010 (MiFlushRelease.c)
  */
 
-__int64 __fastcall MmTrimSection(int a1, __int64 *a2, int a3, char a4)
+__int64 __fastcall MmTrimSection(__int64 a1, __int64 *a2, int a3, char a4)
 {
   unsigned int v4; // ebx
   unsigned int v5; // ebx
@@ -32,9 +32,9 @@ __int64 __fastcall MmTrimSection(int a1, __int64 *a2, int a3, char a4)
     a2 = &v11;
     v11 = v7;
   }
-  if ( !(unsigned int)MiComputeFlushRange(a1, (_DWORD)a2, a3, v4 >= 0x20, (__int64)&v8) )
+  if ( !(unsigned int)MiComputeFlushRange(a1, (int)a2, a3, v4 >= 0x20, (__int64)&v8) )
     return 0LL;
-  v5 = MiTrimSection(&v8, 0LL, 0, v4);
+  v5 = MiTrimSection(&v8, 0LL, v4);
   MiFlushRelease(v8, *((_QWORD *)&v9 + 1), v10);
   return v5;
 }

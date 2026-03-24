@@ -1,10 +1,10 @@
 /*
- * XREFs of _vsnprintf_s @ 0x1403DE5E0
+ * XREFs of _vsnprintf_s @ 0x1403D6A20
  * Callers:
- *     _snprintf_s @ 0x1403DE5B0 (_snprintf_s.c)
+ *     _snprintf_s @ 0x1403D69F0 (_snprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     _soutput_s @ 0x1403E0424 (_soutput_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     _soutput_s @ 0x1403D883C (_soutput_s.c)
  */
 
 int __cdecl vsnprintf_s(char *DstBuf, size_t SizeInBytes, size_t MaxCount, const char *Format, va_list ArgList)
@@ -30,25 +30,26 @@ LABEL_12:
   }
   if ( !SizeInBytes )
     goto LABEL_12;
-  if ( SizeInBytes <= MaxCount )
-  {
-    result = soutput_s(DstBuf, SizeInBytes, Format, ArgList);
-    if ( result == -2 )
-    {
-      if ( MaxCount == -1LL )
-        return -1;
-      *DstBuf = 0;
-      goto LABEL_12;
-    }
-  }
-  else
+  if ( SizeInBytes > MaxCount )
   {
     result = soutput_s(DstBuf, MaxCount + 1, Format, ArgList);
     if ( result == -2 )
       return -1;
+    goto LABEL_10;
   }
-  if ( result >= 0 )
-    return result;
+  result = soutput_s(DstBuf, SizeInBytes, Format, ArgList);
+  if ( result != -2 )
+  {
+LABEL_10:
+    if ( result >= 0 )
+      return result;
+    goto LABEL_11;
+  }
+  if ( MaxCount == -1LL )
+    return -1;
+LABEL_11:
   *DstBuf = 0;
+  if ( result == -2 )
+    goto LABEL_12;
   return -1;
 }

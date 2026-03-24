@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpValidateStringData @ 0x1403CDC10
+ * XREFs of PnpValidateStringData @ 0x14036E438
  * Callers:
- *     PnpValidateRegistryString @ 0x1403CDBD4 (PnpValidateRegistryString.c)
- *     PiDevCfgQueryResolveValue @ 0x140562368 (PiDevCfgQueryResolveValue.c)
- *     PnpValidateRegistryValue @ 0x1405624EC (PnpValidateRegistryValue.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086D134 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1408790C0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14087E5B4 (PiDevCfgResolveMultiSzValue.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14095EA6C (PiDevCfgMakeServiceBootStart.c)
+ *     PnpValidateRegistryString @ 0x14036E3FC (PnpValidateRegistryString.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E3E4 (PiDevCfgQueryResolveValue.c)
+ *     PnpValidateRegistryValue @ 0x14050E568 (PnpValidateRegistryValue.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1407392E4 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x14077B23C (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x14077BD90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x1408A6E44 (PiDevCfgMakeServiceBootStart.c)
  * Callees:
  *     <none>
  */

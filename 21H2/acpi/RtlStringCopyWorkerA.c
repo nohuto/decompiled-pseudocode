@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCopyWorkerA @ 0x1C005F0A4
+ * XREFs of RtlStringCopyWorkerA @ 0x1C005E3C4
  * Callers:
- *     RtlStringCchCatA @ 0x1C005EFFC (RtlStringCchCatA.c)
- *     RtlStringCchCatNA @ 0x1C005F04C (RtlStringCchCatNA.c)
+ *     RtlStringCchCatA @ 0x1C005E2F4 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C005E358 (RtlStringCchCatNA.c)
  * Callees:
  *     <none>
  */
@@ -19,26 +19,23 @@ NTSTATUS __stdcall RtlStringCopyWorkerA(
   char v8; // r9
 
   v5 = 0;
-  if ( cchDest )
+  if ( !cchDest )
+    goto LABEL_7;
+  v7 = pszSrc - pszDest;
+  do
   {
-    v7 = pszSrc - pszDest;
-    while ( cchToCopy )
-    {
-      v8 = pszDest[v7];
-      if ( v8 )
-      {
-        *pszDest = v8;
-        --cchToCopy;
-        ++pszDest;
-        if ( --cchDest )
-          continue;
-      }
-      if ( cchDest )
-        break;
-      goto LABEL_7;
-    }
+    if ( !cchToCopy )
+      break;
+    v8 = pszDest[v7];
+    if ( !v8 )
+      break;
+    *pszDest = v8;
+    --cchToCopy;
+    ++pszDest;
+    --cchDest;
   }
-  else
+  while ( cchDest );
+  if ( !cchDest )
   {
 LABEL_7:
     --pszDest;

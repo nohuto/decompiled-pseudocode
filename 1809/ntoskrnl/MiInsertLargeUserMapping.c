@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertLargeUserMapping @ 0x1402C56F0
+ * XREFs of MiInsertLargeUserMapping @ 0x1402C57F0
  * Callers:
- *     MiMapUserLargePages @ 0x14085D578 (MiMapUserLargePages.c)
+ *     MiMapUserLargePages @ 0x14085D558 (MiMapUserLargePages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -10,11 +10,11 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiIncreaseUsedPtesCount @ 0x140110044 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockWorkingSetForLargeMapping @ 0x1401B57E0 (MiLockWorkingSetForLargeMapping.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x1401B5800 (MiLockWorkingSetForLargeMapping.c)
  */
 
 void __fastcall MiInsertLargeUserMapping(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

@@ -1,154 +1,154 @@
 /*
- * XREFs of PopHiberInitializeResources @ 0x140801D60
+ * XREFs of PopHiberInitializeResources @ 0x140777940
  * Callers:
- *     PopAllocateHiberContext @ 0x140802068 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x14035F800 (RtlGetCompressionWorkSpaceSize.c)
- *     IoGetDumpStackTransferSizes @ 0x14038D44C (IoGetDumpStackTransferSizes.c)
- *     PoSetHiberRange @ 0x14038DBE0 (PoSetHiberRange.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopCalculateHiberFileSize @ 0x140801C0C (PopCalculateHiberFileSize.c)
- *     MmAllocateDumpHibernateResources @ 0x140801D08 (MmAllocateDumpHibernateResources.c)
- *     MmMarkHiberRange @ 0x140802020 (MmMarkHiberRange.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1402DF700 (RtlGetCompressionWorkSpaceSize.c)
+ *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     IoGetDumpStackTransferSizes @ 0x140388304 (IoGetDumpStackTransferSizes.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmMarkHiberRange @ 0x140777BFC (MmMarkHiberRange.c)
+ *     PopCalculateHiberFileSize @ 0x14078D808 (PopCalculateHiberFileSize.c)
+ *     MmAllocateDumpHibernateResources @ 0x14078EB9C (MmAllocateDumpHibernateResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
 {
-  unsigned int v1; // r14d
-  size_t v3; // r15
-  unsigned __int64 v4; // r13
+  unsigned int v1; // esi
+  size_t v3; // r14
+  unsigned __int64 v4; // r15
   ULONG v5; // ecx
   unsigned __int64 v6; // rdi
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rdi
-  __int64 Pool2; // rdi
-  ULONG_PTR DumpHibernateResources; // r12
-  char *v11; // rcx
-  unsigned int v12; // edx
-  unsigned __int64 v13; // r9
-  _QWORD *v14; // r8
-  unsigned __int64 v15; // r10
-  char *v16; // rax
-  unsigned __int64 v17; // r15
-  int v18; // r12d
-  int v19; // r15d
+  unsigned int v7; // eax
+  unsigned int v8; // r12d
+  unsigned __int64 v9; // rdi
+  SIZE_T v10; // r13
+  _QWORD *PoolWithTag; // rdi
+  __int64 DumpHibernateResources; // r12
+  char *v13; // rcx
+  unsigned int v14; // edx
+  unsigned __int64 v15; // r9
+  _QWORD *v16; // r8
+  unsigned __int64 v17; // r10
+  char *v18; // rax
+  int v19; // r14d
+  int v20; // r12d
+  int v21; // r15d
   char *result; // rax
-  unsigned __int64 v21; // [rsp+30h] [rbp-38h] BYREF
-  char *v22; // [rsp+38h] [rbp-30h]
-  unsigned __int64 v23; // [rsp+40h] [rbp-28h]
-  unsigned __int64 v24; // [rsp+48h] [rbp-20h]
-  unsigned __int64 v25; // [rsp+50h] [rbp-18h]
-  unsigned __int64 v26; // [rsp+58h] [rbp-10h]
+  unsigned int v23; // [rsp+30h] [rbp-38h]
+  unsigned __int64 v24; // [rsp+38h] [rbp-30h] BYREF
+  char *v25; // [rsp+40h] [rbp-28h]
+  unsigned __int64 v26; // [rsp+48h] [rbp-20h]
+  unsigned __int64 v27; // [rsp+50h] [rbp-18h]
+  unsigned __int64 v28; // [rsp+58h] [rbp-10h]
   ULONG CompressBufferWorkSpaceSize; // [rsp+B0h] [rbp+48h] BYREF
   ULONG CompressFragmentWorkSpaceSize; // [rsp+B8h] [rbp+50h] BYREF
-  unsigned int v29; // [rsp+C0h] [rbp+58h] BYREF
-  int v30; // [rsp+C8h] [rbp+60h] BYREF
+  unsigned int v31; // [rsp+C0h] [rbp+58h] BYREF
+  int v32; // [rsp+C8h] [rbp+60h] BYREF
 
   v1 = KeNumberProcessors_0;
   CompressBufferWorkSpaceSize = 0;
   v3 = 0LL;
   CompressFragmentWorkSpaceSize = 0;
-  v21 = 0LL;
-  v29 = 0;
-  v30 = 0;
-  v22 = 0LL;
+  v24 = 0LL;
+  v31 = 0;
+  v32 = 0;
+  v25 = 0LL;
   if ( (PopSimulate & 0x10000000) != 0 )
     goto LABEL_23;
   v4 = (unsigned __int64)(unsigned int)KeNumberProcessors_0 << 7;
   if ( RtlGetCompressionWorkSpaceSize(0x104u, &CompressBufferWorkSpaceSize, &CompressFragmentWorkSpaceSize) < 0 )
     goto LABEL_23;
   v5 = CompressBufferWorkSpaceSize;
-  v23 = (v4 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  v26 = (v4 + 4095) & 0xFFFFFFFFFFFFF000uLL;
   if ( CompressFragmentWorkSpaceSize > CompressBufferWorkSpaceSize )
     v5 = CompressFragmentWorkSpaceSize;
   CompressBufferWorkSpaceSize = v5;
   v6 = v5 * v1 + ((v4 + 4095) & 0xFFFFFFFFFFFFF000uLL);
-  IoGetDumpStackTransferSizes(&v30, &v29);
-  v7 = v29 >> 12;
-  if ( v29 >> 12 < 0x10 )
-  {
+  IoGetDumpStackTransferSizes(&v32, &v31);
+  v7 = v31 >> 12;
+  if ( v31 >> 12 < 0x10 )
     v7 = 16;
-  }
-  else if ( v7 > 0x100 )
-  {
+  if ( v7 > 0x100 )
     v7 = 256;
-  }
+  v23 = v7;
+  v8 = v7 << 12;
   if ( PopHiberChecksummingEnabledReg )
   {
-    v8 = (v6 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    v22 = (char *)v8;
-    PopCalculateHiberFileSize(&v21, 0LL);
-    v3 = 2 * (v21 >> 9);
-    v6 = v3 + v8;
+    v9 = (v6 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    v25 = (char *)v9;
+    PopCalculateHiberFileSize(&v24, 0LL);
+    v3 = 2 * (v24 >> 9);
+    v6 = v3 + v9;
   }
-  v24 = (v6 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  LODWORD(v21) = (-4096 * v7) & (65668 * v1 - 1 + 69632 * v7);
-  v25 = (unsigned int)v21 + v24;
-  v26 = (v1 << 17) + v25;
-  Pool2 = ExAllocatePool2(64LL, v26, 1919052136LL);
-  if ( !Pool2 )
+  v27 = (v6 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  LODWORD(v24) = -v8 & (65668 * v1 - 1 + 17 * v8);
+  v28 = (unsigned int)v24 + v27;
+  v10 = (v1 << 17) + v28;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x72626968u);
+  if ( !PoolWithTag )
     goto LABEL_23;
   DumpHibernateResources = MmAllocateDumpHibernateResources(v1 << 16);
   if ( !DumpHibernateResources )
   {
-    ExFreePoolWithTag((PVOID)Pool2, 0x72626968u);
+    ExFreePoolWithTag(PoolWithTag, 0x72626968u);
 LABEL_23:
-    Pool2 = (__int64)qword_140C22C68;
-    v7 = 1;
+    PoolWithTag = qword_140C238E8;
     v1 = 1;
+    v20 = 1;
     v19 = 1;
-    memset(qword_140C22C68, 0, 0x80uLL);
-    v18 = 12288;
-    *(_QWORD *)(Pool2 + 8) = qword_140C22BE8;
-    v22 = (char *)Address;
-    goto LABEL_20;
+    memset(qword_140C238E8, 0, 0x80uLL);
+    v21 = 12288;
+    PoolWithTag[1] = qword_140C23868;
+    v25 = (char *)Address;
+    goto LABEL_21;
   }
   if ( PopHiberChecksummingEnabledReg )
   {
-    v11 = &v22[Pool2];
+    v13 = &v25[(_QWORD)PoolWithTag];
     MemoryMap[55] = v3;
-    MemoryMap[54] = v11;
-    memset(v11, 0, v3);
+    MemoryMap[54] = v13;
+    memset(v13, 0, v3);
   }
-  v22 = (char *)(Pool2 + v24);
-  memset((void *)Pool2, 0, (unsigned __int64)v1 << 7);
-  v12 = 0;
+  v25 = (char *)PoolWithTag + v27;
+  memset(PoolWithTag, 0, (unsigned __int64)v1 << 7);
+  v14 = 0;
   if ( v1 )
   {
-    v13 = v23;
-    v14 = (_QWORD *)(Pool2 + 8);
-    v15 = v25;
+    v15 = v26;
+    v16 = PoolWithTag + 1;
+    v17 = v28;
     do
     {
-      v16 = (char *)(Pool2 + v15 + (v12 << 17));
-      *(v14 - 1) = v16;
-      v14[2] = v16 + 0x10000;
-      *v14 = DumpHibernateResources + (v12 << 16);
+      v18 = (char *)&PoolWithTag[0x4000 * v14] + v17;
+      *(v16 - 1) = v18;
+      v16[2] = v18 + 0x10000;
+      *v16 = DumpHibernateResources + (v14 << 16);
       if ( CompressBufferWorkSpaceSize )
-        v14[1] = Pool2 + v13 + v12 * CompressBufferWorkSpaceSize;
-      ++v12;
-      v14 += 16;
+        v16[1] = (char *)PoolWithTag + v15 + v14 * CompressBufferWorkSpaceSize;
+      ++v14;
+      v16 += 16;
     }
-    while ( v12 < v1 );
+    while ( v14 < v1 );
   }
   MmMarkHiberRange(MemoryMap, DumpHibernateResources, (unsigned __int64)(16 * v1) << 12);
-  v17 = v26;
-  PoSetHiberRange(MemoryMap, 0x8000u, (PVOID)(v23 + Pool2), v26 - v23, 0x72626968u);
-  MemoryMap[36] = Pool2;
-  MemoryMap[37] = v17;
+  PoSetHiberRange(MemoryMap, 0x8000u, (char *)PoolWithTag + v26, v10 - v26, 0x72626968u);
+  MemoryMap[36] = PoolWithTag;
+  MemoryMap[37] = v10;
   MemoryMap[38] = DumpHibernateResources;
-  v18 = v21;
-  v19 = 16;
-LABEL_20:
+  v19 = v23;
+  v20 = 16;
+  v21 = v24;
+LABEL_21:
   PoSetHiberRange(MemoryMap, 0x8000u, Address, 0x3000uLL, 0x72626968u);
-  result = v22;
-  MemoryMap[34] = v22;
+  result = v25;
+  MemoryMap[34] = v25;
   *((_DWORD *)MemoryMap + 64) = v1;
-  MemoryMap[33] = Pool2;
-  *((_DWORD *)MemoryMap + 70) = v18;
-  *((_DWORD *)MemoryMap + 71) = v19;
-  *((_DWORD *)MemoryMap + 102) = v7;
+  MemoryMap[33] = PoolWithTag;
+  *((_DWORD *)MemoryMap + 70) = v21;
+  *((_DWORD *)MemoryMap + 71) = v20;
+  *((_DWORD *)MemoryMap + 102) = v19;
   return result;
 }

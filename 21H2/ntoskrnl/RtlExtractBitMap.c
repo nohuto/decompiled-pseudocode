@@ -1,17 +1,16 @@
 /*
- * XREFs of RtlExtractBitMap @ 0x1405E5500
+ * XREFs of RtlExtractBitMap @ 0x140586DA0
  * Callers:
- *     RtlShiftLeftBitMap @ 0x1405E6BE0 (RtlShiftLeftBitMap.c)
- *     RtlDecompressBufferXp10 @ 0x1409C0EC0 (RtlDecompressBufferXp10.c)
+ *     RtlShiftLeftBitMap @ 0x140588550 (RtlShiftLeftBitMap.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 char __fastcall RtlExtractBitMap(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4)
 {
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // r10
-  unsigned int v7; // eax
+  __int64 v7; // rax
   unsigned __int64 v9; // rsi
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rdi
@@ -20,14 +19,13 @@ char __fastcall RtlExtractBitMap(__int64 a1, unsigned int *a2, unsigned int a3, 
   __int64 v14; // r9
   unsigned int *v15; // r10
   __int64 v16; // r8
-  int *v17; // rdi
+  int *v17; // rsi
   int v18; // r9d
-  unsigned __int64 v19; // rbp
-  unsigned __int64 v20; // r11
+  unsigned __int64 v19; // rdi
+  unsigned int v20; // edx
   unsigned int v21; // edx
-  unsigned int v22; // edx
-  int v23; // ebx
-  int v24; // edx
+  int v22; // edi
+  int v23; // edx
 
   v5 = *a2;
   v6 = *(_DWORD *)a1 - a3;
@@ -42,55 +40,55 @@ char __fastcall RtlExtractBitMap(__int64 a1, unsigned int *a2, unsigned int a3, 
     v10 = a3;
     if ( (a3 & 7) != 0 )
     {
+      v7 = *(_QWORD *)(a1 + 8);
       v15 = (unsigned int *)*((_QWORD *)a2 + 1);
       v16 = a3 & 0x1F;
-      v17 = (int *)(*(_QWORD *)(a1 + 8) + 4 * (v10 >> 5));
+      v17 = (int *)(v7 + 4 * (v10 >> 5));
       v18 = 1 << (v10 & 0x1F);
-      if ( v5 < 0x20 )
-      {
-        v20 = v5;
-      }
-      else
+      if ( v5 >= 0x20 )
       {
         v19 = v5 >> 5;
-        v20 = v5 - 32 * (v5 >> 5);
+        v5 += -32LL * (v5 >> 5);
         do
         {
-          v21 = ~(v18 - 1) & *v17++;
-          v22 = v21 >> v16;
-          *v15 = v22;
-          v7 = v22 | (((v18 - 1) & *v17) << (32 - v16));
+          v20 = ~(v18 - 1) & *v17++;
+          v21 = v20 >> v16;
+          *v15 = v21;
+          LODWORD(v7) = v21 | (((v18 - 1) & *v17) << (32 - v16));
           *v15++ = v7;
           --v19;
         }
         while ( v19 );
-        if ( !v20 )
-          return v7;
       }
-      v23 = *v17;
-      v24 = *v15 & ~((1 << v20) - 1);
-      if ( v20 > 32 - v16 )
+      if ( v5 )
       {
-        v7 = ((v23 & (unsigned int)-v18) >> v16) | ((v17[1] & ((1 << (v20 + v16 - 32)) - 1)) << (32 - v16));
-        *v15 = v7 | v24;
+        v22 = *v17;
+        v23 = *v15 & ~((1 << v5) - 1);
+        if ( v5 > 32 - v16 )
+        {
+          LODWORD(v7) = ((v22 & (unsigned int)-v18) >> v16) | ((v17[1] & ((1 << (v5 + v16 - 32)) - 1)) << (32 - v16));
+          *v15 = v7 | v23;
+        }
+        else
+        {
+          LODWORD(v7) = v23 | ((v22 & (unsigned int)(((1 << v5) - 1) << v16)) >> v16);
+          *v15 = v7;
+        }
       }
-      else
-      {
-        v7 = v24 | ((v23 & (unsigned int)(((1 << v20) - 1) << v16)) >> v16);
-        *v15 = v7;
-      }
-      return v7;
     }
-    v11 = (unsigned int)v5;
-    v12 = v5 & 7;
-    v13 = v11 >> 3;
-    if ( v13 )
-      LOBYTE(v7) = (unsigned __int8)memmove(*((void **)a2 + 1), (const void *)(v9 + *(_QWORD *)(a1 + 8)), v13);
-    if ( v12 )
+    else
     {
-      v14 = *((_QWORD *)a2 + 1);
-      LOBYTE(v7) = *(_BYTE *)(v9 + *(_QWORD *)(a1 + 8) + v13) & ((1 << v12) - 1) | *(_BYTE *)(v13 + v14) & ~((1 << v12) - 1);
-      *(_BYTE *)(v13 + v14) = v7;
+      v11 = (unsigned int)v5;
+      v12 = v5 & 7;
+      v13 = v11 >> 3;
+      if ( v13 )
+        LOBYTE(v7) = (unsigned __int8)memmove(*((void **)a2 + 1), (const void *)(v9 + *(_QWORD *)(a1 + 8)), v13);
+      if ( v12 )
+      {
+        v14 = *((_QWORD *)a2 + 1);
+        LOBYTE(v7) = *(_BYTE *)(v9 + *(_QWORD *)(a1 + 8) + v13) & ((1 << v12) - 1) | *(_BYTE *)(v13 + v14) & ~((1 << v12) - 1);
+        *(_BYTE *)(v13 + v14) = v7;
+      }
     }
   }
   return v7;

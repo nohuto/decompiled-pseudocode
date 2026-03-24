@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CalcDeviceTransformDelta@CExternalLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x1801D8170
+ * XREFs of ?CalcDeviceTransformDelta@CExternalLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x18018FCD0
  * Callers:
  *     <none>
  * Callees:
- *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x18001E4B8 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x1801AF918 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
+ *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x18002F398 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x180174B40 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
  */
 
 __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
@@ -20,10 +20,10 @@ __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
   __m128i v8; // xmm1
   __m128i v9; // xmm2
   int v10; // xmm0_4
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  int v13; // eax
-  __int128 v14; // xmm0
+  __int128 v11; // xmm1
+  int v12; // eax
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
   _OWORD v16[4]; // [rsp+30h] [rbp-39h] BYREF
   int v17; // [rsp+70h] [rbp+7h]
   unsigned int v18; // [rsp+80h] [rbp+17h] BYREF
@@ -37,7 +37,7 @@ __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
   v7 = v5;
   if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x41u);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x41u, 0LL);
   }
   else
   {
@@ -56,14 +56,14 @@ __int64 __fastcall CExternalLayer::CalcDeviceTransformDelta(
     v21 = v10;
     CMILMatrix::InferAffineMatrix((__int64)v16, v22, (float *)&v18);
     v11 = v16[1];
-    v12 = v16[2];
-    v13 = v17;
+    v12 = v17;
     *(_OWORD *)a3 = v16[0];
+    v13 = v16[2];
     *((_OWORD *)a3 + 1) = v11;
     v14 = v16[3];
-    *((_OWORD *)a3 + 2) = v12;
+    *((_OWORD *)a3 + 2) = v13;
     *((_OWORD *)a3 + 3) = v14;
-    *((_DWORD *)a3 + 16) = v13;
+    *((_DWORD *)a3 + 16) = v12;
   }
   return v7;
 }

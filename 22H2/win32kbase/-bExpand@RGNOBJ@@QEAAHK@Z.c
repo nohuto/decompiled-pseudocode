@@ -1,25 +1,27 @@
 /*
- * XREFs of ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C007D290
+ * XREFs of ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C002BBC0
  * Callers:
- *     RGNCOREOBJ::bMerge__lambda_37edbae25e797877af1c91b6e50f63b9___ @ 0x1C007DFE0 (RGNCOREOBJ--bMerge__lambda_37edbae25e797877af1c91b6e50f63b9___.c)
- *     ?bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z @ 0x1C01564E8 (-bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z.c)
- *     ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C0156574 (-bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z.c)
+ *     ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C00265A8 (-bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z.c)
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0035490 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     ?bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z @ 0x1C00BA074 (-bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z.c)
  * Callees:
- *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C003C880 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E0F4 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C004C7D0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C007DD10 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002D230 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C0034E60 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
  */
 
 __int64 __fastcall RGNOBJ::bExpand(RGNOBJ *this, unsigned int a2)
 {
   unsigned int v3; // ebx
-  PVOID v5; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v5; // [rsp+20h] [rbp-18h] BYREF
+  int v6; // [rsp+28h] [rbp-10h]
 
   v3 = 0;
   v5 = 0LL;
+  v6 = 0;
   RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v5, a2);
   RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v5);
   if ( v5 )
@@ -32,6 +34,6 @@ __int64 __fastcall RGNOBJ::bExpand(RGNOBJ *this, unsigned int a2)
   {
     EngSetLastError(8u);
   }
-  RGNMEMOBJTMP::~RGNMEMOBJTMP(&v5);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v5);
   return v3;
 }

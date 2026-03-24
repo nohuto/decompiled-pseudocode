@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlAddAccessFilterAce @ 0x1409BAF50
+ * XREFs of RtlAddAccessFilterAce @ 0x1409122A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1402B3A00 (RtlIsValidProcessTrustLabelSid.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     RtlFirstFreeAce @ 0x1407F3570 (RtlFirstFreeAce.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x140347780 (RtlIsValidProcessTrustLabelSid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x1406D4640 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1406D5380 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
  */
 
 __int64 __fastcall RtlAddAccessFilterAce(
@@ -25,7 +25,7 @@ __int64 __fastcall RtlAddAccessFilterAce(
   __int64 result; // rax
   int v13; // ecx
   unsigned int v14; // eax
-  unsigned __int8 v15; // r15
+  unsigned __int8 v15; // r14
   unsigned int v16; // ecx
   unsigned int v17; // r8d
   __int64 v18; // rsi

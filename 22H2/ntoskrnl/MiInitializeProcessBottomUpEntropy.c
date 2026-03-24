@@ -1,88 +1,86 @@
 /*
- * XREFs of MiInitializeProcessBottomUpEntropy @ 0x1406B32B8
+ * XREFs of MiInitializeProcessBottomUpEntropy @ 0x1406FC130
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406FBB04 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiInitializeProcessBottomUpEntropy(__int64 a1)
 {
   int v1; // eax
-  unsigned int v2; // edi
+  unsigned int v2; // esi
   __int64 v3; // rbp
-  __int64 v5; // rsi
-  char v6; // r15
-  unsigned __int64 v7; // r14
-  int v8; // ecx
+  char v5; // r14
+  unsigned __int64 v6; // r15
+  int v7; // ecx
+  __int64 v8; // rbx
   unsigned __int64 v9; // rcx
-  __int64 v10; // rax
-  __int64 result; // rax
-  __int64 v12; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  unsigned __int64 v12; // rax
   __int64 v13; // rax
-  unsigned __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // [rsp+20h] [rbp-48h]
-  __int64 v17; // [rsp+28h] [rbp-40h]
-  __int64 v18; // [rsp+30h] [rbp-38h]
+  __int64 result; // rax
+  __int64 v15; // [rsp+20h] [rbp-48h]
+  __int64 v16; // [rsp+28h] [rbp-40h]
+  __int64 v17; // [rsp+30h] [rbp-38h]
 
   v1 = *(_DWORD *)(a1 + 2512);
   v2 = 0;
   v3 = *(_QWORD *)(a1 + 1680);
-  v18 = 0LL;
-  v5 = 0LL;
-  v6 = 0;
-  v7 = 2LL;
-  if ( (v1 & 0x40) == 0 )
+  v17 = 0LL;
+  v5 = 0;
+  v16 = 1LL;
+  v6 = 2LL;
+  if ( (v1 & 0x40) != 0 )
+    goto LABEL_20;
+  v7 = ExGenRandom(1);
+  v8 = (unsigned __int8)v7;
+  if ( !(_DWORD)InitializationPhase )
+    *(_DWORD *)(a1 + 2512) |= 0x20u;
+  if ( *(_QWORD *)(a1 + 1496) > 0x100000000uLL && (*(_DWORD *)(a1 + 2512) & 0x20) != 0 )
   {
-    v8 = ExGenRandom(1);
-    v5 = (unsigned __int8)v8;
-    if ( !(_DWORD)InitializationPhase )
-      *(_DWORD *)(a1 + 2512) |= 0x20u;
-    if ( *(_QWORD *)(a1 + 1496) > 0x100000000uLL && (*(_DWORD *)(a1 + 2512) & 0x20) != 0 )
-    {
-      v9 = *(_QWORD *)&v8 & 0xFFFFFFLL;
-      v5 = 0x10000LL;
-      v6 = 1;
-      if ( v9 > 0x10000 )
-        v5 = v9;
-    }
+    v9 = *(_QWORD *)&v7 & 0xFFFFFFLL;
+    v8 = 0x10000LL;
+    v5 = 1;
+    if ( v9 > 0x10000 )
+      v8 = v9;
   }
+  if ( !v8 )
+    v8 = 1LL;
+  v16 = v8;
   if ( !v5 )
-    v5 = 1LL;
-  v17 = v5;
-  if ( v6 )
   {
-    v10 = v5 + (ExGenRandom(1) & 0xFFFFFF) + 0x1000000;
-  }
-  else
-  {
+LABEL_20:
     _InterlockedAnd((volatile signed __int32 *)(a1 + 2512), 0xFFFFFFDF);
-    v10 = v17;
+    v8 = v16;
   }
-  v16 = v10;
+  if ( v5 == 1 )
+    v15 = v8 + (ExGenRandom(1) & 0xFFFFFF) + 0x1000000;
+  else
+    v15 = v8;
   if ( *(_QWORD *)(a1 + 1496) <= 0x100000000uLL )
   {
-    v7 = 3LL;
-    v18 = (ExGenRandom(1) & 0xFFFFFF) + 0x10000;
+    v6 = 3LL;
+    v17 = (ExGenRandom(1) & 0xFFFFFF) + 0x10000;
   }
-  *(_QWORD *)(v3 + 264) = v7;
-  result = 0LL;
+  *(_QWORD *)(v3 + 264) = v6;
+  v10 = 0LL;
   do
   {
-    v12 = 9 * result;
-    v13 = *(&v16 + result);
-    v14 = *(_QWORD *)(a1 + 1496) - 1LL;
+    v11 = 9 * v10;
+    v12 = *(_QWORD *)(a1 + 1496) - 1LL;
     if ( v2 == 2 )
-      v14 = 0x7FFFFFFEFFFFLL;
-    v15 = v13 & 0xFFFFFFFFFFFFLL;
+      v12 = 0x7FFFFFFEFFFFLL;
     ++v2;
-    *(_QWORD *)(v3 + 8 * v12 + 112) = v15;
-    *(_QWORD *)(v3 + 8 * v12 + 104) = v15 << 16;
-    result = v2;
-    *(_QWORD *)(v3 + 8 * v12 + 88) = v14 >> 16;
+    *(_QWORD *)(v3 + 72 * v10 + 88) = v12 >> 16;
+    v13 = *(&v15 + v10);
+    *(_QWORD *)(v3 + 72 * v10 + 112) = v13;
+    result = v13 << 16;
+    v10 = v2;
+    *(_QWORD *)(v3 + 8 * v11 + 104) = result;
   }
-  while ( v2 < v7 );
+  while ( v2 < v6 );
   return result;
 }

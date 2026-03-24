@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_ReturningOverCurrentClearedFromD3Cold @ 0x1C0012AD0
+ * XREFs of HUBPSM30_ReturningOverCurrentClearedFromD3Cold @ 0x1C0011780
  * Callers:
  *     <none>
  * Callees:

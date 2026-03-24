@@ -1,46 +1,48 @@
 /*
- * XREFs of ?EnsureCacheBounds@CExpression@@AEAAJI_K@Z @ 0x1800C0DCC
+ * XREFs of ?EnsureCacheBounds@CExpression@@AEAAJI_K@Z @ 0x18005C8F8
  * Callers:
- *     ?StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z @ 0x1800BFA20 (-StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x1800C097C (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
+ *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x180059A0C (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
+ *     ?StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z @ 0x18005C5F0 (-StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_2460007739@@@details@wil@@QEAA_NXZ @ 0x18011A024 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_2460007739@@@details@wil@@QEAA_NX.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_2929769787@@@details@wil@@QEAA_NXZ @ 0x1800EFDB8 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_2929769787@@@details@wil@@QEAA_NX.c)
  */
 
 __int64 __fastcall CExpression::EnsureCacheBounds(CExpression *this, unsigned int a2, unsigned __int64 a3)
 {
   unsigned int v6; // ebx
-  unsigned int v8; // [rsp+20h] [rbp-18h]
+  int v7; // r9d
+  unsigned int v9; // [rsp+20h] [rbp-18h]
 
-  if ( (unsigned __int8)wil::details::FeatureImpl<__WilFeatureTraits_Feature_2460007739>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_2460007739>::GetImpl'::`2'::impl)
-    && !*((_QWORD *)this + 45) )
+  if ( (unsigned __int8)wil::details::FeatureImpl<__WilFeatureTraits_Feature_2929769787>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_2929769787>::GetImpl'::`2'::impl)
+    && !*((_QWORD *)this + 42) )
   {
     v6 = -2147418113;
-    MilInstrumentationCheckHR_MaybeFailFast(0, 0LL, 0, -2147418113, 0x20Au, 0LL);
+    v9 = 540;
+LABEL_4:
+    v7 = v6;
+LABEL_13:
+    MilInstrumentationCheckHR_MaybeFailFast(0, 0LL, 0, v7, v9, 0LL);
     return v6;
   }
   if ( a3 > 0xFFFFFFFF )
   {
-    v8 = 526;
-    goto LABEL_11;
+    v9 = 548;
+    goto LABEL_12;
   }
   if ( (unsigned int)a3 + a2 < a2 )
   {
-    v8 = 527;
-LABEL_11:
+    v9 = 550;
+LABEL_12:
+    v7 = -2147024362;
     v6 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(0, 0LL, 0, -2147024362, v8, 0LL);
-    return v6;
+    goto LABEL_13;
   }
-  if ( (unsigned int)a3 + a2 <= *((_DWORD *)this + 92) )
-  {
-    return 0;
-  }
-  else
+  if ( (unsigned int)a3 + a2 > *((_DWORD *)this + 86) )
   {
     v6 = -2147483637;
-    MilInstrumentationCheckHR_MaybeFailFast(0, 0LL, 0, -2147483637, 0x214u, 0LL);
+    v9 = 555;
+    goto LABEL_4;
   }
-  return v6;
+  return 0;
 }

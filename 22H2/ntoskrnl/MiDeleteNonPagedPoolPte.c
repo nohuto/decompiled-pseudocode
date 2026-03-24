@@ -1,190 +1,187 @@
 /*
- * XREFs of MiDeleteNonPagedPoolPte @ 0x140212710
+ * XREFs of MiDeleteNonPagedPoolPte @ 0x1402E9620
  * Callers:
- *     MiClearNonPagedPtes @ 0x140212478 (MiClearNonPagedPtes.c)
+ *     MiClearNonPagedPtes @ 0x1402E9388 (MiClearNonPagedPtes.c)
  * Callees:
- *     MiDecommitLargePoolVa @ 0x140211A40 (MiDecommitLargePoolVa.c)
- *     MiInitializeTbFlushStamps @ 0x140212A28 (MiInitializeTbFlushStamps.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiEvictPageTableLock @ 0x1402E5230 (MiEvictPageTableLock.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140367B48 (MiInsertRecursiveTbFlushEntries.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiBadRefCount @ 0x14064D6B0 (MiBadRefCount.c)
+ *     MiGetContainingPageTable @ 0x14023DDC0 (MiGetContainingPageTable.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiEvictPageTableLock @ 0x14028CCA0 (MiEvictPageTableLock.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiInitializeTbFlushStamps @ 0x1402E9930 (MiInitializeTbFlushStamps.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1402EA5F8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiDecommitLargePoolVa @ 0x1403714C0 (MiDecommitLargePoolVa.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiDeleteNonPagedPoolPte(_QWORD *BugCheckParameter2, unsigned __int64 *a2, int a3)
+__int64 __fastcall MiDeleteNonPagedPoolPte(_QWORD *BugCheckParameter2, unsigned __int64 a2, int a3)
 {
-  __int64 v3; // rbx
-  int v7; // esi
-  __int64 v8; // r9
+  unsigned __int64 v6; // rbx
+  __int64 v7; // r9
   int i; // eax
-  __int64 v10; // r14
-  unsigned __int64 v11; // rbx
-  unsigned __int64 v12; // r8
-  _DWORD *v13; // r15
+  __int64 v9; // rdi
+  unsigned __int64 v10; // r14
+  __int64 v11; // r15
+  __int64 v12; // r14
+  unsigned __int64 v13; // rbx
   __int64 v14; // rdx
-  int v15; // r13d
-  bool v16; // zf
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  unsigned __int64 v19; // rdx
-  __int64 v20; // rax
-  unsigned __int64 LeafVa; // rax
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  int v18; // r11d
+  bool v19; // zf
+  __int64 v20; // rbx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  __int64 v25; // rax
+  ULONG_PTR LeafVa; // rax
   ULONG_PTR BugCheckParameter4; // r9
   struct _LIST_ENTRY *Flink; // rdx
-  __int64 v25; // rax
-  __int64 v26; // rdx
-  int v27; // [rsp+78h] [rbp+10h] BYREF
-  __int64 v28; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v30; // rax
+  char v31[56]; // [rsp+30h] [rbp-38h] BYREF
+  int v32; // [rsp+88h] [rbp+20h] BYREF
 
-  v3 = *a2;
-  v7 = MiPteInShadowRange(a2);
-  if ( v7
-    && (MiFlags & 0x600000) != 0
-    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-    && (v3 & 1) != 0
-    && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
+  *(_QWORD *)v31 = MI_READ_PTE_LOCK_FREE(a2);
+  v6 = *(_QWORD *)v31;
+  if ( (v31[0] & 1) == 0 || a3 > 1 )
+    return 0LL;
+  v7 = 1LL;
+  for ( i = a3; i; --i )
+    v7 <<= 9;
+  v9 = BugCheckParameter2[21];
+  if ( v31[0] >= 0 )
   {
-    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-    if ( Flink )
+    v10 = *(_QWORD *)v31;
+    if ( MiPteInShadowRange((unsigned __int64)v31)
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && ((v6 & 0x20) == 0 || (v6 & 0x42) == 0) )
     {
-      v25 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)a2 >> 3) & 0x1FF));
-      v26 = v3 | 0x20;
-      if ( (v25 & 0x20) == 0 )
-        v26 = v3;
-      v3 = v26;
-      if ( (v25 & 0x42) != 0 )
-        v3 = v26 | 0x42;
-    }
-  }
-  v28 = v3;
-  if ( (v3 & 1) != 0 && a3 <= 1 )
-  {
-    v8 = 1LL;
-    for ( i = a3; i; --i )
-      v8 <<= 9;
-    v10 = BugCheckParameter2[21];
-    if ( (v3 & 0x80u) == 0LL )
-    {
-      v11 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v28) >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-      v12 = 0x8000000000000000uLL;
-      if ( a3 == 1 )
+      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
       {
-        if ( (*(_QWORD *)(v11 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1
-          || !(unsigned int)MiEvictPageTableLock(&unk_140C6A140, a2, ZeroPte, 2LL) )
-        {
-          return 0LL;
-        }
-        v13 = (_DWORD *)(v10 + 204);
-LABEL_12:
-        v15 = *(_DWORD *)(v10 + 208);
-        if ( !v15 )
-          *(_QWORD *)(v10 + 216) = MiGetContainingPageTable(a2);
-        *(_DWORD *)(v10 + 208) = v15 + 1;
-        v27 = 0;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 24), 0x3FuLL) )
-        {
-          do
-          {
-            do
-              KeYieldProcessorEx(&v27);
-            while ( *(__int64 *)(v11 + 24) < 0 );
-          }
-          while ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 24), 0x3FuLL) );
-          v13 = (_DWORD *)(v10 + 204);
-        }
-        if ( (*v13 & 2) == 0 )
-        {
-          if ( *(_WORD *)(v11 + 32) != 1 )
-            MiBadRefCount(v11, v14, v12);
-          *(_BYTE *)(v11 + 34) = *(_BYTE *)(v11 + 34) & 0xF8 | 5;
-        }
-        if ( a3 )
-        {
-          *(_QWORD *)v11 = *(_QWORD *)(v10 + 192);
-          *(_QWORD *)(v10 + 192) = v11;
-          _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          MiInsertRecursiveTbFlushEntries(v10, (unsigned int)a3, a2);
-          return 0LL;
-        }
-        if ( (*v13 & 2) == 0 )
-        {
-          *(_QWORD *)v11 = *(_QWORD *)(v10 + 184);
-          *(_QWORD *)(v10 + 184) = v11;
-        }
-        _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        v16 = (*(_DWORD *)(v10 + 200) & 0x40000000) == 0;
-        v28 = 0LL;
-        if ( !v16 )
-          goto LABEL_24;
-        MiInitializeTbFlushStamps(&v28, v14, v12);
-        v19 = v28;
-        if ( v7 )
-        {
-          if ( (unsigned int)MiPteHasShadow(v17, v28, v18) )
-          {
-            if ( !HIBYTE(word_140C66DFC) && (v19 & 1) != 0 )
-              v19 |= 0x8000000000000000uLL;
-            *a2 = v19;
-            MiWritePteShadow(a2, v19);
-            goto LABEL_24;
-          }
-          if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-            && (v19 & 1) != 0 )
-          {
-            v19 |= 0x8000000000000000uLL;
-          }
-        }
-        *a2 = v19;
-LABEL_24:
-        v20 = v28;
-        if ( qword_140C65C40 && (v28 & 0x10) == 0 )
-          v20 = v28 & ~qword_140C65C40;
-        if ( (v20 & 0xFFFFFFFF00000000uLL) == 0 )
-          MiInsertTbFlushEntry(v10, (__int64)((_QWORD)a2 << 25) >> 16, 1LL, 0LL);
+        v6 |= 0x20uLL;
+        v30 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)v31 >> 3) & 0x1FF));
+        if ( (v30 & 0x20) == 0 )
+          v6 = v10;
+        if ( (v30 & 0x42) != 0 )
+          v6 |= 0x42uLL;
+      }
+      else
+      {
+        v6 = *(_QWORD *)v31;
+      }
+    }
+    v11 = 48 * ((v6 >> 12) & 0xFFFFFFFFFLL);
+    v12 = v11 - 0x58000000000LL;
+    if ( a3 == 1 )
+    {
+      if ( (*(_QWORD *)(v12 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1
+        || !(unsigned int)MiEvictPageTableLock((__int64)&unk_140C4F640, a2, ZeroPte, 2) )
+      {
         return 0LL;
       }
-      v13 = (_DWORD *)(v10 + 204);
-      if ( (*(_DWORD *)(v10 + 204) & 1) == 0 )
-        return 0LL;
-      v14 = ZeroPte;
-      if ( v7 )
+LABEL_12:
+      v18 = *(_DWORD *)(v9 + 208);
+      if ( !v18 )
+        *(_QWORD *)(v9 + 216) = MiGetContainingPageTable(a2);
+      *(_DWORD *)(v9 + 208) = v18 + 1;
+      v32 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) )
       {
-        if ( (unsigned int)MiPteHasShadow(0xFFFFFFFFFFLL, ZeroPte, 0x8000000000000000uLL) )
+        do
+          KeYieldProcessorEx(&v32, v14, v16, v17);
+        while ( *(__int64 *)(v12 + 24) < 0 );
+      }
+      if ( (*(_DWORD *)(v9 + 204) & 2) == 0 )
+      {
+        if ( *(_WORD *)(v12 + 32) != 1 )
+          KeBugCheckEx(0x4Eu, 0x9AuLL, v11 / 48, *(_BYTE *)(v12 + 34) & 7, *(unsigned __int16 *)(v12 + 32));
+        *(_BYTE *)(v12 + 34) = *(_BYTE *)(v12 + 34) & 0xF8 | 5;
+      }
+      if ( a3 )
+      {
+        *(_QWORD *)v12 = *(_QWORD *)(v9 + 192);
+        *(_QWORD *)(v9 + 192) = v12;
+        _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        MiInsertRecursiveTbFlushEntries(v9, (unsigned int)a3, a2);
+        return 0LL;
+      }
+      if ( (*(_DWORD *)(v9 + 204) & 2) == 0 )
+      {
+        *(_QWORD *)v12 = *(_QWORD *)(v9 + 184);
+        *(_QWORD *)(v9 + 184) = v12;
+      }
+      _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v19 = (*(_DWORD *)(v9 + 200) & 0x40000000) == 0;
+      *(_QWORD *)v31 = 0LL;
+      if ( !v19 )
+        goto LABEL_24;
+      MiInitializeTbFlushStamps(v31);
+      v20 = *(_QWORD *)v31;
+      if ( MiPteInShadowRange(a2) )
+      {
+        if ( (unsigned int)MiPteHasShadow(v22, v21, v23, v24) )
         {
-          if ( !HIBYTE(word_140C66DFC) && (v14 & 1) != 0 )
-            v14 |= v12;
-          *a2 = v14;
-          MiWritePteShadow(a2, v14);
-          goto LABEL_10;
+          if ( !HIBYTE(word_140C4E008) && (v20 & 1) != 0 )
+            v20 |= 0x8000000000000000uLL;
+          *(_QWORD *)a2 = v20;
+          MiWritePteShadow(a2, v20);
+          goto LABEL_24;
         }
         if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-          && (v14 & 1) != 0 )
+          && (v20 & 1) != 0 )
         {
-          v14 |= v12;
+          v20 |= 0x8000000000000000uLL;
         }
       }
-      *a2 = v14;
-LABEL_10:
-      if ( (*(_BYTE *)(v11 + 35) & 0x10) == 0 )
-        ++*(_DWORD *)(v10 + 212);
-      goto LABEL_12;
+      *(_QWORD *)a2 = v20;
+LABEL_24:
+      v25 = *(_QWORD *)v31;
+      if ( qword_140C4DF40 && (v31[0] & 0x10) == 0 )
+        v25 = *(_QWORD *)v31 & ~qword_140C4DF40;
+      if ( (v25 & 0xFFFFFFFF00000000uLL) == 0 )
+        MiInsertTbFlushEntry(v9, (__int64)(a2 << 25) >> 16, 1LL, 0);
+      return 0LL;
     }
-    if ( (*(_DWORD *)(v10 + 204) & 1) != 0 )
+    if ( (*(_DWORD *)(v9 + 204) & 1) == 0 )
+      return 0LL;
+    v13 = ZeroPte;
+    if ( MiPteInShadowRange(a2) )
     {
-      LeafVa = MiGetLeafVa(a2);
-      if ( LeafVa < BugCheckParameter2[4] || LeafVa + (BugCheckParameter4 << 12) - 1 > BugCheckParameter2[5] )
-        KeBugCheckEx(0x1Au, 0x5306uLL, (ULONG_PTR)BugCheckParameter2, LeafVa, BugCheckParameter4);
-      MiDecommitLargePoolVa(LeafVa, a2, BugCheckParameter4);
-      *(_DWORD *)(v10 + 212) += 512;
+      if ( (unsigned int)MiPteHasShadow(v15, v14, v16, v17) )
+      {
+        if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+          v13 = ZeroPte | 0x8000000000000000uLL;
+        *(_QWORD *)a2 = v13;
+        MiWritePteShadow(a2, v13);
+        goto LABEL_10;
+      }
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+        && (ZeroPte & 1) != 0 )
+      {
+        v13 = ZeroPte | 0x8000000000000000uLL;
+      }
     }
+    *(_QWORD *)a2 = v13;
+LABEL_10:
+    if ( (*(_BYTE *)(v12 + 35) & 0x10) == 0 )
+      ++*(_DWORD *)(v9 + 212);
+    goto LABEL_12;
+  }
+  if ( (*(_DWORD *)(v9 + 204) & 1) != 0 )
+  {
+    LeafVa = MiGetLeafVa(a2);
+    if ( LeafVa < BugCheckParameter2[4] || LeafVa + (BugCheckParameter4 << 12) - 1 > BugCheckParameter2[5] )
+      KeBugCheckEx(0x1Au, 0x5306uLL, (ULONG_PTR)BugCheckParameter2, LeafVa, BugCheckParameter4);
+    MiDecommitLargePoolVa(LeafVa, a2, BugCheckParameter4);
+    *(_DWORD *)(v9 + 212) += 512;
   }
   return 0LL;
 }

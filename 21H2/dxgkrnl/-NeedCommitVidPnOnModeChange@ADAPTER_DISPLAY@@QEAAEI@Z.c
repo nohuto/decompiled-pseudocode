@@ -1,65 +1,32 @@
 /*
- * XREFs of ?NeedCommitVidPnOnModeChange@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C0013234
+ * XREFs of ?NeedCommitVidPnOnModeChange@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C000B994
  * Callers:
- *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAPEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@3@Z @ 0x1C01B9F4C (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIM.c)
- *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C4C30 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAPEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@3@Z @ 0x1C0141570 (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIM.c)
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014D6D4 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
  * Callees:
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 unsigned __int8 __fastcall ADAPTER_DISPLAY::NeedCommitVidPnOnModeChange(DXGADAPTER **this, unsigned int a2)
 {
   __int64 v3; // rdi
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rax
 
   v3 = a2;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 5567LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v6,
-          v5,
-          v7,
-          0,
-          2,
-          -1,
-          (__int64)L"IsCoreResourceSharedOwner()",
-          5567LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v7 + 24) = 5566LL;
+    WdLogEvent5_WdAssertion(v7);
   }
-  if ( (unsigned int)v3 >= *((_DWORD *)this + 24) )
+  if ( (unsigned int)v3 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 5568LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v9,
-          v8,
-          v10,
-          0,
-          2,
-          -1,
-          (__int64)L"VidPnSourceId < m_NumVidPnSources",
-          5568LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v8 + 24) = 5567LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  return *((_BYTE *)this[16] + 4000 * v3 + 763);
+  return *((_BYTE *)this[14] + 3968 * v3 + 723);
 }

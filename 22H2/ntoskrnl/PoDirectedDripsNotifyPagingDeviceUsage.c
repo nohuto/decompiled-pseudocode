@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDirectedDripsNotifyPagingDeviceUsage @ 0x140854CF0
+ * XREFs of PoDirectedDripsNotifyPagingDeviceUsage @ 0x1407C9E48
  * Callers:
- *     PiPagePathSetState @ 0x140854B58 (PiPagePathSetState.c)
+ *     PiPagePathSetState @ 0x1407C9D60 (PiPagePathSetState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
  */
 
 LONG_PTR __fastcall PoDirectedDripsNotifyPagingDeviceUsage(__int64 a1, char a2)
@@ -18,17 +18,17 @@ LONG_PTR __fastcall PoDirectedDripsNotifyPagingDeviceUsage(__int64 a1, char a2)
   DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a1, 0x64446F50u);
   v4 = DeviceAttachmentBaseRefWithTag;
   if ( DeviceAttachmentBaseRefWithTag )
-  {
     v5 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
-    if ( v5 )
-    {
-      v6 = *(_DWORD *)(v5 + 768);
-      if ( a2 )
-        v7 = v6 + 1;
-      else
-        v7 = v6 - 1;
-      *(_DWORD *)(v5 + 768) = v7;
-    }
+  else
+    v5 = 0LL;
+  if ( v5 )
+  {
+    v6 = *(_DWORD *)(v5 + 768);
+    if ( a2 )
+      v7 = v6 + 1;
+    else
+      v7 = v6 - 1;
+    *(_DWORD *)(v5 + 768) = v7;
   }
   return ObfDereferenceObjectWithTag(v4, 0x64446F50u);
 }

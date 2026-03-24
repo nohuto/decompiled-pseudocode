@@ -1,155 +1,153 @@
 /*
- * XREFs of ACPIGetProcessorStatus @ 0x1C0024DC4
+ * XREFs of ACPIGetProcessorStatus @ 0x1C00270F4
  * Callers:
- *     ACPIGetWorkerForInteger @ 0x1C00249F0 (ACPIGetWorkerForInteger.c)
+ *     ACPIGetWorkerForInteger @ 0x1C0026CF0 (ACPIGetWorkerForInteger.c)
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIGetProcessorStatus(__int64 a1, __int64 a2, int *a3)
 {
-  unsigned int v3; // ebx
-  __int64 *v5; // rcx
-  int v7; // edi
-  volatile signed __int32 *v8; // r14
+  unsigned int v3; // esi
+  __int64 v5; // r14
+  __int64 *v6; // rcx
+  int v8; // ebx
   __int64 v9; // rax
-  int v10; // r8d
-  __int64 v11; // rcx
-  char *v12; // r10
-  unsigned __int64 v13; // r11
+  __int16 v10; // dx
+  int v11; // r8d
+  __int64 v12; // rcx
+  char *v13; // r10
+  unsigned __int64 v14; // r11
   unsigned __int64 i; // rax
-  __int64 v15; // rcx
-  char *v16; // r9
-  char *v17; // rdx
-  char v18; // al
-  __int16 v19; // ax
-  char v20; // al
+  __int64 v16; // rcx
+  char *v17; // r9
+  char *v18; // rdx
+  char v19; // al
+  __int16 v20; // ax
+  char v21; // al
   __int64 result; // rax
-  __int64 *v22; // rax
-  __int64 v23; // r8
-  __int16 v24; // ax
-  const char *v25; // rcx
-  __int16 v26; // ax
+  __int64 *v23; // rax
+  __int64 v24; // r8
+  __int16 v25; // ax
+  const char *v26; // rcx
+  __int16 v27; // ax
 
   v3 = 0;
-  v5 = *(__int64 **)(a1 + 760);
-  dword_1C0081E10 = 0;
-  v7 = 15;
-  v8 = 0LL;
-  if ( !v5 || !_bittest64((const signed __int64 *)(a1 + 8), 0x24u) )
-    goto LABEL_51;
-  v9 = *v5;
-  if ( *(_WORD *)(*v5 + 66) == 12 )
+  dword_1C0082B78 = 0;
+  v5 = 0LL;
+  v6 = *(__int64 **)(a1 + 720);
+  v8 = 15;
+  if ( !v6 )
+    goto LABEL_52;
+  if ( (*(_QWORD *)(a1 + 8) & 0x1000000000LL) == 0 )
+    goto LABEL_52;
+  v9 = *v6;
+  v10 = *(_WORD *)(*v6 + 66);
+  if ( v10 == 12 && !*(_QWORD *)(v9 + 96) )
+    goto LABEL_52;
+  if ( v10 == 12 )
   {
-    if ( *(_QWORD *)(v9 + 96) )
+    v11 = *(unsigned __int8 *)(*(_QWORD *)(v9 + 96) + 8LL);
+    goto LABEL_7;
+  }
+  v23 = AMLIGetNamedChild(v6, 1145656671);
+  v5 = (__int64)v23;
+  if ( !v23 )
+    goto LABEL_25;
+  v24 = *v23;
+  v25 = *(_WORD *)(*v23 + 66);
+  if ( v25 != 1 )
+  {
+    if ( v25 != 8 )
+      goto LABEL_25;
+    if ( (*(_QWORD *)(a1 + 8) & 0x400000000000LL) != 0 )
     {
-      v10 = *(unsigned __int8 *)(*(_QWORD *)(v9 + 96) + 8LL);
-      goto LABEL_6;
+      v26 = *(const char **)(a1 + 576);
+      if ( v26 )
+      {
+        v11 = _strtoui64(v26, 0LL, 16);
+        goto LABEL_7;
+      }
     }
-LABEL_51:
+LABEL_52:
     v3 = -1073741808;
     goto LABEL_22;
   }
-  v22 = AMLIGetNamedChild(v5, 1145656671);
-  v8 = (volatile signed __int32 *)v22;
-  if ( !v22 )
-    goto LABEL_20;
-  v23 = *v22;
-  v24 = *(_WORD *)(*v22 + 66);
-  if ( v24 == 1 )
+  v11 = *(_DWORD *)(v24 + 80);
+LABEL_7:
+  *(_DWORD *)(a1 + 196) = v11;
+  v12 = *((_QWORD *)AcpiInformation + 4);
+  if ( v12 )
   {
-    v10 = *(_DWORD *)(v23 + 80);
-  }
-  else
-  {
-    if ( v24 != 8 )
-      goto LABEL_20;
-    if ( !_bittest64((const signed __int64 *)(a1 + 8), 0x2Eu) || (v25 = *(const char **)(a1 + 616)) == 0LL )
+    v13 = (char *)(v12 + 44);
+    v14 = v12 + *(unsigned int *)(v12 + 4);
+    for ( i = v12 + 46; ; i = (unsigned __int64)(v17 + 2) )
     {
-      v3 = -1073741808;
-LABEL_30:
-      AMLIDereferenceHandleEx(v8);
-      goto LABEL_22;
-    }
-    v10 = _strtoui64(v25, 0LL, 16);
-  }
-LABEL_6:
-  *(_DWORD *)(a1 + 196) = v10;
-  v11 = *((_QWORD *)AcpiInformation + 4);
-  if ( v11 )
-  {
-    v12 = (char *)(v11 + 44);
-    v13 = v11 + *(unsigned int *)(v11 + 4);
-    for ( i = v11 + 46; ; i = (unsigned __int64)(v16 + 2) )
-    {
-      if ( i > v13 )
-        goto LABEL_20;
-      v15 = (unsigned __int8)v12[1];
-      if ( (unsigned __int8)v15 < 2u )
-        goto LABEL_20;
-      v16 = &v12[v15];
-      if ( (unsigned __int64)&v12[v15] > v13 )
-        goto LABEL_20;
-      v17 = v12;
-      v12 += v15;
-      v18 = *v17;
-      if ( *v17 )
+      if ( i > v14 )
+        goto LABEL_25;
+      v16 = (unsigned __int8)v13[1];
+      if ( (unsigned __int8)v16 < 2u )
+        goto LABEL_25;
+      v17 = &v13[v16];
+      if ( (unsigned __int64)&v13[v16] > v14 )
+        goto LABEL_25;
+      v18 = v13;
+      v13 += v16;
+      v19 = *v18;
+      if ( *v18 )
       {
-        if ( v18 == 11 )
+        if ( v19 == 11 )
         {
-          if ( (unsigned __int8)v15 >= 0x28u )
+          if ( (unsigned __int8)v16 >= 0x28u )
           {
-            v26 = *(_WORD *)(**(_QWORD **)(a1 + 760) + 66LL);
-            if ( (v26 == 12 || v26 == 6 && _bittest64((const signed __int64 *)(a1 + 8), 0x24u))
-              && *((_DWORD *)v17 + 2) == v10 )
+            v27 = *(_WORD *)(**(_QWORD **)(a1 + 720) + 66LL);
+            if ( (v27 == 12 || v27 == 6 && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0) && *((_DWORD *)v18 + 2) == v11 )
             {
-              v20 = v17[12];
-              goto LABEL_19;
+              v21 = v18[12];
+              goto LABEL_21;
             }
           }
         }
-        else if ( v18 == 9
-               && (unsigned __int8)v15 >= 0x10u
-               && *(_WORD *)(**(_QWORD **)(a1 + 760) + 66LL) == 6
-               && _bittest64((const signed __int64 *)(a1 + 8), 0x24u)
-               && *((_DWORD *)v17 + 3) == v10 )
+        else if ( v19 == 9
+               && (unsigned __int8)v16 >= 0x10u
+               && *(_WORD *)(**(_QWORD **)(a1 + 720) + 66LL) == 6
+               && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0
+               && *((_DWORD *)v18 + 3) == v11 )
         {
-          if ( (v17[8] & 1) == 0 )
-LABEL_20:
-            v7 = 0;
-          goto LABEL_21;
+          if ( (v18[8] & 1) == 0 )
+LABEL_25:
+            v8 = 0;
+          goto LABEL_22;
         }
       }
-      else if ( (unsigned __int8)v15 >= 8u )
+      else if ( (unsigned __int8)v16 >= 8u )
       {
-        v19 = *(_WORD *)(**(_QWORD **)(a1 + 760) + 66LL);
-        if ( (v19 == 12 || v19 == 6 && _bittest64((const signed __int64 *)(a1 + 8), 0x24u))
-          && (unsigned __int8)v17[2] == v10 )
+        v20 = *(_WORD *)(**(_QWORD **)(a1 + 720) + 66LL);
+        if ( (v20 == 12 || v20 == 6 && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0) && (unsigned __int8)v18[2] == v11 )
         {
-          v20 = v17[4];
-LABEL_19:
-          v7 = (v20 & 1) != 0 ? 0xF : 0;
-          goto LABEL_21;
+          v21 = v18[4];
+LABEL_21:
+          v8 = (v21 & 1) != 0 ? 0xF : 0;
+          goto LABEL_22;
         }
       }
     }
   }
-  if ( dword_1C0081E10 )
+  if ( dword_1C0082B78 )
   {
-    if ( dword_1C0082B50 != v10 )
-      goto LABEL_20;
+    if ( dword_1C00834D0 != v11 )
+      goto LABEL_25;
   }
   else
   {
-    dword_1C0082B50 = v10;
-    dword_1C0081E10 = 1;
+    dword_1C00834D0 = v11;
+    dword_1C0082B78 = 1;
   }
-LABEL_21:
-  if ( v8 )
-    goto LABEL_30;
 LABEL_22:
+  if ( v5 )
+    AMLIDereferenceHandleEx(v5);
   result = v3;
-  *a3 = v7;
+  *a3 = v8;
   return result;
 }

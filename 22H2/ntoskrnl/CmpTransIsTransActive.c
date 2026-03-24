@@ -1,10 +1,9 @@
 /*
- * XREFs of CmpTransIsTransActive @ 0x14061652C
+ * XREFs of CmpTransIsTransActive @ 0x1404EC99C
  * Callers:
- *     CmpReportNotifyHelper @ 0x1406D54F0 (CmpReportNotifyHelper.c)
+ *     CmpReportNotifyHelper @ 0x1405ED390 (CmpReportNotifyHelper.c)
  * Callees:
- *     TmIsTransactionActive @ 0x1403D7F10 (TmIsTransactionActive.c)
- *     CmpTransGetTransPtr @ 0x140A1C370 (CmpTransGetTransPtr.c)
+ *     CmpTransGetTransPtr @ 0x140872DEC (CmpTransGetTransPtr.c)
  */
 
 __int64 __fastcall CmpTransIsTransActive(char a1)

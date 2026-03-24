@@ -1,31 +1,35 @@
 /*
- * XREFs of ?ResetSystemColors@@YAXXZ @ 0x1C00121BC
+ * XREFs of ?ResetSystemColors@@YAXXZ @ 0x1C00A9F18
  * Callers:
- *     xxxResetDisplayDevice @ 0x1C00138D0 (xxxResetDisplayDevice.c)
+ *     xxxResetDisplayDevice @ 0x1C0077600 (xxxResetDisplayDevice.c)
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C004C624 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     xxxSetSysColors @ 0x1C005F814 (xxxSetSysColors.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009CB48 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     xxxSetSysColors @ 0x1C00205DC (xxxSetSysColors.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0043DC4 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0043E10 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 void ResetSystemColors(void)
 {
   unsigned int v0; // ebx
   __int64 v1; // rax
-  int v2; // ecx
+  __int64 v2; // rcx
   _BYTE v3[16]; // [rsp+30h] [rbp-128h] BYREF
-  _BYTE v4[128]; // [rsp+40h] [rbp-118h] BYREF
-  _DWORD v5[32]; // [rsp+C0h] [rbp-98h] BYREF
+  char v4[128]; // [rsp+40h] [rbp-118h] BYREF
+  char v5[128]; // [rsp+C0h] [rbp-98h] BYREF
 
   v0 = 0;
   memmove(v4, (char *)gpsi + 4444, 0x7CuLL);
   v1 = 0LL;
   do
-    v5[v1++] = v0++;
+  {
+    *(_DWORD *)&v5[v1] = v0;
+    v1 += 4LL;
+    ++v0;
+  }
   while ( v0 < 0x1F );
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v3);
-  xxxSetSysColors(v2, v0, (unsigned int)v5, (unsigned int)v4, 6);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v3);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v3);
+  xxxSetSysColors(v2, v0, v5, v4, 6u);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v3);
 }

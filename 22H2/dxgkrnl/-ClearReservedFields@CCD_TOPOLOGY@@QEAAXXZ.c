@@ -1,28 +1,27 @@
 /*
- * XREFs of ?ClearReservedFields@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C017FC90
+ * XREFs of ?ClearReservedFields@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C013A550
  * Callers:
- *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x1C017F8E8 (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
- *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C01E872C (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
- *     ??1AUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@QEAA@XZ @ 0x1C03BAB5C (--1AUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@QEAA@XZ.c)
+ *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x1C013A4AC (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
+ *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C016BFBC (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ??1AUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@QEAA@XZ @ 0x1C02EA9B0 (--1AUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CCD_TOPOLOGY::ClearReservedFields(CCD_TOPOLOGY *this)
 {
-  __int64 v1; // r8
-  unsigned int i; // r9d
-  __int64 v4; // rax
-  __int64 v5; // rcx
+  unsigned int i; // r8d
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rax
 
-  v1 = *((_QWORD *)this + 8);
-  for ( i = 0; i < *(unsigned __int16 *)(v1 + 20); v1 = *((_QWORD *)this + 8) )
+  for ( i = 0; i < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL); *(_QWORD *)(v4 + v5 + 312) = 0LL )
   {
-    v4 = i++;
-    v5 = 296 * v4;
-    *(_OWORD *)(v5 + v1 + 312) = 0LL;
-    *(_OWORD *)(v5 + v1 + 328) = 0LL;
-    *(_QWORD *)(v5 + v1 + 344) = 0LL;
+    v3 = i++;
+    v4 = 272 * v3;
+    v5 = *((_QWORD *)this + 8);
+    *(_OWORD *)(v4 + v5 + 280) = 0LL;
+    *(_OWORD *)(v4 + v5 + 296) = 0LL;
   }
   *((_DWORD *)this + 22) = 0;
 }

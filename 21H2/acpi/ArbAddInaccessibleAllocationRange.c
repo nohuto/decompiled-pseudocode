@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbAddInaccessibleAllocationRange @ 0x1C00B7260
+ * XREFs of ArbAddInaccessibleAllocationRange @ 0x1C00B7760
  * Callers:
- *     ACPIBusIrpStartDevice @ 0x1C0090AA0 (ACPIBusIrpStartDevice.c)
+ *     ACPIBusIrpStartDevice @ 0x1C0090F10 (ACPIBusIrpStartDevice.c)
  * Callees:
- *     RtlAddRange_0 @ 0x1C002F1B3 (RtlAddRange_0.c)
- *     ZwClose_0 @ 0x1C002F1D7 (ZwClose_0.c)
- *     ZwOpenKey_0 @ 0x1C002F255 (ZwOpenKey_0.c)
- *     ArbpGetRegistryValue @ 0x1C009E908 (ArbpGetRegistryValue.c)
+ *     RtlAddRange_0 @ 0x1C0031CF3 (RtlAddRange_0.c)
+ *     ZwClose_0 @ 0x1C0031D17 (ZwClose_0.c)
+ *     ZwOpenKey_0 @ 0x1C0031D95 (ZwOpenKey_0.c)
+ *     ArbpGetRegistryValue @ 0x1C00A04C0 (ArbpGetRegistryValue.c)
  */
 
 NTSTATUS __fastcall ArbAddInaccessibleAllocationRange(__int64 a1, struct _RTL_RANGE_LIST *a2)

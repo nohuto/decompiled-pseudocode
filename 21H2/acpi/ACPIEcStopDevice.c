@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcStopDevice @ 0x1C00534A0
+ * XREFs of ACPIEcStopDevice @ 0x1C0053DF0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIEcStopRemoveDeviceCommon @ 0x1C00534F0 (ACPIEcStopRemoveDeviceCommon.c)
- *     ACPIBusIrpStopDevice @ 0x1C00ACBF0 (ACPIBusIrpStopDevice.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0053E40 (ACPIEcStopRemoveDeviceCommon.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
  */
 
 __int64 __fastcall ACPIEcStopDevice(ULONG_PTR a1, __int64 a2)

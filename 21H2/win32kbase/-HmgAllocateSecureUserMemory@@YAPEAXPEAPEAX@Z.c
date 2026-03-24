@@ -1,10 +1,12 @@
 /*
- * XREFs of ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C008E7F4
+ * XREFs of ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C007FE60
  * Callers:
- *     HmgAllocateDcAttr @ 0x1C002631C (HmgAllocateDcAttr.c)
- *     HmgAllocateObjectAttr @ 0x1C008E678 (HmgAllocateObjectAttr.c)
+ *     HmgAllocateDcAttr @ 0x1C002B568 (HmgAllocateDcAttr.c)
+ *     HmgAllocateObjectAttr @ 0x1C007FD00 (HmgAllocateObjectAttr.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     Feature_2249667896__private_IsEnabledDeviceUsage @ 0x1C00C9874 (Feature_2249667896__private_IsEnabledDeviceUsage.c)
+ *     GrepSecureVirtualMemory @ 0x1C00CB2F0 (GrepSecureVirtualMemory.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 PVOID __fastcall HmgAllocateSecureUserMemory(void **a1)
@@ -18,9 +20,12 @@ PVOID __fastcall HmgAllocateSecureUserMemory(void **a1)
   Size = 4096LL;
   if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &Address, 0LL, &Size, 0x3000u, 4u) >= 0 )
   {
-    v2 = MmSecureVirtualMemory(Address, Size, 4u);
-    *a1 = v2;
+    if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
+      v2 = (HANDLE)GrepSecureVirtualMemory(Address, Size, 4LL);
+    else
+      v2 = MmSecureVirtualMemory(Address, Size, 4u);
     SecureHandle = v2;
+    *a1 = v2;
     if ( v2 )
     {
       memset(Address, 0, Size);

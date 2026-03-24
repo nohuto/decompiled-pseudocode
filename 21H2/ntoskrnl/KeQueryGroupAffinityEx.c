@@ -1,7 +1,7 @@
 /*
- * XREFs of KeQueryGroupAffinityEx @ 0x1403DF470
+ * XREFs of KeQueryGroupAffinityEx @ 0x1405136C0
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     <none>
  * Callees:
  *     <none>
  */

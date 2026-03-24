@@ -3,11 +3,11 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1406F5B94 (PnpRegSzToString.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x1406F5B74 (PnpRegSzToString.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
  */
 
 __int64 __fastcall PipGetDriverTagPriority(HANDLE KeyHandle)

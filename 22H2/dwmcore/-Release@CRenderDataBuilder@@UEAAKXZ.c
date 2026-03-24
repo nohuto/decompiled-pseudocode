@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Release@CRenderDataBuilder@@UEAAKXZ @ 0x1800F1E50
+ * XREFs of ?Release@CRenderDataBuilder@@UEAAKXZ @ 0x1800D1DA0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::Release(CRenderDataBuilder *this)

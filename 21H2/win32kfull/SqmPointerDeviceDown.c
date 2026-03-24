@@ -1,5 +1,5 @@
 /*
- * XREFs of SqmPointerDeviceDown @ 0x1C01E9110
+ * XREFs of SqmPointerDeviceDown @ 0x1C01EEC50
  * Callers:
  *     <none>
  * Callees:
@@ -52,7 +52,7 @@ __int64 __fastcall SqmPointerDeviceDown(__int64 a1)
     }
     else
     {
-      result = *(unsigned int *)(a1 + 1008);
+      result = *(unsigned int *)(a1 + 952);
       if ( (unsigned int)result > 0xC8 )
         return result;
       if ( (_DWORD)result == 200 )

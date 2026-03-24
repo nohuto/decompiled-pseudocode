@@ -1,65 +1,79 @@
 /*
- * XREFs of ?IVSerializeRimCompleteFrameForTouchInputPacket@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@HAEAVCIVTouchSerializer@@@Z @ 0x1C01ECD3C
+ * XREFs of ?IVSerializeRimCompleteFrameForTouchInputPacket@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@HAEAUCIVSerializer@@@Z @ 0x1C01B5B0C
  * Callers:
- *     ?SendTouchInput@Pointer@IVRootDeliver@@YAJAEAUCContainerPointerInput@@@Z @ 0x1C01F5B34 (-SendTouchInput@Pointer@IVRootDeliver@@YAJAEAUCContainerPointerInput@@@Z.c)
+ *     ?SendTouchInput@Pointer@IVRootDeliver@@YAJAEAUCContainerPointerInput@@@Z @ 0x1C01BC8DC (-SendTouchInput@Pointer@IVRootDeliver@@YAJAEAUCContainerPointerInput@@@Z.c)
  * Callees:
- *     ?Serialize@CIVSerializer@@IEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z @ 0x1C01FDD9C (-Serialize@CIVSerializer@@IEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z.c)
- *     ?Serialize@CIVTouchSerializer@@QEAAJPEAPEAU_IVRIMPOINTERINFONODE@@PEBUtagRIMPOINTERINFONODE@@K_K_N@Z @ 0x1C01FDEA8 (-Serialize@CIVTouchSerializer@@QEAAJPEAPEAU_IVRIMPOINTERINFONODE@@PEBUtagRIMPOINTERINFONODE@@K_K.c)
- *     ?Serialize@CIVTouchSerializer@@QEAAJPEAPEAU_IVRIMPOINTERRAWDATA@@PEBUCPointerRawData@@K_N@Z @ 0x1C01FE088 (-Serialize@CIVTouchSerializer@@QEAAJPEAPEAU_IVRIMPOINTERRAWDATA@@PEBUCPointerRawData@@K_N@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?Serialize@CIVSerializer@@QEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z @ 0x1C01B70A0 (-Serialize@CIVSerializer@@QEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z.c)
+ *     ?Serialize@CIVSerializer@@QEAAJPEAPEAU_IVRIMPOINTERINFONODE@@PEAUtagRIMPOINTERINFONODE@@K_K_N@Z @ 0x1C01B7244 (-Serialize@CIVSerializer@@QEAAJPEAPEAU_IVRIMPOINTERINFONODE@@PEAUtagRIMPOINTERINFONODE@@K_K_N@Z.c)
+ *     ?Serialize@CIVSerializer@@QEAAJPEAPEAU_IVRIMPOINTERRAWDATA@@PEAUCPointerRawData@@K_N@Z @ 0x1C01B7418 (-Serialize@CIVSerializer@@QEAAJPEAPEAU_IVRIMPOINTERRAWDATA@@PEAUCPointerRawData@@K_N@Z.c)
  */
 
-int __fastcall IVSerializeRimCompleteFrameForTouchInputPacket(
+__int64 __fastcall IVSerializeRimCompleteFrameForTouchInputPacket(
         struct RIMCOMPLETEFRAME *a1,
         struct CPointerInputFrame *a2,
         struct _UNICODE_STRING *a3,
         int a4,
-        struct CIVTouchSerializer *a5)
+        struct CIVSerializer *a5)
 {
-  __int64 v8; // rdi
-  int result; // eax
-  const struct CPointerRawData *v10; // r8
-  bool v11; // [rsp+28h] [rbp-10h]
+  struct CPointerInputFrame *v7; // r15
+  __int64 v9; // rsi
+  int v10; // edx
+  int v11; // ebx
+  struct CPointerRawData *v12; // r8
+  bool v14; // [rsp+28h] [rbp-30h]
 
-  v8 = *((_QWORD *)a5 + 2);
-  result = CIVSerializer::Serialize(a5, (struct _UNICODE_STRING *)v8, a3, 0);
-  if ( result >= 0 )
+  v7 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    *(_DWORD *)(v8 + 16) = *(_DWORD *)a1;
-    *(_DWORD *)(v8 + 20) = *((_DWORD *)a1 + 6);
-    *(_DWORD *)(v8 + 24) = *((_DWORD *)a1 + 7);
-    *(_OWORD *)(v8 + 32) = *((_OWORD *)a1 + 3);
-    *(_OWORD *)(v8 + 48) = *((_OWORD *)a1 + 4);
-    *(_OWORD *)(v8 + 64) = *((_OWORD *)a1 + 5);
-    *(_OWORD *)(v8 + 80) = *((_OWORD *)a1 + 6);
-    *(_OWORD *)(v8 + 96) = *((_OWORD *)a1 + 7);
-    *(_OWORD *)(v8 + 112) = *((_OWORD *)a1 + 8);
-    *(_OWORD *)(v8 + 128) = *((_OWORD *)a1 + 9);
-    *(_OWORD *)(v8 + 144) = *((_OWORD *)a1 + 10);
-    *(_OWORD *)(v8 + 160) = *((_OWORD *)a1 + 11);
-    *(_DWORD *)(v8 + 176) = *((_DWORD *)a1 + 48);
-    *(_DWORD *)(v8 + 180) = *((_DWORD *)a1 + 49);
-    *(_DWORD *)(v8 + 184) = *((_DWORD *)a1 + 50);
-    *(_QWORD *)(v8 + 192) = *((_QWORD *)a1 + 26);
-    *(_QWORD *)(v8 + 208) = 0LL;
-    *(_DWORD *)(v8 + 224) = a4 != 0;
-    v10 = (const struct CPointerRawData *)*((_QWORD *)a2 + 29);
-    if ( !v10 )
-      return CIVTouchSerializer::Serialize(
-               a5,
-               (struct _IVRIMPOINTERINFONODE **)(v8 + 216),
-               *((const struct tagRIMPOINTERINFONODE **)a1 + 29),
-               *((_DWORD *)a1 + 6),
-               176LL * *((unsigned int *)a1 + 6),
-               v11);
-    result = CIVTouchSerializer::Serialize(a5, (struct _IVRIMPOINTERRAWDATA **)(v8 + 208), v10, *((_DWORD *)a1 + 7), 0);
-    if ( result >= 0 )
-      return CIVTouchSerializer::Serialize(
-               a5,
-               (struct _IVRIMPOINTERINFONODE **)(v8 + 216),
-               *((const struct tagRIMPOINTERINFONODE **)a1 + 29),
-               *((_DWORD *)a1 + 6),
-               176LL * *((unsigned int *)a1 + 6),
-               v11);
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)a2,
+      12,
+      110,
+      (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
   }
-  return result;
+  v9 = *((_QWORD *)a5 + 2);
+  v11 = CIVSerializer::Serialize(a5, (struct _UNICODE_STRING *)v9, a3, 0);
+  if ( v11 >= 0 )
+  {
+    *(_DWORD *)(v9 + 16) = *(_DWORD *)a1;
+    *(_DWORD *)(v9 + 20) = *((_DWORD *)a1 + 6);
+    *(_DWORD *)(v9 + 24) = *((_DWORD *)a1 + 7);
+    *(_OWORD *)(v9 + 32) = *(_OWORD *)((char *)a1 + 40);
+    *(_OWORD *)(v9 + 48) = *(_OWORD *)((char *)a1 + 56);
+    *(_QWORD *)(v9 + 64) = *((_QWORD *)a1 + 9);
+    *(_DWORD *)(v9 + 72) = *((_DWORD *)a1 + 20);
+    *(_DWORD *)(v9 + 76) = *((_DWORD *)a1 + 21);
+    *(_DWORD *)(v9 + 80) = *((_DWORD *)a1 + 22);
+    *(_DWORD *)(v9 + 84) = *((_DWORD *)a1 + 23);
+    *(_QWORD *)(v9 + 88) = *((_QWORD *)a1 + 12);
+    *(_QWORD *)(v9 + 104) = 0LL;
+    *(_DWORD *)(v9 + 120) = a4 != 0;
+    v12 = (struct CPointerRawData *)*((_QWORD *)v7 + 16);
+    if ( !v12
+      || (v11 = CIVSerializer::Serialize(a5, (struct _IVRIMPOINTERRAWDATA **)(v9 + 104), v12, *((_DWORD *)a1 + 7), 0),
+          v11 >= 0) )
+    {
+      v11 = CIVSerializer::Serialize(
+              a5,
+              (struct _IVRIMPOINTERINFONODE **)(v9 + 112),
+              *((struct tagRIMPOINTERINFONODE **)a1 + 15),
+              *((_DWORD *)a1 + 6),
+              176LL * *((unsigned int *)a1 + 6),
+              v14);
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v10) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v10,
+      12,
+      111,
+      (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
+  }
+  return (unsigned int)v11;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CiLogTaskIndexPreDeadlineExpired @ 0x1C0004254
+ * XREFs of CiLogTaskIndexPreDeadlineExpired @ 0x1C0003FA4
  * Callers:
- *     CiSchedulerProcessDeadlines @ 0x1C00013B0 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerProcessDeadlines @ 0x1C0001F40 (CiSchedulerProcessDeadlines.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogTaskIndexPreDeadlineExpired(__int64 a1)

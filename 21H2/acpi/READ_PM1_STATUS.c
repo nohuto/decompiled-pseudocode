@@ -1,11 +1,11 @@
 /*
- * XREFs of READ_PM1_STATUS @ 0x1C00246E8
+ * XREFs of READ_PM1_STATUS @ 0x1C0010154
  * Callers:
- *     ACPIEnableInitializeACPI @ 0x1C00244C0 (ACPIEnableInitializeACPI.c)
- *     ACPIGpeHalEnableDisableEvents @ 0x1C00564C0 (ACPIGpeHalEnableDisableEvents.c)
- *     ACPIInterruptServiceRoutine @ 0x1C0057E60 (ACPIInterruptServiceRoutine.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     ACPIInterruptServiceRoutine @ 0x1C0025E90 (ACPIInterruptServiceRoutine.c)
+ *     ACPIGpeHalEnableDisableEvents @ 0x1C0055F80 (ACPIGpeHalEnableDisableEvents.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 READ_PM1_STATUS()

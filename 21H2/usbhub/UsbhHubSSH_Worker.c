@@ -1,23 +1,23 @@
 /*
- * XREFs of UsbhHubSSH_Worker @ 0x1C0004190
+ * XREFs of UsbhHubSSH_Worker @ 0x1C0014D80
  * Callers:
  *     <none>
  * Callees:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
-LONG __fastcall UsbhHubSSH_Worker(__int64 a1, __int64 a2, __int64 a3)
+LONG __fastcall UsbhHubSSH_Worker(struct _DEVICE_OBJECT *a1, __int64 a2, __int64 a3)
 {
-  struct _KEVENT *v3; // rbx
+  struct _KEVENT *DeviceExtension; // rbx
 
   if ( !a1 )
     UsbhTrapFatal_Dbg(0LL, 0LL);
-  v3 = *(struct _KEVENT **)(a1 + 64);
-  if ( !v3 )
+  DeviceExtension = (struct _KEVENT *)a1->DeviceExtension;
+  if ( !DeviceExtension )
     UsbhTrapFatal_Dbg(a1, 0LL);
-  if ( v3->Header.LockNV != 541218120 )
-    UsbhTrapFatal_Dbg(a1, *(_QWORD *)(a1 + 64));
-  Usbh_SSH_Event(a1, 1LL, a3);
-  return KeSetEvent(v3 + 143, 0, 0);
+  if ( DeviceExtension->Header.LockNV != 541218120 )
+    UsbhTrapFatal_Dbg(a1, a1->DeviceExtension);
+  Usbh_SSH_Event(a1, 1u, a3);
+  return KeSetEvent(DeviceExtension + 143, 0, 0);
 }

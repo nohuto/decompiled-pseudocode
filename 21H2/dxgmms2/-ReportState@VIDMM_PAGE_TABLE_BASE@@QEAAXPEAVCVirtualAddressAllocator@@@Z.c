@@ -1,42 +1,39 @@
 /*
- * XREFs of ?ReportState@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@@Z @ 0x1C00E44CC
+ * XREFs of ?ReportState@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@@Z @ 0x1C00BF2F4
  * Callers:
- *     ?ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z @ 0x1C00E440C (-ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z.c)
+ *     ?ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z @ 0x1C00BF234 (-ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z.c)
  * Callees:
- *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C001D19C (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
- *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E424 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ *     McTemplateK0pppppppppppp_EtwWriteTransfer @ 0x1C0024030 (McTemplateK0pppppppppppp_EtwWriteTransfer.c)
+ *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C002415C (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_PAGE_TABLE_BASE::ReportState(VIDMM_PAGE_TABLE_BASE *this, struct CVirtualAddressAllocator *a2)
 {
-  __int64 v2; // r10
+  __int64 v2; // r8
   __int64 v3; // rdi
-  __int64 v5; // r8
-  _QWORD *v6; // rdx
-  int v7; // [rsp+48h] [rbp-F0h]
-  int v8; // [rsp+60h] [rbp-D8h]
+  _QWORD *v5; // rdx
+  int v6; // [rsp+48h] [rbp-F0h]
+  int v7; // [rsp+60h] [rbp-D8h]
 
   v2 = *((_QWORD *)this + 2);
   v3 = *((_QWORD *)a2 + 11);
-  if ( v2 && bTracingEnabled && (byte_1C006E941 & 8) != 0 )
-  {
-    v5 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 88) + 8LL) + 8LL);
+  if ( v2 && bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer(
-      **(unsigned int **)(v2 + 528),
-      (__int64)&EventReportAdapterAllocation,
-      v5,
-      v5,
+      **(unsigned int **)(v2 + 512),
+      &EventReportAdapterAllocation,
+      v2,
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 96) + 8LL) + 8LL),
       0,
       *(_QWORD *)(v3 + 24),
-      **(_DWORD **)(v2 + 528),
+      **(_DWORD **)(v2 + 512),
       *(_QWORD *)(v2 + 16),
       *(_DWORD *)(v2 + 32),
+      v6,
+      *(_DWORD *)(v2 + 68),
+      *(_DWORD *)(v2 + 72),
       v7,
-      *(_DWORD *)(v2 + 60),
       *(_DWORD *)(v2 + 64),
-      v8,
-      *(_DWORD *)(v2 + 56),
-      *(_DWORD *)(v2 + 392),
+      *(_DWORD *)(v2 + 384),
       v2,
       0,
       0,
@@ -50,27 +47,26 @@ void __fastcall VIDMM_PAGE_TABLE_BASE::ReportState(VIDMM_PAGE_TABLE_BASE *this, 
       0,
       0,
       0,
-      (*(_DWORD *)(v2 + 76) & 2) != 0,
-      *(_QWORD *)(v2 + 376),
-      *(_BYTE *)(v2 + 68) & 0x3F,
-      BYTE1(*(_DWORD *)(v2 + 68)) & 1);
-  }
-  v6 = (_QWORD *)*((_QWORD *)this + 3);
-  if ( v6 && bTracingEnabled && (byte_1C006E941 & 8) != 0 )
-    McTemplateK0ppppppppppppq_EtwWriteTransfer(
-      *(_QWORD *)(v6[1] + 8LL),
+      (*(_DWORD *)(v2 + 84) & 2) != 0,
+      *(_QWORD *)(v2 + 368),
+      *(_BYTE *)(v2 + 76) & 0x3F,
+      BYTE1(*(_DWORD *)(v2 + 76)) & 1);
+  v5 = (_QWORD *)*((_QWORD *)this + 3);
+  if ( v5 && bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+    McTemplateK0pppppppppppp_EtwWriteTransfer(
+      *(_QWORD *)(*v5 + 24LL),
       &EventReportDeviceAllocation,
-      *(_QWORD *)(*v6 + 24LL),
-      *(_QWORD *)(*(_QWORD *)(v6[1] + 8LL) + 8LL),
+      *(_QWORD *)(v3 + 24),
+      *(_QWORD *)(*(_QWORD *)(v5[1] + 8LL) + 8LL),
       0LL,
       *(_QWORD *)(v3 + 24),
-      v6,
+      v5,
       *((_QWORD *)this + 2),
       0LL,
       0LL,
       0LL,
       0LL,
       0LL,
-      *(_QWORD *)(*v6 + 16LL),
-      *(_QWORD *)(*v6 + 24LL));
+      *(_QWORD *)(*v5 + 16LL),
+      *(_QWORD *)(*v5 + 24LL));
 }

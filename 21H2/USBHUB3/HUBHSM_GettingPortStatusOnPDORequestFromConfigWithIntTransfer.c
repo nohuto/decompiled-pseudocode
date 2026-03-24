@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C0008410
+ * XREFs of HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C0008100
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005E34 (HUBHTX_GetRequestedPortStatusUsingControlTransfer.c)
+ *     HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005BB0 (HUBHTX_GetRequestedPortStatusUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer(__int64 a1)

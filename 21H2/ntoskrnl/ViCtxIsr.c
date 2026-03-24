@@ -1,11 +1,11 @@
 /*
- * XREFs of ViCtxIsr @ 0x140AA1E50
+ * XREFs of ViCtxIsr @ 0x1409E4560
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViCtxCaptureInitialIsrState @ 0x140AA1B9C (ViCtxCaptureInitialIsrState.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140AA1C3C (ViCtxCheckAndReleaseIsrState.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViCtxCaptureInitialIsrState @ 0x1409E42A4 (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x1409E4344 (ViCtxCheckAndReleaseIsrState.c)
  */
 
 char __fastcall ViCtxIsr(__int64 a1, __int64 a2, __int64 a3)

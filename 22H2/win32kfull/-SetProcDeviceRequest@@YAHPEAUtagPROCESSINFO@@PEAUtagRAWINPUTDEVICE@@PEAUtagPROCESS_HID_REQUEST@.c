@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C009F724
+ * XREFs of ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C01083D8
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
  * Callees:
- *     ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C009F868 (-AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z.c)
- *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C009F8C4 (-IsLegacyDevice@@YAHGG@Z.c)
- *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C009F8EC (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
- *     ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C009FFE4 (-SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01A9A00 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C0005510 (-SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C0108520 (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C0108808 (-AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C0108864 (-IsLegacyDevice@@YAHGG@Z.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D4B6C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  */
 
 __int64 __fastcall SetProcDeviceRequest(
@@ -18,14 +18,16 @@ __int64 __fastcall SetProcDeviceRequest(
         unsigned int a4,
         int a5)
 {
-  struct tagPROCESS_HID_REQUEST *HidProcessRequest; // rbx
-  int v9; // r12d
-  __int64 v10; // r14
+  struct tagPROCESS_HID_REQUEST *HidProcessRequest; // rdi
+  int v9; // r15d
+  __int64 v10; // rbp
   __int64 v11; // rcx
-  struct tagWND *v12; // r15
+  struct tagWND *v12; // r12
   unsigned int v13; // esi
   int v14; // eax
-  int v17; // [rsp+90h] [rbp+28h]
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  int v19; // [rsp+90h] [rbp+28h]
 
   HidProcessRequest = a3;
   v9 = IsLegacyDevice(*(_WORD *)a2, *(_WORD *)(a2 + 2));
@@ -33,24 +35,22 @@ __int64 __fastcall SetProcDeviceRequest(
   {
     v10 = *(_QWORD *)(a2 + 8);
     *(_QWORD *)(a2 + 8) = 0LL;
-    v17 = 1;
+    v19 = 1;
+    goto LABEL_20;
   }
-  else
-  {
-    v17 = 0;
-    v10 = 0LL;
-  }
+  v19 = 0;
+  v10 = 0LL;
   v11 = *(_QWORD *)(a2 + 8);
-  if ( v11 )
+  if ( !v11 )
   {
-    v12 = (struct tagWND *)ValidateHwnd(v11);
-    if ( !v12 )
-      return 0LL;
-  }
-  else
-  {
+LABEL_20:
     v12 = 0LL;
+    goto LABEL_4;
   }
+  v12 = (struct tagWND *)ValidateHwnd(v11);
+  if ( !v12 )
+    return 0LL;
+LABEL_4:
   v13 = 0;
   v14 = *(_DWORD *)(a2 + 4) & 0xF0;
   switch ( v14 )
@@ -71,7 +71,7 @@ __int64 __fastcall SetProcDeviceRequest(
     HidProcessRequest = AllocateHidProcessRequest(*(_WORD *)a2, *(_WORD *)(a2 + 2));
     if ( !HidProcessRequest )
     {
-      UserSetLastError(8LL);
+      UserSetLastError(8LL, v15, v16);
       return 0LL;
     }
   }
@@ -89,13 +89,13 @@ __int64 __fastcall SetProcDeviceRequest(
                         v13,
                         v9,
                         v12,
-                        v17) )
+                        v19) )
   {
     if ( HidProcessRequest )
       Win32FreePool(HidProcessRequest);
     return 0LL;
   }
   if ( v9 )
-    SetLegacyDeviceFlags(*(struct tagPROCESS_HID_TABLE **)(a1 + 848), (const struct tagRAWINPUTDEVICE *)a2);
+    SetLegacyDeviceFlags(*(struct tagPROCESS_HID_TABLE **)(a1 + 832), (const struct tagRAWINPUTDEVICE *)a2);
   return 1LL;
 }

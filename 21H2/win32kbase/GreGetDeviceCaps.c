@@ -1,77 +1,74 @@
 /*
- * XREFs of GreGetDeviceCaps @ 0x1C00642D0
+ * XREFs of GreGetDeviceCaps @ 0x1C0091480
  * Callers:
- *     EnforceColorDependentSettings @ 0x1C0062830 (EnforceColorDependentSettings.c)
- *     xxxSetSysColors @ 0x1C0062954 (xxxSetSysColors.c)
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0063D18 (-zzzUpdateUserScreen@@YAJXZ.c)
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00C7F94 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     xxxSetSysColors @ 0x1C001F16C (xxxSetSysColors.c)
+ *     EnforceColorDependentSettings @ 0x1C0091410 (EnforceColorDependentSettings.c)
+ *     NtGdiGetDeviceCaps @ 0x1C0091460 (NtGdiGetDeviceCaps.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C7464 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E658 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002E400 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C002E448 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C002E7BC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002E8B8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C0064394 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0038BA4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0038BD8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003B478 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003B4D8 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z @ 0x1C0080E78 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z.c)
+ *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C008261C (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CA2A8 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
  */
 
 __int64 __fastcall GreGetDeviceCaps(HDC a1, int a2)
 {
-  __int64 v4; // rdx
-  int v5; // r8d
   unsigned int DeviceCapsInternal; // ebx
-  __int64 v7; // rdx
-  int v8; // r8d
-  _QWORD v10[6]; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v11; // [rsp+70h] [rbp+20h] BYREF
-  __int64 v12; // [rsp+78h] [rbp+28h] BYREF
+  DYNAMICMODECHANGESHARELOCK *v5; // rcx
+  int v7; // r8d
+  __int64 v8; // rdx
+  int v9; // r8d
+  __int64 v10; // rdx
+  int v11; // r8d
+  _QWORD v12[6]; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v13; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v14; // [rsp+78h] [rbp+28h] BYREF
 
   if ( (unsigned int)PsGetWin32KFilterSet() == 5 && a1 == (HDC)-589410304LL )
   {
-    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v11);
-    v11 = *((_QWORD *)gpDispInfo + 5);
-    if ( v11 )
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v13);
+    v13 = *(_QWORD *)(gpDispInfo + 40);
+    if ( v13 )
     {
-      DeviceCapsInternal = GreGetDeviceCapsInternal((struct PDEVOBJ *)&v11, a2);
-      EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
-      if ( ghsemDynamicModeChange )
-      {
-        ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-        PsLeavePriorityRegion();
-      }
+      DeviceCapsInternal = GreGetDeviceCapsInternal((struct PDEVOBJ *)&v13, a2);
+      DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v5);
       return DeviceCapsInternal;
     }
-    EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
-    if ( ghsemDynamicModeChange )
-    {
-      ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-      PsLeavePriorityRegion();
-    }
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(0LL);
   }
   else
   {
-    DCOBJ::DCOBJ((DCOBJ *)v10, a1);
-    if ( v10[0] )
+    DCOBJ::DCOBJ((DCOBJ *)v12, a1);
+    if ( v12[0] )
     {
       NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK(
-        (NEEDDYNAMICMODECHANGESHARELOCK *)&v11,
-        (*(_DWORD *)(*(_QWORD *)(v10[0] + 48LL) + 40LL) & 0x8000) == 0);
-      v12 = *(_QWORD *)(v10[0] + 48LL);
-      if ( v12 )
+        (NEEDDYNAMICMODECHANGESHARELOCK *)&v13,
+        (*(_DWORD *)(*(_QWORD *)(v12[0] + 48LL) + 40LL) & 0x8000) == 0,
+        v7);
+      v14 = *(_QWORD *)(v12[0] + 48LL);
+      if ( v14 )
       {
-        DeviceCapsInternal = GreGetDeviceCapsInternal((struct PDEVOBJ *)&v12, a2);
-        NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v11, v7, v8);
-        DCOBJ::~DCOBJ((DCOBJ *)v10);
+        DeviceCapsInternal = GreGetDeviceCapsInternal((struct PDEVOBJ *)&v14, a2);
+        NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK(
+          (NEEDDYNAMICMODECHANGESHARELOCK *)&v13,
+          v10,
+          v11);
+        DCOBJ::~DCOBJ((DCOBJ *)v12);
         return DeviceCapsInternal;
       }
-      NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v11, v4, v5);
+      NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v13, v8, v9);
     }
     else
     {
       EngSetLastError(6u);
     }
-    DCOBJ::~DCOBJ((DCOBJ *)v10);
+    DCOBJ::~DCOBJ((DCOBJ *)v12);
   }
   return 0LL;
 }

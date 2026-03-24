@@ -1,21 +1,21 @@
 /*
- * XREFs of McTemplateK0pq_EtwWriteTransfer @ 0x1C015051C
+ * XREFs of McTemplateK0pq_EtwWriteTransfer @ 0x1C0125EE0
  * Callers:
- *     NtDCompositionBeginFrame @ 0x1C000BCF0 (NtDCompositionBeginFrame.c)
- *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C007C6E0 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
- *     EtwTraceCompletePowerRequest @ 0x1C007C790 (EtwTraceCompletePowerRequest.c)
- *     ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C007D260 (-ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
- *     EtwUpdateEvent @ 0x1C009AEB0 (EtwUpdateEvent.c)
- *     EtwTraceKillTimer @ 0x1C00AB3D0 (EtwTraceKillTimer.c)
- *     EtwTraceCompositionSurfaceObjectUpdateEvent @ 0x1C00B06E0 (EtwTraceCompositionSurfaceObjectUpdateEvent.c)
- *     EtwLogicalSurfCreateEvent @ 0x1C00B7CD0 (EtwLogicalSurfCreateEvent.c)
- *     EtwLogicalSurfDestroyEvent @ 0x1C00BA3E0 (EtwLogicalSurfDestroyEvent.c)
- *     ?CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z @ 0x1C0146AA0 (-CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z.c)
- *     EtwTraceDCompBeginFrameEvent @ 0x1C014CA40 (EtwTraceDCompBeginFrameEvent.c)
- *     EtwTraceFlipManagerBindingInfo @ 0x1C014CFE0 (EtwTraceFlipManagerBindingInfo.c)
+ *     NtDCompositionBeginFrame @ 0x1C0058D40 (NtDCompositionBeginFrame.c)
+ *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C0076A60 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
+ *     EtwTraceCompletePowerRequest @ 0x1C0076B10 (EtwTraceCompletePowerRequest.c)
+ *     ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C007754C (-ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ *     EtwTraceKillTimer @ 0x1C0084890 (EtwTraceKillTimer.c)
+ *     EtwUpdateEvent @ 0x1C0091D60 (EtwUpdateEvent.c)
+ *     EtwTraceCompositionSurfaceObjectUpdateEvent @ 0x1C00A42F0 (EtwTraceCompositionSurfaceObjectUpdateEvent.c)
+ *     EtwLogicalSurfCreateEvent @ 0x1C00A6E40 (EtwLogicalSurfCreateEvent.c)
+ *     EtwLogicalSurfDestroyEvent @ 0x1C00A8720 (EtwLogicalSurfDestroyEvent.c)
+ *     ?CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z @ 0x1C0118390 (-CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z.c)
+ *     EtwTraceDCompBeginFrameEvent @ 0x1C0121C70 (EtwTraceDCompBeginFrameEvent.c)
+ *     EtwTraceFlipManagerStopTokenReleaseToFrame @ 0x1C01222E0 (EtwTraceFlipManagerStopTokenReleaseToFrame.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

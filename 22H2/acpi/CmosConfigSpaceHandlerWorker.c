@@ -1,11 +1,11 @@
 /*
- * XREFs of CmosConfigSpaceHandlerWorker @ 0x1C0019CC4
+ * XREFs of CmosConfigSpaceHandlerWorker @ 0x1C004F3E4
  * Callers:
- *     CmosConfigSpaceHandler @ 0x1C0019B90 (CmosConfigSpaceHandler.c)
- *     CmosTranslatePNPIDToEnum @ 0x1C0019E10 (CmosTranslatePNPIDToEnum.c)
+ *     CmosConfigSpaceHandler @ 0x1C004F2A0 (CmosConfigSpaceHandler.c)
+ *     CmosTranslatePNPIDToEnum @ 0x1C004F530 (CmosTranslatePNPIDToEnum.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CmosConfigSpaceHandlerWorker(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

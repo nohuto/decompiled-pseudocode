@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_RECORDER_SF_qdLqss @ 0x1C0017F78
+ * XREFs of WPP_RECORDER_SF_qdLqss @ 0x1C004E4F4
  * Callers:
- *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE94 (ACPIBusIrpQueryCompatibleId.c)
- *     ACPIBusIrpQueryDeviceId @ 0x1C007F584 (ACPIBusIrpQueryDeviceId.c)
- *     ACPIBusIrpQueryHardwareId @ 0x1C007FC4C (ACPIBusIrpQueryHardwareId.c)
- *     ACPIBusIrpQueryInstanceId @ 0x1C008061C (ACPIBusIrpQueryInstanceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C008F720 (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C0096300 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C009670C (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C00A2000 (ACPIBusIrpQueryInstanceId.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qdLqss(
@@ -23,8 +23,8 @@ __int64 __fastcall WPP_RECORDER_SF_qdLqss(
         const char *a11)
 {
   __int64 v11; // rbx
-  const char *v12; // rsi
-  __int64 v14; // rdi
+  __int64 v12; // rdi
+  __int64 v14; // rsi
   __int64 v16; // rdx
   __int64 v17; // rdx
   const char *v18; // r8
@@ -38,8 +38,8 @@ __int64 __fastcall WPP_RECORDER_SF_qdLqss(
 
   v26 = 0LL;
   v11 = -1LL;
-  v12 = a10;
-  v14 = (__int64)a11;
+  v12 = (__int64)a11;
+  v14 = (__int64)a10;
   v25 = 2;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
   {
@@ -76,7 +76,7 @@ __int64 __fastcall WPP_RECORDER_SF_qdLqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, int *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
+      &WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       a4,
       &v26,
       8LL,
@@ -92,35 +92,19 @@ __int64 __fastcall WPP_RECORDER_SF_qdLqss(
       v17,
       0LL);
   }
-  if ( v14 )
+  if ( v12 )
   {
     v22 = -1LL;
     do
       ++v22;
-    while ( *(_BYTE *)(v14 + v22) );
+    while ( *(_BYTE *)(v12 + v22) );
   }
-  if ( v12 )
+  if ( v14 )
   {
     do
       ++v11;
-    while ( v12[v11] );
+    while ( *(_BYTE *)(v14 + v11) );
   }
-  if ( !v12 )
-    v12 = "NULL";
   LOWORD(v24) = a4;
-  return WppAutoLogTrace(
-           a1,
-           2LL,
-           5LL,
-           &WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
-           v24,
-           &v26,
-           8LL,
-           &v25,
-           4LL,
-           &a8,
-           4LL,
-           &a9,
-           8LL,
-           v12);
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_aa0188d95df637fd68421574d89cc32b_Traceguids, v24, &v26);
 }

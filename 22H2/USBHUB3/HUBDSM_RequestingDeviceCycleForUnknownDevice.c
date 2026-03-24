@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_RequestingDeviceCycleForUnknownDevice @ 0x1C0023400
+ * XREFs of HUBDSM_RequestingDeviceCycleForUnknownDevice @ 0x1C0020E00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_RequestingDeviceCycleForUnknownDevice(__int64 a1)

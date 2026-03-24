@@ -1,29 +1,32 @@
 /*
- * XREFs of ?PowerRuntimeDeviceDirectedPowerCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C004051C
+ * XREFs of ?PowerRuntimeDeviceDirectedPowerCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C00388CC
  * Callers:
- *     ?DxgkPowerRuntimeDeviceDirectedPowerDownCallback@@YAXPEAXK@Z @ 0x1C0046880 (-DxgkPowerRuntimeDeviceDirectedPowerDownCallback@@YAXPEAXK@Z.c)
- *     ?DxgkPowerRuntimeDeviceDirectedPowerUpCallback@@YAXPEAXK@Z @ 0x1C00468D0 (-DxgkPowerRuntimeDeviceDirectedPowerUpCallback@@YAXPEAXK@Z.c)
+ *     ?DxgkPowerRuntimeDeviceDirectedPowerDownCallback@@YAXPEAXK@Z @ 0x1C003EBA0 (-DxgkPowerRuntimeDeviceDirectedPowerDownCallback@@YAXPEAXK@Z.c)
+ *     ?DxgkPowerRuntimeDeviceDirectedPowerUpCallback@@YAXPEAXK@Z @ 0x1C003EBF0 (-DxgkPowerRuntimeDeviceDirectedPowerUpCallback@@YAXPEAXK@Z.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     DpiRequestDevicePowerIrp @ 0x1C001B3A4 (DpiRequestDevicePowerIrp.c)
- *     ?SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02E67C0 (-SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiRequestDevicePowerIrp @ 0x1C00515E8 (DpiRequestDevicePowerIrp.c)
+ *     ?SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02BFBA4 (-SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z.c)
  */
 
-void __fastcall DXGADAPTER::PowerRuntimeDeviceDirectedPowerCallback(DXGADAPTER *this, unsigned __int8 a2)
+void __fastcall DXGADAPTER::PowerRuntimeDeviceDirectedPowerCallback(DXGADAPTER *this, __int64 a2)
 {
+  char v2; // si
+  BOOL v4; // ebx
   DXGGLOBAL *Global; // rax
-  POWER_STATE v5; // edx
-  __int64 v6; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
 
-  WdLogSingleEntry1(9LL, a2);
-  Global = DXGGLOBAL::GetGlobal();
-  DXGGLOBAL::SetDFxEngaged(Global, a2 == 0);
-  v5.SystemState = PowerSystemWorking;
-  v6 = *(_QWORD *)(*((_QWORD *)this + 27) + 64LL);
-  if ( !a2 )
+  v2 = a2;
+  v4 = (_BYTE)a2 == 0;
+  Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+  DXGGLOBAL::SetDFxEngaged(Global, v4);
+  v6 = 1LL;
+  v7 = *(_QWORD *)(*((_QWORD *)this + 27) + 64LL);
+  if ( !v2 )
   {
-    *(_BYTE *)(v6 + 4168) = 1;
-    v5.SystemState = PowerSystemSleeping3;
+    *(_BYTE *)(v7 + 4144) = 1;
+    v6 = 4LL;
   }
-  DpiRequestDevicePowerIrp(v6, v5);
+  DpiRequestDevicePowerIrp(v7, v6);
 }

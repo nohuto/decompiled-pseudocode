@@ -1,7 +1,7 @@
 /*
  * XREFs of BgkDrawText @ 0x1409532CC
  * Callers:
- *     NtDrawText @ 0x1403198F0 (NtDrawText.c)
+ *     NtDrawText @ 0x1403199F0 (NtDrawText.c)
  * Callees:
  *     BgDisplayString @ 0x14095342C (BgDisplayString.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of CleanupDwmInputProcessing @ 0x1C00BD470
+ * XREFs of CleanupDwmInputProcessing @ 0x1C01357C0
  * Callers:
  *     <none>
  * Callees:
@@ -10,35 +10,35 @@
 void CleanupDwmInputProcessing()
 {
   CInputManager::DestroySessionGlobal();
-  if ( WPP_MAIN_CB.Dpc.DeferredRoutine )
+  if ( gpkeDITTouchInjectionResponseEvent )
   {
-    Win32FreePool(WPP_MAIN_CB.Dpc.DeferredRoutine);
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    Win32FreePool(gpkeDITTouchInjectionResponseEvent);
+    gpkeDITTouchInjectionResponseEvent = 0LL;
   }
-  if ( ghMITEvent )
+  if ( ghDITEvent )
   {
-    ZwClose(ghMITEvent);
-    ghMITEvent = 0LL;
+    ZwClose(ghDITEvent);
+    ghDITEvent = 0LL;
   }
-  if ( WPP_MAIN_CB.Dpc.DeferredContext )
+  if ( ghDITRITEvent )
   {
-    ZwClose(WPP_MAIN_CB.Dpc.DeferredContext);
-    WPP_MAIN_CB.Dpc.DeferredContext = 0LL;
+    ZwClose(ghDITRITEvent);
+    ghDITRITEvent = 0LL;
   }
-  if ( WPP_MAIN_CB.Dpc.SystemArgument2 )
+  if ( gpkeDITMouseInjectionResponseEvent )
   {
-    Win32FreePool(WPP_MAIN_CB.Dpc.SystemArgument2);
-    WPP_MAIN_CB.Dpc.SystemArgument2 = 0LL;
+    Win32FreePool(gpkeDITMouseInjectionResponseEvent);
+    gpkeDITMouseInjectionResponseEvent = 0LL;
   }
-  if ( WPP_MAIN_CB.Dpc.ProcessorHistory )
+  if ( gpkeDITCompositionInputSinkQueryResponseEvent )
   {
-    Win32FreePool((void *)WPP_MAIN_CB.Dpc.ProcessorHistory);
-    WPP_MAIN_CB.Dpc.ProcessorHistory = 0LL;
+    Win32FreePool(gpkeDITCompositionInputSinkQueryResponseEvent);
+    gpkeDITCompositionInputSinkQueryResponseEvent = 0LL;
   }
-  if ( WPP_MAIN_CB.Dpc.DpcListEntry.Next )
+  if ( WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink )
   {
-    Win32FreePool(WPP_MAIN_CB.Dpc.DpcListEntry.Next);
-    WPP_MAIN_CB.Dpc.DpcListEntry.Next = 0LL;
+    Win32FreePool(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink);
+    WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink = 0LL;
   }
   if ( gpsemDITMouseInjectionWaiters )
   {

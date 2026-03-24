@@ -1,15 +1,15 @@
 /*
- * XREFs of CcGetVirtualAddressIfMapped @ 0x14029E820
+ * XREFs of CcGetVirtualAddressIfMapped @ 0x14028FAC4
  * Callers:
- *     CcFlushCacheOneRange @ 0x14029E530 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePriv @ 0x14022C510 (CcFlushCachePriv.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     CcGetVacbLargeOffset @ 0x14029EF70 (CcGetVacbLargeOffset.c)
- *     CcIncrementVacbActiveCount @ 0x1402A039C (CcIncrementVacbActiveCount.c)
+ *     CcIncrementVacbActiveCount @ 0x1402913E4 (CcIncrementVacbActiveCount.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     CcGetVacbLargeOffset @ 0x140305C88 (CcGetVacbLargeOffset.c)
  */
 
-__int64 __fastcall CcGetVirtualAddressIfMapped(__int64 *a1, __int64 a2, __int64 *a3, _DWORD *a4)
+__int64 __fastcall CcGetVirtualAddressIfMapped(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
   unsigned int v6; // r14d
   __int64 v8; // rbx
@@ -18,17 +18,17 @@ __int64 __fastcall CcGetVirtualAddressIfMapped(__int64 *a1, __int64 a2, __int64 
   v6 = a2 & 0x3FFFF;
   *a4 = 0x40000 - (a2 & 0x3FFFF);
   v8 = 0LL;
-  ExAcquirePushLockSharedEx((ULONG_PTR)(a1 + 13), 0LL);
-  if ( a1[4] <= 0x2000000 )
-    VacbLargeOffset = *(_QWORD *)(a1[11] + 8 * ((unsigned __int64)(unsigned int)a2 >> 18));
-  else
+  ExAcquirePushLockSharedEx(a1 + 104, 0LL);
+  if ( *(__int64 *)(a1 + 32) > 0x2000000 )
     VacbLargeOffset = CcGetVacbLargeOffset(a1, a2);
+  else
+    VacbLargeOffset = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * ((unsigned __int64)(unsigned int)a2 >> 18));
   *a3 = VacbLargeOffset;
   if ( VacbLargeOffset )
   {
     CcIncrementVacbActiveCount(VacbLargeOffset);
     v8 = *(_QWORD *)*a3 + v6;
   }
-  ExReleasePushLockEx(a1 + 13, 0LL);
+  ExReleasePushLockEx(a1 + 104, 0LL);
   return v8;
 }

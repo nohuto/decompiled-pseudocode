@@ -1,33 +1,30 @@
 /*
- * XREFs of DwmSyncFlushWindowChanges @ 0x1C026DFA0
+ * XREFs of DwmSyncFlushWindowChanges @ 0x1C002E7CC
  * Callers:
- *     xxxSynchronizeDWMWindowChanges @ 0x1C01ACED8 (xxxSynchronizeDWMWindowChanges.c)
+ *     xxxSynchronizeDWMWindowChanges @ 0x1C002E77C (xxxSynchronizeDWMWindowChanges.c)
  * Callees:
- *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C006EA5C (-DwmSyncLPCAllowed@@YAJXZ.c)
- *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C026DEB0 (DwmSyncFlushForceRenderAndWaitForBatch.c)
+ *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C002E840 (DwmSyncFlushForceRenderAndWaitForBatch.c)
  */
 
-__int64 __fastcall DwmSyncFlushWindowChanges(PVOID Object)
+__int64 __fastcall DwmSyncFlushWindowChanges(void *a1)
 {
-  int v2; // ebx
-  __int64 v3; // rsi
-  __int64 v4; // rbp
+  __int64 v1; // rdi
+  unsigned int v2; // ebx
 
+  v1 = g_cDWMWindowUniqueness;
   v2 = -1073741823;
-  v3 = *(_QWORD *)(SGDGetSessionState(Object) + 32);
-  v4 = *(_QWORD *)(v3 + 13248);
-  if ( Object )
+  if ( a1 )
   {
-    v2 = DwmSyncLPCAllowed();
-    if ( v2 < 0 || *(_QWORD *)(v3 + 13256) == v4 )
+    v2 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
+    if ( gbInVideoPnpCallout || qword_1C032FC88 == g_cDWMWindowUniqueness )
     {
-      ObfDereferenceObject(Object);
+      ObfDereferenceObject(a1);
     }
     else
     {
-      v2 = DwmSyncFlushForceRenderAndWaitForBatch(Object, 0);
-      *(_QWORD *)(v3 + 13256) = v4;
+      v2 = DwmSyncFlushForceRenderAndWaitForBatch(a1);
+      qword_1C032FC88 = v1;
     }
   }
-  return (unsigned int)v2;
+  return v2;
 }

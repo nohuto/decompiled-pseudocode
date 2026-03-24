@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdatePrefetchPriority @ 0x1400B71A0
+ * XREFs of MiUpdatePrefetchPriority @ 0x1400B71C0
  * Callers:
- *     MiValidFault @ 0x1400B6DD0 (MiValidFault.c)
- *     MiPrefetchJumpVad @ 0x1402AF0C4 (MiPrefetchJumpVad.c)
+ *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
+ *     MiPrefetchJumpVad @ 0x1402AF1C4 (MiPrefetchJumpVad.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)

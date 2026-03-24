@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0FxTagTracker@@AEAA@PEAU_FX_DRIVER_GLOBALS@@W4FxTagTrackerType@@EPEAVFxObject@@PEAX@Z @ 0x1C006CCB0
+ * XREFs of ??0FxTagTracker@@AEAA@PEAU_FX_DRIVER_GLOBALS@@W4FxTagTrackerType@@EPEAVFxObject@@PEAX@Z @ 0x1C00599BC
  * Callers:
- *     ?CreateAndInitialize@FxTagTracker@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@W4FxTagTrackerType@@EPEAVFxObject@@PEAX@Z @ 0x1C006CF54 (-CreateAndInitialize@FxTagTracker@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@W4FxTagTrackerType@@EPEAV.c)
+ *     ?CreateAndInitialize@FxTagTracker@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@W4FxTagTrackerType@@EPEAVFxObject@@PEAX@Z @ 0x1C0059F50 (-CreateAndInitialize@FxTagTracker@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@W4FxTagTrackerType@@EPEAV.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C001B274 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C002D650 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 void __fastcall FxTagTracker::FxTagTracker(
@@ -16,24 +16,22 @@ void __fastcall FxTagTracker::FxTagTracker(
         FxObject *Owner)
 {
   FxDriverGlobalsDebugExtension *DebugExtension; // rbx
-  unsigned __int64 *p_m_Lock; // rbp
+  unsigned __int64 *p_m_Lock; // rsi
   KIRQL v9; // al
   _LIST_ENTRY *p_AllocatedTagTrackersListHead; // rbx
-  _LIST_ENTRY *p_m_TrackerEntry; // rcx
-  _LIST_ENTRY *Blink; // rdx
-  ULONG Tag; // ecx
-  void *v14; // rax
-  FxTagTrackingBlock *v15; // rax
-  __m128i v16; // [rsp+30h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  _LIST_ENTRY *p_m_TrackerEntry; // rdx
+  _LIST_ENTRY *Blink; // rcx
+  FX_POOL **v13; // rax
+  FxTagTrackingBlock *v14; // rcx
+  void *Caller; // [rsp+38h] [rbp+0h]
 
+  this->m_FailedCount = 0;
   this->m_Globals = FxDriverGlobals;
   this->m_TrackerType = Type;
-  this->m_FailedCount = 0;
   this->m_SpinLock.m_Lock = 0LL;
   this->m_SpinLock.m_DbgFlagIsInitialized = 1;
-  this->m_CaptureStack = CaptureStack;
   this->m_Next = 0LL;
+  this->m_CaptureStack = CaptureStack;
   this->m_OwningObject = Owner;
   `vector constructor iterator'(
     (char *)this->m_TagHistory,
@@ -57,33 +55,29 @@ void __fastcall FxTagTracker::FxTagTracker(
     Blink->Flink = p_m_TrackerEntry;
     p_AllocatedTagTrackersListHead->Blink = p_m_TrackerEntry;
     KeReleaseSpinLock(p_m_Lock, v9);
-    Tag = FxDriverGlobals->Tag;
-    v14 = retaddr;
-    v16.m128i_i64[0] = 0LL;
-    v16.m128i_i64[1] = 64LL;
-    if ( !FxDriverGlobals->FxPoolTrackingOn )
-      v14 = 0LL;
-    v15 = (FxTagTrackingBlock *)FxPoolAllocator(
-                                  FxDriverGlobals,
-                                  &FxDriverGlobals->FxPoolFrameworks,
-                                  &v16,
-                                  0x30uLL,
-                                  Tag,
-                                  v14);
-    if ( v15 )
+    v13 = FxPoolAllocator(
+            FxDriverGlobals,
+            &FxDriverGlobals->FxPoolFrameworks,
+            ExDefaultNonPagedPoolType,
+            0x30uLL,
+            FxDriverGlobals->Tag,
+            Caller);
+    v14 = (FxTagTrackingBlock *)v13;
+    if ( v13 )
     {
-      v15->Next = 0LL;
-      v15->Tag = 0LL;
-      v15->File = 0LL;
-      v15->Line = 0;
-      v15->StackFrames = 0LL;
-      v15->TimeLocked.QuadPart = MEMORY[0xFFFFF78000000320];
-      this->m_Next = v15;
+      *v13 = 0LL;
+      v13[1] = 0LL;
+      v13[2] = 0LL;
+      *((_DWORD *)v13 + 6) = 0;
+      v13[5] = 0LL;
+      v13[4] = (FX_POOL *)MEMORY[0xFFFFF78000000320];
     }
     else
     {
-      this->m_Next = 0LL;
-      this->m_FailedCount = 1;
+      v14 = 0LL;
     }
+    this->m_Next = v14;
+    if ( !v14 )
+      this->m_FailedCount = 1;
   }
 }

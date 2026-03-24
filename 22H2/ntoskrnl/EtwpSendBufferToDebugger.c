@@ -1,84 +1,86 @@
 /*
- * XREFs of EtwpSendBufferToDebugger @ 0x1409EBE0C
+ * XREFs of EtwpSendBufferToDebugger @ 0x14093CC84
  * Callers:
- *     EtwpSendDbgId @ 0x1409EBF34 (EtwpSendDbgId.c)
+ *     EtwpSendDbgId @ 0x14093CDA0 (EtwpSendDbgId.c)
  * Callees:
- *     EtwpGetNextEventOffsetType @ 0x1403A19B8 (EtwpGetNextEventOffsetType.c)
- *     memset @ 0x140435400 (memset.c)
- *     KdSendTraceData @ 0x140AB2960 (KdSendTraceData.c)
+ *     EtwpGetNextEventOffsetType @ 0x1405AD390 (EtwpGetNextEventOffsetType.c)
+ *     KdSendTraceData @ 0x1409B72D0 (KdSendTraceData.c)
  */
 
 __int64 __fastcall EtwpSendBufferToDebugger(__int128 *a1)
 {
-  unsigned int v2; // edi
+  unsigned int v2; // ecx
   __int64 result; // rax
   __int128 v4; // xmm0
-  __int128 v5; // xmm1
-  unsigned int v6; // esi
-  __int128 v7; // xmm0
-  __int128 v8; // xmm1
-  int v9; // r9d
-  int v10; // r14d
-  _OWORD *v11; // [rsp+20h] [rbp-29h] BYREF
-  int v12; // [rsp+28h] [rbp-21h]
-  __int64 v13; // [rsp+30h] [rbp-19h]
-  int v14; // [rsp+38h] [rbp-11h]
-  _OWORD v15[5]; // [rsp+40h] [rbp-9h] BYREF
-  unsigned int v16; // [rsp+B0h] [rbp+67h] BYREF
+  unsigned int v5; // edi
+  __int128 v6; // xmm1
+  unsigned int v7; // esi
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  int v10; // r9d
+  int v11; // r14d
+  _OWORD *v12; // [rsp+20h] [rbp-29h] BYREF
+  int v13; // [rsp+28h] [rbp-21h]
+  __int64 v14; // [rsp+30h] [rbp-19h]
+  int v15; // [rsp+38h] [rbp-11h]
+  _OWORD v16[3]; // [rsp+40h] [rbp-9h] BYREF
+  __int128 v17; // [rsp+70h] [rbp+27h]
+  __int64 v18; // [rsp+80h] [rbp+37h]
+  unsigned int v19; // [rsp+B0h] [rbp+67h] BYREF
 
-  v2 = 72;
-  memset(v15, 0, 0x48uLL);
-  v16 = 0;
-  if ( *((_DWORD *)a1 + 12) > (unsigned int)(KdTransportMaxPacketSize - 64) )
+  v19 = 0;
+  v2 = *((_DWORD *)a1 + 12);
+  if ( v2 > KdTransportMaxPacketSize - 64 )
   {
     v4 = *a1;
-    v12 = 72;
-    v5 = a1[1];
-    v6 = KdTransportMaxPacketSize - 136;
-    v11 = v15;
-    v15[0] = v4;
-    v7 = a1[2];
-    v15[1] = v5;
-    v8 = a1[3];
-    v15[2] = v7;
-    *(_QWORD *)&v15[4] = *((_QWORD *)a1 + 8);
-    v15[3] = v8;
+    v5 = 72;
+    v6 = a1[1];
+    v7 = KdTransportMaxPacketSize - 136;
+    v12 = v16;
+    v16[0] = v4;
+    v8 = a1[2];
+    v13 = 72;
+    v16[1] = v6;
+    v9 = a1[3];
+    v16[2] = v8;
+    v18 = *((_QWORD *)a1 + 8);
+    v17 = v9;
     do
     {
-      v13 = (__int64)a1 + v2;
-      result = EtwpGetNextEventOffsetType((unsigned int *)a1, v2, &v16);
-      v10 = result;
+      v14 = (__int64)a1 + v5;
+      result = EtwpGetNextEventOffsetType((unsigned int *)a1, v5, &v19);
+      v11 = result;
       if ( !(_DWORD)result )
         break;
       while ( 1 )
       {
-        result = v9 + v16;
-        if ( (unsigned int)result > v6 )
+        result = v10 + v19;
+        if ( (unsigned int)result > v7 )
           break;
-        v2 += v16;
-        result = EtwpGetNextEventOffsetType((unsigned int *)a1, v2, &v16);
-        v10 = result;
+        v5 += v19;
+        result = EtwpGetNextEventOffsetType((unsigned int *)a1, v5, &v19);
+        v11 = result;
         if ( !(_DWORD)result )
           goto LABEL_10;
       }
-      if ( v16 > v6 )
-        v2 += v16;
+      if ( v19 > v7 )
+        v5 += v19;
 LABEL_10:
-      if ( v9 )
+      if ( v10 )
       {
-        v14 = v9;
-        LODWORD(v15[3]) = v9 + 72;
-        LODWORD(v15[0]) = v9 + 72;
-        result = KdSendTraceData(&v11, 2LL);
+        v15 = v10;
+        LODWORD(v17) = v10 + 72;
+        LODWORD(v16[0]) = v10 + 72;
+        result = KdSendTraceData(&v12, 2LL);
       }
     }
-    while ( v10 );
+    while ( v11 );
   }
   else
   {
-    v12 = *((_DWORD *)a1 + 12);
-    v11 = a1;
-    return KdSendTraceData(&v11, 1LL);
+    v13 = v2;
+    v12 = a1;
+    return KdSendTraceData(&v12, 1LL);
   }
   return result;
 }

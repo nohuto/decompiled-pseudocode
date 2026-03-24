@@ -1,9 +1,9 @@
 /*
- * XREFs of BiGetVolumeDiskExtentsInformation @ 0x1408F1A90
+ * XREFs of BiGetVolumeDiskExtentsInformation @ 0x1408F1A70
  * Callers:
- *     BiGetPhysicalDriveName @ 0x1408F194C (BiGetPhysicalDriveName.c)
+ *     BiGetPhysicalDriveName @ 0x1408F192C (BiGetPhysicalDriveName.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1401B8250 (ZwDeviceIoControlFile.c)
+ *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

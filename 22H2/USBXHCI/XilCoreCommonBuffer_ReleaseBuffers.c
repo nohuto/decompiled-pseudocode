@@ -1,14 +1,14 @@
 /*
- * XREFs of XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E878
+ * XREFs of XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000A2A0
  * Callers:
- *     TR_Disable_Internal @ 0x1C0008074 (TR_Disable_Internal.c)
- *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0039DC0 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
- *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C003A080 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D000 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
- *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C0041A80 (TR_ReAllocateTransferRingSegmentsForOffload.c)
- *     XilCoreDeviceSlot_FreeResources @ 0x1C0052DE4 (XilCoreDeviceSlot_FreeResources.c)
+ *     TR_Disable_Internal @ 0x1C000A330 (TR_Disable_Internal.c)
+ *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0037F10 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
+ *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C00381D0 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003F56C (TR_ReAllocateTransferRingSegmentsForOffload.c)
+ *     XilCoreDeviceSlot_FreeResources @ 0x1C00500C4 (XilCoreDeviceSlot_FreeResources.c)
  * Callees:
- *     XilCoreCommonBuffer_ReleaseBufferInternal @ 0x1C00133E0 (XilCoreCommonBuffer_ReleaseBufferInternal.c)
+ *     XilCoreCommonBuffer_ReleaseBufferInternal @ 0x1C000E868 (XilCoreCommonBuffer_ReleaseBufferInternal.c)
  */
 
 void __fastcall XilCoreCommonBuffer_ReleaseBuffers(__int64 a1, _QWORD **a2)

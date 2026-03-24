@@ -1,26 +1,23 @@
 /*
- * XREFs of ?_Signal@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@AEBAXXZ @ 0x1C004AAB4
+ * XREFs of ?_Signal@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@AEBAXXZ @ 0x1C00A1F10
  * Callers:
- *     ?SignalMarshalingCompleted@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z @ 0x1C00347A4 (-SignalMarshalingCompleted@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z.c)
- *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C004A9C0 (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
+ *     ?SignalMarshalingCompleted@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z @ 0x1C00448A8 (-SignalMarshalingCompleted@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z.c)
+ *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C00A1E1C (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall CRIMBase::SensorDispatcherObject::MarshalingCompletion::_Signal(PRKEVENT *this, __int64 a2, __int64 a3)
+void __fastcall CRIMBase::SensorDispatcherObject::MarshalingCompletion::_Signal(PRKEVENT *this)
 {
-  struct _KEVENT *v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
+  struct _KEVENT *v2; // rcx
 
-  v4 = *this;
-  if ( !v4 )
+  v2 = *this;
+  if ( !v2 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(0LL, a2, a3);
-    v4 = *this;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 610LL);
+    v2 = *this;
   }
-  if ( KeReadStateEvent(v4) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
+  if ( KeReadStateEvent(v2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 612LL);
   KeSetEvent(*this, 1, 0);
 }

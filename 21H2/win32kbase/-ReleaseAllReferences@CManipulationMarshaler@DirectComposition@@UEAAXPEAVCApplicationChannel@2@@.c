@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CManipulationMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021A8C0
+ * XREFs of ?ReleaseAllReferences@CManipulationMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01E4430
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C000B2B0 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C005FF10 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CManipulationMarshaler::ReleaseAllReferences(
@@ -15,7 +15,7 @@ void __fastcall DirectComposition::CManipulationMarshaler::ReleaseAllReferences(
   unsigned int i; // edi
   struct DirectComposition::CResourceMarshaler *v6; // rdx
 
-  v3 = (struct DirectComposition::CWeakReferenceBase **)((char *)this + 72);
+  v3 = (struct DirectComposition::CWeakReferenceBase **)((char *)this + 64);
   for ( i = 0; i < 5; ++i )
   {
     if ( *v3 )
@@ -25,10 +25,10 @@ void __fastcall DirectComposition::CManipulationMarshaler::ReleaseAllReferences(
     }
     ++v3;
   }
-  v6 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 36);
+  v6 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 35);
   if ( v6 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v6);
-    *((_QWORD *)this + 36) = 0LL;
+    *((_QWORD *)this + 35) = 0LL;
   }
 }

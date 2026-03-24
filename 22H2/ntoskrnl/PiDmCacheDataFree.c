@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmCacheDataFree @ 0x14078D7A4
+ * XREFs of PiDmCacheDataFree @ 0x140746D24
  * Callers:
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmObjectProcessPropertyChange @ 0x140789C4C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D7DC (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406AFE2C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1407468F4 (PiDmObjectProcessPropertyChange.c)
  * Callees:
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmCacheDataFree(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall PiDmCacheDataFree(__int64 a1)
   if ( v2 )
   {
     if ( v2 == 1 )
-      PiDmObjectRelease(*(char **)(a1 + 16));
+      PiDmObjectRelease(*(unsigned int **)(a1 + 16));
   }
   else
   {

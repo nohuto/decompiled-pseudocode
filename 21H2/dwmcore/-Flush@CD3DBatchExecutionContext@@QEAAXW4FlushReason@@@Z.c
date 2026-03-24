@@ -1,13 +1,14 @@
 /*
- * XREFs of ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800B5558
+ * XREFs of ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800669BC
  * Callers:
- *     ?SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x180016340 (-SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z.c)
- *     ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x1800A70B0 (-AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV-$span@$$CBG$0-0@gsl@@PEAPEAX1@Z.c)
- *     ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x1800B4BB0 (-Render@CDrawListEntryBatch@@UEAAJXZ.c)
- *     ??$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z @ 0x1801F0ECC (--$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z.c)
+ *     ?SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x1800164D0 (-SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z.c)
+ *     ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x180066080 (-Render@CDrawListEntryBatch@@UEAAJXZ.c)
+ *     ?SetDrawMethod@CD3DBatchExecutionContext@@EEAAXW4PrimitiveDrawMethod@@@Z @ 0x180066960 (-SetDrawMethod@CD3DBatchExecutionContext@@EEAAXW4PrimitiveDrawMethod@@@Z.c)
+ *     ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x1800791C0 (-AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV-$span@$$CBG$0-0@gsl@@PEAPEAX1@Z.c)
+ *     ??$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z @ 0x1801AA850 (--$RenderLoop@$0A@@CDrawListEntryBatch@@AEAAJAEAVCD3DBatchExecutionContext@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x1801F1630 (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x1801AA77C (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
  */
 
 void __fastcall CD3DBatchExecutionContext::Flush(__int64 a1, int a2)
@@ -19,8 +20,8 @@ void __fastcall CD3DBatchExecutionContext::Flush(__int64 a1, int a2)
   v3 = *(_QWORD *)(a1 + 32);
   if ( *(_QWORD *)(v3 + 40) )
   {
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v3 + 16) + 560LL) + 120LL))(
-      *(_QWORD *)(*(_QWORD *)(v3 + 16) + 560LL),
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v3 + 16) + 600LL) + 120LL))(
+      *(_QWORD *)(*(_QWORD *)(v3 + 16) + 600LL),
       *(_QWORD *)(v3 + 24),
       0LL);
     *(_QWORD *)(v3 + 40) = 0LL;
@@ -50,8 +51,8 @@ void __fastcall CD3DBatchExecutionContext::Flush(__int64 a1, int a2)
     }
     else
     {
-      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v3 + 64) + 560LL) + 120LL))(
-        *(_QWORD *)(*(_QWORD *)(v3 + 64) + 560LL),
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v3 + 64) + 600LL) + 120LL))(
+        *(_QWORD *)(*(_QWORD *)(v3 + 64) + 600LL),
         *(_QWORD *)(v3 + 72),
         0LL);
       *(_QWORD *)(v3 + 88) = 0LL;
@@ -62,7 +63,7 @@ void __fastcall CD3DBatchExecutionContext::Flush(__int64 a1, int a2)
         *(unsigned int *)(a1 + 88),
         0LL);
     }
-    ++*(_DWORD *)(a1 + 124);
+    ++*(_DWORD *)(a1 + 112);
     *(_DWORD *)(a1 + 96) = 0;
     *(_DWORD *)(a1 + 100) = 0;
     *(_DWORD *)(a1 + 104) = 0;

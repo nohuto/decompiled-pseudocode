@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ConfigurationListContainsType@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEBAHIU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@0@Z @ 0x18018B4A4
+ * XREFs of ?ConfigurationListContainsType@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEBAHIU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@0@Z @ 0x18022C908
  * Callers:
- *     ?SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z @ 0x1800E246C (-SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z.c)
- *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18018A118 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
+ *     ?SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z @ 0x1800CCD1C (-SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z.c)
+ *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18022B5D8 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
  * Callees:
  *     <none>
  */

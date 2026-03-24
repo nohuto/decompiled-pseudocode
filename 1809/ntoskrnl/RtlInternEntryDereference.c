@@ -7,7 +7,7 @@
  *     PopEtEnergyContextSetState @ 0x14060464C (PopEtEnergyContextSetState.c)
  *     PoEnergyContextCleanup @ 0x1406078D0 (PoEnergyContextCleanup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlInternEntryDereference(__int64 a1, __int64 a2)

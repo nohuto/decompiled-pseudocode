@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckForSegmentedSignatureBlob@@YAJPEAXGPEAU_HIDP_VALUE_CAPS@@PEAG@Z @ 0x1C01E692C
+ * XREFs of ?CheckForSegmentedSignatureBlob@@YAJPEAXGPEAU_HIDP_VALUE_CAPS@@PEAG@Z @ 0x1C01EC058
  * Callers:
- *     ValidateDeviceSignature @ 0x1C01E9620 (ValidateDeviceSignature.c)
+ *     ValidateDeviceSignature @ 0x1C01EF160 (ValidateDeviceSignature.c)
  * Callees:
  *     <none>
  */

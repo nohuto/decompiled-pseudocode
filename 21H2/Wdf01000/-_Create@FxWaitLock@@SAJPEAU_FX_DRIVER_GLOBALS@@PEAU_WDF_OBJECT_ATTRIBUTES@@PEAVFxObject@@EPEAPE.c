@@ -1,16 +1,16 @@
 /*
- * XREFs of ?_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPEAUWDFWAITLOCK__@@@Z @ 0x1C00233E4
+ * XREFs of ?_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPEAUWDFWAITLOCK__@@@Z @ 0x1C00622F0
  * Callers:
- *     ?InitializeWorker@FxInterrupt@@QEAAJPEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C001ED40 (-InitializeWorker@FxInterrupt@@QEAAJPEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
- *     imp_WdfWaitLockCreate @ 0x1C0023340 (imp_WdfWaitLockCreate.c)
+ *     imp_WdfWaitLockCreate @ 0x1C005EF30 (imp_WdfWaitLockCreate.c)
+ *     ?InitializeWorker@FxInterrupt@@QEAAJPEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C0089878 (-InitializeWorker@FxInterrupt@@QEAAJPEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
  * Callees:
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ??0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0016188 (--0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00239E0 (--0FxWaitLockInternal@@QEAA@XZ.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ??0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00051A4 (--0FxObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C00622B4 (--0FxWaitLockInternal@@QEAA@XZ.c)
  */
 
 __int64 __fastcall FxWaitLock::_Create(
@@ -20,35 +20,41 @@ __int64 __fastcall FxWaitLock::_Create(
         unsigned __int8 AssignDriverAsDefaultParent,
         WDFWAITLOCK__ **LockHandle)
 {
-  FxObject *v9; // rax
-  FxObject *v10; // rdi
-  int v11; // ebx
-  FxPoolTypeOrPoolFlags v13; // [rsp+40h] [rbp-28h] BYREF
+  _POOL_TYPE v8; // edx
+  FxObject *v10; // rax
+  FxObject *v11; // rdi
+  int v13; // ebx
 
-  *(_QWORD *)&v13.UsePoolType = 0LL;
-  v13.u.PoolFlags = 64LL;
+  v8 = ExDefaultNonPagedPoolType;
   *LockHandle = 0LL;
-  v9 = (FxObject *)FxObjectHandleAllocCommon(FxDriverGlobals, &v13, 0x90uLL, 0, Attributes, 0, FxObjectTypeExternal);
-  v10 = v9;
-  if ( v9 )
+  v10 = FxObjectHandleAlloc(FxDriverGlobals, v8, 0x90uLL, 0, Attributes, 0, FxObjectTypeExternal);
+  v11 = v10;
+  if ( v10 )
   {
-    FxObject::FxObject(v9, 0x1023u, 0x90u, FxDriverGlobals);
-    FxWaitLockInternal::FxWaitLockInternal((FxWaitLockInternal *)&v10[1]);
-    v10->__vftable = (FxObject_vtbl *)FxObject::`vftable';
-    KeInitializeEvent((PRKEVENT)&v10[1], SynchronizationEvent, 1u);
-    LOBYTE(v10[1].m_ObjectFlags) = 1;
-    v11 = FxObject::Commit(
-            v10,
+    FxObject::FxObject(v10, 0x1023u, 0x90u, FxDriverGlobals);
+    FxWaitLockInternal::FxWaitLockInternal((FxWaitLockInternal *)&v11[1]);
+    v11->__vftable = (FxObject_vtbl *)FxResourceCm::`vftable';
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( v11 )
+  {
+    KeInitializeEvent((PRKEVENT)&v11[1], SynchronizationEvent, 1u);
+    LOBYTE(v11[1].m_ObjectFlags) = 1;
+    v13 = FxObject::Commit(
+            v11,
             (_FX_DRIVER_GLOBALS *)Attributes,
             (void **)LockHandle,
             ParentObject,
             AssignDriverAsDefaultParent);
-    if ( v11 < 0 )
+    if ( v13 < 0 )
     {
-      FxObject::ClearEvtCallbacks(v10);
-      v10->DeleteObject(v10);
+      FxObject::ClearEvtCallbacks(v11);
+      ((void (*)(void))v11->DeleteObject)();
     }
-    return (unsigned int)v11;
+    return (unsigned int)v13;
   }
   else
   {

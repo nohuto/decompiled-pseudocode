@@ -1,23 +1,24 @@
 /*
- * XREFs of PspGetContext @ 0x140703C00
+ * XREFs of PspGetContext @ 0x140649FC4
  * Callers:
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlXSaveS @ 0x14024215C (RtlXSaveS.c)
- *     KeCopyLastBranchInformation @ 0x140298B90 (KeCopyLastBranchInformation.c)
- *     KiCopyXStateArea @ 0x14056FC20 (KiCopyXStateArea.c)
+ *     KeCopyLastBranchInformation @ 0x1402779C0 (KeCopyLastBranchInformation.c)
+ *     RtlXSaveS @ 0x1402C112C (RtlXSaveS.c)
+ *     KiCopyXStateArea @ 0x140519F90 (KiCopyXStateArea.c)
  */
 
 int __fastcall PspGetContext(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v3; // ebx
+  int v3; // ebp
+  __int64 v7; // rsi
   int result; // eax
-  __int64 v8; // rax
   char v9; // cl
   __int64 v10; // r9
   _QWORD *SparePtr; // rcx
-  _QWORD *v12; // rdx
-  __int64 v13; // r8
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  _QWORD *v14; // rdx
 
   v3 = *(_DWORD *)(a3 + 48);
   if ( (v3 & 0x100001) == 0x100001 )
@@ -51,30 +52,36 @@ int __fastcall PspGetContext(__int64 a1, __int64 a2, __int64 a3)
     *(_QWORD *)(a3 + 232) = **(_QWORD **)(a2 + 240);
     *(_QWORD *)(a3 + 240) = **(_QWORD **)(a2 + 248);
   }
+  v7 = 0LL;
   if ( (v3 & 0x100040) == 0x100040 )
   {
     if ( (*(_BYTE *)(a1 + 368) & 1) != 0 )
     {
       v10 = *(int *)(a3 + 1248);
       SparePtr = KeGetCurrentThread()->WaitBlock[1].SparePtr;
-      if ( !SparePtr )
-        goto LABEL_21;
-      v12 = (_QWORD *)*SparePtr;
-      if ( *SparePtr )
+      if ( SparePtr )
       {
-        do
+        v14 = (_QWORD *)*SparePtr;
+        if ( *SparePtr )
         {
-          SparePtr = v12;
-          v12 = (_QWORD *)*v12;
+          do
+          {
+            SparePtr = v14;
+            v14 = (_QWORD *)*v14;
+          }
+          while ( v14 );
         }
-        while ( v12 );
+        v12 = SparePtr[5];
       }
-      v13 = SparePtr[5];
-      if ( v13 )
-        KiCopyXStateArea(a3 + v10 + 720, MEMORY[0xFFFFF780000003D8] & 0xFFFFFFFFFFFFFFFCuLL, v13);
       else
-LABEL_21:
-        RtlXSaveS(a3 + v10 + 720, (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
+      {
+        v12 = 0LL;
+      }
+      v13 = a3 + v10 + 720;
+      if ( v12 )
+        KiCopyXStateArea(v13, MEMORY[0xFFFFF780000003D8] & 0xFFFFFFFFFFFFFFFCuLL, v12);
+      else
+        RtlXSaveS(v13, (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
     }
     *(_DWORD *)(a3 + 52) = *(_DWORD *)(a1 + 44);
     *(_DWORD *)(a3 + 280) = *(_DWORD *)(a1 + 44);
@@ -110,18 +117,17 @@ LABEL_21:
       *(_QWORD *)(a3 + 88) = *(_QWORD *)(a1 + 232);
       *(_QWORD *)(a3 + 96) = *(_QWORD *)(a1 + 240);
       *(_QWORD *)(a3 + 104) = *(_QWORD *)(a1 + 248);
-      v8 = *(_QWORD *)(a1 + 256);
+      v7 = *(_QWORD *)(a1 + 256);
     }
     else
     {
-      v8 = 0LL;
       *(_QWORD *)(a3 + 72) = 0LL;
       *(_QWORD *)(a3 + 80) = 0LL;
       *(_QWORD *)(a3 + 88) = 0LL;
       *(_QWORD *)(a3 + 96) = 0LL;
       *(_QWORD *)(a3 + 104) = 0LL;
     }
-    *(_QWORD *)(a3 + 112) = v8;
+    *(_QWORD *)(a3 + 112) = v7;
     result = KeCopyLastBranchInformation(a3, a1);
   }
   if ( (v3 & 0x40000000) != 0 )
@@ -132,13 +138,14 @@ LABEL_21:
     if ( v9 == 1 )
     {
       result |= 0x8000000u;
-      *(_DWORD *)(a3 + 48) = result;
     }
-    else if ( v9 == 2 )
+    else
     {
+      if ( v9 != 2 )
+        return result;
       result |= 0x10000000u;
-      *(_DWORD *)(a3 + 48) = result;
     }
+    *(_DWORD *)(a3 + 48) = result;
   }
   return result;
 }

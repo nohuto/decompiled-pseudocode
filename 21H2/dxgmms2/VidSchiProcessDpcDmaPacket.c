@@ -1,87 +1,76 @@
 /*
- * XREFs of VidSchiProcessDpcDmaPacket @ 0x1C0005700
+ * XREFs of VidSchiProcessDpcDmaPacket @ 0x1C002FF94
  * Callers:
- *     VidSchDdiNotifyDpc @ 0x1C00054C0 (VidSchDdiNotifyDpc.c)
- *     VidSchDdiNotifyDpcWorker @ 0x1C0038574 (VidSchDdiNotifyDpcWorker.c)
+ *     VidSchDdiNotifyDpcWorker @ 0x1C002EE08 (VidSchDdiNotifyDpcWorker.c)
  * Callees:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0007C30 (VidSchiProcessDpcCompletedPacket.c)
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C000F070 (VidSchiProcessDpcPreemptedPacket.c)
- *     VidSchiProcessDpcSystemRequest @ 0x1C000FA04 (VidSchiProcessDpcSystemRequest.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     VidSchiInterlockedInsertTailList @ 0x1C0007AC0 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C00095B0 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C0012F8C (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C0013370 (VidSchiProcessDpcSystemRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall VidSchiProcessDpcDmaPacket(struct _VIDSCH_DMA_PACKET *a1)
+void __fastcall VidSchiProcessDpcDmaPacket(struct _VIDSCH_DMA_PACKET *a1, __int64 a2, __int64 a3)
 {
-  __int64 v1; // rax
-  __int64 v3; // rsi
-  __int64 v4; // rdi
-  KSPIN_LOCK *v5; // rbp
-  int v6; // ecx
-  KSPIN_LOCK *v7; // rcx
-  _QWORD *v8; // rbx
-  _QWORD *v9; // rax
+  __int64 v3; // rax
+  __int64 v5; // rsi
+  __int64 v6; // rbp
+  KSPIN_LOCK *v7; // rdi
+  __int64 v8; // rax
+  int v9; // ecx
   void (__fastcall *v10)(KSPIN_LOCK); // rax
   void (__fastcall *v11)(KSPIN_LOCK); // rax
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-38h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v13; // [rsp+68h] [rbp-20h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = *((_QWORD *)a1 + 6);
-  v3 = *(_QWORD *)(v1 + 96);
-  v4 = *(unsigned int *)(v3 + 1416);
-  v5 = *(KSPIN_LOCK **)(*(_QWORD *)(v1 + 104) + 32LL);
+  v3 = *((_QWORD *)a1 + 6);
+  v5 = *(_QWORD *)(v3 + 96);
+  v6 = *(unsigned int *)(v5 + 1408);
+  v7 = *(KSPIN_LOCK **)(*(_QWORD *)(v3 + 104) + 32LL);
   if ( a1 != (struct _VIDSCH_DMA_PACKET *)_InterlockedCompareExchange64(
-                                            (volatile signed __int64 *)(v3 + 8 * v4 + 1424),
+                                            (volatile signed __int64 *)(v5 + 8 * v6 + 1416),
                                             0LL,
                                             (signed __int64)a1) )
   {
-    WdLogSingleEntry2(1LL, v5, a1);
-    ((void (__fastcall **)(_QWORD, __int64, __int64, const wchar_t *, __int64, struct _VIDSCH_DMA_PACKET *, _QWORD, _QWORD, _QWORD))DxgCoreInterface)[85](
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Hardware queue is inconsistant",
-      (__int64)v5,
-      a1,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v8 + 24) = v7;
+    *(_QWORD *)(v8 + 32) = a1;
+    WdLogEvent5_WdAssertion(v8);
   }
-  _InterlockedExchange((volatile __int32 *)(v3 + 1416), ((_BYTE)v4 + 1) & 0xF);
-  *(_DWORD *)(v3 + 504) = ((unsigned __int8)*(_DWORD *)(v3 + 504) + 1) & 0xF;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLockAtDpcLevel(v5 + 216, &LockHandle);
-  v6 = *((_DWORD *)a1 + 23);
-  if ( (v6 & 0x400) != 0 )
+  _InterlockedExchange((volatile __int32 *)(v5 + 1408), ((_BYTE)v6 + 1) & 0xF);
+  *(_DWORD *)(v5 + 496) = ((unsigned __int8)*(_DWORD *)(v5 + 496) + 1) & 0xF;
+  KeAcquireInStackQueuedSpinLockAtDpcLevel(v7 + 214, &LockHandle);
+  v9 = *((_DWORD *)a1 + 23);
+  if ( (v9 & 0x400) != 0 )
   {
-    v6 &= ~0x400u;
-    *((_DWORD *)a1 + 23) = v6;
-    if ( *(_DWORD *)(v3 + 11240) != -1 )
+    v9 &= ~0x400u;
+    *((_DWORD *)a1 + 23) = v9;
+    if ( *(_DWORD *)(v5 + 11224) != -1 )
     {
-      v10 = (void (__fastcall *)(KSPIN_LOCK))v5[386];
+      v10 = (void (__fastcall *)(KSPIN_LOCK))v7[374];
       if ( v10 )
       {
-        v10(v5[390]);
-        v6 = *((_DWORD *)a1 + 23);
+        v10(v7[378]);
+        v9 = *((_DWORD *)a1 + 23);
       }
     }
   }
-  if ( (v6 & 0x800) != 0 )
+  if ( (v9 & 0x800) != 0 )
   {
-    if ( *(_DWORD *)(v5[*(unsigned int *)(*((_QWORD *)a1 + 7) + 388LL) + 400] + 44232) != -1 )
+    if ( *(_DWORD *)(v7[*(unsigned int *)(*((_QWORD *)a1 + 7) + 388LL) + 388] + 33288) != -1 )
     {
-      v11 = (void (__fastcall *)(KSPIN_LOCK))v5[384];
+      v11 = (void (__fastcall *)(KSPIN_LOCK))v7[372];
       if ( v11 )
       {
-        v11(v5[390]);
-        v6 = *((_DWORD *)a1 + 23);
+        v11(v7[378]);
+        v9 = *((_DWORD *)a1 + 23);
       }
     }
-    *((_DWORD *)a1 + 23) = v6 & 0xFFFFF7FF;
+    *((_DWORD *)a1 + 23) = v9 & 0xFFFFF7FF;
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   if ( *((_DWORD *)a1 + 22) == 3 )
   {
-    VidSchiProcessDpcSystemRequest(a1);
+    VidSchiProcessDpcSystemRequest((__int64)a1);
   }
   else if ( *((_DWORD *)a1 + 18) == 10 || *((_DWORD *)a1 + 18) == 18 )
   {
@@ -89,18 +78,7 @@ void __fastcall VidSchiProcessDpcDmaPacket(struct _VIDSCH_DMA_PACKET *a1)
   }
   else if ( *((_DWORD *)a1 + 18) == 11 )
   {
-    VidSchiProcessDpcPreemptedPacket(a1);
+    VidSchiProcessDpcPreemptedPacket((__int64)a1);
   }
-  v7 = (KSPIN_LOCK *)(*(_QWORD *)(v3 + 24) + 1736LL);
-  v8 = (_QWORD *)((char *)a1 + 16);
-  memset(&v13, 0, sizeof(v13));
-  KeAcquireInStackQueuedSpinLock(v7, &v13);
-  v9 = *(_QWORD **)(v3 + 11256);
-  if ( *v9 != v3 + 11248 )
-    __fastfail(3u);
-  *v8 = v3 + 11248;
-  v8[1] = v9;
-  *v9 = v8;
-  *(_QWORD *)(v3 + 11256) = v8;
-  KeReleaseInStackQueuedSpinLock(&v13);
+  VidSchiInterlockedInsertTailList((KSPIN_LOCK *)(*(_QWORD *)(v5 + 24) + 1720LL), v5 + 11232, (_QWORD *)a1 + 2, 0LL);
 }

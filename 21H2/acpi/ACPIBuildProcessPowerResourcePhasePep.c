@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildProcessPowerResourcePhasePep @ 0x1C002A8D0
+ * XREFs of ACPIBuildProcessPowerResourcePhasePep @ 0x1C002E950
  * Callers:
  *     <none>
  * Callees:
- *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0002434 (AcpiNotifyPlExtDiscoverDeviceAsync.c)
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_Lqs @ 0x1C002A9D0 (WPP_RECORDER_SF_Lqs.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A9AC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     WPP_RECORDER_SF_Lqs @ 0x1C002EA50 (WPP_RECORDER_SF_Lqs.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ACPIBuildProcessPowerResourcePhasePep(__int64 a1, __int64 a2, int a3)

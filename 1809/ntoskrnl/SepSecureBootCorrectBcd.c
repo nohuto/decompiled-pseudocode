@@ -1,19 +1,19 @@
 /*
- * XREFs of SepSecureBootCorrectBcd @ 0x1408A3114
+ * XREFs of SepSecureBootCorrectBcd @ 0x1408A30F4
  * Callers:
- *     NtFilterBootOption @ 0x1408A2CE0 (NtFilterBootOption.c)
+ *     NtFilterBootOption @ 0x1408A2CC0 (NtFilterBootOption.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdCloseStore @ 0x140711A28 (BcdCloseStore.c)
- *     BiOpenSystemStore @ 0x140712C24 (BiOpenSystemStore.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BiReleaseBcdSyncMutant @ 0x140713AF0 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x140713CA0 (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x1408A3564 (SepSecureBootUpdateBcdDataForRule.c)
- *     BcdEnumerateObjects @ 0x1408F08FC (BcdEnumerateObjects.c)
+ *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
+ *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BiReleaseBcdSyncMutant @ 0x140713AD0 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140713C80 (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1408A3544 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BcdEnumerateObjects @ 0x1408F08DC (BcdEnumerateObjects.c)
  */
 
 __int64 SepSecureBootCorrectBcd()
@@ -71,24 +71,24 @@ __int64 SepSecureBootCorrectBcd()
               updated = BcdOpenObject(v0, (unsigned int *)NumberOfBytes, &v13);
               if ( updated < 0 )
                 break;
-              v5 = (unsigned __int16 *)qword_1404DC690;
+              v5 = (unsigned __int16 *)qword_1404DC688;
               v6 = 0;
               v7 = v13;
-              if ( *((_WORD *)qword_1404DC690 + 18) )
+              if ( *((_WORD *)qword_1404DC688 + 18) )
               {
                 do
                 {
-                  v8 = (_DWORD *)(qword_1404E1528 + 12LL * v6);
+                  v8 = (_DWORD *)(qword_1404E14D8 + 12LL * v6);
                   if ( !*v8 || *v8 == *(_DWORD *)(*(_QWORD *)(NumberOfBytes + 16) + 4LL) )
                   {
-                    v9 = *(_WORD *)((unsigned int)v8[2] + qword_1404E1530);
-                    if ( ((v9 & 0x20) == 0 || (dword_1404401E4 & 4) != 0)
-                      && ((v9 & 0x40) == 0 || (dword_1404401E4 & 0x10) != 0) )
+                    v9 = *(_WORD *)((unsigned int)v8[2] + qword_1404E14E8);
+                    if ( ((v9 & 0x20) == 0 || (dword_1404401DC & 4) != 0)
+                      && ((v9 & 0x40) == 0 || (dword_1404401DC & 0x10) != 0) )
                     {
-                      updated = SepSecureBootUpdateBcdDataForRule(qword_1404E1528 + 12LL * v6, v7);
+                      updated = SepSecureBootUpdateBcdDataForRule(qword_1404E14D8 + 12LL * v6, v7);
                       if ( updated < 0 )
                         goto LABEL_24;
-                      v5 = (unsigned __int16 *)qword_1404DC690;
+                      v5 = (unsigned __int16 *)qword_1404DC688;
                     }
                   }
                   ++v6;

@@ -1,127 +1,122 @@
 /*
- * XREFs of EtwpInitializeTimeStamp @ 0x1407DC230
+ * XREFs of EtwpInitializeTimeStamp @ 0x140711604
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
  * Callees:
- *     EtwpGetLoggerTimeStamp @ 0x140227B6C (EtwpGetLoggerTimeStamp.c)
- *     KeQuerySystemTimePrecise @ 0x1402BE500 (KeQuerySystemTimePrecise.c)
- *     RtlGetMultiTimePrecise @ 0x140364430 (RtlGetMultiTimePrecise.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14022C448 (EtwpGetLoggerTimeStamp.c)
+ *     KeQuerySystemTimePrecise @ 0x140341F10 (KeQuerySystemTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x14035F9E0 (RtlGetMultiTimePrecise.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
 {
-  int v2; // ecx
-  __int64 *v3; // rdi
-  __int64 v4; // rax
-  _QWORD *v5; // rdi
-  char v6; // bp
-  __int64 v7; // rsi
-  __int64 v8; // r14
-  __int64 v9; // rcx
+  __int64 v2; // rax
+  _QWORD *v3; // rdi
+  char v4; // bp
+  __int64 v5; // rsi
+  __int64 v6; // r14
+  __int64 v7; // rcx
   __int64 result; // rax
-  int v11; // ecx
-  int v12; // edx
-  __int64 v13; // rcx
-  int v14; // ecx
-  __int128 v15; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-28h]
-  __int64 v17; // [rsp+60h] [rbp+8h] BYREF
+  int v9; // edx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int128 v17; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v18; // [rsp+30h] [rbp-28h]
+  __int64 v19; // [rsp+60h] [rbp+8h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 200) - 1;
-  if ( !v2 )
-    goto LABEL_2;
-  v11 = v2 - 1;
-  if ( !v11 )
+  switch ( *(_DWORD *)(a1 + 216) )
   {
-    v4 = 0LL;
-LABEL_16:
-    v3 = (__int64 *)(a1 + 24);
-    goto LABEL_4;
+    case 2:
+      v2 = 0LL;
+      break;
+    case 3:
+      v2 = 3LL;
+      break;
+    case 4:
+      v19 = 0LL;
+      if ( ((int (__fastcall *)(__int64 *))off_140C009E0[0])(&v19) < 0 )
+      {
+        *(_DWORD *)(a1 + 216) = 1;
+        goto LABEL_5;
+      }
+      v2 = 2LL;
+      break;
+    default:
+      *(_DWORD *)(a1 + 216) = 1;
+LABEL_5:
+      v2 = 1LL;
+      break;
   }
-  v14 = v11 - 1;
-  if ( !v14 )
+  *(_QWORD *)(a1 + 40) = v2;
+  v3 = (_QWORD *)(a1 + 320);
+  if ( (*(_DWORD *)(a1 + 832) & 2) == 0 )
   {
-    v4 = 3LL;
-    goto LABEL_16;
-  }
-  if ( v14 != 1 )
-  {
-LABEL_2:
-    v3 = (__int64 *)(a1 + 24);
-LABEL_3:
-    v4 = 1LL;
-    *(_DWORD *)(a1 + 200) = 1;
-    goto LABEL_4;
-  }
-  v17 = 0LL;
-  v3 = (__int64 *)(a1 + 24);
-  if ( ((int (__fastcall *)(__int64 *))off_140C01DF0[0])(&v17) < 0 )
-    goto LABEL_3;
-  v4 = 2LL;
-LABEL_4:
-  *v3 = v4;
-  v5 = (_QWORD *)(a1 + 304);
-  if ( (*(_DWORD *)(a1 + 816) & 2) != 0 )
-  {
-    v12 = *(_DWORD *)(a1 + 200);
-    *v5 = EtwpRefTimeSystem;
-    result = EtwpRefQpcDelta;
-    *(_QWORD *)(a1 + 1280) = EtwpRefQpcDelta;
-    if ( v12 == 3 )
+    if ( *(_DWORD *)(a1 + 216) == 3 )
     {
-      result = EtwpRefTimeCycle;
-      *(_QWORD *)(a1 + 312) = EtwpRefTimeCycle;
+      *(LARGE_INTEGER *)(a1 + 328) = EtwpGetLoggerTimeStamp(a1);
+      result = KeQuerySystemTimePrecise((__int64 *)(a1 + 320), v11, v12, v13);
+      goto LABEL_14;
     }
-    else
-    {
-      v13 = EtwpRefTimePerfCounter;
-      if ( v12 == 2 )
-        v13 = EtwpRefTimeSystem;
-      *(_QWORD *)(a1 + 312) = v13;
-    }
-  }
-  else if ( *(_DWORD *)(a1 + 200) == 3 )
-  {
-    *(LARGE_INTEGER *)(a1 + 312) = EtwpGetLoggerTimeStamp(a1);
-    result = KeQuerySystemTimePrecise((_QWORD *)(a1 + 304));
-  }
-  else
-  {
-    LODWORD(v17) = 0;
-    v16 = 0LL;
-    v15 = 0LL;
-    RtlGetMultiTimePrecise((LARGE_INTEGER *)&v15, 7, (int *)&v17);
+    LODWORD(v19) = 0;
+    v18 = 0LL;
+    v17 = 0LL;
+    RtlGetMultiTimePrecise((LARGE_INTEGER *)&v17, 7, (int *)&v19);
+    v4 = v19;
+    v5 = *((_QWORD *)&v17 + 1);
     v6 = v17;
-    v7 = *((_QWORD *)&v15 + 1);
-    v8 = v15;
-    if ( (v17 & 5) == 5 )
+    if ( (v19 & 5) == 5 )
     {
-      v9 = v16;
-      result = *(unsigned int *)(a1 + 200);
-      *v5 = v16;
+      v7 = v18;
+      result = *(unsigned int *)(a1 + 216);
+      *v3 = v18;
       switch ( (_DWORD)result )
       {
         case 2:
-          *(_QWORD *)(a1 + 312) = v9;
+          *(_QWORD *)(a1 + 328) = v7;
           break;
         case 1:
-          *(_QWORD *)(a1 + 312) = v8;
+          *(_QWORD *)(a1 + 328) = v6;
           break;
         case 4:
-          *(_QWORD *)(a1 + 312) = v7;
+          *(_QWORD *)(a1 + 328) = v5;
+LABEL_30:
+          if ( (_DWORD)result == 4 )
+            goto LABEL_14;
           break;
       }
+      if ( (v4 & 3) == 3 )
+        *(_QWORD *)(a1 + 1264) = v5 - v6;
+      goto LABEL_14;
     }
-    else
-    {
-      *(LARGE_INTEGER *)(a1 + 312) = EtwpGetLoggerTimeStamp(a1);
-      result = KeQuerySystemTimePrecise((_QWORD *)(a1 + 304));
-      *(_DWORD *)(a1 + 816) &= ~0x8000000u;
-    }
-    if ( *(_DWORD *)(a1 + 200) != 4 && (v6 & 3) == 3 )
-      *(_QWORD *)(a1 + 1280) = v7 - v8;
+    *(LARGE_INTEGER *)(a1 + 328) = EtwpGetLoggerTimeStamp(a1);
+    KeQuerySystemTimePrecise((__int64 *)(a1 + 320), v14, v15, v16);
+    *(_DWORD *)(a1 + 832) &= ~0x8000000u;
+    result = *(unsigned int *)(a1 + 216);
+    goto LABEL_30;
   }
-  *(_OWORD *)(a1 + 432) = *(_OWORD *)v5;
+  v9 = *(_DWORD *)(a1 + 216);
+  *v3 = EtwpRefTimeSystem;
+  result = EtwpRefQpcDelta;
+  *(_QWORD *)(a1 + 1264) = EtwpRefQpcDelta;
+  if ( v9 == 3 )
+  {
+    result = EtwpRefTimeCycle;
+    *(_QWORD *)(a1 + 328) = EtwpRefTimeCycle;
+  }
+  else
+  {
+    v10 = EtwpRefTimePerfCounter;
+    if ( v9 == 2 )
+      v10 = EtwpRefTimeSystem;
+    *(_QWORD *)(a1 + 328) = v10;
+  }
+LABEL_14:
+  *(_OWORD *)(a1 + 448) = *(_OWORD *)v3;
   return result;
 }

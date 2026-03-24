@@ -3,8 +3,8 @@
  * Callers:
  *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
  *     CmpVolumeManagerGetContextForFile @ 0x1405A4298 (CmpVolumeManagerGetContextForFile.c)
- *     FsRtlVolumeDeviceToCorrelationId @ 0x1406FBE80 (FsRtlVolumeDeviceToCorrelationId.c)
- *     CmpVolumeContextStart @ 0x14075F728 (CmpVolumeContextStart.c)
+ *     FsRtlVolumeDeviceToCorrelationId @ 0x1406FBE60 (FsRtlVolumeDeviceToCorrelationId.c)
+ *     CmpVolumeContextStart @ 0x14075F708 (CmpVolumeContextStart.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)

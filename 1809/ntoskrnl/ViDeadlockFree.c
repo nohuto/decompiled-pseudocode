@@ -1,8 +1,8 @@
 /*
  * XREFs of ViDeadlockFree @ 0x14093D4A8
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B17C (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B2DC (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B27C (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B3DC (ViDeadlockRemoveMemoryRangeThreads.c)
  *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
  *     VfDeadlockBeforeCallDriver @ 0x14093BC58 (VfDeadlockBeforeCallDriver.c)
  *     VfDeadlockInitializeResource @ 0x14093C0E0 (VfDeadlockInitializeResource.c)

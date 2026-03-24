@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrEnumResources @ 0x1409B95D0
+ * XREFs of LdrEnumResources @ 0x140910780
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x1403587F0 (LdrpCompareResourceNamesWithValidation.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1403F7C58 (LdrpCompareResourceNamesWithValidation.c)
  */
 
 __int64 __fastcall LdrEnumResources(__int64 a1, const wchar_t **a2, unsigned int a3, unsigned int *a4, __int64 a5)

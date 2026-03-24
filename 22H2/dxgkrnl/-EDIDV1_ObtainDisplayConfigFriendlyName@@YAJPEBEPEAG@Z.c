@@ -1,84 +1,54 @@
 /*
- * XREFs of ?EDIDV1_ObtainDisplayConfigFriendlyName@@YAJPEBEPEAG@Z @ 0x1C0010BC8
+ * XREFs of ?EDIDV1_ObtainDisplayConfigFriendlyName@@YAJPEBEPEAG@Z @ 0x1C000D684
  * Callers:
- *     ?AppendFriendlyName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1C01D8550 (-AppendFriendlyName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z.c)
+ *     ?_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C014D6FC (-_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
  * Callees:
- *     ?GetDispDescAsASCIIStringLength@EDID_PARSER@MonDescParser@@QEBA_KH@Z @ 0x1C0010CE8 (-GetDispDescAsASCIIStringLength@EDID_PARSER@MonDescParser@@QEBA_KH@Z.c)
- *     ?Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z @ 0x1C0010D40 (-Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetDispDescAsASCIIString@EDID_PARSER@MonDescParser@@QEBAXHPEAG@Z @ 0x1C00747F0 (-GetDispDescAsASCIIString@EDID_PARSER@MonDescParser@@QEBAXHPEAG@Z.c)
+ *     ?GetDispDescAsASCIIString@EDID_PARSER@MonDescParser@@QEBAXHPEAG@Z @ 0x1C000D3B8 (-GetDispDescAsASCIIString@EDID_PARSER@MonDescParser@@QEBAXHPEAG@Z.c)
+ *     ?Is18ByteDispDesc@EDID_PARSER@MonDescParser@@QEBA_NH@Z @ 0x1C000D77C (-Is18ByteDispDesc@EDID_PARSER@MonDescParser@@QEBA_NH@Z.c)
+ *     ?GetDispDescAsASCIIStringLength@EDID_PARSER@MonDescParser@@QEBA_KH@Z @ 0x1C000D7B8 (-GetDispDescAsASCIIStringLength@EDID_PARSER@MonDescParser@@QEBA_KH@Z.c)
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C000D878 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall EDIDV1_ObtainDisplayConfigFriendlyName(const unsigned __int8 *a1, unsigned __int16 *a2)
+__int64 __fastcall EDIDV1_ObtainDisplayConfigFriendlyName(unsigned __int8 *a1, unsigned __int16 *a2)
 {
-  __int64 v4; // r8
-  int v5; // r9d
-  int v6; // ecx
   __int64 result; // rax
-  __int64 v8; // r9
-  __int64 v9; // rbx
-  int v10; // esi
-  unsigned __int64 DispDescAsASCIIStringLength; // rdi
-  _QWORD v12[10]; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v13; // [rsp+70h] [rbp-18h]
+  __int64 v4; // rdi
+  int i; // ebx
+  unsigned __int64 DispDescAsASCIIStringLength; // rax
+  unsigned __int64 v7; // rbp
+  _QWORD v8[12]; // [rsp+20h] [rbp-68h] BYREF
 
   if ( !a1 || !a2 )
     return 3221225485LL;
-  v4 = 0LL;
-  v13 = 0LL;
-  v5 = 0;
-  do
-  {
-    v6 = v5++;
-    v12[v4] = &a1[v6 << 7];
-    v4 = ++v13;
-  }
-  while ( !v5 );
-  result = MonDescParser::EDID_PARSER::Validate((MonDescParser::EDID_PARSER *)v12, (bool)a2);
+  v8[10] = 0LL;
+  result = MonDescParser::EDID_PARSER::Initialize((MonDescParser::EDID_PARSER *)v8, a1, 0x80u);
   if ( (int)result >= 0 )
   {
     memset(a2, 0, 0x52uLL);
-    v8 = v12[0];
-    v9 = 0LL;
-    v10 = 0;
-    while ( 1 )
+    v4 = 0LL;
+    for ( i = 0; (unsigned int)i < 4; ++i )
     {
-      if ( !*(_WORD *)(v8 + 18LL * v10 + 54) && !*(_BYTE *)(v8 + 18LL * v10 + 56) )
+      if ( MonDescParser::EDID_PARSER::Is18ByteDispDesc((MonDescParser::EDID_PARSER *)v8, i)
+        && *(_BYTE *)(v8[0] + 18LL * i + 57) == 0xFC )
       {
-        if ( *(_BYTE *)(v8 + 18LL * v10 + 58) )
+        DispDescAsASCIIStringLength = MonDescParser::EDID_PARSER::GetDispDescAsASCIIStringLength(
+                                        (MonDescParser::EDID_PARSER *)v8,
+                                        i);
+        v7 = 40 - v4;
+        if ( DispDescAsASCIIStringLength + v4 <= 0x28 )
+          v7 = DispDescAsASCIIStringLength;
+        if ( v7 && (unsigned __int64)(v4 + 13) <= 0x28 )
         {
-          if ( *(_BYTE *)(v8 + 18LL * v10 + 57) == 0xFD )
-          {
-LABEL_11:
-            if ( *(_BYTE *)(v8 + 18LL * v10 + 57) == 0xFC )
-            {
-              DispDescAsASCIIStringLength = MonDescParser::EDID_PARSER::GetDispDescAsASCIIStringLength(
-                                              (MonDescParser::EDID_PARSER *)v12,
-                                              v10);
-              if ( DispDescAsASCIIStringLength + v9 > 0x28 )
-                DispDescAsASCIIStringLength = 40 - v9;
-              if ( DispDescAsASCIIStringLength && (unsigned __int64)(v9 + 13) <= 0x28 )
-              {
-                MonDescParser::EDID_PARSER::GetDispDescAsASCIIString((MonDescParser::EDID_PARSER *)v12, v10, &a2[v9]);
-                v8 = v12[0];
-                v9 += DispDescAsASCIIStringLength;
-              }
-            }
-          }
+          MonDescParser::EDID_PARSER::GetDispDescAsASCIIString((MonDescParser::EDID_PARSER *)v8, i, &a2[v4]);
+          v4 += v7;
         }
-        else if ( *(_BYTE *)(v8 + 18LL * v10 + 57) != 16 )
-        {
-          goto LABEL_11;
-        }
-      }
-      if ( (unsigned int)++v10 >= 4 )
-      {
-        result = 0LL;
-        if ( !v9 )
-          return 3221226021LL;
-        return result;
       }
     }
+    if ( v4 )
+      return 0LL;
+    else
+      return 3221226021LL;
   }
   return result;
 }

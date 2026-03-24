@@ -1,5 +1,5 @@
 /*
- * XREFs of IsGenuineMouseInput @ 0x1C00A6780
+ * XREFs of IsGenuineMouseInput @ 0x1C0093D80
  * Callers:
  *     <none>
  * Callees:
@@ -17,7 +17,7 @@ __int64 __fastcall IsGenuineMouseInput(_DWORD *a1)
   {
     if ( ((*a1 - 18) & 0xFFFFFFEF) != 0 )
       return 0;
-LABEL_9:
+LABEL_7:
     v3 = a1[1];
     v1 = 1;
     if ( (unsigned int)(v3 - 1) <= 1 )
@@ -25,6 +25,6 @@ LABEL_9:
     return 0;
   }
   if ( a1[1] != 4 )
-    goto LABEL_9;
+    goto LABEL_7;
   return 1LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StCompactionWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14038F8FC
+ * XREFs of ?StCompactionWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1402ACCF4
  * Callers:
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037FA00 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA510 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
- *     ?StDmCheckForCompaction@?$ST_STORE@USM_TRAITS@@@@SA?AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA_MGR@1@K@Z @ 0x14038217C (-StDmCheckForCompaction@-$ST_STORE@USM_TRAITS@@@@SA-AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA.c)
- *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x14038F99C (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StQueueCompaction@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_COMPACTION_CHECK_RESULT@@@Z @ 0x140390A50 (-StQueueCompaction@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_COMPACTION_CHECK_RESULT@.c)
+ *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x1402ACD88 (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StQueueCompaction@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_COMPACTION_CHECK_RESULT@@@Z @ 0x1402D3800 (-StQueueCompaction@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_COMPACTION_CHECK_RESULT@.c)
+ *     ?StDmCheckForCompaction@?$ST_STORE@USM_TRAITS@@@@SA?AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA_MGR@1@K@Z @ 0x1402DDD88 (-StDmCheckForCompaction@-$ST_STORE@USM_TRAITS@@@@SA-AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StCompactionWorker(__int64 a1)
@@ -23,12 +23,12 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StCompactionWorker(__int64 a1)
   else
   {
     *(_BYTE *)(a1 + 1904) = v1 & 0xFC;
-    v3 = ST_STORE<SM_TRAITS>::StDmCheckForCompaction(a1, 0);
+    v3 = ST_STORE<SM_TRAITS>::StDmCheckForCompaction(a1, 0LL);
     if ( v3 != 2 )
     {
 LABEL_7:
       v5 = 0;
-      goto LABEL_8;
+      goto LABEL_10;
     }
     v4 = *(_BYTE *)(a1 + 1904);
   }
@@ -36,7 +36,7 @@ LABEL_7:
   while ( 1 )
   {
     v5 = ST_STORE<SM_TRAITS>::StCompactionPerformInMem(a1, 1LL);
-    v3 = ST_STORE<SM_TRAITS>::StDmCheckForCompaction(a1, 0);
+    v3 = ST_STORE<SM_TRAITS>::StDmCheckForCompaction(a1, 0LL);
     if ( v5 < 0 )
       break;
     if ( v3 != 2 )
@@ -44,7 +44,7 @@ LABEL_7:
   }
   if ( v3 == 2 )
     v3 = 1;
-LABEL_8:
+LABEL_10:
   *(_BYTE *)(a1 + 1904) &= 0xFCu;
   if ( v3 )
     ST_STORE<SM_TRAITS>::StQueueCompaction(a1, v3);

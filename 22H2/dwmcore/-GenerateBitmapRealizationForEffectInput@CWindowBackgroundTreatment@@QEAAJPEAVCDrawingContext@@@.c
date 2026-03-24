@@ -1,266 +1,240 @@
 /*
- * XREFs of ?GenerateBitmapRealizationForEffectInput@CWindowBackgroundTreatment@@QEAAJPEAVCDrawingContext@@@Z @ 0x18000A5B4
+ * XREFs of ?GenerateBitmapRealizationForEffectInput@CWindowBackgroundTreatment@@QEAAJPEAVCDrawingContext@@@Z @ 0x180010848
  * Callers:
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007BE10 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?HasValidSource@CWindowBackgroundTreatment@@QEBA_NXZ @ 0x18000B1CC (-HasValidSource@CWindowBackgroundTreatment@@QEBA_NXZ.c)
- *     ?GenerateEffectInput@CBackdropVisualImage@@QEAA?AUEffectInput@@XZ @ 0x18003122C (-GenerateEffectInput@CBackdropVisualImage@@QEAA-AUEffectInput@@XZ.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800345C0 (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
- *     ?GetBackdropVisualImage@CVisual@@QEBAPEAVCBackdropVisualImage@@AEBVCVisualTreePath@@@Z @ 0x18003852C (-GetBackdropVisualImage@CVisual@@QEBAPEAVCBackdropVisualImage@@AEBVCVisualTreePath@@@Z.c)
- *     ??4?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIRenderTargetBitmap@@@Z @ 0x18003B498 (--4-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIRenderTar.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800484D0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ?LogEtwEvent@CBackdropVisualImage@@QEBAXVDbgString@DwmDbg@@0@Z @ 0x18004D0E8 (-LogEtwEvent@CBackdropVisualImage@@QEBAXVDbgString@DwmDbg@@0@Z.c)
- *     ?ValidateBVIEffectInputForRender@CDrawingContext@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x18008850C (-ValidateBVIEffectInputForRender@CDrawingContext@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
- *     ??0DbgString@DwmDbg@@QEAA@QEBDZZ @ 0x180088A0C (--0DbgString@DwmDbg@@QEAA@QEBDZZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x18008D1DC (-PopLayer@CDrawingContext@@QEAAJXZ.c)
- *     ??4EffectInput@@QEAAAEAU0@AEBU0@@Z @ 0x1800930B8 (--4EffectInput@@QEAAAEAU0@AEBU0@@Z.c)
- *     ?Reset@EffectInput@@SAXPEAU1@@Z @ 0x180093AB0 (-Reset@EffectInput@@SAXPEAU1@@Z.c)
- *     ?InvalidateBitmapRealization@CWindowBackgroundTreatment@@QEAAXXZ @ 0x1800A4E64 (-InvalidateBitmapRealization@CWindowBackgroundTreatment@@QEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800E3560 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?CanUseAsEffectInput@CBackdropVisualImage@@QEBA_NXZ @ 0x1800F4F00 (-CanUseAsEffectInput@CBackdropVisualImage@@QEBA_NXZ.c)
- *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800FF334 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetTransparentBlackEffectInput@CDrawingContext@@QEBA?AUEffectInput@@AEBUD2D_SIZE_F@@@Z @ 0x1801D5F10 (-GetTransparentBlackEffectInput@CDrawingContext@@QEBA-AUEffectInput@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?GetDebugString@CVisualTreePath@@QEBA?BVDbgString@DwmDbg@@XZ @ 0x1801D91D4 (-GetDebugString@CVisualTreePath@@QEBA-BVDbgString@DwmDbg@@XZ.c)
- *     ?LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z @ 0x180272444 (-LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z.c)
+ *     ?HasValidSource@CWindowBackgroundTreatment@@QEBA_NPEBVIDeviceTarget@@@Z @ 0x180011844 (-HasValidSource@CWindowBackgroundTreatment@@QEBA_NPEBVIDeviceTarget@@@Z.c)
+ *     ??4?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180011A58 (--4-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ??$_Try_emplace@AEBQEBVIDeviceTarget@@$$V@?$unordered_map@PEBVIDeviceTarget@@V?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@U?$hash@PEBVIDeviceTarget@@@std@@U?$equal_to@PEBVIDeviceTarget@@@6@V?$allocator@U?$pair@QEBVIDeviceTarget@@V?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@@std@@@6@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVIDeviceTarget@@V?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@@std@@@std@@@std@@@std@@_N@1@AEBQEBVIDeviceTarget@@@Z @ 0x180016BD0 (--$_Try_emplace@AEBQEBVIDeviceTarget@@$$V@-$unordered_map@PEBVIDeviceTarget@@V-$ComPtr@VIRenderT.c)
+ *     ?_End@?$_Hash@V?$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@V?$_Uhash_compare@PEAVCResource@@U?$hash@PEAVCResource@@@std@@U?$equal_to@PEAVCResource@@@3@@std@@V?$allocator@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@5@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@2@_K@Z @ 0x180016E90 (-_End@-$_Hash@V-$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@V-$_Uh.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAUEffectInput@@@Z @ 0x18003F620 (-GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@.c)
+ *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x180040870 (-PopLayer@CDrawingContext@@QEAAJXZ.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040940 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@_NPEAPEAVIRenderTargetBitmap@@@Z @ 0x180040A2C (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800415F0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180056574 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3864 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWindowBackgroundTreatment::GenerateBitmapRealizationForEffectInput(
         CWindowBackgroundTreatment *this,
         struct CDrawingContext *a2)
 {
-  int v2; // r13d
-  float v4; // xmm0_4
-  float v5; // xmm1_4
-  int v7; // esi
-  char v8; // bl
-  __int64 v9; // rcx
-  unsigned __int64 v10; // r14
-  CVisual *v11; // r12
-  const struct CVisualTreePath *v12; // rbx
-  int v13; // eax
-  unsigned int v14; // ecx
-  CBackdropVisualImage *BackdropVisualImage; // rax
-  CBackdropVisualImage *v16; // r12
-  __int64 v17; // rcx
-  __int64 EffectInput; // rax
-  int v19; // ebx
-  char v20; // r12
-  __int64 v21; // rax
-  int v22; // eax
-  unsigned int v23; // ecx
-  _QWORD *v24; // rbx
-  __int64 v25; // rcx
-  int v26; // eax
-  unsigned int v27; // ecx
-  char *v28; // rcx
-  __int64 v29; // xmm1_8
-  int v30; // r14d
-  __int64 v32; // xmm1_8
-  const char **DebugString; // rax
-  __int64 v34; // rbx
-  __int64 v35; // rax
-  const char **v36; // rax
-  __int64 v37; // rbx
-  __int64 v38; // rax
-  __int64 v39; // rbx
-  __int64 v40; // rax
-  __int64 v41; // rax
-  __int64 v42; // rcx
-  char v43; // [rsp+30h] [rbp-D0h]
-  void *lpMem; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD *v45; // [rsp+40h] [rbp-C0h] BYREF
-  const struct CVisualTreePath *v46; // [rsp+48h] [rbp-B8h]
-  _DWORD v47[2]; // [rsp+50h] [rbp-B0h] BYREF
-  char v48[8]; // [rsp+58h] [rbp-A8h] BYREF
-  CVisual *v49; // [rsp+60h] [rbp-A0h]
-  __int128 v50; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v51; // [rsp+80h] [rbp-80h] BYREF
-  char v52; // [rsp+90h] [rbp-70h]
-  __int128 v53; // [rsp+B0h] [rbp-50h]
-  char v54[8]; // [rsp+F0h] [rbp-10h] BYREF
-  char v55[104]; // [rsp+F8h] [rbp-8h] BYREF
-  char v56[8]; // [rsp+160h] [rbp+60h] BYREF
-  char v57[104]; // [rsp+168h] [rbp+68h] BYREF
+  char *v2; // r12
+  char *v3; // r15
+  float v4; // xmm1_4
+  const struct IDeviceTarget *v5; // r13
+  float v6; // xmm0_4
+  int v9; // esi
+  unsigned __int64 v10; // r11
+  _QWORD *v11; // rax
+  __int64 v12; // r10
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  int BackdropImageFromRenderTarget; // eax
+  unsigned int v16; // ecx
+  __int64 v17; // r9
+  int v18; // eax
+  unsigned int v19; // ecx
+  __int64 v20; // rcx
+  int v21; // eax
+  unsigned int v22; // ecx
+  _QWORD *v23; // rbx
+  char *v24; // rcx
+  char *v25; // rcx
+  __int64 v26; // xmm1_8
+  int v27; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rcx
+  __int64 v31; // xmm1_8
+  __int64 v32; // rax
+  __int64 v33; // rcx
+  char v34; // [rsp+30h] [rbp-A9h]
+  char v35; // [rsp+31h] [rbp-A8h]
+  _QWORD *v36; // [rsp+38h] [rbp-A1h] BYREF
+  unsigned __int8 v37[8]; // [rsp+40h] [rbp-99h] BYREF
+  int v38; // [rsp+48h] [rbp-91h]
+  _DWORD v39[2]; // [rsp+50h] [rbp-89h] BYREF
+  _QWORD v40[3]; // [rsp+58h] [rbp-81h] BYREF
+  __int128 v41; // [rsp+70h] [rbp-69h] BYREF
+  __int64 v42; // [rsp+80h] [rbp-59h]
+  int v43; // [rsp+88h] [rbp-51h]
+  __int64 v44; // [rsp+8Ch] [rbp-4Dh]
+  int v45; // [rsp+94h] [rbp-45h]
+  char v46; // [rsp+98h] [rbp-41h]
+  __int128 v47; // [rsp+B8h] [rbp-21h]
 
-  v2 = 0;
-  v4 = *((float *)this + 24) - *((float *)this + 22);
-  v5 = *((float *)this + 25) - *((float *)this + 23);
-  v45 = 0LL;
-  v7 = 0;
-  v8 = 0;
-  *(float *)v47 = v4;
-  *(float *)&v47[1] = v5;
-  CWindowBackgroundTreatment::InvalidateBitmapRealization(this);
-  v52 = 0;
-  v51 = 0LL;
-  v53 = 0LL;
-  EffectInput::Reset((struct EffectInput *)&v51);
-  v9 = *((_QWORD *)this + 9);
-  *((_QWORD *)this + 39) = &v51;
-  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 56LL))(v9, 22LL) )
+  v2 = (char *)this + 144;
+  v3 = (char *)this + 72;
+  v4 = *((float *)this + 39) - *((float *)this + 37);
+  v5 = (const struct IDeviceTarget *)*((_QWORD *)a2 + 4);
+  v6 = *((float *)this + 38) - *((float *)this + 36);
+  v36 = 0LL;
+  v34 = 0;
+  *(float *)&v39[1] = v4;
+  *(_QWORD *)v37 = v5;
+  *(float *)v39 = v6;
+  v9 = 0;
+  v10 = *((_QWORD *)this + 15) & std::_Fnv1a_append_bytes((unsigned __int64)this, v37, 8uLL);
+  while ( 1 )
   {
-    v32 = *((_QWORD *)this + 13);
-    *(_OWORD *)((char *)this + 136) = *(_OWORD *)((char *)this + 88);
-    *((_QWORD *)this + 19) = v32;
-    goto LABEL_27;
+    v11 = (_QWORD *)std::_Hash<std::_Umap_traits<CResource *,CAnimationLoggingManager::ResourceDebugInfo,std::_Uhash_compare<CResource *,std::hash<CResource *>,std::equal_to<CResource *>>,std::allocator<std::pair<CResource * const,CAnimationLoggingManager::ResourceDebugInfo>>,0>>::_End(
+                      v3,
+                      v37,
+                      v10);
+    if ( v12 == *v11 )
+      break;
+    if ( *(const struct IDeviceTarget **)(v12 + 16) == v5 )
+      goto LABEL_4;
   }
-  v10 = (unsigned __int64)a2 + 24;
-  v8 = *((_BYTE *)this + 303);
-  v43 = v8;
-  if ( *((_QWORD *)this + 38) )
+  v12 = *((_QWORD *)v3 + 1);
+LABEL_4:
+  if ( v12 != *((_QWORD *)this + 10) )
   {
-    v11 = (CVisual *)(*(__int64 (__fastcall **)(char *))(*(_QWORD *)v10 + 32LL))((char *)a2 + 24);
-    v12 = (const struct CVisualTreePath *)*((_QWORD *)a2 + 1010);
-    v49 = v11;
-    v46 = v12;
-    if ( dword_1803E3760 )
+    *(_QWORD *)v37 = v5;
+    std::unordered_map<IDeviceTarget const *,Microsoft::WRL::ComPtr<IRenderTargetBitmap>>::_Try_emplace<IDeviceTarget const * const &,>(
+      v3,
+      v40,
+      v37);
+    if ( *(_QWORD *)(v40[0] + 24LL) )
     {
-      DebugString = (const char **)CVisualTreePath::GetDebugString(v12, &lpMem);
-      v34 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v48, "bviPath=[%s]", *DebugString);
-      v35 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v50, "WindowBackgroundTreatment-ValidateBVI");
-      DwmDbg::Backdrops::LogBrushEtwEvent(v35, v11, v34);
-      if ( lpMem )
-        operator delete(lpMem);
-      v12 = v46;
+      *(_QWORD *)v37 = v5;
+      std::unordered_map<IDeviceTarget const *,Microsoft::WRL::ComPtr<IRenderTargetBitmap>>::_Try_emplace<IDeviceTarget const * const &,>(
+        v3,
+        v40,
+        v37);
+      v29 = *(_QWORD *)(v40[0] + 24LL) + 8LL + *(int *)(*(_QWORD *)(*(_QWORD *)(v40[0] + 24LL) + 8LL) + 8LL);
+      (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v29 + 48LL))(
+        v29,
+        -(__int64)(this != 0LL) & ((unsigned __int64)this + 56));
     }
-    v50 = *(_OWORD *)((char *)this + 88);
-    v13 = CDrawingContext::ValidateBVIEffectInputForRender(a2, &v50, 0LL);
-    v7 = v13;
-    if ( v13 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xBBu, 0LL);
-LABEL_26:
-      v8 = v43;
-      goto LABEL_27;
-    }
-    BackdropVisualImage = CVisual::GetBackdropVisualImage(v11, v12);
-    v16 = BackdropVisualImage;
-    if ( BackdropVisualImage && CBackdropVisualImage::CanUseAsEffectInput(BackdropVisualImage) )
-    {
-      EffectInput = CBackdropVisualImage::GenerateEffectInput(v17, v56);
-      v19 = 0;
-      v2 = 1;
-    }
-    else
-    {
-      *(float *)&lpMem = *((float *)&v50 + 2) - *(float *)&v50;
-      *((float *)&lpMem + 1) = *((float *)&v50 + 3) - *((float *)&v50 + 1);
-      EffectInput = CDrawingContext::GetTransparentBlackEffectInput(a2, v54, &lpMem);
-      v19 = 2;
-    }
-    EffectInput::operator=(&v51, EffectInput);
-    if ( v19 )
-    {
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v55);
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v54);
-    }
-    if ( v2 )
-    {
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v57);
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v56);
-    }
-    if ( dword_1803E3760 )
-    {
-      if ( v16 )
-      {
-        if ( !CBackdropVisualImage::CanUseAsEffectInput(v16) )
-        {
-          v39 = DwmDbg::DbgString::DbgString(
-                  (DwmDbg::DbgString *)&v50,
-                  "CWindowBackgroundTreatment::GenerateBitmapRealizationForEffectInput");
-          v40 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v48, "BVI-FallbackToTransparentBlack");
-          CBackdropVisualImage::LogEtwEvent(v16, v40, v39);
-        }
-      }
-      else
-      {
-        v36 = (const char **)CVisualTreePath::GetDebugString(v46, &lpMem);
-        v37 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v50, "bviPath=[%s]", *v36);
-        v38 = DwmDbg::DbgString::DbgString(
-                (DwmDbg::DbgString *)v48,
-                "WindowBackgroundTreatment-FallbackToTransparentBlack-NoBVI");
-        DwmDbg::Backdrops::LogBrushEtwEvent(v38, v49, v37);
-        if ( lpMem )
-          operator delete(lpMem);
-      }
-    }
-    v8 = v43;
-    v20 = 1;
+    *(_QWORD *)v37 = v5;
+    std::unordered_map<IDeviceTarget const *,Microsoft::WRL::ComPtr<IRenderTargetBitmap>>::_Try_emplace<IDeviceTarget const * const &,>(
+      v3,
+      v40,
+      v37);
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(v40[0] + 24LL);
+  }
+  *((_BYTE *)this + 358) = 0;
+  v13 = *((_QWORD *)this + 17);
+  if ( v13 )
+  {
+    v30 = v13 + 8 + *(int *)(*(_QWORD *)(v13 + 8) + 8LL);
+    (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v30 + 48LL))(
+      v30,
+      -(__int64)(this != 0LL) & ((unsigned __int64)this + 56));
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((char *)this + 136);
+  }
+  v14 = *((_QWORD *)this + 8);
+  v44 = 0LL;
+  v45 = 0;
+  v42 = 0LL;
+  *((_QWORD *)this + 46) = &v41;
+  v41 = 0LL;
+  v43 = 0;
+  v46 = 0;
+  v47 = 0LL;
+  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v14 + 56LL))(v14, 20LL) )
+  {
+    v31 = *((_QWORD *)v2 + 2);
+    *((_OWORD *)this + 12) = *(_OWORD *)v2;
+    *((_QWORD *)this + 26) = v31;
   }
   else
   {
-    v20 = 0;
-  }
-  Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease(&v45);
-  v21 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)v10 + 40LL))((char *)a2 + 24);
-  DWORD2(v50) = 31;
-  *(_QWORD *)&v50 = "DWM Window Background Treatment";
-  if ( (int)CDrawingContext::PushOffScreenRenderingLayer(a2, &v50, v47, *(unsigned int *)(v21 + 8), 4, &v45) >= 0 )
-  {
-    v22 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)&CMILMatrix::Identity, 0, 1);
-    v24 = v45;
-    v7 = v22;
-    if ( v22 < 0 )
+    v34 = *((_BYTE *)this + 360);
+    v35 = *((_BYTE *)this + 359);
+    if ( v35
+      && (BackdropImageFromRenderTarget = CDrawingContext::GetBackdropImageFromRenderTarget(a2),
+          v9 = BackdropImageFromRenderTarget,
+          BackdropImageFromRenderTarget < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0xEBu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, BackdropImageFromRenderTarget, 0xCEu, 0LL);
     }
     else
     {
-      v25 = *((_QWORD *)this + 9) + 64LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 9) + 64LL) + 8LL);
-      v26 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, _DWORD *, _QWORD))(*(_QWORD *)v25 + 16LL))(
-              v25,
-              a2,
-              v47,
-              0LL);
-      v7 = v26;
-      if ( v26 < 0 )
+      Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(&v36);
+      v17 = *((unsigned int *)a2 + 16);
+      *(_QWORD *)v37 = "DWM Window Background Treatment";
+      v38 = 31;
+      if ( (int)CDrawingContext::PushOffScreenRenderingLayer(a2, v37, v39, v17, 0, &v36) >= 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xF0u, 0LL);
-      }
-      else
-      {
-        if ( g_LockAndReadWindowBackdropTexture )
+        v18 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)&CMILMatrix::Identity, 0, 1);
+        v9 = v18;
+        if ( v18 < 0 )
         {
-          v41 = (*(__int64 (__fastcall **)(_QWORD *))(*v24 + 64LL))(v24);
-          v42 = *(int *)(*(_QWORD *)(v41 + 8) + 16LL) + v41 + 8;
-          (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v42 + 24LL))(v42, v10 & -(__int64)(a2 != 0LL));
+          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0xE3u, 0LL);
         }
-        v28 = (char *)v24 + *(int *)(v24[1] + 8LL) + 8;
-        (*(void (__fastcall **)(char *, unsigned __int64))(*(_QWORD *)v28 + 40LL))(
-          v28,
-          -(__int64)(this != 0LL) & ((unsigned __int64)this + 64));
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::operator=((char *)this + 80, v24);
-        v29 = *((_QWORD *)this + 13);
-        *(_OWORD *)((char *)this + 136) = *(_OWORD *)((char *)this + 88);
-        *((_QWORD *)this + 19) = v29;
-        if ( v20
-          && !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 1007) + 184LL))(*((_QWORD *)a2 + 1007)) )
+        else
         {
-          *((_BYTE *)this + 301) = 1;
+          v20 = *((_QWORD *)this + 8) + 56LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 56LL) + 8LL);
+          v21 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, _DWORD *, _QWORD))(*(_QWORD *)v20 + 16LL))(
+                  v20,
+                  a2,
+                  v39,
+                  0LL);
+          v9 = v21;
+          if ( v21 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0xE8u, 0LL);
+          }
+          else
+          {
+            v23 = v36;
+            if ( g_LockAndReadWindowBackdropTexture )
+            {
+              v32 = (*(__int64 (__fastcall **)(_QWORD *))(*v36 + 64LL))(v36);
+              v33 = *(int *)(*(_QWORD *)(v32 + 8) + 16LL) + v32 + 8;
+              (*(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v33 + 24LL))(
+                v33,
+                -(__int64)(a2 != 0LL) & ((unsigned __int64)a2 + 24));
+            }
+            (*(void (__fastcall **)(_QWORD *, _QWORD))(*v23 + 24LL))(v23, DisplayId::None);
+            v24 = (char *)v23 + *(int *)(v23[1] + 8LL) + 8;
+            (*(void (__fastcall **)(char *, unsigned __int64))(*(_QWORD *)v24 + 40LL))(
+              v24,
+              -(__int64)(this != 0LL) & ((unsigned __int64)this + 56));
+            if ( v35 )
+            {
+              *(_QWORD *)v37 = v5;
+              std::unordered_map<IDeviceTarget const *,Microsoft::WRL::ComPtr<IRenderTargetBitmap>>::_Try_emplace<IDeviceTarget const * const &,>(
+                v3,
+                v40,
+                v37);
+              v25 = (char *)(v40[0] + 24LL);
+            }
+            else
+            {
+              v25 = (char *)this + 136;
+            }
+            Microsoft::WRL::ComPtr<IRenderTargetBitmap>::operator=(v25, &v36);
+            v26 = *((_QWORD *)v2 + 2);
+            *((_OWORD *)this + 12) = *(_OWORD *)v2;
+            *((_QWORD *)this + 26) = v26;
+            if ( v35
+              && !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 741) + 200LL))(*((_QWORD *)a2 + 741)) )
+            {
+              *((_BYTE *)this + 358) = 1;
+            }
+          }
+          CDrawingContext::PopTransformInternal(a2, 1);
         }
+        v27 = CDrawingContext::PopLayer(a2);
+        if ( v27 < 0 && v9 >= 0 )
+          v9 = v27;
       }
-      CDrawingContext::PopTransformInternal(a2, 1);
     }
-    v30 = CDrawingContext::PopLayer(a2);
-    if ( v7 >= 0 )
-    {
-      (*(void (__fastcall **)(_QWORD *, _QWORD))(*v24 + 24LL))(v24, DisplayId::None);
-      if ( v30 < 0 )
-        v7 = v30;
-    }
-    goto LABEL_26;
   }
-LABEL_27:
-  if ( CWindowBackgroundTreatment::HasValidSource(this) && v8 )
-    *((_QWORD *)this + 40) = *(_QWORD *)(*((_QWORD *)this + 2) + 608LL);
-  *((_QWORD *)this + 39) = 0LL;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((char *)&v51 + 8);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v51);
-  Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease(&v45);
-  return (unsigned int)v7;
+  if ( CWindowBackgroundTreatment::HasValidSource(this, v5) && v34 )
+    *((_QWORD *)this + 47) = *(_QWORD *)(*((_QWORD *)this + 2) + 456LL);
+  *((_QWORD *)this + 46) = 0LL;
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((char *)&v41 + 8);
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>(&v41);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(&v36);
+  return (unsigned int)v9;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtExtendSection @ 0x1406CEC70
+ * XREFs of NtExtendSection @ 0x1406CEC50
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewMaximumSize)

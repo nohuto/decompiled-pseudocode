@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmInitIllegalThrottleLogging @ 0x1403B80CC
+ * XREFs of PpmInitIllegalThrottleLogging @ 0x1403C7000
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x1403B1A48 (PopOpenKey.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1403A7CB0 (PopOpenKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
  */
 
 NTSTATUS PpmInitIllegalThrottleLogging()
@@ -22,7 +22,7 @@ NTSTATUS PpmInitIllegalThrottleLogging()
   ResultLength = 0;
   KeyHandle = 0LL;
   DestinationString = 0LL;
-  result = PopOpenKey(&KeyHandle, L"Control\\Session Manager\\Power");
+  result = PopOpenKey(&KeyHandle, L"Control\\Session Manager\\Power", 0x2001Fu);
   if ( result >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"ProcessorThrottleLogInterval");

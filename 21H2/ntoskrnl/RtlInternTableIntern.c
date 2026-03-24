@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlInternTableIntern @ 0x140673F14
+ * XREFs of RtlInternTableIntern @ 0x1406982C0
  * Callers:
- *     PopEtAppIdIntern @ 0x140673DD4 (PopEtAppIdIntern.c)
- *     PopEtStringIntern @ 0x140675BB8 (PopEtStringIntern.c)
+ *     PopEtStringIntern @ 0x140697EB8 (PopEtStringIntern.c)
+ *     PopEtAppIdIntern @ 0x14069819C (PopEtAppIdIntern.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlpInternEntryFind @ 0x140674264 (RtlpInternEntryFind.c)
- *     RtlpInternEntryHash @ 0x1406743AC (RtlpInternEntryHash.c)
- *     RtlpInternEntryCreate @ 0x140674AA0 (RtlpInternEntryCreate.c)
- *     RtlpInternHashBucketsAllocate @ 0x1407FCCD8 (RtlpInternHashBucketsAllocate.c)
- *     RtlpInternHashBucketsFree @ 0x1407FCD00 (RtlpInternHashBucketsFree.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlpInternEntryFind @ 0x140698610 (RtlpInternEntryFind.c)
+ *     RtlpInternEntryHash @ 0x140698760 (RtlpInternEntryHash.c)
+ *     RtlpInternEntryCreate @ 0x140698A98 (RtlpInternEntryCreate.c)
+ *     RtlpInternHashBucketsAllocate @ 0x1407D3CE4 (RtlpInternHashBucketsAllocate.c)
+ *     RtlpInternHashBucketsFree @ 0x1407D4364 (RtlpInternHashBucketsFree.c)
  */
 
 __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
   int v10; // ecx
   __int64 v12; // rdi
   _QWORD *v13; // r15
-  unsigned int v14; // edx
+  unsigned int v14; // eax
   __int64 v15; // rsi
   char *v16; // r8
   __int64 v17; // rcx
@@ -31,24 +31,23 @@ __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
   void (__fastcall *v19)(__int64, _QWORD *, __int64); // rax
   char v20; // cl
   unsigned __int64 v21; // rcx
-  unsigned int v22; // edx
-  unsigned int v23; // edi
-  __int64 v24; // r10
-  __int64 v25; // r12
-  _QWORD *v26; // r9
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  unsigned __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // [rsp+50h] [rbp+30h] BYREF
+  unsigned int v22; // edi
+  __int64 v23; // r10
+  __int64 v24; // r12
+  _QWORD *v25; // r9
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  unsigned __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // [rsp+50h] [rbp+30h] BYREF
 
   *(_DWORD *)(a2 + 24) = 0;
-  v31 = 0LL;
-  v4 = RtlpInternEntryHash(a2, &v31);
+  v30 = 0LL;
+  v4 = RtlpInternEntryHash(a2, &v30);
   LOBYTE(v5) = 1;
   (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 + 16) + 16LL))(a1, v5);
-  v6 = v31;
-  v7 = RtlpInternEntryFind(a1, a2, v4, v31);
+  v6 = v30;
+  v7 = RtlpInternEntryFind(a1, a2, v4, v30);
   LOBYTE(v8) = 1;
   v9 = *(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(a1 + 16) + 24LL);
   if ( v7 )
@@ -94,45 +93,43 @@ __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
           v21 = 0LL;
         if ( v21 )
           memset64(v16, a1 | 1, v21);
-        v22 = *(_DWORD *)(a1 + 4);
-        v23 = 0;
-        v24 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
-        if ( (v22 & 0xFFFFFFE0) != 0 )
+        v22 = 0;
+        v23 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
+        if ( (*(_DWORD *)(a1 + 4) & 0xFFFFFFE0) != 0 )
         {
           do
           {
-            v25 = *(_QWORD *)(a1 + 8);
+            v24 = *(_QWORD *)(a1 + 8);
             while ( 1 )
             {
-              v26 = *(_QWORD **)(v25 + 8LL * v23);
-              if ( ((unsigned __int8)v26 & 1) != 0 )
+              v25 = *(_QWORD **)(v24 + 8LL * v22);
+              if ( ((unsigned __int8)v25 & 1) != 0 )
                 break;
-              *(_QWORD *)(v25 + 8LL * v23) = *v26;
-              v31 = v24 & v26[1];
-              v27 = (37
-                   * (BYTE6(v31)
+              *(_QWORD *)(v24 + 8LL * v22) = *v25;
+              v30 = v23 & v25[1];
+              v26 = (37
+                   * (BYTE6(v30)
                     + 37
-                    * (BYTE5(v31)
+                    * (BYTE5(v30)
                      + 37
-                     * (BYTE4(v31)
+                     * (BYTE4(v30)
                       + 37
-                      * (BYTE3(v31) + 37 * (BYTE2(v31) + 37 * (BYTE1(v31) + 37 * ((unsigned __int8)v31 + 11623883)))))))
-                   + HIBYTE(v31)) & (unsigned int)(v15 - 1);
-              *v26 = *(_QWORD *)&v16[8 * v27];
-              *(_QWORD *)&v16[8 * v27] = v26;
+                      * (BYTE3(v30) + 37 * (BYTE2(v30) + 37 * (BYTE1(v30) + 37 * ((unsigned __int8)v30 + 11623883)))))))
+                   + HIBYTE(v30)) & (unsigned int)(v15 - 1);
+              *v25 = *(_QWORD *)&v16[8 * v26];
+              *(_QWORD *)&v16[8 * v26] = v25;
             }
-            v22 = *(_DWORD *)(a1 + 4);
-            ++v23;
+            ++v22;
           }
-          while ( v23 < v22 >> 5 );
+          while ( v22 < *(_DWORD *)(a1 + 4) >> 5 );
         }
-        v28 = *(_QWORD *)(a1 + 8);
-        v14 = (32 * v15) | v22 & 0x1F;
+        v27 = *(_QWORD *)(a1 + 8);
+        v14 = (32 * v15) | *(_DWORD *)(a1 + 4) & 0x1F;
         *(_QWORD *)(a1 + 8) = v16;
         *(_DWORD *)(a1 + 4) = v14;
-        if ( v28 )
+        if ( v27 )
         {
-          RtlpInternHashBucketsFree(v28, a1);
+          RtlpInternHashBucketsFree(v27, a1);
           v14 = *(_DWORD *)(a1 + 4);
         }
       }
@@ -146,16 +143,16 @@ __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
         }
       }
     }
-    v31 = v13[1] & (-1LL << (v14 & 0x1F));
+    v30 = v13[1] & (-1LL << (v14 & 0x1F));
     v17 = *(_QWORD *)(a1 + 8);
     v18 = (37
-         * (BYTE6(v31)
+         * (BYTE6(v30)
           + 37
-          * (BYTE5(v31)
+          * (BYTE5(v30)
            + 37
-           * (BYTE4(v31)
-            + 37 * (BYTE3(v31) + 37 * (BYTE2(v31) + 37 * (BYTE1(v31) + 37 * ((unsigned __int8)v31 + 11623883)))))))
-         + HIBYTE(v31)) & ((v14 >> 5) - 1);
+           * (BYTE4(v30)
+            + 37 * (BYTE3(v30) + 37 * (BYTE2(v30) + 37 * (BYTE1(v30) + 37 * ((unsigned __int8)v30 + 11623883)))))))
+         + HIBYTE(v30)) & ((v14 >> 5) - 1);
     *v13 = *(_QWORD *)(v17 + 8 * v18);
     *(_QWORD *)(v17 + 8 * v18) = v13;
     ++*(_DWORD *)a1;
@@ -166,30 +163,26 @@ __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
       v19(a1, v13, a2);
     v7 = (__int64)v13;
     v13 = 0LL;
-LABEL_15:
-    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(a1 + 16) + 24LL))(a1, 0LL);
-    if ( !v13 )
-      goto LABEL_3;
-    goto LABEL_37;
   }
+LABEL_15:
   (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(a1 + 16) + 24LL))(a1, 0LL);
-LABEL_37:
-  (*(void (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)(a1 + 16) + 8LL))(a1, v13);
+  if ( v13 )
+    (*(void (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)(a1 + 16) + 8LL))(a1, v13);
 LABEL_3:
   v10 = *(_DWORD *)(a2 + 24);
   if ( (v10 & 3) == 1 )
   {
-    v29 = 0LL;
+    v28 = 0LL;
     if ( *(_QWORD *)(a2 + 16) )
     {
-      v30 = 0LL;
+      v29 = 0LL;
       do
       {
-        v30 += 32LL;
-        ++v29;
-        *(_QWORD *)(v30 + *(_QWORD *)(a2 + 8) - 24) = 0LL;
+        v29 += 32LL;
+        ++v28;
+        *(_QWORD *)(v29 + *(_QWORD *)(a2 + 8) - 24) = 0LL;
       }
-      while ( v29 < *(_QWORD *)(a2 + 16) );
+      while ( v28 < *(_QWORD *)(a2 + 16) );
       v10 = *(_DWORD *)(a2 + 24);
     }
     *(_DWORD *)(a2 + 24) = v10 & 0xFFFFFFFE;

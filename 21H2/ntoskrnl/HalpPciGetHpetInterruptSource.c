@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPciGetHpetInterruptSource @ 0x140B4D700
+ * XREFs of HalpPciGetHpetInterruptSource @ 0x140A8E120
  * Callers:
- *     HalpTimerRegister @ 0x1403BE0BC (HalpTimerRegister.c)
+ *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
  * Callees:
- *     HalSocGetAcpiTable @ 0x1403BE664 (HalSocGetAcpiTable.c)
- *     HalpPciGetHpetInterruptSourceAmd @ 0x140B4D7CC (HalpPciGetHpetInterruptSourceAmd.c)
- *     HalpPciGetHpetInterruptSourceIntel @ 0x140B4D8B8 (HalpPciGetHpetInterruptSourceIntel.c)
+ *     HalSocGetAcpiTable @ 0x1403AC144 (HalSocGetAcpiTable.c)
+ *     HalpPciGetHpetInterruptSourceAmd @ 0x140A8E1EC (HalpPciGetHpetInterruptSourceAmd.c)
+ *     HalpPciGetHpetInterruptSourceIntel @ 0x140A8E2D8 (HalpPciGetHpetInterruptSourceIntel.c)
  */
 
 __int64 __fastcall HalpPciGetHpetInterruptSource(char a1, __int64 a2, int *a3, int *a4)
@@ -27,25 +27,26 @@ __int64 __fastcall HalpPciGetHpetInterruptSource(char a1, __int64 a2, int *a3, i
         HpetInterruptSourceAmd == -1073741275) )
   {
     v12 = HalSocGetAcpiTable(1397904969);
-    if ( !v12 )
+    if ( v12 )
     {
-LABEL_7:
-      *(_QWORD *)(a2 + 4) = 0LL;
-      *(_DWORD *)a2 = 0;
-      *a3 = 0;
-      goto LABEL_8;
+      LOBYTE(v13) = a1;
+      HpetInterruptSourceAmd = HalpPciGetHpetInterruptSourceAmd(v12, v13, a2);
     }
-    LOBYTE(v13) = a1;
-    HpetInterruptSourceAmd = HalpPciGetHpetInterruptSourceAmd(v12, v13, a2);
   }
   if ( HpetInterruptSourceAmd < 0 )
-    goto LABEL_7;
-  *a3 = *(unsigned __int8 *)(a2 + 8) | (*(_DWORD *)(a2 + 4) << 8);
-  *a4 = 0;
-  v14 = *(_BYTE *)(a2 + 9) & 0x1F;
-  *a4 = v14;
-  v11 = v14 | (32 * (*(_BYTE *)(a2 + 10) & 7));
-LABEL_8:
+  {
+    *(_QWORD *)(a2 + 4) = 0LL;
+    *(_DWORD *)a2 = 0;
+    *a3 = 0;
+  }
+  else
+  {
+    *a3 = (*(_DWORD *)(a2 + 4) << 8) | *(unsigned __int8 *)(a2 + 8);
+    *a4 = 0;
+    v14 = *(_BYTE *)(a2 + 9) & 0x1F;
+    *a4 = v14;
+    v11 = v14 | (32 * (*(_BYTE *)(a2 + 10) & 7));
+  }
   *a4 = v11;
   return (unsigned int)HpetInterruptSourceAmd;
 }

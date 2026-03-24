@@ -4,13 +4,13 @@
  *     <none>
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, PVOID Object)

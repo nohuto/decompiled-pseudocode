@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDeviceRegistration @ 0x1406EE378
+ * XREFs of PiDeviceRegistration @ 0x1406EE358
  * Callers:
- *     PpDeviceRegistration @ 0x1406EE2E8 (PpDeviceRegistration.c)
+ *     PpDeviceRegistration @ 0x1406EE2C8 (PpDeviceRegistration.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
@@ -9,8 +9,8 @@
  *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
  *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     PpForEachDeviceInstanceDriver @ 0x1406EE51C (PpForEachDeviceInstanceDriver.c)
- *     PnpConcatenateUnicodeStrings @ 0x14070F85C (PnpConcatenateUnicodeStrings.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1406EE4FC (PpForEachDeviceInstanceDriver.c)
+ *     PnpConcatenateUnicodeStrings @ 0x14070F83C (PnpConcatenateUnicodeStrings.c)
  */
 
 __int64 __fastcall PiDeviceRegistration(__int64 a1, char a2, UNICODE_STRING *a3)

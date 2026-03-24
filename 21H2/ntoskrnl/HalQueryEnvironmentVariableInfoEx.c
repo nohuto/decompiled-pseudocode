@@ -1,12 +1,12 @@
 /*
- * XREFs of HalQueryEnvironmentVariableInfoEx @ 0x140508620
+ * XREFs of HalQueryEnvironmentVariableInfoEx @ 0x1404BBBB0
  * Callers:
- *     IopQueryEnvironmentVariableInfoHal @ 0x14093F6D0 (IopQueryEnvironmentVariableInfoHal.c)
+ *     IopQueryEnvironmentVariableInfoHal @ 0x14089ABC0 (IopQueryEnvironmentVariableInfoHal.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalEfiQueryVariableInfo @ 0x14050FFFC (HalEfiQueryVariableInfo.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalEfiQueryVariableInfo @ 0x1404C3B2C (HalEfiQueryVariableInfo.c)
  */
 
 __int64 __fastcall HalQueryEnvironmentVariableInfoEx(int a1, __int64 a2, __int64 a3, __int64 a4)

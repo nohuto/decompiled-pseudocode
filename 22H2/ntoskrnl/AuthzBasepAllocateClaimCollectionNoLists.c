@@ -1,19 +1,19 @@
 /*
- * XREFs of AuthzBasepAllocateClaimCollectionNoLists @ 0x140A59DD4
+ * XREFs of AuthzBasepAllocateClaimCollectionNoLists @ 0x14096C778
  * Callers:
- *     SepCreateClaimAttributes @ 0x1407CF994 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1409D14F4 (SepDuplicateClaimAttributes.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409250C0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x1402258AC (AuthzBasepMemAlloc.c)
- *     memset @ 0x140435400 (memset.c)
+ *     AuthzBasepMemAlloc @ 0x14030A4AC (AuthzBasepMemAlloc.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void *__fastcall AuthzBasepAllocateClaimCollectionNoLists(__int64 a1, __int64 a2)
+PVOID __fastcall AuthzBasepAllocateClaimCollectionNoLists(__int64 a1, __int64 a2)
 {
-  void *result; // rax
-  void *v3; // rbx
+  PVOID result; // rax
+  PVOID v3; // rbx
 
-  result = (void *)AuthzBasepMemAlloc(608LL, a2, 1950442835LL);
+  result = AuthzBasepMemAlloc(0x260uLL, a2, 0x74416553u);
   v3 = result;
   if ( result )
   {

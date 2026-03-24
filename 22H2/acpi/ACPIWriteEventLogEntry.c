@@ -1,18 +1,18 @@
 /*
- * XREFs of ACPIWriteEventLogEntry @ 0x1C0025F7C
+ * XREFs of ACPIWriteEventLogEntry @ 0x1C0054C98
  * Callers:
- *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930 (ACPIBuildProcessDevicePhasePr3.c)
- *     ACPIBuildProcessDevicePhasePrr @ 0x1C000FB40 (ACPIBuildProcessDevicePhasePrr.c)
- *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
- *     ACPIBuildProcessDevicePhasePrx @ 0x1C0010300 (ACPIBuildProcessDevicePhasePrx.c)
- *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0 (ACPIVerifyAndCopyFirmwareDependencies.c)
- *     ACPIGpeInstallRemoveIndexErrorWorker @ 0x1C002C630 (ACPIGpeInstallRemoveIndexErrorWorker.c)
- *     PciConfigSpaceHandlerWorker @ 0x1C00360A0 (PciConfigSpaceHandlerWorker.c)
- *     LogInErrorLog @ 0x1C00523D8 (LogInErrorLog.c)
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C00155F0 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessDevicePhasePrr @ 0x1C00157E0 (ACPIBuildProcessDevicePhasePrr.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C0015900 (ACPIBuildProcessDevicePhasePrw.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
+ *     ACPIBuildProcessDevicePhasePrx @ 0x1C001ED50 (ACPIBuildProcessDevicePhasePrx.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002EB38 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     ACPIGpeInstallRemoveIndexErrorWorker @ 0x1C0056020 (ACPIGpeInstallRemoveIndexErrorWorker.c)
+ *     LogInErrorLog @ 0x1C0067C58 (LogInErrorLog.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIWriteEventLogEntry(int a1, __int16 **a2, unsigned int a3)
@@ -26,8 +26,8 @@ __int64 __fastcall ACPIWriteEventLogEntry(int a1, __int16 **a2, unsigned int a3)
   const WCHAR *v10; // rdx
   unsigned int v11; // ebp
   _WORD *ErrorLogEntry; // rax
-  int v13; // edx
-  _WORD *v14; // rdi
+  _WORD *v13; // rdi
+  unsigned __int16 v14; // ax
   _WORD *v15; // rcx
   __int64 v16; // r8
   __int16 *v17; // rdx
@@ -57,30 +57,34 @@ __int64 __fastcall ACPIWriteEventLogEntry(int a1, __int16 **a2, unsigned int a3)
   if ( v11 > 0xF0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(a2) = 2;
       WPP_RECORDER_SF_(
-        WPP_GLOBAL_Control->DeviceExtension,
-        (_DWORD)a2,
-        22,
-        11,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x16u,
+        0xBu,
         (__int64)&WPP_1dc68f7f758f380608aba8924886457d_Traceguids);
-    }
     return (unsigned int)-1073741823;
   }
   else
   {
     ErrorLogEntry = IoAllocateErrorLogEntry(AcpiDriverObject, v11);
-    v14 = ErrorLogEntry;
+    v13 = ErrorLogEntry;
     if ( ErrorLogEntry )
     {
       memset(ErrorLogEntry, 0, v11);
-      v14[1] = 0;
-      v14[2] = v4;
-      *((_DWORD *)v14 + 3) = a1;
+      v13[1] = 0;
+      v13[2] = v4;
+      *((_DWORD *)v13 + 3) = a1;
       if ( (_DWORD)v4 )
-        v14[3] = 48;
-      v15 = (_WORD *)((char *)v14 + (unsigned __int16)v14[3]);
+      {
+        v14 = 48;
+        v13[3] = 48;
+      }
+      else
+      {
+        v14 = v13[3];
+      }
+      v15 = (_WORD *)((char *)v13 + v14);
       if ( (_DWORD)v4 )
       {
         v16 = v4;
@@ -98,20 +102,17 @@ __int64 __fastcall ACPIWriteEventLogEntry(int a1, __int16 **a2, unsigned int a3)
         }
         while ( v16 );
       }
-      IoWriteErrorLogEntry(v14);
+      IoWriteErrorLogEntry(v13);
     }
     else
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v13) = 2;
         WPP_RECORDER_SF_(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v13,
-          22,
-          10,
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          0x16u,
+          0xAu,
           (__int64)&WPP_1dc68f7f758f380608aba8924886457d_Traceguids);
-      }
       return (unsigned int)-1073741670;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vTryDeleteSurface@SURFREF@@QEAAXXZ @ 0x1C00D27A0
+ * XREFs of ?vTryDeleteSurface@SURFREF@@QEAAXXZ @ 0x1C00C9A60
  * Callers:
  *     <none>
  * Callees:
- *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C004BD9C (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
- *     Win32AllocPoolNonPaged @ 0x1C0078200 (Win32AllocPoolNonPaged.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C920C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
  */
 
 void __fastcall SURFREF::vTryDeleteSurface(SURFREF *this)
@@ -14,7 +14,7 @@ void __fastcall SURFREF::vTryDeleteSurface(SURFREF *this)
 
   if ( KeAreApcsDisabled() )
   {
-    v2 = Win32AllocPoolNonPaged(0x58uLL, 0x63707347u);
+    v2 = Win32AllocPoolNonPaged(88LL, 0x63707347u);
     v3 = 0;
     KeInitializeApc(
       v2,
@@ -29,6 +29,6 @@ void __fastcall SURFREF::vTryDeleteSurface(SURFREF *this)
   }
   else
   {
-    SURFREF::bDeleteSurface(this);
+    SURFREF::bDeleteSurface((__int64)this, 0);
   }
 }

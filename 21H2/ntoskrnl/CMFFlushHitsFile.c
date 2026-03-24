@@ -1,21 +1,21 @@
 /*
- * XREFs of CMFFlushHitsFile @ 0x140A047F0
+ * XREFs of CMFFlushHitsFile @ 0x140958AB0
  * Callers:
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041B7E0 (ZwWaitForSingleObject.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MmFlushVirtualMemory @ 0x1407F0478 (MmFlushVirtualMemory.c)
- *     CMFGetFileSizeEx @ 0x140A04B04 (CMFGetFileSizeEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
+ *     CMFGetFileSizeEx @ 0x140958DC0 (CMFGetFileSizeEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)
@@ -38,7 +38,7 @@ __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)
 
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   EventHandle = 0LL;
   ByteOffset.QuadPart = 0LL;
@@ -52,7 +52,7 @@ __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)
                    KeGetCurrentThread()->ApcState.Process,
                    (unsigned __int64 *)&v12,
                    &v14,
-                   (int *)&IoStatusBlock.0),
+                   (unsigned int *)&IoStatusBlock),
         (_DWORD)result == -1073741688) )
   {
     v6 = RtlStringCchPrintfW(pszDest, 0x104uLL, L"%s\\rc%04u\\rescache.hit", L"\\SystemRoot\\Rescache", CMFCacheIndex);

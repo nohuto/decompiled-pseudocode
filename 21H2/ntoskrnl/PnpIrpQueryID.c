@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpIrpQueryID @ 0x14074CA14
+ * XREFs of PnpIrpQueryID @ 0x140747250
  * Callers:
- *     PnpQueryID @ 0x14074C8DC (PnpQueryID.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
- *     PpProfileCommitTransitioningDock @ 0x14094FCD4 (PpProfileCommitTransitioningDock.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x14094FE24 (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PnpQueryID @ 0x140747150 (PnpQueryID.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB4DC (PpProfileCommitTransitioningDock.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x1408AB62C (PpProfileIncludeInHardwareProfileTransition.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
  */
 
-__int64 __fastcall PnpIrpQueryID(int a1, int a2, _QWORD *a3)
+__int64 __fastcall PnpIrpQueryID(struct _DEVICE_OBJECT *a1, int a2, _QWORD *a3)
 {
   __int64 result; // rax
-  _DWORD v7[18]; // [rsp+30h] [rbp-58h] BYREF
+  _DWORD v7[20]; // [rsp+30h] [rbp-58h] BYREF
 
   *a3 = 0LL;
-  memset(v7, 0, sizeof(v7));
+  memset(v7, 0, 0x48uLL);
   v7[2] = a2;
   LOWORD(v7[0]) = 4891;
-  result = IopSynchronousCall(a1, (unsigned int)v7, -1073741637, 0, (__int64)a3);
+  result = IopSynchronousCall(a1, (__int64)v7, -1073741637, 0LL, a3);
   if ( (int)result < 0 )
   {
     *a3 = 0LL;

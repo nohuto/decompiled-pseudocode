@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C0362210
+ * XREFs of ?ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C02B5FD0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGVAILOBJECT@@QEAA@XZ @ 0x1C03607A4 (--0DXGVAILOBJECT@@QEAA@XZ.c)
+ *     ??0DXGVAILOBJECT@@QEAA@XZ @ 0x1C02B4514 (--0DXGVAILOBJECT@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DXGVAILOBJECT::ObjectInit(

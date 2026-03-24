@@ -3,7 +3,7 @@
  * Callers:
  *     PopEtAggregateKeyCleanup @ 0x1406001A4 (PopEtAggregateKeyCleanup.c)
  *     PoEnergyContextCleanup @ 0x1406078D0 (PoEnergyContextCleanup.c)
- *     PopEtGetProcessAppId @ 0x14069EC08 (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x14069EBE8 (PopEtGetProcessAppId.c)
  * Callees:
  *     RtlInternEntryDereference @ 0x1406002A4 (RtlInternEntryDereference.c)
  */

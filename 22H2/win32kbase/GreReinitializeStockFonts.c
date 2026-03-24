@@ -1,21 +1,26 @@
 /*
- * XREFs of GreReinitializeStockFonts @ 0x1C00C27B0
+ * XREFs of GreReinitializeStockFonts @ 0x1C00B73E0
  * Callers:
- *     ?SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00CD994 (-SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0137CE4 (-SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GreReinitializeStockFonts(__int64 a1, int a2)
+__int64 __fastcall GreReinitializeStockFonts(unsigned int a1, int a2)
 {
-  unsigned int v3; // edi
   __int64 result; // rax
 
-  v3 = a1;
-  if ( qword_1C0294780 && (int)qword_1C0294780() >= 0 && qword_1C0294788 )
-    qword_1C0294788(v3);
-  result = SGDGetSessionState(a1);
+  if ( qword_1C0255370 )
+    result = qword_1C0255370();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
+  {
+    result = (__int64)qword_1C0255378;
+    if ( qword_1C0255378 )
+      result = qword_1C0255378(a1);
+  }
   if ( a2 )
-    *(_DWORD *)(*(_QWORD *)(result + 24) + 1284LL) = 1;
+    gDrvDpiAdjustedForLoggedOnUser = 1;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0039DC0
+ * XREFs of Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0037F10
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E878 (XilCoreCommonBuffer_ReleaseBuffers.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     WPP_RECORDER_SF_dddd @ 0x1C001A790 (WPP_RECORDER_SF_dddd.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     XilEndpoint_FreeStreamContextArray @ 0x1C003905C (XilEndpoint_FreeStreamContextArray.c)
- *     TR_FreeSecureTransferSegments @ 0x1C00417F0 (TR_FreeSecureTransferSegments.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000A2A0 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     XilEndpoint_FreeStreamContextArray @ 0x1C00375C0 (XilEndpoint_FreeStreamContextArray.c)
+ *     TR_FreeSecureTransferSegments @ 0x1C003F2DC (TR_FreeSecureTransferSegments.c)
  */
 
 __int64 __fastcall Endpoint_EndpointStaticStreamsDisableCompletion(__int64 a1, int a2)
@@ -44,7 +44,7 @@ __int64 __fastcall Endpoint_EndpointStaticStreamsDisableCompletion(__int64 a1, i
   v5 = (__int64 **)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C0063090);
+                     off_1C0060090);
   v7 = *v5;
   v8 = **v5;
   if ( a2 < 0 )
@@ -62,7 +62,7 @@ __int64 __fastcall Endpoint_EndpointStaticStreamsDisableCompletion(__int64 a1, i
         v18,
         13,
         114,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v8 + 16) + 135LL),
         *(_DWORD *)(v8 + 144),
         *((_DWORD *)v7 + 2),
@@ -107,7 +107,7 @@ __int64 __fastcall Endpoint_EndpointStaticStreamsDisableCompletion(__int64 a1, i
         v15,
         13,
         113,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v8 + 16) + 135LL),
         *(_DWORD *)(v8 + 144),
         *((_DWORD *)v7 + 2));
@@ -116,7 +116,7 @@ __int64 __fastcall Endpoint_EndpointStaticStreamsDisableCompletion(__int64 a1, i
   }
   *(_DWORD *)(v4 + 4) = v16;
   if ( a2 >= 0 )
-    ESM_AddEvent((KSPIN_LOCK *)(v8 + 296), 142);
+    ESM_AddEvent((KSPIN_LOCK *)(v8 + 288), 142);
   return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
            WdfDriverGlobals,
            a1,

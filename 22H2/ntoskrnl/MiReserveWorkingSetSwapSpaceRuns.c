@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReserveWorkingSetSwapSpaceRuns @ 0x140A433FC
+ * XREFs of MiReserveWorkingSetSwapSpaceRuns @ 0x1406FAE00
  * Callers:
- *     MiReserveWorkingSetSwapSpace @ 0x140A43340 (MiReserveWorkingSetSwapSpace.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x1406FAD78 (MiReserveWorkingSetSwapSpace.c)
  * Callees:
- *     MiFindFreePageFileSpace @ 0x1402945B4 (MiFindFreePageFileSpace.c)
- *     MiMakePageFilePte @ 0x14064E2C0 (MiMakePageFilePte.c)
+ *     MiFindFreePageFileSpace @ 0x140333724 (MiFindFreePageFileSpace.c)
+ *     MiMakePageFilePte @ 0x14034FF48 (MiMakePageFilePte.c)
  */
 
 unsigned __int64 __fastcall MiReserveWorkingSetSwapSpaceRuns(
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall MiReserveWorkingSetSwapSpaceRuns(
   v5 = a3;
   v6 = a2;
   v7 = a4;
-  if ( *(_QWORD *)(*(_QWORD *)(a1 + 8LL * a3 + 17056) + 48LL) >= a2 )
+  if ( *(_QWORD *)(*(_QWORD *)(a1 + 8LL * a3 + 6944) + 48LL) >= a2 )
   {
     v9 = a5;
     if ( a5 < a5 + 80 )
@@ -35,7 +35,7 @@ unsigned __int64 __fastcall MiReserveWorkingSetSwapSpaceRuns(
         if ( !v6 )
           break;
         *(_QWORD *)v9 = ((unsigned __int64)(v5 & 0xF) << 12) | MiMakePageFilePte(v7) & 0xFFFFFFFFFFFF0FFFuLL;
-        FreePageFileSpace = MiFindFreePageFileSpace(a1, (__int64 *)v9, v6, 0x29uLL);
+        FreePageFileSpace = MiFindFreePageFileSpace(a1, v9, v6, 41);
         *(_DWORD *)(v9 + 8) = FreePageFileSpace;
         if ( (unsigned __int64)FreePageFileSpace * (v10 >> 4) < v6 )
           break;

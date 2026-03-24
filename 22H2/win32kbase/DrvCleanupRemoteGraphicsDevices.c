@@ -1,40 +1,37 @@
 /*
- * XREFs of DrvCleanupRemoteGraphicsDevices @ 0x1C0165ED4
+ * XREFs of DrvCleanupRemoteGraphicsDevices @ 0x1C0146B18
  * Callers:
- *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0132520 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01186D0 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UserIsUserCritSecIn @ 0x1C004AA80 (UserIsUserCritSecIn.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvCleanupRemoteGraphicsDevices(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 DrvCleanupRemoteGraphicsDevices()
 {
-  __int64 v4; // rcx
   __int64 result; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 i; // rbx
-  __int64 DxgkWin32kInterface; // rax
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // rax
+  struct tagGRAPHICS_DEVICE *i; // rbx
 
-  if ( !IS_USERCRIT_OWNED_AT_ALL(a1, a2, a3, a4) )
-    WdLogSingleEntry0(1LL);
-  result = SGDGetSessionState(v4);
-  v7 = *(_QWORD *)(result + 24);
-  for ( i = *(_QWORD *)(v7 + 1344); i; i = *(_QWORD *)(i + 128) )
+  result = UserIsUserCritSecIn();
+  if ( !(_DWORD)result )
   {
-    if ( (*(_DWORD *)(i + 160) & 0x4000000) != 0 )
+    v3 = WdLogNewEntry5_WdAssertion(v2, v1);
+    result = WdLogEvent5_WdAssertion(v3);
+  }
+  for ( i = gpRemoteGraphicsDeviceList; i; i = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)i + 16) )
+  {
+    if ( (*((_DWORD *)i + 40) & 0x4000000) != 0 )
     {
-      if ( *(_QWORD *)(i + 296) )
+      if ( *((_QWORD *)i + 38) )
       {
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v7, v6);
-        (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(DxgkWin32kInterface + 400))(
-          *(_QWORD *)(i + 272),
-          0LL,
-          *(_QWORD *)(i + 280));
-        *(_QWORD *)(i + 272) = 0LL;
+        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C0250A20)(*((_QWORD *)i + 35), 0LL, *((_QWORD *)i + 36));
+        *((_QWORD *)i + 35) = 0LL;
         result = 0LL;
-        *(_QWORD *)(i + 288) = 0LL;
-        *(_QWORD *)(i + 296) = 0LL;
+        *((_QWORD *)i + 37) = 0LL;
+        *((_QWORD *)i + 38) = 0LL;
       }
     }
   }

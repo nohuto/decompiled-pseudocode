@@ -1,8 +1,8 @@
 /*
- * XREFs of ?VidSchiBindFlipPhysicalAddress@@YAXPEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@II@Z @ 0x1C00125EC
+ * XREFs of ?VidSchiBindFlipPhysicalAddress@@YAXPEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@II@Z @ 0x1C002A5E8
  * Callers:
- *     VidSchiExecuteMmIoFlip @ 0x1C000DBA0 (VidSchiExecuteMmIoFlip.c)
- *     VidSchiSetupMmIoFlipMultiPlaneOverlay3 @ 0x1C0011E34 (VidSchiSetupMmIoFlipMultiPlaneOverlay3.c)
+ *     VidSchiExecuteMmIoFlip @ 0x1C000EB20 (VidSchiExecuteMmIoFlip.c)
+ *     VidSchiSetupMmIoFlipMultiPlaneOverlay3 @ 0x1C00318C0 (VidSchiSetupMmIoFlipMultiPlaneOverlay3.c)
  * Callees:
  *     <none>
  */
@@ -12,28 +12,38 @@ void __fastcall VidSchiBindFlipPhysicalAddress(
         unsigned int a2,
         unsigned int a3)
 {
-  int v3; // r10d
-  __int64 v4; // rdi
-  __int64 v5; // rbx
-  unsigned __int64 v6; // r8
-  char *v7; // rdx
-  __int64 v8; // r9
+  int v4; // r10d
+  __int64 v5; // rdi
+  __int64 v6; // rbx
+  unsigned __int64 v7; // r8
+  char *v8; // rdx
+  __int64 v9; // r9
+  __int64 v10; // rcx
+  unsigned __int64 v11; // rdx
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
 
-  v3 = *((_DWORD *)a1 + 1);
-  v4 = a2;
-  v5 = a3;
-  v6 = (unsigned __int64)(a2 + v3 * a3) << 6;
-  v7 = (char *)a1 + v3 * ((8 * *((_DWORD *)a1 + 2) + 231) & 0xFFFFFFF8);
-  v8 = *(_QWORD *)&v7[v6 + 48];
-  *(_QWORD *)&v7[v6 + 40] = *(_QWORD *)(*(_QWORD *)(v8 + 96) + 32LL);
-  *(_WORD *)((char *)a1
-           + 64 * (unsigned __int64)(unsigned int)(v4 + v5 * *((_DWORD *)a1 + 1))
-           + *((_DWORD *)a1 + 1) * ((8 * *((_DWORD *)a1 + 2) + 231) & 0xFFFFFFF8)
-           + 32) = *(_WORD *)(*(_QWORD *)(v8 + 96) + 6LL);
-  if ( !*(_DWORD *)(*(_QWORD *)(v8 + 96) + 12LL) )
+  v4 = *((_DWORD *)a1 + 1);
+  v5 = a2;
+  v6 = a3;
+  v7 = (unsigned __int64)(a2 + v4 * a3) << 6;
+  v8 = (char *)a1 + v4 * ((8 * *((_DWORD *)a1 + 2) + 199) & 0xFFFFFFF8);
+  v9 = *(_QWORD *)&v8[v7 + 48];
+  *(_QWORD *)&v8[v7 + 40] = *(_QWORD *)(*(_QWORD *)(v9 + 96) + 32LL);
+  LODWORD(v8) = *((_DWORD *)a1 + 1);
+  v10 = (unsigned int)v8 * ((8 * *((_DWORD *)a1 + 2) + 199) & 0xFFFFFFF8);
+  v11 = (unsigned __int64)(unsigned int)(v5 + v6 * (_DWORD)v8) << 6;
+  *(_WORD *)((char *)a1 + v10 + v11 + 32) = *(_WORD *)(*(_QWORD *)(v9 + 96) + 6LL);
+  v12 = *(unsigned int *)(*(_QWORD *)(v9 + 96) + 12LL);
+  if ( !(_DWORD)v12 )
   {
-    WdLogSingleEntry5(0LL, 281LL, 0x4000LL, v4, v5, 0LL);
+    v13 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v12, v11);
+    v13[7] = 0LL;
+    v13[3] = 281LL;
+    v13[4] = 0x4000LL;
+    v13[5] = v5;
+    v13[6] = v6;
+    WdLogEvent5_WdCriticalError(v13);
     __debugbreak();
-    JUMPOUT(0x1C0028E5ELL);
   }
 }

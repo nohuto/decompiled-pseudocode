@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxResetSocSubsystemAccounting @ 0x14098E0AC
+ * XREFs of PopFxResetSocSubsystemAccounting @ 0x1408E57A8
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14039A210 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x14080A01C (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x1408E50BC (PopFxLookupSocSubsystemsByPlatformIdleState.c)
  */
 
 __int64 __fastcall PopFxResetSocSubsystemAccounting(int a1)

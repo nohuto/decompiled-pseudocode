@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FxPoolInitialize@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C002FCA8
+ * XREFs of ?FxPoolInitialize@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C0058E20
  * Callers:
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
  * Callees:
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
  */
 
 __int64 __fastcall FxPoolInitialize(_FX_DRIVER_GLOBALS *FxDriverGlobals, FX_POOL *Pool)

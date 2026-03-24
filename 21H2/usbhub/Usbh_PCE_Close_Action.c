@@ -1,18 +1,18 @@
 /*
- * XREFs of Usbh_PCE_Close_Action @ 0x1C0034E08
+ * XREFs of Usbh_PCE_Close_Action @ 0x1C00360C4
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhWaitEventWithTimeoutEx @ 0x1C0011440 (UsbhWaitEventWithTimeoutEx.c)
- *     UsbhLockPcqWithTag @ 0x1C001D1A0 (UsbhLockPcqWithTag.c)
- *     UsbhFlushPortChangeQueue @ 0x1C001D610 (UsbhFlushPortChangeQueue.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhHubDereferenceProcessChangeWorkItem @ 0x1C003333C (UsbhHubDereferenceProcessChangeWorkItem.c)
- *     UsbhPCE_Close @ 0x1C0033AA0 (UsbhPCE_Close.c)
- *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
+ *     UsbhFlushPortChangeQueue @ 0x1C0002580 (UsbhFlushPortChangeQueue.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00038F0 (UsbhWaitEventWithTimeoutEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhLockPcqWithTag @ 0x1C001AE80 (UsbhLockPcqWithTag.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     UsbhHubDereferenceProcessChangeWorkItem @ 0x1C00346A0 (UsbhHubDereferenceProcessChangeWorkItem.c)
+ *     UsbhPCE_Close @ 0x1C0034E04 (UsbhPCE_Close.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035C24 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
  */
 
 void __fastcall Usbh_PCE_Close_Action(__int64 a1, __int64 a2, __int64 a3)
@@ -27,25 +27,27 @@ void __fastcall Usbh_PCE_Close_Action(__int64 a1, __int64 a2, __int64 a3)
   __int64 v13; // rax
   KIRQL v14; // r8
   __int64 v15; // rax
-  __int64 v16; // rcx
-  int v17; // [rsp+28h] [rbp-30h]
-  KIRQL v18; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // rcx
+  int v19; // [rsp+28h] [rbp-30h]
+  KIRQL v20; // [rsp+68h] [rbp+10h] BYREF
 
-  v18 = 0;
+  v20 = 0;
   FdoExt(a1);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v17 = *(unsigned __int16 *)(a2 + 4);
+    v19 = *(unsigned __int16 *)(a2 + 4);
     WPP_RECORDER_SF_dq(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       v6,
       v7,
       0x23u,
       (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
-      v17,
+      v19,
       a3);
   }
-  v8 = UsbhLockPcqWithTag(a1, a2, 22, &v18, 0);
+  v8 = UsbhLockPcqWithTag(a1, a2, 22, &v20, 0);
   _InterlockedIncrement((volatile signed __int32 *)(a3 + 140));
   v9 = v8;
   Log(a1, 512, 842166320, v8, *(unsigned __int16 *)(a2 + 4));
@@ -55,15 +57,15 @@ void __fastcall Usbh_PCE_Close_Action(__int64 a1, __int64 a2, __int64 a3)
     v15 = 32LL * *(unsigned int *)(a2 + 2400);
     *(_DWORD *)(a2 + 12) = 20;
     *(_DWORD *)(v15 + a2 + 1384) = 20;
-    UsbhFlushPortChangeQueue(a1, a2);
-    UsbhUnlockPcqWithTag(a1, a2, v18);
-    UsbhHubDereferenceProcessChangeWorkItem(v16, a2);
+    UsbhFlushPortChangeQueue(a1, a2, v16, v17);
+    UsbhUnlockPcqWithTag(a1, a2, v20);
+    UsbhHubDereferenceProcessChangeWorkItem(v18, a2);
     KeWaitForSingleObject((PVOID)(a2 + 2416), Executive, 0, 0, 0LL);
   }
   else if ( (unsigned int)(v11 - 16) > 1 )
   {
     v13 = *(unsigned int *)(a2 + 2400);
-    v14 = v18;
+    v14 = v20;
     *(_DWORD *)(a2 + 12) = 19;
     *(_DWORD *)(32 * v13 + a2 + 1384) = 19;
     UsbhUnlockPcqWithTag(a1, a2, v14);
@@ -71,7 +73,7 @@ void __fastcall Usbh_PCE_Close_Action(__int64 a1, __int64 a2, __int64 a3)
   else
   {
     UsbhSetPcqEventStatus(a1, a2, 2LL, 20);
-    UsbhUnlockPcqWithTag(a1, a2, v18);
+    UsbhUnlockPcqWithTag(a1, a2, v20);
     Log(a1, 512, 842166322, v9, *(unsigned __int16 *)(a2 + 4));
     UsbhWaitEventWithTimeoutEx(a1, (void *)(a2 + 472), 660000, v12, 7u, a2);
     UsbhPCE_Close(a1, a2, a3);

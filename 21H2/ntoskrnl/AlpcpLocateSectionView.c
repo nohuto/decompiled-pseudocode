@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpLocateSectionView @ 0x1407A4858
+ * XREFs of AlpcpLocateSectionView @ 0x14066209C
  * Callers:
- *     AlpcpCaptureViewAttributeInternal @ 0x1407A4638 (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140661E7C (AlpcpCaptureViewAttributeInternal.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     AlpcpEnumerateResourcesPort @ 0x1407A4914 (AlpcpEnumerateResourcesPort.c)
- *     AlpcpDereferenceView @ 0x140965B94 (AlpcpDereferenceView.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpEnumerateResourcesPort @ 0x140662158 (AlpcpEnumerateResourcesPort.c)
+ *     AlpcpDereferenceView @ 0x1408C1BA4 (AlpcpDereferenceView.c)
  */
 
 __int64 __fastcall AlpcpLocateSectionView(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -26,7 +26,7 @@ __int64 __fastcall AlpcpLocateSectionView(__int64 a1, __int64 a2, __int64 a3, _Q
   do
   {
     ExAcquirePushLockSharedEx((ULONG_PTR)v4, 0LL);
-    v10 = AlpcpEnumerateResourcesPort(a2, v8, v9, &v12);
+    v10 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64 *))AlpcpEnumerateResourcesPort)(a2, v8, v9, &v12);
     if ( _InterlockedCompareExchange64(v4, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v4);
     KeAbPostRelease((ULONG_PTR)v4);

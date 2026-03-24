@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InsertCascadedTokenWait@CFlipExBuffer@@QEAAJPEA_K0@Z @ 0x1C0078F80
+ * XREFs of ?InsertCascadedTokenWait@CFlipExBuffer@@QEAAJPEA_K0@Z @ 0x1C0067060
  * Callers:
- *     ?InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@CTokenBase@@@Z @ 0x1C0015C60 (-InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@.c)
+ *     ?NotifyTokenCompleted@CCompositionSurface@@IEAAJAEBVCFlipToken@@@Z @ 0x1C000EA4C (-NotifyTokenCompleted@CCompositionSurface@@IEAAJAEBVCFlipToken@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFlipExBuffer::InsertCascadedTokenWait(
@@ -15,31 +15,29 @@ __int64 __fastcall CFlipExBuffer::InsertCascadedTokenWait(
   __int64 v7; // rcx
   __int64 v8; // rdx
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rcx
 
   result = 3221225473LL;
-  if ( *((_BYTE *)this + 688) || (v7 = *((_QWORD *)this + 85)) == 0 )
+  if ( *((_BYTE *)this + 624) || (v7 = *((_QWORD *)this + 77)) == 0 )
   {
-    *((_BYTE *)this + 688) = 0;
+    *((_BYTE *)this + 624) = 0;
     return 3221226029LL;
   }
   else
   {
-    v8 = *((unsigned int *)this + 164);
-    if ( (_DWORD)v8 && *((_DWORD *)this + 168) )
+    v8 = *((unsigned int *)this + 149);
+    if ( (_DWORD)v8 && *((_DWORD *)this + 152) )
     {
       result = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(*(_QWORD *)v7 + 64LL))(
                  v7,
                  v8,
-                 *((unsigned int *)this + 162),
-                 *((_QWORD *)this + 88));
-      v9 = ++*((_QWORD *)this + 88);
+                 *((unsigned int *)this + 148),
+                 *((_QWORD *)this + 80));
+      v9 = ++*((_QWORD *)this + 80);
       if ( (int)result >= 0 )
       {
-        v10 = *((_QWORD *)this + 87);
-        ++*((_DWORD *)this + 159);
-        *a2 = v10;
+        *a2 = *((_QWORD *)this + 79);
         *a3 = v9;
+        *((_BYTE *)this + 580) = 1;
       }
     }
   }

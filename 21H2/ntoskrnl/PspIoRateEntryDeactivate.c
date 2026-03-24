@@ -1,15 +1,15 @@
 /*
- * XREFs of PspIoRateEntryDeactivate @ 0x1406D4EFC
+ * XREFs of PspIoRateEntryDeactivate @ 0x1405D82B8
  * Callers:
- *     PspJobIoRateControlDisable @ 0x140678A28 (PspJobIoRateControlDisable.c)
- *     PspSetJobIoRateControl @ 0x1406D4808 (PspSetJobIoRateControl.c)
- *     PspIoRateEntryActivate @ 0x1406D4DF0 (PspIoRateEntryActivate.c)
- *     PspSetJobIoRateControlForVolume @ 0x1409B07D4 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
+ *     PspIoRateEntryActivate @ 0x1405D81B0 (PspIoRateEntryActivate.c)
+ *     PspJobIoRateControlDisable @ 0x14067F400 (PspJobIoRateControlDisable.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140909424 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     IoStopDiskIoAttributionForContext @ 0x14024F74C (IoStopDiskIoAttributionForContext.c)
- *     IoStopIoRateControl @ 0x14024FB60 (IoStopIoRateControl.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     IoDiskIoAttributionDereference @ 0x140366814 (IoDiskIoAttributionDereference.c)
+ *     IoStopIoRateControl @ 0x140200914 (IoStopIoRateControl.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
+ *     IoStopDiskIoAttributionForContext @ 0x14028AB98 (IoStopDiskIoAttributionForContext.c)
  */
 
 void __fastcall PspIoRateEntryDeactivate(struct _EX_RUNDOWN_REF *a1)

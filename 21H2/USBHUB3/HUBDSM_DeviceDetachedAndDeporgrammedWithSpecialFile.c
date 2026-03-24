@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DeviceDetachedAndDeporgrammedWithSpecialFile @ 0x1C001D1C0
+ * XREFs of HUBDSM_DeviceDetachedAndDeporgrammedWithSpecialFile @ 0x1C001CC80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_DeviceDetachedAndDeporgrammedWithSpecialFile(__int64 a1)

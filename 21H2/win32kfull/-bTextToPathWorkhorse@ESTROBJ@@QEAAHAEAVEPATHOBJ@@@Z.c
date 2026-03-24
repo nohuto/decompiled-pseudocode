@@ -1,45 +1,47 @@
 /*
- * XREFs of ?bTextToPathWorkhorse@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02BCA2C
+ * XREFs of ?bTextToPathWorkhorse@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02BE458
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0032FD0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
- *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C029647C (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
- *     ?bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z @ 0x1C02BC830 (-bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z.c)
+ *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C0005FCC (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092390 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     ?bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z @ 0x1C02BE234 (-bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z.c)
  * Callees:
- *     STROBJ_bEnum @ 0x1C013A2C0 (STROBJ_bEnum.c)
- *     ?cGetGlyphDataCache@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z @ 0x1C013A388 (-cGetGlyphDataCache@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z.c)
- *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02D464C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
+ *     STROBJ_bEnum @ 0x1C00CD0F0 (STROBJ_bEnum.c)
+ *     ?cGetGlyphDataCache@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z @ 0x1C00CD1C0 (-cGetGlyphDataCache@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z.c)
+ *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02D5B6C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
  */
 
 __int64 __fastcall ESTROBJ::bTextToPathWorkhorse(STROBJ *pstro, struct EPATHOBJ *a2)
 {
   unsigned int v2; // ebx
-  PGLYPHPOS v4; // rsi
+  PGLYPHPOS v4; // r14
   ULONG ulCharInc; // r12d
   FIX x; // ecx
   FIX y; // edx
   int v8; // r12d
   ULONG v9; // edi
-  unsigned int GlyphDataCache; // r15d
+  unsigned int GlyphDataCache; // esi
   RFONTOBJ *v11; // rcx
-  unsigned int i; // r13d
-  FIX v13; // ecx
-  FIX v14; // edx
-  bool v15; // zf
-  PGLYPHPOS ppgpos; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v12; // r13d
+  EPATHOBJ *v13; // rdi
+  FIX v14; // ecx
+  FIX v15; // edx
+  bool v16; // zf
+  struct _POINTFIX v18; // [rsp+20h] [rbp-18h] BYREF
+  PGLYPHPOS ppgpos; // [rsp+28h] [rbp-10h] BYREF
   ULONG pc; // [rsp+80h] [rbp+48h] BYREF
-  EPATHOBJ *v19; // [rsp+88h] [rbp+50h]
-  BOOL v20; // [rsp+90h] [rbp+58h]
-  struct _POINTFIX v21; // [rsp+98h] [rbp+60h] BYREF
+  struct EPATHOBJ *v21; // [rsp+88h] [rbp+50h]
+  ULONG v22; // [rsp+90h] [rbp+58h]
+  BOOL v23; // [rsp+98h] [rbp+60h]
 
-  v19 = a2;
+  v21 = a2;
   v2 = 0;
   pc = 0;
-  v21 = 0LL;
+  v18 = 0LL;
   ppgpos = 0LL;
   *(_QWORD *)&pstro[1].cGlyphs = 0LL;
   do
   {
-    v20 = STROBJ_bEnum(pstro, &pc, &ppgpos);
+    v23 = STROBJ_bEnum(pstro, &pc, &ppgpos);
     if ( !pc )
       break;
     v4 = ppgpos;
@@ -48,18 +50,18 @@ __int64 __fastcall ESTROBJ::bTextToPathWorkhorse(STROBJ *pstro, struct EPATHOBJ 
     ulCharInc = pstro->ulCharInc;
     if ( ulCharInc )
     {
-      v15 = ((__int64)pstro[4].pwszOrg & 0x100) == 0;
+      v16 = ((__int64)pstro[4].pwszOrg & 0x100) == 0;
       x = ppgpos->ptl.x;
-      v21.x = x;
+      v18.x = x;
       y = ppgpos->ptl.y;
-      v21.y = y;
-      if ( v15 )
+      v18.y = y;
+      if ( v16 )
       {
-        v21.y = 16 * y;
-        v21.x = 16 * x;
+        v18.y = 16 * y;
+        v18.x = 16 * x;
       }
       v8 = 16 * ulCharInc;
-      v21.x -= v8;
+      v18.x -= v8;
     }
     else
     {
@@ -67,6 +69,7 @@ __int64 __fastcall ESTROBJ::bTextToPathWorkhorse(STROBJ *pstro, struct EPATHOBJ 
     }
     v9 = pc;
     GlyphDataCache = pc;
+    v22 = pc;
     do
     {
       if ( ((__int64)pstro[4].pwszOrg & 2) == 0 )
@@ -79,45 +82,55 @@ __int64 __fastcall ESTROBJ::bTextToPathWorkhorse(STROBJ *pstro, struct EPATHOBJ 
                                            v4,
                                            *(_DWORD *)(*(_QWORD *)v11 + 88LL)) != 0;
         else
-          GlyphDataCache = RFONTOBJ::cGetGlyphDataCache(v11, v9, v4);
+          GlyphDataCache = RFONTOBJ::cGetGlyphDataCache((struct _FONTOBJ **)v11, v9, v4);
         if ( !GlyphDataCache )
           break;
       }
-      for ( i = 0; i < GlyphDataCache; ppgpos = v4 )
+      v12 = 0;
+      if ( GlyphDataCache )
       {
-        if ( v8 )
+        v13 = v21;
+        do
         {
-          v21.x += v8;
-        }
-        else
-        {
-          v15 = ((__int64)pstro[4].pwszOrg & 0x100) == 0;
-          v13 = v4->ptl.x;
-          v21.x = v13;
-          v14 = v4->ptl.y;
-          v21.y = v14;
-          if ( v15 )
+          if ( v8 )
           {
-            v21.y = 16 * v14;
-            v21.x = 16 * v13;
+            v18.x += v8;
           }
+          else
+          {
+            v16 = ((__int64)pstro[4].pwszOrg & 0x100) == 0;
+            v14 = v4->ptl.x;
+            v18.x = v14;
+            v15 = v4->ptl.y;
+            v18.y = v15;
+            if ( v16 )
+            {
+              v18.y = 16 * v15;
+              v18.x = 16 * v14;
+            }
+          }
+          if ( !EPATHOBJ::bAppend(v13, (struct EPATHOBJ *)v4->pgdf->pgb, &v18) )
+            break;
+          ++v12;
+          ++v4;
         }
-        if ( !EPATHOBJ::bAppend(v19, (struct EPATHOBJ *)v4->pgdf->pgb, &v21) )
-          goto LABEL_25;
-        ++v4;
-        ++i;
+        while ( v12 < GlyphDataCache );
+        v9 = v22;
+        ppgpos = v4;
+        if ( v12 < GlyphDataCache )
+          break;
       }
       v9 -= GlyphDataCache;
+      v22 = v9;
     }
     while ( v9 );
-LABEL_25:
-    v15 = v9 == 0;
+    v16 = v9 == 0;
     if ( v9 )
-      goto LABEL_28;
+      goto LABEL_30;
   }
-  while ( v20 );
-  v15 = 1;
-LABEL_28:
-  LOBYTE(v2) = v15;
+  while ( v23 );
+  v16 = 1;
+LABEL_30:
+  LOBYTE(v2) = v16;
   return v2;
 }

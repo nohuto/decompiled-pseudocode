@@ -1,22 +1,22 @@
 /*
- * XREFs of ExFreeSvmAsid @ 0x14036651C
+ * XREFs of ExFreeSvmAsid @ 0x140321C8C
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14071FAC8 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14063896C (MmCleanProcessAddressSpace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpFreeAsid @ 0x14060D8A0 (ExpFreeAsid.c)
- *     ExpSvmDereferenceDevice @ 0x14060E628 (ExpSvmDereferenceDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpFreeAsid @ 0x1405B8970 (ExpFreeAsid.c)
+ *     ExpSvmDereferenceDevice @ 0x1405B8DB4 (ExpSvmDereferenceDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 struct _KTHREAD *ExFreeSvmAsid()
 {
   struct _KTHREAD *result; // rax
-  _KPROCESS *Process; // rdi
-  int Blink; // ebp
+  _KPROCESS *Process; // rbp
+  int Blink; // r14d
   struct _LIST_ENTRY *Flink; // r15
-  _LIST_ENTRY *p_ThreadListHead; // rsi
-  _LIST_ENTRY *v5; // r14
+  _LIST_ENTRY *p_ThreadListHead; // rdi
+  _LIST_ENTRY *v5; // rsi
   struct _LIST_ENTRY *v6; // rax
   struct _LIST_ENTRY *v7; // rbx
 
@@ -37,13 +37,13 @@ struct _KTHREAD *ExFreeSvmAsid()
       if ( v5 == p_ThreadListHead )
         break;
       v7 = v5[1].Flink;
-      (*(void (__fastcall **)(struct _LIST_ENTRY *, struct _LIST_ENTRY *))(HalIommuDispatch + 48))(Flink, v7[11].Flink);
+      (*(void (__fastcall **)(struct _LIST_ENTRY *, struct _LIST_ENTRY *))(HalIommuDispatch + 48))(Flink, v7[7].Blink);
       ExpSvmDereferenceDevice(v7);
       ExFreePoolWithTag(v5, 0);
     }
     (*(void (__fastcall **)(struct _LIST_ENTRY *))(HalIommuDispatch + 64))(Flink);
     Process[2].ProfileListHead.Flink = 0LL;
-    return (struct _KTHREAD *)ExpFreeAsid((unsigned int)(Blink - 1), Process);
+    return (struct _KTHREAD *)ExpFreeAsid((unsigned int)(Blink - 1));
   }
   return result;
 }

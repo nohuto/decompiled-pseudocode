@@ -1,13 +1,13 @@
 /*
- * XREFs of NtSetInformationDebugObject @ 0x140938D00
+ * XREFs of NtSetInformationDebugObject @ 0x140886310
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtSetInformationDebugObject(HANDLE Handle, int a2, int *a3, unsigned int a4, unsigned __int64 a5)
@@ -74,8 +74,8 @@ LABEL_16:
         if ( (v12 & 1) == 0 )
           v14 = *((_DWORD *)v13 + 24) & 0xFFFFFFFD;
         *((_DWORD *)v13 + 24) = v14;
-        ExReleaseFastMutex((PFAST_MUTEX)(v13 + 24));
-        ObfDereferenceObject(v13);
+        KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v13 + 24));
+        HalPutDmaAdapter((PADAPTER_OBJECT)v13);
         return 0;
       }
     }

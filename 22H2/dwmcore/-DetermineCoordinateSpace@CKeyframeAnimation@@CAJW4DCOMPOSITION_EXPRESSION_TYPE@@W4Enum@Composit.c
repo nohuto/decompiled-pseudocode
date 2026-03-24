@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@PEAW4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800EAB54
+ * XREFs of ?DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@PEAW4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800ACADC
  * Callers:
- *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x180055DB4 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
+ *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x1800AABB8 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::DetermineCoordinateSpace(int a1, int a2, int *a3)
@@ -12,82 +12,65 @@ __int64 __fastcall CKeyframeAnimation::DetermineCoordinateSpace(int a1, int a2, 
   int v4; // eax
   int v5; // ecx
   int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
+  unsigned int v7; // ebx
   int v9; // ecx
-  __int64 v10; // rcx
-  int v11; // edx
-  int v12; // edx
-  unsigned int v13; // ebx
-  int v15; // edx
-  unsigned int v16; // [rsp+20h] [rbp-18h]
+  int v10; // ecx
+  int v11; // ecx
+  __int64 v12; // rcx
+  unsigned int v13; // [rsp+20h] [rbp-18h]
 
   v3 = a1 - 11;
   if ( !v3 )
-    goto LABEL_12;
+    goto LABEL_4;
   v4 = 6;
   v5 = v3 - 6;
-  if ( v5 )
+  if ( !v5 )
+    goto LABEL_5;
+  v6 = v5 - 1;
+  if ( !v6 || (v9 = v6 - 17) == 0 || (v10 = v9 - 17) == 0 || (v11 = v10 - 17) == 0 )
   {
-    v6 = v5 - 1;
-    if ( v6 )
-    {
-      v7 = v6 - 17;
-      if ( v7 )
-      {
-        v8 = v7 - 17;
-        if ( v8 )
-        {
-          v9 = v8 - 17;
-          if ( v9 )
-          {
-            v10 = (unsigned int)(v9 - 1);
-            if ( (_DWORD)v10 )
-            {
-              if ( (_DWORD)v10 == 1 )
-              {
-                v4 = 1;
-                goto LABEL_13;
-              }
-              v16 = 1434;
-            }
-            else
-            {
-              if ( !a2 || (v11 = a2 - 1) == 0 )
-              {
-                v4 = 2;
-                goto LABEL_13;
-              }
-              v12 = v11 - 1;
-              if ( !v12 )
-              {
-                v4 = 4;
-                goto LABEL_13;
-              }
-              v15 = v12 - 1;
-              if ( !v15 )
-              {
-                v4 = 5;
-                goto LABEL_13;
-              }
-              if ( v15 == 1 )
-              {
-                v4 = 3;
-                goto LABEL_13;
-              }
-              v16 = 1424;
-            }
-            v13 = -2003303421;
-            MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2003303421, v16, 0LL);
-            return v13;
-          }
-        }
-      }
-    }
-LABEL_12:
+LABEL_4:
     v4 = 0;
+    goto LABEL_5;
   }
-LABEL_13:
+  v12 = (unsigned int)(v11 - 1);
+  if ( (_DWORD)v12 )
+  {
+    if ( (_DWORD)v12 == 1 )
+    {
+      v4 = 1;
+      goto LABEL_5;
+    }
+    v13 = 1389;
+LABEL_21:
+    v7 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003303421, v13, 0LL);
+    return v7;
+  }
+  if ( a2 < 0 )
+    goto LABEL_20;
+  v4 = 2;
+  if ( a2 > 1 )
+  {
+    if ( a2 == 2 )
+    {
+      v4 = 4;
+      goto LABEL_5;
+    }
+    v4 = 3;
+    if ( a2 == 3 )
+    {
+      v4 = 5;
+      goto LABEL_5;
+    }
+    if ( a2 != 4 )
+    {
+LABEL_20:
+      v13 = 1379;
+      goto LABEL_21;
+    }
+  }
+LABEL_5:
   *a3 = v4;
   return 0;
 }

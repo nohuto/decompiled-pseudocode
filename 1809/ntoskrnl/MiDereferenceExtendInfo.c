@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDereferenceExtendInfo @ 0x140138908
+ * XREFs of MiDereferenceExtendInfo @ 0x140138928
  * Callers:
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
@@ -12,7 +12,7 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

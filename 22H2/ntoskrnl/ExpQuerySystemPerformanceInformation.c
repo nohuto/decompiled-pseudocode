@@ -1,319 +1,381 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x1406B1F04
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x1406BF5C0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetWorkingSetLeafSize @ 0x14021DAE0 (MmGetWorkingSetLeafSize.c)
- *     MmGetSharedCommit @ 0x14021DBAC (MmGetSharedCommit.c)
- *     MmGetResidentAvailablePages @ 0x14021DBBC (MmGetResidentAvailablePages.c)
- *     MmGetTotalCommittedPages @ 0x14021DBDC (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x14021DBFC (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x14021DC1C (MmGetPeakCommitment.c)
- *     MmGetAvailablePages @ 0x14021DC3C (MmGetAvailablePages.c)
- *     MiMaximumCommitmentAvailable @ 0x14021DC5C (MiMaximumCommitmentAvailable.c)
- *     MiFreePoolPagesLeft @ 0x14021DC80 (MiFreePoolPagesLeft.c)
- *     MmGetNumberOfFreeSystemPtes @ 0x14021DCB0 (MmGetNumberOfFreeSystemPtes.c)
- *     MmGetProcessPartitionId @ 0x14021E564 (MmGetProcessPartitionId.c)
- *     MmGetSystemPageCounts @ 0x14021E574 (MmGetSystemPageCounts.c)
- *     ExQueryPoolUsage @ 0x14021E588 (ExQueryPoolUsage.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     PsQueryRuntimeProcess @ 0x1406B2550 (PsQueryRuntimeProcess.c)
+ *     MmGetWorkingSetLeafSize @ 0x14033B0E0 (MmGetWorkingSetLeafSize.c)
+ *     MmGetSharedCommit @ 0x14033B124 (MmGetSharedCommit.c)
+ *     MmGetResidentAvailablePages @ 0x14033B134 (MmGetResidentAvailablePages.c)
+ *     ExQueryPoolUsage @ 0x14033B154 (ExQueryPoolUsage.c)
+ *     MmGetSystemPageCounts @ 0x14033B27C (MmGetSystemPageCounts.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x14033B290 (MmGetNumberOfFreeSystemPtes.c)
+ *     MiMaximumCommitmentAvailable @ 0x14033B46C (MiMaximumCommitmentAvailable.c)
+ *     MiFreePoolPagesLeft @ 0x14033B490 (MiFreePoolPagesLeft.c)
+ *     MmGetAvailablePages @ 0x140344570 (MmGetAvailablePages.c)
+ *     MmGetTotalCommittedPages @ 0x140344590 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1403445B0 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1403445D0 (MmGetPeakCommitment.c)
+ *     MmGetProcessPartitionId @ 0x1403445F0 (MmGetProcessPartitionId.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsQueryRuntimeProcess @ 0x1406215F0 (PsQueryRuntimeProcess.c)
  */
 
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)
 {
-  __int64 v3; // r14
+  __int64 v3; // r15
   ULONG v4; // r11d
-  __int64 *v5; // rsi
-  LARGE_INTEGER v6; // rax
-  unsigned int v7; // ebx
-  ULONG v8; // r15d
-  LARGE_INTEGER v9; // r9
-  __int64 v10; // rdi
-  ULONG v11; // r12d
-  LARGE_INTEGER v12; // rdx
-  __int64 *v13; // r10
-  __int64 v14; // r13
-  __int64 v15; // r8
-  int v16; // edx
-  int v17; // r8d
-  __int64 *v18; // rcx
-  __int64 v19; // r9
-  __int64 v20; // rax
-  unsigned __int16 v21; // r15
+  LARGE_INTEGER v5; // rax
+  ULONG v6; // ebx
+  LARGE_INTEGER v7; // rcx
+  ULONG v8; // edi
+  LARGE_INTEGER v9; // rdx
+  __int64 *v10; // r10
+  __int64 v11; // rsi
+  __int64 v12; // r9
+  int v13; // ebx
+  int v14; // edx
+  int v15; // r8d
+  __int64 *v16; // rax
+  __int64 v17; // r9
+  __int64 v18; // rcx
   unsigned __int64 AvailablePages; // rax
-  int v23; // ecx
+  unsigned __int16 v20; // cx
   unsigned __int64 TotalCommittedPages; // rax
-  unsigned __int16 v25; // cx
-  unsigned __int64 v26; // r9
-  int v27; // r8d
+  unsigned __int16 v22; // cx
+  unsigned __int64 v23; // r10
   unsigned __int64 TotalCommitLimit; // rax
-  unsigned __int64 v29; // r9
-  int v30; // ecx
+  unsigned __int16 v25; // cx
+  unsigned __int64 v26; // r10
   unsigned __int64 PeakCommitment; // rax
-  unsigned int v32; // r8d
-  unsigned __int64 v33; // r9
-  unsigned int v34; // ecx
-  int v35; // r9d
-  unsigned int v36; // ecx
-  unsigned int v37; // r10d
-  unsigned int v38; // r11d
-  unsigned int v39; // r12d
-  unsigned int v40; // r13d
-  unsigned int v41; // eax
-  unsigned int v42; // edx
-  unsigned int v43; // r8d
-  __int64 *v44; // rdx
-  __int64 v45; // r8
-  int v46; // r15d
-  _DWORD *v47; // rcx
+  int v28; // r8d
+  unsigned int v29; // r9d
+  unsigned __int64 v30; // r10
+  int v31; // r8d
+  int v32; // r9d
+  int v33; // r10d
+  int v34; // r11d
+  int v35; // edi
+  int v36; // esi
+  int v37; // r15d
+  int v38; // r12d
+  int v39; // r13d
+  int v40; // eax
+  int v41; // ecx
+  int v42; // edx
+  __int64 *v43; // rdx
+  int v44; // r14d
+  _DWORD *v45; // rcx
+  __int64 v46; // rdx
   char *WorkingSetLeafSize; // rax
+  __int64 v48; // rdx
   char *v49; // rax
   unsigned __int64 v50; // r8
   unsigned __int64 v51; // rax
-  unsigned __int64 v52; // rdx
-  ULONG v53; // r10d
-  unsigned int v54; // ecx
+  unsigned __int64 v52; // r8
+  int v53; // ecx
+  ULONG v54; // r10d
   unsigned int v55; // edx
   unsigned int v56; // r8d
   unsigned int v57; // r9d
   unsigned int v58; // r11d
-  unsigned int v59; // r12d
-  int v60; // r13d
-  int v61; // r14d
-  int v62; // r15d
-  _DWORD *v63; // rax
-  unsigned int v65; // [rsp+40h] [rbp-C0h]
-  unsigned int v66; // [rsp+44h] [rbp-BCh]
-  unsigned int v67; // [rsp+48h] [rbp-B8h]
-  __int64 v68; // [rsp+4Ch] [rbp-B4h]
-  __int64 v69; // [rsp+54h] [rbp-ACh]
-  _QWORD Src[44]; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v71; // [rsp+1C0h] [rbp+C0h] BYREF
-  unsigned __int16 ProcessPartitionId; // [rsp+220h] [rbp+120h]
-  unsigned int v75; // [rsp+238h] [rbp+138h] BYREF
+  unsigned int v59; // edi
+  unsigned int v60; // esi
+  unsigned int v61; // r14d
+  unsigned int v62; // r15d
+  unsigned int v63; // r12d
+  int v64; // r13d
+  __int64 *v65; // rax
+  _DWORD *v66; // rax
+  int v67; // ebx
+  bool v68; // zf
+  int v70; // [rsp+40h] [rbp-C0h]
+  int v71; // [rsp+44h] [rbp-BCh]
+  int v72; // [rsp+48h] [rbp-B8h]
+  __int64 v73; // [rsp+50h] [rbp-B0h]
+  __int64 v74; // [rsp+50h] [rbp-B0h]
+  _QWORD Src[4]; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG v76; // [rsp+80h] [rbp-80h]
+  ULONG v77; // [rsp+84h] [rbp-7Ch]
+  ULONG v78; // [rsp+88h] [rbp-78h]
+  int v79; // [rsp+8Ch] [rbp-74h]
+  int v80; // [rsp+90h] [rbp-70h]
+  int v81; // [rsp+94h] [rbp-6Ch]
+  int v82; // [rsp+98h] [rbp-68h]
+  int v83; // [rsp+9Ch] [rbp-64h]
+  int v84; // [rsp+A0h] [rbp-60h]
+  int v85; // [rsp+A4h] [rbp-5Ch]
+  int v86; // [rsp+A8h] [rbp-58h]
+  int v87; // [rsp+ACh] [rbp-54h]
+  int v88; // [rsp+B0h] [rbp-50h]
+  int v89; // [rsp+B4h] [rbp-4Ch]
+  int v90; // [rsp+B8h] [rbp-48h]
+  int v91; // [rsp+BCh] [rbp-44h]
+  int v92; // [rsp+C0h] [rbp-40h]
+  int v93; // [rsp+C4h] [rbp-3Ch]
+  int v94; // [rsp+C8h] [rbp-38h]
+  int v95; // [rsp+CCh] [rbp-34h]
+  __int128 v96; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v97; // [rsp+E0h] [rbp-20h] BYREF
+  int NumberOfFreeSystemPtes; // [rsp+E8h] [rbp-18h]
+  int v99; // [rsp+ECh] [rbp-14h]
+  int v100; // [rsp+F0h] [rbp-10h]
+  int v101; // [rsp+F4h] [rbp-Ch]
+  __int64 v102; // [rsp+F8h] [rbp-8h] BYREF
+  int v103; // [rsp+100h] [rbp+0h]
+  int v104; // [rsp+104h] [rbp+4h]
+  int v105; // [rsp+108h] [rbp+8h]
+  int v106; // [rsp+10Ch] [rbp+Ch]
+  _QWORD v107[15]; // [rsp+110h] [rbp+10h] BYREF
+  int v108; // [rsp+188h] [rbp+88h]
+  __int64 v109; // [rsp+18Ch] [rbp+8Ch]
+  int v110; // [rsp+194h] [rbp+94h]
+  __int128 v111; // [rsp+198h] [rbp+98h]
+  __int128 v112; // [rsp+1A8h] [rbp+A8h]
+  __int64 *v113; // [rsp+1C0h] [rbp+C0h]
+  __int128 v114; // [rsp+1C8h] [rbp+C8h] BYREF
+  _DWORD v115[18]; // [rsp+1D8h] [rbp+D8h] BYREF
+  unsigned __int16 ProcessPartitionId; // [rsp+248h] [rbp+148h]
 
   v3 = a1;
-  memset(Src, 0, 0x158uLL);
+  v82 = 0;
+  v97 = 0LL;
+  v102 = 0LL;
+  v96 = 0LL;
+  memset(v107, 0, sizeof(v107));
   v4 = IoOtherOperationCount;
-  v5 = KiProcessorBlock;
-  v6 = IoOtherTransferCount;
-  v7 = 0;
-  v8 = IoReadOperationCount;
-  v9 = IoReadTransferCount;
-  v10 = (unsigned int)v3;
-  v11 = IoWriteOperationCount;
-  v12 = IoWriteTransferCount;
-  v71 = 0LL;
+  v5 = IoOtherTransferCount;
+  v6 = IoReadOperationCount;
+  v7 = IoReadTransferCount;
+  v8 = IoWriteOperationCount;
+  v9 = IoWriteTransferCount;
+  v113 = KiProcessorBlock;
+  v111 = 0LL;
+  v112 = 0LL;
+  v114 = 0LL;
   if ( (_DWORD)v3 )
   {
-    v13 = KiProcessorBlock;
-    v14 = (unsigned int)v3;
+    v10 = KiProcessorBlock;
+    v11 = (unsigned int)v3;
     do
     {
-      v15 = *v13++;
-      v4 += *(_DWORD *)(v15 + 11620);
-      v8 += *(_DWORD *)(v15 + 11612);
-      v11 += *(_DWORD *)(v15 + 11616);
-      v12.QuadPart += *(_QWORD *)(v15 + 11632);
-      v6.QuadPart += *(_QWORD *)(v15 + 11640);
-      v9.QuadPart += *(_QWORD *)(v15 + 11624);
-      --v14;
+      v12 = *v10++;
+      v4 += *(_DWORD *)(v12 + 11620);
+      v6 += *(_DWORD *)(v12 + 11612);
+      v8 += *(_DWORD *)(v12 + 11616);
+      v9.QuadPart += *(_QWORD *)(v12 + 11632);
+      v5.QuadPart += *(_QWORD *)(v12 + 11640);
+      v7.QuadPart += *(_QWORD *)(v12 + 11624);
+      --v11;
     }
-    while ( v14 );
+    while ( v11 );
   }
-  Src[2] = v12.QuadPart;
-  v16 = 0;
-  Src[1] = v9.QuadPart;
-  v17 = 0;
-  Src[3] = v6.QuadPart;
-  Src[4] = __PAIR64__(v11, v8);
-  LODWORD(Src[5]) = v4;
+  v76 = v6;
+  v13 = 0;
+  Src[2] = v9.QuadPart;
+  v14 = 0;
+  Src[1] = v7.QuadPart;
+  v15 = 0;
+  Src[3] = v5.QuadPart;
+  v77 = v8;
+  v78 = v4;
   if ( (_DWORD)v3 )
   {
-    v18 = KiProcessorBlock;
-    v19 = v3;
+    v16 = KiProcessorBlock;
+    v17 = v3;
     do
     {
-      v20 = *v18++;
-      v17 += *(_DWORD *)(v20 + 11580);
-      v16 += *(_DWORD *)(v20 + 11576);
-      --v19;
+      v18 = *v16++;
+      v15 += *(_DWORD *)(v18 + 11580);
+      v14 += *(_DWORD *)(v18 + 11576);
+      --v17;
     }
-    while ( v19 );
+    while ( v17 );
   }
-  LODWORD(Src[37]) = v17;
-  *(_QWORD *)((char *)&Src[37] + 4) = 0LL;
-  HIDWORD(Src[38]) = v16;
+  v108 = v15;
+  v109 = 0LL;
+  v110 = v14;
   ProcessPartitionId = MmGetProcessPartitionId((__int64)KeGetCurrentThread()->ApcState.Process);
-  v21 = ProcessPartitionId;
   AvailablePages = MmGetAvailablePages(ProcessPartitionId);
-  v23 = -1;
-  if ( AvailablePages <= 0xFFFFFFFF )
-    v23 = AvailablePages;
-  HIDWORD(Src[5]) = v23;
-  TotalCommittedPages = MmGetTotalCommittedPages(ProcessPartitionId);
-  v27 = v26;
-  if ( TotalCommittedPages <= v26 )
-    v27 = TotalCommittedPages;
-  LODWORD(Src[6]) = v27;
-  TotalCommitLimit = MmGetTotalCommitLimit(v25);
-  v30 = v29;
-  if ( TotalCommitLimit <= v29 )
-    v30 = TotalCommitLimit;
-  HIDWORD(Src[6]) = v30;
-  PeakCommitment = MmGetPeakCommitment(ProcessPartitionId);
-  v75 = 0;
-  v34 = v33;
-  v65 = 0;
-  if ( PeakCommitment <= v33 )
-    v34 = PeakCommitment;
-  v66 = 0;
-  v67 = 0;
+  if ( AvailablePages > 0xFFFFFFFF )
+    v79 = -1;
+  else
+    v79 = AvailablePages;
+  TotalCommittedPages = MmGetTotalCommittedPages(v20);
+  if ( TotalCommittedPages > v23 )
+    v80 = v23;
+  else
+    v80 = TotalCommittedPages;
+  TotalCommitLimit = MmGetTotalCommitLimit(v22);
+  if ( TotalCommitLimit > v26 )
+    v81 = v26;
+  else
+    v81 = TotalCommitLimit;
+  PeakCommitment = MmGetPeakCommitment(v25);
+  if ( PeakCommitment > v30 )
+    LODWORD(PeakCommitment) = v30;
+  v82 = PeakCommitment;
+  if ( (unsigned int)PeakCommitment < v29 )
+    v82 = v28;
+  v31 = 0;
+  v32 = 0;
+  v33 = 0;
+  v34 = 0;
   v35 = 0;
-  LODWORD(v68) = 0;
-  if ( v34 < v32 )
-    v34 = v32;
-  HIDWORD(v68) = 0;
-  LODWORD(Src[7]) = v34;
   v36 = 0;
-  v69 = 0LL;
   v37 = 0;
   v38 = 0;
   v39 = 0;
   v40 = 0;
   v41 = 0;
+  v70 = 0;
   v42 = 0;
-  v43 = 0;
-  if ( (_DWORD)v3 )
+  v71 = 0;
+  v72 = 0;
+  if ( a1 )
   {
-    v44 = KiProcessorBlock;
-    v45 = v3;
-    v46 = 0;
+    v43 = KiProcessorBlock;
+    v73 = a1;
+    v44 = 0;
     do
     {
-      v47 = (_DWORD *)*v44++;
-      v35 += v47[2884];
-      v37 += v47[2885];
-      v38 += v47[2886];
-      v39 += v47[8394];
-      v40 += v47[2887];
-      v75 += v47[2888];
-      v65 += v47[2889];
-      v66 += v47[8395];
-      v67 += v47[8396];
-      LODWORD(v68) = v47[2890] + v68;
-      HIDWORD(v68) += v47[2891];
-      LODWORD(v69) = v47[2892] + v69;
-      v46 += v47[2893];
-      --v45;
+      v45 = (_DWORD *)*v43++;
+      v31 += v45[2884];
+      v32 += v45[2885];
+      v33 += v45[2886];
+      v34 += v45[8186];
+      v35 += v45[2887];
+      v36 += v45[2888];
+      v37 += v45[2889];
+      v38 += v45[8187];
+      v39 += v45[8188];
+      v44 += v45[2890];
+      v70 += v45[2891];
+      v71 += v45[2892];
+      v72 += v45[2893];
+      --v73;
     }
-    while ( v45 );
-    v41 = v75;
-    v36 = v65;
-    v42 = v66;
-    v43 = v67;
-    HIDWORD(v69) = v46;
-    v21 = ProcessPartitionId;
+    while ( v73 );
+    v40 = v70;
+    v41 = v71;
+    v42 = v72;
   }
-  Src[10] = __PAIR64__(v36, v41);
-  Src[12] = v68;
-  Src[13] = v69;
-  HIDWORD(Src[7]) = v35;
-  Src[8] = __PAIR64__(v38, v37);
-  Src[9] = __PAIR64__(v40, v39);
-  Src[11] = __PAIR64__(v43, v42);
-  LODWORD(Src[17]) = MmGetNumberOfFreeSystemPtes();
-  MmGetSystemPageCounts(&v71);
-  HIDWORD(Src[17]) = v71;
-  WorkingSetLeafSize = MmGetWorkingSetLeafSize(2);
+  else
+  {
+    v44 = 0;
+  }
+  v83 = v31;
+  v84 = v32;
+  v85 = v33;
+  v86 = v34;
+  v87 = v35;
+  v88 = v36;
+  v89 = v37;
+  v90 = v38;
+  v91 = v39;
+  v92 = v44;
+  v93 = v40;
+  v94 = v41;
+  v95 = v42;
+  NumberOfFreeSystemPtes = MmGetNumberOfFreeSystemPtes();
+  MmGetSystemPageCounts(&v114);
+  v99 = v114;
+  WorkingSetLeafSize = MmGetWorkingSetLeafSize(2LL, v46);
   if ( (unsigned __int64)WorkingSetLeafSize > 0xFFFFFFFF )
     LODWORD(WorkingSetLeafSize) = -1;
-  HIDWORD(Src[20]) = (_DWORD)WorkingSetLeafSize;
-  v49 = MmGetWorkingSetLeafSize(3);
+  v104 = (int)WorkingSetLeafSize;
+  v49 = MmGetWorkingSetLeafSize(3LL, v48);
   if ( (unsigned __int64)v49 > v50 )
     LODWORD(v49) = v50;
-  Src[21] = __PAIR64__(DWORD1(v71), (unsigned int)v49);
-  Src[18] = __PAIR64__(DWORD2(v71), HIDWORD(v71));
+  v105 = (int)v49;
+  v101 = DWORD2(v114);
+  v106 = DWORD1(v114);
+  v100 = HIDWORD(v114);
   MiFreePoolPagesLeft(6);
-  v51 = MiMaximumCommitmentAvailable();
+  v51 = MiMaximumCommitmentAvailable((__int64)&MiSystemPartition);
   if ( v52 > v51 )
     LODWORD(v52) = v51;
-  LODWORD(Src[20]) = v52;
-  Src[0] = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)PsQueryRuntimeProcess(PsIdleProcess, &v75);
+  v103 = v52;
+  Src[0] = (unsigned int)KeMaximumIncrement
+         * (unsigned __int64)(unsigned int)PsQueryRuntimeProcess((__int64)PsIdleProcess, v115);
   ExQueryPoolUsage(
-    (int)&Src[14],
-    (int)&Src[14] + 4,
-    (int)&Src[15],
-    (int)&Src[15] + 4,
-    (__int64)&Src[19] + 4,
-    (__int64)&Src[16],
-    (__int64)&Src[16] + 4,
-    (__int64)&Src[19]);
-  v53 = CcFastMdlReadWait;
-  v54 = 0;
-  HIDWORD(Src[24]) = CcFastMdlReadWait;
+    (int)&v96,
+    (int)&v96 + 4,
+    (int)&v96 + 8,
+    (int)&v96 + 12,
+    (__int64)&v102 + 4,
+    (__int64)&v97,
+    (__int64)&v97 + 4,
+    (__int64)&v102);
+  v53 = 0;
+  v54 = CcFastMdlReadWait;
   v55 = 0;
-  memset(&Src[22], 0, 20);
+  memset(v107, 0, 20);
   v56 = 0;
   v57 = 0;
   v58 = 0;
-  memset(&Src[25], 0, 96);
+  HIDWORD(v107[2]) = CcFastMdlReadWait;
   v59 = 0;
+  memset(&v107[3], 0, 96);
   v60 = 0;
-  if ( (_DWORD)v3 )
+  v61 = 0;
+  v62 = 0;
+  v63 = 0;
+  v64 = 0;
+  if ( a1 )
   {
-    v61 = HIDWORD(Src[26]);
-    v62 = 0;
+    v74 = a1;
+    v65 = KiProcessorBlock;
     do
     {
-      v63 = (_DWORD *)*v5++;
-      HIDWORD(Src[26]) = v63[8372] + v61;
-      HIDWORD(Src[27]) += v63[8388];
-      LODWORD(Src[28]) += v63[8373];
-      HIDWORD(Src[28]) += v63[8374];
-      LODWORD(Src[29]) += v63[8375];
-      v7 += v63[2897];
-      v54 += v63[2898];
-      v55 += v63[8384];
-      v56 += v63[2899];
-      v57 += v63[8368];
-      v53 += v63[8369];
-      v58 += v63[8386];
-      v59 += v63[8370];
-      v60 += v63[8371];
-      v62 += v63[8387];
-      HIDWORD(Src[29]) += v63[8389];
-      LODWORD(Src[30]) += v63[8390];
-      HIDWORD(Src[30]) += v63[2900];
-      LODWORD(Src[31]) += v63[2901];
-      HIDWORD(Src[31]) += v63[2902];
-      LODWORD(Src[32]) += v63[8385];
-      HIDWORD(Src[32]) += v63[8376];
-      LODWORD(Src[33]) += v63[8377];
-      HIDWORD(Src[33]) += v63[8391];
-      LODWORD(Src[34]) += v63[8392];
-      HIDWORD(Src[34]) += v63[8393];
-      LODWORD(Src[35]) += v63[8379];
-      HIDWORD(Src[35]) += v63[8380];
-      LODWORD(Src[36]) += v63[8381];
-      HIDWORD(Src[36]) += v63[8382];
-      v61 = HIDWORD(Src[26]);
-      --v10;
+      v66 = (_DWORD *)*v65;
+      LODWORD(v107[0]) = v66[2897] + v13;
+      HIDWORD(v107[6]) += v66[8166];
+      v53 += v66[2898];
+      v55 += v66[8176];
+      v56 += v66[2899];
+      v57 += v66[8160];
+      v54 += v66[8161];
+      v58 += v66[8178];
+      v59 += v66[8162];
+      v60 += v66[8163];
+      v61 += v66[8164];
+      v62 += v66[8179];
+      v63 += v66[8180];
+      v64 += v66[8165];
+      LODWORD(v107[7]) += v66[8167];
+      HIDWORD(v107[7]) += v66[8181];
+      LODWORD(v107[8]) += v66[8182];
+      HIDWORD(v107[8]) += v66[2900];
+      LODWORD(v107[9]) += v66[2901];
+      HIDWORD(v107[9]) += v66[2902];
+      LODWORD(v107[10]) += v66[8177];
+      HIDWORD(v107[10]) += v66[8168];
+      LODWORD(v107[11]) += v66[8169];
+      HIDWORD(v107[11]) += v66[8183];
+      LODWORD(v107[12]) += v66[8184];
+      HIDWORD(v107[12]) += v66[8185];
+      LODWORD(v107[13]) += v66[8171];
+      HIDWORD(v107[13]) += v66[8172];
+      LODWORD(v107[14]) += v66[8173];
+      v67 = v66[8174] + HIDWORD(v107[14]);
+      v65 = v113 + 1;
+      HIDWORD(v107[14]) = v67;
+      v68 = v74-- == 1;
+      v13 = v107[0];
+      ++v113;
     }
-    while ( v10 );
-    LODWORD(Src[27]) = v62;
-    v21 = ProcessPartitionId;
-    Src[22] = __PAIR64__(v54, v7);
-    Src[23] = __PAIR64__(v56, v55);
-    Src[24] = __PAIR64__(v53, v57);
-    Src[25] = __PAIR64__(v59, v58);
-    LODWORD(Src[26]) = v60;
+    while ( !v68 );
+    HIDWORD(v107[0]) = v53;
+    v107[1] = __PAIR64__(v56, v55);
+    v107[2] = __PAIR64__(v54, v57);
+    v107[3] = __PAIR64__(v59, v58);
+    v107[4] = __PAIR64__(v61, v60);
+    v107[5] = __PAIR64__(v63, v62);
+    LODWORD(v107[6]) = v64;
   }
-  Src[39] = *(_QWORD *)CcSystemPartitionDirtyPageStatistics;
-  Src[40] = *(_QWORD *)CcSystemPartitionDirtyPageThresholds;
-  Src[41] = MmGetResidentAvailablePages(v21);
-  Src[42] = MmGetSharedCommit();
+  v111 = *(_OWORD *)CcSystemPartitionDirtyPageStatistics;
+  *(_QWORD *)&v112 = MmGetResidentAvailablePages(ProcessPartitionId);
+  *((_QWORD *)&v112 + 1) = MmGetSharedCommit();
   return memmove(a2, Src, a3);
 }

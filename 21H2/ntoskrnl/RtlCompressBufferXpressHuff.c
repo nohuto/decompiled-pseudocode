@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferXpressHuff @ 0x140377520
+ * XREFs of RtlCompressBufferXpressHuff @ 0x140365D90
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompressBufferXpressHuffStandard @ 0x140377590 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1405F0724 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x140365E00 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x140591144 (RtlCompressBufferXpressHuffMax.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressHuff(

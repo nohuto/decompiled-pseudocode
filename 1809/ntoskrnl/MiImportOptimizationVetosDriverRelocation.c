@@ -3,8 +3,8 @@
  * Callers:
  *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x1401B5FB8 (RtlIsImageFullyRetpolined.c)
- *     MiDoesDriverProvideImportsForDriver @ 0x1409F70F0 (MiDoesDriverProvideImportsForDriver.c)
+ *     RtlIsImageFullyRetpolined @ 0x1401B5FD8 (RtlIsImageFullyRetpolined.c)
+ *     MiDoesDriverProvideImportsForDriver @ 0x1409F7100 (MiDoesDriverProvideImportsForDriver.c)
  */
 
 __int64 __fastcall MiImportOptimizationVetosDriverRelocation(__int64 a1)

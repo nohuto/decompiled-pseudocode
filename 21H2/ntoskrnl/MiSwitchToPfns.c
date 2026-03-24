@@ -1,128 +1,211 @@
 /*
- * XREFs of MiSwitchToPfns @ 0x140AF522C
+ * XREFs of MiSwitchToPfns @ 0x140A43AD8
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     KeFlushTb @ 0x1402F391C (KeFlushTb.c)
- *     MiSetPfnPteFrame @ 0x14033C3E0 (MiSetPfnPteFrame.c)
- *     MiCreatePfnTemplate @ 0x1403B770C (MiCreatePfnTemplate.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HvlChangeIsolatedMemoryVisibility @ 0x140653C40 (HvlChangeIsolatedMemoryVisibility.c)
- *     MiCreateFreePfns @ 0x140AF5384 (MiCreateFreePfns.c)
- *     MiCreateDescriptorPfns @ 0x140AF5940 (MiCreateDescriptorPfns.c)
+ *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x1403B14C0 (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
+ *     MiCreateFreePfns @ 0x140A43D50 (MiCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
  */
 
-__int64 __fastcall MiSwitchToPfns(__int64 a1)
+__int64 __fastcall MiSwitchToPfns(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // r8
-  __int64 v3; // rcx
-  unsigned __int64 v4; // rbx
-  unsigned __int64 v5; // rcx
-  _QWORD *v6; // rcx
-  unsigned __int64 v7; // rdx
-  unsigned int v8; // ecx
-  int v9; // eax
-  _QWORD *v10; // rax
-  __int64 v11; // rcx
-  __int64 result; // rax
-  __int64 v13; // rcx
-  __int64 v14; // rbx
+  ULONG_PTR v5; // rdi
+  __int64 *v6; // rsi
+  __int64 *v7; // r14
+  unsigned __int64 v8; // rdi
+  __int64 v9; // r12
+  int v10; // eax
+  ULONG_PTR v11; // r15
+  __int64 v12; // rcx
+  __m128i *v13; // rsi
+  unsigned __int128 v14; // rax
   __int64 v15; // rax
-  unsigned __int64 v16; // rdx
-  __int64 v17; // rcx
-  _OWORD v18[3]; // [rsp+30h] [rbp-9h] BYREF
-  _OWORD v19[3]; // [rsp+60h] [rbp+27h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+A0h] [rbp+67h] BYREF
+  __int64 result; // rax
+  ULONG_PTR v17; // rax
+  ULONG_PTR v18; // rbp
+  unsigned int v19; // r9d
+  unsigned __int64 v20; // rsi
+  __int64 v21; // rcx
+  char v22; // al
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v26; // eax
+  bool v27; // zf
+  _QWORD *v28; // rbp
+  BOOL v29; // r13d
+  __int64 v30; // r8
+  __int128 v31; // [rsp+40h] [rbp-68h] BYREF
+  __int128 v32; // [rsp+50h] [rbp-58h]
+  ULONG_PTR v33; // [rsp+60h] [rbp-48h]
+  __int64 *v34; // [rsp+B0h] [rbp+8h]
+  __int64 *v35; // [rsp+B8h] [rbp+10h]
 
-  memset(v19, 0, sizeof(v19));
-  memset(v18, 0, sizeof(v18));
-  MiCreatePfnTemplate((__int64)v19, 128, 0);
-  MiCreatePfnTemplate((__int64)v18, 256, 0);
-  v3 = 48 * qword_140C590C0 - 0x220000000000LL;
-  if ( !qword_140C590C0 && !*(_WORD *)(v3 + 32) )
+  v33 = 0LL;
+  v31 = 0LL;
+  v32 = 0LL;
+  v5 = MmPfnDatabase + 48 * qword_140C52880;
+  if ( !qword_140C52880 && !*(_WORD *)(v5 + 32) )
   {
-    MiSetPfnPteFrame(v3, 0LL);
-    *(_QWORD *)(v13 + 8) = 0xFFFFF68000000000uLL;
-    *(_QWORD *)(v13 + 24) = *(_QWORD *)(v13 + 24) & 0xC000000000000000uLL | 1;
-    *(_BYTE *)(v13 + 34) = *(_BYTE *)(v13 + 34) & 0xF8 | 5;
-    *(_BYTE *)(v13 + 34) = *(_BYTE *)(v13 + 34) & 0x3F | 0x40;
-    *(_QWORD *)(v13 + 40) |= 0x40000000000000uLL;
-  }
-  v14 = a1 + 352;
-  v15 = *(_QWORD *)(v14 + 8);
-  if ( (v15 & 1) == 0 )
-  {
-    v4 = *(_QWORD *)(v14 + 8);
-    while ( 1 )
+    v20 = (unsigned __int8)MiLockPageInline(MmPfnDatabase + 48 * qword_140C52880, a2, a3, a4);
+    *(_QWORD *)(v5 + 40) &= 0xFFFFFFF000000000uLL;
+    v21 = *(_QWORD *)(v5 + 24);
+    *(_QWORD *)(v5 + 8) = 0xFFFFF68000000000uLL;
+    *(_WORD *)(v5 + 32) = 0;
+    v22 = *(_BYTE *)(v5 + 34) & 0xFD;
+    *(_QWORD *)(v5 + 24) = v21 & 0xC000000000000000uLL | 1;
+    *(_BYTE *)(v5 + 34) = v22 | 5;
+    *(_BYTE *)(v5 + 34) = *(_BYTE *)(v5 + 34) & 0x3F | 0x40;
+    *(_QWORD *)(v5 + 40) |= 0x4000000000000uLL;
+    _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( KiIrqlFlags )
     {
-LABEL_8:
-      if ( !v4 )
-        goto LABEL_20;
-      v7 = *(int *)(v4 + 24);
-      v8 = *(_DWORD *)(v4 + 24) & 0x1FFFFFFF;
-      if ( v8 == 29 )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        if ( (MiFlags & 0x1000) == 0 )
-          goto LABEL_14;
-      }
-      else if ( v8 == 42 )
-      {
-        v16 = *(_QWORD *)(v4 + 40);
-        v17 = *(_QWORD *)(v4 + 32);
-        BugCheckParameter4 = 0LL;
-        if ( (int)HvlChangeIsolatedMemoryVisibility(v17, v16, v2, &BugCheckParameter4) < 0 )
-          KeBugCheckEx(0x1Au, 0x20B314uLL, *(_QWORD *)(v4 + 32), *(_QWORD *)(v4 + 40), BugCheckParameter4);
-LABEL_14:
-        MiCreateFreePfns(v4);
-        goto LABEL_15;
-      }
-      if ( (v7 & 0x80000000) == 0LL )
-      {
-        if ( v8 <= 0x18 )
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v20 <= 0xFu && CurrentIrql >= 2u )
         {
-          v9 = 16777524;
-          if ( _bittest(&v9, v8) )
-            goto LABEL_14;
-        }
-        if ( (unsigned int)v7 > 0x2A || (v11 = 0x5C5C0C00048LL, !_bittest64(&v11, v7)) )
-          MiCreateDescriptorPfns(v4, v19, v18);
-      }
-LABEL_15:
-      v10 = *(_QWORD **)(v4 + 8);
-      v5 = v4;
-      if ( v10 )
-      {
-        v6 = (_QWORD *)*v10;
-        v4 = *(_QWORD *)(v4 + 8);
-        if ( *v10 )
-        {
-          do
-          {
-            v4 = (unsigned __int64)v6;
-            v6 = (_QWORD *)*v6;
-          }
-          while ( v6 );
-        }
-      }
-      else
-      {
-        while ( 1 )
-        {
-          v4 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !v4 || *(_QWORD *)v4 == v5 )
-            break;
-          v5 = v4;
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v20 + 1));
+          v27 = (v26 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v26;
+          if ( v27 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
+    __writecr8(v20);
   }
-  if ( v15 != 1 )
+  v6 = (__int64 *)(a1 + 32);
+  v7 = *(__int64 **)(a1 + 32);
+  v34 = (__int64 *)(a1 + 32);
+  v35 = v7;
+  if ( v7 != (__int64 *)(a1 + 32) )
   {
-    v4 = v15 ^ (v14 | 1);
-    goto LABEL_8;
-  }
+    do
+    {
+      v8 = *((int *)v7 + 4);
+      v9 = v7[4];
+      if ( (v8 & 0x80000000) != 0LL )
+      {
+        *((_DWORD *)v7 + 4) = v8 & 0x7FFFFFFF;
+        goto LABEL_24;
+      }
+      if ( (v8 & 0x40000000) != 0
+        || (unsigned int)v8 <= 0x18 && (v10 = 16777524, _bittest(&v10, v8))
+        || (_DWORD)v8 == 29 && (MiFlags & 0x2000) == 0 )
+      {
+        MiCreateFreePfns(v7);
+        goto LABEL_24;
+      }
+      v11 = v7[3];
+      if ( !v11 )
+      {
+        if ( !--v9 )
+          goto LABEL_24;
+        v11 = 1LL;
+      }
+      if ( (unsigned int)v8 <= 0x22 )
+      {
+        v12 = 0x5C0800040LL;
+        if ( _bittest64(&v12, v8) )
+          goto LABEL_23;
+      }
+      if ( (_DWORD)v8 == 3 )
+      {
+LABEL_57:
+        if ( v11 <= BugCheckParameter3 && v11 + v9 > BugCheckParameter3 + 1 )
+          v7[4] = BugCheckParameter3 - v11 + 1;
+        goto LABEL_24;
+      }
+      if ( (_DWORD)v8 == 22 || (unsigned int)(v8 - 38) <= 2 )
+        goto LABEL_23;
+      v13 = (__m128i *)(48 * v11 - 0x58000000000LL);
+      if ( !v9 )
+        goto LABEL_22;
+      do
+      {
+        v14 = RtlCompareMemoryUlong(v13, 48 * v9, 0) * (unsigned __int128)0xAAAAAAAAAAAAAAABuLL;
+        if ( !(*((_QWORD *)&v14 + 1) >> 5) )
+        {
+          if ( (_DWORD)v8 != 29 && (_DWORD)v8 != 36 )
+            goto LABEL_19;
+          v28 = (_QWORD *)v13->m128i_i64[1];
+          if ( (_DWORD)v8 == 29 )
+          {
+            if ( v28 )
+            {
+              v29 = 0;
+              if ( MiPteInShadowRange(v13->m128i_u64[1]) )
+                v29 = MiPteHasShadow() != 0;
+              *v28 = 0LL;
+              if ( v29 )
+                MiWritePteShadow((__int64)v28, 0LL, v30);
+              v13->m128i_i64[1] = 0LL;
+              v28 = 0LL;
+              goto LABEL_54;
+            }
+LABEL_56:
+            MiInitializeUnusablePfns(v13, 1uLL, 0, 0x80u, 0LL, 0LL, 0);
+          }
+          else
+          {
+LABEL_54:
+            if ( !v28 )
+              goto LABEL_56;
+            MiMarkPfnVerified((ULONG_PTR)v13, 0);
+          }
+LABEL_19:
+          --v9;
+          v15 = 48LL;
+          goto LABEL_20;
+        }
+        v11 = (__int64)v13[0x5800000000LL].m128i_i64 / 48;
+        v17 = MiRestrictRangeToNode(v11, *((_QWORD *)&v14 + 1) >> 5);
+        v18 = v17;
+        if ( (((_DWORD)v8 - 9) & 0xFFFFFFFD) != 0 )
+        {
+          if ( (_DWORD)v8 == 29 || (v19 = 64, (_DWORD)v8 == 36) )
+            v19 = 128;
+          MiInitializeUnusablePfns(v13, v17, 0, v19, 0LL, 0LL, 0);
+        }
+        else
+        {
+          LODWORD(v32) = 2;
+          *((_QWORD *)&v32 + 1) = (__int64)v13[0x5800000000LL].m128i_i64 / 48;
+          v33 = v17;
+          MxCreateFreePfns(&v31);
+        }
+        v9 -= v18;
+        v15 = 48 * v18;
 LABEL_20:
+        v13 = (__m128i *)((char *)v13 + v15);
+      }
+      while ( v9 );
+      v7 = v35;
+LABEL_22:
+      v6 = v34;
+LABEL_23:
+      if ( (_DWORD)v8 == 3 )
+        goto LABEL_57;
+LABEL_24:
+      v7 = (__int64 *)*v7;
+      v35 = v7;
+    }
+    while ( v7 != v6 );
+  }
   result = KeFlushTb(3u, 2u);
-  MiFlags |= 0x20000000u;
+  MiFlags |= 0x8000000u;
   return result;
 }

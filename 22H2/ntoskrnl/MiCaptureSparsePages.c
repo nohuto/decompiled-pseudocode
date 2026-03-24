@@ -1,37 +1,42 @@
 /*
- * XREFs of MiCaptureSparsePages @ 0x140A42F44
+ * XREFs of MiCaptureSparsePages @ 0x1408D85B4
  * Callers:
- *     MiDeleteSparseRange @ 0x140A4318C (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1408D87A0 (MiDeleteSparseRange.c)
  * Callees:
- *     MiLockAndDecrementShareCount @ 0x140211BCC (MiLockAndDecrementShareCount.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiSetPfnLink @ 0x1402DF09C (MiSetPfnLink.c)
+ *     MiLockAndDecrementShareCount @ 0x140263D30 (MiLockAndDecrementShareCount.c)
+ *     MiReadPteShadow @ 0x1402860B0 (MiReadPteShadow.c)
+ *     MiSetPfnLink @ 0x14029880C (MiSetPfnLink.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
  */
 
-__int64 __fastcall MiCaptureSparsePages(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall MiCaptureSparsePages(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rsi
-  unsigned __int64 v4; // rbx
-  unsigned __int64 i; // rbp
-  unsigned __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v5; // rbp
+  unsigned __int64 v6; // rdi
+  unsigned __int64 i; // r14
+  unsigned __int64 PteShadow; // rbx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // r8
+  __int64 v13; // [rsp+58h] [rbp+10h] BYREF
 
-  v3 = 0LL;
-  v4 = a1;
-  for ( i = MiMakeValidPte(a1, qword_140C69810, 1LL); a2; --a2 )
+  v5 = 0LL;
+  v6 = a1;
+  for ( i = MiMakeValidPte(a1, qword_140C4ED80, 1LL, a4); a2; --a2 )
   {
-    v10 = MI_READ_PTE_LOCK_FREE(v4);
-    if ( v10 != i )
+    v13 = MI_READ_PTE_LOCK_FREE(v6);
+    PteShadow = v13;
+    if ( v13 != i )
     {
-      v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v10);
-      MiSetPfnLink((_QWORD *)(48 * ((v6 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL), v3);
-      v3 = v7;
-      MiLockAndDecrementShareCount(48 * v8 - 0x220000000000LL, 0);
+      if ( MiPteInShadowRange((unsigned __int64)&v13) )
+        PteShadow = MiReadPteShadow((unsigned __int64)&v13, PteShadow);
+      MiSetPfnLink((_QWORD *)(48 * ((PteShadow >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL), v5);
+      v5 = v9;
+      MiLockAndDecrementShareCount(48 * v10 - 0x58000000000LL, 0LL, v11);
     }
-    v4 += 8LL;
+    v6 += 8LL;
   }
-  return v3;
+  return v5;
 }

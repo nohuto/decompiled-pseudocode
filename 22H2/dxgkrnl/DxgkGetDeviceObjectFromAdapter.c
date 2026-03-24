@@ -1,49 +1,55 @@
 /*
- * XREFs of DxgkGetDeviceObjectFromAdapter @ 0x1C02C2828
+ * XREFs of DxgkGetDeviceObjectFromAdapter @ 0x1C0217E50
  * Callers:
- *     DxgkHandleIndirectEscape @ 0x1C03A4C34 (DxgkHandleIndirectEscape.c)
+ *     DxgkHandleIndirectEscape @ 0x1C02D5F90 (DxgkHandleIndirectEscape.c)
  * Callees:
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00074A8 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z @ 0x1C02B5BA4 (-AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019574 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z @ 0x1C020C004 (-AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z.c)
  */
 
-__int64 __fastcall DxgkGetDeviceObjectFromAdapter(unsigned int a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall DxgkGetDeviceObjectFromAdapter(unsigned int a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
-  struct DXGADAPTER *v4; // rdi
-  void *v5; // rcx
-  unsigned int v6; // ebx
-  struct DXGADAPTER *v8[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v9[8]; // [rsp+30h] [rbp-28h] BYREF
-  struct DXGADAPTER *v10; // [rsp+38h] [rbp-20h]
-  char v11; // [rsp+40h] [rbp-18h]
+  struct DXGADAPTER *v5; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  void *v8; // rcx
+  unsigned int v9; // ebx
+  __int64 v10; // rax
+  struct DXGADAPTER *v12[2]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v13[8]; // [rsp+30h] [rbp-28h] BYREF
+  struct DXGADAPTER *v14; // [rsp+38h] [rbp-20h]
+  char v15; // [rsp+40h] [rbp-18h]
 
-  v8[0] = 0LL;
-  if ( a1 && (DXGADAPTER_REFERENCE::AssignByHandle(v8, a1), (v4 = v8[0]) != 0LL) )
+  v12[0] = 0LL;
+  if ( a1 && (DXGADAPTER_REFERENCE::AssignByHandle(v12, a1, (__int64)a3, a4), (v5 = v12[0]) != 0LL) )
   {
-    v10 = v8[0];
-    v11 = 0;
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
-    v5 = (void *)*((_QWORD *)v4 + 27);
-    *a3 = v5;
-    if ( v5 )
+    v14 = v12[0];
+    v15 = 0;
+    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
+    v8 = (void *)*((_QWORD *)v5 + 27);
+    *a3 = v8;
+    if ( v8 )
     {
-      ObfReferenceObject(v5);
-      v6 = 0;
+      ObfReferenceObject(v8);
+      v9 = 0;
     }
     else
     {
-      v6 = -1073741130;
-      WdLogSingleEntry2(3LL, v4, -1073741130LL);
+      v10 = WdLogNewEntry5_WdWarning(0LL, v6, v7);
+      *(_QWORD *)(v10 + 24) = v5;
+      v9 = -1073741130;
+      *(_QWORD *)(v10 + 32) = -1073741130LL;
+      WdLogEvent5_WdWarning(v10);
     }
-    if ( v11 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
+    if ( v15 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v13);
   }
   else
   {
-    v6 = -1073741275;
+    v9 = -1073741275;
   }
-  DXGADAPTER_REFERENCE::Assign(v8, 0LL);
-  return v6;
+  DXGADAPTER_REFERENCE::Assign(v12, 0LL);
+  return v9;
 }

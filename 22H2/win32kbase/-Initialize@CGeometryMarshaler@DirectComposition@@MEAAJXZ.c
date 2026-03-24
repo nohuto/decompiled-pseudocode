@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CGeometryMarshaler@DirectComposition@@MEAAJXZ @ 0x1C00B5F10
+ * XREFs of ?Initialize@CGeometryMarshaler@DirectComposition@@MEAAJXZ @ 0x1C00AA600
  * Callers:
  *     <none>
  * Callees:

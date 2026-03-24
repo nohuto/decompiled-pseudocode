@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitDwmStarted@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F16C
+ * XREFs of ?EmitDwmStarted@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EF750
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022FE00 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F03D0 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitDwmStarted(
@@ -26,17 +26,17 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitDwmStarted(
       *(_DWORD *)v8 = 28;
       *(_OWORD *)(v4 + 4) = 0LL;
       *(_QWORD *)(v4 + 20) = 0LL;
-      *((_DWORD *)v4 + 1) = 201;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      v4[12] = (*((_BYTE *)this + 464) & 4) != 0;
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 19);
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 20);
-      *((_DWORD *)v4 + 6) = *((_DWORD *)this + 41);
-      v5 = *((_BYTE *)this + 464);
+      *((_DWORD *)v4 + 1) = 211;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      v4[12] = (*((_BYTE *)this + 456) & 4) != 0;
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 17);
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 18);
+      *((_DWORD *)v4 + 6) = *((_DWORD *)this + 39);
+      v5 = *((_BYTE *)this + 456);
       v6 = *((_DWORD *)this + 4);
       if ( (v5 & 4) != 0 )
         v6 &= ~0x4000000u;
-      *((_BYTE *)this + 464) = v5 & 0xFB;
+      *((_BYTE *)this + 456) = v5 & 0xFB;
       *((_DWORD *)this + 4) = v6 | 0x2000000;
     }
     else

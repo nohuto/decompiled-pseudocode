@@ -1,28 +1,29 @@
 /*
- * XREFs of IovUnloadDrivers @ 0x140AC27F0
+ * XREFs of IovUnloadDrivers @ 0x1409C5300
  * Callers:
- *     IoShutdownSystem @ 0x140A99BF4 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x1409AAF18 (IoShutdownSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwDelayExecution @ 0x14041AD20 (ZwDelayExecution.c)
- *     ObEnumerateObjectsByType @ 0x14097B904 (ObEnumerateObjectsByType.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     IovpUnloadDriver @ 0x140AC2EB8 (IovpUnloadDriver.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwDelayExecution @ 0x1403FA0A0 (ZwDelayExecution.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD3FC (ObEnumerateObjectsByType.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     IovpUnloadDriver @ 0x1409C5A28 (IovpUnloadDriver.c)
  */
 
 __int64 IovUnloadDrivers()
 {
   PVOID *v1; // rbx
-  unsigned int v2; // ebp
+  unsigned int v2; // r14d
   PVOID *v3; // rdi
-  char v4; // dl
-  PVOID *v5; // rdi
-  PVOID *v6; // rsi
-  _DWORD *v7; // rcx
-  PVOID *v8; // rdi
-  PVOID v9; // rcx
-  int v10; // [rsp+40h] [rbp+8h] BYREF
-  int v11; // [rsp+44h] [rbp+Ch]
+  char v4; // bp
+  char v5; // dl
+  PVOID *v6; // rdi
+  PVOID *v7; // rsi
+  struct _DMA_ADAPTER *v8; // rcx
+  PVOID *v9; // rdi
+  struct _DMA_ADAPTER *v10; // rcx
+  int v11; // [rsp+40h] [rbp+8h] BYREF
+  int v12; // [rsp+44h] [rbp+Ch]
 
   if ( !PopShutdownCleanly )
     return 3221225473LL;
@@ -42,53 +43,53 @@ __int64 IovUnloadDrivers()
     }
     else
     {
-      ObfDereferenceObject(v3[1]);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v3[1]);
       ExFreePoolWithTag(v3, 0);
     }
   }
-  while ( 1 )
+  do
   {
     v4 = 0;
-    v5 = 0LL;
+    v5 = 0;
+    v6 = 0LL;
     while ( 1 )
     {
-      v6 = v1;
+      v7 = v1;
       if ( !v1 )
         break;
-      v7 = v1[1];
+      v8 = (struct _DMA_ADAPTER *)v1[1];
       v1 = (PVOID *)*v1;
-      if ( (v7[4] & 1) != 0 )
+      if ( (*(_DWORD *)&v8[1].Version & 1) != 0 )
       {
-        ObfDereferenceObject(v7);
-        ExFreePoolWithTag(v6, 0);
-        v4 = 1;
+        HalPutDmaAdapter(v8);
+        ExFreePoolWithTag(v7, 0);
+        v5 = 1;
       }
       else
       {
-        *v6 = v5;
-        v5 = v6;
+        *v7 = v6;
+        v6 = v7;
       }
     }
-    if ( !v4 )
-      break;
-    v11 = -1;
-    v10 = -100000000;
-    ZwDelayExecution(0LL, (__int64)&v10);
-    v1 = v5;
-    if ( !v5 )
-      goto LABEL_17;
+    if ( v5 )
+    {
+      v12 = -1;
+      v11 = -100000000;
+      ZwDelayExecution(0LL, (__int64)&v11);
+      v4 = 1;
+    }
+    v1 = v6;
   }
-  v1 = v5;
-LABEL_17:
+  while ( v4 == 1 && v6 );
   while ( 1 )
   {
-    v8 = v1;
+    v9 = v1;
     if ( !v1 )
       break;
-    v9 = v1[1];
+    v10 = (struct _DMA_ADAPTER *)v1[1];
     v1 = (PVOID *)*v1;
-    ObfDereferenceObject(v9);
-    ExFreePoolWithTag(v8, 0);
+    HalPutDmaAdapter(v10);
+    ExFreePoolWithTag(v9, 0);
   }
   return v2;
 }

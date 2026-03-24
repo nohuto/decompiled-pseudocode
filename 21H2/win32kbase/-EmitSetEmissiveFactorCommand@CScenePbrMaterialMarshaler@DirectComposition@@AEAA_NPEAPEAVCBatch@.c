@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetEmissiveFactorCommand@CScenePbrMaterialMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0221274
+ * XREFs of ?EmitSetEmissiveFactorCommand@CScenePbrMaterialMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7714
  * Callers:
- *     ?EmitUpdateCommands@CScenePbrMaterialMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0225288 (-EmitUpdateCommands@CScenePbrMaterialMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CScenePbrMaterialMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB6FC (-EmitUpdateCommands@CScenePbrMaterialMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CScenePbrMaterialMarshaler::EmitSetEmissiveFactorCommand(
@@ -22,10 +22,10 @@ char __fastcall DirectComposition::CScenePbrMaterialMarshaler::EmitSetEmissiveFa
     *(_DWORD *)v5 = 24;
     *(_OWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 5) = 0;
-    *((_DWORD *)v3 + 1) = 641;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_QWORD *)(v3 + 12) = *((_QWORD *)this + 10);
-    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 22);
+    *((_DWORD *)v3 + 1) = 636;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_QWORD *)(v3 + 12) = *((_QWORD *)this + 9);
+    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 20);
     *((_DWORD *)this + 4) &= ~0x100u;
     return 1;
   }

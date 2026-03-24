@@ -1,166 +1,192 @@
 /*
- * XREFs of InitFNTCache @ 0x1C00880A0
+ * XREFs of InitFNTCache @ 0x1C00E53A0
  * Callers:
  *     <none>
  * Callees:
- *     QueryFontReg @ 0x1C00883C0 (QueryFontReg.c)
- *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C0088490 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
- *     bSetFntCacheReg @ 0x1C0088514 (bSetFntCacheReg.c)
- *     bServicingStackModifiedFonts @ 0x1C0088694 (bServicingStackModifiedFonts.c)
- *     ComputeFileviewCheckSum @ 0x1C0088700 (ComputeFileviewCheckSum.c)
- *     bFntCacheDisabled @ 0x1C008877C (bFntCacheDisabled.c)
- *     vGetLastBootTimeStatus @ 0x1C00888FC (vGetLastBootTimeStatus.c)
- *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C008895C (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
- *     vGetFontDriverLWT @ 0x1C0088C1C (vGetFontDriverLWT.c)
- *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C0089E94 (-vCleanUpFntCacheInternal@@YAXXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     bInitCacheTable @ 0x1C028A078 (bInitCacheTable.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     QueryFontReg @ 0x1C00E5638 (QueryFontReg.c)
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E5708 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     bFntCacheDisabled @ 0x1C00E57F8 (bFntCacheDisabled.c)
+ *     bServicingStackModifiedFonts @ 0x1C00E5940 (bServicingStackModifiedFonts.c)
+ *     bSetFntCacheReg @ 0x1C00E5994 (bSetFntCacheReg.c)
+ *     vGetLastBootTimeStatus @ 0x1C00E5A14 (vGetLastBootTimeStatus.c)
+ *     ComputeFileviewCheckSum @ 0x1C00E5D48 (ComputeFileviewCheckSum.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E5DB4 (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     vGetFontDriverLWT @ 0x1C00E5EAC (vGetFontDriverLWT.c)
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6238 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     bInitCacheTable @ 0x1C028881C (bInitCacheTable.c)
  */
 
-void __fastcall InitFNTCache(Gre::Base *a1)
+void InitFNTCache()
 {
-  int v1; // edi
-  struct Gre::Base::SESSION_GLOBALS *v2; // rbx
-  __int64 v3; // rcx
-  __int64 v4; // r15
-  __int64 v5; // rax
+  int v0; // ebx
+  __int64 v1; // r8
+  __int64 v2; // r9
   int FontReg; // eax
-  int v7; // r12d
-  const unsigned __int16 *v8; // rcx
-  int *v9; // r9
-  __int64 *v10; // rax
-  __int64 v11; // r13
-  __int64 v12; // rbx
-  __int64 v13; // rdi
-  __int64 v14; // rsi
-  __int64 v15; // r14
-  int v16; // edx
-  USHORT v17; // cx
-  int v18; // edx
-  struct Gre::Base::SESSION_GLOBALS *v19; // rax
+  int v4; // r12d
+  const unsigned __int16 *v5; // rcx
+  int *v6; // r9
+  _DWORD *v7; // rcx
+  __int64 v8; // rbx
+  __int64 v9; // rsi
+  __int64 v10; // r14
+  __int64 v11; // rdi
+  int v12; // edx
+  _DWORD *v13; // r15
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rcx
+  int CurrentServiceSessionId; // eax
+  char v18; // r10
+  _DWORD *v19; // r8
+  unsigned __int64 v20; // rdx
+  int v21; // eax
+  int v22; // eax
   int inited; // eax
-  struct Gre::Base::SESSION_GLOBALS *v21; // [rsp+40h] [rbp-38h]
-  __int64 v22; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v23; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v24; // [rsp+58h] [rbp-20h]
-  __int64 v25; // [rsp+60h] [rbp-18h]
-  __int64 v26; // [rsp+68h] [rbp-10h] BYREF
+  int v24; // ecx
+  __int64 v25; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v26; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v27; // [rsp+50h] [rbp-28h]
+  __int64 v28; // [rsp+58h] [rbp-20h]
+  _QWORD v29[3]; // [rsp+60h] [rbp-18h] BYREF
   USHORT AnsiCodePage; // [rsp+C0h] [rbp+48h] BYREF
   USHORT OemCodePage; // [rsp+C8h] [rbp+50h] BYREF
-  __int64 *v29; // [rsp+D0h] [rbp+58h]
-  int v30; // [rsp+D8h] [rbp+60h]
+  int v32; // [rsp+D0h] [rbp+58h]
+  int v33; // [rsp+D8h] [rbp+60h]
 
+  v0 = 0;
+  v28 = 0LL;
+  v27 = 0LL;
+  v26 = 0LL;
+  v29[0] = ghsemFntCache;
   v25 = 0LL;
-  v1 = 0;
-  v24 = 0LL;
-  v23 = 0LL;
-  v22 = 0LL;
-  LODWORD(v29) = 0;
-  v30 = 0;
+  v32 = 0;
+  v33 = 0;
   AnsiCodePage = 0;
   OemCodePage = 0;
-  v2 = Gre::Base::Globals(a1);
-  v21 = v2;
-  v26 = *((_QWORD *)v2 + 8);
-  GreAcquireSemaphore(v26);
-  v4 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
-  *(_DWORD *)(v4 + 19384) = 0;
+  GreAcquireSemaphore(ghsemFntCache);
+  dword_1C0339BE0 = 0;
   if ( (int)GetGreRegKey(
-              (PHANDLE)(v4 + 19408),
+              &ghkeyGreInitialize,
               0xC0000000,
-              L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize") < 0 )
+              L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize") < 0
+    || (unsigned int)bFntCacheDisabled() )
+  {
+LABEL_43:
+    v2 = qword_1C0339BE8;
     goto LABEL_19;
-  if ( (unsigned int)bFntCacheDisabled() )
+  }
+  qword_1C0339BE8 = (__int64)PALLOCMEM2(0x80uLL, 1128682580LL, 1);
+  v2 = qword_1C0339BE8;
+  if ( !qword_1C0339BE8 )
     goto LABEL_19;
-  v5 = Win32AllocPoolZInit(128LL, 1128682580LL);
-  *(_QWORD *)(v4 + 19392) = v5;
-  if ( !v5 || *((_DWORD *)v2 + 752) && !(unsigned int)bSetFntCacheReg(0LL, 1LL) )
-    goto LABEL_19;
-  **(_QWORD **)(v4 + 19392) = 0LL;
-  *(_DWORD *)(*(_QWORD *)(v4 + 19392) + 8LL) = 0;
-  *(_DWORD *)(*(_QWORD *)(v4 + 19392) + 20LL) = 0;
+  if ( G_fServiceSession )
+  {
+    v21 = bSetFntCacheReg(0LL, 1LL, v1, qword_1C0339BE8);
+    v2 = qword_1C0339BE8;
+    if ( !v21 )
+      goto LABEL_19;
+  }
+  *(_QWORD *)v2 = 0LL;
+  *(_DWORD *)(v2 + 8) = 0;
+  *(_DWORD *)(v2 + 20) = 0;
   RtlGetDefaultCodePage(&AnsiCodePage, &OemCodePage);
   vGetLastBootTimeStatus();
-  vGetFontDriverLWT(&v23, &v22);
+  vGetFontDriverLWT(&v26, &v25);
   FontReg = QueryFontReg(L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts");
-  v7 = (int)v29;
+  v4 = v32;
   if ( FontReg )
   {
-    v7 = (_DWORD)v29 + 40;
+    v4 = v32 + 40;
     QueryFontReg(L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Type 1 Installer\\Type 1 Fonts");
-    v1 = v30;
+    v0 = v33;
   }
-  if ( !(unsigned int)bServicingStackModifiedFonts()
-    && bMapFileRetainHandle(v8, (struct _FILEVIEW *)(*(_QWORD *)(v4 + 19392) + 48LL), 0, v9) )
+  if ( (unsigned int)bServicingStackModifiedFonts()
+    || !bMapFileRetainHandle(v5, (struct _FILEVIEW *)(qword_1C0339BE8 + 48), 0, v6) )
   {
-    **(_QWORD **)(v4 + 19392) = *(_QWORD *)(*(_QWORD *)(v4 + 19392) + 56LL);
+    v2 = qword_1C0339BE8;
   }
-  v10 = *(__int64 **)(v4 + 19392);
-  v29 = v10;
-  v11 = *v10;
-  if ( !*v10 )
+  else
   {
-    if ( !*((_DWORD *)v2 + 752) )
+    v2 = qword_1C0339BE8;
+    *(_QWORD *)qword_1C0339BE8 = *(_QWORD *)(qword_1C0339BE8 + 56);
+  }
+  v7 = *(_DWORD **)v2;
+  if ( !*(_QWORD *)v2 )
+  {
+    if ( !G_fServiceSession )
       goto LABEL_19;
-    inited = bInitCacheTable(v7, v1, v25, v24, v23, v22, AnsiCodePage);
-LABEL_36:
+    inited = bInitCacheTable(v4, v0, v28, v27, v26, v25, AnsiCodePage);
+    v24 = dword_1C0339BE0;
     if ( inited )
-      *(_DWORD *)(v4 + 19384) = 2;
-    goto LABEL_19;
+      v24 = 2;
+    dword_1C0339BE0 = v24;
+    goto LABEL_43;
   }
-  v12 = v25;
-  v13 = v24;
-  v14 = v23;
-  v15 = v22;
-  if ( !*(_DWORD *)v11
-    || (v16 = *((_DWORD *)v10 + 18), v16 != *(_DWORD *)(v11 + 24))
-    || *(_DWORD *)v11 != (unsigned int)ComputeFileviewCheckSum(v11 + 4, (unsigned int)(v16 - 4))
-    || *(_QWORD *)(v11 + 48) != v15 )
+  v8 = v28;
+  v9 = v27;
+  v10 = v26;
+  v11 = v25;
+  if ( *v7 )
   {
-    v17 = AnsiCodePage;
-    goto LABEL_33;
+    v12 = *(_DWORD *)(v2 + 72);
+    if ( v12 == v7[6] )
+    {
+      v13 = *(_DWORD **)v2;
+      if ( *v13 == (unsigned int)ComputeFileviewCheckSum(v7 + 1, (unsigned int)(v12 - 4)) && *((_QWORD *)v13 + 6) == v11 )
+      {
+        v2 = qword_1C0339BE8;
+        if ( v13[3] == AnsiCodePage )
+        {
+          v16 = *(unsigned int *)(qword_1C0339BE8 + 12);
+          if ( (v16 & 1) == 0
+            && (!G_fServiceSession
+             || (v16 & 2) == 0
+             && *((_QWORD *)v13 + 5) == v10
+             && v8 == *((_QWORD *)v13 + 7)
+             && v9 == *((_QWORD *)v13 + 8)) )
+          {
+            dword_1C0339BE0 = 1;
+            CurrentServiceSessionId = RtlGetCurrentServiceSessionId(v16, v14, v15, qword_1C0339BE8);
+            v2 = qword_1C0339BE8;
+            if ( CurrentServiceSessionId && v8 == *(_QWORD *)(*(_QWORD *)qword_1C0339BE8 + 56LL) )
+              dword_1C0339BE0 |= 4u;
+            goto LABEL_19;
+          }
+        }
+      }
+      else
+      {
+        v2 = qword_1C0339BE8;
+      }
+    }
   }
-  v17 = AnsiCodePage;
-  if ( *(_DWORD *)(v11 + 12) != AnsiCodePage )
+  if ( G_fServiceSession )
   {
-LABEL_33:
-    v19 = v21;
-LABEL_34:
-    if ( !*((_DWORD *)v19 + 752) )
-      goto LABEL_19;
-    inited = bInitCacheTable(v7, v30, v12, v13, v14, v15, v17);
-    goto LABEL_36;
+    v22 = bInitCacheTable(v4, v33, v8, v9, v10, v11, AnsiCodePage);
+    v2 = qword_1C0339BE8;
+    if ( v22 )
+      dword_1C0339BE0 = 2;
   }
-  v18 = *((_DWORD *)v29 + 3);
-  v19 = v21;
-  if ( (v18 & 1) != 0
-    || *((_DWORD *)v21 + 752)
-    && ((v18 & 2) != 0 || *(_QWORD *)(v11 + 40) != v14 || v12 != *(_QWORD *)(v11 + 56) || v13 != *(_QWORD *)(v11 + 64)) )
-  {
-    goto LABEL_34;
-  }
-  *(_DWORD *)(v4 + 19384) = 1;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() && v12 == *(_QWORD *)(**(_QWORD **)(v4 + 19392) + 56LL) )
-    *(_DWORD *)(v4 + 19384) |= 4u;
 LABEL_19:
-  if ( (*(_DWORD *)(v4 + 19384) & 3) != 0 )
+  v18 = dword_1C0339BE0;
+  if ( (dword_1C0339BE0 & 3) != 0 )
   {
-    *(_QWORD *)(*(_QWORD *)(v4 + 19392) + 24LL) = **(_QWORD **)(v4 + 19392)
-                                                + ((80LL * *(unsigned int *)(**(_QWORD **)(v4 + 19392) + 16LL) + 327) & 0xFFFFFFFFFFFFFFF8uLL);
-    *(_QWORD *)(*(_QWORD *)(v4 + 19392) + 32LL) = *(_QWORD *)(*(_QWORD *)(v4 + 19392) + 24LL)
-                                                + *(unsigned int *)(**(_QWORD **)(v4 + 19392) + 36LL);
-    *(_QWORD *)(*(_QWORD *)(v4 + 19392) + 40LL) = *(_QWORD *)(*(_QWORD *)(v4 + 19392) + 24LL)
-                                                + *(unsigned int *)(**(_QWORD **)(v4 + 19392) + 28LL)
-                                                + (unsigned __int64)*(unsigned int *)(**(_QWORD **)(v4 + 19392) + 32LL);
-    *(_DWORD *)(*(_QWORD *)(v4 + 19392) + 8LL) = *(_DWORD *)(**(_QWORD **)(v4 + 19392) + 20LL);
-    if ( (*(_DWORD *)(v4 + 19384) & 1) != 0 )
-      bSetFntCacheReg(0LL, 0LL);
+    v19 = *(_DWORD **)v2;
+    v20 = *(_QWORD *)v2 + ((80LL * *(unsigned int *)(*(_QWORD *)v2 + 16LL) + 327) & 0xFFFFFFFFFFFFFFF8uLL);
+    *(_QWORD *)(v2 + 24) = v20;
+    *(_QWORD *)(v2 + 32) = v20 + (unsigned int)v19[9];
+    *(_QWORD *)(v2 + 40) = v20 + (unsigned int)v19[8] + (unsigned int)v19[7];
+    *(_DWORD *)(v2 + 8) = v19[5];
+    if ( (v18 & 1) != 0 )
+      bSetFntCacheReg(0LL, 0LL, v19, v2);
     else
-      *(_DWORD *)(*(_QWORD *)(v4 + 19392) + 16LL) = 0;
+      *(_DWORD *)(v2 + 16) = 0;
   }
   else
   {
     vCleanUpFntCacheInternal();
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v26);
+  SEMOBJ::vUnlock((SEMOBJ *)v29);
 }

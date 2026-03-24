@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C015195C
+ * XREFs of ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C01E3E14
  * Callers:
- *     PhysicalToLogicalInPlaceRgnWorker @ 0x1C0032864 (PhysicalToLogicalInPlaceRgnWorker.c)
- *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C00A4994 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     PhysicalToLogicalInPlaceRgnWorker @ 0x1C0073000 (PhysicalToLogicalInPlaceRgnWorker.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C0115A04 (LogicalToPhysicalInPlaceRgnWorker.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall TransformRgn(HRGN a1, struct tagXFORM *a2)
   v6 = RegionData;
   if ( RegionData > 0 )
   {
-    v7 = Win32AllocPoolZInit(RegionData, 1919775573LL);
+    v7 = Win32AllocPool(RegionData, 1919775573LL);
     v8 = (void *)v7;
     if ( v7 )
     {

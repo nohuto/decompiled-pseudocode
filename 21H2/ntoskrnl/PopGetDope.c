@@ -1,24 +1,25 @@
 /*
- * XREFs of PopGetDope @ 0x14025A904
+ * XREFs of PopGetDope @ 0x140399D04
  * Callers:
- *     PoRegisterDeviceForIdleDetection @ 0x1402D3A70 (PoRegisterDeviceForIdleDetection.c)
- *     PoVolumeDevice @ 0x140810F24 (PoVolumeDevice.c)
- *     PopAssociateThermalRequest @ 0x1408294F0 (PopAssociateThermalRequest.c)
- *     PopDeactiveThermalRequest @ 0x14098B5B8 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x14098B868 (PopOrphanCoolingExtension.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x140361200 (PoRegisterDeviceForIdleDetection.c)
+ *     PoVolumeDevice @ 0x14078028C (PoVolumeDevice.c)
+ *     PopAssociateThermalRequest @ 0x140790A20 (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2BE8 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x1408E2E98 (PopOrphanCoolingExtension.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopGetDope(__int64 a1)
 {
   __int64 v1; // rdi
-  __int64 Pool2; // rax
-  void *v4; // rbx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v4; // rbx
   unsigned __int64 v5; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -29,15 +30,14 @@ __int64 __fastcall PopGetDope(__int64 a1)
   v1 = *(_QWORD *)(a1 + 312);
   if ( !*(_QWORD *)(v1 + 24) )
   {
-    Pool2 = ExAllocatePool2(64LL, 96LL, 1162891076LL);
-    v4 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x45504F44u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 52) = 0;
-      *(_DWORD *)(Pool2 + 56) = 0;
-      *(_QWORD *)(Pool2 + 40) = Pool2 + 32;
-      *(_QWORD *)(Pool2 + 32) = Pool2 + 32;
-      *(_QWORD *)(Pool2 + 24) = a1;
+      memset(PoolWithTag, 0, 0x60uLL);
+      v4[3] = a1;
+      v4[5] = v4 + 4;
+      v4[4] = v4 + 4;
       v5 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
       if ( !*(_QWORD *)(v1 + 24) )
       {

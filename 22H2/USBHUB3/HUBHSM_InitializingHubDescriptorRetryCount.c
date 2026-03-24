@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_InitializingHubDescriptorRetryCount @ 0x1C0009980
+ * XREFs of HUBHSM_InitializingHubDescriptorRetryCount @ 0x1C00091C0
  * Callers:
  *     <none>
  * Callees:

@@ -4,12 +4,12 @@
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
  *     RtlDispatchException @ 0x1400A0F40 (RtlDispatchException.c)
  *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
- *     RtlUnwind @ 0x1401374F0 (RtlUnwind.c)
- *     RtlRaiseException @ 0x1402ED740 (RtlRaiseException.c)
+ *     RtlUnwind @ 0x140137510 (RtlUnwind.c)
+ *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x1400A2070 (RtlpValidateContextFlags.c)
- *     RtlpGetEntireXStateAreaLength @ 0x140141ACC (RtlpGetEntireXStateAreaLength.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlpGetEntireXStateAreaLength @ 0x140141AEC (RtlpGetEntireXStateAreaLength.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall RtlInitializeExtendedContext2(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4)

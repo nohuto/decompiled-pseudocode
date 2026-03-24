@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSelectSessionAttachProcess @ 0x1402C1EB8
+ * XREFs of MiSelectSessionAttachProcess @ 0x14020653C
  * Callers:
- *     MmGetSessionById @ 0x1402C1E00 (MmGetSessionById.c)
- *     MiReferenceOwningSession @ 0x140348B5C (MiReferenceOwningSession.c)
- *     MiGetNextSession @ 0x14035E6B8 (MiGetNextSession.c)
- *     MiLockAndSelectSessionAttachProcess @ 0x140631B54 (MiLockAndSelectSessionAttachProcess.c)
+ *     MmGetSessionById @ 0x1402063D0 (MmGetSessionById.c)
+ *     MiGetNextSession @ 0x140263DF8 (MiGetNextSession.c)
+ *     MiReferenceOwningSession @ 0x1402EC5CC (MiReferenceOwningSession.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x140538F10 (MiLockAndSelectSessionAttachProcess.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
  */
 
 _QWORD *__fastcall MiSelectSessionAttachProcess(__int64 a1)
@@ -15,7 +15,7 @@ _QWORD *__fastcall MiSelectSessionAttachProcess(__int64 a1)
   _QWORD *i; // rbx
   _QWORD *v3; // rdi
 
-  if ( *(_QWORD *)(a1 + 608) && (*(_DWORD *)(a1 + 4) & 2) == 0 )
+  if ( *(_QWORD *)(a1 + 680) && (*(_DWORD *)(a1 + 4) & 2) == 0 )
   {
     v1 = (_QWORD *)(a1 + 16);
     for ( i = *(_QWORD **)(a1 + 16); i != v1; i = (_QWORD *)*i )

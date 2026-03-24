@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14022CCD0
+ * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14024E2B0
  * Callers:
- *     AuthzBasepQuerySecurityAttributesToken @ 0x14022CB90 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x14024E170 (AuthzBasepQuerySecurityAttributesToken.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0E0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x1403462F4 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14024E560 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14024E62C (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
  */
 
 __int64 __fastcall AuthzBasepGetSecurityAttributesCopyoutBufferSize(
@@ -14,89 +14,80 @@ __int64 __fastcall AuthzBasepGetSecurityAttributesCopyoutBufferSize(
         unsigned int a3,
         ULONGLONG *a4)
 {
-  __int64 v8; // r8
-  ULONGLONG v9; // rbx
-  unsigned int v10; // edi
+  NTSTATUS SecurityAttributeValueCopyoutBufferSize; // r10d
+  unsigned __int64 v9; // rax
+  ULONGLONG v10; // rbx
+  unsigned int v11; // ebp
   __int64 SecurityAttribute; // rax
-  __int64 v12; // r8
-  NTSTATUS v14; // eax
+  unsigned __int64 v14; // rdx
   unsigned int *v15; // rdi
-  unsigned __int64 v16; // rcx
-  __int64 v17; // rdx
-  int SecurityAttributeValueCopyoutBufferSize; // eax
-  unsigned __int64 v19; // rdx
-  __int64 v20; // rax
-  ULONGLONG pullResult; // [rsp+58h] [rbp+38h] BYREF
+  unsigned int *v16; // r14
+  unsigned __int64 v17; // rcx
+  ULONGLONG pullResult; // [rsp+48h] [rbp+10h] BYREF
 
+  SecurityAttributeValueCopyoutBufferSize = 0;
   pullResult = 0LL;
   if ( !a2 )
   {
-    v14 = RtlULongLongMult(0x28uLL, *a1, &pullResult);
-    v8 = (unsigned int)v14;
-    if ( v14 < 0 )
-      return (unsigned int)v8;
-    v9 = pullResult + 16;
+    SecurityAttributeValueCopyoutBufferSize = RtlULongLongMult(0x28uLL, *a1, &pullResult);
+    if ( SecurityAttributeValueCopyoutBufferSize < 0 )
+      return (unsigned int)SecurityAttributeValueCopyoutBufferSize;
+    v10 = pullResult + 16;
     if ( pullResult < 0xFFFFFFFFFFFFFFF0uLL )
     {
       v15 = (unsigned int *)*((_QWORD *)a1 + 1);
-      while ( v15 != a1 + 2 )
+      v16 = a1 + 2;
+      if ( v15 == v16 )
+        goto LABEL_20;
+      while ( 1 )
       {
-        v16 = (v9 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
-        if ( v16 < v9 )
-          goto LABEL_21;
-        v17 = *((unsigned __int16 *)v15 + 16);
-        if ( v17 + v16 < v16 )
-          goto LABEL_21;
-        pullResult = v17 + v16;
-        SecurityAttributeValueCopyoutBufferSize = AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(
-                                                    v15,
-                                                    &pullResult,
-                                                    v8);
-        v8 = (unsigned int)SecurityAttributeValueCopyoutBufferSize;
+        v17 = (v10 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
+        if ( v17 < v10 || v17 + *((unsigned __int16 *)v15 + 16) < v17 )
+          break;
+        pullResult = v17 + *((unsigned __int16 *)v15 + 16);
+        SecurityAttributeValueCopyoutBufferSize = AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(v15, &pullResult);
         if ( SecurityAttributeValueCopyoutBufferSize < 0 )
-          return (unsigned int)v8;
+          return (unsigned int)SecurityAttributeValueCopyoutBufferSize;
         v15 = *(unsigned int **)v15;
-        v9 = pullResult;
+        v10 = pullResult;
+        if ( v15 == v16 )
+          goto LABEL_20;
       }
-      goto LABEL_20;
     }
-LABEL_21:
-    LODWORD(v8) = -1073741675;
-    return (unsigned int)v8;
+    return (unsigned int)-1073741675;
   }
-  LODWORD(v8) = RtlULongLongMult(0x28uLL, a3, &pullResult);
-  if ( (int)v8 < 0 )
-    return (unsigned int)v8;
-  v9 = pullResult + 16;
-  if ( pullResult >= 0xFFFFFFFFFFFFFFF0uLL )
-    goto LABEL_21;
-  v10 = 0;
+  pullResult = 0LL;
+  v9 = 40LL * a3;
+  if ( !is_mul_ok(0x28uLL, a3) )
+    return (unsigned int)-1073741675;
+  v10 = v9 + 16;
+  if ( v9 >= 0xFFFFFFFFFFFFFFF0uLL )
+    return (unsigned int)-1073741675;
+  v11 = 0;
   if ( !a3 )
   {
 LABEL_20:
-    *a4 = v9;
-    return (unsigned int)v8;
+    *a4 = v10;
+    return (unsigned int)SecurityAttributeValueCopyoutBufferSize;
   }
-  while ( 1 )
+  do
   {
-    SecurityAttribute = AuthzBasepFindSecurityAttribute(a1, a2 + 16LL * v10);
-    v12 = SecurityAttribute;
+    SecurityAttribute = AuthzBasepFindSecurityAttribute(a1, a2 + 16LL * v11);
     if ( !SecurityAttribute )
-      break;
-    v19 = (v9 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
-    if ( v19 < v9 )
-      goto LABEL_21;
-    v20 = *(unsigned __int16 *)(SecurityAttribute + 32);
-    if ( v20 + v19 < v19 )
-      goto LABEL_21;
-    pullResult = v19 + v20;
-    LODWORD(v8) = AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(v12, &pullResult, v12);
-    if ( (int)v8 < 0 )
-      return (unsigned int)v8;
-    v9 = pullResult;
-    if ( ++v10 >= a3 )
-      goto LABEL_20;
+      return (unsigned int)-1073741275;
+    v14 = (v10 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
+    if ( v14 < v10 || v14 + *(unsigned __int16 *)(SecurityAttribute + 32) < v14 )
+      return (unsigned int)-1073741675;
+    pullResult = v14 + *(unsigned __int16 *)(SecurityAttribute + 32);
+    SecurityAttributeValueCopyoutBufferSize = AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(
+                                                SecurityAttribute,
+                                                &pullResult);
+    if ( SecurityAttributeValueCopyoutBufferSize < 0 )
+      return (unsigned int)SecurityAttributeValueCopyoutBufferSize;
+    v10 = pullResult;
+    ++v11;
   }
-  LODWORD(v8) = -1073741275;
-  return (unsigned int)v8;
+  while ( v11 < a3 );
+  *a4 = pullResult;
+  return (unsigned int)SecurityAttributeValueCopyoutBufferSize;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of BiExportStoreAlterationsToEfi @ 0x1408F39F8
+ * XREFs of BiExportStoreAlterationsToEfi @ 0x1408F39D8
  * Callers:
- *     BiExportStoreAlterationsToFirmware @ 0x1406E1964 (BiExportStoreAlterationsToFirmware.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x1406E1944 (BiExportStoreAlterationsToFirmware.c)
  * Callees:
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiBuildIdentifierList @ 0x1408F2488 (BiBuildIdentifierList.c)
- *     BiExportBcdObjects @ 0x1408F3580 (BiExportBcdObjects.c)
- *     BiExportEfiBootManager @ 0x1408F36A8 (BiExportEfiBootManager.c)
- *     BiFreeIdentifierList @ 0x1408F3A98 (BiFreeIdentifierList.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiBuildIdentifierList @ 0x1408F2468 (BiBuildIdentifierList.c)
+ *     BiExportBcdObjects @ 0x1408F3560 (BiExportBcdObjects.c)
+ *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
+ *     BiFreeIdentifierList @ 0x1408F3A78 (BiFreeIdentifierList.c)
  */
 
 __int64 __fastcall BiExportStoreAlterationsToEfi(__int64 a1)

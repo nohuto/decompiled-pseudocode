@@ -4,14 +4,14 @@
  *     MiRebaseDynamicRelocationRegions @ 0x1409D241C (MiRebaseDynamicRelocationRegions.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
- *     MiIsRetpolineEnabled @ 0x1400DA550 (MiIsRetpolineEnabled.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlUpdateImportRelocationsInImage @ 0x1401B5FEC (RtlUpdateImportRelocationsInImage.c)
- *     RtlLookupImageSectionByName @ 0x1402F3F30 (RtlLookupImageSectionByName.c)
- *     RtlCopyRetpolineStubsUnwindInfo @ 0x1402F6734 (RtlCopyRetpolineStubsUnwindInfo.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F6FA4 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1401B600C (RtlUpdateImportRelocationsInImage.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4030 (RtlLookupImageSectionByName.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1402F6834 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4 (RtlPerformRetpolineRelocationsOnImageEx.c)
  *     MiSetRetpolineRoutines @ 0x1409AAF7C (MiSetRetpolineRoutines.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpDispatchEvacuateDevices @ 0x1409A6940
+ * XREFs of TtmpDispatchEvacuateDevices @ 0x140900D64
  * Callers:
- *     TtmDispatchApi @ 0x1409A6270 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140900694 (TtmDispatchApi.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmiEvacuateDevices @ 0x1409A1D08 (TtmiEvacuateDevices.c)
- *     TtmiScheduleSessionWorker @ 0x1409A4D70 (TtmiScheduleSessionWorker.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A651C (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     TtmiEvacuateDevices @ 0x1408FC2A8 (TtmiEvacuateDevices.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900934 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchEvacuateDevices(__int64 a1)
@@ -18,16 +18,16 @@ __int64 __fastcall TtmpDispatchEvacuateDevices(__int64 a1)
   int v2; // eax
   unsigned int v3; // ebx
   __int64 v5; // [rsp+40h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = *(void **)(a1 + 8);
   v5 = 0LL;
-  Object = 0LL;
-  v2 = TtmpAcquireSessionFromTerminalHandle(v1, 0, 1, &v5, &Object);
+  DmaAdapter = 0LL;
+  v2 = TtmpAcquireSessionFromTerminalHandle(v1, 0, 1, &v5, (__int64 *)&DmaAdapter);
   v3 = v2;
   if ( v2 >= 0 )
   {
-    if ( TtmiEvacuateDevices(v5, (__int64)Object) )
+    if ( TtmiEvacuateDevices(v5, (__int64)DmaAdapter) )
       TtmiScheduleSessionWorker(v5, 1);
     v3 = 0;
   }
@@ -40,7 +40,7 @@ __int64 __fastcall TtmpDispatchEvacuateDevices(__int64 a1)
     ExReleaseResourceLite(&TtmpSessionLock);
     KeLeaveCriticalRegion();
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return v3;
 }

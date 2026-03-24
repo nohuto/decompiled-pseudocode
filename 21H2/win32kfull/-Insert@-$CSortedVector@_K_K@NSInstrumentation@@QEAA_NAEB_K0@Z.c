@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Insert@?$CSortedVector@_K_K@NSInstrumentation@@QEAA_NAEB_K0@Z @ 0x1C00EA2A8
+ * XREFs of ?Insert@?$CSortedVector@_K_K@NSInstrumentation@@QEAA_NAEB_K0@Z @ 0x1C00FE288
  * Callers:
- *     UmfdLoadFontFile @ 0x1C00E9FA0 (UmfdLoadFontFile.c)
+ *     UmfdLoadFontFile @ 0x1C00FDCF0 (UmfdLoadFontFile.c)
  * Callees:
- *     ?LowerBound@?$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z @ 0x1C00EA3C8 (-LowerBound@-$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?ReAllocate@?$CSortedVector@_K_K@NSInstrumentation@@AEAA_N_K@Z @ 0x1C029D0F8 (-ReAllocate@-$CSortedVector@_K_K@NSInstrumentation@@AEAA_N_K@Z.c)
- *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C02DBC10 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
+ *     ?LowerBound@?$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z @ 0x1C00FE3A8 (-LowerBound@-$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?ReAllocate@?$CSortedVector@PEAXPEAX@NSInstrumentation@@AEAA_N_K@Z @ 0x1C029E818 (-ReAllocate@-$CSortedVector@PEAXPEAX@NSInstrumentation@@AEAA_N_K@Z.c)
+ *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C02DD7D8 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
  */
 
 char __fastcall NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int64>::Insert(
@@ -43,8 +43,7 @@ char __fastcall NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int
   else
   {
     v12 = *((_QWORD *)v3 + 4);
-    if ( v8 != v12
-      || (unsigned __int8)NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int64>::ReAllocate(v3, 2 * v12) )
+    if ( v8 != v12 || (unsigned __int8)NSInstrumentation::CSortedVector<void *,void *>::ReAllocate(v3, 2 * v12) )
     {
       memmove(
         (void *)(v9 + *((_QWORD *)v3 + 6) + 16),

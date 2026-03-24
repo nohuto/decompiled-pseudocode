@@ -1,13 +1,14 @@
 /*
- * XREFs of EngCreateWnd @ 0x1C0283EE0
+ * XREFs of EngCreateWnd @ 0x1C0287330
  * Callers:
- *     VerifierEngCreateWnd @ 0x1C029CEC0 (VerifierEngCreateWnd.c)
+ *     VerifierEngCreateWnd @ 0x1C029E5E0 (VerifierEngCreateWnd.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     UserAssociateHwnd @ 0x1C01E318C (UserAssociateHwnd.c)
- *     ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0283684 (--1WO_CLEANUP@@QEAA@XZ.c)
- *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C0283C44 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     UserAssociateHwnd @ 0x1C01E8ABC (UserAssociateHwnd.c)
+ *     ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0286AD8 (--1WO_CLEANUP@@QEAA@XZ.c)
+ *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C0287098 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
  */
 
 WNDOBJ *__stdcall EngCreateWnd(SURFOBJ *pso, HWND hwnd, WNDOBJCHANGEPROC pfn, FLONG fl, INT iPixelFormat)
@@ -19,13 +20,13 @@ WNDOBJ *__stdcall EngCreateWnd(SURFOBJ *pso, HWND hwnd, WNDOBJCHANGEPROC pfn, FL
   TRACKOBJ *v12; // rax
   __int64 i; // rcx
   TRACKOBJ *v14; // rdi
-  __int64 v15; // rax
+  char *v15; // rax
   struct _RECTL *v16; // r13
-  __int64 v17; // rax
+  void *v17; // rax
   __int64 v18; // rsi
-  struct REGION *v19; // rdx
-  struct REGION **v20; // rcx
-  __int64 v21; // rax
+  struct REGION **v19; // rcx
+  struct REGION *v20; // rdx
+  void *v21; // rax
   __int64 v22; // rsi
   __int64 Semaphore; // rax
   FLONG v24; // r15d
@@ -40,7 +41,7 @@ WNDOBJ *__stdcall EngCreateWnd(SURFOBJ *pso, HWND hwnd, WNDOBJCHANGEPROC pfn, FL
   __int64 v34; // [rsp+50h] [rbp-81h] BYREF
   __int64 v35; // [rsp+58h] [rbp-79h] BYREF
   int v36; // [rsp+60h] [rbp-71h] BYREF
-  __int64 v37; // [rsp+68h] [rbp-69h]
+  char *v37; // [rsp+68h] [rbp-69h]
   __int128 v38; // [rsp+70h] [rbp-61h]
   __int128 v39; // [rsp+80h] [rbp-51h]
   __int128 v40; // [rsp+90h] [rbp-41h]
@@ -63,108 +64,110 @@ WNDOBJ *__stdcall EngCreateWnd(SURFOBJ *pso, HWND hwnd, WNDOBJCHANGEPROC pfn, FL
     v35 = ghsemWndobj;
     GreAcquireSemaphore(ghsemWndobj);
     v12 = gpto;
-    if ( gpto )
+LABEL_9:
+    if ( v12 )
     {
-      while ( 2 )
+      for ( i = *((_QWORD *)v12 + 3); ; i = *(_QWORD *)(i + 160) )
       {
-        for ( i = *((_QWORD *)v12 + 3); i; i = *(_QWORD *)(i + 160) )
+        if ( !i )
         {
-          if ( *(HWND *)(i + 176) == hwnd )
-          {
-            if ( *((WNDOBJCHANGEPROC *)v12 + 5) == pfn && *(_DWORD *)(i + 188) == iPixelFormat )
-              v5 = -1LL;
-            goto LABEL_44;
-          }
+          v12 = (TRACKOBJ *)*((_QWORD *)v12 + 1);
+          goto LABEL_9;
         }
-        v12 = (TRACKOBJ *)*((_QWORD *)v12 + 1);
-        if ( v12 )
-          continue;
-        break;
-      }
-      v14 = gpto;
-      do
-      {
-        if ( *((_QWORD *)v14 + 4) == v8 && *((WNDOBJCHANGEPROC *)v14 + 5) == pfn )
+        if ( *(HWND *)(i + 176) == hwnd )
           break;
-        v14 = (TRACKOBJ *)*((_QWORD *)v14 + 1);
       }
-      while ( v14 );
-      if ( v14 )
-        goto LABEL_25;
+      if ( *((WNDOBJCHANGEPROC *)v12 + 5) == pfn && *(_DWORD *)(i + 188) == iPixelFormat )
+        v5 = -1LL;
+      goto LABEL_45;
     }
-    v15 = Win32AllocPoolZInit(72LL, 1684961095LL);
-    v14 = (TRACKOBJ *)v15;
-    if ( !v15 )
-      goto LABEL_44;
-    v37 = v15;
-    v16 = (struct _RECTL *)(v15 + 52);
-    *(_DWORD *)(v15 + 52) = 0;
-    *(_DWORD *)v15 = 1128354388;
-    *(_QWORD *)(v15 + 16) = 0LL;
-    *(_QWORD *)(v15 + 24) = 0LL;
-    *(_QWORD *)(v15 + 32) = v8;
-    *(_QWORD *)(v15 + 40) = pfn;
-    *(_DWORD *)(v15 + 48) = fl;
-    *(_DWORD *)(v15 + 56) = 0;
-    *(_DWORD *)(v15 + 60) = *(_DWORD *)(v8 + 56);
-    *(_DWORD *)(v15 + 64) = *(_DWORD *)(v8 + 60);
-    if ( (fl & 0xC) != 0 )
+    v14 = gpto;
+    if ( !gpto )
+      goto LABEL_49;
+    do
     {
-      v17 = Win32AllocPoolZInit(208LL, 1684961095LL);
-      v18 = v17;
-      if ( !v17 )
-        goto LABEL_44;
-      *(_QWORD *)&v38 = v17;
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v28, 0, 1);
-      if ( !v28 )
-      {
-        if ( v29 == 1 )
-        {
-          v20 = &v28;
-LABEL_43:
-          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)v20);
-        }
-LABEL_44:
-        SEMOBJ::vUnlock((SEMOBJ *)&v35);
-        goto LABEL_45;
-      }
-      *(_QWORD *)&v39 = v28;
-      RGNOBJ::vSet((RGNOBJ *)&v28, v16);
-      *(_QWORD *)(v18 + 168) = v14;
-      v19 = v28;
-      *((_DWORD *)v19 + 7) = _InterlockedIncrement(*(volatile signed __int32 **)&REGION::ulUniqueREGION);
-      v41 = *v16;
-      EWNDOBJ::vSetClip(v18, v28, &v41);
-      *(_QWORD *)(v18 + 24) = 0LL;
-      *(_DWORD *)(v18 + 152) = 1145984837;
-      *(_QWORD *)(v18 + 160) = 0LL;
-      *(_QWORD *)(v18 + 176) = 0LL;
-      *(_DWORD *)(v18 + 188) = 0;
-      *(_QWORD *)(v18 + 48) = (v8 + 24) & -(__int64)(v8 != 0);
-      *(_DWORD *)(v18 + 184) = fl | 0x20000000;
-      *((_QWORD *)v14 + 2) = v18;
-      if ( v29 == 1 )
-        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v28);
+      if ( *((_QWORD *)v14 + 4) == v8 && *((WNDOBJCHANGEPROC *)v14 + 5) == pfn )
+        break;
+      v14 = (TRACKOBJ *)*((_QWORD *)v14 + 1);
     }
-LABEL_25:
+    while ( v14 );
+    if ( !v14 )
+    {
+LABEL_49:
+      v15 = (char *)PALLOCMEM2(0x48uLL, 1684961095LL, 1);
+      v14 = (TRACKOBJ *)v15;
+      if ( !v15 )
+        goto LABEL_45;
+      v37 = v15;
+      v16 = (struct _RECTL *)(v15 + 52);
+      *((_DWORD *)v15 + 13) = 0;
+      *(_DWORD *)v15 = 1128354388;
+      *((_QWORD *)v15 + 2) = 0LL;
+      *((_QWORD *)v15 + 3) = 0LL;
+      *((_QWORD *)v15 + 4) = v8;
+      *((_QWORD *)v15 + 5) = pfn;
+      *((_DWORD *)v15 + 12) = fl;
+      *((_DWORD *)v15 + 14) = 0;
+      *((_DWORD *)v15 + 15) = *(_DWORD *)(v8 + 56);
+      *((_DWORD *)v15 + 16) = *(_DWORD *)(v8 + 60);
+      if ( (fl & 0xC) != 0 )
+      {
+        v17 = PALLOCMEM2(0xD0uLL, 1684961095LL, 1);
+        v18 = (__int64)v17;
+        if ( !v17 )
+          goto LABEL_45;
+        *(_QWORD *)&v38 = v17;
+        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v28, 0, 1);
+        if ( !v28 )
+        {
+          if ( v29 == 1 )
+          {
+            v19 = &v28;
+LABEL_44:
+            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)v19);
+            goto LABEL_45;
+          }
+          goto LABEL_45;
+        }
+        *(_QWORD *)&v39 = v28;
+        RGNOBJ::vSet((RGNOBJ *)&v28, v16);
+        *(_QWORD *)(v18 + 168) = v14;
+        v20 = v28;
+        *((_DWORD *)v20 + 7) = _InterlockedIncrement(*(volatile signed __int32 **)&REGION::ulUniqueREGION);
+        v41 = *v16;
+        EWNDOBJ::vSetClip(v18, v28, &v41);
+        *(_QWORD *)(v18 + 24) = 0LL;
+        *(_DWORD *)(v18 + 152) = 1145984837;
+        *(_QWORD *)(v18 + 160) = 0LL;
+        *(_QWORD *)(v18 + 176) = 0LL;
+        *(_DWORD *)(v18 + 188) = 0;
+        *(_QWORD *)(v18 + 48) = (v8 + 24) & -(__int64)(v8 != 0);
+        *(_DWORD *)(v18 + 184) = fl | 0x20000000;
+        *((_QWORD *)v14 + 2) = v18;
+        if ( v29 == 1 )
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v28);
+      }
+    }
     if ( (*((_DWORD *)v14 + 12) & 0x87FFFFF) != fl )
-      goto LABEL_44;
-    v21 = Win32AllocPoolZInit(208LL, 1684961095LL);
-    v22 = v21;
+      goto LABEL_45;
+    v21 = PALLOCMEM2(0xD0uLL, 1684961095LL, 1);
+    v22 = (__int64)v21;
     if ( !v21 )
-      goto LABEL_44;
+      goto LABEL_45;
     *((_QWORD *)&v38 + 1) = v21;
     v43 = 0LL;
     RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v30, 0, 1);
     if ( !v30 )
     {
-LABEL_41:
+LABEL_42:
       if ( v31 == 1 )
       {
-        v20 = &v30;
-        goto LABEL_43;
+        v19 = &v30;
+        goto LABEL_44;
       }
-      goto LABEL_44;
+LABEL_45:
+      SEMOBJ::vUnlock((SEMOBJ *)&v35);
+      goto LABEL_46;
     }
     *((_QWORD *)&v39 + 1) = v30;
     RGNOBJ::vSet((RGNOBJ *)&v30, &v43);
@@ -198,7 +201,7 @@ LABEL_41:
         if ( hwnd )
         {
           if ( !(unsigned int)UserAssociateHwnd((__int64)hwnd, v22) )
-            goto LABEL_39;
+            goto LABEL_40;
         }
         else
         {
@@ -220,12 +223,12 @@ LABEL_41:
         v5 = v22;
       }
     }
-LABEL_39:
+LABEL_40:
     if ( v33 == 1 )
       RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v32);
-    goto LABEL_41;
+    goto LABEL_42;
   }
-LABEL_45:
+LABEL_46:
   WO_CLEANUP::~WO_CLEANUP((WO_CLEANUP *)&v36);
   return (WNDOBJ *)v5;
 }

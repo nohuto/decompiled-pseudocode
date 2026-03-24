@@ -1,63 +1,71 @@
 /*
- * XREFs of MiInitializeSystemVa @ 0x140B635F8
+ * XREFs of MiInitializeSystemVa @ 0x140A4F300
  * Callers:
- *     MmInitSystem @ 0x140B47AB4 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
  * Callees:
- *     MiAssignSoftwareWsleRegion @ 0x14039B11C (MiAssignSoftwareWsleRegion.c)
- *     MiRebaseDynamicRelocationRegions @ 0x140B47664 (MiRebaseDynamicRelocationRegions.c)
- *     MiInitializeTopLevelBitmap @ 0x140B636B4 (MiInitializeTopLevelBitmap.c)
- *     MiAssignTopLevelRanges @ 0x140B6379C (MiAssignTopLevelRanges.c)
- *     MiSetSystemRegionTypes @ 0x140B63B6C (MiSetSystemRegionTypes.c)
+ *     MiAssignSoftwareWsleRegion @ 0x1403B6B00 (MiAssignSoftwareWsleRegion.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140A4F400 (MiRebaseDynamicRelocationRegions.c)
+ *     MiConvertAssignedRegionToVaType @ 0x140A50824 (MiConvertAssignedRegionToVaType.c)
+ *     MiAssignTopLevelRanges @ 0x140A508A8 (MiAssignTopLevelRanges.c)
+ *     MiInitializeTopLevelBitmap @ 0x140A50CF0 (MiInitializeTopLevelBitmap.c)
  */
 
 __int64 __fastcall MiInitializeSystemVa(__int64 a1)
 {
   unsigned int v2; // edi
   int v3; // ebx
-  __int64 result; // rax
+  int v4; // eax
   unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // r8
+  __int64 *v7; // r9
+  char v8; // al
+  __int64 v9; // rdx
+  int v10; // r8d
+  _QWORD *v11; // r9
+  unsigned __int64 v12; // r11
+  __int64 i; // r10
+  unsigned __int64 v15; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 8) != 0 )
-    LODWORD(MiFlags) = MiFlags | 0x100000;
-  v6 = 0LL;
+    MiFlags |= 0x200000u;
+  v15 = 0LL;
   v2 = 16;
   v3 = 8;
-  while ( 1 )
+  do
   {
-    result = MiInitializeTopLevelBitmap();
-    if ( !(_DWORD)result )
-      return result;
-    result = MiAssignTopLevelRanges(v2, &v6, 0xC8000000000LL);
-    if ( (_DWORD)result )
-      goto LABEL_8;
-    if ( v3 )
+    while ( 1 )
     {
+      MiInitializeTopLevelBitmap();
+      v4 = MiAssignTopLevelRanges(v2, &v15);
+      if ( v4 )
+        goto LABEL_5;
+      if ( !v3 )
+        break;
       --v3;
     }
-    else
-    {
-      v3 = 8;
-LABEL_8:
-      if ( v2 == 1 )
-      {
-        if ( (_DWORD)result )
-        {
-LABEL_10:
-          v5 = v6;
-          if ( !v6 )
-            v5 = 0xFFFFF78000000000uLL;
-          MiAssignSoftwareWsleRegion(a1, v5);
-          MiSetSystemRegionTypes();
-          return MiRebaseDynamicRelocationRegions(a1);
-        }
-        if ( !(_DWORD)dword_140C68038 )
-          LODWORD(dword_140C68038) = 5;
-        return result;
-      }
-      v2 >>= 1;
-      if ( (_DWORD)result )
-        goto LABEL_10;
-    }
+    v3 = 8;
+LABEL_5:
+    v2 >>= 1;
   }
+  while ( !v4 );
+  v5 = v15;
+  if ( !v15 )
+    v5 = 0xFFFFF78000000000uLL;
+  MiAssignSoftwareWsleRegion(a1, v5);
+  LODWORD(v6) = 0;
+  v7 = qword_140C4FAD0;
+  do
+  {
+    v8 = MiConvertAssignedRegionToVaType((unsigned int)v6, (((unsigned __int64)*(v7 - 1) >> 39) & 0x1FF) - 256);
+    for ( i = *v11 >> 39; i; --i )
+    {
+      *(_BYTE *)(v9 + v12 + 12552) = v8;
+      v9 = (unsigned int)(v9 + 1);
+    }
+    v6 = (unsigned int)(v10 + 1);
+    v7 = v11 + 2;
+  }
+  while ( (unsigned int)v6 < 0xD );
+  *(_BYTE *)(((v12 >> 39) & 0x1FF) - 256 + v12 + 12552) = 12;
+  return MiRebaseDynamicRelocationRegions(a1, v9, v6, v7);
 }

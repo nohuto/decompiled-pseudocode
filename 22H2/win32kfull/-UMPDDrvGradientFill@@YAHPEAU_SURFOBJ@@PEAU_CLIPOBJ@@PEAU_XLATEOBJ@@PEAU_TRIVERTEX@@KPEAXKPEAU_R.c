@@ -1,18 +1,19 @@
 /*
- * XREFs of ?UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C02BADC0
+ * XREFs of ?UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C02A9D10
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0299418 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C029955C (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0299CDC (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ?pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z @ 0x1C029A094 (-pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02BEC8C (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02BEF94 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ECD8 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001ED70 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F008 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F424 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z @ 0x1C014E394 (-pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AC618 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 _BOOL8 __fastcall UMPDDrvGradientFill(
@@ -47,22 +48,7 @@ _BOOL8 __fastcall UMPDDrvGradientFill(
   UMPDOBJ *v32; // [rsp+60h] [rbp-A0h] BYREF
   struct _RECTL *v33; // [rsp+68h] [rbp-98h]
   struct _POINTL *v34; // [rsp+70h] [rbp-90h]
-  _DWORD v35[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v36; // [rsp+88h] [rbp-78h]
-  __int64 v37; // [rsp+90h] [rbp-70h]
-  struct _SURFOBJ *v38; // [rsp+98h] [rbp-68h] BYREF
-  void *v39; // [rsp+A0h] [rbp-60h] BYREF
-  struct _XLATEOBJ *v40; // [rsp+A8h] [rbp-58h] BYREF
-  void *v41; // [rsp+B0h] [rbp-50h] BYREF
-  unsigned int v42; // [rsp+B8h] [rbp-48h]
-  int v43; // [rsp+BCh] [rbp-44h]
-  void *v44; // [rsp+C0h] [rbp-40h] BYREF
-  unsigned int v45; // [rsp+C8h] [rbp-38h]
-  int v46; // [rsp+CCh] [rbp-34h]
-  void *v47; // [rsp+D0h] [rbp-30h] BYREF
-  void *v48; // [rsp+D8h] [rbp-28h] BYREF
-  unsigned int v49; // [rsp+E0h] [rbp-20h]
-  int v50; // [rsp+E4h] [rbp-1Ch]
+  _QWORD v35[14]; // [rsp+80h] [rbp-80h] BYREF
 
   v33 = a8;
   v34 = a9;
@@ -73,27 +59,23 @@ _BOOL8 __fastcall UMPDDrvGradientFill(
   XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v32);
   v30 = 0LL;
   v31 = 0LL;
+  memset(v35, 0, 0x68uLL);
   v15 = v32;
-  v36 = 0LL;
-  v43 = 0;
-  v46 = 0;
-  v50 = 0;
   if ( !v32 )
     goto LABEL_31;
-  v35[0] = 104;
-  v35[1] = 68;
-  v37 = *(_QWORD *)v32;
-  v47 = v33;
-  v48 = v34;
-  v41 = a4;
-  v38 = a1;
-  v39 = a2;
-  v40 = a3;
-  v42 = a5;
-  v44 = a6;
-  v45 = a7;
-  v49 = a10;
-  if ( a10 < 2 )
+  v35[0] = 0x4400000068LL;
+  v35[2] = *(_QWORD *)v32;
+  v35[10] = v33;
+  v35[11] = v34;
+  v35[6] = a4;
+  v35[3] = a1;
+  v35[4] = a2;
+  v35[5] = a3;
+  LODWORD(v35[7]) = a5;
+  v35[8] = a6;
+  LODWORD(v35[9]) = a7;
+  LODWORD(v35[12]) = a10;
+  if ( a10 <= 1 )
   {
     v16 = 8;
   }
@@ -104,7 +86,7 @@ _BOOL8 __fastcall UMPDDrvGradientFill(
     v16 = 12;
   }
   v17 = a7 * v16;
-  if ( *((_DWORD *)v32 + 110) )
+  if ( *((_DWORD *)v32 + 106) )
   {
     if ( a3 )
       v18 = ((4 * a3->cEntries + 7) & 0xFFFFFFF8) + 184;
@@ -137,19 +119,19 @@ LABEL_31:
   }
 LABEL_16:
   v24 = 0;
-  if ( (unsigned int)UMPDOBJ::pso(v15, (UMPDOBJ *)((char *)v15 + 64), &v38) )
+  if ( (unsigned int)UMPDOBJ::pso(v15, (UMPDOBJ *)((char *)v15 + 64), (struct _SURFOBJ **)&v35[3]) )
   {
-    if ( (unsigned int)UMPDOBJ::ThunkDDIOBJ(v15, (UMPDOBJ *)((char *)v15 + 112), (const void **)&v39, 0x18u, 0LL) )
+    if ( (unsigned int)UMPDOBJ::ThunkDDIOBJ(v15, (UMPDOBJ *)((char *)v15 + 112), (const void **)&v35[4], 0x18u, 0LL) )
     {
-      if ( (unsigned int)UMPDOBJ::pxlo(v15, &v40) )
+      if ( (unsigned int)UMPDOBJ::pxlo(v15, (struct _XLATEOBJ **)&v35[5]) )
       {
-        if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v41, 16 * a5) )
+        if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v35[6], 16 * a5) )
         {
-          if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v44, v17) )
+          if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v35[8], v17) )
           {
-            if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v47, 0x10u) )
+            if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v35[10], 0x10u) )
             {
-              if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v48, 8u) )
+              if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v35[11], 8u) )
               {
                 LODWORD(Size) = 4;
                 if ( (unsigned int)UMPDOBJ::Thunk(v15, v35, 0x68u, &v27, Size) != -1 )

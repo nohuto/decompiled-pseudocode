@@ -1,15 +1,15 @@
 /*
- * XREFs of ViDeadlockEmptyDatabase @ 0x140AD9E40
+ * XREFs of ViDeadlockEmptyDatabase @ 0x1409DF324
  * Callers:
- *     ViDeadlockDetectionApplySettings @ 0x140AD9D8C (ViDeadlockDetectionApplySettings.c)
+ *     ViDeadlockDetectionApplySettings @ 0x1409DF26C (ViDeadlockDetectionApplySettings.c)
  * Callees:
- *     ViLowerIrql @ 0x1405D1B48 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1BC0 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockDetectionLock @ 0x140AD9DD8 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD9E10 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140ADA280 (ViDeadlockFree.c)
- *     ViDeadlockRemoveResource @ 0x140ADAA68 (ViDeadlockRemoveResource.c)
- *     ViDeadlockRemoveThread @ 0x140ADAC20 (ViDeadlockRemoveThread.c)
+ *     ViLowerIrql @ 0x1405A23F8 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405A2470 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2BC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x1409DF2F4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x1409DF5B8 (ViDeadlockFree.c)
+ *     ViDeadlockRemoveResource @ 0x1409DFA5C (ViDeadlockRemoveResource.c)
+ *     ViDeadlockRemoveThread @ 0x1409DFBF8 (ViDeadlockRemoveThread.c)
  */
 
 __int64 ViDeadlockEmptyDatabase()
@@ -18,28 +18,26 @@ __int64 ViDeadlockEmptyDatabase()
   _QWORD *v1; // r14
   _QWORD *v2; // rsi
   __int64 v3; // rdx
-  __int64 v4; // r12
-  __int64 v5; // r13
+  __int64 v4; // r13
+  __int64 v5; // r12
   __int64 v6; // r15
   _QWORD *v7; // rbp
   _QWORD *v8; // rbx
   _QWORD *v9; // rax
-  __int64 v10; // r15
-  __int64 v11; // rdi
-  __int64 v12; // rcx
-  _QWORD *v13; // rbp
-  _QWORD *i; // rax
-  _QWORD *v15; // rbx
-  _QWORD *v16; // rax
+  __int64 v10; // rdi
+  __int64 v11; // rcx
+  _QWORD *v12; // r15
+  _QWORD *v13; // rbx
+  _QWORD *v14; // rax
   __int64 result; // rax
-  _QWORD *v18; // rbx
-  _QWORD *v19; // rbx
-  unsigned __int8 v20; // [rsp+60h] [rbp+8h]
+  _QWORD *v16; // rbx
+  _QWORD *v17; // rbx
+  unsigned __int8 v18; // [rsp+60h] [rbp+8h]
 
   v0 = 0LL;
   v1 = 0LL;
   v2 = 0LL;
-  v20 = ViRaiseIrqlToDpcLevel();
+  v18 = ViRaiseIrqlToDpcLevel();
   ViDeadlockDetectionLock(1);
   ViDeadlockDetectionEnabled = 0;
   if ( ViDeadlockGlobals )
@@ -67,48 +65,47 @@ __int64 ViDeadlockEmptyDatabase()
     }
     while ( v5 );
     v10 = 0LL;
-    v11 = 0LL;
-    v12 = *((_QWORD *)ViDeadlockGlobals + 2050);
+    v11 = *((_QWORD *)ViDeadlockGlobals + 2050);
     do
     {
-      v13 = *(_QWORD **)(v10 + v12);
-      for ( i = (_QWORD *)(v11 + v12); v13 != i; i = (_QWORD *)(v12 + v11) )
+      v12 = *(_QWORD **)(v5 + v11);
+      while ( v12 != (_QWORD *)(v10 + v11) )
       {
-        v15 = v13 - 3;
-        v13 = (_QWORD *)*v13;
-        ViDeadlockRemoveThread((__int64)v15);
-        v16 = ViDeadlockGlobals;
-        *v15 = v1;
-        v1 = v15;
-        v12 = v16[2050];
+        v13 = v12 - 3;
+        v12 = (_QWORD *)*v12;
+        ViDeadlockRemoveThread((__int64)v13);
+        v14 = ViDeadlockGlobals;
+        *v13 = v1;
+        v1 = v13;
+        v11 = v14[2050];
       }
-      v11 += 16LL;
       v10 += 16LL;
+      v5 += 16LL;
       --v4;
     }
     while ( v4 );
   }
   ViDeadlockDetectionUnlock(1);
-  result = ViLowerIrql(v20);
+  result = ViLowerIrql(v18);
   if ( v1 )
   {
     do
     {
-      v18 = (_QWORD *)*v1;
+      v16 = (_QWORD *)*v1;
       result = ViDeadlockFree(v1);
-      v1 = v18;
+      v1 = v16;
     }
-    while ( v18 );
+    while ( v16 );
   }
   if ( v2 )
   {
     do
     {
-      v19 = (_QWORD *)*v2;
+      v17 = (_QWORD *)*v2;
       result = ViDeadlockFree(v2);
-      v2 = v19;
+      v2 = v17;
     }
-    while ( v19 );
+    while ( v17 );
   }
   return result;
 }

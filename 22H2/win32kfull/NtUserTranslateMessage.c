@@ -1,35 +1,32 @@
 /*
- * XREFs of NtUserTranslateMessage @ 0x1C00ACB70
+ * XREFs of NtUserTranslateMessage @ 0x1C01103A0
  * Callers:
  *     <none>
  * Callees:
- *     xxxTranslateMessage @ 0x1C00ACC1C (xxxTranslateMessage.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxTranslateMessage @ 0x1C0110450 (xxxTranslateMessage.c)
  */
 
 __int64 __fastcall NtUserTranslateMessage(__int128 *a1, unsigned int a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  int v8; // ebx
-  __int128 v10; // [rsp+38h] [rbp-40h] BYREF
-  __int128 v11; // [rsp+48h] [rbp-30h]
-  __int128 v12; // [rsp+58h] [rbp-20h]
+  __int64 v4; // rcx
+  int v5; // ebx
+  __int128 v7; // [rsp+38h] [rbp-40h] BYREF
+  __int128 v8; // [rsp+48h] [rbp-30h]
+  __int128 v9; // [rsp+58h] [rbp-20h]
 
-  v10 = 0LL;
-  v11 = 0LL;
-  v12 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v7 = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
+  EnterCrit(0LL, 1LL);
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
     a1 = (__int128 *)MmUserProbeAddress;
-  v10 = *a1;
-  v11 = a1[1];
-  v12 = a1[2];
-  v8 = 0;
-  if ( ValidateHwnd(v10) )
-    v8 = xxxTranslateMessage(&v10, a2);
-  UserSessionSwitchLeaveCrit(v5, v4, v6, v7);
-  return v8;
+  v7 = *a1;
+  v8 = a1[1];
+  v9 = a1[2];
+  v5 = 0;
+  if ( ValidateHwnd(v7) )
+    v5 = xxxTranslateMessage(&v7, a2);
+  UserSessionSwitchLeaveCrit(v4);
+  return v5;
 }

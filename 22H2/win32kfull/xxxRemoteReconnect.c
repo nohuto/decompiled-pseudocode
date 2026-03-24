@@ -1,582 +1,548 @@
 /*
- * XREFs of xxxRemoteReconnect @ 0x1C0132780
+ * XREFs of xxxRemoteReconnect @ 0x1C0161DA0
  * Callers:
- *     NtUserRemoteReconnect @ 0x1C0132740 (NtUserRemoteReconnect.c)
+ *     <none>
  * Callees:
- *     TransitionCursorSuppressionState @ 0x1C003D8F0 (TransitionCursorSuppressionState.c)
- *     InitKeyboard @ 0x1C003EF0C (InitKeyboard.c)
- *     SetMouseTrails @ 0x1C005B9A8 (SetMouseTrails.c)
- *     SetPointer @ 0x1C005CFA0 (SetPointer.c)
- *     DrvOcclusionStateChangeNotify @ 0x1C006CFB4 (DrvOcclusionStateChangeNotify.c)
- *     RegisterCDROMNotify @ 0x1C00BA9AC (RegisterCDROMNotify.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     xxxRemoteStopScreenUpdates @ 0x1C0130758 (xxxRemoteStopScreenUpdates.c)
- *     ?xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0130D6C (-xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     UnregisterDeviceClassNotifications @ 0x1C0130E44 (UnregisterDeviceClassNotifications.c)
- *     RemoveInputDevices @ 0x1C0130F10 (RemoveInputDevices.c)
- *     GreMultiUserSetDisplayDriverName @ 0x1C013324C (GreMultiUserSetDisplayDriverName.c)
- *     DrvOpenLocalGraphicsDevices @ 0x1C0133350 (DrvOpenLocalGraphicsDevices.c)
- *     RemoteRedrawScreen @ 0x1C01334E0 (RemoteRedrawScreen.c)
- *     ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01336A8 (-DrvGetRemoteDeviceCount@@YAIXZ.c)
- *     AttachInputDevices @ 0x1C01336F4 (AttachInputDevices.c)
- *     DrvCloseRemoteGraphicsDevices @ 0x1C0133778 (DrvCloseRemoteGraphicsDevices.c)
- *     GreDrvDisconnect @ 0x1C01350C4 (GreDrvDisconnect.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C0138B94 (--0LeaveEnterCrit@@QEAA@XZ.c)
- *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0138BBC (--1LeaveEnterCrit@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     GreDrvReconnect @ 0x1C02DCE84 (GreDrvReconnect.c)
+ *     InitKeyboard @ 0x1C0008FC0 (InitKeyboard.c)
+ *     TransitionCursorSuppressionState @ 0x1C0028C70 (TransitionCursorSuppressionState.c)
+ *     SetMouseTrails @ 0x1C0029694 (SetMouseTrails.c)
+ *     SetPointer @ 0x1C002A420 (SetPointer.c)
+ *     DrvOcclusionStateChangeNotify @ 0x1C002A7D8 (DrvOcclusionStateChangeNotify.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C01284B0 (xxxRemoteStopScreenUpdates.c)
+ *     RemoveInputDevices @ 0x1C0128830 (RemoveInputDevices.c)
+ *     UnregisterDeviceClassNotifications @ 0x1C01288E0 (UnregisterDeviceClassNotifications.c)
+ *     ?xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01289A4 (-xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C01363D8 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0136400 (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     RegisterCDROMNotify @ 0x1C01368F8 (RegisterCDROMNotify.c)
+ *     GreMultiUserSetDisplayDriverName @ 0x1C0162BE0 (GreMultiUserSetDisplayDriverName.c)
+ *     ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C0162D10 (-DrvGetRemoteDeviceCount@@YAIXZ.c)
+ *     xxxRestoreDesktopsMonitorsAndWindowsRects @ 0x1C0162D50 (xxxRestoreDesktopsMonitorsAndWindowsRects.c)
+ *     RemoteRedrawScreen @ 0x1C0162DB4 (RemoteRedrawScreen.c)
+ *     AttachInputDevices @ 0x1C0162F40 (AttachInputDevices.c)
+ *     DrvOpenLocalGraphicsDevices @ 0x1C0162FAC (DrvOpenLocalGraphicsDevices.c)
+ *     DrvCloseRemoteGraphicsDevices @ 0x1C0163144 (DrvCloseRemoteGraphicsDevices.c)
+ *     GreDrvDisconnect @ 0x1C0163250 (GreDrvDisconnect.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     GreDrvReconnect @ 0x1C02BF628 (GreDrvReconnect.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxRemoteReconnect(unsigned __int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 v3; // r12
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 RemoteContext; // r13
-  _UNKNOWN **v7; // rcx
-  _OWORD *v8; // rcx
-  _OWORD *v9; // rax
-  __int64 v10; // rdx
-  _OWORD *v11; // rax
+  BOOL v2; // ebx
+  NTSTATUS Win32kDriverObject; // edi
+  BOOL v4; // esi
+  void *v5; // r12
+  __int64 v6; // r15
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 RemoteContext; // r14
+  _UNKNOWN **v10; // rcx
   _OWORD *v12; // rcx
-  __int64 v13; // rdx
-  __int64 result; // rax
-  NTSTATUS Win32kDriverObject; // esi
-  int v16; // ebx
-  int v17; // ebx
-  __int64 v18; // rcx
+  _OWORD *v13; // rax
+  __int64 v14; // rdx
+  _OWORD *v15; // rax
+  _OWORD *v16; // rcx
+  __int64 v17; // rdx
+  unsigned __int128 v18; // kr00_16
   wchar_t *v19; // rax
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // r12
-  void *v24; // rax
-  void *v25; // rbx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  int v28; // eax
-  BOOL v29; // r12d
-  int v30; // r12d
-  __int64 v31; // r8
-  __int64 v32; // r9
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // r15
+  void *v23; // rax
+  int v24; // r15d
+  int v25; // r13d
+  __int16 v26; // dx
+  int v27; // ecx
+  bool v28; // zf
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rdx
   __int64 v33; // rcx
-  __int64 v34; // r8
-  int v35; // edx
-  __int64 v36; // rdx
-  unsigned int v37; // ebx
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  void (__fastcall *v40)(__int64, _QWORD); // rdi
-  unsigned int RemoteDeviceCount; // eax
-  __int64 v42; // rcx
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  int v36; // ebx
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  int v42; // edx
   __int64 v43; // rdx
-  __int64 v44; // rcx
+  __int64 v44; // rdx
   __int64 v45; // rcx
-  bool v46; // zf
-  unsigned int *v47; // rax
-  __int64 v48; // rcx
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  _UNKNOWN **v51; // r8
-  PVOID *Object; // [rsp+20h] [rbp-398h]
-  int HandleInformation; // [rsp+28h] [rbp-390h]
-  __int64 v54; // [rsp+30h] [rbp-388h]
-  _BYTE v55[4]; // [rsp+60h] [rbp-358h] BYREF
-  int v56; // [rsp+64h] [rbp-354h] BYREF
-  unsigned __int16 v57; // [rsp+68h] [rbp-350h]
-  BOOL v58; // [rsp+6Ch] [rbp-34Ch]
-  void *v59; // [rsp+70h] [rbp-348h]
-  int v60; // [rsp+78h] [rbp-340h]
-  int v61; // [rsp+7Ch] [rbp-33Ch]
-  int v62; // [rsp+80h] [rbp-338h]
-  int v63; // [rsp+84h] [rbp-334h]
-  PVOID v64; // [rsp+88h] [rbp-330h] BYREF
-  int v65; // [rsp+94h] [rbp-324h]
-  unsigned int v66; // [rsp+98h] [rbp-320h]
-  PVOID v67; // [rsp+A0h] [rbp-318h] BYREF
-  unsigned __int64 v68; // [rsp+A8h] [rbp-310h]
-  _BYTE v69[328]; // [rsp+B8h] [rbp-300h] BYREF
-  _BYTE v70[32]; // [rsp+200h] [rbp-1B8h] BYREF
-  __int64 v71; // [rsp+220h] [rbp-198h]
-  __int64 v72; // [rsp+228h] [rbp-190h]
-  __int64 v73; // [rsp+230h] [rbp-188h]
-  __int64 v74; // [rsp+238h] [rbp-180h]
-  __int64 v75; // [rsp+240h] [rbp-178h]
-  __int128 v76; // [rsp+250h] [rbp-168h]
-  __int128 v77; // [rsp+260h] [rbp-158h]
-  __int128 v78; // [rsp+270h] [rbp-148h]
-  __int128 v79; // [rsp+280h] [rbp-138h]
-  _BYTE v80[58]; // [rsp+290h] [rbp-128h] BYREF
-  __int128 v81; // [rsp+2CAh] [rbp-EEh]
-  __int16 v82; // [rsp+2DAh] [rbp-DEh]
-  __int128 v83; // [rsp+2DCh] [rbp-DCh]
-  int v84; // [rsp+2ECh] [rbp-CCh]
-  int v85; // [rsp+2F0h] [rbp-C8h]
-  int v86; // [rsp+2F4h] [rbp-C4h]
-  unsigned __int16 v87; // [rsp+308h] [rbp-B0h]
-  __int64 v88; // [rsp+30Ch] [rbp-ACh]
-  int v89; // [rsp+314h] [rbp-A4h]
-  int v90; // [rsp+318h] [rbp-A0h]
-  int v91; // [rsp+31Ch] [rbp-9Ch]
-  int v92; // [rsp+324h] [rbp-94h]
-  _BYTE v93[8]; // [rsp+340h] [rbp-78h] BYREF
-  GUID ActivityId; // [rsp+348h] [rbp-70h] BYREF
-  int v95; // [rsp+358h] [rbp-60h]
-  char v96; // [rsp+370h] [rbp-48h]
-  __int64 v97; // [rsp+380h] [rbp-38h]
+  LeaveEnterCrit *v46; // rcx
+  __int64 v47; // rcx
+  unsigned int RemoteDeviceCount; // eax
+  __int64 v49; // rcx
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  PVOID *Object; // [rsp+20h] [rbp-388h]
+  PVOID *Objecta; // [rsp+20h] [rbp-388h]
+  int HandleInformation; // [rsp+28h] [rbp-380h]
+  BOOL v55; // [rsp+60h] [rbp-348h]
+  int v56; // [rsp+6Ch] [rbp-33Ch] BYREF
+  _BYTE v57[2]; // [rsp+70h] [rbp-338h] BYREF
+  unsigned __int16 v58; // [rsp+72h] [rbp-336h]
+  int v59; // [rsp+78h] [rbp-330h]
+  int v60; // [rsp+7Ch] [rbp-32Ch]
+  int v61; // [rsp+84h] [rbp-324h]
+  int v62; // [rsp+88h] [rbp-320h]
+  PVOID v63; // [rsp+90h] [rbp-318h] BYREF
+  PVOID v64; // [rsp+98h] [rbp-310h] BYREF
+  PVOID v65; // [rsp+A0h] [rbp-308h] BYREF
+  _BYTE v66[320]; // [rsp+B0h] [rbp-2F8h] BYREF
+  _OWORD v67[20]; // [rsp+1F0h] [rbp-1B8h] BYREF
+  _QWORD v68[10]; // [rsp+330h] [rbp-78h] BYREF
 
-  v68 = a1;
-  memset_0(v93, 0, 0x48uLL);
-  EtwActivityIdControl(3u, &ActivityId);
-  v97 = MEMORY[0xFFFFF78000000014];
-  v95 = 22;
-  v96 = -1;
-  v58 = 0;
+  memset(v68, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v68[1]);
+  v68[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v68[3]) = 22;
+  LOBYTE(v68[6]) = -1;
+  v2 = 0;
+  Win32kDriverObject = 0;
+  v4 = 0;
+  v55 = 0;
+  v59 = 0;
   v60 = 0;
-  v61 = 0;
-  v65 = *(_DWORD *)(SGDGetUserSessionState(v2) + 15936) + 1;
-  v63 = 0;
-  v62 = 0;
-  v57 = gProtocolType;
-  memset_0(v70, 0, 0x140uLL);
+  v61 = LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) + 1;
+  v58 = gProtocolType;
+  memset(v67, 0, sizeof(v67));
   v56 = 0;
-  v59 = 0LL;
-  LODWORD(v3) = 0;
+  v5 = 0LL;
+  LODWORD(v6) = 0;
   RemoteContext = GreGetRemoteContext();
-  LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  v7 = &WPP_RECORDER_INITIALIZED;
-  LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v4,
-      v5,
-      (_DWORD)WPP_GLOBAL_Control,
-      4,
-      3,
+  v10 = &WPP_RECORDER_INITIALIZED;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_(
+      (unsigned int)&WPP_RECORDER_INITIALIZED,
+      v7,
+      9,
       16,
-      (__int64)&WPP_38afe8d8a8303f1671169ac824553c0d_Traceguids);
-  if ( PsGetCurrentProcess(v7, v4, v5) != gpepCSRSS )
+      (__int64)&WPP_a65f4517be503488af1f6543f5ef864f_Traceguids);
+    v2 = 0;
+  }
+  if ( PsGetCurrentProcess(v10, v7, v8) != gpepCSRSS )
     return 3221225506LL;
   gdwHydraHint |= 0x20u;
-  v8 = (_OWORD *)a1;
+  v12 = (_OWORD *)a1;
   if ( a1 + 320 < a1 || a1 + 320 > MmUserProbeAddress )
-    v8 = (_OWORD *)MmUserProbeAddress;
-  v9 = v69;
-  v10 = 2LL;
+    v12 = (_OWORD *)MmUserProbeAddress;
+  v13 = v66;
+  v14 = 2LL;
   do
   {
-    *v9 = *v8;
-    v9[1] = v8[1];
-    v9[2] = v8[2];
-    v9[3] = v8[3];
-    v9[4] = v8[4];
-    v9[5] = v8[5];
-    v9[6] = v8[6];
-    v9 += 8;
-    *(v9 - 1) = v8[7];
-    v8 += 8;
-    --v10;
-  }
-  while ( v10 );
-  *v9 = *v8;
-  v9[1] = v8[1];
-  v9[2] = v8[2];
-  v9[3] = v8[3];
-  v11 = v70;
-  v12 = v69;
-  v13 = 2LL;
-  do
-  {
-    *v11 = *v12;
-    v11[1] = v12[1];
-    v11[2] = v12[2];
-    v11[3] = v12[3];
-    v11[4] = v12[4];
-    v11[5] = v12[5];
-    v11[6] = v12[6];
-    v11 += 8;
-    *(v11 - 1) = v12[7];
+    *v13 = *v12;
+    v13[1] = v12[1];
+    v13[2] = v12[2];
+    v13[3] = v12[3];
+    v13[4] = v12[4];
+    v13[5] = v12[5];
+    v13[6] = v12[6];
+    v13 += 8;
+    *(v13 - 1) = v12[7];
     v12 += 8;
-    --v13;
+    --v14;
   }
-  while ( v13 );
-  *v11 = *v12;
-  v11[1] = v12[1];
-  v11[2] = v12[2];
-  v11[3] = v12[3];
+  while ( v14 );
+  *v13 = *v12;
+  v13[1] = v12[1];
+  v13[2] = v12[2];
+  v13[3] = v12[3];
+  v15 = v67;
+  v16 = v66;
+  v17 = 2LL;
+  do
+  {
+    *v15 = *v16;
+    v15[1] = v16[1];
+    v15[2] = v16[2];
+    v15[3] = v16[3];
+    v15[4] = v16[4];
+    v15[5] = v16[5];
+    v15[6] = v16[6];
+    v15 += 8;
+    *(v15 - 1) = v16[7];
+    v16 += 8;
+    --v17;
+  }
+  while ( v17 );
+  *v15 = *v16;
+  v15[1] = v16[1];
+  v15[2] = v16[2];
+  v15[3] = v16[3];
   if ( gfSessionSwitchBlock )
     return 3221225473LL;
   SetConsoleSwitchInProgress(1LL);
   SetMouseTrails(0);
   gpThinWireCache = ThinWireCache;
-  result = PopulateUMKMHandlePair(v73, gRemoteMouseChannelHandlePair);
-  if ( (int)result >= 0 )
+  ghRemoteMouseChannel = *(_QWORD *)&v67[3];
+  gRemoteNumMonitors = *(_DWORD *)(a1 + 20);
+  gRemotePrimaryMonitor = *(_DWORD *)(a1 + 24);
+  v18 = v67[2];
+  ghRemoteBeepChannel = v18 >> 64;
+  ghRemoteVideoChannel = v18;
+  ghRemoteKeyboardChannel = *((_QWORD *)&v67[3] + 1);
+  ghRemoteThinwireChannel = *(_QWORD *)&v67[4];
+  gRemoteClientKeyboardType = *(_QWORD *)((char *)&v67[16] + 12);
+  *((_DWORD *)&gRemoteClientKeyboardType + 2) = DWORD1(v67[17]);
+  gfEnableWindowsKey = DWORD1(v67[15]);
+  gbClientDoubleClickSupport = v67[15];
+  v62 = gbRemoteFxSession;
+  gbRemoteFxSession = DWORD1(v67[18]);
+  *(_DWORD *)(RemoteContext + 64) = DWORD1(v67[18]);
+  gRemoteTerminalLuid = *(_QWORD *)(a1 + 304);
+  gRemoteSessionUseWddm = *(_DWORD *)(a1 + 312);
+  gRemoteDisplayDeviceName = *(_OWORD *)(a1 + 162);
+  *((_OWORD *)&gRemoteDisplayDeviceName + 1) = *(_OWORD *)(a1 + 178);
+  *((_QWORD *)&gRemoteDisplayDeviceName + 4) = *(_QWORD *)(a1 + 194);
+  *(_OWORD *)&gstrBaseWinStationName = v67[5];
+  *((_OWORD *)&gstrBaseWinStationName + 1) = v67[6];
+  *((_OWORD *)&gstrBaseWinStationName + 2) = v67[7];
+  *((_OWORD *)&gstrBaseWinStationName + 3) = v67[8];
+  gWinStationInfo = *(_OWORD *)((char *)&v67[12] + 10);
+  *((_WORD *)&gWinStationInfo + 8) = WORD5(v67[13]);
+  *(_OWORD *)((char *)&gWinStationInfo + 20) = *(_OWORD *)((char *)&v67[13] + 12);
+  *((_DWORD *)&gWinStationInfo + 9) = HIDWORD(v67[14]);
+  v19 = wcschr(gstrBaseWinStationName, 0x23u);
+  if ( v19 )
+    *v19 = 0;
+  if ( gProtocolType )
   {
-    result = PopulateUMKMHandlePair(v74, gRemoteKeyboardChannelHandlePair);
-    Win32kDriverObject = result;
-    if ( (int)result >= 0 )
+    HandleInformation = 0;
+    Object = (PVOID *)&v56;
+    FastGetProfileIntW(0LL, 39LL, L"CursorBlinkEnable");
+    v20 = gpsi;
+    if ( !v56 )
     {
-      gRemoteNumMonitors = *(_DWORD *)(a1 + 20);
-      gRemotePrimaryMonitor = *(_DWORD *)(a1 + 24);
-      ghRemoteVideoChannel = v71;
-      ghRemoteBeepChannel = v72;
-      ghRemoteThinwireChannel = v75;
-      gRemoteClientKeyboardType = v88;
-      *((_DWORD *)&gRemoteClientKeyboardType + 2) = v89;
-      v16 = v85;
-      *(_DWORD *)(SGDGetUserSessionState(gRemoteClientKeyboardType) + 15912) = v16;
-      v17 = v86;
-      *(_DWORD *)(SGDGetUserSessionState(v18) + 13820) = v17;
-      v66 = gbRemoteFxSession;
-      gbRemoteFxSession = v92;
-      *(_DWORD *)(RemoteContext + 64) = v92;
-      gRemoteTerminalLuid = *(_QWORD *)(a1 + 304);
-      gRemoteSessionUseWddm = *(_DWORD *)(a1 + 312);
-      gRemoteDisplayDeviceName = *(_OWORD *)(a1 + 162);
-      *((_OWORD *)&gRemoteDisplayDeviceName + 1) = *(_OWORD *)(a1 + 178);
-      *((_QWORD *)&gRemoteDisplayDeviceName + 4) = *(_QWORD *)(a1 + 194);
-      *(_OWORD *)&gstrBaseWinStationName = v76;
-      *((_OWORD *)&gstrBaseWinStationName + 1) = v77;
-      *((_OWORD *)&gstrBaseWinStationName + 2) = v78;
-      *((_OWORD *)&gstrBaseWinStationName + 3) = v79;
-      gWinStationInfo = v81;
-      *((_WORD *)&gWinStationInfo + 8) = v82;
-      *(_OWORD *)((char *)&gWinStationInfo + 20) = v83;
-      *((_DWORD *)&gWinStationInfo + 9) = v84;
-      v19 = wcschr(gstrBaseWinStationName, 0x23u);
-      if ( v19 )
-        *v19 = 0;
-      if ( gProtocolType )
+      *(_DWORD *)(gpsi + 2236LL) &= ~4u;
+      goto LABEL_21;
+    }
+  }
+  else
+  {
+    v20 = gpsi;
+  }
+  *(_DWORD *)(v20 + 2236) |= 4u;
+LABEL_21:
+  v21 = *(_QWORD *)(RemoteContext + 40);
+  if ( !v21 )
+    goto LABEL_27;
+  v22 = -1LL;
+  do
+    ++v22;
+  while ( *(_WORD *)(v21 + 2 * v22) );
+  v6 = v22 + 1;
+  v23 = (void *)Win32AllocPoolWithQuota(2 * v6, 2020897621LL);
+  v5 = v23;
+  if ( v23 )
+  {
+    memmove(v23, *(const void **)(RemoteContext + 40), 2 * v6);
+    v2 = 0;
+LABEL_27:
+    v26 = gVideoFileObject;
+    if ( gVideoFileObject || !ghRemoteVideoChannel )
+    {
+      if ( !ghRemoteVideoChannel )
       {
-        FastGetProfileIntW(0LL, 39LL, L"CursorBlinkEnable", 0LL, &v56, 0);
-        v21 = gpsi;
-        if ( !v56 )
-        {
-          *(_DWORD *)(gpsi + 2236LL) &= ~4u;
-          goto LABEL_24;
-        }
+        LODWORD(Object) = gRemotePrimaryMonitor;
+        if ( !(unsigned int)GreMultiUserInitSession(
+                              RemoteContext,
+                              ghRemoteThinwireChannel,
+                              gpThinWireCache,
+                              gRemoteNumMonitors,
+                              Object,
+                              gVideoFileObject,
+                              gThinwireFileObject,
+                              8,
+                              &v67[9],
+                              19,
+                              gRemoteDisplayDeviceName) )
+          Win32kDriverObject = -1073741823;
       }
-      else
+    }
+    else
+    {
+      v63 = 0LL;
+      Win32kDriverObject = ObReferenceObjectByHandle(ghRemoteVideoChannel, 0, 0LL, 0, &v63, 0LL);
+      if ( Win32kDriverObject >= 0 )
       {
-        v21 = gpsi;
-      }
-      *(_DWORD *)(v21 + 2236) |= 4u;
-LABEL_24:
-      v22 = *(_QWORD *)(RemoteContext + 40);
-      if ( v22 )
-      {
-        v23 = -1LL;
-        do
-          ++v23;
-        while ( *(_WORD *)(v22 + 2 * v23) );
-        v3 = v23 + 1;
-        v24 = (void *)Win32AllocPoolWithQuotaZInit(2 * v3, 2020897621LL);
-        v25 = v24;
-        v59 = v24;
-        if ( !v24 )
-        {
-          Win32kDriverObject = -1073741801;
-          goto LABEL_75;
-        }
-        memmove(v24, *(const void **)(RemoteContext + 40), 2 * v3);
-      }
-      v26 = gVideoFileObject;
-      if ( !gVideoFileObject && ghRemoteVideoChannel )
-      {
-        v67 = 0LL;
-        Win32kDriverObject = ObReferenceObjectByHandle(ghRemoteVideoChannel, 0, 0LL, 0, &v67, 0LL);
+        gVideoFileObject = v63;
+        IoGetRelatedDeviceObject((PFILE_OBJECT)v63);
+        v64 = 0LL;
+        Win32kDriverObject = ObReferenceObjectByHandle(ghRemoteThinwireChannel, 0, 0LL, 0, &v64, 0LL);
+        gThinwireFileObject = v64;
+        v2 = 0;
         if ( Win32kDriverObject >= 0 )
         {
-          gVideoFileObject = v67;
-          IoGetRelatedDeviceObject((PFILE_OBJECT)v67);
-          v64 = 0LL;
-          Win32kDriverObject = ObReferenceObjectByHandle(ghRemoteThinwireChannel, 0, 0LL, 0, &v64, 0LL);
-          gThinwireFileObject = v64;
-          if ( Win32kDriverObject >= 0
-            && !(unsigned int)GreMultiUserInitSession(
+          LODWORD(Objecta) = gRemotePrimaryMonitor;
+          if ( !(unsigned int)GreMultiUserInitSession(
                                 RemoteContext,
                                 ghRemoteThinwireChannel,
                                 gpThinWireCache,
                                 gRemoteNumMonitors,
-                                gRemotePrimaryMonitor,
+                                Objecta,
                                 gVideoFileObject,
                                 gThinwireFileObject,
                                 8,
-                                v80,
+                                &v67[9],
                                 19,
                                 gRemoteDisplayDeviceName) )
-          {
             Win32kDriverObject = -1073741823;
-          }
         }
       }
-      else if ( !ghRemoteVideoChannel
-             && !(unsigned int)GreMultiUserInitSession(
-                                 RemoteContext,
-                                 ghRemoteThinwireChannel,
-                                 gpThinWireCache,
-                                 gRemoteNumMonitors,
-                                 gRemotePrimaryMonitor,
-                                 gVideoFileObject,
-                                 gThinwireFileObject,
-                                 8,
-                                 v80,
-                                 19,
-                                 gRemoteDisplayDeviceName) )
+    }
+    if ( Win32kDriverObject < 0 )
+      goto LABEL_47;
+    v27 = ghRemoteBeepChannel;
+    if ( ghRemoteBeepChannel )
+    {
+      v65 = 0LL;
+      Win32kDriverObject = ObReferenceObjectByHandle(ghRemoteBeepChannel, 0, 0LL, 0, &v65, 0LL);
+      gpRemoteBeepDevice = v65;
+      v2 = 0;
+    }
+    if ( Win32kDriverObject < 0 )
+      goto LABEL_47;
+    if ( gnShadowers )
+      xxxRemoteStopScreenUpdates(v27, v26);
+    if ( WORD4(v67[16]) != gPreviousProtocolType && gPreviousProtocolType )
+    {
+      if ( v5 && !(unsigned int)GreMultiUserSetDisplayDriverName(RemoteContext, (unsigned int)(v6 - 1), v5) )
+        goto LABEL_46;
+      Win32kDriverObject = xxxRemoteSetDisconnectDisplayMode(
+                             grpdeskRitInput,
+                             gProtocolType,
+                             (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v68);
+      if ( Win32kDriverObject < 0 )
+        goto LABEL_47;
+      if ( *(_DWORD *)(a1 + 288) )
+        DrvCloseRemoteGraphicsDevices(v31, v30);
+      if ( v5 && !(unsigned int)GreMultiUserSetDisplayDriverName(RemoteContext, 8LL, &v67[9]) )
+      {
+LABEL_46:
+        Win32kDriverObject = -1073741823;
+LABEL_47:
+        v24 = 0;
+        v25 = 0;
+LABEL_48:
+        v4 = v55;
+        goto LABEL_49;
+      }
+    }
+    SetProtocolType(WORD4(v67[16]));
+    if ( !gProtocolType )
+      DrvNotifySessionStateChange(3LL);
+    v25 = 1;
+    if ( (unsigned int)UserRemoteConnectedSessionUsingXddm(v33, v32) )
+    {
+      if ( gProtocolType == gPreviousProtocolType )
+      {
+        Win32kDriverObject = GreDrvReconnect(RemoteContext);
+        LOBYTE(v2) = Win32kDriverObject >= 0;
+        v55 = v2;
+        v36 = 0;
+      }
+      else
+      {
+        v36 = 1;
+        Win32kDriverObject = GreDrvConnect(RemoteContext);
+        v55 = Win32kDriverObject >= 0;
+      }
+    }
+    else
+    {
+      v36 = 1;
+      v24 = 0;
+      if ( !gProtocolType )
+      {
+        Win32kDriverObject = DrvOpenLocalGraphicsDevices(v35, v34);
+        if ( Win32kDriverObject < 0 )
+          goto LABEL_48;
+        v60 = 1;
+      }
+    }
+    v24 = 1;
+    if ( !(unsigned int)DrvSetGraphicsDevices(&v67[9]) )
+    {
+      if ( gnShadowers )
+        RemoteRedrawScreen(0LL, v37);
+      Win32kDriverObject = -1073741823;
+      goto LABEL_48;
+    }
+    DispBrokerAsyncSessionSwitched();
+    if ( DWORD2(v67[17]) || (v38 = gPreviousProtocolType, gProtocolType != gPreviousProtocolType) || HIDWORD(v67[17]) )
+    {
+      Win32kDriverObject = 0;
+      if ( !(unsigned int)DrvIsNotUsingGraphicsDevice(*(_QWORD *)(gpDispInfo + 16LL))
+        || (unsigned int)DrvSessionHasAnyGraphicsDevice(v40, v39) )
+      {
+        if ( HIDWORD(v67[17]) || (v41 = 2191LL, !gProtocolType) )
+          v41 = 2447LL;
+        LOBYTE(HandleInformation) = 0;
+        Win32kDriverObject = xxxUserSetDisplayConfig(
+                               0LL,
+                               0LL,
+                               v41,
+                               2LL,
+                               gspdeskShouldBeForeground,
+                               HandleInformation,
+                               0LL,
+                               0LL,
+                               0LL,
+                               v68);
+        if ( Win32kDriverObject < 0 )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v42) = 4;
+            WPP_RECORDER_SF_(
+              (unsigned int)&WPP_RECORDER_INITIALIZED,
+              v42,
+              9,
+              17,
+              (__int64)&WPP_a65f4517be503488af1f6543f5ef864f_Traceguids);
+          }
+          goto LABEL_48;
+        }
+      }
+      else
+      {
+        v24 = 0;
+      }
+    }
+    else
+    {
+      v24 = 0;
+    }
+    v43 = gProtocolType;
+    if ( gProtocolType )
+    {
+      if ( v36
+        && !(unsigned int)DrvEscapeRemoteDrivers(
+                            *(_QWORD *)(gpDispInfo + 16LL),
+                            gProtocolType,
+                            *(_QWORD *)(RemoteContext + 40),
+                            2LL,
+                            gptmrWD,
+                            8) )
       {
         Win32kDriverObject = -1073741823;
       }
-      if ( Win32kDriverObject < 0 )
-        goto LABEL_128;
-      v27 = ghRemoteBeepChannel;
-      if ( ghRemoteBeepChannel )
-      {
-        v64 = 0LL;
-        Win32kDriverObject = ObReferenceObjectByHandle(ghRemoteBeepChannel, 0, 0LL, 0, &v64, 0LL);
-        gpRemoteBeepDevice = v64;
-      }
-      if ( Win32kDriverObject < 0 )
-      {
-LABEL_128:
-        v25 = v59;
-        goto LABEL_75;
-      }
-      if ( gnShadowers )
-        xxxRemoteStopScreenUpdates(v27, v26, v20);
-      v25 = v59;
-      if ( v87 == gPreviousProtocolType || !gPreviousProtocolType )
-      {
-        v29 = 0;
-      }
-      else
-      {
-        if ( v59 )
-        {
-          v28 = GreMultiUserSetDisplayDriverName(RemoteContext, (unsigned int)(v3 - 1), v59);
-          v29 = 0;
-          if ( !v28 )
-            goto LABEL_103;
-        }
-        else
-        {
-          v29 = 0;
-        }
-        Win32kDriverObject = xxxRemoteSetDisconnectDisplayMode(
-                               grpdeskRitInput,
-                               gProtocolType,
-                               (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v93);
-        if ( Win32kDriverObject < 0 )
-        {
-LABEL_75:
-          SetMouseTrails(v65);
-          v46 = Win32kDriverObject == 0;
-          if ( Win32kDriverObject < 0 )
-          {
-            if ( v58 )
-              GreDrvDisconnect(RemoteContext);
-            v46 = Win32kDriverObject == 0;
-          }
-          if ( v46 && !gProtocolType )
-          {
-            v47 = (unsigned int *)SGDGetUserSessionState(v45);
-            RtlSetActiveConsoleId(*v47);
-          }
-          if ( !gProtocolType )
-            DrvNotifySessionStateChange(4LL);
-          if ( Win32kDriverObject < 0 )
-            CleanupRemoteHandles(RemoteContext);
-          SetConsoleSwitchInProgress(0LL);
-          LOBYTE(v48) = 1;
-          DxgkEngNotifyDisplayChange(v48);
-          if ( Win32kDriverObject < 0 )
-          {
-            v50 = v66;
-            gbRemoteFxSession = v66;
-            *(_DWORD *)(RemoteContext + 64) = v66;
-            if ( v60 )
-              UnregisterDeviceClassNotifications();
-            if ( v61 )
-              DrvCloseGraphicsDevices(1LL);
-            if ( v62 )
-              SetProtocolType(v57);
-            if ( v63 )
-              DrvSetGraphicsDevices(v80);
-          }
-          if ( v25 )
-            Win32FreePool(v25);
-          if ( !Win32kDriverObject )
-          {
-            v49 = gProtocolType;
-            if ( gProtocolType )
-              DrvEscapeRemoteDrivers(
-                *(_QWORD *)(gpDispInfo + 16LL),
-                gProtocolType,
-                *(_QWORD *)(RemoteContext + 40),
-                6LL,
-                0LL,
-                0);
-          }
-          DrvOcclusionStateChangeNotify(v50, v49);
-          DispBrokerAsyncSessionSwitched();
-          return (unsigned int)Win32kDriverObject;
-        }
-        if ( *(_DWORD *)(v68 + 288) )
-          DrvCloseRemoteGraphicsDevices();
-        if ( v25 && !(unsigned int)GreMultiUserSetDisplayDriverName(RemoteContext, 8LL, v80) )
-        {
-LABEL_103:
-          Win32kDriverObject = -1073741823;
-          goto LABEL_75;
-        }
-      }
-      SetProtocolType(v87);
-      if ( !gProtocolType )
-        DrvNotifySessionStateChange(3LL);
-      v62 = 1;
-      if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
-      {
-        if ( gProtocolType == gPreviousProtocolType )
-        {
-          Win32kDriverObject = GreDrvReconnect(RemoteContext);
-          LOBYTE(v29) = Win32kDriverObject >= 0;
-          v58 = v29;
-          v30 = 0;
-        }
-        else
-        {
-          v30 = 1;
-          Win32kDriverObject = GreDrvConnect(RemoteContext);
-          v58 = Win32kDriverObject >= 0;
-        }
-      }
-      else
-      {
-        v30 = 1;
-        if ( !gProtocolType )
-        {
-          Win32kDriverObject = DrvOpenLocalGraphicsDevices();
-          if ( Win32kDriverObject < 0 )
-            goto LABEL_75;
-          v61 = 1;
-        }
-      }
-      v63 = 1;
-      if ( (unsigned int)DrvSetGraphicsDevices(v80) )
-      {
-        DispBrokerAsyncSessionSwitched();
-        if ( v90 || (v33 = gPreviousProtocolType, gProtocolType != gPreviousProtocolType) || v91 )
-        {
-          Win32kDriverObject = 0;
-          if ( !(unsigned int)DrvIsNotUsingGraphicsDevice(*(_QWORD *)(gpDispInfo + 16LL))
-            || (unsigned int)DrvSessionHasAnyGraphicsDevice() )
-          {
-            if ( v91 || (v34 = 2191LL, !gProtocolType) )
-              v34 = 2447LL;
-            v54 = 0LL;
-            LOBYTE(HandleInformation) = 0;
-            Object = (PVOID *)gspdeskShouldBeForeground;
-            Win32kDriverObject = xxxUserSetDisplayConfig(0LL, 0LL, v34, 2LL);
-            if ( Win32kDriverObject < 0 )
-            {
-              LOBYTE(v35) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-                         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-              v51 = &WPP_RECORDER_INITIALIZED;
-              if ( (_BYTE)v35 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                LOBYTE(v51) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                WPP_RECORDER_AND_TRACE_SF_(
-                  WPP_GLOBAL_Control->AttachedDevice,
-                  v35,
-                  (_DWORD)v51,
-                  17,
-                  4,
-                  3,
-                  17,
-                  (__int64)&WPP_38afe8d8a8303f1671169ac824553c0d_Traceguids);
-              }
-              goto LABEL_75;
-            }
-          }
-        }
-        v36 = gProtocolType;
-        if ( gProtocolType )
-        {
-          if ( v30
-            && !(unsigned int)DrvEscapeRemoteDrivers(
-                                *(_QWORD *)(gpDispInfo + 16LL),
-                                gProtocolType,
-                                *(_QWORD *)(RemoteContext + 40),
-                                2LL,
-                                gptmrWD,
-                                8) )
-          {
-            Win32kDriverObject = -1073741823;
-          }
-          AttachInputDevices(0LL);
-        }
-        else
-        {
-          if ( gPreviousProtocolType )
-            RemoveInputDevices(v33);
-          if ( !gpWin32kDriverObject )
-            Win32kDriverObject = GetWin32kDriverObject(v33, v36, v31, v32, Object, HandleInformation, v54);
-          AttachInputDevices(1LL);
-          (**(void (__fastcall ***)(PVOID))P)(P);
-          LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)v55);
-          RegisterCDROMNotify();
-          v60 = 1;
-          LeaveEnterCrit::~LeaveEnterCrit((LeaveEnterCrit *)v55);
-        }
-        RemoteRedrawScreen();
-        InitKeyboard();
-        UpdateKeyLights(0LL);
-        SetPointer(1LL);
-        v37 = gCursorSuppressionState;
-        gCursorSuppressionState = 9;
-        TransitionCursorSuppressionState(0xAu, 0);
-        if ( ((v37 - 1) & 0xFFFFFFFB) != 0 )
-          v37 = 2;
-        TransitionCursorSuppressionState(v37, 0);
-        SetConnectedState(1LL, gbConnectCompleted);
-        if ( gProtocolType )
-        {
-          FastGetProfileIntW(0LL, 39LL, L"CursorBlinkEnable", 0LL, &v56, 0);
-          v39 = gpsi;
-          if ( !v56 )
-          {
-            *(_DWORD *)(gpsi + 2236LL) &= ~4u;
-            goto LABEL_74;
-          }
-        }
-        else
-        {
-          v39 = gpsi;
-        }
-        *(_DWORD *)(v39 + 2236) |= 4u;
-LABEL_74:
-        v40 = *(void (__fastcall **)(__int64, _QWORD))(DxDdGetDxgkWin32kInterface(v39, v38) + 384);
-        RemoteDeviceCount = DrvGetRemoteDeviceCount();
-        LOBYTE(v42) = gProtocolType == 0;
-        v40(v42, RemoteDeviceCount);
-        LOBYTE(v43) = gProtocolType == 0;
-        LOBYTE(v44) = 1;
-        CitSessionConnectChange(v44, v43);
-        v25 = v59;
-        goto LABEL_75;
-      }
-      if ( gnShadowers )
-        RemoteRedrawScreen();
-      goto LABEL_103;
+      AttachInputDevices(0LL);
     }
+    else
+    {
+      if ( gPreviousProtocolType )
+        RemoveInputDevices();
+      if ( !gpWin32kDriverObject )
+        Win32kDriverObject = GetWin32kDriverObject(v38, v43);
+      AttachInputDevices(1LL);
+      (**(void (__fastcall ***)(PVOID))P)(P);
+      if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+      LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)v57);
+      RegisterCDROMNotify();
+      v59 = 1;
+      LeaveEnterCrit::~LeaveEnterCrit(v46);
+    }
+    RemoteRedrawScreen(v45, v44);
+    if ( v24 && !gProtocolType && gbSnapShotWindowsAndMonitors && grpdeskIODefault )
+      xxxRestoreDesktopsMonitorsAndWindowsRects(*(_QWORD *)(grpdeskIODefault + 40LL), gWndsMonitorSnapshotHead);
+    InitKeyboard();
+    UpdateKeyLights(0LL);
+    SetPointer(1LL);
+    if ( !gProtocolType && !gCursorSuppressionState )
+    {
+      gCursorSuppressionState = 9;
+      TransitionCursorSuppressionState(0xAu, 0);
+      TransitionCursorSuppressionState(2u, 0);
+    }
+    if ( ((gCursorSuppressionState - 1) & 0xFFFFFFFB) != 0 )
+      TransitionCursorSuppressionState(2u, 0);
+    SetConnectedState(1LL, gbConnectCompleted);
+    if ( gProtocolType )
+    {
+      FastGetProfileIntW(0LL, 39LL, L"CursorBlinkEnable");
+      v47 = gpsi;
+      if ( !v56 )
+      {
+        *(_DWORD *)(gpsi + 2236LL) &= ~4u;
+LABEL_135:
+        RemoteDeviceCount = DrvGetRemoteDeviceCount();
+        LOBYTE(v49) = gProtocolType == 0;
+        ((void (__fastcall *)(__int64, _QWORD))gDxgkInterface[48])(v49, RemoteDeviceCount);
+        LOBYTE(v50) = gProtocolType == 0;
+        LOBYTE(v51) = 1;
+        CitSessionConnectChange(v51, v50);
+        v24 = 1;
+        goto LABEL_48;
+      }
+    }
+    else
+    {
+      v47 = gpsi;
+    }
+    *(_DWORD *)(v47 + 2236) |= 4u;
+    goto LABEL_135;
   }
-  return result;
+  Win32kDriverObject = -1073741801;
+  v24 = 0;
+  v25 = 0;
+LABEL_49:
+  SetMouseTrails(v61);
+  v28 = Win32kDriverObject == 0;
+  if ( Win32kDriverObject < 0 )
+  {
+    if ( v4 )
+      GreDrvDisconnect(RemoteContext);
+    v28 = Win32kDriverObject == 0;
+  }
+  if ( v28 && !gProtocolType )
+    RtlSetActiveConsoleId((unsigned int)gSessionId);
+  if ( !gProtocolType )
+    DrvNotifySessionStateChange(4LL);
+  if ( Win32kDriverObject < 0 )
+    CleanupRemoteHandles(RemoteContext);
+  SetConsoleSwitchInProgress(0LL);
+  LOBYTE(v29) = 1;
+  DxgkEngNotifyDisplayChange(v29);
+  if ( Win32kDriverObject < 0 )
+  {
+    gbRemoteFxSession = v62;
+    *(_DWORD *)(RemoteContext + 64) = v62;
+    if ( v59 )
+      UnregisterDeviceClassNotifications();
+    if ( v60 )
+      DrvCloseGraphicsDevices(1LL);
+    if ( v25 )
+      SetProtocolType(v58);
+    if ( v24 )
+      DrvSetGraphicsDevices(&v67[9]);
+  }
+  if ( v5 )
+    Win32FreePool(v5);
+  if ( !Win32kDriverObject )
+  {
+    if ( gProtocolType )
+      DrvEscapeRemoteDrivers(
+        *(_QWORD *)(gpDispInfo + 16LL),
+        gProtocolType,
+        *(_QWORD *)(RemoteContext + 40),
+        6LL,
+        0LL,
+        0);
+  }
+  DrvOcclusionStateChangeNotify();
+  DispBrokerAsyncSessionSwitched();
+  return (unsigned int)Win32kDriverObject;
 }

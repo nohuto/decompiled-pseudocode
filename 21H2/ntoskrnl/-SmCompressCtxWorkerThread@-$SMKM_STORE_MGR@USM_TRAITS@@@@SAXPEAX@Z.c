@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14037A5F0
+ * XREFs of ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D74F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ?SmCompressContextDeleteThreadParams@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_PARAMS@1@@Z @ 0x14037907C (-SmCompressContextDeleteThreadParams@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_P.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14037A8BC (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x14037C6BC (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     ?SmCompressContextDeleteThreadParams@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_PARAMS@1@@Z @ 0x1402D393C (-SmCompressContextDeleteThreadParams@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_P.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1402D77C0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x1402D8524 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxWorkerThread(PRKEVENT *StartContext)
@@ -52,12 +52,12 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxWorkerThread(PRKEVENT *S
   int v34; // eax
   PRKEVENT v35; // [rsp+30h] [rbp-20h] BYREF
   struct _LIST_ENTRY *v36; // [rsp+38h] [rbp-18h]
-  ULONG_PTR BugCheckParameter1; // [rsp+40h] [rbp-10h]
+  struct _KTHREAD *CurrentThread; // [rsp+40h] [rbp-10h]
   __int64 v38; // [rsp+80h] [rbp+30h] BYREF
 
   v1 = *StartContext;
   v38 = -50000000LL;
-  BugCheckParameter1 = (ULONG_PTR)KeGetCurrentThread();
+  CurrentThread = KeGetCurrentThread();
   v3 = ExAcquireSpinLockExclusive(&v1->Header.Lock);
   ++HIDWORD(v1[3].Header.WaitListHead.Blink);
   Flink = v1[3].Header.WaitListHead.Flink;
@@ -68,7 +68,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxWorkerThread(PRKEVENT *S
   v35 = v1 + 3;
   Flink->Flink = (struct _LIST_ENTRY *)&v35;
   v1[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&v35;
-  KeSetActualBasePriorityThread(BugCheckParameter1, (unsigned int)v1[5].Header.WaitListHead.Flink);
+  KeSetActualBasePriorityThread((__int64)CurrentThread, (int)v1[5].Header.WaitListHead.Flink);
   ExReleaseSpinLockExclusiveFromDpcLevel(&v1->Header.Lock);
   if ( KiIrqlFlags )
   {

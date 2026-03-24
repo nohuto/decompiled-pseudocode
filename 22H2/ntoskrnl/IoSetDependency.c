@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSetDependency @ 0x140954350
+ * XREFs of IoSetDependency @ 0x14089D890
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C854 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipSetDependency @ 0x140839894 (PipSetDependency.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x140747A0C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipSetDependency @ 0x14089E044 (PipSetDependency.c)
  */
 
 __int64 __fastcall IoSetDependency(__int64 a1, __int64 a2, int a3)
@@ -15,23 +15,26 @@ __int64 __fastcall IoSetDependency(__int64 a1, __int64 a2, int a3)
   int v4; // ebx
   _DWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v6; // [rsp+28h] [rbp-30h]
-  _DWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-20h]
-  int v9; // [rsp+40h] [rbp-18h]
+  int v7; // [rsp+30h] [rbp-28h]
+  int v8; // [rsp+34h] [rbp-24h]
+  __int64 v9; // [rsp+38h] [rbp-20h]
+  int v10; // [rsp+40h] [rbp-18h]
+  int v11; // [rsp+44h] [rbp-14h]
 
   v5[1] = 0;
-  v7[1] = 0;
+  v8 = 0;
+  v11 = 0;
   if ( a1 && a2 && (a3 & 3) != 0 && (a3 & 0xFFFFFFFC) == 0 )
   {
     if ( a1 == a2 )
       return 3221225473LL;
     v5[0] = 0;
-    v7[0] = 0;
+    v7 = 0;
     v6 = a1;
-    v8 = a2;
-    v9 = a3;
+    v9 = a2;
+    v10 = a3;
     PnpAcquireDependencyRelationsLock(1);
-    v4 = PipSetDependency((__int64)v5, (__int64)v7);
+    v4 = PipSetDependency(v5);
     ExReleaseResourceLite(&PiDependencyRelationsLock);
     PpDevNodeUnlockTree(0);
     if ( v4 >= 0 )

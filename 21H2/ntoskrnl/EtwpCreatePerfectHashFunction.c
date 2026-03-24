@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCreatePerfectHashFunction @ 0x1406CEFB0
+ * XREFs of EtwpCreatePerfectHashFunction @ 0x1407B8230
  * Callers:
- *     EtwpAllocateFilter @ 0x1406CEEB0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1407B8158 (EtwpAllocateFilter.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpFillPerfectHashTable @ 0x1406CF1E0 (EtwpFillPerfectHashTable.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpFillPerfectHashTable @ 0x1407B8444 (EtwpFillPerfectHashTable.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpCreatePerfectHashFunction(char a1, _WORD *a2, unsigned __int16 a3, __int64 *a4)
+__int64 __fastcall EtwpCreatePerfectHashFunction(char a1, _WORD *a2, unsigned __int16 a3, _QWORD *a4)
 {
   unsigned __int8 v4; // bl
   __int64 v5; // rbp
-  __int64 *v6; // r13
+  _QWORD *v7; // r13
   unsigned __int16 v8; // r14
   char v9; // r15
   int v10; // ecx
@@ -29,17 +29,17 @@ __int64 __fastcall EtwpCreatePerfectHashFunction(char a1, _WORD *a2, unsigned __
   unsigned __int16 v21; // si
   unsigned __int16 v22; // ax
   unsigned __int16 v23; // di
-  __int64 Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   __int64 v25; // rcx
   __int16 v28; // [rsp+34h] [rbp-264h] BYREF
   int v29; // [rsp+38h] [rbp-260h]
-  __int64 *v30; // [rsp+40h] [rbp-258h]
+  _QWORD *v30; // [rsp+40h] [rbp-258h]
   _BYTE v31[2]; // [rsp+50h] [rbp-248h] BYREF
   _DWORD v32[127]; // [rsp+52h] [rbp-246h] BYREF
 
   v4 = 0;
   v5 = a3;
-  v6 = a4;
+  v7 = a4;
   v30 = a4;
   v8 = 0;
   v28 = 0;
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpCreatePerfectHashFunction(char a1, _WORD *a2, unsigned __
     if ( v11 > 0x40u )
       return 3221225473LL;
   }
-LABEL_2:
+LABEL_4:
   v13 = 0;
   while ( 1 )
   {
@@ -86,7 +86,7 @@ LABEL_2:
         --v18;
       }
       while ( v18 );
-      v6 = v30;
+      v7 = v30;
       v12 = v29;
     }
     v20 = v13;
@@ -110,7 +110,7 @@ LABEL_2:
     {
       v11 = (2 * v11) | 1;
       if ( v11 <= 0x40u )
-        goto LABEL_2;
+        goto LABEL_4;
       break;
     }
   }
@@ -118,22 +118,22 @@ LABEL_2:
     return 3221225473LL;
   LOBYTE(v12) = v20;
   v23 = EtwpFillPerfectHashTable((_DWORD)a2, (unsigned __int16)v5, v12, v21, (__int64)v31, (__int64)&v28);
-  Pool2 = ExAllocatePool2(64LL, (unsigned __int16)(4 * v23 + 10), 1182233669LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned __int16)(4 * v23 + 10), 0x46777445u);
+  if ( !PoolWithTag )
     return 3221225495LL;
-  *(_BYTE *)(Pool2 + 1) = v9;
-  *(_WORD *)(Pool2 + 2) = v21;
-  *(_WORD *)(Pool2 + 4) = v23;
-  *(_BYTE *)Pool2 = a1 != 0;
+  PoolWithTag[1] = v9;
+  *((_WORD *)PoolWithTag + 1) = v21;
+  *((_WORD *)PoolWithTag + 2) = v23;
+  *PoolWithTag = a1 != 0;
   if ( v23 )
   {
     do
     {
       v25 = v4++;
-      *(_DWORD *)(Pool2 + 4 * v25 + 6) = *(_DWORD *)&v31[4 * v25];
+      *(_DWORD *)&PoolWithTag[4 * v25 + 6] = *(_DWORD *)&v31[4 * v25];
     }
     while ( v4 < v23 );
   }
-  *v6 = Pool2;
+  *v7 = PoolWithTag;
   return 0LL;
 }

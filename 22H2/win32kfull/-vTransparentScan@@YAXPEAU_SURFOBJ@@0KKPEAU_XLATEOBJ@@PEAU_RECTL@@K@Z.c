@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C0297808
+ * XREFs of ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C0292DC8
  * Callers:
- *     ?GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z @ 0x1C0295B18 (-GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z.c)
+ *     ?GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z @ 0x1C029107C (-GreTransparentBltPS@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C0295E5C (-ReadScanLine@@YAKPEAEKKKK@Z.c)
- *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C0295F3C (-SkipScanLine@@YAKPEAEKKKK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C029139C (-ReadScanLine@@YAKPEAEKKKK@Z.c)
+ *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C029147C (-SkipScanLine@@YAKPEAEKKKK@Z.c)
  */
 
 void __fastcall vTransparentScan(
@@ -20,7 +20,7 @@ void __fastcall vTransparentScan(
 {
   __int64 p_hdev; // rbx
   unsigned int v8; // edi
-  int v10; // eax
+  int v11; // eax
   __int128 v12; // xmm0
   unsigned int v13; // esi
   unsigned __int8 *v14; // r13
@@ -36,12 +36,12 @@ void __fastcall vTransparentScan(
   p_hdev = (__int64)&a1->hdev;
   v8 = a3;
   v21 = a5;
-  v20[0] = a3;
-  v10 = a2->lDelta * a4;
+  v11 = a4 * a2->lDelta;
   v12 = (__int128)*a6;
   v13 = a3 + a6->right - a6->left;
+  v20[0] = a3;
+  v14 = (unsigned __int8 *)a2->pvScan0 + v11;
   v20[1] = a4;
-  v14 = (unsigned __int8 *)a2->pvScan0 + v10;
   v22 = v12;
   if ( !a1 )
     p_hdev = 48LL;
@@ -59,7 +59,7 @@ void __fastcall vTransparentScan(
         if ( !a1 )
           p_hsurf = 112LL;
         if ( (*(_DWORD *)p_hsurf & 0x400) != 0 )
-          (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, _QWORD, struct _XLATEOBJ *, __int128 *, _DWORD *))(v15 + 2816))(
+          (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, _QWORD, struct _XLATEOBJ *, __int128 *, _DWORD *))(v15 + 2840))(
             a1,
             a2,
             0LL,

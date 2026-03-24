@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Color_HSLAfromRGBA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x18000426C
+ * XREFs of ?Color_HSLAfromRGBA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x180004704
  * Callers:
- *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180003F78 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
- *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x1802575B8 (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
+ *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180004450 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180206E98 (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
  * Callees:
- *     _o_fmodf_0 @ 0x180101910 (_o_fmodf_0.c)
+ *     fmodf_0 @ 0x1800F477B (fmodf_0.c)
  */
 
 void __fastcall ColorSpaceHelpers::Color_HSLAfromRGBA(
@@ -25,8 +25,7 @@ void __fastcall ColorSpaceHelpers::Color_HSLAfromRGBA(
   float v14; // xmm1_4
   float v15; // xmm6_4
   float v16; // xmm6_4
-  double v17; // xmm0_8
-  float v18; // xmm2_4
+  float v17; // xmm2_4
 
   v10 = fmaxf(fmaxf(v8, a2), a3);
   v11 = fminf(fminf(v8, a2), a3);
@@ -42,18 +41,17 @@ void __fastcall ColorSpaceHelpers::Color_HSLAfromRGBA(
     v16 = v10 - v11;
     if ( v10 == v8 )
     {
-      v17 = o_fmodf_0(this);
-      v18 = *(float *)&v17;
+      v17 = fmodf_0((float)(a2 - a3) / v16, 6.0);
     }
     else if ( v10 == a2 )
     {
-      v18 = (float)((float)(a3 - v8) / v16) + 2.0;
+      v17 = (float)((float)(a3 - v8) / v16) + 2.0;
     }
     else
     {
-      v18 = (float)((float)(v8 - a2) / v16) + 4.0;
+      v17 = (float)((float)(v8 - a2) / v16) + 4.0;
     }
-    v14 = v18 * 1.047197551196598;
+    v14 = v17 * 1.047197551196598;
     if ( v14 < 0.0 )
       v14 = v14 + 6.2831855;
     v15 = v16 / (float)(1.0 - COERCE_FLOAT(COERCE_UNSIGNED_INT(v12 - 1.0) & _xmm));

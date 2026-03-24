@@ -1,13 +1,13 @@
 /*
- * XREFs of PiPnpRtlIsDeviceValidForSession @ 0x140740DB0
+ * XREFs of PiPnpRtlIsDeviceValidForSession @ 0x1406ACFEC
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740D40 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1406ACF7C (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     SeQuerySessionIdTokenEx @ 0x1407422E0 (SeQuerySessionIdTokenEx.c)
+ *     SeQuerySessionIdTokenEx @ 0x1406AD220 (SeQuerySessionIdTokenEx.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
  */
 
-__int64 __fastcall PiPnpRtlIsDeviceValidForSession(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall PiPnpRtlIsDeviceValidForSession(int a1, int a2, int a3, __int64 a4, _BYTE *a5)
 {
   _BYTE *v5; // rbx
   void *v9; // rcx
@@ -41,7 +41,7 @@ LABEL_7:
     ObjectProperty = PnpGetObjectProperty(
                        a1,
                        a2,
-                       1LL,
+                       1,
                        a3,
                        0LL,
                        (__int64)&DEVPKEY_Device_SessionId,

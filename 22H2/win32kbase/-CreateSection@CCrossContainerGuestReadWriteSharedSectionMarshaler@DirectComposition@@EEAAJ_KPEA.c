@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C0223110
+ * XREFs of ?CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C01F7D10
  * Callers:
  *     <none>
  * Callees:
- *     DCompositionIsVailContainer @ 0x1C0209194 (DCompositionIsVailContainer.c)
- *     CreateVmSharedMemorySection @ 0x1C02363D0 (CreateVmSharedMemorySection.c)
+ *     DCompositionIsVailContainer @ 0x1C01D1F48 (DCompositionIsVailContainer.c)
+ *     CreateVmSharedMemorySection @ 0x1C02007BC (CreateVmSharedMemorySection.c)
  */
 
 __int64 __fastcall DirectComposition::CCrossContainerGuestReadWriteSharedSectionMarshaler::CreateSection(

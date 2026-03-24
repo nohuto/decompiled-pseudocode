@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpCHashEmpty @ 0x14098884C
+ * XREFs of PfpRpCHashEmpty @ 0x1407C5AE8
  * Callers:
- *     PfpRpControlRequestReset @ 0x140988C68 (PfpRpControlRequestReset.c)
+ *     PfpRpControlRequestReset @ 0x1407C5A90 (PfpRpControlRequestReset.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpRpCHashEmpty(__int64 a1, __int64 a2, volatile signed __int64 *a3)

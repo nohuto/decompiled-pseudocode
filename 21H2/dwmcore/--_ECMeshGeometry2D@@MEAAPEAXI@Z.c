@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECMeshGeometry2D@@MEAAPEAXI@Z @ 0x180224EC0
+ * XREFs of ??_ECMeshGeometry2D@@MEAAPEAXI@Z @ 0x1801D6910
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CMeshGeometry2D@@MEAA@XZ @ 0x1801144DE (--1CMeshGeometry2D@@MEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CMeshGeometry2D@@MEAA@XZ @ 0x1801D68E0 (--1CMeshGeometry2D@@MEAA@XZ.c)
  */
 
 CMeshGeometry2D *__fastcall CMeshGeometry2D::`vector deleting destructor'(CMeshGeometry2D *this, char a2)
@@ -14,9 +14,9 @@ CMeshGeometry2D *__fastcall CMeshGeometry2D::`vector deleting destructor'(CMeshG
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0xB0);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

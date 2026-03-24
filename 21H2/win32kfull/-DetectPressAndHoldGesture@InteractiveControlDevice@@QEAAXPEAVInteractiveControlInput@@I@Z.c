@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DetectPressAndHoldGesture@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C0253CE8
+ * XREFs of ?DetectPressAndHoldGesture@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C0256F70
  * Callers:
- *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C02545EC (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C02578C0 (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
  * Callees:
- *     SetRITTimer @ 0x1C0078D60 (SetRITTimer.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0253FF8 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     SetRITTimer @ 0x1C0115170 (SetRITTimer.c)
+ *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0257288 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
  */
 
 void __fastcall InteractiveControlDevice::DetectPressAndHoldGesture(

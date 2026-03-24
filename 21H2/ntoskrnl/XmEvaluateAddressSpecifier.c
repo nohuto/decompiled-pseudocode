@@ -1,36 +1,36 @@
 /*
- * XREFs of XmEvaluateAddressSpecifier @ 0x1403A30B4
+ * XREFs of XmEvaluateAddressSpecifier @ 0x140397014
  * Callers:
- *     XmGroup3General @ 0x1403A2770 (XmGroup3General.c)
- *     XmMoveGeneral @ 0x1403A2980 (XmMoveGeneral.c)
- *     XmGroup1General @ 0x1403A2EE0 (XmGroup1General.c)
- *     XmGroup1Immediate @ 0x1403A2FD0 (XmGroup1Immediate.c)
- *     XmGroup2By1 @ 0x1403CC4C0 (XmGroup2By1.c)
- *     XmGroup2ByByte @ 0x1403CCF30 (XmGroup2ByByte.c)
- *     XmMoveXxGeneral @ 0x1403CFBE0 (XmMoveXxGeneral.c)
- *     XmGroup2ByCL @ 0x1403D0D90 (XmGroup2ByCL.c)
- *     XmGroup45General @ 0x1403D0E30 (XmGroup45General.c)
- *     XmMoveSegment @ 0x1403D88E0 (XmMoveSegment.c)
- *     XmBitScanGeneral @ 0x140534F20 (XmBitScanGeneral.c)
- *     XmEffectiveOffset @ 0x140534FB0 (XmEffectiveOffset.c)
- *     XmGeneralBitOffset @ 0x140535070 (XmGeneralBitOffset.c)
- *     XmGeneralRegister @ 0x140535110 (XmGeneralRegister.c)
- *     XmGroup7General @ 0x140535190 (XmGroup7General.c)
- *     XmGroup8BitOffset @ 0x1405351F0 (XmGroup8BitOffset.c)
- *     XmImulImmediate @ 0x140535340 (XmImulImmediate.c)
- *     XmLoadSegment @ 0x1405353C0 (XmLoadSegment.c)
- *     XmMoveImmediate @ 0x140535490 (XmMoveImmediate.c)
- *     XmPopGeneral @ 0x1405354E0 (XmPopGeneral.c)
- *     XmSetccByte @ 0x1405355B0 (XmSetccByte.c)
- *     XmShiftDouble @ 0x1405355F0 (XmShiftDouble.c)
+ *     XmGroup3General @ 0x1403966D0 (XmGroup3General.c)
+ *     XmMoveGeneral @ 0x1403968E0 (XmMoveGeneral.c)
+ *     XmGroup1General @ 0x140396E40 (XmGroup1General.c)
+ *     XmGroup1Immediate @ 0x140396F30 (XmGroup1Immediate.c)
+ *     XmGroup2By1 @ 0x1403C0FA0 (XmGroup2By1.c)
+ *     XmGroup2ByByte @ 0x1403C11C0 (XmGroup2ByByte.c)
+ *     XmMoveXxGeneral @ 0x1403C36C0 (XmMoveXxGeneral.c)
+ *     XmGroup2ByCL @ 0x1403C3840 (XmGroup2ByCL.c)
+ *     XmGroup45General @ 0x1403C38A0 (XmGroup45General.c)
+ *     XmMoveSegment @ 0x1403C99F0 (XmMoveSegment.c)
+ *     XmBitScanGeneral @ 0x1404E5240 (XmBitScanGeneral.c)
+ *     XmEffectiveOffset @ 0x1404E52D0 (XmEffectiveOffset.c)
+ *     XmGeneralBitOffset @ 0x1404E5390 (XmGeneralBitOffset.c)
+ *     XmGeneralRegister @ 0x1404E5430 (XmGeneralRegister.c)
+ *     XmGroup7General @ 0x1404E54B0 (XmGroup7General.c)
+ *     XmGroup8BitOffset @ 0x1404E5510 (XmGroup8BitOffset.c)
+ *     XmImulImmediate @ 0x1404E5660 (XmImulImmediate.c)
+ *     XmLoadSegment @ 0x1404E56E0 (XmLoadSegment.c)
+ *     XmMoveImmediate @ 0x1404E57B0 (XmMoveImmediate.c)
+ *     XmPopGeneral @ 0x1404E5800 (XmPopGeneral.c)
+ *     XmSetccByte @ 0x1404E58D0 (XmSetccByte.c)
+ *     XmShiftDouble @ 0x1404E5910 (XmShiftDouble.c)
  * Callees:
- *     XmGetCodeByte @ 0x1403A340C (XmGetCodeByte.c)
- *     XmGetRegisterAddress @ 0x1403A343C (XmGetRegisterAddress.c)
- *     XmGetWordImmediate @ 0x1403A34E0 (XmGetWordImmediate.c)
- *     x86BiosTranslateAddress @ 0x1403A3520 (x86BiosTranslateAddress.c)
- *     XmGetLongImmediate @ 0x1403D20CC (XmGetLongImmediate.c)
- *     longjmp @ 0x1403DF970 (longjmp.c)
- *     XmEvaluateIndexSpecifier @ 0x140536D58 (XmEvaluateIndexSpecifier.c)
+ *     XmGetCodeByte @ 0x140397368 (XmGetCodeByte.c)
+ *     XmGetRegisterAddress @ 0x140397398 (XmGetRegisterAddress.c)
+ *     XmGetWordImmediate @ 0x140397440 (XmGetWordImmediate.c)
+ *     x86BiosTranslateAddress @ 0x140397B50 (x86BiosTranslateAddress.c)
+ *     XmGetLongImmediate @ 0x1403C4ED4 (XmGetLongImmediate.c)
+ *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     XmEvaluateIndexSpecifier @ 0x1404E7078 (XmEvaluateIndexSpecifier.c)
  */
 
 __int64 __fastcall XmEvaluateAddressSpecifier(__int64 a1, int *a2)
@@ -94,8 +94,8 @@ __int64 __fastcall XmEvaluateAddressSpecifier(__int64 a1, int *a2)
   v3 = 0;
   v5 = ((__int64 (*)(void))XmGetCodeByte)();
   *(_BYTE *)(a1 + 142) = 0;
-  *a2 = (v5 >> 3) & 7;
   v6 = v5 & 7 | (8 * (v5 >> 6));
+  *a2 = (v5 >> 3) & 7;
   if ( !*(_BYTE *)(a1 + 137) )
   {
     if ( v6 <= 0xC )

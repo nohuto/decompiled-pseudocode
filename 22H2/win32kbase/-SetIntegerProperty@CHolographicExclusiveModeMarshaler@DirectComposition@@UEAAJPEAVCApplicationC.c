@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0226E20
+ * XREFs of ?SetIntegerProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EDFE0
  * Callers:
  *     <none>
  * Callees:

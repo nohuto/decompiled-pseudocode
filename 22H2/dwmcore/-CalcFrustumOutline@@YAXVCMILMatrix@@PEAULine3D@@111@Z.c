@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x180218E68
+ * XREFs of ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x1801F3F5C
  * Callers:
- *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x180218AAC (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
+ *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x18002054C (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
  * Callees:
- *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000A1C4 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     floorf_0 @ 0x18011B8D8 (floorf_0.c)
- *     log10f_0 @ 0x18011B908 (log10f_0.c)
- *     powf_0 @ 0x18011B92C (powf_0.c)
- *     sqrtf_0 @ 0x18011B95C (sqrtf_0.c)
- *     ??0Line3D@@QEAA@UMilPoint4F@@0@Z @ 0x1802189D0 (--0Line3D@@QEAA@UMilPoint4F@@0@Z.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000B9EC (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     powf @ 0x1800E7F08 (powf.c)
+ *     floorf_0 @ 0x1800F3F9F (floorf_0.c)
+ *     log10f_0 @ 0x1800F3FB7 (log10f_0.c)
+ *     sqrtf_0 @ 0x1800F3FDB (sqrtf_0.c)
+ *     ??0Line3D@@QEAA@UMilPoint4F@@0@Z @ 0x1801F3E88 (--0Line3D@@QEAA@UMilPoint4F@@0@Z.c)
  */
 
 __int64 __fastcall CalcFrustumOutline(CMILMatrix *a1, __int64 a2, __int64 a3, __int64 a4, _OWORD *a5)
@@ -25,37 +25,36 @@ __int64 __fastcall CalcFrustumOutline(CMILMatrix *a1, __int64 a2, __int64 a3, __
   float v17; // xmm0_4
   float v18; // xmm1_4
   float v19; // xmm0_4
-  float *v20; // rdx
+  float *v20; // rax
   float v21; // xmm3_4
   __int64 v22; // rcx
-  float v23; // xmm0_4
-  float v24; // xmm1_4
-  float v25; // xmm0_4
-  __int64 v26; // rax
-  __int128 v27; // xmm0
-  __int64 v28; // rax
-  __int128 v29; // xmm0
-  __int64 v30; // rax
-  __int128 v31; // xmm0
+  float v23; // xmm1_4
+  float v24; // xmm0_4
+  __int64 v25; // rax
+  __int128 v26; // xmm0
+  __int64 v27; // rax
+  __int128 v28; // xmm0
+  __int64 v29; // rax
+  __int128 v30; // xmm0
   __int64 result; // rax
-  _OWORD *v33; // rcx
-  _QWORD v34[3]; // [rsp+20h] [rbp-E8h] BYREF
-  _OWORD *v35; // [rsp+38h] [rbp-D0h]
-  _BYTE v36[16]; // [rsp+40h] [rbp-C8h] BYREF
-  __int128 v37; // [rsp+58h] [rbp-B0h] BYREF
-  _OWORD v38[8]; // [rsp+68h] [rbp-A0h] BYREF
-  _OWORD v39[8]; // [rsp+E8h] [rbp-20h] BYREF
+  _OWORD *v32; // rcx
+  _QWORD v33[3]; // [rsp+20h] [rbp-E8h] BYREF
+  _OWORD *v34; // [rsp+38h] [rbp-D0h]
+  _BYTE v35[16]; // [rsp+40h] [rbp-C8h] BYREF
+  __int128 v36; // [rsp+58h] [rbp-B0h] BYREF
+  _OWORD v37[8]; // [rsp+68h] [rbp-A0h] BYREF
+  _OWORD v38[8]; // [rsp+E8h] [rbp-20h] BYREF
 
-  v5 = (float *)&v37;
+  v5 = (float *)&v36;
   v6 = *((_DWORD *)a1 + 7);
-  LODWORD(v37) = *((_DWORD *)a1 + 3);
-  *(_QWORD *)((char *)&v37 + 4) = __PAIR64__(*((_DWORD *)a1 + 11), v6);
+  LODWORD(v36) = *((_DWORD *)a1 + 3);
+  *(_QWORD *)((char *)&v36 + 4) = __PAIR64__(*((_DWORD *)a1 + 11), v6);
   v11 = 0;
   v12 = 0.0;
   v13 = 0.0;
-  HIDWORD(v37) = *((_DWORD *)a1 + 15);
+  HIDWORD(v36) = *((_DWORD *)a1 + 15);
   v14 = 4LL;
-  v35 = a5;
+  v34 = a5;
   do
   {
     if ( *v5 == 0.0 )
@@ -85,55 +84,53 @@ LABEL_9:
   while ( v14 );
   v17 = sqrtf_0(v12 - v13);
   v18 = floorf_0(v17);
-  v19 = powf_0(2.0, v18);
-  v20 = (float *)v38 + 2;
-  v38[0] = _xmm;
+  v19 = powf(2.0, v18);
+  v20 = (float *)v37 + 2;
+  v37[0] = _xmm;
   v21 = v19;
   v22 = 8LL;
-  v38[2] = _xmm;
-  v38[1] = _xmm;
-  v38[4] = _xmm;
-  v38[3] = _xmm;
-  v38[6] = _xmm;
-  v38[5] = _xmm;
-  v38[7] = _xmm;
+  v37[2] = _xmm;
+  v37[1] = _xmm;
+  v37[4] = _xmm;
+  v37[3] = _xmm;
+  v37[6] = _xmm;
+  v37[5] = _xmm;
+  v37[7] = _xmm;
   do
   {
-    v23 = v21 * *(v20 - 2);
-    v20[1] = v20[1];
-    v24 = v21 * *(v20 - 1);
-    *(v20 - 2) = v23;
-    v25 = v21 * *v20;
-    *(v20 - 1) = v24;
-    *v20 = v25;
+    v23 = v21 * *(v20 - 1);
+    *(v20 - 2) = v21 * *(v20 - 2);
+    v24 = v21 * *v20;
+    *(v20 - 1) = v23;
+    *v20 = v24;
     v20 += 4;
     --v22;
   }
   while ( v22 );
-  CMILMatrix::Transform(a1, (const struct MilPoint4F *)v38, (struct MilPoint4F *)v39, 8);
-  v37 = v39[4];
-  *(_OWORD *)&v34[1] = v39[0];
-  v26 = Line3D::Line3D((__int64)v36, (float *)&v34[1], (float *)&v37);
-  *(_OWORD *)a2 = *(_OWORD *)v26;
-  v27 = v39[5];
-  *(_QWORD *)(a2 + 16) = *(_QWORD *)(v26 + 16);
-  v37 = v39[1];
-  *(_OWORD *)&v34[1] = v27;
-  v28 = Line3D::Line3D((__int64)v36, (float *)&v37, (float *)&v34[1]);
-  *(_OWORD *)a3 = *(_OWORD *)v28;
-  v29 = v39[6];
-  *(_QWORD *)(a3 + 16) = *(_QWORD *)(v28 + 16);
-  v37 = v39[2];
-  *(_OWORD *)&v34[1] = v29;
-  v30 = Line3D::Line3D((__int64)v36, (float *)&v37, (float *)&v34[1]);
-  *(_OWORD *)a4 = *(_OWORD *)v30;
-  v31 = v39[7];
-  *(_QWORD *)(a4 + 16) = *(_QWORD *)(v30 + 16);
-  v37 = v39[3];
-  *(_OWORD *)&v34[1] = v31;
-  result = Line3D::Line3D((__int64)v36, (float *)&v37, (float *)&v34[1]);
-  v33 = v35;
-  *v35 = *(_OWORD *)result;
-  *((_QWORD *)v33 + 2) = *(_QWORD *)(result + 16);
+  CMILMatrix::Transform(a1, (const struct MilPoint4F *)v37, (struct MilPoint4F *)v38, 8);
+  v36 = v38[4];
+  *(_OWORD *)&v33[1] = v38[0];
+  v25 = Line3D::Line3D((__int64)v35, (float *)&v33[1], (float *)&v36);
+  *(_OWORD *)a2 = *(_OWORD *)v25;
+  v26 = v38[5];
+  *(_QWORD *)(a2 + 16) = *(_QWORD *)(v25 + 16);
+  v36 = v38[1];
+  *(_OWORD *)&v33[1] = v26;
+  v27 = Line3D::Line3D((__int64)v35, (float *)&v36, (float *)&v33[1]);
+  *(_OWORD *)a3 = *(_OWORD *)v27;
+  v28 = v38[6];
+  *(_QWORD *)(a3 + 16) = *(_QWORD *)(v27 + 16);
+  v36 = v38[2];
+  *(_OWORD *)&v33[1] = v28;
+  v29 = Line3D::Line3D((__int64)v35, (float *)&v36, (float *)&v33[1]);
+  *(_OWORD *)a4 = *(_OWORD *)v29;
+  v30 = v38[7];
+  *(_QWORD *)(a4 + 16) = *(_QWORD *)(v29 + 16);
+  v36 = v38[3];
+  *(_OWORD *)&v33[1] = v30;
+  result = Line3D::Line3D((__int64)v35, (float *)&v36, (float *)&v33[1]);
+  v32 = v34;
+  *v34 = *(_OWORD *)result;
+  *((_QWORD *)v32 + 2) = *(_QWORD *)(result + 16);
   return result;
 }

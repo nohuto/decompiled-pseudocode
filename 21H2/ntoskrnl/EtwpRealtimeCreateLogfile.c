@@ -1,56 +1,54 @@
 /*
- * XREFs of EtwpRealtimeCreateLogfile @ 0x14079AADC
+ * XREFs of EtwpRealtimeCreateLogfile @ 0x140681844
  * Callers:
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     EtwpSendSessionNotification @ 0x1406EF58C (EtwpSendSessionNotification.c)
- *     EtwpDelayCreate @ 0x1406F0C9C (EtwpDelayCreate.c)
- *     EtwpExpandFileName @ 0x1406F0FCC (EtwpExpandFileName.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     EtwpRealtimeRestoreState @ 0x1408570CC (EtwpRealtimeRestoreState.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x14085CC28 (EtwpRealtimeZeroTruncateLogfile.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x14085E858 (EtwpRealtimeUpdateReferenceTime.c)
- *     EtwpRealtimeResetReferenceTime @ 0x1409EDE34 (EtwpRealtimeResetReferenceTime.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     EtwpExpandFileName @ 0x140681A58 (EtwpExpandFileName.c)
+ *     EtwpDelayCreate @ 0x1406E00F0 (EtwpDelayCreate.c)
+ *     EtwpSendSessionNotification @ 0x1406E14E8 (EtwpSendSessionNotification.c)
+ *     EtwpRealtimeRestoreState @ 0x1407C89FC (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x1407CD2B8 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1407D05D8 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x140941C60 (EtwpRealtimeResetReferenceTime.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeCreateLogfile(__int64 a1)
 {
   __int64 v1; // r14
   __int64 v4; // rax
-  size_t v5; // rbp
-  wchar_t *Pool2; // rax
+  SIZE_T v5; // rbp
+  wchar_t *PoolWithTag; // rax
   WCHAR *v7; // rdi
   NTSTATUS v8; // eax
   WCHAR *v9; // rcx
   WCHAR i; // ax
-  __int64 v11; // rax
-  const WCHAR *v12; // rdx
+  __int64 v11; // rcx
   int updated; // edi
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
-  bool v15; // [rsp+80h] [rbp+8h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
 
-  v1 = a1 + 360;
+  v1 = a1 + 376;
   DestinationString = 0LL;
-  if ( *(_QWORD *)(a1 + 360) )
+  if ( *(_QWORD *)(a1 + 376) )
     return 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  if ( *(_WORD *)(a1 + 368) )
-    goto LABEL_23;
+  if ( *(_WORD *)(a1 + 384) )
+    goto LABEL_21;
   v4 = -1LL;
   do
     ++v4;
-  while ( *(_WORD *)(*(_QWORD *)(a1 + 144) + 2 * v4) );
+  while ( *(_WORD *)(*(_QWORD *)(a1 + 160) + 2 * v4) );
   v5 = 2LL * (unsigned int)(v4 + 9) + 2;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v5, 1350005829LL);
-  v7 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v5, 0x50777445u);
+  v7 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  v8 = RtlStringCbPrintfW(Pool2, v5, L"EtwRT%ws.etl", *(_QWORD *)(a1 + 144));
+  v8 = RtlStringCbPrintfW(PoolWithTag, v5, L"EtwRT%ws.etl", *(_QWORD *)(a1 + 160));
   v9 = v7;
   if ( !v8 )
   {
@@ -60,42 +58,37 @@ __int64 __fastcall EtwpRealtimeCreateLogfile(__int64 a1)
         *v9 = 95;
       ++v9;
     }
-    v11 = *(_QWORD *)(a1 + 1096);
-    v12 = L"%SystemRoot%\\system32\\Logfiles\\WMI\\RtBackup\\";
-    if ( *(_QWORD *)(v11 + 4112) )
-      v12 = *(const WCHAR **)(v11 + 4112);
-    if ( RtlCreateUnicodeString((PUNICODE_STRING)(a1 + 368), v12) )
+    if ( RtlCreateUnicodeString((PUNICODE_STRING)(a1 + 384), EtwpRTBacklogFileRoot) )
     {
       RtlInitUnicodeString(&DestinationString, v7);
-      updated = EtwpExpandFileName(
-                  1,
-                  (UNICODE_STRING *)(a1 + 368),
-                  0,
-                  &DestinationString.Length,
-                  *(_QWORD *)(a1 + 1096) == EtwpHostSiloState);
+      LOBYTE(v11) = 1;
+      updated = EtwpExpandFileName(v11, a1 + 384, 0LL, &DestinationString);
       if ( updated >= 0 )
       {
-LABEL_23:
-        v15 = (*(_BYTE *)(a1 + 816) & 1) != 0;
-        updated = EtwpDelayCreate(v1, a1 + 368, &v15, 0LL, 1, 1, 0LL);
+LABEL_21:
+        updated = EtwpDelayCreate(v1, 1, 1);
         if ( updated >= 0 )
         {
-          *(_QWORD *)(a1 + 392) = 72LL;
-          *(_QWORD *)(a1 + 384) = 72LL;
+          *(_QWORD *)(a1 + 408) = 72LL;
           *(_QWORD *)(a1 + 400) = 72LL;
-          if ( (*(_DWORD *)(a1 + 816) & 1) != 0 )
+          *(_QWORD *)(a1 + 416) = 72LL;
+          if ( (*(_DWORD *)(a1 + 832) & 1) != 0 )
           {
             updated = EtwpRealtimeRestoreState(a1);
-            if ( updated < 0
-              || *(_DWORD *)(a1 + 424) && (updated = EtwpRealtimeUpdateReferenceTime(a1, a1 + 304), updated < 0) )
+            if ( updated < 0 )
+              goto LABEL_33;
+            if ( *(_DWORD *)(a1 + 440) )
+              updated = EtwpRealtimeUpdateReferenceTime(a1, a1 + 320);
+            if ( updated < 0 )
             {
+LABEL_33:
               EtwpRealtimeZeroTruncateLogfile(a1);
               EtwpRealtimeResetReferenceTime(a1);
-              *(_DWORD *)(a1 + 260) += *(_DWORD *)(a1 + 424);
-              *(_DWORD *)(a1 + 448) = 3;
-              *(_DWORD *)(a1 + 424) = 0;
-              *(_QWORD *)(a1 + 408) = 0LL;
-              EtwpSendSessionNotification(a1, 4u, 0xC0000102);
+              *(_DWORD *)(a1 + 276) += *(_DWORD *)(a1 + 440);
+              *(_DWORD *)(a1 + 464) = 3;
+              *(_DWORD *)(a1 + 440) = 0;
+              *(_QWORD *)(a1 + 424) = 0LL;
+              EtwpSendSessionNotification(a1, 4LL, 3221225730LL);
               updated = 0;
             }
           }
@@ -106,7 +99,7 @@ LABEL_23:
     {
       updated = -1073741801;
     }
-    RtlFreeUnicodeString(&DestinationString);
+    RtlFreeAnsiString(&DestinationString);
     return (unsigned int)updated;
   }
   ExFreePoolWithTag(v7, 0);

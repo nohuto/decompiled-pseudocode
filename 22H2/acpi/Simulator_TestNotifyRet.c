@@ -1,10 +1,11 @@
 /*
- * XREFs of Simulator_TestNotifyRet @ 0x1C00499C8
+ * XREFs of Simulator_TestNotifyRet @ 0x1C00642F8
  * Callers:
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIRegEventHandler @ 0x1C0048A9C (AMLIRegEventHandler.c)
- *     Simulator_AsyncEvalObjectCallBack @ 0x1C0048F30 (Simulator_AsyncEvalObjectCallBack.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     AMLIRegEventHandler @ 0x1C002C19C (AMLIRegEventHandler.c)
+ *     Simulator_AsyncEvalObjectCallBack @ 0x1C0063870 (Simulator_AsyncEvalObjectCallBack.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDisplayId@CBitmapRealization@@$4PPPPPPPM@MA@EBA?AVDisplayId@@XZ @ 0x18010C250
+ * XREFs of ?GetDisplayId@CBitmapRealization@@$4PPPPPPPM@MA@EBA?AVDisplayId@@XZ @ 0x1800F8FB0
  * Callers:
  *     <none>
  * Callees:

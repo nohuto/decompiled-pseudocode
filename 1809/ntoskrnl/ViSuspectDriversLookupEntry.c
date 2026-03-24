@@ -4,7 +4,7 @@
  *     VfIsDriverSuspect @ 0x140920ED4 (VfIsDriverSuspect.c)
  *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
  *     VfSuspectDriversRemove @ 0x140937B30 (VfSuspectDriversRemove.c)
- *     VfSuspectDriversIsLoaded @ 0x1409F890C (VfSuspectDriversIsLoaded.c)
+ *     VfSuspectDriversIsLoaded @ 0x1409F891C (VfSuspectDriversIsLoaded.c)
  * Callees:
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NeedsApertureForLock@VIDMM_GLOBAL@@IEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E5F68
+ * XREFs of ?NeedsApertureForLock@VIDMM_GLOBAL@@IEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0087094
  * Callers:
- *     ?Lock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KPEAPEAX@Z @ 0x1C00943E0 (-Lock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KPEAPEAX@Z.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006C260 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +10,6 @@ bool __fastcall VIDMM_GLOBAL::NeedsApertureForLock(VIDMM_GLOBAL *this, struct _V
 {
   int v2; // eax
 
-  v2 = *((_DWORD *)a2 + 17);
-  if ( (v2 & 0x1E0000) == 0 || (v2 & 0x1E0000) == 0x40000 )
-    return *(_BYTE *)(1616LL * (v2 & 0x3F) + *((_QWORD *)this + 5028) + 446) & 1;
-  else
-    return 0;
+  v2 = *((_DWORD *)a2 + 19);
+  return (v2 & 0xD0000) == 0 && (*(_BYTE *)(1584LL * (v2 & 0x3F) + *((_QWORD *)this + 5027) + 437) & 0x40) != 0;
 }

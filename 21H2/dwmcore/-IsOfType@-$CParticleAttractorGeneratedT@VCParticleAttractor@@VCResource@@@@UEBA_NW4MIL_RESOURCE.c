@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A0CA0
+ * XREFs of ?IsOfType@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F1B0
  * Callers:
  *     <none>
  * Callees:

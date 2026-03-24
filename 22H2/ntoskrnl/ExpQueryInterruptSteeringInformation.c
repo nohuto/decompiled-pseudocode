@@ -1,32 +1,36 @@
 /*
- * XREFs of ExpQueryInterruptSteeringInformation @ 0x14084D474
+ * XREFs of ExpQueryInterruptSteeringInformation @ 0x1407CF4C4
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeIntSteerGetSteeringMode @ 0x1403201A8 (KeIntSteerGetSteeringMode.c)
- *     KeIntSteerIsSteeringEnabled @ 0x14036EB44 (KeIntSteerIsSteeringEnabled.c)
+ *     KeIntSteerIsSteeringEnabled @ 0x14032D2DC (KeIntSteerIsSteeringEnabled.c)
+ *     KeIntSteerGetSteeringMode @ 0x140377B90 (KeIntSteerGetSteeringMode.c)
  */
 
-__int64 __fastcall ExpQueryInterruptSteeringInformation(int *a1, __int64 a2, _DWORD *a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall ExpQueryInterruptSteeringInformation(
+        __int64 a1,
+        __int64 a2,
+        _DWORD *a3,
+        unsigned int a4,
+        _DWORD *a5)
 {
-  unsigned int v6; // ebx
-  int v7; // eax
-  char v8; // r8
-  char v9; // r10
-  bool v10; // zf
+  int v6; // eax
+  char v7; // r8
+  char v8; // r10
+  bool v9; // zf
+  unsigned int v10; // r11d
   __int128 v12; // [rsp+60h] [rbp-18h] BYREF
 
-  v6 = 0;
   v12 = 0LL;
   if ( KeGetCurrentThread()->PreviousMode )
     return (unsigned int)-1073741790;
   if ( !a1 || (_DWORD)a2 != 24 )
     return (unsigned int)-1073741820;
-  v7 = *a1;
-  LOBYTE(a2) = *((_BYTE *)a1 + 4);
-  v8 = *((_BYTE *)a1 + 5);
-  v9 = *((_BYTE *)a1 + 6);
-  v12 = *(_OWORD *)(a1 + 2);
+  v6 = *(_DWORD *)a1;
+  LOBYTE(a2) = *(_BYTE *)(a1 + 4);
+  v7 = *(_BYTE *)(a1 + 5);
+  v8 = *(_BYTE *)(a1 + 6);
+  v12 = *(_OWORD *)(a1 + 8);
   if ( a4 < 4 )
   {
     if ( a5 )
@@ -34,11 +38,11 @@ __int64 __fastcall ExpQueryInterruptSteeringInformation(int *a1, __int64 a2, _DW
     return (unsigned int)-1073741820;
   }
   *a3 = 0;
-  if ( (_BYTE)a2 && v7 == -1 )
-    v10 = KeIntSteerIsSteeringEnabled() == 0;
+  if ( (_BYTE)a2 && v6 == -1 )
+    v9 = KeIntSteerIsSteeringEnabled() == 0;
   else
-    v10 = (unsigned int)KeIntSteerGetSteeringMode((char)a1, a2, v9, v8 != 0, (__int64)&v12) == 0;
-  if ( !v10 )
+    v9 = (unsigned int)KeIntSteerGetSteeringMode(a1, a2, v8, v7 != 0, (__int64)&v12) == 0;
+  if ( !v9 )
     *a3 = 1;
-  return v6;
+  return v10;
 }

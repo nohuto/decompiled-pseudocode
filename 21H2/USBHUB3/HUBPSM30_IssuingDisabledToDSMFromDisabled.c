@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_IssuingDisabledToDSMFromDisabled @ 0x1C00121C0
+ * XREFs of HUBPSM30_IssuingDisabledToDSMFromDisabled @ 0x1C0011CC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_IssuingDisabledToDSMFromDisabled(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of ?TooltipAnimate@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C023E320
+ * XREFs of ?TooltipAnimate@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C02427DC
  * Callers:
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C023EA24 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242F50 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C010D224 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C00DB574 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
  */
 
 __int64 __fastcall TooltipAnimate(struct tagTOOLTIPWND *a1)
 {
   unsigned int v1; // ebx
-  HDC TooltipDC; // rsi
+  HDC TooltipDC; // rbp
   _DWORD *v5; // rcx
   int v6; // r9d
-  int v7; // r10d
-  int v8; // edx
-  int v9; // r8d
-  int v10; // ecx
+  int v7; // esi
+  int v8; // r11d
+  int v9; // r10d
+  int v10; // r8d
 
   v1 = 0;
   if ( !*((_QWORD *)a1 + 6) )
@@ -38,20 +38,20 @@ __int64 __fastcall TooltipAnimate(struct tagTOOLTIPWND *a1)
   }
   else if ( *((_DWORD *)a1 + 11) != v8 )
   {
-    v9 = 0;
-    v10 = *((_DWORD *)a1 + 8) & 1;
-    if ( !v10 )
-      v9 = v7;
+    v9 = *((_DWORD *)a1 + 8) & 1;
     *((_DWORD *)a1 + 11) = v8;
+    v10 = 0;
+    if ( !v9 )
+      v10 = v7;
     NtGdiBitBltInternal(
       TooltipDC,
       0,
-      v8 * (v10 - 1) + v9,
+      v8 * (v9 - 1) + v10,
       v6,
       v8,
       *((HDC *)a1 + 2),
       0,
-      v10 != 0 ? v7 - v8 : 0,
+      v9 != 0 ? v7 - v8 : 0,
       -2134114272,
       0,
       0);

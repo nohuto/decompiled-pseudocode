@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhHubProcessTimeoutObj @ 0x1C0033374
+ * XREFs of UsbhHubProcessTimeoutObj @ 0x1C00346D8
  * Callers:
- *     UsbhHubRunPortChangeQueue @ 0x1C0015150 (UsbhHubRunPortChangeQueue.c)
+ *     UsbhHubRunPortChangeQueue @ 0x1C00071D0 (UsbhHubRunPortChangeQueue.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhHubProcessTimeoutObj(ULONG_PTR a1, __int64 a2, __int64 a3, unsigned __int16 *a4)

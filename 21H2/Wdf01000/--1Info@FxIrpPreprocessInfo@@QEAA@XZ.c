@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1Info@FxIrpPreprocessInfo@@QEAA@XZ @ 0x1C0061B60
+ * XREFs of ??1Info@FxIrpPreprocessInfo@@QEAA@XZ @ 0x1C0044170
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 void __fastcall FxIrpPreprocessInfo::Info::~Info(FxIrpPreprocessInfo::Info *this)

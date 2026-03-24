@@ -1,185 +1,172 @@
 /*
- * XREFs of CmpComputeComponentHashes @ 0x1406811B0
+ * XREFs of CmpComputeComponentHashes @ 0x1406FBCC0
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     CmpExpandPathInfo @ 0x140681500 (CmpExpandPathInfo.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     CmpExpandPathInfo @ 0x1406958E0 (CmpExpandPathInfo.c)
  */
 
 __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a3)
 {
-  char v3; // r13
-  __m128i v4; // xmm6
-  __int16 v5; // bx
-  __int16 v6; // bp
-  _WORD *v7; // rdi
-  __int16 v8; // si
-  __int64 v9; // rdi
-  __int16 v10; // bp
-  __int16 v11; // ax
-  int v12; // r10d
-  unsigned __int16 *v13; // r11
-  __int64 v14; // rbx
-  unsigned __int16 v15; // dx
+  __m128i v3; // xmm6
+  char v4; // cl
+  __int16 v6; // bx
+  __int16 v7; // bp
+  _WORD *v8; // rdi
+  __int16 v9; // si
+  __int64 v10; // rdi
+  __int16 v11; // bp
+  __int16 v12; // ax
+  int v13; // r9d
+  unsigned __int16 *v14; // r10
+  __int64 v15; // r11
+  unsigned __int16 v16; // ax
   __int64 result; // rax
-  __int16 v17; // r14
-  __int64 v18; // r15
-  int v19; // r10d
-  unsigned __int16 *v20; // r11
-  __int64 v21; // r14
-  unsigned __int16 v22; // dx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v24; // dx
-  _QWORD *v25; // rax
-  unsigned __int16 v26; // dx
-  __m128i v27; // [rsp+20h] [rbp-68h]
-  __m128i v28; // [rsp+30h] [rbp-58h]
-  __int64 v30; // [rsp+A0h] [rbp+18h]
+  __int16 v18; // r14
+  __int64 v19; // r15
+  int v20; // r9d
+  unsigned __int16 *v21; // r10
+  __int64 v22; // r11
+  unsigned __int16 v23; // ax
+  __m128i v24; // [rsp+20h] [rbp-68h]
+  __m128i v25; // [rsp+30h] [rbp-58h]
+  char v26; // [rsp+90h] [rbp+8h]
 
-  v30 = a3;
-  v3 = 0;
-  v5 = _mm_cvtsi128_si32(*a1);
-  v27 = *a1;
-  v4 = *a1;
-  v28 = *a1;
-  v27.m128i_i16[0] = v5;
-  if ( !v5 )
+  v3 = *a1;
+  v4 = 0;
+  v26 = 0;
+  v6 = _mm_cvtsi128_si32(v3);
+  v24.m128i_i32[1] = v3.m128i_i32[1];
+  v25 = v3;
+  v24.m128i_i16[0] = v6;
+  if ( v6 )
   {
-    result = 0LL;
-    *a2 = 0;
-    return result;
-  }
-  v6 = 0;
-  v7 = (_WORD *)v27.m128i_i64[1];
-  v8 = v27.m128i_i16[1];
-  do
-  {
-    if ( v6 >= 32 )
-      break;
-    if ( *v7 == 92 )
+    v7 = 0;
+    v8 = (_WORD *)v3.m128i_i64[1];
+    v9 = v3.m128i_i16[1];
+    do
     {
-      ++v6;
-      v17 = v28.m128i_i16[0] - v5;
-      v28.m128i_i16[0] = v17;
-      v28.m128i_i16[1] = v17;
-      if ( v6 > 8 && !v3 )
+      if ( v7 >= 32 )
+        break;
+      if ( *v8 == 92 )
       {
-        result = CmpExpandPathInfo(a3);
-        if ( (int)result < 0 )
-          return result;
-        a3 = v30;
-        v3 = 1;
-      }
-      v18 = (unsigned int)(v6 - 1);
-      if ( (unsigned int)v18 >= 8 )
-        *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v6 - 9) + 6LL)) = v28;
-      else
-        *(__m128i *)(a3 + 16 * ((unsigned int)v18 + 2LL)) = v28;
-      v19 = 0;
-      if ( v17 )
-      {
-        v20 = (unsigned __int16 *)v28.m128i_i64[1];
-        v21 = (unsigned __int16)(((unsigned __int16)(v17 - 1) >> 1) + 1);
+        ++v7;
+        v18 = v25.m128i_i16[0] - v6;
+        v25.m128i_i16[0] = v18;
+        v25.m128i_i16[1] = v18;
+        if ( v7 > 8 && !v4 )
+        {
+          result = CmpExpandPathInfo(a3);
+          if ( (int)result < 0 )
+            return result;
+          v26 = 1;
+        }
+        v19 = (unsigned int)(v7 - 1);
+        if ( (unsigned int)v19 >= 8 )
+          *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v7 - 9) + 6LL)) = v25;
+        else
+          *(__m128i *)(a3 + 16 * ((unsigned int)v19 + 2LL)) = v25;
+        v20 = 0;
+        if ( v18 )
+        {
+          v21 = (unsigned __int16 *)v25.m128i_i64[1];
+          v22 = (unsigned __int16)(((unsigned __int16)(v18 - 1) >> 1) + 1);
+          do
+          {
+            v23 = *v21;
+            if ( *v21 >= 0x61u )
+            {
+              if ( v23 > 0x7Au )
+                v23 = NLS_UPCASE(v23);
+              else
+                v23 -= 32;
+            }
+            ++v21;
+            v20 = v23 + 37 * v20;
+            --v22;
+          }
+          while ( v22 );
+        }
+        if ( (unsigned int)v19 >= 8 )
+          *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v7 - 9)) = v20;
+        else
+          *(_DWORD *)(a3 + 4 * v19) = v20;
         do
         {
-          v22 = *v20;
-          if ( *v20 >= 0x61u )
-          {
-            if ( v22 > 0x7Au )
-            {
-              CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-              v22 = NLS_UPCASE(CurrentServerSiloGlobals[154], v24);
-            }
-            else
-            {
-              v22 -= 32;
-            }
-          }
-          ++v20;
-          v19 = v22 + 37 * v19;
-          --v21;
+          if ( *v8 != 92 )
+            break;
+          v6 -= 2;
+          ++v8;
+          v9 -= 2;
+          v24.m128i_i16[0] = v6;
         }
-        while ( v21 );
-        a3 = v30;
+        while ( v6 );
+        v24.m128i_i64[1] = (__int64)v8;
+        v24.m128i_i16[1] = v9;
+        v3 = v24;
+        v4 = v26;
+        v25 = v24;
       }
-      if ( (unsigned int)v18 >= 8 )
-        *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v6 - 9)) = v19;
       else
-        *(_DWORD *)(a3 + 4 * v18) = v19;
-      do
       {
-        if ( *v7 != 92 )
-          break;
-        v5 -= 2;
-        ++v7;
-        v8 -= 2;
-        v27.m128i_i16[0] = v5;
+        ++v8;
+        v6 -= 2;
+        v9 -= 2;
+        v24.m128i_i16[0] = v6;
       }
-      while ( v5 );
-      v27.m128i_i64[1] = (__int64)v7;
-      v27.m128i_i16[1] = v8;
-      v4 = v27;
-      v28 = v27;
+    }
+    while ( v6 );
+    v10 = (unsigned int)v7;
+    if ( v6 )
+    {
+      return 3221225485LL;
     }
     else
     {
-      ++v7;
-      v5 -= 2;
-      v8 -= 2;
-      v27.m128i_i16[0] = v5;
-    }
-  }
-  while ( v5 );
-  v9 = (unsigned int)v6;
-  if ( v5 )
-    return 3221225485LL;
-  v10 = v6 + 1;
-  if ( v10 > 8 && !v3 )
-  {
-    result = CmpExpandPathInfo(a3);
-    if ( (int)result < 0 )
-      return result;
-    a3 = v30;
-  }
-  if ( (unsigned int)v9 >= 8 )
-    *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v9 - 8) + 6LL)) = v4;
-  else
-    *(__m128i *)(a3 + 16 * ((unsigned int)v9 + 2LL)) = v4;
-  v11 = _mm_cvtsi128_si32(v4);
-  v12 = 0;
-  if ( v11 )
-  {
-    v13 = (unsigned __int16 *)v4.m128i_i64[1];
-    v14 = (unsigned __int16)(((unsigned __int16)(v11 - 1) >> 1) + 1);
-    do
-    {
-      v15 = *v13;
-      if ( *v13 >= 0x61u )
+      v11 = v7 + 1;
+      if ( v11 <= 8 || v4 || (result = CmpExpandPathInfo(a3), (int)result >= 0) )
       {
-        if ( v15 > 0x7Au )
-        {
-          v25 = PsGetCurrentServerSiloGlobals();
-          v15 = NLS_UPCASE(v25[154], v26);
-        }
+        if ( (unsigned int)v10 >= 8 )
+          *(__m128i *)(*(_QWORD *)(a3 + 160) + 16 * ((unsigned int)(v10 - 8) + 6LL)) = v3;
         else
+          *(__m128i *)(a3 + 16 * (v10 + 2)) = v3;
+        v12 = _mm_cvtsi128_si32(v3);
+        v13 = 0;
+        if ( v12 )
         {
-          v15 -= 32;
+          v14 = (unsigned __int16 *)v3.m128i_i64[1];
+          v15 = (unsigned __int16)(((unsigned __int16)(v12 - 1) >> 1) + 1);
+          do
+          {
+            v16 = *v14;
+            if ( *v14 >= 0x61u )
+            {
+              if ( v16 > 0x7Au )
+                v16 = NLS_UPCASE(v16);
+              else
+                v16 -= 32;
+            }
+            ++v14;
+            v13 = v16 + 37 * v13;
+            --v15;
+          }
+          while ( v15 );
         }
+        if ( (unsigned int)v10 >= 8 )
+          *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v10 - 8)) = v13;
+        else
+          *(_DWORD *)(a3 + 4 * v10) = v13;
+        *a2 = v11;
+        return 0LL;
       }
-      ++v13;
-      v12 = v15 + 37 * v12;
-      --v14;
     }
-    while ( v14 );
-    a3 = v30;
   }
-  if ( (unsigned int)v9 >= 8 )
-    *(_DWORD *)(*(_QWORD *)(a3 + 160) + 4LL * (unsigned int)(v9 - 8)) = v12;
   else
-    *(_DWORD *)(a3 + 4 * v9) = v12;
-  *a2 = v10;
-  return 0LL;
+  {
+    result = 0LL;
+    *a2 = 0;
+  }
+  return result;
 }

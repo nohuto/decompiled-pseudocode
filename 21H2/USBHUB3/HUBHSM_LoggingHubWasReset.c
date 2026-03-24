@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_LoggingHubWasReset @ 0x1C00085A0
+ * XREFs of HUBHSM_LoggingHubWasReset @ 0x1C0008290
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_LogHubResetRecoveryWasInvoked @ 0x1C0078974 (HUBFDO_LogHubResetRecoveryWasInvoked.c)
+ *     HUBFDO_LogHubResetRecoveryWasInvoked @ 0x1C00775C4 (HUBFDO_LogHubResetRecoveryWasInvoked.c)
  */
 
 __int64 __fastcall HUBHSM_LoggingHubWasReset(__int64 a1)

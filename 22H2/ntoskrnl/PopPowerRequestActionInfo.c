@@ -1,84 +1,77 @@
 /*
- * XREFs of PopPowerRequestActionInfo @ 0x1407A61D4
+ * XREFs of PopPowerRequestActionInfo @ 0x1406F4F38
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PopPowerRequestReferenceRelease @ 0x14032B248 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14032B648 (PopPowerRequestReferenceAcquire.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A60F0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     PopPowerRequestSpecialRequestClear @ 0x1409819B0 (PopPowerRequestSpecialRequestClear.c)
- *     PopPowerRequestSpecialRequestSet @ 0x140981A8C (PopPowerRequestSpecialRequestSet.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PoClearPowerRequestInternal @ 0x14034AFAC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x14034B170 (PoSetPowerRequestInternal.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x1406F5028 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PopClearSpecialRequest @ 0x1408E184C (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x1408E1BFC (PopSetSpecialRequest.c)
  */
 
 __int64 __fastcall PopPowerRequestActionInfo(__int64 a1)
 {
-  char PreviousMode; // bp
-  ULONG_PTR v3; // rcx
-  int IsAppContainerOrIdentifyLevelContext; // ebx
+  void *v2; // rcx
+  KPROCESSOR_MODE PreviousMode; // bp
+  NTSTATUS IsAppContainerOrIdentifyLevelContext; // ebx
   _BYTE *v5; // rdi
   __int64 v6; // rdx
-  int v7; // eax
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  NTSTATUS v7; // eax
   PVOID Object; // [rsp+68h] [rbp+10h] BYREF
 
+  v2 = *(void **)a1;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v3 = *(_QWORD *)a1;
   Object = 0LL;
-  v9 = 0;
-  IsAppContainerOrIdentifyLevelContext = ObpReferenceObjectByHandleWithTag(
-                                           v3,
+  IsAppContainerOrIdentifyLevelContext = ObReferenceObjectByHandleWithTag(
+                                           v2,
                                            0,
                                            PopPowerRequestObjectType,
                                            PreviousMode,
                                            0x72506F50u,
                                            &Object,
-                                           0LL,
                                            0LL);
   if ( IsAppContainerOrIdentifyLevelContext >= 0 )
   {
     v5 = Object;
     if ( *(_DWORD *)(a1 + 8) == 3 )
     {
-      if ( PreviousMode )
-      {
-        IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL, &v9);
-        if ( IsAppContainerOrIdentifyLevelContext >= 0 )
-        {
-          if ( !v9 )
-            goto LABEL_6;
-          IsAppContainerOrIdentifyLevelContext = -1073741790;
-        }
-LABEL_10:
-        ObfDereferenceObjectWithTag(v5, 0x72506F50u);
-        return (unsigned int)IsAppContainerOrIdentifyLevelContext;
-      }
-    }
-    else if ( *(_DWORD *)(a1 + 8) == 4 && PreviousMode != 1 )
-    {
-      IsAppContainerOrIdentifyLevelContext = -1073741637;
-      goto LABEL_10;
-    }
-LABEL_6:
-    v6 = *(unsigned int *)(a1 + 8);
-    if ( *(_BYTE *)(a1 + 12) )
-    {
-      if ( v5[152] )
-        v7 = PopPowerRequestSpecialRequestSet(v5, v6, *(_QWORD *)(a1 + 16));
-      else
-        v7 = PopPowerRequestReferenceAcquire(v5, v6);
-    }
-    else if ( v5[152] )
-    {
-      v7 = PopPowerRequestSpecialRequestClear(v5, v6);
+      if ( !PreviousMode )
+        goto LABEL_5;
+      IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL);
+      if ( IsAppContainerOrIdentifyLevelContext >= 0 )
+        goto LABEL_5;
     }
     else
     {
-      v7 = PopPowerRequestReferenceRelease(v5, v6);
+      if ( *(_DWORD *)(a1 + 8) != 4 || PreviousMode == 1 )
+      {
+LABEL_5:
+        v6 = *(unsigned int *)(a1 + 8);
+        if ( *(_BYTE *)(a1 + 12) )
+        {
+          if ( v5[136] )
+            v7 = PopSetSpecialRequest(v5, v6, *(_QWORD *)(a1 + 16));
+          else
+            v7 = PoSetPowerRequestInternal((__int64)v5, v6);
+        }
+        else if ( v5[136] )
+        {
+          v7 = PopClearSpecialRequest(v5, v6);
+        }
+        else
+        {
+          v7 = PoClearPowerRequestInternal((__int64)v5, v6);
+        }
+        IsAppContainerOrIdentifyLevelContext = v7;
+        goto LABEL_9;
+      }
+      IsAppContainerOrIdentifyLevelContext = -1073741637;
     }
-    IsAppContainerOrIdentifyLevelContext = v7;
-    goto LABEL_10;
+LABEL_9:
+    ObfDereferenceObjectWithTag(v5, 0x72506F50u);
   }
   return (unsigned int)IsAppContainerOrIdentifyLevelContext;
 }

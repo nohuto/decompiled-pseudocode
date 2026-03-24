@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140328824
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140328924
  * Callers:
- *     KiBugCheckProgress @ 0x140292320 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328824 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x140292420 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328924 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     BcpConvertProgressToString @ 0x140327A8C (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x140328230 (BcpDisplayProgress.c)
- *     BcpGetDisplayType @ 0x1403285B8 (BcpGetDisplayType.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328824 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BcpConvertProgressToString @ 0x140327B8C (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x1403286B8 (BcpGetDisplayType.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328924 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
@@ -51,7 +51,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
     v20 = __PAIR64__(DWORD1(BgInternal), DWORD2(BgInternal));
     v21 = HIDWORD(BgInternal);
     DisplayType = BcpGetDisplayType(&v20);
-    dword_140438740 = dword_140405A18;
+    dword_140438740 = dword_1404059F8;
     BcpCursor = BcpProgressOffset;
     BcpDisplayProgress(v11, DisplayType, v13);
     BcpLastProgressUpdateTicks = KeQueryPerformanceCounter(0LL).QuadPart;

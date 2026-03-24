@@ -1,51 +1,48 @@
 /*
- * XREFs of ?SetProperty@CComponentTransform2D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180022A70
+ * XREFs of ?SetProperty@CComponentTransform2D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800BDC30
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BE0F8 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComponentTransform2D::SetProperty(__int64 a1, int a2, int a3, float *a4)
 {
-  const unsigned int *v5; // rcx
-  _DWORD *v6; // rax
-  int v7; // eax
-  unsigned int v8; // ecx
-  unsigned int v9; // ebx
-  float v11; // xmm0_4
-  float v12; // [rsp+48h] [rbp+10h] BYREF
+  int *AnimatablePropertyInfo; // rax
+  __int64 v6; // rcx
+  float *v7; // r11
+  int v8; // eax
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  _QWORD v12[3]; // [rsp+30h] [rbp-18h] BYREF
+  float v13; // [rsp+58h] [rbp+10h] BYREF
 
   if ( a2 == 4 && a3 == 18 )
   {
-    v6 = &CComponentTransform2D::sc_RotationAngle;
-    v11 = *a4 * 0.017453292;
-    a4 = &v12;
-    v12 = v11;
-LABEL_8:
-    v7 = (*((__int64 (__fastcall **)(__int64, _DWORD *, float *))v6 + 3))(a1 + (int)v6[8], v6, a4);
-    v9 = v7;
-    if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x46u, 0LL);
+    AnimatablePropertyInfo = (int *)&CComponentTransform2D::sc_RotationAngle;
+    v7 = &v13;
+    v13 = *a4 * 0.017453292;
   }
   else
   {
-    v5 = (const unsigned int *)&CComponentTransform2D::k_rgAnimDef;
-    while ( 1 )
+    v12[0] = 6LL;
+    v12[1] = &CComponentTransform2D::k_rgAnimDef;
+    AnimatablePropertyInfo = (int *)AnimationHelper::FindAnimatablePropertyInfo(v12);
+    if ( !AnimatablePropertyInfo )
     {
-      v6 = *(_DWORD **)v5;
-      if ( a2 == **(_DWORD **)v5 && (a3 == v6[1] || !a3) )
-        break;
-      v5 += 2;
-      if ( v5 == &CProjectedShadowReceiver::`vftable' )
-        goto LABEL_15;
+      v10 = -2147024809;
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024809, 0x4Au, 0LL);
+      return v10;
     }
-    if ( v6 )
-      goto LABEL_8;
-LABEL_15:
-    v9 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v5, 0LL, 0, -2147024809, 0x4Au, 0LL);
   }
-  return v9;
+  v8 = (*((__int64 (__fastcall **)(__int64, int *, float *))AnimatablePropertyInfo + 3))(
+         a1 + AnimatablePropertyInfo[8],
+         AnimatablePropertyInfo,
+         v7);
+  v10 = v8;
+  if ( v8 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x46u, 0LL);
+  return v10;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBPDO_GetHubName @ 0x1C0015FA8
+ * XREFs of HUBPDO_GetHubName @ 0x1C0014ADC
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018420 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     HUBPDO_GetHubSymbolicLinkName @ 0x1C001A880 (HUBPDO_GetHubSymbolicLinkName.c)
- *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0033674 (HUBMISC_StripSymbolicNamePrefix.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBPDO_GetHubSymbolicLinkName @ 0x1C0018C10 (HUBPDO_GetHubSymbolicLinkName.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C003049C (HUBMISC_StripSymbolicNamePrefix.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
@@ -59,7 +59,7 @@ __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
           3u,
           5u,
           0xDu,
-          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
           v6,
           6);
       return (unsigned int)-1073741789;
@@ -73,7 +73,7 @@ __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
         3u,
         5u,
         0xCu,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids);
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     return (unsigned int)-1073741811;
   }
   return v3;

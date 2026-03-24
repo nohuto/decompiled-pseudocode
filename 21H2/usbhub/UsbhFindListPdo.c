@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhFindListPdo @ 0x1C0036E40
+ * XREFs of UsbhFindListPdo @ 0x1C00380F4
  * Callers:
- *     Usbh_PdoRemove_PdoEvent @ 0x1C003A7CC (Usbh_PdoRemove_PdoEvent.c)
- *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003AA28 (Usbh_PdoSurpriseRemove_PdoEvent.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003BADC (Usbh_PdoRemove_PdoEvent.c)
+ *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003BD38 (Usbh_PdoSurpriseRemove_PdoEvent.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 char __fastcall UsbhFindListPdo(__int64 a1, __int64 a2, _QWORD *a3)

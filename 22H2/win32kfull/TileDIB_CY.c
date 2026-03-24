@@ -1,46 +1,46 @@
 /*
- * XREFs of TileDIB_CY @ 0x1C0264A30
+ * XREFs of TileDIB_CY @ 0x1C026C670
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     GetFixupScan @ 0x1C0158C70 (GetFixupScan.c)
- *     AlphaBlendBGRF @ 0x1C025DB34 (AlphaBlendBGRF.c)
- *     MappingBGRF @ 0x1C0262D64 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C7690 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     AlphaBlendBGRF @ 0x1C0266540 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C026B6C4 (MappingBGRF.c)
  */
 
 __int64 __fastcall TileDIB_CY(__int128 *a1)
 {
-  int *v2; // rcx
-  __int64 v3; // rax
-  __int128 v4; // xmm0
-  __int128 v5; // xmm1
-  __int128 v6; // xmm0
-  __int128 v7; // xmm1
-  __int128 v8; // xmm0
-  __int128 v9; // xmm1
-  __int128 v10; // xmm0
-  __int128 v11; // xmm1
-  __int64 v12; // rax
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  __int128 v16; // xmm0
-  unsigned int v17; // ebx
-  _WORD *v18; // rdi
-  int v19; // ecx
-  int v20; // r14d
-  __int64 v21; // rsi
+  bool v1; // zf
+  int *v3; // rdx
+  __int64 v4; // rax
+  __int128 v5; // xmm0
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  __int64 v13; // rax
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  unsigned int v18; // ebx
+  _WORD *v19; // rdi
+  int v20; // ecx
+  int v21; // r14d
+  __int64 v22; // rsi
   unsigned __int8 *FixupScan; // r8
-  int v23; // edx
+  int v24; // edx
   _WORD *i; // r9
-  __int64 v25; // rcx
-  __int64 v26; // r9
-  unsigned __int8 *v27; // rdx
-  int v28; // r10d
-  int v29; // r11d
+  __int64 v26; // rcx
+  __int64 v27; // r9
+  unsigned __int8 *v28; // rdx
+  int v29; // r10d
+  int v30; // r11d
   int v31; // ecx
   __int16 v32; // ax
   __int16 v33; // ax
@@ -79,111 +79,107 @@ __int64 __fastcall TileDIB_CY(__int128 *a1)
   __int64 v66; // [rsp+290h] [rbp+190h]
   int v67; // [rsp+2A0h] [rbp+1A0h]
 
-  memset_0(&v37, 0, 0x258uLL);
   if ( (*((_BYTE *)a1 + 8) & 4) != 0 )
-  {
-    if ( *(_QWORD *)(*((_QWORD *)a1 + 39) + 32LL) )
-      goto LABEL_3;
+    v1 = *(_QWORD *)(*((_QWORD *)a1 + 39) + 32LL) == 0LL;
+  else
+    v1 = *((_QWORD *)a1 + 67) == 0LL;
+  if ( v1 )
     return *((unsigned int *)a1 + 37);
-  }
-  if ( !*((_QWORD *)a1 + 67) )
-    return *((unsigned int *)a1 + 37);
-LABEL_3:
-  v2 = &v37;
-  v3 = 4LL;
+  v3 = &v37;
+  v4 = 4LL;
   do
   {
-    v4 = *a1;
-    v5 = a1[1];
+    v5 = *a1;
+    v6 = a1[1];
     a1 += 8;
-    *(_OWORD *)v2 = v4;
-    v6 = *(a1 - 6);
-    *((_OWORD *)v2 + 1) = v5;
-    v7 = *(a1 - 5);
-    *((_OWORD *)v2 + 2) = v6;
-    v8 = *(a1 - 4);
-    *((_OWORD *)v2 + 3) = v7;
-    v9 = *(a1 - 3);
-    *((_OWORD *)v2 + 4) = v8;
-    v10 = *(a1 - 2);
-    *((_OWORD *)v2 + 5) = v9;
-    v11 = *(a1 - 1);
-    *((_OWORD *)v2 + 6) = v10;
-    v2 += 32;
-    *((_OWORD *)v2 - 1) = v11;
-    --v3;
+    *(_OWORD *)v3 = v5;
+    v7 = *(a1 - 6);
+    *((_OWORD *)v3 + 1) = v6;
+    v8 = *(a1 - 5);
+    *((_OWORD *)v3 + 2) = v7;
+    v9 = *(a1 - 4);
+    *((_OWORD *)v3 + 3) = v8;
+    v10 = *(a1 - 3);
+    *((_OWORD *)v3 + 4) = v9;
+    v11 = *(a1 - 2);
+    *((_OWORD *)v3 + 5) = v10;
+    v12 = *(a1 - 1);
+    *((_OWORD *)v3 + 6) = v11;
+    v3 += 32;
+    *((_OWORD *)v3 - 1) = v12;
+    --v4;
   }
-  while ( v3 );
-  v12 = *((_QWORD *)a1 + 10);
-  v13 = a1[1];
-  *(_OWORD *)v2 = *a1;
-  v14 = a1[2];
-  *((_OWORD *)v2 + 1) = v13;
-  v15 = a1[3];
-  *((_OWORD *)v2 + 2) = v14;
-  v16 = a1[4];
-  *((_OWORD *)v2 + 3) = v15;
-  *((_OWORD *)v2 + 4) = v16;
-  *((_QWORD *)v2 + 10) = v12;
-  v17 = v42;
-  v18 = *(_WORD **)(v48 + 32);
-  v19 = *(_DWORD *)(v47 + 24);
-  v20 = v39 - v19;
+  while ( v4 );
+  v13 = *((_QWORD *)a1 + 10);
+  v14 = a1[1];
+  *(_OWORD *)v3 = *a1;
+  v15 = a1[2];
+  *((_OWORD *)v3 + 1) = v14;
+  v16 = a1[3];
+  *((_OWORD *)v3 + 2) = v15;
+  v17 = a1[4];
+  *((_OWORD *)v3 + 3) = v16;
+  *((_OWORD *)v3 + 4) = v17;
+  *((_QWORD *)v3 + 10) = v13;
+  v18 = v42;
+  v19 = *(_WORD **)(v48 + 32);
+  v20 = *(_DWORD *)(v47 + 24);
+  v21 = v39 - v20;
   if ( v42 )
   {
-    v21 = (int)(v19 * ((~v38 & 4 | 8u) >> 2));
+    v22 = (int)(v20 * ((~v38 & 4 | 8u) >> 2));
     do
     {
-      --v17;
+      --v18;
       FixupScan = (unsigned __int8 *)GetFixupScan((__int64)&v37, v61);
       if ( (v38 & 4) != 0 )
       {
-        v23 = v39;
-        for ( i = v18; v23; --v23 )
+        v24 = v39;
+        for ( i = v19; v24; --v24 )
         {
-          v25 = *FixupScan++;
-          *i++ = GrayIdxWORD[v25];
+          v26 = *FixupScan++;
+          *i++ = GrayIdxWORD[v26];
         }
-        FixupScan = (unsigned __int8 *)v18;
+        FixupScan = (unsigned __int8 *)v19;
       }
-      v26 = v66;
-      v27 = &FixupScan[v21];
-      v28 = v41;
-      v29 = v20;
-      while ( v28 )
+      v27 = v66;
+      v28 = &FixupScan[v22];
+      v29 = v41;
+      v30 = v21;
+      while ( v29 )
       {
-        v31 = v28;
-        if ( v29 <= v28 )
-          v31 = v29;
-        v29 = v39;
-        v28 -= v31;
+        v31 = v29;
+        if ( v30 <= v29 )
+          v31 = v30;
+        v30 = v39;
+        v29 -= v31;
         if ( (v38 & 4) != 0 )
         {
           for ( ; v31; --v31 )
           {
-            v32 = *(_WORD *)v27;
-            v27 += 2;
-            *(_WORD *)v26 = v32;
-            v26 += v67;
+            v32 = *(_WORD *)v28;
+            v28 += 2;
+            *(_WORD *)v27 = v32;
+            v27 += v67;
           }
         }
         else
         {
           for ( ; v31; --v31 )
           {
-            v33 = *(_WORD *)v27;
-            v27 += 3;
-            *(_WORD *)v26 = v33;
-            *(_BYTE *)(v26 + 2) = *(v27 - 1);
-            v26 += v67;
+            v33 = *(_WORD *)v28;
+            v28 += 3;
+            *(_WORD *)v27 = v33;
+            *(_BYTE *)(v27 + 2) = *(v28 - 1);
+            v27 += v67;
           }
         }
-        v27 = FixupScan;
+        v28 = FixupScan;
       }
       v34 = v37;
       if ( (v37 & 0x80u) != 0 )
       {
-        v44(&v37, v27, FixupScan, v26);
+        v44(&v37, v28, FixupScan, v27);
         v34 = v37;
       }
       if ( (v34 & 0x800) != 0 )
@@ -206,8 +202,8 @@ LABEL_3:
       v40 += v43;
       v51 = v36;
     }
-    while ( v17 );
+    while ( v18 );
     return v42;
   }
-  return v17;
+  return v18;
 }

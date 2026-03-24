@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbDevice_SetDeviceDisabled @ 0x1C000D1B0
+ * XREFs of UsbDevice_SetDeviceDisabled @ 0x1C000AA1C
  * Callers:
- *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000D15C (DeviceSlot_DisableAllDeviceSlots.c)
- *     UsbDevice_SetAddressCompletion @ 0x1C0010C30 (UsbDevice_SetAddressCompletion.c)
- *     UsbDevice_DisableCompletion @ 0x1C00462A4 (UsbDevice_DisableCompletion.c)
- *     UsbDevice_UcxEvtDisable @ 0x1C00476E0 (UsbDevice_UcxEvtDisable.c)
+ *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000A95C (DeviceSlot_DisableAllDeviceSlots.c)
+ *     UsbDevice_SetAddressCompletion @ 0x1C000F9A0 (UsbDevice_SetAddressCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_UcxEvtDisable @ 0x1C0047300 (UsbDevice_UcxEvtDisable.c)
  * Callees:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     Endpoint_Disable @ 0x1C0004D70 (Endpoint_Disable.c)
- *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C0010840 (DeviceSlot_GetXilCoreDeviceSlotData.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
- *     WPP_RECORDER_SF_qd @ 0x1C0014644 (WPP_RECORDER_SF_qd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     XilDeviceSlot_SendClearDeviceContextRequest @ 0x1C0036BC0 (XilDeviceSlot_SendClearDeviceContextRequest.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
+ *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C000F894 (DeviceSlot_GetXilCoreDeviceSlotData.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     XilDeviceSlot_SendClearDeviceContextRequest @ 0x1C0036980 (XilDeviceSlot_SendClearDeviceContextRequest.c)
  */
 
 char __fastcall UsbDevice_SetDeviceDisabled(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ char __fastcall UsbDevice_SetDeviceDisabled(__int64 a1, __int64 a2)
   int v3; // edx
   __int64 v4; // rbp
   __int64 v5; // rdx
-  __int64 *v6; // rdi
+  _QWORD *v6; // rdi
   __int64 v7; // rsi
   __int64 v8; // rsi
   _QWORD *XilCoreDeviceSlotData; // rax
@@ -41,14 +41,14 @@ char __fastcall UsbDevice_SetDeviceDisabled(__int64 a1, __int64 a2)
       v3,
       12,
       58,
-      (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+      (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
       *(_BYTE *)(a1 + 135),
       *(_QWORD *)a1);
   }
   LOBYTE(a2) = 1;
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 136LL);
   Endpoint_Disable(*(_QWORD *)(a1 + 176), a2);
-  v6 = (__int64 *)(a1 + 184);
+  v6 = (_QWORD *)(a1 + 184);
   v7 = 30LL;
   do
   {
@@ -87,7 +87,7 @@ char __fastcall UsbDevice_SetDeviceDisabled(__int64 a1, __int64 a2)
         v10,
         10,
         10,
-        (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids,
+        (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids,
         a1,
         v8);
     }

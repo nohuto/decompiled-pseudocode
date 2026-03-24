@@ -1,66 +1,39 @@
 /*
- * XREFs of PopFreeIrp @ 0x14028E178
+ * XREFs of PopFreeIrp @ 0x14037A4EC
  * Callers:
- *     PopRequestCompletion @ 0x14028DFA0 (PopRequestCompletion.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x14028E080 (PopHandleDevicePowerIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140AA7680 (PopSystemIrpCompletion.c)
+ *     PopRequestCompletion @ 0x14037A370 (PopRequestCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140997030 (PopSystemIrpCompletion.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopFxReleasePowerIrp @ 0x14028DC24 (PopFxReleasePowerIrp.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022CF70 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     PopFxReleasePowerIrp @ 0x1403A4614 (PopFxReleasePowerIrp.c)
  */
 
 LONG_PTR __fastcall PopFreeIrp(PIRP Irp)
 {
-  __int64 *v2; // rbx
+  _QWORD *v2; // rbx
   __int64 v3; // rdi
-  void *v4; // r14
-  void *v5; // r15
-  __int64 v6; // rcx
-  __int64 **v7; // rax
-  unsigned __int64 OldIrql; // rsi
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
-  struct _KLOCK_QUEUE_HANDLE v15[2]; // [rsp+20h] [rbp-38h] BYREF
+  void *v4; // rbp
+  void *v5; // r14
+  __int64 v6; // rdx
+  _QWORD *v7; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(v15, 0, 24);
-  v2 = (__int64 *)*((_QWORD *)&Irp->Tail.CompletionKey + 9 * Irp->StackCount + 10);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v2 = (_QWORD *)*((_QWORD *)&Irp->Tail.CompletionKey + 9 * Irp->StackCount + 10);
   v3 = v2[25];
   v4 = (void *)v2[4];
   v5 = (void *)v2[3];
-  KeAcquireInStackQueuedSpinLock(&PopIrpLock, v15);
+  KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
   v6 = *v2;
-  PopIrpLockThread = (__int64)KeGetCurrentThread();
-  v7 = (__int64 **)v2[1];
-  if ( *(__int64 **)(v6 + 8) != v2 || *v7 != v2 )
+  if ( *(_QWORD **)(*v2 + 8LL) != v2 || (v7 = (_QWORD *)v2[1], (_QWORD *)*v7 != v2) )
     __fastfail(3u);
-  PopIrpLockThread = 0LL;
-  *v7 = (__int64 *)v6;
+  *v7 = v6;
   *(_QWORD *)(v6 + 8) = v7;
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)v15);
-  OldIrql = v15[0].OldIrql;
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (v15[0].OldIrql + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-    }
-  }
-  __writecr8(OldIrql);
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v3 && *((_BYTE *)v2 + 184) == 2 && *((_DWORD *)v2 + 47) == 1 )
   {
     PopFxReleasePowerIrp(v3);

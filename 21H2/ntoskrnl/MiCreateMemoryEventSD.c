@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateMemoryEventSD @ 0x14082C950
+ * XREFs of MiCreateMemoryEventSD @ 0x1407A128C
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14082BD64 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x1407A06D4 (MiInitializeMemoryEvents.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateMemoryEventSD(PSECURITY_DESCRIPTOR SecurityDescriptor)
@@ -36,21 +36,37 @@ __int64 __fastcall MiCreateMemoryEventSD(PSECURITY_DESCRIPTOR SecurityDescriptor
     if ( Pool )
     {
       Acl = RtlCreateAcl(Pool, v7, 2u);
-      if ( Acl < 0
-        || (Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0), Acl < 0)
-        || (Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
-        || (Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0)
-        || (Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0), Acl < 0)
-        || (Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllRestrictedAppPackagesSid, 0),
-            Acl < 0)
-        || (Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v9, 0), Acl < 0) )
+      if ( Acl >= 0 )
       {
+        Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+        if ( Acl >= 0 )
+        {
+          Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
+          if ( Acl >= 0 )
+          {
+            Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+            if ( Acl >= 0 )
+            {
+              Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
+              if ( Acl >= 0 )
+              {
+                Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllRestrictedAppPackagesSid, 0);
+                if ( Acl >= 0 )
+                {
+                  Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v9, 0);
+                  if ( Acl >= 0 )
+                  {
+                    v9 = 0LL;
+                    Acl = 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      if ( v9 )
         ExFreePoolWithTag(v9, 0);
-      }
-      else
-      {
-        return 0;
-      }
     }
   }
   return (unsigned int)Acl;

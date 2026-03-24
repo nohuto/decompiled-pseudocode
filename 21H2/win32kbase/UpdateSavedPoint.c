@@ -1,9 +1,9 @@
 /*
- * XREFs of UpdateSavedPoint @ 0x1C01E8800
+ * XREFs of UpdateSavedPoint @ 0x1C01AF5B0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C003B2DC (_anonymous_namespace_--GetMouseProcessor.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0042A1C (_anonymous_namespace_--GetMouseProcessor.c)
  */
 
 __int64 UpdateSavedPoint()
@@ -16,11 +16,11 @@ __int64 UpdateSavedPoint()
   if ( result )
   {
     *((_QWORD *)gpsi + 619) = 0LL;
-    *(_QWORD *)(result + 60) = *((_QWORD *)gpsi + 620);
-    *(_DWORD *)(result + 68) = 18;
+    *(_QWORD *)(result + 68) = *((_QWORD *)gpsi + 620);
+    *(_DWORD *)(result + 76) = 18;
     result = (__int64)gptCursorAsync;
-    *(_QWORD *)(v1 + 3448) = 0LL;
-    *(_QWORD *)(v1 + 3440) = result;
+    *(_QWORD *)(v1 + 3440) = 0LL;
+    *(_QWORD *)(v1 + 3432) = result;
   }
   return result;
 }

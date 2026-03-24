@@ -1,41 +1,40 @@
 /*
- * XREFs of ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C01F9950
+ * XREFs of ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C01BF294
  * Callers:
- *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01FB484 (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
+ *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01C0FD0 (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
  * Callees:
- *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C00363B4 (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
- *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C00429D4 (_anonymous_namespace_--IsMouseButtonSwapped.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C0040C3C (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
+ *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C009C0B8 (_anonymous_namespace_--IsMouseButtonSwapped.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall CMouseProcessor::ComputeMouseSystemStateForInterceptor(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CMouseProcessor::ComputeMouseSystemStateForInterceptor(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // edi
-  unsigned __int16 v5; // bx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  int v9; // esi
+  unsigned int v3; // edi
+  unsigned __int16 v4; // bx
+  int v5; // esi
+  __int64 result; // rax
 
-  v4 = 0;
-  v5 = *(_WORD *)(a2 + 4) & 0xF;
-  if ( v5 && !CMouseProcessor::MouseInputDataEx::TestProcessingOption(a2, 1024LL, a3) )
+  v3 = 0;
+  v4 = *(_WORD *)(a2 + 4) & 0xF;
+  if ( v4 && !CMouseProcessor::MouseInputDataEx::TestProcessingOption(a2, 1024) )
   {
-    if ( (v5 & 3) != 0 )
+    if ( (v4 & 3) != 0 )
     {
-      v9 = 1;
+      v5 = 1;
     }
     else
     {
-      v5 >>= 2;
-      v9 = 2;
-      if ( !v5 )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v7, v6, v8);
+      v4 >>= 2;
+      v5 = 2;
+      if ( !v4 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 5739);
     }
-    if ( anonymous_namespace_::IsMouseButtonSwapped(v9, (v5 & 2) != 0) )
-      v4 = 1;
+    if ( anonymous_namespace_::IsMouseButtonSwapped(v5, (v4 & 2) != 0) )
+      v3 = 1;
   }
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 3696), 1, 1) )
-    v4 |= 2u;
-  return v4;
+  result = v3 | 2;
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 3688), 1, 1) )
+    return v3;
+  return result;
 }

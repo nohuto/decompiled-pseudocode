@@ -1,12 +1,12 @@
 /*
- * XREFs of KiProcessSecondarySignalList @ 0x1402938D0
+ * XREFs of KiProcessSecondarySignalList @ 0x1402939D0
  * Callers:
  *     <none>
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondarySignalListLock @ 0x1402932FC (KiAcquireSecondarySignalListLock.c)
- *     KiProcessDisconnectList @ 0x140299F08 (KiProcessDisconnectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x1402933FC (KiAcquireSecondarySignalListLock.c)
+ *     KiProcessDisconnectList @ 0x14029A008 (KiProcessDisconnectList.c)
  */
 
 void __fastcall KiProcessSecondarySignalList(

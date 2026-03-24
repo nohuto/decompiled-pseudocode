@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPowerDispatch @ 0x140562950
+ * XREFs of IopPowerDispatch @ 0x14038AAA0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     PoSetPowerState @ 0x140364FD0 (PoSetPowerState.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     PoSetPowerState @ 0x14037C310 (PoSetPowerState.c)
  */
 
 __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -17,36 +17,41 @@ __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   Status = 0;
-  switch ( CurrentStackLocation->MinorFunction )
+  if ( CurrentStackLocation->MinorFunction )
   {
-    case 0u:
-      break;
-    case 1u:
-      SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
-      v9 = PoPowerSequence;
-      *SecurityContext = PoPowerSequence;
-      SecurityContext[1] = v9;
-      SecurityContext[2] = v9;
-      goto LABEL_14;
-    case 2u:
-      Options = CurrentStackLocation->Parameters.Create.Options;
-      if ( Options )
-      {
+    switch ( CurrentStackLocation->MinorFunction )
+    {
+      case 1u:
+        SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
+        v9 = PoPowerSequence;
+        *SecurityContext = PoPowerSequence;
+        SecurityContext[1] = v9;
+        SecurityContext[2] = v9;
+        goto LABEL_6;
+      case 2u:
+        Options = CurrentStackLocation->Parameters.Create.Options;
+        if ( !Options )
+          goto LABEL_5;
         if ( Options == 1 )
+        {
           PoSetPowerState(DeviceObject, DevicePowerState, CurrentStackLocation->Parameters.Power.State);
-        else
-          Status = -1073741637;
-      }
-      if ( Status == -1073741637 )
+          goto LABEL_6;
+        }
         break;
-LABEL_14:
-      Irp->IoStatus.Status = Status;
-      goto LABEL_6;
-    case 3u:
-      goto LABEL_14;
+      case 3u:
+        goto LABEL_6;
+    }
   }
-  Status = Irp->IoStatus.Status;
+  Status = -1073741637;
+LABEL_5:
+  if ( Status == -1073741637 )
+  {
+    Status = Irp->IoStatus.Status;
+    goto LABEL_7;
+  }
 LABEL_6:
+  Irp->IoStatus.Status = Status;
+LABEL_7:
   IofCompleteRequest(Irp, 0);
   return Status;
 }

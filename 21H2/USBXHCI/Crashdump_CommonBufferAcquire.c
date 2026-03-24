@@ -1,19 +1,19 @@
 /*
- * XREFs of Crashdump_CommonBufferAcquire @ 0x1C0049F6C
+ * XREFs of Crashdump_CommonBufferAcquire @ 0x1C00494AC
  * Callers:
- *     Crashdump_UcxEvtGetDumpData @ 0x1C004B0C0 (Crashdump_UcxEvtGetDumpData.c)
- *     Crashdump_EventRing_InitializeForDump @ 0x1C004C318 (Crashdump_EventRing_InitializeForDump.c)
- *     Crashdump_Endpoint_Initialize @ 0x1C004CEC4 (Crashdump_Endpoint_Initialize.c)
- *     Crashdump_UsbDevice_Initialize @ 0x1C004E4E0 (Crashdump_UsbDevice_Initialize.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_EventRing_InitializeForDump @ 0x1C004B898 (Crashdump_EventRing_InitializeForDump.c)
+ *     Crashdump_Endpoint_Initialize @ 0x1C004C444 (Crashdump_Endpoint_Initialize.c)
+ *     Crashdump_UsbDevice_Initialize @ 0x1C004DA5C (Crashdump_UsbDevice_Initialize.c)
  * Callees:
- *     CommonBuffer_AcquireBuffer @ 0x1C000FA9C (CommonBuffer_AcquireBuffer.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C000E440 (CommonBuffer_AcquireBuffer.c)
  */
 
 __int64 __fastcall Crashdump_CommonBufferAcquire(__int64 a1, int a2, __int64 a3)
 {
-  unsigned int v4; // esi
+  unsigned int v4; // ebp
   unsigned int v6; // ebx
-  _DWORD *v7; // r14
+  _DWORD *v7; // rsi
   _QWORD *v8; // rcx
   _QWORD *v9; // rax
   __int64 v10; // rdx

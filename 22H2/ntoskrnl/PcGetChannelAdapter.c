@@ -1,5 +1,5 @@
 /*
- * XREFs of PcGetChannelAdapter @ 0x14051BF60
+ * XREFs of PcGetChannelAdapter @ 0x1404D21E0
  * Callers:
  *     <none>
  * Callees:
@@ -15,7 +15,7 @@ char *__fastcall PcGetChannelAdapter(__int64 a1)
   __int64 v6; // rax
   __int64 v7; // rdx
   char *result; // rax
-  char v9; // dl
+  char v9; // r8
 
   v2 = (char *)&PcDmaChannelState + 24 * *(unsigned int *)(a1 + 16);
   *(_OWORD *)v2 = 0LL;

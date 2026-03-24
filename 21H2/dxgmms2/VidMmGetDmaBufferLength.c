@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmGetDmaBufferLength @ 0x1C0018F90
+ * XREFs of VidMmGetDmaBufferLength @ 0x1C00161E0
  * Callers:
  *     <none>
  * Callees:

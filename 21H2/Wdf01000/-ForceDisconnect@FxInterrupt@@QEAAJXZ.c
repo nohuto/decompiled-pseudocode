@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ForceDisconnect@FxInterrupt@@QEAAJXZ @ 0x1C008D1E8
+ * XREFs of ?ForceDisconnect@FxInterrupt@@QEAAJXZ @ 0x1C0089638
  * Callers:
- *     imp_WdfInterruptDisable @ 0x1C0082D20 (imp_WdfInterruptDisable.c)
+ *     imp_WdfInterruptDisable @ 0x1C00785C0 (imp_WdfInterruptDisable.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C000D374 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C00048C0 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
  */
 
 __int64 __fastcall FxInterrupt::ForceDisconnect(FxInterrupt *this)

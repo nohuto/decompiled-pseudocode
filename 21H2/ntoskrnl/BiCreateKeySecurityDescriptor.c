@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCreateKeySecurityDescriptor @ 0x140813344
+ * XREFs of BiCreateKeySecurityDescriptor @ 0x1407845E0
  * Callers:
- *     BiCreateKey @ 0x1408036C8 (BiCreateKey.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
+ *     BiCreateKey @ 0x140783C10 (BiCreateKey.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)

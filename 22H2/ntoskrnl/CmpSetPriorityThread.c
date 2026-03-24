@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSetPriorityThread @ 0x1402079DC
+ * XREFs of CmpSetPriorityThread @ 0x14032B86C
  * Callers:
- *     CmpDoFileWrite @ 0x1406895CC (CmpDoFileWrite.c)
+ *     CmpDoFileWrite @ 0x1406EA3AC (CmpDoFileWrite.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x140257340 (KeSetPriorityThread.c)
  */
 
-__int64 __fastcall CmpSetPriorityThread(ULONG_PTR a1)
+KPRIORITY __fastcall CmpSetPriorityThread(struct _KTHREAD *a1, KPRIORITY a2)
 {
-  return KeSetActualBasePriorityThread(a1);
+  return KeSetPriorityThread(a1, a2);
 }

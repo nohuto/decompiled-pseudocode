@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CTurbulenceEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217234
+ * XREFs of ?EmitData@CTurbulenceEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1084
  * Callers:
- *     ?EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02172F0 (-EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1140 (-EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CTurbulenceEffectMarshaler::EmitData(
@@ -21,17 +21,17 @@ char __fastcall DirectComposition::CTurbulenceEffectMarshaler::EmitData(
   *(_OWORD *)(v3 + 4) = 0LL;
   *(_OWORD *)(v3 + 20) = 0LL;
   *(_OWORD *)(v3 + 36) = 0LL;
-  *((_DWORD *)v3 + 1) = 505;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-  *((_DWORD *)v3 + 3) = *((_DWORD *)this + 30);
-  *((_DWORD *)v3 + 4) = *((_DWORD *)this + 31);
-  *((_DWORD *)v3 + 5) = *((_DWORD *)this + 32);
-  *((_DWORD *)v3 + 6) = *((_DWORD *)this + 33);
-  *((_DWORD *)v3 + 7) = *((_DWORD *)this + 34);
-  *((_DWORD *)v3 + 8) = *((_DWORD *)this + 35);
-  *((_DWORD *)v3 + 9) = *((_DWORD *)this + 36);
-  *((_DWORD *)v3 + 10) = *((_DWORD *)this + 37);
-  *((_DWORD *)v3 + 11) = *((_DWORD *)this + 38);
-  *((_DWORD *)v3 + 12) = *((_DWORD *)this + 39);
+  *((_DWORD *)v3 + 1) = 510;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+  *((_DWORD *)v3 + 3) = *((_DWORD *)this + 28);
+  *((_DWORD *)v3 + 4) = *((_DWORD *)this + 29);
+  *((_DWORD *)v3 + 5) = *((_DWORD *)this + 30);
+  *((_DWORD *)v3 + 6) = *((_DWORD *)this + 31);
+  *((_DWORD *)v3 + 7) = *((_DWORD *)this + 32);
+  *((_DWORD *)v3 + 8) = *((_DWORD *)this + 33);
+  *((_DWORD *)v3 + 9) = *((_DWORD *)this + 34);
+  *((_DWORD *)v3 + 10) = *((_DWORD *)this + 35);
+  *((_DWORD *)v3 + 11) = *((_DWORD *)this + 36);
+  *((_DWORD *)v3 + 12) = *((_DWORD *)this + 37);
   return 1;
 }

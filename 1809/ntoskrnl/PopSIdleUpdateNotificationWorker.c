@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSIdleUpdateNotificationWorker @ 0x14013A860
+ * XREFs of PopSIdleUpdateNotificationWorker @ 0x14013A880
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140138CA8 (PopQueueWorkItem.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopDiagTraceSIdleUpdateNotificationWorker @ 0x140874038 (PopDiagTraceSIdleUpdateNotificationWorker.c)
+ *     PopDiagTraceSIdleUpdateNotificationWorker @ 0x140874018 (PopDiagTraceSIdleUpdateNotificationWorker.c)
  */
 
 char PopSIdleUpdateNotificationWorker()
@@ -20,7 +20,7 @@ char PopSIdleUpdateNotificationWorker()
   char v5; // bl
 
   ((void (*)(void))PopAcquirePolicyLock)();
-  v0 = byte_140417670;
+  v0 = byte_140417690;
   result = PopReleasePolicyLock();
   v3 = 0;
   if ( v0 != PopSIdleLastUpdateNotificationState )
@@ -35,11 +35,11 @@ char PopSIdleUpdateNotificationWorker()
     if ( !v3 )
       PopSIdleLastUpdateNotificationState = v0;
   }
-  v4 = (unsigned int)_InterlockedExchange(&dword_140410020, 0);
+  v4 = (unsigned int)_InterlockedExchange(&dword_140410040, 0);
   if ( !v3 )
   {
     PopAcquirePolicyLock(v4);
-    v5 = byte_140417670;
+    v5 = byte_140417690;
     result = PopReleasePolicyLock();
     if ( v5 != PopSIdleLastUpdateNotificationState )
       return PopQueueWorkItem((__int64)&PopSIdleUpdateNotificationWorkItem, DelayedWorkQueue);

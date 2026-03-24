@@ -1,5 +1,5 @@
 /*
- * XREFs of PspCheckConditionalWakeCharge @ 0x1406B22E4
+ * XREFs of PspCheckConditionalWakeCharge @ 0x1406B22C4
  * Callers:
  *     PspChargeProcessWakeCounter @ 0x140636C70 (PspChargeProcessWakeCounter.c)
  * Callees:

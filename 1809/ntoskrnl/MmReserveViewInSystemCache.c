@@ -1,10 +1,10 @@
 /*
- * XREFs of MmReserveViewInSystemCache @ 0x1407501BC
+ * XREFs of MmReserveViewInSystemCache @ 0x14075019C
  * Callers:
- *     CcInitializePartitionVacbs @ 0x14018AE8C (CcInitializePartitionVacbs.c)
- *     CcBuildUpHighPriorityMappings @ 0x14026A400 (CcBuildUpHighPriorityMappings.c)
+ *     CcInitializePartitionVacbs @ 0x14018AEAC (CcInitializePartitionVacbs.c)
+ *     CcBuildUpHighPriorityMappings @ 0x14026A500 (CcBuildUpHighPriorityMappings.c)
  * Callees:
- *     MiObtainSystemCacheView @ 0x1400AD200 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
  */
 
 __int64 __fastcall MmReserveViewInSystemCache(__int64 *a1, __int64 a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEnlargeHiberFile @ 0x1406DFC74
+ * XREFs of PopEnlargeHiberFile @ 0x1406DFC54
  * Callers:
  *     PopTransitionToSleep @ 0x14056C0F0 (PopTransitionToSleep.c)
  * Callees:
- *     PopResizeHiberFile @ 0x1406DFD08 (PopResizeHiberFile.c)
+ *     PopResizeHiberFile @ 0x1406DFCE8 (PopResizeHiberFile.c)
  */
 
 __int64 __fastcall PopEnlargeHiberFile(bool *a1)
@@ -13,7 +13,7 @@ __int64 __fastcall PopEnlargeHiberFile(bool *a1)
   unsigned __int64 v5; // [rsp+38h] [rbp+10h] BYREF
   __int64 v6; // [rsp+40h] [rbp+18h] BYREF
 
-  qword_1404184A8 = qword_140417A30;
+  qword_1404184A8 = qword_140417830;
   v2 = *(_QWORD *)(*(_QWORD *)qword_14043A748 + 7120LL) << 12;
   v3 = PopResizeHiberFile(v2, &v5, &v6);
   if ( v3 >= 0 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ObCreateObjectType @ 0x1407289E0
+ * XREFs of ObCreateObjectType @ 0x1407289C0
  * Callers:
  *     SepTokenInitialization @ 0x1409AE964 (SepTokenInitialization.c)
  *     DbgkpInitializePhase0 @ 0x1409AEA9C (DbgkpInitializePhase0.c)
@@ -26,7 +26,7 @@
  *     ExpSemaphoreInitialization @ 0x1409DE944 (ExpSemaphoreInitialization.c)
  *     ExpEventInitialization @ 0x1409DE9DC (ExpEventInitialization.c)
  * Callees:
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
  */
 
 __int64 __fastcall ObCreateObjectType(const UNICODE_STRING *a1, __int64 a2, __int64 a3, __int64 a4)

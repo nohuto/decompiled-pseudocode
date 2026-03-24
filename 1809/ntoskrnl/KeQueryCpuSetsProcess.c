@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetsProcess @ 0x1402964C4
+ * XREFs of KeQueryCpuSetsProcess @ 0x1402965C4
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x14018CB90 (KiGetProcessCpuSetMaskPointer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x14018CBB0 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, unsigned int a3, int a4)

@@ -1,21 +1,21 @@
 /*
- * XREFs of ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C003175C
+ * XREFs of ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C002AAB4
  * Callers:
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0022CDC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     ?SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0023860 (-SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
- *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z @ 0x1C00316A0 (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z.c)
- *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z @ 0x1C0033A0C (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z.c)
- *     ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C00A6D30 (-EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ.c)
- *     ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C021107C (-AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
- *     ?AddSegments@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z @ 0x1C02119CC (-AddSegments@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z.c)
- *     ?SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02294A0 (-SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@.c)
- *     ?SetBufferProperty@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022A4E0 (-SetBufferProperty@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@UEAAJPEAVCAppli.c)
+ *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z @ 0x1C00298EC (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z.c)
+ *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z @ 0x1C002A8FC (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00668DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C01D5870 (-EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ.c)
+ *     ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E21DC (-AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
+ *     ?AddSegments@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z @ 0x1C01E2B54 (-AddSegments@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z.c)
+ *     ?SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EA6C0 (-SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
+ *     ?SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F0650 (-SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@.c)
+ *     ?SetBufferProperty@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F1650 (-SetBufferProperty@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@UEAAJPEAVCAppli.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002C184 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CDCompDynamicArrayBase::Grow(
@@ -24,68 +24,82 @@ __int64 __fastcall DirectComposition::CDCompDynamicArrayBase::Grow(
         unsigned int a3)
 {
   unsigned __int64 v3; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v6; // rcx
+  unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rdi
   unsigned int v8; // ebx
-  unsigned __int64 v10; // rax
-  char *v11; // rax
-  char *v12; // rbp
-  __int64 v13; // r8
-  unsigned __int64 v14; // kr00_8
+  int v10; // eax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  char *v13; // r14
+  unsigned int v14; // ebp
+  __int64 v15; // rax
+  unsigned __int64 v16; // kr00_8
 
   v3 = *((_QWORD *)this + 3);
-  v6 = (NSInstrumentation::CLeakTrackingAllocator *)(v3 + a2);
+  v6 = v3 + a2;
   if ( v3 + a2 < v3 )
     return (unsigned int)-1073741801;
   v7 = *((_QWORD *)this + 2);
   v8 = 0;
-  if ( (unsigned __int64)v6 > v7 )
+  if ( v6 > v7 )
   {
     if ( !v7 )
       v7 = 64LL;
-    while ( v7 < (unsigned __int64)v6 )
+    while ( 1 )
     {
-      if ( v7 >= 0x400 )
+      v10 = 0;
+      if ( v7 >= v6 || v7 >= 0x400 )
+        break;
+      v16 = v7;
+      v7 *= 2LL;
+      if ( !is_mul_ok(v16, 2uLL) )
       {
-        while ( v7 < (unsigned __int64)v6 )
-        {
-          if ( v7 + 1024 < v7 )
-            return (unsigned int)-1073741801;
-          v7 += 1024LL;
-        }
+        v7 = -1LL;
+        v10 = -1073741675;
         break;
       }
-      v14 = v7;
-      v7 *= 2LL;
-      if ( !is_mul_ok(v14, 2uLL) )
-        return (unsigned int)-1073741801;
     }
-    if ( is_mul_ok(v7, *((_QWORD *)this + 4)) )
+    if ( v10 >= 0 )
     {
-      v10 = v7 * *((_QWORD *)this + 4);
-      v11 = (char *)(*((_BYTE *)this + 8)
-                   ? NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(v6, 260LL, v10, a3)
-                   : NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 260LL, v10, a3));
-      v12 = v11;
-      if ( v11 )
+      while ( v7 < v6 )
       {
-        v13 = *((_QWORD *)this + 3);
-        if ( v13 )
-          memmove(v11, *(const void **)this, *((_QWORD *)this + 4) * v13);
-        memset(
-          &v12[*((_QWORD *)this + 3) * *((_QWORD *)this + 4)],
-          0,
-          *((_QWORD *)this + 4) * (v7 - *((_QWORD *)this + 3)));
-        if ( *(_QWORD *)this )
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *(void **)this);
-        *(_QWORD *)this = v12;
-        *((_QWORD *)this + 2) = v7;
-        goto LABEL_3;
+        if ( v7 + 1024 < v7 )
+        {
+          v7 = -1LL;
+          v10 = -1073741675;
+          break;
+        }
+        v7 += 1024LL;
+        v10 = 0;
+      }
+      if ( v10 >= 0 && is_mul_ok(v7, *((_QWORD *)this + 4)) )
+      {
+        v11 = v7 * *((_QWORD *)this + 4);
+        v12 = *((_BYTE *)this + 8) ? Win32AllocPoolWithQuota(v11, a3) : Win32AllocPool(v11, a3);
+        v13 = (char *)v12;
+        v14 = v12 == 0 ? 0xC0000017 : 0;
+        if ( v12 )
+        {
+          v15 = *((_QWORD *)this + 3);
+          if ( v15 )
+          {
+            memmove(v13, *(const void **)this, v15 * *((_QWORD *)this + 4));
+            v15 = *((_QWORD *)this + 3);
+          }
+          memset(&v13[v15 * *((_QWORD *)this + 4)], 0, *((_QWORD *)this + 4) * (v7 - v15));
+          if ( *(_QWORD *)this )
+            Win32FreePool(*(_QWORD *)this);
+          v3 = *((_QWORD *)this + 3);
+          v8 = v14;
+          *(_QWORD *)this = v13;
+          *((_QWORD *)this + 2) = v7;
+          goto LABEL_3;
+        }
       }
     }
     return (unsigned int)-1073741801;
   }
 LABEL_3:
-  *((_QWORD *)this + 3) += a2;
+  *((_QWORD *)this + 3) = a2 + v3;
   return v8;
 }

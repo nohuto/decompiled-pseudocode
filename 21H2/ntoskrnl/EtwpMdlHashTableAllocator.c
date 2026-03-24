@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpMdlHashTableAllocator @ 0x1406334C4
+ * XREFs of EtwpMdlHashTableAllocator @ 0x1405B0724
  * Callers:
- *     EtwpRegisterPartitionPages @ 0x140633504 (EtwpRegisterPartitionPages.c)
+ *     EtwpRegisterPartitionPages @ 0x1405B0764 (EtwpRegisterPartitionPages.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpMdlHashTableAllocator(__int64 a1)
+PVOID __fastcall EtwpMdlHashTableAllocator(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(64LL, a1, 1115124805LL);
+  return ExAllocatePoolWithTag(NonPagedPoolNx, NumberOfBytes, 0x42777445u);
 }

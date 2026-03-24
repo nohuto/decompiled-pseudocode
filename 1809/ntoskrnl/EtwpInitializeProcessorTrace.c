@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeProcessorTrace @ 0x140727380
+ * XREFs of EtwpInitializeProcessorTrace @ 0x140727360
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     ExRegisterHost @ 0x1407275DC (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
  */
 
 __int64 __fastcall EtwpInitializeProcessorTrace(__int64 a1, __int64 a2)

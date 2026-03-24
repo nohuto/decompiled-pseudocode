@@ -1,19 +1,16 @@
 /*
- * XREFs of ??1?$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x18010056C
+ * XREFs of ??1?$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x1800E6A78
  * Callers:
- *     wil::details::_dynamic_atexit_destructor_for__g_processLocalData__ @ 0x18010D700 (wil--details--_dynamic_atexit_destructor_for__g_processLocalData__.c)
+ *     wil::details::_dynamic_atexit_destructor_for__g_processLocalData__ @ 0x1800F96F0 (wil--details--_dynamic_atexit_destructor_for__g_processLocalData__.c)
  * Callees:
- *     ?Release@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAXXZ @ 0x1801785DC (-Release@-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAXXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall wil::details_abi::ProcessLocalStorage<wil::details_abi::ProcessLocalData>::~ProcessLocalStorage<wil::details_abi::ProcessLocalData>(
-        __int64 a1)
+__int64 wil::details_abi::ProcessLocalStorage<wil::details_abi::ProcessLocalData>::~ProcessLocalStorage<wil::details_abi::ProcessLocalData>()
 {
-  void *v1; // rcx
   __int64 result; // rax
 
-  v1 = *(void **)(a1 + 8);
-  if ( v1 )
-    return wil::details_abi::ProcessLocalStorageData<wil::details_abi::ProcessLocalData>::Release(v1);
+  if ( qword_1803452B0 )
+    return wil::details_abi::ProcessLocalStorageData<wil::details_abi::ProcessLocalData>::Release(qword_1803452B0);
   return result;
 }

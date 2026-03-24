@@ -1,43 +1,43 @@
 /*
- * XREFs of PnpRestartDeviceNode @ 0x140958D6C
+ * XREFs of PnpRestartDeviceNode @ 0x140731B88
  * Callers:
- *     PiRestartRemovalRelations @ 0x1408639FC (PiRestartRemovalRelations.c)
- *     PiRestartDevice @ 0x140864EE0 (PiRestartDevice.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PiProcessClearDeviceProblem @ 0x140959420 (PiProcessClearDeviceProblem.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140963800 (PiProfileUpdateDeviceTreeCallback.c)
- *     PiProcessQueryRemoveNoFdo @ 0x140971A78 (PiProcessQueryRemoveNoFdo.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x140731A14 (PiProcessQueryRemoveNoFdo.c)
+ *     PiProcessClearDeviceProblem @ 0x140731AB8 (PiProcessClearDeviceProblem.c)
+ *     PiRestartRemovalRelations @ 0x1407338DC (PiRestartRemovalRelations.c)
+ *     PiRestartDevice @ 0x140733F90 (PiRestartDevice.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB0D0 (PiProfileUpdateDeviceTreeCallback.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PipClearDevNodeUserFlags @ 0x1407938F0 (PipClearDevNodeUserFlags.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140746054 (PipClearDevNodeUserFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRestartDeviceNode(__int64 a1)
 {
   unsigned int v2; // edi
-  int v3; // eax
+  bool v3; // zf
   void *v4; // rcx
 
   PpDevNodeLockTree(4);
   if ( (*(_DWORD *)(a1 + 396) & 0x10) != 0 )
   {
-    PipClearDevNodeUserFlags(a1, 5);
-    PipClearDevNodeFlags(a1, 1081344);
-    *(_DWORD *)(a1 + 704) &= 0xFFFE3C03;
+    PipClearDevNodeUserFlags(a1, 5LL);
+    PipClearDevNodeFlags(a1, 1081344LL);
+    *(_DWORD *)(a1 + 704) &= 0xFFFFBC03;
     v2 = 0;
-    v3 = *(_DWORD *)(a1 + 300);
+    v3 = *(_DWORD *)(a1 + 300) == 769;
     *(_DWORD *)(a1 + 296) = 0;
     *(_DWORD *)(a1 + 120) = 0;
     *(_DWORD *)(a1 + 124) = 0;
-    if ( (unsigned int)(v3 - 769) > 1 )
+    if ( !v3 )
     {
-      PipClearDevNodeFlags(a1, 2082475264);
+      PipClearDevNodeFlags(a1, 2082475264LL);
       if ( *(_WORD *)(a1 + 56) )
       {
         ExFreePoolWithTag(*(PVOID *)(a1 + 64), 0);
@@ -50,9 +50,9 @@ __int64 __fastcall PnpRestartDeviceNode(__int64 a1)
       {
         ExFreePoolWithTag(v4, 0);
         *(_QWORD *)(a1 + 440) = 0LL;
-        PipClearDevNodeFlags(a1, 512);
+        PipClearDevNodeFlags(a1, 512LL);
       }
-      ExReleaseFastMutex(&PiResourceListLock);
+      KeReleaseGuardedMutex(&PiResourceListLock);
     }
     *(_DWORD *)(a1 + 660) = -1;
     PipSetDevNodeState(a1, 769);

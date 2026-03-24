@@ -1,24 +1,20 @@
 /*
- * XREFs of IommupHvUnmapDeviceIdentityRange @ 0x140525594
+ * XREFs of IommupHvUnmapDeviceIdentityRange @ 0x1404DA2B8
  * Callers:
- *     HalpIommuDomainUnmapIdentityRange @ 0x140517E94 (HalpIommuDomainUnmapIdentityRange.c)
+ *     IommuMapIdentityRange @ 0x1404DA710 (IommuMapIdentityRange.c)
+ *     IommuUnmapIdentityRange @ 0x1404DABA0 (IommuUnmapIdentityRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IommupHvUnmapDeviceIdentityRange(ULONG_PTR BugCheckParameter3)
+__int64 __fastcall IommupHvUnmapDeviceIdentityRange(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v3; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = 0LL;
-  if ( *(_BYTE *)(BugCheckParameter3 + 52) )
+  v2 = 0LL;
+  if ( *(_BYTE *)(a1 + 40) )
     return 3221225485LL;
-  LODWORD(v3) = *(_DWORD *)(BugCheckParameter3 + 48);
-  BYTE4(v3) = 0;
-  result = ((__int64 (__fastcall *)(__int64 *))qword_140C62740)(&v3);
-  if ( (int)result < 0 )
-    KeBugCheckEx(0x1D9u, 1uLL, (int)result, BugCheckParameter3, 0LL);
-  return result;
+  LODWORD(v2) = *(_DWORD *)(a1 + 32);
+  BYTE4(v2) = 0;
+  return ((__int64 (__fastcall *)(__int64 *))qword_140C4A3A8)(&v2);
 }

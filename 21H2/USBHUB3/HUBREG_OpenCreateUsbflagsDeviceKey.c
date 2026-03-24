@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C007E4DC
+ * XREFs of HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C007CEE0
  * Callers:
- *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007EEF0 (HUBREG_AssignUsbflagsValueForDevice.c)
- *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007F038 (HUBREG_QueryUsbflagsValuesForDevice.c)
- *     HUBREG_QueryHubErrataFlags @ 0x1C007FB68 (HUBREG_QueryHubErrataFlags.c)
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007D8C8 (HUBREG_AssignUsbflagsValueForDevice.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007DA10 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     HUBREG_QueryHubErrataFlags @ 0x1C007E5AC (HUBREG_QueryHubErrataFlags.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringInit @ 0x1C0031B2C (RtlUnicodeStringInit.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringInit @ 0x1C003144C (RtlUnicodeStringInit.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_OpenCreateUsbflagsDeviceKey(
@@ -22,57 +22,38 @@ __int64 __fastcall HUBREG_OpenCreateUsbflagsDeviceKey(
         char a7,
         __int64 a8)
 {
-  void *v8; // rsi
+  wchar_t *v9; // rdi
   NTSTATUS PersistedStateLocation; // ebx
-  __int64 Pool2; // rax
-  __int64 v11; // rcx
-  const wchar_t *v12; // rax
-  __int16 v13; // cx
-  unsigned int v14; // r14d
-  unsigned __int16 v15; // r9
-  __int64 v17; // [rsp+28h] [rbp-C1h]
-  __int64 v18; // [rsp+28h] [rbp-C1h]
-  __int64 v19; // [rsp+28h] [rbp-C1h]
-  unsigned int v20; // [rsp+50h] [rbp-99h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-91h] BYREF
-  unsigned int v22; // [rsp+60h] [rbp-89h]
-  struct _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-81h] BYREF
-  struct _UNICODE_STRING v24; // [rsp+78h] [rbp-71h] BYREF
-  __int64 v25; // [rsp+88h] [rbp-61h]
-  __int64 v26; // [rsp+90h] [rbp-59h]
-  __int64 v27; // [rsp+98h] [rbp-51h]
-  _QWORD *v28; // [rsp+A0h] [rbp-49h]
-  char v29; // [rsp+A8h] [rbp-41h] BYREF
+  wchar_t *PoolWithTag; // rax
+  unsigned __int16 v12; // r9
+  const wchar_t *v13; // rdx
+  __int64 v15; // [rsp+28h] [rbp-B1h]
+  __int64 v16; // [rsp+28h] [rbp-B1h]
+  SIZE_T NumberOfBytes; // [rsp+50h] [rbp-89h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-81h] BYREF
+  struct _UNICODE_STRING v19; // [rsp+60h] [rbp-79h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-69h] BYREF
+  __int64 v21; // [rsp+80h] [rbp-59h]
+  __int64 v22; // [rsp+88h] [rbp-51h]
+  __int64 v23; // [rsp+90h] [rbp-49h]
+  char v24; // [rsp+98h] [rbp-41h] BYREF
 
-  v26 = a2;
-  v27 = a1;
-  v22 = a4;
-  v25 = a3;
-  v28 = a5;
-  *(_QWORD *)&v24.Length = 3407872LL;
-  v24.Buffer = (wchar_t *)&v29;
-  v20 = 0;
-  v21 = 0LL;
+  v23 = a1;
+  v21 = a3;
+  v22 = a2;
+  *(_QWORD *)&v19.Length = 3407872LL;
+  v19.Buffer = (wchar_t *)&v24;
+  LODWORD(NumberOfBytes) = 0;
+  v18 = 0LL;
   DestinationString = 0LL;
   if ( a5 )
     *a5 = 0LL;
+  v9 = 0LL;
   *a6 = 0LL;
-  v8 = 0LL;
   if ( a7 != 1 )
   {
-    v11 = 0x7FFFLL;
-    v12 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\usbflags";
-    while ( *v12 )
-    {
-      ++v12;
-      if ( !--v11 )
-        goto LABEL_17;
-    }
-    v13 = 2 * v11;
-    DestinationString.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\usbflags";
-    DestinationString.Length = -2 - v13;
-    DestinationString.MaximumLength = -v13;
-    goto LABEL_17;
+    v13 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\usbflags";
+    goto LABEL_13;
   }
   PersistedStateLocation = RtlGetPersistedStateLocation(
                              L"UsbFlags",
@@ -81,77 +62,73 @@ __int64 __fastcall HUBREG_OpenCreateUsbflagsDeviceKey(
                              0LL,
                              0LL,
                              0,
-                             &v20);
+                             &NumberOfBytes);
   if ( PersistedStateLocation == -2147483643 )
   {
-    Pool2 = ExAllocatePool2(64LL, v20, 1681082453LL);
-    v8 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, (unsigned int)NumberOfBytes, 0x64334855u);
+    v9 = PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_14;
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"UsbFlags",
+                               0LL,
+                               L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\usbflags",
+                               0LL,
+                               PoolWithTag,
+                               NumberOfBytes,
+                               0LL);
+    if ( PersistedStateLocation < 0 )
     {
-      PersistedStateLocation = RtlGetPersistedStateLocation(
-                                 L"UsbFlags",
-                                 0LL,
-                                 L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\usbflags",
-                                 0LL,
-                                 Pool2,
-                                 v20,
-                                 0LL);
-      if ( PersistedStateLocation < 0 )
-      {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LODWORD(v18) = PersistedStateLocation;
-          WPP_RECORDER_SF_d(a8, 2u, 5u, 0xAu, (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids, v18);
-        }
-LABEL_34:
-        ExFreePoolWithTag(v8, 0x64334855u);
-        goto LABEL_35;
-      }
-      RtlUnicodeStringInit(&DestinationString, (NTSTRSAFE_PCWSTR)v8);
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_30;
+      v12 = 10;
+      goto LABEL_29;
     }
-LABEL_17:
-    v14 = v22;
+    v13 = v9;
+LABEL_13:
+    RtlUnicodeStringInit(&DestinationString, v13);
+LABEL_14:
     PersistedStateLocation = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, struct _UNICODE_STRING *, _QWORD, _QWORD, __int64 *))(WdfFunctions_01015 + 1832))(
                                WdfDriverGlobals,
                                0LL,
                                &DestinationString,
-                               v22,
+                               a4,
                                0LL,
-                               &v21);
+                               &v18);
     if ( PersistedStateLocation == -1073741772 )
     {
       if ( a7 != 1 )
       {
-LABEL_21:
+LABEL_18:
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_33;
-        v15 = 12;
-        goto LABEL_32;
+          goto LABEL_30;
+        v12 = 12;
+        goto LABEL_29;
       }
       PersistedStateLocation = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, struct _UNICODE_STRING *, _QWORD, _DWORD, _QWORD, _QWORD, __int64 *))(WdfFunctions_01015 + 1840))(
                                  WdfDriverGlobals,
                                  0LL,
                                  &DestinationString,
-                                 v14,
+                                 a4,
                                  0,
                                  0LL,
                                  0LL,
-                                 &v21);
+                                 &v18);
     }
     if ( PersistedStateLocation < 0 )
-      goto LABEL_21;
-    PersistedStateLocation = RtlUnicodeStringPrintf(&v24, L"%S%S%S", v27, v26, v25);
+      goto LABEL_18;
+    PersistedStateLocation = RtlUnicodeStringPrintf(&v19, L"%S%S%S", v23, v22, v21);
     if ( PersistedStateLocation < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_33;
-      v15 = 13;
-      goto LABEL_32;
+        goto LABEL_30;
+      v12 = 13;
+      goto LABEL_29;
     }
     PersistedStateLocation = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, struct _UNICODE_STRING *, __int64, _QWORD, _QWORD *))(WdfFunctions_01015 + 1832))(
                                WdfDriverGlobals,
-                               v21,
-                               &v24,
+                               v18,
+                               &v19,
                                131097LL,
                                0LL,
                                a6);
@@ -159,22 +136,22 @@ LABEL_21:
     {
       if ( a7 != 1 )
       {
-LABEL_30:
+LABEL_27:
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_33;
-        v15 = 14;
-LABEL_32:
-        LODWORD(v19) = PersistedStateLocation;
-        WPP_RECORDER_SF_d(a8, 2u, 5u, v15, (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids, v19);
-LABEL_33:
-        if ( !v8 )
-          goto LABEL_35;
-        goto LABEL_34;
+          goto LABEL_30;
+        v12 = 14;
+LABEL_29:
+        LODWORD(v16) = PersistedStateLocation;
+        WPP_RECORDER_SF_d(a8, 2u, 5u, v12, (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids, v16);
+LABEL_30:
+        if ( v9 )
+          ExFreePoolWithTag(v9, 0x64334855u);
+        goto LABEL_32;
       }
       PersistedStateLocation = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, struct _UNICODE_STRING *, __int64, _DWORD, _QWORD, _QWORD, _QWORD *))(WdfFunctions_01015 + 1840))(
                                  WdfDriverGlobals,
-                                 v21,
-                                 &v24,
+                                 v18,
+                                 &v19,
                                  983103LL,
                                  0,
                                  0LL,
@@ -182,24 +159,24 @@ LABEL_33:
                                  a6);
     }
     if ( PersistedStateLocation >= 0 )
-      goto LABEL_33;
-    goto LABEL_30;
+      goto LABEL_30;
+    goto LABEL_27;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LODWORD(v17) = PersistedStateLocation;
-    WPP_RECORDER_SF_d(a8, 2u, 5u, 0xBu, (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids, v17);
+    LODWORD(v15) = PersistedStateLocation;
+    WPP_RECORDER_SF_d(a8, 2u, 5u, 0xBu, (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids, v15);
   }
-LABEL_35:
+LABEL_32:
   if ( PersistedStateLocation >= 0 )
   {
-    if ( !v28 )
+    if ( !a5 )
     {
-LABEL_42:
+LABEL_39:
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1848))(WdfDriverGlobals);
       return (unsigned int)PersistedStateLocation;
     }
-    *v28 = v21;
+    *a5 = v18;
   }
   else
   {
@@ -208,8 +185,8 @@ LABEL_42:
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1848))(WdfDriverGlobals);
       *a6 = 0LL;
     }
-    if ( v21 )
-      goto LABEL_42;
+    if ( v18 )
+      goto LABEL_39;
   }
   return (unsigned int)PersistedStateLocation;
 }

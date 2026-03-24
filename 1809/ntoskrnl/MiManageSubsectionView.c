@@ -1,14 +1,14 @@
 /*
- * XREFs of MiManageSubsectionView @ 0x1400ADC60
+ * XREFs of MiManageSubsectionView @ 0x1400ADC80
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
  *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MmMapViewInSystemCache @ 0x1400AD910 (MmMapViewInSystemCache.c)
- *     MiSessionInsertImage @ 0x14017600C (MiSessionInsertImage.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140682490 (MiConstructLoaderEntry.c)
+ *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
+ *     MiSessionInsertImage @ 0x14017602C (MiSessionInsertImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -17,7 +17,7 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)

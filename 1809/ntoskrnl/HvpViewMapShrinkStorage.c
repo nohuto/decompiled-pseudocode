@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapShrinkStorage @ 0x1407F7150
+ * XREFs of HvpViewMapShrinkStorage @ 0x1407F7130
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     CmSiUnmapViewOfSection @ 0x14013606C (CmSiUnmapViewOfSection.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     CmSiUnmapViewOfSection @ 0x14013608C (CmSiUnmapViewOfSection.c)
  *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6EA8 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6E88 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
 struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(ULONG_PTR a1, int a2)

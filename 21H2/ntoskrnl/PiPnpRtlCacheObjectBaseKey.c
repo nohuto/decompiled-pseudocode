@@ -1,15 +1,15 @@
 /*
- * XREFs of PiPnpRtlCacheObjectBaseKey @ 0x14077B908
+ * XREFs of PiPnpRtlCacheObjectBaseKey @ 0x14063726C
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlObjectActionCallback @ 0x14077AA70 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140636410 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     PiPnpRtlObjectEventCreate @ 0x14077A750 (PiPnpRtlObjectEventCreate.c)
- *     PiPnpRtlGetCurrentOperation @ 0x14077BA10 (PiPnpRtlGetCurrentOperation.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406352B4 (PiPnpRtlObjectEventCreate.c)
+ *     PiPnpRtlGetCurrentOperation @ 0x14063737C (PiPnpRtlGetCurrentOperation.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
  */
 
 __int64 __fastcall PiPnpRtlCacheObjectBaseKey(int a1, __int64 a2, signed int a3, _QWORD *a4)
@@ -49,7 +49,7 @@ __int64 __fastcall PiPnpRtlCacheObjectBaseKey(int a1, __int64 a2, signed int a3,
         }
       }
       ExReleaseResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
-      KeLeaveCriticalRegion();
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
   }
   return (unsigned int)CurrentOperation;

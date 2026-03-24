@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetBiosNumLockStatus@@YAXXZ @ 0x1C003CEA4
+ * XREFs of ?GetBiosNumLockStatus@@YAXXZ @ 0x1C000903C
  * Callers:
- *     InitKeyboard @ 0x1C003EF0C (InitKeyboard.c)
+ *     InitKeyboard @ 0x1C0008FC0 (InitKeyboard.c)
  * Callees:
  *     <none>
  */
@@ -9,8 +9,6 @@
 void GetBiosNumLockStatus(void)
 {
   _INTERFACE_TYPE v0; // ebx
-  __int64 v1; // rcx
-  __int64 v2; // rax
   int Context; // [rsp+50h] [rbp+8h] BYREF
   enum _CONFIGURATION_TYPE PeripheralType; // [rsp+58h] [rbp+10h] BYREF
   enum _CONFIGURATION_TYPE ControllerType; // [rsp+60h] [rbp+18h] BYREF
@@ -37,6 +35,5 @@ void GetBiosNumLockStatus(void)
     if ( (unsigned int)++v0 >= (MaximumInterfaceType|Eisa) )
       return;
   }
-  v2 = SGDGetUserSessionState(v1);
-  *(_WORD *)(v2 + 12602) = Context;
+  gklpBootTime[1] = Context;
 }

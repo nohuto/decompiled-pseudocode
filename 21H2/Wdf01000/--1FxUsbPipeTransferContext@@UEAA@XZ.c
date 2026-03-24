@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1FxUsbPipeTransferContext@@UEAA@XZ @ 0x1C00794B4
+ * XREFs of ??1FxUsbPipeTransferContext@@UEAA@XZ @ 0x1C006C928
  * Callers:
- *     ??_EFxUsbPipeTransferContext@@UEAAPEAXI@Z @ 0x1C00795D0 (--_EFxUsbPipeTransferContext@@UEAAPEAXI@Z.c)
- *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C007AF70 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
+ *     ??_EFxUsbPipeTransferContext@@UEAAPEAXI@Z @ 0x1C006CA40 (--_EFxUsbPipeTransferContext@@UEAAPEAXI@Z.c)
+ *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C006E4F0 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
  * Callees:
- *     USBD_UrbFree @ 0x1C0090EF0 (USBD_UrbFree.c)
+ *     USBD_UrbFree @ 0x1C00901E4 (USBD_UrbFree.c)
  */
 
 void __fastcall FxUsbPipeTransferContext::~FxUsbPipeTransferContext(FxUsbPipeTransferContext *this)

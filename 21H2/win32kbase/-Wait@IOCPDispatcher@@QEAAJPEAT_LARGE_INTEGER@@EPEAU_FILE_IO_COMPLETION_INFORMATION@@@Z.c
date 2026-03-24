@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Wait@IOCPDispatcher@@QEAAJPEAT_LARGE_INTEGER@@EPEAU_FILE_IO_COMPLETION_INFORMATION@@@Z @ 0x1C00C63A0
+ * XREFs of ?Wait@IOCPDispatcher@@QEAAJPEAT_LARGE_INTEGER@@EPEAU_FILE_IO_COMPLETION_INFORMATION@@@Z @ 0x1C01A47D0
  * Callers:
- *     UserKSTWait @ 0x1C00C6144 (UserKSTWait.c)
+ *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall IOCPDispatcher::Wait(
@@ -12,33 +12,25 @@ __int64 __fastcall IOCPDispatcher::Wait(
         char a3,
         struct _FILE_IO_COMPLETION_INFORMATION *a4)
 {
-  int v8; // r8d
-  bool v10; // al
-  void *v11; // rdx
-  _DWORD v12[6]; // [rsp+40h] [rbp-18h] BYREF
+  int v8; // edx
+  char v10; // [rsp+28h] [rbp-20h]
+  _DWORD v11[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  v12[0] = 0;
+  v11[0] = 0;
   *(_OWORD *)&a4->KeyContext = 0LL;
   *(_OWORD *)&a4->IoStatusBlock.Status = 0LL;
-  if ( !PsIsThreadTerminating(KeGetCurrentThread()) )
-    return ZwRemoveIoCompletionEx(*((_QWORD *)this + 363), a4, 1LL, v12, a2, a3);
-  v10 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-     && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-  if ( v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( PsIsThreadTerminating(KeGetCurrentThread()) )
   {
-    v11 = &WPP_b99049c1e8dc304ebad6fe568d7717f2_Traceguids;
-    LOBYTE(v11) = v10;
-    LOBYTE(v8) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)v11,
-      v8,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      2,
-      3,
-      25,
-      (__int64)&WPP_b99049c1e8dc304ebad6fe568d7717f2_Traceguids);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v8) = 2;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v8, 3, 23, (__int64)&WPP_f3c7c3b8e3c935fa60aa5d5f3732d730_Traceguids);
+    }
+    return 3221225547LL;
   }
-  return 3221225547LL;
+  else
+  {
+    v10 = a3;
+    return ZwRemoveIoCompletionEx(*((_QWORD *)this + 343), a4, 1LL, v11, a2, v10);
+  }
 }

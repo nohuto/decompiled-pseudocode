@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTryToAcquirePrcbLock @ 0x14056AEA8
+ * XREFs of KiTryToAcquirePrcbLock @ 0x140514E98
  * Callers:
- *     KiMonitorCacheErrata @ 0x140577D00 (KiMonitorCacheErrata.c)
+ *     KiMonitorCacheErrata @ 0x140522290 (KiMonitorCacheErrata.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiTryToAcquirePrcbLock(__int64 a1, _BYTE *a2)

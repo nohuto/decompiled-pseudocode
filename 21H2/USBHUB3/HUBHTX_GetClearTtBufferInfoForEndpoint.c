@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBHTX_GetClearTtBufferInfoForEndpoint @ 0x1C00064DC
+ * XREFs of HUBHTX_GetClearTtBufferInfoForEndpoint @ 0x1C000625C
  * Callers:
- *     HUBHTX_ClearTTBuffer @ 0x1C0006700 (HUBHTX_ClearTTBuffer.c)
+ *     HUBHTX_ClearTTBuffer @ 0x1C0006480 (HUBHTX_ClearTTBuffer.c)
  * Callees:
  *     <none>
  */

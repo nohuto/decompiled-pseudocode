@@ -1,25 +1,25 @@
 /*
- * XREFs of MiInitializeMemoryEvents @ 0x14081E318
+ * XREFs of MiInitializeMemoryEvents @ 0x1407A0B04
  * Callers:
- *     MmCreatePartition @ 0x1403ABECC (MmCreatePartition.c)
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MmCreatePartition @ 0x1403CA2A4 (MmCreatePartition.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140297520 (RtlGetDaclSecurityDescriptor.c)
- *     MiSignalNonPagedPoolWatchers @ 0x140396C88 (MiSignalNonPagedPoolWatchers.c)
- *     MiUpdateAvailableEvents @ 0x1403AE090 (MiUpdateAvailableEvents.c)
- *     MiCreateMemoryEvent @ 0x14081E444 (MiCreateMemoryEvent.c)
- *     MiCreatePartitionNamespace @ 0x14081E5D4 (MiCreatePartitionNamespace.c)
- *     MiCreateMemoryEventSD @ 0x14085F400 (MiCreateMemoryEventSD.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     MiInitializePagedPoolEvents @ 0x140B73D5C (MiInitializePagedPoolEvents.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402526B0 (RtlGetDaclSecurityDescriptor.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x1403B5B18 (MiSignalNonPagedPoolWatchers.c)
+ *     MiUpdateAvailableEvents @ 0x1403B63E4 (MiUpdateAvailableEvents.c)
+ *     MiCreateMemoryEvent @ 0x1407A0C30 (MiCreateMemoryEvent.c)
+ *     MiCreatePartitionNamespace @ 0x1407A0F74 (MiCreatePartitionNamespace.c)
+ *     MiCreateMemoryEventSD @ 0x1407A16BC (MiCreateMemoryEventSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     MiInitializePagedPoolEvents @ 0x140A4EB3C (MiInitializePagedPoolEvents.c)
  */
 
-_BOOL8 __fastcall MiInitializeMemoryEvents(unsigned __int16 *a1)
+_BOOL8 __fastcall MiInitializeMemoryEvents(ULONG_PTR *a1)
 {
   int MemoryEventSD; // ebx
   __int64 v3; // rsi
   int v4; // r8d
-  __int64 v5; // r10
+  ULONG_PTR v5; // r10
   _OWORD SecurityDescriptor[2]; // [rsp+40h] [rbp-30h] BYREF
   __int64 v8; // [rsp+60h] [rbp-10h]
   BOOLEAN DaclPresent; // [rsp+A8h] [rbp+38h] BYREF
@@ -40,14 +40,14 @@ _BOOL8 __fastcall MiInitializeMemoryEvents(unsigned __int16 *a1)
     v4 = 0;
     if ( (unsigned int)v3 < 4 )
     {
-      if ( a1 != MiSystemPartition )
+      if ( a1 != &MiSystemPartition )
         goto LABEL_7;
       LODWORD(v5) = 0;
     }
     else
     {
-      v5 = *((_QWORD *)a1 + 32);
-      LOBYTE(v4) = a1 == MiSystemPartition;
+      v5 = a1[29];
+      LOBYTE(v4) = a1 == &MiSystemPartition;
     }
     MemoryEventSD = MiCreateMemoryEvent(
                       (unsigned int)&MiMemoryEventNames[8 * v3],
@@ -55,15 +55,15 @@ _BOOL8 __fastcall MiInitializeMemoryEvents(unsigned __int16 *a1)
                       v5,
                       (unsigned int)SecurityDescriptor,
                       v4,
-                      (__int64)&a1[4 * (unsigned int)v3 + 136],
-                      (__int64)&a1[4 * v3 + 180]);
+                      (__int64)&a1[(unsigned int)v3 + 31],
+                      (__int64)&a1[v3 + 42]);
     if ( MemoryEventSD < 0 )
       goto LABEL_11;
 LABEL_7:
     v3 = (unsigned int)(v3 + 1);
   }
   while ( (unsigned int)v3 < 0xB );
-  if ( a1 == MiSystemPartition )
+  if ( a1 == &MiSystemPartition )
   {
     MiInitializePagedPoolEvents();
     MiSignalNonPagedPoolWatchers();

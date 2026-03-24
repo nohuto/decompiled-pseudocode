@@ -1,57 +1,64 @@
 /*
- * XREFs of DxgkQueryDmmInterface @ 0x1C01DADD8
+ * XREFs of DxgkQueryDmmInterface @ 0x1C00EC7C8
  * Callers:
- *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0170854 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0193D3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
- *     DxgkUpdateGdiInfo @ 0x1C01DABA0 (DxgkUpdateGdiInfo.c)
- *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C021D210 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
- *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C02FF050 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
- *     ?DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0320F40 (-DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C00E12BC (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E63DC (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00EBB74 (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     DxgkUpdateGdiInfo @ 0x1C014E780 (DxgkUpdateGdiInfo.c)
+ *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C025C234 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
+ *     ?DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFDCC (-DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 __int64 __fastcall DxgkQueryDmmInterface(DXGADAPTER *this, __int64 a2, _QWORD *a3)
 {
-  __int64 v5; // rax
-  __int64 v6; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
 
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
+  {
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v10);
+  }
   *a3 = 0LL;
   if ( !this )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v11 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v11 + 24) = 0LL;
+LABEL_11:
+    WdLogEvent5_WdError(v11);
     return 3223191554LL;
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
-    WdLogSingleEntry0(1LL);
-  v5 = *((_QWORD *)this + 365);
-  if ( !v5 )
   {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v12 = WdLogNewEntry5_WdAssertion(v6, v5);
+    WdLogEvent5_WdAssertion(v12);
   }
-  v6 = *(_QWORD *)(v5 + 104);
-  if ( v6 )
+  v7 = *((_QWORD *)this + 337);
+  if ( !v7 )
   {
-    *a3 = *(_QWORD *)(v6 + 456);
+    v11 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v11 + 24) = this;
+    goto LABEL_11;
+  }
+  v8 = *(_QWORD *)(v7 + 88);
+  if ( v8 )
+  {
+    *a3 = *(_QWORD *)(v8 + 400);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, this);
+    v13 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v13 + 24) = this;
+    WdLogEvent5_WdError(v13);
     return 3223192385LL;
   }
 }

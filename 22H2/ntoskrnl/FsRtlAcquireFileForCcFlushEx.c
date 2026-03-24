@@ -1,141 +1,140 @@
 /*
- * XREFs of FsRtlAcquireFileForCcFlushEx @ 0x1407B4A78
+ * XREFs of FsRtlAcquireFileForCcFlushEx @ 0x1406BFFC4
  * Callers:
- *     MmFlushSection @ 0x140287370 (MmFlushSection.c)
- *     MiDeleteCachedSubsection @ 0x140623BB8 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1406245A4 (MiFlushControlArea.c)
- *     MmFlushVirtualMemory @ 0x1407B4808 (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x14033D70C (MmFlushSection.c)
+ *     MiDeleteCachedSubsection @ 0x140528CEC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1405296D4 (MiFlushControlArea.c)
+ *     MmFlushVirtualMemory @ 0x140668FB4 (MmFlushVirtualMemory.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ExIsResourceAcquiredSharedLite @ 0x1402A06D0 (ExIsResourceAcquiredSharedLite.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1402A1D30 (IoGetBaseFileSystemDeviceObject.c)
- *     FsFilterCtrlInit @ 0x1402A1D70 (FsFilterCtrlInit.c)
- *     FsFilterPerformCompletionCallbacks @ 0x1402A1E00 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1402A1E90 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x1402A21A8 (FsFilterCtrlFree.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     FsFilterCtrlFree @ 0x1402D7408 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1402D7430 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x1402D74C0 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x1402D77E0 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x1402D7870 (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14034C520 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileForCcFlushEx(PFILE_OBJECT FileObject)
 {
   signed int v2; // ebx
-  PDEVICE_OBJECT *v3; // rsi
+  PDEVICE_OBJECT *v3; // r15
   char v4; // r12
   __int64 v5; // r9
-  PDEVICE_OBJECT BaseFileSystemDeviceObject; // r15
-  struct _DRIVER_OBJECT *DriverObject; // rcx
-  PFAST_IO_DISPATCH FastIoDispatch; // r14
-  PDRIVER_ADD_DEVICE AddDevice; // rdi
+  struct _DMA_ADAPTER *BaseFileSystemDeviceObject; // r14
+  signed int v7; // ecx
+  _DMA_OPERATIONS *DmaOperations; // rax
+  unsigned int (__fastcall *ReadDmaCounter)(_DMA_ADAPTER *); // rsi
+  __int64 v10; // rdi
   __int64 result; // rax
-  struct _KTHREAD *v11; // rax
-  int v12; // eax
-  __int64 (__fastcall *AcquireForCcFlush)(PFILE_OBJECT, PDEVICE_OBJECT); // rax
-  struct _DRIVER_OBJECT *v14; // rax
-  PVOID FsContext; // rbx
-  struct _ERESOURCE *v16; // rcx
-  ULONG IsResourceAcquiredSharedLite; // eax
-  struct _ERESOURCE *v18; // rcx
-  struct _ERESOURCE *v19; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  char v21; // [rsp+38h] [rbp-D0h]
-  int v22; // [rsp+3Ch] [rbp-CCh] BYREF
+  char v13; // r12
+  __int64 (__fastcall *v14)(PFILE_OBJECT, struct _DMA_ADAPTER *); // rax
+  struct _KTHREAD *v15; // rax
+  _DMA_OPERATIONS *v16; // rax
+  PVOID FsContext; // rbx
+  struct _ERESOURCE *v18; // rcx
+  ULONG IsResourceAcquiredSharedLite; // eax
+  struct _ERESOURCE *v20; // rcx
+  struct _ERESOURCE *v21; // rcx
+  __int64 v22; // [rsp+38h] [rbp-D0h] BYREF
   PDEVICE_OBJECT RelatedDeviceObject; // [rsp+40h] [rbp-C8h]
   PDEVICE_OBJECT v24[72]; // [rsp+48h] [rbp-C0h] BYREF
 
   memset(v24, 0, 0x238uLL);
   v2 = 0;
   v3 = v24;
-  v22 = 0;
-  v21 = 0;
+  HIDWORD(v22) = 0;
   v4 = 0;
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
-  BaseFileSystemDeviceObject = IoGetBaseFileSystemDeviceObject(FileObject);
-  DriverObject = BaseFileSystemDeviceObject->DriverObject;
-  FastIoDispatch = DriverObject->FastIoDispatch;
-  AddDevice = DriverObject->DriverExtension[1].AddDevice;
-  if ( AddDevice
-    && (*(_DWORD *)AddDevice >= 0x30u && *((_QWORD *)AddDevice + 5)
-     || *(_DWORD *)AddDevice >= 0x38u && *((_QWORD *)AddDevice + 6)) )
-  {
+  BaseFileSystemDeviceObject = (struct _DMA_ADAPTER *)IoGetBaseFileSystemDeviceObject(FileObject);
+  v7 = 0;
+  DmaOperations = BaseFileSystemDeviceObject->DmaOperations;
+  ReadDmaCounter = DmaOperations->ReadDmaCounter;
+  v10 = *((_QWORD *)DmaOperations->FreeAdapterChannel + 6);
+  if ( v10 && (*(_DWORD *)v10 >= 0x30u && *(_QWORD *)(v10 + 40) || *(_DWORD *)v10 >= 0x38u && *(_QWORD *)(v10 + 48)) )
     v4 = 1;
-  }
-  if ( RelatedDeviceObject == BaseFileSystemDeviceObject && !v4 )
+  if ( RelatedDeviceObject != (PDEVICE_OBJECT)BaseFileSystemDeviceObject || v4 )
   {
+    result = FsFilterCtrlInit((__int64)v24, 251, (__int64)RelatedDeviceObject, v5, (__int64)FileObject, 1u);
+    if ( (int)result < 0 )
+      return result;
     CurrentThread = KeGetCurrentThread();
-    v3 = 0LL;
     --CurrentThread->KernelApcDisable;
-LABEL_12:
-    if ( !AddDevice
-      || (*(_DWORD *)AddDevice < 0x30u || !*((_QWORD *)AddDevice + 5))
-      && (*(_DWORD *)AddDevice < 0x38u || !*((_QWORD *)AddDevice + 6)) )
+    v2 = FsFilterPerformCallbacks((__int64)v24, 1, 1, (_DWORD *)&v22 + 1);
+    v7 = 0;
+  }
+  else
+  {
+    v15 = KeGetCurrentThread();
+    v3 = 0LL;
+    --v15->KernelApcDisable;
+  }
+  if ( v2 >= 0 )
+  {
+    if ( v2 )
     {
-      if ( FastIoDispatch
-        && FastIoDispatch->SizeOfFastIoDispatch >= 0xD8
-        && (AcquireForCcFlush = (__int64 (__fastcall *)(PFILE_OBJECT, PDEVICE_OBJECT))FastIoDispatch->AcquireForCcFlush) != 0LL )
+      if ( v2 != 294 )
+        v7 = v2;
+      v2 = v7;
+    }
+    else
+    {
+      if ( v3 && (FileObject = (PFILE_OBJECT)v24[2], ((__int64)v24[8] & 4) != 0) )
       {
-        v2 = AcquireForCcFlush(FileObject, BaseFileSystemDeviceObject);
+        BaseFileSystemDeviceObject = (struct _DMA_ADAPTER *)IoGetDeviceAttachmentBaseRef(v24[1]);
+        v13 = 1;
+        v16 = BaseFileSystemDeviceObject->DmaOperations;
+        ReadDmaCounter = v16->ReadDmaCounter;
+        v10 = *((_QWORD *)v16->FreeAdapterChannel + 6);
       }
       else
       {
-        v2 = -1073741808;
+        v13 = 0;
       }
-      v22 |= 1u;
+      if ( !v10
+        || (*(_DWORD *)v10 < 0x30u || !*(_QWORD *)(v10 + 40)) && (*(_DWORD *)v10 < 0x38u || !*(_QWORD *)(v10 + 48)) )
+      {
+        if ( ReadDmaCounter
+          && *(_DWORD *)ReadDmaCounter >= 0xD8u
+          && (v14 = (__int64 (__fastcall *)(PFILE_OBJECT, struct _DMA_ADAPTER *))*((_QWORD *)ReadDmaCounter + 26)) != 0LL )
+        {
+          v2 = v14(FileObject, BaseFileSystemDeviceObject);
+        }
+        else
+        {
+          v2 = -1073741808;
+        }
+        HIDWORD(v22) |= 1u;
+      }
+      if ( v13 )
+        HalPutDmaAdapter(BaseFileSystemDeviceObject);
     }
-    if ( v21 )
-      ObfDereferenceObject(BaseFileSystemDeviceObject);
-    goto LABEL_24;
   }
-  result = FsFilterCtrlInit((__int64)v24, 251, (__int64)RelatedDeviceObject, v5, (__int64)FileObject, 1u);
-  if ( (int)result < 0 )
-    return result;
-  v11 = KeGetCurrentThread();
-  --v11->KernelApcDisable;
-  v12 = FsFilterPerformCallbacks((__int64)v24, 1, 1, &v22);
-  v2 = v12;
-  if ( v12 >= 0 )
-  {
-    if ( v12 )
-    {
-      v2 = 0;
-      if ( v12 != 294 )
-        v2 = v12;
-      goto LABEL_24;
-    }
-    FileObject = (PFILE_OBJECT)v24[2];
-    if ( ((__int64)v24[8] & 4) != 0 )
-    {
-      BaseFileSystemDeviceObject = IoGetDeviceAttachmentBaseRef(v24[1]);
-      v21 = 1;
-      v14 = BaseFileSystemDeviceObject->DriverObject;
-      FastIoDispatch = v14->FastIoDispatch;
-      AddDevice = v14->DriverExtension[1].AddDevice;
-    }
-    goto LABEL_12;
-  }
-LABEL_24:
-  if ( v2 == -1073741808 && (v22 & 1) != 0 )
+  if ( v2 == -1073741808 && (v22 & 0x100000000LL) != 0 )
   {
     FsContext = FileObject->FsContext;
-    v16 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 1);
-    if ( v16 )
+    v18 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 1);
+    if ( v18 )
     {
-      IsResourceAcquiredSharedLite = ExIsResourceAcquiredSharedLite(v16);
-      v18 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 1);
+      IsResourceAcquiredSharedLite = ExIsResourceAcquiredSharedLite(v18);
+      v20 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 1);
       if ( IsResourceAcquiredSharedLite )
-        ExAcquireResourceSharedLite(v18, 1u);
+        ExAcquireResourceSharedLite(v20, 1u);
       else
-        ExAcquireResourceExclusiveLite(v18, 1u);
+        ExAcquireResourceExclusiveLite(v20, 1u);
     }
-    v19 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2);
-    if ( v19 )
-      ExAcquireResourceSharedLite(v19, 1u);
+    v21 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2);
+    if ( v21 )
+      ExAcquireResourceSharedLite(v21, 1u);
     v2 = 0;
   }
   if ( v3 )

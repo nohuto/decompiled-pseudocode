@@ -1,208 +1,195 @@
 /*
- * XREFs of ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60
+ * XREFs of ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978
  * Callers:
- *     ?EvictRootPageTable@CVirtualAddressAllocator@@QEAAXIE@Z @ 0x1C002DD30 (-EvictRootPageTable@CVirtualAddressAllocator@@QEAAXIE@Z.c)
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00987B0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
- *     ?DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C009D860 (-DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z.c)
- *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?EvictRootPageTable@CVirtualAddressAllocator@@QEAAXIE@Z @ 0x1C00238F4 (-EvictRootPageTable@CVirtualAddressAllocator@@QEAAXIE@Z.c)
+ *     ?DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C005F7B8 (-DestroyPageDirectoryObjects@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006FD20 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
  * Callees:
- *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C00054E0 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
- *     ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C00998C0 (-UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALL.c)
- *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C009A030 (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
- *     ?FreeDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@I_KPEAX@Z @ 0x1C009AC30 (-FreeDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@I_KPEAX@Z.c)
- *     ?EvictPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C009B62C (-EvictPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z.c)
- *     ?EvictOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_N@Z @ 0x1C009B7C0 (-EvictOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_N@Z.c)
- *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C0001074 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
+ *     ExFreeToPagedLookasideList @ 0x1C0026078 (ExFreeToPagedLookasideList.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?EvictPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z @ 0x1C0061240 (-EvictPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_KE@Z.c)
+ *     ?EvictOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_N@Z @ 0x1C0062FB0 (-EvictOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_N@Z.c)
+ *     ?FreeDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@I_KPEAX@Z @ 0x1C006FB5C (-FreeDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVCVirtualAddressAllocator@@I_KPEAX@Z.c)
+ *     ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C0071370 (-UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALL.c)
+ *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C00721CC (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
  */
 
 __int64 __fastcall VIDMM_PAGE_DIRECTORY::EvictPageDirectory(
-        __int64 ***this,
-        struct VIDMM_PROCESS **a2,
+        struct VIDMM_ALLOC **this,
+        struct CVirtualAddressAllocator *a2,
         unsigned __int64 a3,
         unsigned __int8 a4,
-        char a5)
+        unsigned __int8 a5)
 {
-  unsigned __int64 v5; // rdi
-  int *v7; // rcx
-  unsigned __int64 v8; // r8
-  unsigned __int8 v9; // r10
-  struct VIDMM_PROCESS **v10; // r11
-  int v11; // eax
-  unsigned __int64 v12; // rsi
-  unsigned int v13; // r9d
-  __int64 v14; // rcx
-  _DWORD **v15; // rdx
-  unsigned int v16; // r14d
-  unsigned __int64 v17; // r15
-  _DWORD *v18; // r13
-  __int64 v19; // rdi
-  __int64 v20; // rsi
-  __int64 v21; // r12
-  unsigned int v22; // ebp
-  __int64 **v23; // rcx
-  __int64 **v24; // r8
-  struct VIDMM_ALLOC **v25; // rax
-  VIDMM_PAGE_DIRECTORY *v27; // rcx
-  __int64 *v28; // rdx
-  struct VIDMM_ALLOC **v29; // r10
-  enum _DXGK_PAGETABLEUPDATEMODE v30; // eax
-  void *v31; // rdi
-  __int64 v32; // r8
-  unsigned __int64 v33; // [rsp+78h] [rbp-70h]
-  unsigned int v34; // [rsp+90h] [rbp-58h] BYREF
-  unsigned __int64 v35; // [rsp+98h] [rbp-50h] BYREF
-  void *v36; // [rsp+A0h] [rbp-48h] BYREF
+  unsigned __int64 v5; // r12
+  int *v8; // rcx
+  int v9; // eax
+  __int64 v10; // rbp
+  __int64 v11; // r8
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  unsigned int v14; // r14d
+  unsigned __int64 v15; // r15
+  char *v16; // rdx
+  __int64 v17; // r12
+  unsigned int v18; // r10d
+  struct VIDMM_ALLOC *v19; // rax
+  struct VIDMM_ALLOC *v20; // rax
+  __int64 v21; // rdx
+  int v22; // r8d
+  struct VIDMM_ALLOC *v23; // rax
+  __int64 v24; // r8
+  VIDMM_PAGE_TABLE *v25; // r10
+  enum _DXGK_PAGETABLEUPDATEMODE v27; // eax
+  unsigned __int64 v28; // rbx
+  unsigned int v29; // r8d
+  VIDMM_PAGE_DIRECTORY *v30; // rcx
+  __int64 v31; // rax
+  unsigned int v32; // [rsp+90h] [rbp-68h] BYREF
+  void *v33; // [rsp+98h] [rbp-60h] BYREF
+  unsigned __int64 v34; // [rsp+A0h] [rbp-58h] BYREF
+  __int64 v35; // [rsp+A8h] [rbp-50h]
+  __int64 v36; // [rsp+B0h] [rbp-48h]
+  __int64 v37; // [rsp+B8h] [rbp-40h]
 
   v5 = a3;
   if ( !VIDMM_PAGE_TABLE_BASE::IsResident((VIDMM_PAGE_TABLE_BASE *)this) )
     return 0LL;
-  v11 = *v7;
-  v12 = (unsigned __int64)v10[11];
-  v13 = ((unsigned int)*v7 >> 7) & 0x1F;
-  v14 = *v7 & 7;
-  v15 = (_DWORD **)(*(_QWORD *)(v12 + 40224) + 1616LL * v13);
-  v35 = v12;
-  v36 = v15;
-  if ( (v11 & 0x10) != 0 )
-    v16 = *((_DWORD *)v10[15] + 8 * v13 + 4);
+  v9 = *v8;
+  v10 = *((_QWORD *)a2 + 11);
+  v11 = ((unsigned int)*v8 >> 7) & 0x1F;
+  v12 = *v8 & 7;
+  v13 = *(_QWORD *)(v10 + 40216) + 1584 * v11;
+  v37 = v13;
+  if ( (v9 & 0x10) != 0 )
+    v14 = *(_DWORD *)(32 * v11 + *((_QWORD *)a2 + 15) + 16);
   else
-    v16 = (unsigned int)v15[6 * v14 + 12];
-  v34 = v16;
-  v17 = v8;
-  v18 = v15[6 * v14 + 17];
-  if ( v16 )
+    v14 = *(_DWORD *)(v13 + 48 * v12 + 88);
+  v15 = v5;
+  v36 = *(_QWORD *)(v13 + 48 * v12 + 128);
+  if ( v14 )
   {
-    v19 = 0LL;
-    v20 = 0LL;
-    v21 = v16;
-    v22 = v16;
-    while ( 1 )
+    v16 = 0LL;
+    v17 = 0LL;
+    v33 = 0LL;
+    v18 = v14;
+    v34 = v14;
+    v32 = v14;
+    while ( !a4 )
     {
-      if ( !v9 )
-        goto LABEL_11;
-      if ( (*(_DWORD *)this & 0x20) != 0 )
-        break;
-      v27 = (VIDMM_PAGE_DIRECTORY *)this[6][v20];
-      if ( v27 )
-      {
-        VIDMM_PAGE_DIRECTORY::EvictPageDirectory(v27, (struct CVirtualAddressAllocator *)v10, v17, v9, a5);
-        v10 = a2;
-LABEL_21:
-        v9 = a4;
-      }
-LABEL_11:
-      this[5][v19] = 0LL;
+LABEL_13:
+      *(_QWORD *)((char *)this[5] + (_QWORD)v16) = 0LL;
       if ( (*(_DWORD *)this & 0x1020) == 0x1020 )
-        this[5][2 * v22] = 0LL;
-      v17 += (unsigned __int64)v18;
-      ++v22;
-      ++v20;
-      v19 += 2LL;
-      if ( !--v21 )
+        *((_QWORD *)this[5] + 2 * v18) = 0LL;
+      v15 += v36;
+      ++v18;
+      v16 += 16;
+      v32 = v18;
+      v17 += 8LL;
+      v33 = v16;
+      if ( !--v34 )
       {
-        v15 = (_DWORD **)v36;
-        v16 = v34;
-        v12 = v35;
+        v13 = v37;
         v5 = a3;
-        goto LABEL_15;
+        goto LABEL_17;
       }
     }
-    v23 = this[5];
-    v24 = this[6];
-    if ( ((__int64)v23[v19] & 0x400LL) != 0 )
+    if ( (*(_DWORD *)this & 0x20) != 0 )
     {
-      v28 = v24[v20];
-      if ( !v28 )
-        goto LABEL_10;
-      ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)(v35 + 40256), v28);
-      this[6][v20] = 0LL;
+      v19 = this[6];
+      if ( *(_QWORD *)((char *)v19 + v17) )
+      {
+        if ( (*(_DWORD *)((_BYTE *)this[5] + (_QWORD)v16) & 0x400) != 0 )
+        {
+          ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)(v10 + 40256), *(PVOID *)((char *)v19 + v17));
+          *(_QWORD *)((char *)this[6] + v17) = 0LL;
+        }
+        else
+        {
+          VIDMM_PAGE_TABLE::EvictPageTable(*(VIDMM_PAGE_TABLE **)((char *)v19 + v17), a2, v15, a5);
+        }
+        v16 = (char *)v33;
+      }
+      if ( (*(_DWORD *)this & 0x1000) == 0 )
+        goto LABEL_12;
+      v20 = this[5];
+      v21 = 8LL * v32;
+      v35 = v21;
+      v22 = *((_DWORD *)v20 + 4 * v32);
+      v23 = this[6];
+      v24 = v22 & 0x400;
+      v25 = *(VIDMM_PAGE_TABLE **)((char *)v23 + v21);
+      if ( v25 )
+      {
+        if ( v24 )
+        {
+          ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)(v10 + 40256), *(PVOID *)((char *)v23 + v21));
+          *(_QWORD *)((char *)this[6] + v35) = 0LL;
+        }
+        else
+        {
+          VIDMM_PAGE_TABLE::EvictPageTable(v25, a2, v15, a5);
+        }
+      }
     }
     else
     {
-      v25 = (struct VIDMM_ALLOC **)v24[v20];
-      if ( !v25 )
-        goto LABEL_10;
-      VIDMM_PAGE_TABLE::EvictPageTable(v25, (struct CVirtualAddressAllocator *)v10);
+      v30 = *(VIDMM_PAGE_DIRECTORY **)((char *)this[6] + v17);
+      if ( !v30 )
+        goto LABEL_13;
+      VIDMM_PAGE_DIRECTORY::EvictPageDirectory(v30, a2, v15, a4, a5);
     }
-    v10 = a2;
-    v9 = a4;
-    v23 = this[5];
-    v24 = this[6];
-LABEL_10:
-    if ( (*(_DWORD *)this & 0x1000) != 0 )
-    {
-      v29 = (struct VIDMM_ALLOC **)v24[v22];
-      if ( ((__int64)v23[2 * v22] & 0x400LL) != 0 )
-      {
-        if ( !v29 )
-          goto LABEL_21;
-        ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)(v35 + 40256), v24[v22]);
-        this[6][v22] = 0LL;
-      }
-      else
-      {
-        if ( !v29 )
-          goto LABEL_21;
-        VIDMM_PAGE_TABLE::EvictPageTable(v29, (struct CVirtualAddressAllocator *)v10);
-      }
-      v10 = a2;
-      goto LABEL_21;
-    }
-    goto LABEL_11;
+    v16 = (char *)v33;
+LABEL_12:
+    v18 = v32;
+    goto LABEL_13;
   }
-LABEL_15:
-  if ( (*v15[56] & 8) == 0 || !a5 )
+LABEL_17:
+  if ( (**(_DWORD **)(v13 + 440) & 8) == 0 || !a5 )
   {
-LABEL_16:
-    *((_DWORD *)this[2] + 17) |= 0x200000u;
-    *((_BYTE *)this[2] + 82) = 0;
-    VIDMM_GLOBAL::EvictOneAllocation((VIDMM_GLOBAL *)v12, this[3], 0LL);
-    *((_DWORD *)this[2] + 17) &= ~0x200000u;
+LABEL_18:
+    *((_DWORD *)this[2] + 19) |= 0x100000u;
+    *((_BYTE *)this[2] + 89) = 0;
+    VIDMM_GLOBAL::EvictOneAllocation((VIDMM_GLOBAL *)v10, this[3], 0);
+    *((_DWORD *)this[2] + 19) &= ~0x100000u;
     return 0LL;
   }
-  v34 = 0;
-  v35 = 0LL;
-  v36 = 0LL;
-  if ( (int)VIDMM_PAGE_TABLE_BASE::GetDriverUpdateAddress(
-              (VIDMM_PAGE_TABLE_BASE *)this,
-              (struct CVirtualAddressAllocator *)v10,
-              &v34,
-              &v35,
-              &v36) >= 0 )
+  v32 = 0;
+  v34 = 0LL;
+  v33 = 0LL;
+  if ( (int)VIDMM_PAGE_TABLE_BASE::GetDriverUpdateAddress((VIDMM_PAGE_TABLE_BASE *)this, a2, &v32, &v34, &v33) >= 0 )
   {
-    if ( (*(_BYTE *)(v12 + 40936) & 0x40) != 0 )
-      v30 = DXGK_PAGETABLEUPDATE_CPU_VIRTUAL;
+    if ( (*(_BYTE *)(v10 + 40936) & 0x10) != 0 )
+      v27 = DXGK_PAGETABLEUPDATE_CPU_VIRTUAL;
     else
-      v30 = (int)(*(_DWORD *)this << 16) >> 29;
-    v33 = v5;
-    v31 = (void *)v35;
+      v27 = (__int16)*(_DWORD *)this >> 13;
+    v28 = v34;
     VIDMM_GLOBAL::UpdatePageTable(
-      (VIDMM_GLOBAL *)v12,
+      (VIDMM_GLOBAL *)v10,
       *(_DWORD *)this & 7,
-      a2[12],
+      *((struct VIDMM_PROCESS **)a2 + 12),
       0LL,
       0LL,
       0LL,
       0LL,
       0,
-      v16,
+      v14,
       0LL,
       0LL,
       (*(_DWORD *)this >> 7) & 0x1F,
-      v34,
-      v35,
-      v30,
-      v33,
-      4,
-      0LL);
-    VIDMM_PAGE_TABLE_BASE::FreeDriverUpdateAddress(
-      (VIDMM_PAGE_TABLE_BASE *)this,
-      (struct CVirtualAddressAllocator *)a2,
       v32,
-      v31,
-      v36);
-    goto LABEL_16;
+      v34,
+      v27,
+      v5,
+      (struct _DXGK_UPDATEPAGETABLEFLAGS)4,
+      0LL);
+    VIDMM_PAGE_TABLE_BASE::FreeDriverUpdateAddress((VIDMM_PAGE_TABLE_BASE *)this, a2, v29, v28, v33);
+    goto LABEL_18;
   }
-  WdLogSingleEntry1(2LL, 6653LL);
+  v31 = WdLogNewEntry5_WdError();
+  *(_QWORD *)(v31 + 24) = 6381LL;
+  WdLogEvent5_WdError(v31);
   return 3221225473LL;
 }

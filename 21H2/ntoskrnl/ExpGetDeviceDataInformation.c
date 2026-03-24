@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpGetDeviceDataInformation @ 0x1409F6464
+ * XREFs of ExpGetDeviceDataInformation @ 0x14094A178
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     KseQueryDeviceData @ 0x1407EC640 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x140963440 (KseQueryDeviceDataList.c)
- *     ExpStringCapture @ 0x1409F7A54 (ExpStringCapture.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     KseQueryDeviceData @ 0x14075F420 (KseQueryDeviceData.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     KseQueryDeviceDataList @ 0x1408BF3E0 (KseQueryDeviceDataList.c)
+ *     ExpStringCapture @ 0x14094B680 (ExpStringCapture.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int a3)
@@ -63,10 +63,10 @@ __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int 
         }
       }
       if ( a1 == 136 )
-        DeviceData = KseQueryDeviceData((PCWSTR)P, (__int64)v15, Length, (_DWORD *)Length + 1, PoolWithQuotaTag);
+        DeviceData = KseQueryDeviceData((PCWSTR)P, (__int64)v15, (int *)Length, (_DWORD *)Length + 1, PoolWithQuotaTag);
       else
         DeviceData = KseQueryDeviceDataList(
-                       (WCHAR *)P,
+                       (PCWSTR)P,
                        (__int64)PoolWithQuotaTag,
                        HIDWORD(Length[0]),
                        (__int64)Length + 4);

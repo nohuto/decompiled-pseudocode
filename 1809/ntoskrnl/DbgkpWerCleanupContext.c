@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpWerCleanupContext @ 0x140812A30
+ * XREFs of DbgkpWerCleanupContext @ 0x140812A10
  * Callers:
- *     DbgkWerCaptureLiveKernelDump @ 0x140812510 (DbgkWerCaptureLiveKernelDump.c)
- *     DbgkpWerDeferredWriteRoutine @ 0x140812C10 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x140812BF0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x140285DFC (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x140285EA4 (IopLiveDumpTraceInterfaceStart.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x140285EFC (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x140285FA4 (IopLiveDumpTraceInterfaceStart.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopLiveDumpReleaseResources @ 0x1408203B0 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpReleaseResources @ 0x140820390 (IopLiveDumpReleaseResources.c)
  */
 
 void __fastcall DbgkpWerCleanupContext(__int64 a1)

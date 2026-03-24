@@ -1,88 +1,75 @@
 /*
- * XREFs of KiFreezeTargetExecution @ 0x14020E1F0
+ * XREFs of KiFreezeTargetExecution @ 0x14051DDA0
  * Callers:
- *     KiCheckForFreezeExecution @ 0x14020EA30 (KiCheckForFreezeExecution.c)
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
+ *     KiCheckForFreezeExecution @ 0x140512550 (KiCheckForFreezeExecution.c)
  * Callees:
- *     KiSetDebuggerOwner @ 0x14020D3E0 (KiSetDebuggerOwner.c)
- *     KiStartDebugAccumulation @ 0x14020E480 (KiStartDebugAccumulation.c)
- *     KeSaveSupervisorState @ 0x14020E4AC (KeSaveSupervisorState.c)
- *     KeRestoreSupervisorState @ 0x14020E510 (KeRestoreSupervisorState.c)
- *     KiSaveProcessorState @ 0x14020E570 (KiSaveProcessorState.c)
- *     KiEndDebugAccumulation @ 0x14020E610 (KiEndDebugAccumulation.c)
- *     KiRestoreProcessorState @ 0x14020E970 (KiRestoreProcessorState.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRestoreProcessorControlState @ 0x14041E610 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x14041E6E0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140428910 (RtlCaptureContext.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KdpReportExceptionStateChange @ 0x140AB25A4 (KdpReportExceptionStateChange.c)
- *     VfStartBranchTracing @ 0x140AD49E0 (VfStartBranchTracing.c)
- *     VfStopBranchTracing @ 0x140AD4A6C (VfStopBranchTracing.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRestoreProcessorControlState @ 0x1403FD7F0 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1403FD8C0 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x1404070D0 (RtlCaptureContext.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeRestoreSupervisorState @ 0x140519DA0 (KeRestoreSupervisorState.c)
+ *     KeSaveSupervisorState @ 0x140519E38 (KeSaveSupervisorState.c)
+ *     KiCheckStall @ 0x14051DC60 (KiCheckStall.c)
+ *     KiEndDebugAccumulation @ 0x14051DCF0 (KiEndDebugAccumulation.c)
+ *     KiSetDebuggerOwner @ 0x14051E354 (KiSetDebuggerOwner.c)
+ *     KiStartDebugAccumulation @ 0x14051E3AC (KiStartDebugAccumulation.c)
+ *     KiRestoreProcessorState @ 0x140525238 (KiRestoreProcessorState.c)
+ *     KiSaveProcessorState @ 0x140525350 (KiSaveProcessorState.c)
+ *     KdpReportExceptionStateChange @ 0x1409B7CE0 (KdpReportExceptionStateChange.c)
+ *     VfStartBranchTracing @ 0x1409D853C (VfStartBranchTracing.c)
+ *     VfStopBranchTracing @ 0x1409D85C8 (VfStopBranchTracing.c)
  */
 
 __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
 {
-  __int16 v4; // si
-  volatile signed __int32 *SchedulerAssist; // rcx
-  bool v6; // si
-  unsigned __int8 CurrentIrql; // r14
-  struct _KPRCB *CurrentPrcb; // rbx
-  __int64 v9; // rcx
-  volatile signed __int32 *v10; // rax
-  __int64 v11; // rdi
-  volatile signed __int32 *v12; // rax
-  unsigned __int64 v13; // rcx
   __int64 result; // rax
-  _DWORD *v15; // r9
-  __int64 v16; // rdx
-  LARGE_INTEGER v17; // rcx
-  unsigned __int64 v18; // rax
-  unsigned __int8 v19; // cl
-  struct _KPRCB *v20; // r9
-  _DWORD *v21; // r8
-  int v22; // eax
-  bool v23; // zf
-  struct _KPRCB *v24; // rcx
-  _DWORD *v25; // r8
-  int v26; // ett
-  LARGE_INTEGER PerformanceFrequency; // [rsp+20h] [rbp-F8h] BYREF
-  _QWORD v28[20]; // [rsp+30h] [rbp-E8h] BYREF
-  int v29; // [rsp+110h] [rbp-8h]
+  __int16 v5; // si
+  bool v6; // si
+  unsigned __int8 CurrentIrql; // di
+  _DWORD *SchedulerAssist; // r9
+  struct _KPRCB *CurrentPrcb; // rbx
+  __int64 v10; // rcx
+  int v11; // edx
+  volatile signed __int32 *v12; // rax
+  __int64 v13; // rdx
+  volatile signed __int32 *v14; // rax
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v16; // rax
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // r9
+  _DWORD *v19; // r8
+  int v20; // eax
+  bool v21; // zf
+  _QWORD v22[20]; // [rsp+20h] [rbp-E8h] BYREF
+  int v23; // [rsp+100h] [rbp-8h]
 
-  memset(v28, 0, 0x98uLL);
+  memset(v22, 0, 0x98uLL);
   if ( KiFreezeExecutionLock
     || KiFreezeLockBackup
     || (result = (unsigned int)KiBugCheckActive, (KiBugCheckActive & 3) != 0) )
   {
     if ( ViVerifierEnabled )
       VfStopBranchTracing();
-    v4 = v29;
+    v5 = v23;
     _disable();
-    SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-    if ( SchedulerAssist )
-      _InterlockedOr(SchedulerAssist, 0x200000u);
-    v6 = (v4 & 0x200) != 0;
+    v6 = (v5 & 0x200) != 0;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
-      v15 = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 15 )
-        LODWORD(v16) = 0x8000;
-      else
-        v16 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-      v15[5] |= v16;
+      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
     }
     CurrentPrcb = KeGetCurrentPrcb();
-    KeSaveSupervisorState(CurrentPrcb->ExtendedSupervisorState, KeEnabledSupervisorXStateFeatures | 0x100);
+    KeSaveSupervisorState((__int64)CurrentPrcb->ExtendedSupervisorState, MEMORY[0xFFFFF780000005F0] | 0x100LL);
     KiStartDebugAccumulation(CurrentPrcb);
     CurrentPrcb->IpiFrozen = 2;
-    LOBYTE(v9) = 1;
-    ((void (__fastcall *)(__int64, _QWORD))off_140C01B48)(v9, 0LL);
+    LOBYTE(v10) = 1;
+    ((void (__fastcall *)(__int64, _QWORD))off_140C00738[0])(v10, 0LL);
     if ( a1 )
     {
       KiSaveProcessorState(a1, a2);
@@ -90,96 +77,69 @@ __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
     else
     {
       RtlCaptureContext(CurrentPrcb->Context);
-      KiSaveProcessorControlState(&CurrentPrcb->ProcessorState);
+      KiSaveProcessorControlState((__int64)&CurrentPrcb->ProcessorState, v11);
     }
-    v10 = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( v10 )
-      _InterlockedOr(v10, 0x20000u);
+    v12 = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
+    if ( v12 )
+      _InterlockedOr(v12, 0x20000u);
     KeQueryPerformanceCounter(0LL);
     while ( (CurrentPrcb->IpiFrozen & 0xF) == 2 )
     {
       if ( CurrentPrcb == (struct _KPRCB *)KiDebuggerOwner )
       {
-        memset(v28, 0, 0x98uLL);
-        LODWORD(v28[0]) = -2147483641;
-        v28[1] = v28;
-        v28[2] = CurrentPrcb->Context->Rip;
-        if ( (unsigned __int8)KdpReportExceptionStateChange(v28, CurrentPrcb->Context, 0LL) != 3 )
+        memset(v22, 0, 0x98uLL);
+        LODWORD(v22[0]) = -2147483641;
+        v22[1] = v22;
+        v22[2] = CurrentPrcb->Context->Rip;
+        if ( (unsigned __int8)KdpReportExceptionStateChange(v22, CurrentPrcb->Context, 0LL) != 3 )
           KiSetDebuggerOwner(KiFreezeOwner);
       }
-      v11 = KiFreezeStallOwner;
-      PerformanceFrequency.QuadPart = 0LL;
-      if ( CurrentPrcb == (struct _KPRCB *)KiFreezeStallOwner )
-      {
-        v17 = KeQueryPerformanceCounter(&PerformanceFrequency);
-        if ( (unsigned __int64)(1000 * (v17.QuadPart - KiLastStallTick)) / PerformanceFrequency.QuadPart > 0x1F4 )
-          KiLastStallTick = v17.QuadPart;
-      }
-      if ( v11
-        && (struct _KPRCB *)v11 != CurrentPrcb
-        && KiDebuggerOwner
-        && (struct _KPRCB *)KiDebuggerOwner != CurrentPrcb )
-      {
-        _mm_pause();
-      }
+      KiCheckStall((__int64)CurrentPrcb, 1);
     }
-    v12 = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( v12 )
-      _InterlockedAnd(v12, 0xFFFDFFFF);
-    ((void (__fastcall *)(_QWORD, _QWORD))off_140C01B48)(0LL, (unsigned __int8)KiResumeForReboot);
+    v14 = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
+    if ( v14 )
+      _InterlockedAnd(v14, 0xFFFDFFFF);
+    LOBYTE(v13) = KiResumeForReboot;
+    ((void (__fastcall *)(_QWORD, __int64))off_140C00738[0])(0LL, v13);
     if ( a1 )
       KiRestoreProcessorState(a1, a2);
     else
-      KiRestoreProcessorControlState(&CurrentPrcb->ProcessorState);
-    v13 = __readcr4();
-    if ( (v13 & 0x20080) != 0 )
+      KiRestoreProcessorControlState((__int64)&CurrentPrcb->ProcessorState);
+    v15 = __readcr4();
+    if ( (v15 & 0x20080) != 0 )
     {
-      __writecr4(v13 ^ 0x80);
-      __writecr4(v13);
+      __writecr4(v15 ^ 0x80);
+      __writecr4(v15);
     }
     else
     {
-      v18 = __readcr3();
-      __writecr3(v18);
+      v16 = __readcr3();
+      __writecr3(v16);
     }
     CurrentPrcb->IpiFrozen = 0;
-    KiEndDebugAccumulation(CurrentPrcb);
-    KeRestoreSupervisorState(CurrentPrcb->ExtendedSupervisorState, KeEnabledSupervisorXStateFeatures | 0x100);
+    KiEndDebugAccumulation((__int64)CurrentPrcb);
+    KeRestoreSupervisorState((__int64)CurrentPrcb->ExtendedSupervisorState, MEMORY[0xFFFFF780000005F0] | 0x100LL);
     if ( KiIrqlFlags )
     {
-      v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v20 = KeGetCurrentPrcb();
-        v21 = v20->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v23 = (v22 & v21[5]) == 0;
-        v21[5] &= v22;
-        if ( v23 )
-          KiRemoveSystemWorkPriorityKick(v20);
+        v17 = KeGetCurrentIrql();
+        if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+        {
+          v18 = KeGetCurrentPrcb();
+          v19 = v18->SchedulerAssist;
+          v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v21 = (v20 & v19[5]) == 0;
+          v19[5] &= v20;
+          if ( v21 )
+            KiRemoveSystemWorkPriorityKick((__int64)v18);
+        }
       }
     }
     result = CurrentIrql;
     __writecr8(CurrentIrql);
     if ( v6 )
-    {
-      v24 = KeGetCurrentPrcb();
-      v25 = v24->SchedulerAssist;
-      if ( v25 )
-      {
-        _m_prefetchw(v25);
-        LODWORD(result) = *v25;
-        do
-        {
-          v26 = result;
-          result = (unsigned int)_InterlockedCompareExchange(v25, result & 0xFFDFFFFF, result);
-        }
-        while ( v26 != (_DWORD)result );
-        if ( (result & 0x200000) != 0 )
-          result = KiRemoveSystemWorkPriorityKick(v24);
-      }
       _enable();
-    }
     if ( ViVerifierEnabled )
       return VfStartBranchTracing();
   }

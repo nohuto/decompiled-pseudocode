@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_qqssdddd @ 0x1C002112C
+ * XREFs of WPP_RECORDER_SF_qqssdddd @ 0x1C001317C
  * Callers:
- *     ACPIThermalDeviceControl @ 0x1C0020500 (ACPIThermalDeviceControl.c)
- *     ACPIThermalCompletePendingIrps @ 0x1C0020E34 (ACPIThermalCompletePendingIrps.c)
- *     ACPIThermalCancelRequest @ 0x1C0060B50 (ACPIThermalCancelRequest.c)
+ *     ACPIThermalDeviceControl @ 0x1C0012510 (ACPIThermalDeviceControl.c)
+ *     ACPIThermalCompletePendingIrps @ 0x1C0012E74 (ACPIThermalCompletePendingIrps.c)
+ *     ACPIThermalCancelRequest @ 0x1C005FD60 (ACPIThermalCancelRequest.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qqssdddd(
@@ -49,7 +49,7 @@ __int64 __fastcall WPP_RECORDER_SF_qqssdddd(
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids,
+      &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
       a4,
       &a6,
       8LL,
@@ -69,5 +69,5 @@ __int64 __fastcall WPP_RECORDER_SF_qqssdddd(
     while ( *(_BYTE *)(v10 + v11) );
   }
   LOWORD(v18) = a4;
-  return WppAutoLogTrace(a1, 4LL, 16LL, &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids, v18, &a6, 8LL, &a7);
+  return WppAutoLogTrace(a1, 4LL, 16LL, &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids, v18, &a6, 8LL, &a7);
 }

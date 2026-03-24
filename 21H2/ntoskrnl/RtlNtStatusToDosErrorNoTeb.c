@@ -1,21 +1,23 @@
 /*
- * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x140225DA0
+ * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x1402A2200
  * Callers:
- *     RtlNtStatusToDosError @ 0x14069E070 (RtlNtStatusToDosError.c)
+ *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
  * Callees:
  *     <none>
  */
 
 ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
+  unsigned int v1; // r8d
   ULONG result; // eax
-  unsigned int v2; // r8d
-  unsigned int v3; // r9d
-  __int64 v4; // rdx
-  unsigned int v5; // eax
-  unsigned int v6; // r10d
-  int v7; // eax
+  unsigned int v3; // edx
+  unsigned int v4; // r9d
+  __int64 v5; // rcx
+  unsigned int v6; // eax
+  unsigned int v7; // r10d
+  int v8; // eax
 
+  v1 = 0;
   if ( !Status )
     return 0;
   if ( Status == 259 )
@@ -25,35 +27,35 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
   {
     if ( (Status & 0xFF0000) == 0x70000 && ((HIBYTE(Status) - 128) & 0xFFFFFFBF) == 0 )
       return (unsigned __int16)Status;
-    if ( (Status & 0xF0000000) == 0xD0000000 )
-      Status &= 0xCFFFFFFF;
-    v2 = 0;
-    v3 = 321;
+    v3 = Status & 0xCFFFFFFF;
+    v4 = 308;
+    if ( (Status & 0xF0000000) != 0xD0000000 )
+      v3 = Status;
     while ( 1 )
     {
-      v4 = (v2 + v3) >> 1;
-      v5 = RtlpRunTable[2 * v4];
-      v6 = Status - v5;
-      if ( Status < v5 )
+      v5 = (v1 + v4) >> 1;
+      v6 = RtlpRunTable[2 * v5];
+      v7 = v3 - v6;
+      if ( v3 < v6 )
       {
-        v3 = v4 - 1;
+        v4 = v5 - 1;
       }
       else
       {
-        if ( v6 < (unsigned __int8)byte_140019104[8 * v4] )
+        if ( v7 < (unsigned __int8)byte_1400186C4[8 * v5] )
         {
-          v7 = (unsigned __int16)word_140019106[4 * v4];
-          if ( byte_140019105[8 * v4] == 1 )
-            return (unsigned __int16)RtlpStatusTable[v6 + v7];
+          v8 = (unsigned __int16)word_1400186C6[4 * v5];
+          if ( byte_1400186C5[8 * v5] == 1 )
+            return (unsigned __int16)RtlpStatusTable[v7 + v8];
           else
-            return (unsigned __int16)RtlpStatusTable[2 * v6 + v7] | ((unsigned __int16)RtlpStatusTable[2 * v6 + 1 + v7] << 16);
+            return (unsigned __int16)RtlpStatusTable[2 * v7 + v8] | ((unsigned __int16)RtlpStatusTable[2 * v7 + 1 + v8] << 16);
         }
-        v2 = v4 + 1;
+        v1 = v5 + 1;
       }
-      if ( v2 > v3 )
+      if ( v1 > v4 )
       {
-        if ( (Status & 0xFFFF0000) == 0xC0010000 )
-          return (unsigned __int16)Status;
+        if ( (v3 & 0xFFFF0000) == 0xC0010000 )
+          return (unsigned __int16)v3;
         else
           return 317;
       }

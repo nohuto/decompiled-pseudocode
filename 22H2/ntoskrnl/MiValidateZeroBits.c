@@ -1,27 +1,21 @@
 /*
- * XREFs of MiValidateZeroBits @ 0x140721120
+ * XREFs of MiValidateZeroBits @ 0x1406388BC
  * Callers:
- *     MiAllocateVirtualMemoryPrepare @ 0x1406F6C60 (MiAllocateVirtualMemoryPrepare.c)
- *     NtMapViewOfSection @ 0x140720EC0 (NtMapViewOfSection.c)
- *     NtCreateEnclave @ 0x140A3EB20 (NtCreateEnclave.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1405F99F0 (MiAllocateVirtualMemoryPrepare.c)
+ *     NtMapViewOfSection @ 0x140638420 (NtMapViewOfSection.c)
+ *     NtCreateEnclave @ 0x1408D3D70 (NtCreateEnclave.c)
  * Callees:
- *     RtlFindMostSignificantBit @ 0x140355E60 (RtlFindMostSignificantBit.c)
+ *     RtlFindMostSignificantBit @ 0x14030E3E0 (RtlFindMostSignificantBit.c)
  */
 
-ULONGLONG __fastcall MiValidateZeroBits(ULONGLONG *a1)
+__int64 __fastcall MiValidateZeroBits(ULONGLONG *a1)
 {
-  ULONGLONG result; // rax
-  unsigned __int64 v3; // rax
+  ULONGLONG v1; // rax
+  unsigned __int64 v4; // rax
 
-  result = *a1;
-  if ( *a1 )
-  {
-    if ( result < 0x20 )
-      v3 = result + 32;
-    else
-      v3 = 63 - RtlFindMostSignificantBit(*a1);
-    *a1 = v3;
-    return v3 > 0x35 ? 0xC000000D : 0;
-  }
-  return result;
+  v1 = *a1;
+  if ( *a1 && (v1 < 0x20 ? (v4 = v1 + 32) : (v4 = 63 - RtlFindMostSignificantBit(*a1)), *a1 = v4, v4 > 0x35) )
+    return 3221225485LL;
+  else
+    return 0LL;
 }

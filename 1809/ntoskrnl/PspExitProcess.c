@@ -7,13 +7,13 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     PspProcessUnbindVirtualizedTimers @ 0x1400902C0 (PspProcessUnbindVirtualizedTimers.c)
- *     PfpLogApplicationEvent @ 0x1400D8478 (PfpLogApplicationEvent.c)
- *     ExCleanTimerResolutionRequest @ 0x14013F838 (ExCleanTimerResolutionRequest.c)
+ *     PfpLogApplicationEvent @ 0x1400D8498 (PfpLogApplicationEvent.c)
+ *     ExCleanTimerResolutionRequest @ 0x14013F858 (ExCleanTimerResolutionRequest.c)
  *     PsSetProcessTelemetryAppState @ 0x1405B1974 (PsSetProcessTelemetryAppState.c)
  *     PspCallProcessNotifyRoutines @ 0x1405F4C14 (PspCallProcessNotifyRoutines.c)
  *     PfSnEndProcessTrace @ 0x140606950 (PfSnEndProcessTrace.c)
  *     DbgkFlushErrorPort @ 0x140607444 (DbgkFlushErrorPort.c)
- *     EtwTraceProcess @ 0x14066C548 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
  */
 
 __int64 __fastcall PspExitProcess(char a1, ULONG_PTR a2)

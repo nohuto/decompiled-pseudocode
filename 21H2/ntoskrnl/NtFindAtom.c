@@ -1,14 +1,14 @@
 /*
- * XREFs of NtFindAtom @ 0x1406F68C0
+ * XREFs of NtFindAtom @ 0x14061ACD0
  * Callers:
  *     <none>
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140281830 (MmSessionGetWin32Callouts.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExCallCallBack @ 0x1406F8074 (ExCallCallBack.c)
- *     RtlLookupAtomInAtomTable @ 0x1407A0C90 (RtlLookupAtomInAtomTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     MmSessionGetWin32Callouts @ 0x14025A910 (MmSessionGetWin32Callouts.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExCallCallBack @ 0x14061AE3C (ExCallCallBack.c)
+ *     RtlLookupAtomInAtomTable @ 0x14061B580 (RtlLookupAtomInAtomTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtFindAtom(char *Src, size_t Size, _WORD *a3)
@@ -42,9 +42,9 @@ __int64 __fastcall NtFindAtom(char *Src, size_t Size, _WORD *a3)
   {
     if ( a3 )
     {
-      v9 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v9 = (__int64)a3;
+      v9 = (__int64)a3;
+      if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+        v9 = 0x7FFFFFFF0000LL;
       *(_WORD *)v9 = *(_WORD *)v9;
       v8 = v13;
     }

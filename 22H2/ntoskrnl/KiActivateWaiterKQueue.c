@@ -1,49 +1,49 @@
 /*
- * XREFs of KiActivateWaiterKQueue @ 0x14030B430
+ * XREFs of KiActivateWaiterKQueue @ 0x1402F7950
  * Callers:
- *     KiActivateWaiterQueueWithNoLocks @ 0x14030B318 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402F781C (KiActivateWaiterQueueWithNoLocks.c)
  * Callees:
- *     KiWakeQueueWaiter @ 0x1402B8750 (KiWakeQueueWaiter.c)
+ *     KiWakeQueueWaiter @ 0x14024BE60 (KiWakeQueueWaiter.c)
  */
 
-char __fastcall KiActivateWaiterKQueue(__int64 a1)
+char __fastcall KiActivateWaiterKQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v1; // rax
-  __int64 v3; // rsi
-  _QWORD *v4; // rdi
-  __int64 v5; // rcx
-  _QWORD *v6; // rax
+  _QWORD *v4; // rax
+  __int64 v6; // rsi
+  _QWORD *v7; // rdi
+  __int64 v8; // rcx
+  _QWORD *v9; // rax
 
-  LODWORD(v1) = *(_DWORD *)(a1 + 40);
-  if ( (unsigned int)v1 < *(_DWORD *)(a1 + 44) )
+  LODWORD(v4) = *(_DWORD *)(a1 + 40);
+  if ( (unsigned int)v4 < *(_DWORD *)(a1 + 44) )
   {
-    v3 = a1 + 24;
-    v4 = *(_QWORD **)(a1 + 24);
-    if ( v4 != (_QWORD *)(a1 + 24) )
+    v6 = a1 + 24;
+    v7 = *(_QWORD **)(a1 + 24);
+    if ( v7 != (_QWORD *)(a1 + 24) )
     {
-      v1 = (_QWORD *)(a1 + 8);
-      if ( (_QWORD *)*v1 != v1 )
+      v4 = (_QWORD *)(a1 + 8);
+      if ( (_QWORD *)*v4 != v4 )
       {
-        v5 = *v4;
-        v6 = (_QWORD *)v4[1];
-        if ( *(_QWORD **)(*v4 + 8LL) == v4 && (_QWORD *)*v6 == v4 )
+        v8 = *v7;
+        v9 = (_QWORD *)v7[1];
+        if ( *(_QWORD **)(*v7 + 8LL) == v7 && (_QWORD *)*v9 == v7 )
         {
-          *v6 = v5;
-          *(_QWORD *)(v5 + 8) = v6;
-          *v4 = 0LL;
-          LOBYTE(v1) = KiWakeQueueWaiter((__int64)KeGetCurrentPrcb(), a1, (__int64)v4);
-          if ( (_BYTE)v1 )
+          *v9 = v8;
+          *(_QWORD *)(v8 + 8) = v9;
+          *v7 = 0LL;
+          LOBYTE(v4) = KiWakeQueueWaiter((__int64)KeGetCurrentPrcb(), a1, (__int64)v7, a4);
+          if ( (_BYTE)v4 )
           {
             --*(_DWORD *)(a1 + 4);
             goto LABEL_3;
           }
-          v1 = *(_QWORD **)v3;
-          if ( *(_QWORD *)(*(_QWORD *)v3 + 8LL) == v3 )
+          v4 = *(_QWORD **)v6;
+          if ( *(_QWORD *)(*(_QWORD *)v6 + 8LL) == v6 )
           {
-            *v4 = v1;
-            v4[1] = v3;
-            v1[1] = v4;
-            *(_QWORD *)v3 = v4;
+            *v7 = v4;
+            v7[1] = v6;
+            v4[1] = v7;
+            *(_QWORD *)v6 = v7;
             goto LABEL_3;
           }
         }
@@ -53,5 +53,5 @@ char __fastcall KiActivateWaiterKQueue(__int64 a1)
   }
 LABEL_3:
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  return (char)v1;
+  return (char)v4;
 }

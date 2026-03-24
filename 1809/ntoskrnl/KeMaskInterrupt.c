@@ -1,20 +1,20 @@
 /*
- * XREFs of KeMaskInterrupt @ 0x14016D528
+ * XREFs of KeMaskInterrupt @ 0x14016D548
  * Callers:
- *     IopMaskInterrupt @ 0x1401592B4 (IopMaskInterrupt.c)
- *     KeDisconnectInterrupt @ 0x14016D2A0 (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x1401592D4 (IopMaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
  *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     KeRemoveQueueDpcEx @ 0x1401329E0 (KeRemoveQueueDpcEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x14013A090 (KeSetTargetProcessorDpcEx.c)
- *     KiMaskInterruptInternal @ 0x14016D390 (KiMaskInterruptInternal.c)
- *     KiAcquireInterruptConnectLock @ 0x14016DE18 (KiAcquireInterruptConnectLock.c)
- *     KiIsInterruptTypeSecondary @ 0x14016E3F8 (KiIsInterruptTypeSecondary.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiMaskSecondaryInterruptInternal @ 0x140293780 (KiMaskSecondaryInterruptInternal.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14013A0B0 (KeSetTargetProcessorDpcEx.c)
+ *     KiMaskInterruptInternal @ 0x14016D3B0 (KiMaskInterruptInternal.c)
+ *     KiAcquireInterruptConnectLock @ 0x14016DE38 (KiAcquireInterruptConnectLock.c)
+ *     KiIsInterruptTypeSecondary @ 0x14016E418 (KiIsInterruptTypeSecondary.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140293880 (KiMaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, struct _KDPC *a4)

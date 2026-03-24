@@ -1,22 +1,24 @@
 /*
- * XREFs of ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C02B5CA8
+ * XREFs of ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7118
  * Callers:
- *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0080034 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z @ 0x1C010EC30 (-vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z.c)
- *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0111C28 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00951E0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z @ 0x1C0095D10 (-vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z.c)
+ *     ?vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1C0097F00 (-vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z.c)
+ *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098A30 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C0098F30 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
+ *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0119460 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C015C470 (-bPartitionInit@ESTROBJ@@QEAAHKIH@Z.c)
- *     ?pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C015C5E0 (-pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
- *     ?vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ @ 0x1C015CB96 (-vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ.c)
- *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C02B3E3C (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
- *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02B46D0 (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
- *     ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C02B4804 (-bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z.c)
- *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C02B4CC4 (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
- *     ?pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C02B4D3C (-pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B4F3C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?bIsSystemTTGlyph@RFONTOBJ@@QEBAHG@Z @ 0x1C02B6AA8 (-bIsSystemTTGlyph@RFONTOBJ@@QEBAHG@Z.c)
- *     ?vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z @ 0x1C02B738C (-vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z.c)
+ *     ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C00634A8 (-bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7408 (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
+ *     ?pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C00E7808 (-pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z @ 0x1C00E7994 (-vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z.c)
+ *     ?vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ @ 0x1C00E7A80 (-vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7AAC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C00E90CC (-bPartitionInit@ESTROBJ@@QEAAHKIH@Z.c)
+ *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C01527DC (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
+ *     ?pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C01586A0 (-pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A7164 (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
  */
 
 struct _GLYPHDATA *__fastcall RFONTOBJ::wpgdGetLinkMetricsPlus(
@@ -30,143 +32,138 @@ struct _GLYPHDATA *__fastcall RFONTOBJ::wpgdGetLinkMetricsPlus(
         int a8)
 {
   unsigned int v8; // r13d
-  unsigned __int16 *v13; // r14
-  const unsigned __int16 *v14; // r12
-  __int64 v15; // rdx
-  __int64 v16; // rbp
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rcx
-  struct RFONTOBJ *v20; // rdx
-  struct RFONTOBJ *v21; // r8
-  __int64 v22; // r9
-  struct RFONTOBJ *v23; // rdx
-  struct _GLYPHDATA *EudcMetrics; // rax
-  struct _GLYPHDATA *v25; // rbp
-  __int64 v26; // rax
+  const unsigned __int16 *v9; // r12
+  unsigned __int16 *v14; // rcx
+  const unsigned __int16 *v15; // r8
+  __int64 v16; // rdx
+  __int64 v17; // r11
+  int v18; // r10d
   struct _GLYPHDATA *result; // rax
-  int v28; // r13d
-  __int64 v29; // r12
-  struct RFONTOBJ *v30; // r8
-  __int64 v31; // r9
-  struct RFONTOBJ *v32; // rdx
-  __int64 v33; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v20; // rdx
+  __int64 v21; // r15
+  int v22; // r12d
+  __int64 v23; // r15
+  struct RFONTOBJ *v24; // r8
+  struct RFONTOBJ *v25; // r8
+  unsigned __int16 v26; // dx
+  struct _GLYPHDATA *EudcMetrics; // rax
+  struct _GLYPHDATA *v28; // r14
+  __int64 v29; // rax
 
   v8 = a6;
-  v13 = a4;
-  v14 = &a5[a6];
-  v16 = *(_QWORD *)(SGDGetSessionState(a5) + 32);
+  v9 = a5;
+  v14 = a4;
+  v15 = &a5[a6];
   if ( !a2 )
-    return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
-  v19 = *(_QWORD *)a2;
-  if ( *(_DWORD *)(*(_QWORD *)a2 + 308LL)
-    || !*(_DWORD *)(v16 + 13304) && !*(_QWORD *)(v16 + 13320) && !*(_QWORD *)(v16 + 13328) && !*(_DWORD *)(v19 + 304) )
+    return RFONTOBJ::pgdDefault(this);
+  v16 = *(_QWORD *)a2;
+  if ( *(_DWORD *)(v16 + 308) || !gbAnyLinkedFonts && *(_OWORD *)&gappfeSysEUDC == 0LL && !*(_DWORD *)(v16 + 304) )
+    return RFONTOBJ::pgdDefault(this);
+  if ( a4 < v15 )
   {
-    return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
-  }
-  if ( a4 >= v14 )
-  {
-LABEL_10:
-    if ( v13 == v14 )
-      return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
-  }
-  else
-  {
-    while ( 1 )
+    do
     {
-      v15 = 128LL;
-      if ( (unsigned __int16)(*v13 - 128) > 0x1Fu )
+      if ( (unsigned __int16)(*v14 - 128) > 0x1Fu )
         break;
-      if ( ++v13 >= v14 )
-        goto LABEL_10;
+      ++v14;
     }
+    while ( v14 < v15 );
   }
-  if ( !*(_DWORD *)(v19 + 304) && *(_DWORD *)(*(_QWORD *)this + 708LL) && !*(_QWORD *)(*(_QWORD *)this + 720LL) )
+  if ( v14 == v15 )
+    return RFONTOBJ::pgdDefault(this);
+  if ( !*(_DWORD *)(v16 + 304) && *(_DWORD *)(*(_QWORD *)this + 708LL) && !*(_QWORD *)(*(_QWORD *)this + 720LL) )
     RFONTOBJ::bInitSystemTT(this, a2);
+  v17 = *(_QWORD *)this;
   if ( !*(_QWORD *)(*(_QWORD *)this + 848LL) )
-    return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
+    return RFONTOBJ::pgdDefault(this);
   if ( !*(_DWORD *)(*(_QWORD *)a2 + 304LL) )
   {
-    if ( (unsigned int)RFONTOBJ::bIsSystemTTGlyph(this, *a4) )
+    v18 = *a4;
+    if ( *(_DWORD *)(v17 + 708)
+      && (unsigned __int16)v18 >= gqlTTSystem
+      && (unsigned __int16)v18 <= (unsigned __int16)word_1C033C56A
+      && ((0x80000000 >> ((v18 - gqlTTSystem) % 32)) & *(_DWORD *)(qword_1C033C570 + 4LL * ((v18 - gqlTTSystem) / 32))) != 0 )
     {
-      if ( *(_QWORD *)(*(_QWORD *)this + 720LL) )
+      if ( *(_QWORD *)(v17 + 720) )
       {
         GreAcquireSemaphore(*(_QWORD *)(*(_QWORD *)this + 848LL));
         RFONTOBJ::vLockSystemTTGlyphCache(this);
-        EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemEUDC");
+        EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemEUDC", *(_QWORD *)(*(_QWORD *)this + 848LL));
         GreReleaseSemaphoreInternal(*(_QWORD *)(*(_QWORD *)this + 848LL));
         if ( a3 && (*((_DWORD *)a3 + 58) & 0x1000) == 0 )
           ESTROBJ::bPartitionInit(a3, v8, 0, 0);
-        v33 = *(_QWORD *)(*(_QWORD *)this + 720LL);
-        if ( v33
-          && ((v23 = (struct RFONTOBJ *)*a4, !a8)
-            ? (EudcMetrics = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&v33, v23, v21, v22))
-            : (EudcMetrics = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&v33, v23, v21, v22)),
-              (v25 = EudcMetrics) != 0LL) )
+        a5 = *(const unsigned __int16 **)(*(_QWORD *)this + 720LL);
+        if ( a5
+          && ((v26 = *a4, !a8)
+            ? (EudcMetrics = RFONTOBJ::pgdGetEudcMetrics((RFONTOBJ *)&a5, v26, v25))
+            : (EudcMetrics = RFONTOBJ::pgdGetEudcMetricsPlus((RFONTOBJ *)&a5, v26, v25)),
+              (v28 = EudcMetrics) != 0LL) )
         {
           if ( a3 )
           {
-            v26 = *((_QWORD *)a3 + 26);
+            v29 = *((_QWORD *)a3 + 26);
             ++*((_DWORD *)a3 + 62);
-            *(_DWORD *)(v26 + 4 * (a4 - a5)) = 1;
+            *(_DWORD *)(v29 + 4 * (a4 - v9)) = 1;
             *a7 = 0;
           }
         }
         else
         {
-          v25 = RFONTOBJ::pgdDefault(this, v20, (__int64)v21, v22);
+          v28 = RFONTOBJ::pgdDefault(this);
         }
-        v33 = 0LL;
-        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v33);
-        return v25;
+        a5 = 0LL;
+        RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&a5);
+        return v28;
       }
-      return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
+      return RFONTOBJ::pgdDefault(this);
     }
-    if ( !(unsigned int)RFONTOBJ::bIsLinkedGlyph(this, *a4) )
+    if ( !(unsigned int)RFONTOBJ::bIsLinkedGlyph(this, v18) )
     {
       if ( *(_QWORD *)(*(_QWORD *)this + 720LL) )
       {
         GreAcquireSemaphore(*(_QWORD *)(*(_QWORD *)this + 848LL));
         RFONTOBJ::vLockSystemTTGlyphCache(this);
-        EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemEUDC");
+        EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemEUDC", *(_QWORD *)(*(_QWORD *)this + 848LL));
         GreReleaseSemaphoreInternal(*(_QWORD *)(*(_QWORD *)this + 848LL));
       }
-      return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
+      return RFONTOBJ::pgdDefault(this);
     }
   }
   GreAcquireSemaphore(*(_QWORD *)(*(_QWORD *)this + 848LL));
+  v20 = *(_QWORD *)this;
   if ( (*(_DWORD *)(*(_QWORD *)this + 712LL) & 1) == 0 )
   {
-    GreAcquireSemaphore(*(_QWORD *)(v16 + 13272));
-    ++*(_DWORD *)(v16 + 13300);
-    EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemEUDC1");
-    GreReleaseSemaphoreInternal(*(_QWORD *)(v16 + 13272));
+    GreAcquireSemaphore(ghsemEUDC1);
+    ++gcEUDCCount;
+    EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+    GreReleaseSemaphoreInternal(ghsemEUDC1);
     RFONTOBJ::vInitEUDC(this, a2);
     RFONTOBJ::vLockEUDCFontsGlyphCache(this, 1);
     *(_DWORD *)(*(_QWORD *)this + 712LL) |= 1u;
+    v20 = *(_QWORD *)this;
   }
-  EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemEUDC");
+  EtwTraceGreLockReleaseSemaphore(L"prfnt->hsemEUDC", *(_QWORD *)(v20 + 848));
   GreReleaseSemaphoreInternal(*(_QWORD *)(*(_QWORD *)this + 848LL));
   if ( a3
     && (*((_DWORD *)a3 + 58) & 0x400) == 0
     && !(unsigned int)ESTROBJ::bPartitionInit(a3, v8, *(_DWORD *)(*(_QWORD *)this + 840LL), 1) )
   {
-    return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
+    return RFONTOBJ::pgdDefault(this);
   }
-  v28 = a8;
-  v29 = a4 - a5;
-  result = RFONTOBJ::FindLinkedGlyphDataPlus(this, a2, a3, *a4, v29, a6, a7, 0, a8);
+  v21 = (char *)a4 - (char *)v9;
+  v22 = a8;
+  v23 = v21 >> 1;
+  result = RFONTOBJ::FindLinkedGlyphDataPlus(this, a2, a3, *a4, v23, v8, a7, 0, a8);
   if ( !result )
   {
-    v32 = (struct RFONTOBJ *)*(unsigned __int16 *)(v16 + 13268);
-    result = v28
-           ? RFONTOBJ::pgdGetEudcMetricsPlus(this, v32, v30, v31)
-           : RFONTOBJ::pgdGetEudcMetrics(this, v32, v30, v31);
+    result = v22
+           ? RFONTOBJ::pgdGetEudcMetricsPlus(this, EudcDefaultChar, v24)
+           : RFONTOBJ::pgdGetEudcMetrics(this, EudcDefaultChar, v24);
     if ( !result )
     {
-      result = RFONTOBJ::FindLinkedGlyphDataPlus(this, a2, a3, *(unsigned __int16 *)(v16 + 13268), v29, a6, a7, 1, v28);
+      result = RFONTOBJ::FindLinkedGlyphDataPlus(this, a2, a3, EudcDefaultChar, v23, v8, a7, 1, v22);
       if ( !result )
-        return RFONTOBJ::pgdDefault(this, (struct RFONTOBJ *)v15, v17, v18);
+        return RFONTOBJ::pgdDefault(this);
     }
   }
   return result;

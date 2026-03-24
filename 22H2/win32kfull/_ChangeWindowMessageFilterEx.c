@@ -1,41 +1,41 @@
 /*
- * XREFs of _ChangeWindowMessageFilterEx @ 0x1C004F868
+ * XREFs of _ChangeWindowMessageFilterEx @ 0x1C003F388
  * Callers:
- *     NtUserChangeWindowMessageFilterEx @ 0x1C004F6D0 (NtUserChangeWindowMessageFilterEx.c)
+ *     NtUserChangeWindowMessageFilterEx @ 0x1C003F1F0 (NtUserChangeWindowMessageFilterEx.c)
  * Callees:
- *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004F0AC (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
- *     ?ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z @ 0x1C004F9EC (-ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z.c)
- *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C004FA44 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
- *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C004FAD4 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
- *     ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C0050B34 (-RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
- *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C0050BB8 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
- *     ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C00E300C (-VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z.c)
- *     ?VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z @ 0x1C00E48F0 (-VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z.c)
- *     FreeWindowMessageFilter @ 0x1C013C880 (FreeWindowMessageFilter.c)
+ *     UIPISQMChangeFilter @ 0x1C003F5C0 (UIPISQMChangeFilter.c)
+ *     ?ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z @ 0x1C003F658 (-ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C003F9D8 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C003FAEC (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C003FB84 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z @ 0x1C004F154 (-VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z.c)
+ *     FreeWindowMessageFilter @ 0x1C007C150 (FreeWindowMessageFilter.c)
+ *     ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C010BCBC (-RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C010BDF4 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C01101CC (-VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z.c)
  */
 
 __int64 __fastcall ChangeWindowMessageFilterEx(struct tagWND *a1, unsigned int a2, int a3, __int64 a4)
 {
-  unsigned int v4; // esi
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v10; // rbx
-  void **v11; // r12
+  unsigned int v4; // ebx
+  struct tagPROCESSINFO *CurrentProcessWin32Process; // rax
+  struct tagPROCESSINFO *v10; // r13
+  void **v11; // r15
   int v12; // r9d
-  struct tagVWPL **v13; // rcx
+  struct tagVWPL **v14; // rcx
   int v15; // [rsp+20h] [rbp-48h]
   void **v16[7]; // [rsp+30h] [rbp-38h] BYREF
   int v17; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = 0;
   v17 = 0;
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v10 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v10 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
+  CurrentProcessWin32Process = (struct tagPROCESSINFO *)PsGetCurrentProcessWin32Process(a1);
   *(_DWORD *)(a4 + 4) = 0;
+  v10 = CurrentProcessWin32Process;
+  UIPISQMChangeFilter(CurrentProcessWin32Process);
   if ( (unsigned __int8)Enforced() )
   {
-    if ( !(unsigned int)ValidateChangeMessageFilter((struct tagPROCESSINFO *)v10, a2) )
+    if ( !(unsigned int)ValidateChangeMessageFilter(v10, a2) )
       return 0LL;
     if ( a3 )
     {
@@ -54,7 +54,7 @@ __int64 __fastcall ChangeWindowMessageFilterEx(struct tagWND *a1, unsigned int a
         v4 = RemoveMessageFromFilter(v16, a2, &v17);
         if ( v4 )
         {
-          if ( (unsigned int)IsMessageAllowedByFilterEx(*(void *const **)(v10 + 864), a2, 0LL, 0LL)
+          if ( (unsigned int)IsMessageAllowedByFilterEx(*((void *const **)v10 + 106), a2, 0LL, 0LL)
             || (unsigned int)IsMessageAlwaysAllowedAcrossIL(a2) )
           {
             *(_DWORD *)(a4 + 4) = 3;
@@ -67,11 +67,11 @@ __int64 __fastcall ChangeWindowMessageFilterEx(struct tagWND *a1, unsigned int a
       }
       if ( v11 != v16[0] )
       {
-        v13 = (struct tagVWPL **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 872LL);
+        v14 = (struct tagVWPL **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 856LL);
         if ( v16[0] )
-          return (unsigned int)VWPLAddBase(v13, (unsigned __int64)v16[0], a1, 5u, v15);
+          return (unsigned int)VWPLAddBase(v14, (unsigned __int64)v16[0], a1, 5u, v15);
         else
-          VWPLRemoveBase(v13, 0LL, a1, v12, 0LL);
+          VWPLRemoveBase(v14, 0LL, a1, v12, 0LL);
       }
       return v4;
     }

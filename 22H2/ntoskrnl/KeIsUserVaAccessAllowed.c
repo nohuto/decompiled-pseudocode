@@ -1,21 +1,23 @@
 /*
- * XREFs of KeIsUserVaAccessAllowed @ 0x140249BC0
+ * XREFs of KeIsUserVaAccessAllowed @ 0x140254798
  * Callers:
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
- *     KiDispatchInterrupt @ 0x140249510 (KiDispatchInterrupt.c)
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
- *     MiValidFault @ 0x140333340 (MiValidFault.c)
+ *     MiValidFault @ 0x140209710 (MiValidFault.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     MiDbgCopyMemory @ 0x1405457E4 (MiDbgCopyMemory.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall KeIsUserVaAccessAllowed(__int64 a1)
+bool __fastcall KeIsUserVaAccessAllowed(__int64 a1)
 {
-  _BYTE v2[3]; // [rsp+0h] [rbp-8h]
+  int v2; // eax
+  int v3; // [rsp+0h] [rbp-8h]
 
   if ( !KeSmapEnabled )
     return 1;
   if ( a1 )
-    return (*(_DWORD *)(a1 + 376) & 0x40000) != 0;
-  return (*(_DWORD *)v2 & 0x40000) != 0;
+    v2 = *(_DWORD *)(a1 + 376);
+  else
+    v2 = v3;
+  return (v2 & 0x40000) != 0;
 }

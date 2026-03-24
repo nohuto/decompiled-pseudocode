@@ -1,10 +1,10 @@
 /*
- * XREFs of ?clear_region@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18008181C
+ * XREFs of ?clear_region@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18020C620
  * Callers:
- *     ?Clear@CMatrixStack2D@@QEAAXXZ @ 0x180081880 (-Clear@CMatrixStack2D@@QEAAXXZ.c)
- *     ?clear@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800912E0 (-clear@-$vector_facade@VMatrix3x2F@D2D1@@V-$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansi.c)
+ *     ?clear@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18020C5E0 (-clear@-$vector_facade@VMatrix3x2F@D2D1@@V-$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansi.c)
+ *     ?PostSubgraph@CShapeDrawingContext@@QEAAJPEA_N@Z @ 0x1802614AC (-PostSubgraph@CShapeDrawingContext@@QEAAJPEA_N@Z.c)
  * Callees:
- *     ??$move@V?$move_iterator@PEAUPrimitiveSubRect@CDrawListEntryBuilder@@@std@@V?$checked_array_iterator@PEAUPrimitiveSubRect@CDrawListEntryBuilder@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUPrimitiveSubRect@CDrawListEntryBuilder@@@stdext@@V?$move_iterator@PEAUPrimitiveSubRect@CDrawListEntryBuilder@@@0@0V12@@Z @ 0x1801FA350 (--$move@V-$move_iterator@PEAUPrimitiveSubRect@CDrawListEntryBuilder@@@std@@V-$checked_array_iter.c)
+ *     ??$move@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@0@0V12@@Z @ 0x18020B70C (--$move@V-$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V-$checked_array_iterator@PEAVMatrix3x2F@D2D.c)
  */
 
 __int64 __fastcall detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::clear_region(
@@ -12,42 +12,66 @@ __int64 __fastcall detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2
         __int64 a2,
         __int64 a3)
 {
-  __int64 v4; // rcx
-  __int64 v5; // r10
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v8; // r9
-  __int64 v9; // r8
+  __int64 v3; // r11
+  __int64 v4; // r10
+  __int64 v5; // rbx
+  __int64 v6; // r9
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  bool v11; // zf
+  __int64 v12; // r8
+  bool v13; // sf
   __int64 result; // rax
-  _QWORD v11[4]; // [rsp+20h] [rbp-48h] BYREF
-  _BYTE v12[40]; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v15; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-38h]
+  __int128 v17; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-18h]
 
-  v4 = *a1;
-  v5 = a2;
-  v6 = a3 + a2;
-  v8 = 0xAAAAAAAAAAAAAAABuLL * ((a1[1] - v4) >> 3);
-  if ( v6 > v8 )
+  v3 = a1[1];
+  v4 = a2;
+  v5 = *a1;
+  v6 = v3 - *a1;
+  v9 = a2 + a3;
+  v10 = v6 / 24;
+  v11 = v9 == v6 / 24;
+  if ( v9 > v6 / 24 )
   {
     std::_Xoverflow_error("overflow");
     __debugbreak();
   }
-  else
+  v12 = v5 + 24 * v10;
+  if ( !v11 )
   {
-    v9 = v4 + 8 * ((a1[1] - v4) >> 3);
-    if ( v6 == v8 )
-      goto LABEL_3;
+    *(_QWORD *)&v15 = v5;
+    *((_QWORD *)&v15 + 1) = v10;
+    v13 = v4 < 0;
+    if ( v4 )
+    {
+      if ( !v5 )
+      {
+LABEL_11:
+        _o__invalid_parameter_noinfo_noreturn(v9, v10);
+        __debugbreak();
+LABEL_12:
+        v16 = v4;
+        v17 = v15;
+        v18 = v4;
+        std::move<std::move_iterator<D2D1::Matrix3x2F *>,stdext::checked_array_iterator<D2D1::Matrix3x2F *>>(
+          (__int64)&v15,
+          (const void *)(v5 + 24 * v9),
+          v12,
+          (__int64 *)&v17);
+        v3 = a1[1];
+        goto LABEL_13;
+      }
+      v13 = v4 < 0;
+    }
+    if ( (!v13 || !v4) && (v4 <= 0 || v10 >= v4) )
+      goto LABEL_12;
+    goto LABEL_11;
   }
-  if ( v5 && (!v4 || v5 < 0 || v8 < v5) )
-    _invalid_parameter_noinfo_noreturn();
-  v11[0] = v4;
-  v11[1] = v8;
-  v11[2] = v5;
-  ((void (__fastcall *)(_BYTE *, unsigned __int64, __int64, _QWORD *))std::move<std::move_iterator<CDrawListEntryBuilder::PrimitiveSubRect *>,stdext::checked_array_iterator<CDrawListEntryBuilder::PrimitiveSubRect *>>)(
-    v12,
-    v4 + 24 * v6,
-    v9,
-    v11);
-LABEL_3:
-  result = -24 * a3;
-  a1[1] += -24 * a3;
+LABEL_13:
+  result = 24 * a3;
+  a1[1] = v3 - 24 * a3;
   return result;
 }

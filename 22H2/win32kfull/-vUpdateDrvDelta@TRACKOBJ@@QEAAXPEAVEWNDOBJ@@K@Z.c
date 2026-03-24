@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vUpdateDrvDelta@TRACKOBJ@@QEAAXPEAVEWNDOBJ@@K@Z @ 0x1C0287AB0
+ * XREFs of ?vUpdateDrvDelta@TRACKOBJ@@QEAAXPEAVEWNDOBJ@@K@Z @ 0x1C0286CC4
  * Callers:
- *     GreClientRgnUpdated @ 0x1C00346B4 (GreClientRgnUpdated.c)
- *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C02873C0 (-vForceClientRgnUpdate@@YAXXZ.c)
- *     GreSetClientRgn @ 0x1C0288350 (GreSetClientRgn.c)
+ *     GreClientRgnUpdated @ 0x1C0075010 (GreClientRgnUpdated.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0286604 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     GreSetClientRgn @ 0x1C02874CC (GreSetClientRgn.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall TRACKOBJ::vUpdateDrvDelta(TRACKOBJ *this, struct EWNDOBJ *a2)

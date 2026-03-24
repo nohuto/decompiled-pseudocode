@@ -1,48 +1,48 @@
 /*
- * XREFs of ?SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z @ 0x1C03D40D4
+ * XREFs of ?SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z @ 0x1C02FFE58
  * Callers:
- *     ?SetQueuedPresentLimit@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@I@Z @ 0x1C02BFF10 (-SetQueuedPresentLimit@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@I@Z.c)
+ *     ?SetQueuedPresentLimit@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@I@Z @ 0x1C02157B4 (-SetQueuedPresentLimit@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@I@Z.c)
  * Callees:
- *     ?Get@?$CCachedData@VBLTENTRY@@$02@@QEAAPEAVBLTENTRY@@K@Z @ 0x1C006DE4C (-Get@-$CCachedData@VBLTENTRY@@$02@@QEAAPEAVBLTENTRY@@K@Z.c)
- *     ?Flush@BLTQUEUE@@QEAAXXZ @ 0x1C0194A88 (-Flush@BLTQUEUE@@QEAAXXZ.c)
- *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z @ 0x1C03D1C28 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z.c)
+ *     ?Get@?$CCachedData@VBLTENTRY@@$02@@QEAAPEAVBLTENTRY@@K@Z @ 0x1C005EE2C (-Get@-$CCachedData@VBLTENTRY@@$02@@QEAAPEAVBLTENTRY@@K@Z.c)
+ *     ?Flush@BLTQUEUE@@QEAAXXZ @ 0x1C01644D0 (-Flush@BLTQUEUE@@QEAAXXZ.c)
+ *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z @ 0x1C02FDE94 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z.c)
  */
 
 void __fastcall BLTQUEUE::SetQueuedPresentLimit(BLTQUEUE *this, unsigned int a2)
 {
-  __int64 v2; // rdi
-  char *v4; // rsi
-  BLTENTRY *v5; // rbp
+  struct BLTENTRY *v4; // rdi
+  struct BLTENTRY *v5; // rbp
   __int64 v6; // rdi
+  __int64 v7; // rsi
 
-  v2 = a2;
   BLTQUEUE::Flush(this);
-  v4 = (char *)this + 968;
+  v4 = (BLTQUEUE *)((char *)this + 952);
   *((_QWORD *)this + 30) = (char *)this + 232;
   *((_QWORD *)this + 29) = (char *)this + 232;
-  v5 = CCachedData<BLTENTRY,3>::Get((__int64)this + 968, v2);
+  v5 = CCachedData<BLTENTRY,3>::Get((__int64)this + 952, a2);
   if ( v5 )
   {
-    if ( (_DWORD)v2 )
+    if ( a2 )
     {
+      v6 = a2;
       do
       {
-        BLTQUEUE::InsertQueueTail((__int64)this, (__int64)this + 232, (__int64)v5);
-        v5 = (BLTENTRY *)((char *)v5 + 576);
-        --v2;
+        BLTQUEUE::InsertQueueTail(this, (struct _LIST_ENTRY *)((char *)this + 232), v5);
+        v5 = (struct BLTENTRY *)((char *)v5 + 576);
+        --v6;
       }
-      while ( v2 );
+      while ( v6 );
     }
   }
   else
   {
-    v6 = 3LL;
+    v7 = 3LL;
     do
     {
-      BLTQUEUE::InsertQueueTail((__int64)this, (__int64)this + 232, (__int64)v4);
-      v4 += 576;
-      --v6;
+      BLTQUEUE::InsertQueueTail(this, (struct _LIST_ENTRY *)((char *)this + 232), v4);
+      v4 = (struct BLTENTRY *)((char *)v4 + 576);
+      --v7;
     }
-    while ( v6 );
+    while ( v7 );
   }
 }

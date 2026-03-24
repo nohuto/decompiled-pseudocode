@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpParseChannelCount @ 0x1403A4D8C
+ * XREFs of HalpParseChannelCount @ 0x1403BB5F4
  * Callers:
- *     HalpInitializeConfigurationFromMadt @ 0x140B67044 (HalpInitializeConfigurationFromMadt.c)
- *     HalpGetNumaProcMemoryCount @ 0x140B921A0 (HalpGetNumaProcMemoryCount.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140A63F94 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140A8CEAC (HalpGetNumaProcMemoryCount.c)
  * Callees:
  *     <none>
  */
 
 __int64 HalpParseChannelCount()
 {
-  unsigned int v1; // ecx
+  unsigned int v1; // edx
   unsigned __int16 v2; // r10
-  __int64 v3; // rdx
+  __int64 v3; // rcx
   unsigned __int16 v4; // r8
 
   if ( !HalpAcpiMpst )
@@ -32,8 +32,8 @@ __int64 HalpParseChannelCount()
       v3 += *(unsigned int *)(v3 + 4);
     }
     while ( v4 < v2 );
-    if ( v1 && !*(_WORD *)v3 )
-      return 0;
+    if ( v1 )
+      v1 &= -(*(_WORD *)v3 != 0);
   }
   return v1;
 }

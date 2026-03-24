@@ -1,79 +1,98 @@
 /*
- * XREFs of ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046AE92
+ * XREFs of ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5BA4
  * Callers:
- *     MiLocateCombineBlock @ 0x140215B40 (MiLocateCombineBlock.c)
- *     MiZeroFault @ 0x140232300 (MiZeroFault.c)
- *     MiProbeAndLockPrepare @ 0x140234D90 (MiProbeAndLockPrepare.c)
- *     MiUserFault @ 0x140235870 (MiUserFault.c)
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiSynchronizeSystemVa @ 0x140261890 (MiSynchronizeSystemVa.c)
- *     MiAcquirePageListLock @ 0x140267280 (MiAcquirePageListLock.c)
- *     MiMakeSystemCacheRangeValid @ 0x140267740 (MiMakeSystemCacheRangeValid.c)
- *     MiAddWorkingSetEntries @ 0x14026BC00 (MiAddWorkingSetEntries.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DDF0 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
- *     MiSetVaAgeList @ 0x1402708C0 (MiSetVaAgeList.c)
- *     MiQueryAddressSpan @ 0x140273C40 (MiQueryAddressSpan.c)
- *     MiCommitExistingVad @ 0x140276910 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiLockPageListAndLastPage @ 0x140278E80 (MiLockPageListAndLastPage.c)
- *     MiEndingOffsetWithLock @ 0x140279D30 (MiEndingOffsetWithLock.c)
- *     MiRemoveWsle @ 0x14027B330 (MiRemoveWsle.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiGetControlAreaPtes @ 0x1402884F0 (MiGetControlAreaPtes.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     ExpRemoveTagForBigPages @ 0x140323630 (ExpRemoveTagForBigPages.c)
- *     ExpAddTagForBigPages @ 0x140331990 (ExpAddTagForBigPages.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208210 (MiTrimOrAgeWorkingSet.c)
+ *     MiProbeAndLockPrepare @ 0x14020A2B0 (MiProbeAndLockPrepare.c)
+ *     MiUserFault @ 0x14020D730 (MiUserFault.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiMakeHyperRangeAccessible @ 0x14021B4A0 (MiMakeHyperRangeAccessible.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     MiSynchronizeSystemVa @ 0x1402922C0 (MiSynchronizeSystemVa.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140297B10 (MiMoveDirtyBitsToPfns.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14029F220 (MiMakeSystemCacheRangeValid.c)
+ *     MiOffsetToProtos @ 0x1402A11E0 (MiOffsetToProtos.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     ExpAddTagForBigPages @ 0x1402BC450 (ExpAddTagForBigPages.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
  * Callees:
- *     ExpTryAcquireSpinLockShared @ 0x140277510 (ExpTryAcquireSpinLockShared.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316B90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     PerfLogSpinLockAcquire @ 0x140600D74 (PerfLogSpinLockAcquire.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402F3E80 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogSpinLockAcquire @ 0x1405AB314 (PerfLogSpinLockAcquire.c)
  */
 
-char __fastcall ExpAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1)
+char __fastcall ExpAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  int v2; // r14d
-  int v3; // esi
-  char v4; // di
-  unsigned __int64 v5; // rax
-  unsigned int InterruptCount; // ebp
-  int v7; // eax
-  unsigned __int64 v8; // rcx
-  unsigned __int8 v9; // r8
-  int v10; // r9d
-  unsigned __int64 v11; // rax
+  int v5; // esi
+  int v6; // r15d
+  char v7; // r12
+  char v9; // bp
+  unsigned __int64 v10; // rax
+  int InterruptCount; // r14d
+  _DWORD *SchedulerAssist; // rcx
+  int v13; // eax
+  signed __int32 v14; // eax
+  signed __int32 v15; // ett
+  _DWORD *v16; // rcx
+  int v17; // eax
+  __int64 v18; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v2 = 0;
-  v3 = (int)a1;
+  v5 = 0;
+  v6 = 0;
+  v7 = a2;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    v4 = 1;
-    v5 = __rdtsc();
+    v9 = 1;
+    v10 = __rdtsc();
     InterruptCount = CurrentPrcb->InterruptCount;
-    v2 = v5;
+    a2 = (unsigned __int64)HIDWORD(v10) << 32;
+    v6 = v10;
   }
   else
   {
-    v4 = 0;
+    v9 = 0;
     InterruptCount = 0;
   }
   ++CurrentPrcb->SynchCounters.SpinLockAcquireCount;
-  LOBYTE(v7) = ExpTryAcquireSpinLockShared(a1);
-  if ( !(_BYTE)v7 )
+  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+  if ( SchedulerAssist )
   {
-    v7 = ExpWaitForSpinLockSharedAndAcquire(v8, v9);
+    if ( CurrentPrcb->NestingLevel <= 1u )
+    {
+      v13 = SchedulerAssist[6];
+      SchedulerAssist[6] = v13 + 1;
+      if ( v13 == -1 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    }
+  }
+  _m_prefetchw(a1);
+  v15 = *a1 & 0x7FFFFFFF;
+  v14 = _InterlockedCompareExchange(a1, v15 + 1, v15);
+  if ( v15 != v14 )
+  {
+    v16 = CurrentPrcb->SchedulerAssist;
+    if ( v16 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v17 = v16[6] - 1;
+        v16[6] = v17;
+        if ( !v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    LOBYTE(a2) = v7;
+    v14 = ExpWaitForSpinLockSharedAndAcquire((unsigned __int64)a1, a2, a3, a4);
     ++CurrentPrcb->SynchCounters.SpinLockContentionCount;
-    v10 = v7;
-    CurrentPrcb->SynchCounters.SpinLockSpinCount += v7;
+    v5 = v14;
+    CurrentPrcb->SynchCounters.SpinLockSpinCount += v14;
   }
-  if ( v4 )
+  if ( v9 )
   {
-    v11 = __rdtsc();
-    LOBYTE(v7) = PerfLogSpinLockAcquire(v3, v11, (int)v11 - v2, v10, InterruptCount, 2);
+    v18 = __rdtsc();
+    LOBYTE(v14) = PerfLogSpinLockAcquire((__int64)a1, v18, v18 - v6, v5, InterruptCount, 2);
   }
-  return v7;
+  return v14;
 }

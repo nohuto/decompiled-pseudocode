@@ -1,11 +1,11 @@
 /*
- * XREFs of ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00E8224
+ * XREFs of ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00A476C
  * Callers:
- *     ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00E7C7C (-UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     NtGdiEngComputeGlyphSet @ 0x1C02B12B0 (NtGdiEngComputeGlyphSet.c)
- *     NtGdiFONTOBJ_pfdg @ 0x1C02B3200 (NtGdiFONTOBJ_pfdg.c)
+ *     ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A482C (-UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     NtGdiEngComputeGlyphSet @ 0x1C02B29A0 (NtGdiEngComputeGlyphSet.c)
+ *     NtGdiFONTOBJ_pfdg @ 0x1C02B4DE0 (NtGdiFONTOBJ_pfdg.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall WriteFD_GLYPHSET(struct _FD_GLYPHSET *a1, struct _FD_GLYPHSET *a2, ULONG a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppn_EtwWriteTransfer @ 0x1C00131B0
+ * XREFs of McTemplateK0ppn_EtwWriteTransfer @ 0x1C0012CAC
  * Callers:
- *     HUBPDO_ValidateURB @ 0x1C00162F8 (HUBPDO_ValidateURB.c)
+ *     HUBPDO_ValidateURB @ 0x1C0015E30 (HUBPDO_ValidateURB.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppn_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

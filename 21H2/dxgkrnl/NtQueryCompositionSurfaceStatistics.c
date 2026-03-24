@@ -1,122 +1,160 @@
 /*
- * XREFs of NtQueryCompositionSurfaceStatistics @ 0x1C0017990
+ * XREFs of NtQueryCompositionSurfaceStatistics @ 0x1C0016C60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtQueryCompositionSurfaceStatistics(HANDLE Handle, _OWORD *a2)
+__int64 __fastcall NtQueryCompositionSurfaceStatistics(HANDLE Handle, unsigned __int64 a2)
 {
-  char *v4; // r14
-  char *v5; // rsi
-  NTSTATUS v6; // ebx
-  char *v7; // r15
-  char *v8; // rsi
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  char v12; // cl
-  char *v13; // rcx
-  PVOID Object; // [rsp+38h] [rbp-80h] BYREF
-  _OWORD v16[4]; // [rsp+40h] [rbp-78h] BYREF
+  _QWORD **v4; // rdi
+  NTSTATUS v5; // ebx
+  _QWORD **v6; // r14
+  bool v7; // sf
+  _QWORD **v8; // r14
+  signed int v9; // r8d
+  __int64 v10; // rdx
+  char v11; // al
+  _QWORD **v12; // rbx
+  _QWORD **v13; // rcx
+  NTSTATUS v15; // [rsp+30h] [rbp-A8h]
+  __int128 v16; // [rsp+38h] [rbp-A0h]
+  __int128 v17; // [rsp+48h] [rbp-90h]
+  __int128 v18; // [rsp+58h] [rbp-80h]
+  __int64 v19; // [rsp+68h] [rbp-70h]
+  __int128 v20; // [rsp+78h] [rbp-60h]
+  __int128 v21; // [rsp+88h] [rbp-50h]
+  __int128 v22; // [rsp+98h] [rbp-40h]
+  PVOID Object; // [rsp+F0h] [rbp+18h] BYREF
+  _QWORD **v24; // [rsp+F8h] [rbp+20h]
 
-  memset(v16, 0, sizeof(v16));
+  v20 = 0LL;
+  v16 = 0LL;
+  v21 = 0LL;
+  v17 = 0LL;
+  v22 = 0LL;
+  v18 = 0LL;
+  v19 = 0LL;
   KeEnterCriticalRegion();
   v4 = 0LL;
-  v5 = 0LL;
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(Handle, 1u, g_pDxgkCompositionObjectType, 1, &Object, 0LL);
-  v7 = (char *)Object;
-  if ( v6 >= 0 )
+  v5 = ObReferenceObjectByHandle(Handle, 1u, g_pDxgkCompositionObjectType, 1, &Object, 0LL);
+  v6 = (_QWORD **)Object;
+  if ( v5 < 0 )
+    goto LABEL_38;
+  if ( (***((unsigned __int8 (__fastcall ****)(_QWORD))Object + 2))(*((_QWORD *)Object + 2)) )
   {
-    if ( (***((unsigned int (__fastcall ****)(_QWORD))Object + 2))(*((_QWORD *)Object + 2)) != 1 )
-    {
-      ObfDereferenceObject(v7);
-      v6 = -1073741788;
-      goto LABEL_6;
-    }
-    v5 = v7;
-  }
-  if ( v6 >= 0 )
-    v4 = v5;
-LABEL_6:
-  if ( v6 >= 0 )
-  {
-    v8 = 0LL;
-    v6 = ObReferenceObjectByPointer(v4, 3u, g_pDxgkCompositionObjectType, 0);
-    if ( v6 >= 0 )
-    {
-      KeEnterCriticalRegion();
-      ExAcquirePushLockSharedEx(v4 + 48, 0LL);
-      v6 = 0;
-      v8 = v4 + 40;
-    }
-    if ( v6 >= 0 )
-    {
-      v6 = -1073741823;
-      v9 = *((_QWORD *)v8 + 13);
-      if ( v9 )
-      {
-        v6 = (*(__int64 (__fastcall **)(__int64, _OWORD *))(*(_QWORD *)v9 + 48LL))(v9, v16);
-        v9 = *((_QWORD *)v8 + 13);
-      }
-      if ( !v9 || v6 == -1073741637 )
-      {
-        v10 = 0LL;
-        if ( *((_DWORD *)v8 + 22) )
-        {
-          v11 = *((_QWORD *)v8 + 9);
-          if ( *(_BYTE *)(v11 + 16) )
-            v10 = v11 - 24;
-        }
-        if ( v10 )
-        {
-          v12 = *(_BYTE *)(v10 + 41);
-          if ( v12 )
-          {
-            v16[0] = *(_OWORD *)(v10 + 192);
-            v16[1] = *(_OWORD *)(v10 + 208);
-            v16[2] = *(_OWORD *)(v10 + 224);
-            v16[3] = *(_OWORD *)(v10 + 240);
-          }
-          v6 = 0;
-          if ( !v12 )
-            v6 = -1073741823;
-        }
-      }
-      if ( v6 < 0 )
-        memset(v16, 0, sizeof(v16));
-      v13 = v8 + 8;
-      if ( KeGetCurrentThread() == *((struct _KTHREAD **)v8 + 2) )
-      {
-        *((_QWORD *)v8 + 2) = 0LL;
-        ExReleasePushLockExclusiveEx(v13, 0LL);
-      }
-      else
-      {
-        ExReleasePushLockSharedEx(v13, 0LL);
-      }
-      KeLeaveCriticalRegion();
-      ObfDereferenceObject(v8 - 40);
-    }
-    ObfDereferenceObject(v4);
-  }
-  if ( a2 )
-  {
-    if ( a2 + 4 < a2 || (unsigned __int64)(a2 + 4) > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    *a2 = v16[0];
-    a2[1] = v16[1];
-    a2[2] = v16[2];
-    a2[3] = v16[3];
+    if ( (*(unsigned int (__fastcall **)(_QWORD *))(*v6[2] + 16LL))(v6[2]) == 1 )
+      v4 = v6;
+    else
+      v5 = -1073741788;
   }
   else
   {
-    v6 = -1073741811;
+    v5 = -1073741816;
+  }
+  v7 = v5 < 0;
+  if ( v5 < 0 )
+  {
+    ObfDereferenceObject(v6);
+LABEL_38:
+    v7 = v5 < 0;
+  }
+  if ( v7 )
+    v4 = 0LL;
+  if ( v5 >= 0 )
+  {
+    v8 = 0LL;
+    v24 = 0LL;
+    v5 = ObReferenceObjectByPointer(v4, 3u, g_pDxgkCompositionObjectType, 0);
+    if ( v5 < 0 )
+    {
+LABEL_14:
+      if ( v5 >= 0 )
+      {
+        v9 = -1073741823;
+        v10 = 0LL;
+        if ( *((_DWORD *)v8 + 20) && *((_BYTE *)v8[8] + 16) )
+          v10 = (__int64)(v8[8] - 3);
+        if ( v10 )
+        {
+          v11 = *(_BYTE *)(v10 + 41);
+          if ( v11 )
+          {
+            v16 = *(_OWORD *)(v10 + 168);
+            v17 = *(_OWORD *)(v10 + 184);
+            v18 = *(_OWORD *)(v10 + 200);
+            v19 = *(_QWORD *)(v10 + 216);
+          }
+          v9 = v11 == 0 ? 0xC0000001 : 0;
+        }
+        if ( v9 < 0 )
+        {
+          v16 = 0LL;
+          v17 = 0LL;
+          v18 = 0LL;
+          v19 = 0LL;
+        }
+        v15 = v9;
+        v12 = v24;
+        v13 = v24 + 2;
+        if ( KeGetCurrentThread() == (struct _KTHREAD *)v24[3] )
+        {
+          v24[3] = 0LL;
+          ExReleasePushLockExclusiveEx(v13, 0LL);
+        }
+        else
+        {
+          ExReleasePushLockSharedEx(v13, 0LL);
+        }
+        KeLeaveCriticalRegion();
+        ObfDereferenceObject(v12 - 5);
+        v5 = v15;
+        v22 = v18;
+        v21 = v17;
+        v20 = v16;
+      }
+      ObfDereferenceObject(v4);
+      goto LABEL_28;
+    }
+    v5 = 0;
+    if ( ((unsigned __int8 (__fastcall *)(_QWORD **))*v4[6])(v4 + 6) )
+    {
+      KeEnterCriticalRegion();
+      ExAcquirePushLockSharedEx(v4 + 7, 0LL);
+      if ( ((unsigned __int8 (__fastcall *)(_QWORD **))*v4[6])(v4 + 6) )
+        goto LABEL_12;
+      CPushLock::ReleaseLock((CPushLock *)(v4 + 6));
+    }
+    v5 = -1073741816;
+LABEL_12:
+    if ( v5 < 0 )
+    {
+      ObfDereferenceObject(v4);
+    }
+    else
+    {
+      v8 = v4 + 5;
+      v24 = v4 + 5;
+    }
+    goto LABEL_14;
+  }
+LABEL_28:
+  if ( a2 )
+  {
+    if ( a2 + 56 < a2 || a2 + 56 > MmUserProbeAddress )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    *(_OWORD *)a2 = v20;
+    *(_OWORD *)(a2 + 16) = v21;
+    *(_OWORD *)(a2 + 32) = v22;
+    *(_QWORD *)(a2 + 48) = v19;
+  }
+  else
+  {
+    v5 = -1073741811;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

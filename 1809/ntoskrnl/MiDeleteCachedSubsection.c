@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteCachedSubsection @ 0x1402A1918
+ * XREFs of MiDeleteCachedSubsection @ 0x1402A1A18
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1402A2F30 (MiRemoveUnusedSegments.c)
+ *     MiRemoveUnusedSegments @ 0x1402A3030 (MiRemoveUnusedSegments.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
@@ -15,16 +15,16 @@
  *     MiReduceUnusedSubsectionCount @ 0x14007BC54 (MiReduceUnusedSubsectionCount.c)
  *     MiDeleteControlArea @ 0x140094D1C (MiDeleteControlArea.c)
  *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDestroySection @ 0x14016979C (MiDestroySection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiIsSubsectionClean @ 0x1402A2594 (MiIsSubsectionClean.c)
- *     MiPreventControlAreaDelete @ 0x1402A2844 (MiPreventControlAreaDelete.c)
- *     MiPurgeSubsection @ 0x1402A2B28 (MiPurgeSubsection.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDestroySection @ 0x1401697BC (MiDestroySection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiIsSubsectionClean @ 0x1402A2694 (MiIsSubsectionClean.c)
+ *     MiPreventControlAreaDelete @ 0x1402A2944 (MiPreventControlAreaDelete.c)
+ *     MiPurgeSubsection @ 0x1402A2C28 (MiPurgeSubsection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlReleaseFileForCcFlush @ 0x1405DCE70 (FsRtlReleaseFileForCcFlush.c)
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)

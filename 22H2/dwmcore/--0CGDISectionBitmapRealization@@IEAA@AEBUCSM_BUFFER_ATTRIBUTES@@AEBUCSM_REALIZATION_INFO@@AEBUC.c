@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800F5BC8
+ * XREFs of ??0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800317B0
  * Callers:
- *     ?Create@CGDISectionBitmapRealization@@SAJPEAXAEBUD2D_SIZE_U@@IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAEPEAPEAVIGDIBitmapRealization@@@Z @ 0x1800F5A04 (-Create@CGDISectionBitmapRealization@@SAJPEAXAEBUD2D_SIZE_U@@IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@.c)
- *     ??0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@PEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x1802B0A7C (--0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AE.c)
+ *     ?Create@CGDISectionBitmapRealization@@SAJPEAXAEBUD2D_SIZE_U@@IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAEPEAPEAVIGDIBitmapRealization@@@Z @ 0x180031660 (-Create@CGDISectionBitmapRealization@@SAJPEAXAEBUD2D_SIZE_U@@IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@.c)
+ *     ??0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@PEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18026299C (--0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AE.c)
  * Callees:
- *     ??0CSectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800F5D0C (--0CSectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_.c)
+ *     ??0CSectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800318F0 (--0CSectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_.c)
  */
 
 CGDISectionBitmapRealization *__fastcall CGDISectionBitmapRealization::CGDISectionBitmapRealization(
@@ -15,33 +15,39 @@ CGDISectionBitmapRealization *__fastcall CGDISectionBitmapRealization::CGDISecti
         bool a5,
         int a6)
 {
-  char *v6; // rdi
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
   CGDISectionBitmapRealization *result; // rax
-  bool v9; // [rsp+20h] [rbp-18h]
+  bool v12; // [rsp+20h] [rbp-18h]
 
-  v6 = (char *)this + 16;
   if ( a6 )
   {
-    *(_QWORD *)v6 = &CGDISectionBitmapRealization::`vbtable'{for `CSectionBitmapRealization'};
-    *((_QWORD *)this + 41) = &CGDISectionBitmapRealization::`vbtable'{for `ID2DBitmapCacheSource'};
-    *((_QWORD *)this + 50) = &CGDISectionBitmapRealization::`vbtable'{for `IGDIBitmapRealization'};
-    *((_QWORD *)this + 59) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-    *((_QWORD *)this + 62) = &CGDISectionBitmapRealization::`vbtable'{for `IBitmapRealization'};
+    *((_QWORD *)this + 2) = &CGDISectionBitmapRealization::`vbtable'{for `CSectionBitmapRealization'};
+    *((_QWORD *)this + 37) = &CGDISectionBitmapRealization::`vbtable'{for `ID2DBitmapCacheSource'};
+    *((_QWORD *)this + 46) = &CGDISectionBitmapRealization::`vbtable'{for `IGDIBitmapRealization'};
+    *((_QWORD *)this + 55) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
+    *((_QWORD *)this + 58) = &CGDISectionBitmapRealization::`vbtable'{for `IBitmapRealization'};
   }
-  CSectionBitmapRealization::CSectionBitmapRealization(this, a2, a3, a4, v9);
-  *(_QWORD *)this = &CGDISectionBitmapRealization::`vftable'{for `CMILCOMBaseT<IUnknown>'};
-  *((_QWORD *)this + 40) = &CGDISectionBitmapRealization::`vftable'{for `ID2DBitmapCacheSource'};
-  *((_QWORD *)this + 42) = &CGDISectionBitmapRealization::`vftable'{for `IPixelColor'};
-  *((_QWORD *)this + 49) = &CGDIBitmapRealization::`vftable'{for `IGDIBitmapRealization'};
-  *(_QWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 4LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 8LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 12LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 16LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `CBitmapRealization'};
-  *(_DWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 4LL) + 12) = *(_DWORD *)(*(_QWORD *)v6 + 4LL) - 416;
-  *(_DWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 8LL) + 12) = *(_DWORD *)(*(_QWORD *)v6 + 8LL) - 432;
-  *(_DWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 12LL) + 12) = *(_DWORD *)(*(_QWORD *)v6 + 12LL) - 448;
+  CSectionBitmapRealization::CSectionBitmapRealization(this, a2, a3, a4, v12);
+  *(_QWORD *)this = &CGDISectionBitmapRealization::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 36) = &CGDISectionBitmapRealization::`vftable'{for `ID2DBitmapCacheSource'};
+  *((_QWORD *)this + 38) = &CGDISectionBitmapRealization::`vftable'{for `IPixelColor'};
+  *((_QWORD *)this + 45) = &CGDIBitmapRealization::`vftable'{for `IGDIBitmapRealization'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 12LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 16LL) + 16) = &CGDISectionBitmapRealization::`vftable'{for `CBitmapRealization'};
+  v7 = *(int *)(*((_QWORD *)this + 2) + 4LL);
+  *(_DWORD *)((char *)this + v7 + 12) = v7 - 384;
+  v8 = *(int *)(*((_QWORD *)this + 2) + 8LL);
+  *(_DWORD *)((char *)this + v8 + 12) = v8 - 400;
+  v9 = *(int *)(*((_QWORD *)this + 2) + 12LL);
+  *(_DWORD *)((char *)this + v9 + 12) = v9 - 416;
+  v10 = *(int *)(*((_QWORD *)this + 2) + 16LL);
   result = this;
-  *(_DWORD *)((char *)this + *(int *)(*(_QWORD *)v6 + 16LL) + 12) = *(_DWORD *)(*(_QWORD *)v6 + 16LL) - 472;
-  *(_OWORD *)((char *)this + 408) = 0LL;
+  *(_DWORD *)((char *)this + v10 + 12) = v10 - 440;
+  *(_OWORD *)((char *)this + 376) = 0LL;
   return result;
 }

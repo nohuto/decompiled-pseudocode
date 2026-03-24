@@ -1,10 +1,10 @@
 /*
- * XREFs of IsCapturedByThread @ 0x1C01E7FA0
+ * XREFs of IsCapturedByThread @ 0x1C01AEA80
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C003B2DC (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C003C340 (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0042A1C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C004450C (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
  */
 
 bool __fastcall IsCapturedByThread(struct tagTHREADINFO **a1)
@@ -15,6 +15,6 @@ bool __fastcall IsCapturedByThread(struct tagTHREADINFO **a1)
   MouseProcessor = anonymous_namespace_::GetMouseProcessor();
   v3 = 0;
   if ( MouseProcessor )
-    return CInputDest::GetThreadInfo((CInputDest *)(MouseProcessor + 3576)) == *a1;
+    return CInputDest::GetThreadInfo((CInputDest *)(MouseProcessor + 3568)) == *a1;
   return v3;
 }

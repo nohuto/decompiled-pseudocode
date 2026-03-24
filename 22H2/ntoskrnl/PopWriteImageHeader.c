@@ -1,14 +1,14 @@
 /*
- * XREFs of PopWriteImageHeader @ 0x140AA5D58
+ * XREFs of PopWriteImageHeader @ 0x1409B1E60
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140428440 (tcpxsum.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopWriteHiberPages @ 0x140AA5AA4 (PopWriteHiberPages.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140406C70 (tcpxsum.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopWriteHiberPages @ 0x1409916A0 (PopWriteHiberPages.c)
  */
 
 __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, __int64 a4))(void)
@@ -21,10 +21,9 @@ __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // rdx
-  _OWORD *v14; // rax
-  __int64 *v15; // rcx
+  __int64 v14; // rcx
+  __int64 *v15; // rax
   __int128 v16; // xmm1
-  __int128 v17; // xmm1
   __int64 (*result)(void); // rax
 
   BugCheckParameter4 = a3;
@@ -35,55 +34,56 @@ __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3
     KeBugCheckEx(0xA0u, 0x109uLL, 0xAuLL, *(unsigned int *)(a2 + 80), BugCheckParameter4);
   }
   v8 = __rdtsc();
-  qword_140C3D3B0 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
-  dword_140C3D574 = ((unsigned int)dword_140C3D020 >> 4) - 1;
+  qword_140C23FB0 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
+  dword_140C24174 = ((unsigned int)dword_140C23E60 >> 4) - 1;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v10 = 0;
-  for ( qword_140C3D3E0 = PerformanceCounter.QuadPart;
+  for ( qword_140C23FE0 = PerformanceCounter.QuadPart;
         v10 < *(_DWORD *)(a1 + 256);
-        qword_140C3D3C0 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 80) )
+        qword_140C23FC0 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 80) )
   {
     v11 = v10++;
     v11 <<= 7;
-    qword_140C3D540 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 56);
-    qword_140C3D3B8 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 40);
+    qword_140C24140 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 56);
+    qword_140C23FB8 += *(_QWORD *)(v11 + *(_QWORD *)(a1 + 264) + 40);
   }
-  qword_140C3D550 = qword_140C3D568;
-  qword_140C3D560 = (unsigned int)dword_140C3D570;
-  qword_140C3D568 += qword_140C3D548;
-  v12 = qword_140C3D538;
-  dword_140C3D570 += qword_140C3D558;
-  *(_QWORD *)(a2 + 88) = qword_140C3D538;
-  if ( byte_140C3D041 )
-    *(_QWORD *)(a2 + 88) = qword_140C3D540 + v12;
-  v13 = 4LL;
-  v14 = (_OWORD *)(a2 + 136);
-  v15 = &qword_140C3D398;
+  qword_140C24150 = qword_140C24168;
+  qword_140C24160 = (unsigned int)dword_140C24170;
+  qword_140C24168 += qword_140C24148;
+  v12 = qword_140C24138;
+  dword_140C24170 += qword_140C24158;
+  *(_QWORD *)(a2 + 88) = qword_140C24138;
+  if ( byte_140C23E81 )
+    *(_QWORD *)(a2 + 88) = qword_140C24140 + v12;
+  v13 = 3LL;
+  v14 = a2 + 136;
+  v15 = &qword_140C23F98;
   do
   {
-    *v14 = *(_OWORD *)v15;
-    v14[1] = *((_OWORD *)v15 + 1);
-    v14[2] = *((_OWORD *)v15 + 2);
-    v14[3] = *((_OWORD *)v15 + 3);
-    v14[4] = *((_OWORD *)v15 + 4);
-    v14[5] = *((_OWORD *)v15 + 5);
-    v14[6] = *((_OWORD *)v15 + 6);
-    v14 += 8;
+    *(_OWORD *)v14 = *(_OWORD *)v15;
+    *(_OWORD *)(v14 + 16) = *((_OWORD *)v15 + 1);
+    *(_OWORD *)(v14 + 32) = *((_OWORD *)v15 + 2);
+    *(_OWORD *)(v14 + 48) = *((_OWORD *)v15 + 3);
+    *(_OWORD *)(v14 + 64) = *((_OWORD *)v15 + 4);
+    *(_OWORD *)(v14 + 80) = *((_OWORD *)v15 + 5);
+    *(_OWORD *)(v14 + 96) = *((_OWORD *)v15 + 6);
+    v14 += 128LL;
     v16 = *((_OWORD *)v15 + 7);
     v15 += 16;
-    *(v14 - 1) = v16;
+    *(_OWORD *)(v14 - 16) = v16;
     --v13;
   }
   while ( v13 );
-  *v14 = *(_OWORD *)v15;
-  v14[1] = *((_OWORD *)v15 + 1);
-  v14[2] = *((_OWORD *)v15 + 2);
-  v14[3] = *((_OWORD *)v15 + 3);
-  v14[4] = *((_OWORD *)v15 + 4);
-  v17 = *((_OWORD *)v15 + 5);
+  *(_OWORD *)v14 = *(_OWORD *)v15;
+  *(_OWORD *)(v14 + 16) = *((_OWORD *)v15 + 1);
+  *(_OWORD *)(v14 + 32) = *((_OWORD *)v15 + 2);
+  *(_OWORD *)(v14 + 48) = *((_OWORD *)v15 + 3);
+  *(_OWORD *)(v14 + 64) = *((_OWORD *)v15 + 4);
+  *(_OWORD *)(v14 + 80) = *((_OWORD *)v15 + 5);
+  *(_OWORD *)(v14 + 96) = *((_OWORD *)v15 + 6);
+  *(_QWORD *)(v14 + 112) = v15[14];
   *(_DWORD *)a2 = 1380075848;
-  v14[5] = v17;
-  *(_DWORD *)(a2 + 8) = tcpxsum(0, (const char *)a2, 0x448u);
+  *(_DWORD *)(a2 + 8) = tcpxsum(0, (const char *)a2, 0x3E0u);
   PopWriteHiberPages(a1, a2, 1uLL, 0LL);
   result = *(__int64 (**)(void))(*(_QWORD *)(a1 + 168) + 72LL);
   if ( result )

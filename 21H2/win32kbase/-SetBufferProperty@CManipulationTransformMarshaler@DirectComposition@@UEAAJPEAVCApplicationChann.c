@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B21D0
+ * XREFs of ?SetBufferProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C009CC80
  * Callers:
  *     <none>
  * Callees:
@@ -23,8 +23,8 @@ __int64 __fastcall DirectComposition::CManipulationTransformMarshaler::SetBuffer
     return (unsigned int)-1073741811;
   if ( !a3 )
   {
-    *((_QWORD *)this + 10) = *(_QWORD *)a4;
-    *((_DWORD *)this + 22) = a4[2];
+    *((_QWORD *)this + 9) = *(_QWORD *)a4;
+    *((_DWORD *)this + 20) = a4[2];
     *a6 = 1;
     *((_DWORD *)this + 4) &= ~0x80u;
     return v6;
@@ -32,8 +32,8 @@ __int64 __fastcall DirectComposition::CManipulationTransformMarshaler::SetBuffer
   v7 = a3 - 1;
   if ( !v7 )
   {
-    *(_QWORD *)((char *)this + 92) = *(_QWORD *)a4;
-    *((_DWORD *)this + 25) = a4[2];
+    *(_QWORD *)((char *)this + 84) = *(_QWORD *)a4;
+    *((_DWORD *)this + 23) = a4[2];
     goto LABEL_6;
   }
   v8 = v7 - 1;
@@ -41,14 +41,14 @@ __int64 __fastcall DirectComposition::CManipulationTransformMarshaler::SetBuffer
   {
     if ( v8 == 1 )
     {
-      *(_QWORD *)((char *)this + 116) = *(_QWORD *)a4;
-      *((_DWORD *)this + 31) = a4[2];
+      *(_QWORD *)((char *)this + 108) = *(_QWORD *)a4;
+      *((_DWORD *)this + 29) = a4[2];
       goto LABEL_6;
     }
     return (unsigned int)-1073741811;
   }
-  *((_QWORD *)this + 13) = *(_QWORD *)a4;
-  *((_DWORD *)this + 28) = a4[2];
+  *((_QWORD *)this + 12) = *(_QWORD *)a4;
+  *((_DWORD *)this + 26) = a4[2];
 LABEL_6:
   *a6 = 1;
   *((_DWORD *)this + 4) &= ~0x80u;

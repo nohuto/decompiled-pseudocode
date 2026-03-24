@@ -1,7 +1,9 @@
 /*
- * XREFs of ?EnsureComputeScribbleResources@CLegacyStereoSwapChain@@UEAAJXZ @ 0x18010874C
+ * XREFs of ?EnsureComputeScribbleResources@CLegacyStereoSwapChain@@UEAAJXZ @ 0x1800E1D20
  * Callers:
- *     ?EnsureComputeScribbleResources@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x180120840 (-EnsureComputeScribbleResources@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?AddOcclusionInformation@CVectorShape@@$4PPPPPPPM@BI@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800F4270 (-AddOcclusionInformation@CVectorShape@@$4PPPPPPPM@BI@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@.c)
+ *     ?GetBounds@CVectorShape@@$4PPPPPPPM@HA@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F4280 (-GetBounds@CVectorShape@@$4PPPPPPPM@HA@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRec.c)
+ *     ?EnsureComputeScribbleResources@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F71B0 (-EnsureComputeScribbleResources@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ.c)
  * Callees:
  *     <none>
  */

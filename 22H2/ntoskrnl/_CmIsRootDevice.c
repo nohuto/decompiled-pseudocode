@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmIsRootDevice @ 0x14079A9A8
+ * XREFs of _CmIsRootDevice @ 0x140693D04
  * Callers:
- *     _CmUpdateDevicePanel @ 0x14079920C (_CmUpdateDevicePanel.c)
- *     _CmSetDeviceMappedProperty @ 0x140799F80 (_CmSetDeviceMappedProperty.c)
- *     PiCMGetRelatedDeviceInstance @ 0x14079A200 (PiCMGetRelatedDeviceInstance.c)
- *     _CmGetDeviceParent @ 0x14079A844 (_CmGetDeviceParent.c)
- *     _CmSetDeviceRegPropWorker @ 0x14086CE70 (_CmSetDeviceRegPropWorker.c)
- *     PiDcResetChildDeviceContainerCallback @ 0x14095B2E0 (PiDcResetChildDeviceContainerCallback.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
- *     PiCMDeleteDevice @ 0x140968EF8 (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x14096973C (PiCMDeviceAction.c)
- *     PiCMQueryRemove @ 0x14096A324 (PiCMQueryRemove.c)
+ *     _CmGetDeviceParent @ 0x140693B94 (_CmGetDeviceParent.c)
+ *     PiCMDeleteDevice @ 0x14072C52C (PiCMDeleteDevice.c)
+ *     PiCMQueryRemove @ 0x14072F1D0 (PiCMQueryRemove.c)
+ *     PiCMDeviceAction @ 0x14072F428 (PiCMDeviceAction.c)
+ *     _CmSetDeviceMappedProperty @ 0x1407369EC (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140740618 (_CmSetDeviceRegPropWorker.c)
+ *     _CmUpdateDevicePanel @ 0x140743B48 (_CmUpdateDevicePanel.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x140767E04 (PiCMGetRelatedDeviceInstance.c)
+ *     PiDcResetChildDeviceContainerCallback @ 0x1408A36C0 (PiDcResetChildDeviceContainerCallback.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 BOOLEAN __fastcall CmIsRootDevice(PCWSTR SourceString)

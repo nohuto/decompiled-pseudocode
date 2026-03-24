@@ -1,14 +1,14 @@
 /*
- * XREFs of ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0154C08
+ * XREFs of ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163BD0
  * Callers:
- *     GreDrvDisconnect @ 0x1C0154A58 (GreDrvDisconnect.c)
- *     GreDrvReconnect @ 0x1C02BEC08 (GreDrvReconnect.c)
- *     bDrvDisconnect @ 0x1C02BF004 (bDrvDisconnect.c)
- *     bDrvDisplayIOCtl @ 0x1C02BF1E0 (bDrvDisplayIOCtl.c)
- *     bDrvReconnect @ 0x1C02BF390 (bDrvReconnect.c)
- *     bDrvShadowConnect @ 0x1C02BF5A0 (bDrvShadowConnect.c)
- *     bDrvShadowDisconnect @ 0x1C02BF788 (bDrvShadowDisconnect.c)
- *     vDrvInvalidateRect @ 0x1C02BF970 (vDrvInvalidateRect.c)
+ *     GreDrvDisconnect @ 0x1C0163A20 (GreDrvDisconnect.c)
+ *     GreDrvReconnect @ 0x1C02C0268 (GreDrvReconnect.c)
+ *     bDrvDisconnect @ 0x1C02C066C (bDrvDisconnect.c)
+ *     bDrvDisplayIOCtl @ 0x1C02C0848 (bDrvDisplayIOCtl.c)
+ *     bDrvReconnect @ 0x1C02C09F8 (bDrvReconnect.c)
+ *     bDrvShadowConnect @ 0x1C02C0C08 (bDrvShadowConnect.c)
+ *     bDrvShadowDisconnect @ 0x1C02C0DF0 (bDrvShadowDisconnect.c)
+ *     vDrvInvalidateRect @ 0x1C02C0FD8 (vDrvInvalidateRect.c)
  * Callees:
  *     <none>
  */

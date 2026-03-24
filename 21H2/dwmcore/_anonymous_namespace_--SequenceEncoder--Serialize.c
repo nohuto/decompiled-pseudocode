@@ -1,14 +1,14 @@
 /*
- * XREFs of _anonymous_namespace_::SequenceEncoder::Serialize @ 0x180076268
+ * XREFs of _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18004C6D8
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x1800751DC (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B7F8 (_anonymous_namespace_--SendFramesReport.c)
  * Callees:
- *     _anonymous_namespace_::SequenceEncoder::AppendIndexSet @ 0x180076164 (_anonymous_namespace_--SequenceEncoder--AppendIndexSet.c)
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x180076AC0 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
- *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x180076B48 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
- *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x180076BA4 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
- *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Min @ 0x1800780D4 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_const__unsig.c)
- *     std::map__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const_&_ @ 0x1800E5D48 (std--map__anonymous_namespace_--AnimationId_unsigned_int_A0x155a666c--AnimationId--LessThan_std-.c)
+ *     _anonymous_namespace_::SequenceEncoder::AppendIndexSet @ 0x18004C258 (_anonymous_namespace_--SequenceEncoder--AppendIndexSet.c)
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18004CF18 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18004CFE0 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18004D21C (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
+ *     std::map__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const_&_ @ 0x1800CFE24 (std--map__anonymous_namespace_--AnimationId_unsigned_int_A0xd209ef2d--AnimationId--LessThan_std-.c)
+ *     std::_Tree_unchecked_const_iterator_std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int______std::_Iterator_base0_::operator__ @ 0x1800D8C0C (std--_Tree_unchecked_const_iterator_std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_.c)
  */
 
 void __fastcall anonymous_namespace_::SequenceEncoder::Serialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -38,15 +38,16 @@ void __fastcall anonymous_namespace_::SequenceEncoder::Serialize(__int64 a1, __i
   unsigned __int64 v28; // rcx
   unsigned __int64 v29; // rcx
   unsigned __int64 v30; // rcx
-  __int64 i; // rbx
-  __int64 v32; // rax
-  __int64 j; // rax
-  _BYTE v34[16]; // [rsp+20h] [rbp-30h] BYREF
+  _QWORD *v31; // rbx
+  _QWORD *v32; // rax
+  _QWORD *v33; // rdi
+  __int64 v34; // [rsp+20h] [rbp-30h] BYREF
   __int64 v35; // [rsp+30h] [rbp-20h] BYREF
   int v36; // [rsp+38h] [rbp-18h]
   int v37; // [rsp+3Ch] [rbp-14h]
   int v38; // [rsp+40h] [rbp-10h]
   __int64 v39; // [rsp+48h] [rbp-8h]
+  _QWORD *v40; // [rsp+70h] [rbp+20h] BYREF
 
   v36 = 0;
   v37 = 0;
@@ -206,23 +207,20 @@ void __fastcall anonymous_namespace_::SequenceEncoder::Serialize(__int64 a1, __i
   anonymous_namespace_::SequenceEncoder::AppendIndexSet((Base853Encoder *)&v35, a1 + 408);
   anonymous_namespace_::SequenceEncoder::AppendIndexSet((Base853Encoder *)&v35, a1 + 424);
   Base853Encoder::AppendVarInt((Base853Encoder *)&v35, *(_DWORD *)(a1 + 456));
-  for ( i = **(_QWORD **)(a1 + 448); !*(_BYTE *)(i + 25); i = j )
+  v31 = *(_QWORD **)(a1 + 448);
+  v32 = (_QWORD *)*v31;
+  v40 = (_QWORD *)*v31;
+  while ( v32 != v31 )
   {
-    v32 = std::map__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const___(
-            a3,
-            v34,
-            i + 32);
-    Base853Encoder::AppendVarInt((Base853Encoder *)&v35, *(_DWORD *)(*(_QWORD *)v32 + 48LL));
-    Base853Encoder::AppendVarInt((Base853Encoder *)&v35, *(_DWORD *)(i + 48));
-    if ( *(_BYTE *)(*(_QWORD *)(i + 16) + 25LL) )
-    {
-      for ( j = *(_QWORD *)(i + 8); !*(_BYTE *)(j + 25) && i == *(_QWORD *)(j + 16); j = *(_QWORD *)(j + 8) )
-        i = j;
-    }
-    else
-    {
-      j = std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Min();
-    }
+    v33 = v32 + 4;
+    std::map__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const___(
+      a3,
+      &v34,
+      v32 + 4);
+    Base853Encoder::AppendVarInt((Base853Encoder *)&v35, *(_DWORD *)(v34 + 48));
+    Base853Encoder::AppendVarInt((Base853Encoder *)&v35, *((_DWORD *)v33 + 4));
+    std::_Tree_unchecked_const_iterator_std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int______std::_Iterator_base0_::operator__(&v40);
+    v32 = v40;
   }
   Base853Encoder::EnsureZeroesAreSerialized((Base853Encoder *)&v35);
   if ( v37 )

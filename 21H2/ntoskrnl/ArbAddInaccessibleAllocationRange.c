@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbAddInaccessibleAllocationRange @ 0x14083A5A0
+ * XREFs of ArbAddInaccessibleAllocationRange @ 0x1407A206C
  * Callers:
- *     IopMemInitialize @ 0x140838FBC (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1407A1C34 (IopMemInitialize.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     RtlAddRange @ 0x14083A010 (RtlAddRange.c)
- *     ArbpGetRegistryValue @ 0x14083B060 (ArbpGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     RtlAddRange @ 0x140764410 (RtlAddRange.c)
+ *     ArbpGetRegistryValue @ 0x1407A2B30 (ArbpGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ArbAddInaccessibleAllocationRange(__int64 a1, __int64 a2)
@@ -81,7 +81,7 @@ LABEL_8:
             v11 = *(_DWORD *)(a1 + 32);
             if ( v10 == v11 || (_BYTE)v10 == 7 && v11 == 3 )
             {
-              v5 = RtlAddRange(a2, *((_QWORD *)i + 2), *((_QWORD *)i + 3), 64, 1u, 0LL, 0LL);
+              v5 = RtlAddRange(a2, *((_QWORD *)i + 2), *((_QWORD *)i + 3), 64, 1, 0LL, 0LL);
               if ( v5 < 0 )
                 break;
             }

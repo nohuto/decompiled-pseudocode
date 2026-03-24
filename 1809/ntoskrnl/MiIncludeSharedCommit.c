@@ -5,7 +5,7 @@
  *     MiRemoveSharedCommitNode @ 0x1405F0650 (MiRemoveSharedCommitNode.c)
  *     MiInsertSharedCommitNode @ 0x1405F08A0 (MiInsertSharedCommitNode.c)
  *     MiUpdateProcessSharedCommit @ 0x14061DF18 (MiUpdateProcessSharedCommit.c)
- *     MiVadHasSharedCommit @ 0x14085E9B4 (MiVadHasSharedCommit.c)
+ *     MiVadHasSharedCommit @ 0x14085E994 (MiVadHasSharedCommit.c)
  * Callees:
  *     <none>
  */

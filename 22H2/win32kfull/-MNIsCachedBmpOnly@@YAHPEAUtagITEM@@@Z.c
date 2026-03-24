@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z @ 0x1C0233DA0
+ * XREFs of ?MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z @ 0x1C024B994
  * Callers:
- *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0233888 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     xxxDrawMenuItem @ 0x1C0234CAC (xxxDrawMenuItem.c)
+ *     xxxDrawMenuItem @ 0x1C004470C (xxxDrawMenuItem.c)
+ *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0044A40 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
  * Callees:
  *     <none>
  */

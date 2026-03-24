@@ -1,38 +1,68 @@
 /*
- * XREFs of MonitorSetScaleFactorOverride @ 0x1C03B13F0
+ * XREFs of MonitorSetScaleFactorOverride @ 0x1C02F4FAC
  * Callers:
- *     DxgkIddHandleSetDisplayConfig @ 0x1C02EC214 (DxgkIddHandleSetDisplayConfig.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C025B14C (DxgkIddHandleSetDisplayConfig.c)
  * Callees:
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C001356C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorSetScaleFactorOverride(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall MonitorSetScaleFactorOverride(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rbx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  int v4; // esi
+  __int64 v5; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
+  struct _FAST_MUTEX *v12; // rcx
+  __int64 v13; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  struct DXGMONITOR *v17; // rdi
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  struct DXGMONITOR *v22; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = (unsigned int)a2;
-  v6 = WdLogNewEntry5_WdTrace(a1, a2);
-  *(_QWORD *)(v6 + 24) = v4;
-  *(_QWORD *)(v6 + 32) = a1;
-  if ( !a1 || (_DWORD)v4 == -1 )
-    return -1073741811LL;
-  MONITOR_MGR::AcquireMonitorExclusive(&v10, a1, v4, 1u);
-  v7 = v10;
-  if ( v10 )
+  v4 = a3;
+  v5 = (unsigned int)a2;
+  v7 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
+  *(_QWORD *)(v7 + 24) = v5;
+  *(_QWORD *)(v7 + 32) = a1;
+  if ( !a1 || (_DWORD)v5 == -1 )
+    return 3221225485LL;
+  v10 = *(_QWORD *)(a1 + 2696);
+  if ( !v10 )
   {
-    *(_DWORD *)(v10 + 468) = a3;
-    v8 = 0;
-    ExReleaseResourceLite((PERESOURCE)(v7 + 24));
-    KeLeaveCriticalRegion();
+    v11 = WdLogNewEntry5_WdAssertion(v9, v8);
+    WdLogEvent5_WdAssertion(v11);
+    v10 = *(_QWORD *)(a1 + 2696);
   }
-  else
+  v12 = *(struct _FAST_MUTEX **)(v10 + 96);
+  if ( !v12 )
   {
-    v8 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
+    v13 = WdLogNewEntry5_WdError(0LL, v8);
+    *(_QWORD *)(v13 + 24) = a1;
+    WdLogEvent5_WdError(v13);
+    return 3221225485LL;
   }
-  return v8;
+  v22 = 0LL;
+  if ( (int)MONITOR_MGR::_GetMonitorInstance(v12, (unsigned int)v5, 0, &v22) < 0 )
+    return 3221225485LL;
+  v17 = v22;
+  if ( !v22 )
+  {
+    v18 = WdLogNewEntry5_WdAssertion(v16, v15);
+    WdLogEvent5_WdAssertion(v18);
+    v21 = WdLogNewEntry5_WdAssertion(v20, v19);
+    WdLogEvent5_WdAssertion(v21);
+  }
+  KeEnterCriticalRegion();
+  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v17 + 296), 1u);
+  *((_DWORD *)v17 + 147) = v4;
+  ExReleaseResourceLite((PERESOURCE)((char *)v17 + 296));
+  KeLeaveCriticalRegion();
+  return 0LL;
 }

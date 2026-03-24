@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048BB0
+ * XREFs of UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0046230
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_RemoveDeviceFromControllerDeviceList @ 0x1C0034580 (Controller_RemoveDeviceFromControllerDeviceList.c)
- *     XilUsbDevice_DestroySecureObject @ 0x1C0047FC8 (XilUsbDevice_DestroySecureObject.c)
- *     XilUsbDevice_FreeResources @ 0x1C004804C (XilUsbDevice_FreeResources.c)
- *     WPP_RECORDER_SF_dqqq @ 0x1C004A650 (WPP_RECORDER_SF_dqqq.c)
- *     Etw_DeviceDelete @ 0x1C004A9F0 (Etw_DeviceDelete.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_RemoveDeviceFromControllerDeviceList @ 0x1C0032AB0 (Controller_RemoveDeviceFromControllerDeviceList.c)
+ *     XilUsbDevice_DestroySecureObject @ 0x1C0045650 (XilUsbDevice_DestroySecureObject.c)
+ *     XilUsbDevice_FreeResources @ 0x1C00456D4 (XilUsbDevice_FreeResources.c)
+ *     WPP_RECORDER_SF_dqqq @ 0x1C0047CD0 (WPP_RECORDER_SF_dqqq.c)
+ *     Etw_DeviceDelete @ 0x1C0048070 (Etw_DeviceDelete.c)
  */
 
 __int64 __fastcall UsbDevice_EvtUsbDeviceCleanupCallback(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall UsbDevice_EvtUsbDeviceCleanupCallback(__int64 a1)
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
              WdfDriverGlobals,
              a1,
-             off_1C00632C0);
+             off_1C00602C0);
   v5 = result;
   if ( *(_QWORD *)result == a1 )
   {

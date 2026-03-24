@@ -1,51 +1,50 @@
 /*
- * XREFs of IovAllocateMdl @ 0x140A7FF00
+ * XREFs of IovAllocateMdl @ 0x1409C48F0
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
  */
 
-PMDL __fastcall IovAllocateMdl(unsigned __int64 a1, ULONG a2, BOOLEAN a3, BOOLEAN a4, IRP *a5, __int64 a6)
+__int64 __fastcall IovAllocateMdl(__int64 a1, unsigned int a2, char a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  PMDL result; // rax
-  __int16 v10; // r14
-  unsigned __int64 v11; // rbx
-  _QWORD **MdlAddress; // r8
-  _QWORD *i; // rdx
-  __int64 v14; // [rsp+40h] [rbp-28h] BYREF
-  int v15; // [rsp+48h] [rbp-20h]
-  int v16; // [rsp+4Ch] [rbp-1Ch]
+  __int16 v6; // si
+  unsigned __int64 v10; // rbx
+  __int64 result; // rax
+  __int64 *v12; // r8
+  __int64 *v13; // rdx
 
-  v16 = 0;
-  if ( (VfRuleClasses & 1) == 0 )
-    return IoAllocateMdl((PVOID)a1, a2, a3, a4, a5);
-  v10 = a1;
-  v14 = 1LL;
-  v15 = 32;
-  v11 = ((a1 & 0xFFF) + a2 + 4095LL) >> 12;
-  result = (PMDL)VfHandlePoolAlloc(NonPagedPool, LowPoolPriority, (__int64)&v14, 1, a6);
+  v6 = a1;
+  v10 = ((a1 & 0xFFF) + (unsigned __int64)a2 + 4095) >> 12;
+  result = VeAllocatePoolWithTagPriority((POOL_TYPE)640, 8 * v10 + 48, 0x6C644D56u, HighPoolPriority, a6);
   if ( result )
   {
-    result->Next = 0LL;
-    result->Size = 8 * (v11 + 6);
-    result->MdlFlags = 0;
-    result->StartVa = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
-    result->ByteOffset = v10 & 0xFFF;
-    result->ByteCount = a2;
+    *(_QWORD *)result = 0LL;
+    *(_WORD *)(result + 8) = 8 * (v10 + 6);
+    *(_WORD *)(result + 10) = 0;
+    *(_QWORD *)(result + 32) = a1 & 0xFFFFFFFFFFFFF000uLL;
+    *(_DWORD *)(result + 44) = v6 & 0xFFF;
+    *(_DWORD *)(result + 40) = a2;
     if ( a5 )
     {
       if ( a3 )
       {
-        MdlAddress = (_QWORD **)a5->MdlAddress;
-        for ( i = *MdlAddress; i; i = (_QWORD *)*i )
-          MdlAddress = (_QWORD **)i;
-        *MdlAddress = &result->Next;
+        v12 = *(__int64 **)(a5 + 8);
+        v13 = (__int64 *)*v12;
+        if ( *v12 )
+        {
+          do
+          {
+            v12 = v13;
+            v13 = (__int64 *)*v13;
+          }
+          while ( v13 );
+        }
+        *v12 = result;
       }
       else
       {
-        a5->MdlAddress = result;
+        *(_QWORD *)(a5 + 8) = result;
       }
     }
   }

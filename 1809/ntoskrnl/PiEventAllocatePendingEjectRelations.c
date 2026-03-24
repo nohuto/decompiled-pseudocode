@@ -1,7 +1,7 @@
 /*
- * XREFs of PiEventAllocatePendingEjectRelations @ 0x14083FF60
+ * XREFs of PiEventAllocatePendingEjectRelations @ 0x14083FF40
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

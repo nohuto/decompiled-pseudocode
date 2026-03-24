@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxDuplicateUniqueId @ 0x140179AEC
+ * XREFs of PopFxDuplicateUniqueId @ 0x140179B0C
  * Callers:
- *     PopFxCreateDeviceCommon @ 0x140179938 (PopFxCreateDeviceCommon.c)
+ *     PopFxCreateDeviceCommon @ 0x140179958 (PopFxCreateDeviceCommon.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

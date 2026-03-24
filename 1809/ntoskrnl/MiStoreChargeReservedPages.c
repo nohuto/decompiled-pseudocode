@@ -1,5 +1,5 @@
 /*
- * XREFs of MiStoreChargeReservedPages @ 0x14017F704
+ * XREFs of MiStoreChargeReservedPages @ 0x14017F724
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:

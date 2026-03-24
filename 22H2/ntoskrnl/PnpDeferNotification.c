@@ -1,45 +1,45 @@
 /*
- * XREFs of PnpDeferNotification @ 0x140688310
+ * XREFs of PnpDeferNotification @ 0x14069C3B4
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     PiRegisterKernelSoftRestartNotification @ 0x140863FCC (PiRegisterKernelSoftRestartNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x14069BFE0 (IoRegisterPlugPlayNotification.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1408B2E24 (PiRegisterKernelSoftRestartNotification.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PnpInsertNoopEvent @ 0x140685ED4 (PnpInsertNoopEvent.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PnpInsertNoopEvent @ 0x1405CEEA0 (PnpInsertNoopEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDeferNotification(__int64 a1)
 {
   char v2; // bp
   unsigned int v3; // ebx
-  __int64 Pool2; // rax
-  _QWORD *v6; // rdi
-  _QWORD *v7; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v5; // rdi
+  _QWORD *v6; // rax
 
   v2 = 0;
   v3 = 0;
   ExAcquireFastMutex(&PnpNotificationInProgressLock);
-  if ( BYTE3(NlsMbOemCodePageTag) || *(_DWORD *)(a1 + 16) == 3 )
+  if ( BYTE2(NlsMbCodePageTag) || *(_DWORD *)(a1 + 16) == 3 )
   {
-    Pool2 = ExAllocatePool2(256LL, 24LL, 930115152LL);
-    v6 = (_QWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x37706E50u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 16) = a1;
+      PoolWithTag[2] = a1;
       ++*(_WORD *)(a1 + 56);
       *(_BYTE *)(a1 + 58) = 1;
       ExAcquireFastMutex(&PnpDeferredRegistrationLock);
-      v7 = (_QWORD *)qword_140D54EA8;
-      if ( *(PVOID **)qword_140D54EA8 != &PnpDeferredRegistrationList )
+      v6 = (_QWORD *)qword_140D2EB28;
+      if ( *(PVOID **)qword_140D2EB28 != &PnpDeferredRegistrationList )
         __fastfail(3u);
-      *v6 = &PnpDeferredRegistrationList;
-      v6[1] = v7;
-      *v7 = v6;
-      qword_140D54EA8 = (__int64)v6;
-      ExReleaseFastMutex(&PnpDeferredRegistrationLock);
-      if ( !BYTE3(NlsMbOemCodePageTag) )
+      *v5 = &PnpDeferredRegistrationList;
+      v5[1] = v6;
+      *v6 = v5;
+      qword_140D2EB28 = (__int64)v5;
+      KeReleaseGuardedMutex(&PnpDeferredRegistrationLock);
+      if ( !BYTE2(NlsMbCodePageTag) )
         v2 = 1;
     }
     else
@@ -47,7 +47,7 @@ __int64 __fastcall PnpDeferNotification(__int64 a1)
       v3 = -1073741670;
     }
   }
-  ExReleaseFastMutex(&PnpNotificationInProgressLock);
+  KeReleaseGuardedMutex(&PnpNotificationInProgressLock);
   if ( v2 )
   {
     PnpInsertNoopEvent(0LL, 0LL);

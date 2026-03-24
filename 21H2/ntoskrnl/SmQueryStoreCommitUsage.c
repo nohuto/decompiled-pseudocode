@@ -1,14 +1,14 @@
 /*
- * XREFs of SmQueryStoreCommitUsage @ 0x1405FAA30
+ * XREFs of SmQueryStoreCommitUsage @ 0x14059CFC0
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x140581158 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C708 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SmpProcessQueryStoreStats @ 0x14045F5F6 (SmpProcessQueryStoreStats.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SmpProcessQueryStoreStats @ 0x14059D058 (SmpProcessQueryStoreStats.c)
  */
 
-__int64 __fastcall SmQueryStoreCommitUsage(void *a1, _QWORD *a2)
+__int64 __fastcall SmQueryStoreCommitUsage(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax
   __int64 v5; // rcx
@@ -18,7 +18,7 @@ __int64 __fastcall SmQueryStoreCommitUsage(void *a1, _QWORD *a2)
   _DWORD v9[384]; // [rsp+20h] [rbp-618h] BYREF
 
   memset(v9, 0, sizeof(v9));
-  result = SmpProcessQueryStoreStats(a1);
+  result = SmpProcessQueryStoreStats(a1, v9);
   if ( (int)result >= 0 )
   {
     v5 = 0LL;

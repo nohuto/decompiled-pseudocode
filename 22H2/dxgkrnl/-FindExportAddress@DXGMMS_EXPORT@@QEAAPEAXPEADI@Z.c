@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z @ 0x1C0223474
+ * XREFs of ?FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z @ 0x1C019AFA8
  * Callers:
- *     ?Initialize@DXGMMS_EXPORT@@QEAAJI@Z @ 0x1C02232E4 (-Initialize@DXGMMS_EXPORT@@QEAAJI@Z.c)
+ *     ?Initialize@DXGMMS_EXPORT@@QEAAJI@Z @ 0x1C019AE48 (-Initialize@DXGMMS_EXPORT@@QEAAJI@Z.c)
  * Callees:
  *     <none>
  */

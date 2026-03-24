@@ -1,17 +1,17 @@
 /*
- * XREFs of ObCheckRefTraceProcess @ 0x1406BA268
+ * XREFs of ObCheckRefTraceProcess @ 0x140607DD4
  * Callers:
- *     PspInsertProcess @ 0x1406B9FA4 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140607B70 (PspInsertProcess.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PsGetProcessImageFileName @ 0x14034DEF0 (PsGetProcessImageFileName.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     PsGetProcessImageFileName @ 0x140316ED0 (PsGetProcessImageFileName.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
@@ -19,7 +19,6 @@ NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
   NTSTATUS result; // eax
   const char *ProcessImageFileName; // rax
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v5; // rax
   STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING String1; // [rsp+30h] [rbp-18h] BYREF
 
@@ -42,13 +41,8 @@ NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock);
     KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-    v5 = KeGetCurrentThread();
-    if ( v5->SpecialApcDisable++ == -1
-      && ($C71981A45BEB2B45F82C232A7085991E *)v5->ApcState.ApcListHead[0].Flink != &v5->152 )
-    {
-      KiCheckForKernelApcDelivery();
-    }
-    RtlFreeUnicodeString(&String1);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    RtlFreeAnsiString(&String1);
     return 0;
   }
   return result;

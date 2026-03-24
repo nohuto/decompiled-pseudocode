@@ -1,45 +1,29 @@
 /*
- * XREFs of ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E6194
+ * XREFs of ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01AD1A4
  * Callers:
- *     ?OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E1D50 (-OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A96D0 (-OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E5A70 (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01F7D94 (-UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFram.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01ACBAC (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01BD530 (-UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFram.c)
  */
 
-void __fastcall DelayZonePalmRejection::PalmRejectTimerProc(
-        DelayZonePalmRejection *this,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall DelayZonePalmRejection::PalmRejectTimerProc(DelayZonePalmRejection *this)
 {
-  __int64 v5; // r8
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int128 v8; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v2; // r8
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int128 v5; // [rsp+30h] [rbp-18h] BYREF
 
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      8,
-      10,
-      (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, 4, 8, 10, (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids);
   *((_BYTE *)this + 8) = 0;
-  DelayZonePalmRejection::DispatchBufferedInputFrames(this, a2, a3, a4);
-  v6 = *((_QWORD *)this + 16);
-  if ( v6 )
+  DelayZonePalmRejection::DispatchBufferedInputFrames(this);
+  v3 = *((_QWORD *)this + 16);
+  if ( v3 )
   {
-    v7 = *((unsigned int *)this + 1);
-    v8 = 0LL;
-    DelayZoneTelemetry::UpdateDelayZoneStateInfo(v6, v7, v5, 1LL, &v8);
+    v4 = *((unsigned int *)this + 1);
+    v5 = 0LL;
+    DelayZoneTelemetry::UpdateDelayZoneStateInfo(v3, v4, v2, 1LL, &v5);
   }
 }

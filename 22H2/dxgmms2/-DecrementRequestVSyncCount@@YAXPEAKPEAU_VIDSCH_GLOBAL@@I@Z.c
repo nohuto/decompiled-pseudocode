@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004E58
+ * XREFs of ?DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015CA0
  * Callers:
- *     VidSchControlVSyncDevice @ 0x1C0090D20 (VidSchControlVSyncDevice.c)
- *     VidSchControlVSyncAdapter @ 0x1C0090EC0 (VidSchControlVSyncAdapter.c)
+ *     VidSchControlVSyncDevice @ 0x1C00884D0 (VidSchControlVSyncDevice.c)
+ *     VidSchControlVSyncAdapter @ 0x1C0088620 (VidSchControlVSyncAdapter.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void __fastcall DecrementRequestVSyncCount(unsigned int *a1, struct _VIDSCH_GLOB
   __int64 v3; // r9
 
   v3 = 0LL;
-  if ( *((_BYTE *)a2 + 2212) )
+  if ( *((_BYTE *)a2 + 2132) )
   {
     if ( a3 == -3 )
     {

@@ -1,16 +1,17 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__ @ 0x180003A10
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__ @ 0x180002FD0
  * Callers:
  *     <none>
  * Callees:
- *     ?Load@?$CRegistryKeyLoader@K@details@@SAKPEBGKW4DwmRegistrySubkey@@@Z @ 0x18010E860 (-Load@-$CRegistryKeyLoader@K@details@@SAKPEBGKW4DwmRegistrySubkey@@@Z.c)
+ *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x1800B3354 (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
  */
 
-__int64 dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__()
+char dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__()
 {
-  __int64 result; // rax
+  char result; // al
+  int v1; // [rsp+30h] [rbp+8h] BYREF
 
-  result = details::CRegistryKeyLoader<unsigned long>::Load(L"MaxD3DFeatureLevel", 0LL, 0LL);
-  CCommonRegistryData::MaxD3DFeatureLevel = result;
+  result = -(char)RegGetDwmDwordHelper(L"MaxD3DFeatureLevel", &v1, 0LL);
+  CCommonRegistryData::MaxD3DFeatureLevel = result != 0 ? v1 : 0;
   return result;
 }

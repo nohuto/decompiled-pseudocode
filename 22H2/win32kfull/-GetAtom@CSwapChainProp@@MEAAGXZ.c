@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAtom@CSwapChainProp@@MEAAGXZ @ 0x1C01311B0
+ * XREFs of ?GetAtom@CSwapChainProp@@MEAAGXZ @ 0x1C01377A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CSwapChainProp::GetAtom(CSwapChainProp *this)
 {
-  return *((unsigned __int16 *)&WPP_MAIN_CB.AlignmentRequirement + 2);
+  return WORD2(WPP_MAIN_CB.Queue.Wcb.CurrentIrp);
 }

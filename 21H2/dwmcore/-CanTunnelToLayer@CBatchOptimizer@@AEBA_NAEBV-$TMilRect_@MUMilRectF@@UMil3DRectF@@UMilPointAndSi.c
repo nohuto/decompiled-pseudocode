@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CanTunnelToLayer@CBatchOptimizer@@AEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEAH@Z @ 0x180080538
+ * XREFs of ?CanTunnelToLayer@CBatchOptimizer@@AEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEAH@Z @ 0x1800C054C
  * Callers:
- *     ?AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x1801F0BD8 (-AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@.c)
+ *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0320 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
  * Callees:
- *     ?DoesIntersectInclusive@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800807A0 (-DoesIntersectInclusive@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NA.c)
+ *     ?DoesIntersectInclusive@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800C0604 (-DoesIntersectInclusive@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NA.c)
  */
 
 char __fastcall CBatchOptimizer::CanTunnelToLayer(__int64 a1, __int64 a2, int a3, int *a4)
@@ -27,7 +27,7 @@ char __fastcall CBatchOptimizer::CanTunnelToLayer(__int64 a1, __int64 a2, int a3
     v13 = 520LL * *i + a1 + 80;
     if ( *(_DWORD *)(v13 + 20) )
       break;
-LABEL_8:
+LABEL_7:
     --v5;
     if ( --v6 == v4 )
       return 1;
@@ -38,7 +38,7 @@ LABEL_8:
   {
     v12 = v14 + 1;
     if ( v12 == *(_DWORD *)(v13 + 20) )
-      goto LABEL_8;
+      goto LABEL_7;
   }
   *a4 = v5;
   return 0;

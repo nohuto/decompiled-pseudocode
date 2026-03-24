@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIBuildRegRequest @ 0x1C004AECC
+ * XREFs of ACPIBuildRegRequest @ 0x1C004C3DC
  * Callers:
- *     ACPIFilterIrpSetPower @ 0x1C002E2B0 (ACPIFilterIrpSetPower.c)
- *     ACPIBuildRegOnRequest @ 0x1C004AEB0 (ACPIBuildRegOnRequest.c)
+ *     ACPIFilterIrpSetPower @ 0x1C002D790 (ACPIFilterIrpSetPower.c)
+ *     ACPIBuildRegOnRequest @ 0x1C004C3C0 (ACPIBuildRegOnRequest.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C000D718 (WPP_RECORDER_SF_qdqss.c)
- *     ACPIBuildRunMethodRequest @ 0x1C001FB38 (ACPIBuildRunMethodRequest.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIBuildRunMethodRequest @ 0x1C0025AF4 (ACPIBuildRunMethodRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIBuildRegRequest(ULONG_PTR a1, __int64 a2, void (__fastcall *a3)(__int64, __int64, _QWORD))
@@ -29,17 +29,17 @@ __int64 __fastcall ACPIBuildRegRequest(ULONG_PTR a1, __int64 a2, void (__fastcal
   LOBYTE(v6) = 0;
   v7 = DeviceExtension;
   v8 = *(_DWORD *)(*(_QWORD *)(a2 + 184) + 24LL);
-  v9 = (const char *)&unk_1C006FB8B;
-  v10 = (const char *)&unk_1C006FB8B;
+  v9 = (const char *)&unk_1C00701BA;
+  v10 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v6 = DeviceExtension;
     v11 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v11 & 0x200000000000LL) != 0 )
     {
-      v9 = *(const char **)(v6 + 608);
+      v9 = *(const char **)(v6 + 568);
       if ( (v11 & 0x400000000000LL) != 0 )
-        v10 = *(const char **)(v6 + 616);
+        v10 = *(const char **)(v6 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -48,7 +48,7 @@ __int64 __fastcall ACPIBuildRegRequest(ULONG_PTR a1, __int64 a2, void (__fastcal
       (__int64)v10,
       0xAu,
       0x56u,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       a2,
       v8 - 1,
       v6,

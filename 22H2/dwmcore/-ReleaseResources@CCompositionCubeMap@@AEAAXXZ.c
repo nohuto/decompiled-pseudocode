@@ -1,37 +1,37 @@
 /*
- * XREFs of ?ReleaseResources@CCompositionCubeMap@@AEAAXXZ @ 0x180223488
+ * XREFs of ?ReleaseResources@CCompositionCubeMap@@AEAAXXZ @ 0x1801B9564
  * Callers:
- *     ??1CCompositionCubeMap@@UEAA@XZ @ 0x180222A2C (--1CCompositionCubeMap@@UEAA@XZ.c)
+ *     ??1CCompositionCubeMap@@UEAA@XZ @ 0x1801B8BA0 (--1CCompositionCubeMap@@UEAA@XZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x1800E28C4 (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
- *     ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x180223050 (-InternalRelease@-$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x18004584C (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1801B9180 (-InternalRelease@-$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 void __fastcall CCompositionCubeMap::ReleaseResources(CCompositionCubeMap *this)
 {
-  unsigned int v1; // esi
-  char *i; // rdi
-  __int64 v4; // r14
-  __int64 v5; // rbp
-  struct CResource *v6; // rdx
+  unsigned int i; // edi
+  __int64 v3; // r14
+  __int64 v4; // rsi
+  struct CResource *v5; // rdx
 
-  v1 = 0;
-  for ( i = (char *)this + 88; v1 < *((_DWORD *)this + 28); ++v1 )
+  for ( i = 0; i < *((_DWORD *)this + 26); ++i )
   {
-    v4 = *(_QWORD *)i;
-    v5 = 32LL * v1;
-    v6 = *(struct CResource **)(*(_QWORD *)i + v5);
-    if ( v6 )
+    v3 = *((_QWORD *)this + 10);
+    v4 = 32LL * i;
+    v5 = *(struct CResource **)(v3 + v4);
+    if ( v5 )
     {
-      CResource::UnRegisterNotifierInternal(this, v6);
-      *(_QWORD *)(v4 + 32LL * v1) = 0LL;
-      Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease((CResource **)(v5 + *(_QWORD *)i + 8LL));
+      CResource::UnRegisterNotifierInternal(this, v5);
+      *(_QWORD *)(v3 + 32LL * i) = 0LL;
+      Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease((CRenderTargetBitmap **)(v4
+                                                                                                + *((_QWORD *)this + 10)
+                                                                                                + 8LL));
     }
   }
-  *((_DWORD *)i + 6) = 0;
-  DynArrayImpl<1>::ShrinkToSize((__int64)i, 0x20u);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 18);
+  *((_DWORD *)this + 26) = 0;
+  DynArrayImpl<1>::ShrinkToSize((__int64)this + 80, 0x20u);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 17);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 16);
 }

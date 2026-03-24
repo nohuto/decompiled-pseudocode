@@ -1,27 +1,27 @@
 /*
- * XREFs of UsbhNotEnoughPowerPopup @ 0x1C004AB40
+ * XREFs of UsbhNotEnoughPowerPopup @ 0x1C004BF20
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhBuildWmiConnectionNotification @ 0x1C0048514 (UsbhBuildWmiConnectionNotification.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhBuildWmiConnectionNotification @ 0x1C0049894 (UsbhBuildWmiConnectionNotification.c)
  */
 
 int __fastcall UsbhNotEnoughPowerPopup(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
-  _DWORD *v4; // rax
+  _QWORD *v4; // rax
   _DWORD *EventData; // rbx
   __int64 PortData; // rax
 
   Log((__int64)DeviceObject, 128, 1850758994, a2, 0LL);
   FdoExt((__int64)DeviceObject);
-  v4 = (_DWORD *)UsbhBuildWmiConnectionNotification((__int64)DeviceObject, *(_WORD *)(a2 + 20));
+  v4 = UsbhBuildWmiConnectionNotification((__int64)DeviceObject, *(_WORD *)(a2 + 20));
   EventData = v4;
   if ( v4 )
   {
-    *v4 = 2;
+    *(_DWORD *)v4 = 2;
     PortData = UsbhGetPortData((__int64)DeviceObject, *(_WORD *)(a2 + 20));
     if ( PortData )
       EventData[4] = *(_DWORD *)(PortData + 432);

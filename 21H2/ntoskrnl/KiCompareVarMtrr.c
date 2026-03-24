@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCompareVarMtrr @ 0x140A53E94
+ * XREFs of KiCompareVarMtrr @ 0x140999BA4
  * Callers:
- *     KeLoadMTRR @ 0x140A53A50 (KeLoadMTRR.c)
+ *     KeLoadMTRR @ 0x140999760 (KeLoadMTRR.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ char KiCompareVarMtrr()
   if ( KeGetCurrentPrcb()->Number )
     return 1;
   v1 = 0;
-  if ( !(_BYTE)qword_140C2AF28 )
+  if ( !(_BYTE)qword_140C2B388 )
     return 1;
   v2 = 0LL;
   for ( i = 513; ; i += 2 )
@@ -28,13 +28,13 @@ char KiCompareVarMtrr()
     v5 = __readmsr(i);
     v6 = 2 * v2;
     v7 = (v5 >> 11) & 1;
-    if ( v7 != ((*((_QWORD *)qword_140C2AF38 + v6 + 1) >> 11) & 1LL)
-      || v7 && (v4 != *((_QWORD *)qword_140C2AF38 + v6) || v5 != *((_QWORD *)qword_140C2AF38 + v6 + 1)) )
+    if ( v7 != ((*((_QWORD *)qword_140C2B398 + v6 + 1) >> 11) & 1LL)
+      || v7 && (v4 != *((_QWORD *)qword_140C2B398 + v6) || v5 != *((_QWORD *)qword_140C2B398 + v6 + 1)) )
     {
       break;
     }
     v2 = ++v1;
-    if ( v1 >= (unsigned __int64)(unsigned __int8)qword_140C2AF28 )
+    if ( v1 >= (unsigned __int64)(unsigned __int8)qword_140C2B388 )
       return 1;
   }
   return 0;

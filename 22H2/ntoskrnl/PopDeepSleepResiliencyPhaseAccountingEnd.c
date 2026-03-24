@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14059878C
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14057786C
  * Callers:
- *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x14028E818 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
- *     PdcPoCurrentPdcPhase @ 0x140599840 (PdcPoCurrentPdcPhase.c)
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x14034A670 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576300 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LARGE_INTEGER __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a1, char a2)
@@ -36,7 +36,7 @@ LARGE_INTEGER __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a
   }
   result = KeQueryPerformanceCounter(0LL);
   v7 = result;
-  dword_140C3CB7C &= ~a1;
+  dword_140C2379C &= ~a1;
   for ( i = !_BitScanForward((unsigned int *)&v9, a1); !i; i = !_BitScanForward((unsigned int *)&v9, a1) )
   {
     result.QuadPart = a1 - 1;
@@ -44,41 +44,47 @@ LARGE_INTEGER __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a
     if ( ((1 << v9) & PopDeepSleepDisengageReasonMask) != 0 )
     {
       result.QuadPart = v7.QuadPart - *(_QWORD *)&PopCsResiliencyStats[8 * v9 + 160];
-      *(_QWORD *)&PopCsResiliencyStats[8 * v9 + 248] += result.QuadPart;
+      *(_QWORD *)&PopCsResiliencyStats[8 * v9 + 240] += result.QuadPart;
       *(_QWORD *)&PopCsResiliencyStats[8 * v9 + 160] = 0LL;
     }
   }
   if ( !a2 )
   {
-    KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
+    KxReleaseSpinLock(&PopCsResiliencyStatsLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v13 = ~(unsigned __int16)(-1LL << (v3 + 1));
-        i = (v13 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v13;
-        if ( i )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v13 = ~(unsigned __int16)(-1LL << (v3 + 1));
+          i = (v13 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v13;
+          if ( i )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v3);
-    KxReleaseSpinLock((volatile signed __int64 *)&PopDeepSleepDisengageReasonLock);
+    KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);
     if ( KiIrqlFlags )
     {
-      v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v2 <= 0xFu && v14 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v15 = KeGetCurrentPrcb();
-        v16 = v15->SchedulerAssist;
-        v17 = ~(unsigned __int16)(-1LL << (v2 + 1));
-        i = (v17 & v16[5]) == 0;
-        v16[5] &= v17;
-        if ( i )
-          KiRemoveSystemWorkPriorityKick((__int64)v15);
+        v14 = KeGetCurrentIrql();
+        if ( v14 <= 0xFu && v2 <= 0xFu && v14 >= 2u )
+        {
+          v15 = KeGetCurrentPrcb();
+          v16 = v15->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << (v2 + 1));
+          i = (v17 & v16[5]) == 0;
+          v16[5] &= v17;
+          if ( i )
+            KiRemoveSystemWorkPriorityKick((__int64)v15);
+        }
       }
     }
     result.QuadPart = v2;

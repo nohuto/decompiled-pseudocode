@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReturnResourceLifetimeTag@CResourceMarshaler@DirectComposition@@QEAAXPEAVCDeletedNotificationList@2@@Z @ 0x1C00AC050
+ * XREFs of ?ReturnResourceLifetimeTag@CResourceMarshaler@DirectComposition@@QEAAXPEAVCDeletedNotificationList@2@@Z @ 0x1C0097FE4
  * Callers:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C00ABEE8 (-SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C0097F2C (-SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z.c)
  * Callees:
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 void __fastcall DirectComposition::CResourceMarshaler::ReturnResourceLifetimeTag(
@@ -14,10 +14,10 @@ void __fastcall DirectComposition::CResourceMarshaler::ReturnResourceLifetimeTag
   size_t v4; // r8
   __int64 Src; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_QWORD *)this + 7) )
+  if ( *((_QWORD *)this + 6) )
   {
     v4 = *((_QWORD *)a2 + 4);
-    Src = *((_QWORD *)this + 7);
+    Src = *((_QWORD *)this + 6);
     memmove(
       (void *)(*(_QWORD *)a2
              + v4
@@ -26,6 +26,6 @@ void __fastcall DirectComposition::CResourceMarshaler::ReturnResourceLifetimeTag
       v4);
     ++*((_DWORD *)a2 + 11);
     --*((_DWORD *)a2 + 12);
-    *((_QWORD *)this + 7) = 0LL;
+    *((_QWORD *)this + 6) = 0LL;
   }
 }

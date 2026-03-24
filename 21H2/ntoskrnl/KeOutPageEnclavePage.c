@@ -1,12 +1,12 @@
 /*
- * XREFs of KeOutPageEnclavePage @ 0x14056D598
+ * XREFs of KeOutPageEnclavePage @ 0x140515330
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x1405A89EC (MiDecommitHardwareEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549A28 (MiDecommitHardwareEnclavePages.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiEncls @ 0x1404205F0 (KiEncls.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiEnclsStatus @ 0x14056D6C8 (KiEnclsStatus.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiEncls @ 0x1403FF060 (KiEncls.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiEnclsStatus @ 0x140515478 (KiEnclsStatus.c)
  */
 
 __int64 __fastcall KeOutPageEnclavePage(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall KeOutPageEnclavePage(__int64 a1, __int64 a2)
   __int64 v5; // [rsp+A0h] [rbp+0h] BYREF
 
   memset((void *)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFF80uLL) + 128), 0, 0x80uLL);
-  if ( !_bittest64(&KeFeatureBits, 0x28u) )
+  if ( (KeFeatureBits & 0x10000000000LL) == 0 )
     return 3221225659LL;
   *(_QWORD *)((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFF80uLL) = 0LL;
   *(_QWORD *)(((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFF80uLL) + 0x18) = 0LL;

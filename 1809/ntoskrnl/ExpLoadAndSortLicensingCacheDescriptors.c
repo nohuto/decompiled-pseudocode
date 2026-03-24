@@ -8,12 +8,12 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     qsort @ 0x1401962C0 (qsort.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
  *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
  *     sub_1405A1F10 @ 0x1405A1F10 (sub_1405A1F10.c)
- *     sub_140735AE4 @ 0x140735AE4 (sub_140735AE4.c)
- *     sub_1408CF074 @ 0x1408CF074 (sub_1408CF074.c)
+ *     sub_140735AC4 @ 0x140735AC4 (sub_140735AC4.c)
+ *     sub_1408CF054 @ 0x1408CF054 (sub_1408CF054.c)
  */
 
 __int64 ExpLoadAndSortLicensingCacheDescriptors()
@@ -68,7 +68,7 @@ __int64 ExpLoadAndSortLicensingCacheDescriptors()
     v6 = off_14096D030;
     if ( off_14096D030 )
     {
-      v7 = sub_140735AE4();
+      v7 = sub_140735AC4();
       v9 = v7;
       if ( v7 < 0 )
         goto LABEL_30;
@@ -125,6 +125,6 @@ LABEL_28:
   }
 LABEL_12:
   if ( v12 )
-    sub_1408CF074(&KernelLicensingCacheCorrupt);
+    sub_1408CF054(&KernelLicensingCacheCorrupt);
   return v2;
 }

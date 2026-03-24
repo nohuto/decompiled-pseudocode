@@ -1,7 +1,7 @@
 /*
- * XREFs of PiUEventQueuePendingEvent @ 0x14078BDBC
+ * XREFs of PiUEventQueuePendingEvent @ 0x1406E6EB8
  * Callers:
- *     PiUEventNotifyClient @ 0x14078BC74 (PiUEventNotifyClient.c)
+ *     PiUEventNotifyClient @ 0x1406E6D7C (PiUEventNotifyClient.c)
  * Callees:
  *     <none>
  */

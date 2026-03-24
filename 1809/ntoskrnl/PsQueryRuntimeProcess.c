@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryRuntimeProcess @ 0x14066DAC0
+ * XREFs of PsQueryRuntimeProcess @ 0x14066DAA0
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     PspSetJobTimeLimitCallback @ 0x14088A6D0 (PspSetJobTimeLimitCallback.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     PspSetJobTimeLimitCallback @ 0x14088A6B0 (PspSetJobTimeLimitCallback.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

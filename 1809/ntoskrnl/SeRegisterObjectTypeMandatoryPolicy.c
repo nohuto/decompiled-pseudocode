@@ -1,5 +1,5 @@
 /*
- * XREFs of SeRegisterObjectTypeMandatoryPolicy @ 0x14017D40C
+ * XREFs of SeRegisterObjectTypeMandatoryPolicy @ 0x14017D42C
  * Callers:
  *     SepTokenInitialization @ 0x1409AE964 (SepTokenInitialization.c)
  *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
@@ -7,7 +7,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall SeRegisterObjectTypeMandatoryPolicy(__int64 a1, int a2)

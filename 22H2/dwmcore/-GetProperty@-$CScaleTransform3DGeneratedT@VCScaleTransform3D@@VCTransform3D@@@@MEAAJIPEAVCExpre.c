@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4AC0
+ * XREFs of ?GetProperty@?$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EA30
  * Callers:
  *     <none>
  * Callees:
@@ -35,31 +35,31 @@ __int64 __fastcall CScaleTransform3DGeneratedT<CScaleTransform3D,CTransform3D>::
           {
             if ( v7 != 1 )
               return 2147942487LL;
-            v8 = a1[45];
+            v8 = a1[43];
           }
           else
           {
-            v8 = a1[44];
+            v8 = a1[42];
           }
         }
         else
         {
-          v8 = a1[43];
+          v8 = a1[41];
         }
       }
       else
       {
-        v8 = a1[42];
+        v8 = a1[40];
       }
     }
     else
     {
-      v8 = a1[41];
+      v8 = a1[39];
     }
   }
   else
   {
-    v8 = a1[40];
+    v8 = a1[38];
   }
   *(_DWORD *)a3 = v8;
   *(_BYTE *)(a3 + 76) = 1;

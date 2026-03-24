@@ -5,11 +5,11 @@
  * Callees:
  *     IoSetTopLevelIrp @ 0x14001C5F0 (IoSetTopLevelIrp.c)
  *     MiValidateControlAreaPartition @ 0x14001CD04 (MiValidateControlAreaPartition.c)
- *     PsIsCurrentThreadPrefetching @ 0x140119040 (PsIsCurrentThreadPrefetching.c)
- *     MmChangeSectionBackingFile @ 0x14012F9D8 (MmChangeSectionBackingFile.c)
+ *     PsIsCurrentThreadPrefetching @ 0x140119060 (PsIsCurrentThreadPrefetching.c)
+ *     MmChangeSectionBackingFile @ 0x14012F9F8 (MmChangeSectionBackingFile.c)
  *     FsRtlReleaseFile @ 0x1405DE940 (FsRtlReleaseFile.c)
  *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     MiValidateExistingImage @ 0x14064F1A4 (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x14064F184 (MiValidateExistingImage.c)
  */
 
 __int64 __fastcall MiShareExistingControlArea(__int64 a1)

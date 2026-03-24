@@ -3,11 +3,11 @@
  * Callers:
  *     PiUEventDispatch @ 0x14059FDB0 (PiUEventDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  *     PiUEventHandleGetEvent @ 0x14059FA1C (PiUEventHandleGetEvent.c)
- *     PiUEventHandleRegistration @ 0x140655C04 (PiUEventHandleRegistration.c)
- *     PiUEventHandleUnregisterClient @ 0x1406CE82C (PiUEventHandleUnregisterClient.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7F0 (PiUEventHandleVetoEvent.c)
+ *     PiUEventHandleRegistration @ 0x140655BE4 (PiUEventHandleRegistration.c)
+ *     PiUEventHandleUnregisterClient @ 0x1406CE80C (PiUEventHandleUnregisterClient.c)
+ *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
  */
 
 __int64 __fastcall PiUEventHandleIoctl(PIRP Irp, __int64 a2, __int64 a3, int a4)

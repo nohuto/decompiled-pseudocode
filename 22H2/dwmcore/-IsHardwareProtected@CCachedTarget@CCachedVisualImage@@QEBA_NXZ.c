@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsHardwareProtected@CCachedTarget@CCachedVisualImage@@QEBA_NXZ @ 0x180217A34
+ * XREFs of ?IsHardwareProtected@CCachedTarget@CCachedVisualImage@@QEBA_NXZ @ 0x1801AB798
  * Callers:
- *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x1800CE5A4 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
+ *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x180031194 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCachedVisualImage::CCachedTarget::IsHardwareProtected(CCachedVisualImage::CCachedTarget *this)

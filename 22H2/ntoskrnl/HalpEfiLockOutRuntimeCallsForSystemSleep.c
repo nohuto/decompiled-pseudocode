@@ -1,19 +1,21 @@
 /*
- * XREFs of HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x14050D230
+ * XREFs of HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x14038B594
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x14050D2B4 (HalpDispatchSystemStateTransition.c)
+ *     HalpDispatchSystemStateTransition @ 0x14038B4F0 (HalpDispatchSystemStateTransition.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
  */
 
-__int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(char a1)
+__int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(__int64 a1)
 {
+  char v1; // bl
   __int64 result; // rax
   __int64 v3; // r8
   __int64 v4; // r9
   __int64 v5; // rdx
 
-  result = HalQueryMaximumProcessorCount();
+  v1 = a1;
+  result = HalQueryMaximumProcessorCount(a1);
   if ( (_DWORD)result )
   {
     v3 = 0LL;
@@ -24,7 +26,7 @@ __int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(char a1)
       v5 = *(_QWORD *)(v3 + HalpInterruptProcessorPcr);
       if ( v5 )
       {
-        if ( a1 )
+        if ( v1 )
         {
           _InterlockedAnd((volatile signed __int32 *)(v5 + 224), 0x7FFFFFFFu);
         }

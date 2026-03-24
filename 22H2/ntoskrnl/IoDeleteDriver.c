@@ -1,16 +1,14 @@
 /*
- * XREFs of IoDeleteDriver @ 0x1409473D0
+ * XREFs of IoDeleteDriver @ 0x140893B80
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObMakeTemporaryObject @ 0x1407E1210 (ObMakeTemporaryObject.c)
- *     EtwTiLogDriverObjectUnLoad @ 0x140858898 (EtwTiLogDriverObjectUnLoad.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     EtwTiLogDriverObjectUnLoad @ 0x14076905C (EtwTiLogDriverObjectUnLoad.c)
  */
 
-LONG_PTR __fastcall IoDeleteDriver(unsigned __int16 *Object)
+void __fastcall IoDeleteDriver(PADAPTER_OBJECT DmaAdapter)
 {
-  EtwTiLogDriverObjectUnLoad(Object + 28);
-  ObMakeTemporaryObject(Object);
-  return ObfDereferenceObject(Object);
+  EtwTiLogDriverObjectUnLoad((unsigned __int16 *)&DmaAdapter[3].DmaOperations);
+  HalPutDmaAdapter(DmaAdapter);
 }

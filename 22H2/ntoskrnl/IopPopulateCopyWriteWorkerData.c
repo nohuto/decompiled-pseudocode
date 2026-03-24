@@ -1,49 +1,68 @@
 /*
- * XREFs of IopPopulateCopyWriteWorkerData @ 0x1402F4E44
+ * XREFs of IopPopulateCopyWriteWorkerData @ 0x1403F11F4
  * Callers:
- *     NtCopyFileChunk @ 0x140749DA0 (NtCopyFileChunk.c)
+ *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
  * Callees:
- *     IopValidateAndGetWriteParameters @ 0x140223D50 (IopValidateAndGetWriteParameters.c)
- *     IopAllocateAndPopulateWriteIrp @ 0x140224240 (IopAllocateAndPopulateWriteIrp.c)
- *     memset @ 0x140435400 (memset.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403F14CC (IopAllocateAndPopulateWriteIrp.c)
+ *     IopValidateAndGetWriteParameters @ 0x1403F178C (IopValidateAndGetWriteParameters.c)
  */
 
 __int64 __fastcall IopPopulateCopyWriteWorkerData(
-        unsigned __int64 a1,
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         int a4,
         int a5,
-        int a6,
+        __int64 a6,
         __int64 a7,
-        void *a8,
-        struct _KTHREAD **a9,
-        unsigned __int64 a10,
-        char a11,
-        __int64 a12)
+        __int64 a8,
+        __int64 a9,
+        int a10,
+        __int64 a11)
 {
   __int64 result; // rax
-  _DWORD *v17; // r8
-  _OWORD v18[9]; // [rsp+38h] [rbp-79h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-51h] BYREF
+  __int16 v13; // [rsp+38h] [rbp-49h]
+  char v14; // [rsp+3Ah] [rbp-47h]
+  int v15; // [rsp+3Bh] [rbp-46h]
+  char v16; // [rsp+3Fh] [rbp-42h]
+  __int64 v17; // [rsp+40h] [rbp-41h]
+  __int64 v18; // [rsp+48h] [rbp-39h]
+  __int64 v19; // [rsp+50h] [rbp-31h]
+  __int64 v20; // [rsp+58h] [rbp-29h]
+  __int64 v21; // [rsp+60h] [rbp-21h]
+  __int64 v22; // [rsp+68h] [rbp-19h]
+  __int64 v23; // [rsp+70h] [rbp-11h]
+  int v24; // [rsp+78h] [rbp-9h]
+  int v25; // [rsp+7Ch] [rbp-5h]
+  __int64 v26; // [rsp+80h] [rbp-1h]
+  int v27; // [rsp+88h] [rbp+7h]
+  int v28; // [rsp+8Ch] [rbp+Bh]
+  __int64 v29; // [rsp+90h] [rbp+Fh]
 
-  memset(v18, 0, 0x88uLL);
-  v18[1] = a1;
-  *(_QWORD *)&v18[8] = a7;
-  BYTE10(v18[0]) = 1;
-  memset(&v18[2], 0, 24);
-  *((_QWORD *)&v18[3] + 1) = a2;
-  *(_QWORD *)&v18[4] = a3;
-  DWORD2(v18[4]) = a4;
-  *(_QWORD *)&v18[5] = 0LL;
-  DWORD2(v18[5]) = 0;
-  v18[6] = 0LL;
-  LODWORD(v18[7]) = -1073741824;
-  *((_QWORD *)&v18[7] + 1) = 0LL;
-  result = IopValidateAndGetWriteParameters((struct _KTHREAD **)v18, a8, a9, a10, a11);
+  v17 = a1;
+  v12 = 0LL;
+  v18 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
+  v26 = 0LL;
+  v27 = 0;
+  v15 = 0;
+  v16 = 0;
+  v25 = 0;
+  v13 = 0;
+  v29 = a6;
+  v22 = a2;
+  v23 = a3;
+  v24 = a4;
+  v14 = 1;
+  v28 = -1073741824;
+  result = IopValidateAndGetWriteParameters(&v12, a7, a8, a9, a10);
   if ( (int)result >= 0 )
   {
-    *(_QWORD *)(a12 + 8) = *((_QWORD *)&v18[1] + 1);
-    return IopAllocateAndPopulateWriteIrp((__int64)v18, (IRP **)a12, v17);
+    *(_QWORD *)(a11 + 8) = v18;
+    return IopAllocateAndPopulateWriteIrp(&v12);
   }
   return result;
 }

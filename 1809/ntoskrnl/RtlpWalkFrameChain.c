@@ -1,24 +1,24 @@
 /*
  * XREFs of RtlpWalkFrameChain @ 0x14009EB90
  * Callers:
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
  * Callees:
  *     MmIsSessionExecutionValid @ 0x14009DB10 (MmIsSessionExecutionValid.c)
  *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
  *     RtlpIsFrameInBoundsEx @ 0x1400A0610 (RtlpIsFrameInBoundsEx.c)
  *     PspGetBaseTrapFrame @ 0x1400A0F18 (PspGetBaseTrapFrame.c)
- *     RtlpGetStackLimits @ 0x1400CAB00 (RtlpGetStackLimits.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     RtlpUnwindEpilogue @ 0x14013A374 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x14013A52C (RtlpUnwindOpSlots.c)
- *     RtlpSameFunction @ 0x140184F64 (RtlpSameFunction.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlpCaptureContext @ 0x1401C54B0 (RtlpCaptureContext.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlpWalkWowStack @ 0x1402EF8F0 (RtlpWalkWowStack.c)
+ *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     RtlpUnwindEpilogue @ 0x14013A394 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x14013A54C (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlpCaptureContext @ 0x1401C54D0 (RtlpCaptureContext.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlpWalkWowStack @ 0x1402EF9F0 (RtlpWalkWowStack.c)
  *     PsWow64GetProcessMachine @ 0x140620BA0 (PsWow64GetProcessMachine.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1406A90E4 (RtlWow64GetCpuAreaInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1406A90C4 (RtlWow64GetCpuAreaInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, int a3, int a4)

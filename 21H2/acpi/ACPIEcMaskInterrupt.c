@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcMaskInterrupt @ 0x1C0052E98
+ * XREFs of ACPIEcMaskInterrupt @ 0x1C00537B8
  * Callers:
- *     ACPIEcGpioServiceRoutine @ 0x1C0052BD0 (ACPIEcGpioServiceRoutine.c)
- *     ACPIEcServiceDevice @ 0x1C0053A64 (ACPIEcServiceDevice.c)
+ *     ACPIEcGpioServiceRoutine @ 0x1C00534F0 (ACPIEcGpioServiceRoutine.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIVectorDisable @ 0x1C0061AC0 (ACPIVectorDisable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIVectorDisable @ 0x1C0060D00 (ACPIVectorDisable.c)
  */
 
 __int64 __fastcall ACPIEcMaskInterrupt(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@LoadFontFileRequest@@UEAAXPEAX@Z @ 0x1C0109340
+ * XREFs of ?CaptureUsermodeParameters@LoadFontFileRequest@@UEAAXPEAX@Z @ 0x1C011E610
  * Callers:
  *     <none>
  * Callees:

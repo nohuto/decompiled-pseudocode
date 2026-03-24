@@ -1,93 +1,94 @@
 /*
- * XREFs of FsRtlProcessFileLock @ 0x14021D0B0
+ * XREFs of FsRtlProcessFileLock @ 0x1404EFF90
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     IoGetRequestorProcess @ 0x14021DC00 (IoGetRequestorProcess.c)
- *     FsRtlFastUnlockSingle @ 0x14021DDD0 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateLock @ 0x14021E2B0 (FsRtlPrivateLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x14021F5E4 (FsRtlCompleteLockIrpReal.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14029FA64 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateLock @ 0x140358360 (FsRtlPrivateLock.c)
+ *     FsRtlFastUnlockSingle @ 0x140358E80 (FsRtlFastUnlockSingle.c)
+ *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF930 (FsRtlCompleteLockIrpReal.c)
  */
 
 NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Context)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r14
-  BOOLEAN FailImmediately; // di
-  BOOLEAN ExclusiveLock; // bl
+  struct _KPROCESS *v7; // rax
+  NTSTATUS v8; // eax
+  struct _KPROCESS *v9; // rax
   struct _KPROCESS *ProcessId; // rax
+  __int64 (__fastcall *CompleteLockIrpRoutine)(__int64, IRP *); // rcx
+  BOOLEAN v12; // di
+  BOOLEAN v13; // bl
   struct _KPROCESS *RequestorProcess; // rax
-  unsigned int v12; // eax
-  PCOMPLETE_LOCK_IRP_ROUTINE CompleteLockIrpRoutine; // rcx
-  unsigned int v14; // eax
-  unsigned int v15; // eax
   struct _IO_STATUS_BLOCK Iosb; // [rsp+60h] [rbp-10h] BYREF
   LARGE_INTEGER FileOffset; // [rsp+A8h] [rbp+38h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   Iosb.Pointer = 0LL;
   Iosb.Information = 0LL;
-  if ( CurrentStackLocation->MinorFunction == 1 )
+  switch ( CurrentStackLocation->MinorFunction )
   {
-    FailImmediately = CurrentStackLocation->Flags & 1;
-    ExclusiveLock = (CurrentStackLocation->Flags & 2) != 0;
-    FileOffset = CurrentStackLocation->Parameters.Read.ByteOffset;
-    ProcessId = IoGetRequestorProcess(Irp);
-    FsRtlPrivateLock(
-      FileLock,
-      CurrentStackLocation->FileObject,
-      &FileOffset,
-      CurrentStackLocation->Parameters.LockControl.Length,
-      ProcessId,
-      CurrentStackLocation->Parameters.Create.Options,
-      FailImmediately,
-      ExclusiveLock,
-      &Iosb,
-      Irp,
-      Context,
-      0);
+    case 1u:
+      v12 = CurrentStackLocation->Flags & 1;
+      v13 = (CurrentStackLocation->Flags & 2) != 0;
+      FileOffset = CurrentStackLocation->Parameters.Read.ByteOffset;
+      RequestorProcess = IoGetRequestorProcess(Irp);
+      FsRtlPrivateLock(
+        FileLock,
+        CurrentStackLocation->FileObject,
+        &FileOffset,
+        CurrentStackLocation->Parameters.LockControl.Length,
+        RequestorProcess,
+        CurrentStackLocation->Parameters.Create.Options,
+        v12,
+        v13,
+        &Iosb,
+        Irp,
+        Context,
+        0);
+      return Iosb.Status;
+    case 2u:
+      FileOffset = CurrentStackLocation->Parameters.Read.ByteOffset;
+      ProcessId = IoGetRequestorProcess(Irp);
+      v8 = FsRtlFastUnlockSingle(
+             FileLock,
+             CurrentStackLocation->FileObject,
+             &FileOffset,
+             CurrentStackLocation->Parameters.LockControl.Length,
+             ProcessId,
+             CurrentStackLocation->Parameters.Create.Options,
+             Context,
+             0);
+      goto LABEL_10;
+    case 3u:
+      v9 = IoGetRequestorProcess(Irp);
+      v8 = FsRtlPrivateFastUnlockAll(
+             (__int64)FileLock,
+             (_RTL_SPLAY_LINKS *)CurrentStackLocation->FileObject,
+             v9,
+             0,
+             0,
+             (__int64)Context);
+      goto LABEL_10;
+    case 4u:
+      v7 = IoGetRequestorProcess(Irp);
+      v8 = FsRtlPrivateFastUnlockAll(
+             (__int64)FileLock,
+             (_RTL_SPLAY_LINKS *)CurrentStackLocation->FileObject,
+             v7,
+             CurrentStackLocation->Parameters.Create.Options,
+             1,
+             (__int64)Context);
+LABEL_10:
+      CompleteLockIrpRoutine = (__int64 (__fastcall *)(__int64, IRP *))FileLock->CompleteLockIrpRoutine;
+      Iosb.Status = v8;
+      FsRtlCompleteLockIrpReal(CompleteLockIrpRoutine, (__int64)Context, Irp, v8, (NTSTATUS *)&Iosb.0, 0LL);
+      return Iosb.Status;
   }
-  else
-  {
-    switch ( CurrentStackLocation->MinorFunction )
-    {
-      case 2u:
-        FileOffset = CurrentStackLocation->Parameters.Read.ByteOffset;
-        RequestorProcess = IoGetRequestorProcess(Irp);
-        v12 = FsRtlFastUnlockSingle(
-                FileLock,
-                CurrentStackLocation->FileObject,
-                &FileOffset,
-                CurrentStackLocation->Parameters.LockControl.Length,
-                RequestorProcess,
-                CurrentStackLocation->Parameters.Create.Options,
-                Context,
-                0);
-        break;
-      case 3u:
-        v15 = (unsigned int)IoGetRequestorProcess(Irp);
-        v12 = FsRtlPrivateFastUnlockAll((_DWORD)FileLock, CurrentStackLocation->FileObject, v15, 0, 0, (__int64)Context);
-        break;
-      case 4u:
-        v14 = (unsigned int)IoGetRequestorProcess(Irp);
-        v12 = FsRtlPrivateFastUnlockAll(
-                (_DWORD)FileLock,
-                CurrentStackLocation->FileObject,
-                v14,
-                CurrentStackLocation->Parameters.Create.Options,
-                1,
-                (__int64)Context);
-        break;
-      default:
-        Irp->IoStatus.Status = -1073741808;
-        IofCompleteRequest(Irp, 1);
-        Iosb.Status = -1073741808;
-        return Iosb.Status;
-    }
-    CompleteLockIrpRoutine = FileLock->CompleteLockIrpRoutine;
-    Iosb.Status = v12;
-    FsRtlCompleteLockIrpReal(CompleteLockIrpRoutine, Context, Irp, v12, &Iosb, 0LL);
-  }
+  Irp->IoStatus.Status = -1073741808;
+  IofCompleteRequest(Irp, 1);
+  Iosb.Status = -1073741808;
   return Iosb.Status;
 }

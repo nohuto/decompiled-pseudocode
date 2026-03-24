@@ -1,92 +1,101 @@
 /*
- * XREFs of ?Transform@?$CGeneral3DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@VertexTransfer@@QEAAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@Z @ 0x18011344E
+ * XREFs of ?Transform@?$CGeneral3DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@VertexTransfer@@QEAAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@Z @ 0x1800126AC
  * Callers:
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EEB6C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldX.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EECCC (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801EECCC.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EEE2C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801EEE2C.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1800123B0 (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldX.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A846C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801A846C.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A85CC (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801A85CC.c)
  * Callees:
- *     ?Transform@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUHomogeneousPoint2D@@I@Z @ 0x1800091A4 (-Transform@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUHomogeneousPoint2D@@I@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     ?TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z @ 0x180012C10 (-TransformIgnoreZW@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUMilPoint4F@@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
-float *__fastcall VertexTransfer::CGeneral3DOperator<Vertex_UVxN<VertexXYW_ColorDW_WorldXYZ_Tangent>>::Transform(
+void __fastcall VertexTransfer::CGeneral3DOperator<Vertex_UVxN<VertexXYW_ColorDW_WorldXYZ_Tangent>>::Transform(
         CMILMatrix *this,
         const struct D2D_POINT_2F *a2,
         const struct D2D_POINT_2F *a3,
         unsigned int a4,
         CMILMatrix *a5,
-        __int64 a6)
+        char *a6)
 {
   __int64 v8; // r14
-  float v10; // xmm11_4
-  float v11; // xmm12_4
-  float v12; // xmm8_4
-  float v13; // xmm9_4
-  float v14; // xmm0_4
-  float v15; // xmm6_4
-  __int64 v16; // xmm0_8
-  float *result; // rax
-  __int64 v18; // rbx
-  float v19; // xmm7_4
-  signed __int64 v20; // rdi
-  __int64 v21; // rcx
-  float v22; // xmm1_4
-  struct D2D_POINT_2F v23; // [rsp+28h] [rbp-79h] BYREF
-  float v24; // [rsp+30h] [rbp-71h]
-  __int64 v25; // [rsp+38h] [rbp-69h] BYREF
-  float v26; // [rsp+40h] [rbp-61h]
-  __int64 v27; // [rsp+48h] [rbp-59h] BYREF
-  float v28; // [rsp+50h] [rbp-51h]
+  unsigned int v10; // r9d
+  float v11; // xmm9_4
+  float v12; // xmm10_4
+  float v13; // xmm13_4
+  float v14; // xmm14_4
+  float v15; // xmm7_4
+  float v16; // xmm8_4
+  unsigned int v17; // r9d
+  float v18; // xmm0_4
+  float v19; // xmm5_4
+  unsigned int v20; // r9d
+  float v21; // xmm5_4
+  float v22; // xmm4_4
+  signed __int64 v23; // rbx
+  float v24; // xmm6_4
+  signed __int64 v25; // rdi
+  float *p_y; // rax
+  __int64 v27; // rcx
+  float v28; // xmm1_4
+  struct D2D_POINT_2F v29; // [rsp+28h] [rbp-89h] BYREF
+  float v30; // [rsp+34h] [rbp-7Dh]
+  float v31; // [rsp+38h] [rbp-79h] BYREF
+  float v32; // [rsp+3Ch] [rbp-75h]
+  float v33; // [rsp+44h] [rbp-6Dh]
+  float v34; // [rsp+48h] [rbp-69h] BYREF
+  float v35; // [rsp+4Ch] [rbp-65h]
+  float v36; // [rsp+54h] [rbp-5Dh]
 
   v8 = a4;
-  CMILMatrix::Transform(a5, a2, (struct HomogeneousPoint2D *)&v23);
-  CMILMatrix::Transform(a5, a3, (struct HomogeneousPoint2D *)&v27);
-  v10 = *(float *)&v27 / v28;
-  v11 = *((float *)&v27 + 1) / v28;
-  v12 = (float)(v23.x / v24) - (float)(*(float *)&v27 / v28);
-  v13 = (float)(v23.y / v24) - (float)(*((float *)&v27 + 1) / v28);
-  v14 = o_sqrtf_0((float)(v13 * v13) + (float)(v12 * v12));
-  v15 = *(float *)&FLOAT_1_0;
-  if ( v14 > 0.0 )
-    v15 = a3[1].x / v14;
-  v23.x = (float)(v12 * v15) + v10;
-  v23.y = (float)(v13 * v15) + v11;
-  CMILMatrix::Transform(this, &v23, (struct HomogeneousPoint2D *)&v25);
-  v23.x = *(float *)&v25 / v26;
-  v23.y = *((float *)&v25 + 1) / v26;
-  CMILMatrix::Transform(a5, &v23, (struct HomogeneousPoint2D *)&v25);
-  if ( v26 <= 0.0 )
+  CMILMatrix::TransformIgnoreZW(a5, a2, (struct MilPoint4F *)&v29, a4);
+  CMILMatrix::TransformIgnoreZW(a5, a3, (struct MilPoint4F *)&v34, v10);
+  v11 = v34;
+  v12 = v35;
+  v13 = v34 / v36;
+  v14 = v35 / v36;
+  v15 = (float)(v29.x / v30) - (float)(v34 / v36);
+  v16 = (float)(v29.y / v30) - (float)(v35 / v36);
+  v18 = sqrtf_0((float)(v16 * v16) + (float)(v15 * v15));
+  v19 = *(float *)&FLOAT_1_0;
+  if ( v18 > 0.0 )
+    v19 = a3[1].x / v18;
+  v29.x = (float)(v15 * v19) + v13;
+  v29.y = (float)(v16 * v19) + v14;
+  CMILMatrix::TransformIgnoreZW(this, &v29, (struct MilPoint4F *)&v31, v17);
+  v29.y = v32 / v33;
+  v29.x = v31 / v33;
+  CMILMatrix::TransformIgnoreZW(a5, &v29, (struct MilPoint4F *)&v31, v20);
+  v22 = v33;
+  if ( v33 <= 0.0 )
   {
-    v16 = v27;
-    result = (float *)LODWORD(v28);
+    v22 = v36;
   }
   else
   {
-    v16 = v25;
-    result = (float *)LODWORD(v26);
+    v11 = v31;
+    v12 = v32;
   }
-  *(_QWORD *)a6 = v16;
-  *(_DWORD *)(a6 + 8) = (_DWORD)result;
-  if ( v15 > 1.0 && a3[1].y == 0.0 )
-    v15 = *(float *)&FLOAT_1_0;
+  *(float *)a6 = v11;
+  *((float *)a6 + 1) = v12;
+  *((float *)a6 + 2) = v22;
+  if ( v21 > 1.0 && a3[1].y == 0.0 )
+    v21 = *(float *)&FLOAT_1_0;
   if ( (_DWORD)v8 )
   {
-    v18 = a6 - (_QWORD)a2;
-    v19 = 1.0 - v15;
-    v20 = (char *)a3 - (char *)a2;
-    result = &a2[2].y;
-    v21 = v8;
+    v23 = a6 - (char *)a2;
+    v24 = 1.0 - v21;
+    v25 = (char *)a3 - (char *)a2;
+    p_y = &a2[2].y;
+    v27 = v8;
     do
     {
-      v22 = (float)(v19 * *(float *)((char *)result + v20)) + (float)(v15 * *result);
-      *(float *)((char *)result + v18 + 28) = (float)(v19 * *(float *)((char *)result + v20 - 4))
-                                            + (float)(v15 * *(result - 1));
-      *(float *)((char *)result + v18 + 32) = v22;
-      result += 2;
-      --v21;
+      v28 = (float)(v24 * *(float *)((char *)p_y + v25)) + (float)(v21 * *p_y);
+      *(float *)((char *)p_y + v23 + 28) = (float)(v24 * *(float *)((char *)p_y + v25 - 4)) + (float)(v21 * *(p_y - 1));
+      *(float *)((char *)p_y + v23 + 32) = v28;
+      p_y += 2;
+      --v27;
     }
-    while ( v21 );
+    while ( v27 );
   }
-  return result;
 }

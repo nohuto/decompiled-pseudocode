@@ -6,9 +6,9 @@
  *     AlpcpReceiveMessage @ 0x1406322B0 (AlpcpReceiveMessage.c)
  *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveLegacyConnectionReply @ 0x1406A60EC (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1406A60CC (AlpcpReceiveLegacyConnectionReply.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     AlpcpAvailableBufferSize @ 0x140582068 (AlpcpAvailableBufferSize.c)
  */
 

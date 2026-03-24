@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_ReturningPortResetCompleted @ 0x1C0012B70
+ * XREFs of HUBPSM30_ReturningPortResetCompleted @ 0x1C0012670
  * Callers:
  *     <none>
  * Callees:

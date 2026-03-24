@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaCrashDumpInitializationComplete @ 0x140864E7C
+ * XREFs of WheaCrashDumpInitializationComplete @ 0x1407D43E4
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     WheapReportDeferredLiveDumps @ 0x140A09224 (WheapReportDeferredLiveDumps.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     WheapReportDeferredLiveDumps @ 0x14095E1DC (WheapReportDeferredLiveDumps.c)
  */
 
 __int64 WheaCrashDumpInitializationComplete()
@@ -14,10 +14,10 @@ __int64 WheaCrashDumpInitializationComplete()
   bool v1; // bl
 
   v0 = 0;
-  ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
+  ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.DriverObject);
   WheapCrashDumpInitialized = 1;
-  v1 = WheapDispatchPtr.DriverObject != (struct _DRIVER_OBJECT *)&WheapDispatchPtr.DriverObject;
-  ExReleaseFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
+  v1 = *(_QWORD *)&WheapDispatchPtr.DeviceType != (_QWORD)&WheapDispatchPtr.DeviceType;
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&WheapDispatchPtr.DriverObject);
   if ( v1 )
     return (unsigned int)WheapReportDeferredLiveDumps();
   return v0;

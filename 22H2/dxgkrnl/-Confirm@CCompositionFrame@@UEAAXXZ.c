@@ -1,89 +1,36 @@
 /*
- * XREFs of ?Confirm@CCompositionFrame@@UEAAXXZ @ 0x1C0017F40
+ * XREFs of ?Confirm@CCompositionFrame@@UEAAXXZ @ 0x1C00167D0
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?ProcessSignal@CFlipManager@@QEAAXPEAVCFlipManagerSignal@@_K@Z @ 0x1C0084E08 (-ProcessSignal@CFlipManager@@QEAAXPEAVCFlipManagerSignal@@_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrame::Confirm(CCompositionFrame *this)
 {
-  CCompositionFrame *v1; // rdi
-  CCompositionFrame *v2; // rsi
-  CCompositionFrame **v4; // rsi
-  CCompositionFrame **v5; // rax
-  CCompositionFrame *v6; // rcx
-  unsigned __int64 v7; // rdi
-  _QWORD *v8; // rbx
-  _QWORD *v9; // rax
-  CCompositionFrame **v10; // rdi
-  CCompositionFrame *v11; // rcx
-  struct CFlipManagerSignal *v12; // rbp
-  __int64 v13; // rsi
+  char *v1; // rsi
+  char *i; // rbx
+  char *v4; // rdi
+  char *v5; // rax
+  __int64 v6; // rcx
+  char *v7; // rbx
 
-  v1 = (CCompositionFrame *)((char *)this + 152);
-  *((_DWORD *)this + 24) = 1;
-  v2 = (CCompositionFrame *)*((_QWORD *)this + 19);
-  if ( v2 != (CCompositionFrame *)((char *)this + 152) )
-  {
-    do
-    {
-      (*(void (__fastcall **)(__int64))(*((_QWORD *)v2 - 1) + 40LL))((__int64)v2 - 8);
-      v2 = *(CCompositionFrame **)v2;
-    }
-    while ( v2 != v1 );
-  }
-  v4 = (CCompositionFrame **)((char *)this + 168);
-  v5 = (CCompositionFrame **)*((_QWORD *)this + 21);
-  if ( v5[1] != (CCompositionFrame *)((char *)this + 168) )
-    goto LABEL_12;
-  v6 = *v5;
-  if ( *((CCompositionFrame ***)*v5 + 1) != v5 )
-    goto LABEL_12;
-  *v4 = v6;
-  *((_QWORD *)v6 + 1) = v4;
-  if ( v5 != v4 )
-  {
-    while ( 1 )
-    {
-      v10 = v5 - 6;
-      (*((void (__fastcall **)(CCompositionFrame **))*(v5 - 1) + 7))(v5 - 1);
-      ObfDereferenceObject(v10);
-      v5 = (CCompositionFrame **)*v4;
-      if ( *((CCompositionFrame ***)*v4 + 1) != v4 )
-        break;
-      v11 = *v5;
-      if ( *((CCompositionFrame ***)*v5 + 1) != v5 )
-        break;
-      *v4 = v11;
-      *((_QWORD *)v11 + 1) = v4;
-      if ( v5 == v4 )
-        goto LABEL_5;
-    }
-LABEL_12:
-    __fastfail(3u);
-  }
-LABEL_5:
-  v7 = *((_QWORD *)this + 11);
-  v8 = (_QWORD *)((char *)this + 184);
+  v1 = (char *)this + 144;
+  *((_DWORD *)this + 22) = 1;
+  for ( i = (char *)*((_QWORD *)this + 18); i != v1; i = *(char **)i )
+    (*(void (__fastcall **)(_QWORD *))(*((_QWORD *)i - 1) + 40LL))((_QWORD *)i - 1);
+  v4 = (char *)this + 160;
   while ( 1 )
   {
-    v9 = (_QWORD *)*v8;
-    if ( (_QWORD *)*v8 == v8 )
+    v5 = *(char **)v4;
+    if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 || (v6 = *(_QWORD *)v5, *(char **)(*(_QWORD *)v5 + 8LL) != v5) )
+      __fastfail(3u);
+    *(_QWORD *)v4 = v6;
+    *(_QWORD *)(v6 + 8) = v4;
+    if ( v5 == v4 )
       break;
-    v12 = (struct CFlipManagerSignal *)(v9 - 1);
-    if ( !v9 )
-      v12 = 0LL;
-    v13 = *((_QWORD *)v12 + 5);
-    *((_QWORD *)v12 + 5) = 0LL;
-    if ( (int)CPushLock::AcquireLockExclusive((CPushLock *)(v13 + 40)) >= 0 )
-    {
-      CFlipManager::ProcessSignal((CFlipManager *)(v13 + 32), v12, v7);
-      CPushLock::ReleaseLock((CPushLock *)(v13 + 40));
-    }
-    ObfDereferenceObject((PVOID)v13);
+    v7 = v5 - 48;
+    (*(void (__fastcall **)(char *))(*((_QWORD *)v5 - 1) + 56LL))(v5 - 8);
+    ObfDereferenceObject(v7);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetLocalizedInt@@YAHIH@Z @ 0x1C0076814
+ * XREFs of ?GetLocalizedInt@@YAHIH@Z @ 0x1C00E25A8
  * Callers:
- *     SetIconMetrics @ 0x1C00761C4 (SetIconMetrics.c)
+ *     SetIconMetrics @ 0x1C00E1F70 (SetIconMetrics.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetLocalizedInt(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall GetLocalizedInt(__int64 a1)
   WCHAR SourceString[80]; // [rsp+40h] [rbp-B8h] BYREF
 
   Value = 0;
-  if ( !(unsigned int)RtlLoadStringOrError(a1, SourceString) )
+  if ( !(unsigned int)RtlLoadStringOrError(a1, SourceString, 80LL) )
     return 4294966171LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);

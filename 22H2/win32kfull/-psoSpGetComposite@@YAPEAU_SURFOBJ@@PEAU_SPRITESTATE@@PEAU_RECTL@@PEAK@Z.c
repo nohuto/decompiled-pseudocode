@@ -1,15 +1,15 @@
 /*
- * XREFs of ?psoSpGetComposite@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAK@Z @ 0x1C027FCB0
+ * XREFs of ?psoSpGetComposite@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAK@Z @ 0x1C01645BC
  * Callers:
- *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001EC30 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0281B48 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
- *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0281D9C (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0282134 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00F0208 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0163C34 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
+ *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x1C0283848 (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0283BD4 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C001BF2C (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
- *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C001C534 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00ED794 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
+ *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C00F0CD0 (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
  */
 
 struct _SURFOBJ *__fastcall psoSpGetComposite(struct _SPRITESTATE *a1, struct _RECTL *a2, unsigned int *a3)
@@ -17,72 +17,78 @@ struct _SURFOBJ *__fastcall psoSpGetComposite(struct _SPRITESTATE *a1, struct _R
   struct _SURFOBJ *v6; // rbx
   signed int ClearBits; // eax
   ULONG v8; // edi
-  signed int v9; // r15d
-  struct _SURFOBJ *v10; // rdx
-  __int64 v11; // r14
-  __int64 v12; // rsi
-  __int64 v13; // rdx
+  int v9; // r15d
+  __int64 v10; // rbp
+  __int64 v12; // r10
+  signed int v13; // r8d
   signed int v14; // r9d
-  int v15; // r8d
-  int v16; // ecx
+  int v15; // edx
+  signed int v16; // eax
+  int v17; // ecx
+  signed int v18; // eax
+  int v19; // ecx
   struct _SURFOBJ *Surface; // rax
-  char v19; // [rsp+70h] [rbp+8h] BYREF
+  char v21; // [rsp+60h] [rbp+8h] BYREF
 
   *a3 = -1;
   v6 = 0LL;
-  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v19, (struct _SPRITESTATE *)((char *)a1 + 688));
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v21, (struct _SPRITESTATE *)((char *)a1 + 688));
   ClearBits = RtlFindClearBits((PRTL_BITMAP)((char *)a1 + 664), 1u, 0);
   v8 = ClearBits;
   v9 = -1;
   if ( ClearBits == -1 )
   {
-    v12 = -1LL;
-    v11 = -1LL;
+    v10 = -1LL;
   }
   else
   {
-    v10 = (struct _SURFOBJ *)*((_QWORD *)a1 + ClearBits + 19);
-    v11 = ClearBits;
-    v6 = v10;
-    v12 = ClearBits;
-    if ( v10 && v10->sizlBitmap.cx >= a2->right - a2->left && v10->sizlBitmap.cy >= a2->bottom - a2->top )
+    v6 = (struct _SURFOBJ *)*((_QWORD *)a1 + ClearBits + 19);
+    v10 = ClearBits;
+  }
+  if ( v6 && v6->sizlBitmap.cx >= a2->right - a2->left && v6->sizlBitmap.cy >= a2->bottom - a2->top )
+  {
+LABEL_6:
+    if ( v8 != -1 )
     {
-LABEL_21:
       *a3 = v8;
       RtlSetBits((PRTL_BITMAP)((char *)a1 + 664), v8, 1u);
-      goto LABEL_22;
     }
+    goto LABEL_8;
   }
   vSpDeleteSurface(v6);
-  if ( v8 == -1 )
-    v12 = v11;
-  else
-    *((_QWORD *)a1 + v12 + 19) = 0LL;
-  v13 = *((_QWORD *)a1 + 1);
+  if ( v8 != -1 )
+    *((_QWORD *)a1 + v10 + 19) = 0LL;
+  v12 = *((_QWORD *)a1 + 1);
+  v13 = -1;
   v14 = -1;
-  while ( v13 )
+  while ( v12 )
   {
-    v15 = *(_DWORD *)(v13 + 88) - *(_DWORD *)(v13 + 80);
-    if ( v15 <= v9 )
-      v15 = v9;
-    v16 = *(_DWORD *)(v13 + 92) - *(_DWORD *)(v13 + 84);
-    v13 = *(_QWORD *)(v13 + 24);
-    v9 = v15;
-    if ( v16 <= v14 )
-      v16 = v14;
-    v14 = v16;
+    v15 = *(_DWORD *)(v12 + 88) - *(_DWORD *)(v12 + 80);
+    v16 = v15;
+    if ( v15 <= v13 )
+      v16 = v13;
+    v17 = *(_DWORD *)(v12 + 92) - *(_DWORD *)(v12 + 84);
+    v12 = *(_QWORD *)(v12 + 24);
+    v13 = v16;
+    v18 = v17;
+    if ( v17 <= v14 )
+      v18 = v14;
+    v19 = v15 * v17;
+    v14 = v18;
+    if ( v19 <= v9 )
+      v19 = v9;
+    v9 = v19;
   }
-  Surface = psoSpCreateSurface(a1, 0, v9, v14);
+  Surface = psoSpCreateSurface(a1, 0, v13, v14);
   v6 = Surface;
   if ( Surface )
   {
     if ( v8 != -1 )
-      *((_QWORD *)a1 + v12 + 19) = Surface;
+      *((_QWORD *)a1 + v10 + 19) = Surface;
     Surface->fjBitmap |= 4u;
-    if ( v8 != -1 )
-      goto LABEL_21;
+    goto LABEL_6;
   }
-LABEL_22:
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v19);
+LABEL_8:
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v21);
   return v6;
 }

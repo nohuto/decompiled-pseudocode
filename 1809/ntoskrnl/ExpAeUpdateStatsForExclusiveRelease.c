@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpAeUpdateStatsForExclusiveRelease @ 0x140117BFC
+ * XREFs of ExpAeUpdateStatsForExclusiveRelease @ 0x140117C1C
  * Callers:
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140117B80 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExTryAcquireAutoExpandPushLockExclusive @ 0x140169CF0 (ExTryAcquireAutoExpandPushLockExclusive.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExTryAcquireAutoExpandPushLockExclusive @ 0x140169D10 (ExTryAcquireAutoExpandPushLockExclusive.c)
  * Callees:
  *     <none>
  */

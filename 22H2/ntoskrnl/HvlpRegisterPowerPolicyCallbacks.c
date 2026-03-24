@@ -1,33 +1,53 @@
 /*
- * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x140547294
+ * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x1404F8304
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x1407A7570 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x1406F4AF0 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS HvlpRegisterPowerPolicyCallbacks()
 {
-  GUID **v0; // rbx
-  __int64 v1; // rdi
   NTSTATUS result; // eax
+  GUID **v1; // rbx
+  __int64 v2; // rdi
+  GUID **v3; // rbx
+  __int64 v4; // rdi
 
-  if ( (HvlpEnlightenments & 0x400) != 0 )
+  result = HvlpEnlightenments;
+  if ( (HvlpEnlightenments & 8) != 0 )
   {
-    v0 = &HvlpPowerSettingList;
-    v1 = 6LL;
+    v1 = &HvlpLegacyPowerSettingList;
+    v2 = 15LL;
     do
     {
       result = PoRegisterPowerSettingCallback(
                  0LL,
-                 *v0,
-                 (PPOWER_SETTING_CALLBACK)HvlpPowerPolicySettingCallback,
-                 (PVOID)*((int *)v0 + 2),
+                 *v1,
+                 (PPOWER_SETTING_CALLBACK)HvlpLegacyPowerPolicySettingCallback,
+                 (PVOID)*((int *)v1 + 2),
                  0LL);
-      v0 += 2;
-      --v1;
+      v1 += 2;
+      --v2;
     }
-    while ( v1 );
+    while ( v2 );
+  }
+  if ( (HvlpEnlightenments & 0x408) != 0 )
+  {
+    v3 = &HvlpPowerSettingList;
+    v4 = 5LL;
+    do
+    {
+      result = PoRegisterPowerSettingCallback(
+                 0LL,
+                 *v3,
+                 (PPOWER_SETTING_CALLBACK)HvlpPowerPolicySettingCallback,
+                 (PVOID)*((int *)v3 + 2),
+                 0LL);
+      v3 += 2;
+      --v4;
+    }
+    while ( v4 );
   }
   return result;
 }

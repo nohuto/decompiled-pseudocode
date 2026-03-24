@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwOpenSection @ 0x14041BE40
+ * XREFs of ZwOpenSection @ 0x1403FAA80
  * Callers:
- *     DifZwOpenSectionWrapper @ 0x140622730 (DifZwOpenSectionWrapper.c)
- *     NtGetNlsSectionPtr @ 0x140784CB0 (NtGetNlsSectionPtr.c)
- *     EmpMapPhysicalAddress @ 0x140B0DAC4 (EmpMapPhysicalAddress.c)
- *     CmpInitializeMachineDependentConfiguration @ 0x140B17304 (CmpInitializeMachineDependentConfiguration.c)
+ *     NtGetNlsSectionPtr @ 0x1406B9930 (NtGetNlsSectionPtr.c)
+ *     EmpMapPhysicalAddress @ 0x140A477DC (EmpMapPhysicalAddress.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140A58C04 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
  *     <none>
  */

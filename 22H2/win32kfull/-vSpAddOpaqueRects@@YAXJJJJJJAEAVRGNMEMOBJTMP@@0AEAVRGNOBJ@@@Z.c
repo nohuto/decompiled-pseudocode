@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSpAddOpaqueRects@@YAXJJJJJJAEAVRGNMEMOBJTMP@@0AEAVRGNOBJ@@@Z @ 0x1C028008C
+ * XREFs of ?vSpAddOpaqueRects@@YAXJJJJJJAEAVRGNMEMOBJTMP@@0AEAVRGNOBJ@@@Z @ 0x1C0281F98
  * Callers:
- *     ?vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z @ 0x1C02805DC (-vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z.c)
+ *     ?vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z @ 0x1C02824CC (-vSpComputeClipEffective@@YAXPEAVSPRITE@@AEAVRGNOBJ@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall vSpAddOpaqueRects(
@@ -20,7 +20,7 @@ void __fastcall vSpAddOpaqueRects(
   LONG v9; // eax
   LONG v11; // ecx
   LONG v14; // eax
-  LONG v15; // r13d
+  LONG v15; // r12d
   struct _RECTL v17; // [rsp+28h] [rbp-18h] BYREF
 
   v9 = a3;

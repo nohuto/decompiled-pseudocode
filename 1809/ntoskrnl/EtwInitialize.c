@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwInitialize @ 0x140743300
+ * XREFs of EtwInitialize @ 0x1407432E0
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407455D4 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     ExIsSoftBoot @ 0x140186390 (ExIsSoftBoot.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExIsSoftBoot @ 0x1401863B0 (ExIsSoftBoot.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     EtwpSavePersistedLoggersWorker @ 0x1408CA8D0 (EtwpSavePersistedLoggersWorker.c)
+ *     EtwpSavePersistedLoggersWorker @ 0x1408CA8B0 (EtwpSavePersistedLoggersWorker.c)
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  */
 

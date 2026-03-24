@@ -1,252 +1,141 @@
 /*
- * XREFs of ExRaiseHardError @ 0x140A02230
+ * XREFs of ExRaiseHardError @ 0x140956110
  * Callers:
- *     NtRaiseHardError @ 0x1406CDD90 (NtRaiseHardError.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     CmpQuotaWarningWorker @ 0x140911AE0 (CmpQuotaWarningWorker.c)
- *     CmpDiskFullWarningWorker @ 0x14091D6C0 (CmpDiskFullWarningWorker.c)
- *     IopHardErrorThread @ 0x1409345F0 (IopHardErrorThread.c)
- *     IopRaiseHardError @ 0x140934B80 (IopRaiseHardError.c)
- *     IopRaiseInformationalHardError @ 0x140934E20 (IopRaiseInformationalHardError.c)
- *     ExpExpirationThread @ 0x1409F7CD0 (ExpExpirationThread.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
+ *     CmpQuotaWarningWorker @ 0x14086B880 (CmpQuotaWarningWorker.c)
+ *     CmpDiskFullWarningWorker @ 0x140876C20 (CmpDiskFullWarningWorker.c)
+ *     IopHardErrorThread @ 0x140891660 (IopHardErrorThread.c)
+ *     IopRaiseHardError @ 0x140891C00 (IopRaiseHardError.c)
+ *     IopRaiseInformationalHardError @ 0x140891EA0 (IopRaiseInformationalHardError.c)
+ *     ExpExpirationThread @ 0x14094B8A0 (ExpExpirationThread.c)
+ *     NtRaiseHardError @ 0x1409567C0 (NtRaiseHardError.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     Feature_3907421502__private_IsEnabled @ 0x14041AC58 (Feature_3907421502__private_IsEnabled.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExpRaiseHardError @ 0x1406CDFAC (ExpRaiseHardError.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpRaiseHardError @ 0x140956428 (ExpRaiseHardError.c)
  */
 
-int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *a4, int a5, unsigned int *a6)
+__int64 __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, int a5, int *a6)
 {
-  __int64 v8; // rsi
-  unsigned int v9; // ebx
-  unsigned int *v10; // r15
-  unsigned int v11; // r13d
-  int result; // eax
-  ULONG_PTR v13; // rdx
-  unsigned int v14; // ecx
-  unsigned __int16 *v15; // r8
-  _OWORD **v16; // r9
-  char *v17; // r13
-  char *v18; // rcx
-  wchar_t *v19; // r8
-  __int64 j; // r15
-  __int64 v21; // rax
-  UNICODE_STRING *v22; // rcx
-  __int64 v23; // rbx
-  int v24; // ebx
-  ULONG_PTR v25; // r15
-  unsigned int v26; // edx
-  char *v27; // r8
-  _QWORD *v28; // r15
-  char *v29; // r13
+  __int64 v8; // rdi
+  int *v9; // r15
+  int v10; // r14d
+  ULONG_PTR v11; // rsi
+  NTSTATUS v12; // ebx
+  unsigned int v13; // edx
+  char *v14; // r8
+  _QWORD *v15; // r14
+  char *v16; // rsi
   __int64 i; // rbx
-  __int64 v31; // rdx
-  __int64 v32; // rax
-  __int64 v33; // rcx
-  ULONG_PTR RegionSize; // [rsp+40h] [rbp-188h] BYREF
-  int v35; // [rsp+48h] [rbp-180h]
-  unsigned int v36; // [rsp+4Ch] [rbp-17Ch] BYREF
-  unsigned int v37; // [rsp+50h] [rbp-178h]
-  PVOID BaseAddress; // [rsp+58h] [rbp-170h] BYREF
-  unsigned int v39; // [rsp+60h] [rbp-168h]
-  unsigned int v40; // [rsp+68h] [rbp-160h]
-  int v41; // [rsp+70h] [rbp-158h]
-  wchar_t *v42; // [rsp+78h] [rbp-150h]
-  unsigned int *v43; // [rsp+80h] [rbp-148h]
-  PVOID v44[3]; // [rsp+88h] [rbp-140h] BYREF
-  __int64 v45; // [rsp+A0h] [rbp-128h]
-  wchar_t *v46; // [rsp+A8h] [rbp-120h]
-  _OWORD v47[2]; // [rsp+B0h] [rbp-118h] BYREF
-  __int64 v48; // [rsp+D0h] [rbp-F8h]
-  _OWORD v49[2]; // [rsp+E0h] [rbp-E8h] BYREF
-  __int64 v50; // [rsp+100h] [rbp-C8h]
-  void *Src[10]; // [rsp+130h] [rbp-98h] BYREF
+  __int64 v18; // rcx
+  int v21; // [rsp+48h] [rbp-140h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp-138h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-130h] BYREF
+  int v24; // [rsp+60h] [rbp-128h]
+  unsigned int v25; // [rsp+68h] [rbp-120h]
+  int v26; // [rsp+70h] [rbp-118h]
+  char *v27; // [rsp+78h] [rbp-110h]
+  int *v28; // [rsp+80h] [rbp-108h]
+  PVOID v29; // [rsp+88h] [rbp-100h]
+  const void *v30; // [rsp+90h] [rbp-F8h]
+  __int64 v31; // [rsp+98h] [rbp-F0h]
+  _OWORD v32[2]; // [rsp+A0h] [rbp-E8h] BYREF
+  __int64 v33; // [rsp+C0h] [rbp-C8h]
+  _OWORD v34[2]; // [rsp+C8h] [rbp-C0h] BYREF
+  __int64 v35; // [rsp+E8h] [rbp-A0h]
+  void *Src[10]; // [rsp+F0h] [rbp-98h] BYREF
 
   v8 = a2;
-  v9 = a1;
-  v37 = a1;
-  v39 = a1;
-  v40 = a2;
-  v41 = a3;
-  v44[1] = a4;
-  v10 = a6;
-  v43 = a6;
-  v11 = 0;
-  v36 = 0;
+  v24 = a1;
+  v25 = a2;
+  v26 = a3;
+  v30 = a4;
+  v9 = a6;
+  v28 = a6;
   RegionSize = 0LL;
-  v44[0] = 0LL;
+  v10 = 0;
+  v21 = 0;
   BaseAddress = 0LL;
-  result = Feature_3907421502__private_IsEnabled();
-  if ( result )
-  {
-    memset(v49, 0, sizeof(v49));
-    v50 = 0LL;
-    memset(v47, 0, sizeof(v47));
-    v48 = 0LL;
-    v25 = 80LL;
-    memset(Src, 0, sizeof(Src));
-    if ( ExpTooLateForErrors )
-    {
-      v24 = 0;
-      v11 = 1;
-    }
-    else if ( (unsigned int)v8 <= 5 )
-    {
-      if ( a4 )
-      {
-        memmove(v49, a4, 8 * v8);
-        memmove(v47, a4, 8 * v8);
-        if ( a3 )
-        {
-          RegionSize = 80LL;
-          v26 = 0;
-          if ( (_DWORD)v8 )
-          {
-            v27 = a4;
-            do
-            {
-              if ( _bittest(&a3, v26) )
-              {
-                v25 += *(unsigned __int16 *)(*(_QWORD *)v27 + 2LL);
-                RegionSize = v25;
-              }
-              ++v26;
-              v27 += 8;
-            }
-            while ( v26 < (unsigned int)v8 );
-          }
-          v24 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v44, 0LL, &RegionSize, 0x1000u, 4u);
-          if ( v24 < 0 )
-            goto LABEL_44;
-          v28 = v44[0];
-          v44[2] = v44[0];
-          v29 = (char *)v44[0] + 80;
-          v42 = (wchar_t *)((char *)v44[0] + 80);
-          for ( i = 0LL; ; i = (unsigned int)(i + 1) )
-          {
-            v35 = i;
-            if ( (unsigned int)i >= (unsigned int)v8 )
-              break;
-            if ( _bittest(&a3, i) )
-            {
-              v45 = (unsigned int)i;
-              *(_OWORD *)&Src[2 * (unsigned int)i] = *(_OWORD *)*(_QWORD *)&a4[8 * i];
-              v28[2 * (unsigned int)i + 1] = v29;
-              WORD1(v28[2 * (unsigned int)i]) = WORD1(Src[2 * (unsigned int)i]);
-              LOWORD(v28[2 * (unsigned int)i]) = Src[2 * (unsigned int)i];
-              memmove(v29, Src[2 * (unsigned int)i + 1], WORD1(Src[2 * (unsigned int)i]));
-              v31 = v45;
-              v32 = 2 * v45;
-              Src[v32 + 1] = v29;
-              v29 += WORD1(Src[v32]);
-              v42 = (wchar_t *)v29;
-              v33 = 2LL * (unsigned int)i;
-              *((_QWORD *)v49 + v31) = &v28[v33];
-              *((_QWORD *)v47 + v31) = &Src[v33];
-            }
-          }
-        }
-      }
-      v24 = ExpRaiseHardError(v37, v8, a3, v49, (__int64)v47, a5, &v36);
-      v11 = v36;
-    }
-    else
-    {
-      v24 = -1073741584;
-    }
-LABEL_44:
-    *v43 = v11;
-    if ( v44[0] )
-    {
-      RegionSize = 0LL;
-      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v44, &RegionSize, 0x8000u);
-    }
-    return v24;
-  }
+  memset(v34, 0, sizeof(v34));
+  v35 = 0LL;
+  memset(v32, 0, sizeof(v32));
+  v33 = 0LL;
+  v11 = 80LL;
+  memset(Src, 0, sizeof(Src));
   if ( ExpTooLateForErrors )
   {
-    *a6 = 1;
-    return result;
+    v12 = 0;
+    v10 = 1;
+    goto LABEL_20;
   }
-  *a6 = 0;
   if ( (unsigned int)v8 > 5 )
-    return -1073741584;
-  if ( !a4 )
-    goto LABEL_22;
-  if ( !a3 )
   {
-    BaseAddress = a4;
-LABEL_22:
-    v24 = ExpRaiseHardError(v9, v8, a3, BaseAddress, (__int64)BaseAddress, a5, &v36);
-    if ( BaseAddress && BaseAddress != a4 )
-    {
-      RegionSize = 0LL;
-      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
-    }
-    *v10 = v36;
-    return v24;
+    v12 = -1073741584;
+    goto LABEL_20;
   }
-  v13 = 136LL;
-  RegionSize = 136LL;
-  v14 = 0;
+  if ( !a4 )
+    goto LABEL_19;
+  memmove(v34, a4, 8 * v8);
+  memmove(v32, a4, 8 * v8);
+  if ( !a3 )
+    goto LABEL_19;
+  RegionSize = 80LL;
+  v13 = 0;
   if ( (_DWORD)v8 )
   {
-    v15 = (unsigned __int16 *)v49 + 1;
-    v16 = (_OWORD **)a4;
+    v14 = a4;
     do
     {
-      if ( _bittest(&a3, v14) )
+      if ( _bittest(&a3, v13) )
       {
-        *(_OWORD *)(v15 - 1) = **v16;
-        v13 += *v15;
-        RegionSize = v13;
+        v11 += *(unsigned __int16 *)(*(_QWORD *)v14 + 2LL);
+        RegionSize = v11;
       }
-      ++v14;
-      ++v16;
-      v15 += 8;
+      ++v13;
+      v14 += 8;
     }
-    while ( v14 < (unsigned int)v8 );
+    while ( v13 < (unsigned int)v8 );
   }
-  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
-  if ( result >= 0 )
+  v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+  if ( v12 >= 0 )
   {
-    v17 = (char *)BaseAddress;
-    v18 = (char *)BaseAddress + 40;
-    v19 = (wchar_t *)((char *)BaseAddress + 120);
-    v42 = (wchar_t *)((char *)BaseAddress + 120);
-    for ( j = 0LL; ; j = (unsigned int)(j + 1) )
+    v15 = BaseAddress;
+    v29 = BaseAddress;
+    v16 = (char *)BaseAddress + 80;
+    v27 = (char *)BaseAddress + 80;
+    for ( i = 0LL; (unsigned int)i < (unsigned int)v8; i = (unsigned int)(i + 1) )
     {
-      v35 = j;
-      if ( (unsigned int)j >= (unsigned int)v8 )
-        break;
-      if ( _bittest(&a3, j) )
+      if ( _bittest(&a3, i) )
       {
-        *(_QWORD *)&v17[8 * j] = &v18[16 * (unsigned int)j];
-        v21 = (unsigned int)j;
-        v22 = (UNICODE_STRING *)&v18[v21 * 16];
-        v22->Buffer = v19;
-        v23 = WORD1(v49[v21]);
-        v22->MaximumLength = v23;
-        RtlCopyUnicodeString(v22, (PCUNICODE_STRING)&v49[v21]);
-        v19 = (wchar_t *)((char *)v42 + v23);
-        v42 = v19;
-        v46 = v19;
-        v18 = v17 + 40;
-      }
-      else
-      {
-        *(_QWORD *)&v17[8 * j] = *(_QWORD *)&a4[8 * j];
+        v31 = (unsigned int)i;
+        *(_OWORD *)&Src[2 * (unsigned int)i] = *(_OWORD *)*(_QWORD *)&a4[8 * i];
+        v15[2 * (unsigned int)i + 1] = v16;
+        WORD1(v15[2 * (unsigned int)i]) = WORD1(Src[2 * (unsigned int)i]);
+        LOWORD(v15[2 * (unsigned int)i]) = Src[2 * (unsigned int)i];
+        memmove(v16, Src[2 * (unsigned int)i + 1], WORD1(Src[2 * (unsigned int)i]));
+        Src[2 * (unsigned int)i + 1] = v16;
+        v16 += WORD1(Src[2 * (unsigned int)i]);
+        v27 = v16;
+        v18 = 2LL * (unsigned int)i;
+        *((_QWORD *)v34 + (unsigned int)i) = &v15[v18];
+        *((_QWORD *)v32 + (unsigned int)i) = &Src[v18];
       }
     }
-    v10 = v43;
-    v9 = v37;
-    goto LABEL_22;
+    v9 = v28;
+LABEL_19:
+    v12 = ExpRaiseHardError(a1, v8, a3, (unsigned int)v34, (__int64)v32, a5, (__int64)&v21);
+    v10 = v21;
   }
-  return result;
+LABEL_20:
+  *v9 = v10;
+  if ( BaseAddress )
+  {
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+  }
+  return (unsigned int)v12;
 }

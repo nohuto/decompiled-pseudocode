@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpQueryRebalance @ 0x140959D3C
+ * XREFs of PnpQueryRebalance @ 0x1408B84C0
  * Callers:
- *     PnpFindRebalanceCandidates @ 0x140959C24 (PnpFindRebalanceCandidates.c)
- *     PnpQueryRebalance @ 0x140959D3C (PnpQueryRebalance.c)
+ *     PnpFindRebalanceCandidates @ 0x1408B83A8 (PnpFindRebalanceCandidates.c)
+ *     PnpQueryRebalance @ 0x1408B84C0 (PnpQueryRebalance.c)
  * Callees:
- *     PnpQueryRebalance @ 0x140959D3C (PnpQueryRebalance.c)
- *     PnpQueryRebalanceWorker @ 0x140959DF4 (PnpQueryRebalanceWorker.c)
+ *     PnpQueryRebalance @ 0x1408B84C0 (PnpQueryRebalance.c)
+ *     PnpQueryRebalanceWorker @ 0x1408B8578 (PnpQueryRebalanceWorker.c)
  */
 
 __int64 __fastcall PnpQueryRebalance(ULONG_PTR a1, int a2, int a3, int a4, __int64 a5, char a6)

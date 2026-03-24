@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetKernelHandle@CChannel@@UEAAIXZ @ 0x1800FA5E0
+ * XREFs of ?GetKernelHandle@CChannel@@UEAAIXZ @ 0x1800E1C20
  * Callers:
  *     <none>
  * Callees:

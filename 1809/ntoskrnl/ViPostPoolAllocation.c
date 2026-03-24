@@ -3,7 +3,7 @@
  * Callers:
  *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     ExpSizeHeapPool @ 0x1401B79B4 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x1401B79D4 (ExpSizeHeapPool.c)
  */
 
 unsigned __int64 __fastcall ViPostPoolAllocation(unsigned __int64 *a1, char a2)

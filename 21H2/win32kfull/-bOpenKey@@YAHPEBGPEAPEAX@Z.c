@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00C87D4
+ * XREFs of ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00E4F30
  * Callers:
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00C83A0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
- *     bInitStockFontsInternal @ 0x1C0390308 (bInitStockFontsInternal.c)
- *     hfontInitDefaultGuiFont @ 0x1C03909E0 (hfontInitDefaultGuiFont.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E49D0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     bInitStockFontsInternal @ 0x1C0393344 (bInitStockFontsInternal.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03939F0 (hfontInitDefaultGuiFont.c)
  * Callees:
  *     <none>
  */

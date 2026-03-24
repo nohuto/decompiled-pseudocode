@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwWaitForMultipleObjects @ 0x14041C2C0
+ * XREFs of ZwWaitForMultipleObjects @ 0x1403FAF00
  * Callers:
- *     DifZwWaitForMultipleObjectsWrapper @ 0x140628590 (DifZwWaitForMultipleObjectsWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,501 +1,486 @@
 /*
- * XREFs of ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@IV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x18005B470
+ * XREFs of ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@_NIV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x18006982C
  * Callers:
- *     ?Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z @ 0x18005AAF0 (-Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z.c)
+ *     ?Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z @ 0x180068DB0 (-Draw@CRenderData@@AEAAJPEAUIDrawingContext@@W4DrawPass@1@@Z.c)
  * Callees:
- *     ?DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@PEAVCImageSource@@PEBUD2D_RECT_F@@3M@Z @ 0x180059634 (-DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@PE.c)
- *     ?GetOpacity@CLegacyMilBrush@@KAMMPEAV?$TValueResource@MUtagMILCMD_FLOATRESOURCE@@$0DM@@@@Z @ 0x18005B9A0 (-GetOpacity@CLegacyMilBrush@@KAMMPEAV-$TValueResource@MUtagMILCMD_FLOATRESOURCE@@$0DM@@@@Z.c)
- *     ?DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x18005BB20 (-DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUM.c)
- *     ?ReducesToFillImage@CImageLegacyMilBrush@@QEBA_NXZ @ 0x18005BD74 (-ReducesToFillImage@CImageLegacyMilBrush@@QEBA_NXZ.c)
- *     ?DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@PEAVCImageSource@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@M@Z @ 0x18005C274 (-DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEnt_ea_18005C274.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18008ECB8 (-GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18009AF00 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z @ 0x1800D737C (-_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z.c)
- *     ?DrawImageResource_TileMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@PEAVCImageSource@@MAEBUMilPoint2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800EB360 (-DrawImageResource_TileMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@PE.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@@Z @ 0x18020827C (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMi.c)
- *     ?IsRoundedRectangleGeometry@CRectangleGeometry@@QEBA_NXZ @ 0x18023B320 (-IsRoundedRectangleGeometry@CRectangleGeometry@@QEBA_NXZ.c)
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$allocator@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18023B5D0 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
+ *     ?IsRoundedRectangleGeometry@CRectangleGeometry@@QEBA_NXZ @ 0x18001A250 (-IsRoundedRectangleGeometry@CRectangleGeometry@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800678F4 (-GetBoundsSafe@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?GetOpacity@CLegacyMilBrush@@KAMMPEAV?$TValueResource@MUtagMILCMD_FLOATRESOURCE@@$0DM@@@@Z @ 0x180068A7C (-GetOpacity@CLegacyMilBrush@@KAMMPEAV-$TValueResource@MUtagMILCMD_FLOATRESOURCE@@$0DM@@@@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087600 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?DrawImageResource_TileMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NPEAVCImageSource@@MAEBUMilPoint2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800C6748 (-DrawImageResource_TileMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_N.c)
+ *     ?DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NPEAVCImageSource@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@M@Z @ 0x1800C6AC4 (-DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_N.c)
+ *     ?DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NPEAVCImageSource@@PEBUD2D_RECT_F@@4M@Z @ 0x1800C6B1C (-DrawImageResource_FillMode@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEnt_ea_1800C6B1C.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800CC040 (-DrawSolidColorRectangle@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEB.c)
+ *     ?IsRectangles@CShapePtr@@QEBA_NPEAI@Z @ 0x1800D3004 (-IsRectangles@CShapePtr@@QEBA_NPEAI@Z.c)
+ *     ?ReducesToFillImage@CImageLegacyMilBrush@@QEBA_NXZ @ 0x1800D459C (-ReducesToFillImage@CImageLegacyMilBrush@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEBUMilRectF@@@Z @ 0x1801B5444 (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@_NAEBU.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$allocator@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801E87F8 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
  */
 
 __int64 __fastcall CRenderData::TryDrawCommandAsDrawList(
         CRenderData *this,
-        const struct CVisualTree **a2,
+        struct CDrawingContext *a2,
         __int64 a3,
         struct CDrawListEntryBuilder *a4,
-        int a5,
-        CRenderData *a6,
-        bool *a7)
+        bool a5,
+        int a6,
+        __int64 a7,
+        bool *a8)
 {
-  unsigned int v7; // ebx
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  const __m128i *v14; // rsi
-  CRectangleGeometry *v15; // rdi
+  unsigned int v8; // ebx
+  __int64 v13; // rdi
+  struct CDrawListEntryBuilder *v14; // rcx
+  int v15; // eax
   __int64 v16; // rcx
-  __int64 v17; // rdx
-  float v18; // xmm0_4
-  __int64 v19; // rax
-  CRenderData *v20; // rcx
-  __int64 v22; // rdi
-  __int64 v23; // rcx
-  int v24; // eax
-  unsigned int v25; // ecx
-  __int64 v26; // rdi
-  __int64 v27; // rcx
-  int v28; // eax
-  unsigned int v29; // ecx
-  struct CImageSource *v30; // rdi
-  int v31; // eax
-  unsigned int v32; // ecx
-  struct D2D_RECT_F *v33; // rsi
-  struct D2D_RECT_F *v34; // rdi
-  struct CDrawListEntryBuilder *v35; // r13
-  __int64 v36; // rax
-  int v37; // eax
-  CImageLegacyMilBrush *v38; // rdi
-  __int64 v39; // rcx
-  bool v40; // zf
-  __int64 v41; // rcx
-  struct D2D_RECT_F v42; // xmm1
-  __int64 v43; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // r14
+  CRectangleGeometry *v20; // rdi
+  __int64 v21; // rdx
+  float v22; // xmm0_4
   float Opacity; // xmm0_4
-  int v45; // eax
-  unsigned int v46; // ecx
-  int v47; // eax
-  unsigned int v48; // ecx
+  unsigned __int8 (__fastcall *v24)(CRectangleGeometry *, __int64); // rax
+  CRenderData *v25; // rcx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  struct CImageSource *v29; // rdi
+  int v30; // eax
+  __int64 v31; // rcx
+  int v32; // eax
+  __int64 v33; // rcx
+  struct D2D_RECT_F *v34; // r14
+  struct D2D_RECT_F *v35; // rdi
+  struct CDrawListEntryBuilder *v36; // r13
+  __int64 v37; // rax
+  int v38; // eax
+  __int64 v39; // rdi
+  struct CDrawListEntryBuilder *v40; // rcx
+  int v41; // r9d
+  int v42; // eax
+  __int64 v43; // rcx
+  __int64 v44; // rcx
+  __int64 v45; // rax
+  CImageLegacyMilBrush *v46; // rdi
+  bool v47; // zf
+  struct D2D_RECT_F v48; // xmm1
   __int64 v49; // rdx
-  CRenderData *v50; // rcx
-  int v51; // eax
-  unsigned int v52; // ecx
-  int v53; // eax
-  unsigned int v54; // ecx
-  __int64 v55; // rcx
+  float v50; // xmm0_4
+  float v51; // xmm0_4
+  int v52; // eax
+  __int64 v53; // rcx
+  CGeometry *v54; // rcx
+  __int64 v55; // r8
   int v56; // eax
-  CRenderData *v57; // rcx
-  int v58; // eax
-  unsigned int v59; // ecx
-  int ShapeData; // eax
-  unsigned int v61; // ecx
-  __int64 v62; // rdi
-  struct CDrawListEntryBuilder *v63; // rsi
-  CRenderData *v64; // rcx
-  struct CDrawListEntryBuilder *v65; // rdi
-  struct CDrawListEntryBuilder *v66; // r15
-  struct CDrawListEntryBuilder *v67; // r13
-  int v68; // eax
-  __int64 v69; // rcx
-  __int64 v70; // r8
+  __int64 v57; // rcx
+  float v58; // xmm0_4
+  const struct D2D_RECT_F *v59; // rcx
+  int v60; // eax
+  __int64 v61; // rcx
+  __int64 v62; // rdx
+  float v63; // xmm0_4
+  int v64; // eax
+  __int64 v65; // rcx
+  int v66; // eax
+  __int64 v67; // rcx
+  CGeometry *v68; // rcx
   int BoundsSafe; // eax
-  unsigned int v72; // ecx
-  __int32 v73; // eax
-  struct D2D_RECT_F *v74; // rcx
-  float v75; // xmm0_4
-  const struct D2D_RECT_F *v76; // rcx
-  int v77; // eax
-  unsigned int v78; // ecx
-  struct D2D_RECT_F v79; // [rsp+48h] [rbp-61h] BYREF
-  void *v80[2]; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v81; // [rsp+68h] [rbp-41h]
-  struct D2D_RECT_F v82; // [rsp+70h] [rbp-39h] BYREF
-  struct CDrawListEntryBuilder *v83[2]; // [rsp+80h] [rbp-29h] BYREF
-  struct D2D_RECT_F v84; // [rsp+90h] [rbp-19h] BYREF
+  CRenderData *v70; // rcx
+  int v71; // eax
+  __int64 v72; // rcx
+  int ShapeData; // eax
+  __int64 v74; // rcx
+  __int64 v75; // rdi
+  _OWORD *v76; // r14
+  CRenderData *v77; // rcx
+  _OWORD *v78; // r15
+  struct CDrawListEntryBuilder *v79; // r13
+  int v80; // eax
+  struct CImageSource *v81; // [rsp+48h] [rbp-69h] BYREF
+  __int128 v82; // [rsp+50h] [rbp-61h] BYREF
+  __int64 v83; // [rsp+60h] [rbp-51h]
+  struct D2D_RECT_F v84; // [rsp+68h] [rbp-49h] BYREF
+  struct _D3DCOLORVALUE v85; // [rsp+78h] [rbp-39h] BYREF
+  struct CDrawListEntryBuilder *v86[2]; // [rsp+88h] [rbp-29h] BYREF
 
-  v7 = 0;
-  v83[0] = a4;
-  *a7 = 0;
-  if ( a5 == 455 )
+  v8 = 0;
+  v86[0] = a4;
+  *a8 = 0;
+  switch ( a6 )
   {
-    v30 = *(struct CImageSource **)(*((_QWORD *)this + 17) + 8LL * *(unsigned int *)(*((_QWORD *)a6 + 1) + 4LL));
-    if ( !v30 || !(*(unsigned __int8 (__fastcall **)(struct CImageSource *, __int64))(*(_QWORD *)v30 + 56LL))(v30, 83LL) )
-      return v7;
-    if ( !*(_QWORD *)(a3 + 32) )
-    {
-      v31 = CRenderData::DrawImageResource_FillMode(this, a2, a4, v30, 0LL, 0LL, 1.0);
-      v7 = v31;
-      if ( v31 < 0 )
+    case 460:
+      v27 = *(unsigned int *)(*(_QWORD *)(a7 + 8) + 4LL);
+      v28 = *((_QWORD *)this + 16);
+      v29 = *(struct CImageSource **)(v28 + 8 * v27);
+      if ( v29
+        && (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v29 + 56LL))(
+             *(_QWORD *)(v28 + 8 * v27),
+             83LL) )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x281u, 0LL);
-        return v7;
+        if ( !*(_QWORD *)(a3 + 24) )
+        {
+          v30 = CRenderData::DrawImageResource_FillMode(this, a2, a4, a5, v29, 0LL, 0LL, 1.0);
+          v8 = v30;
+          if ( v30 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x286u, 0LL);
+            return v8;
+          }
+        }
+        goto LABEL_17;
       }
-    }
-    goto LABEL_8;
-  }
-  if ( a5 != 456 )
-  {
-    switch ( a5 )
-    {
-      case 458:
-        v26 = *((_QWORD *)a6 + 1);
-        v27 = *(_QWORD *)(*((_QWORD *)this + 17) + 8LL * *(unsigned int *)(v26 + 4));
-        *(_QWORD *)&v79.left = v27;
-        if ( !v27 || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v27 + 56LL))(v27, 83LL) )
-          return v7;
-        if ( !*(_QWORD *)(a3 + 32) )
+      break;
+    case 461:
+      v17 = *(_QWORD *)(a7 + 8);
+      v18 = *((_QWORD *)this + 16);
+      v19 = *(_QWORD *)(v18 + 8LL * *(unsigned int *)(v17 + 4));
+      v20 = *(CRectangleGeometry **)(v18 + 8LL * *(unsigned int *)(v17 + 8));
+      if ( v19 && v20 )
+      {
+        if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v19 + 56LL))(v19, 175LL) )
         {
-          v82 = *(struct D2D_RECT_F *)(v26 + 8);
-          v28 = CRenderData::DrawImageResource_FillMode(
-                  (int)this,
-                  (int)a2,
-                  (int)a4,
-                  SLODWORD(v79.left),
-                  (__int64)&v82,
-                  1.0);
-          v7 = v28;
-          if ( v28 < 0 )
+          v21 = *(_QWORD *)(v19 + 64);
+          v22 = *(float *)(v19 + 56);
+          *(struct _D3DCOLORVALUE *)&v85.r = (struct _D3DCOLORVALUE)_mm_loadu_si128((const __m128i *)(v19 + 88));
+          Opacity = CLegacyMilBrush::GetOpacity(v22, v21);
+          v24 = *(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v20 + 56LL);
+          v85.a = _mm_shuffle_ps(*(__m128 *)&v85.r, *(__m128 *)&v85.r, 255).m128_f32[0] * Opacity;
+          if ( v24(v20, 142LL) )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x26Au, 0LL);
-            return v7;
-          }
-        }
-        break;
-      case 460:
-        v83[0] = *((struct CDrawListEntryBuilder **)a6 + 1);
-        v38 = *(CImageLegacyMilBrush **)(*((_QWORD *)this + 17) + 8LL * *((unsigned int *)v83[0] + 1));
-        if ( !v38 )
-          return v7;
-        if ( (*(unsigned __int8 (__fastcall **)(CImageLegacyMilBrush *, __int64))(*(_QWORD *)v38 + 56LL))(v38, 174LL) )
-        {
-          if ( !*(_QWORD *)(a3 + 32) )
-          {
-            v49 = *((_QWORD *)v38 + 9);
-            v82 = (struct D2D_RECT_F)_mm_loadu_si128((const __m128i *)v38 + 6);
-            v82.bottom = _mm_shuffle_ps((__m128)v82, (__m128)v82, 255).m128_f32[0]
-                       * CLegacyMilBrush::GetOpacity(v39, v49);
-            v51 = CRenderData::DrawSolidColorRectangle(
-                    v50,
-                    (struct CDrawingContext *)a2,
-                    a4,
-                    (struct CDrawListEntryBuilder *)((char *)v83[0] + 8),
-                    (const struct _D3DCOLORVALUE *)&v82);
-            v7 = v51;
-            if ( v51 < 0 )
+            if ( *(_QWORD *)(a3 + 24) )
+              goto LABEL_17;
+            v34 = (struct D2D_RECT_F *)*((_QWORD *)v20 + 17);
+            v35 = (struct D2D_RECT_F *)*((_QWORD *)v20 + 18);
+            if ( v34 == v35 )
+              goto LABEL_17;
+            v36 = v86[0];
+            while ( 1 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0, v51, 0x206u, 0LL);
-              return v7;
-            }
-          }
-        }
-        else
-        {
-          if ( !(*(unsigned __int8 (__fastcall **)(CImageLegacyMilBrush *, __int64))(*(_QWORD *)v38 + 56LL))(v38, 98LL) )
-          {
-            if ( !(*(unsigned __int8 (__fastcall **)(CImageLegacyMilBrush *, __int64))(*(_QWORD *)v38 + 56LL))(
-                    v38,
-                    82LL) )
-              return v7;
-            *(_QWORD *)&v84.left = *((_QWORD *)v38 + 31);
-            v40 = *(_QWORD *)&v84.left == 0LL;
-            if ( *(_QWORD *)&v84.left )
-            {
-              if ( CImageLegacyMilBrush::ReducesToFillImage(v38) )
+              v37 = 0LL;
+              v84 = *v34;
+              do
               {
-                if ( !*(_QWORD *)(a3 + 32) )
+                *(float *)((char *)v86 + v37) = (float)*(int *)((char *)&v84.left + v37);
+                v37 += 4LL;
+              }
+              while ( v37 < 16 );
+              v38 = CRenderData::DrawSolidColorRectangle(v25, a2, v36, a5, (const struct MilRectF *)v86, &v85);
+              v8 = v38;
+              if ( v38 < 0 )
+                break;
+              if ( ++v34 == v35 )
+                goto LABEL_17;
+            }
+            MilInstrumentationCheckHR_MaybeFailFast((__int64)v25, 0LL, 0, v38, 0x2A7u, 0LL);
+          }
+          else
+          {
+            if ( (*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v20 + 56LL))(v20, 138LL) )
+            {
+              if ( CRectangleGeometry::IsRoundedRectangleGeometry(v20) )
+                return v8;
+              if ( !*(_QWORD *)(a3 + 24) )
+              {
+                v84 = 0LL;
+                BoundsSafe = CGeometry::GetBoundsSafe(v68, 0LL, &v84);
+                v8 = BoundsSafe;
+                if ( BoundsSafe < 0 )
                 {
-                  v42 = (struct D2D_RECT_F)*((_OWORD *)v38 + 12);
-                  v43 = *((_QWORD *)v38 + 17);
-                  v82 = *(struct D2D_RECT_F *)((char *)v83[0] + 8);
-                  v79 = v82;
-                  v82 = v42;
-                  Opacity = CLegacyMilBrush::GetOpacity(v41, v43);
-                  v45 = CRenderData::DrawImageResource_FillMode(
-                          this,
-                          a2,
-                          a4,
-                          *(struct CImageSource **)&v84.left,
-                          &v82,
-                          &v79,
-                          Opacity);
-                  v7 = v45;
-                  if ( v45 < 0 )
+                  MilInstrumentationCheckHR_MaybeFailFast((__int64)v70, 0LL, 0, BoundsSafe, 0x2B5u, 0LL);
+                  return v8;
+                }
+                v71 = CRenderData::DrawSolidColorRectangle(v70, a2, v86[0], a5, (const struct MilRectF *)&v84, &v85);
+                v8 = v71;
+                if ( v71 < 0 )
+                {
+                  MilInstrumentationCheckHR_MaybeFailFast(v72, 0LL, 0, v71, 0x2B7u, 0LL);
+                  return v8;
+                }
+              }
+              goto LABEL_17;
+            }
+            if ( (*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v20 + 56LL))(v20, 25LL) )
+            {
+              *(_QWORD *)&v84.left = 0LL;
+              LOBYTE(v84.right) = 0;
+              ShapeData = CGeometry::GetShapeData(v20, 0LL, (struct CShapePtr *)&v84);
+              v8 = ShapeData;
+              if ( ShapeData < 0 )
+              {
+                MilInstrumentationCheckHR_MaybeFailFast(v74, 0LL, 0, ShapeData, 0x2C2u, 0LL);
+              }
+              else if ( CShapePtr::IsRectangles((CShapePtr *)&v84, (unsigned int *)&v81) )
+              {
+                v83 = 0LL;
+                v75 = 0LL;
+                v82 = 0LL;
+                if ( (_DWORD)v81 )
+                {
+                  std::vector<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>>::_Resize_reallocate<std::_Value_init_tag>(
+                    &v82,
+                    (unsigned int)v81);
+                  v75 = v83;
+                }
+                v76 = (_OWORD *)v82;
+                if ( (*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)&v84.left + 48LL))(
+                       *(_QWORD *)&v84.left,
+                       v82) )
+                {
+                  if ( *(_QWORD *)(a3 + 24) || (v78 = v76, v76 == *((_OWORD **)&v82 + 1)) )
                   {
-                    MilInstrumentationCheckHR_MaybeFailFast(v46, 0LL, 0, v45, 0x227u, 0LL);
-                    return v7;
+LABEL_81:
+                    *a8 = 1;
+                  }
+                  else
+                  {
+                    v79 = v86[0];
+                    while ( 1 )
+                    {
+                      *(_OWORD *)v86 = *v78;
+                      v80 = CRenderData::DrawSolidColorRectangle(v77, a2, v79, a5, (const struct MilRectF *)v86, &v85);
+                      v8 = v80;
+                      if ( v80 < 0 )
+                        break;
+                      if ( ++v78 == *((_OWORD **)&v82 + 1) )
+                        goto LABEL_81;
+                    }
+                    MilInstrumentationCheckHR_MaybeFailFast((__int64)v77, 0LL, 0, v80, 0x2D4u, 0LL);
                   }
                 }
-                break;
+                else
+                {
+                  v8 = -2003304309;
+                  MilInstrumentationCheckHR_MaybeFailFast((__int64)v77, 0LL, 0, -2003304309, 0x2CCu, 0LL);
+                }
+                if ( v76 )
+                  std::_Deallocate<16,0>(v76, (v75 - (_QWORD)v76) & 0xFFFFFFFFFFFFFFF0uLL);
               }
-              v40 = *(_QWORD *)&v84.left == 0LL;
+              CShapePtr::Release((CShapePtr *)&v84);
             }
-            *a7 = v40;
-            return v7;
           }
-          if ( !*(_QWORD *)(a3 + 32) )
+        }
+        else if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v19 + 56LL))(v19, 82LL) )
+        {
+          if ( (*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v20 + 56LL))(v20, 138LL) )
           {
-            v53 = CLinearGradientLegacyMilBrush::Draw(
-                    v38,
-                    (struct CDrawingContext *)a2,
-                    a4,
-                    (struct CDrawListEntryBuilder *)((char *)v83[0] + 8));
-            v7 = v53;
-            if ( v53 < 0 )
+            v81 = *(struct CImageSource **)(v19 + 240);
+            if ( !CRectangleGeometry::IsRoundedRectangleGeometry(v20) )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0, v53, 0x213u, 0LL);
-              return v7;
+              if ( !*(_QWORD *)(a3 + 24) && v55 )
+              {
+                v84 = 0LL;
+                v56 = CGeometry::GetBoundsSafe(v54, 0LL, &v84);
+                v8 = v56;
+                if ( v56 < 0 )
+                {
+                  MilInstrumentationCheckHR_MaybeFailFast(v57, 0LL, 0, v56, 0x2E7u, 0LL);
+                  return v8;
+                }
+                *(struct _D3DCOLORVALUE *)&v85.r = (struct _D3DCOLORVALUE)v84;
+                v58 = CLegacyMilBrush::GetOpacity(*(float *)(v19 + 120), *(_QWORD *)(v19 + 128));
+                v60 = CRenderData::DrawImageResource_FillMode(
+                        this,
+                        a2,
+                        v86[0],
+                        a5,
+                        v81,
+                        v59,
+                        (const struct D2D_RECT_F *)&v85,
+                        v58);
+                v8 = v60;
+                if ( v60 < 0 )
+                {
+                  MilInstrumentationCheckHR_MaybeFailFast(v61, 0LL, 0, v60, 0x307u, 0LL);
+                  return v8;
+                }
+              }
+              goto LABEL_17;
             }
           }
         }
-        break;
-      case 461:
-        if ( !*(_QWORD *)(a3 + 32) )
+      }
+      break;
+    case 463:
+      v39 = *(_QWORD *)(a7 + 8);
+      v40 = *(struct CDrawListEntryBuilder **)(*((_QWORD *)this + 16) + 8LL * *(unsigned int *)(v39 + 4));
+      v86[0] = v40;
+      if ( v40
+        && (*(unsigned __int8 (__fastcall **)(struct CDrawListEntryBuilder *, __int64))(*(_QWORD *)v40 + 56LL))(
+             v40,
+             83LL) )
+      {
+        if ( !*(_QWORD *)(a3 + 24) )
         {
-          v47 = CRenderData::DrawSolidColorRectangle(
-                  a6,
-                  (struct CDrawingContext *)a2,
-                  a4,
-                  (const struct MilRectF *)(*((_QWORD *)a6 + 1) + 4LL),
-                  (const struct _D3DCOLORVALUE *)(*((_QWORD *)a6 + 1) + 20LL));
-          v7 = v47;
-          if ( v47 < 0 )
+          LOBYTE(v41) = a5;
+          v84 = *(struct D2D_RECT_F *)(v39 + 8);
+          v42 = CRenderData::DrawImageResource_FillMode(
+                  (_DWORD)this,
+                  (_DWORD)a2,
+                  (_DWORD)a4,
+                  v41,
+                  (__int64)v86[0],
+                  (__int64)&v84,
+                  1.0);
+          v8 = v42;
+          if ( v42 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v47, 0x23Fu, 0LL);
-            return v7;
+            MilInstrumentationCheckHR_MaybeFailFast(v43, 0LL, 0, v42, 0x26Eu, 0LL);
+            return v8;
           }
         }
-        break;
-      case 462:
-        v22 = *((_QWORD *)a6 + 1);
-        v23 = *(_QWORD *)(*((_QWORD *)this + 17) + 8LL * *(unsigned int *)(v22 + 4));
-        *(_QWORD *)&v79.left = v23;
-        if ( !v23 || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v23 + 56LL))(v23, 83LL) )
-          return v7;
-        if ( !*(_QWORD *)(a3 + 32) )
+        goto LABEL_17;
+      }
+      break;
+    case 465:
+      v86[0] = *(struct CDrawListEntryBuilder **)(a7 + 8);
+      v44 = *((unsigned int *)v86[0] + 1);
+      v45 = *((_QWORD *)this + 16);
+      v46 = *(CImageLegacyMilBrush **)(v45 + 8 * v44);
+      if ( !v46 )
+        return v8;
+      if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v46 + 56LL))(
+             *(_QWORD *)(v45 + 8 * v44),
+             175LL) )
+      {
+        if ( !*(_QWORD *)(a3 + 24) )
         {
-          v82 = *(struct D2D_RECT_F *)(v22 + 8);
-          v24 = CRenderData::DrawImageResource_TileMode(
-                  this,
-                  (struct CDrawingContext *)a2,
+          v62 = *((_QWORD *)v46 + 8);
+          v63 = *((float *)v46 + 14);
+          *(struct _D3DCOLORVALUE *)&v85.r = (struct _D3DCOLORVALUE)_mm_loadu_si128((const __m128i *)((char *)v46 + 88));
+          v85.a = _mm_shuffle_ps(*(__m128 *)&v85.r, *(__m128 *)&v85.r, 255).m128_f32[0]
+                * CLegacyMilBrush::GetOpacity(v63, v62);
+          v64 = CRenderData::DrawSolidColorRectangle(
+                  (CRenderData *)&v85,
+                  a2,
                   a4,
-                  *(struct CImageSource **)&v79.left,
-                  *(float *)(v22 + 24),
-                  v22 + 28,
-                  (__int64)&v82);
-          v7 = v24;
-          if ( v24 < 0 )
+                  a5,
+                  (struct CDrawListEntryBuilder *)((char *)v86[0] + 8),
+                  &v85);
+          v8 = v64;
+          if ( v64 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x254u, 0LL);
-            return v7;
+            MilInstrumentationCheckHR_MaybeFailFast(v65, 0LL, 0, v64, 0x205u, 0LL);
+            return v8;
           }
         }
-        break;
-      default:
-        return v7;
-    }
-LABEL_8:
-    *a7 = 1;
-    return v7;
-  }
-  v12 = *((_QWORD *)a6 + 1);
-  v13 = *((_QWORD *)this + 17);
-  v14 = *(const __m128i **)(v13 + 8LL * *(unsigned int *)(v12 + 4));
-  v15 = *(CRectangleGeometry **)(v13 + 8LL * *(unsigned int *)(v12 + 8));
-  if ( !v14 || !v15 )
-    return v7;
-  if ( !(*(unsigned __int8 (__fastcall **)(const __m128i *, __int64))(v14->m128i_i64[0] + 56))(v14, 174LL) )
-  {
-    if ( !(*(unsigned __int8 (__fastcall **)(const __m128i *, __int64))(v14->m128i_i64[0] + 56))(v14, 82LL) )
-      return v7;
-    if ( !(*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v15 + 56LL))(v15, 137LL) )
-      return v7;
-    *(_QWORD *)&v79.left = v14[15].m128i_i64[1];
-    if ( CRectangleGeometry::IsRoundedRectangleGeometry(v15) )
-      return v7;
-    if ( !*(_QWORD *)(a3 + 32) && v70 )
-    {
-      v82 = 0LL;
-      BoundsSafe = CGeometry::GetBoundsSafe(v69, 0LL, &v82);
-      v7 = BoundsSafe;
-      if ( BoundsSafe < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v72, 0LL, 0, BoundsSafe, 0x2E0u, 0LL);
-        return v7;
-      }
-      v73 = v14[13].m128i_i32[2];
-      v74 = 0LL;
-      v84 = v82;
-      if ( !v73 || v73 == 2 )
-        v74 = &v84;
-      v75 = CLegacyMilBrush::GetOpacity(v74, v14[8].m128i_i64[1]);
-      v77 = CRenderData::DrawImageResource_FillMode(
-              this,
-              a2,
-              v83[0],
-              *(struct CImageSource **)&v79.left,
-              v76,
-              &v84,
-              v75);
-      v7 = v77;
-      if ( v77 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v78, 0LL, 0, v77, 0x2FFu, 0LL);
-        return v7;
-      }
-    }
-    goto LABEL_8;
-  }
-  v17 = v14[4].m128i_i64[1];
-  v79 = (struct D2D_RECT_F)_mm_loadu_si128(v14 + 6);
-  v18 = CLegacyMilBrush::GetOpacity(v16, v17);
-  v19 = *(_QWORD *)v15;
-  v79.bottom = _mm_shuffle_ps((__m128)v79, (__m128)v79, 255).m128_f32[0] * v18;
-  if ( !(*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(v19 + 56))(v15, 141LL) )
-  {
-    if ( (*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v15 + 56LL))(v15, 137LL) )
-    {
-      if ( CRectangleGeometry::IsRoundedRectangleGeometry(v15) )
-        return v7;
-      if ( !*(_QWORD *)(a3 + 32) )
-      {
-        v82 = 0LL;
-        v56 = CGeometry::GetBoundsSafe(v55, 0LL, &v82);
-        v7 = v56;
-        if ( v56 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v57, 0LL, 0, v56, 0x2AFu, 0LL);
-          return v7;
-        }
-        v58 = CRenderData::DrawSolidColorRectangle(
-                v57,
-                (struct CDrawingContext *)a2,
-                v83[0],
-                (const struct MilRectF *)&v82,
-                (const struct _D3DCOLORVALUE *)&v79);
-        v7 = v58;
-        if ( v58 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0, v58, 0x2B0u, 0LL);
-          return v7;
-        }
-      }
-      goto LABEL_8;
-    }
-    if ( !(*(unsigned __int8 (__fastcall **)(CRectangleGeometry *, __int64))(*(_QWORD *)v15 + 56LL))(v15, 25LL) )
-      return v7;
-    *(_QWORD *)&v82.left = 0LL;
-    LOBYTE(v82.right) = 0;
-    ShapeData = CGeometry::GetShapeData(v15, 0LL, (struct CShapePtr *)&v82);
-    v7 = ShapeData;
-    if ( ShapeData < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v61, 0LL, 0, ShapeData, 0x2BBu, 0LL);
-      goto LABEL_86;
-    }
-    if ( !*(_QWORD *)&v82.left
-      || !(*(unsigned __int8 (__fastcall **)(_QWORD, struct D2D_RECT_F *))(**(_QWORD **)&v82.left + 64LL))(
-            *(_QWORD *)&v82.left,
-            &v84) )
-    {
-      goto LABEL_86;
-    }
-    v81 = 0LL;
-    v62 = 0LL;
-    *(_OWORD *)v80 = 0LL;
-    if ( LODWORD(v84.left) )
-    {
-      std::vector<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>>::_Resize_reallocate<std::_Value_init_tag>(
-        v80,
-        LODWORD(v84.left));
-      v62 = v81;
-    }
-    v63 = (struct CDrawListEntryBuilder *)v80[0];
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, void *))(**(_QWORD **)&v82.left + 80LL))(
-           *(_QWORD *)&v82.left,
-           v80[0]) )
-    {
-      if ( *(_QWORD *)(a3 + 32) || (v66 = v63, v63 == v80[1]) )
-      {
-LABEL_80:
-        *a7 = 1;
       }
       else
       {
-        v67 = v83[0];
-        while ( 1 )
+        if ( !(*(unsigned __int8 (__fastcall **)(CImageLegacyMilBrush *, __int64))(*(_QWORD *)v46 + 56LL))(v46, 98LL) )
         {
-          *(_OWORD *)v83 = *(_OWORD *)v66;
-          v68 = CRenderData::DrawSolidColorRectangle(
-                  v64,
-                  (struct CDrawingContext *)a2,
-                  v67,
-                  (const struct MilRectF *)v83,
-                  (const struct _D3DCOLORVALUE *)&v79);
-          v7 = v68;
-          if ( v68 < 0 )
-            break;
-          v66 = (struct CDrawListEntryBuilder *)((char *)v66 + 16);
-          if ( v66 == v80[1] )
-            goto LABEL_80;
+          if ( !(*(unsigned __int8 (__fastcall **)(CImageLegacyMilBrush *, __int64))(*(_QWORD *)v46 + 56LL))(v46, 82LL) )
+            return v8;
+          v81 = (struct CImageSource *)*((_QWORD *)v46 + 30);
+          v47 = v81 == 0LL;
+          if ( v81 )
+          {
+            if ( CImageLegacyMilBrush::ReducesToFillImage(v46) )
+            {
+              if ( !*(_QWORD *)(a3 + 24) )
+              {
+                v48 = *(struct D2D_RECT_F *)((char *)v46 + 184);
+                v49 = *((_QWORD *)v46 + 16);
+                v84 = *(struct D2D_RECT_F *)((char *)v86[0] + 8);
+                *(struct _D3DCOLORVALUE *)&v85.r = (struct _D3DCOLORVALUE)v84;
+                v50 = *((float *)v46 + 30);
+                v84 = v48;
+                v51 = CLegacyMilBrush::GetOpacity(v50, v49);
+                v52 = CRenderData::DrawImageResource_FillMode(
+                        this,
+                        a2,
+                        a4,
+                        a5,
+                        v81,
+                        &v84,
+                        (const struct D2D_RECT_F *)&v85,
+                        v51);
+                v8 = v52;
+                if ( v52 < 0 )
+                {
+                  MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0, v52, 0x228u, 0LL);
+                  return v8;
+                }
+              }
+              goto LABEL_17;
+            }
+            v47 = v81 == 0LL;
+          }
+          *a8 = v47;
+          return v8;
         }
-        MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v64, 0LL, 0, v68, 0x2CDu, 0LL);
+        if ( !*(_QWORD *)(a3 + 24) )
+        {
+          v66 = CLinearGradientLegacyMilBrush::Draw(
+                  v46,
+                  a2,
+                  a4,
+                  a5,
+                  (struct CDrawListEntryBuilder *)((char *)v86[0] + 8));
+          v8 = v66;
+          if ( v66 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v66, 0x213u, 0LL);
+            return v8;
+          }
+        }
       }
-      if ( !v63 )
-        goto LABEL_86;
-      v83[0] = v63;
-      v65 = (struct CDrawListEntryBuilder *)((v62 - (_QWORD)v63) & 0xFFFFFFFFFFFFFFF0uLL);
-      *(_QWORD *)&v79.left = v65;
-      if ( (unsigned __int64)v65 >= 0x1000 )
+LABEL_17:
+      *a8 = 1;
+      return v8;
+    case 466:
+      if ( !*(_QWORD *)(a3 + 24) )
       {
-        std::_Adjust_manually_vector_aligned((void **)v83, (unsigned __int64 *)&v79);
-        v65 = *(struct CDrawListEntryBuilder **)&v79.left;
-        v63 = v83[0];
+        v32 = CRenderData::DrawSolidColorRectangle(
+                (CRenderData *)(*(_QWORD *)(a7 + 8) + 20LL),
+                a2,
+                a4,
+                a5,
+                (const struct MilRectF *)(*(_QWORD *)(a7 + 8) + 4LL),
+                (const struct _D3DCOLORVALUE *)(*(_QWORD *)(a7 + 8) + 20LL));
+        v8 = v32;
+        if ( v32 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0x241u, 0LL);
+          return v8;
+        }
       }
-    }
-    else
-    {
-      v7 = -2003304309;
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v64, 0LL, 0, -2003304309, 0x2C5u, 0LL);
-      if ( !v63 )
+      goto LABEL_17;
+    case 467:
+      v13 = *(_QWORD *)(a7 + 8);
+      v14 = *(struct CDrawListEntryBuilder **)(*((_QWORD *)this + 16) + 8LL * *(unsigned int *)(v13 + 4));
+      v86[0] = v14;
+      if ( v14 )
       {
-LABEL_86:
-        CShapePtr::Release((CShapePtr *)&v82);
-        return v7;
+        if ( (*(unsigned __int8 (__fastcall **)(struct CDrawListEntryBuilder *, __int64))(*(_QWORD *)v14 + 56LL))(
+               v14,
+               83LL) )
+        {
+          if ( !*(_QWORD *)(a3 + 24) )
+          {
+            v84 = *(struct D2D_RECT_F *)(v13 + 8);
+            v15 = CRenderData::DrawImageResource_TileMode(
+                    this,
+                    a2,
+                    a4,
+                    v86[0],
+                    *(float *)(v13 + 24),
+                    v13 + 28,
+                    (__int64)&v84);
+            v8 = v15;
+            if ( v15 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x257u, 0LL);
+              return v8;
+            }
+          }
+          goto LABEL_17;
+        }
       }
-      *(_QWORD *)&v79.left = v63;
-      v65 = (struct CDrawListEntryBuilder *)((v62 - (_QWORD)v63) & 0xFFFFFFFFFFFFFFF0uLL);
-      v83[0] = v65;
-      if ( (unsigned __int64)v65 >= 0x1000 )
-      {
-        std::_Adjust_manually_vector_aligned((void **)&v79, (unsigned __int64 *)v83);
-        v65 = v83[0];
-        v63 = *(struct CDrawListEntryBuilder **)&v79.left;
-      }
-    }
-    operator delete(v63, (unsigned __int64)v65);
-    goto LABEL_86;
-  }
-  if ( *(_QWORD *)(a3 + 32) )
-    goto LABEL_8;
-  v33 = (struct D2D_RECT_F *)*((_QWORD *)v15 + 18);
-  v34 = (struct D2D_RECT_F *)*((_QWORD *)v15 + 19);
-  if ( v33 == v34 )
-    goto LABEL_8;
-  v35 = v83[0];
-  while ( 1 )
-  {
-    v36 = 0LL;
-    v82 = *v33;
-    do
-    {
-      *(float *)((char *)v83 + v36) = (float)*(int *)((char *)&v82.left + v36);
-      v36 += 4LL;
-    }
-    while ( v36 < 16 );
-    v37 = CRenderData::DrawSolidColorRectangle(
-            v20,
-            (struct CDrawingContext *)a2,
-            v35,
-            (const struct MilRectF *)v83,
-            (const struct _D3DCOLORVALUE *)&v79);
-    v7 = v37;
-    if ( v37 < 0 )
       break;
-    if ( ++v33 == v34 )
-      goto LABEL_8;
   }
-  MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v20, 0LL, 0, v37, 0x2A1u, 0LL);
-  return v7;
+  return v8;
 }

@@ -1,21 +1,25 @@
 /*
- * XREFs of MiFindZeroCloneBlock @ 0x140664534
+ * XREFs of MiFindZeroCloneBlock @ 0x14055A5A4
  * Callers:
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall MiFindZeroCloneBlock(__int64 a1, int a2)
 {
-  unsigned __int64 i; // r8
+  unsigned __int64 v2; // r8
+  unsigned __int64 v3; // r9
 
-  for ( i = *(_QWORD *)(a1 + 24); ; i += 32LL )
+  v2 = *(_QWORD *)(a1 + 24);
+  v3 = *(_QWORD *)(a1 + 32);
+  if ( v2 > v3 )
+    return 0LL;
+  while ( *(_QWORD *)(v2 + 16) >> 59 != a2 || *(_QWORD *)(v2 + 24) == -1LL )
   {
-    if ( i > *(_QWORD *)(a1 + 32) )
+    v2 += 32LL;
+    if ( v2 > v3 )
       return 0LL;
-    if ( ((*(_QWORD *)(i + 16) >> 55) & 0x1F) == a2 && *(_QWORD *)(i + 24) != -1LL )
-      break;
   }
-  return i;
+  return v2;
 }

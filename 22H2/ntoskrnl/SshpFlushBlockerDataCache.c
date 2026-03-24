@@ -1,115 +1,100 @@
 /*
- * XREFs of SshpFlushBlockerDataCache @ 0x1409A1598
+ * XREFs of SshpFlushBlockerDataCache @ 0x1408FAA50
  * Callers:
- *     SshpSendSessionData @ 0x1408786FC (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FACF8 (SshpSendSessionData.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportEtwWrite @ 0x1403AD318 (SSHSupportEtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SSHSupportEtwWrite @ 0x140580C30 (SSHSupportEtwWrite.c)
  */
 
-void __fastcall SshpFlushBlockerDataCache(ULONG *a1)
+__int64 __fastcall SshpFlushBlockerDataCache(ULONG *a1)
 {
   ULONG v2; // r11d
-  ULONGLONG v3; // rbx
-  ULONG v4; // edx
-  int v5; // esi
-  ULONG v6; // eax
-  unsigned int v7; // r9d
+  ULONG v3; // ebx
+  ULONGLONG v4; // rsi
+  ULONG v5; // r9d
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 v8; // rax
-  __int64 v9; // r10
-  __int64 v10; // rdx
+  unsigned __int16 *v9; // rcx
+  __int64 v10; // r8
   __int64 v11; // rcx
-  __int64 v12; // rax
-  unsigned __int16 *v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  ULONGLONG v17; // rax
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  __int64 v20; // rax
-  __int64 v21; // rbx
-  char v22; // [rsp+30h] [rbp-D0h] BYREF
-  ULONG v23; // [rsp+34h] [rbp-CCh] BYREF
-  int v24; // [rsp+38h] [rbp-C8h] BYREF
-  int v25; // [rsp+3Ch] [rbp-C4h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v26; // [rsp+40h] [rbp-C0h] BYREF
-  ULONG *v27; // [rsp+50h] [rbp-B0h]
-  __int64 v28; // [rsp+58h] [rbp-A8h]
+  __int64 v12; // rcx
+  ULONGLONG v13; // rax
+  __int64 v14; // rcx
+  __int64 result; // rax
+  __int64 v16; // rax
+  __int64 v17; // rbx
+  char v18; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG i; // [rsp+34h] [rbp-CCh] BYREF
+  int v20; // [rsp+38h] [rbp-C8h] BYREF
+  int v21; // [rsp+3Ch] [rbp-C4h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG *v23; // [rsp+50h] [rbp-B0h]
+  __int64 v24; // [rsp+58h] [rbp-A8h]
 
-  v24 = 0;
-  v22 = 0;
-  v25 = 0;
+  v20 = 0;
+  v18 = 0;
+  v21 = 0;
   if ( SshpTraceHandleRegistered )
   {
     v2 = a1[4];
     if ( v2 )
     {
-      v23 = 0;
-      v3 = (ULONGLONG)(a1 + 2);
-      v4 = 0;
-      v5 = 0;
-      v6 = 0;
+      v3 = 0;
+      v4 = (ULONGLONG)(a1 + 2);
+      i = 0;
       do
       {
-        v7 = v6 + 4 * v6 + 2;
-        v8 = v4 + 1LL;
-        v9 = 3 * v8;
-        v10 = 2LL * (v7 + 2);
-        v24 = **(unsigned __int16 **)&a1[6 * v8] >> 1;
-        v11 = 2LL * (v7 + 1);
-        v25 = LOWORD(a1[6 * v8 + 2]) >> 1;
-        v12 = 2LL * v7;
-        *(&v26.Ptr + v12) = v3;
-        *((_QWORD *)&v26.Size + v12) = 16LL;
-        *(&v26.Ptr + v11) = (ULONGLONG)&v24;
-        *((_QWORD *)&v26.Size + v11) = 4LL;
-        v13 = *(unsigned __int16 **)&a1[2 * v9];
-        v14 = *v13;
-        *(&v26.Ptr + v10) = *((_QWORD *)v13 + 1);
-        v15 = 2LL * (v7 + 3);
-        *(&v26.Size + 2 * v10) = v14;
-        *(&v26.Reserved + 2 * v10) = 0;
-        *(&v26.Ptr + v15) = (ULONGLONG)&v25;
-        *((_QWORD *)&v26.Size + v15) = 4LL;
-        v16 = 2LL * (v7 + 4);
-        v17 = *(_QWORD *)&a1[2 * v9 + 4];
-        *(&v26.Size + 2 * v16) = LOWORD(a1[2 * v9 + 2]);
-        v4 = v5 + 1;
-        *(&v26.Ptr + v16) = v17;
-        v6 = v4;
-        *(&v26.Reserved + 2 * v16) = 0;
-        ++v5;
-        v23 = v4;
+        v5 = v3 + 4 * v3 + 2;
+        v6 = 2LL * (v5 + 2);
+        v20 = **(unsigned __int16 **)&a1[6 * v3 + 6] >> 1;
+        v7 = 2LL * (v5 + 1);
+        v21 = LOWORD(a1[6 * v3 + 8]) >> 1;
+        v8 = 2LL * v5;
+        *(&v22.Ptr + v8) = v4;
+        *((_QWORD *)&v22.Size + v8) = 16LL;
+        *(&v22.Ptr + v7) = (ULONGLONG)&v20;
+        *((_QWORD *)&v22.Size + v7) = 4LL;
+        v9 = *(unsigned __int16 **)&a1[6 * v3 + 6];
+        v10 = *v9;
+        *(&v22.Ptr + v6) = *((_QWORD *)v9 + 1);
+        v11 = 2LL * (v5 + 3);
+        *(&v22.Size + 2 * v6) = v10;
+        *(&v22.Reserved + 2 * v6) = 0;
+        *(&v22.Ptr + v11) = (ULONGLONG)&v21;
+        *((_QWORD *)&v22.Size + v11) = 4LL;
+        LODWORD(v6) = LOWORD(a1[6 * v3 + 8]);
+        v12 = 2LL * (v5 + 4);
+        v13 = *(_QWORD *)&a1[6 * ++v3 + 4];
+        i = v3;
+        *(&v22.Size + 2 * v12) = v6;
+        *(&v22.Ptr + v12) = v13;
+        *(&v22.Reserved + 2 * v12) = 0;
       }
-      while ( v4 < v2 );
-      v22 = SshpSessionId;
-      *(_QWORD *)&v26.Size = 1LL;
-      v26.Ptr = (ULONGLONG)&v22;
-      v18 = 2LL * (v2 + 4 * v2 + 2);
-      v28 = 4LL;
-      v27 = &v23;
-      *(&v26.Ptr + v18) = (ULONGLONG)&SshpSessionId;
-      *((_QWORD *)&v26.Size + v18) = 8LL;
-      SSHSupportEtwWrite(v18, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DATA, v14, v4 + 4 * v4 + 3, &v26);
+      while ( v3 < v2 );
+      v18 = SshpSessionId;
+      *(_QWORD *)&v22.Size = 1LL;
+      v22.Ptr = (ULONGLONG)&v18;
+      v24 = 4LL;
+      v23 = &i;
+      v14 = 2LL * (v2 + 4 * v2 + 2);
+      *(&v22.Ptr + v14) = (ULONGLONG)&SshpSessionId;
+      *((_QWORD *)&v22.Size + v14) = 8LL;
+      SSHSupportEtwWrite(v14, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DATA, v10, v3 + 4 * v3 + 3, &v22);
     }
   }
-  v23 = 0;
-  if ( a1[4] )
+  result = 0LL;
+  for ( i = 0; (unsigned int)result < a1[4]; i = result )
   {
-    v19 = 0LL;
-    do
-    {
-      v20 = v19 + 1;
-      v21 = 3 * v20;
-      CmpFreeTransientPoolWithTag(*(void **)&a1[6 * v20 + 4], *a1);
-      *(_OWORD *)&a1[2 * v21] = 0LL;
-      *(_QWORD *)&a1[2 * v21 + 4] = 0LL;
-      v19 = v23 + 1;
-      v23 = v19;
-    }
-    while ( (unsigned int)v19 < a1[4] );
+    v16 = result + 1;
+    v17 = 3 * v16;
+    CmpFreeTransientPoolWithTag(*(void **)&a1[6 * v16 + 4], *a1);
+    *(_OWORD *)&a1[2 * v17] = 0LL;
+    *(_QWORD *)&a1[2 * v17 + 4] = 0LL;
+    result = i + 1;
   }
   a1[4] = 0;
+  return result;
 }

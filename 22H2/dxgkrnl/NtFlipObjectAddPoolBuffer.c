@@ -1,12 +1,12 @@
 /*
- * XREFs of NtFlipObjectAddPoolBuffer @ 0x1C00805D0
+ * XREFs of NtFlipObjectAddPoolBuffer @ 0x1C0068D60
  * Callers:
  *     <none>
  * Callees:
- *     ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C007F5AC (--$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipProp.c)
- *     ?AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z @ 0x1C007FC9C (-AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z.c)
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0080304 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082498 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C0067DE4 (--$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipProp.c)
+ *     ?AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z @ 0x1C00684B0 (-AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A90 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A8D8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectAddPoolBuffer(
@@ -15,7 +15,7 @@ __int64 __fastcall NtFlipObjectAddPoolBuffer(
         void *a3,
         struct _LUID *a4,
         unsigned int a5,
-        char *Src)
+        char *a6)
 {
   struct FlipManagerObject *v8; // rdi
   unsigned __int64 v9; // r14
@@ -43,7 +43,7 @@ __int64 __fastcall NtFlipObjectAddPoolBuffer(
     v9 = *a2;
     v17 = *a2;
     KeEnterCriticalRegion();
-    v11 = CreateFlipPropertySetWorker<CFlipPropertySet>(a5, Src, v10, &v15);
+    v11 = CreateFlipPropertySetWorker<CFlipPropertySet>(a5, a6, v10, &v15);
     v13 = v15;
     if ( v11 >= 0 )
     {

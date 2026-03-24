@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVolunteerForTrimFirst @ 0x14012C7D8
+ * XREFs of MiVolunteerForTrimFirst @ 0x14012C7F8
  * Callers:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
  */
 
 unsigned __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)

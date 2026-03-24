@@ -1,15 +1,15 @@
 /*
- * XREFs of BapdpRegisterFwUpdateResults @ 0x140B98A14
+ * XREFs of BapdpRegisterFwUpdateResults @ 0x140A94278
  * Callers:
- *     BapdpProcessFwUpdateResults @ 0x140B38688 (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessFwUpdateResults @ 0x140A402EC (BapdpProcessFwUpdateResults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1406F35B0 (RtlStringFromGUID.c)
  */
 
 void __fastcall BapdpRegisterFwUpdateResults(_QWORD *a1, unsigned int a2)
@@ -26,10 +26,10 @@ void __fastcall BapdpRegisterFwUpdateResults(_QWORD *a1, unsigned int a2)
   HANDLE KeyHandle; // [rsp+D8h] [rbp+7Fh] BYREF
 
   Disposition = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   Handle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   GuidString = 0LL;
   DestinationString = 0LL;
   if ( a1 && a2 && *a1 && a2 >= (unsigned __int64)(24LL * *a1 + 8) )
@@ -57,7 +57,7 @@ void __fastcall BapdpRegisterFwUpdateResults(_QWORD *a1, unsigned int a2)
           ObjectAttributes.Attributes = 576;
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
           v5 = ZwCreateKey(&Handle, 0x20019u, &ObjectAttributes, 0, 0LL, 0, &Disposition);
-          RtlFreeUnicodeString(&GuidString);
+          RtlFreeAnsiString(&GuidString);
           if ( v5 < 0 )
             break;
           RtlInitUnicodeString(&DestinationString, L"LastAttemptVersion");

@@ -4,13 +4,13 @@
  *     IopMarkBootPartition @ 0x1409D6100 (IopMarkBootPartition.c)
  * Callees:
  *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwOpenSymbolicLinkObject @ 0x1401BA650 (ZwOpenSymbolicLinkObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1401BA670 (ZwOpenSymbolicLinkObject.c)
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     NtQuerySymbolicLinkObject @ 0x140625E20 (NtQuerySymbolicLinkObject.c)
- *     IopCreateRegistryKeyEx @ 0x1407096E4 (IopCreateRegistryKeyEx.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
+ *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
  */
 
 int __fastcall IopStoreSystemPartitionInformation(__int64 a1, unsigned __int16 *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgkEngIsWinLogonProcess@@YAHXZ @ 0x1C01761A0
+ * XREFs of ?DxgkEngIsWinLogonProcess@@YAHXZ @ 0x1C0149ED0
  * Callers:
  *     <none>
  * Callees:

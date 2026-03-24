@@ -1,14 +1,14 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C00114AC
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F55C0
  * Callers:
- *     NtUserCloseClipboard @ 0x1C0010F10 (NtUserCloseClipboard.c)
- *     NtUserOpenClipboard @ 0x1C0010FF0 (NtUserOpenClipboard.c)
- *     NtUserGetClipboardData @ 0x1C01D0350 (NtUserGetClipboardData.c)
- *     NtUserSetClipboardData @ 0x1C01DAC20 (NtUserSetClipboardData.c)
+ *     NtUserGetClipboardData @ 0x1C002CAD0 (NtUserGetClipboardData.c)
+ *     NtUserSetClipboardData @ 0x1C002ECB0 (NtUserSetClipboardData.c)
+ *     NtUserOpenClipboard @ 0x1C002F9F0 (NtUserOpenClipboard.c)
+ *     NtUserCloseClipboard @ 0x1C002FCF0 (NtUserCloseClipboard.c)
  * Callees:
- *     InsertEventEntryInLookUpTable @ 0x1C00A98A8 (InsertEventEntryInLookUpTable.c)
- *     ExtractAggregateFieldTypes @ 0x1C00A9BB4 (ExtractAggregateFieldTypes.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ExtractAggregateFieldTypes @ 0x1C025C990 (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x1C025CB44 (InsertEventEntryInLookUpTable.c)
  */
 
 NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
@@ -58,7 +58,7 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   }
   else
   {
-    v9 = &word_1C030D60C;
+    v9 = &word_1C02E497C;
     v11 = 2;
   }
   v28 = a6;
@@ -76,33 +76,33 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   }
   else
   {
-    v12 = &unk_1C031F02C;
+    v12 = &unk_1C02F5020;
     v13 = 1;
   }
   *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
   v26 = v13;
   *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
   EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
-  UserData.Ptr = (ULONGLONG)off_1C0354068;
+  UserData.Ptr = (ULONGLONG)off_1C032A248;
   v25 = v12;
   v27 = 0;
   v23 = a4;
   v24 = 8LL;
-  UserData.Size = *(unsigned __int16 *)off_1C0354068;
+  UserData.Size = *(unsigned __int16 *)off_1C032A248;
   v21 = *(unsigned __int16 *)(a2 + 11);
   v20 = a2 + 11;
   UserData.Reserved = 2;
   v22 = 1;
   v18 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
   result = -1073741811;
-  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C0354088 == TlgAggregateInternalRegisteredProviderEtwCallback )
+  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C032A268 == TlgAggregateInternalRegisteredProviderEtwCallback )
   {
     v15 = ExtractAggregateFieldTypes(TlgAggregateInternalRegisteredProviderEtwCallback, &UserData);
     if ( v15 )
     {
       LOBYTE(v16) = 6;
       return InsertEventEntryInLookUpTable(
-               (unsigned int)&dword_1C0354060,
+               (unsigned int)&dword_1C032A240,
                (unsigned int)&EventDescriptor,
                v16,
                (unsigned int)&UserData,
@@ -110,7 +110,7 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
     }
     else
     {
-      return EtwWriteTransfer(qword_1C0354080, &EventDescriptor, 0LL, 0LL, 6u, &UserData);
+      return EtwWriteTransfer(qword_1C032A260, &EventDescriptor, 0LL, 0LL, 6u, &UserData);
     }
   }
   return result;

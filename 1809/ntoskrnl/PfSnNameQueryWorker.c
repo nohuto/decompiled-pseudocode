@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnNameQueryWorker @ 0x14011EC20
+ * XREFs of PfSnNameQueryWorker @ 0x14011EC40
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PfSnVolumeKeyQuery @ 0x1406A37A4 (PfSnVolumeKeyQuery.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PfSnVolumeKeyQuery @ 0x1406A3784 (PfSnVolumeKeyQuery.c)
  */
 
 void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0018EE0
+ * XREFs of ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0012AA8
  * Callers:
- *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018D7C (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
- *     ?Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z @ 0x1C001952C (-Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z.c)
+ *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0012950 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z @ 0x1C001367C (-Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01EA2B0 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
- *     DxgkGetSharedSyncObjectType @ 0x1C01ED110 (DxgkGetSharedSyncObjectType.c)
- *     DxgkOpenSyncObjectFromNtHandle2Internal @ 0x1C01ED120 (DxgkOpenSyncObjectFromNtHandle2Internal.c)
- *     DxgkCreateDeviceInternal @ 0x1C01ED140 (DxgkCreateDeviceInternal.c)
- *     DxgkCreateContextVirtualInternal @ 0x1C01ED160 (DxgkCreateContextVirtualInternal.c)
- *     DxgkDestroyDeviceInternal @ 0x1C01EEAB8 (DxgkDestroyDeviceInternal.c)
- *     DxgkDestroyContextInternal @ 0x1C01EEAD0 (DxgkDestroyContextInternal.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DxgkGetSharedSyncObjectType @ 0x1C0156140 (DxgkGetSharedSyncObjectType.c)
+ *     DxgkOpenSyncObjectFromNtHandle2Internal @ 0x1C0156150 (DxgkOpenSyncObjectFromNtHandle2Internal.c)
+ *     DxgkCreateContextVirtualInternal @ 0x1C0156AF4 (DxgkCreateContextVirtualInternal.c)
+ *     DxgkCreateDeviceInternal @ 0x1C0156B0C (DxgkCreateDeviceInternal.c)
+ *     DxgkDestroyDeviceInternal @ 0x1C0157070 (DxgkDestroyDeviceInternal.c)
+ *     DxgkDestroyContextInternal @ 0x1C0157088 (DxgkDestroyContextInternal.c)
+ *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01570A0 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
  */
 
 __int64 __fastcall CAdapter::UpdateRenderFence(CAdapter *this, void *a2)
@@ -19,12 +19,12 @@ __int64 __fastcall CAdapter::UpdateRenderFence(CAdapter *this, void *a2)
   int DeviceInternal; // edi
   int v3; // r14d
   PVOID v4; // rsi
-  int v7; // eax
   struct _OBJECT_TYPE *SharedSyncObjectType; // rax
-  NTSTATUS v9; // eax
-  int v10; // eax
-  void *v12; // rcx
-  D3DKMT_HANDLE v13; // eax
+  NTSTATUS v8; // eax
+  void *v10; // rcx
+  D3DKMT_HANDLE v11; // eax
+  int v12; // eax
+  int v13; // eax
   int v14; // eax
   _OWORD v15[8]; // [rsp+30h] [rbp-29h] BYREF
   struct _D3DKMT_DESTROYSYNCHRONIZATIONOBJECT v16; // [rsp+C8h] [rbp+6Fh] BYREF
@@ -34,43 +34,47 @@ __int64 __fastcall CAdapter::UpdateRenderFence(CAdapter *this, void *a2)
   v3 = 0;
   v4 = 0LL;
   if ( !a2 )
-    goto LABEL_11;
-  v7 = *((_DWORD *)this + 11);
-  if ( !v7 )
+    goto LABEL_10;
+  if ( !*((_DWORD *)this + 9) )
   {
     memset(v15, 0, 0x40uLL);
-    v14 = *((_DWORD *)this + 10);
+    v12 = *((_DWORD *)this + 8);
     DWORD2(v15[0]) |= 4u;
-    LODWORD(v15[0]) = v14;
+    LODWORD(v15[0]) = v12;
     DeviceInternal = DxgkCreateDeviceInternal(v15);
     if ( DeviceInternal < 0 )
-      return (unsigned int)DeviceInternal;
-    v7 = HIDWORD(v15[0]);
-    *((_DWORD *)this + 11) = HIDWORD(v15[0]);
+      goto LABEL_6;
+    *((_DWORD *)this + 9) = HIDWORD(v15[0]);
   }
-  if ( !*((_DWORD *)this + 18) )
+  if ( *((_DWORD *)this + 16) )
+    goto LABEL_4;
+  v13 = *((_DWORD *)this + 9);
+  memset(v15, 0, 40);
+  HIDWORD(v15[0]) = 8;
+  LODWORD(v15[0]) = v13;
+  DeviceInternal = DxgkCreateContextVirtualInternal(v15);
+  if ( DeviceInternal < 0 )
   {
-    memset(v15, 0, 40);
-    HIDWORD(v15[0]) = 8;
-    LODWORD(v15[0]) = v7;
-    DeviceInternal = DxgkCreateContextVirtualInternal(v15);
-    if ( DeviceInternal < 0 )
-      return (unsigned int)DeviceInternal;
-    *((_DWORD *)this + 18) = v15[2];
+LABEL_6:
+    if ( v4 )
+      ObfDereferenceObject(v4);
+    return (unsigned int)DeviceInternal;
   }
+  *((_DWORD *)this + 16) = v15[2];
+LABEL_4:
   SharedSyncObjectType = (struct _OBJECT_TYPE *)DxgkGetSharedSyncObjectType();
   Object = 0LL;
-  v9 = ObReferenceObjectByHandle(a2, 0x1F0000u, SharedSyncObjectType, 1, &Object, 0LL);
+  v8 = ObReferenceObjectByHandle(a2, 0x1F0000u, SharedSyncObjectType, 1, &Object, 0LL);
   v4 = Object;
-  DeviceInternal = v9;
-  if ( v9 < 0 )
-    goto LABEL_8;
-  if ( Object == *((PVOID *)this + 8) )
-    goto LABEL_8;
+  DeviceInternal = v8;
+  if ( v8 < 0 )
+    goto LABEL_6;
+  if ( Object == *((PVOID *)this + 7) )
+    goto LABEL_6;
   memset(v15, 0, 0x58uLL);
-  v10 = *((_DWORD *)this + 11);
+  v14 = *((_DWORD *)this + 9);
   HIDWORD(v15[0]) |= 0x83u;
-  DWORD2(v15[0]) = v10;
+  DWORD2(v15[0]) = v14;
   *(_QWORD *)&v15[0] = a2;
   DeviceInternal = DxgkOpenSyncObjectFromNtHandle2Internal(v15);
   if ( DeviceInternal < 0 )
@@ -78,43 +82,38 @@ __int64 __fastcall CAdapter::UpdateRenderFence(CAdapter *this, void *a2)
     HIDWORD(v15[0]) &= ~0x80u;
     DeviceInternal = DxgkOpenSyncObjectFromNtHandle2Internal(v15);
     if ( DeviceInternal < 0 )
-      goto LABEL_8;
+      goto LABEL_6;
   }
   v3 = v15[1];
   if ( !LODWORD(v15[1]) )
+    goto LABEL_6;
+LABEL_10:
+  v10 = (void *)*((_QWORD *)this + 7);
+  if ( v10 )
+    ObfDereferenceObject(v10);
+  v11 = *((_DWORD *)this + 12);
+  *((_QWORD *)this + 7) = v4;
+  v4 = 0LL;
+  if ( v11 )
   {
-LABEL_8:
-    if ( v4 )
-      ObfDereferenceObject(v4);
+    v16.hSyncObject = v11;
+    DxgkCddDestroySynchronizationObject(&v16);
   }
-  else
+  *((_DWORD *)this + 12) = v3;
+  if ( !v3 )
   {
-LABEL_11:
-    v12 = (void *)*((_QWORD *)this + 8);
-    if ( v12 )
-      ObfDereferenceObject(v12);
-    v13 = *((_DWORD *)this + 14);
-    *((_QWORD *)this + 8) = v4;
-    if ( v13 )
+    if ( *((_DWORD *)this + 16) )
     {
-      v16.hSyncObject = v13;
-      DxgkCddDestroySynchronizationObject(&v16);
+      v16.hSyncObject = *((_DWORD *)this + 16);
+      DxgkDestroyContextInternal(&v16);
+      *((_DWORD *)this + 16) = 0;
     }
-    *((_DWORD *)this + 14) = v3;
-    if ( !v3 )
+    if ( *((_DWORD *)this + 9) )
     {
-      if ( *((_DWORD *)this + 18) )
-      {
-        v16.hSyncObject = *((_DWORD *)this + 18);
-        DxgkDestroyContextInternal(&v16);
-        *((_DWORD *)this + 18) = 0;
-      }
-      if ( *((_DWORD *)this + 11) )
-      {
-        v16.hSyncObject = *((_DWORD *)this + 11);
-        DxgkDestroyDeviceInternal(&v16);
-        *((_DWORD *)this + 11) = 0;
-      }
+      v16.hSyncObject = *((_DWORD *)this + 9);
+      DxgkDestroyDeviceInternal(&v16);
+      *((_DWORD *)this + 9) = 0;
+      goto LABEL_6;
     }
   }
   return (unsigned int)DeviceInternal;

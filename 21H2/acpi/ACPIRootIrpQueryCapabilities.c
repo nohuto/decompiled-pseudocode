@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIRootIrpQueryCapabilities @ 0x1C00919C0
+ * XREFs of ACPIRootIrpQueryCapabilities @ 0x1C00A16B0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPISystemPowerInitializeRootMapping @ 0x1C00058F8 (ACPISystemPowerInitializeRootMapping.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C002BBB0 (ACPISystemPowerInitializeRootMapping.c)
  */
 
 __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
@@ -43,14 +43,14 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   v5[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
   v5[-1].Context = &Event;
   v5[-1].Control = -32;
-  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     Status = a2->IoStatus.Status;
   }
   v7 = a2->Tail.Overlay.CurrentStackLocation;
-  v8 = (const char *)&unk_1C006FB8B;
+  v8 = byte_1C00701BA;
   MinorFunction = v7->MinorFunction;
   if ( Status >= 0 )
   {
@@ -69,7 +69,7 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
         2u,
         5u,
         0xFu,
-        (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+        (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
         (char)a2,
         IrpText,
         Status,
@@ -81,7 +81,7 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   a2->IoStatus.Status = Status;
   IofCompleteRequest(a2, 0);
   if ( (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
-    v8 = *(const char **)(DeviceExtension + 608);
+    v8 = *(const char **)(DeviceExtension + 568);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v14 = ACPIDebugGetIrpText(v13, MinorFunction);
@@ -90,7 +90,7 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
       4u,
       5u,
       0x10u,
-      (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+      (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
       (char)a2,
       v14,
       Status,

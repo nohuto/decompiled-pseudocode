@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CColorMatrixEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C6E8
+ * XREFs of ??0CColorMatrixEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A3DC
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C948 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A8F0 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CColorMatrixEffect *__fastcall CColorMatrixEffect::CColorMatrixEffect(
@@ -15,13 +15,13 @@ CColorMatrixEffect *__fastcall CColorMatrixEffect::CColorMatrixEffect(
 
   CFilterEffect::CFilterEffect(this, a2);
   result = (CColorMatrixEffect *)v2;
-  *(_DWORD *)(v2 + 244) = 0;
-  *(_OWORD *)(v2 + 160) = _xmm;
+  *(_DWORD *)(v2 + 236) = 0;
+  *(_OWORD *)(v2 + 152) = _xmm;
   *(_QWORD *)v2 = &CColorMatrixEffect::`vftable';
-  *(_OWORD *)(v2 + 176) = _xmm;
-  *(_DWORD *)(v2 + 240) = 1;
-  *(_OWORD *)(v2 + 192) = _xmm;
-  *(_OWORD *)(v2 + 208) = _xmm;
-  *(_OWORD *)(v2 + 224) = 0LL;
+  *(_OWORD *)(v2 + 168) = _xmm;
+  *(_DWORD *)(v2 + 232) = 1;
+  *(_OWORD *)(v2 + 184) = _xmm;
+  *(_OWORD *)(v2 + 200) = _xmm;
+  *(_OWORD *)(v2 + 216) = 0LL;
   return result;
 }

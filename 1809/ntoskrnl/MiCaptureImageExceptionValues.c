@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCaptureImageExceptionValues @ 0x140682CE4
+ * XREFs of MiCaptureImageExceptionValues @ 0x140682CC4
  * Callers:
- *     MiConstructLoaderEntry @ 0x140682490 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     RtlMarkExceptionHandlingPages @ 0x140682D90 (RtlMarkExceptionHandlingPages.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140682D70 (RtlMarkExceptionHandlingPages.c)
  */
 
 void __fastcall MiCaptureImageExceptionValues(__int64 a1)

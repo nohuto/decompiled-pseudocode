@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpValidateFilterDescriptors @ 0x1406CED44
+ * XREFs of EtwpValidateFilterDescriptors @ 0x1407B7FA0
  * Callers:
- *     EtwpValidateEnableNotification @ 0x14078FE24 (EtwpValidateEnableNotification.c)
+ *     EtwpValidateEnableNotification @ 0x1406E2CE0 (EtwpValidateEnableNotification.c)
  * Callees:
- *     EtwpAllocateFilter @ 0x1406CEEB0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1407B8158 (EtwpAllocateFilter.c)
  */
 
 __int64 __fastcall EtwpValidateFilterDescriptors(_DWORD *a1, __int64 a2)
@@ -16,10 +16,10 @@ __int64 __fastcall EtwpValidateFilterDescriptors(_DWORD *a1, __int64 a2)
   __int64 v9; // r9
   unsigned __int64 v10; // r10
   int v11; // edx
-  __int64 v12; // rcx
-  __int64 v13; // rdx
+  int v12; // eax
+  __int64 v13; // rcx
   __int64 result; // rax
-  int v15; // eax
+  __int64 v15; // rdx
   __int128 v16; // [rsp+20h] [rbp-28h] BYREF
 
   v16 = 0LL;
@@ -43,65 +43,63 @@ __int64 __fastcall EtwpValidateFilterDescriptors(_DWORD *a1, __int64 a2)
       v11 = a1[20];
       if ( (v11 & 0x20) != 0 )
       {
-        v15 = *(_DWORD *)(v9 + 12);
-        if ( v15 == -2147479552
-          || v15 == -2147483136
-          || v15 == -2147482624
-          || v15 == -2147475456
-          || v15 == -2147483392
-          || v15 == 0x80000000
-          || v15 == -2147483646 )
+        v12 = *(_DWORD *)(v9 + 12);
+        if ( v12 == -2147479552
+          || v12 == -2147483136
+          || v12 == -2147482624
+          || v12 == -2147475456
+          || v12 == -2147483392
+          || v12 == 0x80000000
+          || v12 == -2147483646 )
         {
           return 3221225485LL;
         }
       }
-      v12 = *(unsigned int *)(v9 + 12);
+      v13 = *(unsigned int *)(v9 + 12);
       if ( (v11 & 0x400) != 0 )
       {
-        if ( (((_DWORD)v12 + 0x80000000) & 0xFFFFFEFD) == 0 && (_DWORD)v12 != -2147483390 )
+        if ( (((_DWORD)v13 + 0x80000000) & 0xFFFFFEFD) == 0 && (_DWORD)v13 != -2147483390 )
           return 3221225485LL;
       }
-      else if ( (_DWORD)v12 == -2147450880 )
+      else if ( (_DWORD)v13 == -2147450880 )
       {
         return 3221225485LL;
       }
-      v13 = *(unsigned int *)(v9 + 8);
-      if ( (unsigned int)v13 > 0x400 )
+      v15 = *(unsigned int *)(v9 + 8);
+      if ( (unsigned int)v15 > 0x400 )
       {
-        if ( (_DWORD)v12 == -2147483392 )
-        {
-LABEL_39:
-          if ( (unsigned int)v13 > 0x1000 )
-            return 3221225485LL;
-          goto LABEL_10;
-        }
-        if ( (_DWORD)v12 != -2147482624 )
+        if ( (_DWORD)v13 == -2147483392 )
+          goto LABEL_23;
+        if ( (_DWORD)v13 != -2147482624 )
           return 3221225485LL;
       }
-      if ( (_DWORD)v12 == -2147483392 )
-        goto LABEL_39;
-LABEL_10:
-      if ( ((_DWORD)v12 == -2147482624 || (_DWORD)v12 == -2147475456) && (unsigned int)v13 > 0x1000
-        || v10 + v13 < v10
-        || v10 + v13 > (unsigned int)a1[1] )
+      if ( (_DWORD)v13 == -2147483392 )
+      {
+LABEL_23:
+        if ( (unsigned int)v15 > 0x1000 )
+          return 3221225485LL;
+      }
+      if ( ((_DWORD)v13 == -2147482624 || (_DWORD)v13 == -2147475456) && (unsigned int)v15 > 0x1000
+        || v10 + v15 < v10
+        || v10 + v15 > (unsigned int)a1[1] )
       {
         return 3221225485LL;
       }
-      v7 += v13;
-      if ( (_DWORD)v12 == -2147483644 )
+      v7 += v15;
+      if ( (_DWORD)v13 == -2147483644 )
       {
         *(_QWORD *)(a2 + 80) = v9;
       }
-      else if ( (_DWORD)v12 == -2147467264 )
+      else if ( (_DWORD)v13 == -2147467264 )
       {
         *(_QWORD *)(a2 + 64) = v9;
       }
       else
       {
-        *((_QWORD *)&v16 + 1) = __PAIR64__(v12, v13);
+        *((_QWORD *)&v16 + 1) = __PAIR64__(v13, v15);
         *(_QWORD *)&v16 = (char *)a1 + v10;
         result = ((__int64 (__fastcall *)(__int64, __int128 *, __int64, _DWORD *))EtwpAllocateFilter)(
-                   v12,
+                   v13,
                    &v16,
                    a2,
                    a1 + 10);

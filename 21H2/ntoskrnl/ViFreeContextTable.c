@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFreeContextTable @ 0x140A8360C
+ * XREFs of ViFreeContextTable @ 0x1409C84B4
  * Callers:
- *     VfInsertContext @ 0x1405FE110 (VfInsertContext.c)
- *     VfRemoveContext @ 0x1405FE2E0 (VfRemoveContext.c)
+ *     VfInsertContext @ 0x1405A0850 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x1405A0A20 (VfRemoveContext.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall ViFreeContextTable(PVOID Entry)

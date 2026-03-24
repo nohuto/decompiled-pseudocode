@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwDisplayString @ 0x14041D380
+ * XREFs of ZwDisplayString @ 0x1403FBF20
  * Callers:
- *     DifZwDisplayStringWrapper @ 0x14061FB10 (DifZwDisplayStringWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

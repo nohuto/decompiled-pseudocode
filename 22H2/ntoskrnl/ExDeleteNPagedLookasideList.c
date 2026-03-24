@@ -1,11 +1,10 @@
 /*
- * XREFs of ExDeleteNPagedLookasideList @ 0x1403C6670
+ * XREFs of ExDeleteNPagedLookasideList @ 0x14039A420
  * Callers:
- *     DifExDeleteNPagedLookasideListWrapper @ 0x1405D83F0 (DifExDeleteNPagedLookasideListWrapper.c)
- *     FsRtlDeleteExtraCreateParameterLookasideList @ 0x14093CDE0 (FsRtlDeleteExtraCreateParameterLookasideList.c)
+ *     FsRtlDeleteExtraCreateParameterLookasideList @ 0x14088A630 (FsRtlDeleteExtraCreateParameterLookasideList.c)
  * Callees:
- *     ExpFlushGeneralLookaside @ 0x140357F10 (ExpFlushGeneralLookaside.c)
- *     ExpRemoveGeneralLookaside @ 0x140357FE4 (ExpRemoveGeneralLookaside.c)
+ *     ExpFlushGeneralLookaside @ 0x140317790 (ExpFlushGeneralLookaside.c)
+ *     ExpRemoveGeneralLookaside @ 0x140317864 (ExpRemoveGeneralLookaside.c)
  */
 
 void __stdcall ExDeleteNPagedLookasideList(PNPAGED_LOOKASIDE_LIST Lookaside)

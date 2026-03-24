@@ -1,13 +1,13 @@
 /*
- * XREFs of PopEventCalloutDispatch @ 0x14017840C
+ * XREFs of PopEventCalloutDispatch @ 0x14017842C
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopDispatchFullWake @ 0x1406E24D0 (PopDispatchFullWake.c)
- *     PopPolicyTimeChange @ 0x1406E2630 (PopPolicyTimeChange.c)
- *     PopDispatchCallout @ 0x140764360 (PopDispatchCallout.c)
- *     PopDispatchShutdownEvent @ 0x140876400 (PopDispatchShutdownEvent.c)
+ *     PopDispatchFullWake @ 0x1406E24B0 (PopDispatchFullWake.c)
+ *     PopPolicyTimeChange @ 0x1406E2610 (PopPolicyTimeChange.c)
+ *     PopDispatchCallout @ 0x140764340 (PopDispatchCallout.c)
+ *     PopDispatchShutdownEvent @ 0x1408763E0 (PopDispatchShutdownEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
  */
 

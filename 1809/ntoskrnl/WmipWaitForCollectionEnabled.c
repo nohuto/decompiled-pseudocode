@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipWaitForCollectionEnabled @ 0x1408B4DC0
+ * XREFs of WmipWaitForCollectionEnabled @ 0x1408B4DA0
  * Callers:
- *     WmipSendEnableRequest @ 0x1406CE2F4 (WmipSendEnableRequest.c)
+ *     WmipSendEnableRequest @ 0x1406CE2D4 (WmipSendEnableRequest.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
  */
 
 NTSTATUS __fastcall WmipWaitForCollectionEnabled(__int64 a1)

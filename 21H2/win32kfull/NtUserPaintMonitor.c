@@ -1,59 +1,54 @@
 /*
- * XREFs of NtUserPaintMonitor @ 0x1C01FAC30
+ * XREFs of NtUserPaintMonitor @ 0x1C01FFF30
  * Callers:
  *     <none>
  * Callees:
- *     xxxDesktopPaintCallback @ 0x1C0113C80 (xxxDesktopPaintCallback.c)
+ *     xxxDesktopPaintCallback @ 0x1C01311D0 (xxxDesktopPaintCallback.c)
  */
 
 _BOOL8 __fastcall NtUserPaintMonitor(__int64 a1, HDC a2, RECT *a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r14
-  BOOL v9; // ebx
-  unsigned __int64 v10; // rdi
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int128 v18; // [rsp+28h] [rbp-60h] BYREF
-  RECT v19; // [rsp+38h] [rbp-50h] BYREF
-  __int128 v20; // [rsp+48h] [rbp-40h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-30h]
-  __int128 v22; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v23; // [rsp+70h] [rbp-18h]
+  __int64 v6; // rcx
+  __int64 v7; // r14
+  BOOL v8; // ebx
+  unsigned __int64 v9; // rdi
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  __int128 v13; // [rsp+28h] [rbp-60h] BYREF
+  RECT v14; // [rsp+38h] [rbp-50h] BYREF
+  __int128 v15; // [rsp+48h] [rbp-40h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-30h]
+  __int128 v17; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+70h] [rbp-18h]
 
-  v20 = 0LL;
-  v21 = 0LL;
-  v22 = 0LL;
-  v23 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
+  v17 = 0LL;
   v18 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v13 = 0LL;
+  EnterCrit(0LL, 1LL);
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
     a3 = (RECT *)MmUserProbeAddress;
-  v19 = *a3;
-  v8 = ValidateHmonitor(a1, v6);
-  v9 = 0;
-  if ( v8 )
+  v14 = *a3;
+  v7 = ValidateHmonitor(a1);
+  v8 = 0;
+  if ( v7 )
   {
-    v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL);
-    *(_QWORD *)&v20 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v20;
-    *((_QWORD *)&v20 + 1) = v10;
-    if ( v10 )
-      HMLockObject(v10);
-    *(_QWORD *)&v22 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v22;
-    *((_QWORD *)&v22 + 1) = v8;
-    HMLockObject(v8);
-    v18 = v10;
-    v9 = xxxDesktopPaintCallback(v8, a2, &v19, (__int64)&v18);
-    ThreadUnlock1(v12, v11, v13);
-    ThreadUnlock1(v15, v14, v16);
+    v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL);
+    *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v15;
+    *((_QWORD *)&v15 + 1) = v9;
+    if ( v9 )
+      HMLockObject(v9);
+    *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v17;
+    *((_QWORD *)&v17 + 1) = v7;
+    HMLockObject(v7);
+    v13 = v9;
+    v8 = xxxDesktopPaintCallback(v7, a2, &v14, (__int64)&v13);
+    ThreadUnlock1(v10);
+    ThreadUnlock1(v11);
   }
-  UserSessionSwitchLeaveCrit(v7);
-  return v9;
+  UserSessionSwitchLeaveCrit(v6);
+  return v8;
 }

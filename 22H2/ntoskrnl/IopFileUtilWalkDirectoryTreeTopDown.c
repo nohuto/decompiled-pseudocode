@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeTopDown @ 0x140B9647C
+ * XREFs of IopFileUtilWalkDirectoryTreeTopDown @ 0x140A91440
  * Callers:
- *     PiLastGoodRevertLastKnownDirectory @ 0x140B95930 (PiLastGoodRevertLastKnownDirectory.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140A908F0 (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x1408847A4 (IopFileUtilWalkDirectoryTreeHelper.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077C750 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopFileUtilWalkDirectoryTreeTopDown(UNICODE_STRING *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -17,7 +17,7 @@ __int64 __fastcall IopFileUtilWalkDirectoryTreeTopDown(UNICODE_STRING *a1, __int
   int v10; // [rsp+28h] [rbp-D8h]
   int v11; // [rsp+28h] [rbp-D8h]
   PVOID P[2]; // [rsp+40h] [rbp-C0h] BYREF
-  WCHAR FileInformation[512]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int FileInformation[256]; // [rsp+50h] [rbp-B0h] BYREF
 
   P[1] = P;
   P[0] = P;

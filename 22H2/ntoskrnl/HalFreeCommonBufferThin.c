@@ -1,0 +1,247 @@
+/*
+ * XREFs of HalFreeCommonBufferThin @ 0x1404CACF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4A38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDomainLaDelete @ 0x1404C4D34 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9274 (HalpIommuDomainUnmapLogicalRange.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PTR a3, void *a4)
+{
+  void *v4; // r14
+  unsigned __int64 v6; // rbp
+  __int64 v7; // r15
+  unsigned __int64 v8; // rdi
+  _QWORD *v9; // rsi
+  unsigned __int64 v10; // r13
+  __int64 v11; // rax
+  unsigned __int64 v12; // rax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v16; // eax
+  bool v17; // zf
+  __int64 v18; // r14
+  KSPIN_LOCK *v19; // rsi
+  __int64 v20; // rax
+  unsigned __int64 v21; // rax
+  unsigned __int8 v22; // al
+  struct _KPRCB *v23; // r10
+  _DWORD *v24; // r9
+  int v25; // eax
+  __int64 result; // rax
+  struct _KPRCB *v27; // r9
+  _DWORD *v28; // r8
+  ULONG_PTR v29; // rcx
+  unsigned __int8 v30; // al
+  struct _KPRCB *v31; // r10
+  _DWORD *v32; // r9
+  int v33; // eax
+  unsigned __int8 v34; // al
+  struct _KPRCB *v35; // r9
+  int v36; // eax
+  _DWORD *v37; // r8
+  struct _MDL *v38; // rbx
+  __int64 v39; // r8
+  unsigned __int64 v40; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v41; // [rsp+68h] [rbp+10h]
+  void *v42; // [rsp+78h] [rbp+20h]
+
+  v42 = a4;
+  v41 = a2;
+  v40 = 0LL;
+  v4 = a4;
+  LOBYTE(v6) = KeGetCurrentIrql();
+  v7 = *(_QWORD *)(a1 + 504);
+  v8 = 0LL;
+  v9 = 0LL;
+  v10 = KeAcquireSpinLockRaiseToDpc(&HalpDmaDomainListLock);
+  if ( !v7 )
+    goto LABEL_26;
+  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 96));
+  v8 = *(_QWORD *)(v7 + 80);
+  if ( (*(_BYTE *)(v7 + 88) & 1) != 0 && v8 )
+    v8 ^= v7 + 80;
+  while ( v8 )
+  {
+    v11 = *(_QWORD *)(v8 + 24);
+    if ( *(void **)(v11 + 24) == v4 )
+      break;
+    if ( *(_QWORD *)(v11 + 24) <= (unsigned __int64)v4 )
+      v12 = *(_QWORD *)(v8 + 8);
+    else
+      v12 = *(_QWORD *)v8;
+    if ( (*(_BYTE *)(v7 + 88) & 1) != 0 && v12 )
+      v8 ^= v12;
+    else
+      v8 = v12;
+  }
+  if ( v8 )
+  {
+    v9 = (_QWORD *)v8;
+  }
+  else
+  {
+    KxReleaseSpinLock((PKSPIN_LOCK)(v7 + 96));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+          v17 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v6);
+    v7 = 0LL;
+  }
+  if ( !v7 )
+  {
+LABEL_26:
+    v18 = HalpDmaDomainList;
+    if ( (__int64 *)HalpDmaDomainList != &HalpDmaDomainList )
+    {
+      while ( 1 )
+      {
+        v19 = (KSPIN_LOCK *)(v18 + 96);
+        v7 = v18;
+        v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v18 + 96));
+        v8 = *(_QWORD *)(v18 + 80);
+        if ( (*(_BYTE *)(v18 + 88) & 1) != 0 && v8 )
+          v8 ^= v18 + 80;
+        if ( v8 )
+        {
+          do
+          {
+            v20 = *(_QWORD *)(v8 + 24);
+            if ( *(void **)(v20 + 24) == v42 )
+              break;
+            v21 = *(_QWORD *)(v20 + 24) <= (unsigned __int64)v42 ? *(_QWORD *)(v8 + 8) : *(_QWORD *)v8;
+            if ( (*(_BYTE *)(v18 + 88) & 1) != 0 && v21 )
+              v8 ^= v21;
+            else
+              v8 = v21;
+          }
+          while ( v8 );
+          v19 = (KSPIN_LOCK *)(v18 + 96);
+          if ( v8 )
+            break;
+        }
+        KxReleaseSpinLock(v19);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v22 = KeGetCurrentIrql();
+            if ( v22 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v22 >= 2u )
+            {
+              v23 = KeGetCurrentPrcb();
+              v24 = v23->SchedulerAssist;
+              v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+              v17 = (v25 & v24[5]) == 0;
+              v24[5] &= v25;
+              if ( v17 )
+                KiRemoveSystemWorkPriorityKick((__int64)v23);
+            }
+          }
+        }
+        __writecr8(v6);
+        v18 = *(_QWORD *)v18;
+        if ( (__int64 *)v18 == &HalpDmaDomainList )
+          goto LABEL_52;
+      }
+      v9 = (_QWORD *)v8;
+    }
+    if ( !v7 )
+    {
+LABEL_52:
+      KxReleaseSpinLock(&HalpDmaDomainListLock);
+      result = (unsigned int)KiIrqlFlags;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          result = KeGetCurrentIrql();
+          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v10 <= 0xFu && (unsigned __int8)result >= 2u )
+          {
+            v27 = KeGetCurrentPrcb();
+            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+            v28 = v27->SchedulerAssist;
+            v17 = ((unsigned int)result & v28[5]) == 0;
+            v28[5] &= result;
+            if ( v17 )
+              result = KiRemoveSystemWorkPriorityKick((__int64)v27);
+          }
+        }
+      }
+      __writecr8(v10);
+      return result;
+    }
+    v4 = v42;
+  }
+  v29 = *(_QWORD *)(v7 + 40);
+  v40 = v41;
+  HalpIommuDomainUnmapLogicalRange(v29, a3, &v40, 0);
+  HalpDomainLaDelete(v7, a3);
+  RtlRbRemoveNode((unsigned __int64 *)(v7 + 80), v8);
+  KxReleaseSpinLock((PKSPIN_LOCK)(v7 + 96));
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v30 = KeGetCurrentIrql();
+      if ( v30 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v30 >= 2u )
+      {
+        v31 = KeGetCurrentPrcb();
+        v32 = v31->SchedulerAssist;
+        v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v17 = (v33 & v32[5]) == 0;
+        v32[5] &= v33;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)v31);
+      }
+    }
+  }
+  __writecr8((unsigned __int8)v6);
+  KxReleaseSpinLock(&HalpDmaDomainListLock);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v34 = KeGetCurrentIrql();
+      if ( v34 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v34 >= 2u )
+      {
+        v35 = KeGetCurrentPrcb();
+        v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v37 = v35->SchedulerAssist;
+        v17 = (v36 & v37[5]) == 0;
+        v37[5] &= v36;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)v35);
+      }
+    }
+  }
+  __writecr8(v10);
+  HalpDmaDereferenceDomainObject((__int64 *)v7);
+  v38 = (struct _MDL *)v9[3];
+  ExFreePoolWithTag(v9, 0);
+  MmUnmapLockedPages(v4, v38);
+  return (__int64)MiFreePagesFromMdl((ULONG_PTR)v38, 0, v39);
+}

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceTHQAStart @ 0x1C013B0F0
+ * XREFs of EtwTraceTHQAStart @ 0x1C0123CF0
  * Callers:
- *     RIMApiSetValidateDeviceSignature @ 0x1C01B37DC (RIMApiSetValidateDeviceSignature.c)
+ *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EtwTraceTHQAStart(__int64 a1)
+__int64 __fastcall EtwTraceTHQAStart(__int64 a1)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
     return McTemplateK0_EtwWriteTransfer(a1, &THQAStart, &W32kControlGuid);

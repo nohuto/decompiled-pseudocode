@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpIommuGetAcpiDeviceMapCount @ 0x1405182AC
+ * XREFs of HalpIommuGetAcpiDeviceMapCount @ 0x1403EFBA8
  * Callers:
- *     HalpIommuDmaRemappingCapable @ 0x1403B3F90 (HalpIommuDmaRemappingCapable.c)
- *     HalpIommuUnblockDevice @ 0x140518860 (HalpIommuUnblockDevice.c)
+ *     HalpIommuDmaRemappingCapable @ 0x1403EFB40 (HalpIommuDmaRemappingCapable.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9DC0 (HalpIommuUnblockDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuGetAcpiDeviceMapCount(__int64 a1)
 {
-  ULONG_PTR v1; // rbx
+  __int64 v1; // rbx
   __int64 result; // rax
 
   v1 = HalpIommuList;
   result = 0LL;
-  while ( (ULONG_PTR *)v1 != &HalpIommuList )
+  while ( (__int64 *)v1 != &HalpIommuList )
   {
-    if ( *(_QWORD *)(v1 + 368) )
+    if ( *(_QWORD *)(v1 + 352) )
     {
-      result = (*(__int64 (__fastcall **)(_QWORD, __int64))(v1 + 368))(*(_QWORD *)(v1 + 16), a1);
+      result = (*(__int64 (__fastcall **)(_QWORD, __int64))(v1 + 352))(*(_QWORD *)(v1 + 16), a1);
       if ( (_DWORD)result )
         break;
     }

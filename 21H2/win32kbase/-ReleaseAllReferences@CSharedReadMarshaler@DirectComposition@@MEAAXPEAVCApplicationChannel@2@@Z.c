@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedReadMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0058570
+ * XREFs of ?ReleaseAllReferences@CSharedReadMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C004A780
  * Callers:
- *     ?ReleaseAllReferences@CVisualTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0238B10 (-ReleaseAllReferences@CVisualTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@.c)
+ *     ?ReleaseAllReferences@CVisualTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F8260 (-ReleaseAllReferences@CVisualTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ void __fastcall DirectComposition::CSharedReadMarshaler::ReleaseAllReferences(
 {
   __int64 v3; // rcx
 
-  v3 = *((_QWORD *)this + 8);
+  v3 = *((_QWORD *)this + 7);
   if ( v3 )
   {
     ObfDereferenceObject((PVOID)(v3 - 24));
-    *((_QWORD *)this + 8) = 0LL;
+    *((_QWORD *)this + 7) = 0LL;
   }
 }

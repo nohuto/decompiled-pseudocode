@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_StartingMapping @ 0x1C00016B0
+ * XREFs of ESM_StartingMapping @ 0x1C00057F0
  * Callers:
  *     <none>
  * Callees:
- *     TR_StartMapping @ 0x1C0001898 (TR_StartMapping.c)
+ *     TR_StartMapping @ 0x1C000588C (TR_StartMapping.c)
  */
 
 __int64 __fastcall ESM_StartingMapping(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02173B0
+ * XREFs of ?SetBufferProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E11F0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215D20 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DFED0 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  */
 
 __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetBufferProperty(
@@ -24,23 +24,23 @@ __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetBufferPrope
   {
     if ( a3 == 1 )
     {
-      v7 = 128LL;
+      v7 = 120LL;
     }
     else
     {
       if ( a3 != 2 )
         return (unsigned int)DirectComposition::CFilterEffectMarshaler::SetBufferProperty(this, a2, a3, a4, a5, a6);
-      v7 = 136LL;
+      v7 = 128LL;
     }
   }
   else
   {
-    v7 = 120LL;
+    v7 = 112LL;
   }
   v8 = (_QWORD *)((char *)this + v7);
   if ( (DirectComposition::CTurbulenceEffectMarshaler *)((char *)this + v7) )
   {
-    if ( a4 && a5 == 8 )
+    if ( a4 )
     {
       if ( *v8 != *a4 )
       {

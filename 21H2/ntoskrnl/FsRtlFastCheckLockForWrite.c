@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlFastCheckLockForWrite @ 0x14021D280
+ * XREFs of FsRtlFastCheckLockForWrite @ 0x1402BCD80
  * Callers:
- *     FsRtlCheckLockForWriteAccess @ 0x14021D1E0 (FsRtlCheckLockForWriteAccess.c)
+ *     FsRtlCheckLockForWriteAccess @ 0x1402BCCE0 (FsRtlCheckLockForWriteAccess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14021DC48 (FsRtlCheckNoExclusiveConflict.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlCheckNoSharedConflict @ 0x1403750E4 (FsRtlCheckNoSharedConflict.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14036BC98 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14036C880 (FsRtlCheckNoSharedConflict.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
@@ -59,7 +59,7 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
       v11 = 1;
       v12 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
       if ( v10 < *LockInformation )
-        goto LABEL_6;
+        goto LABEL_5;
       v14 = FileObject;
       v15 = ProcessId;
       v16 = *((_QWORD *)FileObject + 15);
@@ -73,7 +73,7 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
           && *(PVOID *)(v16 + 32) == ProcessId
           && *(_BYTE *)(v16 + 16) )
         {
-LABEL_6:
+LABEL_5:
           KxReleaseSpinLock(LockInformation + 3);
           if ( KiIrqlFlags )
           {
@@ -92,7 +92,7 @@ LABEL_6:
               }
             }
           }
-LABEL_7:
+LABEL_6:
           __writecr8(v12);
           return v11;
         }
@@ -129,7 +129,7 @@ LABEL_7:
         }
       }
       v11 = v19;
-      goto LABEL_7;
+      goto LABEL_6;
     }
   }
   return 1;

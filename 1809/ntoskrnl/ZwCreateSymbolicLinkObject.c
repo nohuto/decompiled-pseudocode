@@ -1,13 +1,13 @@
 /*
- * XREFs of ZwCreateSymbolicLinkObject @ 0x1401B98D0
+ * XREFs of ZwCreateSymbolicLinkObject @ 0x1401B98F0
  * Callers:
- *     SeGetTokenDeviceMap @ 0x1406A2DDC (SeGetTokenDeviceMap.c)
- *     IoCreateSymbolicLink @ 0x1406CB810 (IoCreateSymbolicLink.c)
- *     IopProcessSetInterfaceState @ 0x14070F918 (IopProcessSetInterfaceState.c)
- *     ObpInitializeRootNamespace @ 0x14072BC8C (ObpInitializeRootNamespace.c)
- *     ObpCreateDosDevicesDirectory @ 0x14072C0C8 (ObpCreateDosDevicesDirectory.c)
- *     IoCreateUnprotectedSymbolicLink @ 0x14081C3A0 (IoCreateUnprotectedSymbolicLink.c)
- *     PspSiloInitializeSystemRootSymlink @ 0x140887A3C (PspSiloInitializeSystemRootSymlink.c)
+ *     SeGetTokenDeviceMap @ 0x1406A2DBC (SeGetTokenDeviceMap.c)
+ *     IoCreateSymbolicLink @ 0x1406CB7F0 (IoCreateSymbolicLink.c)
+ *     IopProcessSetInterfaceState @ 0x14070F8F8 (IopProcessSetInterfaceState.c)
+ *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14072C0A8 (ObpCreateDosDevicesDirectory.c)
+ *     IoCreateUnprotectedSymbolicLink @ 0x14081C380 (IoCreateUnprotectedSymbolicLink.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x140887A1C (PspSiloInitializeSystemRootSymlink.c)
  *     CmpInitializeDriverStores @ 0x1409C1534 (CmpInitializeDriverStores.c)
  *     PiCreateDriverDataDirectoryRoot @ 0x1409D9820 (PiCreateDriverDataDirectoryRoot.c)
  * Callees:

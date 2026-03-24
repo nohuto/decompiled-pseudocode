@@ -1,10 +1,10 @@
 /*
- * XREFs of SeAuditingAnyFileEventsWithContextEx @ 0x1402A4690
+ * XREFs of SeAuditingAnyFileEventsWithContextEx @ 0x14025CBC0
  * Callers:
- *     SeAuditingAnyFileEventsWithContext @ 0x1409CA200 (SeAuditingAnyFileEventsWithContext.c)
+ *     SeAuditingAnyFileEventsWithContext @ 0x1409207A0 (SeAuditingAnyFileEventsWithContext.c)
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtAuditThisEventByCategoryWithContext @ 0x1407243A0 (SepAdtAuditThisEventByCategoryWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140627B40 (SepAdtAuditThisEventByCategoryWithContext.c)
  */
 
 char __fastcall SeAuditingAnyFileEventsWithContextEx(__int64 a1, __int64 a2, _BYTE *a3)
@@ -16,10 +16,10 @@ char __fastcall SeAuditingAnyFileEventsWithContextEx(__int64 a1, __int64 a2, _BY
   if ( a3 )
   {
     LOBYTE(a3) = 1;
-    *v3 = SepAdtAuditThisEventWithContext(129LL, 1LL, a3, a2);
+    *v3 = SepAdtAuditThisEventWithContext(130LL, 1LL, a3, a2);
   }
   LOBYTE(a3) = 1;
-  if ( (unsigned __int8)SepAdtAuditThisEventWithContext(116LL, 1LL, a3, a2) )
+  if ( (unsigned __int8)SepAdtAuditThisEventWithContext(117LL, 1LL, a3, a2) )
     return 1;
   result = SepAdtAuditThisEventByCategoryWithContext(3LL, 51LL, a2);
   if ( result )

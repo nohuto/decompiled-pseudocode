@@ -1,22 +1,25 @@
 /*
- * XREFs of GetScreenRectForWindow @ 0x1C025A608
+ * XREFs of GetScreenRectForWindow @ 0x1C025DA2C
  * Callers:
- *     xxxCheckFullScreen @ 0x1C0061F88 (xxxCheckFullScreen.c)
- *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C020D6AC (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
- *     ?CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z @ 0x1C022E878 (-CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z.c)
- *     ?IsVSlick@@YAHPEAUtagWND@@@Z @ 0x1C0238984 (-IsVSlick@@YAHPEAUtagWND@@@Z.c)
+ *     ?CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z @ 0x1C003FDA0 (-CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z.c)
+ *     xxxCheckFullScreen @ 0x1C007C5FC (xxxCheckFullScreen.c)
+ *     xxxInitializeMoveSizeData @ 0x1C0211E0C (xxxInitializeMoveSizeData.c)
+ *     ?IsVSlick@@YAHPEAUtagWND@@@Z @ 0x1C023DA34 (-IsVSlick@@YAHPEAUtagWND@@@Z.c)
  * Callees:
- *     ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C0062280 (-GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z.c)
- *     GetScreenRectForDpi @ 0x1C00B06C4 (GetScreenRectForDpi.c)
+ *     GetScreenRectForDpiContext @ 0x1C00425B4 (GetScreenRectForDpiContext.c)
+ *     ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C007C9E4 (-GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z.c)
  */
 
 __m128i *__fastcall GetScreenRectForWindow(__m128i *a1, const struct tagWND *a2)
 {
   unsigned int WindowCompositedDpiContext; // eax
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __m128i v4; // xmm0
+  __m128i *result; // rax
+  __m128i v6; // [rsp+20h] [rbp-18h] BYREF
 
   WindowCompositedDpiContext = GetWindowCompositedDpiContext(a2);
-  GetScreenRectForDpi(a1, (WindowCompositedDpiContext >> 8) & 0x1FF, v4, v5);
-  return a1;
+  v4 = *GetScreenRectForDpiContext(&v6, WindowCompositedDpiContext);
+  result = a1;
+  *a1 = v4;
+  return result;
 }

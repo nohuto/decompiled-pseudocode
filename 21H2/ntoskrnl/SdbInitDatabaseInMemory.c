@@ -1,45 +1,45 @@
 /*
- * XREFs of SdbInitDatabaseInMemory @ 0x1407ECFCC
+ * XREFs of SdbInitDatabaseInMemory @ 0x140756110
  * Callers:
- *     PiInitializeDDB @ 0x1407EC34C (PiInitializeDDB.c)
- *     KsepSdbMapToMemory @ 0x1407ECCD0 (KsepSdbMapToMemory.c)
- *     KsepSdbBootInitialize @ 0x1408277FC (KsepSdbBootInitialize.c)
- *     PpBootDDBHelper @ 0x14086172C (PpBootDDBHelper.c)
+ *     KsepSdbMapToMemory @ 0x140755A54 (KsepSdbMapToMemory.c)
+ *     PiInitializeDDB @ 0x14077E964 (PiInitializeDDB.c)
+ *     PpBootDDBHelper @ 0x1407A3F20 (PpBootDDBHelper.c)
+ *     KsepSdbBootInitialize @ 0x1407D1ED8 (KsepSdbBootInitialize.c)
  * Callees:
- *     SdbCloseDatabaseRead @ 0x1406E0BB8 (SdbCloseDatabaseRead.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     SdbpInitializeMatchers @ 0x1407ED054 (SdbpInitializeMatchers.c)
- *     SdbpOpenDatabaseInMemory @ 0x1407ED0C8 (SdbpOpenDatabaseInMemory.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpInitializeMatchers @ 0x140756198 (SdbpInitializeMatchers.c)
+ *     SdbCloseDatabaseRead @ 0x14075620C (SdbCloseDatabaseRead.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140756254 (SdbpOpenDatabaseInMemory.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-_QWORD *__fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
+__int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
 {
-  _QWORD *v4; // rbx
+  __int64 v4; // rbx
   __int64 v5; // rax
-  _QWORD *v7; // rcx
+  void *v7; // rcx
 
-  v4 = AslAlloc(a1, 0x5F0uLL);
+  v4 = AslAlloc(a1, 1776LL);
   if ( v4 )
   {
-    v5 = SdbpOpenDatabaseInMemory(a1, a2, 0LL);
-    v4[1] = v5;
+    v5 = SdbpOpenDatabaseInMemory(a1, a2);
+    *(_QWORD *)(v4 + 8) = v5;
     if ( v5 )
     {
-      *((_DWORD *)v4 + 6) = 1;
-      *((_DWORD *)v4 + 7) = 1;
-      *((_DWORD *)v4 + 14) = 2;
-      v4[6] = v5;
-      *((_OWORD *)v4 + 2) = *(_OWORD *)(v5 + 28);
+      *(_DWORD *)(v4 + 24) = 1;
+      *(_DWORD *)(v4 + 28) = 1;
+      *(_DWORD *)(v4 + 56) = 2;
+      *(_QWORD *)(v4 + 48) = v5;
+      *(_OWORD *)(v4 + 32) = *(_OWORD *)(v5 + 28);
       SdbpInitializeMatchers(v4);
       return v4;
     }
     AslLogCallPrintf(1LL);
-    v7 = (_QWORD *)v4[1];
+    v7 = *(void **)(v4 + 8);
     if ( v7 )
       SdbCloseDatabaseRead(v7);
-    ExFreePoolWithTag(v4, 0x74705041u);
+    ExFreePoolWithTag((PVOID)v4, 0x74705041u);
   }
   else
   {

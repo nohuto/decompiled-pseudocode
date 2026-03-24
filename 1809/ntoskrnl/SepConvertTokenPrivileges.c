@@ -2,7 +2,7 @@
  * XREFs of SepConvertTokenPrivileges @ 0x1400142A0
  * Callers:
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
  * Callees:
  *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1400142C0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
  */

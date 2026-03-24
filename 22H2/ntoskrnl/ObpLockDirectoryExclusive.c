@@ -1,24 +1,30 @@
 /*
- * XREFs of ObpLockDirectoryExclusive @ 0x140697B24
+ * XREFs of ObpLockDirectoryExclusive @ 0x14034D1A0
  * Callers:
- *     NtSetInformationObject @ 0x140697640 (NtSetInformationObject.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x14069794C (ObpMarkDirectoryObjectsTemporary.c)
- *     ObpCloseHandle @ 0x1406E7730 (ObpCloseHandle.c)
- *     ObpLookupObjectName @ 0x1406ED7D0 (ObpLookupObjectName.c)
- *     ObpDeleteNameCheck @ 0x140740650 (ObpDeleteNameCheck.c)
- *     ObCreateObjectTypeEx @ 0x140821770 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
+ *     ObCloseHandleTableEntry @ 0x140642D80 (ObCloseHandleTableEntry.c)
+ *     ObpDeleteNameCheck @ 0x1406F6EB0 (ObpDeleteNameCheck.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1406F83A8 (ObpMarkDirectoryObjectsTemporary.c)
+ *     NtSetInformationObject @ 0x1406F91D0 (NtSetInformationObject.c)
+ *     ObCreateObjectTypeEx @ 0x140790780 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-void __fastcall ObpLockDirectoryExclusive(__int64 a1, __int64 a2)
+LONG_PTR __fastcall ObpLockDirectoryExclusive(__int64 a1, void *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
+  LONG_PTR result; // rax
 
-  *(_QWORD *)a1 = a2;
-  *(_BYTE *)(a1 + 21) = 1;
+  *(_DWORD *)(a1 + 32) = -1431694796;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx(a2 + 296, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)a2 + 296, 0LL);
+  *(_DWORD *)(a1 + 32) = -859041228;
+  result = ObfReferenceObjectWithTag(a2, 0x746C6644u);
+  *(_QWORD *)a1 = a2;
+  *(_WORD *)(a1 + 30) = 257;
+  return result;
 }

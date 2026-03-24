@@ -1,5 +1,5 @@
 /*
- * XREFs of PoEnergyContextStart @ 0x14069EB2C
+ * XREFs of PoEnergyContextStart @ 0x14069EB0C
  * Callers:
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
  *     PopEtInit @ 0x1409D8A28 (PopEtInit.c)
@@ -8,8 +8,8 @@
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopEtGetProcessAppId @ 0x14069EC08 (PopEtGetProcessAppId.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopEtGetProcessAppId @ 0x14069EBE8 (PopEtGetProcessAppId.c)
  */
 
 __int64 __fastcall PoEnergyContextStart(ULONG_PTR BugCheckParameter1)

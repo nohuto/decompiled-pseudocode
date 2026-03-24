@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateTimeouts @ 0x1406DC820
+ * XREFs of PopUpdateTimeouts @ 0x1406DC800
  * Callers:
- *     PopConsoleSessionPassiveInput @ 0x1406DC3C0 (PopConsoleSessionPassiveInput.c)
- *     PopConsoleSessionActiveInput @ 0x1406DC440 (PopConsoleSessionActiveInput.c)
- *     PopActiveLockScreenPowerRequest @ 0x140878C20 (PopActiveLockScreenPowerRequest.c)
- *     PopSessionWinlogonNotification @ 0x14087901C (PopSessionWinlogonNotification.c)
+ *     PopConsoleSessionPassiveInput @ 0x1406DC3A0 (PopConsoleSessionPassiveInput.c)
+ *     PopConsoleSessionActiveInput @ 0x1406DC420 (PopConsoleSessionActiveInput.c)
+ *     PopActiveLockScreenPowerRequest @ 0x140878C00 (PopActiveLockScreenPowerRequest.c)
+ *     PopSessionWinlogonNotification @ 0x140878FFC (PopSessionWinlogonNotification.c)
  * Callees:
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
- *     PopDiagTraceInputTimeout @ 0x1406DC91C (PopDiagTraceInputTimeout.c)
- *     PopDiagTraceDisplayTimeout @ 0x1406DCC1C (PopDiagTraceDisplayTimeout.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
+ *     PopDiagTraceInputTimeout @ 0x1406DC8FC (PopDiagTraceInputTimeout.c)
+ *     PopDiagTraceDisplayTimeout @ 0x1406DCBFC (PopDiagTraceDisplayTimeout.c)
  */
 
 char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
@@ -30,7 +30,7 @@ char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   {
     v8 = "Zeroed";
     if ( !*((_BYTE *)a3 + 5) )
-      v8 = (const char *)qword_14076BC40;
+      v8 = (const char *)qword_14076BC20;
   }
   else
   {
@@ -41,16 +41,16 @@ char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   {
     v10 = "Computed";
     if ( !*((_BYTE *)a3 + 4) )
-      v10 = (const char *)qword_14076BC40;
+      v10 = (const char *)qword_14076BC20;
   }
   else
   {
     v10 = "NULL";
   }
   if ( !*((_BYTE *)a2 + 5) )
-    v7 = (const char *)qword_14076BC40;
+    v7 = (const char *)qword_14076BC20;
   if ( !*((_BYTE *)a2 + 4) )
-    v9 = (const char *)qword_14076BC40;
+    v9 = (const char *)qword_14076BC20;
   PopPrintEx(
     3u,
     "PopAdaptive: Console session %u timeouts: %s%s Display:%u,: %s%sInput:%u\n",

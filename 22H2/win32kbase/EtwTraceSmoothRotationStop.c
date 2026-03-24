@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceSmoothRotationStop @ 0x1C013B0C0
+ * XREFs of EtwTraceSmoothRotationStop @ 0x1C0123CC0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qt_EtwWriteTransfer @ 0x1C013E5F0 (McTemplateK0qt_EtwWriteTransfer.c)
+ *     McTemplateK0qt_EtwWriteTransfer @ 0x1C012730C (McTemplateK0qt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceSmoothRotationStop(__int64 a1, __int64 a2, __int64 a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAddMiniDumpPagesToPartialKernelDump @ 0x14055CC08
+ * XREFs of IopAddMiniDumpPagesToPartialKernelDump @ 0x14050B9F0
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x14055C434 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14050B5E0 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     IopUpdateMinidumpContext @ 0x140553B84 (IopUpdateMinidumpContext.c)
- *     IopAddTriageDumpDataToPartialKernelDump @ 0x14055CD94 (IopAddTriageDumpDataToPartialKernelDump.c)
- *     IopCalculateStackInformation @ 0x14055CE30 (IopCalculateStackInformation.c)
- *     IopMarkPagesForDpcData @ 0x14055D18C (IopMarkPagesForDpcData.c)
- *     IopMarkPagesForLoadedDriverInformation @ 0x14055D5CC (IopMarkPagesForLoadedDriverInformation.c)
- *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055D83C (IopMarkPagesForRunTimeTriageDataBlocks.c)
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
- *     MmAddUnloadedDriverInformationToCrashDump @ 0x140630360 (MmAddUnloadedDriverInformationToCrashDump.c)
+ *     IopUpdateMinidumpContext @ 0x140504464 (IopUpdateMinidumpContext.c)
+ *     IopAddTriageDumpDataToPartialKernelDump @ 0x14050BB70 (IopAddTriageDumpDataToPartialKernelDump.c)
+ *     IopCalculateStackInformation @ 0x14050BC0C (IopCalculateStackInformation.c)
+ *     IopMarkPagesForDpcData @ 0x14050BD4C (IopMarkPagesForDpcData.c)
+ *     IopMarkPagesForLoadedDriverInformation @ 0x14050BE70 (IopMarkPagesForLoadedDriverInformation.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14050C040 (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
+ *     MmAddUnloadedDriverInformationToCrashDump @ 0x140538620 (MmAddUnloadedDriverInformationToCrashDump.c)
  */
 
 __int64 __fastcall IopAddMiniDumpPagesToPartialKernelDump(
@@ -26,49 +26,48 @@ __int64 __fastcall IopAddMiniDumpPagesToPartialKernelDump(
   __int64 result; // rax
   __int64 v10; // rcx
   __int64 v11; // rax
-  __int64 v12; // [rsp+38h] [rbp-31h]
-  __int64 v13; // [rsp+50h] [rbp-19h] BYREF
-  _QWORD v14[2]; // [rsp+58h] [rbp-11h] BYREF
-  _QWORD v15[5]; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v16; // [rsp+90h] [rbp+27h]
+  __int64 v12; // [rsp+40h] [rbp-19h] BYREF
+  _QWORD v13[2]; // [rsp+48h] [rbp-11h] BYREF
+  _QWORD v14[5]; // [rsp+58h] [rbp-1h] BYREF
+  __int64 v15; // [rsp+80h] [rbp+27h]
 
-  v16 = 0LL;
-  v13 = 0LL;
+  v15 = 0LL;
+  v12 = 0LL;
   a8 = 0;
   if ( !AvailablePagesForPartialDump )
     return 3221225507LL;
   v10 = *(_QWORD *)(CrashdmpDumpBlock + 8);
   v11 = *(_QWORD *)(v10 + 48);
-  v15[1] = 0LL;
-  LODWORD(v16) = v16 | 3;
-  v14[0] = v11;
-  v14[1] = v10 + 56;
-  v15[2] = v14;
-  v15[4] = &AvailablePagesForPartialDump;
-  v15[0] = IoSetDumpRange;
-  v15[3] = v10;
-  IopUpdateMinidumpContext(a1, a2, a3, a4, a5, a6, a7, v12, PartialDumpControl & 8);
-  result = MmAddUnloadedDriverInformationToCrashDump(v15);
+  v14[1] = 0LL;
+  LODWORD(v15) = v15 | 3;
+  v13[0] = v11;
+  v13[1] = v10 + 56;
+  v14[2] = v13;
+  v14[4] = &AvailablePagesForPartialDump;
+  v14[0] = IoSetDumpRangeForPartialKernelDump;
+  v14[3] = v10;
+  IopUpdateMinidumpContext(a1, a2, a3, a4, a5, a6, a7);
+  result = MmAddUnloadedDriverInformationToCrashDump(v14);
   if ( (int)result >= 0 )
   {
-    result = IopMarkPagesForLoadedDriverInformation(v15);
+    result = IopMarkPagesForLoadedDriverInformation(v14);
     if ( (int)result >= 0 )
     {
-      if ( !(unsigned __int8)IopCalculateStackInformation(a7, a6, &v13, &a8)
-        || (result = IopMarkPagesForRunTimeTriageDataBlocks(v15, a6, v13, v13 + a8), (int)result >= 0) )
+      if ( !(unsigned __int8)IopCalculateStackInformation(a7, a6, &v12, &a8)
+        || (result = IopMarkPagesForRunTimeTriageDataBlocks(v14, a6, v12, v12 + a8), (int)result >= 0) )
       {
-        result = IopMarkPagesForDpcData(v15);
+        result = IopMarkPagesForDpcData(v14);
         if ( (int)result >= 0 )
         {
-          result = MmAddRangeToCrashDump(v15, a7->ApcState.Process, 2944LL);
+          result = MmAddRangeToCrashDump(v14, a7->ApcState.Process, 2624LL);
           if ( (int)result >= 0 )
           {
-            result = MmAddRangeToCrashDump(v15, a7, 2320LL);
+            result = MmAddRangeToCrashDump(v14, a7, 2200LL);
             if ( (int)result >= 0 )
             {
-              result = MmAddRangeToCrashDump(v15, v13, a8);
+              result = MmAddRangeToCrashDump(v14, v12, a8);
               if ( (int)result >= 0 )
-                return IopAddTriageDumpDataToPartialKernelDump(v15, *(_QWORD *)(CrashdmpDumpBlock + 1416));
+                return IopAddTriageDumpDataToPartialKernelDump(v14, *(_QWORD *)(CrashdmpDumpBlock + 1416));
             }
           }
         }

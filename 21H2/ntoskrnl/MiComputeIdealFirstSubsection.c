@@ -1,44 +1,45 @@
 /*
- * XREFs of MiComputeIdealFirstSubsection @ 0x14096FF98
+ * XREFs of MiComputeIdealFirstSubsection @ 0x1408CFD6C
  * Callers:
- *     MiCreateDataFileMap @ 0x1406FA990 (MiCreateDataFileMap.c)
+ *     MiCreateDataFileMap @ 0x14061BFD4 (MiCreateDataFileMap.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     FsRtlGetFileExtents @ 0x140540EA0 (FsRtlGetFileExtents.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     FsRtlGetFileExtents @ 0x1404EED40 (FsRtlGetFileExtents.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiComputeIdealFirstSubsection(struct _FILE_OBJECT *a1)
 {
   _DWORD *result; // rax
-  __int64 v3; // rdi
-  _DWORD *v4; // rbx
-  int v5; // eax
-  __int64 v6; // rdx
+  __int64 v3; // rdx
+  __int64 v4; // rdi
+  _DWORD *v5; // rbx
+  int v6; // eax
+  __int64 v7; // rdx
 
-  result = MiAllocatePool(64, 0x28uLL, 0x3246694Du);
-  v3 = 0LL;
-  v4 = result;
+  result = MiAllocatePool(64, 0x28uLL, 0x6546694Du);
+  v4 = 0LL;
+  v5 = result;
   if ( result )
   {
     *(_QWORD *)result = 2LL;
-    if ( (int)FsRtlGetFileExtents(a1, 2, 0LL, 0x40000000LL, result) >= 0 )
+    if ( (int)FsRtlGetFileExtents(a1, v3, 0LL, 0x40000000LL, result) >= 0 )
     {
-      v5 = v4[1];
-      if ( v5 == 1 )
+      v6 = v5[1];
+      if ( v6 == 1 )
       {
-        if ( (v4[2] & 0x3FFFF) == 0 && *((_QWORD *)v4 + 2) == 0x40000LL )
-          v3 = 0x40000LL;
+        if ( (v5[2] & 0x3FFFF) == 0 && *((_QWORD *)v5 + 2) == 0x40000LL )
+          v4 = 0x40000LL;
       }
-      else if ( v5 == 2 )
+      else if ( v6 == 2 )
       {
-        v6 = *((_QWORD *)v4 + 2);
-        if ( v6 + *((_QWORD *)v4 + 4) == 0x40000 && (v6 & 0xF) == 0 )
-          v3 = *((_QWORD *)v4 + 2);
+        v7 = *((_QWORD *)v5 + 2);
+        if ( v7 + *((_QWORD *)v5 + 4) == 0x40000 && (v7 & 0xF) == 0 )
+          v4 = *((_QWORD *)v5 + 2);
       }
     }
-    ExFreePoolWithTag(v4, 0);
-    return (_DWORD *)v3;
+    ExFreePoolWithTag(v5, 0);
+    return (_DWORD *)v4;
   }
   return result;
 }

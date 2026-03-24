@@ -1,9 +1,11 @@
 /*
- * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x14023B2A0
+ * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x1402B6474
  * Callers:
- *     KiTryLocalThreadSchedule @ 0x140342260 (KiTryLocalThreadSchedule.c)
+ *     KiChooseTargetProcessor @ 0x140344DE0 (KiChooseTargetProcessor.c)
+ *     KiTryLocalThreadSchedule @ 0x140345560 (KiTryLocalThreadSchedule.c)
+ *     KiSelectIdleProcessor @ 0x140390858 (KiSelectIdleProcessor.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x140345AA0 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
  */
 
 char __fastcall KiReduceByEffectiveIdleSmtSet(__int64 a1, _QWORD *a2)
@@ -14,12 +16,12 @@ char __fastcall KiReduceByEffectiveIdleSmtSet(__int64 a1, _QWORD *a2)
   unsigned int v7; // edx
   unsigned int v8; // ecx
 
-  v3 = *(_QWORD *)(a1 + 34912) & ~*(_QWORD *)(a1 + 200);
+  v3 = *(_QWORD *)(a1 + 33880) & ~*(_QWORD *)(a1 + 200);
   v4 = v3 & *a2;
   if ( !v4
-    || (*(_QWORD *)(*(_QWORD *)(a1 + 192) + 40LL) & v4) != v3
-    || (*(_BYTE *)(a1 + 13244) & 1) != 0
-    || *(_DWORD *)(a1 + 32472) )
+    || (*(_QWORD *)(*(_QWORD *)(a1 + 192) + 24LL) & v4) != v3
+    || (*(_BYTE *)(a1 + 12588) & 1) != 0
+    || *(_DWORD *)(a1 + 31768) )
   {
     return 0;
   }

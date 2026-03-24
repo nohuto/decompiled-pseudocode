@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpStackTraceDispatcher @ 0x14030F41C
+ * XREFs of EtwpStackTraceDispatcher @ 0x14030F51C
  * Callers:
- *     EtwpLogKernelEvent @ 0x1400C71B0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14017C6D8 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x14017C9F0 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14017C6F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x14017CA10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     MmCanThreadFault @ 0x1400CC1D4 (MmCanThreadFault.c)
- *     EtwpQueueStackWalkApc @ 0x14030F160 (EtwpQueueStackWalkApc.c)
- *     EtwpTraceStackWalk @ 0x14030F644 (EtwpTraceStackWalk.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     MmCanThreadFault @ 0x1400CC1F4 (MmCanThreadFault.c)
+ *     EtwpQueueStackWalkApc @ 0x14030F260 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
  */
 
 void __fastcall EtwpStackTraceDispatcher(unsigned int *a1, unsigned int *a2, struct _KTHREAD *a3, unsigned int a4)

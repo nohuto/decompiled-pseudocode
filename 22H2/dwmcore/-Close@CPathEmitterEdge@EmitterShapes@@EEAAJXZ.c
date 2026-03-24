@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Close@CPathEmitterEdge@EmitterShapes@@EEAAJXZ @ 0x180269CB0
+ * XREFs of ?Close@CPathEmitterEdge@EmitterShapes@@EEAAJXZ @ 0x180208B20
  * Callers:
  *     <none>
  * Callees:
@@ -12,9 +12,9 @@ __int64 __fastcall EmitterShapes::CPathEmitterEdge::Close(EmitterShapes::CPathEm
   __int64 v2; // rax
   float v3; // xmm0_4
 
-  *((_DWORD *)this + 4) = 0;
-  v1 = *((_QWORD *)this + 4);
-  v2 = *((_QWORD *)this + 3);
+  *((_DWORD *)this + 2) = 0;
+  v1 = *((_QWORD *)this + 3);
+  v2 = *((_QWORD *)this + 2);
   if ( v2 != v1 )
   {
     v3 = 0.0;
@@ -22,7 +22,7 @@ __int64 __fastcall EmitterShapes::CPathEmitterEdge::Close(EmitterShapes::CPathEm
     {
       v3 = v3 + *(float *)(v2 + 48);
       v2 += 56LL;
-      *((float *)this + 4) = v3;
+      *((float *)this + 2) = v3;
     }
     while ( v2 != v1 );
   }

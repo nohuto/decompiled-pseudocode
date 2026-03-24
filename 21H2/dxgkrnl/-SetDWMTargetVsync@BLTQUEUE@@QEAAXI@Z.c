@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetDWMTargetVsync@BLTQUEUE@@QEAAXI@Z @ 0x1C006CF0C
+ * XREFs of ?SetDWMTargetVsync@BLTQUEUE@@QEAAXI@Z @ 0x1C005F10C
  * Callers:
- *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C0178000 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
- *     ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C02C2B20 (-SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z.c)
+ *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C00F6D80 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
+ *     ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C0214DA4 (-SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0046430 (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C003BAC0 (McTemplateK0qqqq_EtwWriteTransfer.c)
  */
 
 void __fastcall BLTQUEUE::SetDWMTargetVsync(BLTQUEUE *this, unsigned int a2)
@@ -19,23 +19,15 @@ void __fastcall BLTQUEUE::SetDWMTargetVsync(BLTQUEUE *this, unsigned int a2)
   DXGPUSHLOCK *v8; // [rsp+48h] [rbp-20h]
   int v9; // [rsp+50h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v7, (struct _KTHREAD **)this + 51, 0);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v7, (struct _KTHREAD **)this + 50, 0);
   DXGPUSHLOCK::AcquireExclusive(v8);
-  v4 = (struct _KEVENT *)*((_QWORD *)this + 48);
+  v4 = (struct _KEVENT *)*((_QWORD *)this + 47);
   v9 = 2;
   KeResetEvent(v4);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-    McTemplateK0qqqqq_EtwWriteTransfer(
-      v5,
-      &EventDWMVsyncCountWait,
-      v6,
-      a2,
-      *((_DWORD *)this + 112),
-      0,
-      0,
-      *((_DWORD *)this + 34));
-  *((_DWORD *)this + 98) = a2;
-  if ( a2 <= *((_DWORD *)this + 112) && a2 )
-    KeSetEvent(*((PRKEVENT *)this + 48), 0, 0);
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0qqqq_EtwWriteTransfer(v5, &EventDWMVsyncCountWait, v6, a2, *((_DWORD *)this + 110), 0, 0);
+  *((_DWORD *)this + 96) = a2;
+  if ( a2 <= *((_DWORD *)this + 110) && a2 )
+    KeSetEvent(*((PRKEVENT *)this + 47), 0, 0);
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v7);
 }

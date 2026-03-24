@@ -1,85 +1,71 @@
 /*
- * XREFs of RtlpHashStringToAtom @ 0x1407A0EE0
+ * XREFs of RtlpHashStringToAtom @ 0x14061BB60
  * Callers:
- *     RtlpFreeAllAtom @ 0x140233054 (RtlpFreeAllAtom.c)
- *     RtlAddAtomToAtomTableEx @ 0x1402F1090 (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x1407A0C90 (RtlLookupAtomInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x14025A350 (RtlAddAtomToAtomTableEx.c)
+ *     RtlpFreeAllAtom @ 0x1402BC768 (RtlpFreeAllAtom.c)
+ *     RtlLookupAtomInAtomTable @ 0x14061B580 (RtlLookupAtomInAtomTable.c)
  * Callees:
- *     RtlpLookupOrCreateLowBox @ 0x1402F1298 (RtlpLookupOrCreateLowBox.c)
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1407A1A30 (RtlpAtomMapAtomToHandleEntry.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     RtlpLookupOrCreateLowBox @ 0x14025AACC (RtlpLookupOrCreateLowBox.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14061BA60 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
 __int64 __fastcall RtlpHashStringToAtom(
         __int64 a1,
-        unsigned __int64 a2,
+        wchar_t *a2,
         char a3,
         __int64 *a4,
         _DWORD *a5,
         __int64 *a6,
-        __int64 *a7)
+        unsigned __int64 *a7)
 {
-  __int64 i; // rsi
-  unsigned __int16 *v12; // rbx
-  unsigned int v13; // r10d
-  unsigned __int16 v14; // dx
-  unsigned int v15; // ecx
+  __int64 j; // rsi
+  wchar_t v12; // ax
+  wchar_t *v13; // rbx
+  unsigned int i; // r9d
+  int v15; // ecx
   __int64 v16; // rbx
   __int64 v17; // rdx
-  __int64 v18; // rdi
+  unsigned __int64 v18; // rdi
   __int64 LowBox; // rax
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v22; // dx
 
-  i = 0LL;
-  if ( (a2 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+  j = 0LL;
+  if ( ((unsigned __int64)a2 & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    v12 = (unsigned __int16 *)a2;
-    v13 = 0;
-    v14 = *(_WORD *)a2;
-    if ( v14 )
+    v12 = *a2;
+    v13 = a2;
+    for ( i = 0; *v13; i += v15 )
     {
-      do
+      ++v13;
+      if ( v12 >= 0x61u )
       {
-        ++v12;
-        if ( v14 >= 0x61u )
-        {
-          if ( v14 > 0x7Au )
-          {
-            CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-            v14 = NLS_UPCASE(CurrentServerSiloGlobals[154], v22);
-          }
-          else
-          {
-            v14 -= 32;
-          }
-        }
-        v15 = v14;
-        v14 = *v12;
-        v13 += v15 + (v15 >> 1) + 2 * v15;
+        if ( v12 > 0x7Au )
+          v12 = NLS_UPCASE(v12);
+        else
+          v12 -= 32;
       }
-      while ( *v12 );
+      v15 = v12 + (v12 >> 1) + 2 * v12;
+      v12 = *v13;
     }
-    v16 = (__int64)((__int64)v12 - a2) >> 1;
+    v16 = v13 - a2;
     if ( (unsigned int)v16 > 0xFF )
     {
       v18 = 0LL;
     }
     else
     {
-      v17 = v13 % *(_DWORD *)(a1 + 28);
+      v17 = i % *(_DWORD *)(a1 + 28);
       v18 = *(_QWORD *)(a1 + 32 + 8 * v17);
-      for ( i = a1 + 32 + 8LL * (unsigned int)v17; v18; v18 = *(_QWORD *)v18 )
+      for ( j = a1 + 32 + 8LL * (unsigned int)v17; v18; v18 = *(_QWORD *)v18 )
       {
-        if ( *(unsigned __int8 *)(v18 + 40) == (_DWORD)v16 && !wcsicmp((const wchar_t *)(v18 + 42), (const wchar_t *)a2) )
+        if ( *(unsigned __int8 *)(v18 + 40) == (_DWORD)v16 && !wcsicmp((const wchar_t *)(v18 + 42), a2) )
           break;
-        i = v18;
+        j = v18;
       }
     }
     if ( a4 )
-      *a4 = i;
+      *a4 = j;
     if ( !v18 )
     {
       if ( a5 )
@@ -91,7 +77,7 @@ __int64 __fastcall RtlpHashStringToAtom(
   {
     v18 = 0LL;
     if ( (unsigned __int16)a2 >= 0xC000u )
-      v18 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
+      v18 = RtlpAtomMapAtomToHandleEntry(a1, (unsigned __int16)a2 & 0x3FFF);
     if ( a4 )
       *a4 = 0LL;
     if ( !v18 )

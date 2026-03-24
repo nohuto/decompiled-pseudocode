@@ -1,23 +1,21 @@
 /*
- * XREFs of ?Reset@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C01112D4
+ * XREFs of ?Reset@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C01259F4
  * Callers:
- *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C011124C (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
+ *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C012596C (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CDynamicArray<IInputQueue *,2003858261>::Reset(__int64 *a1)
+void __fastcall CDynamicArray<IInputQueue *,2003858261>::Reset(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
 
-  v2 = *a1;
+  v2 = *(void **)a1;
   if ( v2 )
   {
-    result = Win32FreePool(v2);
-    *a1 = 0LL;
+    Win32FreePool(v2);
+    *(_QWORD *)a1 = 0LL;
   }
-  *((_DWORD *)a1 + 3) = 0;
-  *((_DWORD *)a1 + 2) = 0;
-  return result;
+  *(_DWORD *)(a1 + 12) = 0;
+  *(_DWORD *)(a1 + 8) = 0;
 }

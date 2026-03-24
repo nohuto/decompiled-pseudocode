@@ -1,33 +1,33 @@
 /*
- * XREFs of NtShutdownWorkerFactory @ 0x1403675A0
+ * XREFs of NtShutdownWorkerFactory @ 0x140323380
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     ExpShutdownWorkerFactory @ 0x14031D728 (ExpShutdownWorkerFactory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x140865F70 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExpShutdownWorkerFactory @ 0x1403489E8 (ExpShutdownWorkerFactory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v4; // esi
-  struct _EX_RUNDOWN_REF *v5; // rbx
+  PVOID v5; // rbx
+  _DWORD *v6; // rbx
   unsigned __int8 OldIrql; // bl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
+  int v12; // eax
+  bool v13; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
-  struct _EX_RUNDOWN_REF *v15; // [rsp+78h] [rbp+20h]
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -42,28 +42,30 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
   v4 = ObReferenceObjectByHandle(a1, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( v4 >= 0 )
   {
-    v5 = (struct _EX_RUNDOWN_REF *)Object;
+    v5 = Object;
     ExpShutdownWorkerFactory(Object);
-    ExWaitForRundownProtectionRelease(v5 + 13);
-    v5 += 49;
-    v15 = v5;
-    _InterlockedExchangeAdd(a2, v5->Count);
+    ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v5 + 13);
+    _InterlockedExchangeAdd(a2, *((_DWORD *)v5 + 74));
+    v6 = Object;
     KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
-    LODWORD(v5->Count) = 0;
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    v6[74] = 0;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);

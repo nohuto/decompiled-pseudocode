@@ -1,22 +1,27 @@
 /*
- * XREFs of IopGetFileInformation @ 0x14070FC40
+ * XREFs of IopGetFileInformation @ 0x140620A14
  * Callers:
- *     IopGraftName @ 0x1406B9FD4 (IopGraftName.c)
- *     IopGetBasicInformationFile @ 0x1406C7B5C (IopGetBasicInformationFile.c)
- *     IopQueryNameInternal @ 0x14070F744 (IopQueryNameInternal.c)
- *     IopGetRelatedFileName @ 0x1409342B0 (IopGetRelatedFileName.c)
+ *     IopGetRelatedFileName @ 0x1405D87C8 (IopGetRelatedFileName.c)
+ *     IopGetBasicInformationFile @ 0x1406088E8 (IopGetBasicInformationFile.c)
+ *     IopQueryNameInternal @ 0x140620504 (IopQueryNameInternal.c)
+ *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
  */
 
-__int64 __fastcall IopGetFileInformation(struct _FILE_OBJECT *Object, ULONG a2, ULONG a3, struct _IRP *a4, _DWORD *a5)
+__int64 __fastcall IopGetFileInformation(
+        struct _FILE_OBJECT *DmaAdapter,
+        ULONG a2,
+        ULONG a3,
+        struct _IRP *a4,
+        _DWORD *a5)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rsi
   __int64 v10; // rdx
@@ -28,18 +33,19 @@ __int64 __fastcall IopGetFileInformation(struct _FILE_OBJECT *Object, ULONG a2, 
   unsigned int v16; // edx
   __int128 v18; // [rsp+30h] [rbp-48h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-38h] BYREF
+  __int64 retaddr; // [rsp+78h] [rbp+0h]
 
   memset(&Event, 0, sizeof(Event));
   v18 = 0LL;
-  ObfReferenceObject(Object);
+  ObfReferenceObject(DmaAdapter);
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  RelatedDeviceObject = IoGetRelatedDeviceObject(Object);
+  RelatedDeviceObject = IoGetRelatedDeviceObject(DmaAdapter);
   LOBYTE(v10) = RelatedDeviceObject->StackSize;
-  Irp = IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v10, 0LL);
+  Irp = IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v10, 0LL, retaddr);
   v12 = (IRP *)Irp;
   if ( Irp )
   {
-    *(_QWORD *)(Irp + 192) = Object;
+    *(_QWORD *)(Irp + 192) = DmaAdapter;
     v13 = Irp;
     CurrentThread = KeGetCurrentThread();
     v12->Overlay.AllocationSize.QuadPart = 0LL;
@@ -50,7 +56,7 @@ __int64 __fastcall IopGetFileInformation(struct _FILE_OBJECT *Object, ULONG a2, 
     v12->Flags = 4100;
     v12->RequestorMode = 0;
     CurrentStackLocation[-1].MajorFunction = 5;
-    CurrentStackLocation[-1].FileObject = Object;
+    CurrentStackLocation[-1].FileObject = DmaAdapter;
     v12->Flags |= 0x10u;
     v12->AssociatedIrp.MasterIrp = a4;
     CurrentStackLocation[-1].Parameters.Read.Length = a2;
@@ -67,7 +73,7 @@ __int64 __fastcall IopGetFileInformation(struct _FILE_OBJECT *Object, ULONG a2, 
   }
   else
   {
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
     return 3221225626LL;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vCheckMMInstance@@YAXPEAGPEAUtagDESIGNVECTOR@@@Z @ 0x1C00EF21C
+ * XREFs of ?vCheckMMInstance@@YAXPEAGPEAUtagDESIGNVECTOR@@@Z @ 0x1C0021FF0
  * Callers:
- *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00EEE2C (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C0021E50 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
  * Callees:
- *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00D28E0 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GreGetCannonicalName @ 0x1C02920DC (GreGetCannonicalName.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C000CCB4 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     GreGetCannonicalName @ 0x1C02946C8 (GreGetCannonicalName.c)
  */
 
 void __fastcall vCheckMMInstance(char *a1, struct tagDESIGNVECTOR *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z @ 0x1C01C7EBC
+ * XREFs of ?SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z @ 0x1C01D6A28
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0069710 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0011430 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SetMouseKeys(struct _UNICODE_STRING *a1, struct tagMOUSEKEYS *a2)

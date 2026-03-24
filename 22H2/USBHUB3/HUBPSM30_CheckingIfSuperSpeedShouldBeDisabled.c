@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_CheckingIfSuperSpeedShouldBeDisabled @ 0x1C0012E20
+ * XREFs of HUBPSM30_CheckingIfSuperSpeedShouldBeDisabled @ 0x1C0011910
  * Callers:
  *     <none>
  * Callees:

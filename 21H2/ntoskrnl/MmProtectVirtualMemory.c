@@ -1,26 +1,26 @@
 /*
- * XREFs of MmProtectVirtualMemory @ 0x1407B9FA0
+ * XREFs of MmProtectVirtualMemory @ 0x1405FA060
  * Callers:
- *     KiTpWriteUmMemory @ 0x14057352C (KiTpWriteUmMemory.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     NtProtectVirtualMemory @ 0x1407BEBF0 (NtProtectVirtualMemory.c)
+ *     KiTpWriteUmMemory @ 0x14051D624 (KiTpWriteUmMemory.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1405F8E40 (NtProtectVirtualMemory.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140203DC0 (HalSystemVectorDispatchEntry.c)
- *     MiAllowProtectionChange @ 0x1402EDC48 (MiAllowProtectionChange.c)
- *     MiObtainReferencedVadEx @ 0x14030E7C0 (MiObtainReferencedVadEx.c)
- *     MiGetVadPageSize @ 0x14030EBF4 (MiGetVadPageSize.c)
- *     MiVadMapsLargeImage @ 0x14030EC40 (MiVadMapsLargeImage.c)
- *     MiMakeProtectionMask @ 0x14032BCC0 (MiMakeProtectionMask.c)
- *     MiSetProtectionOnSection @ 0x14032D1C0 (MiSetProtectionOnSection.c)
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
- *     MiProtectPrivateMemory @ 0x14032EA60 (MiProtectPrivateMemory.c)
- *     xHalUnmaskInterrupt @ 0x140372920 (xHalUnmaskInterrupt.c)
- *     MiProtectEnclavePages @ 0x1405A9744 (MiProtectEnclavePages.c)
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
- *     MiCommitVadMetadataBits @ 0x1406F74A8 (MiCommitVadMetadataBits.c)
- *     MiCheckSecuredVad @ 0x1407A4C90 (MiCheckSecuredVad.c)
- *     MiIsRangeFullyCommitted @ 0x1407BBF50 (MiIsRangeFullyCommitted.c)
+ *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
+ *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
+ *     MiAllowProtectionChange @ 0x14025F698 (MiAllowProtectionChange.c)
+ *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
+ *     xHalUnmaskInterrupt @ 0x14036D790 (xHalUnmaskInterrupt.c)
+ *     MiProtectEnclavePages @ 0x14054AB30 (MiProtectEnclavePages.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
+ *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
+ *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
+ *     MiCheckSecuredVad @ 0x1406623F8 (MiCheckSecuredVad.c)
+ *     MiIsRangeFullyCommitted @ 0x1406F02C0 (MiIsRangeFullyCommitted.c)
  */
 
 __int64 __fastcall MmProtectVirtualMemory(
@@ -31,391 +31,367 @@ __int64 __fastcall MmProtectVirtualMemory(
         unsigned int a5,
         _DWORD *a6)
 {
-  __int64 v6; // r11
-  unsigned int v7; // r10d
-  int v8; // r14d
-  char v9; // dl
-  unsigned __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // r13d
-  unsigned int v13; // r12d
-  unsigned int v14; // ebx
+  int v6; // r15d
+  unsigned __int64 v7; // r8
+  __int64 v8; // r9
+  int v9; // r13d
+  unsigned int v10; // r12d
+  unsigned int v11; // ebx
   int ProtectionMask; // ecx
-  unsigned __int64 v16; // rsi
-  __int64 v17; // r15
-  __int64 v18; // rax
-  ULONG_PTR v19; // rdi
-  char v20; // r10
-  unsigned int v21; // r8d
-  unsigned int v22; // edx
-  int v23; // r9d
+  unsigned __int64 v13; // rsi
+  unsigned __int64 v14; // r14
+  volatile signed __int32 *v15; // rax
+  ULONG_PTR v16; // rdi
+  unsigned int v17; // r8d
+  unsigned int v18; // edx
+  int v19; // r9d
+  int v20; // eax
+  int v21; // r12d
+  unsigned __int64 v22; // r15
+  unsigned __int64 v23; // rcx
   int v24; // ecx
-  int v25; // r14d
-  unsigned __int64 v26; // r12
-  unsigned __int64 v27; // rcx
-  int v28; // ecx
-  char *v29; // rcx
-  int v30; // r13d
-  __int64 result; // rax
-  unsigned int v32; // ebx
-  int v33; // ecx
-  unsigned __int64 v34; // rcx
-  unsigned __int64 v35; // r12
-  unsigned __int64 v36; // rcx
-  __int16 v37; // ax
+  char *v25; // rcx
+  int v26; // r12d
+  unsigned int v28; // ebx
+  char v29; // r8
+  __int64 v30; // rax
+  unsigned __int64 v31; // rcx
+  unsigned __int64 v32; // r15
+  unsigned __int64 v33; // rcx
+  __int16 v34; // cx
   __int64 VadPageSize; // rax
-  int v39; // ebx
-  int v40; // edx
-  int v41; // [rsp+28h] [rbp-100h]
-  char v42; // [rsp+60h] [rbp-C8h]
-  unsigned int v43; // [rsp+64h] [rbp-C4h]
-  int v44; // [rsp+68h] [rbp-C0h]
-  int v45; // [rsp+6Ch] [rbp-BCh] BYREF
-  int v46; // [rsp+70h] [rbp-B8h] BYREF
-  int v47; // [rsp+74h] [rbp-B4h]
-  int v48; // [rsp+78h] [rbp-B0h] BYREF
-  _QWORD *v49; // [rsp+80h] [rbp-A8h]
-  unsigned __int64 v50; // [rsp+88h] [rbp-A0h]
-  int v51; // [rsp+90h] [rbp-98h]
-  int v52; // [rsp+94h] [rbp-94h]
-  PVOID P; // [rsp+98h] [rbp-90h]
-  unsigned __int64 v54; // [rsp+A0h] [rbp-88h]
-  unsigned int v55; // [rsp+ACh] [rbp-7Ch]
-  __int64 v56; // [rsp+B0h] [rbp-78h]
-  _QWORD *Teb; // [rsp+B8h] [rbp-70h]
-  unsigned __int64 v58; // [rsp+C0h] [rbp-68h]
-  unsigned __int64 v59; // [rsp+C8h] [rbp-60h]
-  unsigned __int64 v60; // [rsp+D0h] [rbp-58h]
-  unsigned __int64 v61; // [rsp+D8h] [rbp-50h]
-  __int64 v62[9]; // [rsp+E0h] [rbp-48h] BYREF
-  char v67[8]; // [rsp+150h] [rbp+28h]
+  int v36; // ebx
+  int v37; // edx
+  int v38; // [rsp+28h] [rbp-100h]
+  unsigned int v39; // [rsp+60h] [rbp-C8h]
+  int v40; // [rsp+68h] [rbp-C0h] BYREF
+  int v41; // [rsp+6Ch] [rbp-BCh] BYREF
+  int v42; // [rsp+70h] [rbp-B8h]
+  int v43; // [rsp+74h] [rbp-B4h] BYREF
+  _QWORD *v44; // [rsp+78h] [rbp-B0h]
+  unsigned __int64 v45; // [rsp+80h] [rbp-A8h]
+  int v46; // [rsp+88h] [rbp-A0h]
+  int v47; // [rsp+8Ch] [rbp-9Ch]
+  PVOID P; // [rsp+90h] [rbp-98h]
+  unsigned __int64 v49; // [rsp+98h] [rbp-90h]
+  int v50; // [rsp+A0h] [rbp-88h]
+  unsigned int v51; // [rsp+A4h] [rbp-84h]
+  __int64 v52; // [rsp+A8h] [rbp-80h]
+  _QWORD *Teb; // [rsp+B0h] [rbp-78h]
+  unsigned __int64 v54; // [rsp+B8h] [rbp-70h]
+  unsigned __int64 v55; // [rsp+C0h] [rbp-68h]
+  unsigned __int64 v56; // [rsp+C8h] [rbp-60h]
+  unsigned __int64 v57; // [rsp+D0h] [rbp-58h]
+  _QWORD v58[10]; // [rsp+D8h] [rbp-50h] BYREF
+  __int64 v60; // [rsp+138h] [rbp+10h]
 
-  v6 = a2;
-  v7 = a5;
-  v8 = 0;
-  v46 = 0;
-  v45 = 0;
+  v60 = a2;
+  v6 = 0;
+  v41 = 0;
+  v40 = 0;
   *a6 = 1;
-  v48 = 0;
-  v9 = 0;
-  v44 = 0;
-  v42 = 1;
-  v10 = *a3;
-  v54 = v10;
-  v58 = v10;
-  v11 = *a4;
-  v56 = v11;
-  v59 = v11;
-  v12 = a5 & 0x7F800;
-  v47 = a5 & 0x7F800;
+  v43 = 0;
+  v47 = 1;
+  v7 = *a3;
+  v49 = v7;
+  v54 = v7;
+  v8 = *a4;
+  v52 = v8;
+  v55 = v8;
+  v9 = a5 & 0x7F800;
+  v50 = a5 & 0x7F800;
   if ( (a5 & 0x7F800) != 0 )
   {
-    result = xHalUnmaskInterrupt();
-    v46 = result;
-    if ( (int)result < 0 )
-      return result;
+    v26 = xHalUnmaskInterrupt();
+    v41 = v26;
+    if ( v26 < 0 )
+      return (unsigned int)v26;
   }
-  v52 = a5 >> 31;
+  v42 = a5 >> 31;
   LODWORD(P) = a5 >> 31;
-  v13 = a5 & 0xB0000000;
-  v55 = a5 & 0xB0000000;
-  v14 = a5 & 0x4FF807FF;
+  v10 = a5 & 0xB0000000;
+  v51 = a5 & 0xB0000000;
+  v11 = a5 & 0x4FF807FF;
   if ( (a5 & 0x40000000) != 0 )
   {
-    if ( (v7 & 0xF0) == 0 )
+    v11 = a5 & 0xFF807FF;
+    if ( (a5 & 0xFF8070F) != 0 )
       return 3221225714LL;
-    v42 = v9;
-    v14 = v7 & 0xFF807FF;
+    v47 = 0;
   }
-  if ( v14 )
+  if ( v11 )
   {
-    ProtectionMask = MiMakeProtectionMask(v14);
-    v43 = ProtectionMask;
-    v51 = ProtectionMask;
+    ProtectionMask = MiMakeProtectionMask(v11);
+    v39 = ProtectionMask;
+    v46 = ProtectionMask;
     if ( ProtectionMask != -1 )
-      goto LABEL_5;
+    {
+      a2 = v60;
+      goto LABEL_6;
+    }
     return 3221225541LL;
   }
-  if ( v13 != 0x80000000 && v13 != 0x10000000 )
+  if ( v10 != 0x80000000 && v10 != 0x10000000 )
     return 3221225541LL;
   ProtectionMask = 24;
-  v43 = 24;
-  v51 = 24;
-LABEL_5:
-  v16 = (v11 + v10 - 1) | 0xFFF;
-  v61 = v16;
-  v17 = v10 & 0xFFFFFFFFFFFFF000uLL;
-  v60 = v10 & 0xFFFFFFFFFFFFF000uLL;
+  v39 = 24;
+  v46 = 24;
+LABEL_6:
+  v13 = (v8 + v7 - 1) | 0xFFF;
+  v57 = v13;
+  v14 = v7 & 0xFFFFFFFFFFFFF000uLL;
+  v56 = v7 & 0xFFFFFFFFFFFFF000uLL;
   Teb = 0LL;
-  v49 = 0LL;
-  v50 = 0LL;
+  v44 = 0LL;
+  v45 = 0LL;
   if ( (ProtectionMask & 0xFFFFFFF8) == 0x10 )
   {
     if ( KeGetCurrentThread()->ApcStateIndex == 1
-      || *(_QWORD *)(v6 + 1408) && ((v37 = *(_WORD *)(v6 + 2412), v37 == 332) || v37 == 452) )
+      || (v30 = *(_QWORD *)(a2 + 1408)) != 0 && ((v34 = *(_WORD *)(v30 + 8), v34 == 332) || v34 == 452) )
     {
-      v34 = v50;
+      v31 = v45;
     }
     else
     {
       Teb = KeGetCurrentThread()->Teb;
-      v49 = Teb;
-      v34 = Teb[2] & 0xFFFFFFFFFFFFF000uLL;
-      v50 = v34;
+      v44 = Teb;
+      v31 = Teb[2] & 0xFFFFFFFFFFFFF000uLL;
+      v45 = v31;
     }
-    v49 = (_QWORD *)v34;
+    v44 = (_QWORD *)v31;
   }
   P = 0LL;
-  v59 = v16 >> 12;
-  v18 = MiObtainReferencedVadEx(v17, 0, &v46);
-  v19 = v18;
-  v58 = v18;
-  if ( !v18 )
+  v55 = v13 >> 12;
+  v15 = MiObtainReferencedVadEx(v14, 0, &v41);
+  v16 = (ULONG_PTR)v15;
+  v54 = (unsigned __int64)v15;
+  if ( !v15 )
   {
-    v30 = v46;
-    if ( v46 != -1073741664 )
-      goto LABEL_121;
-    goto LABEL_83;
+    v26 = v41;
+    if ( v41 != -1073741664 )
+      goto LABEL_117;
+    goto LABEL_80;
   }
-  P = (PVOID)v18;
-  if ( v59 > (*(unsigned int *)(v18 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v18 + 33) << 32)) )
+  P = (PVOID)v15;
+  if ( v55 > (*((unsigned int *)v15 + 7) | ((unsigned __int64)*((unsigned __int8 *)v15 + 33) << 32)) )
   {
-    v30 = -1073741800;
-    goto LABEL_121;
+    v26 = -1073741800;
+    goto LABEL_117;
   }
-  if ( (*(_DWORD *)(v18 + 48) & 0x2200000) == 0x2200000 )
+  if ( (v15[12] & 0x1100000) == 0x1100000 )
   {
-    if ( !v12 )
+    if ( !v9 )
     {
-      v30 = -1073741755;
-      goto LABEL_121;
+      v26 = -1073741755;
+      goto LABEL_117;
     }
   }
-  else if ( v12 )
+  else if ( v9 )
   {
-    v30 = -1073741755;
-    goto LABEL_121;
+    v26 = -1073741755;
+    goto LABEL_117;
   }
-  v20 = 0;
-  v67[0] = 0;
-  v21 = v43;
-  if ( (v43 & 2) != 0 )
+  v17 = v39;
+  if ( (v39 & 2) == 0 )
   {
-    v30 = MiAllowProtectionChange(a2, a1, v18, v43, v17, v16);
-    if ( v30 < 0 )
-      goto LABEL_121;
-    v33 = *(_DWORD *)(v19 + 48);
-    if ( (v33 & 0x100) == 0 && v42 )
+LABEL_12:
+    v18 = *(_DWORD *)(v16 + 48);
+    v19 = v18 & 0x100000;
+    if ( ((v18 & 0x100000) == 0 || (v18 & 0x400000) == 0 && (v18 & 0xC0000) < 0x80000) && (v18 & 0x70) != 0x50 )
+      goto LABEL_14;
+    if ( (v18 & 0x500000) == 0x500000 )
     {
-      LOBYTE(v8) = *(_QWORD *)(*(_QWORD *)(a2 + 1680) + 432LL) != 0LL;
-      if ( !(unsigned int)HalSystemVectorDispatchEntry() )
+      VadPageSize = MiGetVadPageSize(v16);
+      if ( ((v49 | (v13 + 1)) & ((VadPageSize << 12) - 1)) != 0 )
       {
-LABEL_49:
-        if ( v8 )
+        v26 = -1073741800;
+        goto LABEL_117;
+      }
+LABEL_14:
+      if ( (v18 & 0x3100000) == 0x2100000 )
+      {
+        v28 = MiProtectEnclavePages(v60, a1, v16, v14, v13, v11, v17, v10, a6, a3, a4);
+        MiUnlockAndDereferenceVad((char *)v16);
+        return v28;
+      }
+      if ( (v10 & 0x5FFFFFFF) != 0 )
+      {
+        v26 = -1073741755;
+        goto LABEL_117;
+      }
+      if ( !v11 )
+      {
+        v26 = -1073741755;
+        goto LABEL_117;
+      }
+      v20 = v18 & 0x70;
+      if ( v20 == 48 )
+      {
+        v36 = MiProtectAweRegion(v14, v13, v17, v9, &v40);
+        if ( v36 >= 0 )
         {
-          if ( (v33 & 8) != 0 )
+          MiUnlockAndDereferenceVad((char *)v16);
+          *a4 = v13 - v14 + 1;
+          *a3 = v14;
+          *a6 = v40;
+          return (unsigned int)v36;
+        }
+        v26 = -1073741800;
+        goto LABEL_117;
+      }
+      if ( v20 == 16 )
+      {
+        v26 = -1073741800;
+        goto LABEL_117;
+      }
+      v21 = v42;
+      if ( v42 == 1 && (v19 || (*(_DWORD *)(**(_QWORD **)(v16 + 72) + 56LL) & 0x20) != 0) )
+        goto LABEL_116;
+      if ( (v18 & 8) == 0 || v6 )
+      {
+        v22 = (unsigned __int64)v44;
+      }
+      else
+      {
+        v26 = MiCheckSecuredVad(v16, v49, v52, v17, KeGetCurrentThread()->PreviousMode);
+        if ( v26 < 0 )
+          goto LABEL_117;
+        v22 = v45;
+        v21 = v42;
+        v17 = v39;
+      }
+      v23 = *(unsigned int *)(v16 + 48);
+      if ( (v23 & 0x100000) != 0 )
+      {
+        if ( (v11 & 0x88) == 0 && v21 != 1 )
+        {
+          if ( (v23 & 0x70) == 0x40 )
           {
-            v30 = MiCheckSecuredVad(v19, v54, v56, v43, KeGetCurrentThread()->PreviousMode);
-            if ( v30 < 0 )
-              goto LABEL_121;
-            v67[0] = 1;
-            v49 = (_QWORD *)v50;
+            if ( (v11 & 0xFFFFF9F9) != 0 )
+            {
+              v26 = -1073741755;
+              goto LABEL_117;
+            }
+            v11 &= 0x7FFFF9FFu;
+            v37 = *(_DWORD *)(v16 + 48) & 0xC00;
+            if ( (*(_DWORD *)(v16 + 48) & 0x380) != 0 && v37 == 3072 )
+            {
+              v11 |= 0x400u;
+            }
+            else if ( v37 == 1024 )
+            {
+              v11 |= 0x200u;
+            }
+            v17 = MiMakeProtectionMask(v11);
           }
-          v62[0] = v17;
-          v62[1] = v16;
-          v30 = MiCommitVadMetadataBits(v19, v62, v8);
-          if ( v30 < 0 )
-            goto LABEL_121;
-          v20 = v67[0];
-          v21 = v43;
-          v12 = v47;
+          v26 = MiProtectPrivateMemory(v16, v14, v13, v17, v11, v38, &v40, &v43);
+          if ( v26 < 0 )
+            goto LABEL_117;
+          if ( v22 )
+          {
+            if ( v22 < v13 )
+            {
+              v32 = v22 >> 12;
+              if ( v32 >= (*(unsigned int *)(v16 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v16 + 32) << 32)) )
+              {
+                v33 = *(unsigned int *)(v16 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v16 + 33) << 32);
+                if ( v32 <= v33 && (v13 + 1) >> 12 <= v33 )
+                  Teb[2] = v13 + 1;
+              }
+            }
+          }
+          goto LABEL_34;
         }
-        else
+      }
+      else if ( (v11 & 0x600) == 0 )
+      {
+        if ( (v23 & 0x70) == 0x20 )
         {
-          v20 = 0;
-          v21 = v43;
-          v12 = v47;
+          if ( (v11 & 4) != 0 )
+            v11 = v11 & 0xFFFFFFF3 | 8;
+          if ( (v11 & 0x40) != 0 )
+            v11 = v11 & 0xFFFFFF3F | 0x80;
         }
-        goto LABEL_11;
-      }
-      v44 = v8 | 4;
-    }
-    v8 = v44;
-    goto LABEL_49;
-  }
-LABEL_11:
-  v22 = *(_DWORD *)(v19 + 48);
-  v23 = v22 & 0x200000;
-  if ( (v22 & 0x200000) != 0 && ((v22 & 0x800000) != 0 || (v22 & 0x180000) >= 0x100000) || (v24 = v22 & 0x70, v24 == 80) )
-  {
-    if ( (v22 & 0xA00000) == 0xA00000 )
-    {
-      VadPageSize = MiGetVadPageSize(v19);
-      if ( ((v54 | (v16 + 1)) & ((VadPageSize << 12) - 1)) != 0 )
-      {
-        v30 = -1073741800;
-        goto LABEL_121;
-      }
-      v24 = v22 & 0x70;
-      goto LABEL_13;
-    }
-    if ( v21 == ((v22 >> 7) & 0x1F) )
-    {
-      MiUnlockAndDereferenceVad((char *)v19);
-      goto LABEL_97;
-    }
-LABEL_83:
-    v30 = -1073741800;
-    goto LABEL_121;
-  }
-LABEL_13:
-  if ( (v22 & 0x6200000) == 0x4200000 )
-  {
-    v32 = MiProtectEnclavePages(a2, a1, v19, v17, v16, v14, v21, v13, a6, a3, a4);
-    MiUnlockAndDereferenceVad((char *)v19);
-    return v32;
-  }
-  if ( (v13 & 0x5FFFFFFF) != 0 )
-  {
-    v30 = -1073741755;
-    goto LABEL_121;
-  }
-  if ( !v14 )
-  {
-    v30 = -1073741755;
-    goto LABEL_121;
-  }
-  if ( v24 == 48 )
-  {
-    v39 = MiProtectAweRegion(v17, v16, v21, v12, &v45);
-    if ( v39 >= 0 )
-    {
-      MiUnlockAndDereferenceVad((char *)v19);
-      *a4 = v16 - v17 + 1;
-      *a3 = v17;
-      *a6 = v45;
-      return (unsigned int)v39;
-    }
-    v30 = -1073741800;
-    goto LABEL_121;
-  }
-  if ( v24 == 16 )
-  {
-    v30 = -1073741800;
-    goto LABEL_121;
-  }
-  v25 = v52;
-  if ( v52 && (v23 || (*(_DWORD *)(**(_QWORD **)(v19 + 72) + 56LL) & 0x20) != 0) )
-    goto LABEL_120;
-  if ( (v22 & 8) == 0 || v20 )
-  {
-    v26 = (unsigned __int64)v49;
-  }
-  else
-  {
-    v30 = MiCheckSecuredVad(v19, v54, v56, v21, KeGetCurrentThread()->PreviousMode);
-    if ( v30 < 0 )
-      goto LABEL_121;
-    v26 = v50;
-    v21 = v43;
-  }
-  v27 = *(unsigned int *)(v19 + 48);
-  if ( (v27 & 0x200000) == 0 )
-  {
-    if ( (v14 & 0x600) == 0 )
-    {
-      if ( (v27 & 0x70) == 0x20 )
-      {
-        if ( (v14 & 4) != 0 )
-          v14 = v14 & 0xFFFFFFF3 | 8;
-        if ( (v14 & 0x40) != 0 )
-          v14 = v14 & 0xFFFFFF3F | 0x80;
-      }
-      v28 = MmCompatibleProtectionMask[(v27 >> 7) & 7] | 0x700;
-      if ( (v14 | v28) != v28 )
-      {
-        v30 = -1073741746;
-        goto LABEL_121;
-      }
-      if ( (*(_DWORD *)(**(_QWORD **)(v19 + 72) + 56LL) & 0xA0) == 0x80 )
-        goto LABEL_32;
-      if ( !MiVadMapsLargeImage(v19) )
-      {
-        if ( !(unsigned int)MiIsRangeFullyCommitted(v29, v17, v16) )
+        v24 = MmCompatibleProtectionMask[(v23 >> 7) & 7] | 0x700;
+        if ( (v11 | v24) != v24 )
         {
-          v30 = -1073741779;
-          goto LABEL_121;
+          v26 = -1073741746;
+          goto LABEL_117;
         }
-LABEL_32:
-        v30 = MiSetProtectionOnSection(a2, v19, v17, v16, v14, v25, &v45, (__int64)&v48);
-        if ( v30 >= 0 )
-          goto LABEL_33;
-        goto LABEL_121;
-      }
-      if ( v14 != 128 && v14 != 8 )
-      {
-        v30 = -1073741746;
-        goto LABEL_121;
-      }
-      MiUnlockAndDereferenceVad(v29);
-LABEL_97:
-      *a4 = v16 - v17 + 1;
-      *a3 = v17;
-      *a6 = MmProtectToValue[v43];
-      return 0LL;
-    }
-LABEL_120:
-    v30 = -1073741582;
-    goto LABEL_121;
-  }
-  if ( (v14 & 0x88) != 0 || v25 )
-    goto LABEL_120;
-  if ( (v27 & 0x70) == 0x40 )
-  {
-    if ( (v14 & 0xFFFFF9F9) != 0 )
-    {
-      v30 = -1073741755;
-      goto LABEL_121;
-    }
-    v14 &= 0x7FFFF9FFu;
-    v40 = *(_DWORD *)(v19 + 48) & 0xC00;
-    if ( (*(_DWORD *)(v19 + 48) & 0x380) != 0 && v40 == 3072 )
-    {
-      v14 |= 0x400u;
-    }
-    else if ( v40 == 1024 )
-    {
-      v14 |= 0x200u;
-    }
-    v21 = MiMakeProtectionMask(v14);
-  }
-  v30 = MiProtectPrivateMemory(v19, v17, v16, v21, v14, v41, &v45, &v48);
-  if ( v30 >= 0 )
-  {
-    if ( v26 )
-    {
-      if ( v26 < v16 )
-      {
-        v35 = v26 >> 12;
-        if ( v35 >= (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) )
+        if ( (*(_DWORD *)(**(_QWORD **)(v16 + 72) + 56LL) & 0xA0) == 0x80 )
         {
-          v36 = *(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32);
-          if ( v35 <= v36 && (v16 + 1) >> 12 <= v36 )
-            Teb[2] = v16 + 1;
-        }
-      }
-    }
 LABEL_33:
-    MiUnlockAndDereferenceVad((char *)v19);
-    *a4 = v16 - v17 + 1;
-    *a3 = v17;
-    *a6 = v45;
-    if ( v48 )
-      return 1073741847LL;
-    return 0LL;
+          v26 = MiSetProtectionOnSection(v60, v16, v14, v13, v11, v21, &v40, (__int64)&v43);
+          if ( v26 < 0 )
+            goto LABEL_117;
+LABEL_34:
+          MiUnlockAndDereferenceVad((char *)v16);
+          *a4 = v13 - v14 + 1;
+          *a3 = v14;
+          *a6 = v40;
+          if ( v43 == 1 )
+            return 1073741847LL;
+          return 0LL;
+        }
+        if ( !MiVadMapsLargeImage(v16) )
+        {
+          if ( !(unsigned int)MiIsRangeFullyCommitted(v25, v14, v13) )
+          {
+            v26 = -1073741779;
+            goto LABEL_117;
+          }
+          goto LABEL_33;
+        }
+        if ( v11 != 128 && v11 != 8 )
+        {
+          v26 = -1073741746;
+          goto LABEL_117;
+        }
+        MiUnlockAndDereferenceVad(v25);
+LABEL_93:
+        *a4 = v13 - v14 + 1;
+        *a3 = v14;
+        *a6 = MmProtectToValue[v39];
+        return 0LL;
+      }
+LABEL_116:
+      v26 = -1073741582;
+      goto LABEL_117;
+    }
+    if ( v17 == ((v18 >> 7) & 0x1F) )
+    {
+      MiUnlockAndDereferenceVad((char *)v16);
+      goto LABEL_93;
+    }
+LABEL_80:
+    v26 = -1073741800;
+    goto LABEL_117;
   }
-LABEL_121:
+  v26 = MiAllowProtectionChange(v60, a1, (__int64)v15, (_DWORD *)v39, v14, v13);
+  if ( v26 < 0 )
+    goto LABEL_117;
+  if ( (*(_DWORD *)(v16 + 48) & 0x100) != 0 || !MiIsProcessCfgEnabled() || v47 != 1 )
+    goto LABEL_50;
+  if ( (v29 & 8) != 0 )
+  {
+    v26 = MiCheckSecuredVad(v16, v49, v52, v39, KeGetCurrentThread()->PreviousMode);
+    if ( v26 < 0 )
+      goto LABEL_117;
+    v6 = 1;
+    v44 = (_QWORD *)v45;
+  }
+  v58[0] = v14;
+  v58[1] = v13;
+  v26 = MiCommitVadCfgBits(v16, v58, 0LL);
+  if ( v26 >= 0 )
+  {
+LABEL_50:
+    v17 = v39;
+    v10 = a5 & 0xB0000000;
+    goto LABEL_12;
+  }
+LABEL_117:
   if ( P )
     MiUnlockAndDereferenceVad((char *)P);
-  return (unsigned int)v30;
+  return (unsigned int)v26;
 }

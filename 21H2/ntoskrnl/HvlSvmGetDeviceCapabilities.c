@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlSvmGetDeviceCapabilities @ 0x140548C30
+ * XREFs of HvlSvmGetDeviceCapabilities @ 0x1404F6F10
  * Callers:
  *     <none>
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
@@ -17,29 +17,20 @@ __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
   unsigned __int16 v6; // bx
   int v7; // ecx
   int v8; // eax
-  __int128 v10; // [rsp+28h] [rbp-59h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-49h]
-  __int64 v12; // [rsp+40h] [rbp-41h]
-  __int128 v13; // [rsp+48h] [rbp-39h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-29h]
-  __int64 v15; // [rsp+60h] [rbp-21h]
-  _BYTE v16[32]; // [rsp+68h] [rbp-19h] BYREF
-  _BYTE v17[48]; // [rsp+88h] [rbp+7h] BYREF
+  _OWORD v10[2]; // [rsp+28h] [rbp-49h] BYREF
+  _OWORD v11[2]; // [rsp+48h] [rbp-29h] BYREF
+  _BYTE v12[32]; // [rsp+68h] [rbp-9h] BYREF
+  _BYTE v13[32]; // [rsp+88h] [rbp+17h] BYREF
 
   *(_QWORD *)a2 = 0LL;
   *(_DWORD *)(a2 + 8) = 0;
-  v14 = 0LL;
-  LODWORD(v15) = 0;
-  v11 = 0LL;
-  LODWORD(v12) = 0;
-  v13 = 0LL;
-  v10 = 0LL;
-  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v13, 1, (__int64)v17, 24LL);
-  v5 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v10, 2, (__int64)v16, 16LL);
-  v4[1] = 0LL;
+  memset(v11, 0, sizeof(v11));
+  memset(v10, 0, sizeof(v10));
+  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v11, 1, (__int64)v12, 16LL);
+  v5 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v10, 2, (__int64)v13, 16LL);
   *v4 = 0x4000000000000000LL;
   *((_WORD *)v4 + 1) = HIWORD(a1);
-  v4[2] = 0LL;
+  v4[1] = 0LL;
   *(_WORD *)v4 = a1;
   v6 = HvcallInitiateHypercall(170);
   if ( !v6 )
@@ -53,7 +44,7 @@ __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
     *(_DWORD *)(a2 + 4) = v5[1];
     *(_DWORD *)(a2 + 8) = v5[2];
   }
-  HvlpReleaseHypercallPage((__int64)&v10);
-  HvlpReleaseHypercallPage((__int64)&v13);
+  HvlpReleaseHypercallPage((__int64)v10);
+  HvlpReleaseHypercallPage((__int64)v11);
   return HvlpHvToNtStatus(v6);
 }

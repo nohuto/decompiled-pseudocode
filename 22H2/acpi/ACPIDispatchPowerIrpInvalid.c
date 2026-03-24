@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIDispatchPowerIrpInvalid @ 0x1C00245E0
+ * XREFs of ACPIDispatchPowerIrpInvalid @ 0x1C0031260
  * Callers:
- *     ACPIProcessorDeviceControl @ 0x1C008C580 (ACPIProcessorDeviceControl.c)
+ *     ACPIProcessorDeviceControl @ 0x1C009A990 (ACPIProcessorDeviceControl.c)
  * Callees:
  *     <none>
  */

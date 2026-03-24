@@ -7,9 +7,9 @@
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409293B8 (DECREMENT_SCATTER_GATHER_LISTS.c)
  *     VERIFY_BUFFER_LOCKED @ 0x140929614 (VERIFY_BUFFER_LOCKED.c)
  *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
@@ -104,13 +104,13 @@ __int64 VfGetScatterGatherList(__int64 a1, __int64 a2, ...)
     {
       v11 = v10;
       ViHalPreprocessOptions(
-        byte_1404054D0,
+        byte_1404054C0,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v10,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v11, 0LL, 0LL, byte_1404054D0);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v11, 0LL, 0LL, byte_1404054C0);
     }
   }
   v12 = ExAllocateFromNPagedLookasideList(&ViHalWaitBlockLookaside);

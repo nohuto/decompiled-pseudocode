@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ConfiguredSuspended @ 0x1C001CF30
+ * XREFs of HUBDSM_ConfiguredSuspended @ 0x1C001C9F0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerEvent @ 0x1C001860C (HUBPDO_SignalPnpPowerEvent.c)
+ *     HUBPDO_SignalPnpPowerEvent @ 0x1C001810C (HUBPDO_SignalPnpPowerEvent.c)
  */
 
 __int64 __fastcall HUBDSM_ConfiguredSuspended(__int64 a1)

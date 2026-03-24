@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bIs16@EFLOAT@@QEBAHXZ @ 0x1C0033A4C
+ * XREFs of ?bIs16@EFLOAT@@QEBAHXZ @ 0x1C0022500
  * Callers:
- *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0031EE0 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
+ *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0023B10 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
  * Callees:
  *     <none>
  */

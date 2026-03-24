@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C0156AE4
+ * XREFs of ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x1C028547C
  * Callers:
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0155444 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0284204 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z @ 0x1C027BAD4 (--0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z.c)
- *     ??1UNDODESKTOPCOORD@@QEAA@XZ @ 0x1C027BC24 (--1UNDODESKTOPCOORD@@QEAA@XZ.c)
- *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C0283C98 (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z @ 0x1C027DF64 (--0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z.c)
+ *     ??1UNDODESKTOPCOORD@@QEAA@XZ @ 0x1C027E0B4 (--1UNDODESKTOPCOORD@@QEAA@XZ.c)
+ *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C02870EC (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
  */
 
 void __fastcall UNDOWNDOBJSPRITEOVERLAPCLIP::vUndo(UNDOWNDOBJSPRITEOVERLAPCLIP *this)
@@ -46,7 +46,7 @@ void __fastcall UNDOWNDOBJSPRITEOVERLAPCLIP::vUndo(UNDOWNDOBJSPRITEOVERLAPCLIP *
               while ( RGNOBJ::bInside((RGNOBJ *)&v10, (struct _RECTL *)(*((_QWORD *)this + 2) + 16LL * v7)) != 2 )
               {
                 if ( ++v7 >= *((_DWORD *)this + 2) )
-                  goto LABEL_13;
+                  goto LABEL_11;
               }
               RGNOBJ::vSet((RGNOBJ *)&v9);
               vUpdateClientRgnOnSpriteOverlap((struct EWNDOBJ *)j, (struct RGNOBJ *)&v9);
@@ -56,7 +56,7 @@ void __fastcall UNDOWNDOBJSPRITEOVERLAPCLIP::vUndo(UNDOWNDOBJSPRITEOVERLAPCLIP *
           }
         }
       }
-LABEL_13:
+LABEL_11:
       UNDODESKTOPCOORD::~UNDODESKTOPCOORD((UNDODESKTOPCOORD *)v8);
     }
   }

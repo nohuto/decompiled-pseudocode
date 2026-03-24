@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x140236500
+ * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x1402B4840
  * Callers:
- *     HalpTimerOnlyClockInterruptPending @ 0x1402364B0 (HalpTimerOnlyClockInterruptPending.c)
+ *     HalpTimerOnlyClockInterruptPending @ 0x1402B47F0 (HalpTimerOnlyClockInterruptPending.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D1A88 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 
   v9[0] = 0LL;
   v10 = 0;
   v11 = 0;
-  LODWORD(v9[0]) = *(_DWORD *)(HalpInterruptController + 240);
+  LODWORD(v9[0]) = *(_DWORD *)(HalpInterruptController + 232);
   v4 = *(__int64 (__fastcall **)(_QWORD, char *, int *, __int64))(HalpInterruptController + 184);
   if ( v4 )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 
     switch ( v5 )
     {
       case 0:
-        KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 224), v2, 0LL);
+        KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 216), v2, 0LL);
       case 1:
         Lines = HalpInterruptFindLines(v9, &v11);
         if ( !Lines )
@@ -44,8 +44,8 @@ __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 
             18,
             HIDWORD(v9[0]),
             (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
-            3693);
-          KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 224), v2, BugCheckParameter4);
+            3703);
+          KeBugCheckEx(0x5Cu, 0x203uLL, *(int *)(v2 + 216), v2, BugCheckParameter4);
         }
         *a1 = *(_DWORD *)(56LL * v11 + *(_QWORD *)(Lines + 40) + 48);
         return 0LL;

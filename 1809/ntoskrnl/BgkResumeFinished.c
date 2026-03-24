@@ -1,8 +1,8 @@
 /*
  * XREFs of BgkResumeFinished @ 0x14056C684
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
  * Callees:
  *     BgFreeContext @ 0x14094E1D4 (BgFreeContext.c)
  *     BgkpUnlockBgfxCodeSection @ 0x14094E3E0 (BgkpUnlockBgfxCodeSection.c)

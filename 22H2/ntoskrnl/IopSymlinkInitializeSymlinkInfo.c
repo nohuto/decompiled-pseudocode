@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSymlinkInitializeSymlinkInfo @ 0x1407CDF28
+ * XREFs of IopSymlinkInitializeSymlinkInfo @ 0x140682F58
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     IopSymlinkCreateECP @ 0x1407CDD54 (IopSymlinkCreateECP.c)
- *     IopSymlinkRememberJunction @ 0x14087F8E8 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14087F9E8 (IopGraftName.c)
- *     IopSymlinkUpdateECP @ 0x140880C2C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140650C60 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSymlinkUpdateECP @ 0x140682B0C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkRememberJunction @ 0x140682C94 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkCreateECP @ 0x140682E30 (IopSymlinkCreateECP.c)
+ *     IopGraftName @ 0x140683164 (IopGraftName.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void *__fastcall IopSymlinkInitializeSymlinkInfo(
@@ -22,39 +22,39 @@ void *__fastcall IopSymlinkInitializeSymlinkInfo(
         __int16 a9,
         __int64 a10)
 {
-  unsigned __int16 v11; // r10
-  void *v13; // rcx
-  size_t v14; // rbp
+  size_t v11; // rbp
+  unsigned __int16 v12; // cx
+  __int64 v14; // r9
   void *result; // rax
-  __int64 v16; // rax
-  unsigned __int64 v17; // rsi
+  unsigned __int64 v16; // rsi
 
+  v11 = a4;
+  v12 = 0;
   *(_WORD *)(a1 + 4) = a8;
-  v11 = 0;
-  *(_WORD *)(a1 + 18) = a2 - 32;
+  v14 = a1 + 32;
   *(_WORD *)a1 = a5;
-  *(_WORD *)(a1 + 6) = 0;
-  *(_WORD *)(a1 + 16) = 0;
-  v13 = (void *)(a1 + 32);
+  *(_WORD *)(a1 + 18) = a2 - 32;
   *(_WORD *)(a1 + 2) = a9;
   *(_QWORD *)(a1 + 8) = a10;
-  v14 = a4;
-  *(_QWORD *)(a1 + 24) = v13;
+  *(_WORD *)(a1 + 6) = 0;
+  *(_WORD *)(a1 + 16) = 0;
+  *(_QWORD *)(a1 + 24) = a1 + 32;
   if ( Src )
   {
-    memmove(v13, Src, a7);
-    v16 = *(_QWORD *)(a1 + 24);
-    v17 = (unsigned __int64)a7 >> 1;
-    v11 = a7;
+    memmove((void *)(a1 + 32), Src, a7);
+    v14 = *(_QWORD *)(a1 + 24);
+    v16 = (unsigned __int64)a7 >> 1;
+    v12 = a7;
     *(_WORD *)(a1 + 16) = a7;
-    if ( *(_WORD *)(v16 + 2 * v17 - 2) != 92 )
+    if ( *(_WORD *)(v14 + 2 * v16 - 2) != 92 )
     {
-      *(_WORD *)(v16 + 2 * v17) = 92;
+      *(_WORD *)(v14 + 2 * v16) = 92;
       *(_WORD *)(a1 + 16) += 2;
-      v11 = *(_WORD *)(a1 + 16);
+      v12 = *(_WORD *)(a1 + 16);
+      v14 = *(_QWORD *)(a1 + 24);
     }
   }
-  result = memmove((void *)(*(_QWORD *)(a1 + 24) + v11), a3, v14);
-  *(_WORD *)(a1 + 16) += v14;
+  result = memmove((void *)(v14 + v12), a3, v11);
+  *(_WORD *)(a1 + 16) += v11;
   return result;
 }

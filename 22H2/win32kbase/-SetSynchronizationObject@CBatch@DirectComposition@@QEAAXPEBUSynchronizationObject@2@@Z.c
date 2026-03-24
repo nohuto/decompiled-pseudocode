@@ -1,9 +1,7 @@
 /*
- * XREFs of ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C00669E4
+ * XREFs of ?SetSynchronizationObject@CBatch@DirectComposition@@QEAAXPEBUSynchronizationObject@2@@Z @ 0x1C01D5B30
  * Callers:
- *     NtDCompositionSubmitDWMBatch @ 0x1C0028310 (NtDCompositionSubmitDWMBatch.c)
- *     ?SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObject@2@@Z @ 0x1C0028AB0 (-SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObje.c)
- *     ?ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C006688C (-ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z.c)
+ *     ?SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObject@2@@Z @ 0x1C005F594 (-SubmitBatch@CApplicationChannel@DirectComposition@@IEAAXPEAVCBatch@2@0_NPEBUSynchronizationObje.c)
  * Callees:
  *     <none>
  */
@@ -22,10 +20,10 @@ void __fastcall DirectComposition::CBatch::SetSynchronizationObject(
   {
     ObReferenceObjectByPointer(a2, 3u, ExCompositionObjectType, 0);
     _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 12) + 36LL));
-    *((_BYTE *)this + 32) |= 0x20u;
+    *((_BYTE *)this + 32) |= 0x10u;
   }
   else
   {
-    *((_BYTE *)this + 32) &= ~0x20u;
+    *((_BYTE *)this + 32) &= ~0x10u;
   }
 }

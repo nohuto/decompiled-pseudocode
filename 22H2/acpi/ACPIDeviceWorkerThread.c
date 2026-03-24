@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDeviceWorkerThread @ 0x1C0047420
+ * XREFs of ACPIDeviceWorkerThread @ 0x1C002D4E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void ACPIDeviceWorkerThread()

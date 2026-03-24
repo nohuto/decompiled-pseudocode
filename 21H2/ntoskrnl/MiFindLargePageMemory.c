@@ -1,134 +1,144 @@
 /*
- * XREFs of MiFindLargePageMemory @ 0x140982F64
+ * XREFs of MiFindLargePageMemory @ 0x1408DA0E4
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiGetLargestPageIndex @ 0x14023A8F8 (MiGetLargestPageIndex.c)
- *     MiCreatePageChains @ 0x140263558 (MiCreatePageChains.c)
- *     MiZeroInParallel @ 0x14026446C (MiZeroInParallel.c)
- *     MiDereferencePageChains @ 0x1402646FC (MiDereferencePageChains.c)
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiSufficientAvailablePages @ 0x140285380 (MiSufficientAvailablePages.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     MiProtectionToCacheAttribute @ 0x14033D7D0 (MiProtectionToCacheAttribute.c)
- *     MiUpdateLargePagePfns @ 0x1405C32E4 (MiUpdateLargePagePfns.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
+ *     MiGetLargestPageIndex @ 0x1402C9DE0 (MiGetLargestPageIndex.c)
+ *     MiCreateColorAnchors @ 0x1402E2394 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x1402E2D60 (MiZeroInParallel.c)
+ *     MiDeleteColorAnchors @ 0x1402E40AC (MiDeleteColorAnchors.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiUpdateLargePagePfns @ 0x14055EBFC (MiUpdateLargePagePfns.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiFindLargePageMemory(__int64 a1, unsigned __int64 *a2)
+void __fastcall MiFindLargePageMemory(
+        __int64 a1,
+        unsigned int a2,
+        unsigned __int64 a3,
+        unsigned __int64 a4,
+        unsigned int a5,
+        char a6,
+        __int64 a7)
 {
-  unsigned __int64 v3; // rbp
-  char *PageChains; // r15
-  ULONG_PTR v5; // r14
-  _QWORD *Pool; // rbx
-  int v7; // r13d
-  unsigned int LargestPageIndex; // r12d
-  unsigned __int64 v9; // rsi
-  bool v10; // r8
-  unsigned __int64 v11; // rcx
-  _QWORD *v12; // rdx
-  _QWORD *v13; // rax
-  unsigned int v14; // [rsp+C0h] [rbp+8h]
-  unsigned __int64 v16; // [rsp+D0h] [rbp+18h] BYREF
-  __int64 v17; // [rsp+D8h] [rbp+20h]
+  unsigned __int64 v8; // r13
+  unsigned int v9; // eax
+  ULONG_PTR v10; // r14
+  _QWORD *Pool; // rdi
+  int v12; // r12d
+  unsigned int LargestPageIndex; // r15d
+  unsigned __int64 v14; // rsi
+  bool v15; // r8
+  unsigned __int64 *v16; // r10
+  unsigned __int64 v17; // rcx
+  _QWORD *v18; // rdx
+  _QWORD *v19; // rax
+  unsigned int v20; // [rsp+60h] [rbp-51h]
+  unsigned __int64 v21; // [rsp+68h] [rbp-49h] BYREF
+  unsigned __int64 v22; // [rsp+70h] [rbp-41h]
+  __int64 v23; // [rsp+78h] [rbp-39h]
+  __int64 v24; // [rsp+80h] [rbp-31h]
+  _OWORD v25[3]; // [rsp+88h] [rbp-29h] BYREF
 
-  v16 = 0LL;
-  v17 = *(_QWORD *)(a1 + 8);
-  v3 = *(_QWORD *)(a1 + 16) - *(_QWORD *)(a1 + 72);
-  if ( (unsigned int)MiSufficientAvailablePages(
-                       v17,
-                       v3 + ((unsigned __int8)-((*(_DWORD *)(v17 + 4) & 0x20) == 0) & 0xA0)) )
+  v21 = 0LL;
+  v24 = a7;
+  memset(v25, 0, sizeof(v25));
+  v22 = a4;
+  v8 = a3;
+  v23 = a1;
+  if ( (unsigned int)MiSufficientAvailablePages(a1, a3 + 160) && (unsigned int)MiCreateColorAnchors((__int64)v25, a2) )
   {
-    v14 = MiProtectionToCacheAttribute(*(_DWORD *)(a1 + 36));
-    PageChains = (char *)MiCreatePageChains(*(unsigned int *)(a1 + 32), v14);
-    if ( PageChains )
+    v9 = MiProtectionToCacheAttribute(a5);
+    v10 = BugCheckParameter3;
+    Pool = 0LL;
+    v20 = v9;
+    v12 = 0;
+    HIDWORD(v25[0]) = v9;
+    LargestPageIndex = MiGetLargestPageIndex();
+    if ( LargestPageIndex < 3 )
     {
-      v5 = qword_140C590C8;
-      Pool = 0LL;
-      v7 = 0;
-      LargestPageIndex = MiGetLargestPageIndex();
-      if ( LargestPageIndex < 3 )
+      do
       {
-        do
+        v14 = MiLargePageSizes[LargestPageIndex];
+        if ( v8 >= v14 )
         {
-          v9 = MiLargePageSizes[LargestPageIndex];
-          if ( v3 >= v9 )
+          if ( v14 < v22 )
+            break;
+          if ( !Pool )
           {
-            if ( v9 < *(_QWORD *)(a1 + 24) )
-              break;
+            Pool = MiAllocatePool(64, 0x30uLL, 0x6C4C6D4Du);
             if ( !Pool )
-            {
-              Pool = MiAllocatePool(64, 0x30uLL, 0x6C4C6D4Du);
-              if ( !Pool )
-                goto LABEL_25;
-            }
-            if ( (int)MiFindContiguousPagesEx(
-                        v17,
-                        v9,
-                        v5,
-                        v9,
-                        0,
-                        v9,
-                        v14,
-                        *(_DWORD *)(a1 + 32),
-                        0x80000000,
-                        1611661312,
-                        0,
-                        0LL,
-                        (__int64 *)&v16) >= 0 )
-            {
-              v3 -= v9;
-              if ( (*(_DWORD *)a1 & 8) == 0 && (unsigned int)MiUpdateLargePagePfns((__int64)PageChains, v16, v9, v14) )
-                v7 = 1;
-              v10 = 0;
-              v11 = v16;
-              *Pool = v16;
-              Pool[1] = v9;
-              *((_BYTE *)Pool + 16) = 1;
-              v12 = (_QWORD *)*a2;
-              if ( *a2 )
-              {
-                while ( 1 )
-                {
-                  if ( v11 >= *(v12 - 3) )
-                  {
-                    v13 = (_QWORD *)v12[1];
-                    if ( !v13 )
-                    {
-                      v10 = 1;
-                      break;
-                    }
-                  }
-                  else
-                  {
-                    v13 = (_QWORD *)*v12;
-                    if ( !*v12 )
-                      break;
-                  }
-                  v12 = v13;
-                }
-              }
-              RtlAvlInsertNodeEx(a2, (unsigned __int64)v12, v10, Pool + 3);
-              Pool = 0LL;
-              if ( !v3 )
-                goto LABEL_25;
-              v5 = v16 - 1;
-              if ( v16 - 1 > v9 )
-                continue;
-            }
+              goto LABEL_25;
           }
-          v5 = qword_140C590C8;
-          ++LargestPageIndex;
+          if ( (int)MiFindContiguousPages(
+                      v23,
+                      v14,
+                      v10,
+                      v14,
+                      v14,
+                      v20,
+                      a2,
+                      0x80000000,
+                      1611661312,
+                      0LL,
+                      (__int64 *)&v21) >= 0 )
+          {
+            v8 -= v14;
+            if ( (a6 & 2) == 0 && (unsigned int)MiUpdateLargePagePfns((__int64)v25, v21, v14, v20) == 1 )
+              v12 = 1;
+            v15 = 0;
+            v16 = (unsigned __int64 *)v24;
+            v17 = v21;
+            *Pool = v21;
+            Pool[1] = v14;
+            *((_BYTE *)Pool + 16) = 1;
+            v18 = (_QWORD *)*v16;
+            if ( *v16 )
+            {
+              while ( 1 )
+              {
+                if ( v17 >= *(v18 - 3) )
+                {
+                  v19 = (_QWORD *)v18[1];
+                  if ( !v19 )
+                  {
+                    v15 = 1;
+                    break;
+                  }
+                }
+                else
+                {
+                  v19 = (_QWORD *)*v18;
+                  if ( !*v18 )
+                    break;
+                }
+                v18 = v19;
+              }
+            }
+            RtlAvlInsertNodeEx(v16, (unsigned __int64)v18, v15, Pool + 3);
+            Pool = 0LL;
+            if ( !v8 )
+              goto LABEL_25;
+            v10 = v21 - 1;
+            if ( v21 - 1 > v14 )
+              continue;
+          }
         }
-        while ( LargestPageIndex < 3 );
-        if ( Pool )
-          ExFreePoolWithTag(Pool, 0);
-LABEL_25:
-        if ( v7 )
-          MiZeroInParallel(PageChains);
+        v10 = BugCheckParameter3;
+        ++LargestPageIndex;
       }
-      MiDereferencePageChains((volatile signed __int32 *)PageChains);
+      while ( LargestPageIndex < 3 );
+      if ( Pool )
+        ExFreePoolWithTag(Pool, 0);
+LABEL_25:
+      if ( v12 )
+        MiZeroInParallel((__int64 *)v25);
     }
+    MiDeleteColorAnchors((__int64)v25);
   }
 }

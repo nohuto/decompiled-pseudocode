@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlGetDirectImageOriginalBase @ 0x14093D098
+ * XREFs of FsRtlGetDirectImageOriginalBase @ 0x14088AD4C
  * Callers:
- *     MiCreateNewSection @ 0x140746A00 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140700490 (MiCreateNewSection.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
  */
 
-NTSTATUS __fastcall FsRtlGetDirectImageOriginalBase(PFILE_OBJECT FileObject, __int64 a2)
+NTSTATUS __fastcall FsRtlGetDirectImageOriginalBase(PFILE_OBJECT FileObject, struct _IRP *a2)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rbx
   __int64 v5; // rdx
-  PSLIST_ENTRY Irp; // rax
+  IRP *Irp; // rax
   IRP *v7; // rdx
   NTSTATUS result; // eax
-  __int64 v9; // rax
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
   __int128 v10; // [rsp+30h] [rbp-38h] BYREF
   struct _KEVENT Object; // [rsp+40h] [rbp-28h] BYREF
 
@@ -26,22 +26,22 @@ NTSTATUS __fastcall FsRtlGetDirectImageOriginalBase(PFILE_OBJECT FileObject, __i
   KeInitializeEvent(&Object, NotificationEvent, 0);
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
   LOBYTE(v5) = RelatedDeviceObject->StackSize;
-  Irp = IoAllocateIrpEx((__int64)RelatedDeviceObject, v5, 0LL);
-  v7 = (IRP *)Irp;
+  Irp = (IRP *)IoAllocateIrpEx((__int64)RelatedDeviceObject, v5, 0LL);
+  v7 = Irp;
   if ( !Irp )
     return -1073741670;
-  LOBYTE(Irp[4].Next) = 0;
-  *((_QWORD *)&Irp[1].Next + 1) = a2;
-  *((_QWORD *)&Irp[4].Next + 1) = &v10;
-  Irp[5].Next = (_SLIST_ENTRY *)&Object;
-  *((_QWORD *)&Irp[9].Next + 1) = KeGetCurrentThread();
-  v9 = *((_QWORD *)&Irp[11].Next + 1);
-  *(_DWORD *)(v9 - 56) = 0;
-  *(_QWORD *)(v9 - 40) = 0LL;
-  *(_WORD *)(v9 - 72) = 13;
-  *(_QWORD *)(v9 - 24) = FileObject;
-  *(_DWORD *)(v9 - 48) = 590756;
-  *(_DWORD *)(v9 - 64) = 8;
+  Irp->RequestorMode = 0;
+  Irp->AssociatedIrp.MasterIrp = a2;
+  Irp->UserIosb = (PIO_STATUS_BLOCK)&v10;
+  Irp->UserEvent = &Object;
+  Irp->Tail.Overlay.Thread = KeGetCurrentThread();
+  CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+  CurrentStackLocation[-1].Parameters.Create.Options = 0;
+  CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = 0LL;
+  *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 13;
+  CurrentStackLocation[-1].FileObject = FileObject;
+  CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = 590756;
+  CurrentStackLocation[-1].Parameters.Read.Length = 8;
   result = IofCallDriver(RelatedDeviceObject, v7);
   if ( result == 259 )
   {

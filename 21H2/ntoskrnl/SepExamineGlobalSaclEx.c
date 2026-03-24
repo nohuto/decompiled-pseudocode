@@ -1,13 +1,13 @@
 /*
- * XREFs of SepExamineGlobalSaclEx @ 0x1405F4EC8
+ * XREFs of SepExamineGlobalSaclEx @ 0x140596F28
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     SepRmGlobalSaclFind @ 0x140882B96 (SepRmGlobalSaclFind.c)
- *     SepExamineSaclEx @ 0x1409CB770 (SepExamineSaclEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SepExamineSaclEx @ 0x140921D50 (SepExamineSaclEx.c)
+ *     SepRmGlobalSaclFind @ 0x140924BF0 (SepRmGlobalSaclFind.c)
  */
 
 void __fastcall SepExamineGlobalSaclEx(
@@ -22,7 +22,7 @@ void __fastcall SepExamineGlobalSaclEx(
         __int64 a9,
         __int64 a10,
         char a11,
-        __int64 a12,
+        char *a12,
         char *a13)
 {
   char *v13; // rsi
@@ -31,20 +31,21 @@ void __fastcall SepExamineGlobalSaclEx(
   struct _KTHREAD *CurrentThread; // rax
   __int64 v21; // rcx
   char v22; // al
-  char v23[16]; // [rsp+70h] [rbp-28h] BYREF
+  char v23[8]; // [rsp+70h] [rbp-28h] BYREF
+  __int64 v24; // [rsp+78h] [rbp-20h] BYREF
 
-  v13 = (char *)a12;
+  v13 = a12;
   v14 = 0;
   v15 = a13;
-  if ( a12 && !*(_BYTE *)a12 || a13 && !*a13 )
+  if ( a12 && !*a12 || a13 && !*a13 )
   {
     CurrentThread = KeGetCurrentThread();
-    a12 = 0LL;
+    v24 = 0LL;
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&SepRmGlobalSaclLock, 1u);
-    if ( (int)SepRmGlobalSaclFind(&a12, 0LL, a1, 0LL) >= 0 )
+    if ( (int)SepRmGlobalSaclFind(&v24, 0LL, a1, 0LL) >= 0 )
     {
-      v21 = *(_QWORD *)(a12 + 24);
+      v21 = *(_QWORD *)(v24 + 24);
       if ( v21 )
       {
         LOBYTE(a12) = 0;

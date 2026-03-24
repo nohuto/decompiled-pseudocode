@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryActiveProcessors @ 0x14045A0F0
+ * XREFs of KeQueryActiveProcessors @ 0x140515550
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 KAFFINITY KeQueryActiveProcessors(void)
 {
-  return qword_140D06E48[0];
+  return qword_140CFC848[0];
 }

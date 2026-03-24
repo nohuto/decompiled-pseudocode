@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreatePixelShader@CD3DDevice@@QEAAJPEBX_KPEAUID3D11ClassLinkage@@PEAPEAUID3D11PixelShader@@@Z @ 0x1800D0FD8
+ * XREFs of ?CreatePixelShader@CD3DDevice@@QEAAJPEBX_KPEAUID3D11ClassLinkage@@PEAPEAUID3D11PixelShader@@@Z @ 0x18002BC68
  * Callers:
- *     ?Create@CD3DPixelShader@@SAJPEAVCD3DDevice@@PEBX_KPEAPEAV1@@Z @ 0x1800D0A90 (-Create@CD3DPixelShader@@SAJPEAVCD3DDevice@@PEBX_KPEAPEAV1@@Z.c)
- *     ?GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11PixelShader@@@Z @ 0x180299EF4 (-GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11Pixel.c)
+ *     ?Create@CD3DPixelShader@@SAJPEAVCD3DDevice@@PEBX_KPEAPEAV1@@Z @ 0x18002BAB0 (-Create@CD3DPixelShader@@SAJPEAVCD3DDevice@@PEBX_KPEAPEAV1@@Z.c)
+ *     ?EnsureSurfaceShader@CSurfaceShaderComposer@@IEAAJW4SurfaceShaderType@@@Z @ 0x180248170 (-EnsureSurfaceShader@CSurfaceShaderComposer@@IEAAJW4SurfaceShaderType@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DDevice::CreatePixelShader(
@@ -17,25 +17,25 @@ __int64 __fastcall CD3DDevice::CreatePixelShader(
 {
   int v6; // ebx
   int v7; // eax
-  __int64 v8; // rcx
+  unsigned int v8; // ecx
 
   *a5 = 0LL;
-  v6 = *((_DWORD *)this + 272);
+  v6 = *((_DWORD *)this + 282);
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v6, 0x65Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v6, 0x7FEu, 0LL);
   }
   else
   {
-    v7 = (*(__int64 (__fastcall **)(_QWORD, const void *, __int64, _QWORD, struct ID3D11PixelShader **))(**((_QWORD **)this + 69) + 120LL))(
-           *((_QWORD *)this + 69),
+    v7 = (*(__int64 (__fastcall **)(_QWORD, const void *, __int64, _QWORD, struct ID3D11PixelShader **))(**((_QWORD **)this + 74) + 120LL))(
+           *((_QWORD *)this + 74),
            a2,
            a3,
            0LL,
            a5);
     v6 = v7;
     if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x660u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x803u, 0LL);
   }
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v6, 0);
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext(this, (unsigned int)v6, 0LL);
 }

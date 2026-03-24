@@ -1,12 +1,13 @@
 /*
- * XREFs of ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0035688
+ * XREFs of ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002BDC4
  * Callers:
- *     VidSchiRundownUnorderedWaiterContext @ 0x1C003A318 (VidSchiRundownUnorderedWaiterContext.c)
- *     VidSchiRundownUnorderedWaiterDevice @ 0x1C003A364 (VidSchiRundownUnorderedWaiterDevice.c)
- *     ?VidSchiRundownUnorderedWaiterHwQueue@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C003BC98 (-VidSchiRundownUnorderedWaiterHwQueue@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_QUEUE@@@Z.c)
+ *     ??$VidSchRundownUnorderedWaiter@U_VIDSCH_DEVICE@@@@YAJPEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C0011A18 (--$VidSchRundownUnorderedWaiter@U_VIDSCH_DEVICE@@@@YAJPEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@W4.c)
+ *     VidSchiRundownUnorderedWaiterContext @ 0x1C0031608 (VidSchiRundownUnorderedWaiterContext.c)
+ *     VidSchiRundownUnorderedWaiterDevice @ 0x1C0031654 (VidSchiRundownUnorderedWaiterDevice.c)
+ *     ?VidSchiRundownUnorderedWaiterHwQueue@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00331EC (-VidSchiRundownUnorderedWaiterHwQueue@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_QUEUE@@@Z.c)
  * Callees:
- *     VidSchiUnwaitWaitQueuePacket @ 0x1C000EA80 (VidSchiUnwaitWaitQueuePacket.c)
- *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003AAF4 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0010DD0 (VidSchiUnwaitWaitQueuePacket.c)
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C0016544 (VidSchiUnblockUnorderedWaitQueuePacket.c)
  */
 
 void __fastcall VidSchiRundownUnorderedWaiterPacket(
@@ -26,7 +27,7 @@ void __fastcall VidSchiRundownUnorderedWaiterPacket(
     {
       if ( (v3 & 4) != 0 )
       {
-        VidSchiUnblockUnorderedWaitQueuePacket(a1, a2, a3);
+        VidSchiUnblockUnorderedWaitQueuePacket((__int64)a1, (__int64)a2, 1);
       }
       else if ( (v3 & 8) != 0 )
       {
@@ -35,7 +36,7 @@ void __fastcall VidSchiRundownUnorderedWaiterPacket(
           v5 = *(_QWORD *)(v4 + 104);
         else
           v5 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 12) + 40LL) + 8LL);
-        if ( (*(_BYTE *)(*(_QWORD *)(v5 + 32) + 3036LL) & 1) != 0 )
+        if ( (*(_BYTE *)(*(_QWORD *)(v5 + 32) + 2940LL) & 1) != 0 )
           VidSchiUnwaitWaitQueuePacket((__int64)a1, (__int64)a2, a3, 0LL);
       }
     }

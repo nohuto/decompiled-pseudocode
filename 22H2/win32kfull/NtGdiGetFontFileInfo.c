@@ -1,101 +1,91 @@
 /*
- * XREFs of NtGdiGetFontFileInfo @ 0x1C02D6BF0
+ * XREFs of NtGdiGetFontFileInfo @ 0x1C0160A60
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0131040 (--0CFixPred@Prediction@@QEAA@XZ.c)
- *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C0140048 (--1PFFREFOBJ@@QEAA@XZ.c)
- *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0159ACA (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0137700 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0160C1C (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C016CAD0 (--1PFFREFOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiGetFontFileInfo(unsigned int a1, unsigned int a2, wchar_t *a3, SIZE_T a4, ULONG64 a5)
 {
   __int64 v7; // rsi
-  Gre::Base *v9; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v10; // r14
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  struct PFT *v13; // rcx
   struct PFF *PFFFromId; // rbx
-  __int64 v16; // r14
-  const wchar_t *v17; // rsi
-  unsigned int v18; // ebx
-  __int64 v19; // rax
-  unsigned int v20; // r9d
-  _BYTE *v21; // rdx
-  SIZE_T v22; // rdx
-  __int64 v23; // [rsp+28h] [rbp-40h] BYREF
-  _QWORD v24[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v25; // [rsp+40h] [rbp-28h]
+  __int64 v10; // r14
+  const wchar_t *v11; // rsi
+  unsigned int v12; // ebx
+  __int64 v13; // rax
+  unsigned int v14; // r9d
+  _BYTE *v15; // rdx
+  SIZE_T v16; // rdx
+  __int64 v18; // [rsp+28h] [rbp-40h] BYREF
+  _QWORD v19[2]; // [rsp+30h] [rbp-38h] BYREF
+  int v20; // [rsp+40h] [rbp-28h]
 
   v7 = a2;
-  Prediction::CFixPred::CFixPred((Prediction::CFixPred *)v24);
-  v10 = Gre::Base::Globals(v9);
-  v23 = *((_QWORD *)v10 + 6);
-  GreAcquireSemaphore(v23);
-  v12 = SGDGetSessionState(v11);
-  PFFFromId = GetPFFFromId(*(struct PFT **)(*(_QWORD *)(v12 + 32) + 20272LL), a1, 0LL);
+  Prediction::CFixPred::CFixPred((Prediction::CFixPred *)v19);
+  v18 = ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  PFFFromId = GetPFFFromId((struct PFT *)gpPFTPublic, a1, 0LL);
+  if ( !PFFFromId && gpPFTPrivate )
+    PFFFromId = GetPFFFromId((struct PFT *)gpPFTPrivate, a1, 0LL);
   if ( !PFFFromId )
   {
-    v13 = (struct PFT *)*((_QWORD *)v10 + 796);
-    if ( v13 )
-      PFFFromId = GetPFFFromId(v13, a1, 0LL);
+    SEMOBJ::vUnlock((SEMOBJ *)&v18);
+    goto LABEL_23;
   }
-  if ( !PFFFromId )
+  v19[0] = PFFFromId;
+  ++*((_DWORD *)PFFFromId + 17);
+  v20 = 0;
+  SEMOBJ::vUnlock((SEMOBJ *)&v18);
+  if ( (unsigned int)v7 >= *((_DWORD *)PFFFromId + 9) )
   {
-    SEMOBJ::vUnlock((SEMOBJ *)&v23);
-LABEL_6:
-    PFFREFOBJ::~PFFREFOBJ((PFFREFOBJ *)v24);
+LABEL_23:
+    PFFREFOBJ::~PFFREFOBJ((PFFREFOBJ *)v19);
     return 87LL;
   }
-  v24[0] = PFFFromId;
-  Gre::Base::Globals(v13);
-  ++*((_DWORD *)PFFFromId + 17);
-  v25 = 0;
-  SEMOBJ::vUnlock((SEMOBJ *)&v23);
-  if ( (unsigned int)v7 >= *((_DWORD *)PFFFromId + 9) )
-    goto LABEL_6;
   _mm_lfence();
-  v16 = *(_QWORD *)(*((_QWORD *)PFFFromId + 25) + 8 * v7);
-  v17 = &word_1C030D60C;
-  if ( *(_QWORD *)(v16 + 80) )
-    v17 = *(const wchar_t **)(v16 + 80);
-  v18 = 0;
-  v19 = -1LL;
+  v10 = *(_QWORD *)(*((_QWORD *)PFFFromId + 25) + 8 * v7);
+  v11 = &word_1C02E497C;
+  if ( *(_QWORD *)(v10 + 80) )
+    v11 = *(const wchar_t **)(v10 + 80);
+  v12 = 0;
+  v13 = -1LL;
   do
-    ++v19;
-  while ( v17[v19] );
-  v20 = 2 * v19 + 18;
+    ++v13;
+  while ( v11[v13] );
+  v14 = 2 * v13 + 18;
   if ( a5 )
   {
     if ( (a5 & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v21 = (_BYTE *)a5;
+    v15 = (_BYTE *)a5;
     if ( a5 >= MmUserProbeAddress )
-      v21 = (_BYTE *)MmUserProbeAddress;
-    *v21 = *v21;
-    v21[7] = v21[7];
-    v22 = v20;
-    *(_QWORD *)a5 = v20;
-    v18 = 0;
+      v15 = (_BYTE *)MmUserProbeAddress;
+    *v15 = *v15;
+    v15[7] = v15[7];
+    v16 = v14;
+    *(_QWORD *)a5 = v14;
+    v12 = 0;
   }
   else
   {
-    v22 = v20;
+    v16 = v14;
   }
-  if ( a3 && a4 >= v22 )
+  if ( a3 && a4 >= v16 )
   {
-    ProbeForWrite(a3, v22, 8u);
-    *(_DWORD *)a3 = *(_DWORD *)v16;
-    *((_DWORD *)a3 + 1) = *(_DWORD *)(v16 + 4);
-    *((_QWORD *)a3 + 1) = *(unsigned int *)(v16 + 24);
-    wcscpy_s(a3 + 8, (a4 - 16) >> 1, v17);
+    ProbeForWrite(a3, v16, 8u);
+    *(_DWORD *)a3 = *(_DWORD *)v10;
+    *((_DWORD *)a3 + 1) = *(_DWORD *)(v10 + 4);
+    *((_QWORD *)a3 + 1) = *(unsigned int *)(v10 + 24);
+    wcscpy_s(a3 + 8, (a4 - 16) >> 1, v11);
   }
   else
   {
-    v18 = 122;
+    v12 = 122;
   }
-  PFFREFOBJ::~PFFREFOBJ((PFFREFOBJ *)v24);
-  return v18;
+  PFFREFOBJ::~PFFREFOBJ((PFFREFOBJ *)v19);
+  return v12;
 }

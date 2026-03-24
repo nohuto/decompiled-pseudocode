@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z @ 0x18019EE20
+ * XREFs of ?OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z @ 0x180221EF0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z @ 0x1801A0E64 (-ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z.c)
+ *     ?ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z @ 0x180222074 (-ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z.c)
  */
 
 void __fastcall wil::TraceLoggingProvider::OnErrorReported(
@@ -11,7 +11,7 @@ void __fastcall wil::TraceLoggingProvider::OnErrorReported(
         char a2,
         const struct wil::FailureInfo *a3)
 {
-  if ( !a2 && (*((_BYTE *)a3 + 4) & 2) == 0 )
+  if ( !a2 )
   {
     if ( *((_DWORD *)this + 5) == 1 )
     {

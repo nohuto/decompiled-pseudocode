@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlFindLargeIndex @ 0x14022C700
+ * XREFs of FsRtlFindLargeIndex @ 0x14029DC7C
  * Callers:
- *     FsRtlTruncateBaseMcb @ 0x14022BCB0 (FsRtlTruncateBaseMcb.c)
- *     FsRtlRemoveBaseMcbEntry @ 0x14022BDA0 (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14022C220 (FsRtlAddBaseMcbEntryEx.c)
- *     FsRtlSplitBaseMcb @ 0x140541550 (FsRtlSplitBaseMcb.c)
+ *     FsRtlTruncateBaseMcb @ 0x14029D0A0 (FsRtlTruncateBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x14029D1B0 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x14029D580 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x1404EF400 (FsRtlSplitBaseMcb.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall FsRtlFindLargeIndex(__int64 a1, unsigned int a2, int *a3)
 {
-  int v3; // ebp
-  int v4; // r10d
+  int v3; // ebx
+  int v4; // r11d
   int v6; // r9d
-  __int64 v7; // r8
-  int v8; // eax
+  int v7; // eax
+  __int64 v8; // rdx
 
   v3 = *(_DWORD *)(a1 + 4);
   v4 = 0;
@@ -28,20 +28,20 @@ LABEL_7:
   }
   while ( 1 )
   {
-    v7 = *(_QWORD *)(a1 + 16);
-    v8 = (v6 + v4) / 2;
-    if ( v8 && a2 < *(_DWORD *)(v7 + 8LL * v8 - 8) )
+    v7 = (v6 + v4) / 2;
+    v8 = *(_QWORD *)(a1 + 16);
+    if ( v7 && a2 < *(_DWORD *)(v8 + 8LL * v7 - 8) )
     {
-      v6 = v8 - 1;
+      v6 = v7 - 1;
       goto LABEL_6;
     }
-    if ( a2 <= *(_DWORD *)(v7 + 8LL * v8) - 1 )
+    if ( a2 <= *(_DWORD *)(v8 + 8LL * v7) - 1 )
       break;
-    v4 = v8 + 1;
+    v4 = v7 + 1;
 LABEL_6:
     if ( v4 > v6 )
       goto LABEL_7;
   }
-  *a3 = v8;
+  *a3 = v7;
   return 1;
 }

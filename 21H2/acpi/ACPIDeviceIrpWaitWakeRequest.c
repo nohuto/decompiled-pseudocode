@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDeviceIrpWaitWakeRequest @ 0x1C004FC38
+ * XREFs of ACPIDeviceIrpWaitWakeRequest @ 0x1C002E524
  * Callers:
- *     ACPIWakeWaitIrp @ 0x1C002E510 (ACPIWakeWaitIrp.c)
+ *     ACPIWakeWaitIrp @ 0x1C002E1E0 (ACPIWakeWaitIrp.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIDeviceInitializePowerRequest @ 0x1C0008B20 (ACPIDeviceInitializePowerRequest.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C000D718 (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
  */
 
 __int64 __fastcall ACPIDeviceIrpWaitWakeRequest(ULONG_PTR a1, __int64 a2)
@@ -23,31 +23,31 @@ __int64 __fastcall ACPIDeviceIrpWaitWakeRequest(ULONG_PTR a1, __int64 a2)
   v4 = 0LL;
   v5 = DeviceExtension;
   v6 = *(unsigned int *)(*(_QWORD *)(a2 + 184) + 8LL);
-  v7 = (const char *)&unk_1C006FB8B;
-  v8 = (const char *)&unk_1C006FB8B;
+  v7 = (const char *)&unk_1C00701BA;
+  v8 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v4 = DeviceExtension;
     v9 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v9 & 0x200000000000LL) != 0 )
     {
-      v7 = *(const char **)(v4 + 608);
+      v7 = *(const char **)(v4 + 568);
       if ( (v9 & 0x400000000000LL) != 0 )
-        v8 = *(const char **)(v4 + 616);
+        v8 = *(const char **)(v4 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( (unsigned int)v6 < 7 )
-      v10 = AcpiSystemStateTranslation[v6];
-    else
+    if ( (unsigned int)v6 >= 7 )
       LOBYTE(v10) = -1;
+    else
+      v10 = AcpiSystemStateTranslation[v6];
     WPP_RECORDER_SF_qdqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       v4,
       0x11u,
       0x22u,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a2,
       v10,
       v4,

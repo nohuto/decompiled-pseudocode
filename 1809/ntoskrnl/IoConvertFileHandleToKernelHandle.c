@@ -1,13 +1,13 @@
 /*
- * XREFs of IoConvertFileHandleToKernelHandle @ 0x14081C020
+ * XREFs of IoConvertFileHandleToKernelHandle @ 0x14081C000
  * Callers:
  *     CmpNameFromAttributes @ 0x1405B7860 (CmpNameFromAttributes.c)
- *     IopOpenLinkOrRenameTarget @ 0x14068BA48 (IopOpenLinkOrRenameTarget.c)
- *     NtRestoreKey @ 0x1407EA410 (NtRestoreKey.c)
- *     NtSaveKeyEx @ 0x1407EA6D0 (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x1407EA980 (NtSaveMergedKeys.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1408CBD0C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1408CBF30 (ExpQueryElamCertInfo.c)
+ *     IopOpenLinkOrRenameTarget @ 0x14068BA28 (IopOpenLinkOrRenameTarget.c)
+ *     NtRestoreKey @ 0x1407EA3F0 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x1407EA6B0 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x1407EA960 (NtSaveMergedKeys.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1408CBCEC (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x1408CBF10 (ExpQueryElamCertInfo.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)

@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlNotifyCleanupOneEntry @ 0x1407C53C8
+ * XREFs of FsRtlNotifyCleanupOneEntry @ 0x140675EDC
  * Callers:
- *     FsRtlNotifyCleanup @ 0x1407C5000 (FsRtlNotifyCleanup.c)
- *     FsRtlNotifyCleanupAll @ 0x140940050 (FsRtlNotifyCleanupAll.c)
+ *     FsRtlNotifyCleanup @ 0x140675B00 (FsRtlNotifyCleanup.c)
+ *     FsRtlNotifyCleanupAll @ 0x14088D590 (FsRtlNotifyCleanupAll.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140298A90 (PsReturnProcessPagedPoolQuota.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1406758E8 (FsRtlNotifyCompleteIrpList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlNotifyCleanupOneEntry(char *P, _QWORD *a2)
 {
-  char **v4; // rdx
-  PVOID *v5; // rcx
+  char **v4; // rcx
+  PVOID *v5; // rdx
   __int64 v6; // rdi
 
   *((_WORD *)P + 36) |= 4u;

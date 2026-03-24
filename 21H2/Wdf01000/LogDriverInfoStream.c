@@ -1,14 +1,15 @@
 /*
- * XREFs of LogDriverInfoStream @ 0x1C0071780
+ * XREFs of LogDriverInfoStream @ 0x1C00600B0
  * Callers:
- *     ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C002BF80 (-PnpEventStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B240 (-PnpEventStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
  * Callees:
- *     ??1FxAutoString@@QEAA@XZ @ 0x1C00278E4 (--1FxAutoString@@QEAA@XZ.c)
- *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$00@@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U4@U4@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$00@@55555555555555555555555AEBU?$_tlgWrapSz@G@@666@Z @ 0x1C0070FA0 (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$00@@U3@U3@U3@U3@U3@U3@.c)
- *     FxGetDevicePropertyString @ 0x1C0071310 (FxGetDevicePropertyString.c)
- *     GetDriverInfo @ 0x1C00714DC (GetDriverInfo.c)
- *     GetFirstHardwareId @ 0x1C007170C (GetFirstHardwareId.c)
- *     RegistryWriteCurrentTime @ 0x1C0071B18 (RegistryWriteCurrentTime.c)
+ *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$00@@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U4@U4@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$00@@55555555555555555555555AEBU?$_tlgWrapSz@G@@666@Z @ 0x1C0001348 (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$00@@U3@U3@U3@U3@U3@U3@.c)
+ *     _tlgKeywordOn @ 0x1C0042420 (_tlgKeywordOn.c)
+ *     ??1FxAutoString@@QEAA@XZ @ 0x1C0046B00 (--1FxAutoString@@QEAA@XZ.c)
+ *     FxGetDevicePropertyString @ 0x1C005F984 (FxGetDevicePropertyString.c)
+ *     GetDriverInfo @ 0x1C005FB30 (GetDriverInfo.c)
+ *     GetFirstHardwareId @ 0x1C005FD64 (GetFirstHardwareId.c)
+ *     RegistryWriteCurrentTime @ 0x1C0060814 (RegistryWriteCurrentTime.c)
  */
 
 void __fastcall LogDriverInfoStream(_FX_DRIVER_GLOBALS *DriverGlobals, FxDevice *Fdo)
@@ -66,9 +67,7 @@ void __fastcall LogDriverInfoStream(_FX_DRIVER_GLOBALS *DriverGlobals, FxDevice 
     GetFirstHardwareId(&hardwareIDs.m_UnicodeString);
     FxGetDevicePropertyString(Fdo, 8, &manufacturer.m_UnicodeString);
   }
-  if ( Tlgg_TelemetryProviderProv.LevelPlus1 > 5
-    && (Tlgg_TelemetryProviderProv.KeywordAny & 0x200000000000LL) != 0
-    && (Tlgg_TelemetryProviderProv.KeywordAll & 0x200000000000LL) == Tlgg_TelemetryProviderProv.KeywordAll )
+  if ( Tlgg_TelemetryProviderProv.LevelPlus1 > 5 && tlgKeywordOn(&Tlgg_TelemetryProviderProv, 0x200000000000uLL) )
   {
     v30.Psz = manufacturer.m_UnicodeString.Buffer;
     v31.Psz = hardwareIDs.m_UnicodeString.Buffer;
@@ -105,7 +104,7 @@ void __fastcall LogDriverInfoStream(_FX_DRIVER_GLOBALS *DriverGlobals, FxDevice 
     v35.Ptr = DriverGlobals->TelemetryContext;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
       v7,
-      (char *)&tlgEvent_2._tlgChannel,
+      &tlgEvent_2._tlgChannel,
       v4,
       v5,
       &v35,

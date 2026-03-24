@@ -1,100 +1,101 @@
 /*
- * XREFs of ?SetProperty@CLinearTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023ACA0
+ * XREFs of ?SetProperty@CLinearTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801D30C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CLinearTransferEffect::SetProperty(__int64 *a1, int a2, int a3, float *a4)
+__int64 __fastcall CLinearTransferEffect::SetProperty(float *a1, int a2, int a3, float *a4)
 {
-  float v4; // xmm1_4
-  int v5; // edx
+  float *v4; // r10
+  float v5; // xmm1_4
   int v6; // edx
   int v7; // edx
   int v8; // edx
   int v9; // edx
   int v10; // edx
-  __int64 v11; // rax
-  float *v12; // rbx
+  int v11; // edx
+  __int64 v12; // rax
   __int64 v13; // rax
   unsigned int v14; // ebx
 
+  v4 = a1;
   if ( a3 != 18 )
     goto LABEL_22;
-  v4 = *a4;
+  v5 = *a4;
   if ( a2 )
   {
-    v5 = a2 - 1;
-    if ( v5 )
+    v6 = a2 - 1;
+    if ( v6 )
     {
-      v6 = v5 - 2;
-      if ( v6 )
+      v7 = v6 - 2;
+      if ( v7 )
       {
-        v7 = v6 - 1;
-        if ( v7 )
+        v8 = v7 - 1;
+        if ( v8 )
         {
-          v8 = v7 - 2;
-          if ( v8 )
+          v9 = v8 - 2;
+          if ( v9 )
           {
-            v9 = v8 - 1;
-            if ( v9 )
+            v10 = v9 - 1;
+            if ( v10 )
             {
-              v10 = v9 - 2;
-              if ( v10 )
+              v11 = v10 - 2;
+              if ( v11 )
               {
-                if ( v10 != 1 )
+                if ( v11 != 1 )
                 {
 LABEL_22:
                   v14 = -2147024809;
                   MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0xB0u, 0LL);
                   return v14;
                 }
-                v11 = 216LL;
+                v12 = 192LL;
               }
               else
               {
-                v11 = 212LL;
+                v12 = 188LL;
               }
             }
             else
             {
-              v11 = 204LL;
+              v12 = 180LL;
             }
           }
           else
           {
-            v11 = 200LL;
+            v12 = 176LL;
           }
         }
         else
         {
-          v11 = 192LL;
+          v12 = 168LL;
         }
       }
       else
       {
-        v11 = 188LL;
+        v12 = 164LL;
       }
     }
     else
     {
-      v11 = 180LL;
+      v12 = 156LL;
     }
   }
   else
   {
-    v11 = 176LL;
+    v12 = 152LL;
   }
-  v12 = (float *)((char *)a1 + v11);
-  if ( !(__int64 *)((char *)a1 + v11) )
+  a1 = (float *)((char *)a1 + v12);
+  if ( !a1 )
     goto LABEL_22;
-  if ( *v12 != v4 )
+  if ( *a1 != v5 )
   {
-    v13 = *a1;
-    *v12 = v4;
-    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v13 + 72))(a1, 0LL, 0LL);
+    v13 = *(_QWORD *)v4;
+    *a1 = v5;
+    (*(void (__fastcall **)(float *, _QWORD, _QWORD))(v13 + 72))(v4, 0LL, 0LL);
   }
-  return v12 == 0LL ? 0x80070057 : 0;
+  return 0;
 }

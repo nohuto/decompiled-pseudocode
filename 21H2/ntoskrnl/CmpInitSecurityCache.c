@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitSecurityCache @ 0x14068B018
+ * XREFs of CmpInitSecurityCache @ 0x140720D1C
  * Callers:
- *     CmpHiveInitialize @ 0x14068AF4C (CmpHiveInitialize.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x140715FA8 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpGetSystemControlValues @ 0x140B14B1C (CmpGetSystemControlValues.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpHiveInitialize @ 0x140720C84 (CmpHiveInitialize.c)
+ *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
  * Callees:
  *     <none>
  */
@@ -13,10 +13,10 @@ __int64 __fastcall CmpInitSecurityCache(__int64 a1)
   _QWORD *v1; // rcx
   __int64 result; // rax
 
-  *(_DWORD *)(a1 + 1880) = -1;
-  *(_QWORD *)(a1 + 1888) = 0LL;
-  *(_QWORD *)(a1 + 1872) = 0LL;
-  v1 = (_QWORD *)(a1 + 1896);
+  *(_DWORD *)(a1 + 1872) = -1;
+  *(_QWORD *)(a1 + 1880) = 0LL;
+  *(_QWORD *)(a1 + 1864) = 0LL;
+  v1 = (_QWORD *)(a1 + 1888);
   result = 64LL;
   do
   {

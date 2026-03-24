@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GDINetworkedFontFileNodeCompare@@YA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_AVL_TABLE@@PEAX1@Z @ 0x1C0286340
+ * XREFs of ?GDINetworkedFontFileNodeCompare@@YA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_AVL_TABLE@@PEAX1@Z @ 0x1C02894B0
  * Callers:
  *     <none>
  * Callees:

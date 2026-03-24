@@ -1,71 +1,59 @@
 /*
- * XREFs of EtwpAllocateTraceBuffer @ 0x140370EEC
+ * XREFs of EtwpAllocateTraceBuffer @ 0x14035FF08
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x140370D88 (EtwpAllocateFreeBuffers.c)
- *     EtwpPreserveLogger @ 0x1409ED6CC (EtwpPreserveLogger.c)
+ *     EtwpAllocateFreeBuffers @ 0x14035FD48 (EtwpAllocateFreeBuffers.c)
+ *     EtwpPreserveLogger @ 0x1409488AC (EtwpPreserveLogger.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     EtwpAllocatePartitionMemory @ 0x140601354 (EtwpAllocatePartitionMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x1403547F0 (MmAllocatePagesForMdlEx.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     EtwpAllocatePartitionMemory @ 0x1405B0548 (EtwpAllocatePartitionMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpAllocateTraceBuffer(__int64 a1, unsigned int a2)
+PVOID __fastcall EtwpAllocateTraceBuffer(__int64 a1, unsigned int a2)
 {
-  _QWORD *v3; // rcx
-  __int64 v4; // rcx
-  unsigned __int64 v6; // r15
-  PVOID v7; // r12
+  SIZE_T v3; // r15
+  _QWORD *v4; // rcx
+  PVOID v6; // r12
   PMDL PagesForMdl; // rbp
+  __int64 v8; // r8
 
-  v3 = (_QWORD *)(a1 + 1320);
-  if ( *v3 )
-    return EtwpAllocatePartitionMemory(v3, a2);
-  if ( (*(_DWORD *)(a1 + 816) & 0x20000000) != 0 )
+  v3 = a2;
+  v4 = (_QWORD *)(a1 + 1304);
+  if ( *v4 )
+    return (PVOID)EtwpAllocatePartitionMemory(v4, a2);
+  if ( (*(_DWORD *)(a1 + 832) & 0x20000000) == 0 )
+    return ExAllocatePoolWithTag((POOL_TYPE)*(_DWORD *)(a1 + 316), a2, 0x42777445u);
+  v6 = 0LL;
+  PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, (PHYSICAL_ADDRESS)0x200000LL, a2, MmCached, 0x65u);
+  if ( PagesForMdl
+    || (PagesForMdl = MmAllocatePagesForMdlEx(
+                        0LL,
+                        (PHYSICAL_ADDRESS)-1LL,
+                        (PHYSICAL_ADDRESS)0x200000LL,
+                        v3,
+                        MmCached,
+                        0x25u)) != 0LL )
   {
-    v6 = a2;
-    v7 = 0LL;
-    PagesForMdl = MmAllocatePagesForMdlEx(
-                    0LL,
-                    (PHYSICAL_ADDRESS)-1LL,
-                    (PHYSICAL_ADDRESS)0x200000LL,
-                    a2,
-                    MmCached,
-                    0x65u);
-    if ( !PagesForMdl )
+    qsort(&PagesForMdl[1], v3 >> 12, 8uLL, EtwpComparePfn);
+    v6 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, MmCached, 0LL, 0, 0x40000020u);
+    if ( v6 )
     {
-      PagesForMdl = MmAllocatePagesForMdlEx(
-                      0LL,
-                      (PHYSICAL_ADDRESS)-1LL,
-                      (PHYSICAL_ADDRESS)0x200000LL,
-                      (unsigned int)v6,
-                      MmCached,
-                      0x25u);
-      if ( !PagesForMdl )
-        return (__int64)v7;
-    }
-    qsort(&PagesForMdl[1], v6 >> 12, 8uLL, EtwpComparePfn);
-    v7 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, MmCached, 0LL, 0, 0x40000020u);
-    if ( v7 )
-    {
-      if ( !*(_QWORD *)(a1 + 1328) )
+      if ( !*(_QWORD *)(a1 + 1312) )
       {
-        *(_QWORD *)(a1 + 1328) = PagesForMdl;
-        return (__int64)v7;
+        *(_QWORD *)(a1 + 1312) = PagesForMdl;
+        PagesForMdl = 0LL;
       }
     }
     else
     {
-      MiFreePagesFromMdl((ULONG_PTR)PagesForMdl, 0);
+      MiFreePagesFromMdl((ULONG_PTR)PagesForMdl, 0, v8);
     }
-    ExFreePoolWithTag(PagesForMdl, 0);
-    return (__int64)v7;
+    if ( PagesForMdl )
+      ExFreePoolWithTag(PagesForMdl, 0);
   }
-  v4 = 258LL;
-  if ( *(_DWORD *)(a1 + 300) != 1 )
-    v4 = 66LL;
-  return ExAllocatePool2(v4, a2, 1115124805LL);
+  return v6;
 }

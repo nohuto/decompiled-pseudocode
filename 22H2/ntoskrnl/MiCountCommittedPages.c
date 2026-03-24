@@ -1,22 +1,23 @@
 /*
- * XREFs of MiCountCommittedPages @ 0x1406474CC
+ * XREFs of MiCountCommittedPages @ 0x1405498E8
  * Callers:
- *     MiCopyPagesIntoEnclave @ 0x140A3D034 (MiCopyPagesIntoEnclave.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140A3E144 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140A3E508 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x1408D3214 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D35C0 (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiComputePageCommitment @ 0x1402E4AB0 (MiComputePageCommitment.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiComputePageCommitment @ 0x14028D1E0 (MiComputePageCommitment.c)
  */
 
-__int64 __fastcall MiCountCommittedPages(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiCountCommittedPages(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
 {
-  char v8; // di
-  __int64 v9; // rbx
+  __int16 v8; // r9
+  unsigned __int8 v9; // di
+  __int64 v10; // rbx
 
-  v8 = MiLockWorkingSetShared(a4);
-  v9 = MiComputePageCommitment(a1, a2, a3, v8, 0, 0LL, 0LL);
-  MiUnlockWorkingSetShared(a4, v8);
-  return v9;
+  LOBYTE(v8) = MiLockWorkingSetShared((__int64)a4, a2, a3, a4);
+  v9 = v8;
+  v10 = MiComputePageCommitment(a1, a2, a3, v8, 0, 0LL);
+  MiUnlockWorkingSetShared((__int64)a4, v9);
+  return v10;
 }

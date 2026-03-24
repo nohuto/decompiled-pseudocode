@@ -1,100 +1,100 @@
 /*
- * XREFs of KiGroupSchedulingMoveThread @ 0x1402066D0
+ * XREFs of KiGroupSchedulingMoveThread @ 0x14035CBD8
  * Callers:
- *     KiGroupSchedulingMoveThread @ 0x1402066D0 (KiGroupSchedulingMoveThread.c)
- *     KiSearchForNewThreadOnProcessor @ 0x140240C70 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402C7A00 (KiSearchForNewThreadOnProcessor.c)
+ *     KiGroupSchedulingMoveThread @ 0x14035CBD8 (KiGroupSchedulingMoveThread.c)
  * Callees:
- *     KiGroupSchedulingMoveThread @ 0x1402066D0 (KiGroupSchedulingMoveThread.c)
- *     KiRemoveThreadFromScbQueue @ 0x1402067BC (KiRemoveThreadFromScbQueue.c)
- *     KiCheckPrcbAffinityEx @ 0x140307760 (KiCheckPrcbAffinityEx.c)
+ *     KiGroupSchedulingMoveThread @ 0x14035CBD8 (KiGroupSchedulingMoveThread.c)
+ *     KiRemoveThreadFromScbQueue @ 0x14035CCEC (KiRemoveThreadFromScbQueue.c)
+ *     KiPrcbInGroupAffinity @ 0x14035CFD4 (KiPrcbInGroupAffinity.c)
  */
 
-__int64 __fastcall KiGroupSchedulingMoveThread(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall KiGroupSchedulingMoveThread(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rax
+  __int64 v3; // rax
   unsigned __int64 j; // rbx
   __int64 result; // rax
-  unsigned int i; // r9d
-  unsigned int v11; // r15d
-  _QWORD **v12; // r12
-  _QWORD *v13; // r11
-  _QWORD *v14; // r14
-  unsigned __int64 v15; // r8
-  __int64 v16; // rax
-  _QWORD **v17; // rax
-  unsigned __int64 v18; // rcx
-  _QWORD *v19; // rcx
+  unsigned int i; // r8d
+  unsigned int v9; // r11d
+  _QWORD *v10; // rsi
+  _QWORD *v11; // r9
+  __int64 v12; // rdi
+  int v13; // r8d
+  _QWORD *v14; // r9
+  char v15; // r11
+  unsigned __int64 v16; // r8
+  __int64 v17; // rax
+  _QWORD **v18; // rax
+  unsigned __int64 v19; // rcx
+  _QWORD *v20; // rcx
 
-  v4 = *(_QWORD *)(a3 + 8);
-  if ( (v4 & 1) != 0 )
-  {
-    if ( v4 == 1 )
-      return 0LL;
-    j = v4 ^ (a3 | 1);
-  }
-  else
+  v3 = *(_QWORD *)(a3 + 8);
+  if ( (v3 & 1) == 0 )
   {
     j = *(_QWORD *)(a3 + 8);
+    goto LABEL_3;
   }
-  if ( j )
+  if ( v3 != 1 )
   {
+    j = v3 ^ (a3 | 1);
     while ( 1 )
     {
-      for ( i = *(unsigned __int16 *)(j + 26); i; i ^= 1 << v11 )
+LABEL_3:
+      if ( !j )
+        return 0LL;
+      for ( i = *(unsigned __int16 *)(j + 26); i; i = v13 ^ (1 << v15) )
       {
-        _BitScanReverse(&v11, i);
-        v12 = (_QWORD **)(16LL * v11 + j + 48);
-        v13 = *v12;
+        _BitScanReverse(&v9, i);
+        v10 = (_QWORD *)(16LL * v9 + j + 48);
+        v11 = (_QWORD *)*v10;
         do
         {
-          v14 = v13 - 27;
-          if ( ((*((_DWORD *)v13 - 24) >> 1) & 1) <= a4 && (unsigned __int8)KiCheckPrcbAffinityEx(v14[72], a1) )
+          v12 = (__int64)(v11 - 27);
+          if ( (unsigned int)KiPrcbInGroupAffinity(a1, v11 + 45) )
           {
-            KiRemoveThreadFromScbQueue(a2, j - 88, v14, v11);
-            result = (__int64)v14;
-            *((_DWORD *)v14 + 134) = *(_DWORD *)(a1 + 36);
+            KiRemoveThreadFromScbQueue(a2, j - 88);
+            result = v12;
+            *(_DWORD *)(v12 + 536) = *(_DWORD *)(a1 + 36);
             return result;
           }
-          v13 = (_QWORD *)*v13;
+          v11 = (_QWORD *)*v14;
         }
-        while ( v13 != v12 );
+        while ( v11 != v10 );
       }
-      v15 = j + 304;
-      v16 = *(_QWORD *)(j + 304);
-      if ( (*(_BYTE *)(j + 312) & 1) == 0 )
-        goto LABEL_18;
-      if ( v16 )
-        break;
-LABEL_20:
-      v17 = *(_QWORD ***)(j + 8);
-      v18 = j;
+      v16 = j + 304;
+      v17 = *(_QWORD *)(j + 304);
+      if ( (*(_BYTE *)(j + 312) & 1) != 0 )
+      {
+        if ( !v17 )
+          goto LABEL_20;
+        v17 ^= v16;
+      }
       if ( v17 )
       {
-        v19 = *v17;
-        for ( j = *(_QWORD *)(j + 8); v19; v19 = (_QWORD *)*v19 )
-          j = (unsigned __int64)v19;
+        result = KiGroupSchedulingMoveThread(a1, a2, v16);
+        if ( result )
+          return result;
+      }
+LABEL_20:
+      v18 = *(_QWORD ***)(j + 8);
+      v19 = j;
+      if ( v18 )
+      {
+        v20 = *v18;
+        for ( j = *(_QWORD *)(j + 8); v20; v20 = (_QWORD *)*v20 )
+          j = (unsigned __int64)v20;
       }
       else
       {
-        for ( j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL; j; j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL )
+        while ( 1 )
         {
-          if ( *(_QWORD *)j == v18 )
+          j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+          if ( !j || *(_QWORD *)j == v19 )
             break;
-          v18 = j;
+          v19 = j;
         }
       }
-      if ( !j )
-        return 0LL;
     }
-    v16 ^= v15;
-LABEL_18:
-    if ( v16 )
-    {
-      result = KiGroupSchedulingMoveThread(a1, a2, v15, (unsigned int)a4);
-      if ( result )
-        return result;
-    }
-    goto LABEL_20;
   }
   return 0LL;
 }

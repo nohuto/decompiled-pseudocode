@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CitpProcessGetProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C0233F70
+ * XREFs of ?CitpProcessGetProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C01FE0FC
  * Callers:
- *     ?CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C0233ED0 (-CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C01FE050 (-CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z.c)
  * Callees:
- *     ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C0033BE4 (-CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z.c)
+ *     ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C0047934 (-CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z.c)
  */
 
 struct _CIT_PROG_DATA *__fastcall CitpProcessGetProgData(struct _CIT_PROCESS **a1)
@@ -15,20 +15,20 @@ struct _CIT_PROG_DATA *__fastcall CitpProcessGetProgData(struct _CIT_PROCESS **a
   __int64 v6; // rax
   __int64 v7; // r8
 
-  IsValid = CitpProcessInfoIsValid(a1[117]);
+  IsValid = CitpProcessInfoIsValid(a1[116]);
   v3 = 0LL;
   if ( !IsValid )
     return 0LL;
-  v5 = *(_WORD *)(v2 + 42);
+  v5 = *(_WORD *)(v2 + 26);
   if ( v5 )
   {
-    v6 = *(unsigned __int16 *)(v2 + 40);
-    if ( (unsigned int)v6 < *((_DWORD *)xmmword_1C0293D30 + 14) )
+    v6 = *(unsigned __int16 *)(v2 + 24);
+    if ( (unsigned int)v6 < *((_DWORD *)xmmword_1C0254590 + 14) )
     {
-      v7 = *(_QWORD *)xmmword_1C0293D30 + 96 * v6;
+      v7 = *(_QWORD *)xmmword_1C0254590 + 96 * v6;
       if ( *(_WORD *)(v7 + 32) == v5 )
       {
-        if ( *(_QWORD *)(v7 + 56) != *(_QWORD *)(v2 + 64) )
+        if ( *(_QWORD *)(v7 + 56) != *(_QWORD *)(v2 + 48) )
           return 0LL;
         return (struct _CIT_PROG_DATA *)v7;
       }

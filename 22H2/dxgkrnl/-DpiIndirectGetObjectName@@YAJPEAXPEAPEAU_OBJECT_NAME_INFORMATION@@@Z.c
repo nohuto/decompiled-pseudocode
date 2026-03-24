@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C03A41FC
+ * XREFs of ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C02D54BC
  * Callers:
- *     DpiIndirectOpenDevice @ 0x1C03A4AE0 (DpiIndirectOpenDevice.c)
+ *     DpiIndirectOpenDevice @ 0x1C02D5E3C (DpiIndirectOpenDevice.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 int __fastcall DpiIndirectGetObjectName(PVOID Object, struct _OBJECT_NAME_INFORMATION **a2)
 {
   int result; // eax
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
+  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
   ULONG ReturnLength; // [rsp+40h] [rbp+18h] BYREF
 
   ReturnLength = 0;
@@ -18,10 +18,10 @@ int __fastcall DpiIndirectGetObjectName(PVOID Object, struct _OBJECT_NAME_INFORM
     return -1073741275;
   if ( result == -1073741820 )
   {
-    Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 1953656900LL);
-    *a2 = Pool2;
-    if ( Pool2 )
-      return ObQueryNameString(Object, Pool2, ReturnLength, &ReturnLength);
+    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x74727044u);
+    *a2 = PoolWithTag;
+    if ( PoolWithTag )
+      return ObQueryNameString(Object, PoolWithTag, ReturnLength, &ReturnLength);
     else
       return -1073741801;
   }

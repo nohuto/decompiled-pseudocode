@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x18003D7DC
+ * XREFs of ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x180030BB0
  * Callers:
- *     ?s_TokenThreadMain@CGlobalSurfaceManager@@CAKPEAX@Z @ 0x1800F8EC0 (-s_TokenThreadMain@CGlobalSurfaceManager@@CAKPEAX@Z.c)
+ *     ?s_TokenThreadMain@CGlobalSurfaceManager@@CAKPEAX@Z @ 0x1800E0710 (-s_TokenThreadMain@CGlobalSurfaceManager@@CAKPEAX@Z.c)
  * Callees:
- *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x18002BB04 (-Revert@CMmcssTask@@QEAAXXZ.c)
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x18003D624 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
- *     ?AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z @ 0x18003D934 (-AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z.c)
- *     ?EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ @ 0x18003D964 (-EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ.c)
- *     ?clear@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@QEAAXXZ @ 0x18003DDB4 (-clear@-$vector@VAdapterInfo@CGlobalSurfaceManager@@V-$allocator@VAdapterInfo@CGlobalSurfaceMana.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x1800F4DA0 (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030A60 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z @ 0x180030D10 (-AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z.c)
+ *     ?EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ @ 0x180030D40 (-EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ.c)
+ *     ?clear@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@QEAAXXZ @ 0x18003125C (-clear@-$vector@VAdapterInfo@CGlobalSurfaceManager@@V-$allocator@VAdapterInfo@CGlobalSurfaceMana.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x1800AD378 (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800AD694 (-Revert@CMmcssTask@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CGlobalSurfaceManager::ProcessKernelTokens(CGlobalSurfaceManager *this)
@@ -33,35 +33,35 @@ __int64 __fastcall CGlobalSurfaceManager::ProcessKernelTokens(CGlobalSurfaceMana
   char *v18; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = 0;
-  v16 = *((_QWORD *)this + 56);
+  v16 = *((_QWORD *)this + 53);
   v17 = 0LL;
   if ( !*((_BYTE *)this + 496) )
   {
     while ( 1 )
     {
       SetLastError(0);
-      if ( !ResetEvent(*((HANDLE *)this + 56)) )
+      if ( !ResetEvent(*((HANDLE *)this + 53)) )
         break;
       if ( !*((_BYTE *)this + 496) )
       {
-        v3 = (const struct DWM_MMTASK **)((char *)g_pComposition + 336);
-        v18 = (char *)g_pComposition + 336;
-        EnterCriticalSection((LPCRITICAL_SECTION)((char *)g_pComposition + 336));
-        if ( CMmcssTask::AreEqualMmTask((LPCWCH)v3[5], *((LPCWCH *)this + 49)) )
+        v3 = (const struct DWM_MMTASK **)((char *)g_pComposition + 184);
+        v18 = (char *)g_pComposition + 184;
+        EnterCriticalSection((LPCRITICAL_SECTION)((char *)g_pComposition + 184));
+        if ( CMmcssTask::AreEqualMmTask((LPCWCH)v3[5], *((LPCWCH *)this + 46)) )
         {
           v4 = *((_BYTE *)v3 + 80);
-          if ( *((_BYTE *)this + 432) != v4 )
+          if ( *((_BYTE *)this + 408) != v4 )
           {
-            v12 = (CGlobalSurfaceManager *)((char *)this + 352);
+            v12 = (CGlobalSurfaceManager *)((char *)this + 328);
             if ( v4 )
               CMmcssTask::Apply(v12, 0);
             else
-              CMmcssTask::Revert((struct _RTL_CRITICAL_SECTION *)v12);
+              CMmcssTask::Revert(v12);
           }
         }
         else
         {
-          v10 = CMmcssTask::Set((struct _RTL_CRITICAL_SECTION *)((char *)this + 352), v3[5], *((_BYTE *)v3 + 80));
+          v10 = CMmcssTask::Set((struct _RTL_CRITICAL_SECTION *)((char *)this + 328), v3[5], *((_BYTE *)v3 + 80));
           if ( v10 < 0 )
             MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x77u, 0LL);
         }
@@ -70,19 +70,19 @@ __int64 __fastcall CGlobalSurfaceManager::ProcessKernelTokens(CGlobalSurfaceMana
         v1 = v5;
         if ( v5 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1C7u, 0LL);
-          WaitForSingleObject(*((HANDLE *)this + 56), 0xFFFFFFFF);
+          MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1C6u, 0LL);
+          WaitForSingleObject(*((HANDLE *)this + 53), 0xFFFFFFFF);
         }
         else
         {
           v7 = *((_QWORD *)this + 60) - *((_QWORD *)this + 59);
           *(_QWORD *)&v17 = *((_QWORD *)this + 59);
-          DWORD2(v17) = -1431655765 * (v7 >> 3);
+          DWORD2(v17) = (int)v7 / 24;
           v8 = NtTokenManagerThread(&v16);
           if ( v8 < 0 )
           {
             v1 = v8 | 0x10000000;
-            MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8 | 0x10000000, 0x1D6u, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8 | 0x10000000, 0x1D5u, 0LL);
           }
           std::vector<CGlobalSurfaceManager::AdapterInfo>::clear((char *)this + 472);
         }
@@ -97,7 +97,7 @@ __int64 __fastcall CGlobalSurfaceManager::ProcessKernelTokens(CGlobalSurfaceMana
       v1 = (unsigned __int16)LastError | 0x80070000;
     if ( v1 >= 0 )
       v1 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v1, 0x1B6u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v1, 0x1B5u, 0LL);
   }
   return (unsigned int)v1;
 }

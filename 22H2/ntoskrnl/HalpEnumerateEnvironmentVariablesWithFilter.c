@@ -1,64 +1,60 @@
 /*
- * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C450
+ * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x1404BBE70
  * Callers:
- *     HalEnumerateEnvironmentVariablesEx @ 0x1405048D0 (HalEnumerateEnvironmentVariablesEx.c)
+ *     HalEnumerateEnvironmentVariablesEx @ 0x1404BBA40 (HalEnumerateEnvironmentVariablesEx.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     HalpEfiDecrementEfiCall @ 0x14035E4B4 (HalpEfiDecrementEfiCall.c)
- *     HalpEfiIncrementEfiCall @ 0x14035E510 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035E538 (HalpEfiStartRuntimeCode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HalpEfiStartRuntimeCode @ 0x1404C3EE8 (HalpEfiStartRuntimeCode.c)
  */
 
 __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
         int a1,
-        unsigned __int8 (__fastcall *a2)(__int128 *, _WORD *),
+        unsigned __int8 (__fastcall *a2)(__int128 *, _WORD *, _QWORD),
         unsigned __int64 a3,
         _DWORD *a4)
 {
-  unsigned int v4; // esi
+  unsigned int v4; // edi
   int v5; // r13d
   unsigned __int64 v6; // rbx
-  _DWORD *v7; // rdi
-  int v8; // r15d
-  bool v9; // r14
+  _DWORD *v7; // r14
+  unsigned int v8; // esi
+  bool v9; // r15
   unsigned int v10; // edx
-  __int64 v11; // r8
+  __int64 v11; // rax
   unsigned __int64 v12; // rax
   unsigned int v13; // ecx
   unsigned int v14; // r13d
   bool v15; // cl
   unsigned int v16; // r12d
-  __int64 v17; // r9
-  __int64 v18; // r10
-  __int64 v19; // rax
-  __int64 v20; // rax
-  unsigned int v21; // esi
-  __int64 v23; // rax
-  char v24; // [rsp+30h] [rbp-D0h]
-  __int64 v25; // [rsp+38h] [rbp-C8h] BYREF
-  size_t Size; // [rsp+40h] [rbp-C0h] BYREF
-  int v27; // [rsp+48h] [rbp-B8h]
-  int v28; // [rsp+4Ch] [rbp-B4h]
-  unsigned int v29; // [rsp+50h] [rbp-B0h]
+  __int64 v17; // rax
+  __int64 v18; // r9
+  __int64 v19; // r10
+  __int64 v20; // rdx
+  char v22; // [rsp+30h] [rbp-D0h]
+  __int64 v23; // [rsp+38h] [rbp-C8h] BYREF
+  int v24; // [rsp+40h] [rbp-C0h]
+  size_t Size; // [rsp+48h] [rbp-B8h] BYREF
+  int v26; // [rsp+50h] [rbp-B0h]
+  int v27; // [rsp+54h] [rbp-ACh]
   struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int8 (__fastcall *v31)(__int128 *, _WORD *); // [rsp+68h] [rbp-98h]
-  unsigned __int64 v32; // [rsp+70h] [rbp-90h]
-  _DWORD *v33; // [rsp+78h] [rbp-88h]
-  __int128 v34; // [rsp+80h] [rbp-80h] BYREF
+  unsigned __int8 (__fastcall *v29)(__int128 *, _WORD *, _QWORD); // [rsp+68h] [rbp-98h]
+  unsigned __int64 v30; // [rsp+70h] [rbp-90h]
+  _DWORD *v31; // [rsp+78h] [rbp-88h]
+  __int128 v32; // [rsp+80h] [rbp-80h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
   _WORD Src[256]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v31 = a2;
-  v33 = a4;
-  v32 = a3;
-  v28 = a1;
+  v29 = a2;
+  v31 = a4;
+  v30 = a3;
+  v26 = a1;
   Affinity = 0LL;
-  v25 = 0LL;
-  v34 = 0LL;
+  v23 = 0LL;
+  v32 = 0LL;
   PreviousAffinity = 0LL;
   if ( !HalFirmwareTypeEfi
     || !HalEfiRuntimeServicesTable
@@ -81,11 +77,11 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
   v9 = v4 != 0;
   if ( KeGetCurrentIrql() >= 2u )
   {
-    v24 = 0;
+    v22 = 0;
   }
   else
   {
-    v24 = 1;
+    v22 = 1;
     v10 = KiProcessorIndexToNumberMappingTable[KeGetPcr()->Prcb.Number];
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
@@ -96,33 +92,31 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
   while ( 1 )
   {
     Size = 512LL;
-    HalpEfiIncrementEfiCall(0LL);
-    HalpEfiStartRuntimeCode(0x10u);
-    ((void (__fastcall *)(size_t *, _WORD *, __int128 *))HalEfiRuntimeServicesTable[4])(&Size, Src, &v34);
+    HalpEfiStartRuntimeCode(16LL);
+    v11 = ((__int64 (__fastcall *)(size_t *, _WORD *, __int128 *))HalEfiRuntimeServicesTable[4])(&Size, Src, &v32);
     _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFEF);
-    HalpEfiDecrementEfiCall(0LL);
     if ( v11 )
       break;
-    if ( !v31 || v31(&v34, Src) )
+    if ( !v29 || v29(&v32, Src, 0LL) )
     {
       v12 = (v6 + 3) & 0xFFFFFFFFFFFFFFFCuLL;
       if ( v12 != v6 )
       {
         v13 = v12 - v6;
         v6 = (v6 + 3) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( v4 < v13 )
+        if ( v4 >= v13 )
+        {
+          v4 -= v13;
+        }
+        else
         {
           v9 = 0;
           v4 = 0;
           v8 = -1073741789;
         }
-        else
-        {
-          v4 -= v13;
-        }
       }
       v14 = Size + v5;
-      if ( v28 != 1 )
+      if ( v26 != 1 )
         v14 = (v14 + 3) & 0xFFFFFFFC;
       v15 = 0;
       if ( v4 < v14 )
@@ -133,85 +127,84 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
         v16 = v4 - v14;
         v15 = v9;
       }
-      v29 = v16;
       v9 = v15;
-      if ( v28 == 1 )
+      if ( v26 != 1 )
       {
         if ( v15 )
         {
-          *(_OWORD *)(v6 + 4) = v34;
-          memmove((void *)(v6 + 20), Src, Size);
-          if ( v7 )
-            *v7 = v6 - (_DWORD)v7;
-          v7 = (_DWORD *)v6;
-        }
-        v23 = v14;
-        v4 = v16;
-        v5 = v27;
-        v6 += v23;
-      }
-      else
-      {
-        if ( v15 )
-        {
-          *(_OWORD *)(v6 + 16) = v34;
+          *(_OWORD *)(v6 + 16) = v32;
           memmove((void *)(v6 + 32), Src, Size);
-          v25 = v16;
+          v23 = v16;
           *(_DWORD *)(v6 + 4) = ((v6 + Size + 35) & 0xFFFFFFFC) - v6;
         }
         else
         {
-          v25 = 0LL;
+          v23 = 0LL;
         }
-        HalpEfiStartRuntimeCode(8u);
-        v19 = ((__int64 (__fastcall *)(_WORD *, __int128 *, __int64, __int64 *, __int64))HalEfiRuntimeServicesTable[3])(
+        v24 = v6;
+        HalpEfiStartRuntimeCode(8LL);
+        v20 = ((__int64 (__fastcall *)(_WORD *, __int128 *, __int64, __int64 *, __int64))HalEfiRuntimeServicesTable[3])(
                 Src,
-                &v34,
-                v18,
-                &v25,
-                v17);
+                &v32,
+                v19,
+                &v23,
+                v18);
         _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFF7);
-        if ( v19 )
+        if ( v20 )
         {
-          if ( v19 != 0x8000000000000005uLL )
+          if ( v20 == 0x8000000000000005uLL )
           {
-            v21 = -1073741823;
-            goto LABEL_35;
-          }
-          v4 = 0;
-          v8 = -1073741789;
-          v9 = 0;
-        }
-        else
-        {
-          v4 = v29;
-          if ( v9 )
-          {
-            *(_DWORD *)(v6 + 8) = v25;
-            v4 -= v25;
-            if ( v7 )
-              *v7 = v6 - (_DWORD)v7;
-            v7 = (_DWORD *)v6;
+            v4 = 0;
+            v9 = 0;
+            v8 = -1073741789;
           }
           else
           {
-            Size = (size_t)v7;
+            v8 = -1073741823;
+            v4 = v16;
+LABEL_42:
+            if ( v20 )
+              goto LABEL_47;
           }
         }
-        v20 = v25 + v14;
-        v5 = v27;
-        v6 += v20;
+        else
+        {
+          v4 = v16;
+          if ( v9 )
+          {
+            *(_DWORD *)(v6 + 8) = v23;
+            v4 = v16 - v23;
+            if ( v7 )
+              *v7 = v24 - (_DWORD)v7;
+            v7 = (_DWORD *)v6;
+            goto LABEL_42;
+          }
+        }
+        v17 = v23 + v14;
+        goto LABEL_44;
       }
+      if ( v15 )
+      {
+        *(_OWORD *)(v6 + 4) = v32;
+        memmove((void *)(v6 + 20), Src, Size);
+        if ( v7 )
+          *v7 = v6 - (_DWORD)v7;
+        v7 = (_DWORD *)v6;
+      }
+      v4 = v16;
+      v17 = v14;
+LABEL_44:
+      v5 = v27;
+      v6 += v17;
     }
   }
   if ( v11 != 0x800000000000000EuLL )
     v8 = -1073741823;
-  v21 = v8;
-LABEL_35:
-  if ( v24 )
+LABEL_47:
+  if ( v22 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
   if ( v7 )
     *v7 = 0;
-  *v33 = v6 - v32;
-  return v21;
+  *v31 = v6 - v30;
+  return v8;
 }

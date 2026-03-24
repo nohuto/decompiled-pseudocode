@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCancelPhase0Locking @ 0x1407610B4
+ * XREFs of MiCancelPhase0Locking @ 0x1406D0BAC
  * Callers:
- *     MmResetDriverPaging @ 0x140760ED0 (MmResetDriverPaging.c)
- *     MmPageEntireDriver @ 0x140761010 (MmPageEntireDriver.c)
+ *     MmResetDriverPaging @ 0x1406D0A20 (MmResetDriverPaging.c)
+ *     MmPageEntireDriver @ 0x1406D0C20 (MmPageEntireDriver.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     MiLockPagableSections @ 0x140B0872C (MiLockPagableSections.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     MiLockPagableSections @ 0x140A545BC (MiLockPagableSections.c)
  */
 
 _QWORD *__fastcall MiCancelPhase0Locking(__int64 a1)

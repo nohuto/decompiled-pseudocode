@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDereferenceAtomTable @ 0x14036E810
+ * XREFs of RtlDereferenceAtomTable @ 0x14031579C
  * Callers:
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF74C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406355DC (SepDereferenceLowBoxNumberEntry.c)
  * Callees:
- *     RtlDestroyAtomTable @ 0x14069EB40 (RtlDestroyAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x1406860C0 (RtlDestroyAtomTable.c)
  */
 
 __int64 RtlDereferenceAtomTable()

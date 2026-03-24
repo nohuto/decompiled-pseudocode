@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ValidateUserEvent@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001818C
+ * XREFs of ?ValidateUserEvent@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C0019EEC
  * Callers:
- *     ?TokenThread@CTokenManager@@UEAAJPEAXPEAUCSM_TOKEN_ADAPTER_INFO@@I@Z @ 0x1C00180C0 (-TokenThread@CTokenManager@@UEAAJPEAXPEAUCSM_TOKEN_ADAPTER_INFO@@I@Z.c)
+ *     ?TokenThread@CTokenManager@@UEAAJPEAXPEAUCSM_TOKEN_ADAPTER_INFO@@I@Z @ 0x1C0019E20 (-TokenThread@CTokenManager@@UEAAJPEAXPEAUCSM_TOKEN_ADAPTER_INFO@@I@Z.c)
  * Callees:
  *     <none>
  */

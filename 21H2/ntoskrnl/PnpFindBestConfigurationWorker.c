@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpFindBestConfigurationWorker @ 0x14081FF7C
+ * XREFs of PnpFindBestConfigurationWorker @ 0x14075273C
  * Callers:
- *     PnpFindBestConfiguration @ 0x14081FF24 (PnpFindBestConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x1407526E4 (PnpFindBestConfiguration.c)
  * Callees:
- *     IopSelectNextConfiguration @ 0x14081F924 (IopSelectNextConfiguration.c)
- *     IopTestConfiguration @ 0x140820094 (IopTestConfiguration.c)
- *     PnpSelectFirstConfiguration @ 0x1408201E8 (PnpSelectFirstConfiguration.c)
- *     IopAddRemoveReqDescs @ 0x140821B98 (IopAddRemoveReqDescs.c)
- *     IopRetestConfiguration @ 0x140945B08 (IopRetestConfiguration.c)
- *     IopSaveRestoreConfiguration @ 0x140945BCC (IopSaveRestoreConfiguration.c)
+ *     IopTestConfiguration @ 0x140752854 (IopTestConfiguration.c)
+ *     PnpSelectFirstConfiguration @ 0x1407529AC (PnpSelectFirstConfiguration.c)
+ *     IopAddRemoveReqDescs @ 0x140752A40 (IopAddRemoveReqDescs.c)
+ *     IopSelectNextConfiguration @ 0x1407D0380 (IopSelectNextConfiguration.c)
+ *     IopRetestConfiguration @ 0x1408A0AAC (IopRetestConfiguration.c)
+ *     IopSaveRestoreConfiguration @ 0x1408A0B70 (IopSaveRestoreConfiguration.c)
  */
 
 __int64 __fastcall PnpFindBestConfigurationWorker(__int64 a1, unsigned int a2, _QWORD *a3)
@@ -68,7 +68,7 @@ __int64 __fastcall PnpFindBestConfigurationWorker(__int64 a1, unsigned int a2, _
     }
     if ( (unsigned int)((MEMORY[0xFFFFF78000000014] - v7) / 10000) >= v8 )
       break;
-    if ( !IopSelectNextConfiguration(a1, v3, (__int64)a3, v10) )
+    if ( !(unsigned __int8)IopSelectNextConfiguration(a1, (unsigned int)v3, a3) )
       goto LABEL_10;
   }
   if ( (_DWORD)v3 )
@@ -102,7 +102,7 @@ LABEL_4:
     {
       *(_OWORD *)a3 = v11;
       IopSaveRestoreConfiguration(a1, (unsigned int)v3, a3, 0LL);
-      return (unsigned int)IopRetestConfiguration(a1, (unsigned int)v3);
+      return (unsigned int)IopRetestConfiguration(a1, (unsigned int)v3, a3);
     }
   }
   return (unsigned int)v9;

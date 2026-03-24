@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpGetValueCountForKeyNodeStack @ 0x14026C868
+ * XREFs of CmpGetValueCountForKeyNodeStack @ 0x14026C968
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x14026D374 (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x14026D474 (CmpQueryKeyDataFromKeyNodeStack.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14026CA8C (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9ECC (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA038 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpSortedValueEnumStackAdvance @ 0x140800638 (CmpSortedValueEnumStackAdvance.c)
- *     CmpSortedValueEnumStackCleanup @ 0x140800770 (CmpSortedValueEnumStackCleanup.c)
- *     CmpSortedValueEnumStackInitialize @ 0x1408009C8 (CmpSortedValueEnumStackInitialize.c)
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140800A00 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
- *     CmpValueEnumStackAdvance @ 0x140800BDC (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackCleanup @ 0x140800D38 (CmpValueEnumStackCleanup.c)
- *     CmpValueEnumStackInitialize @ 0x140800D98 (CmpValueEnumStackInitialize.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14026CB8C (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9EAC (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpSortedValueEnumStackAdvance @ 0x140800618 (CmpSortedValueEnumStackAdvance.c)
+ *     CmpSortedValueEnumStackCleanup @ 0x140800750 (CmpSortedValueEnumStackCleanup.c)
+ *     CmpSortedValueEnumStackInitialize @ 0x1408009A8 (CmpSortedValueEnumStackInitialize.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x1408009E0 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpValueEnumStackAdvance @ 0x140800BBC (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x140800D18 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackInitialize @ 0x140800D78 (CmpValueEnumStackInitialize.c)
  */
 
 __int64 __fastcall CmpGetValueCountForKeyNodeStack(__int16 *a1, _DWORD *a2)

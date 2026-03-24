@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CAffineTransform2DEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0212488
+ * XREFs of ?EmitData@CAffineTransform2DEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E3648
  * Callers:
- *     ?EmitUpdateCommands@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0212540 (-EmitUpdateCommands@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E3700 (-EmitUpdateCommands@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::EmitData(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::EmitData(
   *(_OWORD *)(v3 + 20) = 0LL;
   *(_QWORD *)(v3 + 36) = 0LL;
   *((_DWORD *)v3 + 11) = 0;
-  *((_DWORD *)v3 + 1) = 454;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 471;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   *((_DWORD *)v3 + 3) = *((_DWORD *)this + 28);
   *((_DWORD *)v3 + 4) = *((_DWORD *)this + 29);
   *((_DWORD *)v3 + 5) = *((_DWORD *)this + 30);

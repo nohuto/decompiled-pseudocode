@@ -1,20 +1,20 @@
 /*
- * XREFs of PopZeroHiberFile @ 0x140989540
+ * XREFs of PopZeroHiberFile @ 0x1408E7514
  * Callers:
- *     PopEnableHiberFile @ 0x140803C60 (PopEnableHiberFile.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopEnableHiberFile @ 0x14079B350 (PopEnableHiberFile.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     MmZeroPageWrite @ 0x1403C1114 (MmZeroPageWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     PopDiagTraceZeroHiberFile @ 0x140AA81A4 (PopDiagTraceZeroHiberFile.c)
- *     PopDiagTraceZeroHiberFileEnd @ 0x140AA81C0 (PopDiagTraceZeroHiberFileEnd.c)
+ *     MmZeroPageWrite @ 0x140319368 (MmZeroPageWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     PopDiagTraceZeroHiberFile @ 0x1409B2614 (PopDiagTraceZeroHiberFile.c)
+ *     PopDiagTraceZeroHiberFileEnd @ 0x1409B2630 (PopDiagTraceZeroHiberFileEnd.c)
  */
 
 __int64 __fastcall PopZeroHiberFile(HANDLE FileHandle, __int64 a2)
 {
-  __int64 v4; // rax
-  signed __int64 v5; // rcx
+  __int64 v4; // rcx
+  signed __int64 v5; // rax
   signed __int64 v7; // [rsp+30h] [rbp-40h] BYREF
   __int64 v8; // [rsp+38h] [rbp-38h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-30h] BYREF

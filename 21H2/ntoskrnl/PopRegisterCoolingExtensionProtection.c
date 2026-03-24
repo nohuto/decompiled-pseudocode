@@ -1,16 +1,16 @@
 /*
- * XREFs of PopRegisterCoolingExtensionProtection @ 0x14098B980
+ * XREFs of PopRegisterCoolingExtensionProtection @ 0x1408E2FB0
  * Callers:
- *     PopAssociateThermalRequest @ 0x1408294F0 (PopAssociateThermalRequest.c)
+ *     PopAssociateThermalRequest @ 0x140790A20 (PopAssociateThermalRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x14036B850 (IoGetDeviceAttachmentBaseRef.c)
- *     IoGetDeviceObjectPointer @ 0x140710E60 (IoGetDeviceObjectPointer.c)
- *     IoRegisterPlugPlayNotification @ 0x140768390 (IoRegisterPlugPlayNotification.c)
- *     IoGetDeviceProperty @ 0x140773C30 (IoGetDeviceProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1402834F0 (IoGetDeviceAttachmentBaseRef.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
+ *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopRegisterCoolingExtensionProtection(char *Context)
@@ -19,7 +19,7 @@ __int64 __fastcall PopRegisterCoolingExtensionProtection(char *Context)
   bool v3; // zf
   NTSTATUS DeviceProperty; // ebx
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // rdi
-  void *Pool2; // rsi
+  PVOID PoolWithTag; // rsi
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   ULONG BufferLength; // [rsp+80h] [rbp+30h] BYREF
   PFILE_OBJECT FileObject; // [rsp+88h] [rbp+38h] BYREF
@@ -36,18 +36,18 @@ __int64 __fastcall PopRegisterCoolingExtensionProtection(char *Context)
     DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*((PDEVICE_OBJECT *)Context + 6));
     if ( IoGetDeviceProperty(DeviceAttachmentBaseRef, DevicePropertyPhysicalDeviceObjectName, 0, 0LL, &BufferLength) == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, BufferLength, 1819231056LL);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, BufferLength, 0x6C6F4350u);
+      if ( PoolWithTag )
       {
         DeviceProperty = IoGetDeviceProperty(
                            DeviceAttachmentBaseRef,
                            DevicePropertyPhysicalDeviceObjectName,
                            BufferLength,
-                           Pool2,
+                           PoolWithTag,
                            &BufferLength);
         if ( DeviceProperty >= 0 )
         {
-          RtlInitUnicodeString(&DestinationString, (PCWSTR)Pool2);
+          RtlInitUnicodeString(&DestinationString, (PCWSTR)PoolWithTag);
           DeviceProperty = IoGetDeviceObjectPointer(&DestinationString, 0x1F01FFu, &FileObject, &DeviceObject);
           if ( DeviceProperty >= 0 )
             DeviceProperty = IoRegisterPlugPlayNotification(
@@ -59,9 +59,9 @@ __int64 __fastcall PopRegisterCoolingExtensionProtection(char *Context)
                                Context,
                                NotificationEntry);
           if ( FileObject )
-            ObfDereferenceObject(FileObject);
+            HalPutDmaAdapter((PADAPTER_OBJECT)FileObject);
         }
-        ExFreePoolWithTag(Pool2, 0x6C6F4350u);
+        ExFreePoolWithTag(PoolWithTag, 0x6C6F4350u);
       }
       else
       {
@@ -73,7 +73,7 @@ __int64 __fastcall PopRegisterCoolingExtensionProtection(char *Context)
       DeviceProperty = -1073741823;
     }
     if ( DeviceAttachmentBaseRef )
-      ObfDereferenceObject(DeviceAttachmentBaseRef);
+      HalPutDmaAdapter((PADAPTER_OBJECT)DeviceAttachmentBaseRef);
   }
   else
   {

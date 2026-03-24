@@ -1,47 +1,48 @@
 /*
- * XREFs of GreLddmProcessDesktopSwitch @ 0x1C006DB84
+ * XREFs of GreLddmProcessDesktopSwitch @ 0x1C002A89C
  * Callers:
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
  * Callees:
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C006DC80 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C002A998 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void GreLddmProcessDesktopSwitch()
 {
-  __int64 v0; // rdi
+  unsigned int IsRemoteConnection; // edi
   __int64 i; // rcx
   __int64 v2; // rax
-  __int64 v3; // rbx
-  int v4; // ecx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  DYNAMICMODECHANGESHARELOCK *v3; // rcx
+  __int64 v4; // rbx
+  int v5; // ecx
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v8);
-  v0 = (int)UserRemoteConnectedSessionUsingXddm();
-  for ( i = 0LL; ; i = v3 )
+  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v6);
+  IsRemoteConnection = UserIsRemoteConnection();
+  for ( i = 0LL; ; i = v4 )
   {
-    v2 = hdevEnumerateDisplayOnly(i);
-    v3 = v2;
+    v2 = hdevEnumerate(i);
+    v4 = v2;
     if ( !v2 )
       break;
-    v4 = *(_DWORD *)(v2 + 40) & 0x20401;
-    v8 = v2;
-    if ( v4 == 1 && ((unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v8) || v0) )
+    v5 = *(_DWORD *)(v2 + 40);
+    v6 = v2;
+    if ( (v5 & 1) != 0
+      && (v5 & 0x400) == 0
+      && (v5 & 0x20000) == 0
+      && ((unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v6) || IsRemoteConnection) )
     {
-      GreLockVisRgn(v3);
-      GreLockDisplayDevice(v3);
-      DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v6, v5);
-      (*(void (__fastcall **)(_QWORD, _QWORD))(DxgkWin32kInterface + 408))(
-        *(_QWORD *)(*(_QWORD *)(v3 + 2552) + 232LL),
-        *(unsigned int *)(*(_QWORD *)(v3 + 2552) + 248LL));
-      GreUnlockDisplayDevice(v3);
-      GreUnlockVisRgn(v3);
+      GreLockVisRgn(v4);
+      GreLockDisplayDevice(v4);
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))gDxgkInterface[51])(
+        *(_QWORD *)(*(_QWORD *)(v4 + 2576) + 240LL),
+        *(unsigned int *)(*(_QWORD *)(v4 + 2576) + 256LL),
+        IsRemoteConnection);
+      GreUnlockDisplayDevice(v4);
+      GreUnlockVisRgn(v4);
     }
   }
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v8);
+  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v3);
 }

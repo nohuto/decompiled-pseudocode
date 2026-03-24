@@ -1,15 +1,15 @@
 /*
- * XREFs of IopWriteCapsuleTriageDumpToFirmware @ 0x1405554B0
+ * XREFs of IopWriteCapsuleTriageDumpToFirmware @ 0x140504C0C
  * Callers:
- *     IoWriteCrashDump @ 0x140553244 (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IoFillDumpHeader @ 0x140551F78 (IoFillDumpHeader.c)
- *     IoFillTriageDumpBuffer @ 0x14055225C (IoFillTriageDumpBuffer.c)
- *     IopUpdateMinidumpContext @ 0x1405550FC (IopUpdateMinidumpContext.c)
- *     IopWriteTriageDumpToFirmware @ 0x1405557FC (IopWriteTriageDumpToFirmware.c)
- *     MmSnapTriageDumpInformation @ 0x140593778 (MmSnapTriageDumpInformation.c)
- *     VfDisableHalVerifier @ 0x1405FE548 (VfDisableHalVerifier.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IoFillDumpHeader @ 0x140501AF8 (IoFillDumpHeader.c)
+ *     IoFillTriageDumpBuffer @ 0x140501DC0 (IoFillTriageDumpBuffer.c)
+ *     IopUpdateMinidumpContext @ 0x1405047E4 (IopUpdateMinidumpContext.c)
+ *     IopWriteTriageDumpToFirmware @ 0x140504F50 (IopWriteTriageDumpToFirmware.c)
+ *     MmSnapTriageDumpInformation @ 0x140538CB4 (MmSnapTriageDumpInformation.c)
+ *     VfDisableHalVerifier @ 0x1405A0F98 (VfDisableHalVerifier.c)
  */
 
 bool __fastcall IopWriteCapsuleTriageDumpToFirmware(
@@ -27,46 +27,45 @@ bool __fastcall IopWriteCapsuleTriageDumpToFirmware(
   int v14; // r10d
   int v15; // ecx
   __int64 v16; // rax
-  __int64 v17; // [rsp+38h] [rbp-81h]
-  int v19; // [rsp+74h] [rbp-45h] BYREF
-  void *v20; // [rsp+78h] [rbp-41h]
-  _DWORD v21[2]; // [rsp+80h] [rbp-39h] BYREF
-  _QWORD *v22; // [rsp+88h] [rbp-31h]
-  _QWORD *v23; // [rsp+90h] [rbp-29h]
-  _QWORD v24[4]; // [rsp+98h] [rbp-21h] BYREF
+  int v18; // [rsp+74h] [rbp-45h] BYREF
+  void *v19; // [rsp+78h] [rbp-41h]
+  _DWORD v20[2]; // [rsp+80h] [rbp-39h] BYREF
+  void *v21; // [rsp+88h] [rbp-31h]
+  _QWORD *v22; // [rsp+90h] [rbp-29h]
+  _QWORD v23[4]; // [rsp+98h] [rbp-21h] BYREF
 
   v7 = (char *)CapsuleTriageDumpBlock;
   v8 = 0;
-  v20 = a7;
-  v23 = a6;
-  v19 = 0;
+  v19 = a7;
+  v22 = a6;
+  v18 = 0;
   if ( !CapsuleTriageDumpBlock )
     return 0;
   VfDisableHalVerifier();
-  v24[0] = a2;
-  v24[1] = a3;
-  v24[2] = a4;
-  v24[3] = a5;
-  IopUpdateMinidumpContext(v14, a2, a3, a4, a5, a6, v13, v17, 1);
-  MmSnapTriageDumpInformation(a6, v24);
-  IoFillDumpHeader((_DWORD *)v7 + 1031, 4, a1, a2, (__int64)a3, a4, a5, (__int64)v20);
-  v21[0] = IopNumTriageDumpDataBlocks;
-  v21[1] = 256;
-  v22 = IopTriageDumpDataBlocks;
+  v23[3] = a5;
+  v23[0] = a2;
+  v23[1] = a3;
+  v23[2] = a4;
+  IopUpdateMinidumpContext(v14, a2, a3, a4, a5, a6, v13);
+  MmSnapTriageDumpInformation(a6, v23);
+  IoFillDumpHeader((_DWORD *)v7 + 1031, 4, a1, a2, (__int64)a3, a4, a5, (__int64)v19);
+  v20[0] = IopNumTriageDumpDataBlocks;
+  v20[1] = 256;
+  v21 = &IopTriageDumpDataBlocks;
   v15 = IoFillTriageDumpBuffer(
           0x3E000u,
           (__int64 *)(v7 + 12316),
           1,
           3583,
           0LL,
-          (__int64)v23,
-          v20,
+          (__int64)v22,
+          v19,
           CmNtCSDVersion,
           65,
           1u,
-          (__int64)v21,
-          (__int64)v21,
-          &v19);
+          (__int64)v20,
+          (__int64)v20,
+          &v18);
   *(_OWORD *)(v7 + 4220) = 0LL;
   *(_OWORD *)(v7 + 4236) = 0LL;
   *((_DWORD *)v7 + 2070) = 0;

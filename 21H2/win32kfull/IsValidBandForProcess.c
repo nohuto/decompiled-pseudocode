@@ -1,8 +1,8 @@
 /*
- * XREFs of IsValidBandForProcess @ 0x1C009D1C0
+ * XREFs of IsValidBandForProcess @ 0x1C00325B8
  * Callers:
- *     ?_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z @ 0x1C002536C (-_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
+ *     ?_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z @ 0x1C00323C8 (-_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
  * Callees:
  *     <none>
  */

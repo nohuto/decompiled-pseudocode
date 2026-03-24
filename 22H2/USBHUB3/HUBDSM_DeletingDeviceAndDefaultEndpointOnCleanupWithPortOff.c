@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001F540
+ * XREFs of HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001CB30
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerEvent @ 0x1C0019754 (HUBPDO_SignalPnpPowerEvent.c)
- *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00285DC (HUBUCX_DeleteDeviceFromUCX.c)
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00286A8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
- *     HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0028760 (HUBUCX_DeleteDefaultEndpointFromUCX.c)
- *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C0030604 (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
+ *     HUBPDO_SignalPnpPowerEvent @ 0x1C001810C (HUBPDO_SignalPnpPowerEvent.c)
+ *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00259E8 (HUBUCX_DeleteDeviceFromUCX.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0025B60 (HUBUCX_DeleteDefaultEndpointFromUCX.c)
+ *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002D59C (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff(__int64 a1)

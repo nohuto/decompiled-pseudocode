@@ -1,16 +1,16 @@
 /*
- * XREFs of CmKeyBodyReplicateToVirtual @ 0x1407F1C94
+ * XREFs of CmKeyBodyReplicateToVirtual @ 0x1407F1C74
  * Callers:
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
- *     NtSetInformationKey @ 0x140697000 (NtSetInformationKey.c)
- *     NtRenameKey @ 0x1407E9BA0 (NtRenameKey.c)
+ *     NtSetInformationKey @ 0x140696FE0 (NtSetInformationKey.c)
+ *     NtRenameKey @ 0x1407E9B80 (NtRenameKey.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KCBNeedsVirtualImage @ 0x1401294EC (KCBNeedsVirtualImage.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KCBNeedsVirtualImage @ 0x14012950C (KCBNeedsVirtualImage.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmObReferenceObjectByName @ 0x140581128 (CmObReferenceObjectByName.c)
  *     SeCreateAccessStateFromSubjectContext @ 0x140582A30 (SeCreateAccessStateFromSubjectContext.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
@@ -21,14 +21,14 @@
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12DC (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpCheckAdminAccess @ 0x1407F27A4 (CmpCheckAdminAccess.c)
- *     CmpReparseToVirtualPath @ 0x1407F371C (CmpReparseToVirtualPath.c)
- *     CmpReplicateKeyToVirtual @ 0x1407F37B8 (CmpReplicateKeyToVirtual.c)
- *     CmpExamineSaclForAuditEvent @ 0x1407F5148 (CmpExamineSaclForAuditEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1407F5500 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12BC (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpCheckAdminAccess @ 0x1407F2784 (CmpCheckAdminAccess.c)
+ *     CmpReparseToVirtualPath @ 0x1407F36FC (CmpReparseToVirtualPath.c)
+ *     CmpReplicateKeyToVirtual @ 0x1407F3798 (CmpReplicateKeyToVirtual.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407F5128 (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x1407F54E0 (CmpReportAuditVirtualizationEvent.c)
  */
 
 __int64 __fastcall CmKeyBodyReplicateToVirtual(_QWORD **a1, char a2, ACCESS_MASK a3, __int64 a4)

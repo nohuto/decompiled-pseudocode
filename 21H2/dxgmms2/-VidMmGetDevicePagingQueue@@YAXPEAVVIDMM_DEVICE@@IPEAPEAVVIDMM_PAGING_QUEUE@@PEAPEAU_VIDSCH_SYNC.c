@@ -1,5 +1,5 @@
 /*
- * XREFs of ?VidMmGetDevicePagingQueue@@YAXPEAVVIDMM_DEVICE@@IPEAPEAVVIDMM_PAGING_QUEUE@@PEAPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0018E90
+ * XREFs of ?VidMmGetDevicePagingQueue@@YAXPEAVVIDMM_DEVICE@@IPEAPEAVVIDMM_PAGING_QUEUE@@PEAPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0016110
  * Callers:
  *     <none>
  * Callees:
@@ -15,6 +15,6 @@ void __fastcall VidMmGetDevicePagingQueue(
   __int64 v5; // rcx
 
   v5 = 176LL * a2;
-  *a3 = (struct VIDMM_PAGING_QUEUE *)(v5 + *((_QWORD *)a1 + 10));
-  *a4 = *(struct _VIDSCH_SYNC_OBJECT **)(*((_QWORD *)a1 + 10) + v5 + 152);
+  *a3 = (struct VIDMM_PAGING_QUEUE *)(v5 + *((_QWORD *)a1 + 9));
+  *a4 = *(struct _VIDSCH_SYNC_OBJECT **)(*((_QWORD *)a1 + 9) + v5 + 152);
 }

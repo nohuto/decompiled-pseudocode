@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C023FEBC
+ * XREFs of ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C01FE234
  * Callers:
- *     ?CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C023FDB4 (-CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C01FE120 (-CitpProcessEnsureProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z.c)
  * Callees:
- *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C004BBA0 (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
- *     ?CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C0240198 (-CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
- *     ?CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z @ 0x1C024043C (-CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z.c)
- *     ?CitpProgramIdCopy@@YAJPEAU_CIT_PROGRAM_ID@@PEBU1@@Z @ 0x1C02404A4 (-CitpProgramIdCopy@@YAJPEAU_CIT_PROGRAM_ID@@PEBU1@@Z.c)
+ *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C008E24C (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C01FE510 (-CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z @ 0x1C01FE7B8 (-CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z.c)
+ *     ?CitpProgramIdCopy@@YAJPEAU_CIT_PROGRAM_ID@@PEBU1@@Z @ 0x1C01FE820 (-CitpProgramIdCopy@@YAJPEAU_CIT_PROGRAM_ID@@PEBU1@@Z.c)
  */
 
 struct _CIT_PROG_DATA *__fastcall CitpProgDataEnsure(struct _CIT_IMPACT_CONTEXT *a1, const struct _CIT_PROGRAM_ID *a2)
@@ -14,11 +14,11 @@ struct _CIT_PROG_DATA *__fastcall CitpProgDataEnsure(struct _CIT_IMPACT_CONTEXT 
   struct _CIT_PROG_DATA *v4; // rbx
   _QWORD *v6; // rax
   struct _CIT_IMPACT_CONTEXT *v7; // rbx
-  _QWORD *v8; // rax
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rdx
+  __int64 v8; // rcx
+  _QWORD *v9; // rax
+  _QWORD *v10; // rcx
+  _QWORD *v11; // rdx
   struct _CIT_PROG_DATA *i; // rdx
-  __int64 v12; // rcx
   unsigned int v13; // eax
   struct _CIT_IMPACT_CONTEXT *v14; // rcx
   struct _CIT_IMPACT_CONTEXT **v15; // rdx
@@ -52,23 +52,23 @@ LABEL_3:
     v7 = (struct _CIT_IMPACT_CONTEXT *)*((_QWORD *)a1 + 1);
     if ( v7 == (struct _CIT_IMPACT_CONTEXT *)((char *)a1 + 8) )
     {
-      v8 = (_QWORD *)((char *)a1 + 24);
-      if ( (_QWORD *)*v8 == v8 )
+      v9 = (_QWORD *)((char *)a1 + 24);
+      if ( (_QWORD *)*v9 == v9 )
         goto LABEL_3;
-      v9 = (_QWORD *)*((_QWORD *)a1 + 4);
-      if ( (_QWORD *)*v9 != v8 )
-        goto LABEL_24;
-      v10 = (_QWORD *)v9[1];
+      v10 = (_QWORD *)*((_QWORD *)a1 + 4);
       if ( (_QWORD *)*v10 != v9 )
         goto LABEL_24;
-      *((_QWORD *)a1 + 4) = v10;
-      v4 = (struct _CIT_PROG_DATA *)(v9 - 2);
-      *v10 = v8;
+      v11 = (_QWORD *)v10[1];
+      if ( (_QWORD *)*v11 != v10 )
+        goto LABEL_24;
+      *((_QWORD *)a1 + 4) = v11;
+      v4 = (struct _CIT_PROG_DATA *)(v10 - 2);
+      *v11 = v9;
       --*((_DWORD *)a1 + 15);
-      v9[1] = v9;
-      *v9 = v9;
-      *((_BYTE *)v9 + 18) = 0;
-      v27 = *(v9 - 1) & (-1LL << (*((_DWORD *)a1 + 19) & 0x1F));
+      v10[1] = v10;
+      *v10 = v10;
+      *((_BYTE *)v10 + 18) = 0;
+      v27 = *(v10 - 1) & (-1LL << (*((_DWORD *)a1 + 19) & 0x1F));
       for ( i = (struct _CIT_PROG_DATA *)(*((_QWORD *)a1 + 10)
                                         + 8LL
                                         * ((37
@@ -99,12 +99,12 @@ LABEL_3:
     {
       if ( *((_QWORD **)v7 + 1) != v6 )
         goto LABEL_24;
-      v12 = *(_QWORD *)v7;
+      v8 = *(_QWORD *)v7;
       if ( *(struct _CIT_IMPACT_CONTEXT **)(*(_QWORD *)v7 + 8LL) != v7 )
         goto LABEL_24;
-      *v6 = v12;
+      *v6 = v8;
       v4 = (struct _CIT_IMPACT_CONTEXT *)((char *)v7 - 16);
-      *(_QWORD *)(v12 + 8) = v6;
+      *(_QWORD *)(v8 + 8) = v6;
     }
     v13 = *((_DWORD *)a1 + 16);
     v14 = (struct _CIT_PROG_DATA *)((char *)v4 + 16);
@@ -166,6 +166,6 @@ LABEL_24:
     __fastfail(3u);
   }
 LABEL_4:
-  CitpProgramIdCleanup((void **)&v24);
+  CitpProgramIdCleanup((struct _CIT_PROGRAM_ID *)&v24);
   return v4;
 }

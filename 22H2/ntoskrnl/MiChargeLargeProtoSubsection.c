@@ -1,28 +1,28 @@
 /*
- * XREFs of MiChargeLargeProtoSubsection @ 0x140A336B4
+ * XREFs of MiChargeLargeProtoSubsection @ 0x1408CFCC0
  * Callers:
- *     MiCreatePrototypePtes @ 0x14021BAA0 (MiCreatePrototypePtes.c)
- *     MiDecrementLargeSubsections @ 0x14063C764 (MiDecrementLargeSubsections.c)
- *     MiEnableLargeSubsection @ 0x14063CE70 (MiEnableLargeSubsection.c)
+ *     MiCreatePrototypePtes @ 0x140278478 (MiCreatePrototypePtes.c)
+ *     MiDecrementLargeSubsections @ 0x140540350 (MiDecrementLargeSubsections.c)
+ *     MiEnableLargeSubsection @ 0x1405408EC (MiEnableLargeSubsection.c)
  * Callees:
- *     MiReturnResident @ 0x140292CF0 (MiReturnResident.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MiReturnResident @ 0x1402E9FEC (MiReturnResident.c)
  */
 
-__int64 __fastcall MiChargeLargeProtoSubsection(__int64 a1, int a2)
+__int64 __fastcall MiChargeLargeProtoSubsection(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  bool v2; // zf
-  unsigned __int64 v3; // rdx
+  bool v4; // zf
+  unsigned __int64 v5; // rdx
   __int64 result; // rax
 
-  v2 = a2 == 0;
-  v3 = (unsigned __int64)*(unsigned int *)(a1 + 44) >> 9;
-  if ( v2 )
+  v4 = a2 == 0;
+  v5 = (unsigned __int64)*(unsigned int *)(a1 + 44) >> 9;
+  if ( v4 )
   {
-    MiReturnResident((__int64)MiSystemPartition, v3);
+    MiReturnResident((__int64)&MiSystemPartition, v5);
     return 1LL;
   }
-  result = MiChargeResident(MiSystemPartition, v3, 1024LL);
+  result = MiChargeResident(&MiSystemPartition, v5, 1024LL, a4);
   if ( (_DWORD)result )
     return 1LL;
   return result;

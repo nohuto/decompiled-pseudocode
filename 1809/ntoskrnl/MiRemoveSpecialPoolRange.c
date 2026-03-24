@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveSpecialPoolRange @ 0x1402AC7D0
+ * XREFs of MiRemoveSpecialPoolRange @ 0x1402AC8D0
  * Callers:
- *     MmFreeSpecialPool @ 0x1402AD078 (MmFreeSpecialPool.c)
+ *     MmFreeSpecialPool @ 0x1402AD178 (MmFreeSpecialPool.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     InsertTailListPte @ 0x140079D00 (InsertTailListPte.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     RemoveListEntryPte @ 0x14012971C (RemoveListEntryPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     RemoveListEntryPte @ 0x14012973C (RemoveListEntryPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsigned __int64 *a3)

@@ -5,7 +5,7 @@
  *     IopGetLegacyVetoListDeviceNode @ 0x1405B0C1C (IopGetLegacyVetoListDeviceNode.c)
  * Callees:
  *     IopGetLegacyVetoListDeviceNode @ 0x1405B0C1C (IopGetLegacyVetoListDeviceNode.c)
- *     IopAppendLegacyVeto @ 0x14083A79C (IopAppendLegacyVeto.c)
+ *     IopAppendLegacyVeto @ 0x14083A77C (IopAppendLegacyVeto.c)
  */
 
 char __fastcall IopGetLegacyVetoListDeviceNode(__int64 a1, __int64 a2)

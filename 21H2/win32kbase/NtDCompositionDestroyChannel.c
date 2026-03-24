@@ -1,9 +1,9 @@
 /*
- * XREFs of NtDCompositionDestroyChannel @ 0x1C00B0AF0
+ * XREFs of NtDCompositionDestroyChannel @ 0x1C00594E0
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00B0B08 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00594F8 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
  */
 
 __int64 __fastcall NtDCompositionDestroyChannel(unsigned int a1)

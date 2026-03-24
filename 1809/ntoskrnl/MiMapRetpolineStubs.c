@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapRetpolineStubs @ 0x140853C9C
+ * XREFs of MiMapRetpolineStubs @ 0x140853C7C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  *     MiApplyRetpolineToBootDrivers @ 0x1409B88C4 (MiApplyRetpolineToBootDrivers.c)
  * Callees:
- *     MiMapSinglePage @ 0x14012185C (MiMapSinglePage.c)
+ *     MiMapSinglePage @ 0x14012187C (MiMapSinglePage.c)
  */
 
 __int64 __fastcall MiMapRetpolineStubs(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetConstantBufferSize@CRadialGradientEffect@@UEBAII@Z @ 0x1802B98D0
+ * XREFs of ?GetConstantBufferSize@CRadialGradientEffect@@UEBAII@Z @ 0x180269760
  * Callers:
  *     <none>
  * Callees:

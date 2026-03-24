@@ -1,23 +1,23 @@
 /*
- * XREFs of PfTCleanup @ 0x1408651FC
+ * XREFs of PfTCleanup @ 0x1408651DC
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x140752A9C (PfTStart.c)
- *     PfpParametersPropagate @ 0x140865904 (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x140752A7C (PfTStart.c)
+ *     PfpParametersPropagate @ 0x1408658E4 (PfpParametersPropagate.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PfFbBufferListInsertInFree @ 0x1400E2660 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     PfFbBufferListShutdown @ 0x1402D315C (PfFbBufferListShutdown.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PfFbBufferListInsertInFree @ 0x1400E2680 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListShutdown @ 0x1402D325C (PfFbBufferListShutdown.c)
  *     PfTAccessTracingCleanup @ 0x14056598C (PfTAccessTracingCleanup.c)
- *     PfTTraceListFree @ 0x14064BB20 (PfTTraceListFree.c)
- *     PfTCleanupBuffers @ 0x1408653A8 (PfTCleanupBuffers.c)
- *     PfTTraceListTrim @ 0x140865438 (PfTTraceListTrim.c)
- *     PfFbBufferListCleanup @ 0x140865C20 (PfFbBufferListCleanup.c)
+ *     PfTTraceListFree @ 0x14064BB00 (PfTTraceListFree.c)
+ *     PfTCleanupBuffers @ 0x140865388 (PfTCleanupBuffers.c)
+ *     PfTTraceListTrim @ 0x140865418 (PfTTraceListTrim.c)
+ *     PfFbBufferListCleanup @ 0x140865C00 (PfFbBufferListCleanup.c)
  */
 
 LONG_PTR __fastcall PfTCleanup(__int64 a1, __int64 a2)

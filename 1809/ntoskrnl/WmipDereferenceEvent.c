@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipDereferenceEvent @ 0x1408B33B8
+ * XREFs of WmipDereferenceEvent @ 0x1408B3398
  * Callers:
- *     WmipProcessEvent @ 0x14068F1CC (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x14068F1AC (WmipProcessEvent.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WmipSendWmiIrp @ 0x1405FBEA0 (WmipSendWmiIrp.c)

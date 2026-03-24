@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbDevice_GetEndpointState @ 0x1C000C034
+ * XREFs of UsbDevice_GetEndpointState @ 0x1C0010088
  * Callers:
- *     Endpoint_OnCancelStopCompletion @ 0x1C000BDE0 (Endpoint_OnCancelStopCompletion.c)
- *     Endpoint_OnResetEndpointResetCompletion @ 0x1C0039670 (Endpoint_OnResetEndpointResetCompletion.c)
- *     UsbDevice_DeviceResetCompletion @ 0x1C0046070 (UsbDevice_DeviceResetCompletion.c)
+ *     Endpoint_OnCancelStopCompletion @ 0x1C000FBA0 (Endpoint_OnCancelStopCompletion.c)
+ *     Endpoint_OnResetEndpointResetCompletion @ 0x1C00393F0 (Endpoint_OnResetEndpointResetCompletion.c)
+ *     UsbDevice_DeviceResetCompletion @ 0x1C0045BB0 (UsbDevice_DeviceResetCompletion.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C0036D28 (XilDeviceSlot_SendQueryEndpointContextInfoRequest.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C0036AE8 (XilDeviceSlot_SendQueryEndpointContextInfoRequest.c)
  */
 
 __int64 __fastcall UsbDevice_GetEndpointState(__int64 a1, int a2)
@@ -30,7 +30,7 @@ __int64 __fastcall UsbDevice_GetEndpointState(__int64 a1, int a2)
   }
   else
   {
-    if ( (*(_DWORD *)(*(_QWORD *)(v2 + 88) + 100LL) & 4) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v2 + 88) + 104LL) & 4) != 0 )
     {
       DeviceContextBufferVA = XilUsbDevice_GetDeviceContextBufferVA(a1);
       v6 = (v8 + 1) << 6;

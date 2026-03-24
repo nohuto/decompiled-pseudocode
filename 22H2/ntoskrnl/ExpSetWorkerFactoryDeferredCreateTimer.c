@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSetWorkerFactoryDeferredCreateTimer @ 0x1407E18EC
+ * XREFs of ExpSetWorkerFactoryDeferredCreateTimer @ 0x14069F094
  * Callers:
- *     ExpWorkerFactoryCheckCreate @ 0x1402B8D10 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140242860 (ExpWorkerFactoryCheckCreate.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
  */
 
 void __fastcall ExpSetWorkerFactoryDeferredCreateTimer(signed __int32 a1)

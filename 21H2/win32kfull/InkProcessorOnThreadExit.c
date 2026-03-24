@@ -1,11 +1,11 @@
 /*
- * XREFs of InkProcessorOnThreadExit @ 0x1C00EFED0
+ * XREFs of InkProcessorOnThreadExit @ 0x1C0101990
  * Callers:
  *     <none>
  * Callees:
- *     ?OnThreadExit@InkProcessor@@QEAAXPEBUtagTHREADINFO@@@Z @ 0x1C00EFF20 (-OnThreadExit@InkProcessor@@QEAAXPEBUtagTHREADINFO@@@Z.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?OnThreadExit@InkProcessor@@QEAAXPEBUtagTHREADINFO@@@Z @ 0x1C01019E0 (-OnThreadExit@InkProcessor@@QEAAXPEBUtagTHREADINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 void __fastcall InkProcessorOnThreadExit(struct tagTHREADINFO *a1)
@@ -20,12 +20,12 @@ void __fastcall InkProcessorOnThreadExit(struct tagTHREADINFO *a1)
   {
     InkProcessor::OnThreadExit(InkProcessor::s_pInstance, a1);
   }
-  else if ( (unsigned int)dword_1C0326250 > 2 )
+  else if ( (unsigned int)dword_1C032B288 > 2 )
   {
     v5 = 0;
     v3 = &v1;
     v1 = -1073741823;
     v4 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C0326250, (int)&dword_1C02EFE22, 0, 0, 3u, &v2);
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032B288, (int)&dword_1C02F2FAC, 0, 0, 3u, &v2);
   }
 }

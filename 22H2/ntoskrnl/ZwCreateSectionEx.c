@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateSectionEx @ 0x14041BF20
+ * XREFs of ZwCreateSectionEx @ 0x1403FB200
  * Callers:
- *     PsCheckProcessFileSigningLevel @ 0x1409B08C0 (PsCheckProcessFileSigningLevel.c)
+ *     <none>
  * Callees:
  *     <none>
  */

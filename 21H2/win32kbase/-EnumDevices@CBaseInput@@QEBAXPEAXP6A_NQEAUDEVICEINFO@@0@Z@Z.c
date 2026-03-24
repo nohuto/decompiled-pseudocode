@@ -1,12 +1,11 @@
 /*
- * XREFs of ?EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z @ 0x1C0097320
+ * XREFs of ?EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z @ 0x1C000B4A0
  * Callers:
- *     ?EnvironmentChanged@CPTPProcessor@@SAXXZ @ 0x1C00972E0 (-EnvironmentChanged@CPTPProcessor@@SAXXZ.c)
- *     ?W32kBaseInputEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00C5660 (-W32kBaseInputEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
- *     _SetPrecisionTouchPadConfiguration @ 0x1C0148CEC (_SetPrecisionTouchPadConfiguration.c)
+ *     ?EnvironmentChanged@CPTPProcessor@@SAXXZ @ 0x1C000B460 (-EnvironmentChanged@CPTPProcessor@@SAXXZ.c)
+ *     ?TraceEnvironment@CPTPProcessor@@SAXXZ @ 0x1C01A774C (-TraceEnvironment@CPTPProcessor@@SAXXZ.c)
  * Callees:
- *     ??0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z @ 0x1C00973A8 (--0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z @ 0x1C000B528 (--0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CBaseInput::EnumDevices(

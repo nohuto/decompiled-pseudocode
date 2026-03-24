@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetBiosVersion @ 0x140B996AC
+ * XREFs of CmpGetBiosVersion @ 0x140A597C0
  * Callers:
- *     CmpSetSystemBiosInformation @ 0x140B9986C (CmpSetSystemBiosInformation.c)
- *     CmpSetVideoBiosInformation @ 0x140B99C0C (CmpSetVideoBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140A592D0 (CmpSetVideoBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140A594A0 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strstr @ 0x1403D8B70 (strstr.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
  */
 
 char __fastcall CmpGetBiosVersion(__int64 a1, unsigned int a2, __int64 a3)
@@ -13,16 +13,16 @@ char __fastcall CmpGetBiosVersion(__int64 a1, unsigned int a2, __int64 a3)
   _BYTE *v4; // rcx
   _BYTE *v5; // rbx
   char *p_Str; // rdi
-  char *v7; // rbx
-  unsigned __int16 i; // cx
+  unsigned __int16 v7; // cx
+  char *v8; // rbx
   char v9; // al
   const char *v10; // rax
   char *v11; // rbx
   __int16 v12; // si
-  unsigned __int16 j; // dx
-  char v14; // r8
-  __int64 v15; // rcx
   char result; // al
+  unsigned __int16 i; // dx
+  char v15; // r8
+  __int64 v16; // rcx
   char Str; // [rsp+9Fh] [rbp-29h] BYREF
 
   if ( a1 )
@@ -50,22 +50,25 @@ LABEL_10:
     Str = 0;
     Start = (__int64)(v4 + 2);
     p_Str = &Str;
-    v7 = v5 - 1;
-    for ( i = 0; i < 0x78u; ++i )
+    v7 = 0;
+    v8 = v5 - 1;
+    do
     {
-      if ( (unsigned __int64)v7 < BiosBegin )
+      if ( (unsigned __int64)v8 < BiosBegin )
         break;
-      v9 = *v7;
-      if ( *v7 < 32 )
+      v9 = *v8;
+      if ( *v8 < 32 )
         break;
       if ( v9 == 36 )
         break;
       --p_Str;
-      --v7;
+      --v8;
+      ++v7;
       *p_Str = v9;
     }
+    while ( v7 < 0x78u );
     v10 = SearchStrings;
-    v11 = v7 + 1;
+    v11 = v8 + 1;
     v12 = 0;
     while ( v10 )
     {
@@ -76,23 +79,23 @@ LABEL_10:
           if ( *v11 != 32 )
             break;
         }
-        for ( j = 0; j < 0x7Fu; ++j )
+        for ( i = 0; i < 0x7Fu; ++i )
         {
           if ( !v11 )
             break;
           if ( (unsigned __int64)v11 > End + 1 )
             break;
-          v14 = *v11;
+          v15 = *v11;
           if ( *v11 < 32 )
             break;
-          if ( v14 == 36 )
+          if ( v15 == 36 )
             break;
-          v15 = j;
+          v16 = i;
           ++v11;
-          *(_BYTE *)(v15 + a3) = v14;
+          *(_BYTE *)(v16 + a3) = v15;
         }
         result = 1;
-        *(_BYTE *)(j + a3) = 0;
+        *(_BYTE *)(i + a3) = 0;
         return result;
       }
       v10 = (&SearchStrings)[(unsigned __int16)++v12];

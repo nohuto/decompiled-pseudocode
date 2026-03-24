@@ -1,19 +1,19 @@
 /*
- * XREFs of PspCombineSecurityDomains @ 0x1407527F4
+ * XREFs of PspCombineSecurityDomains @ 0x1406A0F84
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     KeSynchronizeSecurityDomain @ 0x140255E2C (KeSynchronizeSecurityDomain.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeCreateAccessStateEx @ 0x14071F190 (SeCreateAccessStateEx.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     KeSynchronizeSecurityDomain @ 0x1402BC338 (KeSynchronizeSecurityDomain.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
-__int64 __fastcall PspCombineSecurityDomains(PVOID Object, PVOID a2)
+__int64 __fastcall PspCombineSecurityDomains(PVOID Object, struct _KPROCESS *a2)
 {
   __int64 v4; // rax
   __int64 v5; // rcx
@@ -28,24 +28,18 @@ __int64 __fastcall PspCombineSecurityDomains(PVOID Object, PVOID a2)
 
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
   memset(v14, 0, sizeof(v14));
-  if ( !_bittest((const signed __int32 *)Object + 543, 0x16u) || !_bittest((const signed __int32 *)a2 + 543, 0x16u) )
+  if ( (*((_DWORD *)Object + 543) & 0x400000) == 0 || (HIDWORD(a2[2].Header.WaitListHead.Flink) & 0x400000) == 0 )
     return 3221225596LL;
   _InterlockedOr(v10, 0);
   v4 = *((_QWORD *)Object + 316);
-  v5 = *((_QWORD *)a2 + 316);
+  v5 = *(_QWORD *)&a2[2].ActiveProcessors.Count;
   if ( v4 == v5 )
     return 0LL;
-  if ( !v4 || !v5 || *((int *)Object + 628) < 0 || *((int *)a2 + 628) < 0 )
+  if ( !v4 || !v5 || *((int *)Object + 628) < 0 || SLODWORD(a2[2].ReadyListHead.Blink) < 0 )
     return 3221226597LL;
   Handle = 0LL;
   v11 = 0LL;
-  v6 = SeCreateAccessStateEx(
-         0LL,
-         (struct _KPROCESS *)a2,
-         &PassedAccessState,
-         v14,
-         0x28u,
-         (GENERIC_MAPPING *)((char *)PsProcessType + 76));
+  v6 = SeCreateAccessStateEx(0LL, a2, &PassedAccessState, v14, 0x28u, (GENERIC_MAPPING *)((char *)PsProcessType + 76));
   if ( v6 >= 0 )
   {
     v7 = ObOpenObjectByPointer(Object, 0x600u, &PassedAccessState, 0, (POBJECT_TYPE)PsProcessType, 0, &Handle);
@@ -68,8 +62,8 @@ __int64 __fastcall PspCombineSecurityDomains(PVOID Object, PVOID a2)
       if ( v7 >= 0 )
       {
         _InterlockedOr((volatile signed __int32 *)Object + 543, 0x200000u);
-        *((_QWORD *)Object + 316) = *((_QWORD *)a2 + 316);
-        if ( (*((_DWORD *)Object + 628) | *((_DWORD *)a2 + 628)) < 0 )
+        *((_QWORD *)Object + 316) = *(_QWORD *)&a2[2].ActiveProcessors.Count;
+        if ( (*((_DWORD *)Object + 628) | LODWORD(a2[2].ReadyListHead.Blink)) < 0 )
         {
           v9 = _InterlockedIncrement64(&PsNextSecurityDomain);
           v6 = -1073740699;

@@ -1,7 +1,7 @@
 /*
- * XREFs of SbGetProcessSwitchContext @ 0x1C00961F8
+ * XREFs of SbGetProcessSwitchContext @ 0x1C00FEB10
  * Callers:
- *     SetManifestWinVer @ 0x1C00960C0 (SetManifestWinVer.c)
+ *     SetManifestWinVer @ 0x1C00FEA40 (SetManifestWinVer.c)
  * Callees:
  *     <none>
  */

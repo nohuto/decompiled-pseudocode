@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z @ 0x1801A4400
+ * XREFs of ?DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z @ 0x180234030
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CInteractionRoot::DepartBufferedOutputPointer(CInteractionRoot *this)
+char __fastcall CInteractionRoot::DepartBufferedOutputPointer(CInteractionRoot *this, unsigned int a2)
 {
-  return CInteractionProcessor::DepartBufferedOutputPointer((char *)this + 24);
+  return CInteractionProcessor::DepartBufferedOutputPointer((__int64)this + 32, a2);
 }

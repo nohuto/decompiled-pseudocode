@@ -1,10 +1,10 @@
 /*
- * XREFs of PsAddProcessEnergyValues @ 0x1402F5120
+ * XREFs of PsAddProcessEnergyValues @ 0x1402548F0
  * Callers:
- *     PspFoldProcessAccountingIntoJob @ 0x140683FE0 (PspFoldProcessAccountingIntoJob.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x140685304 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x1406BED60 (PspQueryProcessAccountingInformationCallback.c)
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1407A5F60 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140616780 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x14061776C (PspQueryJobHierarchyAccountingInformation.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x140619394 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1406AD32C (PspFoldProcessAccountingIntoJob.c)
  * Callees:
  *     <none>
  */

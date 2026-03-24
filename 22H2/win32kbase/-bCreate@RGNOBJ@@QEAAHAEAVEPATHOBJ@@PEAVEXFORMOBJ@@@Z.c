@@ -1,36 +1,36 @@
 /*
- * XREFs of ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156700
+ * XREFs of ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCF60
  * Callers:
- *     GreExtCreateRegion @ 0x1C007C890 (GreExtCreateRegion.c)
+ *     GreExtCreateRegion @ 0x1C0024210 (GreExtCreateRegion.c)
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E0F4 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C004C7D0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C007DD10 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156EB4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C0034E60 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCFF4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
  */
 
 __int64 __fastcall RGNOBJ::bCreate(RGNOBJ *this, struct EPATHOBJ *a2, struct EXFORMOBJ *a3)
 {
-  __int64 v3; // rax
-  unsigned int v6; // ebx
-  PVOID v9; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v3; // ebx
+  REGION *v8; // [rsp+20h] [rbp-18h] BYREF
+  int v9; // [rsp+28h] [rbp-10h]
 
-  v3 = *(_QWORD *)this;
-  v6 = 0;
-  v9 = 0LL;
-  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v9, *(_DWORD *)(v3 + 48));
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v9);
-  if ( v9 )
+  v3 = 0;
+  v8 = 0LL;
+  v9 = 0;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v8, *(unsigned int *)(*(_QWORD *)this + 80LL), (__int64)a3);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v8);
+  if ( v8 )
   {
-    RGNOBJ::vCopy((RGNOBJ *)&v9, this);
-    v6 = RGNOBJ::bOutline((RGNOBJ *)&v9, a2, a3);
+    RGNOBJ::vCopy((RGNOBJ *)&v8, this);
+    v3 = RGNOBJ::bOutline((RGNOBJ *)&v8, a2, a3);
   }
   else
   {
     EngSetLastError(8u);
   }
-  RGNMEMOBJTMP::~RGNMEMOBJTMP(&v9);
-  return v6;
+  RGNMEMOBJTMP::~RGNMEMOBJTMP(&v8);
+  return v3;
 }

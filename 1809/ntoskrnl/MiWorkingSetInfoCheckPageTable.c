@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWorkingSetInfoCheckPageTable @ 0x1402BF1E4
+ * XREFs of MiWorkingSetInfoCheckPageTable @ 0x1402BF2E4
  * Callers:
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiGetPagingFileOffset @ 0x14010FA04 (MiGetPagingFileOffset.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
  */
 
 __int64 __fastcall MiWorkingSetInfoCheckPageTable(__int64 a1, unsigned __int64 a2, __int64 a3, char a4, char a5)

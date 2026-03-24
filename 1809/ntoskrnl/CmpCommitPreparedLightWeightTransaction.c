@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x140693690
+ * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x140693670
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140693564 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140693544 (CmpCommitLightWeightTransaction.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  */
 
 void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
@@ -31,7 +31,7 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
   {
     v1 = 0;
     if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
-      TlgWrite(&stru_1403FFAA0, &unk_14036C038, 0LL, 0LL, 2u, &pData);
+      TlgWrite(&stru_1403FFAA0, &unk_14036C148, 0LL, 0LL, 2u, &pData);
     v7 = MEMORY[0xFFFFF78000000014];
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -56,7 +56,7 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
         v9 = &v5;
         v5 = v1;
         v10 = 4;
-        TlgWrite(&stru_1403FFAA0, &unk_14036BFF5, 0LL, 0LL, 3u, &v8);
+        TlgWrite(&stru_1403FFAA0, &unk_14036C105, 0LL, 0LL, 3u, &v8);
       }
     }
   }

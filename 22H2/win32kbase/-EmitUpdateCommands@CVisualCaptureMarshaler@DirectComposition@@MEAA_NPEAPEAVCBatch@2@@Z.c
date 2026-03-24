@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CVisualCaptureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C130
+ * XREFs of ?EmitUpdateCommands@CVisualCaptureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F3120
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00293EC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVisualCaptureMarshaler::EmitUpdateCommands(
@@ -23,36 +23,34 @@ char __fastcall DirectComposition::CVisualCaptureMarshaler::EmitUpdateCommands(
   v2 = 0;
   v12 = 0LL;
   if ( !DirectComposition::CPropertyChangeResourceMarshaler::EmitUpdateCommands(this, a2)
-    || !DirectComposition::CBatch::EnsureBatchBuffer((struct DirectComposition::CBatch ***)a2, 0x28uLL, &v12) )
+    || !DirectComposition::CBatch::EnsureBatchBuffer((struct DirectComposition::CBatch ***)a2, 0x24uLL, &v12) )
   {
     return 0;
   }
   v5 = (char *)v12;
-  *(_DWORD *)v12 = 40;
+  *(_DWORD *)v12 = 36;
   *(_OWORD *)(v5 + 4) = 0LL;
   *(_OWORD *)(v5 + 20) = 0LL;
-  *((_DWORD *)v5 + 9) = 0;
-  *((_DWORD *)v5 + 1) = 476;
-  *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v5 + 1) = 511;
+  *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
   v6 = *((_QWORD *)this + 9);
   if ( v6 )
-    v7 = *(_DWORD *)(v6 + 32);
+    v7 = *(_DWORD *)(v6 + 24);
   else
     v7 = 0;
   *((_DWORD *)v5 + 3) = v7;
   v8 = *((_QWORD *)this + 10);
   if ( v8 )
-    v9 = *(_DWORD *)(v8 + 32);
+    v9 = *(_DWORD *)(v8 + 24);
   else
     v9 = 0;
   *((_DWORD *)v5 + 4) = v9;
   v10 = *((_QWORD *)this + 11);
   if ( v10 )
-    v2 = *(_DWORD *)(v10 + 32);
+    v2 = *(_DWORD *)(v10 + 24);
   *((_DWORD *)v5 + 5) = v2;
   *((_DWORD *)v5 + 6) = *((_DWORD *)this + 24);
   *((_DWORD *)v5 + 7) = *((_DWORD *)this + 25);
   *((_DWORD *)v5 + 8) = *((_DWORD *)this + 26);
-  v5[36] = *((_BYTE *)this + 108);
   return 1;
 }

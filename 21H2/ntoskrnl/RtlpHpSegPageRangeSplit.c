@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegPageRangeSplit @ 0x1405F31D8
+ * XREFs of RtlpHpSegPageRangeSplit @ 0x140594FA4
  * Callers:
- *     RtlpHpSegLargeRangeAllocate @ 0x1403A5774 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x14037E1BC (RtlpHpSegLargeRangeAllocate.c)
  * Callees:
- *     RtlpHpSegPageRangeCountCommittedPages @ 0x140353B40 (RtlpHpSegPageRangeCountCommittedPages.c)
+ *     RtlpHpSegPageRangeCountCommittedPages @ 0x14030A8F0 (RtlpHpSegPageRangeCountCommittedPages.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegPageRangeSplit(__int64 a1, __int64 a2, unsigned int a3)

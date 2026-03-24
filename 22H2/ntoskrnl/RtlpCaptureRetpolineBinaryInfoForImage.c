@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCaptureRetpolineBinaryInfoForImage @ 0x1403764F8
+ * XREFs of RtlpCaptureRetpolineBinaryInfoForImage @ 0x1403B6910
  * Callers:
- *     RtlUpdateImportRelocationsInImage @ 0x140376274 (RtlUpdateImportRelocationsInImage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067A69C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1403B6618 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FDFC (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4B48 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
@@ -23,14 +23,13 @@ __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
   unsigned int v12; // ebx
   __int64 v13; // rax
   __int64 v15; // rdi
-  __int64 v16; // r8
-  unsigned int v17; // ecx
-  unsigned int v18; // eax
-  unsigned int v19; // ecx
-  unsigned int *v20; // rdx
-  unsigned int v21; // eax
-  __int64 v22; // rcx
-  char v23; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v16; // ecx
+  unsigned int v17; // r8d
+  unsigned int *v18; // rdx
+  __int64 v19; // rcx
+  unsigned int v20; // eax
+  __int64 v21; // rcx
+  char v22; // [rsp+20h] [rbp-28h] BYREF
 
   v7 = a3;
   v9 = a1;
@@ -44,34 +43,31 @@ __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
     if ( *((_QWORD *)Config + 15) )
       *(_DWORD *)(a6 + 4) = Config[30] - a2;
     LOBYTE(v11) = 1;
-    v13 = RtlImageDirectoryEntryToData(v9, v11, 12, (int)&v23);
+    v13 = RtlImageDirectoryEntryToData(v9, v11, 12, (int)&v22);
     if ( v13 )
       *(_DWORD *)(a6 + 8) = v13 - v9;
     if ( a4 )
     {
       v15 = a4 - a2;
-      v16 = 16LL;
-      v17 = a5[18];
-      if ( v17 <= a5[17] )
-        v17 = a5[17];
-      v18 = a5[19];
-      if ( v18 <= v17 )
-        v18 = v17;
-      v19 = a5[20];
-      if ( v19 <= v18 )
-        v19 = v18;
-      v20 = a5 + 1;
+      v16 = a5[18];
+      v17 = a5[19];
+      if ( v16 <= a5[17] )
+        v16 = a5[17];
+      if ( v17 <= v16 )
+        v17 = v16;
+      v18 = a5 + 1;
+      v19 = 16LL;
       do
       {
-        v21 = *v20++;
-        if ( v21 <= v19 )
-          v21 = v19;
-        v19 = v21;
-        --v16;
+        v20 = v17;
+        v17 = *v18++;
+        if ( v17 <= v20 )
+          v17 = v20;
+        --v19;
       }
-      while ( v16 );
-      v22 = v15 + v21;
-      if ( v22 < v15 || v22 > 0x7FFFFFFF || v15 - v7 < (__int64)0xFFFFFFFF80000000uLL )
+      while ( v19 );
+      v21 = v15 + v17;
+      if ( __OFSUB__(v21, v15) || v21 > 0x7FFFFFFF || v15 - v7 < (__int64)0xFFFFFFFF80000000uLL )
         return (unsigned int)-1073741776;
       else
         *(_DWORD *)a6 = v15;

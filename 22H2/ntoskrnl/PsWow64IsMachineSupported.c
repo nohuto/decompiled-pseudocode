@@ -1,12 +1,12 @@
 /*
- * XREFs of PsWow64IsMachineSupported @ 0x14076F670
+ * XREFs of PsWow64IsMachineSupported @ 0x1406C7650
  * Callers:
- *     PspSelectMachineForProcess @ 0x1406B7B58 (PspSelectMachineForProcess.c)
- *     PsGetSupportedProcessorArchitectures @ 0x14076F4C0 (PsGetSupportedProcessorArchitectures.c)
- *     CmpSetVersionData @ 0x14080E008 (CmpSetVersionData.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1406C74B8 (PsWow64GetSupportedArchitectures.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     CmpSetVersionData @ 0x1407A825C (CmpSetVersionData.c)
  * Callees:
- *     RtlWow64GetEquivalentMachineCHPE @ 0x14030BC28 (RtlWow64GetEquivalentMachineCHPE.c)
- *     PsQuerySystemDllInfo @ 0x14076F6C4 (PsQuerySystemDllInfo.c)
+ *     RtlWow64GetEquivalentMachineCHPE @ 0x140344600 (RtlWow64GetEquivalentMachineCHPE.c)
+ *     PsQuerySystemDllInfo @ 0x1406C769C (PsQuerySystemDllInfo.c)
  */
 
 __int64 __fastcall PsWow64IsMachineSupported(__int16 a1)
@@ -30,11 +30,11 @@ __int64 __fastcall PsWow64IsMachineSupported(__int16 a1)
     SystemDllInfo = PsQuerySystemDllInfo((unsigned int)v4);
     if ( SystemDllInfo )
     {
-      if ( (*(_DWORD *)SystemDllInfo & 8) != 0 && *(_WORD *)(SystemDllInfo + 2) == v7 )
+      if ( *(_WORD *)(SystemDllInfo + 2) == v7 )
         break;
     }
     v4 = v6 + 1;
-    if ( v4 >= 7 )
+    if ( v4 >= 6 )
       return 0LL;
   }
   return 1LL;

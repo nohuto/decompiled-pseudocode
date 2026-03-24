@@ -1,20 +1,20 @@
 /*
- * XREFs of ??$FreeIsolatedType@V?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0090F9C
+ * XREFs of ??$FreeIsolatedType@V?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C002201C
  * Callers:
- *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0090DF0 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
- *     ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0097060 (--0PATHMEMOBJ@@QEAA@XZ.c)
+ *     ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0021DF0 (--0PATHMEMOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0021EE0 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?Free@?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0092F00 (-Free@-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C013CD54 (-Free@-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  */
 
-PVOID __fastcall FreeIsolatedType<NSInstrumentation::CTypeIsolation<81920,320>>(__int64 a1)
+unsigned __int8 **__fastcall FreeIsolatedType<NSInstrumentation::CTypeIsolation<81920,320>>(__int64 a1)
 {
-  PVOID result; // rax
-  __int64 v3; // rcx
+  unsigned __int8 **result; // rax
+  unsigned __int8 *v3; // rcx
 
   result = gpTypeIsolation;
-  v3 = *((_QWORD *)gpTypeIsolation + 4);
+  v3 = gpTypeIsolation[4];
   if ( v3 )
-    return (PVOID)NSInstrumentation::CTypeIsolation<81920,320>::Free(v3, a1);
+    return (unsigned __int8 **)NSInstrumentation::CTypeIsolation<81920,320>::Free(v3, a1);
   return result;
 }

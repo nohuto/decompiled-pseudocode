@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MKShowMouseCursor@@YAXXZ @ 0x1C01B61E0
+ * XREFs of ?MKShowMouseCursor@@YAXXZ @ 0x1C01836D0
  * Callers:
- *     xxxUpdatePerUserAccessPackSettings @ 0x1C00A2650 (xxxUpdatePerUserAccessPackSettings.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C000F410 (xxxUpdatePerUserAccessPackSettings.c)
  * Callees:
- *     ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00B8CE0 (-SetGlobalCursorLevel@@YAXH@Z.c)
+ *     ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00B07E0 (-SetGlobalCursorLevel@@YAXH@Z.c)
  */
 
 void MKShowMouseCursor(void)

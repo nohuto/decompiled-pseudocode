@@ -1,14 +1,15 @@
 /*
- * XREFs of ?EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z @ 0x1C01F39F0
+ * XREFs of ?EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z @ 0x1C012E2E0
  * Callers:
- *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0198B0C (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
- *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C02C20BC (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
- *     ?EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z @ 0x1C0312874 (-EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z.c)
+ *     ?ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C012E224 (-ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C012E5B4 (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C021777C (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
+ *     ?EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z @ 0x1C0269870 (-EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?IsClockCalibrationSupported@ADAPTER_RENDER@@QEBAEXZ @ 0x1C001CCF8 (-IsClockCalibrationSupported@ADAPTER_RENDER@@QEBAEXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?IsClockCalibrationSupported@ADAPTER_RENDER@@QEBAEXZ @ 0x1C0009238 (-IsClockCalibrationSupported@ADAPTER_RENDER@@QEBAEXZ.c)
  */
 
 void __fastcall ADAPTER_RENDER::EnableClockCalibration(ADAPTER_RENDER *this, char a2)
@@ -23,17 +24,17 @@ void __fastcall ADAPTER_RENDER::EnableClockCalibration(ADAPTER_RENDER *this, cha
 
   if ( ADAPTER_RENDER::IsClockCalibrationSupported(this) )
   {
-    v5 = v4 + 1168;
+    v5 = v4 + 1032;
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(v5, 0LL);
     *(_QWORD *)(v5 + 8) = KeGetCurrentThread();
-    v6 = *((_BYTE *)this + 1026);
+    v6 = *((_BYTE *)this + 890);
     if ( a2 )
     {
       if ( !v6
-        && (qword_1C013F870 & 0x461C8ED7) != 0
-        && (qword_1C013F878 & 0xFFFFFFFFB9E37128uLL) == 0
-        && (qword_1C013F870 & 0x4000) != 0 )
+        && (qword_1C00B19B0 & 0x61C8ED7) != 0
+        && (qword_1C00B19B8 & 0xFFFFFFFFF9E37128uLL) == 0
+        && (qword_1C00B19B0 & 0x4000) != 0 )
       {
         DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v8, (struct _KTHREAD **)(*((_QWORD *)this + 2) + 104LL), 0);
         DXGPUSHLOCK::AcquireShared(v9);
@@ -42,20 +43,20 @@ void __fastcall ADAPTER_RENDER::EnableClockCalibration(ADAPTER_RENDER *this, cha
         if ( !*(_DWORD *)(v7 + 160) )
         {
           KeSetTimerEx(
-            (PKTIMER)((char *)this + 1040),
-            *(LARGE_INTEGER *)((char *)this + 1032),
+            (PKTIMER)((char *)this + 904),
+            *(LARGE_INTEGER *)((char *)this + 896),
             50,
-            (PKDPC)((char *)this + 1104));
-          *((_BYTE *)this + 1026) = 1;
+            (PKDPC)((char *)this + 968));
+          *((_BYTE *)this + 890) = 1;
         }
         DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v8);
       }
     }
     else if ( v6 )
     {
-      KeCancelTimer((PKTIMER)((char *)this + 1040));
+      KeCancelTimer((PKTIMER)((char *)this + 904));
       KeFlushQueuedDpcs();
-      *((_BYTE *)this + 1026) = 0;
+      *((_BYTE *)this + 890) = 0;
     }
     *(_QWORD *)(v5 + 8) = 0LL;
     ExReleasePushLockExclusiveEx(v5, 0LL);

@@ -1,9 +1,9 @@
 /*
- * XREFs of SmKmInitialize @ 0x1408502F0
+ * XREFs of SmKmInitialize @ 0x14079E4C0
  * Callers:
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A81DC (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403B40F0 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 (__fastcall *__fastcall SmKmInitialize(__int64 a1))(__int64 a1, __int64 a2, unsigned int a3)

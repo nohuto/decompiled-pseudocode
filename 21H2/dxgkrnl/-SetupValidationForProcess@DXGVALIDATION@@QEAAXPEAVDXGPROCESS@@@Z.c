@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C000C5D4
+ * XREFs of ?SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C00193D8
  * Callers:
- *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C018B330 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
+ *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C010CF18 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall DXGVALIDATION::SetupValidationForProcess(DXGVALIDATION *this, struct DXGPROCESS *a2)
@@ -42,9 +42,9 @@ void __fastcall DXGVALIDATION::SetupValidationForProcess(DXGVALIDATION *this, st
     {
       ProcessInformationLength = 0;
       if ( ZwQueryInformationProcess(ProcessHandle, ProcessImageFileNameWin32, 0LL, 0, &ProcessInformationLength) == -1073741820
-        && ProcessInformationLength > 0x10 )
+        && ProcessInformationLength >= 0x10 )
       {
-        v3 = (struct _UNICODE_STRING *)operator new[](ProcessInformationLength, 1265072196LL, 256LL);
+        v3 = (struct _UNICODE_STRING *)operator new[](ProcessInformationLength, 0x4B677844u, PagedPool);
         v4 = v3;
         if ( v3 )
         {

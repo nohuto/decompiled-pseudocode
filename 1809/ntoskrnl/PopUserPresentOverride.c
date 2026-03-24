@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUserPresentOverride @ 0x140879230
+ * XREFs of PopUserPresentOverride @ 0x140879210
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopEvaluateGlobalUserStatus @ 0x1406DCAB8 (PopEvaluateGlobalUserStatus.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1406DCA98 (PopEvaluateGlobalUserStatus.c)
  */
 
 __int64 __fastcall PopUserPresentOverride(char a1)

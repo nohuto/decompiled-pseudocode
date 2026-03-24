@@ -1,19 +1,19 @@
 /*
- * XREFs of CcMdlRead @ 0x14073EEB0
+ * XREFs of CcMdlRead @ 0x140701480
  * Callers:
- *     FsRtlMdlReadDev @ 0x14093D400 (FsRtlMdlReadDev.c)
+ *     FsRtlMdlReadDev @ 0x14088B0A0 (FsRtlMdlReadDev.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     MmProbeAndLockPages @ 0x140238770 (MmProbeAndLockPages.c)
- *     CcFetchDataForRead @ 0x1402621A0 (CcFetchDataForRead.c)
- *     CcFreeVirtualAddress @ 0x140262360 (CcFreeVirtualAddress.c)
- *     CcGetVirtualAddress @ 0x140264CD0 (CcGetVirtualAddress.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     CcUpdateReadHistory @ 0x1402BDCF8 (CcUpdateReadHistory.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     CcScheduleReadAheadEx @ 0x140328DC0 (CcScheduleReadAheadEx.c)
- *     CcUpdateSharedCacheMapFlag @ 0x14034BD34 (CcUpdateSharedCacheMapFlag.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     CcScheduleReadAheadEx @ 0x140279480 (CcScheduleReadAheadEx.c)
+ *     CcUpdateReadHistory @ 0x14027A400 (CcUpdateReadHistory.c)
+ *     CcFreeVirtualAddress @ 0x1402A1080 (CcFreeVirtualAddress.c)
+ *     CcFetchDataForRead @ 0x1402A10C0 (CcFetchDataForRead.c)
+ *     CcGetVirtualAddress @ 0x1402A15A0 (CcGetVirtualAddress.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x14031195C (CcUpdateSharedCacheMapFlag.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
  */
 
 void __stdcall CcMdlRead(
@@ -25,86 +25,102 @@ void __stdcall CcMdlRead(
 {
   _DWORD *SharedCacheMap; // r13
   _DWORD *PrivateCacheMap; // r12
-  LONGLONG QuadPart; // rbx
+  __int64 v10; // rbx
   ULONG v11; // esi
-  ULONG v12; // r12d
+  void *VirtualAddress; // rax
+  ULONG v13; // r12d
   struct _MDL *Mdl; // rax
-  PMDL v14; // rax
+  PMDL v15; // rax
   struct _MDL *Next; // rcx
-  unsigned int v16; // [rsp+54h] [rbp-94h]
-  ULONG v17; // [rsp+58h] [rbp-90h] BYREF
-  _DWORD v18[3]; // [rsp+5Ch] [rbp-8Ch] BYREF
-  _QWORD *v19; // [rsp+68h] [rbp-80h] BYREF
-  struct _MDL *v20; // [rsp+70h] [rbp-78h]
-  _QWORD v21[2]; // [rsp+78h] [rbp-70h] BYREF
-  _DWORD *v22; // [rsp+88h] [rbp-60h]
-  PVOID VirtualAddress; // [rsp+90h] [rbp-58h]
-  PMDL i; // [rsp+98h] [rbp-50h]
-  _DWORD *v25; // [rsp+A0h] [rbp-48h]
+  _DWORD *v17; // r9
+  unsigned int v18; // [rsp+44h] [rbp-A4h]
+  ULONG v19; // [rsp+48h] [rbp-A0h] BYREF
+  _DWORD v20[3]; // [rsp+4Ch] [rbp-9Ch] BYREF
+  PVOID P; // [rsp+58h] [rbp-90h] BYREF
+  struct _MDL *v22; // [rsp+60h] [rbp-88h]
+  __int64 v23; // [rsp+68h] [rbp-80h]
+  int v24[2]; // [rsp+70h] [rbp-78h] BYREF
+  _DWORD *v25; // [rsp+78h] [rbp-70h]
+  void *v26; // [rsp+80h] [rbp-68h]
+  PMDL i; // [rsp+88h] [rbp-60h]
+  _DWORD *v28; // [rsp+90h] [rbp-58h]
+  _DWORD *v29; // [rsp+98h] [rbp-50h]
 
-  v20 = 0LL;
-  v18[1] = Length;
-  v16 = 0;
-  v19 = 0LL;
-  v18[0] = 0;
+  v22 = 0LL;
+  v20[1] = Length;
+  v18 = 0;
+  P = 0LL;
+  v20[0] = 0;
   SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
-  v21[1] = SharedCacheMap;
+  v25 = SharedCacheMap;
   PrivateCacheMap = FileObject->PrivateCacheMap;
-  v22 = PrivateCacheMap;
-  v25 = PrivateCacheMap;
+  v28 = PrivateCacheMap;
+  v29 = PrivateCacheMap;
   if ( (*PrivateCacheMap & 0x20000) != 0 )
-    CcScheduleReadAheadEx(FileObject);
-  __incgsdword(0x8464u);
+    CcScheduleReadAheadEx((_SLIST_ENTRY *)FileObject, FileOffset, Length, 0LL);
+  __incgsdword(0x8124u);
   KeGetCurrentThread()[1].Timer.DueTime.HighPart = 0;
-  QuadPart = FileOffset->QuadPart;
-  v21[0] = FileOffset->QuadPart;
+  *(LARGE_INTEGER *)v24 = *FileOffset;
+  v10 = *(_QWORD *)v24;
+  v23 = *(_QWORD *)v24;
   v11 = Length;
   while ( v11 )
   {
-    v17 = 0;
-    VirtualAddress = (PVOID)CcGetVirtualAddress((__int64)SharedCacheMap, QuadPart, (__int64 *)&v19, &v17, 0, 0);
+    v19 = 0;
+    VirtualAddress = (void *)CcGetVirtualAddress(
+                               (__int64)SharedCacheMap,
+                               v10,
+                               (volatile signed __int32 **)&P,
+                               &v19,
+                               0,
+                               0);
+    v26 = VirtualAddress;
     if ( (SharedCacheMap[38] & 8) == 0 )
-      CcFetchDataForRead((int)FileObject, v21, v11, 1, v18, v19, (*PrivateCacheMap >> 18) & 7, 0LL, 0LL);
-    v12 = v17;
-    if ( v17 > v11 )
-      v12 = v11;
-    v17 = v12;
-    QuadPart += v12;
-    Mdl = IoAllocateMdl(VirtualAddress, v12, 0, 0, 0LL);
-    v20 = Mdl;
+    {
+      CcFetchDataForRead((__int64)FileObject, v24, v11, 1, v20, P, (*PrivateCacheMap >> 18) & 7);
+      VirtualAddress = v26;
+    }
+    v13 = v19;
+    if ( v19 > v11 )
+      v13 = v11;
+    v19 = v13;
+    v10 = v23 + v13;
+    v23 = v10;
+    Mdl = IoAllocateMdl(VirtualAddress, v13, 0, 0, 0LL);
+    v22 = Mdl;
     if ( !Mdl )
-      RtlRaiseStatus(-1073741670);
+      RtlRaiseStatus(0xC000009A);
     MmProbeAndLockPages(Mdl, 0, IoReadAccess);
-    CcFreeVirtualAddress((__int64)v19);
-    v19 = 0LL;
-    v14 = *MdlChain;
+    CcFreeVirtualAddress((__int64)P);
+    P = 0LL;
+    v15 = *MdlChain;
     if ( *MdlChain )
     {
       for ( i = *MdlChain; ; i = Next )
       {
-        Next = v14->Next;
-        if ( !v14->Next )
+        Next = v15->Next;
+        if ( !v15->Next )
           break;
-        v14 = v14->Next;
+        v15 = v15->Next;
       }
-      v14->Next = v20;
+      v15->Next = v22;
     }
     else
     {
-      *MdlChain = v20;
+      *MdlChain = v22;
     }
-    v20 = 0LL;
-    v21[0] = QuadPart;
-    v16 += v12;
-    v11 -= v12;
-    PrivateCacheMap = v22;
+    v22 = 0LL;
+    *(_QWORD *)v24 = v10;
+    v18 += v13;
+    v11 -= v13;
+    PrivateCacheMap = v28;
   }
-  __addgsdword(0x84A0u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
-  if ( (*PrivateCacheMap & 0x20000) == 0 && v18[0] )
-    CcScheduleReadAheadEx(FileObject);
+  __addgsdword(0x8160u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
+  if ( (*PrivateCacheMap & 0x20000) == 0 && v20[0] )
+    CcScheduleReadAheadEx((_SLIST_ENTRY *)FileObject, FileOffset, Length, 0LL);
   CcUpdateReadHistory((__int64)FileObject, (__int64 *)FileOffset, Length);
   if ( (SharedCacheMap[38] & 8) != 0 )
-    CcUpdateSharedCacheMapFlag((__int64)SharedCacheMap, 8, 0);
+    CcUpdateSharedCacheMapFlag((__int64)SharedCacheMap, 8LL, 0LL, v17);
   IoStatus->Status = 0;
-  IoStatus->Information = v16;
+  IoStatus->Information = v18;
 }

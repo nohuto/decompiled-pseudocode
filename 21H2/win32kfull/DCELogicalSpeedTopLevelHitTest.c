@@ -1,45 +1,61 @@
 /*
- * XREFs of DCELogicalSpeedTopLevelHitTest @ 0x1C01DF4B0
+ * XREFs of DCELogicalSpeedTopLevelHitTest @ 0x1C01E4F40
  * Callers:
  *     <none>
  * Callees:
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C006D740 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     ?PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C0077940 (-PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     IsWindowUnderActiveLockScreen @ 0x1C00779AC (IsWindowUnderActiveLockScreen.c)
- *     ?DCELayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z @ 0x1C0078D94 (-DCELayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z.c)
+ *     DCELayerHitTest @ 0x1C0016E7C (DCELayerHitTest.c)
+ *     GetWindowCloakState @ 0x1C004DC0C (GetWindowCloakState.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     IsWindowUnderActiveLockScreen @ 0x1C004DEE4 (IsWindowUnderActiveLockScreen.c)
  */
 
-struct tagWND *__fastcall DCELogicalSpeedTopLevelHitTest(struct tagPOINT *a1, unsigned int a2)
+_QWORD *__fastcall DCELogicalSpeedTopLevelHitTest(unsigned __int64 *a1, unsigned int a2)
 {
   __int64 v4; // rbx
-  struct tagWND *i; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  struct tagPOINT v9; // [rsp+40h] [rbp+18h] BYREF
+  _QWORD *i; // rbx
+  __int64 v7; // r8
+  unsigned int v8; // edx
+  int v9; // ecx
+  int v10; // eax
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  unsigned __int64 v15; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = *(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL);
   if ( !v4 )
     return 0LL;
-  for ( i = *(struct tagWND **)(v4 + 112); i; i = (struct tagWND *)*((_QWORD *)i + 11) )
+  for ( i = *(_QWORD **)(v4 + 112); i; i = (_QWORD *)i[11] )
   {
-    v9 = *a1;
-    if ( (*(_BYTE *)(*((_QWORD *)i + 5) + 31LL) & 0x10) != 0
+    v15 = *a1;
+    if ( (*(_BYTE *)(i[5] + 31LL) & 0x10) != 0
       && !(unsigned int)GetWindowCloakState(i)
       && !(unsigned int)IsWindowUnderActiveLockScreen((__int64)i) )
     {
-      v7 = *((_QWORD *)i + 5);
-      if ( (((unsigned __int16)(a2 >> 8) ^ (unsigned __int16)(*(_DWORD *)(v7 + 288) >> 8)) & 0x1FF) != 0 )
+      v7 = i[5];
+      v8 = *(_DWORD *)(v7 + 288);
+      if ( (((unsigned __int16)(a2 >> 8) ^ (unsigned __int16)(v8 >> 8)) & 0x1FF) != 0
+        || ((a2 & 0xF) != 2 || (a2 & 0x20000000) == 0 ? (v9 = 0) : (v9 = 1),
+            (v8 & 0xF) != 2 || (v8 & 0x20000000) == 0 ? (v10 = 0) : (v10 = 1),
+            v9 != v10) )
       {
-        LogicalToPhysicalDPIPoint(&v9, &v9, a2, 0LL);
-        PhysicalToLogicalDPIPoint(&v9, &v9, *(unsigned int *)(*((_QWORD *)i + 5) + 288LL), 0LL);
-        v7 = *((_QWORD *)i + 5);
+        LogicalToPhysicalDPIPoint(&v15, &v15, a2, 0LL);
+        PhysicalToLogicalDPIPoint(&v15, &v15, *(unsigned int *)(i[5] + 288LL), 0LL);
+        v7 = i[5];
       }
-      if ( PtInRect((_DWORD *)(v7 + 88), *(_QWORD *)&v9) && !tagWND::PtOutsideClipRgnOrMaxClip(i, &v9) )
+      if ( PtInRect((_DWORD *)(v7 + 88), v15) )
       {
-        v8 = *((_QWORD *)i + 5);
-        if ( (*(_BYTE *)(v8 + 26) & 8) == 0 || (*(_DWORD *)(v8 + 232) & 2) != 0 || DCELayerHitTest(i, v9) )
-          break;
+        v13 = *(_QWORD *)(v11 + 168);
+        if ( v13 )
+        {
+          if ( !(unsigned int)GrePtInRegion(v13, (unsigned int)v12, HIDWORD(v15)) )
+            continue;
+          v12 = v15;
+        }
+        v14 = i[5];
+        if ( (*(_BYTE *)(v14 + 26) & 8) == 0 || (*(_DWORD *)(v14 + 232) & 0x20) != 0 || DCELayerHitTest((__int64)i, v12) )
+          return i;
       }
     }
   }

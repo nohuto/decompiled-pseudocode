@@ -1,12 +1,12 @@
 /*
- * XREFs of UpdateAsyncKeyState @ 0x1C003E060
+ * XREFs of UpdateAsyncKeyState @ 0x1C004C680
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C003DC00 (xxxUpdateGlobalsAndSendKeyEvent.c)
- *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C0040FFC (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
- *     ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C01EC470 (-ApplyKeyStateUpdate@@YAXE_N@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C0049550 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004C1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C01B3E3C (-ApplyKeyStateUpdate@@YAXE_N@Z.c)
  * Callees:
- *     ApiSetEditionUpdateAsyncKeyStateThreads @ 0x1C003E130 (ApiSetEditionUpdateAsyncKeyStateThreads.c)
- *     PostUpdateKeyStateEvent @ 0x1C0089B30 (PostUpdateKeyStateEvent.c)
+ *     PostUpdateKeyStateEvent @ 0x1C0006990 (PostUpdateKeyStateEvent.c)
+ *     ApiSetEditionUpdateAsyncKeyStateThreads @ 0x1C004C7CC (ApiSetEditionUpdateAsyncKeyStateThreads.c)
  */
 
 __int64 __fastcall UpdateAsyncKeyState(__int64 a1, unsigned __int8 a2, char a3)
@@ -16,13 +16,13 @@ __int64 __fastcall UpdateAsyncKeyState(__int64 a1, unsigned __int8 a2, char a3)
   int v7; // r8d
   int v8; // ecx
   unsigned int v9; // r9d
-  int v10; // eax
+  int v10; // ecx
   unsigned __int8 v12; // cf
-  unsigned int v13; // r8d
+  unsigned int v13; // eax
 
   v3 = a2;
   if ( a1 && (*(_DWORD *)(a1 + 388) & 1) != 0 )
-    PostUpdateKeyStateEvent();
+    PostUpdateKeyStateEvent(a1);
   v6 = (char *)&gafAsyncKeyState + (v3 >> 2);
   v7 = v3 & 3;
   v8 = (unsigned __int8)*v6;
@@ -41,7 +41,7 @@ __int64 __fastcall UpdateAsyncKeyState(__int64 a1, unsigned __int8 a2, char a3)
       if ( _bittest(&v8, v13) )
         v8 &= ~(1 << v13);
       else
-        LOBYTE(v8) = v8 | (1 << v13);
+        v8 |= 1 << v13;
     }
     v10 = (unsigned __int8)v8 | (1 << v9);
   }

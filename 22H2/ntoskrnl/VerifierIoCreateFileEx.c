@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoCreateFileEx @ 0x140ACFC50
+ * XREFs of VerifierIoCreateFileEx @ 0x1409D2850
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierIoCreateFileEx(__int64 a1)

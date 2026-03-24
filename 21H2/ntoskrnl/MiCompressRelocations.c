@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCompressRelocations @ 0x1407070B0
+ * XREFs of MiCompressRelocations @ 0x14067FE10
  * Callers:
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-_OWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)
+char *__fastcall MiCompressRelocations(__int64 a1, int a2)
 {
   __int64 v2; // r14
   char v3; // r12
@@ -26,29 +26,30 @@ _OWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)
   __int64 v18; // rax
   unsigned int v19; // ecx
   unsigned int v20; // eax
-  _OWORD *Pool; // rax
-  _OWORD *v22; // r12
-  _DWORD *v23; // r8
+  char *Pool; // rax
+  char *v22; // r12
+  _QWORD *v23; // r8
   _QWORD *v24; // rsi
-  unsigned int v25; // ebp
-  unsigned __int64 v26; // r14
-  unsigned __int64 v27; // r14
-  __int64 v28; // rdi
-  __int64 v29; // r13
+  unsigned __int64 v25; // rdx
+  unsigned __int64 v26; // rdx
+  __int64 v27; // rdi
+  __int64 v28; // r13
+  __int64 v29; // r14
   __int64 v30; // r15
-  unsigned __int64 v31; // rax
-  bool v33; // cf
-  bool v34; // zf
-  __int64 v35; // rcx
-  _WORD *v36; // r8
-  __int16 v37; // ax
-  __int16 v38; // bx
-  unsigned int v39; // r11d
-  unsigned int v40; // r9d
-  __int16 v41; // cx
-  unsigned __int16 v42; // dx
-  int v44; // [rsp+80h] [rbp+18h]
-  _OWORD *v45; // [rsp+88h] [rbp+20h]
+  unsigned __int64 v31; // rbp
+  unsigned __int64 v32; // rax
+  bool v34; // cf
+  bool v35; // zf
+  __int64 v36; // rcx
+  _WORD *v37; // r8
+  __int16 v38; // ax
+  __int16 v39; // bx
+  unsigned int v40; // r11d
+  unsigned int v41; // r9d
+  __int16 v42; // cx
+  unsigned __int16 v43; // dx
+  __int64 v45; // [rsp+80h] [rbp+18h]
+  char *v46; // [rsp+88h] [rbp+20h]
 
   v2 = *(_QWORD *)(a1 + 32);
   v3 = 0;
@@ -76,13 +77,13 @@ _OWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)
           if ( v5 != (_BYTE)v15 )
           {
             if ( v3 )
-              return (_OWORD *)a1;
+              return (char *)a1;
             v5 = v15;
             v3 = 1;
           }
           v16 = *v10 & 0xFFF;
           if ( v16 <= v13 && v13 )
-            return (_OWORD *)a1;
+            return (char *)a1;
           v17 = v16 - v13;
           if ( v17 == v11 )
           {
@@ -100,10 +101,10 @@ _OWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)
           {
             if ( v14 )
             {
-              v33 = v14 < 4;
-              v34 = v14 == 4;
+              v34 = v14 < 4;
+              v35 = v14 == 4;
               v14 = 0;
-              v7 += (!v33 && !v34) + 1LL;
+              v7 += (!v34 && !v35) + 1LL;
             }
             v11 = v17;
             if ( (unsigned __int16)v17 >= 0xEBu )
@@ -111,9 +112,13 @@ _OWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)
             else
               ++v7;
           }
+          --v12;
           v13 = *v10 & 0xFFF;
         }
-        --v12;
+        else
+        {
+          --v12;
+        }
         ++v10;
       }
       while ( v12 );
@@ -125,135 +130,138 @@ _OWORD *__fastcall MiCompressRelocations(__int64 a1, int a2)
           v7 += 2LL;
       }
     }
-    v7 += (v7 & 1) + 2;
+    v7 += (((_BYTE)v7 + 2) & 1) + 2LL;
   }
   while ( a2 );
   if ( !v3 )
-    return (_OWORD *)a1;
-  Pool = MiAllocatePool(256, v7 + 8 * (*(unsigned int *)(a1 + 56) + 12LL), 0x65526D4Du);
-  v45 = Pool;
+    return (char *)a1;
+  Pool = (char *)MiAllocatePool(256, v7 + 8 * (*(_QWORD *)(a1 + 56) + 14LL), 0x65526D4Du);
+  v46 = Pool;
   v22 = Pool;
   if ( !Pool )
-    return (_OWORD *)a1;
-  v23 = (_DWORD *)a1;
-  v24 = Pool + 6;
-  v25 = 0;
-  v26 = *(_QWORD *)(a1 + 32) - *(_QWORD *)a1;
-  *Pool = *(_OWORD *)a1;
-  v27 = v26 >> 3;
-  v44 = v27;
-  Pool[1] = *(_OWORD *)(a1 + 16);
-  Pool[2] = *(_OWORD *)(a1 + 32);
-  Pool[3] = *(_OWORD *)(a1 + 48);
-  Pool[4] = *(_OWORD *)(a1 + 64);
-  Pool[5] = *(_OWORD *)(a1 + 80);
-  *((_BYTE *)Pool + 64) = v5;
-  *(_QWORD *)Pool = Pool + 6;
-  v28 = (__int64)Pool + 8 * *(unsigned int *)(a1 + 56) + 96;
-  *((_QWORD *)Pool + 4) = v28;
-  v29 = *(_QWORD *)(a1 + 32);
-  if ( (_DWORD)v27 )
+    return (char *)a1;
+  v23 = (_QWORD *)a1;
+  v24 = Pool + 112;
+  v25 = *(_QWORD *)(a1 + 32) - *(_QWORD *)a1;
+  *(_OWORD *)Pool = *(_OWORD *)a1;
+  v26 = v25 >> 3;
+  *((_OWORD *)Pool + 1) = *(_OWORD *)(a1 + 16);
+  *((_OWORD *)Pool + 2) = *(_OWORD *)(a1 + 32);
+  *((_OWORD *)Pool + 3) = *(_OWORD *)(a1 + 48);
+  *((_OWORD *)Pool + 4) = *(_OWORD *)(a1 + 64);
+  *((_OWORD *)Pool + 5) = *(_OWORD *)(a1 + 80);
+  *((_OWORD *)Pool + 6) = *(_OWORD *)(a1 + 96);
+  Pool[68] = v5;
+  *(_QWORD *)Pool = Pool + 112;
+  v27 = (__int64)&Pool[8 * *(_QWORD *)(a1 + 56) + 112];
+  *((_QWORD *)Pool + 4) = v27;
+  v28 = *(_QWORD *)(a1 + 32);
+  if ( (_DWORD)v26 )
   {
+    v29 = (unsigned int)v26;
     v30 = a1 - (_QWORD)Pool;
+    v31 = 0LL;
+    v45 = a1 - (_QWORD)Pool;
     do
     {
-      if ( v25 < v23[14] )
+      if ( v31 < v23[7] )
       {
-        v31 = *(_QWORD *)((char *)v24 + v30);
-        if ( v31 > 1 )
+        v32 = *(_QWORD *)((char *)v24 + v30);
+        if ( v32 > 1 )
         {
-          *v24 = v28;
+          *v24 = v27;
           if ( (*((_BYTE *)v24 + v30) & 1) != 0 )
-            *v24 = v28 | 1;
-          v35 = *(unsigned int *)(v29 + 4);
-          v36 = (_WORD *)(v29 + 8);
-          v29 += v35;
-          v37 = 0;
-          v38 = 4;
-          v39 = 0;
-          v40 = (unsigned int)(v35 - 8) >> 1;
-          if ( v40 )
+            *v24 = v27 | 1;
+          v36 = *(unsigned int *)(v28 + 4);
+          v37 = (_WORD *)(v28 + 8);
+          v28 += v36;
+          v38 = 0;
+          v39 = 4;
+          v40 = 0;
+          v41 = (unsigned int)(v36 - 8) >> 1;
+          if ( v41 )
           {
             do
             {
-              if ( *v36 >= 0x1000u )
+              if ( *v37 >= 0x1000u )
               {
-                v41 = *v36 & 0xFFF;
-                v42 = v41 - v37;
-                if ( v41 - v37 == v38 )
+                v42 = *v37 & 0xFFF;
+                v43 = v42 - v38;
+                if ( v42 - v38 == v39 )
                 {
-                  if ( ++v39 == 255 )
+                  if ( ++v40 == 255 )
                   {
-                    *(_WORD *)v28 = -17;
-                    v39 = 0;
-                    v28 += 2LL;
+                    *(_WORD *)v27 = -17;
+                    v40 = 0;
+                    v27 += 2LL;
                   }
                 }
                 else
                 {
-                  if ( v39 )
+                  if ( v40 )
                   {
-                    if ( v39 > 4 )
+                    if ( v40 > 4 )
                     {
-                      *(_BYTE *)v28 = -17;
-                      *(_BYTE *)(v28 + 1) = v39;
-                      v28 += 2LL;
+                      *(_BYTE *)v27 = -17;
+                      *(_BYTE *)(v27 + 1) = v40;
+                      v27 += 2LL;
                     }
                     else
                     {
-                      *(_BYTE *)v28++ = -17 - v39;
+                      *(_BYTE *)v27++ = -17 - v40;
                     }
-                    v39 = 0;
+                    v40 = 0;
                   }
-                  v38 = v41 - v37;
-                  if ( v42 >= 0xEBu )
+                  v39 = v42 - v38;
+                  if ( v43 >= 0xEBu )
                   {
-                    *(_BYTE *)v28 = v42 | 0xF0;
-                    *(_BYTE *)(v28 + 1) = v42 >> 4;
-                    v28 += 2LL;
+                    *(_BYTE *)v27 = v43 | 0xF0;
+                    *(_BYTE *)(v27 + 1) = v43 >> 4;
+                    v27 += 2LL;
                   }
                   else
                   {
-                    *(_BYTE *)v28++ = v42;
+                    *(_BYTE *)v27++ = v43;
                   }
                 }
-                v37 = v41;
+                v38 = v42;
               }
-              ++v36;
-              --v40;
+              ++v37;
+              --v41;
             }
-            while ( v40 );
-            LODWORD(v27) = v44;
-            if ( v39 )
+            while ( v41 );
+            v30 = v45;
+            if ( v40 )
             {
-              if ( v39 <= 4 )
+              if ( v40 <= 4 )
               {
-                *(_BYTE *)v28++ = -17 - v39;
+                *(_BYTE *)v27++ = -17 - v40;
               }
               else
               {
-                *(_BYTE *)v28 = -17;
-                *(_BYTE *)(v28 + 1) = v39;
-                v28 += 2LL;
+                *(_BYTE *)v27 = -17;
+                *(_BYTE *)(v27 + 1) = v40;
+                v27 += 2LL;
               }
             }
           }
-          v23 = (_DWORD *)a1;
-          *(_WORD *)v28 = 240;
-          v28 += 2LL;
-          if ( (v28 & 1) != 0 )
-            ++v28;
+          v23 = (_QWORD *)a1;
+          *(_WORD *)v27 = 240;
+          v27 += 2LL;
+          if ( (v27 & 1) != 0 )
+            ++v27;
         }
         else
         {
-          *v24 = v31;
+          *v24 = v32;
         }
       }
-      ++v25;
+      ++v31;
       ++v24;
+      --v29;
     }
-    while ( v25 < (unsigned int)v27 );
-    v22 = v45;
+    while ( v29 );
+    v22 = v46;
   }
   ExFreePoolWithTag(v23, 0);
   return v22;

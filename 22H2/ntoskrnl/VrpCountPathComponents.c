@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpCountPathComponents @ 0x14068D434
+ * XREFs of VrpCountPathComponents @ 0x1405D4DCC
  * Callers:
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpCreateNamespaceNode @ 0x14077BD28 (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x1405D34B4 (VrpCreateNamespaceNode.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     VrpGetNextToken @ 0x14068DA8C (VrpGetNextToken.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
  */
 
 __int64 __fastcall VrpCountPathComponents(__int64 a1)

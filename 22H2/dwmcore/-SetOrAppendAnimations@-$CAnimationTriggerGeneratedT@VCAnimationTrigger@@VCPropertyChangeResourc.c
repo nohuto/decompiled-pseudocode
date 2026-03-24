@@ -1,38 +1,41 @@
 /*
- * XREFs of ?SetOrAppendAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@AEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@_N@Z @ 0x18001DC1C
+ * XREFs of ?SetOrAppendAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@AEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@_N@Z @ 0x18017171C
  * Callers:
- *     ?AppendAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@QEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@@Z @ 0x1801C3E3C (-AppendAnimations@-$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@.c)
- *     ?SetAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@QEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@@Z @ 0x1801C6310 (-SetAnimations@-$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@QEA.c)
+ *     ?AppendAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@QEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@@Z @ 0x18016DE6C (-AppendAnimations@-$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@.c)
+ *     ?SetAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@QEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@@Z @ 0x1801700D8 (-SetAnimations@-$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@QEA.c)
  * Callees:
- *     ??$insert@PEAPEAVCBaseExpression@@$0A@@?$vector@PEAVCBaseExpression@@V?$allocator@PEAVCBaseExpression@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCBaseExpression@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCBaseExpression@@@std@@@std@@@1@PEAPEAVCBaseExpression@@1@Z @ 0x18001DCA4 (--$insert@PEAPEAVCBaseExpression@@$0A@@-$vector@PEAVCBaseExpression@@V-$allocator@PEAVCBaseExpre.c)
- *     ??$UnRegisterNotifiers@VCBaseExpression@@@CResource@@QEAAXPEAV?$vector@PEAVCBaseExpression@@V?$allocator@PEAVCBaseExpression@@@std@@@std@@@Z @ 0x18001DD94 (--$UnRegisterNotifiers@VCBaseExpression@@@CResource@@QEAAXPEAV-$vector@PEAVCBaseExpression@@V-$a.c)
- *     ?OnAnimationsChanged@CAnimationTrigger@@QEAAXXZ @ 0x18001DDE4 (-OnAnimationsChanged@CAnimationTrigger@@QEAAXXZ.c)
- *     ?RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z @ 0x18004A86C (-RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z @ 0x1800CD9EC (-RegisterNNotifiersInternal@CResource@@AEAAJPEAPEAV1@_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$UnRegisterNotifiers@VCSceneComponent@@@CResource@@QEAAXPEAV?$vector@PEAVCSceneComponent@@V?$allocator@PEAVCSceneComponent@@@std@@@std@@@Z @ 0x180168A54 (--$UnRegisterNotifiers@VCSceneComponent@@@CResource@@QEAAXPEAV-$vector@PEAVCSceneComponent@@V-$a.c)
+ *     ??$_Insert_range@PEAPEAVCCompositionGlyphRun@@@?$vector@PEAVCCompositionGlyphRun@@V?$allocator@PEAVCCompositionGlyphRun@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCCompositionGlyphRun@@@std@@@std@@@1@PEAPEAVCCompositionGlyphRun@@1Uforward_iterator_tag@1@@Z @ 0x180168F78 (--$_Insert_range@PEAPEAVCCompositionGlyphRun@@@-$vector@PEAVCCompositionGlyphRun@@V-$allocator@P.c)
  */
 
 __int64 __fastcall CAnimationTriggerGeneratedT<CAnimationTrigger,CPropertyChangeResource>::SetOrAppendAnimations(
-        CResource *this,
+        char **this,
         __int64 a2,
         char a3)
 {
-  int v5; // eax
-  unsigned int v6; // ecx
-  unsigned int v7; // edi
-  char v9; // [rsp+68h] [rbp+20h] BYREF
+  int v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // edi
 
-  v5 = CResource::RegisterNNotifiersInternal(this, *(struct CResource ***)(a2 + 8), *(_QWORD *)a2);
-  v7 = v5;
-  if ( v5 < 0 )
+  v6 = CResource::RegisterNNotifiersInternal((CResource *)this, *(struct CResource ***)(a2 + 8), *(_QWORD *)a2);
+  v8 = v6;
+  if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xF00u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x788u, 0LL);
   }
   else
   {
     if ( !a3 )
-      CResource::UnRegisterNotifiers<CBaseExpression>(this);
-    std::vector<CBaseExpression *>::insert<CBaseExpression * *,0>((char *)this + 104, &v9, *((_QWORD *)this + 14));
-    CAnimationTrigger::OnAnimationsChanged(this);
+      CResource::UnRegisterNotifiers<CSceneComponent>((CResource *)this, (__int64)(this + 10));
+    std::vector<CCompositionGlyphRun *>::_Insert_range<CCompositionGlyphRun * *>(
+      (__int64)(this + 10),
+      this[11],
+      *(const void **)(a2 + 8),
+      *(_QWORD *)(a2 + 8) + 8LL * *(_QWORD *)a2);
+    (*((void (__fastcall **)(char **, _QWORD, _QWORD))*this + 9))(this, 0LL, 0LL);
   }
-  return v7;
+  return v8;
 }

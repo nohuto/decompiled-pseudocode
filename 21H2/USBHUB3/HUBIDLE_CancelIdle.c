@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBIDLE_CancelIdle @ 0x1C003C660
+ * XREFs of HUBIDLE_CancelIdle @ 0x1C003BFE0
  * Callers:
  *     <none>
  * Callees:
- *     HUBIDLE_AddEvent @ 0x1C003C168 (HUBIDLE_AddEvent.c)
+ *     HUBIDLE_AddEvent @ 0x1C003BAF4 (HUBIDLE_AddEvent.c)
  */
 
 __int64 __fastcall HUBIDLE_CancelIdle(__int64 a1, __int64 a2)

@@ -1,12 +1,13 @@
 /*
- * XREFs of ?vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@W4_CLEANUPTYPE@@@Z @ 0x1C00F3208
+ * XREFs of ?vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@W4_CLEANUPTYPE@@@Z @ 0x1C01049B8
  * Callers:
- *     vCleanupOwnedRedirectionDeviceBitmapsWrap @ 0x1C00F31F0 (vCleanupOwnedRedirectionDeviceBitmapsWrap.c)
+ *     vCleanupOwnedRedirectionDeviceBitmapsWrap @ 0x1C01049A0 (vCleanupOwnedRedirectionDeviceBitmapsWrap.c)
  * Callees:
- *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C000B438 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
- *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0027858 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0082DF4 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z @ 0x1C009F378 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C016B87C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
  */
 
 void __fastcall vCleanupOwnedRedirectionDeviceBitmaps(__int64 a1, unsigned int a2)
@@ -20,16 +21,15 @@ void __fastcall vCleanupOwnedRedirectionDeviceBitmaps(__int64 a1, unsigned int a
   __int64 v10; // rdx
   HSURF i; // rcx
   HSURF v12; // rbx
-  int v13; // eax
-  __int64 v14; // rcx
+  __int64 v13; // rdx
   __int64 Objt; // rax
-  _BYTE v16[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v17; // [rsp+40h] [rbp-18h]
-  char v18; // [rsp+60h] [rbp+8h] BYREF
+  _BYTE v15[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-18h]
+  char v17; // [rsp+60h] [rbp+8h] BYREF
 
   IsSemaphoreOwnedOrSharedByCurrentThread = GreIsSemaphoreOwnedOrSharedByCurrentThread(ghsemDynamicModeChange);
   NEEDDYNAMICMODECHANGESHARELOCK::NEEDDYNAMICMODECHANGESHARELOCK(
-    (NEEDDYNAMICMODECHANGESHARELOCK *)&v18,
+    (NEEDDYNAMICMODECHANGESHARELOCK *)&v17,
     IsSemaphoreOwnedOrSharedByCurrentThread == 0);
   LOBYTE(v5) = 5;
   HmgPrefetchAllObjt(v5, SURFACE::tSize + 256);
@@ -44,17 +44,13 @@ void __fastcall vCleanupOwnedRedirectionDeviceBitmaps(__int64 a1, unsigned int a
     if ( *(_QWORD *)(Objt + 48) == a1 && (*(_DWORD *)(Objt + 116) & 1) != 0 && !*(_DWORD *)(Objt + 8) )
     {
       GreMarkDeletableBitmap(*(_QWORD *)Objt);
-      SURFREF::SURFREF((SURFREF *)v16, v12);
-      v13 = SURFACE::bDeleteSurface(v17, a2, 0LL);
-      v14 = v17;
-      if ( v13 )
-        v14 = 0LL;
-      v17 = v14;
-      if ( v14 )
-        DEC_SHARE_REF_CNT(v14);
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v16);
+      SURFREF::SURFREF((SURFREF *)v15, v12);
+      SURFREF::bDeleteSurface(v15, a2, 0LL);
+      if ( v16 )
+        DEC_SHARE_REF_CNT(v16, v13);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v15);
     }
   }
   GreReleaseHmgrSemaphore();
-  NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v18);
+  NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK((NEEDDYNAMICMODECHANGESHARELOCK *)&v17);
 }

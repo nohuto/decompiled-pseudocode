@@ -1,15 +1,15 @@
 /*
- * XREFs of Usbh_FDO_WaitPnpStart @ 0x1C0043DF0
+ * XREFs of Usbh_FDO_WaitPnpStart @ 0x1C00450A0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
- *     UsbhHubStart @ 0x1C0042CB0 (UsbhHubStart.c)
- *     UsbhModuleDispatch @ 0x1C0043450 (UsbhModuleDispatch.c)
- *     UsbhSetFdoPnpState @ 0x1C0043998 (UsbhSetFdoPnpState.c)
- *     Usbh_PnpRemove @ 0x1C0044294 (Usbh_PnpRemove.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhHubStart @ 0x1C0043F60 (UsbhHubStart.c)
+ *     UsbhModuleDispatch @ 0x1C0044710 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044C50 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0045544 (Usbh_PnpRemove.c)
  */
 
 __int64 __fastcall Usbh_FDO_WaitPnpStart(__int64 a1, int a2)
@@ -45,14 +45,14 @@ __int64 __fastcall Usbh_FDO_WaitPnpStart(__int64 a1, int a2)
   KeResetEvent((PRKEVENT)(v5 + 650));
   v11 = 5;
   LOBYTE(v12) = 1;
-  v15 = UsbhModuleDispatch(v12, v13, *(_LIST_ENTRY **)(a1 + 8), 5, 0LL, a1);
+  v15 = UsbhModuleDispatch(v12, v13, *(struct _DRIVER_OBJECT **)(a1 + 8), 5, 0LL, a1);
   if ( (v15 & 0xC0000000) == 0xC0000000
     || ((v5[640] & 1) == 0 || v10 ? (v4 = 0) : (v11 = 6),
         UsbhSetFdoPnpState(*(_QWORD *)(a1 + 8), v11, v3),
         v15 = UsbhHubStart(a1, v4),
         (v15 & 0xC0000000) == 0xC0000000) )
   {
-    UsbhModuleDispatch(0LL, v14, *(_LIST_ENTRY **)(a1 + 8), 6, 0LL, a1);
+    UsbhModuleDispatch(0LL, v14, *(struct _DRIVER_OBJECT **)(a1 + 8), 6, 0LL, a1);
     UsbhSetFdoPnpState(*(_QWORD *)(a1 + 8), 4, 7);
   }
   Log(*(_QWORD *)(a1 + 8), 2, 2001949268, (int)v15, 3LL);

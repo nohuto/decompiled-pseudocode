@@ -1,8 +1,8 @@
 /*
- * XREFs of _FindActivationFilterWindow @ 0x1C0011F74
+ * XREFs of _FindActivationFilterWindow @ 0x1C007C1E8
  * Callers:
- *     _SetActivationFilter @ 0x1C0011EB4 (_SetActivationFilter.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     _SetActivationFilter @ 0x1C0008170 (_SetActivationFilter.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
  * Callees:
  *     <none>
  */

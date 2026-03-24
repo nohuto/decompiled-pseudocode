@@ -3,8 +3,8 @@
  * Callers:
  *     sub_1400076D0 @ 0x1400076D0 (sub_1400076D0.c)
  * Callees:
- *     bsearch @ 0x140195CB0 (bsearch.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     bsearch @ 0x140195CD0 (bsearch.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall sub_1405A07B0(const void *a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)

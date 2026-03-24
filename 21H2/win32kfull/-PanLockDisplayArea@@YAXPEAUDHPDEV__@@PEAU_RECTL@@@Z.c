@@ -1,14 +1,14 @@
 /*
- * XREFs of ?PanLockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0293330
+ * XREFs of ?PanLockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0295910
  * Callers:
  *     <none>
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C002F5C4 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0294164 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B79F8 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z @ 0x1C0296734 (-ShadowUnLockWait@@YAXPEAU_PANDEV@@@Z.c)
  */
 
 void __fastcall PanLockDisplayArea(struct DHPDEV__ *a1, struct _RECTL *a2)

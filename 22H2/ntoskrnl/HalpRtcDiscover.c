@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpRtcDiscover @ 0x1403795E8
+ * XREFs of HalpRtcDiscover @ 0x1403B1968
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     HalSocGetAcpiTable @ 0x1403A447C (HalSocGetAcpiTable.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x1403B32D4 (HalSocGetAcpiTable.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpRtcDiscover()
@@ -39,7 +39,7 @@ __int64 HalpRtcDiscover()
     HIDWORD(v4[14]) = 2097456;
     LODWORD(v4[17]) = 2;
     LODWORD(v4[15]) = 8;
-    HalpTimerRegister((__int64)v4, 0LL);
+    HalpTimerRegister(v4, 0LL);
   }
   return 0LL;
 }

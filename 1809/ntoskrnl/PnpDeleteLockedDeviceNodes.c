@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNodes @ 0x1406EDE38
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x1406EDE18
  * Callers:
- *     PipRemoveDevicesInRelationList @ 0x1406EF6A0 (PipRemoveDevicesInRelationList.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840770 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipRemoveDevicesInRelationList @ 0x1406EF680 (PipRemoveDevicesInRelationList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840750 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
- *     PoFxIdleDevice @ 0x140159F08 (PoFxIdleDevice.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     PipIsDeviceInDeviceObjectList @ 0x1406ECA84 (PipIsDeviceInDeviceObjectList.c)
- *     IopEnumerateRelations @ 0x1406EE0D4 (IopEnumerateRelations.c)
- *     PnpDeleteLockedDeviceNode @ 0x1406EE154 (PnpDeleteLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1406ECA64 (PipIsDeviceInDeviceObjectList.c)
+ *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1406EE134 (PnpDeleteLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNodes(

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpParseInstructionPrefix @ 0x140AB3358
+ * XREFs of KiTpParseInstructionPrefix @ 0x140A132D8
  * Callers:
- *     KiTpParseInstruction @ 0x140AB332C (KiTpParseInstruction.c)
+ *     KiTpParseInstruction @ 0x140A132AC (KiTpParseInstruction.c)
  * Callees:
- *     KiTpFetchInstructionBytes @ 0x140AB3290 (KiTpFetchInstructionBytes.c)
+ *     KiTpFetchInstructionBytes @ 0x140A13210 (KiTpFetchInstructionBytes.c)
  */
 
 __int64 __fastcall KiTpParseInstructionPrefix(char *a1)

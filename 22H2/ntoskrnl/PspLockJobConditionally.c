@@ -1,14 +1,14 @@
 /*
- * XREFs of PspLockJobConditionally @ 0x1406A30D0
+ * XREFs of PspLockJobConditionally @ 0x1406167C8
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspSendProcessNotificationToJobChain @ 0x14069F410 (PspSendProcessNotificationToJobChain.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1407D861C (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
+ *     PspSendProcessNotificationToJobChain @ 0x140605088 (PspSendProcessNotificationToJobChain.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 char __fastcall PspLockJobConditionally(__int64 a1, _QWORD *a2)

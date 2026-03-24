@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PushConstant@CExpressionValueStack@@QEAAJAEBUD2DVector2@@@Z @ 0x180260DE0
+ * XREFs of ?PushConstant@CExpressionValueStack@@QEAAJAEBUD2DVector2@@@Z @ 0x1801FFE44
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x18023DA84 (-PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A610 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x1801D8964 (-PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ @ 0x1800C1268 (-EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ @ 0x1800AD05C (-EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CExpressionValueStack::PushConstant(CExpressionValueStack *this, const struct D2DVector2 *a2)
@@ -13,8 +13,7 @@ __int64 __fastcall CExpressionValueStack::PushConstant(CExpressionValueStack *th
   int v4; // eax
   __int64 v5; // rcx
   unsigned int v6; // ebx
-  __int64 v7; // r9
-  __int64 v8; // rdx
+  __int64 v7; // rcx
 
   v4 = CExpressionValueStack::EnsureAvailablePushSpace(this);
   v6 = v4;
@@ -30,12 +29,10 @@ __int64 __fastcall CExpressionValueStack::PushConstant(CExpressionValueStack *th
   }
   else
   {
-    v7 = *((unsigned int *)this + 4);
-    *((_DWORD *)this + 4) = v7 + 1;
-    v8 = *((_QWORD *)this + 3) + 80 * v7;
-    *(_DWORD *)(v8 + 72) = 35;
-    *(_QWORD *)v8 = *(_QWORD *)a2;
-    *(_BYTE *)(v8 + 76) = 1;
+    v7 = *((_QWORD *)this + 3) + 80LL * (unsigned int)(*((_DWORD *)this + 4))++;
+    *(_DWORD *)(v7 + 72) = 35;
+    *(_QWORD *)v7 = *(_QWORD *)a2;
+    *(_BYTE *)(v7 + 76) = 1;
   }
   return v6;
 }

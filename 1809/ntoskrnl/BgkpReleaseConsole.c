@@ -1,5 +1,5 @@
 /*
- * XREFs of BgkpReleaseConsole @ 0x14027DC70
+ * XREFs of BgkpReleaseConsole @ 0x14027DD70
  * Callers:
  *     BgkDisplayCharacter @ 0x140953230 (BgkDisplayCharacter.c)
  *     BgkGetConsoleState @ 0x140953300 (BgkGetConsoleState.c)

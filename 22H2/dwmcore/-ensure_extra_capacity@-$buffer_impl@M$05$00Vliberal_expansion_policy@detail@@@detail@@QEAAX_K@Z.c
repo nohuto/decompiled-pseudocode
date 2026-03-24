@@ -1,12 +1,13 @@
 /*
- * XREFs of ?ensure_extra_capacity@?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x180025A64
+ * XREFs of ?ensure_extra_capacity@?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x180042C88
  * Callers:
- *     ?reserve@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_K@Z @ 0x180025A3C (-reserve@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@deta.c)
+ *     ?reserve@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_K@Z @ 0x1800425BC (-reserve@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@deta.c)
+ *     ?reserve_region@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAM_K0@Z @ 0x180042B94 (-reserve_region@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180044D50 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??$move@V?$move_iterator@PEAW4D2D1_EDGE_FLAGS@@@std@@V?$checked_array_iterator@PEAW4D2D1_EDGE_FLAGS@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAW4D2D1_EDGE_FLAGS@@@stdext@@V?$move_iterator@PEAW4D2D1_EDGE_FLAGS@@@0@0V12@@Z @ 0x1801F9FD8 (--$move@V-$move_iterator@PEAW4D2D1_EDGE_FLAGS@@@std@@V-$checked_array_iterator@PEAW4D2D1_EDGE_FL.c)
+ *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180061AA4 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??$uninitialized_copy@V?$move_iterator@PEAW4D2D1_EDGE_FLAGS@@@std@@V?$checked_array_iterator@PEAW4D2D1_EDGE_FLAGS@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAW4D2D1_EDGE_FLAGS@@@stdext@@V?$move_iterator@PEAW4D2D1_EDGE_FLAGS@@@0@0V12@@Z @ 0x18019C324 (--$uninitialized_copy@V-$move_iterator@PEAW4D2D1_EDGE_FLAGS@@@std@@V-$checked_array_iterator@PEA.c)
  */
 
 unsigned __int64 __fastcall detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>::ensure_extra_capacity(
@@ -26,8 +27,10 @@ unsigned __int64 __fastcall detail::buffer_impl<float,6,1,detail::liberal_expans
   void *v13; // rcx
   bool v14; // zf
   void *v15; // rcx
-  _QWORD v16[4]; // [rsp+20h] [rbp-48h] BYREF
-  char v17[32]; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v16; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-38h]
+  __int128 v18; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v19; // [rsp+50h] [rbp-18h]
 
   v3 = a1[2];
   v4 = a1[1];
@@ -48,15 +51,17 @@ unsigned __int64 __fastcall detail::buffer_impl<float,6,1,detail::liberal_expans
     v9 = operator new(saturated_mul(v8, 4uLL));
     v10 = a1[1];
     v11 = *a1;
-    v16[0] = v9;
-    v16[2] = 0LL;
+    *(_QWORD *)&v16 = v9;
+    *((_QWORD *)&v16 + 1) = v6;
     v12 = v9;
-    v16[1] = v6;
-    ((void (__fastcall *)(char *, void *, void *, _QWORD *))std::move<std::move_iterator<enum D2D1_EDGE_FLAGS *>,stdext::checked_array_iterator<enum D2D1_EDGE_FLAGS *>>)(
-      v17,
+    v17 = 0LL;
+    v18 = v16;
+    v19 = 0LL;
+    ((void (__fastcall *)(__int128 *, void *, void *, __int128 *))std::uninitialized_copy<std::move_iterator<enum D2D1_EDGE_FLAGS *>,stdext::checked_array_iterator<enum D2D1_EDGE_FLAGS *>>)(
+      &v16,
       v11,
       v10,
-      v16);
+      &v18);
     v13 = *a1;
     v14 = *a1 == a1 + 3;
     *a1 = v12;

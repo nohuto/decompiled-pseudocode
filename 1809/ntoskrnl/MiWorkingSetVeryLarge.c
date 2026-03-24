@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWorkingSetVeryLarge @ 0x1402A7E0C
+ * XREFs of MiWorkingSetVeryLarge @ 0x1402A7F0C
  * Callers:
- *     MiOrderTrimList @ 0x1402B3250 (MiOrderTrimList.c)
+ *     MiOrderTrimList @ 0x1402B3350 (MiOrderTrimList.c)
  * Callees:
- *     MiGetStandbyRepurposed @ 0x1400EF32C (MiGetStandbyRepurposed.c)
+ *     MiGetStandbyRepurposed @ 0x1400EF34C (MiGetStandbyRepurposed.c)
  */
 
 _BOOL8 __fastcall MiWorkingSetVeryLarge(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetDisplayOnState@CInputGlobals@@QEAAX_N@Z @ 0x1C01DC940
+ * XREFs of ?SetDisplayOnState@CInputGlobals@@QEAAX_N@Z @ 0x1C01A3730
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
 void __fastcall CInputGlobals::SetDisplayOnState(CInputGlobals *this, char a2)

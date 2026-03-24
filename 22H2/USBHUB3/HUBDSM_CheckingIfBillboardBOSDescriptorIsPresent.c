@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfBillboardBOSDescriptorIsPresent @ 0x1C00222A0
+ * XREFs of HUBDSM_CheckingIfBillboardBOSDescriptorIsPresent @ 0x1C001FCA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall HUBDSM_CheckingIfBillboardBOSDescriptorIsPresent(__int64 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(a1 + 960) + 2648LL) != 0LL ? 4089 : 4061;
+  return *(_QWORD *)(*(_QWORD *)(a1 + 960) + 2640LL) != 0LL ? 4089 : 4061;
 }

@@ -1,17 +1,16 @@
 /*
- * XREFs of KeQueryActiveProcessorAffinity @ 0x14056D780
+ * XREFs of KeQueryActiveProcessorAffinity @ 0x1403C2430
  * Callers:
- *     <none>
+ *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x1408E22A0 (PpmInstallPlatformIdleStates.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x14093A3A8 (EtwpGetMicroarchitecturalPmcAffinity.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
  */
 
 __int64 __fastcall KeQueryActiveProcessorAffinity(__int64 a1)
 {
-  *(_DWORD *)(a1 + 4) = 0;
-  *(_DWORD *)a1 = 1310721;
-  memset((void *)(a1 + 8), 0, 0xA0uLL);
-  KiCopyAffinityEx(a1, *(_WORD *)(a1 + 2), (unsigned __int16 *)KeActiveProcessors);
+  KeCopyAffinityEx(a1, (unsigned __int16 *)KeActiveProcessors);
   return (unsigned int)KeNumberProcessors_0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiMiracastConnectedStandbyDelayWork @ 0x1C038CC60
+ * XREFs of DpiMiracastConnectedStandbyDelayWork @ 0x1C02CDB90
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DxgkMiracastStopAllMiracastSessions @ 0x1C01DAC40 (DxgkMiracastStopAllMiracastSessions.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DxgkMiracastStopAllMiracastSessions @ 0x1C015EE30 (DxgkMiracastStopAllMiracastSessions.c)
  */
 
 void __fastcall DpiMiracastConnectedStandbyDelayWork(PDEVICE_OBJECT DeviceObject, PVOID Context)
@@ -36,18 +36,18 @@ void __fastcall DpiMiracastConnectedStandbyDelayWork(PDEVICE_OBJECT DeviceObject
   v11 = 73;
   v12 = 1;
   DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v5, 0x200000000LL);
-  v2 = qword_1C0130960;
+  v2 = qword_1C00B2FD8;
   do
   {
     v3 = v2;
     v4 = (struct _IO_WORKITEM *)(v2 & 0xFFFFFFFFFFFFFFFCuLL);
-    v2 = _InterlockedCompareExchange64(&qword_1C0130960, v2 & 0xFFFFFFFFFFFFFFFCuLL, v2);
+    v2 = _InterlockedCompareExchange64(&qword_1C00B2FD8, v2 & 0xFFFFFFFFFFFFFFFCuLL, v2);
   }
   while ( v3 != v2 );
   DxgkMiracastStopAllMiracastSessions(0, 0LL, 0x88u);
   if ( (v3 & 2) != 0 )
   {
     IoFreeWorkItem(v4);
-    qword_1C0130960 = 0LL;
+    qword_1C00B2FD8 = 0LL;
   }
 }

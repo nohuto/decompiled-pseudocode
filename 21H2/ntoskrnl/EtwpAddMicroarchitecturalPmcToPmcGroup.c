@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409DFC30
+ * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x140939160
  * Callers:
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409DFF60 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939480 (EtwpAddMicroarchitecturalPmcToRegistry.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     KiGetCpuVendor @ 0x140A56B08 (KiGetCpuVendor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 *v2; // r14
-  __int64 v4; // rcx
+  __int64 v4; // rdx
   __int64 v5; // rax
-  __int64 v8; // rbx
-  wchar_t *Pool2; // r15
+  SIZE_T v8; // rbx
+  wchar_t *PoolWithTag; // r15
   NTSTATUS v10; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   int CpuVendor; // esi
-  int v12; // eax
-  unsigned __int8 v13; // al
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   int Data; // [rsp+B8h] [rbp+38h] BYREF
   HANDLE KeyHandle; // [rsp+C0h] [rbp+40h] BYREF
 
-  v2 = a2 + 280;
+  v2 = a2 + 184;
   *(&ObjectAttributes.Length + 1) = 0;
   v4 = -1LL;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -45,9 +45,9 @@ __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned _
     ++v4;
   while ( *(_WORD *)(a1 + 2 * v4) );
   v8 = (unsigned int)(2 * v4 + 512);
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v8, 1350005829LL);
-  RtlStringCbPrintfW(Pool2, (unsigned int)v8, L"%ws\\%ws", a1, v2);
-  RtlInitUnicodeString(&DestinationString, Pool2);
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v8, 0x50777445u);
+  RtlStringCbPrintfW(PoolWithTag, (unsigned int)v8, L"%ws\\%ws", a1, v2);
+  RtlInitUnicodeString(&DestinationString, PoolWithTag);
   ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -60,26 +60,21 @@ __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned _
     v10 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, a2 + 8, 4u);
     if ( v10 >= 0 )
     {
-      CpuVendor = KiGetCpuVendor();
-      if ( CpuVendor == 2 )
+      CpuVendor = KiGetCpuVendor(v12, v11);
+      if ( (unsigned int)(CpuVendor - 1) > 1 )
       {
-        v12 = *a2;
-        goto LABEL_12;
+LABEL_17:
+        v10 = -1073741822;
+        goto LABEL_18;
       }
-      if ( CpuVendor == 1 )
+      Data = *a2;
+      RtlInitUnicodeString(&DestinationString, L"Event");
+      v10 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
+      if ( v10 >= 0 )
       {
-        v12 = *(unsigned __int16 *)a2;
-LABEL_12:
-        Data = v12;
-        RtlInitUnicodeString(&DestinationString, L"Event");
-        v10 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
-        if ( v10 >= 0 )
+        if ( (unsigned int)(CpuVendor - 1) <= 1 )
         {
-          if ( CpuVendor == 2 )
-            v13 = a2[1];
-          else
-            v13 = a2[2];
-          Data = v13;
+          Data = a2[1];
           RtlInitUnicodeString(&DestinationString, L"Unit");
           v10 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
           if ( v10 >= 0 && CpuVendor == 2 )
@@ -106,13 +101,13 @@ LABEL_12:
               }
             }
           }
+          goto LABEL_18;
         }
-        goto LABEL_23;
+        goto LABEL_17;
       }
-      v10 = -1073741822;
     }
   }
-LABEL_23:
-  ExFreePoolWithTag(Pool2, 0x50777445u);
+LABEL_18:
+  ExFreePoolWithTag(PoolWithTag, 0x50777445u);
   return (unsigned int)v10;
 }

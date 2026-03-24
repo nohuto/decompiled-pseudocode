@@ -1,11 +1,11 @@
 /*
- * XREFs of PiAuCreateUserSids @ 0x140B223B4
+ * XREFs of PiAuCreateUserSids @ 0x140A51978
  * Callers:
- *     PiAuCreateSecurityObjects @ 0x140B22134 (PiAuCreateSecurityObjects.c)
+ *     PiAuCreateSecurityObjects @ 0x140A516E8 (PiAuCreateSecurityObjects.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlValidSid @ 0x1407B4660 (RtlValidSid.c)
- *     PiAuAllocateAndInitializeSid @ 0x14084DAD4 (PiAuAllocateAndInitializeSid.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
+ *     PiAuAllocateAndInitializeSid @ 0x1407A30C4 (PiAuAllocateAndInitializeSid.c)
  */
 
 __int64 __fastcall PiAuCreateUserSids(PVOID *a1)

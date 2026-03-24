@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x1407243A0
+ * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x140627B40
  * Callers:
- *     SeAuditingAnyFileEventsWithContextEx @ 0x1402A4690 (SeAuditingAnyFileEventsWithContextEx.c)
- *     SeAuditingFileEventsWithContextEx @ 0x1405F4D90 (SeAuditingFileEventsWithContextEx.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140723F80 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
+ *     SeAuditingAnyFileEventsWithContextEx @ 0x14025CBC0 (SeAuditingAnyFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x140596DF0 (SeAuditingFileEventsWithContextEx.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x140627514 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
  */
 
 char __fastcall SepAdtAuditThisEventByCategoryWithContext(
@@ -30,14 +30,15 @@ char __fastcall SepAdtAuditThisEventByCategoryWithContext(
   __m128i v17; // xmm2
   __int64 v18; // rax
   __m128i v19; // xmm1
-  __m128i v20; // xmm2
+  __m128i v20; // xmm1
   __m128i v21; // xmm2
-  unsigned __int16 *v22; // rcx
-  __int64 v23; // r9
-  int v24; // eax
-  int v25; // r11d
+  __m128i v22; // xmm2
+  unsigned __int16 *v23; // rcx
+  __int64 v24; // r9
+  int v25; // eax
+  int v26; // r11d
   unsigned int i; // r10d
-  int v27; // r9d
+  int v28; // r9d
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+20h] [rbp-48h] BYREF
 
   v4 = a1;
@@ -63,7 +64,7 @@ char __fastcall SepAdtAuditThisEventByCategoryWithContext(
     ClientToken = p_SubjectContext->ClientToken;
     if ( p_SubjectContext->ClientToken || (ClientToken = p_SubjectContext->PrimaryToken) != 0LL )
     {
-      if ( ClientToken[118] == 2 )
+      if ( ClientToken[119] == 2 )
       {
         v12 = 0;
         v13 = 0;
@@ -71,59 +72,60 @@ char __fastcall SepAdtAuditThisEventByCategoryWithContext(
         v15 = 0;
         if ( a1 )
         {
-          if ( a1 < 8 )
-            goto LABEL_19;
-          v16 = 0LL;
-          v17 = 0LL;
-          do
+          if ( a1 >= 8 )
           {
-            v18 = v15 + 4;
-            v19 = _mm_unpacklo_epi16(_mm_loadl_epi64((const __m128i *)&AdtpPerCategoryCount[v15 / 4]), (__m128i)0LL);
-            v15 += 8;
-            v16 = _mm_add_epi32(v16, v19);
-            v17 = _mm_add_epi32(
-                    v17,
-                    _mm_unpacklo_epi16(
-                      _mm_loadl_epi64((const __m128i *)((char *)AdtpPerCategoryCount + 2 * v18)),
-                      (__m128i)0LL));
-          }
-          while ( v15 < (a1 & 0xFFFFFFF8) );
-          v20 = _mm_add_epi32(v17, v16);
-          v21 = _mm_add_epi32(v20, _mm_srli_si128(v20, 8));
-          v12 = _mm_cvtsi128_si32(_mm_add_epi32(v21, _mm_srli_si128(v21, 4)));
-          if ( v15 < a1 )
-          {
-LABEL_19:
-            v22 = (unsigned __int16 *)(0x140000000LL + 2LL * v15 + 13873512);
-            v23 = a1 - v15;
+            v16 = 0LL;
+            v17 = 0LL;
             do
             {
-              v24 = *v22++;
-              v12 += v24;
-              --v23;
+              v18 = v15 + 4;
+              v19 = _mm_unpacklo_epi16(_mm_loadl_epi64((const __m128i *)&AdtpPerCategoryCount[v15 / 4]), (__m128i)0LL);
+              v15 += 8;
+              v16 = _mm_add_epi32(v19, v16);
+              v20 = _mm_add_epi32(
+                      _mm_unpacklo_epi16(
+                        _mm_loadl_epi64((const __m128i *)((char *)AdtpPerCategoryCount + 2 * v18)),
+                        (__m128i)0LL),
+                      v17);
+              v17 = v20;
             }
-            while ( v23 );
+            while ( v15 < (a1 & 0xFFFFFFF8) );
+            v21 = _mm_add_epi32(v20, v16);
+            v22 = _mm_add_epi32(v21, _mm_srli_si128(v21, 8));
+            v12 = _mm_cvtsi128_si32(_mm_add_epi32(v22, _mm_srli_si128(v22, 4)));
+          }
+          if ( v15 < a1 )
+          {
+            v23 = (unsigned __int16 *)(0x140000000LL + 2LL * v15 + 13816224);
+            v24 = a1 - v15;
+            do
+            {
+              v25 = *v23++;
+              v12 += v25;
+              --v24;
+            }
+            while ( v24 );
           }
         }
-        v25 = *((unsigned __int16 *)AdtpPerCategoryCount + v4);
-        for ( i = v12 + v25; v12 < i; ++v12 )
+        v26 = *((unsigned __int16 *)AdtpPerCategoryCount + v4);
+        for ( i = v12 + v26; v12 < i; ++v12 )
         {
-          v27 = (unsigned __int8)ClientToken[((unsigned __int64)v12 >> 1) + 88] >> (4 * (v12 & 1));
-          if ( (v27 & 1) != 0 )
+          v28 = (unsigned __int8)ClientToken[((unsigned __int64)v12 >> 1) + 88] >> (4 * (v12 & 1));
+          if ( (v28 & 1) != 0 )
           {
             if ( (v6 & 2) != 0 )
-              goto LABEL_33;
+              goto LABEL_34;
             ++v13;
           }
-          if ( (v27 & 4) != 0 )
+          if ( (v28 & 4) != 0 )
           {
             if ( (v6 & 0x20) != 0 )
-              goto LABEL_33;
+              goto LABEL_34;
             ++v14;
           }
         }
-        if ( (v6 & 1) != 0 && v13 == (_WORD)v25 || (v6 & 0x10) != 0 && v14 == (_WORD)v25 )
-LABEL_33:
+        if ( (v6 & 1) != 0 && v13 == (_WORD)v26 || (v6 & 0x10) != 0 && v14 == (_WORD)v26 )
+LABEL_34:
           v8 = 1;
       }
     }

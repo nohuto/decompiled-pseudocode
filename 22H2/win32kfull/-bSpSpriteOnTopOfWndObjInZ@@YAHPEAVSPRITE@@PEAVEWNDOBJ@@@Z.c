@@ -1,34 +1,29 @@
 /*
- * XREFs of ?bSpSpriteOnTopOfWndObjInZ@@YAHPEAVSPRITE@@PEAVEWNDOBJ@@@Z @ 0x1C027E72C
+ * XREFs of ?bSpSpriteOnTopOfWndObjInZ@@YAHPEAVSPRITE@@PEAVEWNDOBJ@@@Z @ 0x1C0280BA8
  * Callers:
- *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0282EA4 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C0284904 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall bSpSpriteOnTopOfWndObjInZ(struct SPRITE *a1, struct EWNDOBJ *a2)
+_BOOL8 __fastcall bSpSpriteOnTopOfWndObjInZ(struct SPRITE *a1, struct EWNDOBJ *a2)
 {
-  unsigned int v2; // r9d
-  __int64 v4; // rax
-  __int64 v5; // r8
-  __int64 i; // rcx
-  __int64 v7; // rax
+  __int64 v2; // rax
+  __int64 v3; // r8
+  __int64 i; // r9
+  __int64 v5; // rax
 
-  v2 = 0;
   if ( !*((_QWORD *)a1 + 9) )
     return 0LL;
-  v4 = *((_QWORD *)a1 + 2);
-  v5 = *(_QWORD *)(v4 + 8);
-  for ( i = *(_QWORD *)(v4 + 1120); v5 != i; v5 = *(_QWORD *)(v5 + 24) )
+  v2 = *((_QWORD *)a1 + 2);
+  v3 = *(_QWORD *)(v2 + 8);
+  for ( i = *(_QWORD *)(v2 + 1120); v3 != i; v3 = *(_QWORD *)(v3 + 24) )
   {
-    if ( *(_QWORD *)(v5 + 72) == *((_QWORD *)a2 + 22) )
+    if ( *(_QWORD *)(v3 + 72) == *((_QWORD *)a2 + 22) )
       break;
   }
-  v7 = 0LL;
-  if ( v5 != i )
-    v7 = v5;
-  if ( !v7 )
-    return 1LL;
-  LOBYTE(v2) = *((_DWORD *)a1 + 16) > *(_DWORD *)(v7 + 64);
-  return v2;
+  v5 = 0LL;
+  if ( v3 != i )
+    v5 = v3;
+  return !v5 || *((_DWORD *)a1 + 16) > *(_DWORD *)(v5 + 64);
 }

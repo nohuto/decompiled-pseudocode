@@ -1,21 +1,21 @@
 /*
- * XREFs of GreDrawEscape @ 0x1C027A3F4
+ * XREFs of GreDrawEscape @ 0x1C027C884
  * Callers:
- *     NtGdiDrawEscape @ 0x1C02ACBC0 (NtGdiDrawEscape.c)
+ *     NtGdiDrawEscape @ 0x1C02AE450 (NtGdiDrawEscape.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C002C61C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C0279220 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
- *     ?vExclude@DEVEXCLUDERECT@@QEAAXAEAVXDCOBJ@@PEAU_RECTL@@@Z @ 0x1C027A254 (-vExclude@DEVEXCLUDERECT@@QEAAXAEAVXDCOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACD0C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C027B674 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
+ *     ?vExclude@DEVEXCLUDERECT@@QEAAXAEAVXDCOBJ@@PEAU_RECTL@@@Z @ 0x1C027C6E4 (-vExclude@DEVEXCLUDERECT@@QEAAXAEAVXDCOBJ@@PEAU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall GreDrawEscape(HDC a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -39,11 +39,12 @@ __int64 __fastcall GreDrawEscape(HDC a1, unsigned int a2, unsigned int a3, __int
   _BYTE v24[32]; // [rsp+F0h] [rbp-10h] BYREF
   __int64 v25; // [rsp+110h] [rbp+10h]
   _BYTE v26[4]; // [rsp+120h] [rbp+20h] BYREF
-  _BYTE v27[76]; // [rsp+124h] [rbp+24h] BYREF
-  __int64 v28; // [rsp+170h] [rbp+70h]
-  int v29; // [rsp+178h] [rbp+78h]
-  int v30; // [rsp+1A0h] [rbp+A0h]
-  __int64 v31; // [rsp+1B0h] [rbp+B0h]
+  _BYTE v27[52]; // [rsp+124h] [rbp+24h] BYREF
+  __int64 v28; // [rsp+158h] [rbp+58h]
+  __int64 v29; // [rsp+170h] [rbp+70h]
+  int v30; // [rsp+178h] [rbp+78h]
+  int v31; // [rsp+1A0h] [rbp+A0h]
+  __int64 v32; // [rsp+1B0h] [rbp+B0h]
 
   v5 = 0;
   v8 = 0;
@@ -59,7 +60,7 @@ LABEL_27:
     DLODCOBJ::DLODCOBJ((DLODCOBJ *)v21);
     DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v20, (struct XDCOBJ *)v18, 0);
     v9 = *((_QWORD *)v18[0] + 6);
-    v10 = *(__int64 (__fastcall **)(__int64, __int64, _BYTE *, struct _RECTL *, unsigned int, __int64))(v9 + 2864);
+    v10 = *(__int64 (__fastcall **)(__int64, __int64, _BYTE *, struct _RECTL *, unsigned int, __int64))(v9 + 2888);
     if ( v10 )
     {
       if ( a2 == 8 )
@@ -79,9 +80,10 @@ LABEL_27:
           v23 = *(struct _RECTL *)((char *)v18[0] + 1032);
           v14 = XDCOBJ::prgnEffRao(v18);
           v28 = 0LL;
-          v29 = 0;
-          v30 = 1;
-          v31 = 0LL;
+          v29 = 0LL;
+          v30 = 0;
+          v31 = 1;
+          v32 = 0LL;
           XCLIPOBJ::vSetup((XCLIPOBJ *)v26, v14, (struct ERECTL *)&v23, 0);
           if ( ERECTL::bEmpty((ERECTL *)v27) )
           {

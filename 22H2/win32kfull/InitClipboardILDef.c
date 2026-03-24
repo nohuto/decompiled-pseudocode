@@ -1,10 +1,10 @@
 /*
- * XREFs of InitClipboardILDef @ 0x1C01382A0
+ * XREFs of InitClipboardILDef @ 0x1C0134680
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?GetClipILIndexFromName@@YAIPEAGI@Z @ 0x1C01FC0B4 (-GetClipILIndexFromName@@YAIPEAGI@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     ?GetClipILIndexFromName@@YAIPEAGI@Z @ 0x1C021E77C (-GetClipILIndexFromName@@YAIPEAGI@Z.c)
  */
 
 void InitClipboardILDef()
@@ -12,15 +12,15 @@ void InitClipboardILDef()
   _DWORD *v0; // rbx
   __int64 v1; // rdi
   int v2; // edx
-  int v3; // r8d
+  int v3; // ecx
   NTSTATUS v4; // eax
   ULONG v5; // r14d
   ULONG v6; // esi
   unsigned int ClipILIndexFromName; // eax
-  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
-  ULONG Length; // [rsp+B0h] [rbp+30h] BYREF
-  void *KeyHandle; // [rsp+B8h] [rbp+38h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
+  ULONG Length; // [rsp+A0h] [rbp+30h] BYREF
+  void *KeyHandle; // [rsp+A8h] [rbp+38h] BYREF
 
   Length = 0;
   KeyHandle = 0LL;
@@ -42,7 +42,7 @@ void InitClipboardILDef()
     v4 = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &Length);
     if ( v4 == -2147483643 || v4 == -1073741789 )
     {
-      v0 = (_DWORD *)Win32AllocPoolZInit(Length, 1650684757LL);
+      v0 = (_DWORD *)Win32AllocPool(Length, 1650684757LL);
       if ( v0 )
       {
         if ( ZwQueryKey(KeyHandle, KeyFullInformation, v0, Length, &Length) >= 0 && (unsigned int)(v0[8] - 1) <= 4 )
@@ -50,28 +50,22 @@ void InitClipboardILDef()
           v5 = v0[9] + 16;
           if ( v0[9] < 0xFFFFFFF0 )
           {
-            v1 = Win32AllocPoolZInit(v5, 1650684757LL);
+            v1 = Win32AllocPool(v5, 1650684757LL);
             if ( v1 )
             {
               v6 = 0;
               if ( !v0[8] )
-              {
-LABEL_26:
-                gaClipILDef[35] = 1;
-LABEL_27:
-                Win32FreePool((void *)v1);
-                goto LABEL_9;
-              }
+                goto LABEL_5;
               while ( ZwEnumerateValueKey(KeyHandle, v6, KeyValueBasicInformation, (PVOID)v1, v5, &Length) >= 0 )
               {
                 if ( *(_DWORD *)(v1 + 4) == 1 )
                 {
                   ClipILIndexFromName = GetClipILIndexFromName((wchar_t *)(v1 + 12), *(_DWORD *)(v1 + 8));
                   if ( ClipILIndexFromName != -1 )
-                    gaClipILDef[6 * ClipILIndexFromName + 5] = 1;
+                    dword_1C032A054[6 * ClipILIndexFromName] = 1;
                 }
                 if ( ++v6 >= v0[8] )
-                  goto LABEL_26;
+                  goto LABEL_5;
               }
             }
           }
@@ -79,31 +73,20 @@ LABEL_27:
       }
     }
   }
-  LOBYTE(v2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      v3,
-      10,
-      4,
-      3,
-      10,
-      (__int64)&WPP_dda003a3fd0a30328bb5a1d34b25b92b_Traceguids);
+    LOBYTE(v2) = 4;
+    WPP_RECORDER_SF_(v3, v2, 17, 10, (__int64)&WPP_163528e29d493e69e95520b3b68f976c_Traceguids);
   }
-  gaClipILDef[35] = 1;
-  gaClipILDef[29] = 1;
-  gaClipILDef[23] = 0;
-  gaClipILDef[17] = 0;
-  gaClipILDef[11] = 1;
-  gaClipILDef[5] = 0;
+  dword_1C032A09C = 0;
+  dword_1C032A084 = 0;
+  dword_1C032A054[0] = 0;
+  dword_1C032A0B4 = 1;
+  dword_1C032A06C = 1;
+LABEL_5:
+  dword_1C032A0CC = 1;
   if ( v1 )
-    goto LABEL_27;
-LABEL_9:
+    Win32FreePool((void *)v1);
   if ( v0 )
     Win32FreePool(v0);
   if ( KeyHandle )

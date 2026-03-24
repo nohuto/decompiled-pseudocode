@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkSessionWorkingSet @ 0x140216BC0
+ * XREFs of MiUnlinkSessionWorkingSet @ 0x140389D48
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140693A28 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
  * Callees:
- *     MiUnlinkWorkingSet @ 0x1402172E4 (MiUnlinkWorkingSet.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiUnlinkWorkingSet @ 0x14029736C (MiUnlinkWorkingSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlinkSessionWorkingSet(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiUnlinkSessionWorkingSet(__int64 a1)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  MiUnlinkWorkingSet(a1 + 192, &LockHandle);
+  MiUnlinkWorkingSet(a1 + 256, &LockHandle);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;

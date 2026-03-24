@@ -1,40 +1,65 @@
 /*
- * XREFs of ?Initialize@CSecondaryD2DBitmap@@MEAAJXZ @ 0x1800EDFA0
+ * XREFs of ?Initialize@CSecondaryD2DBitmap@@MEAAJXZ @ 0x18003AD60
  * Callers:
- *     ?Create@CSecondaryD2DBitmap@@SAJPEAVCD2DResourceManager@@UD2D_SIZE_U@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@PEAPEAV1@@Z @ 0x1800EDC90 (-Create@CSecondaryD2DBitmap@@SAJPEAVCD2DResourceManager@@UD2D_SIZE_U@@PEAUID3D11Texture2D@@AEBUD.c)
+ *     ?Create@CSecondaryD2DBitmap@@SAJPEAVCD2DResourceManager@@UD2D_SIZE_U@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@PEAPEAV1@@Z @ 0x18003AC80 (-Create@CSecondaryD2DBitmap@@SAJPEAVCD2DResourceManager@@UD2D_SIZE_U@@PEAUID3D11Texture2D@@AEBUD.c)
  * Callees:
- *     ?AddResource@CD2DResourceManager@@QEAAXPEAVCD2DResource@@@Z @ 0x1800EB790 (-AddResource@CD2DResourceManager@@QEAAXPEAVCD2DResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x18023AE9C (-AddHwProtectedResource@CD2DContext@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CSecondaryD2DBitmap::Initialize(CSecondaryD2DBitmap *this)
 {
-  int v1; // ebx
-  int v2; // r11d
-  int v3; // eax
-  int v4; // r10d
-  _DWORD *v5; // rdx
+  int v1; // eax
+  int v3; // r11d
+  int v4; // r9d
+  int v5; // r10d
+  _DWORD *v6; // rdx
+  __int64 *v7; // rdi
+  _QWORD *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  char *v11; // rcx
 
-  v1 = *((_DWORD *)this + 62);
-  v2 = *((_DWORD *)this + 64);
-  v3 = *((_DWORD *)this + 63);
-  v4 = *((_DWORD *)this + 65);
-  if ( v1 >= v2 || v3 >= v4 )
+  v1 = *((_DWORD *)this + 63);
+  v3 = *((_DWORD *)this + 65);
+  v4 = *((_DWORD *)this + 62);
+  v5 = *((_DWORD *)this + 64);
+  if ( v1 >= v3 || v4 >= v5 )
   {
     **((_DWORD **)this + 33) = 0;
   }
   else
   {
-    v5 = (_DWORD *)*((_QWORD *)this + 33);
-    *v5 = 2;
-    v5[7] = v1;
-    v5[3] = v3;
-    v5[8] = v2;
-    v5[4] = 16;
-    v5[1] = v1;
-    v5[2] = v2;
-    v5[6] = 16;
-    v5[5] = v4;
+    v6 = (_DWORD *)*((_QWORD *)this + 33);
+    *v6 = 2;
+    v6[7] = v4;
+    v6[3] = v1;
+    v6[8] = v5;
+    v6[4] = 16;
+    v6[1] = v4;
+    v6[2] = v5;
+    v6[6] = 16;
+    v6[5] = v3;
   }
-  CD2DResourceManager::AddResource(*((CD2DResourceManager **)this + 3), this);
+  v7 = (__int64 *)*((_QWORD *)this + 3);
+  v8 = (_QWORD *)((char *)this + 40);
+  v9 = *v7;
+  if ( *(__int64 **)(*v7 + 8) != v7 )
+    __fastfail(3u);
+  *v8 = v9;
+  *((_QWORD *)this + 6) = v7;
+  *(_QWORD *)(v9 + 8) = v8;
+  *v7 = (__int64)v8;
+  v10 = *((_QWORD *)this + 2);
+  *((_BYTE *)this + 32) = 1;
+  v11 = (char *)this + *(int *)(v10 + 8) + 16;
+  if ( (*(unsigned __int8 (__fastcall **)(char *))(*(_QWORD *)v11 + 24LL))(v11) )
+    *((_BYTE *)this + 34) = 1;
+  if ( *((_BYTE *)this + 33) )
+  {
+    ++*((_DWORD *)v7 + 4);
+    if ( *((_BYTE *)this + 34) )
+      CD2DContext::AddHwProtectedResource((CD2DContext *)v7[3]);
+  }
   return 0LL;
 }

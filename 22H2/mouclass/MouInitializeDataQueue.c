@@ -1,1 +1,36 @@
-/*\n * XREFs of MouInitializeDataQueue @ 0x1C00022F0\n * Callers:\n *     MouseClassFlush @ 0x1C0004AB0 (MouseClassFlush.c)\n *     MouCreateClassObject @ 0x1C000D790 (MouCreateClassObject.c)\n * Callees:\n *     WPP_RECORDER_SF_ @ 0x1C0005CCC (WPP_RECORDER_SF_.c)\n */\n\nvoid __fastcall MouInitializeDataQueue(__int64 a1, __int64 a2)\n{\n  KIRQL v3; // al\n  __int64 v4; // rdx\n  __int64 v5; // rdx\n\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(a2) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);\n  }\n  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 144));\n  v4 = *(_QWORD *)(a1 + 104);\n  *(_QWORD *)(a1 + 112) = v4;\n  *(_QWORD *)(a1 + 120) = v4;\n  *(_DWORD *)(a1 + 84) = 0;\n  *(_BYTE *)(a1 + 66) = 1;\n  KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 144), v3);\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n  {\n    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n    {\n      LOBYTE(v5) = 5;\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v5, 3LL);\n    }\n  }\n}\n
+/*
+ * XREFs of MouInitializeDataQueue @ 0x1C00024A0
+ * Callers:
+ *     MouseClassFlush @ 0x1C0004500 (MouseClassFlush.c)
+ *     MouCreateClassObject @ 0x1C000CBA0 (MouCreateClassObject.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ */
+
+void __fastcall MouInitializeDataQueue(__int64 a1, __int64 a2)
+{
+  KIRQL v3; // al
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);
+  }
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 144));
+  v4 = *(_QWORD *)(a1 + 104);
+  *(_QWORD *)(a1 + 112) = v4;
+  *(_QWORD *)(a1 + 120) = v4;
+  *(_DWORD *)(a1 + 84) = 0;
+  *(_BYTE *)(a1 + 66) = 1;
+  KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 144), v3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v5) = 5;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v5, 3LL);
+    }
+  }
+}

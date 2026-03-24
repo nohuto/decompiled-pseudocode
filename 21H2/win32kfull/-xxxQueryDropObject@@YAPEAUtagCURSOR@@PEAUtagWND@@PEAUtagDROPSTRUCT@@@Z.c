@@ -1,68 +1,75 @@
 /*
- * XREFs of ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C0244120
+ * XREFs of ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02484C8
  * Callers:
- *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C0244120 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
- *     xxxDragObject @ 0x1C02442A8 (xxxDragObject.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02484C8 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ *     xxxDragObject @ 0x1C0248694 (xxxDragObject.c)
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     ?PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C0077940 (-PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     _ScreenToClient @ 0x1C009CB08 (_ScreenToClient.c)
- *     _ChildWindowFromPointEx @ 0x1C016D33A (_ChildWindowFromPointEx.c)
- *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C0244120 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
- *     _ClientToScreen @ 0x1C025A47C (_ClientToScreen.c)
+ *     _ScreenToClient @ 0x1C0013DCC (_ScreenToClient.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     _ChildWindowFromPointEx @ 0x1C015F800 (_ChildWindowFromPointEx.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02484C8 (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ *     _ClientToScreen @ 0x1C025D754 (_ClientToScreen.c)
  */
 
 struct tagCURSOR *__fastcall xxxQueryDropObject(struct tagWND *a1, struct tagDROPSTRUCT *a2)
 {
   __int64 v2; // r8
-  struct tagPOINT *v3; // r14
-  struct tagPOINT v4; // rbx
+  _DWORD *v3; // r14
+  unsigned __int64 v4; // rbx
   __int64 v7; // r8
   __int64 v8; // rcx
-  unsigned int v9; // esi
-  struct tagWND *v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
+  __int64 v9; // rcx
+  unsigned int v10; // esi
+  struct tagWND *v11; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v13; // rcx
   struct tagCURSOR *result; // rax
   __int64 v15; // rax
   __int128 v16; // [rsp+50h] [rbp-20h] BYREF
   __int64 v17; // [rsp+60h] [rbp-10h]
-  struct tagPOINT v18; // [rsp+A0h] [rbp+30h] BYREF
-  __int64 DropObject; // [rsp+A8h] [rbp+38h] BYREF
+  unsigned __int64 v18; // [rsp+A0h] [rbp+30h] BYREF
+  unsigned __int64 LowLimit; // [rsp+A8h] [rbp+38h] BYREF
 
   v2 = *((_QWORD *)a1 + 5);
-  v3 = (struct tagPOINT *)((char *)a2 + 32);
-  v4 = (struct tagPOINT)*((_QWORD *)a2 + 4);
-  DropObject = 0LL;
+  v3 = (_DWORD *)((char *)a2 + 32);
+  v4 = *((_QWORD *)a2 + 4);
+  LowLimit = 0LL;
   v17 = 0LL;
   v18 = v4;
   v16 = 0LL;
-  if ( !PtInRect((_DWORD *)(v2 + 88), *(_QWORD *)&v4)
-    || (*(_BYTE *)(v7 + 31) & 8) != 0
-    || tagWND::PtOutsideClipRgnOrMaxClip(a1, &v18) )
-  {
+  if ( !PtInRect((_DWORD *)(v2 + 88), v4) )
     return 0LL;
+  if ( (*(_BYTE *)(v7 + 31) & 8) != 0 )
+    return 0LL;
+  v8 = *(_QWORD *)(v7 + 168);
+  if ( v8 )
+  {
+    if ( !(unsigned int)GrePtInRegion(v8, (unsigned int)v4, HIDWORD(v18)) )
+      return 0LL;
   }
-  v8 = *((_QWORD *)a1 + 5);
-  v9 = *(_BYTE *)(v8 + 31) & 0x20;
-  if ( (*(_BYTE *)(v8 + 31) & 0x20) == 0 && PtInRect((_DWORD *)(v8 + 104), *(_QWORD *)&v4) )
+  v9 = *((_QWORD *)a1 + 5);
+  v10 = *(_BYTE *)(v9 + 31) & 0x20;
+  if ( (*(_BYTE *)(v9 + 31) & 0x20) == 0 && PtInRect((_DWORD *)(v9 + 104), v4) )
   {
     ScreenToClient((__int64)a1, &v18);
-    v10 = ChildWindowFromPointEx(a1, v18, (unsigned __int8)v9 + 3);
+    v11 = (struct tagWND *)ChildWindowFromPointEx((__int64)a1, v18, (unsigned __int8)v10 + 3);
     ClientToScreen(a1, &v18);
-    if ( v10 )
+    if ( v11 )
     {
-      if ( v10 != a1 )
+      if ( v11 != a1 )
       {
-        ThreadLock((__int64)v10, (__int64 *)&v16);
-        DropObject = (__int64)xxxQueryDropObject(v10, a2);
-        ThreadUnlock1(v12, v11, v13);
-        result = (struct tagCURSOR *)DropObject;
-        if ( DropObject )
+        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        *(_QWORD *)&v16 = *(_QWORD *)(ThreadWin32Thread + 416);
+        *(_QWORD *)(ThreadWin32Thread + 416) = &v16;
+        *((_QWORD *)&v16 + 1) = v11;
+        HMLockObject(v11);
+        LowLimit = (unsigned __int64)xxxQueryDropObject(v11, a2);
+        ThreadUnlock1(v13);
+        result = (struct tagCURSOR *)LowLimit;
+        if ( LowLimit )
           return result;
       }
     }
@@ -71,23 +78,23 @@ struct tagCURSOR *__fastcall xxxQueryDropObject(struct tagWND *a1, struct tagDRO
   ScreenToClient((__int64)a1, v3);
   *((_QWORD *)a2 + 1) = *(_QWORD *)a1;
   v15 = xxxSendTransformableMessageTimeout(
-          (unsigned __int64 *)a1,
+          (unsigned __int64)a1,
           0x22Bu,
-          v9,
-          (__int64)a2,
+          v10,
+          a2,
           2u,
           0xBB8u,
-          (unsigned __int64 *)&DropObject,
+          (__int64 *)&LowLimit,
           1,
           0);
-  result = (struct tagCURSOR *)(DropObject & -(__int64)(v15 != 0));
-  DropObject = (__int64)result;
+  result = (struct tagCURSOR *)(LowLimit & -(__int64)(v15 != 0));
+  LowLimit = (unsigned __int64)result;
   if ( !result )
-    goto LABEL_14;
+    goto LABEL_15;
   if ( result != (struct tagCURSOR *)1 )
-    result = (struct tagCURSOR *)HMValidateHandle((__int64)result, 3u);
+    result = (struct tagCURSOR *)HMValidateHandle((unsigned __int64)result, 3u);
   if ( !result )
-LABEL_14:
-    *v3 = v4;
+LABEL_15:
+    *(_QWORD *)v3 = v4;
   return result;
 }

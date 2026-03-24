@@ -1,13 +1,18 @@
 /*
- * XREFs of ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C004AA20
+ * XREFs of ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00F5668
  * Callers:
- *     ?DoQueuedSyncPaint@@YAXPEAUtagWND@@KPEAUtagTHREADINFO@@@Z @ 0x1C00CDFB0 (-DoQueuedSyncPaint@@YAXPEAUtagWND@@KPEAUtagTHREADINFO@@@Z.c)
- *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00F1BB8 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
- *     QueueNotifyMessage @ 0x1C01FBCA0 (QueueNotifyMessage.c)
+ *     xxxFocusSetInputContext @ 0x1C00349DC (xxxFocusSetInputContext.c)
+ *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C003A690 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C003C880 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C003ECB8 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     ?DoQueuedSyncPaint@@YAXPEAUtagWND@@KPEAUtagTHREADINFO@@@Z @ 0x1C00F5044 (-DoQueuedSyncPaint@@YAXPEAUtagWND@@KPEAUtagTHREADINFO@@@Z.c)
+ *     ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01DFB20 (-CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z.c)
+ *     QueueNotifyMessage @ 0x1C021DCF0 (QueueNotifyMessage.c)
  * Callees:
- *     xxxSendMessageCallback @ 0x1C004D5BC (xxxSendMessageCallback.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxSendMessageCallback @ 0x1C0040544 (xxxSendMessageCallback.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 void __fastcall QueueNotifyTransformableMessage(
@@ -18,18 +23,20 @@ void __fastcall QueueNotifyTransformableMessage(
         int a5,
         int a6)
 {
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  _BYTE v12[8]; // [rsp+50h] [rbp-28h] BYREF
-  __int128 v13; // [rsp+58h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+68h] [rbp-10h]
+  __int64 ThreadWin32Thread; // rax
+  __int64 v11; // rcx
+  _QWORD v12[4]; // [rsp+50h] [rbp-28h] BYREF
+  char v13; // [rsp+80h] [rbp+8h] BYREF
 
-  v13 = 0LL;
-  v14 = 0LL;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v12);
-  ThreadLock(a1, &v13);
-  xxxSendMessageCallback(a1, a2, a3, 0LL, 1LL, 0, a5, a6);
-  ThreadUnlock1(v10, v9, v11);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v12);
+  v12[2] = 0LL;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v13);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v12[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v12;
+  v12[1] = a1;
+  if ( a1 )
+    HMLockObject(a1);
+  xxxSendMessageCallback((unsigned __int64 *)a1, a2, a3, a4, 0LL, 1LL, 0, a5, a6);
+  ThreadUnlock1(v11);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v13);
 }

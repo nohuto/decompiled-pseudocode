@@ -1,22 +1,27 @@
 /*
- * XREFs of ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015394C
+ * XREFs of ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C00817D0
  * Callers:
- *     PATHOBJ_bPolyLineTo @ 0x1C0154290 (PATHOBJ_bPolyLineTo.c)
- *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156EB4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C015CD90 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
- *     bPolyPolygon @ 0x1C016D3A0 (bPolyPolygon.c)
+ *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCFF4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     bPolyPolygon @ 0x1C00BDB30 (bPolyPolygon.c)
+ *     PATHOBJ_bPolyLineTo @ 0x1C00BEC80 (PATHOBJ_bPolyLineTo.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C0140900 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
  * Callees:
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV?$umptr_r@U_POINTL@@@@K@Z @ 0x1C01538E0 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV-$umptr_r@U_POINTL@@@@K@Z.c)
+ *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C008181C (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
  */
 
-__int64 __fastcall EPATHOBJ::bPolyLineTo(EPATHOBJ *this, struct EXFORMOBJ *a2, struct _POINTL *a3, unsigned int a4)
+__int64 __fastcall EPATHOBJ::bPolyLineTo(EPATHOBJ *this, struct EXFORMOBJ *a2, struct _POINTL *a3, int a4)
 {
-  __int64 v5[3]; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v6; // [rsp+38h] [rbp-10h]
+  __int64 result; // rax
+  _DWORD v7[2]; // [rsp+20h] [rbp-18h] BYREF
+  struct _POINTL *v8; // [rsp+28h] [rbp-10h]
 
-  v5[2] = 0LL;
-  v5[0] = (__int64)a3;
-  v5[1] = a4;
-  v6 = 0;
-  return EPATHOBJ::bPolyLineTo((__int64)this, a2, v5, a4);
+  if ( !*((_QWORD *)this + 1) )
+    return 0LL;
+  v7[0] = 0;
+  v8 = a3;
+  v7[1] = a4;
+  result = EPATHOBJ::addpoints(this, a2, (struct _PATHDATAL *)v7);
+  if ( (_DWORD)result )
+    *((_DWORD *)this + 1) += a4;
+  return result;
 }

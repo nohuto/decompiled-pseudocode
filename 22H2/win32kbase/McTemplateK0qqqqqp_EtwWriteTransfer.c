@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqqqqp_EtwWriteTransfer @ 0x1C0073598
+ * XREFs of McTemplateK0qqqqqp_EtwWriteTransfer @ 0x1C0056348
  * Callers:
- *     EtwTraceAuditApiSetWinEventHook @ 0x1C0073550 (EtwTraceAuditApiSetWinEventHook.c)
+ *     EtwTraceAuditApiSetWinEventHook @ 0x1C0056300 (EtwTraceAuditApiSetWinEventHook.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall McTemplateK0qqqqqp_EtwWriteTransfer(

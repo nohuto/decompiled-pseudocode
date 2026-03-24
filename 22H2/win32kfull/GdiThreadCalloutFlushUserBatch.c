@@ -1,5 +1,5 @@
 /*
- * XREFs of GdiThreadCalloutFlushUserBatch @ 0x1C009E470
+ * XREFs of GdiThreadCalloutFlushUserBatch @ 0x1C010D640
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 unsigned __int64 GdiThreadCalloutFlushUserBatch()
 {
-  struct _NT_TIB *Self; // rcx
+  struct _NT_TIB *Self; // rax
   int StackLimit; // edi
   PVOID *p_ArbitraryUserPointer; // rbx
   unsigned __int64 p_Self; // rsi

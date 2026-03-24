@@ -1,21 +1,26 @@
 /*
- * XREFs of _Init_thread_wait @ 0x18010122C
+ * XREFs of _Init_thread_wait @ 0x1800E7A40
  * Callers:
- *     _Init_thread_header @ 0x180101168 (_Init_thread_header.c)
+ *     _Init_thread_header @ 0x1800E7978 (_Init_thread_header.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall Init_thread_wait(DWORD dwMilliseconds)
 {
-  if ( qword_1803D2DE0 )
+  if ( hHandle )
   {
-    qword_1803D2DE0(&unk_1803D2DA8, &stru_1803D2DB8, dwMilliseconds);
+    LeaveCriticalSection(&stru_180346E58);
+    WaitForSingleObjectEx(hHandle, dwMilliseconds, 0);
+    EnterCriticalSection(&stru_180346E58);
   }
   else
   {
-    LeaveCriticalSection(&stru_1803D2DB8);
-    WaitForSingleObjectEx(hHandle, dwMilliseconds, 0);
-    EnterCriticalSection(&stru_1803D2DB8);
+    ((void (__fastcall *)(void *, struct _RTL_CRITICAL_SECTION *, _QWORD))__ROR8__(
+                                                                            qword_180346E90 ^ _security_cookie,
+                                                                            _security_cookie & 0x3F))(
+      &unk_180346E80,
+      &stru_180346E58,
+      dwMilliseconds);
   }
 }

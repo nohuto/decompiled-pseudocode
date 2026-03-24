@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetMaxAngularVelocity@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJM@Z @ 0x1801A3108
+ * XREFs of ?SetMaxAngularVelocity@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJM@Z @ 0x180171228
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetMaxAngularVelocity(
@@ -12,10 +12,10 @@ __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChan
 {
   __int64 v2; // rax
 
-  if ( a2 != a1[30] )
+  if ( a2 != a1[28] )
   {
     v2 = *(_QWORD *)a1;
-    a1[30] = a2;
+    a1[28] = a2;
     (*(void (__fastcall **)(float *, _QWORD, _QWORD))(v2 + 72))(a1, 0LL, 0LL);
   }
   return 0LL;

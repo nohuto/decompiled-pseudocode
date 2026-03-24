@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CPrimitiveGroup@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800F0620
+ * XREFs of ?IsOfType@CPrimitiveGroup@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C3580
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CPrimitiveGroup::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 129 || a2 == 47;
+  return a2 == 127 || a2 == 45;
 }

@@ -1,77 +1,203 @@
 /*
- * XREFs of ?SendPTPInertiaInput@Pointer@IVRootDeliver@@YAJPEAX_KHAEBUCONTAINER_ID@@@Z @ 0x1C01F3164
+ * XREFs of ?SendPTPInertiaInput@Pointer@IVRootDeliver@@YAJPEAX_KHAEBUCONTAINER_ID@@@Z @ 0x1C01BBC88
  * Callers:
- *     ?SendPTPInertiaEndToContainer@CPTPProcessor@@AEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01E0628 (-SendPTPInertiaEndToContainer@CPTPProcessor@@AEAAXPEBUPTPEngineOutput@@@Z.c)
+ *     ?SendPTPInertiaEndToContainer@CPTPProcessor@@AEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01A7204 (-SendPTPInertiaEndToContainer@CPTPProcessor@@AEAAXPEBUPTPEngineOutput@@@Z.c)
  * Callees:
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
- *     ??0CIVGenericSerializer@@QEAA@W4IVPacketType@@@Z @ 0x1C01E95EC (--0CIVGenericSerializer@@QEAA@W4IVPacketType@@@Z.c)
- *     ?ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z @ 0x1C01EE8A4 (-ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z.c)
- *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C01F38C4 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
- *     ??1CIVSerializer@@UEAA@XZ @ 0x1C01FD0B8 (--1CIVSerializer@@UEAA@XZ.c)
- *     ?ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ @ 0x1C01FD240 (-ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ.c)
- *     ?Serialize@CIVSerializer@@IEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z @ 0x1C01FDEBC (-Serialize@CIVSerializer@@IEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     ??0CIVSerializer@@QEAA@_K@Z @ 0x1C01B3C24 (--0CIVSerializer@@QEAA@_K@Z.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3C8C (--1CIVSerializer@@QEAA@XZ.c)
+ *     ?ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ @ 0x1C01B4AEC (-ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ.c)
+ *     ?IVMeasurePTPInertiaPacket@@YAJU_UNICODE_STRING@@AEAUCIVSerializer@@@Z @ 0x1C01B52F0 (-IVMeasurePTPInertiaPacket@@YAJU_UNICODE_STRING@@AEAUCIVSerializer@@@Z.c)
+ *     ?IVSerializePTPInertiaPacket@@YAJU_UNICODE_STRING@@_KAEAUCIVSerializer@@@Z @ 0x1C01B595C (-IVSerializePTPInertiaPacket@@YAJU_UNICODE_STRING@@_KAEAUCIVSerializer@@@Z.c)
+ *     ?ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z @ 0x1C01BA308 (-ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z.c)
  */
 
 __int64 __fastcall IVRootDeliver::Pointer::SendPTPInertiaInput(
         IVRootDeliver::Pointer *this,
-        void *a2,
-        __int64 a3,
+        __int64 a2,
+        int a3,
         const struct CONTAINER_ID *a4)
 {
-  void *v4; // rdi
-  int v6; // esi
-  __int64 v9; // rax
-  __int64 result; // rax
+  void *v8; // rdx
+  PVOID v9; // rdi
   struct _UNICODE_STRING v11; // xmm6
-  int v12; // ebx
-  struct _UNICODE_STRING *v13; // rsi
-  struct _UNICODE_STRING v14; // [rsp+20h] [rbp-50h] BYREF
-  _QWORD v15[2]; // [rsp+30h] [rbp-40h] BYREF
-  struct _UNICODE_STRING *v16; // [rsp+40h] [rbp-30h]
+  int v12; // eax
+  int v13; // edx
+  unsigned int v14; // ebx
+  int v15; // edx
+  int v16; // eax
+  int v17; // r9d
+  int v18; // edx
+  _DWORD *v19; // rcx
+  struct _ETHREAD *CurrentThread; // r9
+  int v21; // eax
+  int v22; // [rsp+30h] [rbp-61h]
+  struct CONTAINER_ID *v23; // [rsp+30h] [rbp-61h]
+  char *v24; // [rsp+48h] [rbp-49h] BYREF
+  struct _UNICODE_STRING v25; // [rsp+58h] [rbp-39h] BYREF
+  struct _UNICODE_STRING v26; // [rsp+68h] [rbp-29h] BYREF
+  void *v27; // [rsp+78h] [rbp-19h] BYREF
+  unsigned int v28; // [rsp+80h] [rbp-11h]
+  __int64 v29; // [rsp+88h] [rbp-9h]
 
-  v4 = 0LL;
-  *(_QWORD *)&v14.Length = 0LL;
-  v6 = a3;
-  v9 = SGDGetUserSessionState(this, a2, a3, a4);
-  if ( !CIVChannel::ContainerConnected(*(_DWORD *)(*(_QWORD *)(v9 + 16840) + 1296LL)) )
-    return 0LL;
-  v11 = 0LL;
-  if ( this )
+  v8 = &WPP_ce934868e6283481801d375bb45badae_Traceguids;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    result = RawInputManagerDeviceObjectResolveHandle((char *)this, 3u, v6 == 0, (PVOID *)&v14);
-    if ( (int)result < 0 )
-      return result;
-    v4 = *(void **)&v14.Length;
-    v11 = *(struct _UNICODE_STRING *)(*(_QWORD *)&v14.Length + 280LL);
+    LOBYTE(v8) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)v8,
+      12,
+      33,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    v8 = &WPP_ce934868e6283481801d375bb45badae_Traceguids;
   }
-  CIVGenericSerializer::CIVGenericSerializer(v15);
-  if ( v16 )
+  v9 = 0LL;
+  v24 = 0LL;
+  if ( *((_DWORD *)gpHidInput + 314) )
   {
-    v14 = v11;
-    v12 = CIVSerializer::Serialize((CIVSerializer *)v15, v16, &v14, 1);
-    if ( v12 >= 0 )
+    v11 = 0LL;
+    if ( this )
     {
-      v12 = CIVSerializer::ExtendByMeasuredExtra((CIVSerializer *)v15);
-      if ( v12 >= 0 )
+      v12 = RawInputManagerDeviceObjectResolveHandle((char *)this, 3u, a3 == 0, (PVOID *)&v24);
+      v14 = v12;
+      if ( v12 < 0 )
       {
-        v13 = v16;
-        v14 = v11;
-        v12 = CIVSerializer::Serialize((CIVSerializer *)v15, v16, &v14, 0);
-        if ( v12 >= 0 )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          *(_QWORD *)&v13[1].Length = a2;
-          v12 = ivrIVSend((const struct CIVSerializer *)v15, 2u, a4);
+          LOBYTE(v13) = 2;
+          WPP_RECORDER_SF_d(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v13,
+            12,
+            35,
+            (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+            v12);
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+            {
+              LOBYTE(v18) = 5;
+              WPP_RECORDER_SF_(
+                WPP_GLOBAL_Control->DeviceExtension,
+                v18,
+                12,
+                36,
+                (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+            }
+          }
         }
+        return v14;
+      }
+      v9 = v24;
+      v11 = *(struct _UNICODE_STRING *)(v24 + 296);
+    }
+    CIVSerializer::CIVSerializer((CIVSerializer *)&v27, 24LL);
+    if ( !v29 )
+    {
+      v14 = -1073741801;
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_30;
+      v17 = 40;
+      v22 = -1073741801;
+      goto LABEL_18;
+    }
+    v25 = v11;
+    v16 = IVMeasurePTPInertiaPacket(&v25, (struct _UNICODE_STRING **)&v27);
+    v14 = v16;
+    if ( v16 < 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_30;
+      v17 = 39;
+      goto LABEL_17;
+    }
+    v16 = CIVSerializer::ExtendByMeasuredExtra((CIVSerializer *)&v27);
+    v14 = v16;
+    if ( v16 >= 0 )
+    {
+      v26 = v11;
+      v16 = IVSerializePTPInertiaPacket(&v26, a2, (struct CIVSerializer *)&v27);
+      v14 = v16;
+      if ( v16 >= 0 )
+      {
+        v19 = v27;
+        *(_DWORD *)v27 = v28 - 16;
+        v19[1] = 1;
+        *((_QWORD *)v19 + 1) = 9LL;
+        CurrentThread = KeGetCurrentThread();
+        v21 = ivrIVSend(v27, v28, CurrentThread, CurrentThread, 2u, a4);
+        v14 = v21;
+        if ( v21 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v9 = v24;
+        }
+        else
+        {
+          LODWORD(v23) = v21;
+          LOBYTE(v15) = 2;
+          WPP_RECORDER_SF_d(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v15,
+            12,
+            41,
+            (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+            v23);
+          v9 = v24;
+        }
+        goto LABEL_30;
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v17 = 38;
+        goto LABEL_17;
       }
     }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v17 = 37;
+LABEL_17:
+      v22 = v16;
+LABEL_18:
+      LOBYTE(v15) = 2;
+      WPP_RECORDER_SF_d(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v15,
+        12,
+        v17,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+        v22);
+    }
+LABEL_30:
+    if ( v9 )
+      ObfDereferenceObject(v9);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v15) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v15,
+        12,
+        42,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    }
+    CIVSerializer::~CIVSerializer((CIVSerializer *)&v27);
+    return v14;
   }
-  else
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v12 = -1073741801;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v8) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        (_DWORD)v8,
+        12,
+        34,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    }
   }
-  if ( v4 )
-    ObfDereferenceObject(v4);
-  v15[0] = &CIVGenericSerializer::`vftable';
-  CIVSerializer::~CIVSerializer((CIVSerializer *)v15);
-  return (unsigned int)v12;
+  return 0LL;
 }

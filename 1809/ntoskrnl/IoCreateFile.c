@@ -2,10 +2,10 @@
  * XREFs of IoCreateFile @ 0x14060A8B0
  * Callers:
  *     NtCreateMailslotFile @ 0x140585350 (NtCreateMailslotFile.c)
- *     NtCreateNamedPipeFile @ 0x1406B9800 (NtCreateNamedPipeFile.c)
- *     PopCreateHiberFile @ 0x140746730 (PopCreateHiberFile.c)
- *     MiCreatePagingFile @ 0x14074BFD8 (MiCreatePagingFile.c)
- *     SmKmStoreFileCreateForIoType @ 0x1408ADAFC (SmKmStoreFileCreateForIoType.c)
+ *     NtCreateNamedPipeFile @ 0x1406B97E0 (NtCreateNamedPipeFile.c)
+ *     PopCreateHiberFile @ 0x140746710 (PopCreateHiberFile.c)
+ *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     SmKmStoreFileCreateForIoType @ 0x1408ADADC (SmKmStoreFileCreateForIoType.c)
  *     IopInitCrashDumpRegCallback @ 0x1409D2F70 (IopInitCrashDumpRegCallback.c)
  * Callees:
  *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PopulateMouseProperties@@YAXPEAURIMDEV@@PEAX1@Z @ 0x1C00DC500
+ * XREFs of ?PopulateMouseProperties@@YAXPEAURIMDEV@@PEAX1@Z @ 0x1C00CC718
  * Callers:
- *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C01A05FC (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C00CC828 (RIMPopulateExtendedMouseDeviceProperties.c)
  * Callees:
- *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C009F174 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
+ *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C006C670 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
  */
 
 void __fastcall PopulateMouseProperties(struct RIMDEV *a1, void *a2, void *a3)
@@ -16,6 +16,6 @@ void __fastcall PopulateMouseProperties(struct RIMDEV *a1, void *a2, void *a3)
   if ( ReadDevicePropertyFromRegistry(L"ForceVirtualDesktop", a2, a3, 0, &v5) )
   {
     LOBYTE(v4) = v5 != 0;
-    *((_DWORD *)a1 + 226) = v4 | *((_DWORD *)a1 + 226) & 0xFFFFFFFE;
+    *((_DWORD *)a1 + 228) = v4 | *((_DWORD *)a1 + 228) & 0xFFFFFFFE;
   }
 }

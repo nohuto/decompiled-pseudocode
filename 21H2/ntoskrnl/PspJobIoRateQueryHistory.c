@@ -1,11 +1,11 @@
 /*
- * XREFs of PspJobIoRateQueryHistory @ 0x140209854
+ * XREFs of PspJobIoRateQueryHistory @ 0x140253728
  * Callers:
- *     PspQueryRateControlHistory @ 0x14068578C (PspQueryRateControlHistory.c)
+ *     PspQueryRateControlHistory @ 0x140615DDC (PspQueryRateControlHistory.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, _DWORD *a4)
@@ -25,9 +25,9 @@ __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, 
   int v21; // edx
   bool v22; // zf
 
-  if ( !*(_QWORD *)(a1 + 1632) )
+  if ( !*(_QWORD *)(a1 + 1440) )
   {
-    v8 = a1 + 1656;
+    v8 = a1 + 1464;
     v9 = *(_QWORD *)v8;
     if ( (*(_BYTE *)(v8 + 8) & 1) != 0 )
     {
@@ -38,16 +38,16 @@ __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, 
     if ( !v9 )
       return (unsigned int)-1073741275;
   }
-  v12 = (volatile LONG *)(a1 + 1648);
-  v13 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1648));
-  v14 = *(_DWORD *)(a1 + 1688);
+  v12 = (volatile LONG *)(a1 + 1456);
+  v13 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1456));
+  v14 = *(_DWORD *)(a1 + 1496);
   v15 = v13;
   if ( v14 )
   {
-    v16 = *(_DWORD *)(a1 + 1680);
-    *a2 = *(_QWORD *)(a1 + 1672);
-    v17 = v16 - *(_DWORD *)(a1 + 1684);
-    *(_DWORD *)(a1 + 1684) = v16;
+    v16 = *(_DWORD *)(a1 + 1488);
+    *a2 = *(_QWORD *)(a1 + 1480);
+    v17 = v16 - *(_DWORD *)(a1 + 1492);
+    *(_DWORD *)(a1 + 1492) = v16;
     v10 = 0;
     *a4 = v17;
     *a3 = v14;

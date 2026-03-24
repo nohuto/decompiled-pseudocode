@@ -1,18 +1,19 @@
 /*
- * XREFs of InitializeWin32KSyscallFilter @ 0x1C00969C0
+ * XREFs of InitializeWin32KSyscallFilter @ 0x1C00689B0
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     OpenCacheKeyEx @ 0x1C0019FB0 (OpenCacheKeyEx.c)
- *     ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C0096E30 (-CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z.c)
- *     ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00C351C (-FreeWin32KSyscallFilter@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     OpenCacheKeyEx @ 0x1C0026440 (OpenCacheKeyEx.c)
+ *     ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C0068DF0 (-CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z.c)
+ *     ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00B45F8 (-FreeWin32KSyscallFilter@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 InitializeWin32KSyscallFilter()
 {
-  int v0; // ebx
+  int Win32KFilterBitmap; // ebx
   void *v1; // rdi
   void *v2; // rdi
   void *v3; // rdi
@@ -21,165 +22,173 @@ __int64 InitializeWin32KSyscallFilter()
   bool v6; // zf
   int v7; // ecx
   unsigned int v8; // edi
-  unsigned int v9; // r15d
-  unsigned int *v10; // rsi
-  unsigned __int8 **v11; // r14
-  unsigned __int8 *Pool2; // rax
-  int v13; // r8d
-  int Win32KFilterBitmap; // eax
-  int v16; // [rsp+30h] [rbp-40h] BYREF
+  PVOID PoolWithTag; // rax
+  unsigned int v10; // r15d
+  unsigned int *v11; // rsi
+  unsigned __int8 **v12; // r14
+  unsigned __int8 *v13; // rax
+  int v14; // r8d
+  bool v15; // sf
+  PVOID v17; // rax
+  int v18; // [rsp+30h] [rbp-40h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-3Ch] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-38h] BYREF
   _BYTE KeyValueInformation[12]; // [rsp+48h] [rbp-28h] BYREF
-  int v20; // [rsp+54h] [rbp-1Ch]
+  int v22; // [rsp+54h] [rbp-1Ch]
 
   ResultLength = 0;
-  v0 = 0;
-  v16 = gdwPolicyFlags;
+  Win32KFilterBitmap = 0;
+  v18 = gdwPolicyFlags;
   DestinationString = 0LL;
   while ( 1 )
   {
-    v1 = OpenCacheKeyEx(0LL, 52LL, 131097LL, &v16);
+    v1 = OpenCacheKeyEx(0LL, 52LL, 0x20019u, &v18);
     if ( !v1 )
       break;
     RtlInitUnicodeString(&DestinationString, L"ServiceFilterAuditThrottleMode");
     if ( ZwQueryValueKey(v1, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
     {
-      gdwServiceFilterAuditThrottleMode = v20;
-      v16 = 0;
+      gdwServiceFilterAuditThrottleMode = v22;
+      v18 = 0;
     }
-    else if ( !v16 )
+    else if ( !v18 )
     {
       gdwServiceFilterAuditThrottleMode = 1;
     }
     ZwClose(v1);
-    if ( !v16 )
-      goto LABEL_7;
+    if ( !v18 )
+      goto LABEL_10;
   }
   gdwServiceFilterAuditThrottleMode = 1;
-LABEL_7:
+LABEL_10:
   DestinationString = 0LL;
   ResultLength = 0;
-  v16 = gdwPolicyFlags;
+  v18 = gdwPolicyFlags;
   while ( 1 )
   {
-    v2 = OpenCacheKeyEx(0LL, 52LL, 131097LL, &v16);
+    v2 = OpenCacheKeyEx(0LL, 52LL, 0x20019u, &v18);
     if ( !v2 )
       break;
     RtlInitUnicodeString(&DestinationString, L"ServiceFilterAuditCaptureWER");
     if ( ZwQueryValueKey(v2, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
     {
-      gdwServiceFilterAuditCaptureWER = v20;
-      v16 = 0;
+      gdwServiceFilterAuditCaptureWER = v22;
+      v18 = 0;
     }
-    else if ( !v16 )
+    else if ( !v18 )
     {
       gdwServiceFilterAuditCaptureWER = 1;
     }
     ZwClose(v2);
-    if ( !v16 )
-      goto LABEL_13;
+    if ( !v18 )
+      goto LABEL_19;
   }
   gdwServiceFilterAuditCaptureWER = 1;
-LABEL_13:
+LABEL_19:
   DestinationString = 0LL;
   ResultLength = 0;
-  v16 = gdwPolicyFlags;
+  v18 = gdwPolicyFlags;
   while ( 1 )
   {
-    v3 = OpenCacheKeyEx(0LL, 52LL, 131097LL, &v16);
+    v3 = OpenCacheKeyEx(0LL, 52LL, 0x20019u, &v18);
     if ( !v3 )
       break;
     RtlInitUnicodeString(&DestinationString, L"ServiceFilterAuditStackCacheSize");
     if ( ZwQueryValueKey(v3, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
     {
-      LODWORD(gstServiceFilterAuditStackCacheSize) = v20;
-      v16 = 0;
+      LODWORD(gstServiceFilterAuditStackCacheSize) = v22;
+      v18 = 0;
     }
-    else if ( !v16 )
+    else if ( !v18 )
     {
       LODWORD(gstServiceFilterAuditStackCacheSize) = 4096;
     }
     ZwClose(v3);
-    if ( !v16 )
-      goto LABEL_19;
+    if ( !v18 )
+      goto LABEL_22;
   }
   LODWORD(gstServiceFilterAuditStackCacheSize) = 4096;
-LABEL_19:
-  if ( qword_1C029AD08 )
-    v4 = qword_1C029AD08();
+LABEL_22:
+  if ( qword_1C0255F58 )
+    v4 = qword_1C0255F58();
   else
     v4 = 0;
   gaWin32KSyscallList = 0LL;
   v5 = v4 >> 3;
   v6 = (v4 & 7) == 0;
-  qword_1C0295AD8 = 0LL;
-  qword_1C0295AE8 = 676LL;
-  qword_1C0295AF8 = 445LL;
+  qword_1C0250CC8 = 0LL;
+  qword_1C0250CD8 = 550LL;
+  qword_1C0250CE8 = 320LL;
   v7 = (v4 >> 3) + 1;
-  qword_1C0295B08 = 1LL;
+  qword_1C0250CF8 = 1LL;
   if ( v6 )
     v7 = v5;
-  qword_1C0295B18 = 566LL;
-  qword_1C0295AE0 = (__int64)&Win32KSyscallFilterList::Rs1RestrictedAppcontainer;
+  qword_1C0250D08 = 440LL;
+  qword_1C0250CD0 = (__int64)&Win32KSyscallFilterList::Rs1RestrictedAppcontainer;
   v8 = v7;
-  qword_1C0295B28 = 405LL;
-  qword_1C0295AF0 = (__int64)&Win32KSyscallFilterList::Rs1RestrictedAppcontainerPlugin;
-  qword_1C0295B00 = (__int64)&Win32KSyscallFilterList::FontDrvHost;
-  qword_1C0295B10 = (__int64)&Win32KSyscallFilterList::Rs1RestrictedAppcontainerMiniPlugin;
-  qword_1C0295B20 = (__int64)&Win32KSyscallFilterList::Rs3RestrictedAppcontainer;
-  qword_1C0295B30 = (__int64)&Win32KSyscallFilterList::Rs3HvsiRdpClient;
-  dword_1C0295B38 = 507;
-  dword_1C0295B3C = 1;
-  if ( gdwServiceFilterAuditCaptureWER )
+  qword_1C0250D18 = 276LL;
+  qword_1C0250CE0 = (__int64)&Win32KSyscallFilterList::Rs1RestrictedAppcontainerPlugin;
+  qword_1C0250CF0 = (__int64)&Win32KSyscallFilterList::FontDrvHost;
+  qword_1C0250D00 = (__int64)&Win32KSyscallFilterList::Rs1RestrictedAppcontainerMiniPlugin;
+  qword_1C0250D10 = (__int64)&Win32KSyscallFilterList::Rs3RestrictedAppcontainer;
+  qword_1C0250D20 = (__int64)&Win32KSyscallFilterList::Rs3HvsiRdpClient;
+  dword_1C0250D28 = 383;
+  dword_1C0250D2C = 1;
+  if ( !gdwServiceFilterAuditCaptureWER )
+    goto LABEL_31;
+  if ( (v7 & 3) != 0 )
+    v8 = v7 - (v7 & 3) + 4;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, v8, 0x6C667355u);
+  gafServiceFilterAuditCache = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_49;
+  memset(PoolWithTag, 0, v8);
+  if ( !gdwServiceFilterAuditThrottleMode )
   {
-    if ( (v7 & 3) != 0 )
-      v8 = v7 - (v7 & 3) + 4;
-    gafServiceFilterAuditCache = (PVOID)ExAllocatePool2(64LL, v8);
-    if ( !gafServiceFilterAuditCache
-      || !gdwServiceFilterAuditThrottleMode
-      && (gstServiceFilterAuditStackCacheSize = (gstServiceFilterAuditStackCacheSize + 3) & 0xFFFFFFFFFFFFFFFCuLL,
-          (gafServiceFilterAuditStackCache = (PVOID)ExAllocatePool2(64LL, gstServiceFilterAuditStackCacheSize)) == 0LL) )
+    gstServiceFilterAuditStackCacheSize = (gstServiceFilterAuditStackCacheSize + 3) & 0xFFFFFFFFFFFFFFFCuLL;
+    v17 = ExAllocatePoolWithTag((POOL_TYPE)512, gstServiceFilterAuditStackCacheSize, 0x6C667355u);
+    gafServiceFilterAuditStackCache = v17;
+    if ( v17 )
     {
-LABEL_46:
-      v0 = -1073741801;
-LABEL_47:
-      FreeWin32KSyscallFilter();
-      return (unsigned int)v0;
+      memset(v17, 0, gstServiceFilterAuditStackCacheSize);
+      goto LABEL_31;
     }
+LABEL_49:
+    Win32KFilterBitmap = -1073741801;
+    goto LABEL_50;
   }
-  v9 = 0;
-  v10 = (unsigned int *)&qword_1C0295AD8;
-  v11 = (unsigned __int8 **)gaWin32KFilterBitmap;
-  do
+LABEL_31:
+  v10 = 0;
+  v11 = (unsigned int *)&qword_1C0250CC8;
+  v12 = (unsigned __int8 **)&gaWin32KFilterBitmap;
+  while ( !*v11 )
   {
-    if ( *v10 )
-    {
-      Pool2 = (unsigned __int8 *)ExAllocatePool2(64LL, v8);
-      *v11 = Pool2;
-      if ( !Pool2 )
-        goto LABEL_46;
-      Win32KFilterBitmap = CreateWin32KFilterBitmap(*v10, *((const char **const *)v10 - 1), v13, v8, Pool2);
-      v0 = Win32KFilterBitmap;
-      if ( Win32KFilterBitmap == 127 )
-      {
-        v0 = 0;
-      }
-      else if ( Win32KFilterBitmap )
-      {
-        break;
-      }
-    }
-    else
-    {
-      *v11 = 0LL;
-    }
-    ++v9;
-    ++v11;
-    v10 += 4;
+    *v12 = 0LL;
+LABEL_37:
+    ++v10;
+    ++v12;
+    v11 += 4;
+    if ( v10 >= 7 )
+      goto LABEL_38;
   }
-  while ( v9 < 7 );
-  if ( v0 < 0 )
-    goto LABEL_47;
-  return (unsigned int)v0;
+  v13 = (unsigned __int8 *)ExAllocatePoolWithTag((POOL_TYPE)512, v8, 0x6C667355u);
+  *v12 = v13;
+  if ( v13 )
+  {
+    Win32KFilterBitmap = CreateWin32KFilterBitmap(*v11, *((const char **const *)v11 - 1), v14, v8, v13);
+    if ( Win32KFilterBitmap == 127 )
+      Win32KFilterBitmap = 0;
+    v15 = Win32KFilterBitmap < 0;
+    if ( Win32KFilterBitmap )
+      goto LABEL_39;
+    goto LABEL_37;
+  }
+  Win32KFilterBitmap = -1073741801;
+LABEL_38:
+  v15 = Win32KFilterBitmap < 0;
+LABEL_39:
+  if ( v15 )
+LABEL_50:
+    FreeWin32KSyscallFilter();
+  return (unsigned int)Win32KFilterBitmap;
 }

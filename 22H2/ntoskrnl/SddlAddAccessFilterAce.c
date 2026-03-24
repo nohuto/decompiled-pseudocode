@@ -1,15 +1,15 @@
 /*
- * XREFs of SddlAddAccessFilterAce @ 0x1409D2590
+ * XREFs of SddlAddAccessFilterAce @ 0x140926218
  * Callers:
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     RtlFirstFreeAce @ 0x1407F3570 (RtlFirstFreeAce.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x1406D4640 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1406D5380 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
  */
 
 __int64 __fastcall SddlAddAccessFilterAce(
@@ -25,26 +25,25 @@ __int64 __fastcall SddlAddAccessFilterAce(
   __int64 result; // rax
   char v12; // r15
   int v13; // ecx
-  bool v14; // zf
-  int v15; // ecx
-  unsigned int v16; // ebx
-  ULONG v17; // edx
-  __int64 v18; // r14
+  int v14; // ecx
+  unsigned int v15; // ebx
+  ULONG v16; // edx
+  __int64 v17; // r14
+  ULONG v18; // eax
   ULONG v19; // eax
-  ULONG v20; // eax
-  char v21; // [rsp+20h] [rbp-30h]
-  __int64 v22; // [rsp+28h] [rbp-28h] BYREF
-  int v23; // [rsp+30h] [rbp-20h]
-  unsigned __int16 v24; // [rsp+34h] [rbp-1Ch]
-  int v25; // [rsp+38h] [rbp-18h]
-  unsigned __int16 v26; // [rsp+3Ch] [rbp-14h]
+  char v20; // [rsp+20h] [rbp-30h]
+  __int64 v21; // [rsp+28h] [rbp-28h] BYREF
+  int v22; // [rsp+30h] [rbp-20h]
+  unsigned __int16 v23; // [rsp+34h] [rbp-1Ch]
+  int v24; // [rsp+38h] [rbp-18h]
+  unsigned __int16 v25; // [rsp+3Ch] [rbp-14h]
 
-  v22 = 0LL;
-  v21 = a3;
-  v25 = 0;
-  v26 = 256;
-  v23 = 0;
-  v24 = 4864;
+  v21 = 0LL;
+  v20 = a3;
+  v24 = 0;
+  v25 = 256;
+  v22 = 0;
+  v23 = 4864;
   if ( !a1 || !RtlValidAcl(a1) )
     return 3221225591LL;
   if ( !Src || (unsigned __int16)(a8 - 6) > 0xFFF8u || *Src != 2020897377 )
@@ -56,52 +55,45 @@ __int64 __fastcall SddlAddAccessFilterAce(
   {
     if ( *(_BYTE *)(a4 + 1) != 2 )
       return 3221225485LL;
-    v13 = *(_DWORD *)(a4 + 2) - v23;
+    v13 = *(_DWORD *)(a4 + 2) - v22;
     if ( !v13 )
-      v13 = *(unsigned __int16 *)(a4 + 6) - v24;
-    if ( v13 )
+      v13 = *(unsigned __int16 *)(a4 + 6) - v23;
+    if ( v13 || !*(_DWORD *)(a4 + 8) && *(_DWORD *)(a4 + 12) )
       return 3221225485LL;
-    if ( *(_DWORD *)(a4 + 8) )
-      goto LABEL_21;
-    v14 = *(_DWORD *)(a4 + 12) == 0;
   }
   else
   {
-    v15 = *(_DWORD *)(a4 + 2) - v25;
-    if ( !v15 )
-      v15 = *(unsigned __int16 *)(a4 + 6) - v26;
-    if ( v15 || *(_BYTE *)(a4 + 1) != 1 )
+    v14 = *(_DWORD *)(a4 + 2) - v24;
+    if ( !v14 )
+      v14 = *(unsigned __int16 *)(a4 + 6) - v25;
+    if ( v14 || *(_BYTE *)(a4 + 1) != 1 || *(_DWORD *)(a4 + 8) )
       return 3221225485LL;
-    v14 = *(_DWORD *)(a4 + 8) == 0;
   }
-  if ( !v14 )
-    return 3221225485LL;
-LABEL_21:
   if ( *(_BYTE *)a1 > 4u )
     return 3221225561LL;
   if ( *(_BYTE *)a1 > 2u )
     v12 = *(_BYTE *)a1;
   if ( (a3 & 0xFFFFFFA0) != 0 || (a6 & 0xFF000000) != 0 )
     return 3221225485LL;
-  if ( !RtlFirstFreeAce(a1, &v22) )
+  if ( !RtlFirstFreeAce(a1, &v21) )
     return 3221225591LL;
-  v16 = (a8 + 3) & 0xFFFFFFFC;
-  v17 = RtlLengthSid((PSID)a4) + v16 + 8;
-  if ( v17 < v16 )
+  v15 = (a8 + 3) & 0xFFFFFFFC;
+  v16 = RtlLengthSid((PSID)a4) + v15 + 8;
+  if ( v16 < v15 )
     return 534LL;
-  if ( v17 > 0xFFFF )
+  if ( v16 > 0xFFFF )
     return 3221225485LL;
-  v18 = v22;
-  if ( !v22 || v22 + (unsigned __int64)v17 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+  v17 = v21;
+  if ( !v21 || v21 + (unsigned __int64)v16 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
     return 3221225625LL;
-  *(_BYTE *)(v22 + 1) = v21;
-  *(_BYTE *)v18 = 21;
-  *(_WORD *)(v18 + 2) = v17;
-  *(_DWORD *)(v18 + 4) = a6;
+  *(_BYTE *)(v21 + 1) = v20;
+  *(_BYTE *)v17 = 21;
+  *(_WORD *)(v17 + 2) = v16;
+  *(_DWORD *)(v17 + 4) = a6;
+  v18 = RtlLengthSid((PSID)a4);
+  RtlCopySid(v18, (PSID)(v17 + 8), (PSID)a4);
   v19 = RtlLengthSid((PSID)a4);
-  RtlCopySid(v19, (PSID)(v18 + 8), (PSID)a4);
-  v20 = RtlLengthSid((PSID)a4);
-  memmove((void *)(v20 + v18 + 8), Src, a8);
+  memmove((void *)(v19 + v17 + 8), Src, a8);
   ++*(_WORD *)(a1 + 4);
   result = 0LL;
   *(_BYTE *)a1 = v12;

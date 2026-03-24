@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReferenceIncomingPhysicalPages @ 0x14084FF5C
+ * XREFs of MiReferenceIncomingPhysicalPages @ 0x14084FF3C
  * Callers:
- *     NtMapUserPhysicalPages @ 0x1408513E0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x1408516D0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x1408513C0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408516B0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     MiDecrementAweMapCount @ 0x1402B002C (MiDecrementAweMapCount.c)
- *     MiGetAweNode @ 0x1402B0C18 (MiGetAweNode.c)
- *     MiIncrementAweMapCount @ 0x1402B0CB4 (MiIncrementAweMapCount.c)
- *     MiGetVadCacheAttribute @ 0x1402CAFE4 (MiGetVadCacheAttribute.c)
+ *     MiDecrementAweMapCount @ 0x1402B012C (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
+ *     MiIncrementAweMapCount @ 0x1402B0DB4 (MiIncrementAweMapCount.c)
+ *     MiGetVadCacheAttribute @ 0x1402CB0E4 (MiGetVadCacheAttribute.c)
  */
 
 __int64 __fastcall MiReferenceIncomingPhysicalPages(

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMappingNode @ 0x14015F884
+ * XREFs of MiRemoveMappingNode @ 0x14015F8A4
  * Callers:
- *     MmFreeMappingAddress @ 0x1406FC4D0 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x1406FC4B0 (MmFreeMappingAddress.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

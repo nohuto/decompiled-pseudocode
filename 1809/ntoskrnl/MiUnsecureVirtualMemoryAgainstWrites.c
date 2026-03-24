@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUnsecureVirtualMemoryAgainstWrites @ 0x1406ADF14
+ * XREFs of MiUnsecureVirtualMemoryAgainstWrites @ 0x1406ADEF4
  * Callers:
  *     MiRemoveSecureEntry @ 0x1400860C0 (MiRemoveSecureEntry.c)
  *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)

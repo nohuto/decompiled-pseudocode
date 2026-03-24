@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CopyTouchInputListSorted@@YAHPEBUtagTOUCHINPUTLIST@@PEAU1@HPEAIPEAH@Z @ 0x1C01D5A00
+ * XREFs of ?CopyTouchInputListSorted@@YAHPEBUtagTOUCHINPUTLIST@@PEAU1@HPEAIPEAH@Z @ 0x1C01DB51C
  * Callers:
- *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01D5C4C (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
+ *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01DB768 (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall CopyTouchInputListSorted(
@@ -76,7 +76,7 @@ __int64 __fastcall CopyTouchInputListSorted(
 LABEL_15:
           v19 = RtlNtStatusToDosError(-1073741811);
 LABEL_31:
-          UserSetLastError(v19, v9);
+          UserSetLastError(v19, v9, a3);
           return 0LL;
         }
         v17 = -1;
@@ -107,6 +107,7 @@ LABEL_17:
           goto LABEL_29;
         v22 = i - 1;
         v23 = *((_QWORD *)a2 + 1);
+        a3 = 6 * v22;
         if ( v29.m128i_i64[1] >= *(_QWORD *)(v23 + 48 * v22 + 8)
           && (v29.m128i_i64[1] != *(_QWORD *)(v23 + 48 * v22 + 8) || v11.m128i_i32[0] >= *(_DWORD *)(v23 + 48 * v22 + 16)) )
         {

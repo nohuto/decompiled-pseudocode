@@ -1,17 +1,19 @@
 /*
- * XREFs of IopQueryNameInternal @ 0x14070F744
+ * XREFs of IopQueryNameInternal @ 0x140620504
  * Callers:
- *     IoQueryFileDosDeviceName @ 0x14070F660 (IoQueryFileDosDeviceName.c)
- *     IopQueryName @ 0x14070F710 (IopQueryName.c)
+ *     IoQueryFileDosDeviceName @ 0x140620460 (IoQueryFileDosDeviceName.c)
+ *     IopQueryName @ 0x1406AE640 (IopQueryName.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopExceptionFilterMode @ 0x1405569F4 (IopExceptionFilterMode.c)
- *     IopGetFileInformation @ 0x14070FC40 (IopGetFileInformation.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     IoVolumeDeviceToDosName @ 0x140710B90 (IoVolumeDeviceToDosName.c)
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     IopExceptionFilterMode @ 0x140500AA4 (IopExceptionFilterMode.c)
+ *     IopGetFileInformation @ 0x140620A14 (IopGetFileInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x140620B50 (IoVolumeDeviceToDosName.c)
+ *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryNameInternal(
@@ -19,165 +21,165 @@ __int64 __fastcall IopQueryNameInternal(
         __int64 a2,
         char a3,
         UNICODE_STRING *a4,
-        unsigned int a5,
+        unsigned int NumberOfBytes,
         _DWORD *a6,
         char a7)
 {
-  __int64 v7; // rbx
+  __int64 v7; // r8
   UNICODE_STRING *v8; // r12
   char v9; // r13
-  unsigned int v10; // esi
-  UNICODE_STRING *v11; // r14
+  unsigned int v10; // r14d
+  UNICODE_STRING *v11; // rsi
   _DWORD *v12; // rcx
   NTSTATUS NameStringMode; // ebx
   UNICODE_STRING *v14; // rdx
   UNICODE_STRING *v15; // r15
   char v16; // r8
-  _DWORD *v17; // r10
   unsigned int Length; // ecx
+  __int64 v18; // r10
   char v19; // cl
   _DWORD *v20; // r13
-  char *v21; // r14
+  char *v21; // rsi
   NTSTATUS FileInformation; // eax
   int v23; // eax
   unsigned int v24; // eax
-  unsigned int v25; // esi
+  unsigned int v25; // r14d
   char *v26; // r15
-  int v28; // eax
-  UNICODE_STRING *Pool2; // rax
-  unsigned int v30; // eax
-  int v31; // ecx
-  const wchar_t *v32; // rdx
-  int v33; // r8d
-  __int16 v34; // cx
-  __int64 v35; // [rsp+40h] [rbp-68h] BYREF
-  char *v36; // [rsp+48h] [rbp-60h]
+  UNICODE_STRING *PoolWithTagPriority; // rax
+  unsigned int v29; // eax
+  int v30; // ecx
+  __int64 v31; // [rsp+40h] [rbp-68h] BYREF
+  char *v32; // [rsp+48h] [rbp-60h]
   PVOID P; // [rsp+50h] [rbp-58h]
-  _OWORD v38[5]; // [rsp+58h] [rbp-50h] BYREF
-  bool v40; // [rsp+B8h] [rbp+10h]
-  char v41; // [rsp+B8h] [rbp+10h]
-  char v42; // [rsp+C0h] [rbp+18h]
+  _OWORD v34[5]; // [rsp+58h] [rbp-50h] BYREF
+  bool v36; // [rsp+B8h] [rbp+10h]
+  char v37; // [rsp+B8h] [rbp+10h]
 
-  v42 = a3;
   v7 = a1;
-  LODWORD(v35) = 0;
+  LODWORD(v31) = 0;
   v8 = 0LL;
   P = 0LL;
-  v40 = 0;
+  v36 = 0;
   v9 = 0;
-  v38[0] = 0LL;
+  v34[0] = 0LL;
   v10 = 16;
-  if ( a5 >= 0x10 )
-    v10 = a5;
+  if ( NumberOfBytes >= 0x10 )
+    v10 = NumberOfBytes;
   if ( a7 == 1 )
   {
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, v10, 538996553LL);
-    v8 = Pool2;
-    P = Pool2;
-    if ( !Pool2 )
+    if ( (unsigned int)VfIsVerifierEnabled()
+      && ((VfRuleClasses & 0xFFAFFFFF) != 0
+       || (VfRuleClasses & 0x200000000LL) != 0
+       || (VfRuleClasses & 0x400000000LL) != 0) )
+    {
+      PoolWithTagPriority = (UNICODE_STRING *)ExAllocatePoolWithTagPriority(
+                                                PagedPool,
+                                                v10,
+                                                0x20206F49u,
+                                                (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+    }
+    else
+    {
+      PoolWithTagPriority = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, v10, 0x20206F49u);
+    }
+    v8 = PoolWithTagPriority;
+    P = PoolWithTagPriority;
+    if ( !PoolWithTagPriority )
     {
       NameStringMode = -1073741670;
-      goto LABEL_45;
+      goto LABEL_44;
     }
-    v11 = Pool2;
-    a3 = v42;
+    v11 = PoolWithTagPriority;
+    v7 = a1;
   }
   else
   {
-    v11 = (UNICODE_STRING *)v38;
-    if ( a5 >= 0x10 )
+    v11 = (UNICODE_STRING *)v34;
+    if ( NumberOfBytes >= 0x10 )
       v11 = a4;
   }
   v12 = *(_DWORD **)(v7 + 8);
   if ( !a3 )
-    goto LABEL_7;
-  v28 = v12[13];
-  if ( (v28 & 0x10) != 0 )
-  {
-    v32 = L"\\\\?\\vmsmb";
-    v33 = v28 & 0x80000;
-    if ( (v28 & 0x80000) == 0 )
-      v32 = L"\\";
-    LODWORD(v35) = v33 != 0 ? 36 : 20;
-    if ( (unsigned int)v35 > v10 )
-      goto LABEL_73;
-    NameStringMode = 0;
-    v34 = v33 != 0 ? 18 : 2;
-    v11->Length = v34;
-    v11->MaximumLength = v34;
-    v11->Buffer = &v11[1].Length;
-    memmove(&v11[1], v32, (-(__int64)(v33 != 0) & 0x10) + 4);
-  }
-  else
+    goto LABEL_47;
+  if ( (v12[13] & 0x10) == 0 )
   {
     NameStringMode = IoVolumeDeviceToDosName(v12, v11);
-    LODWORD(v35) = v11->Length + 18;
-  }
-  if ( NameStringMode < 0 )
-  {
+    LODWORD(v31) = v11->Length + 18;
     v7 = a1;
-LABEL_73:
-    v12 = *(_DWORD **)(v7 + 8);
-LABEL_7:
-    NameStringMode = ObQueryNameStringMode((_DWORD)v12, (_DWORD)v11, v10, (unsigned int)&v35, 0);
-    goto LABEL_8;
+    goto LABEL_9;
   }
-  v9 = 1;
-LABEL_8:
+  LODWORD(v31) = 20;
+  if ( v10 >= 0x14 )
+  {
+    NameStringMode = 0;
+    *(_DWORD *)&v11->Length = 131074;
+    v11[1].Length = 92;
+    v11->Buffer = &v11[1].Length;
+LABEL_9:
+    if ( NameStringMode >= 0 )
+    {
+      v9 = 1;
+      goto LABEL_11;
+    }
+  }
+  v12 = *(_DWORD **)(v7 + 8);
+LABEL_47:
+  NameStringMode = ObQueryNameStringMode((_DWORD)v12, (_DWORD)v11, v10, (unsigned int)&v31, 0);
+LABEL_11:
   if ( NameStringMode < 0 )
   {
     if ( NameStringMode != -1073741820 )
-      goto LABEL_45;
+      goto LABEL_44;
   }
   else if ( !v9 )
   {
-    v40 = v11->Length == 0;
+    v36 = v11->Length == 0;
   }
   v14 = a4;
   v15 = a4 + 1;
-  v16 = v42;
-  if ( !v42 || !v9 )
+  v16 = a3;
+  if ( a3 && v9 )
   {
-    if ( a7 == 1 && a5 >= 0x10 && (unsigned int)v35 <= v10 )
+    if ( v10 < (unsigned int)v31 )
+      Length = v10 - 16;
+    else
+      Length = v11->Length;
+    memmove(&a4[1], v11->Buffer, Length);
+    v18 = a1;
+    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 52LL) & 0x10) == 0 )
     {
-      a4->Length = v11->Length;
-      a4->MaximumLength = v11->MaximumLength;
-      memmove(v15, &v11[1], (unsigned int)v35 - 16LL);
+      ExFreePoolWithTag(v11->Buffer, 0);
       v14 = a4;
-      v17 = (_DWORD *)a1;
-      v16 = v42;
-      goto LABEL_22;
+      v16 = a3;
+LABEL_20:
+      v18 = a1;
+      goto LABEL_21;
     }
-    goto LABEL_21;
-  }
-  if ( v10 < (unsigned int)v35 )
-    Length = v10 - 16;
-  else
-    Length = v11->Length;
-  memmove(&a4[1], v11->Buffer, Length);
-  v17 = (_DWORD *)a1;
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 52LL) & 0x10) == 0 )
-  {
-    ExFreePoolWithTag(v11->Buffer, 0);
     v14 = a4;
-    v16 = v42;
-LABEL_21:
-    v17 = (_DWORD *)a1;
-    goto LABEL_22;
+    v16 = a3;
   }
-  v14 = a4;
-  v16 = v42;
-LABEL_22:
-  if ( v40 )
-    LODWORD(v35) = v35 + 2;
+  else
+  {
+    if ( a7 != 1 || NumberOfBytes < 0x10 || (unsigned int)v31 > v10 )
+      goto LABEL_20;
+    a4->Length = v11->Length;
+    a4->MaximumLength = v11->MaximumLength;
+    memmove(v15, &v11[1], (unsigned int)v31 - 16LL);
+    v14 = a4;
+    v18 = a1;
+    v16 = a3;
+  }
+LABEL_21:
+  if ( v36 )
+    LODWORD(v31) = v31 + 2;
   v19 = 0;
-  v41 = 0;
-  if ( a5 < 0x10 || (unsigned int)v35 > v10 )
+  v37 = 0;
+  if ( NumberOfBytes < 0x10 || (unsigned int)v31 > v10 )
   {
     v20 = a6;
-    *a6 = v35;
+    *a6 = v31;
     v19 = 1;
-    v41 = 1;
+    v37 = 1;
   }
   else
   {
@@ -191,45 +193,45 @@ LABEL_22:
   }
   else if ( v19 )
   {
-    v21 = (char *)v38;
-    if ( a5 >= 0x10 )
+    v21 = (char *)v34;
+    if ( NumberOfBytes >= 0x10 )
       v21 = (char *)v14;
   }
   else
   {
     v21 = (char *)&v15[-1].Buffer + 4;
-    LODWORD(v36) = HIDWORD(v15[-1].Buffer);
+    LODWORD(v32) = HIDWORD(v15[-1].Buffer);
   }
-  if ( (a7 != 1 || v16) && (v17[20] & 2) != 0 )
-    FileInformation = IopGetFileInformation(v17, (__int64)&v35);
+  if ( (a7 != 1 || v16) && (*(_DWORD *)(v18 + 80) & 2) != 0 )
+    FileInformation = IopGetFileInformation((PADAPTER_OBJECT)v18, (__int64)&v31);
   else
-    FileInformation = IopQueryXxxInformation(v17, (__int64)v21, (__int64)&v35, 1);
+    FileInformation = IopQueryXxxInformation((PADAPTER_OBJECT)v18, (__int64)v21, (__int64)&v31, 1);
   NameStringMode = FileInformation;
   if ( (FileInformation & 0xC0000000) == 0xC0000000 )
   {
-    v30 = FileInformation + 1073741822;
+    v29 = FileInformation + 1073741822;
     if ( (unsigned int)(NameStringMode + 1073741822) > 0xE )
-      goto LABEL_45;
-    v31 = 18435;
-    if ( !_bittest(&v31, v30) )
-      goto LABEL_45;
-    LODWORD(v35) = 4;
+      goto LABEL_44;
+    v30 = 18435;
+    if ( !_bittest(&v30, v29) )
+      goto LABEL_44;
+    LODWORD(v31) = 4;
     *(_DWORD *)v21 = 0;
     *((_WORD *)v21 + 2) = 92;
     NameStringMode = 0;
-    v23 = v35;
+    v23 = v31;
   }
   else
   {
-    v23 = v35;
-    if ( (unsigned int)v35 < 4 )
+    v23 = v31;
+    if ( (unsigned int)v31 < 4 )
       v23 = 4;
-    LODWORD(v35) = v23;
+    LODWORD(v31) = v23;
   }
-  if ( v41 )
+  if ( v37 )
   {
     *v20 += *(_DWORD *)v21;
-    NameStringMode = a5 < 0x10 ? -1073741820 : -2147483643;
+    NameStringMode = NumberOfBytes < 0x10 ? -1073741820 : -2147483643;
   }
   else
   {
@@ -237,18 +239,18 @@ LABEL_22:
     v25 = *(_DWORD *)v21;
     if ( v24 <= *(_DWORD *)v21 )
       v25 = v24;
-    LODWORD(v35) = (_DWORD)v15 + *(_DWORD *)v21 - (_DWORD)a4;
+    LODWORD(v31) = (_DWORD)v15 + *(_DWORD *)v21 - (_DWORD)a4;
     if ( *((_WORD *)v21 + 2) == 92 )
     {
       if ( a7 == 1 )
         memmove(v15, v21 + 4, v25);
       else
-        *(_DWORD *)v21 = (_DWORD)v36;
+        *(_DWORD *)v21 = (_DWORD)v32;
       v26 = (char *)v15 + v25;
-      v36 = v26;
+      v32 = v26;
       *(_WORD *)v26 = 0;
-      LODWORD(v35) = v35 + 2;
-      *v20 = v35;
+      LODWORD(v31) = v31 + 2;
+      *v20 = v31;
       LOWORD(v26) = (_WORD)v26 - (_WORD)a4;
       a4->Length = (_WORD)v26 - 16;
       a4->MaximumLength = (_WORD)v26 - 14;
@@ -258,7 +260,7 @@ LABEL_22:
       NameStringMode = -1073741767;
     }
   }
-LABEL_45:
+LABEL_44:
   if ( v8 )
     ExFreePoolWithTag(v8, 0);
   return (unsigned int)NameStringMode;

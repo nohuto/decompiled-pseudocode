@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetQuantumProcess @ 0x1402EC4D0
+ * XREFs of KeSetQuantumProcess @ 0x1402E9E24
  * Callers:
- *     KeSetPriorityAndQuantumProcess @ 0x1402EBB58 (KeSetPriorityAndQuantumProcess.c)
- *     PspApplyJobLimitsToProcess @ 0x140683890 (PspApplyJobLimitsToProcess.c)
- *     PsChangeQuantumTable @ 0x14068F5DC (PsChangeQuantumTable.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1402E9944 (KeSetPriorityAndQuantumProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x14060596C (PspApplyJobLimitsToProcess.c)
+ *     PsChangeQuantumTable @ 0x14078C7B8 (PsChangeQuantumTable.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeSetQuantumProcess(__int64 a1, char a2)

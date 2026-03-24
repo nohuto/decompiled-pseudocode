@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateHotPatchRecord @ 0x14085401C
+ * XREFs of MiAllocateHotPatchRecord @ 0x140853FFC
  * Callers:
- *     MiLoadHotPatch @ 0x1408559F8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C58 (MiLoadHotPatchForUserSid.c)
- *     MmRegisterHotPatch @ 0x1409F71C0 (MmRegisterHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
+ *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

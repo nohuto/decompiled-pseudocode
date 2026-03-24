@@ -1,11 +1,11 @@
 /*
- * XREFs of CleanupPowerRequestList @ 0x1C007E690
+ * XREFs of CleanupPowerRequestList @ 0x1C0076300
  * Callers:
- *     CleanupResources @ 0x1C00522CC (CleanupResources.c)
+ *     CleanupResources @ 0x1C000716C (CleanupResources.c)
  * Callees:
- *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C007C6E0 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
- *     ?CleanupPowerWatchdog@@YAXPEAPEAX@Z @ 0x1C007E6FC (-CleanupPowerWatchdog@@YAXPEAPEAX@Z.c)
- *     ?CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z @ 0x1C0146AA0 (-CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z.c)
+ *     ?CleanupPowerWatchdog@@YAXPEAPEAX@Z @ 0x1C007636C (-CleanupPowerWatchdog@@YAXPEAPEAX@Z.c)
+ *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C0076A60 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
+ *     ?CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z @ 0x1C0118390 (-CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z.c)
  */
 
 void CleanupPowerRequestList()

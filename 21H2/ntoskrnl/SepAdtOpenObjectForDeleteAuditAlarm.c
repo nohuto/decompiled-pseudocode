@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtOpenObjectForDeleteAuditAlarm @ 0x1409C9784
+ * XREFs of SepAdtOpenObjectForDeleteAuditAlarm @ 0x14091FD20
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB230 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921810 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 char __fastcall SepAdtOpenObjectForDeleteAuditAlarm(
@@ -70,7 +70,7 @@ char __fastcall SepAdtOpenObjectForDeleteAuditAlarm(
   }
   if ( a5 )
   {
-    if ( a1 == 116 || (LODWORD(Src[23]) = 1, a1 == 128) )
+    if ( a1 == 117 || (LODWORD(Src[23]) = 1, a1 == 129) )
       LODWORD(Src[23]) = 2;
     v21 = *a5;
     Src[26] = a5;

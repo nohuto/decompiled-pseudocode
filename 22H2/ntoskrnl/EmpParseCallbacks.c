@@ -1,19 +1,19 @@
 /*
- * XREFs of EmpParseCallbacks @ 0x140B5560C
+ * XREFs of EmpParseCallbacks @ 0x140A45CF4
  * Callers:
- *     EmpParseInfDatabase @ 0x140B551A0 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
  * Callees:
- *     EmpSearchCallbackDatabase @ 0x1403879A8 (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x1403879E0 (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strtoul @ 0x1403D87D8 (strtoul.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140B55E34 (CmpGetSectionLineIndexValueCount.c)
- *     EmpInfParseGetGuidFromName @ 0x140B562B0 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140B5635C (EmpInfParseGetSectionLineCount.c)
- *     CmpGetSectionLineIndex @ 0x140B56900 (CmpGetSectionLineIndex.c)
- *     CmpGetKeyName @ 0x140B56A20 (CmpGetKeyName.c)
+ *     EmpSearchCallbackDatabase @ 0x1403B3E84 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x1403B3EBC (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strtoul @ 0x1403D0E00 (strtoul.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140A46534 (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetGuidFromName @ 0x140A469DC (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140A46A88 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140A46FF4 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x140A47114 (CmpGetKeyName.c)
  */
 
 __int64 __fastcall EmpParseCallbacks(__int64 a1)
@@ -24,8 +24,8 @@ __int64 __fastcall EmpParseCallbacks(__int64 a1)
   __int64 KeyName; // rbx
   unsigned int SectionLineIndexValueCount; // eax
   unsigned int v7; // r15d
-  __int64 Pool2; // rax
-  __int64 v9; // rdi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v9; // rdi
   void *v10; // rcx
   const char *SectionLineIndex; // rax
   const char *v12; // rax
@@ -49,36 +49,38 @@ __int64 __fastcall EmpParseCallbacks(__int64 a1)
       SectionLineIndexValueCount = CmpGetSectionLineIndexValueCount(a1, "CallbackDef", v2);
       v7 = SectionLineIndexValueCount;
       if ( SectionLineIndexValueCount < 2 )
-        goto LABEL_19;
-      Pool2 = ExAllocatePool2(256LL, (int)(8 * SectionLineIndexValueCount + 56), 0x74694D45u);
-      v9 = Pool2;
-      if ( !Pool2 )
+        goto LABEL_20;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (int)(8 * SectionLineIndexValueCount + 56), 0x74694D45u);
+      v9 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
-      GuidFromName = EmpInfParseGetGuidFromName(a1, "CallbackGuidDef", KeyName, Pool2, v18, *((_QWORD *)&v18 + 1));
-      v10 = (void *)v9;
-      if ( GuidFromName < 0 || EmpSearchCallbackDatabase((_QWORD *)v9) )
-        goto LABEL_18;
-      *(_DWORD *)(v9 + 64) = v7 - 2;
+      GuidFromName = EmpInfParseGetGuidFromName(a1, "CallbackGuidDef", KeyName, PoolWithTag, v18, *((_QWORD *)&v18 + 1));
+      v10 = v9;
+      if ( GuidFromName < 0 || EmpSearchCallbackDatabase(v9) )
+        goto LABEL_19;
+      *((_DWORD *)v9 + 16) = v7 - 2;
       SectionLineIndex = (const char *)CmpGetSectionLineIndex(a1, "CallbackDef", v2, 0LL);
       if ( !SectionLineIndex )
-        goto LABEL_17;
-      *(_DWORD *)(v9 + 56) = strtoul(SectionLineIndex, 0LL, 10);
+        goto LABEL_18;
+      *((_DWORD *)v9 + 14) = strtoul(SectionLineIndex, 0LL, 10);
       v12 = (const char *)CmpGetSectionLineIndex(a1, "CallbackDef", v2, 1LL);
       if ( !v12 )
-        goto LABEL_17;
+        goto LABEL_18;
       v13 = 2;
-      *(_DWORD *)(v9 + 60) = strtoul(v12, 0LL, 10);
+      *((_DWORD *)v9 + 15) = strtoul(v12, 0LL, 10);
       if ( v7 > 2 )
         break;
 LABEL_10:
-      *(_QWORD *)(v9 + 48) = 0LL;
-      *(_QWORD *)(v9 + 16) = 0LL;
-      *(_DWORD *)(v9 + 24) = 0;
-      *(_QWORD *)(v9 + 32) = 0LL;
+      if ( GuidFromName < 0 )
+        goto LABEL_18;
+      v9[6] = 0LL;
+      v9[2] = 0LL;
+      *((_DWORD *)v9 + 6) = 0;
+      v9[4] = 0LL;
       ++EmpNumberOfCallbacks;
-      *(_QWORD *)(v9 + 40) = EmpCallbackListHead;
-      EmpCallbackListHead = v9 + 40;
-LABEL_11:
+      v9[5] = EmpCallbackListHead;
+      EmpCallbackListHead = (__int64)(v9 + 5);
+LABEL_12:
       if ( ++v2 >= SectionLineCount )
         return (unsigned int)GuidFromName;
     }
@@ -94,20 +96,23 @@ LABEL_11:
         break;
       v16 = EmpSearchEntryDatabase(&v18);
       if ( !v16 )
-        break;
+      {
+        GuidFromName = -1073741275;
+        goto LABEL_10;
+      }
       v17 = v13 - 2;
       ++v13;
-      *(_QWORD *)(v9 + 8 * v17 + 72) = v16;
+      v9[v17 + 9] = v16;
       if ( v13 >= v7 )
         goto LABEL_10;
     }
-LABEL_17:
-    v10 = (void *)v9;
 LABEL_18:
-    ExFreePoolWithTag(v10, 0x74694D45u);
+    v10 = v9;
 LABEL_19:
+    ExFreePoolWithTag(v10, 0x74694D45u);
+LABEL_20:
     GuidFromName = 0;
-    goto LABEL_11;
+    goto LABEL_12;
   }
   return (unsigned int)GuidFromName;
 }

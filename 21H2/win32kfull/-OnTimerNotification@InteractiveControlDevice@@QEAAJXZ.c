@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnTimerNotification@InteractiveControlDevice@@QEAAJXZ @ 0x1C0254554
+ * XREFs of ?OnTimerNotification@InteractiveControlDevice@@QEAAJXZ @ 0x1C0257828
  * Callers:
- *     _lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_ @ 0x1C0253690 (_lambda_947f1e7f3cd2cfe4f04f18e4940370e8_--_lambda_invoker_cdecl_.c)
+ *     _lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_ @ 0x1C0256900 (_lambda_947f1e7f3cd2cfe4f04f18e4940370e8_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0253FF8 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
- *     ?SendHapticFeedbackOutput@InteractiveControlDevice@@QEAAJAEBU_SIMPLEHAPTICCTRL_FEEDBACK_DATA@@@Z @ 0x1C02549E4 (-SendHapticFeedbackOutput@InteractiveControlDevice@@QEAAJAEBU_SIMPLEHAPTICCTRL_FEEDBACK_DATA@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0257288 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
+ *     ?SendHapticFeedbackOutput@InteractiveControlDevice@@QEAAJAEBU_SIMPLEHAPTICCTRL_FEEDBACK_DATA@@@Z @ 0x1C0257CB8 (-SendHapticFeedbackOutput@InteractiveControlDevice@@QEAAJAEBU_SIMPLEHAPTICCTRL_FEEDBACK_DATA@@@Z.c)
  */
 
 __int64 __fastcall InteractiveControlDevice::OnTimerNotification(InteractiveControlDevice *this)

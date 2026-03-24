@@ -1,10 +1,10 @@
 /*
- * XREFs of SmQueryStoreCommitUsage @ 0x140306410
+ * XREFs of SmQueryStoreCommitUsage @ 0x140306510
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x1402A4E74 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1402A4F74 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     SmpProcessQueryStoreStats @ 0x140306488 (SmpProcessQueryStoreStats.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     SmpProcessQueryStoreStats @ 0x140306588 (SmpProcessQueryStoreStats.c)
  */
 
 __int64 __fastcall SmQueryStoreCommitUsage(__int64 a1, _QWORD *a2)

@@ -1,98 +1,96 @@
 /*
- * XREFs of NtGdiDeleteObjectApp @ 0x1C0024430
+ * XREFs of NtGdiDeleteObjectApp @ 0x1C0032310
  * Callers:
  *     <none>
  * Callees:
- *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C001C9F4 (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C001E010 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockCheckIgnoreStockBit @ 0x1C001FE90 (HmgShareLockCheckIgnoreStockBit.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?AcquireEntryLock@GdiHandleEntryTable@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0022520 (-AcquireEntryLock@GdiHandleEntryTable@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0022610 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     IsThreadCrossSessionAttached @ 0x1C0022CC0 (IsThreadCrossSessionAttached.c)
- *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0023E50 (-vDeleteREGION@REGION@@QEAAXXZ.c)
- *     ?bDeleteHandle@RGNOBJAPI@@QEAAHXZ @ 0x1C0024DB0 (-bDeleteHandle@RGNOBJAPI@@QEAAHXZ.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002E884 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     bDeleteDCInternal @ 0x1C00518F0 (bDeleteDCInternal.c)
- *     bDeletePalette @ 0x1C0093780 (bDeletePalette.c)
- *     HmgFreeObjectAttr @ 0x1C00AD9C8 (HmgFreeObjectAttr.c)
- *     bDeleteFont @ 0x1C00BE158 (bDeleteFont.c)
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C00D8BE8 (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     bDeleteDCInternal @ 0x1C0007A80 (bDeleteDCInternal.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002B9F0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C002FDB0 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z @ 0x1C002FEF0 (-GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0030000 (IsThreadCrossSessionAttached.c)
+ *     HmgShareLockCheckIgnoreStockBit @ 0x1C00319D0 (HmgShareLockCheckIgnoreStockBit.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?bDeleteHandle@RGNOBJAPI@@QEAAHXZ @ 0x1C0034C5C (-bDeleteHandle@RGNOBJAPI@@QEAAHXZ.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C0034CB0 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0038BA4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     bDeletePalette @ 0x1C0082990 (bDeletePalette.c)
+ *     HmgFreeObjectAttr @ 0x1C009AF04 (HmgFreeObjectAttr.c)
+ *     bDeleteFont @ 0x1C00AC43C (bDeleteFont.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C00C7C50 (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C8F1C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall NtGdiDeleteObjectApp(HRGN a1)
+__int64 __fastcall NtGdiDeleteObjectApp(struct HOBJ__ *a1)
 {
-  unsigned int v3; // r15d
+  unsigned int v3; // r12d
   int v4; // ebx
-  unsigned int v5; // edi
-  unsigned int v6; // r12d
+  unsigned int v5; // esi
+  unsigned int v6; // edi
   __int64 v7; // r8
-  unsigned int v8; // edx
-  __int64 v9; // rdx
-  int v10; // ebx
-  int v11; // ebx
+  unsigned int v8; // r15d
+  unsigned int v9; // edx
+  __int64 v10; // rcx
+  __int64 v11; // r10
   int v12; // ebx
   int v13; // ebx
-  int v14; // ecx
-  unsigned int v15; // edi
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  struct _SLIST_ENTRY *Next; // r15
-  _DWORD *v19; // rsi
-  __int64 *CurrentThreadWin32ThreadAndEnterCriticalRegion; // r14
-  __int64 v21; // r14
-  __int64 v22; // r14
-  GdiHandleManager *v23; // rbx
-  unsigned int v24; // eax
-  __int64 v25; // r9
+  int v14; // ebx
+  int v15; // ebx
+  int v16; // ecx
+  DYNAMICMODECHANGESHARELOCK *v17; // rcx
+  __int64 v18; // rsi
+  __int64 v19; // r14
+  __int64 CurrentThreadWin32ThreadAndEnterCriticalRegion; // rbx
+  __int64 v21; // r13
+  GdiHandleManager *v22; // rbx
+  unsigned int v23; // eax
+  __int64 v24; // r12
+  unsigned int v25; // esi
   unsigned int v26; // edx
-  unsigned int v27; // ecx
-  GdiHandleEntryTable *v28; // r9
-  struct _ENTRY *v29; // rax
-  unsigned int v30; // edx
-  char v31; // cl
-  GdiHandleManager *v32; // rbx
-  unsigned int v33; // eax
-  __int64 v34; // r8
-  unsigned __int64 v35; // rdx
-  unsigned int v36; // r9d
-  __int64 v37; // r8
-  __int64 v38; // rdx
-  GdiHandleManager *v39; // rbx
-  unsigned int v40; // eax
-  __int64 v41; // r15
-  unsigned int v42; // r9d
-  int v43; // r13d
-  unsigned int v44; // ebx
-  __int64 v45; // r8
-  __int64 v46; // r14
-  unsigned int v47; // eax
-  __int64 v48; // r8
-  __int64 v49; // r9
-  __int64 v50; // rcx
-  unsigned __int64 v51; // rdx
-  struct _SLIST_ENTRY *v52; // rdx
-  __int64 v53; // rbx
-  int v54; // ebx
-  _QWORD *CurrentProcessWin32Process; // rax
-  _QWORD *v56; // r15
-  __int64 ProcessWow64Process; // rax
-  int v58; // ecx
-  unsigned __int64 v59; // rsi
-  struct _ENTRY *v60; // [rsp+30h] [rbp-39h] BYREF
-  int v61; // [rsp+38h] [rbp-31h]
-  int v62; // [rsp+3Ch] [rbp-2Dh]
-  __int64 v63; // [rsp+50h] [rbp-19h]
-  PSLIST_ENTRY ListEntry[7]; // [rsp+58h] [rbp-11h] BYREF
-  char v65; // [rsp+D0h] [rbp+67h] BYREF
-  __int64 v66; // [rsp+D8h] [rbp+6Fh] BYREF
-  GdiHandleManager *v67; // [rsp+E0h] [rbp+77h]
+  __int64 v27; // rcx
+  __int64 v28; // r12
+  __int64 v29; // rbx
+  __int64 v30; // rcx
+  unsigned int v31; // ecx
+  char v32; // al
+  int v33; // edx
+  GdiHandleManager *v34; // rbx
+  unsigned int v35; // eax
+  __int64 v36; // r9
+  unsigned __int64 v37; // rdx
+  unsigned int v38; // r8d
+  __int64 v39; // rcx
+  __int64 v40; // r10
+  __int64 v41; // rdx
+  GdiHandleManager *v42; // r13
+  unsigned int v43; // eax
+  __int64 v44; // r14
+  unsigned int v45; // r8d
+  int v46; // r12d
+  unsigned int v47; // esi
+  __int64 v48; // rcx
+  __int64 v49; // r10
+  __int64 v50; // rbx
+  unsigned int v51; // eax
+  unsigned __int64 v52; // rdx
+  __int64 v53; // rcx
+  __int64 v54; // r8
+  REGION *v55; // rdx
+  int v56; // ebx
+  __int64 v57; // [rsp+30h] [rbp-69h] BYREF
+  int v58; // [rsp+38h] [rbp-61h]
+  int v59; // [rsp+3Ch] [rbp-5Dh]
+  REGION *v60[7]; // [rsp+48h] [rbp-51h] BYREF
+  _BYTE v61[32]; // [rsp+80h] [rbp-19h] BYREF
+  __int64 v62; // [rsp+A0h] [rbp+7h]
+  __int64 v63; // [rsp+108h] [rbp+6Fh]
+  __int64 v64; // [rsp+110h] [rbp+77h] BYREF
+  __int64 v65; // [rsp+118h] [rbp+7Fh]
 
   if ( ((unsigned int)a1 & 0x800000) != 0 )
     return 1LL;
@@ -115,242 +113,232 @@ __int64 __fastcall NtGdiDeleteObjectApp(HRGN a1)
       v5 = (unsigned __int16)a1;
     }
   }
-  v6 = 1;
+  v6 = 0;
   v7 = *((_QWORD *)gpHandleManager + 2);
-  v8 = *(_DWORD *)(v7 + 2056);
-  if ( v5 < v8 + ((*(unsigned __int16 *)(v7 + 2) + 0xFFFF) << 16) )
+  v8 = 1;
+  v9 = *(_DWORD *)(v7 + 2056);
+  if ( v5 < v9 + ((*(unsigned __int16 *)(v7 + 2) + 0xFFFF) << 16) )
   {
-    if ( v5 >= v8 )
+    v10 = ((v5 - v9) >> 16) + 1;
+    if ( v5 < v9 )
+      v10 = 0LL;
+    v11 = *(_QWORD *)(v7 + 8 * v10 + 8);
+    if ( (_DWORD)v10 )
+      v5 += ((1 - (_DWORD)v10) << 16) - v9;
+    v7 = 0LL;
+    if ( v5 < *(_DWORD *)(v11 + 20)
+      && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v11 + 24) + 8 * ((unsigned __int64)v5 >> 8))
+                   + 16LL * (unsigned __int8)v5
+                   + 8) )
     {
-      v7 = *(_QWORD *)(v7 + 8LL * (((v5 - v8) >> 16) + 1) + 8);
-      v5 += -65536 * ((v5 - v8) >> 16) - v8;
+      v7 = *(_QWORD *)v11 + 24LL * v5;
     }
-    else
+    if ( v7
+      && *(unsigned __int8 *)(v7 + 14) == v4
+      && *(_WORD *)(v7 + 12) == (_WORD)v3
+      && (*(_DWORD *)(v7 + 8) & 0xFFFFFFFE) == 0 )
     {
-      v7 = *(_QWORD *)(v7 + 8);
-    }
-    if ( v5 < *(_DWORD *)(v7 + 20) )
-    {
-      if ( *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v7 + 24) + 8 * ((unsigned __int64)v5 >> 8))
-                     + 16LL * (unsigned __int8)v5
-                     + 8) )
-      {
-        v9 = *(_QWORD *)v7 + 24LL * v5;
-        if ( v9 )
-        {
-          if ( *(unsigned __int8 *)(v9 + 14) == v4
-            && *(_WORD *)(v9 + 12) == (_WORD)v3
-            && (*(_DWORD *)(v9 + 8) & 0xFFFFFFFE) == 0 )
-          {
-            return a1 != 0LL;
-          }
-        }
-      }
+      LOBYTE(v6) = a1 != 0LL;
+      return v6;
     }
   }
   if ( v4 == 4 )
   {
-    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)ListEntry, a1, 0, 0);
-    if ( !ListEntry[0] || LODWORD(ListEntry[0][2].Next) )
-      goto LABEL_109;
-    Next = ListEntry[0]->Next;
+    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v60, (HRGN)a1, 0, 0);
+    if ( !v60[0] || *((_DWORD *)v60[0] + 8) )
+      goto LABEL_111;
+    v18 = *(_QWORD *)v60[0];
+    v65 = *(_QWORD *)v60[0];
     v19 = 0LL;
-    v66 = 0LL;
-    CurrentThreadWin32ThreadAndEnterCriticalRegion = (__int64 *)PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion(
-                                                                  &v66,
-                                                                  v16,
-                                                                  v17);
+    v64 = 0LL;
+    CurrentThreadWin32ThreadAndEnterCriticalRegion = PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion(&v64);
     if ( !IsThreadCrossSessionAttached()
       && CurrentThreadWin32ThreadAndEnterCriticalRegion
-      && (v21 = *CurrentThreadWin32ThreadAndEnterCriticalRegion) != 0 )
+      && *(_QWORD *)CurrentThreadWin32ThreadAndEnterCriticalRegion )
     {
-      v22 = *(_QWORD *)(v21 + 72);
+      v21 = *(_QWORD *)(*(_QWORD *)CurrentThreadWin32ThreadAndEnterCriticalRegion + 72LL);
     }
     else
     {
-      v22 = 0LL;
+      v21 = 0LL;
     }
-    v23 = gpHandleManager;
-    v61 = 1;
-    v24 = GdiHandleManager::DecodeIndex(
+    v22 = gpHandleManager;
+    v58 = 1;
+    v23 = GdiHandleManager::DecodeIndex(
             (GdiHandleEntryDirectory **)gpHandleManager,
-            (unsigned __int16)Next | ((unsigned int)Next >> 8) & 0xFF0000);
-    v25 = *((_QWORD *)v23 + 2);
-    v26 = v24;
-    v27 = *(_DWORD *)(v25 + 2056);
-    if ( v24 >= v27 + ((*(unsigned __int16 *)(v25 + 2) + 0xFFFF) << 16)
-      || (v24 >= v27
-        ? (GdiHandleEntryTable *)(v28 = *(GdiHandleEntryTable **)(v25 + 8LL * (((v24 - v27) >> 16) + 1) + 8),
-                                  v26 = -65536 * ((v24 - v27) >> 16) - v27 + v24)
-        : (v28 = *(GdiHandleEntryTable **)(v25 + 8)),
-          v29 = GdiHandleEntryTable::AcquireEntryLock(v28, v26, 0),
-          (v60 = v29) == 0LL) )
+            (unsigned __int16)v18 | ((unsigned int)v18 >> 8) & 0xFF0000);
+    v24 = *((_QWORD *)v22 + 2);
+    v25 = v23;
+    v26 = *(_DWORD *)(v24 + 2056);
+    if ( v23 >= v26 + ((*(unsigned __int16 *)(v24 + 2) + 0xFFFF) << 16) )
+      goto LABEL_107;
+    v27 = ((v23 - v26) >> 16) + 1;
+    if ( v23 < v26 )
+      v27 = 0LL;
+    v28 = *(_QWORD *)(v24 + 8 * v27 + 8);
+    if ( (_DWORD)v27 )
+      v25 = ((1 - (_DWORD)v27) << 16) - v26 + v23;
+    v29 = 0LL;
+    if ( v25 < *(_DWORD *)(v28 + 20) )
     {
-      KeLeaveCriticalRegion();
-      goto LABEL_106;
-    }
-    _m_prefetchw((char *)v29 + 8);
-    v62 = *((_DWORD *)v29 + 2);
-    v30 = v62 & 0xFFFFFFFE;
-    if ( (v62 & 0xFFFFFFFE) != (v66 & 0xFFFFFFFC) && v30 && (!v22 || v30 != *(_DWORD *)(v22 + 8)) )
-      goto LABEL_65;
-    v31 = *((_BYTE *)v29 + 15);
-    if ( (v31 & 0x20) != 0 )
-      goto LABEL_65;
-    if ( (v31 & 0x40) == 0 )
-    {
-LABEL_67:
-      if ( *((_BYTE *)v29 + 14) != 4 || *((_WORD *)v29 + 6) != WORD1(Next) )
-        HANDLELOCK::vUnlock((HANDLELOCK *)&v60);
-      if ( !v61 )
-        goto LABEL_106;
-      v39 = gpHandleManager;
-      v67 = gpHandleManager;
-      v40 = GdiHandleManager::DecodeIndex(
-              (GdiHandleEntryDirectory **)gpHandleManager,
-              (unsigned __int16)ListEntry[0]->Next | ((unsigned __int64)ListEntry[0]->Next >> 8) & 0xFF0000);
-      v41 = *((_QWORD *)v39 + 2);
-      v42 = v40;
-      v43 = *(unsigned __int16 *)(v41 + 2);
-      v44 = *(_DWORD *)(v41 + 2056);
-      if ( v40 >= v44 + ((v43 + 0xFFFF) << 16) )
+      v63 = *(_QWORD *)(**(_QWORD **)(v28 + 24) + 8 * ((unsigned __int64)v25 >> 8)) + 16LL * (unsigned __int8)v25;
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx(v63, 0LL);
+      if ( GdiHandleEntryTable::GetEntryObject((GdiHandleEntryTable *)v28, v25) )
       {
-        v46 = 0LL;
+        v30 = 24LL * v25;
+        *(_DWORD *)(v30 + *(_QWORD *)v28 + 8) |= 1u;
+        v29 = v30 + *(_QWORD *)v28;
       }
       else
       {
-        if ( v40 >= v44 )
-        {
-          v45 = *(_QWORD *)(v41 + 8LL * (((v40 - v44) >> 16) + 1) + 8);
-          v40 += -65536 * ((v40 - v44) >> 16) - v44;
-        }
-        else
-        {
-          v45 = *(_QWORD *)(v41 + 8);
-        }
-        v46 = 0LL;
-        if ( v40 < *(_DWORD *)(v45 + 20)
-          && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v45 + 24) + 8 * ((unsigned __int64)v40 >> 8))
-                       + 16LL * (unsigned __int8)v40
+        ExReleasePushLockExclusiveEx(v63, 0LL);
+        KeLeaveCriticalRegion();
+      }
+    }
+    v57 = v29;
+    if ( !v29 )
+    {
+LABEL_107:
+      KeLeaveCriticalRegion();
+      goto LABEL_108;
+    }
+    _m_prefetchw((const void *)(v29 + 8));
+    v59 = *(_DWORD *)(v29 + 8);
+    v31 = v59 & 0xFFFFFFFE;
+    if ( (v59 & 0xFFFFFFFE) != (v64 & 0xFFFFFFFC) && v31 && (!v21 || v31 != *(_DWORD *)(v21 + 8)) )
+      goto LABEL_73;
+    v32 = *(_BYTE *)(v29 + 15);
+    if ( (v32 & 0x20) != 0 )
+      goto LABEL_73;
+    if ( (v32 & 0x40) == 0 )
+    {
+LABEL_75:
+      if ( *(_BYTE *)(v29 + 14) != 4 || *(_WORD *)(v29 + 12) != WORD1(v65) )
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v57);
+      if ( !v58 )
+        goto LABEL_108;
+      v42 = gpHandleManager;
+      v43 = GdiHandleManager::DecodeIndex(
+              (GdiHandleEntryDirectory **)gpHandleManager,
+              (unsigned __int16)*(_DWORD *)v60[0] | (*(_DWORD *)v60[0] >> 8) & 0xFF0000u);
+      v44 = *((_QWORD *)v42 + 2);
+      v45 = v43;
+      v46 = *(unsigned __int16 *)(v44 + 2);
+      v47 = *(_DWORD *)(v44 + 2056);
+      if ( v43 >= v47 + ((v46 + 0xFFFF) << 16) )
+      {
+        v50 = 0LL;
+      }
+      else
+      {
+        v48 = ((v43 - v47) >> 16) + 1;
+        if ( v43 < v47 )
+          v48 = 0LL;
+        v49 = *(_QWORD *)(v44 + 8 * v48 + 8);
+        if ( (_DWORD)v48 )
+          v43 += ((1 - (_DWORD)v48) << 16) - v47;
+        v50 = 0LL;
+        if ( v43 < *(_DWORD *)(v49 + 20)
+          && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v49 + 24) + 8 * ((unsigned __int64)v43 >> 8))
+                       + 16LL * (unsigned __int8)v43
                        + 8) )
         {
-          v46 = *(_QWORD *)v45 + 24LL * v40;
+          v50 = *(_QWORD *)v49 + 24LL * v43;
         }
-        LOWORD(v43) = *(_WORD *)(v41 + 2);
       }
-      v47 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v67, v42);
-      v50 = v44 + (((unsigned __int16)v43 + 0xFFFF) << 16);
-      v51 = v47;
-      if ( v47 >= (unsigned int)v50
-        || (v47 >= v44
-          ? (v50 = ((v47 - v44) >> 16) + 1,
-             v48 = *(_QWORD *)(v41 + 8 * v50 + 8),
-             v51 = -65536 * ((v47 - v44) >> 16) - v44 + v47)
-          : (v48 = *(_QWORD *)(v41 + 8)),
-            (unsigned int)v51 >= *(_DWORD *)(v48 + 20)) )
+      v51 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v42, v45);
+      v52 = v51;
+      if ( v51 >= v47 + ((v46 + 0xFFFF) << 16) )
+        goto LABEL_95;
+      v53 = ((v51 - v47) >> 16) + 1;
+      if ( v51 < v47 )
+        v53 = 0LL;
+      v54 = *(_QWORD *)(v44 + 8 * v53 + 8);
+      if ( (_DWORD)v53 )
+        v52 = ((1 - (_DWORD)v53) << 16) - v47 + v51;
+      if ( (unsigned int)v52 >= *(_DWORD *)(v54 + 20) )
+LABEL_95:
+        v55 = 0LL;
+      else
+        v55 = *(REGION **)(*(_QWORD *)(**(_QWORD **)(v54 + 24) + 8 * (v52 >> 8)) + 16LL * (unsigned __int8)v52 + 8);
+      if ( v55 != v60[0] )
+        v50 = 0LL;
+      v19 = *(_QWORD *)(v50 + 16);
+      if ( v19 )
       {
-        v52 = 0LL;
+        v56 = bPEBCacheHandle(2LL, v19, v50, &v57, v60);
+        if ( v56 )
+          goto LABEL_103;
       }
       else
       {
-        v50 = 2LL * (unsigned __int8)v51;
-        v52 = *(struct _SLIST_ENTRY **)(*(_QWORD *)(**(_QWORD **)(v48 + 24) + 8 * (v51 >> 8))
-                                      + 16LL * (unsigned __int8)v51
-                                      + 8);
+        v56 = 0;
       }
-      if ( v52 != ListEntry[0] )
-        v46 = 0LL;
-      v53 = *(_QWORD *)(v46 + 16);
-      if ( v53 )
+      HANDLELOCK::vUnlock((HANDLELOCK *)&v57);
+LABEL_103:
+      if ( v58 )
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v57);
+      if ( v56 )
+        goto LABEL_112;
+LABEL_108:
+      if ( (unsigned int)RGNOBJAPI::bDeleteHandle((RGNOBJAPI *)v60) )
       {
-        CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(v50, v52, v48, v49);
-        v56 = CurrentProcessWin32Process;
-        if ( !CurrentProcessWin32Process )
-          KeBugCheckEx(0x164u, 0x29uLL, 0LL, 0LL, 0LL);
-        ProcessWow64Process = PsGetProcessWow64Process(*CurrentProcessWin32Process);
-        v58 = *((_DWORD *)v56 + 73);
-        if ( ProcessWow64Process )
-          v59 = (unsigned int)__ROR4__(v53, 32 - (v58 & 0x1F));
-        else
-          v59 = __ROR8__(v53, 64 - (v58 & 0x3Fu));
-        v19 = (_DWORD *)(*((unsigned int *)v56 + 73) ^ v59);
-        if ( v19 )
-        {
-          v54 = bPEBCacheHandle(2LL, v19, (_DWORD *)v46, (_DWORD **)&v60, (__int64)ListEntry);
-          if ( v54 )
-            goto LABEL_101;
-        }
-        else
-        {
-          v54 = 0;
-        }
-      }
-      else
-      {
-        v54 = 0;
-      }
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v60);
-LABEL_101:
-      if ( v61 )
-        HANDLELOCK::vUnlock((HANDLELOCK *)&v60);
-      if ( v54 )
-        goto LABEL_110;
-LABEL_106:
-      if ( (unsigned int)RGNOBJAPI::bDeleteHandle((RGNOBJAPI *)ListEntry) )
-      {
-        REGION::vDeleteREGION(ListEntry[0]);
-        ListEntry[0] = 0LL;
+        REGION::vDeleteREGION(v60[0]);
+        v60[0] = 0LL;
         if ( v19 )
           HmgFreeObjectAttr(v19);
-        goto LABEL_110;
+        goto LABEL_112;
       }
-LABEL_109:
-      v6 = 0;
-LABEL_110:
-      RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)ListEntry);
-      return v6;
+LABEL_111:
+      v8 = 0;
+LABEL_112:
+      RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v60);
+      return v8;
     }
-    v32 = gpHandleManager;
-    v33 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, *(_DWORD *)v29 & 0xFFFFFF);
-    v34 = *((_QWORD *)v32 + 2);
-    v35 = v33;
-    v36 = *(_DWORD *)(v34 + 2056);
-    if ( v33 >= v36 + ((*(unsigned __int16 *)(v34 + 2) + 0xFFFF) << 16)
-      || (v33 >= v36
-        ? (v37 = *(_QWORD *)(v34 + 8LL * (((v33 - v36) >> 16) + 1) + 8), v35 = -65536 * ((v33 - v36) >> 16) - v36 + v33)
-        : (v37 = *(_QWORD *)(v34 + 8)),
-          (unsigned int)v35 >= *(_DWORD *)(v37 + 20)) )
-    {
-      v38 = 0LL;
-    }
+    v33 = *(_DWORD *)v29;
+    v34 = gpHandleManager;
+    v35 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, v33 & 0xFFFFFF);
+    v36 = *((_QWORD *)v34 + 2);
+    v37 = v35;
+    v38 = *(_DWORD *)(v36 + 2056);
+    if ( v35 >= v38 + ((*(unsigned __int16 *)(v36 + 2) + 0xFFFF) << 16) )
+      goto LABEL_70;
+    v39 = ((v35 - v38) >> 16) + 1;
+    if ( v35 < v38 )
+      v39 = 0LL;
+    v40 = *(_QWORD *)(v36 + 8 * v39 + 8);
+    if ( (_DWORD)v39 )
+      v37 = ((1 - (_DWORD)v39) << 16) - v38 + v35;
+    if ( (unsigned int)v37 >= *(_DWORD *)(v40 + 20) )
+LABEL_70:
+      v41 = 0LL;
     else
+      v41 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v40 + 24) + 8 * (v37 >> 8)) + 16LL * (unsigned __int8)v37 + 8);
+    if ( !*(_WORD *)(v41 + 12) || *(struct _KTHREAD **)(v41 + 16) != KeGetCurrentThread() )
     {
-      v38 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v37 + 24) + 8 * (v35 >> 8)) + 16LL * (unsigned __int8)v35 + 8);
+LABEL_73:
+      HANDLELOCK::vUnlock((HANDLELOCK *)&v57);
+      if ( !v58 )
+        goto LABEL_108;
     }
-    if ( !*(_WORD *)(v38 + 12) || *(struct _KTHREAD **)(v38 + 16) != KeGetCurrentThread() )
-    {
-LABEL_65:
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v60);
-      if ( !v61 )
-        goto LABEL_106;
-    }
-    v29 = v60;
-    goto LABEL_67;
+    v29 = v57;
+    goto LABEL_75;
   }
-  v10 = v4 - 1;
-  if ( !v10 )
-    return bDeleteDCInternal(a1, 0LL, 0LL);
-  v11 = v10 - 4;
-  if ( v11 )
+  v12 = v4 - 1;
+  if ( !v12 )
+    return bDeleteDCInternal((HDC)a1);
+  v13 = v12 - 4;
+  if ( v13 )
   {
-    v12 = v11 - 3;
-    if ( v12 )
+    v14 = v13 - 3;
+    if ( v14 )
     {
-      v13 = v12 - 2;
-      if ( v13 )
+      v15 = v14 - 2;
+      if ( v15 )
       {
-        if ( v13 == 6 )
-          return bDeleteBrush((HBRUSH)a1);
+        if ( v15 == 6 )
+          return bDeleteBrush(a1, 0, 0);
         else
           return 0LL;
       }
@@ -361,29 +349,28 @@ LABEL_65:
     }
     else
     {
-      return bDeletePalette((HPALETTE)a1);
+      return bDeletePalette(a1, 0LL, 0LL);
     }
   }
   else
   {
-    v14 = (int)ghsemDynamicModeChange;
+    v16 = (int)ghsemDynamicModeChange;
     if ( ghsemDynamicModeChange )
-      ExEnterPriorityRegionAndAcquireResourceShared();
+      ExEnterPriorityRegionAndAcquireResourceShared(ghsemDynamicModeChange);
     if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
       McTemplateK0pz_EtwWriteTransfer(
-        v14,
+        v16,
         (unsigned int)&LockAcquireShared,
         v7,
         (_DWORD)ghsemDynamicModeChange,
         (__int64)L"ghsemDynamicModeChange");
-    UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(&v60);
-    v15 = 0;
-    v63 = 0LL;
-    v63 = HmgShareLockCheckIgnoreStockBit((unsigned int)a1, 5);
-    if ( v63 )
-      v15 = SURFREF::bDeleteSurface((__int64)&v60, 0LL);
-    SURFREF::~SURFREF((SURFREF *)&v60);
-    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v65);
-    return v15;
+    UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v61);
+    v62 = 0LL;
+    v62 = HmgShareLockCheckIgnoreStockBit((unsigned int)a1, 5);
+    if ( v62 )
+      v6 = SURFREF::bDeleteSurface(v61, 0LL);
+    SURFREF::~SURFREF((SURFREF *)v61);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v17);
+    return v6;
   }
 }

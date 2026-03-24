@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bTextExtent@ESTROBJ@@QEAAHAEAVRFONTOBJ@@JPEAUtagSIZE@@@Z @ 0x1C015FD6C
+ * XREFs of ?bTextExtent@ESTROBJ@@QEAAHAEAVRFONTOBJ@@JPEAUtagSIZE@@@Z @ 0x1C016E188
  * Callers:
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     GreGetTextExtentExW @ 0x1C015FAA8 (GreGetTextExtentExW.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     GreGetTextExtentExW @ 0x1C016DED4 (GreGetTextExtentExW.c)
  * Callees:
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
  */
 
 __int64 __fastcall ESTROBJ::bTextExtent(ESTROBJ *this, struct RFONTOBJ *a2, int a3, struct tagSIZE *a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryMutant @ 0x14041E300
+ * XREFs of ZwQueryMutant @ 0x1403FCE60
  * Callers:
  *     <none>
  * Callees:

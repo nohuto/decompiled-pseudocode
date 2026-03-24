@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCoalesce @ 0x14035D4A4
+ * XREFs of RtlpHpVaMgrRangeCoalesce @ 0x1402FDA88
  * Callers:
- *     RtlpHpVaMgrFree @ 0x14035D40C (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrFree @ 0x1402FD9F0 (RtlpHpVaMgrFree.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
@@ -14,8 +14,8 @@ __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v6; // rsi
   unsigned __int64 v7; // rax
   __int64 v8; // rdi
-  unsigned __int64 v9; // rdi
-  unsigned __int16 v10; // cx
+  unsigned __int16 v9; // cx
+  unsigned __int64 v10; // rdi
   unsigned __int64 v11; // rax
 
   v2 = *(unsigned __int16 *)(a1 + 40);
@@ -36,20 +36,21 @@ __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
     *(_QWORD *)(v3 + 24) = 2309737967LL;
     v3 = v8;
   }
-  v9 = v3 + 32LL * *(unsigned __int16 *)(v3 + 24);
-  if ( v9 < v6 && (*(_BYTE *)v9 & 1) == 0 )
+  v9 = *(_WORD *)(v3 + 24);
+  v10 = v3 + 32LL * v9;
+  if ( v10 < v6 && (*(_BYTE *)v10 & 1) == 0 )
   {
     RtlRbRemoveNode((unsigned __int64 *)(a1 + 8), v3 + 32LL * *(unsigned __int16 *)(v3 + 24));
-    *(_WORD *)(v3 + 24) += *(_WORD *)(v9 + 24);
-    *(_OWORD *)v9 = 0LL;
-    *(_QWORD *)(v9 + 16) = 0LL;
-    *(_BYTE *)v9 = 2;
-    *(_BYTE *)(v9 + 1) = *(_BYTE *)(a1 + 44);
-    *(_QWORD *)(v9 + 24) = 2309737967LL;
+    *(_WORD *)(v3 + 24) += *(_WORD *)(v10 + 24);
+    *(_OWORD *)v10 = 0LL;
+    *(_QWORD *)(v10 + 16) = 0LL;
+    *(_BYTE *)v10 = 2;
+    *(_BYTE *)(v10 + 1) = *(_BYTE *)(a1 + 44);
+    *(_QWORD *)(v10 + 24) = 2309737967LL;
+    v9 = *(_WORD *)(v3 + 24);
   }
-  v10 = *(_WORD *)(v3 + 24);
-  v11 = v3 + 32LL * v10;
-  if ( v10 > v4 && v11 < v6 )
-    *(_WORD *)(v11 + 26) = v10;
+  v11 = v3 + 32LL * v9;
+  if ( v9 > v4 && v11 < v6 )
+    *(_WORD *)(v11 + 26) = v9;
   return v3;
 }

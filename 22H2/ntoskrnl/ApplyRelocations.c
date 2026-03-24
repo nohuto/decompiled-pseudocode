@@ -1,8 +1,8 @@
 /*
- * XREFs of ApplyRelocations @ 0x1402FB650
+ * XREFs of ApplyRelocations @ 0x14020050C
  * Callers:
- *     sub_140764BA0 @ 0x140764BA0 (sub_140764BA0.c)
- *     sub_140A4DE34 @ 0x140A4DE34 (sub_140A4DE34.c)
+ *     WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405D772C (WbDecryptWarbirdEncryptionSegmentBlockV0.c)
+ *     sub_140963D98 @ 0x140963D98 (sub_140963D98.c)
  * Callees:
  *     <none>
  */
@@ -16,16 +16,16 @@ __int64 __fastcall ApplyRelocations(
         __int64 a6,
         int a7)
 {
-  int v7; // ebx
+  signed int v7; // ebx
   unsigned int v8; // r11d
   int v9; // r10d
-  int v13; // eax
-  unsigned int v14; // edx
-  unsigned int v15; // ecx
+  __int64 v13; // r8
+  unsigned int v15; // eax
   unsigned int v16; // eax
-  unsigned int v18; // ecx
-  _DWORD *v19; // rax
-  _DWORD *v20; // r8
+  __int64 v17; // rcx
+  unsigned int v18; // eax
+  _DWORD *v19; // rcx
+  _DWORD *v20; // rdx
 
   v7 = a2 - 1;
   v8 = a5 - a3;
@@ -33,12 +33,11 @@ __int64 __fastcall ApplyRelocations(
   while ( v7 >= v9 )
   {
     v13 = (v7 + v9) / 2;
-    v14 = v13;
-    v15 = *(_DWORD *)(a1 + 4LL * v13) & 0xFFFFFFF;
+    v15 = *(_DWORD *)(a1 + 4 * v13) & 0xFFFFFFF;
     if ( v8 >= v15 )
     {
       if ( v8 <= v15 )
-        goto LABEL_6;
+        goto LABEL_3;
       v9 = v13 + 1;
     }
     else
@@ -46,16 +45,17 @@ __int64 __fastcall ApplyRelocations(
       v7 = v13 - 1;
     }
   }
-  v14 = v9;
-LABEL_6:
-  while ( v14 < a2 )
+  LODWORD(v13) = v9;
+LABEL_3:
+  while ( (unsigned int)v13 < a2 )
   {
-    v16 = *(_DWORD *)(a1 + 4LL * v14);
+    v16 = *(_DWORD *)(a1 + 4LL * (unsigned int)v13);
     if ( (v16 & 0xFFFFFFF) >= v8 + a7 )
       break;
-    ++v14;
+    LODWORD(v13) = v13 + 1;
+    v17 = v16 & 0xFFFFFFF;
     v18 = v16 >> 28;
-    v19 = (_DWORD *)(a3 + (v16 & 0xFFFFFFF));
+    v19 = (_DWORD *)(a3 + v17);
     v20 = (_DWORD *)((char *)v19 + a6 - a5);
     if ( v18 )
     {

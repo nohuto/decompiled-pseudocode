@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmStoreHelperCommandProcess @ 0x14014B784
+ * XREFs of SmKmStoreHelperCommandProcess @ 0x14014B7A4
  * Callers:
- *     SmKmStoreHelperWorker @ 0x140135AB0 (SmKmStoreHelperWorker.c)
- *     SmKmStoreHelperCommandCleanup @ 0x140307594 (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperWorker @ 0x140135AD0 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x140307694 (SmKmStoreHelperCommandCleanup.c)
  * Callees:
- *     SmSetThreadPagePriority @ 0x14011EBEC (SmSetThreadPagePriority.c)
- *     SmKmUnlockMdl @ 0x14014B114 (SmKmUnlockMdl.c)
- *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14014B178 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
- *     SmFpAllocate @ 0x14014BA54 (SmFpAllocate.c)
- *     SmFpFree @ 0x14014CA1C (SmFpFree.c)
- *     ZwUnlockVirtualMemory @ 0x1401BB9F0 (ZwUnlockVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     SmKmVirtualLockCtxLockMemory @ 0x140307CBC (SmKmVirtualLockCtxLockMemory.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307DDC (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406E0BB0 (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x1406E0D38 (MmStoreFreeVirtualMemory.c)
+ *     SmSetThreadPagePriority @ 0x14011EC0C (SmSetThreadPagePriority.c)
+ *     SmKmUnlockMdl @ 0x14014B134 (SmKmUnlockMdl.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14014B198 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     SmFpAllocate @ 0x14014BA74 (SmFpAllocate.c)
+ *     SmFpFree @ 0x14014CA3C (SmFpFree.c)
+ *     ZwUnlockVirtualMemory @ 0x1401BBA10 (ZwUnlockVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x140307DBC (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307EDC (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406E0B90 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x1406E0D18 (MmStoreFreeVirtualMemory.c)
  */
 
 void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdateAttributes@CDxHandleStereoBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1802A4C50
+ * XREFs of ?UpdateAttributes@CDxHandleStereoBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x180265200
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x18000E0B0 (-UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800681EC (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x180016EE0 (-UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800688C4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDxHandleStereoBitmapRealization::UpdateAttributes(
@@ -22,43 +22,40 @@ void __fastcall CDxHandleStereoBitmapRealization::UpdateAttributes(
   int v10; // eax
 
   v2 = 3;
-  v3 = *((_DWORD *)this - 54);
+  v3 = *((_DWORD *)this - 47);
   v4 = *((_DWORD *)this - 20);
   v5 = 3;
-  if ( *((_DWORD *)this - 66) )
-    v5 = *((_DWORD *)this - 66);
+  if ( *((_DWORD *)this - 58) )
+    v5 = *((_DWORD *)this - 58);
   CDxHandleBitmapRealization::UpdateAttributes(this, a2);
   v7 = *((_QWORD *)this + 5);
   if ( v7 )
   {
-    v8 = *((_DWORD *)this - 66);
+    v8 = *((_DWORD *)this - 58);
     v9 = 0;
     v10 = 3;
     if ( v8 )
-      v10 = *((_DWORD *)this - 66);
+      v10 = *((_DWORD *)this - 58);
     if ( v5 != v10 )
     {
       if ( v8 )
-        v2 = *((_DWORD *)this - 66);
+        v2 = *((_DWORD *)this - 58);
       (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)(v7 + 80) + 8LL))(v7 + 80, v2);
       v9 = 1;
     }
-    if ( v3 != *((_DWORD *)this - 54) )
+    if ( v3 != *((_DWORD *)this - 47) )
     {
       (*(void (__fastcall **)(__int64))(*(_QWORD *)(*((_QWORD *)this + 5) + 80LL) + 16LL))(*((_QWORD *)this + 5) + 80LL);
       v9 = 1;
     }
-    if ( v4 == *((_DWORD *)this - 20) )
-    {
-      if ( !v9 )
-        return;
-    }
-    else
+    if ( v4 != *((_DWORD *)this - 20) )
     {
       (*(void (__fastcall **)(__int64))(*(_QWORD *)(*((_QWORD *)this + 5) + 80LL) + 24LL))(*((_QWORD *)this + 5) + 80LL);
+      v9 = 1;
     }
-    CD2DBitmapCache::InitializeCache(
-      (CDxHandleStereoBitmapRealization *)((char *)this + 48),
-      (struct ID2DBitmapCacheSource *)((*((_QWORD *)this + 5) + 96LL) & ((unsigned __int128)-(__int128)*((unsigned __int64 *)this + 5) >> 64)));
+    if ( v9 )
+      CD2DBitmapCache::InitializeCache(
+        (CDxHandleStereoBitmapRealization *)((char *)this + 48),
+        (struct ID2DBitmapCacheSource *)((*((_QWORD *)this + 5) + 96LL) & ((unsigned __int128)-(__int128)*((unsigned __int64 *)this + 5) >> 64)));
   }
 }

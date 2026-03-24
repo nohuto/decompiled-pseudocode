@@ -1,9 +1,9 @@
 /*
- * XREFs of SiBootEntryGetNtFilePath @ 0x1408F5150
+ * XREFs of SiBootEntryGetNtFilePath @ 0x1408F5130
  * Callers:
- *     SiGetEspFromFirmware @ 0x1408F568C (SiGetEspFromFirmware.c)
+ *     SiGetEspFromFirmware @ 0x1408F566C (SiGetEspFromFirmware.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x1401BB910 (ZwTranslateFilePath.c)
+ *     ZwTranslateFilePath @ 0x1401BB930 (ZwTranslateFilePath.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

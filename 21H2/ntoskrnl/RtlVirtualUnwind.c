@@ -1,22 +1,15 @@
 /*
- * XREFs of RtlVirtualUnwind @ 0x140294B90
+ * XREFs of RtlVirtualUnwind @ 0x1402759C0
  * Callers:
- *     RtlRaiseException @ 0x140294A60 (RtlRaiseException.c)
- *     RtlDispatchException @ 0x140295210 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1402957A0 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x140274220 (RtlRaiseException.c)
+ *     RtlDispatchException @ 0x140275570 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
  * Callees:
- *     RtlpxVirtualUnwind @ 0x140296FC0 (RtlpxVirtualUnwind.c)
+ *     RtlpxVirtualUnwind @ 0x14021E170 (RtlpxVirtualUnwind.c)
  */
 
-__int64 __fastcall RtlVirtualUnwind(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7, __int64 a8)
+__int64 __fastcall RtlVirtualUnwind(int a1, __int64 a2, unsigned __int64 a3)
 {
-  __int64 v9; // [rsp+60h] [rbp-28h] BYREF
-  _QWORD v10[4]; // [rsp+68h] [rbp-20h] BYREF
-
-  v10[2] = a8;
-  v9 = 0LL;
-  v10[0] = 0LL;
-  v10[1] = 0LL;
-  RtlpxVirtualUnwind(a1, a2, a3, a4, a5, 0LL, a6, a7, (__int64)&v9, (__int64)v10);
-  return v9;
+  RtlpxVirtualUnwind(a1, a2, a3);
+  return 0LL;
 }

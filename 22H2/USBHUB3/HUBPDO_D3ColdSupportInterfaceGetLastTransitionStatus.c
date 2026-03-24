@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_D3ColdSupportInterfaceGetLastTransitionStatus @ 0x1C001ABF0
+ * XREFs of HUBPDO_D3ColdSupportInterfaceGetLastTransitionStatus @ 0x1C0018F80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_D3ColdSupportInterfaceGetLastTransitionStatus(__int64 a1, _DWORD *a2)

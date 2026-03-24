@@ -1,198 +1,188 @@
 /*
- * XREFs of IopGetSetSecurityObject @ 0x14071E8F0
+ * XREFs of IopGetSetSecurityObject @ 0x14064F760
  * Callers:
  *     <none>
  * Callees:
- *     IopGetDevicePDO @ 0x1402A4000 (IopGetDevicePDO.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     IopReleaseFileObjectLock @ 0x1402AD350 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     AstLogDeviceSDDLUpdated @ 0x140675814 (AstLogDeviceSDDLUpdated.c)
- *     IopSetDeviceSecurityDescriptor @ 0x1406DB04C (IopSetDeviceSecurityDescriptor.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140709FAC (IopWaitAndAcquireFileObjectLock.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1407213B0 (SeQuerySecurityDescriptorInfo.c)
- *     ObLogSecurityDescriptor @ 0x140724E60 (ObLogSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x140725730 (ObDereferenceSecurityDescriptor.c)
- *     IopSetDeviceSecurityDescriptors @ 0x1408104FC (IopSetDeviceSecurityDescriptors.c)
- *     IopAllocateIrpCleanup @ 0x140933BA4 (IopAllocateIrpCleanup.c)
- *     SeAssignWorldSecurityDescriptor @ 0x1409C6C98 (SeAssignWorldSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     IopGetDevicePDO @ 0x1402835A8 (IopGetDevicePDO.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x140665520 (SeQuerySecurityDescriptorInfo.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14076B26C (IopSetDeviceSecurityDescriptor.c)
+ *     IopSetDeviceSecurityDescriptors @ 0x140780C90 (IopSetDeviceSecurityDescriptors.c)
+ *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
+ *     SeAssignWorldSecurityDescriptor @ 0x14091D258 (SeAssignWorldSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetSetSecurityObject(
-        struct _FILE_OBJECT *Object,
+        _DMA_OPERATIONS *DmaAdapter,
         int a2,
         ULONG *a3,
         UNICODE_STRING *a4,
         PULONG Length,
         int a6,
-        POOL_TYPE a7,
-        GENERIC_MAPPING *a8,
+        unsigned int a7,
+        __int64 a8,
         char a9)
 {
-  _QWORD *p_Type; // r14
-  struct _FILE_OBJECT *v13; // rbx
+  _DMA_OPERATIONS *PutDmaAdapter; // r14
+  PADAPTER_OBJECT v13; // rbx
   struct _KTHREAD *v14; // r14
-  unsigned __int8 PreviousMode; // di
-  ULONG Flags; // eax
-  bool v17; // r15
-  struct _KTHREAD *v18; // rax
-  __int64 v19; // r9
-  unsigned int FinalStatus; // edi
-  char v21; // r12
+  struct _KTHREAD *v15; // rax
+  __int64 v16; // r9
+  unsigned int DmaOperations; // edi
+  char v18; // r12
   PDEVICE_OBJECT RelatedDeviceObject; // r15
   __int64 Irp; // rax
-  IRP *v24; // rdi
+  IRP *v21; // rdi
   struct _KEVENT *p_Event; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  ULONG *v27; // rax
-  PULONG v28; // r14
-  struct _KTHREAD *v29; // rax
-  NTSTATUS v30; // eax
+  ULONG *v24; // rax
+  PULONG v25; // r14
+  struct _KTHREAD *v26; // rax
+  NTSTATUS v27; // eax
   struct _KTHREAD *CurrentThread; // rbx
-  struct _KTHREAD *v33; // rdi
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // rbx
-  ULONG *v35; // r8
-  ULONG *v36; // rcx
-  _DWORD *DevicePDO; // rax
-  void *v38; // rbx
-  struct _KTHREAD *v39; // rdi
+  struct _KTHREAD *v30; // rdi
+  PSECURITY_DESCRIPTOR AllocateCommonBufferWithBounds; // rbx
+  ULONG *v32; // r8
+  ULONG *v33; // rcx
+  struct _DMA_ADAPTER *DevicePDO; // rax
+  struct _KTHREAD *v35; // rdi
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+38h] [rbp-60h] BYREF
-  __int64 v41; // [rsp+40h] [rbp-58h]
-  __int128 v42; // [rsp+48h] [rbp-50h] BYREF
+  void *(__fastcall *v37)(_DMA_ADAPTER *, _LARGE_INTEGER *, _LARGE_INTEGER *, unsigned int, unsigned int, _MEMORY_CACHING_TYPE *, unsigned int, _LARGE_INTEGER *); // [rsp+40h] [rbp-58h]
+  __int128 v38; // [rsp+48h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
-  __int64 v44; // [rsp+A0h] [rbp+8h] BYREF
-  ULONG *v45; // [rsp+B0h] [rbp+18h]
+  __int64 retaddr; // [rsp+98h] [rbp+0h]
+  __int64 v41; // [rsp+A0h] [rbp+8h] BYREF
+  ULONG *v42; // [rsp+B0h] [rbp+18h]
 
-  v45 = a3;
-  v41 = 0LL;
-  if ( Object->Type == 3 )
-    p_Type = &Object->Type;
+  v42 = a3;
+  v37 = 0LL;
+  if ( LOWORD(DmaAdapter->Size) == 3 )
+    PutDmaAdapter = DmaAdapter;
   else
-    p_Type = &Object->DeviceObject->Type;
+    PutDmaAdapter = (_DMA_OPERATIONS *)DmaAdapter->PutDmaAdapter;
   v13 = 0LL;
-  if ( Object->Type != 3 )
-    v13 = Object;
-  if ( !v13 || !v13->FileName.Length && !v13->RelatedFileObject || (v13->Flags & 0x800) != 0 )
+  if ( LOWORD(DmaAdapter->Size) != 3 )
+    v13 = (PADAPTER_OBJECT)DmaAdapter;
+  if ( !v13 || !LOWORD(v13[5].DmaOperations) && !*(_QWORD *)&v13[4].Version || (*(_DWORD *)&v13[5].Version & 0x800) != 0 )
   {
-    switch ( a2 )
+    if ( a2 == 3 )
     {
-      case 3:
-        FinalStatus = 0;
-        if ( !v13 || (v13->Flags & 0x100) == 0 )
+      DmaOperations = 0;
+      if ( !v13 || (*(_DWORD *)&v13[5].Version & 0x100) == 0 )
+      {
+        DmaOperations = ObLogSecurityDescriptor(a4);
+        if ( (DmaOperations & 0x80000000) == 0 )
         {
-          FinalStatus = ObLogSecurityDescriptor(a4);
-          if ( (FinalStatus & 0x80000000) == 0 )
-          {
-            ExFreePoolWithTag(a4, 0);
-            CurrentThread = KeGetCurrentThread();
-            --CurrentThread->KernelApcDisable;
-            ExAcquireResourceExclusiveLite(&IopSecurityResource, 1u);
-            if ( p_Type[34] )
-              *(_DWORD *)(p_Type[39] + 32LL) &= ~0x800u;
-            p_Type[34] = v41;
-            ExReleaseResourceLite(&IopSecurityResource);
-            KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-          }
+          ExFreePoolWithTag(a4, 0);
+          CurrentThread = KeGetCurrentThread();
+          --CurrentThread->KernelApcDisable;
+          ExAcquireResourceExclusiveLite(&IopSecurityResource, 1u);
+          if ( PutDmaAdapter->AllocateCommonBufferWithBounds )
+            *(_DWORD *)(*(_QWORD *)&PutDmaAdapter[1].Size + 32LL) &= ~0x800u;
+          PutDmaAdapter->AllocateCommonBufferWithBounds = v37;
+          ExReleaseResourceLite(&IopSecurityResource);
+          KeLeaveCriticalRegionThread((__int64)CurrentThread);
         }
-        return FinalStatus;
-      case 0:
-        DevicePDO = IopGetDevicePDO((__int64)p_Type);
-        v38 = DevicePDO;
-        if ( DevicePDO )
-        {
-          FinalStatus = IopSetDeviceSecurityDescriptors(p_Type, DevicePDO, a3, a4, a7, a8);
-          ObfDereferenceObject(v38);
-        }
-        else
-        {
-          FinalStatus = IopSetDeviceSecurityDescriptor((__int64)p_Type, a3, a4, a7, a8);
-        }
-        AstLogDeviceSDDLUpdated((__int64)p_Type);
-        return FinalStatus;
-      case 1:
-        v33 = KeGetCurrentThread();
-        --v33->KernelApcDisable;
+      }
+      return DmaOperations;
+    }
+    if ( a2 )
+    {
+      if ( a2 == 1 )
+      {
+        v30 = KeGetCurrentThread();
+        --v30->KernelApcDisable;
         ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
-        SecurityDescriptor = (PSECURITY_DESCRIPTOR)p_Type[34];
-        ObjectsSecurityDescriptor = SecurityDescriptor;
-        if ( SecurityDescriptor
-          && _InterlockedExchangeAdd64((volatile signed __int64 *)SecurityDescriptor - 3, 1uLL) <= 0 )
+        AllocateCommonBufferWithBounds = PutDmaAdapter->AllocateCommonBufferWithBounds;
+        ObjectsSecurityDescriptor = AllocateCommonBufferWithBounds;
+        if ( AllocateCommonBufferWithBounds
+          && _InterlockedExchangeAdd64((volatile signed __int64 *)AllocateCommonBufferWithBounds - 3, 1uLL) <= 0 )
         {
           __fastfail(0xEu);
         }
         ExReleaseResourceLite(&IopSecurityResource);
-        KiLeaveCriticalRegionUnsafe((__int64)v33);
-        v35 = Length;
-        v36 = a3;
+        KeLeaveCriticalRegionThread((__int64)v30);
+        v32 = Length;
+        v33 = a3;
         goto LABEL_51;
+      }
+      return 0;
     }
-    return 0;
+    DevicePDO = (struct _DMA_ADAPTER *)IopGetDevicePDO((__int64)PutDmaAdapter);
+    v13 = DevicePDO;
+    if ( !DevicePDO )
+      return (unsigned int)IopSetDeviceSecurityDescriptor(PutDmaAdapter, a3, a4, a7, a8);
+    DmaOperations = IopSetDeviceSecurityDescriptors(PutDmaAdapter, DevicePDO, a3, a4, a7, a8);
+    goto LABEL_56;
   }
   if ( a2 == 2 )
     return 0;
-  v42 = 0LL;
+  v38 = 0LL;
   memset(&Event, 0, sizeof(Event));
   v14 = KeGetCurrentThread();
-  PreviousMode = v14->PreviousMode;
   ObfReferenceObject(v13);
-  Flags = v13->Flags;
-  if ( (Flags & 2) != 0 )
+  if ( (*(_DWORD *)&v13[5].Version & 2) != 0 )
   {
-    v17 = (Flags & 4) != 0;
-    v18 = KeGetCurrentThread();
-    --v18->KernelApcDisable;
-    v19 = KeAbPreAcquire((__int64)&v13->Lock, 0LL);
-    LOBYTE(v44) = 0;
-    if ( _InterlockedExchange((volatile __int32 *)&v13->Busy, 1) )
+    v15 = KeGetCurrentThread();
+    --v15->KernelApcDisable;
+    v16 = KeAbPreAcquire((ULONG_PTR)&v13[8], 0LL, 0);
+    LOBYTE(v41) = 0;
+    if ( _InterlockedExchange((volatile __int32 *)(&v13[7].Size + 1), 1) )
     {
-      FinalStatus = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&v13->Type, PreviousMode, v17, v19, &v44);
+      DmaOperations = IopWaitAndAcquireFileObjectLock(v13, (__int64)&v41);
     }
     else
     {
-      if ( v19 )
-        *(_BYTE *)(v19 + 18) = 1;
+      if ( v16 )
+        *(_BYTE *)(v16 + 26) |= 1u;
       ObfReferenceObject(v13);
-      FinalStatus = 0;
+      DmaOperations = 0;
     }
-    if ( (_BYTE)v44 )
+    if ( !(_BYTE)v41 )
     {
-      ObfDereferenceObject(v13);
-      return FinalStatus;
+      v18 = 1;
+      goto LABEL_16;
     }
-    v21 = 1;
+LABEL_56:
+    HalPutDmaAdapter(v13);
+    return DmaOperations;
   }
-  else
-  {
-    KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    v21 = 0;
-  }
-  if ( (v13->Flags & 0x4000000) == 0 )
-    KeResetEvent(&v13->Event);
-  RelatedDeviceObject = IoGetRelatedDeviceObject(v13);
+  KeInitializeEvent(&Event, SynchronizationEvent, 0);
+  v18 = 0;
+LABEL_16:
+  if ( (*(_DWORD *)&v13[5].Version & 0x4000000) == 0 )
+    KeResetEvent((PRKEVENT)&v13[9].DmaOperations);
+  RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)v13);
   Irp = IopAllocateIrpExReturn(
           (__int64)RelatedDeviceObject,
           (unsigned __int8)RelatedDeviceObject->StackSize,
-          (unsigned __int8)v21 ^ 1u);
-  v24 = (IRP *)Irp;
+          (unsigned __int8)v18 ^ 1u,
+          retaddr);
+  v21 = (IRP *)Irp;
   if ( Irp )
   {
     *(_QWORD *)(Irp + 192) = v13;
     *(_QWORD *)(Irp + 152) = v14;
     *(_BYTE *)(Irp + 64) = a9;
-    if ( (v13->Flags & 2) != 0 )
+    if ( (*(_DWORD *)&v13[5].Version & 2) != 0 )
     {
       *(_BYTE *)(Irp + 71) |= 2u;
       p_Event = 0LL;
@@ -202,81 +192,81 @@ __int64 __fastcall IopGetSetSecurityObject(
       *(_DWORD *)(Irp + 16) = 4;
       p_Event = &Event;
     }
-    v24->UserEvent = p_Event;
-    v24->UserIosb = (PIO_STATUS_BLOCK)&v42;
-    v24->Overlay.AllocationSize.QuadPart = 0LL;
-    CurrentStackLocation = v24->Tail.Overlay.CurrentStackLocation;
-    v27 = v45;
-    v28 = Length;
+    v21->UserEvent = p_Event;
+    v21->UserIosb = (PIO_STATUS_BLOCK)&v38;
+    v21->Overlay.AllocationSize.QuadPart = 0LL;
+    CurrentStackLocation = v21->Tail.Overlay.CurrentStackLocation;
+    v24 = v42;
+    v25 = Length;
     if ( a2 == 1 )
     {
       CurrentStackLocation[-1].MajorFunction = 20;
-      CurrentStackLocation[-1].Parameters.Read.Length = *v27;
-      CurrentStackLocation[-1].Parameters.Create.Options = *v28;
-      v24->UserBuffer = a4;
+      CurrentStackLocation[-1].Parameters.Read.Length = *v24;
+      CurrentStackLocation[-1].Parameters.Create.Options = *v25;
+      v21->UserBuffer = a4;
     }
     else
     {
       CurrentStackLocation[-1].MajorFunction = 21;
-      CurrentStackLocation[-1].Parameters.Read.Length = *v27;
+      CurrentStackLocation[-1].Parameters.Read.Length = *v24;
       CurrentStackLocation[-1].Parameters.QueryDirectory.FileName = a4;
     }
-    CurrentStackLocation[-1].FileObject = v13;
-    IopQueueThreadIrp((__int64)v24);
-    v29 = KeGetCurrentThread();
-    ++v29->OtherOperationCount;
+    CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v13;
+    IopQueueThreadIrp((__int64)v21);
+    v26 = KeGetCurrentThread();
+    ++v26->OtherOperationCount;
     __incgsdword(0x2EE4u);
-    v30 = IofCallDriver(RelatedDeviceObject, v24);
-    FinalStatus = v30;
-    if ( v21 )
+    v27 = IofCallDriver(RelatedDeviceObject, v21);
+    DmaOperations = v27;
+    if ( v18 )
     {
-      if ( v30 == 259 )
+      if ( v27 == 259 )
       {
-        KeWaitForSingleObject(&v13->Event, Executive, 0, 0, 0LL);
-        FinalStatus = v13->FinalStatus;
+        KeWaitForSingleObject(&v13[9].DmaOperations, Executive, 0, 0, 0LL);
+        DmaOperations = (unsigned int)v13[3].DmaOperations;
       }
-      IopReleaseFileObjectLock((volatile __int32 *)&v13->Type);
+      IopReleaseFileObjectLock(v13);
     }
-    else if ( v30 == 259 )
+    else if ( v27 == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      FinalStatus = v42;
+      DmaOperations = v38;
     }
-    if ( FinalStatus != -1073741808 )
+    if ( DmaOperations != -1073741808 )
     {
       if ( a2 == 1 )
       {
-        if ( FinalStatus == -2147483643 )
-          FinalStatus = -1073741789;
-        *v28 = DWORD2(v42);
+        if ( DmaOperations == -2147483643 )
+          DmaOperations = -1073741789;
+        *v25 = DWORD2(v38);
       }
-      return FinalStatus;
+      return DmaOperations;
     }
     if ( a2 == 1 )
     {
       if ( (RelatedDeviceObject->Characteristics & 0x100) != 0 )
       {
-        v39 = KeGetCurrentThread();
-        --v39->KernelApcDisable;
+        v35 = KeGetCurrentThread();
+        --v35->KernelApcDisable;
         ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
-        SecurityDescriptor = RelatedDeviceObject->SecurityDescriptor;
-        ObjectsSecurityDescriptor = SecurityDescriptor;
-        if ( SecurityDescriptor
-          && _InterlockedExchangeAdd64((volatile signed __int64 *)SecurityDescriptor - 3, 1uLL) <= 0 )
+        AllocateCommonBufferWithBounds = RelatedDeviceObject->SecurityDescriptor;
+        ObjectsSecurityDescriptor = AllocateCommonBufferWithBounds;
+        if ( AllocateCommonBufferWithBounds
+          && _InterlockedExchangeAdd64((volatile signed __int64 *)AllocateCommonBufferWithBounds - 3, 1uLL) <= 0 )
         {
           __fastfail(0xEu);
         }
         ExReleaseResourceLite(&IopSecurityResource);
-        KiLeaveCriticalRegionUnsafe((__int64)v39);
-        v35 = v28;
-        v36 = v45;
+        KeLeaveCriticalRegionThread((__int64)v35);
+        v32 = v25;
+        v33 = v42;
 LABEL_51:
-        FinalStatus = SeQuerySecurityDescriptorInfo(v36, a4, v35, &ObjectsSecurityDescriptor);
-        if ( SecurityDescriptor )
+        DmaOperations = SeQuerySecurityDescriptorInfo(v33, a4, v32, &ObjectsSecurityDescriptor);
+        if ( AllocateCommonBufferWithBounds )
           ObDereferenceSecurityDescriptor(ObjectsSecurityDescriptor, 1LL);
-        return FinalStatus;
+        return DmaOperations;
       }
-      return (unsigned int)SeAssignWorldSecurityDescriptor(a4, v28, v45);
+      return (unsigned int)SeAssignWorldSecurityDescriptor(a4, v25, v42);
     }
     if ( !a2 && (RelatedDeviceObject->Flags & 0x100) != 0 )
       return (unsigned int)-1073741808;

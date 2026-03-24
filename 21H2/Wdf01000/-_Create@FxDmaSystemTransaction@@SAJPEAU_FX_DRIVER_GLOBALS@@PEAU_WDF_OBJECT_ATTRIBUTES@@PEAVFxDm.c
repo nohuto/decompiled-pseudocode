@@ -1,15 +1,15 @@
 /*
- * XREFs of ?_Create@FxDmaSystemTransaction@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDmaEnabler@@PEAPEAUWDFDMATRANSACTION__@@@Z @ 0x1C0058B0C
+ * XREFs of ?_Create@FxDmaSystemTransaction@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDmaEnabler@@PEAPEAUWDFDMATRANSACTION__@@@Z @ 0x1C0035EBC
  * Callers:
- *     imp_WdfDmaTransactionCreate @ 0x1C0054190 (imp_WdfDmaTransactionCreate.c)
+ *     imp_WdfDmaTransactionCreate @ 0x1C00300E0 (imp_WdfDmaTransactionCreate.c)
  * Callees:
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??0FxDmaPacketTransaction@@IEAA@PEAU_FX_DRIVER_GLOBALS@@GGPEAVFxDmaEnabler@@@Z @ 0x1C0055C54 (--0FxDmaPacketTransaction@@IEAA@PEAU_FX_DRIVER_GLOBALS@@GGPEAVFxDmaEnabler@@@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ??0FxDmaPacketTransaction@@IEAA@PEAU_FX_DRIVER_GLOBALS@@GGPEAVFxDmaEnabler@@@Z @ 0x1C0032DC0 (--0FxDmaPacketTransaction@@IEAA@PEAU_FX_DRIVER_GLOBALS@@GGPEAVFxDmaEnabler@@@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxDmaSystemTransaction::_Create(
@@ -18,47 +18,49 @@ __int64 __fastcall FxDmaSystemTransaction::_Create(
         FxDmaEnabler *DmaEnabler,
         WDFDMATRANSACTION__ **Transaction)
 {
-  $D7F949E6343C64CECF3CA7D9836D4276 *DmaDescription; // rax
-  unsigned __int16 v9; // r8
-  bool v10; // zf
-  FxDmaPacketTransaction *v11; // rbx
-  $D7F949E6343C64CECF3CA7D9836D4276 *v12; // rax
-  unsigned __int16 v13; // cx
+  $E625912F367ED84F5D18F5529B8651D4 *DmaDescription; // rax
+  unsigned __int16 ExtraSize; // r10
+  FxDmaPacketTransaction *v10; // rbx
+  $E625912F367ED84F5D18F5529B8651D4 *v11; // rax
+  unsigned __int16 v12; // cx
   int v14; // edi
-  void *hTransaction; // [rsp+40h] [rbp-38h] BYREF
-  FxPoolTypeOrPoolFlags v17; // [rsp+50h] [rbp-28h] BYREF
+  void *hTransaction; // [rsp+40h] [rbp-28h] BYREF
 
   hTransaction = 0LL;
   DmaDescription = FxDmaEnabler::GetDmaDescription(DmaEnabler, WdfDmaDirectionReadFromDevice);
-  v9 = 0;
-  v17 = 0LL;
-  v10 = DmaDescription->m_SimplexAdapterInfo.DeviceDescription.Version == 3;
-  v17.u.PoolFlags = 64LL;
-  if ( v10 )
-    v9 = 128;
-  v11 = (FxDmaPacketTransaction *)FxObjectHandleAllocCommon(
+  ExtraSize = 0;
+  if ( DmaDescription->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
+    ExtraSize = 128;
+  v10 = (FxDmaPacketTransaction *)FxObjectHandleAlloc(
                                     FxDriverGlobals,
-                                    &v17,
+                                    ExDefaultNonPagedPoolType,
                                     0x158uLL,
                                     0,
                                     Attributes,
-                                    v9,
+                                    ExtraSize,
                                     FxObjectTypeExternal);
-  if ( v11 )
+  if ( v10 )
   {
-    v12 = FxDmaEnabler::GetDmaDescription(DmaEnabler, WdfDmaDirectionReadFromDevice);
-    v13 = 0;
-    if ( v12->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
-      v13 = 128;
-    FxDmaPacketTransaction::FxDmaPacketTransaction(v11, FxDriverGlobals, 0x158u, v13, DmaEnabler);
-    v11->__vftable = (FxDmaPacketTransaction_vtbl *)FxDmaSystemTransaction::`vftable';
-    v11[1].__vftable = 0LL;
-    v11[1].m_Globals = 0LL;
-    v14 = FxObject::Commit(v11, (_FX_DRIVER_GLOBALS *)Attributes, &hTransaction, DmaEnabler, 1u);
+    v11 = FxDmaEnabler::GetDmaDescription(DmaEnabler, WdfDmaDirectionReadFromDevice);
+    v12 = 0;
+    if ( v11->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
+      v12 = 128;
+    FxDmaPacketTransaction::FxDmaPacketTransaction(v10, FxDriverGlobals, 0x158u, v12, DmaEnabler);
+    v10->__vftable = (FxDmaPacketTransaction_vtbl *)FxDmaSystemTransaction::`vftable';
+    v10[1].__vftable = 0LL;
+    v10[1].m_Globals = 0LL;
+  }
+  else
+  {
+    v10 = 0LL;
+  }
+  if ( v10 )
+  {
+    v14 = FxObject::Commit(v10, (_FX_DRIVER_GLOBALS *)Attributes, &hTransaction, DmaEnabler, 1u);
     if ( v14 < 0 )
     {
-      FxObject::ClearEvtCallbacks(v11);
-      v11->DeleteObject(v11);
+      FxObject::ClearEvtCallbacks(v10);
+      ((void (*)(void))v10->DeleteObject)();
     }
     else
     {

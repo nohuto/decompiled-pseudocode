@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z @ 0x1801A0E64
+ * XREFs of ?ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z @ 0x180222074
  * Callers:
- *     ?OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z @ 0x18019EE20 (-OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z.c)
+ *     ?OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z @ 0x180221EF0 (-OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@U2@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@45456456445@Z @ 0x18019D6AC (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U3@U_ea_18019D6AC.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U3@U2@U?$_tlgWrapSz@G@@U2@U3@U2@U3@U4@U2@U3@U4@U2@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@454AEBU?$_tlgWrapSz@G@@45456456445@Z @ 0x1802218D0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U3@U_ea_1802218D0.c)
  */
 
 void __fastcall wil::TraceLoggingProvider::ReportTraceLoggingFailure(
@@ -18,9 +18,9 @@ void __fastcall wil::TraceLoggingProvider::ReportTraceLoggingFailure(
   int v7; // [rsp+C0h] [rbp-78h] BYREF
   int v8; // [rsp+C4h] [rbp-74h] BYREF
   int v9; // [rsp+C8h] [rbp-70h] BYREF
-  const char *v10; // [rsp+D0h] [rbp-68h] BYREF
+  const unsigned __int16 *v10; // [rsp+D0h] [rbp-68h] BYREF
   wchar_t *v11; // [rsp+D8h] [rbp-60h] BYREF
-  const char *v12; // [rsp+E0h] [rbp-58h] BYREF
+  const unsigned __int16 *v12; // [rsp+E0h] [rbp-58h] BYREF
   __int64 v13; // [rsp+E8h] [rbp-50h] BYREF
   __int64 v14; // [rsp+F0h] [rbp-48h] BYREF
   __int64 v15; // [rsp+F8h] [rbp-40h] BYREF
@@ -35,40 +35,40 @@ void __fastcall wil::TraceLoggingProvider::ReportTraceLoggingFailure(
   v4 = (_DWORD *)*((_QWORD *)this + 1);
   if ( *v4 > 2u )
   {
-    v10 = (const char *)*((_QWORD *)a2 + 6);
-    v20 = *((_DWORD *)a2 + 17);
-    v21 = *((_DWORD *)a2 + 4);
-    v11 = (wchar_t *)*((_QWORD *)a2 + 15);
-    v12 = (const char *)*((_QWORD *)a2 + 14);
-    v22 = *((_DWORD *)a2 + 26);
-    v13 = *((_QWORD *)a2 + 12);
-    v14 = *((_QWORD *)a2 + 11);
-    v5 = *((_DWORD *)a2 + 20);
-    v15 = *((_QWORD *)a2 + 9);
-    v6 = *((_DWORD *)a2 + 8);
-    v16 = *((_QWORD *)a2 + 3);
+    v10 = (const unsigned __int16 *)*((_QWORD *)a2 + 5);
+    v20 = *((_DWORD *)a2 + 15);
+    v21 = *((_DWORD *)a2 + 2);
+    v11 = (wchar_t *)*((_QWORD *)a2 + 14);
+    v12 = (const unsigned __int16 *)*((_QWORD *)a2 + 13);
+    v22 = *((_DWORD *)a2 + 24);
+    v13 = *((_QWORD *)a2 + 11);
+    v14 = *((_QWORD *)a2 + 10);
+    v5 = *((_DWORD *)a2 + 18);
+    v15 = *((_QWORD *)a2 + 8);
+    v6 = *((_DWORD *)a2 + 6);
+    v16 = *((_QWORD *)a2 + 2);
     v7 = *(_DWORD *)a2;
-    v17 = *((_QWORD *)a2 + 16);
-    v8 = *((_DWORD *)a2 + 16);
-    v18 = *((_QWORD *)a2 + 7);
-    v9 = *((_DWORD *)a2 + 2);
+    v17 = *((_QWORD *)a2 + 15);
+    v8 = *((_DWORD *)a2 + 14);
+    v18 = *((_QWORD *)a2 + 6);
+    v9 = *((_DWORD *)a2 + 1);
     v19 = 0x1000000LL;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
       (__int64)v4,
-      (unsigned __int8 *)dword_18037DA1E,
+      (unsigned __int8 *)dword_1802EA3C3,
       a3,
       a4,
       (__int64)&v19,
       (__int64)&v9,
-      (const char **)&v18,
+      (const unsigned __int16 **)&v18,
       (__int64)&v8,
-      (const char **)&v17,
+      (const unsigned __int16 **)&v17,
       (__int64)&v7,
       (wchar_t **)&v16,
       (__int64)&v6,
-      (const char **)&v15,
+      (const unsigned __int16 **)&v15,
       (__int64)&v5,
-      (const char **)&v14,
+      (const unsigned __int16 **)&v14,
       (wchar_t **)&v13,
       (__int64)&v22,
       &v12,

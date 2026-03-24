@@ -1,42 +1,50 @@
 /*
- * XREFs of ?SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C001F2A4
+ * XREFs of ?SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C000CF18
  * Callers:
- *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C006A0E8 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
- *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C01BC4FC (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
- *     ?RemoveCopyProtection@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@II@Z @ 0x1C01E9440 (-RemoveCopyProtection@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@I.c)
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C000CCE0 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
+ *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C0143594 (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
+ *     ?RemoveCopyProtection@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@II@Z @ 0x1C014B790 (-RemoveCopyProtection@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@I.c)
  * Callees:
- *     ?IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C001F2FC (-IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPRO.c)
+ *     ?IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C000CF68 (-IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPRO.c)
  */
 
-__int64 __fastcall DMMVIDPNPRESENTPATH::SetCopyProtectionScheme(
-        DMMVIDPNPRESENTPATH *this,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE a2)
+__int64 __fastcall DMMVIDPNPRESENTPATH::SetCopyProtectionScheme(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
   __int64 v2; // rdi
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  _QWORD *v9; // rax
+  _QWORD *v10; // rax
 
-  v2 = a2;
+  v2 = (int)a2;
   if ( (unsigned int)(a2 - 1) > 2 )
   {
-    WdLogSingleEntry1(2LL, a2);
-    WdLogSingleEntry3(
-      3LL,
-      v2,
-      *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-      *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
+    v5 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v5 + 24) = v2;
+    WdLogEvent5_WdError(v5);
+    v9 = (_QWORD *)WdLogNewEntry5_WdWarning(v7, v6, v8);
+    v9[3] = v2;
+    v9[4] = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+    v9[5] = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+    WdLogEvent5_WdWarning(v9);
     return 3223192399LL;
   }
-  else if ( DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(this, a2) )
+  else if ( DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(
+              this,
+              (enum _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE)a2) )
   {
     *((_DWORD *)this + 43) = v2;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry3(
-      7LL,
-      v2,
-      *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-      *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
+    v10 = (_QWORD *)WdLogNewEntry5_WdDmmEvent();
+    v10[3] = v2;
+    v10[4] = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+    v10[5] = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+    WdLogEvent5_WdDmmEvent(v10);
     return 3223192326LL;
   }
 }

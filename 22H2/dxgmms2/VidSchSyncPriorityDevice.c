@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchSyncPriorityDevice @ 0x1C00B4210
+ * XREFs of VidSchSyncPriorityDevice @ 0x1C0088260
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C0017F0C (-UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z.c)
+ *     ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C0015A18 (-UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z.c)
  */
 
 __int64 __fastcall VidSchSyncPriorityDevice(__int64 a1)

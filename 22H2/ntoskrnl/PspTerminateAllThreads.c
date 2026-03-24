@@ -1,21 +1,21 @@
 /*
- * XREFs of PspTerminateAllThreads @ 0x14076D520
+ * XREFs of PspTerminateAllThreads @ 0x140707720
  * Callers:
- *     NtTerminateProcess @ 0x1406837E0 (NtTerminateProcess.c)
- *     PspTerminateProcess @ 0x1406839D4 (PspTerminateProcess.c)
+ *     NtTerminateProcess @ 0x140707430 (NtTerminateProcess.c)
+ *     PspTerminateProcess @ 0x1407075F0 (PspTerminateProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PsGetProcessServerSilo @ 0x14028C060 (PsGetProcessServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C000C (KeFlushProcessWriteBuffers.c)
- *     DbgkClearProcessDebugObject @ 0x14068277C (DbgkClearProcessDebugObject.c)
- *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     PsGetNextProcessThread @ 0x140742FC0 (PsGetNextProcessThread.c)
- *     PspGetPreviousProcessThread @ 0x14076D758 (PspGetPreviousProcessThread.c)
- *     PspTerminateThreadByPointer @ 0x14076DE90 (PspTerminateThreadByPointer.c)
- *     PspCatchCriticalBreak @ 0x1409B3AD0 (PspCatchCriticalBreak.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     PsGetProcessServerSilo @ 0x14025C2E0 (PsGetProcessServerSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeFlushProcessWriteBuffers @ 0x140343D14 (KeFlushProcessWriteBuffers.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     PsGetNextProcessThread @ 0x140657980 (PsGetNextProcessThread.c)
+ *     PspGetPreviousProcessThread @ 0x140707954 (PspGetPreviousProcessThread.c)
+ *     PspTerminateThreadByPointer @ 0x140707AC0 (PspTerminateThreadByPointer.c)
+ *     DbgkClearProcessDebugObject @ 0x140772C50 (DbgkClearProcessDebugObject.c)
+ *     PspCatchCriticalBreak @ 0x14090AF34 (PspCatchCriticalBreak.c)
  */
 
 __int64 __fastcall PspTerminateAllThreads(
@@ -67,9 +67,9 @@ __int64 __fastcall PspTerminateAllThreads(
         {
           if ( (v10 & 4) != 0 )
           {
-            v10 ^= ((unsigned __int8)v10 ^ (unsigned __int8)(*(_DWORD *)(PreviousProcessThread + 1380) >> 3)) & 8;
+            v10 ^= ((unsigned __int8)v10 ^ (unsigned __int8)(*(_DWORD *)(PreviousProcessThread + 1300) >> 3)) & 8;
           }
-          else if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(PreviousProcessThread + 1352)) )
+          else if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(PreviousProcessThread + 1272)) )
           {
             v10 |= 8u;
           }
@@ -77,7 +77,7 @@ __int64 __fastcall PspTerminateAllThreads(
           {
             v10 = (((unsigned __int8)v10 ^ (unsigned __int8)(16
                                                            * _interlockedbittestandset(
-                                                               (volatile signed __int32 *)(PreviousProcessThread + 1376),
+                                                               (volatile signed __int32 *)(PreviousProcessThread + 1296),
                                                                0xFu))) & 0x10 ^ v10) & 0xFFFFFFF7;
           }
           if ( (v10 & 8) != 0 )
@@ -96,8 +96,8 @@ __int64 __fastcall PspTerminateAllThreads(
             i = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread(BugCheckParameter1, v14) )
       {
         v14 = i;
-        if ( i != a2 && (v10 & 4) == 0 && (i[172].Count & 0x8000) == 0 )
-          ExReleaseRundownProtection_0(i + 169);
+        if ( i != a2 && (v10 & 4) == 0 && (i[162].Count & 0x8000) == 0 )
+          ExReleaseRundownProtection(i + 159);
         if ( v14 == Object )
           break;
       }
@@ -110,7 +110,7 @@ __int64 __fastcall PspTerminateAllThreads(
       PspTerminateThreadByPointer(a2, a3, 0LL);
   }
   if ( BugCheckParameter1 != Count && a3 == 1073807364 )
-    DbgkClearProcessDebugObject(BugCheckParameter1, 0LL);
+    DbgkClearProcessDebugObject(BugCheckParameter1);
   if ( (v11 == 290 || *(_QWORD *)(BugCheckParameter1 + 1400) && BugCheckParameter1 != Count)
     && !PspRundownSingleProcess(BugCheckParameter1, 0)
     && v11 == 290 )

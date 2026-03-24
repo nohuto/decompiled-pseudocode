@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlDescribeChunkLZNT1 @ 0x1409C0BF0
+ * XREFs of RtlDescribeChunkLZNT1 @ 0x14091B410
  * Callers:
- *     RtlReserveChunkLZNT1 @ 0x1409C0CC0 (RtlReserveChunkLZNT1.c)
+ *     RtlReserveChunkLZNT1 @ 0x14091B4E0 (RtlReserveChunkLZNT1.c)
  * Callees:
  *     <none>
  */

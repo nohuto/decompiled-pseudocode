@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetLockConsoleTimeoutUnsafe @ 0x140878DFC
+ * XREFs of PopGetLockConsoleTimeoutUnsafe @ 0x140878DDC
  * Callers:
- *     PopGetLockConsoleTimeout @ 0x1406DCE14 (PopGetLockConsoleTimeout.c)
- *     PopActiveLockScreenPowerRequest @ 0x140878C20 (PopActiveLockScreenPowerRequest.c)
- *     PopSessionWinlogonNotification @ 0x14087901C (PopSessionWinlogonNotification.c)
+ *     PopGetLockConsoleTimeout @ 0x1406DCDF4 (PopGetLockConsoleTimeout.c)
+ *     PopActiveLockScreenPowerRequest @ 0x140878C00 (PopActiveLockScreenPowerRequest.c)
+ *     PopSessionWinlogonNotification @ 0x140878FFC (PopSessionWinlogonNotification.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 PopGetLockConsoleTimeoutUnsafe()
@@ -21,7 +21,7 @@ __int64 PopGetLockConsoleTimeoutUnsafe()
     if ( PopEnforceConsoleLockScreenTimeout )
     {
       if ( pCallbackContext.LevelPlus1 > 5 && TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
-        TlgWrite(&pCallbackContext, &unk_1403710B0, 0LL, 0LL, 2u, &pData);
+        TlgWrite(&pCallbackContext, &unk_1403711C0, 0LL, 0LL, 2u, &pData);
     }
     else
     {

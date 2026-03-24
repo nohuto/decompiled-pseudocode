@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFoGetAdvanceWidth @ 0x140671FE0
+ * XREFs of BgpFoGetAdvanceWidth @ 0x1405C44F0
  * Callers:
- *     BgpTxtDisplayString @ 0x140AF37A0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayString @ 0x1409F7784 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpRasGetGlyphAdvanceWidth @ 0x1406734CC (BgpRasGetGlyphAdvanceWidth.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x1405C59CC (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 __fastcall BgpFoGetAdvanceWidth(int a1, int a2, int a3, int a4, __int64 a5)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CreateGenericInk@CD2DContext@@UEAAJPEAPEAVCD2DGenericInk@@@Z @ 0x180286750
+ * XREFs of ?CreateGenericInk@CD2DContext@@UEAAJPEAPEAVCD2DGenericInk@@@Z @ 0x18023B1E0
  * Callers:
- *     ?CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x18022CF20 (-CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z.c)
+ *     ?CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1801C22A0 (-CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x180287BB8 (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
- *     ?Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@PEAPEAV1@@Z @ 0x18029CEE8 (-Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x18023CCBC (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
+ *     ?Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@PEAPEAV1@@Z @ 0x18024CE58 (-Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@.c)
  */
 
 __int64 __fastcall CD2DContext::CreateGenericInk(struct CD2DResourceManager **this, struct CD2DGenericInk **a2)
@@ -28,25 +28,25 @@ __int64 __fastcall CD2DContext::CreateGenericInk(struct CD2DResourceManager **th
   v6 = inited;
   if ( inited < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, inited, 0x169u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, inited, 0x157u, 0LL);
   }
   else
   {
-    v7 = this[40];
+    v7 = this[46];
     v8 = *(__int64 (__fastcall **)(struct CD2DResourceManager *, struct IDCompositionDirectInkWetStrokePartner **))(*(_QWORD *)v7 + 24LL);
     Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v14);
     v9 = v8(v7, &v14);
     v6 = v9;
     if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x16Au, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x158u, 0LL);
     }
     else
     {
-      v11 = CD2DGenericInk::Create(this[21], v14, a2);
+      v11 = CD2DGenericInk::Create(this[26], v14, a2);
       v6 = v11;
       if ( v11 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x16Bu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x159u, 0LL);
     }
   }
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v14);

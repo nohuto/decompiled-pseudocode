@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CacheGlyphBits@UMPDOBJ@@QEAAPEAU_GLYPHBITS@@PEAU2@@Z @ 0x1C0298B4C
+ * XREFs of ?CacheGlyphBits@UMPDOBJ@@QEAAPEAU_GLYPHBITS@@PEAU2@@Z @ 0x1C0293370
  * Callers:
- *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02CC810 (NtGdiFONTOBJ_cGetGlyphs.c)
+ *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02B40C0 (NtGdiFONTOBJ_cGetGlyphs.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 struct _GLYPHBITS *__fastcall UMPDOBJ::CacheGlyphBits(UMPDOBJ *this, struct _GLYPHBITS *a2)
@@ -18,19 +18,16 @@ struct _GLYPHBITS *__fastcall UMPDOBJ::CacheGlyphBits(UMPDOBJ *this, struct _GLY
   {
     v6 = UMPDOBJ::_AllocUserMem(this, v4, 0);
     v5 = v6;
-    if ( v6 )
-    {
-      *((_QWORD *)this + 43) = v6;
-      *((_DWORD *)this + 92) = v4;
-LABEL_6:
-      memmove(v5, a2, v4);
-    }
+    if ( !v6 )
+      return (struct _GLYPHBITS *)v5;
+    *((_QWORD *)this + 43) = v6;
+    *((_DWORD *)this + 92) = v4;
   }
   else
   {
     v5 = (void *)*((_QWORD *)this + 43);
-    if ( v5 )
-      goto LABEL_6;
   }
+  if ( v5 )
+    memmove(v5, a2, v4);
   return (struct _GLYPHBITS *)v5;
 }

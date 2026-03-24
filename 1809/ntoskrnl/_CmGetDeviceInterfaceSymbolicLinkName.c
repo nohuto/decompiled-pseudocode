@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceInterfaceSymbolicLinkName @ 0x14070FF88
+ * XREFs of _CmGetDeviceInterfaceSymbolicLinkName @ 0x14070FF68
  * Callers:
- *     IopBuildGlobalSymbolicLinkString @ 0x14070FDEC (IopBuildGlobalSymbolicLinkString.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x14070FDCC (IopBuildGlobalSymbolicLinkString.c)
  * Callees:
  *     RtlStringCchCopyNExW @ 0x140015A04 (RtlStringCchCopyNExW.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
  *     _CmValidateDeviceInterfaceName @ 0x1405C6810 (_CmValidateDeviceInterfaceName.c)
  */
 

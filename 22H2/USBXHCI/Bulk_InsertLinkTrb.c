@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_InsertLinkTrb @ 0x1C00226FE
+ * XREFs of Bulk_InsertLinkTrb @ 0x1C0044070
  * Callers:
- *     Bulk_Stage_MapIntoRing @ 0x1C0012A58 (Bulk_Stage_MapIntoRing.c)
+ *     Bulk_Stage_MapIntoRing @ 0x1C000D560 (Bulk_Stage_MapIntoRing.c)
  * Callees:
- *     TR_InitializeLinkTrb @ 0x1C0007F6C (TR_InitializeLinkTrb.c)
+ *     TR_InitializeLinkTrb @ 0x1C000E5B0 (TR_InitializeLinkTrb.c)
  */
 
 char __fastcall Bulk_InsertLinkTrb(__int64 a1, _QWORD *a2, int a3, char a4)
@@ -11,7 +11,7 @@ char __fastcall Bulk_InsertLinkTrb(__int64 a1, _QWORD *a2, int a3, char a4)
   _QWORD *v4; // rax
   _QWORD *v6; // rbx
   __int64 v9; // rcx
-  __int64 v10; // r8
+  __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // rax
   _QWORD *v13; // r8

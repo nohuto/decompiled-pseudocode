@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CVisualReferenceControllerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021BF00
+ * XREFs of ?SetRemarshalingFlags@CVisualReferenceControllerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E59C0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ bool __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetRemar
   __int64 v1; // rdx
   bool result; // al
 
-  v1 = *((_QWORD *)this + 8);
+  v1 = *((_QWORD *)this + 7);
   result = 0;
   if ( v1 )
     return *(_QWORD *)(v1 + 16) != 0LL;

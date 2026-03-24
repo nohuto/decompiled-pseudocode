@@ -1,22 +1,23 @@
 /*
- * XREFs of CmpReferenceKeyControlBlockUnsafe @ 0x1406D9378
+ * XREFs of CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620
  * Callers:
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8840 (CmpCreateKeyControlBlock.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x140769424 (CmpTransMgrFreeVolatileData.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
- *     CmpCreateSiloKeyLockEntry @ 0x140849290 (CmpCreateSiloKeyLockEntry.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x14084945C (CmpCreateGlobalKeyLockEntry.c)
- *     CmpFreezeHive @ 0x1408755AC (CmpFreezeHive.c)
- *     CmpCloneToUnbackedKcb @ 0x140A16EB4 (CmpCloneToUnbackedKcb.c)
- *     CmpCommitDiscardReplacePost @ 0x140A1F9B0 (CmpCommitDiscardReplacePost.c)
- *     CmpKeyEnumStackCreateResumeContext @ 0x140A23A98 (CmpKeyEnumStackCreateResumeContext.c)
- *     CmpRefreshParent @ 0x140A2A100 (CmpRefreshParent.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140649B30 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpFreezeHive @ 0x14066C5D0 (CmpFreezeHive.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071C8A0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLinkHiveToMaster @ 0x14071D600 (CmpLinkHiveToMaster.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x1407C3ABC (CmpCreateGlobalKeyLockEntry.c)
+ *     CmpCreateSiloKeyLockEntry @ 0x1407C3B18 (CmpCreateSiloKeyLockEntry.c)
+ *     CmpCloneToUnbackedKcb @ 0x14086EB2C (CmpCloneToUnbackedKcb.c)
+ *     CmpCommitDiscardReplacePost @ 0x140876070 (CmpCommitDiscardReplacePost.c)
+ *     CmpKeyEnumStackCreateResumeContext @ 0x14087A834 (CmpKeyEnumStackCreateResumeContext.c)
+ *     CmpRefreshParent @ 0x14087FE50 (CmpRefreshParent.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpReferenceKeyControlBlockUnsafe(volatile signed __int64 *BugCheckParameter2)

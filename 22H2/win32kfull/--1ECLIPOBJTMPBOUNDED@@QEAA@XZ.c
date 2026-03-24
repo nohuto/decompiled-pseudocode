@@ -1,15 +1,15 @@
 /*
- * XREFs of ??1ECLIPOBJTMPBOUNDED@@QEAA@XZ @ 0x1C0140510
+ * XREFs of ??1ECLIPOBJTMPBOUNDED@@QEAA@XZ @ 0x1C016CE7C
  * Callers:
- *     NtGdiEngGradientFill @ 0x1C02C9C50 (NtGdiEngGradientFill.c)
- *     NtGdiEngLineTo @ 0x1C02CA140 (NtGdiEngLineTo.c)
- *     NtGdiEngStretchBlt @ 0x1C02CAB20 (NtGdiEngStretchBlt.c)
- *     NtGdiEngStretchBltROP @ 0x1C02CB070 (NtGdiEngStretchBltROP.c)
- *     NtGdiEngStrokeAndFillPath @ 0x1C02CB750 (NtGdiEngStrokeAndFillPath.c)
- *     NtGdiEngStrokePath @ 0x1C02CBBC0 (NtGdiEngStrokePath.c)
- *     NtGdiEngTextOut @ 0x1C02CBFB0 (NtGdiEngTextOut.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013AF80 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngTextOut @ 0x1C013BC80 (NtGdiEngTextOut.c)
+ *     NtGdiEngStretchBlt @ 0x1C013CDD0 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngGradientFill @ 0x1C02B27D0 (NtGdiEngGradientFill.c)
+ *     NtGdiEngLineTo @ 0x1C02B2C70 (NtGdiEngLineTo.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02B3540 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02B3980 (NtGdiEngStrokePath.c)
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
  */
 
 void __fastcall ECLIPOBJTMPBOUNDED::~ECLIPOBJTMPBOUNDED(ECLIPOBJTMPBOUNDED *this)

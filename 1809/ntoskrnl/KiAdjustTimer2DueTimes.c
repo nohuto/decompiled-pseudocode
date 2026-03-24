@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAdjustTimer2DueTimes @ 0x14016FE14
+ * XREFs of KiAdjustTimer2DueTimes @ 0x14016FE34
  * Callers:
- *     KiAdjustTimerDueTimes @ 0x14016FBCC (KiAdjustTimerDueTimes.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
  * Callees:
  *     KiRequestTimer2Expiration @ 0x140003A70 (KiRequestTimer2Expiration.c)
- *     KiRemoveTimer2 @ 0x1400FB710 (KiRemoveTimer2.c)
- *     KiShouldActivateHRTimerClock @ 0x1400FBD88 (KiShouldActivateHRTimerClock.c)
- *     KiInsertTimer2 @ 0x1400FC7E0 (KiInsertTimer2.c)
- *     KiSendClockInterruptToClockOwner @ 0x1400FD148 (KiSendClockInterruptToClockOwner.c)
- *     RtlULongLongSub @ 0x1400FE044 (RtlULongLongSub.c)
+ *     KiRemoveTimer2 @ 0x1400FB730 (KiRemoveTimer2.c)
+ *     KiShouldActivateHRTimerClock @ 0x1400FBDA8 (KiShouldActivateHRTimerClock.c)
+ *     KiInsertTimer2 @ 0x1400FC800 (KiInsertTimer2.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1400FD168 (KiSendClockInterruptToClockOwner.c)
+ *     RtlULongLongSub @ 0x1400FE064 (RtlULongLongSub.c)
  */
 
 char __fastcall KiAdjustTimer2DueTimes(__int64 a1)

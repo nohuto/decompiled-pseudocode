@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserMNDragLeave @ 0x1C01F91D0
+ * XREFs of NtUserMNDragLeave @ 0x1C01FE780
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C021B934 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
- *     UnlockMFMWFPWindow @ 0x1C0230320 (UnlockMFMWFPWindow.c)
- *     xxxMNSetGapState @ 0x1C024568C (xxxMNSetGapState.c)
+ *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C02217F4 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
+ *     UnlockMFMWFPWindow @ 0x1C0236FA8 (UnlockMFMWFPWindow.c)
+ *     xxxMNSetGapState @ 0x1C0249E4C (xxxMNSetGapState.c)
  */
 
 __int64 NtUserMNDragLeave()
@@ -17,7 +17,7 @@ __int64 NtUserMNDragLeave()
   __int64 v4; // rdx
   __int64 v5; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v0 = 0LL;
   v1 = gptiCurrent;
   v2 = *(_QWORD *)(gptiCurrent + 608LL);

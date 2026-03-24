@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x1405D18CC
+ * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x140284394
  * Callers:
- *     PopDiagTraceControlCallback @ 0x14081CBF0 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void PopDiagTraceDeepSleepConstraintRundown()
@@ -26,10 +26,10 @@ void PopDiagTraceDeepSleepConstraintRundown()
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v12; // eax
-  unsigned __int16 v13; // [rsp+40h] [rbp-118h] BYREF
-  _DWORD v14[14]; // [rsp+48h] [rbp-110h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-D8h] BYREF
-  _QWORD v16[22]; // [rsp+90h] [rbp-C8h]
+  unsigned __int16 v13; // [rsp+40h] [rbp-F8h] BYREF
+  _DWORD v14[10]; // [rsp+48h] [rbp-F0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-C8h] BYREF
+  _QWORD v16[20]; // [rsp+80h] [rbp-B8h]
 
   v0 = 0;
   if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN) )
@@ -78,7 +78,7 @@ void PopDiagTraceDeepSleepConstraintRundown()
           v6 = (v12 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v12;
           if ( v6 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }

@@ -1,21 +1,32 @@
 /*
- * XREFs of ?GetProcessSchedulingPriorityBand@DXGPROCESS@@QEAA?AW4_D3DKMT_SCHEDULING_PRIORITYBAND@@XZ @ 0x1C03364C8
+ * XREFs of ?GetProcessSchedulingPriorityBand@DXGPROCESS@@QEAA?AW4_D3DKMT_SCHEDULING_PRIORITYBAND@@XZ @ 0x1C02853EC
  * Callers:
- *     DxgkGetProcessSchedulingPriorityBand @ 0x1C0337D40 (DxgkGetProcessSchedulingPriorityBand.c)
+ *     DxgkGetProcessSchedulingPriorityBand @ 0x1C0286880 (DxgkGetProcessSchedulingPriorityBand.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DXGPROCESS::GetProcessSchedulingPriorityBand(__int64 a1)
 {
-  int v1; // edx
+  __int64 v1; // rdx
+  __int64 result; // rax
+  __int64 v3; // rax
 
-  v1 = *(_DWORD *)(a1 + 432);
-  if ( v1 == 1 )
-    return 1LL;
-  if ( (v1 & 0xFFFFFFFD) == 0 )
-    return 0LL;
-  WdLogSingleEntry1(1LL, 4781LL);
-  DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"FALSE", 4781LL, 0LL, 0LL, 0LL, 0LL);
-  return 3LL;
+  v1 = *(unsigned int *)(a1 + 352);
+  result = 1LL;
+  if ( (_DWORD)v1 != 1 )
+  {
+    if ( (v1 & 0xFFFFFFFD) != 0 )
+    {
+      v3 = WdLogNewEntry5_WdAssertion(a1, v1);
+      *(_QWORD *)(v3 + 24) = 4722LL;
+      WdLogEvent5_WdAssertion(v3);
+      return 3LL;
+    }
+    else
+    {
+      return 0LL;
+    }
+  }
+  return result;
 }

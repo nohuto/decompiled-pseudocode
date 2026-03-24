@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C00EEA3C
+ * XREFs of ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0025DD8
  * Callers:
- *     xxxLW_LoadFonts @ 0x1C00EE740 (xxxLW_LoadFonts.c)
+ *     xxxLW_LoadFonts @ 0x1C00E6470 (xxxLW_LoadFonts.c)
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C00EEC14 (-xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z.c)
- *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00EEE2C (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
- *     ThreadLockExchange @ 0x1C00FDE30 (ThreadLockExchange.c)
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C0021E50 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C0025C40 (-xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     ThreadLockExchange @ 0x1C00C15B0 (ThreadLockExchange.c)
  */
 
 void __fastcall xxxLoadUserAndNetworkFonts(
@@ -36,8 +36,8 @@ void __fastcall xxxLoadUserAndNetworkFonts(
   ULONG ResultLength; // [rsp+D0h] [rbp+67h] BYREF
   void *KeyHandle; // [rsp+D8h] [rbp+6Fh] BYREF
 
-  xxxbEnumerateRegistryFonts(0x401u, 0x38u, a3, a4);
-  xxxbEnumerateRegistryFonts(2u, 0x38u, v4, v5);
+  xxxbEnumerateRegistryFonts(1025, 0x38u, a3, a4);
+  xxxbEnumerateRegistryFonts(2, 0x38u, v4, v5);
   v19 = 0LL;
   v17 = 0LL;
   KeyHandle = 0LL;
@@ -47,23 +47,23 @@ void __fastcall xxxLoadUserAndNetworkFonts(
   v16 = 0LL;
   v15 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  v7 = (void *)OpenCacheKeyEx(0LL, 6LL, 131097LL);
+  v7 = (void *)OpenCacheKeyEx(0LL, 6LL, 131097LL, 0LL);
   v8 = v7;
   if ( v7 )
   {
-    xxxbEnumerateRegistryFontsInternal(v7, 2u);
-    v9 = Win32AllocPoolZInit(544LL, 1919972181LL);
+    xxxbEnumerateRegistryFontsInternal(v7, 2);
+    v9 = Win32AllocPool(544LL, 1919972181LL);
     v10 = (unsigned int *)v9;
     if ( v9 )
     {
-      PushW32ThreadLock(v9, &v16, (__int64)Win32FreePool);
+      PushW32ThreadLock(v9, &v16, Win32FreePool);
       for ( i = 0; ; ++i )
       {
         v12 = ZwEnumerateKey(v8, i, KeyBasicInformation, v10, v6 - 2, &ResultLength);
         if ( v12 != -2147483643 && v12 != -1073741789 )
           goto LABEL_6;
         ResultLength += 2;
-        v13 = Win32AllocPoolZInit(ResultLength, 1919972181LL);
+        v13 = Win32AllocPool(ResultLength, 1919972181LL);
         v14 = (unsigned int *)v13;
         if ( v13 )
         {
@@ -77,7 +77,7 @@ void __fastcall xxxLoadUserAndNetworkFonts(
 LABEL_6:
             if ( v12 < 0 )
             {
-              PopAndFreeAlwaysW32ThreadLock((__int64)&v16);
+              PopAndFreeAlwaysW32ThreadLock(&v16);
               ZwClose(v8);
               return;
             }
@@ -92,7 +92,7 @@ LABEL_6:
             *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
             if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
             {
-              xxxbEnumerateRegistryFontsInternal(KeyHandle, 2u);
+              xxxbEnumerateRegistryFontsInternal(KeyHandle, 2);
               ZwClose(KeyHandle);
             }
           }

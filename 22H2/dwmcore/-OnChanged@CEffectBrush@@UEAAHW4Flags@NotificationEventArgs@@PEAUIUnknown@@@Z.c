@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnChanged@CEffectBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18003F560
+ * XREFs of ?OnChanged@CEffectBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800494D0
  * Callers:
  *     <none>
  * Callees:
- *     ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x18003F5B4 (-TryCreateEffectInstance@CEffectBrush@@AEAAJXZ.c)
- *     ?HasValidTemplate@CEffectBrush@@AEBA_NXZ @ 0x18003F6A0 (-HasValidTemplate@CEffectBrush@@AEBA_NXZ.c)
- *     ?OnChanged@CBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18003F6C0 (-OnChanged@CBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?OnChanged@CBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180049530 (-OnChanged@CBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?HasValidTemplate@CEffectBrush@@AEBA_NXZ @ 0x180049568 (-HasValidTemplate@CEffectBrush@@AEBA_NXZ.c)
+ *     ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x180049584 (-TryCreateEffectInstance@CEffectBrush@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CEffectBrush::OnChanged(CEffectBrush *a1, unsigned int a2, __int64 a3)
@@ -18,6 +18,6 @@ __int64 __fastcall CEffectBrush::OnChanged(CEffectBrush *a1, unsigned int a2, __
   HasValidTemplate = CEffectBrush::HasValidTemplate(a1);
   v8 = 0;
   if ( HasValidTemplate )
-    return (unsigned int)CBrush::OnChanged(v7, a2, a3);
+    return (unsigned int)CBrush::OnChanged(v7, a2, a3, 0LL);
   return v8;
 }

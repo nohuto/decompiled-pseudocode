@@ -1,9 +1,9 @@
 /*
- * XREFs of PopHiberEvaluateSkippingMemoryMapValidation @ 0x140B76670
+ * XREFs of PopHiberEvaluateSkippingMemoryMapValidation @ 0x140A73E44
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     EmClientQueryRuleState @ 0x140A87C40 (EmClientQueryRuleState.c)
+ *     EmClientQueryRuleState @ 0x1409900E0 (EmClientQueryRuleState.c)
  */
 
 bool PopHiberEvaluateSkippingMemoryMapValidation()

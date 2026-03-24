@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProtocolId@BamoConnection@DiagnosticCallbacks_AutoBamos@@EEBAAEBU_GUID@@XZ @ 0x180105850
+ * XREFs of ?GetProtocolId@BamoConnection@DiagnosticCallbacks_AutoBamos@@EEBAAEBU_GUID@@XZ @ 0x1800E1CD0
  * Callers:
  *     <none>
  * Callees:

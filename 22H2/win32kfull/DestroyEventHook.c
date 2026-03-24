@@ -1,140 +1,52 @@
 /*
- * XREFs of DestroyEventHook @ 0x1C0070D40
+ * XREFs of DestroyEventHook @ 0x1C0022770
  * Callers:
- *     _UnhookWinEvent @ 0x1C0071B04 (_UnhookWinEvent.c)
- *     FreeThreadsWinEvents @ 0x1C0072010 (FreeThreadsWinEvents.c)
+ *     _UnhookWinEvent @ 0x1C0024208 (_UnhookWinEvent.c)
+ *     FreeThreadsWinEvents @ 0x1C00C0C30 (FreeThreadsWinEvents.c)
  * Callees:
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C0070838 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     ??0?$ObjectLockBase@$$V@?$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@?$DomainSharedBase@$$V@@IEAA@XZ @ 0x1C0070F78 (--0-$ObjectLockBase@$$V@-$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@-$DomainSharedBase@$$V@@IEAA@.c)
- *     RemoveHmodDependency @ 0x1C0071408 (RemoveHmodDependency.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C011B7D0 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     RemoveHmodDependency @ 0x1C002031C (RemoveHmodDependency.c)
+ *     CategoryMaskFromEventRange @ 0x1C002281C (CategoryMaskFromEventRange.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-void __fastcall DestroyEventHook(void **a1)
+__int64 __fastcall DestroyEventHook(__int64 a1)
 {
-  int v2; // r14d
-  int v3; // esi
-  _BYTE *v4; // rdi
-  tagDomLock *v5; // rcx
-  void **i; // rcx
-  void **v7; // rax
-  __int64 v8; // rdx
-  _DWORD *v9; // r8
-  int v10; // r9d
-  unsigned int v11; // r10d
-  __int64 v12; // rcx
-  int v13; // esi
-  _BYTE *v14; // rdi
-  tagDomLock *v15; // rcx
-  char v16[8]; // [rsp+20h] [rbp-40h] BYREF
-  tagDomLock *v17; // [rsp+28h] [rbp-38h] BYREF
-  _BYTE v18[32]; // [rsp+30h] [rbp-30h] BYREF
-  char v19; // [rsp+50h] [rbp-10h]
+  int v2; // edi
+  __int64 result; // rax
+  __int64 *i; // rcx
+  __int64 v5; // rax
+  __int64 v6; // r8
+  int v7; // eax
+  __int64 v8; // r8
+  int v9; // ecx
 
+  *(_DWORD *)(a1 + 40) |= 1u;
   v2 = 0;
-  if ( !tagDomLock::IsLockedExclusive((PERESOURCE *)gDomainWinEventLock) )
-    __int2c();
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)v16, a1);
-  *((_DWORD *)a1 + 10) |= 1u;
-  DomainSharedBase<>::DomainExclusiveBase<DLT_HANDLEMANAGER>::ObjectLockBase<>::ObjectLockBase<>(&v17);
-  if ( !v19 )
+  result = HMMarkObjectDestroy(a1);
+  if ( (_DWORD)result )
   {
-    v3 = 0;
-    v4 = v18;
-    do
+    for ( i = (__int64 *)gpWinEventHooks; ; i = (__int64 *)(v5 + 24) )
     {
-      v5 = (tagDomLock *)*((_QWORD *)v4 - 1);
-      if ( v5 )
-      {
-        if ( *v4 )
-          tagDomLock::LockExclusive(v5);
-        else
-          tagDomLock::LockShared(v5);
-      }
-      ++v3;
-      v4 += 16;
-    }
-    while ( !v3 );
-    v19 = 1;
-  }
-  if ( (unsigned int)HMMarkObjectDestroy(a1) )
-  {
-    if ( v19 )
-    {
-      if ( v17 )
-      {
-        if ( v18[0] )
-          tagDomLock::UnLockExclusive(v17);
-        else
-          tagDomLock::UnLockShared(v17);
-      }
-      v19 = 0;
-    }
-    for ( i = (void **)gpWinEventHooks; ; i = v7 + 3 )
-    {
-      v7 = (void **)*i;
+      v5 = *i;
       if ( !*i )
         break;
-      if ( v7 == a1 )
+      if ( v5 == a1 )
       {
-        *i = a1[3];
+        *i = *(_QWORD *)(a1 + 24);
         break;
       }
     }
-    v8 = gpWinEventHooks;
-    while ( v8 )
+    v6 = gpWinEventHooks;
+    while ( v6 )
     {
-      v9 = &unk_1C035A194;
-      v10 = 0;
-      v11 = 0;
-      do
-      {
-        if ( *(v9 - 1) > *(_DWORD *)(v8 + 36) )
-          break;
-        if ( (unsigned int)(*((_DWORD *)&unk_1C035A190 + 2 * ++v11) - 1) >= *(_DWORD *)(v8 + 32) )
-          v10 |= *v9;
-        v9 += 2;
-      }
-      while ( v11 < 0xF );
-      v8 = *(_QWORD *)(v8 + 24);
-      v2 |= v10;
+      v7 = CategoryMaskFromEventRange(*(unsigned int *)(v6 + 32), *(unsigned int *)(v6 + 36), v6);
+      v6 = *(_QWORD *)(v8 + 24);
+      v2 |= v7;
     }
     *(_DWORD *)(gpsi + 1892LL) = v2;
-    v12 = *((unsigned int *)a1 + 18);
-    if ( (int)v12 >= 0 )
-      RemoveHmodDependency(v12);
-    DomainSharedBase<>::DomainExclusiveBase<DLT_HANDLEMANAGER>::ObjectLockBase<>::ObjectLockBase<>(&v17);
-    if ( !v19 )
-    {
-      v13 = 0;
-      v14 = v18;
-      do
-      {
-        v15 = (tagDomLock *)*((_QWORD *)v14 - 1);
-        if ( v15 )
-        {
-          if ( *v14 )
-            tagDomLock::LockExclusive(v15);
-          else
-            tagDomLock::LockShared(v15);
-        }
-        ++v13;
-        v14 += 16;
-      }
-      while ( !v13 );
-      v19 = 1;
-    }
-    HMFreeObject(a1);
+    v9 = *(_DWORD *)(a1 + 72);
+    if ( v9 >= 0 )
+      RemoveHmodDependency(v9);
+    return HMFreeObject(a1);
   }
-  if ( v19 && v17 )
-  {
-    if ( v18[0] )
-      tagDomLock::UnLockExclusive(v17);
-    else
-      tagDomLock::UnLockShared(v17);
-  }
-  if ( v16[0] )
-    gphePrimaryDestroyTarget = 0LL;
+  return result;
 }

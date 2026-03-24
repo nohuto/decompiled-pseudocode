@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeHoldingFrame@MouseRateLimitHoldingFrame@CMouseSensor@@QEAAX_NPEAUDEVICEINFO@@@Z @ 0x1C00E9368
+ * XREFs of ?InitializeHoldingFrame@MouseRateLimitHoldingFrame@CMouseSensor@@QEAAX_NPEAUDEVICEINFO@@@Z @ 0x1C01B24A0
  * Callers:
- *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01EC28C (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
+ *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01B2690 (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
  * Callees:
- *     ?HandleMouseReportRateLimitingTimer@MouseRateLimitHoldingFrame@CMouseSensor@@AEAAJ_NK@Z @ 0x1C01EC160 (-HandleMouseReportRateLimitingTimer@MouseRateLimitHoldingFrame@CMouseSensor@@AEAAJ_NK@Z.c)
+ *     ?HandleMouseReportRateLimitingTimer@MouseRateLimitHoldingFrame@CMouseSensor@@AEAAJ_NK@Z @ 0x1C01B2438 (-HandleMouseReportRateLimitingTimer@MouseRateLimitHoldingFrame@CMouseSensor@@AEAAJ_NK@Z.c)
  */
 
 void __fastcall CMouseSensor::MouseRateLimitHoldingFrame::InitializeHoldingFrame(

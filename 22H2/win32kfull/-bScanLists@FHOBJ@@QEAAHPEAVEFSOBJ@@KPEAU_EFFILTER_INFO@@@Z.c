@@ -1,68 +1,197 @@
 /*
- * XREFs of ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@@Z @ 0x1C0159B9C
+ * XREFs of ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@@Z @ 0x1C0062E90
  * Callers:
- *     ?bScanTheList@@YAHPEAVFHOBJ@@KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z @ 0x1C0004460 (-bScanTheList@@YAHPEAVFHOBJ@@KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z.c)
+ *     ?bScanTheList@@YAHPEAVFHOBJ@@KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z @ 0x1C00BB620 (-bScanTheList@@YAHPEAVFHOBJ@@KPEAVEFSOBJ@@KPEAU_EFFILTER_INFO@@PEBG@Z.c)
  * Callees:
- *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C00045E0 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
- *     ?bFilteredOut@PFEOBJ@@QEAAHPEAU_EFFILTER_INFO@@@Z @ 0x1C0004690 (-bFilteredOut@PFEOBJ@@QEAAHPEAU_EFFILTER_INFO@@@Z.c)
- *     ?efstyCompute@@YA?AW4_ENUMFONTSTYLE@@PEAHAEAVPFEOBJ@@@Z @ 0x1C0005068 (-efstyCompute@@YA-AW4_ENUMFONTSTYLE@@PEAHAEAVPFEOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C0062680 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
+ *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C00633C4 (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?efstyCompute@@YA?AW4_ENUMFONTSTYLE@@PEAHAEAVPFEOBJ@@@Z @ 0x1C016186C (-efstyCompute@@YA-AW4_ENUMFONTSTYLE@@PEAHAEAVPFEOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C02BB348 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
  */
 
 __int64 __fastcall FHOBJ::bScanLists(FHOBJ *this, struct EFSOBJ *a2, int a3, struct _EFFILTER_INFO *a4)
 {
-  char v7; // r15
-  __int64 i; // rdi
-  _QWORD *v9; // rsi
-  int v10; // r14d
+  char v4; // r12
+  __int64 v8; // rsi
+  _QWORD *v9; // r14
+  int v10; // ebp
   __int64 v11; // rbx
-  int v12; // eax
-  __int64 v14; // [rsp+30h] [rbp-68h] BYREF
-  __int128 v15; // [rsp+38h] [rbp-60h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-50h]
+  int v12; // r8d
+  _DWORD *v13; // r9
+  int v14; // edx
+  __int64 v16; // rdx
+  int v17; // edx
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  char *v20; // rcx
+  char v21; // r11
+  char *v22; // r8
+  struct _LIST_ENTRY *LinkedFontList; // r10
+  struct _LIST_ENTRY *i; // r9
+  struct _LIST_ENTRY *Flink; // rcx
+  __int64 Blink_low; // rax
+  _BYTE *v27; // rax
+  _BYTE *v28; // r8
+  struct tagPvtData *v29; // rax
+  int v30; // eax
+  __int64 v31; // [rsp+30h] [rbp-78h] BYREF
+  __int64 v32; // [rsp+38h] [rbp-70h] BYREF
+  __int128 v33; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v34; // [rsp+58h] [rbp-50h]
 
-  v7 = (a3 == 2) | 2;
-  if ( a3 != 3 )
-    v7 = a3 == 2;
-  for ( i = *(_QWORD *)(*((_QWORD *)this + 1) + 24LL); ; i = *(_QWORD *)(i + 48) )
+  v4 = 0;
+  if ( a3 == 2 )
   {
-    if ( !i )
-      return 1LL;
-    v9 = *(_QWORD **)(i + 8);
+    v4 = 1;
+  }
+  else if ( a3 == 3 )
+  {
+    v4 = 2;
+  }
+  v8 = *(_QWORD *)(*((_QWORD *)this + 1) + 24LL);
+  if ( !v8 )
+    return 1LL;
+  while ( 1 )
+  {
+    v9 = *(_QWORD **)(v8 + 8);
     if ( v9 )
     {
-      if ( (*(_DWORD *)(i + 32) & 2) == 0 )
+      if ( (*(_DWORD *)(v8 + 32) & 2) == 0 )
         break;
     }
 LABEL_15:
-    ;
+    v8 = *(_QWORD *)(v8 + 48);
+    if ( !v8 )
+      return 1LL;
   }
   v10 = 0;
   *((_DWORD *)a4 + 7) = 1;
-  v16 = 0LL;
-  *((_DWORD *)a4 + 8) = *(_DWORD *)(i + 24);
-  v15 = 0LL;
+  v34 = 0LL;
+  *((_DWORD *)a4 + 8) = *(_DWORD *)(v8 + 24);
+  v33 = 0LL;
   while ( 1 )
   {
     v11 = v9[1];
-    v14 = v11;
-    if ( PFEOBJ::bFilteredOut((PFEOBJ *)&v14, a4) )
-      goto LABEL_12;
+    v31 = v11;
+    v12 = *(_DWORD *)(v11 + 12);
+    v13 = *(_DWORD **)(v11 + 32);
+    if ( (v12 & 2) != 0 )
+      goto LABEL_14;
+    v14 = v13[12];
+    if ( (v14 & 0x800000) != 0 || (v12 & 8) != 0 || *((_DWORD *)a4 + 6) && (v14 & 2) != 0 )
+      goto LABEL_14;
+    if ( *((_DWORD *)a4 + 3) && (v14 & 1) != 0
+      || *((_DWORD *)a4 + 4) && (v14 & 1) == 0
+      || *(_DWORD *)a4
+      && (v14 & 2) != 0
+      && (v12 & 1) == 0
+      && (*((_DWORD *)a4 + 1) != v13[32] || *((_DWORD *)a4 + 2) != v13[33])
+      || *((_DWORD *)a4 + 7) && *((_DWORD *)a4 + 8) && (v14 & 2) != 0 )
+    {
+      goto LABEL_14;
+    }
+    v16 = *(_QWORD *)v11;
+    v32 = v16;
+    if ( *(struct PFT **const *)(v16 + 128) == gpPFTPrivate )
+    {
+      v29 = PFFOBJ::pPvtDataMatch((PFFOBJ *)&v32);
+      if ( !v29 || *((_DWORD *)v29 + 1) )
+        goto LABEL_14;
+    }
+    else if ( !*(_DWORD *)(v16 + 56) )
+    {
+      goto LABEL_14;
+    }
+    if ( *((_DWORD *)a4 + 5) && (*(_DWORD *)(v11 + 12) & 1) == 0 || (*(_DWORD *)(v11 + 12) & 0x44) != 0 )
+      goto LABEL_14;
+    v17 = *((_DWORD *)a4 + 9);
+    if ( v17 != 1 )
+    {
+      v18 = *(_QWORD *)(v11 + 32);
+      v19 = *(int *)(v18 + 40);
+      if ( (_DWORD)v19 )
+      {
+        if ( (_BYTE)v17 == 1 )
+          LOBYTE(v17) = MAPPER::DefaultCharset;
+        if ( (_BYTE)v17 == 0xFE )
+        {
+          LOBYTE(v17) = -2;
+        }
+        else
+        {
+          v20 = (char *)(v18 + v19);
+          v21 = *v20;
+          v22 = v20 + 16;
+          if ( v20 >= v20 + 16 )
+          {
+LABEL_36:
+            if ( *(_QWORD *)(v11 + 120) )
+            {
+              LinkedFontList = PFEOBJ::pGetLinkedFontList((PFEOBJ *)&v31);
+              for ( i = LinkedFontList->Flink; i != LinkedFontList; i = i->Flink )
+              {
+                Flink = i[2].Flink[2].Flink;
+                Blink_low = SLODWORD(Flink[2].Blink);
+                if ( (_DWORD)Blink_low )
+                {
+                  v27 = (char *)Flink + Blink_low;
+                  v28 = v27 + 16;
+                  if ( v27 < v27 + 16 )
+                  {
+                    while ( *v27 != (_BYTE)v17 )
+                    {
+                      if ( *v27 != 1 && ++v27 < v28 )
+                        continue;
+                      goto LABEL_53;
+                    }
+                    goto LABEL_38;
+                  }
+                }
+                else if ( BYTE4(Flink[2].Blink) == (_BYTE)v17 )
+                {
+                  goto LABEL_38;
+                }
+LABEL_53:
+                ;
+              }
+            }
+            LOBYTE(v17) = v21;
+          }
+          else
+          {
+            while ( *v20 != (_BYTE)v17 )
+            {
+              if ( *v20 != 1 && ++v20 < v22 )
+                continue;
+              goto LABEL_36;
+            }
+          }
+        }
+      }
+      else
+      {
+        LOBYTE(v17) = *(_BYTE *)(v18 + 44);
+      }
+LABEL_38:
+      if ( (_BYTE)v17 != *((_BYTE *)a4 + 36) )
+        goto LABEL_14;
+    }
     if ( a3 != 1 )
       break;
-    v12 = efstyCompute((__int64)&v15, (__int64)&v14);
-    if ( !v10 || v12 == 5 )
+    v30 = efstyCompute(&v33, &v31);
+    if ( !v10 || v30 == 5 )
     {
-      v10 = 1;
-      if ( !(unsigned int)EFSOBJ::bAdd(a2, v11, v12, 0, 1) )
+      if ( !(unsigned int)EFSOBJ::bAdd(a2, v11, v30, 0, 1) )
         return 0LL;
+      v10 = 1;
     }
-LABEL_12:
+LABEL_14:
     v9 = (_QWORD *)*v9;
     if ( !v9 )
       goto LABEL_15;
   }
-  if ( (unsigned int)EFSOBJ::bAdd(a2, v11, 0, v7, *((_DWORD *)a4 + 9)) )
+  if ( (unsigned int)EFSOBJ::bAdd(a2, v11, 0, v4, *((_DWORD *)a4 + 9)) )
     goto LABEL_15;
   return 0LL;
 }

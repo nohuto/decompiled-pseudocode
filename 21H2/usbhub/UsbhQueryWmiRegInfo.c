@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhQueryWmiRegInfo @ 0x1C00495F0
+ * XREFs of UsbhQueryWmiRegInfo @ 0x1C004A9A0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 __int64 __fastcall UsbhQueryWmiRegInfo(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4, int a5, _QWORD *a6)

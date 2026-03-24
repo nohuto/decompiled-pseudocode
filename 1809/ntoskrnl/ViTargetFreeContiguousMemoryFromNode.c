@@ -4,7 +4,7 @@
  *     ViTargetFreeContiguousMemory @ 0x140934F64 (ViTargetFreeContiguousMemory.c)
  *     ViTargetFreeContiguousMemoryCallback @ 0x140934FE0 (ViTargetFreeContiguousMemoryCallback.c)
  * Callees:
- *     VfUtilFreePoolDispatchLevel @ 0x1403099A0 (VfUtilFreePoolDispatchLevel.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x140309AA0 (VfUtilFreePoolDispatchLevel.c)
  */
 
 __int64 __fastcall ViTargetFreeContiguousMemoryFromNode(__int64 a1, __int64 a2)

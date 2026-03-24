@@ -1,40 +1,36 @@
 /*
- * XREFs of ?UpdateVmBusHandle@DXGVMBUSCHANNEL@@QEAAJPEAX@Z @ 0x1C036725C
+ * XREFs of ?UpdateVmBusHandle@DXGVMBUSCHANNEL@@QEAAJPEAX@Z @ 0x1C02B42F0
  * Callers:
- *     ?UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C03624C8 (-UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
+ *     ?UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C02B621C (-UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGVMBUSCHANNEL::UpdateVmBusHandle(DXGVMBUSCHANNEL *this, void *a2)
 {
   int v4; // eax
-  __int64 v5; // rdi
-  _BYTE v7[24]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  _QWORD *v8; // rax
+  _BYTE v10[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGVMBUSCHANNEL *)((char *)this + 120), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
-  v4 = ((__int64 (__fastcall *)(_QWORD, void *))qword_1C0142148)(*((_QWORD *)this + 2), a2);
-  v5 = v4;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v10, (DXGVMBUSCHANNEL *)((char *)this + 112), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v10);
+  v4 = ((__int64 (__fastcall *)(_QWORD, void *))qword_1C00B4588)(*((_QWORD *)this + 2), a2);
+  v7 = v4;
   if ( v4 < 0 )
   {
-    WdLogSingleEntry3(2LL, v4, 431LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmbServerChannelInitSetVmbusHandle failed. Returning 0x%I64x",
-      v5,
-      431LL,
-      (__int64)this,
-      0LL,
-      0LL);
+    v8 = (_QWORD *)WdLogNewEntry5_WdError(v6, v5);
+    v8[3] = v7;
+    v8[4] = 431LL;
+    v8[5] = this;
+    WdLogEvent5_WdError(v8);
   }
-  if ( v7[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7);
-  return (unsigned int)v5;
+  if ( v10[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10, v5);
+  return (unsigned int)v7;
 }

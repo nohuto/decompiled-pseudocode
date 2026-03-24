@@ -1,14 +1,11 @@
 /*
- * XREFs of PnpIsValidGuidString @ 0x1406E87E8
+ * XREFs of PnpIsValidGuidString @ 0x140772234
  * Callers:
- *     _CmValidateDeviceContainerName @ 0x14076D788 (_CmValidateDeviceContainerName.c)
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
- *     _CmValidateInstallerClassName @ 0x1407871A0 (_CmValidateInstallerClassName.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x14083DEC8 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
  */
 
 bool __fastcall PnpIsValidGuidString(PCWSTR SourceString)

@@ -1,53 +1,46 @@
 /*
- * XREFs of MiSetPfnRemovalRequested @ 0x14064DF24
+ * XREFs of MiSetPfnRemovalRequested @ 0x14054F368
  * Callers:
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
- *     MiInitializeDynamicPfns @ 0x14061AF68 (MiInitializeDynamicPfns.c)
- *     MiHotRemoveHugeRange @ 0x140620144 (MiHotRemoveHugeRange.c)
- *     MiRemoveBadPages @ 0x14062A4B0 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x14062AD80 (MiUnlinkBadPages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B620 (MmMarkPhysicalMemoryAsBad.c)
- *     MiMarkFileOnlyPfnBad @ 0x14063E0B0 (MiMarkFileOnlyPfnBad.c)
- *     MiMakePageBad @ 0x14065E320 (MiMakePageBad.c)
+ *     MiInsertPageInList @ 0x1402A6E90 (MiInsertPageInList.c)
+ *     MiInitializeDynamicPfns @ 0x14052E4E0 (MiInitializeDynamicPfns.c)
+ *     MiRemoveBadPages @ 0x14052EB08 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x14052F038 (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052F870 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x140541648 (MiMarkFileOnlyPfnBad.c)
+ *     MiMakePageBad @ 0x140563874 (MiMakePageBad.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAddPendingBadPageNode @ 0x140629758 (MiAddPendingBadPageNode.c)
- *     MiRemovePendingBadPageNode @ 0x14062A978 (MiRemovePendingBadPageNode.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
  */
 
-void __fastcall MiSetPfnRemovalRequested(unsigned __int64 a1, int a2, int a3, unsigned __int64 a4)
+void __fastcall MiSetPfnRemovalRequested(__int64 a1, int a2)
 {
-  unsigned __int8 v4; // bl
-  __int64 v9; // rbp
+  _BYTE *v2; // r14
+  unsigned int v3; // ebx
+  __int64 v5; // rsi
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = *(_BYTE *)(a1 + 35);
-  if ( ((v4 >> 6) & 1) != a2 )
+  v2 = (_BYTE *)(a1 + 35);
+  v3 = *(unsigned __int8 *)(a1 + 35);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( ((v3 >> 6) & 1) != a2 )
   {
-    if ( _bittest64((const signed __int64 *)(a1 + 40), 0x35u) )
+    if ( (*(_QWORD *)(a1 + 40) & 0x2000000000000LL) != 0 )
     {
-      v9 = 0LL;
+      v5 = 0LL;
     }
     else
     {
-      v9 = *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 16LL)
-         + 25408LL
-         * *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4)) + 2);
-      ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v9 + 23104));
-      *(_QWORD *)(v9 + 23136) += a2 != 0 ? 1LL : -1LL;
+      v5 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)) + 16LL)
+         + 4544LL * *((unsigned int *)MiSearchNumaNodeTable((a1 + 0x58000000000LL) / 48) + 2);
+      LockHandle.LockQueue.Next = 0LL;
+      LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 4328);
+      KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v5 + 4328));
+      *(_QWORD *)(v5 + 4352) += a2 != 0 ? 1LL : -1LL;
     }
-    if ( (v4 & 0x40) != 0 )
-    {
-      if ( a3 )
-        MiRemovePendingBadPageNode(a1);
-    }
-    else
-    {
-      MiAddPendingBadPageNode(a1, a4);
-    }
-    *(_BYTE *)(a1 + 35) = v4 ^ (v4 ^ ((_BYTE)a2 << 6)) & 0x40;
-    if ( v9 )
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 23104));
+    *v2 = v3 ^ (v3 ^ ((_BYTE)a2 << 6)) & 0x40;
+    if ( v5 )
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
 }

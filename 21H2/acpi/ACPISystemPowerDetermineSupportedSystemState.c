@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPISystemPowerDetermineSupportedSystemState @ 0x1C00600EC
+ * XREFs of ACPISystemPowerDetermineSupportedSystemState @ 0x1C005F2FC
  * Callers:
- *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C001EC04 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C0019C4C (ACPISystemPowerUpdateDeviceCapabilities.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall ACPISystemPowerDetermineSupportedSystemState(__int64 a1, int 
   v3 = 7;
   if ( a2 != 4 )
   {
-    v4 = *(__int64 **)(a1 + 8LL * a2 + 408);
+    v4 = *(__int64 **)(a1 + 8LL * a2 + 368);
     while ( v4 )
     {
       v5 = v3;

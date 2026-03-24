@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ValidateDoubleClick@@YAHAEBUtagTAP_INFO@@KKH@Z @ 0x1C0213EDC
+ * XREFs of ?ValidateDoubleClick@@YAHAEBUtagTAP_INFO@@KKH@Z @ 0x1C02191C4
  * Callers:
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0213BC0 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218DC8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,10 +23,10 @@ _BOOL8 __fastcall ValidateDoubleClick(const struct tagTAP_INFO *a1, int a2, int 
       LOBYTE(v5) = a4 != 0;
       if ( (*((_DWORD *)a1 + 6) != 0) == v5 )
       {
-        if ( v4 == word_1C0335C90[12 * a2 + 4] )
+        if ( v4 == word_1C033AAD0[12 * a2 + 4] )
           return 1;
         v6 = (unsigned int)(a2 + 1);
-        if ( (unsigned int)v6 < 5 && v4 == word_1C0335C90[12 * v6 + 4] )
+        if ( (unsigned int)v6 < 5 && v4 == word_1C033AAD0[12 * v6 + 4] )
           return 1;
       }
     }

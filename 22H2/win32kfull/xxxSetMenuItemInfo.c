@@ -1,96 +1,95 @@
 /*
- * XREFs of xxxSetMenuItemInfo @ 0x1C0062998
+ * XREFs of xxxSetMenuItemInfo @ 0x1C00457B8
  * Callers:
- *     xxxLoadSysMenu @ 0x1C006272C (xxxLoadSysMenu.c)
- *     NtUserThunkedMenuItemInfo @ 0x1C00635E0 (NtUserThunkedMenuItemInfo.c)
+ *     xxxLoadSysMenu @ 0x1C0042D94 (xxxLoadSysMenu.c)
+ *     NtUserThunkedMenuItemInfo @ 0x1C0043140 (NtUserThunkedMenuItemInfo.c)
  * Callees:
- *     ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C00640AC (-SetLPITEMInfoNoRedraw@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@.c)
- *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00645A0 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     MNLookUpItem @ 0x1C006482C (MNLookUpItem.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     MakeMenuRtoL @ 0x1C0238650 (MakeMenuRtoL.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0047758 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C0048BE8 (-SetLPITEMInfoNoRedraw@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@.c)
+ *     MNLookUpItem @ 0x1C0061B00 (MNLookUpItem.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     MakeMenuRtoL @ 0x1C024E57C (MakeMenuRtoL.c)
  */
 
 __int64 __fastcall xxxSetMenuItemInfo(_QWORD **a1, unsigned int a2, unsigned int a3, __int64 a4, __int64 a5)
 {
+  _QWORD *v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // r14
+  __int64 v12; // rbx
   __int64 ThreadWin32Thread; // rax
-  _QWORD *v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rsi
-  __int64 v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  unsigned int v16; // ebx
-  __int64 v17; // r8
-  unsigned int v19; // ebx
-  _QWORD *v20; // rcx
-  __int64 v21; // [rsp+30h] [rbp-40h] BYREF
-  __int64 *v22; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-28h]
-  __int128 v25; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-10h]
-  int v27; // [rsp+90h] [rbp+20h] BYREF
+  __int64 v14; // rcx
+  unsigned int v15; // ebx
+  unsigned int v17; // ebx
+  _QWORD *v18; // rcx
+  __int64 v19; // [rsp+30h] [rbp-40h] BYREF
+  _QWORD v20[2]; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v21; // [rsp+48h] [rbp-28h]
+  __int128 v22; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v23; // [rsp+60h] [rbp-10h]
+  int v24; // [rsp+90h] [rbp+20h] BYREF
 
-  v25 = 0LL;
-  v26 = 0LL;
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  v22 = (__int64 *)gSmartObjNullRef;
-  v23 = *(_QWORD *)(ThreadWin32Thread + 1512);
-  *(_QWORD *)(ThreadWin32Thread + 1512) = &v23;
-  v24 = 0LL;
-  v21 = *v22;
-  v10 = a1[2];
-  if ( !v10 )
-    v10 = (_QWORD *)**a1;
-  v11 = MNLookUpItem(v10, a2, a3, &v21);
-  v24 = 0LL;
-  v12 = v11;
-  SmartObjStackRefBase<tagMENU>::operator=(&v22, v21);
-  if ( !v12 )
+  v22 = 0LL;
+  v23 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v20, 0LL);
+  v9 = a1[2];
+  v19 = *(_QWORD *)v20[0];
+  if ( !v9 )
+    v9 = (_QWORD *)**a1;
+  v10 = MNLookUpItem(v9, a2, a3, &v19);
+  v21 = 0LL;
+  v11 = v10;
+  SmartObjStackRefBase<tagMENU>::operator=(v20);
+  if ( !v11 )
   {
-    if ( a3 || a2 != 61744 )
+    if ( !a3 && a2 == 61744 )
     {
-      UserSetLastError(1456LL);
-      v16 = 0;
+      v15 = 1;
     }
     else
     {
-      v16 = 1;
+      UserSetLastError(1456LL);
+      v15 = 0;
     }
-    goto LABEL_10;
+    goto LABEL_12;
   }
   if ( (*(_DWORD *)(a4 + 4) & 0x10) != 0 )
   {
     if ( (*(_DWORD *)(a4 + 8) & 0x2000) != 0 )
     {
-      v19 = 1;
+      v17 = 1;
     }
     else
     {
-      v19 = 0;
+      v17 = 0;
       if ( (*(_DWORD *)(*(_QWORD *)(**a1 + 40LL) + 40LL) & 0x20) == 0 )
         goto LABEL_5;
     }
-    v20 = a1[2];
-    if ( !v20 )
-      v20 = (_QWORD *)**a1;
-    MakeMenuRtoL(v20, v19);
+    v18 = a1[2];
+    if ( !v18 )
+      v18 = (_QWORD *)**a1;
+    MakeMenuRtoL(v18, v17);
   }
 LABEL_5:
-  v13 = v24;
-  if ( !v24 )
-    v13 = *v22;
-  ThreadLock(v13, &v25);
-  v27 = 0;
-  v16 = SetLPITEMInfoNoRedraw((unsigned int)&v22, v12, a4, a5, (__int64)&v27);
-  if ( v27 )
-    xxxRedrawForSetLPITEMInfo(&v22, v12);
-  ThreadUnlock1(v15, v14, v17);
-LABEL_10:
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(&v22);
-  return v16;
+  v12 = v21;
+  if ( !v21 )
+    v12 = *(_QWORD *)v20[0];
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)&v22 = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = &v22;
+  *((_QWORD *)&v22 + 1) = v12;
+  if ( v12 )
+    HMLockObject(v12);
+  v24 = 0;
+  v15 = SetLPITEMInfoNoRedraw((unsigned int)v20, v11, a4, a5, (__int64)&v24);
+  if ( v24 )
+    xxxRedrawForSetLPITEMInfo(v20, v11);
+  ThreadUnlock1(v14);
+LABEL_12:
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v20);
+  return v15;
 }

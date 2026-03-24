@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpRecoverEnlistment @ 0x1407F8924
+ * XREFs of CmpRecoverEnlistment @ 0x1407F8904
  * Callers:
- *     CmKtmNotification @ 0x1406942D0 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1406942B0 (CmKtmNotification.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenEnlistment @ 0x1401BA430 (ZwOpenEnlistment.c)
- *     ZwRecoverEnlistment @ 0x1401BADB0 (ZwRecoverEnlistment.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenEnlistment @ 0x1401BA450 (ZwOpenEnlistment.c)
+ *     ZwRecoverEnlistment @ 0x1401BADD0 (ZwRecoverEnlistment.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpTransSearchAddTransFromRm @ 0x1406FA670 (CmpTransSearchAddTransFromRm.c)
+ *     CmpTransSearchAddTransFromRm @ 0x1406FA650 (CmpTransSearchAddTransFromRm.c)
  */
 
 __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)

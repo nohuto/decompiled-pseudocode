@@ -1,16 +1,17 @@
 /*
- * XREFs of USBD_CreateHandle @ 0x1C0040A4C
+ * XREFs of USBD_CreateHandle @ 0x1C003FE80
  * Callers:
- *     HUBFDO_SetupHubPostErrataQuery @ 0x1C000E168 (HUBFDO_SetupHubPostErrataQuery.c)
+ *     HUBFDO_SetupHubPostErrataQuery @ 0x1C000DD70 (HUBFDO_SetupHubPostErrataQuery.c)
  * Callees:
- *     USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C0040290 (USBDInternal_BuildAndSendQueryInterfaceSynchronously.c)
- *     USBDInternal_QueryUsbVerifierSettings @ 0x1C00405A4 (USBDInternal_QueryUsbVerifierSettings.c)
- *     USBDInternal_BuildServicePath @ 0x1C0040828 (USBDInternal_BuildServicePath.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C003F6B8 (USBDInternal_BuildAndSendQueryInterfaceSynchronously.c)
+ *     USBDInternal_QueryUsbVerifierSettings @ 0x1C003F9D4 (USBDInternal_QueryUsbVerifierSettings.c)
+ *     USBDInternal_BuildServicePath @ 0x1C003FC58 (USBDInternal_BuildServicePath.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall USBD_CreateHandle(
         PDEVICE_OBJECT DeviceObject,
         PDEVICE_OBJECT TargetDeviceObject,
@@ -19,7 +20,7 @@ NTSTATUS __stdcall USBD_CreateHandle(
         USBD_HANDLE *USBDHandle)
 {
   char v5; // r13
-  void *v6; // rsi
+  PVOID v6; // rsi
   NTSTATUS v9; // ebx
   USBD_HANDLE PoolWithTag; // rax
   USBD_HANDLE v11; // rdi
@@ -29,24 +30,21 @@ NTSTATUS __stdcall USBD_CreateHandle(
   bool v16; // zf
   char v17; // al
   void (__fastcall *v18)(_QWORD); // rax
-  void *v19; // [rsp+30h] [rbp-D0h] BYREF
+  PVOID P[2]; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v20[10]; // [rsp+40h] [rbp-C0h] BYREF
   struct _OSVERSIONINFOW VersionInformation; // [rsp+90h] [rbp-70h] BYREF
 
   v5 = 0;
-  v19 = 0LL;
+  P[0] = 0LL;
   v6 = 0LL;
   if ( KeGetCurrentIrql() )
   {
     if ( g_EnableDbgPrints )
-      DbgPrintEx(0x4Du, 0, "Irql Too High\n");
+      DbgPrintEx(0x4Du, 0, "Irql Too High\n", PoolTag);
     v9 = -1073741496;
-LABEL_18:
-    if ( !USBDHandle )
-      goto LABEL_41;
-    goto LABEL_58;
+    goto LABEL_56;
   }
-  if ( !byte_1C006ABA4 )
+  if ( !byte_1C0069AE4 )
   {
     PoolType = NonPagedPool;
     memset(&VersionInformation.dwMajorVersion, 0, 0x118uLL);
@@ -58,43 +56,41 @@ LABEL_18:
       PoolType = NonPagedPoolNx;
     }
   }
-  byte_1C006ABA4 = 1;
+  byte_1C0069AE4 = 1;
   if ( !DeviceObject )
   {
     if ( g_EnableDbgPrints )
-      DbgPrintEx(0x4Du, 0, "DeviceObject cannot be NULL\n");
-LABEL_17:
+      DbgPrintEx(0x4Du, 0, "DeviceObject cannot be NULL\n", *(_QWORD *)&PoolTag);
+LABEL_14:
     v9 = -1073741811;
-    goto LABEL_18;
+LABEL_56:
+    if ( USBDHandle )
+      *USBDHandle = 0LL;
+    goto LABEL_39;
   }
   if ( !TargetDeviceObject )
   {
     if ( g_EnableDbgPrints )
-      DbgPrintEx(0x4Du, 0, "TargetDeviceObject cannot be NULL\n");
-    goto LABEL_17;
+      DbgPrintEx(0x4Du, 0, "TargetDeviceObject cannot be NULL\n", *(_QWORD *)&PoolTag);
+    goto LABEL_14;
   }
   if ( USBDHandle )
   {
-    USBDInternal_BuildServicePath((__int64)DeviceObject, &v19);
+    USBDInternal_BuildServicePath((__int64)DeviceObject, P);
     PoolWithTag = (USBD_HANDLE)ExAllocatePoolWithTag(PoolType, 0xE8uLL, 0x68334855u);
     v11 = PoolWithTag;
     if ( !PoolWithTag )
     {
       if ( g_EnableDbgPrints )
         DbgPrintEx(0x4Du, 0, "Allocation Failed\n");
-      v6 = v19;
+      v6 = P[0];
       v9 = -1073741670;
-LABEL_58:
-      *USBDHandle = 0LL;
-LABEL_41:
-      if ( v6 )
-        ExFreePoolWithTag(v6, 0x68334855u);
-      return v9;
+      goto LABEL_56;
     }
     memset(PoolWithTag, 0, 0xE8uLL);
-    v6 = v19;
-    if ( v19 )
-      USBDInternal_QueryUsbVerifierSettings((__int64)DeviceObject, (__int64)v19, (__int64)(v11 + 2));
+    v6 = P[0];
+    if ( P[0] )
+      USBDInternal_QueryUsbVerifierSettings((__int64)DeviceObject, (__int64)P[0], (__int64)(v11 + 2));
     *(_DWORD *)v11 = 1145197397;
     *((_DWORD *)v11 + 54) = 1539;
     *((_DWORD *)v11 + 2) = 100860104;
@@ -140,7 +136,7 @@ LABEL_41:
             TargetDeviceObject,
             v15);
         v9 = 0;
-LABEL_33:
+LABEL_31:
         if ( g_EnableDbgPrints )
           DbgPrintEx(0x4Du, 3u, "USBD_CreateHandle Successful: usbdHandleInfo 0x%p\n", v11);
         if ( *((_DWORD *)v11 + 54) == 1536 )
@@ -153,15 +149,7 @@ LABEL_33:
                   (unsigned __int64)&USB_BUS_INTERFACE_USBDI_GUID,
                   (unsigned __int16 *)v20);
           v9 = v13;
-          if ( v13 >= 0 )
-          {
-            v17 = v20[8];
-            if ( v20[8] )
-              v17 = ((__int64 (__fastcall *)(_QWORD))v20[8])(v20[1]);
-            *((_BYTE *)v11 + 224) = v17;
-            ((void (__fastcall *)(_QWORD))v20[3])(v20[1]);
-          }
-          else
+          if ( v13 < 0 )
           {
             if ( g_EnableDbgPrints )
               DbgPrintEx(
@@ -172,9 +160,15 @@ LABEL_33:
                 v13);
             *((_DWORD *)v11 + 54) = -1;
             v9 = 0;
+            goto LABEL_38;
           }
+          v17 = v20[8];
+          if ( v20[8] )
+            v17 = ((__int64 (__fastcall *)(_QWORD))v20[8])(v20[1]);
+          *((_BYTE *)v11 + 224) = v17;
+          ((void (__fastcall *)(_QWORD))v20[3])(v20[1]);
         }
-        else if ( v9 < 0 )
+        if ( v9 < 0 )
         {
           if ( v5 )
           {
@@ -183,10 +177,14 @@ LABEL_33:
               v18(*((_QWORD *)v11 + 6));
           }
           ExFreePoolWithTag(v11, 0x68334855u);
-          goto LABEL_58;
+          goto LABEL_56;
         }
+LABEL_38:
         *USBDHandle = v11;
-        goto LABEL_41;
+LABEL_39:
+        if ( v6 )
+          ExFreePoolWithTag(v6, 0x68334855u);
+        return v9;
       }
     }
     else
@@ -194,9 +192,9 @@ LABEL_33:
       *((_DWORD *)v11 + 54) = *((unsigned __int16 *)v11 + 5);
     }
     v5 = 1;
-    goto LABEL_33;
+    goto LABEL_31;
   }
   if ( g_EnableDbgPrints )
-    DbgPrintEx(0x4Du, 0, "USBDHandle cannot be NULL\n");
+    DbgPrintEx(0x4Du, 0, "USBDHandle cannot be NULL\n", *(_QWORD *)&PoolTag);
   return -1073741811;
 }

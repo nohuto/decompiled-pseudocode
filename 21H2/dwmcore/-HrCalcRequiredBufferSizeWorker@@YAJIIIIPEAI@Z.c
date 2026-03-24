@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HrCalcRequiredBufferSizeWorker@@YAJIIIIPEAI@Z @ 0x18007074C
+ * XREFs of ?HrCalcRequiredBufferSizeWorker@@YAJIIIIPEAI@Z @ 0x1800592CC
  * Callers:
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18006D9D0 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z.c)
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x180070044 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x18003C160 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18003D568 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall HrCalcRequiredBufferSizeWorker(
@@ -30,32 +30,32 @@ __int64 __fastcall HrCalcRequiredBufferSizeWorker(
   v8 = a3 * (unsigned __int64)a1;
   if ( v8 > 0xFFFFFFFF )
   {
-    v12 = 1615;
+    v12 = 1612;
     goto LABEL_14;
   }
   a1 = v8 + 7;
   if ( (int)v8 + 7 < (unsigned int)v8 )
   {
-    v12 = 1616;
+    v12 = 1613;
     goto LABEL_14;
   }
   a1 >>= 3;
   if ( (unsigned int)v6 < a1 )
   {
     v10 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x655u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x652u, 0LL);
     return v10;
   }
   v9 = v6 * v7;
   if ( v9 > 0xFFFFFFFF )
   {
-    v12 = 1624;
+    v12 = 1621;
     goto LABEL_14;
   }
   v5 = a1 + v9;
   if ( a1 + (unsigned int)v9 < (unsigned int)v9 )
   {
-    v12 = 1625;
+    v12 = 1622;
 LABEL_14:
     v10 = -2147024362;
     MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, v12, 0LL);

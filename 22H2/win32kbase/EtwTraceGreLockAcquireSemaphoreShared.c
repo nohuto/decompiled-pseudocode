@@ -1,34 +1,33 @@
 /*
- * XREFs of EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0041790
+ * XREFs of EtwTraceGreLockAcquireSemaphoreShared @ 0x1C00804B0
  * Callers:
- *     DxgkEngVisRgnUniq @ 0x1C000EDA0 (DxgkEngVisRgnUniq.c)
- *     DrvNotifyModeChangeStartStop @ 0x1C001B11C (DrvNotifyModeChangeStartStop.c)
- *     GreSfmOpenTokenEvent @ 0x1C001B440 (GreSfmOpenTokenEvent.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001E59C (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004086C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C005D92C (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
- *     GreSfmGetNotificationTokens @ 0x1C00CBC90 (GreSfmGetNotificationTokens.c)
- *     DrvDisplayConfigGetScaleFactorOverrides @ 0x1C01665E0 (DrvDisplayConfigGetScaleFactorOverrides.c)
- *     DxEngLockShareSem @ 0x1C01693F0 (DxEngLockShareSem.c)
- *     EngAcquireSemaphoreShared @ 0x1C0169A90 (EngAcquireSemaphoreShared.c)
- *     GreLockVisRgnSharedOrExclusive @ 0x1C016A640 (GreLockVisRgnSharedOrExclusive.c)
+ *     DxgkEngVisRgnUniq @ 0x1C0004CE0 (DxgkEngVisRgnUniq.c)
+ *     DrvNotifyModeChangeStartStop @ 0x1C0011E20 (DrvNotifyModeChangeStartStop.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C0020360 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     DrvEnumDisplaySettings @ 0x1C0020E50 (DrvEnumDisplaySettings.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C003A048 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C003A2F0 (GreLockVisRgnSharedOrExclusive.c)
+ *     GreLockVisRgnShared @ 0x1C003A690 (GreLockVisRgnShared.c)
+ *     ?vLockNoDrawing@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C003E130 (-vLockNoDrawing@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     GreSfmGetNotificationTokens @ 0x1C0048CC0 (GreSfmGetNotificationTokens.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z @ 0x1C00820C8 (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@H@Z.c)
+ *     ?vLockGammaRamp@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00A7360 (-vLockGammaRamp@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     GreSfmOpenTokenEvent @ 0x1C00A8AF0 (GreSfmOpenTokenEvent.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     DxEngLockShareSem @ 0x1C014AB20 (DxEngLockShareSem.c)
+ *     EngAcquireSemaphoreShared @ 0x1C014AFB0 (EngAcquireSemaphoreShared.c)
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CD50 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall EtwTraceGreLockAcquireSemaphoreShared(__int64 a1, int a2)
+__int64 __fastcall EtwTraceGreLockAcquireSemaphoreShared(__int64 a1, int a2, int a3)
 {
   __int64 result; // rax
-  int v5; // r8d
-  __int64 v6; // rcx
 
-  result = SGDGetSessionState(a1);
-  v6 = *(_QWORD *)(result + 24);
-  if ( *(_DWORD *)(v6 + 180) )
+  if ( gbLockEtw )
   {
     if ( (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      return McTemplateK0pz_EtwWriteTransfer(v6, (unsigned int)&LockAcquireShared, v5, a2, a1);
+      return McTemplateK0pz_EtwWriteTransfer(a1, (unsigned int)&LockAcquireShared, a3, a2, a1);
   }
   return result;
 }

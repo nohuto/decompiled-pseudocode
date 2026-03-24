@@ -1,12 +1,13 @@
 /*
- * XREFs of UsbhSetFdoPowerState @ 0x1C003BF08
+ * XREFs of UsbhSetFdoPowerState @ 0x1C001CE0C
  * Callers:
- *     UsbhFdoDevicePowerState @ 0x1C0005910 (UsbhFdoDevicePowerState.c)
- *     UsbhFdoD0Worker_Action @ 0x1C00070B0 (UsbhFdoD0Worker_Action.c)
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbhFdoPower_PowerFailureEntry @ 0x1C003B740 (UsbhFdoPower_PowerFailureEntry.c)
+ *     UsbhFdoWakePoComplete_Action @ 0x1C000CA20 (UsbhFdoWakePoComplete_Action.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000DC30 (UsbhFdoD0Worker_Action.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhFdoDevicePowerState @ 0x1C00101B0 (UsbhFdoDevicePowerState.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003CA70 (UsbhFdoPower_PowerFailureEntry.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 _DWORD *__fastcall UsbhSetFdoPowerState(__int64 a1, int a2, int a3, int a4)

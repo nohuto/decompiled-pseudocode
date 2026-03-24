@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_qii @ 0x1C0055A74
+ * XREFs of WPP_IFR_SF_qii @ 0x1C0032A98
  * Callers:
- *     ?AllocateCommonBuffer@FxCommonBuffer@@QEAAJ_K@Z @ 0x1C002A060 (-AllocateCommonBuffer@FxCommonBuffer@@QEAAJ_K@Z.c)
- *     ?InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z @ 0x1C002DBB0 (-InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z.c)
+ *     ?InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z @ 0x1C00322E8 (-InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z.c)
+ *     ?AllocateCommonBuffer@FxCommonBuffer@@QEAAJ_K@Z @ 0x1C00377A4 (-AllocateCommonBuffer@FxCommonBuffer@@QEAAJ_K@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qii(

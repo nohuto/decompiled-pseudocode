@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_ValidatingMsOs20DescriptorSetIfPresent @ 0x1C0020B40
+ * XREFs of HUBDSM_ValidatingMsOs20DescriptorSetIfPresent @ 0x1C0020730
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDESC_ValidateMsOs20DescriptorSet @ 0x1C003BE50 (HUBDESC_ValidateMsOs20DescriptorSet.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ValidateMsOs20DescriptorSet @ 0x1C003B7D0 (HUBDESC_ValidateMsOs20DescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingMsOs20DescriptorSetIfPresent(__int64 a1)
@@ -32,10 +32,13 @@ __int64 __fastcall HUBDSM_ValidatingMsOs20DescriptorSetIfPresent(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 960);
   WORD1(v12) = 0;
+  v13 = 0LL;
+  v15 = 0;
+  v19 = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   LODWORD(v12) = *(unsigned __int16 *)(v1 + 1990);
   HIDWORD(v12) = *(_DWORD *)(v1 + 172);
   v13 = 0LL;

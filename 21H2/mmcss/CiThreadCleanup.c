@@ -1,24 +1,24 @@
 /*
- * XREFs of CiThreadCleanup @ 0x1C000A680
+ * XREFs of CiThreadCleanup @ 0x1C000B8E0
  * Callers:
- *     CiThreadNotification @ 0x1C0001010 (CiThreadNotification.c)
- *     CiDispatchCleanup @ 0x1C000A610 (CiDispatchCleanup.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadNotification @ 0x1C0001060 (CiThreadNotification.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
+ *     CiDispatchCleanup @ 0x1C000B870 (CiDispatchCleanup.c)
  * Callees:
- *     CiDecrementTotalThreadCount @ 0x1C000205C (CiDecrementTotalThreadCount.c)
- *     CiTaskIndexDereference @ 0x1C0002070 (CiTaskIndexDereference.c)
- *     CiSchedulerRemoveThread @ 0x1C0002110 (CiSchedulerRemoveThread.c)
- *     CiThreadRemoveFromTree @ 0x1C0002C10 (CiThreadRemoveFromTree.c)
- *     CiLogThreadLeave @ 0x1C0004544 (CiLogThreadLeave.c)
- *     CiProcessDereference @ 0x1C000A830 (CiProcessDereference.c)
- *     CiThreadDecrementScheduledCount @ 0x1C000A920 (CiThreadDecrementScheduledCount.c)
- *     CiProcessRemoveThread @ 0x1C000A990 (CiProcessRemoveThread.c)
+ *     CiDecrementTotalThreadCount @ 0x1C0001B50 (CiDecrementTotalThreadCount.c)
+ *     CiTaskIndexDereference @ 0x1C0001B60 (CiTaskIndexDereference.c)
+ *     CiSchedulerRemoveThread @ 0x1C0001BF0 (CiSchedulerRemoveThread.c)
+ *     CiThreadRemoveFromTree @ 0x1C0001CC0 (CiThreadRemoveFromTree.c)
+ *     CiLogThreadLeave @ 0x1C0004294 (CiLogThreadLeave.c)
+ *     CiProcessDereference @ 0x1C000BA90 (CiProcessDereference.c)
+ *     CiThreadDecrementScheduledCount @ 0x1C000BB90 (CiThreadDecrementScheduledCount.c)
+ *     CiProcessRemoveThread @ 0x1C000BC00 (CiProcessRemoveThread.c)
  */
 
 void __fastcall CiThreadCleanup(__int64 a1)
 {
   bool v2; // zf
-  _QWORD *v3; // rbp
+  volatile signed __int64 *v3; // rbp
   volatile signed __int32 *v4; // rsi
   struct _KTHREAD *v5; // rdi
   char v6; // al
@@ -37,7 +37,7 @@ void __fastcall CiThreadCleanup(__int64 a1)
     if ( (v6 & 2) == 0 )
     {
       v4 = *(volatile signed __int32 **)(a1 + 128);
-      v3 = *(_QWORD **)(a1 + 72);
+      v3 = *(volatile signed __int64 **)(a1 + 72);
       *(_BYTE *)(a1 + 148) = v6 | 2;
       CiDecrementTotalThreadCount(v4 + 23);
       v5 = *(struct _KTHREAD **)(a1 + 96);
@@ -54,7 +54,7 @@ void __fastcall CiThreadCleanup(__int64 a1)
         ThreadInformation = *(_QWORD *)(a1 + 136);
         if ( v5 == KeGetCurrentThread() )
           ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadAffinityMask, &ThreadInformation, 8u);
-        if ( byte_1C00073C0 )
+        if ( byte_1C0007370 )
           CiLogThreadLeave(a1);
       }
       CiDecrementTotalThreadCount(&CiTotalThreads);

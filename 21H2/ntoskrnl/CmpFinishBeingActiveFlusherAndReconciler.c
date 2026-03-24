@@ -1,37 +1,38 @@
 /*
- * XREFs of CmpFinishBeingActiveFlusherAndReconciler @ 0x14083D1A4
+ * XREFs of CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F5B4
  * Callers:
- *     CmShutdownSystem1 @ 0x14053EBD8 (CmShutdownSystem1.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     CmpRefreshHive @ 0x14090D9E8 (CmpRefreshHive.c)
- *     CmpSaveKeyByFileCopy @ 0x14090DF50 (CmpSaveKeyByFileCopy.c)
- *     CmReplaceKey @ 0x1409136B4 (CmReplaceKey.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
+ *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
+ *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x14087D8A0 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     CmpWakeWriteQueueWaiters @ 0x140689034 (CmpWakeWriteQueueWaiters.c)
- *     CmpReleaseWriteQueue @ 0x140689074 (CmpReleaseWriteQueue.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AB41E0 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AB41FC (HvLockHiveFlusherExclusive.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x140AB4370 (CmpLockRegistry.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpWakeWriteQueueWaiters @ 0x1406BBC78 (CmpWakeWriteQueueWaiters.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
  */
 
-__int64 __fastcall CmpFinishBeingActiveFlusherAndReconciler(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall CmpFinishBeingActiveFlusherAndReconciler(__int64 a1)
 {
-  __int64 v4; // rcx
-  struct _KEVENT *v5; // rbx
-  __int64 v6; // rcx
-  struct _KEVENT *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  struct _KEVENT *v2; // r14
+  struct _KEVENT *v3; // rbp
+  char v4; // al
 
-  CmpLockRegistry(a1, a2, a3);
-  HvLockHiveFlusherExclusive(a1);
-  v5 = (struct _KEVENT *)CmpReleaseWriteQueue(v4, (_QWORD *)(a1 + 4192));
-  v7 = (struct _KEVENT *)CmpReleaseWriteQueue(v6, (_QWORD *)(a1 + 4208));
-  HvUnlockHiveFlusherExclusive(a1);
-  CmpUnlockRegistry(v9, v8, v10, v11);
-  CmpWakeWriteQueueWaiters(a1 + 4192, v5, -1073741823);
-  return CmpWakeWriteQueueWaiters(a1 + 4208, v7, -1073741823);
+  CmpLockRegistry();
+  ExAcquirePushLockExclusiveEx(a1 + 72, 0LL);
+  v2 = *(struct _KEVENT **)(a1 + 4256);
+  v3 = *(struct _KEVENT **)(a1 + 4240);
+  *(_QWORD *)(a1 + 4240) = 0LL;
+  *(_QWORD *)(a1 + 4232) = 0LL;
+  *(_QWORD *)(a1 + 4256) = 0LL;
+  *(_QWORD *)(a1 + 4248) = 0LL;
+  v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
+    ExfTryToWakePushLock(a1 + 72);
+  KeAbPostRelease(a1 + 72);
+  CmpUnlockRegistry();
+  CmpWakeWriteQueueWaiters(a1 + 4232, v3, -1073741823);
+  return CmpWakeWriteQueueWaiters(a1 + 4248, v2, -1073741823);
 }

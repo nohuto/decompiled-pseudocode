@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpProcessPerfCtrsRundown @ 0x1409EAFC8
+ * XREFs of EtwpProcessPerfCtrsRundown @ 0x14093E754
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140814660 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ObGetProcessHandleCount @ 0x14066C174 (ObGetProcessHandleCount.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ObGetProcessHandleCount @ 0x1406B471C (ObGetProcessHandleCount.c)
  */
 
 void __fastcall EtwpProcessPerfCtrsRundown(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ void __fastcall EtwpProcessPerfCtrsRundown(__int64 a1, __int64 a2)
   v7[1] = *(_DWORD *)(a1 + 1668);
   v13 = *(_QWORD *)(a1 + 1176);
   v8 = *(_QWORD *)(a1 + 1168);
-  v14 = *(_QWORD *)(a1 + 1792) << 12;
+  v14 = *(_QWORD *)(a1 + 1784) << 12;
   v9 = *(_QWORD *)(a1 + 1824) << 12;
   v16 = *(_QWORD *)(a1 + 1144);
   v11 = *(_QWORD *)(a1 + 1160);
@@ -45,7 +45,7 @@ void __fastcall EtwpProcessPerfCtrsRundown(__int64 a1, __int64 a2)
   v4 = *(_QWORD *)(a1 + 1616);
   v21 = 0;
   v5 = *(_DWORD *)a2;
-  v6 = *(_QWORD *)(a2 + 1096);
+  v6 = *(_QWORD *)(a2 + 1080);
   v10 = v4 << 12;
   v18 = v15;
   v19 = v7;

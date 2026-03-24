@@ -1,144 +1,83 @@
 /*
- * XREFs of KiCheckPreferredHeteroProcessor @ 0x1402C8460
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x140258460
  * Callers:
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
- *     KiUpdateRunTime @ 0x1402C74B0 (KiUpdateRunTime.c)
- *     KeUpdateThreadTag @ 0x140366580 (KeUpdateThreadTag.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x140461BE4 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiUpdateRunTime @ 0x140227590 (KiUpdateRunTime.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FF30 (KiSendHeteroRescheduleIntRequestHelper.c)
  * Callees:
- *     KiIsQosGroupingActive @ 0x14034ECE8 (KiIsQosGroupingActive.c)
- *     KiFindBiasedSetMember @ 0x14045F7AC (KiFindBiasedSetMember.c)
- *     KiGenerateHeteroSets @ 0x140461040 (KiGenerateHeteroSets.c)
- *     KiGetProcessorClassForPolicy @ 0x140461106 (KiGetProcessorClassForPolicy.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x14046163C (KiHeteroComputeThreadWorkloadProperties.c)
- *     KiIsThreadEligibleForPreemptionSwap @ 0x1404618E6 (KiIsThreadEligibleForPreemptionSwap.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057742C (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiIsQosGroupingActive @ 0x140398754 (KiIsQosGroupingActive.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F0E0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x14051F1F8 (KiGenerateHeteroSets.c)
  */
 
-_BOOL8 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v7; // rbp
-  _WORD *v8; // rcx
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
+  unsigned int v3; // eax
+  unsigned int v4; // ebx
+  unsigned int v8; // r14d
+  __int64 v9; // r15
+  __int64 v10; // rcx
+  unsigned int v11; // r11d
   __int64 v12; // rdx
   __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // r14
-  __int64 v16; // r8
-  __int64 v17; // rdx
+  unsigned __int64 v15; // rdx
+  unsigned __int8 v16; // r10
+  unsigned __int64 v17; // rax
   __int64 v18; // r8
-  unsigned __int64 v19; // r10
-  unsigned __int8 ProcessorClassForPolicy; // r12
-  int v21; // esi
-  unsigned __int64 v22; // rax
-  __int64 v23; // r15
-  __int64 v24; // r10
-  __int64 v25; // rsi
-  __int64 v26; // rax
-  __int64 v27; // rbp
-  __int64 v28; // rcx
-  int v29; // ebx
-  __int128 v30; // [rsp+40h] [rbp-58h] BYREF
-  int v31; // [rsp+50h] [rbp-48h]
-  char v32; // [rsp+54h] [rbp-44h]
-  __int128 v33; // [rsp+58h] [rbp-40h] BYREF
-  __int64 v34; // [rsp+68h] [rbp-30h]
+  unsigned __int8 v19; // al
+  __int64 v20; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-8h] BYREF
+  __int64 v22; // [rsp+88h] [rbp+48h] BYREF
 
-  v33 = 0LL;
-  v34 = 0LL;
-  v30 = 0LL;
-  v31 = 0;
-  v32 = 0;
-  if ( !*(_BYTE *)(a1 + 125) )
+  v3 = *(unsigned __int8 *)(a1 + 125);
+  v4 = 0;
+  v20 = 0LL;
+  v22 = 0LL;
+  v21 = 0LL;
+  if ( !(_BYTE)v3 )
     return 0LL;
-  KiHeteroComputeThreadWorkloadProperties(a1, &v30);
-  v7 = *(_QWORD *)(a2 + 192);
-  v8 = *(_WORD **)(a1 + 576);
-  v9 = *(unsigned __int16 *)(v7 + 136);
-  if ( (unsigned __int16)v9 >= *v8 )
-    return 0LL;
-  v10 = *(_QWORD *)&v8[4 * v9 + 4];
-  if ( !v10 )
-    return 0LL;
-  KiGenerateHeteroSets(
-    *(_QWORD *)(a2 + 192),
-    v10,
-    HIDWORD(v30),
-    (unsigned __int8)v31,
-    DWORD1(v30),
-    DWORD2(v30),
-    (__int64)&v33);
-  if ( (v34 & *(_QWORD *)(a2 + 200)) != 0
-    && (!(unsigned __int8)KiIsQosGroupingActive(v11, *(_QWORD *)(*(_QWORD *)(a2 + 192) + 264LL), *(_QWORD *)(v7 + 8))
+  v8 = v3;
+  if ( v3 >= 5 )
+    v8 = KiConvertDynamicHeteroPolicy(a1, a2, a2);
+  v9 = *(_QWORD *)(a2 + 192);
+  KiGenerateHeteroSets(v9, *(_QWORD *)(a1 + 576), v8, (unsigned int)&v22, (__int64)&v21, (__int64)&v20);
+  v11 = 1;
+  if ( (v20 & *(_QWORD *)(a2 + 200)) != 0
+    && (!(unsigned __int8)KiIsQosGroupingActive(v10, *(_QWORD *)(*(_QWORD *)(a2 + 192) + 360LL), *(_QWORD *)v9)
      || (v12 & v13) == 0
-     || ((DWORD1(v30) - 1) & 0xFFFFFFFA) != 0
+     || (unsigned __int8)*(_DWORD *)(a1 + 512) - v11 > v11
      || (v12 & *(_QWORD *)(a2 + 200)) != 0) )
   {
-    if ( (*(_QWORD *)(a2 + 200) & (unsigned __int64)v33) != 0 )
-      return 0LL;
-    if ( !a3 )
-      return (KeGetCurrentPrcb()->GroupSetMember & (unsigned __int64)v33) != 0;
-    v14 = *(_QWORD *)(v7 + 24) & v13;
-    v15 = *(_QWORD *)(a2 + 200) | *(_QWORD *)(v7 + 16);
-    if ( (v15 & *(_QWORD *)(a2 + 34912)) != *(_QWORD *)(a2 + 34912) )
+    if ( (v22 & *(_QWORD *)(a2 + 200)) == 0 )
     {
-      if ( v14 )
-        v13 &= *(_QWORD *)(v7 + 24);
-      v14 = v13;
-    }
-    v16 = v14 & *(_QWORD *)(v7 + 32);
-    if ( (v15 & *(_QWORD *)(a2 + 34936)) != *(_QWORD *)(a2 + 34936) )
-    {
-      if ( v16 )
-        v14 &= *(_QWORD *)(v7 + 32);
-      v16 = v14;
-    }
-    if ( ((unsigned __int64)v33 & v16) == 0 )
-    {
-      ProcessorClassForPolicy = KiGetProcessorClassForPolicy(a2, HIDWORD(v30), (unsigned __int8)v31);
-      if ( v19 )
+      if ( !a3 )
       {
-        v21 = *(unsigned __int16 *)(v7 + 136) << 6;
-        do
+        LOBYTE(v4) = (KeGetCurrentPrcb()->GroupSetMember & v22) != 0;
+        return v4;
+      }
+      if ( (v13 & *(_QWORD *)(v9 + 8)) != 0 )
+        v13 &= *(_QWORD *)(v9 + 8);
+      if ( (v13 & v22) != 0 )
+        return v11;
+      v15 = v13 & v21 & ~v22;
+      v16 = v8 - 3 <= v11 ? *(_BYTE *)(a2 + 33210) : *(_BYTE *)(a2 + 33209);
+      if ( v15 )
+      {
+        while ( 1 )
         {
-          _BitScanReverse64(&v22, v19);
-          v23 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)(v21 + v22)]];
-          if ( (unsigned __int8)KiGetProcessorClassForPolicy(v23, v17, v18) > ProcessorClassForPolicy )
-            return 1LL;
-          v19 = ~*(_QWORD *)(v23 + 200) & v24;
+          _BitScanReverse64(&v17, v15);
+          v18 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[64 * *(unsigned __int16 *)(v9 + 144) + (int)v17]];
+          v19 = v8 - 3 <= v11 ? *(_BYTE *)(v18 + 33210) : *(_BYTE *)(v18 + 33209);
+          if ( v19 > v16 )
+            break;
+          v15 &= ~*(_QWORD *)(v18 + 200);
+          if ( !v15 )
+            return 0LL;
         }
-        while ( v19 );
+        return v11;
       }
-      if ( !(unsigned __int8)KiIsThreadEligibleForPreemptionSwap(&v30)
-        || *(_DWORD *)(a2 + 32472)
-        || *(_DWORD *)(*(_QWORD *)(a2 + 34888) + 8LL) )
-      {
-        return 0LL;
-      }
-      v25 = *(_QWORD *)(v7 + 80) & *((_QWORD *)&v33 + 1) & ~v15;
-      if ( (v15 & *(_QWORD *)(a2 + 34912)) == *(_QWORD *)(a2 + 34912) )
-        v25 &= *(_QWORD *)(v7 + 40);
-      if ( !v25 )
-        return 0LL;
-      v26 = *(unsigned int *)(a1 + 588);
-      v27 = KiProcessorBlock[v26];
-      if ( (v25 & *(_QWORD *)(v27 + 34880)) != 0 )
-      {
-        v28 = KiProcessorBlock[v26];
-      }
-      else
-      {
-        v29 = *(unsigned __int8 *)(v27 + 208);
-        v28 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[64 * v29
-                                                                  + (unsigned int)KiFindBiasedSetMember(
-                                                                                    v25,
-                                                                                    *(unsigned __int8 *)(v27 + 209))]];
-      }
-      if ( !KiHeteroScanQueueForPreemptionSwapTarget(*(_QWORD *)(v28 + 34888), v27, a2, v25, (__int64)&v30) )
-        return 0LL;
     }
+    return 0LL;
   }
-  return 1LL;
+  return v11;
 }

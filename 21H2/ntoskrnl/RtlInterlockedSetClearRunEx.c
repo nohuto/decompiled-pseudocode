@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlInterlockedSetClearRunEx @ 0x14026CCC0
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x140228C90
  * Callers:
- *     MiReplenishBitMap @ 0x1402697F0 (MiReplenishBitMap.c)
- *     MiAttemptCoalesce @ 0x14026CB78 (MiAttemptCoalesce.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     MiAllocateSlabEntry @ 0x1405B0B24 (MiAllocateSlabEntry.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiAttemptCoalesce @ 0x140348EC0 (MiAttemptCoalesce.c)
+ *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
  * Callees:
  *     <none>
  */
@@ -53,107 +52,12 @@ __int64 __fastcall RtlInterlockedSetClearRunEx(__int64 a1, unsigned __int64 a2, 
     }
     return 0LL;
   }
-  if ( (a2 & 0x1F) == 0 )
+  if ( (a2 & 0x1F) != 0 )
   {
-LABEL_11:
-    if ( a3 >= 0x20 )
-    {
-      while ( !_InterlockedCompareExchange(v4, -1, 0) )
-      {
-        ++v4;
-        a3 -= 32LL;
-        if ( a3 < 0x20 )
-          goto LABEL_12;
-      }
-      if ( v5 == a3 )
-        return 0LL;
-      v16 = v5 - a3;
-      v17 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 8) + 4 * (a2 >> 5));
-      if ( v3 + v16 <= 0x20 )
-      {
-        if ( v16 != 32 )
-          goto LABEL_18;
-LABEL_29:
-        *v17 = 0;
-        return 0LL;
-      }
-      if ( (a2 & 0x1F) != 0 )
-      {
-        _InterlockedAnd(v17, ~(((1 << (32 - (a2 & 0x1F))) - 1) << v3));
-        v16 -= 32 - (unsigned int)(a2 & 0x1F);
-        ++v17;
-      }
-      if ( v16 >= 0x20 )
-      {
-        v18 = v16 >> 5;
-        v16 += -32LL * (v16 >> 5);
-        do
-        {
-          *v17++ = 0;
-          --v18;
-        }
-        while ( v18 );
-      }
-      if ( !v16 )
-        return 0LL;
-    }
-    else
-    {
-LABEL_12:
-      if ( !a3 )
-        return 1LL;
-      v13 = *v4;
-      v14 = (1 << a3) - 1;
-      if ( (*v4 & v14) == 0 )
-      {
-        do
-        {
-          v15 = v13;
-          v13 = _InterlockedCompareExchange(v4, v14 | v13, v13);
-          if ( v15 == v13 )
-            return 1LL;
-        }
-        while ( (v13 & v14) == 0 );
-      }
-      v16 = v5 - a3;
-      v17 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 8) + 4 * (a2 >> 5));
-      if ( v3 + v16 <= 0x20 )
-      {
-        if ( v16 != 32 )
-        {
-LABEL_18:
-          _InterlockedAnd(v17, ~(((1 << v16) - 1) << v3));
-          return 0LL;
-        }
-        goto LABEL_29;
-      }
-      if ( (a2 & 0x1F) != 0 )
-      {
-        _InterlockedAnd(v17, ~(((1 << (32 - (a2 & 0x1F))) - 1) << v3));
-        v16 -= 32 - (unsigned int)(a2 & 0x1F);
-        ++v17;
-      }
-      if ( v16 >= 0x20 )
-      {
-        v19 = v16 >> 5;
-        v16 += -32LL * (v16 >> 5);
-        do
-        {
-          *v17++ = 0;
-          --v19;
-        }
-        while ( v19 );
-      }
-      if ( !v16 )
-        return 0LL;
-    }
-    _InterlockedAnd(v17, -1 << v16);
-    return 0LL;
-  }
-  v10 = *v4;
-  v11 = ((1 << (32 - (a2 & 0x1F))) - 1) << v3;
-  if ( (*v4 & v11) == 0 )
-  {
+    v10 = *v4;
+    v11 = ((1 << (32 - (a2 & 0x1F))) - 1) << v3;
+    if ( (*v4 & v11) != 0 )
+      return 0LL;
     while ( 1 )
     {
       v12 = v10;
@@ -165,7 +69,97 @@ LABEL_18:
     }
     a3 -= 32 - (unsigned int)(a2 & 0x1F);
     ++v4;
-    goto LABEL_11;
   }
+  if ( a3 >= 0x20 )
+  {
+    while ( !_InterlockedCompareExchange(v4, -1, 0) )
+    {
+      ++v4;
+      a3 -= 32LL;
+      if ( a3 < 0x20 )
+        goto LABEL_12;
+    }
+    if ( v5 == a3 )
+      return 0LL;
+    v16 = v5 - a3;
+    v17 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 8) + 4 * (a2 >> 5));
+    if ( v3 + v16 <= 0x20 )
+    {
+      if ( v16 != 32 )
+        goto LABEL_28;
+      goto LABEL_29;
+    }
+    if ( (a2 & 0x1F) != 0 )
+    {
+      _InterlockedAnd(v17, ~(((1 << (32 - (a2 & 0x1F))) - 1) << v3));
+      v16 -= 32 - (unsigned int)(a2 & 0x1F);
+      ++v17;
+    }
+    if ( v16 >= 0x20 )
+    {
+      v18 = v16 >> 5;
+      v16 += -32LL * (v16 >> 5);
+      do
+      {
+        *v17++ = 0;
+        --v18;
+      }
+      while ( v18 );
+    }
+    if ( !v16 )
+      return 0LL;
+LABEL_48:
+    _InterlockedAnd(v17, -1 << v16);
+    return 0LL;
+  }
+LABEL_12:
+  if ( !a3 )
+    return 1LL;
+  v13 = *v4;
+  v14 = (1 << a3) - 1;
+  if ( (*v4 & v14) == 0 )
+  {
+    do
+    {
+      v15 = v13;
+      v13 = _InterlockedCompareExchange(v4, v14 | v13, v13);
+      if ( v15 == v13 )
+        return 1LL;
+    }
+    while ( (v13 & v14) == 0 );
+  }
+  v16 = v5 - a3;
+  v17 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 8) + 4 * (a2 >> 5));
+  if ( v3 + v16 > 0x20 )
+  {
+    if ( (a2 & 0x1F) != 0 )
+    {
+      _InterlockedAnd(v17, ~(((1 << (32 - (a2 & 0x1F))) - 1) << v3));
+      v16 -= 32 - (unsigned int)(a2 & 0x1F);
+      ++v17;
+    }
+    if ( v16 >= 0x20 )
+    {
+      v19 = v16 >> 5;
+      v16 += -32LL * (v16 >> 5);
+      do
+      {
+        *v17++ = 0;
+        --v19;
+      }
+      while ( v19 );
+    }
+    if ( !v16 )
+      return 0LL;
+    goto LABEL_48;
+  }
+  if ( v16 == 32 )
+  {
+LABEL_29:
+    *v17 = 0;
+    return 0LL;
+  }
+LABEL_28:
+  _InterlockedAnd(v17, ~(((1 << v16) - 1) << v3));
   return 0LL;
 }

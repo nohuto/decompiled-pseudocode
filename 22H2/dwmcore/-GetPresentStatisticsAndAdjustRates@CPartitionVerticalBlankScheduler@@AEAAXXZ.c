@@ -1,23 +1,18 @@
 /*
- * XREFs of ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E600
+ * XREFs of ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006F7D0
  * Callers:
- *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004E180 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18006DC30 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
  * Callees:
- *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004C898 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
- *     ?Update@?$LinearFitT@$0BAA@@@QEAA_N_J0@Z @ 0x18004DA74 (-Update@-$LinearFitT@$0BAA@@@QEAA_N_J0@Z.c)
- *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z @ 0x18004DBA8 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z.c)
- *     ?TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ @ 0x180051480 (-TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ.c)
- *     ?SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z @ 0x1800514A4 (-SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z.c)
- *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800527A0 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF8A8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     floor_0 @ 0x18011B8CC (floor_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xx_EventWriteTransfer @ 0x18012E000 (McTemplateU0xx_EventWriteTransfer.c)
- *     ?ComputeAverage@?$LinearFitT@$0BAA@@@QEBANXZ @ 0x18012E866 (-ComputeAverage@-$LinearFitT@$0BAA@@@QEBANXZ.c)
- *     McTemplateU0xxxiid_EventWriteTransfer @ 0x18012EB60 (McTemplateU0xxxiid_EventWriteTransfer.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXAEBUDXGI_FRAME_STATISTICS_DWM@@0@Z @ 0x18006DA70 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXAEBUDXGI_FRAME_STATISTICS_DWM@@0@Z.c)
+ *     ?SetNominalRefreshRate@CRateInfo@@QEAAXAEBU_UNSIGNED_RATIO@@@Z @ 0x18006DB2C (-SetNominalRefreshRate@CRateInfo@@QEAAXAEBU_UNSIGNED_RATIO@@@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U?$_tlgWrapperByVal@$00@@U1@U?$_tlgWrapSz@G@@U3@U2@U?$_tlgWrapperByRef@$0BA@@@U2@U2@U2@U2@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapperByVal@$01@@U6@U5@U5@U5@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapperByVal@$00@@3AEBU?$_tlgWrapSz@G@@54AEBU?$_tlgWrapperByRef@$0BA@@@4444AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapperByVal@$01@@8777@Z @ 0x18015B058 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U-$_tlgWrapperByVal@$00@@U1@U-$_tlgWrapSz@G_ea_18015B058.c)
+ *     McTemplateU0qNR0_EventWriteTransfer @ 0x180162C8C (McTemplateU0qNR0_EventWriteTransfer.c)
+ *     McTemplateU0xxf_EventWriteTransfer @ 0x180162D08 (McTemplateU0xxf_EventWriteTransfer.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021669C (-IsKernelDebuggerPresent@@YAHXZ.c)
  */
 
 void __fastcall CPartitionVerticalBlankScheduler::GetPresentStatisticsAndAdjustRates(
@@ -25,182 +20,381 @@ void __fastcall CPartitionVerticalBlankScheduler::GetPresentStatisticsAndAdjustR
         __int64 a2,
         __int64 a3)
 {
-  _OWORD *v4; // rax
+  __int64 v4; // rax
   __int64 v5; // rcx
-  __int128 v6; // xmm0
-  struct IMonitorTarget *PrimaryMonitorTarget; // rax
-  __int64 v8; // r8
-  struct IMonitorTarget *v9; // rbx
-  int v10; // eax
-  unsigned int v11; // ecx
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  unsigned __int64 v14; // rsi
-  __int128 v15; // xmm0
-  __int64 v16; // rdx
-  __int64 v17; // r14
-  double v18; // xmm6_8
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  double v21; // xmm0_8
-  int v22; // r15d
-  __int64 v23; // rcx
-  char v24; // bl
-  __int64 v25; // r12
-  __int64 v26; // rdx
-  struct CFrameInfo *v27; // rdx
-  unsigned __int64 v28; // rax
-  double v29; // xmm0_8
-  unsigned __int64 v30; // r9
-  unsigned __int64 v31; // rax
-  double v32; // xmm0_8
-  char v33; // r8
-  int v34; // r9d
-  int v35; // r10d
-  double v36; // xmm0_8
-  double v37; // xmm4_8
-  int v38; // eax
-  double v39; // xmm5_8
-  double v40; // xmm0_8
-  int v41; // ecx
-  __int128 v42; // [rsp+40h] [rbp-78h] BYREF
-  __int128 v43; // [rsp+50h] [rbp-68h]
-  __int128 v44; // [rsp+60h] [rbp-58h]
-  _BYTE v45[16]; // [rsp+70h] [rbp-48h] BYREF
+  __int128 v6; // xmm1
+  __int64 v7; // rcx
+  volatile signed __int32 **v8; // rdi
+  volatile signed __int32 *v9; // rdi
+  __int64 v10; // rax
+  int v11; // r14d
+  volatile signed __int32 *v12; // rax
+  volatile signed __int32 *v13; // rdi
+  __int64 v14; // rcx
+  int v15; // eax
+  __int64 v16; // rcx
+  int v17; // edi
+  __int64 v18; // rax
+  __int128 v19; // xmm1
+  int v20; // ecx
+  __int64 v21; // rdi
+  __int64 v22; // rdx
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // r9
+  __int64 v26; // rdi
+  char *v27; // rbx
+  __int64 v28; // rsi
+  __int64 v29; // rdx
+  unsigned int v30; // edx
+  int v31; // eax
+  int v32; // esi
+  BOOL v33; // eax
+  CHAR v34; // cl
+  HANDLE CurrentThread; // rax
+  HANDLE CurrentProcess; // rax
+  int v37; // edx
+  __m128d v38; // xmm1
+  __int64 v39; // rcx
+  unsigned __int64 v40; // rax
+  bool v41; // cf
+  _QWORD *v42; // rax
+  char *v43; // rax
+  CHAR Response[4]; // [rsp+C0h] [rbp-B8h] BYREF
+  char v45; // [rsp+C4h] [rbp-B4h] BYREF
+  char v46; // [rsp+C5h] [rbp-B3h] BYREF
+  char v47; // [rsp+C6h] [rbp-B2h] BYREF
+  char v48; // [rsp+C7h] [rbp-B1h] BYREF
+  char v49; // [rsp+C8h] [rbp-B0h] BYREF
+  char v50; // [rsp+C9h] [rbp-AFh] BYREF
+  char v51[2]; // [rsp+CAh] [rbp-AEh] BYREF
+  __int16 v52; // [rsp+CCh] [rbp-ACh] BYREF
+  __int16 v53; // [rsp+CEh] [rbp-AAh] BYREF
+  volatile signed __int32 *v54; // [rsp+D0h] [rbp-A8h] BYREF
+  int v55; // [rsp+D8h] [rbp-A0h] BYREF
+  int v56; // [rsp+DCh] [rbp-9Ch] BYREF
+  int v57; // [rsp+E0h] [rbp-98h] BYREF
+  int v58; // [rsp+E4h] [rbp-94h] BYREF
+  _UNSIGNED_RATIO v59; // [rsp+E8h] [rbp-90h] BYREF
+  __int64 v60; // [rsp+F0h] [rbp-88h] BYREF
+  __int64 v61; // [rsp+F8h] [rbp-80h] BYREF
+  __int64 v62; // [rsp+100h] [rbp-78h] BYREF
+  __int64 v63; // [rsp+108h] [rbp-70h] BYREF
+  char *v64; // [rsp+110h] [rbp-68h] BYREF
+  _QWORD *v65; // [rsp+118h] [rbp-60h] BYREF
+  char *v66; // [rsp+120h] [rbp-58h] BYREF
+  __int128 v67; // [rsp+128h] [rbp-50h] BYREF
+  __int128 v68; // [rsp+138h] [rbp-40h]
+  char v69[16]; // [rsp+148h] [rbp-30h] BYREF
+  char v70[16]; // [rsp+158h] [rbp-20h] BYREF
 
-  v42 = 0LL;
-  v43 = 0LL;
-  v44 = 0LL;
+  v67 = 0LL;
+  v68 = 0LL;
   if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_SCHEDULE_GETPRESENTSTATS_Start,
       a3,
       1LL,
-      v45);
-  v4 = (_OWORD *)*((_QWORD *)this + 527);
-  v5 = *((_QWORD *)this + 526);
-  *(_OWORD *)(v5 + 112) = v4[7];
-  *(_OWORD *)(v5 + 128) = v4[8];
-  v6 = v4[9];
-  *(_BYTE *)(v5 + 172) = 0;
-  *(_OWORD *)(v5 + 144) = v6;
-  PrimaryMonitorTarget = CRenderTargetManager::GetPrimaryMonitorTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 8)
-                                                                                                + 216LL));
-  v9 = PrimaryMonitorTarget;
-  if ( PrimaryMonitorTarget )
+      v69);
+  v4 = *((_QWORD *)this + 630);
+  v5 = *((_QWORD *)this + 629);
+  *(_OWORD *)(v5 + 104) = *(_OWORD *)(v4 + 104);
+  v6 = *(_OWORD *)(v4 + 120);
+  *(_BYTE *)(v5 + 140) = 0;
+  *(_OWORD *)(v5 + 120) = v6;
+  v7 = *(_QWORD *)(*((_QWORD *)this + 8) + 88LL);
+  v8 = *(volatile signed __int32 ***)(v7 + 8);
+  if ( v8 == *(volatile signed __int32 ***)(v7 + 16) )
+    goto LABEL_34;
+  v9 = *v8;
+  v54 = 0LL;
+  v10 = *(_QWORD *)&GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9.Data1
+      - *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1;
+  if ( *(_QWORD *)&GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9.Data1 == *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1 )
+    v10 = *(_QWORD *)GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9.Data4
+        - *(_QWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4;
+  if ( v10 )
   {
-    v10 = (*(__int64 (__fastcall **)(struct IMonitorTarget *, __int128 *))(*(_QWORD *)PrimaryMonitorTarget + 136LL))(
-            PrimaryMonitorTarget,
-            &v42);
-    if ( v10 < 0 )
+    v11 = (*(__int64 (__fastcall **)(volatile signed __int32 *, GUID *, volatile signed __int32 **))(*(_QWORD *)v9 + 40LL))(
+            v9,
+            &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9,
+            &v54);
+    if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1803569C0, 3u, v10, 0x303u, 0LL);
-    }
-    else if ( v10 != 142213121 )
-    {
-      v12 = (*(__int64 (__fastcall **)(struct IMonitorTarget *))(*(_QWORD *)v9 + 88LL))(v9);
-      v13 = *((_QWORD *)this + 526);
-      v14 = v12;
-      *(_OWORD *)(v13 + 112) = v42;
-      *(_OWORD *)(v13 + 128) = v43;
-      v15 = v44;
-      *(_BYTE *)(v13 + 172) = 1;
-      *(_OWORD *)(v13 + 144) = v15;
-      LOBYTE(v16) = 1;
-      wil::details::FeatureImpl<__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing>::ReportUsage(
-        &`wil::Feature<__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing>::GetImpl'::`2'::impl,
-        v16);
-      v17 = *((_QWORD *)&v43 + 1);
-      if ( *((_BYTE *)this + 4552) && v14 )
-      {
-        if ( (v14 & 0x8000000000000000uLL) != 0LL )
-          v18 = (double)(int)(v14 & 1 | (v14 >> 1)) + (double)(int)(v14 & 1 | (v14 >> 1));
-        else
-          v18 = (double)(int)v14;
-        v19 = *((_QWORD *)this + 1170);
-        if ( *(double *)(v19 + 32) != v18 )
-        {
-          *(double *)(v19 + 32) = v18;
-          LinearFitT<256>::Reset(*((_QWORD *)this + 1170));
-          v17 = *((_QWORD *)&v43 + 1);
-        }
-        v20 = *((_QWORD *)this + 527);
-        if ( *(_BYTE *)(v20 + 172)
-          && (unsigned int)(int)((double)((int)v17 - *(_DWORD *)(v20 + 136)) / v18 + 0.5) >= 5uLL )
-        {
-          LinearFitT<256>::Reset(*((_QWORD *)this + 1170));
-          v17 = *((_QWORD *)&v43 + 1);
-        }
-        v21 = (double)(int)v17 / v18 + 0.5;
-        v22 = (int)v21;
-        LinearFitT<256>::Update(*((_QWORD *)this + 1170), (unsigned int)(int)v21, v17);
-        v24 = Microsoft_Windows_Dwm_CoreEnableBits;
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 1) != 0 )
-        {
-          McTemplateU0xx_EventWriteTransfer(
-            v23,
-            &EVTDESC_SCHEDULE_VSYNC_QPC_SMOOTHING_UPDATE,
-            (unsigned int)(int)v21,
-            *((_QWORD *)&v43 + 1));
-          v24 = Microsoft_Windows_Dwm_CoreEnableBits;
-        }
-        v25 = *((_QWORD *)this + 1170);
-        v17 = (unsigned int)(int)floor_0(
-                                   (double)(v22 - *(_DWORD *)(v25 + 40)) * *(double *)(v25 + 24)
-                                 + (double)(int)*(_QWORD *)(v25 + 48)
-                                 + *(double *)(v25 + 16)
-                                 + 0.5);
-        if ( (v24 & 1) != 0 )
-        {
-          v28 = 0LL;
-          v29 = (double)SDWORD2(v43) / (double)(int)g_qpcFrequency.LowPart * 10000000.0;
-          if ( v29 >= 9.223372036854776e18 )
-          {
-            v29 = v29 - 9.223372036854776e18;
-            if ( v29 < 9.223372036854776e18 )
-              v28 = 0x8000000000000000uLL;
-          }
-          v30 = v28 + (unsigned int)(int)v29;
-          v31 = 0LL;
-          v32 = (double)(int)v17 / (double)(int)g_qpcFrequency.LowPart * 10000000.0;
-          if ( v32 >= 9.223372036854776e18 )
-          {
-            v32 = v32 - 9.223372036854776e18;
-            if ( v32 < 9.223372036854776e18 )
-              v31 = 0x8000000000000000uLL;
-          }
-          v36 = LinearFitT<256>::ComputeAverage(v25, v26, v31 + (unsigned int)(int)v32, v30);
-          v38 = 0;
-          v40 = v36 / v37 * v39;
-          if ( v40 >= 9.223372036854776e18 )
-          {
-            v40 = v40 - 9.223372036854776e18;
-            if ( v40 < 9.223372036854776e18 )
-              v38 = v35;
-          }
-          v41 = 256;
-          if ( *(_DWORD *)(v25 + 8) < 0x100u )
-            v41 = *(_DWORD *)(v25 + 8);
-          McTemplateU0xxxiid_EventWriteTransfer(v41, v38 + (int)v40, v22, v34, v33, v33 - v34, v38 + (int)v40, v41);
-        }
-      }
-      *(_QWORD *)(*((_QWORD *)this + 526) + 160LL) = v17;
-      CRateInfo::SetNominalRefreshPeriod((CRateInfo *)(*((_QWORD *)this + 526) + 232LL), v14);
-      CScheduleFrameInfoVolatileData::TracePresentStats(*((CScheduleFrameInfoVolatileData **)this + 526));
-      v27 = (struct CFrameInfo *)*((_QWORD *)this + 527);
-      if ( *((_BYTE *)v27 + 172) && !*((_BYTE *)this + 4548) )
-        CRateInfo::CalculateEffectiveRefreshRate(
-          (CRateInfo *)(*((_QWORD *)this + 526) + 232LL),
-          v27,
-          *((struct CFrameInfo **)this + 526));
+      v12 = 0LL;
+      v54 = 0LL;
+      goto LABEL_10;
     }
   }
+  else
+  {
+    v54 = v9;
+    v11 = 0;
+  }
+  if ( *((int *)v9 + 2) >= 0 )
+    goto LABEL_9;
+  while ( 1 )
+  {
+    while ( 1 )
+    {
+      v31 = IsKernelDebuggerPresent();
+      strcpy(Response, "?");
+      v32 = v31;
+      if ( !v31 )
+      {
+        v33 = IsDebuggerPresent();
+        v34 = Response[0];
+        if ( v33 )
+          v34 = 103;
+        Response[0] = v34;
+      }
+      DbgPrintEx(
+        0x65u,
+        0,
+        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
+        L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
+        word_1802CE8C0,
+        word_1802CE8C0,
+        "Function: ",
+        L"CMILCOMBase::InternalAddRef",
+        ", ",
+        L"onecoreuap\\windows\\dwm\\common\\shared\\milcom.cpp",
+        25);
+      if ( v32 )
+      {
+        DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", Response, 2u);
+      }
+      else
+      {
+        DbgPrintEx(
+          0x65u,
+          0,
+          "(No kernel debugger is present.) Respond with:\n"
+          "  g                    -- Go (continue)\n"
+          "  eb 0x%p 'p';g  -- terminate Process\n"
+          "  eb 0x%p 't';g  -- terminate Thread\n"
+          " or regular debugging.\n",
+          Response,
+          Response);
+        __debugbreak();
+      }
+      if ( Response[0] <= 98 )
+        break;
+      if ( Response[0] == 103 )
+        goto LABEL_9;
+      if ( Response[0] == 105 )
+        goto LABEL_64;
+      if ( Response[0] != 112 )
+      {
+        if ( Response[0] != 116 )
+          goto LABEL_63;
+        goto LABEL_61;
+      }
+LABEL_62:
+      CurrentProcess = GetCurrentProcess();
+      TerminateProcess(CurrentProcess, 0xC0000001);
+LABEL_63:
+      DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+    }
+    if ( Response[0] == 98 || Response[0] == 66 )
+      break;
+    if ( Response[0] == 71 )
+      goto LABEL_9;
+    if ( Response[0] != 73 )
+    {
+      if ( Response[0] != 80 )
+      {
+        if ( Response[0] != 84 )
+          goto LABEL_63;
+LABEL_61:
+        CurrentThread = GetCurrentThread();
+        TerminateThread(CurrentThread, 0xC0000001);
+        goto LABEL_63;
+      }
+      goto LABEL_62;
+    }
+LABEL_64:
+    DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+  }
+  __debugbreak();
+LABEL_9:
+  _InterlockedIncrement(v9 + 2);
+  v12 = v54;
+LABEL_10:
+  v13 = 0LL;
+  if ( v11 >= 0 )
+    v13 = v12;
+  if ( v12 )
+  {
+    v14 = (__int64)v12 + *(int *)(*((_QWORD *)v12 + 1) + 4LL) + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+  }
+  if ( !v13 )
+  {
+LABEL_34:
+    v17 = -2003304442;
+    goto LABEL_35;
+  }
+  v15 = (*(__int64 (__fastcall **)(volatile signed __int32 *, __int128 *, _UNSIGNED_RATIO *))(*(_QWORD *)v13 + 112LL))(
+          v13,
+          &v67,
+          &v59);
+  v17 = v15;
+  if ( v15 >= 0 )
+  {
+LABEL_16:
+    if ( v17 != 142213121 )
+    {
+      v18 = *((_QWORD *)this + 629);
+      *(_OWORD *)(v18 + 104) = v67;
+      v19 = v68;
+      *(_BYTE *)(v18 + 140) = 1;
+      *(_OWORD *)(v18 + 120) = v19;
+      CRateInfo::SetNominalRefreshRate((CRateInfo *)(*((_QWORD *)this + 629) + 272LL), &v59);
+      v21 = *((_QWORD *)this + 629);
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      {
+        McTemplateU0qNR0_EventWriteTransfer(v20, (unsigned int)&EVTDESC_SCHEDULE_GETPRESENTSTATS1, 0, 32, v21 + 104);
+        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+        {
+          v38 = 0LL;
+          v39 = *(_QWORD *)(v21 + 128) - *(_QWORD *)(v21 + 112);
+          if ( v39 < 0 )
+          {
+            v40 = *(_QWORD *)(v21 + 128) - *(_QWORD *)(v21 + 112);
+            LODWORD(v39) = v39 & 1;
+            v38.m128d_f64[0] = (double)(int)(v39 | (v40 >> 1)) + (double)(int)(v39 | (v40 >> 1));
+          }
+          else
+          {
+            v38.m128d_f64[0] = (double)(int)v39;
+          }
+          v38.m128d_f64[0] = v38.m128d_f64[0] * 1000.0 / (double)(int)g_qpcFrequency.LowPart;
+          McTemplateU0xxf_EventWriteTransfer(
+            v39,
+            v37,
+            a3,
+            *(_DWORD *)(v21 + 120) - *(_DWORD *)(v21 + 108),
+            _mm_cvtpd_ps(v38).m128_i8[0]);
+        }
+      }
+      v22 = *((_QWORD *)this + 630);
+      if ( *(_BYTE *)(v22 + 140) && !*((_BYTE *)this + 5372) )
+        CRateInfo::CalculateEffectiveRefreshRate(
+          (CRateInfo *)(*((_QWORD *)this + 629) + 272LL),
+          (const struct DXGI_FRAME_STATISTICS_DWM *)(v22 + 104),
+          (const struct DXGI_FRAME_STATISTICS_DWM *)(*((_QWORD *)this + 629) + 104LL));
+      v23 = *((_QWORD *)this + 629);
+      v24 = *((unsigned int *)this + 1350);
+      v25 = *(unsigned int *)(v23 + 120);
+      if ( (_DWORD)v24 )
+      {
+        a3 = 0LL;
+        do
+        {
+          v29 = *(_QWORD *)(*((_QWORD *)this + 672) + 8 * a3);
+          if ( *(_QWORD *)(v29 + 56) )
+          {
+            if ( !*(_DWORD *)(v29 + 24) )
+              *(_DWORD *)(v29 + 24) = v25;
+            *(_DWORD *)(v29 + 28) = v25;
+          }
+          a3 = (unsigned int)(a3 + 1);
+        }
+        while ( (unsigned int)a3 < *((_DWORD *)this + 1350) );
+        v23 = *((_QWORD *)this + 629);
+      }
+      v26 = *(unsigned int *)(v23 + 120);
+      v27 = (char *)this + 6000;
+      v28 = 10LL;
+      do
+      {
+        if ( *((_DWORD *)v27 + 28) )
+        {
+          v30 = *((_DWORD *)v27 + 80);
+          if ( !v30 )
+          {
+            *((_DWORD *)v27 + 80) = v26;
+            v30 = v26;
+          }
+          *((_DWORD *)v27 + 81) = v26;
+          if ( (unsigned int)dword_180344EB8 > 5
+            && (qword_180344EC8 & 8) != 0
+            && (qword_180344ED0 & 8) == qword_180344ED0 )
+          {
+            v41 = *((_QWORD *)v27 + 4) < 8uLL;
+            v61 = v30;
+            v62 = *((_QWORD *)v27 - 4);
+            v52 = *((_WORD *)v27 + 45);
+            v53 = *((_WORD *)v27 + 44);
+            v45 = v27[152];
+            v63 = *((_QWORD *)v27 + 10);
+            v46 = v27[56];
+            v47 = v27[52];
+            v48 = v27[48];
+            v49 = v27[44];
+            v64 = v27 + 60;
+            v50 = v27[40];
+            v42 = v27 + 8;
+            v60 = v26;
+            if ( !v41 )
+              v42 = (_QWORD *)*v42;
+            v41 = *(_QWORD *)v27 < 8uLL;
+            v65 = v42;
+            v43 = v27 - 24;
+            if ( !v41 )
+              v43 = *(char **)v43;
+            v66 = v43;
+            v55 = *((_DWORD *)v27 + 27);
+            v51[0] = v27[104];
+            v56 = *((_DWORD *)v27 + 25);
+            v57 = *((_DWORD *)v27 + 24);
+            v58 = *((_DWORD *)v27 + 23);
+            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<1>,_tlgWrapperByRef<16>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<8>,_tlgWrapperByVal<1>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+              v24,
+              &unk_1802E3F1C,
+              a3,
+              v25,
+              &v58,
+              &v57,
+              &v56,
+              v51,
+              &v55,
+              &v66,
+              &v65,
+              &v50,
+              &v64,
+              &v49,
+              &v48,
+              &v47,
+              &v46,
+              &v63,
+              &v45,
+              &v53,
+              &v52,
+              &v62,
+              &v61,
+              &v60);
+          }
+        }
+        v27 += 408;
+        --v28;
+      }
+      while ( v28 );
+    }
+    goto LABEL_25;
+  }
+  MilInstrumentationCheckHR_MaybeFailFast(v16, &dword_1802DB4A0, 3u, v15, 0x2F8u, 0LL);
+LABEL_35:
+  if ( v17 >= 0 )
+    goto LABEL_16;
+LABEL_25:
   if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_SCHEDULE_GETPRESENTSTATS_Stop,
-      v8,
+      a3,
       1LL,
-      v45);
+      v70);
 }

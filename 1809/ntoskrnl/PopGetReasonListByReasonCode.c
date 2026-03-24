@@ -2,8 +2,8 @@
  * XREFs of PopGetReasonListByReasonCode @ 0x1405B0B2C
  * Callers:
  *     PopRemoveReasonRecordByReasonCode @ 0x1405B0AE4 (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x14070AA54 (PopLogSleepDisabled.c)
- *     PopCheckDisabledReason @ 0x1407464B4 (PopCheckDisabledReason.c)
+ *     PopLogSleepDisabled @ 0x14070AA34 (PopLogSleepDisabled.c)
+ *     PopCheckDisabledReason @ 0x140746494 (PopCheckDisabledReason.c)
  * Callees:
  *     <none>
  */

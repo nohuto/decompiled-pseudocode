@@ -4,9 +4,9 @@
  *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiAssignSystemVa @ 0x1409D2CE0 (MiAssignSystemVa.c)
  *     MiAddSubRegionEntropy @ 0x1409D2DC0 (MiAddSubRegionEntropy.c)
  */

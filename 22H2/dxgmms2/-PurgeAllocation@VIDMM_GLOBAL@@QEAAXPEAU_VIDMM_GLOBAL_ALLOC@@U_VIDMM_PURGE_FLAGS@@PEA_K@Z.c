@@ -1,64 +1,61 @@
 /*
- * XREFs of ?PurgeAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00E66D8
+ * XREFs of ?PurgeAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00B1074
  * Callers:
- *     ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00B554C (-PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z.c)
- *     ?PurgeContent@VIDMM_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@PEA_K@Z @ 0x1C00FE594 (-PurgeContent@VIDMM_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@PEA_K@Z.c)
+ *     ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00C3DB0 (-PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z.c)
+ *     ?PurgeContent@VIDMM_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@PEA_K@Z @ 0x1C00C6C2C (-PurgeContent@VIDMM_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@PEA_K@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?EvictTemporaryAllocation@VIDMM_GLOBAL@@IEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E2838 (-EvictTemporaryAllocation@VIDMM_GLOBAL@@IEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?EvictTemporaryAllocation@VIDMM_GLOBAL@@IEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C008B0B8 (-EvictTemporaryAllocation@VIDMM_GLOBAL@@IEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
-__int64 __fastcall VIDMM_GLOBAL::PurgeAllocation(VIDMM_GLOBAL *a1, __int64 a2, __int64 a3, _QWORD *a4)
+void __fastcall VIDMM_GLOBAL::PurgeAllocation(VIDMM_GLOBAL *a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  __int64 result; // rax
-  _QWORD *v5; // r14
-  char v6; // bl
-  char v9; // si
+  _QWORD *v4; // r14
+  char v5; // bl
+  char v8; // si
+  VIDMM_GLOBAL *v9; // rcx
 
-  result = *(_QWORD *)&g_IsInternalReleaseOrDbg;
-  v5 = a4;
-  v6 = a3;
-  v9 = 0;
+  v4 = a4;
+  v5 = a3;
+  v8 = 0;
   if ( g_IsInternalReleaseOrDbg )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = a2;
+  if ( !*(_DWORD *)(a2 + 152) )
   {
-    result = WdLogNewEntry5_WdTrace(a1);
-    *(_QWORD *)(result + 24) = a2;
-  }
-  if ( !*(_DWORD *)(a2 + 144) )
-  {
-    if ( *(_QWORD *)(a2 + 120) )
+    v9 = *(VIDMM_GLOBAL **)(a2 + 128);
+    if ( v9 )
     {
       if ( g_IsInternalReleaseOrDbg )
-        WdLogNewEntry5_WdTrace(a1);
-      if ( (v6 & 2) != 0 || (v6 & 4) != 0 || (LOBYTE(a4) = 0, (v6 & 0x20) != 0) )
+      {
+        WdLogNewEntry5_WdTrace(v9);
+        v9 = *(VIDMM_GLOBAL **)(a2 + 128);
+      }
+      if ( (v5 & 2) != 0 || (v5 & 4) != 0 || (LOBYTE(a4) = 0, (v5 & 0x20) != 0) )
         LOBYTE(a4) = 1;
-      LOBYTE(a3) = v6 & 1;
-      result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, _QWORD *, _BYTE, _QWORD))(**(_QWORD **)(a2 + 120)
-                                                                                            + 48LL))(
-                 *(_QWORD *)(a2 + 120),
-                 a2,
-                 a3,
-                 a4,
-                 0,
-                 0LL);
-      v9 = 1;
+      LOBYTE(a3) = v5 & 1;
+      (*(void (__fastcall **)(VIDMM_GLOBAL *, __int64, __int64, _QWORD *, _BYTE, _QWORD))(*(_QWORD *)v9 + 48LL))(
+        v9,
+        a2,
+        a3,
+        a4,
+        0,
+        0LL);
+      v8 = 1;
     }
-    if ( *(_QWORD *)(a2 + 240) )
+    if ( *(_QWORD *)(a2 + 256) )
     {
       if ( g_IsInternalReleaseOrDbg )
-        WdLogNewEntry5_WdTrace(a1);
-      if ( v9 == 1 )
-        VIDMM_GLOBAL::FlushPagingBufferInternal(a1, *(_DWORD *)(a2 + 68) & 0x3F, 0, 0LL, 0LL, 0, 0);
-      VIDMM_GLOBAL::EvictTemporaryAllocation(a1, (struct _VIDMM_GLOBAL_ALLOC *)a2);
+        WdLogNewEntry5_WdTrace(v9);
+      if ( v8 == 1 )
+        VIDMM_GLOBAL::FlushPagingBufferInternal(a1, *(_DWORD *)(a2 + 76) & 0x3F, 0, 0LL, 0LL, 0, 0);
+      VIDMM_GLOBAL::EvictTemporaryAllocation(v9, (struct _VIDMM_GLOBAL_ALLOC *)a2);
+      v8 = 1;
     }
-    else if ( v9 != 1 )
+    if ( v8 == 1 )
     {
-      return result;
+      VIDMM_GLOBAL::FlushPagingBufferInternal(a1, *(_DWORD *)(a2 + 76) & 0x3F, 0, 0LL, 0LL, 0, 0);
+      *v4 += *(_QWORD *)(a2 + 16);
     }
-    VIDMM_GLOBAL::FlushPagingBufferInternal(a1, *(_DWORD *)(a2 + 68) & 0x3F, 0, 0LL, 0LL, 0, 0);
-    result = *(_QWORD *)(a2 + 16);
-    *v5 += result;
   }
-  return result;
 }

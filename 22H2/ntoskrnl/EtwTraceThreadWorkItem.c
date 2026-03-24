@@ -1,34 +1,27 @@
 /*
- * XREFs of EtwTraceThreadWorkItem @ 0x1405FD780
+ * XREFs of EtwTraceThreadWorkItem @ 0x1405A8300
  * Callers:
- *     ExpWorkerThread @ 0x1402BEB60 (ExpWorkerThread.c)
- *     IopProcessWorkItem @ 0x14031E4D0 (IopProcessWorkItem.c)
+ *     ExpWorkerThread @ 0x1402417F0 (ExpWorkerThread.c)
+ *     IopProcessWorkItem @ 0x14026F6D0 (IopProcessWorkItem.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExIsSafeWorkItem @ 0x1403E3070 (ExIsSafeWorkItem.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExIsSafeWorkItem @ 0x1403DB620 (ExIsSafeWorkItem.c)
  */
 
-struct _KTHREAD *(__fastcall *__fastcall EtwTraceThreadWorkItem(__int64 (__fastcall *a1)(), __int16 a2))(__int64 a1)
+void __fastcall EtwTraceThreadWorkItem(struct _KTHREAD *(__fastcall *a1)(__int64 a1), unsigned __int16 a2)
 {
-  struct _KTHREAD *(__fastcall *result)(__int64); // rax
-  __int64 (__fastcall *v4)(); // [rsp+30h] [rbp-28h] BYREF
-  __int64 (__fastcall **v5)(); // [rsp+38h] [rbp-20h] BYREF
-  int v6; // [rsp+40h] [rbp-18h]
-  int v7; // [rsp+44h] [rbp-14h]
+  struct _KTHREAD *(__fastcall *v3)(__int64); // [rsp+30h] [rbp-28h] BYREF
+  struct _KTHREAD *(__fastcall **v4)(__int64); // [rsp+38h] [rbp-20h] BYREF
+  int v5; // [rsp+40h] [rbp-18h]
+  int v6; // [rsp+44h] [rbp-14h]
 
-  result = IopProcessWorkItem;
-  v4 = a1;
-  if ( (char *)a1 != (char *)IopProcessWorkItem )
+  v3 = a1;
+  if ( a1 != IopProcessWorkItem && !ExIsSafeWorkItem((__int64 (__fastcall *)())a1) )
   {
-    result = (struct _KTHREAD *(__fastcall *)(__int64))ExIsSafeWorkItem(a1);
-    if ( !(_DWORD)result )
-    {
-      v7 = 0;
-      v5 = &v4;
-      v6 = 8;
-      return (struct _KTHREAD *(__fastcall *)(__int64))EtwTraceKernelEvent((int)&v5, 1, 0x48000000u, a2, 290461954);
-    }
+    v6 = 0;
+    v4 = &v3;
+    v5 = 8;
+    EtwTraceKernelEvent((__int64)&v4, 1u, 0x48000000u, a2, 0x11501902u);
   }
-  return result;
 }

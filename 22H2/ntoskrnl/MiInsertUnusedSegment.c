@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertUnusedSegment @ 0x1402A0B78
+ * XREFs of MiInsertUnusedSegment @ 0x1402D7D10
  * Callers:
- *     MiCleanSection @ 0x1402016FC (MiCleanSection.c)
- *     MiCheckControlArea @ 0x14029FAA0 (MiCheckControlArea.c)
- *     MiDeleteCachedSegment @ 0x1406239C4 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x140623BB8 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1406245A4 (MiFlushControlArea.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x140624C38 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x140624E7C (MiProcessDeleteOnClose.c)
- *     MiSetDeleteOnClose @ 0x140625E5C (MiSetDeleteOnClose.c)
+ *     MiCheckControlArea @ 0x140295130 (MiCheckControlArea.c)
+ *     MiCleanSection @ 0x14037EA3C (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x140528AF8 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140528CEC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1405296D4 (MiFlushControlArea.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140529CA8 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x140529ED8 (MiProcessDeleteOnClose.c)
+ *     MiSetDeleteOnClose @ 0x14052A954 (MiSetDeleteOnClose.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiComputePagedPoolSegmentBytes @ 0x1402A0C74 (MiComputePagedPoolSegmentBytes.c)
- *     MiReleaseControlAreaCharges @ 0x1402A0CF4 (MiReleaseControlAreaCharges.c)
- *     MiConvertStaticSubsections @ 0x1402A0DF8 (MiConvertStaticSubsections.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     MiReleaseControlAreaCharges @ 0x140294C48 (MiReleaseControlAreaCharges.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x1402D7E0C (MiComputePagedPoolSegmentBytes.c)
+ *     MiConvertStaticSubsections @ 0x1402D9368 (MiConvertStaticSubsections.c)
  */
 
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
@@ -37,12 +37,12 @@ __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
   {
     if ( (v1 & 0x20) == 0 )
       v2 = MiConvertStaticSubsections();
-    v4 = *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v4 + 1408));
+    v4 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v4 + 1344));
     if ( !v2 )
       v2 = MiReleaseControlAreaCharges(a1, 1LL);
     v5 = 0x40000LL;
-    v6 = *(_DWORD *)(a1 + 56) | 0x10000000;
+    v6 = *(_DWORD *)(a1 + 56) | 0x8000000;
     *(_DWORD *)(a1 + 56) = v6;
     v7 = v6;
     if ( (*(_DWORD *)(v4 + 4) & 1) != 0 && (v6 & 0x40000) == 0 )
@@ -53,37 +53,37 @@ __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
     v8 = (_QWORD *)(a1 + 8);
     if ( (v7 & 0x40000) != 0 )
     {
-      v9 = *(_QWORD **)(v4 + 1672);
-      if ( *v9 == v4 + 1664 )
+      v9 = *(_QWORD **)(v4 + 1608);
+      if ( *v9 == v4 + 1600 )
       {
-        *v8 = v4 + 1664;
+        *v8 = v4 + 1600;
         *(_QWORD *)(a1 + 16) = v9;
         *v9 = v8;
-        *(_QWORD *)(v4 + 1672) = v8;
-        ++*(_DWORD *)(v4 + 1412);
-        if ( !*(_BYTE *)(v4 + 1744) )
+        *(_QWORD *)(v4 + 1608) = v8;
+        ++*(_DWORD *)(v4 + 1348);
+        if ( !*(_BYTE *)(v4 + 1680) )
         {
-          *(_BYTE *)(v4 + 1744) = 1;
-          KiSetTimerEx(v4 + 1680, Mi10Milliseconds.QuadPart, 0, 0, 0LL);
+          *(_BYTE *)(v4 + 1680) = 1;
+          KiSetTimerEx(v4 + 1616, Mi10Milliseconds.QuadPart, 0, 0, 0LL);
         }
         goto LABEL_10;
       }
     }
     else
     {
-      v9 = *(_QWORD **)(v4 + 1776);
-      if ( *v9 == v4 + 1768 )
+      v9 = *(_QWORD **)(v4 + 1712);
+      if ( *v9 == v4 + 1704 )
       {
-        *v8 = v4 + 1768;
+        *v8 = v4 + 1704;
         *(_QWORD *)(a1 + 16) = v9;
         *v9 = v8;
-        *(_QWORD *)(v4 + 1776) = v8;
+        *(_QWORD *)(v4 + 1712) = v8;
 LABEL_10:
         v10 = MiComputePagedPoolSegmentBytes(a1, v9, v5);
-        *(_QWORD *)(v4 + 1760) += v10;
+        *(_QWORD *)(v4 + 1696) += v10;
         v11 = v10;
-        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1408));
-        _InterlockedExchangeAdd64(&qword_140C65658, v11);
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1344));
+        _InterlockedExchangeAdd64(&qword_140C4C998, v11);
         return v2;
       }
     }

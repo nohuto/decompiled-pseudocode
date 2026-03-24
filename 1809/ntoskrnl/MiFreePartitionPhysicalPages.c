@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreePartitionPhysicalPages @ 0x1408603CC
+ * XREFs of MiFreePartitionPhysicalPages @ 0x1408603AC
  * Callers:
- *     MiDeletePartitionResources @ 0x1402D0EAC (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
  * Callees:
- *     MiReturnPartitionPagesToParent @ 0x1402D24D4 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnPartitionPagesToParent @ 0x1402D25D4 (MiReturnPartitionPagesToParent.c)
  */
 
 __int64 __fastcall MiFreePartitionPhysicalPages(__int64 a1)

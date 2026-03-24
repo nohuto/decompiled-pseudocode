@@ -1,14 +1,15 @@
 /*
- * XREFs of ?ProcessUpdate@CCachedVisualImage@@IEAAJPEAVCResourceTable@@PEBUtagMILCMD_CACHEDVISUALIMAGE@@@Z @ 0x1800602F4
+ * XREFs of ?ProcessUpdate@CCachedVisualImage@@IEAAJPEAVCResourceTable@@PEBUtagMILCMD_CACHEDVISUALIMAGE@@@Z @ 0x1800329BC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MarkAllTargetsDirty@CCachedVisualImage@@QEAAXXZ @ 0x18005C3D4 (-MarkAllTargetsDirty@CCachedVisualImage@@QEAAXXZ.c)
- *     ?ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ @ 0x180060B4C (-ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifiers@CCachedVisualImage@@MEAAXXZ @ 0x180032960 (-UnRegisterNotifiers@CCachedVisualImage@@MEAAXXZ.c)
+ *     ?ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ @ 0x180032B4C (-ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?MarkAllTargetsDirty@CCachedVisualImage@@IEAAXXZ @ 0x1800D3DB8 (-MarkAllTargetsDirty@CCachedVisualImage@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CCachedVisualImage::ProcessUpdate(
@@ -24,120 +25,110 @@ __int64 __fastcall CCachedVisualImage::ProcessUpdate(
   int v11; // eax
   unsigned int v12; // ecx
   int v13; // edi
-  unsigned int v14; // esi
-  int v15; // eax
-  unsigned int v16; // ecx
-  int v17; // eax
-  unsigned int v18; // ecx
-  int v19; // eax
-  unsigned int v20; // ecx
+  int v14; // eax
+  unsigned int v15; // ecx
+  int v16; // eax
+  unsigned int v17; // ecx
   __int64 Resource; // rax
-  unsigned int v23; // ecx
-  __int64 v24; // rax
-  unsigned int v25; // ecx
-  unsigned int v26; // ecx
+  unsigned int v20; // ecx
+  __int64 v21; // rax
+  unsigned int v22; // ecx
 
-  (*(void (__fastcall **)(CCachedVisualImage *))(*(_QWORD *)this + 64LL))(this);
-  *((_OWORD *)this + 6) = *(_OWORD *)((char *)a3 + 8);
+  CCachedVisualImage::UnRegisterNotifiers((struct CResource **)this);
+  *(_OWORD *)((char *)this + 88) = *(_OWORD *)((char *)a3 + 8);
   v6 = *((unsigned int *)a3 + 10);
   if ( (_DWORD)v6 )
   {
-    Resource = CResourceTable::GetResource(a2, v6, 139LL);
-    *((_QWORD *)this + 14) = Resource;
+    Resource = CResourceTable::GetResource(a2, v6, 140LL);
+    *((_QWORD *)this + 13) = Resource;
     if ( !Resource )
     {
-      v14 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, -2003303421, 0xFCu, 0LL);
-LABEL_27:
-      (*(void (__fastcall **)(CCachedVisualImage *))(*(_QWORD *)this + 64LL))(this);
-      goto LABEL_15;
+      v13 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2003303421, 0xCDu, 0LL);
+LABEL_26:
+      CCachedVisualImage::UnRegisterNotifiers((struct CResource **)this);
+      goto LABEL_16;
     }
   }
   else
   {
-    *((_QWORD *)this + 14) = 0LL;
+    *((_QWORD *)this + 13) = 0LL;
   }
-  *(_OWORD *)((char *)this + 120) = *(_OWORD *)((char *)a3 + 24);
+  *((_OWORD *)this + 7) = *(_OWORD *)((char *)a3 + 24);
   v7 = *((unsigned int *)a3 + 11);
   if ( !(_DWORD)v7 )
   {
-    *((_QWORD *)this + 17) = 0LL;
+    *((_QWORD *)this + 16) = 0LL;
     goto LABEL_5;
   }
-  v24 = CResourceTable::GetResource(a2, v7, 171LL);
-  *((_QWORD *)this + 17) = v24;
-  if ( !v24 )
+  v21 = CResourceTable::GetResource(a2, v7, 172LL);
+  *((_QWORD *)this + 16) = v21;
+  if ( !v21 )
   {
-    v14 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, -2003303421, 0x10Du, 0LL);
-    goto LABEL_27;
+    v13 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, -2003303421, 0xDEu, 0LL);
+    goto LABEL_26;
   }
 LABEL_5:
   v8 = *((unsigned int *)a3 + 12);
   if ( !(_DWORD)v8 )
   {
-    *((_QWORD *)this + 18) = 0LL;
+    *((_QWORD *)this + 17) = 0LL;
     goto LABEL_11;
   }
   v9 = CResourceTable::GetResource(a2, v8, 195LL);
-  *((_QWORD *)this + 18) = v9;
+  *((_QWORD *)this + 17) = v9;
   if ( !v9 )
   {
-    v14 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2003303421, 0x11Du, 0LL);
-    goto LABEL_27;
+    v13 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2003303421, 0xEFu, 0LL);
+    goto LABEL_26;
   }
-  if ( *((_BYTE *)this + 1777) )
+  if ( *((_BYTE *)this + 1801) )
   {
-    *((_BYTE *)this + 1777) = 0;
+    *((_BYTE *)this + 1801) = 0;
     CCachedVisualImage::MarkAllTargetsDirty(this);
   }
-  if ( *((_BYTE *)this + 1776) )
+  if ( *((_BYTE *)this + 1800) )
   {
-    *((_BYTE *)this + 1776) = 0;
+    *((_BYTE *)this + 1800) = 0;
     CCachedVisualImage::MarkAllTargetsDirty(this);
   }
 LABEL_11:
-  *((_DWORD *)this + 38) = *((_DWORD *)a3 + 13);
-  *((_DWORD *)this + 39) = *((_DWORD *)a3 + 14);
-  *((_DWORD *)this + 40) = *((unsigned __int8 *)a3 + 60);
-  *((_DWORD *)this + 41) = *((_DWORD *)a3 + 16);
-  *((_DWORD *)this + 44) = *((_DWORD *)a3 + 17);
+  *((_DWORD *)this + 36) = *((_DWORD *)a3 + 13);
+  *((_DWORD *)this + 37) = *((_DWORD *)a3 + 14);
+  *((_DWORD *)this + 38) = *((unsigned __int8 *)a3 + 60);
+  *((_DWORD *)this + 39) = *((_DWORD *)a3 + 16);
+  *((_DWORD *)this + 42) = *((_DWORD *)a3 + 17);
   CCachedVisualImage::ChoosePixelFormat(this);
-  v11 = (*(__int64 (__fastcall **)(CCachedVisualImage *))(*(_QWORD *)this + 184LL))(this);
+  v11 = CResource::RegisterNotifier(this, *((struct CResource **)this + 17));
   v13 = v11;
-  v14 = v11;
   if ( v11 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xAFu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x8Au, 0LL);
+  }
+  else
+  {
+    v14 = CResource::RegisterNotifier(this, *((struct CResource **)this + 13));
+    v13 = v14;
+    if ( v14 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x8Bu, 0LL);
+    }
+    else
+    {
+      v16 = CResource::RegisterNotifier(this, *((struct CResource **)this + 16));
+      v13 = v16;
+      if ( v16 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x8Cu, 0LL);
+    }
+  }
+  if ( v13 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v13, 0x110u, 0LL);
     goto LABEL_26;
   }
-  v15 = CResource::RegisterNotifier(this, *((struct CResource **)this + 14));
-  v13 = v15;
-  v14 = v15;
-  if ( v15 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xB0u, 0LL);
-    goto LABEL_26;
-  }
-  v17 = CResource::RegisterNotifier(this, *((struct CResource **)this + 17));
-  v13 = v17;
-  v14 = v17;
-  if ( v17 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0xB1u, 0LL);
-LABEL_26:
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v13, 0x13Eu, 0LL);
-    goto LABEL_27;
-  }
-  v19 = (*(__int64 (__fastcall **)(CCachedVisualImage *))(*(_QWORD *)this + 224LL))(this);
-  v14 = v19;
-  if ( v19 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x140u, 0LL);
-    goto LABEL_27;
-  }
-LABEL_15:
-  (*(void (__fastcall **)(CCachedVisualImage *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
-  return v14;
+LABEL_16:
+  CResource::NotifyOnChanged(this, 0LL, 0LL);
+  return (unsigned int)v13;
 }

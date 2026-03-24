@@ -1,75 +1,81 @@
 /*
- * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x1409BEA94
+ * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x1407321EC
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x1409BE4A0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x140731FB0 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlSetControlSecurityDescriptor @ 0x14085D080 (RtlSetControlSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlSetControlSecurityDescriptor @ 0x140773760 (RtlSetControlSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
 {
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v5; // rdi
-  __int64 result; // rax
   NTSTATUS SecurityDescriptor; // ebx
-  ULONG v8; // esi
-  ACL *v9; // rax
-  ACL *v10; // rbx
+  ULONG v7; // esi
+  ACL *v8; // rax
+  ACL *v9; // rbx
   int Acl; // esi
-  ACL *v12; // rcx
+  ACL *v11; // rcx
+  __int64 result; // rax
   __int16 Sid; // [rsp+30h] [rbp-38h] BYREF
   int v14; // [rsp+32h] [rbp-36h]
   __int16 v15; // [rsp+36h] [rbp-32h]
   int v16; // [rsp+38h] [rbp-30h]
 
-  Pool2 = (void *)ExAllocatePool2(256LL, 40LL, 1399615318LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x536C6F56u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  SecurityDescriptor = RtlCreateSecurityDescriptor(Pool2, 1u);
-  if ( SecurityDescriptor < 0 )
-    goto LABEL_12;
-  v14 = 0;
-  v15 = 1280;
-  Sid = 257;
-  v16 = 18;
-  v8 = RtlLengthSid(&Sid) + 16;
-  v9 = (ACL *)ExAllocatePool2(256LL, v8, 1399615318LL);
-  v10 = v9;
-  if ( !v9 )
+  SecurityDescriptor = RtlCreateSecurityDescriptor(PoolWithTag, 1u);
+  if ( SecurityDescriptor >= 0 )
   {
-    SecurityDescriptor = -1073741670;
-LABEL_12:
-    ExFreePoolWithTag(v5, 0);
-    return (unsigned int)SecurityDescriptor;
+    v14 = 0;
+    v15 = 1280;
+    Sid = 257;
+    v16 = 18;
+    v7 = RtlLengthSid(&Sid) + 16;
+    v8 = (ACL *)ExAllocatePoolWithTag(PagedPool, v7, 0x536C6F56u);
+    v9 = v8;
+    if ( v8 )
+    {
+      Acl = RtlCreateAcl(v8, v7, 2u);
+      v11 = v9;
+      if ( Acl >= 0 )
+      {
+        Acl = RtlpAddKnownAce((__int64)v9, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
+        if ( Acl >= 0 )
+        {
+          Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v9, 0);
+          if ( Acl >= 0 )
+          {
+            Acl = RtlSetControlSecurityDescriptor(v5, 4096LL, 4096LL);
+            if ( Acl >= 0 )
+            {
+              *a1 = v5;
+              result = 0LL;
+              *a2 = v9;
+              return result;
+            }
+          }
+        }
+        v11 = v9;
+      }
+      ExFreePoolWithTag(v11, 0);
+      SecurityDescriptor = Acl;
+    }
+    else
+    {
+      SecurityDescriptor = -1073741670;
+    }
   }
-  Acl = RtlCreateAcl(v9, v8, 2u);
-  v12 = v10;
-  if ( Acl < 0 )
-  {
-LABEL_11:
-    ExFreePoolWithTag(v12, 0);
-    SecurityDescriptor = Acl;
-    goto LABEL_12;
-  }
-  Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
-  if ( Acl < 0
-    || (Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v10, 0), Acl < 0)
-    || (Acl = RtlSetControlSecurityDescriptor((__int64)v5, 0x1000u, 0x1000u), Acl < 0) )
-  {
-    v12 = v10;
-    goto LABEL_11;
-  }
-  *a1 = v5;
-  result = 0LL;
-  *a2 = v10;
-  return result;
+  ExFreePoolWithTag(v5, 0);
+  return (unsigned int)SecurityDescriptor;
 }

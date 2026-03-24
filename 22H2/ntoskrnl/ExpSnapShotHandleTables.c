@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSnapShotHandleTables @ 0x1408AB9F2
+ * XREFs of ExpSnapShotHandleTables @ 0x14094CC80
  * Callers:
- *     ObGetHandleInformation @ 0x14097B6A8 (ObGetHandleInformation.c)
- *     ObGetHandleInformationEx @ 0x14097B6FC (ObGetHandleInformationEx.c)
+ *     ObGetHandleInformation @ 0x1408DCE3C (ObGetHandleInformation.c)
+ *     ObGetHandleInformationEx @ 0x1408DCE90 (ObGetHandleInformationEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExLockHandleTableEntry @ 0x1402BEAA4 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpLookupHandleTableEntry @ 0x1406E69E0 (ExpLookupHandleTableEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExLockHandleTableEntry @ 0x1402C8EF0 (ExLockHandleTableEntry.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpLookupHandleTableEntry @ 0x14063E910 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpSnapShotHandleTables(
@@ -26,7 +26,7 @@ __int64 __fastcall ExpSnapShotHandleTables(
   __int64 *i; // r14
   __int64 v10; // rbp
   __int64 j; // rbx
-  volatile signed __int64 *v12; // rax
+  signed __int64 *v12; // rax
   volatile signed __int64 *v13; // rsi
   __int64 v14; // r15
   signed __int32 v16[8]; // [rsp+0h] [rbp-88h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall ExpSnapShotHandleTables(
     v10 = (__int64)(i - 3);
     for ( j = 0LL; ((v8 + 0x80000000) & 0x80000000) != 0 || v8 == -1073741820; j += 4LL )
     {
-      v12 = (volatile signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v10, j);
+      v12 = (signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v10, j);
       v13 = v12;
       if ( !v12 )
         break;

@@ -1,138 +1,133 @@
 /*
- * XREFs of ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C01FC7BC
+ * XREFs of ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C015C860
  * Callers:
- *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C01FCA80 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
- *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD018 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015C61C (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C021E8A4 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
  * Callees:
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     _SelectPalette @ 0x1C0131050 (_SelectPalette.c)
- *     xxxRealizePalette @ 0x1C0214E58 (xxxRealizePalette.c)
- *     GreGetDIBitsInternal @ 0x1C02DE6B0 (GreGetDIBitsInternal.c)
+ *     GreGetDIBitsInternal @ 0x1C0082984 (GreGetDIBitsInternal.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     _SelectPalette @ 0x1C01013B4 (_SelectPalette.c)
+ *     xxxRealizePalette @ 0x1C011B890 (xxxRealizePalette.c)
  */
 
-struct tagBITMAPINFOHEADER *__fastcall xxxBMPtoDIB(HBRUSH a1, __int64 a2, unsigned int *a3)
+struct tagBITMAPINFO *__fastcall xxxBMPtoDIB(HSURF a1, __int64 a2, unsigned int *a3)
 {
   unsigned __int16 v5; // dx
   unsigned __int16 v6; // cx
-  int v7; // r12d
+  unsigned int v7; // r12d
   unsigned __int64 v8; // r14
   unsigned __int64 v9; // r14
   unsigned int v10; // edi
   unsigned int v11; // esi
   __int64 v12; // rax
-  _DWORD *v13; // rbx
+  struct tagBITMAPINFO *v13; // rbx
   __int128 v14; // xmm1
   __int64 v15; // xmm0_8
   HDC CompatibleDC; // rsi
   __int64 v17; // r15
   BOOL v18; // edi
   __int64 ThreadWin32Thread; // rax
-  int v21; // [rsp+38h] [rbp-39h]
-  _BYTE v22[40]; // [rsp+58h] [rbp-19h] BYREF
-  int v23[4]; // [rsp+80h] [rbp+Fh] BYREF
-  __int128 v24; // [rsp+90h] [rbp+1Fh]
-  int v25; // [rsp+D8h] [rbp+67h]
+  __int128 v21; // [rsp+58h] [rbp-29h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-19h]
+  __int128 v23; // [rsp+70h] [rbp-11h] BYREF
+  __int128 v24; // [rsp+80h] [rbp-1h]
+  __int128 v25; // [rsp+90h] [rbp+Fh]
+  _BYTE v26[24]; // [rsp+A0h] [rbp+1Fh] BYREF
 
-  v25 = (int)a1;
-  *(_OWORD *)v23 = 0LL;
+  v23 = 0LL;
   v24 = 0LL;
-  if ( (unsigned int)GreExtGetObjectW(a1, 32LL, (__int64)v23) )
+  if ( (unsigned int)GreExtGetObjectW(a1, 32LL, (char *)&v23) )
   {
     v5 = v24 * WORD1(v24);
-    if ( (unsigned __int16)(v24 * WORD1(v24)) > 1u )
+    if ( (unsigned __int16)(v24 * WORD1(v24)) <= 1u )
+    {
+      v6 = 1;
+    }
+    else
     {
       v6 = 4;
       if ( v5 > 4u )
       {
-        if ( v5 > 8u )
-        {
-          if ( *(_WORD *)(gptiCurrent + 632LL) < 0x400u )
-          {
-            v6 = 24;
-          }
-          else if ( v5 > 0x10u )
-          {
-            v6 = 24;
-            if ( v5 > 0x18u )
-              v6 = 32;
-          }
-          else
-          {
-            v6 = 16;
-          }
-        }
-        else
+        if ( v5 <= 8u )
         {
           v6 = 8;
         }
-      }
-    }
-    else
-    {
-      v6 = 1;
-    }
-    v7 = v23[2];
-    *(_QWORD *)&v22[4] = *(_QWORD *)&v23[1];
-    v8 = v6 * (unsigned __int64)(unsigned int)v23[1];
-    *(_DWORD *)v22 = 40;
-    *(_WORD *)&v22[12] = 1;
-    *(_WORD *)&v22[14] = v6;
-    memset(&v22[16], 0, 24);
-    if ( v8 <= 0xFFFFFFFF )
-    {
-      v9 = (unsigned int)v23[2] * (unsigned __int64)(((unsigned int)(v8 + 31) >> 3) & 0x1FFFFFFC);
-      if ( v9 <= 0xFFFFFFFF )
-      {
-        v10 = 0;
-        if ( v6 > 8u )
+        else if ( *(_WORD *)(gptiCurrent + 632LL) < 0x400u )
         {
-          if ( ((v6 - 16) & 0xFFEF) == 0 )
-          {
-            v10 = 12;
-            *(_DWORD *)&v22[16] = 3;
-          }
+          v6 = 24;
+        }
+        else if ( v5 <= 0x10u )
+        {
+          v6 = 16;
         }
         else
         {
+          v6 = 24;
+          if ( v5 > 0x18u )
+            v6 = 32;
+        }
+      }
+    }
+    memset(v26, 0, sizeof(v26));
+    v7 = DWORD2(v23);
+    *(_QWORD *)((char *)&v25 + 4) = *(_QWORD *)((char *)&v23 + 4);
+    v8 = v6 * (unsigned __int64)DWORD1(v23);
+    LODWORD(v25) = 40;
+    WORD6(v25) = 1;
+    HIWORD(v25) = v6;
+    if ( v8 <= 0xFFFFFFFF )
+    {
+      v9 = DWORD2(v23) * (unsigned __int64)(((unsigned int)(v8 + 31) >> 3) & 0x1FFFFFFC);
+      if ( v9 <= 0xFFFFFFFF )
+      {
+        v10 = 0;
+        if ( v6 <= 8u )
+        {
           v10 = 4 * (1 << v6);
+        }
+        else if ( ((v6 - 16) & 0xFFEF) == 0 )
+        {
+          v10 = 12;
+          *(_DWORD *)v26 = 3;
         }
         v11 = v10 + 40 + v9;
         if ( v11 >= v10 + 40 )
         {
-          v12 = Win32AllocPoolZInit(v11, 1650684757LL);
-          v13 = (_DWORD *)v12;
+          v12 = Win32AllocPool(v11, 1650684757LL);
+          v13 = (struct tagBITMAPINFO *)v12;
           if ( v12 )
           {
             if ( a3 )
               *a3 = v11;
-            v14 = *(_OWORD *)&v22[16];
-            *(_OWORD *)v12 = *(_OWORD *)v22;
-            v15 = *(_QWORD *)&v22[32];
+            v14 = *(_OWORD *)v26;
+            *(_OWORD *)v12 = v25;
+            v15 = *(_QWORD *)&v26[16];
             *(_OWORD *)(v12 + 16) = v14;
             *(_QWORD *)(v12 + 32) = v15;
             CompatibleDC = (HDC)GreCreateCompatibleDC(*(_QWORD *)(gpDispInfo + 56LL));
             if ( CompatibleDC )
             {
-              memset(v22, 0, 24);
+              v22 = 0LL;
+              v21 = 0LL;
               v17 = 0LL;
-              PushW32ThreadLock((__int64)v13, v22, (__int64)Win32FreePool);
+              PushW32ThreadLock((__int64)v13, &v21, (__int64)Win32FreePool);
               if ( a2 )
               {
                 v17 = SelectPalette((__int64)CompatibleDC, a2, 0);
                 xxxRealizePalette(CompatibleDC);
               }
               v18 = GreGetDIBitsInternal(
-                      (int)CompatibleDC,
-                      v25,
-                      (_DWORD)v13 + *v13 + v10,
+                      CompatibleDC,
+                      a1,
+                      0,
                       v7,
-                      (__int64)v13 + *v13 + v10,
+                      (__int64)v13 + v13->bmiHeader.biSize + v10,
                       v13,
-                      v21,
+                      0,
                       v9,
-                      *v13 + v10) != 0;
+                      v13->bmiHeader.biSize + v10) != 0;
               if ( v17 )
               {
                 SelectPalette((__int64)CompatibleDC, v17, 0);
@@ -140,9 +135,9 @@ struct tagBITMAPINFOHEADER *__fastcall xxxBMPtoDIB(HBRUSH a1, __int64 a2, unsign
               }
               GreDeleteDC(CompatibleDC);
               ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-              *(_QWORD *)(ThreadWin32Thread + 16) = *(_QWORD *)v22;
+              *(_QWORD *)(ThreadWin32Thread + 16) = v21;
               if ( v18 )
-                return (struct tagBITMAPINFOHEADER *)v13;
+                return v13;
             }
             Win32FreePool(v13);
           }

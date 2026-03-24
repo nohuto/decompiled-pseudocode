@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDereferenceCombineBlock @ 0x140239978
+ * XREFs of MiDereferenceCombineBlock @ 0x140369F60
  * Callers:
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
  * Callees:
- *     MiDecrementCombinedPte @ 0x1402399A8 (MiDecrementCombinedPte.c)
+ *     MiDecrementCombinedPte @ 0x140366EC4 (MiDecrementCombinedPte.c)
  */
 
 void __fastcall MiDereferenceCombineBlock(__int64 *a1, _QWORD *a2)
@@ -14,7 +14,7 @@ void __fastcall MiDereferenceCombineBlock(__int64 *a1, _QWORD *a2)
   {
     if ( a2[3] )
     {
-      MiDecrementCombinedPte(0LL, a2 + 6);
+      MiDecrementCombinedPte(0LL, (unsigned __int64)(a2 + 6));
     }
     else
     {

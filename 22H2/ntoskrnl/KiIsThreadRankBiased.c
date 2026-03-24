@@ -1,7 +1,8 @@
 /*
- * XREFs of KiIsThreadRankBiased @ 0x140462328
+ * XREFs of KiIsThreadRankBiased @ 0x1405237DC
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
+ *     KiGetHeteroThreadQos @ 0x14051F268 (KiGetHeteroThreadQos.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSetDeviceSecurityDescriptor @ 0x140699558
+ * XREFs of IopSetDeviceSecurityDescriptor @ 0x140699538
  * Callers:
- *     IopGetSetSecurityObject @ 0x1406990F0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptors @ 0x14070D4F0 (IopSetDeviceSecurityDescriptors.c)
+ *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
+ *     IopSetDeviceSecurityDescriptors @ 0x14070D4D0 (IopSetDeviceSecurityDescriptors.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PoSetThermalActiveCooling @ 0x140982CF0
+ * XREFs of PoSetThermalActiveCooling @ 0x1407C7FE0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPropogateCoolingChange @ 0x140586D90 (PopPropogateCoolingChange.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x1408025F0 (PopThermalUpdateActiveTimeTracking.c)
- *     PoGetThermalRequestSupport @ 0x140860FB0 (PoGetThermalRequestSupport.c)
- *     PopDiagTraceThermalRequestActiveUpdate @ 0x140991E10 (PopDiagTraceThermalRequestActiveUpdate.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPropogateCoolingChange @ 0x1403C95B4 (PopPropogateCoolingChange.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DE1C (PopThermalUpdateActiveTimeTracking.c)
+ *     PopDiagTraceThermalRequestActiveUpdate @ 0x1407C80DC (PopDiagTraceThermalRequestActiveUpdate.c)
+ *     PoGetThermalRequestSupport @ 0x1407C8130 (PoGetThermalRequestSupport.c)
  */
 
 __int64 __fastcall PoSetThermalActiveCooling(__int64 a1, char a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PoSetThermalActiveCooling(__int64 a1, char a2)
   char v8; // al
 
   v4 = 0;
-  if ( PoGetThermalRequestSupport(a1, 1) )
+  if ( (unsigned __int8)PoGetThermalRequestSupport(a1, 1LL) )
   {
     v5 = *(_QWORD *)(a1 + 32);
     v6 = a2 != 0;
@@ -41,7 +41,7 @@ __int64 __fastcall PoSetThermalActiveCooling(__int64 a1, char a2)
     {
       v4 = -1073741431;
     }
-    PopReleaseRwLock((__int64 *)(v5 + 32));
+    PopReleaseRwLock(v5 + 32);
   }
   else
   {

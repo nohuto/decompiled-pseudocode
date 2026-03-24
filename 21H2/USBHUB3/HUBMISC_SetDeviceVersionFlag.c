@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_SetDeviceVersionFlag @ 0x1C002DB00
+ * XREFs of HUBMISC_SetDeviceVersionFlag @ 0x1C002D474
  * Callers:
- *     HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C001E980 (HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum.c)
- *     HUBDSM_SettingVersionFlagInEnumerating @ 0x1C001F000 (HUBDSM_SettingVersionFlagInEnumerating.c)
+ *     HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C001E440 (HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum.c)
+ *     HUBDSM_SettingVersionFlagInEnumerating @ 0x1C001EAC0 (HUBDSM_SettingVersionFlagInEnumerating.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
  */
 
 __int16 __fastcall HUBMISC_SetDeviceVersionFlag(__int64 a1)
@@ -42,7 +42,7 @@ LABEL_17:
                      2u,
                      5u,
                      0x28u,
-                     (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+                     (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
                      v2);
     goto LABEL_17;
   }
@@ -63,7 +63,7 @@ LABEL_17:
           2u,
           5u,
           0x27u,
-          (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+          (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
           v2);
         v4 = *(_DWORD *)(a1 + 1456);
       }

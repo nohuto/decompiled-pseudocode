@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpScenCtxWaiterTimedOut @ 0x140582E30
+ * XREFs of PfpScenCtxWaiterTimedOut @ 0x14038D570
  * Callers:
- *     PfpScenCtxScenarioSet @ 0x140A883D8 (PfpScenCtxScenarioSet.c)
- *     PfpScenCtxPrefetchWait @ 0x140AA0414 (PfpScenCtxPrefetchWait.c)
+ *     PfpScenCtxPrefetchWait @ 0x1409910A8 (PfpScenCtxPrefetchWait.c)
+ *     PfpScenCtxScenarioSet @ 0x14099AB88 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 LONG __fastcall PfpScenCtxWaiterTimedOut(__int64 a1)

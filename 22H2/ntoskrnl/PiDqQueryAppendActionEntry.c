@@ -1,20 +1,19 @@
 /*
- * XREFs of PiDqQueryAppendActionEntry @ 0x1407FA9F8
+ * XREFs of PiDqQueryAppendActionEntry @ 0x1406A8A14
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x1407871A4 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryEnumObject @ 0x140788744 (PiDqQueryEnumObject.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA618 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1406A7660 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryEnumObject @ 0x1406AC914 (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140762AE4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     PiDqGetPnpObjectType @ 0x1406CA43C (PiDqGetPnpObjectType.c)
- *     PiDqQueryFreeActiveData @ 0x1407E02C8 (PiDqQueryFreeActiveData.c)
- *     PiDmGetObjectCount @ 0x14095ADC0 (PiDmGetObjectCount.c)
+ *     PiDqQueryFreeActiveData @ 0x1406A74F8 (PiDqQueryFreeActiveData.c)
+ *     PiDqGetPnpObjectType @ 0x1406B1480 (PiDqGetPnpObjectType.c)
+ *     PiDmGetObjectCount @ 0x1408A34DC (PiDmGetObjectCount.c)
  */
 
 char __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rax
   __int64 **v4; // rcx
-  unsigned int v5; // eax
   unsigned int PnpObjectType; // eax
 
   v2 = a1 + 192;
@@ -25,17 +24,15 @@ char __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
   a2[1] = (__int64)v4;
   *v4 = a2;
   *(_QWORD *)(v2 + 8) = a2;
-  v5 = *(_DWORD *)(a1 + 208) + 1;
-  *(_DWORD *)(a1 + 208) = v5;
-  if ( v5 > 0x3E8 )
+  if ( ++*(_DWORD *)(a1 + 208) > 0x3E8u )
   {
-    PnpObjectType = PiDqGetPnpObjectType(*(_DWORD *)(*(_QWORD *)(a1 + 24) + 16LL));
-    v5 = 2 * PiDmGetObjectCount(PnpObjectType);
-    if ( *(_DWORD *)(a1 + 208) > v5 )
+    PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(a1 + 24) + 16LL));
+    LODWORD(v2) = 2 * PiDmGetObjectCount(PnpObjectType);
+    if ( *(_DWORD *)(a1 + 208) > (unsigned int)v2 )
     {
       *(_DWORD *)(a1 + 216) |= 1u;
-      LOBYTE(v5) = PiDqQueryFreeActiveData(a1);
+      LOBYTE(v2) = PiDqQueryFreeActiveData(a1);
     }
   }
-  return v5;
+  return v2;
 }

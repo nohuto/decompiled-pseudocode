@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_StartingDebounceTimerOnResumeFromD3Cold @ 0x1C0011CC0
+ * XREFs of HUBPSM20_StartingDebounceTimerOnResumeFromD3Cold @ 0x1C00117C0
  * Callers:
  *     <none>
  * Callees:

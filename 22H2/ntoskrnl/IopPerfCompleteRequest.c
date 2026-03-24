@@ -1,15 +1,15 @@
 /*
- * XREFs of IopPerfCompleteRequest @ 0x14045F2FE
+ * XREFs of IopPerfCompleteRequest @ 0x140507D14
  * Callers:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     IovCompleteRequest @ 0x140AC248C (IovCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     IovCompleteRequest @ 0x1409C4FB0 (IovCompleteRequest.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     IopFreeIrpExtension @ 0x14028FCF8 (IopFreeIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x140290158 (IopIrpHasExtensionType.c)
- *     IopfCompleteRequest @ 0x1402C9980 (IopfCompleteRequest.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopProcessIoTracking @ 0x14045F528 (IopProcessIoTracking.c)
+ *     IopfCompleteRequest @ 0x140242E30 (IopfCompleteRequest.c)
+ *     IopFreeIrpExtension @ 0x1402E5F78 (IopFreeIrpExtension.c)
+ *     IopIrpHasExtensionType @ 0x1402E6690 (IopIrpHasExtensionType.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopProcessIoTracking @ 0x1405081DC (IopProcessIoTracking.c)
  */
 
 void __fastcall IopPerfCompleteRequest(__int64 BugCheckParameter1, unsigned __int8 a2)
@@ -17,12 +17,12 @@ void __fastcall IopPerfCompleteRequest(__int64 BugCheckParameter1, unsigned __in
   bool v2; // zf
   char v5; // cl
   char v6; // dl
-  __int64 v7; // rsi
+  __int64 v7; // r14
   unsigned __int8 *v8; // rbx
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rax
-  signed __int32 v12; // r14d
+  signed __int32 v12; // esi
   bool v13; // sf
   char v14; // al
   __int128 v15; // [rsp+30h] [rbp-39h] BYREF
@@ -85,7 +85,7 @@ void __fastcall IopPerfCompleteRequest(__int64 BugCheckParameter1, unsigned __in
         v20 = v12;
         v21 = v19;
         v22 = 20;
-        EtwTraceKernelEvent((int)&v21, 1, 0x20000010u, 308, 4200450);
+        EtwTraceKernelEvent((__int64)&v21, 1u, 0x20000010u, 0x134u, 0x401802u);
         if ( !v8 )
         {
 LABEL_19:
@@ -95,7 +95,7 @@ LABEL_19:
           v17 = BugCheckParameter1;
           v18 = v12;
           v25 = 12;
-          EtwTraceKernelEvent((int)&v24, 1, 0x20000010u, 309, 4200450);
+          EtwTraceKernelEvent((__int64)&v24, 1u, 0x20000010u, 0x135u, 0x401802u);
           return;
         }
         v13 = *(int *)(BugCheckParameter1 + 48) < 0;

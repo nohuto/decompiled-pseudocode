@@ -1,23 +1,23 @@
 /*
- * XREFs of BgpTxtDestroyRegion @ 0x140AED8C8
+ * XREFs of BgpTxtDestroyRegion @ 0x1409F40EC
  * Callers:
- *     BgpFwLibraryDisable @ 0x140AED1B0 (BgpFwLibraryDisable.c)
- *     BgpDisplayCharacterGetContext @ 0x140AEF478 (BgpDisplayCharacterGetContext.c)
- *     BgpDisplayCharacterDestroyContext @ 0x140AF02B4 (BgpDisplayCharacterDestroyContext.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x1409F3FBC (BgpDisplayCharacterDestroyContext.c)
+ *     BgpFwLibraryDisable @ 0x1409F3FE8 (BgpFwLibraryDisable.c)
+ *     BgpDisplayCharacterGetContext @ 0x1409F4A4C (BgpDisplayCharacterGetContext.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     RaspClearCache @ 0x140AEE500 (RaspClearCache.c)
- *     BgpGxRectangleDestroy @ 0x140AEEA30 (BgpGxRectangleDestroy.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
+ *     RaspClearCache @ 0x1409F35FC (RaspClearCache.c)
  */
 
 void __fastcall BgpTxtDestroyRegion(__int64 a1)
 {
   __int64 v2; // rcx
   __int64 v3; // rcx
-  _QWORD *v4; // rbx
+  _UNKNOWN **v4; // rbx
   __int64 v5; // rax
 
-  if ( a1 && (*(_DWORD *)(a1 + 72) & 1) != 0 )
+  if ( a1 && (*(_DWORD *)(a1 + 64) & 1) != 0 )
   {
     v2 = *(_QWORD *)(a1 + 24);
     if ( v2 )
@@ -27,27 +27,27 @@ void __fastcall BgpTxtDestroyRegion(__int64 a1)
       BgpGxRectangleDestroy(v3);
     if ( (*(_DWORD *)(a1 + 60) & 1) != 0 )
     {
-      v4 = TxtpTextCache;
+      v4 = (_UNKNOWN **)TxtpTextCache;
       v5 = *(_QWORD *)TxtpTextCache;
       if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
-FatalListEntryError_124:
+LABEL_9:
         __fastfail(3u);
       while ( 1 )
       {
-        if ( *(_QWORD **)(v5 + 8) != v4 )
-          goto FatalListEntryError_124;
+        if ( *(_UNKNOWN ***)(v5 + 8) != v4 )
+          goto LABEL_9;
         TxtpTextCache = (_UNKNOWN *)v5;
         *(_QWORD *)(v5 + 8) = &TxtpTextCache;
         if ( v4 == &TxtpTextCache )
           break;
-        BgpGxRectangleDestroy(v4[6]);
+        BgpGxRectangleDestroy((__int64)v4[6]);
         BgpFwFreeMemory((__int64)v4);
-        v4 = TxtpTextCache;
+        v4 = (_UNKNOWN **)TxtpTextCache;
         if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
-          goto FatalListEntryError_124;
+          goto LABEL_9;
         v5 = *(_QWORD *)TxtpTextCache;
       }
-      dword_140C043D8 = 0;
+      dword_140C02CA8 = 0;
       if ( RasterizerInitialized )
         RaspClearCache();
     }

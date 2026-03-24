@@ -1,150 +1,139 @@
 /*
- * XREFs of DxgkQueryProtectedSessionStatus @ 0x1C034AD00
+ * XREFs of DxgkQueryProtectedSessionStatus @ 0x1C028A580
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0023F34 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z @ 0x1C0054080 (--0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z @ 0x1C00475B8 (--0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVDXGGLOBAL@@_N@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DxgkQueryProtectedSessionStatus(ULONG64 a1)
 {
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // rcx
-  struct DXGPROCESS *Current; // r15
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  bool v8; // sf
-  __int64 *v9; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct DXGPROCESS *Current; // r14
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 *v15; // rbx
+  __int64 v16; // rbx
   struct DXGGLOBAL *Global; // rax
-  unsigned int v11; // eax
-  __int64 v12; // r8
-  unsigned int v13; // ecx
-  int v14; // ecx
-  __int64 v15; // rbx
-  int v17; // ebx
-  _DWORD *v18; // rdx
-  __int64 v19; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rdx
   __int64 v20; // r8
-  _BYTE v21[16]; // [rsp+50h] [rbp-48h] BYREF
-  int v22; // [rsp+60h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-30h]
-  char v24; // [rsp+70h] [rbp-28h]
-  __int64 v25; // [rsp+A8h] [rbp+10h]
+  unsigned int v21; // ecx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rdi
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  int v32; // ebx
+  _DWORD *v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  _BYTE v36[16]; // [rsp+20h] [rbp-48h] BYREF
+  int v37; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v38; // [rsp+38h] [rbp-30h]
+  char v39; // [rsp+40h] [rbp-28h]
 
   if ( (unsigned __int8)PsGetCurrentThreadPreviousMode() != 1 )
   {
-    WdLogSingleEntry1(1LL, 459LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"PsGetCurrentThreadPreviousMode() == UserMode",
-      459LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v5 + 24) = 454LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  v22 = -1;
-  v23 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v37 = -1;
+  v38 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v24 = 1;
-    v22 = 2150;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v2, &EventProfilerEnter, v3, 2150);
+    v39 = 1;
+    v37 = 2150;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v3, &EventProfilerEnter, v4, 2150);
   }
   else
   {
-    v24 = 0;
+    v39 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v22, 2150);
-  Current = DXGPROCESS::GetCurrent(v4);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v37, 2150LL);
+  Current = DXGPROCESS::GetCurrent(v7, v6, v8, v9);
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22);
-    if ( v24 )
+    v13 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v13 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v13);
+LABEL_20:
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v37, v14);
+    if ( v39 )
     {
-      v8 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-      goto LABEL_22;
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v29, &EventProfilerExit, v30, v37);
     }
     return 3221225485LL;
   }
-  v9 = (__int64 *)a1;
+  v15 = (__int64 *)a1;
   if ( a1 >= MmUserProbeAddress )
-    v9 = (__int64 *)MmUserProbeAddress;
-  v25 = *v9;
-  Global = DXGGLOBAL::GetGlobal();
-  DXGPROTECTEDSESSIONMUTEX::DXGPROTECTEDSESSIONMUTEX((DXGPROTECTEDSESSIONMUTEX *)v21, Global);
-  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)Current + 248));
-  v11 = ((unsigned int)v25 >> 6) & 0xFFFFFF;
-  if ( v11 >= *((_DWORD *)Current + 74) )
-    goto LABEL_18;
-  v12 = *((_QWORD *)Current + 35);
-  v13 = *(_DWORD *)(v12 + 16LL * v11 + 8);
-  if ( (unsigned int)v25 >> 30 != ((v13 >> 5) & 3) )
-    goto LABEL_18;
-  if ( (v13 & 0x2000) != 0 )
-    goto LABEL_18;
-  v14 = v13 & 0x1F;
-  if ( !v14 )
-    goto LABEL_18;
-  if ( v14 != 14 )
+    v15 = (__int64 *)MmUserProbeAddress;
+  v16 = *v15;
+  Global = DXGGLOBAL::GetGlobal(MmUserProbeAddress, v10);
+  DXGPROTECTEDSESSIONMUTEX::DXGPROTECTEDSESSIONMUTEX((DXGPROTECTEDSESSIONMUTEX *)v36, Global);
+  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)Current + 208));
+  v18 = ((unsigned int)v16 >> 6) & 0xFFFFFF;
+  v19 = (unsigned int)v16 >> 30;
+  if ( (unsigned int)v18 >= *((_DWORD *)Current + 64) )
+    goto LABEL_17;
+  v20 = *((_QWORD *)Current + 30);
+  v21 = *(_DWORD *)(v20 + 16 * v18 + 8);
+  if ( (_DWORD)v19 != ((v21 >> 5) & 3) || (v21 & 0x2000) != 0 || (v21 & 0x1F) == 0 )
+    goto LABEL_17;
+  v22 = v21 & 0x1F;
+  if ( (_BYTE)v22 != 14 )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+    v23 = WdLogNewEntry5_WdError(v22, v19);
+    *(_QWORD *)(v23 + 24) = 316LL;
+    WdLogEvent5_WdError(v23);
+LABEL_17:
+    v24 = 0LL;
+    goto LABEL_18;
+  }
+  v24 = *(_QWORD *)(v20 + 16LL * (unsigned int)v18);
 LABEL_18:
-    v15 = 0LL;
-    goto LABEL_19;
-  }
-  v15 = *(_QWORD *)(v12 + 16LL * v11);
-LABEL_19:
-  _InterlockedDecrement((volatile signed __int32 *)Current + 66);
-  ExReleasePushLockSharedEx((char *)Current + 248, 0LL);
+  ExReleasePushLockSharedEx((char *)Current + 208, 0LL);
   KeLeaveCriticalRegion();
-  if ( !v15 )
+  if ( !v24 )
   {
-    WdLogSingleEntry2(3LL, (unsigned int)v25, -1073741811LL);
-    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v21);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22);
-    if ( v24 )
-    {
-      LOBYTE(v6) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-      v8 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_22:
-      if ( v8 )
-        McTemplateK0q_EtwWriteTransfer(v6, &EventProfilerExit, v7, v22);
-    }
-    return 3221225485LL;
+    v28 = WdLogNewEntry5_WdWarning(v26, v25, v27);
+    *(_QWORD *)(v28 + 24) = (unsigned int)v16;
+    *(_QWORD *)(v28 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v28);
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v36);
+    goto LABEL_20;
   }
-  v17 = *(_DWORD *)(v15 + 148);
-  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v21);
-  v18 = (_DWORD *)(a1 + 4);
+  v32 = *(_DWORD *)(v24 + 140);
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v36);
+  v33 = (_DWORD *)(a1 + 4);
   if ( a1 + 4 >= MmUserProbeAddress )
-    v18 = (_DWORD *)MmUserProbeAddress;
-  *v18 = v17;
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22);
-  if ( v24 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v22);
+    v33 = (_DWORD *)MmUserProbeAddress;
+  *v33 = v32;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v37, (__int64)v33);
+  if ( v39 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v34, &EventProfilerExit, v35, v37);
   return 0LL;
 }

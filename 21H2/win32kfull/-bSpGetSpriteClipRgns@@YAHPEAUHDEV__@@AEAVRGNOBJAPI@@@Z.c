@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z @ 0x1C027EB60
+ * XREFs of ?bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z @ 0x1C0280EEC
  * Callers:
- *     ?GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027C078 (-GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
+ *     ?GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027E69C (-GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
  */
 
 __int64 __fastcall bSpGetSpriteClipRgns(_QWORD *a1, struct RGNOBJAPI *a2)
@@ -18,26 +18,26 @@ __int64 __fastcall bSpGetSpriteClipRgns(_QWORD *a1, struct RGNOBJAPI *a2)
   __int64 v12; // [rsp+70h] [rbp+30h] BYREF
 
   v2 = 0;
-  if ( a1[11] )
+  if ( a1[12] )
   {
     RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v9);
     RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v9);
     RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v10);
     RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v10);
-    v5 = a1[98];
+    v5 = a1[99];
     v11 = v5;
     if ( *(_QWORD *)a2 && v5 && v9[0] && v10[0] )
     {
       RGNOBJ::vSet((RGNOBJ *)&v11);
       RGNOBJ::vSet((RGNOBJ *)v9);
       RGNOBJ::vSet((RGNOBJ *)v10);
-      for ( i = a1[11]; ; i = *(_QWORD *)(i + 24) )
+      for ( i = a1[12]; ; i = *(_QWORD *)(i + 24) )
       {
         if ( !i )
         {
           RGNOBJAPI::bSwap(a2, (struct RGNOBJ *)&v11);
           v2 = 1;
-          a1[98] = v11;
+          a1[99] = v11;
           break;
         }
         if ( (*(_DWORD *)i & 1) == 0 )

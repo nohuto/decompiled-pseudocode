@@ -1,10 +1,10 @@
 /*
- * XREFs of Counter_CreateInterrupterInstance @ 0x1C006D2CC
+ * XREFs of Counter_CreateInterrupterInstance @ 0x1C007102C
  * Callers:
- *     Interrupter_CreateInterrupter @ 0x1C006CEC0 (Interrupter_CreateInterrupter.c)
+ *     Interrupter_CreateInterrupter @ 0x1C0070DA4 (Interrupter_CreateInterrupter.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1C0005B6C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
+ *     RtlStringCchPrintfW @ 0x1C0009784 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Counter_CreateInterrupterInstance(__int64 a1)

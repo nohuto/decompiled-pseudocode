@@ -1,20 +1,20 @@
 /*
- * XREFs of ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x1800318CC
+ * XREFs of ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x180062268
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x180031854 (-TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42Inte.c)
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800319D0 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfigurationUpdateType@@W43InteractionInputType@@IPEBXI@Z @ 0x180031A7C (-NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfig.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfigurationUpdateType@@W43InteractionInputType@@IPEBXI@Z @ 0x18006236C (-NotifyUpdateConfiguration@CManipulationManager@@QEAAJPEAVCInteraction@@W4Enum@InteractionConfig.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x180062AE8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x180062B3C (-TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42Inte.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CInteraction::ProcessUpdateConfiguration(
-        CInteraction *this,
+        CComposition **this,
         struct CResourceTable *a2,
         const struct tagMILCMD_INTERACTION_UPDATECONFIGURATION *a3,
-        __int64 a4,
+        const void *a4,
         unsigned int a5)
 {
   int v6; // r8d
@@ -26,10 +26,11 @@ __int64 __fastcall CInteraction::ProcessUpdateConfiguration(
   int ManipulationManager; // eax
   unsigned int v15; // ebx
   int v17; // r9d
-  unsigned int v18; // [rsp+20h] [rbp-38h]
-  struct CManipulationManager *v19; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v18[2]; // [rsp+20h] [rbp-38h]
+  unsigned int v19; // [rsp+20h] [rbp-38h]
+  struct CManipulationManager *v20; // [rsp+68h] [rbp+10h] BYREF
 
-  v19 = 0LL;
+  v20 = 0LL;
   v6 = *((_DWORD *)a3 + 4);
   if ( v6 == 1 || v6 == 2 || v6 == 3 )
   {
@@ -42,10 +43,12 @@ LABEL_4:
     if ( v6 != 5 )
     {
       v15 = -2147024809;
-      v18 = 320;
-LABEL_19:
+      v19 = 344;
+LABEL_15:
       v17 = v15;
-      goto LABEL_20;
+LABEL_20:
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v17, v19, 0LL);
+      goto LABEL_9;
     }
     goto LABEL_4;
   }
@@ -56,43 +59,45 @@ LABEL_5:
   if ( !is_mul_ok(*((unsigned int *)a3 + 2), v11) )
   {
     v15 = -2147024362;
-    v18 = 323;
-    goto LABEL_19;
+    v19 = 347;
+    goto LABEL_15;
   }
   v12 = a5;
   if ( v10 != a5 )
   {
     v15 = -2003303421;
-    v18 = 327;
-    goto LABEL_19;
+    v19 = 351;
+    goto LABEL_15;
   }
-  CInteraction::TraceUpdatedConfiguration((int)this, *((_DWORD *)a3 + 3), v6, *((_DWORD *)a3 + 2), a4);
-  v13 = (CComposition *)*((_QWORD *)this + 2);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v19);
-  ManipulationManager = CComposition::GetManipulationManager(v13, &v19);
+  v18[1] = HIDWORD(a4);
+  CInteraction::TraceUpdatedConfiguration(this, *((unsigned int *)a3 + 3));
+  v13 = this[3];
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v20);
+  ManipulationManager = CComposition::GetManipulationManager(v13, &v20);
   v15 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    v18 = 335;
-    goto LABEL_17;
+    v19 = 359;
+    goto LABEL_19;
   }
+  v18[0] = *((_DWORD *)a3 + 2);
   ManipulationManager = CManipulationManager::NotifyUpdateConfiguration(
                           this,
                           this,
                           *((unsigned int *)a3 + 3),
                           *((unsigned int *)a3 + 4),
-                          *((_DWORD *)a3 + 2),
+                          *(_QWORD *)v18,
                           a4,
                           v12);
   v15 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    v18 = 337;
-LABEL_17:
+    v19 = 361;
+LABEL_19:
     v17 = ManipulationManager;
-LABEL_20:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v17, v18, 0LL);
+    goto LABEL_20;
   }
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v19);
+LABEL_9:
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v20);
   return v15;
 }

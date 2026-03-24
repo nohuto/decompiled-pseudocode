@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIsPciRootBus @ 0x140828AC0
+ * XREFs of IopIsPciRootBus @ 0x140828AA0
  * Callers:
- *     IopMemQueryConflict @ 0x140828BC0 (IopMemQueryConflict.c)
+ *     IopMemQueryConflict @ 0x140828BA0 (IopMemQueryConflict.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeClonePool @ 0x14066478C
+ * XREFs of MiFreeClonePool @ 0x14055A800
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403A7500 (MiDereferenceSegmentThread.c)
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
- *     MiDeletePartitionResources @ 0x1406594F8 (MiDeletePartitionResources.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
+ *     MiDereferenceSegmentThread @ 0x1403BCDD0 (MiDereferenceSegmentThread.c)
+ *     MiDeletePartitionResources @ 0x140561858 (MiDeletePartitionResources.c)
  * Callees:
- *     MiUnlockPagedAddress @ 0x14035AC54 (MiUnlockPagedAddress.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     MiUnlockPagedAddress @ 0x140536930 (MiUnlockPagedAddress.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY __fastcall MiFreeClonePool(union _SLIST_HEADER *a1)
@@ -18,7 +18,7 @@ PSLIST_ENTRY __fastcall MiFreeClonePool(union _SLIST_HEADER *a1)
   PSLIST_ENTRY result; // rax
   PSLIST_ENTRY v5; // rbx
 
-  v1 = a1 + 129;
+  v1 = a1 + 115;
   while ( 1 )
   {
     result = RtlpInterlockedPopEntrySList(v1);

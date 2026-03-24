@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfIoTargetFormatRequestForRead @ 0x1C0038EF0
+ * XREFs of imp_WdfIoTargetFormatRequestForRead @ 0x1C0063530
  * Callers:
  *     <none>
  * Callees:
- *     FxIoTargetFormatIo @ 0x1C00724F4 (FxIoTargetFormatIo.c)
+ *     FxIoTargetFormatIo @ 0x1C0062624 (FxIoTargetFormatIo.c)
  */
 
-int __fastcall imp_WdfIoTargetFormatRequestForRead(
+__int64 __fastcall imp_WdfIoTargetFormatRequestForRead(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIOTARGET__ *IoTarget,
         WDFREQUEST__ *Request,
@@ -15,7 +15,7 @@ int __fastcall imp_WdfIoTargetFormatRequestForRead(
         __int64 *DeviceOffset)
 {
   return FxIoTargetFormatIo(
-           (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+           (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
            IoTarget,
            Request,
            3u,

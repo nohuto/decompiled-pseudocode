@@ -1,25 +1,25 @@
 /*
- * XREFs of PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00FD674
+ * XREFs of PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00F1850
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C004BDA0 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     GetRect @ 0x1C00688B4 (GetRect.c)
- *     ?BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z @ 0x1C006A228 (-BuildWindowListWithDpiBoundaryInfo@@YAPEAUtagWLDBI@@PEAUtagWND@@0PEAUtagBWL@@PEAH@Z.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     ?UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z @ 0x1C00FD5BC (-UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z.c)
- *     ?GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z @ 0x1C01DECC4 (-GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z.c)
- *     NtUserPhysicalToLogicalDpiPointForWindow @ 0x1C01FAFF0 (NtUserPhysicalToLogicalDpiPointForWindow.c)
+ *     GetRect @ 0x1C0063F28 (GetRect.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     BuildWindowListWithDpiBoundaryInfo @ 0x1C006F994 (BuildWindowListWithDpiBoundaryInfo.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C00707F8 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     ?CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0073BB0 (-CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     UpdateWindowPositionsForDpiBoundaryChange @ 0x1C00F1754 (UpdateWindowPositionsForDpiBoundaryChange.c)
+ *     ?GetDpiRectWithSubpixel@@YAXPEAUtagRECT@@PEAMPEAUtagWND@@21111@Z @ 0x1C01E40A4 (-GetDpiRectWithSubpixel@@YAXPEAUtagRECT@@PEAMPEAUtagWND@@21111@Z.c)
+ *     NtUserPhysicalToLogicalDpiPointForWindow @ 0x1C02002F0 (NtUserPhysicalToLogicalDpiPointForWindow.c)
  * Callees:
- *     ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C0003DF4 (-ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z.c)
- *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z @ 0x1C0069908 (-GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z.c)
+ *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00F1894 (-GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C01E42D0 (-ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z.c)
  */
 
-__int64 __fastcall PhysicalToLogicalInPlaceRectWithSubpixel(const struct tagWND *a1, int *a2, float *a3)
+__int64 __fastcall PhysicalToLogicalInPlaceRectWithSubpixel(struct tagWND *a1, int *a2, float *a3)
 {
   unsigned int v5; // ebx
-  const struct tagWND *TopLevelOrDpiBoundaryWindow; // rax
-  const struct tagWND *v7; // r11
+  struct tagWND *TopLevelOrDpiBoundaryWindow; // rax
+  struct tagWND *v7; // r11
   __int64 v9; // rax
   int v10; // ecx
   int v11; // eax

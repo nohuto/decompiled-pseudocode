@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x1801C7BE4
+ * XREFs of ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x18018B7B8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?QueueResponse@CResponseItem@@QEAAJXZ @ 0x1800274C8 (-QueueResponse@CResponseItem@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??2MagnifierCaptureBitsResponse@@SAPEAX_K@Z @ 0x1801C7730 (--2MagnifierCaptureBitsResponse@@SAPEAX_K@Z.c)
- *     ?ProcessUpdateParams@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMAGN_UPDATE_TEXTURES_PARAM@@@Z @ 0x1801C8220 (-ProcessUpdateParams@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMAGN_UPDATE_TEXTURES_P.c)
- *     McTemplateU0xxddffff_EventWriteTransfer @ 0x1801C83D0 (McTemplateU0xxddffff_EventWriteTransfer.c)
- *     ??0MagnifierCaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCMagnifierRenderTarget@@PEAVCChannelContext@@AEBUWICRect@@_K@Z @ 0x1801E184C (--0MagnifierCaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCMagnifierRenderTarget@@PEA.c)
+ *     ?QueueResponse@CResponseItem@@QEAAJXZ @ 0x180043F48 (-QueueResponse@CResponseItem@@QEAAJXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2MagnifierCaptureBitsResponse@@SAPEAX_K@Z @ 0x18018B39C (--2MagnifierCaptureBitsResponse@@SAPEAX_K@Z.c)
+ *     ?ProcessUpdateParams@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMAGN_UPDATE_TEXTURES_PARAM@@@Z @ 0x18018BDF4 (-ProcessUpdateParams@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMAGN_UPDATE_TEXTURES_P.c)
+ *     McTemplateU0xxddffff_EventWriteTransfer @ 0x18018BFA0 (McTemplateU0xxddffff_EventWriteTransfer.c)
+ *     ??0MagnifierCaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCMagnifierRenderTarget@@PEAVCChannelContext@@AEBUWICRect@@_K@Z @ 0x18019AF18 (--0MagnifierCaptureBitsResponse@@QEAA@PEAVCGlobalSurfaceManager@@PEAVCMagnifierRenderTarget@@PEA.c)
  */
 
 __int64 __fastcall CMagnifierRenderTarget::ProcessCaptureBits(
@@ -17,74 +17,73 @@ __int64 __fastcall CMagnifierRenderTarget::ProcessCaptureBits(
         struct CChannelContext *a2,
         const struct tagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS *a3)
 {
+  MagnifierCaptureBitsResponse *v3; // rdi
   int updated; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  MagnifierCaptureBitsResponse *v9; // rax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
   __int64 v10; // rcx
-  MagnifierCaptureBitsResponse *v11; // rax
-  volatile signed __int32 *v12; // rsi
-  int v13; // eax
-  int v14; // edx
-  __int64 v15; // rcx
-  struct WICRect v17; // [rsp+50h] [rbp-18h] BYREF
+  MagnifierCaptureBitsResponse *v11; // r10
+  int v12; // eax
+  int v13; // edx
+  __int64 v14; // rcx
+  struct WICRect v16; // [rsp+50h] [rbp-28h] BYREF
 
-  v17.X = 0;
-  v17.Y = 0;
-  v17.Width = *((_DWORD *)a3 + 2);
-  v17.Height = *((_DWORD *)a3 + 3);
-  *((_BYTE *)this + 1756) = 1;
+  v3 = 0LL;
+  v16.X = 0;
+  v16.Y = 0;
+  v16.Width = *((_DWORD *)a3 + 2);
+  v16.Height = *((_DWORD *)a3 + 3);
+  *((_BYTE *)this + 1772) = 1;
   updated = CMagnifierRenderTarget::ProcessUpdateParams(
               this,
               a2,
               (const struct tagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS *)((char *)a3 + 32));
-  v8 = updated;
+  v9 = updated;
   if ( updated < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, updated, 0x74u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, updated, 0x75u, 0LL);
   }
   else
   {
-    *((_DWORD *)this + 438) = ((*((_DWORD *)a3 + 6) & 1) == 0) + 1;
-    v9 = (MagnifierCaptureBitsResponse *)MagnifierCaptureBitsResponse::operator new();
-    if ( v9
-      && (v11 = MagnifierCaptureBitsResponse::MagnifierCaptureBitsResponse(
-                  v9,
-                  *((struct CGlobalSurfaceManager **)g_pComposition + 28),
-                  this,
-                  a2,
-                  &v17,
-                  *((_QWORD *)a3 + 2)),
-          (v12 = (volatile signed __int32 *)v11) != 0LL) )
+    *((_DWORD *)this + 442) = ((*((_DWORD *)a3 + 6) & 1) == 0) + 1;
+    v11 = (MagnifierCaptureBitsResponse *)MagnifierCaptureBitsResponse::operator new();
+    if ( v11 )
+      v3 = MagnifierCaptureBitsResponse::MagnifierCaptureBitsResponse(
+             v11,
+             *((struct CGlobalSurfaceManager **)g_pComposition + 12),
+             this,
+             a2,
+             &v16,
+             *((_QWORD *)a3 + 2));
+    if ( !v3 )
     {
-      *((_DWORD *)v11 + 4) = 0;
-      v13 = CResponseItem::QueueResponse(v11);
-      v8 = v13;
-      if ( v13 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v13, 0x8Fu);
-      }
-      else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-      {
-        McTemplateU0xxddffff_EventWriteTransfer(
-          v15,
-          v14,
-          *((_QWORD *)this + 230),
-          *((_QWORD *)a3 + 2),
-          *((_DWORD *)a3 + 8),
-          *((_DWORD *)a3 + 9),
-          _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 5)).m128_i8[0],
-          _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 6)).m128_i8[0],
-          _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 7)).m128_i8[0],
-          _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 8)).m128_i8[0]);
-      }
-      CMILRefCountBaseT<IMILRefCount>::InternalRelease(v12);
+      v9 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0x87u, 0LL);
+      return v9;
     }
-    else
+    *((_DWORD *)v3 + 4) = 0;
+    v12 = CResponseItem::QueueResponse(v3);
+    v9 = v12;
+    if ( v12 < 0 )
     {
-      v8 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147024882, 0x86u);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v12, 0x90u, 0LL);
+    }
+    else if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+    {
+      McTemplateU0xxddffff_EventWriteTransfer(
+        v14,
+        v13,
+        *((_QWORD *)this + 232),
+        *((_QWORD *)a3 + 2),
+        *((_DWORD *)a3 + 8),
+        *((_DWORD *)a3 + 9),
+        _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 5)).m128_i8[0],
+        _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 6)).m128_i8[0],
+        _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 7)).m128_i8[0],
+        _mm_cvtpd_ps((__m128d)*((unsigned __int64 *)a3 + 8)).m128_i8[0]);
     }
   }
-  return v8;
+  if ( v3 )
+    CDrawListEntry::Release(v3);
+  return v9;
 }

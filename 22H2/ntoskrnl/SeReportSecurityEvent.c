@@ -1,9 +1,9 @@
 /*
- * XREFs of SeReportSecurityEvent @ 0x1405B8CC0
+ * XREFs of SeReportSecurityEvent @ 0x140596BE0
  * Callers:
  *     <none>
  * Callees:
- *     SeReportSecurityEventWithSubCategory @ 0x140226BA0 (SeReportSecurityEventWithSubCategory.c)
+ *     SeReportSecurityEventWithSubCategory @ 0x140252250 (SeReportSecurityEventWithSubCategory.c)
  */
 
 NTSTATUS __stdcall SeReportSecurityEvent(

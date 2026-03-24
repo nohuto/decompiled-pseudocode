@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C022803C
+ * XREFs of ??0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01EF18C
  * Callers:
- *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C002EB8C (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
- *     ??0CNotificationResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C003033C (--0CNotificationResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     <none>
  */
 
 DirectComposition::CInteractionTrackerMarshaler *__fastcall DirectComposition::CInteractionTrackerMarshaler::CInteractionTrackerMarshaler(
@@ -11,12 +11,13 @@ DirectComposition::CInteractionTrackerMarshaler *__fastcall DirectComposition::C
 {
   DirectComposition::CInteractionTrackerMarshaler *result; // rax
 
-  DirectComposition::CNotificationResourceMarshaler::CNotificationResourceMarshaler(this, 90LL);
+  *(_QWORD *)((char *)this + 20) = 1LL;
   *(_QWORD *)this = &DirectComposition::CInteractionTrackerMarshaler::`vftable';
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 10) = 87;
   *((_BYTE *)this + 376) = 1;
   *((_QWORD *)this + 50) = 12LL;
   *((_DWORD *)this + 4) |= 0x1DFFFFC0u;
-  *((_DWORD *)this + 16) = 0;
   *((_DWORD *)this + 39) = 1065353216;
   *((_DWORD *)this + 42) = 1065353216;
   *((_DWORD *)this + 40) = 1065353216;
@@ -24,6 +25,7 @@ DirectComposition::CInteractionTrackerMarshaler *__fastcall DirectComposition::C
   *((_DWORD *)this + 37) = 1064514355;
   *((_DWORD *)this + 38) = 1064514355;
   result = this;
+  *((_DWORD *)this + 16) = 0;
   *((_DWORD *)this + 47) = 1065101558;
   *((_DWORD *)this + 103) = 1117126656;
   *((_DWORD *)this + 104) = 1130430464;

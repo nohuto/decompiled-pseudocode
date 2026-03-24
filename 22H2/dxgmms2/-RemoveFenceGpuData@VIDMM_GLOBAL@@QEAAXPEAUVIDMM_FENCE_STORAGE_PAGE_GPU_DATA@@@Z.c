@@ -1,25 +1,23 @@
 /*
- * XREFs of ?RemoveFenceGpuData@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C0087BD8
+ * XREFs of ?RemoveFenceGpuData@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C00846B8
  * Callers:
- *     ?ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C00879F8 (-ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
+ *     ?ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C008475C (-ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0001DD0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0005224 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
- *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017C04 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0012C10 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RemoveFenceGpuData(VIDMM_GLOBAL *this, struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA *a2)
 {
-  _QWORD *v4; // rdi
-  __int64 v5; // r8
+  _QWORD *v4; // rbx
+  __int64 v5; // rdx
   _QWORD *v6; // rax
-  struct _MDL *v7; // rbx
-  unsigned __int64 LogicalAddress; // rax
-  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // rcx
+  __int64 v8; // [rsp+30h] [rbp-18h] BYREF
+  char v9; // [rsp+38h] [rbp-10h]
 
   DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-    (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9,
-    (VIDMM_GLOBAL *)((char *)this + 3832));
+    (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)&v8,
+    (VIDMM_GLOBAL *)((char *)this + 3816));
   v4 = (_QWORD *)((char *)a2 + 16);
   v5 = *((_QWORD *)a2 + 2);
   if ( *(struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA **)(v5 + 8) != (struct VIDMM_FENCE_STORAGE_PAGE_GPU_DATA *)((char *)a2 + 16)
@@ -29,13 +27,20 @@ void __fastcall VIDMM_GLOBAL::RemoveFenceGpuData(VIDMM_GLOBAL *this, struct VIDM
   }
   *v6 = v5;
   *(_QWORD *)(v5 + 8) = v6;
-  if ( *((_BYTE *)this + 40181) )
+  if ( *((_BYTE *)this + 40172) )
+    DpiUnmapIommuIdentityRange(
+      *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 6) + 24LL) + 216LL),
+      *((_QWORD *)a2 + 7),
+      0LL,
+      3LL,
+      a2);
+  if ( v9 )
   {
-    v7 = (struct _MDL *)*((_QWORD *)a2 + 7);
-    LogicalAddress = SysMmGetLogicalAddress(*((void *const *)a2 + 8));
-    SysMmUnmapIommuRange(*(struct SYSMM_ADAPTER **)(*((_QWORD *)this + 3) + 224LL), LogicalAddress, v7, 0);
+    v7 = v8;
+    *(_QWORD *)(v8 + 8) = 0LL;
+    ExReleasePushLockExclusiveEx(v7, 0LL);
+    KeLeaveCriticalRegion();
   }
-  DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9);
   *v4 = 0LL;
   *((_QWORD *)a2 + 3) = 0LL;
 }

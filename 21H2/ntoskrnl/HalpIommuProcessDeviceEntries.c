@@ -1,204 +1,206 @@
 /*
- * XREFs of HalpIommuProcessDeviceEntries @ 0x140530540
+ * XREFs of HalpIommuProcessDeviceEntries @ 0x1404E17D4
  * Callers:
- *     HalpIommuProcessIvhdEntry @ 0x1405307FC (HalpIommuProcessIvhdEntry.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1AE0 (HalpIommuProcessIvhdEntry.c)
  * Callees:
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     ExtEnvAllocateMemory @ 0x1403CE24C (ExtEnvAllocateMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall HalpIommuProcessDeviceEntries(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int64 v3; // r12
-  _BYTE *v4; // rsi
+  unsigned __int8 *v4; // rsi
   int Memory; // ebx
-  _BYTE *v6; // rbp
+  char v6; // di
   unsigned __int64 v7; // r12
-  _BYTE *v8; // r15
-  char v9; // r14
-  _BYTE *v10; // rdi
-  __int64 v12; // r11
-  _BYTE *v13; // r10
-  unsigned __int64 v14; // r8
-  unsigned __int8 v15; // al
-  unsigned __int8 v16; // r9
+  ULONG v8; // ebp
+  unsigned __int8 *v9; // r14
+  char v10; // r15
+  unsigned __int8 *v11; // r13
+  _BYTE *v12; // rax
+  __int64 v13; // r11
+  unsigned __int8 *v14; // r10
+  unsigned __int64 v15; // r8
+  unsigned int v16; // r9d
   __int64 v17; // rdx
   int v18; // ecx
   ULONG v19; // edx
-  char v20; // al
+  unsigned __int8 v20; // al
   ULONG v21; // r8d
   char v22; // dl
-  ULONG v23; // ebp
   __int64 v24; // rcx
   __int64 v25; // rcx
-  _QWORD *v26; // rdi
-  _QWORD *v27; // rcx
-  ULONG v28; // edx
-  _BYTE *v30; // [rsp+20h] [rbp-58h]
-  __int64 v33; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v26; // rdi
+  void **v27; // r15
+  __int64 *v28; // rcx
+  __int64 v29[10]; // [rsp+28h] [rbp-50h] BYREF
+  char v33; // [rsp+98h] [rbp+20h]
 
   v3 = *(unsigned __int16 *)(a2 + 2);
-  v4 = (_BYTE *)(a2 + 40);
+  v4 = (unsigned __int8 *)(a2 + 40);
   Memory = 0;
-  v6 = 0LL;
-  v33 = 0LL;
+  v6 = 0;
+  v29[0] = 0LL;
   v7 = a2 + v3;
-  v8 = 0LL;
-  v30 = 0LL;
-  v9 = 0;
+  v8 = 0;
+  v33 = 0;
+  v9 = 0LL;
   *a3 = 0;
-  v10 = a3;
-  v12 = a1;
-  if ( a2 + 40 < v7 )
+  v10 = 0;
+  v11 = 0LL;
+  v12 = (_BYTE *)a2;
+  v13 = a1;
+  if ( a2 + 40 >= v7 )
+    return (unsigned int)Memory;
+  while ( 1 )
   {
-    while ( 1 )
+    v14 = v4;
+    v15 = v7 - (_QWORD)v4;
+    if ( (unsigned __int8 *)v7 == v4 || (unsigned __int8)(*v12 - 16) <= 1u && *v4 > 0x7Fu )
+      return (unsigned int)-1073741811;
+    v16 = *v4;
+    if ( (_BYTE)v16 == 0xF0 )
     {
-      v13 = v4;
-      v14 = v7 - (_QWORD)v4;
-      if ( (_BYTE *)v7 == v4 )
+      if ( v15 < 0x16 )
         return (unsigned int)-1073741811;
-      if ( (unsigned __int8)(*(_BYTE *)a2 - 16) <= 1u )
-      {
-        if ( *v4 > 0x7Fu )
-          return (unsigned int)-1073741811;
-        v15 = *v4;
-        v16 = *v4;
-      }
-      else
-      {
-        v15 = *v4;
-        v16 = *v4;
-        if ( *v4 == 0xF0 )
-        {
-          if ( v14 < 0x16 )
-            return (unsigned int)-1073741811;
-          v6 = v4;
-          LODWORD(v17) = (unsigned __int8)v4[21] + 22;
-          v30 = v4;
-          goto LABEL_11;
-        }
-      }
-      if ( v15 > 0x7Fu )
+      v11 = v4;
+      LODWORD(v17) = v4[21] + 22;
+    }
+    else
+    {
+      if ( (unsigned __int8)v16 > 0x7Fu )
         return (unsigned int)-1073741811;
-      v17 = 1LL << ((v16 >> 6) + 2);
-LABEL_11:
-      if ( (unsigned int)v17 > v14 )
+      v17 = 1LL << ((*v4 >> 6) + 2);
+    }
+    if ( (unsigned int)v17 > v15 )
+      return (unsigned int)-1073741811;
+    v4 += (unsigned int)v17;
+    if ( v9 )
+    {
+      if ( (_BYTE)v16 != 4 )
         return (unsigned int)-1073741811;
-      v4 += (unsigned int)v17;
-      if ( v8 )
+      v18 = *(unsigned __int16 *)(v14 + 1);
+      v19 = *(unsigned __int16 *)(v9 + 1);
+      if ( (unsigned __int16)v18 < (unsigned __int16)v19 )
+        return (unsigned int)-1073741811;
+      v20 = *v9;
+      if ( *v9 != 3 )
       {
-        if ( v16 != 4 )
-          return (unsigned int)-1073741811;
-        v18 = *(unsigned __int16 *)(v13 + 1);
-        v19 = *(unsigned __int16 *)(v8 + 1);
-        if ( (unsigned __int16)v18 < (unsigned __int16)v19 )
-          return (unsigned int)-1073741811;
-        v20 = *v8;
-        if ( *v8 == 3 )
-          goto LABEL_20;
         if ( v20 == 67 )
         {
-          v19 = *(unsigned __int16 *)(v8 + 5);
+          v8 = *(unsigned __int16 *)(v9 + 5);
           v21 = 1;
-        }
-        else
-        {
-          if ( v20 != 71 )
-          {
-            Memory = -1073741811;
-LABEL_22:
-            v8 = 0LL;
-            goto LABEL_48;
-          }
+          v19 = v8;
 LABEL_20:
-          v21 = v18 - v19 + 1;
+          RtlSetBits((PRTL_BITMAP)(v13 + 184), v19, v21);
+          goto LABEL_21;
         }
-        RtlSetBits((PRTL_BITMAP)(v12 + 184), v19, v21);
-        v12 = a1;
-        goto LABEL_22;
-      }
-      v22 = v9;
-      v9 = 0;
-      if ( v16 > 0x40u )
-      {
-        switch ( v16 )
+        if ( v20 != 71 )
         {
-          case 0x42u:
-            v28 = *(unsigned __int16 *)(v13 + 5);
-            goto LABEL_47;
-          case 0x43u:
-            goto LABEL_45;
-          case 0x46u:
-            goto LABEL_44;
-          case 0x47u:
+          Memory = -1073741811;
+LABEL_21:
+          v9 = 0LL;
+          goto LABEL_49;
+        }
+      }
+      v21 = v18 - v19 + 1;
+      goto LABEL_20;
+    }
+    v22 = v10;
+    v10 = 0;
+    if ( v16 > 0x40 )
+    {
+      if ( v16 == 66 )
+      {
+        v8 = *(unsigned __int16 *)(v14 + 5);
+        v6 = 1;
+        v33 = 1;
+        goto LABEL_47;
+      }
+      if ( v16 == 67 )
+        goto LABEL_45;
+      if ( v16 != 70 )
+      {
+        if ( v16 != 71 )
+        {
+          if ( v16 != 240 )
+            goto LABEL_37;
+          if ( v11[20] != 2 )
+          {
+            *a3 = 1;
+            goto LABEL_49;
+          }
+          v8 = *(unsigned __int16 *)(v11 + 1);
+          RtlSetBits((PRTL_BITMAP)(v13 + 184), v8, 1u);
+          Memory = ExtEnvAllocateMemory(v24, 0x20u, v29);
+          if ( Memory < 0 )
+            return (unsigned int)Memory;
+          v26 = v29[0];
+          *(_OWORD *)v29[0] = 0LL;
+          v27 = (void **)(v26 + 16);
+          *(_OWORD *)(v26 + 16) = 0LL;
+          *(_DWORD *)(v26 + 24) = v8;
+          Memory = ExtEnvAllocateMemory(v25, (unsigned int)v11[21] + 1, (__int64 *)(v26 + 16));
+          if ( Memory < 0 )
+            return (unsigned int)Memory;
+          memset(*v27, 0, v11[21] + 1LL);
+          memmove(*v27, v11 + 22, v11[21]);
+          v13 = a1;
+          v28 = *(__int64 **)(a1 + 232);
+          if ( *v28 != a1 + 224 )
+            __fastfail(3u);
+          v10 = 0;
+          *(_QWORD *)v26 = a1 + 224;
+          *(_QWORD *)(v26 + 8) = v28;
+          *v28 = v26;
+          *(_QWORD *)(a1 + 232) = v26;
+          v6 = v33;
+          goto LABEL_47;
+        }
 LABEL_45:
-            v8 = v13;
-            goto LABEL_48;
-          case 0xF0u:
-            if ( v6[20] == 2 )
-            {
-              v23 = *(unsigned __int16 *)(v6 + 1);
-              RtlSetBits((PRTL_BITMAP)(v12 + 184), v23, 1u);
-              Memory = ExtEnvAllocateMemory(v24, 0x20u, &v33);
-              if ( Memory < 0 )
-                return (unsigned int)Memory;
-              v26 = (_QWORD *)v33;
-              *(_DWORD *)(v33 + 24) = v23;
-              v6 = v30;
-              Memory = ExtEnvAllocateMemory(v25, (unsigned int)(unsigned __int8)v30[21] + 1, v26 + 2);
-              if ( Memory < 0 )
-                return (unsigned int)Memory;
-              memmove((void *)v26[2], v30 + 22, (unsigned __int8)v30[21]);
-              v12 = a1;
-              v27 = *(_QWORD **)(a1 + 232);
-              if ( *v27 != a1 + 224 )
-                __fastfail(3u);
-              *v26 = a1 + 224;
-              v26[1] = v27;
-              *v27 = v26;
-              *(_QWORD *)(a1 + 232) = v26;
-              v10 = a3;
-            }
-            else
-            {
-              *v10 = 1;
-            }
-            goto LABEL_48;
-        }
-      }
-      else
-      {
-        switch ( v16 )
-        {
-          case 0x40u:
-          case 0u:
-          case 1u:
-            goto LABEL_48;
-          case 2u:
-LABEL_44:
-            v28 = *(unsigned __int16 *)(v13 + 1);
-LABEL_47:
-            RtlSetBits((PRTL_BITMAP)(v12 + 184), v28, 1u);
-            v12 = a1;
-            goto LABEL_48;
-          case 3u:
-            goto LABEL_45;
-          case 4u:
-            if ( !v22 )
-              return (unsigned int)-1073741811;
-            goto LABEL_48;
-        }
-      }
-      v9 = 1;
-LABEL_48:
-      if ( (unsigned __int64)v4 >= v7 )
-      {
-        if ( !v8 )
-          return (unsigned int)Memory;
-        return (unsigned int)-1073741811;
+        v9 = v14;
+        goto LABEL_47;
       }
     }
+    else
+    {
+      if ( v16 == 64 || !(_BYTE)v16 || v16 == 1 )
+        goto LABEL_47;
+      if ( v16 != 2 )
+      {
+        if ( v16 != 3 )
+        {
+          if ( v16 != 4 )
+          {
+LABEL_37:
+            v10 = 1;
+            goto LABEL_47;
+          }
+          if ( !v22 )
+            return (unsigned int)-1073741811;
+LABEL_47:
+          if ( !v6 )
+            goto LABEL_49;
+          goto LABEL_48;
+        }
+        goto LABEL_45;
+      }
+    }
+    v8 = *(unsigned __int16 *)(v14 + 1);
+LABEL_48:
+    RtlSetBits((PRTL_BITMAP)(v13 + 184), v8, 1u);
+    v6 = 0;
+    v33 = 0;
+LABEL_49:
+    if ( (unsigned __int64)v4 >= v7 )
+      break;
+    v12 = (_BYTE *)a2;
+    v13 = a1;
   }
+  if ( v9 )
+    return (unsigned int)-1073741811;
   return (unsigned int)Memory;
 }

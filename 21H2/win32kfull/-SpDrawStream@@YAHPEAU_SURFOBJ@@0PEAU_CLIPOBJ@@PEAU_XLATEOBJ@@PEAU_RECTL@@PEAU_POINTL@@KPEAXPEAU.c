@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SpDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXPEAU_DSSTATE@@@Z @ 0x1C01586C0
+ * XREFs of ?SpDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXPEAU_DSSTATE@@@Z @ 0x1C027F400
  * Callers:
  *     <none>
  * Callees:
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C0031BF0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0032504 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
- *     ?bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z @ 0x1C00D77FC (-bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z.c)
- *     OffDrawStream @ 0x1C015887C (OffDrawStream.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0096648 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C0096930 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z @ 0x1C010F4D4 (-bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     OffDrawStream @ 0x1C02C9248 (OffDrawStream.c)
  */
 
 __int64 __fastcall SpDrawStream(
@@ -37,7 +37,7 @@ __int64 __fastcall SpDrawStream(
   __int64 v23; // [rsp+88h] [rbp-78h]
   __int64 v24; // [rsp+90h] [rbp-70h]
   __int64 v25; // [rsp+98h] [rbp-68h]
-  _BYTE v26[912]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 *v26[114]; // [rsp+A0h] [rbp-60h] BYREF
 
   v9 = (int)a2;
   v19 = 0LL;
@@ -49,14 +49,14 @@ __int64 __fastcall SpDrawStream(
   v25 = (__int64)a4;
   v20 = a1;
   v18 = a3;
-  if ( hdev && *((struct _SURFOBJ **)hdev + 14) == a2 )
+  if ( hdev && *((struct _SURFOBJ **)hdev + 15) == a2 )
   {
     DbgPrint("SpDrawStream: source is the screen, this should never happen\n");
   }
   else
   {
     ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v26, a1, a3, a5);
-    while ( (unsigned int)ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v26, &v20, &v19, &v18) )
+    while ( (unsigned int)ENUMUNDERLAYS::bEnum(v26, &v20, &v19, &v18) )
     {
       v12 = v20;
       p_pvScan0 = 0LL;

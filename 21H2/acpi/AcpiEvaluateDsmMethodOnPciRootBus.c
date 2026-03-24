@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C008FDE0
+ * XREFs of AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C0098550
  * Callers:
- *     PciGetRootBusCapability @ 0x1C008FD00 (PciGetRootBusCapability.c)
+ *     PciGetRootBusCapability @ 0x1C0098470 (PciGetRootBusCapability.c)
  * Callees:
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ACPIAmliEvaluateDsm @ 0x1C0090340 (ACPIAmliEvaluateDsm.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C0099F08 (ACPIAmliEvaluateDsm.c)
  */
 
 __int64 __fastcall AcpiEvaluateDsmMethodOnPciRootBus(__int64 a1, _BYTE *a2)
@@ -17,37 +17,37 @@ __int64 __fastcall AcpiEvaluateDsmMethodOnPciRootBus(__int64 a1, _BYTE *a2)
   int v9; // eax
   __int64 v10; // rax
   __int64 v11; // rax
-  PVOID P[2]; // [rsp+30h] [rbp-39h] BYREF
-  __int128 v13; // [rsp+40h] [rbp-29h] BYREF
-  __int128 v14; // [rsp+50h] [rbp-19h] BYREF
-  __int128 v15; // [rsp+60h] [rbp-9h]
-  __int128 v16; // [rsp+70h] [rbp+7h]
+  PVOID P[2]; // [rsp+30h] [rbp-49h] BYREF
+  __int128 v13; // [rsp+40h] [rbp-39h] BYREF
+  __int128 v14; // [rsp+50h] [rbp-29h] BYREF
+  __int128 v15; // [rsp+60h] [rbp-19h] BYREF
+  __int128 v16; // [rsp+70h] [rbp-9h]
+  __int128 v17; // [rsp+80h] [rbp+7h]
 
-  DWORD1(v14) = 0;
   P[0] = 0LL;
   if ( (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 184), 0, 0) & 4) != 0 )
   {
     *a2 = *(_BYTE *)(a1 + 224);
     return 0LL;
   }
-  v5 = *(_QWORD *)(a1 + 760);
-  v14 = 0LL;
+  v5 = *(_QWORD *)(a1 + 720);
   v15 = 0LL;
   v16 = 0LL;
+  v17 = 0LL;
   v13 = PCI_ROOT_BUS_DSM_UUID;
-  v6 = ACPIAmliEvaluateDsm(v5, (unsigned int)&v13, 1, 0, (__int64)&v14, (__int64)P);
+  v6 = ACPIAmliEvaluateDsm(v5, (unsigned int)&v13, 1, 0, (__int64)&v15, (__int64)P);
   _InterlockedOr((volatile signed __int32 *)(a1 + 184), 4u);
   v7 = P[0];
   if ( v6 >= 0 )
   {
     if ( *((_WORD *)P[0] + 1) == 3 && *((_DWORD *)P[0] + 6) && (**((_BYTE **)P[0] + 4) & 0x10) != 0 )
     {
-      v8 = *(_QWORD *)(a1 + 760);
-      v14 = 0LL;
+      v8 = *(_QWORD *)(a1 + 720);
       v15 = 0LL;
       v16 = 0LL;
-      v13 = PCI_ROOT_BUS_DSM_UUID;
-      v9 = ACPIAmliEvaluateDsm(v8, (unsigned int)&v13, 1, 4, (__int64)&v14, (__int64)P);
+      v17 = 0LL;
+      v14 = PCI_ROOT_BUS_DSM_UUID;
+      v9 = ACPIAmliEvaluateDsm(v8, (unsigned int)&v14, 1, 4, (__int64)&v15, (__int64)P);
       v7 = P[0];
       v6 = v9;
       if ( v9 < 0 )

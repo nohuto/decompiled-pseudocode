@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C00D2C28
+ * XREFs of ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C000E288
  * Callers:
- *     GreDwmStartup @ 0x1C00D3840 (GreDwmStartup.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
  * Callees:
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00D0F08 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C00D2E28 (-RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
+ *     ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C000E0FC (-RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0011430 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
  */
 
 NTSTATUS __fastcall GrepDwmCreateComposedEvent(wchar_t *a1)
 {
   const WCHAR *v1; // rsi
   unsigned int v3; // edi
-  NTSTATUS v4; // ebx
+  int v4; // ebx
   unsigned __int16 *v5; // rsi
   unsigned __int64 v6; // r14
   unsigned __int16 *v7; // rsi
@@ -65,7 +65,7 @@ LABEL_8:
     ObjectAttributes.Attributes = 576;
     while ( 1 )
     {
-      result = RtlStringCchPrintfW(v7, v6 - 1, (size_t *)L"DwmComposedEvent_%x", v3);
+      result = RtlStringCchPrintfW(v7, v6 - 1, L"DwmComposedEvent_%x", v3);
       if ( result < 0 )
         break;
       RtlInitUnicodeString(&DestinationString, v7);

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpDiagnosticTraceDriverInitPhaseStart @ 0x1403DED94
+ * XREFs of PnpDiagnosticTraceDriverInitPhaseStart @ 0x1403CFABC
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwWriteStartScenario @ 0x14081C9F0 (EtwWriteStartScenario.c)
+ *     EtwWriteStartScenario @ 0x140788490 (EtwWriteStartScenario.c)
  */
 
 __int64 PnpDiagnosticTraceDriverInitPhaseStart()

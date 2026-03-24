@@ -1,5 +1,5 @@
 /*
- * XREFs of vMarkFreeW32Process @ 0x1C00BA460
+ * XREFs of vMarkFreeW32Process @ 0x1C00A6E10
  * Callers:
  *     <none>
  * Callees:

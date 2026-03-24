@@ -1,22 +1,20 @@
 /*
- * XREFs of ZwWaitForSingleObject @ 0x14041B7E0
+ * XREFs of ZwWaitForSingleObject @ 0x1403FA420
  * Callers:
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1402D1E10 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x14053BFB8 (CcDeletePrivateVolumeCacheMap.c)
- *     CcDeletePartition @ 0x14053DAFC (CcDeletePartition.c)
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
- *     DifZwWaitForSingleObjectWrapper @ 0x1406286F0 (DifZwWaitForSingleObjectWrapper.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x1406D958C (PfSnVolumeCheckSeekPenalty.c)
- *     PfSnVolumeCheckIsSdBus @ 0x1406DBCB4 (PfSnVolumeCheckIsSdBus.c)
- *     PiDrvDbLoadNode @ 0x1407D4E34 (PiDrvDbLoadNode.c)
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x14080B4F0 (IopFileUtilWalkDirectoryTreeHelper.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x14082EA28 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     FsRtlpRegisterProviderWithMUP @ 0x1408568A0 (FsRtlpRegisterProviderWithMUP.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
- *     ExpPartitionDestroy @ 0x140A01F78 (ExpPartitionDestroy.c)
- *     CMFFlushHitsFile @ 0x140A047F0 (CMFFlushHitsFile.c)
- *     CMFSystemThreadRoutine @ 0x140A05110 (CMFSystemThreadRoutine.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140364D40 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     CcDeletePartition @ 0x1404EBC80 (CcDeletePartition.c)
+ *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
+ *     PiDrvDbLoadNode @ 0x140629F74 (PiDrvDbLoadNode.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x1406C6E70 (PfSnVolumeCheckSeekPenalty.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077C850 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC1F4 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x1407C7A10 (FsRtlpRegisterProviderWithMUP.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x1408E09DC (PfSnVolumeCheckIsSdBus.c)
+ *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
+ *     ExpPartitionDestroy @ 0x140955E74 (ExpPartitionDestroy.c)
+ *     CMFFlushHitsFile @ 0x140958AB0 (CMFFlushHitsFile.c)
+ *     CMFSystemThreadRoutine @ 0x1409593D0 (CMFSystemThreadRoutine.c)
  * Callees:
  *     <none>
  */

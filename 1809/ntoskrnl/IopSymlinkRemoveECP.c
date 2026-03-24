@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSymlinkRemoveECP @ 0x1400B7B88
+ * XREFs of IopSymlinkRemoveECP @ 0x1400B7BA8
  * Callers:
  *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140639F90 (IopSymlinkPropagateToExtensionIfNeeded.c)
- *     IopSymlinkUpdateECP @ 0x1406ABCD0 (IopSymlinkUpdateECP.c)
- *     IopGraftName @ 0x1406AC28C (IopGraftName.c)
+ *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
+ *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
  * Callees:
  *     FsRtlRemoveExtraCreateParameter @ 0x1406398C0 (FsRtlRemoveExtraCreateParameter.c)
  */

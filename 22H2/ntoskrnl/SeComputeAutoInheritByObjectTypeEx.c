@@ -1,15 +1,15 @@
 /*
- * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x1402B3540
+ * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x1402D66D0
  * Callers:
- *     SeComputeAutoInheritByObjectType @ 0x140355E30 (SeComputeAutoInheritByObjectType.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     ObpAssignSecurity @ 0x1407BCC80 (ObpAssignSecurity.c)
+ *     SeComputeAutoInheritByObjectType @ 0x1403192B0 (SeComputeAutoInheritByObjectType.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     ObpAssignSecurity @ 0x1406DBD9C (ObpAssignSecurity.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     RtlFindAceByType @ 0x1402AD1C0 (RtlFindAceByType.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlFindAceByType @ 0x1402D29C0 (RtlFindAceByType.c)
  */
 
 __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
@@ -17,22 +17,21 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   _DWORD *v5; // rdi
   char v6; // r13
   int v11; // esi
-  int v12; // r14d
+  int v12; // r15d
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v14; // ecx
   _QWORD *v15; // rax
-  __int64 v16; // rcx
-  int v17; // eax
-  int v18; // ebx
-  _BYTE *v20; // rcx
-  __int16 v21; // ax
-  __int64 v22; // rcx
+  int v16; // ebx
+  __int64 v17; // rcx
+  int v18; // eax
+  __int16 v20; // ax
+  __int64 v21; // rcx
   unsigned __int8 *AceByType; // rax
-  __int64 v24; // rax
-  __int16 v25; // ax
-  __int64 v26; // rcx
-  __int64 v27; // rax
-  unsigned __int8 *v28; // rax
+  __int64 v23; // rax
+  __int16 v24; // ax
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  unsigned __int8 *v27; // rax
 
   v5 = a5;
   v6 = 0;
@@ -57,56 +56,56 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
       v15 += 3;
       if ( v14 >= SepMandatoryObjectTypePolicyCount )
       {
-        v18 = 0;
-        goto LABEL_11;
+        v16 = 0;
+        goto LABEL_13;
       }
     }
-    v16 = 3LL * v14;
-    v17 = SepMandatoryObjectTypePolicy[2 * v16 + 2];
-    if ( (v17 & 1) != 0 )
+    v17 = 3LL * v14;
+    v18 = SepMandatoryObjectTypePolicy[2 * v17 + 2];
+    if ( (v18 & 1) != 0 )
     {
-      v11 = SepMandatoryObjectTypePolicy[2 * v16 + 4];
-      v12 = SepMandatoryObjectTypePolicy[2 * v16 + 3];
+      v11 = SepMandatoryObjectTypePolicy[2 * v17 + 4];
+      v12 = SepMandatoryObjectTypePolicy[2 * v17 + 3];
     }
-    if ( (v17 & 2) != 0 )
+    if ( (v18 & 2) != 0 )
     {
-      v18 = SepMandatoryObjectTypePolicy[2 * v16 + 5];
+      v16 = SepMandatoryObjectTypePolicy[2 * v17 + 5];
       v6 = 1;
     }
     else
     {
-      v18 = 0;
+      v16 = 0;
     }
   }
   else
   {
-    v18 = 0;
+    v16 = 0;
   }
-LABEL_11:
+LABEL_13:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepMandatoryObjectTypePolicyLock, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(&SepMandatoryObjectTypePolicyLock);
+    ExfReleasePushLockShared((signed __int64 *)&SepMandatoryObjectTypePolicyLock);
   KeAbPostRelease((ULONG_PTR)&SepMandatoryObjectTypePolicyLock);
   KeLeaveCriticalRegion();
   if ( v12 && a2 )
   {
-    v21 = *(_WORD *)(a2 + 2);
-    if ( (v21 & 0x10) != 0 )
+    v20 = *(_WORD *)(a2 + 2);
+    if ( (v20 & 0x10) != 0 )
     {
-      if ( v21 >= 0 )
+      if ( v20 >= 0 )
       {
-        v22 = *(_QWORD *)(a2 + 24);
+        v21 = *(_QWORD *)(a2 + 24);
       }
       else
       {
-        v24 = *(unsigned int *)(a2 + 12);
-        v22 = (_DWORD)v24 ? v24 + a2 : 0LL;
+        v23 = *(unsigned int *)(a2 + 12);
+        v21 = (_DWORD)v23 ? v23 + a2 : 0LL;
       }
     }
     else
     {
-      v22 = 0LL;
+      v21 = 0LL;
     }
-    AceByType = RtlFindAceByType(v22, 17, 0LL);
+    AceByType = RtlFindAceByType(v21, 17, 0LL);
     if ( AceByType )
     {
       *((_DWORD *)AceByType + 1) |= v12;
@@ -120,51 +119,50 @@ LABEL_11:
       LODWORD(a5) = 0;
       while ( 1 )
       {
-        v25 = *(_WORD *)(a2 + 2);
-        if ( (v25 & 0x10) != 0 )
+        v24 = *(_WORD *)(a2 + 2);
+        if ( (v24 & 0x10) != 0 )
         {
-          if ( v25 >= 0 )
+          if ( v24 >= 0 )
           {
-            v26 = *(_QWORD *)(a2 + 24);
+            v25 = *(_QWORD *)(a2 + 24);
           }
           else
           {
-            v27 = *(unsigned int *)(a2 + 12);
-            v26 = (_DWORD)v27 ? v27 + a2 : 0LL;
+            v26 = *(unsigned int *)(a2 + 12);
+            v25 = (_DWORD)v26 ? v26 + a2 : 0LL;
           }
         }
         else
         {
-          v26 = 0LL;
+          v25 = 0LL;
         }
-        v28 = RtlFindAceByType(v26, 17, (unsigned int *)&a5);
-        if ( v28 )
+        v27 = RtlFindAceByType(v25, 17, (unsigned int *)&a5);
+        if ( v27 )
         {
-          if ( (v28[1] & 8) == 0 )
+          if ( (v27[1] & 8) == 0 )
             break;
         }
         LODWORD(a5) = (_DWORD)a5 + 1;
-        if ( !v28 )
+        if ( !v27 )
           goto LABEL_55;
       }
-      *((_DWORD *)v28 + 1) &= v18;
+      *((_DWORD *)v27 + 1) &= v16;
     }
     else
     {
 LABEL_55:
       if ( v5 )
       {
-        v5[1] = v18;
+        v5[1] = v16;
         v11 |= 0x800u;
       }
     }
   }
   if ( a3 )
   {
-    v20 = (_BYTE *)(a2 + 2);
-    if ( (!a2 || (*v20 & 4) == 0) && _bittest16((const signed __int16 *)(a3 + 2), 0xAu) )
+    if ( (!a2 || (*(_BYTE *)(a2 + 2) & 4) == 0) && (*(_WORD *)(a3 + 2) & 0x400) != 0 )
       v11 |= 1u;
-    if ( (!a2 || (*v20 & 0x10) == 0) && (*(_WORD *)(a3 + 2) & 0x800) != 0 )
+    if ( (!a2 || (*(_BYTE *)(a2 + 2) & 0x10) == 0) && (*(_WORD *)(a3 + 2) & 0x800) != 0 )
       v11 |= 2u;
   }
   *a4 = v11;

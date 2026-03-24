@@ -1,22 +1,22 @@
 /*
- * XREFs of VfInitializeBranchTracing @ 0x140A92E6C
+ * XREFs of VfInitializeBranchTracing @ 0x1409D8394
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x140A81780 (VfNotifyVerifierOfEvent.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     ViIsBTSSupported @ 0x140A930EC (ViIsBTSSupported.c)
- *     ViSetupBTSPerProcNoEnable @ 0x140A93220 (ViSetupBTSPerProcNoEnable.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViIsBTSSupported @ 0x1409D8628 (ViIsBTSSupported.c)
+ *     ViSetupBTSPerProcNoEnable @ 0x1409D875C (ViSetupBTSPerProcNoEnable.c)
  */
 
 __int64 VfInitializeBranchTracing()
 {
   int v1; // eax
   __int64 v2; // rbx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   _QWORD *v4; // rax
-  _QWORD *v5; // rdx
+  __int64 v5; // rax
   PVOID *v6; // rcx
   int v7; // eax
 
@@ -27,42 +27,48 @@ __int64 VfInitializeBranchTracing()
   if ( !(unsigned int)ViIsBTSSupported() )
     return 3221226537LL;
   memset(VfBTSDataManagementArea, 0, sizeof(VfBTSDataManagementArea));
-  if ( ViVerifyBTSBufferSize )
+  if ( (_DWORD)ViVerifyBTSBufferSize )
     v1 = 24 * ViVerifyBTSBufferSize;
   else
     v1 = 240000;
-  ViVerifyBTSBufferSize = v1;
+  LODWORD(ViVerifyBTSBufferSize) = v1;
   v2 = 0LL;
   if ( (_DWORD)KeNumberProcessors_0 )
   {
-    while ( (unsigned int)v2 < 0x800 )
+    while ( (unsigned int)v2 < 0x500 )
     {
-      Pool2 = ExAllocatePool2(64LL, 0x58uLL, 0x6D535442u);
-      VfBTSDataManagementArea[v2] = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x58uLL, 0x6D535442u);
+      VfBTSDataManagementArea[v2] = (__int64)PoolWithTag;
+      if ( !PoolWithTag )
         goto LABEL_15;
-      *(_QWORD *)VfBTSDataManagementArea[v2] = ExAllocatePool2(64LL, (unsigned int)ViVerifyBTSBufferSize, 0x62535442u);
+      *(_QWORD *)VfBTSDataManagementArea[v2] = ExAllocatePoolWithTag(
+                                                 NonPagedPoolNx,
+                                                 (unsigned int)ViVerifyBTSBufferSize,
+                                                 0x62535442u);
       v4 = (_QWORD *)VfBTSDataManagementArea[v2];
       if ( !*v4 )
         goto LABEL_15;
       v4[1] = *v4;
       *(_QWORD *)(VfBTSDataManagementArea[v2] + 24) = 0LL;
-      v5 = (_QWORD *)VfBTSDataManagementArea[v2];
+      *(_QWORD *)(VfBTSDataManagementArea[v2] + 16) = *(_QWORD *)VfBTSDataManagementArea[v2]
+                                                    + (unsigned int)ViVerifyBTSBufferSize
+                                                    + 1LL;
+      v5 = VfBTSDataManagementArea[v2];
       v2 = (unsigned int)(v2 + 1);
-      v5[2] = *v5 + (unsigned int)ViVerifyBTSBufferSize + 1LL;
+      *(_QWORD *)(v5 + 80) = 0LL;
       if ( (unsigned int)v2 >= (unsigned int)KeNumberProcessors_0 )
-        goto LABEL_13;
+        goto LABEL_14;
     }
     return 3221226537LL;
   }
-LABEL_13:
+LABEL_14:
   if ( !(unsigned int)ViSetupBTSPerProcNoEnable() )
   {
-    if ( (unsigned int)v2 < 0x800 )
+LABEL_15:
+    if ( (unsigned int)v2 < 0x500 )
     {
       do
       {
-LABEL_15:
         v6 = (PVOID *)VfBTSDataManagementArea[v2];
         if ( v6 )
         {

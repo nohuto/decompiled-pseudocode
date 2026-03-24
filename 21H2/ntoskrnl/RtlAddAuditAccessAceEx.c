@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAddAuditAccessAceEx @ 0x1409B8090
+ * XREFs of RtlAddAuditAccessAceEx @ 0x140912490
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
  */
 
 __int64 __fastcall RtlAddAuditAccessAceEx(

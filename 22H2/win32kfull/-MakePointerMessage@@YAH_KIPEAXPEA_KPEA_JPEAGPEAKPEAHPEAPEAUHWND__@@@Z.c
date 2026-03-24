@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5B64
+ * XREFs of ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0B60
  * Callers:
- *     PrepareSentPointerMessageForClient @ 0x1C01C4208 (PrepareSentPointerMessageForClient.c)
- *     TranslateSentPointerMessageForClient @ 0x1C01C444C (TranslateSentPointerMessageForClient.c)
+ *     PrepareSentPointerMessageForClient @ 0x1C01EF4A0 (PrepareSentPointerMessageForClient.c)
+ *     TranslateSentPointerMessageForClient @ 0x1C01EF654 (TranslateSentPointerMessageForClient.c)
  * Callees:
- *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5C58 (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
+ *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0C3C (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
  */
 
 __int64 __fastcall MakePointerMessage(
@@ -18,24 +18,16 @@ __int64 __fastcall MakePointerMessage(
         int *a8,
         HWND *a9)
 {
-  __int64 v13; // rax
   const struct tagPOINTER_INFO *PointerMessage; // rax
-  int v16; // [rsp+78h] [rbp+Fh] BYREF
-  int v17; // [rsp+7Ch] [rbp+13h] BYREF
-  int v18; // [rsp+80h] [rbp+17h] BYREF
-  struct tagPOINT v19; // [rsp+88h] [rbp+1Fh] BYREF
+  int v14; // [rsp+78h] [rbp+Fh] BYREF
+  int v15; // [rsp+7Ch] [rbp+13h] BYREF
+  int v16; // [rsp+80h] [rbp+17h] BYREF
+  struct tagPOINT v17; // [rsp+88h] [rbp+1Fh] BYREF
 
-  v19 = 0LL;
-  v18 = 0;
-  v17 = 0;
+  v17 = 0LL;
   v16 = 0;
-  v13 = SGDGetUserSessionState(a1);
-  PointerMessage = CTouchProcessor::PrepareMakePointerMessage(
-                     *(CTouchProcessor **)(v13 + 3424),
-                     a1,
-                     &v19,
-                     &v18,
-                     &v17,
-                     &v16);
-  return MakePointerMessageWorker(PointerMessage, v19, v18, v17, v16, a2, a3, a4, a5, a6, a7, a8, a9);
+  v15 = 0;
+  v14 = 0;
+  PointerMessage = CTouchProcessor::PrepareMakePointerMessage(gpTouchProcessor, a1, &v17, &v16, &v15, &v14);
+  return MakePointerMessageWorker(PointerMessage, v17, v16, v15, v14, a2, a3, a4, a5, a6, a7, a8, a9);
 }

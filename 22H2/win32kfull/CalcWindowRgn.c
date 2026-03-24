@@ -1,9 +1,10 @@
 /*
- * XREFs of CalcWindowRgn @ 0x1C00CCAA4
+ * XREFs of CalcWindowRgn @ 0x1C004DE98
  * Callers:
- *     InternalInvalidate3 @ 0x1C0034D50 (InternalInvalidate3.c)
- *     xxxBeginPaint @ 0x1C00CDA00 (xxxBeginPaint.c)
- *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00CE6B0 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     InternalInvalidate3 @ 0x1C00746C4 (InternalInvalidate3.c)
+ *     xxxBeginPaint @ 0x1C007D854 (xxxBeginPaint.c)
+ *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F4EA0 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
  * Callees:
  *     <none>
  */

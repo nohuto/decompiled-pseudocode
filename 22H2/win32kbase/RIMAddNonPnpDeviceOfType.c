@@ -1,320 +1,169 @@
 /*
- * XREFs of RIMAddNonPnpDeviceOfType @ 0x1C0175C80
+ * XREFs of RIMAddNonPnpDeviceOfType @ 0x1C0154E40
  * Callers:
  *     <none>
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00744D4 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     DeviceTypeToRimInputType @ 0x1C00750D0 (DeviceTypeToRimInputType.c)
- *     RawInputManagerObjectResolveHandle @ 0x1C00751C0 (RawInputManagerObjectResolveHandle.c)
- *     rimOnPnpArrived @ 0x1C0076A78 (rimOnPnpArrived.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     RIMCreateDev @ 0x1C00C874C (RIMCreateDev.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     RIMFreeDev @ 0x1C0170F70 (RIMFreeDev.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     ?bRimDispositionNormal@@YA_NPEAURawInputManagerObject@@@Z @ 0x1C0055178 (-bRimDispositionNormal@@YA_NPEAURawInputManagerObject@@@Z.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C00551A0 (RawInputManagerObjectResolveHandle.c)
+ *     DeviceTypeToRimInputType @ 0x1C0055500 (DeviceTypeToRimInputType.c)
+ *     RIMCreateDev @ 0x1C0055530 (RIMCreateDev.c)
+ *     rimOnPnpArrived @ 0x1C0056904 (rimOnPnpArrived.c)
+ *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C0059230 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C014FBF0 (RIMFreeDev.c)
  */
 
-__int64 __fastcall RIMAddNonPnpDeviceOfType(char *a1, const UNICODE_STRING *a2, unsigned int a3, int a4, _QWORD *a5)
+__int64 __fastcall RIMAddNonPnpDeviceOfType(char *a1, struct _UNICODE_STRING *a2, unsigned int a3, int a4, _QWORD *a5)
 {
-  unsigned int v6; // r12d
-  const UNICODE_STRING *v7; // r14
-  int v9; // edi
-  _DWORD *v10; // rsi
-  int v11; // edx
-  int v12; // ecx
-  WCHAR *Buffer; // rax
-  unsigned __int64 v14; // rdi
-  ULONG64 v15; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v16; // rsi
-  int v17; // edx
-  __int64 Pool2; // rdi
-  _QWORD *v19; // rax
-  unsigned int v20; // edx
-  __int64 v21; // r10
-  char v22; // r14
-  _QWORD *v23; // rdx
-  PDEVICE_OBJECT v24; // rcx
-  _UNKNOWN **v25; // r8
-  __int16 v26; // ax
-  char v27; // dl
-  int v29; // [rsp+50h] [rbp-158h]
-  int v30; // [rsp+54h] [rbp-154h]
-  unsigned int v31; // [rsp+60h] [rbp-148h] BYREF
-  __int64 v32; // [rsp+68h] [rbp-140h] BYREF
-  PVOID Object; // [rsp+70h] [rbp-138h] BYREF
-  __int64 v34; // [rsp+78h] [rbp-130h] BYREF
-  unsigned __int64 v35; // [rsp+80h] [rbp-128h] BYREF
-  const UNICODE_STRING *p_DestinationString; // [rsp+88h] [rbp-120h]
-  struct _UNICODE_STRING DestinationString; // [rsp+90h] [rbp-118h] BYREF
-  unsigned __int64 v38; // [rsp+A0h] [rbp-108h] BYREF
-  _QWORD *v39; // [rsp+A8h] [rbp-100h]
-  UNICODE_STRING SourceString; // [rsp+B0h] [rbp-F8h] BYREF
-  _QWORD v41[4]; // [rsp+C0h] [rbp-E8h] BYREF
-  PVOID BackTrace[20]; // [rsp+E0h] [rbp-C8h] BYREF
+  struct _UNICODE_STRING *v5; // r15
+  int v7; // edx
+  int v8; // ebx
+  CDeviceIdentity **v9; // rsi
+  int v10; // edx
+  int v11; // ecx
+  WCHAR *Buffer; // rdx
+  ULONG64 v13; // r8
+  _BYTE **v14; // rax
+  __int64 v15; // r15
+  _QWORD *v16; // rdx
+  int v17; // r9d
+  int v19; // [rsp+44h] [rbp-64h]
+  PVOID Object; // [rsp+48h] [rbp-60h] BYREF
+  struct _UNICODE_STRING *p_DestinationString; // [rsp+50h] [rbp-58h]
+  __int64 v22; // [rsp+58h] [rbp-50h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-48h] BYREF
+  UNICODE_STRING SourceString; // [rsp+70h] [rbp-38h] BYREF
 
-  v6 = a3;
-  v7 = a2;
+  v5 = a2;
   Object = 0LL;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a2) = 0;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, (_DWORD)a2, 1, 31, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
   }
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  v8 = RawInputManagerObjectResolveHandle(a1, 3u, 1, &Object);
+  if ( v8 >= 0 )
   {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      31,
-      (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
-  }
-  v9 = RawInputManagerObjectResolveHandle(a1, 3u, 1, &Object);
-  v29 = v9;
-  if ( v9 >= 0 )
-  {
-    v10 = Object;
+    v9 = (CDeviceIdentity **)Object;
     RIMLockExclusive((__int64)Object + 104);
-    if ( *((_BYTE *)v10 + 81) || *((_BYTE *)v10 + 82) )
+    if ( bRimDispositionNormal((struct RawInputManagerObject *)v9) )
     {
-      v9 = -1073741637;
-      v24 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-        || (LOBYTE(v11) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-      {
-        LOBYTE(v11) = 0;
-      }
-      v25 = &WPP_RECORDER_INITIALIZED;
-      LOBYTE(v25) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !(_BYTE)v11 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_69;
-      v26 = 33;
-    }
-    else
-    {
-      if ( ((unsigned int)DeviceTypeToRimInputType(v6) & v10[21]) != 0 )
+      if ( ((unsigned int)DeviceTypeToRimInputType(a3) & *((_DWORD *)v9 + 21)) != 0 )
       {
         SourceString = 0LL;
         p_DestinationString = 0LL;
         DestinationString = 0LL;
         if ( !a4 )
         {
-          p_DestinationString = v7;
-LABEL_57:
-          if ( v9 >= 0 )
+          p_DestinationString = v5;
+LABEL_23:
+          if ( v8 >= 0 )
           {
-            v32 = 0LL;
-            v9 = RIMCreateDev(v10, v6, p_DestinationString, 1, 0, 0LL, (struct _UNICODE_STRING **)&v32);
-            if ( v9 >= 0 )
+            v22 = 0LL;
+            v8 = RIMCreateDev(v9, a3, (__int64)p_DestinationString, 1, 0, 0LL, &v22);
+            if ( v8 >= 0 )
             {
-              *(_DWORD *)(v32 + 184) |= 1u;
-              v9 = rimOnPnpArrived((__int64)v10, v32, -1LL);
-              if ( v9 >= 0 )
+              v15 = v22;
+              *(_DWORD *)(v22 + 184) |= 1u;
+              v8 = rimOnPnpArrived(v9, v15, (void *)0xFFFFFFFFFFFFFFFFLL);
+              if ( v8 >= 0 )
               {
                 if ( a4 )
                 {
-                  v23 = a5;
+                  v16 = a5;
                   if ( (unsigned __int64)a5 >= MmUserProbeAddress )
-                    v23 = (_QWORD *)MmUserProbeAddress;
-                  *v23 = *(_QWORD *)(v32 + 16);
+                    v16 = (_QWORD *)MmUserProbeAddress;
+                  *v16 = *(_QWORD *)(v15 + 16);
                 }
                 else
                 {
-                  *a5 = *(_QWORD *)(v32 + 16);
+                  *a5 = *(_QWORD *)(v15 + 16);
                 }
               }
-              if ( v9 < 0 )
-                RIMFreeDev((__int64)v10, v32);
+              if ( v8 < 0 )
+                RIMFreeDev((__int64)v9, v15);
             }
           }
           if ( DestinationString.Buffer )
-            NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)DestinationString.Buffer);
-          goto LABEL_69;
+            Win32FreePool((__int64)DestinationString.Buffer);
+          goto LABEL_40;
         }
-        if ( (unsigned __int64)v7 >= MmUserProbeAddress )
-          v7 = (const UNICODE_STRING *)MmUserProbeAddress;
-        v12 = *(_DWORD *)&v7->Length;
-        v30 = *(_DWORD *)&v7->Length;
-        *(_DWORD *)&SourceString.Length = *(_DWORD *)&v7->Length;
-        Buffer = v7->Buffer;
+        if ( (unsigned __int64)v5 >= MmUserProbeAddress )
+          v5 = (struct _UNICODE_STRING *)MmUserProbeAddress;
+        v11 = *(_DWORD *)&v5->Length;
+        v19 = *(_DWORD *)&v5->Length;
+        *(_DWORD *)&SourceString.Length = *(_DWORD *)&v5->Length;
+        Buffer = v5->Buffer;
         SourceString.Buffer = Buffer;
         if ( ((unsigned __int8)Buffer & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        v14 = (unsigned __int16)v12;
-        v15 = (ULONG64)Buffer + (unsigned __int16)v12 + 2;
-        if ( v15 <= (unsigned __int64)Buffer || v15 >= MmUserProbeAddress )
-          ExRaiseAccessViolation();
-        if ( (unsigned __int16)v12 > HIWORD(v30) )
+        v13 = (ULONG64)Buffer + (unsigned __int16)v11 + 2;
+        v14 = (_BYTE **)MmUserProbeAddress;
+        if ( v13 < MmUserProbeAddress && (unsigned __int16)v11 <= HIWORD(v19) )
         {
-          if ( (v12 & 1) == 0 )
-            goto LABEL_55;
+          if ( (v11 & 1) != 0 )
+            goto LABEL_17;
+          if ( v13 > (unsigned __int64)Buffer )
+          {
+LABEL_19:
+            DestinationString.MaximumLength = SourceString.Length;
+            DestinationString.Length = SourceString.Length;
+            DestinationString.Buffer = (PWSTR)Win32AllocPool(SourceString.Length, 0x706D7452u);
+            if ( DestinationString.Buffer )
+            {
+              RtlCopyUnicodeString(&DestinationString, &SourceString);
+              p_DestinationString = &DestinationString;
+            }
+            else
+            {
+              v8 = -1073741801;
+            }
+            v9 = (CDeviceIdentity **)Object;
+            goto LABEL_23;
+          }
         }
-        else if ( (v12 & 1) == 0 )
+        if ( (v11 & 1) == 0 )
         {
-          DestinationString.MaximumLength = v12;
-          DestinationString.Length = v12;
-          v31 = 1886221394;
-          v34 = 260LL;
-          v16 = gpLeakTrackingAllocator;
-          v41[2] = &v34;
-          v41[3] = &v31;
-          v38 = (unsigned __int16)v12;
-          v17 = *(_DWORD *)gpLeakTrackingAllocator;
-          if ( !*(_DWORD *)gpLeakTrackingAllocator )
-          {
-            Pool2 = ExAllocatePool2(260LL, (unsigned __int16)v12, 1886221394LL);
-            if ( Pool2 )
-              _InterlockedIncrement64((volatile signed __int64 *)v16 + 14);
-            goto LABEL_49;
-          }
-          if ( v17 == 1 )
-          {
-            if ( NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x706D7452u)
-              && v14 + 16 >= v14 )
-            {
-              v19 = (_QWORD *)ExAllocatePool2(v34 & 0xFFFFFFFFFFFFFFFDuLL, v14 + 16, v31);
-              Pool2 = (__int64)v19;
-              if ( v19 )
-                _InterlockedIncrement64((volatile signed __int64 *)v16 + 14);
-              v39 = v19;
-              if ( !v19 || (*v19 = 1886221394LL, Pool2 = (__int64)(v19 + 2), v39 = v19 + 2, v19 == (_QWORD *)-16LL) )
-                NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-                  *((NSInstrumentation::CPointerHashTable **)v16 + 1),
-                  0x706D7452uLL);
-              goto LABEL_49;
-            }
-            goto LABEL_48;
-          }
-          if ( v17 == 2 )
-          {
-            v35 = 0LL;
-            if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 1886221394, &v35) )
-            {
-              v41[0] = &v34;
-              v41[1] = &v31;
-              Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                        (__int64)v16,
-                        (__int64)v41,
-                        &v38);
-LABEL_49:
-              DestinationString.Buffer = (PWSTR)Pool2;
-              if ( Pool2 )
-              {
-                RtlCopyUnicodeString(&DestinationString, &SourceString);
-                p_DestinationString = &DestinationString;
-                v9 = v29;
-              }
-              else
-              {
-                v9 = -1073741801;
-              }
-              v10 = Object;
-              goto LABEL_57;
-            }
-            v22 = 0;
-            if ( v14 < 0x1000 || (v14 & 0xFFF) != 0 )
-            {
-              v22 = 1;
-              v14 += 16LL;
-              v38 = v14;
-            }
-            Pool2 = ExAllocatePool2(v21, v14, v20);
-            if ( Pool2 )
-            {
-              _InterlockedIncrement64((volatile signed __int64 *)v16 + 16);
-              NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-              if ( v22 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-              {
-                if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                       (__int64)v16,
-                       (const void *)Pool2,
-                       v35,
-                       (struct NSInstrumentation::CBackTrace *)BackTrace) )
-                {
-                  Pool2 += 16LL;
-                  goto LABEL_49;
-                }
-              }
-              else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                          (__int64)v16,
-                          Pool2,
-                          v35,
-                          (struct NSInstrumentation::CBackTrace *)BackTrace) )
-              {
-                goto LABEL_49;
-              }
-              _InterlockedIncrement64((volatile signed __int64 *)v16 + 17);
-              _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-            }
-          }
-LABEL_48:
-          Pool2 = 0LL;
-          goto LABEL_49;
+LABEL_18:
+          **v14 = 0;
+          goto LABEL_19;
         }
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 922);
-LABEL_55:
-        ExRaiseAccessViolation();
+LABEL_17:
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 899);
+        v14 = (_BYTE **)MmUserProbeAddress;
+        goto LABEL_18;
       }
-      v9 = -1073741637;
-      v24 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-        || (LOBYTE(v11) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
+      v8 = -1073741637;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v11) = 0;
+        v17 = 32;
+LABEL_39:
+        LOBYTE(v10) = 3;
+        WPP_RECORDER_SF_((_DWORD)gRimLog, v10, 1, v17, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
       }
-      v25 = &WPP_RECORDER_INITIALIZED;
-      LOBYTE(v25) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !(_BYTE)v11 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_69;
-      v26 = 32;
     }
-    WPP_RECORDER_AND_TRACE_SF_(
-      v24->AttachedDevice,
-      v11,
-      (_DWORD)v25,
-      (_DWORD)gRimLog,
-      3,
-      1,
-      v26,
-      (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids);
-LABEL_69:
-    *((_QWORD *)v10 + 14) = 0LL;
-    ExReleasePushLockExclusiveEx(v10 + 26, 0LL);
-    KeLeaveCriticalRegion();
-    ObfDereferenceObject(v10);
+    else
+    {
+      v8 = -1073741637;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v17 = 33;
+        goto LABEL_39;
+      }
+    }
+LABEL_40:
+    CInpPushLock::UnLockExclusive((CInpPushLock *)(v9 + 13));
+    ObfDereferenceObject(v9);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v27 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v27 = 0;
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v7, 1, 34, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, v8);
   }
-  if ( v27 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_d(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
-      v27,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (__int64)gRimLog,
-      4u,
-      1u,
-      0x22u,
-      (__int64)&WPP_f9e9c6706b933e49bdb016a372583459_Traceguids,
-      v9);
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

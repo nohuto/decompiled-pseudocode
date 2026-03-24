@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpFlushCancelQueue @ 0x14074E060
+ * XREFs of AlpcpFlushCancelQueue @ 0x1405E262C
  * Callers:
- *     AlpcpFlushMessagesPort @ 0x14074DD38 (AlpcpFlushMessagesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x1405E2314 (AlpcpFlushMessagesPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
  */
 
-__int64 __fastcall AlpcpFlushCancelQueue(__int64 a1, __int64 a2)
+char __fastcall AlpcpFlushCancelQueue(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rdi
   _QWORD **v5; // rsi

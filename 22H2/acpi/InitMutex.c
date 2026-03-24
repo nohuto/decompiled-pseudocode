@@ -1,17 +1,17 @@
 /*
- * XREFs of InitMutex @ 0x1C0050A1C
+ * XREFs of InitMutex @ 0x1C0010410
  * Callers:
- *     Mutex @ 0x1C0050C70 (Mutex.c)
- *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
+ *     Mutex @ 0x1C0010280 (Mutex.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall InitMutex(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
+__int64 __fastcall InitMutex(__int64 a1, struct _SLIST_ENTRY *a2, __int64 a3, int a4, char a5)
 {
   unsigned int v7; // edi
   char *v9; // rax
@@ -35,9 +35,9 @@ __int64 __fastcall InitMutex(__int64 a1, __int64 a2, __int64 a3, int a4, char a5
   }
   else
   {
-    LogError(-1073741670);
-    AcpiDiagTraceAmlError(a1, -1073741670);
-    PrintDebugMessage(76, 0LL, 0LL, 0LL, 0LL);
+    LogError(3221225626LL);
+    AcpiDiagTraceAmlError(a1, 3221225626LL);
+    PrintDebugMessage(76, 0, 0, 0, 0LL);
     return (unsigned int)-1073741670;
   }
   return v7;

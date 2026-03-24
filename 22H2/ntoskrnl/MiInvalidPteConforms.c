@@ -1,27 +1,25 @@
 /*
- * XREFs of MiInvalidPteConforms @ 0x1402DC440
+ * XREFs of MiInvalidPteConforms @ 0x14023AEB0
  * Callers:
- *     MiLockLeafPage @ 0x140218430 (MiLockLeafPage.c)
- *     MiDeleteSubsectionPages @ 0x140218F10 (MiDeleteSubsectionPages.c)
- *     MiTryLockLeafPage @ 0x140219AE4 (MiTryLockLeafPage.c)
- *     MiReservePageFileSpaceForPage @ 0x140284D50 (MiReservePageFileSpaceForPage.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiLockTransitionLeafPageEx @ 0x1403477B8 (MiLockTransitionLeafPageEx.c)
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
- *     MiTransferPartitionPageRun @ 0x14065B674 (MiTransferPartitionPageRun.c)
+ *     MiDeleteSubsectionPages @ 0x140238AE0 (MiDeleteSubsectionPages.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x14023ABE0 (MiCheckProtoPtePageState.c)
+ *     MiReservePageFileSpaceForPage @ 0x14023CFD0 (MiReservePageFileSpaceForPage.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
+ *     MiTryLockLeafPage @ 0x140283FF8 (MiTryLockLeafPage.c)
+ *     MiUpdatePfnPriorityByPte @ 0x1402AC5A0 (MiUpdatePfnPriorityByPte.c)
+ *     MiSoftFaultMappedView @ 0x1402E3540 (MiSoftFaultMappedView.c)
+ *     MiLockLeafPage @ 0x140332CE0 (MiLockLeafPage.c)
+ *     MiGetWorkingSetInfoList @ 0x1403378AC (MiGetWorkingSetInfoList.c)
+ *     MiLockTransitionLeafPage @ 0x140363DD4 (MiLockTransitionLeafPage.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BA00 (MiMakeOutswappedPageResident.c)
+ *     MiTransferPartitionPageRun @ 0x140562D50 (MiTransferPartitionPageRun.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall MiInvalidPteConforms(__int64 a1)
 {
-  if ( (a1 & 1) != 0 )
-    return 0LL;
-  if ( a1 && qword_140C65C40 )
-    return (qword_140C65C40 & a1) != 0;
-  return 1LL;
+  return (a1 & 1) == 0 && (!a1 || !qword_140C4DF40 || (qword_140C4DF40 & a1) != 0);
 }

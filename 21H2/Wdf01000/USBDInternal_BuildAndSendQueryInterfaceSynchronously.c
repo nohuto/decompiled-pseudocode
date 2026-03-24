@@ -1,7 +1,7 @@
 /*
- * XREFs of USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C008FCC8
+ * XREFs of USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C008EFB8
  * Callers:
- *     USBD_CreateHandle @ 0x1C00903A8 (USBD_CreateHandle.c)
+ *     USBD_CreateHandle @ 0x1C008F69C (USBD_CreateHandle.c)
  * Callees:
  *     <none>
  */
@@ -50,7 +50,7 @@ __int64 __fastcall USBDInternal_BuildAndSendQueryInterfaceSynchronously(
   }
   else
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "Failed to allocate Query Interface Irp for Target Device Ojbect 0x%p\n", TargetDeviceObject);
     return (unsigned int)-1073741670;
   }

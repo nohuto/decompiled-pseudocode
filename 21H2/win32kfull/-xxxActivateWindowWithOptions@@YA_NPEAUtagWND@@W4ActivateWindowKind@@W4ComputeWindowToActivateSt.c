@@ -1,340 +1,230 @@
 /*
- * XREFs of ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C007CC00
+ * XREFs of ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C0039B68
  * Callers:
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C00699A0 (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00CA7B4 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C00F1A94 (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
- *     ?xxxActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C00FE2A4 (-xxxActivateWindow@@YA_NPEAUtagWND@@@Z.c)
- *     ?xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C010F65C (-xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C014501C (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01EC438 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
- *     xxxHandleNCMouseGuys @ 0x1C021D324 (xxxHandleNCMouseGuys.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003FD4 (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z @ 0x1C0049254 (-xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C00C0B18 (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
+ *     ?xxxActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C0111C80 (-xxxActivateWindow@@YA_NPEAUtagWND@@@Z.c)
+ *     ?xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0124FE4 (-xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01F19F8 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ *     xxxHandleNCMouseGuys @ 0x1C0223D04 (xxxHandleNCMouseGuys.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C0048EF8 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0077CC4 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C007BAF4 (WPP_RECORDER_AND_TRACE_SF_s.c)
- *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C007BCDC (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C007DC84 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     _anonymous_namespace_::ComputeWindowToActivate @ 0x1C00CD884 (_anonymous_namespace_--ComputeWindowToActivate.c)
- *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C00FFB08 (_anonymous_namespace_--FAllowForegroundActivate.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0238D30 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     _anonymous_namespace_::ComputeWindowToActivate @ 0x1C00279F0 (_anonymous_namespace_--ComputeWindowToActivate.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039F08 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C003B09C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     WPP_RECORDER_SF_s @ 0x1C003B844 (WPP_RECORDER_SF_s.c)
+ *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C003DAA8 (_anonymous_namespace_--FAllowForegroundActivate.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C006B740 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0122908 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-char __fastcall xxxActivateWindowWithOptions(const struct tagWND *a1, __int64 a2, __int64 a3, int a4)
+char __fastcall xxxActivateWindowWithOptions(__int64 a1, int a2, int a3, int a4)
 {
-  const struct tagWND *v4; // rbp
-  bool v5; // r12
-  int v7; // r14d
-  char v8; // si
+  const struct tagWND *v4; // rsi
+  bool v6; // r9
+  int v7; // r12d
+  char v8; // r13
   int v9; // ebx
-  struct tagWND *v10; // r15
+  const struct tagWND *v10; // r14
   __int64 v11; // rcx
-  void *v12; // r9
-  PDEVICE_OBJECT Timer_high; // rcx
-  char v14; // bp
-  int v16; // ebx
-  PDEVICE_OBJECT v17; // rcx
-  unsigned int v18; // r14d
-  int v19; // r9d
-  const char *v20; // rax
-  __int16 v21; // ax
-  int v22; // edx
-  PDEVICE_OBJECT v23; // rcx
-  __int16 v24; // ax
-  char v25; // [rsp+50h] [rbp-68h]
-  char v26; // [rsp+51h] [rbp-67h]
-  bool v27; // [rsp+52h] [rbp-66h]
-  __int128 v28; // [rsp+58h] [rbp-60h] BYREF
-  __int128 v29; // [rsp+68h] [rbp-50h] BYREF
-  __int64 v30; // [rsp+78h] [rbp-40h]
-  bool v31; // [rsp+C0h] [rbp+8h]
+  __int64 v12; // rcx
+  char v13; // bl
+  int v15; // ebx
+  unsigned int v16; // r12d
+  int v17; // edx
+  const char *v18; // rax
+  int v19; // eax
+  int v20; // r9d
+  int v21; // r9d
+  bool v22; // [rsp+30h] [rbp-30h]
+  bool v23; // [rsp+31h] [rbp-2Fh]
+  bool v24; // [rsp+32h] [rbp-2Eh]
+  char v25; // [rsp+33h] [rbp-2Dh]
+  __int128 v26; // [rsp+38h] [rbp-28h] BYREF
+  __int128 v27; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v28; // [rsp+58h] [rbp-8h]
+  struct tagWND *v29; // [rsp+A0h] [rbp+40h]
 
-  v4 = a1;
-  v5 = 0;
-  v29 = 0LL;
-  v27 = 0;
-  v30 = 0LL;
+  v29 = (struct tagWND *)a1;
+  v4 = (const struct tagWND *)a1;
   v25 = 0;
-  v31 = 0;
+  v22 = 0;
+  v27 = 0LL;
+  v24 = 0;
+  v28 = 0LL;
+  v6 = 0;
+  v23 = 0;
   v7 = 2;
-  v26 = 0;
-  LOBYTE(a1) = *(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0xC0;
+  LOBYTE(a1) = *(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0xC0;
   if ( (_BYTE)a1 == 64 )
     return 0;
   v8 = 1;
-  if ( (_DWORD)a2 )
+  if ( a2 )
   {
-    v28 = 0LL;
-    if ( !(unsigned __int8)anonymous_namespace_::ComputeWindowToActivate(v4, a2, a3, &v28) )
+    v26 = 0LL;
+    if ( !anonymous_namespace_::ComputeWindowToActivate(v4, a2, a3, &v26) )
+      goto LABEL_46;
+    v10 = (const struct tagWND *)v26;
+    if ( !(_QWORD)v26 || (v9 = DWORD2(v26)) == 0 )
     {
-LABEL_71:
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-      {
-        v8 = 0;
-      }
-      if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v22 = 74;
-        LOBYTE(v22) = v8;
-        LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v22,
-          a3,
-          a4,
-          4,
-          2,
-          74,
-          (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids);
-      }
-      return 0;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3780LL);
+      v9 = DWORD2(v26);
+      v10 = (const struct tagWND *)v26;
     }
-    v10 = (struct tagWND *)v28;
-    if ( !(_QWORD)v28 || (v9 = DWORD2(v28)) == 0 )
-    {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
-      v9 = DWORD2(v28);
-      v10 = (struct tagWND *)v28;
-    }
-    v5 = v4 != v10;
-    v27 = v4 != v10;
+    v6 = v4 != v10;
+    v23 = v4 != v10;
   }
   else
   {
-    if ( (_DWORD)a3 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
+    if ( a3 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3768LL);
+      v6 = 0;
+    }
     v9 = 1;
     v10 = v4;
-    v26 = a4 == 1;
+    v24 = a4 == 1;
   }
   if ( !v10 )
-    goto LABEL_71;
-  if ( !v9 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
-  if ( v5 )
   {
-    *(_QWORD *)&v29 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v29;
-    *((_QWORD *)&v29 + 1) = v10;
+LABEL_46:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_(a1, a2, 2, 45, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+    }
+    return 0;
+  }
+  if ( !v9 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3799LL);
+    v6 = v23;
+  }
+  if ( v6 )
+  {
+    *(_QWORD *)&v27 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v27;
+    *((_QWORD *)&v27 + 1) = v10;
     HMLockObject(v10);
   }
   v11 = *((_QWORD *)v10 + 2);
-  v12 = &WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids;
   if ( *(_QWORD *)(v11 + 432) == *(_QWORD *)(gptiCurrent + 432LL) )
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        (unsigned int)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids,
-        4,
-        2,
-        75,
-        (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids);
-    v14 = anonymous_namespace_::FAllowForegroundActivate(v10, a2, a3, v12);
-    if ( v14 )
-    {
-      v31 = *(_DWORD *)(gptiCurrent + 900LL) == 0;
-      LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (Timer_high = (PDEVICE_OBJECT)HIDWORD(WPP_GLOBAL_Control->Timer),
-                    ((unsigned __int8)Timer_high & 2) != 0)
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          a2,
-          a3,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          2,
-          76,
-          (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids,
-          *(_DWORD *)(gptiCurrent + 900LL) == 0);
-      LOBYTE(v12) = 0;
-    }
+    v8 = anonymous_namespace_::FAllowForegroundActivate(v10);
+    if ( v8 )
+      v22 = *(_DWORD *)(gptiCurrent + 900LL) == 0;
     else
+      v25 = anonymous_namespace_::xxxLocalActivateWindow(v10);
+  }
+  else
+  {
+    if ( v11 == gptiCurrent )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3840LL);
+    if ( v9 != 5 )
     {
-      LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( v9 == 6 )
       {
-        LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          a2,
-          a3,
-          77,
-          4,
-          2,
-          77,
-          (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids);
+        v7 = 31;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_37;
+        v21 = 46;
       }
-      LOBYTE(v12) = anonymous_namespace_::xxxLocalActivateWindow(v10);
+      else
+      {
+        if ( v9 != 7 )
+        {
+          v12 = gpqForeground;
+          if ( gpqForeground != *(_QWORD *)(gptiCurrent + 432LL) && gpqForeground )
+          {
+            v13 = 0;
+            goto LABEL_16;
+          }
+          if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20) != 0 || *(_DWORD *)(gptiCurrent + 900LL) || (v22 = 0, v24) )
+            v22 = 1;
+          v15 = v9 - 3;
+          if ( v15 )
+          {
+            if ( v15 == 1 )
+              v7 = 3;
+          }
+          else
+          {
+            v7 = 3;
+            if ( (unsigned int)CoreWindowProp::IsComponent(v29) && !CoreWindowProp::GetHost(v29) )
+              v7 = 11;
+          }
+          goto LABEL_35;
+        }
+        v7 = 31;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_37;
+        v21 = 48;
+      }
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_(v9 - 6, a2, 2, v21, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+LABEL_35:
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(a2) = 4;
+        WPP_RECORDER_SF_(v12, a2, 2, 49, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+      }
+LABEL_37:
+      v16 = v7 | 4;
+      if ( *(_QWORD *)(*((_QWORD *)v10 + 2) + 432LL) == gpqForeground
+        && gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3980LL);
+      }
+      v13 = xxxSetForegroundWindowWithOptions(v10, v16, 0LL);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v18 = "Success";
+        if ( !v13 )
+          v18 = "Failure";
+        WPP_RECORDER_SF_s(
+          (unsigned int)"Failure",
+          v17,
+          2,
+          50,
+          (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids,
+          (__int64)v18);
+      }
+      v19 = *(_DWORD *)(gptiCurrent + 488LL);
+      if ( v22 )
+      {
+        *(_DWORD *)(gptiCurrent + 488LL) = v19 | 0x20;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_16;
+        v20 = 51;
+      }
+      else
+      {
+        *(_DWORD *)(gptiCurrent + 488LL) = v19 & 0xFFFFFFDF;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_16;
+        v20 = 52;
+      }
+      LOBYTE(v17) = 4;
+      WPP_RECORDER_SF_q(v12, v17, 2, v20, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids, gptiCurrent);
+      goto LABEL_16;
     }
-    LOBYTE(a2) = v31;
-    v25 = (char)v12;
-    if ( !v14 )
-      goto LABEL_27;
-    goto LABEL_48;
-  }
-  if ( v11 == gptiCurrent )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v11);
-    v12 = &WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids;
-  }
-  if ( v9 == 5 )
-  {
     v7 = 31;
-    v23 = WPP_GLOBAL_Control;
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !(_BYTE)a2 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_48;
-    v24 = 78;
-LABEL_109:
-    WPP_RECORDER_AND_TRACE_SF_(
-      v23->AttachedDevice,
-      a2,
-      a3,
-      (unsigned int)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids,
-      4,
-      2,
-      v24,
-      (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids);
-    goto LABEL_48;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_37;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_(v9 - 5, a2, 2, 47, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
   }
-  if ( v9 == 6 )
-  {
-    v7 = 31;
-    v23 = WPP_GLOBAL_Control;
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !(_BYTE)a2 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_48;
-    v24 = 79;
-    goto LABEL_109;
-  }
-  Timer_high = (PDEVICE_OBJECT)gpqForeground;
-  if ( gpqForeground != *(_QWORD *)(gptiCurrent + 432LL) && gpqForeground )
-    goto LABEL_27;
-  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20) != 0 || *(_DWORD *)(gptiCurrent + 900LL) || (v31 = 0, v26) )
-    v31 = 1;
-  v16 = v9 - 3;
-  if ( v16 )
-  {
-    if ( v16 == 1 )
-      v7 = 3;
-  }
-  else
-  {
-    v7 = 3;
-    if ( (unsigned int)CoreWindowProp::IsComponent(v4) && !CoreWindowProp::GetHost(v4) )
-      v7 = 11;
-  }
-LABEL_48:
-  v17 = WPP_GLOBAL_Control;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)v12,
-      4,
-      2,
-      80,
-      (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids);
-  }
-  v18 = v7 | 4;
-  if ( *(_QWORD *)(*((_QWORD *)v10 + 2) + 432LL) == gpqForeground && gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v17);
-  LOBYTE(v19) = xxxSetForegroundWindowWithOptions(v10, v18, 0LL, v26);
-  v25 = v19;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v20 = "Success";
-    if ( !(_BYTE)v19 )
-      v20 = "Failure";
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_s(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      2,
-      81,
-      (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids,
-      (__int64)v20);
-  }
-  if ( v31 )
-  {
-    *(_DWORD *)(gptiCurrent + 488LL) |= 0x20u;
-    Timer_high = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-    {
-      v8 = 0;
-    }
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_27;
-    v21 = 82;
-  }
-  else
-  {
-    *(_DWORD *)(gptiCurrent + 488LL) &= ~0x20u;
-    Timer_high = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-    {
-      v8 = 0;
-    }
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_27;
-    v21 = 83;
-  }
-  LOBYTE(a2) = v8;
-  WPP_RECORDER_AND_TRACE_SF_q(
-    Timer_high->AttachedDevice,
-    a2,
-    a3,
-    v19,
-    4,
-    2,
-    v21,
-    (__int64)&WPP_76ccfc4204be37e1ff60c5115401253e_Traceguids,
-    gptiCurrent);
-LABEL_27:
-  if ( v27 )
-    ThreadUnlock1(Timer_high, a2, a3);
-  return v25;
+  if ( v8 )
+    goto LABEL_35;
+  v13 = v25;
+LABEL_16:
+  if ( v23 )
+    ThreadUnlock1(v12);
+  return v13;
 }

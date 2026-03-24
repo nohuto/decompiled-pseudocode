@@ -1,62 +1,48 @@
 /*
- * XREFs of MiExpandVadBitMap @ 0x1406B2EB0
+ * XREFs of MiExpandVadBitMap @ 0x1406FBEB0
  * Callers:
- *     MiInitializeVadCellBitMap @ 0x1406B2D54 (MiInitializeVadCellBitMap.c)
- *     MiFindEmptyAddressRange @ 0x14071FF10 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRange @ 0x1405FAB40 (MiFindEmptyAddressRange.c)
+ *     MiInitializeVadBitMap @ 0x1406FBDC4 (MiInitializeVadBitMap.c)
  * Callees:
- *     MiLocateLowestConflictingVad @ 0x140223354 (MiLocateLowestConflictingVad.c)
- *     MiMakeHyperRangeAccessible @ 0x140277590 (MiMakeHyperRangeAccessible.c)
- *     MiUpdateVadBits @ 0x1406B2E28 (MiUpdateVadBits.c)
- *     MiExpandVadBitMapDown @ 0x140A3C3F0 (MiExpandVadBitMapDown.c)
+ *     MiMakeHyperRangeAccessible @ 0x14021B4A0 (MiMakeHyperRangeAccessible.c)
+ *     MiUpdateVadBits @ 0x1406FC000 (MiUpdateVadBits.c)
+ *     MiExpandVadBitMapDown @ 0x1408D0E74 (MiExpandVadBitMapDown.c)
  */
 
-__int64 __fastcall MiExpandVadBitMap(unsigned __int64 *a1, unsigned __int64 a2)
+__int64 __fastcall MiExpandVadBitMap(unsigned __int64 *a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v3; // rdi
-  unsigned __int64 v4; // r12
-  _KPROCESS *Process; // rcx
-  unsigned __int64 v6; // r15
-  unsigned __int64 v7; // r13
-  unsigned __int64 v8; // rbp
-  unsigned __int64 v9; // r14
-  unsigned __int64 v10; // rsi
-  __int64 **LowestConflictingVad; // rax
+  unsigned __int64 v6; // r14
+  unsigned __int64 v7; // r12
+  unsigned __int64 v8; // r8
+  __int64 v9; // r15
+  __int64 v10; // rbp
+  unsigned __int64 v11; // rsi
   unsigned __int64 v12; // rdx
   unsigned __int64 v13; // r8
-  unsigned __int64 v14; // rbp
+  unsigned __int64 v14; // r15
   unsigned __int64 v15; // rcx
   __int64 v17; // [rsp+50h] [rbp+8h] BYREF
 
   v17 = 0LL;
-  v3 = a2;
-  v4 = a1[1];
-  Process = KeGetCurrentThread()->ApcState.Process;
   v6 = *a1;
-  v7 = Process[1].ActiveProcessors.StaticBitmap[28];
-  v8 = *a1 + ((-524288 * qword_140C67168 + (v4 << 19)) >> 16);
-  v9 = a1[5] - v8 + 1;
-  if ( a2 > v9 )
-    return MiExpandVadBitMapDown(a1, a2);
-  v10 = (v6 + 8 * (v4 - qword_140C67168)) << 16;
-  LowestConflictingVad = MiLocateLowestConflictingVad((__int64)Process, v10, v10);
-  if ( LowestConflictingVad )
-  {
-    v3 += (((unsigned __int64)*((unsigned int *)LowestConflictingVad + 7) >> 4) | ((unsigned __int64)*((unsigned __int8 *)LowestConflictingVad + 33) << 28))
-        - (v10 >> 16);
-    if ( v3 > v9 )
-      v3 = v9;
-  }
-  if ( (int)MiMakeHyperRangeAccessible(v4 + (v6 >> 3), v4 + ((v3 + v6 - 1) >> 3), &v17) < 0 )
+  v7 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8];
+  v8 = a1[1];
+  v9 = *a1 + 8 * (v8 - qword_140C4E360);
+  if ( a2 > a1[5] - v9 + 1 )
+    return MiExpandVadBitMapDown(a1);
+  v10 = (v6 + 8 * (v8 - qword_140C4E360)) << 16;
+  v11 = v8 + (v6 >> 3);
+  if ( (int)MiMakeHyperRangeAccessible(v11, v8 + ((v6 + a2 - 1) >> 3), &v17, a4) < 0 )
     return 0LL;
   *(_QWORD *)(v7 + 272) += v17;
-  v12 = ((8 * ((v3 >> 6) + ((v3 & 0x3F) != 0))) >> 12) + (((8 * ((v3 >> 6) + ((v3 & 0x3F) != 0))) & 0xFFF) != 0);
+  v12 = ((8 * ((a2 >> 6) + ((a2 & 0x3F) != 0))) >> 12) + (((8 * ((a2 >> 6) + ((a2 & 0x3F) != 0))) & 0xFFF) != 0);
   v13 = (v12 << 15) + *a1;
-  v14 = (v12 << 15) + v8;
+  v14 = (v12 << 15) + v9;
   *a1 = v13;
   v15 = a1[5];
   if ( v14 > v15 + 1 )
     *a1 = v15 - v14 + v13 + 1;
-  if ( v4 + (v6 >> 3) == qword_140C67168 )
+  if ( v11 == qword_140C4E360 )
   {
     *(_QWORD *)a1[1] |= 1uLL;
     if ( v6 )

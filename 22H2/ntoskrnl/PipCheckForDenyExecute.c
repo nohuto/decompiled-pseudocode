@@ -1,15 +1,15 @@
 /*
- * XREFs of PipCheckForDenyExecute @ 0x140867174
+ * XREFs of PipCheckForDenyExecute @ 0x140744FB0
  * Callers:
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PnpConcatPWSTR @ 0x1407FB058 (PnpConcatPWSTR.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     PnpConcatPWSTR @ 0x14068CC14 (PnpConcatPWSTR.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
@@ -36,17 +36,18 @@ bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
     if ( v3 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
+      *(&ObjectAttributes.Length + 1) = 0;
       memset(&ObjectAttributes.Attributes + 1, 0, 20);
       ObjectAttributes.RootDirectory = 0LL;
-      *(_QWORD *)&ObjectAttributes.Length = 48LL;
       ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
       if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
       {
         if ( IopGetRegistryValue(KeyHandle, L"Deny_Execute", 0, &P) >= 0 )
         {
           if ( !P )
-            goto LABEL_4;
+            goto LABEL_11;
           if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) == 4 )
             v2 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) != 0;
         }
@@ -55,7 +56,7 @@ bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
       }
     }
   }
-LABEL_4:
+LABEL_11:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v1 )

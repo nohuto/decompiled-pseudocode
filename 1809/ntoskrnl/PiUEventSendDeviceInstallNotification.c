@@ -1,10 +1,10 @@
 /*
- * XREFs of PiUEventSendDeviceInstallNotification @ 0x1407606F8
+ * XREFs of PiUEventSendDeviceInstallNotification @ 0x1407606D8
  * Callers:
  *     PiUEventNotifyUserMode @ 0x14058EF60 (PiUEventNotifyUserMode.c)
  * Callees:
- *     McTemplateK0z @ 0x140191C44 (McTemplateK0z.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     McTemplateK0z @ 0x140191C64 (McTemplateK0z.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 signed int __fastcall PiUEventSendDeviceInstallNotification(const wchar_t *a1)

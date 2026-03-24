@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCheckForSafeExecution @ 0x140977FF8
+ * XREFs of MmCheckForSafeExecution @ 0x1408D0F40
  * Callers:
- *     KiEmulateAtlThunk @ 0x14057D2A8 (KiEmulateAtlThunk.c)
+ *     KiEmulateAtlThunk @ 0x1405269D0 (KiEmulateAtlThunk.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLocateAddress @ 0x1403126F0 (MiLocateAddress.c)
- *     MmValidateUserCallTarget @ 0x14096ECCC (MmValidateUserCallTarget.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MmValidateUserCallTarget @ 0x1408D7E78 (MmValidateUserCallTarget.c)
  */
 
 bool __fastcall MmCheckForSafeExecution(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -33,7 +33,7 @@ bool __fastcall MmCheckForSafeExecution(unsigned __int64 a1, unsigned __int64 a2
     v9 = 0;
   }
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, Process);
-  if ( v9 )
-    return (unsigned int)MmValidateUserCallTarget(a3, 1) != 0;
+  if ( v9 == 1 )
+    return (unsigned int)MmValidateUserCallTarget(a3, 1LL) != 0;
   return v9;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1CHolographicExclusivePresentData@@EEAA@XZ @ 0x1802AF270
+ * XREFs of ??1CHolographicExclusivePresentData@@EEAA@XZ @ 0x18025CE04
  * Callers:
- *     ??_GCHolographicExclusivePresentData@@EEAAPEAXI@Z @ 0x1802AF2EC (--_GCHolographicExclusivePresentData@@EEAAPEAXI@Z.c)
+ *     ??_GCHolographicExclusivePresentData@@EEAAPEAXI@Z @ 0x18025CE88 (--_GCHolographicExclusivePresentData@@EEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ void __fastcall CHolographicExclusivePresentData::~CHolographicExclusivePresentD
   char *v4; // rcx
 
   *(_QWORD *)this = &CHolographicExclusivePresentData::`vftable'{for `IHolographicExclusivePresentData'};
-  *((_QWORD *)this + 1) = &CHolographicExclusivePresentData::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *((_QWORD *)this + 1) = &CHolographicExclusivePresentData::`vftable'{for `CMILCOMBase'};
   v2 = (char *)*((_QWORD *)this + 6);
   if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     CloseHandle(v2);
@@ -24,4 +24,5 @@ void __fastcall CHolographicExclusivePresentData::~CHolographicExclusivePresentD
   v4 = (char *)*((_QWORD *)this + 4);
   if ( (unsigned __int64)(v4 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     CloseHandle(v4);
+  *((_QWORD *)this + 1) = &CMILCOMBase::`vftable';
 }

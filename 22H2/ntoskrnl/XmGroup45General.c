@@ -1,30 +1,30 @@
 /*
- * XREFs of XmGroup45General @ 0x14039C7B0
+ * XREFs of XmGroup45General @ 0x1403C3500
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetOffsetAddress @ 0x1403A497C (XmGetOffsetAddress.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
+ *     XmGetOffsetAddress @ 0x1403C8BDC (XmGetOffsetAddress.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
 __int64 __fastcall XmGroup45General(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // rdx
+  unsigned __int16 *v3; // rdx
   int v4; // eax
   int v5; // ebx
   int v6; // edx
-  __int64 OffsetAddress; // rax
+  unsigned __int16 *OffsetAddress; // rax
   int v8; // [rsp+38h] [rbp+10h] BYREF
 
   v8 = 0;
   XmSetDataType(a1);
   result = XmEvaluateAddressSpecifier(a1, &v8);
-  v3 = result;
+  v3 = (unsigned __int16 *)result;
   if ( result )
   {
     v4 = v8;
@@ -48,7 +48,7 @@ __int64 __fastcall XmGroup45General(__int64 a1)
         v5 = *(_DWORD *)(a1 + 120);
         v6 = *(_DWORD *)(a1 + 128) + 1;
         *(_DWORD *)(a1 + 120) = 1;
-        OffsetAddress = XmGetOffsetAddress(a1, (unsigned int)(v5 + v6));
+        OffsetAddress = (unsigned __int16 *)XmGetOffsetAddress(a1, (unsigned int)(v5 + v6));
         XmSetSourceValue(a1, OffsetAddress);
         *(_WORD *)(a1 + 82) = *(_WORD *)(a1 + 108);
         *(_DWORD *)(a1 + 120) = v5;

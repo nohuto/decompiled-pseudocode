@@ -1,31 +1,30 @@
 /*
- * XREFs of ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00439FC
+ * XREFs of ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00609A0
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0080340 (ACPIBusIrpQueryId.c)
- *     ACPIFilterIrpQueryIdCompletion @ 0x1C0085F50 (ACPIFilterIrpQueryIdCompletion.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AF8D0 (ACPIFilterIrpQueryIdCompletion.c)
  * Callees:
- *     ACPIComputeDeviceIdMutiStringLength @ 0x1C0043938 (ACPIComputeDeviceIdMutiStringLength.c)
+ *     ACPIComputeDeviceIdMutiStringLength @ 0x1C0060914 (ACPIComputeDeviceIdMutiStringLength.c)
  */
 
 __int64 __fastcall ACPIEmQueryFailDeviceResetOnOpenHandles(int a1, _WORD *a2)
 {
   __int64 v2; // r10
-  __int64 v4; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD v5[2]; // [rsp+30h] [rbp-28h] BYREF
-  int v6; // [rsp+40h] [rbp-18h]
-  int v7; // [rsp+44h] [rbp-14h]
-  __int64 *v8; // [rsp+68h] [rbp+10h] BYREF
+  _QWORD *v4; // [rsp+20h] [rbp-38h] BYREF
+  int v5; // [rsp+28h] [rbp-30h]
+  int v6; // [rsp+2Ch] [rbp-2Ch]
+  _QWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
+  int v8; // [rsp+40h] [rbp-18h]
+  int v9; // [rsp+44h] [rbp-14h]
+  _QWORD *v10; // [rsp+68h] [rbp+10h] BYREF
 
-  v7 = 0;
-  v6 = a1;
-  v5[0] = a2;
-  v5[1] = 2 * ACPIComputeDeviceIdMutiStringLength(a2);
-  v8 = &v4;
-  return ((__int64 (__fastcall *)(GUID *, __int64 **, __int64, __int64, _QWORD *, __int64))EmClientRuleEvaluate)(
-           &GUID_EM_RULE_ACPI_DEVICE_FAIL_RESET_ON_OPEN_HANDLES,
-           &v8,
-           1LL,
-           v2,
-           v5,
-           24LL);
+  v6 = 0;
+  v9 = 0;
+  v8 = a1;
+  v7[0] = a2;
+  v5 = 24;
+  v7[1] = 2 * ACPIComputeDeviceIdMutiStringLength(a2);
+  v4 = v7;
+  v10 = &v4;
+  return EmClientRuleEvaluate(&GUID_EM_RULE_ACPI_DEVICE_FAIL_RESET_ON_OPEN_HANDLES, &v10, 1LL, v2);
 }

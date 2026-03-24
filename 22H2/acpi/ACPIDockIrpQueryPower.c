@@ -1,89 +1,81 @@
 /*
- * XREFs of ACPIDockIrpQueryPower @ 0x1C0009440
+ * XREFs of ACPIDockIrpQueryPower @ 0x1C004A630
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIDispatchPowerIrpSuccess @ 0x1C0002B60 (ACPIDispatchPowerIrpSuccess.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
- *     AMLIIsNamedChildPresent @ 0x1C00487DC (AMLIIsNamedChildPresent.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     ACPIDispatchPowerIrpSuccess @ 0x1C0052EA0 (ACPIDispatchPowerIrpSuccess.c)
  */
 
 __int64 __fastcall ACPIDockIrpQueryPower(ULONG_PTR a1, IRP *a2)
 {
   _QWORD *DeviceExtension; // rax
-  __int64 v5; // rdx
+  _IO_STACK_LOCATION *CurrentStackLocation; // r8
   __int64 v6; // rdx
-  void *v7; // rcx
-  void *v8; // r8
-  _UNKNOWN **v9; // rdx
-  _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  __int64 v12; // r8
-  __int64 v13; // rdx
+  __int64 v7; // rcx
+  const char *v8; // rdx
+  _IO_STACK_LOCATION *v10; // rax
+  int v11; // edx
 
   DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
-  a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
-  v5 = DeviceExtension[23];
-  if ( !v5 )
+  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
+  CurrentStackLocation->Control |= 1u;
+  v6 = DeviceExtension[23];
+  if ( !v6 )
   {
-    v6 = DeviceExtension[1];
-    v7 = &unk_1C00622D0;
-    v8 = &unk_1C00622D0;
-    if ( (v6 & 0x200000000000LL) != 0 )
+    v7 = DeviceExtension[1];
+    v8 = (const char *)&unk_1C00701BA;
+    CurrentStackLocation = (_IO_STACK_LOCATION *)&unk_1C00701BA;
+    if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v7 = (void *)DeviceExtension[76];
-      if ( (v6 & 0x400000000000LL) != 0 )
-        v8 = (void *)DeviceExtension[77];
+      v8 = (const char *)DeviceExtension[71];
+      if ( (v7 & 0x400000000000LL) != 0 )
+        CurrentStackLocation = (_IO_STACK_LOCATION *)DeviceExtension[72];
     }
-    v9 = &WPP_RECORDER_INITIALIZED;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v9) = 2;
       WPP_RECORDER_SF_qqss(
-        WPP_GLOBAL_Control->DeviceExtension,
-        (_DWORD)v9,
-        18,
-        25,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x12u,
+        0x19u,
         (__int64)&WPP_6625d3923c543510b1fa3235c3eeddfe_Traceguids,
         (char)a2,
         (char)DeviceExtension,
-        (__int64)v7,
-        (__int64)v8);
-    }
+        v8,
+        (const char *)CurrentStackLocation);
     goto LABEL_7;
   }
-  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
-  if ( !CurrentStackLocation->Parameters.Create.Options && CurrentStackLocation->Parameters.Create.EaLength == 7 )
+  v10 = a2->Tail.Overlay.CurrentStackLocation;
+  if ( !v10->Parameters.Create.Options && v10->Parameters.Create.EaLength == 7 )
   {
-    v12 = *(_QWORD *)(v5 + 760);
-    if ( ((CurrentStackLocation->Parameters.Read.Length >> 8) & 0xF) != 1 )
+    CurrentStackLocation = *(_IO_STACK_LOCATION **)(v6 + 720);
+    switch ( (v10->Parameters.Read.Length >> 8) & 0xF )
     {
-      switch ( (CurrentStackLocation->Parameters.Read.Length >> 8) & 0xF )
-      {
-        case 2u:
-          v13 = 826951007LL;
-          break;
-        case 3u:
-          v13 = 843728223LL;
-          break;
-        case 4u:
-          v13 = 860505439LL;
-          break;
-        case 5u:
-          v13 = 877282655LL;
-          break;
-        default:
-          goto LABEL_7;
-      }
-      if ( !(unsigned __int8)AMLIIsNamedChildPresent(v12, v13) )
-      {
-        a2->IoStatus.Status = -1073741823;
-        IofCompleteRequest(a2, 0);
-        return 259LL;
-      }
+      case 2u:
+        v11 = 826951007;
+        break;
+      case 3u:
+        v11 = 843728223;
+        break;
+      case 4u:
+        v11 = 860505439;
+        break;
+      case 5u:
+        v11 = 877282655;
+        break;
+      default:
+        goto LABEL_7;
+    }
+    if ( !AMLIIsNamedChildPresent((__int64 *)CurrentStackLocation, v11) )
+    {
+      a2->IoStatus.Status = -1073741823;
+      IofCompleteRequest(a2, 0);
+      return 259LL;
     }
   }
 LABEL_7:
-  ACPIDispatchPowerIrpSuccess(a1, a2);
+  ACPIDispatchPowerIrpSuccess(a1, a2, CurrentStackLocation);
   return 259LL;
 }

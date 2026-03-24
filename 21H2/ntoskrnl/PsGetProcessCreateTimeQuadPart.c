@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessCreateTimeQuadPart @ 0x140239F30
+ * XREFs of PsGetProcessCreateTimeQuadPart @ 0x1402B65E0
  * Callers:
  *     <none>
  * Callees:

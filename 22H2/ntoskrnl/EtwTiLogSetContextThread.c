@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTiLogSetContextThread @ 0x1407A338C
+ * XREFs of EtwTiLogSetContextThread @ 0x14067B0D8
  * Callers:
- *     PspSetContextThreadInternal @ 0x140770B00 (PspSetContextThreadInternal.c)
- *     PspWow64SetContextThread @ 0x1407A0968 (PspWow64SetContextThread.c)
+ *     PspWow64SetContextThread @ 0x14067A140 (PspWow64SetContextThread.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiVadQueryEventWrite @ 0x140363A84 (EtwpTiVadQueryEventWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpTiParseContextRecord @ 0x1409EB6A8 (EtwpTiParseContextRecord.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025EE64 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F0E4 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiVadQueryEventWrite @ 0x14031EF08 (EtwpTiVadQueryEventWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpTiParseContextRecord @ 0x14093C4D4 (EtwpTiParseContextRecord.c)
  */
 
 char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -95,7 +95,7 @@ char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
         else
         {
           LOWORD(v31) = 0;
-          v34[v21].Ptr = (ULONGLONG)qword_140046EB0;
+          v34[v21].Ptr = (ULONGLONG)&qword_14003BA20;
           v25 = 0;
           *(_QWORD *)&v34[v21].Size = 2LL;
           v28 = 12LL;
@@ -103,7 +103,7 @@ char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
           {
             v29 = v20++;
             v29 *= 2LL;
-            *(&v34[0].Ptr + v29) = (ULONGLONG)qword_140046EB0;
+            *(&v34[0].Ptr + v29) = (ULONGLONG)&qword_14003BA20;
             *((_QWORD *)&v34[0].Size + v29) = 8LL;
             --v28;
           }

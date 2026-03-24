@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CreateDwmHandle@CDCompMappedSharedSectionMarshaler@DirectComposition@@MEAAPEAXXZ @ 0x1C0086C80
+ * XREFs of ?CreateDwmHandle@CDCompMappedSharedSectionMarshaler@DirectComposition@@MEAAPEAXXZ @ 0x1C004C870
  * Callers:
- *     ?EmitUpdateCommands@CSharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0086C00 (-EmitUpdateCommands@CSharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?PrivateEmitUpdateCommand@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022322C (-PrivateEmitUpdateCommand@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@.c)
+ *     ?EmitUpdateCommands@CSharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C004C960 (-EmitUpdateCommands@CSharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?PrivateEmitUpdateCommand@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7E4C (-PrivateEmitUpdateCommand@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@.c)
  * Callees:
- *     ReferenceDwmProcess @ 0x1C0086E90 (ReferenceDwmProcess.c)
- *     GreLockDwmState @ 0x1C0087030 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C00870B0 (GreUnlockDwmState.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     GreLockDwmState @ 0x1C0048DD0 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0048E10 (GreUnlockDwmState.c)
+ *     ReferenceDwmProcess @ 0x1C004AA00 (ReferenceDwmProcess.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void *__fastcall DirectComposition::CDCompMappedSharedSectionMarshaler::CreateDwmHandle(PVOID *this)

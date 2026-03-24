@@ -1,15 +1,16 @@
 /*
- * XREFs of ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004BEC8
+ * XREFs of ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120
  * Callers:
- *     ACPIBusIrpQueryDeviceRelations @ 0x1C008E540 (ACPIBusIrpQueryDeviceRelations.c)
- *     ACPIFilterIrpQueryDeviceRelations @ 0x1C008E6C0 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIBusIrpQueryDeviceRelations @ 0x1C008F4A0 (ACPIBusIrpQueryDeviceRelations.c)
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1C0090110 (ACPIFilterIrpQueryDeviceRelations.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000E14C (WPP_RECORDER_SF_qqss.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     WPP_RECORDER_SF_dqqss @ 0x1C004CFDC (WPP_RECORDER_SF_dqqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     WPP_RECORDER_SF_dqqss @ 0x1C004E090 (WPP_RECORDER_SF_dqqss.c)
  */
 
 __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID *a2)
@@ -22,41 +23,46 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID 
   const char *v8; // rcx
   KIRQL v10; // al
   __int64 v11; // rcx
-  void *v12; // rsi
-  __int64 v13; // rdx
-  _QWORD **v14; // rbp
+  __int64 v12; // rcx
+  void *v13; // rsi
+  _QWORD **v14; // r12
   int v15; // eax
   _QWORD *v16; // rcx
-  __int64 Pool2; // rax
-  _DWORD *v18; // r15
-  unsigned int *v19; // r14
-  __int64 v20; // rax
-  const char *v21; // rdx
-  const char *v22; // rcx
-  _QWORD *i; // r14
-  void *v24; // r8
-  void *v25; // rcx
-  void *v26; // r12
-  __int64 v27; // rax
-  __int64 v28; // rcx
-  void *v29; // rax
-  int v30; // [rsp+20h] [rbp-68h]
+  SIZE_T v17; // rbp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v19; // r14
+  unsigned int *v20; // r15
+  __int64 v21; // rax
+  const char *v22; // rdx
+  const char *v23; // rcx
+  _QWORD *i; // r15
+  void *v25; // r8
+  void *v26; // rdx
+  void *v27; // rbp
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  void *v30; // rax
+  int v31; // [rsp+20h] [rbp-68h]
   KIRQL NewIrql; // [rsp+A0h] [rbp+18h]
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v4 = 0;
   v5 = (_QWORD *)DeviceExtension;
-  if ( *(_QWORD *)(DeviceExtension + 760) )
+  if ( *(_QWORD *)(DeviceExtension + 720) )
   {
     v10 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-    v11 = v5[119];
-    v12 = &unk_1C006FB8B;
+    v11 = v5[114];
     NewIrql = v10;
-    if ( v11 && (v13 = *(_QWORD *)(v11 + 72)) != 0 )
+    if ( v11 )
+      v12 = *(_QWORD *)(v11 + 72);
+    else
+      v12 = 0LL;
+    v13 = &unk_1C00701BA;
+    if ( v12 )
     {
-      v14 = (_QWORD **)(v13 + 48);
+      v14 = (_QWORD **)(v12 + 48);
       v15 = 0;
-      v16 = *(_QWORD **)(v13 + 48);
+      v16 = *(_QWORD **)(v12 + 48);
       while ( v16 != v14 )
       {
         v16 = (_QWORD *)*v16;
@@ -64,24 +70,29 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID 
       }
       if ( *a2 )
         v15 += *(_DWORD *)*a2;
-      Pool2 = ExAllocatePool2(64LL, 8LL * (unsigned int)(v15 - 1) + 16, 1148216129LL);
-      v18 = (_DWORD *)Pool2;
-      if ( Pool2 )
+      v17 = 8LL * (unsigned int)(v15 - 1) + 16;
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v17, 0x44706341u);
+      v19 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v19 = (unsigned int *)*a2;
-        if ( v19 )
+        v20 = (unsigned int *)*a2;
+        if ( v20 )
         {
-          memmove((void *)(Pool2 + 8), v19 + 2, 8LL * *v19);
-          *v18 = *v19;
+          memmove(PoolWithTag + 2, v20 + 2, 8LL * *v20);
+          *v19 = *v20;
         }
-        v20 = v5[1];
-        v21 = (const char *)&unk_1C006FB8B;
-        v22 = (const char *)&unk_1C006FB8B;
-        if ( (v20 & 0x200000000000LL) != 0 )
+        else
         {
-          v21 = (const char *)v5[76];
-          if ( (v20 & 0x400000000000LL) != 0 )
-            v22 = (const char *)v5[77];
+          memset(PoolWithTag, 0, v17);
+        }
+        v21 = v5[1];
+        v22 = (const char *)&unk_1C00701BA;
+        v23 = (const char *)&unk_1C00701BA;
+        if ( (v21 & 0x200000000000LL) != 0 )
+        {
+          v22 = (const char *)v5[71];
+          if ( (v21 & 0x400000000000LL) != 0 )
+            v23 = (const char *)v5[72];
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_qss(
@@ -89,40 +100,40 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID 
             4u,
             0xCu,
             0x13u,
-            (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+            (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
             (char)v5,
-            v21,
-            v22);
+            v22,
+            v23);
         for ( i = *v14; i != v14; i = (_QWORD *)*i )
         {
-          v24 = &unk_1C006FB8B;
-          v25 = &unk_1C006FB8B;
-          v26 = *(void **)(*(i - 1) + 784LL);
-          v27 = v5[1];
-          if ( (v27 & 0x200000000000LL) != 0 )
+          v25 = &unk_1C00701BA;
+          v26 = &unk_1C00701BA;
+          v27 = *(void **)(*(i - 1) + 744LL);
+          v28 = v5[1];
+          if ( (v28 & 0x200000000000LL) != 0 )
           {
-            v24 = (void *)v5[76];
-            if ( (v27 & 0x400000000000LL) != 0 )
-              v25 = (void *)v5[77];
+            v25 = (void *)v5[71];
+            if ( (v28 & 0x400000000000LL) != 0 )
+              v26 = (void *)v5[72];
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             WPP_RECORDER_SF_dqqss(
               WPP_GLOBAL_Control->DeviceExtension,
-              (_DWORD)v21,
-              (_DWORD)v24,
+              (_DWORD)v26,
+              (_DWORD)v25,
               0,
-              v30,
-              *v18,
-              (char)v26,
+              v31,
+              *v19,
+              (char)v27,
               (char)v5,
-              (__int64)v24,
-              (__int64)v25);
-          if ( v26 && ObReferenceObjectByPointer(v26, 0, 0LL, 0) >= 0 )
-            *(_QWORD *)&v18[2 * (*v18)++ + 2] = v26;
+              (__int64)v25,
+              (__int64)v26);
+          if ( v27 && ObReferenceObjectByPointer(v27, 0, 0LL, 0) >= 0 )
+            *(_QWORD *)&v19[2 * (*v19)++ + 2] = v27;
         }
         if ( *a2 )
           ExFreePoolWithTag(*a2, 0);
-        *a2 = v18;
+        *a2 = v19;
       }
       else
       {
@@ -136,13 +147,13 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID 
     KeReleaseSpinLock(&AcpiPowerLock, NewIrql);
     if ( (int)(v4 + 0x80000000) >= 0 && v4 != -1073741637 )
     {
-      v28 = v5[1];
-      v29 = &unk_1C006FB8B;
-      if ( (v28 & 0x200000000000LL) != 0 )
+      v29 = v5[1];
+      v30 = &unk_1C00701BA;
+      if ( (v29 & 0x200000000000LL) != 0 )
       {
-        v12 = (void *)v5[76];
-        if ( (v28 & 0x400000000000LL) != 0 )
-          v29 = (void *)v5[77];
+        v13 = (void *)v5[71];
+        if ( (v29 & 0x400000000000LL) != 0 )
+          v30 = (void *)v5[72];
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_Lqss(
@@ -150,24 +161,24 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID 
           2u,
           0xCu,
           0x15u,
-          (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+          (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
           v4,
           (char)v5,
-          (__int64)v12,
-          (__int64)v29);
+          (__int64)v13,
+          (__int64)v30);
     }
     return v4;
   }
   else
   {
     v6 = *(_QWORD *)(DeviceExtension + 8);
-    v7 = (const char *)&unk_1C006FB8B;
-    v8 = (const char *)&unk_1C006FB8B;
+    v7 = (const char *)&unk_1C00701BA;
+    v8 = (const char *)&unk_1C00701BA;
     if ( (v6 & 0x200000000000LL) != 0 )
     {
-      v7 = (const char *)v5[76];
+      v7 = (const char *)v5[71];
       if ( (v6 & 0x400000000000LL) != 0 )
-        v8 = (const char *)v5[77];
+        v8 = (const char *)v5[72];
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qqss(
@@ -175,7 +186,7 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryRemovalRelations(ULONG_PTR a1, PVOID 
         2u,
         0xCu,
         0x12u,
-        (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+        (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
         0,
         (char)v5,
         v7,

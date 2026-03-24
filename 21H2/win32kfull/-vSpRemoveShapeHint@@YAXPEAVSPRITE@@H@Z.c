@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z @ 0x1C00B6F90
+ * XREFs of ?vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z @ 0x1C00F0E64
  * Callers:
- *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00B604C (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
+ *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00EE6F4 (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
  * Callees:
  *     <none>
  */

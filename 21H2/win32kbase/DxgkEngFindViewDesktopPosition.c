@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkEngFindViewDesktopPosition @ 0x1C006F400
+ * XREFs of DxgkEngFindViewDesktopPosition @ 0x1C0010B70
  * Callers:
  *     <none>
  * Callees:
- *     hdevEnumerate @ 0x1C006FCD0 (hdevEnumerate.c)
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0072044 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0072080 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0010CB4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0010CF0 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     hdevEnumerate @ 0x1C0010E40 (hdevEnumerate.c)
  */
 
 __int64 __fastcall DxgkEngFindViewDesktopPosition(_DWORD *a1, int a2, _QWORD *a3)
@@ -32,10 +32,10 @@ __int64 __fastcall DxgkEngFindViewDesktopPosition(_DWORD *a1, int a2, _QWORD *a3
       if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v13) )
       {
         v11 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v13);
-        if ( v11->LowPart == *a1 && v11->HighPart == a1[1] && *(_DWORD *)(*(_QWORD *)(v9 + 2552) + 256LL) == a2 )
+        if ( v11->LowPart == *a1 && v11->HighPart == a1[1] && *(_DWORD *)(*(_QWORD *)(v9 + 2576) + 256LL) == a2 )
         {
           v3 = 1;
-          *a3 = *(_QWORD *)(v9 + 2560);
+          *a3 = *(_QWORD *)(v9 + 2584);
         }
       }
     }

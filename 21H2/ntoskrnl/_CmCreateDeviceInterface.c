@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateDeviceInterface @ 0x14076A680
+ * XREFs of _CmCreateDeviceInterface @ 0x14074B82C
  * Callers:
- *     IopRegisterDeviceInterface @ 0x140769C24 (IopRegisterDeviceInterface.c)
- *     _PnpDispatchDeviceInterface @ 0x140785470 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x14063C280 (_PnpDispatchDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x14076A7E8 (_CmCreateDeviceInterfaceWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14074B99C (_CmCreateDeviceInterfaceWorker.c)
  */
 
 __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
@@ -18,13 +18,15 @@ __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDL
   int DeviceInterfaceWorker; // eax
   int v13; // ebx
   int v14; // eax
-  HANDLE v16[12]; // [rsp+40h] [rbp-59h] BYREF
+  int v15; // ecx
+  int v16; // eax
+  HANDLE v18[12]; // [rsp+40h] [rbp-59h] BYREF
 
-  memset(v16, 0, 0x58uLL);
+  memset(v18, 0, 0x58uLL);
   v10 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 504);
-  if ( a3 || (LODWORD(v16[2]) = 1, a4) )
-    LODWORD(v16[2]) = a3;
-  HIDWORD(v16[4]) = a6;
+  if ( a3 || (LODWORD(v18[2]) = 1, a4) )
+    LODWORD(v18[2]) = a3;
+  HIDWORD(v18[4]) = a6;
   if ( v10 )
   {
     v11 = v10(a1, a2, 3LL);
@@ -35,50 +37,50 @@ __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDL
     else
     {
       if ( v11 == -1073741536 )
-        goto LABEL_19;
+        goto LABEL_20;
       if ( v11 )
-        goto LABEL_23;
+      {
+        v13 = -1073741595;
+        goto LABEL_25;
+      }
     }
   }
   DeviceInterfaceWorker = CmCreateDeviceInterfaceWorker(
                             a1,
                             a2,
-                            v16[2],
-                            (unsigned int)&v16[3],
-                            (__int64)&v16[4],
-                            SWORD2(v16[4]));
+                            v18[2],
+                            (unsigned int)&v18[3],
+                            (__int64)&v18[4],
+                            SWORD2(v18[4]));
   v13 = DeviceInterfaceWorker;
-  if ( v10 )
+  if ( !v10 )
+    goto LABEL_13;
+  LODWORD(v18[0]) = DeviceInterfaceWorker;
+  v14 = v10(a1, a2, 3LL);
+  v15 = v14;
+  if ( v14 == -1073741822 )
+    goto LABEL_13;
+  if ( v14 == -1073741536 )
   {
-    LODWORD(v16[0]) = DeviceInterfaceWorker;
-    v14 = v10(a1, a2, 3LL);
-    if ( v14 != -1073741822 )
-    {
-      if ( v14 != -1073741536 )
-      {
-        if ( !v14 )
-          goto LABEL_11;
-LABEL_23:
-        v13 = -1073741595;
-        goto LABEL_24;
-      }
-LABEL_19:
-      v13 = (int)v16[0];
-    }
+LABEL_20:
+    v13 = (int)v18[0];
+    goto LABEL_13;
   }
-LABEL_11:
+  v16 = v13;
+  if ( v15 )
+    v16 = -1073741595;
+  v13 = v16;
+LABEL_13:
   if ( v13 >= 0 && a4 )
   {
-    *a4 = v16[3];
-LABEL_14:
-    if ( a5 )
-      *a5 = v16[4];
-    return (unsigned int)v13;
+    *a4 = v18[3];
+    goto LABEL_16;
   }
-LABEL_24:
-  if ( v16[3] )
-    ZwClose(v16[3]);
-  if ( v13 >= 0 )
-    goto LABEL_14;
+LABEL_25:
+  if ( v18[3] )
+    ZwClose(v18[3]);
+LABEL_16:
+  if ( v13 >= 0 && a5 )
+    *a5 = v18[4];
   return (unsigned int)v13;
 }

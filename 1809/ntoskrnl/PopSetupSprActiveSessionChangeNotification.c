@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupSprActiveSessionChangeNotification @ 0x140763D30
+ * XREFs of PopSetupSprActiveSessionChangeNotification @ 0x140763D10
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupSprActiveSessionChangeNotification()

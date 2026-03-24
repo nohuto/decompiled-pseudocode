@@ -1,61 +1,39 @@
 /*
- * XREFs of ObWaitForSingleObject @ 0x1406E37F0
+ * XREFs of ObWaitForSingleObject @ 0x14063DFD0
  * Callers:
- *     NtWaitForSingleObject @ 0x1406E3770 (NtWaitForSingleObject.c)
+ *     NtWaitForSingleObject @ 0x14063DF50 (NtWaitForSingleObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpGetWaitObject @ 0x1402C5D80 (ObpGetWaitObject.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall ObWaitForSingleObject(
-        ULONG_PTR a1,
-        __int64 a2,
+        void *a1,
+        KPROCESSOR_MODE a2,
         KPROCESSOR_MODE a3,
         BOOLEAN a4,
         PLARGE_INTEGER Timeout)
 {
-  NTSTATUS v7; // edi
-  PVOID v8; // rbx
-  struct _OBJECT_TYPE *v9; // r8
-  __int64 DefaultObject; // r10
-  PVOID Object[2]; // [rsp+48h] [rbp-10h] BYREF
+  NTSTATUS v7; // ebx
+  char *v8; // rdi
+  void *WaitObject; // r10
+  PVOID Object; // [rsp+48h] [rbp-10h] BYREF
 
-  Object[0] = 0LL;
-  v7 = ObpReferenceObjectByHandleWithTag(a1, 0x7457624Fu, (__int64)Object, 0LL, 0LL);
+  Object = 0LL;
+  v7 = ObReferenceObjectByHandleWithTag(a1, 0x100000u, 0LL, a2, 0x7457624Fu, &Object, 0LL);
   if ( v7 < 0 )
     return (unsigned int)v7;
-  v8 = Object[0];
-  v9 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)Object[0] - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(LOWORD(Object[0]) - 48) >> 8)];
-  DefaultObject = (__int64)v9->DefaultObject;
-  if ( (DefaultObject & 1) == 0 )
+  v8 = (char *)Object;
+  WaitObject = (void *)ObpGetWaitObject((__int64)Object - 48);
+  if ( !ExCrossVmMutantObjectType
+    || (POBJECT_TYPE)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*(v8 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v8 - 48) >> 8)] != ExCrossVmMutantObjectType )
   {
-    if ( DefaultObject < 0 )
-      goto LABEL_5;
-    goto LABEL_4;
-  }
-  if ( (DefaultObject & 2) != 0 )
-  {
-    if ( (v9->TypeInfo.WaitObjectFlagMask & *(_DWORD *)((_BYTE *)Object[0] + v9->TypeInfo.WaitObjectFlagOffset)) != v9->TypeInfo.WaitObjectFlagMask )
-    {
-      DefaultObject -= 3LL;
-LABEL_4:
-      DefaultObject += (__int64)Object[0];
-      goto LABEL_5;
-    }
-    DefaultObject = *(_QWORD *)((char *)Object[0] + v9->TypeInfo.WaitObjectPointerOffset);
-  }
-  else
-  {
-    DefaultObject = *(_QWORD *)((char *)Object[0] + DefaultObject - 1);
-  }
-LABEL_5:
-  if ( ExCrossVmMutantObjectType != v9 )
-  {
-    v7 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, a3, a4, Timeout);
+    v7 = KeWaitForSingleObject(WaitObject, UserRequest, a3, a4, Timeout);
     ObfDereferenceObjectWithTag(v8, 0x7457624Fu);
     return (unsigned int)v7;
   }
-  ObfDereferenceObjectWithTag(Object[0], 0x7457624Fu);
+  ObfDereferenceObjectWithTag(v8, 0x7457624Fu);
   return 3221225508LL;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of IrqLibFreeMessageTarget @ 0x1C00B5D90
+ * XREFs of IrqLibFreeMessageTarget @ 0x1C00B6730
  * Callers:
  *     <none>
  * Callees:
- *     IrqLibReleaseArbiterLock @ 0x1C002385C (IrqLibReleaseArbiterLock.c)
- *     IrqLibAcquireArbiterLock @ 0x1C0023884 (IrqLibAcquireArbiterLock.c)
- *     ProcessorDeleteDeviceIdtAssignment @ 0x1C006C894 (ProcessorDeleteDeviceIdtAssignment.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009A1D0 (ProcessorGetDeviceIdtAssignment.c)
- *     ProcessorIdtEntryToGsiv @ 0x1C00A0E6C (ProcessorIdtEntryToGsiv.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C000F364 (IrqLibReleaseArbiterLock.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     ProcessorIdtEntryToGsiv @ 0x1C00A237C (ProcessorIdtEntryToGsiv.c)
  */
 
-KIRQL __fastcall IrqLibFreeMessageTarget(PVOID Owner, int a2, __int64 a3)
+LONG __fastcall IrqLibFreeMessageTarget(PVOID Owner, int a2, __int64 a3)
 {
-  KIRQL result; // al
+  LONG result; // eax
   __int64 v7; // r8
   unsigned int v8; // ebx
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
@@ -22,7 +22,7 @@ KIRQL __fastcall IrqLibFreeMessageTarget(PVOID Owner, int a2, __int64 a3)
   LODWORD(End) = 0;
   v10 = 0LL;
   result = KeGetCurrentIrql();
-  if ( !result )
+  if ( !(_BYTE)result )
   {
     IrqLibAcquireArbiterLock(1);
     if ( (int)ProcessorIdtEntryToGsiv(a2, a3, v7, &End) >= 0 )

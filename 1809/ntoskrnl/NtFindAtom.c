@@ -4,11 +4,11 @@
  *     <none>
  * Callees:
  *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
  *     RtlLookupAtomInAtomTable @ 0x1405F5280 (RtlLookupAtomInAtomTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtFindAtom(PWSTR AtomName, ULONG AtomNameLength, PRTL_ATOM Atom)

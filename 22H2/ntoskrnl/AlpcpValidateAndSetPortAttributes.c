@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpValidateAndSetPortAttributes @ 0x140716534
+ * XREFs of AlpcpValidateAndSetPortAttributes @ 0x1405E0B04
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1407169EC (AlpcpAcceptConnectPort.c)
- *     AlpcpCreateClientPort @ 0x1407177B4 (AlpcpCreateClientPort.c)
- *     AlpcpCreateConnectionPort @ 0x1407CC8A8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateConnectionPort @ 0x14068D758 (AlpcpCreateConnectionPort.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeValidateSecurityQos @ 0x140716774 (SeValidateSecurityQos.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeValidateSecurityQos @ 0x140652D70 (SeValidateSecurityQos.c)
  */
 
 __int64 __fastcall AlpcpValidateAndSetPortAttributes(
@@ -22,53 +22,54 @@ __int64 __fastcall AlpcpValidateAndSetPortAttributes(
   __int64 v11; // rdx
   unsigned __int64 v12; // rax
   __int64 result; // rax
-  unsigned __int64 v14; // rax
+  int v14; // eax
   int v15; // eax
-  int v16; // eax
-  unsigned __int64 v17; // rcx
-  _QWORD v18[10]; // [rsp+30h] [rbp-31h] BYREF
+  unsigned __int64 v16; // rcx
+  _QWORD v17[10]; // [rsp+30h] [rbp-31h] BYREF
 
-  memset(v18, 0, 0x48uLL);
+  memset(v17, 0, 0x48uLL);
   if ( a2 )
   {
-    v12 = a2[2];
-    if ( v12 < 0x28 || v12 > 0xFFFF || (*(_DWORD *)a2 & 0x100000) != 0 && KeGetCurrentThread()->PreviousMode )
+    if ( (unsigned __int64)(a2[2] - 40LL) > 0xFFD7
+      || (*(_DWORD *)a2 & 0x100000) != 0 && KeGetCurrentThread()->PreviousMode )
+    {
       return 3221225485LL;
+    }
     v11 = *(_DWORD *)a2 & 0x3FF0000;
     *((_DWORD *)a2 + 16) &= 0xFFDu;
     *(_DWORD *)a2 = v11;
   }
   else
   {
-    v18[4] = 0x4000LL;
-    a2 = v18;
-    v18[5] = 0x4000LL;
-    HIDWORD(v18[1]) = 257;
-    v15 = v18[0];
+    v17[4] = 0x4000LL;
+    a2 = v17;
+    v17[5] = 0x4000LL;
+    HIDWORD(v17[1]) = 257;
+    v14 = v17[0];
     if ( a7 )
-      v15 = 4096;
-    LODWORD(v18[0]) = v15;
-    v18[2] = 512LL;
-    v18[7] = 0x20000LL;
-    v18[6] = 0LL;
-    v18[3] = 0LL;
-    *(_QWORD *)((char *)v18 + 4) = 12LL;
-    LODWORD(v18[8]) = 0;
+      v14 = 4096;
+    LODWORD(v17[0]) = v14;
+    v17[2] = 512LL;
+    v17[7] = 0x20000LL;
+    v17[6] = 0LL;
+    v17[3] = 0LL;
+    *(_QWORD *)((char *)v17 + 4) = 12LL;
+    LODWORD(v17[8]) = 0;
   }
   if ( ((*(_DWORD *)(a1 + 416) >> 1) & 3) == 1 )
   {
-    v16 = *(_DWORD *)a2 | 0x20000;
-    *(_DWORD *)a2 = v16;
+    v15 = *(_DWORD *)a2 | 0x20000;
+    *(_DWORD *)a2 = v15;
     if ( !a7 )
-      goto LABEL_9;
-    v17 = a5;
+      goto LABEL_13;
+    v16 = a5;
     if ( a5 <= LpcLegacyMaxMessageLength )
     {
       if ( a6 )
-        *(_DWORD *)a2 = v16 | 0x40000;
-LABEL_29:
-      a2[2] = v17;
-      goto LABEL_9;
+        *(_DWORD *)a2 = v15 | 0x40000;
+LABEL_28:
+      a2[2] = v16;
+      goto LABEL_13;
     }
     return 3221225485LL;
   }
@@ -76,13 +77,13 @@ LABEL_29:
   {
     *(_DWORD *)a2 &= ~0x20000u;
     if ( !a7 )
-      goto LABEL_9;
-    v17 = *(_QWORD *)(a3 + 272);
-    if ( v17 <= (unsigned int)LpcLegacyMaxMessageLength )
-      goto LABEL_29;
+      goto LABEL_13;
+    v16 = *(_QWORD *)(a3 + 272);
+    if ( v16 <= (unsigned int)LpcLegacyMaxMessageLength )
+      goto LABEL_28;
     return 3221225485LL;
   }
-  if ( a2 == v18 )
+  if ( a2 == v17 )
     *(_DWORD *)a2 |= 0x10000u;
   if ( a7 )
   {
@@ -92,16 +93,14 @@ LABEL_29:
       *(_QWORD *)((char *)a2 + 4) = *(_QWORD *)a4;
       *((_DWORD *)a2 + 3) = *(_DWORD *)(a4 + 8);
     }
-    v14 = *(_QWORD *)(a3 + 272);
+    v12 = *(_QWORD *)(a3 + 272);
+    goto LABEL_22;
   }
-  else
-  {
-    v14 = *(_QWORD *)(a3 + 272);
-    if ( a2[2] <= v14 )
-      goto LABEL_9;
-  }
-  a2[2] = v14;
-LABEL_9:
+  v12 = *(_QWORD *)(a3 + 272);
+  if ( a2[2] > v12 )
+LABEL_22:
+    a2[2] = v12;
+LABEL_13:
   result = SeValidateSecurityQos((char *)a2 + 4, v11, 0LL, 0x20000LL);
   if ( (int)result >= 0 )
   {

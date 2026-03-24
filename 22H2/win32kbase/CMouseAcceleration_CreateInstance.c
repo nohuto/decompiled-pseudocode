@@ -1,28 +1,23 @@
 /*
- * XREFs of CMouseAcceleration_CreateInstance @ 0x1C0094E90
+ * XREFs of CMouseAcceleration_CreateInstance @ 0x1C000C240
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z @ 0x1C0094EE0 (-CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C000C294 (--0CMouseAcceleration@@IEAA@I@Z.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-struct CDeviceAcceleration *__fastcall CMouseAcceleration_CreateInstance(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+CMouseAcceleration *__fastcall CMouseAcceleration_CreateInstance(unsigned int a1)
 {
-  unsigned int v4; // ebx
-  struct CDeviceAcceleration *v6; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v1; // rbx
+  CMouseAcceleration *v3; // rax
 
-  v4 = a1;
-  if ( *(_QWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 16008) )
-  {
-    LODWORD(v6) = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 703LL);
-  }
-  v6 = 0LL;
-  CMouseAcceleration::CreateInstance(&v6, v4);
-  return v6;
+  v1 = 0LL;
+  if ( qword_1C0245098 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 702LL);
+  v3 = (CMouseAcceleration *)Win32AllocPool(120LL, 1682006883LL);
+  if ( v3 )
+    return CMouseAcceleration::CMouseAcceleration(v3, a1);
+  return (CMouseAcceleration *)v1;
 }

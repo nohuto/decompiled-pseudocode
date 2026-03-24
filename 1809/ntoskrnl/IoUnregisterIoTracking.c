@@ -1,5 +1,5 @@
 /*
- * XREFs of IoUnregisterIoTracking @ 0x14081E0B0
+ * XREFs of IoUnregisterIoTracking @ 0x14081E090
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     IopIrpExtensionControl @ 0x14027F0CC (IopIrpExtensionControl.c)
- *     IoPerfReset @ 0x1402851C4 (IoPerfReset.c)
+ *     IopIrpExtensionControl @ 0x14027F1CC (IopIrpExtensionControl.c)
+ *     IoPerfReset @ 0x1402852C4 (IoPerfReset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

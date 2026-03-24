@@ -1,73 +1,74 @@
 /*
- * XREFs of ?DisplayID_GetContainerID@@YAJPEBUDisplayIDObj@@PEAU_GUID@@@Z @ 0x1C00729BC
+ * XREFs of ?DisplayID_GetContainerID@@YAJPEBUDisplayIDObj@@PEAU_GUID@@@Z @ 0x1C005FBC0
  * Callers:
- *     ?GetContainerId@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_GUID@@@Z @ 0x1C03D07C0 (-GetContainerId@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_GUID@@@Z.c)
+ *     ?_GetMonitorContainerID@DXGMONITOR@@QEAAJPEAU_GUID@@@Z @ 0x1C0182144 (-_GetMonitorContainerID@DXGMONITOR@@QEAAJPEAU_GUID@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall DisplayID_GetContainerID(const struct DisplayIDObj *a1, struct _GUID *a2)
 {
-  int v3; // edi
-  int v4; // ebx
-  _BYTE *i; // r10
-  unsigned int v6; // r9d
-  unsigned int v7; // r11d
-  _BYTE *v8; // r8
-  int v9; // eax
-  signed int v10; // esi
-  struct _GUID *v11; // rcx
-  __int64 v12; // r8
+  unsigned __int64 v2; // r8
+  int v4; // esi
+  int v5; // edi
+  _BYTE *i; // r11
+  unsigned __int8 v7; // r9
+  int v8; // ebx
+  _BYTE *v9; // r10
+  int v10; // ebp
+  __int64 v11; // rax
+  char *v12; // r10
+  char v13; // al
 
+  v2 = 0LL;
   if ( !a1 || !a2 )
     return 3221225485LL;
   if ( !*((_BYTE *)a1 + 16) )
     return 3223126019LL;
-  v3 = *((_DWORD *)a1 + 5);
-  v4 = 0;
-  for ( i = *(_BYTE **)a1; v4 < v3; i += (unsigned __int8)(v6 + 5) )
+  v4 = *((_DWORD *)a1 + 5);
+  v5 = 0;
+  for ( i = *(_BYTE **)a1; v5 < v4; i += (unsigned __int8)(v7 + 5) )
   {
     if ( (*i & 0xF0) != 0x20 )
       break;
-    v6 = (unsigned __int8)i[1];
-    v7 = v6;
-    if ( v6 >= 3 )
+    v7 = i[1];
+    v8 = v7;
+    if ( v7 )
     {
-      v8 = (_BYTE *)((unsigned __int64)(i + 4) & -(__int64)((_BYTE)v6 != 0));
+      v9 = (_BYTE *)((unsigned __int64)(i + 4) & -(__int64)(v7 != 0));
       do
       {
-        if ( !*v8 )
+        if ( !*v9 )
           break;
-        v9 = (unsigned __int8)v8[2];
-        v10 = v9 + 3;
-        if ( v7 < 3 || (int)v7 < v10 )
+        v10 = (unsigned __int8)v9[2];
+        v11 = (unsigned int)(v10 + 3);
+        if ( (unsigned int)v8 < 3 || v8 < (int)v11 )
           break;
-        if ( *v8 == 41 )
+        if ( *v9 == 41 )
         {
-          if ( (_BYTE)v9 != 16 )
+          if ( (_BYTE)v10 != 16 )
             return 3221225659LL;
-          v11 = a2;
-          if ( a2 < &a2[1] )
+          v12 = v9 + 3;
+          if ( (&a2[1] >= a2 ? 0x10 : 0) != 0 )
           {
-            v12 = v8 - (_BYTE *)a2;
             do
             {
-              LOBYTE(v11->Data1) = *((_BYTE *)&v11->Data1 + v12 + 3);
-              v11 = (struct _GUID *)((char *)v11 + 1);
+              v13 = *v12++;
+              *((_BYTE *)&a2->Data1 + v2++) = v13;
             }
-            while ( v11 < &a2[1] );
+            while ( v2 < (&a2[1] >= a2 ? 0x10 : 0) );
           }
           a2->Data1 = _byteswap_ulong(a2->Data1);
           a2->Data2 = __ROR2__(a2->Data2, 8);
           a2->Data3 = __ROR2__(a2->Data3, 8);
           return 0LL;
         }
-        v7 -= v10;
-        v8 += (unsigned int)v10;
+        v8 -= v11;
+        v9 += v11;
       }
-      while ( v7 >= 3 );
+      while ( v8 > 0 );
     }
-    ++v4;
+    ++v5;
   }
   return 3221225659LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushAffinity @ 0x1403CE708
+ * XREFs of KiFlushAffinity @ 0x140390664
  * Callers:
- *     KeFlushTb @ 0x140279850 (KeFlushTb.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeFlushMultipleRangeTb @ 0x14038E834 (KeFlushMultipleRangeTb.c)
+ *     KeFlushTb @ 0x14022FA90 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x1402BBCB0 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
  * Callees:
  *     <none>
  */

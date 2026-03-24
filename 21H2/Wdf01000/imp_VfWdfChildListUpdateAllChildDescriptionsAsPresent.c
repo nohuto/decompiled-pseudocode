@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfChildListUpdateAllChildDescriptionsAsPresent @ 0x1C00C01A0
+ * XREFs of imp_VfWdfChildListUpdateAllChildDescriptionsAsPresent @ 0x1C00BF1F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall imp_VfWdfChildListUpdateAllChildDescriptionsAsPresent(

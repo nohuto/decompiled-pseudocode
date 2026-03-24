@@ -1,44 +1,45 @@
 /*
- * XREFs of ?assign@?$vector@EV?$allocator@E@std@@@std@@QEAAX_KAEBE@Z @ 0x18025442C
+ * XREFs of ?assign@?$vector@EV?$allocator@E@std@@@std@@QEAAX_KAEBE@Z @ 0x1801F03A8
  * Callers:
- *     ?PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z @ 0x180254124 (-PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z.c)
+ *     ?LookupPerFrameData@CSynchronousSuperWetInk@@AEAAJIPEAV?$shared_ptr@$$BY0A@E@std@@@Z @ 0x1801EF940 (-LookupPerFrameData@CSynchronousSuperWetInk@@AEAAJIPEAV-$shared_ptr@$$BY0A@E@std@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ?_Clear_and_reserve_geometric@?$vector@EV?$allocator@E@std@@@std@@AEAAX_K@Z @ 0x180254364 (-_Clear_and_reserve_geometric@-$vector@EV-$allocator@E@std@@@std@@AEAAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ?_Clear_and_reserve_geometric@?$vector@EV?$allocator@E@std@@@std@@AEAAX_K@Z @ 0x1801EFF88 (-_Clear_and_reserve_geometric@-$vector@EV-$allocator@E@std@@@std@@AEAAX_K@Z.c)
  */
 
-char *__fastcall std::vector<unsigned char>::assign(void **a1, unsigned __int64 a2, unsigned __int8 *a3)
+char *__fastcall std::vector<unsigned char>::assign(__int64 *a1, size_t a2, unsigned __int8 *a3)
 {
-  char *v3; // rbx
-  size_t v5; // rdi
-  size_t v6; // rbp
-  int v8; // edx
+  char *v5; // rcx
+  unsigned __int64 v7; // rbx
+  size_t v8; // rdi
+  char *v9; // rbx
   char *result; // rax
+  char *v11; // rbx
 
-  v3 = (char *)*a1;
-  v5 = a2;
-  v6 = (_BYTE *)a1[1] - (_BYTE *)*a1;
-  if ( a2 <= v6 )
+  v5 = (char *)*a1;
+  v7 = a1[1] - (_QWORD)v5;
+  if ( a2 <= v7 )
   {
-    v8 = *a3;
+    v11 = &v5[a2];
+    result = (char *)memset_0(v5, *a3, a2);
+    a1[1] = (__int64)v11;
   }
   else
   {
-    if ( a2 <= (_BYTE *)a1[2] - v3 )
+    if ( a2 <= a1[2] - (__int64)v5 )
     {
-      memset_0(*a1, *a3, v6);
+      memset_0(v5, *a3, a1[1] - (_QWORD)v5);
     }
     else
     {
-      std::vector<unsigned char>::_Clear_and_reserve_geometric((__int64 *)a1, a2);
-      v6 = 0LL;
+      std::vector<unsigned char>::_Clear_and_reserve_geometric(a1, a2);
+      v7 = 0LL;
     }
-    v3 = (char *)a1[1];
-    v5 -= v6;
-    v8 = *a3;
+    v8 = a2 - v7;
+    v9 = (char *)a1[1];
+    memset_0(v9, *a3, v8);
+    result = &v9[v8];
+    a1[1] = (__int64)&v9[v8];
   }
-  memset_0(v3, v8, v5);
-  result = &v3[v5];
-  a1[1] = &v3[v5];
   return result;
 }

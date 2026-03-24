@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpAllocateDeviceInstancePath @ 0x14073A054
+ * XREFs of PnpAllocateDeviceInstancePath @ 0x14073A034
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406DA66C (IopInitializeDeviceInstanceKey.c)
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
- *     PiInitializeDevice @ 0x14083C184 (PiInitializeDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1406DA64C (IopInitializeDeviceInstanceKey.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x14083C164 (PiInitializeDevice.c)
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

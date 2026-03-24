@@ -1,9 +1,9 @@
 /*
- * XREFs of XLATEOBJ_cGetPalette @ 0x1C02BE240
+ * XREFs of XLATEOBJ_cGetPalette @ 0x1C02BF8C0
  * Callers:
- *     NtGdiXLATEOBJ_cGetPalette @ 0x1C02B41E0 (NtGdiXLATEOBJ_cGetPalette.c)
+ *     NtGdiXLATEOBJ_cGetPalette @ 0x1C02B5E90 (NtGdiXLATEOBJ_cGetPalette.c)
  * Callees:
- *     ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C009095C (-ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z.c)
+ *     ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C01207DC (-ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z.c)
  */
 
 ULONG __stdcall XLATEOBJ_cGetPalette(XLATEOBJ *pxlo, ULONG iPal, ULONG cPal, ULONG *pPal)

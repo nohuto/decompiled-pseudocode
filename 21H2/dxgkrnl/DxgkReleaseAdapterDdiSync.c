@@ -1,26 +1,27 @@
 /*
- * XREFs of DxgkReleaseAdapterDdiSync @ 0x1C01EF978
+ * XREFs of DxgkReleaseAdapterDdiSync @ 0x1C0176430
  * Callers:
- *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0020F80 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
- *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0064B48 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
- *     DpiIndirectCbOpmGetSrmListVersion @ 0x1C0064E20 (DpiIndirectCbOpmGetSrmListVersion.c)
- *     DpiIndirectCbOpmSetSrmList @ 0x1C0064FA0 (DpiIndirectCbOpmSetSrmList.c)
- *     DpiPdoDispatchPnp @ 0x1C01E4250 (DpiPdoDispatchPnp.c)
- *     DpiPdoDispatchInternalIoctl @ 0x1C01E4480 (DpiPdoDispatchInternalIoctl.c)
- *     DpiPdoSetDevicePower @ 0x1C01EFE0C (DpiPdoSetDevicePower.c)
- *     DpiPdoIsChildConnected @ 0x1C01F35DC (DpiPdoIsChildConnected.c)
- *     DpiPdoGetDeviceDescriptor @ 0x1C02067A4 (DpiPdoGetDeviceDescriptor.c)
- *     DpiPdoGetDeviceContainerIdFromDescriptor @ 0x1C0206954 (DpiPdoGetDeviceContainerIdFromDescriptor.c)
- *     DpiGetMonitorDescriptor @ 0x1C02074D4 (DpiGetMonitorDescriptor.c)
- *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C038AC68 (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
- *     DpiAcpiHandleAcpiEvent @ 0x1C0394794 (DpiAcpiHandleAcpiEvent.c)
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CC94 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0057FA4 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
+ *     DpiIndirectCbOpmGetSrmListVersion @ 0x1C00582A0 (DpiIndirectCbOpmGetSrmListVersion.c)
+ *     DpiIndirectCbOpmSetSrmList @ 0x1C0058430 (DpiIndirectCbOpmSetSrmList.c)
+ *     DpiPdoDispatchPnp @ 0x1C0168730 (DpiPdoDispatchPnp.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C0169250 (DpiPdoDispatchInternalIoctl.c)
+ *     DpiPdoSetDevicePower @ 0x1C017680C (DpiPdoSetDevicePower.c)
+ *     DpiPdoIsChildConnected @ 0x1C01795D4 (DpiPdoIsChildConnected.c)
+ *     DpiPdoGetDeviceDescriptor @ 0x1C017A410 (DpiPdoGetDeviceDescriptor.c)
+ *     DpiPdoGetDeviceContainerIdFromDescriptor @ 0x1C018DB70 (DpiPdoGetDeviceContainerIdFromDescriptor.c)
+ *     DpiGetMonitorDescriptor @ 0x1C019092C (DpiGetMonitorDescriptor.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C02CB760 (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
+ *     DpiAcpiHandleAcpiEvent @ 0x1C02D5EC4 (DpiAcpiHandleAcpiEvent.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C000B8C0 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C0003F90 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
  */
 
-__int64 __fastcall DxgkReleaseAdapterDdiSync(DXGADAPTER *a1)
+__int64 __fastcall DxgkReleaseAdapterDdiSync(DXGADAPTER *a1, __int64 a2)
 {
+  __int64 v3; // rax
+
   if ( a1 )
   {
     DXGADAPTER::ReleaseDdiSync(a1);
@@ -28,17 +29,9 @@ __int64 __fastcall DxgkReleaseAdapterDdiSync(DXGADAPTER *a1)
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"No pAdapter specified, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v3 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v3 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v3);
     return 3221225485LL;
   }
 }

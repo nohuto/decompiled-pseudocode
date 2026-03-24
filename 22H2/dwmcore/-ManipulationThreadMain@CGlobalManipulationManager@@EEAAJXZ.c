@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x1800CB790
+ * XREFs of ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x1800B4C10
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ @ 0x1800CB980 (-UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ.c)
- *     ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800CB9CC (-SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUM.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     IsRegisterManipulationThreadPresent @ 0x180110548 (IsRegisterManipulationThreadPresent.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800B59EC (-SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUM.c)
+ *     ?UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ @ 0x1800B6620 (-UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     IsRegisterManipulationThreadPresent @ 0x1800E831C (IsRegisterManipulationThreadPresent.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
@@ -27,16 +27,16 @@ __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
   int v11; // eax
   struct IMessageSession *v12; // rcx
   signed int LastError; // eax
-  _BYTE v15[16]; // [rsp+30h] [rbp-28h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+30h] [rbp-28h] BYREF
   void *retaddr; // [rsp+58h] [rbp+0h]
 
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
     McGenEventWrite_EventWriteTransfer(
-      &Microsoft_Windows_Dwm_Core_Provider_Context,
+      Microsoft_Windows_Dwm_Core_Provider_Context,
       &MANIPULATION_THREAD_STARTUP,
       a3,
-      1LL,
-      v15);
+      1u,
+      &v15);
   v4 = (struct IMessageSession **)((char *)this + 24);
   v5 = *((_QWORD *)this + 3);
   if ( v5 )
@@ -47,12 +47,12 @@ __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
   v6 = CoreUICreateEx(1LL, (char *)this + 24);
   if ( v6 < 0 )
     ModuleFailFastForHRESULT((unsigned int)v6, retaddr);
-  EnterCriticalSection(&stru_1803E6218);
-  byte_1803E6214 = 0;
-  LeaveCriticalSection(&stru_1803E6218);
-  EnterCriticalSection(&CriticalSection);
-  byte_1803E61D4 = 0;
-  LeaveCriticalSection(&CriticalSection);
+  EnterCriticalSection(&stru_18034B548);
+  byte_18034B544 = 0;
+  LeaveCriticalSection(&stru_18034B548);
+  EnterCriticalSection(&stru_18034B508);
+  byte_18034B504 = 0;
+  LeaveCriticalSection(&stru_18034B508);
   if ( (unsigned __int8)IsRegisterManipulationThreadPresent() )
   {
     if ( !(unsigned int)RegisterManipulationThread(CManipulationManager::ManipulationThreadCallback, this) )
@@ -72,21 +72,21 @@ __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
            (CGlobalManipulationManager *)((char *)this + 32));
     if ( v8 < 0 )
       ModuleFailFastForHRESULT((unsigned int)v8, retaddr);
-    v9 = (*(__int64 (__fastcall **)(struct IMessageSession *, HANDLE, __int64 (__fastcall *)(), CGlobalManipulationManager *))(*(_QWORD *)*v4 + 272LL))(
+    v9 = (*(__int64 (__fastcall **)(struct IMessageSession *, HANDLE, __int64 (__fastcall *)(), CGlobalManipulationManager *))(*(_QWORD *)*v4 + 256LL))(
            *v4,
-           qword_1803E5918,
+           qword_1803474D0,
            lambda_19664e0b56b7920f045ba8c67b2f55c3_::_lambda_invoker_cdecl_,
            this);
     if ( v9 < 0 )
       ModuleFailFastForHRESULT((unsigned int)v9, retaddr);
-    v10 = (*(__int64 (__fastcall **)(struct IMessageSession *, HANDLE, __int64 (__fastcall *)(), CGlobalManipulationManager *))(*(_QWORD *)*v4 + 272LL))(
+    v10 = (*(__int64 (__fastcall **)(struct IMessageSession *, HANDLE, __int64 (__fastcall *)(), CGlobalManipulationManager *))(*(_QWORD *)*v4 + 256LL))(
             *v4,
             CManipulationManager::s_rghWaitEvents,
             lambda_efd5facd022cf831717386964e02a8d7_::_lambda_invoker_cdecl_,
             this);
     if ( v10 < 0 )
       ModuleFailFastForHRESULT((unsigned int)v10, retaddr);
-    v11 = (*(__int64 (__fastcall **)(struct IMessageSession *, HANDLE, __int64 (__fastcall *)(), CGlobalManipulationManager *))(*(_QWORD *)*v4 + 272LL))(
+    v11 = (*(__int64 (__fastcall **)(struct IMessageSession *, HANDLE, __int64 (__fastcall *)(), CGlobalManipulationManager *))(*(_QWORD *)*v4 + 256LL))(
             *v4,
             hEvent,
             lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cdecl_,
@@ -94,7 +94,7 @@ __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
     if ( v11 < 0 )
       ModuleFailFastForHRESULT((unsigned int)v11, retaddr);
     SetEvent(CManipulationManager::s_hManipThreadInitializedWaitEvent);
-    (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)*v4 + 232LL))(*v4);
+    (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)*v4 + 216LL))(*v4);
     v12 = *v4;
     if ( *v4 )
     {
@@ -103,12 +103,12 @@ __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
     }
   }
   CManipulationManager::s_dwManipulationThreadId = 0;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
     McGenEventWrite_EventWriteTransfer(
-      &Microsoft_Windows_Dwm_Core_Provider_Context,
+      Microsoft_Windows_Dwm_Core_Provider_Context,
       &MANIPULATION_THREAD_CLEANUP,
       v7,
-      1LL,
-      v15);
+      1u,
+      &v15);
   return 0LL;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C00AAAE8
+ * XREFs of ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C009C020
  * Callers:
- *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C00AAA58 (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
- *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C020E5F0 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
+ *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C009BF90 (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
+ *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C01D5CD8 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,12 +21,13 @@ void __fastcall DirectComposition::CAnimationMarshaler::CalculateAnimationTimeSt
   __int64 v9; // rdi
   unsigned __int64 v10; // r10
   char v11; // bl
+  char v12; // al
 
   v7 = *((_DWORD *)a2 + 6);
   v8 = *((_QWORD *)this + 14);
-  v9 = *((_QWORD *)this + 26);
-  v10 = *((_QWORD *)this + 27);
-  v11 = (*((_BYTE *)this + 200) & 4) != 0;
+  v9 = *((_QWORD *)this + 27);
+  v10 = *((_QWORD *)this + 28);
+  v11 = (*((_BYTE *)this + 208) & 4) != 0;
   if ( (v7 & 4) != 0 )
   {
     if ( !v8 && !*((_QWORD *)this + 18) )
@@ -37,12 +38,13 @@ void __fastcall DirectComposition::CAnimationMarshaler::CalculateAnimationTimeSt
   {
     if ( a3 >= v8 )
     {
-      if ( (*((_BYTE *)this + 200) & 4) != 0 )
+      v12 = *((_BYTE *)a2 + 28);
+      if ( (*((_BYTE *)this + 208) & 4) != 0 )
       {
-        if ( !*((_BYTE *)a2 + 28) )
+        if ( !v12 )
           v10 = a3;
       }
-      else if ( *((_BYTE *)a2 + 28) )
+      else if ( v12 )
       {
         v9 += a3 - v10;
       }

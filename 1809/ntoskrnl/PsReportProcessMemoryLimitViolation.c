@@ -1,9 +1,9 @@
 /*
- * XREFs of PsReportProcessMemoryLimitViolation @ 0x140889694
+ * XREFs of PsReportProcessMemoryLimitViolation @ 0x140889674
  * Callers:
  *     MiChargeProcessCommitment @ 0x14004D1C0 (MiChargeProcessCommitment.c)
  * Callees:
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
  *     PspUnlockJobMemoryLimitsShared @ 0x1405FE2B4 (PspUnlockJobMemoryLimitsShared.c)
  *     PspLockJobMemoryLimitsShared @ 0x1405FE360 (PspLockJobMemoryLimitsShared.c)
  */

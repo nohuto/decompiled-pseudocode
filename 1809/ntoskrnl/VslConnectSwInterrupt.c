@@ -2,18 +2,18 @@
  * XREFs of VslConnectSwInterrupt @ 0x1409CC3E8
  * Callers:
  *     PipInitializeCoreDriversAndElam @ 0x1409CA89C (PipInitializeCoreDriversAndElam.c)
- *     KiConnectSwInterrupt @ 0x1409F6600 (KiConnectSwInterrupt.c)
+ *     KiConnectSwInterrupt @ 0x1409F6610 (KiConnectSwInterrupt.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140129FF4 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     HvlIsCoreSharingPossible @ 0x140270D98 (HvlIsCoreSharingPossible.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     HvlIsCoreSharingPossible @ 0x140270E98 (HvlIsCoreSharingPossible.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
  */
 
 __int64 __fastcall VslConnectSwInterrupt(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

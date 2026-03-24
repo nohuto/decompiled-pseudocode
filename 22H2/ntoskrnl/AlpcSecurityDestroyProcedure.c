@@ -1,33 +1,35 @@
 /*
- * XREFs of AlpcSecurityDestroyProcedure @ 0x14071C9C0
+ * XREFs of AlpcSecurityDestroyProcedure @ 0x14061FEE0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     AlpcDeleteBlobByHandle @ 0x14071C2F4 (AlpcDeleteBlobByHandle.c)
- *     SeDeleteClientSecurity @ 0x14071D1F0 (SeDeleteClientSecurity.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14071DC30 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpRemoveResourcePort @ 0x14071ECD0 (AlpcpRemoveResourcePort.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     AlpcpRemoveResourcePort @ 0x14061E930 (AlpcpRemoveResourcePort.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x14061FF64 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcDeleteBlobByHandle @ 0x14061FF9C (AlpcDeleteBlobByHandle.c)
  */
 
 __int64 __fastcall AlpcSecurityDestroyProcedure(__int64 a1)
 {
-  _QWORD *v2; // rcx
+  __int64 v2; // rcx
   __int64 v3; // rcx
+  __int64 v4; // rcx
 
-  v2 = *(_QWORD **)a1;
+  v2 = *(_QWORD *)a1;
   if ( v2 )
     AlpcDeleteBlobByHandle(v2, *(_QWORD *)(a1 + 8), a1);
   v3 = *(_QWORD *)(a1 + 24);
   if ( v3 )
   {
     AlpcpRemoveResourcePort(v3, a1);
-    ObfDereferenceObject(*(PVOID *)(a1 + 24));
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 24));
   }
   if ( *(_QWORD *)(a1 + 16) )
   {
-    SeDeleteClientSecurity(a1 + 32);
+    v4 = *(_QWORD *)(a1 + 48);
+    if ( *(_DWORD *)(v4 + 192) == 1 || v4 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)v4);
     AlpcpReleasePagedPoolQuota(*(_QWORD *)(a1 + 16), 160LL);
     ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 16), 0x63706C41u);
   }

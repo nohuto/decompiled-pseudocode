@@ -1,16 +1,22 @@
 /*
- * XREFs of VmCreateMemoryProcess @ 0x1409D91B0
+ * XREFs of VmCreateMemoryProcess @ 0x14092EC70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x140831810 (PsCreateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
  */
 
-__int64 __fastcall VmCreateMemoryProcess(PEPROCESS Process, __int64 a2, void *a3, int a4, PVOID a5, _QWORD *a6)
+__int64 __fastcall VmCreateMemoryProcess(
+        PEPROCESS Process,
+        __int64 a2,
+        struct _DMA_ADAPTER *a3,
+        int a4,
+        __int64 a5,
+        _QWORD *a6)
 {
   char v9; // r9
   NTSTATUS v10; // edi
@@ -58,7 +64,7 @@ __int64 __fastcall VmCreateMemoryProcess(PEPROCESS Process, __int64 a2, void *a3
           Object = 0LL;
           ObReferenceObjectByHandle(v15, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
           _InterlockedOr((volatile signed __int32 *)Object + 543, 0x2000u);
-          ObfDereferenceObject(Object);
+          HalPutDmaAdapter((PADAPTER_OBJECT)Object);
           v15 = ProcessHandle;
         }
         *a6 = v15;

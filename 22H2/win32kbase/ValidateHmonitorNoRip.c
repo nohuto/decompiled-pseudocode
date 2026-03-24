@@ -1,35 +1,33 @@
 /*
- * XREFs of ValidateHmonitorNoRip @ 0x1C0096A10
+ * XREFs of ValidateHmonitorNoRip @ 0x1C00809A0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
  */
 
-__int64 __fastcall ValidateHmonitorNoRip(int a1)
+__int64 __fastcall ValidateHmonitorNoRip(unsigned __int64 a1)
 {
-  __int16 v1; // r8d^2
   __int64 v2; // rbx
-  unsigned int v3; // ecx
-  _QWORD *v4; // r14
-  char *v5; // rdi
-  __int64 v6; // rsi
-  __int16 v7; // r8
+  char *v3; // rsi
+  __int64 v4; // rcx
+  _QWORD *v5; // r14
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rbp
 
-  v1 = HIWORD(a1);
   v2 = 0LL;
   if ( (unsigned __int64)(unsigned __int16)a1 < *((_QWORD *)gpsi + 1) )
   {
-    v3 = dword_1C028FE70 * (unsigned __int16)a1;
-    v4 = gpKernelHandleTable;
-    v5 = (char *)qword_1C028FE68 + v3;
-    v6 = 3 * ((__int64)v3 >> 5);
-    v7 = v1 & 0x7FFF;
-    if ( ((v1 & 0x7FFF) == *((_WORD *)v5 + 13) || v7 == 0x7FFF || !v7 && PsGetCurrentProcessWow64Process())
-      && (v5[25] & 1) == 0
-      && v5[24] == 12 )
+    v3 = (char *)qword_1C024FA38 + (unsigned int)(unsigned __int16)a1 * dword_1C024FA40;
+    GetDomainLockRef(14);
+    v5 = gpKernelHandleTable;
+    v6 = a1 >> 16;
+    v7 = 3LL * (unsigned int)((v3 - (char *)qword_1C024FA38) >> 5);
+    if ( ((_WORD)v6 == *((_WORD *)v3 + 13) || (_WORD)v6 == 0xFFFF || !(_WORD)v6 && PsGetCurrentProcessWow64Process(v4))
+      && (v3[25] & 1) == 0
+      && v3[24] == 12 )
     {
-      return v4[v6];
+      return v5[v7];
     }
   }
   return v2;

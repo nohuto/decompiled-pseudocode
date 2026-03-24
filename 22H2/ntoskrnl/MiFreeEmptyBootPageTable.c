@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeEmptyBootPageTable @ 0x140B9A3B8
+ * XREFs of MiFreeEmptyBootPageTable @ 0x140A92F24
  * Callers:
- *     MxCreateFreePfns @ 0x140B45DA0 (MxCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140A432FC (MxCreateFreePfns.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiLockAndInsertPageInFreeList @ 0x14038A8F4 (MiLockAndInsertPageInFreeList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1403B6EAC (MiLockAndInsertPageInFreeList.c)
  */
 
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
@@ -15,8 +15,10 @@ __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
   __int64 result; // rax
   unsigned __int64 v4; // rbx
   int v5; // ebp
-  __int64 v6; // r8
-  bool v7; // zf
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  bool v9; // zf
 
   v1 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
   result = 0LL;
@@ -28,25 +30,25 @@ __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
   v5 = 0;
   if ( MiPteInShadowRange(v1) )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
       v5 = 1;
-      if ( !HIBYTE(word_140C66DFC) )
+      if ( !HIBYTE(word_140C4E008) )
       {
-        v7 = (ZeroPte & 1) == 0;
+        v9 = (ZeroPte & 1) == 0;
         goto LABEL_8;
       }
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     {
-      v7 = (ZeroPte & 1) == 0;
+      v9 = (ZeroPte & 1) == 0;
 LABEL_8:
-      if ( !v7 )
+      if ( !v9 )
         v4 = ZeroPte | 0x8000000000000000uLL;
     }
   }
   *(_QWORD *)v1 = v4;
   if ( v5 )
-    MiWritePteShadow(v1, v4, v6);
-  return MiLockAndInsertPageInFreeList(a1);
+    MiWritePteShadow(v1, v4, v7);
+  return MiLockAndInsertPageInFreeList(a1, v6, v7, v8);
 }

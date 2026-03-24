@@ -1,77 +1,69 @@
 /*
- * XREFs of MiMapViewInSystemSpace @ 0x1406AD6A4
+ * XREFs of MiMapViewInSystemSpace @ 0x140635F9C
  * Callers:
- *     KsepSdbMapToMemory @ 0x140694E7C (KsepSdbMapToMemory.c)
- *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     AlpcpCreateView @ 0x14071C394 (AlpcpCreateView.c)
- *     NtGetNlsSectionPtr @ 0x1407A23B0 (NtGetNlsSectionPtr.c)
- *     MmMapViewInSessionSpace @ 0x1407DEF30 (MmMapViewInSessionSpace.c)
- *     MmMapViewInSystemSpaceEx @ 0x1407E1290 (MmMapViewInSystemSpaceEx.c)
- *     CmFcpMapSection @ 0x1408103BC (CmFcpMapSection.c)
- *     ExInitializeLeapSecondData @ 0x140854420 (ExInitializeLeapSecondData.c)
- *     EtwpCoverageEnsureContext @ 0x1408579E4 (EtwpCoverageEnsureContext.c)
- *     NtCreateIoRing @ 0x14094A160 (NtCreateIoRing.c)
- *     PspApiSetCopyToSystemSpace @ 0x1409AC978 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x1409AD968 (PspSiloInitializeUserSharedData.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x1409F32BC (EtwpCoverageSamplerSetBloomFilter.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA744 (SLUpdateLicenseDataInternal.c)
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x140637780 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapImageInSystemSpace @ 0x14066BCCC (MiMapImageInSystemSpace.c)
+ *     MmMapViewInSessionSpaceEx @ 0x1406957A0 (MmMapViewInSessionSpaceEx.c)
+ *     MmMapViewInSystemSpace @ 0x1406A2470 (MmMapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpaceEx @ 0x1406A2CE0 (MmMapViewInSystemSpaceEx.c)
+ *     AlpcpCreateView @ 0x1406D9900 (AlpcpCreateView.c)
  * Callees:
- *     MiDereferenceControlArea @ 0x14020B8B0 (MiDereferenceControlArea.c)
- *     MiInsertInSystemSpace @ 0x140213D30 (MiInsertInSystemSpace.c)
- *     MiCheckPurgeAndUpMapCount @ 0x1402870D0 (MiCheckPurgeAndUpMapCount.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
+ *     MiInsertInSystemSpace @ 0x14027B460 (MiInsertInSystemSpace.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140296630 (MiCheckPurgeAndUpMapCount.c)
+ *     MiDereferenceControlArea @ 0x14032CAF8 (MiDereferenceControlArea.c)
  */
 
 __int64 __fastcall MiMapViewInSystemSpace(
         __int64 a1,
-        _QWORD *a2,
-        unsigned __int64 *a3,
-        __int64 *a4,
-        __int64 a5,
-        __int64 a6)
+        __int64 a2,
+        _QWORD *a3,
+        unsigned __int64 *a4,
+        _QWORD *a5,
+        __int64 a6,
+        __int64 a7)
 {
-  unsigned __int64 v10; // rbp
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // r10
-  int v14; // ebx
-  ULONG_PTR v16[5]; // [rsp+30h] [rbp-28h] BYREF
+  char v7; // bp
+  unsigned __int64 v12; // rsi
+  unsigned __int64 v13; // rdx
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // rdx
+  int v16; // ebx
 
-  if ( (a5 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+  v7 = a6;
+  if ( (a6 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
     return 3221225716LL;
-  v16[0] = 0LL;
-  v10 = MiSectionControlArea(a1);
-  MiCheckPurgeAndUpMapCount(v10);
-  v11 = *a3;
-  if ( !*a3 )
+  a6 = 0LL;
+  v12 = MiSectionControlArea(a1);
+  MiCheckPurgeAndUpMapCount(v12);
+  v13 = *a4;
+  if ( !*a4 )
   {
-    *(_WORD *)a4 = 0;
-    v13 = *(_QWORD *)(a1 + 48) - *a4;
-    *a3 = v13;
+    *(_WORD *)a5 = 0;
+    v15 = *(_QWORD *)(a1 + 48) - *a5;
+    *a4 = v15;
     goto LABEL_5;
   }
-  v12 = (unsigned __int16)*(_DWORD *)a4;
-  if ( v11 + v12 >= v12 )
+  v14 = (unsigned __int16)*(_DWORD *)a5;
+  if ( v13 + v14 >= v14 )
   {
-    *a3 = v11 + v12;
-    *(_WORD *)a4 = 0;
-    v13 = *a3;
-    if ( *a3 <= *(_QWORD *)(a1 + 48) - *a4 )
+    *a4 = v13 + v14;
+    *(_WORD *)a5 = 0;
+    v15 = *a4;
+    if ( *a4 <= *(_QWORD *)(a1 + 48) - *a5 )
     {
 LABEL_5:
-      v14 = MiInsertInSystemSpace(v13, a1, a4, a5, a6, v16);
-      if ( v14 >= 0 )
+      v16 = MiInsertInSystemSpace(a2, v15, a1, a5, v7, a7, (unsigned __int64 *)&a6);
+      if ( v16 >= 0 )
       {
-        *a2 = v16[0];
+        *a3 = a6;
         return 0LL;
       }
       goto LABEL_10;
     }
   }
-  v14 = -1073741793;
+  v16 = -1073741793;
 LABEL_10:
-  MiDereferenceControlArea(v10);
-  return (unsigned int)v14;
+  MiDereferenceControlArea(v12);
+  return (unsigned int)v16;
 }

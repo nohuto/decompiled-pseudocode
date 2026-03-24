@@ -1,104 +1,103 @@
 /*
- * XREFs of IopLiveDumpBufferDumpData @ 0x140A9A420
+ * XREFs of IopLiveDumpBufferDumpData @ 0x1409AB53C
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140A9C3C0 (IopLiveDumpProcessCorralStateChange.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1409AD4BC (IopLiveDumpProcessCorralStateChange.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     MmMapMemoryDumpMdlEx @ 0x1406306F0 (MmMapMemoryDumpMdlEx.c)
- *     IopLiveDumpGetCapturePagesNoLock @ 0x140A9B81C (IopLiveDumpGetCapturePagesNoLock.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140383670 (MmMapMemoryDumpMdlEx.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x1409AC9C4 (IopLiveDumpGetCapturePagesNoLock.c)
  */
 
-__int64 __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
+void __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
 {
   __int64 v2; // rcx
-  __int64 result; // rax
+  unsigned int v3; // eax
   __int64 v4; // r13
   _QWORD *v5; // rbx
-  __int64 v6; // r14
+  __int64 *v6; // r14
   __int64 v7; // rsi
   int v8; // edi
   unsigned int v9; // r15d
-  unsigned int v10; // ebp
-  _QWORD *v11; // r12
-  __int64 v12; // rdx
-  _DWORD *v13; // r13
+  unsigned int v10; // edi
+  unsigned int v11; // ebp
+  _QWORD *v12; // r12
+  __int64 v13; // rcx
   __int64 v14; // rcx
-  __int64 v15; // rcx
-  unsigned __int64 v16; // rbx
-  _DWORD *v17; // rdi
+  __int64 v15; // rbx
+  _DWORD *v16; // rsi
+  _DWORD *v17; // rdx
   unsigned __int64 v18; // rcx
-  _DWORD *v19; // rsi
+  _DWORD *v19; // rdi
   __int64 v20; // [rsp+30h] [rbp-68h]
   __int64 v21; // [rsp+38h] [rbp-60h]
   _QWORD *v22; // [rsp+40h] [rbp-58h]
   unsigned int v23; // [rsp+A0h] [rbp+8h] BYREF
   __int64 v24; // [rsp+A8h] [rbp+10h] BYREF
-  __int64 v25; // [rsp+B0h] [rbp+18h]
-  _DWORD *v26; // [rsp+B8h] [rbp+20h]
+  _DWORD *v25; // [rsp+B0h] [rbp+18h]
+  __int64 v26; // [rsp+B8h] [rbp+20h]
 
   v2 = *a1;
   v24 = 0LL;
   v23 = 0;
-  result = *a2;
+  v3 = *a2;
   v4 = v2 + 680;
   v21 = v2 + 680;
-  if ( (unsigned int)result < *(_DWORD *)(v2 + 888) && (unsigned int)result < *(_DWORD *)(v2 + 1112) )
+  if ( *a2 < *(_DWORD *)(v2 + 784) && v3 < *(_DWORD *)(v2 + 1008) )
   {
-    v5 = *(_QWORD **)(*(_QWORD *)(v2 + 1120) + 8LL * (unsigned int)result);
-    v6 = *(_QWORD *)(v2 + 896) + 16LL * (unsigned int)result;
+    v5 = *(_QWORD **)(*(_QWORD *)(v2 + 1016) + 8LL * v3);
+    v6 = (__int64 *)(*(_QWORD *)(v2 + 792) + 16LL * v3);
     v22 = v5;
-    v25 = v2 + 544;
-    v7 = *(_QWORD *)(v6 + 8) + 48LL;
+    v26 = v2 + 544;
+    v7 = v6[1] + 48;
     v20 = v7;
     while ( 1 )
     {
       v8 = BufferChunkSizeInPages;
       KxAcquireSpinLock((PKSPIN_LOCK)(v4 + 32));
-      IopLiveDumpGetCapturePagesNoLock(v25, v4, (_DWORD)v5, v8, (__int64)&v23, (__int64)&v24);
-      result = KxReleaseSpinLock((volatile signed __int64 *)(v4 + 32));
+      IopLiveDumpGetCapturePagesNoLock(v26, v4, (_DWORD)v5, v8, (__int64)&v23, (__int64)&v24);
+      KxReleaseSpinLock((PKSPIN_LOCK)(v4 + 32));
       v9 = v23;
       if ( !v23 )
         break;
       v10 = 0;
-      v11 = v5;
-      v26 = *(_DWORD **)(*(_QWORD *)(v4 + 72) + 8 * v24);
-      LODWORD(v12) = 0;
-      v13 = v26;
+      v11 = 0;
+      v25 = *(_DWORD **)(*(_QWORD *)(v4 + 72) + 8 * v24);
+      v12 = v5;
       do
       {
-        v14 = (unsigned int)v12;
-        v12 = (unsigned int)(v12 + 1);
-        *(_QWORD *)(v7 + 8 * v14) = *v11;
-        if ( (_DWORD)v12 == 16 || (_DWORD)v12 && v10 == v9 - 1 )
+        v13 = v10++;
+        *(_QWORD *)(v7 + 8 * v13) = *v12;
+        if ( v10 == 16 || v10 && v11 == v9 - 1 )
         {
-          v15 = *(_QWORD *)(v6 + 8);
-          v16 = (unsigned int)((_DWORD)v12 << 12);
-          *(_QWORD *)v15 = 0LL;
-          *(_WORD *)(v15 + 10) = 0;
-          *(_QWORD *)(v15 + 32) = 0LL;
-          *(_QWORD *)(v15 + 40) = (unsigned int)v16;
-          *(_WORD *)(v15 + 8) = 8 * ((v16 >> 12) + 6);
-          MmMapMemoryDumpMdlEx(*(_QWORD *)v6, v12, *(_QWORD *)(v6 + 8), 0);
-          v17 = v13;
-          v13 = (_DWORD *)((char *)v13 + v16);
-          v18 = (unsigned __int64)(unsigned int)v16 >> 2;
-          v19 = *(_DWORD **)(*(_QWORD *)(v6 + 8) + 24LL);
+          v14 = v6[1];
+          *(_DWORD *)(v14 + 40) = v10 << 12;
+          *(_QWORD *)v14 = 0LL;
+          *(_WORD *)(v14 + 10) = 0;
+          *(_QWORD *)(v14 + 32) = 0LL;
+          *(_DWORD *)(v14 + 44) = 0;
+          *(_WORD *)(v14 + 8) = 8 * (((unsigned __int64)(v10 << 12) >> 12) + 6);
+          v15 = v10 << 12;
+          MmMapMemoryDumpMdlEx(*v6, v10, v6[1], 0);
+          v16 = *(_DWORD **)(v6[1] + 24);
+          v17 = v25;
+          v18 = (unsigned __int64)(unsigned int)v15 >> 2;
+          v19 = v25;
           while ( v18 )
           {
-            *v17++ = *v19++;
+            *v19++ = *v16++;
             --v18;
           }
           v7 = v20;
-          LODWORD(v12) = 0;
+          v25 = (_DWORD *)((char *)v17 + v15);
+          v10 = 0;
         }
-        ++v10;
         ++v11;
+        ++v12;
       }
-      while ( v10 < v9 );
+      while ( v11 < v9 );
       v4 = v21;
       v5 = v22;
     }
   }
-  return result;
 }

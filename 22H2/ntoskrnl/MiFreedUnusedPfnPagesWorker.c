@@ -1,138 +1,138 @@
 /*
- * XREFs of MiFreedUnusedPfnPagesWorker @ 0x14038D19C
+ * XREFs of MiFreedUnusedPfnPagesWorker @ 0x1403B90F8
  * Callers:
- *     MiFreeUnusedPfnPagesDpc @ 0x14038D050 (MiFreeUnusedPfnPagesDpc.c)
+ *     MiFreeUnusedPfnPagesDpc @ 0x1403B8FF0 (MiFreeUnusedPfnPagesDpc.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     MiGetNextNonGapPfnPage @ 0x14038D410 (MiGetNextNonGapPfnPage.c)
- *     MiPfnRangeIsZero @ 0x14038D604 (MiPfnRangeIsZero.c)
- *     RtlCompareMemoryUlong @ 0x1404291E0 (RtlCompareMemoryUlong.c)
+ *     MmIsAddressValidEx @ 0x14028CB70 (MmIsAddressValidEx.c)
+ *     MiGetNextNonGapPfnPage @ 0x1403B93A0 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x1403B9588 (MiPfnRangeIsZero.c)
+ *     RtlCompareMemoryUlong @ 0x1404078B0 (RtlCompareMemoryUlong.c)
  */
 
-__int64 __fastcall MiFreedUnusedPfnPagesWorker(_QWORD *a1)
+void __fastcall MiFreedUnusedPfnPagesWorker(_QWORD *a1)
 {
-  unsigned __int64 v1; // rdi
-  unsigned __int64 v2; // rdx
-  __int64 result; // rax
+  unsigned __int64 v1; // rbx
+  unsigned __int64 v2; // r8
+  unsigned __int64 v3; // rax
   unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // r10
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r12
-  __int64 v8; // rax
-  _QWORD *NextNonGapPfnPage; // rbx
-  SIZE_T v10; // rsi
-  SIZE_T v11; // r13
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rdx
-  _QWORD *v14; // r14
-  char *v15; // r14
-  char *v16; // r15
-  unsigned __int64 *i; // r8
+  unsigned __int64 v5; // rdx
+  unsigned __int64 v6; // r12
+  _QWORD *NextNonGapPfnPage; // rdi
+  SIZE_T v8; // rsi
+  SIZE_T v9; // r14
+  unsigned __int64 v10; // rax
+  _QWORD *v11; // r13
+  __int64 v12; // rdx
+  _QWORD *v13; // rbp
+  char *v14; // rbp
+  char *v15; // r15
+  unsigned __int64 *i; // rdx
+  unsigned __int64 v17; // rcx
   unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rcx
-  __int64 v20; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v21; // [rsp+68h] [rbp+10h] BYREF
-  unsigned __int64 v22; // [rsp+70h] [rbp+18h]
-  unsigned __int64 v23; // [rsp+78h] [rbp+20h]
+  __int64 v19; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 v20; // [rsp+78h] [rbp+10h] BYREF
+  unsigned __int64 v21; // [rsp+80h] [rbp+18h]
+  unsigned __int64 v22; // [rsp+88h] [rbp+20h]
 
   if ( !*a1 )
-    byte_140C6B5E4 = 1;
+    byte_140C50E4C = 1;
   v1 = 0LL;
-  while ( 1 )
+LABEL_4:
+  v2 = 0xFFFFFA8000000000uLL;
+LABEL_5:
+  if ( v1 != 0x1000000000LL )
   {
-    v2 = v1;
-    result = qword_140C65CA0 + 1;
-    if ( v1 == qword_140C65CA0 + 1 )
-      return result;
-    if ( MmPhysicalMemoryBlock )
+    if ( !MmPhysicalMemoryBlock )
     {
-      for ( i = (unsigned __int64 *)((char *)MmPhysicalMemoryBlock + 16); ; i += 2 )
-      {
-        if ( i >= (unsigned __int64 *)((char *)MmPhysicalMemoryBlock + 16 * *(unsigned int *)MmPhysicalMemoryBlock + 16) )
-        {
-          v1 = v2;
-          v4 = qword_140C65CA0 - v2;
-          goto LABEL_7;
-        }
-        v18 = *i;
-        if ( v2 >= *i )
-        {
-          v19 = i[1] + v18;
-          if ( v2 < v19 )
-            v2 = v19;
-        }
-        else
-        {
-          v5 = v18 - v2;
-          if ( v18 - v2 >= 0x55 )
-          {
-            v1 = v2;
-            result = v2;
-            goto LABEL_8;
-          }
-          v2 = v18 + i[1];
-        }
-      }
-    }
-    v4 = qword_140C65CA0 - v1;
 LABEL_7:
-    v5 = v4 + 1;
-    result = v2;
-    if ( v4 == -1LL )
-      return result;
-LABEL_8:
-    v1 += v5;
-    v23 = v1;
-    v6 = (((unsigned __int64)(48 * result - 0x21FFFFFFF001LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v21 = v6;
-    v7 = (((48 * (v5 + v2) - 0x220000000000LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v22 = v7;
-    if ( v6 < v7 )
+      v3 = 0x1000000000LL - v1;
+      goto LABEL_8;
+    }
+    for ( i = (unsigned __int64 *)((char *)MmPhysicalMemoryBlock + 16); ; i += 2 )
     {
-      do
+      if ( i >= (unsigned __int64 *)((char *)MmPhysicalMemoryBlock + 16 * *(unsigned int *)MmPhysicalMemoryBlock + 16) )
       {
-        v8 = (__int64)(v7 - v6) >> 3 << 12;
-        LOBYTE(v6) = 2;
-        v20 = v8;
-        NextNonGapPfnPage = (_QWORD *)MiGetNextNonGapPfnPage(&v21, &v20, v6, 1LL);
-        if ( !NextNonGapPfnPage )
-          break;
-        v10 = v20 & 0xFFFFFFFFFFFFF000uLL;
-        if ( (v20 & 0xFFFFFFFFFFFFF000uLL) == 0 )
-          break;
-        do
-        {
-          if ( *NextNonGapPfnPage || (v11 = RtlCompareMemoryUlong(NextNonGapPfnPage, v10, 0), v11 < 0x1000) )
-          {
-            v11 = 4096LL;
-          }
-          else
-          {
-            v20 = (__int64)NextNonGapPfnPage;
-            v13 = (unsigned __int64)(NextNonGapPfnPage + 0x44000000000LL) / 0x30;
-            v14 = (_QWORD *)(48 * v13 - 0x220000000000LL);
-            if ( v14 != NextNonGapPfnPage
-              && MmIsAddressValidEx(48 * v13 - 0x220000000000LL)
-              && RtlCompareMemoryUlong(v14, 0x30uLL, 0) != 48 )
-            {
-              v20 = (__int64)(NextNonGapPfnPage + 512);
-            }
-            v15 = (char *)NextNonGapPfnPage + (v11 & 0xFFFFFFFFFFFFF000uLL);
-            v16 = (char *)(48 * ((unsigned __int64)(v15 + 0x220000000000LL) / 0x30) - 0x220000000000LL);
-            if ( v16 != v15 && MmIsAddressValidEx((__int64)(v16 + 48)) && RtlCompareMemoryUlong(v16, 0x30uLL, 0) != 48 )
-              v15 -= 4096;
-            MiPfnRangeIsZero(v20, v15);
-          }
-          v12 = (v11 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-          NextNonGapPfnPage = (_QWORD *)((char *)NextNonGapPfnPage + v12);
-          v10 -= v12;
-        }
-        while ( v10 >= 0x1000 );
-        v6 = v21;
-        v7 = v22;
-        v1 = v23;
+        v2 = 0xFFFFFA8000000000uLL;
+        goto LABEL_7;
       }
-      while ( v21 < v22 );
+      v17 = *i;
+      if ( v1 >= *i )
+      {
+        v18 = i[1] + v17;
+        if ( v1 < v18 )
+          v1 = v18;
+      }
+      else
+      {
+        v3 = v17 - v1;
+        if ( v17 - v1 >= 0x55 )
+        {
+          v2 = 0xFFFFFA8000000000uLL;
+LABEL_8:
+          v4 = v1;
+          if ( v3 )
+          {
+            v1 += v3;
+            v22 = v1;
+            v5 = (((48 * v4 - 0x57FFFFFF001LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            v20 = v5;
+            v6 = (((48 * v1 - 0x58000000000LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            v21 = v6;
+            if ( v5 < v6 )
+            {
+              do
+              {
+                LOBYTE(v2) = 2;
+                v19 = (__int64)(v6 - v5) >> 3 << 12;
+                NextNonGapPfnPage = (_QWORD *)MiGetNextNonGapPfnPage(&v20, &v19, v2, 1LL);
+                if ( !NextNonGapPfnPage )
+                  break;
+                v8 = v19 & 0xFFFFFFFFFFFFF000uLL;
+                if ( (v19 & 0xFFFFFFFFFFFFF000uLL) == 0 )
+                  break;
+                do
+                {
+                  if ( *NextNonGapPfnPage || (v9 = RtlCompareMemoryUlong(NextNonGapPfnPage, v8, 0), v9 < 0x1000) )
+                  {
+                    v9 = 4096LL;
+                  }
+                  else
+                  {
+                    v11 = NextNonGapPfnPage;
+                    v12 = (__int64)(NextNonGapPfnPage + 0xB000000000LL) / 48;
+                    v13 = (_QWORD *)(48 * v12 - 0x58000000000LL);
+                    if ( v13 != NextNonGapPfnPage
+                      && (!MmIsAddressValidEx(48 * v12 - 0x58000000000LL) || RtlCompareMemoryUlong(v13, 0x30uLL, 0) != 48) )
+                    {
+                      v11 = NextNonGapPfnPage + 512;
+                    }
+                    v14 = (char *)NextNonGapPfnPage + (v9 & 0xFFFFFFFFFFFFF000uLL);
+                    v15 = (char *)(48 * ((__int64)(v14 + 0x58000000000LL) / 48) - 0x58000000000LL);
+                    if ( v15 != v14
+                      && (!MmIsAddressValidEx((__int64)(v15 + 48)) || RtlCompareMemoryUlong(v15, 0x30uLL, 0) != 48) )
+                    {
+                      v14 -= 4096;
+                    }
+                    MiPfnRangeIsZero(v11, v14);
+                  }
+                  v10 = (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+                  NextNonGapPfnPage = (_QWORD *)((char *)NextNonGapPfnPage + v10);
+                  v8 -= v10;
+                }
+                while ( v8 >= 0x1000 );
+                v5 = v20;
+                v6 = v21;
+                v1 = v22;
+              }
+              while ( v20 < v21 );
+              goto LABEL_4;
+            }
+            goto LABEL_5;
+          }
+          return;
+        }
+        v1 = v17 + i[1];
+      }
     }
   }
 }

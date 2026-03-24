@@ -1,27 +1,25 @@
 /*
- * XREFs of CcUninitializeCacheMap @ 0x14029BB20
+ * XREFs of CcUninitializeCacheMap @ 0x140276F30
  * Callers:
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x140270FA0 (CcPurgeCacheSection.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14020C898 (IoDiskIoAttributionDereference.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260E00 (KxWaitForLockOwnerShip.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x140299784 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcScheduleLazyWriteScan @ 0x1402998D8 (CcScheduleLazyWriteScan.c)
- *     CcDeleteSharedCacheMap @ 0x140299EA0 (CcDeleteSharedCacheMap.c)
- *     CcFreeWorkQueueEntry @ 0x14029C270 (CcFreeWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x14029C310 (CcDereferencePartition.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
- *     CcFreePrivateCacheMapIgnoreNull @ 0x14040F3AC (CcFreePrivateCacheMapIgnoreNull.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045FB2E (KiAcquireQueuedSpinLockInstrumented.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140535D04 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPurgeCacheSection @ 0x140270FA0 (CcPurgeCacheSection.c)
+ *     CcDeleteSharedCacheMap @ 0x14027445C (CcDeleteSharedCacheMap.c)
+ *     CcFreeWorkQueueEntry @ 0x14027733C (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x1402773AC (CcDereferencePartition.c)
+ *     CcScheduleLazyWriteScan @ 0x1402773DC (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140277468 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1402B69C0 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     IoDiskIoAttributionDereference @ 0x1402E06F4 (IoDiskIoAttributionDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall CcUninitializeCacheMap(
@@ -29,347 +27,342 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
         PLARGE_INTEGER TruncateSize,
         PCACHE_UNINITIALIZE_EVENT UninitializeEvent)
 {
-  __int64 v5; // r15
-  __int64 v6; // r13
-  unsigned __int8 CurrentIrql; // r8
-  _DWORD *SchedulerAssist; // r10
-  __int64 v9; // rdx
-  signed __int64 *v10; // rdx
-  PFILE_OBJECT v11; // r8
-  PFILE_OBJECT *PrivateCacheMap; // r12
+  BOOLEAN v4; // r15
+  bool v5; // r12
+  PFILE_OBJECT v6; // r13
+  __int64 Partition; // rsi
+  unsigned __int8 CurrentIrql; // r11
+  __int64 v9; // r8
+  PFILE_OBJECT *PrivateCacheMap; // rdi
   char *SharedCacheMap; // rbx
-  PFILE_OBJECT v14; // rax
-  __int64 v15; // rdx
-  _QWORD *p_Type; // rcx
-  PFILE_OBJECT v17; // rdx
-  PVOID *v18; // rcx
+  PFILE_OBJECT **v12; // rdx
+  PVOID *v13; // rcx
+  __int64 v14; // rdx
+  PCACHE_UNINITIALIZE_EVENT v15; // r11
+  int v16; // eax
+  unsigned __int64 OldIrql; // rbx
+  __int64 v18; // rdx
   unsigned __int64 v19; // rbx
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r10
-  _DWORD *v22; // r9
-  int v23; // eax
-  bool v24; // zf
-  __int64 v25; // rdx
-  unsigned __int64 v26; // rbx
+  unsigned __int64 v21; // rbx
+  PFILE_OBJECT v22; // rax
+  __int64 v23; // rdx
+  _QWORD *p_Type; // rcx
+  PVOID FsContext; // rcx
+  _DWORD *SchedulerAssist; // r10
   unsigned __int8 v27; // al
-  struct _KPRCB *v28; // r10
+  struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v29; // r9
   int v30; // eax
-  int v31; // eax
-  bool v32; // bl
-  BOOLEAN v33; // di
-  _BYTE *v34; // rax
-  unsigned __int64 OldIrql; // rbx
-  unsigned __int8 v36; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v38; // r9
-  int v39; // eax
-  unsigned __int64 v40; // rbx
-  unsigned __int8 v41; // al
-  struct _KPRCB *v42; // r10
-  _DWORD *v43; // r9
-  int v44; // eax
-  __int64 v45; // rcx
-  PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-50h]
-  struct _KLOCK_QUEUE_HANDLE v48; // [rsp+38h] [rbp-48h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-30h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v50; // [rsp+68h] [rbp-18h] BYREF
-  bool v52; // [rsp+D8h] [rbp+58h]
+  bool v31; // zf
+  unsigned __int8 v32; // al
+  _DWORD *v33; // r9
+  int v34; // eax
+  unsigned __int8 v35; // al
+  struct _KPRCB *v36; // r9
+  _DWORD *v37; // r8
+  int v38; // eax
+  unsigned __int8 v39; // r9
+  unsigned __int8 v40; // al
+  struct _KPRCB *v41; // r10
+  _DWORD *v42; // r8
+  int v43; // eax
+  unsigned __int8 v44; // al
+  struct _KPRCB *v45; // r9
+  _DWORD *v46; // r8
+  int v47; // eax
+  struct _KLOCK_QUEUE_HANDLE v48; // [rsp+30h] [rbp-50h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-38h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v50; // [rsp+60h] [rbp-20h] BYREF
+  unsigned __int8 v51; // [rsp+C0h] [rbp+40h]
+  PCACHE_UNINITIALIZE_EVENT v53; // [rsp+D0h] [rbp+50h]
 
-  ListEntry = 0LL;
-  *(_QWORD *)&v48.OldIrql = 0LL;
-  memset(&LockHandle, 0, sizeof(LockHandle));
+  v53 = UninitializeEvent;
   v48.LockQueue.Lock = &CcMasterLock;
-  memset(&v50, 0, sizeof(v50));
+  v4 = 0;
+  v5 = 0;
   v48.LockQueue.Next = 0LL;
-  v5 = 0LL;
-  v52 = 0;
+  *(_QWORD *)&v48.OldIrql = 0LL;
   v6 = 0LL;
+  Partition = 0LL;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  memset(&v50, 0, sizeof(v50));
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v9) = 4;
-    else
-      v9 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v9;
+    UninitializeEvent = (PCACHE_UNINITIALIZE_EVENT)((-1LL << (CurrentIrql + 1)) & 4);
+    SchedulerAssist[5] |= (unsigned int)UninitializeEvent;
   }
   v48.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-  {
-    KiAcquireQueuedSpinLockInstrumented(&v48, &CcMasterLock);
-  }
-  else
-  {
-    v10 = (signed __int64 *)_InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v48);
-    if ( v10 )
-      KxWaitForLockOwnerShip((signed __int64)&v48, v10);
-  }
-  v11 = FileObject;
+  KxAcquireQueuedSpinLock(&v48, &CcMasterLock, UninitializeEvent);
   PrivateCacheMap = (PFILE_OBJECT *)FileObject->PrivateCacheMap;
   SharedCacheMap = (char *)FileObject->SectionObjectPointer->SharedCacheMap;
   if ( SharedCacheMap )
   {
-    v6 = 0LL;
-    v5 = *((_QWORD *)SharedCacheMap + 67);
-    if ( CcEnablePerVolumeLazyWriter )
-      v6 = *((_QWORD *)SharedCacheMap + 75);
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(v5 + 1296)) <= 1 )
+    Partition = CcGetPartition(FileObject->SectionObjectPointer->SharedCacheMap);
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(Partition + 968)) <= 1 )
       __fastfail(0xEu);
-    if ( v6 && _InterlockedIncrement64((volatile signed __int64 *)(v6 + 8)) <= 1 )
-      __fastfail(0xEu);
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 768), &LockHandle);
-    v11 = FileObject;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
   }
-  if ( PrivateCacheMap )
+  if ( !PrivateCacheMap )
   {
-    if ( PrivateCacheMap[1] != v11 )
-      KeBugCheckEx(0x34u, 0xAABuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    if ( !v5 )
-      KeBugCheckEx(0x34u, 0xAB1uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    if ( PrivateCacheMap[14] )
-    {
-      KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v5 + 832), &v50);
-      v14 = PrivateCacheMap[14];
-      if ( v14 )
-      {
-        v15 = *(_QWORD *)&v14->Type;
-        ++CcDbgNumberOfNoopedReadAheads;
-        p_Type = &v14->DeviceObject->Type;
-        ListEntry = (PSLIST_ENTRY)v14;
-        if ( *(PFILE_OBJECT *)(v15 + 8) != v14 || (PFILE_OBJECT)*p_Type != v14 )
-          goto LABEL_36;
-        *p_Type = v15;
-        *(_QWORD *)(v15 + 8) = p_Type;
-        v14->DeviceObject = 0LL;
-        *(_QWORD *)&v14->Type = 0LL;
-        if ( (PFILE_OBJECT)v14->Vpb != FileObject )
-          KeBugCheckEx(0x34u, 0xAD2uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-        --*((_DWORD *)SharedCacheMap + 1);
-        --*((_DWORD *)SharedCacheMap + 136);
-      }
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&v50);
-      v11 = FileObject;
-    }
-    --*((_DWORD *)SharedCacheMap + 1);
-    v17 = PrivateCacheMap[12];
-    v18 = (PVOID *)PrivateCacheMap[13];
-    if ( (PFILE_OBJECT *)v17->DeviceObject == PrivateCacheMap + 12 && *v18 == PrivateCacheMap + 12 )
-    {
-      *v18 = v17;
-      v17->DeviceObject = (PDEVICE_OBJECT)v18;
-      if ( PrivateCacheMap == (PFILE_OBJECT *)(SharedCacheMap + 384) )
-      {
-        *(_WORD *)PrivateCacheMap = 0;
-        PrivateCacheMap = 0LL;
-      }
-      v11->PrivateCacheMap = 0LL;
-      goto LABEL_37;
-    }
-LABEL_36:
-    __fastfail(3u);
+    v14 = 0LL;
+    goto LABEL_14;
   }
-LABEL_37:
-  if ( !SharedCacheMap )
+  if ( PrivateCacheMap[1] != FileObject )
+    KeBugCheckEx(0x34u, 0x93DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  if ( !Partition )
+    KeBugCheckEx(0x34u, 0x943uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  if ( PrivateCacheMap[14] )
   {
-    if ( TruncateSize && !TruncateSize->QuadPart && v11->SectionObjectPointer->DataSectionObject )
+    v50.LockQueue.Lock = (unsigned __int64 *volatile)(Partition + 192);
+    v50.LockQueue.Next = 0LL;
+    KxAcquireQueuedSpinLock(&v50, Partition + 192, v9);
+    v22 = PrivateCacheMap[14];
+    if ( v22 )
     {
-      if ( v5 )
-        KeBugCheckEx(0x34u, 0xBF9uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&v48);
-      OldIrql = v48.OldIrql;
-      if ( KiIrqlFlags )
-      {
-        v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v48.OldIrql <= 0xFu && v36 >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v38 = CurrentPrcb->SchedulerAssist;
-          v39 = ~(unsigned __int16)(-1LL << (v48.OldIrql + 1));
-          v24 = (v39 & v38[5]) == 0;
-          v38[5] &= v39;
-          if ( v24 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
-      __writecr8(OldIrql);
-      CcPurgeCacheSection(FileObject->SectionObjectPointer, TruncateSize, 0, 0);
+      v23 = *(_QWORD *)&v22->Type;
+      v6 = PrivateCacheMap[14];
+      ++CcDbgNumberOfNoopedReadAheads;
+      p_Type = &v22->DeviceObject->Type;
+      if ( *(PFILE_OBJECT *)(v23 + 8) != v22 || (PFILE_OBJECT)*p_Type != v22 )
+LABEL_70:
+        __fastfail(3u);
+      *p_Type = v23;
+      *(_QWORD *)(v23 + 8) = p_Type;
+      v22->DeviceObject = 0LL;
+      *(_QWORD *)&v22->Type = 0LL;
+      if ( (PFILE_OBJECT)v22->Vpb != FileObject )
+        KeBugCheckEx(0x34u, 0x964uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+      --*((_DWORD *)SharedCacheMap + 1);
+      --*((_DWORD *)SharedCacheMap + 134);
     }
-    else
-    {
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&v48);
-      v40 = v48.OldIrql;
-      if ( KiIrqlFlags )
-      {
-        v41 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v48.OldIrql <= 0xFu && v41 >= 2u )
-        {
-          v42 = KeGetCurrentPrcb();
-          v43 = v42->SchedulerAssist;
-          v25 = -1LL << (v48.OldIrql + 1);
-          v44 = ~(unsigned __int16)v25;
-          v24 = (v44 & v43[5]) == 0;
-          v43[5] &= v44;
-          if ( v24 )
-            KiRemoveSystemWorkPriorityKick(v42);
-        }
-      }
-      __writecr8(v40);
-    }
-    if ( UninitializeEvent )
-      KeSetEvent(&UninitializeEvent->Event, 0, 0);
-    goto LABEL_107;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v50);
   }
-  if ( TruncateSize )
+  --*((_DWORD *)SharedCacheMap + 1);
+  v12 = (PFILE_OBJECT **)PrivateCacheMap[12];
+  v13 = (PVOID *)PrivateCacheMap[13];
+  if ( v12[1] != PrivateCacheMap + 12 || *v13 != PrivateCacheMap + 12 )
+    goto LABEL_70;
+  *v13 = v12;
+  v12[1] = (PFILE_OBJECT *)v13;
+  v14 = 0LL;
+  if ( PrivateCacheMap == (PFILE_OBJECT *)(SharedCacheMap + 376) )
   {
-    if ( TruncateSize->QuadPart || !*((_QWORD *)SharedCacheMap + 1) )
-    {
-      if ( *((char **)SharedCacheMap + 29) == SharedCacheMap + 232 )
-        *((LARGE_INTEGER *)SharedCacheMap + 1) = *TruncateSize;
-    }
-    else
-    {
-      *((_DWORD *)SharedCacheMap + 38) |= 0x10u;
-    }
+    *(_WORD *)PrivateCacheMap = 0;
+    PrivateCacheMap = 0LL;
   }
-  if ( *((_DWORD *)SharedCacheMap + 1) )
+  FileObject->PrivateCacheMap = 0LL;
+LABEL_14:
+  if ( SharedCacheMap )
   {
-    if ( UninitializeEvent )
+    if ( TruncateSize )
     {
-      if ( *((char **)SharedCacheMap + 29) == SharedCacheMap + 232 )
+      if ( TruncateSize->QuadPart || !*((_QWORD *)SharedCacheMap + 1) )
       {
-        UninitializeEvent->Next = (_CACHE_UNINITIALIZE_EVENT *)*((_QWORD *)SharedCacheMap + 35);
-        *((_QWORD *)SharedCacheMap + 35) = UninitializeEvent;
-        v52 = (v11->DeviceObject->Characteristics & 0x10) != 0;
+        if ( *((char **)SharedCacheMap + 28) == SharedCacheMap + 224 )
+          *((LARGE_INTEGER *)SharedCacheMap + 1) = *TruncateSize;
       }
       else
       {
-        KeSetEvent(&UninitializeEvent->Event, 0, 0);
+        *((_DWORD *)SharedCacheMap + 38) |= 0x10u;
       }
     }
-    goto LABEL_49;
-  }
-  if ( *((char **)SharedCacheMap + 29) != SharedCacheMap + 232 )
-    KeBugCheckEx(0x34u, 0xB4EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  if ( UninitializeEvent )
-  {
-    UninitializeEvent->Next = (_CACHE_UNINITIALIZE_EVENT *)*((_QWORD *)SharedCacheMap + 35);
-    *((_QWORD *)SharedCacheMap + 35) = UninitializeEvent;
-    v52 = (v11->DeviceObject->Characteristics & 0x10) != 0;
-  }
-  v31 = *((_DWORD *)SharedCacheMap + 38);
-  if ( (v31 & 4) != 0 || UninitializeEvent )
-  {
-    if ( (v31 & 0x20) == 0 )
+    if ( *((_DWORD *)SharedCacheMap + 1) )
     {
-      if ( !*((_DWORD *)SharedCacheMap + 28)
-        && ((v31 & 0x400) == 0 || *((_QWORD *)SharedCacheMap + 5) == 0x7FFFFFFFFFFFFFFFLL) )
+      if ( v53 )
       {
-        CcDeleteSharedCacheMap(SharedCacheMap, (volatile signed __int64 **)&v48, (__int64)&LockHandle, 0, 0LL);
-        v32 = 0;
-        v33 = 1;
-        goto LABEL_108;
+        if ( *((char **)SharedCacheMap + 28) == SharedCacheMap + 224 )
+        {
+          v53->Next = (_CACHE_UNINITIALIZE_EVENT *)*((_QWORD *)SharedCacheMap + 34);
+          *((_QWORD *)SharedCacheMap + 34) = v53;
+          v5 = (FileObject->DeviceObject->Characteristics & 0x10) != 0;
+        }
+        else
+        {
+          KeSetEvent(&v53->Event, 0, 0);
+        }
       }
-      goto LABEL_75;
-    }
-  }
-  else if ( (v31 & 0x20) == 0 )
-  {
-LABEL_75:
-    CcInsertIntoDirtySharedCacheMapList((__int64)SharedCacheMap);
-  }
-  if ( CcEnablePerVolumeLazyWriter )
-    v34 = (_BYTE *)(*((_QWORD *)SharedCacheMap + 75) + 986LL);
-  else
-    v34 = (_BYTE *)(*((_QWORD *)SharedCacheMap + 67) + 1050LL);
-  *v34 = 1;
-  if ( *(_BYTE *)(v5 + 1294) )
-  {
-    *((_DWORD *)SharedCacheMap + 38) |= 0x10000u;
-    LOBYTE(v11) = 1;
-    CcScheduleLazyWriteScan((_BYTE *)v5, v6, (__int64)v11, 1);
-  }
-  else if ( !UninitializeEvent || (*((_DWORD *)SharedCacheMap + 38) & 0x20) != 0 )
-  {
-    LOBYTE(v11) = 0;
-    CcScheduleLazyWriteScan((_BYTE *)v5, v6, (__int64)v11, 0);
-  }
-  else
-  {
-    LOBYTE(v11) = 1;
-    CcScheduleLazyWriteScan((_BYTE *)v5, v6, (__int64)v11, 1);
-  }
-LABEL_49:
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  v19 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
-  {
-    v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
-    {
-      v21 = KeGetCurrentPrcb();
-      v22 = v21->SchedulerAssist;
-      v23 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v24 = (v23 & v22[5]) == 0;
-      v22[5] &= v23;
-      if ( v24 )
-        KiRemoveSystemWorkPriorityKick(v21);
-    }
-  }
-  __writecr8(v19);
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v48);
-  v26 = v48.OldIrql;
-  if ( KiIrqlFlags )
-  {
-    v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && v48.OldIrql <= 0xFu && v27 >= 2u )
-    {
-      v28 = KeGetCurrentPrcb();
-      v29 = v28->SchedulerAssist;
-      v25 = -1LL << (v48.OldIrql + 1);
-      v30 = ~(unsigned __int16)v25;
-      v24 = (v30 & v29[5]) == 0;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( !KiIrqlFlags )
+        goto LABEL_28;
+      if ( (KiIrqlFlags & 1) == 0 )
+        goto LABEL_28;
+      v27 = KeGetCurrentIrql();
+      if ( v27 > 0xFu )
+        goto LABEL_28;
+      if ( LockHandle.OldIrql > 0xFu )
+        goto LABEL_28;
+      if ( v27 < 2u )
+        goto LABEL_28;
+      CurrentPrcb = KeGetCurrentPrcb();
+      v29 = CurrentPrcb->SchedulerAssist;
+      v30 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+      v31 = (v30 & v29[5]) == 0;
       v29[5] &= v30;
-      if ( v24 )
-        KiRemoveSystemWorkPriorityKick(v28);
+      if ( !v31 )
+        goto LABEL_28;
+LABEL_95:
+      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+LABEL_28:
+      __writecr8(OldIrql);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v48);
+      v19 = v48.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v35 = KeGetCurrentIrql();
+          if ( v35 <= 0xFu && v48.OldIrql <= 0xFu && v35 >= 2u )
+          {
+            v36 = KeGetCurrentPrcb();
+            v37 = v36->SchedulerAssist;
+            v38 = ~(unsigned __int16)(-1LL << (v48.OldIrql + 1));
+            v31 = (v38 & v37[5]) == 0;
+            v18 = (unsigned int)v38 & v37[5];
+            v37[5] = v18;
+            if ( v31 )
+              KiRemoveSystemWorkPriorityKick(v36);
+          }
+        }
+      }
+      __writecr8(v19);
+      goto LABEL_30;
     }
+    if ( *((char **)SharedCacheMap + 28) != SharedCacheMap + 224 )
+      KeBugCheckEx(0x34u, 0x9E0uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    v15 = v53;
+    if ( v53 )
+    {
+      v53->Next = (_CACHE_UNINITIALIZE_EVENT *)*((_QWORD *)SharedCacheMap + 34);
+      *((_QWORD *)SharedCacheMap + 34) = v53;
+      v5 = (FileObject->DeviceObject->Characteristics & 0x10) != 0;
+    }
+    v16 = *((_DWORD *)SharedCacheMap + 38);
+    if ( (v16 & 4) != 0 || v53 )
+    {
+      if ( (v16 & 0x20) != 0 )
+        goto LABEL_24;
+      if ( !*((_DWORD *)SharedCacheMap + 28)
+        && ((v16 & 0x400) == 0 || *((_QWORD *)SharedCacheMap + 5) == 0x7FFFFFFFFFFFFFFFLL) )
+      {
+        CcDeleteSharedCacheMap(SharedCacheMap, &v48, &LockHandle, 0, 0LL);
+        v5 = 0;
+        v4 = 1;
+        goto LABEL_30;
+      }
+    }
+    if ( (v16 & 0x20) == 0 )
+      CcInsertIntoDirtySharedCacheMapList(SharedCacheMap);
+LABEL_24:
+    *(_BYTE *)(Partition + 633) = 1;
+    if ( *(_BYTE *)(Partition + 966) )
+    {
+      *((_DWORD *)SharedCacheMap + 38) |= 0x10000u;
+      LOBYTE(v14) = 1;
+    }
+    else
+    {
+      LOBYTE(v14) = v15 && (*((_DWORD *)SharedCacheMap + 38) & 0x20) == 0;
+    }
+    CcScheduleLazyWriteScan(Partition, v14, (unsigned __int8)v14);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    OldIrql = LockHandle.OldIrql;
+    if ( !KiIrqlFlags )
+      goto LABEL_28;
+    if ( (KiIrqlFlags & 1) == 0 )
+      goto LABEL_28;
+    v32 = KeGetCurrentIrql();
+    if ( v32 > 0xFu )
+      goto LABEL_28;
+    if ( LockHandle.OldIrql > 0xFu )
+      goto LABEL_28;
+    if ( v32 < 2u )
+      goto LABEL_28;
+    CurrentPrcb = KeGetCurrentPrcb();
+    v33 = CurrentPrcb->SchedulerAssist;
+    v34 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+    v31 = (v34 & v33[5]) == 0;
+    v33[5] &= v34;
+    if ( !v31 )
+      goto LABEL_28;
+    goto LABEL_95;
   }
-  __writecr8(v26);
-LABEL_107:
-  v32 = v52;
-  v33 = 0;
-LABEL_108:
-  if ( EnableFeatureServicing_45016043 )
+  if ( TruncateSize && !TruncateSize->QuadPart && FileObject->SectionObjectPointer->DataSectionObject )
   {
-    CcFreePrivateCacheMapIgnoreNull(PrivateCacheMap);
+    if ( Partition )
+      KeBugCheckEx(0x34u, 0xA82uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v48);
+    v39 = v48.OldIrql;
+    v51 = v48.OldIrql;
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v40 = KeGetCurrentIrql();
+        if ( v40 <= 0xFu && v48.OldIrql <= 0xFu && v40 >= 2u )
+        {
+          v41 = KeGetCurrentPrcb();
+          v42 = v41->SchedulerAssist;
+          v43 = ~(unsigned __int16)(-1LL << (v48.OldIrql + 1));
+          v31 = (v43 & v42[5]) == 0;
+          v42[5] &= v43;
+          if ( v31 )
+          {
+            KiRemoveSystemWorkPriorityKick(v41);
+            v39 = v51;
+          }
+        }
+      }
+    }
+    __writecr8(v39);
+    CcPurgeCacheSection(FileObject->SectionObjectPointer, TruncateSize, 0, 0);
   }
-  else if ( PrivateCacheMap )
+  else
   {
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v48);
+    v21 = v48.OldIrql;
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v44 = KeGetCurrentIrql();
+        if ( v44 <= 0xFu && v48.OldIrql <= 0xFu && v44 >= 2u )
+        {
+          v45 = KeGetCurrentPrcb();
+          v46 = v45->SchedulerAssist;
+          v47 = ~(unsigned __int16)(-1LL << (v48.OldIrql + 1));
+          v31 = (v47 & v46[5]) == 0;
+          v18 = (unsigned int)v47 & v46[5];
+          v46[5] = v18;
+          if ( v31 )
+            KiRemoveSystemWorkPriorityKick(v45);
+        }
+      }
+    }
+    __writecr8(v21);
+  }
+  if ( v53 )
+    KeSetEvent(&v53->Event, 0, 0);
+LABEL_30:
+  if ( PrivateCacheMap )
     ExFreePoolWithTag(PrivateCacheMap, 0);
-  }
-  if ( v32 )
-  {
-    LOBYTE(v25) = 1;
-    CcAdjustWriteBehindThreadPoolIfNeeded(v5, v25);
-  }
-  if ( ListEntry )
-  {
-    ObfDereferenceObject(FileObject);
-    v45 = *((_QWORD *)&ListEntry[1].Next + 1);
-    if ( v45 )
-      IoDiskIoAttributionDereference(v45);
-    CcFreeWorkQueueEntry(ListEntry);
-  }
   if ( v5 )
   {
-    CcDereferencePartition(v5);
-    if ( v6 )
-    {
-      if ( _InterlockedDecrement64((volatile signed __int64 *)(v6 + 8)) <= -1 )
-        __fastfail(0xEu);
-    }
+    LOBYTE(v18) = 1;
+    CcAdjustWriteBehindThreadPoolIfNeeded(Partition, v18);
   }
-  return v33;
+  if ( v6 )
+  {
+    HalPutDmaAdapter((PADAPTER_OBJECT)FileObject);
+    FsContext = v6->FsContext;
+    if ( FsContext )
+      IoDiskIoAttributionDereference(FsContext);
+    CcFreeWorkQueueEntry((PSLIST_ENTRY)v6);
+  }
+  if ( Partition )
+    CcDereferencePartition(Partition);
+  return v4;
 }

@@ -2,8 +2,8 @@
  * XREFs of FsRtlpCleanupEcps @ 0x14060B7E4
  * Callers:
  *     NtQueryFullAttributesFile @ 0x14060B590 (NtQueryFullAttributesFile.c)
- *     IopCleanupExtraCreateParameters @ 0x14070F25C (IopCleanupExtraCreateParameters.c)
- *     IopFastQueryNetworkAttributes @ 0x14081CE14 (IopFastQueryNetworkAttributes.c)
+ *     IopCleanupExtraCreateParameters @ 0x14070F23C (IopCleanupExtraCreateParameters.c)
+ *     IopFastQueryNetworkAttributes @ 0x14081CDF4 (IopFastQueryNetworkAttributes.c)
  * Callees:
  *     FsRtlFreeExtraCreateParameterList @ 0x14060CEF0 (FsRtlFreeExtraCreateParameterList.c)
  *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)

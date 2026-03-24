@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpValidateGlobalFlushControlFlags @ 0x1408662B8
+ * XREFs of CmpValidateGlobalFlushControlFlags @ 0x1407A59F4
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
  *     <none>
  */

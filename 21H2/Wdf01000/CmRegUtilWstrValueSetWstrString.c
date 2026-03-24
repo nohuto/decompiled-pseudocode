@@ -1,10 +1,10 @@
 /*
- * XREFs of CmRegUtilWstrValueSetWstrString @ 0x1C00BF84C
+ * XREFs of CmRegUtilWstrValueSetWstrString @ 0x1C00BE0D8
  * Callers:
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BEF84 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BD814 (PpRegStateReadCreateClassCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C008FBA4 (WdmlibRtlInitUnicodeStringEx.c)
- *     CmRegUtilUcValueSetUcString @ 0x1C00BF6A0 (CmRegUtilUcValueSetUcString.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C008EE80 (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C00BDF2C (CmRegUtilUcValueSetUcString.c)
  */
 
 __int64 __fastcall CmRegUtilWstrValueSetWstrString(void *KeyHandle, wchar_t *ValueName, wchar_t *ValueData)

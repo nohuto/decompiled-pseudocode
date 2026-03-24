@@ -1,20 +1,21 @@
 /*
- * XREFs of ??1MCCollections@@QEAA@XZ @ 0x180283650
+ * XREFs of ??1MCCollections@@QEAA@XZ @ 0x1802213A4
  * Callers:
- *     ??1CManipulationManager@@MEAA@XZ @ 0x18028352C (--1CManipulationManager@@MEAA@XZ.c)
+ *     ??1CManipulationManager@@MEAA@XZ @ 0x180221274 (--1CManipulationManager@@MEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 void __fastcall MCCollections::~MCCollections(MCCollections *this)
 {
   void *v2; // rcx
   void *v3; // rcx
-  _DWORD *v4; // rdi
-  int i; // esi
-  int j; // edi
-  void *v7; // rcx
+  void *v4; // rcx
+  int v5; // edi
+  void *v6; // rcx
+  int v7; // edi
+  void *v8; // rcx
 
   v2 = (void *)*((_QWORD *)this + 5);
   if ( v2 )
@@ -29,27 +30,40 @@ void __fastcall MCCollections::~MCCollections(MCCollections *this)
     *((_QWORD *)this + 6) = 0LL;
   }
   *((_DWORD *)this + 14) = 0;
-  v4 = (_DWORD *)((char *)this + 32);
-  if ( *((_QWORD *)this + 3) )
+  v4 = (void *)*((_QWORD *)this + 3);
+  if ( v4 )
   {
-    for ( i = 0; i < *v4; ++i )
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)(*((_QWORD *)this + 3) + 8LL * i));
-    operator delete(*((void **)this + 3));
+    v5 = 0;
+    if ( *((int *)this + 8) > 0 )
+    {
+      do
+        Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)(*((_QWORD *)this + 3) + 8LL * v5++));
+      while ( v5 < *((_DWORD *)this + 8) );
+      v4 = (void *)*((_QWORD *)this + 3);
+    }
+    operator delete(v4);
     *((_QWORD *)this + 3) = 0LL;
   }
-  *v4 = 0;
+  *((_DWORD *)this + 8) = 0;
   *((_DWORD *)this + 9) = 0;
+  v6 = *(void **)this;
   if ( *(_QWORD *)this )
   {
-    for ( j = 0; j < *((_DWORD *)this + 4); ++j )
-      Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)(*((_QWORD *)this + 1) + 8LL * j));
-    operator delete(*(void **)this);
+    v7 = 0;
+    if ( *((int *)this + 4) > 0 )
+    {
+      do
+        Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)(*((_QWORD *)this + 1) + 8LL * v7++));
+      while ( v7 < *((_DWORD *)this + 4) );
+      v6 = *(void **)this;
+    }
+    operator delete(v6);
     *(_QWORD *)this = 0LL;
   }
-  v7 = (void *)*((_QWORD *)this + 1);
-  if ( v7 )
+  v8 = (void *)*((_QWORD *)this + 1);
+  if ( v8 )
   {
-    operator delete(v7);
+    operator delete(v8);
     *((_QWORD *)this + 1) = 0LL;
   }
   *((_DWORD *)this + 4) = 0;

@@ -1,23 +1,26 @@
 /*
- * XREFs of ExpCreateWorkerThread @ 0x140683520
+ * XREFs of ExpCreateWorkerThread @ 0x1406FD7FC
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x14083A910 (ExpWorkQueueManagerThread.c)
- *     ExpPartitionCreatePoolInternal @ 0x14084AA20 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerThread @ 0x1407AFC80 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C2E3C (ExpWorkQueueInitializeWithMinimumThreads.c)
  * Callees:
- *     KeBoostPriorityThread @ 0x1402039B4 (KeBoostPriorityThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ExpPartitionCreateSystemThread @ 0x1406835FC (ExpPartitionCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeBoostPriorityThread @ 0x140353A70 (KeBoostPriorityThread.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExpPartitionCreateSystemThread @ 0x1406FD8D8 (ExpPartitionCreateSystemThread.c)
  */
 
-__int64 __fastcall ExpCreateWorkerThread(_QWORD *a1, int a2, __int64 a3, int a4)
+__int64 __fastcall ExpCreateWorkerThread(_QWORD *a1, __int64 a2, __int64 a3, int a4)
 {
   signed __int32 v5; // eax
-  signed __int32 v6; // ett
+  signed __int32 v6; // r8d
+  signed __int32 v7; // ett
   int SystemThread; // edi
-  signed __int32 v9; // eax
-  signed __int32 v10; // ett
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  signed __int32 v12; // eax
+  signed __int32 v13; // ett
   PVOID Object; // [rsp+60h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp+18h]
 
@@ -26,29 +29,30 @@ __int64 __fastcall ExpCreateWorkerThread(_QWORD *a1, int a2, __int64 a3, int a4)
   v5 = *((_DWORD *)a1 + 178);
   do
   {
-    v6 = v5;
-    v5 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + 178, (v5 + 1) | 0x4000, v5);
+    v6 = (v5 + 1) | 0x4000;
+    v7 = v5;
+    v5 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + 178, v6, v5);
   }
-  while ( v6 != v5 );
-  SystemThread = ExpPartitionCreateSystemThread(a1[86], a1[87], a2, a4);
+  while ( v7 != v5 );
+  SystemThread = ExpPartitionCreateSystemThread(a1[86], a1[87], v6, a4);
   if ( SystemThread < 0 )
   {
     _m_prefetchw(a1 + 89);
-    v9 = *((_DWORD *)a1 + 178);
+    v12 = *((_DWORD *)a1 + 178);
     do
     {
-      v10 = v9;
-      v9 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + 178, (v9 & 0x3FFF) - 1, v9);
+      v13 = v12;
+      v12 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + 178, (v12 & 0x3FFF) - 1, v12);
     }
-    while ( v10 != v9 );
+    while ( v13 != v12 );
   }
   else
   {
     Object = 0LL;
     if ( ObReferenceObjectByHandle(Handle, 0x20u, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL) >= 0 )
     {
-      KeBoostPriorityThread((__int64)Object, 8);
-      ObfDereferenceObject(Object);
+      KeBoostPriorityThread((__int64)Object, 8LL, v9, v10);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
     ZwClose(Handle);
   }

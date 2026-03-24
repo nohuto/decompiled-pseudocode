@@ -1,31 +1,30 @@
 /*
- * XREFs of _LockWindowStation @ 0x1C00B6F60
+ * XREFs of _LockWindowStation @ 0x1C012E460
  * Callers:
- *     NtUserLockWindowStation @ 0x1C00B6EE0 (NtUserLockWindowStation.c)
+ *     NtUserLockWindowStation @ 0x1C012E3E0 (NtUserLockWindowStation.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall LockWindowStation(__int64 a1)
 {
   int v2; // ebx
-  _QWORD *v3; // rcx
-  int v4; // eax
+  __int64 v3; // r8
+  int v4; // ecx
+  _QWORD *i; // rax
 
   v2 = 0;
   if ( PsGetCurrentProcessId() == (HANDLE)gpidLogon )
   {
-    v3 = *(_QWORD **)(a1 + 16);
-    v4 = *(_DWORD *)(a1 + 64) | 1;
-    *(_DWORD *)(a1 + 64) = v4;
-    while ( v3 )
+    *(_DWORD *)(a1 + 64) |= 1u;
+    v4 = *(_DWORD *)(a1 + 64);
+    for ( i = *(_QWORD **)(a1 + 16); i; i = (_QWORD *)i[4] )
     {
-      if ( v3 != grpdeskLogon && *(v3 - 5) )
+      if ( i != grpdeskLogon && *(i - 5) )
       {
         v2 = 1;
         break;
       }
-      v3 = (_QWORD *)v3[4];
     }
     if ( (v4 & 8) != 0 )
       *(_DWORD *)(a1 + 64) = v4 | 2;
@@ -33,7 +32,7 @@ __int64 __fastcall LockWindowStation(__int64 a1)
   }
   else
   {
-    UserSetLastError(5LL);
+    UserSetLastError(5LL, gpidLogon, v3);
     return 0LL;
   }
 }

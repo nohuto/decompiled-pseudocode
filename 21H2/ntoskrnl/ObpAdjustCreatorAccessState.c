@@ -1,28 +1,29 @@
 /*
- * XREFs of ObpAdjustCreatorAccessState @ 0x1407227B0
+ * XREFs of ObpAdjustCreatorAccessState @ 0x140662D98
  * Callers:
- *     ObpGrantAccess @ 0x140669830 (ObpGrantAccess.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
+ *     ObpGrantAccess @ 0x1405D97B4 (ObpGrantAccess.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
  * Callees:
- *     SeComputeCreatorDeniedRights @ 0x1402AC350 (SeComputeCreatorDeniedRights.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     ObpDereferenceSecurityDescriptorForObject @ 0x1407228BC (ObpDereferenceSecurityDescriptorForObject.c)
- *     ObpReferenceSecurityDescriptor @ 0x140722910 (ObpReferenceSecurityDescriptor.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140726520 (SePrivilegedServiceAuditAlarm.c)
- *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
- *     SePrivilegeCheck @ 0x14072B5E0 (SePrivilegeCheck.c)
+ *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptor @ 0x14065F9D0 (ObpReferenceSecurityDescriptor.c)
+ *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCESSOR_MODE a2, __int64 a3, __int64 a4)
 {
   ACCESS_MASK *p_RemainingDesiredAccess; // rdi
   ACCESS_MASK RemainingDesiredAccess; // eax
-  __int64 v10; // rdi
+  unsigned __int64 v10; // rdi
   struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+20h] [rbp-48h] BYREF
 
   p_RemainingDesiredAccess = &AccessState->RemainingDesiredAccess;
   RemainingDesiredAccess = AccessState->RemainingDesiredAccess;
+  memset(&RequiredPrivileges, 0, sizeof(RequiredPrivileges));
   if ( (RemainingDesiredAccess & 0x2000000) != 0 )
   {
     RemainingDesiredAccess = RemainingDesiredAccess & 0xEDFFFFFF | 0x10000000;
@@ -36,12 +37,12 @@ __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCE
   if ( (RemainingDesiredAccess & 0x1000000) != 0 )
   {
     RequiredPrivileges.Privilege[0].Attributes = 0;
+    RequiredPrivileges.Privilege[0].Luid = SeSecurityPrivilege;
     RequiredPrivileges.PrivilegeCount = 1;
     RequiredPrivileges.Control = 1;
-    RequiredPrivileges.Privilege[0].Luid = SeSecurityPrivilege;
     if ( !SePrivilegeCheck(&RequiredPrivileges, &AccessState->SubjectSecurityContext, a2) )
     {
-      SePrivilegedServiceAuditAlarm(0LL, &AccessState->SubjectSecurityContext, &RequiredPrivileges, 0LL);
+      SePrivilegedServiceAuditAlarm(0, (__int64 *)&AccessState->SubjectSecurityContext, (__int64)&RequiredPrivileges, 0);
       return 3221225569LL;
     }
     *p_RemainingDesiredAccess &= ~0x1000000u;
@@ -59,6 +60,6 @@ __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCE
                                                            AccessState->PreviouslyGrantedAccess,
                                                            v10);
   if ( v10 )
-    ObpDereferenceSecurityDescriptorForObject(v10, a4 - 48);
+    ObDereferenceSecurityDescriptor(v10, 1u);
   return 0LL;
 }

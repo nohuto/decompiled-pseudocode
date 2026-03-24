@@ -1,7 +1,7 @@
 /*
- * XREFs of ?EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z @ 0x18029B35C
+ * XREFs of ?EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z @ 0x180258E08
  * Callers:
- *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x18029A484 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x180258114 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
  * Callees:
  *     <none>
  */
@@ -11,17 +11,17 @@ void __fastcall CHolographicInteropTexture::EndFrame(RTL_SRWLOCK *this, __int64 
   RTL_SRWLOCK *v4; // rbx
   unsigned __int64 v5; // rsi
 
-  v4 = this + 51;
+  v4 = this + 49;
   v5 = a3;
-  AcquireSRWLockExclusive(this + 51);
-  if ( HIDWORD(this[30].Ptr) && (unsigned int)v5 < LODWORD(this[31].Ptr) )
+  AcquireSRWLockExclusive(this + 49);
+  if ( HIDWORD(this[28].Ptr) && (unsigned int)v5 < LODWORD(this[29].Ptr) )
   {
     if ( v5 >= 2 )
     {
       std::_Xout_of_range("invalid array<T, N> subscript");
       __debugbreak();
     }
-    *((_BYTE *)this[v5 + 26].Ptr + 88) = a4;
+    *((_BYTE *)this[v5 + 24].Ptr + 88) = a4;
   }
   ReleaseSRWLockExclusive(v4);
 }

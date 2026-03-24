@@ -1,13 +1,13 @@
 /*
- * XREFs of UnlockMFMWFPWindow @ 0x1C0230320
+ * XREFs of UnlockMFMWFPWindow @ 0x1C0236FA8
  * Callers:
- *     NtUserMNDragLeave @ 0x1C01F91D0 (NtUserMNDragLeave.c)
- *     xxxMNEndMenuStateInternal @ 0x1C021C050 (xxxMNEndMenuStateInternal.c)
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
- *     LockMFMWFPWindow @ 0x1C023008C (LockMFMWFPWindow.c)
- *     MNCheckButtonDownState @ 0x1C02301C4 (MNCheckButtonDownState.c)
+ *     NtUserMNDragLeave @ 0x1C01FE780 (NtUserMNDragLeave.c)
+ *     xxxMNEndMenuStateInternal @ 0x1C02223F0 (xxxMNEndMenuStateInternal.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
+ *     LockMFMWFPWindow @ 0x1C0236A84 (LockMFMWFPWindow.c)
+ *     MNCheckButtonDownState @ 0x1C0236BA4 (MNCheckButtonDownState.c)
  * Callees:
- *     IsMFMWFPWindow @ 0x1C0230060 (IsMFMWFPWindow.c)
+ *     IsMFMWFPWindow @ 0x1C0236A58 (IsMFMWFPWindow.c)
  */
 
 __int64 __fastcall UnlockMFMWFPWindow(__int64 *a1)

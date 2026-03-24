@@ -1,18 +1,18 @@
 /*
- * XREFs of ?Lock@FxCallbackSpinLock@@UEAAXPEAE@Z @ 0x1C0012E10
+ * XREFs of ?Lock@FxCallbackSpinLock@@UEAAXPEAE@Z @ 0x1C004DAF0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
  */
 
 void __fastcall FxCallbackSpinLock::Lock(FxCallbackSpinLock *this, unsigned __int8 *PreviousIrql, unsigned __int8 a3)
 {
-  _KTHREAD *CurrentThread; // rbx
-  FxVerifierLock *m_Verifier; // rcx
+  struct _KTHREAD *CurrentThread; // rbx
   _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  FxVerifierLock *m_Verifier; // rcx
 
   CurrentThread = KeGetCurrentThread();
   if ( this->m_OwnerThread == CurrentThread )

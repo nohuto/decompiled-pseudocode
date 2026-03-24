@@ -1,27 +1,31 @@
 /*
- * XREFs of PpMarkDeviceStackExtensionFlag @ 0x1402DE33C
+ * XREFs of PpMarkDeviceStackExtensionFlag @ 0x14036F1E4
  * Callers:
- *     PnpStartDeviceNode @ 0x140749C4C (PnpStartDeviceNode.c)
- *     IopDoDeferredSetInterfaceState @ 0x140768F5C (IopDoDeferredSetInterfaceState.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14073DDB0 (IopDoDeferredSetInterfaceState.c)
+ *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall PpMarkDeviceStackExtensionFlag(__int64 a1, int a2, char a3)
 {
-  KIRQL v6; // dl
+  KIRQL v6; // r9
   __int64 v7; // rcx
+  int v8; // edx
+  int v9; // edx
 
   v6 = KeAcquireQueuedSpinLock(0xAuLL);
   while ( a1 )
   {
     v7 = *(_QWORD *)(a1 + 312);
+    v8 = *(_DWORD *)(v7 + 32);
     if ( a3 )
-      *(_DWORD *)(v7 + 32) |= a2;
+      v9 = a2 | v8;
     else
-      *(_DWORD *)(v7 + 32) &= ~a2;
+      v9 = ~a2 & v8;
+    *(_DWORD *)(v7 + 32) = v9;
     a1 = *(_QWORD *)(a1 + 24);
   }
   KeReleaseQueuedSpinLock(0xAuLL, v6);

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?WaitForSignal@FxWorkItem@@AEAAXXZ @ 0x1C000DE70
+ * XREFs of ?WaitForSignal@FxWorkItem@@AEAAXXZ @ 0x1C0018AB0
  * Callers:
- *     imp_WdfWorkItemFlush @ 0x1C000DE00 (imp_WdfWorkItemFlush.c)
- *     ?Dispose@FxWorkItem@@UEAAEXZ @ 0x1C0018DA0 (-Dispose@FxWorkItem@@UEAAEXZ.c)
+ *     ?Dispose@FxWorkItem@@UEAAEXZ @ 0x1C0013A90 (-Dispose@FxWorkItem@@UEAAEXZ.c)
+ *     imp_WdfWorkItemFlush @ 0x1C0018A40 (imp_WdfWorkItemFlush.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
  */
 
 void __fastcall FxWorkItem::WaitForSignal(FxWorkItem *this)

@@ -1,13 +1,16 @@
 /*
- * XREFs of PnpSetTargetDeviceRemove @ 0x14076729C
+ * XREFs of PnpSetTargetDeviceRemove @ 0x140738FD4
  * Callers:
- *     PnpQueueQueryAndRemoveEvent @ 0x14065FA0C (PnpQueueQueryAndRemoveEvent.c)
- *     PnpRequestDeviceRemoval @ 0x140765430 (PnpRequestDeviceRemoval.c)
- *     PiDevCfgProcessDeviceCallback @ 0x14084F060 (PiDevCfgProcessDeviceCallback.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F3E8 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BDD10 (PiDevCfgProcessDeviceCallback.c)
+ *     IopQueueDeviceResetEvent @ 0x1408A094C (IopQueueDeviceResetEvent.c)
+ *     IopRetryDeviceRemovalForReset @ 0x1408A09D0 (IopRetryDeviceRemovalForReset.c)
  * Callees:
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x1407673E8 (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpAllocateCriticalMemory @ 0x140767730 (PnpAllocateCriticalMemory.c)
- *     PnpInsertEventInQueue @ 0x14078C398 (PnpInsertEventInQueue.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpInsertEventInQueue @ 0x1406E756C (PnpInsertEventInQueue.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x14073913C (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     PnpAllocateCriticalMemory @ 0x14073947C (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall PnpSetTargetDeviceRemove(
@@ -19,41 +22,41 @@ __int64 __fastcall PnpSetTargetDeviceRemove(
         int a6,
         int a7,
         __int64 a8,
-        int a9,
-        int a10,
+        __int64 a9,
+        __int64 a10,
         _DWORD *a11,
         __int64 a12,
         __int64 a13,
-        _QWORD *a14)
+        __int64 *a14)
 {
-  __int64 v17; // rcx
+  __int64 v15; // rcx
   unsigned int v18; // ebp
-  _QWORD *CriticalMemory; // rax
-  _QWORD *v20; // rbx
+  void *CriticalMemory; // rax
+  __int64 v20; // rbx
 
+  v15 = 0LL;
   if ( a11 )
     *a11 = 259;
   if ( PnpShutdownEvent.Header.SignalState
-    && !_InterlockedCompareExchange64((volatile signed __int64 *)&PnpDeviceActionThread, 0LL, 0LL) )
+    && !_InterlockedCompareExchange64((volatile signed __int64 *)PnpDeviceActionThread, 0LL, 0LL) )
   {
     return 3221225865LL;
   }
   if ( Object )
-    v17 = *(_QWORD *)(Object[39] + 40LL);
-  else
-    v17 = 0LL;
-  v18 = *(unsigned __int16 *)(v17 + 40) + 194;
-  CriticalMemory = (_QWORD *)PnpAllocateCriticalMemory(a2 != 0 ? 3 : 0, 256LL, v18, 1265659472LL);
-  v20 = CriticalMemory;
+    v15 = *(_QWORD *)(Object[39] + 40LL);
+  v18 = *(unsigned __int16 *)(v15 + 40) + 194;
+  CriticalMemory = (void *)PnpAllocateCriticalMemory(a2 != 0 ? 3 : 0, 1LL, v18, 1265659472LL);
+  v20 = (__int64)CriticalMemory;
   if ( !CriticalMemory )
     return 3221225626LL;
-  PnpInitializeTargetDeviceRemoveEvent(CriticalMemory, v18, Object, a3, a4, a5, a6, a7, a8, (__int64)a11, a12, a13);
-  v20[4] = 0LL;
-  v20[5] = 0LL;
+  memset(CriticalMemory, 0, v18);
+  PnpInitializeTargetDeviceRemoveEvent((void *)v20, v18, Object, a3, a4, a5, a6, a7, a8, (__int64)a11, a12, a13);
+  *(_QWORD *)(v20 + 32) = a9;
+  *(_QWORD *)(v20 + 40) = a10;
   if ( a14 )
   {
     *a14 = v20;
-    ++*((_DWORD *)v20 + 16);
+    ++*(_DWORD *)(v20 + 64);
   }
   return PnpInsertEventInQueue(v20);
 }

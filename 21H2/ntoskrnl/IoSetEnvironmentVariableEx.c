@@ -1,32 +1,32 @@
 /*
- * XREFs of IoSetEnvironmentVariableEx @ 0x14093E830
+ * XREFs of IoSetEnvironmentVariableEx @ 0x140899D5C
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x1403B83F0 (IopInitializeOfflineCrashDump.c)
- *     IopInitializeInMemoryDumpData @ 0x140554988 (IopInitializeInMemoryDumpData.c)
- *     ExpSetBootEntry @ 0x1409FD4A0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FDC88 (ExpSetDriverEntry.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1409FE284 (ExpSetFirmwareEnvironmentVariable.c)
- *     NtDeleteBootEntry @ 0x1409FF390 (NtDeleteBootEntry.c)
- *     NtDeleteDriverEntry @ 0x1409FF520 (NtDeleteDriverEntry.c)
- *     NtSetBootEntryOrder @ 0x140A010D0 (NtSetBootEntryOrder.c)
- *     NtSetBootOptions @ 0x140A012E0 (NtSetBootOptions.c)
- *     NtSetDriverEntryOrder @ 0x140A014F0 (NtSetDriverEntryOrder.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403C9E88 (IopInitializeOfflineCrashDump.c)
+ *     IopInitializeInMemoryDumpData @ 0x1405042D0 (IopInitializeInMemoryDumpData.c)
+ *     ExpSetBootEntry @ 0x140951100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1409518F4 (ExpSetDriverEntry.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x140951ECC (ExpSetFirmwareEnvironmentVariable.c)
+ *     NtDeleteBootEntry @ 0x140952FF0 (NtDeleteBootEntry.c)
+ *     NtDeleteDriverEntry @ 0x140953180 (NtDeleteDriverEntry.c)
+ *     NtSetBootEntryOrder @ 0x140954D10 (NtSetBootEntryOrder.c)
+ *     NtSetBootOptions @ 0x140954F20 (NtSetBootOptions.c)
+ *     NtSetDriverEntryOrder @ 0x140955130 (NtSetDriverEntryOrder.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x14093F56C (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14089AA6C (IopOpenSystemVariableDevice.c)
  */
 
-__int64 __fastcall IoSetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int64 a3, int a4, int a5)
+__int64 __fastcall IoSetEnvironmentVariableEx(const size_t *a1, __int64 a2, __int64 a3, int a4, int a5)
 {
   int v9; // ebx
-  PVOID v10; // rdi
+  struct _DMA_ADAPTER *v10; // rdi
   __int64 v12; // [rsp+20h] [rbp-A1h]
-  PVOID Object; // [rsp+40h] [rbp-81h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-81h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+48h] [rbp-79h] BYREF
   __int64 v15; // [rsp+50h] [rbp-71h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+60h] [rbp-61h] BYREF
@@ -34,7 +34,7 @@ __int64 __fastcall IoSetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int
   __int64 v18; // [rsp+90h] [rbp-31h]
   int v19; // [rsp+98h] [rbp-29h]
   int v20; // [rsp+9Ch] [rbp-25h]
-  PVOID *p_Object; // [rsp+A0h] [rbp-21h]
+  PADAPTER_OBJECT *p_DmaAdapter; // [rsp+A0h] [rbp-21h]
   int v22; // [rsp+A8h] [rbp-19h]
   int v23; // [rsp+ACh] [rbp-15h]
   PDEVICE_OBJECT *p_DeviceObject; // [rsp+B0h] [rbp-11h]
@@ -45,15 +45,15 @@ __int64 __fastcall IoSetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int
   int v29; // [rsp+CCh] [rbp+Bh]
 
   DeviceObject = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v15 = 0LL;
-  v9 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&Object, &DeviceObject);
+  v9 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&DmaAdapter, &DeviceObject);
   if ( v9 >= 0 )
   {
     v12 = a3;
-    v10 = Object;
-    v9 = (*(__int64 (__fastcall **)(PVOID, PDEVICE_OBJECT, const WCHAR *, __int64, __int64, int, int))(v15 + 8))(
-           Object,
+    v10 = DmaAdapter;
+    v9 = (*(__int64 (__fastcall **)(PADAPTER_OBJECT, PDEVICE_OBJECT, const size_t *, __int64, __int64, int, int))(v15 + 8))(
+           DmaAdapter,
            DeviceObject,
            a1,
            a2,
@@ -61,16 +61,16 @@ __int64 __fastcall IoSetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int
            a4,
            a5);
     if ( v10 )
-      ObfDereferenceObject(v10);
+      HalPutDmaAdapter(v10);
   }
-  if ( (unsigned int)dword_140C06518 > 5 && tlgKeywordOn((__int64)&dword_140C06518, 0x200000000000LL) )
+  if ( (unsigned int)dword_140C04510 > 5 && tlgKeywordOn((__int64)&dword_140C04510, 0x200000000000LL) )
   {
     tlgCreate1Sz_wchar_t((__int64)v17, a1);
     v20 = 0;
     v23 = 0;
     v26 = 0;
     v29 = 0;
-    p_Object = &Object;
+    p_DmaAdapter = &DmaAdapter;
     v22 = 4;
     p_DeviceObject = &DeviceObject;
     v27 = &v15;
@@ -78,10 +78,10 @@ __int64 __fastcall IoSetEnvironmentVariableEx(const WCHAR *a1, __int64 a2, __int
     v28 = 4;
     v18 = a2;
     v19 = 16;
-    LODWORD(Object) = a4;
+    LODWORD(DmaAdapter) = a4;
     LODWORD(DeviceObject) = a5;
     LODWORD(v15) = v9;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C06518, (unsigned __int8 *)byte_14002B923, 0LL, 0LL, 7u, &v16);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04510, (unsigned __int8 *)&byte_140024FE7, 0LL, 0LL, 7u, &v16);
   }
   return (unsigned int)v9;
 }

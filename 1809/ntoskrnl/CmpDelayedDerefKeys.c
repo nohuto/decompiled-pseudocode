@@ -3,9 +3,9 @@
  * Callers:
  *     CmpReportNotifyHelper @ 0x1405DBEE0 (CmpReportNotifyHelper.c)
  *     CmpPostNotify @ 0x1405DC29C (CmpPostNotify.c)
- *     CmpCloseKeyObject @ 0x140694DA0 (CmpCloseKeyObject.c)
+ *     CmpCloseKeyObject @ 0x140694D80 (CmpCloseKeyObject.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

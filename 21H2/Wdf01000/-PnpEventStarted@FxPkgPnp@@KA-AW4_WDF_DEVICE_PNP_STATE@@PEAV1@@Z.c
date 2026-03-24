@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C002BF80
+ * XREFs of ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B240
  * Callers:
  *     <none>
  * Callees:
- *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C001C758 (-IsPdo@FxDevice@@QEAAEXZ.c)
- *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C002BFE4 (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
- *     IsLoggingEnabledAndNeeded @ 0x1C002C030 (IsLoggingEnabledAndNeeded.c)
- *     LogDriverInfoStream @ 0x1C0071780 (LogDriverInfoStream.c)
+ *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C00019B8 (-IsPdo@FxDevice@@QEAAEXZ.c)
+ *     IsLoggingEnabledAndNeeded @ 0x1C0060018 (IsLoggingEnabledAndNeeded.c)
+ *     LogDriverInfoStream @ 0x1C00600B0 (LogDriverInfoStream.c)
+ *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C007B4AC (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventStarted(FxPkgPnp *This)

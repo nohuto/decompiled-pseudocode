@@ -1,19 +1,19 @@
 /*
- * XREFs of ACPIRegReadEntireAcpiTable @ 0x1C00B1D9C
+ * XREFs of ACPIRegReadEntireAcpiTable @ 0x1C00B24BC
  * Callers:
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008E978 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     WPP_RECORDER_SF_d @ 0x1C005E894 (WPP_RECORDER_SF_d.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
 __int64 __fastcall ACPIRegReadEntireAcpiTable(void *a1, const void **a2)
 {
   _DWORD *v2; // rdi
-  char *Pool2; // rbx
+  char *PoolWithTag; // rbx
   unsigned int v7; // r12d
   void *v8; // rdx
   unsigned int v9; // edi
@@ -22,10 +22,10 @@ __int64 __fastcall ACPIRegReadEntireAcpiTable(void *a1, const void **a2)
   unsigned int *v12; // rsi
   unsigned int v13; // ecx
   unsigned int v14; // eax
-  void *v15; // rax
-  const void *v16; // r14
+  PVOID v15; // rax
+  PVOID v16; // r14
   unsigned int v17; // edx
-  __int64 v18; // rdx
+  SIZE_T v18; // rdx
   char *v19; // rax
   char *v20; // r14
   unsigned int v21; // [rsp+30h] [rbp-68h] BYREF
@@ -35,8 +35,8 @@ __int64 __fastcall ACPIRegReadEntireAcpiTable(void *a1, const void **a2)
 
   v2 = *a2;
   v23 = a1;
-  Pool2 = (char *)ExAllocatePool2(256LL, 0x4000LL, 1114661697LL);
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x4000uLL, 0x42706341u);
+  if ( !PoolWithTag )
     return 3221225626LL;
   v7 = v2[1];
   v22 = 0;
@@ -44,7 +44,7 @@ __int64 __fastcall ACPIRegReadEntireAcpiTable(void *a1, const void **a2)
   v8 = a1;
 LABEL_19:
   v21 = 0x4000;
-  if ( (int)OSReadRegValue(pszDest, v8, Pool2, &v21) >= 0 )
+  if ( (int)OSReadRegValue(pszDest, v8, PoolWithTag, &v21) >= 0 )
   {
     v9 = v21;
     if ( v21 >= 8 )
@@ -53,7 +53,7 @@ LABEL_19:
       while ( 1 )
       {
         v11 = (unsigned int *)*a2;
-        v12 = (unsigned int *)&Pool2[v10];
+        v12 = (unsigned int *)&PoolWithTag[v10];
         v13 = v12[1];
         v14 = *v12;
         if ( v13 )
@@ -66,12 +66,12 @@ LABEL_19:
           else
           {
             v7 = v13 + v14;
-            v19 = (char *)ExAllocatePool2(64LL, v18, 1953522497LL);
+            v19 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v18, 0x74706341u);
             v20 = v19;
             if ( !v19 )
             {
 LABEL_21:
-              ExFreePoolWithTag(Pool2, 0);
+              ExFreePoolWithTag(PoolWithTag, 0);
               return 3221225626LL;
             }
             memmove(v19, *a2, v11[1]);
@@ -85,7 +85,7 @@ LABEL_21:
         else if ( v14 != v11[1] )
         {
           v7 = *v12;
-          v15 = (void *)ExAllocatePool2(64LL, v14, 1953522497LL);
+          v15 = ExAllocatePoolWithTag(NonPagedPoolNx, v14, 0x74706341u);
           v16 = v15;
           if ( !v15 )
             goto LABEL_21;
@@ -111,14 +111,14 @@ LABEL_21:
         2u,
         0x16u,
         0x23u,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         v21);
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return 3221225473LL;
   }
   else
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return 0LL;
   }
 }

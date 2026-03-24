@@ -1,102 +1,102 @@
 /*
- * XREFs of UserCommitDesktopMemory @ 0x1C00A72E0
+ * XREFs of UserCommitDesktopMemory @ 0x1C011F970
  * Callers:
  *     <none>
  * Callees:
- *     GetDesktopView @ 0x1C004FEC0 (GetDesktopView.c)
- *     MapDesktop @ 0x1C00E4A20 (MapDesktop.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     MapDesktop @ 0x1C004EDB0 (MapDesktop.c)
+ *     GetDesktopView @ 0x1C004EFA0 (GetDesktopView.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall UserCommitDesktopMemory(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v8; // rdx
+  __int64 v7; // rdx
+  _QWORD *v8; // rcx
   __int64 v9; // r8
-  _QWORD *j; // rcx
   __int64 result; // rax
-  __int64 v12; // r9
+  __int64 v11; // r9
   _QWORD *i; // rcx
-  __int64 v14; // rcx
-  __int64 k; // rbx
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  _DWORD v18[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v13; // rcx
+  __int64 j; // rbx
+  __int64 v15; // rcx
+  __int64 CurrentProcessWin32Process; // rax
+  _DWORD v17[2]; // [rsp+20h] [rbp-28h] BYREF
   __int64 CurrentProcess; // [rsp+28h] [rbp-20h]
-  __int64 v20; // [rsp+30h] [rbp-18h]
-  int v21; // [rsp+38h] [rbp-10h]
-  int v22; // [rsp+3Ch] [rbp-Ch]
-  int v23; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v19; // [rsp+30h] [rbp-18h]
+  int v20; // [rsp+38h] [rbp-10h]
+  int v21; // [rsp+3Ch] [rbp-Ch]
+  int v22; // [rsp+68h] [rbp+20h] BYREF
 
-  v23 = 0;
+  v22 = 0;
   if ( PsIsSystemThread(KeGetCurrentThread()) )
   {
-    v12 = grpWinStaList;
+    v11 = grpWinStaList;
     if ( !grpWinStaList )
       return 3221225495LL;
     do
     {
-      for ( i = *(_QWORD **)(v12 + 16); i; i = (_QWORD *)i[4] )
+      for ( i = *(_QWORD **)(v11 + 16); i; i = (_QWORD *)i[4] )
       {
         if ( i[2] == a1 )
-          goto LABEL_17;
+          goto LABEL_14;
       }
-      v12 = *(_QWORD *)(v12 + 8);
+      v11 = *(_QWORD *)(v11 + 8);
     }
-    while ( v12 );
-LABEL_17:
-    if ( !v12 )
+    while ( v11 );
+LABEL_14:
+    if ( !v11 )
       return 3221225495LL;
-    result = CommitReadOnlyMemory(i[16], a3, (unsigned int)(*(_DWORD *)a2 - a1), &v23);
+    result = CommitReadOnlyMemory(i[15], a3, (unsigned int)(*(_DWORD *)a2 - a1), &v22);
     if ( (int)result >= 0 )
-      *a2 += v23;
+      *a2 += v22;
   }
   else
   {
-    v6 = *((unsigned int *)PtiCurrentShared() + 318);
+    v6 = *(unsigned int *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1232);
     if ( (v6 & 0x40) == 0 )
     {
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
-      if ( CurrentProcessWin32Process )
-      {
-        v8 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-        CurrentProcessWin32Process &= v8;
-      }
-      for ( j = *(_QWORD **)(CurrentProcessWin32Process + 696); j; j = (_QWORD *)*j )
-      {
-        if ( *(_QWORD *)(j[1] + 16LL) == a1 )
-          return MmCommitSessionMappedView(*a2, *a3);
-      }
-      v14 = grpWinStaList;
-      if ( !grpWinStaList )
-        return 3221225495LL;
+      v8 = *(_QWORD **)(PsGetCurrentProcessWin32Process(v6) + 704);
+      if ( !v8 )
+        goto LABEL_19;
       do
       {
-        for ( k = *(_QWORD *)(v14 + 16); k; k = *(_QWORD *)(k + 32) )
-        {
-          if ( *(_QWORD *)(k + 16) == a1 )
-            goto LABEL_26;
-        }
-        v14 = *(_QWORD *)(v14 + 8);
+        if ( *(_QWORD *)(v8[1] + 16LL) == a1 )
+          break;
+        v8 = (_QWORD *)*v8;
       }
-      while ( v14 );
-LABEL_26:
-      if ( !v14 )
-        return 3221225495LL;
-      v18[1] = 0;
-      v18[0] = 1;
-      v21 = 0;
-      CurrentProcess = PsGetCurrentProcess(v14, v8, v9);
-      v20 = k;
-      v22 = 1;
-      if ( (int)MapDesktop(v18) < 0 )
-        return 3221225495LL;
-      v17 = PsGetCurrentProcessWin32Process(v16);
-      if ( v17 )
-        v17 &= -(__int64)(*(_QWORD *)v17 != 0LL);
-      if ( !GetDesktopView(v17, k) )
-        return 3221225495LL;
+      while ( v8 );
+      if ( !v8 )
+      {
+LABEL_19:
+        v13 = grpWinStaList;
+        if ( !grpWinStaList )
+          return 3221225495LL;
+        do
+        {
+          for ( j = *(_QWORD *)(v13 + 16); j; j = *(_QWORD *)(j + 32) )
+          {
+            if ( *(_QWORD *)(j + 16) == a1 )
+              goto LABEL_25;
+          }
+          v13 = *(_QWORD *)(v13 + 8);
+        }
+        while ( v13 );
+LABEL_25:
+        if ( !v13 )
+          return 3221225495LL;
+        v17[1] = 0;
+        v17[0] = 1;
+        v20 = 0;
+        CurrentProcess = PsGetCurrentProcess(v13, v7, v9);
+        v19 = j;
+        v21 = 1;
+        if ( (int)MapDesktop((__int64)v17) < 0 )
+          return 3221225495LL;
+        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v15);
+        if ( !GetDesktopView(CurrentProcessWin32Process, j) )
+          return 3221225495LL;
+      }
     }
     return MmCommitSessionMappedView(*a2, *a3);
   }

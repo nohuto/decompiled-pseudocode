@@ -1,15 +1,15 @@
 /*
- * XREFs of ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00894E4
+ * XREFs of ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00B7CA8
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
- *     GreGradientFill @ 0x1C0087BF0 (GreGradientFill.c)
- *     ?GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z @ 0x1C01388F0 (-GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     GreGradientFill @ 0x1C00B63E4 (GreGradientFill.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
+ *     ?GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z @ 0x1C0145E54 (-GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z.c)
  * Callees:
- *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C00414F0 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00421B8 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
- *     ?vLockForDPIScaledClipping@DLODCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C0089934 (-vLockForDPIScaledClipping@DLODCOBJ@@QEAAXPEAUHDC__@@@Z.c)
+ *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C008D7B0 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?vLockForDPIScaledClipping@DLODCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C00B80F8 (-vLockForDPIScaledClipping@DLODCOBJ@@QEAAXPEAUHDC__@@@Z.c)
+ *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00B8374 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
  */
 
 __int64 __fastcall DEVLOCKBLTOBJ::bLock(DEVLOCKBLTOBJ *this, DC **a2)
@@ -173,7 +173,7 @@ LABEL_17:
       if ( (*((_DWORD *)*a2 + 9) & 0x4000) == 0 )
       {
         *(_DWORD *)(v10 + 328) |= 1u;
-        *((_QWORD *)*a2 + 247) = 0LL;
+        *((_QWORD *)*a2 + 248) = 0LL;
         GreAcquireSemaphoreSharedInternal(ghsemVisRgnUniqueness);
         EtwTraceGreLockAcquireSemaphoreShared(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness);
         *(_DWORD *)(v11 + 336) = giVisRgnUniqueness;

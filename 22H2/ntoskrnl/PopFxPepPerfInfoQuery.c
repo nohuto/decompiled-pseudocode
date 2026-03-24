@@ -1,107 +1,116 @@
 /*
- * XREFs of PopFxPepPerfInfoQuery @ 0x1409857F4
+ * XREFs of PopFxPepPerfInfoQuery @ 0x1408E51BC
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x1409859F8 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1408E53D4 (PopFxRegisterComponentPerfStates.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopPluginQueryComponentPerfCapabilities @ 0x14058C72C (PopPluginQueryComponentPerfCapabilities.c)
- *     PopPluginQueryComponentPerfSet @ 0x14058C77C (PopPluginQueryComponentPerfSet.c)
- *     PopPluginQueryComponentPerfSetName @ 0x14058C828 (PopPluginQueryComponentPerfSetName.c)
- *     PopPluginQueryComponentPerfStates @ 0x14058C8B4 (PopPluginQueryComponentPerfStates.c)
- *     PopFxPepPerfInfoFree @ 0x140985774 (PopFxPepPerfInfoFree.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopPluginQueryComponentPerfCapabilities @ 0x14056DA64 (PopPluginQueryComponentPerfCapabilities.c)
+ *     PopPluginQueryComponentPerfSet @ 0x14056DAB4 (PopPluginQueryComponentPerfSet.c)
+ *     PopPluginQueryComponentPerfSetName @ 0x14056DB60 (PopPluginQueryComponentPerfSetName.c)
+ *     PopPluginQueryComponentPerfStates @ 0x14056DBEC (PopPluginQueryComponentPerfStates.c)
+ *     PopFxPepPerfInfoFree @ 0x1408E513C (PopFxPepPerfInfoFree.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopFxPepPerfInfoQuery(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, unsigned int **a3)
+__int64 __fastcall PopFxPepPerfInfoQuery(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, _QWORD *a3)
 {
   ULONG_PTR v3; // r12
   NTSTATUS v4; // edi
-  unsigned int *v5; // rsi
+  _QWORD *v5; // rsi
   unsigned int v7; // r13d
-  unsigned int *Pool2; // rax
-  unsigned int v9; // ebp
-  __int64 v10; // r15
-  unsigned int v11; // eax
-  __int64 v12; // rax
-  __int16 v13; // cx
-  __int64 v14; // rdx
-  __int64 v15; // rax
+  SIZE_T v8; // rbx
+  _QWORD *PoolWithTag; // rax
+  unsigned int v10; // ebp
+  __int64 v11; // r15
+  unsigned int v12; // eax
+  PVOID v13; // rax
+  unsigned __int16 *v14; // rbx
+  __int16 v15; // cx
+  SIZE_T v16; // rdx
+  PVOID v17; // rax
   ULONGLONG pullResult[9]; // [rsp+40h] [rbp-48h] BYREF
-  unsigned int v19; // [rsp+A8h] [rbp+20h] BYREF
+  unsigned int v21; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = (unsigned int)BugCheckParameter4;
-  v19 = 0;
+  v21 = 0;
   pullResult[0] = 0LL;
   v4 = 0;
   v5 = 0LL;
-  if ( !PopPluginQueryComponentPerfCapabilities(BugCheckParameter3, BugCheckParameter4, &v19) )
+  if ( !PopPluginQueryComponentPerfCapabilities(BugCheckParameter3, BugCheckParameter4, &v21) )
   {
     v4 = -1073741822;
-LABEL_19:
-    PopFxPepPerfInfoFree(v5);
-    return (unsigned int)v4;
+    goto LABEL_19;
   }
-  v7 = v19;
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, (int)(48 * v19) + 8LL, 1297630800LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  v7 = v21;
+  v8 = (int)(48 * v21 + 8);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x4D584650u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-LABEL_18:
+LABEL_4:
     v4 = -1073741670;
     goto LABEL_19;
   }
-  *Pool2 = v7;
-  v9 = 0;
-  if ( v7 )
+  memset(PoolWithTag, 0, v8);
+  *(_DWORD *)v5 = v7;
+  v10 = 0;
+  if ( !v7 )
+    goto LABEL_20;
+  while ( 1 )
   {
-    do
+    v11 = 6LL * v10;
+    PopPluginQueryComponentPerfSet(
+      BugCheckParameter3,
+      v3,
+      v10,
+      &v5[v11 + 4],
+      (_DWORD *)&v5[v11 + 4] + 1,
+      &v5[v11 + 5],
+      &v5[v11 + 5],
+      &v5[v11 + 6]);
+    if ( !HIDWORD(v5[v11 + 4]) )
     {
-      v10 = 12LL * v9;
-      PopPluginQueryComponentPerfSet(
-        BugCheckParameter3,
-        v3,
-        v9,
-        &v5[v10 + 8],
-        &v5[v10 + 9],
-        &v5[v10 + 10],
-        &v5[v10 + 10],
-        &v5[v10 + 12]);
-      if ( !v5[v10 + 9] )
-      {
-        v11 = v5[v10 + 10];
-        if ( !v11 )
-          PopFxBugCheck(0x61AuLL, *(_QWORD *)(BugCheckParameter3 + 64), BugCheckParameter3, v3);
-        v4 = RtlULongLongMult(v11, 0x10uLL, pullResult);
-        v12 = ExAllocatePool2(256LL, pullResult[0], 1297630800LL);
-        *(_QWORD *)&v5[v10 + 12] = v12;
-        if ( !v12 )
-          goto LABEL_18;
-        PopPluginQueryComponentPerfStates(BugCheckParameter3, v3, v9, v12);
-      }
-      PopPluginQueryComponentPerfSetName(BugCheckParameter3, v3, v9, (unsigned __int16 *)&v5[v10 + 2] + 1, 0LL);
-      v13 = HIWORD(v5[v10 + 2]);
-      if ( v13 )
-      {
-        v14 = HIWORD(v5[v10 + 2]);
-        LOWORD(v5[v10 + 2]) = v13 - 2;
-        v15 = ExAllocatePool2(256LL, v14, 1297630800LL);
-        *(_QWORD *)&v5[v10 + 4] = v15;
-        if ( !v15 )
-          goto LABEL_18;
-        PopPluginQueryComponentPerfSetName(BugCheckParameter3, v3, v9, (unsigned __int16 *)&v5[v10 + 2] + 1, v15);
-      }
-      else
-      {
-        LOWORD(v5[v10 + 2]) = 0;
-        *(_QWORD *)&v5[v10 + 4] = 0LL;
-      }
-      ++v9;
+      v12 = v5[v11 + 5];
+      if ( !v12 )
+        PopFxBugCheck(0x61AuLL, *(_QWORD *)(BugCheckParameter3 + 64), BugCheckParameter3, v3);
+      v4 = RtlULongLongMult(v12, 0x10uLL, pullResult);
+      v13 = ExAllocatePoolWithTag(PagedPool, pullResult[0], 0x4D584650u);
+      v5[v11 + 6] = v13;
+      if ( !v13 )
+        goto LABEL_4;
+      PopPluginQueryComponentPerfStates(BugCheckParameter3, v3, v10, (__int64)v13);
     }
-    while ( v9 < v7 );
-    if ( v4 < 0 )
-      goto LABEL_19;
+    v14 = (unsigned __int16 *)&v5[v11];
+    PopPluginQueryComponentPerfSetName(BugCheckParameter3, v3, v10, (unsigned __int16 *)&v5[v11 + 1] + 1, 0LL);
+    v15 = WORD1(v5[v11 + 1]);
+    if ( v15 )
+      break;
+    LOWORD(v5[v11 + 1]) = 0;
+    v5[v11 + 2] = 0LL;
+LABEL_14:
+    if ( ++v10 >= v7 )
+      goto LABEL_18;
   }
-  *a3 = v5;
+  v16 = v14[5];
+  LOWORD(v5[v11 + 1]) = v15 - 2;
+  v17 = ExAllocatePoolWithTag(PagedPool, v16, 0x4D584650u);
+  v5[v11 + 2] = v17;
+  if ( v17 )
+  {
+    PopPluginQueryComponentPerfSetName(BugCheckParameter3, v3, v10, v14 + 5, (__int64)v17);
+    goto LABEL_14;
+  }
+  v4 = -1073741670;
+LABEL_18:
+  if ( v4 >= 0 )
+  {
+LABEL_20:
+    *a3 = v5;
+    return (unsigned int)v4;
+  }
+LABEL_19:
+  PopFxPepPerfInfoFree(v5);
   return (unsigned int)v4;
 }

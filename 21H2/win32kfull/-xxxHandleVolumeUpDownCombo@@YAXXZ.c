@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01E5AC8
+ * XREFs of ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01EAE7C
  * Callers:
- *     xxxDoHotKeyStuff @ 0x1C00F6330 (xxxDoHotKeyStuff.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
  * Callees:
- *     ?xxxVolumeUpDownComboSupported@@YAHXZ @ 0x1C01E5B64 (-xxxVolumeUpDownComboSupported@@YAHXZ.c)
- *     UserBeep @ 0x1C0214878 (UserBeep.c)
+ *     ?xxxVolumeUpDownComboSupported@@YAHXZ @ 0x1C01EAF18 (-xxxVolumeUpDownComboSupported@@YAHXZ.c)
+ *     UserBeep @ 0x1C0219C78 (UserBeep.c)
  */
 
 void xxxHandleVolumeUpDownCombo(void)

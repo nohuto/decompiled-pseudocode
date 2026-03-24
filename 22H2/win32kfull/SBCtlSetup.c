@@ -1,12 +1,12 @@
 /*
- * XREFs of SBCtlSetup @ 0x1C0229F04
+ * XREFs of SBCtlSetup @ 0x1C024503C
  * Callers:
- *     ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C0228CC0 (-DrawCtlThumb@@YAXPEAUtagSBWND@@@Z.c)
- *     xxxDoScrollMenu @ 0x1C0229F4C (xxxDoScrollMenu.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C0243DD4 (-DrawCtlThumb@@YAXPEAUtagSBWND@@@Z.c)
+ *     xxxDoScrollMenu @ 0x1C024510C (xxxDoScrollMenu.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     GetRect @ 0x1C00C7BD0 (GetRect.c)
- *     CalcSBStuff2 @ 0x1C00C7CF4 (CalcSBStuff2.c)
+ *     CalcSBStuff2 @ 0x1C0063AB4 (CalcSBStuff2.c)
+ *     GetRect @ 0x1C0063E88 (GetRect.c)
  */
 
 INT __fastcall SBCtlSetup(__int64 a1)

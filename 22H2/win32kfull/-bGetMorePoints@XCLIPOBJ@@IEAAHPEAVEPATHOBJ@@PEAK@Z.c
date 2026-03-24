@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bGetMorePoints@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEAK@Z @ 0x1C02D944C
+ * XREFs of ?bGetMorePoints@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEAK@Z @ 0x1C014B7D0
  * Callers:
- *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C02D9334 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
+ *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C014B068 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
  * Callees:
  *     <none>
  */
@@ -28,39 +28,32 @@ __int64 __fastcall XCLIPOBJ::bGetMorePoints(XCLIPOBJ *this, struct EPATHOBJ *a2,
   {
     *(_DWORD *)(*((_QWORD *)this + 18) + 24LL) |= 0x200000u;
     if ( !v10.count )
-    {
-LABEL_8:
-      *(_DWORD *)(*((_QWORD *)this + 18) + 24LL) |= 0x2000000u;
-      return 0LL;
-    }
+      goto LABEL_12;
   }
   v9 = *((_QWORD *)this + 18);
-  if ( (v10.flags & 1) != 0 )
-  {
-    *(POINTFIX *)(v9 + 204) = *v10.pptfx;
-    *(POINTFIX *)(*((_QWORD *)this + 18) + 4LL) = *v10.pptfx;
-    if ( v10.count == 1 )
-    {
-      if ( !EPATHOBJ::bEnum(a2, &v10) )
-      {
-        *(_DWORD *)(*((_QWORD *)this + 18) + 24LL) |= 0x200000u;
-        if ( !v10.count )
-          goto LABEL_8;
-      }
-      *(_QWORD *)(*((_QWORD *)this + 18) + 16LL) = v10.pptfx;
-      **((_DWORD **)this + 18) = v10.count;
-    }
-    else
-    {
-      *(_QWORD *)(*((_QWORD *)this + 18) + 16LL) = v10.pptfx + 1;
-      **((_DWORD **)this + 18) = v10.count - 1;
-    }
-  }
-  else
+  if ( (v10.flags & 1) == 0 )
   {
     *(_QWORD *)(v9 + 16) = v10.pptfx;
     **((_DWORD **)this + 18) = v10.count;
+    goto LABEL_11;
   }
+  *(POINTFIX *)(v9 + 204) = *v10.pptfx;
+  *(POINTFIX *)(*((_QWORD *)this + 18) + 4LL) = *v10.pptfx;
+  if ( v10.count == 1 )
+  {
+    if ( EPATHOBJ::bEnum(a2, &v10) || (*(_DWORD *)(*((_QWORD *)this + 18) + 24LL) |= 0x200000u, v10.count) )
+    {
+      *(_QWORD *)(*((_QWORD *)this + 18) + 16LL) = v10.pptfx;
+      **((_DWORD **)this + 18) = v10.count;
+      goto LABEL_11;
+    }
+LABEL_12:
+    *(_DWORD *)(*((_QWORD *)this + 18) + 24LL) |= 0x2000000u;
+    return 0LL;
+  }
+  *(_QWORD *)(*((_QWORD *)this + 18) + 16LL) = v10.pptfx + 1;
+  **((_DWORD **)this + 18) = v10.count - 1;
+LABEL_11:
   result = 1LL;
   *a3 = v10.flags;
   return result;

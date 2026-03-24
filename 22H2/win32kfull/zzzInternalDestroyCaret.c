@@ -1,49 +1,45 @@
 /*
- * XREFs of zzzInternalDestroyCaret @ 0x1C00AFF44
+ * XREFs of zzzInternalDestroyCaret @ 0x1C0113BB0
  * Callers:
- *     zzzDestroyCaret @ 0x1C0005F9C (zzzDestroyCaret.c)
- *     xxxCreateCaret @ 0x1C000FD64 (xxxCreateCaret.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     zzzDestroyCaret @ 0x1C0113930 (zzzDestroyCaret.c)
+ *     xxxCreateCaret @ 0x1C0113A44 (xxxCreateCaret.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     zzzInternalHideCaret @ 0x1C00B002C (zzzInternalHideCaret.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     zzzInternalHideCaret @ 0x1C00674A0 (zzzInternalHideCaret.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
  */
 
 __int64 zzzInternalDestroyCaret()
 {
   __int64 result; // rax
   __int64 v1; // rbx
-  __int64 *v2; // rdi
-  __int64 v3; // rbx
+  __int64 v2; // rsi
+  struct tagWND *v3; // rbx
   __int64 v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  _QWORD v8[5]; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD v5[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  v8[2] = 0LL;
+  v5[2] = 0LL;
   result = zzzInternalHideCaret();
   v1 = *(_QWORD *)(gptiCurrent + 432LL);
-  v2 = (__int64 *)(v1 + 304);
-  if ( *(_QWORD *)(v1 + 352) )
+  if ( *(_QWORD *)(v1 + 344) )
   {
-    result = FindTimer(*v2, 0xFFFFLL, 2u, 1, 0LL);
-    *(_QWORD *)(v1 + 352) = 0LL;
+    result = FindTimer(*(_QWORD *)(v1 + 296), 0xFFFFLL, 2u, 1, 0LL);
+    *(_QWORD *)(v1 + 344) = 0LL;
   }
-  *(_QWORD *)(v1 + 344) = 0LL;
-  *(_DWORD *)(v1 + 316) = 0;
-  v3 = *v2;
-  if ( *v2 )
+  v2 = v1 + 296;
+  *(_QWORD *)(v1 + 336) = 0LL;
+  *(_DWORD *)(v1 + 308) = 0;
+  v3 = *(struct tagWND **)(v1 + 296);
+  if ( v3 )
   {
-    v4 = *v2;
-    v8[0] = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = v8;
-    v8[1] = v3;
-    HMLockObject(v4);
+    v5[0] = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = v5;
+    v5[1] = v3;
+    HMLockObject(v3);
     HMAssignmentUnlock(v2);
-    xxxWindowEvent(0x8001u, gdwDeferWinEvent != 0 ? 2 : 0);
-    return ThreadUnlock1(v6, v5, v7);
+    xxxWindowEvent(0x8001u, v3, -8, 0, gdwDeferWinEvent != 0 ? 2 : 0);
+    return ThreadUnlock1(v4);
   }
   return result;
 }

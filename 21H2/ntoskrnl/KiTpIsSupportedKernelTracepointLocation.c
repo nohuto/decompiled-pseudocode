@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpIsSupportedKernelTracepointLocation @ 0x140962AC8
+ * XREFs of KiTpIsSupportedKernelTracepointLocation @ 0x1408BCB0C
  * Callers:
- *     KeSetTracepoint @ 0x140962320 (KeSetTracepoint.c)
+ *     KeSetTracepoint @ 0x1408BC370 (KeSetTracepoint.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402D6F40 (RtlSectionTableFromVirtualAddress.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x140962A18 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402A8F10 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCA5C (KiTpIsExcludedKernelTracepointLocation.c)
  */
 
 _BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, unsigned __int64 a2)
@@ -21,7 +21,7 @@ _BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, unsigned _
   v5 = RtlSectionTableFromVirtualAddress(v4, a1, (int)a2 - (int)a1);
   if ( !v5 )
     return 0LL;
-  if ( (*(_DWORD *)(v5 + 36) & 0x22000000) != 0x20000000 )
+  if ( (*(_DWORD *)(v5 + 36) & 0x2000020) != 0x20 )
     return 0LL;
   v6 = *(_DWORD *)v5;
   if ( *(_DWORD *)v5 == 1414090313 || v6 == 1396790859 )

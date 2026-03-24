@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExInterlockedInsertTailList @ 0x140A8D7D0
+ * XREFs of VerifierExInterlockedInsertTailList @ 0x1409D1C10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExInterlockedInsertTailList()

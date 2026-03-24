@@ -1,34 +1,41 @@
 /*
- * XREFs of ?_ReallocString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@G@Z @ 0x1C017DA44
+ * XREFs of ?_ReallocString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@G@Z @ 0x1C013B2C4
  * Callers:
- *     ?GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ @ 0x1C017D78C (-GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ.c)
- *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z @ 0x1C017D83C (--0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z.c)
- *     ?_CopyString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@AEBU2@@Z @ 0x1C017D9FC (-_CopyString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@AEBU2@@Z.c)
+ *     ?GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ @ 0x1C013AE0C (-GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ.c)
+ *     ??0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z @ 0x1C013AF50 (--0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z.c)
+ *     ?_CopyString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@AEBU2@@Z @ 0x1C013B27C (-_CopyString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@AEBU2@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall CCD_SET_STRING_ID::_ReallocString(struct _STRING *a1, USHORT a2)
 {
   __int64 v2; // rdi
   CHAR *v4; // rax
-  CHAR *v5; // rbp
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  CHAR *v9; // rbp
+  __int64 v11; // rax
 
   v2 = a2;
   if ( a2 <= a1->MaximumLength )
     return 0LL;
-  v4 = (CHAR *)operator new[](a2, 0x63644356u, 256LL);
-  v5 = v4;
+  v4 = (CHAR *)operator new[](a2, 0x63644356u, PagedPool);
+  v9 = v4;
   if ( v4 )
   {
     memmove(v4, a1->Buffer, a1->Length);
-    operator delete(a1->Buffer);
-    a1->Buffer = v5;
+    operator delete[](a1->Buffer);
+    a1->Buffer = v9;
     a1->MaximumLength = v2;
     return 0LL;
   }
-  WdLogSingleEntry1(6LL, v2);
+  v11 = WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+  *(_QWORD *)(v11 + 24) = v2;
+  WdLogEvent5_WdLowResource(v11);
   return 3221225495LL;
 }

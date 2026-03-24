@@ -1,107 +1,71 @@
 /*
- * XREFs of ?ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z @ 0x1C0187480
+ * XREFs of ?ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z @ 0x1C01049D0
  * Callers:
- *     _lambda_a196522e28cbefec8f1ebe5a826d98cf_::_lambda_invoker_cdecl_ @ 0x1C0187240 (_lambda_a196522e28cbefec8f1ebe5a826d98cf_--_lambda_invoker_cdecl_.c)
- *     ?ProcessDestroyDevice@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01DEA0C (-ProcessDestroyDevice@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?ProcessPendingProcessTerminate@OUTPUTDUPL_MGR@@QEAAXXZ @ 0x1C01E6290 (-ProcessPendingProcessTerminate@OUTPUTDUPL_MGR@@QEAAXXZ.c)
- *     _lambda_d4bbb312c60d17faf4ca5c1aba8d94c2_::_lambda_invoker_cdecl_ @ 0x1C031EF30 (_lambda_d4bbb312c60d17faf4ca5c1aba8d94c2_--_lambda_invoker_cdecl_.c)
- *     ?CleanUpPendingList@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C031F70C (-CleanUpPendingList@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?UpdateRenderAdapterLuid@OUTPUTDUPL_MGR_INDIRECT@@QEAAJU_LUID@@@Z @ 0x1C0324490 (-UpdateRenderAdapterLuid@OUTPUTDUPL_MGR_INDIRECT@@QEAAJU_LUID@@@Z.c)
+ *     _lambda_593c7b7db45d2905858a3969fb7431d6_::_lambda_invoker_cdecl_ @ 0x1C0116CC0 (_lambda_593c7b7db45d2905858a3969fb7431d6_--_lambda_invoker_cdecl_.c)
+ *     ?CleanUpPendingList@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C0116DA0 (-CleanUpPendingList@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?ProcessPendingProcessTerminate@OUTPUTDUPL_MGR@@QEAAXXZ @ 0x1C015C9F0 (-ProcessPendingProcessTerminate@OUTPUTDUPL_MGR@@QEAAXXZ.c)
+ *     ?ProcessDestroyDevice@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C015CA4C (-ProcessDestroyDevice@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     _lambda_d4bbb312c60d17faf4ca5c1aba8d94c2_::_lambda_invoker_cdecl_ @ 0x1C0298470 (_lambda_d4bbb312c60d17faf4ca5c1aba8d94c2_--_lambda_invoker_cdecl_.c)
+ *     ?UpdateRenderAdapterLuid@OUTPUTDUPL_MGR_INDIRECT@@QEAAJU_LUID@@@Z @ 0x1C029CFA8 (-UpdateRenderAdapterLuid@OUTPUTDUPL_MGR_INDIRECT@@QEAAJU_LUID@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z @ 0x1C0055A48 (--_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z.c)
- *     ?CloseFromDevice@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C031F890 (-CloseFromDevice@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
- *     ?GetProducerDevice@OUTPUTDUPL_CONTEXT@@QEAAPEAVDXGDEVICE@@XZ @ 0x1C0326990 (-GetProducerDevice@OUTPUTDUPL_CONTEXT@@QEAAPEAVDXGDEVICE@@XZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z @ 0x1C004A69C (--_GOUTPUTDUPL_CONTEXT@@QEAAPEAXI@Z.c)
+ *     ?CloseFromDevice@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C0298B7C (-CloseFromDevice@DXGDXGIKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?GetProducerDevice@OUTPUTDUPL_CONTEXT@@QEAAPEAVDXGDEVICE@@XZ @ 0x1C02A0FB4 (-GetProducerDevice@OUTPUTDUPL_CONTEXT@@QEAAPEAVDXGDEVICE@@XZ.c)
  */
 
-void __fastcall OUTPUTDUPL_MGR::ProcessPendingDestroy(struct _KTHREAD **this, struct DXGDEVICE *a2, int a3)
+void __fastcall OUTPUTDUPL_MGR::ProcessPendingDestroy(struct _KTHREAD ***this, struct DXGDEVICE *a2, int a3)
 {
-  struct _KTHREAD *v4; // rcx
-  __int64 v7; // rcx
-  char *v8; // rbx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  _QWORD **v11; // rdi
-  _QWORD *v12; // rsi
-  int v13; // r9d
-  _QWORD *v14; // r15
-  unsigned int i; // r12d
-  __int64 v16; // rax
-  _QWORD *v17; // rcx
+  struct _KTHREAD **v5; // rcx
+  struct _KTHREAD **v7; // r14
+  struct _KTHREAD **v8; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  struct _KTHREAD **v12; // rbx
+  __int64 i; // rsi
+  struct _KTHREAD *v14; // rax
+  struct _KTHREAD ***v15; // rcx
+  char v16[8]; // [rsp+20h] [rbp-38h] BYREF
+  DXGPUSHLOCK *v17; // [rsp+28h] [rbp-30h]
+  int v18; // [rsp+30h] [rbp-28h]
 
-  v4 = *this;
-  if ( v4 )
+  v5 = *this;
+  if ( v5 && !DXGADAPTER::IsCoreResourceSharedOwner(v5[2]) )
   {
-    v7 = *((_QWORD *)v4 + 2);
-    if ( KeGetCurrentThread() != *(struct _KTHREAD **)(v7 + 184)
-      && !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v7 + 168)) )
-    {
-      WdLogSingleEntry1(1LL, 2276LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(m_pDisplayCore == NULL) || (m_pDisplayCore->IsCoreResourceSharedOwner())",
-        2276LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v11 = WdLogNewEntry5_WdAssertion(v10, v9);
+    *(_QWORD *)(v11 + 24) = 2338LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v8 = (char *)(this + 3);
-  if ( this != (struct _KTHREAD **)-24LL && this[4] == KeGetCurrentThread() )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16, this[3], 0);
+  DXGPUSHLOCK::AcquireExclusive(v17);
+  v7 = (struct _KTHREAD **)(this + 4);
+  v18 = 2;
+  v8 = this[4];
+  while ( v8 != v7 )
   {
-    WdLogSingleEntry1(1LL, 1425LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"bAllowAcquireRecursive || pPushLock == NULL || !m_pPushLock->IsExclusiveOwner()",
-      1425LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  KeEnterCriticalRegion();
-  if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(this + 3, 0LL) )
-  {
-    if ( bTracingEnabled )
-    {
-      v13 = *((_DWORD *)this + 12);
-      if ( v13 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v9, (const EVENT_DESCRIPTOR *)"g", v10, v13);
-    }
-    ExAcquirePushLockExclusiveEx(this + 3, 0LL);
-  }
-  v11 = (_QWORD **)(this + 7);
-  *((_QWORD *)v8 + 1) = KeGetCurrentThread();
-  v12 = *v11;
-  while ( v12 != v11 )
-  {
-    v14 = v12;
-    v12 = (_QWORD *)*v12;
+    v12 = v8;
+    v8 = (struct _KTHREAD **)*v8;
     if ( a2 )
     {
-      if ( a2 == OUTPUTDUPL_CONTEXT::GetProducerDevice((OUTPUTDUPL_CONTEXT *)v14) )
+      if ( a2 == OUTPUTDUPL_CONTEXT::GetProducerDevice((OUTPUTDUPL_CONTEXT *)v12) )
       {
-        for ( i = 0; i < *((_DWORD *)v14 + 10); ++i )
-          DXGDXGIKEYEDMUTEX::CloseFromDevice((DXGDXGIKEYEDMUTEX *)v14[i + 6]);
+        for ( i = 0LL; (unsigned int)i < *((_DWORD *)v12 + 10); i = (unsigned int)(i + 1) )
+          DXGDXGIKEYEDMUTEX::CloseFromDevice(v12[i + 6]);
       }
     }
-    if ( a3 || !OUTPUTDUPL_CONTEXT::GetProducerDevice((OUTPUTDUPL_CONTEXT *)v14) )
+    if ( a3 || !OUTPUTDUPL_CONTEXT::GetProducerDevice((OUTPUTDUPL_CONTEXT *)v12) )
     {
-      v16 = *v14;
-      if ( *(_QWORD **)(*v14 + 8LL) != v14 || (v17 = (_QWORD *)v14[1], (_QWORD *)*v17 != v14) )
+      v14 = *v12;
+      if ( *((struct _KTHREAD ***)*v12 + 1) != v12 || (v15 = (struct _KTHREAD ***)v12[1], *v15 != v12) )
         __fastfail(3u);
-      *v17 = v16;
-      *(_QWORD *)(v16 + 8) = v17;
-      OUTPUTDUPL_CONTEXT::`scalar deleting destructor'((OUTPUTDUPL_CONTEXT *)v14);
+      *v15 = (struct _KTHREAD **)v14;
+      *((_QWORD *)v14 + 1) = v15;
+      OUTPUTDUPL_CONTEXT::`scalar deleting destructor'((OUTPUTDUPL_CONTEXT *)v12);
     }
   }
-  *((_QWORD *)v8 + 1) = 0LL;
-  ExReleasePushLockExclusiveEx(v8, 0LL);
-  KeLeaveCriticalRegion();
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v16);
 }

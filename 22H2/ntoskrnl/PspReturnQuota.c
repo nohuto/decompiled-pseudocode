@@ -1,20 +1,22 @@
 /*
- * XREFs of PspReturnQuota @ 0x1402AD070
+ * XREFs of PspReturnQuota @ 0x1402C2010
  * Callers:
- *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsReturnProcessQuota @ 0x1402EA0CC (PsReturnProcessQuota.c)
- *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7110 (ObpIncrementHandleCountEx.c)
- *     ObpFreeObject @ 0x1407298C0 (ObpFreeObject.c)
- *     PsReturnProcessPageFileQuota @ 0x1407454C4 (PsReturnProcessPageFileQuota.c)
- *     PsChargeSharedPoolQuota @ 0x14075C654 (PsChargeSharedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140298A90 (PsReturnProcessPagedPoolQuota.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     PsReturnProcessQuota @ 0x1402EA088 (PsReturnProcessQuota.c)
+ *     PsReturnPoolQuota @ 0x1403063A0 (PsReturnPoolQuota.c)
+ *     PsReturnProcessPageFileQuota @ 0x14063BE7C (PsReturnProcessPageFileQuota.c)
+ *     ObpFreeObject @ 0x14063DC40 (ObpFreeObject.c)
+ *     ObpIncrementHandleCountEx @ 0x140643680 (ObpIncrementHandleCountEx.c)
+ *     PsChargeSharedPoolQuota @ 0x1406D90F8 (PsChargeSharedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x1406D9184 (PsReturnSharedPoolQuota.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x140318838 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, ULONG_PTR a4)
+signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, unsigned int a3, ULONG_PTR a4)
 {
   void *v5; // r12
   __int64 v6; // r14
@@ -33,8 +35,8 @@ signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, 
   __int64 v21; // r8
 
   v5 = a1;
-  v6 = (__int64)a3 << 7;
-  v9 = a3;
+  v6 = (__int64)(int)a3 << 7;
+  v9 = (int)a3;
   v10 = PspResourceFlags[8 * a3];
   v11 = (volatile signed __int64 *)&a1[v6];
   _m_prefetchw(&a1[v6]);
@@ -44,7 +46,7 @@ signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, 
   {
     if ( v13 > v12 )
     {
-      v19 = (unsigned __int64 *)&qword_140C38268[7 * a3];
+      v19 = (unsigned __int64 *)&qword_140C1E168[7 * (int)a3];
       v20 = *v19;
       if ( v13 - v12 > *v19 )
       {
@@ -55,7 +57,7 @@ signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, 
         {
           v21 = _InterlockedExchange64(v11 + 9, 0LL);
           if ( v21 )
-            PspReturnResourceQuota(a3, (__int64)&a1[v6], v21, 0);
+            PspReturnResourceQuota(a3, &a1[v6], v21, 0LL);
         }
       }
     }

@@ -1,76 +1,83 @@
 /*
- * XREFs of PspImplicitAssignProcessToJob @ 0x140682900
+ * XREFs of PspImplicitAssignProcessToJob @ 0x140605FB0
  * Callers:
- *     PspInsertProcess @ 0x14066D0AC (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020A3D0 (PsGetEffectiveServerSilo.c)
- *     PspValidateJobAssignmentMemoryPartition @ 0x14068214C (PspValidateJobAssignmentMemoryPartition.c)
- *     PspValidateJobChainLimits @ 0x1406821D4 (PspValidateJobChainLimits.c)
- *     PspEstablishJobHierarchy @ 0x1406822EC (PspEstablishJobHierarchy.c)
- *     PspIncrementJobChainProcessCounts @ 0x140682838 (PspIncrementJobChainProcessCounts.c)
- *     PspUnlockJobChain @ 0x140682B74 (PspUnlockJobChain.c)
- *     PspLockJobChain @ 0x140682C34 (PspLockJobChain.c)
- *     MmAssignProcessToJob @ 0x140682D84 (MmAssignProcessToJob.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x140682EA4 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspApplyJobChainLimitsToProcess @ 0x140683088 (PspApplyJobChainLimitsToProcess.c)
+ *     PsGetEffectiveServerSilo @ 0x1403621B0 (PsGetEffectiveServerSilo.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x14060514C (PspApplyJobChainLimitsToProcess.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140605A6C (PspApplyWorkingSetLimitsToProcess.c)
+ *     MmAssignProcessToJob @ 0x140605C30 (MmAssignProcessToJob.c)
+ *     PspUnlockJobChain @ 0x140616110 (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x140616240 (PspLockJobChain.c)
+ *     PspIncrementJobChainProcessCounts @ 0x14071F948 (PspIncrementJobChainProcessCounts.c)
+ *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
+ *     PspValidateJobChainLimits @ 0x14071FEC0 (PspValidateJobChainLimits.c)
+ *     PspValidateJobAssignmentMemoryPartition @ 0x14071FFD8 (PspValidateJobAssignmentMemoryPartition.c)
  */
 
-__int64 __fastcall PspImplicitAssignProcessToJob(char *Object, __int64 a2, __int16 a3)
+__int64 __fastcall PspImplicitAssignProcessToJob(__int64 a1, __int64 a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // r15
-  char *EffectiveServerSilo; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  int v10; // edi
-  int v11; // ebx
+  __int64 EffectiveServerSilo; // rbx
+  int v8; // edi
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // r8
   volatile signed __int32 *v13; // rax
   __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  _DWORD *v17; // r9
+  int v18; // ebx
+  _DWORD *v19; // r9
 
   CurrentThread = KeGetCurrentThread();
-  PspLockJobChain(Object, CurrentThread, 0LL);
+  PspLockJobChain(a1, CurrentThread, 0LL);
   if ( (a3 & 0x400) != 0 )
   {
-    EffectiveServerSilo = (char *)PsGetEffectiveServerSilo((__int64)Object);
+    EffectiveServerSilo = PsGetEffectiveServerSilo(a1);
   }
   else
   {
-    for ( EffectiveServerSilo = Object;
-          EffectiveServerSilo;
-          EffectiveServerSilo = (char *)*((_QWORD *)EffectiveServerSilo + 158) )
+    for ( EffectiveServerSilo = a1; EffectiveServerSilo; EffectiveServerSilo = *(_QWORD *)(EffectiveServerSilo + 1072) )
     {
-      if ( (*((_DWORD *)EffectiveServerSilo + 64) & 0x1000) == 0
-        && ((*((_DWORD *)EffectiveServerSilo + 64) & 0x800) == 0 || (a3 & 1) == 0) )
+      v10 = *(_DWORD *)(EffectiveServerSilo + 256);
+      if ( (v10 & 0x1000) == 0 )
       {
-        break;
+        if ( (a3 & 1) == 0 )
+          goto LABEL_3;
+        if ( (v10 & 0x800) == 0 )
+          break;
       }
     }
-    if ( (a3 & 1) != 0 && EffectiveServerSilo == Object && (*((_DWORD *)EffectiveServerSilo + 378) & 0x40000000) == 0 )
+    if ( (a3 & 1) != 0 && EffectiveServerSilo == a1 && (*(_DWORD *)(EffectiveServerSilo + 1320) & 0x40000000) == 0 )
     {
-      v10 = -1073741790;
-      goto LABEL_18;
+      v8 = -1073741790;
+      goto LABEL_5;
     }
   }
+LABEL_3:
   if ( !EffectiveServerSilo )
   {
-    v10 = 0;
-LABEL_18:
-    PspUnlockJobChain(Object, CurrentThread, 0LL);
-    return (unsigned int)v10;
+    v8 = 0;
+LABEL_5:
+    PspUnlockJobChain(a1, CurrentThread, 0LL);
+    return (unsigned int)v8;
   }
-  if ( !PspValidateJobAssignmentMemoryPartition((__int64)EffectiveServerSilo, 0LL, a2, 1) )
+  if ( !(unsigned __int8)PspValidateJobAssignmentMemoryPartition(EffectiveServerSilo, 0LL, a2, 1LL) )
   {
-    v10 = -1073741637;
-    goto LABEL_18;
+    v8 = -1073741637;
+    goto LABEL_5;
   }
-  v10 = PspValidateJobChainLimits((__int64)EffectiveServerSilo, v8, v9, a3);
-  if ( v10 < 0 )
-    goto LABEL_18;
-  v10 = PspEstablishJobHierarchy(EffectiveServerSilo, a2, 0LL, 1u);
-  if ( v10 < 0 )
-    goto LABEL_18;
-  PspIncrementJobChainProcessCounts((__int64)EffectiveServerSilo, 0LL, a2, a3);
+  v8 = PspValidateJobChainLimits(EffectiveServerSilo, v11, v12, a3);
+  if ( v8 < 0 )
+    goto LABEL_5;
+  v8 = PspEstablishJobHierarchy((PVOID)EffectiveServerSilo);
+  if ( v8 < 0 )
+    goto LABEL_5;
+  PspIncrementJobChainProcessCounts(EffectiveServerSilo, 0LL, a2, a3);
   PspApplyJobChainLimitsToProcess(EffectiveServerSilo, 0LL, a2);
-  if ( (*((_DWORD *)EffectiveServerSilo + 378) & 0x1000) != 0 )
+  if ( (*(_DWORD *)(EffectiveServerSilo + 1320) & 0x1000) != 0 )
   {
     v13 = (volatile signed __int32 *)(a2 + 2472);
     v14 = 7LL;
@@ -82,9 +89,9 @@ LABEL_18:
     while ( v14 );
     _interlockedbittestandset((volatile signed __int32 *)(a2 + 2508), 0x1Fu);
   }
-  PspUnlockJobChain(Object, CurrentThread, 0LL);
-  v11 = PspApplyWorkingSetLimitsToProcess(a2);
-  if ( v11 >= 0 && !(unsigned int)MmAssignProcessToJob(a2, 0LL, 0LL) )
+  PspUnlockJobChain(a1, CurrentThread, 0LL);
+  v18 = PspApplyWorkingSetLimitsToProcess(a2, v15, v16, v17);
+  if ( v18 >= 0 && !(unsigned int)MmAssignProcessToJob(a2, 0LL, 0, v19) )
     return (unsigned int)-1073741756;
-  return (unsigned int)v11;
+  return (unsigned int)v18;
 }

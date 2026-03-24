@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C00B1290
+ * XREFs of ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0075060
  * Callers:
- *     ?CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z @ 0x1C00B1154 (-CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z.c)
- *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00B11F8 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
- *     RIMGetProductString @ 0x1C0189C90 (RIMGetProductString.c)
+ *     ?CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z @ 0x1C0074DBC (-CopyString@Runtime@CoreMessagingK@@SAJPEBGW4PoolTag@2@PEAPEAG@Z.c)
+ *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0074FC8 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
+ *     RIMGetProductString @ 0x1C015E5D4 (RIMGetProductString.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@
 __int64 __fastcall RtlStringCbLengthW(const unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // rdx
-  __int64 v5; // rax
+  unsigned __int64 v5; // rax
   unsigned __int64 i; // r8
   signed int v7; // ecx
 
@@ -26,7 +26,10 @@ __int64 __fastcall RtlStringCbLengthW(const unsigned __int16 *a1, unsigned __int
       ++a1;
     }
     v7 = i == 0 ? 0xC000000D : 0;
-    v5 = (v3 - i) & -(__int64)(i != 0);
+    if ( i )
+      v5 = v3 - i;
+    else
+      v5 = 0LL;
   }
   else
   {

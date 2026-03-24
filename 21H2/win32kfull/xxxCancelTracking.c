@@ -1,71 +1,69 @@
 /*
- * XREFs of xxxCancelTracking @ 0x1C00DCB94
+ * XREFs of xxxCancelTracking @ 0x1C003DE90
  * Callers:
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00DBE0C (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C0120404 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     LockW32Thread @ 0x1C007EAAC (LockW32Thread.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     xxxCancelTrackingForThread @ 0x1C02104C0 (xxxCancelTrackingForThread.c)
+ *     LockW32Thread @ 0x1C003DA6C (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     xxxCancelTrackingForThread @ 0x1C02113F0 (xxxCancelTrackingForThread.c)
  */
 
 __int64 xxxCancelTracking()
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
-  __int64 v2; // rbp
+  __int64 v0; // rbp
   __int64 result; // rax
   _QWORD *i; // rsi
-  _QWORD *v5; // r15
-  int v6; // ebx
-  _QWORD *v7; // rdx
-  __int64 v8; // rcx
-  _QWORD *v9; // rsi
-  _QWORD *v10; // rdi
-  __int64 v11; // rcx
-  _QWORD v12[84]; // [rsp+20h] [rbp-2C8h] BYREF
+  _QWORD *v3; // r15
+  int v4; // ebx
+  _QWORD *v5; // rdx
+  __int64 v6; // rcx
+  _QWORD *v7; // rsi
+  _QWORD *v8; // rdi
+  __int64 v9; // rcx
+  _QWORD v10[84]; // [rsp+20h] [rbp-2C8h] BYREF
 
-  memset(v12, 0, 0x60uLL);
-  v2 = 0LL;
+  memset(v10, 0, 0x60uLL);
+  v0 = 0LL;
   result = grpdeskRitInput;
   for ( i = *(_QWORD **)(grpdeskRitInput + 168LL); i != (_QWORD *)(grpdeskRitInput + 168LL); i = (_QWORD *)*i )
   {
-    v5 = i - 93;
+    v3 = i - 93;
     if ( *(i - 9) )
     {
-      if ( (unsigned int)v2 < 0xC )
+      if ( (unsigned int)v0 < 0xC )
       {
-        LockW32Thread((__int64)(i - 93), (__int64)&v12[3 * v2 + 48]);
-        v7 = &v12[3 * v2 + 12];
-        v8 = *(_QWORD *)(v5[84] + 16LL);
-        *v7 = *(_QWORD *)(gptiCurrent + 416LL);
-        *(_QWORD *)(gptiCurrent + 416LL) = v7;
-        v12[3 * v2 + 13] = v8;
-        result = HMLockObject(v8);
-        v12[v2] = v5;
-        v2 = (unsigned int)(v2 + 1);
+        LockW32Thread((__int64)(i - 93), (__int64)&v10[3 * v0 + 48]);
+        v5 = &v10[3 * v0 + 12];
+        v6 = *(_QWORD *)(v3[84] + 16LL);
+        *v5 = *(_QWORD *)(gptiCurrent + 416LL);
+        *(_QWORD *)(gptiCurrent + 416LL) = v5;
+        v10[3 * v0 + 13] = v6;
+        result = HMLockObject(v6);
+        v10[v0] = v3;
+        v0 = (unsigned int)(v0 + 1);
       }
     }
   }
-  v6 = v2 - 1;
-  if ( (int)v2 - 1 >= 0 )
+  v4 = v0 - 1;
+  if ( (int)v0 - 1 >= 0 )
   {
-    v9 = &v12[v6];
-    v10 = &v12[3 * v6 + 48];
+    v7 = &v10[v4];
+    v8 = &v10[3 * v4 + 48];
     do
     {
-      v11 = *v9;
-      if ( (*(_DWORD *)(*v9 + 488LL) & 1) == 0 )
+      v9 = *v7;
+      if ( (*(_DWORD *)(*v7 + 488LL) & 1) == 0 )
         xxxCancelTrackingForThread();
-      ThreadUnlock1(v11, v0, v1);
-      result = PopAndFreeW32ThreadLock((__int64)v10);
-      v10 -= 3;
-      --v9;
-      --v6;
+      ThreadUnlock1(v9);
+      result = PopAndFreeW32ThreadLock(v8);
+      v8 -= 3;
+      --v7;
+      --v4;
     }
-    while ( v6 >= 0 );
+    while ( v4 >= 0 );
   }
   return result;
 }

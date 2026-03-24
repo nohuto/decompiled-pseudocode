@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeEnterGuardedRegion @ 0x140AD06E0
+ * XREFs of VerifierKeEnterGuardedRegion @ 0x1409D3300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierKeEnterGuardedRegion()

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiBindEfiEntryToBcdObject @ 0x140A1E6EC
+ * XREFs of BiBindEfiEntryToBcdObject @ 0x140970784
  * Callers:
- *     BiBindEfiEntries @ 0x140A1E590 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x140970628 (BiBindEfiEntries.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     BcdCloseObject @ 0x140812D00 (BcdCloseObject.c)
- *     BiGetKeyName @ 0x140813564 (BiGetKeyName.c)
- *     BiCreateObject @ 0x140A1CF34 (BiCreateObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     BcdCloseObject @ 0x140783BCC (BcdCloseObject.c)
+ *     BiGetKeyName @ 0x140784800 (BiGetKeyName.c)
+ *     BiCreateObject @ 0x14096EFC8 (BiCreateObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiBindEfiEntryToBcdObject(__int64 a1, GUID *a2)

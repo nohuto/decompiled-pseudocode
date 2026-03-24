@@ -4,8 +4,8 @@
  *     SeSetSessionIdToken @ 0x1405BC45C (SeSetSessionIdToken.c)
  *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
  *     SepTokenDeleteMethod @ 0x1405DEE70 (SepTokenDeleteMethod.c)
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
- *     SeExchangePrimaryToken @ 0x140748BB8 (SeExchangePrimaryToken.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     SeExchangePrimaryToken @ 0x140748B98 (SeExchangePrimaryToken.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
@@ -13,10 +13,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C40 (RtlRemoveEntryHashTable.c)
- *     ExRemoveLowBoxAtomReferences @ 0x140126604 (ExRemoveLowBoxAtomReferences.c)
- *     RtlDereferenceAtomTable @ 0x140126618 (RtlDereferenceAtomTable.c)
- *     SepGetTokenSessionMapEntry @ 0x1403007A8 (SepGetTokenSessionMapEntry.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
+ *     ExRemoveLowBoxAtomReferences @ 0x140126624 (ExRemoveLowBoxAtomReferences.c)
+ *     RtlDereferenceAtomTable @ 0x140126638 (RtlDereferenceAtomTable.c)
+ *     SepGetTokenSessionMapEntry @ 0x1403008A8 (SepGetTokenSessionMapEntry.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

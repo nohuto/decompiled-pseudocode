@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpResolveHiveLoadConflict @ 0x1407F0348
+ * XREFs of CmpResolveHiveLoadConflict @ 0x1407F0328
  * Callers:
- *     CmLoadKey @ 0x1406C8B98 (CmLoadKey.c)
+ *     CmLoadKey @ 0x1406C8B78 (CmLoadKey.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpJoinClassOfTrust @ 0x1401B3170 (CmpJoinClassOfTrust.c)
- *     CmpPerformTrustClassAccessCheck @ 0x1401B31EC (CmpPerformTrustClassAccessCheck.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B320C (CmpUnJoinClassOfTrust.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpJoinClassOfTrust @ 0x1401B3190 (CmpJoinClassOfTrust.c)
+ *     CmpPerformTrustClassAccessCheck @ 0x1401B320C (CmpPerformTrustClassAccessCheck.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B322C (CmpUnJoinClassOfTrust.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
  *     CmpLockRegistryFreezeAware @ 0x1405B1640 (CmpLockRegistryFreezeAware.c)
  *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
@@ -17,10 +17,10 @@
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpReferenceKeyControlBlock @ 0x140692A5C (CmpReferenceKeyControlBlock.c)
- *     CmpRecordUnloadEventForHive @ 0x140692F0C (CmpRecordUnloadEventForHive.c)
- *     CmpIsHiveAlreadyLoaded @ 0x1407F01E8 (CmpIsHiveAlreadyLoaded.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
+ *     CmpRecordUnloadEventForHive @ 0x140692EEC (CmpRecordUnloadEventForHive.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x1407F01C8 (CmpIsHiveAlreadyLoaded.c)
  */
 
 __int64 __fastcall CmpResolveHiveLoadConflict(

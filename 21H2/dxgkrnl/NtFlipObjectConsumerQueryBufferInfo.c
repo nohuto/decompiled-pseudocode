@@ -1,10 +1,10 @@
 /*
- * XREFs of NtFlipObjectConsumerQueryBufferInfo @ 0x1C007AAE0
+ * XREFs of NtFlipObjectConsumerQueryBufferInfo @ 0x1C00693B0
  * Callers:
  *     <none>
  * Callees:
- *     ?ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z @ 0x1C0079D70 (-ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C007C0E8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z @ 0x1C00686C0 (-ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A888 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectConsumerQueryBufferInfo(void *a1, unsigned __int64 *a2, struct _LUID *a3, _QWORD *a4)

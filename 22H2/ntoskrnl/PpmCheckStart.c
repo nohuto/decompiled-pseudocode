@@ -1,36 +1,37 @@
 /*
- * XREFs of PpmCheckStart @ 0x14032BEE4
+ * XREFs of PpmCheckStart @ 0x140229DC0
  * Callers:
- *     PpmCheckCustomRun @ 0x14032B45C (PpmCheckCustomRun.c)
- *     PpmCheckPeriodicStart @ 0x14032BE40 (PpmCheckPeriodicStart.c)
+ *     PpmCheckPeriodicStart @ 0x14022AD30 (PpmCheckPeriodicStart.c)
+ *     PpmCheckCustomRun @ 0x14037CB48 (PpmCheckCustomRun.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x14032AFD0 (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmCheckRun @ 0x14032C010 (PpmCheckRun.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     PpmCheckRun @ 0x14022A3C0 (PpmCheckRun.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x1403807D8 (PpmPerfSetAllDomainsToUpdate.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmCheckStart(int a1)
 {
-  __int64 v1; // rdi
-  int v2; // ebx
+  __int64 v1; // rbx
+  int v2; // edi
   REGHANDLE v3; // rsi
   int v5; // edx
-  int v6; // [rsp+30h] [rbp-50h] BYREF
-  LARGE_INTEGER v7; // [rsp+38h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
-  LARGE_INTEGER *v9; // [rsp+50h] [rbp-30h]
-  __int64 v10; // [rsp+58h] [rbp-28h]
-  int *v11; // [rsp+60h] [rbp-20h]
-  __int64 v12; // [rsp+68h] [rbp-18h]
+  int v6; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v7; // [rsp+48h] [rbp-50h] BYREF
+  _BYTE v8[8]; // [rsp+50h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-40h] BYREF
+  __int64 *v10; // [rsp+68h] [rbp-30h]
+  __int64 v11; // [rsp+70h] [rbp-28h]
+  int *v12; // [rsp+78h] [rbp-20h]
+  __int64 v13; // [rsp+80h] [rbp-18h]
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(&v7);
+  PpmCheckTime = RtlGetInterruptTimePrecise(v8);
   v2 = 0;
-  v7.QuadPart = PpmCheckLastEffectiveExecutionTime;
+  v7 = PpmCheckLastExecutionTime;
   v6 = v1;
   if ( PpmEtwRegistered )
   {
@@ -39,23 +40,23 @@ __int64 __fastcall PpmCheckStart(int a1)
     {
       *(_QWORD *)&UserData.Size = 8LL;
       UserData.Ptr = (ULONGLONG)&PpmCheckTime;
-      v10 = 8LL;
-      v9 = &v7;
-      v12 = 4LL;
-      v11 = &v6;
-      EtwWrite(v3, &PPM_ETW_PERF_CHECK_START, 0LL, 3u, &UserData);
+      v11 = 8LL;
+      v10 = &v7;
+      v13 = 4LL;
+      v12 = &v6;
+      EtwWriteEx(v3, &PPM_ETW_PERF_CHECK_START, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   PpmCheckPipeline = *(_QWORD *)(PpmCheckPipelines + 8 * v1);
   if ( !PpmCheckPipeline )
     PpmCheckPipeline = *(_QWORD *)PpmCheckPipelines;
   PpmCheckPipelineIndex = 0;
-  LOBYTE(v2) = (unsigned __int64)PpmPerfDeadlineBoostExpiration >= MEMORY[0xFFFFF78000000008];
-  if ( __PAIR64__(PpmCheckDeadlineBoostActive, PpmCheckLatencyBoostActive) != __PAIR64__(
-                                                                                v2,
-                                                                                (unsigned __int64)PpmPerfLatencyBoostExpiration >= MEMORY[0xFFFFF78000000008]) )
+  if ( (unsigned __int64)PpmPerfDeadlineBoostExpiration >= MEMORY[0xFFFFF78000000008] )
+    v2 = 1;
+  if ( PpmCheckLatencyBoostActive != (unsigned __int64)PpmPerfLatencyBoostExpiration >= MEMORY[0xFFFFF78000000008]
+    || PpmCheckDeadlineBoostActive != v2 )
   {
-    PpmPerfSetAllDomainsToUpdate();
+    PpmPerfSetAllDomainsToUpdate(PpmPerfDeadlineBoostExpiration);
     PpmCheckLatencyBoostActive = v5;
     PpmCheckDeadlineBoostActive = v2;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPrimitiveGroupDrawListBrush@@@Z @ 0x180011848
+ * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCPrimitiveGroupDrawListBrush@@@Z @ 0x1800131A8
  * Callers:
- *     ??_ECPrimitiveGroupDrawListBrush@@UEAAPEAXI@Z @ 0x1800116E0 (--_ECPrimitiveGroupDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?Create@CPrimitiveGroupDrawListBrush@@SAJPEAVCPrimitiveGroupDrawListGenerator@@USamplerMode@@PEAPEAV1@@Z @ 0x180011760 (-Create@CPrimitiveGroupDrawListBrush@@SAJPEAVCPrimitiveGroupDrawListGenerator@@USamplerMode@@PEA.c)
+ *     ??_ECPrimitiveGroupDrawListBrush@@UEAAPEAXI@Z @ 0x180013050 (--_ECPrimitiveGroupDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?Create@CPrimitiveGroupDrawListBrush@@SAJPEAVCPrimitiveGroupDrawListGenerator@@USamplerMode@@PEAPEAV1@@Z @ 0x1800130C4 (-Create@CPrimitiveGroupDrawListBrush@@SAJPEAVCPrimitiveGroupDrawListGenerator@@USamplerMode@@PEA.c)
  * Callees:
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180078B70 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CPrimitiveGroupDrawListBrush *a1)
@@ -18,5 +18,5 @@ struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CPrimitive
   Current = CThreadContext::GetCurrent(&v4);
   if ( Current < 0 )
     ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-  return (struct CThreadContext *)((char *)v4 + 336);
+  return (struct CThreadContext *)((char *)v4 + 232);
 }

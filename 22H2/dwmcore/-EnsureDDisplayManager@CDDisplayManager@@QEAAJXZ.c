@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnsureDDisplayManager@CDDisplayManager@@QEAAJXZ @ 0x1802947F0
+ * XREFs of ?EnsureDDisplayManager@CDDisplayManager@@QEAAJXZ @ 0x180244164
  * Callers:
- *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180293C28 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
+ *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180243534 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *this)
@@ -19,7 +19,7 @@ __int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *thi
   __int64 v6; // rcx
   _QWORD *v7; // rbx
   __int64 v8; // rax
-  __int64 (__fastcall *v9)(_QWORD *, __int64, __int128 *); // rdi
+  __int64 (__fastcall *v9)(_QWORD *, _QWORD, __int128 *); // rdi
   int v10; // eax
   __int64 v11; // rcx
   HRESULT v12; // eax
@@ -67,10 +67,10 @@ __int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *thi
         v7 = v25;
         v8 = *v25;
         *(_QWORD *)&g_DDisplayManager = 0LL;
-        v9 = *(__int64 (__fastcall **)(_QWORD *, __int64, __int128 *))(v8 + 48);
+        v9 = *(__int64 (__fastcall **)(_QWORD *, _QWORD, __int128 *))(v8 + 48);
         if ( v6 )
           (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
-        v10 = v9(v7, 2LL, &g_DDisplayManager);
+        v10 = v9(v7, 0LL, &g_DDisplayManager);
         v1 = v10;
         if ( v10 < 0 )
         {
@@ -78,7 +78,6 @@ __int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *thi
         }
         else
         {
-          v24 = 0LL;
           v12 = WindowsCreateStringReference(
                   L"Windows.Devices.Display.Core.DisplayPrimaryDescription",
                   0x36u,
@@ -106,7 +105,6 @@ __int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *thi
             }
             else
             {
-              v23 = 0LL;
               v17 = WindowsCreateStringReference(L"Windows.Devices.Display.Core.DisplayHdrMetadata", 0x2Fu, &v29, &v23);
               v1 = v17;
               if ( v17 < 0 )
@@ -115,11 +113,11 @@ __int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *thi
               }
               else
               {
-                v19 = xmmword_1803E6540;
-                *(_QWORD *)&xmmword_1803E6540 = 0LL;
+                v19 = qword_18034B648;
+                qword_18034B648 = 0LL;
                 if ( v19 )
                   (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 16LL))(v19);
-                v20 = RoGetActivationFactory(v23, &GUID_028d1ebd_933a_5cba_97d8_fe808844d45d, &xmmword_1803E6540);
+                v20 = RoGetActivationFactory(v23, &GUID_028d1ebd_933a_5cba_97d8_fe808844d45d, &qword_18034B648);
                 v1 = v20;
                 if ( v20 < 0 )
                   MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x6Eu, 0LL);

@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhFdoPowerWorker @ 0x1C003B630
+ * XREFs of UsbhFdoPowerWorker @ 0x1C003C960
  * Callers:
  *     <none>
  * Callees:
- *     UsbhFdoPowerWorkerInternal @ 0x1C003B648 (UsbhFdoPowerWorkerInternal.c)
+ *     UsbhFdoPowerWorkerInternal @ 0x1C003C978 (UsbhFdoPowerWorkerInternal.c)
  */
 
 __int64 UsbhFdoPowerWorker()

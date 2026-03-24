@@ -1,105 +1,102 @@
 /*
- * XREFs of ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C009F05C
+ * XREFs of ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C0075770
  * Callers:
- *     ?ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C009EA34 (-ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A17C0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
- *     ?ZeroIfNeeded@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C00AB9D0 (-ZeroIfNeeded@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z.c)
+ *     ?ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00754EC (-ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?ZeroIfNeeded@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C0075560 (-ZeroIfNeeded@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z.c)
  * Callees:
- *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A3C (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C0085D90 (-VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z.c)
- *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C009E474 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
- *     FastZeroMemory @ 0x1C009F140 (FastZeroMemory.c)
- *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C00A3758 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00158AC (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C0062738 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
+ *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C0074C60 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ *     FastZeroMemory @ 0x1C0075850 (FastZeroMemory.c)
+ *     ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C00C1304 (-VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z.c)
  */
 
-void __fastcall VIDMM_RECYCLE_MULTIRANGE::ZeroMultirangeMemory(VIDMM_RECYCLE_MULTIRANGE *this)
+void __fastcall VIDMM_RECYCLE_MULTIRANGE::ZeroMultirangeMemory(VIDMM_RECYCLE_MULTIRANGE *this, __int64 a2, __int64 a3)
 {
-  void *v1; // rsi
-  __int64 v2; // rdx
-  unsigned __int8 v3; // r14
-  char *v4; // r15
-  __int64 v6; // rbp
-  unsigned __int64 v7; // rbp
-  int v8; // ecx
+  __int64 v3; // rdx
+  void *CurrentProcess; // rsi
+  char *v5; // r14
+  unsigned __int8 v6; // r12
+  __int64 v7; // rbp
+  unsigned __int64 v9; // rbp
+  void *v10; // r15
+  int v11; // ecx
   struct VIDMM_RECYCLE_RANGE *i; // rdi
-  __int64 v10; // rcx
-  size_t v11; // rdx
-  char *v12; // rcx
-  __int64 v13; // r8
-  VIDMM_RECYCLE_HEAP_MGR *v14; // rcx
-  int v15; // eax
-  struct _EPROCESS *CurrentProcess; // rdi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  unsigned __int8 v18; // [rsp+70h] [rbp+8h] BYREF
-  void *v19; // [rsp+78h] [rbp+10h] BYREF
-  void *v20; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v13; // rcx
+  size_t v14; // rdx
+  char *v15; // rcx
+  __int64 v16; // r8
+  VIDMM_RECYCLE_HEAP_MGR *v17; // rcx
+  __int64 v18; // rdx
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rdi
+  _QWORD *v23; // rax
+  unsigned __int8 v24; // [rsp+80h] [rbp+8h] BYREF
+  void *v25; // [rsp+88h] [rbp+10h] BYREF
+  void *v26; // [rsp+90h] [rbp+18h] BYREF
 
-  v19 = 0LL;
-  v1 = 0LL;
-  v2 = *((_QWORD *)this + 10);
-  v3 = 0;
-  v4 = (char *)*((_QWORD *)this + 4);
-  v6 = *((_QWORD *)this + 5);
-  v20 = 0LL;
-  v7 = v6 - (_QWORD)v4;
-  v18 = 0;
-  v8 = **(_DWORD **)(v2 + 32);
-  if ( (unsigned int)(v8 - 3) <= 3 && (unsigned int)(v8 - 5) > 1 )
+  v3 = *((_QWORD *)this + 10);
+  CurrentProcess = 0LL;
+  v5 = (char *)*((_QWORD *)this + 4);
+  v6 = 0;
+  v7 = *((_QWORD *)this + 5);
+  v25 = 0LL;
+  v9 = v7 - (_QWORD)v5;
+  v26 = 0LL;
+  v10 = 0LL;
+  v24 = 0;
+  v11 = **(_DWORD **)(v3 + 32);
+  if ( (unsigned int)(v11 - 3) <= 3 && (unsigned int)(v11 - 5) > 1 )
   {
-    v15 = VidMmRecycleHeapMapSection(*(PVOID *)(v2 + 56), (__int64)v4, v7, v8 == 4, &v19, &v20, 0, &v18);
-    if ( v15 < 0 )
+    v19 = VidMmRecycleHeapMapSection(*(PVOID *)(v3 + 56), (unsigned __int64)v5, v9, v11 == 4, &v25, &v26, 0, &v24);
+    v22 = v19;
+    if ( v19 < 0 )
     {
-      WdLogSingleEntry5(
-        3LL,
-        v7,
-        *((_QWORD *)this + 4),
-        *((_QWORD *)this + 10),
-        v15,
-        **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 10) + 32LL) + 8LL) + 8LL));
+      v23 = (_QWORD *)WdLogNewEntry5_WdWarning(v21, v20);
+      v23[3] = v9;
+      v23[4] = *((_QWORD *)this + 4);
+      v23[5] = *((_QWORD *)this + 10);
+      v23[6] = v22;
+      v23[7] = **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 10) + 32LL) + 8LL) + 8LL);
+      WdLogEvent5_WdWarning(v23);
       return;
     }
-    v4 = (char *)v19;
-    v1 = v20;
-    v3 = v18;
+    v5 = (char *)v25;
+    v10 = v26;
+    v6 = v24;
   }
   for ( i = (struct VIDMM_RECYCLE_RANGE *)*((_QWORD *)this + 8); ; i = VIDMM_RECYCLE_RANGE::GetNextRange(i) )
   {
     if ( *((_DWORD *)i + 20) == 3 && *((_BYTE *)i + 84) )
     {
-      v10 = *((_QWORD *)i + 4);
-      v11 = *((_QWORD *)i + 5) - v10;
-      v12 = &v4[v10 - *((_QWORD *)this + 4)];
-      v13 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 10) + 32LL) + 8LL) + 8LL);
-      *(_QWORD *)(v13 + 208) += v11;
-      FastZeroMemory(v12, v11);
+      v13 = *((_QWORD *)i + 4);
+      v14 = *((_QWORD *)i + 5) - v13;
+      v15 = &v5[v13 - *((_QWORD *)this + 4)];
+      v16 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 10) + 32LL) + 8LL) + 8LL);
+      *(_QWORD *)(v16 + 208) += v14;
+      FastZeroMemory(v15, v14);
     }
     if ( i == *((struct VIDMM_RECYCLE_RANGE **)this + 9) )
       break;
   }
-  v14 = *(VIDMM_RECYCLE_HEAP_MGR **)(*((_QWORD *)this + 10) + 32LL);
-  if ( (unsigned int)(*(_DWORD *)v14 - 3) <= 3 && (unsigned int)(*(_DWORD *)v14 - 5) > 1 )
+  v17 = *(VIDMM_RECYCLE_HEAP_MGR **)(*((_QWORD *)this + 10) + 32LL);
+  v18 = *(unsigned int *)v17;
+  if ( (unsigned int)(v18 - 3) <= 3 && (unsigned int)(v18 - 5) > 1 )
   {
-    if ( v3 )
-      CurrentProcess = 0LL;
-    else
-      CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess();
-    if ( v7 <= VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(v14, 0) )
+    if ( !v6 )
+      CurrentProcess = (void *)PsGetCurrentProcess(v17, v18, a3);
+    if ( v9 <= VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(v17, 0) )
     {
       if ( CurrentProcess )
-      {
-        VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-        (*((void (__fastcall **)(struct _EPROCESS *, void *))VirtualMemoryInterface + 4))(CurrentProcess, v1);
-      }
+        MmUnmapViewOfSection(CurrentProcess, v10);
       else
-      {
-        MmUnmapViewInSystemSpace(v1);
-      }
+        MmUnmapViewInSystemSpace(v10);
     }
     else
     {
-      VidMmUnmapViewAsync(CurrentProcess, *(void **)(*((_QWORD *)this + 10) + 56LL), v1);
+      VidMmUnmapViewAsync(CurrentProcess, *(PVOID *)(*((_QWORD *)this + 10) + 56LL), v10);
     }
   }
 }

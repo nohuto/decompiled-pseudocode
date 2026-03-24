@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00EFAC8
+ * XREFs of ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00E6B24
  * Callers:
- *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00EF8F4 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00E6950 (-bInitializeEUDCInternal@@YAHXZ.c)
  * Callees:
- *     EngUnmapFontFileFD @ 0x1C0011220 (EngUnmapFontFileFD.c)
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0011B90 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0013268 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C013B0A4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
- *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029532C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1DA4 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1FB8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEF24 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011DA70 (EngUnmapFontFileFD.c)
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029794C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
  */
 
 void vInitializeFontAssocStatus(void)
@@ -31,26 +31,26 @@ void vInitializeFontAssocStatus(void)
   *(_OWORD *)&SharedQueryTable.Name = 0LL;
   SharedQueryTable.DefaultData = 0LL;
   SharedQueryTable.DefaultLength = 0;
-  qword_1C0335A18 = 0LL;
-  dword_1C0335A20 = 0;
-  qword_1C0335A28 = 0LL;
+  qword_1C033A868 = 0LL;
+  dword_1C033A870 = 0;
+  qword_1C033A878 = 0LL;
   fFontAssocStatus = 0;
   gawcSystemDBCSFontPath = 0;
   if ( RtlQueryRegistryValues(0x80000002, L"FontAssoc\\Associated CharSet", &SharedQueryTable, 0LL, 0LL) < 0 )
     fFontAssocStatus = 0;
-  word_1C0335DB0 = 0;
+  word_1C033ABF0 = 0;
   SharedQueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)FontAssocDefaultRoutine;
   if ( RtlQueryRegistryValues(0x80000002, L"FontAssoc\\Associated DefaultFonts", &SharedQueryTable, 0LL, 0LL) >= 0 )
   {
     bReadyToInitializeFontAssocDefault = 1;
     if ( gawcSystemDBCSFontPath )
     {
-      if ( word_1C0335DB0 )
+      if ( word_1C033ABF0 )
       {
         v11 = gpPFTPublic;
         v5[0] = &gappfeSystemDBCS;
         v9 = 0;
-        v5[1] = &word_1C0335DB0;
+        v5[1] = &word_1C033ABF0;
         v10 = 0LL;
         if ( (unsigned int)PUBLIC_PFTOBJ::bLoadAFont(
                              (PUBLIC_PFTOBJ *)&v11,
@@ -61,7 +61,7 @@ void vInitializeFontAssocStatus(void)
                              (struct _EUDCLOAD *)v5,
                              1) )
         {
-          qword_1C0337C90 = 0LL;
+          qword_1C033D5D0 = 0LL;
           GreAcquireSemaphore(ghsemEUDC1);
           if ( (unsigned int)bComputeQuickLookup((struct _QUICKLOOKUP *)&gqlTTSystem, gappfeSystemDBCS, 0) )
             goto LABEL_16;
@@ -98,6 +98,6 @@ LABEL_16:
     bReadyToInitializeFontAssocDefault = 0;
   }
   SharedQueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)CountRegistryEntryRoutine;
-  SharedQueryTable.EntryContext = &dword_1C0336354;
-  dword_1C0336354 = 0;
+  SharedQueryTable.EntryContext = &dword_1C033B094;
+  dword_1C033B094 = 0;
 }

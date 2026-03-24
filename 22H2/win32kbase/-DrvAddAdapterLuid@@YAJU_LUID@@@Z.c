@@ -1,48 +1,47 @@
 /*
- * XREFs of ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C001B068
+ * XREFs of ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007E954
  * Callers:
- *     DrvUpdateGraphicsDeviceList @ 0x1C001CDB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C001F34C (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
- *     DrvAddMirrorDriversToRemoteList @ 0x1C00CAEC4 (DrvAddMirrorDriversToRemoteList.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001F350 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C0020020 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C3560 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
  * Callees:
- *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C0018F8C (--8@YA_NAEBU_LUID@@0@Z.c)
+ *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C007EBD8 (--8@YA_NAEBU_LUID@@0@Z.c)
  */
 
 __int64 __fastcall DrvAddAdapterLuid(struct _LUID a1)
 {
-  __int64 v2; // r9
-  __int64 v3; // r8
-  unsigned int v4; // edi
-  __int64 v5; // r10
-  __int64 v6; // rsi
-  __int64 v7; // r10
-  struct _LUID v9; // [rsp+30h] [rbp+8h] BYREF
+  _DWORD *v1; // r10
+  struct _LUID v2; // r8
+  unsigned int v3; // r11d
+  __int64 v4; // r9
+  __int64 v5; // r9
+  unsigned int v6; // r11d
+  struct _LUID v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v9 = a1;
-  v2 = *(_QWORD *)(((__int64 (__fastcall *)(_QWORD))SGDGetSessionState)(a1) + 24);
-  v3 = *(_QWORD *)(v2 + 1928);
-  v4 = *(_DWORD *)(v3 + 1573028);
-  if ( v4 >= *(_DWORD *)(v2 + 1300) )
+  v8 = a1;
+  v1 = gpGdiSharedMemory;
+  v2 = a1;
+  v3 = *((_DWORD *)gpGdiSharedMemory + 393257);
+  if ( v3 >= (unsigned int)gcMaximumAdapterCount )
     return 3221225612LL;
-  v5 = 0LL;
-  if ( v4 )
+  v4 = 0LL;
+  if ( v3 )
   {
-    v6 = *(_QWORD *)(v2 + 1304);
-    while ( !operator==(&v9, (_DWORD *)(v6 + 8 * v5)) )
+    while ( !(unsigned __int8)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))operator==)(&v8, &gpAdapterLuids[v4], v2) )
     {
-      v5 = (unsigned int)(v7 + 1);
-      if ( (unsigned int)v5 >= v4 )
-        goto LABEL_7;
+      v4 = (unsigned int)(v5 + 1);
+      if ( (unsigned int)v4 >= v6 )
+        goto LABEL_6;
     }
-    ++*(_BYTE *)(*(_QWORD *)(v2 + 1312) + v7);
+    ++gpDevicesPerLuid[v5];
   }
   else
   {
-LABEL_7:
-    *(struct _LUID *)(*(_QWORD *)(v2 + 1304) + 8 * v5) = a1;
-    ++*(_BYTE *)(*(_QWORD *)(v2 + 1312) + v5);
-    ++*(_DWORD *)(v3 + 1573028);
-    ++*(_DWORD *)(v3 + 1573024);
+LABEL_6:
+    gpAdapterLuids[v4] = v2;
+    ++gpDevicesPerLuid[v4];
+    ++v1[393257];
+    ++v1[393256];
   }
   return 0LL;
 }

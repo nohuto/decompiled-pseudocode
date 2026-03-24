@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapInsertTriageDataBlock @ 0x1408DC6A4
+ * XREFs of WheapInsertTriageDataBlock @ 0x1408DC684
  * Callers:
- *     WheapCreateLiveTriageDump @ 0x1408DC59C (WheapCreateLiveTriageDump.c)
+ *     WheapCreateLiveTriageDump @ 0x1408DC57C (WheapCreateLiveTriageDump.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall WheapInsertTriageDataBlock(_DWORD *a1, const void *a2, unsigned int a3)

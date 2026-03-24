@@ -1,8 +1,7 @@
 /*
- * XREFs of ResetWindowTransform @ 0x1C00BB224
+ * XREFs of ResetWindowTransform @ 0x1C0132C1C
  * Callers:
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
  * Callees:
  *     <none>
  */

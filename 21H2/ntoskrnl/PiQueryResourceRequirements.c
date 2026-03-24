@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryResourceRequirements @ 0x140749A80
+ * XREFs of PiQueryResourceRequirements @ 0x140750B94
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     PpIrpQueryResourceRequirements @ 0x14074B21C (PpIrpQueryResourceRequirements.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PpIrpQueryResourceRequirements @ 0x140750D58 (PpIrpQueryResourceRequirements.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
@@ -27,6 +27,7 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
   int v7; // eax
   HANDLE v8; // rcx
   struct _KTHREAD *CurrentThread; // rax
+  PVOID v11; // rbx
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-10h] BYREF
   HANDLE KeyHandle; // [rsp+80h] [rbp+30h] BYREF
   PVOID Data; // [rsp+88h] [rbp+38h] BYREF
@@ -45,12 +46,20 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
     DataSize = *v4;
   else
     DataSize = 0;
-  if ( (*(_DWORD *)(a1 + 396) & 0x2000) != 0
-    && (*(_DWORD *)(a1 + 404) == 9 || *(_DWORD *)(a1 + 404) == 3 || *(_DWORD *)(a1 + 404) == 19) )
+  if ( (*(_DWORD *)(a1 + 396) & 0x2000) != 0 && *(_DWORD *)(a1 + 404) == 9
+    || (*(_DWORD *)(a1 + 396) & 0x2000) != 0 && (*(_DWORD *)(a1 + 404) == 3 || *(_DWORD *)(a1 + 404) == 19) )
   {
-    goto LABEL_18;
+    goto LABEL_19;
   }
-  v7 = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 20, 0, 983103, v4 != 0LL, (__int64)&KeyHandle, 0LL);
+  v7 = CmOpenDeviceRegKey(
+         *(__int64 *)&PiPnpRtlCtx,
+         *(_QWORD *)(a1 + 48),
+         20,
+         0,
+         983103,
+         v4 != 0LL,
+         (__int64)&KeyHandle,
+         0LL);
   v8 = KeyHandle;
   if ( v7 < 0 )
     v8 = 0LL;
@@ -62,23 +71,24 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-    v4 = (ULONG *)Data;
+    v11 = Data;
     if ( Data )
     {
       ZwSetValueKey(KeyHandle, &ValueName, 0, 0xAu, Data, DataSize);
       ExAcquireFastMutex(&PiResourceListLock);
-      *(_QWORD *)(a1 + 440) = v4;
+      *(_QWORD *)(a1 + 440) = v11;
       KeReleaseGuardedMutex(&PiResourceListLock);
-      PipSetDevNodeFlags(a1, 512LL);
-      v4 = 0LL;
+      PipSetDevNodeFlags(a1, 512);
+      Data = 0LL;
     }
     else
     {
       ZwDeleteValueKey(KeyHandle, &ValueName);
     }
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KeLeaveCriticalRegion();
-LABEL_18:
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v4 = (ULONG *)Data;
+LABEL_19:
     v8 = KeyHandle;
   }
   if ( v4 )

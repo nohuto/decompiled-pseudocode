@@ -1,9 +1,9 @@
 /*
- * XREFs of GreMarkUndeletableBitmap @ 0x1C00608E0
+ * XREFs of GreMarkUndeletableBitmap @ 0x1C001CD90
  * Callers:
  *     <none>
  * Callees:
- *     HmgMarkUndeletable @ 0x1C0060900 (HmgMarkUndeletable.c)
+ *     HmgMarkUndeletable @ 0x1C001CDB0 (HmgMarkUndeletable.c)
  */
 
 __int64 __fastcall GreMarkUndeletableBitmap(__int64 a1, __int64 a2)

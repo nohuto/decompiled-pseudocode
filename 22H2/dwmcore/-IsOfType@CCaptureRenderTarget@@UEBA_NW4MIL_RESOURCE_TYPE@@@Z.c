@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CCaptureRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C54C0
+ * XREFs of ?IsOfType@CCaptureRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F2C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CCaptureRenderTarget::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 20 || a2 == 146 || a2 == 114;
+  return a2 == 17 || a2 == 146 || a2 == 112;
 }

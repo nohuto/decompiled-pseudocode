@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCancelMmWaitForUninitializeCacheMap @ 0x140268CFC
+ * XREFs of CcCancelMmWaitForUninitializeCacheMap @ 0x140268DFC
  * Callers:
  *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 LONG __fastcall CcCancelMmWaitForUninitializeCacheMap(__int64 a1)

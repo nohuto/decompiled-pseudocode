@@ -1,10 +1,11 @@
 /*
- * XREFs of ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C009B1B0
+ * XREFs of ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C0086A98
  * Callers:
- *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C002D474 (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
- *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0087368 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
- *     ?OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0087408 (-OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
- *     ?CompleteReconnection@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C00C1570 (-CompleteReconnection@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
+ *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C005DF20 (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
+ *     ?CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z @ 0x1C0094650 (-CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z.c)
+ *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00AAE38 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     ?OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00AAED8 (-OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     ?CompleteReconnection@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C00B6630 (-CompleteReconnection@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -13,27 +14,27 @@ void *__fastcall DirectComposition::CLinearObjectTableBase::EnumerateObjects(
         DirectComposition::CLinearObjectTableBase *this,
         unsigned __int64 *a2)
 {
-  unsigned __int64 v2; // rax
-  unsigned __int64 v4; // r10
-  __int64 v5; // r11
-  _QWORD *v6; // r8
-  unsigned __int64 v7; // rdx
+  unsigned __int64 v2; // r8
+  unsigned __int64 v4; // rcx
+  _QWORD *v5; // rax
+  __int64 v6; // rcx
 
   v2 = *a2;
   v4 = *((_QWORD *)this + 3);
   if ( *a2 >= v4 )
     return 0LL;
-  v5 = *((_QWORD *)this + 4);
-  v6 = (_QWORD *)(*(_QWORD *)this + v2 * v5);
-  while ( 1 )
+  v5 = (_QWORD *)(*(_QWORD *)this + v2 * *((_QWORD *)this + 4));
+  do
   {
-    v7 = v2++;
-    if ( *v6 )
+    if ( *v5 )
       break;
-    v6 = (_QWORD *)((char *)v6 + v5);
-    if ( v2 >= v4 )
-      return 0LL;
+    ++v2;
+    v5 = (_QWORD *)((char *)v5 + *((_QWORD *)this + 4));
   }
-  *a2 = v2;
-  return *(void **)(v5 * v7 + *(_QWORD *)this);
+  while ( v2 < v4 );
+  if ( v2 >= v4 )
+    return 0LL;
+  v6 = *((_QWORD *)this + 4);
+  *a2 = v2 + 1;
+  return *(void **)(v2 * v6 + *(_QWORD *)this);
 }

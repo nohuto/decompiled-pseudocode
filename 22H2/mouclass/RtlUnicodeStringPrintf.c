@@ -1,1 +1,49 @@
-/*\n * XREFs of RtlUnicodeStringPrintf @ 0x1C0002240\n * Callers:\n *     MouCreateClassObject @ 0x1C000D790 (MouCreateClassObject.c)\n * Callees:\n *     <none>\n */\n\nNTSTATUS RtlUnicodeStringPrintf(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszFormat, ...)\n{\n  USHORT Length; // cx\n  USHORT MaximumLength; // ax\n  NTSTATUS v5; // esi\n  size_t v6; // rdi\n  int v7; // eax\n  va_list Args; // [rsp+60h] [rbp+18h] BYREF\n\n  va_start(Args, pszFormat);\n  Length = DestinationString->Length;\n  if ( (Length & 1) != 0 )\n    return -1073741811;\n  MaximumLength = DestinationString->MaximumLength;\n  if ( (MaximumLength & 1) != 0\n    || Length > MaximumLength\n    || MaximumLength == 0xFFFF\n    || !DestinationString->Buffer && (Length || MaximumLength) )\n  {\n    return -1073741811;\n  }\n  v5 = 0;\n  v6 = (unsigned __int64)DestinationString->MaximumLength >> 1;\n  v7 = _vsnwprintf(DestinationString->Buffer, v6, pszFormat, Args);\n  if ( v7 < 0 || v7 > v6 )\n  {\n    LOWORD(v7) = v6;\n    v5 = -2147483643;\n  }\n  DestinationString->Length = 2 * v7;\n  return v5;\n}\n
+/*
+ * XREFs of RtlUnicodeStringPrintf @ 0x1C0002550
+ * Callers:
+ *     MouCreateClassObject @ 0x1C000CBA0 (MouCreateClassObject.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS RtlUnicodeStringPrintf(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszFormat, ...)
+{
+  USHORT Length; // r8
+  NTSTATUS v3; // edi
+  wchar_t *Buffer; // r10
+  size_t v6; // rbx
+  NTSTATUS v7; // r9d
+  unsigned __int64 MaximumLength; // rax
+  int v9; // eax
+  va_list Args; // [rsp+60h] [rbp+18h] BYREF
+
+  va_start(Args, pszFormat);
+  Length = DestinationString->Length;
+  v3 = 0;
+  Buffer = 0LL;
+  v6 = 0LL;
+  v7 = 0;
+  if ( (DestinationString->Length & 1) != 0
+    || (MaximumLength = DestinationString->MaximumLength, (MaximumLength & 1) != 0)
+    || Length > (unsigned __int16)MaximumLength
+    || (_WORD)MaximumLength == 0xFFFF
+    || !DestinationString->Buffer && (Length || (_WORD)MaximumLength) )
+  {
+    v7 = -1073741811;
+  }
+  else
+  {
+    Buffer = DestinationString->Buffer;
+    v6 = MaximumLength >> 1;
+  }
+  if ( v7 < 0 )
+    return v7;
+  v9 = _vsnwprintf(Buffer, v6, pszFormat, Args);
+  if ( v9 < 0 || v9 > v6 )
+  {
+    LOWORD(v9) = v6;
+    v3 = -2147483643;
+  }
+  DestinationString->Length = 2 * v9;
+  return v3;
+}

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIommuConstructReservedPageTable @ 0x140A61BE0
+ * XREFs of HalpIommuConstructReservedPageTable @ 0x1409A74A8
  * Callers:
- *     HalpIommuConstructReservedPageTables @ 0x140A61CF4 (HalpIommuConstructReservedPageTables.c)
+ *     HalpIommuConstructReservedPageTables @ 0x1409A75C0 (HalpIommuConstructReservedPageTables.c)
  * Callees:
- *     HalpIommuGetPageTableType @ 0x14051B254 (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x140529654 (HalpIommuCreateDmarPageTable.c)
- *     HalpIommuGetDmarptRootAddress @ 0x1405298F8 (HalpIommuGetDmarptRootAddress.c)
- *     HalpIommuMapLogicalRange @ 0x140529F08 (HalpIommuMapLogicalRange.c)
+ *     HalpIommuGetPageTableType @ 0x1404C97BC (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1404DB9BC (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1404DBC38 (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC20C (HalpIommuMapLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuConstructReservedPageTable(__int64 a1, PHYSICAL_ADDRESS *a2, unsigned int a3)
 {
-  int PageTableType; // edx
+  int PageTableType; // r8d
   __int64 v7; // r9
   __int64 *v8; // rsi
   __int64 i; // rdi
@@ -28,7 +28,7 @@ __int64 __fastcall HalpIommuConstructReservedPageTable(__int64 a1, PHYSICAL_ADDR
   }
   else
   {
-    PageTableType = HalpIommuGetPageTableType(0, &v15);
+    PageTableType = HalpIommuGetPageTableType((int *)&v15);
     if ( PageTableType >= 0 )
     {
       v8 = (__int64 *)&a2[1];

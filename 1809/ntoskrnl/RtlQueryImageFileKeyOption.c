@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlQueryImageFileKeyOption @ 0x1406BB3C0
+ * XREFs of RtlQueryImageFileKeyOption @ 0x1406BB3A0
  * Callers:
- *     PspReadDfssConfigurationValues @ 0x1402E92B0 (PspReadDfssConfigurationValues.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     PspReadOptionsMapFromIFEO @ 0x14064E7A4 (PspReadOptionsMapFromIFEO.c)
- *     SepIsImageInMinTcbList @ 0x1406B4428 (SepIsImageInMinTcbList.c)
- *     PspDetectComplusILImage @ 0x1406BAF7C (PspDetectComplusILImage.c)
- *     PspReadIFEOPerfOptions @ 0x1406BB1D0 (PspReadIFEOPerfOptions.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140733D04 (RtlQueryImageFileExecutionOptions.c)
+ *     PspReadDfssConfigurationValues @ 0x1402E93B0 (PspReadDfssConfigurationValues.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspReadOptionsMapFromIFEO @ 0x14064E784 (PspReadOptionsMapFromIFEO.c)
+ *     SepIsImageInMinTcbList @ 0x1406B4408 (SepIsImageInMinTcbList.c)
+ *     PspDetectComplusILImage @ 0x1406BAF5C (PspDetectComplusILImage.c)
+ *     PspReadIFEOPerfOptions @ 0x1406BB1B0 (PspReadIFEOPerfOptions.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140733CE4 (RtlQueryImageFileExecutionOptions.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
  */
 
 NTSTATUS __fastcall RtlQueryImageFileKeyOption(

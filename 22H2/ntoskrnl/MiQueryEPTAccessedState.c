@@ -1,34 +1,28 @@
 /*
- * XREFs of MiQueryEPTAccessedState @ 0x14046BA2C
+ * XREFs of MiQueryEPTAccessedState @ 0x14053B940
  * Callers:
- *     MiAgeWorkingSetTail @ 0x140334210 (MiAgeWorkingSetTail.c)
- *     MiResetAccessBitsTail @ 0x140348160 (MiResetAccessBitsTail.c)
- *     MiTrimWorkingSetTail @ 0x14034F710 (MiTrimWorkingSetTail.c)
- *     MiSimpleAgeWorkingSetTail @ 0x14046BBB0 (MiSimpleAgeWorkingSetTail.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x14046BDE0 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiAgeWorkingSetTail @ 0x14022DDD0 (MiAgeWorkingSetTail.c)
+ *     MiTrimWorkingSetTail @ 0x140330260 (MiTrimWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x14039CE80 (MiResetAccessBitsTail.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x14053BF10 (MiSimpleAgeWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x14053C6C0 (MiUpdateOldWorkingSetPagesTail.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x14033D09C (MiReleaseWalkLocks.c)
- *     VmpQueryAccessedState @ 0x1404667AA (VmpQueryAccessedState.c)
- *     MiReacquireWalkLocks @ 0x14046B368 (MiReacquireWalkLocks.c)
+ *     MiReleaseWalkLocks @ 0x140302EB0 (MiReleaseWalkLocks.c)
+ *     MiReacquireWalkLocks @ 0x140530620 (MiReacquireWalkLocks.c)
+ *     VmpQueryAccessedState @ 0x1405A4B2C (VmpQueryAccessedState.c)
  */
 
-__int64 __fastcall MiQueryEPTAccessedState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiQueryEPTAccessedState(__int64 a1, _DWORD *a2)
 {
-  __int64 v4; // rdi
-  int v5; // ebx
-  __int64 v8; // r9
+  __int64 v2; // rdi
+  _DWORD *v5; // r9
   __int64 result; // rax
 
-  v4 = *(_QWORD *)(a1 + 48);
-  v5 = a3;
-  MiReleaseWalkLocks(a1, a2, a3, a4);
-  VmpQueryAccessedState(
-    (PEX_SPIN_LOCK)KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5],
-    (_QWORD *)(a2 + 8),
-    *(_DWORD *)a2,
-    v5);
-  result = MiReacquireWalkLocks(a1, v4, 0, v8);
+  v2 = *(_QWORD *)(a1 + 48);
+  MiReleaseWalkLocks(a1);
+  VmpQueryAccessedState((PEX_SPIN_LOCK)KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5]);
+  result = MiReacquireWalkLocks(a1, v2, 0LL, v5);
   if ( !(_DWORD)result )
-    *(_DWORD *)a2 = 0;
+    *a2 = 0;
   return result;
 }

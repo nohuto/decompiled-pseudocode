@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIButtonCancelRequest @ 0x1C004D430
+ * XREFs of ACPIButtonCancelRequest @ 0x1C004E740
  * Callers:
  *     <none>
  * Callees:

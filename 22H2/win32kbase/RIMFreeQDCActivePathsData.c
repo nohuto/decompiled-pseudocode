@@ -1,27 +1,27 @@
 /*
- * XREFs of RIMFreeQDCActivePathsData @ 0x1C0019774
+ * XREFs of RIMFreeQDCActivePathsData @ 0x1C006E774
  * Callers:
- *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C001917C (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
- *     RIMGetQDCActivePathsData @ 0x1C0019514 (RIMGetQDCActivePathsData.c)
- *     RIMOnDisplayStateChange @ 0x1C007298C (RIMOnDisplayStateChange.c)
- *     RIMEnableMonitorMappingForDevice @ 0x1C0177190 (RIMEnableMonitorMappingForDevice.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C018CC18 (RIMVirtCreatePointerDeviceInfo.c)
- *     rimInUserCritCreatePointerDeviceInfo @ 0x1C018E740 (rimInUserCritCreatePointerDeviceInfo.c)
- *     RIMFindMonitorForDigitizer @ 0x1C018F670 (RIMFindMonitorForDigitizer.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMOnDisplayStateChange @ 0x1C0056ECC (RIMOnDisplayStateChange.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C006E540 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     RIMGetQDCActivePathsData @ 0x1C006EBA0 (RIMGetQDCActivePathsData.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C0155790 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160080 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMFindMonitorForDigitizer @ 0x1C0164500 (RIMFindMonitorForDigitizer.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall RIMFreeQDCActivePathsData(__int64 a1)
 {
-  void *v1; // rdx
+  __int64 v2; // rcx
 
   if ( a1 )
   {
-    v1 = *(void **)(a1 + 8);
-    if ( v1 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    v2 = *(_QWORD *)(a1 + 8);
+    if ( v2 )
+      Win32FreePool(v2);
     *(_OWORD *)a1 = 0LL;
   }
 }

@@ -1,13 +1,12 @@
 /*
- * XREFs of EtwpInitializeLoggerSecurityDescriptor @ 0x1407E625C
+ * XREFs of EtwpInitializeLoggerSecurityDescriptor @ 0x140711804
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpFixBootLoggers @ 0x140B68B2C (EtwpFixBootLoggers.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
  * Callees:
- *     ObLogSecurityDescriptor @ 0x140728D30 (ObLogSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x1406D8C70 (ObLogSecurityDescriptor.c)
  */
 
-__int64 __fastcall EtwpInitializeLoggerSecurityDescriptor(__int64 a1, __int16 *a2)
+__int64 __fastcall EtwpInitializeLoggerSecurityDescriptor(__int64 a1, char *a2)
 {
   int v3; // ecx
   __int64 v5; // [rsp+40h] [rbp+18h] BYREF
@@ -17,9 +16,9 @@ __int64 __fastcall EtwpInitializeLoggerSecurityDescriptor(__int64 a1, __int16 *a
   if ( v3 >= 0 )
   {
     if ( v5 )
-      *(_QWORD *)(a1 + 784) = v5 + 15;
+      *(_QWORD *)(a1 + 800) = v5 + 15;
     else
-      *(_QWORD *)(a1 + 784) = 0LL;
+      *(_QWORD *)(a1 + 800) = 0LL;
   }
   return (unsigned int)v3;
 }

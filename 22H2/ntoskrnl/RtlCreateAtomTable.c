@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateAtomTable @ 0x1407B05C0
+ * XREFs of RtlCreateAtomTable @ 0x1406A6AF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCreateAtomTableEx @ 0x140339C30 (RtlCreateAtomTableEx.c)
+ *     RtlCreateAtomTableEx @ 0x14032D350 (RtlCreateAtomTableEx.c)
  */
 
 NTSTATUS __fastcall RtlCreateAtomTable(unsigned int a1, _QWORD *a2)

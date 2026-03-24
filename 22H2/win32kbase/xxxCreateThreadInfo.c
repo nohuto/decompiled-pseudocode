@@ -1,815 +1,736 @@
 /*
- * XREFs of xxxCreateThreadInfo @ 0x1C004D550
+ * XREFs of xxxCreateThreadInfo @ 0x1C003ED88
  * Callers:
- *     UserThreadCallout @ 0x1C0050B50 (UserThreadCallout.c)
- *     ?UserInitialize@@YAJXZ @ 0x1C00AE3AC (-UserInitialize@@YAJXZ.c)
+ *     UserThreadCallout @ 0x1C003DA00 (UserThreadCallout.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068D34 (-UserInitialize@@YAJXZ.c)
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ?EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ @ 0x1C004A030 (-EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C004C624 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     AllocQueue @ 0x1C004FB20 (AllocQueue.c)
- *     HMAssignmentLock @ 0x1C004FF50 (HMAssignmentLock.c)
- *     ?AssignQueue@tagTHREADINFO@@QEAAPEAUtagQ@@PEAU2@@Z @ 0x1C004FFD0 (-AssignQueue@tagTHREADINFO@@QEAAPEAUtagQ@@PEAU2@@Z.c)
- *     InitClientInfo @ 0x1C0050060 (InitClientInfo.c)
- *     ?InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z @ 0x1C0050250 (-InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z.c)
- *     ApiSetEditionUpdateRawMouseMode @ 0x1C0050440 (ApiSetEditionUpdateRawMouseMode.c)
- *     ?Initialize@tagTHREADINFO@@QEAAXXZ @ 0x1C0050484 (-Initialize@tagTHREADINFO@@QEAAXXZ.c)
- *     RtlGetExpWinVer @ 0x1C0050F34 (RtlGetExpWinVer.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C005CCDC (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C005CD00 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     HMValidateSharedHandle @ 0x1C005E0B0 (HMValidateSharedHandle.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0065068 (--1LeaveEnterCrit@@QEAA@XZ.c)
- *     ?SetForegroundPriority@ForegroundBoost@@YAXPEBUtagTHREADINFO@@W4ForegroundPriorityClass@1@@Z @ 0x1C0065CC0 (-SetForegroundPriority@ForegroundBoost@@YAXPEBUtagTHREADINFO@@W4ForegroundPriorityClass@1@@Z.c)
- *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C00850DC (--0LeaveEnterCrit@@QEAA@XZ.c)
- *     CloseProtectedHandle @ 0x1C0096518 (CloseProtectedHandle.c)
- *     LockObjectAssignment @ 0x1C0099630 (LockObjectAssignment.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C009A170 (PopAndFreeAlwaysW32ThreadLock.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009CB48 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?GetPtiLastWoken@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C009E0F0 (-GetPtiLastWoken@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ.c)
- *     IsDestroyThreadsMessagesSupported @ 0x1C00A7D38 (IsDestroyThreadsMessagesSupported.c)
- *     DestroyThreadsMessages @ 0x1C00AA0D8 (DestroyThreadsMessages.c)
- *     PopAndFreeW32ThreadLock @ 0x1C00AA2B0 (PopAndFreeW32ThreadLock.c)
- *     IszzzCalcStartCursorHideSupported @ 0x1C00AB9E4 (IszzzCalcStartCursorHideSupported.c)
- *     zzzCalcStartCursorHide @ 0x1C00B58E0 (zzzCalcStartCursorHide.c)
- *     IsEditionSetThreadDesktopAtThreadInitSupported @ 0x1C00B8914 (IsEditionSetThreadDesktopAtThreadInitSupported.c)
- *     IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C00B8940 (IsEditionSetProcessWindowStationAtProcessInitSupported.c)
- *     ?ParseReserved@@YAKPEBG0@Z @ 0x1C00C3560 (-ParseReserved@@YAKPEBG0@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
- *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00DF7E4 (McTemplateK0dq_EtwWriteTransfer.c)
- *     zzzDestroyQueue @ 0x1C012DDE0 (zzzDestroyQueue.c)
- *     EtwTraceScreenSaverProcessEvent @ 0x1C013B05C (EtwTraceScreenSaverProcessEvent.c)
- *     ApiSetEditionSetProcessWindowStationAtProcessInit @ 0x1C0207970 (ApiSetEditionSetProcessWindowStationAtProcessInit.c)
+ *     AllocQueue @ 0x1C00071A0 (AllocQueue.c)
+ *     ValidateHmonitor @ 0x1C0010E00 (ValidateHmonitor.c)
+ *     ProtectHandle @ 0x1C0025F3C (ProtectHandle.c)
+ *     ?InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z @ 0x1C0025FE0 (-InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     HMAssignmentLock @ 0x1C0031780 (HMAssignmentLock.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?IsCurrentProcessDwm@@YAHXZ @ 0x1C003ABCC (-IsCurrentProcessDwm@@YAHXZ.c)
+ *     RtlGetExpWinVer @ 0x1C003FFAC (RtlGetExpWinVer.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0043DC4 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0043E10 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ApiSetEditionUpdateRawMouseMode @ 0x1C00462DC (ApiSetEditionUpdateRawMouseMode.c)
+ *     CloseProtectedHandle @ 0x1C0048268 (CloseProtectedHandle.c)
+ *     IszzzCalcStartCursorHideSupported @ 0x1C00487A4 (IszzzCalcStartCursorHideSupported.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     zzzCalcStartCursorHide @ 0x1C00488C0 (zzzCalcStartCursorHide.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0072710 (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C00749DC (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     SetUnavailableInputSource @ 0x1C0081200 (SetUnavailableInputSource.c)
+ *     PushW32ThreadLock @ 0x1C00859F4 (PushW32ThreadLock.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0085CFC (PopAndFreeAlwaysW32ThreadLock.c)
+ *     InitClientInfo @ 0x1C00860D0 (InitClientInfo.c)
+ *     LockObjectAssignment @ 0x1C0086850 (LockObjectAssignment.c)
+ *     ?GetPtiLastWoken@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C0087DA0 (-GetPtiLastWoken@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00961BC (PopAndFreeW32ThreadLock.c)
+ *     IsDestroyThreadsMessagesSupported @ 0x1C0098FE4 (IsDestroyThreadsMessagesSupported.c)
+ *     DestroyThreadsMessages @ 0x1C009A094 (DestroyThreadsMessages.c)
+ *     IsEditionSetThreadDesktopAtThreadInitSupported @ 0x1C00AD730 (IsEditionSetThreadDesktopAtThreadInitSupported.c)
+ *     IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C00AD75C (IsEditionSetProcessWindowStationAtProcessInitSupported.c)
+ *     ?ParseReserved@@YAKPEBG0@Z @ 0x1C00B5F54 (-ParseReserved@@YAKPEBG0@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?Detach@UserAtomicCheck@@QEAAXXZ @ 0x1C011C69C (-Detach@UserAtomicCheck@@QEAAXXZ.c)
+ *     zzzDestroyQueue @ 0x1C011D730 (zzzDestroyQueue.c)
+ *     EtwTraceScreenSaverProcessEvent @ 0x1C0123C5C (EtwTraceScreenSaverProcessEvent.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C01256BC (McTemplateK0dq_EtwWriteTransfer.c)
+ *     ApiSetEditionSetProcessWindowStationAtProcessInit @ 0x1C01CE06C (ApiSetEditionSetProcessWindowStationAtProcessInit.c)
+ *     ApiSetEditionSetThreadDesktopAtThreadInit @ 0x1C01CE148 (ApiSetEditionSetThreadDesktopAtThreadInit.c)
+ *     IsSetForegroundPrioritySupported @ 0x1C01FC488 (IsSetForegroundPrioritySupported.c)
+ *     SetForegroundPriority @ 0x1C01FC604 (SetForegroundPriority.c)
  */
 
 __int64 __fastcall xxxCreateThreadInfo(PETHREAD Thread)
 {
-  struct _KPROCESS *ThreadProcess; // rbx
-  struct tagDESKTOP *v3; // r13
-  struct _NT_TIB *Self; // rcx
-  _QWORD *CurrentProcessWin32Process; // rax
-  int v6; // r14d
-  __int64 v7; // rdi
-  __int64 *ThreadWin32Thread; // rax
-  unsigned int *v9; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v10; // rcx
-  void *v11; // rbx
-  ULONG64 v12; // rdx
-  void *QuotaZInit; // rax
-  unsigned int *v14; // rdx
-  __int64 v15; // rcx
-  unsigned __int16 *v16; // r8
-  ULONG64 v17; // rdx
-  _QWORD *v18; // rax
-  __int64 v19; // rsi
-  int v20; // r12d
-  __int64 v21; // rdx
+  PEPROCESS ThreadProcess; // rsi
+  __int64 v3; // rcx
+  struct _NT_TIB *Self; // r13
+  int v5; // r15d
+  __int64 ThreadWin32Thread; // rdi
+  ULONG64 v7; // rdx
+  int v8; // ecx
+  const void *v9; // rsi
+  ULONG64 v10; // rdx
+  _BYTE **v11; // rax
+  __int64 v12; // rax
+  unsigned int *v13; // rdx
+  __int64 v14; // rcx
+  ULONG64 v15; // r8
+  ULONG64 v16; // rdx
+  _BYTE **v17; // rax
+  __int64 CurrentProcessWin32Process; // r14
+  int v19; // esi
+  __int64 v20; // rdx
+  __int64 v21; // rcx
   __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 CurrentProcess; // rax
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  _BOOL8 v28; // rcx
-  _DWORD *v29; // rbx
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  bool IsLockedShared; // al
-  __int64 *v35; // rcx
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // rbx
-  __int64 v41; // rax
-  __int64 v42; // rdx
-  __int64 v43; // rdx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // r9
-  __int64 v47; // rcx
-  _DWORD *v48; // rbx
-  __int64 v49; // rcx
-  bool v50; // al
-  __int64 v51; // rcx
-  _QWORD *v52; // rbx
-  __int64 v53; // rcx
+  __int64 **v23; // rcx
+  __int64 **v24; // rcx
+  __int64 v25; // rcx
   __int64 ProcessSectionBaseAddress; // rax
-  HANDLE *v55; // r15
-  NTSTATUS Event; // ebx
-  HANDLE v57; // rcx
-  HANDLE v58; // r12
-  __int64 v59; // r8
-  struct _EPROCESS *v60; // r14
-  const unsigned __int16 *v61; // rdx
-  int v62; // r12d
-  unsigned int v63; // eax
-  int *v64; // r15
-  __int64 v65; // r14
-  struct tagQ *v66; // rax
-  struct tagQ *v67; // r14
-  int v68; // eax
-  __int64 v69; // rdx
-  AtomicExecutionCheck *v70; // rcx
-  __int64 v71; // r8
-  __int64 v72; // r9
-  __int64 CurrentThreadWin32Thread; // rax
-  __int64 v74; // rax
-  struct tagQ *v75; // r14
-  __int64 v76; // rdx
-  __int64 v77; // rcx
-  __int64 v78; // r8
-  __int64 v79; // r8
-  __int64 v80; // r9
+  int v27; // eax
+  int v28; // r12d
+  int v29; // eax
+  HANDLE *v31; // r15
+  int Event; // esi
+  HANDLE v33; // rcx
+  int v34; // edx
+  int v35; // eax
+  unsigned int v36; // eax
+  _QWORD *v37; // r13
+  __int64 v38; // r15
+  __int64 v39; // rax
+  _DWORD *v40; // r15
+  int v41; // eax
+  LeaveEnterCrit *v42; // rcx
   unsigned int CurrentProcessId; // eax
-  __int64 v82; // rcx
-  __int64 v83; // r8
-  __int64 v84; // rdx
-  __int64 v85; // r8
-  __int64 v86; // r9
-  int v87; // edx
-  int v88; // r8d
-  _QWORD *ProcessWin32Process; // rax
-  __int64 v90; // rax
-  _QWORD *v91; // rax
-  int v92; // eax
-  PVOID Object; // [rsp+50h] [rbp-168h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-160h] BYREF
-  PEPROCESS Process; // [rsp+60h] [rbp-158h]
-  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+68h] [rbp-150h] BYREF
-  HANDLE v98[2]; // [rsp+70h] [rbp-148h] BYREF
-  __int64 v99; // [rsp+80h] [rbp-138h] BYREF
-  __int64 v100; // [rsp+88h] [rbp-130h]
-  void *v101; // [rsp+90h] [rbp-128h]
-  PVOID v102; // [rsp+98h] [rbp-120h]
-  __int64 v103; // [rsp+A0h] [rbp-118h] BYREF
-  __int64 v104; // [rsp+A8h] [rbp-110h]
-  __int128 v105; // [rsp+B0h] [rbp-108h]
-  __int128 v106; // [rsp+C0h] [rbp-F8h]
-  void *v107; // [rsp+D0h] [rbp-E8h]
-  __int64 v108; // [rsp+D8h] [rbp-E0h]
-  unsigned __int16 *v109; // [rsp+E0h] [rbp-D8h]
-  int *v110; // [rsp+F0h] [rbp-C8h]
-  PVOID v111; // [rsp+F8h] [rbp-C0h] BYREF
-  __int128 v112; // [rsp+100h] [rbp-B8h] BYREF
-  __int128 v113; // [rsp+110h] [rbp-A8h]
-  __int128 v114; // [rsp+120h] [rbp-98h] BYREF
-  __int64 v115; // [rsp+130h] [rbp-88h]
-  __int128 v116; // [rsp+138h] [rbp-80h] BYREF
-  __int64 v117; // [rsp+148h] [rbp-70h]
-  _QWORD v118[13]; // [rsp+150h] [rbp-68h] BYREF
-  int v119; // [rsp+1C8h] [rbp+10h] BYREF
-  int v120; // [rsp+1D0h] [rbp+18h] BYREF
-  int v121; // [rsp+1D8h] [rbp+20h]
+  __int64 v44; // r8
+  __int64 v45; // rdx
+  PVOID v46; // r15
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // r15
+  int v50; // eax
+  int v51; // r15d
+  __int64 v52; // rdx
+  __int64 ProcessWin32Process; // rax
+  __int64 v54; // rcx
+  int v55; // eax
+  int v56; // edx
+  __int64 v57; // rcx
+  int v58; // ecx
+  int v59; // ecx
+  int v60; // eax
+  int v61; // eax
+  struct _EPROCESS *Process; // [rsp+40h] [rbp-1F8h]
+  HANDLE Handle; // [rsp+48h] [rbp-1F0h] BYREF
+  struct tagDESKTOP *v65; // [rsp+50h] [rbp-1E8h]
+  HANDLE v66; // [rsp+58h] [rbp-1E0h] BYREF
+  _BYTE v67[8]; // [rsp+60h] [rbp-1D8h] BYREF
+  __int64 v68; // [rsp+68h] [rbp-1D0h]
+  _QWORD v69[10]; // [rsp+70h] [rbp-1C8h] BYREF
+  _QWORD *v70; // [rsp+C0h] [rbp-178h]
+  PVOID Object; // [rsp+C8h] [rbp-170h] BYREF
+  _QWORD *v72; // [rsp+D0h] [rbp-168h]
+  PVOID v73; // [rsp+D8h] [rbp-160h] BYREF
+  _BYTE v74[8]; // [rsp+E0h] [rbp-158h] BYREF
+  __int128 v75; // [rsp+E8h] [rbp-150h] BYREF
+  __int128 v76; // [rsp+F8h] [rbp-140h]
+  __int128 v77; // [rsp+108h] [rbp-130h] BYREF
+  __int64 v78; // [rsp+118h] [rbp-120h]
+  __int128 v79; // [rsp+120h] [rbp-118h] BYREF
+  __int64 v80; // [rsp+130h] [rbp-108h]
+  __int128 v81; // [rsp+140h] [rbp-F8h]
+  __int128 v82; // [rsp+150h] [rbp-E8h]
+  __int128 v83; // [rsp+160h] [rbp-D8h]
+  __int128 v84; // [rsp+170h] [rbp-C8h]
+  __int128 v85; // [rsp+1A0h] [rbp-98h] BYREF
+  __int128 v86; // [rsp+1B0h] [rbp-88h] BYREF
+  __int128 v87; // [rsp+1C0h] [rbp-78h] BYREF
+  _OWORD v88[2]; // [rsp+1D0h] [rbp-68h] BYREF
+  __int64 v89; // [rsp+1F0h] [rbp-48h]
+  char v90; // [rsp+248h] [rbp+10h] BYREF
+  int v91; // [rsp+250h] [rbp+18h]
+  int v92; // [rsp+258h] [rbp+20h]
 
   ThreadProcess = PsGetThreadProcess(Thread);
   Process = ThreadProcess;
-  v103 = 0LL;
-  v104 = 0LL;
-  v105 = 0LL;
-  v106 = 0LL;
-  v108 = 0LL;
-  v109 = 0LL;
-  v3 = 0LL;
-  HandleInformation = 0LL;
+  memset(v69, 0, 0x48uLL);
+  v65 = 0LL;
   Handle = 0LL;
-  v98[0] = 0LL;
+  v66 = 0LL;
   Self = KeGetPcr()->NtTib.Self;
-  v102 = Self;
-  v114 = 0LL;
-  v115 = 0LL;
-  v116 = 0LL;
-  v117 = 0LL;
-  v101 = 0LL;
-  v112 = 0LL;
-  v113 = 0LL;
+  v77 = 0LL;
+  v78 = 0LL;
+  v79 = 0LL;
+  v80 = 0LL;
+  v68 = 0LL;
+  v75 = 0LL;
+  v76 = 0LL;
   if ( (Microsoft_Windows_Win32kEnableBits & 0x8000) != 0 )
-    McTemplateK0_EtwWriteTransfer(Self, &InitiateGuiThreadExecution, &W32kControlGuid);
-  if ( gbCleanedUpResources )
-    return 3221225738LL;
-  CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(Self);
-  if ( !CurrentProcessWin32Process || !*CurrentProcessWin32Process )
-    return 3221225738LL;
-  ++gdwGuiThreads;
-  v6 = 0;
-  if ( ThreadProcess == gpepCSRSS )
-    v6 = 33554504;
-  v7 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(Thread);
-  if ( ThreadWin32Thread )
-    v7 = *ThreadWin32Thread;
-  tagTHREADINFO::Initialize((tagTHREADINFO *)v7);
-  v107 = 0LL;
-  Object = *(PVOID *)(PsGetProcessPeb(ThreadProcess) + 32);
-  v110 = (int *)&v103;
-  v103 = *((_QWORD *)Object + 4);
-  v104 = *((_QWORD *)Object + 5);
-  v105 = *(_OWORD *)((char *)Object + 136);
-  *(_QWORD *)&v106 = *(_QWORD *)((char *)Object + 164);
-  v9 = (unsigned int *)((char *)Object + 192);
-  if ( (unsigned __int64)Object + 192 >= MmUserProbeAddress )
-    v9 = (unsigned int *)MmUserProbeAddress;
-  v10 = (NSInstrumentation::CLeakTrackingAllocator *)*v9;
-  v121 = (int)v10;
-  DWORD2(v106) = (_DWORD)v10;
-  v11 = (void *)*((_QWORD *)v9 + 1);
-  v107 = v11;
-  if ( !(_WORD)v10 )
+    McTemplateK0_EtwWriteTransfer(v3, &InitiateGuiThreadExecution, &W32kControlGuid);
+  if ( !gbCleanedUpResources && PsGetCurrentProcessWin32Process(v3) )
   {
-    v107 = 0LL;
-    goto LABEL_29;
-  }
-  if ( ((unsigned __int8)v11 & 1) != 0 )
-    ExRaiseDatatypeMisalignment();
-  v12 = (ULONG64)v11 + (unsigned __int16)v10 + 2;
-  if ( v12 <= (unsigned __int64)v11 || v12 >= MmUserProbeAddress )
-    ExRaiseAccessViolation();
-  if ( (unsigned __int16)v10 > HIWORD(v121) )
-  {
-    if ( ((unsigned __int8)v10 & 1) == 0 )
-      goto LABEL_26;
-    goto LABEL_25;
-  }
-  if ( ((unsigned __int8)v10 & 1) != 0 )
-  {
-LABEL_25:
-    v119 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 900LL);
-LABEL_26:
-    ExRaiseAccessViolation();
-  }
-  QuotaZInit = (void *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                         v10,
-                         v12,
-                         (unsigned __int16)v10,
-                         0x79747355u);
-  v101 = QuotaZInit;
-  v107 = QuotaZInit;
-  if ( !QuotaZInit )
-    ExRaiseStatus(-1073741801);
-  if ( qword_1C0295450 )
-  {
-    qword_1C0295450(QuotaZInit, &v116, Win32FreePool);
-    QuotaZInit = v107;
-  }
-  memmove(QuotaZInit, v11, WORD4(v106));
-LABEL_29:
-  v14 = (unsigned int *)((char *)Object + 208);
-  if ( (unsigned __int64)Object + 208 >= MmUserProbeAddress )
-    v14 = (unsigned int *)MmUserProbeAddress;
-  v15 = *v14;
-  v121 = v15;
-  LODWORD(v108) = v15;
-  v16 = (unsigned __int16 *)*((_QWORD *)v14 + 1);
-  v109 = v16;
-  if ( ((unsigned __int8)v16 & 1) != 0 )
-    ExRaiseDatatypeMisalignment();
-  v17 = (ULONG64)v16 + (unsigned __int16)v15 + 2;
-  if ( v17 <= (unsigned __int64)v16 || v17 >= MmUserProbeAddress )
-    ExRaiseAccessViolation();
-  if ( (unsigned __int16)v15 > HIWORD(v121) )
-  {
-    if ( (v15 & 1) == 0 )
-      goto LABEL_265;
-    goto LABEL_264;
-  }
-  if ( (v15 & 1) != 0 )
-  {
-LABEL_264:
-    v120 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 923LL);
-LABEL_265:
-    ExRaiseAccessViolation();
-  }
-  v18 = (_QWORD *)PsGetCurrentProcessWin32Process(v15);
-  v19 = (__int64)v18;
-  if ( v18 && !*v18 )
-    v19 = 0LL;
-  v20 = v6 | 0x100;
-  if ( (*(_DWORD *)(v19 + 12) & 0x80u) == 0 )
-    v20 = v6;
-  if ( (HANDLE)gpidLogon == PsGetThreadProcessId(Thread) )
-    v20 |= 0x2000000u;
-  *(_DWORD *)(v7 + 488) = v20;
-  CurrentProcess = PsGetCurrentProcess(v22, v21, v23);
-  v28 = 0LL;
-  if ( CurrentProcess )
-    v28 = CurrentProcess == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
-  if ( v28 )
-    *(_DWORD *)(v7 + 1272) |= 4u;
-  if ( (dword_1C028DE6C & 0x80u) != 0 )
-  {
-    v29 = (_DWORD *)gspklBaseLayout;
-    if ( gspklBaseLayout )
+    ++gdwGuiThreads;
+    v5 = 0;
+    if ( ThreadProcess == gpepCSRSS )
+      v5 = 33554504;
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)Thread);
+    *(_QWORD *)(ThreadWin32Thread + 392) = 0LL;
+    *(_QWORD *)(ThreadWin32Thread + 400) = 0LL;
+    *(_DWORD *)(ThreadWin32Thread + 408) = 0;
+    *(_QWORD *)(ThreadWin32Thread + 544) = 0LL;
+    *(_QWORD *)(ThreadWin32Thread + 552) = 0LL;
+    *(_DWORD *)(ThreadWin32Thread + 560) = 0;
+    *(_QWORD *)(ThreadWin32Thread + 848) = 0LL;
+    *(_QWORD *)(ThreadWin32Thread + 856) = 0LL;
+    *(_DWORD *)(ThreadWin32Thread + 864) = 0;
+    *(_QWORD *)(ThreadWin32Thread + 1472) = 0LL;
+    *(_QWORD *)(ThreadWin32Thread + 528) = ThreadWin32Thread + 520;
+    *(_QWORD *)(ThreadWin32Thread + 520) = ThreadWin32Thread + 520;
+    *(_QWORD *)(ThreadWin32Thread + 1224) = ThreadWin32Thread + 1216;
+    *(_QWORD *)(ThreadWin32Thread + 1216) = ThreadWin32Thread + 1216;
+    *(_QWORD *)(ThreadWin32Thread + 752) = ThreadWin32Thread + 744;
+    *(_QWORD *)(ThreadWin32Thread + 744) = ThreadWin32Thread + 744;
+    *(_QWORD *)(ThreadWin32Thread + 1096) = ThreadWin32Thread + 1088;
+    *(_QWORD *)(ThreadWin32Thread + 1088) = ThreadWin32Thread + 1088;
+    *(_DWORD *)(ThreadWin32Thread + 1104) = 0;
+    *(_QWORD *)(ThreadWin32Thread + 1152) = ThreadWin32Thread + 1144;
+    *(_QWORD *)(ThreadWin32Thread + 1144) = ThreadWin32Thread + 1144;
+    *(_BYTE *)(ThreadWin32Thread + 1248) = 0;
+    *(_QWORD *)(ThreadWin32Thread + 1384) = 0LL;
+    *(_DWORD *)(ThreadWin32Thread + 828) = 1;
+    *(_DWORD *)(ThreadWin32Thread + 892) = 3;
+    v70 = *(_QWORD **)(PsGetProcessPeb(ThreadProcess) + 32);
+    v72 = v69;
+    v69[0] = v70[4];
+    v69[1] = v70[5];
+    v69[2] = v70[17];
+    v69[3] = v70[18];
+    v69[4] = *(_QWORD *)((char *)v70 + 164);
+    v7 = (ULONG64)(v70 + 24);
+    if ( (unsigned __int64)(v70 + 24) >= MmUserProbeAddress )
+      v7 = MmUserProbeAddress;
+    v8 = *(_DWORD *)v7;
+    v91 = v8;
+    LODWORD(v69[5]) = v8;
+    v9 = *(const void **)(v7 + 8);
+    v69[6] = v9;
+    if ( !(_WORD)v8 )
     {
-      if ( !gbInDestroyHandleTableObjects && !IS_USERCRIT_OWNED_EXCLUSIVE(v28, v25, v26, v27) )
+      v69[6] = 0LL;
+      goto LABEL_23;
+    }
+    if ( ((unsigned __int8)v9 & 1) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v10 = (ULONG64)v9 + (unsigned __int16)v8 + 2;
+    v11 = (_BYTE **)MmUserProbeAddress;
+    if ( v10 < MmUserProbeAddress && (unsigned __int16)v8 <= HIWORD(v91) )
+    {
+      if ( (v8 & 1) != 0 )
+        goto LABEL_17;
+      if ( v10 > (unsigned __int64)v9 )
       {
-        if ( !IS_USERCRIT_OWNED_AT_ALL(v31, v30, v32, v33) )
-          goto LABEL_57;
-        if ( tagDomLock::IsLockedExclusive((tagDomLock *)&gDomainHandleManagerLock)
-          || (IsLockedShared = tagDomLock::IsLockedShared((tagDomLock *)&gDomainHandleManagerLock)) )
+LABEL_19:
+        v12 = Win32AllocPoolWithQuota(LOWORD(v69[5]), 0x79747355u);
+        v68 = v12;
+        v69[6] = v12;
+        if ( !v12 )
+          ExRaiseStatus(-1073741801);
+        PushW32ThreadLock(v12, &v79, Win32FreePool);
+        memmove((void *)v69[6], v9, LOWORD(v69[5]));
+LABEL_23:
+        v13 = (unsigned int *)(v70 + 26);
+        if ( (unsigned __int64)(v70 + 26) >= MmUserProbeAddress )
+          v13 = (unsigned int *)MmUserProbeAddress;
+        v14 = *v13;
+        v91 = v14;
+        LODWORD(v69[7]) = v14;
+        v15 = *((_QWORD *)v13 + 1);
+        v69[8] = v15;
+        if ( (v15 & 1) != 0 )
+          ExRaiseDatatypeMisalignment();
+        v16 = (unsigned __int16)v14 + v15 + 2;
+        v17 = (_BYTE **)MmUserProbeAddress;
+        if ( v16 < MmUserProbeAddress && (unsigned __int16)v14 <= HIWORD(v91) )
         {
-          IsLockedShared = 1;
+          if ( (v14 & 1) != 0 )
+            goto LABEL_32;
+          if ( v16 > v15 )
+            goto LABEL_34;
         }
-        if ( !IsLockedShared )
-LABEL_57:
-          __int2c();
-      }
-      if ( (*((_BYTE *)qword_1C028FE68 + dword_1C028FE70 * (unsigned int)(unsigned __int16)*v29 + 25) & 1) != 0 )
-      {
-        v121 = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 968LL);
-      }
-    }
-    v99 = v7 + 440;
-    v100 = gspklBaseLayout;
-    v35 = &v99;
-    goto LABEL_79;
-  }
-  if ( !*(_QWORD *)(SGDGetUserSessionState(v28, v25, v26, v27) + 13912) )
-  {
-    v40 = gspklBaseLayout;
-    if ( gspklBaseLayout )
-    {
-      v41 = SGDGetUserSessionState(v37, v36, v38, v39);
-      v42 = 1LL;
-LABEL_66:
-      v99 = v41 + 13912;
-      v100 = v40;
-      HMAssignmentLock(&v99, v42);
-      goto LABEL_67;
-    }
-    v40 = gspklWinstaLessSessionLayouts;
-    if ( gspklWinstaLessSessionLayouts )
-    {
-      v41 = SGDGetUserSessionState(v37, v36, v38, v39);
-      v42 = 0LL;
-      goto LABEL_66;
-    }
-  }
-LABEL_67:
-  if ( *(_QWORD *)(SGDGetUserSessionState(v37, v36, v38, v39) + 13912) )
-  {
-    v48 = *(_DWORD **)(SGDGetUserSessionState(v44, v43, v45, v46) + 13912);
-    if ( !gbInDestroyHandleTableObjects && !IS_USERCRIT_OWNED_EXCLUSIVE(v47, v43, v45, v46) )
-    {
-      if ( !IS_USERCRIT_OWNED_AT_ALL(v49, v43, v45, v46) )
-        goto LABEL_75;
-      if ( tagDomLock::IsLockedExclusive((tagDomLock *)&gDomainHandleManagerLock)
-        || (v50 = tagDomLock::IsLockedShared((tagDomLock *)&gDomainHandleManagerLock)) )
-      {
-        v50 = 1;
-      }
-      if ( !v50 )
-LABEL_75:
-        __int2c();
-    }
-    v44 = dword_1C028FE70 * (unsigned int)(unsigned __int16)*v48;
-    if ( (*((_BYTE *)qword_1C028FE68 + v44 + 25) & 1) != 0 )
-    {
-      v121 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 986LL);
-    }
-  }
-  v51 = *(_QWORD *)(SGDGetUserSessionState(v44, v43, v45, v46) + 13912);
-  v118[0] = v7 + 440;
-  v118[1] = v51;
-  v35 = v118;
-LABEL_79:
-  HMAssignmentLock(v35, 0LL);
-  *(_QWORD *)(v7 + 448) = v7 + 1056;
-  if ( (*(_DWORD *)(v19 + 12) & 0x800000) != 0 )
-    *(_DWORD *)(v7 + 488) |= 0x2000000u;
-  if ( (*(_DWORD *)(v19 + 816) & 0x400) != 0 )
-    *(_DWORD *)(v7 + 1272) |= 0x20u;
-  *(_QWORD *)(v7 + 424) = v19;
-  *(_QWORD *)(v7 + 664) = *(_QWORD *)(v19 + 320);
-  *(_QWORD *)(v19 + 320) = v7;
-  ++*(_DWORD *)(v19 + 376);
-  v52 = v102;
-  if ( v102 )
-    v52[15] = PsGetThreadId(*(PETHREAD *)v7);
-  *(_QWORD *)(v7 + 480) = v52 + 256;
-  *((_DWORD *)v52 + 570) = *(_DWORD *)(v7 + 340);
-  *(_DWORD *)(*(_QWORD *)(v7 + 480) + 236LL) = 0;
-  v53 = *(_QWORD *)(v7 + 480);
-  *(_QWORD *)(v7 + 360) = v53 + 232;
-  *(_DWORD *)(v53 + 240) = *(_DWORD *)(v7 + 344);
-  *(_DWORD *)(*(_QWORD *)(v7 + 480) + 244LL) = 0;
-  *(_QWORD *)(v7 + 368) = *(_QWORD *)(v7 + 480) + 240LL;
-  if ( (*(_DWORD *)(v19 + 12) & 0x2000000) != 0 )
-  {
-    *(_DWORD *)(v7 + 488) |= 0x20000000u;
-    if ( !*(_QWORD *)(v19 + 760) )
-    {
-      v121 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1066LL);
-    }
-  }
-  if ( !*(_DWORD *)(v7 + 632) )
-  {
-    if ( PsGetProcessPeb(Process) )
-    {
-      ProcessSectionBaseAddress = PsGetProcessSectionBaseAddress(Process);
-      *(_DWORD *)(v7 + 632) = RtlGetExpWinVer(ProcessSectionBaseAddress);
-    }
-    else
-    {
-      *(_DWORD *)(v7 + 632) = 1536;
-    }
-  }
-  if ( qword_1C0295468 && (int)qword_1C0295468() >= 0 && qword_1C0295470 )
-    qword_1C0295470();
-  v121 = v20 & 0xC;
-  if ( (v20 & 0xC) == 0
-    && qword_1C0295478
-    && (int)qword_1C0295478() >= 0
-    && qword_1C0295480
-    && (unsigned int)qword_1C0295480(v7) )
-  {
-    *(_DWORD *)(v19 + 12) |= 0x1000000u;
-  }
-  v55 = (HANDLE *)(v7 + 728);
-  Event = ZwCreateEvent((PHANDLE)(v7 + 728), 0x1F0003u, 0LL, SynchronizationEvent, 0);
-  if ( Event >= 0 )
-  {
-    v57 = *v55;
-    Object = 0LL;
-    Event = ObReferenceObjectByHandle(v57, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
-    *(_QWORD *)(v7 + 736) = Object;
-    if ( Event < 0 )
-    {
-      if ( Event != -1073741816 )
-        ObCloseHandle(*v55, 1);
-    }
-    else
-    {
-      v58 = *v55;
-      HandleInformation = 0LL;
-      Object = 0LL;
-      Event = ObReferenceObjectByHandle(v58, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, &HandleInformation);
-      v102 = Object;
-      if ( Event >= 0 )
-      {
-        LOBYTE(v120) = (HandleInformation.HandleAttributes & 2) != 0;
-        BYTE1(v120) = 1;
-        LOBYTE(v59) = 1;
-        Event = ObSetHandleAttributes(v58, &v120, v59);
-        ObfDereferenceObject(v102);
-      }
-    }
-  }
-  if ( Event < 0 )
-  {
-    *v55 = 0LL;
-LABEL_268:
-    if ( v3 )
-      PopAndFreeW32ThreadLock(&v114);
-    if ( v101 )
-      PopAndFreeAlwaysW32ThreadLock(&v116);
-    xxxDestroyThreadInfo();
-    return (unsigned int)Event;
-  }
-  v60 = Process;
-  Event = ObDuplicateObject(Process, *v55, Process, v7 + 1480, 0, 512, 2, 0);
-  if ( Event < 0 )
-  {
-    *(_QWORD *)(v7 + 1480) = 0LL;
-    goto LABEL_268;
-  }
-  Event = InitializeThreadInfoIocp(v60, (struct tagTHREADINFO *)v7);
-  if ( Event < 0 )
-    goto LABEL_268;
-  v62 = *(_DWORD *)(v19 + 12) & 0x4000;
-  *(_DWORD *)(v19 + 12) |= 0x4000u;
-  if ( !*(_DWORD *)(v19 + 780) && (_DWORD)v106 )
-  {
-    *(_DWORD *)(v19 + 780) = 28;
-    *(_OWORD *)(v19 + 784) = v105;
-    *(_DWORD *)(v19 + 800) = v106;
-    *(_WORD *)(v19 + 804) = WORD2(v106);
-  }
-  if ( v62 )
-  {
-    v64 = v110;
-  }
-  else
-  {
-    if ( (v106 & 0x200) != 0 )
-    {
-      v63 = v103;
-    }
-    else if ( (_WORD)v108 )
-    {
-      v63 = ParseReserved(v109, v61);
-    }
-    else
-    {
-      v63 = 0;
-    }
-    *(_DWORD *)(v19 + 684) = v63;
-    v64 = v110;
-    if ( (v110[8] & 0x400) != 0 )
-    {
-      v65 = *((_QWORD *)v110 + 1);
-      if ( HMValidateSharedHandle(v65) )
-        *(_QWORD *)(v19 + 688) = v65;
-    }
-  }
-  v66 = (struct tagQ *)AllocQueue(0LL, 0LL);
-  v67 = v66;
-  if ( !v66 )
-  {
-    Event = -1073741801;
-    goto LABEL_268;
-  }
-  tagTHREADINFO::AssignQueue((tagTHREADINFO *)v7, v66);
-  *((_QWORD *)v67 + 13) = v7;
-  *((_QWORD *)v67 + 12) = v7;
-  ApiSetEditionUpdateRawMouseMode(v67);
-  if ( Process == gpepCSRSS )
-  {
-    *((_DWORD *)v67 + 108) = 0x2000;
-    v68 = 0;
-  }
-  else
-  {
-    *((_DWORD *)v67 + 108) = *(_DWORD *)(*(_QWORD *)(v7 + 424) + 888LL);
-    v68 = *(_DWORD *)(*(_QWORD *)(v7 + 424) + 892LL);
-  }
-  *((_DWORD *)v67 + 109) = v68;
-  if ( (*(_DWORD *)(v7 + 488) & 0xC) == 0 && grpWinStaList )
-  {
-    if ( qword_1C0295498 )
-    {
-      Event = qword_1C0295498();
-      if ( Event < 0 )
-        goto LABEL_138;
-      if ( qword_1C02954A0 )
-      {
-        Event = qword_1C02954A0(-1LL, v64 + 10, v98, v64[8] & 0x40000000, &Handle);
-LABEL_138:
-        if ( Event < 0 )
+        if ( (v14 & 1) == 0 )
         {
-          if ( Event == -1073741205 )
+LABEL_33:
+          **v17 = 0;
+LABEL_34:
+          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v14);
+          v19 = v5 | 0x100;
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x80) == 0 )
+            v19 = v5;
+          if ( (HANDLE)gpidLogon == PsGetThreadProcessId(Thread) )
+            v19 |= 0x2000000u;
+          if ( IsCurrentProcessDwm(v21, v20) )
+            *(_DWORD *)(ThreadWin32Thread + 1232) |= 4u;
+          *(_QWORD *)(ThreadWin32Thread + 340) = 0LL;
+          PsGetCurrentProcessWin32Process(v22);
+          *(_DWORD *)(ThreadWin32Thread + 328) &= ~4u;
+          *(_DWORD *)(ThreadWin32Thread + 488) = v19;
+          *(_DWORD *)(ThreadWin32Thread + 1368) = -1;
+          *(_DWORD *)(ThreadWin32Thread + 1372) = -1;
+          *(_DWORD *)(ThreadWin32Thread + 1360) = -1;
+          *(_DWORD *)(ThreadWin32Thread + 1364) = -1;
+          *(_DWORD *)(ThreadWin32Thread + 1412) = 0;
+          if ( (dword_1C024E41C & 0x80u) != 0 )
           {
-            LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)&v119);
-            ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741205);
-            LeaveEnterCrit::~LeaveEnterCrit((LeaveEnterCrit *)&v119);
-            goto LABEL_268;
+            *(_QWORD *)&v81 = ThreadWin32Thread + 440;
+            *((_QWORD *)&v81 + 1) = gspklBaseLayout;
+            v85 = v81;
+            v23 = (__int64 **)&v85;
+            goto LABEL_49;
           }
-LABEL_165:
-          CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
-          if ( (Microsoft_Windows_Win32kEnableBits & 1) != 0 )
-            McTemplateK0dq_EtwWriteTransfer(v82, &DesktopResolutionFailure, v83, CurrentProcessId, Event);
-          Event = -1073741502;
-          goto LABEL_268;
-        }
-        if ( qword_1C02954A8 )
-        {
-          Event = qword_1C02954A8();
+          if ( !gspklGlobalActive )
+          {
+            if ( gspklBaseLayout )
+            {
+              *(_QWORD *)&v82 = &gspklGlobalActive;
+              *((_QWORD *)&v82 + 1) = gspklBaseLayout;
+              v86 = v82;
+              v24 = (__int64 **)&v86;
+LABEL_47:
+              HMAssignmentLock(v24);
+              goto LABEL_48;
+            }
+            if ( gspklWinstaLessSessionLayouts )
+            {
+              *(_QWORD *)&v83 = &gspklGlobalActive;
+              *((_QWORD *)&v83 + 1) = gspklWinstaLessSessionLayouts;
+              v87 = v83;
+              v24 = (__int64 **)&v87;
+              goto LABEL_47;
+            }
+          }
+LABEL_48:
+          *(_QWORD *)&v84 = ThreadWin32Thread + 440;
+          *((_QWORD *)&v84 + 1) = gspklGlobalActive;
+          v88[0] = v84;
+          v23 = (__int64 **)v88;
+LABEL_49:
+          HMAssignmentLock(v23);
+          *(_QWORD *)(ThreadWin32Thread + 448) = ThreadWin32Thread + 1040;
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x800000) != 0 )
+            *(_DWORD *)(ThreadWin32Thread + 488) |= 0x2000000u;
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 820) & 0x400) != 0 )
+            *(_DWORD *)(ThreadWin32Thread + 1232) |= 0x20u;
+          *(_QWORD *)(ThreadWin32Thread + 424) = CurrentProcessWin32Process;
+          *(_QWORD *)(ThreadWin32Thread + 664) = *(_QWORD *)(CurrentProcessWin32Process + 320);
+          *(_QWORD *)(CurrentProcessWin32Process + 320) = ThreadWin32Thread;
+          ++*(_DWORD *)(CurrentProcessWin32Process + 384);
+          if ( Self )
+            Self[2].StackBase = PsGetThreadId(*(PETHREAD *)ThreadWin32Thread);
+          *(_QWORD *)(ThreadWin32Thread + 480) = (char *)Self + 2048;
+          LODWORD(Self[40].ArbitraryUserPointer) = *(_DWORD *)(ThreadWin32Thread + 340);
+          *(_DWORD *)(*(_QWORD *)(ThreadWin32Thread + 480) + 236LL) = 0;
+          v25 = *(_QWORD *)(ThreadWin32Thread + 480);
+          *(_QWORD *)(ThreadWin32Thread + 360) = v25 + 232;
+          *(_DWORD *)(v25 + 240) = *(_DWORD *)(ThreadWin32Thread + 344);
+          *(_DWORD *)(*(_QWORD *)(ThreadWin32Thread + 480) + 244LL) = 0;
+          *(_QWORD *)(ThreadWin32Thread + 368) = *(_QWORD *)(ThreadWin32Thread + 480) + 240LL;
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x2000000) != 0 )
+            *(_DWORD *)(ThreadWin32Thread + 488) |= 0x20000000u;
+          if ( !*(_DWORD *)(ThreadWin32Thread + 632) )
+          {
+            if ( PsGetProcessPeb(Process) )
+            {
+              ProcessSectionBaseAddress = PsGetProcessSectionBaseAddress(Process);
+              *(_DWORD *)(ThreadWin32Thread + 632) = RtlGetExpWinVer(ProcessSectionBaseAddress);
+            }
+            else
+            {
+              *(_DWORD *)(ThreadWin32Thread + 632) = 1536;
+            }
+          }
+          if ( qword_1C0255FD8 )
+          {
+            v27 = qword_1C0255FD8();
+            v28 = -1073741637;
+          }
+          else
+          {
+            v28 = -1073741637;
+            v27 = -1073741637;
+          }
+          if ( v27 >= 0 && qword_1C0255FE0 )
+            qword_1C0255FE0();
+          v92 = v19 & 0xC;
+          if ( (v19 & 0xC) == 0 )
+          {
+            v29 = qword_1C0255FE8 ? qword_1C0255FE8() : -1073741637;
+            if ( v29 >= 0 )
+            {
+              if ( qword_1C0255FF0 ? qword_1C0255FF0(ThreadWin32Thread) : 0 )
+                *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x1000000u;
+            }
+          }
+          v31 = (HANDLE *)(ThreadWin32Thread + 728);
+          Event = ZwCreateEvent((PHANDLE)(ThreadWin32Thread + 728), 0x1F0003u, 0LL, SynchronizationEvent, 0);
           if ( Event >= 0 )
           {
-            AtomicExecutionCheck::EnforceConsistency(v70, v69, v71, v72);
-            CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
-            ++*(_DWORD *)(CurrentThreadWin32Thread + 48);
-            if ( qword_1C02954B0 )
-              Event = qword_1C02954B0(v98[0], 1LL);
+            v33 = *v31;
+            Object = 0LL;
+            Event = ObReferenceObjectByHandle(v33, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+            *(_QWORD *)(ThreadWin32Thread + 736) = Object;
+            if ( Event < 0 )
+            {
+              if ( Event != -1073741816 )
+                ObCloseHandle(*v31, 1);
+            }
+            else
+            {
+              Event = ProtectHandle(*v31, v34, (struct _OBJECT_TYPE *)ExEventObjectType, 1);
+            }
+          }
+          if ( Event < 0 )
+          {
+            *v31 = 0LL;
+LABEL_243:
+            if ( v65 )
+              PopAndFreeW32ThreadLock(&v77);
+            if ( v68 )
+              PopAndFreeAlwaysW32ThreadLock(&v79);
+            xxxDestroyThreadInfo();
+            return (unsigned int)Event;
+          }
+          Event = ObDuplicateObject(Process, *v31, Process, ThreadWin32Thread + 1440, 0, 512, 2, 0);
+          if ( Event < 0 )
+          {
+            *(_QWORD *)(ThreadWin32Thread + 1440) = 0LL;
+            goto LABEL_243;
+          }
+          Event = InitializeThreadInfoIocp(Process, (void **)ThreadWin32Thread);
+          if ( Event < 0 )
+            goto LABEL_243;
+          v35 = *(_DWORD *)(CurrentProcessWin32Process + 12);
+          v91 = v35 & 0x4000;
+          *(_DWORD *)(CurrentProcessWin32Process + 12) = v35 | 0x4000;
+          if ( !*(_DWORD *)(CurrentProcessWin32Process + 788) && LODWORD(v69[4]) )
+          {
+            *(_DWORD *)(CurrentProcessWin32Process + 788) = 28;
+            *(_QWORD *)(CurrentProcessWin32Process + 792) = v69[2];
+            *(_QWORD *)(CurrentProcessWin32Process + 800) = v69[3];
+            *(_DWORD *)(CurrentProcessWin32Process + 808) = v69[4];
+            *(_WORD *)(CurrentProcessWin32Process + 812) = WORD2(v69[4]);
+          }
+          if ( (v35 & 0x4000) != 0 )
+          {
+            v37 = v72;
+          }
+          else
+          {
+            if ( (v69[4] & 0x200) != 0 )
+            {
+              v36 = v69[0];
+            }
+            else if ( LOWORD(v69[7]) )
+            {
+              v36 = ParseReserved((const unsigned __int16 *)v69[8], (const unsigned __int16 *)0x4000);
+            }
+            else
+            {
+              v36 = 0;
+            }
+            *(_DWORD *)(CurrentProcessWin32Process + 692) = v36;
+            v37 = v72;
+            if ( (v72[4] & 0x400) != 0 )
+            {
+              v38 = v72[1];
+              if ( ValidateHmonitor(v38) )
+                *(_QWORD *)(CurrentProcessWin32Process + 696) = v38;
+            }
+          }
+          v39 = AllocQueue(0LL, 0LL);
+          v40 = (_DWORD *)v39;
+          if ( !v39 )
+          {
+            Event = -1073741801;
+            goto LABEL_243;
+          }
+          *(_QWORD *)(ThreadWin32Thread + 432) = v39;
+          v88[1] = *(_OWORD *)v39;
+          v89 = *(_QWORD *)(v39 + 16);
+          *(_QWORD *)(v39 + 96) = ThreadWin32Thread;
+          *(_QWORD *)(v39 + 88) = ThreadWin32Thread;
+          ApiSetEditionUpdateRawMouseMode(v39);
+          ++v40[98];
+          if ( Process == gpepCSRSS )
+          {
+            v40[107] = 0x2000;
+            v41 = 0;
+          }
+          else
+          {
+            v40[107] = *(_DWORD *)(*(_QWORD *)(ThreadWin32Thread + 424) + 880LL);
+            v41 = *(_DWORD *)(*(_QWORD *)(ThreadWin32Thread + 424) + 884LL);
+          }
+          v40[108] = v41;
+          if ( (*(_DWORD *)(ThreadWin32Thread + 488) & 0xC) != 0 || !grpWinStaList )
+          {
+            *(_DWORD *)(ThreadWin32Thread + 1232) |= 0x10u;
+            if ( (int)IsEditionSetProcessWindowStationAtProcessInitSupported() >= 0 )
+            {
+              Event = ApiSetEditionSetProcessWindowStationAtProcessInit(v37 + 5, v37[4] & 0x40000000);
+              if ( Event < 0 )
+                goto LABEL_243;
+              *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x40010u;
+            }
+            if ( (int)IsEditionSetThreadDesktopAtThreadInitSupported() >= 0 )
+              ApiSetEditionSetThreadDesktopAtThreadInit();
+          }
+          else
+          {
+            if ( qword_1C0256008 )
+              Event = qword_1C0256008();
             else
               Event = -1073741637;
-            v74 = PsGetCurrentThreadWin32Thread();
-            --*(_DWORD *)(v74 + 48);
+            if ( Event < 0
+              || (!qword_1C0256010
+                ? (Event = -1073741637)
+                : (Event = qword_1C0256010(-1LL, v37 + 5, &v66, v37[4] & 0x40000000, &Handle)),
+                  Event < 0) )
+            {
+              if ( Event == -1073741205 )
+              {
+                if ( (_DWORD)gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+                  KeBugCheckEx(0x160u, (unsigned int)gdwInAtomicOperation, 0LL, 0LL, 0LL);
+                LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)&v90);
+                ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741205);
+                LeaveEnterCrit::~LeaveEnterCrit(v42);
+              }
+              else
+              {
+                CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
+                if ( (Microsoft_Windows_Win32kEnableBits & 1) != 0 )
+                  McTemplateK0dq_EtwWriteTransfer(
+                    Microsoft_Windows_Win32kEnableBits,
+                    &DesktopResolutionFailure,
+                    v44,
+                    CurrentProcessId,
+                    Event);
+                Event = -1073741502;
+              }
+              goto LABEL_243;
+            }
+            if ( qword_1C0256018 )
+              Event = qword_1C0256018();
+            else
+              Event = -1073741637;
+            if ( Event < 0
+              || ((UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v74), !qword_1C0256020)
+                ? (Event = -1073741637)
+                : (LOBYTE(v45) = 1, Event = qword_1C0256020(v66, v45)),
+                  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v74),
+                  Event < 0) )
+            {
+              CloseProtectedHandle(Handle);
+              CloseProtectedHandle(v66);
+              Handle = 0LL;
+              v66 = 0LL;
+              goto LABEL_243;
+            }
+            v73 = 0LL;
+            Event = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &v73, 0LL);
+            v46 = v73;
+            v65 = (struct tagDESKTOP *)v73;
+            if ( Event < 0 )
+              goto LABEL_243;
+            PushW32ThreadLock(v73, &v77, CompositionObject::Release);
+            if ( v46 )
+              ObfReferenceObject(v46);
+            ObfDereferenceObject(v46);
+            LODWORD(v75) = 1;
+            *((_QWORD *)&v75 + 1) = PsGetCurrentProcess(v48, v47);
+            *(_QWORD *)&v76 = v46;
+            *((_QWORD *)&v76 + 1) = 0x100000000LL;
+            Event = qword_1C0256028 ? qword_1C0256028() : -1073741637;
+            if ( Event < 0 )
+              goto LABEL_243;
+            Event = qword_1C0256030 ? qword_1C0256030(&v75) : -1073741637;
+            if ( Event < 0 )
+              goto LABEL_243;
+            if ( !*(_QWORD *)(CurrentProcessWin32Process + 392) && PsGetProcessId(Process) != (HANDLE)gpidLogon )
+            {
+              LockObjectAssignment(CurrentProcessWin32Process + 336, v46);
+              *(_QWORD *)(CurrentProcessWin32Process + 392) = Handle;
+            }
           }
-          if ( Event >= 0 )
+          if ( !(unsigned int)InitClientInfo(ThreadWin32Thread) )
+            goto LABEL_243;
+          UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v67);
+          if ( qword_1C0256038 )
+            Event = qword_1C0256038();
+          else
+            Event = -1073741637;
+          if ( Event < 0
+            || (!qword_1C0256040 ? (Event = -1073741637) : (Event = qword_1C0256040(ThreadWin32Thread, v65, Handle)),
+                Event < 0) )
           {
-            v75 = 0LL;
-            v111 = 0LL;
-            Event = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &v111, 0LL);
-            v3 = (struct tagDESKTOP *)v111;
-            if ( Event < 0 )
-              goto LABEL_268;
-            if ( qword_1C0295450 )
-              qword_1C0295450(v111, &v114, CompositionObject::Release);
-            if ( v3 )
-              ObfReferenceObject(v3);
-            ObfDereferenceObject(v3);
-            LODWORD(v112) = 1;
-            *((_QWORD *)&v112 + 1) = PsGetCurrentProcess(v77, v76, v78);
-            *(_QWORD *)&v113 = v3;
-            *((_QWORD *)&v113 + 1) = 0x100000000LL;
-            if ( !qword_1C02954B8 )
-              goto LABEL_161;
-            Event = qword_1C02954B8();
-            if ( Event >= 0 )
-            {
-              if ( !qword_1C02954C0 )
-                goto LABEL_161;
-              Event = qword_1C02954C0(&v112);
-            }
-            if ( Event < 0 )
-              goto LABEL_268;
-            if ( !*(_QWORD *)(v19 + 384) && PsGetProcessId(Process) != (HANDLE)gpidLogon )
-            {
-              LockObjectAssignment(v19 + 336, v3, v79, v80);
-              *(_QWORD *)(v19 + 384) = Handle;
-            }
-            goto LABEL_176;
+            UserAtomicCheck::Detach((UserAtomicCheck *)v67);
+            UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v67);
+            goto LABEL_243;
           }
+          UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v67);
+          if ( v65 == grpdeskRitInput )
+          {
+            v49 = 0LL;
+            if ( qword_1C0256048 )
+              v50 = qword_1C0256048();
+            else
+              v50 = -1073741637;
+            if ( v50 >= 0 )
+            {
+              if ( qword_1C0256050 )
+                v49 = qword_1C0256050(ThreadWin32Thread);
+              else
+                v49 = 0LL;
+            }
+            if ( v49 && v49 != *(_QWORD *)(ThreadWin32Thread + 432) )
+            {
+              if ( (int)IsDestroyThreadsMessagesSupported() >= 0 )
+                DestroyThreadsMessages(*(_QWORD *)(ThreadWin32Thread + 432), ThreadWin32Thread);
+              zzzDestroyQueue(*(_QWORD *)(ThreadWin32Thread + 432), ThreadWin32Thread);
+              *(_QWORD *)(ThreadWin32Thread + 432) = v49;
+              ++*(_DWORD *)(v49 + 392);
+            }
+          }
+          v51 = v91;
+          if ( *((int *)v37 + 8) < 0 )
+          {
+            if ( !v91 )
+            {
+              if ( !gpidLogon || PsGetProcessInheritedFromUniqueProcessId(Process) != gpidLogon )
+              {
+                *((_DWORD *)v37 + 8) &= ~0x80000000;
+                goto LABEL_184;
+              }
+              gppiScreenSaver = CurrentProcessWin32Process;
+              gptSSCursor = *((_QWORD *)gpsi + 620);
+              *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x200000u;
+              EtwTraceScreenSaverProcessEvent(1LL);
+            }
+            if ( (int)IsSetForegroundPrioritySupported() >= 0 )
+              SetForegroundPriority(ThreadWin32Thread);
+            if ( !v51 )
+              *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x400000u;
+            *(_DWORD *)(ThreadWin32Thread + 488) |= 0x2000000u;
+          }
+LABEL_184:
+          if ( (*(_DWORD *)(ThreadWin32Thread + 488) & 0xC) == 0 && !v51 )
+          {
+            ++gdwDeferWinEvent;
+            if ( (int)IszzzCalcStartCursorHideSupported() >= 0 )
+            {
+              ProcessWin32Process = PsGetProcessWin32Process(Process);
+              zzzCalcStartCursorHide(ProcessWin32Process, 5000LL);
+            }
+            --gdwDeferWinEvent;
+            if ( grpWinStaList )
+            {
+              if ( !*(_QWORD *)(CurrentProcessWin32Process + 664) )
+              {
+                UserSetLastError(1003LL, v52);
+LABEL_191:
+                Event = -1073741823;
+                goto LABEL_243;
+              }
+            }
+          }
+          v54 = (unsigned int)_InterlockedExchange(
+                                (volatile __int32 *)(*(_QWORD *)(ThreadWin32Thread + 448) + 12LL),
+                                (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
+          if ( qword_1C0256090 )
+            v55 = qword_1C0256090(v54);
+          else
+            v55 = -1073741637;
+          if ( v55 >= 0 && qword_1C0256098 )
+            qword_1C0256098(0LL, 1LL);
+          SetUnavailableInputSource(ThreadWin32Thread + 1240);
+          v57 = *(_QWORD *)(ThreadWin32Thread + 432);
+          if ( v57 )
+            SetUnavailableInputSource(v57 + 420);
+          v58 = *(_DWORD *)(ThreadWin32Thread + 488);
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x20000) != 0 )
+            v58 |= 0x4000u;
+          v59 = v58 | 0x1000000;
+          *(_DWORD *)(ThreadWin32Thread + 488) = v59;
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x140) == 0 )
+          {
+            if ( !gptiForeground || CurrentProcessWin32Process != *((_QWORD *)gptiForeground + 53) )
+            {
+              if ( !CInputGlobals::GetPtiLastWoken(gpInputGlobals)
+                || CurrentProcessWin32Process != *((_QWORD *)CInputGlobals::GetPtiLastWoken(gpInputGlobals) + 53)
+                || (*(_DWORD *)(CurrentProcessWin32Process + 820) & 0x30) == 0x10 )
+              {
+                goto LABEL_212;
+              }
+              v59 = *(_DWORD *)(ThreadWin32Thread + 488);
+            }
+            *(_DWORD *)(ThreadWin32Thread + 488) = v59 | 0x20;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v56) = 4;
+              WPP_RECORDER_SF_q(
+                WPP_MAIN_CB.Queue.ListEntry.Flink,
+                v56,
+                13,
+                16,
+                (__int64)&WPP_fd8c6326b31137ef50dc3f85fe1c9044_Traceguids,
+                ThreadWin32Thread);
+            }
+          }
+LABEL_212:
+          if ( (*(_DWORD *)gpsi & 4) != 0 )
+          {
+            v60 = qword_1C02560A0 ? qword_1C02560A0() : -1073741637;
+            if ( v60 >= 0 && qword_1C02560A8 )
+              qword_1C02560A8(0LL);
+          }
+          if ( !v92 )
+          {
+            Event = qword_1C02560B0 ? qword_1C02560B0() : -1073741637;
+            if ( Event < 0 )
+              goto LABEL_243;
+            Event = qword_1C02560B8 ? qword_1C02560B8() : -1073741637;
+            if ( Event < 0 )
+              goto LABEL_243;
+          }
+          if ( !v51 && (*(_DWORD *)(CurrentProcessWin32Process + 12) & 1) == 0 )
+          {
+            if ( qword_1C02560C0 )
+              v28 = qword_1C02560C0();
+            if ( v28 >= 0 && qword_1C02560C8 )
+              qword_1C02560C8(7LL);
+          }
+          if ( v65 )
+          {
+            if ( (*((_DWORD *)v65 + 12) & 8) != 0 )
+              goto LABEL_191;
+            PopAndFreeW32ThreadLock(&v77);
+          }
+          if ( v68 )
+            PopAndFreeAlwaysW32ThreadLock(&v79);
+          v61 = *(_DWORD *)(ThreadWin32Thread + 1232);
+          if ( (v61 & 1) != 0 )
+            *(_DWORD *)(ThreadWin32Thread + 1232) = v61 & 0xFFFFFFFE;
+          return (unsigned int)Event;
         }
-        else
-        {
-          Event = -1073741637;
-        }
-        CloseProtectedHandle(Handle);
-        CloseProtectedHandle(v98[0]);
-        Handle = 0LL;
-        v98[0] = 0LL;
-        goto LABEL_268;
+LABEL_32:
+        v92 = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 875LL);
+        v17 = (_BYTE **)MmUserProbeAddress;
+        goto LABEL_33;
       }
     }
-    Event = -1073741637;
-    goto LABEL_165;
-  }
-  *(_DWORD *)(v7 + 1272) |= 0x10u;
-  if ( (int)IsEditionSetProcessWindowStationAtProcessInitSupported() >= 0 )
-  {
-    Event = ApiSetEditionSetProcessWindowStationAtProcessInit(v64 + 10, v64[8] & 0x40000000);
-    if ( Event < 0 )
-      goto LABEL_268;
-    *(_DWORD *)(v19 + 12) |= 0x40010u;
-  }
-  if ( (int)IsEditionSetThreadDesktopAtThreadInitSupported() >= 0
-    && (int)IsEditionSetThreadDesktopAtThreadInitSupported() >= 0
-    && qword_1C0295400 )
-  {
-    qword_1C0295400();
-  }
-  v75 = 0LL;
-LABEL_176:
-  if ( !(unsigned int)InitClientInfo(v7) )
-    goto LABEL_268;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v119, v84, v85, v86);
-  if ( !qword_1C02954C8 )
-    goto LABEL_261;
-  Event = qword_1C02954C8();
-  if ( Event < 0 )
-    goto LABEL_181;
-  if ( !qword_1C02954D0 )
-  {
-LABEL_261:
-    Event = -1073741637;
-    goto LABEL_262;
-  }
-  Event = qword_1C02954D0(v7, v3, Handle);
-LABEL_181:
-  if ( Event < 0 )
-  {
-LABEL_262:
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v119);
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v119);
-    goto LABEL_268;
-  }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v119);
-  if ( v3 != grpdeskRitInput )
-    goto LABEL_192;
-  if ( qword_1C02954D8 && (int)qword_1C02954D8() >= 0 )
-  {
-    if ( !qword_1C02954E0 )
-      goto LABEL_192;
-    v75 = (struct tagQ *)qword_1C02954E0(v7);
-  }
-  if ( v75 && v75 != *(struct tagQ **)(v7 + 432) )
-  {
-    if ( (int)IsDestroyThreadsMessagesSupported() >= 0 )
-      DestroyThreadsMessages(*(_QWORD *)(v7 + 432), v7);
-    zzzDestroyQueue(*(tagQ **)(v7 + 432), (tagTHREADINFO *)v7);
-    tagTHREADINFO::AssignQueue((tagTHREADINFO *)v7, v75);
-  }
-LABEL_192:
-  if ( v64[8] >= 0 )
-    goto LABEL_200;
-  if ( !v62 )
-  {
-    if ( !gpidLogon || PsGetProcessInheritedFromUniqueProcessId(Process) != gpidLogon )
+    if ( (v8 & 1) == 0 )
     {
-      v64[8] &= ~0x80000000;
-      goto LABEL_200;
+LABEL_18:
+      **v11 = 0;
+      goto LABEL_19;
     }
-    gppiScreenSaver = v19;
-    gptSSCursor = *((_QWORD *)gpsi + 620);
-    *(_DWORD *)(v19 + 12) |= 0x200000u;
-    EtwTraceScreenSaverProcessEvent(1LL);
+LABEL_17:
+    v91 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 852LL);
+    v11 = (_BYTE **)MmUserProbeAddress;
+    goto LABEL_18;
   }
-  ForegroundBoost::SetForegroundPriority(v7, 1LL);
-  if ( !v62 )
-    *(_DWORD *)(v19 + 12) |= 0x400000u;
-  *(_DWORD *)(v7 + 488) |= 0x2000000u;
-LABEL_200:
-  if ( (*(_DWORD *)(v7 + 488) & 0xC) == 0 && !v62 )
-  {
-    ++gdwDeferWinEvent;
-    if ( (int)IszzzCalcStartCursorHideSupported() >= 0 )
-    {
-      ProcessWin32Process = (_QWORD *)PsGetProcessWin32Process(Process);
-      if ( ProcessWin32Process && !*ProcessWin32Process )
-        ProcessWin32Process = 0LL;
-      zzzCalcStartCursorHide(ProcessWin32Process, 5000LL);
-    }
-    --gdwDeferWinEvent;
-    if ( grpWinStaList )
-    {
-      if ( !*(_QWORD *)(v19 + 656) )
-      {
-        UserSetLastError(1003LL);
-LABEL_267:
-        Event = -1073741823;
-        goto LABEL_268;
-      }
-    }
-  }
-  if ( qword_1C0295CF8 && (int)qword_1C0295CF8() >= 0 && qword_1C0295D00 )
-    qword_1C0295D00();
-  if ( v7 != -1288 )
-    *(_QWORD *)(v7 + 1288) = 0LL;
-  v90 = *(_QWORD *)(v7 + 432);
-  if ( v90 )
-  {
-    v91 = (_QWORD *)(v90 + 420);
-    if ( v91 )
-      *v91 = 0LL;
-  }
-  if ( (*(_DWORD *)(v19 + 12) & 0x20000) != 0 )
-    *(_DWORD *)(v7 + 488) |= 0x4000u;
-  *(_DWORD *)(v7 + 488) |= 0x1000000u;
-  if ( (*(_DWORD *)(v19 + 12) & 0x140) == 0
-    && (gptiForeground && v19 == *((_QWORD *)gptiForeground + 53)
-     || CInputGlobals::GetPtiLastWoken(*((CInputGlobals **)&WPP_MAIN_CB.Reserved + 1))
-     && v19 == *((_QWORD *)CInputGlobals::GetPtiLastWoken(*((CInputGlobals **)&WPP_MAIN_CB.Reserved + 1)) + 53)
-     && (*(_DWORD *)(v19 + 816) & 0x30) != 0x10) )
-  {
-    *(_DWORD *)(v7 + 488) |= 0x20u;
-    LOBYTE(v87) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x1000) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v87 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v88) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v87,
-        v88,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        13,
-        10,
-        (__int64)&WPP_58e5e48e7cdb3be4103bc9d4c641fa22_Traceguids,
-        v7);
-    }
-  }
-  if ( (*(_DWORD *)gpsi & 4) != 0 && qword_1C0295510 && (int)qword_1C0295510() >= 0 && qword_1C0295518 )
-    qword_1C0295518(0LL);
-  if ( !v121 )
-  {
-    if ( qword_1C0295520 )
-    {
-      Event = qword_1C0295520();
-      if ( Event < 0 )
-        goto LABEL_246;
-      if ( qword_1C0295528 )
-      {
-        Event = qword_1C0295528();
-LABEL_246:
-        if ( Event < 0 )
-          goto LABEL_268;
-        goto LABEL_247;
-      }
-    }
-LABEL_161:
-    Event = -1073741637;
-    goto LABEL_268;
-  }
-LABEL_247:
-  if ( !v62 && (*(_DWORD *)(v19 + 12) & 1) == 0 && qword_1C0295530 && (int)qword_1C0295530() >= 0 && qword_1C0295538 )
-    qword_1C0295538(7LL);
-  if ( v3 )
-  {
-    if ( (*((_DWORD *)v3 + 12) & 8) != 0 )
-      goto LABEL_267;
-    PopAndFreeW32ThreadLock(&v114);
-  }
-  if ( v101 )
-    PopAndFreeAlwaysW32ThreadLock(&v116);
-  v92 = *(_DWORD *)(v7 + 1272);
-  if ( (v92 & 1) != 0 )
-    *(_DWORD *)(v7 + 1272) = v92 & 0xFFFFFFFE;
-  return (unsigned int)Event;
+  return 3221225738LL;
 }

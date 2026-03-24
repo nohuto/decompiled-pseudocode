@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIComputeDeviceIdMutiStringLength @ 0x1C00616D4
+ * XREFs of ACPIComputeDeviceIdMutiStringLength @ 0x1C0060914
  * Callers:
- *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C0061760 (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
- *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C00B57F8 (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
+ *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00609A0 (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
+ *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C00B61A0 (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
  * Callees:
  *     <none>
  */

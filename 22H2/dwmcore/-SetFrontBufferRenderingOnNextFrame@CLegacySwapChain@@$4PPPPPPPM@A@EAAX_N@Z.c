@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFrontBufferRenderingOnNextFrame@CLegacySwapChain@@$4PPPPPPPM@A@EAAX_N@Z @ 0x18011FC00
+ * XREFs of ?SetFrontBufferRenderingOnNextFrame@CLegacySwapChain@@$4PPPPPPPM@A@EAAX_N@Z @ 0x1800F6F10
  * Callers:
  *     <none>
  * Callees:

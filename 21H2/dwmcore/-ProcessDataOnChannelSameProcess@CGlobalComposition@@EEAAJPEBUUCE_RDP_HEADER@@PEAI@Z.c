@@ -1,12 +1,11 @@
 /*
- * XREFs of ?ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800BDAC0
+ * XREFs of ?ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A1B90
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z @ 0x1800BDCA4 (-GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z.c)
- *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800C085C (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800A3070 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGlobalComposition::ProcessDataOnChannelSameProcess(
@@ -14,62 +13,77 @@ __int64 __fastcall CGlobalComposition::ProcessDataOnChannelSameProcess(
         const struct UCE_RDP_HEADER *a2,
         unsigned int *a3)
 {
-  int AttachedChannel; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // esi
-  struct _SLIST_ENTRY *v9; // rdi
-  __int64 *Next; // rcx
-  __int64 ***v11; // rax
+  volatile signed __int32 *v4; // rsi
+  struct _SLIST_ENTRY *v5; // rdi
+  unsigned int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  unsigned int v11; // ebp
+  __int64 *Next; // rax
+  __int64 ***v13; // rcx
   struct _SLIST_ENTRY *i; // rbx
-  int v13; // eax
-  __int64 v14; // rcx
-  __int64 v15; // rbx
-  unsigned int v17; // [rsp+58h] [rbp+10h] BYREF
-  struct CChannelContext *v18; // [rsp+60h] [rbp+18h] BYREF
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // rbx
+  __int64 v19; // rcx
+  unsigned int v20; // [rsp+58h] [rbp+10h] BYREF
 
+  v4 = 0LL;
+  v5 = 0LL;
   *a3 = 0;
-  v18 = 0LL;
-  AttachedChannel = CComposition::GetAttachedChannel(this, *((_DWORD *)a2 + 4), &v18);
-  v8 = AttachedChannel;
-  if ( AttachedChannel < 0 )
+  v8 = *((_DWORD *)a2 + 4);
+  if ( v8 < 0x10000 && v8 < *((_DWORD *)this + 80) && (v9 = v8, v10 = *((_QWORD *)this + 37), *(_QWORD *)(v10 + 8 * v9)) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, AttachedChannel, 0x58u);
+    v4 = *(volatile signed __int32 **)(v10 + 8 * v9);
+    _InterlockedIncrement(v4 + 2);
+    v5 = (struct _SLIST_ENTRY *)*((_QWORD *)a2 + 3);
+    v11 = 0;
+    if ( !v5 )
+      goto LABEL_14;
+    Next = (__int64 *)v5[2].Next;
+    if ( Next )
+    {
+      v13 = (__int64 ***)*((_QWORD *)&v5->Next + 1);
+      if ( *v13 != (__int64 **)v5 )
+        __fastfail(3u);
+      *Next = (__int64)v5;
+      Next[1] = (__int64)v13;
+      *v13 = (__int64 **)Next;
+      *((_QWORD *)&v5->Next + 1) = Next;
+      v5[2].Next = 0LL;
+    }
+    for ( i = v5->Next; i != v5; i = i->Next )
+    {
+      v15 = CComposition::ProcessCommandBatch(
+              this,
+              &i[1].Next + 1,
+              HIDWORD(i[1].Next),
+              (struct CChannelContext *)v4,
+              &v20);
+      v11 = v15;
+      if ( v15 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x73u, 0LL);
+        break;
+      }
+      *a3 += v20;
+    }
   }
   else
   {
-    v9 = (struct _SLIST_ENTRY *)*((_QWORD *)a2 + 3);
-    if ( v9 )
-    {
-      Next = (__int64 *)v9[2].Next;
-      if ( Next )
-      {
-        v11 = (__int64 ***)*((_QWORD *)&v9->Next + 1);
-        if ( *v11 != (__int64 **)v9 )
-          __fastfail(3u);
-        *Next = (__int64)v9;
-        Next[1] = (__int64)v11;
-        *v11 = (__int64 **)Next;
-        *((_QWORD *)&v9->Next + 1) = Next;
-        v9[2].Next = 0LL;
-      }
-      for ( i = v9->Next; i != v9; i = i->Next )
-      {
-        v13 = CComposition::ProcessCommandBatch(this, &i[1].Next + 1, HIDWORD(i[1].Next), v18, &v17);
-        v8 = v13;
-        if ( v13 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x67u);
-          break;
-        }
-        *a3 += v17;
-      }
-      v15 = *((_QWORD *)this + 83);
-      InterlockedPushEntrySList((PSLIST_HEADER)(v15 + 160), v9 + 4);
-      *(_DWORD *)(v15 + 176) = GetTickCount();
-      *(_BYTE *)(v15 + 180) = 1;
-    }
+    v11 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x76Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, -2147024809, 0x64u, 0LL);
   }
-  if ( v18 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v18);
-  return v8;
+  if ( v5 )
+  {
+    v17 = *((_QWORD *)this + 64);
+    InterlockedPushEntrySList((PSLIST_HEADER)(v17 + 192), v5 + 4);
+    *(_DWORD *)(v17 + 208) = GetTickCount();
+    *(_BYTE *)(v17 + 212) = 1;
+  }
+LABEL_14:
+  if ( v4 && _InterlockedExchangeAdd(v4 + 2, 0xFFFFFFFF) == 1 )
+    (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v4 + 16LL))(v4, 1LL);
+  return v11;
 }

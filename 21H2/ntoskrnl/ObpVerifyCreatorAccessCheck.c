@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpVerifyCreatorAccessCheck @ 0x1406C0B60
+ * XREFs of ObpVerifyCreatorAccessCheck @ 0x1406E50F0
  * Callers:
- *     NtCreatePrivateNamespace @ 0x1406C08F0 (NtCreatePrivateNamespace.c)
- *     NtDeletePrivateNamespace @ 0x1407F8B60 (NtDeletePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
+ *     NtDeletePrivateNamespace @ 0x1408DF5F0 (NtDeletePrivateNamespace.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1406C1068 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14067362C (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
+__int64 __fastcall ObpVerifyCreatorAccessCheck(_DWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rcx
   _DWORD *PrimaryToken; // rbx
@@ -44,7 +44,7 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
   if ( SubjectContext.ClientToken )
     PrimaryToken = SubjectContext.ClientToken;
   if ( PrimaryToken[48] == 2 && (int)PrimaryToken[49] < 2 )
-    goto LABEL_17;
+    goto LABEL_14;
   SeQueryInformationToken(PrimaryToken, TokenIsAppContainer, &TokenInformation);
   if ( !(_DWORD)TokenInformation
     || (LODWORD(v12) = SeQueryInformationToken(PrimaryToken, TokenAppContainerSid, P), (int)v12 >= 0) )
@@ -55,7 +55,10 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
     *v4 = HIDWORD(TokenInformation);
     P[1] = Sid;
     SeLockSubjectContext(&SubjectContext);
-    v5 = RtlEnumerateBoundaryDescriptorEntries(a1, ObpVerifyAccessToBoundaryEntry, &SubjectContext);
+    v5 = RtlEnumerateBoundaryDescriptorEntries(
+           a1,
+           (unsigned int (__fastcall *)(_DWORD *, __int64))ObpVerifyAccessToBoundaryEntry,
+           (__int64)&SubjectContext);
     SeUnlockSubjectContext(&SubjectContext);
     v6 = v12;
     if ( (int)v12 >= 0 )
@@ -64,7 +67,7 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
         v6 = v5;
       LODWORD(v12) = v6;
       if ( v6 >= 0 && P[0] && (v12 & 0x100000000LL) == 0 )
-LABEL_17:
+LABEL_14:
         LODWORD(v12) = -1073741790;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0084410
+ * XREFs of ??_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0083350
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C00862E0 (--1CInteractionMarshaler@DirectComposition@@UEAA@XZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0083608 (--1CInteractionMarshaler@DirectComposition@@UEAA@XZ.c)
  */
 
 DirectComposition::CInteractionMarshaler *__fastcall DirectComposition::CInteractionMarshaler::`vector deleting destructor'(
@@ -12,9 +12,7 @@ DirectComposition::CInteractionMarshaler *__fastcall DirectComposition::CInterac
         char a2)
 {
   DirectComposition::CInteractionMarshaler::~CInteractionMarshaler(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

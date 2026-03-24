@@ -1,9 +1,10 @@
 /*
- * XREFs of ??0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z @ 0x1C029FCBC
+ * XREFs of ??0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z @ 0x1C02A1240
  * Callers:
- *     ?bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A3D30 (-bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
+ *     ?bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A6048 (-bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
  * Callees:
- *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02A4D00 (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02A72D8 (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
  */
 
 MULTISORTBLTORDER *__fastcall MULTISORTBLTORDER::MULTISORTBLTORDER(
@@ -12,47 +13,42 @@ MULTISORTBLTORDER *__fastcall MULTISORTBLTORDER::MULTISORTBLTORDER(
         int a3,
         int a4)
 {
-  unsigned int v4; // ebx
-  unsigned int v5; // eax
-  __int64 v10; // rax
-  _QWORD *v11; // rsi
-  _QWORD *v12; // rdx
-  unsigned int v13; // r8d
-  __int64 v14; // rcx
-  __int64 v15; // rax
+  void *v8; // rax
+  unsigned int v9; // r9d
+  _QWORD *v10; // rbx
+  _QWORD *v11; // rdx
+  unsigned int v12; // r8d
+  __int64 v13; // rcx
+  __int64 v14; // rax
 
-  v4 = 0;
-  v5 = 16 * *((_DWORD *)a2 + 4);
-  if ( v5 )
-    v10 = Win32AllocPool(v5, 1869835591LL);
-  else
-    v10 = 0LL;
-  *(_QWORD *)this = v10;
-  v11 = (_QWORD *)((char *)this + 8);
-  *((_QWORD *)this + 1) = v10;
+  v8 = PALLOCMEM2((unsigned int)(16 * *((_DWORD *)a2 + 4)), 1869835591LL, 0);
+  v9 = 0;
+  *(_QWORD *)this = v8;
   *((_QWORD *)this + 2) = 0LL;
-  if ( v10 )
+  v10 = (_QWORD *)((char *)this + 8);
+  *((_QWORD *)this + 1) = v8;
+  if ( v8 )
   {
-    v12 = *(_QWORD **)a2;
-    v13 = 0;
-    while ( v12 )
+    v11 = *(_QWORD **)a2;
+    v12 = 0;
+    while ( v11 )
     {
-      v14 = 2LL * v13++;
-      *(_QWORD *)(*v11 + 8 * v14 + 8) = v12;
-      *(_QWORD *)(*v11 + 8 * v14) = 0LL;
-      v12 = (_QWORD *)*v12;
+      v13 = 2LL * v12++;
+      *(_QWORD *)(*v10 + 8 * v13 + 8) = v11;
+      *(_QWORD *)(*v10 + 8 * v13) = 0LL;
+      v11 = (_QWORD *)*v11;
     }
     if ( *((_DWORD *)a2 + 4) != 1 )
     {
       do
       {
-        v15 = v4++;
-        *(_QWORD *)(*v11 + 16 * v15) = *v11 + 16LL * v4;
+        v14 = v9++;
+        *(_QWORD *)(*v10 + 16 * v14) = *v10 + 16LL * v9;
       }
-      while ( v4 < *((_DWORD *)a2 + 4) - 1 );
+      while ( v9 < *((_DWORD *)a2 + 4) - 1 );
     }
     vSortBltOrderWorker((struct _SODISPSURF **)this + 1, a3, a4);
-    *((_QWORD *)this + 2) = *v11;
+    *((_QWORD *)this + 2) = *v10;
   }
   return this;
 }

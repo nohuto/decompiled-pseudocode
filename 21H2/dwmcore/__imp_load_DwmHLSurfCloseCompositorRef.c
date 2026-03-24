@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DwmHLSurfCloseCompositorRef @ 0x180102E40
+ * XREFs of __imp_load_DwmHLSurfCloseCompositorRef @ 0x1800E8F70
  * Callers:
  *     <none>
  * Callees:

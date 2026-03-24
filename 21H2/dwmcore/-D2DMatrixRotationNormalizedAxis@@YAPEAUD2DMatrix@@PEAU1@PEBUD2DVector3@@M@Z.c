@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18026D538
+ * XREFs of ?D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18021D13C
  * Callers:
- *     ?D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18026D4E4 (-D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z.c)
+ *     ?D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18021D0E8 (-D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z.c)
  * Callees:
- *     cosf @ 0x1801018C8 (cosf.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
+ *     cosf_0 @ 0x1800F4763 (cosf_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
  */
 
 struct D2DMatrix *__fastcall D2DMatrixRotationNormalizedAxis(
@@ -22,8 +22,8 @@ struct D2DMatrix *__fastcall D2DMatrixRotationNormalizedAxis(
   float v12; // xmm0_4
   struct D2DMatrix *result; // rax
 
-  v5 = o_sinf_0(a3);
-  v6 = cosf(a3);
+  v5 = sinf_0(a3);
+  v6 = cosf_0(a3);
   v7 = (float)(*(float *)a2 * *((float *)a2 + 1)) * (float)(1.0 - v6);
   v8 = (float)(*((float *)a2 + 2) * *(float *)a2) * (float)(1.0 - v6);
   v9 = (float)(*((float *)a2 + 2) * *((float *)a2 + 1)) * (float)(1.0 - v6);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpDeferObjectDeletion @ 0x140125DB0
+ * XREFs of ObpDeferObjectDeletion @ 0x140125DD0
  * Callers:
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     ObDereferenceObjectEx @ 0x14001CD54 (ObDereferenceObjectEx.c)
@@ -14,15 +14,15 @@
  *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
  *     ExTimerRundown @ 0x14008AFD0 (ExTimerRundown.c)
  *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
- *     IopDropIrp @ 0x1400E097C (IopDropIrp.c)
- *     NtSetInformationFile @ 0x140100E70 (NtSetInformationFile.c)
- *     NtSetInformationWorkerFactory @ 0x1401060E0 (NtSetInformationWorkerFactory.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
+ *     IopDropIrp @ 0x1400E099C (IopDropIrp.c)
+ *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
+ *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 void __fastcall ObpDeferObjectDeletion(signed __int64 a1)

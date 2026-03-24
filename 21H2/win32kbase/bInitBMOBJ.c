@@ -1,13 +1,13 @@
 /*
- * XREFs of bInitBMOBJ @ 0x1C02E5FA0
+ * XREFs of bInitBMOBJ @ 0x1C029A888
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
- *     GreCreateBitmap @ 0x1C001A360 (GreCreateBitmap.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0063C24 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C00643E0 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C0015DD0 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001C608 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     GreCreateBitmap @ 0x1C00271A0 (GreCreateBitmap.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
  */
 
 HSURF bInitBMOBJ()

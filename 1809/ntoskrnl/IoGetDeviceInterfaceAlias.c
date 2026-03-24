@@ -1,14 +1,14 @@
 /*
- * XREFs of IoGetDeviceInterfaceAlias @ 0x1406D52C0
+ * XREFs of IoGetDeviceInterfaceAlias @ 0x1406D52A0
  * Callers:
- *     PiCMGetDeviceInterfaceAlias @ 0x1406D5104 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x1406D50E4 (PiCMGetDeviceInterfaceAlias.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
@@ -21,9 +21,9 @@
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1406D5608 (_CmGetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1406D5694 (_CmGetDeviceInterfaceReferenceString.c)
- *     _CmGetDeviceInterfaceName @ 0x1406F849C (_CmGetDeviceInterfaceName.c)
+ *     _CmGetDeviceInterfacePathFormat @ 0x1406D55E8 (_CmGetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x1406D5674 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetDeviceInterfaceName @ 0x1406F847C (_CmGetDeviceInterfaceName.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceInterfaceAlias(

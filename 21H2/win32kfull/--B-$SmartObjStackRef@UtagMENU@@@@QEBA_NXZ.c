@@ -1,12 +1,11 @@
 /*
- * XREFs of ??B?$SmartObjStackRef@UtagMENU@@@@QEBA_NXZ @ 0x1C00684A0
+ * XREFs of ??B?$SmartObjStackRef@UtagMENU@@@@QEBA_NXZ @ 0x1C00DCADC
  * Callers:
- *     xxxMNCanClose @ 0x1C0068094 (xxxMNCanClose.c)
- *     ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C0068DF0 (-SetLPITEMInfoNoRedraw@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@.c)
- *     xxxGetMenuBarInfo @ 0x1C00BB868 (xxxGetMenuBarInfo.c)
- *     xxxGetSystemMenu @ 0x1C00BC098 (xxxGetSystemMenu.c)
- *     xxxEnableMenuItem @ 0x1C00BC4A0 (xxxEnableMenuItem.c)
- *     _ServerFixupMenuDC @ 0x1C00F4650 (_ServerFixupMenuDC.c)
+ *     xxxEnableMenuItem @ 0x1C0046FB0 (xxxEnableMenuItem.c)
+ *     ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C0048C88 (-SetLPITEMInfoNoRedraw@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@.c)
+ *     xxxGetMenuBarInfo @ 0x1C008AAD8 (xxxGetMenuBarInfo.c)
+ *     xxxGetSystemMenu @ 0x1C00DC8C4 (xxxGetSystemMenu.c)
+ *     _ServerFixupMenuDC @ 0x1C0106B80 (_ServerFixupMenuDC.c)
  * Callees:
  *     <none>
  */

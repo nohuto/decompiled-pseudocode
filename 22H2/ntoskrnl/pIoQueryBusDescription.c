@@ -1,164 +1,161 @@
 /*
- * XREFs of pIoQueryBusDescription @ 0x1407CEFB8
+ * XREFs of pIoQueryBusDescription @ 0x14078B004
  * Callers:
- *     IoQueryDeviceDescription @ 0x1407CEA00 (IoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEFB8 (pIoQueryBusDescription.c)
+ *     IoQueryDeviceDescription @ 0x14078AEF0 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B004 (pIoQueryBusDescription.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     pIoQueryDeviceDescription @ 0x1407CEB14 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEFB8 (pIoQueryBusDescription.c)
- *     IopGetRegistryKeyInformation @ 0x1407CF328 (IopGetRegistryKeyInformation.c)
- *     IopOpenRegistryKey @ 0x1407CF480 (IopOpenRegistryKey.c)
- *     IopGetRegistryValues @ 0x1407CF598 (IopGetRegistryValues.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopOpenRegistryKey @ 0x1407690C4 (IopOpenRegistryKey.c)
+ *     IopGetRegistryKeyInformation @ 0x140769C04 (IopGetRegistryKeyInformation.c)
+ *     pIoQueryDeviceDescription @ 0x14078AA64 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B004 (pIoQueryBusDescription.c)
+ *     IopGetRegistryValues @ 0x14078B374 (IopGetRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall pIoQueryBusDescription(unsigned int **a1, UNICODE_STRING *a2, void *a3, unsigned int *a4, char a5)
+NTSTATUS __fastcall pIoQueryBusDescription(unsigned int **a1, UNICODE_STRING *a2, void *a3, unsigned int *a4, char a5)
 {
-  __int64 result; // rax
-  PVOID v8; // rbx
-  unsigned int v9; // eax
-  unsigned int v10; // ecx
-  ULONG v11; // r14d
-  unsigned __int16 *Pool2; // rsi
-  ULONG v13; // r12d
   NTSTATUS RegistryValues; // ebx
-  unsigned int *v15; // rcx
-  PVOID v16; // r8
-  unsigned int *v17; // rcx
-  unsigned int v18; // r9d
-  unsigned int *v19; // rax
-  NTSTATUS v20; // eax
-  int Length; // [rsp+20h] [rbp-B1h]
-  HANDLE Handle; // [rsp+60h] [rbp-71h] BYREF
-  PVOID P; // [rsp+68h] [rbp-69h]
-  ULONG ResultLength[4]; // [rsp+70h] [rbp-61h] BYREF
-  UNICODE_STRING Destination; // [rsp+80h] [rbp-51h] BYREF
-  HANDLE KeyHandle; // [rsp+90h] [rbp-41h]
-  UNICODE_STRING Source; // [rsp+98h] [rbp-39h] BYREF
-  UNICODE_STRING *v28; // [rsp+A8h] [rbp-29h]
-  UNICODE_STRING v29; // [rsp+B0h] [rbp-21h] BYREF
-  PVOID v30[2]; // [rsp+C0h] [rbp-11h] BYREF
-  PVOID v31; // [rsp+D0h] [rbp-1h]
+  NTSTATUS result; // eax
+  PVOID v9; // r14
+  unsigned int v10; // eax
+  ULONG Length; // r12d
+  unsigned __int16 *PoolWithTag; // rdi
+  ULONG v13; // r13d
+  unsigned int *v14; // rcx
+  PVOID v15; // r8
+  unsigned int *v16; // rcx
+  unsigned int v17; // r9d
+  unsigned int *v18; // rax
+  NTSTATUS DeviceDescription; // eax
+  HANDLE Handle; // [rsp+60h] [rbp-61h] BYREF
+  ULONG ResultLength; // [rsp+68h] [rbp-59h] BYREF
+  PVOID P[2]; // [rsp+70h] [rbp-51h] BYREF
+  UNICODE_STRING Destination; // [rsp+80h] [rbp-41h] BYREF
+  HANDLE KeyHandle; // [rsp+90h] [rbp-31h]
+  UNICODE_STRING Source; // [rsp+98h] [rbp-29h] BYREF
+  UNICODE_STRING *v26; // [rsp+A8h] [rbp-19h]
+  PVOID v27[2]; // [rsp+B0h] [rbp-11h] BYREF
+  PVOID v28; // [rsp+C0h] [rbp-1h]
 
-  v28 = a2;
+  v26 = a2;
   KeyHandle = a3;
-  v31 = 0LL;
+  v28 = 0LL;
+  RegistryValues = 0;
   Handle = 0LL;
-  P = 0LL;
-  ResultLength[0] = 0;
+  P[0] = 0LL;
+  ResultLength = 0;
   Source = 0LL;
   Destination = 0LL;
-  *(_OWORD *)v30 = 0LL;
-  result = IopGetRegistryKeyInformation(a3);
-  if ( (int)result >= 0 )
+  *(_OWORD *)v27 = 0LL;
+  result = IopGetRegistryKeyInformation(a3, P);
+  if ( result >= 0 )
   {
-    v8 = P;
-    v9 = *((_DWORD *)P + 6);
-    v10 = v9 + 32;
-    if ( v9 + 32 < v9 )
+    v9 = P[0];
+    v10 = *((_DWORD *)P[0] + 6);
+    Length = v10 + 32;
+    if ( v10 + 32 < v10 )
     {
-      return 3221225621LL;
+      return -1073741675;
     }
     else
     {
-      v11 = v9 + 32;
-      P = (PVOID)v10;
-      Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, v10, 1112239945LL);
-      ExFreePoolWithTag(v8, 0);
-      if ( Pool2 )
+      PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, Length, 0x424B6F49u);
+      ExFreePoolWithTag(v9, 0);
+      if ( PoolWithTag )
       {
         v13 = 0;
-        RegistryValues = 0;
         do
         {
-          v15 = a1[1];
-          if ( v15 && *v15 == *a4 )
+          v14 = a1[1];
+          if ( v14 && *v14 == *a4 )
             break;
-          RegistryValues = ZwEnumerateKey(KeyHandle, v13, KeyBasicInformation, Pool2, v11, ResultLength);
+          RegistryValues = ZwEnumerateKey(KeyHandle, v13, KeyBasicInformation, PoolWithTag, Length, &ResultLength);
           if ( RegistryValues < 0 )
             break;
           if ( !a5
-            || !wcsncmp(Pool2 + 8, L"MultifunctionAdapter", (unsigned __int64)*((unsigned int *)Pool2 + 3) >> 1)
-            || !wcsncmp(Pool2 + 8, L"EisaAdapter", (unsigned __int64)*((unsigned int *)Pool2 + 3) >> 1)
-            || !wcsncmp(Pool2 + 8, L"TcAdapter", (unsigned __int64)*((unsigned int *)Pool2 + 3) >> 1) )
+            || !wcsncmp(
+                  PoolWithTag + 8,
+                  L"MultifunctionAdapter",
+                  (unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1)
+            || !wcsncmp(PoolWithTag + 8, L"EisaAdapter", (unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1)
+            || !wcsncmp(PoolWithTag + 8, L"TcAdapter", (unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1) )
           {
-            Source.Buffer = Pool2 + 8;
-            Source.Length = Pool2[6];
-            Source.MaximumLength = Pool2[6];
-            LOBYTE(Length) = 0;
-            if ( (int)IopOpenRegistryKey(&Handle, KeyHandle, &Source, 131097LL, Length) >= 0 )
+            Source.Buffer = PoolWithTag + 8;
+            Source.Length = PoolWithTag[6];
+            Source.MaximumLength = PoolWithTag[6];
+            if ( IopOpenRegistryKey(&Handle, KeyHandle, &Source, 0x20019u, 0) >= 0 )
             {
-              Destination = *v28;
+              Destination = *v26;
               RtlAppendUnicodeToString(&Destination, L"\\");
               RtlAppendUnicodeStringToString(&Destination, &Source);
               if ( a5 )
-                goto LABEL_27;
+                goto LABEL_21;
               RegistryValues = IopGetRegistryValues(Handle);
               if ( RegistryValues >= 0 )
               {
-                v16 = v30[1];
-                if ( v30[1] )
+                v15 = v27[1];
+                if ( v27[1] )
                 {
-                  if ( *((_DWORD *)v30[1] + 3) )
+                  if ( *((_DWORD *)v27[1] + 3) )
                   {
-                    if ( *(_DWORD *)((char *)v30[1] + *((unsigned int *)v30[1] + 2)) == **a1 )
+                    if ( *(_DWORD *)((char *)v27[1] + *((unsigned int *)v27[1] + 2)) == **a1 )
                     {
-                      v18 = *a4 + 1;
-                      *a4 = v18;
-                      v19 = a1[1];
-                      if ( !v19 || *v19 == v18 )
+                      v17 = *a4 + 1;
+                      *a4 = v17;
+                      v18 = a1[1];
+                      if ( !v18 || *v18 == v17 )
                       {
                         if ( a1[2] )
                         {
-                          v29 = Destination;
-                          v20 = pIoQueryDeviceDescription(a1, &v29, (__int64)v16, v18, (__int64)v30);
+                          *(UNICODE_STRING *)P = Destination;
+                          DeviceDescription = pIoQueryDeviceDescription(a1, P, (__int64)v15, v17, (__int64)v27);
                         }
                         else
                         {
-                          v20 = ((__int64 (__fastcall *)(unsigned int *, UNICODE_STRING *, _QWORD))a1[6])(
-                                  a1[7],
-                                  &Destination,
-                                  **a1);
+                          DeviceDescription = ((__int64 (__fastcall *)(unsigned int *, UNICODE_STRING *, _QWORD))a1[6])(
+                                                a1[7],
+                                                &Destination,
+                                                **a1);
                         }
-                        v16 = v30[1];
-                        RegistryValues = v20;
+                        v15 = v27[1];
+                        RegistryValues = DeviceDescription;
                       }
                     }
                   }
                 }
-                if ( v30[0] )
+                if ( v27[0] )
                 {
-                  ExFreePoolWithTag(v30[0], 0);
-                  v16 = v30[1];
-                  v30[0] = 0LL;
+                  ExFreePoolWithTag(v27[0], 0);
+                  v15 = v27[1];
+                  v27[0] = 0LL;
                 }
-                if ( v16 )
+                if ( v15 )
                 {
-                  ExFreePoolWithTag(v16, 0);
-                  v30[1] = 0LL;
+                  ExFreePoolWithTag(v15, 0);
+                  v27[1] = 0LL;
                 }
-                if ( v31 )
+                if ( v28 )
                 {
-                  ExFreePoolWithTag(v31, 0);
-                  v31 = 0LL;
+                  ExFreePoolWithTag(v28, 0);
+                  v28 = 0LL;
                 }
               }
-              v17 = a1[1];
-              if ( !v17 || *v17 != *a4 )
+              v16 = a1[1];
+              if ( !v16 || *v16 != *a4 )
               {
-LABEL_27:
-                v29 = Destination;
+LABEL_21:
+                *(UNICODE_STRING *)P = Destination;
                 RegistryValues = pIoQueryBusDescription(
                                    (_DWORD)a1,
-                                   (unsigned int)&v29,
+                                   (unsigned int)P,
                                    (_DWORD)Handle,
                                    (_DWORD)a4,
                                    a5 == 0);
@@ -169,16 +166,15 @@ LABEL_27:
               Handle = 0LL;
             }
           }
-          v11 = (unsigned int)P;
           ++v13;
         }
         while ( RegistryValues >= 0 );
-        ExFreePoolWithTag(Pool2, 0);
-        return (unsigned int)RegistryValues;
+        ExFreePoolWithTag(PoolWithTag, 0);
+        return RegistryValues;
       }
       else
       {
-        return 3221225626LL;
+        return -1073741670;
       }
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C014A834
+ * XREFs of ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C011F5E0
  * Callers:
- *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C001D8F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
- *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00C49AC (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
- *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C013AE1C (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
- *     ?bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C014A7F8 (-bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
- *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C014F598 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
- *     ?bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C0291CEC (-bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C00600F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00E3C78 (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
+ *     ?bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C011F5A4 (-bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C012D378 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C014EC64 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C01617FC (-bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
  * Callees:
  *     <none>
  */

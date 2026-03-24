@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIsBTSSupported @ 0x140A930EC
+ * XREFs of ViIsBTSSupported @ 0x1409D8628
  * Callers:
- *     VfInitializeBranchTracing @ 0x140A92E6C (VfInitializeBranchTracing.c)
+ *     VfInitializeBranchTracing @ 0x1409D8394 (VfInitializeBranchTracing.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 ViIsBTSSupported()
@@ -29,7 +29,7 @@ __int64 ViIsBTSSupported()
     while ( 1 )
     {
       v2 = KiProcessorIndexToNumberMappingTable[v1] & 0x3F;
-      Affinity.Group = KiProcessorIndexToNumberMappingTable[v1] >> 6;
+      Affinity.Group = (unsigned int)KiProcessorIndexToNumberMappingTable[v1] >> 6;
       *(_DWORD *)Affinity.Reserved = 0;
       Affinity.Reserved[2] = 0;
       Affinity.Mask = 1LL << v2;

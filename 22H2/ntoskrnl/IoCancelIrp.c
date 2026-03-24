@@ -1,33 +1,33 @@
 /*
- * XREFs of IoCancelIrp @ 0x140351890
+ * XREFs of IoCancelIrp @ 0x140314120
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x1402010B8 (FsRtlpWaitOnIrp.c)
- *     IopCancelIrpsInFileObjectList @ 0x1402AF910 (IopCancelIrpsInFileObjectList.c)
- *     IopCancelIrpsInCurrentThreadList @ 0x140351704 (IopCancelIrpsInCurrentThreadList.c)
- *     PopThermalPollingPowerSettingCallback @ 0x1403B5900 (PopThermalPollingPowerSettingCallback.c)
- *     PopThermalZoneDpc @ 0x1403CC560 (PopThermalZoneDpc.c)
- *     PopThermalZoneTimerCallback @ 0x1404629B0 (PopThermalZoneTimerCallback.c)
- *     IoCancelThreadIo @ 0x14076E9F4 (IoCancelThreadIo.c)
- *     FsRtlKernelFsControlFile @ 0x140772DD0 (FsRtlKernelFsControlFile.c)
- *     FsRtlQueryKernelEaFile @ 0x140773AC0 (FsRtlQueryKernelEaFile.c)
- *     NtCancelIoFile @ 0x1407C1CC0 (NtCancelIoFile.c)
- *     FsRtlSetKernelEaFile @ 0x1407D5EE0 (FsRtlSetKernelEaFile.c)
- *     PopBatteryWorker @ 0x140870230 (PopBatteryWorker.c)
- *     FsRtlQueryInformationFile @ 0x14093EDD0 (FsRtlQueryInformationFile.c)
- *     IopCancelAlertedRequest @ 0x14094442C (IopCancelAlertedRequest.c)
- *     IopCancelPendingEject @ 0x14096CD38 (IopCancelPendingEject.c)
- *     PopThermalReadCounters @ 0x14098AF64 (PopThermalReadCounters.c)
- *     PopThermalZoneRemove @ 0x14098B0C0 (PopThermalZoneRemove.c)
- *     PopThermalZoneUpdateCoolingPolicy @ 0x14098B21C (PopThermalZoneUpdateCoolingPolicy.c)
- *     PopBatteryRemove @ 0x1409957F0 (PopBatteryRemove.c)
- *     PopFanRemove @ 0x1409973C0 (PopFanRemove.c)
+ *     PopThermalZoneDpc @ 0x1402010F0 (PopThermalZoneDpc.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140313D7C (IopCancelIrpsInFileObjectList.c)
+ *     IopCancelIrpsInCurrentThreadList @ 0x140313FD4 (IopCancelIrpsInCurrentThreadList.c)
+ *     PopThermalPollingPowerSettingCallback @ 0x1403CF270 (PopThermalPollingPowerSettingCallback.c)
+ *     FsRtlpWaitOnIrp @ 0x1404F0970 (FsRtlpWaitOnIrp.c)
+ *     PopThermalZoneTimerCallback @ 0x14056FA50 (PopThermalZoneTimerCallback.c)
+ *     FsRtlSetKernelEaFile @ 0x140669B30 (FsRtlSetKernelEaFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x140669CD0 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x140669ED0 (FsRtlKernelFsControlFile.c)
+ *     NtCancelIoFile @ 0x140682230 (NtCancelIoFile.c)
+ *     IoCancelThreadIo @ 0x1406C5770 (IoCancelThreadIo.c)
+ *     PopBatteryWorker @ 0x14077F710 (PopBatteryWorker.c)
+ *     FsRtlQueryInformationFile @ 0x14088C2D0 (FsRtlQueryInformationFile.c)
+ *     IopCancelAlertedRequest @ 0x1408910DC (IopCancelAlertedRequest.c)
+ *     IopCancelPendingEject @ 0x1408B29C8 (IopCancelPendingEject.c)
+ *     PopThermalReadCounters @ 0x1408E7CC0 (PopThermalReadCounters.c)
+ *     PopThermalZoneRemove @ 0x1408E7DD0 (PopThermalZoneRemove.c)
+ *     PopThermalZoneUpdateCoolingPolicy @ 0x1408E7F2C (PopThermalZoneUpdateCoolingPolicy.c)
+ *     PopBatteryRemove @ 0x1408ED670 (PopBatteryRemove.c)
+ *     PopFanRemove @ 0x1408F1780 (PopFanRemove.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IovpCancelRoutine @ 0x140AC0CBC (IovpCancelRoutine.c)
- *     IovCancelIrp @ 0x140AC2448 (IovCancelIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IovCancelIrp @ 0x1409C4F6C (IovCancelIrp.c)
+ *     IovpCancelRoutine @ 0x1409D03E0 (IovpCancelRoutine.c)
  */
 
 BOOLEAN __stdcall IoCancelIrp(PIRP Irp)
@@ -37,8 +37,12 @@ BOOLEAN __stdcall IoCancelIrp(PIRP Irp)
   KIRQL v4; // si
   bool v5; // zf
 
-  if ( ViVerifierEnabled && (VfRuleClasses & 0xFF217644) != 0 )
+  if ( ViVerifierEnabled
+    && ((VfRuleClasses & 0xFFAFFFFF) != 0 || (VfRuleClasses & 0x200000000LL) != 0
+                                          || (VfRuleClasses & 0x400000000LL) != 0) )
+  {
     IovCancelIrp();
+  }
   v2 = KeAcquireQueuedSpinLock(7uLL);
   Irp->Cancel = 1;
   v3 = (void (__fastcall *)(PDEVICE_OBJECT, PIRP))_InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, 0LL);
@@ -49,10 +53,17 @@ BOOLEAN __stdcall IoCancelIrp(PIRP Irp)
       KeBugCheckEx(0x48u, (ULONG_PTR)Irp, (ULONG_PTR)v3, 0LL, 0LL);
     v5 = ViVerifierEnabled == 0;
     Irp->CancelIrql = v2;
-    if ( v5 || !VfXdvEnabled )
-      v3(Irp->Tail.Overlay.CurrentStackLocation->DeviceObject, Irp);
-    else
+    if ( !v5
+      && ((VfRuleClasses & 0xFFAFFFFF) != 0
+       || (VfRuleClasses & 0x200000000LL) != 0
+       || (VfRuleClasses & 0x400000000LL) != 0) )
+    {
       IovpCancelRoutine(Irp->Tail.Overlay.CurrentStackLocation->DeviceObject, Irp, v3);
+    }
+    else
+    {
+      v3(Irp->Tail.Overlay.CurrentStackLocation->DeviceObject, Irp);
+    }
     if ( KeGetCurrentIrql() == 2 && v4 != 2 )
       KeBugCheckEx(0x11Bu, (ULONG_PTR)Irp, (ULONG_PTR)v3, 0LL, 0LL);
     return 1;

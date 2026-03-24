@@ -1,9 +1,9 @@
 /*
- * XREFs of _IsWindowVisible @ 0x1C00A79A8
+ * XREFs of _IsWindowVisible @ 0x1C0125D64
  * Callers:
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     SetVisible @ 0x1C00EBC94 (SetVisible.c)
- *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0222580 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ *     SetVisible @ 0x1C004BCA0 (SetVisible.c)
+ *     xxxSetWindowStyle @ 0x1C005E140 (xxxSetWindowStyle.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C010BE7C (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
  * Callees:
  *     <none>
  */

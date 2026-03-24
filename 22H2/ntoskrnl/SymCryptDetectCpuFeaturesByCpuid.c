@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x1403F5C84
+ * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x1403EED68
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F2CE0 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EB92C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
- *     SymCryptCpuidExFunc @ 0x1403B6428 (SymCryptCpuidExFunc.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     SymCryptCpuidExFunc @ 0x1403CF93C (SymCryptCpuidExFunc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptDetectCpuFeaturesByCpuid(char a1)
@@ -14,27 +14,31 @@ __int64 __fastcall SymCryptDetectCpuFeaturesByCpuid(char a1)
   int v4; // r12d
   __int64 *v5; // rdi
   unsigned int i; // esi
-  int v7; // ecx
-  char v8; // al
+  int v7; // eax
+  int v8; // ecx
+  char v9; // al
+  unsigned int v10; // ecx
   __int64 result; // rax
-  _DWORD v10[2]; // [rsp+20h] [rbp-20h]
-  int v11; // [rsp+28h] [rbp-18h]
-  int v12; // [rsp+2Ch] [rbp-14h]
+  _DWORD v12[2]; // [rsp+20h] [rbp-20h]
+  int v13; // [rsp+28h] [rbp-18h]
+  int v14; // [rsp+2Ch] [rbp-14h]
 
   v2 = 0;
-  v3 = -4064;
+  v3 = -2016;
   SymCryptCpuidExFunc();
-  v4 = v10[0];
+  v4 = v12[0];
   v5 = cpuidBitInfo;
-  for ( i = 0; i < 0x13; ++i )
+  for ( i = 0; i < 0xD; ++i )
   {
-    if ( *(unsigned __int8 *)v5 != v2 )
+    v7 = *(unsigned __int8 *)v5;
+    if ( v7 != v2 )
     {
       v2 = *(unsigned __int8 *)v5;
       SymCryptCpuidExFunc();
+      LOBYTE(v7) = *(_BYTE *)v5;
     }
-    if ( *(unsigned __int8 *)v5 > v4
-      || (v7 = v10[*((unsigned __int8 *)v5 + 1)], !_bittest(&v7, *((unsigned __int8 *)v5 + 2))) )
+    if ( (unsigned __int8)v7 > v4
+      || (v8 = v12[*((unsigned __int8 *)v5 + 1)], !_bittest(&v8, *((unsigned __int8 *)v5 + 2))) )
     {
       v3 |= *((_DWORD *)v5 + 1);
     }
@@ -42,21 +46,24 @@ __int64 __fastcall SymCryptDetectCpuFeaturesByCpuid(char a1)
   }
   if ( (a1 & 1) != 0 )
   {
-    v8 = SymCryptCpuidExFunc();
-    if ( (v11 & 0x8000000) == 0 )
+    v9 = SymCryptCpuidExFunc();
+    if ( (v13 & 0x8000000) == 0 )
       goto LABEL_11;
     __asm { xgetbv }
-    if ( (v8 & 6) != 6 )
+    if ( (v9 & 6) != 6 )
 LABEL_11:
-      v3 |= 0x1810u;
+      v3 |= 0x10u;
   }
   if ( (v3 & 4) == 0 )
   {
     SymCryptCpuidExFunc();
-    if ( v10[1] == 1752462657 && v11 == 1145913699 && v12 == 1769238117 )
+    if ( v12[1] == 1752462657 && v13 == 1145913699 && v14 == 1769238117 )
     {
       SymCryptCpuidExFunc();
-      if ( ((v10[0] >> 8) & 0xF) != 0xF || (unsigned int)(unsigned __int8)(v10[0] >> 20) + 15 < 0x15 )
+      v10 = (v12[0] >> 8) & 0xF;
+      if ( v10 == 15 )
+        v10 = (unsigned __int8)(v12[0] >> 20) + 15;
+      if ( v10 < 0x15 )
         v3 |= 4u;
     }
   }

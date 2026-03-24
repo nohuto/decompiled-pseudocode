@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepCompleteComponentIdleState @ 0x1405D4C64
+ * XREFs of PopPepCompleteComponentIdleState @ 0x140574194
  * Callers:
- *     PopFxProcessWork @ 0x140354CBC (PopFxProcessWork.c)
+ *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
  * Callees:
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     PopPepCountReadyActivities @ 0x1403565AC (PopPepCountReadyActivities.c)
- *     PopPepReleaseActivityLink @ 0x1403565F8 (PopPepReleaseActivityLink.c)
- *     PopPepRequestWork @ 0x14035666C (PopPepRequestWork.c)
- *     PopPepLockActivityLink @ 0x140356948 (PopPepLockActivityLink.c)
- *     PopPlNotifyDeviceFState @ 0x14045EA32 (PopPlNotifyDeviceFState.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     PopPepCountReadyActivities @ 0x140261BDC (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x140261C28 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x140261C9C (PopPepRequestWork.c)
+ *     PopPepLockActivityLink @ 0x140261F78 (PopPepLockActivityLink.c)
+ *     PopPlNotifyDeviceFState @ 0x1403A4A78 (PopPlNotifyDeviceFState.c)
  */
 
 __int64 __fastcall PopPepCompleteComponentIdleState(__int64 a1, unsigned int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall PopPepCompleteComponentIdleState(__int64 a1, unsigned int a2)
   KIRQL v13; // [rsp+48h] [rbp+10h] BYREF
 
   v13 = 0;
-  v3 = 208LL * a2 + a1 + 192;
+  v3 = 200LL * a2 + a1 + 184;
   v5 = PopPepLockActivityLink(a1, (volatile LONG *)v3, 6u, 1u, &v13);
   v6 = *(_QWORD *)(v3 + 64);
   v7 = v5;

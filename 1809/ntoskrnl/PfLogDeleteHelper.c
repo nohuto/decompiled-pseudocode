@@ -1,10 +1,10 @@
 /*
- * XREFs of PfLogDeleteHelper @ 0x1400D6860
+ * XREFs of PfLogDeleteHelper @ 0x1400D6880
  * Callers:
- *     PfFileInfoNotify @ 0x1400D3DC0 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x1400D3DE0 (PfFileInfoNotify.c)
  * Callees:
- *     PfFbLogEntryComplete @ 0x1400D5380 (PfFbLogEntryComplete.c)
- *     PfFbLogEntryReserve @ 0x1400D54C4 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x1400D53A0 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x1400D54E4 (PfFbLogEntryReserve.c)
  */
 
 __int64 __fastcall PfLogDeleteHelper(char a1, __int64 a2, int a3, int a4)

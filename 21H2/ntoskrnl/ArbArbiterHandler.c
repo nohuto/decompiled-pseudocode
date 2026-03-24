@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbArbiterHandler @ 0x140852700
+ * XREFs of ArbArbiterHandler @ 0x140771590
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
@@ -89,6 +89,6 @@ LABEL_5:
   }
 LABEL_9:
   KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v8;
 }

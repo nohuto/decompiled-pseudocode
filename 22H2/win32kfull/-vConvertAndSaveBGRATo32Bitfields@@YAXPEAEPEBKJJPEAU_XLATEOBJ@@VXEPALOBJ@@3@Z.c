@@ -1,30 +1,39 @@
 /*
- * XREFs of ?vConvertAndSaveBGRATo32Bitfields@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E48E0
+ * XREFs of ?vConvertAndSaveBGRATo32Bitfields@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02C47B0
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
  */
 
-ULONG __fastcall vConvertAndSaveBGRATo32Bitfields(__int64 a1, __int64 a2, ULONG a3, int a4, XLATEOBJ *pxlo)
+int __fastcall vConvertAndSaveBGRATo32Bitfields(__int64 a1, ULONG *a2, int a3, int a4, XLATEOBJ *pxlo)
 {
-  ULONG *v5; // rbx
-  ULONG result; // eax
-  ULONG *v7; // rsi
-  __int64 v8; // rdi
+  __int64 v5; // rsi
+  ULONG *v6; // rbx
+  unsigned __int64 v7; // r14
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // r14
+  unsigned __int64 v11; // rdi
 
-  v5 = (ULONG *)(a1 + 4LL * a4);
-  result = a3;
-  v7 = &v5[a3];
-  if ( v5 != v7 )
+  v5 = 0LL;
+  v6 = a2;
+  v7 = 4LL * a3;
+  v8 = a1 + 4LL * a4;
+  v9 = v7 + v8;
+  v10 = v7 >> 2;
+  if ( v8 > v9 )
+    v10 = 0LL;
+  if ( v10 )
   {
-    v8 = a2 - (_QWORD)v5;
+    v11 = v8 - (_QWORD)a2;
     do
     {
-      result = XLATEOBJ_iXlate(pxlo, *(ULONG *)((char *)v5 + v8));
-      *v5++ = result;
+      LODWORD(v9) = XLATEOBJ_iXlate(pxlo, *v6);
+      ++v5;
+      *(ULONG *)((char *)v6++ + v11) = v9;
     }
-    while ( v5 != v7 );
+    while ( v5 != v10 );
   }
-  return result;
+  return v9;
 }

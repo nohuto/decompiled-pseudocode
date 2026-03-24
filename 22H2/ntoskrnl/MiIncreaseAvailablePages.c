@@ -1,104 +1,97 @@
 /*
- * XREFs of MiIncreaseAvailablePages @ 0x1402DD9A8
+ * XREFs of MiIncreaseAvailablePages @ 0x14027F560
  * Callers:
- *     MiUnlinkNodeLargePageHelper @ 0x1402D89C0 (MiUnlinkNodeLargePageHelper.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiReplenishPageSlist @ 0x140298D80 (MiReplenishPageSlist.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1402995B0 (MiUnlinkNodeLargePageHelper.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUpdateAvailableEvents @ 0x1403AE090 (MiUpdateAvailableEvents.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     MiUpdateAvailableEvents @ 0x1403B63E4 (MiUpdateAvailableEvents.c)
  */
 
-unsigned __int64 __fastcall MiIncreaseAvailablePages(__int64 a1, unsigned __int64 a2, __int64 a3)
+void __fastcall MiIncreaseAvailablePages(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  signed int v4; // ebp
-  unsigned __int64 v5; // r14
-  unsigned __int64 v6; // rdi
-  int v7; // ebx
+  unsigned __int64 v4; // rdi
+  signed int v5; // r14d
+  unsigned __int64 v6; // rbx
+  int v7; // ebp
   unsigned __int64 v8; // rax
-  unsigned __int64 result; // rax
-  unsigned __int64 v10; // rdi
+  unsigned __int64 v9; // rax
+  struct _KEVENT *v10; // r15
   unsigned __int64 v11; // rdi
-  __int64 v12; // rbx
-  __int64 v13; // rbx
-  struct _KEVENT *v14; // r15
+  __int64 v12; // rax
+  struct _KEVENT *v13; // rbx
+  unsigned __int64 v14; // rdi
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a2 != 1 )
   {
-    v4 = 0;
-    v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17216), a2);
-    v6 = a2 + v5;
+    v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7104), a2);
+    v5 = 0;
+    v6 = a2 + v4;
     v7 = 0;
-    if ( a2 + v5 < 0xA0 )
-    {
-      if ( v6 < 0x22 )
-        goto LABEL_9;
-    }
-    else if ( v5 < 0xA0 )
-    {
+    if ( v4 < 0xA0 && v6 >= 0xA0 )
       v7 = 2;
-    }
-    if ( v5 < 0x22 )
+    if ( v4 < 0x22 && v6 >= 0x22 )
       v7 |= 1u;
-    if ( v5 < 0x420 && v6 >= 0x420 )
+    if ( v4 < 0x420 && v6 >= 0x420 )
       v7 |= 4u;
     if ( v7 )
     {
-      KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 15872), &LockHandle);
-      v14 = (struct _KEVENT *)(a1 + 15904);
+      LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 4928);
+      LockHandle.LockQueue.Next = 0LL;
+      KxAcquireQueuedSpinLock(&LockHandle, a1 + 4928, a3);
+      v10 = (struct _KEVENT *)(a1 + 4960);
       do
       {
-        if ( _bittest(&v7, v4) )
+        if ( _bittest(&v7, v5) )
         {
-          KeSetEvent(v14 - 1, 0, 0);
-          ++v14->Header.LockNV;
+          KeSetEvent(v10 - 1, 0, 0);
+          ++v10->Header.LockNV;
         }
-        ++v4;
-        v14 = (struct _KEVENT *)((char *)v14 + 32);
+        ++v5;
+        v10 = (struct _KEVENT *)((char *)v10 + 32);
       }
-      while ( v4 < 3 );
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+      while ( v5 < 3 );
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     }
-LABEL_9:
-    v8 = *(_QWORD *)(a1 + 16160);
-    if ( v5 <= v8 && v6 > v8 )
-      return MiUpdateAvailableEvents(a1, a2, a3);
-    result = *(_QWORD *)(a1 + 16152);
-    if ( v5 <= result && v6 > result )
-      return MiUpdateAvailableEvents(a1, a2, a3);
-    return result;
+    v8 = *(_QWORD *)(a1 + 5176);
+    if ( v4 <= v8 && v6 > v8 )
+      goto LABEL_34;
+    v9 = *(_QWORD *)(a1 + 5168);
+    if ( v4 <= v9 && v6 > v9 )
+      goto LABEL_34;
+    return;
   }
-  v10 = _InterlockedIncrement64((volatile signed __int64 *)(a1 + 17216));
-  result = 1056LL;
-  if ( v10 <= 0x420 )
+  v11 = _InterlockedIncrement64((volatile signed __int64 *)(a1 + 7104));
+  if ( v11 <= 0x420 )
   {
-    switch ( v10 )
+    switch ( v11 )
     {
       case 0xA0uLL:
-        v12 = 1LL;
+        v12 = 4968LL;
+LABEL_23:
+        v13 = (struct _KEVENT *)(a1 + v12);
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 4928);
+        LockHandle.LockQueue.Next = 0LL;
+        KxAcquireQueuedSpinLock(&LockHandle, a1 + 4928, a3);
+        KeSetEvent(v13, 0, 0);
+        ++v13[1].Header.LockNV;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
         break;
       case 0x420uLL:
-        v12 = 2LL;
-        break;
+        v12 = 5000LL;
+        goto LABEL_23;
       case 0x22uLL:
-        v12 = 0LL;
-        break;
-      default:
-        goto LABEL_13;
+        v12 = 4936LL;
+        goto LABEL_23;
     }
-    v13 = 32 * v12;
-    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 15872), &LockHandle);
-    KeSetEvent((PRKEVENT)(v13 + a1 + 15880), 0, 0);
-    ++*(_DWORD *)(v13 + a1 + 15904);
-    result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   }
-LABEL_13:
-  v11 = v10 - 1;
-  if ( v11 == *(_QWORD *)(a1 + 16152) || v11 == *(_QWORD *)(a1 + 16160) )
-    return MiUpdateAvailableEvents(a1, a2, a3);
-  return result;
+  v14 = v11 - 1;
+  if ( v14 == *(_QWORD *)(a1 + 5168) || v14 == *(_QWORD *)(a1 + 5176) )
+LABEL_34:
+    MiUpdateAvailableEvents(a1);
 }

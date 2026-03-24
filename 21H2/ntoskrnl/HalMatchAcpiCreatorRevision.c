@@ -1,10 +1,10 @@
 /*
- * XREFs of HalMatchAcpiCreatorRevision @ 0x140505330
+ * XREFs of HalMatchAcpiCreatorRevision @ 0x1404B88F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140213A40 (HalpAcpiGetTable.c)
- *     HalAcpiEmCheckOperator @ 0x1405050E0 (HalAcpiEmCheckOperator.c)
+ *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
+ *     HalAcpiEmCheckOperator @ 0x1404B86A0 (HalAcpiEmCheckOperator.c)
  */
 
 __int64 __fastcall HalMatchAcpiCreatorRevision(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int *a5, int a6)

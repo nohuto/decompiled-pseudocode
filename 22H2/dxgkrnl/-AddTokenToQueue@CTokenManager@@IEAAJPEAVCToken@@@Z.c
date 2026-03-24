@@ -1,14 +1,12 @@
 /*
- * XREFs of ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C007703C
+ * XREFs of ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C001BD50
  * Callers:
- *     ?AddDisableScanoutToken@CTokenManager@@UEAAJAEAPEAVCDisableScanoutToken@@@Z @ 0x1C0076F70 (-AddDisableScanoutToken@CTokenManager@@UEAAJAEAPEAVCDisableScanoutToken@@@Z.c)
- *     ?AddTokenToQueueAndSignalTokenEvent@CTokenManager@@MEAAJPEAVCToken@@@Z @ 0x1C00770C0 (-AddTokenToQueueAndSignalTokenEvent@CTokenManager@@MEAAJPEAVCToken@@@Z.c)
- *     ?AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0077110 (-AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
- *     ?CreateFlipExToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C00777E4 (-CreateFlipExToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z.c)
+ *     ?AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C001BCD0 (-AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
+ *     ?AddTokenToQueueAndSignalTokenEvent@CTokenManager@@MEAAJPEAVCToken@@@Z @ 0x1C0063940 (-AddTokenToQueueAndSignalTokenEvent@CTokenManager@@MEAAJPEAVCToken@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077950 (-EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
- *     ?AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z @ 0x1C00782B8 (-AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z.c)
+ *     ?AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z @ 0x1C001BDD0 (-AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z.c)
+ *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C001BE58 (-EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CTokenManager::AddTokenToQueue(CTokenManager *this, struct CompositionSurfaceObject **a2)
@@ -19,10 +17,10 @@ __int64 __fastcall CTokenManager::AddTokenToQueue(CTokenManager *this, struct Co
   struct CTokenManager::TokenQueueTableEntry *v8; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = 0;
-  if ( (*((unsigned __int8 (__fastcall **)(struct CompositionSurfaceObject **))*a2 + 23))(a2) )
+  if ( (*((unsigned __int8 (__fastcall **)(struct CompositionSurfaceObject **))*a2 + 22))(a2) )
   {
-    v6 = (CTokenManager *)((char *)this + 344);
-    goto LABEL_5;
+    v6 = (CTokenManager *)((char *)this + 320);
+    goto LABEL_4;
   }
   v5 = a2[4];
   v8 = 0LL;
@@ -30,7 +28,7 @@ __int64 __fastcall CTokenManager::AddTokenToQueue(CTokenManager *this, struct Co
   if ( v4 >= 0 )
   {
     v6 = (CTokenQueue *)*((_QWORD *)v8 + 1);
-LABEL_5:
+LABEL_4:
     CTokenQueue::AddToken(v6, (struct CToken *)a2);
   }
   return (unsigned int)v4;

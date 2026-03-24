@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlVerifyUserUnwindTarget @ 0x1409C28E0
+ * XREFs of RtlVerifyUserUnwindTarget @ 0x14091A9E4
  * Callers:
- *     KiVerifyContextIpForUserCet @ 0x140571070 (KiVerifyContextIpForUserCet.c)
+ *     KiVerifyContextIpForUserCet @ 0x1403F2568 (KiVerifyContextIpForUserCet.c)
  * Callees:
- *     bsearch_s @ 0x1403D98B0 (bsearch_s.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1405B1E90 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlpFindDynamicEHContinuationTarget @ 0x1409C2B08 (RtlpFindDynamicEHContinuationTarget.c)
+ *     bsearch_s @ 0x1403D1E90 (bsearch_s.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1403F7F28 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x14091ABD8 (RtlpFindDynamicEHContinuationTarget.c)
  */
 
 __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int64 a3)
@@ -86,10 +86,10 @@ __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int6
           return 0LL;
       }
     }
-    if ( a2 )
+    if ( a2 || !(unsigned __int8)RtlpFindDynamicEHContinuationTarget(a1) )
       return 3221227018LL;
     else
-      return (unsigned __int8)RtlpFindDynamicEHContinuationTarget(a1) == 0 ? 0xC000060A : 0;
+      return 0LL;
   }
   return result;
 }

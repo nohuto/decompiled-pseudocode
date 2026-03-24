@@ -1,17 +1,17 @@
 /*
- * XREFs of ?Create@CD2DResourceManager@@SAJPEAVCD2DContext@@PEAPEAV1@@Z @ 0x1800D1488
+ * XREFs of ?Create@CD2DResourceManager@@SAJPEAVCD2DContext@@PEAPEAV1@@Z @ 0x18002D02C
  * Callers:
- *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z @ 0x1800D1270 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z.c)
+ *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z @ 0x18002C2E4 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CD2DResourceManager::Create(struct CD2DContext *a1, struct CD2DResourceManager **a2)
 {
   unsigned int v3; // ebx
   _DWORD *v5; // rax
-  __int64 v6; // rcx
+  unsigned int v6; // ecx
 
   v3 = 0;
   v5 = operator new(0x20uLL);
@@ -21,11 +21,10 @@ __int64 __fastcall CD2DResourceManager::Create(struct CD2DContext *a1, struct CD
     *((_QWORD *)v5 + 3) = a1;
     *((_QWORD *)v5 + 1) = v5;
     *(_QWORD *)v5 = v5;
-    *a2 = (struct CD2DResourceManager *)v5;
   }
-  else
+  *a2 = (struct CD2DResourceManager *)v5;
+  if ( !v5 )
   {
-    *a2 = 0LL;
     v3 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024882, 0xFu, 0LL);
   }

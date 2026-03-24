@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ @ 0x1801F2390
+ * XREFs of ?HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ @ 0x1801C6480
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CInteraction::HandledDeltaCurrentInteraction(CInteraction *this)
 {
-  return CInteractionProcessor::HandledDeltaCurrentInteraction((CInteraction *)((char *)this + 288));
+  return CInteractionProcessor::HandledDeltaCurrentInteraction((CInteraction *)((char *)this + 344));
 }

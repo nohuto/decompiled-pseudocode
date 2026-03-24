@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpUpdateKeyNodeAccessBits @ 0x1405CF3BC
  * Callers:
- *     CmpCreateTombstone @ 0x14026D05C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14026D15C (CmpCreateTombstone.c)
  *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
  *     CmpGetKeyNodeForKcb @ 0x1405AA400 (CmpGetKeyNodeForKcb.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)

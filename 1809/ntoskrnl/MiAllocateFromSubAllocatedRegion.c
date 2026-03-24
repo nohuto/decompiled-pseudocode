@@ -15,7 +15,7 @@
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
  *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
  *     MiFreeToSubAllocatedRegion @ 0x1405DF71C (MiFreeToSubAllocatedRegion.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
  */
 
 __int64 MiAllocateFromSubAllocatedRegion(unsigned int a1, __int64 a2, unsigned __int64 *a3, ...)

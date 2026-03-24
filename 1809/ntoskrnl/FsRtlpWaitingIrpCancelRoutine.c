@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpWaitingIrpCancelRoutine @ 0x140270360
+ * XREFs of FsRtlpWaitingIrpCancelRoutine @ 0x140270460
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpCancelWaitingIrp @ 0x14026FB68 (FsRtlpCancelWaitingIrp.c)
+ *     FsRtlpCancelWaitingIrp @ 0x14026FC68 (FsRtlpCancelWaitingIrp.c)
  */
 
 void __fastcall FsRtlpWaitingIrpCancelRoutine(__int64 a1, __int64 a2)

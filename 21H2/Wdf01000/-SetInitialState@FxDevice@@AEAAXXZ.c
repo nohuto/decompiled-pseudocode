@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetInitialState@FxDevice@@AEAAXXZ @ 0x1C0024794
+ * XREFs of ?SetInitialState@FxDevice@@AEAAXXZ @ 0x1C005278C
  * Callers:
- *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C00246E4 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
+ *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C0051370 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall FxDevice::SetInitialState(FxDevice *this)

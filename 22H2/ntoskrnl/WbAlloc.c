@@ -1,41 +1,44 @@
 /*
- * XREFs of WbAlloc @ 0x140763E98
+ * XREFs of WbAlloc @ 0x1406C69C4
  * Callers:
- *     WbHashData @ 0x1407622D0 (WbHashData.c)
- *     sub_140762650 @ 0x140762650 (sub_140762650.c)
- *     WbDispatchOperation @ 0x140763928 (WbDispatchOperation.c)
- *     WbAllocateMemoryBlock @ 0x1407A564C (WbAllocateMemoryBlock.c)
- *     sub_1407D2624 @ 0x1407D2624 (sub_1407D2624.c)
- *     WbValidateEncryptionSegmentArguments @ 0x1407D2B8C (WbValidateEncryptionSegmentArguments.c)
- *     WbInitializeEncryptionSegment @ 0x1407D2E78 (WbInitializeEncryptionSegment.c)
- *     WbProcessModuleUnload @ 0x1407E0A3C (WbProcessModuleUnload.c)
- *     WbReAlloc @ 0x1407E568C (WbReAlloc.c)
- *     WbCreateWarbirdProcess @ 0x1407E7C1C (WbCreateWarbirdProcess.c)
- *     WbProcessStartup @ 0x1407E7D60 (WbProcessStartup.c)
- *     sub_1407E9E3C @ 0x1407E9E3C (sub_1407E9E3C.c)
+ *     sub_1405D6E10 @ 0x1405D6E10 (sub_1405D6E10.c)
+ *     sub_1405D7380 @ 0x1405D7380 (sub_1405D7380.c)
+ *     sub_1405D7C64 @ 0x1405D7C64 (sub_1405D7C64.c)
+ *     WbAllocateMemoryBlock @ 0x140666584 (WbAllocateMemoryBlock.c)
+ *     sub_140666A00 @ 0x140666A00 (sub_140666A00.c)
+ *     WbHashData @ 0x140667840 (WbHashData.c)
+ *     WbReAlloc @ 0x14066803C (WbReAlloc.c)
+ *     WbProcessModuleUnload @ 0x140687400 (WbProcessModuleUnload.c)
+ *     WbCreateWarbirdProcess @ 0x1406A559C (WbCreateWarbirdProcess.c)
+ *     WbProcessStartup @ 0x1406A5A38 (WbProcessStartup.c)
+ *     sub_1406A5FDC @ 0x1406A5FDC (sub_1406A5FDC.c)
+ *     WbDispatchOperation @ 0x1406C7BE4 (WbDispatchOperation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WbAlloc(unsigned int a1, _QWORD *a2)
+__int64 __fastcall WbAlloc(SIZE_T NumberOfBytes, _QWORD *a2)
 {
   unsigned int v2; // ebx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v2 = 0;
-  Pool2 = 0LL;
-  if ( a1 && (Pool2 = (void *)ExAllocatePool2(256LL, a1, 1112686935LL)) == 0LL )
+  PoolWithTag = 0LL;
+  if ( (_DWORD)NumberOfBytes
+    && (PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x42524157u)) == 0LL )
   {
     return (unsigned int)-1073741801;
   }
-  else if ( a2 )
+  else
   {
-    *a2 = Pool2;
-  }
-  else if ( Pool2 )
-  {
-    ExFreePoolWithTag(Pool2, 0);
+    if ( a2 )
+    {
+      *a2 = PoolWithTag;
+      PoolWithTag = 0LL;
+    }
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x42524157u);
   }
   return v2;
 }

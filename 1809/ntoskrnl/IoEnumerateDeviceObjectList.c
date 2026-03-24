@@ -1,11 +1,11 @@
 /*
- * XREFs of IoEnumerateDeviceObjectList @ 0x14016CE20
+ * XREFs of IoEnumerateDeviceObjectList @ 0x14016CE40
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 NTSTATUS __stdcall IoEnumerateDeviceObjectList(

@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenObjectAuditAlarm @ 0x1406D93B0
+ * XREFs of NtOpenObjectAuditAlarm @ 0x1406D9390
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepProbeAndCaptureString_U @ 0x1405BB684 (SepProbeAndCaptureString_U.c)
@@ -16,10 +16,10 @@
  *     SeCaptureSecurityDescriptor @ 0x140630CC0 (SeCaptureSecurityDescriptor.c)
  *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6FC (SepAdtOpenObjectAuditAlarm.c)
- *     SeExamineSacl @ 0x1408A06B0 (SeExamineSacl.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
+ *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtOpenObjectAuditAlarm(

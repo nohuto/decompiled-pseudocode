@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CD3DDevice@@WBA@EAAKXZ @ 0x1801082D0
+ * XREFs of ?AddRef@CD3DDevice@@WBA@EAAKXZ @ 0x1800F48F0
  * Callers:
  *     <none>
  * Callees:

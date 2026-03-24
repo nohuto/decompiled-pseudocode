@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0229320
+ * XREFs of ?SetRemarshalingFlags@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E95F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C02291CC (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
+ *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C01E949C (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
  */
 
 char __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::SetRemarshalingFlags(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarsh
   v1 = 0;
   v4 = 0;
   DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::IsReadyForMarshaling(this, &v4);
-  if ( v4 || *((_QWORD *)this + 8) )
+  if ( v4 || *((_QWORD *)this + 7) )
     return 1;
   return v1;
 }

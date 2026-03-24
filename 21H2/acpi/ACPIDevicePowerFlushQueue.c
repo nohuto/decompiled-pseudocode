@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIDevicePowerFlushQueue @ 0x1C000776C
+ * XREFs of ACPIDevicePowerFlushQueue @ 0x1C001C6E0
  * Callers:
- *     ACPIDispatchIrpDepFilterQueryID @ 0x1C0002CC0 (ACPIDispatchIrpDepFilterQueryID.c)
- *     ACPIDetectFilterDevices @ 0x1C0006A34 (ACPIDetectFilterDevices.c)
- *     ACPIDetectPdoDevices @ 0x1C0006CE8 (ACPIDetectPdoDevices.c)
- *     ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C0027B30 (ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck.c)
- *     ACPIBuildSurpriseRemovedExtension @ 0x1C004B044 (ACPIBuildSurpriseRemovedExtension.c)
- *     ACPIDispatchIrpDepPdoQueryID @ 0x1C004CC70 (ACPIDispatchIrpDepPdoQueryID.c)
- *     ACPITableUnload @ 0x1C0060860 (ACPITableUnload.c)
+ *     ACPIDispatchIrpDepFilterQueryID @ 0x1C0010700 (ACPIDispatchIrpDepFilterQueryID.c)
+ *     ACPIDispatchIrpDepPdoQueryID @ 0x1C00107D0 (ACPIDispatchIrpDepPdoQueryID.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C0019338 (ACPIDetectPdoDevices.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C002D448 (ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck.c)
+ *     ACPITableUnload @ 0x1C005FA70 (ACPITableUnload.c)
  * Callees:
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C0007924 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
  */
 
 __int64 __fastcall ACPIDevicePowerFlushQueue(__int64 a1)

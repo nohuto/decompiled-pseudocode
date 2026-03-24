@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiHfontCreate @ 0x1C00DF210
+ * XREFs of NtGdiHfontCreate @ 0x1C00F7D80
  * Callers:
  *     <none>
  * Callees:
- *     hfontCreate @ 0x1C0013DE0 (hfontCreate.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     hfontCreate @ 0x1C00BBF00 (hfontCreate.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 struct HOBJ__ *__fastcall NtGdiHfontCreate(char *Src, size_t Size, int a3, __int64 a4, __int64 a5)
@@ -22,5 +22,5 @@ struct HOBJ__ *__fastcall NtGdiHfontCreate(char *Src, size_t Size, int a3, __int
     *(_BYTE *)MmUserProbeAddress = 0;
   memmove(Srca, Src, (unsigned int)v6);
   Srca[88] = 0;
-  return hfontCreate(Srca, a3, 0, a5, 0);
+  return hfontCreate((WCHAR *)Srca, a3, 0, a5, 0);
 }

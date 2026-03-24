@@ -1,12 +1,12 @@
 /*
- * XREFs of MmUnmapViewOfSection @ 0x1407D7950
+ * XREFs of MmUnmapViewOfSection @ 0x140691410
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     MiUnmapViewOfSection @ 0x14071F030 (MiUnmapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x14061E510 (MiUnmapViewOfSection.c)
  */
 
-__int64 __fastcall MmUnmapViewOfSection(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall MmUnmapViewOfSection(ULONG_PTR a1, unsigned __int64 a2)
 {
-  return MiUnmapViewOfSection(a1, a2, 0, 0);
+  return MiUnmapViewOfSection(a1, a2, 0, 0LL);
 }

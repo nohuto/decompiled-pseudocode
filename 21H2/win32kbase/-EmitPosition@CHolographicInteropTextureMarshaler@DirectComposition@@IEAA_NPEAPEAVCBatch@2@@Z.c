@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitPosition@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CE94
+ * XREFs of ?EmitPosition@CHolographicInteropTextureMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED5C4
  * Callers:
- *     ?EmitUpdateCommands@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CFA0 (-EmitUpdateCommands@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2.c)
+ *     ?EmitUpdateCommands@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED6D0 (-EmitUpdateCommands@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicInteropTextureMarshaler::EmitPosition(
@@ -22,12 +22,12 @@ char __fastcall DirectComposition::CHolographicInteropTextureMarshaler::EmitPosi
     *(_DWORD *)v5 = 28;
     *(_OWORD *)(v3 + 4) = 0LL;
     *(_QWORD *)(v3 + 20) = 0LL;
-    *((_DWORD *)v3 + 1) = 174;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 17);
-    *((_DWORD *)v3 + 4) = *((_DWORD *)this + 18);
-    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 19);
-    *((_DWORD *)v3 + 6) = *((_DWORD *)this + 20);
+    *((_DWORD *)v3 + 1) = 183;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 15);
+    *((_DWORD *)v3 + 4) = *((_DWORD *)this + 16);
+    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 17);
+    *((_DWORD *)v3 + 6) = *((_DWORD *)this + 18);
     *((_DWORD *)this + 4) &= ~0x40u;
     return 1;
   }

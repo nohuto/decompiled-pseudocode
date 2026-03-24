@@ -1,212 +1,210 @@
 /*
- * XREFs of ComputeInverseMatrix3x3 @ 0x1C0095B10
+ * XREFs of ComputeInverseMatrix3x3 @ 0x1C011B5BC
  * Callers:
- *     ComputeColorSpaceXForm @ 0x1C0095D6C (ComputeColorSpaceXForm.c)
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeColorSpaceXForm @ 0x1C011B064 (ComputeColorSpaceXForm.c)
  * Callees:
- *     MulFD6 @ 0x1C00945F0 (MulFD6.c)
- *     DivFD6 @ 0x1C00952E0 (DivFD6.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     MulFD6 @ 0x1C001C0DC (MulFD6.c)
+ *     DivFD6 @ 0x1C001CDDC (DivFD6.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ComputeInverseMatrix3x3(__int128 *a1, __int64 a2)
 {
-  int v2; // eax
-  int *v3; // r13
-  __int128 v4; // xmm0
-  __int64 v5; // rsi
-  __int128 v6; // xmm1
-  int *v7; // rbx
-  int v8; // r10d
-  __int64 v9; // rdi
+  int *v2; // r12
+  __int128 v3; // xmm0
+  __int64 v4; // r15
+  __int128 v5; // xmm1
+  int *v6; // r14
+  int v7; // r10d
+  __int64 v8; // rsi
+  __int64 v9; // r13
   int v10; // r11d
-  __int64 v11; // r9
-  int v12; // r15d
-  __int64 i; // r14
-  __int64 v14; // rcx
-  signed int v15; // r8d
-  signed int v16; // eax
-  int v17; // ecx
-  int v18; // r14d
-  __int64 v19; // r15
-  __int64 v20; // rbx
+  __int64 v11; // rdx
+  int v12; // edi
+  __int64 i; // rbx
+  int v14; // r9d
+  int v15; // r8d
+  __int64 v16; // rax
+  int v17; // eax
+  int v18; // edi
+  __int64 v19; // rbx
+  __int64 v20; // r14
   int v21; // eax
   int v22; // ecx
-  __int64 v23; // r12
-  __int64 v24; // r14
-  __int64 v25; // rdi
+  __int64 v23; // rdi
+  int v24; // r13d
+  __int64 v25; // rsi
   __int64 v26; // r15
-  __int64 v27; // r12
-  int v28; // esi
-  int v29; // eax
+  int v27; // eax
+  int v28; // ecx
+  unsigned int v29; // r8d
   int v30; // ecx
-  unsigned int v31; // edx
-  int v32; // ecx
-  __int128 v33; // xmm1
-  __int64 v35; // r8
-  __int64 v36; // rax
-  __int64 v37; // r9
-  __int64 v38; // r10
-  char *v39; // r11
-  __int64 v40; // r8
-  _DWORD *v41; // rdx
-  int v42; // ecx
-  int v43; // eax
-  int v44; // ecx
-  int v45; // [rsp+20h] [rbp-89h]
-  int v46; // [rsp+28h] [rbp-81h]
-  __int64 v47; // [rsp+30h] [rbp-79h]
-  int *v48; // [rsp+38h] [rbp-71h]
-  __int64 v49; // [rsp+40h] [rbp-69h]
-  int *v50; // [rsp+48h] [rbp-61h]
-  int *v51; // [rsp+50h] [rbp-59h]
-  __int64 v52; // [rsp+58h] [rbp-51h]
-  __int64 v53; // [rsp+60h] [rbp-49h]
-  __int128 v55; // [rsp+70h] [rbp-39h] BYREF
-  __int128 v56; // [rsp+80h] [rbp-29h]
-  int v57; // [rsp+90h] [rbp-19h]
-  _OWORD v58[2]; // [rsp+98h] [rbp-11h] BYREF
-  int v59; // [rsp+B8h] [rbp+Fh]
+  __int128 v31; // xmm1
+  __int64 v33; // r11
+  __int64 v34; // r9
+  __int64 v35; // r10
+  __int64 v36; // r8
+  _DWORD *v37; // rdx
+  int v38; // ecx
+  int v39; // eax
+  int v40; // ecx
+  int v41; // [rsp+20h] [rbp-79h]
+  int v42; // [rsp+24h] [rbp-75h]
+  __int64 v43; // [rsp+28h] [rbp-71h]
+  int *v44; // [rsp+30h] [rbp-69h]
+  __int64 v45; // [rsp+38h] [rbp-61h]
+  int *v46; // [rsp+40h] [rbp-59h]
+  int *v47; // [rsp+48h] [rbp-51h]
+  __int64 v48; // [rsp+50h] [rbp-49h]
+  __int64 v49; // [rsp+58h] [rbp-41h]
+  __int128 v51; // [rsp+68h] [rbp-31h] BYREF
+  __int128 v52; // [rsp+78h] [rbp-21h]
+  int v53; // [rsp+88h] [rbp-11h]
+  _OWORD v54[2]; // [rsp+90h] [rbp-9h] BYREF
+  int v55; // [rsp+B0h] [rbp+17h]
 
-  v2 = *((_DWORD *)a1 + 8);
-  v3 = (int *)v58;
-  v4 = *a1;
-  *(_QWORD *)((char *)&v55 + 4) = 0LL;
-  v5 = 0LL;
-  v6 = a1[1];
-  HIDWORD(v55) = 0;
-  v7 = (int *)v58;
-  v56 = 0xF4240uLL;
-  v8 = 0;
-  v59 = v2;
+  v2 = (int *)v54;
+  v3 = *a1;
+  v4 = 0LL;
+  v55 = *((_DWORD *)a1 + 8);
+  v5 = a1[1];
+  v6 = (int *)v54;
+  v53 = 1000000;
+  v54[0] = v3;
+  v52 = 0xF4240uLL;
+  v7 = 0;
+  v54[1] = v5;
+  v51 = 0xF4240uLL;
+  v8 = 0LL;
+  v41 = 1;
   v9 = 0LL;
-  v52 = 0LL;
-  v58[0] = v4;
-  v57 = 1000000;
-  v58[1] = v6;
-  LODWORD(v55) = 1000000;
-  v45 = 1;
-  v49 = 0LL;
-  v51 = (int *)v58;
-  v50 = (int *)v58;
+  v45 = 0LL;
+  v48 = 0LL;
+  v47 = (int *)v54;
+  v46 = (int *)v54;
   do
   {
-    v10 = v8;
-    v46 = v8 + 1;
-    v53 = v5 + 1;
-    v11 = v5;
-    v12 = v8 + 1;
-    for ( i = v5 + 1; v12 < 3; v10 = v17 )
+    v10 = v7;
+    v42 = v7 + 1;
+    v49 = v8 + 1;
+    v11 = v8;
+    v12 = v7 + 1;
+    for ( i = v8 + 1; v12 < 3; v10 = v17 )
     {
-      v14 = i;
-      v15 = abs32(*((_DWORD *)v58 + 2 * i + i + v5));
-      v16 = abs32(*((_DWORD *)v58 + 2 * v11 + v11 + v5));
-      if ( v15 <= v16 )
-        v14 = v11;
-      v11 = v14;
+      v14 = *((_DWORD *)v54 + 2 * i + i + v8);
+      if ( v14 < 0 )
+        v14 = -v14;
+      v15 = *((_DWORD *)v54 + 2 * v11 + v11 + v8);
+      if ( v15 < 0 )
+        v15 = -v15;
+      v16 = i;
+      if ( v14 <= v15 )
+        v16 = v11;
+      v11 = v16;
       v17 = v12;
-      if ( v15 <= v16 )
+      if ( v14 <= v15 )
         v17 = v10;
       ++v12;
       ++i;
     }
-    if ( *((_DWORD *)v58 + 2 * v11 + v11 + v5) )
+    if ( *((_DWORD *)v54 + 2 * v11 + v11 + v8) )
     {
-      if ( v10 != v8 )
+      if ( v10 != v7 )
       {
-        v35 = 3 * v11;
-        v36 = v5 - v11;
-        v37 = 3LL;
-        v38 = 3 * v36;
-        v39 = (char *)&v55 + 12 * v36 - (_QWORD)v58;
-        v40 = 4 * v35;
+        v33 = 3LL;
+        v34 = 12 * (v8 - v11);
+        v35 = v34 - 40;
+        v36 = 12 * v11;
         do
         {
-          v41 = (_DWORD *)((char *)v58 + v40);
-          v42 = *(_DWORD *)((char *)v58 + v40 + v38 * 4);
-          v41[v38] = *v41;
-          v43 = *(_DWORD *)((char *)&v55 + v40);
-          *v41 = v42;
-          v44 = *(_DWORD *)((char *)v58 + v40 + (_QWORD)v39);
-          *(_DWORD *)((char *)v41 + (_QWORD)v39) = v43;
-          *(_DWORD *)((char *)&v55 + v40) = v44;
-          v40 += 4LL;
-          --v37;
+          v37 = (_DWORD *)((char *)v54 + v36);
+          v38 = *(_DWORD *)((char *)v54 + v36 + v34);
+          v37[(unsigned __int64)v34 / 4] = *v37;
+          v39 = *(_DWORD *)((char *)&v51 + v36);
+          *v37 = v38;
+          v40 = *(_DWORD *)((char *)v54 + v36 + v35);
+          *(_DWORD *)((char *)v37 + v35) = v39;
+          *(_DWORD *)((char *)&v51 + v36) = v40;
+          v36 += 4LL;
+          --v33;
         }
-        while ( v37 );
+        while ( v33 );
       }
-      v18 = *v7;
-      v19 = 3LL;
-      v20 = v9;
+      v18 = *v6;
+      v19 = v9;
+      v20 = 3LL;
       do
       {
-        v21 = DivFD6(*(_DWORD *)((char *)v58 + v20), v18);
-        v22 = *(_DWORD *)((char *)&v55 + v20);
-        *(_DWORD *)((char *)v58 + v20) = v21;
-        *(_DWORD *)((char *)&v55 + v20) = DivFD6(v22, v18);
-        v20 += 4LL;
-        --v19;
+        v21 = DivFD6(*(_DWORD *)((char *)v54 + v19), v18);
+        v22 = *(_DWORD *)((char *)&v51 + v19);
+        *(_DWORD *)((char *)v54 + v19) = v21;
+        *(_DWORD *)((char *)&v51 + v19) = DivFD6(v22, v18);
+        v19 += 4LL;
+        --v20;
       }
-      while ( v19 );
-      v23 = 0LL;
-      v48 = v3;
-      v24 = 0LL;
-      v47 = 0LL;
-      v25 = v9 - (_QWORD)v58;
+      while ( v20 );
+      v43 = 0LL;
+      v44 = v2;
+      v23 = v9 - (_QWORD)v54;
       do
       {
-        if ( v23 != v5 && *v3 )
+        if ( v4 != v8 )
         {
-          v26 = v24;
-          v27 = 3LL;
-          v28 = *v3;
-          do
+          v24 = *v2;
+          if ( *v2 )
           {
-            v29 = MulFD6(*(_DWORD *)((char *)v58 + (_QWORD)v58 + v26 + v25), v28);
-            v30 = *(_DWORD *)((char *)&v55 + v25 + (_QWORD)v58 + v26);
-            *(_DWORD *)((char *)v58 + v26) -= v29;
-            *(_DWORD *)((char *)&v55 + v26) -= MulFD6(v30, v28);
-            v26 += 4LL;
-            --v27;
+            v25 = v20;
+            v26 = 3LL;
+            do
+            {
+              v27 = MulFD6(*(_DWORD *)((char *)v54 + (_QWORD)v54 + v25 + v23), v24);
+              v28 = *(_DWORD *)((char *)v54 + v25 + (_QWORD)&v51 + v23);
+              *(_DWORD *)((char *)v54 + v25) -= v27;
+              *(_DWORD *)((char *)&v51 + v25) -= MulFD6(v28, v24);
+              v25 += 4LL;
+              --v26;
+            }
+            while ( v26 );
+            v8 = v45;
+            v4 = v43;
+            v2 = v44;
           }
-          while ( v27 );
-          v5 = v49;
-          v23 = v47;
-          v3 = v48;
         }
-        ++v23;
-        v3 += 3;
-        v25 -= 12LL;
-        v47 = v23;
-        v24 += 12LL;
-        v48 = v3;
+        ++v4;
+        v2 += 3;
+        v23 -= 12LL;
+        v43 = v4;
+        v20 += 12LL;
+        v44 = v2;
       }
-      while ( v24 < 36 );
-      v9 = v52;
-      v7 = v50;
-      v3 = v51;
-      v31 = v45;
+      while ( v20 < 36 );
+      v9 = v48;
+      v4 = 0LL;
+      v6 = v46;
+      v2 = v47;
+      v29 = v41;
     }
     else
     {
-      v31 = 0;
-      v45 = 0;
+      v29 = 0;
+      v41 = 0;
     }
-    v8 = v46;
-    v7 += 4;
-    v5 = v53;
-    ++v3;
+    v7 = v42;
+    v6 += 4;
+    v8 = v49;
+    ++v2;
     v9 += 12LL;
-    v49 = v53;
-    v50 = v7;
-    v51 = v3;
-    v52 = v9;
+    v45 = v49;
+    v46 = v6;
+    v47 = v2;
+    v48 = v9;
   }
-  while ( v46 < 3 );
-  v32 = v57;
-  v33 = v56;
-  *(_OWORD *)a2 = v55;
-  *(_OWORD *)(a2 + 16) = v33;
-  *(_DWORD *)(a2 + 32) = v32;
-  return v31;
+  while ( v42 < 3 );
+  v30 = v53;
+  v31 = v52;
+  *(_OWORD *)a2 = v51;
+  *(_OWORD *)(a2 + 16) = v31;
+  *(_DWORD *)(a2 + 32) = v30;
+  return v29;
 }

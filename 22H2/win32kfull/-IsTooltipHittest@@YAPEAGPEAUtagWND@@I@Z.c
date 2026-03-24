@@ -1,73 +1,73 @@
 /*
- * XREFs of ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C0017A50
+ * XREFs of ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C0030620
  * Callers:
- *     xxxTrackMouseMove @ 0x1C00188F0 (xxxTrackMouseMove.c)
+ *     xxxTrackMouseMove @ 0x1C002D520 (xxxTrackMouseMove.c)
  * Callees:
- *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C00C09DC (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     <none>
  */
 
-unsigned __int16 *__fastcall IsTooltipHittest(struct tagWND *a1, int a2, unsigned int a3)
+unsigned __int16 *__fastcall IsTooltipHittest(struct tagWND *a1, int a2)
 {
+  int v2; // edx
   int v3; // edx
   int v4; // edx
   int v5; // edx
   int v6; // edx
   int v7; // edx
   int v8; // edx
-  int v9; // edx
   unsigned __int16 *result; // rax
-  __int64 v11; // r9
-  bool v12; // zf
-  void *v13; // rcx
-  __int64 v14; // rdx
+  __int64 v10; // rdx
+  bool v11; // zf
+  void *v12; // rcx
+  __int64 v13; // rdx
 
-  v3 = a2 - 2;
-  if ( !v3 )
-    return (unsigned __int16 *)((unsigned __int64)&gszCAPTIONTOOLTIP & -(__int64)((*(_BYTE *)(*((_QWORD *)a1 + 5) + 23LL) & 8) != 0));
-  v4 = v3 - 6;
-  if ( !v4 )
+  v2 = a2 - 2;
+  if ( !v2 )
   {
-    v14 = *((_QWORD *)a1 + 5);
-    if ( (*(_BYTE *)(v14 + 30) & 2) == 0 )
+    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 23LL) & 8) == 0 )
       return 0LL;
-    v12 = (*(_BYTE *)(v14 + 31) & 0x20) == 0;
-    v13 = &gszMIN;
-    result = (unsigned __int16 *)&gszRESUP;
-    goto LABEL_19;
+    return (unsigned __int16 *)&gszCAPTIONTOOLTIP;
   }
-  v5 = v4 - 1;
-  if ( !v5 )
+  v3 = v2 - 6;
+  if ( !v3 )
   {
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 30LL) & 1) == 0
-      || ShellWindowManagement::BehaviorEnabled(
-           *((ShellWindowManagement **)a1 + 3),
-           (const struct tagDESKTOP *)0x100,
-           a3) )
-    {
+    v13 = *((_QWORD *)a1 + 5);
+    if ( (*(_BYTE *)(v13 + 30) & 2) == 0 )
       return 0LL;
-    }
-    v12 = (*(_BYTE *)(v11 + 31) & 1) == 0;
-    v13 = &gszMAX;
-    result = (unsigned __int16 *)&gszRESDOWN;
-LABEL_19:
-    if ( v12 )
-      return (unsigned __int16 *)v13;
+    v11 = (*(_BYTE *)(v13 + 31) & 0x20) == 0;
+    v12 = &gszMIN;
+    result = (unsigned __int16 *)&gszRESUP;
+LABEL_18:
+    if ( v11 )
+      return (unsigned __int16 *)v12;
     return result;
   }
-  v6 = v5 - 11;
-  if ( v6 )
+  v4 = v3 - 1;
+  if ( !v4 )
   {
-    v7 = v6 - 1;
-    if ( !v7 )
-      return (unsigned __int16 *)&gszHELP;
-    v8 = v7 - 45;
-    if ( !v8 )
-      return (unsigned __int16 *)&gszRESDOWN;
-    v9 = v8 - 1;
-    if ( !v9 )
-      return (unsigned __int16 *)&gszMIN;
-    if ( v9 != 1 )
+    v10 = *((_QWORD *)a1 + 5);
+    if ( (*(_BYTE *)(v10 + 30) & 1) == 0 )
       return 0LL;
+    v11 = (*(_BYTE *)(v10 + 31) & 1) == 0;
+    v12 = &gszMAX;
+    result = (unsigned __int16 *)&gszRESDOWN;
+    goto LABEL_18;
   }
-  return (unsigned __int16 *)&gszSCLOSE;
+  v5 = v4 - 11;
+  if ( !v5 )
+    return (unsigned __int16 *)&gszSCLOSE;
+  v6 = v5 - 1;
+  if ( !v6 )
+    return (unsigned __int16 *)&gszHELP;
+  v7 = v6 - 45;
+  if ( !v7 )
+    return (unsigned __int16 *)&gszRESDOWN;
+  v8 = v7 - 1;
+  if ( v8 )
+  {
+    if ( v8 != 1 )
+      return 0LL;
+    return (unsigned __int16 *)&gszSCLOSE;
+  }
+  return (unsigned __int16 *)&gszMIN;
 }

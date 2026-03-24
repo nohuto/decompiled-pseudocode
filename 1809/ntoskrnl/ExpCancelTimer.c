@@ -8,9 +8,9 @@
  *     KiCancelTimer @ 0x14001E100 (KiCancelTimer.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeRemoveQueueApc @ 0x14012F338 (KeRemoveQueueApc.c)
- *     KeRemoveQueueDpcEx @ 0x1401329E0 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
+ *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpCancelTimer(PKTIMER a1, __int64 a2)

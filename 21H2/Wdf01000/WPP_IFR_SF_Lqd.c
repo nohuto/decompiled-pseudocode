@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_Lqd @ 0x1C008178C
+ * XREFs of WPP_IFR_SF_Lqd @ 0x1C0075394
  * Callers:
- *     ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0009D30 (-DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
- *     ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C00813E0 (-ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z.c)
+ *     ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0008E30 (-DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ *     ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C0074C58 (-ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_Lqd(

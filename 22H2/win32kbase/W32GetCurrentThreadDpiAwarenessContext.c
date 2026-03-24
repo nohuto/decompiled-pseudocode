@@ -1,55 +1,68 @@
 /*
- * XREFs of W32GetCurrentThreadDpiAwarenessContext @ 0x1C004D320
+ * XREFs of W32GetCurrentThreadDpiAwarenessContext @ 0x1C002BEF4
  * Callers:
- *     TransformPointBetweenCoordinateSpaces @ 0x1C000C420 (TransformPointBetweenCoordinateSpaces.c)
- *     PhysicalToLogicalDPIPoint @ 0x1C000C4C0 (PhysicalToLogicalDPIPoint.c)
- *     xxxEnumDisplayMonitors @ 0x1C00595A0 (xxxEnumDisplayMonitors.c)
- *     LogicalCursorPosFromDpiAwarenessContext @ 0x1C0059D20 (LogicalCursorPosFromDpiAwarenessContext.c)
- *     LogicalToPhysicalDPIRect @ 0x1C0059F20 (LogicalToPhysicalDPIRect.c)
- *     GetMonitorRect @ 0x1C005BE7C (GetMonitorRect.c)
- *     GetCurrentThreadCompositedDpi @ 0x1C005C500 (GetCurrentThreadCompositedDpi.c)
- *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C005D98C (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
- *     NtUserGetDpiForMonitor @ 0x1C005DE70 (NtUserGetDpiForMonitor.c)
- *     NtUserLockCursor @ 0x1C005E230 (NtUserLockCursor.c)
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08 (-zzzUpdateUserScreen@@YAJXZ.c)
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
- *     PhysicalToLogicalDPIRect @ 0x1C009AB80 (PhysicalToLogicalDPIRect.c)
- *     NtUserGetProcessDpiAwarenessContext @ 0x1C00B04C0 (NtUserGetProcessDpiAwarenessContext.c)
- *     LogicalToPhysicalDPIPoint @ 0x1C00B34E0 (LogicalToPhysicalDPIPoint.c)
- *     UserIsCurrentThreadGdiScaled @ 0x1C00CBFC0 (UserIsCurrentThreadGdiScaled.c)
- *     ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C00E61D2 (-GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z.c)
- *     NtUserClipCursor @ 0x1C0143210 (NtUserClipCursor.c)
- *     NtUserGetClipCursor @ 0x1C0144510 (NtUserGetClipCursor.c)
- *     GreGetDpiDepDefaultGuiFont @ 0x1C015F550 (GreGetDpiDepDefaultGuiFont.c)
- *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C015F7A4 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C015F7E8 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     NtUserGetDpiForMonitor @ 0x1C0010BE0 (NtUserGetDpiForMonitor.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C006FA94 (-GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z.c)
+ *     xxxEnumDisplayMonitors @ 0x1C0070940 (xxxEnumDisplayMonitors.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
+ *     TransformPointBetweenCoordinateSpaces @ 0x1C0071040 (TransformPointBetweenCoordinateSpaces.c)
+ *     GetMonitorRect @ 0x1C0071134 (GetMonitorRect.c)
+ *     LogicalToPhysicalDPIRect @ 0x1C00711D0 (LogicalToPhysicalDPIRect.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C0071310 (PhysicalToLogicalDPIRect.c)
+ *     PhysicalToLogicalDPIPoint @ 0x1C0071530 (PhysicalToLogicalDPIPoint.c)
+ *     LogicalToPhysicalDPIPoint @ 0x1C00719B0 (LogicalToPhysicalDPIPoint.c)
+ *     ?GetCurrentThreadCompositedDpi@@YAGXZ @ 0x1C0071F64 (-GetCurrentThreadCompositedDpi@@YAGXZ.c)
+ *     NtUserLockCursor @ 0x1C009D550 (NtUserLockCursor.c)
+ *     NtUserGetProcessDpiAwarenessContext @ 0x1C00A6E10 (NtUserGetProcessDpiAwarenessContext.c)
+ *     UserIsCurrentThreadGdiScaled @ 0x1C00AFC40 (UserIsCurrentThreadGdiScaled.c)
+ *     NtUserClipCursor @ 0x1C00BEE10 (NtUserClipCursor.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CA7F8 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
+ *     NtUserGetClipCursor @ 0x1C012EBB0 (NtUserGetClipCursor.c)
+ *     GreGetDpiDepDefaultGuiFont @ 0x1C0142630 (GreGetDpiDepDefaultGuiFont.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C01427E8 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0142824 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
  * Callees:
- *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C004D3B0 (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C002C07C (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0031470 (IsThreadCrossSessionAttached.c)
  */
 
 __int64 W32GetCurrentThreadDpiAwarenessContext()
 {
+  struct _KTHREAD *CurrentThread; // rdi
+  unsigned int v1; // ebx
   _QWORD *ThreadWin32Thread; // rax
-  __int64 v1; // rcx
-  __int64 v2; // rbx
-  __int64 result; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rdi
   __int64 CurrentProcessWin32Process; // rax
 
-  ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( !ThreadWin32Thread )
-    return 18LL;
-  v2 = *ThreadWin32Thread;
-  if ( !*ThreadWin32Thread )
-    return 18LL;
-  if ( *(_QWORD *)(v2 + 360) )
-    CaptureAndValidateUserModeDpiAwarenessContext(*ThreadWin32Thread);
-  result = *(unsigned int *)(v2 + 340);
-  if ( !(_DWORD)result )
+  CurrentThread = KeGetCurrentThread();
+  v1 = 18;
+  if ( !(unsigned int)IsThreadCrossSessionAttached() )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v1);
-    if ( CurrentProcessWin32Process && *(_QWORD *)CurrentProcessWin32Process )
-      return *(unsigned int *)(CurrentProcessWin32Process + 280);
-    return 18LL;
+    ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+    {
+      v5 = *ThreadWin32Thread;
+      if ( *ThreadWin32Thread )
+      {
+        if ( *(_QWORD *)(v5 + 360) )
+          CaptureAndValidateUserModeDpiAwarenessContext(*ThreadWin32Thread);
+        if ( *(_DWORD *)(v5 + 340) )
+        {
+          v1 = *(_DWORD *)(v5 + 340);
+        }
+        else
+        {
+          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
+          if ( CurrentProcessWin32Process )
+            v1 = *(_DWORD *)(CurrentProcessWin32Process + 280);
+        }
+        if ( (*(_DWORD *)(v5 + 328) & 4) != 0 && (v1 & 0xF) == 2 && (v1 & 0xF0) == 0x20 )
+          v1 |= 0x20000000u;
+      }
+    }
   }
-  return result;
+  return v1;
 }

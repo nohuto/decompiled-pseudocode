@@ -1,14 +1,14 @@
 /*
- * XREFs of IopProbeAndLockPages_3 @ 0x14055A5BC
+ * XREFs of IopProbeAndLockPages_3 @ 0x140508880
  * Callers:
- *     NtQueryEaFile @ 0x1406B6D70 (NtQueryEaFile.c)
- *     NtSetEaFile @ 0x140939360 (NtSetEaFile.c)
+ *     NtQueryEaFile @ 0x14069B320 (NtQueryEaFile.c)
+ *     NtSetEaFile @ 0x140730CB0 (NtSetEaFile.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTracker @ 0x140584F10 (MmUpdateMdlTracker.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTracker @ 0x140531270 (MmUpdateMdlTracker.c)
  */
 
-__int64 __fastcall IopProbeAndLockPages_3(_DWORD *a1, char a2, int a3, __int64 a4, unsigned int a5)
+__int64 __fastcall IopProbeAndLockPages_3(__int64 a1, char a2, int a3, __int64 a4, unsigned int a5)
 {
   __int64 result; // rax
 

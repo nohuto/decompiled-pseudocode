@@ -1,37 +1,37 @@
 /*
- * XREFs of EtwpTiVadQueryEventWriteCallback @ 0x1407E2BA0
+ * XREFs of EtwpTiVadQueryEventWriteCallback @ 0x14069E140
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     EtwpTiFillVadEventWrite @ 0x1403679C8 (EtwpTiFillVadEventWrite.c)
- *     EtwpTiQueryVad @ 0x1407E2CA0 (EtwpTiQueryVad.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     EtwpTiFillVadEventWrite @ 0x140325F54 (EtwpTiFillVadEventWrite.c)
+ *     EtwpTiQueryVad @ 0x14069E23C (EtwpTiQueryVad.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpTiVadQueryEventWriteCallback(unsigned int *P)
 {
   int Vad; // ebp
-  _QWORD *Pool2; // rsi
+  _QWORD *PoolWithTag; // rsi
   unsigned int i; // edi
   void *v5; // rcx
   void *v6; // rcx
   BOOLEAN v7; // [rsp+20h] [rbp-28h]
 
   Vad = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, (unsigned __int64)P[13] << 6, 1853049172LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int64)P[13] << 6, 0x6E734954u);
+  if ( PoolWithTag )
   {
     v7 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x10000000uLL);
-    Vad = EtwpTiQueryVad(Pool2, *((_QWORD *)P + 8), *((_QWORD *)P + 9), P[13], v7);
+    Vad = EtwpTiQueryVad(PoolWithTag, *((_QWORD *)P + 8), *((_QWORD *)P + 9), P[13], v7);
   }
   EtwpTiFillVadEventWrite(
     *((PEVENT_DATA_DESCRIPTOR *)P + 4),
     P[12],
     1,
-    (__int64)Pool2,
+    (__int64)PoolWithTag,
     Vad,
     P[13],
     *((PCEVENT_DESCRIPTOR *)P + 7));
@@ -39,13 +39,13 @@ void __fastcall EtwpTiVadQueryEventWriteCallback(unsigned int *P)
   {
     if ( _bittest(&Vad, i) )
     {
-      v5 = (void *)Pool2[8 * (unsigned __int64)i + 7];
+      v5 = (void *)PoolWithTag[8 * (unsigned __int64)i + 7];
       if ( v5 )
         ExFreePoolWithTag(v5, 0);
     }
   }
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   v6 = (void *)*((_QWORD *)P + 8);
   if ( v6 )
     ObfDereferenceObjectWithTag(v6, 0x69547445u);

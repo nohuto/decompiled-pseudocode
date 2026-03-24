@@ -1,13 +1,14 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x140463BE0
+ * XREFs of RtlLocateExtendedFeature2 @ 0x140380F40
  * Callers:
- *     KeVerifyContextXStateCetU @ 0x1402A3AC0 (KeVerifyContextXStateCetU.c)
- *     RtlpWalkFrameChain @ 0x1402A4180 (RtlpWalkFrameChain.c)
- *     RtlpUnwindPrologue @ 0x1402A5E30 (RtlpUnwindPrologue.c)
- *     KiInitializeContextThread @ 0x1402BE71C (KiInitializeContextThread.c)
- *     RtlpVirtualPopShadowStack @ 0x14036E830 (RtlpVirtualPopShadowStack.c)
- *     RtlLocateExtendedFeature @ 0x140463BB0 (RtlLocateExtendedFeature.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x1405807A4 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     RtlpUnwindPrologue @ 0x14021E580 (RtlpUnwindPrologue.c)
+ *     RtlpPopUserShadowStack @ 0x14032B65C (RtlpPopUserShadowStack.c)
+ *     KiContinuePreviousModeUser @ 0x14033FA10 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextXStateCetU @ 0x14034095C (KeVerifyContextXStateCetU.c)
+ *     KiInitializeContextThread @ 0x140341B1C (KiInitializeContextThread.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1405250D4 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlLocateExtendedFeature @ 0x14058F460 (RtlLocateExtendedFeature.c)
  * Callees:
  *     <none>
  */
@@ -16,74 +17,70 @@ char *__fastcall RtlLocateExtendedFeature2(_DWORD *a1, unsigned int a2, __int64 
 {
   __int64 v4; // r10
   __int64 v6; // rbx
-  int v7; // esi
-  __int64 v8; // r9
-  char *v9; // rdx
-  unsigned int v10; // ecx
-  int v11; // eax
-  __int64 v12; // rdi
-  __int64 v13; // r11
-  __int64 v14; // rax
-  _DWORD *v15; // r8
+  int v8; // esi
+  __int64 v9; // r9
+  char *v10; // rdx
+  unsigned int v11; // ecx
+  int v12; // eax
+  __int64 v13; // rdi
+  __int64 v14; // r11
+  __int64 v15; // rax
+  _DWORD *v16; // r8
 
   v4 = a2;
-  if ( a2 - 2 <= 0x3D )
+  if ( a2 - 2 > 0x3D )
+    return 0LL;
+  v6 = 1LL << a2;
+  if ( ((*(_QWORD *)a3 | *(_QWORD *)(a3 + 816)) & (1LL << a2)) == 0 )
+    return 0LL;
+  v8 = *(_DWORD *)(a3 + 20);
+  if ( (v8 & 0xFFFFFFFC) != 0 )
+    return 0LL;
+  v9 = (int)a1[4];
+  if ( *a1 > (int)v9 || a1[1] + *a1 < (int)v9 + a1[5] )
+    v10 = 0LL;
+  else
+    v10 = (char *)a1 + v9;
+  if ( !v10 )
+    return 0LL;
+  v11 = 2;
+  if ( a4 )
   {
-    v6 = 1LL << a2;
-    if ( ((*(_QWORD *)a3 | *(_QWORD *)(a3 + 816)) & (1LL << a2)) != 0 )
-    {
-      v7 = *(_DWORD *)(a3 + 20);
-      if ( (v7 & 0xFFFFFFF8) == 0 )
-      {
-        v8 = (int)a1[4];
-        if ( *a1 <= (int)v8 && a1[1] + *a1 >= (int)v8 + a1[5] )
-        {
-          v9 = (char *)a1 + v8;
-          if ( (_DWORD *)((char *)a1 + v8) )
-          {
-            v10 = 2;
-            if ( a4 )
-            {
-              if ( (v7 & 2) != 0 )
-                v11 = *(_DWORD *)(a3 + 4 * v4 + 556);
-              else
-                v11 = *(_DWORD *)(a3 + 8 * v4 + 28);
-              *a4 = v11;
-            }
-            if ( (*(_DWORD *)(a3 + 20) & 2) == 0 )
-            {
-              v14 = *(unsigned int *)(a3 + 8 * v4 + 24);
-              return &v9[v14 - 512];
-            }
-            v12 = *((_QWORD *)v9 + 1);
-            if ( (v6 & v12) != 0 )
-            {
-              v13 = *(_QWORD *)(a3 + 544);
-              v14 = 576LL;
-              if ( (unsigned int)v4 > 2 )
-              {
-                v15 = (_DWORD *)(a3 + 564);
-                do
-                {
-                  if ( ((1LL << v10) & v12) != 0 )
-                  {
-                    if ( ((1LL << v10) & v13) != 0 )
-                      LODWORD(v14) = (v14 + 63) & 0xFFFFFFC0;
-                    v14 = (unsigned int)(*v15 + v14);
-                  }
-                  ++v10;
-                  ++v15;
-                }
-                while ( v10 < (unsigned int)v4 );
-              }
-              if ( (v6 & v13) != 0 )
-                v14 = ((_DWORD)v14 + 63) & 0xFFFFFFC0;
-              return &v9[v14 - 512];
-            }
-          }
-        }
-      }
-    }
+    if ( (v8 & 2) != 0 )
+      v12 = *(_DWORD *)(a3 + 4 * v4 + 556);
+    else
+      v12 = *(_DWORD *)(a3 + 8 * v4 + 28);
+    *a4 = v12;
   }
-  return 0LL;
+  if ( (*(_DWORD *)(a3 + 20) & 2) != 0 )
+  {
+    v13 = *((_QWORD *)v10 + 1);
+    if ( (v6 & v13) != 0 )
+    {
+      v14 = *(_QWORD *)(a3 + 544);
+      v15 = 576LL;
+      if ( (unsigned int)v4 > 2 )
+      {
+        v16 = (_DWORD *)(a3 + 564);
+        do
+        {
+          if ( ((1LL << v11) & v13) != 0 )
+          {
+            if ( ((1LL << v11) & v14) != 0 )
+              LODWORD(v15) = (v15 + 63) & 0xFFFFFFC0;
+            v15 = (unsigned int)(*v16 + v15);
+          }
+          ++v11;
+          ++v16;
+        }
+        while ( v11 < (unsigned int)v4 );
+      }
+      if ( (v6 & v14) != 0 )
+        v15 = ((_DWORD)v15 + 63) & 0xFFFFFFC0;
+      return &v10[v15 - 512];
+    }
+    return 0LL;
+  }
+  v15 = *(unsigned int *)(a3 + 8 * v4 + 24);
+  return &v10[v15 - 512];
 }

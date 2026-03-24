@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGenerateRandomPte @ 0x1401310FC
+ * XREFs of MiGenerateRandomPte @ 0x14013111C
  * Callers:
  *     MiAgeWorkingSet @ 0x14006DE50 (MiAgeWorkingSet.c)
- *     MiTrimWorkingSet @ 0x140130E18 (MiTrimWorkingSet.c)
- *     MiSimpleAging @ 0x1401311E0 (MiSimpleAging.c)
+ *     MiTrimWorkingSet @ 0x140130E38 (MiTrimWorkingSet.c)
+ *     MiSimpleAging @ 0x140131200 (MiSimpleAging.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MiInitializeWalkBounds @ 0x14013117C (MiInitializeWalkBounds.c)
+ *     MiInitializeWalkBounds @ 0x14013119C (MiInitializeWalkBounds.c)
  */
 
 unsigned __int64 __fastcall MiGenerateRandomPte(__int64 a1)

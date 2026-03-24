@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkClearProcessDebugObject @ 0x14068277C
+ * XREFs of DbgkClearProcessDebugObject @ 0x140772C50
  * Callers:
- *     PspTerminateAllThreads @ 0x14076D520 (PspTerminateAllThreads.c)
- *     NtRemoveProcessDebug @ 0x140938B90 (NtRemoveProcessDebug.c)
+ *     PspTerminateAllThreads @ 0x140707720 (PspTerminateAllThreads.c)
+ *     NtRemoveProcessDebug @ 0x1408861A0 (NtRemoveProcessDebug.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     DbgkpMarkProcessPeb @ 0x1409374BC (DbgkpMarkProcessPeb.c)
- *     DbgkpWakeTarget @ 0x1409384E8 (DbgkpWakeTarget.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     DbgkpMarkProcessPeb @ 0x140884B7C (DbgkpMarkProcessPeb.c)
+ *     DbgkpWakeTarget @ 0x140885B60 (DbgkpWakeTarget.c)
  */
 
 __int64 __fastcall DbgkClearProcessDebugObject(ULONG_PTR BugCheckParameter1, __int64 a2)
 {
   __int64 v4; // rbx
   int v5; // edi
-  PVOID *v7; // rax
-  PVOID **v8; // rdx
+  PVOID *v7; // rdx
+  PVOID **v8; // rax
   PVOID ***v9; // rcx
   PVOID *v10; // r9
   _DWORD *v11; // rcx
@@ -36,7 +36,7 @@ __int64 __fastcall DbgkClearProcessDebugObject(ULONG_PTR BugCheckParameter1, __i
     v4 = 0LL;
     v5 = -1073740973;
   }
-  ExReleaseFastMutex(&DbgkpProcessDebugPortMutex);
+  KeReleaseGuardedMutex(&DbgkpProcessDebugPortMutex);
   if ( v5 >= 0 )
     DbgkpMarkProcessPeb(BugCheckParameter1);
   if ( v4 )
@@ -64,8 +64,8 @@ LABEL_22:
         p_P = (PVOID *)v8;
       }
     }
-    ExReleaseFastMutex((PFAST_MUTEX)(v4 + 24));
-    ObfDereferenceObject((PVOID)v4);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v4 + 24));
+    HalPutDmaAdapter((PADAPTER_OBJECT)v4);
     while ( 1 )
     {
       v11 = P;

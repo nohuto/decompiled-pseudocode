@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetCurrentBackBuffer@CLegacySwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x1800E00A4
+ * XREFs of ?GetCurrentBackBuffer@CLegacySwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x1800C77C8
  * Callers:
- *     ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EBAPEAVIDeviceTarget@@XZ @ 0x180108E10 (-GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EBAPEAVIDeviceTarget@@XZ.c)
- *     ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BI@EBAPEAVIDeviceTarget@@XZ @ 0x180109E10 (-GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BI@EBAPEAVIDeviceTarget@@XZ.c)
+ *     ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EBAPEAVIDeviceTarget@@XZ @ 0x1800F7510 (-GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@A@EBAPEAVIDeviceTarget@@XZ.c)
+ *     ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BI@EBAPEAVIDeviceTarget@@XZ @ 0x1800F79B0 (-GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BI@EBAPEAVIDeviceTarget@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ struct IDeviceTarget *__fastcall CLegacySwapChain::GetCurrentBackBuffer(CLegacyS
   __int64 v1; // rdx
   struct IDeviceTarget *result; // rax
 
-  v1 = *((_QWORD *)this - 40);
+  v1 = *((_QWORD *)this - 34);
   result = 0LL;
   if ( v1 )
     return (struct IDeviceTarget *)(*(int *)(*(_QWORD *)(v1 + 8) + 24LL) + v1 + 8);

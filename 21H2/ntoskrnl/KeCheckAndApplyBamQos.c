@@ -1,43 +1,52 @@
 /*
- * XREFs of KeCheckAndApplyBamQos @ 0x14045AAC0
+ * XREFs of KeCheckAndApplyBamQos @ 0x14051E4A0
  * Callers:
- *     KiUpdateRunTime @ 0x140307660 (KiUpdateRunTime.c)
- *     KeApplyWobBamQos @ 0x14030F970 (KeApplyWobBamQos.c)
- *     SwapContext @ 0x140428D90 (SwapContext.c)
- *     KeSetThreadSchedulerAssist @ 0x140576AA4 (KeSetThreadSchedulerAssist.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
+ *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
+ *     KiUpdateRunTime @ 0x1402275D0 (KiUpdateRunTime.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
  * Callees:
- *     KeUpdatePendingQosRequest @ 0x14045ABA8 (KeUpdatePendingQosRequest.c)
- *     PoSetProcessorQoS @ 0x14045E06E (PoSetProcessorQoS.c)
+ *     KeUpdatePendingQosRequest @ 0x14051EE60 (KeUpdatePendingQosRequest.c)
+ *     PoSetProcessorQoS @ 0x14056E55C (PoSetProcessorQoS.c)
  */
 
 __int64 __fastcall KeCheckAndApplyBamQos(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  int v4; // ebx
-  int v5; // ebp
-  unsigned int v6; // ebx
-  __int16 v7; // [rsp+20h] [rbp-8h]
+  unsigned int v4; // ebx
+  unsigned __int64 v5; // rdx
+  __int64 v6; // rcx
+  int v7; // ebp
+  unsigned int v8; // ebx
+  __int16 v9; // [rsp+20h] [rbp-8h]
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (__int64)&retaddr;
   if ( KeHeteroSystemQos )
   {
     _disable();
+    result = *(unsigned int *)(a1 + 236);
     v4 = (unsigned __int8)*(_DWORD *)(a2 + 512);
-    result = (unsigned __int8)*(_DWORD *)(a1 + 236);
-    if ( v4 != (_DWORD)result )
+    if ( v4 != (unsigned __int8)result )
     {
-      v5 = *(_DWORD *)(a1 + 236) & 0x300;
-      if ( (unsigned __int8)PoSetProcessorQoS(a1, (unsigned __int8)*(_DWORD *)(a2 + 512)) )
-        v6 = *(_DWORD *)(a1 + 236) & 0xFFFFFCFF;
+      v5 = *(unsigned __int8 *)(a1 + 209);
+      v6 = *(_QWORD *)(a1 + 192);
+      if ( v4 - 1 > 1 )
+        _interlockedbittestandreset64((volatile signed __int32 *)(v6 + 368), v5);
       else
-        v6 = *(_DWORD *)(a1 + 236) & 0xFFFFFCFF | ((v4 & 3) << 8);
-      *(_DWORD *)(a1 + 236) = v6;
-      result = v5 != 0;
-      if ( (_DWORD)result != ((v6 & 0x300) != 0) )
+        _interlockedbittestandset64((volatile signed __int32 *)(v6 + 368), v5);
+      v7 = *(_DWORD *)(a1 + 236) & 0x300;
+      if ( (unsigned __int8)PoSetProcessorQoS(a1, v4) )
+        v8 = *(_DWORD *)(a1 + 236) & 0xFFFFFCFF;
+      else
+        v8 = *(_DWORD *)(a1 + 236) & 0xFFFFFCFF | ((v4 & 3) << 8);
+      *(_DWORD *)(a1 + 236) = v8;
+      result = v7 != 0;
+      if ( (_DWORD)result != ((v8 & 0x300) != 0) )
         result = KeUpdatePendingQosRequest(a1);
     }
-    if ( (v7 & 0x200) != 0 )
+    if ( (v9 & 0x200) != 0 )
       _enable();
   }
   return result;

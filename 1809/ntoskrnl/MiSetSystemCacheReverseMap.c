@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetSystemCacheReverseMap @ 0x1400F6390
+ * XREFs of MiSetSystemCacheReverseMap @ 0x1400F63B0
  * Callers:
  *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
- *     MiExpandSystemCache @ 0x1400F61AC (MiExpandSystemCache.c)
+ *     MiExpandSystemCache @ 0x1400F61CC (MiExpandSystemCache.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

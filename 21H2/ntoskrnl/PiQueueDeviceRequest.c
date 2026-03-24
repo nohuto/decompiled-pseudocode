@@ -1,23 +1,23 @@
 /*
- * XREFs of PiQueueDeviceRequest @ 0x14065F5D4
+ * XREFs of PiQueueDeviceRequest @ 0x14072F218
  * Callers:
- *     PiCMDeviceAction @ 0x14065F3BC (PiCMDeviceAction.c)
- *     PiCMDeleteDevice @ 0x140954E2C (PiCMDeleteDevice.c)
- *     PiControlStartDevice @ 0x1409596B0 (PiControlStartDevice.c)
+ *     PiCMDeleteDevice @ 0x14072B66C (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x14072EF74 (PiCMDeviceAction.c)
+ *     PiControlStartDevice @ 0x1408B3BC0 (PiControlStartDevice.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PnpRequestDeviceAction @ 0x1402DCF44 (PnpRequestDeviceAction.c)
- *     PnpDeleteDeviceActionRequest @ 0x1402DDABC (PnpDeleteDeviceActionRequest.c)
- *     PnpCancelDeviceActionRequest @ 0x140562004 (PnpCancelDeviceActionRequest.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x14056205C (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     PnpDeleteDeviceActionRequest @ 0x14037F174 (PnpDeleteDeviceActionRequest.c)
+ *     PnpCancelDeviceActionRequest @ 0x14050E7D8 (PnpCancelDeviceActionRequest.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x14050E830 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  */
 
 __int64 __fastcall PiQueueDeviceRequest(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)
 {
-  __int64 v7; // rax
+  _QWORD *v7; // rax
   void *v8; // rsi
   int v9; // eax
   volatile signed __int32 *v10; // rdi
@@ -29,11 +29,11 @@ __int64 __fastcall PiQueueDeviceRequest(__int64 a1, int a2, __int64 a3, int a4, 
   memset(&Event, 0, sizeof(Event));
   if ( a5 )
     *(_DWORD *)a5 = 0;
-  v7 = PnpDeviceObjectFromDeviceInstanceWithTag(a1, 1131441744LL);
-  v8 = (void *)v7;
+  v7 = PnpDeviceObjectFromDeviceInstanceWithTag(a1, 0x43706E50u);
+  v8 = v7;
   if ( v7 )
   {
-    if ( *(_QWORD *)(*(_QWORD *)(v7 + 312) + 40LL) )
+    if ( *(_QWORD *)(v7[39] + 40LL) )
     {
       if ( a4 )
         KeInitializeEvent(&Event, NotificationEvent, 0);
@@ -44,7 +44,7 @@ __int64 __fastcall PiQueueDeviceRequest(__int64 a1, int a2, __int64 a3, int a4, 
              0LL,
              (unsigned __int64)&Event & -(__int64)(a4 != 0),
              a5 & -(__int64)(a4 != 0),
-             (__int64 *)((unsigned __int64)&v13 & -(__int64)(a4 != 0)));
+             (_QWORD *)((unsigned __int64)&v13 & -(__int64)(a4 != 0)));
       v10 = v13;
       v11 = v9;
       if ( v9 >= 0 )

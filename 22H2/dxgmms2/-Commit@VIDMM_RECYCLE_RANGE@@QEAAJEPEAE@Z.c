@@ -1,257 +1,247 @@
 /*
- * XREFs of ?Commit@VIDMM_RECYCLE_RANGE@@QEAAJEPEAE@Z @ 0x1C00A7180
+ * XREFs of ?Commit@VIDMM_RECYCLE_RANGE@@QEAAJEPEAE@Z @ 0x1C007C200
  * Callers:
- *     ?Commit@VIDMM_RECYCLE_MULTIRANGE@@QEAAJEPEAE@Z @ 0x1C009F6EC (-Commit@VIDMM_RECYCLE_MULTIRANGE@@QEAAJEPEAE@Z.c)
- *     ?Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z @ 0x1C00A5850 (-Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C007B500 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
  * Callees:
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0005F38 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EE6C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0qxxx_EtwWriteTransfer @ 0x1C003228C (McTemplateK0qxxx_EtwWriteTransfer.c)
- *     ?Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z @ 0x1C00A3320 (-Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z.c)
- *     ?RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00A426C (-RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
- *     VidMmAllocateVirtualMemoryFromPartition @ 0x1C00F11BC (VidMmAllocateVirtualMemoryFromPartition.c)
+ *     ?UpdateOutstandingUnlock@VIDMM_RECYCLE_HEAP_MGR@@SAX_JPEAVVIDMM_RECYCLE_BLOCK@@@Z @ 0x1C0001E8C (-UpdateOutstandingUnlock@VIDMM_RECYCLE_HEAP_MGR@@SAX_JPEAVVIDMM_RECYCLE_BLOCK@@@Z.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C00249A8 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0qpxp_EtwWriteTransfer @ 0x1C0028014 (McTemplateK0qpxp_EtwWriteTransfer.c)
+ *     ?VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z @ 0x1C006632C (-VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z.c)
+ *     ?AddToUnlockDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C007596C (-AddToUnlockDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C0075A14 (-RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z @ 0x1C007DB70 (-Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_RECYCLE_RANGE::Commit(VIDMM_RECYCLE_RANGE *this, __int64 a2, unsigned __int8 *a3)
 {
-  VIDMM_RECYCLE_HEAP_MGR *v5; // rcx
-  __int64 v6; // r8
-  int v7; // edx
-  VIDMM_RECYCLE_HEAP_MGR *v8; // rcx
-  __int64 v9; // rdi
+  __int64 v3; // rsi
+  _QWORD *v6; // rax
+  unsigned __int64 v7; // rcx
+  struct VIDMM_RECYCLE_BLOCK *v8; // rdx
+  int v9; // eax
   _QWORD *v10; // rax
-  _QWORD *v11; // rdx
-  unsigned __int64 v12; // rcx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rdi
-  _QWORD *v16; // rcx
-  int v17; // edi
-  __int64 v18; // rax
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int VirtualMemoryFromPartition; // eax
-  unsigned int v23; // edi
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // rcx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rsi
+  _QWORD *v14; // rcx
+  int v15; // ecx
+  void *v17; // r8
+  unsigned int *v18; // rcx
+  __int64 v19; // rdx
+  VIDMM_RECYCLE_HEAP_MGR *v21; // rcx
+  VIDMM_RECYCLE_HEAP_MGR *v22; // rdi
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  ULONG v25; // r9d
+  NTSTATUS v26; // eax
+  __int64 v27; // rdx
   __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // rdi
-  _QWORD *v31; // rcx
-  int v32; // ecx
+  __int64 v29; // rdi
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // rcx
   int v34; // ecx
-  int v35; // ecx
-  __int64 v36; // r8
-  __int64 v37; // rcx
-  __int64 v38; // rcx
-  __int64 v39; // r8
-  __int64 v40; // rcx
-  __int64 v41; // [rsp+20h] [rbp-48h]
-  __int64 v42; // [rsp+28h] [rbp-40h]
-  __int64 v43; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v44; // [rsp+88h] [rbp+20h] BYREF
+  _QWORD *v35; // rax
+  _QWORD *v36; // rax
+  __int64 v37; // rax
+  _QWORD *v38; // rax
+  _QWORD *v39; // rax
+  _QWORD *v40; // rax
+  _QWORD *v41; // rax
+  __int64 v42; // r8
+  __int64 v43; // rcx
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+20h] BYREF
 
-  v5 = (VIDMM_RECYCLE_HEAP_MGR *)*((int *)this + 16);
-  if ( (_DWORD)v5 )
+  v3 = *((int *)this + 16);
+  if ( (_DWORD)v3 == 5 )
   {
-    if ( (_DWORD)v5 == 4 )
+    v6 = (_QWORD *)((char *)this + 104);
+    v7 = *((_QWORD *)this + 13);
+    if ( *(_QWORD **)(v7 + 8) != v6 || (v8 = (struct VIDMM_RECYCLE_BLOCK *)v6[1], *(_QWORD **)v8 != v6) )
+      __fastfail(3u);
+    *(_QWORD *)v8 = v7;
+    *(_QWORD *)(v7 + 8) = v8;
+    *v6 = 0LL;
+    v9 = *((_DWORD *)this + 16);
+    *((_QWORD *)this + 14) = 0LL;
+    *((_QWORD *)this + 12) = 0LL;
+    if ( v9 == 5 )
     {
-      v8 = *(VIDMM_RECYCLE_HEAP_MGR **)(*((_QWORD *)this + 9) + 32LL);
-      v9 = *((_QWORD *)v8 + 1);
-      VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v8, this);
-      *((_QWORD *)this + 12) = *(_QWORD *)(v9 + 1576) + (unsigned int)dword_1C007647C;
-      v10 = (_QWORD *)((char *)this + 104);
-      v11 = *(_QWORD **)(v9 + 1552);
-      if ( *v11 != v9 + 1544 )
-        __fastfail(3u);
-      *v10 = v9 + 1544;
-      *((_QWORD *)this + 14) = v11;
-      *v11 = v10;
-      *(_QWORD *)(v9 + 1552) = v10;
-      if ( !_InterlockedExchange((volatile __int32 *)(v9 + 1536), 1) && !*(_DWORD *)(v9 + 1584) )
-        KeSetTimer((PKTIMER)(v9 + 1376), (LARGE_INTEGER)-2000000LL, (PKDPC)(v9 + 1440));
-      v12 = *((_QWORD *)this + 5) - *((_QWORD *)this + 4);
-      if ( (__int64)(v12 + _InterlockedExchangeAdd64(&VIDMM_RECYCLE_HEAP_MGR::_GlobalOutstandingDebouncedUnlock, v12)) < 0
+      v7 = *((_QWORD *)this + 4) - *((_QWORD *)this + 5);
+      if ( (__int64)(v7 + _InterlockedExchangeAdd64(&VIDMM_RECYCLE_HEAP_MGR::_GlobalOutstandingDebouncedDecommit, v7)) < 0
         && g_IsInternalRelease )
       {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+        v40 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v7, v8);
+        v40[3] = 270LL;
+        v40[4] = 9LL;
+        v40[5] = 0LL;
+        v40[6] = 0LL;
+        v40[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v40);
       }
-      if ( dword_1C0076490 && *((_DWORD *)this + 20) <= 1u && g_IsInternalRelease )
-      {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
-      }
-      WdLogSingleEntry3(4LL, this, *((int *)this + 16), 3LL);
-      if ( (byte_1C0076982 & 2) != 0 )
-      {
-        LODWORD(v42) = 3;
-        LODWORD(v41) = *((_DWORD *)this + 16);
-        McTemplateK0pqq_EtwWriteTransfer(v13, &EventRecycleRangeTransition, v14, this, v41, v42);
-      }
-      v15 = *((_QWORD *)this + 9);
-      v16 = *(_QWORD **)(v15 + 136);
-      if ( v16 )
-      {
-        v36 = *v16 + 144LL * v16[1];
-        *(_DWORD *)v36 = 2;
-        *(_QWORD *)(v36 + 8) = this;
-        RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v36 + 16), 0LL);
-        ++*(_QWORD *)(*(_QWORD *)(v15 + 136) + 8LL);
-        v37 = *(_QWORD *)(v15 + 136);
-        if ( *(_QWORD *)(v37 + 8) == *(_QWORD *)(v37 + 48) )
-        {
-          *(_QWORD *)(v37 + 8) = 0LL;
-          *(_BYTE *)(*(_QWORD *)(v15 + 136) + 16LL) = 1;
-        }
-      }
-      *((_DWORD *)this + 16) = 3;
     }
-    else if ( (_DWORD)v5 == 5 )
+    else if ( (unsigned int)(v9 - 3) <= 1 )
     {
-      VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v5, this);
-      if ( dword_1C0076490 && !*((_DWORD *)this + 20) && g_IsInternalRelease )
-      {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
-      }
-      VIDMM_RECYCLE_RANGE::Transition((__int64)this, 1);
+      VIDMM_RECYCLE_HEAP_MGR::UpdateOutstandingUnlock(*((_QWORD *)this + 4) - *((_QWORD *)this + 5), v8);
     }
-    else
+    if ( dword_1C00503E0 && !*((_DWORD *)this + 20) && g_IsInternalRelease )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 52LL, 0LL, v5, 0LL);
+      v41 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v7, v8);
+      v41[3] = 270LL;
+      v41[4] = 9LL;
+      v41[5] = 0LL;
+      v41[6] = 0LL;
+      v41[7] = 0LL;
+      WdLogEvent5_WdCriticalError(v41);
     }
-    goto LABEL_36;
+    v10 = (_QWORD *)WdLogNewEntry5_WdEvent(v7, v8);
+    v10[3] = this;
+    v10[4] = *((int *)this + 16);
+    v10[5] = 1LL;
+    WdLogEvent5_WdEvent(v10);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+      McTemplateK0pqq_EtwWriteTransfer(v11, &EventRecycleRangeTransition, v12, this, *((_DWORD *)this + 16), 1);
+    v13 = *((_QWORD *)this + 9);
+    v14 = *(_QWORD **)(v13 + 136);
+    if ( v14 )
+    {
+      v42 = *v14 + 144LL * v14[1];
+      *(_DWORD *)v42 = 2;
+      *(_QWORD *)(v42 + 8) = this;
+      RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v42 + 16), 0LL);
+      ++*(_QWORD *)(*(_QWORD *)(v13 + 136) + 8LL);
+      v43 = *(_QWORD *)(v13 + 136);
+      if ( *(_QWORD *)(v43 + 8) == *(_QWORD *)(v43 + 48) )
+      {
+        *(_QWORD *)(v43 + 8) = 0LL;
+        *(_BYTE *)(*(_QWORD *)(v13 + 136) + 16LL) = 1;
+      }
+    }
+    *((_DWORD *)this + 16) = 1;
+    goto LABEL_12;
   }
-  v6 = *((_QWORD *)this + 4);
-  v43 = *((_QWORD *)this + 5) - v6;
-  v7 = **(_DWORD **)(*((_QWORD *)this + 9) + 32LL);
-  if ( (unsigned int)(v7 - 9) <= 1 )
+  if ( (_DWORD)v3 )
   {
-    if ( !dword_1C0076490 || *((_DWORD *)this + 20) || !g_IsInternalRelease )
-      goto LABEL_32;
-    goto LABEL_71;
+    if ( (_DWORD)v3 == 4 )
+    {
+      v21 = *(VIDMM_RECYCLE_HEAP_MGR **)(*((_QWORD *)this + 9) + 32LL);
+      v22 = (VIDMM_RECYCLE_HEAP_MGR *)*((_QWORD *)v21 + 1);
+      VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v21, this);
+      VIDMM_RECYCLE_HEAP_MGR::AddToUnlockDebounce(v22, this);
+      if ( dword_1C00503E0 && *((_DWORD *)this + 20) <= 1u && g_IsInternalRelease )
+      {
+        v36 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v24, v23);
+        v36[3] = 270LL;
+        v36[4] = 9LL;
+        v36[5] = 0LL;
+        v36[6] = 0LL;
+        v36[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v36);
+      }
+      VIDMM_RECYCLE_RANGE::Transition(this, 3LL);
+    }
+    else
+    {
+      v35 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+      v35[3] = 270LL;
+      v35[4] = 52LL;
+      v35[5] = 0LL;
+      v35[6] = v3;
+      v35[7] = 0LL;
+      WdLogEvent5_WdCriticalError(v35);
+    }
+    goto LABEL_12;
   }
-  if ( (unsigned int)(v7 - 3) > 3 )
+  v17 = (void *)*((_QWORD *)this + 4);
+  RegionSize = *((_QWORD *)this + 5) - (_QWORD)v17;
+  v18 = *(unsigned int **)(*((_QWORD *)this + 9) + 32LL);
+  v19 = *v18;
+  if ( (unsigned int)(v19 - 9) <= 1 )
   {
-    if ( v7 == 2 || v7 == 8 )
-      v17 = 4;
+    if ( !dword_1C00503E0 || *((_DWORD *)this + 20) || !g_IsInternalRelease )
+      goto LABEL_38;
+    goto LABEL_56;
+  }
+  if ( (unsigned int)(v19 - 3) > 3 )
+  {
+    if ( (_DWORD)v19 == 2 || (_DWORD)v19 == 8 )
+      v25 = 4;
     else
-      v17 = 1028;
-    v44 = v6;
-    if ( DXGPROCESS::GetCurrent()
-      && (v18 = *((_QWORD *)DXGPROCESS::GetCurrent() + 8)) != 0
-      && (v19 = *(_QWORD *)(v18 + 8)) != 0
-      && (v20 = *(_QWORD *)(v19 + 296), v20 != -1) )
+      v25 = 1028;
+    BaseAddress = v17;
+    v26 = VidMmAllocateVirtualMemory(&BaseAddress, &RegionSize, 0x1000u, v25);
+    v29 = v26;
+    if ( v26 < 0 )
     {
-      VirtualMemoryFromPartition = VidMmAllocateVirtualMemoryFromPartition(
-                                     v20,
-                                     (unsigned int)&v44,
-                                     (unsigned int)&v43,
-                                     4096,
-                                     v17);
+      _InterlockedIncrement(&dword_1C0050750);
+      v37 = WdLogNewEntry5_WdLowResource(v28);
+      *(_QWORD *)(v37 + 24) = v29;
+      WdLogEvent5_WdLowResource(v37);
+      return (unsigned int)v29;
     }
-    else
+    if ( dword_1C00503E0 && *((_DWORD *)this + 20) && g_IsInternalRelease )
     {
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      VirtualMemoryFromPartition = (*(__int64 (__fastcall **)(__int64, __int64 *, _QWORD, __int64 *, int, int))VirtualMemoryInterface)(
-                                     -1LL,
-                                     &v44,
-                                     0LL,
-                                     &v43,
-                                     4096,
-                                     v17);
-    }
-    v23 = VirtualMemoryFromPartition;
-    if ( VirtualMemoryFromPartition < 0 )
-    {
-      _InterlockedIncrement(&dword_1C0076860);
-      WdLogSingleEntry1(6LL, VirtualMemoryFromPartition);
-      DxgkLogInternalTriageEvent(v38, 262145LL);
-      return v23;
-    }
-    if ( dword_1C0076490 && *((_DWORD *)this + 20) && g_IsInternalRelease )
-    {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+      v38 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v28, v27);
+      v38[3] = 270LL;
+      v38[4] = 9LL;
+      v38[5] = 0LL;
+      v38[6] = 0LL;
+      v38[7] = 0LL;
+      WdLogEvent5_WdCriticalError(v38);
     }
     if ( bTracingEnabled )
     {
-      v24 = *((_QWORD *)this + 9);
-      v25 = *(_QWORD *)(v24 + 32);
-      v26 = (unsigned int)(*(_DWORD *)v25 - 3) <= 3 ? *(_QWORD *)(v24 + 56) : *((_QWORD *)this + 4);
-      v27 = *(_QWORD *)(*(_QWORD *)(v25 + 8) + 8LL);
-      if ( (byte_1C0076981 & 8) != 0 )
-        McTemplateK0qxxx_EtwWriteTransfer(
-          v27,
+      v30 = *((_QWORD *)this + 9);
+      v31 = *(_QWORD *)(v30 + 32);
+      v32 = (unsigned int)(*(_DWORD *)v31 - 3) <= 3 ? *(_QWORD *)(v30 + 56) : *((_QWORD *)this + 4);
+      v33 = *(_QWORD *)(*(_QWORD *)(v31 + 8) + 8LL);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+        McTemplateK0qpxp_EtwWriteTransfer(
+          v33,
           &EventCreateProcessAllocationDetails,
-          v26,
-          *(_DWORD *)(v27 + 8),
+          v32,
+          *(_QWORD *)(v33 + 8),
           (char)this,
-          v43,
-          v26);
+          RegionSize,
+          v32);
     }
-    goto LABEL_32;
+    goto LABEL_38;
   }
-  if ( dword_1C0076490 && !*((_DWORD *)this + 20) && g_IsInternalRelease )
+  if ( dword_1C00503E0 && !*((_DWORD *)this + 20) && g_IsInternalRelease )
   {
-LABEL_71:
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+LABEL_56:
+    v39 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v18, v19);
+    v39[3] = 270LL;
+    v39[4] = 9LL;
+    v39[5] = 0LL;
+    v39[6] = 0LL;
+    v39[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v39);
   }
-LABEL_32:
-  WdLogSingleEntry3(4LL, this, *((int *)this + 16), 1LL);
-  if ( (byte_1C0076982 & 2) != 0 )
+LABEL_38:
+  VIDMM_RECYCLE_RANGE::Transition(this, 1LL);
+LABEL_12:
+  v15 = *((_DWORD *)this + 20);
+  if ( v15 == 2 )
   {
-    LODWORD(v42) = 1;
-    LODWORD(v41) = *((_DWORD *)this + 16);
-    McTemplateK0pqq_EtwWriteTransfer(v28, &EventRecycleRangeTransition, v29, this, v41, v42);
+    *((_DWORD *)this + 20) = 3;
+LABEL_14:
+    *((_BYTE *)this + 84) = *a3;
+    return 0LL;
   }
-  v30 = *((_QWORD *)this + 9);
-  v31 = *(_QWORD **)(v30 + 136);
-  if ( v31 )
-  {
-    v39 = *v31 + 144LL * v31[1];
-    *(_DWORD *)v39 = 2;
-    *(_QWORD *)(v39 + 8) = this;
-    RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v39 + 16), 0LL);
-    ++*(_QWORD *)(*(_QWORD *)(v30 + 136) + 8LL);
-    v40 = *(_QWORD *)(v30 + 136);
-    if ( *(_QWORD *)(v40 + 8) == *(_QWORD *)(v40 + 48) )
-    {
-      *(_QWORD *)(v40 + 8) = 0LL;
-      *(_BYTE *)(*(_QWORD *)(v30 + 136) + 16LL) = 1;
-    }
-  }
-  *((_DWORD *)this + 16) = 1;
-LABEL_36:
-  v32 = *((_DWORD *)this + 20);
-  if ( !v32 )
+  if ( !v15 )
   {
     *((_DWORD *)this + 20) = 1;
-LABEL_38:
+LABEL_27:
     *((_BYTE *)this + 84) = 0;
     return 0LL;
   }
-  v34 = v32 - 1;
+  v34 = v15 - 1;
   if ( !v34 )
-    goto LABEL_38;
-  v35 = v34 - 1;
-  if ( v35 )
-  {
-    if ( v35 == 1 )
-      *((_BYTE *)this + 84) = *a3;
-    return 0LL;
-  }
-  *((_DWORD *)this + 20) = 3;
-  *((_BYTE *)this + 84) = *a3;
+    goto LABEL_27;
+  if ( v34 == 2 )
+    goto LABEL_14;
   return 0LL;
 }

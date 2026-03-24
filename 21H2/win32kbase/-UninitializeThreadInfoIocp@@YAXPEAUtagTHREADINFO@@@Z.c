@@ -1,16 +1,16 @@
 /*
- * XREFs of ?UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C003C7EC
+ * XREFs of ?UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C002209C
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     ProtectHandle @ 0x1C003AA94 (ProtectHandle.c)
+ *     ProtectHandle @ 0x1C0024ACC (ProtectHandle.c)
  */
 
-void __fastcall UninitializeThreadInfoIocp(struct tagTHREADINFO *a1, int a2)
+void __fastcall UninitializeThreadInfoIocp(struct tagTHREADINFO *a1, __int64 a2)
 {
   void *v3; // rcx
   void *v4; // rcx
-  void *v5; // rcx
+  __int64 v5; // rcx
   void *v6; // rcx
   void *v7; // rcx
 
@@ -26,10 +26,10 @@ void __fastcall UninitializeThreadInfoIocp(struct tagTHREADINFO *a1, int a2)
     ObCloseHandle(v4, 0);
     *((_QWORD *)a1 + 181) = 0LL;
   }
-  v5 = (void *)*((_QWORD *)a1 + 179);
+  v5 = *((_QWORD *)a1 + 179);
   if ( v5 )
   {
-    if ( (int)ProtectHandle(v5, a2, 0LL, 0) >= 0 )
+    if ( (int)ProtectHandle(v5, a2, 0LL, 0LL) >= 0 )
       ObCloseHandle(*((HANDLE *)a1 + 179), 1);
     *((_QWORD *)a1 + 179) = 0LL;
   }

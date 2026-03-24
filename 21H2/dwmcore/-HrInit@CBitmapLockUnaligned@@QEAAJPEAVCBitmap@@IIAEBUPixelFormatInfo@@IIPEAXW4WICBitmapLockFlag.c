@@ -1,14 +1,14 @@
 /*
- * XREFs of ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x180271E1C
+ * XREFs of ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x18021896C
  * Callers:
- *     ?HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x180271410 (-HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitm.c)
+ *     ?HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x180218078 (-HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitm.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800438FC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x18006F31C (-HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?ReadUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x18027205C (-ReadUnalignedScanline@@YAXPEAEPEBEII@Z.c)
+ *     ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x18003C05C (-HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180042320 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?ReadUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x180218BAC (-ReadUnalignedScanline@@YAXPEAEPEBEII@Z.c)
  */
 
 __int64 __fastcall CBitmapLockUnaligned::HrInit(
@@ -19,7 +19,7 @@ __int64 __fastcall CBitmapLockUnaligned::HrInit(
         const struct PixelFormatInfo *a5,
         unsigned int a6,
         unsigned int a7,
-        unsigned __int8 *a8,
+        const unsigned __int8 *lpMem,
         enum WICBitmapLockFlags a9,
         unsigned int a10,
         unsigned int a11)
@@ -45,35 +45,35 @@ __int64 __fastcall CBitmapLockUnaligned::HrInit(
   unsigned int v34; // [rsp+F0h] [rbp+38h]
 
   v11 = this;
-  v12 = a8;
-  *((_DWORD *)this + 38) = a6;
-  *((_DWORD *)this + 39) = a7;
-  *((_DWORD *)this + 32) = a9;
-  *((_DWORD *)this + 41) = a10;
-  *((_DWORD *)this + 40) = a11;
-  *((_QWORD *)this + 18) = v12;
+  v12 = lpMem;
+  *((_DWORD *)this + 40) = a6;
+  *((_DWORD *)this + 41) = a7;
+  *((_DWORD *)this + 34) = a9;
+  *((_DWORD *)this + 43) = a10;
+  *((_DWORD *)this + 42) = a11;
+  *((_QWORD *)this + 19) = v12;
   v13 = a4;
   PixelFormatSize = GetPixelFormatSize(*(_DWORD *)a5);
   v17 = 0LL;
   if ( PixelFormatSize && v16 <= 0x7FFFFFF8u / PixelFormatSize )
   {
-    a8 = 0LL;
+    lpMem = 0LL;
     v18 = (unsigned int)v13;
     v19 = (((v16 * PixelFormatSize + 7) >> 3) + 3) & 0xFFFFFFFC;
-    v20 = HrMalloc(v19, (unsigned int)v13, (void **)&a8);
+    v20 = HrMalloc(v19, (unsigned int)v13, (void **)&lpMem);
     v22 = v20;
     if ( v20 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x9Fu);
-    v17 = a8;
+      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x9Fu, 0LL);
+    v17 = (unsigned __int8 *)lpMem;
   }
   else
   {
     v22 = -2147024362;
     v19 = 0;
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, -2147024362, 0x95u);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024362, 0x95u, 0LL);
     v18 = v13;
   }
-  a8 = v17;
+  lpMem = v17;
   v23 = v13 * v19;
   v34 = v13 * v19;
   if ( v22 < 0 )
@@ -93,7 +93,7 @@ __int64 __fastcall CBitmapLockUnaligned::HrInit(
         --v18;
       }
       while ( v18 );
-      v17 = a8;
+      v17 = (unsigned __int8 *)lpMem;
       v11 = this;
       LODWORD(v13) = a4;
       v23 = v34;
@@ -101,7 +101,7 @@ __int64 __fastcall CBitmapLockUnaligned::HrInit(
   }
   v27 = CBitmapLock::HrInit(
           v11,
-          (struct IBitmapUnlock *)(((unsigned __int64)a2 + 40) & -(__int64)(a2 != 0LL)),
+          (struct IBitmapUnlock *)(((unsigned __int64)a2 + 48) & -(__int64)(a2 != 0LL)),
           a3,
           v13,
           a5,
@@ -114,9 +114,9 @@ __int64 __fastcall CBitmapLockUnaligned::HrInit(
   v22 = v27;
   if ( v27 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0LL, v27, 0xCCu);
+    MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0xCCu, 0LL);
 LABEL_15:
-    DefaultHeap::Free(v17);
+    operator delete(v17);
   }
   return (unsigned int)v22;
 }

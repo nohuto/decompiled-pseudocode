@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A67674
+ * XREFs of _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140733E9C
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140799F80 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x1407369EC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a1, __int64 a2, void *a3, __int64 a4)
@@ -24,7 +24,7 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
 
   v4 = 0LL;
-  v5 = &off_140A783B0;
+  v5 = &off_140983E10;
   v6 = 0;
   Handle = 0LL;
   for ( i = 0; i < 2; ++i )
@@ -45,12 +45,12 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a
   if ( !v12 )
     return (unsigned int)-1073741264;
   if ( a3 )
-    goto LABEL_12;
+    goto LABEL_8;
   v6 = CmOpenDeviceRegKey(a1, a2, 16, 0, 2, 0, (__int64)&Handle, 0LL);
   if ( v6 >= 0 )
   {
     v4 = Handle;
-LABEL_12:
+LABEL_8:
     v14 = (const WCHAR *)v12[2];
     DestinationString = 0LL;
     if ( a3 )

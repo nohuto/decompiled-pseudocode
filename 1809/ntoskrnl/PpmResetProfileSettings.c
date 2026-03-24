@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmResetProfileSettings @ 0x14018E7F0
+ * XREFs of PpmResetProfileSettings @ 0x14018E810
  * Callers:
- *     PpmRegisterProfiles @ 0x140756BA4 (PpmRegisterProfiles.c)
- *     PpmDisableProfile @ 0x14087A660 (PpmDisableProfile.c)
+ *     PpmRegisterProfiles @ 0x140756B84 (PpmRegisterProfiles.c)
+ *     PpmDisableProfile @ 0x14087A640 (PpmDisableProfile.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 _QWORD *__fastcall PpmResetProfileSettings(__int64 a1)
@@ -15,8 +15,8 @@ _QWORD *__fastcall PpmResetProfileSettings(__int64 a1)
   __int64 v5; // rcx
 
   v1 = (_QWORD *)(a1 + 40);
-  memmove((void *)(a1 + 40), &unk_14040E7C8, 0xAA8uLL);
-  memmove((void *)(a1 + 2768), &unk_14040F270, 0xAA8uLL);
+  memmove((void *)(a1 + 40), &unk_14040E7E8, 0xAA8uLL);
+  memmove((void *)(a1 + 2768), &unk_14040F290, 0xAA8uLL);
   v3 = 2LL;
   do
   {

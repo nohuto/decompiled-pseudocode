@@ -1,615 +1,614 @@
 /*
- * XREFs of ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0316668
+ * XREFs of ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFF48
  * Callers:
- *     ?DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0315ED4 (-DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AF87C (-DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000F538 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0011E60 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ?D3DKMDT_VPPR_GET_OFFSET_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C0011E80 (-D3DKMDT_VPPR_GET_OFFSET_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
- *     ?Own@?$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPEAU2@@DXGDMM@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@Q6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@0@Z1@Z @ 0x1C0013668 (-Own@-$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPE.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     MonitorGetDpiInfoFromDescriptor @ 0x1C0163A38 (MonitorGetDpiInfoFromDescriptor.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C01B4890 (-DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
- *     ?GetCurrentTargetResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAU_D3DKMDT_2DREGION@@PEAE@Z @ 0x1C01D607C (-GetCurrentTargetResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@P.c)
- *     ?GetCurrentSourceResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAU_D3DKMDT_2DREGION@@@Z @ 0x1C01D61A4 (-GetCurrentSourceResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@P.c)
- *     ?AdjustDesktopScaleFactorForOverride@Win81@@YAKKUtagSIZE@@H@Z @ 0x1C0315C0C (-AdjustDesktopScaleFactorForOverride@Win81@@YAKKUtagSIZE@@H@Z.c)
- *     ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z @ 0x1C0315E6C (-DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z.c)
- *     ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C03160FC (-FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z.c)
- *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031621C (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
- *     ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@@Z @ 0x1C031643C (-HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A84C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?D3DKMDT_VPPR_GET_OFFSET_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C000A86C (-D3DKMDT_VPPR_GET_OFFSET_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000A914 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     ?Own@?$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPEAU2@@DXGDMM@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@Q6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@0@Z1@Z @ 0x1C000B9E4 (-Own@-$AutoRelease@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@P6AJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU1@@ZPE.c)
+ *     ?EDID_V1_GetPreferredMode@@YAJPEBEPEAUDISPLAY_PREFERRED_MODE_INFO@@@Z @ 0x1C000BCCC (-EDID_V1_GetPreferredMode@@YAJPEBEPEAUDISPLAY_PREFERRED_MODE_INFO@@@Z.c)
+ *     ?EDID_V1_GetPhysicalSize@@YAJKPEBEPEAI1@Z @ 0x1C000BD78 (-EDID_V1_GetPhysicalSize@@YAJKPEBEPEAI1@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C0124590 (-DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
+ *     ?GetCurrentTargetResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAU_D3DKMDT_2DREGION@@PEAE@Z @ 0x1C0146B90 (-GetCurrentTargetResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@P.c)
+ *     ?GetCurrentSourceResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAU_D3DKMDT_2DREGION@@@Z @ 0x1C0146C98 (-GetCurrentSourceResolution@DpiInternal@@YAJQEAUD3DKMDT_HVIDPN__@@PEBU_DXGDMM_VIDPN_INTERFACE@@P.c)
+ *     ?IsAudioAvailableInEdid@DpiInternal@@YAHPEAXI@Z @ 0x1C02A941C (-IsAudioAvailableInEdid@DpiInternal@@YAHPEAXI@Z.c)
+ *     ?AdjustDesktopScaleFactorForOverride@Win81@@YAKKUtagSIZE@@H@Z @ 0x1C02AF65C (-AdjustDesktopScaleFactorForOverride@Win81@@YAKKUtagSIZE@@H@Z.c)
+ *     ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HHPEAI@Z @ 0x1C02AF80C (-DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HHPEAI@Z.c)
+ *     ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFA3C (-FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFB5C (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFD28 (-HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@.c)
+ *     MonitorGetEdidBaseBlockPtr @ 0x1C02F3AFC (MonitorGetEdidBaseBlockPtr.c)
  */
 
 __int64 __fastcall Win81::UpdateGdiInfoForVidPnSource(
         Win81 *this,
         const struct _DXGDMM_INTERFACE *a2,
-        __int64 a3,
-        __int64 a4,
+        void *const a3,
+        unsigned int a4,
         unsigned int a5,
         __int64 a6)
 {
-  _OWORD *v6; // r12
-  Win81 *v7; // r13
-  struct _D3DKMDT_2DREGION *v8; // r14
+  __int64 v6; // rsi
+  DpiInternal *v7; // r15
   DXGPROCESS *Current; // rax
-  __int64 (__fastcall *v12)(Win81 *, unsigned __int64 *, struct D3DKMDT_HVIDPN__ **); // rax
-  int v13; // eax
-  __int64 v14; // rsi
-  DpiInternal *v15; // rdi
-  int v16; // eax
-  const wchar_t *v17; // r9
-  int v18; // eax
-  struct tagSIZE v19; // r9
-  int v20; // edi
-  unsigned __int64 v21; // rdx
-  unsigned int v22; // edi
-  __int64 v23; // r12
-  __int64 (__fastcall *v24)(unsigned __int8 *, _QWORD, unsigned __int64, _BYTE *); // rax
-  int v25; // eax
-  __int64 (__fastcall *v26)(unsigned __int8 *, _QWORD, _QWORD, __int64 *); // rax
-  int v27; // eax
-  __int64 v28; // rdx
-  unsigned int v29; // esi
-  bool v30; // r12
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  _OWORD *v13; // rbx
+  __int64 (__fastcall *v14)(DpiInternal *, unsigned __int64 *, struct D3DKMDT_HVIDPN__ **); // rax
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  _QWORD *v18; // rax
+  DpiInternal *v19; // r14
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rcx
+  __int64 v27; // rdx
+  __int64 v28; // r9
+  unsigned __int64 v29; // rcx
+  unsigned __int64 v30; // r14
+  unsigned int v31; // edi
+  int v32; // eax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 (__fastcall *v35)(__int64, _QWORD, _QWORD, __int64 *); // rax
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  __int64 v40; // rax
+  int v41; // esi
+  bool v42; // r14
   int VideoOutputTechnology; // eax
-  __int64 v32; // rbx
-  int v33; // edi
-  int v34; // ebx
-  unsigned int v35; // r13d
-  unsigned int v36; // r12d
-  unsigned int v37; // eax
-  unsigned int v38; // esi
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v39; // ebx
-  int v40; // eax
-  const struct _DXGDMM_VIDPN_INTERFACE *v41; // r9
-  __int64 v42; // rdx
-  struct tagSIZE v43; // rdx
-  unsigned int v44; // ebx
-  bool v45; // si
-  unsigned int v46; // ecx
-  unsigned int v47; // eax
-  __int64 v48; // rdx
-  struct _DPI_INFORMATION *v49; // r9
-  __int64 v50; // r8
-  unsigned __int8 *v51; // rdi
-  __int64 v52; // r12
-  struct tagSIZE v53; // r8
-  unsigned int v54; // eax
-  __int128 v55; // xmm1
-  __int128 v56; // xmm0
-  __int128 v57; // xmm1
-  __int128 v58; // xmm0
-  struct _D3DKMDT_2DREGION *v59; // [rsp+20h] [rbp-E0h]
-  struct _D3DKMDT_2DREGION *v60; // [rsp+20h] [rbp-E0h]
-  unsigned __int8 *v61; // [rsp+28h] [rbp-D8h]
-  struct _DPI_INFORMATION *v62; // [rsp+30h] [rbp-D0h]
-  bool v63; // [rsp+50h] [rbp-B0h]
-  bool v64; // [rsp+51h] [rbp-AFh] BYREF
-  _BYTE v65[10]; // [rsp+52h] [rbp-AEh] BYREF
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v66; // [rsp+5Ch] [rbp-A4h] BYREF
-  unsigned int v67; // [rsp+60h] [rbp-A0h]
-  unsigned __int64 v68; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v69; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int v70; // [rsp+78h] [rbp-88h] BYREF
-  unsigned __int8 *v71; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int64 v72; // [rsp+88h] [rbp-78h] BYREF
-  unsigned int v73; // [rsp+90h] [rbp-70h] BYREF
-  unsigned __int64 v74; // [rsp+94h] [rbp-6Ch]
-  int v75; // [rsp+9Ch] [rbp-64h]
-  unsigned int v76; // [rsp+A0h] [rbp-60h]
-  __int64 v77; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v78; // [rsp+B0h] [rbp-50h] BYREF
-  struct D3DKMDT_HVIDPN__ *v79; // [rsp+B8h] [rbp-48h] BYREF
-  unsigned __int64 v80; // [rsp+C0h] [rbp-40h] BYREF
-  unsigned int v81; // [rsp+C8h] [rbp-38h]
-  BOOL v82; // [rsp+CCh] [rbp-34h]
-  unsigned __int64 v83; // [rsp+D0h] [rbp-30h] BYREF
-  Win81 *v84; // [rsp+D8h] [rbp-28h]
-  char v85; // [rsp+E0h] [rbp-20h] BYREF
-  const struct _DXGDMM_VIDPN_INTERFACE *v86; // [rsp+E8h] [rbp-18h]
-  void (__fastcall *v87)(__int64, const struct _DXGDMM_VIDPN_INTERFACE *); // [rsp+F0h] [rbp-10h]
-  __int64 v88; // [rsp+F8h] [rbp-8h]
-  int v89; // [rsp+100h] [rbp+0h]
-  char v90; // [rsp+108h] [rbp+8h] BYREF
-  DpiInternal *v91; // [rsp+110h] [rbp+10h]
-  void (__fastcall *v92)(__int64, DpiInternal *); // [rsp+118h] [rbp+18h]
-  __int64 v93; // [rsp+120h] [rbp+20h]
-  int v94; // [rsp+128h] [rbp+28h]
-  _OWORD v95[6]; // [rsp+130h] [rbp+30h] BYREF
-  _OWORD *v96; // [rsp+190h] [rbp+90h]
-  __int128 v97; // [rsp+198h] [rbp+98h]
-  __int128 v98; // [rsp+1A8h] [rbp+A8h]
-  _BYTE v99[96]; // [rsp+1C0h] [rbp+C0h] BYREF
-  unsigned __int64 v100; // [rsp+220h] [rbp+120h] BYREF
-  int v101; // [rsp+228h] [rbp+128h]
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // rbx
+  _QWORD *v47; // rax
+  int v48; // edi
+  unsigned __int8 *EdidBaseBlockPtr; // r14
+  int PreferredMode; // eax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // rbx
+  _QWORD *v54; // rax
+  int v55; // r13d
+  int v56; // r12d
+  UINT v57; // r14d
+  UINT cy; // esi
+  __int64 v59; // rdx
+  __int64 v60; // rcx
+  __int64 v61; // rax
+  const struct _DXGDMM_VIDPN_INTERFACE *v62; // r15
+  int v63; // eax
+  unsigned int v64; // r15d
+  unsigned int v65; // ebx
+  char v66; // al
+  __int64 v67; // r8
+  const struct _DXGDMM_VIDPN_INTERFACE *v68; // r13
+  __int64 v69; // rdx
+  __int64 v70; // rax
+  struct tagSIZE v71; // rdx
+  int IsAudioAvailableInEdid; // eax
+  __int64 v73; // rdx
+  __int64 v74; // rcx
+  unsigned int v75; // ebx
+  __int64 v76; // rax
+  char cx; // si
+  __int64 v78; // rax
+  unsigned int v79; // ecx
+  unsigned int v80; // eax
+  __int64 v81; // rdx
+  struct _DPI_INFORMATION *v82; // r9
+  _QWORD *v83; // rax
+  struct tagSIZE v84; // r8
+  unsigned int v85; // eax
+  __int64 v86; // rax
+  __int128 v87; // xmm1
+  __int128 v88; // xmm0
+  __int128 v89; // xmm1
+  __int128 v90; // xmm0
+  struct _D3DKMDT_2DREGION *v92; // [rsp+28h] [rbp-E0h]
+  struct _D3DKMDT_2DREGION v93; // [rsp+48h] [rbp-C0h] BYREF
+  void *v94; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v95; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned __int64 v96; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v97; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned __int64 v98; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v99; // [rsp+78h] [rbp-90h] BYREF
+  int v100; // [rsp+80h] [rbp-88h]
+  int v101; // [rsp+84h] [rbp-84h]
+  unsigned int v102; // [rsp+88h] [rbp-80h]
+  __int64 v103; // [rsp+90h] [rbp-78h] BYREF
+  struct D3DKMDT_HVIDPN__ *v104; // [rsp+98h] [rbp-70h] BYREF
+  __int64 v105; // [rsp+A0h] [rbp-68h] BYREF
+  int v106; // [rsp+A8h] [rbp-60h]
+  BOOL v107; // [rsp+B0h] [rbp-58h]
+  int v108; // [rsp+B4h] [rbp-54h]
+  unsigned __int64 v109; // [rsp+B8h] [rbp-50h] BYREF
+  char v110; // [rsp+C0h] [rbp-48h] BYREF
+  const struct _DXGDMM_VIDPN_INTERFACE *v111; // [rsp+C8h] [rbp-40h]
+  void (__fastcall *v112)(__int64, const struct _DXGDMM_VIDPN_INTERFACE *); // [rsp+D0h] [rbp-38h]
+  __int64 v113; // [rsp+D8h] [rbp-30h]
+  int v114; // [rsp+E0h] [rbp-28h]
+  unsigned __int64 v115; // [rsp+E8h] [rbp-20h]
+  DpiInternal *v116; // [rsp+F0h] [rbp-18h]
+  char v117; // [rsp+F8h] [rbp-10h] BYREF
+  DpiInternal *v118; // [rsp+100h] [rbp-8h]
+  void (__fastcall *v119)(__int64, DpiInternal *); // [rsp+108h] [rbp+0h]
+  __int64 v120; // [rsp+110h] [rbp+8h]
+  int v121; // [rsp+118h] [rbp+10h]
+  _OWORD v122[6]; // [rsp+128h] [rbp+20h] BYREF
+  unsigned __int8 *v123; // [rsp+188h] [rbp+80h]
+  __int128 v124; // [rsp+190h] [rbp+88h]
+  __int128 v125; // [rsp+1A0h] [rbp+98h]
+  _BYTE v126[96]; // [rsp+1B8h] [rbp+B0h] BYREF
 
-  v6 = (_OWORD *)a6;
+  v6 = (unsigned int)a3;
   v7 = a2;
-  v8 = (struct _D3DKMDT_2DREGION *)(unsigned int)a3;
-  v81 = a3;
-  v96 = (_OWORD *)a6;
-  v76 = a4;
-  v84 = a2;
-  Current = DXGPROCESS::GetCurrent((__int64)this, (__int64)a2, a3, a4);
+  v108 = (int)a3;
+  v102 = a4;
+  v116 = a2;
+  Current = DXGPROCESS::GetCurrent((__int64)this, (__int64)a2);
   if ( Current && DXGPROCESS::IsRemoteConnection(Current) )
   {
-    WdLogSingleEntry2(2LL, v7, -1073741637LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Win32k should not call Win81::UpdateGdiInfoForVidPnSource for adapter 0x%I64x in remote session, returning 0x%I64x!",
-      (__int64)v7,
-      -1073741637LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225659LL;
+    v12 = WdLogNewEntry5_WdError(v11, v10);
+    LODWORD(v13) = -1073741637;
+    *(_QWORD *)(v12 + 24) = v7;
+    *(_QWORD *)(v12 + 32) = -1073741637LL;
+    WdLogEvent5_WdError(v12);
+    return (unsigned int)v13;
   }
-  v12 = (__int64 (__fastcall *)(Win81 *, unsigned __int64 *, struct D3DKMDT_HVIDPN__ **))*((_QWORD *)this + 6);
-  v79 = 0LL;
-  v91 = 0LL;
-  v92 = 0LL;
-  v93 = 0LL;
-  v94 = 0;
-  v90 = 0;
-  v72 = 0LL;
-  v13 = v12(v7, &v72, &v79);
-  v14 = v13;
-  if ( v13 < 0 )
+  v14 = (__int64 (__fastcall *)(DpiInternal *, unsigned __int64 *, struct D3DKMDT_HVIDPN__ **))*((_QWORD *)this + 6);
+  v104 = 0LL;
+  v118 = 0LL;
+  v119 = 0LL;
+  v120 = 0LL;
+  v121 = 0;
+  v117 = 0;
+  v98 = 0LL;
+  v15 = v14(v7, &v98, &v104);
+  v13 = (_OWORD *)v15;
+  if ( v15 < 0 )
   {
-    WdLogSingleEntry2(2LL, v7, v13);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed call to create copy of the last VidPN committed by the client for adapter 0x%I64x (status = 0x%I64x)",
-      (__int64)v7,
-      v14,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_100;
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v17, v16);
+    v18[3] = v7;
+LABEL_6:
+    v18[4] = v13;
+LABEL_99:
+    WdLogEvent5_WdError(v18);
+    goto LABEL_108;
   }
   DXGDMM::AutoRelease<_D3DKMDT_VIDPN_PRESENT_PATH const *,long (*)(D3DKMDT_HVIDPNTOPOLOGY__ *,_D3DKMDT_VIDPN_PRESENT_PATH const *),D3DKMDT_HVIDPNTOPOLOGY__ *>::Own(
-    (__int64)&v90,
-    v72,
+    (__int64)&v117,
+    v98,
     *((_QWORD *)this + 8),
     (__int64)v7);
-  v15 = v91;
-  v71 = 0LL;
-  v77 = 0LL;
-  v16 = (*(__int64 (__fastcall **)(DpiInternal *, unsigned __int8 **, __int64 *))v79)(v91, &v71, &v77);
-  v14 = v16;
-  if ( v16 < 0 )
+  v19 = v118;
+  v99 = 0LL;
+  v103 = 0LL;
+  v20 = (*(__int64 (__fastcall **)(DpiInternal *, __int64 *, __int64 *))v104)(v118, &v99, &v103);
+  v13 = (_OWORD *)v20;
+  if ( v20 < 0 )
   {
-    WdLogSingleEntry2(2LL, v15, v16);
-    v17 = L"Failed to acquire topology for VidPN 0x%I64x (status = 0x%I64x)";
-    v62 = 0LL;
-    v61 = (unsigned __int8 *)v14;
-    v59 = (struct _D3DKMDT_2DREGION *)v15;
-LABEL_91:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v17, (__int64)v59, (__int64)v61, (__int64)v62, 0LL, 0LL);
-    goto LABEL_100;
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v22, v21);
+    v18[3] = v19;
+    goto LABEL_6;
   }
-  v83 = 0LL;
-  v18 = (*(__int64 (__fastcall **)(unsigned __int8 *, _QWORD, unsigned __int64 *))v77)(v71, (unsigned int)v8, &v83);
-  v14 = v18;
-  if ( v18 < 0 )
+  v109 = 0LL;
+  v23 = (*(__int64 (__fastcall **)(__int64, _QWORD, unsigned __int64 *))v103)(v99, (unsigned int)v6, &v109);
+  v13 = (_OWORD *)v23;
+  if ( v23 < 0 )
   {
-    WdLogSingleEntry3(2LL, v8, v71, v18);
-    v17 = L"Failed to determine number of paths originating from source 0x%I64x in topology 0x%I64x (status = 0x%I64x)";
-    v62 = (struct _DPI_INFORMATION *)v14;
-    v61 = v71;
-    v59 = v8;
-    goto LABEL_91;
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+    v18[3] = v6;
+    v26 = v99;
+LABEL_98:
+    v18[4] = v26;
+    v18[5] = v13;
+    goto LABEL_99;
   }
-  memset(v99, 0, 0x5CuLL);
-  v20 = *(_DWORD *)(a6 + 92);
-  v21 = 0LL;
-  v72 = 0LL;
-  v22 = (v83 > 1) | v20 & 0x20;
-  *(_DWORD *)&v99[92] = v22;
-  v98 = *(_OWORD *)&v99[64];
-  if ( !v83 )
+  memset(v126, 0, 0x5CuLL);
+  v29 = v109;
+  v13 = (_OWORD *)a6;
+  v30 = 0LL;
+  v115 = 0LL;
+  v125 = *(_OWORD *)&v126[64];
+  v31 = (v109 > 1) | *(_DWORD *)(a6 + 92) & 0x20;
+  *(_DWORD *)&v126[92] = v31;
+  if ( !v109 )
   {
-    v97 = *(_OWORD *)&v99[16];
-LABEL_93:
-    if ( (v22 & 2) == 0
-      || (v53 = (struct tagSIZE)(unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(_mm_load_si128((const __m128i *)&v99[80]), 4)),
-          v53.cx == 1234568) )
+    v124 = *(_OWORD *)&v126[16];
+LABEL_101:
+    if ( (v31 & 2) == 0
+      || (v84 = (struct tagSIZE)(unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(_mm_load_si128((const __m128i *)&v126[80]), 4)),
+          v84.cx == 1234568) )
     {
-      v54 = *(_DWORD *)&v99[8];
+      v85 = *(_DWORD *)&v126[8];
     }
     else
     {
-      v54 = Win81::AdjustDesktopScaleFactorForOverride((Win81 *)0x64, *(int *)&v99[32], v53, v19);
-      *(_DWORD *)&v99[8] = v54;
+      v85 = Win81::AdjustDesktopScaleFactorForOverride(
+              (Win81 *)0x64,
+              *(__int64 *)&v126[32],
+              v84,
+              (const struct Win81::DPI_SCALE_FACTOR_COLLECTION *)v28);
+      *(_DWORD *)&v126[8] = v85;
     }
-    if ( !v54 )
+    if ( !v85 )
     {
-      WdLogSingleEntry1(1LL, 1042LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"DpiInfo.DesktopScaleFactor != DESKTOP_SCALE_INVALID",
-        1042LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v86 = WdLogNewEntry5_WdAssertion(v29, v27);
+      *(_QWORD *)(v86 + 24) = 1058LL;
+      WdLogEvent5_WdAssertion(v86);
     }
-    LODWORD(v14) = 0;
-    v55 = v97;
-    *v6 = *(_OWORD *)v99;
-    v56 = *(_OWORD *)&v99[32];
-    v6[1] = v55;
-    v57 = *(_OWORD *)&v99[48];
-    v6[2] = v56;
-    v58 = v98;
-    v6[3] = v57;
-    v6[4] = v58;
-    v6[5] = *(_OWORD *)&v99[80];
-    goto LABEL_100;
+    v87 = v124;
+    *v13 = *(_OWORD *)v126;
+    v88 = *(_OWORD *)&v126[32];
+    v13[1] = v87;
+    v89 = *(_OWORD *)&v126[48];
+    v13[2] = v88;
+    v90 = v125;
+    v13[3] = v89;
+    v13[4] = v90;
+    v13[5] = *(_OWORD *)&v126[80];
+    LODWORD(v13) = 0;
+    goto LABEL_108;
   }
-  v97 = *(_OWORD *)&v99[16];
+  v124 = *(_OWORD *)&v126[16];
   while ( 1 )
   {
-    v23 = v81;
-    *(_DWORD *)&v65[6] = -1;
-    v24 = *(__int64 (__fastcall **)(unsigned __int8 *, _QWORD, unsigned __int64, _BYTE *))(v77 + 8);
-    v65[1] = 0;
-    v25 = v24(v71, v81, v21, &v65[6]);
-    v14 = v25;
-    if ( v25 < 0 )
+    LODWORD(v94) = -1;
+    BYTE2(v93.cx) = 0;
+    v32 = (*(__int64 (__fastcall **)(__int64, _QWORD, unsigned __int64, void **))(v103 + 8))(
+            v99,
+            (unsigned int)v6,
+            v30,
+            &v94);
+    v13 = (_OWORD *)v32;
+    if ( v32 < 0 )
     {
-      v50 = v23;
-      v51 = (unsigned __int8 *)v23;
-      v52 = v72;
-      WdLogSingleEntry3(2LL, v72, v50, v25);
-      v17 = L"Failed to enumerate target of %I64d'th path originating from source 0x%I64x (status = 0x%I64x)";
-      v62 = (struct _DPI_INFORMATION *)v14;
-      v61 = v51;
-      v59 = (struct _D3DKMDT_2DREGION *)v52;
-      goto LABEL_91;
+      v18 = (_QWORD *)WdLogNewEntry5_WdError(v34, v33);
+      v26 = (unsigned int)v6;
+      v18[3] = v30;
+      goto LABEL_98;
     }
-    v69 = 0LL;
-    v26 = *(__int64 (__fastcall **)(unsigned __int8 *, _QWORD, _QWORD, __int64 *))(v77 + 24);
-    v86 = 0LL;
-    v87 = 0LL;
-    v88 = 0LL;
-    v89 = 0;
-    v85 = 0;
-    v27 = v26(v71, (unsigned int)v23, *(unsigned int *)&v65[6], &v69);
-    v14 = v27;
-    if ( v27 < 0 )
+    v97 = 0LL;
+    v35 = *(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64 *))(v103 + 24);
+    v111 = 0LL;
+    v112 = 0LL;
+    v113 = 0LL;
+    v114 = 0;
+    v110 = 0;
+    v36 = v35(v99, (unsigned int)v6, (unsigned int)v94, &v97);
+    v13 = (_OWORD *)v36;
+    if ( v36 < 0 )
       break;
-    v28 = v69;
-    if ( !v69 )
+    v39 = v97;
+    if ( !v97 )
     {
-      WdLogSingleEntry1(1LL, 786LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pVidPnPresentPathInfo != NULL", 786LL, 0LL, 0LL, 0LL, 0LL);
-      v28 = v69;
+      v40 = WdLogNewEntry5_WdAssertion(v38, 0LL);
+      *(_QWORD *)(v40 + 24) = 790LL;
+      WdLogEvent5_WdAssertion(v40);
+      v39 = v97;
     }
     DXGDMM::AutoRelease<_D3DKMDT_VIDPN_PRESENT_PATH const *,long (*)(D3DKMDT_HVIDPNTOPOLOGY__ *,_D3DKMDT_VIDPN_PRESENT_PATH const *),D3DKMDT_HVIDPNTOPOLOGY__ *>::Own(
-      (__int64)&v85,
-      v28,
-      *(_QWORD *)(v77 + 32),
-      (__int64)v71);
-    v67 = D3DKMDT_VPPR_GET_OFFSET_ROTATION(*((_DWORD *)v86 + 5));
-    v63 = 0;
-    v29 = v67;
-    v66 = D3DKMDT_VOT_UNINITIALIZED;
-    v30 = 0;
-    VideoOutputTechnology = DmmGetVideoOutputTechnology(v7, *(unsigned int *)&v65[6], &v66, 0LL);
+      (__int64)&v110,
+      v39,
+      *(_QWORD *)(v103 + 32),
+      v99);
+    v100 = D3DKMDT_VPPR_GET_OFFSET_ROTATION(*((_DWORD *)v111 + 5));
+    LOBYTE(v93.cx) = 0;
+    v41 = v100;
+    v93.cy = -2;
+    v42 = 0;
+    VideoOutputTechnology = DmmGetVideoOutputTechnology(
+                              v7,
+                              (unsigned int)v94,
+                              (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)&v93.cy,
+                              0LL);
+    v46 = VideoOutputTechnology;
     if ( VideoOutputTechnology >= 0 )
     {
-      v30 = IsInternalVideoOutput(v66);
-      v63 = v30;
+      v42 = IsInternalVideoOutput((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)v93.cy);
+      LOBYTE(v93.cx) = v42;
     }
     else
     {
-      v32 = VideoOutputTechnology;
-      WdLogSingleEntry3(2LL, v7, *(unsigned int *)&v65[6], VideoOutputTechnology);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to get video output technology from adapter 0x%I64x, target 0x%I64x (status = 0x%I64x)",
-        (__int64)v7,
-        *(unsigned int *)&v65[6],
-        v32,
-        0LL,
-        0LL);
+      v47 = (_QWORD *)WdLogNewEntry5_WdError(v45, v44);
+      v47[3] = v7;
+      v47[4] = (unsigned int)v94;
+      v47[5] = v46;
+      WdLogEvent5_WdError(v47);
     }
-    v82 = v30;
-    v68 = 0LL;
-    v75 = 0;
-    v65[2] = 0;
-    v64 = 0;
-    v100 = 0LL;
+    v107 = v42;
+    v96 = 0LL;
     v101 = 0;
-    v70 = 0;
-    v73 = 0;
-    v33 = ((unsigned __int8)v22 ^ (unsigned __int8)(v22 | (4 * v30))) & 4 ^ v22;
-    MonitorGetDpiInfoFromDescriptor(
-      (__int64)v7,
-      *(unsigned int *)&v65[6],
-      (struct DISPLAY_PREFERRED_MODE_INFO *)&v100,
-      &v70,
-      &v73,
-      &v65[2],
-      &v64);
-    v34 = HIDWORD(v100);
-    v74 = v100;
-    v80 = v100;
-    if ( ((v29 - 2) & 0xFFFFFFFD) == 0 )
+    v48 = (v31 ^ (v31 | (4 * v42))) & 4 ^ v31;
+    EdidBaseBlockPtr = (unsigned __int8 *)MonitorGetEdidBaseBlockPtr(v7, (unsigned int)v94);
+    v123 = EdidBaseBlockPtr;
+    HIBYTE(v93.cx) = 0;
+    v105 = 0LL;
+    v106 = 0;
+    PreferredMode = EDID_V1_GetPreferredMode(EdidBaseBlockPtr, (struct DISPLAY_PREFERRED_MODE_INFO *)&v105);
+    v53 = PreferredMode;
+    if ( PreferredMode >= 0 )
     {
-      v74 = __PAIR64__(v100, HIDWORD(v100));
-      v80 = __PAIR64__(v100, HIDWORD(v100));
-      v34 = v100;
+      HIBYTE(v93.cx) = 1;
     }
-    if ( !v64 )
+    else
     {
-      v35 = HIDWORD(v68);
-      v33 |= 8u;
-      v36 = v68;
-LABEL_32:
-      v65[1] = (*((_BYTE *)v84 + 436) & 0x20) != 0;
-      goto LABEL_33;
+      v54 = (_QWORD *)WdLogNewEntry5_WdError(v52, v51);
+      v54[3] = v7;
+      v54[4] = (unsigned int)v94;
+      v54[5] = v53;
+      WdLogEvent5_WdError(v54);
     }
-    v36 = v70;
-    v35 = v73;
-    v68 = __PAIR64__(v73, v70);
-    if ( ((v29 - 2) & 0xFFFFFFFD) == 0 )
+    v55 = v105;
+    v56 = HIDWORD(v105);
+    v98 = v105;
+    if ( ((v41 - 2) & 0xFFFFFFFD) == 0 )
     {
-      v36 = v73;
-      v68 = __PAIR64__(v70, v73);
-      v35 = v70;
+      v55 = HIDWORD(v105);
+      v98 = __PAIR64__(v105, HIDWORD(v105));
+      v56 = v105;
     }
-    if ( v36 && v35 )
+    if ( !EdidBaseBlockPtr )
     {
-      if ( (int)(v36 * v35) <= 16000 && !v63 )
+      v57 = HIDWORD(v96);
+      v48 |= 8u;
+      cy = v96;
+LABEL_38:
+      BYTE2(v93.cx) = (*((_BYTE *)v7 + 348) & 0x20) != 0;
+      goto LABEL_39;
+    }
+    v93.cy = 0;
+    LODWORD(v95) = 0;
+    if ( (int)EDID_V1_GetPhysicalSize(v52, EdidBaseBlockPtr, &v93.cy, (unsigned int *)&v95) < 0 )
+    {
+      v61 = WdLogNewEntry5_WdAssertion(v60, v59);
+      *(_QWORD *)(v61 + 24) = 849LL;
+      WdLogEvent5_WdAssertion(v61);
+    }
+    cy = v93.cy;
+    v57 = v95;
+    v96 = __PAIR64__(v95, v93.cy);
+    if ( ((v100 - 2) & 0xFFFFFFFD) == 0 )
+    {
+      cy = v95;
+      v96 = __PAIR64__(v93.cy, v95);
+      v57 = v93.cy;
+    }
+    if ( cy && v57 )
+    {
+      if ( (int)(cy * v57) <= 16000 && !LOBYTE(v93.cx) )
       {
-        v33 |= 0x40u;
-        v75 = 1;
-        v35 = 0;
-        v68 = 0LL;
-        v36 = 0;
-        goto LABEL_32;
+        v48 |= 0x40u;
+        v101 = 1;
+        v57 = 0;
+        v96 = 0LL;
+        cy = 0;
+        goto LABEL_38;
       }
     }
     else
     {
-      v35 = 0;
-      v68 = 0LL;
-      v36 = 0;
+      v57 = 0;
+      v96 = 0LL;
+      cy = 0;
     }
-    if ( !v36 )
-      goto LABEL_32;
-LABEL_33:
-    v69 = 0LL;
-    LODWORD(v14) = DpiInternal::GetCurrentSourceResolution(
-                     v91,
-                     v79,
-                     v86,
-                     (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)&v69);
-    if ( (int)v14 < 0 )
-      goto LABEL_88;
-    v78 = 0LL;
-    v65[0] = 0;
-    LODWORD(v14) = DpiInternal::GetCurrentTargetResolution(
-                     v91,
-                     v79,
-                     v86,
-                     (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)&v78,
-                     (struct _D3DKMDT_2DREGION *)v65);
-    if ( (int)v14 < 0 )
-      goto LABEL_88;
-    v37 = HIDWORD(v78);
-    if ( ((v67 - 2) & 0xFFFFFFFD) != 0 )
+    if ( !cy )
+      goto LABEL_38;
+LABEL_39:
+    v62 = v111;
+    v97 = 0LL;
+    LODWORD(v13) = DpiInternal::GetCurrentSourceResolution(
+                     v118,
+                     v104,
+                     v111,
+                     (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)&v97);
+    if ( (int)v13 < 0 )
+      goto LABEL_95;
+    v95 = 0LL;
+    BYTE1(v93.cx) = 0;
+    LODWORD(v13) = DpiInternal::GetCurrentTargetResolution(
+                     v118,
+                     v104,
+                     v62,
+                     (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)&v95,
+                     (struct _D3DKMDT_2DREGION *)((char *)&v93 + 1));
+    if ( (int)v13 < 0 )
+      goto LABEL_95;
+    v63 = HIDWORD(v95);
+    if ( ((v100 - 2) & 0xFFFFFFFD) != 0 )
     {
-      v66 = HIDWORD(v78);
-      v37 = v78;
+      v93.cy = HIDWORD(v95);
+      v63 = v95;
     }
     else
     {
-      v66 = (int)v78;
+      v93.cy = v95;
     }
-    v38 = v69;
-    v67 = v37;
-    if ( (v33 & 1) != 0 && (_DWORD)v74 && v34 )
+    v64 = v97;
+    LODWORD(v95) = v63;
+    if ( (v48 & 1) != 0 && v55 && v56 )
     {
-      v39 = HIDWORD(v69);
-      if ( v65[0] )
-        v39 = HIDWORD(v69) >> 1;
-      if ( (unsigned int)v69 >= 2 * (int)v74 || v39 >= (unsigned int)(2 * HIDWORD(v74)) )
-        v40 = 2;
+      v65 = HIDWORD(v97);
+      if ( BYTE1(v93.cx) )
+        v65 = HIDWORD(v97) >> 1;
+      if ( (unsigned int)v97 >= 2 * v55 || v65 >= 2 * v56 )
+        v66 = 2;
       else
-        v40 = 0;
-      v33 ^= (v33 ^ (v33 | v40)) & 2;
-      if ( v65[0] )
-        v39 *= 2;
+        v66 = 0;
+      v48 ^= ((unsigned __int8)v48 ^ (unsigned __int8)(v48 | v66)) & 2;
+      if ( BYTE1(v93.cx) )
+        v65 *= 2;
     }
     else
     {
-      v39 = HIDWORD(v69);
+      v65 = HIDWORD(v97);
     }
-    memset(v95, 0, sizeof(v95));
-    v41 = v86;
-    DWORD1(v95[5]) = a5;
-    *(_QWORD *)&v95[2] = __PAIR64__(v39, v69);
-    v42 = *((int *)v86 + 3);
-    if ( *((_DWORD *)v86 + 3) != 1 )
+    memset(v122, 0, sizeof(v122));
+    v68 = v111;
+    DWORD1(v122[5]) = a5;
+    *(_QWORD *)&v122[2] = __PAIR64__(v65, v97);
+    v69 = *((unsigned int *)v111 + 3);
+    if ( *((_DWORD *)v111 + 3) != 1 )
     {
-      switch ( *((_DWORD *)v86 + 3) )
+      switch ( *((_DWORD *)v111 + 3) )
       {
         case 2:
-          goto LABEL_78;
+          goto LABEL_84;
         case 3:
           break;
         case 4:
-LABEL_78:
-          if ( (_DWORD)v42 == 4 )
+LABEL_84:
+          v67 = v93.cy;
+          if ( (_DWORD)v69 == 4 )
           {
-            v46 = v67;
-            if ( v36 * v39 <= v35 * (unsigned int)v69 )
+            v79 = v95;
+            if ( cy * v65 <= v57 * (unsigned int)v97 )
             {
-              v38 = v67;
-              v39 = v39 * v67 / (unsigned int)v69;
+              v64 = v95;
+              v65 = v65 * (unsigned int)v95 / (unsigned int)v97;
             }
             else
             {
-              v47 = (int)v69 * v66 / (unsigned int)v39;
-              v39 = v66;
-              v38 = v47;
+              v80 = (int)v97 * v93.cy / v65;
+              v65 = v93.cy;
+              v64 = v80;
             }
           }
           else
           {
-            v46 = v67;
+            v79 = v95;
           }
-          v36 = v36 * v38 / v46;
-          v35 = v35 * v39 / v66;
+          cy = cy * v64 / v79;
+          v57 = v57 * v65 / v93.cy;
           break;
         default:
-          if ( *((_DWORD *)v86 + 3) != 5 )
+          if ( *((_DWORD *)v111 + 3) != 5 )
           {
-            if ( *((_DWORD *)v86 + 3) == 255 )
+            if ( *((_DWORD *)v111 + 3) == 255 )
               break;
-            WdLogSingleEntry1(1LL, v42);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"Invalid scaling %I64d",
-              *((int *)v86 + 3),
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-            v41 = v86;
+            v70 = WdLogNewEntry5_WdAssertion((unsigned int)(*((_DWORD *)v111 + 3) - 5), v69);
+            *(_QWORD *)(v70 + 24) = *((int *)v68 + 3);
+            WdLogEvent5_WdAssertion(v70);
           }
-          v33 |= 0x100u;
+          v48 |= 0x100u;
           break;
       }
     }
-    v43 = (struct tagSIZE)*((unsigned int *)v41 + 5);
-    *((_QWORD *)&v95[1] + 1) = __PAIR64__(v35, v36);
-    if ( (unsigned int)(v43.cx - 5) <= 0xB )
-      v43 = (struct tagSIZE)(unsigned int)((v43.cx - 1) % 4 + 1);
-    v22 = (((v43.cx - 2) & 0xFFFFFFFD) == 0 ? 0x80 : 0) | v33 & 0xFFFFFF7F;
-    *(_DWORD *)&v99[92] = v22;
-    if ( !v65[1] && !v75 && v64 && v65[2] )
+    v71 = (struct tagSIZE)*((unsigned int *)v68 + 5);
+    *((_QWORD *)&v122[1] + 1) = __PAIR64__(v57, cy);
+    if ( (unsigned int)(v71.cx - 5) <= 0xB )
+      v71 = (struct tagSIZE)(unsigned int)((v71.cx - 1) % 4 + 1);
+    v31 = (((v71.cx - 2) & 0xFFFFFFFD) == 0 ? 0x80 : 0) | v48 & 0xFFFFFF7F;
+    *(_DWORD *)&v126[92] = v31;
+    if ( !BYTE2(v93.cx) && !v101 && v123 && HIBYTE(v93.cx) )
     {
-      LODWORD(v60) = (unsigned __int8)v101;
-      v22 = v22 & 0xFFFFFFEF | (16
+      IsAudioAvailableInEdid = DpiInternal::IsAudioAvailableInEdid(v116, (void *)(unsigned int)v94, v67, 4LL);
+      LODWORD(v92) = (unsigned __int8)v106;
+      v31 = v31 & 0xFFFFFFEF | (16
                               * (unsigned __int8)Win81::DetermineViewDistance(
-                                                   v84,
-                                                   &v68,
-                                                   (const struct tagSIZE *)v82,
-                                                   (int)&v80,
-                                                   (const struct tagSIZE *)v60,
-                                                   (unsigned int *)&v95[4]));
-      v44 = v95[4];
-      *(_DWORD *)&v99[92] = v22;
-      if ( !LODWORD(v95[4]) )
+                                                   v116,
+                                                   &v96,
+                                                   (const struct tagSIZE *)v107,
+                                                   (int)&v98,
+                                                   (const struct tagSIZE *)v92,
+                                                   IsAudioAvailableInEdid,
+                                                   (unsigned int *)&v122[4]));
+      v75 = v122[4];
+      *(_DWORD *)&v126[92] = v31;
+      if ( !LODWORD(v122[4]) )
       {
-        WdLogSingleEntry1(1LL, 998LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"CurrentDpiInfo.ViewDistTenthsOfInch != 0",
-          998LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v76 = WdLogNewEntry5_WdAssertion(v74, v73);
+        *(_QWORD *)(v76 + 24) = 1014LL;
+        WdLogEvent5_WdAssertion(v76);
       }
-LABEL_66:
-      v45 = v63;
-      goto LABEL_67;
+LABEL_72:
+      cx = v93.cx;
+      goto LABEL_73;
     }
-    v44 = 0;
-    LODWORD(v95[4]) = 0;
-    if ( !v65[1] )
-      goto LABEL_66;
-    v45 = v63;
-    if ( v63 )
+    v75 = 0;
+    LODWORD(v122[4]) = 0;
+    if ( !BYTE2(v93.cx) )
+      goto LABEL_72;
+    cx = v93.cx;
+    if ( LOBYTE(v93.cx) )
     {
-      Win81::HeuristicallyPickScaleFactorsForInternalEdidlessBdd(*(Win81 **)&v95[2], v43, (__int64)v95, v41);
-      Win81::FillOverridesAndAdjustedScaleFactor((Win81 *)v76, v48, (__int64)v95, v49);
-      v22 |= 0x400u;
-      *(_DWORD *)&v99[92] = v22;
-      goto LABEL_68;
+      Win81::HeuristicallyPickScaleFactorsForInternalEdidlessBdd(
+        *(Win81 **)&v122[2],
+        v71,
+        (__int64)v122,
+        (struct _DPI_INFORMATION *)4);
+      Win81::FillOverridesAndAdjustedScaleFactor((Win81 *)v102, v81, (__int64)v122, v82);
+      v31 |= 0x400u;
+      *(_DWORD *)&v126[92] = v31;
+      goto LABEL_74;
     }
-LABEL_67:
+LABEL_73:
     Win81::FillDpiInfo(
-      (Win81 *)((char *)&v95[1] + 8),
-      (const struct tagSIZE *)&v95[2],
-      (const struct tagSIZE *)v44,
-      v76,
-      (unsigned int)v60,
-      (__int64)v95);
-LABEL_68:
-    if ( HIDWORD(v95[5]) )
+      (Win81 *)((char *)&v122[1] + 8),
+      (const struct tagSIZE *)&v122[2],
+      (const struct tagSIZE *)v75,
+      v102,
+      (unsigned int)v92,
+      (__int64)v122);
+LABEL_74:
+    if ( HIDWORD(v122[5]) )
     {
-      WdLogSingleEntry1(1LL, 1015LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"CurrentDpiInfo.FlagsUnion.AllFlags == 0",
-        1015LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v78 = WdLogNewEntry5_WdAssertion(v29, v27);
+      *(_QWORD *)(v78 + 24) = 1031LL;
+      WdLogEvent5_WdAssertion(v78);
     }
-    HIDWORD(v95[5]) = v22;
-    if ( v45
-      || (v22 & 4) == 0 && (*(_DWORD *)&v99[56] + *(_DWORD *)&v99[60]) / 2 <= (DWORD2(v95[3]) + HIDWORD(v95[3])) / 2 )
+    HIDWORD(v122[5]) = v31;
+    if ( cx
+      || (v31 & 4) == 0
+      && (v28 = 2LL,
+          v27 = (unsigned int)((*(_DWORD *)&v126[56] + *(_DWORD *)&v126[60]) >> 31),
+          LODWORD(v27) = (*(_DWORD *)&v126[56] + *(_DWORD *)&v126[60]) % 2,
+          (*(_DWORD *)&v126[56] + *(_DWORD *)&v126[60]) / 2 <= (DWORD2(v122[3]) + HIDWORD(v122[3])) / 2) )
     {
-      *(_OWORD *)v99 = v95[0];
-      v97 = v95[1];
-      *(_OWORD *)&v99[32] = v95[2];
-      v98 = v95[4];
-      *(_OWORD *)&v99[80] = v95[5];
-      v22 = HIDWORD(v95[5]);
-      *(_OWORD *)&v99[48] = v95[3];
+      *(_OWORD *)v126 = v122[0];
+      v124 = v122[1];
+      *(_OWORD *)&v126[32] = v122[2];
+      v125 = v122[4];
+      *(_OWORD *)&v126[80] = v122[5];
+      v31 = HIDWORD(v122[5]);
+      *(_OWORD *)&v126[48] = v122[3];
     }
-    if ( v85 )
-      v87(v88, v86);
-    v7 = v84;
-    v21 = v72 + 1;
-    v72 = v21;
-    if ( v21 >= v83 )
+    if ( v110 )
+      v112(v113, v68);
+    v7 = v116;
+    v30 = v115 + 1;
+    LODWORD(v6) = v108;
+    v115 = v30;
+    if ( v30 >= v109 )
     {
-      v6 = v96;
-      goto LABEL_93;
+      v13 = (_OWORD *)a6;
+      goto LABEL_101;
     }
   }
-  WdLogSingleEntry3(2LL, v23, *(unsigned int *)&v65[6], v27);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to acquire info of path (0x%I64x, 0x%I64x) (status = 0x%I64x)",
-    v23,
-    *(unsigned int *)&v65[6],
-    v14,
-    0LL,
-    0LL);
-LABEL_88:
-  if ( v85 )
-    v87(v88, v86);
-LABEL_100:
-  if ( v90 )
-    v92(v93, v91);
-  return (unsigned int)v14;
+  v83 = (_QWORD *)WdLogNewEntry5_WdError(v38, v37);
+  v83[3] = (unsigned int)v6;
+  v83[4] = (unsigned int)v94;
+  v83[5] = v13;
+  WdLogEvent5_WdError(v83);
+  v62 = v111;
+LABEL_95:
+  if ( v110 )
+    v112(v113, v62);
+LABEL_108:
+  if ( v117 )
+    v119(v120, v118);
+  return (unsigned int)v13;
 }

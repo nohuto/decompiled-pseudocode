@@ -1,13 +1,13 @@
 /*
- * XREFs of NtInitializeNlsFiles @ 0x14067A420
+ * XREFs of NtInitializeNlsFiles @ 0x14067A400
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwQueryDefaultLocale @ 0x1401B8410 (ZwQueryDefaultLocale.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
- *     ExpGetGlobalLocaleSection @ 0x14067A590 (ExpGetGlobalLocaleSection.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ZwQueryDefaultLocale @ 0x1401B8430 (ZwQueryDefaultLocale.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
+ *     ExpGetGlobalLocaleSection @ 0x14067A570 (ExpGetGlobalLocaleSection.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtInitializeNlsFiles(_QWORD *a1, DWORD *a2, unsigned __int64 a3)

@@ -1,93 +1,89 @@
 /*
- * XREFs of NtUserSetWindowBand @ 0x1C0042840
+ * XREFs of NtUserSetWindowBand @ 0x1C0031DC0
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0028CFC (-ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
- *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C0042728 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
+ *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C00333F4 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C006A8E4 (-ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
  */
 
-__int64 __fastcall NtUserSetWindowBand(__int64 a1, struct tagWND *a2, unsigned int a3)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall NtUserSetWindowBand(__int64 a1, HWND a2, unsigned int a3)
 {
   __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rdi
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  struct tagWND *v15; // rbx
-  int v16; // esi
-  int v17; // ebx
-  __int64 v19; // rcx
-  __int128 v20; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v21; // [rsp+30h] [rbp-20h]
-  __int128 v22; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-8h]
-  struct tagWND *v24; // [rsp+88h] [rbp+38h] BYREF
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  __int64 v9; // rcx
+  struct tagWND *v10; // rbx
+  int v11; // esi
+  int v12; // ebx
+  __int64 v14; // rcx
+  __int128 v15; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-20h]
+  __int128 v17; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-8h]
+  struct tagWND *v19; // [rsp+88h] [rbp+38h] BYREF
 
-  v24 = 0LL;
-  v23 = 0LL;
-  v21 = 0LL;
-  v22 = 0LL;
-  v20 = 0LL;
+  v19 = 0LL;
+  v18 = 0LL;
+  v16 = 0LL;
+  v17 = 0LL;
+  v15 = 0LL;
   EnterCrit(0LL, 1LL);
+  gbValidateHandleForIL = 0;
   v6 = ValidateHwnd(a1);
-  v11 = v6;
-  if ( !v6 || (v8 = *(_QWORD *)(v6 + 40), v7 = (*(_WORD *)(v8 + 42) & 0x2FFFu) - 669, (v7 & 0xFFFFFFFD) == 0) )
+  v8 = v6;
+  if ( !v6 || (v7 = *(_QWORD *)(v6 + 40), (((*(_WORD *)(v7 + 42) & 0x2FFF) - 669) & 0xFFFFFFFD) == 0) )
   {
-    v17 = 0;
+    v12 = 0;
     goto LABEL_11;
   }
-  *(_QWORD *)&v20 = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = &v20;
-  *((_QWORD *)&v20 + 1) = v6;
+  *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = &v15;
+  *((_QWORD *)&v15 + 1) = v6;
   HMLockObject(v6);
-  if ( (unsigned int)ValidateHWNDIA(a2, &v24) )
+  if ( (unsigned int)ValidateHWNDIA(a2, &v19) )
   {
-    if ( GetProp(v11, LOWORD(WPP_MAIN_CB.DeviceLock.Header.SignalState), 1LL) )
+    if ( GetProp(v8, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL) )
     {
-      v19 = 5LL;
+      v14 = 5LL;
     }
     else
     {
-      v15 = v24;
-      if ( (unsigned __int64)v24 < 0xFFFFFFFFFFFFFFFEuLL || a3 == 1 )
+      v10 = v19;
+      if ( (unsigned __int64)v19 < 0xFFFFFFFFFFFFFFFEuLL || a3 == 1 )
       {
-        if ( (unsigned __int64)v24 - 2 <= 0xFFFFFFFFFFFFFFFBuLL )
+        if ( (unsigned __int64)v19 - 2 > 0xFFFFFFFFFFFFFFFBuLL )
         {
-          v16 = 1;
-          *(_QWORD *)&v22 = *(_QWORD *)(gptiCurrent + 416LL);
-          *(_QWORD *)(gptiCurrent + 416LL) = &v22;
-          *((_QWORD *)&v22 + 1) = v15;
-          if ( v15 )
-            HMLockObject(v15);
+          v11 = 0;
         }
         else
         {
-          v16 = 0;
+          v11 = 1;
+          *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
+          *(_QWORD *)(gptiCurrent + 416LL) = &v17;
+          *((_QWORD *)&v17 + 1) = v10;
+          HMLockObject(v10);
         }
-        v17 = xxxSetWindowBand(v11, v15, a3, 1);
-        if ( v16 )
-          ThreadUnlock1(v13, v12, v14);
+        v12 = xxxSetWindowBand(v8, v10, a3, 1LL);
+        if ( v11 )
+          ThreadUnlock1(v9);
         goto LABEL_10;
       }
-      v19 = 87LL;
+      v14 = 87LL;
     }
-    v17 = 0;
-    UserSetLastError(v19);
+    v12 = 0;
+    UserSetLastError(v14);
   }
   else
   {
-    v17 = 0;
+    v12 = 0;
   }
 LABEL_10:
-  ThreadUnlock1(v13, v12, v14);
+  ThreadUnlock1(v9);
 LABEL_11:
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
-  return v17;
+  UserSessionSwitchLeaveCrit(v7);
+  return v12;
 }

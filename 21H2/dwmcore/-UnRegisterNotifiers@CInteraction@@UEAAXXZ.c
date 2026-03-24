@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UnRegisterNotifiers@CInteraction@@UEAAXXZ @ 0x1801F3150
+ * XREFs of ?UnRegisterNotifiers@CInteraction@@UEAAXXZ @ 0x1801C7310
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CInteraction::UnRegisterNotifiers(CInteraction *this)
 {
-  ReleaseInterface<CWeakReference<CResource>>((__int64 *)this + 14);
+  ReleaseInterface<CHwLightCollectionBuffer>((__int64 *)this + 12);
 }

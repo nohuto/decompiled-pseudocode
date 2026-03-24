@@ -1,5 +1,5 @@
 /*
- * XREFs of DrvGetLogPixels @ 0x1C00C5DD0
+ * XREFs of DrvGetLogPixels @ 0x1C00B83D0
  * Callers:
  *     <none>
  * Callees:

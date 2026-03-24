@@ -1,7 +1,7 @@
 /*
- * XREFs of HvipApertureVmfuncSwitchEptp @ 0x1401C6FC0
+ * XREFs of HvipApertureVmfuncSwitchEptp @ 0x1401C6FE0
  * Callers:
- *     HviCopyMemory @ 0x1402FC604 (HviCopyMemory.c)
+ *     HviCopyMemory @ 0x1402FC704 (HviCopyMemory.c)
  * Callees:
  *     <none>
  */

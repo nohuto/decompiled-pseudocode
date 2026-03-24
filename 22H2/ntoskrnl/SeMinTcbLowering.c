@@ -1,16 +1,12 @@
 /*
- * XREFs of SeMinTcbLowering @ 0x140B97C00
+ * XREFs of SeMinTcbLowering @ 0x140A740BC
  * Callers:
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
  *     <none>
  */
 
-__int64 SeMinTcbLowering()
+_BOOL8 SeMinTcbLowering()
 {
-  if ( (SeCiDebugOptions & 4) != 0 )
-    return 1LL;
-  if ( KdpBootedNodebug )
-    return 0LL;
-  return ((unsigned int)SeCiDebugOptions >> 1) & 1;
+  return (SeCiDebugOptions & 4) != 0 || !KdpBootedNodebug && (SeCiDebugOptions & 2) != 0;
 }

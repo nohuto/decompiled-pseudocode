@@ -1,9 +1,9 @@
 /*
- * XREFs of KeComputeSha256 @ 0x140190C10
+ * XREFs of KeComputeSha256 @ 0x140190C30
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptSha256 @ 0x1401AF2F8 (SymCryptSha256.c)
+ *     SymCryptSha256 @ 0x1401AF318 (SymCryptSha256.c)
  */
 
 __int64 __fastcall KeComputeSha256(__int64 a1, __int64 a2, __int64 a3)

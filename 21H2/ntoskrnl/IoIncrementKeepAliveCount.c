@@ -1,15 +1,15 @@
 /*
- * XREFs of IoIncrementKeepAliveCount @ 0x1405587A0
+ * XREFs of IoIncrementKeepAliveCount @ 0x140507010
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x140558AE0 (IopAdjustFileObjectKeepAliveCount.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AD954 (PspAdjustKeepAliveCountProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x140507358 (IopAdjustFileObjectKeepAliveCount.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140907BD0 (PspAdjustKeepAliveCountProcess.c)
  */
 
 __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
@@ -35,27 +35,27 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
   {
     if ( KeGetCurrentIrql() == 2 )
     {
-      v6 = KeAcquireSpinLockRaiseToDpc(&qword_140C47230);
+      v6 = KeAcquireSpinLockRaiseToDpc(&qword_140C45F70);
       v7 = (_BYTE *)v17;
       v8 = v6;
       ++*(_DWORD *)(v17 + 32);
       if ( !v7[16] )
       {
-        v9 = qword_140C47220;
-        if ( *((PVOID **)qword_140C47220 + 1) != &qword_140C47220 )
+        v9 = qword_140C45F60;
+        if ( *((PVOID **)qword_140C45F60 + 1) != &qword_140C45F60 )
           __fastfail(3u);
-        *(_QWORD *)v7 = qword_140C47220;
-        *((_QWORD *)v7 + 1) = &qword_140C47220;
+        *(_QWORD *)v7 = qword_140C45F60;
+        *((_QWORD *)v7 + 1) = &qword_140C45F60;
         v9[1] = v7;
-        qword_140C47220 = v7;
+        qword_140C45F60 = v7;
         v7[16] = 1;
-        if ( !byte_140C47258 )
+        if ( !byte_140C45F98 )
         {
-          byte_140C47258 = 1;
+          byte_140C45F98 = 1;
           ExQueueWorkItem(&IopKeepAliveTracker, DelayedWorkQueue);
         }
       }
-      KxReleaseSpinLock(&qword_140C47230);
+      KxReleaseSpinLock(&qword_140C45F70);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )

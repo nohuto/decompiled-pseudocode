@@ -1,44 +1,42 @@
 /*
- * XREFs of ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x18027538C
+ * XREFs of ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180213C60
  * Callers:
- *     ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x180234C14 (-SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x180234DC8 (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
- *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1802351F8 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
- *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x180274CC8 (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
- *     ?OnManipulationChanged@InteractionSourceManager@@QEAAXW4Flags@NotificationEventArgs@@PEAVCManipulation@@@Z @ 0x180274F34 (-OnManipulationChanged@InteractionSourceManager@@QEAAXW4Flags@NotificationEventArgs@@PEAVCManipu.c)
- *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x18027506C (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
+ *     ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CBC98 (-SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CBE58 (-SetMinPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1801CC338 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
+ *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x18021352C (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ *     ?OnManipulationChanged@InteractionSourceManager@@QEAAXW4Flags@NotificationEventArgs@@PEAVCManipulation@@@Z @ 0x1802137E4 (-OnManipulationChanged@InteractionSourceManager@@QEAAXW4Flags@NotificationEventArgs@@PEAVCManipu.c)
+ *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x180213940 (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
  * Callees:
- *     _lambda_f87cc9cbc192fb07b4c8cbee31a42eb9_::operator() @ 0x1802764B0 (_lambda_f87cc9cbc192fb07b4c8cbee31a42eb9_--operator().c)
- *     ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x1802766E0 (-UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ.c)
+ *     CChainingHelper::RunForAllAxes__lambda_f87cc9cbc192fb07b4c8cbee31a42eb9___ @ 0x180214E28 (CChainingHelper--RunForAllAxes__lambda_f87cc9cbc192fb07b4c8cbee31a42eb9___.c)
+ *     ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x180215130 (-UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ.c)
  */
 
 void __fastcall InteractionSourceManager::ReconfigureAllManipulations(InteractionSourceManager *this)
 {
   _QWORD *v1; // rsi
   _QWORD *i; // rbx
-  int v4; // edi
-  CChainingHelper *v5; // r14
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  _QWORD v8[7]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v4; // rax
+  CChainingHelper *v5; // rdi
+  __int64 v6; // rdx
+  __int64 *v7; // [rsp+20h] [rbp-38h] BYREF
+  CChainingHelper *v8; // [rsp+28h] [rbp-30h]
+  __int64 *v9; // [rsp+30h] [rbp-28h]
+  __int64 v10; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = (_QWORD *)*((_QWORD *)this + 3);
   for ( i = (_QWORD *)*v1; i != v1; i = (_QWORD *)*i )
   {
-    v4 = 0;
-    v5 = (CChainingHelper *)i[3];
-    v10 = i[2];
-    v6 = *((_QWORD *)this + 1);
-    v8[1] = v5;
-    v7 = *(_QWORD *)(v6 + 16);
-    v8[0] = &v9;
-    v8[2] = &v10;
-    v9 = v7;
-    do
-      lambda_f87cc9cbc192fb07b4c8cbee31a42eb9_::operator()(v8, (unsigned int)v4++);
-    while ( v4 < 3 );
+    v4 = *((_QWORD *)this + 1);
+    v8 = (CChainingHelper *)i[3];
+    v5 = v8;
+    v6 = *(_QWORD *)(v4 + 16);
+    v11 = i[2];
+    v7 = &v10;
+    v10 = v6;
+    v9 = &v11;
+    CChainingHelper::RunForAllAxes__lambda_f87cc9cbc192fb07b4c8cbee31a42eb9___(this, &v7);
     CChainingHelper::UpdateConfigurationIfDirty(v5);
   }
 }

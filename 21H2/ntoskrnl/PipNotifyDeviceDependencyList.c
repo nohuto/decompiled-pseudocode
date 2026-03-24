@@ -1,58 +1,58 @@
 /*
- * XREFs of PipNotifyDeviceDependencyList @ 0x14076BB84
+ * XREFs of PipNotifyDeviceDependencyList @ 0x14074B4FC
  * Callers:
- *     PnpNewDeviceNodeDependencyCheck @ 0x14076BB10 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14074B494 (PnpNewDeviceNodeDependencyCheck.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PiListEntryToDependencyEdge @ 0x14055F84C (PiListEntryToDependencyEdge.c)
- *     PiGetDependentList @ 0x14076BBF4 (PiGetDependentList.c)
- *     PiGetProviderList @ 0x140775110 (PiGetProviderList.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipNotifyDependenciesChanged @ 0x140942D5C (PipNotifyDependenciesChanged.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C4F8 (PiListEntryToDependencyEdge.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x140741958 (PiGetProviderList.c)
+ *     PiGetDependentList @ 0x14074B374 (PiGetDependentList.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DF6C (PipNotifyDependenciesChanged.c)
  */
 
-__int64 __fastcall PipNotifyDeviceDependencyList(__int64 a1, int a2)
+void __fastcall PipNotifyDeviceDependencyList(__int64 a1, int a2)
 {
   __int64 v2; // rbx
-  _QWORD **DependentList; // rax
-  _QWORD *v5; // rbx
-  _QWORD *v6; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
+  __int64 *DependentList; // rax
+  __int64 *v5; // rbx
+  __int64 *v6; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
 
   v2 = *(_QWORD *)(a1 + 32);
-  PnpAcquireDependencyRelationsLock(0LL);
+  PnpAcquireDependencyRelationsLock(0);
   if ( a2 )
   {
     if ( a2 != 1 )
       goto LABEL_5;
-    DependentList = (_QWORD **)PiGetDependentList(v2);
+    DependentList = PiGetDependentList(v2);
   }
   else
   {
-    DependentList = (_QWORD **)PiGetProviderList(v2);
+    DependentList = PiGetProviderList(v2);
   }
-  v5 = *DependentList;
+  v5 = (__int64 *)*DependentList;
   v6 = DependentList;
   while ( v5 != v6 )
   {
-    v8 = PiListEntryToDependencyEdge((__int64)v5, a2);
-    v5 = (_QWORD *)*v5;
+    v7 = PiListEntryToDependencyEdge((__int64)v5, a2);
+    v5 = (__int64 *)*v5;
     if ( a2 )
     {
-      v10 = *(_QWORD *)(v8 + 40);
-      v9 = 0LL;
+      v9 = *(_QWORD *)(v7 + 40);
+      v8 = 0LL;
     }
     else
     {
-      v9 = *(_QWORD *)(v8 + 32);
-      v10 = 0LL;
+      v8 = *(_QWORD *)(v7 + 32);
+      v9 = 0LL;
     }
-    PipNotifyDependenciesChanged(v10, v9);
+    PipNotifyDependenciesChanged(v9, v8);
   }
 LABEL_5:
   ExReleaseResourceLite(&PiDependencyRelationsLock);
-  return PpDevNodeUnlockTree(0LL);
+  PpDevNodeUnlockTree(0);
 }

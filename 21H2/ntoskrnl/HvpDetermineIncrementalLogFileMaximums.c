@@ -1,56 +1,42 @@
 /*
- * XREFs of HvpDetermineIncrementalLogFileMaximums @ 0x140925070
+ * XREFs of HvpDetermineIncrementalLogFileMaximums @ 0x140881778
  * Callers:
- *     HvAnalyzeLogFiles @ 0x1409246D8 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140880C2C (HvAnalyzeLogFiles.c)
  * Callees:
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140925338 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x140881868 (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpReadLogEntryHeader @ 0x140881D9C (HvpReadLogEntryHeader.c)
  */
 
-__int64 __fastcall HvpDetermineIncrementalLogFileMaximums(__int64 a1, int a2, _DWORD *a3, unsigned int *a4, _DWORD *a5)
+__int64 __fastcall HvpDetermineIncrementalLogFileMaximums(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
-  __int64 v5; // rax
-  int v6; // edi
-  int v7; // ebp
-  int v8; // r14d
-  unsigned int v11; // ebx
-  unsigned int v12; // esi
+  unsigned int v8; // ebx
   __int64 result; // rax
-  _DWORD *v14; // rax
-  _DWORD v15[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-40h]
-  __int64 v17; // [rsp+30h] [rbp-38h]
-  __int64 v18; // [rsp+70h] [rbp+8h] BYREF
+  __int128 v10; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v11; // [rsp+30h] [rbp-48h]
+  __int64 v12; // [rsp+40h] [rbp-38h]
 
-  v5 = *(_QWORD *)(a1 + 8);
-  v6 = 0;
-  v18 = 0LL;
-  v7 = 0;
-  v16 = v5;
-  v8 = 0;
-  v17 = *(_QWORD *)(a1 + 16);
-  v15[0] = 512;
-  v11 = 0;
-  v15[1] = a2;
-  while ( 1 )
+  *a3 = 0;
+  *a4 = 0;
+  v12 = 0LL;
+  v8 = 512;
+  v10 = 0LL;
+  v11 = 0LL;
+  do
   {
-    v12 = v11;
-    result = HvpIncrementalLogFileEnumeratorAdvance(v15, &v18);
-    if ( (_DWORD)result == -2147483622 )
+    result = HvpReadLogEntryHeader(v8, a1, a2, &v10);
+    if ( (_DWORD)result == -1073741807 )
       break;
     if ( (int)result < 0 )
       return result;
-    ++v6;
-    v8 = v15[0];
-    v11 = *(_DWORD *)(v18 + 16);
-    v7 = *(_DWORD *)(v18 + 12);
-    if ( v11 <= v12 )
-      v11 = v12;
+    if ( !(unsigned __int8)HvpIsLogEntryHeaderCoherent(&v10, v8, 0LL) )
+      break;
+    if ( (unsigned int)v11 > *a4 )
+      *a4 = v11;
+    if ( HIDWORD(v10) > *a3 )
+      *a3 = HIDWORD(v10);
+    v8 += DWORD1(v10);
   }
-  if ( !v6 )
-    return 2147483682LL;
-  v14 = a5;
-  *a4 = v11;
-  *a3 = v7;
-  *v14 = v8;
+  while ( v8 + 40 >= v8 );
   return 0LL;
 }

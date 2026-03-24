@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer @ 0x18012E656
+ * XREFs of McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer @ 0x1801527C8
  * Callers:
- *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180050DFC (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180071D98 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer(
+ULONG __fastcall McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -24,7 +24,7 @@ __int64 __fastcall McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer(
         char a14,
         char a15)
 {
-  _BYTE v16[16]; // [rsp+30h] [rbp-D0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+30h] [rbp-D0h] BYREF
   int *v17; // [rsp+40h] [rbp-C0h]
   __int64 v18; // [rsp+48h] [rbp-B8h]
   int *v19; // [rsp+50h] [rbp-B0h]
@@ -83,9 +83,9 @@ __int64 __fastcall McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer(
   v40 = 4LL;
   v42 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &ENDFRAME_DRAWLIST_BATCH_STATS,
            a3,
-           14LL,
-           v16);
+           0xEu,
+           &v16);
 }

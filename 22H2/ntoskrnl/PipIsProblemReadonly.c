@@ -1,159 +1,54 @@
 /*
- * XREFs of PipIsProblemReadonly @ 0x140959974
+ * XREFs of PipIsProblemReadonly @ 0x140731C84
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B6A4C (PnpRemoveLockedDeviceNode.c)
- *     PiProcessClearDeviceProblem @ 0x140959420 (PiProcessClearDeviceProblem.c)
- *     PiProcessSetDeviceProblem @ 0x1409596E8 (PiProcessSetDeviceProblem.c)
- *     PiProcessQueryRemoveNoFdo @ 0x140971A78 (PiProcessQueryRemoveNoFdo.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140370078 (PnpRemoveLockedDeviceNode.c)
+ *     PiProcessSetDeviceProblem @ 0x1407318D4 (PiProcessSetDeviceProblem.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x140731A14 (PiProcessQueryRemoveNoFdo.c)
+ *     PiProcessClearDeviceProblem @ 0x140731AB8 (PiProcessClearDeviceProblem.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall PipIsProblemReadonly(__int64 a1, unsigned int a2)
+__int64 __fastcall PipIsProblemReadonly(__int64 a1, int a2)
 {
-  unsigned int v2; // edx
-  unsigned int v4; // edx
-  unsigned int v5; // edx
-  unsigned int v6; // edx
-  unsigned int v7; // edx
-  unsigned int v8; // edx
-  unsigned int v9; // edx
-  unsigned int v10; // edx
-  unsigned int v11; // edx
-  unsigned int v12; // edx
-  unsigned int v13; // edx
-  unsigned int v14; // edx
-  unsigned int v15; // edx
-  unsigned int v16; // edx
-  unsigned int v17; // edx
-  bool v18; // zf
-  unsigned int v19; // edx
-  unsigned int v20; // edx
-  unsigned int v21; // edx
-  unsigned int v22; // edx
+  __int64 result; // rax
 
-  if ( a2 > 0x1D )
+  switch ( a2 )
   {
-    if ( a2 > 0x2C )
-    {
-      if ( a2 <= 0x33 )
-      {
-        if ( a2 == 51 )
-          return 0LL;
-        v15 = a2 - 45;
-        if ( !v15 )
-          return 1LL;
-        v16 = v15 - 1;
-        if ( !v16 )
-          return 1LL;
-        v17 = v16 - 1;
-        if ( !v17 )
-          return 1LL;
-        v18 = v17 == 1;
-        return !v18;
-      }
-      v19 = a2 - 52;
-      if ( !v19 )
-        return 0LL;
-      v20 = v19 - 1;
-      if ( !v20 )
-        return 0LL;
-      v21 = v20 - 1;
-      if ( !v21 )
-        return 1LL;
-      v22 = v21 - 1;
-      if ( !v22 )
-        return 1LL;
-      v8 = v22 - 1;
-      if ( v8 )
-      {
-LABEL_48:
-        v18 = v8 == 1;
-        return !v18;
-      }
-      return 0LL;
-    }
-    if ( a2 == 44 )
-      return 0LL;
-    if ( a2 <= 0x25 )
-    {
-      if ( a2 == 37 )
-        return 0LL;
-      v13 = a2 - 30;
-      if ( v13 )
-      {
-        if ( v13 - 1 < 2 )
-          return 0LL;
-      }
-      return 1LL;
-    }
-    v14 = a2 - 38;
-    if ( !v14 )
-      return 0LL;
-    v10 = v14 - 1;
-    if ( !v10 )
-      return 0LL;
-LABEL_21:
-    v11 = v10 - 1;
-    if ( !v11 )
-      return 0LL;
-    v7 = v11 - 1;
-    if ( !v7 )
-      return 0LL;
-    goto LABEL_15;
+    case 1:
+    case 10:
+    case 14:
+    case 18:
+    case 19:
+    case 21:
+    case 22:
+    case 28:
+    case 31:
+    case 32:
+    case 37:
+    case 38:
+    case 39:
+    case 40:
+    case 41:
+    case 43:
+    case 44:
+    case 48:
+    case 51:
+    case 52:
+    case 53:
+    case 56:
+    case 57:
+      goto LABEL_2;
+    case 3:
+      if ( (*(_DWORD *)(a1 + 396) & 0x20000) != 0 )
+        goto LABEL_3;
+LABEL_2:
+      result = 0LL;
+      break;
+    default:
+LABEL_3:
+      result = 1LL;
+      break;
   }
-  if ( a2 == 29 )
-    return 1LL;
-  if ( a2 > 0xF )
-  {
-    if ( a2 > 0x16 )
-    {
-      v12 = a2 - 23;
-      if ( !v12 )
-        return 1LL;
-      v5 = v12 - 1;
-      if ( !v5 )
-        return 1LL;
-LABEL_13:
-      v6 = v5 - 1;
-      if ( !v6 )
-        return 1LL;
-      v7 = v6 - 1;
-      if ( !v7 )
-        return 1LL;
-LABEL_15:
-      v8 = v7 - 1;
-      if ( !v8 )
-        return 1LL;
-      goto LABEL_48;
-    }
-    if ( a2 == 22 )
-      return 0LL;
-    v9 = a2 - 16;
-    if ( !v9 )
-      return 1LL;
-    v10 = v9 - 1;
-    if ( !v10 )
-      return 1LL;
-    goto LABEL_21;
-  }
-  if ( a2 == 15 )
-    return 1LL;
-  if ( a2 > 8 )
-  {
-    v4 = a2 - 9;
-    if ( !v4 )
-      return 1LL;
-    v5 = v4 - 1;
-    if ( v5 )
-      goto LABEL_13;
-    return 0LL;
-  }
-  if ( a2 != 8 )
-  {
-    v2 = a2 - 1;
-    if ( !v2 || v2 == 2 && (*(_DWORD *)(a1 + 396) & 0x20000) == 0 )
-      return 0LL;
-  }
-  return 1LL;
+  return result;
 }

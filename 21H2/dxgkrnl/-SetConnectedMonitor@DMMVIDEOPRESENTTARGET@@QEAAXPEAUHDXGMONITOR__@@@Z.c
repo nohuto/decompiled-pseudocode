@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z @ 0x1C0029D98
+ * XREFs of ?SetConnectedMonitor@DMMVIDEOPRESENTTARGET@@QEAAXPEAUHDXGMONITOR__@@@Z @ 0x1C002406C
  * Callers:
- *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C0067D34 (--1VIDPN_MGR@@UEAA@XZ.c)
- *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C0216DB4 (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
+ *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C005B0D0 (--1VIDPN_MGR@@UEAA@XZ.c)
+ *     ?OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z @ 0x1C019C068 (-OnMonitorConnectionChanged@VIDPN_MGR@@QEAAJI_KW4MONITOR_EVENT@@@Z.c)
  * Callees:
- *     MonitorGetLinkInfoFromMonitor @ 0x1C021726C (MonitorGetLinkInfoFromMonitor.c)
- *     MonitorIsPhysicalMonitor @ 0x1C02172D0 (MonitorIsPhysicalMonitor.c)
+ *     MonitorGetLinkInfoFromMonitor @ 0x1C019C3EC (MonitorGetLinkInfoFromMonitor.c)
+ *     MonitorIsPhysicalMonitor @ 0x1C019C4A4 (MonitorIsPhysicalMonitor.c)
  */
 
 void __fastcall DMMVIDEOPRESENTTARGET::SetConnectedMonitor(DMMVIDEOPRESENTTARGET *this, struct HDXGMONITOR__ *a2)

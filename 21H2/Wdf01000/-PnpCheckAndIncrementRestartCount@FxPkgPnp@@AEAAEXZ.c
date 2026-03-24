@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C008DE0C
+ * XREFs of ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C008B160
  * Callers:
- *     ?PnpEventFailedPowerPolicyRemoved@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0083E10 (-PnpEventFailedPowerPolicyRemoved@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
- *     ?SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z @ 0x1C0088A74 (-SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?PnpEventFailedPowerPolicyRemoved@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A500 (-PnpEventFailedPowerPolicyRemoved@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z @ 0x1C00828E8 (-SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z.c)
  * Callees:
- *     ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C0015054 (-OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     ?PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z @ 0x1C0084C2C (-PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z.c)
+ *     ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C000EADC (-OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     ?PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z @ 0x1C007B504 (-PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z.c)
  */
 
 bool __fastcall FxPkgPnp::PnpCheckAndIncrementRestartCount(FxPkgPnp *this)

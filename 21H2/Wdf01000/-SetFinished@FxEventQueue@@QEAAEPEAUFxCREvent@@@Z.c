@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z @ 0x1C0030530
+ * XREFs of ?SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z @ 0x1C008AF64
  * Callers:
- *     ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C0030434 (-CleanupStateMachines@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C007FBA8 (-CleanupStateMachines@FxPkgPnp@@QEAAXE@Z.c)
  * Callees:
  *     <none>
  */

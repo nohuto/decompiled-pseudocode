@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSynchronousSuperWetInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021E420
+ * XREFs of ?SetIntegerProperty@CSynchronousSuperWetInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD810
  * Callers:
  *     <none>
  * Callees:
@@ -10,18 +10,15 @@ __int64 __fastcall DirectComposition::CSynchronousSuperWetInkMarshaler::SetInteg
         DirectComposition::CSynchronousSuperWetInkMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        int a4,
+        __int64 a4,
         bool *a5)
 {
-  unsigned int v5; // edx
+  unsigned int v5; // r10d
   int v6; // r8d
   int v7; // r8d
   int v8; // r8d
   int v9; // r8d
   int v10; // r8d
-  int v11; // r8d
-  int v12; // r8d
-  int v13; // r8d
 
   v5 = 0;
   v6 = a3 - 2;
@@ -39,45 +36,12 @@ __int64 __fastcall DirectComposition::CSynchronousSuperWetInkMarshaler::SetInteg
           v10 = v9 - 1;
           if ( v10 )
           {
-            v11 = v10 - 1;
-            if ( v11 )
-            {
-              v12 = v11 - 1;
-              if ( v12 )
-              {
-                v13 = v12 - 1;
-                if ( v13 )
-                {
-                  if ( v13 != 1 )
-                    return (unsigned int)-1073741811;
-                  if ( *((_DWORD *)this + 29) == a4 )
-                    return v5;
-                  *((_DWORD *)this + 4) |= 0x10000u;
-                  *((_DWORD *)this + 29) = a4;
-                }
-                else
-                {
-                  if ( *((_DWORD *)this + 28) == a4 )
-                    return v5;
-                  *((_DWORD *)this + 4) |= 0x8000u;
-                  *((_DWORD *)this + 28) = a4;
-                }
-              }
-              else
-              {
-                if ( *((_BYTE *)this + 108) == (a4 != 0) )
-                  return v5;
-                *((_DWORD *)this + 4) |= 0x4000u;
-                *((_BYTE *)this + 108) = a4 != 0;
-              }
-            }
-            else
-            {
-              if ( *((_DWORD *)this + 26) == a4 )
-                return v5;
-              *((_DWORD *)this + 4) |= 0x2000u;
-              *((_DWORD *)this + 26) = a4;
-            }
+            if ( v10 != 1 )
+              return (unsigned int)-1073741811;
+            if ( *((_DWORD *)this + 26) == a4 )
+              return v5;
+            *((_DWORD *)this + 4) |= 0x2000u;
+            *((_DWORD *)this + 26) = a4;
           }
           else
           {

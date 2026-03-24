@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreePoolPagesLeft @ 0x1400EF544
+ * XREFs of MiFreePoolPagesLeft @ 0x1400EF564
  * Callers:
- *     MmRaisePoolQuota @ 0x140130B70 (MmRaisePoolQuota.c)
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     MmRaisePoolQuota @ 0x140130B90 (MmRaisePoolQuota.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  *     MiInitializePagedPoolEvents @ 0x1409BD640 (MiInitializePagedPoolEvents.c)
  * Callees:
  *     <none>

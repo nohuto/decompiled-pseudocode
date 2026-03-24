@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C0097D4C
+ * XREFs of ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C00B61A0
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0080340 (ACPIBusIrpQueryId.c)
- *     ACPIFilterIrpQueryIdCompletion @ 0x1C0085F50 (ACPIFilterIrpQueryIdCompletion.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AF8D0 (ACPIFilterIrpQueryIdCompletion.c)
  * Callees:
- *     ACPIComputeDeviceIdMutiStringLength @ 0x1C0043938 (ACPIComputeDeviceIdMutiStringLength.c)
+ *     ACPIComputeDeviceIdMutiStringLength @ 0x1C0060914 (ACPIComputeDeviceIdMutiStringLength.c)
  */
 
 __int64 __fastcall ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule(int a1, _WORD *a2)

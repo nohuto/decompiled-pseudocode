@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_SETFLAGS@@@Z @ 0x1802A7E3C
+ * XREFs of ?ProcessSetFlags@CHolographicDisplay@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICDISPLAY_SETFLAGS@@@Z @ 0x18025645C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6CB4 (-RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
- *     ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6D74 (-AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
- *     ?OnChanged@CHolographicDisplay@@AEAAXXZ @ 0x1802A7D08 (-OnChanged@CHolographicDisplay@@AEAAXXZ.c)
+ *     ?RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800DE4C0 (-RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800DFCAC (-AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     ?OnChanged@CHolographicDisplay@@AEAAXXZ @ 0x180256338 (-OnChanged@CHolographicDisplay@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CHolographicDisplay::ProcessSetFlags(
@@ -13,37 +13,35 @@ __int64 __fastcall CHolographicDisplay::ProcessSetFlags(
         struct CResourceTable *a2,
         const struct tagMILCMD_HOLOGRAPHICDISPLAY_SETFLAGS *a3)
 {
-  RTL_SRWLOCK *v3; // rbx
-  int v6; // r8d
-  bool v7; // dl
-  int v8; // r8d
+  int v5; // r8d
+  bool v6; // dl
+  int v7; // r8d
   PVOID Ptr; // rcx
-  struct CRenderTarget *v10; // rdx
-  CRenderTargetManager *v11; // rcx
+  struct CRenderTarget *v9; // rdx
+  CRenderTargetManager *v10; // rcx
 
-  v3 = this + 16;
-  AcquireSRWLockExclusive(this + 16);
-  v6 = *((_DWORD *)a3 + 2);
-  v7 = (HIDWORD(this[14].Ptr) & 0x40) != 0;
-  HIDWORD(this[14].Ptr) = v6;
-  v8 = v6 & 0x40;
-  if ( v7 != (v8 != 0) )
+  AcquireSRWLockExclusive(this + 15);
+  v5 = *((_DWORD *)a3 + 2);
+  v6 = (HIDWORD(this[13].Ptr) & 0x40) != 0;
+  HIDWORD(this[13].Ptr) = v5;
+  v7 = v5 & 0x40;
+  if ( v6 != (v7 != 0) )
   {
-    Ptr = this[10].Ptr;
+    Ptr = this[9].Ptr;
     if ( Ptr )
     {
-      v10 = (struct CRenderTarget *)*((_QWORD *)Ptr + 4);
-      if ( v10 )
+      v9 = (struct CRenderTarget *)*((_QWORD *)Ptr + 4);
+      if ( v9 )
       {
-        v11 = *(CRenderTargetManager **)(*((_QWORD *)Ptr + 3) + 216LL);
-        if ( v8 )
-          CRenderTargetManager::RemoveRenderTarget(v11, v10);
+        v10 = *(CRenderTargetManager **)(*((_QWORD *)Ptr + 3) + 88LL);
+        if ( v7 )
+          CRenderTargetManager::RemoveRenderTarget(v10, v9);
         else
-          CRenderTargetManager::AddRenderTarget(v11, v10);
+          CRenderTargetManager::AddRenderTarget(v10, v9);
       }
     }
   }
-  ReleaseSRWLockExclusive(v3);
+  ReleaseSRWLockExclusive(this + 15);
   CHolographicDisplay::OnChanged((CHolographicDisplay *)this);
   return 0LL;
 }

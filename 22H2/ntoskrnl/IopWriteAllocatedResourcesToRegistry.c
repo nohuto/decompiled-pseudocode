@@ -1,19 +1,19 @@
 /*
- * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x1408186D4
+ * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x14074EE3C
  * Callers:
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
- *     PnpBuildCmResourceLists @ 0x1408185D4 (PnpBuildCmResourceLists.c)
- *     PnpReleaseResourcesInternal @ 0x140818910 (PnpReleaseResourcesInternal.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     PnpRestoreResourcesInternal @ 0x14096D7E4 (PnpRestoreResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x14074ED3C (PnpBuildCmResourceLists.c)
+ *     PnpReleaseResourcesInternal @ 0x140750784 (PnpReleaseResourcesInternal.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     PnpRestoreResourcesInternal @ 0x1408B3398 (PnpRestoreResourcesInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, ULONG a3)
@@ -42,6 +42,6 @@ __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, UL
     ZwClose(KeyHandle);
   }
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v7;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcCreatePortSection @ 0x1401B90B0
+ * XREFs of ZwAlpcCreatePortSection @ 0x1401B90D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,44 +1,45 @@
 /*
- * XREFs of FindNodeOrParent_0 @ 0x1403712B0
+ * XREFs of FindNodeOrParent_0 @ 0x14032DF3C
  * Callers:
- *     RtlEnumerateGenericTableLikeADirectory @ 0x140371160 (RtlEnumerateGenericTableLikeADirectory.c)
- *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x1403D4A70 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x14032D700 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14032DC80 (RtlInsertElementGenericTableAvl.c)
+ *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x140394290 (RtlLookupFirstMatchingElementGenericTableAvl.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FindNodeOrParent_0(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  __int64 v6; // rbx
-  unsigned int v7; // edi
-  int v8; // eax
-  __int64 v9; // rax
+  __int64 v7; // rbx
+  unsigned int v8; // edi
+  int v9; // eax
+  __int64 v10; // rax
 
   if ( !*(_DWORD *)(a1 + 44) )
     return 0LL;
-  v6 = *(_QWORD *)(a1 + 16);
-  v7 = 1;
+  v7 = *(_QWORD *)(a1 + 16);
+  v8 = 1;
   while ( 1 )
   {
-    v8 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, v6 + 32);
-    if ( !v8 )
+    v9 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, v7 + 32);
+    if ( v9 )
       break;
-    if ( v8 != 1 )
-      goto LABEL_10;
-    v9 = *(_QWORD *)(v6 + 16);
-    if ( !v9 )
+    v10 = *(_QWORD *)(v7 + 8);
+    if ( !v10 )
     {
-      v7 = 3;
-      goto LABEL_10;
+      v8 = 2;
+      goto LABEL_11;
     }
-LABEL_5:
-    v6 = v9;
+LABEL_7:
+    v7 = v10;
   }
-  v9 = *(_QWORD *)(v6 + 8);
-  if ( v9 )
-    goto LABEL_5;
-  v7 = 2;
-LABEL_10:
-  *a3 = v6;
-  return v7;
+  if ( v9 != 1 )
+    goto LABEL_11;
+  v10 = *(_QWORD *)(v7 + 16);
+  if ( v10 )
+    goto LABEL_7;
+  v8 = 3;
+LABEL_11:
+  *a3 = v7;
+  return v8;
 }

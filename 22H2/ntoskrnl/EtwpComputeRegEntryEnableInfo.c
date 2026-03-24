@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpComputeRegEntryEnableInfo @ 0x1406BE254
+ * XREFs of EtwpComputeRegEntryEnableInfo @ 0x1406BCDAC
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x1406BE860 (EtwpAddRegEntryToGroup.c)
- *     EtwpRegisterUMProvider @ 0x1406BF260 (EtwpRegisterUMProvider.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE90 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpCalculateUpdateNotification @ 0x1407819B0 (EtwpCalculateUpdateNotification.c)
- *     EtwpRegisterKMProvider @ 0x14078DDD4 (EtwpRegisterKMProvider.c)
- *     SendCaptureStateNotificationsWorker @ 0x1409ECE80 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BC360 (EtwpAddRegEntryToGroup.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1407149E4 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpCalculateUpdateNotification @ 0x140717DD0 (EtwpCalculateUpdateNotification.c)
+ *     EtwpRegisterProvider @ 0x140762340 (EtwpRegisterProvider.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093F990 (SendCaptureStateNotificationsWorker.c)
  * Callees:
  *     <none>
  */
@@ -19,8 +19,8 @@ __int64 __fastcall EtwpComputeRegEntryEnableInfo(__int64 a1, __int64 a2)
   int v6; // ebx
   __int64 v7; // r15
   int v8; // edi
-  int v9; // r14d
-  __int64 v10; // rbp
+  int v9; // ebp
+  __int64 v10; // r14
   unsigned int v11; // r9d
   int v12; // esi
   _QWORD *v13; // r10

@@ -1,114 +1,105 @@
 /*
- * XREFs of ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C00640AC
+ * XREFs of ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C0048BE8
  * Callers:
- *     xxxSetMenuItemInfo @ 0x1C0062998 (xxxSetMenuItemInfo.c)
- *     xxxInsertMenuItem @ 0x1C00638F0 (xxxInsertMenuItem.c)
+ *     xxxSetMenuItemInfo @ 0x1C00457B8 (xxxSetMenuItemInfo.c)
+ *     xxxInsertMenuItem @ 0x1C007929C (xxxInsertMenuItem.c)
  * Callees:
- *     ?RemoveParentMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0061110 (-RemoveParentMenu@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     _DestroyMenu @ 0x1C0061170 (_DestroyMenu.c)
- *     ??B?$SmartObjStackRef@UtagMENU@@@@QEBA_NXZ @ 0x1C006345C (--B-$SmartObjStackRef@UtagMENU@@@@QEBA_NXZ.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ?GetMenuAncestors@@YAIAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C006532C (-GetMenuAncestors@@YAIAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
- *     ?GetMenuDepth@@YAIAEBV?$SmartObjStackRef@UtagMENU@@@@I@Z @ 0x1C006539C (-GetMenuDepth@@YAIAEBV-$SmartObjStackRef@UtagMENU@@@@I@Z.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z @ 0x1C0065458 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z.c)
- *     ?UnlockSubMenu@@YAPEAUtagMENU@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0065480 (-UnlockSubMenu@@YAPEAUtagMENU@@AEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?InternalCreateMenu@@YAPEAUtagMENU@@H@Z @ 0x1C00A1618 (-InternalCreateMenu@@YAPEAUtagMENU@@H@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z @ 0x1C013A2A8 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z.c)
- *     ??1?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C013A2D8 (--1-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
- *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C013A34C (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     _DestroyMenu @ 0x1C0048990 (_DestroyMenu.c)
+ *     MNIsUAHMenu @ 0x1C0049030 (MNIsUAHMenu.c)
+ *     ??4?$SharedPointerFieldlpstr@G@tagITEM@@QEAAPEAGPEAG@Z @ 0x1C0049058 (--4-$SharedPointerFieldlpstr@G@tagITEM@@QEAAPEAGPEAG@Z.c)
+ *     ?UnlockSubMenu@@YAPEAUtagMENU@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0049124 (-UnlockSubMenu@@YAPEAUtagMENU@@AEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?FreeItemString@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0049164 (-FreeItemString@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     DesktopAlloc @ 0x1C004B200 (DesktopAlloc.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C008A934 (--1-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
+ *     ??B?$SmartObjStackRef@UtagMENU@@@@QEBA_NXZ @ 0x1C00DC78C (--B-$SmartObjStackRef@UtagMENU@@@@QEBA_NXZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?InternalCreateMenu@@YAPEAUtagMENU@@H@Z @ 0x1C0103838 (-InternalCreateMenu@@YAPEAUtagMENU@@H@Z.c)
+ *     ?GetMenuDepth@@YAIAEBV?$SmartObjStackRef@UtagMENU@@@@I@Z @ 0x1C010FB44 (-GetMenuDepth@@YAIAEBV-$SmartObjStackRef@UtagMENU@@@@I@Z.c)
+ *     ?RemoveParentMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C011C5F8 (-RemoveParentMenu@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z @ 0x1C011E8F8 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NAEBV0@@Z.c)
+ *     ?GetMenuAncestors@@YAIAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0120370 (-GetMenuAncestors@@YAIAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C0166CF4 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
+ *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z @ 0x1C0167260 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall SetLPITEMInfoNoRedraw(__int64 **a1, __int64 *a2, __int64 a3, unsigned __int16 *a4, _DWORD *a5)
+__int64 __fastcall SetLPITEMInfoNoRedraw(_QWORD **a1, __int64 *a2, __int64 a3, unsigned __int16 *a4, _DWORD *a5)
 {
-  int v9; // r8d
-  int v10; // r15d
-  __int64 *v11; // rdx
-  __int64 v13; // rcx
-  char *Heap; // r12
-  int v15; // r15d
-  void *v16; // r8
-  __int64 v17; // rdx
-  char *v18; // rax
-  __int64 v19; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 *v23; // r12
-  __int64 v24; // rax
-  __int64 v25; // rax
-  int v26; // r15d
+  int v9; // r13d
+  int v10; // r12d
+  _QWORD *v11; // rcx
+  __int64 v12; // r8
+  unsigned __int16 *v13; // r9
+  int v14; // eax
+  int v15; // r12d
+  void *v16; // rax
+  void *v17; // r12
+  int v18; // r14d
+  int v19; // eax
+  __int64 v20; // rcx
+  int v22; // ecx
+  unsigned int v23; // ecx
+  __int64 v24; // rcx
+  __int64 *v25; // r14
+  int v26; // r12d
   __int64 v27; // rax
   __int64 v28; // rdx
   int MenuDepth; // ebx
   _QWORD *v30; // rdx
-  __int64 *v31; // rax
-  struct tagMENU *Menu; // rax
+  _QWORD *v31; // rcx
+  __int64 v32; // rdx
   __int64 v33; // rcx
   _QWORD v34[2]; // [rsp+30h] [rbp-68h] BYREF
   _QWORD v35[2]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v36; // [rsp+50h] [rbp-48h]
   _BYTE v37[24]; // [rsp+58h] [rbp-40h] BYREF
-  int BaseAddress; // [rsp+B0h] [rbp+18h]
 
   v9 = 0;
-  BaseAddress = 0;
   v10 = 0;
   *a5 = 0;
   v11 = a1[2];
   if ( !v11 )
-    v11 = (__int64 *)**a1;
-  if ( gihmodUserApiHook >= 0 && (*(_DWORD *)(v11[5] + 40) & 0x800) != 0 )
+    v11 = (_QWORD *)**a1;
+  if ( (unsigned int)MNIsUAHMenu(v11, a2, a3) )
     *(_DWORD *)(*a2 + 104) = -1;
-  if ( (*(_DWORD *)(a3 + 4) & 0x100) != 0 )
+  v14 = *(_DWORD *)(v12 + 4);
+  if ( (v14 & 0x100) != 0 )
   {
     *(_DWORD *)*a2 &= 0xFFFC949B;
-    *(_DWORD *)*a2 |= *(_DWORD *)(a3 + 8);
-    if ( (*(_DWORD *)(a3 + 8) & 0x800) != 0 )
+    *(_DWORD *)*a2 |= *(_DWORD *)(v12 + 8);
+    v15 = *(_DWORD *)(v12 + 8);
+    if ( (v15 & 0x800) != 0 )
+    {
       *(_DWORD *)(*a2 + 4) |= 3u;
+      v15 = *(_DWORD *)(v12 + 8);
+    }
     v9 = 1;
-    BaseAddress = 1;
-    v10 = *(_DWORD *)(a3 + 8) & 0x100;
+    v10 = v15 & 0x100;
+    v14 = *(_DWORD *)(v12 + 4);
   }
-  if ( (*(_DWORD *)(a3 + 4) & 0x40) != 0 )
+  if ( (v14 & 0x40) != 0 )
   {
-    if ( *((_QWORD *)a4 + 1) )
+    if ( *((_QWORD *)v13 + 1) )
     {
-      v13 = *(_QWORD *)(**a1 + 24);
-      if ( (*(_DWORD *)(v13 + 48) & 8) != 0 )
+      v16 = (void *)DesktopAlloc(*(_QWORD *)(**a1 + 24LL), (unsigned int)*v13 + 2, 8LL);
+      v17 = v16;
+      if ( !v16 )
         return 0LL;
-      Heap = (char *)RtlAllocateHeap(*(PVOID *)(v13 + 136), 0, *a4 + 2LL);
-      if ( !Heap && (*gpsi & 0x100) != 0 )
-      {
-        _InterlockedAnd(gpsi, 0xFFFFFEFF);
-        UserLogError(2147483891LL);
-      }
-      if ( !Heap )
-        return 0LL;
-      memmove(Heap, *((const void **)a4 + 1), *a4);
-      v15 = *a4 >> 1;
+      memmove(v16, *((const void **)a4 + 1), *a4);
+      v18 = *a4 >> 1;
     }
     else
     {
-      v15 = 0;
-      Heap = 0LL;
+      v18 = 0;
+      v17 = 0LL;
     }
-    v16 = (void *)a2[3];
-    if ( v16 )
-      RtlFreeHeap(*(PVOID *)(*(_QWORD *)(**a1 + 24) + 136LL), 0, v16);
-    *(_QWORD *)(*a2 + 40) = 0LL;
-    *(_DWORD *)(*a2 + 48) = v15;
-    v17 = *a2;
-    if ( Heap )
-      v18 = &Heap[a2[1] - v17];
-    else
-      v18 = 0LL;
-    *(_QWORD *)(v17 + 40) = v18;
-    a2[3] = (__int64)Heap;
+    FreeItemString(a1, a2);
+    *(_DWORD *)(*a2 + 48) = v18;
+    tagITEM::SharedPointerFieldlpstr<unsigned short>::operator=(a2 + 3, v17);
     ++a2[11];
     v9 = 1;
-    BaseAddress = 1;
     v10 = 1;
   }
   if ( (*(_DWORD *)(a3 + 4) & 0x80u) != 0 )
@@ -116,20 +107,27 @@ __int64 __fastcall SetLPITEMInfoNoRedraw(__int64 **a1, __int64 *a2, __int64 a3, 
     *(_QWORD *)(*a2 + 96) = 0LL;
     *(_QWORD *)(*a2 + 96) = *(_QWORD *)(a3 + 72);
     v9 = 1;
-    BaseAddress = 1;
     v10 = 1;
     *(_DWORD *)(*a2 + 104) = -1;
-    v21 = *a2;
-    if ( (unsigned __int64)(*(_QWORD *)(*a2 + 96) - 1LL) <= 0xA )
-      *(_DWORD *)(v21 + 4) |= 0x20000000u;
+    v22 = *(_DWORD *)(*a2 + 4);
+    if ( (unsigned __int64)(*(_QWORD *)(*a2 + 96) - 1LL) > 0xA )
+      v23 = v22 & 0xDFFFFFFF;
     else
-      *(_DWORD *)(v21 + 4) &= ~0x20000000u;
+      v23 = v22 | 0x20000000;
+    *(_DWORD *)(*a2 + 4) = v23;
   }
-  if ( (*(_DWORD *)(a3 + 4) & 2) != 0 )
+  v19 = *(_DWORD *)(a3 + 4);
+  if ( (v19 & 2) != 0 )
+  {
     *(_DWORD *)(*a2 + 8) = *(_DWORD *)(a3 + 16);
-  if ( (*(_DWORD *)(a3 + 4) & 0x20) != 0 )
+    v19 = *(_DWORD *)(a3 + 4);
+  }
+  if ( (v19 & 0x20) != 0 )
+  {
     *(_QWORD *)(*a2 + 56) = *(_QWORD *)(a3 + 48);
-  if ( (*(_DWORD *)(a3 + 4) & 1) != 0 )
+    v19 = *(_DWORD *)(a3 + 4);
+  }
+  if ( (v19 & 1) != 0 )
   {
     *(_DWORD *)(*a2 + 4) &= 0xFFFFFFF4;
     *(_DWORD *)(*a2 + 4) |= *(_DWORD *)(a3 + 12);
@@ -137,60 +135,60 @@ __int64 __fastcall SetLPITEMInfoNoRedraw(__int64 **a1, __int64 *a2, __int64 a3, 
       *(_DWORD *)(*a2 + 4) |= 3u;
     if ( (*(_DWORD *)(a3 + 12) & 0x1000) != 0 )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(**a1 + 40) + 40LL) & 0x400) != 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(**a1 + 40LL) + 40LL) & 0x400) != 0 )
       {
         UserSetLastError(87LL);
         return 0LL;
       }
-      *(_DWORD *)(*(_QWORD *)(**a1 + 40) + 40LL) |= 0x400u;
+      *(_DWORD *)(*(_QWORD *)(**a1 + 40LL) + 40LL) |= 0x400u;
     }
     v9 = 1;
-    BaseAddress = 1;
     v10 = 1;
+    v19 = *(_DWORD *)(a3 + 4);
   }
-  if ( (*(_DWORD *)(a3 + 4) & 8) != 0 )
+  if ( (v19 & 8) != 0 )
   {
     *(_QWORD *)(*a2 + 24) = *(_QWORD *)(a3 + 32);
     *(_QWORD *)(*a2 + 32) = *(_QWORD *)(a3 + 40);
     v10 = 1;
+    v19 = *(_DWORD *)(a3 + 4);
   }
-  if ( (*(_DWORD *)(a3 + 4) & 4) == 0 )
-    goto LABEL_36;
+  if ( (v19 & 4) == 0 )
+    goto LABEL_27;
   SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v35, 0LL);
-  v22 = *(_QWORD *)(a3 + 24);
-  if ( v22 )
+  v24 = *(_QWORD *)(a3 + 24);
+  if ( v24 )
   {
-    v25 = ValidateHmenu(v22);
+    ValidateHmenu(v24);
     v36 = 0LL;
-    SmartObjStackRefBase<tagMENU>::operator=(v35, v25);
+    SmartObjStackRefBase<tagMENU>::operator=(v35);
   }
-  v23 = a2 + 2;
-  v24 = a2[2];
-  if ( v24 != *(_QWORD *)v35[0] )
+  v25 = a2 + 2;
+  if ( a2[2] != *(_QWORD *)v35[0] )
   {
-    if ( v24 )
+    if ( *v25 )
     {
       SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v37);
-      RemoveParentMenu(a1, (__int64)a2);
-      DestroyMenu(*v23);
+      RemoveParentMenu(a1, a2);
+      DestroyMenu(*v25);
       SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v37);
     }
-    if ( SmartObjStackRef<tagMENU>::operator==((__int64)v35) )
+    if ( (unsigned __int8)SmartObjStackRef<tagMENU>::operator==(v35) )
     {
       UnlockSubMenu(a1, a2);
-LABEL_62:
+LABEL_53:
       v10 = 1;
-      goto LABEL_47;
+      goto LABEL_54;
     }
     v26 = 0;
     if ( (unsigned __int8)SmartObjStackRef<tagMENU>::operator==(v35, a1) )
     {
-      Menu = InternalCreateMenu(0);
+      InternalCreateMenu(0);
       v36 = 0LL;
-      SmartObjStackRefBase<tagMENU>::operator=(v35, Menu);
-      if ( !SmartObjStackRef<tagMENU>::operator bool((__int64)v35) )
+      SmartObjStackRefBase<tagMENU>::operator=(v35);
+      if ( !(unsigned __int8)SmartObjStackRef<tagMENU>::operator bool(v35, v32) )
       {
-LABEL_70:
+LABEL_59:
         SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v35);
         return 0LL;
       }
@@ -206,24 +204,24 @@ LABEL_70:
     *(_QWORD *)(*a2 + 16) = v28;
     v34[0] = a2 + 2;
     v34[1] = v27;
-    HMAssignmentLock(v34, 0LL);
-    *(_DWORD *)(*(_QWORD *)(*v23 + 40) + 40LL) |= 1u;
+    HMAssignmentLock(v34);
+    *(_DWORD *)(*(_QWORD *)(*v25 + 40) + 40LL) |= 1u;
     MenuDepth = GetMenuDepth(v35, 25LL);
     if ( (unsigned int)GetMenuAncestors(a1) + MenuDepth < 0x19 )
     {
-      v30 = (_QWORD *)Win32AllocPoolZInit(16LL, 1953066325LL);
+      v30 = (_QWORD *)Win32AllocPool(16LL, 1953066325LL);
       if ( v30 )
       {
         v31 = a1[2];
         if ( !v31 )
-          v31 = (__int64 *)**a1;
+          v31 = (_QWORD *)**a1;
         v30[1] = v31;
         *v30 = *(_QWORD *)(*(_QWORD *)v35[0] + 104LL);
         *(_QWORD *)(*(_QWORD *)v35[0] + 104LL) = v30;
-        goto LABEL_62;
+        goto LABEL_53;
       }
     }
-    *(_DWORD *)(*(_QWORD *)(*v23 + 40) + 40LL) &= ~1u;
+    *(_DWORD *)(*(_QWORD *)(*v25 + 40) + 40LL) &= ~1u;
     *(_QWORD *)(*a2 + 16) = 0LL;
     HMAssignmentUnlock(a2 + 2);
     if ( v26 )
@@ -233,16 +231,15 @@ LABEL_70:
         v33 = *(_QWORD *)v35[0];
       DestroyMenu(v33);
     }
-    goto LABEL_70;
+    goto LABEL_59;
   }
-LABEL_47:
+LABEL_54:
   SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v35);
-  v9 = BaseAddress;
-LABEL_36:
-  v19 = *a2;
-  if ( (*(_DWORD *)*a2 & 0x900) == 0 && !a2[3] && !*(_QWORD *)(v19 + 96) )
+LABEL_27:
+  v20 = *a2;
+  if ( (*(_DWORD *)*a2 & 0x900) == 0 && !a2[3] && !*(_QWORD *)(v20 + 96) )
   {
-    *(_DWORD *)v19 = 2048;
+    *(_DWORD *)v20 = 2048;
     *(_DWORD *)(*a2 + 4) |= 3u;
   }
   if ( v9 )
@@ -250,8 +247,8 @@ LABEL_36:
     *(_DWORD *)(*a2 + 80) = 0;
     *(_DWORD *)(*a2 + 84) = 0x7FFFFFFF;
     *(_DWORD *)(*a2 + 88) = 0;
-    *(_DWORD *)(**a1 + 64) = 0;
-    *(_DWORD *)(**a1 + 68) = 0;
+    *(_DWORD *)(**a1 + 64LL) = 0;
+    *(_DWORD *)(**a1 + 68LL) = 0;
     if ( v10 )
       *a5 = 1;
   }

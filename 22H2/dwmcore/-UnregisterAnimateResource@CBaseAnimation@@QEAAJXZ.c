@@ -1,57 +1,28 @@
 /*
- * XREFs of ?UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800C6564
+ * XREFs of ?UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800BBCCC
  * Callers:
- *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800C64CC (-EndAnimation@CAnimation@@AEAAXXZ.c)
- *     ?UpdateAnimateValues@CScalar@@UEAA_NXZ @ 0x18024E930 (-UpdateAnimateValues@CScalar@@UEAA_NXZ.c)
+ *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800BBC4C (-EndAnimation@CAnimation@@AEAAXXZ.c)
+ *     ?UpdateAnimateValues@CScalar@@UEAAXXZ @ 0x1801E8830 (-UpdateAnimateValues@CScalar@@UEAAXXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UnregisterAnimateResource@CComposition@@QEAAJPEAUIAnimationResource@@@Z @ 0x1800BBD10 (-UnregisterAnimateResource@CComposition@@QEAAJPEAUIAnimationResource@@@Z.c)
  */
 
-__int64 __fastcall CBaseAnimation::UnregisterAnimateResource(CBaseAnimation *this)
+__int64 __fastcall CBaseAnimation::UnregisterAnimateResource(CComposition **this)
 {
   unsigned int v1; // ebx
-  __int64 v3; // r9
-  __int64 v4; // r10
-  unsigned __int64 v5; // r11
-  __int64 v6; // rcx
-  unsigned int v7; // edx
-  __int64 v9; // rcx
+  int v3; // eax
+  __int64 v4; // rcx
 
   v1 = 0;
-  if ( *((_BYTE *)this + 104) )
+  if ( *((_BYTE *)this + 96) )
   {
-    v3 = *((_QWORD *)this + 2);
-    v4 = *(_QWORD *)(v3 + 688);
-    v5 = ((unsigned __int64)this + 64) & -(__int64)(this != 0LL);
-    v6 = 0LL;
-    v7 = *(_DWORD *)(v3 + 712);
-    if ( v7 )
-    {
-      do
-      {
-        if ( v5 == *(_QWORD *)(v4 + 8 * v6) )
-          break;
-        v6 = (unsigned int)(v6 + 1);
-      }
-      while ( (unsigned int)v6 < v7 );
-    }
-    if ( (unsigned int)v6 >= v7 )
-    {
-      v1 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024809, 0x793u, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0x8Eu, 0LL);
-    }
+    v3 = CComposition::UnregisterAnimateResource(this[2], (struct IAnimationResource *)(this + 7));
+    v1 = v3;
+    if ( v3 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x8Eu, 0LL);
     else
-    {
-      while ( (unsigned int)v6 < v7 - 1 )
-      {
-        *(_QWORD *)(v4 + 8 * v6) = *(_QWORD *)(v4 + 8LL * (unsigned int)(v6 + 1));
-        v6 = (unsigned int)(v6 + 1);
-        v7 = *(_DWORD *)(v3 + 712);
-      }
-      *(_DWORD *)(v3 + 712) = v7 - 1;
-      *((_BYTE *)this + 104) = 0;
-    }
+      *((_BYTE *)this + 96) = 0;
   }
   return v1;
 }

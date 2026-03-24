@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z @ 0x1C02DEB74
+ * XREFs of ?bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z @ 0x1C0019E3C
  * Callers:
- *     EngHTBlt @ 0x1C02DECB0 (EngHTBlt.c)
+ *     EngHTBlt @ 0x1C0019E98 (EngHTBlt.c)
  * Callees:
  *     <none>
  */
@@ -9,18 +9,18 @@
 __int64 __fastcall bSetHTSurfInfo(struct _SURFOBJ *a1, struct _HTSURFACEINFO *a2, char a3)
 {
   __int64 result; // rax
-  LONG lDelta; // ebx
-  __int16 v5; // r9
-  PVOID pvScan0; // rdi
-  LONG cx; // r10d
-  LONG cy; // r11d
+  PVOID pvScan0; // rbx
+  __int16 v5; // di
+  LONG cx; // r9d
+  LONG cy; // r10d
+  LONG lDelta; // r11d
 
   result = 1LL;
-  lDelta = a1->lDelta;
-  v5 = a1->fjBitmap & 1;
   pvScan0 = a1->pvScan0;
+  v5 = a1->fjBitmap & 1;
   cx = a1->sizlBitmap.cx;
   cy = a1->sizlBitmap.cy;
+  lDelta = a1->lDelta;
   *(_QWORD *)a2 = a1;
   *((_WORD *)a2 + 4) = v5;
   *((_BYTE *)a2 + 10) = a3;

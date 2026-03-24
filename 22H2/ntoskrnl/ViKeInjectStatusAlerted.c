@@ -1,30 +1,33 @@
 /*
- * XREFs of ViKeInjectStatusAlerted @ 0x140AC1618
+ * XREFs of ViKeInjectStatusAlerted @ 0x1409DC078
  * Callers:
- *     VerifierKeWaitForSingleObject @ 0x140AC1540 (VerifierKeWaitForSingleObject.c)
- *     VerifierKeDelayExecutionThread @ 0x140AD6460 (VerifierKeDelayExecutionThread.c)
- *     VerifierKeWaitForMultipleObjects @ 0x140AD6930 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeDelayExecutionThread @ 0x1409DAAC0 (VerifierKeDelayExecutionThread.c)
+ *     ViKeWaitForMultipleObjectsCommon @ 0x1409DC480 (ViKeWaitForMultipleObjectsCommon.c)
+ *     ViKeWaitForSingleObjectCommon @ 0x1409DC568 (ViKeWaitForSingleObjectCommon.c)
  * Callees:
- *     VfUtilIsLocalSystem @ 0x140AC3724 (VfUtilIsLocalSystem.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
+ *     VfUtilIsLocalSystem @ 0x1409C67F4 (VfUtilIsLocalSystem.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
  */
 
-__int64 __fastcall ViKeInjectStatusAlerted(char a1)
+_BOOL8 __fastcall ViKeInjectStatusAlerted(char a1)
 {
-  unsigned int v1; // ebx
-  struct _KPROCESS *Process; // rdi
+  struct _KPROCESS *Process; // rbx
+  _BOOL8 result; // rax
 
-  v1 = 0;
-  if ( !a1 )
-    return 0LL;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( !PsInitialSystemProcess
-    || Process == PsInitialSystemProcess
-    || Process == PsIdleProcess
-    || !(unsigned int)VfFaultsInjectResourceFailure(0LL) )
+  result = 0;
+  if ( a1 )
   {
-    return 0LL;
+    Process = KeGetCurrentThread()->ApcState.Process;
+    if ( PsInitialSystemProcess )
+    {
+      if ( Process != PsInitialSystemProcess
+        && Process != PsIdleProcess
+        && (unsigned int)VfFaultsInjectResourceFailure(0LL)
+        && !(unsigned int)VfUtilIsLocalSystem(Process) )
+      {
+        return 1;
+      }
+    }
   }
-  LOBYTE(v1) = (unsigned int)VfUtilIsLocalSystem(Process) == 0;
-  return v1;
+  return result;
 }

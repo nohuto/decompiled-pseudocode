@@ -1,5 +1,5 @@
 /*
- * XREFs of EngIsSemaphoreOwned @ 0x1C00C2CD0
+ * XREFs of EngIsSemaphoreOwned @ 0x1C00B5300
  * Callers:
  *     <none>
  * Callees:

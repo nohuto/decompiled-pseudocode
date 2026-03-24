@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x140502F20
+ * XREFs of HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404B6550
  * Callers:
- *     HalpTimerConvertAuxiliaryCounterToPerformanceCounter @ 0x1405030B0 (HalpTimerConvertAuxiliaryCounterToPerformanceCounter.c)
- *     HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1405031C0 (HalpTimerConvertPerformanceCounterToAuxiliaryCounter.c)
+ *     HalpTimerConvertAuxiliaryCounterToPerformanceCounter @ 0x1404B6710 (HalpTimerConvertAuxiliaryCounterToPerformanceCounter.c)
+ *     HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404B6840 (HalpTimerConvertPerformanceCounterToAuxiliaryCounter.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 LARGE_INTEGER *__fastcall HalpTimerCaptureCurrentAuxiliaryQpcPair(LARGE_INTEGER *a1, __int64 *a2, LARGE_INTEGER *a3)

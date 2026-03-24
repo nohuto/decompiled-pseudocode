@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001FED0
+ * XREFs of HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001D4C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     WPP_RECORDER_SF_Ld @ 0x1C00257BC (WPP_RECORDER_SF_Ld.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     WPP_RECORDER_SF_Ld @ 0x1C000BDB4 (WPP_RECORDER_SF_Ld.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe(__int64 a1)
   __int64 v2; // rdx
   __int64 v3; // rdx
   _QWORD *v4; // r8
-  int v5; // edx
+  int v5; // eax
   _OWORD v7[2]; // [rsp+40h] [rbp-38h] BYREF
   __int64 v8; // [rsp+60h] [rbp-18h]
 
@@ -46,11 +46,11 @@ __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe(__int64 a1)
     if ( v5 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_Ld(
         *(_QWORD *)(*(_QWORD *)(v1 + 8) + 1432LL),
-        v5,
-        5,
-        58,
-        (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
-        63,
+        (unsigned int)v5,
+        5u,
+        0x3Au,
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
+        4788287,
         v5);
   }
   else
@@ -63,7 +63,7 @@ __int64 __fastcall HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe(__int64 a1)
         2u,
         5u,
         0x39u,
-        (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids);
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
     HUBSM_AddEvent(v1 + 504, 4020);
   }
   return 1000LL;

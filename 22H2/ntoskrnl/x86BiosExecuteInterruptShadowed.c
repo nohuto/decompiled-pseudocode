@@ -1,10 +1,10 @@
 /*
- * XREFs of x86BiosExecuteInterruptShadowed @ 0x1403BDD80
+ * XREFs of x86BiosExecuteInterruptShadowed @ 0x140395CE0
  * Callers:
- *     x86BiosCall @ 0x1403BDD30 (x86BiosCall.c)
+ *     x86BiosCall @ 0x140395C90 (x86BiosCall.c)
  * Callees:
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     XmEmulateInterrupt @ 0x1403BDDDC (XmEmulateInterrupt.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     XmEmulateInterrupt @ 0x140395D3C (XmEmulateInterrupt.c)
  */
 
 __int64 __fastcall x86BiosExecuteInterruptShadowed(__int64 a1, __int64 a2)

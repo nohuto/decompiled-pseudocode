@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwCreateTimer @ 0x14041D060
+ * XREFs of ZwCreateTimer @ 0x1403FBC00
  * Callers:
- *     DifZwCreateTimerWrapper @ 0x14061F0D0 (DifZwCreateTimerWrapper.c)
- *     DbgkpWerInitializeDeferredLiveDump @ 0x14092BEF8 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x1408893A8 (DbgkpWerInitializeDeferredLiveDump.c)
  * Callees:
  *     <none>
  */

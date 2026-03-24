@@ -1,25 +1,21 @@
 /*
- * XREFs of ?GetInputSpaceId@Mouse@InputConfig@@SA?AU_LUID@@XZ @ 0x1C003C5D0
+ * XREFs of ?GetInputSpaceId@Mouse@InputConfig@@SA?AU_LUID@@XZ @ 0x1C0044108
  * Callers:
- *     ?MouseSpeedHitTest@CMouseProcessor@@CA?AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4DIT_HITTESTATTRIBUTES@@KKPEAHPEAU_InputHitTestResult@@@Z @ 0x1C00356F8 (-MouseSpeedHitTest@CMouseProcessor@@CA-AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4.c)
- *     NtUserGetPointerDeviceInputSpace @ 0x1C0159E20 (NtUserGetPointerDeviceInputSpace.c)
+ *     ?HitTest@CSpatialProcessor@@QEAA?AVCInputDest@@PEAU_InputHitTestData@@W4DIT_HITTESTATTRIBUTES@@KPEAI@Z @ 0x1C0043A84 (-HitTest@CSpatialProcessor@@QEAA-AVCInputDest@@PEAU_InputHitTestData@@W4DIT_HITTESTATTRIBUTES@@K.c)
+ *     NtUserGetPointerDeviceInputSpace @ 0x1C012EEA0 (NtUserGetPointerDeviceInputSpace.c)
  * Callees:
- *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C003C1A0 (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C0044158 (--0CLockedInputSpace@@QEAA@XZ.c)
  */
 
 struct _LUID InputConfig::Mouse::GetInputSpaceId(void)
 {
-  __int64 *v0; // rbx
-  __int64 v1; // rbx
-  _BYTE v3[8]; // [rsp+20h] [rbp-18h] BYREF
-  PERESOURCE *v4; // [rsp+28h] [rbp-10h]
+  __int64 v0; // rbx
+  _BYTE v2[8]; // [rsp+20h] [rbp-18h] BYREF
+  PERESOURCE *v3; // [rsp+28h] [rbp-10h]
 
-  CLockedInputSpace::CLockedInputSpace((CLockedInputSpace *)v3);
-  v0 = (__int64 *)*((_QWORD *)gpInputConfig + 3);
-  if ( !v0 )
-    v0 = (__int64 *)((char *)gpInputConfig + 32);
-  v1 = *v0;
-  ExReleaseResourceLite(*v4);
+  CLockedInputSpace::CLockedInputSpace((CLockedInputSpace *)v2);
+  v0 = **((_QWORD **)gpInputConfig + 3);
+  ExReleaseResourceLite(*v3);
   KeLeaveCriticalRegion();
-  return (struct _LUID)v1;
+  return (struct _LUID)v0;
 }

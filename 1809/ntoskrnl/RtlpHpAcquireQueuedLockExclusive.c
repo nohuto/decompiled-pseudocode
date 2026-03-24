@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpAcquireQueuedLockExclusive @ 0x1401B62E4
+ * XREFs of RtlpHpAcquireQueuedLockExclusive @ 0x1401B6304
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x1400BC830 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkDecommit @ 0x1400BE7E0 (RtlpHpVsChunkDecommit.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x14010EB90 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpVsContextAllocateInternal @ 0x1401B669C (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpVsContextFreeInternal @ 0x1401B69FC (RtlpHpVsContextFreeInternal.c)
- *     RtlpHpVsContextFreeList @ 0x1401B6B90 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsChunkSplit @ 0x1400BC850 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkDecommit @ 0x1400BE800 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14010EBB0 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1401B66BC (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x1401B6A1C (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeList @ 0x1401B6BB0 (RtlpHpVsContextFreeList.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)

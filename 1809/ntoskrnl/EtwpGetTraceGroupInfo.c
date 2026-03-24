@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpGetTraceGroupInfo @ 0x1408B5B84
+ * XREFs of EtwpGetTraceGroupInfo @ 0x1408B5B64
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:
  *     RtlUIntAdd @ 0x140001568 (RtlUIntAdd.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
  *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
  */

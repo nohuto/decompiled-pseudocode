@@ -1,17 +1,18 @@
 /*
- * XREFs of ?AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ @ 0x1C00298B0
+ * XREFs of ?AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ @ 0x1C007F7FC
  * Callers:
- *     ?QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ @ 0x1C00297F0 (-QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ.c)
- *     ?QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ @ 0x1C0029810 (-QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ.c)
+ *     ?QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ @ 0x1C00797A0 (-QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ.c)
+ *     ?QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ @ 0x1C0084820 (-QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ.c)
  * Callees:
- *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C00199A0 (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0014B18 (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
  */
 
 __int64 __fastcall FxPkgPnp::AllocateWorkItemForSetDeviceFailed(FxPkgPnp *this)
 {
-  int _a1; // edi
+  int _a1; // eax
+  unsigned int v4; // edi
 
   if ( this->m_SetDeviceFailedAttemptRestartWorkItem )
   {
@@ -24,8 +25,9 @@ __int64 __fastcall FxPkgPnp::AllocateWorkItemForSetDeviceFailed(FxPkgPnp *this)
             this->m_Globals,
             this->m_DeviceBase->m_DeviceObject.m_DeviceObject,
             &this->m_SetDeviceFailedAttemptRestartWorkItem);
+    v4 = _a1;
     if ( _a1 < 0 )
       WPP_IFR_SF_d(this->m_Globals, 2u, 0xCu, 0xBu, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, _a1);
-    return (unsigned int)_a1;
+    return v4;
   }
 }

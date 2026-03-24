@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetThreadProperty @ 0x14010F180
+ * XREFs of PsGetThreadProperty @ 0x14010F1A0
  * Callers:
  *     <none>
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PspValidateThread @ 0x14010F2B4 (PspValidateThread.c)
- *     PsGetJobProperty @ 0x14010F330 (PsGetJobProperty.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PspValidateThread @ 0x14010F2D4 (PspValidateThread.c)
+ *     PsGetJobProperty @ 0x14010F350 (PsGetJobProperty.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PVOID __stdcall PsGetThreadProperty(PETHREAD Thread, ULONG_PTR Key, ULONG Flags)

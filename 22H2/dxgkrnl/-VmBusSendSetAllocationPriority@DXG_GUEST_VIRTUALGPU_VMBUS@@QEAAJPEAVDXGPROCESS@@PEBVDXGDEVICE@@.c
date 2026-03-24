@@ -1,70 +1,64 @@
 /*
- * XREFs of ?VmBusSendSetAllocationPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEBVDXGDEVICE@@PEBU_D3DKMT_SETALLOCATIONPRIORITY@@@Z @ 0x1C038DA00
+ * XREFs of ?VmBusSendSetAllocationPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEBVDXGDEVICE@@PEBU_D3DKMT_SETALLOCATIONPRIORITY@@@Z @ 0x1C024C0B8
  * Callers:
- *     ?SetAllocationPriority@DXGDEVICE@@QEAAJPEAU_D3DKMT_SETALLOCATIONPRIORITY@@E@Z @ 0x1C02D891C (-SetAllocationPriority@DXGDEVICE@@QEAAJPEAU_D3DKMT_SETALLOCATIONPRIORITY@@E@Z.c)
+ *     ?SetAllocationPriority@DXGDEVICE@@QEAAJPEAU_D3DKMT_SETALLOCATIONPRIORITY@@E@Z @ 0x1C02293B0 (-SetAllocationPriority@DXGDEVICE@@QEAAJPEAU_D3DKMT_SETALLOCATIONPRIORITY@@E@Z.c)
  * Callees:
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0007894 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGPROCESSDDILOCK@@QEAA@XZ @ 0x1C0023F50 (--1DXGPROCESSDDILOCK@@QEAA@XZ.c)
- *     ?GetAllocationUnsafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0024FC4 (-GetAllocationUnsafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     ?GetResourceUnsafe@DXGPROCESS@@QEAA?AVDXGRESOURCEREFERENCE@@I@Z @ 0x1C00251E0 (-GetResourceUnsafe@DXGPROCESS@@QEAA-AVDXGRESOURCEREFERENCE@@I@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C01C6300 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0005218 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?GetAllocationUnsafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0005790 (-GetAllocationUnsafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0008F14 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?GetResourceUnsafe@DXGPROCESS@@QEAA?AVDXGRESOURCEREFERENCE@@I@Z @ 0x1C0025ECC (-GetResourceUnsafe@DXGPROCESS@@QEAA-AVDXGRESOURCEREFERENCE@@I@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C0101D00 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSetAllocationPriority(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
         struct DXGPROCESS *a2,
-        struct _EX_RUNDOWN_REF *a3,
+        const struct DXGDEVICE *a3,
         const struct _D3DKMT_SETALLOCATIONPRIORITY *a4)
 {
-  int v6; // edi
-  int v7; // r14d
-  size_t v8; // r15
+  int v6; // ebx
+  int v7; // r13d
+  size_t v8; // r14
+  struct _EX_RUNDOWN_REF *v9; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
   UINT AllocationCount; // eax
-  unsigned int v11; // r12d
-  struct DXGKVMB_COMMAND_BASE *v12; // r14
-  int v13; // eax
-  char *v14; // r13
+  unsigned int v15; // r12d
+  unsigned int v16; // r13d
+  int v17; // eax
   D3DKMT_HANDLE hResource; // r8d
+  __int64 v19; // rdx
   const UINT *pPriorities; // rdx
-  ULONG64 v17; // rcx
+  ULONG64 v21; // r9
+  struct _MDL *v22; // r9
   const D3DKMT_HANDLE *phAllocationList; // rdx
-  __int64 v19; // r14
-  struct _MDL *v20; // [rsp+20h] [rbp-1A8h]
-  struct _EX_RUNDOWN_REF *v21; // [rsp+30h] [rbp-198h] BYREF
-  struct _EX_RUNDOWN_REF *v22; // [rsp+38h] [rbp-190h] BYREF
-  struct DXGPROCESS *v23; // [rsp+40h] [rbp-188h]
-  struct DXG_VMBUS_CHANNEL_BASE *v24; // [rsp+48h] [rbp-180h]
-  void *v25; // [rsp+50h] [rbp-178h]
-  _BYTE v26[24]; // [rsp+58h] [rbp-170h] BYREF
-  struct DXGKVMB_COMMAND_BASE *v27[2]; // [rsp+70h] [rbp-158h] BYREF
-  unsigned int v28; // [rsp+80h] [rbp-148h]
+  __int64 v24; // r14
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  struct _EX_RUNDOWN_REF *v27; // [rsp+20h] [rbp-68h] BYREF
+  struct _EX_RUNDOWN_REF *v28[2]; // [rsp+28h] [rbp-60h] BYREF
+  void *v29; // [rsp+38h] [rbp-50h]
+  _BYTE v30[32]; // [rsp+40h] [rbp-48h] BYREF
 
-  v21 = a3;
-  v23 = a2;
-  v24 = this;
   v6 = -1073741811;
   v7 = 40;
   v8 = 0LL;
-  *(_OWORD *)v27 = 0LL;
-  v28 = 0;
-  if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) <= 0x10u )
-  {
-    DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v27);
+  v9 = 0LL;
+  if ( *((_DWORD *)DXGGLOBAL::GetGlobal((__int64)this, (__int64)a2) + 408) <= 0x10u )
     return 0LL;
-  }
   AllocationCount = a4->AllocationCount;
   if ( AllocationCount <= 0x20000 )
   {
     if ( a4->hResource )
     {
-      v11 = 1;
+      v15 = 1;
     }
     else
     {
@@ -72,80 +66,80 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSetAllocationPriority(
         goto LABEL_27;
       v8 = AllocationCount;
       v7 = v8 * 4 + 40;
-      v11 = AllocationCount;
+      v15 = AllocationCount;
     }
-    DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v27, v24, v11 * 4 + v7, 0LL, 0LL, 0LL);
-    v12 = v27[0];
-    if ( !v27[0] )
+    v16 = v15 * 4 + v7;
+    v9 = (struct _EX_RUNDOWN_REF *)operator new(v16, 0x4B677844u, 1, (POOL_TYPE)512);
+    v28[1] = v9;
+    if ( !v9 )
     {
       v6 = -1073741801;
 LABEL_28:
-      WdLogSingleEntry1(3LL, v6);
+      v26 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+      *(_QWORD *)(v26 + 24) = v6;
+      WdLogEvent5_WdWarning(v26);
       goto LABEL_29;
     }
-    v13 = *((_DWORD *)a2 + 126);
-    *(_QWORD *)v27[0] = 0LL;
-    *((_DWORD *)v12 + 2) = v13;
-    *((_BYTE *)v12 + 12) = 0;
-    *((_DWORD *)v12 + 3) &= 0x1FFu;
-    *((_DWORD *)v12 + 4) = 59;
-    *((_DWORD *)v12 + 5) = 0;
-    *((_DWORD *)v12 + 6) = v21[59].Count;
-    *((_DWORD *)v12 + 8) = a4->AllocationCount;
-    v14 = (char *)v12 + 40;
-    v25 = (char *)v12 + v8 * 4 + 40;
-    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v26, v23);
+    v17 = *((_DWORD *)a2 + 106);
+    v9->Count = 0LL;
+    LODWORD(v9[1].Count) = v17;
+    HIDWORD(v9[1].Ptr) = 0;
+    LODWORD(v9[2].Count) = 59;
+    LODWORD(v9[3].Count) = *((_DWORD *)a3 + 110);
+    LODWORD(v9[4].Count) = a4->AllocationCount;
+    v29 = (char *)&v9[5] + v8 * 4;
+    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v30, (struct _KTHREAD **)a2);
     hResource = a4->hResource;
     if ( hResource )
     {
-      DXGPROCESS::GetResourceUnsafe((__int64)v23, (DXGRESOURCEREFERENCE *)&v22, hResource);
-      if ( !v22 )
+      DXGPROCESS::GetResourceUnsafe((__int64)a2, (DXGRESOURCEREFERENCE *)&v27, hResource);
+      if ( !v27 )
       {
-        DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v22);
+        DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v27, v19);
 LABEL_13:
-        DXGPROCESSDDILOCK::~DXGPROCESSDDILOCK((DXGPROCESSDDILOCK *)v26);
+        DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v30);
         goto LABEL_27;
       }
-      *((_DWORD *)v12 + 7) = HIDWORD(v22[2].Ptr);
-      DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v22);
+      HIDWORD(v9[3].Ptr) = HIDWORD(v27[2].Ptr);
+      DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v27, v19);
     }
     else
     {
       phAllocationList = a4->phAllocationList;
       if ( &phAllocationList[v8] < phAllocationList || (unsigned __int64)&phAllocationList[v8] > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      memmove((char *)v12 + 40, phAllocationList, v8 * 4);
-      v19 = 0LL;
+      memmove(&v9[5], phAllocationList, v8 * 4);
+      v24 = 0LL;
       if ( a4->AllocationCount )
       {
         while ( 1 )
         {
-          DXGPROCESS::GetAllocationUnsafe((__int64)v23, (DXGALLOCATIONREFERENCE *)&v21, *(_DWORD *)&v14[4 * v19]);
-          if ( !v21 )
+          DXGPROCESS::GetAllocationUnsafe((__int64)a2, (DXGALLOCATIONREFERENCE *)v28, *((_DWORD *)&v9[5].Count + v24));
+          if ( !v28[0] )
             break;
-          *(_DWORD *)&v14[4 * v19] = HIDWORD(v21[2].Ptr);
-          DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v21);
-          v19 = (unsigned int)(v19 + 1);
-          if ( (unsigned int)v19 >= a4->AllocationCount )
+          *((_DWORD *)&v9[5].Count + v24) = v28[0][12].Count;
+          DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v28, v25);
+          v24 = (unsigned int)(v24 + 1);
+          if ( (unsigned int)v24 >= a4->AllocationCount )
             goto LABEL_15;
         }
-        DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v21);
+        DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v28, v25);
         goto LABEL_13;
       }
     }
 LABEL_15:
     pPriorities = a4->pPriorities;
-    v17 = (ULONG64)&pPriorities[v11];
-    if ( v17 < (unsigned __int64)pPriorities || v17 > MmUserProbeAddress )
+    v21 = (ULONG64)&pPriorities[v15];
+    if ( v21 < (unsigned __int64)pPriorities || v21 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v25, pPriorities, v11 * 4);
-    DXGPROCESSDDILOCK::~DXGPROCESSDDILOCK((DXGPROCESSDDILOCK *)v26);
-    v6 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(v24, (unsigned __int8 *)v27[1], v27[0], v28, v20);
+    memmove(v29, pPriorities, v15 * 4);
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v30);
+    v6 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)v9, v16, v22);
   }
 LABEL_27:
   if ( v6 < 0 )
     goto LABEL_28;
 LABEL_29:
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v27);
+  operator delete[](v9);
   return (unsigned int)v6;
 }

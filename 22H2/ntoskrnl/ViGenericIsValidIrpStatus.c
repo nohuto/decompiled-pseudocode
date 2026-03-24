@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGenericIsValidIrpStatus @ 0x140AC40A0
+ * XREFs of ViGenericIsValidIrpStatus @ 0x1409C7530
  * Callers:
  *     <none>
  * Callees:
- *     IoIsValidIrpStatus @ 0x140AC3F50 (IoIsValidIrpStatus.c)
+ *     IoIsValidIrpStatus @ 0x1409C73E0 (IoIsValidIrpStatus.c)
  */
 
 bool __fastcall ViGenericIsValidIrpStatus(__int64 a1, unsigned int a2)

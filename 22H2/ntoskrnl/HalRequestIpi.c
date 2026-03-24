@@ -1,25 +1,24 @@
 /*
- * XREFs of HalRequestIpi @ 0x14035BB40
+ * XREFs of HalRequestIpi @ 0x140343EB0
  * Callers:
- *     KiIpiSendRequest @ 0x140253F00 (KiIpiSendRequest.c)
- *     PoIdle @ 0x1402C4B30 (PoIdle.c)
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     PoExecuteIdleCheck @ 0x1403CB450 (PoExecuteIdleCheck.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FFFC (KiHaltOnAddressWakeEntireList.c)
- *     PoInitiateProcessorWake @ 0x140583DB0 (PoInitiateProcessorWake.c)
- *     PpmUnlockProcessors @ 0x1405861F8 (PpmUnlockProcessors.c)
+ *     PoIdle @ 0x140221E90 (PoIdle.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     PoExecuteIdleCheck @ 0x140227E10 (PoExecuteIdleCheck.c)
+ *     KiIpiSendRequest @ 0x140343EE0 (KiIpiSendRequest.c)
+ *     PoInitiateProcessorWake @ 0x140565450 (PoInitiateProcessorWake.c)
+ *     PpmUnlockProcessors @ 0x140567C38 (PpmUnlockProcessors.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x140254570 (HalRequestIpiSpecifyVector.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     HalRequestIpiSpecifyVector @ 0x1403443F0 (HalRequestIpiSpecifyVector.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall HalRequestIpi(int a1, __int64 a2)
+__int64 __fastcall HalRequestIpi(unsigned int a1, __int64 a2)
 {
   ULONG_PTR BugCheckParameter4; // rbx
   __int64 result; // rax
 
-  BugCheckParameter4 = a1;
-  result = HalRequestIpiSpecifyVector(a1, a2, 0xE1u);
+  BugCheckParameter4 = (int)a1;
+  result = HalRequestIpiSpecifyVector(a1, a2, 225LL);
   if ( (int)result < 0 )
     KeBugCheckEx(0x5Cu, 0x201uLL, HalpInterruptController, (int)result, BugCheckParameter4);
   return result;

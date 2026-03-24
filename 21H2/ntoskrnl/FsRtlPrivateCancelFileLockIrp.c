@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlPrivateCancelFileLockIrp @ 0x140541E40
+ * XREFs of FsRtlPrivateCancelFileLockIrp @ 0x1404EFD70
  * Callers:
- *     FsRtlPrivateLock @ 0x14021E2B0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateLock @ 0x140358360 (FsRtlPrivateLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x14021F5E4 (FsRtlCompleteLockIrpReal.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF930 (FsRtlCompleteLockIrpReal.c)
  */
 
 void __fastcall FsRtlPrivateCancelFileLockIrp(__int64 a1, IRP *a2)
 {
-  ULONG_PTR Information; // rdi
+  ULONG_PTR Information; // rsi
   char v3; // bp
-  KSPIN_LOCK *v4; // rdi
+  KSPIN_LOCK *v4; // rsi
   KIRQL CancelIrql; // bl
   void **i; // rax
-  IRP *v8; // rsi
+  IRP *v8; // rdi
   IRP *v9; // rcx
   KSPIN_LOCK *v10; // rcx
   unsigned __int8 v11; // al
@@ -89,20 +89,12 @@ LABEL_3:
       goto LABEL_7;
   }
   *i = v9;
-  if ( v3 || v8 != (IRP *)v4[4] )
-  {
-    a2->IoStatus.Information = 0LL;
-    v10 = &FsRtlFileLockCancelCollideLock;
-    if ( v3 )
-      goto LABEL_14;
-  }
-  else
-  {
+  if ( !v3 && v8 == (IRP *)v4[4] )
     v4[4] = (KSPIN_LOCK)i;
-    a2->IoStatus.Information = 0LL;
-  }
-  v10 = v4;
-LABEL_14:
+  a2->IoStatus.Information = 0LL;
+  v10 = &FsRtlFileLockCancelCollideLock;
+  if ( !v3 )
+    v10 = v4;
   KxReleaseSpinLock(v10);
   if ( KiIrqlFlags )
   {

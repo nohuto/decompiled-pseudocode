@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpFreeGuidEntry @ 0x1406D708C
+ * XREFs of EtwpFreeGuidEntry @ 0x1406B2ACC
  * Callers:
- *     EtwpAddGuidEntry @ 0x140792A4C (EtwpAddGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1406E3BB0 (EtwpAddGuidEntry.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObDereferenceSecurityDescriptor @ 0x140725730 (ObDereferenceSecurityDescriptor.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeGuidEntry(char *P)
@@ -33,12 +33,12 @@ void __fastcall EtwpFreeGuidEntry(char *P)
     *(_QWORD *)(*((_QWORD *)P + 50) + 416LL) = 0LL;
     ExReleasePushLockEx(*((_QWORD *)P + 50) + 408LL, 0LL);
     KeLeaveCriticalRegion();
-    EtwpUnreferenceGuidEntry(*((PVOID *)P + 50));
+    EtwpUnreferenceGuidEntry(*((__int64 **)P + 50));
   }
-  ObDereferenceSecurityDescriptor(*((_QWORD *)P + 9), 1LL);
+  ObDereferenceSecurityDescriptor(*((_QWORD *)P + 9), 1u);
   v2 = (void *)*((_QWORD *)P + 48);
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
-  _InterlockedAdd((volatile signed __int32 *)(*((_QWORD *)P + 49) + 4120LL), 0xFFFFFFFF);
+  _InterlockedAdd((volatile signed __int32 *)(*((_QWORD *)P + 49) + 4112LL), 0xFFFFFFFF);
   ExFreePoolWithTag(P, 0);
 }

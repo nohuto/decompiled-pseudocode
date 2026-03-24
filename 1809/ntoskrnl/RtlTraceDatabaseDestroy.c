@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTraceDatabaseDestroy @ 0x1402F5A40
+ * XREFs of RtlTraceDatabaseDestroy @ 0x1402F5B40
  * Callers:
  *     <none>
  * Callees:

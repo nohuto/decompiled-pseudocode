@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSrcCopyS32D32@@YAXPEAUBLTINFO@@@Z @ 0x1C01703B0
+ * XREFs of ?vSrcCopyS32D32@@YAXPEAUBLTINFO@@@Z @ 0x1C02CC2D0
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C00D5950 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C8500 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vSrcCopyS32D32(struct BLTINFO *a1)
@@ -12,38 +12,35 @@ void __fastcall vSrcCopyS32D32(struct BLTINFO *a1)
   int v2; // r13d
   int v3; // ebp
   ULONG *v4; // rdi
-  ULONG *v5; // rsi
-  ULONG *v6; // r14
-  ULONG *v7; // r15
-  int v8; // r12d
-  ULONG v9; // edx
+  __int64 v5; // rsi
+  ULONG *v6; // r15
+  int v7; // r12d
   XLATEOBJ *pxlo; // [rsp+68h] [rbp+10h]
 
   v1 = a1;
   v2 = *((_DWORD *)a1 + 7);
   v3 = *((_DWORD *)a1 + 8);
   v4 = (ULONG *)(*((_QWORD *)a1 + 1) + 4 * *((_DWORD *)a1 + 12));
-  v5 = (ULONG *)(*((_QWORD *)a1 + 2) + 4 * *((_DWORD *)a1 + 14));
+  v5 = *((_QWORD *)a1 + 2) + 4 * *((_DWORD *)a1 + 14);
   pxlo = *(XLATEOBJ **)a1;
   while ( 1 )
   {
     v6 = v4;
-    v7 = v5;
-    v8 = v2;
+    v7 = v2;
     if ( v2 )
     {
       do
       {
-        v9 = *v6++;
-        *v7++ = XLATEOBJ_iXlate(pxlo, v9);
-        --v8;
+        *(ULONG *)((char *)v6 + v5 - (_QWORD)v4) = XLATEOBJ_iXlate(pxlo, *v6);
+        ++v6;
+        --v7;
       }
-      while ( v8 );
+      while ( v7 );
       v1 = a1;
     }
     if ( !--v3 )
       break;
     v4 = (ULONG *)((char *)v4 + *((int *)v1 + 10));
-    v5 = (ULONG *)((char *)v5 + *((int *)v1 + 11));
+    v5 += *((int *)v1 + 11);
   }
 }

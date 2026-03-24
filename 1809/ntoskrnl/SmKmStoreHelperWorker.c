@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmStoreHelperWorker @ 0x140135AB0
+ * XREFs of SmKmStoreHelperWorker @ 0x140135AD0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     SmKmStoreHelperCommandProcess @ 0x14014B784 (SmKmStoreHelperCommandProcess.c)
- *     SmKmStoreHelperCommandCleanup @ 0x140307594 (SmKmStoreHelperCommandCleanup.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     SmKmStoreHelperCommandProcess @ 0x14014B7A4 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x140307694 (SmKmStoreHelperCommandCleanup.c)
  */
 
 LONG __fastcall SmKmStoreHelperWorker(__int64 a1, __int64 a2, __int64 a3)

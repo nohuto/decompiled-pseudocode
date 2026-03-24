@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCaptureContext2 @ 0x140428A70
+ * XREFs of RtlCaptureContext2 @ 0x140407230
  * Callers:
- *     RtlUnwindEx @ 0x1402A4C20 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x14033EA40 (RtlUnwindEx.c)
  * Callees:
  *     <none>
  */
@@ -36,9 +36,9 @@ __int64 __fastcall RtlCaptureContext2(__int64 a1, __int64 a2, __int64 a3, __int6
   __int128 v29; // xmm14
   __int128 v30; // xmm15
   __int64 result; // rax
-  unsigned int v33; // [rsp+28h] [rbp-10h]
+  unsigned int v32; // [rsp+28h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
-  char v35; // [rsp+40h] [rbp+8h] BYREF
+  char v34; // [rsp+40h] [rbp+8h] BYREF
 
   *(_QWORD *)(a1 + 120) = v4;
   *(_QWORD *)(a1 + 128) = a1;
@@ -80,22 +80,11 @@ __int64 __fastcall RtlCaptureContext2(__int64 a1, __int64 a2, __int64 a3, __int6
   *(_OWORD *)(a1 + 656) = v30;
   *(_DWORD *)(a1 + 280) = _mm_getcsr();
   *(_DWORD *)(a1 + 52) = _mm_getcsr();
-  *(_QWORD *)(a1 + 152) = &v35;
+  *(_QWORD *)(a1 + 152) = &v34;
   *(_QWORD *)(a1 + 248) = retaddr;
-  result = v33;
-  *(_DWORD *)(a1 + 68) = v33;
-  *(_DWORD *)(a1 + 48) &= 0x100080u;
-  if ( *(_DWORD *)(a1 + 48) == 1048704 )
-  {
-    __asm { rdsspq  rdx }
-    if ( _RDX )
-      _RDX += 8LL;
-    result = a1 + *(int *)(a1 + 1256) + 1232;
-    *(_QWORD *)result = _RDX;
-    *(_QWORD *)(result + 8) = *(_QWORD *)(a1 + 248);
-    *(_QWORD *)(result + 16) = 0LL;
-    *(_WORD *)(result + 16) = *(_WORD *)(a1 + 56);
-  }
+  result = v32;
+  *(_DWORD *)(a1 + 68) = v32;
+  *(_DWORD *)(a1 + 48) = 0;
   *(_DWORD *)(a1 + 48) |= 0x10000Fu;
   return result;
 }

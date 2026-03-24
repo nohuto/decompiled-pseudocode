@@ -1,9 +1,9 @@
 /*
- * XREFs of DCompositionNotifyPresent @ 0x1C009CF80
+ * XREFs of DCompositionNotifyPresent @ 0x1C0095B30
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z @ 0x1C0097ECC (-NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z.c)
+ *     ?NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z @ 0x1C008429C (-NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z.c)
  */
 
 void __fastcall DCompositionNotifyPresent(__int64 a1, int a2)

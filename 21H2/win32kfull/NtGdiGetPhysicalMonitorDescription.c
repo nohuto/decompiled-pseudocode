@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiGetPhysicalMonitorDescription @ 0x1C026FFF0
+ * XREFs of NtGdiGetPhysicalMonitorDescription @ 0x1C02723F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C026FA50 (-GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C0271E30 (-GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z.c)
  */
 
 __int64 __fastcall NtGdiGetPhysicalMonitorDescription(void *a1, int a2, _OWORD *a3)

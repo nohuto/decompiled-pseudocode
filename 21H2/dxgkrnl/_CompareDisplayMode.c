@@ -1,8 +1,8 @@
 /*
- * XREFs of _CompareDisplayMode @ 0x1C018841C
+ * XREFs of _CompareDisplayMode @ 0x1C0120E6C
  * Callers:
- *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C01875D0 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
- *     ?SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z @ 0x1C01DE308 (-SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z.c)
+ *     ?SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z @ 0x1C00DE354 (-SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z.c)
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C011FD90 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CompareDisplayMode(int *a1, int *a2)
 {
   int v2; // eax
   int v3; // r8d
-  int v4; // eax
-  int v5; // ecx
+  int v5; // eax
+  int v6; // ecx
 
   v2 = *a1;
   v3 = *a2;
@@ -42,10 +42,10 @@ __int64 __fastcall CompareDisplayMode(int *a1, int *a2)
   v3 = a2[8];
   if ( v2 != v3 )
     return (unsigned int)(v2 - v3);
-  v4 = a1[7];
-  v5 = a2[7];
-  if ( v4 == v5 )
+  v5 = a1[7];
+  v6 = a2[7];
+  if ( v5 == v6 )
     return 0LL;
   else
-    return (unsigned int)(v4 - v5);
+    return (unsigned int)(v5 - v6);
 }

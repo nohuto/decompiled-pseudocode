@@ -1,22 +1,25 @@
 /*
- * XREFs of ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAE68
+ * XREFs of ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C31C
  * Callers:
- *     ?xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FA140 (-xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     xxxDDETrackPostHook @ 0x1C01FB334 (xxxDDETrackPostHook.c)
+ *     ?xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021B190 (-xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     xxxDDETrackPostHook @ 0x1C021CACC (xxxDDETrackPostHook.c)
  * Callees:
- *     ?AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z @ 0x1C01F95CC (-AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z.c)
- *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C01F9828 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
- *     ?SpontaneousTerminate@@YAKPEAKPEAUtagDDECONV@@@Z @ 0x1C01F9CA0 (-SpontaneousTerminate@@YAKPEAKPEAUtagDDECONV@@@Z.c)
- *     ?xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01F9DB0 (-xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     ?xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FA50C (-xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     ?xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FA8F4 (-xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     xxxClientFreeDDEHandle @ 0x1C0212740 (xxxClientFreeDDEHandle.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     ?AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z @ 0x1C021A304 (-AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z.c)
+ *     ?Request@@YAKPEAUtagDDECONV@@@Z @ 0x1C021AA34 (-Request@@YAKPEAUtagDDECONV@@@Z.c)
+ *     ?SpontaneousTerminate@@YAKPEAKPEAUtagDDECONV@@@Z @ 0x1C021AAA0 (-SpontaneousTerminate@@YAKPEAKPEAUtagDDECONV@@@Z.c)
+ *     ?Unadvise@@YAKPEAUtagDDECONV@@@Z @ 0x1C021AB0C (-Unadvise@@YAKPEAUtagDDECONV@@@Z.c)
+ *     ?xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021ACB8 (-xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021B834 (-xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z @ 0x1C021BB28 (-xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z.c)
+ *     ?xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021BC5C (-xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  */
 
 __int64 __fastcall xxxUnexpectedClientPost(unsigned int *a1, void **a2, struct tagDDECONV *a3)
 {
-  unsigned int (*v4)(unsigned int *, __int64 *, struct tagDDECONV *); // rdx
+  void **v3; // rbx
 
+  v3 = a2;
   switch ( *a1 )
   {
     case 0x3E1u:
@@ -24,20 +27,24 @@ __int64 __fastcall xxxUnexpectedClientPost(unsigned int *a1, void **a2, struct t
     case 0x3E2u:
       return xxxAdvise(a1, a2, (struct tagDDECONV **)a3);
     case 0x3E3u:
-      v4 = (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxUnadviseAck;
-      return AnticipatePost(*((struct tagDDECONV **)a3 + 4), v4, 0LL, 0LL, 0LL, 0) != 0LL ? 2 : 0;
+      return Unadvise((struct tagDDECONV **)a3);
     case 0x3E4u:
-      xxxClientFreeDDEHandle(*a2, 1LL);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(a2) = 4;
+        WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 24, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+      }
+      xxxFreeDDEHandle((struct tagDDECONV *)a1, *v3, 1u);
       return 3LL;
     case 0x3E5u:
-      return AbnormalDDEPost(a3, *a1);
+      return AbnormalDDEPost(a3, 997);
     case 0x3E6u:
-      v4 = (unsigned int (*)(unsigned int *, __int64 *, struct tagDDECONV *))xxxRequestAck;
-      return AnticipatePost(*((struct tagDDECONV **)a3 + 4), v4, 0LL, 0LL, 0LL, 0) != 0LL ? 2 : 0;
+      return Request((struct tagDDECONV **)a3);
     case 0x3E7u:
       return xxxPoke(a1, a2, a3);
     case 0x3E8u:
       return xxxExecute(a1, a2, a3);
+    default:
+      return 0LL;
   }
-  return 0LL;
 }

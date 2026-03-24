@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsHardwareProtected@CDeviceTextureTarget@@$4PPPPPPPM@NI@EBA_NXZ @ 0x180120520
+ * XREFs of ?IsHardwareProtected@CDeviceTextureTarget@@$4PPPPPPPM@NI@EBA_NXZ @ 0x1800F7AF0
  * Callers:
  *     <none>
  * Callees:

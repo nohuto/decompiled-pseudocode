@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InvokeCxCleanupCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAXPEAVFxCxPnpPowerCallbackContext@@@Z @ 0x1C0086190
+ * XREFs of ?InvokeCxCleanupCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAXPEAVFxCxPnpPowerCallbackContext@@@Z @ 0x1C001BFD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxPnpDeviceD0EntryPostHwEnabled::InvokeCxCleanupCallback(

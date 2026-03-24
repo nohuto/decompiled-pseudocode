@@ -1,7 +1,7 @@
 /*
- * XREFs of IsKnownMismatchedVersionedDriver @ 0x1C0388C78
+ * XREFs of IsKnownMismatchedVersionedDriver @ 0x1C02C84C0
  * Callers:
- *     DpiFdoValidateKmdAndPnpVersionMatch @ 0x1C01FAB24 (DpiFdoValidateKmdAndPnpVersionMatch.c)
+ *     DpiFdoValidateKmdAndPnpVersionMatch @ 0x1C018018C (DpiFdoValidateKmdAndPnpVersionMatch.c)
  * Callees:
  *     <none>
  */

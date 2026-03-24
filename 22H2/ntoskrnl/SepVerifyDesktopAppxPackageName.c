@@ -1,150 +1,136 @@
 /*
- * XREFs of SepVerifyDesktopAppxPackageName @ 0x1405B81D4
+ * XREFs of SepVerifyDesktopAppxPackageName @ 0x140201574
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x1405B8000 (SepVerifyDesktopAppxImage.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402013A4 (SepVerifyDesktopAppxImage.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     SeSecurityAttributePresent @ 0x140297AC0 (SeSecurityAttributePresent.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8C20 (AuthzBasepFreeSecurityAttributesList.c)
- *     RtlFindAceByType @ 0x1402AD1C0 (RtlFindAceByType.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x14036A93C (AuthzBasepAllocateSecurityAttributesList.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SeQuerySecurityAttributesToken @ 0x1406B7A00 (SeQuerySecurityAttributesToken.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
+ *     SeSecurityAttributePresent @ 0x14024E430 (SeSecurityAttributePresent.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x140275910 (AuthzBasepFreeSecurityAttributesList.c)
+ *     RtlFindAceByType @ 0x1402D29C0 (RtlFindAceByType.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x14030A32C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SeQuerySecurityAttributesToken @ 0x140600F90 (SeQuerySecurityAttributesToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepVerifyDesktopAppxPackageName(_DWORD *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE *a3)
 {
   int SecurityAttributesToken; // ebx
-  _BYTE *Pool2; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  unsigned int v10; // ebx
-  _QWORD *SecurityAttributesList; // rax
-  _DWORD *v12; // rsi
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int16 v16; // ax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v20; // r14
-  unsigned int v22; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v23; // [rsp+64h] [rbp-9Ch] BYREF
-  int v24; // [rsp+68h] [rbp-98h] BYREF
-  int v25; // [rsp+6Ch] [rbp-94h] BYREF
+  _BYTE *PoolWithTag; // rdi
+  __int64 SecurityAttributesList; // rax
+  __int64 v9; // rsi
+  __int16 v10; // ax
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 AceByType; // rax
+  __int64 v14; // r14
+  int v16; // ebx
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp-A0h] BYREF
+  int v18; // [rsp+68h] [rbp-98h] BYREF
+  int v19; // [rsp+6Ch] [rbp-94h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
   _BYTE P[512]; // [rsp+80h] [rbp-80h] BYREF
 
-  v25 = 2;
-  v23 = 0;
-  v24 = 0;
-  v22 = 0;
+  v19 = 2;
+  v18 = 0;
+  NumberOfBytes = 0LL;
   *a3 = 0;
   SecurityAttributesToken = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"WIN://SYSAPPID");
-  if ( !SeSecurityAttributePresent((__int64)a1, &DestinationString) )
+  if ( !(unsigned __int8)SeSecurityAttributePresent(a1, &DestinationString) )
     return (unsigned int)SecurityAttributesToken;
-  Pool2 = P;
+  PoolWithTag = P;
   SecurityAttributesToken = SeQuerySecurityAttributesToken(
-                              (_DWORD)a1,
+                              a1,
                               (unsigned int)&DestinationString,
                               1,
                               (unsigned int)P,
                               512,
-                              (__int64)&v22);
+                              (__int64)&NumberOfBytes);
   if ( SecurityAttributesToken == -1073741789 )
   {
-    v10 = v22;
-    Pool2 = (_BYTE *)ExAllocatePool2(256LL, v22, 538994003LL);
-    if ( !Pool2 )
+    v16 = NumberOfBytes;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20206553u);
+    if ( !PoolWithTag )
       return (unsigned int)-1073741801;
     SecurityAttributesToken = SeQuerySecurityAttributesToken(
-                                (_DWORD)a1,
+                                a1,
                                 (unsigned int)&DestinationString,
                                 1,
-                                (_DWORD)Pool2,
-                                v10,
-                                (__int64)&v22);
+                                (_DWORD)PoolWithTag,
+                                v16,
+                                (__int64)&NumberOfBytes);
   }
   if ( SecurityAttributesToken < 0 )
-  {
-    if ( Pool2 )
-      goto LABEL_26;
-    return (unsigned int)SecurityAttributesToken;
-  }
-  if ( !Pool2 )
+    goto LABEL_16;
+  if ( !PoolWithTag )
     return (unsigned int)-1073739509;
-  SecurityAttributesList = AuthzBasepAllocateSecurityAttributesList(v9, v8);
-  v12 = SecurityAttributesList;
+  SecurityAttributesList = AuthzBasepAllocateSecurityAttributesList();
+  v9 = SecurityAttributesList;
   if ( !SecurityAttributesList )
   {
     SecurityAttributesToken = -1073741670;
-    goto LABEL_26;
+    goto LABEL_16;
   }
-  SecurityAttributesToken = AuthzBasepSetSecurityAttributesToken((__int64)SecurityAttributesList, &v25, (__int64)Pool2);
+  SecurityAttributesToken = AuthzBasepSetSecurityAttributesToken(SecurityAttributesList, &v19, PoolWithTag);
   if ( SecurityAttributesToken < 0 )
-    goto LABEL_24;
+    goto LABEL_15;
   do
   {
-    v16 = *(_WORD *)(a2 + 2);
-    if ( (v16 & 4) == 0 )
+    v10 = *(_WORD *)(a2 + 2);
+    if ( (v10 & 4) == 0 )
+      goto LABEL_27;
+    if ( v10 >= 0 )
     {
-LABEL_13:
-      v17 = 0LL;
-      goto LABEL_18;
+      v12 = *(_QWORD *)(a2 + 32);
+      goto LABEL_11;
     }
-    if ( v16 >= 0 )
-    {
-      v17 = *(_QWORD *)(a2 + 32);
-    }
+    v11 = *(unsigned int *)(a2 + 16);
+    if ( (_DWORD)v11 )
+      v12 = a2 + v11;
     else
-    {
-      v18 = *(unsigned int *)(a2 + 16);
-      if ( !(_DWORD)v18 )
-        goto LABEL_13;
-      v17 = a2 + v18;
-    }
-LABEL_18:
-    AceByType = RtlFindAceByType(v17, 9, &v23);
-    v15 = 0LL;
-    v20 = AceByType;
+LABEL_27:
+      v12 = 0LL;
+LABEL_11:
+    AceByType = RtlFindAceByType(v12, 9LL, (char *)&NumberOfBytes + 4);
+    v14 = AceByType;
     if ( AceByType )
     {
       SecurityAttributesToken = AuthzBasepEvaluateAceCondition(
                                   a1,
-                                  v12,
-                                  0LL,
-                                  0LL,
-                                  0LL,
-                                  0LL,
-                                  0LL,
-                                  &AceByType[4 * AceByType[9] + 16],
-                                  *((unsigned __int16 *)AceByType + 1) - (4 * (unsigned int)AceByType[9] + 8) - 8,
+                                  v9,
                                   0,
                                   0,
-                                  &v24);
+                                  0LL,
+                                  0LL,
+                                  0LL,
+                                  AceByType + 4 * (unsigned int)*(unsigned __int8 *)(AceByType + 9) + 8 + 8LL,
+                                  *(unsigned __int16 *)(AceByType + 2)
+                                - (4 * (unsigned int)*(unsigned __int8 *)(AceByType + 9)
+                                 + 8)
+                                - 8,
+                                  0,
+                                  0,
+                                  (__int64)&v18);
       if ( SecurityAttributesToken < 0 )
         break;
-      if ( v24 == 1 )
-        goto LABEL_23;
+      if ( v18 == 1 )
+        goto LABEL_14;
     }
-    ++v23;
+    ++HIDWORD(NumberOfBytes);
   }
-  while ( v20 );
-  if ( v24 != 1 )
-    goto LABEL_24;
-LABEL_23:
-  *a3 = 1;
-LABEL_24:
-  AuthzBasepFreeSecurityAttributesList(v12, v13, v14, v15);
-LABEL_26:
-  if ( Pool2 != P )
-    ExFreePoolWithTag(Pool2, 0);
+  while ( v14 );
+  if ( v18 == 1 )
+LABEL_14:
+    *a3 = 1;
+LABEL_15:
+  AuthzBasepFreeSecurityAttributesList(v9);
+LABEL_16:
+  if ( PoolWithTag && PoolWithTag != P )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)SecurityAttributesToken;
 }

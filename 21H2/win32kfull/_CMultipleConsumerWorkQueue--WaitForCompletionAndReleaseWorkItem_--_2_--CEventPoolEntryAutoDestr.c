@@ -1,27 +1,27 @@
 /*
- * XREFs of _CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy @ 0x1C02DC930
+ * XREFs of _CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy @ 0x1C02DFBEC
  * Callers:
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C001BC7C (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A610 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
  * Callees:
- *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C011AC00 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E714 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
  */
 
 void __fastcall CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy(
         __int64 a1)
 {
-  volatile signed __int32 *v1; // rbx
-  __int64 v2; // rdi
+  __int64 v1; // rdi
+  volatile signed __int32 *v2; // rbx
 
-  v1 = *(volatile signed __int32 **)a1;
-  v2 = *(_QWORD *)(a1 + 8);
+  v1 = *(_QWORD *)(a1 + 8);
+  v2 = *(volatile signed __int32 **)a1;
   if ( (unsigned int)_InterlockedIncrement(*(volatile signed __int32 **)a1) > 8 )
   {
-    _InterlockedDecrement(v1);
-    CEventPool::CEventPoolEntry::Destroy((_QWORD *)v2);
+    _InterlockedDecrement(v2);
+    CEventPool::CEventPoolEntry::Destroy((_QWORD *)v1);
   }
   else
   {
-    KeResetEvent(**(PRKEVENT **)(v2 + 8));
-    ExpInterlockedPushEntrySList((PSLIST_HEADER)v1 + 1, (PSLIST_ENTRY)v2);
+    KeResetEvent(**(PRKEVENT **)(v1 + 8));
+    ExpInterlockedPushEntrySList((PSLIST_HEADER)v2 + 1, (PSLIST_ENTRY)v1);
   }
 }

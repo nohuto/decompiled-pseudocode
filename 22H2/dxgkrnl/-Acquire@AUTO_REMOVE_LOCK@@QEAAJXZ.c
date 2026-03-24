@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001D958
+ * XREFs of ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001FCD4
  * Callers:
- *     DpiMiracastQueryMiracastSupportForFDO @ 0x1C0206800 (DpiMiracastQueryMiracastSupportForFDO.c)
- *     ?DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LOCK@@PEAPEAU_FDO_CONTEXT@@@Z @ 0x1C03A3F68 (-DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LO.c)
- *     DxgkHandleIndirectEscape @ 0x1C03A4C34 (DxgkHandleIndirectEscape.c)
+ *     DpiMiracastQueryMiracastSupportForFDO @ 0x1C0174FC4 (DpiMiracastQueryMiracastSupportForFDO.c)
+ *     ?DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LOCK@@PEAPEAU_FDO_CONTEXT@@@Z @ 0x1C02D5228 (-DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LO.c)
+ *     DxgkHandleIndirectEscape @ 0x1C02D5F90 (DxgkHandleIndirectEscape.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x140295740
+ * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x140331318
  * Callers:
- *     MiInvalidatePageFileBitmapsCache @ 0x140294A1C (MiInvalidatePageFileBitmapsCache.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140295338 (MiCoalescePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140330EC0 (MiCoalescePageFileBitmapsCache.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140333BF0 (MiInvalidatePageFileBitmapsCache.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
  */
 
 void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, int a3)
@@ -92,6 +92,8 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   {
     if ( v14 )
       v14 ^= v13;
+    else
+      v14 = 0LL;
   }
   if ( v14 )
   {
@@ -115,12 +117,12 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
         if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
         {
           if ( !v15 )
-            goto LABEL_36;
+            goto LABEL_37;
           v15 ^= v14;
         }
         if ( !v15 )
         {
-LABEL_36:
+LABEL_37:
           v3 = 1;
           break;
         }

@@ -1,7 +1,7 @@
 /*
- * XREFs of TmReadOnlyEnlistment @ 0x1403D7FF0
+ * XREFs of TmReadOnlyEnlistment @ 0x1403D06E0
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
+ *     <none>
  * Callees:
  *     <none>
  */

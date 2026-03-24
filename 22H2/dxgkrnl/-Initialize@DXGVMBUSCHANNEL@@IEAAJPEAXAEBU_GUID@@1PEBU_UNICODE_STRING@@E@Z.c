@@ -1,283 +1,285 @@
 /*
- * XREFs of ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C0366290
+ * XREFs of ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C02B34FC
  * Callers:
- *     ?Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z @ 0x1C0365FE4 (-Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z.c)
+ *     ?Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z @ 0x1C02B325C (-Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?EnsureClientVmBusInterface@@YAJXZ @ 0x1C0375148 (-EnsureClientVmBusInterface@@YAJXZ.c)
- *     ?EnsureServerVmBusInterface@@YAJXZ @ 0x1C0375418 (-EnsureServerVmBusInterface@@YAJXZ.c)
- *     ?VmBusInterfaceDereference@@YAXXZ @ 0x1C0380394 (-VmBusInterfaceDereference@@YAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureClientVmBusInterface@@YAJXZ @ 0x1C023A8F4 (-EnsureClientVmBusInterface@@YAJXZ.c)
+ *     ?EnsureServerVmBusInterface@@YAJXZ @ 0x1C023AB50 (-EnsureServerVmBusInterface@@YAJXZ.c)
+ *     ?VmBusInterfaceDereference@@YAXXZ @ 0x1C0242F6C (-VmBusInterfaceDereference@@YAXXZ.c)
  */
 
 __int64 __fastcall DXGVMBUSCHANNEL::Initialize(
         DXGVMBUSCHANNEL *this,
-        void *a2,
+        __int64 a2,
         const struct _GUID *a3,
         const struct _GUID *a4,
         const struct _UNICODE_STRING *a5,
-        unsigned __int8 a6)
+        char a6)
 {
-  bool v8; // zf
-  struct _KEVENT *v10; // rax
-  int v11; // eax
+  unsigned int v8; // r12d
+  struct _KEVENT *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   __int64 v12; // rdx
-  __int64 v13; // rdi
-  __int64 v14; // r14
-  __int64 v15; // rbx
-  const wchar_t *v16; // r9
-  int v17; // eax
-  _QWORD *v18; // rbx
+  __int64 v13; // rcx
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rbx
+  _QWORD *v18; // rax
   int v19; // eax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
+  __int64 v20; // rcx
+  _QWORD *v21; // r14
   int v22; // eax
-  __int64 v23; // r14
-  const wchar_t *v24; // r9
-  int v25; // eax
-  _QWORD *v26; // r14
-  int v27; // eax
-  __int64 v28; // r13
-  const wchar_t *v29; // r9
-  int v30; // eax
-  int v31; // eax
-  int v32; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  _QWORD *v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rcx
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  _QWORD *v32; // rax
   int v33; // eax
-  __int64 v34; // rcx
-  int v35; // eax
-  int v37; // eax
-  __int128 v38; // [rsp+58h] [rbp-29h] BYREF
-  __int128 v39; // [rsp+68h] [rbp-19h] BYREF
-  _DWORD v40[2]; // [rsp+78h] [rbp-9h] BYREF
-  __int64 v41; // [rsp+80h] [rbp-1h]
-  __int64 (__fastcall *v42)(); // [rsp+88h] [rbp+7h]
-  __int64 (__fastcall *v43)(); // [rsp+90h] [rbp+Fh]
-  __int64 (__fastcall *v44)(); // [rsp+98h] [rbp+17h]
-  __int64 (__fastcall *v45)(); // [rsp+A0h] [rbp+1Fh]
-  unsigned int v46; // [rsp+100h] [rbp+7Fh]
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  int v39; // eax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  int v42; // eax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  int v45; // eax
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  _QWORD *v48; // rax
+  int v49; // eax
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  _QWORD *v52; // rax
+  __int64 v53; // rcx
+  int v54; // eax
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  int v57; // eax
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  _QWORD *v60; // rax
+  __int64 v61; // rdx
+  __int64 v62; // rcx
+  __int128 v64; // [rsp+30h] [rbp-50h] BYREF
+  __int128 v65; // [rsp+40h] [rbp-40h] BYREF
+  _DWORD v66[2]; // [rsp+50h] [rbp-30h] BYREF
+  __int64 v67; // [rsp+58h] [rbp-28h]
+  __int64 (__fastcall *v68)(); // [rsp+60h] [rbp-20h]
+  __int64 (__fastcall *v69)(); // [rsp+68h] [rbp-18h]
+  __int64 (__fastcall *v70)(); // [rsp+70h] [rbp-10h]
+  __int64 (__fastcall *v71)(); // [rsp+78h] [rbp-8h]
 
-  v8 = a6 == 0;
-  v46 = 2;
-  *((_BYTE *)this + 27) = !v8;
-  if ( v8 )
-  {
-    v10 = (struct _KEVENT *)operator new[](0x18uLL, 0x4B677844u, 64LL);
-    *((_QWORD *)this + 4) = v10;
-    if ( !v10 )
-    {
-      WdLogSingleEntry3(2LL, -1073741801LL, 199LL, this);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"m_pChannelStartEvent can't be allocated. Returning 0x%I64x",
-        -1073741801LL,
-        199LL,
-        (__int64)this,
-        0LL,
-        0LL);
-      goto LABEL_31;
-    }
-    KeInitializeEvent(v10, NotificationEvent, 0);
-    v11 = EnsureClientVmBusInterface();
-    LODWORD(v13) = v11;
-    if ( v11 < 0 )
-    {
-      v14 = 224LL;
-      v15 = v11;
-      WdLogSingleEntry3(2LL, v11, 224LL, this);
-      v16 = L"EnsureClientVmBusInterface failed. Returning 0x%I64x";
-LABEL_8:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v16, v15, v14, (__int64)this, 0LL, 0LL);
-      goto LABEL_30;
-    }
-  }
-  else
-  {
-    v17 = EnsureServerVmBusInterface();
-    LODWORD(v13) = v17;
-    if ( v17 < 0 )
-    {
-      v14 = 213LL;
-      v15 = v17;
-      WdLogSingleEntry3(2LL, v17, 213LL, this);
-      v16 = L"EnsureServerVmBusInterface failed. Returning 0x%I64x";
-      goto LABEL_8;
-    }
-  }
-  v18 = (_QWORD *)((char *)this + 16);
-  LOBYTE(v12) = a6;
-  v19 = ((__int64 (__fastcall *)(PDEVICE_OBJECT, __int64, char *))qword_1C0141EC0)(
-          g_pDriverObject->DeviceObject,
-          v12,
-          (char *)this + 16);
-  v13 = v19;
-  if ( v19 < 0 )
-  {
-    WdLogSingleEntry3(2LL, v19, 238LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmbChannelAllocate failed. Returning 0x%I64x",
-      v13,
-      238LL,
-      (__int64)this,
-      0LL,
-      0LL);
-    VmBusInterfaceDereference();
-    goto LABEL_30;
-  }
-  LOBYTE(v20) = 1;
-  ((void (__fastcall *)(_QWORD, __int64))qword_1C0141F78)(*v18, v20);
-  v21 = *v18;
+  v8 = 2;
+  *((_BYTE *)this + 27) = a6 != 0;
   if ( a6 )
   {
-    v38 = DxgkVailVmBusChannel;
-    v39 = DxgkVailVmBusChannelType;
-    v22 = ((__int64 (__fastcall *)(__int64, __int128 *, __int128 *))qword_1C0142138)(v21, &v39, &v38);
-    v13 = v22;
-    if ( v22 < 0 )
-    {
-      v23 = 262LL;
-      WdLogSingleEntry3(2LL, v22, 262LL, this);
-      v24 = L"VmbServerChannelInitSetTargetInterfaceId failed. Returning 0x%I64x";
-LABEL_17:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v24, v13, v23, (__int64)this, 0LL, 0LL);
-      goto LABEL_18;
-    }
-    if ( a2 )
-    {
-      v25 = ((__int64 (__fastcall *)(_QWORD, void *))qword_1C0142148)(*v18, a2);
-      v13 = v25;
-      if ( v25 < 0 )
-      {
-        v23 = 279LL;
-        WdLogSingleEntry3(2LL, v25, 279LL, this);
-        v24 = L"VmbServerChannelInitSetVmbusHandle failed. Returning 0x%I64x";
-        goto LABEL_17;
-      }
-    }
-    else
-    {
-      v46 = 3;
-    }
-    v30 = ((__int64 (__fastcall *)(_QWORD, _QWORD))qword_1C0142120)(*v18, v46);
-    LODWORD(v13) = v30;
-    if ( v30 < 0 )
-    {
-      v14 = 296LL;
-      v15 = v30;
-      WdLogSingleEntry3(2LL, v30, 296LL, this);
-      v16 = L"VmbServerChannelInitSetFlags failed. Returning 0x%I64x";
-      goto LABEL_8;
-    }
+    v14 = EnsureServerVmBusInterface((__int64)this, a2);
+    v17 = v14;
+    if ( v14 >= 0 )
+      goto LABEL_9;
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v18[4] = 213LL;
+LABEL_29:
+    v18[3] = v17;
+    v18[5] = this;
+    WdLogEvent5_WdError(v18);
+    goto LABEL_30;
   }
-  else
+  v9 = (struct _KEVENT *)operator new[](0x18uLL, 0x4B677844u, (POOL_TYPE)512);
+  *((_QWORD *)this + 4) = v9;
+  if ( !v9 )
   {
-    v31 = ((__int64 (__fastcall *)(__int64, __int128 *, __int128 *, _QWORD))qword_1C0141FB0)(
-            v21,
+    v17 = -1073741801LL;
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    v18[4] = 199LL;
+    goto LABEL_29;
+  }
+  KeInitializeEvent(v9, NotificationEvent, 0);
+  v19 = EnsureClientVmBusInterface(v13, v12);
+  v17 = v19;
+  if ( v19 < 0 )
+  {
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v20, v15);
+    v18[4] = 224LL;
+    goto LABEL_29;
+  }
+LABEL_9:
+  v21 = (_QWORD *)((char *)this + 16);
+  LOBYTE(v15) = a6;
+  v22 = ((__int64 (__fastcall *)(PDEVICE_OBJECT, __int64, char *))qword_1C00B4300)(
+          g_pDriverObject->DeviceObject,
+          v15,
+          (char *)this + 16);
+  v17 = v22;
+  if ( v22 < 0 )
+  {
+    v25 = (_QWORD *)WdLogNewEntry5_WdError(v24, v23);
+    v25[3] = v17;
+    v25[4] = 238LL;
+    v25[5] = this;
+    WdLogEvent5_WdError(v25);
+    VmBusInterfaceDereference(v27, v26);
+    goto LABEL_30;
+  }
+  LOBYTE(v23) = 1;
+  ((void (__fastcall *)(_QWORD, __int64))qword_1C00B43B8)(*v21, v23);
+  v28 = *v21;
+  if ( !a6 )
+  {
+    v39 = ((__int64 (__fastcall *)(__int64, __int128 *, __int128 *, _QWORD))qword_1C00B43F0)(
+            v28,
             &DxgkVailVmBusChannelType,
             &DxgkVailVmBusChannel,
             0LL);
-    LODWORD(v13) = v31;
-    if ( v31 < 0 )
+    v17 = v39;
+    if ( v39 < 0 )
     {
-      v14 = 311LL;
-      v15 = v31;
-      WdLogSingleEntry3(2LL, v31, 311LL, this);
-      v16 = L"VmbClientChannelInitSetTargetPnp failed. Returning 0x%I64x";
-      goto LABEL_8;
+      v18 = (_QWORD *)WdLogNewEntry5_WdError(v41, v40);
+      v18[4] = 311LL;
+      goto LABEL_29;
     }
+    goto LABEL_24;
   }
-  if ( a5 )
-    ((void (__fastcall *)(_QWORD))qword_1C0141F20)(*v18);
-  v32 = ((__int64 (__fastcall *)(_QWORD, __int64))qword_1C0141F30)(*v18, 2048LL);
-  v13 = v32;
-  if ( v32 < 0 )
+  v64 = DxgkVailVmBusChannel;
+  v65 = DxgkVailVmBusChannelType;
+  v29 = ((__int64 (__fastcall *)(__int64, __int128 *, __int128 *))qword_1C00B4578)(v28, &v65, &v64);
+  v17 = v29;
+  if ( v29 < 0 )
   {
-    WdLogSingleEntry3(2LL, v32, 329LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmbChannelInitSetMaximumPacketSize failed. Returning 0x%I64x",
-      v13,
-      329LL,
-      (__int64)this,
-      0LL,
-      0LL);
+    v32 = (_QWORD *)WdLogNewEntry5_WdError(v31, v30);
+    v32[4] = 262LL;
+LABEL_17:
+    v32[3] = v17;
+    v32[5] = this;
+    WdLogEvent5_WdError(v32);
+    goto LABEL_19;
+  }
+  if ( a2 )
+  {
+    v33 = ((__int64 (__fastcall *)(_QWORD, __int64))qword_1C00B4588)(*v21, a2);
+    v17 = v33;
+    if ( v33 >= 0 )
+      goto LABEL_20;
+    v32 = (_QWORD *)WdLogNewEntry5_WdError(v35, v34);
+    v32[4] = 279LL;
+    goto LABEL_17;
+  }
+  v8 = 3;
+LABEL_19:
+  if ( (int)v17 < 0 )
+    goto LABEL_30;
+LABEL_20:
+  v36 = ((__int64 (__fastcall *)(_QWORD, _QWORD))qword_1C00B4560)(*v21, v8);
+  v17 = v36;
+  if ( v36 < 0 )
+  {
+    v18 = (_QWORD *)WdLogNewEntry5_WdError(v38, v37);
+    v18[4] = 296LL;
+    goto LABEL_29;
+  }
+LABEL_24:
+  if ( a5 )
+    ((void (__fastcall *)(_QWORD))qword_1C00B4360)(*v21);
+  if ( (int)v17 >= 0 )
+  {
+    v42 = ((__int64 (__fastcall *)(_QWORD, __int64))qword_1C00B4370)(*v21, 2048LL);
+    v17 = v42;
+    if ( v42 < 0 )
+    {
+      v18 = (_QWORD *)WdLogNewEntry5_WdError(v44, v43);
+      v18[4] = 329LL;
+      goto LABEL_29;
+    }
   }
 LABEL_30:
   if ( !a6 )
   {
-LABEL_31:
-    v26 = (_QWORD *)((char *)this + 16);
-    v33 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64))qword_1C0141FA8)(*((_QWORD *)this + 2), 8LL, 8LL);
-    v13 = v33;
-    if ( v33 < 0 )
-    {
-      v28 = 343LL;
-      WdLogSingleEntry3(2LL, v33, 343LL, this);
-      v29 = L"VmbClientChannelInitSetRingBufferPageCount failed. Returning 0x%I64x";
-LABEL_35:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v29, v13, v28, (__int64)this, 0LL, 0LL);
-      goto LABEL_36;
-    }
-LABEL_19:
-    ((void (__fastcall *)(_QWORD, DXGVMBUSCHANNEL *))qword_1C0141F88)(*v26, this);
-    v27 = ((__int64 (__fastcall *)(_QWORD, void *, _QWORD))qword_1C0141F38)(*v26, &ProcessRingPacket, 0LL);
-    v13 = v27;
-    if ( v27 >= 0 )
-    {
-      v34 = *v26;
-      v41 = 0LL;
-      v42 = ProcessChannelClosed;
-      v43 = ProcessChannelSuspended;
-      v44 = ProcessChannelStarted;
-      v45 = ProcessChannelPostStarted;
-      v40[0] = 1;
-      v40[1] = 48;
-      v35 = ((__int64 (__fastcall *)(__int64, _DWORD *))qword_1C0141F40)(v34, v40);
-      v13 = v35;
-      if ( v35 >= 0 )
-      {
-        if ( a6 )
-          return (unsigned int)v13;
-        v37 = ((__int64 (__fastcall *)(_QWORD))qword_1C0141EF0)(*v26);
-        v13 = v37;
-        if ( v37 >= 0 )
-        {
-          *((_BYTE *)this + 24) = 1;
-          return (unsigned int)v13;
-        }
-        v28 = 394LL;
-        WdLogSingleEntry3(2LL, v37, 394LL, this);
-        v29 = L"VmbChannelEnable failed. Returning 0x%I64x";
-      }
-      else
-      {
-        v28 = 382LL;
-        WdLogSingleEntry3(2LL, v35, 382LL, this);
-        v29 = L"VmbChannelInitSetStateChangeCallbacks failed. Returning 0x%I64x";
-      }
-    }
-    else
-    {
-      v28 = 359LL;
-      WdLogSingleEntry3(2LL, v27, 359LL, this);
-      v29 = L"VmbChannelInitSetProcessPacketCallbacks failed. Returning 0x%I64x";
-    }
-    goto LABEL_35;
+    v45 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64))qword_1C00B43E8)(*((_QWORD *)this + 2), 8LL, 8LL);
+    v17 = v45;
+    if ( v45 >= 0 )
+      goto LABEL_34;
+    v48 = (_QWORD *)WdLogNewEntry5_WdError(v47, v46);
+    v48[3] = v17;
+    v48[4] = 343LL;
+    v48[5] = this;
+    WdLogEvent5_WdError(v48);
   }
-LABEL_18:
-  v26 = (_QWORD *)((char *)this + 16);
-  if ( (int)v13 >= 0 )
-    goto LABEL_19;
-LABEL_36:
-  ((void (__fastcall *)(_QWORD))qword_1C0141EC8)(*v26);
-  *v26 = 0LL;
-  VmBusInterfaceDereference();
-  return (unsigned int)v13;
+  if ( (int)v17 < 0 )
+  {
+LABEL_46:
+    ((void (__fastcall *)(_QWORD))qword_1C00B4308)(*((_QWORD *)this + 2));
+    *((_QWORD *)this + 2) = 0LL;
+    VmBusInterfaceDereference(v62, v61);
+    return (unsigned int)v17;
+  }
+LABEL_34:
+  ((void (__fastcall *)(_QWORD, DXGVMBUSCHANNEL *))qword_1C00B43C8)(*((_QWORD *)this + 2), this);
+  v49 = ((__int64 (__fastcall *)(_QWORD, void *, _QWORD))qword_1C00B4378)(
+          *((_QWORD *)this + 2),
+          &ProcessRingPacket,
+          0LL);
+  v17 = v49;
+  if ( v49 < 0 )
+  {
+    v52 = (_QWORD *)WdLogNewEntry5_WdError(v51, v50);
+    v52[4] = 359LL;
+LABEL_38:
+    v52[3] = v17;
+    v52[5] = this;
+    WdLogEvent5_WdError(v52);
+    goto LABEL_46;
+  }
+  v53 = *((_QWORD *)this + 2);
+  v67 = 0LL;
+  v68 = ProcessChannelClosed;
+  v69 = ProcessChannelSuspended;
+  v70 = ProcessChannelStarted;
+  v71 = ProcessChannelPostStarted;
+  v66[0] = 1;
+  v66[1] = 48;
+  v54 = ((__int64 (__fastcall *)(__int64, _DWORD *))qword_1C00B4380)(v53, v66);
+  v17 = v54;
+  if ( v54 < 0 )
+  {
+    v52 = (_QWORD *)WdLogNewEntry5_WdError(v56, v55);
+    v52[4] = 382LL;
+    goto LABEL_38;
+  }
+  if ( !a6 )
+  {
+    v57 = ((__int64 (__fastcall *)(_QWORD))qword_1C00B4330)(*((_QWORD *)this + 2));
+    v17 = v57;
+    if ( v57 >= 0 )
+    {
+LABEL_44:
+      *((_BYTE *)this + 24) = 1;
+      goto LABEL_45;
+    }
+    v60 = (_QWORD *)WdLogNewEntry5_WdError(v59, v58);
+    v60[3] = v17;
+    v60[4] = 394LL;
+    v60[5] = this;
+    WdLogEvent5_WdError(v60);
+  }
+  if ( (int)v17 < 0 )
+    goto LABEL_46;
+  if ( !a6 )
+    goto LABEL_44;
+LABEL_45:
+  if ( (int)v17 < 0 )
+    goto LABEL_46;
+  return (unsigned int)v17;
 }

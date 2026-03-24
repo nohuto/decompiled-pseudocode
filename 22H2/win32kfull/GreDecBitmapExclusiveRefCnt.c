@@ -1,8 +1,9 @@
 /*
- * XREFs of GreDecBitmapExclusiveRefCnt @ 0x1C02DE5D0
+ * XREFs of GreDecBitmapExclusiveRefCnt @ 0x1C00A9DAC
  * Callers:
- *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C02210E4 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
+ *     ?ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z @ 0x1C00A9B10 (-ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z.c)
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C013E05C (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
  * Callees:
  *     <none>
  */

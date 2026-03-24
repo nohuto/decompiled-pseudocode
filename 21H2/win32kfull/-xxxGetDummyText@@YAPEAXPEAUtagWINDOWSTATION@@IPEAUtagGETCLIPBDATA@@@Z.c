@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C021A2DC
+ * XREFs of ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C021F470
  * Callers:
- *     xxxGetClipboardData @ 0x1C014AE38 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D3C8 (xxxGetClipboardData.c)
  * Callees:
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00CD1F0 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     xxxGetClipboardData @ 0x1C014AE38 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D3C8 (xxxGetClipboardData.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002FA10 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
  */
 
 __int64 __fastcall xxxGetDummyText(struct tagWINDOWSTATION *a1, int a2, struct tagGETCLIPBDATA *a3)
@@ -17,7 +17,7 @@ __int64 __fastcall xxxGetDummyText(struct tagWINDOWSTATION *a1, int a2, struct t
   struct tagCLIP *ClipFormat; // rax
   __int64 v11; // rbx
   struct tagWINDOWSTATION *v12; // rcx
-  __int64 v13; // rdx
+  unsigned int v13; // edx
   struct tagCLIP *v15; // rax
   struct tagCLIP *v16; // rax
   __int64 v17; // rdi

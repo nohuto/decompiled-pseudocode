@@ -1,13 +1,12 @@
 /*
- * XREFs of MiUnlockFaultPageTable @ 0x14027A9D0
+ * XREFs of MiUnlockFaultPageTable @ 0x140312148
  * Callers:
- *     MiUnlockSystemVa @ 0x14027A168 (MiUnlockSystemVa.c)
- *     MiIssueHardFault @ 0x14027A1F0 (MiIssueHardFault.c)
- *     MiReleaseFaultState @ 0x14027DA5C (MiReleaseFaultState.c)
- *     MiResolvePageTablePage @ 0x14031D740 (MiResolvePageTablePage.c)
+ *     MiUserFault @ 0x14020D770 (MiUserFault.c)
+ *     MiReleaseFaultState @ 0x14030F4F4 (MiReleaseFaultState.c)
+ *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x14022FC80 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x14031B9F4 (MiEmptyDeferredWorkingSetEntries.c)
  */
 
 void __fastcall MiUnlockFaultPageTable(__int64 a1)
@@ -21,7 +20,7 @@ void __fastcall MiUnlockFaultPageTable(__int64 a1)
   {
     if ( *(_WORD *)(a1 + 10) )
     {
-      MiEmptyDeferredWorkingSetEntries((__int64 *)a1);
+      MiEmptyDeferredWorkingSetEntries(a1);
       v1 = *(_QWORD *)(a1 + 16);
     }
     MiUnlockPageTableInternal(v2, v1);

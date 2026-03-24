@@ -1,28 +1,33 @@
 /*
- * XREFs of PpmPerfResizeHistory @ 0x14098EBBC
+ * XREFs of PpmPerfResizeHistory @ 0x1408E62C8
  * Callers:
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
- *     PpmPerfResizeHistoryAll @ 0x14098EC78 (PpmPerfResizeHistoryAll.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmPerfResizeHistoryAll @ 0x1408E63A4 (PpmPerfResizeHistoryAll.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x140225C88 (PpmGetPerfPolicyClass.c)
- *     PpmPerfResetHistory @ 0x1403B402C (PpmPerfResetHistory.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PpmGetPerfPolicyClass @ 0x1402A0C5C (PpmGetPerfPolicyClass.c)
+ *     PpmPerfResetHistory @ 0x1403C2418 (PpmPerfResetHistory.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmPerfResizeHistory(__int64 a1)
 {
-  unsigned int v2; // edi
+  unsigned int v2; // ebx
   unsigned __int8 PerfPolicyClass; // al
   __int64 v4; // rcx
   _DWORD *v5; // rcx
-  int v6; // ebp
-  _DWORD *Pool2; // rax
+  int v6; // edi
+  int v7; // r14d
+  SIZE_T v8; // rbp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v10; // rdi
 
   v2 = 0;
   PerfPolicyClass = PpmGetPerfPolicyClass((_BYTE *)a1);
   v5 = *(_DWORD **)(v4 + 32);
-  v6 = *((unsigned __int8 *)&PpmCurrentProfile[534 * dword_140C232CC + 8] + PerfPolicyClass);
+  v6 = *((unsigned __int8 *)&PpmCurrentProfile[342 * dword_140C23E8C + 8] + PerfPolicyClass);
+  v7 = v6;
   if ( v5 )
   {
     if ( *v5 == v6 )
@@ -32,11 +37,14 @@ __int64 __fastcall PpmPerfResizeHistory(__int64 a1)
   }
   if ( (unsigned __int8)v6 > 1u )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, (unsigned int)(12 * v6 + 40), 1884115024LL);
-    if ( Pool2 )
+    v8 = (unsigned int)(10 * v6 + 32);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x704D5050u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = v6;
-      *(_QWORD *)(a1 + 32) = Pool2;
+      memset(PoolWithTag, 0, v8);
+      *v10 = v7;
+      *(_QWORD *)(a1 + 32) = v10;
       PpmPerfResetHistory(a1);
     }
     else

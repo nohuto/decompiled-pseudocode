@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C0256858
+ * XREFs of ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C0259AD4
  * Callers:
- *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02569EC (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
- *     ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C0256AD0 (-HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z.c)
- *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C0257718 (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
+ *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C0259C68 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
+ *     ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C0259D50 (-HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z.c)
+ *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C025A9A8 (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
  */
 
 __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHapticsController *this, int a2)
@@ -43,13 +43,13 @@ __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHaptic
     v9 = v6;
     if ( v6 < 0 )
     {
-      if ( (unsigned int)dword_1C0326288 > 2 )
+      if ( (unsigned int)dword_1C032B2C0 > 2 )
       {
         LODWORD(v17) = v6;
         v16 = (__int64)"Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C0326288,
-          byte_1C02F1F9A,
+          (__int64)&dword_1C032B2C0,
+          byte_1C02F4B35,
           v7,
           v8,
           (void **)&v16,
@@ -69,13 +69,13 @@ __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHaptic
     v2 = v10;
     if ( v10 < 0 )
     {
-      if ( (unsigned int)dword_1C0326288 > 2 )
+      if ( (unsigned int)dword_1C032B2C0 > 2 )
       {
         LODWORD(v17) = v10;
         v16 = (__int64)"Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C0326288,
-          byte_1C02F1F9A,
+          (__int64)&dword_1C032B2C0,
+          byte_1C02F4B35,
           v11,
           v12,
           (void **)&v16,

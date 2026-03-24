@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpKeyEnumStackStartFromKcbStack @ 0x1407FFAB0
+ * XREFs of CmpKeyEnumStackStartFromKcbStack @ 0x1407FFA90
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x1407EFDA0 (CmpEnumerateLayeredKey.c)
- *     CmpPartialPromoteSubkeys @ 0x140805410 (CmpPartialPromoteSubkeys.c)
+ *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408053F0 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpCleanupKeyNodeStack @ 0x1407F99C0 (CmpCleanupKeyNodeStack.c)
- *     CmpInitializeKeyNodeStack @ 0x1407F9F48 (CmpInitializeKeyNodeStack.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x1407FA580 (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x1407FFB50 (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpCleanupKeyNodeStack @ 0x1407F99A0 (CmpCleanupKeyNodeStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407F9F28 (CmpInitializeKeyNodeStack.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1407FA560 (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x1407FFB30 (CmpKeyEnumStackStartFromKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackStartFromKcbStack(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

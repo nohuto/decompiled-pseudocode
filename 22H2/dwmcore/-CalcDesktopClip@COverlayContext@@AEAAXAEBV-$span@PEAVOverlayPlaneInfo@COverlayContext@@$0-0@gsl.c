@@ -1,77 +1,74 @@
 /*
- * XREFs of ?CalcDesktopClip@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAVCRegion@@@Z @ 0x1800FAF50
+ * XREFs of ?CalcDesktopClip@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAVCRegion@@@Z @ 0x180030374
  * Callers:
- *     ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x1800FAD18 (-DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayCont.c)
+ *     ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x180030064 (-DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayCont.c)
  * Callees:
- *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x1800468F0 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047C6C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x180047F2C (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_K@Z @ 0x18012F752 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18003A708 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003A850 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B858 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_J@Z @ 0x180179E04 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-_DWORD *__fastcall COverlayContext::CalcDesktopClip(
-        _QWORD *a1,
-        int *a2,
-        const struct FastRegion::Internal::CRgnData **a3)
+_DWORD *__fastcall COverlayContext::CalcDesktopClip(_QWORD *a1, int *a2, FastRegion::CRegion *a3)
 {
-  __m128i v5; // xmm0
-  int v6; // r10d
-  signed __int32 v7; // xmm0_4
-  const struct FastRegion::Internal::CRgnData *v8; // rdx
-  int *v9; // r8
+  int *v5; // rax
+  int v6; // r9d
+  int v7; // r10d
+  int v8; // r11d
+  int v9; // ebx
+  _DWORD *v10; // rdx
+  _DWORD *v11; // r8
   _DWORD *result; // rax
-  int v11; // ebx
-  __int64 v12; // rax
-  int v13; // eax
+  int v13; // ebx
   __int64 v14; // rax
-  __m128i v15; // [rsp+20h] [rbp-88h]
-  void *v16[10]; // [rsp+30h] [rbp-78h] BYREF
-  void *retaddr; // [rsp+A8h] [rbp+0h]
+  int v15; // eax
+  __int64 v16; // rax
+  _BYTE v17[80]; // [rsp+20h] [rbp-78h] BYREF
+  void *retaddr; // [rsp+98h] [rbp+0h]
 
-  v5 = *(__m128i *)((*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 160LL))(*a1) + 20);
-  v6 = _mm_cvtsi128_si32(v5);
-  v15 = v5;
-  v7 = _mm_srli_si128(v5, 8).m128i_u32[0];
-  if ( v6 >= v7 || v15.m128i_i32[1] >= v15.m128i_i32[3] )
+  v5 = (int *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 152LL))(*a1);
+  v6 = v5[1];
+  v7 = v5[3];
+  v8 = *v5;
+  v9 = v5[2];
+  if ( v6 >= v7 || v8 >= v9 )
   {
-    result = *a3;
-    *(_DWORD *)*a3 = 0;
+    result = *(_DWORD **)a3;
+    **(_DWORD **)a3 = 0;
   }
   else
   {
-    v8 = *a3;
-    v9 = (int *)((char *)*a3 + 28);
-    *(_DWORD *)v8 = 2;
-    *v9 = v6;
-    *((_DWORD *)v8 + 3) = v15.m128i_i32[1];
-    v9[1] = v7;
-    *((_DWORD *)v8 + 4) = (_DWORD)v9 - ((_DWORD)v8 + 12);
-    result = (_DWORD *)((char *)v8 + 20);
-    *((_DWORD *)v8 + 1) = v6;
-    *((_DWORD *)v8 + 2) = v7;
-    *((_DWORD *)v8 + 6) = (_DWORD)v9 - ((_DWORD)v8 + 20) + 8;
-    *((_DWORD *)v8 + 5) = v15.m128i_i32[3];
+    v10 = *(_DWORD **)a3;
+    v11 = (_DWORD *)(*(_QWORD *)a3 + 28LL);
+    *v10 = 2;
+    *v11 = v8;
+    v11[1] = v9;
+    v10[1] = v8;
+    v10[4] = (_DWORD)v11 - ((_DWORD)v10 + 12);
+    result = v10 + 5;
+    v10[2] = v9;
+    v10[3] = v6;
+    v10[6] = (_DWORD)v11 - ((_DWORD)v10 + 20) + 8;
+    v10[5] = v7;
   }
-  v11 = *a2;
-  while ( --v11 >= 0 )
+  v13 = *a2;
+  while ( --v13 >= 0 )
   {
-    v12 = gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, v11);
-    FastRegion::CRegion::CRegion((FastRegion::CRegion *)v16, (const struct tagRECT *)(*(_QWORD *)v12 + 68LL));
-    v13 = FastRegion::CRegion::Subtract(a3, (const struct FastRegion::Internal::CRgnData **)v16);
-    if ( v13 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v13, retaddr);
-    FastRegion::CRegion::FreeMemory(v16);
-    result = (_DWORD *)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, v11);
+    v14 = gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, v13);
+    FastRegion::CRegion::CRegion((FastRegion::CRegion *)v17, (const struct tagRECT *)(*(_QWORD *)v14 + 68LL));
+    v15 = FastRegion::CRegion::Subtract(a3, (const struct CRegion *)v17);
+    if ( v15 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v15, retaddr);
+    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)v17);
+    result = (_DWORD *)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, v13);
     if ( !*(_BYTE *)(*(_QWORD *)result + 179LL) )
     {
-      v14 = gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, v11);
-      result = (_DWORD *)FastRegion::CRegion::Union(
-                           a3,
-                           *(const struct FastRegion::Internal::CRgnData ***)(*(_QWORD *)v14 + 160LL));
+      v16 = gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, v13);
+      result = (_DWORD *)FastRegion::CRegion::Union(a3, *(const struct CRegion **)(*(_QWORD *)v16 + 160LL));
       if ( (int)result < 0 )
         ModuleFailFastForHRESULT((unsigned int)result, retaddr);
     }

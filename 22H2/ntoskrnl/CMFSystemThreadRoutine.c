@@ -1,35 +1,35 @@
 /*
- * XREFs of CMFSystemThreadRoutine @ 0x140A02B70
+ * XREFs of CMFSystemThreadRoutine @ 0x140959420
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041A720 (ZwWaitForSingleObject.c)
- *     ZwReadFile @ 0x14041A760 (ZwReadFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ZwCreateEvent @ 0x14041AFA0 (ZwCreateEvent.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     CMFCreateSecurityDescriptor @ 0x140A01BFC (CMFCreateSecurityDescriptor.c)
- *     CMFGetFileSizeEx @ 0x140A02540 (CMFGetFileSizeEx.c)
- *     CMFGetLargePageSectionSize @ 0x140A025B8 (CMFGetLargePageSectionSize.c)
- *     CMFReadCompressedSegment @ 0x140A02670 (CMFReadCompressedSegment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403F9AA0 (ZwWaitForSingleObject.c)
+ *     ZwReadFile @ 0x1403F9AE0 (ZwReadFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x1403FA320 (ZwCreateEvent.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CMFCreateSecurityDescriptor @ 0x140958514 (CMFCreateSecurityDescriptor.c)
+ *     CMFGetFileSizeEx @ 0x140958E10 (CMFGetFileSizeEx.c)
+ *     CMFGetLargePageSectionSize @ 0x140958E88 (CMFGetLargePageSectionSize.c)
+ *     CMFReadCompressedSegment @ 0x140958F40 (CMFReadCompressedSegment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall CMFSystemThreadRoutine(__int64 a1)
 {
-  PVOID v1; // r12
-  PVOID v2; // r13
-  __int64 *Pool2; // r15
+  struct _DMA_ADAPTER *v1; // r12
+  __int64 *PoolWithTag; // r15
+  PVOID v3; // r13
   int v5; // eax
   char *v6; // rax
   const wchar_t *v7; // r8
@@ -45,12 +45,12 @@ void __fastcall CMFSystemThreadRoutine(__int64 a1)
   HANDLE v17; // r12
   ULONG v18; // eax
   NTSTATUS v19; // eax
-  _QWORD *v20; // rax
+  struct _DMA_ADAPTER **v20; // rax
   struct _KEVENT *v21; // rcx
   ULONG Buffer; // [rsp+30h] [rbp-D8h]
   char v23; // [rsp+58h] [rbp-B0h]
   LARGE_INTEGER MaximumSize; // [rsp+60h] [rbp-A8h] BYREF
-  void *v25; // [rsp+68h] [rbp-A0h]
+  struct _DMA_ADAPTER *v25; // [rsp+68h] [rbp-A0h]
   PVOID BaseAddress; // [rsp+70h] [rbp-98h] BYREF
   HANDLE FileHandle; // [rsp+78h] [rbp-90h] BYREF
   HANDLE v28; // [rsp+80h] [rbp-88h]
@@ -67,20 +67,20 @@ void __fastcall CMFSystemThreadRoutine(__int64 a1)
 
   v34 = 0LL;
   MaximumSize.QuadPart = 0LL;
-  ViewSize = 0LL;
   v1 = 0LL;
-  v37 = 0LL;
-  v2 = 0LL;
-  EventHandle = 0LL;
-  Pool2 = 0LL;
-  FileHandle = 0LL;
   SectionHandle = 0LL;
+  PoolWithTag = 0LL;
+  EventHandle = 0LL;
+  v3 = 0LL;
+  FileHandle = 0LL;
   BaseAddress = 0LL;
+  ViewSize = 0LL;
+  v37 = 0LL;
   v23 = 0;
   v25 = 0LL;
   Object = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   if ( !a1 )
     return;
@@ -138,7 +138,7 @@ LABEL_14:
       goto LABEL_14;
     }
     v13 = *(_DWORD *)(a1 + 48);
-    if ( v13 == 32 && *((_DWORD *)Pool2 + 19) )
+    if ( v13 == 32 && *((_DWORD *)PoolWithTag + 19) )
     {
       *(_DWORD *)(a1 + 24) |= 4u;
       v23 = 1;
@@ -161,8 +161,8 @@ LABEL_14:
       }
       else
       {
-        LowPart = *((unsigned int *)Pool2 + 8);
-        MaximumSize.LowPart = *((_DWORD *)Pool2 + 8);
+        LowPart = *((unsigned int *)PoolWithTag + 8);
+        MaximumSize.LowPart = *((_DWORD *)PoolWithTag + 8);
       }
       if ( (int)CMFGetLargePageSectionSize((__int64 *)&MaximumSize, (__int64)&v34) < 0 || *(int *)a1 >= 0 )
       {
@@ -177,7 +177,7 @@ LABEL_14:
       }
     }
     if ( v13 == 256
-      || (v16 = CMFCreateSecurityDescriptor(&Object, 0LL), v2 = Object, v9 = v16, (v16 & 0xC0000000) != 0xC0000000) )
+      || (v16 = CMFCreateSecurityDescriptor(&Object, 0LL), v3 = Object, v9 = v16, (v16 & 0xC0000000) != 0xC0000000) )
     {
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
@@ -185,14 +185,14 @@ LABEL_14:
       ObjectAttributes.SecurityQualityOfService = 0LL;
       Buffer = *(_DWORD *)a1;
       ObjectAttributes.Attributes = 576;
-      ObjectAttributes.SecurityDescriptor = v2;
+      ObjectAttributes.SecurityDescriptor = v3;
       v9 = ZwCreateSection(&SectionHandle, 6u, &ObjectAttributes, p_MaximumSize, 4u, Buffer, v28);
       if ( v9 >= 0 )
       {
 LABEL_43:
         Object = 0LL;
         v19 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
-        v1 = Object;
+        v1 = (struct _DMA_ADAPTER *)Object;
         v9 = v19;
         if ( (v19 & 0xC0000000) == 0xC0000000 )
         {
@@ -220,8 +220,8 @@ LABEL_43:
           }
           if ( v23 )
           {
-            *((_DWORD *)Pool2 + 19) = 0;
-            v9 = CMFReadCompressedSegment(FileHandle, (char *)BaseAddress, LowPart, Pool2);
+            *((_DWORD *)PoolWithTag + 19) = 0;
+            v9 = CMFReadCompressedSegment(FileHandle, (char *)BaseAddress, LowPart, PoolWithTag);
             if ( v9 < 0 )
               goto LABEL_61;
           }
@@ -244,7 +244,7 @@ LABEL_19:
           ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
           BaseAddress = 0LL;
         }
-        v20 = *(_QWORD **)(a1 + 40);
+        v20 = *(struct _DMA_ADAPTER ***)(a1 + 40);
         if ( v20 )
         {
           *v20 = v1;
@@ -270,7 +270,7 @@ LABEL_19:
         ViewSize = LowPart;
         ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 576;
-        ObjectAttributes.SecurityDescriptor = v2;
+        ObjectAttributes.SecurityDescriptor = v3;
         v9 = ZwCreateSection(&SectionHandle, 6u, &ObjectAttributes, &MaximumSize, 4u, v18 & 0x7FFFFFFF, v17);
         if ( v9 >= 0 )
           goto LABEL_43;
@@ -292,11 +292,11 @@ LABEL_19:
     goto LABEL_10;
   }
   Length = 4192;
-  Pool2 = (__int64 *)ExAllocatePool2(256LL, 4192LL, 1668114000LL);
-  if ( Pool2 )
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x1060uLL, 0x636D6650u);
+  if ( PoolWithTag )
   {
     v28 = "RESCSEG";
-    v10 = Pool2;
+    v10 = PoolWithTag;
     v11 = RtlStringCchPrintfW(
             pszDest,
             0x104uLL,
@@ -316,12 +316,12 @@ LABEL_61:
     ZwClose(SectionHandle);
   if ( FileHandle )
     ZwClose(FileHandle);
-  if ( v2 )
-    ExFreePoolWithTag(v2, 0);
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
   if ( v1 )
-    ObfDereferenceObject(v1);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+    HalPutDmaAdapter(v1);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   v21 = *(struct _KEVENT **)(a1 + 16);
   *(_DWORD *)(a1 + 36) = v9;
   if ( v21 )

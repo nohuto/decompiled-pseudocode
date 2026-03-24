@@ -1,20 +1,20 @@
 /*
- * XREFs of ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B5030
+ * XREFs of ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x180266850
  * Callers:
- *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802B498C (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
+ *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802664C8 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800E7D3C (-MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ.c)
- *     ?VideoProcessorBlt@CRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B1940 (-VideoProcessorBlt@CRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBU.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ @ 0x18019B498 (-MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ.c)
+ *     ?VideoProcessorBlt@CRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x18019B4B0 (-VideoProcessorBlt@CRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBU.c)
  */
 
 __int64 __fastcall CDecodeBitmap::VideoProcessorBlt(
         __int64 a1,
         __int64 a2,
-        int a3,
+        unsigned int a3,
         unsigned int a4,
         __int64 a5,
-        unsigned int a6,
+        int a6,
         __int64 a7,
         __int64 a8)
 {
@@ -34,7 +34,7 @@ __int64 __fastcall CDecodeBitmap::VideoProcessorBlt(
     else
     {
       *(_BYTE *)(a1 + 32) = 1;
-      CD2DBitmapCache::MarkFullInvalid((CD2DBitmapCache *)(a1 - 120));
+      CRenderTargetBitmap::MarkFullDirty((CRenderTargetBitmap *)(a1 + 120));
     }
   }
   return v8;

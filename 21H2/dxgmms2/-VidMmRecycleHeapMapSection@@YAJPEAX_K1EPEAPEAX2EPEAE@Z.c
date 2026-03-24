@@ -1,93 +1,81 @@
 /*
- * XREFs of ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C00E772C
+ * XREFs of ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C00C28E4
  * Callers:
- *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C007D8AC (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
- *     ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C0081498 (-LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PE.c)
- *     ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00A32BC (-ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
- *     ?Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z @ 0x1C00E6938 (-Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z.c)
- *     ?MapLocked@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAXXZ @ 0x1C00E6A40 (-MapLocked@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAXXZ.c)
- *     ?MapViewOfAllocationExternal@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAX_K@Z @ 0x1C00E6EC0 (-MapViewOfAllocationExternal@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAX_K@Z.c)
+ *     ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C0077D30 (-ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C0078054 (-LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PE.c)
+ *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C0079F20 (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
+ *     ?Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z @ 0x1C00C11C0 (-Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z.c)
+ *     ?MapLocked@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAXXZ @ 0x1C00C12D0 (-MapLocked@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAXXZ.c)
+ *     ?MapViewOfAllocationExternal@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAX_K@Z @ 0x1C00C1730 (-MapViewOfAllocationExternal@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAX_K@Z.c)
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 __int64 __fastcall VidMmRecycleHeapMapSection(
         PVOID Section,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
+        char a4,
         void **a5,
         void **a6,
         unsigned __int8 a7,
         unsigned __int8 *ViewSize)
 {
-  unsigned __int8 *v8; // r15
-  int v11; // edi
-  int v13; // r14d
-  unsigned __int8 v14; // si
-  __int64 v15; // rcx
-  NTSTATUS v16; // eax
+  unsigned __int8 *v8; // rsi
+  int v11; // ebx
+  __int64 v12; // rdi
+  __int64 v13; // rax
+  __int64 v14; // rbx
+  NTSTATUS v15; // eax
+  __int64 v16; // rcx
   char *v17; // rcx
-  __int64 CurrentProcess; // rbx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  char *v20; // rdx
-  __int64 v21; // rcx
-  __int64 v23; // [rsp+60h] [rbp-10h] BYREF
-  PVOID MappedBase; // [rsp+B8h] [rbp+48h] BYREF
-  __int64 v25; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 CurrentProcess; // rax
+  char *v19; // rdx
+  __int64 v20; // rax
+  __int64 v22; // [rsp+50h] [rbp-10h] BYREF
+  PVOID MappedBase; // [rsp+98h] [rbp+38h] BYREF
+  __int64 v24; // [rsp+A0h] [rbp+40h] BYREF
 
-  v25 = a3;
+  v24 = a3;
   v8 = ViewSize;
-  LOBYTE(a4) = -(char)a4;
-  v23 = a2;
-  v11 = (_BYTE)a4 != 0 ? 4 : 1028;
+  v22 = a2;
   MappedBase = 0LL;
+  v11 = a4 != 0 ? 4 : 1028;
   if ( ViewSize )
     *ViewSize = 0;
   if ( (VIDMM_GLOBAL::_Config & 0x200) != 0 )
   {
-    v13 = -1073741823;
+    LODWORD(v12) = -1073741823;
   }
   else
   {
-    CurrentProcess = PsGetCurrentProcess(Section, a2, a3, a4);
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    v13 = (*((__int64 (__fastcall **)(PVOID, __int64, PVOID *, _QWORD, __int64, __int64 *, __int64 *, int, _DWORD, int))VirtualMemoryInterface
-           + 3))(
-            Section,
-            CurrentProcess,
-            &MappedBase,
-            0LL,
-            a3,
-            &v23,
-            &v25,
-            2,
-            0,
-            v11);
-    if ( v13 >= 0 )
+    CurrentProcess = PsGetCurrentProcess(Section, a2, a3);
+    LODWORD(v12) = MmMapViewOfSection(Section, CurrentProcess, &MappedBase, 0LL, v24, &v22, &v24, 2, 0, v11);
+    if ( (int)v12 >= 0 )
     {
-      v20 = (char *)MappedBase;
+      v19 = (char *)MappedBase;
       *a6 = MappedBase;
-      *a5 = &v20[a2 - v23];
-      return (unsigned int)v13;
+      *a5 = &v19[a2 - v22];
+      return (unsigned int)v12;
     }
   }
-  _InterlockedIncrement(&dword_1C006E834);
+  _InterlockedIncrement(&dword_1C0050784);
+  v13 = WdLogNewEntry5_WdLowResource(Section);
   v14 = a7;
-  WdLogSingleEntry2(6LL, a7, v13);
-  DxgkLogInternalTriageEvent(v15, 262145LL);
-  if ( !v14 )
+  *(_QWORD *)(v13 + 32) = (int)v12;
+  *(_QWORD *)(v13 + 24) = v14;
+  WdLogEvent5_WdLowResource(v13);
+  if ( !(_BYTE)v14 )
   {
     ViewSize = 0LL;
-    v16 = MmMapViewInSystemSpace(Section, &MappedBase, (PSIZE_T)&ViewSize);
-    v13 = v16;
-    if ( v16 < 0 )
+    v15 = MmMapViewInSystemSpace(Section, &MappedBase, (PSIZE_T)&ViewSize);
+    v12 = v15;
+    if ( v15 < 0 )
     {
-      _InterlockedIncrement(&dword_1C006E834);
-      WdLogSingleEntry1(6LL, v16);
-      DxgkLogInternalTriageEvent(v21, 262145LL);
+      _InterlockedIncrement(&dword_1C0050784);
+      v20 = WdLogNewEntry5_WdLowResource(v16);
+      *(_QWORD *)(v20 + 24) = v12;
+      WdLogEvent5_WdLowResource(v20);
     }
     else
     {
@@ -98,5 +86,5 @@ __int64 __fastcall VidMmRecycleHeapMapSection(
       *a5 = &v17[a2];
     }
   }
-  return (unsigned int)v13;
+  return (unsigned int)v12;
 }

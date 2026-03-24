@@ -1,39 +1,34 @@
 /*
- * XREFs of AlpcpReferenceReplyTargetPorts @ 0x1407A7098
+ * XREFs of AlpcpReferenceReplyTargetPorts @ 0x1405E3970
  * Callers:
- *     AlpcpDispatchReplyToPort @ 0x1407A6CE4 (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchReplyToPort @ 0x1405E35BC (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x1402240B0 (ObReferenceObjectSafe.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-__int64 __fastcall AlpcpReferenceReplyTargetPorts(__int64 Object, signed __int64 a2)
+__int64 __fastcall AlpcpReferenceReplyTargetPorts(__int64 DmaAdapter, signed __int64 a2)
 {
-  _DWORD *v3; // rdi
-  PVOID v5; // rcx
+  PADAPTER_OBJECT v3; // rdi
 
-  v3 = (_DWORD *)Object;
-  if ( Object )
-    v3 = (_DWORD *)(-(__int64)(ObReferenceObjectSafe(Object) != 0) & Object);
+  v3 = (PADAPTER_OBJECT)DmaAdapter;
+  if ( DmaAdapter )
+    v3 = (PADAPTER_OBJECT)(-(__int64)(ObReferenceObjectSafe(DmaAdapter) != 0) & DmaAdapter);
   if ( a2 )
     a2 &= -(__int64)(ObReferenceObjectSafe(a2) != 0);
   if ( v3 )
   {
-    if ( !a2 )
+    if ( a2 )
     {
-      v5 = v3;
-LABEL_14:
-      ObfDereferenceObject(v5);
-      return 3221225527LL;
+      if ( (*(_DWORD *)&v3[26].Version & 0x20) == 0 && (*(_DWORD *)(a2 + 416) & 0x20) == 0 )
+        return 0LL;
+      HalPutDmaAdapter(v3);
+      goto LABEL_13;
     }
-    if ( (v3[104] & 0x20) == 0 && (*(_DWORD *)(a2 + 416) & 0x20) == 0 )
-      return 0LL;
-    ObfDereferenceObject(v3);
-LABEL_13:
-    v5 = (PVOID)a2;
-    goto LABEL_14;
+    HalPutDmaAdapter(v3);
   }
   if ( a2 )
-    goto LABEL_13;
+LABEL_13:
+    HalPutDmaAdapter((PADAPTER_OBJECT)a2);
   return 3221225527LL;
 }

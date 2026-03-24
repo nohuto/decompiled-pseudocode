@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipAllocRegEntry @ 0x140248914
+ * XREFs of WmipAllocRegEntry @ 0x1403710A4
  * Callers:
- *     WmipRegisterDevice @ 0x1406C82F8 (WmipRegisterDevice.c)
- *     WmipInitializeDataStructs @ 0x140B2305C (WmipInitializeDataStructs.c)
+ *     WmipRegisterDevice @ 0x140755008 (WmipRegisterDevice.c)
+ *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     WmipAllocProviderId @ 0x1406C8460 (WmipAllocProviderId.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WmipAllocProviderId @ 0x1406C3168 (WmipAllocProviderId.c)
  */
 
 _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
@@ -39,13 +39,13 @@ _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
     v6 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
     ++WmipInUseRegEntryCount;
     v7 = v6;
-    v8 = off_140C043A0;
-    if ( *off_140C043A0 != (_UNKNOWN *)&WmipInUseRegEntryHead )
+    v8 = off_140C02BB0;
+    if ( *off_140C02BB0 != (_UNKNOWN *)&WmipInUseRegEntryHead )
       __fastfail(3u);
     *v5 = &WmipInUseRegEntryHead;
     v5[1] = v8;
     *v8 = v5;
-    off_140C043A0 = (_UNKNOWN **)v5;
+    off_140C02BB0 = (_UNKNOWN **)v5;
     KxReleaseSpinLock(&WmipRegistrationSpinLock);
     if ( KiIrqlFlags )
     {

@@ -1,79 +1,83 @@
 /*
- * XREFs of EtwShutdown @ 0x1407FDA6C
+ * XREFs of EtwShutdown @ 0x140773FC0
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
- *     PspDeleteExternalServerSiloState @ 0x1409ABED8 (PspDeleteExternalServerSiloState.c)
- *     PopGracefulShutdown @ 0x140A6AEC0 (PopGracefulShutdown.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906238 (PspDeleteExternalServerSiloState.c)
+ *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpStopTrace @ 0x1406EDFEC (EtwpStopTrace.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
- *     EtwpFlushCoverage @ 0x1407FDB8C (EtwpFlushCoverage.c)
- *     EtwpTraceSystemShutdown @ 0x1409E3E74 (EtwpTraceSystemShutdown.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpStopTrace @ 0x1406DDFBC (EtwpStopTrace.c)
+ *     EtwpFlushCoverage @ 0x1407740D0 (EtwpFlushCoverage.c)
+ *     EtwpTraceSystemShutdown @ 0x140937A84 (EtwpTraceSystemShutdown.c)
  */
 
-void __fastcall EtwShutdown(char a1)
+void __fastcall EtwShutdown(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rsi
+  char v2; // di
+  __int64 v3; // rbp
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   bool IsCurrentThreadInServerSilo; // al
-  bool v4; // bp
-  unsigned __int16 v5; // bx
-  __int64 v6; // rax
-  __int64 v7; // r8
-  __int64 v8; // r9
-  _QWORD v9[22]; // [rsp+20h] [rbp-D8h] BYREF
+  bool v7; // si
+  __int16 v8; // bx
+  unsigned int *v9; // rax
+  __int64 v10; // r8
+  __int64 v11; // r9
+  _QWORD v12[22]; // [rsp+20h] [rbp-D8h] BYREF
 
-  v2 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  IsCurrentThreadInServerSilo = PsIsCurrentThreadInServerSilo();
-  v4 = IsCurrentThreadInServerSilo;
-  if ( !a1 )
+  v2 = a1;
+  v3 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 108);
+  IsCurrentThreadInServerSilo = PsIsCurrentThreadInServerSilo(v5, v4);
+  v7 = IsCurrentThreadInServerSilo;
+  if ( !v2 )
   {
     if ( !IsCurrentThreadInServerSilo )
       EtwpTraceSystemShutdown();
-    *(_DWORD *)(v2 + 4068) = 1;
+    *(_DWORD *)(v3 + 4068) = 1;
   }
-  if ( !v4 )
+  if ( !v7 )
     EtwpFlushCoverage();
-  memset(v9, 0, sizeof(v9));
-  LODWORD(v9[0]) = 176;
-  v5 = *(_WORD *)(v2 + 16);
-  HIDWORD(v9[5]) = 0x20000;
-  while ( (--v5 & 0x8000u) == 0 )
+  memset(v12, 0, sizeof(v12));
+  LODWORD(v12[0]) = 176;
+  v8 = *(_WORD *)(v3 + 16);
+  HIDWORD(v12[5]) = 0x20000;
+  while ( --v8 >= 0 )
   {
-    v6 = EtwpAcquireLoggerContextByLoggerId(v2, v5, 0);
-    if ( v6 )
+    v9 = EtwpAcquireLoggerContextByLoggerId(v3, v8, 0);
+    if ( v9 )
     {
-      if ( v4 )
+      if ( v7 )
         goto LABEL_19;
-      if ( a1 )
+      if ( v2 )
       {
-        if ( (*(_DWORD *)(v6 + 12) & 0x400000) == 0 )
+        if ( (v9[3] & 0x400000) == 0 )
           goto LABEL_8;
 LABEL_19:
-        if ( v5 )
-          LOWORD(v9[1]) = v5;
+        if ( v8 )
+          LOWORD(v12[1]) = v8;
         else
-          LOWORD(v9[1]) = -1;
-        *(_OWORD *)&v9[3] = *(_OWORD *)(v6 + 276);
-        EtwpReleaseLoggerContext((unsigned int *)v6, 0);
-        if ( !a1 )
+          LOWORD(v12[1]) = -1;
+        *(_OWORD *)&v12[3] = *(_OWORD *)(v9 + 73);
+        EtwpReleaseLoggerContext(v9, 0);
+        if ( !v2 )
           ++EtwpStopTraceCount;
-        LOBYTE(v7) = 1;
-        EtwpStopTrace(v2, (__int64)v9, v7, v8);
+        LOBYTE(v10) = 1;
+        EtwpStopTrace(v3, (__int64)v12, v10, v11);
       }
       else
       {
-        if ( (*(_DWORD *)(v6 + 12) & 0x400) == 0 )
+        if ( (v9[3] & 0x400) == 0 )
           goto LABEL_19;
 LABEL_8:
-        EtwpReleaseLoggerContext((unsigned int *)v6, 0);
+        EtwpReleaseLoggerContext(v9, 0);
       }
     }
   }
-  if ( !a1 )
+  if ( !v2 )
     EtwpStopTraceCount = 0;
 }

@@ -1,52 +1,48 @@
 /*
- * XREFs of ?UpdateVisitedContentRegion@COverlayContext@@AEAAXXZ @ 0x1801DEA08
+ * XREFs of ?UpdateVisitedContentRegion@COverlayContext@@AEAAXXZ @ 0x18017CDA8
  * Callers:
- *     ?CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@33W4DXGI_MODE_ROTATION@@I_N5@Z @ 0x1801DB8A4 (-CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@.c)
+ *     ?CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@33W4DXGI_MODE_ROTATION@@I_N@Z @ 0x180179F70 (-CheckAndRecordOverlayCandidate@COverlayContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@.c)
  * Callees:
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047C6C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x180047F2C (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003A850 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B858 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall COverlayContext::UpdateVisitedContentRegion(COverlayContext *this)
 {
-  char *v2; // rsi
-  unsigned int v3; // edi
+  unsigned int v2; // edi
+  int v3; // eax
   int v4; // eax
-  int v5; // eax
-  int *v6; // [rsp+20h] [rbp-B8h] BYREF
-  int v7; // [rsp+28h] [rbp-B0h] BYREF
-  void *v8[10]; // [rsp+70h] [rbp-68h] BYREF
+  int *v5; // [rsp+20h] [rbp-B8h] BYREF
+  int v6; // [rsp+28h] [rbp-B0h] BYREF
+  void *v7[10]; // [rsp+70h] [rbp-68h] BYREF
   void *retaddr; // [rsp+D8h] [rbp+0h]
 
-  if ( *((_DWORD *)this + 2818) )
+  if ( *((_DWORD *)this + 2850) )
   {
-    v7 = 0;
-    v6 = &v7;
-    v2 = (char *)this + 11248;
-    v3 = 0;
+    v6 = 0;
+    v5 = &v6;
+    v2 = 0;
     do
     {
-      FastRegion::CRegion::CRegion((FastRegion::CRegion *)v8, (const struct tagRECT *)(*(_QWORD *)v2 + 16LL * v3));
-      v4 = FastRegion::CRegion::Union(
-             (const struct FastRegion::Internal::CRgnData **)&v6,
-             (const struct FastRegion::Internal::CRgnData **)v8);
-      if ( v4 < 0 )
-        ModuleFailFastForHRESULT((unsigned int)v4, retaddr);
-      FastRegion::CRegion::FreeMemory(v8);
-      ++v3;
+      FastRegion::CRegion::CRegion(
+        (FastRegion::CRegion *)v7,
+        (const struct tagRECT *)(*((_QWORD *)this + 1422) + 16LL * v2));
+      v3 = FastRegion::CRegion::Union((void **)&v5, (const struct FastRegion::Internal::CRgnData **)v7);
+      if ( v3 < 0 )
+        ModuleFailFastForHRESULT((unsigned int)v3, retaddr);
+      FastRegion::CRegion::FreeMemory(v7);
+      ++v2;
     }
-    while ( v3 < *((_DWORD *)this + 2818) );
-    v5 = FastRegion::CRegion::Union(
-           (const struct FastRegion::Internal::CRgnData **)this + 1397,
-           (const struct FastRegion::Internal::CRgnData **)&v6);
-    if ( v5 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v5, retaddr);
-    *((_DWORD *)v2 + 6) = 0;
-    DynArrayImpl<0>::ShrinkToSize((__int64)v2, 0x10u);
-    FastRegion::CRegion::FreeMemory((void **)&v6);
+    while ( v2 < *((_DWORD *)this + 2850) );
+    v4 = FastRegion::CRegion::Union((void **)this + 1413, (const struct FastRegion::Internal::CRgnData **)&v5);
+    if ( v4 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v4, retaddr);
+    *((_DWORD *)this + 2850) = 0;
+    DynArrayImpl<0>::ShrinkToSize((__int64)this + 11376, 0x10u);
+    FastRegion::CRegion::FreeMemory((void **)&v5);
   }
 }

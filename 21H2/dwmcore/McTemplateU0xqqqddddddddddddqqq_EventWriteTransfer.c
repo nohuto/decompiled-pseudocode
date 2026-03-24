@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer @ 0x1801B9250
+ * XREFs of McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer @ 0x18017DEBC
  * Callers:
- *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x18004FA7C (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
+ *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EC2B8 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer(

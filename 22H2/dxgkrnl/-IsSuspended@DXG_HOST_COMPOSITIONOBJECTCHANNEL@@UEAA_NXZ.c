@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsSuspended@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAA_NXZ @ 0x1C03620A0
+ * XREFs of ?IsSuspended@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAA_NXZ @ 0x1C02B5E50
  * Callers:
  *     <none>
  * Callees:

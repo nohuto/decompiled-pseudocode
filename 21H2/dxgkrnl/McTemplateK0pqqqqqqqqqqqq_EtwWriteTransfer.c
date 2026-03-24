@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C001E6B0
+ * XREFs of McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C00019B8
  * Callers:
- *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C001E530 (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
- *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02C20C8 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C0001850 (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
+ *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C0214304 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
-NTSTATUS McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
+__int64 McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
-  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v4[16]; // [rsp+30h] [rbp-D0h] BYREF
   va_list v5; // [rsp+40h] [rbp-C0h]
   __int64 v6; // [rsp+48h] [rbp-B8h]
   va_list v7; // [rsp+50h] [rbp-B0h]
@@ -125,10 +125,5 @@ NTSTATUS McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __in
   v26 = 4LL;
   v28 = 4LL;
   v30 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(
-           (REGHANDLE *)&DxgkControlGuid_Context,
-           (const EVENT_DESCRIPTOR *)"f",
-           a3,
-           0xEu,
-           &v4);
+  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventSetDisplayMode, a3, 14LL, v4);
 }

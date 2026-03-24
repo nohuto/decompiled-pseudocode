@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpShutdown @ 0x140506D54
+ * XREFs of HalpShutdown @ 0x1404BE3DC
  * Callers:
- *     HalpCheckPowerButton @ 0x14040F120 (HalpCheckPowerButton.c)
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
- *     HaliHaltSystem @ 0x140506B10 (HaliHaltSystem.c)
+ *     HalpCheckPowerButton @ 0x1403EF7B0 (HalpCheckPowerButton.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
+ *     HaliHaltSystem @ 0x1404BE190 (HaliHaltSystem.c)
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x140362640 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1570 (HalpAcpiPmRegisterRead.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpHvEnterSleepState @ 0x14050BB1C (HalpHvEnterSleepState.c)
- *     HalEfiResetSystem @ 0x14050CE00 (HalEfiResetSystem.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C1D0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x140398F40 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpHvEnterSleepState @ 0x1404C292C (HalpHvEnterSleepState.c)
+ *     HalEfiResetSystem @ 0x1404C3AE0 (HalEfiResetSystem.c)
  */
 
 __int64 HalpShutdown()
@@ -33,23 +33,23 @@ __int64 HalpShutdown()
   {
     HalpAcpiPmRegisterRead(0, 0, (__int64)&v4, 2u, 0LL);
     v3 = v4;
-    if ( byte_140C605F0 )
+    if ( byte_140C49150 )
     {
       HalpAcpiPmRegisterRead(3, 0, (__int64)&v4, 2u, 0LL);
       v3 |= v4;
     }
     result = HalpAcpiPmRegisterWrite(0, 0, (__int64)&v3, 2u, 0LL);
-    if ( byte_140C605F0 )
+    if ( byte_140C49150 )
       result = HalpAcpiPmRegisterWrite(3, 0, (__int64)&v3, 2u, 0LL);
   }
-  if ( HalpShutdownContext && byte_140C60590 )
+  if ( HalpShutdownContext && byte_140C490F0 )
   {
     if ( HalpHvSleepEnlightenedCpuManager )
       HalpHvEnterSleepState(5LL);
     HalpAcpiPmRegisterRead(1, 0, (__int64)&v2, 2u, 0LL);
     v2 = v2 & 0x203 | ((HalpShutdownContext & 7 | 8) << 10);
     result = HalpAcpiPmRegisterWrite(1, 0, (__int64)&v2, 2u, 0LL);
-    if ( byte_140C60620 )
+    if ( byte_140C49180 )
     {
       HalpAcpiPmRegisterRead(4, 0, (__int64)&v2, 2u, 0LL);
       v2 = v2 & 0x203 | ((((unsigned int)HalpShutdownContext >> 4) & 7 | 8) << 10);

@@ -1,35 +1,31 @@
 /*
- * XREFs of SetConsoleSwitchInProgress @ 0x1C0011D60
+ * XREFs of SetConsoleSwitchInProgress @ 0x1C00B35E0
  * Callers:
- *     xxxRemoteConnect @ 0x1C00115D0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
  *     <none>
  */
 
-int __fastcall SetConsoleSwitchInProgress(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+unsigned int __fastcall SetConsoleSwitchInProgress(int a1)
 {
-  int v4; // ebx
-  __int64 v5; // rax
-  int v6; // edx
+  int v1; // edx
+  unsigned int result; // eax
 
-  v4 = a1;
-  HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) = a1;
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  *(_DWORD *)(v5 + 516) = v4;
+  gfSwitchInProgress = a1;
   if ( gptiCurrent )
   {
-    v6 = 0;
-    if ( v4 == 1 )
-      v6 = 2;
-    LODWORD(v5) = *((_DWORD *)gptiCurrent + 318) & 0xFFFFFFFD;
-    *((_DWORD *)gptiCurrent + 318) = v5 | v6;
+    v1 = 0;
+    if ( a1 == 1 )
+      v1 = 2;
+    result = *((_DWORD *)gptiCurrent + 308) & 0xFFFFFFFD;
+    *((_DWORD *)gptiCurrent + 308) = result | v1;
   }
   if ( gpevtVideoportCallout )
   {
-    if ( v4 )
-      LODWORD(v5) = KeResetEvent(gpevtVideoportCallout);
+    if ( a1 )
+      return KeResetEvent(gpevtVideoportCallout);
     else
-      LODWORD(v5) = KeSetEvent(gpevtVideoportCallout, 1, 0);
+      return KeSetEvent(gpevtVideoportCallout, 1, 0);
   }
-  return v5;
+  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SmQueryRegistry @ 0x140B2564C
+ * XREFs of SmQueryRegistry @ 0x140A4B4A4
  * Callers:
- *     SmInitSystem @ 0x140B255E4 (SmInitSystem.c)
+ *     SmInitSystem @ 0x140A4B43C (SmInitSystem.c)
  * Callees:
- *     RtlQueryRegistryValuesEx @ 0x1406DEF50 (RtlQueryRegistryValuesEx.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406BBF50 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall SmQueryRegistry(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall SmQueryRegistry(__int64 a1)
   v6 = 0x4000000;
   RtlQueryRegistryValuesEx(
     0LL,
-    (__int64)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters",
+    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters",
     (__int64)&v2,
     0LL);
   return 0LL;

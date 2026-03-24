@@ -1,110 +1,106 @@
 /*
- * XREFs of MiCloneCaptureVadCommit @ 0x1406435E0
+ * XREFs of MiCloneCaptureVadCommit @ 0x140544F8C
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiCloneDiscardVadCommit @ 0x140A3C3B0 (MiCloneDiscardVadCommit.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiGetNextPageTable @ 0x14028DEA0 (MiGetNextPageTable.c)
+ *     MiCloneDiscardVadCommit @ 0x1408D0E34 (MiCloneDiscardVadCommit.c)
  */
 
 __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
 {
   _QWORD *Pool; // rax
   _QWORD *v3; // rdi
-  int v5; // ebp
-  unsigned __int64 *v6; // r12
-  unsigned __int64 v7; // rsi
-  unsigned __int64 v8; // r14
-  volatile LONG *SharedVm; // rbx
+  __int64 *v5; // r15
+  int v6; // ebp
+  unsigned __int64 *v7; // r12
+  unsigned __int64 v8; // rsi
+  LONG *SharedVm; // rbx
   KIRQL v10; // al
-  unsigned __int64 v11; // r8
-  __int64 v12; // r9
-  KIRQL v13; // r13
+  KIRQL v11; // r14
+  unsigned __int64 v12; // rbx
   __int64 NextPageTable; // rax
-  unsigned __int64 v15; // rsi
-  __int64 v16; // rdx
-  __int64 v17; // r14
-  unsigned __int64 v18; // rcx
+  unsigned __int64 v14; // rsi
+  __int64 v15; // rcx
+  __int64 v16; // r14
+  __int64 v17; // r9
+  unsigned __int64 v18; // rdx
   _QWORD *v19; // rax
-  volatile LONG *v20; // rbx
-  int v21; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v22; // [rsp+80h] [rbp+18h]
+  LONG *v20; // rbx
+  unsigned __int8 v21; // [rsp+78h] [rbp+10h]
+  int v22; // [rsp+80h] [rbp+18h] BYREF
+  unsigned __int64 v23; // [rsp+88h] [rbp+20h]
 
-  v21 = 0;
+  v22 = 0;
   Pool = MiAllocatePool(64, 0x90uLL, 0x6356694Du);
   v3 = Pool;
   if ( !Pool )
     return 3221225626LL;
-  Pool[1] = 0LL;
   *Pool = 0LL;
-  v5 = 0;
-  v6 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  v7 = 8 * ((*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) & 0xFFFFFFFFFLL)
+  v5 = Pool + 1;
+  Pool[1] = 0LL;
+  v6 = 0;
+  v7 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
+  v8 = 8 * ((*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) & 0xFFFFFFFFFLL)
      - 0x98000000000LL;
-  v22 = 8 * ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) & 0xFFFFFFFFFLL)
+  v23 = 8 * ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) & 0xFFFFFFFFFLL)
       - 0x98000000000LL;
-  v8 = v22;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)v6);
+  SharedVm = MiGetSharedVm((__int64)v7);
   v10 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  v13 = v10;
-  if ( v7 <= v8 )
+  SharedVm[1] = 0;
+  v11 = v10;
+  v12 = v23;
+  v21 = v10;
+  while ( v8 <= v12 )
   {
-    while ( 1 )
+    NextPageTable = MiGetNextPageTable(v8, v12, 0LL, v11, 4u, &v22);
+    if ( !NextPageTable )
+      break;
+    v14 = NextPageTable & 0xFFFFFFFFFFFFF000uLL;
+    v15 = *v5;
+    v16 = (__int64)((NextPageTable & 0xFFFFFFFFFFFFF000uLL) << 25) >> 16;
+    if ( *v5
+      && (v17 = v3[v15 + 1], v18 = v17 & 0x1FFFFF, v18 + 1 >= v18)
+      && v18 != 0x1FFFFF
+      && (v17 & 0xFFFFFFFFFFE00000uLL) + ((v18 + 1) << 21) == v16 )
     {
-      NextPageTable = MiGetNextPageTable(v7, v8, 0LL, v13, 4, &v21);
-      if ( !NextPageTable )
-        goto LABEL_15;
-      v15 = NextPageTable & 0xFFFFFFFFFFFFF000uLL;
-      v16 = v3[1];
-      v17 = (__int64)((NextPageTable & 0xFFFFFFFFFFFFF000uLL) << 25) >> 16;
-      if ( !v16 )
-        goto LABEL_13;
-      v12 = v3[v16 + 1];
-      v18 = v12 & 0x1FFFFF;
-      if ( v18 + 1 < v18 )
-        break;
-      if ( v18 == 0x1FFFFF )
-        break;
-      v11 = v12 & 0xFFFFFFFFFFE00000uLL;
-      if ( (v12 & 0xFFFFFFFFFFE00000uLL) + ((v18 + 1) << 21) != v17 )
-        break;
-      v3[v16 + 1] = v11 | (v12 + 1) & 0x1FFFFF;
-LABEL_14:
-      v8 = v22;
-      v7 = v15 + 4096;
-      if ( v7 > v22 )
-        goto LABEL_15;
+      v3[v15 + 1] = v17 & 0xFFFFFFFFFFE00000uLL | (v17 + 1) & 0x1FFFFF;
     }
-    if ( v16 == 16 )
+    else
     {
-      MiUnlockWorkingSetExclusive((__int64)v6, v13, v11, v12);
-      v19 = MiAllocatePool(64, 0x90uLL, 0x6356694Du);
-      if ( !v19 )
+      if ( v15 == 16 )
       {
-        v5 = -1073741670;
-        goto LABEL_16;
+        MiUnlockWorkingSetExclusive((__int64)v7, v21);
+        v19 = MiAllocatePool(64, 0x90uLL, 0x6356694Du);
+        if ( !v19 )
+        {
+          v6 = -1073741670;
+          goto LABEL_18;
+        }
+        v5 = v19 + 1;
+        *v19 = v3;
+        v19[1] = 0LL;
+        v3 = v19;
+        v20 = MiGetSharedVm((__int64)v7);
+        ExAcquireSpinLockExclusive(v20);
+        v20[1] = 0;
+        v15 = *v5;
+        v12 = v23;
       }
-      v19[1] = 0LL;
-      *v19 = v3;
-      v3 = v19;
-      v20 = (volatile LONG *)MiGetSharedVm((__int64)v6);
-      ExAcquireSpinLockExclusive(v20);
-      *((_DWORD *)v20 + 1) = 0;
+      v3[v15 + 2] = v16;
+      ++*v5;
     }
-LABEL_13:
-    v3[v3[1]++ + 2] = v17;
-    goto LABEL_14;
+    v11 = v21;
+    v8 = v14 + 4096;
   }
-LABEL_15:
-  MiUnlockWorkingSetExclusive((__int64)v6, v13, v11, v12);
-LABEL_16:
+  MiUnlockWorkingSetExclusive((__int64)v7, v11);
+LABEL_18:
   *(_QWORD *)(a1 + 8) = v3;
-  if ( v5 < 0 )
+  if ( v6 < 0 )
     MiCloneDiscardVadCommit(a1);
-  return (unsigned int)v5;
+  return (unsigned int)v6;
 }

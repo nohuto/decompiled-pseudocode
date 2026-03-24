@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockAllMemoryLists @ 0x140152810
+ * XREFs of MiLockAllMemoryLists @ 0x140152830
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIterateOverPartitions @ 0x1401528A0 (MiIterateOverPartitions.c)
+ *     MiIterateOverPartitions @ 0x1401528C0 (MiIterateOverPartitions.c)
  */
 
 void MiLockAllMemoryLists()

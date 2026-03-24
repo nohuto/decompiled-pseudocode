@@ -1,41 +1,41 @@
 /*
- * XREFs of PsQueryRuntimeProcess @ 0x1406B2550
+ * XREFs of PsQueryRuntimeProcess @ 0x1406215F0
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
- *     PspSetJobTimeLimitCallback @ 0x1409B3060 (PspSetJobTimeLimitCallback.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406BF5C0 (ExpQuerySystemPerformanceInformation.c)
+ *     PspSetJobTimeLimitCallback @ 0x1409098D0 (PspSetJobTimeLimitCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PsQueryRuntimeProcess(__int64 a1, _DWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // r14
-  signed __int64 *v3; // rdi
-  unsigned int v6; // esi
-  int v7; // ebp
+  signed __int64 *v5; // rbp
+  unsigned int v6; // edi
+  int v7; // esi
   _QWORD **v8; // rbx
   _QWORD *i; // rax
   __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (signed __int64 *)(a1 + 2144);
   --CurrentThread->KernelApcDisable;
+  v5 = (signed __int64 *)(a1 + 2144);
   ExAcquirePushLockSharedEx(a1 + 2144, 0LL);
   v6 = *(_DWORD *)(a1 + 892);
   v7 = *(_DWORD *)(a1 + 896);
   v8 = (_QWORD **)(a1 + 1504);
   for ( i = *v8; i != v8; i = (_QWORD *)*i )
   {
-    v6 += *((_DWORD *)i - 171);
-    v7 += *((_DWORD *)i - 151);
+    v6 += *((_DWORD *)i - 151);
+    v7 += *((_DWORD *)i - 131);
   }
-  if ( _InterlockedCompareExchange64(v3, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v3);
-  KeAbPostRelease((ULONG_PTR)v3);
+  if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(v5);
+  KeAbPostRelease((ULONG_PTR)v5);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   result = v6;
   *a2 = v7;

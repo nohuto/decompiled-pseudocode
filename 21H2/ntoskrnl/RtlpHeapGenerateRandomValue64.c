@@ -1,22 +1,21 @@
 /*
- * XREFs of RtlpHeapGenerateRandomValue64 @ 0x1403631E0
+ * XREFs of RtlpHeapGenerateRandomValue64 @ 0x1402A6C9C
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x140362FA0 (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhContextInitialize @ 0x14036FC3C (RtlpHpLfhContextInitialize.c)
- *     RtlHpGlobalsInitialize @ 0x1403C44EC (RtlHpGlobalsInitialize.c)
- *     RtlCreateHeap @ 0x1407F3B40 (RtlCreateHeap.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1402A6A5C (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhContextInitialize @ 0x14037B408 (RtlpHpLfhContextInitialize.c)
+ *     RtlHpGlobalsInitialize @ 0x1403C3E70 (RtlHpGlobalsInitialize.c)
+ *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
  * Callees:
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
  */
 
-unsigned __int64 __fastcall RtlpHeapGenerateRandomValue64(__int64 a1, __int64 a2)
+unsigned __int64 RtlpHeapGenerateRandomValue64()
 {
-  unsigned int v2; // ebx
-  __int64 v3; // rdx
-  __int64 v4; // rax
+  unsigned int v0; // ebx
+  __int64 v1; // rax
 
-  v2 = ExGenRandom(1LL, a2) & 0x7FFFFFFF;
-  v4 = ExGenRandom(1LL, v3);
-  LODWORD(v4) = v4 & 0x7FFFFFFF;
-  return ((unsigned __int64)v2 << 32) | v4;
+  v0 = ExGenRandom(1) & 0x7FFFFFFF;
+  v1 = ExGenRandom(1);
+  LODWORD(v1) = v1 & 0x7FFFFFFF;
+  return ((unsigned __int64)v0 << 32) | v1;
 }

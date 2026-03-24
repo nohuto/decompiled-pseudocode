@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02FB27C
+ * XREFs of ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02C00AC
  * Callers:
- *     ?FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ @ 0x1C02E3220 (-FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ @ 0x1C02BF180 (-FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     McTemplateK0ujqzr2jxx_EtwWriteTransfer @ 0x1C004FB98 (McTemplateK0ujqzr2jxx_EtwWriteTransfer.c)
- *     ?EmitSleepStudyBlockerActivationTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAGII@Z @ 0x1C02FB11C (-EmitSleepStudyBlockerActivationTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAGII@Z.c)
- *     ?EmitSleepStudyBlockerMetadataEvent@DripsBlockerTrackingHelper@@IEAAX_KPEAGI0PEAX@Z @ 0x1C02FB720 (-EmitSleepStudyBlockerMetadataEvent@DripsBlockerTrackingHelper@@IEAAX_KPEAGI0PEAX@Z.c)
- *     ?EmitSleepStudyBlockerTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAU_UNICODE_STRING@@I@Z @ 0x1C02FB8AC (-EmitSleepStudyBlockerTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAU_UNICODE_STRING@@I@Z.c)
- *     ?EmitSleepStudyTotalTimeModernStandbyTelemetry@DripsBlockerTrackingHelper@@IEAAX_K@Z @ 0x1C02FBA14 (-EmitSleepStudyTotalTimeModernStandbyTelemetry@DripsBlockerTrackingHelper@@IEAAX_K@Z.c)
- *     ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C02FBDF0 (-EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     McTemplateK0ujqzr2jxx_EtwWriteTransfer @ 0x1C004EE04 (McTemplateK0ujqzr2jxx_EtwWriteTransfer.c)
+ *     ?EmitSleepStudyBlockerActivationTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAGII@Z @ 0x1C02BFF4C (-EmitSleepStudyBlockerActivationTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAGII@Z.c)
+ *     ?EmitSleepStudyBlockerMetadataEvent@DripsBlockerTrackingHelper@@IEAAX_KPEAGI0PEAX@Z @ 0x1C02C055C (-EmitSleepStudyBlockerMetadataEvent@DripsBlockerTrackingHelper@@IEAAX_KPEAGI0PEAX@Z.c)
+ *     ?EmitSleepStudyBlockerTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAU_UNICODE_STRING@@I@Z @ 0x1C02C06F4 (-EmitSleepStudyBlockerTelemetry@DripsBlockerTrackingHelper@@IEAAX_KAEB_KPEAU_UNICODE_STRING@@I@Z.c)
+ *     ?EmitSleepStudyTotalTimeModernStandbyTelemetry@DripsBlockerTrackingHelper@@IEAAX_K@Z @ 0x1C02C085C (-EmitSleepStudyTotalTimeModernStandbyTelemetry@DripsBlockerTrackingHelper@@IEAAX_K@Z.c)
+ *     ?EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z @ 0x1C02C0C48 (-EtwProfilerTypeName@DripsBlockerTrackingHelper@@KAPEAGW4_DXGKETW_PROFILER_TYPE@@PEAI@Z.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerDataEvents(
@@ -19,56 +19,59 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerDataEvents(
         unsigned int a3,
         unsigned __int64 *a4)
 {
-  unsigned int v4; // r15d
-  DripsBlockerTrackingHelper *v6; // rsi
+  unsigned int v4; // ebx
+  DripsBlockerTrackingHelper *v6; // r15
   unsigned __int64 *v7; // r13
-  const char *v8; // rbx
+  const char *v8; // rsi
   unsigned int v9; // r12d
   char *v10; // rdi
   __int64 v11; // rcx
   NTSTATUS v12; // eax
   __int64 v13; // rdx
-  __int64 v14; // r8
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rbx
+  __int64 v17; // rax
   ULONGLONG Value; // rax
-  DripsBlockerTrackingHelper *v16; // rcx
-  unsigned __int64 v17; // r8
-  ULONGLONG v18; // rax
-  __int64 v19; // r15
-  __int64 v20; // rax
-  DripsBlockerTrackingHelper *v21; // rcx
-  __int64 v22; // r8
-  unsigned __int16 *v23; // r13
-  ULONGLONG v24; // rax
+  DripsBlockerTrackingHelper *v19; // rcx
+  unsigned __int64 v20; // r8
+  ULONGLONG v21; // rax
+  __int64 v22; // r15
+  __int64 v23; // rax
+  DripsBlockerTrackingHelper *v24; // rcx
   __int64 v25; // r8
-  ULONGLONG v26; // rax
+  unsigned __int16 *v26; // r13
   ULONGLONG v27; // rax
-  unsigned __int64 v29; // [rsp+58h] [rbp-A8h] BYREF
-  struct _UNICODE_STRING v30; // [rsp+60h] [rbp-A0h] BYREF
-  const char *v31; // [rsp+70h] [rbp-90h]
-  unsigned __int64 v32; // [rsp+78h] [rbp-88h] BYREF
-  DripsBlockerTrackingHelper *v33; // [rsp+80h] [rbp-80h]
-  unsigned __int64 *v34; // [rsp+88h] [rbp-78h]
+  __int64 v28; // r8
+  ULONGLONG v29; // rax
+  ULONGLONG v30; // rax
+  unsigned __int64 v32; // [rsp+58h] [rbp-A8h] BYREF
+  DripsBlockerTrackingHelper *v33; // [rsp+60h] [rbp-A0h]
+  struct _UNICODE_STRING v34; // [rsp+68h] [rbp-98h] BYREF
+  const char *v35; // [rsp+78h] [rbp-88h]
+  unsigned __int64 v36; // [rsp+80h] [rbp-80h] BYREF
+  unsigned __int64 *v37; // [rsp+88h] [rbp-78h]
   struct _STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
   GUID ActivityId; // [rsp+A0h] [rbp-60h] BYREF
-  GUID v37; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v38; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v39[80]; // [rsp+D0h] [rbp-30h] BYREF
+  GUID v40; // [rsp+B0h] [rbp-50h] BYREF
+  __int128 v41; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v42[80]; // [rsp+D0h] [rbp-30h] BYREF
 
   v4 = a3;
   v33 = this;
+  v37 = a4;
   v6 = this;
-  v34 = a4;
   v7 = a4;
-  memset(v39, 0, 0x42uLL);
-  *(_QWORD *)&v30.Length = 4325376LL;
-  v30.Buffer = (wchar_t *)v39;
-  v37 = 0LL;
+  memset(v42, 0, 0x42uLL);
+  *(_QWORD *)&v34.Length = 4325376LL;
+  v34.Buffer = (wchar_t *)v42;
+  v40 = 0LL;
   ActivityId = 0LL;
-  v38 = 0LL;
+  v41 = 0LL;
   DripsBlockerTrackingHelper::EmitSleepStudyTotalTimeModernStandbyTelemetry(v6, a2);
   v8 = (char *)v6 + 8;
   v9 = 0;
-  v31 = (char *)v6 + 8;
+  v35 = (char *)v6 + 8;
   v10 = (char *)v6 + 64;
   do
   {
@@ -81,24 +84,25 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerDataEvents(
         {
           v11 = (unsigned int)(v11 + 1);
           if ( (unsigned int)v11 >= v4 )
-            goto LABEL_35;
+            goto LABEL_36;
         }
         DestinationString = 0LL;
         RtlInitAnsiString(&DestinationString, v8);
-        v12 = RtlAnsiStringToUnicodeString(&v30, &DestinationString, 0);
+        v12 = RtlAnsiStringToUnicodeString(&v34, &DestinationString, 0);
+        v16 = v12;
         if ( v12 >= 0 )
         {
-          *(_QWORD *)&v38 = *((_QWORD *)v10 - 8);
-          *(_QWORD *)ActivityId.Data4 = (v9 << 6) + v38 + 1;
+          *(_QWORD *)&v41 = *((_QWORD *)v10 - 8);
+          *(_QWORD *)ActivityId.Data4 = (v9 << 6) + v41 + 1;
           if ( (Microsoft_Windows_SleepStudyEnableBits & 1) != 0 )
             McTemplateK0ujqzr2jxx_EtwWriteTransfer(
-              (v30.Length >> 1) + 1,
+              (v34.Length >> 1) + 1,
               v13,
-              v14,
+              v15,
               a2,
-              (__int64)&v38,
-              (v30.Length >> 1) + 1,
-              (__int64)v30.Buffer,
+              (__int64)&v41,
+              (v34.Length >> 1) + 1,
+              (__int64)v34.Buffer,
               (__int64)&ActivityId,
               *v10 + v10[8] + *(v10 - 8) + v10[16],
               a2);
@@ -111,117 +115,119 @@ void __fastcall DripsBlockerTrackingHelper::EmitSleepStudyBlockerDataEvents(
               0x1Bu,
               Value,
               &ActivityId);
-          v16 = (DripsBlockerTrackingHelper *)*((_QWORD *)v10 - 2);
-          if ( (unsigned __int64)v16 >= 0x2710 )
+          v19 = (DripsBlockerTrackingHelper *)*((_QWORD *)v10 - 2);
+          if ( (unsigned __int64)v19 >= 0x2710 )
             DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
-              v16,
+              v19,
               a2,
               L"GPU Total Time(ms)",
               0x13u,
-              (unsigned __int64)v16 / 0x2710,
+              (unsigned __int64)v19 / 0x2710,
               &ActivityId);
-          v17 = *((_QWORD *)v10 + 1);
-          if ( v17 >= 0x2710 || *((_QWORD *)v10 + 2) >= 0x2710uLL )
+          v20 = *((_QWORD *)v10 + 1);
+          if ( v20 >= 0x2710 || *((_QWORD *)v10 + 2) >= 0x2710uLL )
             DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
-              (DripsBlockerTrackingHelper *)(v17 / 0x2710 + *((_QWORD *)v10 + 2) / 0x2710uLL),
+              (DripsBlockerTrackingHelper *)(v20 / 0x2710 + *((_QWORD *)v10 + 2) / 0x2710uLL),
               a2,
               L"D0 Total Lag Time(ms)",
               0x16u,
-              v17 / 0x2710 + *((_QWORD *)v10 + 2) / 0x2710uLL,
+              v20 / 0x2710 + *((_QWORD *)v10 + 2) / 0x2710uLL,
               &ActivityId);
-          v18 = *((unsigned int *)v10 + 6);
-          if ( (_DWORD)v18 )
+          v21 = *((unsigned int *)v10 + 6);
+          if ( (_DWORD)v21 )
             DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
               (DripsBlockerTrackingHelper *)&ActivityId,
               a2,
               L"Count of D3 wake ups",
               0x15u,
-              v18,
+              v21,
               &ActivityId);
-          v29 = *(_QWORD *)ActivityId.Data4;
-          DripsBlockerTrackingHelper::EmitSleepStudyBlockerTelemetry(v6, a2, &v29, &v30, v9);
-          v19 = 0LL;
+          v32 = *(_QWORD *)ActivityId.Data4;
+          DripsBlockerTrackingHelper::EmitSleepStudyBlockerTelemetry(v6, a2, &v32, &v34, v9);
+          v22 = 0LL;
           if ( *((_DWORD *)v10 - 5) )
           {
             do
             {
-              LODWORD(v29) = 0;
-              v20 = DripsBlockerTrackingHelper::EtwProfilerTypeName(*(unsigned int *)&v10[72 * v19 + 108], &v29);
-              v23 = (unsigned __int16 *)v20;
-              *(_QWORD *)v37.Data4 = (unsigned int)v19 + *(_QWORD *)ActivityId.Data4 + 1LL;
+              LODWORD(v32) = 0;
+              v23 = DripsBlockerTrackingHelper::EtwProfilerTypeName(*(unsigned int *)&v10[72 * v22 + 108], &v32);
+              v26 = (unsigned __int16 *)v23;
+              *(_QWORD *)v40.Data4 = (unsigned int)v22 + *(_QWORD *)ActivityId.Data4 + 1LL;
               if ( (Microsoft_Windows_SleepStudyEnableBits & 1) != 0 )
                 McTemplateK0ujqzr2jxx_EtwWriteTransfer(
-                  *(_QWORD *)&v10[72 * v19 + 64]
-                + *(_QWORD *)&v10[72 * v19 + 72]
-                + *(_QWORD *)&v10[72 * v19 + 88]
-                + *(_QWORD *)&v10[72 * v19 + 96],
-                  (unsigned int)v19 + *(_QWORD *)ActivityId.Data4 + 1LL,
-                  v22,
+                  *(_QWORD *)&v10[72 * v22 + 64]
+                + *(_QWORD *)&v10[72 * v22 + 72]
+                + *(_QWORD *)&v10[72 * v22 + 88]
+                + *(_QWORD *)&v10[72 * v22 + 96],
+                  (unsigned int)v22 + *(_QWORD *)ActivityId.Data4 + 1LL,
+                  v25,
                   a2,
                   (__int64)&ActivityId,
-                  v29,
-                  v20,
-                  (__int64)&v37,
-                  v10[72 * v19 + 64] + v10[72 * v19 + 72] + v10[72 * v19 + 88] + v10[72 * v19 + 96],
+                  v32,
+                  v23,
+                  (__int64)&v40,
+                  v10[72 * v22 + 64] + v10[72 * v22 + 72] + v10[72 * v22 + 88] + v10[72 * v22 + 96],
                   a2);
-              v24 = *(unsigned int *)&v10[72 * v19 + 84];
-              if ( (_DWORD)v24 )
+              v27 = *(unsigned int *)&v10[72 * v22 + 84];
+              if ( (_DWORD)v27 )
                 DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
-                  (DripsBlockerTrackingHelper *)&v37,
+                  (DripsBlockerTrackingHelper *)&v40,
                   a2,
                   L"Count of core access locks",
                   0x1Bu,
-                  v24,
-                  &v37);
-              v25 = *(_QWORD *)&v10[72 * v19 + 88] / 10000LL;
-              if ( v25 > 0 || *(_QWORD *)&v10[72 * v19 + 96] / 10000LL > 0 )
+                  v27,
+                  &v40);
+              v28 = *(_QWORD *)&v10[72 * v22 + 88] / 10000LL;
+              if ( v28 > 0 || *(_QWORD *)&v10[72 * v22 + 96] / 10000LL > 0 )
                 DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
-                  v21,
+                  v24,
                   a2,
                   L"D0 Lag Time(ms)",
                   0x10u,
-                  v25 + *(_QWORD *)&v10[72 * v19 + 96] / 10000LL,
-                  &v37);
-              v26 = *(unsigned int *)&v10[72 * v19 + 104];
-              if ( (_DWORD)v26 )
+                  v28 + *(_QWORD *)&v10[72 * v22 + 96] / 10000LL,
+                  &v40);
+              v29 = *(unsigned int *)&v10[72 * v22 + 104];
+              if ( (_DWORD)v29 )
                 DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
-                  (DripsBlockerTrackingHelper *)&v37,
+                  (DripsBlockerTrackingHelper *)&v40,
                   a2,
                   L"Count of D3 wake ups",
                   0x15u,
-                  v26,
-                  &v37);
-              v27 = *(unsigned int *)&v10[72 * v19 + 112];
-              if ( (_DWORD)v27 )
+                  v29,
+                  &v40);
+              v30 = *(unsigned int *)&v10[72 * v22 + 112];
+              if ( (_DWORD)v30 )
                 DripsBlockerTrackingHelper::EmitSleepStudyBlockerMetadataEvent(
-                  (DripsBlockerTrackingHelper *)&v37,
+                  (DripsBlockerTrackingHelper *)&v40,
                   a2,
                   L"Count of DFx blocks",
                   0x14u,
-                  v27,
-                  &v37);
-              v6 = v33;
-              v32 = *(_QWORD *)ActivityId.Data4;
-              DripsBlockerTrackingHelper::EmitSleepStudyBlockerActivationTelemetry(v33, a2, &v32, v23, v9, v19);
-              v19 = (unsigned int)(v19 + 1);
+                  v30,
+                  &v40);
+              v36 = *(_QWORD *)ActivityId.Data4;
+              DripsBlockerTrackingHelper::EmitSleepStudyBlockerActivationTelemetry(v33, a2, &v36, v26, v9, v22);
+              v22 = (unsigned int)(v22 + 1);
             }
-            while ( (unsigned int)v19 < *((_DWORD *)v10 - 5) );
-            v8 = v31;
-            v7 = v34;
+            while ( (unsigned int)v22 < *((_DWORD *)v10 - 5) );
+            v8 = v35;
+            v7 = v37;
           }
-          v4 = a3;
+          v6 = v33;
         }
         else
         {
-          WdLogSingleEntry1(3LL, v12);
+          v17 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+          *(_QWORD *)(v17 + 24) = v16;
+          WdLogEvent5_WdWarning(v17);
         }
+        v4 = a3;
       }
     }
-LABEL_35:
+LABEL_36:
     v8 += 4720;
     ++v9;
     v10 += 4720;
-    v31 = v8;
+    v35 = v8;
   }
   while ( v9 < 0x40 );
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PoUnregisterCoalescingCallback @ 0x14086B440
+ * XREFs of PoUnregisterCoalescingCallback @ 0x14086B420
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
  *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x14018665C (ExCompareExchangeCallBack.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

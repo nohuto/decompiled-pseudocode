@@ -1,18 +1,19 @@
 /*
- * XREFs of AuthzBasepCompareSecurityAttribute @ 0x1407C7AF0
+ * XREFs of AuthzBasepCompareSecurityAttribute @ 0x14070E9B4
  * Callers:
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C79F4 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A59E14 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x14070E8B4 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x14096C7B8 (AuthzBasepCompareSecurityAttributesInformation.c)
  * Callees:
- *     AuthzBasepFindSecurityAttributeValue @ 0x140225924 (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x140250528 (AuthzBasepFindSecurityAttributeValue.c)
  */
 
 char __fastcall AuthzBasepCompareSecurityAttribute(__int64 a1, __int64 a2)
 {
-  char v2; // si
+  char v2; // di
   __int64 v5; // r15
   _QWORD *v6; // r14
   _QWORD *i; // rbx
+  unsigned __int16 v8; // r8
 
   v2 = 0;
   v5 = 0LL;
@@ -25,25 +26,25 @@ char __fastcall AuthzBasepCompareSecurityAttribute(__int64 a1, __int64 a2)
     {
       if ( i == v6 )
         return 1;
-      switch ( *(_WORD *)(a1 + 48) )
+      v8 = *(_WORD *)(a1 + 48);
+      if ( v8 )
       {
-        case 1:
-        case 2:
+        if ( v8 <= 2u )
           goto LABEL_14;
-        case 3:
-        case 4:
-        case 5:
-LABEL_9:
-          v5 = (__int64)(i + 5);
-          break;
-        case 6:
+        if ( v8 <= 5u )
+          goto LABEL_9;
+        if ( v8 == 6 )
+        {
 LABEL_14:
           v5 = i[5];
-          break;
-        case 0x10:
-          goto LABEL_9;
+        }
+        else if ( v8 == 16 )
+        {
+LABEL_9:
+          v5 = (__int64)(i + 5);
+        }
       }
-      if ( !AuthzBasepFindSecurityAttributeValue(a2, v5, *(_WORD *)(a1 + 48)) )
+      if ( !AuthzBasepFindSecurityAttributeValue(a2, v5, v8) )
         return v2;
     }
   }

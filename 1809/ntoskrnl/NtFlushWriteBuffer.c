@@ -1,5 +1,5 @@
 /*
- * XREFs of NtFlushWriteBuffer @ 0x14085B6D0
+ * XREFs of NtFlushWriteBuffer @ 0x14085B6B0
  * Callers:
  *     <none>
  * Callees:

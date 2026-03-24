@@ -1,24 +1,23 @@
 /*
- * XREFs of ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F3744
+ * XREFs of ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C014AC60
  * Callers:
- *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C02D923C (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
+ *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C014ABB4 (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
  * Callees:
- *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3AF0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3DA0 (-bFindNextScan@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3E34 (-bFindNextSegment@XCLIPOBJ@@IEAAHXZ.c)
- *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F3EB8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
- *     ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C02F3F20 (-bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z.c)
- *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F3FA8 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C014AA68 (-bFindNextScan@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014AAFC (-bFindNextSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C014ADAC (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014B544 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C014B8D0 (-bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C014BE54 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
  */
 
 __int64 __fastcall XCLIPOBJ::bEnumLine(XCLIPOBJ *this, unsigned int a2, struct _CLIPLINE *a3)
 {
   POINTFIX v4; // rax
-  _DWORD *v5; // rax
-  __int64 v6; // rcx
-  struct _POINTL *v8; // r8
-  int v9; // edx
-  int *v10; // rdx
+  _DWORD *v5; // rcx
+  struct _POINTL *v7; // r8
+  int v8; // edx
+  int *v9; // rdx
   int i; // eax
 
   a3->ptfxA = *(POINTFIX *)(*((_QWORD *)this + 18) + 4LL);
@@ -27,11 +26,13 @@ __int64 __fastcall XCLIPOBJ::bEnumLine(XCLIPOBJ *this, unsigned int a2, struct _
   a3->ptfxB = v4;
   v5 = (_DWORD *)*((_QWORD *)this + 18);
   if ( (int)v5[45] > 0 )
+  {
     a3->lStyleState = (unsigned __int16)(v5[43] % v5[50]) | ((unsigned __int16)(v5[43] / v5[50]) << 16);
-  v6 = *((_QWORD *)this + 18);
-  if ( (*(_DWORD *)(v6 + 24) & 0x10000) != 0 )
+    v5 = (_DWORD *)*((_QWORD *)this + 18);
+  }
+  if ( (v5[6] & 0x10000) != 0 )
     return 0LL;
-  *(_DWORD *)(v6 + 36) = ((unsigned __int64)a2 - 24) >> 3;
+  v5[9] = ((unsigned __int64)a2 - 24) >> 3;
   *(_QWORD *)(*((_QWORD *)this + 18) + 48LL) = a3->arun;
   *(_QWORD *)(*((_QWORD *)this + 18) + 40LL) = &a3->c;
   *(_DWORD *)(*((_QWORD *)this + 18) + 56LL) = 0x7FFFFFFF;
@@ -46,18 +47,18 @@ LABEL_6:
   while ( 1 )
   {
     *((_DWORD *)this + 24) += *((_DWORD *)this + 25);
-    v8 = (struct _POINTL *)*((_QWORD *)this + 18);
-    v9 = *(_DWORD *)(*((_QWORD *)this + 10) + 4LL * *((int *)this + 24) + 12);
-    if ( (((unsigned int)v8[3].x >> 22) & 1) == v9 > v8[18].x )
+    v7 = (struct _POINTL *)*((_QWORD *)this + 18);
+    v8 = *(_DWORD *)(*((_QWORD *)this + 10) + 4LL * *((int *)this + 24) + 12);
+    if ( (((unsigned int)v7[3].x >> 22) & 1) == v8 > v7[18].x )
     {
-      v10 = (int *)&v8[20];
+      v9 = (int *)&v7[20];
     }
     else
     {
-      XCLIPOBJ::bIntersectWall(this, v9, v8 + 17, 0LL, (int *)&v8[4]);
-      v10 = (int *)(*((_QWORD *)this + 18) + 32LL);
+      XCLIPOBJ::bIntersectWall(this, v8, v7 + 17, 0LL, (int *)&v7[4]);
+      v9 = (int *)(*((_QWORD *)this + 18) + 32LL);
     }
-    if ( !(unsigned int)XCLIPOBJ::bRecordRun(this, v10) )
+    if ( !(unsigned int)XCLIPOBJ::bRecordRun(this, v9) )
       return 1LL;
     for ( i = XCLIPOBJ::bFindNextSegment(this); !i; i = XCLIPOBJ::bFindFirstSegment(this) )
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x140A62AD4
+ * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x1409A8B68
  * Callers:
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140A62BC0 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A8C54 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void HalpInterruptEnsureLineSwapComplete()
@@ -23,7 +23,7 @@ void HalpInterruptEnsureLineSwapComplete()
   {
     v1 = v0;
     v0 = (ULONG_PTR *)*v0;
-    v2 = (__int64 **)(v1 + 31);
+    v2 = (__int64 **)(v1 + 30);
     v3 = *v2;
     while ( v3 != (__int64 *)v2 )
     {

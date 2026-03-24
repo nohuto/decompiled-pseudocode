@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpFreeHandleTable @ 0x1406AC130
+ * XREFs of ExpFreeHandleTable @ 0x140604378
  * Callers:
- *     ObInitProcess @ 0x1406A6448 (ObInitProcess.c)
- *     ExDupHandleTable @ 0x1406A6520 (ExDupHandleTable.c)
- *     RtlDestroyAtomTable @ 0x1406AB410 (RtlDestroyAtomTable.c)
- *     ObKillProcess @ 0x14070BCA4 (ObKillProcess.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140966C80 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ObKillProcess @ 0x1406034EC (ObKillProcess.c)
+ *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
+ *     ObInitProcess @ 0x140607644 (ObInitProcess.c)
+ *     RtlDestroyAtomTable @ 0x1406A1340 (RtlDestroyAtomTable.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1408C2DD0 (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402331E0 (PsReturnProcessPagedPoolQuota.c)
- *     ExpFreeLowLevelTable @ 0x1406AC258 (ExpFreeLowLevelTable.c)
- *     ExpFreeTablePagedPool @ 0x1406AC298 (ExpFreeTablePagedPool.c)
- *     ExDereferenceHandleDebugInfo @ 0x1409F8D78 (ExDereferenceHandleDebugInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
+ *     ExpFreeLowLevelTable @ 0x1406044A0 (ExpFreeLowLevelTable.c)
+ *     ExpFreeTablePagedPool @ 0x1406044E0 (ExpFreeTablePagedPool.c)
+ *     ExDereferenceHandleDebugInfo @ 0x14094C654 (ExDereferenceHandleDebugInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpFreeHandleTable(_QWORD *P)

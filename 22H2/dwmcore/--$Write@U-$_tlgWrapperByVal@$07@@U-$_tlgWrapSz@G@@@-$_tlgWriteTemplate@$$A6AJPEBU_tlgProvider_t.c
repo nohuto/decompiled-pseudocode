@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@@Z @ 0x18026E400
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@@Z @ 0x18020DCDC
  * Callers:
- *     ?StartInContact@CMotion@@IEAAX_N@Z @ 0x18026EE60 (-StartInContact@CMotion@@IEAAX_N@Z.c)
+ *     ?StartInContact@CMotion@@IEAAX_N@Z @ 0x18020E694 (-StartInContact@CMotion@@IEAAX_N@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>>(
@@ -36,7 +36,7 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   }
   else
   {
-    v7 = word_18033C310;
+    v7 = word_1802CE8C0;
     v9 = 2;
   }
   v12 = a5;
@@ -44,5 +44,5 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   v15 = v9;
   v16 = 0;
   v13 = 8LL;
-  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_1803E3798, a2, 0LL, 0LL, 4u, &v11);
+  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_180344E80, a2, 0LL, 0LL, 4u, &v11);
 }

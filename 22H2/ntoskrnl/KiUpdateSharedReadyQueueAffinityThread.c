@@ -1,41 +1,31 @@
 /*
- * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE03C
+ * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x140230760
  * Callers:
- *     KiSetAffinityThread @ 0x14020327C (KiSetAffinityThread.c)
- *     KiUpdateThreadSchedulingProperties @ 0x140204EA0 (KiUpdateThreadSchedulingProperties.c)
- *     KeStartThread @ 0x1402BE0A8 (KeStartThread.c)
- *     KiComputeThreadAffinity @ 0x1402BF804 (KiComputeThreadAffinity.c)
- *     KiSetSystemAffinityThread @ 0x14030702C (KiSetSystemAffinityThread.c)
- *     KiSetIdealProcessorThread @ 0x1403CE96C (KiSetIdealProcessorThread.c)
+ *     KiSetPriorityThread @ 0x14022FC10 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KeStartThread @ 0x140340A7C (KeStartThread.c)
+ *     KiApplyForegroundBoostThread @ 0x14035B5EC (KiApplyForegroundBoostThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14035C2A8 (KeSetIdealProcessorThreadEx.c)
+ *     KiSetSystemAffinityThread @ 0x14035CE24 (KiSetSystemAffinityThread.c)
+ *     KiComputeThreadAffinity @ 0x14035D000 (KiComputeThreadAffinity.c)
+ *     KeUpdateThreadSchedulingProperties @ 0x14035D8C8 (KeUpdateThreadSchedulingProperties.c)
+ *     KiSetAffinityThread @ 0x14035D934 (KiSetAffinityThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KiUpdateSharedReadyQueueAffinityThread(__int64 a1, __int64 a2)
+char __fastcall KiUpdateSharedReadyQueueAffinityThread(__int64 a1, __int64 a2)
 {
-  int v2; // r8d
-  __int64 v3; // r9
-  __int64 v4; // rax
-  _WORD *v5; // rcx
-  __int64 v6; // rcx
-  __int64 result; // rax
+  __int64 v2; // r8
+  int v3; // eax
 
-  v2 = 0;
   if ( !a1 )
     a1 = KiProcessorBlock[*(unsigned int *)(a2 + 588)];
-  v3 = *(_QWORD *)(a1 + 34880);
-  if ( v3 )
-  {
-    v4 = *(unsigned __int8 *)(a1 + 208);
-    v5 = *(_WORD **)(a2 + 576);
-    if ( (unsigned __int16)v4 >= *v5 )
-      v6 = 0LL;
-    else
-      v6 = *(_QWORD *)&v5[4 * v4 + 4];
-    LOBYTE(v2) = (v3 & v6) == v3;
-  }
-  result = (*(_DWORD *)(a2 + 120) >> 13) & 1;
-  if ( v2 != (_DWORD)result )
+  v2 = *(_QWORD *)(a1 + 33856);
+  v3 = 0;
+  if ( v2 )
+    LOBYTE(v3) = (v2 & *(_QWORD *)(a2 + 576)) == v2;
+  if ( v3 != ((*(_DWORD *)(a2 + 120) >> 13) & 1) )
     _InterlockedXor((volatile signed __int32 *)(a2 + 120), 0x2000u);
-  return result;
+  return v3;
 }

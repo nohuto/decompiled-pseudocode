@@ -1,10 +1,10 @@
 /*
- * XREFs of NtQueryPerformanceCounter @ 0x1407423E0
+ * XREFs of NtQueryPerformanceCounter @ 0x140677310
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQueryPerformanceCounter(LARGE_INTEGER *a1, LARGE_INTEGER *a2)

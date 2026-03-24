@@ -1,12 +1,12 @@
 /*
- * XREFs of MmDeleteProcessor @ 0x1402A6064
+ * XREFs of MmDeleteProcessor @ 0x1402A6164
  * Callers:
  *     MmInitializeProcessor @ 0x140572A74 (MmInitializeProcessor.c)
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MiDeleteUltraThreadContext @ 0x1400E17EC (MiDeleteUltraThreadContext.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

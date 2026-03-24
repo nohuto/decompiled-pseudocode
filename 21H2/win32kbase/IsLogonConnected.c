@@ -1,5 +1,5 @@
 /*
- * XREFs of IsLogonConnected @ 0x1C01468F0
+ * XREFs of IsLogonConnected @ 0x1C0117F40
  * Callers:
  *     <none>
  * Callees:

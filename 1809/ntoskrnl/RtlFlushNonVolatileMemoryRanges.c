@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFlushNonVolatileMemoryRanges @ 0x1402F3FC0
+ * XREFs of RtlFlushNonVolatileMemoryRanges @ 0x1402F40C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlDrainNonVolatileFlush @ 0x1402ECF00 (RtlDrainNonVolatileFlush.c)
- *     RtlFlushNonVolatileMemory @ 0x1402ECF30 (RtlFlushNonVolatileMemory.c)
+ *     RtlDrainNonVolatileFlush @ 0x1402ED000 (RtlDrainNonVolatileFlush.c)
+ *     RtlFlushNonVolatileMemory @ 0x1402ED030 (RtlFlushNonVolatileMemory.c)
  */
 
 __int64 __fastcall RtlFlushNonVolatileMemoryRanges(char a1, __int64 *a2, __int64 a3, char a4)

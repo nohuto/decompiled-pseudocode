@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiSetInputWakeCapability @ 0x1409A2FC8
+ * XREFs of TtmiSetInputWakeCapability @ 0x1408FC5FC
  * Callers:
- *     TtmpDispatchSetInputWakeCapability @ 0x1409A6BF0 (TtmpDispatchSetInputWakeCapability.c)
+ *     TtmpDispatchSetInputWakeCapability @ 0x14090129C (TtmpDispatchSetInputWakeCapability.c)
  * Callees:
- *     TtmpFindDeviceByDeviceId @ 0x1409A3734 (TtmpFindDeviceByDeviceId.c)
- *     TtmiScheduleSessionWorker @ 0x1409A4B54 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceSetInputWakeCapability @ 0x1409A7E34 (TtmiLogDeviceSetInputWakeCapability.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
+ *     TtmpFindDeviceByDeviceId @ 0x1408FCD64 (TtmpFindDeviceByDeviceId.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF190 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceSetInputWakeCapability @ 0x140902554 (TtmiLogDeviceSetInputWakeCapability.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiSetInputWakeCapability(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -33,12 +33,12 @@ __int64 __fastcall TtmiSetInputWakeCapability(__int64 a1, __int64 a2, unsigned i
       return v4;
     }
     v4 = -1073741811;
-    v9 = 1339LL;
+    v9 = 1340LL;
   }
   else
   {
     v4 = -1073741275;
-    v9 = 1330LL;
+    v9 = 1331LL;
   }
   TtmiLogError("TtmiSetInputWakeCapability", v9, 0xFFFFFFFFLL, v4);
   return v4;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDCompGetBatchEvent @ 0x1C00879D0
+ * XREFs of EtwTraceDCompGetBatchEvent @ 0x1C007B040
  * Callers:
- *     ?RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C00874F0 (-RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z.c)
+ *     ?RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C007AB48 (-RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z.c)
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C01501A8 (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C01259C0 (McTemplateK0p_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDCompGetBatchEvent(__int64 a1)

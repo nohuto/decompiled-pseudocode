@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BI@EAAXPEBVIDeviceResource@@@Z @ 0x1801226C0
+ * XREFs of ?NotifyInvalidResource@CD2DBitmapCache@@$4PPPPPPPM@BI@EAAXPEBVIDeviceResource@@@Z @ 0x1800F8550
  * Callers:
  *     <none>
  * Callees:

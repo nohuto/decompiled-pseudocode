@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpValidateMpns @ 0x14090AFC8
+ * XREFs of HalpValidateMpns @ 0x140866CC0
  * Callers:
- *     HalpChannelInitializeStaticConfiguration @ 0x140AFA5EC (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140A64240 (HalpChannelInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */
@@ -9,10 +9,10 @@
 __int64 HalpValidateMpns()
 {
   unsigned int v0; // edx
-  int v1; // r9d
-  _WORD *i; // r11
+  unsigned int v1; // r10d
+  _WORD *v2; // r11
   __int64 v3; // r8
-  __int64 v4; // r10
+  __int64 v4; // r9
   unsigned int v5; // esi
   unsigned int v6; // ebx
   _BYTE *v7; // rcx
@@ -22,18 +22,19 @@ __int64 HalpValidateMpns()
   v1 = 1;
   if ( (unsigned int)(HalpChannelMemoryRangeCount - 1) > 1 )
   {
-    for ( i = (char *)HalpChannelMemoryRanges + 16; ; i += 8 )
+    v2 = (char *)HalpChannelMemoryRanges + 16;
+    do
     {
-      v3 = *(_QWORD *)i;
-      v4 = *((_QWORD *)HalpChannelMemoryRanges + 2 * (unsigned int)(v1 - 1));
-      if ( *(_WORD *)(v4 + 2) == *(_WORD *)(*(_QWORD *)i + 2LL) )
+      v3 = *(_QWORD *)v2;
+      v4 = *((_QWORD *)HalpChannelMemoryRanges + 2 * v1 - 2);
+      if ( *(_WORD *)(v4 + 2) == *(_WORD *)(*(_QWORD *)v2 + 2LL) )
       {
         if ( (*(_BYTE *)v4 & 1 | 6) != (*(_BYTE *)v3 & 1 | 6) )
           return 0;
         v5 = *(_DWORD *)(v4 + 24);
         if ( v5 != *(_DWORD *)(v3 + 24)
           || *(_DWORD *)(v4 + 28) != *(_DWORD *)(v3 + 28)
-          || *((_WORD *)HalpChannelMemoryRanges + 8 * (unsigned int)(v1 - 1) + 5) != i[5] )
+          || *((_WORD *)HalpChannelMemoryRanges + 8 * v1 - 3) != v2[5] )
         {
           return 0;
         }
@@ -42,22 +43,26 @@ __int64 HalpValidateMpns()
           v6 = 0;
           v7 = (_BYTE *)(v4 + 32);
           if ( v5 )
-            break;
+          {
+            v8 = v3 - v4;
+            while ( v7[1] == v7[v8 + 1] && *v7 == v7[v8] )
+            {
+              ++v6;
+              v7 += 2;
+              if ( v6 >= v5 )
+                goto LABEL_16;
+            }
+            v0 = 0;
+          }
+LABEL_16:
+          if ( !v0 )
+            return v0;
         }
       }
-LABEL_14:
-      if ( ++v1 >= (unsigned int)(HalpChannelMemoryRangeCount - 1) )
-        return v0;
+      ++v1;
+      v2 += 8;
     }
-    v8 = v3 - v4;
-    while ( v7[1] == v7[v8 + 1] && *v7 == v7[v8] )
-    {
-      ++v6;
-      v7 += 2;
-      if ( v6 >= v5 )
-        goto LABEL_14;
-    }
-    return 0;
+    while ( v1 < HalpChannelMemoryRangeCount - 1 );
   }
   return v0;
 }

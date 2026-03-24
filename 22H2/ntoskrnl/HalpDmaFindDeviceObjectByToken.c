@@ -1,15 +1,14 @@
 /*
- * XREFs of HalpDmaFindDeviceObjectByToken @ 0x14038ED84
+ * XREFs of HalpDmaFindDeviceObjectByToken @ 0x140379240
  * Callers:
- *     HalPnpGetDmaAdapter @ 0x14038ED40 (HalPnpGetDmaAdapter.c)
- *     HalpDmaCheckAdapterToken @ 0x1405015C0 (HalpDmaCheckAdapterToken.c)
- *     HaliGetDmaAdapter @ 0x1405050D0 (HaliGetDmaAdapter.c)
- *     HalpDmaLinkDeviceObjectByToken @ 0x140829400 (HalpDmaLinkDeviceObjectByToken.c)
+ *     HaliGetDmaAdapter @ 0x1403790A0 (HaliGetDmaAdapter.c)
+ *     HalpDmaCheckAdapterToken @ 0x1404B8E60 (HalpDmaCheckAdapterToken.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x140763E00 (HalpDmaLinkDeviceObjectByToken.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDmaFindDeviceObjectByToken(__int64 a1, char a2, char a3)
@@ -61,19 +60,22 @@ __int64 __fastcall HalpDmaFindDeviceObjectByToken(__int64 a1, char a2, char a3)
     }
     v10 = (__int64 *)*v10;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaPdoListLock);
+  KxReleaseSpinLock(&HalpDmaPdoListLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-      v20 = (v19 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v19;
-      if ( v20 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+        v20 = (v19 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v19;
+        if ( v20 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v11);

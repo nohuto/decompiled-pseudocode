@@ -1,21 +1,21 @@
 /*
- * XREFs of ?EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z @ 0x1802AAC50
+ * XREFs of ?EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z @ 0x180258BAC
  * Callers:
- *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A9CE4 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x180257E24 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A394 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ?CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Texture2D@@@Z @ 0x18003CE2C (-CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D1.c)
- *     ?IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180091420 (-IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18028D200 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_.c)
- *     ?PostInteropTextureInitialize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802A5C5C (-PostInteropTextureInitialize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z.c)
- *     ?PostInteropTextureResize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802A5CA8 (-PostInteropTextureResize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z.c)
- *     ??$As@UIDXGIResource1@@@?$ComPtr@UID3D11Texture2D@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIDXGIResource1@@@WRL@Microsoft@@@Details@12@@Z @ 0x1802AA06C (--$As@UIDXGIResource1@@@-$ComPtr@UID3D11Texture2D@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$ComPtr@U.c)
- *     ?ReleaseResources@CHolographicInteropTexture@@QEAAXXZ @ 0x1802AB6BC (-ReleaseResources@CHolographicInteropTexture@@QEAAXXZ.c)
+ *     ?IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800308D8 (-IsDXGIColorSpaceHDR@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Texture2D@@@Z @ 0x18003A9CC (-CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D1.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x180094E70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18023E978 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_.c)
+ *     ?PostInteropTextureInitialize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x180253C40 (-PostInteropTextureInitialize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z.c)
+ *     ?PostInteropTextureResize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x180253C8C (-PostInteropTextureResize@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z.c)
+ *     ??$As@UIDXGIResource1@@@?$ComPtr@UID3D11Texture2D@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIDXGIResource1@@@WRL@Microsoft@@@Details@12@@Z @ 0x18025818C (--$As@UIDXGIResource1@@@-$ComPtr@UID3D11Texture2D@@@WRL@Microsoft@@QEBAJV-$ComPtrRef@V-$ComPtr@U.c)
+ *     ?ReleaseResources@CHolographicInteropTexture@@QEAAXXZ @ 0x180259664 (-ReleaseResources@CHolographicInteropTexture@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CHolographicInteropTexture::EnsureRenderBuffers(
@@ -23,12 +23,12 @@ __int64 __fastcall CHolographicInteropTexture::EnsureRenderBuffers(
         struct CD3DDevice *a2,
         enum DXGI_FORMAT a3)
 {
-  unsigned int v3; // r12d
+  unsigned int v3; // r15d
   CD3DDevice *v4; // r13
   char *v6; // rsi
   __int64 Ptr_high; // rcx
   unsigned int Ptr; // eax
-  char v9; // r15
+  char v9; // r12
   unsigned int v10; // r14d
   char *v11; // rax
   struct D3D11_SUBRESOURCE_DATA *v12; // r8
@@ -65,23 +65,26 @@ __int64 __fastcall CHolographicInteropTexture::EnsureRenderBuffers(
   v32 = a2;
   v29 = 0LL;
   v31 = 0LL;
-  if ( !LOBYTE(this[29].Ptr) )
+  if ( !LOBYTE(this[27].Ptr) )
   {
     LODWORD(v6) = -2147024875;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024875, 0x223u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024875, 0x1F8u, 0LL);
 LABEL_37:
     CHolographicInteropTexture::ReleaseResources((CHolographicInteropTexture *)this);
     goto LABEL_38;
   }
   LODWORD(v6) = 0;
-  if ( !BYTE1(this[30].Ptr) )
+  if ( !BYTE1(this[28].Ptr) )
   {
-    Ptr_high = HIDWORD(this[31].Ptr);
-    if ( (unsigned int)(Ptr_high - 1) > 0x3FFF || (Ptr = (unsigned int)this[32].Ptr) == 0 || Ptr > 0x4000 )
+    Ptr_high = HIDWORD(this[29].Ptr);
+    if ( (unsigned int)(Ptr_high - 1) > 0x3FFF || (Ptr = (unsigned int)this[30].Ptr) == 0 || Ptr > 0x4000 )
     {
       LODWORD(v6) = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast(Ptr_high, 0LL, 0, -2147024809, 0x22Eu, 0LL);
-      goto LABEL_37;
+      MilInstrumentationCheckHR_MaybeFailFast(Ptr_high, 0LL, 0, -2147024809, 0x203u, 0LL);
+LABEL_36:
+      if ( (int)v6 < 0 )
+        goto LABEL_37;
+      goto LABEL_38;
     }
     v9 = 1;
     v34[0] = Ptr_high;
@@ -96,9 +99,9 @@ LABEL_37:
     v36 = 0;
     v37 = 40LL;
     v38 = 2050;
-    AcquireSRWLockExclusive(this + 51);
+    AcquireSRWLockExclusive(this + 49);
     v10 = 0;
-    if ( LODWORD(this[31].Ptr) )
+    if ( LODWORD(this[29].Ptr) )
     {
       while ( 2 )
       {
@@ -124,8 +127,8 @@ LABEL_37:
           __debugbreak();
           goto LABEL_33;
         }
-        this[v10 + 26].Ptr = v6;
-        HIDWORD(this[30].Ptr) = 1;
+        this[v10 + 24].Ptr = v6;
+        HIDWORD(this[28].Ptr) = 1;
         do
         {
           Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v29);
@@ -133,7 +136,7 @@ LABEL_37:
           LODWORD(v6) = v13;
           if ( v13 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x24Eu, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x223u, 0LL);
             goto LABEL_31;
           }
           v15 = Microsoft::WRL::ComPtr<ID3D11Texture2D>::As<IDXGIResource1>(
@@ -142,7 +145,7 @@ LABEL_37:
           LODWORD(v6) = v15;
           if ( v15 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x250u, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x225u, 0LL);
             goto LABEL_31;
           }
           v17 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, __int64))(*(_QWORD *)v31 + 104LL))(
@@ -150,58 +153,56 @@ LABEL_37:
                   0LL,
                   0x80000000LL,
                   0LL,
-                  (__int64)this[v10 + 26].Ptr + 96 * v3 + 8);
+                  (__int64)this[v10 + 24].Ptr + 96 * v3 + 8);
           LODWORD(v6) = v17;
           if ( v17 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x256u, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x22Bu, 0LL);
             goto LABEL_31;
           }
-          if ( IsDXGIColorSpaceHDR(v30 == DXGI_FORMAT_R16G16B16A16_FLOAT) )
+          if ( IsDXGIColorSpaceHDR((enum DXGI_COLOR_SPACE_TYPE)(v30 == DXGI_FORMAT_R16G16B16A16_FLOAT)) )
             v21 = (int)FLOAT_1_0;
           else
             v21 = 0;
-          v22 = this[11].Ptr;
+          v22 = this[10].Ptr;
           if ( *((_QWORD *)v22 + 5) )
             v23 = v22[16];
           else
             v23 = DisplayId::Hmd;
           v4 = v32;
-          RenderTargetBitmap = CD3DDevice::CreateRenderTargetBitmap((__int64)v32, (__int64)v29, 1, v20, v23, v21, v19);
+          RenderTargetBitmap = CD3DDevice::CreateRenderTargetBitmap((__int64)v32, (__int64)v29, 1u, v20, v23, v21, v19);
           LODWORD(v6) = RenderTargetBitmap;
           if ( RenderTargetBitmap < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, RenderTargetBitmap, 0x260u, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, RenderTargetBitmap, 0x235u, 0LL);
 LABEL_31:
-            ReleaseSRWLockExclusive(this + 51);
-            goto LABEL_37;
+            ReleaseSRWLockExclusive(this + 49);
+            goto LABEL_36;
           }
           ++v3;
         }
-        while ( v3 < HIDWORD(this[30].Ptr) );
+        while ( v3 < HIDWORD(this[28].Ptr) );
         v9 = 1;
-        ++v10;
         v3 = 0;
-        if ( v10 < LODWORD(this[31].Ptr) )
+        if ( ++v10 < LODWORD(this[29].Ptr) )
           continue;
         break;
       }
     }
-    ReleaseSRWLockExclusive(this + 51);
+    ReleaseSRWLockExclusive(this + 49);
     v26 = (struct CHolographicInteropTexture *)this;
-    v27 = (CHolographicInteropTaskQueue **)this[11].Ptr;
-    if ( BYTE2(this[30].Ptr) )
+    v27 = (CHolographicInteropTaskQueue **)this[10].Ptr;
+    if ( BYTE2(this[28].Ptr) )
     {
       CHolographicManager::PostInteropTextureResize(v27, (struct CHolographicInteropTexture *)this);
-      goto LABEL_34;
+LABEL_34:
+      BYTE1(this[28].Ptr) = v9;
+      goto LABEL_36;
     }
 LABEL_33:
-    BYTE2(this[30].Ptr) = v9;
+    BYTE2(this[28].Ptr) = v9;
     CHolographicManager::PostInteropTextureInitialize(v27, v26);
-LABEL_34:
-    BYTE1(this[30].Ptr) = v9;
-    if ( (int)v6 < 0 )
-      goto LABEL_37;
+    goto LABEL_34;
   }
 LABEL_38:
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v31);

@@ -2,7 +2,7 @@
  * XREFs of HvpViewMapMakeViewRangeReadOnly @ 0x1405A5998
  * Callers:
  *     HvpViewMapSealRange @ 0x1405A592C (HvpViewMapSealRange.c)
- *     HvpViewMapMigrateCOWData @ 0x1407F6FB0 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMigrateCOWData @ 0x1407F6F90 (HvpViewMapMigrateCOWData.c)
  * Callees:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
  */

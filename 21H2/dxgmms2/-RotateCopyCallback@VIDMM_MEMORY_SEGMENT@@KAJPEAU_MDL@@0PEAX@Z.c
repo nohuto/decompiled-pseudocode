@@ -1,57 +1,56 @@
 /*
- * XREFs of ?RotateCopyCallback@VIDMM_MEMORY_SEGMENT@@KAJPEAU_MDL@@0PEAX@Z @ 0x1C00E9420
+ * XREFs of ?RotateCopyCallback@VIDMM_MEMORY_SEGMENT@@KAJPEAU_MDL@@0PEAX@Z @ 0x1C00C56B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C00027A0 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
- *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00856F4 (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?IsTdrPending@VIDMM_GLOBAL@@QEBAEXZ @ 0x1C0085AA0 (-IsTdrPending@VIDMM_GLOBAL@@QEBAEXZ.c)
- *     ?MemoryTransfer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@PEAU_MDL@@234U_DXGK_TRANSFERFLAGS@@@Z @ 0x1C00A7A1C (-MemoryTransfer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@PEAT_LARGE_INT.c)
+ *     ?IsTdrPending@VIDMM_GLOBAL@@QEBAEXZ @ 0x1C0065AD4 (-IsTdrPending@VIDMM_GLOBAL@@QEBAEXZ.c)
+ *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C006802C (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?MemoryTransfer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@PEAU_MDL@@234U_DXGK_TRANSFERFLAGS@@@Z @ 0x1C008BE38 (-MemoryTransfer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@PEAT_LARGE_INT.c)
  */
 
 __int64 __fastcall VIDMM_MEMORY_SEGMENT::RotateCopyCallback(struct _MDL *a1, struct _MDL *a2, char *a3)
 {
-  __int64 v5; // rdi
-  unsigned __int64 ByteCount; // r15
+  __int64 v5; // rbx
+  unsigned __int64 ByteCount; // r14
   __int64 v8; // r8
-  unsigned __int64 v9; // rsi
-  __int64 v10; // rbp
-  __int64 LogicalAddress; // rax
-  int v12; // eax
-  unsigned int v13; // ebp
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbp
+  __int64 v13; // rax
   struct _VIDMM_GLOBAL_ALLOC *v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
 
   v5 = *(_QWORD *)(*((_QWORD *)a3 + 1) + 8LL);
-  if ( (*(_BYTE *)(1584LL * (*(_DWORD *)(*(_QWORD *)a3 + 68LL) & 0x3F) + *(_QWORD *)(v5 + 40224) + 436) & 4) == 0 )
+  if ( (*(_BYTE *)(1584LL * (*(_DWORD *)(*(_QWORD *)a3 + 76LL) & 0x3F) + *(_QWORD *)(v5 + 40216) + 436) & 4) == 0 )
     return 3221225473LL;
   ByteCount = a1->ByteCount;
-  if ( VIDMM_GLOBAL::IsTdrPending((VIDMM_GLOBAL *)v5) )
+  if ( VIDMM_GLOBAL::IsTdrPending(*(VIDMM_GLOBAL **)(*((_QWORD *)a3 + 1) + 8LL)) )
   {
-    *((_QWORD *)a3 + 4) += ByteCount;
+    *(_QWORD *)(v8 + 32) += ByteCount;
   }
   else
   {
-    v9 = 0LL;
-    if ( *(_BYTE *)(v5 + 40179) )
+    if ( *(_BYTE *)(v5 + 40171) )
     {
-      v10 = *((_QWORD *)a3 + 4);
-      LogicalAddress = SysMmGetLogicalAddress(*(void *const *)(v8 + 520));
-      v9 = LogicalAddress;
-      if ( LogicalAddress )
-        v9 = v10 + LogicalAddress;
-      v12 = SysMmMapIommuRange(*(struct SYSMM_ADAPTER **)(*(_QWORD *)(v5 + 24) + 224LL), v9, a1, 0);
-      v13 = v12;
-      if ( v12 < 0 )
+      v9 = DpiMapIommuIdentityRange(*(_QWORD *)(*(_QWORD *)(v5 + 24) + 216LL), a1, 0LL, 7LL, a1);
+      v12 = v9;
+      if ( v9 < 0 )
       {
-        WdLogSingleEntry2(3LL, *(_QWORD *)a3, v12);
-        return v13;
+        v13 = WdLogNewEntry5_WdWarning(v11, v10);
+        *(_QWORD *)(v13 + 24) = *(_QWORD *)a3;
+        *(_QWORD *)(v13 + 32) = v12;
+        WdLogEvent5_WdWarning(v13);
+        return (unsigned int)v12;
       }
     }
     VIDMM_GLOBAL::MemoryTransfer(
       (VIDMM_GLOBAL *)v5,
       *(struct _VIDMM_GLOBAL_ALLOC **)a3,
       ByteCount,
-      *((_QWORD *)a3 + 4),
+      *((void **)a3 + 4),
       *((struct VIDMM_SEGMENT **)a3 + 1),
       (union _LARGE_INTEGER *)a3 + 2,
       0LL,
@@ -62,13 +61,22 @@ __int64 __fastcall VIDMM_MEMORY_SEGMENT::RotateCopyCallback(struct _MDL *a1, str
     v14 = *(struct _VIDMM_GLOBAL_ALLOC **)a3;
     *((_QWORD *)a3 + 4) += ByteCount;
     VIDMM_GLOBAL::WaitForAllPagingEngines((VIDMM_GLOBAL *)v5, v14);
-    if ( VIDMM_GLOBAL::IsTdrPending((VIDMM_GLOBAL *)v5)
-      && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 632LL) + 3036LL) & 4) != 0 )
+    if ( VIDMM_GLOBAL::IsTdrPending((VIDMM_GLOBAL *)v5) )
     {
-      WdLogSingleEntry5(0LL, 270LL, 4LL, 0LL, 10LL, 0LL);
+      v16 = *(_QWORD *)(*(_QWORD *)(v5 + 16) + 624LL);
+      if ( (*(_BYTE *)(v16 + 2940) & 4) != 0 )
+      {
+        v17 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v16, v15);
+        v17[5] = 0LL;
+        v17[7] = 0LL;
+        v17[3] = 270LL;
+        v17[4] = 4LL;
+        v17[6] = 10LL;
+        WdLogEvent5_WdCriticalError(v17);
+      }
     }
-    if ( *(_BYTE *)(v5 + 40179) )
-      SysMmUnmapIommuRange(*(struct SYSMM_ADAPTER **)(*(_QWORD *)(v5 + 24) + 224LL), v9, a1, 0);
+    if ( *(_BYTE *)(v5 + 40171) )
+      DpiUnmapIommuIdentityRange(*(_QWORD *)(*(_QWORD *)(v5 + 24) + 216LL), a1, 0LL, 7LL, a1);
   }
   return 0LL;
 }

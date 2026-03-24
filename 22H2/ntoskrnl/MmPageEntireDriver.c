@@ -1,20 +1,20 @@
 /*
- * XREFs of MmPageEntireDriver @ 0x140701000
+ * XREFs of MmPageEntireDriver @ 0x1406FE4F0
  * Callers:
- *     DifMmPageEntireDriverWrapper @ 0x1405E7830 (DifMmPageEntireDriverWrapper.c)
+ *     <none>
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeFlushQueuedDpcs @ 0x14028F8A0 (KeFlushQueuedDpcs.c)
- *     MiSetPagingOfDriver @ 0x140290C64 (MiSetPagingOfDriver.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiCancelPhase0Locking @ 0x1407010A4 (MiCancelPhase0Locking.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiSetPagingOfDriver @ 0x140336B2C (MiSetPagingOfDriver.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     KeFlushQueuedDpcs @ 0x14035DC40 (KeFlushQueuedDpcs.c)
+ *     MiCancelPhase0Locking @ 0x1406FE47C (MiCancelPhase0Locking.c)
  */
 
 PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
 {
-  _QWORD *v2; // rax
+  __int64 v2; // rax
   __int64 v3; // rsi
   void *v4; // rbp
   unsigned __int64 PteAddress; // rdi
@@ -23,11 +23,11 @@ PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
   if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)AddressWithinSection) )
     return 0LL;
   v2 = MiLookupDataTableEntry((unsigned __int64)AddressWithinSection, 1);
-  v3 = (__int64)v2;
+  v3 = v2;
   if ( !v2 )
     return 0LL;
-  v4 = (void *)v2[6];
-  if ( (dword_140D1D1C4 & 1) == 0 && (unsigned int)MiGetSystemRegionType((unsigned __int64)AddressWithinSection) != 1 )
+  v4 = *(void **)(v2 + 48);
+  if ( (dword_140CFB174 & 1) == 0 && (unsigned int)MiGetSystemRegionType((unsigned __int64)AddressWithinSection) != 1 )
   {
     KeFlushQueuedDpcs();
     PteAddress = MiGetPteAddress((unsigned __int64)v4);

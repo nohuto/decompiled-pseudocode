@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_WaitingForPDORemovedOnDetachInConfigured @ 0x1C00205E0
+ * XREFs of HUBDSM_WaitingForPDORemovedOnDetachInConfigured @ 0x1C001DBC0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C0030604 (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
- *     HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C003278C (HUBMISC_ReleaseWdfReferenceOnPort.c)
+ *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002D59C (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
+ *     HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C002F5A4 (HUBMISC_ReleaseWdfReferenceOnPort.c)
  */
 
 __int64 __fastcall HUBDSM_WaitingForPDORemovedOnDetachInConfigured(__int64 a1)

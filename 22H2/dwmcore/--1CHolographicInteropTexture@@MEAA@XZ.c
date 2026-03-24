@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1CHolographicInteropTexture@@MEAA@XZ @ 0x1802AA294
+ * XREFs of ??1CHolographicInteropTexture@@MEAA@XZ @ 0x1802583F4
  * Callers:
- *     ??_GCHolographicInteropTexture@@MEAAPEAXI@Z @ 0x1802AA890 (--_GCHolographicInteropTexture@@MEAAPEAXI@Z.c)
+ *     ??_GCHolographicInteropTexture@@MEAAPEAXI@Z @ 0x180258800 (--_GCHolographicInteropTexture@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?clear@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1801B6F00 (-clear@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectU.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021669C (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?clear@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x180259934 (-clear@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectU.c)
  */
 
 void __fastcall CHolographicInteropTexture::~CHolographicInteropTexture(CHolographicInteropTexture *this)
@@ -24,297 +24,205 @@ void __fastcall CHolographicInteropTexture::~CHolographicInteropTexture(CHologra
   char v12; // cl
   HANDLE v13; // rax
   HANDLE v14; // rax
-  int v15; // eax
-  int v16; // ebx
-  BOOL v17; // eax
-  char v18; // cl
-  HANDLE v19; // rax
-  HANDLE v20; // rax
-  CHolographicInteropTexture *v21; // rcx
-  __int16 Response; // [rsp+90h] [rbp+30h] BYREF
+  CHolographicInteropTexture *v15; // rcx
+  __int16 Response; // [rsp+80h] [rbp+20h] BYREF
 
   *(_QWORD *)this = &CHolographicInteropTexture::`vftable'{for `CResource'};
-  *((_QWORD *)this + 8) = &CHolographicInteropTexture::`vftable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 10) = &CHolographicInteropTexture::`vftable'{for `IHolographicInteropTexture'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CHolographicInteropTexture::`vftable'{for `IUnknown'};
-  v2 = *(int *)(*((_QWORD *)this + 9) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 68) = v2 - 352;
-  if ( *((_QWORD *)this + 12) && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
+  *((_QWORD *)this + 7) = &CHolographicInteropTexture::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 9) = &CHolographicInteropTexture::`vftable'{for `IHolographicInteropTexture'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CHolographicInteropTexture::`vftable'{for `IUnknown'};
+  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 60) = v2 - 344;
+  if ( !*((_QWORD *)this + 11) )
+    goto LABEL_27;
+  while ( 1 )
   {
     while ( 1 )
     {
-      while ( 1 )
+      v3 = IsKernelDebuggerPresent();
+      Response = 63;
+      v4 = v3;
+      if ( !v3 )
       {
-        v3 = IsKernelDebuggerPresent();
-        Response = 63;
-        v4 = v3;
-        if ( !v3 )
-        {
-          v5 = IsDebuggerPresent();
-          v6 = Response;
-          if ( v5 )
-            v6 = 103;
-          LOBYTE(Response) = v6;
-        }
+        v5 = IsDebuggerPresent();
+        v6 = Response;
+        if ( v5 )
+          v6 = 103;
+        LOBYTE(Response) = v6;
+      }
+      DbgPrintEx(
+        0x65u,
+        0,
+        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
+        word_1802CE8C0,
+        word_1802CE8C0,
+        L"!m_pVisualTree",
+        "Function: ",
+        L"CHolographicInteropTexture::~CHolographicInteropTexture",
+        ", ",
+        L"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicinteroptexture.cpp",
+        39);
+      if ( v4 )
+      {
+        DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
+      }
+      else
+      {
         DbgPrintEx(
           0x65u,
           0,
-          "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-          word_18033C310,
-          word_18033C310,
-          L"!m_pVisualTree",
-          "Function: ",
-          L"CHolographicInteropTexture::~CHolographicInteropTexture",
-          ", ",
-          L"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicinteroptexture.cpp",
-          39);
-        if ( v4 )
-        {
-          DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-        }
-        else
-        {
-          DbgPrintEx(
-            0x65u,
-            0,
-            "(No kernel debugger is present.) Respond with:\n"
-            "  g                    -- Go (continue)\n"
-            "  eb 0x%p 'p';g  -- terminate Process\n"
-            "  eb 0x%p 't';g  -- terminate Thread\n"
-            " or regular debugging.\n",
-            &Response,
-            &Response);
-          __debugbreak();
-        }
-        if ( (char)Response <= 98 )
-          break;
-        if ( (char)Response == 103 )
-          goto LABEL_29;
-        if ( (char)Response != 105 )
-        {
-          if ( (char)Response != 112 )
-          {
-            if ( (char)Response != 116 )
-              goto LABEL_25;
-LABEL_23:
-            CurrentThread = GetCurrentThread();
-            TerminateThread(CurrentThread, 0xC0000001);
-            goto LABEL_25;
-          }
-LABEL_24:
-          CurrentProcess = GetCurrentProcess();
-          TerminateProcess(CurrentProcess, 0xC0000001);
-          goto LABEL_25;
-        }
-LABEL_26:
-        DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+          "(No kernel debugger is present.) Respond with:\n"
+          "  g                    -- Go (continue)\n"
+          "  eb 0x%p 'p';g  -- terminate Process\n"
+          "  eb 0x%p 't';g  -- terminate Thread\n"
+          " or regular debugging.\n",
+          &Response,
+          &Response);
+        __debugbreak();
       }
-      switch ( (char)Response )
+      if ( (char)Response <= 98 )
+        break;
+      if ( (char)Response == 103 )
+        goto LABEL_27;
+      if ( (char)Response != 105 )
       {
-        case 'b':
-        case 'B':
-          __debugbreak();
-          goto LABEL_29;
-        case 'G':
-          goto LABEL_29;
-        case 'I':
-          goto LABEL_26;
-        case 'P':
-          goto LABEL_24;
-        case 'T':
+        if ( (char)Response != 112 )
+        {
+          if ( (char)Response != 116 )
+            goto LABEL_23;
+LABEL_21:
+          CurrentThread = GetCurrentThread();
+          TerminateThread(CurrentThread, 0xC0000001);
           goto LABEL_23;
-      }
-LABEL_25:
-      DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
-    }
-  }
-LABEL_29:
-  if ( *((_DWORD *)this + 61) && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
-  {
-    while ( 1 )
-    {
-      while ( 1 )
-      {
-        v9 = IsKernelDebuggerPresent();
-        Response = 63;
-        v10 = v9;
-        if ( !v9 )
-        {
-          v11 = IsDebuggerPresent();
-          v12 = Response;
-          if ( v11 )
-            v12 = 103;
-          LOBYTE(Response) = v12;
         }
+LABEL_22:
+        CurrentProcess = GetCurrentProcess();
+        TerminateProcess(CurrentProcess, 0xC0000001);
+        goto LABEL_23;
+      }
+LABEL_24:
+      DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+    }
+    if ( (char)Response == 98 || (char)Response == 66 )
+      break;
+    switch ( (char)Response )
+    {
+      case 'G':
+        goto LABEL_27;
+      case 'I':
+        goto LABEL_24;
+      case 'P':
+        goto LABEL_22;
+      case 'T':
+        goto LABEL_21;
+    }
+LABEL_23:
+    DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+  }
+  __debugbreak();
+LABEL_27:
+  if ( !*((_DWORD *)this + 57) )
+    goto LABEL_53;
+  while ( 2 )
+  {
+    while ( 2 )
+    {
+      v9 = IsKernelDebuggerPresent();
+      Response = 63;
+      v10 = v9;
+      if ( !v9 )
+      {
+        v11 = IsDebuggerPresent();
+        v12 = Response;
+        if ( v11 )
+          v12 = 103;
+        LOBYTE(Response) = v12;
+      }
+      DbgPrintEx(
+        0x65u,
+        0,
+        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
+        word_1802CE8C0,
+        word_1802CE8C0,
+        L"m_bufferCount == 0",
+        "Function: ",
+        L"CHolographicInteropTexture::~CHolographicInteropTexture",
+        ", ",
+        L"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicinteroptexture.cpp",
+        40);
+      if ( v10 )
+      {
+        DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
+      }
+      else
+      {
         DbgPrintEx(
           0x65u,
           0,
-          "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-          word_18033C310,
-          word_18033C310,
-          L"m_bufferCount == 0",
-          "Function: ",
-          L"CHolographicInteropTexture::~CHolographicInteropTexture",
-          ", ",
-          L"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicinteroptexture.cpp",
-          40);
-        if ( v10 )
-        {
-          DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-        }
-        else
-        {
-          DbgPrintEx(
-            0x65u,
-            0,
-            "(No kernel debugger is present.) Respond with:\n"
-            "  g                    -- Go (continue)\n"
-            "  eb 0x%p 'p';g  -- terminate Process\n"
-            "  eb 0x%p 't';g  -- terminate Thread\n"
-            " or regular debugging.\n",
-            &Response,
-            &Response);
-          __debugbreak();
-        }
-        if ( (char)Response <= 98 )
-          break;
+          "(No kernel debugger is present.) Respond with:\n"
+          "  g                    -- Go (continue)\n"
+          "  eb 0x%p 'p';g  -- terminate Process\n"
+          "  eb 0x%p 't';g  -- terminate Thread\n"
+          " or regular debugging.\n",
+          &Response,
+          &Response);
+        __debugbreak();
+      }
+      if ( (char)Response > 98 )
+      {
         if ( (char)Response == 103 )
-          goto LABEL_57;
+          goto LABEL_53;
         if ( (char)Response != 105 )
         {
           if ( (char)Response != 112 )
           {
-            if ( (char)Response != 116 )
-              goto LABEL_53;
-LABEL_51:
-            v13 = GetCurrentThread();
-            TerminateThread(v13, 0xC0000001);
-            goto LABEL_53;
+            if ( (char)Response == 116 )
+            {
+LABEL_47:
+              v13 = GetCurrentThread();
+              TerminateThread(v13, 0xC0000001);
+            }
+LABEL_49:
+            DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+            continue;
           }
-LABEL_52:
+LABEL_48:
           v14 = GetCurrentProcess();
           TerminateProcess(v14, 0xC0000001);
-          goto LABEL_53;
+          goto LABEL_49;
         }
-LABEL_54:
-        DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+        goto LABEL_50;
       }
-      switch ( (char)Response )
-      {
-        case 'b':
-        case 'B':
-          __debugbreak();
-          goto LABEL_57;
-        case 'G':
-          goto LABEL_57;
-        case 'I':
-          goto LABEL_54;
-        case 'P':
-          goto LABEL_52;
-        case 'T':
-          goto LABEL_51;
-      }
-LABEL_53:
-      DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+      break;
     }
-  }
-LABEL_57:
-  if ( *((_QWORD *)this + 13) && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
-  {
-    while ( 1 )
+    if ( (char)Response != 98 && (char)Response != 66 )
     {
-      while ( 1 )
+      if ( (char)Response == 71 )
+        goto LABEL_53;
+      if ( (char)Response != 73 )
       {
-        v15 = IsKernelDebuggerPresent();
-        Response = 63;
-        v16 = v15;
-        if ( !v15 )
+        if ( (char)Response != 80 )
         {
-          v17 = IsDebuggerPresent();
-          v18 = Response;
-          if ( v17 )
-            v18 = 103;
-          LOBYTE(Response) = v18;
+          if ( (char)Response == 84 )
+            goto LABEL_47;
+          goto LABEL_49;
         }
-        DbgPrintEx(
-          0x65u,
-          0,
-          "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-          word_18033C310,
-          word_18033C310,
-          L"!m_pPendingVisual",
-          "Function: ",
-          L"CHolographicInteropTexture::~CHolographicInteropTexture",
-          ", ",
-          L"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographicinteroptexture.cpp",
-          41);
-        if ( v16 )
-        {
-          DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-        }
-        else
-        {
-          DbgPrintEx(
-            0x65u,
-            0,
-            "(No kernel debugger is present.) Respond with:\n"
-            "  g                    -- Go (continue)\n"
-            "  eb 0x%p 'p';g  -- terminate Process\n"
-            "  eb 0x%p 't';g  -- terminate Thread\n"
-            " or regular debugging.\n",
-            &Response,
-            &Response);
-          __debugbreak();
-        }
-        if ( (char)Response <= 98 )
-          break;
-        if ( (char)Response == 103 )
-          goto LABEL_85;
-        if ( (char)Response != 105 )
-        {
-          if ( (char)Response != 112 )
-          {
-            if ( (char)Response != 116 )
-              goto LABEL_81;
-LABEL_79:
-            v19 = GetCurrentThread();
-            TerminateThread(v19, 0xC0000001);
-            goto LABEL_81;
-          }
-LABEL_80:
-          v20 = GetCurrentProcess();
-          TerminateProcess(v20, 0xC0000001);
-          goto LABEL_81;
-        }
-LABEL_82:
-        DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+        goto LABEL_48;
       }
-      switch ( (char)Response )
-      {
-        case 'b':
-        case 'B':
-          __debugbreak();
-          goto LABEL_85;
-        case 'G':
-          goto LABEL_85;
-        case 'I':
-          goto LABEL_82;
-        case 'P':
-          goto LABEL_80;
-        case 'T':
-          goto LABEL_79;
-      }
-LABEL_81:
-      DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+LABEL_50:
+      DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+      continue;
     }
+    break;
   }
-LABEL_85:
-  FastRegion::CRegion::FreeMemory((void **)this + 42);
-  detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,4,1,detail::liberal_expansion_policy>>::clear((_QWORD *)this + 15);
-  v21 = (CHolographicInteropTexture *)*((_QWORD *)this + 15);
-  *((_QWORD *)this + 15) = 0LL;
-  if ( v21 == (CHolographicInteropTexture *)((char *)this + 144) )
-    v21 = 0LL;
-  operator delete(v21);
+  __debugbreak();
+LABEL_53:
+  FastRegion::CRegion::FreeMemory((void **)this + 40);
+  detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,4,1,detail::liberal_expansion_policy>>::clear((char *)this + 104);
+  v15 = (CHolographicInteropTexture *)*((_QWORD *)this + 13);
+  *((_QWORD *)this + 13) = 0LL;
+  if ( v15 == (CHolographicInteropTexture *)((char *)this + 128) )
+    v15 = 0LL;
+  operator delete(v15);
   CResource::~CResource(this);
 }

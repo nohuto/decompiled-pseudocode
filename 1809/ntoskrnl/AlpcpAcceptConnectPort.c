@@ -2,7 +2,7 @@
  * XREFs of AlpcpAcceptConnectPort @ 0x140619CD8
  * Callers:
  *     NtAlpcAcceptConnectPort @ 0x14061AEE0 (NtAlpcAcceptConnectPort.c)
- *     NtAcceptConnectPort @ 0x1406C4060 (NtAcceptConnectPort.c)
+ *     NtAcceptConnectPort @ 0x1406C4040 (NtAcceptConnectPort.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,8 +10,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     AlpcpCreatePort @ 0x140614C6C (AlpcpCreatePort.c)
@@ -32,9 +32,9 @@
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  *     AlpcpCaptureAttributes @ 0x1406363E0 (AlpcpCaptureAttributes.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     PsDereferencePrimaryToken @ 0x1406C3A30 (PsDereferencePrimaryToken.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF60 (AlpcpMapLegacyPortRemoteView.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PsDereferencePrimaryToken @ 0x1406C3A10 (PsDereferencePrimaryToken.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF40 (AlpcpMapLegacyPortRemoteView.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall AlpcpAcceptConnectPort(

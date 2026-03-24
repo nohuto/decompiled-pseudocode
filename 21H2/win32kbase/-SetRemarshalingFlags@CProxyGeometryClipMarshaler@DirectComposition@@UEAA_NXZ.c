@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C02370B0
+ * XREFs of ?SetRemarshalingFlags@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01F6780
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F1F0 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E8970 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CProxyGeometryClipMarshaler::SetRemarshalingFlags(
@@ -12,12 +12,12 @@ char __fastcall DirectComposition::CProxyGeometryClipMarshaler::SetRemarshalingF
   char result; // al
 
   result = DirectComposition::CGeometryMarshaler::SetRemarshalingFlags(this);
-  if ( *((_QWORD *)this + 13) )
+  if ( *((_QWORD *)this + 12) )
   {
     *((_DWORD *)this + 4) |= 0x800u;
     result = 1;
   }
-  if ( *((_QWORD *)this + 14) )
+  if ( *((_QWORD *)this + 13) )
   {
     *((_DWORD *)this + 4) |= 0x1000u;
     return 1;

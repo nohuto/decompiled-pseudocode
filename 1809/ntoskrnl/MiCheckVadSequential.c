@@ -4,7 +4,7 @@
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckVadSequential(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CGeometry2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C55E0
+ * XREFs of ?IsOfType@CGeometry2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F430
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CGeometry2D::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 68;
+  return a2 == 66;
 }

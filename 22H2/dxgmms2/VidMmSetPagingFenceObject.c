@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmSetPagingFenceObject @ 0x1C0018B30
+ * XREFs of VidMmSetPagingFenceObject @ 0x1C0016360
  * Callers:
  *     <none>
  * Callees:
- *     ?SetPagingFenceObject@VIDMM_PAGING_QUEUE@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00F116C (-SetPagingFenceObject@VIDMM_PAGING_QUEUE@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z.c)
+ *     ?SetPagingFenceObject@VIDMM_PAGING_QUEUE@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00BA7F4 (-SetPagingFenceObject@VIDMM_PAGING_QUEUE@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z.c)
  */
 
 void __fastcall VidMmSetPagingFenceObject(VIDMM_PAGING_QUEUE *a1, struct _VIDSCH_SYNC_OBJECT *a2, unsigned __int64 a3)

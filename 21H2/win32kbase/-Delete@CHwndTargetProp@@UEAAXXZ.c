@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Delete@CHwndTargetProp@@UEAAXXZ @ 0x1C00B2CE0
+ * XREFs of ?Delete@CHwndTargetProp@@UEAAXXZ @ 0x1C00A6BA0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z @ 0x1C00B2D30 (-ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?ClearSystemVisual@CHwndTargetProp@@QEAAHW4HwndTargetPropVisualType@@@Z @ 0x1C00A6BF0 (-ClearSystemVisual@CHwndTargetProp@@QEAAHW4HwndTargetPropVisualType@@@Z.c)
  */
 
 void __fastcall CHwndTargetProp::Delete(CHwndTargetProp *this)
@@ -14,13 +14,11 @@ void __fastcall CHwndTargetProp::Delete(CHwndTargetProp *this)
 
   for ( i = 0; i < 3; ++i )
     CHwndTargetProp::ClearSystemVisual(this, (unsigned int)i);
-  v3 = (void *)*((_QWORD *)this + 9);
+  v3 = (void *)*((_QWORD *)this + 8);
   if ( v3 )
   {
     ObfDereferenceObject(v3);
-    *((_QWORD *)this + 9) = 0LL;
+    *((_QWORD *)this + 8) = 0LL;
   }
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    (char *)this);
+  Win32FreePool((__int64)this);
 }

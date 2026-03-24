@@ -1,273 +1,303 @@
 /*
- * XREFs of ExDupHandleTable @ 0x1407B068C
+ * XREFs of ExDupHandleTable @ 0x1406065C0
  * Callers:
- *     ObInitProcess @ 0x1406B362C (ObInitProcess.c)
+ *     ObInitProcess @ 0x140607AA4 (ObInitProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExLockHandleTableEntry @ 0x1402BEAA4 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
- *     ExpLookupHandleTableEntry @ 0x1406E69E0 (ExpLookupHandleTableEntry.c)
- *     ExpDuplicateSingleHandle @ 0x1407B0A08 (ExpDuplicateSingleHandle.c)
- *     ExCreateHandleTable @ 0x1407B0B78 (ExCreateHandleTable.c)
- *     ExpAllocateHandleTable @ 0x1407B0C4C (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1407B0D50 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpUpdateDebugInfo @ 0x1409F9308 (ExpUpdateDebugInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExLockHandleTableEntry @ 0x1402C8EF0 (ExLockHandleTableEntry.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExUnlockHandleTableEntry @ 0x1405D6CB0 (ExUnlockHandleTableEntry.c)
+ *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpAllocateHandleTable @ 0x140606154 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140606260 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpDuplicateSingleHandle @ 0x1406069E0 (ExpDuplicateSingleHandle.c)
+ *     ExpLookupHandleTableEntry @ 0x14063E910 (ExpLookupHandleTableEntry.c)
+ *     ExCreateHandleTable @ 0x1406A6B48 (ExCreateHandleTable.c)
+ *     ExpUpdateDebugInfo @ 0x14094CE54 (ExpUpdateDebugInfo.c)
  */
 
-__int64 __fastcall ExDupHandleTable(__int64 a1, unsigned int *a2, unsigned int a3, _BYTE *a4, __int64 *a5)
+__int64 __fastcall ExDupHandleTable(struct _KPROCESS *a1, unsigned int *a2, unsigned int a3, _BYTE *a4, __int64 *a5)
 {
-  __int64 *v5; // r14
-  unsigned int v6; // eax
-  unsigned __int64 v8; // rbp
+  unsigned __int64 v5; // rax
+  __int64 *v6; // rbx
+  unsigned int *v8; // r10
+  unsigned __int64 v9; // r14
   __int64 v10; // rax
   unsigned __int64 v11; // r9
-  int v12; // r8d
+  int v12; // edx
   _DWORD *v13; // rcx
   unsigned int *v14; // rax
   unsigned int *v15; // rcx
-  unsigned __int64 i; // rax
+  struct _KTHREAD *CurrentThread; // rsi
+  int v17; // r13d
+  unsigned __int64 v18; // rdi
+  _QWORD *v19; // r12
+  __int64 v20; // rax
+  __int64 v21; // r9
+  unsigned int v22; // r10d
+  __int64 v23; // r11
+  __int64 v24; // r15
+  _DWORD *v25; // r14
+  unsigned int v26; // esi
+  __int64 v27; // rax
+  _QWORD *v28; // rcx
+  _QWORD *v29; // rax
+  __int64 v31; // r15
+  volatile signed __int64 *v32; // r13
+  int v33; // eax
   char HandleTableEntrySlow; // al
-  int v18; // esi
-  unsigned __int64 v19; // rdi
-  __int64 *v20; // rbx
-  __int64 v21; // rax
-  unsigned int *v22; // rcx
-  unsigned int v23; // r9d
-  __int64 v24; // r10
-  __int64 v25; // r11
-  __int64 v26; // rax
-  _DWORD *v27; // rdx
-  unsigned __int64 v28; // rbx
-  __int64 v29; // rcx
-  __int64 v30; // r13
-  __int64 v31; // rcx
-  _QWORD *v32; // rdx
-  _QWORD *v33; // rax
-  char v34; // r12
-  int v36; // eax
-  __int64 v37; // rcx
-  unsigned int v38; // edx
-  _QWORD *v39; // r8
-  unsigned __int64 v40; // rax
+  unsigned int v35; // edx
+  _QWORD *v36; // r8
+  unsigned __int64 v37; // rax
   __int64 HandleTable; // rax
-  signed __int32 v42[8]; // [rsp+0h] [rbp-C8h] BYREF
-  _DWORD *v43; // [rsp+40h] [rbp-88h]
-  __int64 *v44; // [rsp+48h] [rbp-80h]
-  __int64 v45; // [rsp+50h] [rbp-78h]
-  __int64 v46; // [rsp+58h] [rbp-70h]
-  __int64 v47; // [rsp+60h] [rbp-68h]
-  __int64 v48; // [rsp+68h] [rbp-60h]
-  __int64 v49; // [rsp+70h] [rbp-58h]
-  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-50h]
-  __int64 v51; // [rsp+D0h] [rbp+8h]
-  unsigned int v53; // [rsp+E0h] [rbp+18h]
-  unsigned int v55; // [rsp+F0h] [rbp+28h]
+  unsigned int v39; // [rsp+40h] [rbp-88h]
+  __int64 v40; // [rsp+48h] [rbp-80h]
+  unsigned __int64 v41; // [rsp+50h] [rbp-78h]
+  __int64 v42; // [rsp+58h] [rbp-70h]
+  __int64 v43; // [rsp+60h] [rbp-68h]
+  __int64 v44; // [rsp+68h] [rbp-60h]
+  __int64 v45; // [rsp+70h] [rbp-58h]
+  struct _KPROCESS *v46; // [rsp+D0h] [rbp+8h]
+  int v48; // [rsp+E0h] [rbp+18h]
 
-  v51 = a1;
-  v5 = a5;
-  v6 = *a2;
-  v8 = *a2;
+  v46 = a1;
+  v5 = *a2;
+  v6 = a5;
+  v41 = v5;
+  v8 = a2;
+  v9 = (unsigned int)v5;
   *a5 = 0LL;
   if ( a3 )
   {
     if ( (*a4 & 3) == 0 )
     {
-      v38 = 1;
+      v35 = 1;
       if ( a3 <= 1 )
       {
-LABEL_46:
-        v40 = *(_QWORD *)&a4[8 * a3 - 8];
-        if ( v40 < v8 )
+LABEL_55:
+        v37 = *(_QWORD *)&a4[8 * a3 - 8];
+        if ( v37 < v9 )
         {
-          v8 = v40 + 4;
-LABEL_8:
-          a1 = v51;
-          goto LABEL_9;
+          v9 = v37 + 4;
+          goto LABEL_13;
         }
       }
       else
       {
-        v39 = a4 + 8;
-        while ( (*v39 & 3) == 0 && *v39 > *(_QWORD *)&a4[8 * v38 - 8] )
+        v36 = a4 + 8;
+        while ( (*v36 & 3) == 0 && *v36 > *(_QWORD *)&a4[8 * v35 - 8] )
         {
-          ++v38;
-          ++v39;
-          if ( v38 >= a3 )
-            goto LABEL_46;
+          ++v35;
+          ++v36;
+          if ( v35 >= a3 )
+            goto LABEL_55;
         }
       }
     }
     return 3221225485LL;
   }
-  if ( v6 )
+  if ( !(_DWORD)v5 )
+    goto LABEL_14;
+  do
   {
-LABEL_3:
-    v10 = ExpLookupHandleTableEntry(a2, v8 - 1024);
+    v10 = ExpLookupHandleTableEntry(v8, v9 - 1024);
     v12 = 255;
     v13 = (_DWORD *)(v10 + 4080);
     while ( (*v13 & 0x40000LL) == 0 )
     {
-      v13 -= 4;
-      if ( !--v12 )
+      if ( (*(v13 - 4) & 0x40000LL) != 0 )
       {
-        v8 = v11;
-        if ( v11 )
-          goto LABEL_3;
+        --v12;
         break;
       }
+      if ( (*(v13 - 8) & 0x40000LL) != 0 )
+      {
+        v12 -= 2;
+        break;
+      }
+      if ( (*(v13 - 12) & 0x40000LL) != 0 )
+      {
+        v12 -= 3;
+        break;
+      }
+      if ( (*(v13 - 16) & 0x40000LL) != 0 )
+      {
+        v12 -= 4;
+        break;
+      }
+      v13 -= 20;
+      v12 -= 5;
+      if ( !v12 )
+        break;
     }
-    v5 = a5;
-    goto LABEL_8;
+    if ( v12 )
+      break;
+    v9 = v11;
   }
-LABEL_9:
-  if ( !v8 )
+  while ( v11 );
+LABEL_13:
+  a1 = v46;
+  v41 = v9;
+LABEL_14:
+  if ( !v9 )
   {
     HandleTable = ExCreateHandleTable(a1, 1LL);
-    *v5 = HandleTable;
+    *a5 = HandleTable;
     if ( HandleTable )
       return 0LL;
     return 3221225626LL;
   }
-  v14 = (unsigned int *)ExpAllocateHandleTable(a1, 0LL);
-  *v5 = (__int64)v14;
+  v14 = (unsigned int *)ExpAllocateHandleTable(a1, 0);
+  *a5 = (__int64)v14;
   v15 = v14;
   if ( !v14 )
     return 3221225626LL;
-  for ( i = *v14; i < v8; i = *v15 )
+  if ( *v14 < v9 )
   {
-    HandleTableEntrySlow = ExpAllocateHandleTableEntrySlow(v15, 0LL);
-    v15 = (unsigned int *)*v5;
-    if ( !HandleTableEntrySlow )
+    while ( 1 )
     {
-      ExpFreeHandleTable(v15);
-      *v5 = 0LL;
-      return 3221225626LL;
+      HandleTableEntrySlow = ExpAllocateHandleTableEntrySlow(v15, 0LL);
+      v15 = (unsigned int *)*a5;
+      if ( !HandleTableEntrySlow )
+        break;
+      if ( *v15 >= v9 )
+        goto LABEL_17;
     }
+    ExpFreeHandleTable(v15);
+    *a5 = 0LL;
+    return 3221225626LL;
   }
+LABEL_17:
   *((_BYTE *)v15 + 44) |= 8u;
-  v18 = 0;
   CurrentThread = KeGetCurrentThread();
-  v19 = 0LL;
-  v55 = 0;
   --CurrentThread->KernelApcDisable;
-  v48 = *v5;
-  v20 = (__int64 *)(v48 + 72);
-  v44 = (__int64 *)(v48 + 72);
+  v45 = (__int64)CurrentThread;
+  v42 = *a5;
+  v17 = 0;
+  v39 = 0;
+  v18 = 0LL;
+  v48 = 0;
+  v19 = (_QWORD *)(*a5 + 72);
   do
   {
-    v21 = ExpLookupHandleTableEntry(a2, v19);
-    v22 = (unsigned int *)*v5;
-    v45 = v21;
-    v46 = ExpLookupHandleTableEntry(v22, v19);
-    v26 = 1LL;
-    v27 = (_DWORD *)(v25 + 16);
-    v49 = v46 - v25;
-    v53 = 1;
-    v43 = (_DWORD *)(v25 + 16);
-    while ( v18 >= 0 )
+    v44 = ExpLookupHandleTableEntry(a2, v18);
+    v20 = ExpLookupHandleTableEntry(*v6, v18);
+    v24 = *v6;
+    v25 = (_DWORD *)(v21 + 16);
+    v40 = v20;
+    v26 = 1;
+    v43 = v20 - v21;
+    while ( v17 >= 0 )
     {
-      v28 = v19 + (unsigned int)(4 * v26);
-      if ( !a3 || *(_QWORD *)&a4[8 * v23] == v28 )
+      if ( a3 && *(_QWORD *)&a4[8 * v22] != v18 + 4 * v26 )
+        goto LABEL_24;
+      if ( (*v25 & 0x40000) == 0 )
+        goto LABEL_22;
+      v31 = 16LL * v26;
+      v32 = (volatile signed __int64 *)(v31 + v21);
+      if ( !ExLockHandleTableEntry(v23, (signed __int64 *)(v31 + v21)) )
       {
-        if ( (*v27 & 0x40000) == 0 )
-          goto LABEL_20;
-        v47 = 16LL * v53;
-        if ( !ExLockHandleTableEntry(v24, (_QWORD *)(v25 + v47)) )
+        v17 = v48;
+LABEL_22:
+        if ( a3 )
         {
-          v27 = v43;
-LABEL_20:
-          if ( a3 )
-            v18 = -1073741811;
-          goto LABEL_22;
+          v17 = -1073741811;
+          v48 = -1073741811;
         }
-        if ( (*v43 & 0x40000) != 0 )
+LABEL_24:
+        v27 = 16LL * v26;
+        *v19 = v27 + v40;
+        *(_QWORD *)(v42 + 80) = v27 + v40;
+        v19 = (_QWORD *)(v27 + v40 + 8);
+        *(_QWORD *)((char *)v25 + v43) = 0LL;
+        goto LABEL_25;
+      }
+      if ( (*v25 & 0x40000) == 0 )
+      {
+        ExUnlockHandleTableEntry((__int64)a2, v32);
+        if ( a3 )
         {
-          v36 = ExpDuplicateSingleHandle(v51, v28, (_DWORD)a2, (int)v47 + (int)v45, *v5, v47 + v46, a4 != 0LL);
-          v18 = v36;
-          if ( v36 >= 0 )
-          {
-            if ( v36 != 263 )
-            {
-              v37 = *v5;
-              ++*(_DWORD *)(*v5 + 88);
-              if ( a3 && v55 < a3 - 1 )
-                ++v55;
-              if ( *(_QWORD *)(v37 + 96) )
-                ExpUpdateDebugInfo(v37, KeGetCurrentThread(), v28, 1LL);
-              v27 = v43;
-              v20 = v44;
-              goto LABEL_23;
-            }
-            v18 = 0;
-          }
-          v27 = v43;
+          v17 = -1073741811;
+          v48 = -1073741811;
         }
         else
         {
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(v47 + v45), 1uLL);
-          _InterlockedOr(v42, 0);
-          if ( *((_QWORD *)a2 + 6) )
-            ExfUnblockPushLock((volatile __int64 *)a2 + 6, 0LL);
-          v27 = v43;
-          if ( a3 )
-            v18 = -1073741811;
+          v17 = v48;
         }
-      }
-LABEL_22:
-      v29 = 16LL * v53 + v46;
-      *v44 = v29;
-      v20 = (__int64 *)(v29 + 8);
-      v44 = (__int64 *)(v29 + 8);
-      *(_QWORD *)(v48 + 80) = v29;
-      *(_QWORD *)((char *)v27 + v49) = 0LL;
-LABEL_23:
-      v27 += 4;
-      v23 = v55;
-      v26 = v53 + 1;
-      v24 = (__int64)a2;
-      v25 = v45;
-      v53 = v26;
-      v43 = v27;
-      if ( (unsigned int)v26 >= 0x100 )
         goto LABEL_24;
+      }
+      v33 = ExpDuplicateSingleHandle(
+              (_DWORD)v46,
+              (unsigned int)v18 + 4 * v26,
+              (_DWORD)a2,
+              (_DWORD)v32,
+              *a5,
+              v31 + v40,
+              a4 != 0LL);
+      v48 = v33;
+      v17 = v33;
+      if ( v33 < 0 )
+        goto LABEL_24;
+      if ( v33 == 263 )
+      {
+        v17 = 0;
+        v48 = 0;
+        goto LABEL_24;
+      }
+      v24 = *a5;
+      ++*(_DWORD *)(*a5 + 88);
+      if ( a3 && v39 < a3 - 1 )
+        ++v39;
+      if ( !*(_QWORD *)(v24 + 96) )
+      {
+        v6 = a5;
+        goto LABEL_26;
+      }
+      ExpUpdateDebugInfo(v24, KeGetCurrentThread(), v18 + 4 * v26, 1LL);
+LABEL_25:
+      v6 = a5;
+      v24 = *a5;
+LABEL_26:
+      v21 = v44;
+      ++v26;
+      v22 = v39;
+      v25 += 4;
+      v23 = (__int64)a2;
+      if ( v26 >= 0x100 )
+        goto LABEL_27;
     }
-    memset((void *)(16 * v26 + v46), 0, 4096 - 16 * v26);
-LABEL_24:
-    v19 += 1024LL;
+    memset((void *)(16LL * v26 + v40), 0, 4096 - 16LL * v26);
+LABEL_27:
+    v18 += 1024LL;
   }
-  while ( v19 < v8 );
-  v30 = (__int64)CurrentThread;
-  *v20 = 0LL;
-  v31 = *v5;
-  if ( v18 < 0 )
+  while ( v18 < v41 );
+  *v19 = 0LL;
+  if ( v17 < 0 )
   {
-    *(_BYTE *)(v31 + 44) |= 4u;
-    *(_QWORD *)(v31 + 32) = v31 + 24;
-    *(_QWORD *)(v31 + 24) = v31 + 24;
+    *(_BYTE *)(v24 + 44) |= 4u;
+    *(_QWORD *)(v24 + 32) = v24 + 24;
+    *(_QWORD *)(v24 + 24) = v24 + 24;
   }
   else
   {
-    *(_DWORD *)(v31 + 92) = *(_DWORD *)(v31 + 88);
+    *(_DWORD *)(v24 + 92) = *(_DWORD *)(v24 + 88);
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&HandleTableListLock, 0LL);
-    v32 = (_QWORD *)qword_140D54EC8;
-    v33 = (_QWORD *)(*v5 + 24);
-    if ( *(__int64 **)qword_140D54EC8 != &HandleTableListHead )
+    v28 = (_QWORD *)qword_140D2EB48;
+    v29 = (_QWORD *)(*v6 + 24);
+    if ( *(__int64 **)qword_140D2EB48 != &HandleTableListHead )
       __fastfail(3u);
-    *v33 = &HandleTableListHead;
-    v33[1] = v32;
-    *v32 = v33;
-    qword_140D54EC8 = (__int64)v33;
-    v34 = _InterlockedExchangeAdd64((volatile signed __int64 *)&HandleTableListLock, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v34 & 2) != 0 && (v34 & 4) == 0 )
+    *v29 = &HandleTableListHead;
+    v29[1] = v28;
+    *v28 = v29;
+    qword_140D2EB48 = (__int64)v29;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&HandleTableListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&HandleTableListLock);
     KeAbPostRelease((ULONG_PTR)&HandleTableListLock);
-    v18 = 0;
+    v17 = 0;
   }
-  KeLeaveCriticalRegionThread(v30);
-  return (unsigned int)v18;
+  KeLeaveCriticalRegionThread(v45);
+  return (unsigned int)v17;
 }

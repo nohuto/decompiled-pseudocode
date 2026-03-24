@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CBlendEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0211030
+ * XREFs of ?SetRemarshalingFlags@CBlendEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E21C0
  * Callers:
  *     <none>
  * Callees:

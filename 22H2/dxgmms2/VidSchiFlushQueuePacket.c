@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchiFlushQueuePacket @ 0x1C003A958
+ * XREFs of VidSchiFlushQueuePacket @ 0x1C002FBEC
  * Callers:
- *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C000294C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0016DFC (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
  * Callees:
- *     VidSchiSubmitPresentHistoryToken @ 0x1C0016900 (VidSchiSubmitPresentHistoryToken.c)
+ *     VidSchiSubmitPresentHistoryToken @ 0x1C000288C (VidSchiSubmitPresentHistoryToken.c)
  */
 
 void __fastcall VidSchiFlushQueuePacket(struct HwQueueStagingList *a1, __int64 a2, __int64 a3, int a4)

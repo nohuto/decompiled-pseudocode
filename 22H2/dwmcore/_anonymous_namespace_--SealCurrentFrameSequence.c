@@ -1,115 +1,115 @@
 /*
- * XREFs of _anonymous_namespace_::SealCurrentFrameSequence @ 0x180036054
+ * XREFs of _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028600
  * Callers:
- *     ?FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z @ 0x18004FACC (-FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z.c)
- *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180050DFC (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
+ *     ?FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z @ 0x180071B24 (-FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z.c)
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180071D98 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??$_Buyheadnode@V?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@std@@@?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@SAPEAU01@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@1@@Z @ 0x180036430 (--$_Buyheadnode@V-$allocator@U-$_Tree_node@U-$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEA.c)
- *     _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo @ 0x1800365F4 (_anonymous_namespace_--FrameSequenceInfo--FrameSequenceInfo.c)
- *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180036FB0 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
- *     _anonymous_namespace_::FrameSequenceInfo::operator_ @ 0x180037140 (_anonymous_namespace_--FrameSequenceInfo--operator_.c)
- *     _anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo @ 0x180037600 (_anonymous_namespace_--FrameSequenceInfo--_FrameSequenceInfo.c)
- *     _anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport @ 0x1800376EC (_anonymous_namespace_--FramesReport--OffsetInMillisecondsFromStartOfReport.c)
- *     ?ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x1800378B8 (-ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV-$function@$$A6AXPEAXK_.c)
- *     _anonymous_namespace_::FramesReport::FramesReport @ 0x1800D6E60 (_anonymous_namespace_--FramesReport--FramesReport.c)
- *     std::vector__anonymous_namespace_::FrameSequenceInfo_std::allocator__anonymous_namespace_::FrameSequenceInfo___::_Emplace_reallocate__anonymous_namespace_::FrameSequenceInfo_const_&_ @ 0x1800F5E80 (std--vector__anonymous_namespace_--FrameSequenceInfo_std--allocator__anonymous_namespace_--Frame.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     McTemplateU0xq_EventWriteTransfer @ 0x18012E24C (McTemplateU0xq_EventWriteTransfer.c)
+ *     std::vector__anonymous_namespace_::FrameSequenceInfo_std::allocator__anonymous_namespace_::FrameSequenceInfo___::_Emplace_reallocate__anonymous_namespace_::FrameSequenceInfo_const_&_ @ 0x1800283F0 (std--vector__anonymous_namespace_--FrameSequenceInfo_std--allocator__anonymous_namespace_--Frame.c)
+ *     _anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport @ 0x180028A44 (_anonymous_namespace_--FramesReport--OffsetInMillisecondsFromStartOfReport.c)
+ *     _anonymous_namespace_::FrameSequenceInfo::operator_ @ 0x180028B08 (_anonymous_namespace_--FrameSequenceInfo--operator_.c)
+ *     _anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo @ 0x180028FC4 (_anonymous_namespace_--FrameSequenceInfo--_FrameSequenceInfo.c)
+ *     _anonymous_namespace_::FramesReport::FramesReport @ 0x180029110 (_anonymous_namespace_--FramesReport--FramesReport.c)
+ *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x18004FF48 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
+ *     _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo @ 0x1800501EC (_anonymous_namespace_--FrameSequenceInfo--FrameSequenceInfo.c)
+ *     ??$_Buyheadnode@V?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@std@@@?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@SAPEAU01@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@1@@Z @ 0x180050AD8 (--$_Buyheadnode@V-$allocator@U-$_Tree_node@U-$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEA.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     std::function_void___cdecl(void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const_&)_::function_void___cdecl(void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const_&)___lambda_5fcd38f73916aa9cc2ab190da74b00ea__void_ @ 0x1800EA3F0 (std--function_void___cdecl(void___unsigned_long_unsigned___int64_unsigned_short_const___enum_Pro.c)
+ *     ?ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x1800EB0C0 (-ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV-$function@$$A6AXPEAXK_.c)
+ *     McTemplateU0xq_EventWriteTransfer @ 0x180152914 (McTemplateU0xq_EventWriteTransfer.c)
  */
 
 void __fastcall anonymous_namespace_::SealCurrentFrameSequence(char a1)
 {
-  LARGE_INTEGER v2; // rcx
-  __int64 v3; // r10
-  __int64 v4; // r11
+  __int64 v1; // rbx
+  __int64 v3; // rdx
+  __int64 v4; // r8
   __int64 v5; // rax
-  __int64 v6; // rbx
-  unsigned int v7; // eax
-  __int64 v8; // rax
-  __int64 v9; // rax
+  __int64 v6; // r9
+  LARGE_INTEGER v7; // rcx
+  __int64 v8; // r10
+  unsigned __int64 v9; // r11
   int v10; // edx
   unsigned int v11; // r8d
+  __int64 *v12; // rdi
+  unsigned int v13; // eax
   HANDLE CurrentProcess; // rax
-  _QWORD *v13; // rcx
-  __int128 v14; // xmm1
-  __int64 v15; // rax
-  __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  void *v18; // rax
-  void *v19; // rbx
-  union _SLIST_HEADER *v20; // rcx
-  struct _SLIST_ENTRY *v21; // rdx
-  _BYTE v22[408]; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v23; // [rsp+1B8h] [rbp+B8h]
-  __int64 v24; // [rsp+1C0h] [rbp+C0h]
-  __int64 v25; // [rsp+1C8h] [rbp+C8h]
-  __int64 v26; // [rsp+1D0h] [rbp+D0h]
-  __int64 v27; // [rsp+1E0h] [rbp+E0h]
-  __int64 v28; // [rsp+1E8h] [rbp+E8h]
-  __int128 v29; // [rsp+1F0h] [rbp+F0h]
-  _BYTE ppsmemCounters[80]; // [rsp+200h] [rbp+100h] BYREF
-  __int64 v31; // [rsp+250h] [rbp+150h]
+  _QWORD *v15; // rcx
+  __int128 v16; // xmm1
+  __int64 v17; // rax
+  __int128 v18; // xmm0
+  __int128 v19; // xmm1
+  void *v20; // rax
+  void *v21; // rdi
+  union _SLIST_HEADER *v22; // rcx
+  struct _SLIST_ENTRY *v23; // rdx
+  _BYTE v24[408]; // [rsp+28h] [rbp-E0h] BYREF
+  __int64 v25; // [rsp+1C0h] [rbp+B8h]
+  __int64 v26; // [rsp+1C8h] [rbp+C0h]
+  __int64 v27; // [rsp+1D0h] [rbp+C8h]
+  __int64 v28; // [rsp+1D8h] [rbp+D0h]
+  __int64 v29; // [rsp+1E8h] [rbp+E0h]
+  __int64 v30; // [rsp+1F0h] [rbp+E8h]
+  __int128 v31; // [rsp+1F8h] [rbp+F0h]
+  _BYTE ppsmemCounters[80]; // [rsp+208h] [rbp+100h] BYREF
+  __int64 v33; // [rsp+258h] [rbp+150h]
 
-  if ( dword_1803E5A18 )
+  v1 = 0LL;
+  if ( dword_1803472A8 )
   {
     memset_0(ppsmemCounters, 0, 0x58uLL);
-    xmmword_1803E5C30 = *(_OWORD *)ppsmemCounters;
-    xmmword_1803E5C40 = *(_OWORD *)&ppsmemCounters[16];
-    xmmword_1803E5C50 = *(_OWORD *)&ppsmemCounters[32];
-    xmmword_1803E5C60 = *(_OWORD *)&ppsmemCounters[48];
-    *(_QWORD *)ppsmemCounters = off_1802CE140;
-    xmmword_1803E5C70 = *(_OWORD *)&ppsmemCounters[64];
-    qword_1803E5C80 = v31;
-    *(_QWORD *)&ppsmemCounters[56] = ppsmemCounters;
-    CProcessAttributionObserver::ForEachChangedProcessAttribution(*(_QWORD *)qword_1803E5C88, 0LL, ppsmemCounters);
-    v2 = g_qpcFrequency;
-    v3 = *((_QWORD *)&xmmword_1803E5B60 + 1);
-    v4 = xmmword_1803E5B60;
-    dword_1803E5A30 = 1000
-                    * ((*((_QWORD *)&xmmword_1803E5B60 + 1) - (_QWORD)xmmword_1803E5B60)
+    LOBYTE(v3) = 0;
+    `anonymous namespace'::_etwEndFrameSnapshot = *(_OWORD *)ppsmemCounters;
+    xmmword_180347180 = *(_OWORD *)&ppsmemCounters[16];
+    xmmword_180347190 = *(_OWORD *)&ppsmemCounters[32];
+    xmmword_1803471A0 = *(_OWORD *)&ppsmemCounters[48];
+    xmmword_1803471B0 = *(_OWORD *)&ppsmemCounters[64];
+    qword_1803471C0 = v33;
+    v5 = std::function_void___cdecl_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const____::function_void___cdecl_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const______lambda_5fcd38f73916aa9cc2ab190da74b00ea__void_(
+           ppsmemCounters,
+           v3,
+           v4,
+           *(_QWORD *)qword_180347460);
+    CProcessAttributionObserver::ForEachChangedProcessAttribution(v6, 0LL, v5);
+    v7 = g_qpcFrequency;
+    v8 = *((_QWORD *)&xmmword_1803473F0 + 1);
+    v9 = xmmword_1803473F0;
+    dword_1803472C0 = 1000
+                    * ((*((_QWORD *)&xmmword_1803473F0 + 1) - (_QWORD)xmmword_1803473F0)
                      / g_qpcFrequency.QuadPart)
                     + (unsigned __int64)(1000
-                                       * ((*((_QWORD *)&xmmword_1803E5B60 + 1) - (_QWORD)xmmword_1803E5B60)
+                                       * ((*((_QWORD *)&xmmword_1803473F0 + 1) - (_QWORD)xmmword_1803473F0)
                                         % g_qpcFrequency.QuadPart))
                     / g_qpcFrequency.QuadPart;
-    v5 = xmmword_1803E5C18 - *(_QWORD *)&GUID_NULL.Data1;
-    if ( (_QWORD)xmmword_1803E5C18 == *(_QWORD *)&GUID_NULL.Data1 )
-      v5 = *((_QWORD *)&xmmword_1803E5C18 + 1) - *(_QWORD *)GUID_NULL.Data4;
-    if ( v5 )
+    if ( xmmword_180347158 == *(_OWORD *)&GUID_NULL )
     {
-      dword_1803E5C90 = 0;
-      qword_1803E5B78 = 0LL;
-    }
-    else
-    {
-      v10 = dword_1803E5A20;
-      if ( (unsigned int)dword_1803E5A20 > 0x37
-        && (dword_1803E5BE0 & 0x100000) != 0
-        && (Microsoft_Windows_Dwm_CoreEnableBits & 0x800000) != 0 )
+      v10 = dword_1803472B0;
+      if ( (unsigned int)dword_1803472B0 > 0x37
+        && (dword_180347120 & 0x100000) != 0
+        && (Microsoft_Windows_Dwm_CoreEnableBits & 0x400000) != 0 )
       {
         ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))McTemplateU0xq_EventWriteTransfer)(
           (LARGE_INTEGER)g_qpcFrequency.QuadPart,
           &EVTDESC_DIAGTRACK_TRIGGER,
           16525050LL,
           0LL);
-        v3 = *((_QWORD *)&xmmword_1803E5B60 + 1);
-        v4 = xmmword_1803E5B60;
-        v10 = dword_1803E5A20;
-        v2 = g_qpcFrequency;
+        v8 = *((_QWORD *)&xmmword_1803473F0 + 1);
+        v9 = xmmword_1803473F0;
+        v10 = dword_1803472B0;
+        v7 = g_qpcFrequency;
       }
-      v11 = v10 + dword_1803E5C90;
-      dword_1803E5C90 += v10;
-      if ( qword_1803E5B78 )
+      v11 = v10 + `anonymous namespace'::_unpresentedFramesOnScreenOffSession;
+      `anonymous namespace'::_unpresentedFramesOnScreenOffSession += v10;
+      if ( `anonymous namespace'::_startOfScreenOff )
       {
         if ( v11 >= 0x30570
-          && (unsigned __int64)(v3 - qword_1803E5B78) / v2.QuadPart
-           + (unsigned __int64)(v3 - qword_1803E5B78) % v2.QuadPart / v2.QuadPart < 0xE10
-          && (Microsoft_Windows_Dwm_CoreEnableBits & 0x800000) != 0 )
+          && (v8 - `anonymous namespace'::_startOfScreenOff) / v7.QuadPart
+           + (v8 - `anonymous namespace'::_startOfScreenOff) % v7.QuadPart / v7.QuadPart < 0xE10
+          && (Microsoft_Windows_Dwm_CoreEnableBits & 0x400000) != 0 )
         {
           ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))McTemplateU0xq_EventWriteTransfer)(
-            (LARGE_INTEGER)v2.QuadPart,
+            (LARGE_INTEGER)v7.QuadPart,
             &EVTDESC_DIAGTRACK_TRIGGER,
             16525050LL,
             1LL);
@@ -117,72 +117,75 @@ void __fastcall anonymous_namespace_::SealCurrentFrameSequence(char a1)
       }
       else
       {
-        qword_1803E5B78 = v4;
+        `anonymous namespace'::_startOfScreenOff = v9;
       }
-    }
-    v6 = *((_QWORD *)qword_1803E5C88 + 5);
-    if ( *(_QWORD *)(v6 + 24) == *(_QWORD *)(v6 + 32) )
-    {
-      std::vector__anonymous_namespace_::FrameSequenceInfo_std::allocator__anonymous_namespace_::FrameSequenceInfo___::_Emplace_reallocate__anonymous_namespace_::FrameSequenceInfo_const___(
-        v6 + 16,
-        *(_QWORD *)(v6 + 24),
-        &unk_1803E5990);
     }
     else
     {
-      anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo(*(_QWORD *)(v6 + 24), &unk_1803E5990);
-      *(_QWORD *)(v6 + 24) += 480LL;
+      `anonymous namespace'::_unpresentedFramesOnScreenOffSession = 0;
+      `anonymous namespace'::_startOfScreenOff = 0LL;
     }
-    v7 = anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport(
-           *((_QWORD *)qword_1803E5C88 + 5),
-           qword_1803E5BD8);
+    v12 = (__int64 *)*((_QWORD *)qword_180347460 + 5);
+    if ( v12[4] == v12[3] )
+    {
+      std::vector__anonymous_namespace_::FrameSequenceInfo_std::allocator__anonymous_namespace_::FrameSequenceInfo___::_Emplace_reallocate__anonymous_namespace_::FrameSequenceInfo_const___(
+        v12 + 2,
+        v12[3],
+        (__int64)&unk_180347220);
+    }
+    else
+    {
+      anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo(v12[3], &unk_180347220);
+      v12[3] += 480LL;
+    }
+    v31 = 0LL;
+    memset_0(v24, 0, sizeof(v24));
+    v26 = 0LL;
+    v25 = std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>::_Buyheadnode<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>();
+    v28 = 0LL;
+    v27 = std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>::_Buyheadnode<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>();
+    v30 = 0LL;
+    v29 = std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______();
+    anonymous_namespace_::FrameSequenceInfo::operator_(&unk_180347220, v24);
+    anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo(v24);
+    v13 = anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport(
+            *((_QWORD *)qword_180347460 + 5),
+            qword_180347118);
     if ( a1
-      || v7 >= CCommonRegistryData::TelemetryFramesReportPeriodMilliseconds
-      || g_fTelemetry_FramesReportFast && v7 >= 0x3E8 )
+      || v13 >= CCommonRegistryData::TelemetryFramesReportPeriodMilliseconds
+      || g_fTelemetry_FramesReportFast && v13 >= 0x3E8 )
     {
       *(_DWORD *)ppsmemCounters = 80;
       CurrentProcess = GetCurrentProcess();
       if ( K32GetProcessMemoryInfo(CurrentProcess, (PPROCESS_MEMORY_COUNTERS)ppsmemCounters, 0x50u) )
       {
-        HIDWORD(qword_1803E5BD0) = *(_QWORD *)&ppsmemCounters[16] >> 10;
-        LODWORD(qword_1803E5BD0) = *(_QWORD *)&ppsmemCounters[56] >> 10;
+        HIDWORD(qword_180347110) = *(_QWORD *)&ppsmemCounters[16] >> 10;
+        LODWORD(qword_180347110) = *(_QWORD *)&ppsmemCounters[56] >> 10;
       }
-      v13 = qword_1803E5C88;
-      v14 = xmmword_1803E5BA0;
-      *(_OWORD *)(*((_QWORD *)qword_1803E5C88 + 5) + 176LL) = xmmword_1803E5C18;
-      v15 = v13[5];
-      *(_OWORD *)(v15 + 40) = xmmword_1803E5B90;
-      v16 = xmmword_1803E5BB0;
-      *(_OWORD *)(v15 + 56) = v14;
-      v17 = xmmword_1803E5BC0;
-      *(_OWORD *)(v15 + 72) = v16;
-      *(_QWORD *)&v16 = qword_1803E5BD0;
-      *(_OWORD *)(v15 + 88) = v17;
-      *(_QWORD *)(v15 + 104) = v16;
-      v18 = operator new(0xC0uLL);
-      v19 = v18;
-      if ( v18 )
+      v15 = qword_180347460;
+      v16 = xmmword_1803470E0;
+      *(_OWORD *)(*((_QWORD *)qword_180347460 + 5) + 176LL) = xmmword_180347158;
+      v17 = v15[5];
+      *(_OWORD *)(v17 + 40) = xmmword_1803470D0;
+      v18 = xmmword_1803470F0;
+      *(_OWORD *)(v17 + 56) = v16;
+      v19 = xmmword_180347100;
+      *(_OWORD *)(v17 + 72) = v18;
+      *(_QWORD *)&v18 = qword_180347110;
+      *(_OWORD *)(v17 + 88) = v19;
+      *(_QWORD *)(v17 + 104) = v18;
+      v20 = operator new(0xC0uLL);
+      v21 = v20;
+      if ( v20 )
       {
-        memset_0(v18, 0, 0xC0uLL);
-        v18 = (void *)anonymous_namespace_::FramesReport::FramesReport(v19);
+        memset_0(v20, 0, 0xC0uLL);
+        v1 = anonymous_namespace_::FramesReport::FramesReport(v21);
       }
-      v20 = (union _SLIST_HEADER *)qword_1803E5C88;
-      v21 = (struct _SLIST_ENTRY *)*((_QWORD *)qword_1803E5C88 + 5);
-      *((_QWORD *)qword_1803E5C88 + 5) = v18;
-      InterlockedPushEntrySList(v20 + 3, v21);
-      SubmitThreadpoolWork(*((PTP_WORK *)qword_1803E5C88 + 1));
+      v22 = (union _SLIST_HEADER *)qword_180347460;
+      v23 = (struct _SLIST_ENTRY *)*((_QWORD *)qword_180347460 + 5);
+      *((_QWORD *)qword_180347460 + 5) = v1;
+      InterlockedPushEntrySList(v22 + 3, v23);
+      SubmitThreadpoolWork(*((PTP_WORK *)qword_180347460 + 1));
     }
-    v29 = 0LL;
-    memset_0(v22, 0, sizeof(v22));
-    v24 = 0LL;
-    v8 = std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>::_Buyheadnode<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>();
-    v26 = 0LL;
-    v23 = v8;
-    v9 = std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>::_Buyheadnode<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>();
-    v28 = 0LL;
-    v25 = v9;
-    v27 = std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______();
-    anonymous_namespace_::FrameSequenceInfo::operator_(&unk_1803E5990, v22);
-    anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo(v22);
   }
 }

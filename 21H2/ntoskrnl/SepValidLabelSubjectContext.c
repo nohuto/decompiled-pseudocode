@@ -1,50 +1,54 @@
 /*
- * XREFs of SepValidLabelSubjectContext @ 0x14079DB4C
+ * XREFs of SepValidLabelSubjectContext @ 0x140607A3C
  * Callers:
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     RtlSidDominates @ 0x1402ED880 (RtlSidDominates.c)
- *     SepCopyTokenIntegrity @ 0x1402ED98C (SepCopyTokenIntegrity.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeSinglePrivilegeCheckEx @ 0x140724418 (SeSinglePrivilegeCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlSidDominates @ 0x140252890 (RtlSidDominates.c)
+ *     SepCopyTokenIntegrity @ 0x14025299C (SepCopyTokenIntegrity.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SeSinglePrivilegeCheckEx @ 0x140627698 (SeSinglePrivilegeCheckEx.c)
  */
 
-BOOLEAN __fastcall SepValidLabelSubjectContext(struct _SECURITY_SUBJECT_CONTEXT *a1, _DWORD *a2, char a3)
+char __fastcall SepValidLabelSubjectContext(__int64 *a1, char *a2, char a3)
 {
-  _DWORD *SeMediumMandatorySid; // rdi
-  __int64 ClientToken; // rbx
+  char *SeMediumMandatorySid; // rdi
+  __int64 v6; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  BOOLEAN result; // al
-  BOOLEAN v9; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v8; // r8
+  char result; // al
+  char v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v9 = 0;
+  v10 = 0;
   SeMediumMandatorySid = a2;
   if ( !a2 )
-    SeMediumMandatorySid = SeExports->SeMediumMandatorySid;
-  ClientToken = (__int64)a1->ClientToken;
-  if ( !a1->ClientToken )
-    ClientToken = (__int64)a1->PrimaryToken;
-  if ( *(_DWORD *)(ClientToken + 192) == 2 && *(int *)(ClientToken + 196) < 2 )
+    SeMediumMandatorySid = (char *)SeExports->SeMediumMandatorySid;
+  v6 = *a1;
+  if ( !*a1 )
+    v6 = a1[2];
+  if ( *(_DWORD *)(v6 + 192) == 2 && *(int *)(v6 + 196) < 2 )
     return 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceSharedLite(*(PERESOURCE *)(ClientToken + 48), 1u);
-  SepCopyTokenIntegrity(ClientToken);
-  ExReleaseResourceLite(*(PERESOURCE *)(ClientToken + 48));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExAcquireResourceSharedLite(*(PERESOURCE *)(v6 + 48), 1u);
+  SepCopyTokenIntegrity(v6);
+  ExReleaseResourceLite(*(PERESOURCE *)(v6 + 48));
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( (a3 & 8) != 0 )
   {
-    if ( (int)RtlSidDominates(SeMediumMandatorySid, (_DWORD *)SeExports->SeMediumMandatorySid, (bool *)&v9) < 0 )
+    if ( (int)RtlSidDominates(SeMediumMandatorySid, (char *)SeExports->SeMediumMandatorySid, (bool *)&v10) < 0 )
       return 0;
-    if ( !v9 )
-      SeMediumMandatorySid = SeExports->SeMediumMandatorySid;
+    if ( !v10 )
+      SeMediumMandatorySid = (char *)SeExports->SeMediumMandatorySid;
   }
-  if ( (int)RtlSidDominates(0LL, SeMediumMandatorySid, (bool *)&v9) < 0 )
+  if ( (int)RtlSidDominates(0LL, SeMediumMandatorySid, (bool *)&v10) < 0 )
     return 0;
-  result = v9;
-  if ( !v9 )
-    return SeSinglePrivilegeCheckEx((LUID)SeRelabelPrivilege, a1, 1);
+  result = v10;
+  if ( !v10 )
+  {
+    LOBYTE(v8) = 1;
+    return SeSinglePrivilegeCheckEx(SeRelabelPrivilege, a1, v8);
+  }
   return result;
 }

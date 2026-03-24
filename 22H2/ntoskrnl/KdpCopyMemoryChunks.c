@@ -1,34 +1,40 @@
 /*
- * XREFs of KdpCopyMemoryChunks @ 0x140AB12A4
+ * XREFs of KdpCopyMemoryChunks @ 0x1409B9B9C
  * Callers:
- *     KdpSetCommonState @ 0x14033EF5C (KdpSetCommonState.c)
- *     KdSystemDebugControl @ 0x1409721A0 (KdSystemDebugControl.c)
- *     KdpReportLoadSymbolsStateChange @ 0x140AB1694 (KdpReportLoadSymbolsStateChange.c)
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
- *     KdpReadVirtualMemory @ 0x140AB1B0C (KdpReadVirtualMemory.c)
- *     KdpCreateRemoteFile @ 0x140AB1E04 (KdpCreateRemoteFile.c)
- *     KdpSysReadControlSpace @ 0x140AB2BB8 (KdpSysReadControlSpace.c)
- *     KdpSysWriteControlSpace @ 0x140AB2E44 (KdpSysWriteControlSpace.c)
- *     KdpPrintString @ 0x140AB344C (KdpPrintString.c)
- *     KdpFillMemory @ 0x140AB4EF0 (KdpFillMemory.c)
- *     KdpReadPhysicalMemory @ 0x140AB5178 (KdpReadPhysicalMemory.c)
- *     KdpReportCommandStringStateChange @ 0x140AB5388 (KdpReportCommandStringStateChange.c)
- *     KdpRestoreBreakPointEx @ 0x140AB5520 (KdpRestoreBreakPointEx.c)
- *     KdpWriteBreakPointEx @ 0x140AB5D84 (KdpWriteBreakPointEx.c)
- *     KdpWritePhysicalMemory @ 0x140AB5F48 (KdpWritePhysicalMemory.c)
- *     KdLogDbgPrint @ 0x140AB5FF0 (KdLogDbgPrint.c)
- *     KdpCopyCodeStream @ 0x140AB6650 (KdpCopyCodeStream.c)
- *     KdpPromptString @ 0x140AB6D3C (KdpPromptString.c)
+ *     KdpSetCommonState @ 0x14051131C (KdpSetCommonState.c)
+ *     KdSystemDebugControl @ 0x1408B9BB0 (KdSystemDebugControl.c)
+ *     KdpCreateRemoteFile @ 0x1409B6BD0 (KdpCreateRemoteFile.c)
+ *     KdpFillMemory @ 0x1409B7430 (KdpFillMemory.c)
+ *     KdpReadPhysicalMemory @ 0x1409B7870 (KdpReadPhysicalMemory.c)
+ *     KdpReadVirtualMemory @ 0x1409B7A84 (KdpReadVirtualMemory.c)
+ *     KdpReportCommandStringStateChange @ 0x1409B7B48 (KdpReportCommandStringStateChange.c)
+ *     KdpReportLoadSymbolsStateChange @ 0x1409B7DD0 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpRestoreBreakPointEx @ 0x1409B7F08 (KdpRestoreBreakPointEx.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpWriteBreakPointEx @ 0x1409B9090 (KdpWriteBreakPointEx.c)
+ *     KdpWritePhysicalMemory @ 0x1409B92E0 (KdpWritePhysicalMemory.c)
+ *     KdLogDbgPrint @ 0x1409B9380 (KdLogDbgPrint.c)
+ *     KdpCopyCodeStream @ 0x1409B9A9C (KdpCopyCodeStream.c)
+ *     KdpSysReadControlSpace @ 0x1409B9F1C (KdpSysReadControlSpace.c)
+ *     KdpSysWriteControlSpace @ 0x1409BA008 (KdpSysWriteControlSpace.c)
+ *     KdpPrintString @ 0x1409BA7A0 (KdpPrintString.c)
+ *     KdpPromptString @ 0x1409BA898 (KdpPromptString.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x1402E5DB0 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x1405469DC (MmDbgCopyMemory.c)
  */
 
-__int64 __fastcall KdpCopyMemoryChunks(char *a1, __int64 a2, unsigned int a3, unsigned int a4, int a5, _DWORD *a6)
+__int64 __fastcall KdpCopyMemoryChunks(
+        char *BaseAddress,
+        _BYTE *a2,
+        unsigned int a3,
+        unsigned int a4,
+        unsigned int a5,
+        _DWORD *a6)
 {
   unsigned int v6; // ebp
   unsigned int v10; // edi
   unsigned int i; // ebx
-  unsigned int v13; // edx
+  unsigned int v12; // edx
 
   v6 = 8;
   if ( a4 <= 8 )
@@ -44,20 +50,20 @@ __int64 __fastcall KdpCopyMemoryChunks(char *a1, __int64 a2, unsigned int a3, un
     {
       do
       {
-        v13 = 2 * i;
+        v12 = 2 * i;
         if ( 2 * i > v10 )
           break;
-        if ( ((2 * i - 1) & (unsigned int)a1) != 0 )
+        if ( ((2 * i - 1) & (unsigned int)BaseAddress) != 0 )
           break;
         i *= 2;
       }
-      while ( v13 < v6 );
+      while ( v12 < v6 );
     }
     while ( i > v10 )
       i >>= 1;
-    if ( (int)MmDbgCopyMemory(a1, a2, i, i, a5) < 0 )
+    if ( (int)MmDbgCopyMemory(BaseAddress, a2, i, i, a5) < 0 )
       break;
-    a1 += i;
+    BaseAddress += i;
     a2 += i;
   }
   if ( a6 )

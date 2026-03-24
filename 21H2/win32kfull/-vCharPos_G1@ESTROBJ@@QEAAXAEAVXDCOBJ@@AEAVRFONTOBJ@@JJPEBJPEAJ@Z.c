@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vCharPos_G1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJPEAJ@Z @ 0x1C02BCBAC
+ * XREFs of ?vCharPos_G1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJPEAJ@Z @ 0x1C02BE5E8
  * Callers:
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00359A0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C0095270 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
  * Callees:
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C013C010 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C01197E0 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
  */
 
 void __fastcall ESTROBJ::vCharPos_G1(
@@ -21,18 +21,18 @@ void __fastcall ESTROBJ::vCharPos_G1(
   int v12; // esi
   float v13; // xmm8_4
   float v14; // xmm6_4
-  int v15; // r12d
+  int v15; // r13d
   float v16; // xmm7_4
   int v17; // edi
   unsigned __int16 *v18; // r9
   struct RFONTOBJ *v19; // rdx
-  __int64 v20; // rax
-  int v21; // r15d
+  int v20; // edx
+  __int64 v21; // rax
+  int v22; // r15d
   GLYPHDEF **p_pgdf; // rax
-  GLYPHDEF *v25; // rdx
-  int v26; // ecx
+  GLYPHDEF *v26; // rdx
   int v27; // ecx
-  int v28; // eax
+  int v28; // ecx
   unsigned int v29; // r8d
   bool v30; // zf
   float v31; // xmm1_4
@@ -64,47 +64,48 @@ void __fastcall ESTROBJ::vCharPos_G1(
   v40 = 0;
   if ( !(unsigned int)RFONTOBJ::bGetGlyphMetricsPlus((RFONTOBJ *)a3, v19, v11, v18, &v40, a2, this) )
     return;
+  v20 = *((_DWORD *)this + 58);
   if ( v40 )
   {
-    v20 = *((_QWORD *)this + 8);
-    *((_DWORD *)this + 58) |= 2u;
-    *((_QWORD *)this + 4) = v20;
+    v21 = *((_QWORD *)this + 8);
+    v20 |= 2u;
+    *((_DWORD *)this + 58) = v20;
+    *((_QWORD *)this + 4) = v21;
   }
-  if ( ((_DWORD)(*a3)[69] & 0x10) == 0 || (v39 = 1, (*((_DWORD *)this + 58) & 0x1400) != 0) )
+  if ( ((_DWORD)(*a3)[69] & 0x10) == 0 || (v39 = 1, (v20 & 0x1400) != 0) )
     v39 = 0;
-  v21 = 0;
+  v22 = 0;
   v41 = *(_DWORD *)this;
   p_pgdf = &v11->pgdf;
   v42 = p_pgdf;
   while ( 1 )
   {
-    v25 = *p_pgdf;
+    v26 = *p_pgdf;
     if ( v39 )
     {
-      v26 = v17 + HIDWORD(v25[1].ppo);
+      v27 = v17 + HIDWORD(v26[1].ppo);
       if ( v17 >= v12 )
         v17 = v12;
       v12 = v17;
-      if ( v26 <= v15 )
-        v26 = v15;
+      if ( v27 <= v15 )
+        v27 = v15;
 LABEL_18:
-      v15 = v26;
+      v15 = v27;
       goto LABEL_19;
     }
-    v27 = v17 + LODWORD(v25[2].pgb);
-    if ( v27 >= v12 )
-      v27 = v12;
-    v12 = v27;
-    v26 = v17 + HIDWORD(v25[2].ppo);
-    if ( v26 > v15 )
+    v28 = v17 + LODWORD(v26[2].pgb);
+    if ( v28 >= v12 )
+      v28 = v12;
+    v12 = v28;
+    v27 = v17 + HIDWORD(v26[2].ppo);
+    if ( v27 > v15 )
       goto LABEL_18;
 LABEL_19:
-    v28 = *a6++;
-    v21 += v28;
+    v22 += *a6++;
     if ( a7 )
-      *a7++ = v21;
+      *a7++ = v22;
     v40 = 0;
-    bFToL((float)v21 * v13, &v40, 0);
+    bFToL((float)v22 * v13, &v40, 0);
     v30 = v41-- == 1;
     v17 = v40;
     v31 = (float)v40;

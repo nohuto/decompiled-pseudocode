@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlValidateCorrelationVector @ 0x1409BEFF0
+ * XREFs of RtlValidateCorrelationVector @ 0x1409162C0
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x1409BEE80 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x140916150 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     strncmp @ 0x1403D8830 (strncmp.c)
- *     RtlpGetCorrelationVectorEndPosition @ 0x1405AF7B4 (RtlpGetCorrelationVectorEndPosition.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BF1C0 (RtlpGetCorrelationVectorBufferLength.c)
- *     RtlpGetLastContiguosBase64Position @ 0x1409BF1E4 (RtlpGetLastContiguosBase64Position.c)
+ *     strncmp @ 0x1403D0E40 (strncmp.c)
+ *     RtlpGetCorrelationVectorEndPosition @ 0x14058CB54 (RtlpGetCorrelationVectorEndPosition.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140916484 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetLastContiguosBase64Position @ 0x1409164A8 (RtlpGetLastContiguosBase64Position.c)
  */
 
 __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a3)
@@ -14,13 +14,11 @@ __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a
   int LastContiguosBase64Position; // esi
   __int64 v5; // rdx
   int CorrelationVectorEndPosition; // eax
-  bool v7; // zf
   int v8; // esi
   __int64 v9; // rbx
   __int64 v10; // rbp
   int v11; // ecx
-  __int64 v12; // r8
-  _BYTE *v13; // rdx
+  __int64 v12; // rdx
 
   if ( !a1 )
     return 3221225485LL;
@@ -32,17 +30,13 @@ __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a
     return 3221225485LL;
   if ( *a1 == 1 )
   {
-    v7 = LastContiguosBase64Position == 15;
+    if ( LastContiguosBase64Position != 15 )
+      return 3221225485LL;
   }
-  else
+  else if ( *a1 == 2 && LastContiguosBase64Position != 21 )
   {
-    if ( *a1 != 2 )
-      goto LABEL_9;
-    v7 = LastContiguosBase64Position == 21;
-  }
-  if ( !v7 )
     return 3221225485LL;
-LABEL_9:
+  }
   v8 = LastContiguosBase64Position + 1;
   v9 = v8;
   if ( a1[v8 + 1] != 46 )
@@ -58,14 +52,12 @@ LABEL_9:
       v12 = v8;
       if ( v9 < v10 )
       {
-        v13 = &a1[v9 + 1];
         do
         {
-          if ( (unsigned __int8)(*v13 - 48) > 9u )
+          if ( (unsigned __int8)(a1[v9 + 1] - 48) > 9u )
             break;
           ++v8;
           ++v9;
-          ++v13;
           ++v11;
         }
         while ( v9 < v10 );

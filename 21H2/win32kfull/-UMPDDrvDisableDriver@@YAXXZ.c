@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UMPDDrvDisableDriver@@YAXXZ @ 0x1C0123F30
+ * XREFs of ?UMPDDrvDisableDriver@@YAXXZ @ 0x1C0137DC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfDevObjPreAddDevice @ 0x140A917D8
+ * XREFs of VfDevObjPreAddDevice @ 0x1409D60F8
  * Callers:
- *     PpvUtilCallAddDevice @ 0x1402D2574 (PpvUtilCallAddDevice.c)
+ *     PpvUtilCallAddDevice @ 0x14036F630 (PpvUtilCallAddDevice.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1402D87B0 (MmIsDriverVerifying.c)
- *     VfFilterAttach @ 0x140A9E12C (VfFilterAttach.c)
+ *     MmIsDriverVerifying @ 0x14037DFD0 (MmIsDriverVerifying.c)
+ *     VfFilterAttach @ 0x1409E4EF4 (VfFilterAttach.c)
  */
 
 LOGICAL __fastcall VfDevObjPreAddDevice(PDEVICE_OBJECT TargetDevice, struct _DRIVER_OBJECT *DriverObject)

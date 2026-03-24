@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHeteroPolicy @ 0x14074F6E0
+ * XREFs of PpmEventHeteroPolicy @ 0x14074F6C0
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14074F454 (PopInitializeHeteroProcessors.c)
- *     PpmEventTraceControlCallback @ 0x140764290 (PpmEventTraceControlCallback.c)
+ *     PopInitializeHeteroProcessors @ 0x14074F434 (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x140764270 (PpmEventTraceControlCallback.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHeteroPolicy(char a1)

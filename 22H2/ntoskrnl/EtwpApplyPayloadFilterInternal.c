@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpApplyPayloadFilterInternal @ 0x140604468
+ * XREFs of EtwpApplyPayloadFilterInternal @ 0x1405B0CC8
  * Callers:
- *     EtwpApplyEventIdPayloadFilter @ 0x140257600 (EtwpApplyEventIdPayloadFilter.c)
+ *     EtwpApplyEventIdPayloadFilter @ 0x14025EBC0 (EtwpApplyEventIdPayloadFilter.c)
  * Callees:
- *     IoGetStackLimits @ 0x14022E950 (IoGetStackLimits.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpApplyPredicate @ 0x140604CD4 (EtwpApplyPredicate.c)
- *     EtwpGetFieldValue @ 0x140605244 (EtwpGetFieldValue.c)
- *     RtlLengthRequiredSid @ 0x1407D1BF0 (RtlLengthRequiredSid.c)
- *     ExSystemExceptionFilter @ 0x140865F70 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     IoGetStackLimits @ 0x1402D0BB0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpApplyPredicate @ 0x1405B1544 (EtwpApplyPredicate.c)
+ *     EtwpGetFieldValue @ 0x1405B1AAC (EtwpGetFieldValue.c)
+ *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall EtwpApplyPayloadFilterInternal(
@@ -23,454 +23,474 @@ __int64 __fastcall EtwpApplyPayloadFilterInternal(
         __int64 a6,
         _BYTE *a7)
 {
-  char v10; // r10
+  char v10; // r11
   __int64 v11; // rax
-  __int64 v12; // r15
+  __int64 v12; // r13
   unsigned int v13; // r8d
-  unsigned int v14; // edx
-  bool v15; // zf
-  __int64 v16; // rbx
-  __int64 v17; // rsi
-  __int64 v19; // rcx
-  unsigned __int64 v20; // rcx
-  void *v21; // rsp
-  void *v22; // rsp
-  char *v23; // r9
-  __int64 v24; // rax
+  unsigned int v14; // r9d
+  unsigned int v15; // edx
+  unsigned int v16; // ecx
+  bool v17; // zf
+  unsigned int v18; // eax
+  __int64 v19; // rbx
+  __int64 v20; // rsi
+  __int64 v22; // rcx
+  unsigned __int64 v23; // rcx
+  void *v24; // rsp
   void *v25; // rsp
-  unsigned int v26; // ecx
-  unsigned int v27; // eax
-  unsigned int v28; // r8d
-  __int64 v29; // rdx
-  char *v30; // r10
-  __int64 v31; // r9
-  unsigned __int64 v32; // r8
-  __int64 v33; // r12
-  unsigned int v34; // r13d
-  unsigned int v35; // edi
-  unsigned __int64 v36; // r14
-  char *v37; // r15
-  char *v38; // r8
-  unsigned int v39; // eax
-  char v40; // al
-  __int64 v41; // rbx
-  __int64 v42; // rsi
-  int v43; // edx
-  char v44; // al
-  unsigned int v45; // ecx
-  _WORD *v46; // rdx
-  unsigned int v47; // ecx
+  __int64 v26; // rax
+  void *v27; // rsp
+  unsigned int v28; // r15d
+  int v29; // ecx
+  __int64 v30; // rax
+  char *v31; // r10
+  unsigned int v32; // edx
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  unsigned __int64 v35; // r8
+  unsigned __int64 v36; // rdx
+  __int64 v37; // r12
+  unsigned int v38; // r9d
+  unsigned int v39; // edi
+  unsigned __int64 v40; // rsi
+  char *v41; // r13
+  char *v42; // r8
+  char *v43; // r11
+  unsigned int v44; // eax
+  char v45; // al
+  __int64 v46; // rbx
+  __int64 v47; // r15
   int v48; // r8d
-  unsigned int v49; // eax
+  char v49; // al
   unsigned int v50; // edx
-  _BYTE *v51; // rax
+  _WORD *v51; // r8
   unsigned int v52; // edx
-  int v53; // r8d
-  unsigned int v54; // ecx
-  unsigned int v55; // ebx
-  unsigned int v56; // ecx
-  __int64 v57; // r15
-  char *v58; // r9
-  __int64 v59; // r11
-  unsigned __int16 *v60; // rsi
-  char v61; // di
-  char v62; // bl
-  unsigned int v63; // r8d
-  unsigned __int16 *v64; // r13
-  char v65; // r15
-  char v66; // r12
-  unsigned int v67; // r14d
-  __int16 v68; // dx
-  __int64 v69; // rax
-  char v70; // cl
-  char v71; // [rsp+30h] [rbp+0h] BYREF
-  char v72; // [rsp+31h] [rbp+1h]
-  unsigned int v73; // [rsp+34h] [rbp+4h]
-  unsigned int v74; // [rsp+38h] [rbp+8h]
-  unsigned int v75; // [rsp+3Ch] [rbp+Ch]
-  char *v76; // [rsp+40h] [rbp+10h]
-  char *v77; // [rsp+48h] [rbp+18h]
-  char v78; // [rsp+50h] [rbp+20h]
-  ULONG SubAuthorityCount[2]; // [rsp+58h] [rbp+28h] BYREF
-  unsigned int v80; // [rsp+60h] [rbp+30h]
-  int v81; // [rsp+64h] [rbp+34h]
-  char *v82; // [rsp+68h] [rbp+38h]
-  unsigned __int16 v83; // [rsp+70h] [rbp+40h]
-  unsigned int v84; // [rsp+74h] [rbp+44h]
-  __int64 v85; // [rsp+78h] [rbp+48h]
-  unsigned __int64 HighLimit; // [rsp+80h] [rbp+50h] BYREF
-  unsigned __int64 LowLimit; // [rsp+88h] [rbp+58h] BYREF
-  _WORD *v88; // [rsp+90h] [rbp+60h]
-  _BYTE *v89; // [rsp+98h] [rbp+68h]
+  unsigned int v53; // r9d
+  unsigned int j; // eax
+  _WORD *v55; // rcx
+  unsigned int v56; // r8d
+  _BYTE *v57; // rdx
+  unsigned int v58; // r8d
+  unsigned int v59; // r9d
+  unsigned int i; // eax
+  unsigned int v61; // ebx
+  unsigned int v62; // ecx
+  __int64 v63; // r13
+  unsigned __int64 v64; // r9
+  __int64 v65; // r8
+  unsigned __int16 *v66; // rsi
+  char v67; // di
+  char v68; // bl
+  unsigned int v69; // r12d
+  char *v70; // r8
+  char v71; // r13
+  char v72; // cl
+  __int16 v73; // dx
+  __int64 v74; // rax
+  char v75; // al
+  char v76; // [rsp+30h] [rbp+0h] BYREF
+  char v77; // [rsp+31h] [rbp+1h]
+  char v78; // [rsp+32h] [rbp+2h]
+  unsigned int v79; // [rsp+34h] [rbp+4h]
+  unsigned int v80; // [rsp+38h] [rbp+8h]
+  int v81; // [rsp+3Ch] [rbp+Ch]
+  unsigned int v82; // [rsp+40h] [rbp+10h]
+  char *v83; // [rsp+48h] [rbp+18h]
+  char *v84; // [rsp+50h] [rbp+20h]
+  char v85; // [rsp+58h] [rbp+28h]
+  ULONG SubAuthorityCount[2]; // [rsp+60h] [rbp+30h] BYREF
+  int v87; // [rsp+68h] [rbp+38h]
+  unsigned int v88; // [rsp+6Ch] [rbp+3Ch]
+  char *v89; // [rsp+70h] [rbp+40h]
+  unsigned __int64 LowLimit; // [rsp+78h] [rbp+48h] BYREF
+  unsigned __int16 v91; // [rsp+80h] [rbp+50h]
+  unsigned int v92; // [rsp+84h] [rbp+54h]
+  __int64 v93; // [rsp+88h] [rbp+58h]
+  unsigned __int64 HighLimit; // [rsp+90h] [rbp+60h] BYREF
+  _WORD *v95; // [rsp+98h] [rbp+68h]
+  _BYTE *v96; // [rsp+A0h] [rbp+70h]
 
-  v75 = a2;
-  v89 = 0LL;
-  v88 = 0LL;
-  v81 = 0;
-  v80 = 0;
+  v79 = a2;
+  v96 = 0LL;
+  v95 = 0LL;
+  v88 = 0;
+  v87 = 0;
   *(_QWORD *)SubAuthorityCount = 0LL;
-  v71 = 0;
-  v73 = -1073741811;
+  v76 = 0;
+  v81 = -1073741811;
   if ( a2 > 0x80 )
     return 3221225485LL;
-  v83 = *a1;
+  v91 = *a1;
   v10 = *((_BYTE *)a1 + 2);
-  v78 = v10;
+  v85 = v10;
   v11 = *(_QWORD *)(a6 + 8);
-  if ( !_bittest64(&v11, v83 % 0x3Fu) )
-    goto LABEL_124;
-  v74 = 0;
+  if ( !_bittest64(&v11, v91 % 0x3Fu) )
+    goto LABEL_127;
+  v80 = 0;
   v12 = a6 + *(unsigned __int16 *)(a6 + 32);
   v13 = 0;
-  v14 = *(unsigned __int16 *)(a6 + 34) / 0xCu;
+  v14 = 0;
+  v15 = *(unsigned __int16 *)(a6 + 34) / 0xCu;
   while ( 1 )
   {
-    v85 = v12;
-    v15 = v13 == v14;
-    if ( v13 >= v14 )
+    v93 = v12;
+    v16 = v13;
+    v17 = v14 == v15;
+    if ( v14 >= v15 )
       break;
-    if ( *(_WORD *)v12 == v83 && *(_BYTE *)(v12 + 2) == v10 )
+    if ( *(_WORD *)v12 == v91 && *(_BYTE *)(v12 + 2) == v10 )
     {
-      v15 = v13 == v14;
+      v17 = v14 == v15;
       break;
     }
-    if ( *(unsigned __int8 *)(v12 + 3) >= (unsigned int)*(_WORD *)(v12 + 6) )
+    v18 = *(unsigned __int8 *)(v12 + 3);
+    if ( (unsigned __int16)v18 >= *(_WORD *)(v12 + 6) )
       return 3221225485LL;
+    v13 = *(unsigned __int8 *)(v12 + 3);
     v12 += 12LL;
-    ++v13;
+    ++v14;
+    if ( v16 >= v18 )
+      v13 = v16;
   }
-  if ( v15 )
+  if ( v17 )
   {
-LABEL_124:
+LABEL_127:
     *a7 = 1;
+    return 0LL;
+  }
+  v84 = 0LL;
+  v19 = 16 * a2;
+  v92 = *(unsigned __int8 *)(v12 + 3) + 1;
+  v20 = 4 * v92;
+  HighLimit = 0LL;
+  LowLimit = 0LL;
+  IoGetStackLimits(&LowLimit, &HighLimit);
+  if ( (unsigned __int64)&HighLimit - LowLimit < (unsigned int)(v20 + v19 + 4096) )
+    return 3221225626LL;
+  v22 = v20 + 15;
+  if ( v20 + 15 <= (unsigned __int64)(unsigned int)v20 )
+    v22 = 0xFFFFFFFFFFFFFF0LL;
+  v23 = v22 & 0xFFFFFFFFFFFFFFF0uLL;
+  v24 = alloca(v23);
+  v25 = alloca(v23);
+  v83 = &v76;
+  if ( a4 )
+  {
+    v26 = v19 + 15;
+    if ( v19 + 15 <= (unsigned __int64)(unsigned int)v19 )
+      v26 = 0xFFFFFFFFFFFFFF0LL;
+    v27 = alloca(v26 & 0xFFFFFFFFFFFFFFF0uLL);
+    v84 = &v76;
+    v28 = 0;
+    if ( (_DWORD)v19 )
+    {
+      if ( ((unsigned __int8)a3 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( (unsigned __int64)&a3[v19] > 0x7FFFFFFF0000LL || &a3[v19] < a3 )
+        MEMORY[0x7FFFFFFF0000] = 0;
+    }
+    memmove(&v76, a3, (unsigned int)v19);
+    v29 = 0;
+    v30 = 0LL;
+    v31 = v84;
+    while ( 1 )
+    {
+      v87 = v29;
+      v32 = v79;
+      if ( (unsigned int)v30 >= v79 )
+        break;
+      v33 = 2 * v30;
+      v34 = *(unsigned int *)&v84[8 * v33 + 8];
+      if ( (_DWORD)v34 )
+      {
+        v35 = *(_QWORD *)&v84[8 * v33];
+        v36 = v35 + v34;
+        if ( v36 > 0x7FFFFFFF0000LL || v36 < v35 )
+          MEMORY[0x7FFFFFFF0000] = 0;
+      }
+      v30 = (unsigned int)++v29;
+    }
   }
   else
   {
-    v77 = 0LL;
-    v16 = 16 * a2;
-    v84 = *(unsigned __int8 *)(v12 + 3) + 1;
-    v17 = 4 * v84;
-    HighLimit = 0LL;
-    LowLimit = 0LL;
-    IoGetStackLimits(&LowLimit, &HighLimit);
-    if ( (unsigned __int64)&HighLimit - LowLimit < (unsigned int)(v17 + v16 + 4096) )
-      return 3221225626LL;
-    v19 = v17 + 15;
-    if ( v17 + 15 <= (unsigned __int64)(unsigned int)v17 )
-      v19 = 0xFFFFFFFFFFFFFF0LL;
-    v20 = v19 & 0xFFFFFFFFFFFFFFF0uLL;
-    v21 = alloca(v20);
-    v22 = alloca(v20);
-    v23 = &v71;
-    v76 = &v71;
-    if ( a4 )
+    v31 = a3;
+    v84 = a3;
+    v32 = v79;
+    v28 = 0;
+  }
+  v37 = a6 + *(unsigned __int16 *)(a6 + 36);
+  v38 = 0;
+  v81 = 0;
+  v39 = 0;
+  v40 = (unsigned __int64)v31;
+  v41 = (char *)(v37 + 4LL * *(unsigned __int16 *)(v12 + 4));
+  v42 = v83;
+  v43 = v83;
+  v89 = v83;
+  v44 = 0;
+  while ( 1 )
+  {
+    v82 = v44;
+    if ( v44 >= v92 )
+      break;
+    if ( v38 == v32 )
+      return 3221225990LL;
+    v45 = *v41 & 0xF;
+    if ( v45 == 7 )
     {
-      v24 = v16 + 15;
-      if ( v16 + 15 <= (unsigned __int64)(unsigned int)v16 )
-        v24 = 0xFFFFFFFFFFFFFF0LL;
-      v25 = alloca(v24 & 0xFFFFFFFFFFFFFFF0uLL);
-      v77 = &v71;
-      if ( (_DWORD)v16 )
-      {
-        if ( ((unsigned __int8)a3 & 3) != 0 )
-          ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&a3[v16] > 0x7FFFFFFF0000LL || &a3[v16] < a3 )
-          MEMORY[0x7FFFFFFF0000] = 0;
-      }
-      memmove(&v71, a3, (unsigned int)v16);
-      v26 = 0;
-      v27 = 0;
-      v28 = 0;
-      v29 = 0LL;
-      v30 = v77;
-      while ( 1 )
-      {
-        v80 = v26;
-        if ( v27 >= a2 )
-          break;
-        v31 = *(unsigned int *)&v77[16 * v28 + 8];
-        if ( (_DWORD)v31 )
-        {
-          v32 = *(_QWORD *)&v77[16 * v29];
-          if ( v32 + v31 > 0x7FFFFFFF0000LL || v32 + v31 < v32 )
-            MEMORY[0x7FFFFFFF0000] = 0;
-        }
-        v29 = ++v26;
-        v27 = v26;
-        v28 = v26;
-      }
-      v23 = v76;
+      if ( *((_WORD *)v41 + 1) )
+        return 3221225520LL;
+      v43[3] = v38;
+      *(_DWORD *)v43 = *(_DWORD *)v43 & 0xFF000000 | ((v39 & 0xFFF) << 12);
+      v32 = v79;
     }
     else
     {
-      v30 = a3;
-      v77 = a3;
-    }
-    v33 = a6 + *(unsigned __int16 *)(a6 + 36);
-    v34 = 0;
-    v35 = 0;
-    v36 = (unsigned __int64)v30;
-    v37 = (char *)(v33 + 4LL * *(unsigned __int16 *)(v12 + 4));
-    v38 = v23;
-    v82 = v23;
-    v39 = 0;
-    while ( 1 )
-    {
-      v73 = v39;
-      if ( v39 >= v84 )
-        break;
-      if ( v34 == v75 )
-        return 3221225990LL;
-      v40 = *v37 & 0xF;
-      if ( v40 == 7 )
+      v46 = *((unsigned __int16 *)v41 + 1);
+      if ( v45 == 8 )
+        v46 = a5 != 0 ? 8 : 4;
+      if ( (*v41 & 0x10) != 0 )
       {
-        if ( *((_WORD *)v37 + 1) )
+        if ( (unsigned int)v46 >= v82 )
           return 3221225520LL;
-        v38[3] = v34;
-        *(_DWORD *)v38 = *(_DWORD *)v38 & 0xFF000000 | ((v35 & 0xFFF) << 12);
+        if ( (unsigned __int8)((*(_BYTE *)(v37 + 4 * v46) & 0xF) - 1) > 1u )
+          return 3221225520LL;
+        if ( (*(_BYTE *)(v37 + 4 * v46) & 0x30) != 0 )
+          return 3221225520LL;
+        if ( *(_WORD *)(v37 + 4 * v46 + 2) > 8u )
+          return 3221225520LL;
+        if ( *(_BYTE *)(v37 + 4 * v46 + 1) != 1 )
+          return 3221225520LL;
+        _mm_lfence();
+        if ( !(unsigned __int8)EtwpGetFieldValue(
+                                 *(_QWORD *)&v31[16 * (unsigned __int8)v42[4 * v46 + 3]]
+                               + ((*(_DWORD *)&v42[4 * v46] >> 12) & 0xFFF),
+                                 *(unsigned __int16 *)(v37 + 4 * v46 + 2),
+                                 SubAuthorityCount) )
+          return 3221225520LL;
+        LODWORD(v46) = SubAuthorityCount[0];
+        if ( SubAuthorityCount[0] != *(_QWORD *)SubAuthorityCount )
+          return 3221225520LL;
+        v31 = v84;
+        v42 = v83;
       }
-      else
+      v47 = (unsigned __int8)v41[1];
+      if ( (*v41 & 0x20) != 0 )
       {
-        v41 = *((unsigned __int16 *)v37 + 1);
-        if ( v40 == 8 )
-          v41 = a5 != 0 ? 8 : 4;
-        if ( (*v37 & 0x10) != 0 )
+        if ( (unsigned int)v47 >= v82 )
+          return 3221225520LL;
+        if ( (unsigned __int8)((*(_BYTE *)(v37 + 4 * v47) & 0xF) - 1) > 1u )
+          return 3221225520LL;
+        if ( (*(_BYTE *)(v37 + 4 * v47) & 0x30) != 0 )
+          return 3221225520LL;
+        if ( *(_WORD *)(v37 + 4 * v47 + 2) > 8u )
+          return 3221225520LL;
+        if ( *(_BYTE *)(v37 + 4 * v47 + 1) != 1 )
+          return 3221225520LL;
+        _mm_lfence();
+        if ( !(unsigned __int8)EtwpGetFieldValue(
+                                 *(_QWORD *)&v31[16 * (unsigned __int8)v42[4 * v47 + 3]]
+                               + ((*(_DWORD *)&v42[4 * v47] >> 12) & 0xFFF),
+                                 *(unsigned __int16 *)(v37 + 4 * v47 + 2),
+                                 SubAuthorityCount) )
+          return 3221225520LL;
+        LODWORD(v47) = SubAuthorityCount[0];
+        if ( SubAuthorityCount[0] != *(_QWORD *)SubAuthorityCount )
+          return 3221225520LL;
+      }
+      v48 = 0;
+      if ( !(_DWORD)v46 )
+      {
+        v49 = *v41;
+        if ( (*v41 & 0x10) != 0 || (_DWORD)v47 != 1 )
+          return 3221225520LL;
+        switch ( v49 & 0xF )
         {
-          if ( (unsigned int)v41 >= v73 )
-            return 3221225520LL;
-          if ( (unsigned __int8)((*(_BYTE *)(v33 + 4 * v41) & 0xF) - 1) > 1u )
-            return 3221225520LL;
-          if ( (*(_BYTE *)(v33 + 4 * v41) & 0x30) != 0 )
-            return 3221225520LL;
-          if ( *(_WORD *)(v33 + 4 * v41 + 2) > 8u )
-            return 3221225520LL;
-          if ( *(_BYTE *)(v33 + 4 * v41 + 1) != 1 )
-            return 3221225520LL;
-          _mm_lfence();
-          if ( !(unsigned __int8)EtwpGetFieldValue(
-                                   *(_QWORD *)&v30[16 * (unsigned __int8)v23[4 * v41 + 3]]
-                                 + (((unsigned __int64)*(unsigned int *)&v23[4 * v41] >> 12) & 0xFFF),
-                                   *(unsigned __int16 *)(v33 + 4 * v41 + 2),
-                                   SubAuthorityCount) )
-            return 3221225520LL;
-          LODWORD(v41) = SubAuthorityCount[0];
-          if ( SubAuthorityCount[0] != *(_QWORD *)SubAuthorityCount )
-            return 3221225520LL;
-          v30 = v77;
-          v23 = v76;
-        }
-        v42 = (unsigned __int8)v37[1];
-        if ( (*v37 & 0x20) != 0 )
-        {
-          if ( (unsigned int)v42 >= v73 )
-            return 3221225520LL;
-          if ( (unsigned __int8)((*(_BYTE *)(v33 + 4 * v42) & 0xF) - 1) > 1u )
-            return 3221225520LL;
-          if ( (*(_BYTE *)(v33 + 4 * v42) & 0x30) != 0 )
-            return 3221225520LL;
-          if ( *(_WORD *)(v33 + 4 * v42 + 2) > 8u )
-            return 3221225520LL;
-          if ( *(_BYTE *)(v33 + 4 * v42 + 1) != 1 )
-            return 3221225520LL;
-          _mm_lfence();
-          if ( !(unsigned __int8)EtwpGetFieldValue(
-                                   *(_QWORD *)&v30[16 * (unsigned __int8)v23[4 * v42 + 3]]
-                                 + ((*(_DWORD *)&v23[4 * v42] >> 12) & 0xFFF),
-                                   *(unsigned __int16 *)(v33 + 4 * v42 + 2),
-                                   SubAuthorityCount) )
-            return 3221225520LL;
-          LODWORD(v42) = SubAuthorityCount[0];
-          if ( SubAuthorityCount[0] != *(_QWORD *)SubAuthorityCount )
-            return 3221225520LL;
-        }
-        v43 = 0;
-        if ( !(_DWORD)v41 )
-        {
-          v44 = *v37;
-          if ( (*v37 & 0x10) != 0 || (_DWORD)v42 != 1 )
-            return 3221225520LL;
-          switch ( v44 & 0xF )
-          {
-            case 3:
-              v50 = *(_DWORD *)(v36 + 8);
-              if ( v35 >= v50 )
-                return 3221225485LL;
-              v51 = (_BYTE *)(*(_QWORD *)v36 + v35);
-              v52 = v50 - v35;
-              v53 = 0;
-              v54 = 0;
-              while ( v54 < v52 && *v51 )
-              {
-                v54 = ++v53;
-                v81 = v53;
-                v89 = ++v51;
-              }
-              if ( v53 == v52 )
-              {
-                v74 = 1;
-                v43 = 0;
-              }
-              else
-              {
-                v43 = 1;
-              }
-              LODWORD(v41) = v53;
-              break;
-            case 4:
-              v45 = *(_DWORD *)(v36 + 8) - v35;
-              if ( v45 < 2 )
-                return 3221225485LL;
-              v46 = (_WORD *)(v35 + *(_QWORD *)v36);
-              v47 = v45 >> 1;
+          case 3:
+            v56 = *(_DWORD *)(v40 + 8);
+            if ( v39 >= v56 )
+              return 3221225485LL;
+            v57 = (_BYTE *)(*(_QWORD *)v40 + v39);
+            v58 = v56 - v39;
+            v59 = 0;
+            for ( i = 0; i < v58 && *v57; ++i )
+            {
+              v59 = i + 1;
+              v88 = i + 1;
+              v96 = ++v57;
+            }
+            if ( v59 == v58 )
+            {
+              v80 = 1;
               v48 = 0;
-              v49 = 0;
-              while ( v49 < v47 && *v46 )
-              {
-                v49 = ++v48;
-                v81 = v48;
-                v88 = ++v46;
-              }
-              if ( v48 == v47 )
-              {
-                v74 = 2;
-                v43 = 0;
-              }
-              else
-              {
-                v43 = 2;
-              }
-              if ( v48 == v47 && v35 + 2LL * v47 != *(_DWORD *)(v36 + 8) )
-                return 3221225485LL;
-              LODWORD(v41) = 2 * v48;
-              break;
-            case 6:
-              if ( *(_DWORD *)(v36 + 8) - v35 < 2 )
-                return 3221225485LL;
-              if ( !(unsigned __int8)EtwpGetFieldValue(*(_QWORD *)v36 + v35 + 1LL, 1LL, SubAuthorityCount) )
-                return 3221225485LL;
-              LODWORD(v41) = RtlLengthRequiredSid(SubAuthorityCount[0]);
-              if ( (_DWORD)v41 == -1 )
-                return 3221225485LL;
-              v43 = 0;
-              break;
-            default:
-              return 3221225520LL;
-          }
-        }
-        v55 = v42 * v41;
-        if ( *(_DWORD *)(v36 + 8) - v35 < v55 )
-          return 3221225990LL;
-        v38 = v82;
-        v82[3] = v34;
-        v56 = v55 & 0xFFF | *(_DWORD *)v38 & 0xFF000000 | ((v35 & 0xFFF) << 12);
-        *(_DWORD *)v38 = v56;
-        if ( (unsigned __int8)v38[3] != v34 || ((v56 >> 12) & 0xFFF) != v35 || (v56 & 0xFFF) != v55 )
-          return 3221225990LL;
-        v35 += v43 + v55;
-        if ( v35 > *(_DWORD *)(v36 + 8) )
-          return 3221225473LL;
-        v30 = v77;
-        if ( v35 != *(_DWORD *)(v36 + 8) )
-          goto LABEL_102;
-        if ( ++v34 >= v75 )
-          goto LABEL_102;
-        v35 = 0;
-        v36 += 16LL;
-        if ( v36 >= (unsigned __int64)&v77[16 * v75] )
-          return 3221225473LL;
-        if ( v74 )
-        {
-          if ( *(_DWORD *)(v36 + 8) < v74 )
-            return 3221225990LL;
-          v35 = v74;
-        }
-        v74 = 0;
-        if ( v35 == *(_DWORD *)(v36 + 8) )
-        {
-          ++v34;
-          v23 = v76;
-          if ( v34 < v75 )
-          {
-            v35 = 0;
-            v36 += 16LL;
-          }
-        }
-        else
-        {
-LABEL_102:
-          v23 = v76;
+            }
+            else
+            {
+              v48 = 1;
+            }
+            LODWORD(v46) = v59;
+            break;
+          case 4:
+            v50 = *(_DWORD *)(v40 + 8) - v39;
+            if ( v50 < 2 )
+              return 3221225485LL;
+            v51 = (_WORD *)(*(_QWORD *)v40 + v39);
+            v52 = v50 >> 1;
+            v53 = 0;
+            for ( j = 0; ; ++j )
+            {
+              v55 = v51;
+              if ( j >= v52 || !*v51 )
+                break;
+              v53 = j + 1;
+              v88 = j + 1;
+              ++v51;
+              v95 = v55 + 1;
+            }
+            if ( v53 == v52 )
+            {
+              v80 = 2;
+              v48 = 0;
+            }
+            else
+            {
+              v48 = 2;
+            }
+            if ( v53 == v52 && v39 + 2LL * v52 != *(_DWORD *)(v40 + 8) )
+              return 3221225485LL;
+            LODWORD(v46) = 2 * v53;
+            break;
+          case 6:
+            if ( *(_DWORD *)(v40 + 8) - v39 < 2 )
+              return 3221225485LL;
+            if ( !(unsigned __int8)EtwpGetFieldValue(*(_QWORD *)v40 + v39 + 1LL, 1LL, SubAuthorityCount) )
+              return 3221225485LL;
+            LODWORD(v46) = RtlLengthRequiredSid(SubAuthorityCount[0]);
+            if ( (_DWORD)v46 == -1 )
+              return 3221225485LL;
+            v48 = 0;
+            break;
+          default:
+            return 3221225520LL;
         }
       }
-      v39 = v73 + 1;
-      v37 += 4;
-      v38 += 4;
-      v82 = v38;
+      v61 = v47 * v46;
+      if ( *(_DWORD *)(v40 + 8) - v39 < v61 )
+        return 3221225990LL;
+      v38 = v81;
+      v43 = v89;
+      v89[3] = v81;
+      v62 = v61 & 0xFFF | *(_DWORD *)v43 & 0xFF000000 | ((v39 & 0xFFF) << 12);
+      *(_DWORD *)v43 = v62;
+      if ( (unsigned __int8)v43[3] != v38 || ((v62 >> 12) & 0xFFF) != v39 || (v62 & 0xFFF) != v61 )
+        return 3221225990LL;
+      v39 += v48 + v61;
+      if ( v39 > *(_DWORD *)(v40 + 8) )
+        return 3221225473LL;
+      v31 = v84;
+      if ( v39 != *(_DWORD *)(v40 + 8) )
+      {
+        v32 = v79;
+        v28 = 0;
+LABEL_106:
+        v42 = v83;
+        goto LABEL_107;
+      }
+      v81 = ++v38;
+      v32 = v79;
+      v28 = 0;
+      if ( v38 >= v79 )
+        goto LABEL_106;
+      v39 = 0;
+      v40 += 16LL;
+      if ( v40 >= (unsigned __int64)&v84[16 * v79] )
+        return 3221225473LL;
+      if ( v80 )
+      {
+        if ( *(_DWORD *)(v40 + 8) < v80 )
+          return 3221225990LL;
+        v39 = v80;
+      }
+      v80 = 0;
+      if ( v39 != *(_DWORD *)(v40 + 8) )
+        goto LABEL_106;
+      v81 = ++v38;
+      v42 = v83;
+      if ( v38 < v79 )
+      {
+        v39 = 0;
+        v40 += 16LL;
+      }
     }
-    if ( v74 )
-      return 3221225990LL;
-    v57 = v85;
-    v58 = (char *)(v33 + 4LL * *(unsigned __int16 *)(v85 + 4));
-    v82 = v58;
-    v59 = a6;
-    v60 = (unsigned __int16 *)(a6 + *(unsigned __int16 *)(a6 + 40) + 4LL * *(unsigned __int16 *)(v85 + 8));
-    v61 = 0;
-    v62 = 0;
-    v72 = 1;
-    v63 = 0;
+LABEL_107:
+    v44 = v82 + 1;
+    v41 += 4;
+    v43 += 4;
+    v89 = v43;
+  }
+  if ( v80 )
+    return 3221225990LL;
+  v63 = v93;
+  v64 = v37 + 4LL * *(unsigned __int16 *)(v93 + 4);
+  LowLimit = v64;
+  v65 = a6;
+  v66 = (unsigned __int16 *)(a6 + *(unsigned __int16 *)(a6 + 40) + 4LL * *(unsigned __int16 *)(v93 + 8));
+  v67 = 0;
+  v68 = 0;
+  v78 = 1;
+  v69 = 0;
+  while ( v69 < *(unsigned __int16 *)(v63 + 10) )
+  {
+    v70 = (char *)(v65 + 24LL * v66[1] + 56);
+    v71 = 1;
+    v72 = 0;
     while ( 1 )
     {
-      v75 = v63;
-      if ( v63 >= *(unsigned __int16 *)(v57 + 10) )
+      v77 = v72;
+      v89 = v70;
+      v73 = *v66;
+      if ( v28 >= ((*v66 >> 2) & 0x3Fu) )
         break;
-      v64 = (unsigned __int16 *)(v59 + 8 * (v60[1] + 2LL * v60[1] + 7));
-      v65 = 1;
-      v66 = 0;
-      v67 = 0;
-      while ( 1 )
-      {
-        v68 = *v60;
-        if ( v67 >= ((*v60 >> 2) & 0x3Fu) )
-          break;
-        v69 = *v64;
-        if ( !(unsigned __int8)EtwpApplyPredicate(
-                                 v59,
-                                 v58[4 * v69] & 0xF,
-                                 v64,
-                                 *(_QWORD *)&v30[16 * (unsigned __int8)v76[4 * v69 + 3]]
-                               + (((unsigned __int64)*(unsigned int *)&v76[4 * v69] >> 12) & 0xFFF),
-                                 *(_DWORD *)&v76[4 * v69] & 0xFFF,
-                                 &v71) )
-          return 3221225520LL;
-        v65 &= v71;
-        v66 |= v71;
-        ++v67;
-        v64 += 12;
-        v58 = v82;
-        v30 = v77;
-        v59 = a6;
-      }
-      v70 = v66;
-      if ( (v68 & 2) == 0 )
-        v70 = v65;
-      if ( (v68 & 1) != 0 )
-      {
-        if ( v72 )
-          v61 = v70;
-        else
-          v61 &= v70;
-        v72 = 0;
-      }
-      else
-      {
-        v62 = v70;
-        if ( v70 )
-          break;
-      }
-      v63 = v75 + 1;
-      v60 += 2;
-      v57 = v85;
+      v74 = *(unsigned __int16 *)v70;
+      if ( !(unsigned __int8)EtwpApplyPredicate(
+                               a6,
+                               *(_BYTE *)(v64 + 4 * v74) & 0xF,
+                               v70,
+                               *(_QWORD *)&v31[16 * (unsigned __int8)v83[4 * v74 + 3]]
+                             + (((unsigned __int64)*(unsigned int *)&v83[4 * v74] >> 12) & 0xFFF),
+                               *(_DWORD *)&v83[4 * v74] & 0xFFF,
+                               &v76) )
+        return 3221225520LL;
+      v71 &= v76;
+      v72 = v76 | v77;
+      ++v28;
+      v70 = v89 + 24;
+      v64 = LowLimit;
+      v31 = v84;
     }
-    *a7 = v61 | v62;
+    if ( (v73 & 2) == 0 )
+      v72 = v71;
+    if ( (v73 & 1) != 0 )
+    {
+      v75 = v67 & v72;
+      v67 = v72;
+      v28 = 0;
+      if ( !v78 )
+        v67 = v75;
+      v78 = 0;
+    }
+    else
+    {
+      v68 |= v72;
+      if ( v68 == 1 )
+        break;
+      v28 = 0;
+    }
+    ++v69;
+    v66 += 2;
+    v63 = v93;
+    v65 = a6;
   }
+  *a7 = v67 | v68;
   return 0LL;
 }

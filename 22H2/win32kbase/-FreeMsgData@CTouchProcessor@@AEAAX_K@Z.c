@@ -1,73 +1,66 @@
 /*
- * XREFs of ?FreeMsgData@CTouchProcessor@@AEAAX_K@Z @ 0x1C01C37D4
+ * XREFs of ?FreeMsgData@CTouchProcessor@@AEAAX_K@Z @ 0x1C018F038
  * Callers:
- *     ?UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D8778 (-UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     ?UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019F9D8 (-UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?FreeNode@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z @ 0x1C01C39AC (-FreeNode@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z.c)
- *     ?FreePointerCaptureData@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@@Z @ 0x1C01C3AE0 (-FreePointerCaptureData@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@@Z.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
- *     ?ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C01D2974 (-ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?FreeNode@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z @ 0x1C018F1D8 (-FreeNode@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z.c)
+ *     ?FreePointerCaptureData@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@@Z @ 0x1C018F2E4 (-FreePointerCaptureData@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@@Z.c)
+ *     ?ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C019B1E8 (-ReleasePointerCaptureInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z.c)
  */
 
-void __fastcall CTouchProcessor::FreeMsgData(CTouchProcessor *this, unsigned __int64 a2)
+void __fastcall CTouchProcessor::FreeMsgData(struct _KTHREAD **this, __int64 a2)
 {
-  char *NonConstMsgData; // rbx
-  char *v4; // rdi
+  _QWORD *v4; // rdi
   __int16 v5; // r14
   __int64 v6; // rsi
-  char **v7; // rax
+  _QWORD *v7; // rax
   int v8; // eax
-  NSInstrumentation::CLeakTrackingAllocator *v9; // rcx
-  char *v11; // rbx
+  int v9; // eax
+  _QWORD *v10; // rax
+  _QWORD *v11; // rbx
 
-  NonConstMsgData = (char *)CTouchProcessor::GetNonConstMsgData(this, a2);
-  if ( *((struct _KTHREAD **)this + 5) != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11476);
-  if ( *((_DWORD *)NonConstMsgData + 6) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11478);
-  v4 = *(char **)NonConstMsgData;
-  v5 = *((_WORD *)NonConstMsgData + 8);
-  v6 = *((_QWORD *)NonConstMsgData + 5);
-  if ( *(char **)(*(_QWORD *)NonConstMsgData + 8LL) != NonConstMsgData
-    || (v7 = (char **)*((_QWORD *)NonConstMsgData + 1), *v7 != NonConstMsgData) )
-  {
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10842);
+  if ( *(_DWORD *)(a2 + 24) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10844);
+  v4 = *(_QWORD **)a2;
+  v5 = *(_WORD *)(a2 + 16);
+  v6 = *(_QWORD *)(a2 + 40);
+  if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) != a2 || (v7 = *(_QWORD **)(a2 + 8), *v7 != a2) )
     __fastfail(3u);
-  }
   *v7 = v4;
-  *((_QWORD *)v4 + 1) = v7;
-  *((_QWORD *)NonConstMsgData + 1) = NonConstMsgData;
-  *(_QWORD *)NonConstMsgData = NonConstMsgData;
-  if ( (*((_DWORD *)NonConstMsgData + 9) & 0x80u) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11455);
-  v8 = *((_DWORD *)NonConstMsgData + 9);
-  if ( (v8 & 0x80u) == 0 )
-  {
-    v9 = gpLeakTrackingAllocator;
-    *((_DWORD *)NonConstMsgData + 9) = v8 | 0x80;
-    NSInstrumentation::CLeakTrackingAllocator::Free(v9, NonConstMsgData);
-  }
+  v4[1] = v7;
+  Win32FreePool(a2);
   if ( v6 )
   {
-    if ( *(_DWORD *)(v6 + 16) == 1 )
+    v8 = *(_DWORD *)(v6 + 16);
+    if ( v8 == 1 )
     {
-      CTouchProcessor::ReleasePointerCaptureInt(this, (struct CPointerCaptureInfo *)(v6 + 32));
-      CTouchProcessor::ReleasePointerCaptureInt(this, (struct CPointerCaptureInfo *)(v6 + 168));
+      CTouchProcessor::ReleasePointerCaptureInt((CTouchProcessor *)this, (struct CPointerCaptureInfo *)(v6 + 32));
+      CTouchProcessor::ReleasePointerCaptureInt((CTouchProcessor *)this, (struct CPointerCaptureInfo *)(v6 + 168));
+      v8 = *(_DWORD *)(v6 + 16);
     }
-    if ( (*(_DWORD *)(v6 + 16))-- == 1 )
-      CTouchProcessor::FreePointerCaptureData(this, (struct CPointerCaptureData *)v6);
+    v9 = v8 - 1;
+    *(_DWORD *)(v6 + 16) = v9;
+    if ( !v9 )
+      CTouchProcessor::FreePointerCaptureData((CTouchProcessor *)this, (struct CPointerCaptureData *)v6);
   }
-  if ( *(char **)v4 == v4 )
+  v10 = (_QWORD *)*v4;
+  if ( (_QWORD *)*v4 == v4 )
   {
-    v11 = v4 - 256;
-    if ( *((_WORD *)v4 - 112) != v5 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11522);
-    if ( *(char **)v4 != v4 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11523);
-    if ( *((char **)v11 + 30) != v11 + 240 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 11524);
-    if ( *((_DWORD *)v11 + 14) == 3 && !*((_DWORD *)v11 + 9) )
-      CTouchProcessor::FreeNode(this, (struct CInputPointerNode *)(v4 - 256));
+    v11 = v4 - 30;
+    if ( *((_WORD *)v4 - 104) != v5 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10887);
+      v10 = (_QWORD *)*v4;
+    }
+    if ( v10 != v4 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10888);
+    if ( (_QWORD *)v11[28] != v11 + 28 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10889);
+    if ( *((_DWORD *)v11 + 13) == 3 )
+      CTouchProcessor::FreeNode((CTouchProcessor *)this, (struct CInputPointerNode *)(v4 - 30));
   }
 }

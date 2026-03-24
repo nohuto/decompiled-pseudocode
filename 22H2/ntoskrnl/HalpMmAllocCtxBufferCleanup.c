@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmAllocCtxBufferCleanup @ 0x140505764
+ * XREFs of HalpMmAllocCtxBufferCleanup @ 0x1403A5720
  * Callers:
- *     HalpMmAllocCtxAllocBuffer @ 0x14039B080 (HalpMmAllocCtxAllocBuffer.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAllocBuffer @ 0x1403A455C (HalpMmAllocCtxAllocBuffer.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpMmAllocCtxBufferCleanup(__int64 a1, _QWORD *a2)

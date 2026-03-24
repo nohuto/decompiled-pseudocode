@@ -1,10 +1,10 @@
 /*
- * XREFs of ExWnfCrossVmCallback @ 0x140A00620
+ * XREFs of ExWnfCrossVmCallback @ 0x140955CF0
  * Callers:
  *     <none>
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x14071234C (ExpNtUpdateWnfStateData.c)
- *     ExpNtDeleteWnfStateData @ 0x14085C35C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060EA3C (ExpNtUpdateWnfStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD72C (ExpNtDeleteWnfStateData.c)
  */
 
 __int64 __fastcall ExWnfCrossVmCallback(__int64 a1, __int64 a2, __int64 *a3, int a4, __int64 a5, unsigned int a6)

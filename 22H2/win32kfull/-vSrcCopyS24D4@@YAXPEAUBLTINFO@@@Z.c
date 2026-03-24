@@ -1,22 +1,22 @@
 /*
- * XREFs of ?vSrcCopyS24D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02EA240
+ * XREFs of ?vSrcCopyS24D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02C94B0
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vSrcCopyS24D4(struct BLTINFO *a1)
 {
   int *v1; // r14
-  __int64 v2; // r12
+  __int64 v2; // r15
   XLATEOBJ *v3; // r13
-  _BYTE *v4; // r12
+  _BYTE *v4; // r15
   unsigned __int8 *v5; // rbp
   ULONG v6; // edi
   char v7; // r8
   int v8; // esi
-  _BYTE *v9; // r15
+  _BYTE *v9; // r12
   unsigned __int8 *v10; // rbx
   ULONG v11; // edx
   int v12; // eax

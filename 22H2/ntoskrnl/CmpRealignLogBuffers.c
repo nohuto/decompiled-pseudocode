@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRealignLogBuffers @ 0x140A1EC0C
+ * XREFs of CmpRealignLogBuffers @ 0x140875548
  * Callers:
- *     CmpRmReDoPhase @ 0x140A1EF34 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x140875870 (CmpRmReDoPhase.c)
  * Callees:
  *     <none>
  */
@@ -10,72 +10,63 @@ void __fastcall CmpRealignLogBuffers(__int64 a1)
 {
   unsigned int v2; // ecx
   __int64 v3; // rax
-  __int64 v4; // rdx
+  __int64 v4; // rcx
   __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  unsigned int v8; // ecx
-  unsigned int v9; // ecx
-  unsigned int v10; // ecx
-  __int64 v11; // rax
-  __int64 v12; // rax
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int64 v9; // rdx
 
   v2 = *(_DWORD *)(a1 + 12);
-  if ( v2 > 6 )
+  if ( v2 )
   {
-    v8 = v2 - 7;
-    if ( v8 )
+    if ( v2 <= 2 )
     {
-      v9 = v8 - 1;
-      if ( v9 )
+      v9 = *(unsigned __int16 *)(a1 + 32);
+      v4 = a1 + 64;
+      *(_WORD *)(a1 + 34) = v9;
+      *(_QWORD *)(a1 + 56) = a1 + 64 + v9;
+      *(_DWORD *)(a1 + 52) = *(_DWORD *)(a1 + 4) - v9 - 64;
+      goto LABEL_15;
+    }
+    if ( v2 > 5 )
+    {
+      if ( v2 == 6 || v2 == 7 )
       {
-        v10 = v9 - 1;
-        if ( !v10 )
+        *(_QWORD *)(a1 + 40) = a1 + 56;
+        *(_WORD *)(a1 + 34) = *(_WORD *)(a1 + 32);
+        return;
+      }
+      if ( v2 != 8 )
+      {
+        if ( v2 == 9 )
         {
-          v12 = *(unsigned __int16 *)(a1 + 32);
-          *(_WORD *)(a1 + 34) = v12;
-          *(_QWORD *)(a1 + 56) = a1 + 64 + v12;
+          v5 = *(unsigned __int16 *)(a1 + 32);
+          v4 = a1 + 64;
+          *(_WORD *)(a1 + 34) = v5;
+          *(_QWORD *)(a1 + 56) = a1 + 64 + v5;
           *(_WORD *)(a1 + 50) = *(_WORD *)(a1 + 48);
-          *(_QWORD *)(a1 + 40) = a1 + 64;
-          return;
+          goto LABEL_15;
         }
-        if ( v10 != 1 )
+        if ( v2 != 10 )
           return;
       }
-      v11 = *(unsigned __int16 *)(a1 + 32);
-      v7 = a1 + 64;
-      *(_WORD *)(a1 + 34) = v11;
-      *(_QWORD *)(a1 + 56) = a1 + 64 + v11;
+      v3 = *(unsigned __int16 *)(a1 + 32);
+      v4 = a1 + 64;
+      *(_WORD *)(a1 + 34) = v3;
+      *(_QWORD *)(a1 + 56) = a1 + 64 + v3;
 LABEL_15:
-      *(_QWORD *)(a1 + 40) = v7;
+      *(_QWORD *)(a1 + 40) = v4;
       return;
     }
-LABEL_17:
-    *(_QWORD *)(a1 + 40) = a1 + 56;
-    *(_WORD *)(a1 + 34) = *(_WORD *)(a1 + 32);
-    return;
-  }
-  if ( v2 == 6 )
-    goto LABEL_17;
-  if ( v2 == 1 || v2 == 2 )
-  {
     v6 = *(unsigned __int16 *)(a1 + 32);
-    v7 = a1 + 64;
-    *(_WORD *)(a1 + 34) = v6;
-    *(_QWORD *)(a1 + 56) = a1 + 64 + v6;
-    *(_DWORD *)(a1 + 52) = *(_DWORD *)(a1 + 4) - v6 - 64;
-    goto LABEL_15;
-  }
-  if ( v2 == 3 || v2 - 4 <= 1 )
-  {
-    v3 = *(unsigned __int16 *)(a1 + 32);
     *(_QWORD *)(a1 + 40) = a1 + 80;
-    v4 = v3 + a1 + 80;
-    *(_WORD *)(a1 + 34) = v3;
-    v5 = *(unsigned __int16 *)(a1 + 48);
-    *(_WORD *)(a1 + 50) = v5;
-    *(_QWORD *)(a1 + 56) = v4;
+    v7 = v6 + a1 + 80;
+    *(_WORD *)(a1 + 34) = v6;
+    v8 = *(unsigned __int16 *)(a1 + 48);
+    *(_WORD *)(a1 + 50) = v8;
+    *(_QWORD *)(a1 + 56) = v7;
     if ( v2 != 5 )
-      *(_QWORD *)(a1 + 72) = v4 + v5;
+      *(_QWORD *)(a1 + 72) = v7 + v8;
   }
 }

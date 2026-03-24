@@ -5,8 +5,8 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoReleaseRemoveLockEx @ 0x14011EDF0 (IoReleaseRemoveLockEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IoReleaseRemoveLockEx @ 0x14011EE10 (IoReleaseRemoveLockEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64 a2)

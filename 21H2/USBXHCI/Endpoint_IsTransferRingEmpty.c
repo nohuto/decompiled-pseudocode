@@ -1,8 +1,8 @@
 /*
- * XREFs of Endpoint_IsTransferRingEmpty @ 0x1C00389CC
+ * XREFs of Endpoint_IsTransferRingEmpty @ 0x1C003874C
  * Callers:
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C000C0DC (Endpoint_OnCancelSetDequeuePointer.c)
- *     Endpoint_OnResetSetDequeuePointer @ 0x1C00398A4 (Endpoint_OnResetSetDequeuePointer.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     Endpoint_OnResetSetDequeuePointer @ 0x1C0039624 (Endpoint_OnResetSetDequeuePointer.c)
  * Callees:
  *     <none>
  */

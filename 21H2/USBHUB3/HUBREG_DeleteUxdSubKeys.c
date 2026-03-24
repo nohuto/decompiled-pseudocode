@@ -1,18 +1,18 @@
 /*
- * XREFs of HUBREG_DeleteUxdSubKeys @ 0x1C0082464
+ * XREFs of HUBREG_DeleteUxdSubKeys @ 0x1C0080EF8
  * Callers:
- *     HUBREG_UxdShutdown @ 0x1C0082684 (HUBREG_UxdShutdown.c)
+ *     HUBREG_UxdShutdown @ 0x1C008111C (HUBREG_UxdShutdown.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBREG_DeleteUxdSubKeys(__int64 a1, __int64 a2, __int64 a3)
 {
   void *v6; // r15
-  __int64 Pool2; // rbx
+  PVOID PoolWithTag; // rbx
   ULONG v8; // edi
   ULONG v9; // esi
   ULONG ResultLength; // [rsp+40h] [rbp-A8h] BYREF
@@ -25,24 +25,24 @@ __int64 __fastcall HUBREG_DeleteUxdSubKeys(__int64 a1, __int64 a2, __int64 a3)
   v6 = (void *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1856))(
                  WdfDriverGlobals,
                  a3);
-  Pool2 = ExAllocatePool2(64LL, 42LL, 1748191317LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 0x2AuLL, 0x68334855u);
+  if ( PoolWithTag )
   {
     v8 = 0;
     while ( 1 )
     {
-      *(_OWORD *)Pool2 = 0LL;
-      *(_OWORD *)(Pool2 + 16) = 0LL;
-      *(_QWORD *)(Pool2 + 32) = 0LL;
-      *(_WORD *)(Pool2 + 40) = 0;
+      *(_OWORD *)PoolWithTag = 0LL;
+      *((_OWORD *)PoolWithTag + 1) = 0LL;
+      *((_QWORD *)PoolWithTag + 4) = 0LL;
+      *((_WORD *)PoolWithTag + 20) = 0;
       v9 = v8;
-      if ( ZwEnumerateValueKey(v6, v8, KeyValueBasicInformation, (PVOID)Pool2, 0x2Au, &ResultLength) < 0 )
+      if ( ZwEnumerateValueKey(v6, v8, KeyValueBasicInformation, PoolWithTag, 0x2Au, &ResultLength) < 0 )
         break;
       ++v8;
-      if ( *(_DWORD *)(Pool2 + 4) == 3 )
+      if ( *((_DWORD *)PoolWithTag + 1) == 3 )
       {
-        *(_WORD *)(Pool2 + 36) = 0;
-        RtlInitUnicodeString(&DestinationString, (PCWSTR)(Pool2 + 12));
+        *((_WORD *)PoolWithTag + 18) = 0;
+        RtlInitUnicodeString(&DestinationString, (PCWSTR)PoolWithTag + 6);
         memset(v13, 0, 0x44uLL);
         if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, struct _UNICODE_STRING *, __int64, _DWORD *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
                WdfDriverGlobals,
@@ -64,11 +64,11 @@ __int64 __fastcall HUBREG_DeleteUxdSubKeys(__int64 a1, __int64 a2, __int64 a3)
         }
       }
     }
-    ExFreePoolWithTag((PVOID)Pool2, 0x68334855u);
+    ExFreePoolWithTag(PoolWithTag, 0x68334855u);
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x71u, (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x71u, (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids);
   }
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKernelVerifierLookasideAllocate @ 0x140ADA590
+ * XREFs of ViDeadlockKernelVerifierLookasideAllocate @ 0x1409DF600
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall ViDeadlockKernelVerifierLookasideAllocate(POOL_TYPE a1, SIZE_T a2, ULONG a3)

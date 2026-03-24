@@ -1,31 +1,35 @@
 /*
- * XREFs of PostMouseInputMessage @ 0x1C01E8838
+ * XREFs of PostMouseInputMessage @ 0x1C01AEC10
  * Callers:
- *     NtMITPostMouseInputMessage @ 0x1C0141970 (NtMITPostMouseInputMessage.c)
+ *     NtMITPostMouseInputMessage @ 0x1C012B510 (NtMITPostMouseInputMessage.c)
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mouseCursorEvent@@@Z @ 0x1C01F8CB4 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mo.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseCursorEvent@@@Z @ 0x1C01C0D88 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseC.c)
  */
 
-bool __fastcall PostMouseInputMessage(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+bool __fastcall PostMouseInputMessage(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  CInputThread *v3; // rdi
+  bool v7; // bl
   __int64 MouseProcessor; // rax
-  bool v13; // zf
-  int v14; // eax
+  bool v9; // zf
+  int v10; // eax
 
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1512);
-  MouseProcessor = anonymous_namespace_::GetMouseProcessor(v9, v8, v10, v11);
+  v3 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v3, 0LL);
+  v7 = CInputThread::_CalledOnInputThread(v3);
+  ExReleasePushLockSharedEx(v3, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v7 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1207);
+  MouseProcessor = anonymous_namespace_::GetMouseProcessor();
   if ( !MouseProcessor
-    || (v13 = (unsigned __int8)CMouseProcessor::PostMouseInputMessage(MouseProcessor, a1, a2, a3, a4) == 0, v14 = 0, v13) )
+    || (v9 = (unsigned __int8)CMouseProcessor::PostMouseInputMessage(MouseProcessor, a1, a2, a3) == 0, v10 = 0, v9) )
   {
-    v14 = -1073741823;
+    v10 = -1073741823;
   }
-  return v14 != 0;
+  return v10 != 0;
 }

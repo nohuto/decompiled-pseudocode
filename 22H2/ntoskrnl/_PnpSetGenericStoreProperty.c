@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpSetGenericStoreProperty @ 0x1407976D8
+ * XREFs of _PnpSetGenericStoreProperty @ 0x140742C38
  * Callers:
- *     _PnpSetObjectPropertyWorker @ 0x14079720C (_PnpSetObjectPropertyWorker.c)
- *     PiDqIrpPropertySet @ 0x140800484 (PiDqIrpPropertySet.c)
+ *     PiDqIrpPropertySet @ 0x14072653C (PiDqIrpPropertySet.c)
+ *     _PnpSetObjectPropertyWorker @ 0x14074223C (_PnpSetObjectPropertyWorker.c)
  * Callees:
- *     _PnpSetPropertyWorker @ 0x140798154 (_PnpSetPropertyWorker.c)
- *     _PnpDeletePropertyWorker @ 0x14086FB0C (_PnpDeletePropertyWorker.c)
+ *     _PnpSetPropertyWorker @ 0x140742C80 (_PnpSetPropertyWorker.c)
+ *     _PnpDeletePropertyWorker @ 0x14076C76C (_PnpDeletePropertyWorker.c)
  */
 
 __int64 __fastcall PnpSetGenericStoreProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

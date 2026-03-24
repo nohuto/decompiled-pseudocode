@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x1402E0D20
+ * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x1402E0E20
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x1402DD2F0 (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x1402DD3F0 (PopPepInitializeVetoMasks.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDeviceIdleConstraints(__int64 a1, __int64 a2, int a3)

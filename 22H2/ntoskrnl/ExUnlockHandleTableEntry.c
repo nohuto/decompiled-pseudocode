@@ -1,19 +1,22 @@
 /*
- * XREFs of ExUnlockHandleTableEntry @ 0x1409F9220
+ * XREFs of ExUnlockHandleTableEntry @ 0x1405D6CB0
  * Callers:
- *     <none>
+ *     ExDupHandleTable @ 0x1406065C0 (ExDupHandleTable.c)
+ *     EtwpObjectHandleEnumCallback @ 0x14093DF40 (EtwpObjectHandleEnumCallback.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
  */
 
-void __fastcall ExUnlockHandleTableEntry(__int64 a1, volatile signed __int64 *a2)
+int __fastcall ExUnlockHandleTableEntry(__int64 a1, volatile signed __int64 *a2)
 {
-  volatile __int64 *v2; // rcx
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
+  int result; // eax
+  volatile __int64 *v3; // rcx
+  signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedExchangeAdd64(a2, 1uLL);
-  v2 = (volatile __int64 *)(a1 + 48);
-  _InterlockedOr(v3, 0);
-  if ( *v2 )
-    ExfUnblockPushLock(v2, 0LL);
+  result = _InterlockedExchangeAdd64(a2, 1uLL);
+  v3 = (volatile __int64 *)(a1 + 48);
+  _InterlockedOr(v4, 0);
+  if ( *v3 )
+    return ExfUnblockPushLock(v3, 0LL);
+  return result;
 }

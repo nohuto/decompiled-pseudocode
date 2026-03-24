@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z @ 0x1800FB160
+ * XREFs of ?DrawTileImage@CRenderDataBuilder@@UEAAJIAEBUMilRectF@@MAEBUMilPoint2F@@@Z @ 0x1800D8D20
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawTileImage(
@@ -21,7 +21,7 @@ __int64 __fastcall CRenderDataBuilder::DrawTileImage(
   __int64 v12; // rcx
   __int128 v13; // xmm0
 
-  v8 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 40, 0, 0LL);
+  v8 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 40, 0, 0LL);
   v10 = v8;
   if ( v8 < 0 )
   {
@@ -36,7 +36,7 @@ __int64 __fastcall CRenderDataBuilder::DrawTileImage(
     *(_QWORD *)(v11 + v12 + 16) = 0LL;
     *(_QWORD *)(v11 + v12 + 24) = 0LL;
     *(_QWORD *)(v11 + v12 + 32) = 0LL;
-    *(_DWORD *)(v11 + v12 + 4) = 450;
+    *(_DWORD *)(v11 + v12 + 4) = 467;
     *(_DWORD *)(v11 + v12 + 8) = a2;
     v13 = *(_OWORD *)a3;
     *(float *)(v11 + v12 + 28) = a4;

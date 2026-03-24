@@ -1,10 +1,10 @@
 /*
- * XREFs of _vsnprintf @ 0x1801101C0
+ * XREFs of _vsnprintf @ 0x1800E8028
  * Callers:
- *     ?StringCchPrintfA@@YAJPEAD_KPEBDZZ @ 0x18020ACD4 (-StringCchPrintfA@@YAJPEAD_KPEBDZZ.c)
+ *     ?StringCchPrintfA@@YAJPEAD_KPEBDZZ @ 0x1801F93B4 (-StringCchPrintfA@@YAJPEAD_KPEBDZZ.c)
  * Callees:
- *     __local_stdio_printf_options @ 0x18010EEC4 (__local_stdio_printf_options.c)
- *     __stdio_common_vsprintf_0 @ 0x180110F18 (__stdio_common_vsprintf_0.c)
+ *     __local_stdio_printf_options @ 0x1800E6A9C (__local_stdio_printf_options.c)
+ *     _o___stdio_common_vsprintf_0 @ 0x1800E7DFA (_o___stdio_common_vsprintf_0.c)
  */
 
 int __cdecl vsnprintf(char *const Buffer, const size_t BufferCount, const char *const Format, va_list ArgList)
@@ -13,7 +13,7 @@ int __cdecl vsnprintf(char *const Buffer, const size_t BufferCount, const char *
   int result; // eax
 
   v8 = _local_stdio_printf_options();
-  result = _stdio_common_vsprintf_0(*v8 | 1, Buffer, BufferCount, Format, 0LL, ArgList);
+  result = o___stdio_common_vsprintf_0(*v8 | 1, Buffer, BufferCount, Format, 0LL, ArgList);
   if ( result < 0 )
     return -1;
   return result;

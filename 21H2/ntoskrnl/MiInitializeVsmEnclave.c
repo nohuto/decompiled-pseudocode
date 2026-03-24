@@ -1,28 +1,28 @@
 /*
- * XREFs of MiInitializeVsmEnclave @ 0x14097A228
+ * XREFs of MiInitializeVsmEnclave @ 0x1408D3098
  * Callers:
- *     MiInitializeEnclave @ 0x14097A120 (MiInitializeEnclave.c)
+ *     MiInitializeEnclave @ 0x1408D2F90 (MiInitializeEnclave.c)
  * Callees:
- *     MiUnlockVad @ 0x140281C44 (MiUnlockVad.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MiLockVad @ 0x14030B7F0 (MiLockVad.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     PsDereferenceVsmEnclave @ 0x140882604 (PsDereferenceVsmEnclave.c)
- *     MiMapImageForEnclaveUse @ 0x14097A9C4 (MiMapImageForEnclaveUse.c)
- *     MiUnmapImageForEnclaveUse @ 0x14097AC04 (MiUnmapImageForEnclaveUse.c)
- *     PsInitializeVsmEnclave @ 0x1409B4318 (PsInitializeVsmEnclave.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
+ *     MiLockVad @ 0x140316758 (MiLockVad.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D39BC (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x1408D3BFC (MiUnmapImageForEnclaveUse.c)
+ *     PsDereferenceVsmEnclave @ 0x14090DEA0 (PsDereferenceVsmEnclave.c)
+ *     PsInitializeVsmEnclave @ 0x14090DF50 (PsInitializeVsmEnclave.c)
  */
 
-__int64 __fastcall MiInitializeVsmEnclave(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall MiInitializeVsmEnclave(PEPROCESS Process, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rdi
   __int64 v9; // rbx
   struct _KTHREAD *CurrentThread; // rbp
   int v11; // esi
   __int64 v12; // rsi
-  unsigned __int64 v13; // rax
+  struct _DMA_ADAPTER *v13; // rax
   __int64 v14; // r8
-  void *v15; // rbx
+  struct _DMA_ADAPTER *v15; // rbx
   __int64 v17; // [rsp+30h] [rbp-38h] BYREF
   __int64 v18; // [rsp+78h] [rbp+10h] BYREF
 
@@ -44,11 +44,11 @@ __int64 __fastcall MiInitializeVsmEnclave(__int64 a1, __int64 a2, __int64 a3, un
     v12 = *(_QWORD *)(a3 + 48);
     if ( v12 )
     {
-      v13 = PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
+      v13 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
       LOBYTE(v14) = CurrentThread->PreviousMode;
-      v15 = (void *)v13;
+      v15 = v13;
       v11 = MiMapImageForEnclaveUse(v12, v13, v14, &v18, &v17);
-      ObfDereferenceObject(v15);
+      HalPutDmaAdapter(v15);
       if ( v11 < 0 )
         goto LABEL_10;
       v9 = *(_QWORD *)(*(_QWORD *)(v17 + 96) + 56LL);

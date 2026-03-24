@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfFeedbackCounterRead @ 0x1403CE694
+ * XREFs of PpmPerfFeedbackCounterRead @ 0x1403C13FC
  * Callers:
- *     PpmInstallFeedbackCounters @ 0x1403CE4FC (PpmInstallFeedbackCounters.c)
+ *     PpmInstallFeedbackCounters @ 0x1403C1278 (PpmInstallFeedbackCounters.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 unsigned __int64 __fastcall PpmPerfFeedbackCounterRead(__int64 a1, __int64 a2, _DWORD *a3)

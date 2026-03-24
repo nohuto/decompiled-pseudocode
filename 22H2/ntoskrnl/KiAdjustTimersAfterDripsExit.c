@@ -1,83 +1,74 @@
 /*
- * XREFs of KiAdjustTimersAfterDripsExit @ 0x14056FCFC
+ * XREFs of KiAdjustTimersAfterDripsExit @ 0x140513E9C
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1402C7030 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x140224BA0 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KiSelectActiveTimerTable @ 0x14033BC80 (KiSelectActiveTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14039A2F4 (KiAdjustTimerDueTimes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAdjustTimerDueTimes @ 0x14039DA6C (KiAdjustTimerDueTimes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 __fastcall KiAdjustTimersAfterDripsExit(__int64 a1, __int64 a2)
+__int64 __fastcall KiAdjustTimersAfterDripsExit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 result; // rax
-  __int64 v3; // rdx
-  int v4; // edx
-  __int64 active; // r10
+  __int64 result; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rdx
   unsigned __int8 CurrentIrql; // bl
-  unsigned __int64 v7; // r15
-  _DWORD *SchedulerAssist; // r9
-  int v9; // eax
+  _DWORD *SchedulerAssist; // r10
   unsigned __int8 v10; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v12; // r8
   int v13; // eax
   bool v14; // zf
-  char v15; // [rsp+20h] [rbp-30h] BYREF
-  __int16 v16; // [rsp+21h] [rbp-2Fh]
-  char v17; // [rsp+23h] [rbp-2Dh]
-  int v18; // [rsp+24h] [rbp-2Ch]
-  __int128 v19; // [rsp+28h] [rbp-28h]
-  __int64 v20; // [rsp+38h] [rbp-18h]
-  char v21; // [rsp+40h] [rbp-10h]
-  int v22; // [rsp+41h] [rbp-Fh]
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+8h] BYREF
+  _OWORD v15[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-18h]
 
-  result = (unsigned __int64)&retaddr;
-  v16 = 0;
-  v17 = 0;
-  v20 = 0LL;
-  v22 = 0;
+  result = 0LL;
+  memset(v15, 0, sizeof(v15));
+  v16 = 0LL;
   if ( KiSerializeTimerExpiration )
   {
-    v3 = a2 - KiClockTimerOneShotStartTime;
+    v5 = a2 - KiClockTimerOneShotStartTime;
     result = (unsigned int)KiTimerRebaseThresholdOnDripsExit;
-    v20 = v3;
-    if ( v3 > 10000000LL * (unsigned int)KiTimerRebaseThresholdOnDripsExit )
+    *((_QWORD *)&v15[1] + 1) = v5;
+    if ( v5 > 10000000LL * (unsigned int)KiTimerRebaseThresholdOnDripsExit )
     {
-      *(_QWORD *)(MmWriteableSharedUserData + 944) += v3;
+      MEMORY[0xFFFFF780000003B0] += v5;
       if ( MEMORY[0xFFFFF780000003B0] < 0 )
         __fastfail(5u);
-      v20 = -v20;
-      v15 = 1;
-      v18 = 0;
-      v19 = 0LL;
-      v21 = 1;
-      active = KiSelectActiveTimerTable(a1, 0);
+      *((_QWORD *)&v15[1] + 1) = -*((_QWORD *)&v15[1] + 1);
+      DWORD1(v15[0]) = 0;
+      v6 = KiProcessorBlock[0];
+      if ( !KiSerializeTimerExpiration )
+        v6 = a1;
+      LOBYTE(v15[0]) = 1;
+      v7 = v6 + 14656;
+      LOBYTE(v16) = 1;
+      *(_OWORD *)((char *)v15 + 8) = 0LL;
       CurrentIrql = KeGetCurrentIrql();
-      v7 = (unsigned int)(v4 + 2);
-      __writecr8(v7);
+      __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        v9 = v4 + 4;
-        if ( CurrentIrql != (_BYTE)v4 + 2 )
-          v9 &= -1LL << (CurrentIrql + 1);
-        SchedulerAssist[5] |= v9;
+        a4 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+        SchedulerAssist[5] = a4;
       }
-      KiAdjustTimerDueTimes((__int64)KeGetCurrentPrcb(), active, (__int64)&v15);
+      KiAdjustTimerDueTimes((__int64)KeGetCurrentPrcb(), v7, (__int64)v15, a4);
       if ( KiIrqlFlags )
       {
-        v10 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= (unsigned __int8)v7 )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v12 = CurrentPrcb->SchedulerAssist;
-          v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v14 = (v13 & v12[5]) == 0;
-          v12[5] &= v13;
-          if ( v14 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v10 = KeGetCurrentIrql();
+          if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v12 = CurrentPrcb->SchedulerAssist;
+            v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v14 = (v13 & v12[5]) == 0;
+            v12[5] &= v13;
+            if ( v14 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       result = CurrentIrql;

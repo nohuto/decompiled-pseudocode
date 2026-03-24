@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Win32kPnPDriverEntry@@YAJPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z @ 0x1C00C64D0
+ * XREFs of ?Win32kPnPDriverEntry@@YAJPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z @ 0x1C00B8BB0
  * Callers:
  *     <none>
  * Callees:

@@ -1,45 +1,45 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x14066F3B0
+ * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x14060CEF0
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14066F248 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1406B9EA8 (IopSymlinkAllocateAndAddECP.c)
+ *     PspCreateUserProcessEcp @ 0x14060CD84 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_FLAGS Flags, PECP_LIST *EcpList)
 {
-  struct _ECP_LIST *Pool2; // rax
+  struct _ECP_LIST *PoolWithQuotaTag; // rax
   int v4; // edx
 
   *EcpList = 0LL;
   if ( (Flags & 1) != 0 )
   {
-    Pool2 = (struct _ECP_LIST *)ExAllocatePool2(259LL, 24LL, 1818579782LL);
+    PoolWithQuotaTag = (struct _ECP_LIST *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x18uLL, 0x6C655346u);
     v4 = 2;
   }
   else
   {
-    ++FsRtlEcpListLookaside.L.TotalAllocates;
-    Pool2 = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside.L.ListHead);
-    if ( !Pool2 )
+    ++dword_140CDB554;
+    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside);
+    if ( !PoolWithQuotaTag )
     {
-      ++FsRtlEcpListLookaside.L.AllocateMisses;
-      Pool2 = (struct _ECP_LIST *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))FsRtlEcpListLookaside.L.AllocateEx)(
-                                    (unsigned int)FsRtlEcpListLookaside.L.Type,
-                                    FsRtlEcpListLookaside.L.Size,
-                                    FsRtlEcpListLookaside.L.Tag);
+      ++dword_140CDB558;
+      PoolWithQuotaTag = (struct _ECP_LIST *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140CDB570)(
+                                               (unsigned int)dword_140CDB564,
+                                               (unsigned int)dword_140CDB56C,
+                                               (unsigned int)dword_140CDB568);
     }
     v4 = 6;
   }
-  if ( !Pool2 )
+  if ( !PoolWithQuotaTag )
     return -1073741670;
-  Pool2->Flags = v4;
-  Pool2->Signature = 1282433861;
-  Pool2->EcpList.Blink = &Pool2->EcpList;
-  Pool2->EcpList.Flink = &Pool2->EcpList;
-  *EcpList = Pool2;
+  PoolWithQuotaTag->Flags = v4;
+  PoolWithQuotaTag->Signature = 1282433861;
+  PoolWithQuotaTag->EcpList.Blink = &PoolWithQuotaTag->EcpList;
+  PoolWithQuotaTag->EcpList.Flink = &PoolWithQuotaTag->EcpList;
+  *EcpList = PoolWithQuotaTag;
   return 0;
 }

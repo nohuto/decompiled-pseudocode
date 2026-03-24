@@ -1,22 +1,18 @@
 /*
- * XREFs of ?ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ @ 0x1C01E0A3C
+ * XREFs of ?ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ @ 0x1C01A7660
  * Callers:
- *     ?OnPTPDeviceArrived@PTPTelemetry@@SAXQEAUDEVICEINFO@@@Z @ 0x1C01DFC94 (-OnPTPDeviceArrived@PTPTelemetry@@SAXQEAUDEVICEINFO@@@Z.c)
- *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C01DFFE0 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
+ *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C00B81B0 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C01A6A60 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall PTPTelemetry::ShouldPtpSettingFire(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+bool PTPTelemetry::ShouldPtpSettingFire(void)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  char v8; // bl
+  bool result; // al
 
-  v8 = 0;
-  if ( !*(_BYTE *)(SGDGetUserSessionState(a1, a2, a3, a4) + 11808) )
-    return *(_BYTE *)(SGDGetUserSessionState(v5, v4, v6, v7) + 11809) != 0;
-  return v8;
+  result = 0;
+  if ( !PTPTelemetry::s_SettingsFired )
+    return PTPTelemetry::s_SettingsReady;
+  return result;
 }

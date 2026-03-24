@@ -1,5 +1,5 @@
 /*
- * XREFs of InitializeTouchPadSysParams @ 0x1C0118D90
+ * XREFs of InitializeTouchPadSysParams @ 0x1C012DA60
  * Callers:
  *     <none>
  * Callees:
@@ -28,8 +28,6 @@ __int64 InitializeTouchPadSysParams()
   *((_DWORD *)&gTouchPadParameters + 3) |= 0x80u;
   *((_DWORD *)&gTouchPadParameters + 3) |= 0x100u;
   *((_DWORD *)&gTouchPadParameters + 4) = 10;
-  *((_BYTE *)&gTouchPadParameters + 21) = 50;
-  *((_DWORD *)&gTouchPadParameters + 5) |= 0x10000u;
   v1 = (_DWORD *)gAapState;
   do
   {
@@ -91,11 +89,10 @@ __int64 InitializeTouchPadSysParams()
   gTPThresholds[56] = 1000;
   gTPThresholds[28] = 1022;
   gTPThresholds[60] = 300;
-  gTPThresholds[61] = 10000;
+  gTPThresholds[61] = 22500;
   gTPThresholds[62] = 10000;
   gTPThresholds[63] = 33;
-  gTPThresholds[58] = 500;
-  gTPThresholds[57] = -500;
+  gTPThresholds[65] = 776;
   gTPThresholds[66] = 100;
   gTPThresholds[67] = 200;
   gTPThresholds[47] = 25000000;

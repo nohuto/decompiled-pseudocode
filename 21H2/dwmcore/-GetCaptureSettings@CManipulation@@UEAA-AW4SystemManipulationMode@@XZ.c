@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCaptureSettings@CManipulation@@UEAA?AW4SystemManipulationMode@@XZ @ 0x1800FB070
+ * XREFs of ?GetCaptureSettings@CManipulation@@UEAA?AW4SystemManipulationMode@@XZ @ 0x1800E2C80
  * Callers:
  *     <none>
  * Callees:

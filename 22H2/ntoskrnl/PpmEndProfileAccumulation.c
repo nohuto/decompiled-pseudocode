@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmEndProfileAccumulation @ 0x14099D30C
+ * XREFs of PpmEndProfileAccumulation @ 0x1408F5DBC
  * Callers:
- *     PpmEventTraceProfiles @ 0x14084AF70 (PpmEventTraceProfiles.c)
- *     PpmApplyProfile @ 0x14099D0D0 (PpmApplyProfile.c)
+ *     PpmEventTraceProfiles @ 0x1407C6134 (PpmEventTraceProfiles.c)
+ *     PpmApplyProfile @ 0x1408F5B4C (PpmApplyProfile.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ void __fastcall PpmEndProfileAccumulation(_QWORD *a1, __int64 a2)
 {
   unsigned __int64 v2; // rdx
 
-  v2 = a2 - a1[115];
-  a1[119] += v2;
-  if ( a1[117] < v2 )
-    a1[117] = v2;
-  if ( a1[118] > v2 )
-    a1[118] = v2;
-  ++a1[116];
-  a1[115] = 0LL;
+  v2 = a2 - a1[689];
+  a1[693] += v2;
+  if ( a1[691] < v2 )
+    a1[691] = v2;
+  if ( a1[692] > v2 )
+    a1[692] = v2;
+  ++a1[690];
+  a1[689] = 0LL;
 }

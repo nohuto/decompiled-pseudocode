@@ -1,149 +1,87 @@
 /*
- * XREFs of KeTryToFreezeThreadStack @ 0x14056F178
+ * XREFs of KeTryToFreezeThreadStack @ 0x1405132C8
  * Callers:
- *     MiSwapStackPage @ 0x140399C4C (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x14031F4BC (MiSwapStackPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246750 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140307790 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiIsKernelStackSwappable @ 0x14057A310 (KiIsKernelStackSwappable.c)
+ *     KiAcquireThreadStateLock @ 0x1402308B0 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadStateLock @ 0x14035B9E0 (KiReleaseThreadStateLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIsKernelStackSwappable @ 0x140522A08 (KiIsKernelStackSwappable.c)
  */
 
-char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2)
+char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
-  __int64 *v4; // rdx
-  char v5; // r15
-  __int64 v6; // rsi
-  volatile signed __int32 *v7; // rdi
-  char v8; // al
-  __int64 v9; // rax
-  bool v10; // zf
-  __int64 v11; // r14
-  __int64 v12; // r14
-  __int64 v13; // rax
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  int v8; // eax
+  _DWORD *v9; // rcx
+  int v10; // eax
+  unsigned __int8 v11; // al
+  __int64 v12; // rcx
   char result; // al
-  int v15; // [rsp+60h] [rbp+40h] BYREF
-  int v16; // [rsp+70h] [rbp+50h] BYREF
-  __int64 v17; // [rsp+78h] [rbp+58h] BYREF
+  int v14; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v15; // [rsp+50h] [rbp+18h] BYREF
+  volatile signed __int64 *v16; // [rsp+58h] [rbp+20h] BYREF
 
-  v17 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
   if ( *(_UNKNOWN **)(a1 + 544) == &KiInitialProcess )
     return 0;
-  v15 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+  CurrentPrcb = KeGetCurrentPrcb();
+  v14 = 0;
+  while ( 1 )
   {
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v8 = SchedulerAssist[6];
+        SchedulerAssist[6] = v8 + 1;
+        if ( v8 == -1 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+      break;
+    v9 = CurrentPrcb->SchedulerAssist;
+    if ( v9 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v10 = v9[6] - 1;
+        v9[6] = v10;
+        if ( !v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v15);
+      KeYieldProcessorEx(&v14, (__int64)a2, a3, a4);
     while ( *(_QWORD *)(a1 + 64) );
   }
-  while ( 2 )
+  v11 = KiAcquireThreadStateLock(a1, &v15, (volatile signed __int32 **)&v16);
+  if ( v11 <= 4u )
   {
-    while ( 2 )
-    {
-      v4 = KiProcessorBlock;
-      while ( 1 )
-      {
-        v5 = *(_BYTE *)(a1 + 388);
-        v6 = 0LL;
-        v7 = 0LL;
-        if ( v5 == 1 )
-          break;
-        switch ( *(_BYTE *)(a1 + 388) )
-        {
-          case 2:
-LABEL_14:
-            v9 = *(unsigned int *)(a1 + 536);
-            if ( (int)v9 >= 0 )
-            {
-              v6 = KiProcessorBlock[v9];
-              KiAcquirePrcbLocksForIsolationUnit(v6, 0, &v17);
-              v10 = a1 == *(_QWORD *)(v6 + 8);
-              goto LABEL_31;
-            }
-            break;
-          case 3:
-            v11 = *(unsigned int *)(a1 + 536);
-            if ( (int)v11 >= 0 )
-            {
-              v6 = KiProcessorBlock[v11];
-              KiAcquirePrcbLocksForIsolationUnit(v6, 0, &v17);
-              if ( a1 == *(_QWORD *)(v6 + 16) )
-                goto LABEL_33;
-              if ( *(_BYTE *)(a1 + 388) == 3 && *(_DWORD *)(a1 + 536) == (_DWORD)v11 )
-                __fastfail(0x1Eu);
-              goto LABEL_32;
-            }
-            break;
-          case 5:
-            v8 = *(_BYTE *)(a1 + 112) & 7;
-            if ( v8 == 1 || (unsigned __int8)(v8 - 3) <= 3u )
-              goto LABEL_33;
-            v5 = 2;
-            goto LABEL_14;
-          default:
-            goto LABEL_33;
-        }
-      }
-      v12 = *(unsigned int *)(a1 + 536);
-      if ( (int)v12 >= 0 )
-      {
-        v6 = KiProcessorBlock[v12];
-        KiAcquirePrcbLocksForIsolationUnit(v6, 0, &v17);
-        if ( *(_BYTE *)(a1 + 388) != 1 )
-        {
-LABEL_32:
-          KiReleasePrcbLocksForIsolationUnit(&v17);
-          continue;
-        }
-        v10 = *(_DWORD *)(a1 + 536) == (_DWORD)v12;
-LABEL_31:
-        if ( v10 )
-          goto LABEL_33;
-        goto LABEL_32;
-      }
-      break;
-    }
-    v13 = (unsigned int)v12;
-    LODWORD(v13) = v12 & 0x7FFFFFFF;
-    v16 = 0;
-    v7 = *(volatile signed __int32 **)(KiProcessorBlock[v13] + 34888);
-    while ( _interlockedbittestandset64(v7, 0LL) )
-    {
-      do
-        KeYieldProcessorEx(&v16);
-      while ( *(_QWORD *)v7 );
-    }
-    if ( *(_BYTE *)(a1 + 388) != 1 || *(_DWORD *)(a1 + 536) != (_DWORD)v12 )
-    {
-      _InterlockedAnd64((volatile signed __int64 *)v7, 0LL);
-      continue;
-    }
-    break;
+LABEL_18:
+    KiReleaseThreadStateLock(v12, v15, v16);
+    KiReleaseThreadLockSafe(a1);
+    return 0;
   }
-LABEL_33:
-  switch ( v5 )
+  if ( v11 == 5 )
   {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-LABEL_41:
-      if ( v6 )
-        KiReleasePrcbLocksForIsolationUnit(&v17);
-      if ( v7 )
-        _InterlockedAnd64((volatile signed __int64 *)v7, 0LL);
-      *(_QWORD *)(a1 + 64) = 0LL;
-      return 0;
-    case 5:
-      if ( (unsigned int)KiIsKernelStackSwappable(a1, v4) && !*(_BYTE *)(a1 + 113) )
-        break;
-      goto LABEL_41;
-    case 7:
-    case 9:
-      goto LABEL_41;
+    if ( !(unsigned int)KiIsKernelStackSwappable(a1) )
+      goto LABEL_18;
+    LOBYTE(v12) = *(_BYTE *)(a1 + 113);
+    if ( (_BYTE)v12 )
+      goto LABEL_18;
+  }
+  else if ( v11 == 7 || v11 == 9 )
+  {
+    goto LABEL_18;
   }
   result = 1;
-  *a2 = v17;
+  *a2 = v15;
   return result;
 }

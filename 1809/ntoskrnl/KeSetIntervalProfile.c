@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetIntervalProfile @ 0x1406D6CE0
+ * XREFs of KeSetIntervalProfile @ 0x1406D6CC0
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C57B0 (EtwpEnableKernelTrace.c)
- *     NtSetIntervalProfile @ 0x1406D6C90 (NtSetIntervalProfile.c)
- *     EtwpCoverageSamplerStart @ 0x1408C8B70 (EtwpCoverageSamplerStart.c)
- *     KiInitializeCacheErrataSupport @ 0x1409F6D84 (KiInitializeCacheErrataSupport.c)
+ *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
+ *     NtSetIntervalProfile @ 0x1406D6C70 (NtSetIntervalProfile.c)
+ *     EtwpCoverageSamplerStart @ 0x1408C8B50 (EtwpCoverageSamplerStart.c)
+ *     KiInitializeCacheErrataSupport @ 0x1409F6D94 (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     KeGenericProcessorCallback @ 0x1400D8670 (KeGenericProcessorCallback.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiSanitizeProfileInterval @ 0x14029A588 (KiSanitizeProfileInterval.c)
- *     KeQueryIntervalProfile @ 0x1406D6C34 (KeQueryIntervalProfile.c)
+ *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiSanitizeProfileInterval @ 0x14029A688 (KiSanitizeProfileInterval.c)
+ *     KeQueryIntervalProfile @ 0x1406D6C14 (KeQueryIntervalProfile.c)
  */
 
 void __fastcall KeSetIntervalProfile(int a1, int a2)

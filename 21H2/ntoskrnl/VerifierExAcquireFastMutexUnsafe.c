@@ -1,16 +1,16 @@
 /*
- * XREFs of VerifierExAcquireFastMutexUnsafe @ 0x140A9C250
+ * XREFs of VerifierExAcquireFastMutexUnsafe @ 0x1409E4840
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     VerifierExAcquireFastMutexUnsafeNoReboot @ 0x1409E4880 (VerifierExAcquireFastMutexUnsafeNoReboot.c)
  */
 
-PVOID __fastcall VerifierExAcquireFastMutexUnsafe(LONG *a1)
+PVOID __fastcall VerifierExAcquireFastMutexUnsafe(ULONG_PTR a1)
 {
   PVOID retaddr; // [rsp+38h] [rbp+0h]
 
-  ((void (*)(void))pXdvExAcquireFastMutexUnsafe)();
+  VerifierExAcquireFastMutexUnsafeNoReboot(a1);
   return VfDeadlockAcquireResource(a1, 4, (__int64)KeGetCurrentThread(), 0, retaddr);
 }

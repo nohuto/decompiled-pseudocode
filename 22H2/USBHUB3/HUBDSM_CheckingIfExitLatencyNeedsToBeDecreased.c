@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfExitLatencyNeedsToBeDecreased @ 0x1C0024EA0
+ * XREFs of HUBDSM_CheckingIfExitLatencyNeedsToBeDecreased @ 0x1C00226C0
  * Callers:
  *     <none>
  * Callees:

@@ -5,14 +5,14 @@
  *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405902D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
  *     PiDqQueryAppendActionEntry @ 0x1405917B8 (PiDqQueryAppendActionEntry.c)
- *     PiDqIrpQueryGetResult @ 0x1406BE1FC (PiDqIrpQueryGetResult.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x1406F7500 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqQueryApplyObjectEvent @ 0x1406F7898 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqIrpQueryGetResult @ 0x1406BE1DC (PiDqIrpQueryGetResult.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1406F74E0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406F7878 (PiDqQueryApplyObjectEvent.c)
  * Callees:
  *     RtlIsGenericTableEmptyAvl @ 0x1400067C0 (RtlIsGenericTableEmptyAvl.c)
  *     PiDqQueryActionQueueEntryFree @ 0x1405913C4 (PiDqQueryActionQueueEntryFree.c)
  *     PiDqActionDataFree @ 0x1405915B4 (PiDqActionDataFree.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1406CC0D0 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1406CC0B0 (PiDqQueryDeleteObjectFromResultSet.c)
  */
 
 BOOLEAN __fastcall PiDqQueryFreeActiveData(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pquutttq_EtwWriteTransfer @ 0x1C004276C
+ * XREFs of McTemplateK0pquutttq_EtwWriteTransfer @ 0x1C003BA50
  * Callers:
- *     ?InvalidateDisplayModeListCacheOnSource@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C0195CBC (-InvalidateDisplayModeListCacheOnSource@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DIAGINFO@@@Z @ 0x1C02225D0 (-InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DI.c)
+ *     ?InvalidateDisplayModeListCacheOnSource@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00E5FF8 (-InvalidateDisplayModeListCacheOnSource@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DIAGINFO@@@Z @ 0x1C019B718 (-InvalidateActiveVidPnDisplayModeListCache@ADAPTER_DISPLAY@@QEAAXIQEBU_DMM_COMMITVIDPNREQUEST_DI.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pquutttq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

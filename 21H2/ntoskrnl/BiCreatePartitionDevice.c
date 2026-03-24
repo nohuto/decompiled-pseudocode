@@ -1,74 +1,74 @@
 /*
- * XREFs of BiCreatePartitionDevice @ 0x14080397C
+ * XREFs of BiCreatePartitionDevice @ 0x1407850C0
  * Callers:
- *     BiConvertNtDeviceToBootEnvironment @ 0x1408038B4 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140784FF8 (BiConvertNtDeviceToBootEnvironment.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x1408038B4 (BiConvertNtDeviceToBootEnvironment.c)
- *     BiGetPartitionInformation @ 0x140803C4C (BiGetPartitionInformation.c)
- *     BiGetPartitionVhdFilePath @ 0x140803D60 (BiGetPartitionVhdFilePath.c)
- *     BiGetDriveLayoutInformation @ 0x140803EC0 (BiGetDriveLayoutInformation.c)
- *     BiCreateFileDeviceElement @ 0x140A1DB40 (BiCreateFileDeviceElement.c)
- *     BiGetPhysicalDriveName @ 0x140A1DCEC (BiGetPhysicalDriveName.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140784FF8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiGetPartitionInformation @ 0x140785390 (BiGetPartitionInformation.c)
+ *     BiGetPartitionVhdFilePath @ 0x1407854A4 (BiGetPartitionVhdFilePath.c)
+ *     BiGetDriveLayoutInformation @ 0x14078560C (BiGetDriveLayoutInformation.c)
+ *     BiCreateFileDeviceElement @ 0x14096FBE0 (BiCreateFileDeviceElement.c)
+ *     BiGetPhysicalDriveName @ 0x14096FD8C (BiGetPhysicalDriveName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiCreatePartitionDevice(PCWSTR SourceString, int a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall BiCreatePartitionDevice(PCWSTR SourceString, int a2, _QWORD *a3, _DWORD *a4)
 {
-  int *v5; // r12
+  WCHAR *v5; // r15
   WCHAR *v6; // rsi
-  unsigned int v7; // r15d
+  unsigned int v7; // r13d
   const wchar_t *PartitionVhdFilePath; // rax
   int PhysicalDriveName; // ebx
   __int128 v10; // xmm6
-  unsigned int v11; // r15d
-  SIZE_T v12; // rdx
-  _OWORD *PoolWithTag; // rax
-  _OWORD *v14; // r14
+  unsigned int v11; // eax
+  size_t v12; // r13
+  SIZE_T v13; // rdx
+  _OWORD *PoolWithTag; // r14
   size_t v15; // r8
-  __int128 v16; // xmm1
-  int v17; // eax
+  int v16; // edx
+  __int128 v17; // xmm1
   __int128 v18; // xmm0
   _DWORD *v19; // rcx
   wchar_t *v21; // rax
   wchar_t *v22; // rbx
   void *v23; // rax
-  unsigned int Size_4; // [rsp+44h] [rbp-C4h]
-  void *Src; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-B8h]
-  PCWSTR SourceStringa; // [rsp+58h] [rbp-B0h]
-  int *v28; // [rsp+60h] [rbp-A8h]
-  HANDLE FileHandle; // [rsp+68h] [rbp-A0h] BYREF
-  _QWORD *v30; // [rsp+70h] [rbp-98h]
-  _QWORD ObjectAttributes[7]; // [rsp+78h] [rbp-90h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C0h] [rbp-48h] BYREF
-  _OWORD v34[14]; // [rsp+D8h] [rbp-30h] BYREF
+  unsigned int Size; // [rsp+38h] [rbp-D0h]
+  void *Src; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v26; // [rsp+58h] [rbp-B0h]
+  PCWSTR SourceStringa; // [rsp+60h] [rbp-A8h]
+  WCHAR *v28; // [rsp+68h] [rbp-A0h]
+  HANDLE FileHandle; // [rsp+70h] [rbp-98h] BYREF
+  _QWORD *v30; // [rsp+78h] [rbp-90h]
+  _DWORD *v31; // [rsp+80h] [rbp-88h]
+  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-70h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C8h] [rbp-40h] BYREF
+  _OWORD v35[14]; // [rsp+D8h] [rbp-30h] BYREF
 
   v30 = a3;
   LODWORD(v26) = a2;
-  ObjectAttributes[0] = a4;
-  memset(&ObjectAttributes[1], 0, 44);
+  v31 = a4;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IoStatusBlock = 0LL;
-  memset(v34, 0, 0x8CuLL);
+  memset(v35, 0, 216);
   FileHandle = 0LL;
   DestinationString = 0LL;
   Src = 0LL;
   v5 = 0LL;
   v28 = 0LL;
   v6 = 0LL;
+  Size = 0;
   v7 = 0;
-  Size_4 = 0;
   SourceStringa = 0LL;
-  memset(&v34[9], 0, 0x48uLL);
   if ( (int)BiGetDriveLayoutInformation(SourceString) < 0 )
   {
     PhysicalDriveName = BiGetPhysicalDriveName(SourceString);
@@ -108,9 +108,9 @@ __int64 __fastcall BiCreatePartitionDevice(PCWSTR SourceString, int a2, _QWORD *
       PhysicalDriveName = BiConvertNtDeviceToBootEnvironment(v28, 0, 0, &Src);
       if ( PhysicalDriveName < 0 )
         goto LABEL_20;
-      LODWORD(v34[11]) = 6;
+      LODWORD(v35[11]) = 6;
       v7 = *((_DWORD *)Src + 2);
-      Size_4 = v7;
+      Size = v7;
     }
   }
   if ( MEMORY[0] )
@@ -121,66 +121,60 @@ LABEL_45:
       PhysicalDriveName = -1073741811;
       goto LABEL_20;
     }
-    DWORD1(v34[11]) = 0;
-    *(_OWORD *)((char *)&v34[11] + 8) = MEMORY[8];
+    DWORD1(v35[11]) = 0;
+    *(_OWORD *)((char *)&v35[11] + 8) = MEMORY[8];
   }
   else
   {
-    DWORD2(v34[11]) = MEMORY[8];
-    DWORD1(v34[11]) = 1;
+    DWORD2(v35[11]) = MEMORY[8];
+    DWORD1(v35[11]) = 1;
   }
   RtlInitUnicodeString(&DestinationString, SourceString);
-  ObjectAttributes[3] = &DestinationString;
-  LODWORD(ObjectAttributes[1]) = 48;
-  ObjectAttributes[2] = 0LL;
-  LODWORD(ObjectAttributes[4]) = 576;
-  *(_OWORD *)&ObjectAttributes[5] = 0LL;
-  PhysicalDriveName = ZwOpenFile(
-                        &FileHandle,
-                        0x80100000,
-                        (POBJECT_ATTRIBUTES)&ObjectAttributes[1],
-                        &IoStatusBlock,
-                        3u,
-                        0x20u);
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  PhysicalDriveName = ZwOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 3u, 0x20u);
   if ( PhysicalDriveName >= 0 )
   {
     PhysicalDriveName = BiGetPartitionInformation(FileHandle);
     if ( PhysicalDriveName >= 0 )
     {
-      if ( !LODWORD(v34[0]) )
+      if ( !LODWORD(v35[0]) )
       {
-        *(_QWORD *)&v34[10] = *((_QWORD *)&v34[0] + 1);
-        v10 = v34[10];
+        *(_QWORD *)&v35[10] = *((_QWORD *)&v35[0] + 1);
+        v10 = v35[10];
 LABEL_10:
         v11 = v7 + 56;
-        v12 = 72LL;
-        if ( v11 > 0x48 )
-          v12 = v11;
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v12, 0x4B444342u);
-        v14 = PoolWithTag;
+        v12 = v11;
+        v13 = v11;
+        if ( v11 <= 0x48 )
+          v13 = 72LL;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v13, 0x4B444342u);
         if ( PoolWithTag )
         {
           v15 = 72LL;
-          if ( v11 > 0x48 )
-            v15 = v11;
+          if ( Size + 56 > 0x48 )
+            v15 = v12;
           memset(PoolWithTag, 0, v15);
-          v16 = v34[12];
-          v17 = 72;
-          LODWORD(v34[9]) = 6;
-          if ( v11 > 0x48 )
-            v17 = v11;
-          DWORD2(v34[9]) = v17;
-          *v14 = v34[9];
-          v18 = v34[11];
-          v14[1] = v10;
-          v14[2] = v18;
-          *(_QWORD *)&v18 = *(_QWORD *)&v34[13];
-          v14[3] = v16;
-          *((_QWORD *)v14 + 8) = v18;
+          v16 = 72;
+          v17 = v35[12];
+          LODWORD(v35[9]) = 6;
+          if ( Size + 56 > 0x48 )
+            v16 = Size + 56;
+          DWORD2(v35[9]) = v16;
+          *PoolWithTag = v35[9];
+          v18 = v35[11];
+          PoolWithTag[1] = v10;
+          PoolWithTag[2] = v18;
+          *(_QWORD *)&v18 = *(_QWORD *)&v35[13];
+          PoolWithTag[3] = v17;
+          *((_QWORD *)PoolWithTag + 8) = v18;
           if ( v6 )
-            memmove((char *)v14 + 56, Src, Size_4);
-          v19 = (_DWORD *)ObjectAttributes[0];
-          *v30 = v14;
+            memmove((char *)PoolWithTag + 56, Src, Size);
+          v19 = v31;
+          *v30 = PoolWithTag;
           *v19 = MEMORY[4];
         }
         else
@@ -189,9 +183,9 @@ LABEL_10:
         }
         goto LABEL_20;
       }
-      if ( LODWORD(v34[0]) == 1 )
+      if ( LODWORD(v35[0]) == 1 )
       {
-        v10 = v34[3];
+        v10 = v35[3];
         goto LABEL_10;
       }
       goto LABEL_45;

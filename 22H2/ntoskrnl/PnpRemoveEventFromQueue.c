@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRemoveEventFromQueue @ 0x140964658
+ * XREFs of PnpRemoveEventFromQueue @ 0x1408ABDFC
  * Callers:
- *     PnpQueueQueryAndRemoveEvent @ 0x14096E100 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F89C (PnpQueueQueryAndRemoveEvent.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRemoveEventFromQueue(PVOID P)
@@ -27,6 +27,6 @@ __int64 __fastcall PnpRemoveEventFromQueue(PVOID P)
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 16, 0xFFFFFFFF) == 1 )
       ExFreePoolWithTag(P, 0x4B706E50u);
   }
-  ExReleaseFastMutex((PFAST_MUTEX)(PnpDeviceEventList + 64));
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)(PnpDeviceEventList + 64));
   return v2;
 }

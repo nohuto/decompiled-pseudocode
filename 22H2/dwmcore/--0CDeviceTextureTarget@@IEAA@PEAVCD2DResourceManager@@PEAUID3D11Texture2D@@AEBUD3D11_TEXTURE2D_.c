@@ -1,18 +1,18 @@
 /*
- * XREFs of ??0CDeviceTextureTarget@@IEAA@PEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NI@Z @ 0x18003CC08
+ * XREFs of ??0CDeviceTextureTarget@@IEAA@PEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NI@Z @ 0x18003C73C
  * Callers:
- *     ?Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NPEAPEAVIDeviceTextureTarget@@@Z @ 0x18003CABC (-Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE.c)
- *     ?CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z @ 0x18029FC70 (-CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z.c)
+ *     ?Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NPEAPEAVIDeviceTextureTarget@@@Z @ 0x18003C95C (-Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE.c)
+ *     ?CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z @ 0x180251A90 (-CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z.c)
  * Callees:
- *     ??0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@I@Z @ 0x18003CF7C (--0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AE.c)
+ *     ??0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@I@Z @ 0x180039E88 (--0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AE.c)
  */
 
 __int64 __fastcall CDeviceTextureTarget::CDeviceTextureTarget(
         __int64 a1,
-        __int64 a2,
+        struct CD2DResourceManager *a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
+        _OWORD *a5,
         int a6,
         int a7,
         int a8,
@@ -36,7 +36,7 @@ __int64 __fastcall CDeviceTextureTarget::CDeviceTextureTarget(
   *(_QWORD *)(a1 + 368) = &CSecondaryD2DBitmap::`vbtable'{for `IDeviceSurface'};
   *(_QWORD *)(a1 + 392) = &CSecondaryD2DBitmap::`vbtable'{for `IDeviceTexture'};
   *(_QWORD *)(a1 + 416) = &CDeviceTextureTarget::`vbtable'{for `IDeviceTarget'};
-  CD2DBitmap::CD2DBitmap(a1, a2, 0LL, a3, a4, a5, a6, a7, a10, 0);
+  CD2DBitmap::CD2DBitmap(a1, a2, 0, a3, a4, a5, a6, a7, a10, 0);
   *(_QWORD *)a1 = &CDeviceTextureTarget::`vftable'{for `CD2DResource'};
   *(_QWORD *)(a1 + 80) = &CDeviceTextureTarget::`vftable'{for `ID2DBitmap'};
   *(_QWORD *)(a1 + 96) = &CDeviceTextureTarget::`vftable'{for `ID2DBitmapCacheSource'};

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceSPIBlockedByFiltering @ 0x1C016B7E0
+ * XREFs of EtwTraceSPIBlockedByFiltering @ 0x1C014C870
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C013C2EC (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125340 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall EtwTraceSPIBlockedByFiltering(__int64 a1, __int64 a2, __int64 a3)

@@ -1,18 +1,17 @@
 /*
- * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x140313390
+ * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x1402FD568
  * Callers:
- *     RtlpCSparseBitmapPageCommit @ 0x140313248 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x14035557C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x1402FC33C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402FD390 (RtlpCSparseBitmapPageCommit.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *__fastcall RtlCSparseBitmapEnterLockingRegion(_QWORD *a1, __int64 a2)
 {
-  unsigned __int8 CurrentIrql; // r9
+  unsigned __int8 CurrentIrql; // r11
   struct _KTHREAD *CurrentThread; // rax
-  _DWORD *SchedulerAssist; // r11
-  __int64 v6; // rax
+  _DWORD *SchedulerAssist; // r9
 
   *a1 = 0LL;
   a1[1] = a2;
@@ -23,10 +22,7 @@ _QWORD *__fastcall RtlCSparseBitmapEnterLockingRegion(_QWORD *a1, __int64 a2)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v6) = 4;
-      if ( CurrentIrql != 2 )
-        v6 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v6;
+      SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
     }
     *(_BYTE *)a1 = CurrentIrql;
   }

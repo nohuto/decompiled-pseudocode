@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiRemoveFontMemResourceEx @ 0x1C02AE410
+ * XREFs of NtGdiRemoveFontMemResourceEx @ 0x1C02AFD20
  * Callers:
  *     <none>
  * Callees:
- *     GreRemoveFontMemResourceEx @ 0x1C02890A8 (GreRemoveFontMemResourceEx.c)
+ *     GreRemoveFontMemResourceEx @ 0x1C028B458 (GreRemoveFontMemResourceEx.c)
  */
 
 __int64 __fastcall NtGdiRemoveFontMemResourceEx(__int64 a1)

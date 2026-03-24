@@ -1,116 +1,81 @@
 /*
- * XREFs of ScsiSanitizeRequest @ 0x1C001A864
+ * XREFs of ScsiSanitizeRequest @ 0x1C0016E54
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetNamespaceId @ 0x1C0007BE0 (GetNamespaceId.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall ScsiSanitizeRequest(__int64 a1, __int64 a2)
 {
-  __int64 SrbExtension; // rsi
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // r10
+  __int64 v3; // r8
+  __int64 v4; // r9
+  __int64 v5; // r10
+  __int64 SrbExtension; // r14
   __int64 v7; // rdx
-  unsigned __int8 v8; // al
-  unsigned int v9; // ebx
-  __int64 v10; // r12
-  int v11; // edi
-  char v12; // cl
-  int v13; // eax
-  unsigned int v14; // ecx
-  unsigned int v15; // ecx
-  unsigned int v16; // ebx
-  int v17; // r13d
-  int v18; // r14d
+  unsigned __int8 v8; // cl
+  __int64 v9; // rbp
+  char v10; // cl
+  char v11; // cl
+  int v12; // r15d
+  int v13; // edi
   int NamespaceId; // eax
-  __int16 v20; // dx
-  __int64 v21; // rcx
-  int v22; // eax
-  int v23; // ecx
-  unsigned int v24; // eax
+  __int16 v15; // dx
+  __int64 v16; // rcx
+  int v17; // eax
+  int v18; // ecx
+  unsigned int v19; // eax
 
   SrbExtension = GetSrbExtension(a2);
-  v7 = *(_QWORD *)(a1 + 1840);
-  if ( *(_BYTE *)(v6 + 2) == 40 )
+  v7 = *(_QWORD *)(a1 + 1624);
+  if ( *(_BYTE *)(v5 + 2) == 40 )
   {
-    v4 = *(unsigned int *)(v6 + 52);
-    v8 = *(_BYTE *)(v4 + v6 + 10);
+    v4 = *(unsigned int *)(v5 + 52);
+    v8 = *(_BYTE *)(v4 + v5 + 10);
   }
   else
   {
-    v8 = *(_BYTE *)(v6 + 7);
+    v8 = *(_BYTE *)(v5 + 7);
   }
-  v9 = *(unsigned __int8 *)(v5 + 1);
-  v10 = v8;
-  if ( (v9 & 0x80u) == 0 )
+  v9 = v8;
+  v10 = *(_BYTE *)(v3 + 1);
+  if ( v10 < 0
+    || (v11 = v10 & 0x1F, v3 = 1LL, (unsigned __int8)(v11 - 2) > 1u)
+    || (*(_BYTE *)(v7 + 256) & 2) == 0
+    || *(_DWORD *)(a1 + 196) > 1u && (*(_BYTE *)(v7 + 524) & 2) != 0
+    || v11 == 3 && (*(_BYTE *)(v7 + 524) & 4) == 0 )
   {
-    v11 = 2;
-    v12 = v9 & 0x1F;
-    v4 = 1LL;
-    if ( (unsigned __int8)((v9 & 0x1F) - 2) <= 1u )
-    {
-      v13 = *(_DWORD *)(v7 + 328);
-      if ( (v13 & 2) != 0 && v12 == 2 )
-        goto LABEL_12;
-      if ( (v13 & 1) != 0 && v12 == 3 && (*(_DWORD *)(a1 + 64) & 0x80000) == 0 )
-      {
-        v11 = 4;
-LABEL_12:
-        *(_BYTE *)(SrbExtension + 4253) = *(_BYTE *)(SrbExtension + 4253) & 0xFC | 1;
-        SrbAssignQueueId(a1, v6);
-        v14 = v11 | *(_DWORD *)(SrbExtension + 4136) & 0xFFFFFFF8;
-        *(_BYTE *)(SrbExtension + 4096) = -124;
-        v15 = (v9 >> 2) & 8 | v14 & 0xFFFFFC07;
-        v16 = 0;
-        *(_QWORD *)(SrbExtension + 4136) = v15;
-        *(_QWORD *)(SrbExtension + 4224) = NVMeSanitizeCommandCompletion;
-        return v16;
-      }
-      if ( (*(_BYTE *)(v7 + 256) & 2) == 0 )
-      {
-        LOBYTE(v5) = 36;
-        LOBYTE(v4) = 5;
-        LOBYTE(v7) = 6;
-        NVMeSetSenseData(v6, v7, v4, v5);
-        return (unsigned int)-1056964602;
-      }
-      if ( v12 != 31
-        && (*(_DWORD *)(a1 + 220) <= 1u || (*(_BYTE *)(v7 + 524) & 2) == 0)
-        && (v12 != 3 || (*(_BYTE *)(v7 + 524) & 4) != 0) )
-      {
-        v16 = 0;
-        v17 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 8 * v10 + 1952) + 64LL);
-        if ( v12 == 3 )
-          v18 = 2;
-        else
-          v18 = v12 == 2;
-        *(_BYTE *)(SrbExtension + 4253) = *(_BYTE *)(SrbExtension + 4253) & 0xFC | 1;
-        SrbAssignQueueId(a1, v6);
-        NamespaceId = GetNamespaceId(a1, v10);
-        v20 = *(_WORD *)(*(_QWORD *)(a1 + 8 * v10 + 1952) + 48LL);
-        v21 = *(_QWORD *)(a1 + 1840);
-        *(_BYTE *)(SrbExtension + 4096) = 0x80;
-        if ( (*(_BYTE *)(v21 + 524) & 2) != 0 )
-          NamespaceId = -1;
-        *(_DWORD *)(SrbExtension + 4100) = NamespaceId;
-        v22 = *(_DWORD *)(SrbExtension + 4136) ^ (*(_DWORD *)(SrbExtension + 4136) ^ v17) & 0xF;
-        v23 = v22 | 0x10;
-        v24 = v22 & 0xFFFFFFEF;
-        if ( v20 )
-          v23 = v24;
-        *(_DWORD *)(SrbExtension + 4136) = (v18 << 9) | v23 & 0xFFFFF01F;
-        return v16;
-      }
-    }
+    LOBYTE(v4) = 36;
+    LOBYTE(v3) = 5;
+    LOBYTE(v7) = 6;
+    NVMeSetSenseData(v5, v7, v3, v4);
+    return 3238002694LL;
   }
-  LOBYTE(v5) = 36;
-  LOBYTE(v4) = 5;
-  LOBYTE(v7) = 6;
-  NVMeSetSenseData(v6, v7, v4, v5);
-  return 3238002694LL;
+  else
+  {
+    v12 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 8 * v9 + 1736) + 64LL);
+    if ( v11 == 3 )
+      v13 = 2;
+    else
+      v13 = v11 == 2;
+    *(_BYTE *)(SrbExtension + 4253) = *(_BYTE *)(SrbExtension + 4253) & 0xFC | 1;
+    SrbAssignQueueId(a1, v5);
+    NamespaceId = GetNamespaceId(a1, v9);
+    v15 = *(_WORD *)(*(_QWORD *)(a1 + 8 * v9 + 1736) + 48LL);
+    v16 = *(_QWORD *)(a1 + 1624);
+    *(_BYTE *)(SrbExtension + 4096) = 0x80;
+    if ( (*(_BYTE *)(v16 + 524) & 2) != 0 )
+      NamespaceId = -1;
+    *(_DWORD *)(SrbExtension + 4100) = NamespaceId;
+    v17 = *(_DWORD *)(SrbExtension + 4136) ^ (*(_DWORD *)(SrbExtension + 4136) ^ v12) & 0xF;
+    v18 = v17 | 0x10;
+    v19 = v17 & 0xFFFFFFEF;
+    if ( v15 )
+      v18 = v19;
+    *(_DWORD *)(SrbExtension + 4136) = (v13 << 9) | v18 & 0xFFFFF01F;
+    return 0LL;
+  }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CLegacyAnimationTrigger@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1470
+ * XREFs of ?IsOfType@CLegacyAnimationTrigger@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001FF30
  * Callers:
  *     <none>
  * Callees:

@@ -1,29 +1,26 @@
 /*
- * XREFs of ?Free@SURFACE@@SAXPEAV1@@Z @ 0x1C016BB6C
+ * XREFs of ?Free@SURFACE@@SAXPEAV1@@Z @ 0x1C002A450
  * Callers:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C001A590 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000CA70 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00267F0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$FreeIsolatedType@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C016B8A0 (--$FreeIsolatedType@V-$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z.c)
- *     ?ReleaseReferenceCountedObjectHandle@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0179828 (-ReleaseReferenceCountedObjectHandle@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ??$FreeIsolatedType@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C002A4A0 (--$FreeIsolatedType@V-$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?ReleaseReferenceCountedObjectHandle@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C014D87C (-ReleaseReferenceCountedObjectHandle@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
  */
 
-void __fastcall SURFACE::Free(PSLIST_ENTRY ListEntry, __int64 a2, __int64 a3)
+void __fastcall SURFACE::Free(PSLIST_ENTRY ListEntry)
 {
-  __int64 v3; // rdx
-  char *v5; // rdx
+  __int64 v2; // rcx
 
-  v3 = *((_QWORD *)&ListEntry[42].Next + 1);
-  if ( v3 )
-    ReleaseReferenceCountedObjectHandle(0LL, v3, a3);
+  if ( *((_QWORD *)&ListEntry[42].Next + 1) )
+    ReleaseReferenceCountedObjectHandle(0LL);
   if ( LOBYTE(ListEntry[43].Next) )
   {
-    v5 = (char *)*((_QWORD *)&ListEntry[4].Next + 1);
-    if ( v5 )
+    v2 = *((_QWORD *)&ListEntry[4].Next + 1);
+    if ( v2 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v5);
+      Win32FreePool(v2);
       *((_QWORD *)&ListEntry[4].Next + 1) = 0LL;
     }
   }

@@ -1,183 +1,191 @@
 /*
- * XREFs of rimStorePointersInHoldingFrame @ 0x1C01A11E0
+ * XREFs of rimStorePointersInHoldingFrame @ 0x1C01729D8
  * Callers:
- *     RIMCompletePointerDeviceFrame @ 0x1C019F844 (RIMCompletePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C0171424 (RIMCompletePointerDeviceFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C000A528 (WPP_RECORDER_AND_TRACE_SF_dd.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     rimAllocPointerInfoNodeList @ 0x1C00E1868 (rimAllocPointerInfoNodeList.c)
- *     rimFindHoldingFrame @ 0x1C00E1BCA (rimFindHoldingFrame.c)
- *     RIMCmActiveContactsEnd @ 0x1C00E3530 (RIMCmActiveContactsEnd.c)
- *     RIMCmGetButtonContact @ 0x1C00E358C (RIMCmGetButtonContact.c)
- *     RIMCmActiveContactsBeginNoButton @ 0x1C01AFE08 (RIMCmActiveContactsBeginNoButton.c)
- *     RIMCmActiveContactsNext @ 0x1C01AFE8C (RIMCmActiveContactsNext.c)
+ *     rimFindHoldingFrame @ 0x1C0008348 (rimFindHoldingFrame.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C013732C (WPP_RECORDER_SF_Dd.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C017FBB8 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FC4C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FCBC (RIMCmActiveContactsNext.c)
+ *     RIMCmGetButtonContact @ 0x1C01802CC (RIMCmGetButtonContact.c)
  */
 
 __int64 __fastcall rimStorePointersInHoldingFrame(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 v4; // r15
-  unsigned __int64 v7; // rdx
-  __int64 v8; // rcx
+  __int64 v6; // rdi
+  int v7; // edx
   _QWORD *HoldingFrame; // rbx
-  int v10; // r8d
-  __int64 v11; // rax
-  int v12; // edx
-  int v13; // r8d
+  unsigned int v9; // ecx
+  void *v10; // rax
   __int64 ButtonContact; // rsi
-  _OWORD *v16; // rax
-  char v17; // dl
+  int v13; // ecx
+  _OWORD *v14; // rax
+  _OWORD *v15; // rax
   __int64 active; // rax
-  __int64 v19; // xmm1_8
-  __int64 v20; // rsi
-  _OWORD *v21; // r14
-  _OWORD *v22; // rdx
-  int v23; // [rsp+50h] [rbp-19h]
-  __int128 v24; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-1h]
-  __int64 v26; // [rsp+70h] [rbp+7h] BYREF
-  int v27; // [rsp+78h] [rbp+Fh]
-  __int64 v28; // [rsp+80h] [rbp+17h]
+  __int64 v17; // xmm1_8
+  __int64 v18; // rax
+  __int64 v19; // rdi
+  __int128 v20; // xmm1
+  __int64 v21; // xmm0_8
+  __int64 v22; // rax
+  int v23; // eax
+  _OWORD *v24; // rsi
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  _OWORD *v27; // rax
+  _OWORD *v28; // rsi
+  __int128 v29; // [rsp+48h] [rbp-21h] BYREF
+  __int64 v30; // [rsp+58h] [rbp-11h]
+  __int128 v31; // [rsp+60h] [rbp-9h] BYREF
+  __int64 v32; // [rsp+70h] [rbp+7h]
+  _BYTE v33[72]; // [rsp+78h] [rbp+Fh] BYREF
 
-  v4 = *(_QWORD *)(a2 + 472);
+  v4 = *(_QWORD *)(a2 + 480);
+  v6 = a3;
   HoldingFrame = rimFindHoldingFrame(a1, a2);
-  if ( !v10 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 639);
+  if ( !(_DWORD)v6 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 646);
   if ( !HoldingFrame )
     return 0LL;
   if ( !*((_DWORD *)HoldingFrame + 4) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 646);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 653);
   if ( *((_DWORD *)HoldingFrame + 11) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 647);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 654);
   if ( *((_DWORD *)HoldingFrame + 10) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 648);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 655);
   if ( HoldingFrame[9] )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 649);
-  v11 = rimAllocPointerInfoNodeList(v8, v7, a3);
-  HoldingFrame[9] = v11;
-  if ( !v11 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 656);
+  if ( (_DWORD)v6 && (v9 = 192 * v6, (unsigned __int64)(192 * v6) <= 0xFFFFFFFF) && v9 )
+    v10 = Win32AllocPoolZInit(v9, 1701868370LL);
+  else
+    v10 = 0LL;
+  HoldingFrame[9] = v10;
+  if ( !v10 )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v12) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v12) = 0;
-    }
-    if ( (_BYTE)v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v12,
-        v13,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        46,
-        (__int64)&WPP_fa356a5d835a35169fe137386a876b0b_Traceguids);
+      LOBYTE(v7) = 4;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v7, 1, 47, (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
     }
     return 0LL;
   }
-  *((_DWORD *)HoldingFrame + 10) = a3;
+  *((_DWORD *)HoldingFrame + 10) = v6;
   if ( *((_DWORD *)HoldingFrame + 11) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 660);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 667);
   if ( a4 )
   {
     ButtonContact = RIMCmGetButtonContact(v4);
-    if ( (*(_DWORD *)(ButtonContact + 32) & 2) == 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 666);
-    if ( (*(_DWORD *)(ButtonContact + 32) & 4) == 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 667);
-    if ( (*(_DWORD *)(ButtonContact + 2444) & 0x2000) != 0 )
+    v13 = *(_DWORD *)(ButtonContact + 32);
+    if ( (v13 & 2) == 0 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 673);
+      v13 = *(_DWORD *)(ButtonContact + 32);
+    }
+    if ( (v13 & 4) == 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 674);
+    if ( (*(_DWORD *)(ButtonContact + 2420) & 0x2000) != 0 )
     {
       if ( HoldingFrame[10] )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 670);
-      HoldingFrame[10] = HoldingFrame[9];
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 677);
+      v14 = (_OWORD *)HoldingFrame[9];
+      HoldingFrame[10] = v14;
     }
-    v16 = (_OWORD *)HoldingFrame[9];
-    *v16 = *(_OWORD *)(ButtonContact + 2416);
-    v16[1] = *(_OWORD *)(ButtonContact + 2432);
-    v16[2] = *(_OWORD *)(ButtonContact + 2448);
-    v16[3] = *(_OWORD *)(ButtonContact + 2464);
-    v16[4] = *(_OWORD *)(ButtonContact + 2480);
-    v16[5] = *(_OWORD *)(ButtonContact + 2496);
-    v16[6] = *(_OWORD *)(ButtonContact + 2512);
-    v16 += 8;
-    *(v16 - 1) = *(_OWORD *)(ButtonContact + 2528);
-    *v16 = *(_OWORD *)(ButtonContact + 2544);
-    v16[1] = *(_OWORD *)(ButtonContact + 2560);
-    v16[2] = *(_OWORD *)(ButtonContact + 2576);
-    v16[3] = *(_OWORD *)(ButtonContact + 2592);
+    else
+    {
+      v14 = (_OWORD *)HoldingFrame[9];
+    }
+    *v14 = *(_OWORD *)(ButtonContact + 2392);
+    v14[1] = *(_OWORD *)(ButtonContact + 2408);
+    v14[2] = *(_OWORD *)(ButtonContact + 2424);
+    v14[3] = *(_OWORD *)(ButtonContact + 2440);
+    v14[4] = *(_OWORD *)(ButtonContact + 2456);
+    v14[5] = *(_OWORD *)(ButtonContact + 2472);
+    v14[6] = *(_OWORD *)(ButtonContact + 2488);
+    v15 = v14 + 8;
+    *(v15 - 1) = *(_OWORD *)(ButtonContact + 2504);
+    *v15 = *(_OWORD *)(ButtonContact + 2520);
+    v15[1] = *(_OWORD *)(ButtonContact + 2536);
+    v15[2] = *(_OWORD *)(ButtonContact + 2552);
+    v15[3] = *(_OWORD *)(ButtonContact + 2568);
     *((_DWORD *)HoldingFrame + 11) = 1;
   }
   else
   {
-    active = RIMCmActiveContactsBeginNoButton(&v26, v4);
-    v19 = *(_QWORD *)(active + 16);
-    v24 = *(_OWORD *)active;
-    v25 = v19;
+    active = RIMCmActiveContactsBeginNoButton(&v31, v4);
+    v17 = *(_QWORD *)(active + 16);
+    v29 = *(_OWORD *)active;
+    v30 = v17;
     while ( 1 )
     {
-      RIMCmActiveContactsEnd((__int64)&v26, v4);
-      v20 = v25;
-      if ( (_QWORD)v24 == v26 && DWORD2(v24) == v27 && v25 == v28 )
+      v18 = RIMCmActiveContactsEnd(v33, v4);
+      v19 = v30;
+      v20 = *(_OWORD *)v18;
+      v21 = *(_QWORD *)(v18 + 16);
+      v22 = *(_QWORD *)v18;
+      v32 = v21;
+      v31 = v20;
+      if ( (_QWORD)v29 == v22 && DWORD2(v29) == DWORD2(v31) && v30 == v32 )
         break;
-      v21 = (_OWORD *)(v25 + 2400);
-      if ( (*(_DWORD *)(v25 + 16) & 2) == 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 685);
-      if ( (*(_DWORD *)(v20 + 16) & 4) != 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 686);
-      if ( (*(_DWORD *)(v20 + 2348) & 1) != 0 )
+      v23 = *(_DWORD *)(v30 + 16);
+      v24 = (_OWORD *)(v30 + 2376);
+      if ( (v23 & 2) == 0 )
       {
-        if ( (*(_DWORD *)(v20 + 2428) & 0x2000) != 0 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 692);
+        v23 = *(_DWORD *)(v19 + 16);
+      }
+      if ( (v23 & 4) != 0 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 693);
+      if ( (*(_DWORD *)(v19 + 2324) & 1) != 0 )
+      {
+        if ( (*(_DWORD *)(v19 + 2404) & 0x2000) != 0 )
         {
           if ( HoldingFrame[10] )
-          {
-            v23 = 0x20000;
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 699);
-          }
-          HoldingFrame[10] = HoldingFrame[9] + 192LL * *((unsigned int *)HoldingFrame + 11);
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 706);
+          v25 = *((unsigned int *)HoldingFrame + 11);
+          v26 = HoldingFrame[9];
+          HoldingFrame[10] = v26 + 192 * v25;
         }
-        v22 = (_OWORD *)(HoldingFrame[9] + 192LL * *((unsigned int *)HoldingFrame + 11));
-        *v22 = *v21;
-        v22[1] = *(_OWORD *)(v20 + 2416);
-        v22[2] = *(_OWORD *)(v20 + 2432);
-        v22[3] = *(_OWORD *)(v20 + 2448);
-        v22[4] = *(_OWORD *)(v20 + 2464);
-        v22[5] = *(_OWORD *)(v20 + 2480);
-        v22[6] = *(_OWORD *)(v20 + 2496);
-        v22 += 8;
-        *(v22 - 1) = *(_OWORD *)(v20 + 2512);
-        *v22 = *(_OWORD *)(v20 + 2528);
-        v22[1] = *(_OWORD *)(v20 + 2544);
-        v22[2] = *(_OWORD *)(v20 + 2560);
-        v22[3] = *(_OWORD *)(v20 + 2576);
+        else
+        {
+          LODWORD(v25) = *((_DWORD *)HoldingFrame + 11);
+          v26 = HoldingFrame[9];
+        }
+        v27 = (_OWORD *)(v26 + 192LL * (unsigned int)v25);
+        *v27 = *v24;
+        v27[1] = *(_OWORD *)(v19 + 2392);
+        v27[2] = *(_OWORD *)(v19 + 2408);
+        v27[3] = *(_OWORD *)(v19 + 2424);
+        v27[4] = *(_OWORD *)(v19 + 2440);
+        v27[5] = *(_OWORD *)(v19 + 2456);
+        v27[6] = *(_OWORD *)(v19 + 2472);
+        v27 += 8;
+        v28 = v24 + 8;
+        *(v27 - 1) = *(_OWORD *)(v19 + 2488);
+        *v27 = *v28;
+        v27[1] = v28[1];
+        v27[2] = v28[2];
+        v27[3] = v28[3];
         ++*((_DWORD *)HoldingFrame + 11);
       }
-      RIMCmActiveContactsNext(v4, &v24);
+      RIMCmActiveContactsNext(v4, &v29);
     }
   }
   if ( *((_DWORD *)HoldingFrame + 11) != *((_DWORD *)HoldingFrame + 10) )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (v17 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      v17 = 0;
-    }
-    if ( v17 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_dd(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v17,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_Dd(
         (__int64)gRimLog,
         4u,
         1u,
-        0x2Fu,
-        (__int64)&WPP_fa356a5d835a35169fe137386a876b0b_Traceguids,
+        0x30u,
+        (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids,
         *((_DWORD *)HoldingFrame + 11),
-        *((_DWORD *)HoldingFrame + 10),
-        v23);
+        *((_DWORD *)HoldingFrame + 10));
     return 0LL;
   }
   return 1LL;

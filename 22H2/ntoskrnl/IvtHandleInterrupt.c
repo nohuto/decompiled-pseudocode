@@ -1,72 +1,111 @@
 /*
- * XREFs of IvtHandleInterrupt @ 0x14052CEB0
+ * XREFs of IvtHandleInterrupt @ 0x1404DFF80
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuGetNextTranslatedDevice @ 0x14040F308 (HalpIommuGetNextTranslatedDevice.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140329D48 (KxTryToAcquireSpinLock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-char __fastcall IvtHandleInterrupt(ULONG_PTR BugCheckParameter2)
+char __fastcall IvtHandleInterrupt(__int64 a1)
 {
   char v1; // r11
-  __int64 v3; // r9
-  ULONG_PTR v4; // rcx
-  unsigned int v5; // edi
-  unsigned int v6; // r10d
+  __int64 v3; // rdx
+  int v4; // eax
+  int v5; // ecx
+  unsigned int v6; // r9d
   __int64 v7; // r8
-  __int64 v8; // rdx
-  ULONG_PTR v9; // r14
-  ULONG_PTR BugCheckParameter4; // rsi
-  signed __int32 v12[8]; // [rsp+0h] [rbp-30h] BYREF
+  unsigned int v8; // r10d
+  __int64 v9; // rdi
+  ULONG_PTR v10; // rbp
+  ULONG_PTR BugCheckParameter4; // r14
+  __int64 v12; // r15
+  ULONG_PTR v14; // rdi
+  char v15; // si
+  __int64 *v16; // rcx
+  __int64 v17; // rdx
+  signed __int32 v18[8]; // [rsp+0h] [rbp-58h] BYREF
 
   v1 = 0;
-  v3 = *(_QWORD *)(BugCheckParameter2 + 8);
-  if ( *(_BYTE *)(BugCheckParameter2 + 316) && (*(_DWORD *)(v3 + 220) & 1) != 0 )
+  v3 = *(_QWORD *)(a1 + 8);
+  if ( *(_BYTE *)(a1 + 268) )
   {
-    v1 = 1;
-    *(_DWORD *)(v3 + 220) = 1;
-    _InterlockedOr(v12, 0);
+    v4 = *(_DWORD *)(v3 + 220);
+    if ( (v4 & 1) != 0 )
+    {
+      v1 = 1;
+      *(_DWORD *)(v3 + 220) = v4;
+      _InterlockedOr(v18, 0);
+    }
   }
-  v4 = *(unsigned int *)(v3 + 52);
-  if ( *(_BYTE *)(BugCheckParameter2 + 320) && (v4 & 0x71) != 0 )
-    KeBugCheckEx(
-      0x5Cu,
-      0x502uLL,
-      BugCheckParameter2,
-      v4,
-      *(_QWORD *)(v3
-                + 16
-                * (((*(_QWORD *)(BugCheckParameter2 + 216) >> 24) & 0x3FFLL)
-                 + BYTE1(v4) % ((unsigned int)*(unsigned __int8 *)(BugCheckParameter2 + 221) + 1))));
-  if ( (v4 & 2) != 0 && (_DWORD)v4 != -1 )
+  v5 = *(_DWORD *)(v3 + 52);
+  if ( (v5 & 2) != 0 && v5 != -1 )
   {
-    v5 = *(unsigned __int8 *)(BugCheckParameter2 + 221) + 1;
     v6 = 0;
-    v7 = v3 + 16 * ((*(_QWORD *)(BugCheckParameter2 + 216) >> 24) & 0x3FFLL);
-    if ( *(unsigned __int8 *)(BugCheckParameter2 + 221) != -1 )
+    v7 = v3 + 16 * ((*(_QWORD *)(a1 + 176) >> 24) & 0x3FFLL);
+    v8 = *(unsigned __int8 *)(a1 + 181) + 1;
+    if ( *(unsigned __int8 *)(a1 + 181) != -1 )
     {
       do
       {
-        v8 = *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v4)) % v5) + 8);
-        if ( v8 >= 0 )
+        v9 = *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v5)) % v8) + 8);
+        if ( v9 >= 0 )
           break;
-        v9 = *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v4)) % v5)) >> 12;
-        BugCheckParameter4 = BYTE4(v8);
-        if ( (unsigned int)BYTE4(v8) - 32 > 8 || *(_BYTE *)(BugCheckParameter2 + 320) && BYTE4(v8) != 37 )
+        v10 = *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v5)) % v8)) >> 12;
+        BugCheckParameter4 = BYTE4(v9);
+        v12 = (unsigned __int16)v9;
+        if ( (unsigned int)BYTE4(v9) - 32 > 8 )
         {
-          if ( (int)HalpIommuGetNextTranslatedDevice() >= 0 )
-            HalpIommuGetNextTranslatedDevice();
-          KeBugCheckEx(0xE6u, 0x26uLL, 0LL, v9, BugCheckParameter4);
+          v14 = 0LL;
+          v15 = 0;
+          v16 = 0LL;
+          while ( 1 )
+          {
+            if ( !v16 )
+            {
+              if ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&HalpDmaAdapterListLock) )
+              {
+                if ( v15 )
+LABEL_28:
+                  KxReleaseSpinLock(&HalpDmaAdapterListLock);
+                KeBugCheckEx(0xE6u, 0x26uLL, v14, v10, BugCheckParameter4);
+              }
+              v16 = &HalpDmaAdapterList;
+            }
+            v16 = (__int64 *)*v16;
+            if ( v16 == &HalpDmaAdapterList )
+            {
+              v16 = 0LL;
+              v17 = 0LL;
+              v14 = 0LL;
+            }
+            else
+            {
+              v17 = v16[9];
+              v14 = v16[8];
+            }
+            v15 = 1;
+            if ( !v14
+              || v17
+              && *(_DWORD *)v17 == 1
+              && *(unsigned __int16 *)(v17 + 12) == v12
+              && *(unsigned __int16 *)(v17 + 8) == *(_DWORD *)(a1 + 212) )
+            {
+              goto LABEL_28;
+            }
+          }
         }
-        *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v4)) % v5) + 8) = v8;
-        _InterlockedOr(v12, 0);
+        *(_QWORD *)(v7 + 16LL * ((v6 + BYTE1(v5)) % v8) + 8) = v9;
+        _InterlockedOr(v18, 0);
         ++v6;
       }
-      while ( v6 < v5 );
+      while ( v6 < v8 );
     }
-    *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) + 52LL) = v4 | 1;
-    _InterlockedOr(v12, 0);
+    if ( *(_BYTE *)(a1 + 268) )
+      v5 &= ~0x80u;
+    *(_DWORD *)(*(_QWORD *)(a1 + 8) + 52LL) = v5 | 1;
+    _InterlockedOr(v18, 0);
   }
   return v1;
 }

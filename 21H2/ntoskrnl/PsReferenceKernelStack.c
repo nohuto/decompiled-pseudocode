@@ -1,5 +1,5 @@
 /*
- * XREFs of PsReferenceKernelStack @ 0x1406EB690
+ * XREFs of PsReferenceKernelStack @ 0x1406C3870
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall PsReferenceKernelStack(__int64 a1)
 {
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 1452));
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 1372));
 }

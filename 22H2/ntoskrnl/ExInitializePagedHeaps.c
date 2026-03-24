@@ -1,92 +1,86 @@
 /*
- * XREFs of ExInitializePagedHeaps @ 0x140397374
+ * XREFs of ExInitializePagedHeaps @ 0x1403C3790
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     ExCreateHeap @ 0x14039761C (ExCreateHeap.c)
- *     RtlpDynamicLookasideInitialize @ 0x140398640 (RtlpDynamicLookasideInitialize.c)
+ *     ExCreateHeap @ 0x14039D048 (ExCreateHeap.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1403C3930 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 ExInitializePagedHeaps()
 {
-  int v0; // esi
+  unsigned int v0; // esi
   __int64 v1; // r14
-  int v2; // ecx
+  __int64 result; // rax
   __int64 v3; // rdi
   __int64 v4; // rax
   __int64 v5; // rax
   __int128 v6; // xmm1
   __int64 v7; // rax
-  __int64 result; // rax
-  __int128 v9; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v10; // [rsp+50h] [rbp+20h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+20h] BYREF
 
-  v10 = 0LL;
+  v9 = 0LL;
   v0 = 0;
-  if ( dword_140C74AA0 )
+  if ( dword_140C58090 )
   {
     while ( 1 )
     {
-      v9 = 0LL;
-      BYTE2(v9) = v0;
-      LOBYTE(v9) = 2;
-      v1 = 1048LL * (unsigned int)v0;
-      v2 = ExCreateHeap(&v9, 0LL, &v10);
-      if ( v2 < 0 )
+      v8 = 0LL;
+      BYTE2(v8) = v0;
+      LOBYTE(v8) = 2;
+      v1 = 8384LL * v0;
+      result = ExCreateHeap(&v8, 0LL, &v9);
+      if ( (int)result < 0 )
         break;
-      v3 = v10;
-      if ( PoolForceFullDecommit )
-      {
-        *(_DWORD *)(v10 + 880) |= 2u;
-        *(_BYTE *)(v3 + 333) |= 8u;
-        *(_BYTE *)(v3 + 525) |= 8u;
-      }
-      ExPoolState[v1 + 1826].Value = v3;
-      RtlpDynamicLookasideInitialize(&ExPoolState[v1 + 1832]);
-      *(_QWORD *)(v3 + 40) = &ExPoolState[v1 + 1832];
-      v9 = 0LL;
-      BYTE2(v9) = v0;
-      LOBYTE(v9) = 10;
-      v2 = ExCreateHeap(&v9, 0LL, &v10);
-      if ( v2 < 0 )
+      v3 = v9;
+      *(_QWORD *)((char *)&ExPoolState + v1 + 14608) = v9;
+      RtlpDynamicLookasideInitialize((char *)&ExPoolState + v1 + 14656);
+      *(_QWORD *)(v3 + 40) = (char *)&ExPoolState + v1 + 14656;
+      v8 = 0LL;
+      BYTE2(v8) = v0;
+      LOBYTE(v8) = 10;
+      result = ExCreateHeap(&v8, 0LL, &v9);
+      if ( (int)result < 0 )
         break;
-      v4 = v10;
+      v4 = v9;
       ++v0;
-      ExPoolState[v1 + 1827].Value = v10;
-      *(_DWORD *)(v4 + 880) |= 2u;
-      *(_BYTE *)(v4 + 333) |= 8u;
-      *(_BYTE *)(v4 + 525) |= 8u;
-      if ( v0 >= (unsigned int)dword_140C74AA0 )
-        goto LABEL_7;
+      *(_QWORD *)((char *)&ExPoolState + v1 + 14616) = v9;
+      *(_DWORD *)(v4 + 816) |= 2u;
+      *(_BYTE *)(v4 + 269) |= 8u;
+      *(_BYTE *)(v4 + 461) |= 8u;
+      if ( v0 >= dword_140C58090 )
+        goto LABEL_5;
     }
   }
   else
   {
-LABEL_7:
-    v9 = 0LL;
-    LOBYTE(v9) = 2;
-    v2 = ExCreateHeap(&v9, 0LL, &v10);
-    if ( v2 >= 0 )
+LABEL_5:
+    v8 = 0LL;
+    LOBYTE(v8) = 2;
+    result = ExCreateHeap(&v8, 0LL, &v9);
+    if ( (int)result >= 0 )
     {
-      v5 = v10;
-      v9 = 0LL;
-      LOBYTE(v9) = 10;
-      v6 = v9;
-      *(_DWORD *)(v10 + 880) |= 2u;
-      *(_BYTE *)(v5 + 333) |= 8u;
-      *(_BYTE *)(v5 + 525) |= 8u;
-      qword_140CF7AD0 = v5;
-      v9 = v6;
-      v2 = ExCreateHeap(&v9, 0LL, &v10);
-      if ( v2 >= 0 )
+      v5 = v9;
+      v8 = 0LL;
+      LOBYTE(v8) = 10;
+      v6 = v8;
+      *(_DWORD *)(v9 + 816) |= 2u;
+      *(_BYTE *)(v5 + 269) |= 8u;
+      *(_BYTE *)(v5 + 461) |= 8u;
+      qword_140CDB0D0 = v5;
+      v8 = v6;
+      result = ExCreateHeap(&v8, 0LL, &v9);
+      if ( (int)result >= 0 )
       {
-        v7 = v10;
-        *(_DWORD *)(v10 + 880) |= 2u;
-        *(_BYTE *)(v7 + 333) |= 8u;
-        *(_BYTE *)(v7 + 525) |= 8u;
-        qword_140CF7AD8 = v7;
+        v7 = v9;
+        *(_DWORD *)(v9 + 816) |= 2u;
+        *(_BYTE *)(v7 + 269) |= 8u;
+        *(_BYTE *)(v7 + 461) |= 8u;
+        qword_140CDB0D8 = v7;
+        return 0LL;
       }
     }
   }
-  return (unsigned int)v2;
+  return result;
 }

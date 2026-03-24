@@ -1,43 +1,46 @@
 /*
- * XREFs of EtwpUnreferenceGuidEntry @ 0x1406BF9A4
+ * XREFs of EtwpUnreferenceGuidEntry @ 0x1405FD448
  * Callers:
- *     NtTraceEvent @ 0x1402577C0 (NtTraceEvent.c)
- *     EtwGetProviderIdFromHandle @ 0x140368FC4 (EtwGetProviderIdFromHandle.c)
- *     EtwpAddRegEntryToGroup @ 0x1406BE860 (EtwpAddRegEntryToGroup.c)
- *     EtwpDeleteRegistrationObject @ 0x1406BEDE0 (EtwpDeleteRegistrationObject.c)
- *     EtwpGetNextGuidEntry @ 0x1406BF130 (EtwpGetNextGuidEntry.c)
- *     EtwpRegisterUMProvider @ 0x1406BF260 (EtwpRegisterUMProvider.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1406BF740 (EtwpFindOrCreateGuidEntry.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE90 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140780D88 (EtwpUpdateGuidEnableInfo.c)
- *     EtwpAddGuidEntry @ 0x140781D88 (EtwpAddGuidEntry.c)
- *     EtwpRegisterKMProvider @ 0x14078DDD4 (EtwpRegisterKMProvider.c)
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
- *     EtwpFreeGuidEntry @ 0x1407D9A14 (EtwpFreeGuidEntry.c)
- *     EtwpGetTraceGuidInfo @ 0x140853498 (EtwpGetTraceGuidInfo.c)
- *     EtwpGetTraceGroupInfo @ 0x1408A7852 (EtwpGetTraceGroupInfo.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E7580 (EtwpNotifyDisallowedGuidChange.c)
- *     SendCaptureStateNotificationsWorker @ 0x1409ECE80 (SendCaptureStateNotificationsWorker.c)
+ *     NtTraceEvent @ 0x14025C4C0 (NtTraceEvent.c)
+ *     EtwGetProviderIdFromHandle @ 0x14039E928 (EtwGetProviderIdFromHandle.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
+ *     EtwpFreeGuidEntry @ 0x140695B4C (EtwpFreeGuidEntry.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BC360 (EtwpAddRegEntryToGroup.c)
+ *     EtwpGetNextGuidEntry @ 0x1407148AC (EtwpGetNextGuidEntry.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1407149E4 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x1407167F8 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpAddGuidEntry @ 0x140717450 (EtwpAddGuidEntry.c)
+ *     EtwpGetTraceGuidInfo @ 0x14072EB7C (EtwpGetTraceGuidInfo.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
+ *     EtwpRegisterProvider @ 0x140762340 (EtwpRegisterProvider.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933C54 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933F3C (EtwpDisallowedGuidRemoval.c)
+ *     EtwpGetTraceGroupInfo @ 0x1409347A4 (EtwpGetTraceGroupInfo.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093F990 (SendCaptureStateNotificationsWorker.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     EtwpFreeGuidEntry @ 0x1407D9A14 (EtwpFreeGuidEntry.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     EtwpFreeGuidEntry @ 0x140695B4C (EtwpFreeGuidEntry.c)
  */
 
 __int64 __fastcall EtwpUnreferenceGuidEntry(__int64 *BugCheckParameter2)
 {
   __int64 v2; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v5; // r10
-  __int64 v6; // r9
-  volatile signed __int64 *v7; // rbp
-  __int64 *v8; // rcx
-  __int64 **v9; // rax
+  int v5; // r10d
+  int v6; // edx
+  int v7; // r8d
+  int v8; // r9d
+  __int64 v9; // rbp
+  volatile signed __int64 *v10; // rbp
+  __int64 *v11; // rcx
+  __int64 **v12; // rax
 
   v2 = _InterlockedDecrement64(BugCheckParameter2 + 4);
   if ( v2 )
@@ -48,22 +51,25 @@ __int64 __fastcall EtwpUnreferenceGuidEntry(__int64 *BugCheckParameter2)
   else
   {
     CurrentThread = KeGetCurrentThread();
-    v5 = ((unsigned __int8)*((_DWORD *)BugCheckParameter2 + 11) ^ (unsigned __int8)(*((_DWORD *)BugCheckParameter2 + 12) ^ *((_DWORD *)BugCheckParameter2 + 13) ^ *((_DWORD *)BugCheckParameter2 + 10))) & 0x3F;
-    v6 = BugCheckParameter2[49] + 512;
+    v5 = *((_DWORD *)BugCheckParameter2 + 10);
+    v6 = *((_DWORD *)BugCheckParameter2 + 13);
+    v7 = *((_DWORD *)BugCheckParameter2 + 12);
+    v8 = *((_DWORD *)BugCheckParameter2 + 11);
+    v9 = BugCheckParameter2[49];
     --CurrentThread->KernelApcDisable;
-    v7 = (volatile signed __int64 *)(v6 + 56 * v5);
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v7, 0LL);
-    v8 = (__int64 *)*BugCheckParameter2;
+    v10 = (volatile signed __int64 *)(56LL * (((unsigned __int8)v8 ^ (unsigned __int8)(v7 ^ v6 ^ v5)) & 0x3F) + v9 + 512);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v10, 0LL);
+    v11 = (__int64 *)*BugCheckParameter2;
     if ( *(__int64 **)(*BugCheckParameter2 + 8) != BugCheckParameter2
-      || (v9 = (__int64 **)BugCheckParameter2[1], *v9 != BugCheckParameter2) )
+      || (v12 = (__int64 **)BugCheckParameter2[1], *v12 != BugCheckParameter2) )
     {
       __fastfail(3u);
     }
-    *v9 = v8;
-    v8[1] = (__int64)v9;
-    if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v7);
-    KeAbPostRelease((ULONG_PTR)v7);
+    *v12 = v11;
+    v11[1] = (__int64)v12;
+    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v10);
+    KeAbPostRelease((ULONG_PTR)v10);
     KeLeaveCriticalRegion();
     EtwpFreeGuidEntry(BugCheckParameter2);
   }

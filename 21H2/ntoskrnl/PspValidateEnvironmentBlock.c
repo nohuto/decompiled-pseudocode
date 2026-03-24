@@ -1,71 +1,76 @@
 /*
- * XREFs of PspValidateEnvironmentBlock @ 0x14069DCA0
+ * XREFs of PspValidateEnvironmentBlock @ 0x140607000
  * Callers:
- *     PspCaptureUserProcessParameters @ 0x14069D480 (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x1406068CC (PspCaptureUserProcessParameters.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PspValidateEnvironmentBlock(__int16 *a1, __int64 *a2)
 {
-  __int64 v3; // r8
-  __int16 v4; // ax
-  unsigned __int64 v5; // r9
-  __int64 v6; // rdx
-  char v7; // r10
-  char v8; // al
+  __int64 v2; // r8
+  char v3; // r11
+  __int16 v5; // ax
+  unsigned __int64 v6; // r9
+  __int64 v7; // rdx
+  char v8; // r10
 
-  v3 = *a2;
+  v2 = *a2;
+  v3 = 0;
   if ( !*a1 )
   {
-    v3 -= 2LL;
+    v2 -= 2LL;
     ++a1;
   }
-  if ( !v3 )
+  if ( !v2 )
     return 3221225485LL;
-  while ( 1 )
+  do
   {
-    v4 = *a1;
-    v5 = 0LL;
-    ++a1;
+    v5 = *a1;
     v6 = 0LL;
-    v7 = 0;
-    v3 -= 2LL;
-    if ( !v3 )
-      goto LABEL_18;
-    do
-    {
-      if ( !v4 )
-        break;
-      if ( v4 == 61 )
-      {
-        ++v5;
-        if ( !v6 )
-          v7 = 1;
-      }
-      v4 = *a1;
-      ++v6;
-      ++a1;
-      v3 -= 2LL;
-    }
-    while ( v3 );
-    if ( !v6 )
-    {
-LABEL_18:
-      if ( !v4 )
-        break;
-    }
-    if ( !v5 || v7 && v5 < 2 )
-      return 3221225485LL;
+    ++a1;
+    v7 = 0LL;
     v8 = 0;
-    if ( !v3 )
-      goto LABEL_12;
+    v2 -= 2LL;
+    if ( v2 )
+    {
+      do
+      {
+        if ( !v5 )
+          break;
+        if ( v5 == 61 )
+        {
+          ++v6;
+          if ( !v7 )
+            v8 = 1;
+        }
+        v5 = *a1;
+        ++v7;
+        ++a1;
+        v2 -= 2LL;
+      }
+      while ( v2 );
+      if ( v7 )
+        goto LABEL_16;
+    }
+    if ( v5 )
+    {
+LABEL_16:
+      if ( !v6 || v8 && v6 < 2 )
+        return 3221225485LL;
+    }
+    else
+    {
+      if ( v2 )
+      {
+        *a2 -= v2;
+        v2 = 0LL;
+      }
+      v3 = 1;
+    }
   }
+  while ( v2 );
   if ( v3 )
-    *a2 -= v3;
-  v8 = 1;
-LABEL_12:
-  if ( v8 )
     return 0LL;
   else
     return 3221225485LL;

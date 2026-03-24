@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_DxgkEngGetAdapterUniquenessPointer @ 0x1C01EED90
+ * XREFs of W32kStub_DxgkEngGetAdapterUniquenessPointer @ 0x1C016E880
  * Callers:
  *     <none>
  * Callees:

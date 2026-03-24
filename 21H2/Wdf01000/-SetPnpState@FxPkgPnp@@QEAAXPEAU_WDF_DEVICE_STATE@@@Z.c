@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetPnpState@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_STATE@@@Z @ 0x1C0088B04
+ * XREFs of ?SetPnpState@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_STATE@@@Z @ 0x1C0082B70
  * Callers:
- *     imp_WdfDeviceSetDeviceState @ 0x1C0063530 (imp_WdfDeviceSetDeviceState.c)
+ *     imp_WdfDeviceSetDeviceState @ 0x1C0048580 (imp_WdfDeviceSetDeviceState.c)
  * Callees:
  *     <none>
  */

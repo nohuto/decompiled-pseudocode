@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01A96F0
+ * XREFs of ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01D4870
  * Callers:
- *     DestroyThreadHidObjects @ 0x1C009EFD0 (DestroyThreadHidObjects.c)
- *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01AA0B8 (UnregisterModernAppThreadForRawKeyboard.c)
+ *     DestroyThreadHidObjects @ 0x1C01075E0 (DestroyThreadHidObjects.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01D525C (UnregisterModernAppThreadForRawKeyboard.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall HasRawKeyboardPerThreadRegistration(const struct tagPROCESSIN
   {
     if ( !i )
       return 0LL;
-    if ( (*(_DWORD *)(i + 1272) & 0x200000) != 0 )
+    if ( (*(_DWORD *)(i + 1232) & 0x200000) != 0 )
       break;
   }
   return 1LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiResetAccessBitPteWorker @ 0x1402B3680
+ * XREFs of MiResetAccessBitPteWorker @ 0x1402B3780
  * Callers:
- *     MiResetAccessBitsEPTCallback @ 0x1402B3780 (MiResetAccessBitsEPTCallback.c)
+ *     MiResetAccessBitsEPTCallback @ 0x1402B3880 (MiResetAccessBitsEPTCallback.c)
  * Callees:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)

@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiCloseEventQueue @ 0x1409ABFF8
+ * XREFs of TtmiCloseEventQueue @ 0x1409053DC
  * Callers:
- *     TtmiWriteEventToAllQueues @ 0x1409A4F68 (TtmiWriteEventToAllQueues.c)
+ *     TtmiWriteEventToAllQueues @ 0x1408FF5C8 (TtmiWriteEventToAllQueues.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall TtmiCloseEventQueue(__int64 a1)
+_QWORD *__fastcall TtmiCloseEventQueue(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   _QWORD **v3; // rbx
@@ -35,5 +35,5 @@ void __fastcall TtmiCloseEventQueue(__int64 a1)
   }
   KeSetEvent((PRKEVENT)(a1 + 128), 0, 0);
   ExReleaseResourceLite((PERESOURCE)(a1 + 24));
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

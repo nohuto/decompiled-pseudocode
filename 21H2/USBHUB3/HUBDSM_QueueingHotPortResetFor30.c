@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueueingHotPortResetFor30 @ 0x1C0022210
+ * XREFs of HUBDSM_QueueingHotPortResetFor30 @ 0x1C0021DC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_QueueingHotPortResetFor30(__int64 a1)

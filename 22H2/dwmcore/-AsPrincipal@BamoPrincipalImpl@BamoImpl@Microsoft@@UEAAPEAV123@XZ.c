@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AsPrincipal@BamoPrincipalImpl@BamoImpl@Microsoft@@UEAAPEAV123@XZ @ 0x180106870
+ * XREFs of ?AsPrincipal@BamoPrincipalImpl@BamoImpl@Microsoft@@UEAAPEAV123@XZ @ 0x1800E22D0
  * Callers:
  *     <none>
  * Callees:

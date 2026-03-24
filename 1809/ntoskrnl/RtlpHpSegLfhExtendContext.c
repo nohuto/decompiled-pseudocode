@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegLfhExtendContext @ 0x140136270
+ * XREFs of RtlpHpSegLfhExtendContext @ 0x140136290
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpHeapExtendContext @ 0x140136288 (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapExtendContext @ 0x1401362A8 (RtlpHpHeapExtendContext.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhExtendContext(__int64 a1)

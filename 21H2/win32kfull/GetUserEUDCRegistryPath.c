@@ -1,9 +1,9 @@
 /*
- * XREFs of GetUserEUDCRegistryPath @ 0x1C011968C
+ * XREFs of GetUserEUDCRegistryPath @ 0x1C00E7240
  * Callers:
- *     bReadUserSystemEUDCRegistry @ 0x1C01194E4 (bReadUserSystemEUDCRegistry.c)
- *     bAddAllFlEntry @ 0x1C015E414 (bAddAllFlEntry.c)
- *     bWriteUserSystemEUDCRegistry @ 0x1C0296CB4 (bWriteUserSystemEUDCRegistry.c)
+ *     bAddAllFlEntry @ 0x1C00E6C58 (bAddAllFlEntry.c)
+ *     bReadUserSystemEUDCRegistry @ 0x1C00E7068 (bReadUserSystemEUDCRegistry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C029888C (bWriteUserSystemEUDCRegistry.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ __int64 __fastcall GetUserEUDCRegistryPath(WCHAR *a1)
     appended = RtlAppendUnicodeToString(&Destination, L"\\EUDC\\");
     if ( appended < 0 )
       return (unsigned int)appended;
-    appended = RtlAppendUnicodeToString(&Destination, word_1C0337758);
+    appended = RtlAppendUnicodeToString(&Destination, word_1C033D0C8);
   }
   else
   {
@@ -34,7 +34,7 @@ __int64 __fastcall GetUserEUDCRegistryPath(WCHAR *a1)
     {
       appended = RtlAppendUnicodeToString(&Destination, L"\\EUDC\\");
       if ( appended >= 0 )
-        appended = RtlAppendUnicodeToString(&Destination, word_1C0337758);
+        appended = RtlAppendUnicodeToString(&Destination, word_1C033D0C8);
     }
     RtlFreeUnicodeString(&KeyPath);
   }

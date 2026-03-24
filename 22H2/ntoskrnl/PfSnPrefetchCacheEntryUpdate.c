@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x14074DCA0
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x140709EBC
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14074DA94 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140709C3C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     PfSnPrefetchCacheEntryGet @ 0x14074E814 (PfSnPrefetchCacheEntryGet.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406320EC (PfSnPrefetchCacheEntryGet.c)
  */
 
 _QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
 {
-  const void *v1; // rdi
+  _OWORD *v1; // rdi
   unsigned __int8 *v3; // r9
   __int64 v4; // rbp
   __int64 v5; // r10
@@ -20,7 +20,7 @@ _QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // rbx
 
-  v1 = (const void *)(a1 + 4);
+  v1 = (_OWORD *)(a1 + 4);
   v3 = (unsigned __int8 *)(a1 + 4);
   v4 = 314159LL;
   v5 = 8LL;
@@ -38,13 +38,13 @@ _QWORD *__fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
   while ( v5 );
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&stru_140C6A7A0, 1u);
-  v8 = qword_140C6A790 - 16;
-  if ( !memcmp((const void *)(qword_140C6A790 - 16 + 32), v1, 0x40uLL)
-    || (v8 = PfSnPrefetchCacheEntryGet(&unk_140C6A778, v1, v4, 0LL)) != 0 )
+  ExAcquireResourceExclusiveLite(&stru_140C504E0, 1u);
+  v8 = qword_140C504D0 - 16;
+  if ( !memcmp((const void *)(qword_140C504D0 - 16 + 32), v1, 0x40uLL)
+    || (v8 = PfSnPrefetchCacheEntryGet((__int64)&unk_140C504B8, v1, v4, 0LL)) != 0 )
   {
-    *(_DWORD *)(v8 + 116) = *(_DWORD *)(a1 + 68);
+    *(_DWORD *)(v8 + 112) = *(_DWORD *)(a1 + 68);
   }
-  ExReleaseResourceLite(&stru_140C6A7A0);
+  ExReleaseResourceLite(&stru_140C504E0);
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

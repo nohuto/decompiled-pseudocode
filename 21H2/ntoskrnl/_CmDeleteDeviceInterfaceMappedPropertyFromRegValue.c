@@ -1,20 +1,16 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x140A29EAC
+ * XREFs of _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1407351BC
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1406CE8B8 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407661D4 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x140784B14 (_CmOpenDeviceInterfaceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
  */
 
-__int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(
-        __int64 a1,
-        const wchar_t *a2,
-        void *a3,
-        __int64 a4)
+__int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(__int64 a1, __int64 a2, void *a3, __int64 a4)
 {
   unsigned int v4; // r11d
   int v5; // ebx
@@ -25,12 +21,12 @@ __int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(
   __int64 v14; // rdx
   int v15; // ecx
   __int64 v16; // rax
-  HANDLE v17; // rdx
-  __int64 v18; // rcx
+  __int64 v17; // rax
+  HANDLE v18; // rdx
+  __int64 v19; // rcx
   int inited; // eax
-  __int64 v20; // rax
-  __int64 v21; // rax
   __int64 v22; // rax
+  __int64 v23; // rax
   HANDLE Handle; // [rsp+40h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+98h] [rbp+20h] BYREF
@@ -42,7 +38,7 @@ __int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(
   if ( v4 < 2 )
     return (unsigned int)-1073741264;
   v10 = 0;
-  v11 = &off_140A380C0;
+  v11 = &off_1409839B8;
   do
   {
     v12 = *v11;
@@ -67,67 +63,68 @@ __int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(
     v15 = *(_DWORD *)(a4 + 16);
     if ( v15 == 2 )
     {
-      v16 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data1;
+      v17 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data1 )
-        v16 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data4;
-      if ( !v16 )
+        v17 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data4;
+      if ( !v17 )
       {
-        v17 = Handle;
+        v18 = Handle;
         if ( a3 )
-          v17 = a3;
+          v18 = a3;
         if ( a1 )
-          v18 = *(_QWORD *)(a1 + 224);
+          v19 = *(_QWORD *)(a1 + 224);
         else
-          v18 = 0LL;
-        inited = SysCtxRegOpenKey(v18, (__int64)v17, (__int64)L"Device Parameters", 0, 2u, (__int64)&KeyHandle);
+          v19 = 0LL;
+        inited = SysCtxRegOpenKey(v19, (__int64)v18, (__int64)L"Device Parameters", 0, 2u, (__int64)&KeyHandle);
         if ( inited != -1073741772 && inited != -1073741444 )
         {
           if ( inited < 0 )
-            goto LABEL_24;
+            goto LABEL_47;
           DestinationString = 0LL;
           inited = RtlInitUnicodeStringEx(&DestinationString, L"FriendlyName");
           if ( inited >= 0 )
             inited = ZwDeleteValueKey(KeyHandle, &DestinationString);
           if ( inited != -1073741772 && inited != -1073741444 && inited < 0 )
-LABEL_24:
+LABEL_47:
             v5 = inited;
         }
-        goto LABEL_45;
+        goto LABEL_38;
       }
-      goto LABEL_44;
     }
-    if ( v15 != 3 )
-      goto LABEL_42;
-    v20 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterface_Enabled.fmtid.Data1;
-    if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterface_Enabled.fmtid.Data1 )
-      v20 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_Enabled.fmtid.Data4;
-    if ( v20 )
+    else
     {
-LABEL_42:
-      if ( v15 != 4 )
-        goto LABEL_52;
-      v21 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data1 )
-        v21 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data4;
-      if ( v21 )
+      if ( v15 == 3 )
       {
-LABEL_52:
-        if ( v15 != 256 )
-          goto LABEL_44;
-        v22 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
+        v22 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterface_Enabled.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterface_Enabled.fmtid.Data1 )
+          v22 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_Enabled.fmtid.Data4;
+        if ( !v22 )
+          goto LABEL_37;
+      }
+      if ( v15 == 4 )
+      {
+        v23 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data1;
+        if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data1 )
+          v23 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_ClassGuid.fmtid.Data4;
+        if ( !v23 )
+          goto LABEL_37;
+      }
+      if ( v15 == 256 )
+      {
+        v16 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
         if ( *(_QWORD *)a4 == *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1 )
-          v22 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
-        if ( v22 )
+          v16 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
+        if ( !v16 )
         {
-LABEL_44:
-          v5 = -1073741264;
-          goto LABEL_45;
+LABEL_37:
+          v5 = -1073741790;
+          goto LABEL_38;
         }
       }
     }
-    v5 = -1073741790;
+    v5 = -1073741264;
   }
-LABEL_45:
+LABEL_38:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )

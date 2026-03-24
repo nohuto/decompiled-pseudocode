@@ -1,9 +1,9 @@
 /*
- * XREFs of Isoch_EP_ReclaimTransfers @ 0x1C00423A0
+ * XREFs of Isoch_EP_ReclaimTransfers @ 0x1C00414A0
  * Callers:
  *     <none>
  * Callees:
- *     TR_QueueDpcForTransferCompletion @ 0x1C000C644 (TR_QueueDpcForTransferCompletion.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
  */
 
 __int64 __fastcall Isoch_EP_ReclaimTransfers(__int64 a1)

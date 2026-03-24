@@ -15,12 +15,12 @@
  *     MiTrimThisWsle @ 0x140087EC0 (MiTrimThisWsle.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     MiWsleFlush @ 0x1400B32F0 (MiWsleFlush.c)
- *     MiSharedVaToPartition @ 0x14010978C (MiSharedVaToPartition.c)
- *     MiGetPfnProtection @ 0x14011FD70 (MiGetPfnProtection.c)
- *     MiCheckCommitReleaseFromVad @ 0x1402A38CC (MiCheckCommitReleaseFromVad.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8390 (MiSplitReducedCommitClonePage.c)
- *     MiReferenceCloneProto @ 0x1402CA970 (MiReferenceCloneProto.c)
+ *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
+ *     MiSharedVaToPartition @ 0x1401097AC (MiSharedVaToPartition.c)
+ *     MiGetPfnProtection @ 0x14011FD90 (MiGetPfnProtection.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
+ *     MiReferenceCloneProto @ 0x1402CAA70 (MiReferenceCloneProto.c)
  * Callees:
  *     <none>
  */

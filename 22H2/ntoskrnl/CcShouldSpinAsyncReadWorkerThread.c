@@ -1,70 +1,62 @@
 /*
- * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1402C0E58
+ * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x140278EE8
  * Callers:
- *     CcPostWorkQueueAsyncRead @ 0x1402C0BD4 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncReadWorker @ 0x1403BE4A0 (CcAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140278CE4 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x1403B72F0 (CcAsyncReadWorker.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
-char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned int a4)
+char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, unsigned int a3)
 {
-  __int64 v4; // rsi
-  __int64 v6; // r12
-  _DWORD *v9; // rax
-  __int64 *v10; // rbp
-  char v11; // bl
-  _QWORD **v12; // rdi
-  unsigned int v13; // ecx
-  _QWORD *v15; // rax
-  _QWORD *v16; // rcx
+  __int64 v3; // r15
+  _DWORD *v6; // rax
+  unsigned int v7; // edx
+  char v8; // bl
+  _QWORD **v9; // rdi
+  _QWORD *v11; // rax
+  _QWORD *v12; // rcx
 
-  v4 = a2[2];
-  v6 = a4;
-  v9 = (_DWORD *)(a2[35] + 404LL * a4);
-  v10 = (__int64 *)(v4 + 1160);
-  v11 = 1;
-  v12 = (_QWORD **)(a2[29] + 16LL * a4);
-  if ( !CcEnablePerVolumeLazyWriter )
-    v10 = (__int64 *)(a1 + 1224);
-  v13 = 0;
+  v3 = a3;
+  v6 = (_DWORD *)(*(_QWORD *)(a1 + 888) + 404LL * a3);
+  v7 = 0;
+  v8 = 1;
+  v9 = (_QWORD **)(*(_QWORD *)(a1 + 840) + 16LL * a3);
   if ( CcMaxAsyncReadWorkerThreads )
   {
-    while ( *v9 >= 0x3Fu )
+    while ( *v6 >= 0x3Fu )
     {
-      ++v13;
-      ++v9;
-      if ( v13 >= CcMaxAsyncReadWorkerThreads )
-        goto LABEL_8;
+      ++v7;
+      ++v6;
+      if ( v7 >= CcMaxAsyncReadWorkerThreads )
+        goto LABEL_6;
     }
     return 0;
   }
   else
   {
-LABEL_8:
-    if ( a3 )
+LABEL_6:
+    if ( a2 )
     {
-      *a3 = 0LL;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)v10, 0LL);
-      v15 = *v12;
-      if ( *v12 != v12 )
+      *a2 = 0LL;
+      ExAcquirePushLockExclusiveEx(a1 + 896, 0LL);
+      v11 = *v9;
+      if ( *v9 != v9 )
       {
-        if ( (_QWORD **)v15[1] != v12 || (v16 = (_QWORD *)*v15, *(_QWORD **)(*v15 + 8LL) != v15) )
+        if ( (_QWORD **)v11[1] != v9 || (v12 = (_QWORD *)*v11, *(_QWORD **)(*v11 + 8LL) != v11) )
           __fastfail(3u);
-        *v12 = v16;
-        v16[1] = v12;
-        *a3 = v15;
-        ++*(_DWORD *)(a2[30] + 4 * v6);
-        if ( _InterlockedIncrement64((volatile signed __int64 *)(a1 + 1296)) <= 1 )
-          __fastfail(0xEu);
-        if ( v4 && _InterlockedIncrement64((volatile signed __int64 *)(v4 + 8)) <= 1 )
+        *v9 = v12;
+        v12[1] = v9;
+        *a2 = v11;
+        ++*(_DWORD *)(*(_QWORD *)(a1 + 848) + 4 * v3);
+        if ( _InterlockedIncrement64((volatile signed __int64 *)(a1 + 968)) <= 1 )
           __fastfail(0xEu);
       }
-      ExReleasePushLockEx(v10, 0LL);
-      if ( !*a3 )
+      ExReleasePushLockEx(a1 + 896, 0LL);
+      if ( !*a2 )
         _InterlockedAdd(&CcDbgFoundAsyncReadThreadListEmpty, 1u);
     }
   }
-  return v11;
+  return v8;
 }

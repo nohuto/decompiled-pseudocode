@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpInsertNoopEvent @ 0x140685ED4
+ * XREFs of PnpInsertNoopEvent @ 0x1405CEEA0
  * Callers:
- *     PnpDeferNotification @ 0x140688310 (PnpDeferNotification.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x14087589C (PnpSynchronizeDeviceEventQueue.c)
+ *     PnpDeferNotification @ 0x14069C3B4 (PnpDeferNotification.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079487C (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14071B5A8 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpInsertNoopEvent(__int64 a1, __int64 a2)
 {
   __int64 DeviceEventEntry; // rax
 
-  DeviceEventEntry = PnpCreateDeviceEventEntry(192LL);
+  DeviceEventEntry = PnpCreateDeviceEventEntry(0xC0uLL);
   if ( !DeviceEventEntry )
     return 3221225626LL;
   *(_QWORD *)(DeviceEventEntry + 24) = a1;

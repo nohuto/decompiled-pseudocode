@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRemoveQueueApc @ 0x14012F338
+ * XREFs of KeRemoveQueueApc @ 0x14012F358
  * Callers:
  *     ExpCancelTimer @ 0x14001D270 (ExpCancelTimer.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
- *     EtwpCancelPendingStackwalkApcs @ 0x140132970 (EtwpCancelPendingStackwalkApcs.c)
- *     EtwpQueueStackWalkApc @ 0x14030F160 (EtwpQueueStackWalkApc.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140313D68 (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140316444 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCancelPendingStackwalkApcs @ 0x140132990 (EtwpCancelPendingStackwalkApcs.c)
+ *     EtwpQueueStackWalkApc @ 0x14030F260 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x140313E68 (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140316544 (EtwpCovSampCaptureCancelApcs.c)
  *     CmNotifyRunDown @ 0x1405F917C (CmNotifyRunDown.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveQueueApc @ 0x14012F3DC (KiRemoveQueueApc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveQueueApc @ 0x14012F3FC (KiRemoveQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeRemoveQueueApc(__int64 a1, __int64 a2, __int64 a3)

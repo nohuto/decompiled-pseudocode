@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00AF260
+ * XREFs of ?SetFloatProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C009AE20
  * Callers:
  *     <none>
  * Callees:
@@ -21,13 +21,13 @@ __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetFloatProperty(
   if ( !v5 )
   {
     *((_DWORD *)this + 4) |= 0x80u;
-    *((float *)this + 28) = a3;
+    *((float *)this + 26) = a3;
     goto LABEL_4;
   }
   if ( v5 == 1 )
   {
     *((_DWORD *)this + 4) |= 0x100u;
-    *((float *)this + 29) = a3;
+    *((float *)this + 27) = a3;
 LABEL_4:
     *a4 = 1;
     return result;

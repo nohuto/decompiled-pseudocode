@@ -4,8 +4,8 @@
  *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

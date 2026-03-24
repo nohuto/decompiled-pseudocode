@@ -1,54 +1,60 @@
 /*
- * XREFs of PopResizeHiberFile @ 0x140988F90
+ * XREFs of PopResizeHiberFile @ 0x140773D58
  * Callers:
- *     PopAdjustHiberFile @ 0x140987D94 (PopAdjustHiberFile.c)
- *     PopEnlargeHiberFile @ 0x140988600 (PopEnlargeHiberFile.c)
+ *     PopAdjustHiberFile @ 0x140773C64 (PopAdjustHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x140773CB8 (PopEnlargeHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     PopSetHiberFileMcb @ 0x140801148 (PopSetHiberFileMcb.c)
- *     PopSanityCheckHiberFile @ 0x1408011BC (PopSanityCheckHiberFile.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140835AC8 (FsRtlIssueFileNotificationFsctl.c)
- *     PopValidateHiberFileSize @ 0x140989320 (PopValidateHiberFileSize.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     PopValidateHiberFileSize @ 0x140773EB8 (PopValidateHiberFileSize.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14078D5B4 (FsRtlIssueFileNotificationFsctl.c)
+ *     PopSanityCheckHiberFile @ 0x14078E178 (PopSanityCheckHiberFile.c)
+ *     PopSetHiberFileMcb @ 0x14078E6FC (PopSetHiberFileMcb.c)
  */
 
 __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2)
 {
-  __int64 v3; // rbx
-  int Status; // ecx
-  __int64 v5; // rdx
-  __int64 v7; // [rsp+30h] [rbp-30h] BYREF
+  int v4; // ecx
+  __int64 v5; // rax
+  NTSTATUS Status; // ecx
+  __int64 v8; // [rsp+30h] [rbp-30h] BYREF
   PVOID P; // [rsp+38h] [rbp-28h] BYREF
   __int64 FileInformation; // [rsp+40h] [rbp-20h] BYREF
-  ULONG_PTR v10; // [rsp+48h] [rbp-18h] BYREF
+  ULONG_PTR v11; // [rsp+48h] [rbp-18h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-10h] BYREF
-  unsigned int v12; // [rsp+78h] [rbp+18h] BYREF
-  ULONG_PTR v13; // [rsp+88h] [rbp+28h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+18h] BYREF
+  ULONG_PTR v14; // [rsp+88h] [rbp+28h] BYREF
 
-  v7 = 0LL;
+  v8 = 0LL;
   P = 0LL;
-  v12 = 0;
-  v3 = a1;
+  LODWORD(NumberOfBytes) = 0;
   IoStatusBlock = 0LL;
   if ( !FileObject )
-  {
-LABEL_2:
-    Status = -1073741823;
     goto LABEL_17;
-  }
-  if ( qword_140C3D010 == a1 )
+  if ( qword_140C23E50 == a1 )
   {
-LABEL_16:
+LABEL_15:
     Status = 0;
-    goto LABEL_17;
+    goto LABEL_16;
   }
-  if ( (int)PopValidateHiberFileSize(a1, &v7) < 0 )
-    v3 = v7;
-  v13 = v3;
-  if ( v3 <= 0 )
-    goto LABEL_2;
-  FileInformation = v3;
-  Status = ZwSetInformationFile(PopHiberInfo, &IoStatusBlock, &FileInformation, 8u, FileAllocationInformation);
+  v4 = PopValidateHiberFileSize(a1, &v8);
+  v5 = v8;
+  if ( v4 >= 0 )
+    v5 = a1;
+  v14 = v5;
+  if ( v5 <= 0 )
+  {
+LABEL_17:
+    Status = -1073741823;
+    goto LABEL_16;
+  }
+  FileInformation = v5;
+  Status = ZwSetInformationFile(
+             *(HANDLE *)&PopHiberInfo,
+             &IoStatusBlock,
+             &FileInformation,
+             8u,
+             FileAllocationInformation);
   if ( Status == 259 )
   {
     KeWaitForSingleObject((char *)FileObject + 152, Executive, 0, 0, 0LL);
@@ -56,8 +62,8 @@ LABEL_16:
   }
   if ( Status >= 0 )
   {
-    v10 = v13;
-    Status = ZwSetInformationFile(PopHiberInfo, &IoStatusBlock, &v10, 8u, FileEndOfFileInformation);
+    v11 = v14;
+    Status = ZwSetInformationFile(*(HANDLE *)&PopHiberInfo, &IoStatusBlock, &v11, 8u, FileEndOfFileInformation);
     if ( Status == 259 )
     {
       KeWaitForSingleObject((char *)FileObject + 152, Executive, 0, 0, 0LL);
@@ -65,23 +71,25 @@ LABEL_16:
     }
     if ( Status >= 0 )
     {
-      Status = PopSanityCheckHiberFile(PopHiberInfo, (__int64)FileObject, &v13, (__int64 **)&P, &v12);
+      Status = PopSanityCheckHiberFile(
+                 PopHiberInfo,
+                 (_DWORD)FileObject,
+                 (unsigned int)&v14,
+                 (unsigned int)&P,
+                 (__int64)&NumberOfBytes);
       if ( Status >= 0 )
       {
-        Status = PopSetHiberFileMcb(P, v12);
+        Status = PopSetHiberFileMcb(P, (unsigned int)NumberOfBytes);
         if ( Status >= 0 )
         {
-          qword_140C3D010 = v13;
-          FsRtlIssueFileNotificationFsctl(
-            (PFILE_OBJECT)FileObject,
-            v5,
-            (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE);
-          goto LABEL_16;
+          qword_140C23E50 = v14;
+          FsRtlIssueFileNotificationFsctl((PFILE_OBJECT)FileObject);
+          goto LABEL_15;
         }
       }
     }
   }
-LABEL_17:
-  *a2 = qword_140C3D010;
+LABEL_16:
+  *a2 = qword_140C23E50;
   return (unsigned int)Status;
 }

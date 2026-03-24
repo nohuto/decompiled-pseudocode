@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUnlinkStandbyPfn @ 0x140120484
+ * XREFs of MiUnlinkStandbyPfn @ 0x1401204A4
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  * Callees:
@@ -9,9 +9,9 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPfn(_QWORD *a1, char a2)

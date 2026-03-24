@@ -1,94 +1,98 @@
 /*
- * XREFs of MiMirrorOmitPagesFromCopy @ 0x1406272F8
+ * XREFs of MiMirrorOmitPagesFromCopy @ 0x14038576C
  * Callers:
- *     MiMirrorReduceBlackWrites @ 0x1406280D0 (MiMirrorReduceBlackWrites.c)
- *     MiMirrorRemoveBlackChildPartitionPages @ 0x1406282D0 (MiMirrorRemoveBlackChildPartitionPages.c)
- *     MiMirrorRemoveInactivePages @ 0x140628334 (MiMirrorRemoveInactivePages.c)
- *     MiMirrorNodeLargePages @ 0x14064F574 (MiMirrorNodeLargePages.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x140AAD6E8 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorNodeLargePages @ 0x14038521C (MiMirrorNodeLargePages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140385580 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorRemoveBlackChildPartitionPages @ 0x140534C50 (MiMirrorRemoveBlackChildPartitionPages.c)
+ *     MiMirrorRemoveInactivePages @ 0x140534CB4 (MiMirrorRemoveInactivePages.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x1409B0E18 (MiRemoveEnclavePagesFromMirror.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021ACC0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14021AEA4 (MiUnmapPageInHyperSpaceWorker.c)
- *     RtlClearBitsEx @ 0x14028BA00 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x14027E980 (RtlClearBitsEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x1402B2140 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402C8FA0 (MiUnmapPageInHyperSpaceWorker.c)
  */
 
-__int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // rbx
-  unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // rsi
-  unsigned __int64 v7; // r8
-  volatile signed __int32 *v8; // rdi
-  unsigned int v9; // eax
-  unsigned __int64 v10; // rdx
+  unsigned __int64 v4; // rbx
+  unsigned __int64 v6; // rcx
+  unsigned __int64 v7; // rsi
+  unsigned __int64 v8; // r8
+  volatile signed __int32 *v9; // rdi
+  unsigned int v10; // eax
   __int64 result; // rax
-  unsigned __int64 v12; // rax
-  void *v13; // r8
-  unsigned __int64 v14; // rdx
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // rax
+  void *v14; // r8
+  unsigned __int64 v15; // rdx
 
-  v3 = a3;
-  v5 = a3;
-  v6 = a2;
-  v7 = a2 & 0x1F;
-  v8 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140C67FA0 + 1) + 4 * (a2 >> 5));
-  if ( v7 + v5 <= 0x20 )
+  v4 = a3;
+  v6 = a3;
+  v7 = a2;
+  v8 = a2 & 0x1F;
+  v9 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (a2 >> 5));
+  if ( v8 + v6 > 0x20 )
   {
-    if ( v5 == 32 )
+    if ( (a2 & 0x1F) != 0 )
     {
-      *v8 = 0;
-      goto LABEL_13;
+      _InterlockedAnd(v9, ~(((1 << (32 - (a2 & 0x1F))) - 1) << v8));
+      v6 = v4 - (32 - (unsigned int)(a2 & 0x1F));
+      ++v9;
     }
-    v9 = ~(((1 << v5) - 1) << v7);
-    goto LABEL_12;
-  }
-  if ( (a2 & 0x1F) != 0 )
-  {
-    _InterlockedAnd(v8, ~(((1 << (32 - (a2 & 0x1F))) - 1) << v7));
-    v5 = v3 - (32 - (unsigned int)(a2 & 0x1F));
-    ++v8;
-  }
-  if ( v5 >= 0x20 )
-  {
-    v10 = v5 >> 5;
-    v5 += -32LL * (v5 >> 5);
-    do
+    if ( v6 >= 0x20 )
     {
-      *v8++ = 0;
-      --v10;
-    }
-    while ( v10 );
-  }
-  if ( v5 )
-  {
-    v9 = -1 << v5;
-LABEL_12:
-    _InterlockedAnd(v8, v9);
-  }
-LABEL_13:
-  if ( *(_QWORD *)(a1 + 24) )
-    RtlClearBitsEx((__int64)&xmmword_140C67F90, v6, v3);
-  result = *(unsigned int *)(a1 + 32);
-  if ( (result & 0x20) != 0 && v3 )
-  {
-    do
-    {
-      v12 = MiMapPageInHyperSpaceWorker(v6, 0LL, 0);
-      v13 = (void *)v12;
-      v14 = 1024LL;
-      if ( (v12 & 4) != 0 )
+      v12 = v6 >> 5;
+      v6 += -32LL * (v6 >> 5);
+      do
       {
-        *(_DWORD *)v12 = -2;
-        v13 = (void *)(v12 + 4);
-        v14 = 1023LL;
+        *v9++ = 0;
+        --v12;
       }
-      memset64(v13, 0xFFFFFFFEFFFFFFFEuLL, v14 >> 1);
-      if ( (v14 & 1) != 0 )
-        *((_DWORD *)v13 + v14 - 1) = -2;
-      result = MiUnmapPageInHyperSpaceWorker(v12, 0x11u);
-      ++v6;
-      --v3;
+      while ( v12 );
     }
-    while ( v3 );
+    if ( v6 )
+    {
+      v10 = -1 << v6;
+      goto LABEL_4;
+    }
+  }
+  else
+  {
+    if ( v6 != 32 )
+    {
+      v10 = ~(((1 << v6) - 1) << v8);
+LABEL_4:
+      _InterlockedAnd(v9, v10);
+      goto LABEL_5;
+    }
+    *v9 = 0;
+  }
+LABEL_5:
+  if ( *(_QWORD *)(a1 + 24) )
+    RtlClearBitsEx((__int64)&qword_140C4E710, v7, v4);
+  result = *(unsigned int *)(a1 + 32);
+  if ( (result & 0x20) != 0 && v4 )
+  {
+    do
+    {
+      v13 = MiMapPageInHyperSpaceWorker(v7, 0LL, 0, a4);
+      v14 = (void *)v13;
+      v15 = 1024LL;
+      if ( (v13 & 4) != 0 )
+      {
+        *(_DWORD *)v13 = -2;
+        v14 = (void *)(v13 + 4);
+        v15 = 1023LL;
+      }
+      memset64(v14, 0xFFFFFFFEFFFFFFFEuLL, v15 >> 1);
+      if ( (v15 & 1) != 0 )
+        *((_DWORD *)v14 + v15 - 1) = -2;
+      LOBYTE(v15) = 17;
+      result = MiUnmapPageInHyperSpaceWorker(v13, v15, 0LL);
+      ++v7;
+      --v4;
+    }
+    while ( v4 );
   }
   return result;
 }

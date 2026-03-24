@@ -6,9 +6,9 @@
  *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
  *     CmpDoQueueLateUnloadWorker @ 0x1405B1550 (CmpDoQueueLateUnloadWorker.c)
  *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441C0 (CmpDereferenceKeyControlBlock.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
  */
 
 _QWORD *__fastcall CmReleaseLoadKeyContext(ULONG_PTR BugCheckParameter2, int a2)

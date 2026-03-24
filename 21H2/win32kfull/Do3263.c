@@ -1,7 +1,7 @@
 /*
- * XREFs of Do3263 @ 0x1C0264A8C
+ * XREFs of Do3263 @ 0x1C02674DC
  * Callers:
- *     FastExpAA_CY @ 0x1C0266D60 (FastExpAA_CY.c)
+ *     FastExpAA_CY @ 0x1C02697C0 (FastExpAA_CY.c)
  * Callees:
  *     <none>
  */

@@ -1,239 +1,242 @@
 /*
- * XREFs of rimProcessDeviceBufferAndStartRead @ 0x1C0003B78
+ * XREFs of rimProcessDeviceBufferAndStartRead @ 0x1C0175130
  * Callers:
- *     RIMQueueKeyboardInput @ 0x1C0003AA8 (RIMQueueKeyboardInput.c)
- *     rimCompleteReads @ 0x1C0044C40 (rimCompleteReads.c)
- *     rimFindPausedDeviceAndCompleteRead @ 0x1C00483F8 (rimFindPausedDeviceAndCompleteRead.c)
- *     rimInputApc @ 0x1C00C06F0 (rimInputApc.c)
- *     RIMInjectInput @ 0x1C01849A0 (RIMInjectInput.c)
- *     RIMIDEInjectDeviceInput @ 0x1C019D008 (RIMIDEInjectDeviceInput.c)
- *     RIMQueueMouseInput @ 0x1C019EB98 (RIMQueueMouseInput.c)
- *     RIMIDE_InjectGenericHidInput @ 0x1C01A0020 (RIMIDE_InjectGenericHidInput.c)
+ *     rimCompleteReads @ 0x1C0053548 (rimCompleteReads.c)
+ *     rimFindPausedDeviceAndCompleteRead @ 0x1C0055C40 (rimFindPausedDeviceAndCompleteRead.c)
+ *     RIMInjectInput @ 0x1C0157150 (RIMInjectInput.c)
+ *     RIMIDEInjectDeviceInput @ 0x1C0168B48 (RIMIDEInjectDeviceInput.c)
+ *     RIMQueueKeyboardInput @ 0x1C016A3DC (RIMQueueKeyboardInput.c)
+ *     RIMQueueMouseInput @ 0x1C016A53C (RIMQueueMouseInput.c)
+ *     RIMIDE_InjectGenericHidInput @ 0x1C016B900 (RIMIDE_InjectGenericHidInput.c)
+ *     rimInputApc @ 0x1C01746A0 (rimInputApc.c)
+ *     ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01B3F2C (-DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z.c)
  * Callees:
- *     rimProcessInjectedDeviceBuffers @ 0x1C0003D68 (rimProcessInjectedDeviceBuffers.c)
- *     rimSignalReadComplete @ 0x1C0003DB8 (rimSignalReadComplete.c)
- *     RIMIsInputSuppressed @ 0x1C0004020 (RIMIsInputSuppressed.c)
- *     rimProcessKeyboardInput @ 0x1C00040D0 (rimProcessKeyboardInput.c)
- *     rimObsDeliverToExclusiveObservers @ 0x1C000415C (rimObsDeliverToExclusiveObservers.c)
- *     RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C00042B8 (RIMTransferInjectionDeviceDataFifoToDataBuffer.c)
- *     rimObsDeliverToNonExclusiveObservers @ 0x1C00077DC (rimObsDeliverToNonExclusiveObservers.c)
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003D298 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     RIMStartDeviceSpecificRead @ 0x1C004AF3C (RIMStartDeviceSpecificRead.c)
- *     RimDeviceTypeToRimInputTypeString @ 0x1C004DC2C (RimDeviceTypeToRimInputTypeString.c)
- *     rimProcessMouseInput @ 0x1C00E6E90 (rimProcessMouseInput.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0152794 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C0167EA0 (-DbgPrintGDI@@YAXPEADZZ.c)
- *     ?ResumeDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C017E584 (-ResumeDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
- *     ?RimDevTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C017E618 (-RimDevTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
- *     rimIsPointerInputAllowed @ 0x1C017F788 (rimIsPointerInputAllowed.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x1C019A278 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$00@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
- *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C019A7B0 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U2@U?$_tlgWrapperByVal@$07@@U3@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@4AEBU?$_tlgWrapperByVal@$07@@5AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C01A8380 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U2@U-$_tlgWrapperByVal@$07@@U3@U-$_tlgWrapperByVal@$0.c)
- *     ?PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C01A8D4C (-PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
- *     rimProcessHidInput @ 0x1C01A99EC (rimProcessHidInput.c)
- *     RIMProcessAnyPointerDeviceInput @ 0x1C01ADB64 (RIMProcessAnyPointerDeviceInput.c)
- *     RIMHandleTTMDeviceInput @ 0x1C01B81A8 (RIMHandleTTMDeviceInput.c)
- *     ApiSetEtwTracePointerDeviceReadStart @ 0x1C020CA04 (ApiSetEtwTracePointerDeviceReadStart.c)
- *     ApiSetEtwTracePointerDeviceReadStop @ 0x1C020CB24 (ApiSetEtwTracePointerDeviceReadStop.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004B460 (WPP_RECORDER_SF_qq.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C006A2E8 (RIMStartDeviceSpecificRead.c)
+ *     RimDeviceTypeToRimInputTypeString @ 0x1C00AC634 (RimDeviceTypeToRimInputTypeString.c)
+ *     rimFreeAutoRepeatCompleteFrame @ 0x1C00B7C50 (rimFreeAutoRepeatCompleteFrame.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C012813C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C013A7B0 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     ?ResumeDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C01514B4 (-ResumeDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
+ *     ?RimDevTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C0151548 (-RimDevTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
+ *     rimIsPointerInputAllowed @ 0x1C0152A84 (rimIsPointerInputAllowed.c)
+ *     RIMIsInputSuppressed @ 0x1C01664D0 (RIMIsInputSuppressed.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0166854 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C016A6C4 (RIMTransferInjectionDeviceDataFifoToDataBuffer.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U2@U?$_tlgWrapperByVal@$07@@U3@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@4AEBU?$_tlgWrapperByVal@$07@@5AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C01730F0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U2@U-$_tlgWrapperByVal@$07@@U3@U-$_tlgWrapperByVal@$0.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x1C0173708 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$00@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
+ *     ?PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C0173B70 (-PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
+ *     rimProcessHidInput @ 0x1C017573C (rimProcessHidInput.c)
+ *     rimProcessInjectedDeviceBuffers @ 0x1C0175898 (rimProcessInjectedDeviceBuffers.c)
+ *     rimProcessKeyboardInput @ 0x1C0175D64 (rimProcessKeyboardInput.c)
+ *     rimProcessMouseInput @ 0x1C0175DF0 (rimProcessMouseInput.c)
+ *     rimSignalReadComplete @ 0x1C0175F28 (rimSignalReadComplete.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01785C4 (RIMProcessAnyPointerDeviceInput.c)
+ *     rimObsRouteInputAndCheckForExclusiveObservers @ 0x1C017EFC8 (rimObsRouteInputAndCheckForExclusiveObservers.c)
+ *     RIMHandleTTMDeviceInput @ 0x1C0182288 (RIMHandleTTMDeviceInput.c)
+ *     ApiSetEtwTracePointerDeviceReadStart @ 0x1C01CEAC8 (ApiSetEtwTracePointerDeviceReadStart.c)
+ *     ApiSetEtwTracePointerDeviceReadStop @ 0x1C01CEB5C (ApiSetEtwTracePointerDeviceReadStop.c)
  */
 
 __int64 __fastcall rimProcessDeviceBufferAndStartRead(struct RawInputManagerObject *a1, struct RIMDEV *a2, char a3)
 {
-  unsigned int v5; // r13d
-  int v6; // edx
-  int v7; // r8d
+  int v5; // edx
+  char v6; // r12
+  unsigned int v7; // r13d
   LARGE_INTEGER PerformanceCounter; // rax
   unsigned int v9; // r11d
   int *v10; // rsi
   LARGE_INTEGER v11; // r14
-  LONGLONG v12; // rcx
+  __int64 v12; // rcx
   int v13; // r9d
-  int v14; // eax
-  int v15; // r15d
-  char v16; // r12
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  int v20; // eax
-  int v21; // ecx
-  int v22; // ecx
-  int v23; // edx
-  int v24; // r8d
-  int v25; // eax
-  int v27; // r8d
-  int v28; // r9d
-  __int64 v29; // r11
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
+  int v14; // r8d
+  int v15; // r9d
+  __int64 v16; // r11
+  int v17; // edx
+  __int64 v18; // rax
+  unsigned int v19; // ecx
+  int v20; // edx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  __int64 v24; // r8
+  __int64 v25; // r9
+  int v26; // eax
+  int v27; // r15d
+  int v28; // eax
+  int v29; // eax
+  int v30; // ecx
+  int v31; // ecx
+  int v32; // edx
+  int v33; // edx
   int v34; // eax
-  int v35; // edx
-  int v36; // r8d
-  __int64 v37; // rdx
-  __int64 v38; // rcx
-  __int64 v39; // r8
-  char *v40; // rbx
-  char *v41; // rdi
-  char **v42; // rax
-  int v43; // r9d
-  __int64 v44; // [rsp+B8h] [rbp+48h] BYREF
-  char v45; // [rsp+C0h] [rbp+50h]
-  __int64 v46; // [rsp+C8h] [rbp+58h] BYREF
+  char *v35; // rbx
+  char *v36; // rdi
+  char **v37; // rax
+  __int64 v38; // r8
+  __int64 v39; // r9
+  __int64 v41; // [rsp+50h] [rbp-20h] BYREF
+  const WCHAR *v42; // [rsp+58h] [rbp-18h] BYREF
+  const WCHAR *v43; // [rsp+60h] [rbp-10h] BYREF
+  const char *v44; // [rsp+68h] [rbp-8h] BYREF
+  __int64 v45; // [rsp+B8h] [rbp+48h] BYREF
+  char v46; // [rsp+C0h] [rbp+50h]
+  __int64 v47; // [rsp+C8h] [rbp+58h] BYREF
 
-  v45 = a3;
-  if ( (unsigned int)RIMIsInputSuppressed(a2) || (*((_DWORD *)a2 + 50) & 0x40) != 0 || !gbTtmEnabled )
+  v46 = a3;
+  v6 = 0;
+  if ( (unsigned int)RIMIsInputSuppressed((__int64)a2) || (*((_DWORD *)a2 + 50) & 0x40) != 0 || !gbTtmEnabled )
+    v7 = 0;
+  else
+    v7 = RIMHandleTTMDeviceInput(a2);
+  if ( (v7 & 0x80000000) != 0 )
   {
-LABEL_4:
-    v5 = 0;
-    goto LABEL_6;
-  }
-  v5 = RIMHandleTTMDeviceInput(a2);
-  if ( (v5 & 0x80000000) != 0 )
-  {
-    LOBYTE(v6) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v6,
-        v7,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        21,
-        (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids,
-        v5);
+      LOBYTE(v5) = 4;
+      WPP_RECORDER_SF_d((_DWORD)gRimLog, v5, 1, 23, (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids, v7);
     }
-    goto LABEL_4;
+    v7 = 0;
   }
-LABEL_6:
-  ++*((_DWORD *)a2 + 577);
+  ++*((_DWORD *)a2 + 575);
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v9 = *((_DWORD *)a2 + 577);
-  v10 = (int *)((char *)a2 + 2320);
+  v9 = *((_DWORD *)a2 + 575);
+  v10 = (int *)((char *)a2 + 2312);
   v11 = PerformanceCounter;
   v12 = 100 * (v9 / 0x64);
   if ( v9 == (_DWORD)v12 && (v13 = *v10) == 0
     || (v13 = *v10) != 0
     && (v12 = 600000 * gliQpcFreq.QuadPart,
-        PerformanceCounter.QuadPart - *((_QWORD *)a2 + 289) >= 600000 * gliQpcFreq.QuadPart / 1000)
+        PerformanceCounter.QuadPart - *((_QWORD *)a2 + 288) >= 600000 * gliQpcFreq.QuadPart / 1000)
     && !(v9 % 0x64) )
   {
-    v27 = v13;
-    if ( (unsigned int)dword_1C028D610 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C028D610, 0x400000000000LL) )
+    v14 = v13;
+    if ( (unsigned int)dword_1C024A170 > 5 && tlgKeywordOn((__int64)&dword_1C024A170, 0x400000000000LL) )
     {
-      v46 = v29;
-      LODWORD(v44) = v28 == 0;
-      RimDeviceTypeToRimInputTypeString(a2, *((unsigned __int8 *)a2 + 48));
+      v17 = 0;
+      if ( *((char *)a2 + 200) < 0 && (v18 = *((_QWORD *)a2 + 60)) != 0 )
+        v19 = *(_DWORD *)(v18 + 720);
+      else
+        v19 = -1;
+      LOBYTE(v17) = v15 == 0;
+      LODWORD(v45) = v17;
+      v20 = *((unsigned __int8 *)a2 + 48);
+      v41 = v19;
+      v47 = v16;
+      v42 = RimDeviceTypeToRimInputTypeString((__int64)a2, v20);
+      v43 = (const WCHAR *)*((_QWORD *)a2 + 27);
+      v44 = "rimProcessDeviceBufferAndStartRead";
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-        v30,
-        &unk_1C025EB1F);
-      v27 = *v10;
+        v21,
+        byte_1C021CD3B,
+        v22,
+        v23,
+        (void **)&v44,
+        &v43,
+        &v42,
+        (__int64)&v41,
+        (__int64)&v47,
+        (__int64)&v45);
+      v14 = *v10;
     }
-    if ( !v27 )
+    if ( !v14 )
       *v10 = 1;
-    *((LARGE_INTEGER *)a2 + 289) = v11;
+    *((LARGE_INTEGER *)a2 + 288) = v11;
   }
-  if ( (unsigned int)dword_1C028EE70 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C028EE70, 256LL) )
+  if ( (unsigned int)dword_1C024BA90 > 5 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
   {
-    v44 = (__int64)InputTraceLogging::RimDevTypeToString(*((unsigned __int8 *)a2 + 48));
-    v46 = (__int64)a2;
+    v45 = (__int64)InputTraceLogging::RimDevTypeToString(*((unsigned __int8 *)a2 + 48));
+    v47 = (__int64)a2;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>>(
-      (int)&dword_1C028EE70,
-      (__int64)&v46,
-      (__int64)&v44);
+      (__int64)&dword_1C024BA90,
+      byte_1C021CDB9,
+      v24,
+      v25,
+      (__int64)&v47,
+      (void **)&v45);
   }
-  v14 = *((_DWORD *)a2 + 46);
-  v15 = -__CFSHR__(v14, 7);
-  v16 = 0;
-  if ( *((_BYTE *)a2 + 48) >= 2u )
+  v26 = *((_DWORD *)a2 + 46);
+  v27 = -__CFSHR__(v26, 7);
+  if ( *((_BYTE *)a2 + 48) < 2u )
+  {
+    if ( (v26 & 0x2000) != 0 || __CFSHR__(*((_DWORD *)a2 + 46), 7) )
+    {
+      v6 = 1;
+      RIMTransferInjectionDeviceDataFifoToDataBuffer(v12, (__int64)a2);
+    }
+  }
+  else
   {
     if ( *((_BYTE *)a2 + 48) != 2 )
-      return v5;
-    if ( (v14 & 0x10000) == 0 && (*((_DWORD *)a2 + 50) & 0x80u) != 0 )
+      return v7;
+    if ( (v26 & 0x4000) == 0 && (*((_DWORD *)a2 + 50) & 0x80u) != 0 )
     {
-      if ( !(unsigned int)rimObsDeliverToExclusiveObservers(a2) )
+      if ( !(unsigned int)rimObsRouteInputAndCheckForExclusiveObservers(a2)
+        && (*((_DWORD *)a2 + 50) & 0x80u) != 0
+        && (unsigned int)rimIsPointerInputAllowed((__int64)a2) )
       {
-        rimObsDeliverToNonExclusiveObservers(a2);
-        if ( (*((_DWORD *)a2 + 50) & 0x80u) != 0 )
+        ApiSetEtwTracePointerDeviceReadStart();
+        rimFreeAutoRepeatCompleteFrame((__int64)a2);
+        RIMProcessAnyPointerDeviceInput(a1, a2);
+        ApiSetEtwTracePointerDeviceReadStop();
+      }
+      v28 = *((_DWORD *)a2 + 46);
+      if ( (v28 & 0x2000) == 0 && !v27 )
+      {
+        if ( (v28 & 0x200) != 0 )
         {
-          if ( (unsigned int)rimIsPointerInputAllowed(a2) )
-          {
-            ApiSetEtwTracePointerDeviceReadStart();
-            RIMProcessAnyPointerDeviceInput(a1, a2);
-            ApiSetEtwTracePointerDeviceReadStop();
-          }
+          LODWORD(v45) = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1284);
         }
+        goto LABEL_84;
       }
-      v34 = *((_DWORD *)a2 + 46);
-      if ( (v34 & 0x2000) == 0 && !v15 )
-      {
-        if ( (v34 & 0x200) != 0 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v32, v31, v33);
-        goto LABEL_101;
-      }
-      return v5;
+      return v7;
     }
   }
-  else if ( (v14 & 0x2000) != 0 || __CFSHR__(*((_DWORD *)a2 + 46), 7) )
+  if ( (unsigned int)rimObsRouteInputAndCheckForExclusiveObservers(a2) )
   {
-    v16 = 1;
-    RIMTransferInjectionDeviceDataFifoToDataBuffer(v12, a2);
+    if ( (*((_DWORD *)a2 + 46) & 0x2000) == 0 && !v27 )
+LABEL_84:
+      RIMStartDeviceSpecificRead((HANDLE *)a1, (__int64)a2);
   }
-  if ( (unsigned int)rimObsDeliverToExclusiveObservers(a2) )
-  {
-    if ( !_bittest((const signed __int32 *)a2 + 46, 0xDu) && !v15 )
-LABEL_101:
-      RIMStartDeviceSpecificRead(a1, a2);
-  }
-  else if ( *((_BYTE *)a1 + 808)
+  else if ( *((_BYTE *)a1 + 584)
          && ((*((_DWORD *)a2 + 46) & 0x200) != 0
-          || *((struct RawInputManagerObject **)a1 + 102) == (struct RawInputManagerObject *)((char *)a1 + 816)) )
+          || *((struct RawInputManagerObject **)a1 + 74) == (struct RawInputManagerObject *)((char *)a1 + 592)) )
   {
-    *((_BYTE *)a1 + 808) = 0;
-    v20 = *((_DWORD *)a2 + 46);
-    if ( (v20 & 0x200) != 0 )
+    *((_BYTE *)a1 + 584) = 0;
+    v29 = *((_DWORD *)a2 + 46);
+    if ( (v29 & 0x200) != 0 )
     {
       InputTraceLogging::RIM::ResumeDevice(a2);
-      v20 = *((_DWORD *)a2 + 46);
+      v29 = *((_DWORD *)a2 + 46);
     }
-    v21 = *((unsigned __int8 *)a2 + 48);
-    *((_DWORD *)a2 + 46) = v20 & 0xFFFFFDFF;
-    if ( v21 )
+    v30 = *((unsigned __int8 *)a2 + 48);
+    *((_DWORD *)a2 + 46) = v29 & 0xFFFFFDFF;
+    if ( v30 )
     {
-      v22 = v21 - 1;
-      if ( v22 )
+      v31 = v30 - 1;
+      if ( v31 )
       {
-        if ( v22 == 1 )
+        if ( v31 == 1 )
         {
           rimProcessHidInput(a1, a2);
         }
         else
         {
-          *((_BYTE *)a1 + 808) = 1;
-          InputTraceLogging::RIM::DropInput(a2, 9LL);
-          LOBYTE(v35) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-          if ( (_BYTE)v35 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          *((_BYTE *)a1 + 584) = 1;
+          InputTraceLogging::RIM::DropInput((__int64)a2);
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v36) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_D(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v35,
-              v36,
+            LOBYTE(v32) = 3;
+            WPP_RECORDER_SF_d(
               (_DWORD)gRimLog,
-              3,
+              v32,
               1,
-              22,
-              (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids,
+              24,
+              (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
               *((_BYTE *)a2 + 48));
           }
         }
@@ -250,79 +253,76 @@ LABEL_101:
     rimSignalReadComplete(a1, a2);
     if ( *((_BYTE *)a2 + 48) <= 1u )
     {
-      v25 = *((_DWORD *)a2 + 46);
-      if ( (v25 & 0x2000) != 0 || (v25 & 0x40) != 0 )
+      v34 = *((_DWORD *)a2 + 46);
+      if ( (v34 & 0x2000) != 0 || (v34 & 0x40) != 0 )
         rimProcessInjectedDeviceBuffers(a1, a2);
     }
-    if ( *((_BYTE *)a1 + 808) && !_bittest((const signed __int32 *)a2 + 46, 0xDu) && !v15 )
+    if ( *((_BYTE *)a1 + 584) && (*((_DWORD *)a2 + 46) & 0x2000) == 0 && !v27 )
     {
-      LOBYTE(v23) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v23 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_qq(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v23,
-          v24,
+        LOBYTE(v33) = 4;
+        WPP_RECORDER_SF_qq(
           (_DWORD)gRimLog,
-          4,
+          v33,
           1,
-          23,
-          (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids,
+          25,
+          (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
           (char)a1,
           (char)a2);
       }
       DbgPrintGDI("FailSafeRead pRimObj(%p) pRimDev(%p)\n", a1, a2);
-      goto LABEL_101;
+      goto LABEL_84;
     }
   }
   else if ( (*((_DWORD *)a2 + 46) & 0x200) != 0 )
   {
-    if ( v45 )
+    if ( v46 )
     {
-      if ( !v16 )
+      if ( !v6 )
       {
-        InputTraceLogging::RIM::DropInput(a2, 6LL);
-        if ( !_bittest((const signed __int32 *)a2 + 46, 0xDu) )
+        InputTraceLogging::RIM::DropInput((__int64)a2);
+        if ( (*((_DWORD *)a2 + 46) & 0x2000) == 0
+          && *((_BYTE *)a2 + 48) <= 1u
+          && (unsigned int)dword_1C024A250 > 5
+          && tlgKeywordOn((__int64)&dword_1C024A250, 0x400000000000LL) )
         {
-          LOBYTE(v19) = *((_BYTE *)a2 + 48);
-          if ( (unsigned __int8)v19 <= 1u
-            && (unsigned int)dword_1C028D6F0 > 5
-            && (unsigned __int8)tlgKeywordOn(&dword_1C028D6F0, 0x400000000000LL) )
-          {
-            LOBYTE(v44) = v19;
-            v46 = 0x1000000LL;
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<1>>(
-              (unsigned int)&dword_1C028D6F0,
-              (unsigned int)&unk_1C025EAAA,
-              v19,
-              v43,
-              (__int64)&v46,
-              (__int64)&v44);
-          }
+          LOBYTE(v45) = v38;
+          v47 = 0x1000000LL;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<1>>(
+            (__int64)&dword_1C024A250,
+            byte_1C021CCFC,
+            v38,
+            v39,
+            (__int64)&v47,
+            (__int64)&v45);
         }
       }
     }
     if ( *((struct RIMDEV **)a2 + 13) == (struct RIMDEV *)((char *)a2 + 104) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v18, v17, v19);
+    {
+      LODWORD(v45) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1249);
+    }
   }
   else
   {
     InputTraceLogging::RIM::PauseDevice(a2);
     *((_DWORD *)a2 + 46) |= 0x200u;
-    v40 = (char *)a2 + 104;
-    if ( *(char **)v40 != v40 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v38, v37, v39);
-    v41 = (char *)a1 + 816;
-    v42 = (char **)*((_QWORD *)v41 + 1);
-    if ( *v42 != v41 )
+    v35 = (char *)a2 + 104;
+    if ( *(char **)v35 != v35 )
+    {
+      LODWORD(v45) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1226);
+    }
+    v36 = (char *)a1 + 592;
+    v37 = (char **)*((_QWORD *)v36 + 1);
+    if ( *v37 != v36 )
       __fastfail(3u);
-    *(_QWORD *)v40 = v41;
-    *((_QWORD *)v40 + 1) = v42;
-    *v42 = v40;
-    *((_QWORD *)v41 + 1) = v40;
+    *(_QWORD *)v35 = v36;
+    *((_QWORD *)v35 + 1) = v37;
+    *v37 = v35;
+    *((_QWORD *)v36 + 1) = v35;
   }
-  return v5;
+  return v7;
 }

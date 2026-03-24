@@ -1,22 +1,14 @@
 /*
- * XREFs of ReadCursorSuppressionConfig @ 0x1C0099338
+ * XREFs of ReadCursorSuppressionConfig @ 0x1C0135F2C
  * Callers:
- *     TransitionCursorSuppressionState @ 0x1C0097DC0 (TransitionCursorSuppressionState.c)
+ *     TransitionCursorSuppressionState @ 0x1C0028D10 (TransitionCursorSuppressionState.c)
  * Callees:
  *     <none>
  */
 
 __int64 ReadCursorSuppressionConfig()
 {
-  unsigned int v0; // ebx
-  int v2; // [rsp+40h] [rbp+8h] BYREF
-
-  v0 = 0;
-  v2 = 0;
   if ( gSessionId != gServiceSessionId && !gProtocolType )
-  {
-    FastGetProfileDword(0LL, 49LL, L"EnableCursorSuppression", 0LL, &v2);
-    return v2 != 0;
-  }
-  return v0;
+    FastGetProfileDword(0LL, 49LL, L"EnableCursorSuppression");
+  return 0LL;
 }

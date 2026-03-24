@@ -1,25 +1,25 @@
 /*
- * XREFs of ACPIIoctlEnumChildrenPopulateOutputBuffer @ 0x1C001F4D8
+ * XREFs of ACPIIoctlEnumChildrenPopulateOutputBuffer @ 0x1C0013E40
  * Callers:
- *     ACPIIoctlEnumChildren @ 0x1C001F2D4 (ACPIIoctlEnumChildren.c)
+ *     ACPIIoctlEnumChildren @ 0x1C0013C10 (ACPIIoctlEnumChildren.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     memset @ 0x1C0030080 (memset.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIIoctlEnumChildrenPopulateOutputBuffer(_DWORD *a1, unsigned int a2, int *a3, __int64 a4)
 {
   unsigned int v4; // ebx
-  __int64 v9; // rbp
+  unsigned int v9; // ebp
   unsigned int v10; // ecx
   __int64 v11; // rax
-  _DWORD *v12; // r14
-  _BYTE *v13; // r12
-  int v14; // esi
-  _BYTE *v15; // r13
-  __int64 v16; // rdi
-  unsigned int v17; // edi
-  __int64 v19; // [rsp+60h] [rbp+18h]
+  _DWORD *v12; // r15
+  _BYTE *v13; // rsi
+  _BYTE *v14; // r12
+  int v15; // edi
+  __int64 v16; // r13
+  __int64 v17; // rax
+  unsigned int v18; // ebp
 
   v4 = 0;
   *a3 = 0;
@@ -29,7 +29,7 @@ __int64 __fastcall ACPIIoctlEnumChildrenPopulateOutputBuffer(_DWORD *a1, unsigne
   }
   else
   {
-    v9 = *(unsigned int *)(a4 + 16);
+    v9 = *(_DWORD *)(a4 + 16);
     memset(a1, 0, a2);
     *a1 = 1198089537;
     v10 = *(_DWORD *)(a4 + 24) + 8 * (v9 + 1);
@@ -44,32 +44,32 @@ __int64 __fastcall ACPIIoctlEnumChildrenPopulateOutputBuffer(_DWORD *a1, unsigne
       v11 = *(_QWORD *)(a4 + 8);
       v12 = a1 + 2;
       v13 = *(_BYTE **)(a4 + 32);
-      v14 = 8;
-      v15 = *(_BYTE **)(v11 + 32);
+      v14 = *(_BYTE **)(v11 + 32);
       a1[1] = v9;
-      if ( (_DWORD)v9 )
+      v15 = 8;
+      if ( v9 )
       {
-        v19 = v9;
+        v16 = v9;
         do
         {
-          v16 = -1LL;
+          v17 = -1LL;
           do
-            ++v16;
-          while ( v13[v16] );
-          v17 = v16 + 1;
-          memmove(v12 + 2, v13, v17);
-          v12[1] = v17;
-          if ( *v15 == 49 )
+            ++v17;
+          while ( v13[v17] );
+          v18 = v17 + 1;
+          memmove(v12 + 2, v13, (unsigned int)(v17 + 1));
+          v12[1] = v18;
+          if ( *v14 == 49 )
             *v12 = 1;
-          v14 += v17 + 8;
-          v12 = (_DWORD *)((char *)v12 + v17 + 8);
-          v13 += v17;
-          ++v15;
-          --v19;
+          v13 += v18;
+          v15 += v18 + 8;
+          v12 = (_DWORD *)((char *)v12 + v18 + 8);
+          ++v14;
+          --v16;
         }
-        while ( v19 );
+        while ( v16 );
       }
-      *a3 = v14;
+      *a3 = v15;
     }
   }
   return v4;

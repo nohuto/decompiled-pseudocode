@@ -1,7 +1,7 @@
 /*
- * XREFs of PipReferenceDependencyNode @ 0x140942DD8
+ * XREFs of PipReferenceDependencyNode @ 0x14089DFE8
  * Callers:
- *     PipCreateNewDependencyEdge @ 0x14055F904 (PipCreateNewDependencyEdge.c)
+ *     PipCreateNewDependencyEdge @ 0x14050C5B0 (PipCreateNewDependencyEdge.c)
  * Callees:
  *     <none>
  */

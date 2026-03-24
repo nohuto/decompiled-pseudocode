@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$GetDDIOBJ@U_BLENDOBJ@@@UMPDOBJ@@QEAAPEAU_BLENDOBJ@@PEAU1@@Z @ 0x1C02B0330
+ * XREFs of ??$GetDDIOBJ@U_BLENDOBJ@@@UMPDOBJ@@QEAAPEAU_BLENDOBJ@@PEAU1@@Z @ 0x1C02B1794
  * Callers:
- *     NtGdiEngAlphaBlend @ 0x1C02B0FA0 (NtGdiEngAlphaBlend.c)
+ *     NtGdiEngAlphaBlend @ 0x1C02B2650 (NtGdiEngAlphaBlend.c)
  * Callees:
  *     <none>
  */
@@ -21,16 +21,16 @@ unsigned __int64 __fastcall UMPDOBJ::GetDDIOBJ<_BLENDOBJ>(__int64 a1, __int64 a2
       ++gdwUMPDUnmatchedUMPointers;
       if ( gfUMPDDebug )
         DbgPrint(
-          "onecoreuap\\restricted\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
-          771);
+          "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
+          795);
     }
   }
   if ( (*(_DWORD *)(a1 + 412) & 0x100) != 0 && v3 && v3 < (unsigned __int64)MmSystemRangeStart )
   {
     if ( gfUMPDDebug )
       DbgPrint(
-        "onecoreuap\\restricted\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
-        776);
+        "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
+        800);
     return 0LL;
   }
   return v3;

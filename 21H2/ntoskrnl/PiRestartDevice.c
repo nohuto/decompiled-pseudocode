@@ -1,11 +1,11 @@
 /*
- * XREFs of PiRestartDevice @ 0x1406617B0
+ * XREFs of PiRestartDevice @ 0x140733C40
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PnpRestartDeviceNode @ 0x14066044C (PnpRestartDeviceNode.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     PnpRestartDeviceNode @ 0x140731838 (PnpRestartDeviceNode.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
  */
 
 __int64 __fastcall PiRestartDevice(__int64 a1)
@@ -17,23 +17,21 @@ __int64 __fastcall PiRestartDevice(__int64 a1)
   v5 = 0LL;
   v2 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 312LL) + 40LL);
   v3 = *(_DWORD *)(v2 + 300);
-  if ( (unsigned int)(v3 - 789) <= 1 )
+  if ( (unsigned int)(v3 - 787) <= 1 )
     return 3221225558LL;
   if ( (*(_DWORD *)(v2 + 396) & 0x6000) != 0 )
     return 3221225473LL;
   switch ( v3 )
   {
     case 769:
-    case 770:
-    case 773:
-    case 774:
-    case 776:
-    case 777:
-    case 783:
-      goto LABEL_4;
     case 771:
     case 772:
-    case 788:
+    case 774:
+    case 775:
+    case 781:
+      goto LABEL_4;
+    case 770:
+    case 786:
       PnpRestartDeviceNode(v2);
 LABEL_4:
       if ( *(_DWORD *)(a1 + 24) == 16 )
@@ -44,12 +42,12 @@ LABEL_4:
         PipProcessDevNodeTree(v2, a1, (unsigned int)&v5, 0, 0, 0, 0);
       }
       break;
-    case 775:
+    case 773:
+    case 776:
+    case 777:
     case 778:
     case 779:
     case 780:
-    case 781:
-    case 782:
       return 0LL;
     default:
       return 3221225473LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIpv6AddressToStringA @ 0x14013F4E0
+ * XREFs of RtlIpv6AddressToStringA @ 0x14013F500
  * Callers:
- *     RtlIpv6AddressToStringExA @ 0x1402F31B0 (RtlIpv6AddressToStringExA.c)
+ *     RtlIpv6AddressToStringExA @ 0x1402F32B0 (RtlIpv6AddressToStringExA.c)
  * Callees:
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
  */
 
 PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)

@@ -1,82 +1,60 @@
 /*
- * XREFs of CmpCreateRootNode @ 0x140B3ABDC
+ * XREFs of CmpCreateRootNode @ 0x140A5B0B4
  * Callers:
- *     CmpCreateRegistryRoot @ 0x140B39780 (CmpCreateRegistryRoot.c)
+ *     CmpCreateRegistryRoot @ 0x140A5AED4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvAllocateCell @ 0x14070A478 (HvAllocateCell.c)
- *     CmpCopyName @ 0x14070AB00 (CmpCopyName.c)
- *     CmpNameSize @ 0x1407B6F6C (CmpNameSize.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvAllocateCell @ 0x140656A94 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x140657770 (CmpCopyName.c)
+ *     CmpNameSize @ 0x1406774AC (CmpNameSize.c)
  */
 
-__int64 __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, int *a3)
+char __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  ULONG_PTR v3; // rdi
+  ULONG_PTR v3; // rsi
   unsigned __int16 v5; // ax
-  int v6; // esi
-  __int64 v7; // rbx
-  unsigned __int16 v8; // ax
-  int v9; // ecx
-  __int64 v10; // rax
+  int v6; // eax
+  __int64 v7; // rdi
+  __int64 v8; // rbx
+  unsigned __int16 v9; // ax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v13; // [rsp+80h] [rbp+40h] BYREF
-  int v14; // [rsp+88h] [rbp+48h] BYREF
-  int v15; // [rsp+8Ch] [rbp+4Ch]
-  __int64 v16; // [rsp+98h] [rbp+58h] BYREF
+  __int64 v12; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v13; // [rsp+78h] [rbp+38h] BYREF
 
-  v15 = HIDWORD(a2);
   v3 = CmpMasterHive;
-  v16 = 0LL;
-  DestinationString = 0LL;
-  v14 = -1;
   v13 = 0LL;
-  HvpGetCellContextReinitialize(&v16);
+  DestinationString = 0LL;
+  v12 = 0xFFFFFFFFLL;
   RtlInitUnicodeString(&DestinationString, L"REGISTRY");
   v5 = CmpNameSize(&DestinationString.Length);
-  v6 = HvAllocateCell(v3, (unsigned int)v5 + 76, 0LL, &v14, (__int64)&v13, (__int64)&v16);
-  if ( v6 < 0 )
-  {
-    v7 = v13;
-  }
-  else
-  {
-    *(_DWORD *)v13 = 813934;
-    v7 = v13;
-    *(_QWORD *)(v13 + 4) = MEMORY[0xFFFFF78000000014];
-    *(_DWORD *)(v7 + 16) = -1;
-    *(_QWORD *)(v7 + 20) = 0LL;
-    *(_DWORD *)(v7 + 28) = -1;
-    *(_DWORD *)(v7 + 32) = -1;
-    *(_DWORD *)(v7 + 36) = 0;
-    *(_DWORD *)(v7 + 40) = -1;
-    *(_DWORD *)(v7 + 44) = -1;
-    *(_DWORD *)(v7 + 48) = -1;
-    *(_WORD *)(v7 + 74) = 0;
-    *(_QWORD *)(v7 + 60) = 0LL;
-    *(_WORD *)(v7 + 52) = 0;
-    *(_DWORD *)(v7 + 52) &= 0xFFF0FFFF;
-    *(_DWORD *)(v7 + 52) &= 0xFF0FFFFF;
-    *(_BYTE *)(v7 + 55) = 0;
-    *(_DWORD *)(v7 + 56) = 0;
-    v8 = CmpCopyName((_BYTE *)(v7 + 76), &DestinationString);
-    *(_WORD *)(v7 + 72) = v8;
-    if ( v8 < DestinationString.Length )
-      *(_WORD *)(v7 + 2) |= 0x20u;
-    v9 = v14;
-    v6 = 0;
-    v10 = *(_QWORD *)(v3 + 64);
-    *a3 = v14;
-    *(_DWORD *)(v10 + 36) = v9;
-  }
-  if ( v7 )
-  {
-    if ( (*(_BYTE *)(v3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v3, &v16);
-    else
-      HvpReleaseCellPaged(v3, (unsigned int *)&v16);
-  }
-  return (unsigned int)v6;
+  v6 = HvAllocateCell(v3, (unsigned int)v5 + 76, 0, &v13, &v12);
+  *a3 = v6;
+  if ( v6 == -1 )
+    return 0;
+  v7 = v13;
+  *(_DWORD *)(*(_QWORD *)(v3 + 64) + 36LL) = v6;
+  *(_DWORD *)v7 = 813934;
+  v8 = v13;
+  *(_QWORD *)(v13 + 4) = MEMORY[0xFFFFF78000000014];
+  *(_DWORD *)(v8 + 16) = -1;
+  *(_QWORD *)(v8 + 20) = 0LL;
+  *(_DWORD *)(v8 + 28) = -1;
+  *(_DWORD *)(v8 + 32) = -1;
+  *(_DWORD *)(v8 + 36) = 0;
+  *(_DWORD *)(v8 + 40) = -1;
+  *(_DWORD *)(v8 + 44) = -1;
+  *(_DWORD *)(v8 + 48) = -1;
+  *(_WORD *)(v8 + 74) = 0;
+  *(_QWORD *)(v8 + 60) = 0LL;
+  *(_WORD *)(v8 + 52) = 0;
+  *(_DWORD *)(v8 + 52) &= 0xFF00FFFF;
+  *(_BYTE *)(v8 + 55) = 0;
+  *(_DWORD *)(v8 + 56) = 0;
+  v9 = CmpCopyName((_BYTE *)(v8 + 76), &DestinationString);
+  *(_WORD *)(v8 + 72) = v9;
+  if ( v9 < DestinationString.Length )
+    *(_WORD *)(v7 + 2) |= 0x20u;
+  (*(void (__fastcall **)(ULONG_PTR, __int64 *))(v3 + 16))(v3, &v12);
+  return 1;
 }

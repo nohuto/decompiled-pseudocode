@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIInitDeleteChildDeviceList @ 0x1C002CCA8
+ * XREFs of ACPIInitDeleteChildDeviceList @ 0x1C002D204
  * Callers:
- *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
- *     ACPIFilterFastIoDetachCallback @ 0x1C0028520 (ACPIFilterFastIoDetachCallback.c)
- *     ACPIFilterIrpRemoveDevice @ 0x1C0028860 (ACPIFilterIrpRemoveDevice.c)
+ *     ACPIFilterIrpRemoveDevice @ 0x1C002CC90 (ACPIFilterIrpRemoveDevice.c)
+ *     ACPIFilterFastIoDetachCallback @ 0x1C002CEB0 (ACPIFilterFastIoDetachCallback.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
  * Callees:
- *     ACPIExtListEnumNext @ 0x1C0026414 (ACPIExtListEnumNext.c)
- *     ACPIExtListStartEnum @ 0x1C0026518 (ACPIExtListStartEnum.c)
- *     ACPIExtListTestElement @ 0x1C0026574 (ACPIExtListTestElement.c)
- *     ACPIInitResetDeviceExtension @ 0x1C002D7D0 (ACPIInitResetDeviceExtension.c)
+ *     ACPIExtListTestElement @ 0x1C001A904 (ACPIExtListTestElement.c)
+ *     ACPIExtListStartEnum @ 0x1C001AD98 (ACPIExtListStartEnum.c)
+ *     ACPIExtListEnumNext @ 0x1C001B0F0 (ACPIExtListEnumNext.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002CF60 (ACPIInitResetDeviceExtension.c)
  */
 
 char __fastcall ACPIInitDeleteChildDeviceList(__int64 a1)
@@ -25,9 +25,9 @@ char __fastcall ACPIInitDeleteChildDeviceList(__int64 a1)
   v8 = 0;
   v5 = 0LL;
   v4[1] = 0LL;
-  v4[0] = a1 + 800;
+  v4[0] = a1 + 760;
   v4[2] = &AcpiDeviceTreeLock;
-  v6 = 816LL;
+  v6 = 776LL;
   v7 = 1;
   for ( i = ACPIExtListStartEnum((__int64)v4); ; i = ACPIExtListEnumNext((__int64)v4) )
   {

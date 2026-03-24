@@ -1,265 +1,249 @@
 /*
- * XREFs of CmpInitCmRM @ 0x14068571C
+ * XREFs of CmpInitCmRM @ 0x14070D220
  * Callers:
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x14080D490 (CmpFinishSystemHivesLoad.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateResourceManager @ 0x14041BF00 (ZwCreateResourceManager.c)
- *     ZwCreateTransactionManager @ 0x14041C060 (ZwCreateTransactionManager.c)
- *     ZwOpenResourceManager @ 0x14041CD00 (ZwOpenResourceManager.c)
- *     ZwRecoverResourceManager @ 0x14041D580 (ZwRecoverResourceManager.c)
- *     ZwRecoverTransactionManager @ 0x14041D5A0 (ZwRecoverTransactionManager.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpQueryNameString @ 0x140684F94 (CmpQueryNameString.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     CmpStartRMLog @ 0x140873068 (CmpStartRMLog.c)
- *     HvMarkBaseBlockDirty @ 0x140874CFC (HvMarkBaseBlockDirty.c)
- *     CmpLogTxrInitEvent @ 0x140A1E5AC (CmpLogTxrInitEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateResourceManager @ 0x1403FB1E0 (ZwCreateResourceManager.c)
+ *     ZwCreateTransactionManager @ 0x1403FB320 (ZwCreateTransactionManager.c)
+ *     ZwOpenResourceManager @ 0x1403FBF80 (ZwOpenResourceManager.c)
+ *     ZwRecoverResourceManager @ 0x1403FC7A0 (ZwRecoverResourceManager.c)
+ *     ZwRecoverTransactionManager @ 0x1403FC7C0 (ZwRecoverTransactionManager.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     HvMarkBaseBlockDirty @ 0x14069FDFC (HvMarkBaseBlockDirty.c)
+ *     HvUnlockHiveFlusherShared @ 0x1406DF07C (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1406DF0B4 (HvLockHiveFlusherShared.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406EADF0 (CmpQueryFileSecurityDescriptor.c)
+ *     RtlStringFromGUID @ 0x1406F35B0 (RtlStringFromGUID.c)
+ *     CmpUuidCreate @ 0x14070D95C (CmpUuidCreate.c)
+ *     UNLOCK_CM_RM_LIST @ 0x14070D988 (UNLOCK_CM_RM_LIST.c)
+ *     LOCK_CM_RM_LIST @ 0x14070D9B4 (LOCK_CM_RM_LIST.c)
+ *     CmpQueryNameString @ 0x14070D9E0 (CmpQueryNameString.c)
+ *     HvUnlockHiveWriter @ 0x14071FE3C (HvUnlockHiveWriter.c)
+ *     HvLockHiveWriter @ 0x14071FE6C (HvLockHiveWriter.c)
+ *     CmpStartRMLog @ 0x14077D3E4 (CmpStartRMLog.c)
+ *     CmpLogTxrInitEvent @ 0x140874DC8 (CmpLogTxrInitEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpInitCmRM(ULONG_PTR a1, char a2)
+__int64 __fastcall CmpInitCmRM(__int64 a1, char a2)
 {
-  ULONG_PTR v3; // r13
-  char v4; // si
-  ULONG_PTR v5; // rdi
+  char v4; // r14
+  __int64 v5; // rdi
   __int64 v6; // rcx
   int v7; // ebx
-  __int64 v8; // rcx
-  _QWORD *Pool2; // r14
-  struct _ERESOURCE *v10; // rbx
-  __int64 v11; // rdx
-  _QWORD *v12; // rcx
-  __int64 v13; // r9
-  __int64 v14; // r8
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // rcx
-  __int128 v18; // xmm6
+  _QWORD *PoolWithTag; // rax
+  __int64 v9; // rcx
+  _QWORD *v10; // rsi
+  struct _ERESOURCE *v11; // rbx
+  __int64 v12; // rcx
+  UUID v13; // xmm6
+  UUID v14; // xmm7
+  __int128 v15; // kr00_16
+  __int64 v16; // r8
+  __int64 v17; // r8
+  __int64 v18; // rdx
   void *v19; // r12
   __int64 v20; // rcx
-  int FileSecurityDescriptor; // esi
-  unsigned __int16 Length; // ax
+  int v21; // r14d
   UNICODE_STRING *p_Source; // rbx
-  PSECURITY_DESCRIPTOR v24; // rbx
-  __int64 v25; // rax
-  struct _CLFS_MGMT_POLICY *v26; // r12
-  unsigned int v27; // edx
-  size_t v28; // r8
-  ULONG v29; // ebx
-  const void *v30; // rdx
-  HANDLE *v31; // r12
-  NTSTATUS v32; // eax
-  HANDLE v33; // rcx
-  GUID v34; // xmm0
-  HANDLE *v35; // rbx
-  HANDLE v36; // rcx
-  struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v38; // rax
-  __int64 *v40; // rdx
-  __int64 v41; // r13
-  __int64 v42; // rax
-  PVOID v43; // rcx
-  __int64 v44; // rax
-  __int64 v45; // rcx
-  unsigned __int64 v46; // rbx
-  __int64 v47; // rax
-  __int64 v48; // r13
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v52; // r9
-  void *v53; // rcx
-  void *v54; // rcx
-  void *v55; // rcx
-  PSECURITY_DESCRIPTOR psdLogFile; // [rsp+28h] [rbp-E0h]
-  ULONG fCreateDisposition[2]; // [rsp+30h] [rbp-D8h]
-  int v58; // [rsp+68h] [rbp-A0h]
-  char v59; // [rsp+6Ch] [rbp-9Ch]
-  ULONG CreateOptions; // [rsp+70h] [rbp-98h]
-  UNICODE_STRING Destination; // [rsp+78h] [rbp-90h] BYREF
-  FILE_OBJECT *pplfoLog; // [rsp+88h] [rbp-80h] BYREF
+  PSECURITY_DESCRIPTOR v23; // rbx
+  struct _CLFS_MGMT_POLICY *v24; // rax
+  struct _CLFS_MGMT_POLICY *v25; // r12
+  unsigned int v26; // edx
+  size_t v27; // r8
+  ULONG v28; // ebx
+  const void *v29; // rdx
+  NTSTATUS v30; // eax
+  void *v31; // rcx
+  GUID v32; // xmm0
+  HANDLE *v33; // rbx
+  HANDLE v34; // rcx
+  _QWORD *v35; // rax
+  __int64 *v37; // rcx
+  __int64 v38; // rdx
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rcx
+  void *v42; // rcx
+  struct _DMA_ADAPTER *v43; // rcx
+  void *v44; // rcx
+  char v45; // [rsp+68h] [rbp-A0h]
+  int v46; // [rsp+6Ch] [rbp-9Ch]
+  UNICODE_STRING Destination; // [rsp+70h] [rbp-98h] BYREF
+  FILE_OBJECT *pplfoLog; // [rsp+80h] [rbp-88h] BYREF
+  PSECURITY_DESCRIPTOR P; // [rsp+88h] [rbp-80h] BYREF
   PVOID ClientCookie; // [rsp+90h] [rbp-78h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-70h] BYREF
-  UNICODE_STRING Source; // [rsp+A8h] [rbp-60h] BYREF
-  UNICODE_STRING LogFileName; // [rsp+B8h] [rbp-50h] BYREF
-  PSECURITY_DESCRIPTOR P; // [rsp+C8h] [rbp-40h]
-  ULONG_PTR v68; // [rsp+D0h] [rbp-38h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-30h] BYREF
-  PERESOURCE Resource; // [rsp+108h] [rbp+0h]
-  _CLFS_MGMT_CLIENT_REGISTRATION RegistrationData; // [rsp+118h] [rbp+10h] BYREF
-  PVOID Object[2]; // [rsp+150h] [rbp+48h] BYREF
-  UUID Uuid; // [rsp+160h] [rbp+58h] BYREF
-  GUID ResourceManagerGuid; // [rsp+170h] [rbp+68h] BYREF
-  __int128 v75; // [rsp+180h] [rbp+78h]
+  ULONG CreateOptions; // [rsp+98h] [rbp-70h]
+  UNICODE_STRING GuidString; // [rsp+A0h] [rbp-68h] BYREF
+  UNICODE_STRING Source; // [rsp+B0h] [rbp-58h] BYREF
+  UNICODE_STRING LogFileName; // [rsp+C0h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D0h] [rbp-38h] BYREF
+  PERESOURCE Resource; // [rsp+100h] [rbp-8h]
+  _CLFS_MGMT_CLIENT_REGISTRATION RegistrationData; // [rsp+108h] [rbp+0h] BYREF
+  GUID ResourceManagerGuid; // [rsp+140h] [rbp+38h] BYREF
+  UUID Uuid; // [rsp+150h] [rbp+48h] BYREF
+  UUID v60; // [rsp+160h] [rbp+58h] BYREF
+  __int128 v61; // [rsp+170h] [rbp+68h]
 
-  v68 = a1;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  UnicodeString.Buffer = 0LL;
-  v3 = a1;
-  v75 = 0LL;
+  v45 = a2;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   *(_QWORD *)&Source.Length = 0LL;
+  Source.Buffer = 0LL;
+  v61 = 0LL;
+  *(_QWORD *)&Destination.Length = 0LL;
   v4 = 0;
   ResourceManagerGuid = 0LL;
-  Source.Buffer = 0LL;
-  *(_OWORD *)Object = 0LL;
-  *(_QWORD *)&Destination.Length = 0LL;
-  Uuid = 0LL;
   Destination.Buffer = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  Uuid = 0LL;
   pplfoLog = 0LL;
+  v60 = 0LL;
   *(_QWORD *)&LogFileName.Length = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   LogFileName.Buffer = 0LL;
   CreateOptions = 0;
   P = 0LL;
   ClientCookie = 0LL;
-  memset(&RegistrationData, 0, 52);
-  v58 = 0;
+  memset(&RegistrationData, 0, sizeof(RegistrationData));
+  v46 = 0;
   if ( CmpMiniNTBoot )
     return 0LL;
-  v5 = qword_140C028D0;
+  v5 = qword_140C01170;
   if ( a1 )
     v5 = a1;
   if ( (*(_DWORD *)(v5 + 160) & 0x8001) != 0 )
     return 0LL;
-  v7 = CmpUuidCreate((UUID *)Object);
-  if ( v7 < 0 || (v7 = CmpUuidCreate(&Uuid), v7 < 0) )
+  v7 = CmpUuidCreate(&Uuid);
+  if ( v7 < 0 || (v7 = CmpUuidCreate(&v60), v7 < 0) )
   {
-    *(_DWORD *)(v5 + 4164) = v7;
-    *(_DWORD *)(v5 + 4160) = 1;
+    *(_DWORD *)(v5 + 4200) = 1;
+    *(_DWORD *)(v5 + 4204) = v7;
     CmpLogTxrInitEvent(v6, v5, (unsigned int)v7);
     return (unsigned int)v7;
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 136LL, 1834110275LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x88uLL, 0x6D524D43u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    *(_DWORD *)(v5 + 4160) = 1;
-LABEL_69:
-    FileSecurityDescriptor = -1073741670;
-    *(_DWORD *)(v5 + 4164) = -1073741670;
-    CmpLogTxrInitEvent(v8, v5, 3221225626LL);
-    return (unsigned int)FileSecurityDescriptor;
+    *(_DWORD *)(v5 + 4200) = 1;
+LABEL_70:
+    v21 = -1073741670;
+    *(_DWORD *)(v5 + 4204) = -1073741670;
+    CmpLogTxrInitEvent(v9, v5, 3221225626LL);
+    return (unsigned int)v21;
   }
-  Resource = (PERESOURCE)ExAllocatePool2(64LL, 104LL, 1819430211LL);
-  v10 = Resource;
+  memset(PoolWithTag, 0, 0x88uLL);
+  Resource = (PERESOURCE)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x6C724D43u);
+  v11 = Resource;
   if ( !Resource )
   {
-    ExFreePoolWithTag(Pool2, 0x6D524D43u);
-    *(_DWORD *)(v5 + 4160) = 2;
-    goto LABEL_69;
+    ExFreePoolWithTag(v10, 0x6D524D43u);
+    *(_DWORD *)(v5 + 4200) = 2;
+    goto LABEL_70;
   }
-  Pool2[11] = 0LL;
-  Pool2[3] = Pool2 + 2;
-  Pool2[2] = Pool2 + 2;
-  Pool2[12] = 0LL;
-  *((_DWORD *)Pool2 + 26) = a2 != 0 ? 4 : 0;
-  *(_QWORD *)((char *)Pool2 + 108) = 0LL;
-  *((_DWORD *)Pool2 + 17) = 0;
-  Pool2[9] = 0LL;
-  Pool2[16] = v10;
-  ExInitializeResourceLite(v10);
-  v14 = *(_QWORD *)(v5 + 64);
-  if ( *(_DWORD *)(v14 + 164) != 1836346738 )
+  v10[11] = 0LL;
+  v10[3] = v10 + 2;
+  v10[2] = v10 + 2;
+  v10[12] = 0LL;
+  *((_DWORD *)v10 + 26) = a2 != 0 ? 4 : 0;
+  *(_QWORD *)((char *)v10 + 108) = 0LL;
+  *((_DWORD *)v10 + 17) = 0;
+  v10[9] = 0LL;
+  v10[16] = v11;
+  ExInitializeResourceLite(v11);
+  v12 = *(_QWORD *)(v5 + 64);
+  v13 = Uuid;
+  v14 = v60;
+  if ( *(_DWORD *)(v12 + 164) != 1836346738 )
   {
-    v18 = *(_OWORD *)Object;
-    *(_DWORD *)(v14 + 164) = 1836346738;
+    *(_DWORD *)(v12 + 164) = 1836346738;
     goto LABEL_83;
   }
-  v13 = *((_QWORD *)&v75 + 1);
-  v15 = v75;
-  v16 = v75 - *(_QWORD *)(v14 + 148);
-  if ( (_QWORD)v75 == *(_QWORD *)(v14 + 148) )
-    v16 = *((_QWORD *)&v75 + 1) - *(_QWORD *)(v14 + 156);
+  v15 = v61;
+  v16 = v61 - *(_QWORD *)(v12 + 148);
+  if ( (_QWORD)v61 == *(_QWORD *)(v12 + 148) )
+    v16 = *((_QWORD *)&v61 + 1) - *(_QWORD *)(v12 + 156);
   if ( !v16 )
   {
-    v58 = 1;
+    *(UUID *)(v12 + 148) = v60;
+    v12 = *(_QWORD *)(v5 + 64);
     v4 = 1;
-    *(UUID *)(v14 + 148) = Uuid;
+    v46 = 1;
   }
-  v14 = *(_QWORD *)(v5 + 64);
-  v17 = v15 - *(_QWORD *)(v14 + 112);
-  if ( v15 == *(_QWORD *)(v14 + 112) )
-    v17 = v13 - *(_QWORD *)(v14 + 120);
-  v18 = *(_OWORD *)Object;
+  v17 = v15 - *(_QWORD *)(v12 + 112);
+  if ( (_QWORD)v15 == *(_QWORD *)(v12 + 112) )
+    v17 = *((_QWORD *)&v15 + 1) - *(_QWORD *)(v12 + 120);
   if ( !v17 )
   {
+    *(UUID *)(v12 + 112) = v13;
+    v12 = *(_QWORD *)(v5 + 64);
     v4 = 1;
-    *(_OWORD *)(v14 + 112) = *(_OWORD *)Object;
   }
-  v12 = *(_QWORD **)(v5 + 64);
-  v11 = v15 - v12[16];
-  if ( !v11 )
-    v11 = v13 - v12[17];
-  if ( !v11 )
+  v18 = v15 - *(_QWORD *)(v12 + 128);
+  if ( !v18 )
+    v18 = *((_QWORD *)&v15 + 1) - *(_QWORD *)(v12 + 136);
+  if ( !v18 )
   {
     v4 = 1;
-    *((_OWORD *)v12 + 8) = *((_OWORD *)v12 + 7);
+    *(_OWORD *)(v12 + 128) = *(_OWORD *)(v12 + 112);
   }
-  CreateOptions = 0;
-  v59 = a2;
-  if ( v4 )
-    goto LABEL_86;
   while ( 1 )
   {
-    v19 = *(void **)(v5 + 1544);
-    FileSecurityDescriptor = RtlStringFromGUIDEx(
-                               (unsigned int *)(*(_QWORD *)(v5 + 64) + 148LL),
-                               (__int64)&UnicodeString,
-                               1);
-    if ( FileSecurityDescriptor < 0 )
+    if ( v4 )
     {
-      *(_DWORD *)(v5 + 4160) = 3;
-      goto LABEL_113;
+      CmpLockRegistry();
+      HvLockHiveFlusherShared(v5);
+      HvLockHiveWriter(v5);
+      HvMarkBaseBlockDirty(v5);
+      HvUnlockHiveWriter(v5);
+      HvUnlockHiveFlusherShared(v5);
+      CmpUnlockRegistry();
     }
-    if ( v3 )
+    v19 = *(void **)(v5 + 1536);
+    v21 = RtlStringFromGUID((const GUID *const)(*(_QWORD *)(v5 + 64) + 148LL), &GuidString);
+    if ( v21 < 0 )
     {
-      FileSecurityDescriptor = CmpQueryNameString(*(void **)(v3 + 1544), &Source);
-      if ( FileSecurityDescriptor < 0 )
+      *(_DWORD *)(v5 + 4200) = 3;
+      goto LABEL_99;
+    }
+    if ( a1 )
+    {
+      v21 = CmpQueryNameString(*(_QWORD *)(a1 + 1536), &Source);
+      if ( v21 < 0 )
       {
-        *(_DWORD *)(v5 + 4160) = 4;
-        goto LABEL_113;
+        *(_DWORD *)(v5 + 4200) = 4;
+        goto LABEL_99;
       }
-      Length = Source.Length;
       p_Source = &Source;
     }
     else
     {
       p_Source = (UNICODE_STRING *)&CmpLogPath;
       CreateOptions = 52;
-      Length = 64;
     }
-    Destination.MaximumLength = UnicodeString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + Length;
+    Destination.MaximumLength = GuidString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + p_Source->Length;
     Destination.Buffer = (wchar_t *)ExpAllocateStringRoutine(Destination.MaximumLength);
     if ( !Destination.Buffer )
     {
-      FileSecurityDescriptor = -1073741670;
-      *(_DWORD *)(v5 + 4160) = 5;
-LABEL_113:
-      CmpLogTxrInitEvent(v20, v5, (unsigned int)FileSecurityDescriptor);
+      v21 = -1073741670;
+      *(_DWORD *)(v5 + 4200) = 5;
+LABEL_99:
+      CmpLogTxrInitEvent(v20, v5, (unsigned int)v21);
       if ( ClientCookie )
       {
         ClfsMgmtDeregisterManagedClient(ClientCookie);
@@ -267,155 +251,133 @@ LABEL_113:
       }
       if ( pplfoLog )
         ClfsCloseLogFileObject(pplfoLog);
-      if ( UnicodeString.Buffer )
-        RtlFreeUnicodeString(&UnicodeString);
+      if ( GuidString.Buffer )
+        RtlFreeAnsiString(&GuidString);
       if ( Source.Buffer )
-        RtlFreeUnicodeString(&Source);
+        RtlFreeAnsiString(&Source);
       if ( Destination.Buffer )
-        RtlFreeUnicodeString(&Destination);
-      v53 = (void *)Pool2[6];
-      if ( v53 )
-        ZwClose(v53);
-      v54 = (void *)Pool2[5];
-      if ( v54 )
-        ObfDereferenceObject(v54);
-      v55 = (void *)Pool2[4];
-      if ( v55 )
-        ZwClose(v55);
-      ExFreePoolWithTag(Pool2, 0x6D524D43u);
+        RtlFreeAnsiString(&Destination);
+      v42 = (void *)v10[6];
+      if ( v42 )
+        ZwClose(v42);
+      v43 = (struct _DMA_ADAPTER *)v10[5];
+      if ( v43 )
+        HalPutDmaAdapter(v43);
+      v44 = (void *)v10[4];
+      if ( v44 )
+        ZwClose(v44);
+      ExFreePoolWithTag(v10, 0x6D524D43u);
       ExDeleteResourceLite(Resource);
       ExFreePoolWithTag(Resource, 0);
-      *(_DWORD *)(v5 + 4164) = FileSecurityDescriptor;
-      return (unsigned int)FileSecurityDescriptor;
+      *(_DWORD *)(v5 + 4204) = v21;
+      return (unsigned int)v21;
     }
     RtlAppendUnicodeStringToString(&Destination, &CmpClfsLogPrefix);
     RtlAppendUnicodeStringToString(&Destination, p_Source);
-    RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+    RtlAppendUnicodeStringToString(&Destination, &GuidString);
     RtlAppendUnicodeStringToString(&Destination, &TmLogExt);
-    RtlFreeUnicodeString(&UnicodeString);
-    if ( v3 )
-      RtlFreeUnicodeString(&Source);
-    FileSecurityDescriptor = CmpQueryFileSecurityDescriptor(v19);
-    if ( FileSecurityDescriptor < 0 )
+    RtlFreeAnsiString(&GuidString);
+    if ( a1 )
+      RtlFreeAnsiString(&Source);
+    v21 = CmpQueryFileSecurityDescriptor(v19, &P);
+    if ( v21 < 0 )
     {
-      *(_DWORD *)(v5 + 4160) = 6;
-      goto LABEL_113;
+      *(_DWORD *)(v5 + 4200) = 6;
+      goto LABEL_99;
     }
-    v24 = P;
-    FileSecurityDescriptor = ClfsCreateLogFile(&pplfoLog, &Destination, 0xC0000000, 7u, P, 3u, 8u, 0, 0x200u, 0LL, 0);
-    ExFreePoolWithTag(v24, 0);
-    if ( FileSecurityDescriptor >= 0 )
+    v23 = P;
+    v21 = ClfsCreateLogFile(&pplfoLog, &Destination, 0xC0000000, 7u, P, 3u, 8u, 0, 0x200u, 0LL, 0);
+    ExFreePoolWithTag(v23, 0);
+    if ( v21 >= 0 )
       break;
-    if ( v58 )
-    {
-      *(_DWORD *)(v5 + 4160) = 7;
-      goto LABEL_113;
-    }
-    RtlFreeUnicodeString(&Destination);
-    CmpLogTxrInitEvent(v45, v5, (unsigned int)FileSecurityDescriptor);
-LABEL_82:
-    a2 = v59;
-LABEL_83:
-    if ( !v3 )
-      a2 = 1;
-    v58 = 1;
-    *(UUID *)(*(_QWORD *)(v5 + 64) + 148LL) = Uuid;
-    v59 = a2;
-    *(_OWORD *)(*(_QWORD *)(v5 + 64) + 112LL) = v18;
-    *(_OWORD *)(*(_QWORD *)(v5 + 64) + 128LL) = v18;
-LABEL_86:
-    CmpLockRegistry(v12, v11, v14, v13);
-    v46 = KeAbPreAcquire(v5 + 72, 0LL);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 72), 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)(v5 + 72), 0LL, v46, v5 + 72);
     if ( v46 )
-      *(_BYTE *)(v46 + 18) = 1;
-    v47 = KeAbPreAcquire(v5 + 80, 0LL);
-    v48 = v47;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 80), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 80), v47, v5 + 80);
-    if ( v48 )
-      *(_BYTE *)(v48 + 18) = 1;
-    HvMarkBaseBlockDirty(v5);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 80));
-    KeAbPostRelease(v5 + 80);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 72), 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)(v5 + 72));
-    KeAbPostRelease(v5 + 72);
-    CmpUnlockRegistry(v50, v49, v51, v52, psdLogFile, *(_QWORD *)fCreateDisposition);
-    v18 = *(_OWORD *)Object;
-    v3 = v68;
+    {
+      *(_DWORD *)(v5 + 4200) = 7;
+      goto LABEL_99;
+    }
+    RtlFreeAnsiString(&Destination);
+    CmpLogTxrInitEvent(v41, v5, (unsigned int)v21);
+LABEL_83:
+    v4 = 1;
+    v46 = 1;
+    *(UUID *)(*(_QWORD *)(v5 + 64) + 148LL) = v14;
+    *(UUID *)(*(_QWORD *)(v5 + 64) + 112LL) = v13;
+    *(UUID *)(*(_QWORD *)(v5 + 64) + 128LL) = v13;
+    if ( !a1 )
+      v45 = 1;
   }
   memset(&RegistrationData, 0, sizeof(RegistrationData));
   RegistrationData.Version = 1;
-  FileSecurityDescriptor = ClfsMgmtRegisterManagedClient(pplfoLog, &RegistrationData, &ClientCookie);
-  if ( FileSecurityDescriptor < 0 )
+  v21 = ClfsMgmtRegisterManagedClient(pplfoLog, &RegistrationData, &ClientCookie);
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 8;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 8;
+    goto LABEL_99;
   }
-  v25 = ExAllocatePool2(256LL, (unsigned __int16)TmContainerExt + 24LL, 1834110275LL);
-  v26 = (struct _CLFS_MGMT_POLICY *)v25;
-  if ( !v25 )
+  v24 = (struct _CLFS_MGMT_POLICY *)ExAllocatePoolWithTag(
+                                      PagedPool,
+                                      (unsigned __int16)TmContainerExt + 24LL,
+                                      0x6D524D43u);
+  v25 = v24;
+  if ( !v24 )
   {
-    *(_DWORD *)(v5 + 4160) = 9;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 9;
+    goto LABEL_99;
   }
-  v27 = (unsigned __int16)TmContainerExt;
-  *(_WORD *)(v25 + 16) = TmContainerExt;
-  v28 = v27;
-  *(_DWORD *)v25 = 1;
-  *(_DWORD *)(v25 + 12) = 9;
-  v29 = v27 + 24;
-  v30 = off_140C06B68;
-  *(_DWORD *)(v25 + 4) = v29;
-  memmove((void *)(v25 + 18), v30, v28);
-  FileSecurityDescriptor = ClfsMgmtInstallPolicy(pplfoLog, v26, v29);
-  ExFreePoolWithTag(v26, 0);
-  if ( FileSecurityDescriptor < 0 )
+  v26 = (unsigned __int16)TmContainerExt;
+  *(_OWORD *)&v24->Version = 0LL;
+  v24->PolicyParameters.NewContainerSuffix.NextContainerSuffix = 0LL;
+  v27 = v26;
+  v28 = v26 + 24;
+  v24->PolicyParameters.NewContainerPrefix.PrefixLengthInBytes = v26;
+  v29 = off_140C04808;
+  v24->LengthInBytes = v28;
+  v24->Version = 1;
+  v24->PolicyType = ClfsMgmtPolicyNewContainerExtension;
+  memmove((char *)&v24->PolicyParameters + 2, v29, v27);
+  v21 = ClfsMgmtInstallPolicy(pplfoLog, v25, v28);
+  ExFreePoolWithTag(v25, 0);
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 10;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 10;
+    goto LABEL_99;
   }
-  v31 = (HANDLE *)(Pool2 + 4);
   LogFileName.Length = Destination.Length - CmpClfsLogPrefix.Length;
   ObjectAttributes.Length = 48;
   LogFileName.MaximumLength = Destination.MaximumLength - CmpClfsLogPrefix.Length;
-  ObjectAttributes.RootDirectory = 0LL;
   LogFileName.Buffer = (wchar_t *)((char *)Destination.Buffer + CmpClfsLogPrefix.Length);
+  ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   ObjectAttributes.ObjectName = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v32 = ZwCreateTransactionManager((PHANDLE)Pool2 + 4, 0xF003Fu, &ObjectAttributes, &LogFileName, CreateOptions, 0);
-  FileSecurityDescriptor = v32;
-  if ( v32 == -1073741771 )
+  v30 = ZwCreateTransactionManager((PHANDLE)v10 + 4, 0xF003Fu, &ObjectAttributes, &LogFileName, CreateOptions, 0);
+  v21 = v30;
+  if ( v30 == -1073741771 )
   {
     if ( Destination.Buffer )
-      RtlFreeUnicodeString(&Destination);
+      RtlFreeAnsiString(&Destination);
     if ( pplfoLog )
     {
       ClfsCloseLogFileObject(pplfoLog);
       pplfoLog = 0LL;
     }
-    v12 = ClientCookie;
     if ( ClientCookie )
     {
       ClfsMgmtDeregisterManagedClient(ClientCookie);
       ClientCookie = 0LL;
     }
-    if ( v58 )
-      goto LABEL_38;
-    goto LABEL_82;
+    if ( v46 )
+      goto LABEL_39;
+    goto LABEL_83;
   }
-  if ( v32 >= 0 )
-    FileSecurityDescriptor = ZwRecoverTransactionManager(*v31);
-LABEL_38:
-  RtlFreeUnicodeString(&Destination);
-  if ( FileSecurityDescriptor < 0 )
+  if ( v30 >= 0 )
+    v21 = ZwRecoverTransactionManager((HANDLE)v10[4]);
+LABEL_39:
+  RtlFreeAnsiString(&Destination);
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 11;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 11;
+    goto LABEL_99;
   }
   if ( pplfoLog )
   {
@@ -427,120 +389,97 @@ LABEL_38:
     ClfsMgmtDeregisterManagedClient(ClientCookie);
     ClientCookie = 0LL;
   }
-  v33 = *v31;
-  Object[0] = 0LL;
-  FileSecurityDescriptor = ObReferenceObjectByHandle(
-                             v33,
-                             0xF003Fu,
-                             (POBJECT_TYPE)TmTransactionManagerObjectType,
-                             0,
-                             Object,
-                             0LL);
-  Pool2[5] = Object[0];
-  if ( FileSecurityDescriptor < 0 )
+  v31 = (void *)v10[4];
+  P = 0LL;
+  v21 = ObReferenceObjectByHandle(v31, 0xF003Fu, (POBJECT_TYPE)TmTransactionManagerObjectType, 0, &P, 0LL);
+  v10[5] = P;
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 12;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 12;
+    goto LABEL_99;
   }
-  v34 = *(GUID *)(*(_QWORD *)(v5 + 64) + 112LL);
+  v32 = *(GUID *)(*(_QWORD *)(v5 + 64) + 112LL);
   ObjectAttributes.RootDirectory = 0LL;
-  ResourceManagerGuid = v34;
   ObjectAttributes.ObjectName = 0LL;
-  v35 = (HANDLE *)(Pool2 + 6);
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v33 = (HANDLE *)(v10 + 6);
+  ResourceManagerGuid = v32;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
-  FileSecurityDescriptor = ZwCreateResourceManager(
-                             (PHANDLE)Pool2 + 6,
-                             0x1F007Fu,
-                             *v31,
-                             &ResourceManagerGuid,
-                             &ObjectAttributes,
-                             0,
-                             0LL);
-  if ( FileSecurityDescriptor == -1073741771 )
-    FileSecurityDescriptor = ZwOpenResourceManager(
-                               (PHANDLE)Pool2 + 6,
-                               0x1F007Fu,
-                               *v31,
-                               &ResourceManagerGuid,
-                               &ObjectAttributes);
-  if ( FileSecurityDescriptor < 0 )
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v21 = ZwCreateResourceManager(
+          (PHANDLE)v10 + 6,
+          0x1F007Fu,
+          (HANDLE)v10[4],
+          &ResourceManagerGuid,
+          &ObjectAttributes,
+          0,
+          0LL);
+  if ( v21 == -1073741771 )
+    v21 = ZwOpenResourceManager((PHANDLE)v10 + 6, 0x1F007Fu, (HANDLE)v10[4], &ResourceManagerGuid, &ObjectAttributes);
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 13;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 13;
+    goto LABEL_99;
   }
-  FileSecurityDescriptor = ZwRecoverResourceManager(*v35);
-  if ( FileSecurityDescriptor < 0 )
+  v21 = ZwRecoverResourceManager(*v33);
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 14;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 14;
+    goto LABEL_99;
   }
-  v36 = *v35;
-  Object[0] = 0LL;
-  FileSecurityDescriptor = ObReferenceObjectByHandle(
-                             v36,
-                             0x1F007Fu,
-                             (POBJECT_TYPE)TmResourceManagerObjectType,
-                             0,
-                             Object,
-                             0LL);
-  Pool2[7] = Object[0];
-  if ( FileSecurityDescriptor < 0 )
+  v34 = *v33;
+  P = 0LL;
+  v21 = ObReferenceObjectByHandle(v34, 0x1F007Fu, (POBJECT_TYPE)TmResourceManagerObjectType, 0, &P, 0LL);
+  v10[7] = P;
+  if ( v21 < 0 )
   {
-    *(_DWORD *)(v5 + 4160) = 15;
-    goto LABEL_113;
+    *(_DWORD *)(v5 + 4200) = 15;
+    goto LABEL_99;
   }
-  if ( v3 )
+  if ( a1 )
   {
-    *(_QWORD *)(v3 + 4152) = Pool2;
-    *((_DWORD *)Pool2 + 16) = 1;
-    goto LABEL_51;
+    *(_QWORD *)(a1 + 4192) = v10;
+    *((_DWORD *)v10 + 16) = 1;
+    goto LABEL_52;
   }
-  CmRmSystem = Pool2;
-  v40 = &qword_140C026A8;
-  v41 = 7LL;
+  CmRmSystem = v10;
+  v37 = &qword_140C00F18;
+  v38 = 7LL;
   while ( 2 )
   {
-    v42 = v40[3];
-    if ( v42 && (*(_DWORD *)(v42 + 160) & 2) == 0 )
+    v39 = v37[3];
+    if ( v39 && (*(_DWORD *)(v39 + 160) & 2) == 0 )
     {
-      v43 = CmRmSystem;
-      ++*((_DWORD *)CmRmSystem + 16);
-      v44 = v40[3];
-      goto LABEL_62;
+      ++*((_DWORD *)v10 + 16);
+      v40 = v37[3];
+      goto LABEL_63;
     }
-    if ( *v40 && (*(_DWORD *)(*v40 + 160) & 2) == 0 )
+    if ( *v37 && (*(_DWORD *)(*v37 + 160) & 2) == 0 )
     {
-      v43 = CmRmSystem;
-      ++*((_DWORD *)CmRmSystem + 16);
-      v44 = *v40;
-LABEL_62:
-      *(_QWORD *)(v44 + 4152) = v43;
+      ++*((_DWORD *)v10 + 16);
+      v40 = *v37;
+LABEL_63:
+      *(_QWORD *)(v40 + 4192) = v10;
     }
-    v40 += 23;
-    if ( --v41 )
+    v37 += 25;
+    if ( --v38 )
       continue;
     break;
   }
-  v3 = v68;
-  *(_QWORD *)(CmpMasterHive + 4152) = CmRmSystem;
-  ++*((_DWORD *)CmRmSystem + 16);
-LABEL_51:
-  Pool2[10] = v3;
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&CmpRmListLock);
-  v38 = (_QWORD *)qword_140C13BD8;
-  if ( *(__int64 **)qword_140C13BD8 != &CmpRmListHead )
+  *(_QWORD *)(CmpMasterHive + 4192) = v10;
+  ++*((_DWORD *)v10 + 16);
+LABEL_52:
+  v10[10] = a1;
+  LOCK_CM_RM_LIST();
+  v35 = (_QWORD *)qword_140C47C08;
+  if ( *(__int64 **)qword_140C47C08 != &CmpRmListHead )
     __fastfail(3u);
-  *Pool2 = &CmpRmListHead;
-  Pool2[1] = v38;
-  *v38 = Pool2;
-  qword_140C13BD8 = (__int64)Pool2;
-  ExReleaseFastMutexUnsafe(&CmpRmListLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v59 )
-    CmpStartRMLog(Pool2, 0LL);
+  *v10 = &CmpRmListHead;
+  v10[1] = v35;
+  *v35 = v10;
+  qword_140C47C08 = (__int64)v10;
+  UNLOCK_CM_RM_LIST();
+  if ( v45 )
+    CmpStartRMLog(v10, 0LL);
   return 0LL;
 }

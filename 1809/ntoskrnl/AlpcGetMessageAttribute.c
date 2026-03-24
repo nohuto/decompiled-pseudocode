@@ -3,7 +3,7 @@
  * Callers:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
  *     PopUmpoProcessMessages @ 0x140004B48 (PopUmpoProcessMessages.c)
- *     DbgkpSendErrorMessage @ 0x140810DEC (DbgkpSendErrorMessage.c)
+ *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
  * Callees:
  *     AlpcGetHeaderSize @ 0x140004C90 (AlpcGetHeaderSize.c)
  */

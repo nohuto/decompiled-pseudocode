@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpRefillWorkItemFreeList @ 0x1408635E4
+ * XREFs of ObpRefillWorkItemFreeList @ 0x1408635C4
  * Callers:
- *     ObpPushRefDerefInfo @ 0x1408633D4 (ObpPushRefDerefInfo.c)
+ *     ObpPushRefDerefInfo @ 0x1408633B4 (ObpPushRefDerefInfo.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

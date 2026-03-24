@@ -1,16 +1,15 @@
 /*
- * XREFs of ?AllocateCallbackData@@YAJPEAU_CAPTUREBUF@@KPEAPEAX@Z @ 0x1C00803F0
+ * XREFs of ?AllocateCallbackData@@YAJPEAU_CAPTUREBUF@@KPEAPEAX@Z @ 0x1C0023470
  * Callers:
- *     SfnOUTSTRING @ 0x1C007FE90 (SfnOUTSTRING.c)
- *     xxxClientLoadStringW @ 0x1C00D4D24 (xxxClientLoadStringW.c)
- *     SfnGETDBCSTEXTLENGTHS @ 0x1C00D5120 (SfnGETDBCSTEXTLENGTHS.c)
- *     ClientGetListboxString @ 0x1C02224D0 (ClientGetListboxString.c)
- *     SfnIMECONTROL @ 0x1C0223470 (SfnIMECONTROL.c)
- *     SfnINCNTOUTSTRING @ 0x1C0223EE0 (SfnINCNTOUTSTRING.c)
- *     SfnINCNTOUTSTRINGNULL @ 0x1C0224480 (SfnINCNTOUTSTRINGNULL.c)
- *     SfnPOUTLPINT @ 0x1C0229B30 (SfnPOUTLPINT.c)
+ *     SfnGETDBCSTEXTLENGTHS @ 0x1C0022C30 (SfnGETDBCSTEXTLENGTHS.c)
+ *     xxxClientLoadStringW @ 0x1C00242FC (xxxClientLoadStringW.c)
+ *     ClientGetListboxString @ 0x1C015A484 (ClientGetListboxString.c)
+ *     SfnIMECONTROL @ 0x1C02295E0 (SfnIMECONTROL.c)
+ *     SfnINCNTOUTSTRING @ 0x1C022A180 (SfnINCNTOUTSTRING.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C022A7A0 (SfnINCNTOUTSTRINGNULL.c)
+ *     SfnPOUTLPINT @ 0x1C022FC80 (SfnPOUTLPINT.c)
  * Callees:
- *     ?FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z @ 0x1C0080430 (-FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z.c)
+ *     ?FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z @ 0x1C00234B0 (-FixupCaptureDataOffsets@@YAXPEAU_CAPTUREBUF@@PEAPEAXPEAE@Z.c)
  */
 
 __int64 __fastcall AllocateCallbackData(struct _CAPTUREBUF *a1, unsigned int a2, void **a3)

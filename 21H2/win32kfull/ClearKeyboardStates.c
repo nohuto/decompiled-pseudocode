@@ -1,8 +1,8 @@
 /*
- * XREFs of ClearKeyboardStates @ 0x1C010ACBC
+ * XREFs of ClearKeyboardStates @ 0x1C002A8BC
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
  *     <none>
  */
@@ -10,19 +10,22 @@
 // write access to const memory has been detected, the output may be wrong!
 __int64 ClearKeyboardStates()
 {
-  __m128i *v0; // rax
-  __int64 v1; // rcx
+  unsigned int DLT; // eax
+  __m128i *v1; // rax
+  __int64 v2; // rcx
   __int64 result; // rax
 
-  v0 = *(__m128i **)gafAsyncKeyState;
-  v1 = 4LL;
+  DLT = DLT_ASYNCKEYSTATE::getDLT();
+  GetDomainLockRef(DLT);
+  v1 = (__m128i *)gafAsyncKeyState;
+  v2 = 4LL;
   do
   {
-    *v0 = _mm_and_si128(_mm_loadu_si128(v0), (__m128i)_xmm_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
-    ++v0;
-    --v1;
+    *v1 = _mm_and_si128(_mm_loadu_si128(v1), (__m128i)_xmm_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+    ++v1;
+    --v2;
   }
-  while ( v1 );
+  while ( v2 );
   ClearKeyboardToggleStates();
   result = gfsSASModifiersDown;
   gfsModifiers = 0;

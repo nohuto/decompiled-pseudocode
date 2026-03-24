@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlpCaptureDynamicRelocationTableRva @ 0x140376610
+ * XREFs of RtlpCaptureDynamicRelocationTableRva @ 0x1403B69BC
  * Callers:
- *     RtlUpdateImportRelocationsInImage @ 0x140376274 (RtlUpdateImportRelocationsInImage.c)
- *     RtlApplyFunctionOverrideFixupsToImage @ 0x1403765A4 (RtlApplyFunctionOverrideFixupsToImage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067A69C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1403B6618 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FDFC (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4B48 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlpCaptureDynamicRelocationTableRva(unsigned __int64 a1, unsigned int a2, _DWORD *a3)

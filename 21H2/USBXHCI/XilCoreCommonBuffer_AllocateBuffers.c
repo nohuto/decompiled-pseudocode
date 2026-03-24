@@ -1,19 +1,19 @@
 /*
- * XREFs of XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015B94
+ * XREFs of XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74
  * Callers:
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009E10 (XilCoreCommonBuffer_AcquireBuffers.c)
- *     XilCoreCommonBuffer_AcquireBuffer @ 0x1C000FAEC (XilCoreCommonBuffer_AcquireBuffer.c)
- *     XilCoreCommonBuffer_Create @ 0x1C001591C (XilCoreCommonBuffer_Create.c)
- *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015AD8 (XilCoreCommonBuffer_PreAllocateBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffer @ 0x1C000E490 (XilCoreCommonBuffer_AcquireBuffer.c)
+ *     XilCoreCommonBuffer_Create @ 0x1C0015D00 (XilCoreCommonBuffer_Create.c)
+ *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015EB8 (XilCoreCommonBuffer_PreAllocateBuffers.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_qDD @ 0x1C0016390 (WPP_RECORDER_SF_qDD.c)
- *     DmaEnabler_AllocateCommonBufferPage @ 0x1C001686C (DmaEnabler_AllocateCommonBufferPage.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C004FDB8 (SecureDmaEnabler_FreeCommonBufferPage.c)
- *     WPP_RECORDER_SF_ddqDddd @ 0x1C005094C (WPP_RECORDER_SF_ddqDddd.c)
- *     SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C007837C (SecureDmaEnabler_AllocateCommonBufferPage.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C0015C18 (WPP_RECORDER_SF_qdd.c)
+ *     DmaEnabler_AllocateCommonBufferPage @ 0x1C0016B3C (DmaEnabler_AllocateCommonBufferPage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C004F208 (SecureDmaEnabler_FreeCommonBufferPage.c)
+ *     WPP_RECORDER_SF_ddqDddd @ 0x1C004FD48 (WPP_RECORDER_SF_ddqDddd.c)
+ *     SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C0076F7C (SecureDmaEnabler_AllocateCommonBufferPage.c)
  */
 
 void __fastcall XilCoreCommonBuffer_AllocateBuffers(__int64 **a1, __int64 a2, int a3)
@@ -59,7 +59,7 @@ void __fastcall XilCoreCommonBuffer_AllocateBuffers(__int64 **a1, __int64 a2, in
     v30 = *(_DWORD *)(a2 + 28);
     v28 = *(_DWORD *)(a2 + 24);
     LOBYTE(a2) = 5;
-    WPP_RECORDER_SF_qDD(a1[1][9], a2, 8, 11, (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids, v5, v28, v30);
+    WPP_RECORDER_SF_qdd(a1[1][9], a2, 8, 11, (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids, v5, v28, v30);
   }
   _InterlockedIncrement((volatile signed __int32 *)a1 + 52);
   v7 = ((unsigned int)(a3 * *(_DWORD *)v5) >> 12) + (((a3 * *(_DWORD *)v5) & 0xFFF) != 0);
@@ -69,7 +69,7 @@ void __fastcall XilCoreCommonBuffer_AllocateBuffers(__int64 **a1, __int64 a2, in
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v9) = 5;
-    WPP_RECORDER_SF_DD(a1[1][9], v9, 8, 12, (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids, v7, v8);
+    WPP_RECORDER_SF_dd(a1[1][9], v9, 8, 12, (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids, v7, v8);
     v8 = v34;
   }
   v32 = 0;

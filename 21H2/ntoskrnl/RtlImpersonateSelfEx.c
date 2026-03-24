@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlImpersonateSelfEx @ 0x1406CB908
+ * XREFs of RtlImpersonateSelfEx @ 0x1406B13C8
  * Callers:
- *     RtlAcquirePrivilege @ 0x1406CB6DC (RtlAcquirePrivilege.c)
- *     CmpCmdHiveOpen @ 0x14070AAD0 (CmpCmdHiveOpen.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
+ *     CmpCmdHiveOpen @ 0x140603588 (CmpCmdHiveOpen.c)
+ *     RtlAcquirePrivilege @ 0x1406B118C (RtlAcquirePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x14041B900 (ZwSetInformationThread.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenProcessTokenEx @ 0x14041BD60 (ZwOpenProcessTokenEx.c)
- *     ZwDuplicateToken @ 0x14041BFA0 (ZwDuplicateToken.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1403FA540 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x1403FA9A0 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x1403FABE0 (ZwDuplicateToken.c)
  */
 
 __int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)

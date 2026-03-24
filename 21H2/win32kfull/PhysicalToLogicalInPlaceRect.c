@@ -1,10 +1,9 @@
 /*
- * XREFs of PhysicalToLogicalInPlaceRect @ 0x1C004C854
+ * XREFs of PhysicalToLogicalInPlaceRect @ 0x1C0074724
  * Callers:
- *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C004B1E8 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
- *     IntersectWithParents @ 0x1C004B7F8 (IntersectWithParents.c)
- *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C004BDA0 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
- *     ?SHData_StoreSafetyZone@MOVESIZEDATA@@QEAAXAEBUtagRECT@@@Z @ 0x1C024AA14 (-SHData_StoreSafetyZone@MOVESIZEDATA@@QEAAXAEBUtagRECT@@@Z.c)
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0072A60 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     IntersectWithParents @ 0x1C0073118 (IntersectWithParents.c)
+ *     ?CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0073BB0 (-CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z.c)
  * Callees:
  *     <none>
  */

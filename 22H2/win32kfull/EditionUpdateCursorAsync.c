@@ -1,30 +1,30 @@
 /*
- * XREFs of EditionUpdateCursorAsync @ 0x1C009D410
+ * XREFs of EditionUpdateCursorAsync @ 0x1C0104E50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-LONG_PTR __fastcall EditionUpdateCursorAsync(__int64 a1)
+LONG_PTR __fastcall EditionUpdateCursorAsync(__int64 a1, __int64 a2)
 {
   LONG_PTR result; // rax
-  void *v2; // rbx
-  _OWORD v3[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v4; // [rsp+40h] [rbp-18h]
-  int v5; // [rsp+48h] [rbp-10h]
+  void *v3; // rbx
+  _OWORD v4[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-18h]
+  int v6; // [rsp+48h] [rbp-10h]
 
-  result = ReferenceDwmApiPort(a1);
-  v2 = (void *)result;
+  result = ReferenceDwmApiPort(a1, a2);
+  v3 = (void *)result;
   if ( result )
   {
-    v5 = 1073741912;
-    v4 = 0LL;
-    memset(v3, 0, sizeof(v3));
-    LODWORD(v3[0]) = 2883588;
-    WORD2(v3[0]) = 0x8000;
-    LpcRequestPort(result, v3);
-    return ObfDereferenceObject(v2);
+    v6 = 1073741911;
+    v5 = 0LL;
+    memset(v4, 0, sizeof(v4));
+    LODWORD(v4[0]) = 2883588;
+    WORD2(v4[0]) = 0x8000;
+    LpcRequestPort(result, v4);
+    return ObfDereferenceObject(v3);
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDevice@CDxHandleBitmapRealization@@UEBAPEAVCD3DDevice@@XZ @ 0x1802B11D0
+ * XREFs of ?GetDevice@CDxHandleBitmapRealization@@UEBAPEAVCD3DDevice@@XZ @ 0x180263110
  * Callers:
- *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1801222E0 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
- *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBAPEAVCD3DDevice@@XZ @ 0x180122300 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBAPEAVCD3DDevice@@XZ.c)
- *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBAPEAVCD3DDevice@@XZ @ 0x180122A60 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBAPEAVCD3DDevice@@XZ.c)
- *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBAPEAVCD3DDevice@@XZ @ 0x180122CE0 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBAPEAVCD3DDevice@@XZ.c)
+ *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F8310 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
+ *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBAPEAVCD3DDevice@@XZ @ 0x1800F8320 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBAPEAVCD3DDevice@@XZ.c)
+ *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBAPEAVCD3DDevice@@XZ @ 0x1800F8600 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBAPEAVCD3DDevice@@XZ.c)
+ *     ?GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBAPEAVCD3DDevice@@XZ @ 0x1800F87C0 (-GetDevice@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBAPEAVCD3DDevice@@XZ.c)
  * Callees:
  *     <none>
  */

@@ -1,37 +1,32 @@
 /*
- * XREFs of ?GetContentRegion@CPrimitiveGroupDrawListGenerator@@QEAAPEBVCRegion@@XZ @ 0x1802B9648
+ * XREFs of ?GetContentRegion@CPrimitiveGroupDrawListGenerator@@QEAAPEBVCRegion@@XZ @ 0x180269300
  * Callers:
- *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x180013920 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
- *     ?GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x180248570 (-GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CCont.c)
+ *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x1800081D0 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
+ *     ?GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801E3270 (-GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CCont.c)
  * Callees:
- *     ?GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA?AVIterator@CPrimitiveBuffer@@I@Z @ 0x1800108D0 (-GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA-AVIterator@CPrimitiveBuffer@@I@Z.c)
- *     ?Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ @ 0x180010D4C (-Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ.c)
- *     ?RECTFromD2DRectF@@YA?AUtagRECT@@AEBUD2D_RECT_F@@@Z @ 0x180013B68 (-RECTFromD2DRectF@@YA-AUtagRECT@@AEBUD2D_RECT_F@@@Z.c)
- *     ?TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z @ 0x1800168FC (-TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??_GCRegion@@QEAAPEAXI@Z @ 0x1801C3900 (--_GCRegion@@QEAAPEAXI@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??_GCRegion@@QEAAPEAXI@Z @ 0x18002B3F4 (--_GCRegion@@QEAAPEAXI@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$AppendRects@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@CRegion@@QEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x18009BAEC (--$AppendRects@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniquenes.c)
+ *     ?Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ @ 0x1800B9FB4 (-Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ.c)
+ *     ?GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA?AVIterator@CPrimitiveBuffer@@I@Z @ 0x1800BA118 (-GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA-AVIterator@CPrimitiveBuffer@@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 const struct CRegion *__fastcall CPrimitiveGroupDrawListGenerator::GetContentRegion(
         CPrimitiveGroupDrawListGenerator *this)
 {
   _DWORD *v2; // rax
-  void **v3; // rcx
-  void **v4; // rcx
+  CRegion *v3; // rcx
+  CRegion *v4; // rcx
   unsigned int i; // edi
-  __int64 v7; // r11
-  struct tagRECT *v8; // rax
-  CRegion *v9; // rcx
-  int v10; // eax
-  struct tagRECT v11; // [rsp+30h] [rbp-48h] BYREF
-  struct tagRECT v12; // [rsp+40h] [rbp-38h] BYREF
-  _BYTE v13[8]; // [rsp+50h] [rbp-28h] BYREF
-  struct D2D_RECT_F *v14; // [rsp+58h] [rbp-20h]
-  const void *retaddr; // [rsp+78h] [rbp+0h]
+  __int64 v6; // r11
+  void **v7; // rcx
+  _BYTE v9[8]; // [rsp+30h] [rbp-48h] BYREF
+  __int128 *v10; // [rsp+38h] [rbp-40h]
+  __int128 v11; // [rsp+50h] [rbp-28h] BYREF
 
-  if ( !*((_QWORD *)this + 12) )
+  if ( !*((_QWORD *)this + 15) )
   {
     v2 = DefaultHeap::Alloc(0x48uLL);
     if ( v2 )
@@ -39,38 +34,40 @@ const struct CRegion *__fastcall CPrimitiveGroupDrawListGenerator::GetContentReg
       *(_QWORD *)v2 = v2 + 2;
       v2[2] = 0;
     }
-    v3 = (void **)*((_QWORD *)this + 12);
-    *((_QWORD *)this + 12) = v2;
+    v3 = (CRegion *)*((_QWORD *)this + 15);
+    *((_QWORD *)this + 15) = v2;
     if ( v3 )
+    {
       CRegion::`scalar deleting destructor'(v3, 1);
-    if ( *((_QWORD *)this + 12) )
+      v2 = (_DWORD *)*((_QWORD *)this + 15);
+    }
+    if ( v2 )
     {
       for ( i = 0; i < *(_DWORD *)(*((_QWORD *)this + 2) + 8LL); ++i )
       {
-        CPrimitiveGroupDrawListGenerator::GetIteratorForState((__int64)this, (__int64)v13, i);
-        if ( (*(_BYTE *)(v7 + 4) & 2) == 0 && *(_DWORD *)v7 && *(_DWORD *)(v7 + 40) < *((_DWORD *)this + 8) )
+        CPrimitiveGroupDrawListGenerator::GetIteratorForState((__int64)this, (__int64)v9, i);
+        if ( (*(_BYTE *)(v6 + 4) & 2) == 0 && *(_DWORD *)v6 && *(_DWORD *)(v6 + 40) < *((_DWORD *)this + 14) )
         {
           do
           {
-            v8 = RECTFromD2DRectF(&v12, v14);
-            v9 = (CRegion *)*((_QWORD *)this + 12);
-            v11 = *v8;
-            v10 = CRegion::TryAddRectangle(v9, &v11);
-            if ( v10 < 0 )
-              ModuleFailFastForHRESULT(v10, retaddr);
+            v7 = (void **)*((_QWORD *)this + 15);
+            v11 = *v10;
+            CRegion::AppendRects<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>>(
+              v7,
+              (float *)&v11);
           }
-          while ( CPrimitiveBuffer::Iterator::Step((CPrimitiveBuffer::Iterator *)v13) );
+          while ( CPrimitiveBuffer::Iterator::Step((CPrimitiveBuffer::Iterator *)v9) );
         }
       }
     }
     else
     {
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v3, 0LL, 0, -2147024882, 0x1F6u, 0LL);
-      v4 = (void **)*((_QWORD *)this + 12);
-      *((_QWORD *)this + 12) = 0LL;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v3, 0LL, 0, -2147024882, 0x27Au, 0LL);
+      v4 = (CRegion *)*((_QWORD *)this + 15);
+      *((_QWORD *)this + 15) = 0LL;
       if ( v4 )
         CRegion::`scalar deleting destructor'(v4, 1);
     }
   }
-  return (const struct CRegion *)*((_QWORD *)this + 12);
+  return (const struct CRegion *)*((_QWORD *)this + 15);
 }

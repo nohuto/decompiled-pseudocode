@@ -1,88 +1,102 @@
 /*
- * XREFs of zzzCalcStartCursorHide @ 0x1C00E5F30
+ * XREFs of zzzCalcStartCursorHide @ 0x1C007FBF0
  * Callers:
- *     zzzWakeInputIdle @ 0x1C006A310 (zzzWakeInputIdle.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     ?xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z @ 0x1C0118748 (-xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z.c)
- *     xxxGetInputEvent @ 0x1C011DA20 (xxxGetInputEvent.c)
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0125FC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     zzzShowStartGlass @ 0x1C01B3738 (zzzShowStartGlass.c)
+ *     xxxHungAppDemon @ 0x1C00416E0 (xxxHungAppDemon.c)
+ *     xxxGetInputEvent @ 0x1C0053050 (xxxGetInputEvent.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068290 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     zzzWakeInputIdle @ 0x1C00DA024 (zzzWakeInputIdle.c)
+ *     zzzShowStartGlass @ 0x1C01D2F60 (zzzShowStartGlass.c)
  * Callees:
- *     ?IsProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NPEAU_EPROCESS@@@Z @ 0x1C00E5DC4 (-IsProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NPEAU_EPROCESS@@@Z.c)
- *     ?IsSessionGlobalsAreaAllocated@Umfd@Gre@@YA_NXZ @ 0x1C00E5E54 (-IsSessionGlobalsAreaAllocated@Umfd@Gre@@YA_NXZ.c)
- *     zzzUpdateCursorImage @ 0x1C00E6B60 (zzzUpdateCursorImage.c)
+ *     zzzUpdateCursorImage @ 0x1C0080E90 (zzzUpdateCursorImage.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A82E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall zzzCalcStartCursorHide(__int64 a1, __int64 a2)
 {
   int v3; // ebp
-  unsigned __int64 v4; // rdi
+  unsigned __int64 v4; // rsi
   struct _W32PROCESS **v5; // r8
   struct _W32PROCESS *v6; // rcx
-  _DWORD *v7; // r11
-  unsigned int v8; // r9d
-  struct _W32PROCESS **v9; // r10
-  struct _EPROCESS *v11; // rsi
+  _DWORD *v8; // r10
+  unsigned int v9; // r9d
+  struct _W32PROCESS **v10; // r11
+  PVOID v11; // rbx
+  bool v12; // bl
   struct _W32PROCESS *i; // rax
+  __int64 v14; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = a2;
   v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
   if ( a1 )
   {
-    v11 = *(struct _EPROCESS **)a1;
-    if ( Gre::Umfd::IsSessionGlobalsAreaAllocated((Gre::Umfd *)0xFFFFF78000000004LL)
-      && UmfdHostLifeTimeManager::IsProcessUmfdHost(v11) )
+    v11 = *(PVOID *)a1;
+    AutoSharedPushLock::AutoSharedPushLock(
+      (AutoSharedPushLock *)&v14,
+      (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
+    v12 = UmfdHostLifeTimeManager::s_UmfdHostProcess == v11;
+    if ( v14 )
     {
-      __debugbreak();
+      GreReleasePushLockShared(v14);
+      KeLeaveCriticalRegion();
     }
+    if ( v12 )
+      __debugbreak();
     if ( (*(_DWORD *)(a1 + 12) & 4) == 0 )
     {
       for ( i = gpwpCalcFirst; i; i = (struct _W32PROCESS *)*((_QWORD *)i + 4) )
       {
         if ( i == (struct _W32PROCESS *)a1 )
-          goto LABEL_21;
+          goto LABEL_24;
       }
-      *(_QWORD *)(a1 + 32) = gpwpCalcFirst;
-      gpwpCalcFirst = (struct _W32PROCESS *)a1;
+      if ( a1 )
+      {
+        *(_QWORD *)(a1 + 32) = gpwpCalcFirst;
+        gpwpCalcFirst = (struct _W32PROCESS *)a1;
+      }
     }
-LABEL_21:
+LABEL_24:
     *(_DWORD *)(a1 + 12) |= 4u;
     *(_DWORD *)(a1 + 24) = v4 + v3;
   }
   HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = 0;
   v5 = &gpwpCalcFirst;
   v6 = gpwpCalcFirst;
-  if ( !gpwpCalcFirst )
-    goto LABEL_12;
-  do
+  if ( gpwpCalcFirst )
   {
-    v7 = (_DWORD *)((char *)v6 + 12);
-    a2 = *((unsigned int *)v6 + 3);
-    if ( (*((_DWORD *)v6 + 3) & 6) == 4 )
+    while ( 1 )
     {
-      v8 = *((_DWORD *)v6 + 6);
-      if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) < v8 )
+      v8 = (_DWORD *)((char *)v6 + 12);
+      a2 = *((unsigned int *)v6 + 3);
+      if ( (*((_DWORD *)v6 + 3) & 6) != 4 )
+        break;
+      v9 = *((_DWORD *)v6 + 6);
+      if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) < v9 )
         HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = *((_DWORD *)v6 + 6);
-      v9 = (struct _W32PROCESS **)((char *)v6 + 32);
+      v10 = (struct _W32PROCESS **)((char *)v6 + 32);
       v6 = (struct _W32PROCESS *)*((_QWORD *)v6 + 4);
-      if ( (int)(v4 - v8) <= 0 )
+      if ( (int)(v4 - v9) > 0 )
       {
-        v5 = v9;
-        continue;
+        a2 = (unsigned int)a2 & 0xFFFFFFFB;
+        *v8 = a2;
+        goto LABEL_11;
       }
-      a2 = (unsigned int)a2 & 0xFFFFFFFB;
-      *v7 = a2;
-    }
-    else
-    {
-      v6 = (struct _W32PROCESS *)*((_QWORD *)v6 + 4);
-    }
-    *v5 = v6;
-  }
-  while ( v6 );
-  if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) <= (unsigned int)v4 )
+      v5 = v10;
 LABEL_12:
-    HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = 0;
+      if ( !v6 )
+      {
+        if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) > (unsigned int)v4 )
+          return zzzUpdateCursorImage(v6, a2, v5);
+        goto LABEL_3;
+      }
+    }
+    v6 = (struct _W32PROCESS *)*((_QWORD *)v6 + 4);
+LABEL_11:
+    *v5 = v6;
+    goto LABEL_12;
+  }
+LABEL_3:
+  HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = 0;
   return zzzUpdateCursorImage(v6, a2, v5);
 }

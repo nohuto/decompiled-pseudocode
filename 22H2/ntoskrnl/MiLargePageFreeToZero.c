@@ -1,213 +1,198 @@
 /*
- * XREFs of MiLargePageFreeToZero @ 0x140286E20
+ * XREFs of MiLargePageFreeToZero @ 0x1402843C0
  * Callers:
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
+ *     MiZeroPage @ 0x140232C80 (MiZeroPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
- *     MiGetPfnChannel @ 0x1402870B0 (MiGetPfnChannel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiArePageContentsZero @ 0x14064D490 (MiArePageContentsZero.c)
+ *     MiGetPfnChannel @ 0x140284844 (MiGetPfnChannel.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     MiSetFreeZeroPfnCold @ 0x1403AC2B0 (MiSetFreeZeroPfnCold.c)
+ *     MiArePageContentsZero @ 0x14054EB08 (MiArePageContentsZero.c)
  */
 
 void __fastcall MiLargePageFreeToZero(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, char a4)
 {
-  signed __int64 v6; // rcx
-  signed __int64 v7; // rdi
-  unsigned __int64 v8; // r12
-  __int64 v9; // rbx
-  __int64 v10; // r15
-  __int64 v11; // r14
-  __int64 v12; // rax
-  __int64 v13; // rax
-  _QWORD *v14; // rcx
-  __int64 v15; // rsi
-  __int64 v16; // r9
-  __int64 v17; // rax
-  unsigned __int64 v18; // r10
-  unsigned __int64 v19; // r8
-  ULONG_PTR v20; // rdx
-  unsigned __int64 v21; // r8
-  ULONG_PTR v22; // rcx
-  signed __int64 *v23; // rdx
-  ULONG_PTR v24; // r9
-  volatile signed __int32 *v25; // rdx
-  unsigned int v26; // r8d
-  int v27; // r13d
-  unsigned __int64 v28; // rcx
-  volatile signed __int32 *v29; // rcx
-  unsigned int v30; // r8d
-  unsigned __int64 v31; // rax
-  unsigned __int64 v32; // rax
-  volatile signed __int32 *v33; // [rsp+20h] [rbp-58h]
-  unsigned __int64 *v34; // [rsp+28h] [rbp-50h]
-  ULONG_PTR v35; // [rsp+28h] [rbp-50h]
-  unsigned __int64 v36; // [rsp+28h] [rbp-50h]
-  __int64 v37; // [rsp+30h] [rbp-48h]
-  __int64 v38; // [rsp+80h] [rbp+8h]
-  unsigned __int64 v39; // [rsp+80h] [rbp+8h]
-  unsigned __int64 v40; // [rsp+80h] [rbp+8h]
-  unsigned int PfnChannel; // [rsp+98h] [rbp+20h]
+  ULONG_PTR v7; // r14
+  __int64 v8; // r13
+  unsigned __int64 v9; // rsi
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rbp
+  __int64 v14; // rax
+  ULONG_PTR v15; // r9
+  volatile signed __int32 *v16; // rdx
+  int v17; // r15d
+  unsigned __int64 v18; // rcx
+  __int64 v19; // rax
+  _QWORD *v20; // rcx
+  __int64 v21; // r13
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  unsigned __int64 v24; // r11
+  unsigned __int64 v25; // r8
+  ULONG_PTR v26; // r10
+  unsigned __int64 v27; // r9
+  volatile signed __int32 *v28; // rdx
+  unsigned int v29; // ebx
+  unsigned __int64 v30; // r8
+  unsigned __int64 v31; // r11
+  ULONG_PTR v32; // rcx
+  ULONG_PTR *v33; // rdx
+  __int64 *v34; // [rsp+20h] [rbp-68h]
+  ULONG_PTR v35; // [rsp+20h] [rbp-68h]
+  __int64 v36; // [rsp+28h] [rbp-60h]
+  __int64 v37; // [rsp+30h] [rbp-58h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v39; // [rsp+90h] [rbp+8h]
+  __int64 v40; // [rsp+90h] [rbp+8h]
+  unsigned int PfnChannel; // [rsp+A8h] [rbp+20h]
 
-  v6 = 48 * BugCheckParameter2;
-  v7 = v6 - 0x220000000000LL;
-  v38 = a2;
-  v34 = (unsigned __int64 *)(0x140000000LL + 8LL * a2 + 119984);
-  v8 = *v34;
-  v9 = *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * (v6 >> 4)) + 2);
-  PfnChannel = MiGetPfnChannel(v7);
-  v10 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
-  v11 = *(_QWORD *)(v10 + 16) + 25408 * v9;
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v11 + 23104));
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  v7 = 48 * BugCheckParameter2 - 0x58000000000LL;
+  v8 = a2;
+  v39 = a2;
+  v9 = MiLargePageSizes[a2];
+  v34 = &MiLargePageSizes[a2];
+  v10 = *(unsigned int *)(MiSearchNumaNodeTable((__int64)(48 * BugCheckParameter2) / 48) + 8);
+  PfnChannel = MiGetPfnChannel(v7, v11, v12);
+  v36 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v7 + 40) >> 39) & 0x3FFLL));
+  v13 = *(_QWORD *)(v36 + 16) + 4544 * v10;
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v13 + 4328);
+  KxAcquireQueuedSpinLock(&LockHandle, v13 + 4328, v36);
   *(_BYTE *)(v7 + 34) &= ~8u;
-  v12 = *(_QWORD *)(v7 + 16);
-  *(_QWORD *)(v12 + 24) = 0LL;
-  *(_BYTE *)(v12 + 70) = 1;
+  v14 = *(_QWORD *)(v7 + 16);
+  *(_QWORD *)(v14 + 24) = 0LL;
+  *(_BYTE *)(v14 + 69) = 1;
   *(_QWORD *)(v7 + 16) = MiSwizzleInvalidPte(128LL);
   if ( !a4 )
   {
-    v13 = *(_QWORD *)v7;
+    v19 = *(_QWORD *)v7;
     if ( *(_QWORD *)(*(_QWORD *)v7 + 8LL) != v7 )
-      goto LABEL_43;
-    v14 = *(_QWORD **)(v7 + 8);
-    if ( *v14 != v7 )
-      goto LABEL_43;
-    *v14 = v13;
-    *(_QWORD *)(v13 + 8) = v14;
+      goto LABEL_39;
+    v20 = *(_QWORD **)(v7 + 8);
+    if ( *v20 != v7 )
+      goto LABEL_39;
+    *v20 = v19;
+    *(_QWORD *)(v19 + 8) = v20;
     if ( a3 )
-      *(_QWORD *)(v7 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v7 + 16), 4294967293LL);
-    if ( (MiFlags & 0x80u) != 0LL && (++dword_140C68060 & MmPageValidationFrequency) == 0 )
+      MiSetFreeZeroPfnCold(v7, 1LL);
+    if ( (MiFlags & 0x80u) != 0 && (++dword_140C4E7CC & MmPageValidationFrequency) == 0 )
       MiArePageContentsZero(BugCheckParameter2);
-    v37 = 1072 * v38;
-    --*(_QWORD *)(1072 * v38 + v11 + 8);
-    v15 = 134 * v38;
-    v16 = v11 + (BugCheckParameter2 < 0x100000 ? 0x10 : 0) + 1072 * v38;
-    v17 = 4LL;
-    --*(_QWORD *)(v16 + 24);
-    v18 = (unsigned __int64)*(unsigned __int8 *)(v7 + 34) >> 6;
+    v37 = 1072 * v8;
+    --*(_QWORD *)(1072 * v8 + v13 + 8);
+    v21 = 1072 * v8 + (BugCheckParameter2 < 0x100000 ? 0x10 : 0) + v13;
+    v22 = v39;
+    --*(_QWORD *)(v21 + 24);
+    v23 = 4LL;
+    v40 = 134 * v39;
     if ( BugCheckParameter2 < 0x100000 )
-      v17 = 12LL;
-    v19 = v18 + v15 + 4 * (PfnChannel + v17);
-    v20 = 24 * (BugCheckParameter2 / *v34 % (unsigned int)dword_140C65C80[v38]);
-    --*(_QWORD *)(v20 + *(_QWORD *)(v11 + 8 * v19 + 560) + 16);
-    --*(_QWORD *)(v11 + 8 * v19 + 48);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 2688), -(__int64)v8);
-    if ( dword_140C67F4C != 1 )
+      v23 = 12LL;
+    v24 = (unsigned __int64)*(unsigned __int8 *)(v7 + 34) >> 6;
+    v25 = v24 + 134 * v22 + 4 * (PfnChannel + v23);
+    v35 = 24 * (BugCheckParameter2 / *v34 % (unsigned int)dword_140C4DF80[v22]);
+    --*(_QWORD *)(v35 + *(_QWORD *)(v13 + 8 * v25 + 560) + 16);
+    --*(_QWORD *)(v13 + 8 * v25 + 48);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v36 + 2304), -(__int64)v9);
+    if ( dword_140C4E6CC == 1 )
     {
-LABEL_10:
-      *(_BYTE *)(v7 + 34) &= 0xF8u;
-      v21 = v15 + v18 + 4 * (PfnChannel + (unsigned __int64)(BugCheckParameter2 < 0x100000 ? 8 : 0));
-      v22 = v20 + *(_QWORD *)(v11 + 8 * v21 + 560);
-      v23 = *(signed __int64 **)(v22 + 8);
-      if ( (MiFlags & 0x30) != 0 )
+      v26 = BugCheckParameter2 & 0x1F;
+      v27 = v9;
+      v28 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (BugCheckParameter2 >> 5));
+      if ( v26 + v9 <= 0x20 )
       {
-        if ( *v23 == v22 )
+        if ( v9 == 32 )
         {
-LABEL_12:
-          *(_QWORD *)v7 = v22;
-          *(_QWORD *)(v7 + 8) = v23;
-          *v23 = v7;
-          *(_QWORD *)(v22 + 8) = v7;
-          ++*(_QWORD *)(v22 + 16);
-          ++*(_QWORD *)(v11 + 8 * v21 + 48);
-          ++*(_QWORD *)(v37 + v11);
-          ++*(_QWORD *)(v16 + 16);
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 2560), v8);
-          goto LABEL_13;
+          *v28 = -1;
+          goto LABEL_37;
         }
+        v29 = ((1 << v9) - 1) << v26;
+        goto LABEL_36;
       }
-      else if ( *v23 == v22 )
+      if ( (BugCheckParameter2 & 0x1F) != 0 )
       {
-        goto LABEL_12;
+        _InterlockedOr(v28, ((1 << (32 - (BugCheckParameter2 & 0x1F))) - 1) << v26);
+        v27 = v9 - (32 - (unsigned int)(BugCheckParameter2 & 0x1F));
+        ++v28;
       }
-LABEL_43:
-      __fastfail(3u);
+      if ( v27 >= 0x20 )
+      {
+        v30 = v27 >> 5;
+        v27 += -32LL * (v27 >> 5);
+        do
+        {
+          *v28++ = -1;
+          --v30;
+        }
+        while ( v30 );
+      }
+      if ( v27 )
+      {
+        v29 = (1 << v27) - 1;
+LABEL_36:
+        _InterlockedOr(v28, v29);
+      }
     }
-    v39 = v8;
-    v29 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140C67FA0 + 1) + 4 * (BugCheckParameter2 >> 5));
-    v33 = v29;
-    v35 = BugCheckParameter2 & 0x1F;
-    if ( v8 + v35 > 0x20 )
+LABEL_37:
+    *(_BYTE *)(v7 + 34) &= 0xF8u;
+    v31 = v40 + v24 + 4 * (PfnChannel + (unsigned __int64)(BugCheckParameter2 < 0x100000 ? 8 : 0));
+    v32 = *(_QWORD *)(v13 + 8 * v31 + 560) + v35;
+    v33 = *(ULONG_PTR **)(v32 + 8);
+    if ( *v33 == v32 )
+    {
+      *(_QWORD *)v7 = v32;
+      *(_QWORD *)(v7 + 8) = v33;
+      *v33 = v7;
+      *(_QWORD *)(v32 + 8) = v7;
+      ++*(_QWORD *)(v32 + 16);
+      ++*(_QWORD *)(v13 + 8 * v31 + 48);
+      ++*(_QWORD *)(v37 + v13);
+      ++*(_QWORD *)(v21 + 16);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v36 + 2240), v9);
+      goto LABEL_6;
+    }
+LABEL_39:
+    __fastfail(3u);
+  }
+  if ( dword_140C4E6CC == 1 )
+  {
+    v15 = BugCheckParameter2 & 0x1F;
+    v16 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (BugCheckParameter2 >> 5));
+    if ( v15 + v9 > 0x20 )
     {
       if ( (BugCheckParameter2 & 0x1F) != 0 )
       {
-        _InterlockedOr(v29, ((1 << (32 - (BugCheckParameter2 & 0x1F))) - 1) << v35);
-        v39 = v8 - (32 - (unsigned int)(BugCheckParameter2 & 0x1F));
-        ++v29;
-        ++v33;
+        v17 = BugCheckParameter2 & 0x1F;
+        _InterlockedOr(v16, ((1 << (32 - v17)) - 1) << v15);
+        v9 -= (unsigned int)(32 - v17);
+        ++v16;
       }
-      v31 = v39;
-      if ( v39 >= 0x20 )
+      if ( v9 >= 0x20 )
       {
-        v36 = v39 >> 5;
-        v40 = -32LL * (v39 >> 5) + v39;
-        v32 = v36;
+        v18 = v9 >> 5;
+        v9 += -32LL * (v9 >> 5);
         do
         {
-          *v29++ = -1;
-          --v32;
+          *v16++ = -1;
+          --v18;
         }
-        while ( v32 );
-        v31 = v40;
-        v33 = v29;
+        while ( v18 );
       }
-      if ( !v31 )
-        goto LABEL_10;
-      v30 = (1 << v31) - 1;
+      if ( v9 )
+        _InterlockedOr(v16, (1 << v9) - 1);
+    }
+    else if ( v9 == 32 )
+    {
+      *v16 = -1;
     }
     else
     {
-      if ( v8 == 32 )
-      {
-        *v29 = -1;
-        goto LABEL_10;
-      }
-      v30 = ((1 << v8) - 1) << v35;
+      _InterlockedOr(v16, ((1 << v9) - 1) << v15);
     }
-    _InterlockedOr(v33, v30);
-    goto LABEL_10;
   }
-  if ( dword_140C67F4C != 1 )
-    goto LABEL_13;
-  v24 = BugCheckParameter2 & 0x1F;
-  v25 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140C67FA0 + 1) + 4 * (BugCheckParameter2 >> 5));
-  if ( v24 + v8 <= 0x20 )
-  {
-    if ( v8 == 32 )
-    {
-      *v25 = -1;
-      goto LABEL_13;
-    }
-    v26 = ((1 << v8) - 1) << v24;
-LABEL_26:
-    _InterlockedOr(v25, v26);
-    goto LABEL_13;
-  }
-  if ( (BugCheckParameter2 & 0x1F) != 0 )
-  {
-    v27 = BugCheckParameter2 & 0x1F;
-    _InterlockedOr(v25, ((1 << (32 - v27)) - 1) << v24);
-    v8 -= (unsigned int)(32 - v27);
-    ++v25;
-  }
-  if ( v8 >= 0x20 )
-  {
-    v28 = v8 >> 5;
-    v8 += -32LL * (v8 >> 5);
-    do
-    {
-      *v25++ = -1;
-      --v28;
-    }
-    while ( v28 );
-  }
-  if ( v8 )
-  {
-    v26 = (1 << v8) - 1;
-    goto LABEL_26;
-  }
-LABEL_13:
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v11 + 23104));
+LABEL_6:
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
 }

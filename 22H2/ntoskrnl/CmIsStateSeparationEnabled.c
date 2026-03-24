@@ -1,20 +1,17 @@
 /*
- * XREFs of CmIsStateSeparationEnabled @ 0x140367128
+ * XREFs of CmIsStateSeparationEnabled @ 0x140323318
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x1407E237C (KIsUnlockSettingEnabled.c)
- *     RtlIsStateSeparationEnabled @ 0x1407E25A0 (RtlIsStateSeparationEnabled.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140804DD8 (PopBcdSetDefaultResumeObjectElements.c)
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     PiDrvDbInit @ 0x140813944 (PiDrvDbInit.c)
- *     PiDrvDbSetupNodeHive @ 0x140813EF8 (PiDrvDbSetupNodeHive.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x140814158 (PiDrvDbResolveNodeFilePaths.c)
- *     IopInitializeDumpPolicySettings @ 0x140861414 (IopInitializeDumpPolicySettings.c)
- *     PiDevCfgEnumDeviceKeys @ 0x14087D4F4 (PiDevCfgEnumDeviceKeys.c)
- *     IopCrashDumpPolicyChangeWnfCallback @ 0x140943B50 (IopCrashDumpPolicyChangeWnfCallback.c)
- *     IopLiveDumpPolicyChangeWnfCallback @ 0x14094EB30 (IopLiveDumpPolicyChangeWnfCallback.c)
- *     PiCMEnumerateSubKeys @ 0x140969A4C (PiCMEnumerateSubKeys.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14097100C (PiDrvDbResolveKeyFilePaths.c)
- *     KIsSideloadingEnabled @ 0x140A0A4A0 (KIsSideloadingEnabled.c)
+ *     SeQuerySigningPolicyWorker @ 0x140603818 (SeQuerySigningPolicyWorker.c)
+ *     RtlIsStateSeparationEnabled @ 0x14069AC30 (RtlIsStateSeparationEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x14069AC48 (KIsUnlockSettingEnabled.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x1407670D8 (PiDevCfgEnumDeviceKeys.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     PiDrvDbInit @ 0x1407A393C (PiDrvDbInit.c)
+ *     PiCMEnumerateSubKeys @ 0x1408B03BC (PiCMEnumerateSubKeys.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x1408B7874 (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x1408B79AC (PiDrvDbResolveNodeFilePaths.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7EB4 (PiDrvDbSetupNodeHive.c)
+ *     KIsSideloadingEnabled @ 0x14095EFF4 (KIsSideloadingEnabled.c)
  * Callees:
  *     <none>
  */

@@ -1,33 +1,35 @@
 /*
- * XREFs of HalpKsrCallbackRoutine @ 0x140935430
+ * XREFs of HalpKsrCallbackRoutine @ 0x140866770
  * Callers:
  *     <none>
  * Callees:
- *     HalpSetShutdownResetHandler @ 0x140506CF0 (HalpSetShutdownResetHandler.c)
+ *     HalpSetShutdownResetHandler @ 0x1404BE378 (HalpSetShutdownResetHandler.c)
  */
 
-void __fastcall HalpKsrCallbackRoutine(PVOID CallbackContext, PVOID Argument1, _DWORD *Argument2)
+void __fastcall HalpKsrCallbackRoutine(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
+  int v3; // edx
   int v4; // edx
-  int v5; // edx
+  void (__fastcall __noreturn *v5)(__int64, __int64, __int64, __int64, volatile signed __int32 *); // rcx
 
-  if ( (_DWORD)Argument1 )
+  if ( !(_DWORD)Argument1 )
+    goto LABEL_6;
+  v3 = (_DWORD)Argument1 - 1;
+  if ( v3 )
   {
-    v4 = (_DWORD)Argument1 - 1;
-    if ( !v4 )
+    v4 = v3 - 2;
+    if ( v4 )
     {
-LABEL_5:
-      HalpSetShutdownResetHandler(0LL);
-      return;
-    }
-    v5 = v4 - 2;
-    if ( v5 )
-    {
-      if ( v5 != 1 )
+      if ( v4 != 1 )
         return;
       goto LABEL_5;
     }
+LABEL_6:
+    v5 = HalpShutdownReset;
+    goto LABEL_7;
   }
-  HalpSetShutdownResetHandler((__int64)HalpShutdownReset);
-  *Argument2 = 0;
+LABEL_5:
+  v5 = 0LL;
+LABEL_7:
+  HalpSetShutdownResetHandler((__int64)v5);
 }

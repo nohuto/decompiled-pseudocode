@@ -1,35 +1,35 @@
 /*
- * XREFs of ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C0083CD4
+ * XREFs of ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C009D950
  * Callers:
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C010CB90 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
- *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C015C6AE (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
- *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02B6B38 (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093A30 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C00E8260 (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02A7D6C (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
  * Callees:
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C0080F14 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
- *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C0081018 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
- *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C008473C (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00847AC (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ??$AllocateIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C00847CC (--$AllocateIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAPEAXXZ.c)
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C0084804 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
- *     ?bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z @ 0x1C008482C (-bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z.c)
- *     ?bCalcLayoutUnits@RFONTOBJ@@QEAAHPEAVXDCOBJ@@@Z @ 0x1C0084B58 (-bCalcLayoutUnits@RFONTOBJ@@QEAAHPEAVXDCOBJ@@@Z.c)
- *     UmfdQueryFontCapsEx @ 0x1C0084C50 (UmfdQueryFontCapsEx.c)
- *     ?bInitCache@RFONTOBJ@@QEAAHK@Z @ 0x1C0084C80 (-bInitCache@RFONTOBJ@@QEAAHK@Z.c)
- *     ?bGetDEVICEMETRICS@RFONTOBJ@@QEAAHPEAU_FD_DEVICEMETRICS@@@Z @ 0x1C0084E98 (-bGetDEVICEMETRICS@RFONTOBJ@@QEAAHPEAU_FD_DEVICEMETRICS@@@Z.c)
- *     ?vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0085154 (-vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z.c)
- *     ?ulSimpleOrientation@RFONTOBJ@@QEAAKPEAVXDCOBJ@@@Z @ 0x1C008561C (-ulSimpleOrientation@RFONTOBJ@@QEAAKPEAVXDCOBJ@@@Z.c)
- *     ?ulSimpleDeviceOrientation@@YAKAEAVRFONTOBJ@@@Z @ 0x1C0086324 (-ulSimpleDeviceOrientation@@YAKAEAVRFONTOBJ@@@Z.c)
- *     ??$FreeIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0087C50 (--$FreeIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0113D6C (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0113DB0 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
- *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C0116770 (-flFontType@PFEOBJ@@QEAAKXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?vDestroyFont@RFONTOBJ@@QEAAXH@Z @ 0x1C02B7298 (-vDestroyFont@RFONTOBJ@@QEAAXH@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0099DF4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0099E30 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ?bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z @ 0x1C0099E6C (-bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z.c)
+ *     ?vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C009A140 (-vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z.c)
+ *     ?vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C009E3C0 (-vInsert@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C009E430 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009E458 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?bInitCache@RFONTOBJ@@QEAAHK@Z @ 0x1C009E478 (-bInitCache@RFONTOBJ@@QEAAHK@Z.c)
+ *     UmfdQueryFontCapsEx @ 0x1C009E6B4 (UmfdQueryFontCapsEx.c)
+ *     ?bCalcLayoutUnits@RFONTOBJ@@QEAAHPEAVXDCOBJ@@@Z @ 0x1C009E6F4 (-bCalcLayoutUnits@RFONTOBJ@@QEAAHPEAVXDCOBJ@@@Z.c)
+ *     ?bGetDEVICEMETRICS@RFONTOBJ@@QEAAHPEAU_FD_DEVICEMETRICS@@@Z @ 0x1C009E938 (-bGetDEVICEMETRICS@RFONTOBJ@@QEAAHPEAU_FD_DEVICEMETRICS@@@Z.c)
+ *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C009EBFC (-flFontType@PFEOBJ@@QEAAKXZ.c)
+ *     ??$AllocateIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C009EC54 (--$AllocateIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAPEAXXZ.c)
+ *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C009EC80 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C009EDA0 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C009F18C (--$FreeIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?ulSimpleOrientation@RFONTOBJ@@QEAAKPEAVXDCOBJ@@@Z @ 0x1C009FB5C (-ulSimpleOrientation@RFONTOBJ@@QEAAKPEAVXDCOBJ@@@Z.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?ulSimpleDeviceOrientation@@YAKAEAVRFONTOBJ@@@Z @ 0x1C012DCB0 (-ulSimpleDeviceOrientation@@YAKAEAVRFONTOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?vDestroyFont@RFONTOBJ@@QEAAXH@Z @ 0x1C02A8474 (-vDestroyFont@RFONTOBJ@@QEAAXH@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::bRealizeFont(
@@ -42,102 +42,108 @@ __int64 __fastcall RFONTOBJ::bRealizeFont(
         struct _POINTL *const a7,
         unsigned int a8,
         unsigned int a9,
-        unsigned int a10,
+        int a10,
         int a11,
         unsigned int a12)
 {
-  struct RFONT *v12; // r15
-  __int64 v17; // rsi
-  struct _FD_GLYPHSET *v18; // rbx
-  __int64 v20; // rax
-  __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  __int64 v24; // rdx
-  int v25; // ecx
-  __int128 v26; // xmm1
-  __int64 v27; // rax
-  __int64 v28; // rcx
-  __int64 v29; // rbx
-  __int64 v30; // rbx
-  __int64 v31; // rcx
+  __int64 v16; // rsi
+  __int64 v17; // rax
+  __int64 v19; // rbx
+  unsigned int v20; // eax
+  __int64 v21; // rbx
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  struct RFONT *v24; // rcx
+  __int64 v25; // rax
+  __int64 v26; // r15
+  __int64 v27; // rdx
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  __int64 v30; // rcx
+  __int64 v31; // rbx
   __int64 v32; // rbx
   __int64 v33; // rcx
   __int64 v34; // rbx
   __int64 v35; // rcx
-  int v36; // eax
+  __int64 v36; // rbx
   __int64 v37; // rcx
-  unsigned int v38; // eax
-  char v39; // r14
-  __int64 v40; // rbx
-  __int64 v41; // rdx
-  unsigned int (__fastcall *v42)(__int64, _BYTE *); // rax
-  __int64 v43; // rcx
-  int v44; // eax
-  unsigned int v45; // ebx
-  __int64 v46; // rdx
-  __int64 v47; // r15
-  bool v48; // zf
-  _DWORD *v49; // rdx
-  __int64 v50; // rbx
-  int v51; // ecx
-  int inited; // eax
-  Gre::Base *v53; // rcx
-  int v54; // ecx
-  int v55; // ecx
-  __int64 v56; // r14
-  int v57; // ecx
+  int v38; // eax
+  __int64 v39; // rcx
+  unsigned int v40; // eax
+  char v41; // r15
+  int v42; // r9d
+  __int64 v43; // rbx
+  __int64 v44; // rdx
+  __int64 (__fastcall *v45)(__int64, _BYTE *); // rax
+  int v46; // eax
+  __int64 v47; // rcx
+  int v48; // eax
+  int v49; // r14d
+  unsigned int v50; // ecx
+  __int64 v51; // rdx
+  __int64 v52; // rbx
+  bool v53; // zf
+  _DWORD *v54; // rdx
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  int v57; // eax
   unsigned int v58; // ecx
-  int v59; // ecx
-  __int64 v60; // rcx
-  char v61; // dl
-  __int64 v62; // rcx
-  const wchar_t *v63; // rbx
-  __int64 v64; // rcx
-  _BYTE *v65; // rdx
-  float v66; // xmm0_4
-  unsigned int v67; // ecx
-  unsigned __int8 *v68; // r8
-  unsigned int v69[2]; // [rsp+30h] [rbp-D0h] BYREF
-  struct RFONT *v70; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int16 v71; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v72[4]; // [rsp+48h] [rbp-B8h] BYREF
-  int v73; // [rsp+4Ch] [rbp-B4h]
-  __int64 v74; // [rsp+50h] [rbp-B0h]
-  __int64 v75; // [rsp+58h] [rbp-A8h]
-  __int128 v76; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v77; // [rsp+70h] [rbp-90h]
-  _FD_DEVICEMETRICS v78; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v59; // rbx
+  int v60; // eax
+  unsigned int v61; // eax
+  int v62; // ecx
+  __int64 v63; // rcx
+  char v64; // dl
+  __int64 v65; // rcx
+  const wchar_t *v66; // rbx
+  __int64 v67; // rcx
+  _BYTE *v68; // rdx
+  float v69; // xmm0_4
+  unsigned int v70; // ecx
+  unsigned __int8 *v71; // r8
+  struct RFONT *v72; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int16 v73; // [rsp+38h] [rbp-C8h] BYREF
+  struct PFE *v74; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v75; // [rsp+48h] [rbp-B8h]
+  _BYTE v76[4]; // [rsp+50h] [rbp-B0h] BYREF
+  int v77; // [rsp+54h] [rbp-ACh]
+  __int64 v78; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v79; // [rsp+60h] [rbp-A0h]
+  __int128 v80; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v81; // [rsp+78h] [rbp-88h]
+  _FD_DEVICEMETRICS v82; // [rsp+90h] [rbp-70h] BYREF
 
-  v12 = a5;
-  v70 = a5;
-  v17 = 0LL;
-  v18 = PFEOBJ::pfdg((PFEOBJ *)&v70);
-  if ( !v18 )
-    goto LABEL_2;
-  v20 = AllocateIsolatedType<NSInstrumentation::CTypeIsolation<233472,912>>();
-  *(_QWORD *)this = v20;
-  if ( !v20 )
+  v74 = a5;
+  v16 = 0LL;
+  v72 = (struct RFONT *)PFEOBJ::pfdg((PFEOBJ *)&v74);
+  if ( !v72 )
+    goto LABEL_4;
+  v17 = AllocateIsolatedType<NSInstrumentation::CTypeIsolation<233472,912>>();
+  *(_QWORD *)this = v17;
+  if ( !v17 )
   {
-    PFEOBJ::vFreepfdg((__int64 **)&v70);
-LABEL_2:
+    PFEOBJ::vFreepfdg((PFEOBJ *)&v74);
+LABEL_4:
     *(_QWORD *)this = 0LL;
-    return 0LL;
+    return (unsigned int)v16;
   }
-  v74 = *(_QWORD *)a5;
-  *(_DWORD *)(*(_QWORD *)this + 32LL) = PDEVOBJ::ulLogPixelsX(a3);
-  *(_DWORD *)(*(_QWORD *)this + 36LL) = PDEVOBJ::ulLogPixelsY(a3);
+  v75 = *(_QWORD *)a5;
+  *(_DWORD *)(v17 + 32) = PDEVOBJ::ulLogPixelsX(a3);
+  v19 = *(_QWORD *)this;
+  *(_DWORD *)(v19 + 36) = PDEVOBJ::ulLogPixelsY(a3);
   *(_DWORD *)(*(_QWORD *)this + 40LL) = a9;
-  *(_DWORD *)(*(_QWORD *)this + 12LL) = a8 | PFEOBJ::flFontType((PFEOBJ *)&v70);
+  v20 = PFEOBJ::flFontType((PFEOBJ *)&v74);
+  v21 = v75;
+  *(_DWORD *)(*(_QWORD *)this + 12LL) = a8 | v20;
   *(_QWORD *)(*(_QWORD *)this + 48LL) = 0LL;
   *(_QWORD *)(*(_QWORD *)this + 56LL) = 0LL;
   *(_DWORD *)(*(_QWORD *)this + 4LL) = *((_DWORD *)a5 + 2);
-  *(_QWORD *)(*(_QWORD *)this + 24LL) = *(_QWORD *)(v74 + 80);
+  *(_QWORD *)(*(_QWORD *)this + 24LL) = *(_QWORD *)(v21 + 80);
   if ( (*(_DWORD *)(*(_QWORD *)this + 12LL) & 4) != 0 )
-    v21 = *((unsigned int *)a5 + 20);
+    v22 = *((unsigned int *)a5 + 20);
   else
-    v21 = 0LL;
-  *(_QWORD *)(*(_QWORD *)this + 16LL) = v21;
+    v22 = 0LL;
+  *(_QWORD *)(*(_QWORD *)this + 16LL) = v22;
   *(struct _FD_XFORM *)(*(_QWORD *)this + 136LL) = *a6;
   *(struct _FD_XFORM *)(*(_QWORD *)this + 152LL) = *a6;
   *(struct _FD_XFORM *)(*(_QWORD *)this + 360LL) = *a6;
@@ -155,296 +161,295 @@ LABEL_2:
   *(_DWORD *)(*(_QWORD *)this + 840LL) = 0;
   *(_DWORD *)(*(_QWORD *)this + 836LL) = 0;
   *(_DWORD *)(*(_QWORD *)this + 844LL) = *((_DWORD *)a5 + 3) & 0x100;
-  v22 = *(_QWORD *)this;
+  v23 = *(_QWORD *)this;
   if ( a3 )
   {
-    *(_QWORD *)(v22 + 104) = *(_QWORD *)a3;
-    *(_QWORD *)(*(_QWORD *)this + 112LL) = *(_QWORD *)(*(_QWORD *)a3 + 1768LL);
+    *(_QWORD *)(v23 + 104) = *(_QWORD *)a3;
+    *(_QWORD *)(*(_QWORD *)this + 112LL) = *(_QWORD *)(*(_QWORD *)a3 + 1800LL);
   }
   else
   {
-    *(_QWORD *)(v22 + 104) = 0LL;
+    *(_QWORD *)(v23 + 104) = 0LL;
     *(_QWORD *)(*(_QWORD *)this + 112LL) = 0LL;
   }
-  v23 = *(_QWORD *)this;
-  v69[0] = 0;
-  *(_DWORD *)(v23 + 168) = 1;
+  *(_DWORD *)(*(_QWORD *)this + 168LL) = 1;
   *(_DWORD *)(*(_QWORD *)this + 716LL) = *(_DWORD *)(*((_QWORD *)a5 + 4) + 48LL);
-  *(_QWORD *)(*(_QWORD *)this + 472LL) = v18;
-  v75 = *((_QWORD *)a5 + 4);
-  v71 = *(_WORD *)(v75 + 116);
-  RFONTOBJ::vXlatGlyphArray(this, &v71, 1, v69, 2u, 0);
-  *(_DWORD *)(*(_QWORD *)this + 460LL) = v69[0];
+  v24 = v72;
+  v25 = *(_QWORD *)this;
+  LODWORD(v72) = 0;
+  *(_QWORD *)(v25 + 472) = v24;
+  v26 = *((_QWORD *)a5 + 4);
+  v79 = v26;
+  v73 = *(_WORD *)(v26 + 116);
+  RFONTOBJ::vXlatGlyphArray(this, &v73, 1, (unsigned int *)&v72, 2u, 0);
+  *(_DWORD *)(*(_QWORD *)this + 460LL) = (_DWORD)v72;
   *(_DWORD *)(*(_QWORD *)this + 712LL) &= ~0x40u;
-  memset_0(&v78, 0, sizeof(v78));
-  *(_QWORD *)(*(_QWORD *)this + 96LL) = *(_QWORD *)(v74 + 88);
-  if ( !(unsigned int)RFONTOBJ::bGetDEVICEMETRICS(this, &v78) )
-    goto LABEL_12;
-  if ( a2 )
+  memset(&v82, 0, sizeof(v82));
+  *(_QWORD *)(*(_QWORD *)this + 96LL) = *(_QWORD *)(v21 + 88);
+  if ( !(unsigned int)RFONTOBJ::bGetDEVICEMETRICS(this, &v82) )
+    goto LABEL_29;
+  if ( !a2 )
+    goto LABEL_22;
+  *(POINTE *)(*(_QWORD *)this + 396LL) = v82.pteBase;
+  *(POINTE *)(*(_QWORD *)this + 416LL) = v82.pteSide;
+  v28 = *(_QWORD *)a2;
+  v29 = *(_QWORD *)this;
+  *(_OWORD *)(v29 + 172) = *(_OWORD *)(*(_QWORD *)a2 + 320LL);
+  *(_OWORD *)(v29 + 188) = *(_OWORD *)(v28 + 336);
+  *(_DWORD *)(v29 + 204) = *(_DWORD *)(v28 + 352);
+  if ( !RFONTOBJ::bCalcLayoutUnits(this, a2)
+    || !(unsigned int)bGetNtoWScales(
+                        (struct EPOINTFL *)(*(_QWORD *)this + 212LL),
+                        a2,
+                        (__m128 *)(*(_QWORD *)this + 360LL),
+                        (struct PFEOBJ *)&v74,
+                        (int *)(*(_QWORD *)this + 220LL)) )
   {
-    *(POINTE *)(*(_QWORD *)this + 396LL) = v78.pteBase;
-    *(POINTE *)(*(_QWORD *)this + 416LL) = v78.pteSide;
-    v25 = *(_DWORD *)(*(_QWORD *)a2 + 352LL);
-    v26 = *(_OWORD *)(*(_QWORD *)a2 + 336LL);
-    v27 = *(_QWORD *)this;
-    *(_OWORD *)(v27 + 172) = *(_OWORD *)(*(_QWORD *)a2 + 320LL);
-    *(_OWORD *)(v27 + 188) = v26;
-    *(_DWORD *)(v27 + 204) = v25;
-    if ( !RFONTOBJ::bCalcLayoutUnits(this, a2)
-      || !bGetNtoWScales(
-            (struct EPOINTFL *)(*(_QWORD *)this + 212LL),
-            a2,
-            (struct _FD_XFORM *)(*(_QWORD *)this + 360LL),
-            (struct PFEOBJ *)&v70,
-            (int *)(*(_QWORD *)this + 220LL)) )
-    {
-LABEL_12:
-      v24 = *(_QWORD *)this;
-LABEL_13:
-      v76 = 0LL;
-      v77 = 0LL;
-      PushThreadGuardedObject(&v76, v24, Win32FreePool);
-      RFONTOBJ::vDestroyFont(this, 1);
-      PopThreadGuardedObject(&v76);
-      FreeIsolatedType<NSInstrumentation::CTypeIsolation<233472,912>>(*(_QWORD *)this);
-      goto LABEL_2;
-    }
-    v29 = *(_QWORD *)this;
-    v69[0] = 0;
-    bFToL(v28, v69, 0LL);
-    *(_DWORD *)(v29 + 328) = v69[0];
-    v30 = *(_QWORD *)this;
-    v69[0] = 0;
-    bFToL(v31, v69, 0LL);
-    *(_DWORD *)(v30 + 332) = v69[0];
-    v32 = *(_QWORD *)this;
-    v69[0] = 0;
-    bFToL(v33, v69, 0LL);
-    *(_DWORD *)(v32 + 336) = v69[0];
-    v34 = *(_QWORD *)this;
-    v69[0] = 0;
-    bFToL(v35, v69, 0LL);
-    *(_DWORD *)(v34 + 340) = v69[0];
-    *(_DWORD *)(*(_QWORD *)this + 432LL) = -1;
-    if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 208LL) == 1 )
-    {
-      v36 = *(_DWORD *)(v75 + 48);
-      if ( (v36 & 4) == 0 )
-      {
-        if ( (v36 & 0x10) == 0 )
-        {
-          v38 = ulSimpleDeviceOrientation(this);
-LABEL_22:
-          *(_DWORD *)(*(_QWORD *)this + 392LL) = v38;
-          goto LABEL_23;
-        }
-        v37 = (unsigned int)(3600 - a4->elfEnumLogfontEx.elfLogFont.lfEscapement);
 LABEL_29:
-        v38 = lNormAngle(v37);
+    v44 = *(_QWORD *)this;
+    v80 = 0LL;
+    v81 = 0LL;
+    PushThreadGuardedObject(&v80, v44, Win32FreePool);
+LABEL_30:
+    RFONTOBJ::vDestroyFont(this, 1);
+    PopThreadGuardedObject(&v80);
+    FreeIsolatedType<NSInstrumentation::CTypeIsolation<233472,912>>(*(_QWORD *)this);
+    goto LABEL_4;
+  }
+  v31 = *(_QWORD *)this;
+  LODWORD(v72) = 0;
+  bFToL(v30, &v72, 0LL);
+  *(_DWORD *)(v31 + 328) = (_DWORD)v72;
+  v32 = *(_QWORD *)this;
+  LODWORD(v72) = 0;
+  bFToL(v33, &v72, 0LL);
+  *(_DWORD *)(v32 + 332) = (_DWORD)v72;
+  v34 = *(_QWORD *)this;
+  LODWORD(v72) = 0;
+  bFToL(v35, &v72, 0LL);
+  *(_DWORD *)(v34 + 336) = (_DWORD)v72;
+  v36 = *(_QWORD *)this;
+  LODWORD(v72) = 0;
+  bFToL(v37, &v72, 0LL);
+  *(_DWORD *)(v36 + 340) = (_DWORD)v72;
+  *(_DWORD *)(*(_QWORD *)this + 432LL) = -1;
+  if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 208LL) == 1 )
+  {
+    v38 = *(_DWORD *)(v26 + 48);
+    if ( (v38 & 4) == 0 )
+    {
+      if ( (v38 & 0x10) == 0 )
+      {
+        v40 = ulSimpleDeviceOrientation(this);
+LABEL_21:
+        *(_DWORD *)(*(_QWORD *)this + 392LL) = v40;
         goto LABEL_22;
       }
+      v39 = (unsigned int)(3600 - a4->elfEnumLogfontEx.elfLogFont.lfEscapement);
 LABEL_28:
-      v37 = (unsigned int)(3600 - a4->elfEnumLogfontEx.elfLogFont.lfOrientation);
-      goto LABEL_29;
+      v40 = lNormAngle(v39);
+      goto LABEL_21;
     }
-    *(_DWORD *)(*(_QWORD *)this + 392LL) = RFONTOBJ::ulSimpleOrientation(this, a2);
-    if ( *(_DWORD *)(*(_QWORD *)this + 392LL) >= 0xE10u && (*(_DWORD *)(*(_QWORD *)this + 716LL) & 0x10) != 0 )
-      goto LABEL_28;
+LABEL_27:
+    v39 = (unsigned int)(3600 - a4->elfEnumLogfontEx.elfLogFont.lfOrientation);
+    goto LABEL_28;
   }
-LABEL_23:
-  v39 = 0;
+  *(_DWORD *)(*(_QWORD *)this + 392LL) = RFONTOBJ::ulSimpleOrientation(this, a2);
+  if ( *(_DWORD *)(*(_QWORD *)this + 392LL) >= 0xE10u && (*(_DWORD *)(*(_QWORD *)this + 716LL) & 0x10) != 0 )
+    goto LABEL_27;
+LABEL_22:
+  v41 = 0;
+  v42 = a10;
   *(_DWORD *)(*(_QWORD *)this + 656LL) = a10;
-  v40 = *(_QWORD *)(*(_QWORD *)this + 96LL);
-  v41 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a10) + 32) + 23448LL);
-  if ( *(_QWORD *)(*(_QWORD *)this + 96LL) == v41 )
+  v43 = *(_QWORD *)(*(_QWORD *)this + 96LL);
+  if ( (struct PDEV *)v43 == qword_1C0340AC0 )
   {
-    if ( (unsigned int)UmfdQueryFontCapsEx(*(_QWORD *)(*(_QWORD *)this + 24LL), v41, v72) != -1 )
-      v39 = v73;
+    if ( (unsigned int)UmfdQueryFontCapsEx(*(_QWORD *)(*(_QWORD *)this + 24LL), v27, v76) != -1 )
+      v41 = v77;
   }
   else
   {
-    v42 = *(unsigned int (__fastcall **)(__int64, _BYTE *))(v40 + 3016);
-    if ( v42 && v42(2LL, v72) != -1 )
-      v39 = v73;
+    v45 = *(__int64 (__fastcall **)(__int64, _BYTE *))(v43 + 3040);
+    if ( v45 )
+    {
+      v46 = v45(2LL, v76);
+      v42 = a10;
+      if ( v46 != -1 )
+        v41 = v77;
+    }
   }
-  v43 = *(_QWORD *)this;
-  if ( (*(_DWORD *)(v40 + 40) & 0x2000) == 0 )
+  v47 = *(_QWORD *)this;
+  if ( (*(_DWORD *)(v43 + 40) & 0x2000) == 0 )
   {
-    *(_DWORD *)(v43 + 92) = 1;
+    *(_DWORD *)(v47 + 92) = 1;
     *(_DWORD *)(*(_QWORD *)this + 88LL) = 0;
-    goto LABEL_58;
+    goto LABEL_59;
   }
-  v44 = *(_DWORD *)(v43 + 12);
-  *(_DWORD *)(v43 + 92) = 0;
-  v45 = (v44 & 0x10010000) != 0 ? 400 : 800;
-  v43 = v45;
+  v48 = *(_DWORD *)(v47 + 12);
+  *(_DWORD *)(v47 + 92) = 0;
+  v49 = (v48 & 0x10010000) != 0 ? 400 : 800;
   *(_DWORD *)(*(_QWORD *)this + 88LL) = 1;
-  v46 = *(_QWORD *)this;
-  if ( a10 )
+  v50 = v49;
+  v51 = *(_QWORD *)this;
+  if ( v42 )
   {
-    *(_DWORD *)(v46 + 88) = 2;
-    goto LABEL_49;
+    *(_DWORD *)(v51 + 88) = 2;
+    goto LABEL_50;
   }
-  v47 = *(_QWORD *)(v46 + 104);
-  if ( v47 )
+  v52 = *(_QWORD *)(v51 + 104);
+  if ( v52 )
   {
-    v48 = (*(_DWORD *)(v47 + 40) & 0x8000) == 0;
-    *(_QWORD *)v69 = *(_QWORD *)(v46 + 104);
-    if ( !v48 )
+    v53 = (*(_DWORD *)(v52 + 40) & 0x8000) == 0;
+    v72 = *(struct RFONT **)(v51 + 104);
+    if ( !v53 )
     {
       if ( KeAreApcsDisabled() )
       {
-LABEL_43:
-        v43 = v45;
-        if ( (*(_DWORD *)(v47 + 1792) & 0x40000000) != 0 )
+LABEL_44:
+        v50 = v49;
+        if ( (*(_DWORD *)(v52 + 1824) & 0x40000000) != 0 )
         {
-          v43 = 3 * PDEVOBJ::ulLogPixelsY((PDEVOBJ *)v69);
-          if ( (unsigned int)v43 <= 0x320 )
-            v43 = v45;
-          if ( (unsigned int)v43 > 0x960 )
-            v43 = 2400LL;
+          v50 = 3 * PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v72);
+          if ( v50 <= 0x320 )
+            v50 = v49;
+          if ( v50 > 0x960 )
+            v50 = 2400;
         }
-        goto LABEL_48;
+        v42 = a10;
+        goto LABEL_50;
       }
-      v46 = *(_QWORD *)this;
+      v51 = *(_QWORD *)this;
     }
-    if ( *(_QWORD *)(v47 + 2960) )
+    if ( *(_QWORD *)(v52 + 2984) )
     {
-      v76 = 0LL;
-      v77 = 0LL;
-      PushThreadGuardedObject(&v76, v46, vRestartbRealizeFont);
-      *(_DWORD *)(*(_QWORD *)this + 88LL) = (*(__int64 (__fastcall **)(_QWORD))(v47 + 2960))(*(_QWORD *)(*(_QWORD *)this + 112LL));
-      PopThreadGuardedObject(&v76);
+      v80 = 0LL;
+      v81 = 0LL;
+      PushThreadGuardedObject(&v80, v51, vRestartbRealizeFont);
+      *(_DWORD *)(*(_QWORD *)this + 88LL) = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(v52 + 2984))(
+                                              *(_QWORD *)(*(_QWORD *)this + 112LL),
+                                              *(_QWORD *)this);
+      PopThreadGuardedObject(&v80);
     }
-    goto LABEL_43;
+    goto LABEL_44;
   }
-LABEL_48:
-  v12 = v70;
-LABEL_49:
-  v49 = *(_DWORD **)this;
+LABEL_50:
+  v54 = *(_DWORD **)this;
   if ( *(_DWORD *)(*(_QWORD *)this + 88LL) == 1 )
   {
-    if ( (v39 & 2) == 0
-      || (v49[179] & 0x8000) != 0 && (v49[86] > (unsigned int)(2 * v43) || v49[87] > (unsigned int)v43) )
-    {
-      v49[22] = 2;
-    }
+    if ( (v41 & 2) == 0 || (v54[179] & 0x8000) != 0 && (v54[86] > 2 * v50 || v54[87] > v50) )
+      v54[22] = 2;
   }
-  else if ( *(_DWORD *)(*(_QWORD *)this + 88LL) == 2 && (v39 & 1) == 0 )
+  else if ( *(_DWORD *)(*(_QWORD *)this + 88LL) == 2 && (v41 & 1) == 0 )
   {
-    v49[22] = 1;
+    v54[22] = 1;
   }
-LABEL_58:
-  v50 = *(_QWORD *)(SGDGetSessionState(v43) + 32);
+LABEL_59:
   if ( *(_DWORD *)(*(_QWORD *)this + 88LL) == 2 )
     *(_DWORD *)(*(_QWORD *)this + 12LL) &= 0x8FFEFFFF;
-  if ( a10 )
+  if ( v42 )
   {
-    v24 = *(_QWORD *)this;
+    v55 = *(_QWORD *)this;
     if ( *(_DWORD *)(*(_QWORD *)this + 88LL) != 2 )
-      goto LABEL_13;
+      goto LABEL_68;
   }
-  if ( !a11 || (v51 = 1, *(_DWORD *)(*(_QWORD *)this + 392LL)) )
-    v51 = 0;
-  *(_DWORD *)(*(_QWORD *)this + 640LL) = v51;
-  inited = RFONTOBJ::bInitCache(this, a12);
-  v53 = *(Gre::Base **)this;
-  if ( !inited )
+  v56 = *(_QWORD *)this;
+  if ( !a11 || (v57 = 1, *(_DWORD *)(v56 + 392)) )
+    v57 = 0;
+  *(_DWORD *)(v56 + 640) = v57;
+  if ( !(unsigned int)RFONTOBJ::bInitCache(this, a12) )
   {
-    v24 = *(_QWORD *)this;
-    goto LABEL_13;
+    v55 = *(_QWORD *)this;
+LABEL_68:
+    v80 = 0LL;
+    v81 = 0LL;
+    PushThreadGuardedObject(&v80, v55, Win32FreePool);
+    goto LABEL_30;
   }
-  *((_QWORD *)v53 + 86) = 0LL;
-  *(_QWORD *)v69 = *((_QWORD *)Gre::Base::Globals(v53) + 3);
-  GreAcquireSemaphore(*(_QWORD *)v69);
-  v54 = *(_DWORD *)(v50 + 23408);
-  v48 = v54 == -1;
-  v55 = v54 + 1;
-  *(_DWORD *)(v50 + 23408) = v55;
-  if ( v48 )
+  *(_QWORD *)(*(_QWORD *)this + 688LL) = 0LL;
+  v78 = ghsemRFONTList;
+  GreAcquireSemaphore(ghsemRFONTList);
+  v53 = iUniqueStamp == -1;
+  v58 = ++iUniqueStamp;
+  if ( v53 )
   {
-    *(_DWORD *)(v50 + 23408) = 1;
-    v55 = 1;
+    v58 = 1;
+    iUniqueStamp = 1;
   }
-  **(_DWORD **)this = v55;
+  **(_DWORD **)this = v58;
   if ( a3 )
   {
     *(_DWORD *)(*(_QWORD *)this + 660LL) = 1;
-    v70 = PDEVOBJ::prfntActive(a3);
-    RFONTOBJ::vInsert(this, &v70, 1LL);
-    PDEVOBJ::prfntActive(a3, v70);
+    v72 = PDEVOBJ::prfntActive(a3);
+    RFONTOBJ::vInsert(this, &v72, 1LL);
+    PDEVOBJ::prfntActive(a3, v72);
   }
-  v56 = v74;
-  v70 = *(struct RFONT **)(v74 + 72);
-  RFONTOBJ::vInsert(this, &v70, 0LL);
-  *(_QWORD *)(v56 + 72) = v70;
-  SEMOBJ::vUnlock((SEMOBJ *)v69);
-  v57 = *(_DWORD *)(*(_QWORD *)this + 12LL);
+  v59 = v75;
+  v72 = *(struct RFONT **)(v75 + 72);
+  RFONTOBJ::vInsert(this, &v72, 0LL);
+  *(_QWORD *)(v59 + 72) = v72;
+  SEMOBJ::vUnlock((SEMOBJ *)&v78);
+  v60 = *(_DWORD *)(*(_QWORD *)this + 12LL);
   if ( *(_DWORD *)(*(_QWORD *)this + 88LL) == 1 )
-    v58 = v57 | 1;
+    v61 = v60 | 1;
   else
-    v58 = v57 & 0xFFFFFFFE;
-  *(_DWORD *)(*(_QWORD *)this + 12LL) = v58;
+    v61 = v60 & 0xFFFFFFFE;
+  *(_DWORD *)(*(_QWORD *)this + 12LL) = v61;
   if ( a2 )
     *(_DWORD *)(*(_QWORD *)this + 208LL) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 208LL);
   else
     *(_DWORD *)(*(_QWORD *)this + 208LL) = 0;
-  if ( !*(_DWORD *)(v50 + 19352) || (v59 = 1, (*((_DWORD *)v12 + 3) & 0x10) == 0) )
-    v59 = 0;
-  *(_DWORD *)(*(_QWORD *)this + 708LL) = v59;
-  v60 = *(_QWORD *)this;
+  if ( !gbSystemDBCSFontEnabled || (v62 = 1, (*((_DWORD *)v74 + 3) & 0x10) == 0) )
+    v62 = 0;
+  *(_DWORD *)(*(_QWORD *)this + 708LL) = v62;
+  v63 = *(_QWORD *)this;
   if ( (*(_DWORD *)(*(_QWORD *)this + 12LL) & 0x10000000) != 0 )
   {
-    if ( (*(_DWORD *)(v60 + 204) & 1) == 0 || (v61 = 1, *(_DWORD *)(v60 + 328)) )
-      v61 = 0;
-    v62 = *(_QWORD *)(*(_QWORD *)(v60 + 120) + 32LL);
-    if ( (*(_DWORD *)(v62 + 48) & 0x401000) != 0 )
+    if ( (*(_DWORD *)(v63 + 204) & 1) == 0 || (v64 = 1, *(_DWORD *)(v63 + 328)) )
+      v64 = 0;
+    v65 = *(_QWORD *)(*(_QWORD *)(v63 + 120) + 32LL);
+    if ( (*(_DWORD *)(v65 + 48) & 0x401000) != 0 && v64 && *(_WORD *)(v65 + 46) <= 0x190u )
     {
-      if ( v61 )
+      v66 = (const wchar_t *)(v65 + *(int *)(v65 + 8));
+      if ( !_wcsicmp(v66, L"Courier New")
+        || !_wcsicmp(v66, L"Rod")
+        || !_wcsicmp(v66, L"Rod Transparent")
+        || !_wcsicmp(v66, L"Fixed Miriam Transparent")
+        || !_wcsicmp(v66, L"Miriam Fixed")
+        || !_wcsicmp(v66, L"Simplified Arabic Fixed") )
       {
-        if ( *(_WORD *)(v62 + 46) <= 0x190u )
-        {
-          v63 = (const wchar_t *)(v62 + *(int *)(v62 + 8));
-          if ( !_wcsicmp(v63, L"Courier New")
-            || !_wcsicmp(v63, L"Rod")
-            || !_wcsicmp(v63, L"Rod Transparent")
-            || !_wcsicmp(v63, L"Fixed Miriam Transparent")
-            || !_wcsicmp(v63, L"Miriam Fixed")
-            || !_wcsicmp(v63, L"Simplified Arabic Fixed") )
-          {
-            *(_DWORD *)(*(_QWORD *)this + 64LL) = 1;
-          }
-        }
+        *(_DWORD *)(*(_QWORD *)this + 64LL) = 1;
       }
+      v59 = v75;
     }
-    v64 = *(_QWORD *)this;
+    v67 = *(_QWORD *)this;
     if ( (*(_DWORD *)(*(_QWORD *)this + 12LL) & 0x20000000) != 0 )
     {
-      v76 = 0LL;
-      *(_QWORD *)&v77 = 0LL;
-      EXFORMOBJ::vGetCoefficient((EXFORMOBJ *)(v64 + 224), (struct tagFLOATOBJ_XFORM *)&v76);
-      v65 = *(_BYTE **)(v56 + 192);
-      v66 = (float)*(__int16 *)(v75 + 56) * *((float *)&v76 + 3);
-      *((float *)&v76 + 3) = v66;
-      if ( v65 )
+      v80 = 0LL;
+      *(_QWORD *)&v81 = 0LL;
+      EXFORMOBJ::vGetCoefficient((EXFORMOBJ *)(v67 + 224), (struct tagFLOATOBJ_XFORM *)&v80);
+      v68 = *(_BYTE **)(v59 + 192);
+      v69 = (float)*(__int16 *)(v79 + 56) * *((float *)&v80 + 3);
+      *((float *)&v80 + 3) = v69;
+      if ( v68 )
       {
-        v67 = 0;
-        if ( *v65 )
+        v70 = 0;
+        if ( *v68 )
         {
-          v68 = v65 + 4;
-          while ( *v68 != (int)v66 )
+          v71 = v68 + 4;
+          while ( *v71 != (int)v69 )
           {
-            ++v67;
-            v68 += 80;
-            if ( v67 >= (unsigned __int8)*v65 )
-              goto LABEL_102;
+            ++v70;
+            v71 += 80;
+            if ( v70 >= (unsigned __int8)*v68 )
+              goto LABEL_105;
           }
-          v17 = (__int64)&v65[80 * v67 + 4];
+          v16 = (__int64)&v68[80 * v70 + 4];
         }
       }
-LABEL_102:
-      *(_QWORD *)(*(_QWORD *)this + 72LL) = v17;
+LABEL_105:
+      *(_QWORD *)(*(_QWORD *)this + 72LL) = v16;
     }
   }
-  return 1LL;
+  LODWORD(v16) = 1;
+  return (unsigned int)v16;
 }

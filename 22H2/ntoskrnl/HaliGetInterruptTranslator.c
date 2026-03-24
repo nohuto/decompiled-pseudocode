@@ -1,5 +1,5 @@
 /*
- * XREFs of HaliGetInterruptTranslator @ 0x140864C30
+ * XREFs of HaliGetInterruptTranslator @ 0x1407D2F10
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 __int64 __fastcall HaliGetInterruptTranslator(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6)
 {
-  if ( a3 != 1 && a3 != -1 && a3 != 2 )
+  if ( a3 != -1 && (a3 <= 0 || a3 > 2) )
     return 3221225474LL;
   *(_QWORD *)(a6 + 4) = 0LL;
   *(_DWORD *)(a6 + 12) = 0;

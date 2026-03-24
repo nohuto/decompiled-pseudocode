@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnTraceTimerRoutine @ 0x14035B320
+ * XREFs of PfSnTraceTimerRoutine @ 0x14031A120
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PfSnTraceGetLogEntry @ 0x1403147FC (PfSnTraceGetLogEntry.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     PfSnTraceGetLogEntry @ 0x14029AF20 (PfSnTraceGetLogEntry.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
 void __fastcall PfSnTraceTimerRoutine(
@@ -45,17 +45,17 @@ void __fastcall PfSnTraceTimerRoutine(
     *v9 &= 7uLL;
     v7[1] = 0LL;
     *v7 = *v7 & 0xFFFFFFFFFFFFFFF8uLL | 4;
-    if ( *((_DWORD *)DeferredContext + 82) < dword_140C65084 )
+    if ( *((_DWORD *)DeferredContext + 82) < dword_140C502B4 )
     {
       KxAcquireSpinLock((PKSPIN_LOCK)DeferredContext + 34);
-      if ( !*((_DWORD *)DeferredContext + 100) && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)DeferredContext + 45) )
+      if ( !*((_DWORD *)DeferredContext + 100) && ExAcquireRundownProtection((PEX_RUNDOWN_REF)DeferredContext + 45) )
         KiSetTimerEx(
           (__int64)(DeferredContext + 136),
           *((_QWORD *)DeferredContext + 25),
           0,
           0,
           (__int64)(DeferredContext + 208));
-      KxReleaseSpinLock((volatile signed __int64 *)DeferredContext + 34);
+      KxReleaseSpinLock((PKSPIN_LOCK)DeferredContext + 34);
       goto LABEL_12;
     }
     v8 = _InterlockedCompareExchange((volatile signed __int32 *)DeferredContext + 100, 4, 0) == 0;
@@ -63,5 +63,5 @@ void __fastcall PfSnTraceTimerRoutine(
   if ( v8 )
     ExQueueWorkItem((PWORK_QUEUE_ITEM)(DeferredContext + 368), DelayedWorkQueue);
 LABEL_12:
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)DeferredContext + 45);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)DeferredContext + 45);
 }

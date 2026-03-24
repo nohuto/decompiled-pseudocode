@@ -1,12 +1,12 @@
 /*
- * XREFs of IoLockUnlockPnpDeviceTree @ 0x140954CC0
+ * XREFs of IoLockUnlockPnpDeviceTree @ 0x14089E46C
  * Callers:
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588D84 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140984C44 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x14099F904 (PopDirectedDripsUmMarkTestDevices.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405695C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E46D4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x1408F8808 (PopDirectedDripsUmMarkTestDevices.c)
  * Callees:
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
  */
 
 void __fastcall IoLockUnlockPnpDeviceTree(char a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of EmpInfParseSearchDependencyList @ 0x140B0D634
+ * XREFs of EmpInfParseSearchDependencyList @ 0x140A4734C
  * Callers:
- *     EmpParseRuleExpression @ 0x140B0C394 (EmpParseRuleExpression.c)
- *     EmpParseRules @ 0x140B0C87C (EmpParseRules.c)
+ *     EmpParseRuleExpression @ 0x140A4608C (EmpParseRuleExpression.c)
+ *     EmpParseRules @ 0x140A46580 (EmpParseRules.c)
  * Callees:
  *     <none>
  */

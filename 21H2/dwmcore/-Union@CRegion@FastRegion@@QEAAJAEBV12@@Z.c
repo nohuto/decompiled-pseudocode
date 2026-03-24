@@ -1,82 +1,156 @@
 /*
- * XREFs of ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18008248C
+ * XREFs of ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B3D8
  * Callers:
- *     ?UpdateVisitedContentRegion@COverlayContext@@AEAAXXZ @ 0x180008748 (-UpdateVisitedContentRegion@COverlayContext@@AEAAXXZ.c)
- *     ?TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z @ 0x18001501C (-TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z.c)
- *     ?CalcDesktopClip@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAVCRegion@@@Z @ 0x18003EAD4 (-CalcDesktopClip@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl.c)
- *     ?AddToTightDirtyRegion@@YAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEBVCMILMatrix@@PEAVCRegion@@@Z @ 0x18003F9A8 (-AddToTightDirtyRegion@@YAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimization@@PEAVCRegion@@@Z @ 0x180069780 (-DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimiza.c)
- *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x180081554 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
- *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x180081D5C (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
- *     ?NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180082280 (-NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DR.c)
- *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800AD920 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEAVCComposeTop@@@Z @ 0x1800B8DF8 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV-$span@.c)
- *     ?UpdateClientBounds@CVisualTree@@IEAAXXZ @ 0x1800CB560 (-UpdateClientBounds@CVisualTree@@IEAAXXZ.c)
- *     ?AddInvalidRegion@CD2DBitmapCache@@QEAAXAEBVCRegion@@@Z @ 0x1800D68DC (-AddInvalidRegion@CD2DBitmapCache@@QEAAXAEBVCRegion@@@Z.c)
- *     ?ProcessSetDirtyRect@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_SETDIRTYRECT@@PEBXI@Z @ 0x1800E3D90 (-ProcessSetDirtyRect@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_SETD.c)
- *     ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800FE630 (-Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?NotifyRenderedRect@CLegacyRemotingSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1800FF350 (-NotifyRenderedRect@CLegacyRemotingSwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@.c)
- *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801E1378 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?CopyFrontToBackBuffer@CDDisplaySwapChain@@UEAAJXZ @ 0x18027A550 (-CopyFrontToBackBuffer@CDDisplaySwapChain@@UEAAJXZ.c)
- *     ?NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18027BCF0 (-NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
- *     ?AddTransientRegion@CSwapChainBuffer@@QEAAXAEBVCRegion@@@Z @ 0x18028A958 (-AddTransientRegion@CSwapChainBuffer@@QEAAXAEBVCRegion@@@Z.c)
- *     ?CopyFrontToBackBuffer@CCompSwapChain@@UEAAJXZ @ 0x18028EAB0 (-CopyFrontToBackBuffer@CCompSwapChain@@UEAAJXZ.c)
- *     ?NotifyRenderedRect@CCompSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18028F2D0 (-NotifyRenderedRect@CCompSwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRec.c)
- *     ?NotifyRenderedRect@CConversionSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180292DA8 (-NotifyRenderedRect@CConversionSwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMi.c)
- *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180292F84 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
- *     ?NotifyRenderedRect@CDDASwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180293CE0 (-NotifyRenderedRect@CDDASwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRect.c)
- *     ?NotifyRenderedRect@CHolographicInteropTexture@@QEAAXIIAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18029BA30 (-NotifyRenderedRect@CHolographicInteropTexture@@QEAAXIIAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
+ *     ??$TryAppendRects@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@CRegion@@QEAAJPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x18001D84C (--$TryAppendRects@V-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqu.c)
+ *     ?CalcDesktopClip@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAVCRegion@@@Z @ 0x1800304B4 (-CalcDesktopClip@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl.c)
+ *     ?AddDirtyRegion@CBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x18004412C (-AddDirtyRegion@CBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
+ *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180067C40 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ??$AppendRects@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@CRegion@@QEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x18009B1A8 (--$AppendRects@V-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniquene.c)
+ *     ?Union@CRegion@@QEAAXAEBV1@@Z @ 0x18009B3B8 (-Union@CRegion@@QEAAXAEBV1@@Z.c)
+ *     ??$AppendRects@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@CRegion@@QEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x18009B66C (--$AppendRects@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniquenes.c)
+ *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x18009B798 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimization@@PEAVCRegion@@@Z @ 0x18009CED0 (-DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimiza.c)
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800C1954 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
+ *     ?UpdateClientBounds@CVisualTree@@IEAAXXZ @ 0x1800C6210 (-UpdateClientBounds@CVisualTree@@IEAAXXZ.c)
+ *     ?ProcessSetDirtyRect@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_SETDIRTYRECT@@PEBXI@Z @ 0x1800C72DC (-ProcessSetDirtyRect@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_SETD.c)
+ *     ?NotifyRenderedRect@CLegacyRemotingSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1800E5A30 (-NotifyRenderedRect@CLegacyRemotingSwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@.c)
+ *     ?UpdateVisitedContentRegion@COverlayContext@@AEAAXXZ @ 0x18017D178 (-UpdateVisitedContentRegion@COverlayContext@@AEAAXXZ.c)
+ *     ?AddInvalidRegion@CD2DBitmapCache@@QEAAXAEBVCRegion@@@Z @ 0x18019BAE8 (-AddInvalidRegion@CD2DBitmapCache@@QEAAXAEBVCRegion@@@Z.c)
+ *     ?CopyFrontToBackBuffer@CDDisplaySwapChain@@UEAAJXZ @ 0x1802397A0 (-CopyFrontToBackBuffer@CDDisplaySwapChain@@UEAAJXZ.c)
+ *     ?NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18023A660 (-NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
+ *     ?NotifyRenderedRect@CConversionSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18024FACC (-NotifyRenderedRect@CConversionSwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMi.c)
+ *     ?NotifyRenderedRect@CDDASwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1802507D0 (-NotifyRenderedRect@CDDASwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRect.c)
+ *     ?CopyFrontToBackBuffer@CCompSwapChain@@UEAAJXZ @ 0x180250F20 (-CopyFrontToBackBuffer@CCompSwapChain@@UEAAJXZ.c)
+ *     ?NotifyRenderedRect@CCompSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1802515B0 (-NotifyRenderedRect@CCompSwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRec.c)
+ *     ?NotifyRenderedRect@CHolographicInteropTexture@@QEAAXIIAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802594E0 (-NotifyRenderedRect@CHolographicInteropTexture@@QEAAXIIAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?SaveResult@CRegion@FastRegion@@IEAAJPEAVCWorkBuffer@Internal@2@@Z @ 0x18008257C (-SaveResult@CRegion@FastRegion@@IEAAJPEAVCWorkBuffer@Internal@2@@Z.c)
- *     ?Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180082B80 (-Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
- *     ?EstimateSizeUnion@CRgnData@Internal@FastRegion@@SAHAEBV123@0@Z @ 0x1800832B8 (-EstimateSizeUnion@CRgnData@Internal@FastRegion@@SAHAEBV123@0@Z.c)
- *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180083EF4 (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180098ED0 (-Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ *     ?EstimateSizeUnion@CRgnData@Internal@FastRegion@@SAHAEBV123@0@Z @ 0x180099690 (-EstimateSizeUnion@CRgnData@Internal@FastRegion@@SAHAEBV123@0@Z.c)
+ *     ?SaveResult@CRegion@FastRegion@@IEAAJPEAVCWorkBuffer@Internal@2@@Z @ 0x18009A2E0 (-SaveResult@CRegion@FastRegion@@IEAAJPEAVCWorkBuffer@Internal@2@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B114 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
-__int64 __fastcall FastRegion::CRegion::Union(
-        const struct FastRegion::Internal::CRgnData **this,
-        const struct FastRegion::Internal::CRgnData **a2)
+__int64 __fastcall FastRegion::CRegion::Union(void **this, const struct FastRegion::Internal::CRgnData **a2)
 {
-  const struct FastRegion::Internal::CRgnData *v2; // rsi
-  const struct FastRegion::Internal::CRgnData *v5; // rdi
-  int v6; // eax
-  FastRegion::Internal::CRgnData *v7; // rcx
-  unsigned int v8; // ebx
-  FastRegion::Internal::CRgnData *v10; // rax
-  int v11; // [rsp+20h] [rbp-138h] BYREF
-  void *v12; // [rsp+28h] [rbp-130h]
-  _BYTE v13[256]; // [rsp+30h] [rbp-128h] BYREF
+  const struct FastRegion::Internal::CRgnData *v2; // rdi
+  unsigned int v3; // ebx
+  int v6; // r10d
+  _DWORD *v7; // rsi
+  int *v8; // r15
+  int v9; // ebp
+  int v10; // eax
+  int v11; // ebp
+  __int64 v12; // r9
+  _DWORD *v13; // r8
+  _DWORD *v14; // r11
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  unsigned __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // r9
+  int v21; // eax
+  FastRegion::Internal::CRgnData *v22; // rcx
+  LPVOID v23; // rsi
+  FastRegion::Internal::CRgnData *v24; // rax
+  int v25; // [rsp+20h] [rbp-148h] BYREF
+  void *lpMem; // [rsp+28h] [rbp-140h]
+  _BYTE v27[256]; // [rsp+30h] [rbp-138h] BYREF
 
   v2 = *a2;
-  if ( !*(_DWORD *)*a2 )
-    return 0LL;
-  v5 = *this;
-  if ( !*(_DWORD *)*this )
-    return FastRegion::CRegion::Copy((FastRegion::CRegion *)this, (const struct CRegion *)a2);
-  v6 = FastRegion::Internal::CRgnData::EstimateSizeUnion(*this, *a2);
-  v7 = (FastRegion::Internal::CRgnData *)v13;
-  v12 = v13;
-  v11 = v6;
-  if ( (unsigned __int64)v6 > 0x100 )
+  v3 = 0;
+  v6 = *(_DWORD *)*a2;
+  if ( v6 )
   {
-    v10 = (FastRegion::Internal::CRgnData *)DefaultHeap::Alloc(v6);
-    v7 = v10;
-    if ( !v10 )
+    v7 = *this;
+    if ( !*(_DWORD *)*this )
     {
-      v8 = -2147024882;
-      goto LABEL_5;
+      if ( this != (void **)a2 )
+      {
+        v8 = (int *)(this + 1);
+        v9 = *((_DWORD *)v2 + 2 * v6 + 2) + 8 * v6 - *((_DWORD *)v2 + 4) - 12 + 8 * (v6 - 1) + 24;
+        v10 = 60;
+        if ( this + 1 != (void **)v7 )
+          v10 = *v8;
+        if ( v10 >= v9 )
+          goto LABEL_7;
+        v23 = DefaultHeap::Alloc(v9);
+        if ( v23 )
+        {
+          FastRegion::CRegion::FreeMemory(this);
+          *this = v23;
+          *v8 = v9;
+          v7 = *this;
+          v6 = *(_DWORD *)v2;
+LABEL_7:
+          *v7 = v6;
+          v11 = 0;
+          v7[1] = *((_DWORD *)v2 + 1);
+          v7[2] = *((_DWORD *)v2 + 2);
+          v12 = (__int64)v2 + *((int *)v2 + 4) + 12;
+          v13 = &v7[2 * v6 + 3];
+          if ( v6 > 0 )
+          {
+            v14 = v7 + 3;
+            do
+            {
+              *v14 = *(_DWORD *)((char *)v14 + v2 - (const struct FastRegion::Internal::CRgnData *)v7);
+              v14 += 2;
+              v15 = v11++;
+              v7[2 * v15 + 4] = (_DWORD)v2
+                              + 8 * v15
+                              + 4 * (((__int64)v13 - v12) >> 2)
+                              + *((_DWORD *)v2 + 2 * v15 + 4)
+                              - ((_DWORD)v7
+                               + 8 * v15);
+            }
+            while ( v11 < *v7 );
+          }
+          v16 = (__int64)v2 + 8 * *(_DWORD *)v2 + 4;
+          v17 = (unsigned __int64)((int)v16 + *(_DWORD *)(v16 + 4) - *((_DWORD *)v2 + 4) - ((int)v2 + 12)) >> 2;
+          v18 = (int)v17;
+          if ( (int)v17 > 0 )
+          {
+            v19 = v12 - (_QWORD)v13;
+            do
+            {
+              *v13 = *(_DWORD *)((char *)v13 + v19);
+              ++v13;
+              --v18;
+            }
+            while ( v18 );
+          }
+          return v3;
+        }
+        return (unsigned int)-2147024882;
+      }
+      return v3;
     }
-    v2 = *a2;
-    v5 = *this;
-    v12 = v10;
+    v21 = FastRegion::Internal::CRgnData::EstimateSizeUnion((const struct FastRegion::Internal::CRgnData *)*this, *a2);
+    v22 = (FastRegion::Internal::CRgnData *)v27;
+    lpMem = v27;
+    v25 = v21;
+    if ( (unsigned __int64)v21 > 0x100 )
+    {
+      v24 = (FastRegion::Internal::CRgnData *)DefaultHeap::Alloc(v21);
+      v22 = v24;
+      if ( !v24 )
+      {
+        v3 = -2147024882;
+LABEL_16:
+        if ( v27 != lpMem )
+          operator delete(lpMem);
+        return v3;
+      }
+      v2 = *a2;
+      v7 = *this;
+      lpMem = v24;
+    }
+    FastRegion::Internal::CRgnData::Union(v22, (const struct FastRegion::Internal::CRgnData *)v7, v2);
+    v3 = FastRegion::CRegion::SaveResult((FastRegion::CRegion *)this, (struct FastRegion::Internal::CWorkBuffer *)&v25);
+    goto LABEL_16;
   }
-  FastRegion::Internal::CRgnData::Union(v7, v5, v2);
-  v8 = FastRegion::CRegion::SaveResult((FastRegion::CRegion *)this, (struct FastRegion::Internal::CWorkBuffer *)&v11);
-LABEL_5:
-  if ( v13 != v12 )
-    DefaultHeap::Free(v12);
-  return v8;
+  return 0LL;
 }

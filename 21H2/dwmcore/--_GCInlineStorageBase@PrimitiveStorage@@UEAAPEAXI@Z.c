@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCInlineStorageBase@PrimitiveStorage@@UEAAPEAXI@Z @ 0x1800198F0
+ * XREFs of ??_GCInlineStorageBase@PrimitiveStorage@@UEAAPEAXI@Z @ 0x18001BF00
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 PrimitiveStorage::CInlineStorageBase *__fastcall PrimitiveStorage::CInlineStorageBase::`scalar deleting destructor'(

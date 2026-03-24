@@ -1,631 +1,678 @@
 /*
- * XREFs of ?CollectOcclusion@CWindowNode@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x180099A20
+ * XREFs of ?CollectOcclusion@CWindowNode@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x1800757B0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180006A08 (-CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo.c)
- *     ?IntersectWithAlphaMargins@CWindowNode@@AEBAXPEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180010240 (-IntersectWithAlphaMargins@CWindowNode@@AEBAXPEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
- *     ?FloorSat@CFloatFPU@@SAHM@Z @ 0x1800141E4 (-FloorSat@CFloatFPU@@SAHM@Z.c)
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003FA54 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180040968 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEA_N@Z @ 0x18006359C (-GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@.c)
- *     ?clear_region@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180064698 (-clear_region@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?reserve_region@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_K0@Z @ 0x1800646F8 (-reserve_region@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNee.c)
- *     ?IsEmpty@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NXZ @ 0x18006E46C (-IsEmpty@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?IntersectUnsafe@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006E4C8 (-IntersectUnsafe@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NA.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Subtract@CRegion@@QEAAXAEBV1@@Z @ 0x1800823C8 (-Subtract@CRegion@@QEAAXAEBV1@@Z.c)
- *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180088404 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
- *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x18008CE74 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
- *     ?CeilingSat@CFloatFPU@@SAHM@Z @ 0x18009AEB4 (-CeilingSat@CFloatFPU@@SAHM@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?CheckOcclusionRelevance@COcclusionContext@@AEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800B7060 (-CheckOcclusionRelevance@COcclusionContext@@AEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
- *     ?GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800C9D10 (-GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800D18A0 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?ApplyTextureToLocalTransform@CWindowNode@@AEAAJPEAVIBitmapResource@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800D2240 (-ApplyTextureToLocalTransform@CWindowNode@@AEAAJPEAVIBitmapResource@@PEAVCMILMatrix@@PEAV-$TMilR.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800D3824 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?DrawClippedImage@COcclusionContext@@QEAAJPEAVCResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x1800D7718 (-DrawClippedImage@COcclusionContext@@QEAAJPEAVCResource@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF.c)
- *     ?GetTopByReference@?$CWatermarkStack@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$07$01$07@@QEBAPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800D85C8 (-GetTopByReference@-$CWatermarkStack@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0dffffq_EventWriteTransfer @ 0x180112CF6 (McTemplateU0dffffq_EventWriteTransfer.c)
- *     ?Add@CArrayBasedCoverageSet@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEBVCMILMatrix@@@Z @ 0x1801E0B94 (-Add@CArrayBasedCoverageSet@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
- *     ?CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAVCOcclusionContext@@PEBVCShape@@_N@Z @ 0x1802440A4 (-CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V-$TMilRect_@HUtagRECT@@UMilPointAndSiz.c)
- *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x180244228 (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
+ *     ?DrawClippedImage@COcclusionContext@@QEAAJPEAVCResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180018B0C (-DrawClippedImage@COcclusionContext@@QEAAJPEAVCResource@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF.c)
+ *     ?IntersectUnsafe@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18003C778 (-IntersectUnsafe@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEAA_NA.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800563A4 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180068454 (-CheckAndRecordOverlayCandidate@COcclusionContext@@QEAAJPEAVCVisual@@PEAVCCompositionSurfaceInfo.c)
+ *     ?GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEA_N2@Z @ 0x18006BC10 (-GetEffectiveBounds@CWindowNode@@AEBAJPEBVCShape@@PEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@.c)
+ *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x180075F90 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800869D0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@VCZOrderedRect@@$0A@@@QEAAJPEFBVCZOrderedRect@@I@Z @ 0x1800B8A38 (-AddMultipleAndSet@-$DynArray@VCZOrderedRect@@$0A@@@QEAAJPEFBVCZOrderedRect@@I@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800BC000 (-GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
+ *     ?ApplyTextureToLocalTransform@CWindowNode@@AEAAJPEAVIBitmapResource@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800C468C (-ApplyTextureToLocalTransform@CWindowNode@@AEAAJPEAVIBitmapResource@@PEAVCMILMatrix@@PEAV-$TMilR.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0dffffq_EventWriteTransfer @ 0x180183C50 (McTemplateU0dffffq_EventWriteTransfer.c)
+ *     ??0CZOrderedRect@@QEAA@AEBUMilRectF@@HPEBVCMILMatrix@@@Z @ 0x180194870 (--0CZOrderedRect@@QEAA@AEBUMilRectF@@HPEBVCMILMatrix@@@Z.c)
+ *     ?Add@CArrayBasedCoverageSet@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEBVCMILMatrix@@@Z @ 0x1801948B8 (-Add@CArrayBasedCoverageSet@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
+ *     ?CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAVCOcclusionContext@@PEBVCShape@@_N@Z @ 0x1801F36B8 (-CollectOcclusionHelper@CWindowNode@@AEAAJPEAVCResource@@V-$TMilRect_@HUtagRECT@@UMilPointAndSiz.c)
+ *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x1801F392C (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
  */
 
 __int64 __fastcall CWindowNode::CollectOcclusion(
-        __m128i *this,
+        CWindowNode *this,
         struct COcclusionContext *a2,
         struct COcclusionInfo *a3,
         int a4)
 {
   __int64 v5; // rdx
+  int v8; // ebx
+  __int64 v9; // rbx
+  int v10; // r12d
+  void **v11; // rdi
+  __int64 v12; // r13
+  void *v13; // rcx
+  int v14; // eax
+  __int64 v15; // rcx
+  char v16; // r12
+  char *v17; // rdx
   int EffectiveBounds; // ebx
-  _QWORD *v9; // rdi
-  __int64 v10; // rax
-  __int64 v11; // r8
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // r8
-  __int64 v16; // r15
-  __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  int (__fastcall ***v19)(_QWORD, GUID *, __int64 *); // r15
+  __int64 v19; // r13
   __int64 v20; // rcx
-  __int64 v21; // r13
-  LONG v22; // eax
-  __int64 v23; // rax
-  __int64 v24; // rcx
-  int v25; // r12d
-  int v26; // eax
-  int v27; // eax
-  int v28; // eax
+  int v21; // r13d
+  int v22; // eax
+  __int64 *v23; // r15
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  int v26; // edx
+  int v27; // r8d
+  int v28; // ecx
   int v29; // eax
-  char v30; // r13
-  __int64 v31; // r12
-  __int32 v32; // ecx
-  float left; // xmm8_4
-  float top; // xmm6_4
-  float right; // xmm9_4
-  float bottom; // xmm7_4
-  int v37; // eax
-  void *v38; // rcx
-  LONG v39; // xmm9_4
-  LONG v40; // xmm6_4
-  struct tagRECT v41; // xmm0
-  LONG v42; // xmm7_4
-  float v43; // xmm10_4
-  LONG v44; // xmm8_4
-  float v45; // xmm11_4
-  float v46; // xmm12_4
-  char *v47; // rax
-  struct tagRECT *TopByReference; // rax
-  bool v50; // cc
-  float v51; // xmm1_4
-  __int128 v52; // xmm0
-  LONG v53; // xmm1_4
-  float v54; // xmm9_4
-  LONG v55; // xmm2_4
-  float v56; // xmm5_4
-  LONG v57; // xmm3_4
-  float v58; // xmm4_4
+  __int64 (__fastcall ***v30)(_QWORD); // rcx
+  __int64 (__fastcall **v31)(_QWORD); // rax
+  struct IUnknown *v32; // r10
+  int left; // r8d
+  int right; // r13d
+  int bottom; // r15d
+  int top; // eax
+  float v37; // xmm8_4
+  float v38; // xmm6_4
+  char v39; // al
+  bool v40; // r14
+  int v41; // eax
+  CMILMatrix *v42; // rcx
+  int v43; // eax
+  struct tagRECT v44; // xmm3
+  float v45; // xmm2_4
+  float v46; // xmm0_4
+  float v47; // xmm1_4
+  int v48; // eax
+  unsigned int v49; // edx
+  float v50; // xmm1_4
+  unsigned __int64 v51; // r8
+  __int64 v52; // rax
+  unsigned int v53; // r8d
+  __int64 v54; // rdx
+  struct IUnknownVtbl *lpVtbl; // rax
+  LONG v57; // ecx
+  LONG v58; // eax
   int v59; // eax
-  __int64 v60; // rcx
-  struct tagRECT v61; // xmm0
-  __int8 *v62; // r8
-  __int64 v63; // rcx
-  int v64; // eax
-  __int64 v65; // rcx
-  unsigned int v66; // ecx
-  __int64 v67; // rbx
-  char *v68; // r9
-  int v69; // eax
-  __int64 v70; // rax
-  __int64 v71; // r13
+  char *v60; // r8
+  __int64 v61; // rcx
+  int v62; // eax
+  int v63; // ecx
+  const struct CMILMatrix *v64; // r9
+  CZOrderedRect *v65; // rax
+  __int64 v66; // rcx
+  __int64 v67; // rcx
   CShape **DxClipShape; // rax
-  __int64 *v73; // rax
-  int v74; // ebx
-  __int64 *v75; // rax
-  unsigned int v76; // edx
-  __int64 v77; // rbx
-  char *v78; // r9
-  __int64 v79; // rcx
-  __m128 v80; // xmm2
+  __int64 *v69; // rax
+  __int64 v70; // rdx
+  __int64 v71; // rax
+  __int64 v72; // rdx
+  int v73; // eax
+  __int64 v74; // rcx
+  int v75; // ebx
+  __int64 *v76; // rax
+  char *v77; // rbx
+  unsigned int v78; // ecx
+  char *v79; // r9
+  __int64 v80; // rcx
   __m128 v81; // xmm2
-  __m128 v82; // xmm2
-  __m128 v83; // xmm2
-  __m128 v84; // rt1
-  int v85; // r9d
-  char *v86; // rcx
-  unsigned int v87; // [rsp+20h] [rbp-E0h]
-  __int64 v88; // [rsp+40h] [rbp-C0h] BYREF
-  char v89; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v90; // [rsp+4Ch] [rbp-B4h]
-  struct IBitmapRealization *v91; // [rsp+50h] [rbp-B0h] BYREF
-  struct tagRECT v92; // [rsp+60h] [rbp-A0h] BYREF
-  struct tagRECT v93; // [rsp+70h] [rbp-90h] BYREF
+  __m128 v82; // rt1
+  __m128 v83; // xmm1
+  __m128 v84; // xmm2
+  __m128 v85; // rt1
+  __m128 v86; // xmm1
+  __m128 v87; // xmm2
+  __m128 v88; // rt1
+  __m128 v89; // xmm0
+  __m128 v90; // xmm2
+  __m128 v91; // rt1
+  __m128 v92; // xmm0
+  struct tagRECT *v93; // rcx
+  bool v94; // cc
+  float v95; // xmm6_4
+  float v96; // xmm7_4
+  float v97; // xmm4_4
+  int v98; // eax
+  char *v99; // rcx
+  __int64 v100; // [rsp+20h] [rbp-E0h]
+  unsigned int v101; // [rsp+20h] [rbp-E0h]
+  float v102; // [rsp+40h] [rbp-C0h]
+  float v103; // [rsp+40h] [rbp-C0h]
+  float v104; // [rsp+40h] [rbp-C0h]
+  float v105; // [rsp+40h] [rbp-C0h]
+  __int64 v106; // [rsp+40h] [rbp-C0h]
+  int v107; // [rsp+40h] [rbp-C0h]
+  unsigned int v108; // [rsp+40h] [rbp-C0h]
+  char v109[8]; // [rsp+48h] [rbp-B8h] BYREF
+  struct IUnknown *v110; // [rsp+50h] [rbp-B0h] BYREF
+  struct IBitmapRealization *v111; // [rsp+58h] [rbp-A8h] BYREF
+  struct tagRECT v112; // [rsp+60h] [rbp-A0h] BYREF
+  struct tagRECT v113; // [rsp+70h] [rbp-90h] BYREF
   struct tagRECT rcDst; // [rsp+80h] [rbp-80h] BYREF
-  RECT rcSrc2; // [rsp+90h] [rbp-70h] BYREF
-  _OWORD v96[4]; // [rsp+A0h] [rbp-60h] BYREF
-  char v97; // [rsp+E0h] [rbp-20h]
-  char v98; // [rsp+E1h] [rbp-1Fh]
+  __int128 v115; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v116; // [rsp+A0h] [rbp-60h]
+  __int128 v117; // [rsp+B0h] [rbp-50h]
+  __int128 v118; // [rsp+C0h] [rbp-40h]
+  __int16 v119; // [rsp+D0h] [rbp-30h]
 
-  v5 = this[16].m128i_i64[0];
-  v92 = 0LL;
-  v91 = 0LL;
+  v5 = *((_QWORD *)this + 31);
+  v113 = 0LL;
+  v111 = 0LL;
+  v8 = 0;
   if ( v5 )
   {
-    v62 = &this[8].m128i_i8[12];
-    v63 = v5 + 64 + *(int *)(*(_QWORD *)(v5 + 64) + 8LL);
-    v64 = (*(__int64 (__fastcall **)(__int64, struct COcclusionContext *, __int8 *))(*(_QWORD *)v63 + 8LL))(
-            v63,
-            a2,
-            v62);
-    EffectiveBounds = v64;
-    if ( v64 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, v64, 0xF2Eu);
-      MilInstrumentationCheckHR_MaybeFailFast(v65, 0LL, 0LL, EffectiveBounds, 0x3C0u);
-      return (unsigned int)EffectiveBounds;
-    }
+    v60 = (char *)this + 132;
+    v61 = v5 + 56 + *(int *)(*(_QWORD *)(v5 + 56) + 8LL);
+    v62 = (*(__int64 (__fastcall **)(__int64, struct COcclusionContext *, char *))(*(_QWORD *)v61 + 8LL))(v61, a2, v60);
+    v8 = v62;
+    if ( v62 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v62, 0xF69u, 0LL);
   }
-  EffectiveBounds = 0;
-  v9 = (_QWORD *)((char *)a2 + 840);
-  v10 = (__int64)(*((_QWORD *)a2 + 106) - *((_QWORD *)a2 + 105)) >> 4;
-  if ( (_DWORD)v10 )
+  if ( v8 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v8, 0x42Du, 0LL);
+    return (unsigned int)v8;
+  }
+  LODWORD(v9) = *((_DWORD *)a2 + 214);
+  v10 = 0;
+  v11 = (void **)((char *)a2 + 832);
+  v12 = *((_QWORD *)a2 + 104);
+  if ( (_DWORD)v9 )
   {
     while ( 1 )
     {
-      v66 = *((_DWORD *)a2 + 357);
-      v67 = 16LL * (unsigned int)(v10 - 1);
-      LODWORD(v88) = v10 - 1;
-      v90 = v66;
-      *((_DWORD *)a2 + 357) = v66 + 2;
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      v9 = (unsigned int)(v9 - 1);
+      v63 = *((_DWORD *)a2 + 364);
+      v107 = v63;
+      *((_DWORD *)a2 + 364) = v63 + 2;
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
       {
         McTemplateU0dffffq_EventWriteTransfer(
-          v66,
-          v10 - 1,
-          v66,
+          v63,
+          v5,
+          v63,
           a4,
-          *(_DWORD *)(*v9 + v67 + 4),
-          *(_DWORD *)(*v9 + v67 + 8),
-          *(_DWORD *)(*v9 + v67 + 12));
-        v66 = v90;
+          *(_DWORD *)(v12 + 20 * v9 + 4),
+          *(_DWORD *)(v12 + 20 * v9 + 8),
+          *(_DWORD *)(v12 + 20 * v9 + 12),
+          *(_DWORD *)(v12 + 20 * v9 + 16));
+        v63 = v107;
       }
-      v68 = (char *)a2 + 1208;
-      if ( !*((_BYTE *)a2 + 1204) )
-        v68 = 0LL;
-      v69 = CArrayBasedCoverageSet::Add((char *)a2 + 448, v67 + *v9, v66, v68);
-      EffectiveBounds = v69;
-      if ( v69 < 0 )
+      v64 = (struct COcclusionContext *)((char *)a2 + 1248);
+      if ( !*((_BYTE *)a2 + 1244) )
+        v64 = 0LL;
+      v65 = CZOrderedRect::CZOrderedRect((CZOrderedRect *)&v115, (const struct MilRectF *)(v12 + 20 * v9), v63, v64);
+      v10 = DynArray<CZOrderedRect,0>::AddMultipleAndSet((char *)a2 + 408, v65);
+      if ( v10 < 0 )
         break;
-      LODWORD(v10) = v88;
-      if ( !(_DWORD)v88 )
-        goto LABEL_3;
+      if ( !(_DWORD)v9 )
+        goto LABEL_4;
     }
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, v69, 0x2F5u);
+    MilInstrumentationCheckHR_MaybeFailFast(v66, 0LL, 0, v10, 0x25u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v10, 0x2FEu, 0LL);
   }
-LABEL_3:
-  v11 = (__int64)(*((_QWORD *)a2 + 106) - *((_QWORD *)a2 + 105)) >> 4;
-  if ( v11 )
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)a2 + 105,
-      0LL,
-      v11);
-  if ( EffectiveBounds < 0 )
+LABEL_4:
+  v13 = *v11;
+  *((_DWORD *)a2 + 214) = 0;
+  if ( v13 != *((void **)a2 + 105) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, EffectiveBounds, 0x3C1u);
-    return (unsigned int)EffectiveBounds;
+    operator delete(v13);
+    *((_QWORD *)a2 + 104) = *((_QWORD *)a2 + 105);
+    *((_DWORD *)a2 + 213) = *((_DWORD *)a2 + 212);
   }
-  v12 = *((_DWORD *)a2 + 357);
-  *((_DWORD *)a3 + 11) = v12;
-  *((_DWORD *)a3 + 12) = v12;
-  if ( this[57].m128i_i8[8] )
+  if ( v10 < 0 )
   {
-    v70 = CPtrArrayBase::operator[](&this[50].m128i_u64[1], 0LL);
-    v71 = v70;
-    if ( v70 )
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v13, 0LL, 0, v10, 0x42Eu, 0LL);
+    return (unsigned int)v10;
+  }
+  v14 = *((_DWORD *)a2 + 364);
+  *((_DWORD *)a3 + 7) = v14;
+  *((_DWORD *)a3 + 8) = v14;
+  v15 = *((_QWORD *)this + 108);
+  if ( v15
+    && (int)CCompositionSurfaceBitmap::GetCurrentRenderingRealization((CCompositionSurfaceBitmap *)(v15 + 64), &v111) >= 0 )
+  {
+    DxClipShape = (CShape **)CWindowNode::GetDxClipShape(this, &rcDst);
+    EffectiveBounds = CWindowNode::GetEffectiveBounds(this, *DxClipShape, &v113, v109, 0LL);
+    CShapePtr::Release((CShapePtr *)&rcDst);
+    if ( EffectiveBounds < 0 )
     {
-      if ( (int)CCompositionSurfaceBitmap::GetCurrentRenderingRealization((CCompositionSurfaceBitmap *)(v70 + 72), &v91) >= 0 )
+      v101 = 1088;
+      goto LABEL_152;
+    }
+    v69 = (__int64 *)CWindowNode::GetDxClipShape(this, &v112);
+    v16 = v109[0];
+    v70 = *((_QWORD *)this + 108);
+    v100 = *v69;
+    rcDst = v113;
+    EffectiveBounds = CWindowNode::CollectOcclusionHelper(
+                        (_DWORD)this,
+                        v70,
+                        (unsigned int)&rcDst,
+                        (_DWORD)a2,
+                        v100,
+                        v109[0]);
+    CShapePtr::Release((CShapePtr *)&v112);
+    if ( EffectiveBounds < 0 )
+    {
+      v101 = 1094;
+      goto LABEL_152;
+    }
+    if ( *((_BYTE *)a2 + 1245) )
+    {
+      v71 = *((_QWORD *)this + 108);
+      v115 = _xmm;
+      v72 = v71 + 64;
+      v116 = _xmm;
+      if ( !v71 )
+        v72 = 0LL;
+      v117 = _xmm;
+      v118 = _xmm;
+      v119 = 32085;
+      v73 = CWindowNode::ApplyTextureToLocalTransform(this, v72, &v115, 0LL);
+      EffectiveBounds = v73;
+      if ( v73 < 0 )
       {
-        DxClipShape = (CShape **)CWindowNode::GetDxClipShape(this, &v93);
-        EffectiveBounds = CWindowNode::GetEffectiveBounds(this, *DxClipShape, &v92, (bool *)&v89);
-        CShapePtr::Release((CShapePtr *)&v93);
-        if ( EffectiveBounds < 0 )
-        {
-          v87 = 979;
-          goto LABEL_144;
-        }
-        v73 = (__int64 *)CWindowNode::GetDxClipShape(this, &rcSrc2);
-        v93 = v92;
-        EffectiveBounds = CWindowNode::CollectOcclusionHelper(
-                            (_DWORD)this,
-                            v71,
-                            (unsigned int)&v93,
-                            (_DWORD)a2,
-                            *v73,
-                            v89);
-        CShapePtr::Release((CShapePtr *)&rcSrc2);
-        if ( EffectiveBounds < 0 )
-        {
-          v87 = 985;
-          goto LABEL_144;
-        }
-        if ( *((_BYTE *)a2 + 1205) )
-        {
-          v96[0] = _xmm;
-          v96[1] = _xmm;
-          v98 = v98 & 0xC0 | 0x17;
-          v96[2] = _xmm;
-          v96[3] = _xmm;
-          v97 = 85;
-          EffectiveBounds = CWindowNode::ApplyTextureToLocalTransform(this, v71 + 72, v96, 0LL);
-          if ( EffectiveBounds < 0 )
-          {
-            v87 = 992;
-            goto LABEL_144;
-          }
-          v74 = this[54].m128i_i32[3];
-          v75 = (__int64 *)CWindowNode::GetDxClipShape(this, &v93);
-          EffectiveBounds = COcclusionContext::CheckAndRecordOverlayCandidate(
-                              (__int64)a2,
-                              (__int64)this,
-                              *(_QWORD *)(v71 + 104),
-                              (__int64)v96,
-                              *v75,
-                              v74);
-          CShapePtr::Release((CShapePtr *)&v93);
-          if ( EffectiveBounds < 0 )
-          {
-            v87 = 998;
-            goto LABEL_144;
-          }
-        }
+        MilInstrumentationCheckHR_MaybeFailFast(v74, 0LL, 0, v73, 0x44Du, 0LL);
+        goto LABEL_75;
+      }
+      v75 = *((_DWORD *)this + 209);
+      v76 = (__int64 *)CWindowNode::GetDxClipShape(this, &rcDst);
+      EffectiveBounds = COcclusionContext::CheckAndRecordOverlayCandidate(
+                          (__int64)a2,
+                          (__int64)this,
+                          *(_QWORD *)(*((_QWORD *)this + 108) + 96LL),
+                          &v115,
+                          *v76,
+                          v75);
+      CShapePtr::Release((CShapePtr *)&rcDst);
+      if ( EffectiveBounds < 0 )
+      {
+        v101 = 1107;
+LABEL_152:
+        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, EffectiveBounds, v101, 0LL);
+        goto LABEL_75;
       }
     }
   }
-  v13 = 0LL;
+  else
+  {
+    v16 = v109[0];
+  }
+  v17 = (char *)*v11;
   EffectiveBounds = 0;
-  v14 = (__int64)(*((_QWORD *)a2 + 106) - *((_QWORD *)a2 + 105)) >> 4;
-  if ( (_DWORD)v14 )
+  LODWORD(v19) = *((_DWORD *)a2 + 214);
+  v110 = (struct IUnknown *)*v11;
+  if ( (_DWORD)v19 )
   {
     while ( 1 )
     {
-      v76 = *((_DWORD *)a2 + 357);
-      v90 = v14 - 1;
-      LODWORD(v88) = v76;
-      v77 = (unsigned int)(v14 - 1);
-      *((_DWORD *)a2 + 357) = v76 + 2;
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      v19 = (unsigned int)(v19 - 1);
+      v77 = &v17[20 * v19];
+      v78 = *((_DWORD *)a2 + 364);
+      v108 = v78;
+      *((_DWORD *)a2 + 364) = v78 + 2;
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
       {
         McTemplateU0dffffq_EventWriteTransfer(
-          2 * v77,
-          v76,
-          v76,
+          v78,
+          (_DWORD)v17,
+          v78,
           a4,
-          *(_DWORD *)(*v9 + 16LL * (unsigned int)v77 + 4),
-          *(_DWORD *)(*v9 + 16LL * (unsigned int)v77 + 8),
-          *(_DWORD *)(*v9 + 16LL * (unsigned int)v77 + 12));
-        v76 = v88;
+          *((_DWORD *)v77 + 1),
+          *((_DWORD *)v77 + 2),
+          *((_DWORD *)v77 + 3),
+          *((_DWORD *)v77 + 4));
+        v78 = v108;
       }
-      v78 = (char *)a2 + 1208;
-      if ( !*((_BYTE *)a2 + 1204) )
-        v78 = 0LL;
-      EffectiveBounds = CArrayBasedCoverageSet::Add((char *)a2 + 448, *v9 + 16 * v77, v76, v78);
+      v79 = (char *)a2 + 1248;
+      if ( !*((_BYTE *)a2 + 1244) )
+        v79 = 0LL;
+      EffectiveBounds = CArrayBasedCoverageSet::Add((char *)a2 + 408, v77, v78, v79);
       if ( EffectiveBounds < 0 )
         break;
-      LODWORD(v14) = v90;
-      if ( !v90 )
-        goto LABEL_130;
+      v17 = (char *)v110;
+      if ( !(_DWORD)v19 )
+        goto LABEL_10;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v79, 0LL, 0LL, EffectiveBounds, 0x2F5u);
-LABEL_130:
-    v13 = 0LL;
+    MilInstrumentationCheckHR_MaybeFailFast(v80, 0LL, 0, EffectiveBounds, 0x2FEu, 0LL);
   }
-  v15 = (__int64)(*((_QWORD *)a2 + 106) - *((_QWORD *)a2 + 105)) >> 4;
-  if ( v15 )
+LABEL_10:
+  v20 = (__int64)*v11;
+  *((_DWORD *)a2 + 214) = 0;
+  if ( v20 != *((_QWORD *)a2 + 105) )
   {
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)a2 + 105,
-      0LL,
-      v15);
-    v13 = 0LL;
+    operator delete((void *)v20);
+    *((_QWORD *)a2 + 104) = *((_QWORD *)a2 + 105);
+    *((_DWORD *)a2 + 213) = *((_DWORD *)a2 + 212);
   }
   if ( EffectiveBounds < 0 )
   {
-    v87 = 1005;
-    goto LABEL_144;
+    v101 = 1114;
+    goto LABEL_152;
   }
-  *((_DWORD *)a3 + 10) = *((_DWORD *)a2 + 357);
-  if ( !this[57].m128i_i8[7] )
-    goto LABEL_65;
-  v16 = this[50].m128i_i64[0];
-  if ( (v16 & 2) != 0 )
+  *((_DWORD *)a3 + 6) = *((_DWORD *)a2 + 364);
+  if ( *((_QWORD *)this + 90) && !*((_BYTE *)this + 914) && (*((_BYTE *)this + 836) & 2) == 0 )
   {
-    v18 = v16 & 0xFFFFFFFFFFFFFFFCuLL;
-    v17 = *(_QWORD *)(v16 & 0xFFFFFFFFFFFFFFFCuLL);
-  }
-  else
-  {
-    v17 = this[50].m128i_i64[0] & 1;
-    v18 = v16 & 0xFFFFFFFFFFFFFFFCuLL;
-  }
-  if ( !v17 )
-    goto LABEL_65;
-  v19 = v17 == 1
-      ? (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(v16 & 0xFFFFFFFFFFFFFFFCuLL)
-      : *(int (__fastcall ****)(_QWORD, GUID *, __int64 *))(v18 + 16);
-  if ( !v19 || this[57].m128i_i8[2] || (this[54].m128i_i8[12] & 2) != 0 )
-    goto LABEL_65;
-  EffectiveBounds = CWindowNode::EnsureEffectiveSpriteClip((CWindowNode *)this);
-  if ( EffectiveBounds < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, EffectiveBounds, 0x3F7u);
-    goto LABEL_65;
-  }
-  v21 = this[56].m128i_i64[1];
-  v92.right = this[49].m128i_i32[2] - this[49].m128i_i32[0];
-  v22 = this[49].m128i_i32[3] - this[49].m128i_i32[1];
-  *(_QWORD *)&v92.left = 0LL;
-  v92.bottom = v22;
-  if ( !v21 )
-    goto LABEL_41;
-  v23 = *(_QWORD *)v21;
-  rcDst = 0LL;
-  v25 = (*(__int64 (__fastcall **)(__int64, struct tagRECT *, _QWORD))(v23 + 48))(v21, &rcDst, 0LL);
-  EffectiveBounds = v25;
-  if ( v25 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0LL, v25, 0x35Au);
-    v85 = v25;
-    v87 = 1018;
-LABEL_145:
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v85, v87);
-    goto LABEL_65;
-  }
-  LODWORD(v88) = rcDst.left;
-  if ( (rcDst.left & 0x7FFFFFFFu) > 0x497FFFF0 )
-  {
-    v80 = 0LL;
-    v80.m128_f32[0] = (float)(int)*(float *)&rcDst.left - *(float *)&rcDst.left;
-    v26 = (int)*(float *)&rcDst.left - _mm_cmple_ss(v80, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
-  }
-  else
-  {
-    *(float *)&v88 = *(float *)&rcDst.left + 6291456.25;
-    v26 = (int)((_DWORD)v88 << 10) >> 11;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.left - (float)v26) & _xmm) > 0.00390625 )
-    v26 = CFloatFPU::FloorSat(*(float *)&rcDst.left);
-  v93.left = v26;
-  LODWORD(v88) = rcDst.top;
-  if ( (rcDst.top & 0x7FFFFFFFu) > 0x497FFFF0 )
-  {
-    v81 = 0LL;
-    v81.m128_f32[0] = (float)(int)*(float *)&rcDst.top - *(float *)&rcDst.top;
-    v27 = (int)*(float *)&rcDst.top - _mm_cmple_ss(v81, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
-  }
-  else
-  {
-    *(float *)&v88 = *(float *)&rcDst.top + 6291456.25;
-    v27 = (int)((_DWORD)v88 << 10) >> 11;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.top - (float)v27) & _xmm) > 0.00390625 )
-    v27 = CFloatFPU::FloorSat(*(float *)&rcDst.top);
-  v93.top = v27;
-  LODWORD(v88) = rcDst.right;
-  if ( (rcDst.right & 0x7FFFFFFFu) > 0x497FFFF0 )
-  {
-    v82 = 0LL;
-    v82.m128_f32[0] = (float)(int)*(float *)&rcDst.right - *(float *)&rcDst.right;
-    v28 = (int)*(float *)&rcDst.right - _mm_cmple_ss(v82, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
-  }
-  else
-  {
-    *(float *)&v88 = *(float *)&rcDst.right + 6291456.25;
-    v28 = (int)((_DWORD)v88 << 10) >> 11;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.right - (float)v28) & _xmm) > 0.00390625 )
-    v28 = CFloatFPU::CeilingSat(*(float *)&rcDst.right);
-  v93.right = v28;
-  LODWORD(v88) = rcDst.bottom;
-  if ( (rcDst.bottom & 0x7FFFFFFFu) > 0x497FFFF0 )
-  {
-    v83 = 0LL;
-    v83.m128_f32[0] = (float)(int)*(float *)&rcDst.bottom - *(float *)&rcDst.bottom;
-    v84.m128_f32[0] = FLOAT_N0_5;
-    LODWORD(v88) = _mm_cmple_ss(v83, v84).m128_u32[0];
-    v29 = (int)*(float *)&rcDst.bottom - v88;
-  }
-  else
-  {
-    *(float *)&v88 = *(float *)&rcDst.bottom + 6291456.25;
-    v29 = (int)((_DWORD)v88 << 10) >> 11;
-  }
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.bottom - (float)v29) & _xmm) > 0.00390625 )
-    v29 = CFloatFPU::CeilingSat(*(float *)&rcDst.bottom);
-  v93.bottom = v29;
-  TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IntersectUnsafe(&v92.left, &v93.left);
-  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v21 + 64LL))(v21, &v88) && (_DWORD)v88 == 1 )
-LABEL_41:
-    v30 = 1;
-  else
-    v30 = 0;
-  EffectiveBounds = 0;
-  v31 = this[56].m128i_i64[1];
-  if ( this[53].m128i_i32[3] || this[54].m128i_i32[1] || this[54].m128i_i32[0] || this[54].m128i_i32[2] )
-    CWindowNode::IntersectWithAlphaMargins(this, (__int64)&v92);
-  v32 = this[55].m128i_i32[0];
-  if ( v32 || this[55].m128i_i32[2] || this[55].m128i_i32[1] || this[55].m128i_i32[3] )
-  {
-    v61 = (struct tagRECT)this[47];
-    *(_QWORD *)&rcSrc2.left = 0LL;
-    rcDst = v61;
-    rcDst.left = v32 + _mm_cvtsi128_si32((__m128i)v61);
-    rcDst.right = v61.right - this[55].m128i_i32[1];
-    rcDst.top = this[55].m128i_i32[2] + v61.top;
-    rcDst.bottom = v61.bottom - this[55].m128i_i32[3];
-    rcSrc2.right = this[49].m128i_i32[2] - this[49].m128i_i32[0];
-    rcSrc2.bottom = this[49].m128i_i32[3] - this[49].m128i_i32[1];
-    IntersectRect(&rcDst, &rcDst, &rcSrc2);
-    if ( !EqualRect(&rcDst, &rcSrc2) )
-      TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IntersectUnsafe(&v92.left, &rcDst.left);
-  }
-  left = (float)v92.left;
-  top = (float)v92.top;
-  *(float *)&v93.left = (float)v92.left;
-  *(float *)&v93.top = (float)v92.top;
-  right = (float)v92.right;
-  bottom = (float)v92.bottom;
-  *(float *)&v93.right = (float)v92.right;
-  *(float *)&v93.bottom = (float)v92.bottom;
-  if ( v30 )
-  {
-    if ( !*((_DWORD *)a2 + 358) )
+    EffectiveBounds = CWindowNode::EnsureEffectiveSpriteClip(this);
+    if ( EffectiveBounds < 0 )
     {
-      if ( (this[54].m128i_i8[12] & 1) != 0 )
-      {
-LABEL_53:
-        if ( right > left && bottom > top )
-        {
-          v37 = *((_DWORD *)a2 + 8);
-          v92 = 0LL;
-          if ( v37 )
-            v38 = (void *)(*((_QWORD *)a2 + 6) + 68LL * (unsigned int)(v37 - 1));
-          else
-            v38 = &CMILMatrix::Identity;
-          CMILMatrix::Transform2DBoundsHelper<0>(v38, &v93, &v92);
-          if ( *((_DWORD *)a2 + 36) )
-          {
-            TopByReference = (struct tagRECT *)CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,8,2,8>::GetTopByReference();
-            v39 = v92.left;
-            v41 = *TopByReference;
-            v50 = *(float *)&v92.left <= COERCE_FLOAT(*TopByReference);
-            v93 = *TopByReference;
-            if ( !v50 )
-              v41.left = v92.left;
-            v43 = *(float *)&v93.top;
-            v40 = v92.top;
-            v51 = *(float *)&v93.top;
-            if ( *(float *)&v92.top > *(float *)&v93.top )
-            {
-              v43 = *(float *)&v92.top;
-              v51 = *(float *)&v92.top;
-            }
-            v45 = *(float *)&v93.right;
-            v42 = v92.right;
-            if ( *(float *)&v93.right > *(float *)&v92.right )
-              v45 = *(float *)&v92.right;
-            v46 = *(float *)&v93.bottom;
-            v44 = v92.bottom;
-            if ( *(float *)&v93.bottom > *(float *)&v92.bottom )
-              v46 = *(float *)&v92.bottom;
-            if ( v45 <= *(float *)&v41.left || v46 <= v51 )
-            {
-              v43 = 0.0;
-              v41.left = 0;
-              v45 = 0.0;
-              v46 = 0.0;
-            }
-          }
-          else
-          {
-            v39 = v92.left;
-            v40 = v92.top;
-            v41.left = v92.left;
-            v42 = v92.right;
-            v43 = *(float *)&v92.top;
-            v44 = v92.bottom;
-            v45 = *(float *)&v92.right;
-            v46 = *(float *)&v92.bottom;
-          }
-          if ( **((_DWORD **)a2 + 168) )
-          {
-            v92.left = PixelAlign(*(float *)&v41.left, 1);
-            v92.top = PixelAlign(v43, 1);
-            v92.right = PixelAlign(v45, 0);
-            v92.bottom = PixelAlign(v46, 0);
-            if ( !TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IsEmpty(&v92) )
-            {
-              FastRegion::CRegion::CRegion((FastRegion::CRegion *)v96, &v92);
-              CRegion::Subtract(
-                (const struct FastRegion::Internal::CRgnData **)a2 + 168,
-                (const struct FastRegion::Internal::CRgnData **)v96);
-              FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)v96);
-            }
-          }
-          if ( *((_DWORD *)a2 + 44) )
-          {
-            v52 = *(_OWORD *)CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,8,2,8>::GetTopByReference();
-            v93 = (struct tagRECT)v52;
-            if ( *(float *)&v39 > *(float *)&v52 )
-              LODWORD(v52) = v39;
-            v53 = v93.top;
-            v54 = *(float *)&v93.top;
-            if ( *(float *)&v40 > *(float *)&v93.top )
-            {
-              v53 = v40;
-              v54 = *(float *)&v40;
-            }
-            v55 = v93.right;
-            v56 = *(float *)&v93.right;
-            if ( *(float *)&v93.right > *(float *)&v42 )
-            {
-              v55 = v42;
-              v56 = *(float *)&v42;
-            }
-            v57 = v93.bottom;
-            v58 = *(float *)&v93.bottom;
-            if ( *(float *)&v93.bottom > *(float *)&v44 )
-            {
-              v57 = v44;
-              v58 = *(float *)&v44;
-            }
-            if ( v56 <= *(float *)&v52 || v58 <= v54 )
-            {
-              v57 = 0;
-              v55 = 0;
-              v53 = 0;
-              LODWORD(v52) = 0;
-            }
-            v92.left = v52;
-            v92.top = v53;
-            v92.right = v55;
-            v92.bottom = v57;
-          }
-          else
-          {
-            v92.left = v39;
-            v92.top = v40;
-            v92.right = v42;
-            v92.bottom = v44;
-          }
-          if ( (unsigned __int8)COcclusionContext::CheckOcclusionRelevance(a2, &v92) )
-          {
-            v47 = detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::reserve_region(
-                    (char *)a2 + 840,
-                    (__int64)(*((_QWORD *)a2 + 106) - *((_QWORD *)a2 + 105)) >> 4,
-                    1uLL);
-            *(struct tagRECT *)v47 = v92;
-          }
-        }
-        goto LABEL_64;
-      }
-      v88 = 0LL;
-      if ( (**v19)(v19, &GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c, &v88) >= 0
-        && (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v88 + 8LL))(v88) )
-      {
-        wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v88);
-        goto LABEL_53;
-      }
-      wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v88);
+      v101 = 1123;
+      goto LABEL_152;
     }
-LABEL_64:
+    v20 = 0LL;
+    v21 = *((_DWORD *)this + 174) - *((_DWORD *)this + 172);
     EffectiveBounds = 0;
-    goto LABEL_65;
-  }
-  if ( v31 )
-  {
-    v59 = COcclusionContext::DrawClippedImage((_DWORD)a2, (_DWORD)v19, (unsigned int)&v93, v31, this[54].m128i_i32[3]);
-    EffectiveBounds = v59;
-    if ( v59 < 0 )
+    v22 = *((_DWORD *)this + 175) - *((_DWORD *)this + 173);
+    v23 = (__int64 *)*((_QWORD *)this + 113);
+    *(_QWORD *)&v113.left = 0LL;
+    *(_QWORD *)&v113.right = __PAIR64__(v22, v21);
+    LODWORD(v110) = v22;
+    if ( !v23 )
+      goto LABEL_45;
+    v24 = *v23;
+    rcDst = 0LL;
+    EffectiveBounds = (*(__int64 (__fastcall **)(__int64 *, struct tagRECT *, _QWORD))(v24 + 32))(v23, &rcDst, 0LL);
+    if ( EffectiveBounds < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v60, 0LL, 0LL, v59, 0x429u);
-      v87 = 1023;
-LABEL_144:
-      v85 = EffectiveBounds;
-      goto LABEL_145;
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, EffectiveBounds, 0x3ACu, 0LL);
+      v20 = 0LL;
     }
+    else
+    {
+      if ( (rcDst.left & 0x7FFFFFFFu) > 0x497FFFF0 )
+      {
+        v81 = 0LL;
+        v81.m128_f32[0] = (float)(int)*(float *)&rcDst.left - *(float *)&rcDst.left;
+        v82.m128_f32[0] = FLOAT_N0_5;
+        v26 = (int)*(float *)&rcDst.left - _mm_cmple_ss(v81, v82).m128_u32[0];
+      }
+      else
+      {
+        v102 = *(float *)&rcDst.left + 6291456.25;
+        v26 = (int)(LODWORD(v102) << 10) >> 11;
+      }
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.left - (float)v26) & _xmm) > 0.00390625 )
+      {
+        v83.m128_f32[0] = (float)(int)*(float *)&rcDst.left;
+        v26 = (int)*(float *)&rcDst.left + _mm_cmplt_ss((__m128)(unsigned int)rcDst.left, v83).m128_u32[0];
+      }
+      v112.left = v26;
+      if ( (rcDst.top & 0x7FFFFFFFu) > 0x497FFFF0 )
+      {
+        v84 = 0LL;
+        v84.m128_f32[0] = (float)(int)*(float *)&rcDst.top - *(float *)&rcDst.top;
+        v85.m128_f32[0] = FLOAT_N0_5;
+        v27 = (int)*(float *)&rcDst.top - _mm_cmple_ss(v84, v85).m128_u32[0];
+      }
+      else
+      {
+        v103 = *(float *)&rcDst.top + 6291456.25;
+        v27 = (int)(LODWORD(v103) << 10) >> 11;
+      }
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.top - (float)v27) & _xmm) > 0.00390625 )
+      {
+        v86.m128_f32[0] = (float)(int)*(float *)&rcDst.top;
+        v27 = (int)*(float *)&rcDst.top + _mm_cmplt_ss((__m128)(unsigned int)rcDst.top, v86).m128_u32[0];
+      }
+      v112.top = v27;
+      if ( (rcDst.right & 0x7FFFFFFFu) > 0x497FFFF0 )
+      {
+        v87 = 0LL;
+        v87.m128_f32[0] = (float)(int)*(float *)&rcDst.right - *(float *)&rcDst.right;
+        v88.m128_f32[0] = FLOAT_N0_5;
+        v28 = (int)*(float *)&rcDst.right - _mm_cmple_ss(v87, v88).m128_u32[0];
+      }
+      else
+      {
+        v104 = *(float *)&rcDst.right + 6291456.25;
+        v28 = (int)(LODWORD(v104) << 10) >> 11;
+      }
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.right - (float)v28) & _xmm) > 0.00390625 )
+      {
+        v89 = 0LL;
+        v89.m128_f32[0] = (float)(int)*(float *)&rcDst.right;
+        v28 = (int)*(float *)&rcDst.right - _mm_cmplt_ss(v89, (__m128)(unsigned int)rcDst.right).m128_u32[0];
+      }
+      v112.right = v28;
+      if ( (rcDst.bottom & 0x7FFFFFFFu) > 0x497FFFF0 )
+      {
+        v90 = 0LL;
+        v90.m128_f32[0] = (float)(int)*(float *)&rcDst.bottom - *(float *)&rcDst.bottom;
+        v91.m128_f32[0] = FLOAT_N0_5;
+        v29 = (int)*(float *)&rcDst.bottom - _mm_cmple_ss(v90, v91).m128_u32[0];
+      }
+      else
+      {
+        v105 = *(float *)&rcDst.bottom + 6291456.25;
+        v29 = (int)(LODWORD(v105) << 10) >> 11;
+      }
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&rcDst.bottom - (float)v29) & _xmm) > 0.00390625 )
+      {
+        v92 = 0LL;
+        v92.m128_f32[0] = (float)(int)*(float *)&rcDst.bottom;
+        v29 = (int)*(float *)&rcDst.bottom - _mm_cmplt_ss(v92, (__m128)(unsigned int)rcDst.bottom).m128_u32[0];
+      }
+      v112.bottom = v29;
+      if ( v28 <= v26 || v29 <= v27 || v26 >= 0 && v27 >= 0 && v28 <= v21 && v29 <= (int)v110 )
+        TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IntersectUnsafe(&v113, &v112);
+      if ( (*(unsigned __int8 (__fastcall **)(__int64 *, struct IUnknown **))(*v23 + 40))(v23, &v110)
+        && (_DWORD)v110 == 1 )
+      {
+        v20 = 0LL;
+LABEL_45:
+        v16 = 1;
+        goto LABEL_46;
+      }
+      v16 = 0;
+      v20 = 0LL;
+    }
+LABEL_46:
+    if ( EffectiveBounds < 0 )
+    {
+      v101 = 1127;
+      goto LABEL_152;
+    }
+    v30 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 90);
+    v106 = *((_QWORD *)this + 113);
+    v31 = *v30;
+    v112 = v113;
+    v32 = (struct IUnknown *)(*v31)(v30);
+    left = v113.left + *((_DWORD *)this + 205);
+    right = v112.right - *((_DWORD *)this + 206);
+    bottom = v112.bottom - *((_DWORD *)this + 208);
+    v110 = v32;
+    EffectiveBounds = 0;
+    v112.left = left;
+    top = v112.top + *((_DWORD *)this + 207);
+    v112.top = top;
+    if ( right <= left )
+    {
+      right = left;
+      v112.right = left;
+    }
+    else
+    {
+      v112.right = right;
+    }
+    if ( bottom <= top )
+    {
+      bottom = top;
+      v112.bottom = top;
+    }
+    else
+    {
+      v112.bottom = bottom;
+    }
+    v20 = *((unsigned int *)this + 210);
+    if ( (_DWORD)v20 || *((_DWORD *)this + 212) || *((_DWORD *)this + 211) || *((_DWORD *)this + 213) )
+    {
+      v57 = *((_DWORD *)this + 160) + v20;
+      rcDst.right = *((_DWORD *)this + 162) - *((_DWORD *)this + 211);
+      rcDst.top = *((_DWORD *)this + 212) + *((_DWORD *)this + 161);
+      v58 = *((_DWORD *)this + 163) - *((_DWORD *)this + 213);
+      rcDst.left = v57;
+      rcDst.bottom = v58;
+      IntersectRect(&rcDst, &rcDst, (const RECT *)this + 43);
+      if ( !EqualRect(&rcDst, (const RECT *)this + 43) )
+      {
+        OffsetRect(&rcDst, -*((_DWORD *)this + 172), -*((_DWORD *)this + 173));
+        v113 = rcDst;
+        TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IntersectUnsafe(&v112, &v113);
+        bottom = v112.bottom;
+        right = v112.right;
+      }
+      v32 = v110;
+      left = v112.left;
+      top = v112.top;
+    }
+    v37 = (float)left;
+    v38 = (float)top;
+    *(float *)&v112.left = (float)left;
+    *(float *)&v112.top = (float)top;
+    *(float *)&v112.right = (float)right;
+    *(float *)&v112.bottom = (float)bottom;
+    if ( !v16 )
+    {
+      if ( v106 )
+      {
+        v59 = COcclusionContext::DrawClippedImage(a2, v32, (float *)&v112.left, v106, *((_DWORD *)this + 209));
+        EffectiveBounds = v59;
+        if ( v59 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v59, 0x49Cu, 0LL);
+      }
+LABEL_74:
+      if ( EffectiveBounds < 0 )
+      {
+        v101 = 1133;
+        goto LABEL_152;
+      }
+      goto LABEL_75;
+    }
+    if ( *((_DWORD *)a2 + 365) )
+      goto LABEL_74;
+    v39 = *((_DWORD *)this + 209) & 1;
+    v40 = 0;
+    if ( !v32 )
+      goto LABEL_81;
+    if ( !v39 )
+    {
+      lpVtbl = v32->lpVtbl;
+      v110 = 0LL;
+      if ( ((__int64 (__fastcall *)(struct IUnknown *, GUID *, struct IUnknown **))lpVtbl->QueryInterface)(
+             v32,
+             &GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c,
+             &v110) >= 0 )
+        v40 = ((unsigned __int8 (__fastcall *)(struct IUnknown *))v110->lpVtbl->AddRef)(v110) != 0;
+      wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v110);
+      if ( !v40 )
+      {
+LABEL_81:
+        if ( EffectiveBounds < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, EffectiveBounds, 0x495u, 0LL);
+        goto LABEL_74;
+      }
+    }
+    if ( (float)right > v37 && (float)bottom > v38 )
+    {
+      v41 = *((_DWORD *)a2 + 6);
+      LODWORD(v116) = 0;
+      v113 = 0LL;
+      v42 = v41
+          ? (CMILMatrix *)(*((_QWORD *)a2 + 5) + 68LL * (unsigned int)(v41 - 1))
+          : (CMILMatrix *)&CMILMatrix::Identity;
+      CMILMatrix::Transform2DBoundsHelper<0>(v42);
+      v43 = *((_DWORD *)a2 + 34);
+      if ( v43 )
+      {
+        v93 = (struct tagRECT *)(*((_QWORD *)a2 + 19) + 16LL * (unsigned int)(v43 - 1));
+        v44 = *v93;
+        v94 = *(float *)&v113.left <= COERCE_FLOAT(*v93);
+        v112 = *v93;
+        if ( !v94 )
+          v44.left = v113.left;
+        v45 = *(float *)&v112.top;
+        v95 = *(float *)&v112.top;
+        if ( *(float *)&v113.top > *(float *)&v112.top )
+        {
+          v45 = *(float *)&v113.top;
+          v95 = *(float *)&v113.top;
+        }
+        v46 = *(float *)&v112.right;
+        v96 = *(float *)&v112.right;
+        if ( *(float *)&v112.right > *(float *)&v113.right )
+        {
+          v46 = *(float *)&v113.right;
+          v96 = *(float *)&v113.right;
+        }
+        v47 = *(float *)&v112.bottom;
+        v97 = *(float *)&v112.bottom;
+        if ( *(float *)&v112.bottom > *(float *)&v113.bottom )
+        {
+          v47 = *(float *)&v113.bottom;
+          v97 = *(float *)&v113.bottom;
+        }
+        if ( v96 <= *(float *)&v44.left || v97 <= v95 )
+        {
+          v45 = 0.0;
+          v47 = 0.0;
+          v46 = 0.0;
+          v44.left = 0;
+        }
+      }
+      else
+      {
+        v44.left = v113.left;
+        v45 = *(float *)&v113.top;
+        v46 = *(float *)&v113.right;
+        v47 = *(float *)&v113.bottom;
+      }
+      v48 = *((_DWORD *)a2 + 376);
+      v49 = -1;
+      *((_QWORD *)&v115 + 1) = __PAIR64__(LODWORD(v47), LODWORD(v46));
+      *(_QWORD *)&v115 = __PAIR64__(LODWORD(v45), v44.left);
+      v50 = (float)(v47 - v45) * (float)(v46 - *(float *)&v44.left);
+      if ( v48 )
+        v49 = *(_DWORD *)(*((_QWORD *)a2 + 190) + 4LL * (unsigned int)(v48 - 1));
+      v51 = *((_QWORD *)a2 + 133);
+      v20 = 0LL;
+      if ( v51 )
+      {
+        while ( ((v49 >> v20) & 1) == 0 || v50 <= (float)(*((float *)a2 + (unsigned int)v20 + 300) * 0.25) )
+        {
+          v20 = (unsigned int)(v20 + 1);
+          if ( (unsigned int)v20 >= v51 )
+            goto LABEL_73;
+        }
+        v52 = *((unsigned int *)a2 + 214);
+        v53 = v52 + 1;
+        if ( (int)v52 + 1 < (unsigned int)v52 )
+        {
+          EffectiveBounds = -2147024362;
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147024362, 0xB5u, 0LL);
+        }
+        else
+        {
+          if ( v53 <= *((_DWORD *)a2 + 213) )
+          {
+            v20 = (__int64)*v11;
+            v54 = 5 * v52;
+            *(_OWORD *)(v20 + 4 * v54) = v115;
+            *(_DWORD *)(v20 + 4 * v54 + 16) = v116;
+            *((_DWORD *)a2 + 214) = v53;
+            goto LABEL_73;
+          }
+          v98 = DynArrayImpl<0>::AddMultipleAndSet((char *)a2 + 832, 20LL, 1LL, &v115);
+          EffectiveBounds = v98;
+          if ( v98 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v98, 0xC0u, 0LL);
+        }
+        if ( EffectiveBounds >= 0 )
+          goto LABEL_74;
+        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, EffectiveBounds, 0x683u, 0LL);
+      }
+    }
+LABEL_73:
+    if ( EffectiveBounds >= 0 )
+      goto LABEL_74;
+    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, EffectiveBounds, 0x49Du, 0LL);
+    goto LABEL_81;
   }
-LABEL_65:
-  if ( v91 )
+LABEL_75:
+  if ( v111 )
   {
-    v86 = (char *)v91 + *(int *)(*((_QWORD *)v91 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(char *))(*(_QWORD *)v86 + 16LL))(v86);
+    v99 = (char *)v111 + *(int *)(*((_QWORD *)v111 + 1) + 4LL) + 8;
+    (*(void (__fastcall **)(char *))(*(_QWORD *)v99 + 16LL))(v99);
   }
   return (unsigned int)EffectiveBounds;
 }

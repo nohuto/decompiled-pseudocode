@@ -1,38 +1,41 @@
 /*
- * XREFs of PfpOpenHandleClose @ 0x14075D734
+ * XREFs of PfpOpenHandleClose @ 0x1406339C0
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
- *     PfpPrefetchVolumesCleanup @ 0x140684A68 (PfpPrefetchVolumesCleanup.c)
- *     PfpVolumeOpenAndVerify @ 0x1406853AC (PfpVolumeOpenAndVerify.c)
- *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
- *     PfSnQueryVolumeInfo @ 0x1406869B4 (PfSnQueryVolumeInfo.c)
- *     PfSnGetSectionObject @ 0x14075CEB0 (PfSnGetSectionObject.c)
- *     PfSnCleanupPrefetchHeader @ 0x14075D3C0 (PfSnCleanupPrefetchHeader.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14075D4C8 (PfSnCleanupPrefetchSectionInfo.c)
- *     PfpReadSupportCleanup @ 0x14075E660 (PfpReadSupportCleanup.c)
- *     PfpFileBuildReadSupport @ 0x14075E6B4 (PfpFileBuildReadSupport.c)
- *     PfpPrefetchEntireDirectory @ 0x14075EDDC (PfpPrefetchEntireDirectory.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D808C (PfpPrefetchDirectoryStream.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E5A0 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchEntireDirectory @ 0x140632798 (PfpPrefetchEntireDirectory.c)
+ *     PfpFileBuildReadSupport @ 0x14063290C (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x1406331D8 (PfSnGetSectionObject.c)
+ *     PfSnCleanupPrefetchHeader @ 0x140633648 (PfSnCleanupPrefetchHeader.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x140633754 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PfpReadSupportCleanup @ 0x1406340E4 (PfpReadSupportCleanup.c)
+ *     PfSnQueryVolumeInfo @ 0x1406342E4 (PfSnQueryVolumeInfo.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140634420 (PfSnOpenVolumesForPrefetch.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
+ *     PfpVolumeOpenAndVerify @ 0x14070B318 (PfpVolumeOpenAndVerify.c)
+ *     PfpPrefetchDirectoryStream @ 0x14070BA34 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchVolumesCleanup @ 0x14070BDDC (PfpPrefetchVolumesCleanup.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFD5C (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall PfpOpenHandleClose(__int64 a1, __int64 a2)
+__int64 __fastcall PfpOpenHandleClose(_QWORD *a1, __int64 a2)
 {
+  __int64 v2; // rax
   __int64 result; // rax
-  _QWORD v4[5]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v5[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !_bittest64((const signed __int64 *)(a1 + 24), 0x24u) )
+  v2 = a1[3];
+  if ( (v2 & 0x1000000000LL) == 0 )
   {
-    v4[1] = *(_QWORD *)a1;
-    v4[2] = *(_QWORD *)(a1 + 8);
-    v4[3] = *(_QWORD *)(a1 + 16);
-    v4[0] = a2 + 40;
+    v5[1] = *a1;
+    v5[2] = a1[1];
+    v5[3] = a1[2];
+    v5[0] = a2 + 40;
     _InterlockedIncrement((volatile signed __int32 *)(a2 + 84));
-    (*(void (__fastcall **)(_QWORD *))(qword_140C651C8 + 8))(v4);
+    (*(void (__fastcall **)(_QWORD *))(qword_140C503F8 + 8))(v5);
+    v2 = a1[3];
   }
-  result = 0x800000000LL;
-  *(_QWORD *)(a1 + 24) |= 0x800000000uLL;
+  result = v2 | 0x800000000LL;
+  a1[3] = result;
   return result;
 }

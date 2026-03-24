@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpSectInfoHandleOutOfBuffers @ 0x140748E10
+ * XREFs of PfpSectInfoHandleOutOfBuffers @ 0x14078EB00
  * Callers:
  *     <none>
  * Callees:
- *     PfFbBufferListAllocateTemporary @ 0x1402F5478 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListAllocateTemporary @ 0x140323064 (PfFbBufferListAllocateTemporary.c)
  */
 
-__int64 __fastcall PfpSectInfoHandleOutOfBuffers(struct _EX_RUNDOWN_REF *a1)
+__int64 __fastcall PfpSectInfoHandleOutOfBuffers(_SLIST_ENTRY *a1)
 {
   return PfFbBufferListAllocateTemporary(a1, 0x4000);
 }

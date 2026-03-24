@@ -1,10 +1,10 @@
 /*
- * XREFs of PspEnforceLimitsJobPreCallback @ 0x140685680
+ * XREFs of PspEnforceLimitsJobPreCallback @ 0x140615CD0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PspQueryRateControlHistory @ 0x14068578C (PspQueryRateControlHistory.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PspQueryRateControlHistory @ 0x140615DDC (PspQueryRateControlHistory.c)
  */
 
 __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)
@@ -17,18 +17,18 @@ __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)
   int v9; // ebp
 
   v2 = 0;
-  *(_DWORD *)(a1 + 1424) = PspEnforcementSequenceNumber;
-  if ( (*(_DWORD *)(a1 + 1040) & 6) != 0 || *(_DWORD *)(a1 + 1060) || (*(_DWORD *)(a1 + 1512) & 0x800) != 0 )
+  *(_DWORD *)(a1 + 1232) = PspEnforcementSequenceNumber;
+  if ( (*(_DWORD *)(a1 + 848) & 6) != 0 || *(_DWORD *)(a1 + 868) || (*(_DWORD *)(a1 + 1320) & 0x800) != 0 )
   {
     v5 = (_DWORD)a2 + 44;
-    *a2 = *(_QWORD *)(a1 + 976);
+    *a2 = *(_QWORD *)(a1 + 784);
     v6 = 0;
     v7 = 60LL;
-    a2[1] = *(_QWORD *)(a1 + 1016);
+    a2[1] = *(_QWORD *)(a1 + 824);
     a2[2] = 0LL;
     do
     {
-      v8 = *(_QWORD *)(a1 + 1176);
+      v8 = *(_QWORD *)(a1 + 984);
       if ( !v8 || (v9 = *(_DWORD *)(v7 + v8)) == 0 )
         v9 = 1;
       PspQueryRateControlHistory(a1, v9, 0, v5, v6);
@@ -41,8 +41,8 @@ __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)
   }
   else
   {
-    memset((void *)(a1 + 1312), 0, 0x68uLL);
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 1512), 0xFFBFFFFF);
+    memset((void *)(a1 + 1120), 0, 0x68uLL);
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 1320), 0xFFBFFFFF);
     return (unsigned int)-1073741536;
   }
   return v2;

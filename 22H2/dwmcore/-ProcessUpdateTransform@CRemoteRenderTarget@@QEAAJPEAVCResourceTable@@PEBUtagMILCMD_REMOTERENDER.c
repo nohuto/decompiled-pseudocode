@@ -1,16 +1,13 @@
 /*
- * XREFs of ?ProcessUpdateTransform@CRemoteRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTERENDERTARGET_UPDATETRANSFORM@@@Z @ 0x18010B0EC
+ * XREFs of ?ProcessUpdateTransform@CRemoteRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTERENDERTARGET_UPDATETRANSFORM@@@Z @ 0x1800E5924
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ??0CMonitorTransform@@QEAA@XZ @ 0x1800C8570 (--0CMonitorTransform@@QEAA@XZ.c)
- *     ?Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@MW4DXGI_MODE_ROTATION@@PEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800CA7F8 (-Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
- *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800CAB34 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPo_ea_1800CAB34.c)
- *     ?reset@?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F61D8 (-reset@-$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UpdateTransform@CDDARenderTarget@@QEAAXAEBVCMonitorTransform@@@Z @ 0x1801F9BFC (-UpdateTransform@CDDARenderTarget@@QEAAXAEBVCMonitorTransform@@@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041E0C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ??8@YA_NAEBUtagRECT@@0@Z @ 0x1800D4290 (--8@YA_NAEBUtagRECT@@0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?reset@?$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180184F2C (-reset@-$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?UpdateTransform@CDDARenderTarget@@QEAAXAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@@Z @ 0x1801990B4 (-UpdateTransform@CDDARenderTarget@@QEAAXAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRect.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::ProcessUpdateTransform(
@@ -18,87 +15,73 @@ __int64 __fastcall CRemoteRenderTarget::ProcessUpdateTransform(
         struct CResourceTable *a2,
         const struct tagMILCMD_REMOTERENDERTARGET_UPDATETRANSFORM *a3)
 {
-  float v3; // xmm1_4
-  struct MilRectF *v4; // rbp
-  float v6; // xmm3_4
-  float v8; // xmm0_4
-  _DWORD *v9; // rdi
-  float v10; // xmm2_4
-  int v11; // ecx
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  CResource *v15; // rcx
-  int v16; // eax
-  float v17; // xmm1_4
-  __int64 result; // rax
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  int v21; // [rsp+30h] [rbp-128h] BYREF
-  int v22; // [rsp+34h] [rbp-124h]
-  float v23; // [rsp+38h] [rbp-120h]
-  float v24; // [rsp+3Ch] [rbp-11Ch]
-  _BYTE v25[256]; // [rsp+40h] [rbp-118h] BYREF
+  char *v3; // rdi
+  _OWORD *v6; // rdx
+  __int64 v7; // rcx
+  int *v8; // rdx
+  int v9; // ecx
+  __int64 v10; // r8
+  __int64 v11; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
 
-  v3 = *((float *)a3 + 4);
-  v4 = (CRemoteRenderTarget *)((char *)this + 208);
-  *((float *)this + 52) = v3;
-  v6 = *((float *)a3 + 5);
-  *((float *)this + 53) = v6;
-  v8 = *((float *)a3 + 6);
-  *((float *)this + 54) = v8;
-  v9 = (_DWORD *)((char *)this + 108);
-  v10 = *((float *)a3 + 7);
-  *((float *)this + 55) = v10;
-  v11 = (int)(float)(v8 - v3);
-  if ( __PAIR64__(*v9, *((_DWORD *)this + 26)) != __PAIR64__((int)(float)(v10 - v6), v11) )
+  v3 = (char *)this + 184;
+  if ( !operator==((_DWORD *)this + 46, (_DWORD *)a3 + 4) )
   {
-    *((_DWORD *)this + 26) = v11;
-    *v9 = (int)(float)(v10 - v6);
-    v12 = *((_QWORD *)this + 22);
-    *((_QWORD *)this + 22) = 0LL;
-    if ( v12 )
+    v7 = *((_QWORD *)this + 21);
+    *(_OWORD *)v3 = *v6;
+    if ( v7 )
+      CDDARenderTarget::UpdateTransform(v7, v3, 1LL);
+    v8 = (int *)((char *)this + 188);
+    v9 = *((_DWORD *)v3 + 2) - *(_DWORD *)v3;
+    if ( v9 != *((_DWORD *)this + 20) || *((_DWORD *)this + 49) - *v8 != *((_DWORD *)this + 21) )
     {
-      v19 = v12 + 8 + *(int *)(*(_QWORD *)(v12 + 8) + 4LL);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v19 + 16LL))(v19);
+      *((_DWORD *)this + 20) = v9;
+      *((_DWORD *)this + 21) = *((_DWORD *)this + 49) - *v8;
+      v10 = *((_QWORD *)this + 20);
+      *((_QWORD *)this + 20) = 0LL;
+      if ( v10 )
+      {
+        v13 = v10 + 8 + *(int *)(*(_QWORD *)(v10 + 8) + 4LL);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
+        v8 = (int *)((char *)this + 188);
+      }
     }
+    *((_DWORD *)this + 58) = 1065353216;
+    *(_QWORD *)((char *)this + 236) = 0LL;
+    *(_QWORD *)((char *)this + 244) = 0LL;
+    *(_QWORD *)((char *)this + 252) = 1065353216LL;
+    *(_QWORD *)((char *)this + 260) = 0LL;
+    *((_DWORD *)this + 67) = 0;
+    *((_QWORD *)this + 34) = 1065353216LL;
+    *((_QWORD *)this + 35) = 0LL;
+    *((_DWORD *)this + 72) = 0;
+    *((_DWORD *)this + 73) = 1065353216;
+    *((_WORD *)this + 148) = 32085;
+    CMILMatrix::Translate(
+      (CRemoteRenderTarget *)((char *)this + 232),
+      COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*(int *)v3) ^ _xmm),
+      COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v8) ^ _xmm));
+    *((_BYTE *)this + 129) = 1;
   }
-  v13 = *((_QWORD *)a3 + 1);
-  if ( *((_QWORD *)this + 25) == v13 )
+  v11 = *((_QWORD *)a3 + 1);
+  if ( *((_QWORD *)this + 25) != v11 )
   {
-    if ( *((_QWORD *)this + 23) )
-    {
-      CMonitorTransform::CMonitorTransform((CMonitorTransform *)v25);
-      v21 = 0;
-      v22 = 0;
-      CMonitorTransform::Initialize((__int64)v25, &v21, v4, 1.0, 1, 0LL);
-      CDDARenderTarget::UpdateTransform(*((CDDARenderTarget **)this + 23), (const struct CMonitorTransform *)v25);
-    }
-  }
-  else
-  {
-    *((_QWORD *)this + 25) = v13;
-    wil::com_ptr_t<CVisualTree,wil::err_returncode_policy>::reset((__int64 *)this + 21);
-    v14 = *((_QWORD *)this + 22);
-    *((_QWORD *)this + 22) = 0LL;
+    *((_QWORD *)this + 25) = v11;
+    v14 = *((_QWORD *)this + 19);
+    *((_QWORD *)this + 19) = 0LL;
     if ( v14 )
-    {
-      v20 = v14 + 8 + *(int *)(*(_QWORD *)(v14 + 8) + 4LL);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
-    }
-    v15 = (CResource *)*((_QWORD *)this + 23);
-    *((_QWORD *)this + 23) = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+    v15 = *((_QWORD *)this + 20);
+    *((_QWORD *)this + 20) = 0LL;
     if ( v15 )
-      CResource::InternalRelease(v15);
+    {
+      v16 = v15 + 8 + *(int *)(*(_QWORD *)(v15 + 8) + 4LL);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
+    }
+    wil::com_ptr_t<CDDisplaySwapChain,wil::err_returncode_policy>::reset((char *)this + 168);
   }
-  v16 = *((_DWORD *)this + 26);
-  v21 = 0;
-  v22 = 0;
-  v17 = (float)(int)*v9;
-  v23 = (float)v16;
-  v24 = v17;
-  CMILMatrix::InferAffineMatrix((CRemoteRenderTarget *)((char *)this + 224));
-  result = 0LL;
-  *((_BYTE *)this + 141) = 1;
-  return result;
+  return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkCreateSynchronizationObject @ 0x1C019AAF0
+ * XREFs of DxgkCreateSynchronizationObject @ 0x1C01102A0
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@HPEAX2@Z @ 0x1C0199960 (-DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC.c)
+ *     ?DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@HPEAX@Z @ 0x1C010DA40 (-DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC.c)
  */
 
-__int64 __fastcall DxgkCreateSynchronizationObject(struct DXGADAPTER *a1)
+__int64 __fastcall DxgkCreateSynchronizationObject(ULONG64 a1)
 {
-  return DxgkCreateSynchronizationObjectImpl(a1, 1u, 1LL, 0LL, 0LL);
+  return DxgkCreateSynchronizationObjectImpl(a1, 1u, 1LL, 0LL);
 }

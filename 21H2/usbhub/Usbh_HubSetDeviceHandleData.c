@@ -1,10 +1,10 @@
 /*
- * XREFs of Usbh_HubSetDeviceHandleData @ 0x1C0057034
+ * XREFs of Usbh_HubSetDeviceHandleData @ 0x1C005870C
  * Callers:
- *     UsbhPdoSetDeviceData @ 0x1C0056490 (UsbhPdoSetDeviceData.c)
+ *     UsbhPdoSetDeviceData @ 0x1C0057B50 (UsbhPdoSetDeviceData.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubSetDeviceHandleData(__int64 a1, __int64 a2, __int64 a3)

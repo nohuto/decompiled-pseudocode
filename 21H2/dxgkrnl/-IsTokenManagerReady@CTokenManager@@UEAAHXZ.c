@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsTokenManagerReady@CTokenManager@@UEAAHXZ @ 0x1C001CE70
+ * XREFs of ?IsTokenManagerReady@CTokenManager@@UEAAHXZ @ 0x1C0018A80
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 __fastcall CTokenManager::IsTokenManagerReady(CTokenManager *this)
 {
-  return *((_QWORD *)this + 3) != 0LL;
+  return *((_QWORD *)this + 2) != 0LL;
 }

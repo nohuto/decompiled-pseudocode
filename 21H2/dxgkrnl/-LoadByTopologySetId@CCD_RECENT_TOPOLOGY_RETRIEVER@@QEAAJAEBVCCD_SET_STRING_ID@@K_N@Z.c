@@ -1,47 +1,53 @@
 /*
- * XREFs of ?LoadByTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@K_N@Z @ 0x1C01B6E54
+ * XREFs of ?LoadByTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@K_N@Z @ 0x1C014753C
  * Callers:
- *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01B6AE8 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
- *     ?LoadByConnectedSetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@PEBV2@K_N@Z @ 0x1C01B6D84 (-LoadByConnectedSetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@PEBV2@K_N@Z.c)
+ *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01375F4 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
+ *     ?LoadByConnectedSetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@PEBV2@K_N@Z @ 0x1C0147464 (-LoadByConnectedSetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@PEBV2@K_N@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x1C01B6F34 (-ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z.c)
- *     ?QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01B7AFC (-QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z.c)
- *     ?_ResolveTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCCD_TOPOLOGY@@_N@Z @ 0x1C01B8198 (-_ResolveTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCCD_TOPOLOGY@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?_ResolveTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCCD_TOPOLOGY@@_N@Z @ 0x1C0137594 (-_ResolveTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCCD_TOPOLOGY@@_N@Z.c)
+ *     ?QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01379F8 (-QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z.c)
+ *     ?ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x1C0147620 (-ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z.c)
  */
 
 __int64 __fastcall CCD_RECENT_TOPOLOGY_RETRIEVER::LoadByTopologySetId(
         CCD_RECENT_TOPOLOGY_RETRIEVER *this,
         const struct CCD_SET_STRING_ID *a2,
         char a3,
-        bool a4)
+        char a4)
 {
-  __int64 v7; // rcx
-  DXGSESSIONMGR *v8; // rdi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  DXGSESSIONMGR *v9; // rdi
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
   __int64 result; // rax
-  int v12; // eax
-  unsigned int v13; // edi
-  CCD_TOPOLOGY *v14; // rcx
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rdi
+  CCD_TOPOLOGY *v17; // rcx
   int TopologyClass; // eax
-  __int64 v16; // rcx
-  int v17; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  _QWORD *v21; // rax
+  int v22; // [rsp+40h] [rbp+18h] BYREF
 
   if ( (a3 & 0xF) != 0xF )
     return 3221225485LL;
-  v8 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( v8 )
+  v9 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal((__int64)this, (__int64)a2) + 102);
+  if ( v9 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v7);
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v8, CurrentProcessSessionId);
-    if ( SessionDataForSpecifiedSession )
-    {
-      if ( *((_BYTE *)SessionDataForSpecifiedSession + 18498) )
-        return 3221226021LL;
-    }
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v8, v7);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v9, CurrentProcessSessionId);
   }
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  if ( SessionDataForSpecifiedSession && *((_BYTE *)SessionDataForSpecifiedSession + 18490) )
+    return 3221226021LL;
   result = CCD_STORE::ForTopology(
              a2,
              (int (*)(struct CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *, void *))CCD_RECENT_TOPOLOGY_RETRIEVER::_LoadTopologyDescriptorCallback,
@@ -49,31 +55,35 @@ __int64 __fastcall CCD_RECENT_TOPOLOGY_RETRIEVER::LoadByTopologySetId(
              0);
   if ( (int)result >= 0 )
   {
-    v12 = CCD_RECENT_TOPOLOGY_RETRIEVER::_ResolveTopologySetId(*(struct CCD_TOPOLOGY **)this, a4);
-    v13 = v12;
-    if ( v12 < 0 )
+    v13 = CCD_RECENT_TOPOLOGY_RETRIEVER::_ResolveTopologySetId(*(struct CCD_TOPOLOGY **)this, a4);
+    v16 = v13;
+    if ( v13 < 0 )
     {
-      WdLogSingleEntry5(
-        2LL,
-        v12,
-        this,
-        *(_QWORD *)this,
-        *(_QWORD *)(*(_QWORD *)this + 64LL),
-        *((unsigned int *)this + 2));
+      v21 = (_QWORD *)WdLogNewEntry5_WdError(v15, v14);
+      v21[3] = v16;
+      v21[4] = this;
+      v21[5] = *(_QWORD *)this;
+      v21[6] = *(_QWORD *)(*(_QWORD *)this + 64LL);
+      v21[7] = *((unsigned int *)this + 2);
     }
     else
     {
-      v14 = *(CCD_TOPOLOGY **)this;
-      v17 = 0;
-      TopologyClass = CCD_TOPOLOGY::QueryTopologyClass(v14, (enum CCD_TOPOLOGY_CLASS *)&v17);
-      v16 = *(_QWORD *)this;
-      v13 = TopologyClass;
-      if ( TopologyClass < 0 )
-        WdLogSingleEntry3(2LL, TopologyClass, *(_QWORD *)this, *(_QWORD *)(v16 + 64));
-      else
-        *(_DWORD *)(*(_QWORD *)(v16 + 64) + 32LL) = v17;
+      v17 = *(CCD_TOPOLOGY **)this;
+      v22 = 0;
+      TopologyClass = CCD_TOPOLOGY::QueryTopologyClass(v17, (enum CCD_TOPOLOGY_CLASS *)&v22);
+      v16 = TopologyClass;
+      if ( TopologyClass >= 0 )
+      {
+        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 64LL) + 32LL) = v22;
+        return (unsigned int)v16;
+      }
+      v21 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+      v21[3] = v16;
+      v21[4] = *(_QWORD *)this;
+      v21[5] = *(_QWORD *)(*(_QWORD *)this + 64LL);
     }
-    return v13;
+    WdLogEvent5_WdError(v21);
+    return (unsigned int)v16;
   }
   return result;
 }

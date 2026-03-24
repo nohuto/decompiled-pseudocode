@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMirrorVerify @ 0x1401529EC
+ * XREFs of MiMirrorVerify @ 0x140152A0C
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  * Callees:
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B100 (RtlFindNextForwardRunClearCappedEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorVerify(__int64 a1)

@@ -1,92 +1,79 @@
 /*
- * XREFs of ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658
+ * XREFs of ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74
  * Callers:
- *     ?CacheGlyphBits@UMPDOBJ@@QEAAPEAU_GLYPHBITS@@PEAU2@@Z @ 0x1C0298B4C (-CacheGlyphBits@UMPDOBJ@@QEAAPEAU_GLYPHBITS@@PEAU2@@Z.c)
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0299418 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C029955C (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ?pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z @ 0x1C029A094 (-pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?UMPDDrvDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C02B9300 (-UMPDDrvDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z.c)
- *     ?UMPDDrvEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C02B9850 (-UMPDDrvEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@.c)
- *     ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C02BA3F0 (-UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
- *     ?UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02BA9A0 (-UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
- *     ?UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z @ 0x1C02BB0E0 (-UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z.c)
- *     ?UMPDDrvQueryAdvanceWidths@@YAHPEAUDHPDEV__@@PEAU_FONTOBJ@@KPEAKPEAXK@Z @ 0x1C02BBEC0 (-UMPDDrvQueryAdvanceWidths@@YAHPEAUDHPDEV__@@PEAU_FONTOBJ@@KPEAKPEAXK@Z.c)
- *     ?UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z @ 0x1C02BC080 (-UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z.c)
- *     ?UMPDDrvQueryFont@@YAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEAK@Z @ 0x1C02BC430 (-UMPDDrvQueryFont@@YAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEAK@Z.c)
- *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02BC7F0 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
- *     ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C02BCA40 (-UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z.c)
- *     ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02BEDEC (-bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z.c)
- *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02C7270 (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
- *     NtGdiEngComputeGlyphSet @ 0x1C02C8EE0 (NtGdiEngComputeGlyphSet.c)
- *     NtGdiFONTOBJ_pQueryGlyphAttrs @ 0x1C02CCA70 (NtGdiFONTOBJ_pQueryGlyphAttrs.c)
- *     NtGdiFONTOBJ_pfdg @ 0x1C02CCBC0 (NtGdiFONTOBJ_pfdg.c)
- *     NtGdiFONTOBJ_pifi @ 0x1C02CCD00 (NtGdiFONTOBJ_pifi.c)
- *     NtGdiPATHOBJ_bEnum @ 0x1C02CD2F0 (NtGdiPATHOBJ_bEnum.c)
- *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02CD8C0 (NtGdiSTROBJ_bGetAdvanceWidths.c)
+ *     ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C001E330 (-UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ECD8 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F008 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ?UMPDDrvEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C00A3EF0 (-UMPDDrvEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@.c)
+ *     NtGdiFONTOBJ_pifi @ 0x1C013C4B0 (NtGdiFONTOBJ_pifi.c)
+ *     ?pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z @ 0x1C014E394 (-pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z.c)
+ *     ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C01541F0 (-UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z.c)
+ *     ?CacheGlyphBits@UMPDOBJ@@QEAAPEAU_GLYPHBITS@@PEAU2@@Z @ 0x1C0293370 (-CacheGlyphBits@UMPDOBJ@@QEAAPEAU_GLYPHBITS@@PEAU2@@Z.c)
+ *     ?UMPDDrvDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C02A93C0 (-UMPDDrvDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z.c)
+ *     ?UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02A99C0 (-UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z @ 0x1C02AA020 (-UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z.c)
+ *     ?UMPDDrvQueryAdvanceWidths@@YAHPEAUDHPDEV__@@PEAU_FONTOBJ@@KPEAKPEAXK@Z @ 0x1C02AAC70 (-UMPDDrvQueryAdvanceWidths@@YAHPEAUDHPDEV__@@PEAU_FONTOBJ@@KPEAKPEAXK@Z.c)
+ *     ?UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z @ 0x1C02AAE30 (-UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z.c)
+ *     ?UMPDDrvQueryFont@@YAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEAK@Z @ 0x1C02AB220 (-UMPDDrvQueryFont@@YAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEAK@Z.c)
+ *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02AB5D0 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
+ *     ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02AC780 (-bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z.c)
+ *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02B1370 (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
+ *     NtGdiEngComputeGlyphSet @ 0x1C02B2190 (NtGdiEngComputeGlyphSet.c)
+ *     NtGdiFONTOBJ_pQueryGlyphAttrs @ 0x1C02B4310 (NtGdiFONTOBJ_pQueryGlyphAttrs.c)
+ *     NtGdiFONTOBJ_pfdg @ 0x1C02B4450 (NtGdiFONTOBJ_pfdg.c)
+ *     NtGdiPATHOBJ_bEnum @ 0x1C02B48B0 (NtGdiPATHOBJ_bEnum.c)
+ *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02B4F80 (NtGdiSTROBJ_bGetAdvanceWidths.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ @ 0x1C0298CB8 (-CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?GrowUMPDHeap@UMPDOBJ@@AEAAHPEAU_UMPDHEAP@@K@Z @ 0x1C0299054 (-GrowUMPDHeap@UMPDOBJ@@AEAAHPEAU_UMPDHEAP@@K@Z.c)
- *     ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C0299B54 (-bSandboxedClient@UMPDOBJ@@QEAAHXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1984 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     ?GrowUMPDHeap@UMPDOBJ@@AEAAHPEAU_UMPDHEAP@@K@Z @ 0x1C0139FA0 (-GrowUMPDHeap@UMPDOBJ@@AEAAHPEAU_UMPDHEAP@@K@Z.c)
+ *     ?CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ @ 0x1C015F800 (-CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-char *__fastcall UMPDOBJ::_AllocUserMem(UMPDOBJ *this, unsigned int a2, int a3)
+void *__fastcall UMPDOBJ::_AllocUserMem(UMPDOBJ *this, unsigned int a2, int a3)
 {
-  unsigned int v4; // edi
-  char v6; // al
-  char *v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // r8
-  unsigned int v10; // edx
-  size_t v11; // r14
-  __int64 ThreadWin32Thread; // rbx
-  __int64 v13; // rcx
+  size_t v5; // rbx
+  void *v6; // rdi
+  __int64 v7; // rdx
+  UMPDOBJ *v8; // rcx
+  __int64 v9; // rcx
+  __int64 v11; // rax
+  __int64 v12; // r8
+  unsigned int v13; // edx
+  void *KernelPtr; // rax
+  __int64 ThreadWin32Thread; // rdi
+  __int64 v16; // rcx
   struct _UMPDHEAP *UMPDHeap; // rax
-  __int64 v15; // rdx
-  UMPDOBJ *v16; // rcx
-  __int64 v17; // rcx
-  char *KernelPtr; // rax
 
-  v4 = a2;
   if ( a2 + 7 < a2 )
-  {
-    v6 = 0;
-  }
-  else
-  {
-    v4 = (a2 + 7) & 0xFFFFFFF8;
-    v6 = 1;
-  }
-  if ( !v6 )
     return 0LL;
-  v7 = 0LL;
-  if ( (unsigned int)UMPDOBJ::bSandboxedClient(this) )
+  v5 = (a2 + 7) & 0xFFFFFFF8;
+  v6 = 0LL;
+  if ( *((_DWORD *)this + 106) && *((_DWORD *)this + 102) == ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
   {
-    v8 = *((_QWORD *)this + 51);
-    if ( v8 )
+    v11 = *((_QWORD *)this + 49);
+    if ( v11 )
     {
-      v9 = *(unsigned int *)(v8 + 56);
-      v10 = v9 + v4;
-      if ( (unsigned int)v9 + v4 >= (unsigned int)v9 && (unsigned __int64)v10 <= *(_QWORD *)(v8 + 32) )
+      v12 = *(unsigned int *)(v11 + 48);
+      v13 = v12 + v5;
+      if ( (int)v12 + (int)v5 >= (unsigned int)v12 && (unsigned __int64)v13 <= *(_QWORD *)(v11 + 24) )
       {
-        v7 = (char *)(v9 + *(_QWORD *)(v8 + 24) - *(_QWORD *)(v8 + 48));
-        *(_DWORD *)(v8 + 56) = v10;
+        v6 = (void *)(v12 + *(_QWORD *)(v11 + 16) - *(_QWORD *)(v11 + 40));
+        *(_DWORD *)(v11 + 48) = v13;
       }
     }
-    v11 = v4;
-    goto LABEL_21;
+    goto LABEL_8;
   }
-  if ( *((_DWORD *)this + 110) && !*((_QWORD *)this + 7) )
+  if ( *((_DWORD *)this + 106) && !*((_QWORD *)this + 7) )
   {
-    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    v13 = *(_QWORD *)(ThreadWin32Thread + 56);
-    if ( v13 )
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    v16 = *(_QWORD *)(ThreadWin32Thread + 56);
+    if ( v16 )
     {
-      *(_DWORD *)(v13 + 24) = 0;
-      *((_QWORD *)this + 7) = v13;
+      *(_DWORD *)(v16 + 24) = 0;
+      *((_QWORD *)this + 7) = v16;
     }
     else
     {
@@ -95,26 +82,25 @@ char *__fastcall UMPDOBJ::_AllocUserMem(UMPDOBJ *this, unsigned int a2, int a3)
       *(_QWORD *)(ThreadWin32Thread + 56) = UMPDHeap;
     }
   }
-  v15 = *((_QWORD *)this + 7);
-  if ( !v15 )
+  v7 = *((_QWORD *)this + 7);
+  if ( !v7 )
     return 0LL;
-  if ( !*(_QWORD *)v15 )
+  if ( !*(_QWORD *)v7 )
     return 0LL;
-  v11 = v4;
-  v16 = (UMPDOBJ *)(*(_QWORD *)(v15 + 16) - *(unsigned int *)(v15 + 24));
-  if ( v4 > (unsigned __int64)v16 && !(unsigned int)UMPDOBJ::GrowUMPDHeap(v16, (struct _UMPDHEAP *)v15, v4) )
+  v8 = (UMPDOBJ *)(*(_QWORD *)(v7 + 16) - *(unsigned int *)(v7 + 24));
+  if ( (unsigned int)v5 > (unsigned __int64)v8 && !(unsigned int)UMPDOBJ::GrowUMPDHeap(v8, (struct _UMPDHEAP *)v7, v5) )
     return 0LL;
-  v17 = *((_QWORD *)this + 7);
-  v7 = (char *)(*(_QWORD *)v17 + *(unsigned int *)(v17 + 24));
-  *(_DWORD *)(v17 + 24) += v4;
-LABEL_21:
-  if ( v7 )
+  v9 = *((_QWORD *)this + 7);
+  v6 = (void *)(*(_QWORD *)v9 + *(unsigned int *)(v9 + 24));
+  *(_DWORD *)(v9 + 24) += v5;
+LABEL_8:
+  if ( v6 )
   {
     if ( a3 )
     {
-      KernelPtr = UMPDOBJ::GetKernelPtr((char **)this, v7);
-      memset_0(KernelPtr, 0, v11);
+      KernelPtr = UMPDOBJ::GetKernelPtr(this, v6);
+      memset(KernelPtr, 0, v5);
     }
   }
-  return v7;
+  return v6;
 }

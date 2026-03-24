@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemLoadConfigInfo @ 0x1407436A4
+ * XREFs of WdipSemLoadConfigInfo @ 0x140743684
  * Callers:
- *     WdipSemCleanStart @ 0x1407434B4 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140743494 (WdipSemCleanStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
- *     WdipSemQueryValueFromRegistry @ 0x1407446A0 (WdipSemQueryValueFromRegistry.c)
- *     WdipSemOpenRegistryKey @ 0x1407447A8 (WdipSemOpenRegistryKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140744680 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140744788 (WdipSemOpenRegistryKey.c)
  */
 
 __int64 WdipSemLoadConfigInfo()

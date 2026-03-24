@@ -1,97 +1,100 @@
 /*
- * XREFs of MiScanPagefileSpace @ 0x140A32C50
+ * XREFs of MiScanPagefileSpace @ 0x1408D0820
  * Callers:
  *     <none>
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140282FE0 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402951BC (MiReleasePageFileInfo.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiReferencePageRuns @ 0x1403570E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1403575C8 (MiDereferencePageRuns.c)
- *     MiLockPage @ 0x14046C6C4 (MiLockPage.c)
- *     MiUnlockPage @ 0x14046C6DA (MiUnlockPage.c)
+ *     MiReferencePageRuns @ 0x14022F500 (MiReferencePageRuns.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140290190 (MiCaptureDirtyBitToPfn.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     MiUnlockPage @ 0x140306A9C (MiUnlockPage.c)
+ *     MiReleasePageFileInfo @ 0x140330CC0 (MiReleasePageFileInfo.c)
+ *     MiGetPagingFileOffset @ 0x14033A2B0 (MiGetPagingFileOffset.c)
+ *     MiDereferencePageRuns @ 0x14037E930 (MiDereferencePageRuns.c)
+ *     MiLockPage @ 0x14054F844 (MiLockPage.c)
  */
 
-void __fastcall MiScanPagefileSpace(__int64 a1)
+void __fastcall MiScanPagefileSpace(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int16 v1; // r12
-  int v2; // ebp
-  _DWORD *v4; // r15
-  unsigned __int64 v5; // rsi
-  unsigned __int64 v6; // r13
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rbx
-  char v9; // r12
-  unsigned __int64 v10; // rbx
-  unsigned __int8 v11; // al
+  __int16 v4; // r12
+  int v5; // ebp
+  _DWORD *v7; // r15
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // r13
+  unsigned __int64 v10; // rdi
+  unsigned __int64 v11; // rbx
   char v12; // r12
-  __int64 v13; // rcx
-  unsigned __int8 v14; // [rsp+70h] [rbp+8h]
-  __int16 v15; // [rsp+78h] [rbp+10h]
-  int v16; // [rsp+80h] [rbp+18h]
-  _DWORD *v17; // [rsp+88h] [rbp+20h]
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  unsigned __int64 v16; // rbx
+  unsigned __int8 v17; // al
+  char v18; // r12
+  __int64 v19; // rcx
+  unsigned __int8 v20; // [rsp+70h] [rbp+8h]
+  __int16 v21; // [rsp+78h] [rbp+10h]
+  int v22; // [rsp+80h] [rbp+18h]
+  _DWORD *v23; // [rsp+88h] [rbp+20h]
 
-  v1 = *(_WORD *)a1;
-  v15 = *(_WORD *)a1;
-  v2 = 0;
-  v16 = 0;
-  v4 = (_DWORD *)MiReferencePageRuns(a1, 0);
-  v17 = v4;
+  v4 = *(_WORD *)a1;
+  v21 = *(_WORD *)a1;
+  v5 = 0;
+  v22 = 0;
+  v7 = (_DWORD *)MiReferencePageRuns(a1, 0, a3, a4);
+  v23 = v7;
   do
   {
-    v5 = 48LL * *(_QWORD *)&v4[4 * v2 + 4] - 0x220000000000LL;
-    v6 = v5 + 48LL * *(_QWORD *)&v4[4 * v2 + 6];
-    if ( v5 < v6 )
+    v8 = 48LL * *(_QWORD *)&v7[4 * v5 + 4] - 0x58000000000LL;
+    v9 = v8 + 48LL * *(_QWORD *)&v7[4 * v5 + 6];
+    if ( v8 < v9 )
     {
-      v7 = v5 + 16;
+      v10 = v8 + 16;
       do
       {
-        v8 = *(_QWORD *)(v7 + 24);
-        if ( ((v8 >> 43) & 0x3FF) == v1 )
+        v11 = *(_QWORD *)(v10 + 24);
+        if ( ((v11 >> 39) & 0x3FF) == v4 )
         {
-          v9 = *(_BYTE *)(v7 + 18);
-          if ( (((v9 & 7) - 2) & 0xFA) == 0
-            && (v9 & 7) != 6
-            && (*(_DWORD *)v7 & 0x400LL) == 0
-            && (unsigned int)MiGetPagingFileOffset(v7)
-            && (v8 & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL
-            && *(_WORD *)(v7 + 16)
-            && (v9 & 0x28) == 0
-            && (*(_BYTE *)(v7 + 19) & 0x10) == 0 )
+          v12 = *(_BYTE *)(v10 + 18);
+          if ( (((v12 & 7) - 2) & 0xFA) == 0
+            && (v12 & 7) != 6
+            && (*(_DWORD *)v10 & 0x400LL) == 0
+            && (unsigned int)MiGetPagingFileOffset(v10)
+            && (v11 & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL
+            && *(_WORD *)(v10 + 16)
+            && (v12 & 0x28) == 0
+            && (*(_BYTE *)(v10 + 19) & 0x10) == 0 )
           {
-            v10 = 0LL;
-            v11 = MiLockPage(v5);
-            v12 = *(_BYTE *)(v7 + 18);
-            v14 = v11;
-            if ( (((v12 & 7) - 2) & 0xFA) == 0
-              && (v12 & 7) != 6
-              && (*(_DWORD *)v7 & 0x400LL) == 0
-              && (unsigned int)MiGetPagingFileOffset(v7)
-              && (*(_QWORD *)(v7 + 24) & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL
-              && *(_WORD *)(v7 + 16)
-              && ((unsigned __int8)~(*(_BYTE *)(v7 + 19) >> 4) & ((v12 & 0x28) == 0)) != 0 )
+            v16 = 0LL;
+            v17 = MiLockPage(v8, v13, v14, v15);
+            v18 = *(_BYTE *)(v10 + 18);
+            v20 = v17;
+            if ( (((v18 & 7) - 2) & 0xFA) == 0
+              && (v18 & 7) != 6
+              && (*(_DWORD *)v10 & 0x400LL) == 0
+              && (unsigned int)MiGetPagingFileOffset(v10)
+              && (*(_QWORD *)(v10 + 24) & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL
+              && *(_WORD *)(v10 + 16)
+              && (((v18 & 0x28) == 0) & (unsigned __int8)~(*(_BYTE *)(v10 + 19) >> 4)) != 0 )
             {
-              v10 = MiCaptureDirtyBitToPfn(v5);
+              v16 = MiCaptureDirtyBitToPfn(v8);
             }
-            MiUnlockPage(v5, v14);
-            if ( v10 )
-              MiReleasePageFileInfo(a1, v10, 0);
+            MiUnlockPage(v8, v20);
+            if ( v16 )
+              MiReleasePageFileInfo(a1, v16, 0);
           }
-          v1 = v15;
+          v4 = v21;
         }
-        v5 += 48LL;
-        v7 += 48LL;
+        v8 += 48LL;
+        v10 += 48LL;
       }
-      while ( v5 < v6 );
-      v2 = v16;
-      v4 = v17;
+      while ( v8 < v9 );
+      v5 = v22;
+      v7 = v23;
     }
-    v16 = ++v2;
+    v22 = ++v5;
   }
-  while ( v2 != *v4 );
-  MiDereferencePageRuns((__int64)v4);
-  v13 = *(_QWORD *)(a1 + 200);
-  *(_QWORD *)(a1 + 1024) = 0LL;
-  PsDereferencePartition(v13);
+  while ( v5 != *v7 );
+  MiDereferencePageRuns((__int64)v7);
+  v19 = *(_QWORD *)(a1 + 176);
+  *(_QWORD *)(a1 + 984) = 0LL;
+  PsDereferencePartition(v19);
 }

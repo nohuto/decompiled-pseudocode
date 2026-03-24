@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDevCfgResolveVariableGenerateGuid @ 0x14094E390
+ * XREFs of PiDevCfgResolveVariableGenerateGuid @ 0x1408A98B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExUuidCreate @ 0x140681B30 (ExUuidCreate.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     RtlUpcaseUnicodeString @ 0x1407E5410 (RtlUpcaseUnicodeString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
+ *     ExUuidCreate @ 0x1407208B0 (ExUuidCreate.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // ebx
   unsigned int v5; // edi
-  void *Pool2; // rax
-  void *v7; // rsi
+  PVOID PoolWithTag; // rax
+  PVOID v7; // rsi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-30h] BYREF
   UUID Uuid; // [rsp+30h] [rbp-20h] BYREF
 
@@ -34,11 +34,11 @@ __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, _
       if ( v4 >= 0 )
       {
         v5 = DestinationString.Length + 2;
-        Pool2 = (void *)ExAllocatePool2(256LL, v5, 1667526736LL);
-        v7 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, 0x63647050u);
+        v7 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, DestinationString.Buffer, v5);
+          memmove(PoolWithTag, DestinationString.Buffer, v5);
           *(_DWORD *)(a3 + 32) = 1;
           *(_DWORD *)(a3 + 36) = v5;
           *(_QWORD *)(a3 + 40) = v7;
@@ -50,6 +50,6 @@ __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, _
       }
     }
   }
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)v4;
 }

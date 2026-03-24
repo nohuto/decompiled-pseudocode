@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlAreBitsClear @ 0x140220900
+ * XREFs of RtlAreBitsClear @ 0x1403621A0
  * Callers:
- *     HvGetHiveLogFileStatus @ 0x140750D54 (HvGetHiveLogFileStatus.c)
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
- *     HvIsRangeDirty @ 0x140A259B4 (HvIsRangeDirty.c)
- *     MiCheckPatchPagesCallback @ 0x140A36390 (MiCheckPatchPagesCallback.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x140A957DC (HalpMmAllocCtxMarkHiberPhase.c)
+ *     HvGetHiveLogFileStatus @ 0x140723A48 (HvGetHiveLogFileStatus.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
+ *     HvIsRangeDirty @ 0x14087BCA4 (HvIsRangeDirty.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x1409A7010 (HalpMmAllocCtxMarkHiberPhase.c)
  * Callees:
  *     <none>
  */
@@ -26,9 +25,7 @@ BOOLEAN __stdcall RtlAreBitsClear(PRTL_BITMAP BitMapHeader, ULONG StartingIndex,
   if ( Length <= 1 )
   {
     if ( Length == 1 )
-      return !_bittest(
-                (const signed __int32 *)&BitMapHeader->Buffer[(unsigned __int64)StartingIndex >> 5],
-                StartingIndex & 0x1F);
+      return !_bittest((const signed __int32 *)BitMapHeader->Buffer, StartingIndex);
     return 0;
   }
   if ( BitMapHeader->SizeOfBitMap - StartingIndex < Length )

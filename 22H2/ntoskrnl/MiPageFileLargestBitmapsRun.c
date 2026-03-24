@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileLargestBitmapsRun @ 0x140294B74
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x140333E78
  * Callers:
- *     MiFindFreePageFileSpace @ 0x1402945B4 (MiFindFreePageFileSpace.c)
- *     MiGetKernelStackSwapSupport @ 0x14034191C (MiGetKernelStackSwapSupport.c)
- *     MiFindBestOutswapPagefile @ 0x140341A30 (MiFindBestOutswapPagefile.c)
- *     MiGatherPagefilePages @ 0x14063A1B4 (MiGatherPagefilePages.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14063B760 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403306A0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiGatherPagefilePages @ 0x1403318B4 (MiGatherPagefilePages.c)
+ *     MiFindFreePageFileSpace @ 0x140333724 (MiFindFreePageFileSpace.c)
+ *     MiFindBestOutswapPagefile @ 0x140350AFC (MiFindBestOutswapPagefile.c)
+ *     MiGetKernelStackSwapSupport @ 0x140350BDC (MiGetKernelStackSwapSupport.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)
@@ -41,7 +41,7 @@ __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)
     if ( *(_DWORD *)(v5 + 52) == -1 )
     {
       if ( !*(_DWORD *)(v5 + 48) )
-        goto LABEL_11;
+        goto LABEL_13;
       v7 = *(_QWORD *)v5;
       v6 = v5;
     }
@@ -55,7 +55,7 @@ __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)
       v5 = v7;
   }
   v5 = v6;
-LABEL_11:
+LABEL_13:
   v8 = *(_QWORD *)v5;
   if ( *(_QWORD *)v5 )
   {
@@ -80,16 +80,19 @@ LABEL_11:
   ExReleaseSpinLockSharedFromDpcLevel(v1);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

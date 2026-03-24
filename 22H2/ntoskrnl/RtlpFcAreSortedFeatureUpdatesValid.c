@@ -1,60 +1,66 @@
 /*
- * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x1409C7C3C
+ * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x140919CC8
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C820C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A534 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     <none>
+ *     RtlpIsImmutableFeatureConfigurationPriority @ 0x1403F7F08 (RtlpIsImmutableFeatureConfigurationPriority.c)
+ *     RtlpIsValidFeatureConfigurationPriority @ 0x14058F2F8 (RtlpIsValidFeatureConfigurationPriority.c)
+ *     RtlpIsValidFeatureEnabledState @ 0x14058F308 (RtlpIsValidFeatureEnabledState.c)
+ *     RtlpIsValidFeatureEnabledStateOptions @ 0x14058F318 (RtlpIsValidFeatureEnabledStateOptions.c)
+ *     RtlpIsValidFeatureVariant @ 0x14058F328 (RtlpIsValidFeatureVariant.c)
+ *     RtlpIsValidFeatureVariantPayloadKind @ 0x14058F338 (RtlpIsValidFeatureVariantPayloadKind.c)
  */
 
 char __fastcall RtlpFcAreSortedFeatureUpdatesValid(_DWORD *a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r9
-  int v4; // eax
-  _DWORD *v5; // r8
-  int v6; // r11d
+  _DWORD *v3; // r8
+  unsigned int *v4; // rdx
+  unsigned int v5; // eax
+  unsigned int v6; // ecx
   __int64 v7; // rdx
-  unsigned int *i; // rcx
-  unsigned int v9; // eax
-  int v10; // r8d
+  __int64 v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  unsigned __int64 v13; // r10
 
   v2 = 1LL;
   if ( a2 <= 1 )
   {
-    v7 = 0LL;
+LABEL_6:
     if ( !a2 )
       return 1;
-LABEL_8:
-    for ( i = a1 + 1; ; i += 8 )
+    v4 = a1 + 1;
+    while ( 1 )
     {
-      v9 = i[6];
-      if ( (v9 & 4) != 0 && v9 != 4 )
+      v5 = v4[6];
+      if ( (v5 & 4) != 0 && v5 != 4 )
         break;
-      if ( *i > 0xF )
+      if ( !RtlpIsValidFeatureConfigurationPriority(*v4)
+        || RtlpIsImmutableFeatureConfigurationPriority(v6)
+        || !RtlpIsValidFeatureEnabledState(*(_DWORD *)(v7 + 4))
+        || !RtlpIsValidFeatureEnabledStateOptions(*(_DWORD *)(v8 + 8))
+        || !RtlpIsValidFeatureVariant(*(unsigned __int8 *)(v9 + 12))
+        || !RtlpIsValidFeatureVariantPayloadKind(*(_DWORD *)(v10 + 16)) )
+      {
         break;
-      v10 = 33281;
-      if ( _bittest(&v10, *i) || i[1] > 2 || i[2] > 1 || *((_BYTE *)i + 12) >= 0x40u || i[4] >= 4 )
-        break;
-      if ( ++v7 >= a2 )
+      }
+      v4 = (unsigned int *)(v11 + 32);
+      if ( v12 + 1 >= v13 )
         return 1;
     }
   }
   else
   {
-    v4 = *a1;
-    v5 = a1;
-    while ( 1 )
+    v3 = a1;
+    while ( v3[8] != *v3 || v3[9] != v3[1] )
     {
-      v6 = v5[8];
-      if ( v6 == v4 && v5[9] == v5[1] )
-        break;
       ++v2;
-      v5 += 8;
-      v4 = v6;
+      v3 += 8;
       if ( v2 >= a2 )
-      {
-        v7 = 0LL;
-        goto LABEL_8;
-      }
+        goto LABEL_6;
     }
   }
   return 0;

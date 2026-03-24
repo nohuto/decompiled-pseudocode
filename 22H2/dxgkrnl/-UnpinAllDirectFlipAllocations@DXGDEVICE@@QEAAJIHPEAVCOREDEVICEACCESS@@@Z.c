@@ -1,140 +1,104 @@
 /*
- * XREFs of ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C02ED764
+ * XREFs of ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C00E0CEC
  * Callers:
- *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C017664C (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C0186B84 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
- *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C02BC360 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
- *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02D7560 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C00E0664 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00E09A4 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0212318 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02281C0 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C02BC2F8 (-DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z @ 0x1C02EC370 (-PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z @ 0x1C00E0DD0 (-PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z.c)
+ *     ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00F93C0 (-DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::UnpinAllDirectFlipAllocations(
-        DXGDEVICE *this,
-        unsigned int a2,
+        PERESOURCE **this,
+        __int64 a2,
         int a3,
         struct COREDEVICEACCESS *a4)
 {
-  __int64 v4; // rdi
-  struct DXGALLOCATION *v6; // rax
-  struct _EX_RUNDOWN_REF *v7; // rsi
-  __int64 v8; // rcx
-  int v10; // [rsp+90h] [rbp+18h] BYREF
-  struct COREDEVICEACCESS *v11; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v5; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  int v10; // eax
+  struct DXGALLOCATION *v11; // rax
+  struct _EX_RUNDOWN_REF *v12; // rsi
+  PERESOURCE *v13; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  int v21; // [rsp+40h] [rbp+18h] BYREF
+  struct COREDEVICEACCESS *v22; // [rsp+48h] [rbp+20h] BYREF
 
-  v11 = a4;
-  v10 = a3;
-  v4 = a2;
-  if ( a2 >= *((_DWORD *)this + 472) )
+  v22 = a4;
+  v21 = a3;
+  v5 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 464) )
   {
-    WdLogSingleEntry1(1LL, 7140LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < GetNumVidPnSources()",
-      7140LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v15 + 24) = 7053LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this[2][2]) )
   {
-    WdLogSingleEntry1(1LL, 7141LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceExclusiveOwner()",
-      7141LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v16 + 24) = 7054LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*((PERESOURCE **)this + 235)) )
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[231]) )
   {
-    WdLogSingleEntry1(1LL, 7142LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetDisplayAdapter(VidPnSourceId)->IsCoreResourceExclusiveOwner()",
-      7142LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v17 + 24) = 7055LL;
+    WdLogEvent5_WdAssertion(v17);
   }
-  if ( *((_DWORD *)this + 116) != 1 )
+  if ( *((_DWORD *)this + 108) != 1 )
   {
-    WdLogSingleEntry1(1LL, 7143LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGDEVICECLIENT_USER == GetClientType()",
-      7143LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v18 + 24) = 7056LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  if ( (*((_DWORD *)this + v4 + 310) & 0x100) != 0 )
+  v10 = *((_DWORD *)this + v5 + 302);
+  if ( (v10 & 0x100) != 0 )
   {
-    WdLogSingleEntry1(1LL, 7144LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_PrimaryDescription[VidPnSourceId].Pinned == FALSE",
-      7144LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v19 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v19 + 24) = 7057LL;
+    WdLogEvent5_WdAssertion(v19);
+    v10 = *((_DWORD *)this + v5 + 302);
   }
-  if ( (*((_DWORD *)this + v4 + 310) & 0x200) != 0 )
+  if ( (v10 & 0x200) != 0 )
   {
-    WdLogSingleEntry1(1LL, 7145LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_PrimaryDescription[VidPnSourceId].DisplayModeSet == FALSE",
-      7145LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v20 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v20 + 24) = 7058LL;
+    WdLogEvent5_WdAssertion(v20);
   }
-  LODWORD(v11) = 0;
-  LOBYTE(v10) = 0;
+  LODWORD(v22) = 0;
+  LOBYTE(v21) = 0;
   do
   {
-    v6 = DXGDEVICE::PopDirectFlipAllocationFromList(
-           (struct _KTHREAD **)this,
-           v4,
-           (unsigned int *)&v11,
-           (unsigned __int8 *)&v10);
-    v7 = (struct _EX_RUNDOWN_REF *)v6;
-    if ( v6 )
+    v11 = DXGDEVICE::PopDirectFlipAllocationFromList(
+            (DXGDEVICE *)this,
+            v5,
+            (unsigned int *)&v22,
+            (unsigned __int8 *)&v21);
+    v12 = (struct _EX_RUNDOWN_REF *)v11;
+    if ( v11 )
     {
-      (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL) + 224LL))(
-        *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-        *((_QWORD *)v6 + 3));
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v7[5].Count + 72));
-      ExReleaseRundownProtection(v7 + 11);
+      ((void (__fastcall *)(PERESOURCE, _QWORD))this[2][80]->SystemResourcesList.Blink[15].Flink)(
+        this[2][81],
+        *((_QWORD *)v11 + 3));
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12[5].Count + 72));
+      ExReleaseRundownProtection(v12 + 11);
     }
   }
-  while ( !(_BYTE)v10 );
-  v8 = *((_QWORD *)this + 235);
-  if ( v8 == *(_QWORD *)(*((_QWORD *)this + 2) + 16LL) )
-    ADAPTER_DISPLAY::DisableOverlayPlanes(*(ADAPTER_DISPLAY **)(v8 + 2920), v4);
+  while ( !(_BYTE)v21 );
+  v13 = this[231];
+  if ( v13 == (PERESOURCE *)this[2][2] )
+    ADAPTER_DISPLAY::DisableOverlayPlanes((ADAPTER_DISPLAY *)v13[337], v5);
   return 0LL;
 }

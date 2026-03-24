@@ -1,10 +1,10 @@
 /*
- * XREFs of XmOpcodeRegister @ 0x1403A2E90
+ * XREFs of XmOpcodeRegister @ 0x140396DF0
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403A2FA8 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403A3038 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
  */
 
 __int64 __fastcall XmOpcodeRegister(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

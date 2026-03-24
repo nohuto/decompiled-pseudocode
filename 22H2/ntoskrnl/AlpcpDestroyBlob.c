@@ -1,13 +1,14 @@
 /*
- * XREFs of AlpcpDestroyBlob @ 0x14071E9E4
+ * XREFs of AlpcpDestroyBlob @ 0x1406659AC
  * Callers:
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpDestroyBlob(__int64 a1, int a2)
@@ -28,7 +29,7 @@ void __fastcall AlpcpDestroyBlob(__int64 a1, int a2)
   {
     if ( (v2[16] & 2) != 0 )
     {
-      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&AlpcpLookasides + *(unsigned int *)(v5 + 8), v2);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&AlpcpLookasides + *(unsigned int *)(v5 + 8), v2);
     }
     else if ( *(_QWORD *)(v5 + 48) )
     {

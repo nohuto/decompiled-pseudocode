@@ -1,15 +1,15 @@
 /*
- * XREFs of ?NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@4JPEADPEAU_DRAWSTREAMINFO@@@Z @ 0x1C0088DC0
+ * XREFs of ?NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@4JPEADPEAU_DRAWSTREAMINFO@@@Z @ 0x1C0084730
  * Callers:
- *     GreDrawStream @ 0x1C003C990 (GreDrawStream.c)
+ *     GreDrawStream @ 0x1C0083A60 (GreDrawStream.c)
  * Callees:
- *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C002CF6C (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C0088D44 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
- *     bCvtPts1 @ 0x1C0089370 (bCvtPts1.c)
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0113C58 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     bCvtPts1 @ 0x1C0084CF0 (bCvtPts1.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B61E0 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C00B7A24 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C01256D8 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtGdiDrawStreamInternal(
@@ -19,309 +19,320 @@ __int64 __fastcall NtGdiDrawStreamInternal(
         struct _XLATEOBJ *a4,
         struct _RECTL *a5,
         struct _RECTL *a6,
-        int a7,
+        unsigned int a7,
         char *a8,
         struct _DRAWSTREAMINFO *a9)
 {
-  unsigned int v9; // edi
-  LONG left; // r10d
-  LONG top; // ebx
-  LONG bottom; // r11d
-  __int64 right; // r8
-  __int64 v15; // rax
-  __int64 v16; // rcx
-  char *v17; // rdx
-  LONG v18; // r15d
-  LONG v19; // r14d
-  LONG v20; // r12d
-  LONG v21; // r13d
-  int v22; // eax
-  int v23; // eax
-  int v24; // esi
-  DC *v25; // rax
-  __int64 v26; // r15
-  __int64 v27; // rdx
-  char *v28; // r9
-  __int64 v29; // rdx
-  __int32 v30; // r10d
-  __int32 v31; // r8d
-  int v32; // ebx
-  int v33; // r11d
-  char *v34; // r9
-  __int64 v35; // rdx
-  __int32 v36; // r14d
-  int v37; // esi
-  __int32 v38; // r9d
-  struct ECLIPOBJ *v39; // rdx
-  char *v40; // r12
-  __int32 v41; // ecx
-  XDCOBJ *v42; // rsi
-  __m128i v43; // xmm1
-  __int64 (__fastcall *v44)(int, int, int, int, int, __int64, int, __int64, __int64); // rbx
-  __int64 v45; // rax
-  bool v46; // al
-  struct SURFACE *v47; // r14
-  struct _SURFOBJ *v48; // rdx
-  char *v49; // rsi
-  char *v50; // rdx
-  int v52; // eax
-  struct REGION *v53; // rax
-  int v54; // r10d
-  struct _POINTL *v55; // rbx
-  unsigned __int64 v56; // [rsp+50h] [rbp-81h]
-  int v57; // [rsp+50h] [rbp-81h]
-  __int64 v58; // [rsp+58h] [rbp-79h] BYREF
-  int v59; // [rsp+60h] [rbp-71h]
-  XDCOBJ *v60; // [rsp+68h] [rbp-69h]
-  unsigned __int64 v61; // [rsp+70h] [rbp-61h]
-  char *v62; // [rsp+78h] [rbp-59h]
-  struct SURFACE *v63; // [rsp+80h] [rbp-51h]
-  struct _DRAWSTREAMINFO *v64; // [rsp+88h] [rbp-49h]
-  struct _XLATEOBJ *v65; // [rsp+90h] [rbp-41h]
-  __m128i v66; // [rsp+A0h] [rbp-31h] BYREF
-  __m128i v67; // [rsp+B0h] [rbp-21h] BYREF
+  unsigned int v9; // r12d
+  char *v11; // rdx
+  LONG left; // esi
+  LONG top; // r15d
+  LONG right; // edi
+  LONG bottom; // r14d
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  int v18; // r8d
+  int v19; // eax
+  __int64 v20; // rbx
+  int v21; // eax
+  LONG v22; // r11d
+  LONG v23; // r9d
+  LONG v24; // r10d
+  LONG v25; // ebx
+  DC *v26; // rax
+  __int64 v27; // rcx
+  char *v28; // rdx
+  char *v29; // r8
+  __int64 v30; // rdx
+  __int32 v31; // esi
+  int v32; // edi
+  int v33; // r15d
+  int v34; // r14d
+  char *v35; // r8
+  __int64 v36; // rdx
+  __int64 v37; // r13
+  __int32 v38; // r10d
+  int v39; // r8d
+  int v40; // r9d
+  struct ECLIPOBJ *v41; // rdx
+  __int32 v42; // ecx
+  bool v43; // cc
+  XDCOBJ *v44; // r15
+  __m128i v45; // xmm1
+  char *v46; // r14
+  __int64 (__fastcall *v47)(int, int, int, int, int, __int64, int, __int64, __int64); // rbx
+  __int64 v48; // rax
+  bool v49; // al
+  struct SURFACE *v50; // rsi
+  struct _SURFOBJ *v51; // rdx
+  char *v52; // rdi
+  int v54; // eax
+  struct REGION *v55; // rax
+  int v56; // r10d
+  _DWORD *v57; // rbx
+  LONG v58; // eax
+  LONG v59; // eax
+  LONG v60; // [rsp+50h] [rbp-91h]
+  int v61; // [rsp+50h] [rbp-91h]
+  int v62; // [rsp+50h] [rbp-91h]
+  __int64 v63; // [rsp+58h] [rbp-89h] BYREF
+  unsigned int v64; // [rsp+60h] [rbp-81h]
+  __int64 v65; // [rsp+68h] [rbp-79h]
+  XDCOBJ *v66; // [rsp+70h] [rbp-71h]
+  LONG v67; // [rsp+78h] [rbp-69h]
+  LONG v68; // [rsp+7Ch] [rbp-65h]
+  char *v69; // [rsp+80h] [rbp-61h]
+  unsigned __int64 v70; // [rsp+88h] [rbp-59h]
+  struct SURFACE *v71; // [rsp+90h] [rbp-51h]
+  struct _DRAWSTREAMINFO *v72; // [rsp+98h] [rbp-49h]
+  struct _XLATEOBJ *v73; // [rsp+A0h] [rbp-41h]
+  __m128i v74; // [rsp+B0h] [rbp-31h] BYREF
+  __m128i v75; // [rsp+C0h] [rbp-21h] BYREF
 
   v9 = 0;
-  v63 = a3;
+  v11 = a8;
+  v73 = a4;
   left = a5->left;
   top = a5->top;
+  right = a5->right;
   bottom = a5->bottom;
-  v66.m128i_i32[0] = a5->left;
-  v66.m128i_i32[1] = top;
-  v66.m128i_i32[3] = bottom;
-  v58 = 0LL;
-  v64 = a9;
-  right = (unsigned int)a5->right;
-  v15 = *(_QWORD *)a1;
-  v66.m128i_i32[2] = a5->right;
-  v60 = a1;
-  v65 = a4;
-  v16 = *(_QWORD *)(v15 + 496);
-  v59 = a7;
-  v17 = a8;
-  v18 = a6->left;
-  v19 = a6->top;
-  LODWORD(v15) = *(_DWORD *)(v16 + 116);
-  v20 = a6->right;
-  v21 = a6->bottom;
-  v62 = a8;
-  v56 = __PAIR64__(v19, v18);
-  v67.m128i_i64[0] = __PAIR64__(v19, v18);
-  v67.m128i_i64[1] = __PAIR64__(v21, v20);
-  if ( ((v15 & 8) != 0 || *(_QWORD *)(v16 + 224)) && _bittest16((const signed __int16 *)(v16 + 102), 9u) )
+  v74.m128i_i32[0] = a5->left;
+  *(__int64 *)((char *)v74.m128i_i64 + 4) = __PAIR64__(right, top);
+  v60 = a6->left;
+  v75.m128i_i32[0] = a6->left;
+  LODWORD(v65) = a6->top;
+  v75.m128i_i32[1] = v65;
+  v67 = a6->right;
+  v75.m128i_i32[2] = v67;
+  v68 = a6->bottom;
+  v75.m128i_i32[3] = v68;
+  v16 = *(_QWORD *)a1;
+  v74.m128i_i32[3] = bottom;
+  v63 = 0LL;
+  v66 = a1;
+  v17 = *(_QWORD *)(v16 + 496);
+  v71 = a3;
+  v18 = a7;
+  v64 = a7;
+  LODWORD(v16) = *(_DWORD *)(v17 + 116);
+  v69 = a8;
+  v72 = a9;
+  if ( ((v16 & 8) != 0 || *(_QWORD *)(v17 + 224)) && (*(_WORD *)(v17 + 102) & 0x200) != 0 )
     goto LABEL_78;
-  v22 = *(_DWORD *)(v16 + 112);
-  if ( (v22 & 0x800) != 0 )
+  v19 = *(_DWORD *)(v17 + 112);
+  if ( (v19 & 0x800) != 0 )
   {
-    v52 = UserSurfaceAccessCheck(*(_QWORD *)(v16 + 648));
+    v54 = UserSurfaceAccessCheck(*(_QWORD *)(v17 + 648), a8, a7, 512LL);
   }
   else
   {
-    if ( (v22 & 0x10000000) == 0 )
+    if ( (v19 & 0x10000000) == 0 )
       goto LABEL_5;
-    v52 = UserScreenAccessCheck(v16, a8, right, a6);
+    v54 = UserScreenAccessCheck(v17, a8, a7, 512LL);
   }
-  if ( !v52 )
+  if ( !v54 )
   {
 LABEL_78:
     EngSetLastError(5u);
     return v9;
   }
-  bottom = v66.m128i_i32[3];
-  LODWORD(right) = v66.m128i_i32[2];
-  top = v66.m128i_i32[1];
-  left = v66.m128i_i32[0];
-  v17 = v62;
+  bottom = v74.m128i_i32[3];
+  right = v74.m128i_i32[2];
+  top = v74.m128i_i32[1];
+  left = v74.m128i_i32[0];
+  v11 = v69;
+  v18 = v64;
 LABEL_5:
-  v23 = *(_DWORD *)(*(_QWORD *)a2 + 32LL);
-  if ( (v23 & 1) == 0 )
+  v20 = *(_QWORD *)a2;
+  v21 = *(_DWORD *)(*(_QWORD *)a2 + 32LL);
+  if ( (v21 & 1) == 0 )
     return v9;
-  if ( (v23 & 2) != 0 )
+  if ( (v21 & 2) != 0 )
   {
-    if ( (v23 & 0x43) != 0x43 )
-    {
-      bCvtPts1(*(_QWORD *)a2, &v58, 1LL);
-LABEL_9:
-      left = v66.m128i_i32[0];
-      top = v66.m128i_i32[1];
-      LODWORD(right) = v66.m128i_i32[2];
-      bottom = v66.m128i_i32[3];
-    }
+    if ( (v21 & 0x43) != 0x43 )
+      bCvtPts1(*(_QWORD *)a2, &v63, 1LL);
   }
   else
   {
-    v61 = (unsigned __int64)&v17[v59];
-    if ( (unsigned __int64)v17 < v61 )
+    v70 = (unsigned __int64)&v11[v18];
+    if ( (unsigned __int64)v11 < v70 )
     {
-      v55 = (struct _POINTL *)(v17 + 36);
-      while ( v55[-5].y == 9 )
+      v57 = v11 + 36;
+      while ( *(v57 - 9) == 9 )
       {
-        EXFORMOBJ::bXform(a2, v55 - 4);
-        if ( (unsigned int)DC::bDpiScaledSurface(*(DC **)v60) )
-          v55->x &= ~0x20u;
-        v55 = (struct _POINTL *)((char *)v55 + 60);
-        if ( (unsigned __int64)&v55[-5].y >= v61 )
+        EXFORMOBJ::bXform(a2, (struct ERECTL *)(v57 - 8));
+        if ( (unsigned int)DC::bDpiScaledSurface(*(DC **)v66) )
+          *v57 &= ~0x20u;
+        v57 += 15;
+        if ( (unsigned __int64)(v57 - 9) >= v70 )
+        {
+          v20 = *(_QWORD *)a2;
           goto LABEL_9;
+        }
       }
       return v9;
     }
   }
-  if ( (*(_BYTE *)(*(_QWORD *)a2 + 32LL) & 0x43) != 0x43 )
+LABEL_9:
+  if ( (*(_BYTE *)(v20 + 32) & 0x43) == 0x43 )
   {
-    bCvtPts1(*(_QWORD *)a2, &v67, 2LL);
-    v19 = v67.m128i_i32[1];
-    v18 = v67.m128i_i32[0];
-    bottom = v66.m128i_i32[3];
-    LODWORD(right) = v66.m128i_i32[2];
-    left = v66.m128i_i32[0];
-    top = v66.m128i_i32[1];
-    v21 = v67.m128i_i32[3];
-    v20 = v67.m128i_i32[2];
-    v56 = v67.m128i_i64[0];
-  }
-  if ( *((_DWORD *)a2 + 3) )
-  {
-    LODWORD(v56) = ++v18;
-    ++v20;
-  }
-  if ( v18 > v20 )
-  {
-    v24 = v20;
-    v20 = v18;
+    v23 = v67;
+    v22 = v68;
+    v25 = v65;
+    v24 = v60;
   }
   else
   {
-    v24 = v56;
+    bCvtPts1(v20, &v75, 2LL);
+    v22 = v75.m128i_i32[3];
+    v23 = v75.m128i_i32[2];
+    v24 = v75.m128i_i32[0];
+    v25 = v75.m128i_i32[1];
   }
-  if ( v19 > v21 )
+  if ( *((_DWORD *)a2 + 3) )
   {
-    HIDWORD(v56) = v21;
-    v21 = v19;
+    ++v24;
+    ++v23;
   }
-  if ( top != bottom && left != (_DWORD)right )
+  if ( v24 > v23 )
   {
-    v25 = *(DC **)v60;
-    v26 = *(_QWORD *)(*(_QWORD *)v60 + 496LL);
-    v27 = *(_QWORD *)v60 + 8LL * (*(_DWORD *)(*(_QWORD *)v60 + 40LL) & 1);
-    LODWORD(v58) = *(_DWORD *)(v27 + 1016) + v58;
-    HIDWORD(v58) += *(_DWORD *)(v27 + 1020);
-    v28 = (char *)v25 + 8 * (*((_DWORD *)v25 + 10) & 1);
-    v57 = *((_DWORD *)v28 + 254);
-    v61 = 0xFFFFFFFFLL;
-    if ( (unsigned __int64)(v57 + (__int64)left + 0x80000000LL) <= 0xFFFFFFFF
-      && (unsigned __int64)(v57 + (__int64)(int)right + 0x80000000LL) <= 0xFFFFFFFF )
+    v58 = v24;
+    v24 = v23;
+    v23 = v58;
+  }
+  if ( v25 > v22 )
+  {
+    v59 = v25;
+    v25 = v22;
+    v22 = v59;
+  }
+  if ( top != bottom && left != right )
+  {
+    v26 = *(DC **)v66;
+    v27 = *(_DWORD *)(*(_QWORD *)v66 + 40LL) & 1;
+    v65 = *(_QWORD *)(*(_QWORD *)v66 + 496LL);
+    v28 = (char *)v26 + 8 * v27;
+    LODWORD(v63) = *((_DWORD *)v28 + 254) + v63;
+    HIDWORD(v63) += *((_DWORD *)v28 + 255);
+    v29 = (char *)v26 + 8 * (*((_DWORD *)v26 + 10) & 1);
+    v61 = *((_DWORD *)v29 + 254);
+    v9 = 0;
+    if ( (unsigned __int64)(v61 + (__int64)left + 0x80000000LL) <= 0xFFFFFFFF
+      && (unsigned __int64)(v61 + (__int64)right + 0x80000000LL) <= 0xFFFFFFFF )
     {
-      v29 = *((int *)v28 + 255);
-      if ( (unsigned __int64)(v29 + top + 0x80000000LL) <= 0xFFFFFFFF
-        && (unsigned __int64)(v29 + bottom + 0x80000000LL) <= 0xFFFFFFFF )
+      v30 = *((int *)v29 + 255);
+      if ( (unsigned __int64)(v30 + top + 0x80000000LL) <= 0xFFFFFFFF
+        && (unsigned __int64)(v30 + bottom + 0x80000000LL) <= 0xFFFFFFFF )
       {
-        v30 = v57 + left;
-        v66.m128i_i32[0] = v30;
-        v31 = *((_DWORD *)v28 + 254) + right;
-        v32 = *((_DWORD *)v28 + 255) + top;
-        *(__int64 *)((char *)v66.m128i_i64 + 4) = __PAIR64__(v31, v32);
-        v33 = *((_DWORD *)v28 + 255) + bottom;
-        v66.m128i_i32[3] = v33;
-        v34 = (char *)v25 + 8 * (*((_DWORD *)v25 + 10) & 1);
-        LODWORD(v56) = *((_DWORD *)v34 + 254);
-        if ( (unsigned __int64)((int)v56 + (__int64)v24 + 0x80000000LL) <= 0xFFFFFFFF
-          && (unsigned __int64)((int)v56 + (__int64)v20 + 0x80000000LL) <= 0xFFFFFFFF )
+        v31 = v61 + left;
+        v74.m128i_i32[0] = v31;
+        v32 = *((_DWORD *)v29 + 254) + right;
+        v33 = *((_DWORD *)v29 + 255) + top;
+        *(__int64 *)((char *)v74.m128i_i64 + 4) = __PAIR64__(v32, v33);
+        v34 = *((_DWORD *)v29 + 255) + bottom;
+        v74.m128i_i32[3] = v34;
+        v35 = (char *)v26 + 8 * (*((_DWORD *)v26 + 10) & 1);
+        v62 = *((_DWORD *)v35 + 254);
+        if ( (unsigned __int64)(v62 + (__int64)v24 + 0x80000000LL) <= 0xFFFFFFFF
+          && (unsigned __int64)(v62 + (__int64)v23 + 0x80000000LL) <= 0xFFFFFFFF )
         {
-          v35 = *((int *)v34 + 255);
-          if ( v35 + SHIDWORD(v56) + 0x80000000LL <= v61 && (unsigned __int64)(v35 + v21 + 0x80000000LL) <= 0xFFFFFFFF )
+          v36 = *((int *)v35 + 255);
+          v37 = v65;
+          if ( (unsigned __int64)(v36 + v25 + 0x80000000LL) <= 0xFFFFFFFF
+            && (unsigned __int64)(v36 + v22 + 0x80000000LL) <= 0xFFFFFFFF )
           {
-            v36 = v24 + v56;
-            v37 = v35 + HIDWORD(v56);
-            v38 = v20 + v56;
-            v39 = (struct ECLIPOBJ *)(unsigned int)(v21 + v35);
-            v40 = 0LL;
-            if ( v30 > v36
-              || v31 < v38
-              || v32 > v37
-              || v33 < (int)v39
-              || (v41 = *((_DWORD *)v25 + 250), v41 > v36)
-              || *((_DWORD *)v25 + 252) < v38
-              || *((_DWORD *)v25 + 251) > v37
-              || *((_DWORD *)v25 + 253) < (int)v39 )
+            v38 = v62 + v24;
+            v39 = v23 + v62;
+            v40 = v25 + v36;
+            v41 = (struct ECLIPOBJ *)(unsigned int)(v22 + v36);
+            if ( v31 > v38
+              || v32 < v39
+              || v33 > v40
+              || v34 < (int)v41
+              || (v42 = *((_DWORD *)v26 + 250), v42 > v38)
+              || *((_DWORD *)v26 + 252) < v39
+              || *((_DWORD *)v26 + 251) > v40
+              || *((_DWORD *)v26 + 253) < (int)v41 )
             {
-              v42 = v60;
-              v40 = (char *)v25 + 1768;
-              v53 = XDCOBJ::prgnEffRao((DC **)v60);
-              XCLIPOBJ::vSetup((XCLIPOBJ *)v40, v53, (struct ERECTL *)&v66, v54);
-              v43 = *(__m128i *)(v40 + 4);
-              v66 = v43;
-              v31 = v43.m128i_i32[2];
-              v30 = v43.m128i_i32[0];
+              v44 = v66;
+              v46 = (char *)v26 + 1776;
+              v55 = XDCOBJ::prgnEffRao(v66);
+              XCLIPOBJ::vSetup((XCLIPOBJ *)v46, v55, (struct ERECTL *)&v74, v56);
+              v45 = *(__m128i *)(v46 + 4);
+              v74 = v45;
+              v32 = v45.m128i_i32[2];
+              v31 = v45.m128i_i32[0];
             }
             else
             {
-              if ( v41 > v30 )
+              if ( v42 > v31 )
               {
-                v30 = *((_DWORD *)v25 + 250);
-                v66.m128i_i32[0] = v30;
+                v31 = *((_DWORD *)v26 + 250);
+                v74.m128i_i32[0] = v31;
               }
-              if ( *((_DWORD *)v25 + 251) > v32 )
+              if ( *((_DWORD *)v26 + 251) > v33 )
               {
-                v32 = *((_DWORD *)v25 + 251);
-                v66.m128i_i32[1] = v32;
+                v33 = *((_DWORD *)v26 + 251);
+                v74.m128i_i32[1] = v33;
               }
-              if ( *((_DWORD *)v25 + 252) < v31 )
+              if ( *((_DWORD *)v26 + 252) < v32 )
               {
-                v31 = *((_DWORD *)v25 + 252);
-                v66.m128i_i32[2] = v31;
+                v32 = *((_DWORD *)v26 + 252);
+                v74.m128i_i32[2] = v32;
               }
-              if ( *((_DWORD *)v25 + 253) < v33 )
+              if ( *((_DWORD *)v26 + 253) < v34 )
               {
-                v33 = *((_DWORD *)v25 + 253);
-                v66.m128i_i32[3] = v33;
+                v34 = *((_DWORD *)v26 + 253);
+                v74.m128i_i32[3] = v34;
               }
-              if ( v31 < v30 )
+              if ( v32 < v31 )
                 return 1;
-              v42 = v60;
-              if ( v33 < v32 )
-                v66.m128i_i32[1] = v33;
-              v43 = v66;
+              v43 = v34 < v33;
+              v44 = v66;
+              if ( v43 )
+                v74.m128i_i32[1] = v34;
+              v45 = v74;
+              v46 = 0LL;
             }
-            if ( v30 != v31 && v43.m128i_i32[1] != _mm_srli_si128(v43, 8).m128i_i32[1] )
+            if ( v31 != v32 && v45.m128i_i32[1] != _mm_srli_si128(v45, 8).m128i_i32[1] )
             {
-              if ( (*(_DWORD *)(*(_QWORD *)v42 + 36LL) & 0xE0) != 0 )
+              if ( (*(_DWORD *)(*(_QWORD *)v44 + 36LL) & 0xE0) != 0 )
               {
-                v67 = v43;
-                XDCOBJ::vAccumulateTight(v42, v39, &v67);
+                v75 = v45;
+                XDCOBJ::vAccumulateTight(v44, v41, (struct ERECTL *)&v75);
               }
-              ++*(_DWORD *)(v26 + 92);
-              v44 = EngDrawStream;
-              v45 = *(_QWORD *)(v26 + 48);
-              if ( *(_QWORD *)(v45 + 3384) )
-                v44 = *(__int64 (__fastcall **)(int, int, int, int, int, __int64, int, __int64, __int64))(v45 + 3384);
-              v46 = (*(_DWORD *)(*(_QWORD *)v42 + 36LL) & 0x200) != 0 && v45 && (*(_DWORD *)(v45 + 40) & 0x20000) != 0;
-              if ( *(int *)(v26 + 112) >= 0 && (!v46 || *(_WORD *)(v26 + 100) != 3) )
-                v44 = EngDrawStream;
-              v47 = v63;
-              v67.m128i_i64[0] = 0LL;
-              v48 = 0LL;
-              v49 = (char *)v63 + 24;
-              if ( v63 )
-                v48 = (struct _SURFOBJ *)((char *)v63 + 24);
-              SURFREFVIEW::bMap((SURFREFVIEW *)&v67, v48);
-              if ( v67.m128i_i64[0] )
+              ++*(_DWORD *)(v37 + 92);
+              v47 = EngDrawStream;
+              v48 = *(_QWORD *)(v37 + 48);
+              if ( *(_QWORD *)(v48 + 3408) )
+                v47 = *(__int64 (__fastcall **)(int, int, int, int, int, __int64, int, __int64, __int64))(v48 + 3408);
+              v49 = (*(_DWORD *)(*(_QWORD *)v44 + 36LL) & 0x200) != 0 && v48 && (*(_DWORD *)(v48 + 40) & 0x20000) != 0;
+              if ( *(int *)(v37 + 112) >= 0 && (!v49 || *(_WORD *)(v37 + 100) != 3) )
+                v47 = EngDrawStream;
+              v50 = v71;
+              v75.m128i_i64[0] = 0LL;
+              v51 = 0LL;
+              v52 = (char *)v71 + 24;
+              if ( v71 )
+                v51 = (struct _SURFOBJ *)((char *)v71 + 24);
+              SURFREFVIEW::bMap((SURFREFVIEW *)&v75, v51);
+              if ( v75.m128i_i64[0] )
               {
-                v50 = 0LL;
-                if ( v47 )
-                  v50 = v49;
-                if ( (unsigned int)v44(
-                                     v26 + 24,
-                                     (int)v50,
-                                     (int)v40,
-                                     (int)v65,
-                                     (int)&v66,
-                                     (__int64)&v58,
-                                     v59,
-                                     (__int64)v62,
-                                     (__int64)v64) )
+                if ( !v50 )
+                  v52 = 0LL;
+                if ( (unsigned int)v47(
+                                     v37 + 24,
+                                     (int)v52,
+                                     (int)v46,
+                                     (int)v73,
+                                     (int)&v74,
+                                     (__int64)&v63,
+                                     v64,
+                                     (__int64)v69,
+                                     (__int64)v72) )
                   v9 = 1;
               }
-              SURFREFVIEW::bUnMap((SURFREFVIEW *)&v67);
+              SURFREFVIEW::bUnMap((SURFREFVIEW *)&v75);
               return v9;
             }
             return 1;

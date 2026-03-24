@@ -1,32 +1,39 @@
 /*
- * XREFs of ?PushTransform@CRenderDataBounds@@UEAAJPEAVCTransform@@@Z @ 0x1800F2260
+ * XREFs of ?PushTransform@CRenderDataBounds@@UEAAJPEAVCTransform@@@Z @ 0x1800D23B0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z @ 0x1800585B0 (-GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ?GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z @ 0x18007B128 (-GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z.c)
  */
 
 __int64 __fastcall CRenderDataBounds::PushTransform(CRenderDataBounds *this, struct CTransform *a2)
 {
-  char *v2; // rbx
   const struct CMILMatrix *Matrix; // rax
 
   if ( ++*((_DWORD *)this + 23) == 1 )
   {
-    v2 = (char *)this + 24;
     if ( a2 )
     {
       Matrix = CTransform3D::GetMatrix(a2, 0LL);
-      *(_OWORD *)v2 = *(_OWORD *)Matrix;
-      *((_OWORD *)v2 + 1) = *((_OWORD *)Matrix + 1);
-      *((_OWORD *)v2 + 2) = *((_OWORD *)Matrix + 2);
-      *((_OWORD *)v2 + 3) = *((_OWORD *)Matrix + 3);
-      *((_DWORD *)v2 + 16) = *((_DWORD *)Matrix + 16);
+      *(_OWORD *)((char *)this + 24) = *(_OWORD *)Matrix;
+      *(_OWORD *)((char *)this + 40) = *((_OWORD *)Matrix + 1);
+      *(_OWORD *)((char *)this + 56) = *((_OWORD *)Matrix + 2);
+      *(_OWORD *)((char *)this + 72) = *((_OWORD *)Matrix + 3);
+      *((_DWORD *)this + 22) = *((_DWORD *)Matrix + 16);
     }
     else
     {
-      CMILMatrix::SetToIdentity((CRenderDataBounds *)((char *)this + 24));
+      *((_QWORD *)this + 3) = 1065353216LL;
+      *((_QWORD *)this + 4) = 0LL;
+      *((_DWORD *)this + 10) = 0;
+      *(_QWORD *)((char *)this + 44) = 1065353216LL;
+      *(_QWORD *)((char *)this + 52) = 0LL;
+      *((_DWORD *)this + 15) = 0;
+      *((_QWORD *)this + 8) = 1065353216LL;
+      *((_QWORD *)this + 9) = 0LL;
+      *((_DWORD *)this + 20) = 0;
+      *((_DWORD *)this + 21) = 1065353216;
+      *((_WORD *)this + 44) = 32085;
     }
   }
   return 0LL;

@@ -1,38 +1,41 @@
 /*
- * XREFs of ?CreateCompObjectDiagnosticsRootProxy@@YAJPEAVBamoPeer@DiagnosticCallbacks_AutoBamos@@PEAPEAVBamoCompObjectDiagnosticsRootProxy@@@Z @ 0x1801E5990
+ * XREFs of ?CreateCompObjectDiagnosticsRootProxy@@YAJPEAVBamoPeer@DiagnosticCallbacks_AutoBamos@@PEAPEAVBamoCompObjectDiagnosticsRootProxy@@@Z @ 0x18018236C
  * Callers:
- *     ?Materialize_BamoCompObjectDiagnosticsRootProxy@BamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@QEAAJI@Z @ 0x1801BA0B4 (-Materialize_BamoCompObjectDiagnosticsRootProxy@BamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoI.c)
+ *     ?CreateCompObjectDiagnosticsRootProxy@BamoImpl@@YAXPEAVBaseBamoConnectionImpl@1Microsoft@@PEAVBamoPeer@DiagnosticCallbacks_AutoBamos@@PEAPEAVBamoProxy@Bamo@3@@Z @ 0x180165C84 (-CreateCompObjectDiagnosticsRootProxy@BamoImpl@@YAXPEAVBaseBamoConnectionImpl@1Microsoft@@PEAVBa.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CreateCompObjectDiagnosticsRootProxy(
         struct DiagnosticCallbacks_AutoBamos::BamoPeer *a1,
         struct BamoCompObjectDiagnosticsRootProxy **a2)
 {
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
   _QWORD *v4; // rax
-  __int64 v5; // rcx
+  const unsigned int *v5; // rcx
 
-  v3 = 0;
+  v2 = 0;
   v4 = operator new(0x30uLL);
   if ( v4 )
   {
     v4[3] = 0LL;
+    v4[4] = 0LL;
+    v4[5] = 0LL;
     *((_DWORD *)v4 + 6) = 0;
     v4[4] = 0LL;
+    *((_DWORD *)v4 + 10) = 0;
     v4[2] = &BamoImpl::BamoCompObjectDiagnosticsRootProxyImpl::`vftable';
-    v4[5] = 0LL;
+    *((_DWORD *)v4 + 11) = 0;
     *v4 = &CompObjectDiagnosticsRootProxy::`vftable'{for `Microsoft::Bamo::BamoProxy'};
+    v5 = &CompObjectDiagnosticsRootProxy::`vftable'{for `ICompObjectDiagnosticsRootProxy'};
     v4[1] = &CompObjectDiagnosticsRootProxy::`vftable'{for `ICompObjectDiagnosticsRootProxy'};
-    *a2 = (struct BamoCompObjectDiagnosticsRootProxy *)v4;
   }
-  else
+  *a2 = (struct BamoCompObjectDiagnosticsRootProxy *)v4;
+  if ( !v4 )
   {
-    v3 = -2147024882;
-    *a2 = 0LL;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x1Au, 0LL);
+    v2 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, -2147024882, 0x1Au, 0LL);
   }
-  return v3;
+  return v2;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventPoolAllocate @ 0x14057ECF0
+ * XREFs of KsepDsEventPoolAllocate @ 0x1405284A0
  * Callers:
- *     KseDsHookExAllocatePool @ 0x14057DFE0 (KseDsHookExAllocatePool.c)
- *     KseDsHookExAllocatePoolWithTag @ 0x14057E040 (KseDsHookExAllocatePoolWithTag.c)
+ *     KseDsHookExAllocatePool @ 0x140527790 (KseDsHookExAllocatePool.c)
+ *     KseDsHookExAllocatePoolWithTag @ 0x1405277F0 (KseDsHookExAllocatePoolWithTag.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char KsepDsEventPoolAllocate(__int64 a1, __int64 a2, int a3, ...)

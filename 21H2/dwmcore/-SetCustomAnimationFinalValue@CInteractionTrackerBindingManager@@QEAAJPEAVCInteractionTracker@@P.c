@@ -1,17 +1,17 @@
 /*
- * XREFs of ?SetCustomAnimationFinalValue@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCKeyframeAnimation@@W4CustomAnimationTarget@@@Z @ 0x1802212B4
+ * XREFs of ?SetCustomAnimationFinalValue@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCKeyframeAnimation@@W4CustomAnimationTarget@@@Z @ 0x1801D01E4
  * Callers:
- *     ?StopCustomAnimation@CInteractionTracker@@AEAAXH_N@Z @ 0x18021E010 (-StopCustomAnimation@CInteractionTracker@@AEAAXH_N@Z.c)
+ *     ?StopCustomAnimation@CInteractionTracker@@AEAAXH_N@Z @ 0x1801CD008 (-StopCustomAnimation@CInteractionTracker@@AEAAXH_N@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18004F148 (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x18021D3B0 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
- *     ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x18021D8EC (-SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z.c)
- *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x180220030 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
- *     ?GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ @ 0x1802223B0 (-GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x1801CC3EC (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
+ *     ?SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z @ 0x1801CC90C (-SetScale@CInteractionTracker@@AEAAXMW4TrackerUpdateType@1@@Z.c)
+ *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CECD8 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
+ *     ?GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ @ 0x1801D1564 (-GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ.c)
+ *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18020630C (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
  */
 
 __int64 __fastcall CInteractionTrackerBindingManager::SetCustomAnimationFinalValue(
@@ -26,7 +26,7 @@ __int64 __fastcall CInteractionTrackerBindingManager::SetCustomAnimationFinalVal
   char v11; // r9
   __int64 v12; // [rsp+20h] [rbp-39h] BYREF
   int v13; // [rsp+28h] [rbp-31h]
-  __int64 v14; // [rsp+60h] [rbp+7h] BYREF
+  __int64 v14; // [rsp+60h] [rbp+7h]
   int v15; // [rsp+68h] [rbp+Fh]
   char v16; // [rsp+6Ch] [rbp+13h]
   __int64 v17; // [rsp+70h] [rbp+17h] BYREF
@@ -42,33 +42,34 @@ __int64 __fastcall CInteractionTrackerBindingManager::SetCustomAnimationFinalVal
   v16 = 0;
   Value = KeyframeValue::GetValue(LastKeyframeValue, 0LL, (struct CExpressionValue *)&v12);
   v9 = Value;
-  if ( Value < 0 )
+  if ( Value >= 0 )
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x430,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontrackerbindingmanager.cpp",
-      (const char *)(unsigned int)Value);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v14);
-    return v9;
-  }
-  if ( !a4 )
-  {
-    v17 = v12;
-    v18 = v13;
-    CInteractionTracker::SetPosition(a2, (__int64)&v17, 1);
-    v11 = 3;
-LABEL_8:
+    if ( a4 )
+    {
+      if ( a4 != 1 )
+        goto LABEL_11;
+      CInteractionTracker::SetScale(a2, *(float *)&v12, 1);
+      v11 = 4;
+    }
+    else
+    {
+      v17 = v12;
+      v18 = v13;
+      CInteractionTracker::SetPosition(a2, (__int64)&v17, 1);
+      v11 = 3;
+    }
     CInteractionTrackerBindingManager::BringBoundTrackersPositionAndScaleInSync(a1, a2, a2, v11);
-    goto LABEL_9;
+LABEL_11:
+    if ( v14 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+    return 0LL;
   }
-  if ( a4 == 1 )
-  {
-    CInteractionTracker::SetScale(a2, *(float *)&v12, 1);
-    v11 = 4;
-    goto LABEL_8;
-  }
-LABEL_9:
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v14);
-  return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x425,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontrackerbindingmanager.cpp",
+    (const char *)(unsigned int)Value);
+  if ( v14 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+  return v9;
 }

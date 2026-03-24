@@ -1,22 +1,22 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x1406AD5E0
+ * XREFs of NtGetMUIRegistryInfo @ 0x1406AD5C0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MUIBugCheck @ 0x14031F1B8 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F1E0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MUIBugCheck @ 0x14031F2B8 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F2E0 (MigrateOOBELanguageToInstallationLanguage.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     MUIInitializeResourceLock @ 0x14070F47C (MUIInitializeResourceLock.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x14070F45C (MUIInitializeResourceLock.c)
  */
 
 __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)

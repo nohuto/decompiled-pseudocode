@@ -1,12 +1,12 @@
 /*
- * XREFs of DriverEntry @ 0x1C000E12C
+ * XREFs of DriverEntry @ 0x1C000A530
  * Callers:
- *     GsDriverEntry @ 0x1C0034010 (GsDriverEntry.c)
+ *     GsDriverEntry @ 0x1C002B010 (GsDriverEntry.c)
  * Callees:
- *     StorNVMe_wil_deinit @ 0x1C000E8E0 (StorNVMe_wil_deinit.c)
- *     StorNVMeSetDriverUnload @ 0x1C000FC60 (StorNVMeSetDriverUnload.c)
- *     StorNVMe_wil_init @ 0x1C000FC84 (StorNVMe_wil_init.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     StorNVMe_wil_deinit @ 0x1C0006730 (StorNVMe_wil_deinit.c)
+ *     StorNVMeSetDriverUnload @ 0x1C0007C50 (StorNVMeSetDriverUnload.c)
+ *     StorNVMe_wil_init @ 0x1C0007C74 (StorNVMe_wil_init.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
@@ -15,10 +15,10 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   NTSTATUS v5; // ebx
   _QWORD v7[26]; // [rsp+20h] [rbp-79h] BYREF
 
-  memset(v7, 0, sizeof(v7));
   if ( !g_DumpPreInitializeInvoked )
     StorNVMe_wil_init();
-  LODWORD(v7[23]) |= 0xF1B8u;
+  memset(v7, 0, sizeof(v7));
+  LODWORD(v7[23]) |= 0x11B8u;
   v7[1] = NVMeHwInitialize;
   v7[0] = 0x5000000D0LL;
   v7[2] = NVMeHwStartIo;
@@ -32,7 +32,7 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
   v7[22] = NVMeHwTracingEnabled;
   v7[25] = NVMeHwUnitControl;
   HIDWORD(v7[23]) = 2;
-  LODWORD(v7[8]) = 4176;
+  LODWORD(v7[8]) = 4040;
   v7[9] = 0x2000020A0LL;
   v4 = ((__int64 (__fastcall *)(_DRIVER_OBJECT *, PUNICODE_STRING, _QWORD *, _QWORD))StorPortInitialize)(
          DriverObject,
@@ -45,7 +45,7 @@ NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING Reg
     if ( v4 )
       StorNVMe_wil_deinit();
     else
-      StorNVMeSetDriverUnload(DriverObject);
+      StorNVMeSetDriverUnload((__int64)DriverObject);
   }
   return v5;
 }

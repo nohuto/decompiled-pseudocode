@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetSystemRegionIndex @ 0x140372FA0
+ * XREFs of MiGetSystemRegionIndex @ 0x1403657E0
  * Callers:
  *     <none>
  * Callees:

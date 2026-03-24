@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UnPairAndRelease@CompositionSurfaceObject@@UEAAXXZ @ 0x1C007C510
+ * XREFs of ?UnPairAndRelease@CompositionSurfaceObject@@UEAAXXZ @ 0x1C0066190
  * Callers:
  *     <none>
  * Callees:

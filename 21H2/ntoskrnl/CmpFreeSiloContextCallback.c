@@ -1,24 +1,18 @@
 /*
- * XREFs of CmpFreeSiloContextCallback @ 0x1407F8C00
+ * XREFs of CmpFreeSiloContextCallback @ 0x140873420
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     CmpStopSiloKeyLockTracker @ 0x1407F85CC (CmpStopSiloKeyLockTracker.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140872918 (CmpStopSiloKeyLockTracker.c)
  */
 
-__int64 __fastcall CmpFreeSiloContextCallback(ULONG_PTR BugCheckParameter2)
+void __fastcall CmpFreeSiloContextCallback(ULONG_PTR a1)
 {
-  void *v2; // rcx
-  __int64 v4[3]; // [rsp+20h] [rbp-18h] BYREF
+  struct _DMA_ADAPTER *v2; // rcx
 
-  *(_OWORD *)v4 = 0LL;
-  CmpInitializeThreadInfo((__int64)v4);
-  CmpStopSiloKeyLockTracker(BugCheckParameter2);
-  v2 = *(void **)(BugCheckParameter2 + 32);
+  CmpStopSiloKeyLockTracker(a1);
+  v2 = *(struct _DMA_ADAPTER **)(a1 + 32);
   if ( v2 )
-    ObfDereferenceObject(v2);
-  return CmCleanupThreadInfo(v4);
+    HalPutDmaAdapter(v2);
 }

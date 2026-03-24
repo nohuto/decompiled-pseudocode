@@ -1,13 +1,13 @@
 /*
- * XREFs of MxMarkActiveDriverBits @ 0x140B629A8
+ * XREFs of MxMarkActiveDriverBits @ 0x140A68218
  * Callers:
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
- *     MxMarkActiveDriverBits @ 0x140B629A8 (MxMarkActiveDriverBits.c)
+ *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
+ *     MxMarkActiveDriverBits @ 0x140A68218 (MxMarkActiveDriverBits.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x14020B208 (MiSplitBitmapPages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     KeZeroSinglePage @ 0x140423F40 (KeZeroSinglePage.c)
- *     MxMarkActiveDriverBits @ 0x140B629A8 (MxMarkActiveDriverBits.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSplitBitmapPages @ 0x14030B840 (MiSplitBitmapPages.c)
+ *     KeZeroSinglePage @ 0x1404023F0 (KeZeroSinglePage.c)
+ *     MxMarkActiveDriverBits @ 0x140A68218 (MxMarkActiveDriverBits.c)
  */
 
 unsigned __int64 __fastcall MxMarkActiveDriverBits(
@@ -17,63 +17,47 @@ unsigned __int64 __fastcall MxMarkActiveDriverBits(
         __int64 a4,
         int a5)
 {
-  unsigned __int64 v5; // rsi
-  unsigned __int64 v6; // rdi
-  unsigned __int64 v7; // r15
-  int v8; // r12d
+  unsigned __int64 v5; // rdi
+  unsigned __int64 v6; // r14
+  int v7; // r12d
   unsigned __int64 result; // rax
-  __int64 v11; // rbx
-  signed __int64 *v12; // rdx
-  unsigned __int64 v13; // rbx
-  unsigned __int64 v14; // rbp
+  __int64 v10; // rbx
+  unsigned __int64 v11; // rbx
+  unsigned __int64 v12; // rbp
 
-  v5 = 0LL;
-  v6 = a2;
-  v7 = a3;
-  v8 = a4;
+  v5 = a2;
+  v6 = a3;
+  v7 = a4;
   if ( a2 < *(_QWORD *)(a4 + 16LL * a5) )
-    v6 = *(_QWORD *)(a4 + 16LL * a5);
+    v5 = *(_QWORD *)(a4 + 16LL * a5);
   result = *(_QWORD *)(a4 + 16LL * a5 + 8);
   if ( a3 > result )
-    v7 = *(_QWORD *)(a4 + 16LL * a5 + 8);
-  if ( v6 <= v7 )
+    v6 = *(_QWORD *)(a4 + 16LL * a5 + 8);
+  for ( ; v5 <= v6; v5 += 8LL )
   {
-    do
+    result = MI_READ_PTE_LOCK_FREE(v5);
+    if ( (result & 1) != 0 )
     {
-      result = MI_READ_PTE_LOCK_FREE(v6);
-      if ( (result & 1) != 0 )
+      v10 = (__int64)(v5 << 25) >> 16;
+      if ( a5 == 1 )
       {
-        ++v5;
-        v11 = (__int64)(v6 << 25) >> 16;
-        if ( a5 == 1 )
+        v11 = ((v10 << 25 >> 16) - a1[4]) >> 21;
+        v12 = a1[1] + (v11 >> 3);
+        if ( (*(_DWORD *)(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0x800LL) == 0 )
         {
-          v12 = (signed __int64 *)a1[1];
-          v13 = ((v11 << 25 >> 16) - a1[4]) >> 21;
-          v14 = (unsigned __int64)v12 + (v13 >> 3);
-          result = 0xFFFFF68000000000uLL;
-          if ( (*(_DWORD *)(((v14 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0x800LL) == 0 )
-          {
-            MiSplitBitmapPages(12, (unsigned __int64)v12 + (v13 >> 3), (v13 & 7) + 1);
-            result = KeZeroSinglePage((_OWORD *)(v14 & 0xFFFFFFFFFFFFF000uLL));
-            v12 = (signed __int64 *)a1[1];
-          }
-          if ( *a1 <= v13 )
-          {
-            result = v13 + 1;
-            *a1 = v13 + 1;
-          }
-          _bittestandset64(v12, v13);
+          MiSplitBitmapPages(12, a1[1] + (v11 >> 3), (v11 & 7) + 1);
+          KeZeroSinglePage((_OWORD *)(v12 & 0xFFFFFFFFFFFFF000uLL));
         }
-        else
-        {
-          result = MxMarkActiveDriverBits((_DWORD)a1, v11, (int)v11 + 4088, v8, a5 - 1);
-        }
+        if ( *a1 <= v11 )
+          *a1 = v11 + 1;
+        result = a1[1];
+        _bittestandset64((signed __int64 *)result, v11);
       }
-      v6 += 8LL;
+      else
+      {
+        result = MxMarkActiveDriverBits((_DWORD)a1, (__int64)(v5 << 25) >> 16, (int)v10 + 4088, v7, a5 - 1);
+      }
     }
-    while ( v6 <= v7 );
-    if ( v5 )
-      _InterlockedExchangeAdd64(&qword_140C69AC0, v5);
   }
   return result;
 }

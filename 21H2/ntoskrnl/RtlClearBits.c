@@ -1,50 +1,51 @@
 /*
- * XREFs of RtlClearBits @ 0x140347580
+ * XREFs of RtlClearBits @ 0x140206E00
  * Callers:
- *     HvpGrowDirtyVectors @ 0x14020C5E4 (HvpGrowDirtyVectors.c)
- *     MiReduceMappedFileReadBehind @ 0x140246CCC (MiReduceMappedFileReadBehind.c)
- *     MiReduceMappedFileReadAhead @ 0x1402482BC (MiReduceMappedFileReadAhead.c)
- *     MiTrimWorkingSetBuildup @ 0x140373880 (MiTrimWorkingSetBuildup.c)
- *     MiStoreWriteModifiedPages @ 0x14037B44C (MiStoreWriteModifiedPages.c)
- *     MiStoreSetPageFileRunEvicted @ 0x140386D24 (MiStoreSetPageFileRunEvicted.c)
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403CDDB0 (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaReturnToContiguousPool @ 0x140457862 (HalpDmaReturnToContiguousPool.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x140503808 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1405188FC (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
- *     ExtEnvClearBits @ 0x140522654 (ExtEnvClearBits.c)
- *     HalpIommuProcessIvhdEntry @ 0x1405307FC (HalpIommuProcessIvhdEntry.c)
- *     HsaAllocateRemappingTableEntry @ 0x140530DE0 (HsaAllocateRemappingTableEntry.c)
- *     HsaUpdateRemappingTableEntry @ 0x140533520 (HsaUpdateRemappingTableEntry.c)
- *     MiAttemptPageFileReductionApc @ 0x14059B0B0 (MiAttemptPageFileReductionApc.c)
- *     MiFinishPageFileExtension @ 0x14059C580 (MiFinishPageFileExtension.c)
- *     RtlFindSetBitsAndClear @ 0x1405E5DA0 (RtlFindSetBitsAndClear.c)
- *     RtlShiftLeftBitMap @ 0x1405E6BE0 (RtlShiftLeftBitMap.c)
- *     PspQueryRateControlHistory @ 0x14068578C (PspQueryRateControlHistory.c)
- *     HvFreeHivePartial @ 0x140689900 (HvFreeHivePartial.c)
- *     HvpAdjustBitmap @ 0x14068CFE4 (HvpAdjustBitmap.c)
- *     SepGetLowBoxNumberEntry @ 0x140696750 (SepGetLowBoxNumberEntry.c)
- *     MiFreeInitializationCode @ 0x14075F23C (MiFreeInitializationCode.c)
- *     MiReleaseDriverPtes @ 0x14076200C (MiReleaseDriverPtes.c)
- *     HvpRemoveFreeCellHint @ 0x14079C290 (HvpRemoveFreeCellHint.c)
- *     HvIsCellAllocated @ 0x1407C8130 (HvIsCellAllocated.c)
- *     MiCreatePagefile @ 0x14084B698 (MiCreatePagefile.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140908F2C (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpIrtAllocateIndex @ 0x140909B14 (HalpIrtAllocateIndex.c)
- *     HalpIrtFreeIndex @ 0x140909FA0 (HalpIrtFreeIndex.c)
- *     MiPrepareToHotPatchImagePatchCallback @ 0x140976D80 (MiPrepareToHotPatchImagePatchCallback.c)
- *     MiProcessHotPatchUndoTable @ 0x140976EAC (MiProcessHotPatchUndoTable.c)
- *     MiCreateSessionDriverProtos @ 0x140981070 (MiCreateSessionDriverProtos.c)
- *     SmcStorePlacementGet @ 0x1409D847C (SmcStorePlacementGet.c)
- *     PopMirrorPhysicalMemory @ 0x140A509B0 (PopMirrorPhysicalMemory.c)
- *     PnprMarkOrMirrorPages @ 0x140A68338 (PnprMarkOrMirrorPages.c)
- *     ViFreeToContiguousMemory @ 0x140A8833C (ViFreeToContiguousMemory.c)
- *     MiAssignSystemVa @ 0x140B0751C (MiAssignSystemVa.c)
- *     HalpPowerInitDiscard @ 0x140B236AC (HalpPowerInitDiscard.c)
- *     MiAssignSessionRanges @ 0x140B29EB4 (MiAssignSessionRanges.c)
+ *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402672B8 (MiTrimWorkingSetBuildup.c)
+ *     MiStoreSetPageFileRunEvicted @ 0x1402C3C00 (MiStoreSetPageFileRunEvicted.c)
+ *     MiReduceMappedFileReadBehind @ 0x1402C5E1C (MiReduceMappedFileReadBehind.c)
+ *     MiReduceMappedFileReadAhead @ 0x1402C90CC (MiReduceMappedFileReadAhead.c)
+ *     HvpGrowDirtyVectors @ 0x140363AEC (HvpGrowDirtyVectors.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B70A8 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaReturnToContiguousPool @ 0x1404C8014 (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD320 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
+ *     ExtEnvClearBits @ 0x1404D5384 (ExtEnvClearBits.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1AE0 (HalpIommuProcessIvhdEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E20C0 (HsaAllocateRemappingTableEntry.c)
+ *     HsaUpdateRemappingTableEntry @ 0x1404E48C0 (HsaUpdateRemappingTableEntry.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x1405435F0 (MiFinishPageFileExtension.c)
+ *     RtlFindSetBitsAndClear @ 0x140587640 (RtlFindSetBitsAndClear.c)
+ *     RtlShiftLeftBitMap @ 0x140588550 (RtlShiftLeftBitMap.c)
+ *     CmpCheckValueList @ 0x1405F0460 (CmpCheckValueList.c)
+ *     HvIsCellAllocated @ 0x1405F2B70 (HvIsCellAllocated.c)
+ *     PspQueryRateControlHistory @ 0x140615DDC (PspQueryRateControlHistory.c)
+ *     HvpRemoveFreeCellHint @ 0x140708130 (HvpRemoveFreeCellHint.c)
+ *     SepGetLowBoxNumberEntry @ 0x1407180B8 (SepGetLowBoxNumberEntry.c)
+ *     HvFreeHivePartial @ 0x14072153C (HvFreeHivePartial.c)
+ *     HvpAdjustBitmap @ 0x140723198 (HvpAdjustBitmap.c)
+ *     MiFreeInitializationCode @ 0x14075EC6C (MiFreeInitializationCode.c)
+ *     MiReleaseDriverPtes @ 0x14075FCF0 (MiReleaseDriverPtes.c)
+ *     MiCreatePagefile @ 0x1407B7250 (MiCreatePagefile.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864D90 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
+ *     HalpIrtFreeIndex @ 0x140865E18 (HalpIrtFreeIndex.c)
+ *     MiPrepareToHotPatchImagePatchCallback @ 0x1408CDB00 (MiPrepareToHotPatchImagePatchCallback.c)
+ *     MiProcessHotPatchUndoTable @ 0x1408CDB74 (MiProcessHotPatchUndoTable.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA7D8 (MiCreateSessionDriverProtos.c)
+ *     SmcStorePlacementGet @ 0x14092DF58 (SmcStorePlacementGet.c)
+ *     PopMirrorPhysicalMemory @ 0x140996180 (PopMirrorPhysicalMemory.c)
+ *     PnprMarkOrMirrorPages @ 0x1409ADEC8 (PnprMarkOrMirrorPages.c)
+ *     ViFreeToContiguousMemory @ 0x1409CE650 (ViFreeToContiguousMemory.c)
+ *     MiAssignSystemVa @ 0x140A50B28 (MiAssignSystemVa.c)
+ *     MiAssignSessionRanges @ 0x140A684D4 (MiAssignSessionRanges.c)
+ *     HalpPowerInitDiscard @ 0x140A6949C (HalpPowerInitDiscard.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __stdcall RtlClearBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToClear)
@@ -63,7 +64,7 @@ void __stdcall RtlClearBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG
     v6 = NumberToClear;
     if ( (unsigned int)v4 + NumberToClear <= 8 )
     {
-      v7 = ~(byte_140018DF0[NumberToClear] << v4);
+      v7 = ~(byte_14001E8E0[NumberToClear] << v4);
 LABEL_4:
       *v5 &= v7;
       return;
@@ -71,7 +72,7 @@ LABEL_4:
     if ( (_DWORD)v4 )
     {
       v6 = (unsigned int)v4 + NumberToClear - 8;
-      *v5++ &= byte_140018DF0[v4];
+      *v5++ &= byte_14001E8E0[v4];
     }
     if ( (unsigned int)v6 > 8 )
     {
@@ -81,7 +82,7 @@ LABEL_4:
     }
     if ( (_DWORD)v6 )
     {
-      v7 = byte_140015C40[v6];
+      v7 = byte_14001B570[v6];
       goto LABEL_4;
     }
   }

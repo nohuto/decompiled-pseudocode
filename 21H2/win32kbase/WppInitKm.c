@@ -1,9 +1,9 @@
 /*
- * XREFs of WppInitKm @ 0x1C02C843C
+ * XREFs of WppInitKm @ 0x1C027F3E0
  * Callers:
- *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00BA8C0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00AB7F0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppInitKm(__int64 a1, __int64 a2)

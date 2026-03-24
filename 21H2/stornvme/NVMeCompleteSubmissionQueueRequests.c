@@ -1,13 +1,13 @@
 /*
- * XREFs of NVMeCompleteSubmissionQueueRequests @ 0x1C0018820
+ * XREFs of NVMeCompleteSubmissionQueueRequests @ 0x1C000D258
  * Callers:
- *     NVMeControllerCompleteAllIORequests @ 0x1C0018AD4 (NVMeControllerCompleteAllIORequests.c)
- *     NVMeLunCompleteAllIORequests @ 0x1C0019ABC (NVMeLunCompleteAllIORequests.c)
+ *     NVMeControllerCompleteAllIORequests @ 0x1C000D7A4 (NVMeControllerCompleteAllIORequests.c)
+ *     NVMeLunCompleteAllIORequests @ 0x1C000FC14 (NVMeLunCompleteAllIORequests.c)
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     IsInternalSrb @ 0x1C000A4E4 (IsInternalSrb.c)
- *     _guard_dispatch_icall_nop @ 0x1C00106A0 (_guard_dispatch_icall_nop.c)
- *     NVMeRequestComplete @ 0x1C0019DF8 (NVMeRequestComplete.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0007D70 (_guard_dispatch_icall_nop.c)
+ *     IsInternalSrb @ 0x1C000A6A8 (IsInternalSrb.c)
+ *     NVMeRequestComplete @ 0x1C0010AB0 (NVMeRequestComplete.c)
  */
 
 void __fastcall NVMeCompleteSubmissionQueueRequests(

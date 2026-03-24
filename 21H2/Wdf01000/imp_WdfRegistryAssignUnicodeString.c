@@ -1,17 +1,17 @@
 /*
- * XREFs of imp_WdfRegistryAssignUnicodeString @ 0x1C0070460
+ * XREFs of imp_WdfRegistryAssignUnicodeString @ 0x1C005DE30
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00152DC (-_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0015654 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0004440 (-_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C000A094 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfRegistryAssignUnicodeString(
@@ -22,24 +22,25 @@ __int64 __fastcall imp_WdfRegistryAssignUnicodeString(
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rbx
   __int64 result; // rax
-  ULONG Tag; // ecx
-  ULONG DataSize; // esi
-  void *v11; // rax
-  FX_POOL **v12; // rax
-  FX_POOL_TRACKER *Data; // r14
+  ULONG v9; // ebp
+  FX_POOL **v10; // rax
+  FX_POOL_TRACKER *v11; // r15
   NTSTATUS _a2; // edi
-  unsigned __int16 v15; // r9
-  __m128i v16; // [rsp+40h] [rbp-38h] BYREF
-  ULONG_PTR retaddr; // [rsp+78h] [rbp+0h]
-  FxRegKey *pKey; // [rsp+80h] [rbp+8h] BYREF
+  unsigned __int16 v13; // r9
+  void *Caller; // [rsp+68h] [rbp+0h]
+  FxRegKey *pKey; // [rsp+70h] [rbp+8h] BYREF
 
   pKey = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Key, 0x1006u, (void **)&pKey);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Key,
+    0x1006u,
+    (void **)&pKey);
   m_Globals = pKey->m_Globals;
   if ( !ValueName )
-    FxVerifierNullBugCheck(m_Globals, retaddr);
+    FxVerifierNullBugCheck(m_Globals, (ULONG_PTR)Caller);
   if ( !Value )
-    FxVerifierNullBugCheck(m_Globals, retaddr);
+    FxVerifierNullBugCheck(m_Globals, (ULONG_PTR)Caller);
   result = FxVerifierCheckIrqlLevel(m_Globals, 0);
   if ( (int)result >= 0 )
   {
@@ -49,34 +50,28 @@ __int64 __fastcall imp_WdfRegistryAssignUnicodeString(
       result = FxValidateUnicodeString(m_Globals, Value);
       if ( (int)result >= 0 )
       {
-        Tag = m_Globals->Tag;
-        DataSize = Value->Length + 2;
-        v11 = (void *)retaddr;
-        v16.m128i_i64[0] = 0LL;
-        v16.m128i_i64[1] = 256LL;
-        if ( !m_Globals->FxPoolTrackingOn )
-          v11 = 0LL;
-        v12 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v16, DataSize, Tag, v11);
-        Data = (FX_POOL_TRACKER *)v12;
-        if ( v12 )
+        v9 = Value->Length + 2;
+        v10 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, 1u, v9, m_Globals->Tag, Caller);
+        v11 = (FX_POOL_TRACKER *)v10;
+        if ( v10 )
         {
-          memmove(v12, Value->Buffer, Value->Length);
-          *((_WORD *)&Data->Link.Flink + ((unsigned __int64)Value->Length >> 1)) = 0;
-          _a2 = ZwSetValueKey(pKey->m_Key, ValueName, 0, 1u, Data, DataSize);
-          FxPoolFree(Data);
+          memmove(v10, Value->Buffer, Value->Length);
+          *((_WORD *)&v11->Link.Flink + ((unsigned __int64)Value->Length >> 1)) = 0;
+          _a2 = ZwSetValueKey(pKey->m_Key, ValueName, 0, 1u, v11, v9);
+          FxPoolFree(v11);
           if ( _a2 >= 0 )
           {
             FxRegKey::_VerifyStateSeparationRegistryPolicy(pKey->m_Globals, pKey->m_Key);
             return (unsigned int)_a2;
           }
-          v15 = 38;
+          v13 = 38;
         }
         else
         {
           _a2 = -1073741670;
-          v15 = 37;
+          v13 = 37;
         }
-        WPP_IFR_SF_qL(m_Globals, 2u, 2u, v15, WPP_FxRegistryAPI_cpp_Traceguids, Key, _a2);
+        WPP_IFR_SF_qL(m_Globals, 2u, 2u, v13, WPP_FxRegistryAPI_cpp_Traceguids, Key, _a2);
         return (unsigned int)_a2;
       }
     }

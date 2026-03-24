@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpTraceDeviceConfig @ 0x14074703C
+ * XREFs of PnpTraceDeviceConfig @ 0x14073AB24
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x1407459F4 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x14073B090 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceDeviceConfig(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        const WCHAR *a4,
-        const WCHAR *a5,
-        const WCHAR *a6,
-        const WCHAR *a7,
-        const WCHAR *a8,
-        const WCHAR *a9,
-        const WCHAR *a10,
+        const size_t *a4,
+        const size_t *a5,
+        const size_t *a6,
+        const size_t *a7,
+        const size_t *a8,
+        const size_t *a9,
+        const size_t *a10,
         char a11,
         unsigned __int16 *a12,
         char a13,
@@ -29,9 +29,9 @@ void __fastcall PnpTraceDeviceConfig(
         __int64 *a17)
 {
   unsigned __int16 *v18; // r9
-  const WCHAR *v19; // r10
+  const size_t *v19; // r10
   int v20; // eax
-  const WCHAR *v21; // r11
+  const size_t *v21; // r11
   char v22; // [rsp+30h] [rbp-D0h] BYREF
   char v23; // [rsp+31h] [rbp-CFh] BYREF
   char v24; // [rsp+32h] [rbp-CEh] BYREF
@@ -78,9 +78,9 @@ void __fastcall PnpTraceDeviceConfig(
   v27 = 0LL;
   if ( a17 )
     v27 = *a17;
-  if ( (unsigned int)dword_140C03990 > 5 )
+  if ( (unsigned int)dword_140C02D90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03990, 0x800000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02D90, 0x800000000000LL) )
     {
       v31 = &v28;
       v33 = &v25;
@@ -126,8 +126,8 @@ void __fastcall PnpTraceDeviceConfig(
       v61 = 4LL;
       v63 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03990,
-        (unsigned __int8 *)byte_14002C2FB,
+        (__int64)&dword_140C02D90,
+        (unsigned __int8 *)byte_1400256D3,
         0LL,
         0LL,
         0x17u,

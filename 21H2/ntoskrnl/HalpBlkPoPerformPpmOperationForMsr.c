@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkPoPerformPpmOperationForMsr @ 0x140AD4EE0
+ * XREFs of HalpBlkPoPerformPpmOperationForMsr @ 0x140A19EE0
  * Callers:
- *     HalpBlkPoPerformPpmOperation @ 0x140AD4DC4 (HalpBlkPoPerformPpmOperation.c)
+ *     HalpBlkPoPerformPpmOperation @ 0x140A19DC4 (HalpBlkPoPerformPpmOperation.c)
  * Callees:
  *     <none>
  */
@@ -9,9 +9,9 @@
 unsigned __int64 __fastcall HalpBlkPoPerformPpmOperationForMsr(__int64 a1)
 {
   int v2; // ecx
-  __int64 v3; // r9
-  unsigned __int64 v4; // r10
-  unsigned int v5; // r11d
+  __int64 v3; // r10
+  unsigned __int64 v4; // r11
+  unsigned int v5; // r9d
   unsigned __int64 result; // rax
 
   v2 = *(_DWORD *)(a1 + 12) - 1;

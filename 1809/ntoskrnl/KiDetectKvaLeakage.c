@@ -3,12 +3,12 @@
  * Callers:
  *     KiSetFeatureBits @ 0x1405707EC (KiSetFeatureBits.c)
  * Callees:
- *     HvlGetImplementedPhysicalBits @ 0x14017D6A0 (HvlGetImplementedPhysicalBits.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401B4504 (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsKvaShadowNeededForTsa @ 0x1401B455C (KiIsKvaShadowNeededForTsa.c)
- *     KiIsFbClearSupported @ 0x1401B4C64 (KiIsFbClearSupported.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     HvlGetImplementedPhysicalBits @ 0x14017D6C0 (HvlGetImplementedPhysicalBits.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401B4524 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1401B457C (KiIsKvaShadowNeededForTsa.c)
+ *     KiIsFbClearSupported @ 0x1401B4C84 (KiIsFbClearSupported.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiDetectKvaLeakage(__int64 a1)

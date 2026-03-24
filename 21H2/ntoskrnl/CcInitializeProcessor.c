@@ -1,12 +1,12 @@
 /*
- * XREFs of CcInitializeProcessor @ 0x140825358
+ * XREFs of CcInitializeProcessor @ 0x140796120
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     CcInitializeCacheManager @ 0x140AFC9DC (CcInitializeCacheManager.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     CcInitializeCacheManager @ 0x140A3D1B8 (CcInitializeCacheManager.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x14020C520 (MmIsThisAnNtAsSystem.c)
- *     ExInitializeSystemLookasideList @ 0x140A57C10 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     MmIsThisAnNtAsSystem @ 0x1402EE2B0 (MmIsThisAnNtAsSystem.c)
+ *     ExInitializeSystemLookasideList @ 0x14099C6E4 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcInitializeProcessor(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall CcInitializeProcessor(__int64 a1)
     ExInitializeSystemLookasideList(
       (_DWORD)PoolWithTag,
       512,
-      160,
+      136,
       1264018243,
       v3 != 0 ? 256 : 128,
       (__int64)&ExSystemLookasideListHead);

@@ -1,10 +1,10 @@
 /*
- * XREFs of IrqPolicyGetSubKey @ 0x1C009FC34
+ * XREFs of IrqPolicyGetSubKey @ 0x1C0094FF8
  * Callers:
- *     PcisuppGetRoutingInfo @ 0x1C0099C7C (PcisuppGetRoutingInfo.c)
- *     PcisuppSetRoutingInfo @ 0x1C009A1F8 (PcisuppSetRoutingInfo.c)
- *     IrqPolicyGetDevicePolicy @ 0x1C009F8B4 (IrqPolicyGetDevicePolicy.c)
- *     IrqPolicySetDeviceAffinity @ 0x1C009FEE4 (IrqPolicySetDeviceAffinity.c)
+ *     PcisuppSetRoutingInfo @ 0x1C0092104 (PcisuppSetRoutingInfo.c)
+ *     IrqPolicySetDeviceAffinity @ 0x1C0092208 (IrqPolicySetDeviceAffinity.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C0094A38 (IrqPolicyGetDevicePolicy.c)
+ *     PcisuppGetRoutingInfo @ 0x1C0094D70 (PcisuppGetRoutingInfo.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ NTSTATUS __fastcall IrqPolicyGetSubKey(struct _DEVICE_OBJECT *a1, const WCHAR *a
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+27h] BYREF
 
   KeyHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DeviceRegKey = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   result = IoOpenDeviceRegistryKey(a1, 1u, 0xF003Fu, &DeviceRegKey);
   if ( result >= 0 )

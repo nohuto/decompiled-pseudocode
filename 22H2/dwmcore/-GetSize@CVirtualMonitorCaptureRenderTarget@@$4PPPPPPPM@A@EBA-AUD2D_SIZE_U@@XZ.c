@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x18011C860
+ * XREFs of ?GetSize@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F4910
  * Callers:
  *     <none>
  * Callees:

@@ -1,32 +1,29 @@
 /*
- * XREFs of xxxClientThreadSetup @ 0x1C00EF540
+ * XREFs of xxxClientThreadSetup @ 0x1C0108F90
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00EF5D4 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     <none>
  */
 
-__int64 xxxClientThreadSetup()
+__int64 __fastcall xxxClientThreadSetup(__int64 a1)
 {
-  unsigned int Count; // eax
-  __int64 v1; // rcx
-  unsigned int v2; // ebx
-  int v4; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v5; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v1; // ebx
+  int v3; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v4; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = 0LL;
-  v4 = 0;
-  Count = AtomicExecutionCheck::GetCount();
-  if ( Count )
+  v4 = 0LL;
+  v3 = 0;
+  if ( gdwInAtomicOperation )
   {
+    a1 = gdwExtraInstrumentations;
     if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
   }
-  UserSessionSwitchLeaveCrit(v1);
+  UserSessionSwitchLeaveCrit(a1);
   EtwTraceBeginCallback(84LL);
-  v2 = KeUserModeCallback(84LL, 0LL, 0LL, &v5, &v4);
+  v1 = KeUserModeCallback(84LL, 0LL, 0LL, &v4, &v3);
   EtwTraceEndCallback(84LL);
-  EnterCrit(1LL, 0LL);
-  return v2;
+  EnterCrit(0LL, 1LL);
+  return v1;
 }

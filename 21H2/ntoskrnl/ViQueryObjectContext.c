@@ -1,43 +1,43 @@
 /*
- * XREFs of ViQueryObjectContext @ 0x140A836FC
+ * XREFs of ViQueryObjectContext @ 0x1409C85A4
  * Callers:
- *     VfQueryDeviceContext @ 0x1405FE1E0 (VfQueryDeviceContext.c)
- *     VfQueryDriverContext @ 0x1405FE220 (VfQueryDriverContext.c)
- *     VfQueryIrpContext @ 0x1405FE260 (VfQueryIrpContext.c)
- *     VfQueryThreadContext @ 0x1405FE2A0 (VfQueryThreadContext.c)
+ *     VfQueryDeviceContext @ 0x1405A0920 (VfQueryDeviceContext.c)
+ *     VfQueryDriverContext @ 0x1405A0960 (VfQueryDriverContext.c)
+ *     VfQueryIrpContext @ 0x1405A09A0 (VfQueryIrpContext.c)
+ *     VfQueryThreadContext @ 0x1405A09E0 (VfQueryThreadContext.c)
  * Callees:
- *     ViGetContextPointer @ 0x140A8362C (ViGetContextPointer.c)
- *     ViLockContextPointer @ 0x140A836B4 (ViLockContextPointer.c)
+ *     ViGetContextPointer @ 0x1409C84D4 (ViGetContextPointer.c)
+ *     ViLockContextPointer @ 0x1409C855C (ViLockContextPointer.c)
  */
 
-signed __int64 *__fastcall ViQueryObjectContext(__int64 a1, int a2, __int64 a3, __int64 a4)
+signed __int64 *__fastcall ViQueryObjectContext(__int64 a1, int a2, unsigned int a3)
 {
-  __int64 v4; // rsi
-  __int64 v5; // rbx
+  __int64 v3; // rsi
+  __int64 v4; // rbx
   signed __int64 *result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  volatile signed __int64 *v10; // rdi
-  __int64 v11; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  volatile signed __int64 *v9; // rdi
+  __int64 v10; // rdx
 
-  v4 = (unsigned int)a3;
-  v5 = 0LL;
-  result = (signed __int64 *)ViGetContextPointer(a1, a2, a3, a4);
-  v10 = result;
+  v3 = a3;
+  v4 = 0LL;
+  result = (signed __int64 *)ViGetContextPointer(a1, a2);
+  v9 = result;
   if ( result )
   {
-    if ( ViLockContextPointer(result, v7, v8, v9) )
+    if ( ViLockContextPointer(result, v6, v7, v8) )
     {
-      v11 = *(_QWORD *)(*v10 + 8 * v4 + 8);
-      if ( v11 )
+      v10 = *(_QWORD *)(*v9 + 8 * v3 + 8);
+      if ( v10 )
       {
-        v5 = *(_QWORD *)(*v10 + 8 * v4 + 8);
-        _InterlockedAdd((volatile signed __int32 *)(v11 + 4), 1u);
+        v4 = *(_QWORD *)(*v9 + 8 * v3 + 8);
+        _InterlockedAdd((volatile signed __int32 *)(v10 + 4), 1u);
       }
-      _InterlockedExchangeAdd64(v10, 1uLL);
+      _InterlockedExchangeAdd64(v9, 1uLL);
     }
-    return (signed __int64 *)v5;
+    return (signed __int64 *)v4;
   }
   return result;
 }

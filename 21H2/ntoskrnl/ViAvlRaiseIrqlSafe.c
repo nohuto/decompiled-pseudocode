@@ -1,11 +1,10 @@
 /*
- * XREFs of ViAvlRaiseIrqlSafe @ 0x1402D8360
+ * XREFs of ViAvlRaiseIrqlSafe @ 0x140371C9C
  * Callers:
- *     VfAvlInsertReservedTreeNode @ 0x1402D8234 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1402D8518 (VfAvlLookupTreeNode.c)
- *     VfAvlDeleteTreeNode @ 0x1402DB8D8 (VfAvlDeleteTreeNode.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140A9B1BC (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140A9B230 (VfAvlEnumerateNodes.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140371B70 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlDeleteTreeNode @ 0x14037EB38 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
+ *     VfAvlEnumerateNodes @ 0x1409E0658 (VfAvlEnumerateNodes.c)
  * Callees:
  *     <none>
  */

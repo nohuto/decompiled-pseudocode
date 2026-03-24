@@ -1,17 +1,14 @@
 /*
- * XREFs of ?PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z @ 0x1C00FD3FC
+ * XREFs of ?PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z @ 0x1C00098A0
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     ResetPointerDevices @ 0x1C00FD4D4 (ResetPointerDevices.c)
+ *     ResetPointerDevices @ 0x1C00294A8 (ResetPointerDevices.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall PrepareForMasterInputThreadTakingOver(struct LegacyInputDispatcher *a1)
 {
-  __int64 v2; // rcx
-
-  EnterCrit(1LL, 0LL);
+  EnterCrit(0LL, 1LL);
   SetThreadPriority();
   if ( gptiManipulationThread )
     SetThreadBasePriority(*gptiManipulationThread, 16LL);
@@ -22,6 +19,6 @@ void __fastcall PrepareForMasterInputThreadTakingOver(struct LegacyInputDispatch
   ZwSetEvent(ghDITRITEvent, 0LL);
   LegacyInputDispatcher::PurgeInputDispatcherObjects(a1);
   CBaseInput::RegisterDispatcherObject(gpKeyboardSensor, a1);
-  gbMIT = 1;
-  UserSessionSwitchLeaveCrit(v2);
+  gbDIT = 1;
+  UserSessionSwitchLeaveCrit();
 }

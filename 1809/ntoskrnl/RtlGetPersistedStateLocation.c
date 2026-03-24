@@ -1,24 +1,24 @@
 /*
  * XREFs of RtlGetPersistedStateLocation @ 0x140612450
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140181D80 (PipUpdateDeviceProducts.c)
- *     PopOpenThermalLoggingKey @ 0x140191FE4 (PopOpenThermalLoggingKey.c)
+ *     PipUpdateDeviceProducts @ 0x140181DA0 (PipUpdateDeviceProducts.c)
+ *     PopOpenThermalLoggingKey @ 0x140192004 (PopOpenThermalLoggingKey.c)
  *     WmipGetGuidSecurityDescriptor @ 0x1406122D0 (WmipGetGuidSecurityDescriptor.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406C7B78 (KGetAppModelStateSeparatedRegKeyPath.c)
- *     PiGetStateRootPath @ 0x14070E160 (PiGetStateRootPath.c)
- *     EtwpInitializeAutoLoggers @ 0x14074187C (EtwpInitializeAutoLoggers.c)
- *     ExpUuidLoadSequenceNumber @ 0x14075F880 (ExpUuidLoadSequenceNumber.c)
- *     ExpUuidSaveSequenceNumber @ 0x14075F9CC (ExpUuidSaveSequenceNumber.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x1407627B0 (WmipSaveGuidSecurityDescriptor.c)
- *     CmpRecordShutdownStopTime @ 0x1407ED0B8 (CmpRecordShutdownStopTime.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14083E148 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406C7B58 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     PiGetStateRootPath @ 0x14070E140 (PiGetStateRootPath.c)
+ *     EtwpInitializeAutoLoggers @ 0x14074185C (EtwpInitializeAutoLoggers.c)
+ *     ExpUuidLoadSequenceNumber @ 0x14075F860 (ExpUuidLoadSequenceNumber.c)
+ *     ExpUuidSaveSequenceNumber @ 0x14075F9AC (ExpUuidSaveSequenceNumber.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x140762790 (WmipSaveGuidSecurityDescriptor.c)
+ *     CmpRecordShutdownStopTime @ 0x1407ED098 (CmpRecordShutdownStopTime.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x14083E128 (PiDrvDbQuerySyncNodesUpdated.c)
  *     EtwpInitializeSecurity @ 0x1409D008C (EtwpInitializeSecurity.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
@@ -55,7 +55,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   if ( a4 > 1 )
     return 3221225713LL;
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1409098D0[2 * (int)a4];
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1409098B0[2 * (int)a4];
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

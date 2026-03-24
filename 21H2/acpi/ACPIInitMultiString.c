@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIInitMultiString @ 0x1C00AEEA0
+ * XREFs of ACPIInitMultiString @ 0x1C00AFCD4
  * Callers:
- *     ACPIDockIrpQueryID @ 0x1C00AACA0 (ACPIDockIrpQueryID.c)
+ *     ACPIDockIrpQueryID @ 0x1C00ABF30 (ACPIDockIrpQueryID.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 ACPIInitMultiString(struct _UNICODE_STRING *a1, ...)
@@ -13,24 +13,25 @@ __int64 ACPIInitMultiString(struct _UNICODE_STRING *a1, ...)
   const char *v3; // rax
   unsigned int v4; // ebx
   wchar_t *Buffer; // rcx
-  PCSZ *v7; // rbx
-  struct _UNICODE_STRING v8; // [rsp+28h] [rbp-30h] BYREF
+  wchar_t *v7; // rcx
+  PCSZ *v8; // rbx
+  struct _UNICODE_STRING v9; // [rsp+28h] [rbp-30h] BYREF
   struct _STRING DestinationString; // [rsp+38h] [rbp-20h] BYREF
-  PUNICODE_STRING v10; // [rsp+80h] [rbp+28h]
-  const char *v11; // [rsp+88h] [rbp+30h] BYREF
+  PUNICODE_STRING v11; // [rsp+80h] [rbp+28h]
+  const char *v12; // [rsp+88h] [rbp+30h] BYREF
   va_list va; // [rsp+88h] [rbp+30h]
   va_list va1; // [rsp+90h] [rbp+38h] BYREF
 
   va_start(va1, a1);
   va_start(va, a1);
-  v11 = va_arg(va1, const char *);
-  v10 = a1;
+  v12 = va_arg(va1, const char *);
+  v11 = a1;
   va_copy((va_list)v1, va);
   DestinationString = 0LL;
   v2 = 0;
-  v8 = 0LL;
-  v3 = v11;
-  if ( v11 )
+  v9 = 0LL;
+  v3 = v12;
+  if ( v12 )
   {
     do
     {
@@ -39,32 +40,34 @@ __int64 ACPIInitMultiString(struct _UNICODE_STRING *a1, ...)
       v3 = *++v1;
     }
     while ( *v1 );
-    a1 = v10;
+    a1 = v11;
   }
   if ( v2 )
   {
     v4 = v2 + 2;
     a1->MaximumLength = v4;
-    v10->Buffer = (wchar_t *)ExAllocatePool2(256LL, v4, 1399874369LL);
-    Buffer = v10->Buffer;
+    v11->Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v4, 0x53706341u);
+    Buffer = v11->Buffer;
     if ( !Buffer )
       return 3221225626LL;
-    v8.MaximumLength = v4;
-    va_copy((va_list)v7, va);
+    memset(Buffer, 0, v4);
+    v7 = v11->Buffer;
+    v9.MaximumLength = v4;
+    va_copy((va_list)v8, va);
     while ( 1 )
     {
-      v8.Buffer = Buffer;
-      if ( !*v7 )
+      v9.Buffer = v7;
+      if ( !*v8 )
         break;
-      RtlInitAnsiString(&DestinationString, *v7);
-      RtlAnsiStringToUnicodeString(&v8, &DestinationString, 0);
-      ++v7;
-      Buffer = &v8.Buffer[((unsigned __int64)v8.Length >> 1) + 1];
-      v8.MaximumLength += -2 - v8.Length;
-      v8.Length = 0;
+      RtlInitAnsiString(&DestinationString, *v8);
+      RtlAnsiStringToUnicodeString(&v9, &DestinationString, 0);
+      ++v8;
+      v7 = &v9.Buffer[((unsigned __int64)v9.Length >> 1) + 1];
+      v9.MaximumLength += -2 - v9.Length;
+      v9.Length = 0;
     }
-    *Buffer = 0;
-    v10->Length = v10->MaximumLength;
+    *v7 = 0;
+    v11->Length = v11->MaximumLength;
   }
   else
   {

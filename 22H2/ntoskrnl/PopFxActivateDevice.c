@@ -1,50 +1,47 @@
 /*
- * XREFs of PopFxActivateDevice @ 0x140322A80
+ * XREFs of PopFxActivateDevice @ 0x14036F190
  * Callers:
- *     PoFxActivateDevice @ 0x140322A64 (PoFxActivateDevice.c)
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x1405876E4 (PoFxActivateDeviceForSystemTransition.c)
- *     PoFxAddDeviceRelation @ 0x140587B20 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140588590 (PoFxRemoveDeviceRelation.c)
- *     PopFxActivateDevicesForSx @ 0x140588AD4 (PopFxActivateDevicesForSx.c)
- *     PopFxClearDeviceConstraints @ 0x140589310 (PopFxClearDeviceConstraints.c)
- *     PopPepPlatformStateRegistered @ 0x14059FA24 (PopPepPlatformStateRegistered.c)
- *     PopPlActivateDeviceIterator @ 0x1405A11F0 (PopPlActivateDeviceIterator.c)
+ *     PoFxActivateDevice @ 0x14036F174 (PoFxActivateDevice.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x140383500 (PoFxActivateDeviceForSystemTransition.c)
+ *     PopFxActivateDevicesForSx @ 0x14038BC08 (PopFxActivateDevicesForSx.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD9C0 (PoFxStartDevicePowerManagement.c)
+ *     PopFxClearDeviceConstraints @ 0x140569D04 (PopFxClearDeviceConstraints.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056C7C4 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepInitializeVetoMasks @ 0x140574CDC (PopPepInitializeVetoMasks.c)
+ *     PopPepResetDeviceAccountingLevel @ 0x140575DC8 (PopPepResetDeviceAccountingLevel.c)
+ *     PopPlActivateDeviceIterator @ 0x14057E260 (PopPlActivateDeviceIterator.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     PoFxActivateComponent @ 0x140287170 (PoFxActivateComponent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopFxAddRefDevice @ 0x1403122C4 (PopFxAddRefDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     PopFxAddRefDevice @ 0x14025FFDC (PopFxAddRefDevice.c)
+ *     PoFxActivateComponent @ 0x140262040 (PoFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
-void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
+LONG __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
 {
   __int64 v5; // rdi
   volatile LONG *v6; // rbp
   KIRQL v7; // al
-  int v8; // edx
+  int v8; // r8d
   unsigned __int64 v9; // rsi
   signed __int32 v10; // eax
   signed __int32 v11; // ett
   ULONG_PTR v12; // rbx
   signed __int32 v13; // eax
   signed __int32 v14; // ett
+  LONG result; // eax
   unsigned int i; // edi
   __int64 j; // rbp
-  ULONG_PTR v17; // rsi
-  unsigned __int8 CurrentIrql; // al
+  ULONG_PTR v18; // rsi
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v21; // eax
-  bool v22; // zf
-  unsigned __int8 v23; // al
-  struct _KPRCB *v24; // r10
-  _DWORD *v25; // r9
-  int v26; // eax
+  bool v21; // zf
+  struct _KPRCB *v22; // r10
+  _DWORD *v23; // r9
 
   if ( a1 )
     v5 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
@@ -65,18 +62,22 @@ void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
   if ( (v10 & 4) != 0 && (*(_DWORD *)(*(_QWORD *)(v5 + 80) + 824LL) & 1) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 88));
+    result = KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v22 = (v21 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v21;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v21 = (result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v21 )
+            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v9);
@@ -101,18 +102,22 @@ void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
         PoFxActivateComponent(v12, i, 2);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
+    result = KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v24 = KeGetCurrentPrcb();
-        v25 = v24->SchedulerAssist;
-        v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v22 = (v26 & v25[5]) == 0;
-        v25[5] &= v26;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick(v24);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          v22 = KeGetCurrentPrcb();
+          v23 = v22->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v21 = (result & v23[5]) == 0;
+          v23[5] &= result;
+          if ( v21 )
+            result = KiRemoveSystemWorkPriorityKick(v22);
+        }
       }
     }
     __writecr8(v9);
@@ -120,20 +125,22 @@ void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
     {
       for ( j = 0LL; (unsigned int)j < *(_DWORD *)(v12 + 828); j = (unsigned int)(j + 1) )
       {
-        v17 = *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * j);
-        if ( (*(_DWORD *)(v17 + 88) & 0x3FFFFFFF) == 0 )
-          PopFxBugCheck(0x608uLL, *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * j), v17 + 88, 0LL);
-        KeWaitForSingleObject((PVOID)(v17 + 104), Executive, 0, 0, 0LL);
-        if ( *(int *)(v17 + 88) >= 0 )
-          PopFxBugCheck(0x608uLL, v17, v17 + 88, 0LL);
+        v18 = *(_QWORD *)(*(_QWORD *)(v12 + 832) + 8 * j);
+        if ( (*(_DWORD *)(v18 + 88) & 0x3FFFFFFF) == 0
+          || (KeWaitForSingleObject((PVOID)(v18 + 104), Executive, 0, 0, 0LL), *(int *)(v18 + 88) >= 0) )
+        {
+          PopFxBugCheck(0x608uLL, v18, v18 + 88, 0LL);
+        }
         if ( a2 )
           _InterlockedOr((volatile signed __int32 *)(v12 + 32), 1u);
-        if ( (*(_DWORD *)(v12 + 824) & 0x80u) != 0 && a3 )
+        if ( (PopPoFxSystemIrpWaitForReportDevicePoweredReg || (*(_DWORD *)(v12 + 824) & 0x80u) != 0) && a3 )
           _InterlockedOr((volatile signed __int32 *)(v12 + 32), 0x800u);
       }
       KeWaitForSingleObject((PVOID)(v12 + 568), Executive, 0, 0, 0LL);
-      if ( !_InterlockedDecrement((volatile signed __int32 *)(v12 + 244)) )
-        KeSetEvent((PRKEVENT)(v12 + 248), 0, 0);
+      result = _InterlockedDecrement((volatile signed __int32 *)(v12 + 244));
+      if ( !result )
+        return KeSetEvent((PRKEVENT)(v12 + 248), 0, 0);
     }
   }
+  return result;
 }

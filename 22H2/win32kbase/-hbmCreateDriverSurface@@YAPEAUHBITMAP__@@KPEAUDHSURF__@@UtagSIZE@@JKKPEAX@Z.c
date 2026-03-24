@@ -1,13 +1,13 @@
 /*
- * XREFs of ?hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C005E88C
+ * XREFs of ?hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00A34D4
  * Callers:
- *     EngCreateDeviceBitmap @ 0x1C000F550 (EngCreateDeviceBitmap.c)
- *     EngCreateBitmap @ 0x1C005E810 (EngCreateBitmap.c)
- *     EngCreateRedirectionDeviceBitmap @ 0x1C005E850 (EngCreateRedirectionDeviceBitmap.c)
- *     EngCreateDeviceSurface @ 0x1C0062240 (EngCreateDeviceSurface.c)
+ *     EngCreateDeviceSurface @ 0x1C00A3400 (EngCreateDeviceSurface.c)
+ *     EngCreateRedirectionDeviceBitmap @ 0x1C00A3460 (EngCreateRedirectionDeviceBitmap.c)
+ *     EngCreateBitmap @ 0x1C00A34A0 (EngCreateBitmap.c)
+ *     EngCreateDeviceBitmap @ 0x1C013F5B0 (EngCreateDeviceBitmap.c)
  * Callees:
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0046370 (--1SURFMEM@@QEAA@XZ.c)
- *     ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C005E8F8 (-CreateDriverSurfMem@@YA-AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0031B30 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00C9DBC (-CreateDriverSurfMem@@YA-AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
  */
 
 __int64 __fastcall hbmCreateDriverSurface(
@@ -19,11 +19,13 @@ __int64 __fastcall hbmCreateDriverSurface(
         unsigned int a6,
         void *a7)
 {
-  __int64 v7; // rbx
-  _QWORD v9[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v7; // edx
+  int v8; // r8d
+  __int64 v9; // rbx
+  _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
 
   ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _DWORD, _DWORD, _QWORD))CreateDriverSurfMem)(
-    v9,
+    v11,
     a1,
     a2,
     a3,
@@ -31,9 +33,9 @@ __int64 __fastcall hbmCreateDriverSurface(
     a5,
     a6,
     a7);
-  v7 = 0LL;
-  if ( v9[0] )
-    v7 = *(_QWORD *)(v9[0] + 32LL);
-  SURFMEM::~SURFMEM((SURFMEM *)v9);
-  return v7;
+  v9 = 0LL;
+  if ( v11[0] )
+    v9 = *(_QWORD *)(v11[0] + 32LL);
+  SURFMEM::~SURFMEM((SURFMEM *)v11, v7, v8);
+  return v9;
 }

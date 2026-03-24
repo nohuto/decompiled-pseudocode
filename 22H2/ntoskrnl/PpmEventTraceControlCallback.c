@@ -1,41 +1,35 @@
 /*
- * XREFs of PpmEventTraceControlCallback @ 0x1408650B0
+ * XREFs of PpmEventTraceControlCallback @ 0x1407D5310
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B20 (PoEnergyEstimationEnabled.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PpmEventHgsHardwareTable @ 0x14059A37C (PpmEventHgsHardwareTable.c)
- *     PpmEventHgsNormalizedTable @ 0x14059A574 (PpmEventHgsNormalizedTable.c)
- *     PpmEventPlatformVetoRundown @ 0x14059B1A4 (PpmEventPlatformVetoRundown.c)
- *     PpmEventProcessorVetoRundown @ 0x14059B4C0 (PpmEventProcessorVetoRundown.c)
- *     PpmEventTraceLPIState @ 0x14059BB68 (PpmEventTraceLPIState.c)
- *     PpmEventVetoReasonRundown @ 0x14059C3F4 (PpmEventVetoReasonRundown.c)
- *     PpmEventQosClassPolicyV1 @ 0x14067EAF0 (PpmEventQosClassPolicyV1.c)
- *     PpmEventQosSupport @ 0x1407EA83C (PpmEventQosSupport.c)
- *     PpmEventHeteroPolicy @ 0x14082EF40 (PpmEventHeteroPolicy.c)
- *     PpmEventTraceHeteroSets @ 0x14082EFC4 (PpmEventTraceHeteroSets.c)
- *     PpmEventTraceProfiles @ 0x14084AF70 (PpmEventTraceProfiles.c)
- *     PpmInfoTraceProfileSettings @ 0x14099308C (PpmInfoTraceProfileSettings.c)
- *     PpmEventEnergyEstimationRundown @ 0x1409988D8 (PpmEventEnergyEstimationRundown.c)
- *     PpmEventStaticPolicyRundown @ 0x140998AC4 (PpmEventStaticPolicyRundown.c)
- *     PpmEventTraceAccountingBucketIntervalsRundown @ 0x140998CA0 (PpmEventTraceAccountingBucketIntervalsRundown.c)
- *     PpmEventTraceCoordinatedIdleStates @ 0x140998D78 (PpmEventTraceCoordinatedIdleStates.c)
- *     PpmEventTraceParkNodeRundown @ 0x140998FDC (PpmEventTraceParkNodeRundown.c)
- *     PpmEventTracePlatformIdleAccounting @ 0x140999120 (PpmEventTracePlatformIdleAccounting.c)
- *     PpmEventTracePpmProfileStatusRundown @ 0x140999368 (PpmEventTracePpmProfileStatusRundown.c)
- *     PpmEventTraceProcessorIdle @ 0x1409993F8 (PpmEventTraceProcessorIdle.c)
- *     PpmEventTraceProcessorPerformance @ 0x14099961C (PpmEventTraceProcessorPerformance.c)
- *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x1409999E0 (PpmEventTraceProcessorPerformanceDomainRundown.c)
- *     PpmEventTraceProcessorPerformanceRundownHv @ 0x140999C7C (PpmEventTraceProcessorPerformanceRundownHv.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PpmEventPlatformVetoRundown @ 0x14057A000 (PpmEventPlatformVetoRundown.c)
+ *     PpmEventProcessorVetoRundown @ 0x14057A31C (PpmEventProcessorVetoRundown.c)
+ *     PpmEventTraceLPIState @ 0x14057A97C (PpmEventTraceLPIState.c)
+ *     PpmEventQosSupport @ 0x14078B650 (PpmEventQosSupport.c)
+ *     PpmEventHeteroPolicy @ 0x1407BB838 (PpmEventHeteroPolicy.c)
+ *     PpmEventTraceProfiles @ 0x1407C6134 (PpmEventTraceProfiles.c)
+ *     PpmInfoTraceProfileSettings @ 0x1408F09A0 (PpmInfoTraceProfileSettings.c)
+ *     PpmEventStaticPolicyRundown @ 0x1408F2D04 (PpmEventStaticPolicyRundown.c)
+ *     PpmEventTraceAccountingBucketIntervalsRundown @ 0x1408F2E70 (PpmEventTraceAccountingBucketIntervalsRundown.c)
+ *     PpmEventTraceCoordinatedIdleStates @ 0x1408F2F48 (PpmEventTraceCoordinatedIdleStates.c)
+ *     PpmEventTraceParkNodeRundown @ 0x1408F31C4 (PpmEventTraceParkNodeRundown.c)
+ *     PpmEventTracePlatformIdleAccounting @ 0x1408F32F0 (PpmEventTracePlatformIdleAccounting.c)
+ *     PpmEventTracePpmProfileStatusRundown @ 0x1408F3550 (PpmEventTracePpmProfileStatusRundown.c)
+ *     PpmEventTraceProcessorIdle @ 0x1408F35E0 (PpmEventTraceProcessorIdle.c)
+ *     PpmEventTraceProcessorPerformance @ 0x1408F3810 (PpmEventTraceProcessorPerformance.c)
+ *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x1408F3BB8 (PpmEventTraceProcessorPerformanceDomainRundown.c)
+ *     PpmEventTraceProcessorPerformanceRundownHv @ 0x1408F3E34 (PpmEventTraceProcessorPerformanceRundownHv.c)
+ *     PpmEventVetoReasonRundown @ 0x1408F40BC (PpmEventVetoReasonRundown.c)
  */
 
 void __fastcall PpmEventTraceControlCallback(
@@ -51,59 +45,55 @@ void __fastcall PpmEventTraceControlCallback(
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  __int64 v12; // rcx
   unsigned int k; // ebx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // rbx
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  unsigned __int16 *v34; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v35; // [rsp+28h] [rbp-18h]
-  __int16 v36; // [rsp+30h] [rbp-10h]
-  int v37; // [rsp+32h] [rbp-Eh]
-  __int16 v38; // [rsp+36h] [rbp-Ah]
-  unsigned int v39; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // rbx
+  unsigned __int16 *v33; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v34; // [rsp+28h] [rbp-18h]
+  __int16 v35; // [rsp+30h] [rbp-10h]
+  int v36; // [rsp+32h] [rbp-Eh]
+  __int16 v37; // [rsp+36h] [rbp-Ah]
+  unsigned int v38; // [rsp+78h] [rbp+38h] BYREF
 
   if ( (ControlCode & 0xFFFFFFFD) == 0 )
   {
+    v36 = 0;
     v37 = 0;
     v38 = 0;
-    v39 = 0;
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-    v35 = qword_140D1EFE8[0];
-    v36 = 0;
-    v34 = (unsigned __int16 *)KeActiveProcessors;
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v39, &v34) )
+    v34 = qword_140CFC848[0];
+    v35 = 0;
+    v33 = (unsigned __int16 *)KeActiveProcessors;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v38, &v33) )
     {
-      Prcb = KeGetPrcb(v39);
+      Prcb = KeGetPrcb(v38);
       PpmEventTraceProcessorPerformance(Prcb);
     }
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
       if ( ControlCode == 2 )
-      {
         PpmEventTraceProcessorPerformanceDomainRundown(i);
-        PpmEventQosClassPolicyV1(i, 1);
-      }
-      for ( j = 0; j < *(_DWORD *)(i + 296); ++j )
+      for ( j = 0; j < *(_DWORD *)(i + 200); ++j )
       {
-        v8 = *(_QWORD *)(i + 312) + 144LL * j;
+        v8 = *(_QWORD *)(i + 216) + 136LL * j;
         if ( *(_DWORD *)(v8 + 16) == 1 )
           PpmEventTraceProcessorPerformanceRundownHv(*(_QWORD *)v8);
       }
@@ -114,46 +104,37 @@ void __fastcall PpmEventTraceControlCallback(
       PpmEventStaticPolicyRundown(v10, v9, v11);
       PpmEventQosSupport(1);
       PpmEventHeteroPolicy(1);
-      LOBYTE(v12) = 1;
-      PpmEventTraceHeteroSets(v12);
-      if ( PpmHeteroHgsEnabled || PpmHeteroHgsThreadEnabled )
-      {
-        PpmEventHgsHardwareTable(1);
-        PpmEventHgsNormalizedTable();
-      }
     }
     for ( k = 0; k < PpmParkNumNodes; ++k )
-      PpmEventTraceParkNodeRundown(PpmParkNodes + 192LL * k);
+      PpmEventTraceParkNodeRundown(PpmParkNodes + 272LL * k);
     PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
-    PpmEventTracePpmProfileStatusRundown(v15, v14, v16);
+    PpmEventTracePpmProfileStatusRundown(v14, v13, v15);
     PpmEventTraceProfiles(1);
     if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN) )
-      PpmInfoTraceProfileSettings(v18, v17, v19);
-    PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
+      PpmInfoTraceProfileSettings(v17, v16, v18);
+    PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
     PpmReleaseLock(&PpmPerfPolicyLock);
     if ( ControlCode == 2 )
     {
-      PpmEventTraceAccountingBucketIntervalsRundown(v21, v20, v22);
+      PpmEventTraceAccountingBucketIntervalsRundown(v20, v19, v21);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquirePushLockSharedEx((ULONG_PTR)&PpmIdlePolicyLock, 0LL);
-      PpmEventTraceCoordinatedIdleStates(v25, v24, v26);
-      PpmEventTracePlatformIdleAccounting(v28, v27, v29);
-      PpmEventVetoReasonRundown();
+      PpmEventTraceCoordinatedIdleStates(v24, v23, v25);
+      PpmEventTracePlatformIdleAccounting(v27, v26, v28);
+      PpmEventVetoReasonRundown(v30, v29, v31);
       PpmEventPlatformVetoRundown();
-      v35 = qword_140D1EFE8[0];
-      v36 = 0;
-      v34 = (unsigned __int16 *)KeActiveProcessors;
-      while ( !(unsigned int)KeEnumerateNextProcessor(&v39, &v34) )
+      v34 = qword_140CFC848[0];
+      v35 = 0;
+      v33 = (unsigned __int16 *)KeActiveProcessors;
+      while ( !(unsigned int)KeEnumerateNextProcessor(&v38, &v33) )
       {
-        v30 = KeGetPrcb(v39);
-        PpmEventProcessorVetoRundown(v30);
-        PpmEventTraceProcessorIdle(v30);
+        v32 = KeGetPrcb(v38);
+        PpmEventProcessorVetoRundown(v32);
+        PpmEventTraceProcessorIdle(v32);
       }
       PopExecuteOnTargetProcessors((__int64)KeActiveProcessors, (__int64)PpmEventTraceProcessorIdleAccounting, 0LL, 0LL);
-      PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
-      if ( (unsigned __int8)PoEnergyEstimationEnabled() )
-        PpmEventEnergyEstimationRundown(v32, v31, v33);
+      PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
     }
   }
 }

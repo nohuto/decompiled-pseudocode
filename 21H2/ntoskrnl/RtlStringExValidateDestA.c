@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringExValidateDestA @ 0x1403DCCB0
+ * XREFs of RtlStringExValidateDestA @ 0x1403CD808
  * Callers:
- *     RtlStringCbCopyExA @ 0x1403DCC38 (RtlStringCbCopyExA.c)
- *     RtlStringCbPrintfExA @ 0x140502744 (RtlStringCbPrintfExA.c)
+ *     RtlStringCbCopyExA @ 0x1403CD790 (RtlStringCbCopyExA.c)
+ *     RtlStringCbPrintfExA @ 0x1404B6184 (RtlStringCbPrintfExA.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of AdtpBuildMessageString @ 0x140845214
+ * XREFs of AdtpBuildMessageString @ 0x1407B8C90
  * Callers:
- *     AdtpPackageParameters @ 0x1403CC5E8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
  * Callees:
- *     StringCchPrintfW @ 0x1402511F0 (StringCchPrintfW.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, char *a6)
 {
   __int64 v8; // rax
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rbx
   char v10; // al
   __int64 v11; // rax
   __int64 result; // rax
@@ -21,23 +21,23 @@ __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a
   v8 = (unsigned int)*a5;
   if ( (unsigned int)(v8 + 13) >= 0x400 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, 26LL, 1799447891LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1AuLL, 0x6B416553u);
+    if ( !PoolWithTag )
       return 3221225495LL;
     v10 = 1;
   }
   else
   {
-    Pool2 = (void *)(a4 + 2 * v8);
+    PoolWithTag = (PVOID)(a4 + 2 * v8);
     *a5 = v8 + 13;
     v10 = 0;
   }
   *a6 = v10;
-  if ( StringCchPrintfW((STRSAFE_LPWSTR)Pool2, 0xDuLL, L"%%%%%u", a1) < 0 )
+  if ( StringCchPrintfW((STRSAFE_LPWSTR)PoolWithTag, 0xDuLL, L"%%%%%u", a1) < 0 )
   {
     if ( *a6 == 1 )
     {
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
       *a6 = 0;
     }
     return 3221225485LL;
@@ -45,8 +45,8 @@ __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a
   v11 = -1LL;
   do
     ++v11;
-  while ( *((_WORD *)Pool2 + v11) );
-  *(_QWORD *)a3 = Pool2;
+  while ( *((_WORD *)PoolWithTag + v11) );
+  *(_QWORD *)a3 = PoolWithTag;
   *(_DWORD *)(a3 + 8) = 2 * v11 + 2;
   result = 0LL;
   *(_DWORD *)(a3 + 12) = 0;

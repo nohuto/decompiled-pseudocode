@@ -1,246 +1,245 @@
 /*
- * XREFs of HMFreeObject @ 0x1C004F310
+ * XREFs of HMFreeObject @ 0x1C0009390
  * Callers:
- *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0012434 (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
- *     HMDestroyObject @ 0x1C0064C30 (HMDestroyObject.c)
- *     DestroyMonitor @ 0x1C00A04C0 (DestroyMonitor.c)
- *     DestroyKL @ 0x1C00BFE78 (DestroyKL.c)
- *     DestroyKF @ 0x1C00BFF3C (DestroyKF.c)
- *     UserCreateBaseWindowHandle @ 0x1C014F190 (UserCreateBaseWindowHandle.c)
+ *     DestroyKL @ 0x1C0008728 (DestroyKL.c)
+ *     DestroyKF @ 0x1C00087B8 (DestroyKF.c)
+ *     DestroyMonitor @ 0x1C0008F50 (DestroyMonitor.c)
+ *     HMDestroyObject @ 0x1C0009350 (HMDestroyObject.c)
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C006A210 (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
  * Callees:
- *     UnlockObjectAssignment @ 0x1C0038710 (UnlockObjectAssignment.c)
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C004F94C (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
- *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C004FDA8 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C005CD00 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C00C3D50 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00DFACC (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     HMCleanupGrantedHandle @ 0x1C012C968 (HMCleanupGrantedHandle.c)
+ *     EtwTraceUserDestroyHandle @ 0x1C000998C (EtwTraceUserDestroyHandle.c)
+ *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C002C1F4 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0033100 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C003492C (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     HMUnlockObjectWorker @ 0x1C0046BE0 (HMUnlockObjectWorker.c)
+ *     UnlockObjectAssignment @ 0x1C0047380 (UnlockObjectAssignment.c)
+ *     SharedFree @ 0x1C0093DD0 (SharedFree.c)
+ *     Feature_Servicing_win32k_timers_bugcheck__private_IsEnabledDeviceUsage @ 0x1C00C71A8 (Feature_Servicing_win32k_timers_bugcheck__private_IsEnabledDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?HMDoubleFree@@YAXPEAX@Z @ 0x1C0113CA0 (-HMDoubleFree@@YAXPEAX@Z.c)
+ *     HMCleanupGrantedHandle @ 0x1C0113F88 (HMCleanupGrantedHandle.c)
  */
 
-__int64 __fastcall HMFreeObject(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HMFreeObject(_DWORD *a1)
 {
-  char v4; // r15
-  __int64 v6; // r13
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _QWORD *v11; // r14
-  char *v12; // rbx
-  __int64 v13; // rsi
-  __int64 v14; // rdx
-  unsigned __int16 v15; // bp
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  char EtwUserHandleType; // r12
-  void **v21; // rcx
-  char v22; // al
+  __int64 v2; // r14
+  __int64 v3; // r8
+  void *v4; // rdx
+  char *v5; // rdi
+  char *BugCheckParameter4; // rsi
+  __int64 v7; // rcx
+  unsigned __int16 v8; // bp
+  unsigned int v9; // eax
+  __int64 v10; // r8
+  unsigned int EtwUserHandleType; // eax
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  unsigned __int64 v14; // r8
+  __int64 v15; // rcx
+  bool v16; // zf
+  _DWORD *v17; // r8
+  void *v18; // rcx
+  unsigned __int8 v19; // dl
+  unsigned __int8 v20; // al
+  void *v21; // rcx
+  __int16 v22; // cx
   __int16 v23; // ax
-  __int64 v24; // rbx
-  PVOID *v26; // r15
-  unsigned int *v27; // r8
-  PVOID *v28; // rcx
-  void *v29; // r8
-  void *v30; // rdx
-  __int64 v31; // r8
-  _DWORD *v32; // rax
-  int v33; // r8d
-  void *v34; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v24; // rdi
+  __int64 v26; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v27; // [rsp+70h] [rbp+8h] BYREF
 
-  v4 = 0;
-  v6 = 0LL;
-  if ( !gbInDestroyHandleTableObjects
-    && !IS_USERCRIT_OWNED_EXCLUSIVE((__int64)a1, a2, a3, a4)
-    && (!IS_USERCRIT_OWNED_AT_ALL(v8, v7, v9, v10)
-     || !tagDomLock::IsLockedExclusive((tagDomLock *)&gDomainHandleManagerLock)) )
+  v2 = 0LL;
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(&v26);
+  v3 = (unsigned int)*a1;
+  v4 = &unk_1C020946C;
+  v5 = (char *)qword_1C024FA38 + dword_1C024FA40 * (unsigned int)(unsigned __int16)v3;
+  BugCheckParameter4 = (char *)gpKernelHandleTable + 24 * (unsigned __int16)v3;
+  v7 = (unsigned __int8)v5[24];
+  v8 = *((_WORD *)&unk_1C020946C + 12 * v7);
+  v9 = a1[2];
+  if ( v9 )
   {
-    __int2c();
-  }
-  v11 = gpKernelHandleTable;
-  v12 = (char *)qword_1C028FE68 + dword_1C028FE70 * (unsigned int)(unsigned __int16)*a1;
-  v13 = 3LL * (unsigned __int16)*a1;
-  v14 = (unsigned __int8)v12[24];
-  v15 = *((_WORD *)&unk_1C024292C + 12 * v14);
-  if ( a1[2] )
-  {
-    if ( (unsigned int)v14 > 0xC )
+    if ( (_BYTE)v7 )
     {
-      if ( (unsigned int)v14 > 0x12 )
+      switch ( (_BYTE)v7 )
       {
-        if ( (_DWORD)v14 == 19 )
-        {
-          v31 = 1863LL;
-        }
-        else
-        {
-          if ( (_DWORD)v14 != 22 )
-            goto LABEL_57;
-          v31 = 1872LL;
-        }
+        case 0xD:
+          v10 = 1859LL;
+          break;
+        case 0x13:
+          v10 = 1868LL;
+          break;
+        case 0x16:
+          v10 = 1877LL;
+          break;
+        default:
+          KeBugCheckEx(0x164u, 0x1CuLL, (ULONG_PTR)a1, v9, (unsigned __int8)v5[24]);
       }
-      else
-      {
-        if ( (_DWORD)v14 != 13 )
-          goto LABEL_57;
-        v31 = 1854LL;
-      }
-      LODWORD(v34) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, v31);
+      LODWORD(v27) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, v10);
     }
-    else if ( (unsigned int)v14 > 5 || (_BYTE)v14 )
+    LOBYTE(v7) = v5[24];
+    if ( !(_BYTE)v7 )
+      HMDoubleFree((ULONG_PTR)a1);
+  }
+  if ( *((_QWORD *)BugCheckParameter4 + 2) )
+  {
+    LODWORD(v27) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1920LL);
+    LOBYTE(v7) = v5[24];
+  }
+  if ( (_BYTE)v7 == 16 )
+  {
+    if ( (a1[12] & 0x1000) == 0 )
     {
-LABEL_57:
-      KeBugCheckEx(0x164u, 0x1CuLL, (ULONG_PTR)a1, a1[2], (unsigned __int8)v12[24]);
+      LODWORD(v27) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1924LL);
     }
-    if ( !v12[24] )
-      KeBugCheckEx(0x164u, 0x1BuLL, (ULONG_PTR)a1, 0LL, 0LL);
+    if ( *((_QWORD *)a1 + 9) != *((_QWORD *)a1 + 10) )
+    {
+      LODWORD(v27) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1925LL);
+    }
+    if ( *((_QWORD *)a1 + 7) != *((_QWORD *)a1 + 8) )
+    {
+      LODWORD(v27) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1926LL);
+    }
+    if ( *((_QWORD *)a1 + 14) != *((_QWORD *)a1 + 15) )
+    {
+      LODWORD(v27) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1927LL);
+    }
+    if ( (unsigned int)Feature_Servicing_win32k_timers_bugcheck__private_IsEnabledDeviceUsage()
+      && ((a1[12] & 0x1000) == 0
+       || *((_QWORD *)a1 + 9) != *((_QWORD *)a1 + 10)
+       || *((_QWORD *)a1 + 7) != *((_QWORD *)a1 + 8)
+       || *((_QWORD *)a1 + 14) != *((_QWORD *)a1 + 15)) )
+    {
+      KeBugCheckEx(0x164u, 0x1FuLL, (ULONG_PTR)a1, (ULONG_PTR)v5, (ULONG_PTR)BugCheckParameter4);
+    }
   }
-  if ( v11[v13 + 2] )
+  if ( gbInDestroyHandleTableObjects )
   {
-    LODWORD(v34) = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1915LL);
-  }
-  if ( (v15 & 2) != 0 )
-  {
-    v16 = v11[v13 + 1];
+    --giheCount;
+    LOBYTE(v7) = v5[24];
+    EtwUserHandleType = GetEtwUserHandleType(v7, v4, v3);
+    v12 = 0LL;
   }
   else
   {
-    if ( (v15 & 1) == 0 )
+    if ( (v8 & 2) != 0 )
     {
-      v16 = 0LL;
-      goto LABEL_10;
+      v13 = *((_QWORD *)BugCheckParameter4 + 1);
     }
-    v16 = *(_QWORD *)(v11[v13 + 1] + 424LL);
-  }
-  if ( v16 )
-    --*(_DWORD *)(v16 + 68);
-LABEL_10:
-  --giheCount;
-  if ( v16 )
-    v4 = (unsigned __int8)PsGetProcessId(*(PEPROCESS *)v16) & 0xFC;
-  LOBYTE(v16) = v12[24];
-  EtwUserHandleType = GetEtwUserHandleType(v16);
-  v21 = (void **)v11[v13];
-  v34 = *v21;
-  if ( (Microsoft_Windows_Win32kEnableBits & 0x20000000000LL) != 0 )
-  {
-    v32 = (_DWORD *)SGDGetUserSessionState(v21, v17, v18, v19);
-    McTemplateK0pqqq_EtwWriteTransfer(
-      *v32,
-      (unsigned int)&UserDestroyHandle,
-      v33,
-      (_DWORD)v34,
-      EtwUserHandleType,
-      *v32,
-      v4);
-  }
-  if ( (v12[25] & 0x20) != 0 )
-  {
-    HMCleanupGrantedHandle(*(_QWORD *)v11[v13]);
-    v12[25] &= ~0x20u;
-  }
-  if ( (v15 & 0x10) == 0 )
-  {
-    if ( (v15 & 0x40) != 0 )
+    else if ( (v8 & 1) != 0 )
     {
-      v29 = (void *)*((_QWORD *)a1 + 5);
-      if ( v29 )
-      {
-        RtlFreeHeap(gpvSharedAlloc, 0, v29);
-        HMFreeUserOrIsolatedType(v15, v12[24], a1);
-      }
-      else
-      {
-        RtlFreeHeap(gpvSharedAlloc, 0, a1);
-      }
-      goto LABEL_24;
-    }
-    v22 = v12[24];
-    if ( v22 == 19 )
-    {
-      v28 = *(PVOID **)(v11[v13] + 32LL);
+      v13 = *(_QWORD *)(*((_QWORD *)BugCheckParameter4 + 1) + 424LL);
     }
     else
     {
-      if ( v22 != 22 )
-      {
-        if ( (v15 & 0x100) != 0 )
-        {
-          v34 = (void *)*((_QWORD *)a1 + 3);
-          UnlockObjectAssignment(&v34);
-        }
-        if ( (v15 & 0x200) != 0 )
-          HMFreeIsolatedType(v12[24], a1);
-        else
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
-        goto LABEL_24;
-      }
-      v6 = *(_QWORD *)(v11[v13] + 16LL);
-      v28 = *(PVOID **)(v6 + 32);
+      v13 = 0LL;
     }
-LABEL_41:
-    ObfDereferenceObject(v28);
-    goto LABEL_24;
+    if ( v13 )
+      --*(_DWORD *)(v13 + 68);
+    --giheCount;
+    if ( v13 )
+      v14 = (unsigned __int64)PsGetProcessId(*(PEPROCESS *)v13) & 0xFFFFFFFC;
+    else
+      v14 = 0LL;
+    LOBYTE(v13) = v5[24];
+    EtwUserHandleType = GetEtwUserHandleType(v13, v4, v14);
   }
-  v26 = (PVOID *)*((_QWORD *)a1 + 3);
-  *((_QWORD *)a1 + 3) = 0LL;
-  if ( (v12[25] & 0x40) != 0 )
+  EtwTraceUserDestroyHandle(**(_QWORD **)BugCheckParameter4, EtwUserHandleType, v12);
+  if ( (v5[25] & 0x20) != 0 )
   {
-    v30 = (void *)*((_QWORD *)a1 + 5);
-    if ( v30 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v30);
-    HMFreeUserOrIsolatedType(v15, v12[24], a1);
+    HMCleanupGrantedHandle(**(_QWORD **)BugCheckParameter4);
+    v5[25] &= ~0x20u;
+  }
+  if ( (v8 & 0x10) != 0 )
+  {
+    v15 = *((_QWORD *)a1 + 3);
+    *((_QWORD *)a1 + 3) = 0LL;
+    v16 = (v5[25] & 0x40) == 0;
+    v27 = v15;
+    if ( v16 )
+    {
+      v17 = (_DWORD *)*((_QWORD *)a1 + 5);
+      if ( !v17 || v17 == a1 )
+      {
+        RtlFreeHeap(*(PVOID *)(v15 + 128), 0, a1);
+        goto LABEL_52;
+      }
+      RtlFreeHeap(*(PVOID *)(v15 + 128), 0, v17);
+    }
+    else
+    {
+      Win32FreePool(*((_QWORD *)a1 + 5));
+    }
+    HMFreeUserOrIsolatedType(v8, v5[24], a1);
+LABEL_52:
+    UnlockObjectAssignment(&v27);
+    goto LABEL_66;
+  }
+  if ( (v8 & 0x40) != 0 )
+  {
+    v18 = (void *)*((_QWORD *)a1 + 5);
+    if ( !v18 )
+    {
+      SharedFree(a1);
+      goto LABEL_66;
+    }
+    SharedFree(v18);
+    v19 = v5[24];
+    goto LABEL_62;
+  }
+  v20 = v5[24];
+  if ( v20 == 19 )
+  {
+    v21 = *(void **)(*(_QWORD *)BugCheckParameter4 + 32LL);
   }
   else
   {
-    v27 = (unsigned int *)*((_QWORD *)a1 + 5);
-    if ( !v27 || v27 == a1 )
+    if ( v20 != 22 )
     {
-      RtlFreeHeap(v26[17], 0, a1);
+      if ( (v8 & 0x100) != 0 )
+      {
+        v27 = *((_QWORD *)a1 + 3);
+        UnlockObjectAssignment(&v27);
+        v20 = v5[24];
+      }
+      v19 = v20;
+LABEL_62:
+      HMFreeUserOrIsolatedType(v8, v19, a1);
+      goto LABEL_66;
     }
-    else
-    {
-      RtlFreeHeap(v26[17], 0, v27);
-      if ( (v15 & 0x200) != 0 )
-        HMFreeIsolatedType(v12[24], a1);
-      else
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
-    }
+    v2 = *(_QWORD *)(*(_QWORD *)BugCheckParameter4 + 16LL);
+    v21 = *(void **)(v2 + 32);
   }
-  if ( v26 )
-  {
-    v28 = v26;
-    goto LABEL_41;
-  }
-LABEL_24:
-  v23 = (*((_WORD *)v12 + 13) + 1) & 0x7FFF;
-  if ( v23 == 0x7FFF )
-    v23 = 1;
-  *(_OWORD *)v12 = 0LL;
-  *((_OWORD *)v12 + 1) = 0LL;
-  *(_OWORD *)&v11[v13] = 0LL;
-  v11[v13 + 2] = 0LL;
-  *((_WORD *)v12 + 13) = v23;
-  v24 = (v12 - (char *)qword_1C028FE68) >> 5;
+  ObfDereferenceObject(v21);
+LABEL_66:
+  v22 = *((_WORD *)v5 + 13) + 1;
+  *(_OWORD *)v5 = 0LL;
+  *((_OWORD *)v5 + 1) = 0LL;
+  *(_OWORD *)BugCheckParameter4 = 0LL;
+  *((_QWORD *)BugCheckParameter4 + 2) = 0LL;
+  v23 = 1;
+  if ( v22 != -1 )
+    v23 = v22;
+  *((_WORD *)v5 + 13) = v23;
+  v24 = (v5 - (char *)qword_1C024FA38) >> 5;
   if ( (v24 & 1) != 0 )
   {
-    v11[v13] = qword_1C028FDB0;
-    qword_1C028FDB0 = v24;
+    *(_QWORD *)BugCheckParameter4 = qword_1C024ECF0;
+    qword_1C024ECF0 = v24;
   }
   else
   {
-    v11[v13] = qword_1C028FDA8;
-    qword_1C028FDA8 = v24;
+    *(_QWORD *)BugCheckParameter4 = qword_1C024ECE8;
+    qword_1C024ECE8 = v24;
   }
-  if ( !gbInDestroyHandleTableObjects && v6 )
-    HMUnlockObject(v6);
+  if ( !gbInDestroyHandleTableObjects && v2 )
+    HMUnlockObjectWorker(v2);
   return 1LL;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpNewDeviceNodeDependencyCheck @ 0x1406EB74C
+ * XREFs of PnpNewDeviceNodeDependencyCheck @ 0x1406EB72C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
  *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipNotifyDeviceDependencyList @ 0x1406EB7C0 (PipNotifyDeviceDependencyList.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x1406EB830 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x1406EB940 (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipNotifyDeviceDependencyList @ 0x1406EB7A0 (PipNotifyDeviceDependencyList.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406EB810 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1406EB920 (PipAddtoRebuildPowerRelationsQueue.c)
  */
 
 void __fastcall PnpNewDeviceNodeDependencyCheck(__int64 a1)

@@ -1,23 +1,21 @@
 /*
- * XREFs of NtGdiGetEntry @ 0x1C0158BA0
+ * XREFs of NtGdiGetEntry @ 0x1C00AB2B0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0044030 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
-__int64 __fastcall NtGdiGetEntry(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall NtGdiGetEntry(unsigned int a1, unsigned __int64 a2)
 {
-  unsigned int v3; // edi
-  GdiHandleEntryDirectory **v4; // rbx
-  unsigned int v5; // eax
-  struct _ENTRY *Entry; // rdx
+  GdiHandleManager *v3; // rbx
+  unsigned int v4; // eax
+  struct _ENTRY *Entry; // r8
 
-  v3 = a1;
-  v4 = *(GdiHandleEntryDirectory ***)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 8008LL);
-  v5 = GdiHandleManager::DecodeIndex(v4, v3);
-  Entry = GdiHandleEntryDirectory::GetEntry(v4[2], v5, 0);
+  v3 = gpHandleManager;
+  v4 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, a1);
+  Entry = GdiHandleEntryDirectory::GetEntry(*((GdiHandleEntryDirectory **)v3 + 2), v4, 0);
   if ( !Entry )
     return 3221225473LL;
   if ( a2 + 24 > MmUserProbeAddress || a2 + 24 <= a2 )

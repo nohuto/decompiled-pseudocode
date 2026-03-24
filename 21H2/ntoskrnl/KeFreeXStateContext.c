@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFreeXStateContext @ 0x14022E9C8
+ * XREFs of KeFreeXStateContext @ 0x1402C2E00
  * Callers:
- *     KeRestoreExtendedAndSupervisorState @ 0x14022E848 (KeRestoreExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x140AA1A74 (VfCtxInit.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1402C2C98 (KeRestoreExtendedAndSupervisorState.c)
+ *     VfCtxInit @ 0x1409E416C (VfCtxInit.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeFreeXStateContext(__int64 a1)

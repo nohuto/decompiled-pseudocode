@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z @ 0x1801AC470
+ * XREFs of ?SyncIndirectSwapchainRenderTargetCreate@CChannel@@UEAAJIPEAXU_LUID@@I@Z @ 0x1801510C0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x1801AC3B4 (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x180151004 (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::SyncIndirectSwapchainRenderTargetCreate(
@@ -34,7 +34,7 @@ __int64 __fastcall CChannel::SyncIndirectSwapchainRenderTargetCreate(
   CChannel::CheckHandle((__int64)this, a2, 84);
   v9 = a5;
   CChannel::CheckHandle((__int64)this, a5, 195);
-  v16[0] = 179;
+  v16[0] = 189;
   v20 = 0;
   v16[1] = a2;
   v17 = a3;
@@ -44,13 +44,13 @@ __int64 __fastcall CChannel::SyncIndirectSwapchainRenderTargetCreate(
   v12 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x84Cu);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x829u, 0LL);
   }
   else
   {
     v12 = v15;
     if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v15, 0x84Eu);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v15, 0x82Bu, 0LL);
   }
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v21);
   return v12;

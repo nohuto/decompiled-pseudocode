@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CChannelGroup@DirectComposition@@QEAAJXZ @ 0x1C008119C
+ * XREFs of ?Initialize@CChannelGroup@DirectComposition@@QEAAJXZ @ 0x1C00ADCC4
  * Callers:
- *     ?Initialize@CConnection@DirectComposition@@AEAAJXZ @ 0x1C0081098 (-Initialize@CConnection@DirectComposition@@AEAAJXZ.c)
+ *     ?Initialize@CConnection@DirectComposition@@AEAAJXZ @ 0x1C00ADAF8 (-Initialize@CConnection@DirectComposition@@AEAAJXZ.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall DirectComposition::CChannelGroup::Initialize(DirectComposition::CChannelGroup *this)
@@ -14,18 +14,17 @@ __int64 __fastcall DirectComposition::CChannelGroup::Initialize(DirectCompositio
   struct _ERESOURCE *v3; // rbx
   NTSTATUS v4; // edi
 
-  v2 = (struct _ERESOURCE *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                              gpLeakTrackingAllocator,
-                              68LL,
-                              0x68uLL,
-                              0x73634344u);
+  v2 = (struct _ERESOURCE *)Win32AllocPoolNonPaged(104LL, 0x73634344u);
   v3 = v2;
   if ( v2 )
-  {
     memset(v2, 0, sizeof(struct _ERESOURCE));
+  else
+    v3 = 0LL;
+  if ( v3 )
+  {
     v4 = ExInitializeResourceLite(v3);
     if ( v4 < 0 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
+      Win32FreePool((__int64)v3);
     else
       *((_QWORD *)this + 7) = v3;
   }

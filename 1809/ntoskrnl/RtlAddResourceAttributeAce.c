@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlAddResourceAttributeAce @ 0x140892A50
+ * XREFs of RtlAddResourceAttributeAce @ 0x140892A30
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     RtlUShortAdd @ 0x14011CDFC (RtlUShortAdd.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
  *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140892F10 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpValidAttributeInfo @ 0x1408934A0 (RtlpValidAttributeInfo.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140892EF0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpValidAttributeInfo @ 0x140893480 (RtlpValidAttributeInfo.c)
  */
 
 __int64 __fastcall RtlAddResourceAttributeAce(

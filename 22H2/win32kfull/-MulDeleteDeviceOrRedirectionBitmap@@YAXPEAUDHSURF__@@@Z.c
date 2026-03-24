@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MulDeleteDeviceOrRedirectionBitmap@@YAXPEAUDHSURF__@@@Z @ 0x1C02AF400
+ * XREFs of ?MulDeleteDeviceOrRedirectionBitmap@@YAXPEAUDHSURF__@@@Z @ 0x1C02A28A0
  * Callers:
  *     <none>
  * Callees:

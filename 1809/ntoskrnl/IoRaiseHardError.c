@@ -1,5 +1,5 @@
 /*
- * XREFs of IoRaiseHardError @ 0x140283150
+ * XREFs of IoRaiseHardError @ 0x140283250
  * Callers:
  *     <none>
  * Callees:
@@ -9,12 +9,12 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KeInsertQueueApc @ 0x1400F1460 (KeInsertQueueApc.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     IopGetThreadActiveConsoleId @ 0x14081CF84 (IopGetThreadActiveConsoleId.c)
+ *     IopGetThreadActiveConsoleId @ 0x14081CF64 (IopGetThreadActiveConsoleId.c)
  */
 
 void __stdcall IoRaiseHardError(PIRP Irp, PVPB Vpb, PDEVICE_OBJECT RealDeviceObject)

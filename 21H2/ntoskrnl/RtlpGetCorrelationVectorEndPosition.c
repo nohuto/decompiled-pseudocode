@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGetCorrelationVectorEndPosition @ 0x1405EC264
+ * XREFs of RtlpGetCorrelationVectorEndPosition @ 0x14058CC14
  * Callers:
- *     RtlExtendCorrelationVector @ 0x1409BB700 (RtlExtendCorrelationVector.c)
- *     RtlValidateCorrelationVector @ 0x1409BB8C0 (RtlValidateCorrelationVector.c)
+ *     RtlExtendCorrelationVector @ 0x1409160B0 (RtlExtendCorrelationVector.c)
+ *     RtlValidateCorrelationVector @ 0x140916270 (RtlValidateCorrelationVector.c)
  * Callees:
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BBA8C (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140916434 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
 __int64 __fastcall RtlpGetCorrelationVectorEndPosition(__int64 a1, __int64 a2)

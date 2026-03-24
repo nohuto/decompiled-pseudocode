@@ -1,10 +1,10 @@
 /*
- * XREFs of InitializeSidLookupTable @ 0x1407271D8
+ * XREFs of InitializeSidLookupTable @ 0x1407271B8
  * Callers:
- *     SddlBaseInitialize @ 0x14017D05C (SddlBaseInitialize.c)
+ *     SddlBaseInitialize @ 0x14017D07C (SddlBaseInitialize.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 char InitializeSidLookupTable()

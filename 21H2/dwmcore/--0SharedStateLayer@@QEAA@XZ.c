@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0SharedStateLayer@@QEAA@XZ @ 0x1800F5D70
+ * XREFs of ??0SharedStateLayer@@QEAA@XZ @ 0x1800DEAD0
  * Callers:
  *     <none>
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18008ED70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 SharedStateLayer *__fastcall SharedStateLayer::SharedStateLayer(SharedStateLayer *this)

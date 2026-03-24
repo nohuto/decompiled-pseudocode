@@ -1,8 +1,8 @@
 /*
- * XREFs of ?OriginIdToString@InputTraceLogging@@CAPEBDW4tagINPUT_MESSAGE_ORIGIN_ID@@@Z @ 0x1C01EA4DC
+ * XREFs of ?OriginIdToString@InputTraceLogging@@CAPEBDW4tagINPUT_MESSAGE_ORIGIN_ID@@@Z @ 0x1C01B027C
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0052A60 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C00423C4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  * Callees:
  *     <none>
  */

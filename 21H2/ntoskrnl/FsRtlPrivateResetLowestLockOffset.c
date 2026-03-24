@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlPrivateResetLowestLockOffset @ 0x14021EF80
+ * XREFs of FsRtlPrivateResetLowestLockOffset @ 0x140359A00
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14021E048 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14029FA64 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x140358CEC (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140359208 (FsRtlFastUnlockSingleShared.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ __int64 __fastcall FsRtlPrivateResetLowestLockOffset(__int64 *a1)
       result = -1LL;
       goto LABEL_8;
     }
-LABEL_11:
+LABEL_10:
     for ( i = *(_QWORD *)(v5 + 8); i; i = *(_QWORD *)(i + 8) )
       v5 = i;
     v7 = (__int64 *)(v5 + 24);
@@ -45,7 +45,7 @@ LABEL_11:
   v2 = *(_QWORD *)(v3 - 24);
   v5 = a1[5];
   if ( v5 )
-    goto LABEL_11;
+    goto LABEL_10;
   v6 = (__int64 *)(v2 + 8);
 LABEL_6:
   v7 = v6;

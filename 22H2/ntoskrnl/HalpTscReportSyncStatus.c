@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscReportSyncStatus @ 0x140861BC4
+ * XREFs of HalpTscReportSyncStatus @ 0x1407D29B0
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void HalpTscReportSyncStatus()
@@ -41,17 +41,17 @@ void HalpTscReportSyncStatus()
       v3 = MaximumRegisteredProcessorCount;
       do
       {
-        v4 = *v2++;
-        if ( v4 <= v1 )
-          v4 = v1;
-        v1 = v4;
+        v4 = v1;
+        v1 = *v2++;
+        if ( v1 <= v4 )
+          v1 = v4;
         --v3;
       }
       while ( v3 );
     }
-    if ( (unsigned int)dword_140C04BB0 > 5 )
+    if ( (unsigned int)dword_140C02E38 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C04BB0, 0x400000000000LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C02E38, 0x400000000000LL) )
       {
         v12 = 0;
         v15 = 0;
@@ -66,8 +66,8 @@ void HalpTscReportSyncStatus()
         v14 = 8;
         v17 = 4;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04BB0,
-          (unsigned __int8 *)byte_1400293EB,
+          (__int64)&dword_140C02E38,
+          (unsigned __int8 *)byte_140022773,
           0LL,
           0LL,
           5u,

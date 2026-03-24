@@ -1,9 +1,9 @@
 /*
- * XREFs of MNCreateAnimationBitmap @ 0x1C021BB40
+ * XREFs of MNCreateAnimationBitmap @ 0x1C0221A10
  * Callers:
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
  */
 
 __int64 __fastcall MNCreateAnimationBitmap(HDC a1, unsigned int a2, unsigned int a3)

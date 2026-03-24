@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_SettingDevicePDChargingPolicy @ 0x1C001E400
+ * XREFs of HUBDSM_SettingDevicePDChargingPolicy @ 0x1C001DEC0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002AD00 (HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer.c)
+ *     HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002A620 (HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_SettingDevicePDChargingPolicy(__int64 a1)

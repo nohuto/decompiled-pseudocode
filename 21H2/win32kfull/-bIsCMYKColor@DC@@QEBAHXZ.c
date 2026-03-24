@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C008A518
+ * XREFs of ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C0109700
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C0028378 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     GreCreateDIBitmapReal @ 0x1C002BC78 (GreCreateDIBitmapReal.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     NtGdiGetPixel @ 0x1C008A200 (NtGdiGetPixel.c)
- *     NtGdiSetPixel @ 0x1C012EFA0 (NtGdiSetPixel.c)
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F448 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     GreCreateDIBitmapReal @ 0x1C00AC12C (GreCreateDIBitmapReal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
+ *     NtGdiGetPixel @ 0x1C01093E0 (NtGdiGetPixel.c)
+ *     NtGdiSetPixel @ 0x1C0155DE0 (NtGdiSetPixel.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
  * Callees:
  *     <none>
  */

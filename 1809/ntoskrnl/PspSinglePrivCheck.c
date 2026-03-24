@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSinglePrivCheck @ 0x1406D14F4
+ * XREFs of PspSinglePrivCheck @ 0x1406D14D4
  * Callers:
- *     PspSetQuotaLimits @ 0x1406D1118 (PspSetQuotaLimits.c)
+ *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
  * Callees:
  *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)

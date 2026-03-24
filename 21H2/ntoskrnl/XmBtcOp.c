@@ -1,9 +1,9 @@
 /*
- * XREFs of XmBtcOp @ 0x140536750
+ * XREFs of XmBtcOp @ 0x1404E6A70
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403A2E60 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmBtcOp(_DWORD *a1)

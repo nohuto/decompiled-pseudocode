@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z @ 0x1C02F0E5C
+ * XREFs of ?GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z @ 0x1C02960EC
  * Callers:
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F0FB0 (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C029624C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
  * Callees:
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C01ADE34 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01AEBD8 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C03AAC14 (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0135980 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0136844 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C02ED32C (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
  */
 
 __int64 __fastcall GetUnusedVidpnSourceId(struct CCD_TOPOLOGY *this, const struct _LUID *a2)
@@ -27,9 +27,9 @@ __int64 __fastcall GetUnusedVidpnSourceId(struct CCD_TOPOLOGY *this, const struc
   __int64 v17; // rax
   unsigned __int16 v18; // dx
   unsigned __int16 v19; // ax
-  _BYTE v21[64]; // [rsp+20h] [rbp-78h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-38h]
-  int v23; // [rsp+74h] [rbp-24h]
+  _BYTE v21[64]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v22; // [rsp+60h] [rbp-28h]
+  int v23; // [rsp+74h] [rbp-14h]
 
   CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v21, 8u, 0);
   v23 |= 1u;
@@ -64,7 +64,7 @@ __int64 __fastcall GetUnusedVidpnSourceId(struct CCD_TOPOLOGY *this, const struc
         if ( k >= v15 )
           break;
         v16 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v21, k);
-        if ( _bittest64((const signed __int64 *)v16, 0x24u)
+        if ( (*(_QWORD *)v16 & 0x1000000000LL) != 0
           && *((_DWORD *)v16 + 4) == a2->LowPart
           && *((_DWORD *)v16 + 5) == a2->HighPart
           && i == *((_DWORD *)v16 + 6) )

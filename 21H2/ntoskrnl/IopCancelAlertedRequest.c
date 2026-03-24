@@ -1,31 +1,29 @@
 /*
- * XREFs of IopCancelAlertedRequest @ 0x140661B8C
+ * XREFs of IopCancelAlertedRequest @ 0x14089108C
  * Callers:
- *     IopWaitForSynchronousIo @ 0x1402A41A4 (IopWaitForSynchronousIo.c)
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IopWaitForSynchronousIoEvent @ 0x140417B94 (IopWaitForSynchronousIoEvent.c)
- *     IopSynchronousApiServiceTail @ 0x1406BF8BC (IopSynchronousApiServiceTail.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
- *     IoSetInformation @ 0x14080AE60 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     IopWaitForSynchronousIoEvent @ 0x1403F1280 (IopWaitForSynchronousIoEvent.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     IopSynchronousApiServiceTail @ 0x140698FCC (IopSynchronousApiServiceTail.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
  * Callees:
- *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
 {
   unsigned __int8 CurrentIrql; // bl
   BOOLEAN v4; // si
+  unsigned __int8 v5; // cl
+  struct _KPRCB *v6; // r10
+  _DWORD *v7; // r8
+  int v8; // eax
+  bool v9; // zf
   NTSTATUS result; // eax
-  unsigned __int8 v6; // cl
-  struct _KPRCB *v7; // r10
-  _DWORD *v8; // r8
-  int v9; // eax
-  bool v10; // zf
   unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
@@ -46,9 +44,9 @@ NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
           v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v10 = (v14 & SchedulerAssist[5]) == 0;
+          v9 = (v14 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v14;
-          if ( v10 )
+          if ( v9 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
@@ -63,16 +61,16 @@ NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v6 = KeGetCurrentIrql();
-        if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+        v5 = KeGetCurrentIrql();
+        if ( v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
         {
-          v7 = KeGetCurrentPrcb();
-          v8 = v7->SchedulerAssist;
-          v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v10 = (v9 & v8[5]) == 0;
-          v8[5] &= v9;
-          if ( v10 )
-            KiRemoveSystemWorkPriorityKick((__int64)v7);
+          v6 = KeGetCurrentPrcb();
+          v7 = v6->SchedulerAssist;
+          v8 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v9 = (v8 & v7[5]) == 0;
+          v7[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick((__int64)v6);
         }
       }
     }

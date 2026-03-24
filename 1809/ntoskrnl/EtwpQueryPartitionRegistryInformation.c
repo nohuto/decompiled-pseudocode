@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueryPartitionRegistryInformation @ 0x140185D14
+ * XREFs of EtwpQueryPartitionRegistryInformation @ 0x140185D34
  * Callers:
- *     EtwpContainerResumeWnfCallback @ 0x1403125B0 (EtwpContainerResumeWnfCallback.c)
- *     EtwInitializeSiloState @ 0x140741454 (EtwInitializeSiloState.c)
+ *     EtwpContainerResumeWnfCallback @ 0x1403126B0 (EtwpContainerResumeWnfCallback.c)
+ *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     StringToGuidNoBrackets @ 0x140185FB4 (StringToGuidNoBrackets.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     StringToGuidNoBrackets @ 0x140185FD4 (StringToGuidNoBrackets.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlUnicodeToUTF8N @ 0x1406BF670 (RtlUnicodeToUTF8N.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
+ *     RtlUnicodeToUTF8N @ 0x1406BF650 (RtlUnicodeToUTF8N.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall EtwpQueryPartitionRegistryInformation(

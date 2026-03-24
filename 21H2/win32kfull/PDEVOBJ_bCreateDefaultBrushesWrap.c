@@ -1,9 +1,9 @@
 /*
- * XREFs of PDEVOBJ_bCreateDefaultBrushesWrap @ 0x1C0116600
+ * XREFs of PDEVOBJ_bCreateDefaultBrushesWrap @ 0x1C0129E40
  * Callers:
  *     <none>
  * Callees:
- *     ?bCreateDefaultBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C0116618 (-bCreateDefaultBrushes@PDEVOBJ@@QEAAHXZ.c)
+ *     ?bCreateDefaultBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C0129E58 (-bCreateDefaultBrushes@PDEVOBJ@@QEAAHXZ.c)
  */
 
 __int64 __fastcall PDEVOBJ_bCreateDefaultBrushesWrap(PDEVOBJ *a1)

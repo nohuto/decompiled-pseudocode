@@ -1,10 +1,9 @@
 /*
- * XREFs of WheapAddToDumpFile @ 0x140643AFC
+ * XREFs of WheapAddToDumpFile @ 0x1405BB608
  * Callers:
- *     WheaRecoveryBugCheck @ 0x1406435C0 (WheaRecoveryBugCheck.c)
- *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
  */
 
 char __fastcall WheapAddToDumpFile(__int64 a1, int a2)

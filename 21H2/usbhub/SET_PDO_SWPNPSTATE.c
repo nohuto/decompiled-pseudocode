@@ -1,13 +1,13 @@
 /*
- * XREFs of SET_PDO_SWPNPSTATE @ 0x1C0052994
+ * XREFs of SET_PDO_SWPNPSTATE @ 0x1C0053FE8
  * Callers:
- *     UsbhCreatePdo @ 0x1C0052C50 (UsbhCreatePdo.c)
- *     UsbhPdoPnp_RemoveDevice @ 0x1C0055AB0 (UsbhPdoPnp_RemoveDevice.c)
- *     UsbhPdoPnp_StartDevice @ 0x1C0055CA0 (UsbhPdoPnp_StartDevice.c)
- *     UsbhPdoPnp_StopDevice @ 0x1C00560F0 (UsbhPdoPnp_StopDevice.c)
- *     UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C0056200 (UsbhPdoPnp_SurpriseRemoveDevice.c)
+ *     UsbhCreatePdo @ 0x1C00542B4 (UsbhCreatePdo.c)
+ *     UsbhPdoPnp_RemoveDevice @ 0x1C0057150 (UsbhPdoPnp_RemoveDevice.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0057340 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhPdoPnp_StopDevice @ 0x1C00577B0 (UsbhPdoPnp_StopDevice.c)
+ *     UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C00578C0 (UsbhPdoPnp_SurpriseRemoveDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 _DWORD *__fastcall SET_PDO_SWPNPSTATE(__int64 a1, int a2, int a3)

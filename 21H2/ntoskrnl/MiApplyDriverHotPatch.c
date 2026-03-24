@@ -1,300 +1,215 @@
 /*
- * XREFs of MiApplyDriverHotPatch @ 0x140971068
+ * XREFs of MiApplyDriverHotPatch @ 0x1408C8DB4
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x140971848 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiGetSessionVm @ 0x14027B520 (MiGetSessionVm.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiSessionLookupImage @ 0x1402DBF3C (MiSessionLookupImage.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     VslApplyHotPatch @ 0x14054DBF0 (VslApplyHotPatch.c)
- *     MiFreeLoadedImportList @ 0x1406EB3D4 (MiFreeLoadedImportList.c)
- *     RtlFindExportedRoutineByName @ 0x140757F00 (RtlFindExportedRoutineByName.c)
- *     MiUnlockDriverPages @ 0x14080C400 (MiUnlockDriverPages.c)
- *     VslDetermineHotPatchUndoTableSize @ 0x140931ED4 (VslDetermineHotPatchUndoTableSize.c)
- *     VslObtainHotPatchUndoTable @ 0x1409328A8 (VslObtainHotPatchUndoTable.c)
- *     MiPrepareDriverPatchState @ 0x1409682E4 (MiPrepareDriverPatchState.c)
- *     MiActOnPatchInAllSessions @ 0x140970E00 (MiActOnPatchInAllSessions.c)
- *     MiApplyHotPatchToDriverDataPages @ 0x140971708 (MiApplyHotPatchToDriverDataPages.c)
- *     MiCheckPatchesInSupportedSections @ 0x140972A10 (MiCheckPatchesInSupportedSections.c)
- *     MiIdentifyImageDiscardablePages @ 0x14097389C (MiIdentifyImageDiscardablePages.c)
- *     MiIdentifyPatchImageDataPages @ 0x1409739A4 (MiIdentifyPatchImageDataPages.c)
- *     MiInvokePatchCallback @ 0x140973F50 (MiInvokePatchCallback.c)
- *     MiLogHotPatchOperationStatus @ 0x140974FBC (MiLogHotPatchOperationStatus.c)
- *     MiPrepareDriverForHotPatch @ 0x140976790 (MiPrepareDriverForHotPatch.c)
- *     MiAddEntryToImportList @ 0x140978260 (MiAddEntryToImportList.c)
- *     MiGetSectionStrongImageReference @ 0x14097F0F0 (MiGetSectionStrongImageReference.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x14097F690 (MiAllocateKernelCfgBitmapPageTables.c)
- *     RtlFindHotPatchBase @ 0x1409C0550 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x1409C0580 (RtlFindHotPatchInformation.c)
- *     RtlPatchContainsCallTarget @ 0x1409C0744 (RtlPatchContainsCallTarget.c)
- *     RtlValidateHotPatchBase @ 0x1409C0794 (RtlValidateHotPatchBase.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     VslApplyHotPatch @ 0x1404FBFC0 (VslApplyHotPatch.c)
+ *     MiAddEntryToImportList @ 0x140545548 (MiAddEntryToImportList.c)
+ *     MiFreeLoadedImportList @ 0x140773614 (MiFreeLoadedImportList.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x14088F684 (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x14088FFD8 (VslObtainHotPatchUndoTable.c)
+ *     MiPrepareDriverPatchState @ 0x1408C4D3C (MiPrepareDriverPatchState.c)
+ *     MiUnlockDriverPages @ 0x1408C4DC0 (MiUnlockDriverPages.c)
+ *     MiIdentifyPatchImageWritablePages @ 0x1408CA848 (MiIdentifyPatchImageWritablePages.c)
+ *     MiPrepareDriverForHotPatch @ 0x1408CD548 (MiPrepareDriverForHotPatch.c)
+ *     MiGetSectionStrongImageReference @ 0x1408D7ED0 (MiGetSectionStrongImageReference.c)
+ *     RtlFindHotPatchBase @ 0x14091AF20 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x14091AF50 (RtlFindHotPatchInformation.c)
+ *     RtlApplyHotPatch @ 0x1409B2744 (RtlApplyHotPatch.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, char a4)
+NTSTATUS __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2)
 {
-  void *v6; // r15
-  __int64 result; // rax
-  __int64 v8; // r14
-  int v9; // ecx
-  unsigned int v10; // r12d
-  unsigned int v11; // ebx
+  int v2; // eax
+  void *v5; // r14
+  NTSTATUS result; // eax
+  __int64 HotPatchInformation; // r13
+  unsigned int v8; // ecx
+  void *v9; // r15
+  int v10; // eax
+  unsigned int v11; // ecx
   unsigned int v12; // ebx
+  PVOID Pool; // rax
   int SectionStrongImageReference; // ebx
-  unsigned __int64 SessionVm; // rax
-  __int64 v15; // r13
-  int v16; // eax
-  void *v17; // rcx
-  int v18; // r14d
-  __int64 v19; // r13
-  __int64 v20; // r13
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // r13
-  int v25; // eax
-  int v26; // eax
-  int v27; // eax
-  _QWORD *v28; // rax
-  _QWORD *v29; // r8
-  BOOL v30; // [rsp+40h] [rbp-C0h] BYREF
-  int v31; // [rsp+44h] [rbp-BCh]
-  __int64 HotPatchBase; // [rsp+48h] [rbp-B8h]
-  _QWORD v33[8]; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD *v34; // [rsp+90h] [rbp-70h]
-  void *v35; // [rsp+98h] [rbp-68h]
-  unsigned __int64 v36[14]; // [rsp+A0h] [rbp-60h] BYREF
-  unsigned __int64 v37[20]; // [rsp+110h] [rbp+10h] BYREF
-  int v38; // [rsp+1C8h] [rbp+C8h]
+  void *v15; // r12
+  __int64 v16; // r8
+  __int64 v17; // r13
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  NTSTATUS v20; // eax
+  int v21; // eax
+  char v22; // [rsp+28h] [rbp-108h]
+  int v23; // [rsp+30h] [rbp-100h]
+  int v24; // [rsp+90h] [rbp-A0h]
+  int v25; // [rsp+98h] [rbp-98h]
+  __int64 v26; // [rsp+A0h] [rbp-90h]
+  unsigned __int64 v27[2]; // [rsp+B0h] [rbp-80h] BYREF
+  int v28; // [rsp+C0h] [rbp-70h]
+  __int64 v29; // [rsp+C4h] [rbp-6Ch]
+  int v30; // [rsp+CCh] [rbp-64h]
+  __int64 v31; // [rsp+D0h] [rbp-60h]
+  __int64 v32; // [rsp+D8h] [rbp-58h]
+  __int64 v33; // [rsp+E0h] [rbp-50h]
+  __int64 v34; // [rsp+E8h] [rbp-48h]
+  unsigned __int64 v35[2]; // [rsp+F0h] [rbp-40h] BYREF
+  int v36; // [rsp+100h] [rbp-30h]
+  __int64 v37; // [rsp+104h] [rbp-2Ch]
+  int v38; // [rsp+10Ch] [rbp-24h]
+  __int64 v39; // [rsp+110h] [rbp-20h]
+  __int64 v40; // [rsp+118h] [rbp-18h]
+  __int64 v41; // [rsp+120h] [rbp-10h]
+  __int64 v42; // [rsp+128h] [rbp-8h]
+  __int64 v43[10]; // [rsp+130h] [rbp+0h] BYREF
+  unsigned int v44; // [rsp+198h] [rbp+68h] BYREF
+  __int64 HotPatchBase; // [rsp+1A0h] [rbp+70h]
 
-  v30 = 0;
-  v31 = 0;
+  v2 = *(_DWORD *)(a2 + 196);
+  v37 = 0LL;
   v38 = 0;
-  v6 = 0LL;
-  memset(v33, 0, sizeof(v33));
-  if ( (*(_DWORD *)(a2 + 196) & 0x20) != 0 )
-    return 3221225496LL;
-  v33[3] = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
-  v8 = v33[3];
-  HotPatchBase = RtlFindHotPatchBase(v33[3]);
+  v40 = 0LL;
+  v5 = 0LL;
+  v42 = 0LL;
+  v29 = 0LL;
+  v30 = 0;
+  v32 = 0LL;
+  v34 = 0LL;
+  v44 = 0;
+  if ( (v2 & 0x20) != 0 )
+    return -1073741800;
+  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
+  HotPatchBase = RtlFindHotPatchBase(HotPatchInformation);
   if ( !HotPatchBase )
-    return 3221225595LL;
-  v10 = *(_DWORD *)(a1 + 64);
-  v11 = *(_DWORD *)(a2 + 64);
-  if ( !(unsigned __int8)RtlValidateHotPatchBase(v9, HotPatchBase, v11, v10) )
-    return 3221225595LL;
-  memset(v36, 0, 0x68uLL);
-  v36[0] = a2;
-  v36[1] = HotPatchBase;
-  LODWORD(v36[3]) = (v11 >> 12) + ((v11 & 0xFFF) != 0);
-  memset(v37, 0, 0x68uLL);
-  v37[0] = a1;
-  LODWORD(v37[3]) = (v10 >> 12) + ((v10 & 0xFFF) != 0);
-  if ( *(_QWORD *)(a2 + 280) )
+    return -1073741701;
+  v8 = *(_DWORD *)(a2 + 64);
+  v35[0] = a2;
+  v39 = 0LL;
+  v41 = 0LL;
+  v9 = 0LL;
+  v10 = (v8 >> 12) + ((v8 & 0xFFF) != 0);
+  v35[1] = HotPatchBase;
+  v11 = *(_DWORD *)(a1 + 64);
+  v36 = v10;
+  v27[0] = a1;
+  v27[1] = 0LL;
+  v28 = (v11 >> 12) + ((v11 & 0xFFF) != 0);
+  v31 = 0LL;
+  v33 = 0LL;
+  if ( !*(_QWORD *)(a2 + 280) )
+    goto LABEL_11;
+  result = VslDetermineHotPatchUndoTableSize(*(_QWORD *)(a2 + 48), &v44);
+  if ( result < 0 )
+    return result;
+  v12 = v44;
+  if ( !v44 )
+    goto LABEL_11;
+  Pool = MiAllocatePool(256, v44, 0x54555048u);
+  v9 = Pool;
+  if ( !Pool )
+    return -1073741670;
+  SectionStrongImageReference = VslObtainHotPatchUndoTable(*(PVOID *)(a2 + 48), (__int64)Pool, v12);
+  if ( SectionStrongImageReference >= 0 )
   {
-    result = VslDetermineHotPatchUndoTableSize(*(_QWORD *)(a2 + 48), &v30);
-    if ( (int)result < 0 )
-      return result;
-    v12 = v30;
-    if ( v30 )
+LABEL_11:
+    v15 = *(void **)(a2 + 136);
+    if ( (*(_DWORD *)(a1 + 196) & 0x20) != 0
+      || v15 == (void *)1
+      || (v5 = (void *)MiAddEntryToImportList(*(__int64 **)(a2 + 136), a1)) != 0LL )
     {
-      v33[5] = MiAllocatePool(256, v30, 0x54555048u);
-      if ( !v33[5] )
-        return 3221225626LL;
-      SectionStrongImageReference = VslObtainHotPatchUndoTable(*(PVOID *)(a2 + 48), v33[5], v12);
-      if ( SectionStrongImageReference < 0 )
+      SectionStrongImageReference = MiPrepareDriverPatchState((__int64)v35);
+      if ( SectionStrongImageReference >= 0 )
       {
-        v18 = 0;
-        goto LABEL_64;
+        SectionStrongImageReference = MiPrepareDriverPatchState((__int64)v27);
+        if ( SectionStrongImageReference >= 0 )
+        {
+          SectionStrongImageReference = MiIdentifyPatchImageWritablePages(v27);
+          if ( SectionStrongImageReference >= 0 )
+          {
+            if ( (*(_DWORD *)(a1 + 196) & 0x20) != 0
+              || (v43[1] = 0LL,
+                  v16 = *(unsigned int *)(HotPatchBase + 24),
+                  v43[0] = (__int64)MiCheckHotPatchApplicable,
+                  v43[2] = (__int64)v27,
+                  SectionStrongImageReference = RtlApplyHotPatch(
+                                                  *(_QWORD *)(v35[0] + 48),
+                                                  *(_QWORD *)(v35[0] + 48),
+                                                  0,
+                                                  0,
+                                                  0LL,
+                                                  v22,
+                                                  v23,
+                                                  *(_QWORD *)(v27[0] + 48),
+                                                  *(_QWORD *)(v27[0] + 48),
+                                                  0LL,
+                                                  0,
+                                                  0LL,
+                                                  HotPatchInformation,
+                                                  HotPatchInformation + v16,
+                                                  2,
+                                                  0LL,
+                                                  0LL,
+                                                  (__int64)v43,
+                                                  v24,
+                                                  v25,
+                                                  v26),
+                  SectionStrongImageReference >= 0) )
+            {
+              SectionStrongImageReference = MiPrepareDriverForHotPatch(v35, v27, HotPatchInformation, v9);
+              if ( SectionStrongImageReference >= 0 )
+              {
+                v17 = *(_QWORD *)(MiSectionControlArea(*(_QWORD *)(a1 + 112)) + 96);
+                SectionStrongImageReference = MiGetSectionStrongImageReference(v17, v18, v19);
+                if ( SectionStrongImageReference >= 0 )
+                {
+                  v20 = VslApplyHotPatch(
+                          *(_QWORD *)(v17 + 56),
+                          *(_QWORD *)(a1 + 112),
+                          *(_QWORD *)(a2 + 48),
+                          a2,
+                          *(_QWORD *)(a1 + 48),
+                          a1,
+                          0LL);
+                  SectionStrongImageReference = v20;
+                  if ( v20 >= 0 )
+                  {
+                    if ( v5 )
+                    {
+                      *(_QWORD *)(a2 + 136) = v5;
+                      MiFreeLoadedImportList(v15);
+                      v5 = 0LL;
+                    }
+                    *(_QWORD *)(a2 + 280) = a1;
+                    v21 = *(_DWORD *)(a1 + 196);
+                    if ( (v21 & 0x20) == 0 )
+                    {
+                      *(_QWORD *)(a1 + 280) = a2;
+                      *(_DWORD *)(a1 + 196) = v21 | 0x20;
+                    }
+                  }
+                  else if ( v20 == -1073740628 )
+                  {
+                    KeBugCheckEx(0x1Au, 0x485018uLL, *(_QWORD *)(a2 + 48), *(_QWORD *)(a1 + 48), 0LL);
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
-  }
-  if ( (a4 & 1) != 0 )
-    SessionVm = MiGetSessionVm();
-  else
-    SessionVm = (unsigned __int64)MiGetAnyMultiplexedVm(1);
-  v34 = 0LL;
-  v15 = SessionVm;
-  v16 = *(_DWORD *)(a1 + 196);
-  v17 = *(void **)(a2 + 136);
-  v35 = v17;
-  if ( (v16 & 0x20) == 0 && v17 != (void *)1 )
-  {
-    if ( (a4 & 1) != 0 )
-    {
-      v34 = MiSessionLookupImage(*(_QWORD *)(a2 + 48));
-      v17 = (void *)v34[11];
-      v35 = v17;
-    }
-    v6 = (void *)MiAddEntryToImportList(v17, a1);
-    if ( !v6 )
+    else
     {
       SectionStrongImageReference = -1073741670;
-      goto LABEL_20;
     }
   }
-  SectionStrongImageReference = MiPrepareDriverPatchState((__int64)v36, v15);
-  if ( SectionStrongImageReference < 0 )
-    goto LABEL_20;
-  SectionStrongImageReference = MiPrepareDriverPatchState((__int64)v37, v15);
-  if ( SectionStrongImageReference < 0 )
-    goto LABEL_20;
-  v19 = *(unsigned int *)(HotPatchBase + 24);
-  v33[0] = v36;
-  v20 = v8 + v19;
-  v33[4] = v20;
-  v33[1] = v37;
-  v33[2] = a3;
-  v30 = !(a4 & 1);
-  SectionStrongImageReference = MiIdentifyPatchImageDataPages(v33, !(a4 & 1));
-  if ( SectionStrongImageReference < 0 )
-    goto LABEL_20;
-  SectionStrongImageReference = MiIdentifyImageDiscardablePages(v36);
-  if ( SectionStrongImageReference < 0 )
-    goto LABEL_20;
-  if ( (*(_BYTE *)(a1 + 196) & 0x20) == 0 && (a4 & 1) != 0 )
-  {
-    SectionStrongImageReference = MiCheckPatchesInSupportedSections(v33);
-    if ( SectionStrongImageReference < 0 )
-      goto LABEL_20;
-  }
-  SectionStrongImageReference = MiPrepareDriverForHotPatch(v33);
-  if ( SectionStrongImageReference < 0 )
-    goto LABEL_20;
-  HotPatchBase = *(_QWORD *)(a3 + 96);
-  SectionStrongImageReference = MiGetSectionStrongImageReference(HotPatchBase, v21, v22, v23);
-  if ( SectionStrongImageReference < 0 )
-    goto LABEL_20;
-  if ( (*(_DWORD *)(a1 + 196) & 0x20) != 0 )
-  {
-    v24 = HotPatchBase;
-    goto LABEL_46;
-  }
-  if ( (MiFlags & 0x40000) == 0
-    || !(unsigned int)RtlPatchContainsCallTarget(v8, v20)
-    || (SectionStrongImageReference = MiAllocateKernelCfgBitmapPageTables(
-                                        *(_QWORD *)(a1 + 48),
-                                        *(unsigned int *)(a1 + 64),
-                                        0LL),
-        SectionStrongImageReference >= 0) )
-  {
-    v24 = HotPatchBase;
-    v25 = VslApplyHotPatch(
-            *(_QWORD *)(HotPatchBase + 56),
-            *(_QWORD *)(a1 + 112),
-            *(_QWORD *)(a2 + 48),
-            a2,
-            *(_QWORD *)(a1 + 48),
-            a1,
-            v30 | 2u,
-            0LL);
-    SectionStrongImageReference = v25;
-    if ( v25 < 0 )
-    {
-      if ( v25 == -1073740628 )
-        KeBugCheckEx(0x1Au, 0x485019uLL, *(_QWORD *)(a2 + 48), *(_QWORD *)(a1 + 48), 0LL);
-      goto LABEL_20;
-    }
-    SectionStrongImageReference = MiApplyHotPatchToDriverDataPages(v33);
-    if ( SectionStrongImageReference >= 0 )
-    {
-      if ( (*(_DWORD *)(a2 + 196) & 0x100) != 0 )
-        v33[6] = RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "__PatchMainCallout__");
-      if ( v33[6] )
-      {
-        LODWORD(v33[7]) = 0;
-        SectionStrongImageReference = MiInvokePatchCallback(a1, &v33[6]);
-        if ( SectionStrongImageReference < 0 )
-          goto LABEL_20;
-        v8 = v33[3];
-        v31 = 1;
-      }
-      if ( (a4 & 1) != 0 )
-      {
-        MiLogHotPatchOperationStatus(
-          *(_DWORD *)(a2 + 120),
-          *(_DWORD *)(a2 + 156),
-          a1 + 72,
-          SectionStrongImageReference,
-          3);
-        v38 = 1;
-        SectionStrongImageReference = MiActOnPatchInAllSessions(a2, a1, 0, (__int64)v33);
-        if ( SectionStrongImageReference < 0 )
-          goto LABEL_20;
-        v8 = v33[3];
-      }
-LABEL_46:
-      v26 = VslApplyHotPatch(
-              *(_QWORD *)(v24 + 56),
-              *(_QWORD *)(a1 + 112),
-              *(_QWORD *)(a2 + 48),
-              a2,
-              *(_QWORD *)(a1 + 48),
-              a1,
-              v30,
-              0LL);
-      SectionStrongImageReference = v26;
-      if ( v26 >= 0 )
-      {
-        if ( v33[6] )
-        {
-          LODWORD(v33[7]) = 1;
-          MiInvokePatchCallback(a1, &v33[6]);
-          v31 = 0;
-          if ( (a4 & 1) != 0 )
-            MiActOnPatchInAllSessions(a2, a1, 3, (__int64)&v33[6]);
-          v8 = v33[3];
-        }
-        if ( v6 )
-        {
-          if ( (a4 & 1) != 0 )
-            v34[11] = v6;
-          else
-            *(_QWORD *)(a2 + 136) = v6;
-          MiFreeLoadedImportList(v35);
-          v6 = 0LL;
-        }
-        *(_QWORD *)(a2 + 280) = a1;
-        v27 = *(_DWORD *)(a1 + 196);
-        if ( (v27 & 0x20) == 0 )
-        {
-          *(_QWORD *)(a1 + 280) = a2;
-          *(_DWORD *)(a1 + 196) = v27 | 0x20;
-          *(_DWORD *)(a1 + 312) = *(_DWORD *)(v8 + 8);
-          v28 = (_QWORD *)(a1 + 296);
-          v29 = *(_QWORD **)(a2 + 304);
-          if ( *v29 != a2 + 296 )
-            __fastfail(3u);
-          *v28 = a2 + 296;
-          *(_QWORD *)(a1 + 304) = v29;
-          *v29 = v28;
-          *(_QWORD *)(a2 + 304) = v28;
-        }
-        v18 = 0;
-        goto LABEL_64;
-      }
-      if ( v26 == -1073740628 )
-        KeBugCheckEx(0x1Au, 0x48501AuLL, *(_QWORD *)(a2 + 48), *(_QWORD *)(a1 + 48), 0LL);
-    }
-  }
-LABEL_20:
-  v18 = v38;
-LABEL_64:
-  MiUnlockDriverPages(v36);
-  MiUnlockDriverPages(v37);
-  if ( v33[5] )
-    ExFreePoolWithTag((PVOID)v33[5], 0);
-  if ( v6 )
-    MiFreeLoadedImportList(v6);
-  if ( v31 )
-  {
-    LODWORD(v33[7]) = 2;
-    MiInvokePatchCallback(a1, &v33[6]);
-  }
-  if ( v18 )
-    MiActOnPatchInAllSessions(a2, a1, 2, (__int64)v33);
-  return (unsigned int)SectionStrongImageReference;
+  MiUnlockDriverPages(v35);
+  MiUnlockDriverPages(v27);
+  if ( v9 )
+    ExFreePoolWithTag(v9, 0);
+  if ( v5 )
+    MiFreeLoadedImportList(v5);
+  return SectionStrongImageReference;
 }

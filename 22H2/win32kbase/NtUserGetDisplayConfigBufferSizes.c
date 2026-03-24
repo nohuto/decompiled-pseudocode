@@ -1,45 +1,47 @@
 /*
- * XREFs of NtUserGetDisplayConfigBufferSizes @ 0x1C001E440
+ * XREFs of NtUserGetDisplayConfigBufferSizes @ 0x1C001E920
  * Callers:
  *     <none>
  * Callees:
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C001E410 (UserRemoteConnectedSessionUsingXddm.c)
- *     GreIsDisconnectDeviceAttached @ 0x1C001E520 (GreIsDisconnectDeviceAttached.c)
- *     _QdcSdcTranslateStatusDefault @ 0x1C001EDBC (_QdcSdcTranslateStatusDefault.c)
- *     DrvGetDisplayConfigBufferSizes @ 0x1C001F020 (DrvGetDisplayConfigBufferSizes.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001E600 (UserRemoteConnectedSessionUsingXddm.c)
+ *     _QdcSdcTranslateStatusDefault @ 0x1C001F194 (_QdcSdcTranslateStatusDefault.c)
+ *     GreIsDisconnectDeviceAttached @ 0x1C00202B0 (GreIsDisconnectDeviceAttached.c)
+ *     DrvGetDisplayConfigBufferSizes @ 0x1C00203A0 (DrvGetDisplayConfigBufferSizes.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetDisplayConfigBufferSizes(unsigned int a1, _DWORD *a2)
+__int64 __fastcall NtUserGetDisplayConfigBufferSizes(unsigned int a1, unsigned int *a2)
 {
   unsigned int v4; // ebx
-  _DWORD *v5; // rdx
+  __int64 v5; // rcx
+  _DWORD *v6; // rdx
   unsigned int DisplayConfigBufferSizes; // eax
-  int v8; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v9; // [rsp+70h] [rbp+18h] BYREF
 
   v4 = 0;
-  v8 = 0;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal();
+  v9 = 0;
+  EnterSharedCrit(0LL, 1LL);
   if ( gbVideoInitialized )
   {
-    v5 = a2;
+    v6 = a2;
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-      v5 = (_DWORD *)MmUserProbeAddress;
-    *v5 = *v5;
+      v6 = (_DWORD *)MmUserProbeAddress;
+    *v6 = *v6;
     if ( ((unsigned __int16)(gProtocolType - 1) > 0xFFFDu || !(unsigned int)UserRemoteConnectedSessionUsingXddm())
       && !(unsigned int)GreIsDisconnectDeviceAttached() )
     {
-      DisplayConfigBufferSizes = DrvGetDisplayConfigBufferSizes(a1, &v8);
+      DisplayConfigBufferSizes = DrvGetDisplayConfigBufferSizes(a1, &v9);
       v4 = QdcSdcTranslateStatusDefault(DisplayConfigBufferSizes);
     }
-    *a2 = v8;
+    v5 = v9;
+    *a2 = v9;
   }
   else
   {
     v4 = -1073741823;
   }
-  UserSessionSwitchLeaveCrit();
+  UserSessionSwitchLeaveCrit(v5);
   return v4;
 }

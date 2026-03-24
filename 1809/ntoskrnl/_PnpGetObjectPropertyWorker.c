@@ -3,11 +3,11 @@
  * Callers:
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
  *     _PnpGetMappedPropertyDispatch @ 0x14059A324 (_PnpGetMappedPropertyDispatch.c)
  *     _PnpGetGenericStoreProperty @ 0x14059A7F8 (_PnpGetGenericStoreProperty.c)
- *     _PnpValidatePropertyData @ 0x1406A31E4 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x1406A31C4 (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyWorker(

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmDeepestHardwareIdleState @ 0x1403D1DA8
+ * XREFs of PpmDeepestHardwareIdleState @ 0x1403C475C
  * Callers:
- *     PpmInstallNewIdleStates @ 0x1403D1870 (PpmInstallNewIdleStates.c)
+ *     PpmInstallNewIdleStates @ 0x1403C4210 (PpmInstallNewIdleStates.c)
  * Callees:
  *     <none>
  */
@@ -20,13 +20,13 @@ unsigned __int8 __fastcall PpmDeepestHardwareIdleState(__int64 a1)
     v2 = *(_DWORD *)(a1 + 32);
     if ( v2 )
     {
-      v3 = (unsigned __int8 *)(a1 + 1440);
+      v3 = (unsigned __int8 *)(a1 + 1056);
       v4 = v2;
       do
       {
         v5 = result;
         result = *v3;
-        v3 += 344;
+        v3 += 248;
         if ( result <= v5 )
           result = v5;
         --v4;

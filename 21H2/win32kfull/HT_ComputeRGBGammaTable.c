@@ -1,10 +1,10 @@
 /*
- * XREFs of HT_ComputeRGBGammaTable @ 0x1C025DE00
+ * XREFs of HT_ComputeRGBGammaTable @ 0x1C0261190
  * Callers:
  *     <none>
  * Callees:
- *     DivFD6 @ 0x1C00952E0 (DivFD6.c)
- *     RaisePower @ 0x1C0095584 (RaisePower.c)
+ *     DivFD6 @ 0x1C001CDDC (DivFD6.c)
+ *     RaisePower @ 0x1C001F508 (RaisePower.c)
  */
 
 LONG __stdcall HT_ComputeRGBGammaTable(

@@ -1,12 +1,13 @@
 /*
- * XREFs of SlowAppThreadInShellFrame @ 0x1C01B6A9C
+ * XREFs of SlowAppThreadInShellFrame @ 0x1C0124CD4
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01EFC00 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     xxxMoveSize @ 0x1C02122B4 (xxxMoveSize.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
  * Callees:
- *     IsDebuggerAttached @ 0x1C005FB64 (IsDebuggerAttached.c)
- *     ?OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z @ 0x1C01B5640 (-OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z.c)
+ *     IsDebuggerAttached @ 0x1C003CE18 (IsDebuggerAttached.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C14A0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     ?OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z @ 0x1C01E0704 (-OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z.c)
  */
 
 struct tagTHREADINFO *__fastcall SlowAppThreadInShellFrame(
@@ -16,137 +17,130 @@ struct tagTHREADINFO *__fastcall SlowAppThreadInShellFrame(
         int a4)
 {
   __int64 v4; // r14
-  __int64 v6; // rbx
   __int64 v8; // r13
-  unsigned __int64 v9; // rbp
-  __int64 v10; // rcx
+  __int64 v9; // rbx
+  unsigned __int64 v10; // rbp
   __int64 v11; // rcx
-  __int64 v12; // rax
-  unsigned int v13; // edi
-  struct tagTHREADINFO *v14; // rsi
-  __int64 v15; // rax
-  __int64 v16; // rax
-  int v18; // r12d
-  __int64 v19; // rcx
-  __int64 v20; // rdx
-  __int64 v21; // rdx
-  _DWORD *v22; // rcx
-  unsigned int v23; // r8d
-  __int64 v24; // rax
+  unsigned int v12; // esi
+  struct tagTHREADINFO *v13; // rdi
+  int v14; // r12d
+  _DWORD *v15; // rcx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rdx
+  unsigned int v24; // r8d
   int v25; // eax
-  __int64 v26; // [rsp+70h] [rbp+18h]
-  int v27; // [rsp+78h] [rbp+20h]
+  __int64 v26; // rax
+  __int64 v27; // [rsp+20h] [rbp-58h] BYREF
 
-  v27 = a4;
-  v26 = a3;
   v4 = *((_QWORD *)a1 + 54);
-  v6 = 0LL;
+  CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)&v27, v4);
   v8 = *(_QWORD *)(v4 + 24);
-  v9 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  v10 = *(_QWORD *)(v4 + 120);
-  if ( v10 )
+  v9 = 0LL;
+  v10 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  v11 = *(_QWORD *)(*((_QWORD *)a1 + 54) + 112LL);
+  if ( v11 )
   {
-    v11 = *(_QWORD *)(v10 + 16);
-    if ( v11 )
+    v17 = *(_QWORD *)(v11 + 16);
+    if ( v17 )
     {
-      if ( (unsigned int)IsDebuggerAttached(*(__int64 **)(v11 + 424)) )
-        return 0LL;
-      a3 = v26;
-      a4 = v27;
+      if ( (unsigned int)IsDebuggerAttached(*(__int64 **)(v17 + 424)) )
+        return (struct tagTHREADINFO *)v9;
     }
   }
   if ( a4 )
   {
-    v12 = *((_QWORD *)a1 + 84);
-    v13 = gdwMDAQThreshold / 0xAu;
-    if ( v12 && (*(_DWORD *)(v12 + 200) & 0x80000) != 0 )
-      v13 = gdwMDAQThreshold / 0x14u;
+    v18 = *((_QWORD *)a1 + 84);
+    v12 = gdwMDAQThreshold / 0xAu;
+    if ( v18 && (*(_DWORD *)(v18 + 196) & 0x100000) != 0 )
+      v12 = gdwMDAQThreshold / 0x14u;
   }
   else
   {
-    v13 = gdwMDAQTimeoutDefenseInDepth;
+    v12 = gdwMDAQTimeoutDefenseInDepth;
   }
-  v14 = *(struct tagTHREADINFO **)(v4 + 72);
-  if ( v14 )
+  v13 = *(struct tagTHREADINFO **)(v4 + 64);
+  if ( v13 )
   {
-    if ( v14 != a1 && v14 == a2 )
+    if ( v13 != a1 && v13 == a2 )
     {
-      v15 = *(_QWORD *)(v4 + 80);
-      if ( v15 )
+      v19 = *(_QWORD *)(v4 + 72);
+      if ( v19 )
       {
-        if ( a3 == v15 )
+        if ( a3 == v19 )
         {
-          if ( (unsigned int)IsDebuggerAttached(*((__int64 **)v14 + 53)) )
-            return 0LL;
-          if ( v8 && (int)v9 - *(_DWORD *)(*(_QWORD *)(v4 + 24) + 48LL) >= v13 )
-            return v14;
-          v16 = *((_QWORD *)v14 + 101);
-          if ( v16 )
+          if ( (unsigned int)IsDebuggerAttached(*((__int64 **)v13 + 53)) )
+            return (struct tagTHREADINFO *)v9;
+          if ( v8 && (int)v10 - *(_DWORD *)(*(_QWORD *)(v4 + 24) + 48LL) >= v12 )
+            return v13;
+          v20 = *((_QWORD *)v13 + 101);
+          if ( v20 )
           {
-            if ( (int)v9 - *(_DWORD *)(v16 + 48) >= v13 )
-              return v14;
+            if ( (int)v10 - *(_DWORD *)(v20 + 48) >= v12 )
+              return v13;
           }
-          if ( (int)v9 - *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 72) + 448LL) + 20LL) >= v13 )
-            return v14;
+          if ( (int)v10 - *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 64) + 448LL) + 12LL) >= v12 )
+            return v13;
         }
       }
     }
   }
   if ( !v8 )
-    goto LABEL_32;
-  v14 = *(struct tagTHREADINFO **)(v8 + 104);
-  if ( !v14 )
-    goto LABEL_32;
-  if ( (unsigned int)IsDebuggerAttached(*((__int64 **)v14 + 53)) )
-    return 0LL;
-  if ( v14 != a1 || (v14 = OtherThreadsKeyboardInput((struct tagQ *)v4, (struct tagQMSG *)v8)) != 0LL )
+    goto LABEL_6;
+  v13 = *(struct tagTHREADINFO **)(v8 + 104);
+  if ( !v13 )
+    goto LABEL_6;
+  if ( (unsigned int)IsDebuggerAttached(*((__int64 **)v13 + 53)) )
+    return (struct tagTHREADINFO *)v9;
+  if ( v13 != a1 || (v13 = OtherThreadsKeyboardInput((struct tagQ *)v4, (struct tagQMSG *)v8)) != 0LL )
   {
-    v18 = v27;
-    if ( (v27 || (*(_DWORD *)(*((_QWORD *)a1 + 56) + 8LL) & 0x1084) != 0)
-      && ((int)v9 - *(_DWORD *)(v8 + 48) >= v13 || (unsigned int)(*(_DWORD *)(v4 + 40) + *((_DWORD *)v14 + 206)) > 0x100) )
+    v14 = a4;
+    if ( (a4 || (*(_WORD *)(*((_QWORD *)a1 + 56) + 6LL) & 0x1084) != 0)
+      && ((int)v10 - *(_DWORD *)(v8 + 48) >= v12 || (unsigned int)(*(_DWORD *)(v4 + 40) + *((_DWORD *)v13 + 206)) > 0x100) )
     {
-      return v14;
+      return v13;
     }
   }
   else
   {
-LABEL_32:
-    v18 = v27;
+LABEL_6:
+    v14 = a4;
   }
-  v14 = *(struct tagTHREADINFO **)(v4 + 72);
-  if ( !v14 || v14 == a1 )
-    goto LABEL_44;
-  if ( (unsigned int)IsDebuggerAttached(*((__int64 **)v14 + 53)) )
-    return 0LL;
-  v19 = *(_QWORD *)(v4 + 80);
-  if ( v19 )
+  v13 = *(struct tagTHREADINFO **)(v4 + 64);
+  if ( v13 && v13 != a1 )
   {
-    v20 = *((_QWORD *)v14 + 101);
-    if ( v19 == v20 && (int)v9 - *(_DWORD *)(v20 + 48) >= v13 )
-      return v14;
-    v21 = *(_QWORD *)(v4 + 24);
-    if ( v19 == v21 && (int)v9 - *(_DWORD *)(v21 + 48) >= v13 )
-      return v14;
+    if ( (unsigned int)IsDebuggerAttached(*((__int64 **)v13 + 53)) )
+      return (struct tagTHREADINFO *)v9;
+    v21 = *(_QWORD *)(v4 + 72);
+    if ( v21 )
+    {
+      v22 = *((_QWORD *)v13 + 101);
+      if ( v21 == v22 && (int)v10 - *(_DWORD *)(v22 + 48) >= v12 )
+        return v13;
+      v23 = *(_QWORD *)(v4 + 24);
+      if ( v21 == v23 && (int)v10 - *(_DWORD *)(v23 + 48) >= v12 )
+        return v13;
+    }
+    if ( v14
+      && ((int)v10 - *(_DWORD *)(*((_QWORD *)v13 + 56) + 12LL) >= v12
+       || (unsigned int)(*(_DWORD *)(v4 + 40) + *((_DWORD *)v13 + 206)) > 0x100) )
+    {
+      return v13;
+    }
   }
-  if ( v18
-    && ((int)v9 - *(_DWORD *)(*((_QWORD *)v14 + 56) + 20LL) >= v13
-     || (unsigned int)(*(_DWORD *)(v4 + 40) + *((_DWORD *)v14 + 206)) > 0x100) )
+  v15 = (_DWORD *)*((_QWORD *)a1 + 84);
+  if ( v15 && (v15[49] & 0x100000) != 0 )
   {
-    return v14;
+    if ( (v24 = v15[84], v24 >= 3) && v15[83] / v24 > v12 || (v25 = v15[82]) != 0 && (int)v10 - v25 >= 4 * v12 )
+    {
+      v26 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 54) + 120LL) + 112LL);
+      if ( v26 )
+        return *(struct tagTHREADINFO **)(v26 + 16);
+    }
   }
-LABEL_44:
-  v22 = (_DWORD *)*((_QWORD *)a1 + 84);
-  if ( !v22 || (v22[50] & 0x80000) == 0 )
-    return 0LL;
-  v23 = v22[71];
-  if ( v23 < 3 || v22[70] / v23 <= v13 )
-  {
-    v25 = v22[69];
-    if ( !v25 || (int)v9 - v25 < 4 * v13 )
-      return 0LL;
-  }
-  v24 = *((_QWORD *)a1 + 180);
-  if ( v24 )
-    return *(struct tagTHREADINFO **)(v24 + 16);
-  return (struct tagTHREADINFO *)v6;
+  return (struct tagTHREADINFO *)v9;
 }

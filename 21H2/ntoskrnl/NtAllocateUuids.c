@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAllocateUuids @ 0x1406DC3C0
+ * XREFs of NtAllocateUuids @ 0x1406B9660
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406DC574 (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1406DC5A4 (ExpAllocateUuids.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406B9814 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x1406B9844 (ExpAllocateUuids.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtAllocateUuids(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -64,35 +64,35 @@ LABEL_14:
   }
   v12 = KeGetCurrentThread();
   --v12->KernelApcDisable;
-  v13 = KeAbPreAcquire((__int64)&ExpUuidLock, 0LL);
+  v13 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
   v14 = v13;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v13, (__int64)&ExpUuidLock);
+    ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v13, (ULONG_PTR)&ExpUuidLock);
   if ( v14 )
-    *(_BYTE *)(v14 + 18) = 1;
+    *(_BYTE *)(v14 + 26) |= 1u;
   v15 = ExpAllocateUuids(v21, &v19, &v20);
   if ( v15 < 0 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
-    KiLeaveCriticalRegionUnsafe((__int64)v12);
+    KeLeaveCriticalRegionThread((__int64)v12);
     return (unsigned int)v15;
   }
   else
   {
     ExpUuidSaveSequenceNumberIf();
-    v16 = ExpUuidCacheValid;
+    v16 = BYTE5(NlsMbCodePageTag);
     v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v17 & 2) != 0 && (v17 & 4) == 0 )
       ExfTryToWakePushLock(&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
-    KiLeaveCriticalRegionUnsafe((__int64)v12);
+    KeLeaveCriticalRegionThread((__int64)v12);
     *(_QWORD *)a1 = v21[0];
     *(_DWORD *)a2 = v19;
     *(_DWORD *)a3 = v20;
-    *(_DWORD *)a4 = *(int *)((char *)&dword_140D3B26C + 2);
-    *(_WORD *)(a4 + 4) = HIWORD(dword_140D3B270);
+    *(_DWORD *)a4 = *(int *)((char *)&dword_140D2D2C4 + 2);
+    *(_WORD *)(a4 + 4) = word_140D2D2CA;
     return v16 == 0 ? 0x40020056 : 0;
   }
 }

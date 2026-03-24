@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwMakePermanentObject @ 0x14041C960
+ * XREFs of ZwMakePermanentObject @ 0x1403FBC00
  * Callers:
  *     <none>
  * Callees:

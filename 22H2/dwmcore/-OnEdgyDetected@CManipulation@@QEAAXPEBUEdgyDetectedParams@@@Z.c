@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x18020DDB4
+ * XREFs of ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801D4258
  * Callers:
- *     ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x1801A2FE0 (-s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z.c)
+ *     ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x180222270 (-s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z.c)
  * Callees:
- *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180098C90 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x18006645C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
  */
 
 void __fastcall CManipulation::OnEdgyDetected(CManipulation *this, const struct EdgyDetectedParams *a2)
@@ -18,27 +18,29 @@ void __fastcall CManipulation::OnEdgyDetected(CManipulation *this, const struct 
   __int128 v9; // xmm1
   __int128 v10; // xmm0
   _QWORD v11[2]; // [rsp+40h] [rbp-58h] BYREF
-  _OWORD v12[3]; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v13; // [rsp+80h] [rbp-18h]
+  __int128 v12; // [rsp+50h] [rbp-48h]
+  __int128 v13; // [rsp+60h] [rbp-38h]
+  __int128 v14; // [rsp+70h] [rbp-28h]
+  __int64 v15; // [rsp+80h] [rbp-18h]
 
   if ( CNotificationResource::ShouldNotify(this) )
   {
     v5 = *(_QWORD *)(v2 + 48);
-    v6 = *(unsigned int *)(v2 + 64);
+    v6 = *(unsigned int *)(v2 + 56);
     if ( v5 )
-      v7 = *(_DWORD *)(v5 + 76);
+      v7 = *(_DWORD *)(v5 + 68);
     else
       v7 = 0;
     v8 = *v3;
     v9 = v3[1];
     v11[0] = v7;
-    v12[0] = v8;
+    v12 = v8;
     v10 = v3[2];
-    v12[1] = v9;
+    v13 = v9;
     *(_QWORD *)&v9 = *((_QWORD *)v3 + 6);
     v11[1] = v6;
-    v12[2] = v10;
-    v13 = v9;
-    CoreUICallSend(v4, v11, 2LL, 13LL, 0, &unk_18033C4C0, v12);
+    v14 = v10;
+    v15 = v9;
+    CoreUICallSend(v4, v11, 2LL, 12LL, 0, &unk_1802CE792);
   }
 }

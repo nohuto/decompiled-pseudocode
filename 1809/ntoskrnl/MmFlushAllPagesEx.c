@@ -1,10 +1,10 @@
 /*
- * XREFs of MmFlushAllPagesEx @ 0x1401530CC
+ * XREFs of MmFlushAllPagesEx @ 0x1401530EC
  * Callers:
  *     PopTransitionToSleep @ 0x14056C0F0 (PopTransitionToSleep.c)
  * Callees:
- *     PsGetNextPartition @ 0x14011FFC8 (PsGetNextPartition.c)
- *     MiFlushAllPages @ 0x140153118 (MiFlushAllPages.c)
+ *     PsGetNextPartition @ 0x14011FFE8 (PsGetNextPartition.c)
+ *     MiFlushAllPages @ 0x140153138 (MiFlushAllPages.c)
  */
 
 _QWORD *__fastcall MmFlushAllPagesEx(char a1, unsigned int a2)

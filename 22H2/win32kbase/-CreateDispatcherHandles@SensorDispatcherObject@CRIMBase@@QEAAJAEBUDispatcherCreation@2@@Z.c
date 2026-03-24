@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C00772A8
+ * XREFs of ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C008908C
  * Callers:
- *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C0077120 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
+ *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C0088F08 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
  * Callees:
- *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C006E65C (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
- *     CreateKernelEventObject @ 0x1C0077484 (CreateKernelEventObject.c)
- *     ProtectHandle @ 0x1C0087A68 (ProtectHandle.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ProtectHandle @ 0x1C0025F3C (ProtectHandle.c)
+ *     ?CreateMarshalingEvent@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@QEAA_NXZ @ 0x1C008922C (-CreateMarshalingEvent@MarshalingCompletion@SensorDispatcherObject@CRIMBase@@QEAA_NXZ.c)
+ *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C00A2BDC (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CRIMBase::SensorDispatcherObject::CreateDispatcherHandles(
@@ -14,18 +14,13 @@ __int64 __fastcall CRIMBase::SensorDispatcherObject::CreateDispatcherHandles(
         const struct CRIMBase::DispatcherCreation *a2)
 {
   int v3; // ecx
+  void **v5; // r14
   NTSTATUS Event; // eax
-  NTSTATUS v6; // edi
-  int v7; // eax
-  POBJECT_TYPE *v8; // rax
-  struct _OBJECT_TYPE *v9; // rsi
+  NTSTATUS v7; // edi
+  POBJECT_TYPE *v8; // rcx
+  struct _OBJECT_TYPE *v9; // r12
   void *v10; // rcx
-  struct _OBJECT_TYPE *v11; // r8
-  __int64 v12; // rdx
-  __int64 v13; // r9
-  __int64 v14; // rcx
-  bool v16; // zf
-  __int64 KernelEventObject; // rax
+  int v11; // edx
   PVOID Object; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = *((_DWORD *)a2 + 1);
@@ -33,67 +28,54 @@ __int64 __fastcall CRIMBase::SensorDispatcherObject::CreateDispatcherHandles(
   *((_DWORD *)this + 4) = *(_DWORD *)a2;
   if ( v3 == 1 )
   {
+    v5 = (void **)((char *)this + 24);
     Event = ZwCreateEvent((PHANDLE)this + 3, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   }
-  else if ( v3 == 2 )
-  {
-    Event = ZwCreateTimer((PHANDLE)this + 3, 0x1F0003u, 0LL, SynchronizationTimer);
-  }
   else
   {
-    if ( v3 != 3 )
+    if ( v3 != 2 )
     {
       LODWORD(Object) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 624LL);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 646LL);
     }
-    Event = ZwCreateSemaphore((PHANDLE)this + 3, 0x1F0003u, 0LL, 0, 0x7FFFFFFF);
+    v5 = (void **)((char *)this + 24);
+    Event = ZwCreateTimer((PHANDLE)this + 3, 0x1F0003u, 0LL, SynchronizationTimer);
   }
-  v6 = Event;
+  v7 = Event;
   if ( Event < 0 )
-    goto LABEL_24;
-  v7 = *((_DWORD *)this + 5);
-  if ( v7 == 1 )
-  {
+    goto LABEL_21;
+  v8 = (POBJECT_TYPE *)ExTimerObjectType;
+  if ( *((_DWORD *)this + 5) == 1 )
     v8 = ExEventObjectType;
-  }
-  else
-  {
-    v16 = v7 == 2;
-    v8 = (POBJECT_TYPE *)ExTimerObjectType;
-    if ( !v16 )
-      v8 = ExSemaphoreObjectType;
-  }
   v9 = *v8;
-  v10 = (void *)*((_QWORD *)this + 3);
-  v11 = *v8;
+  v10 = *v5;
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(v10, 0x1F0003u, v11, 1, &Object, 0LL);
+  v7 = ObReferenceObjectByHandle(v10, 0x1F0003u, v9, 1, &Object, 0LL);
+  v11 = 2;
   *((_QWORD *)this + 6) = Object;
   if ( (*((_DWORD *)a2 + 2) & 2) != 0 )
   {
     if ( *((_DWORD *)this + 5) != 1 )
     {
       LODWORD(Object) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 646LL);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 667LL);
     }
-    LOBYTE(v13) = 1;
-    ProtectHandle(*((_QWORD *)this + 3), v12, v9, v13);
+    ProtectHandle(*v5, v11, v9, 1);
     *((_BYTE *)this + 32) = 1;
   }
-  if ( v6 < 0 )
-    goto LABEL_24;
-  v6 = ObOpenObjectByPointer(*((PVOID *)this + 6), 0x200u, 0LL, 0x1F0003u, v9, 0, (PHANDLE)this + 5);
-  if ( v6 < 0 )
-    goto LABEL_24;
+  if ( v7 < 0 )
+    goto LABEL_21;
+  v7 = ObOpenObjectByPointer(*((PVOID *)this + 6), 0x200u, 0LL, 0x1F0003u, v9, 0, (PHANDLE)this + 5);
+  if ( v7 < 0 )
+    goto LABEL_21;
   if ( (*((_DWORD *)a2 + 2) & 1) != 0 )
   {
-    KernelEventObject = CreateKernelEventObject(v14, 0LL);
-    *((_QWORD *)this + 7) = KernelEventObject;
-    if ( KernelEventObject )
+    if ( CRIMBase::SensorDispatcherObject::MarshalingCompletion::CreateMarshalingEvent((CRIMBase::SensorDispatcherObject *)((char *)this + 56)) )
       return 0;
-    v6 = -1073741823;
-LABEL_24:
-    CRIMBase::SensorDispatcherObject::CloseDispatcherHandles(this);
+    v7 = -1073741823;
   }
-  return (unsigned int)v6;
+  if ( v7 < 0 )
+LABEL_21:
+    CRIMBase::SensorDispatcherObject::CloseDispatcherHandles(this);
+  return (unsigned int)v7;
 }

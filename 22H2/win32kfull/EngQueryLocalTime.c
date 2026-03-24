@@ -1,9 +1,9 @@
 /*
- * XREFs of EngQueryLocalTime @ 0x1C0277A40
+ * XREFs of EngQueryLocalTime @ 0x1C027C150
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __stdcall EngQueryLocalTime(PENG_TIME_FIELDS ptf)

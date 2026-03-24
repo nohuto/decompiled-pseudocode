@@ -1,16 +1,16 @@
 /*
- * XREFs of ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C00874F0
+ * XREFs of ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C006CC68
  * Callers:
- *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C0082B34 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006AD44 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C0082298 (-Release@CFlipResource@@QEAAKXZ.c)
- *     ?CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C00862F4 (-CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ.c)
- *     ?GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C0086480 (-GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
- *     ?IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C0086510 (-IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
- *     ?IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C0086544 (-IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
- *     ?IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C0086578 (-IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
- *     ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C0088C4C (-Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C006BD08 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ?CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C564 (-CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     ?GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C006C76C (-GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006C7FC (-IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006C830 (-IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006C864 (-IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C006EC5C (-Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z.c)
  */
 
 __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUser(
@@ -18,113 +18,107 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
         struct CFlipPresentUpdate *a2)
 {
   CEndpointResourceStateManager *v2; // r9
-  int v3; // r11d
-  CEndpointResourceStateManager *v4; // rbx
-  signed int v5; // edi
+  unsigned int v3; // r11d
+  CEndpointResourceStateManager *v4; // r13
+  signed int v5; // esi
   unsigned int v6; // r8d
   __int64 v7; // r10
-  char v8; // al
-  __int64 v9; // rax
-  int v10; // r8d
-  __int64 v11; // rcx
-  signed int v12; // eax
-  char *v13; // r10
-  unsigned int v14; // eax
-  bool v15; // cf
-  char **v16; // r14
-  char **v17; // r9
-  __int64 v18; // r10
-  __int64 v19; // rax
-  int v20; // r8d
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // rax
-  int v24; // r8d
-  int v25; // eax
-  CEndpointResourceStateManager **v26; // rsi
-  _DWORD *v27; // r13
-  _DWORD *v28; // r12
-  CEndpointResourceStateManager *v29; // r8
-  __int64 v30; // r14
-  char v31; // cl
-  __int64 v32; // rcx
-  __int64 v33; // r15
-  int v34; // eax
-  _DWORD *v35; // rdx
-  __int64 v36; // r12
-  __int64 v37; // rax
-  _DWORD *v38; // rdx
-  unsigned int v39; // r13d
-  char *v40; // r14
-  __int64 v41; // rbx
-  __int64 v42; // rcx
-  __int64 v43; // rax
-  _DWORD *v44; // rdx
-  char *v45; // rsi
-  __int64 v46; // r9
-  _DWORD *v47; // rdi
-  __int64 v48; // r15
-  __int64 v49; // rcx
-  __int64 v50; // r14
-  int v51; // eax
-  _DWORD *v52; // rdx
-  __int64 v53; // rdi
-  __int64 v54; // rax
-  char *v55; // r13
-  unsigned int v56; // r12d
-  char *v57; // r15
-  __int64 v58; // rbx
-  char *v59; // r13
-  __int64 v60; // rcx
-  __int64 v61; // r12
-  __int64 v62; // rcx
+  __int64 v8; // rax
+  int v9; // r8d
+  __int64 v10; // rcx
+  signed int v11; // eax
+  unsigned int v12; // eax
+  bool v13; // cf
+  char **v14; // rbx
+  char **v15; // r9
+  __int64 v16; // r10
+  __int64 v17; // rax
+  int v18; // r8d
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  unsigned int v22; // r8d
+  int v23; // eax
+  CEndpointResourceStateManager *v24; // rdi
+  _DWORD *v25; // r12
+  _DWORD *v26; // r15
+  char v27; // al
+  CEndpointResourceStateManager *v28; // r8
+  __int64 v29; // r14
+  int v30; // eax
+  _DWORD *v31; // rdx
+  __int64 v32; // r15
+  __int64 v33; // rax
+  _DWORD *v34; // rdx
+  unsigned int v35; // r13d
+  char *v36; // r12
+  __int64 v37; // rbx
+  __int64 v38; // rcx
+  _DWORD *v39; // rdx
+  __int64 v40; // rax
+  char *v41; // rdi
+  _DWORD *v42; // r15
+  _DWORD *v43; // r13
+  _DWORD *v44; // rsi
+  bool v45; // zf
+  __int64 v46; // r14
+  int v47; // eax
+  _DWORD *v48; // rdx
+  __int64 v49; // r13
+  __int64 v50; // rax
+  char *v51; // r15
+  unsigned int v52; // r12d
+  char *v53; // r13
+  __int64 v54; // rbx
+  char *v55; // r15
+  __int64 v56; // rcx
+  __int64 v57; // r14
+  int v58; // eax
+  _DWORD *v59; // rdx
+  __int64 v60; // rsi
+  __int64 v61; // rax
+  __int64 v62; // rax
   __int64 v63; // rax
-  __int64 v64; // r14
-  int v65; // eax
-  __int64 v66; // rax
-  __int64 v67; // r13
-  __int64 v68; // rax
-  __int64 v69; // rdx
-  unsigned int v70; // r15d
-  char *v71; // r12
-  __int64 v72; // rbx
-  __int64 v73; // rcx
-  _DWORD *v74; // rdx
-  __int64 v75; // rax
-  CEndpointResourceStateManager *v77; // [rsp+20h] [rbp-89h]
-  __int64 v78; // [rsp+20h] [rbp-89h]
-  __int64 v79; // [rsp+28h] [rbp-81h]
-  __int64 v80; // [rsp+28h] [rbp-81h]
-  _DWORD *v81; // [rsp+30h] [rbp-79h]
-  PVOID P; // [rsp+40h] [rbp-69h] BYREF
-  int v83; // [rsp+48h] [rbp-61h]
-  __int128 v84; // [rsp+50h] [rbp-59h]
-  __int128 v85; // [rsp+60h] [rbp-49h]
-  __int64 v86; // [rsp+70h] [rbp-39h]
-  __int64 v87; // [rsp+78h] [rbp-31h]
-  __int64 v88; // [rsp+80h] [rbp-29h]
-  int v89; // [rsp+88h] [rbp-21h]
-  __int64 v90; // [rsp+98h] [rbp-11h]
-  _QWORD *v91; // [rsp+A0h] [rbp-9h]
-  char *v92; // [rsp+A8h] [rbp-1h]
-  char *v93; // [rsp+B0h] [rbp+7h]
-  int v96; // [rsp+120h] [rbp+77h]
-  _DWORD *v97; // [rsp+128h] [rbp+7Fh]
-  __int64 v98; // [rsp+128h] [rbp+7Fh]
+  char *v64; // r12
+  unsigned int v65; // r15d
+  char *v66; // r13
+  __int64 v67; // rbx
+  char *v68; // r12
+  __int64 v69; // rcx
+  CFlipResource *v70; // rcx
+  _DWORD *v71; // rdx
+  __int64 v72; // rax
+  CEndpointResourceStateManager *v74; // [rsp+20h] [rbp-69h]
+  _DWORD *v75; // [rsp+20h] [rbp-69h]
+  _DWORD *v76; // [rsp+28h] [rbp-61h]
+  PVOID P; // [rsp+30h] [rbp-59h] BYREF
+  int v78; // [rsp+38h] [rbp-51h]
+  __int128 v79; // [rsp+40h] [rbp-49h]
+  __int128 v80; // [rsp+50h] [rbp-39h]
+  _DWORD *v81; // [rsp+60h] [rbp-29h]
+  __int64 v82; // [rsp+68h] [rbp-21h]
+  __int64 v83; // [rsp+70h] [rbp-19h]
+  int v84; // [rsp+78h] [rbp-11h]
+  char *v85; // [rsp+88h] [rbp-1h]
+  char *v86; // [rsp+90h] [rbp+7h]
+  struct CFlipPresentUpdate *v88; // [rsp+F8h] [rbp+6Fh]
+  _DWORD *v89; // [rsp+100h] [rbp+77h]
+  int v90; // [rsp+108h] [rbp+7Fh]
 
+  v88 = a2;
   v2 = *this;
   v3 = 0;
   P = 0LL;
-  v83 = 0;
+  v78 = 0;
   v4 = (CEndpointResourceStateManager *)this;
-  v84 = 0LL;
-  v85 = 0LL;
-  v86 = 0LL;
+  v79 = 0LL;
+  v80 = 0LL;
+  v81 = 0LL;
   v5 = 0;
-  v87 = 0LL;
+  v82 = 0LL;
   v6 = 0;
-  v88 = 0LL;
-  v89 = 0;
+  v83 = 0LL;
+  v84 = 0;
   do
   {
     if ( v2 == v4 )
@@ -132,327 +126,298 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
     v7 = (__int64)v2 + 24;
     if ( !v2 )
       v7 = 32LL;
-    v8 = *(_BYTE *)v7;
     if ( (*(_BYTE *)v7 & 1) != 0 )
     {
-      v9 = (__int64)v2 + 16;
-      v10 = v3;
+      v8 = (__int64)v2 + 16;
+      v9 = v3;
       if ( !v2 )
-        v9 = 24LL;
-      v11 = *(_QWORD *)(*(_QWORD *)v9 + 32LL);
-      if ( v11 )
-        v10 = *(_DWORD *)(v11 + 32);
-      v12 = CResourceStateUpdateSerializer::IncreaseAddedBufferSize((CResourceStateUpdateSerializer *)&P, 0x18u, v10);
-      v6 = HIDWORD(v87);
-      v5 = v12;
-      v8 = *v13;
+        v8 = 24LL;
+      v10 = *(_QWORD *)(*(_QWORD *)v8 + 32LL);
+      if ( v10 )
+        v9 = *(_DWORD *)(v10 + 32);
+      v11 = CResourceStateUpdateSerializer::IncreaseAddedBufferSize((CResourceStateUpdateSerializer *)&P, 0x18u, v9);
+      v6 = HIDWORD(v82);
+      v5 = v11;
     }
-    if ( v5 >= 0 && (v8 & 2) != 0 )
+    if ( v5 >= 0 && (*(_BYTE *)v7 & 2) != 0 )
     {
-      v14 = v6 + 16;
-      v15 = v6 + 16 < v6;
+      v12 = v6 + 16;
+      v13 = v6 + 16 < v6;
       v6 = -1;
-      if ( !v15 )
-        v6 = v14;
-      v5 = v15 ? 0xC0000095 : 0;
-      HIDWORD(v87) = v6;
+      if ( !v13 )
+        v6 = v12;
+      v5 = v13 ? 0xC0000095 : 0;
+      HIDWORD(v82) = v6;
     }
     v2 = *(CEndpointResourceStateManager **)v2;
   }
   while ( v5 >= 0 );
-  v16 = (char **)((char *)v4 + 16);
-  v17 = (char **)*((_QWORD *)v4 + 2);
-  v93 = (char *)v4 + 16;
+  v14 = (char **)((char *)v4 + 16);
+  v15 = (char **)*((_QWORD *)v4 + 2);
+  v86 = (char *)v4 + 16;
   if ( v5 >= 0 )
   {
-    while ( v17 != v16 )
+    do
     {
-      v18 = (__int64)(v17 + 3);
-      if ( !v17 )
-        v18 = 32LL;
-      if ( (*(_BYTE *)v18 & 1) != 0 )
+      if ( v15 == v14 )
+        break;
+      v16 = (__int64)(v15 + 3);
+      if ( !v15 )
+        v16 = 32LL;
+      if ( (*(_BYTE *)v16 & 1) != 0 )
       {
-        v19 = (__int64)(v17 + 2);
-        v20 = v3;
-        if ( !v17 )
-          v19 = 24LL;
-        v21 = *(_QWORD *)(*(_QWORD *)v19 + 32LL);
-        if ( v21 )
-          v20 = *(_DWORD *)(v21 + 32);
-        v5 = CResourceStateUpdateSerializer::IncreaseAddedContentSize((CResourceStateUpdateSerializer *)&P, 0x18u, v20);
+        v17 = (__int64)(v15 + 2);
+        v18 = v3;
+        if ( !v15 )
+          v17 = 24LL;
+        v19 = *(_QWORD *)(*(_QWORD *)v17 + 32LL);
+        if ( v19 )
+          v18 = *(_DWORD *)(v19 + 32);
+        v5 = CResourceStateUpdateSerializer::IncreaseAddedContentSize((CResourceStateUpdateSerializer *)&P, 0x18u, v18);
       }
       if ( v5 >= 0 )
       {
-        v22 = (__int64)(v17 + 7);
-        if ( !v17 )
-          v22 = 64LL;
-        if ( (*(_BYTE *)v22 & 1) == 0 )
-          goto LABEL_36;
-        v23 = (__int64)(v17 + 4);
-        v24 = v3;
-        if ( !v17 )
-          v23 = 40LL;
-        if ( *(_QWORD *)v23 )
-          v24 = *(_DWORD *)(*(_QWORD *)v23 + 32LL);
-        v5 = CResourceStateUpdateSerializer::IncreaseUpdatedContentSize(
-               (CResourceStateUpdateSerializer *)&P,
-               0x20u,
-               v24);
-        if ( v5 >= 0 )
+        v20 = (__int64)(v15 + 6);
+        if ( !v15 )
+          v20 = 56LL;
+        if ( (*(_BYTE *)v20 & 1) != 0 )
         {
-LABEL_36:
-          if ( (*(_BYTE *)v18 & 2) != 0 )
-          {
-            v25 = -1;
-            if ( (unsigned int)(HIDWORD(v88) + 16) >= HIDWORD(v88) )
-              v25 = HIDWORD(v88) + 16;
-            v5 = (unsigned int)(HIDWORD(v88) + 16) < HIDWORD(v88) ? 0xC0000095 : 0;
-            HIDWORD(v88) = v25;
-          }
+          v21 = (__int64)(v15 + 4);
+          v22 = v3;
+          if ( !v15 )
+            v21 = 40LL;
+          if ( *(_QWORD *)v21 )
+            v22 = *(_DWORD *)(*(_QWORD *)v21 + 32LL);
+          v5 = CResourceStateUpdateSerializer::IncreaseUpdatedContentSize(
+                 (CResourceStateUpdateSerializer *)&P,
+                 (__int64)a2,
+                 v22);
+        }
+        if ( v5 >= 0 && (*(_BYTE *)v16 & 2) != 0 )
+        {
+          a2 = (struct CFlipPresentUpdate *)HIDWORD(v83);
+          v23 = -1;
+          if ( (unsigned int)(HIDWORD(v83) + 16) >= HIDWORD(v83) )
+            v23 = HIDWORD(v83) + 16;
+          v5 = (unsigned int)(HIDWORD(v83) + 16) < HIDWORD(v83) ? 0xC0000095 : 0;
+          HIDWORD(v83) = v23;
         }
       }
-      v17 = (char **)*v17;
-      if ( v5 < 0 )
-        goto LABEL_111;
+      v15 = (char **)*v15;
     }
-    v96 = CResourceStateUpdateSerializer::Allocate((CResourceStateUpdateSerializer *)&P, 0x75754346u);
-    v5 = v96;
-    if ( v96 >= 0 )
+    while ( v5 >= 0 );
+    if ( v5 >= 0 )
     {
-      v26 = *(CEndpointResourceStateManager ***)v4;
-      if ( *(CEndpointResourceStateManager **)v4 != v4 )
+      v90 = CResourceStateUpdateSerializer::Allocate((CResourceStateUpdateSerializer *)&P, 0x75754346u);
+      v5 = v90;
+      if ( v90 >= 0 )
       {
-        v27 = (_DWORD *)*((_QWORD *)&v84 + 1);
-        v28 = (_DWORD *)v84;
-        do
+        v24 = *(CEndpointResourceStateManager **)v4;
+        if ( *(CEndpointResourceStateManager **)v4 != v4 )
         {
-          v29 = *v26;
-          v30 = (__int64)(v26 + 3);
-          v77 = *v26;
-          if ( !v26 )
-            v30 = 32LL;
-          v79 = v30;
-          v31 = *(_BYTE *)v30;
-          if ( (*(_BYTE *)v30 & 1) != 0 )
+          v25 = (_DWORD *)*((_QWORD *)&v79 + 1);
+          v26 = (_DWORD *)v79;
+          do
           {
-            v32 = (__int64)(v26 + 2);
-            if ( !v26 )
-              v32 = 24LL;
-            v33 = *(_QWORD *)(*(_QWORD *)v32 + 32LL);
-            v34 = 0;
-            if ( v33 )
-              v34 = *(_DWORD *)(v33 + 32);
-            *v28 = 2;
-            v35 = v28;
-            v36 = (unsigned int)(v34 + 24);
-            v37 = *(_QWORD *)v32;
-            v28 = (_DWORD *)((char *)v35 + v36);
-            *(_QWORD *)&v84 = v28;
-            *((_QWORD *)v35 + 1) = *(_QWORD *)(v37 + 40);
-            if ( v33 )
+            v27 = *((_BYTE *)v24 + 24);
+            v28 = *(CEndpointResourceStateManager **)v24;
+            v74 = *(CEndpointResourceStateManager **)v24;
+            if ( (v27 & 1) != 0 )
             {
-              v35[4] = *(_DWORD *)(v33 + 32);
-              v38 = v35 + 6;
-              if ( *(_DWORD *)(v33 + 12) )
+              v29 = *(_QWORD *)(*((_QWORD *)v24 + 2) + 32LL);
+              v30 = 0;
+              if ( v29 )
+                v30 = *(_DWORD *)(v29 + 32);
+              *v26 = 2;
+              v31 = v26;
+              v32 = (unsigned int)(v30 + 24);
+              v33 = *((_QWORD *)v24 + 2);
+              v26 = (_DWORD *)((char *)v31 + v32);
+              *(_QWORD *)&v79 = v26;
+              *((_QWORD *)v31 + 1) = *(_QWORD *)(v33 + 40);
+              if ( v29 )
               {
-                v39 = 0;
-                v40 = *(char **)(v33 + 24);
-                do
+                v31[4] = *(_DWORD *)(v29 + 32);
+                v34 = v31 + 6;
+                if ( *(_DWORD *)(v29 + 12) )
                 {
-                  v41 = 32LL * v39;
-                  *(_OWORD *)v38 = *(_OWORD *)(v41 + *(_QWORD *)(v33 + 16));
-                  v38[4] = *(_DWORD *)(v41 + *(_QWORD *)(v33 + 16) + 16);
-                  v97 = v38 + 5;
-                  memmove(v38 + 5, v40, *(unsigned int *)(v41 + *(_QWORD *)(v33 + 16) + 16));
-                  ++v39;
-                  v42 = *(unsigned int *)(v41 + *(_QWORD *)(v33 + 16) + 16);
-                  v38 = (_DWORD *)((char *)v97 + v42);
-                  v40 += v42;
+                  v35 = 0;
+                  v36 = *(char **)(v29 + 24);
+                  do
+                  {
+                    v37 = 32LL * v35;
+                    *(_OWORD *)v34 = *(_OWORD *)(v37 + *(_QWORD *)(v29 + 16));
+                    v34[4] = *(_DWORD *)(v37 + *(_QWORD *)(v29 + 16) + 16);
+                    v89 = v34 + 5;
+                    memmove(v34 + 5, v36, *(unsigned int *)(v37 + *(_QWORD *)(v29 + 16) + 16));
+                    ++v35;
+                    v38 = *(unsigned int *)(v37 + *(_QWORD *)(v29 + 16) + 16);
+                    v34 = (_DWORD *)((char *)v89 + v38);
+                    v36 += v38;
+                  }
+                  while ( v35 < *(_DWORD *)(v29 + 12) );
+                  v25 = (_DWORD *)*((_QWORD *)&v79 + 1);
+                  v4 = (CEndpointResourceStateManager *)this;
+                  v28 = v74;
                 }
-                while ( v39 < *(_DWORD *)(v33 + 12) );
-                v30 = v79;
-                v27 = (_DWORD *)*((_QWORD *)&v84 + 1);
-                v4 = (CEndpointResourceStateManager *)this;
               }
+              else
+              {
+                v31[4] = 0;
+              }
+              *((_BYTE *)v24 + 24) |= 4u;
+              v27 = *((_BYTE *)v24 + 24);
             }
-            else
+            if ( (v27 & 2) != 0 )
             {
-              v35[4] = 0;
+              *v25 = 0;
+              v39 = v25;
+              v40 = *((_QWORD *)v24 + 2);
+              v25 += 4;
+              *((_QWORD *)&v79 + 1) = v25;
+              *((_QWORD *)v39 + 1) = *(_QWORD *)(v40 + 40);
+              *((_BYTE *)v24 + 24) |= 8u;
             }
-            *(_BYTE *)v30 |= 4u;
-            v31 = *(_BYTE *)v30;
-            v29 = v77;
+            v24 = v28;
           }
-          v43 = (__int64)(v26 + 2);
-          if ( (v31 & 2) != 0 )
-          {
-            *v27 = 0;
-            v44 = v27;
-            v27 += 4;
-            *((_QWORD *)&v84 + 1) = v27;
-            if ( !v26 )
-              v43 = 24LL;
-            *((_QWORD *)v44 + 1) = *(_QWORD *)(*(_QWORD *)v43 + 40LL);
-            *(_BYTE *)v30 |= 8u;
-          }
-          v26 = (CEndpointResourceStateManager **)v29;
+          while ( v28 != v4 );
+          v14 = (char **)((char *)v4 + 16);
         }
-        while ( v29 != v4 );
-        v5 = v96;
-        v16 = (char **)((char *)v4 + 16);
-      }
-      v45 = *v16;
-      if ( *v16 != (char *)v16 )
-      {
-        v46 = v86;
-        v47 = (_DWORD *)v85;
-        v78 = v86;
-        v81 = (_DWORD *)*((_QWORD *)&v85 + 1);
-        do
+        v41 = *v14;
+        if ( *v14 != (char *)v14 )
         {
-          v48 = (__int64)(v45 + 24);
-          v92 = *(char **)v45;
-          if ( !v45 )
-            v48 = 32LL;
-          v80 = v48;
-          if ( (*(_BYTE *)v48 & 1) != 0 )
+          v42 = (_DWORD *)*((_QWORD *)&v80 + 1);
+          v43 = (_DWORD *)v80;
+          v44 = v81;
+          v75 = (_DWORD *)*((_QWORD *)&v80 + 1);
+          v76 = (_DWORD *)v80;
+          do
           {
-            v49 = (__int64)(v45 + 16);
+            v45 = (v41[24] & 1) == 0;
+            v85 = *(char **)v41;
             if ( !v45 )
-              v49 = 24LL;
-            v50 = *(_QWORD *)(*(_QWORD *)v49 + 32LL);
-            v51 = 0;
-            if ( v50 )
-              v51 = *(_DWORD *)(v50 + 32);
-            *v47 = 3;
-            v52 = v47;
-            v53 = (unsigned int)(v51 + 24);
-            v54 = *(_QWORD *)v49;
-            v47 = (_DWORD *)((char *)v52 + v53);
-            *(_QWORD *)&v85 = v47;
-            *((_QWORD *)v52 + 1) = *(_QWORD *)(v54 + 40);
-            if ( v50 )
             {
-              v55 = (char *)(v52 + 6);
-              v52[4] = *(_DWORD *)(v50 + 32);
-              v56 = 0;
-              if ( *(_DWORD *)(v50 + 12) )
+              v46 = *(_QWORD *)(*((_QWORD *)v41 + 2) + 32LL);
+              v47 = 0;
+              if ( v46 )
+                v47 = *(_DWORD *)(v46 + 32);
+              *v43 = 3;
+              v48 = v43;
+              v49 = (unsigned int)(v47 + 24);
+              v50 = *((_QWORD *)v41 + 2);
+              v43 = (_DWORD *)((char *)v48 + v49);
+              v76 = v43;
+              *(_QWORD *)&v80 = v43;
+              *((_QWORD *)v48 + 1) = *(_QWORD *)(v50 + 40);
+              if ( v46 )
               {
-                v57 = *(char **)(v50 + 24);
-                do
+                v51 = (char *)(v48 + 6);
+                v48[4] = *(_DWORD *)(v46 + 32);
+                v52 = 0;
+                if ( *(_DWORD *)(v46 + 12) )
                 {
-                  v58 = 32LL * v56;
-                  *(_OWORD *)v55 = *(_OWORD *)(v58 + *(_QWORD *)(v50 + 16));
-                  *((_DWORD *)v55 + 4) = *(_DWORD *)(v58 + *(_QWORD *)(v50 + 16) + 16);
-                  v59 = v55 + 20;
-                  memmove(v59, v57, *(unsigned int *)(v58 + *(_QWORD *)(v50 + 16) + 16));
-                  ++v56;
-                  v60 = *(unsigned int *)(v58 + *(_QWORD *)(v50 + 16) + 16);
-                  v55 = &v59[v60];
-                  v57 += v60;
+                  v53 = *(char **)(v46 + 24);
+                  do
+                  {
+                    v54 = 32LL * v52;
+                    *(_OWORD *)v51 = *(_OWORD *)(*(_QWORD *)(v46 + 16) + v54);
+                    *((_DWORD *)v51 + 4) = *(_DWORD *)(*(_QWORD *)(v46 + 16) + v54 + 16);
+                    v55 = v51 + 20;
+                    memmove(v55, v53, *(unsigned int *)(*(_QWORD *)(v46 + 16) + v54 + 16));
+                    ++v52;
+                    v56 = *(unsigned int *)(*(_QWORD *)(v46 + 16) + v54 + 16);
+                    v51 = &v55[v56];
+                    v53 += v56;
+                  }
+                  while ( v52 < *(_DWORD *)(v46 + 12) );
+                  v43 = v76;
                 }
-                while ( v56 < *(_DWORD *)(v50 + 12) );
-                v48 = v80;
-                v46 = v78;
+                v42 = v75;
               }
-            }
-            else
-            {
-              v52[4] = 0;
-            }
-            *(_BYTE *)v48 |= 4u;
-          }
-          v61 = (__int64)(v45 + 56);
-          v62 = (__int64)(v45 + 16);
-          if ( !v45 )
-            v61 = 64LL;
-          v91 = v45 + 16;
-          v90 = v61;
-          if ( (*(_BYTE *)v61 & 1) != 0 )
-          {
-            v63 = (__int64)(v45 + 32);
-            if ( !v45 )
-              v63 = 40LL;
-            v64 = *(_QWORD *)v63;
-            v65 = 0;
-            if ( v64 )
-              v65 = *(_DWORD *)(v64 + 32);
-            *(_DWORD *)v46 = 4;
-            v78 = v46 + (unsigned int)(v65 + 32);
-            v86 = v78;
-            v66 = (__int64)(v45 + 16);
-            if ( !v45 )
-              v66 = 24LL;
-            v67 = (__int64)(v45 + 40);
-            if ( !v45 )
-              v67 = 48LL;
-            *(_QWORD *)(v46 + 8) = *(_QWORD *)(*(_QWORD *)v66 + 40LL);
-            if ( *(_QWORD *)v67 )
-              v68 = *(_QWORD *)(*(_QWORD *)v67 + 40LL);
-            else
-              v68 = 0LL;
-            *(_QWORD *)(v46 + 16) = v68;
-            if ( v64 )
-            {
-              v69 = v46 + 32;
-              *(_DWORD *)(v46 + 24) = *(_DWORD *)(v64 + 32);
-              if ( *(_DWORD *)(v64 + 12) )
+              else
               {
-                v70 = 0;
-                v71 = *(char **)(v64 + 24);
-                do
-                {
-                  v72 = 32LL * v70;
-                  *(_OWORD *)v69 = *(_OWORD *)(*(_QWORD *)(v64 + 16) + v72);
-                  *(_DWORD *)(v69 + 16) = *(_DWORD *)(*(_QWORD *)(v64 + 16) + v72 + 16);
-                  v98 = v69 + 20;
-                  memmove((void *)(v69 + 20), v71, *(unsigned int *)(*(_QWORD *)(v64 + 16) + v72 + 16));
-                  ++v70;
-                  v73 = *(unsigned int *)(*(_QWORD *)(v64 + 16) + v72 + 16);
-                  v69 = v73 + v98;
-                  v71 += v73;
-                }
-                while ( v70 < *(_DWORD *)(v64 + 12) );
-                v48 = v80;
-                v61 = v90;
+                v48[4] = 0;
               }
+              v41[24] |= 4u;
             }
-            else
+            if ( (v41[48] & 1) != 0 )
             {
-              *(_DWORD *)(v46 + 24) = 0;
+              v57 = *((_QWORD *)v41 + 4);
+              v58 = 0;
+              if ( v57 )
+                v58 = *(_DWORD *)(v57 + 32);
+              *v44 = 4;
+              v59 = v44;
+              v60 = (unsigned int)(v58 + 32);
+              v61 = *((_QWORD *)v41 + 2);
+              v44 = (_DWORD *)((char *)v59 + v60);
+              v81 = v44;
+              *((_QWORD *)v59 + 1) = *(_QWORD *)(v61 + 40);
+              v62 = *((_QWORD *)v41 + 5);
+              if ( v62 )
+                v63 = *(_QWORD *)(v62 + 40);
+              else
+                v63 = 0LL;
+              *((_QWORD *)v59 + 2) = v63;
+              if ( v57 )
+              {
+                v64 = (char *)(v59 + 8);
+                v59[6] = *(_DWORD *)(v57 + 32);
+                if ( *(_DWORD *)(v57 + 12) )
+                {
+                  v65 = 0;
+                  v66 = *(char **)(v57 + 24);
+                  do
+                  {
+                    v67 = 32LL * v65;
+                    *(_OWORD *)v64 = *(_OWORD *)(*(_QWORD *)(v57 + 16) + v67);
+                    *((_DWORD *)v64 + 4) = *(_DWORD *)(*(_QWORD *)(v57 + 16) + v67 + 16);
+                    v68 = v64 + 20;
+                    memmove(v68, v66, *(unsigned int *)(*(_QWORD *)(v57 + 16) + v67 + 16));
+                    ++v65;
+                    v69 = *(unsigned int *)(*(_QWORD *)(v57 + 16) + v67 + 16);
+                    v64 = &v68[v69];
+                    v66 += v69;
+                  }
+                  while ( v65 < *(_DWORD *)(v57 + 12) );
+                  v43 = v76;
+                  v42 = v75;
+                }
+              }
+              else
+              {
+                v59[6] = 0;
+              }
+              v70 = (CFlipResource *)*((_QWORD *)v41 + 5);
+              if ( v70 )
+              {
+                CFlipResource::Release(v70);
+                *((_QWORD *)v41 + 5) = 0LL;
+              }
+              v41[48] |= 2u;
             }
-            if ( *(_QWORD *)v67 )
+            if ( (v41[24] & 2) != 0 )
             {
-              CFlipResource::Release(*(CFlipResource **)v67);
-              *(_QWORD *)v67 = 0LL;
+              *v42 = 1;
+              v71 = v42;
+              v72 = *((_QWORD *)v41 + 2);
+              v42 += 4;
+              v75 = v42;
+              *((_QWORD *)&v80 + 1) = v42;
+              *((_QWORD *)v71 + 1) = *(_QWORD *)(v72 + 40);
+              v41[24] |= 8u;
             }
-            *(_BYTE *)v61 |= 2u;
-            v62 = (__int64)v91;
+            v41 = v85;
           }
-          if ( (*(_BYTE *)v48 & 2) != 0 )
-          {
-            v74 = v81;
-            if ( !v45 )
-              v62 = 24LL;
-            *v81 = 1;
-            v81 += 4;
-            v75 = *(_QWORD *)v62;
-            *((_QWORD *)&v85 + 1) = v81;
-            *((_QWORD *)v74 + 1) = *(_QWORD *)(v75 + 40);
-            *(_BYTE *)v48 |= 8u;
-          }
-          v45 = v92;
-          v46 = v78;
+          while ( v85 != v86 );
+          v5 = v90;
+          v4 = (CEndpointResourceStateManager *)this;
         }
-        while ( v92 != v93 );
-        v5 = v96;
-        v4 = (CEndpointResourceStateManager *)this;
+        CResourceStateUpdateSerializer::GetSerializedUpdate((CResourceStateUpdateSerializer *)&P, v88);
+        CEndpointResourceStateManager::CommitPendingUpdates(v4);
       }
-      CResourceStateUpdateSerializer::GetSerializedUpdate((CResourceStateUpdateSerializer *)&P, a2);
-      CEndpointResourceStateManager::CommitPendingUpdates(v4);
     }
   }
-LABEL_111:
   if ( P )
     ExFreePoolWithTag(P, 0);
   return (unsigned int)v5;

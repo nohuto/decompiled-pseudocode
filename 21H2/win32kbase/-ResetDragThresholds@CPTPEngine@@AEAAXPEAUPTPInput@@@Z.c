@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020269C
+ * XREFs of ?ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6FFC
  * Callers:
- *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01FF558 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02007A8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
- *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C0202358 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020273C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01C3FC0 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C51A4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C01C6CA8 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C709C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z @ 0x1C02041EC (-SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z.c)
+ *     ?SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z @ 0x1C01C8AD8 (-SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z.c)
  */
 
 void __fastcall CPTPEngine::ResetDragThresholds(CPTPEngine *this, struct PTPInput *a2)
@@ -24,18 +24,18 @@ void __fastcall CPTPEngine::ResetDragThresholds(CPTPEngine *this, struct PTPInpu
     do
     {
       v6 = (unsigned int)(*((_DWORD *)v5 - 9) % *((_DWORD *)this + 4));
-      v7 = (char *)this + 400 * v6 + 1208;
+      v7 = (char *)this + 392 * v6 + 1160;
       v8 = *(_DWORD *)v7;
       if ( (*(_DWORD *)v7 & 1) != 0 )
       {
         if ( (v8 & 2) == 0 )
         {
-          *((_QWORD *)v7 + 2) = *v5;
-          *((_QWORD *)v7 + 6) = *v5;
-          CPTPEngine::SetupDragRectsForContact(this, (CPTPEngine *)((char *)this + 400 * v6 + 1208));
+          *((_QWORD *)v7 + 1) = *v5;
+          *((_QWORD *)v7 + 5) = *v5;
+          CPTPEngine::SetupDragRectsForContact(this, (CPTPEngine *)((char *)this + 392 * v6 + 1160));
           v8 = *(_DWORD *)v7;
         }
-        *(_DWORD *)v7 = v8 & 0xFFF7FFFB;
+        *(_DWORD *)v7 = v8 & 0xFFFDFFFB;
       }
       ++v2;
       v5 += 12;

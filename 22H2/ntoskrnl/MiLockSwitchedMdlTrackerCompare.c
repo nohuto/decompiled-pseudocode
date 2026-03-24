@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLockSwitchedMdlTrackerCompare @ 0x14061CA10
+ * XREFs of MiLockSwitchedMdlTrackerCompare @ 0x140530BF0
  * Callers:
  *     <none>
  * Callees:

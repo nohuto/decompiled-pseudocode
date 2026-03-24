@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmPerfUpdateDomainPolicy @ 0x140719BAC
+ * XREFs of PpmPerfUpdateDomainPolicy @ 0x140719B8C
  * Callers:
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
- *     PopPerfBoostPowerRequest @ 0x140719B50 (PopPerfBoostPowerRequest.c)
- *     PpmRegisterPerfStates @ 0x14074E4DC (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x14074F044 (PpmReapplyPerfPolicy.c)
- *     PpmUpdatePerfStates @ 0x14086B300 (PpmUpdatePerfStates.c)
+ *     PopPerfBoostPowerRequest @ 0x140719B30 (PopPerfBoostPowerRequest.c)
+ *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x14074F024 (PpmReapplyPerfPolicy.c)
+ *     PpmUpdatePerfStates @ 0x14086B2E0 (PpmUpdatePerfStates.c)
  * Callees:
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PpmCheckCustomRun @ 0x140141B54 (PpmCheckCustomRun.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x140141EB4 (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14016C804 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmPerfCalculateQosClassPolicies @ 0x140174050 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmEventQosSupport @ 0x140719D20 (PpmEventQosSupport.c)
+ *     PpmCheckCustomRun @ 0x140141B74 (PpmCheckCustomRun.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x140141ED4 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x14016C824 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x140174070 (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmEventQosSupport @ 0x140719D00 (PpmEventQosSupport.c)
  */
 
 void __fastcall PpmPerfUpdateDomainPolicy(char a1)

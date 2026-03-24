@@ -1,11 +1,11 @@
 /*
- * XREFs of DesktopVerifyHeapLargeUnicodeString @ 0x1C00E73F4
+ * XREFs of DesktopVerifyHeapLargeUnicodeString @ 0x1C00FD2EC
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     DefSetText @ 0x1C00689C0 (DefSetText.c)
- *     NtUserInternalGetWindowText @ 0x1C00E7260 (NtUserInternalGetWindowText.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     DefSetText @ 0x1C004B02C (DefSetText.c)
+ *     NtUserInternalGetWindowText @ 0x1C00FD150 (NtUserInternalGetWindowText.c)
  * Callees:
- *     DesktopVerifyHeapRange @ 0x1C00E7440 (DesktopVerifyHeapRange.c)
+ *     DesktopVerifyHeapRange @ 0x1C00FD338 (DesktopVerifyHeapRange.c)
  */
 
 __int64 __fastcall DesktopVerifyHeapLargeUnicodeString(__int64 a1, ULONG_PTR a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0xqxxqq_EventWriteTransfer @ 0x1801123E4
+ * XREFs of McTemplateU0xqxxqq_EventWriteTransfer @ 0x1801543E0
  * Callers:
- *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18007C008 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
+ *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18006C910 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0xqxxqq_EventWriteTransfer(

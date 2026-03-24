@@ -1,29 +1,45 @@
 /*
- * XREFs of ExMapHandleToPointer @ 0x140740120
+ * XREFs of ExMapHandleToPointer @ 0x14061BF20
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     RtlpFreeHandleForAtom @ 0x14069ED40 (RtlpFreeHandleForAtom.c)
- *     RtlpInsertStringAtom @ 0x140715060 (RtlpInsertStringAtom.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x14073FD58 (RtlpAtomMapAtomToHandleEntry.c)
- *     ObSetHandleAttributes @ 0x14073FE00 (ObSetHandleAttributes.c)
- *     ObQueryObjectAuditingByHandle @ 0x140740010 (ObQueryObjectAuditingByHandle.c)
- *     PspThreadDelete @ 0x1407478D0 (PspThreadDelete.c)
- *     PspProcessDelete @ 0x1407615C0 (PspProcessDelete.c)
- *     PspClearProcessThreadCidRefs @ 0x14076E7E8 (PspClearProcessThreadCidRefs.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1407BD8F4 (ObpReferenceProcessObjectByHandle.c)
- *     ExMapHandleToPointerEx @ 0x1407C67C8 (ExMapHandleToPointerEx.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspProcessDelete @ 0x140613B20 (PspProcessDelete.c)
+ *     ExMapHandleToPointerEx @ 0x140616AE0 (ExMapHandleToPointerEx.c)
+ *     PspThreadDelete @ 0x140619D80 (PspThreadDelete.c)
+ *     ObpCloseHandle @ 0x14061B020 (ObpCloseHandle.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14061BE80 (RtlpAtomMapAtomToHandleEntry.c)
+ *     ObQueryObjectAuditingByHandle @ 0x140664CA0 (ObQueryObjectAuditingByHandle.c)
+ *     RtlpFreeHandleForAtom @ 0x14068631C (RtlpFreeHandleForAtom.c)
+ *     RtlpInsertStringAtom @ 0x14068FC0C (RtlpInsertStringAtom.c)
+ *     PspClearProcessThreadCidRefs @ 0x1406C5940 (PspClearProcessThreadCidRefs.c)
+ *     ObSetHandleAttributes @ 0x1406F9440 (ObSetHandleAttributes.c)
  * Callees:
- *     ExLockHandleTableEntry @ 0x1402BEAA4 (ExLockHandleTableEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1406E69E0 (ExpLookupHandleTableEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14063E910 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140665448 (ExpBlockOnLockedHandleEntry.c)
  */
 
-__int64 __fastcall ExMapHandleToPointer(unsigned int *a1, __int64 a2)
+signed __int64 *__fastcall ExMapHandleToPointer(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rax
-  __int64 v3; // r9
+  signed __int64 *v3; // rbx
+  signed __int64 v4; // r8
 
-  if ( (a2 & 0x3FC) != 0 && (v2 = ExpLookupHandleTableEntry(a1, a2)) != 0 )
-    return v2 & -(__int64)(ExLockHandleTableEntry(v3, (_QWORD *)v2) != 0);
-  else
+  if ( (a2 & 0x3FC) == 0 )
     return 0LL;
+  v3 = (signed __int64 *)ExpLookupHandleTableEntry(a1, a2);
+  if ( !v3 )
+    return 0LL;
+  do
+  {
+    while ( 1 )
+    {
+      _m_prefetchw(v3);
+      v4 = *v3;
+      if ( (*v3 & 1) != 0 )
+        break;
+      if ( !v4 )
+        return 0LL;
+      ExpBlockOnLockedHandleEntry(a1, v3);
+    }
+  }
+  while ( v4 != _InterlockedCompareExchange64(v3, v4 - 1, v4) );
+  return v3;
 }

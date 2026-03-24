@@ -1,236 +1,161 @@
 /*
- * XREFs of ?DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESKTOP@@PEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0171294
+ * XREFs of ?DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESKTOP@@PEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0144340
  * Callers:
- *     DrvProcessDxgkDisplayCallout @ 0x1C01749FC (DrvProcessDxgkDisplayCallout.c)
+ *     DrvProcessDxgkDisplayCallout @ 0x1C0147928 (DrvProcessDxgkDisplayCallout.c)
  * Callees:
- *     xxxUserSetDisplayConfig @ 0x1C005C190 (xxxUserSetDisplayConfig.c)
- *     DrvGetDisplayConfigBufferSizes @ 0x1C0070630 (DrvGetDisplayConfigBufferSizes.c)
- *     DrvQueryDisplayConfig @ 0x1C00706F0 (DrvQueryDisplayConfig.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     DrvGetDisplayConfigBufferSizes @ 0x1C001EF30 (DrvGetDisplayConfigBufferSizes.c)
+ *     DrvQueryDisplayConfig @ 0x1C001F020 (DrvQueryDisplayConfig.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     xxxUserSetDisplayConfig @ 0x1C0075A10 (xxxUserSetDisplayConfig.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DrvProcessSetDisplayConfigParameters(
         struct _D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION *a1,
-        unsigned int a2,
+        __int64 a2,
         struct tagDESKTOP *a3,
         unsigned __int8 *a4,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a5)
 {
-  __int128 v5; // xmm0
-  __int128 v6; // xmm1
-  void *v7; // rax
-  __int64 v8; // r12
-  __int64 Pool2; // rbx
-  __int64 v10; // rdi
-  unsigned int v11; // edx
+  __int64 v5; // r15
+  __int64 v6; // r14
+  int v8; // ecx
+  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v9; // rdi
+  __int64 v10; // rcx
+  __int64 v11; // rbx
   __int64 result; // rax
-  unsigned int v13; // r15d
-  unsigned int v14; // ecx
-  unsigned int v15; // eax
+  __int64 v13; // rax
+  _QWORD *v14; // rax
+  unsigned int v15; // r13d
   unsigned int v16; // ecx
-  PVOID v17; // rsi
-  __int64 v18; // rdx
-  __int64 v19; // rax
-  _DWORD *v20; // r13
-  unsigned int v21; // r14d
-  int v22; // esi
-  unsigned int v23; // esi
-  _DWORD *v24; // rcx
-  char v25; // r14
-  unsigned int i; // edx
-  __int64 v27; // rax
-  __int64 v28; // rcx
-  unsigned int v29; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v30; // [rsp+64h] [rbp-9Ch]
-  unsigned int v31; // [rsp+68h] [rbp-98h] BYREF
-  int v32; // [rsp+6Ch] [rbp-94h] BYREF
-  unsigned int v33; // [rsp+70h] [rbp-90h]
-  unsigned int v34; // [rsp+74h] [rbp-8Ch]
-  void *Src; // [rsp+78h] [rbp-88h]
-  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v36; // [rsp+80h] [rbp-80h]
-  _BYTE *v37; // [rsp+88h] [rbp-78h]
-  struct tagDESKTOP *v38; // [rsp+90h] [rbp-70h]
-  PVOID BackTrace[20]; // [rsp+A0h] [rbp-60h] BYREF
-  _OWORD v40[2]; // [rsp+140h] [rbp+40h] BYREF
-  __int64 v41; // [rsp+160h] [rbp+60h]
+  unsigned int v17; // eax
+  _DWORD *v18; // rax
+  unsigned int v19; // r12d
+  int v20; // esi
+  unsigned int v21; // esi
+  _DWORD *v22; // rcx
+  unsigned int j; // edx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  unsigned int v26; // [rsp+50h] [rbp-28h] BYREF
+  int v27; // [rsp+54h] [rbp-24h] BYREF
+  unsigned int v28; // [rsp+58h] [rbp-20h]
+  __int64 v29; // [rsp+60h] [rbp-18h]
+  _DWORD *i; // [rsp+68h] [rbp-10h]
+  unsigned int v31; // [rsp+C0h] [rbp+48h]
+  unsigned int v32; // [rsp+C8h] [rbp+50h] BYREF
+  struct tagDESKTOP *v33; // [rsp+D0h] [rbp+58h]
+  _BYTE *v34; // [rsp+D8h] [rbp+60h]
 
-  v5 = *((_OWORD *)a1 + 6);
-  v32 = -1;
-  v6 = *((_OWORD *)a1 + 7);
-  v7 = (void *)*((_QWORD *)a1 + 2);
-  v8 = *((unsigned int *)a1 + 2);
-  Pool2 = 0LL;
-  v10 = a2;
-  v11 = (*(char *)a1 >> 31) & 4;
-  v37 = a4;
-  v38 = a3;
-  v36 = a5;
-  Src = v7;
-  v33 = v11;
-  v40[0] = v5;
-  v41 = *((_QWORD *)a1 + 16);
-  v40[1] = v6;
-  if ( (v10 & 0xF) != 0 )
+  v34 = a4;
+  v33 = a3;
+  v5 = *((_QWORD *)a1 + 2);
+  v6 = *((unsigned int *)a1 + 2);
+  v8 = *(char *)a1;
+  v9 = 0LL;
+  v27 = -1;
+  v10 = (v8 >> 31) & 4;
+  v11 = (unsigned int)a2;
+  v29 = v5;
+  v28 = v10;
+  if ( (a2 & 0xF) != 0 )
   {
-    if ( (v10 & 0x30) == 0 )
+    if ( (a2 & 0x30) == 0 )
       return xxxUserSetDisplayConfig(
-               v8,
-               (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)v7,
+               v6,
+               (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)v5,
+               a2,
                v10,
-               v11,
                (__int64)a3,
                0,
                0LL,
                0LL,
                a4,
-               (__int64)a5,
-               (__int64)v40);
-    WdLogSingleEntry2(2LL, v10, a3);
+               (__int64)a5);
+    v13 = WdLogNewEntry5_WdError(v10, a2);
+    *(_QWORD *)(v13 + 24) = v11;
+    *(_QWORD *)(v13 + 32) = a3;
+    WdLogEvent5_WdError(v13);
     return 3221225485LL;
   }
-  if ( !v7 )
+  if ( !v5 )
   {
-    WdLogSingleEntry3(1LL, v8, v10, a3);
+    v14 = (_QWORD *)WdLogNewEntry5_WdAssertion(v10, a2);
+    v14[3] = v6;
+    v14[4] = v11;
+    v14[5] = a3;
+    WdLogEvent5_WdAssertion(v14);
     return 3221225485LL;
   }
-  v29 = 0;
-  v13 = (v10 & 0x20F) != 0 ? 4 : 2;
-  v34 = v13;
-  result = DrvGetDisplayConfigBufferSizes(v13, (__int64)&v29);
+  v32 = 0;
+  v15 = (a2 & 0x20F) != 0 ? 4 : 2;
+  result = DrvGetDisplayConfigBufferSizes(v15, (__int64)&v32);
   if ( (int)result >= 0 )
   {
-    v14 = v29;
-    v30 = v29;
-    v15 = v8 + v29;
-    v29 = v15;
-    if ( !v15 )
-      goto LABEL_18;
-    if ( !(216 * v15) )
-      return 3221225495LL;
-    v17 = gpLeakTrackingAllocator;
-    v16 = 216 * v15;
-    v18 = 216 * v15;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x73726447) != 0x73726447
-      || (v19 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+    v16 = v32;
+    v31 = v32;
+    v17 = v6 + v32;
+    v32 = v17;
+    if ( v17 )
     {
-LABEL_15:
-      Pool2 = ExAllocatePool2(260LL, v16);
-      goto LABEL_16;
+      v9 = (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)PALLOCMEM2(200 * v17, 1936876615LL, 1);
+      if ( !v9 )
+        return 3221225495LL;
+      v17 = v32;
+      v16 = v31;
     }
-    while ( *((_DWORD *)gpLeakTrackingAllocator + v19) != 1936876615 )
+    v26 = v17;
+    v18 = (_DWORD *)((unsigned __int64)&v27 & -(__int64)((v15 & 4) != 0));
+    for ( i = v18; ; v18 = i )
     {
-      if ( ++v19 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-        goto LABEL_15;
-    }
-    v25 = 0;
-    if ( v16 < 0x1000uLL || (v18 & 0xFFF) != 0 )
-    {
-      v25 = 1;
-      v18 = v16 + 16LL;
-    }
-    Pool2 = ExAllocatePool2(260LL, v18);
-    if ( !Pool2 )
-      goto LABEL_32;
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( v25 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-    {
-      if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                              v17,
-                              Pool2,
-                              BackTrace) )
+      v19 = v16;
+      v20 = DrvQueryDisplayConfig(v15, &v26, (__int64)v9, v18);
+      if ( v20 < 0 )
+        break;
+      if ( v26 != v31 )
       {
-        Pool2 += 16LL;
-        goto LABEL_16;
+        v20 = -1071774893;
+        break;
       }
-    }
-    else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                 v17,
-                                 Pool2,
-                                 BackTrace) )
-    {
-LABEL_16:
-      if ( Pool2 )
+      v21 = 0;
+      if ( (_DWORD)v6 )
       {
-        v15 = v29;
-        v14 = v30;
-LABEL_18:
-        v31 = v15;
-        v20 = (_DWORD *)((unsigned __int64)&v32 & -(__int64)((v13 & 4) != 0));
-        while ( 1 )
+        while ( v21 < v19 )
         {
-          v21 = v14;
-          v22 = DrvQueryDisplayConfig(v13, &v31, Pool2, v20);
-          if ( v22 < 0 )
-            break;
-          if ( v31 != v30 )
+          v22 = (_DWORD *)((char *)v9 + 200 * v21);
+          if ( v22[4] == *(_DWORD *)(v5 + 16) && v22[5] == *(_DWORD *)(v5 + 20) )
           {
-            v22 = -1071774893;
-            break;
+            if ( v21 < v32 - 1 )
+              memmove(v22, v22 + 50, 200LL * (v32 - v21 - 1));
+            --v19;
           }
-          v23 = 0;
-          if ( (_DWORD)v8 )
+          else
           {
-            while ( v23 < v21 )
-            {
-              v24 = (_DWORD *)(Pool2 + 216LL * v23);
-              if ( v24[4] == *((_DWORD *)Src + 4) && v24[5] == *((_DWORD *)Src + 5) )
-              {
-                if ( v23 < v29 - 1 )
-                  memmove(v24, v24 + 54, 216LL * (v29 - v23 - 1));
-                --v21;
-              }
-              else
-              {
-                ++v23;
-              }
-            }
-            memmove((void *)(Pool2 + 216LL * v21), Src, 216 * v8);
+            ++v21;
           }
-          if ( (v10 & 0x10) != 0 )
-          {
-            for ( i = 0; i < v29; *(_QWORD *)(v28 + Pool2 + 8) = 0LL )
-            {
-              v27 = i++;
-              v28 = 216 * v27;
-              *(_QWORD *)(v28 + Pool2) &= 0x8004700000000000uLL;
-            }
-          }
-          v22 = xxxUserSetDisplayConfig(
-                  v21 + (unsigned int)v8,
-                  (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)Pool2,
-                  v10,
-                  v33,
-                  (__int64)v38,
-                  0,
-                  0LL,
-                  0LL,
-                  v37,
-                  (__int64)v36,
-                  (__int64)v40);
-          if ( v22 != -1073741772 || (v10 & 0x10) == 0 )
-            break;
-          v13 = v34;
-          v14 = v30;
-          LODWORD(v10) = v10 & 0xFFFFEDCF | 0x1220;
         }
-        if ( Pool2 )
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            (char *)Pool2);
-        return (unsigned int)v22;
+        memmove((char *)v9 + 200 * v19, (const void *)v5, 200 * v6);
       }
-      return 3221225495LL;
+      if ( (v11 & 0x10) != 0 )
+      {
+        for ( j = 0; j < v32; *(_QWORD *)((char *)v9 + v25 + 8) = 0LL )
+        {
+          v24 = j++;
+          v25 = 200 * v24;
+          *(_QWORD *)((char *)v9 + v25) &= 0x8004700000000000uLL;
+        }
+      }
+      v20 = xxxUserSetDisplayConfig(v19 + (unsigned int)v6, v9, v11, v28, (__int64)v33, 0, 0LL, 0LL, v34, (__int64)a5);
+      if ( v20 != -1073741772 || (v11 & 0x10) == 0 )
+        break;
+      v5 = v29;
+      v16 = v31;
+      LODWORD(v11) = v11 & 0xFFFFEDCF | 0x1220;
     }
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-LABEL_32:
-    Pool2 = 0LL;
-    goto LABEL_16;
+    if ( v9 )
+      Win32FreePool((__int64)v9);
+    return (unsigned int)v20;
   }
   return result;
 }

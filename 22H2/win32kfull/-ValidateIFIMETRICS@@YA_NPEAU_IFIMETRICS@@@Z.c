@@ -1,110 +1,107 @@
 /*
- * XREFs of ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C008D36C
+ * XREFs of ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00D1948
  * Callers:
- *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C008CE80 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00D1820 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
  * Callees:
- *     _lambda_070e29bc377876d11c9c205fcaeb93d1_::operator() @ 0x1C008D574 (_lambda_070e29bc377876d11c9c205fcaeb93d1_--operator().c)
- *     _lambda_6205c396a1390c774bd95fcbb0cc7414_::operator() @ 0x1C008D5C4 (_lambda_6205c396a1390c774bd95fcbb0cc7414_--operator().c)
- *     _lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator() @ 0x1C008D5F4 (_lambda_3eb24279fbdd178c4d8527d8e8f1e39f_--operator().c)
+ *     _lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator() @ 0x1C00D1B38 (_lambda_3eb24279fbdd178c4d8527d8e8f1e39f_--operator().c)
+ *     _lambda_6205c396a1390c774bd95fcbb0cc7414_::operator() @ 0x1C00D1B64 (_lambda_6205c396a1390c774bd95fcbb0cc7414_--operator().c)
+ *     _lambda_070e29bc377876d11c9c205fcaeb93d1_::operator() @ 0x1C00D237C (_lambda_070e29bc377876d11c9c205fcaeb93d1_--operator().c)
  */
 
 char __fastcall ValidateIFIMETRICS(struct _IFIMETRICS *a1)
 {
   __int64 dpwszFamilyName; // rdx
-  __int64 v2; // r11
-  __int64 v3; // r11
-  __int64 v4; // r11
-  __int64 v5; // r8
-  _DWORD *v6; // r11
-  unsigned int v7; // r9d
-  unsigned int v8; // eax
-  int v9; // r10d
-  unsigned __int64 v10; // rdx
-  unsigned int v11; // r10d
-  __int64 v12; // r8
-  unsigned __int64 v13; // rax
-  __int64 v14; // r9
+  __int64 v2; // r10
+  __int64 v3; // r10
+  __int64 v4; // r10
+  _DWORD *v5; // r10
+  unsigned int v6; // r9d
+  __int64 v7; // rdx
+  int v8; // r11d
+  __int64 v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // r10
+  unsigned int v12; // r11d
+  __int64 v13; // r8
+  __int64 v14; // rdx
   __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rdx
-  unsigned int v18; // eax
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // rdx
+  __int64 v19; // rdx
   __int64 v20; // rdx
   __int64 v21; // rdx
-  int v22; // r10d
-  struct _IFIMETRICS *v23; // [rsp+30h] [rbp+10h] BYREF
-  struct _IFIMETRICS **v24; // [rsp+38h] [rbp+18h] BYREF
+  __int64 v23; // rdx
+  __int64 v24; // rdx
+  int v25; // r11d
+  struct _IFIMETRICS *v26; // [rsp+30h] [rbp+10h] BYREF
+  struct _IFIMETRICS **v27; // [rsp+38h] [rbp+18h] BYREF
+  struct _IFIMETRICS **v28; // [rsp+40h] [rbp+20h] BYREF
 
-  v23 = a1;
+  v26 = a1;
   dpwszFamilyName = (unsigned int)a1->dpwszFamilyName;
-  v24 = &v23;
-  if ( !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v24, dpwszFamilyName)
-    || !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v24, *(unsigned int *)(v2 + 12))
-    || !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v24, *(unsigned int *)(v3 + 16))
-    || !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v24, *(unsigned int *)(v4 + 20)) )
+  v27 = &v26;
+  if ( !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v27, dpwszFamilyName)
+    || !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v27, *(unsigned int *)(v2 + 12))
+    || !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v27, *(unsigned int *)(v3 + 16))
+    || !(unsigned __int8)lambda_070e29bc377876d11c9c205fcaeb93d1_::operator()(&v27, *(unsigned int *)(v4 + 20)) )
   {
     return 0;
   }
-  v7 = v6[1];
-  v24 = &v23;
-  if ( v7 )
+  v6 = v5[1];
+  v27 = &v26;
+  if ( v6 )
   {
-    if ( v7 < 8 )
+    if ( v6 < 8 )
       return 0;
-    v8 = v6[49];
-    if ( v8 )
+    v7 = (unsigned int)v5[49];
+    if ( (_DWORD)v7 )
     {
-      if ( v8 < 0xC0 || v8 + 24 < v8 || v8 + 24 > *v6 )
+      if ( !(unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(&v27, v7, 24LL) )
         return 0;
     }
-    v9 = 0;
-    if ( v7 >= 0x10 )
+    v8 = 0;
+    if ( v6 >= 0x10 )
     {
-      v10 = (int)v6[51];
-      if ( (_DWORD)v10 )
+      v9 = (int)v5[51];
+      if ( (_DWORD)v9 )
       {
-        if ( v10 < 0xC0 )
+        if ( !(unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(&v27, v9, 8LL) )
           return 0;
-        if ( (int)v10 + 8 < (unsigned int)v10 )
+        v12 = *(_DWORD *)(v10 + v11 + 4);
+        if ( v12 > 0x10 )
           return 0;
-        if ( (unsigned int)(v10 + 8) > *v6 )
-          return 0;
-        v11 = *(_DWORD *)((char *)v6 + v10 + 4);
-        if ( v11 > 0x10 )
-          return 0;
-        v12 = 140LL;
-        if ( *(_DWORD *)((char *)v6 + v10) != 134248052 )
-          v12 = 4 * v11 + 8;
-        if ( !(unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(&v24, v10, v12) )
+        v13 = *(_DWORD *)(v10 + v11) == 134248052 ? 140LL : 4 * v12 + 8;
+        if ( !(unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(&v27, v10, v13) )
           return 0;
       }
     }
-    if ( v7 >= 0x14 )
+    if ( v6 >= 0x14 )
     {
-      v20 = (int)v6[52];
-      if ( (_DWORD)v20 )
+      v23 = (int)v5[52];
+      if ( (_DWORD)v23 )
       {
         if ( !(unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(
-                                 &v24,
-                                 v20,
-                                 (unsigned int)(40 * v9 + 8))
-          || *(_DWORD *)((char *)v6 + v21 + 4) != v22 )
+                                 &v27,
+                                 v23,
+                                 (unsigned int)(40 * v8 + 8))
+          || *(_DWORD *)((char *)v5 + v24 + 4) != v25 )
         {
           return 0;
         }
       }
     }
   }
-  if ( ((v13 = (int)v6[6], !(_DWORD)v13)
-     || (v14 = (int)v6[6], v13 >= 0xC0)
-     && (int)v13 + 12 >= (unsigned int)v13
-     && (unsigned int)(v13 + 12) <= *v6
-     && ((v15 = *(unsigned int *)((char *)v6 + v13), v24 = &v23, !(_DWORD)v15)
-      || (unsigned __int8)lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(&v24, v15, v5, v14))
-     && ((v16 = *(unsigned int *)((char *)v6 + v14 + 4), !(_DWORD)v16)
-      || (unsigned __int8)lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(&v24, v16, v5, v14))
-     && ((v17 = *(unsigned int *)((char *)v6 + v14 + 8), !(_DWORD)v17)
-      || (unsigned __int8)lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(&v24, v17, v5, v14)))
-    && ((v18 = v6[10]) == 0 || v18 >= 0xC0 && v18 + 16 >= v18 && v18 + 16 <= *v6) )
+  if ( ((v14 = (int)v5[6], !(_DWORD)v14)
+     || (unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(&v27, v14, 12LL)
+     && ((v17 = v15, v18 = *(unsigned int *)((char *)v5 + v15), v28 = &v26, !(_DWORD)v18)
+      || (unsigned __int8)lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(&v28, v18, v16, v17))
+     && ((v19 = *(unsigned int *)((char *)v5 + v17 + 4), !(_DWORD)v19)
+      || (unsigned __int8)lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(&v28, v19, v16, v17))
+     && ((v20 = *(unsigned int *)((char *)v5 + v17 + 8), !(_DWORD)v20)
+      || (unsigned __int8)lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(&v28, v20, v16, v17)))
+    && ((v21 = (unsigned int)v5[10], !(_DWORD)v21)
+     || (unsigned __int8)lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator()(&v27, v21, 16LL)) )
   {
     return 1;
   }

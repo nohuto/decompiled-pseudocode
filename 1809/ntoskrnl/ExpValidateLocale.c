@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpValidateLocale @ 0x1408CCE18
+ * XREFs of ExpValidateLocale @ 0x1408CCDF8
  * Callers:
- *     NtSetDefaultLocale @ 0x14071A6E0 (NtSetDefaultLocale.c)
- *     ExpSetCurrentUserUILanguage @ 0x14071A914 (ExpSetCurrentUserUILanguage.c)
+ *     NtSetDefaultLocale @ 0x14071A6C0 (NtSetDefaultLocale.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     IsPseudoLocale @ 0x1403192B4 (IsPseudoLocale.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     IsPseudoLocale @ 0x1403193B4 (IsPseudoLocale.c)
  *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
  */
 

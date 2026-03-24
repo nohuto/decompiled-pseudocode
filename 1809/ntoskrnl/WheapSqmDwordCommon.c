@@ -1,15 +1,15 @@
 /*
- * XREFs of WheapSqmDwordCommon @ 0x140321A98
+ * XREFs of WheapSqmDwordCommon @ 0x140321B98
  * Callers:
- *     WheapCreateRecordFromGenericErrorData @ 0x140320954 (WheapCreateRecordFromGenericErrorData.c)
- *     WheapSqmIncrementDword @ 0x140321B40 (WheapSqmIncrementDword.c)
- *     WheapSqmCollectWheaPolicyTelemetry @ 0x1408DC4A4 (WheapSqmCollectWheaPolicyTelemetry.c)
- *     WheapPfaMemoryCheck @ 0x1408DCAD8 (WheapPfaMemoryCheck.c)
- *     WheapSqmCollectPshedPluginTelemetry @ 0x1408DD374 (WheapSqmCollectPshedPluginTelemetry.c)
- *     WheapSqmSetDword @ 0x1408DD494 (WheapSqmSetDword.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x140320A54 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapSqmIncrementDword @ 0x140321C40 (WheapSqmIncrementDword.c)
+ *     WheapSqmCollectWheaPolicyTelemetry @ 0x1408DC484 (WheapSqmCollectWheaPolicyTelemetry.c)
+ *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
+ *     WheapSqmCollectPshedPluginTelemetry @ 0x1408DD354 (WheapSqmCollectPshedPluginTelemetry.c)
+ *     WheapSqmSetDword @ 0x1408DD474 (WheapSqmSetDword.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapSqmDwordCommon(int a1, const EVENT_DESCRIPTOR *a2, int a3, int a4)
@@ -28,7 +28,7 @@ NTSTATUS __fastcall WheapSqmDwordCommon(int a1, const EVENT_DESCRIPTOR *a2, int 
   v5 = a1;
   UserData.Ptr = (ULONGLONG)&v5;
   v6 = a3;
-  v9 = &unk_14037E200;
+  v9 = &unk_14037E338;
   v7 = a4;
   v11 = &v6;
   *(_QWORD *)&UserData.Size = 4LL;

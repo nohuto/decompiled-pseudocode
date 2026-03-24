@@ -1,376 +1,362 @@
 /*
- * XREFs of DxgkCreateSwapChain @ 0x1C035B600
+ * XREFs of DxgkCreateSwapChain @ 0x1C02ADFB0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C0007CA4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0024B68 (--1COREDEVICEACCESS@@QEAA@XZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ??_GDXGSWAPCHAIN@@QEAAPEAXI@Z @ 0x1C0058DFC (--_GDXGSWAPCHAIN@@QEAAPEAXI@Z.c)
- *     McTemplateK0pqdqqpp_EtwWriteTransfer @ 0x1C00597FC (McTemplateK0pqdqqpp_EtwWriteTransfer.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??0DXGSWAPCHAIN@@QEAA@XZ @ 0x1C0356D4C (--0DXGSWAPCHAIN@@QEAA@XZ.c)
- *     ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C0356E08 (--0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z.c)
- *     ??1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ @ 0x1C0356E78 (--1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ.c)
- *     ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C0356EAC (-Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z.c)
- *     ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C0357278 (-AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z.c)
- *     ?InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z @ 0x1C0358638 (-InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHA.c)
- *     ?OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C0359400 (-OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0004E20 (--1COREDEVICEACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C00088C4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ??_GDXGSWAPCHAIN@@QEAAPEAXI@Z @ 0x1C004BC48 (--_GDXGSWAPCHAIN@@QEAAPEAXI@Z.c)
+ *     McTemplateK0pqdqqpp_EtwWriteTransfer @ 0x1C004C340 (McTemplateK0pqdqqpp_EtwWriteTransfer.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??0DXGSWAPCHAIN@@QEAA@XZ @ 0x1C02A9FEC (--0DXGSWAPCHAIN@@QEAA@XZ.c)
+ *     ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C02AA0A8 (--0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z.c)
+ *     ??1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ @ 0x1C02AA118 (--1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ.c)
+ *     ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C02AA14C (-Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z.c)
+ *     ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C02AA7D0 (-AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z.c)
+ *     ?InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z @ 0x1C02AB590 (-InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHA.c)
+ *     ?OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C02AC1E8 (-OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z.c)
  */
 
 __int64 __fastcall DxgkCreateSwapChain(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG64 v3; // r13
-  DXGSWAPCHAIN *v4; // r14
-  __int64 v5; // rcx
-  struct _KTHREAD **Current; // rsi
-  __int64 SurfaceCount; // rbx
-  const wchar_t *v8; // r9
-  _D3DKMT_CREATESWAPCHAIN *v9; // rax
-  char v10; // r12
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  void *v14; // r15
-  __int64 v15; // rbx
-  unsigned __int64 v16; // rax
+  DXGSWAPCHAIN *v4; // rsi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  struct _KTHREAD **Current; // r14
+  __int64 v12; // rax
+  _D3DKMT_CREATESWAPCHAIN *v13; // rax
+  char v14; // r12
+  __int64 SurfaceCount; // rdi
+  __int64 v16; // rdx
   __int64 v17; // rcx
   __int64 v18; // r8
+  PVOID v20; // r15
+  __int64 v21; // rdi
+  SIZE_T v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
   HANDLE *pNtSurfaceHandles; // rdx
-  HANDLE *v20; // rcx
-  struct ADAPTER_RENDER **v21; // rbx
-  __int64 hDevice; // rbx
-  __int64 v23; // rsi
-  ULONG64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  DXGSWAPCHAIN *v28; // rax
-  int v29; // eax
-  int v30; // ebx
-  struct DXGDEVICE *v31; // r13
-  __int64 v32; // r9
-  __int64 v33; // rcx
-  int v34; // eax
-  const wchar_t *v35; // r9
+  HANDLE *v32; // rcx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  struct ADAPTER_RENDER **v35; // r14
+  __int64 v36; // rax
+  __int64 v37; // rdi
+  ULONG64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  __int64 v41; // r9
+  DXGSWAPCHAIN *v42; // rax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  __int64 v45; // r8
+  __int64 v46; // r9
+  __int64 v47; // rax
+  int v48; // eax
+  __int64 v49; // rdx
+  __int64 v50; // rcx
+  __int64 v51; // rax
+  int v52; // r14d
+  struct DXGDEVICE *v53; // r13
+  __int64 v54; // r9
+  __int64 v55; // rcx
+  int v56; // eax
+  __int64 v57; // rdx
+  __int64 v58; // rcx
+  __int64 v59; // rax
   NTSTATUS inserted; // eax
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  PVOID *NewObject; // [rsp+20h] [rbp-238h]
-  PHANDLE Handle; // [rsp+28h] [rbp-230h]
-  __int64 v41; // [rsp+30h] [rbp-228h]
-  __int64 v42; // [rsp+38h] [rbp-220h]
-  char v43; // [rsp+50h] [rbp-208h]
-  struct DXGDEVICE *v44; // [rsp+58h] [rbp-200h] BYREF
-  int v45; // [rsp+60h] [rbp-1F8h] BYREF
-  __int64 v46; // [rsp+68h] [rbp-1F0h]
-  char v47; // [rsp+70h] [rbp-1E8h]
-  __int64 v48; // [rsp+78h] [rbp-1E0h]
-  _QWORD v49[3]; // [rsp+80h] [rbp-1D8h] BYREF
-  HANDLE v50; // [rsp+98h] [rbp-1C0h] BYREF
-  _D3DKMT_CREATESWAPCHAIN v51; // [rsp+A0h] [rbp-1B8h] BYREF
-  struct DXGDEVICE *v52; // [rsp+D8h] [rbp-180h] BYREF
-  PVOID Object; // [rsp+E0h] [rbp-178h] BYREF
-  void *v54; // [rsp+E8h] [rbp-170h]
-  struct DXGDEVICE *v55; // [rsp+F0h] [rbp-168h] BYREF
-  ULONG64 v56; // [rsp+F8h] [rbp-160h]
-  _BYTE v57[160]; // [rsp+100h] [rbp-158h] BYREF
-  _BYTE v58[128]; // [rsp+1A0h] [rbp-B8h] BYREF
+  __int64 v61; // rcx
+  __int64 v62; // r8
+  PVOID *NewObject; // [rsp+20h] [rbp-248h]
+  PHANDLE Handle; // [rsp+28h] [rbp-240h]
+  __int64 v65; // [rsp+30h] [rbp-238h]
+  __int64 v66; // [rsp+38h] [rbp-230h]
+  char v67; // [rsp+50h] [rbp-218h]
+  struct DXGDEVICE *v68; // [rsp+58h] [rbp-210h] BYREF
+  int v69; // [rsp+60h] [rbp-208h] BYREF
+  __int64 v70; // [rsp+68h] [rbp-200h]
+  char v71; // [rsp+70h] [rbp-1F8h]
+  __int64 v72; // [rsp+78h] [rbp-1F0h]
+  _QWORD v73[3]; // [rsp+80h] [rbp-1E8h] BYREF
+  HANDLE v74; // [rsp+98h] [rbp-1D0h] BYREF
+  _D3DKMT_CREATESWAPCHAIN v75; // [rsp+A0h] [rbp-1C8h] BYREF
+  PVOID Object; // [rsp+D8h] [rbp-190h] BYREF
+  void *v77; // [rsp+E0h] [rbp-188h]
+  struct DXGDEVICE *v78; // [rsp+E8h] [rbp-180h] BYREF
+  struct DXGDEVICE *v79; // [rsp+F0h] [rbp-178h] BYREF
+  unsigned int v80; // [rsp+F8h] [rbp-170h] BYREF
+  ULONG64 v81; // [rsp+100h] [rbp-168h]
+  _BYTE v82[160]; // [rsp+110h] [rbp-158h] BYREF
+  _BYTE v83[128]; // [rsp+1B0h] [rbp-B8h] BYREF
 
   v3 = a1;
-  v56 = a1;
-  v48 = a1;
-  v45 = -1;
-  v46 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v81 = a1;
+  v72 = a1;
+  v69 = -1;
+  v70 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v47 = 1;
-    v45 = 2108;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v71 = 1;
+    v69 = 2108;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2108);
   }
   else
   {
-    v47 = 0;
+    v71 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v45, 2108);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v69, 2108LL);
   v4 = 0LL;
-  v43 = 0;
+  v67 = 0;
   Object = 0LL;
-  v50 = 0LL;
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v5);
+  v74 = 0LL;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v6, v5, v7, v8);
   if ( !Current )
   {
-    SurfaceCount = 426LL;
-    WdLogSingleEntry1(2LL, 426LL);
-    v8 = L"Invalid process context";
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = 426LL;
 LABEL_18:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v8, SurfaceCount, 0LL, 0LL, 0LL, 0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v45);
-    if ( v47 )
+    WdLogEvent5_WdError(v12);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v69, v16);
+    if ( v71 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v11, &EventProfilerExit, v12, v45);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v69);
     }
     return -1073741811LL;
   }
-  v9 = (_D3DKMT_CREATESWAPCHAIN *)v3;
+  v13 = (_D3DKMT_CREATESWAPCHAIN *)v3;
   if ( v3 >= MmUserProbeAddress )
-    v9 = (_D3DKMT_CREATESWAPCHAIN *)MmUserProbeAddress;
-  v51 = *v9;
-  v10 = (char)v51.Flags.0;
-  if ( (*(_BYTE *)&v51.Flags.0 & 2) != 0 )
+    v13 = (_D3DKMT_CREATESWAPCHAIN *)MmUserProbeAddress;
+  v75 = *v13;
+  v14 = (char)v75.Flags.0;
+  if ( (*(_BYTE *)&v75.Flags.0 & 2) != 0 )
   {
-    if ( v51.SurfaceCount )
+    if ( v75.SurfaceCount )
     {
-      SurfaceCount = 449LL;
-      WdLogSingleEntry1(2LL, 449LL);
-      v8 = L"In non-sequence mode create cannot have any surfaces, add surface should be used to add them";
+      v12 = WdLogNewEntry5_WdError(MmUserProbeAddress, v9);
+      *(_QWORD *)(v12 + 24) = 449LL;
       goto LABEL_18;
     }
-    if ( !v51.bProducer )
+    if ( !v75.bProducer )
     {
-      SurfaceCount = 456LL;
-      WdLogSingleEntry1(2LL, 456LL);
-      v8 = L"In non-sequence mode create has to be the producer";
+      v12 = WdLogNewEntry5_WdError(MmUserProbeAddress, v9);
+      *(_QWORD *)(v12 + 24) = 456LL;
       goto LABEL_18;
     }
   }
   else
   {
-    if ( v51.SurfaceCount > 0x32 )
+    SurfaceCount = v75.SurfaceCount;
+    if ( v75.SurfaceCount > 0x32 )
     {
-      SurfaceCount = v51.SurfaceCount;
-      WdLogSingleEntry1(2LL, v51.SurfaceCount);
-      v8 = L"Caller requested 0x%I64x buffers, this is over the maximum";
+      v12 = WdLogNewEntry5_WdError(MmUserProbeAddress, v9);
+      *(_QWORD *)(v12 + 24) = SurfaceCount;
       goto LABEL_18;
     }
-    if ( !v51.SurfaceCount )
+    if ( !v75.SurfaceCount )
     {
-      SurfaceCount = 470LL;
-      WdLogSingleEntry1(2LL, 470LL);
-      v8 = L"Cannot create swapchain with zero buffers";
+      v12 = WdLogNewEntry5_WdError(MmUserProbeAddress, v9);
+      *(_QWORD *)(v12 + 24) = 470LL;
       goto LABEL_18;
     }
   }
-  v14 = 0LL;
-  v54 = 0LL;
-  if ( v51.SurfaceCount )
+  v20 = 0LL;
+  v77 = 0LL;
+  v21 = v75.SurfaceCount;
+  if ( v75.SurfaceCount )
   {
-    v15 = v51.SurfaceCount;
-    v16 = 8LL * v51.SurfaceCount;
-    if ( !is_mul_ok(v51.SurfaceCount, 8uLL) )
-      v16 = -1LL;
-    v14 = (void *)operator new[](v16, 0x4B677844u, 256LL);
-    v54 = v14;
-    if ( !v14 )
+    v22 = 8LL * v75.SurfaceCount;
+    if ( !is_mul_ok(v75.SurfaceCount, 8uLL) )
+      v22 = -1LL;
+    v20 = operator new[](v22, 0x4B677844u, PagedPool);
+    v77 = v20;
+    if ( !v20 )
     {
-      WdLogSingleEntry1(6LL, 482LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Out of memory allocating memory for handles array",
-        482LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v45);
-      if ( v47 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v45);
+      v27 = WdLogNewEntry5_WdLowResource(v24, v23, v25, v26);
+      *(_QWORD *)(v27 + 24) = 482LL;
+      WdLogEvent5_WdLowResource(v27);
+      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v69, v28);
+      if ( v71 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v29, &EventProfilerExit, v30, v69);
       return 3221225495LL;
     }
-    pNtSurfaceHandles = v51.pNtSurfaceHandles;
-    v20 = &v51.pNtSurfaceHandles[v15];
-    if ( v20 < v51.pNtSurfaceHandles || (unsigned __int64)v20 > MmUserProbeAddress )
+    pNtSurfaceHandles = v75.pNtSurfaceHandles;
+    v32 = &v75.pNtSurfaceHandles[v21];
+    if ( v32 < v75.pNtSurfaceHandles || (unsigned __int64)v32 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v14, pNtSurfaceHandles, 8 * v15);
-    v51.pNtSurfaceHandles = (HANDLE *)v14;
+    memmove(v20, pNtSurfaceHandles, 8 * v21);
+    v75.pNtSurfaceHandles = (HANDLE *)v20;
   }
-  v55 = 0LL;
-  DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v44, v51.hDevice, Current, &v55);
-  v21 = (struct ADAPTER_RENDER **)v55;
-  if ( !v55 )
+  v79 = 0LL;
+  DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v68, v75.hDevice, Current, &v79);
+  v35 = (struct ADAPTER_RENDER **)v79;
+  if ( !v79 )
   {
-    hDevice = v51.hDevice;
-    LODWORD(v23) = -1073741811;
-    WdLogSingleEntry2(2LL, v51.hDevice, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid hDevice (0x%I64x) specified, returning 0x%I64x",
-      hDevice,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v36 = WdLogNewEntry5_WdError(v34, v33);
+    *(_QWORD *)(v36 + 24) = v75.hDevice;
+    LODWORD(v37) = -1073741811;
+    *(_QWORD *)(v36 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v36);
 LABEL_36:
-    if ( v44 )
+    if ( v68 )
     {
-      v24 = -1LL;
-      v25 = _InterlockedDecrement64((volatile signed __int64 *)v44 + 8);
-      if ( !v25 )
-        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v44 + 2), v44);
+      v38 = -1LL;
+      v39 = _InterlockedDecrement64((volatile signed __int64 *)v68 + 8);
+      if ( !v39 )
+        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v68 + 2), v68);
     }
-    goto LABEL_70;
+    goto LABEL_68;
   }
-  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v49, v55);
-  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v57, (__int64)v21, 2, v27, 0);
-  LODWORD(v23) = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v57, 0LL);
-  if ( (int)v23 < 0 )
+  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v73, v79);
+  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v82, (__int64)v35, 2, v41, 0);
+  LODWORD(v37) = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v82, 0LL);
+  if ( (int)v37 < 0 )
     goto LABEL_40;
-  v28 = (DXGSWAPCHAIN *)operator new[](0xF0uLL, 0x4B677844u, 256LL);
-  if ( v28 )
-    v4 = DXGSWAPCHAIN::DXGSWAPCHAIN(v28);
+  v42 = (DXGSWAPCHAIN *)operator new[](0xE8uLL, 0x4B677844u, (POOL_TYPE)512);
+  if ( v42 )
+    v4 = DXGSWAPCHAIN::DXGSWAPCHAIN(v42);
   else
     v4 = 0LL;
-  v49[2] = v4;
+  v73[2] = v4;
   if ( !v4 )
   {
-    WdLogSingleEntry1(6LL, 521LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating DXGSWAPCHAIN class",
-      521LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    LODWORD(v23) = -1073741801;
+    v47 = WdLogNewEntry5_WdLowResource(v44, v43, v45, v46);
+    *(_QWORD *)(v47 + 24) = 522LL;
+    WdLogEvent5_WdLowResource(v47);
+    LODWORD(v37) = -1073741801;
     goto LABEL_40;
   }
-  LODWORD(v23) = DXGSWAPCHAIN::InitializeSwapchainGlobalState(v4, v21[2], &v51);
-  if ( (int)v23 < 0
-    || (LODWORD(v23) = DXGSWAPCHAIN::OpenSwapchainLocal(
+  LODWORD(v37) = DXGSWAPCHAIN::InitializeSwapchainGlobalState(v4, v35[2], &v75);
+  if ( (int)v37 < 0
+    || (LODWORD(v37) = DXGSWAPCHAIN::OpenSwapchainLocal(
                          v4,
-                         v51.hDevice,
-                         (struct DXGDEVICE *)v21,
-                         (__int64)v51.BufferAvailableEvent,
-                         v10 & 1,
-                         v51.bProducer),
-        (int)v23 < 0) )
+                         v75.hDevice,
+                         (struct DXGDEVICE *)v35,
+                         v75.BufferAvailableEvent,
+                         v14 & 1,
+                         v75.bProducer),
+        (int)v37 < 0) )
   {
 LABEL_40:
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v57);
-    if ( v49[0] )
-      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v49);
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v82);
+    if ( v73[0] )
+      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v73);
     goto LABEL_36;
   }
-  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v57);
-  if ( v49[0] )
-    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v49);
-  if ( v44 && _InterlockedExchangeAdd64((volatile signed __int64 *)v44 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-    ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v44 + 2), v44);
-  v52 = 0LL;
-  DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v58, v4, v51.bProducer, 1);
-  v29 = DXGSWAPCHAINLOCKWITHDEVICE::Acquire((DXGSWAPCHAINLOCKWITHDEVICE *)v58, &v52, 1);
-  v23 = v29;
-  if ( v29 < 0 )
+  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v82);
+  if ( v73[0] )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v73);
+  if ( v68 && _InterlockedExchangeAdd64((volatile signed __int64 *)v68 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+    ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v68 + 2), v68);
+  v78 = 0LL;
+  DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v83, v4, v75.bProducer, 1);
+  v48 = DXGSWAPCHAINLOCKWITHDEVICE::Acquire((DXGSWAPCHAINLOCKWITHDEVICE *)v83, &v78, 1);
+  v37 = v48;
+  if ( v48 >= 0 )
   {
-    WdLogSingleEntry1(2LL, v29);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire swapchain and device lock (0x%I64x)",
-      v23,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_56:
-    DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v58);
-    goto LABEL_70;
-  }
-  v30 = 0;
-  if ( v51.SurfaceCount )
-  {
-    v31 = v52;
+    v52 = 0;
+    if ( !v75.SurfaceCount )
+    {
+LABEL_62:
+      DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v83);
+      LOBYTE(v54) = 1;
+      LOBYTE(v55) = 1;
+      v56 = ObCreateObject(v55, g_pDxgkSharedSwapChainObjectType, v75.pObjectAttributes, v54, 0LL, 8, 240, 0, &Object);
+      v37 = v56;
+      if ( v56 < 0
+        || (*(_QWORD *)Object = v4,
+            v67 = 1,
+            inserted = ObInsertObject(Object, 0LL, v75.DesiredAccess, 0, 0LL, &v74),
+            v37 = inserted,
+            inserted < 0) )
+      {
+        v59 = WdLogNewEntry5_WdError(v58, v57);
+        *(_QWORD *)(v59 + 24) = v37;
+        WdLogEvent5_WdError(v59);
+      }
+      else
+      {
+        v38 = v3 + 48;
+        v39 = MmUserProbeAddress;
+        if ( v3 + 48 >= MmUserProbeAddress )
+          v38 = MmUserProbeAddress;
+        *(_QWORD *)v38 = v74;
+      }
+      goto LABEL_68;
+    }
+    v53 = v78;
     while ( 1 )
     {
-      LODWORD(v23) = DXGSWAPCHAIN::AddSurface(
-                       (struct _KTHREAD **)v4,
-                       *((DXGADAPTER ***)v31 + 2),
-                       v51.bProducer,
-                       v51.pNtSurfaceHandles[v30],
-                       (unsigned int *)&v52);
-      if ( (int)v23 < 0 )
-        goto LABEL_56;
-      if ( ++v30 >= v51.SurfaceCount )
-      {
-        v3 = v56;
+      LODWORD(v37) = DXGSWAPCHAIN::AddSurface(
+                       (const void **)v4,
+                       *((DXGADAPTER ***)v53 + 2),
+                       v75.bProducer,
+                       v75.pNtSurfaceHandles[v52],
+                       &v80);
+      if ( (int)v37 < 0 )
         break;
+      if ( ++v52 >= v75.SurfaceCount )
+      {
+        v3 = v81;
+        goto LABEL_62;
       }
     }
   }
-  DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v58);
-  LOBYTE(v32) = 1;
-  LOBYTE(v33) = 1;
-  v34 = ObCreateObject(v33, g_pDxgkSharedSwapChainObjectType, v51.pObjectAttributes, v32, 0LL, 8, 248, 0, &Object);
-  v23 = v34;
-  if ( v34 >= 0 )
-  {
-    *(_QWORD *)Object = v4;
-    v43 = 1;
-    inserted = ObInsertObject(Object, 0LL, v51.DesiredAccess, 0, 0LL, &v50);
-    v23 = inserted;
-    if ( inserted >= 0 )
-    {
-      v24 = v3 + 48;
-      v25 = MmUserProbeAddress;
-      if ( v3 + 48 >= MmUserProbeAddress )
-        v24 = MmUserProbeAddress;
-      *(_QWORD *)v24 = v50;
-      goto LABEL_70;
-    }
-    WdLogSingleEntry1(2LL, inserted);
-    v35 = L"Failed to create Nt handle for swapchain (0x%I64x)";
-  }
   else
   {
-    WdLogSingleEntry1(2LL, v34);
-    v35 = L"Failed to create Nt swapchain object (0x%I64x)";
+    v51 = WdLogNewEntry5_WdError(v50, v49);
+    *(_QWORD *)(v51 + 24) = v37;
+    WdLogEvent5_WdError(v51);
   }
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v35, v23, 0LL, 0LL, 0LL, 0LL);
-LABEL_70:
-  if ( (int)v23 < 0 )
+  DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v83);
+LABEL_68:
+  if ( (int)v37 < 0 )
   {
-    v25 = (__int64)v50;
-    if ( v50 )
-      ObCloseHandle(v50, 1);
-    if ( v4 && !v43 )
+    v39 = (__int64)v74;
+    if ( v74 )
+      ObCloseHandle(v74, 1);
+    if ( v4 && !v67 )
     {
       DXGSWAPCHAIN::`scalar deleting destructor'(v4);
       v4 = 0LL;
     }
   }
-  if ( v14 )
-    operator delete(v14);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000000LL) != 0 )
+  if ( v20 )
+    operator delete[](v20);
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
   {
-    LODWORD(v42) = v51.SurfaceCount;
-    LODWORD(v41) = v51.hDevice;
-    LODWORD(Handle) = v51.bProducer;
-    LODWORD(NewObject) = v23;
-    McTemplateK0pqdqqpp_EtwWriteTransfer(v25, v24, v26, v4, NewObject, Handle, v41, v42, v51.BufferAvailableEvent, v50);
+    LODWORD(v66) = v75.SurfaceCount;
+    LODWORD(v65) = v75.hDevice;
+    LODWORD(Handle) = v75.bProducer;
+    LODWORD(NewObject) = v37;
+    McTemplateK0pqdqqpp_EtwWriteTransfer(v39, v38, v40, v4, NewObject, Handle, v65, v66, v75.BufferAvailableEvent, v74);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v45);
-  if ( v47 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v37, &EventProfilerExit, v38, v45);
-  return (unsigned int)v23;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v69, v38);
+  if ( v71 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v61, &EventProfilerExit, v62, v69);
+  return (unsigned int)v37;
 }

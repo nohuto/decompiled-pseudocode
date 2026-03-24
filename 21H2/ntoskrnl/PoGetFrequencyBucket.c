@@ -1,18 +1,17 @@
 /*
- * XREFs of PoGetFrequencyBucket @ 0x140342694
+ * XREFs of PoGetFrequencyBucket @ 0x1402C3748
  * Callers:
- *     KiAccumulateProcessorCycleStats @ 0x14029B7B0 (KiAccumulateProcessorCycleStats.c)
- *     KiChooseTargetProcessor @ 0x1403419B0 (KiChooseTargetProcessor.c)
- *     KiSelectIdleProcessor @ 0x140574678 (KiSelectIdleProcessor.c)
+ *     KiAccumulateProcessorCycleStats @ 0x1403F3640 (KiAccumulateProcessorCycleStats.c)
+ *     KiEndDebugAccumulation @ 0x14051DDB0 (KiEndDebugAccumulation.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x1403426C8 (PpmPerfGetCurrentFrequency.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1402C397C (PpmPerfGetCurrentFrequency.c)
  */
 
-__int64 __fastcall PoGetFrequencyBucket(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall PoGetFrequencyBucket(__int64 a1)
 {
-  unsigned int CurrentFrequency; // edx
+  unsigned int CurrentFrequency; // r9d
 
-  CurrentFrequency = PpmPerfGetCurrentFrequency(a1, 0LL, a3, a4);
+  CurrentFrequency = PpmPerfGetCurrentFrequency(a1, 0LL);
   if ( CurrentFrequency < 0x4B )
     return CurrentFrequency / 0x19;
   else

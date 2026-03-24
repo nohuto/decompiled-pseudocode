@@ -1,15 +1,15 @@
 /*
- * XREFs of DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01F43EC
+ * XREFs of DpiAcquirePostDisplayInfoFromBgfx @ 0x1C017B43C
  * Callers:
- *     DpiFdoSetAdapterPowerState @ 0x1C01EFEE0 (DpiFdoSetAdapterPowerState.c)
- *     DpiFdoHandleSystemPower @ 0x1C01F02DC (DpiFdoHandleSystemPower.c)
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
- *     DpiFdoDetectPostDevice @ 0x1C01F4164 (DpiFdoDetectPostDevice.c)
- *     DpiFdoStartAdapterThreadImpl @ 0x1C01F5298 (DpiFdoStartAdapterThreadImpl.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C0176470 (DpiFdoSetAdapterPowerState.c)
+ *     DpiFdoHandleSystemPower @ 0x1C017695C (DpiFdoHandleSystemPower.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoDetectPostDevice @ 0x1C017B1B0 (DpiFdoDetectPostDevice.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0199C54 (DpiFdoStartAdapterThreadImpl.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DxgDetermineBootImageMode @ 0x1C01F60AC (DxgDetermineBootImageMode.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DxgDetermineBootImageMode @ 0x1C0192624 (DxgDetermineBootImageMode.c)
  */
 
 __int64 __fastcall DpiAcquirePostDisplayInfoFromBgfx(__int64 a1, char a2, char a3)
@@ -29,31 +29,35 @@ __int64 __fastcall DpiAcquirePostDisplayInfoFromBgfx(__int64 a1, char a2, char a
   __int64 v17; // r14
   char v18; // r14
   PVOID PoolWithTag; // rsi
-  KSPIN_LOCK *v21; // rdi
-  NTSTATUS v22; // eax
-  __int64 v23; // r12
-  KSPIN_LOCK *v24; // rax
-  _BYTE v25[4]; // [rsp+20h] [rbp-88h] BYREF
-  NTSTATUS v26; // [rsp+24h] [rbp-84h]
-  __int128 v27; // [rsp+28h] [rbp-80h] BYREF
-  __int128 v28; // [rsp+38h] [rbp-70h]
-  __int128 v29; // [rsp+48h] [rbp-60h]
-  __int128 SystemInformation; // [rsp+58h] [rbp-50h] BYREF
-  __int128 v31; // [rsp+68h] [rbp-40h]
+  KSPIN_LOCK *v20; // rdi
+  NTSTATUS v21; // eax
+  __int64 v22; // r12
+  KSPIN_LOCK *v23; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // rax
+  _BYTE v29[4]; // [rsp+20h] [rbp-60h] BYREF
+  NTSTATUS v30; // [rsp+24h] [rbp-5Ch]
+  __int128 v31; // [rsp+28h] [rbp-58h] BYREF
+  __int128 v32; // [rsp+38h] [rbp-48h]
+  __int128 v33; // [rsp+48h] [rbp-38h]
+  __int128 SystemInformation; // [rsp+58h] [rbp-28h] BYREF
+  __int128 v35; // [rsp+68h] [rbp-18h]
 
-  v25[0] = a2;
+  v29[0] = a2;
   v3 = 0;
   v4 = 0;
   SystemInformation = 0LL;
+  v35 = 0LL;
   v31 = 0LL;
-  v27 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
+  v32 = 0LL;
+  v33 = 0LL;
   if ( a3 )
   {
-    if ( qword_1C0130740 )
+    if ( qword_1C00B2DB8 )
     {
-      v7 = *(_QWORD *)(qword_1C0130740 + 64);
+      v7 = *(_QWORD *)(qword_1C00B2DB8 + 64);
       if ( v7 )
       {
         if ( *(_DWORD *)(v7 + 16) == 1953656900 && *(_DWORD *)(v7 + 20) == 2 )
@@ -66,8 +70,8 @@ __int64 __fastcall DpiAcquirePostDisplayInfoFromBgfx(__int64 a1, char a2, char a
     }
   }
   v8 = 0;
-  v26 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemTimeAdjustmentInformation, &SystemInformation, 0x20u, 0LL);
-  if ( v26 >= 0 )
+  v30 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemTimeAdjustmentInformation, &SystemInformation, 0x20u, 0LL);
+  if ( v30 >= 0 )
   {
     v10 = HIDWORD(SystemInformation);
     v8 = 1;
@@ -76,13 +80,13 @@ __int64 __fastcall DpiAcquirePostDisplayInfoFromBgfx(__int64 a1, char a2, char a
     *(_DWORD *)(a1 + 24) = -1;
     *(_DWORD *)(a1 + 28) = 0;
     *(_QWORD *)(a1 + 16) = v11;
-    LODWORD(v11) = DWORD2(v31);
+    LODWORD(v11) = DWORD2(v35);
     *(_DWORD *)(a1 + 4) = v10;
-    DWORD2(v28) = v10;
-    v13 = v31;
+    DWORD2(v32) = v10;
+    v13 = v35;
     *(_DWORD *)a1 = v12;
-    HIDWORD(v28) = v12;
-    LODWORD(v29) = v13;
+    HIDWORD(v32) = v12;
+    LODWORD(v33) = v13;
     v14 = v11 - 3;
     if ( v14 )
     {
@@ -95,33 +99,35 @@ LABEL_13:
         if ( v16 < 0 )
         {
           memset((void *)(a1 + 32), 0, 0x80uLL);
-          WdLogSingleEntry1(3LL, v17);
+          v28 = WdLogNewEntry5_WdWarning(v26, v25, v27);
+          *(_QWORD *)(v28 + 24) = v17;
+          WdLogEvent5_WdWarning(v28);
         }
         goto LABEL_15;
       }
       *(_DWORD *)(a1 + 12) = 22;
       v15 = 4 * v13;
-      DWORD1(v29) = 5;
+      DWORD1(v33) = 5;
     }
     else
     {
       *(_DWORD *)(a1 + 12) = 20;
       v15 = 3 * v13;
-      DWORD1(v29) = 4;
+      DWORD1(v33) = 4;
     }
     *(_DWORD *)(a1 + 8) = v15;
     goto LABEL_13;
   }
 LABEL_15:
-  if ( !v25[0] )
-    goto LABEL_21;
+  if ( !v29[0] )
+    goto LABEL_28;
   v18 = 0;
-  v25[0] = 0;
+  v29[0] = 0;
   if ( v4 )
   {
     LOBYTE(v9) = v4;
-    DxgDetermineBootImageMode(a1, 0LL, v9, v25);
-    if ( !v25[0] || (int)InbvSetVirtualFrameBuffer(0LL, DpiEnterSystemDisplay) < 0 )
+    DxgDetermineBootImageMode(a1, 0LL, v9, v29);
+    if ( !v29[0] || (int)InbvSetVirtualFrameBuffer(0LL, DpiEnterSystemDisplay) < 0 )
       goto LABEL_18;
   }
   else
@@ -130,35 +136,35 @@ LABEL_15:
     {
 LABEL_18:
       InbvNotifyDisplayOwnershipChange(0LL, DpiEnterSystemDisplay);
-      goto LABEL_21;
+      goto LABEL_28;
     }
     PoolWithTag = 0LL;
-    v21 = 0LL;
+    v20 = 0LL;
     if ( !v8 )
-      goto LABEL_36;
-    v22 = RtlCheckRegistryKey(0, (PWSTR)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MiniNT");
-    v23 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 8));
-    if ( v22 >= 0 )
-      goto LABEL_36;
-    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, (unsigned int)v23, 0x74727044u);
-    v24 = (KSPIN_LOCK *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x74727044u);
-    v21 = v24;
-    if ( !PoolWithTag || !v24 )
-      goto LABEL_36;
-    KeInitializeSpinLock(v24 + 3);
-    *(_QWORD *)&v28 = v21;
-    *(_QWORD *)&v27 = PoolWithTag;
-    *((_QWORD *)&v27 + 1) = v23;
-    if ( !v3 || DWORD2(SystemInformation) > 0xBB8 || (BYTE8(v29) = 0, HIDWORD(SystemInformation) > 0x7D0) )
-      BYTE8(v29) = 1;
-    if ( (int)InbvSetVirtualFrameBuffer(&v27, DpiEnterSystemDisplay) >= 0 )
+      goto LABEL_39;
+    v21 = RtlCheckRegistryKey(0, (PWSTR)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MiniNT");
+    v22 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 8));
+    if ( v21 >= 0 )
+      goto LABEL_39;
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, (unsigned int)v22, 0x74727044u);
+    v23 = (KSPIN_LOCK *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x74727044u);
+    v20 = v23;
+    if ( !PoolWithTag || !v23 )
+      goto LABEL_39;
+    KeInitializeSpinLock(v23 + 3);
+    *(_QWORD *)&v32 = v20;
+    *(_QWORD *)&v31 = PoolWithTag;
+    *((_QWORD *)&v31 + 1) = v22;
+    if ( !v3 || DWORD2(SystemInformation) > 0xBB8 || (BYTE8(v33) = 0, HIDWORD(SystemInformation) > 0x7D0) )
+      BYTE8(v33) = 1;
+    if ( (int)InbvSetVirtualFrameBuffer(&v31, DpiEnterSystemDisplay) >= 0 )
     {
-      DxgDetermineBootImageMode(a1, &v27, 0LL, v25);
-      v18 = v25[0];
+      DxgDetermineBootImageMode(a1, &v31, 0LL, v29);
+      v18 = v29[0];
     }
     else
     {
-LABEL_36:
+LABEL_39:
       DxgDetermineBootImageMode(a1, 0LL, 0LL, 0LL);
     }
     if ( !v18 )
@@ -166,11 +172,11 @@ LABEL_36:
       InbvNotifyDisplayOwnershipChange(0LL, DpiEnterSystemDisplay);
       if ( PoolWithTag )
         ExFreePoolWithTag(PoolWithTag, 0x74727044u);
-      if ( v21 )
-        ExFreePoolWithTag(v21, 0x74727044u);
+      if ( v20 )
+        ExFreePoolWithTag(v20, 0x74727044u);
     }
   }
-LABEL_21:
+LABEL_28:
   if ( !v8 )
   {
     *(_OWORD *)a1 = 0LL;
@@ -178,5 +184,5 @@ LABEL_21:
     *(_DWORD *)(a1 + 24) = -1;
     memset((void *)(a1 + 32), 0, 0x80uLL);
   }
-  return (unsigned int)v26;
+  return (unsigned int)v30;
 }

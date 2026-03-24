@@ -1,36 +1,42 @@
 /*
- * XREFs of DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C001A68C
+ * XREFs of DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0051CEC
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0390 (DpiFdoHandleDevicePower.c)
- *     DpiPowerArbiterThread @ 0x1C021E730 (DpiPowerArbiterThread.c)
- *     DpiLdaPowerUpAdapterInChain @ 0x1C03A87A8 (DpiLdaPowerUpAdapterInChain.c)
+ *     DpiFdoHandleDevicePower @ 0x1C0175FC0 (DpiFdoHandleDevicePower.c)
+ *     DpiPowerArbiterThread @ 0x1C019C8E0 (DpiPowerArbiterThread.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C02D85E8 (DpiLdaPowerUpAdapterInChain.c)
  * Callees:
- *     DxgkReportDevicePoweredOn @ 0x1C001B374 (DxgkReportDevicePoweredOn.c)
+ *     DxgkReportDevicePoweredOn @ 0x1C003C24C (DxgkReportDevicePoweredOn.c)
  */
 
 void __fastcall DpiSetDevicePowerTransitionStateAtPassiveLevel(__int64 a1, int a2, char a3)
 {
   __int64 v3; // rsi
   __int64 v6; // rdi
+  _QWORD *v7; // rax
+  _QWORD *v8; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = a2;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4096), &LockHandle);
-  if ( (_DWORD)v3 != 5 || *(_DWORD *)(a1 + 4160) == 4 )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4072), &LockHandle);
+  v6 = 5LL;
+  if ( (_DWORD)v3 != 5 || *(_DWORD *)(a1 + 4136) == 4 )
   {
+    v7 = (_QWORD *)WdLogNewEntry5_WdPower();
     v6 = v3;
-    WdLogSingleEntry3(9LL, a1, v3, 0LL);
-    *(_DWORD *)(a1 + 4160) = v3;
+    v7[5] = 0LL;
+    v7[3] = a1;
+    v7[4] = v3;
+    WdLogEvent5_WdPower(v7);
+    *(_DWORD *)(a1 + 4136) = v3;
   }
-  else
+  if ( a3 && !*(_DWORD *)(a1 + 4140) )
   {
-    v6 = v3;
-  }
-  if ( a3 && !*(_DWORD *)(a1 + 4164) )
-  {
-    WdLogSingleEntry3(9LL, a1, v6, 1LL);
-    DxgkReportDevicePoweredOn(*(_QWORD *)(a1 + 3912));
+    v8 = (_QWORD *)WdLogNewEntry5_WdPower();
+    v8[3] = a1;
+    v8[4] = v6;
+    v8[5] = 1LL;
+    WdLogEvent5_WdPower(v8);
+    DxgkReportDevicePoweredOn(*(_QWORD *)(a1 + 3896));
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

@@ -1,46 +1,43 @@
 /*
- * XREFs of PpCheckInDriverDatabase @ 0x14075EA10
+ * XREFs of PpCheckInDriverDatabase @ 0x14073DAC0
  * Callers:
- *     PnpPrepareDriverLoading @ 0x1406797C8 (PnpPrepareDriverLoading.c)
+ *     PnpPrepareDriverLoading @ 0x14073D9FC (PnpPrepareDriverLoading.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     McTemplateK0j_EtwWriteTransfer @ 0x1402D1708 (McTemplateK0j_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IopBuildFullDriverPath @ 0x14067B1DC (IopBuildFullDriverPath.c)
- *     PiLookupInDDB @ 0x14075E908 (PiLookupInDDB.c)
- *     PiLookupInDDBCache @ 0x14075EB84 (PiLookupInDDBCache.c)
- *     PnpLogEvent @ 0x140947068 (PnpLogEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x14050DC08 (McTemplateK0j_EtwWriteTransfer.c)
+ *     PiLookupInDDBCache @ 0x14073DBC0 (PiLookupInDDBCache.c)
+ *     IopBuildFullDriverPath @ 0x140740308 (IopBuildFullDriverPath.c)
+ *     PiLookupInDDB @ 0x14077E1FC (PiLookupInDDB.c)
+ *     PnpLogEvent @ 0x1408A1EFC (PnpLogEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PpCheckInDriverDatabase(
-        UNICODE_STRING *a1,
-        void *a2,
-        __int64 a3,
-        unsigned int a4,
-        int a5,
-        _OWORD *a6)
+__int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5, __int64 a6)
 {
-  int v8; // ebx
-  __int64 v9; // r8
-  struct _KTHREAD *CurrentThread; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  int v10; // ebx
   __int64 v11; // r8
-  UNICODE_STRING P; // [rsp+30h] [rbp-18h] BYREF
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v13; // r8
+  __int128 v15; // [rsp+30h] [rbp-28h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
-  P = 0LL;
+  v15 = 0LL;
   if ( InitIsWinPEMode || !PpBootDDBInitialized )
     return 0LL;
-  v8 = IopBuildFullDriverPath(a1, a2, &P);
-  if ( v8 < 0 )
+  v10 = IopBuildFullDriverPath(a1, a2, &v15);
+  if ( v10 < 0 )
   {
     if ( (PiLoggedErrorEventsMask & 8) == 0 )
     {
       PiLoggedErrorEventsMask |= 8u;
-      P = 0LL;
-      RtlInitUnicodeString(&P, L"BUILD DRIVER PATH FAILED");
-      PnpLogEvent(&P, 0LL, 3221226349LL, 0LL, 0);
+      DestinationString = 0LL;
+      RtlInitUnicodeString(&DestinationString, L"BUILD DRIVER PATH FAILED");
+      PnpLogEvent(&DestinationString, 0LL, 3221226349LL, 0LL, 0);
     }
   }
   else
@@ -48,34 +45,23 @@ __int64 __fastcall PpCheckInDriverDatabase(
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceExclusiveLite(&PiDDBLock, 1u);
-    v8 = PiLookupInDDBCache(&P, a3, v11, a6);
-    if ( v8 == -1073741823 )
-      v8 = PiLookupInDDB((__int64)&P, a3, a4, a6);
-    if ( v8 == -1073740948 )
-    {
-      if ( !a5 )
-        v8 = -1073740949;
-    }
-    else if ( v8 == -1073740949 && a5 )
-    {
-      v8 = -1073740948;
-    }
+    v10 = PiLookupInDDBCache(&v15, a3, v13, a6);
+    if ( v10 == -1073741823 )
+      v10 = PiLookupInDDB(&v15, a3, a4, a6);
+    if ( v10 == -1073740948 && !a5 )
+      v10 = -1073740949;
     ExReleaseResourceLite(&PiDDBLock);
-    KeLeaveCriticalRegion();
-    ExFreePoolWithTag(P.Buffer, 0);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExFreePoolWithTag(*((PVOID *)&v15 + 1), 0);
   }
-  if ( (unsigned int)(v8 + 1073740949) <= 1 )
+  if ( (unsigned int)(v10 + 1073740949) <= 1 )
   {
-    if ( (byte_140C0DD4A & 2) != 0 )
-      McTemplateK0j_EtwWriteTransfer(
-        (__int64)MS_KernelPnP_Provider_Context,
-        (__int64)KMPnPEvt_Driver_Blocked,
-        v9,
-        (__int64)a6);
+    if ( (byte_140C1327A & 2) != 0 )
+      McTemplateK0j_EtwWriteTransfer(v9, v8, v11, a6);
   }
   else
   {
     return 0;
   }
-  return (unsigned int)v8;
+  return (unsigned int)v10;
 }

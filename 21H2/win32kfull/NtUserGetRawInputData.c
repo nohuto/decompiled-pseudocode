@@ -1,13 +1,13 @@
 /*
- * XREFs of NtUserGetRawInputData @ 0x1C0001BE0
+ * XREFs of NtUserGetRawInputData @ 0x1C00032C0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtUserGetRawInputData(__int64 a1, int a2, _QWORD *a3, unsigned int *a4, int a5)
@@ -19,11 +19,10 @@ __int64 __fastcall NtUserGetRawInputData(__int64 a1, int a2, _QWORD *a3, unsigne
   _QWORD *v13; // r12
   unsigned int *v14; // rax
   int v15; // r14d
-  _BYTE v17[44]; // [rsp+20h] [rbp-78h] BYREF
-  unsigned int v18; // [rsp+4Ch] [rbp-4Ch]
+  _BYTE v17[40]; // [rsp+58h] [rbp-40h] BYREF
 
-  EnterSharedCrit();
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v17);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v17);
   v10 = 24;
   if ( a5 != 24 )
     goto LABEL_22;
@@ -54,8 +53,7 @@ LABEL_6:
     v14 = a4;
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
       v14 = (unsigned int *)MmUserProbeAddress;
-    v18 = *v14;
-    if ( v18 < v10 )
+    if ( *v14 < v10 )
     {
       v12 = -1;
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
@@ -91,7 +89,7 @@ LABEL_6:
     *a4 = v10;
   }
 LABEL_17:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v17);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v17);
   UserSessionSwitchLeaveCrit();
   return v12;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpProcessClearProblem @ 0x1403DB668
+ * XREFs of PpProcessClearProblem @ 0x140381E10
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PipForDeviceNodeSubtree @ 0x140764CE4 (PipForDeviceNodeSubtree.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PipForDeviceNodeSubtree @ 0x1406B8550 (PipForDeviceNodeSubtree.c)
  */
 
 __int64 __fastcall PpProcessClearProblem(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PpProcessClearProblem(__int64 a1)
   v4[2] = 5;
   if ( v1 )
     v2 = *(_QWORD *)(*(_QWORD *)(v1 + 312) + 40LL);
-  if ( (unsigned int)(*(_DWORD *)(v2 + 300) - 789) <= 1 )
+  if ( (unsigned int)(*(_DWORD *)(v2 + 300) - 787) <= 1 )
     return 3221225558LL;
   PipForDeviceNodeSubtree(v2, PiResetProblemDevicesWorker, v4);
   return 0LL;

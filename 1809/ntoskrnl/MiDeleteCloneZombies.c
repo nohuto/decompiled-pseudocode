@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteCloneZombies @ 0x140132CA0
+ * XREFs of MiDeleteCloneZombies @ 0x140132CC0
  * Callers:
- *     MiInsertClone @ 0x1402CA7DC (MiInsertClone.c)
+ *     MiInsertClone @ 0x1402CA8DC (MiInsertClone.c)
  *     MmCleanProcessAddressSpace @ 0x1405F1BC8 (MmCleanProcessAddressSpace.c)
- *     MiDeleteInsertedCloneVads @ 0x14085E388 (MiDeleteInsertedCloneVads.c)
+ *     MiDeleteInsertedCloneVads @ 0x14085E368 (MiDeleteInsertedCloneVads.c)
  * Callees:
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1402C9768 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1402C9868 (MiDeleteDeferredCloneDescriptors.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

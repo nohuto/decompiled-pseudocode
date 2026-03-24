@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQueryForwardersEnabled @ 0x140835508
+ * XREFs of PspQueryForwardersEnabled @ 0x1407A8C18
  * Callers:
- *     PsBootPhaseComplete @ 0x1408351BC (PsBootPhaseComplete.c)
- *     PspSiloLoadApiSets @ 0x1409ACAD0 (PspSiloLoadApiSets.c)
+ *     PsBootPhaseComplete @ 0x1407A88CC (PsBootPhaseComplete.c)
+ *     PspSiloLoadApiSets @ 0x140906D14 (PspSiloLoadApiSets.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  */
 
 char PspQueryForwardersEnabled()
@@ -22,7 +22,7 @@ char PspQueryForwardersEnabled()
   v0 = 1;
   v2[3] = &v3;
   if ( (int)RtlpQueryRegistryValues(
-              0,
+              0LL,
               L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\OneCore",
               (__int64)v2,
               0LL) < 0

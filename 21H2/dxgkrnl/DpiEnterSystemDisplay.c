@@ -1,15 +1,15 @@
 /*
- * XREFs of DpiEnterSystemDisplay @ 0x1C0024930
+ * XREFs of DpiEnterSystemDisplay @ 0x1C0020340
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C0046CB0 (-GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DxgkReleaseAdapterCoreSync @ 0x1C01B4124 (DxgkReleaseAdapterCoreSync.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C01B45E8 (DxgkAcquireAdapterCoreSync.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C001A4C0 (-GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C01217AC (DxgkReleaseAdapterCoreSync.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C0121B10 (DxgkAcquireAdapterCoreSync.c)
  */
 
 __int64 __fastcall DpiEnterSystemDisplay(char a1, __int64 a2, _QWORD *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall DpiEnterSystemDisplay(char a1, __int64 a2, _QWORD *a3)
   v24 = 0;
   if ( !a2 )
     return 3221225485LL;
-  if ( byte_1C0130810 )
+  if ( byte_1C00B2E88 )
   {
     v6 = 640;
     *(_DWORD *)(a2 + 16) = 5;
@@ -66,14 +66,14 @@ LABEL_4:
     AcquireMiniportListMutex();
   for ( i = 0; i < 4; ++i )
   {
-    v10 = qword_1C01304C8;
+    v10 = qword_1C00B2B40;
     if ( *(_QWORD *)v10 == v10 )
       continue;
     while ( *(_DWORD *)(v10 + 28) < 0x3004u || !*(_QWORD *)(v10 + 744) )
     {
 LABEL_63:
       v10 = *(_QWORD *)v10;
-      if ( *(_QWORD *)v10 == qword_1C01304C8 )
+      if ( *(_QWORD *)v10 == qword_1C00B2B40 )
         goto LABEL_47;
     }
     if ( !a1 )
@@ -98,17 +98,13 @@ LABEL_63:
         ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v11 + 168), 1u);
       }
       if ( (*(_BYTE *)(v11 + 3904) & 4) == 0 )
-      {
-        if ( !a1 )
-          goto LABEL_35;
-        goto LABEL_38;
-      }
+        goto LABEL_34;
       if ( !a1 )
         DxgkAcquireAdapterCoreSync(*(_QWORD *)(v11 + 3896), 2LL);
       v12 = *(_QWORD *)(v11 + 3896);
       if ( v12 )
       {
-        v13 = *(ADAPTER_DISPLAY **)(v12 + 2792);
+        v13 = *(ADAPTER_DISPLAY **)(v12 + 2696);
         if ( v13 )
         {
           ADAPTER_DISPLAY::GetPrimaryPath(v13, v23, &v19, (enum _DXGK_PRIMARY_TARGET_TYPE *)&v26);
@@ -119,13 +115,15 @@ LABEL_63:
       if ( !a1 )
       {
         DxgkReleaseAdapterCoreSync(*(_QWORD *)(v11 + 3896), 2LL);
-LABEL_35:
-        if ( *(_BYTE *)(v11 + 484) )
-          DpiEnableD3Requests(*(_QWORD *)(v11 + 24));
-        ExReleaseResourceLite(*(PERESOURCE *)(v11 + 168));
-        KeLeaveCriticalRegion();
+LABEL_34:
+        if ( !a1 )
+        {
+          if ( *(_BYTE *)(v11 + 484) )
+            DpiEnableD3Requests(*(_QWORD *)(v11 + 24));
+          ExReleaseResourceLite(*(PERESOURCE *)(v11 + 168));
+          KeLeaveCriticalRegion();
+        }
       }
-LABEL_38:
       v5 = 0LL;
 LABEL_39:
       v11 = *(_QWORD *)v11;
@@ -148,22 +146,22 @@ LABEL_61:
            &v24) >= 0 )
     {
       v18 = v24;
-      if ( !v24 && qword_1C0130748 && v5 == *(_QWORD *)(qword_1C0130748 + 64) )
+      if ( !v24 && qword_1C00B2DC0 && v5 == *(_QWORD *)(qword_1C00B2DC0 + 64) )
         *(_DWORD *)(a2 + 16) = 1;
       else
         *(_DWORD *)(a2 + 16) = 5;
 LABEL_60:
       v7 = v21;
       a3 = v25;
-      dword_1C0130828 = v26;
+      dword_1C00B2EA0 = v26;
       v6 = v20;
-      dword_1C0130830 = v20;
-      byte_1C0130811 = a1;
-      qword_1C0130818 = v10;
-      qword_1C0130820 = v5;
-      dword_1C013082C = v14;
-      dword_1C0130834 = v21;
-      dword_1C0130838 = v18;
+      dword_1C00B2EA8 = v20;
+      byte_1C00B2E89 = a1;
+      qword_1C00B2E90 = v10;
+      qword_1C00B2E98 = v5;
+      dword_1C00B2EA4 = v14;
+      dword_1C00B2EAC = v21;
+      dword_1C00B2EB0 = v18;
       goto LABEL_4;
     }
     if ( !a1 )
@@ -174,24 +172,24 @@ LABEL_60:
       ExReleaseResourceLite(*(PERESOURCE *)(v5 + 168));
       KeLeaveCriticalRegion();
       KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
-      _InterlockedExchange64(&qword_1C01304D8, 0LL);
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
       KeReleaseMutex(Mutex, 0);
     }
     v5 = 0LL;
 LABEL_47:
     ;
   }
-  if ( qword_1C0130740 )
+  if ( qword_1C00B2DB8 )
   {
-    v15 = *(_QWORD *)(qword_1C0130740 + 64);
+    v15 = *(_QWORD *)(qword_1C00B2DB8 + 64);
     if ( *(_DWORD *)(v15 + 236) == 2 )
       (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(v15 + 40) + 240LL))(*(_QWORD *)(v15 + 48));
   }
   if ( !a1 )
     AcquireMiniportListMutex();
-  if ( qword_1C0130748 )
+  if ( qword_1C00B2DC0 )
   {
-    v5 = *(_QWORD *)(qword_1C0130748 + 64);
+    v5 = *(_QWORD *)(qword_1C00B2DC0 + 64);
     v10 = *(_QWORD *)(v5 + 40);
     if ( !a1 )
     {
@@ -221,7 +219,7 @@ LABEL_47:
       ExReleaseResourceLite(*(PERESOURCE *)(v5 + 168));
       KeLeaveCriticalRegion();
       KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
-      _InterlockedExchange64(&qword_1C01304D8, 0LL);
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
       KeReleaseMutex(Mutex, 0);
     }
   }

@@ -1,49 +1,45 @@
 /*
- * XREFs of NtUserGetPointerDevice @ 0x1C01D2DA0
+ * XREFs of NtUserGetPointerDevice @ 0x1C01FA8E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _GetPointerDeviceInfoProperties @ 0x1C0152EB0 (_GetPointerDeviceInfoProperties.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetPointerDeviceInfoProperties @ 0x1C01EEED0 (_GetPointerDeviceInfoProperties.c)
  */
 
-__int64 __fastcall NtUserGetPointerDevice(__int64 a1, volatile void *a2, __int64 a3)
+__int64 __fastcall NtUserGetPointerDevice(__int64 a1, volatile void *a2)
 {
-  int v5; // ebx
-  int v6; // ecx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  char v15; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v16; // [rsp+60h] [rbp+18h] BYREF
+  int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
+  char v11; // [rsp+60h] [rbp+18h] BYREF
 
-  v5 = 0;
-  v16 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v15);
+  v4 = 0;
+  v10 = 0LL;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v11);
   if ( !a1 || !a2 )
   {
-    v6 = 87;
+    v7 = 87LL;
     goto LABEL_7;
   }
-  if ( !(unsigned int)ResolveMouseOrPointerDevice(a1, &v16, 0LL) )
+  if ( !(unsigned int)ResolveMouseOrPointerDevice(a1, &v10, 0LL) )
   {
-    v6 = 6;
+    v7 = 6LL;
 LABEL_7:
-    UserSetLastError(v6);
+    UserSetLastError(v7, v5, v6);
     goto LABEL_8;
   }
   ProbeForWrite(a2, 0x438uLL, 4u);
-  GetPointerDeviceInfoProperties((__int64)a2, v16, v7);
-  v5 = 1;
+  GetPointerDeviceInfoProperties((__int64)a2, v10);
+  v4 = 1;
 LABEL_8:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v15, v8, v9);
-  UserSessionSwitchLeaveCrit(v11, v10, v12, v13);
-  return v5;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v11);
+  UserSessionSwitchLeaveCrit(v8);
+  return v4;
 }

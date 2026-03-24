@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00E9D00
+ * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00FF1AC
  * Callers:
- *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C003FC60 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
- *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C003FCAC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C008E8A0 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C008E8EC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
  * Callees:
- *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00E9D58 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
- *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C0299B94 (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
- *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029C55C (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00FF204 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029B2BC (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029DC68 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKOBJ::bUnMapTrgSurfaceView(DEVLOCKOBJ *this)

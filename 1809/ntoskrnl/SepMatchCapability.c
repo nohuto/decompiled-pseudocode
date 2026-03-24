@@ -1,12 +1,12 @@
 /*
- * XREFs of SepMatchCapability @ 0x140122640
+ * XREFs of SepMatchCapability @ 0x140122660
  * Callers:
- *     SepMaximumAccessCheck @ 0x1400AAD80 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheck @ 0x1400AB350 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x14015C194 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x14015C2B4 (SepNormalAccessCheckEx.c)
+ *     SepMaximumAccessCheck @ 0x1400AADA0 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x1400AB370 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14015C1B4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x14015C2D4 (SepNormalAccessCheckEx.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1400AAB40 (SepSidInTokenSidHash.c)
+ *     SepSidInTokenSidHash @ 0x1400AAB60 (SepSidInTokenSidHash.c)
  */
 
 char __fastcall SepMatchCapability(__int64 a1, int a2, void *a3, int a4, _BYTE *a5, _DWORD *a6)

@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionAllocThreadPointerData @ 0x1C01534E0
+ * XREFs of EditionAllocThreadPointerData @ 0x1C01F1AB0
  * Callers:
  *     <none>
  * Callees:

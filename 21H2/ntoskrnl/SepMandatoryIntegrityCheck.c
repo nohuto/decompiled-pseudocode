@@ -1,271 +1,293 @@
 /*
- * XREFs of SepMandatoryIntegrityCheck @ 0x1402FB7E0
+ * XREFs of SepMandatoryIntegrityCheck @ 0x14034E820
  * Callers:
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B1170 (ExpAcquireResourceSharedLite.c)
- *     ExAcquireFastResourceShared @ 0x14039B6B0 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x14039C618 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireFastResourceShared @ 0x14038F380 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x14038FB6C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepMandatoryIntegrityCheck(int *a1, __int64 a2, __int64 a3, __int64 a4, char a5, __int64 a6)
+__int64 __fastcall SepMandatoryIntegrityCheck(
+        int *a1,
+        __int64 a2,
+        struct _KTHREAD *a3,
+        __int64 a4,
+        char a5,
+        char a6,
+        __int64 a7)
 {
-  char v7; // r14
-  char v8; // bp
+  int v7; // eax
+  char v8; // r15
   int v9; // ebx
-  int v10; // eax
   __int16 v11; // ax
-  unsigned __int16 *v12; // rsi
-  __int64 v13; // rax
-  _WORD **v14; // rax
-  _WORD *v15; // r12
-  int v16; // eax
-  int v17; // eax
-  unsigned __int16 v18; // cx
-  __int16 v19; // r15
-  int v20; // edx
-  int v21; // edx
-  __int16 v22; // bp
-  unsigned int v23; // edx
-  char v24; // dl
-  char v25; // al
-  char v26; // dl
+  __int64 v12; // rax
+  __int64 v13; // rsi
+  unsigned int v14; // edx
+  int v15; // eax
+  unsigned __int16 *v16; // rsi
+  __int64 v17; // rax
+  _WORD **v18; // rax
+  _WORD *v19; // r14
+  int v20; // eax
+  int v21; // eax
+  unsigned __int16 v22; // bp
+  unsigned __int16 v23; // r12
+  int v24; // ecx
+  int v25; // ecx
+  int v26; // eax
+  __int16 v27; // cx
+  bool v28; // zf
+  unsigned int v30; // edx
+  unsigned int v31; // r14d
+  char v32; // dl
+  char v33; // si
+  char v34; // r8
+  char v35; // bp
   __int64 result; // rax
-  __int64 v28; // rax
-  __int64 v29; // rcx
-  __int64 v30; // rsi
-  int v31; // eax
-  struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v33; // r12
-  __int16 v34; // cx
-  char v35; // r9
-  int v36; // ecx
-  int v37; // ecx
-  int v38; // edx
-  __int64 CurrentIrql; // rdx
-  struct _KTHREAD *v40; // rcx
+  __int64 v37; // rax
+  char v38; // dl
+  int v39; // esi
+  int v40; // r11d
   int v41; // ecx
-  char v42; // [rsp+30h] [rbp-58h]
-  unsigned __int16 v43; // [rsp+32h] [rbp-56h]
-  char v44; // [rsp+34h] [rbp-54h]
-  PVOID P; // [rsp+40h] [rbp-48h]
-  __int64 v47; // [rsp+48h] [rbp-40h]
+  struct _KTHREAD *CurrentThread; // rax
+  ULONG_PTR v43; // r14
+  __int64 v44; // rcx
+  unsigned __int8 CurrentIrql; // dl
+  void *OwnerEntryForLegacyShim; // r12
+  int v47; // ecx
+  int v48; // r10d
+  char v49; // [rsp+30h] [rbp-58h]
+  char v50; // [rsp+38h] [rbp-50h]
 
-  v7 = 0;
+  v7 = *(_DWORD *)(a4 + 212);
   v8 = 0;
   v9 = 0;
-  v10 = *(_DWORD *)(a4 + 212);
-  v42 = 0;
-  *(_DWORD *)(a6 + 8) = v10;
-  if ( (v10 & 0xFFFFFFFD) != 0 )
+  v49 = 0;
+  *(_DWORD *)(a7 + 8) = v7;
+  if ( (v7 & 0xFFFFFFFD) != 0 )
   {
     if ( (_BYTE)a3 )
-      goto LABEL_4;
+      goto LABEL_47;
     v11 = *(_WORD *)(a2 + 2);
     if ( (v11 & 0x10) == 0 )
-      goto LABEL_4;
-    if ( v11 >= 0 )
+      goto LABEL_47;
+    if ( v11 < 0 )
     {
-      v29 = *(_QWORD *)(a2 + 24);
+      v37 = *(unsigned int *)(a2 + 12);
+      if ( !(_DWORD)v37 )
+        goto LABEL_47;
+      v12 = a2 + v37;
     }
     else
     {
-      v28 = *(unsigned int *)(a2 + 12);
-      if ( !(_DWORD)v28 )
-        goto LABEL_4;
-      v29 = a2 + v28;
+      v12 = *(_QWORD *)(a2 + 24);
     }
-    if ( v29 )
+    if ( v12 )
     {
-      v30 = v29 + 8;
-      a3 = 0LL;
-      if ( *(_WORD *)(v29 + 4) )
+      v13 = v12 + 8;
+      v14 = 0;
+      if ( *(_WORD *)(v12 + 4) )
       {
-        while ( *(_BYTE *)v30 != 17 )
+        while ( *(_BYTE *)v13 != 17 )
         {
-          a3 = (unsigned int)(a3 + 1);
-          v30 += *(unsigned __int16 *)(v30 + 2);
-          if ( (unsigned int)a3 >= *(unsigned __int16 *)(v29 + 4) )
-            goto LABEL_4;
+          ++v14;
+          v13 += *(unsigned __int16 *)(v13 + 2);
+          if ( v14 >= *(unsigned __int16 *)(v12 + 4) )
+            goto LABEL_47;
         }
-        if ( (*(_BYTE *)(v30 + 1) & 8) == 0 )
+        if ( (*(_BYTE *)(v13 + 1) & 8) == 0 )
         {
-          v31 = *(_DWORD *)(v30 + 4);
-          v12 = (unsigned __int16 *)(v30 + 8);
-          v44 = v31;
-LABEL_5:
+          v15 = *(_DWORD *)(v13 + 4);
+          v16 = (unsigned __int16 *)(v13 + 8);
+          v50 = v15;
+LABEL_11:
           if ( a5 )
           {
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
-            v33 = *(_QWORD *)(a4 + 48);
-            v34 = *(_WORD *)(v33 + 26);
-            if ( (v34 & 0x41) == 1 )
-              KeBugCheckEx(0x1C6u, 0xFuLL, *(_QWORD *)(a4 + 48), 0LL, 0LL);
-            if ( (v34 & 1) != 0 )
+            v43 = *(_QWORD *)(a4 + 48);
+            v44 = *(unsigned __int16 *)(v43 + 26);
+            if ( (v44 & 0x41) == 1 )
+              KeBugCheckEx(0x1C6u, 0xFuLL, v43, 0LL, 0LL);
+            LOWORD(v44) = *(_WORD *)(v43 + 26) & 1;
+            if ( (_WORD)v44 )
             {
               CurrentIrql = KeGetCurrentIrql();
-              v40 = KeGetCurrentThread();
-              if ( (unsigned __int8)CurrentIrql > 1u )
-                KeBugCheckEx(0x1C6u, 0LL, (unsigned __int8)CurrentIrql, 1uLL, 0LL);
-              if ( (v40->ApcState.InProgressFlags & 2) != 0 )
+              a3 = KeGetCurrentThread();
+              if ( CurrentIrql > 1u )
+                KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
+              if ( (a3->ApcState.InProgressFlags & 2) != 0 )
                 KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-              if ( !(_BYTE)CurrentIrql && (v40->MiscFlags & 0x400) == 0 && !v40->WaitBlock[3].SpareLong )
+              if ( !CurrentIrql && (a3->MiscFlags & 0x400) == 0 && !a3->WaitBlock[3].SpareLong )
                 KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-              P = (PVOID)ExpAllocateOwnerEntryForLegacyShim(v40, CurrentIrql, a3);
-              if ( !(unsigned __int8)ExAcquireFastResourceShared(v33, (ULONG_PTR)P) )
-                ExFreePoolWithTag(P, 0);
+            }
+            if ( (_WORD)v44 )
+            {
+              OwnerEntryForLegacyShim = (void *)ExpAllocateOwnerEntryForLegacyShim(v44);
+              if ( !(unsigned __int8)ExAcquireFastResourceShared(v43, (ULONG_PTR)OwnerEntryForLegacyShim) )
+                ExFreePoolWithTag(OwnerEntryForLegacyShim, 0);
             }
             else
             {
-              ExpAcquireResourceSharedLite(*(_QWORD *)(a4 + 48), 1);
+              ExpAcquireResourceSharedLite(*(_QWORD *)(a4 + 48), 1, (__int64)a3, (_DWORD *)a4);
             }
           }
-          v13 = *(unsigned int *)(a4 + 208);
-          if ( (_DWORD)v13 == -1 || (v14 = (_WORD **)(*(_QWORD *)(a4 + 152) + 16 * v13)) == 0LL )
-            v15 = SeUntrustedMandatorySid;
+          v17 = *(unsigned int *)(a4 + 208);
+          if ( (_DWORD)v17 == -1 || (v18 = (_WORD **)(*(_QWORD *)(a4 + 152) + 16 * v17)) == 0LL )
+            v19 = SeUntrustedMandatorySid;
           else
-            v15 = *v14;
+            v19 = *v18;
+          if ( a6 )
+            v19 = SepDefaultMandatorySid;
           if ( a5 )
           {
             ExReleaseResourceLite(*(PERESOURCE *)(a4 + 48));
             KeLeaveCriticalRegion();
           }
-          v16 = *((unsigned __int8 *)v12 + 1);
-          if ( (_BYTE)v16 )
-            v17 = *(_DWORD *)&v12[2 * (v16 - 1) + 4];
+          v20 = *((unsigned __int8 *)v16 + 1);
+          if ( (_BYTE)v20 )
+            v21 = *(_DWORD *)&v16[2 * (v20 - 1) + 4];
           else
-            v17 = 0;
-          *(_DWORD *)(a6 + 12) = v17;
-          v18 = *v15;
-          v19 = *v12;
-          v43 = *v15;
-          if ( *v12 == *v15 )
+            v21 = 0;
+          *(_DWORD *)(a7 + 12) = v21;
+          v22 = *v16;
+          v23 = *v19;
+          if ( *v16 == *v19 && !memcmp(v16, v19, 4 * ((unsigned __int64)*v16 >> 8) + 8) )
+            goto LABEL_50;
+          v24 = *(_DWORD *)(v19 + 1);
+          if ( !v24 )
+            v24 = (unsigned __int16)v19[3] - 4096;
+          if ( v24 )
+            goto LABEL_92;
+          v25 = *(_DWORD *)(v16 + 1);
+          if ( !v25 )
+            v25 = v16[3] - 4096;
+          if ( v25 )
           {
-            if ( !memcmp(v12, v15, 4 * ((unsigned __int64)*v12 >> 8) + 8) )
-              goto LABEL_28;
-            v18 = v43;
-          }
-          v20 = *(_DWORD *)(v15 + 1);
-          WORD2(v47) = 4096;
-          if ( !v20 )
-            v20 = (unsigned __int16)v15[3] - 4096;
-          if ( v20 )
-            goto LABEL_89;
-          v21 = *(_DWORD *)(v12 + 1);
-          if ( !v21 )
-            v21 = v12[3] - 4096;
-          if ( v21 )
-          {
-LABEL_89:
-            LODWORD(v47) = -1073741811;
-            v26 = 0;
-            result = v47;
-LABEL_35:
-            *(_DWORD *)a6 = v9;
-            *(_BYTE *)(a6 + 4) = v7;
-            *(_BYTE *)(a6 + 5) = v26;
-            *(_BYTE *)(a6 + 6) = v8;
+LABEL_92:
+            v34 = 0;
+            v31 = -1073741811;
+            v35 = 0;
+LABEL_45:
+            result = v31;
+            *(_BYTE *)(a7 + 4) = v35;
+            *(_DWORD *)a7 = v9;
+            *(_BYTE *)(a7 + 5) = v8;
+            *(_BYTE *)(a7 + 6) = v34;
             return result;
           }
-          v22 = HIBYTE(v18);
-          if ( v18 != v19 || memcmp(v15, v12, 4LL * HIBYTE(v18) + 8) )
+          LOWORD(v26) = HIBYTE(v23);
+          v27 = HIBYTE(v22);
+          if ( v23 == v22
+            && (v26 = memcmp(v19, v16, 4LL * HIBYTE(v23) + 8),
+                LOBYTE(v27) = HIBYTE(v22),
+                v28 = v26 == 0,
+                LOBYTE(v26) = HIBYTE(v23),
+                v28) )
           {
-            v23 = (_BYTE)v22 ? *(_DWORD *)&v15[2 * (unsigned __int8)v22 + 2] : 0;
-            if ( HIBYTE(v19) && v23 < *(_DWORD *)&v12[2 * HIBYTE(v19) + 2] )
+LABEL_50:
+            v31 = 0;
+          }
+          else
+          {
+            if ( (_BYTE)v26 )
             {
-              v24 = 0;
-LABEL_29:
-              if ( (*(_DWORD *)(a6 + 8) & 1) != 0 )
+              v30 = *(_DWORD *)&v19[2 * (unsigned __int8)v26 + 2];
+              v31 = 0;
+            }
+            else
+            {
+              v31 = 0;
+              v30 = 0;
+            }
+            if ( (_BYTE)v27 && v30 < *(_DWORD *)&v16[2 * (unsigned __int8)v27 + 2] )
+            {
+              v32 = 0;
+LABEL_38:
+              if ( (*(_DWORD *)(a7 + 8) & 1) != 0 && (v8 = 1, v9 = *a1 | ~*a1 & a1[2] | 0x120000, v32) )
               {
-                v25 = 1;
-                v42 = 1;
-                v9 = *a1 | ~*a1 & a1[2] | 0x120000;
-                if ( v24 )
-                {
-                  v7 = 1;
-                  v8 = 1;
-                  v9 |= a1[3] | 0x11FFFFF;
-                  v26 = 1;
-LABEL_32:
-                  if ( _bittest64((const signed __int64 *)(a4 + 72), 0x20u) )
-                    v9 |= 0x80000u;
-                  result = 0LL;
-                  goto LABEL_35;
-                }
+                v33 = 1;
+                v49 = 1;
+                v9 |= a1[3] | 0x11FFFFF;
               }
               else
               {
-                v25 = 0;
+                v33 = 0;
               }
-              v7 = 0;
-              v8 = v25;
-              if ( v24 )
+              v34 = v8;
+              if ( v32 )
               {
-                v26 = v42;
+                v35 = v49;
               }
               else
               {
-                v7 = 0;
+                v38 = 0;
+                if ( (v50 & 2) == 0 )
+                  v38 = v8;
+                if ( (v50 & 4) != 0 )
+                  v34 = 0;
                 v35 = 0;
-                if ( (v44 & 2) == 0 )
-                  v35 = v25;
-                v8 = 0;
-                if ( (v44 & 4) == 0 )
-                  v8 = v42;
-                if ( (v44 & 2) != 0 )
+                if ( (v50 & 1) == 0 )
+                  v35 = v33;
+                if ( (v50 & 2) != 0 )
                 {
-                  v37 = *a1;
-                  if ( v8 )
-                    v38 = ~v37 & a1[2] | 0x100000;
-                  else
-                    v38 = 0;
-                  v9 &= v38 | ~(v37 | 0x20000);
+                  v39 = 0;
+                  if ( v35 )
+                    v39 = a1[1] | 0x10D0000;
+                  v40 = *a1;
+                  if ( v34 )
+                    v39 |= ~v40 & a1[2] | 0x100000;
+                  v9 &= v39 | ~(v40 | 0x20000);
                 }
-                if ( (v44 & 4) != 0 )
+                if ( (v50 & 4) != 0 )
+                {
+                  v47 = 0;
+                  if ( v35 )
+                    v47 = a1[1] | 0x10D0000;
+                  v48 = *a1;
+                  if ( v38 )
+                    v47 |= v48 | 0x20000;
+                  v9 &= ~(~v47 & (~v48 & a1[2] | 0x100000));
+                }
+                v8 = v38;
+                if ( (v50 & 1) != 0 )
                 {
                   v41 = 0;
-                  if ( v35 )
-                    v41 = *a1 | 0x20000;
-                  v9 &= ~(~v41 & (~*a1 & a1[2] | 0x100000));
-                }
-                v26 = v35;
-                if ( (v44 & 1) != 0 )
-                {
-                  v36 = 0;
-                  if ( v8 )
-                    v36 = ~*a1 & a1[2] | 0x100000;
-                  if ( v35 )
-                    v36 |= *a1 | 0x20000;
-                  v9 &= ~(~v36 & (a1[1] | 0x10D0000));
+                  if ( v34 )
+                    v41 = ~*a1 & a1[2] | 0x100000;
+                  if ( v38 )
+                    v41 |= *a1 | 0x20000;
+                  v9 &= ~(~v41 & (a1[1] | 0x10D0000));
                 }
               }
-              goto LABEL_32;
+              if ( (*(_QWORD *)(a4 + 72) & 0x100000000LL) != 0 )
+                v9 |= 0x80000u;
+              goto LABEL_45;
             }
           }
-LABEL_28:
-          v24 = 1;
-          goto LABEL_29;
+          v32 = 1;
+          goto LABEL_38;
         }
       }
     }
-LABEL_4:
-    v12 = (unsigned __int16 *)SepDefaultMandatorySid;
-    v44 = 1;
-    goto LABEL_5;
+LABEL_47:
+    v16 = (unsigned __int16 *)SepDefaultMandatorySid;
+    v50 = 1;
+    goto LABEL_11;
   }
-  *(_DWORD *)a6 = a1[3];
+  *(_DWORD *)a7 = a1[3];
   result = 0LL;
-  *(_WORD *)(a6 + 4) = 257;
-  *(_BYTE *)(a6 + 6) = 1;
+  *(_WORD *)(a7 + 4) = 257;
+  *(_BYTE *)(a7 + 6) = 1;
   return result;
 }

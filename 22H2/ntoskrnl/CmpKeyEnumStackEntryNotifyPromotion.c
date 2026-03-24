@@ -1,43 +1,32 @@
 /*
- * XREFs of CmpKeyEnumStackEntryNotifyPromotion @ 0x140A23F6C
+ * XREFs of CmpKeyEnumStackEntryNotifyPromotion @ 0x14087AA70
  * Callers:
- *     CmpKeyEnumStackNotifyPromotion @ 0x140A241D4 (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x14087AC2C (CmpKeyEnumStackNotifyPromotion.c)
  * Callees:
- *     CmpDoFindSubKeyByNumber @ 0x1406DAE8C (CmpDoFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1405F2D00 (CmpDoFindSubKeyByNumber.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackEntryNotifyPromotion(__int64 a1)
+__int64 __fastcall CmpKeyEnumStackEntryNotifyPromotion(_QWORD *a1)
 {
   int v2; // edx
-  __int64 v3; // r8
+  __int64 v3; // r9
   _DWORD *v4; // rcx
-  int v5; // r9d
-  __int64 v6; // rdi
-  __int64 v7; // rsi
-  __int64 v8; // rcx
-  unsigned int *v9; // rdx
-  __int64 v10; // rcx
-  unsigned int *v11; // rdx
-  __int64 v12; // rcx
-  unsigned int *v13; // r8
-  ULONG_PTR v14; // rdx
-  ULONG_PTR v15; // rcx
-  _WORD *CellFlat; // rax
+  int v5; // r8d
+  __int64 v6; // rsi
+  __int64 v7; // rbx
+  _QWORD *v8; // rbp
+  __int64 v9; // rcx
+  __int16 *v10; // rax
   unsigned int SubKeyByNumber; // eax
-  ULONG_PTR v18; // rcx
-  unsigned int *v19; // r8
-  unsigned int v20; // esi
+  unsigned int v12; // ebx
   __int64 result; // rax
 
   v2 = 0;
   v3 = 0LL;
-  v4 = (_DWORD *)(a1 + 32);
+  v4 = a1 + 4;
   v5 = 2;
-  while ( *v4 == *(_DWORD *)((char *)v4 + *(_QWORD *)(a1 + 8) - a1 - 12) )
+  while ( *v4 == *(_DWORD *)((char *)v4 + a1[1] - (_QWORD)a1 - 12) )
   {
     ++v2;
     ++v3;
@@ -47,52 +36,35 @@ __int64 __fastcall CmpKeyEnumStackEntryNotifyPromotion(__int64 a1)
   }
   v5 = v2;
 LABEL_6:
-  *(_QWORD *)(a1 + 120) = 0LL;
-  *(_DWORD *)(a1 + 112) = -1;
+  a1[15] = 0LL;
   v6 = v5;
-  v7 = 8LL * v5;
-  if ( *(_QWORD *)(a1 + v7 + 80) )
+  *((_DWORD *)a1 + 28) = -1;
+  v7 = v5;
+  if ( a1[v7 + 10] )
   {
-    v8 = *(_QWORD *)a1;
-    v9 = (unsigned int *)(v7 + a1 + 96);
-    if ( (*(_BYTE *)(*(_QWORD *)a1 + 140LL) & 1) != 0 )
-      HvpReleaseCellFlat(v8, v9);
-    else
-      HvpReleaseCellPaged(v8, v9);
-    *(_QWORD *)(a1 + 8 * v6 + 80) = 0LL;
-    *(_DWORD *)(a1 + 4 * v6 + 72) = -1;
+    (*(void (__fastcall **)(_QWORD, _QWORD *))(*a1 + 16LL))(*a1, &a1[v7 + 12]);
+    a1[v6 + 10] = 0LL;
+    *((_DWORD *)a1 + v6 + 18) = -1;
   }
-  if ( *(_QWORD *)(a1 + 8 * v6 + 40) )
+  v8 = &a1[v7];
+  if ( a1[v6 + 5] )
   {
-    v10 = *(_QWORD *)a1;
-    v11 = (unsigned int *)(v7 + a1 + 56);
-    if ( (*(_BYTE *)(*(_QWORD *)a1 + 140LL) & 1) != 0 )
-      HvpReleaseCellFlat(v10, v11);
-    else
-      HvpReleaseCellPaged(v10, v11);
-    *(_QWORD *)(a1 + 8 * v6 + 40) = 0LL;
+    (*(void (__fastcall **)(_QWORD, _QWORD *))(*a1 + 16LL))(*a1, v8 + 7);
+    a1[v6 + 5] = 0LL;
   }
-  v12 = *(_QWORD *)(a1 + 8);
-  v13 = (unsigned int *)(a1 + 56 + 8 * v6);
-  *(_DWORD *)(a1 + 4 * v6 + 32) = *(_DWORD *)(v12 + 4 * v6 + 20);
-  v14 = *(unsigned int *)(v12 + 4 * v6 + 28);
-  v15 = *(_QWORD *)a1;
-  if ( (*(_BYTE *)(*(_QWORD *)a1 + 140LL) & 1) != 0 )
-    CellFlat = (_WORD *)HvpGetCellFlat(v15, v14, v13);
-  else
-    CellFlat = (_WORD *)HvpGetCellPaged(v15, v14, v13);
-  *(_QWORD *)(a1 + 8 * v6 + 40) = CellFlat;
-  SubKeyByNumber = CmpDoFindSubKeyByNumber(*(_QWORD *)a1, CellFlat, *(_DWORD *)(a1 + 4 * v6 + 24));
-  *(_DWORD *)(a1 + 4 * v6 + 72) = SubKeyByNumber;
-  v18 = *(_QWORD *)a1;
-  v19 = (unsigned int *)(a1 + 96 + 8 * v6);
-  v20 = SubKeyByNumber;
-  if ( (*(_BYTE *)(*(_QWORD *)a1 + 140LL) & 1) != 0 )
-    result = HvpGetCellFlat(v18, SubKeyByNumber, v19);
-  else
-    result = HvpGetCellPaged(v18, SubKeyByNumber, v19);
-  *(_QWORD *)(a1 + 8 * v6 + 80) = result;
-  *(_DWORD *)(a1 + 112) = v20;
-  *(_QWORD *)(a1 + 120) = result;
+  v9 = a1[1];
+  *((_DWORD *)a1 + v6 + 8) = *(_DWORD *)(v9 + 4 * v6 + 20);
+  v10 = (__int16 *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD *))(*a1 + 8LL))(
+                     *a1,
+                     *(unsigned int *)(v9 + 4 * v6 + 28),
+                     v8 + 7);
+  a1[v6 + 5] = v10;
+  SubKeyByNumber = CmpDoFindSubKeyByNumber(*a1, v10, *((_DWORD *)a1 + v6 + 6));
+  *((_DWORD *)a1 + v6 + 18) = SubKeyByNumber;
+  v12 = SubKeyByNumber;
+  result = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD *))(*a1 + 8LL))(*a1, SubKeyByNumber, v8 + 12);
+  a1[v6 + 10] = result;
+  *((_DWORD *)a1 + 28) = v12;
+  a1[15] = result;
   return result;
 }

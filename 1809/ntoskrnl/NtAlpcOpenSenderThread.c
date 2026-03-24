@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAlpcOpenSenderThread @ 0x1406B74A0
+ * XREFs of NtAlpcOpenSenderThread @ 0x1406B7480
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     PsOpenThread @ 0x140611DF0 (PsOpenThread.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)

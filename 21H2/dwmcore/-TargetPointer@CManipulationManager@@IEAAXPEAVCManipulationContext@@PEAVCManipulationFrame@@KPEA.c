@@ -1,293 +1,226 @@
 /*
- * XREFs of ?TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEAPEAX@Z @ 0x18017FDCC
+ * XREFs of ?TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEAPEAX@Z @ 0x18022794C
  * Callers:
- *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017FBC0 (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18022775C (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18002B610 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qq_EventWriteTransfer @ 0x1801117F6 (McTemplateU0qq_EventWriteTransfer.c)
- *     ??$?4VCInteraction@@@?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x18017937C (--$-4VCInteraction@@@-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractio.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3333@Z @ 0x18017AF50 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@-$_tlgWriteTemplate@$$A6.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18017BCE8 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     ?IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ @ 0x18017C890 (-IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ.c)
- *     ?IsRoute@TargetingInfo@@QEBA_NXZ @ 0x18017C8B0 (-IsRoute@TargetingInfo@@QEBA_NXZ.c)
- *     ?QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z @ 0x18017E48C (-QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z.c)
- *     ?SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z @ 0x18017F79C (-SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z.c)
- *     ?GetHoverTarget@CManipulationContext@@QEBAPEAVCInteraction@@I@Z @ 0x180182A78 (-GetHoverTarget@CManipulationContext@@QEBAPEAVCInteraction@@I@Z.c)
- *     ?GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PEAUTargetingInfo@@@Z @ 0x180186268 (-GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PE.c)
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18004EC24 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x180152A88 (McTemplateU0qq_EventWriteTransfer.c)
+ *     ??$?4VCInteraction@@@?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180222858 (--$-4VCInteraction@@@-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractio.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3333@Z @ 0x180224168 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@-$_tlgWriteTemplate@$$A6.c)
+ *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180224624 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ @ 0x180224FF0 (-IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ.c)
+ *     ?IsRoute@TargetingInfo@@QEBA_NXZ @ 0x180225010 (-IsRoute@TargetingInfo@@QEBA_NXZ.c)
+ *     ?QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z @ 0x1802266F4 (-QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z.c)
+ *     ?SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z @ 0x180227394 (-SetPointerResult@GestureTargeting@InputTraceLogging@@SAX_K0KKAEBUTargetingInfo@@@Z.c)
+ *     ?GetHoverTarget@CManipulationContext@@QEBAPEAVCInteraction@@I@Z @ 0x1802344F8 (-GetHoverTarget@CManipulationContext@@QEBAPEAVCInteraction@@I@Z.c)
+ *     ?GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PEAUTargetingInfo@@@Z @ 0x1802376D8 (-GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PE.c)
  */
 
 void __fastcall CManipulationManager::TargetPointer(
-        CManipulationManager *this,
+        CManipulationContext **this,
         struct CManipulationContext *a2,
         struct CManipulationFrame *a3,
         unsigned int a4,
         void **a5)
 {
-  void **v5; // r15
+  void **v5; // r13
   __int64 v7; // rbx
   __int64 v10; // r12
   char *v11; // rbx
-  unsigned __int64 v12; // r13
+  __int64 v12; // r15
   __int64 *v13; // rcx
   int v14; // edx
+  __int64 v15; // rdx
   struct CInteraction *HoverTarget; // rax
-  struct CInteraction *v16; // rax
-  int PointerTarget; // r15d
-  __int64 v18; // rax
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  __int128 v24; // xmm0
+  struct CInteraction *v17; // rax
+  int PointerTarget; // eax
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  __int64 (__fastcall ***v22)(_QWORD); // r10
+  int v23; // r14d
+  __int64 (__fastcall **v24)(_QWORD); // rax
   __int128 v25; // xmm1
   __int128 v26; // xmm0
-  __int128 v27; // xmm1
-  __int128 v28; // xmm0
-  __int64 v29; // r8
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  __int64 v33; // r11
-  int v34; // r9d
-  __int128 v35; // xmm1
-  int v36; // r8d
-  __int128 v37; // xmm0
-  __int128 v38; // xmm1
-  __int128 v39; // xmm0
-  __int128 v40; // xmm1
-  __int128 v41; // xmm0
-  __int128 v42; // xmm1
-  __int128 v43; // xmm0
+  __int64 (__fastcall *v27)(_QWORD); // rax
+  __int128 v28; // xmm1
+  __int128 v29; // xmm0
+  int v30; // eax
+  __int64 v31; // rdx
   char IsRoute; // al
-  char v45; // dl
-  unsigned int v46; // eax
-  __int64 v47; // r9
-  __int64 v48; // r11
-  int v49; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 *v50; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v51; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 *v52; // [rsp+68h] [rbp-98h] BYREF
-  int v53; // [rsp+70h] [rbp-90h] BYREF
-  int v54; // [rsp+74h] [rbp-8Ch] BYREF
-  __int64 v55; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v56; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v57; // [rsp+90h] [rbp-70h]
-  __int128 v58; // [rsp+A0h] [rbp-60h]
-  __int128 v59; // [rsp+B0h] [rbp-50h]
-  __int128 v60; // [rsp+C0h] [rbp-40h]
-  __int128 v61; // [rsp+D0h] [rbp-30h]
-  __int128 v62; // [rsp+E0h] [rbp-20h]
-  __int128 v63; // [rsp+F0h] [rbp-10h]
-  __int128 v64; // [rsp+100h] [rbp+0h]
-  __int128 v65; // [rsp+110h] [rbp+10h]
-  __int128 v66; // [rsp+120h] [rbp+20h]
-  __int64 v67; // [rsp+130h] [rbp+30h]
-  unsigned __int64 v68; // [rsp+180h] [rbp+80h] BYREF
-  int v69; // [rsp+190h] [rbp+90h] BYREF
-  int v70; // [rsp+198h] [rbp+98h] BYREF
+  char v33; // dl
+  unsigned int v34; // eax
+  __int64 v35; // r9
+  __int64 v36; // r10
+  int v37; // [rsp+50h] [rbp-61h] BYREF
+  __int64 (__fastcall ***v38)(_QWORD); // [rsp+58h] [rbp-59h] BYREF
+  __int64 v39; // [rsp+60h] [rbp-51h] BYREF
+  __int64 (__fastcall ***v40)(_QWORD); // [rsp+68h] [rbp-49h] BYREF
+  int v41; // [rsp+70h] [rbp-41h] BYREF
+  __int64 (__fastcall ***v42)(_QWORD); // [rsp+78h] [rbp-39h] BYREF
+  _OWORD v43[8]; // [rsp+80h] [rbp-31h] BYREF
+  int v44; // [rsp+110h] [rbp+5Fh] BYREF
+  int v45; // [rsp+120h] [rbp+6Fh] BYREF
+  int v46; // [rsp+128h] [rbp+77h] BYREF
 
   v5 = a5;
-  v50 = 0LL;
+  v38 = 0LL;
   v7 = a4;
-  v49 = 1;
+  v37 = 1;
   *a5 = 0LL;
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v50);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v38);
   v10 = 248 * v7;
-  v11 = (char *)a3 + 248 * v7 + 368;
+  v11 = (char *)a3 + 248 * v7 + 160;
   if ( (unsigned int)QpcTimeConverter::QpcToMicroSec(
-                       (CManipulationManager *)((char *)this + 304),
+                       (QpcTimeConverter *)(this + 38),
                        *((_QWORD *)v11 + 10),
-                       &v68) )
-    v12 = v68;
+                       (unsigned __int64 *)&a5) )
+    v12 = (__int64)a5;
   else
     v12 = 1000LL * *((unsigned int *)v11 + 16);
-  if ( (*((_BYTE *)a3 + 176) & 2) != 0 )
+  if ( (*((_BYTE *)a3 + 72) & 2) != 0 )
   {
-    v13 = (__int64 *)&v50;
-LABEL_40:
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease(v13);
-    goto LABEL_41;
+    v13 = (__int64 *)&v38;
+LABEL_35:
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v13);
+    goto LABEL_36;
   }
   if ( (*((_DWORD *)v11 + 3) & 0x40004) != 0 || CManipulationFrame::IsMousewheelFrame(a3) )
   {
     PointerTarget = CGestureTargetingManager::GetPointerTarget(
                       (const struct tagPOINTER_INFO *)v11,
                       a2,
-                      (struct TargetingInfo *)&v49);
-    if ( PointerTarget >= 0 && v50 && v49 )
+                      (struct TargetingInfo *)&v37);
+    v22 = v38;
+    v23 = PointerTarget;
+    if ( PointerTarget >= 0 && v38 && v37 )
     {
-      v18 = *v50;
-      v19 = *(_OWORD *)((char *)a3 + 200);
-      v56 = *(_OWORD *)((char *)a3 + 184);
-      v20 = *(_OWORD *)((char *)a3 + 216);
-      v57 = v19;
-      v21 = *(_OWORD *)((char *)a3 + 232);
-      v58 = v20;
-      v22 = *(_OWORD *)((char *)a3 + 248);
-      v59 = v21;
-      v23 = *(_OWORD *)((char *)a3 + 264);
-      v60 = v22;
-      v24 = *(_OWORD *)((char *)a3 + 280);
-      v61 = v23;
-      v25 = *(_OWORD *)((char *)a3 + 296);
-      v62 = v24;
-      v26 = *(_OWORD *)((char *)a3 + 312);
-      v63 = v25;
-      v27 = *(_OWORD *)((char *)a3 + 328);
-      v64 = v26;
-      v28 = *(_OWORD *)((char *)a3 + 344);
-      v29 = *((_QWORD *)a3 + 45);
-      v65 = v27;
-      v66 = v28;
-      v67 = v29;
-      LOBYTE(v29) = 1;
-      PointerTarget = (*(__int64 (__fastcall **)(__int64 *, unsigned __int64, __int64, _QWORD, __int128 *, int *))(v18 + 184))(
-                        v50,
-                        v12,
-                        v29,
-                        0LL,
-                        &v56,
-                        &v49);
+      v24 = *v38;
+      v25 = *((_OWORD *)a3 + 6);
+      v43[0] = *((_OWORD *)a3 + 5);
+      v26 = *((_OWORD *)a3 + 7);
+      v27 = v24[23];
+      LOBYTE(v20) = 1;
+      v43[1] = v25;
+      v28 = *((_OWORD *)a3 + 8);
+      v43[2] = v26;
+      v29 = *((_OWORD *)a3 + 9);
+      v43[3] = v28;
+      v43[4] = v29;
+      v30 = ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD), __int64, __int64, _QWORD, _OWORD *, int *))v27)(
+              v38,
+              v12,
+              v20,
+              0LL,
+              v43,
+              &v37);
+      v22 = v38;
+      v23 = v30;
     }
-    if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
+    if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
     {
-      LODWORD(v68) = *((_DWORD *)v11 + 9);
-      v69 = *((_DWORD *)v11 + 8);
-      v53 = v49;
-      v54 = *((_DWORD *)v11 + 1);
-      v70 = PointerTarget;
-      v55 = v33;
+      LODWORD(a5) = *((_DWORD *)v11 + 9);
+      v44 = *((_DWORD *)v11 + 8);
+      v45 = v37;
+      v41 = *((_DWORD *)v11 + 1);
+      v46 = v23;
+      v42 = v22;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v30,
-        byte_180368A6E,
-        v31,
-        v32,
-        (__int64)&v54,
-        (__int64)&v55,
-        (__int64)&v53,
-        (__int64)&v69,
-        (__int64)&v68,
-        (__int64)&v70);
+        v19,
+        byte_1802EA890,
+        v20,
+        v21,
+        (__int64)&v41,
+        (__int64)&v42,
+        (__int64)&v45,
+        (__int64)&v44,
+        (__int64)&a5,
+        (__int64)&v46);
     }
-    v34 = *((_DWORD *)v11 + 1);
-    v35 = *((_OWORD *)a3 + 3);
-    v36 = *((_DWORD *)a3 + 6);
-    v56 = *((_OWORD *)a3 + 2);
-    v37 = *((_OWORD *)a3 + 4);
-    v57 = v35;
-    v38 = *((_OWORD *)a3 + 5);
-    v58 = v37;
-    v39 = *((_OWORD *)a3 + 6);
-    v59 = v38;
-    v40 = *((_OWORD *)a3 + 7);
-    v60 = v39;
-    v41 = *((_OWORD *)a3 + 8);
-    v61 = v40;
-    v42 = *((_OWORD *)a3 + 9);
-    v62 = v41;
-    v43 = *((_OWORD *)a3 + 10);
-    v63 = v42;
-    v64 = v43;
     InputTraceLogging::GestureTargeting::SetPointerResult(
-      *((_QWORD *)a3 + 56),
-      v56,
-      v36,
-      v34,
-      (const struct TargetingInfo *)&v49);
-    if ( *(_DWORD *)v11 == 2 && (v49 == 2 || v49 == 1 && v50) )
-      *((_QWORD *)this + 41) = 0LL;
-    v52 = 0LL;
-    v51 = 0LL;
-    (*(void (__fastcall **)(struct CManipulationContext *, _QWORD, __int64 *))(*(_QWORD *)a2 + 64LL))(
-      a2,
-      *((unsigned int *)v11 + 1),
-      &v51);
-    if ( PointerTarget < 0 )
-      Microsoft::WRL::ComPtr<IInteractionResource>::operator=((__int64 (__fastcall ****)(_QWORD))&v50, &v52);
-    if ( v49 )
+      *((_QWORD *)a3 + 30),
+      *((_QWORD *)a3 + 4),
+      *((_DWORD *)a3 + 6),
+      *((_DWORD *)v11 + 1),
+      (const struct TargetingInfo *)&v37);
+    v31 = *((unsigned int *)v11 + 1);
+    v40 = 0LL;
+    v39 = 0LL;
+    (*(void (__fastcall **)(struct CManipulationContext *, __int64, __int64 *))(*(_QWORD *)a2 + 64LL))(a2, v31, &v39);
+    if ( v23 < 0 )
+      Microsoft::WRL::ComPtr<IInteractionResource>::operator=(&v38, &v40);
+    if ( v37 )
     {
-      if ( v50 != v52 )
+      if ( v38 != v40 )
       {
-        if ( (_DWORD)v51 )
+        if ( (_DWORD)v39 )
         {
-          TargetingInfo::IsRoute((TargetingInfo *)&v51);
-          IsRoute = TargetingInfo::IsRoute((TargetingInfo *)&v49);
-          if ( v45 != IsRoute )
+          TargetingInfo::IsRoute((TargetingInfo *)&v39);
+          IsRoute = TargetingInfo::IsRoute((TargetingInfo *)&v37);
+          if ( v33 != IsRoute )
           {
-            *((_BYTE *)a3 + v10 + 608) |= 1u;
-            *((_BYTE *)a3 + 176) |= 4u;
+            *((_BYTE *)a3 + v10 + 400) |= 1u;
+            *((_BYTE *)a3 + 72) |= 4u;
           }
         }
       }
-      (*(void (__fastcall **)(struct CManipulationContext *, _QWORD, int *))(*(_QWORD *)a2 + 72LL))(
-        a2,
-        *((unsigned int *)v11 + 1),
-        &v49);
     }
     else
     {
       if ( (*((_DWORD *)v11 + 3) & 0x40000) == 0 )
       {
-        v5 = a5;
-        *a5 = (void *)-1LL;
-        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x8000) != 0 )
+        *v5 = (void *)-1LL;
+        if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
           McTemplateU0qq_EventWriteTransfer(
             Microsoft_Windows_Dwm_Core_Provider_Context,
             &MANIPULATION_POINTER_BUFFERED,
             *((_DWORD *)v11 + 2),
             *((_DWORD *)v11 + 1));
-        goto LABEL_39;
+        goto LABEL_34;
       }
-      v49 = 1;
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v50);
-      (*(void (__fastcall **)(struct CManipulationContext *, _QWORD, int *))(*(_QWORD *)a2 + 72LL))(
-        a2,
-        *((unsigned int *)v11 + 1),
-        &v49);
+      v37 = 1;
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v38);
     }
-    v5 = a5;
-LABEL_39:
-    v13 = (__int64 *)&v52;
-    goto LABEL_40;
-  }
-  if ( (v14 & 0x800002) == 0 )
-  {
-    v52 = 0LL;
-    v51 = 0LL;
-    (*(void (__fastcall **)(struct CManipulationContext *, _QWORD, __int64 *))(*(_QWORD *)a2 + 64LL))(
-      a2,
-      *((unsigned int *)v11 + 1),
-      &v51);
-    Microsoft::WRL::ComPtr<IInteractionResource>::operator=((__int64 (__fastcall ****)(_QWORD))&v50, &v52);
-    if ( !(_DWORD)v51 && !v52 )
-    {
-      HoverTarget = CManipulationContext::GetHoverTarget(*((CManipulationContext **)this + 33), *((_DWORD *)v11 + 1));
-      Microsoft::WRL::ComPtr<IInteractionResource>::operator=<CInteraction>(
-        (__int64 (__fastcall ****)(_QWORD))&v50,
-        (__int64)HoverTarget);
-    }
-    goto LABEL_39;
-  }
-  if ( (v14 & 0x20006) == 0x20002 )
-  {
-    v16 = CManipulationContext::GetHoverTarget(*((CManipulationContext **)this + 33), *((_DWORD *)v11 + 1));
-    Microsoft::WRL::ComPtr<IInteractionResource>::operator=<CInteraction>(
-      (__int64 (__fastcall ****)(_QWORD))&v50,
-      (__int64)v16);
     (*(void (__fastcall **)(struct CManipulationContext *, _QWORD, int *))(*(_QWORD *)a2 + 72LL))(
       a2,
       *((unsigned int *)v11 + 1),
-      &v49);
+      &v37);
+LABEL_34:
+    v13 = (__int64 *)&v40;
+    goto LABEL_35;
   }
-LABEL_41:
-  if ( v50 && TargetingInfo::IsRoute((TargetingInfo *)&v49) )
+  if ( (v14 & 0x800002) == 0 )
   {
-    v46 = ConvertToInputType(*(_DWORD *)v11, *((_DWORD *)v11 + 3));
-    (*(void (__fastcall **)(__int64, _QWORD, void **))(v47 + 72))(v48, v46, v5);
+    v15 = *((unsigned int *)v11 + 1);
+    v40 = 0LL;
+    v39 = 0LL;
+    (*(void (__fastcall **)(struct CManipulationContext *, __int64, __int64 *))(*(_QWORD *)a2 + 64LL))(a2, v15, &v39);
+    Microsoft::WRL::ComPtr<IInteractionResource>::operator=(&v38, &v40);
+    if ( !(_DWORD)v39 && !v40 )
+    {
+      HoverTarget = CManipulationContext::GetHoverTarget(this[33], *((_DWORD *)v11 + 1));
+      Microsoft::WRL::ComPtr<IInteractionResource>::operator=<CInteraction>(
+        &v38,
+        (__int64 (__fastcall ***)(_QWORD))HoverTarget);
+    }
+    goto LABEL_34;
   }
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v50);
+  if ( (v14 & 0x20006) == 0x20002 )
+  {
+    v17 = CManipulationContext::GetHoverTarget(this[33], *((_DWORD *)v11 + 1));
+    Microsoft::WRL::ComPtr<IInteractionResource>::operator=<CInteraction>(&v38, (__int64 (__fastcall ***)(_QWORD))v17);
+    (*(void (__fastcall **)(struct CManipulationContext *, _QWORD, int *))(*(_QWORD *)a2 + 72LL))(
+      a2,
+      *((unsigned int *)v11 + 1),
+      &v37);
+  }
+LABEL_36:
+  if ( v38 && TargetingInfo::IsRoute((TargetingInfo *)&v37) )
+  {
+    v34 = ConvertToInputType(*(_DWORD *)v11, *((_DWORD *)v11 + 3));
+    (*(void (__fastcall **)(__int64, _QWORD, void **))(v35 + 72))(v36, v34, v5);
+  }
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v38);
 }

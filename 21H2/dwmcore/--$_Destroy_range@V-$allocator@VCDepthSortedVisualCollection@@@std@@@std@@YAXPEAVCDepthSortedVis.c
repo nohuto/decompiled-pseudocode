@@ -1,11 +1,11 @@
 /*
- * XREFs of ??$_Destroy_range@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@YAXPEAVCDepthSortedVisualCollection@@QEAV1@AEAV?$allocator@VCDepthSortedVisualCollection@@@0@@Z @ 0x1801920CC
+ * XREFs of ??$_Destroy_range@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@YAXPEAVCDepthSortedVisualCollection@@0AEAV?$allocator@VCDepthSortedVisualCollection@@@0@@Z @ 0x180169244
  * Callers:
- *     ??1CPreComputeContext@@QEAA@XZ @ 0x180019C48 (--1CPreComputeContext@@QEAA@XZ.c)
- *     ??$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@YAPEAVCDepthSortedVisualCollection@@QEAV1@0PEAV1@AEAV?$allocator@VCDepthSortedVisualCollection@@@0@@Z @ 0x1801B66B4 (--$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@V-$allocator@VCDepthSortedVisualCollect.c)
- *     ?_Change_array@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@AEAAXQEAVCDepthSortedVisualCollection@@_K1@Z @ 0x1801B6984 (-_Change_array@-$vector@VCDepthSortedVisualCollection@@V-$allocator@VCDepthSortedVisualCollectio.c)
+ *     ??1CPreComputeContext@@QEAA@XZ @ 0x180044824 (--1CPreComputeContext@@QEAA@XZ.c)
+ *     ??$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@PEAV1@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@YAPEAVCDepthSortedVisualCollection@@QEAV1@0PEAV1@AEAV?$allocator@VCDepthSortedVisualCollection@@@0@@Z @ 0x18019A5F8 (--$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@PEAV1@V-$allocator@VCDepthSortedVisualC.c)
+ *     ?_Change_array@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@AEAAXQEAVCDepthSortedVisualCollection@@_K1@Z @ 0x18019A8F0 (-_Change_array@-$vector@VCDepthSortedVisualCollection@@V-$allocator@VCDepthSortedVisualCollectio.c)
  * Callees:
- *     ??_GCDepthSortedVisualCollection@@QEAAPEAXI@Z @ 0x180192C0C (--_GCDepthSortedVisualCollection@@QEAAPEAXI@Z.c)
+ *     ??_GCDepthSortedVisualCollection@@QEAAPEAXI@Z @ 0x18016CFE8 (--_GCDepthSortedVisualCollection@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall std::_Destroy_range<std::allocator<CDepthSortedVisualCollection>>(

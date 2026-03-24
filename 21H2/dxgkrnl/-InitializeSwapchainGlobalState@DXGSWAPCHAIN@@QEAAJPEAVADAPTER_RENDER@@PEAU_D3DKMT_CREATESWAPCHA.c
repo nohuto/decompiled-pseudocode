@@ -1,12 +1,11 @@
 /*
- * XREFs of ?InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z @ 0x1C034B038
+ * XREFs of ?InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z @ 0x1C02AB040
  * Callers:
- *     DxgkCreateSwapChain @ 0x1C034DD20 (DxgkCreateSwapChain.c)
+ *     DxgkCreateSwapChain @ 0x1C02ADA60 (DxgkCreateSwapChain.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Init@DXGFIXEDQUEUE@@QEAAJXZ @ 0x1C005AFC4 (-Init@DXGFIXEDQUEUE@@QEAAJXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Init@DXGFIXEDQUEUE@@QEAAJXZ @ 0x1C004BED8 (-Init@DXGFIXEDQUEUE@@QEAAJXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::InitializeSwapchainGlobalState(
@@ -14,96 +13,87 @@ __int64 __fastcall DXGSWAPCHAIN::InitializeSwapchainGlobalState(
         struct ADAPTER_RENDER *a2,
         struct _D3DKMT_CREATESWAPCHAIN *a3)
 {
-  __int64 v3; // r9
+  UINT v3; // r9d
   _DWORD *v7; // rax
-  UINT v8; // ecx
-  __int64 v9; // rbx
-  const wchar_t *v10; // r9
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  int v16; // ecx
-  int v17; // eax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  UINT SurfaceCount; // ecx
+  __int64 v13; // rax
+  _DWORD *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  int v20; // eax
+  __int64 v21; // rdx
   __int64 v22; // rcx
-  struct DXGPROCESS *Current; // rax
+  __int64 v23; // rbx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // rbx
+  __int64 v27; // rdx
+  __int64 v28; // rcx
 
   v3 = a3->Flags.Value & 2;
-  *((_DWORD *)this + 58) = (a3->Flags.Value & 2) != 0;
-  if ( (v3 & 2) == 0 )
+  *((_DWORD *)this + 56) = v3 != 0;
+  if ( !v3 )
   {
-    v7 = (_DWORD *)operator new[](8uLL, 0x4B677844u, 256LL, v3);
+    v7 = operator new[](8uLL, 0x4B677844u, PagedPool);
     if ( v7 )
     {
-      v8 = a3->SurfaceCount - 1;
+      SurfaceCount = a3->SurfaceCount;
       *v7 = 0;
-      v7[1] = v8;
+      v9 = SurfaceCount - 1;
+      v7[1] = v9;
     }
-    else
-    {
-      v7 = 0LL;
-    }
-    *((_QWORD *)this + 28) = v7;
+    *((_QWORD *)this + 27) = v7;
     if ( !v7 )
     {
-      v9 = 1732LL;
-      WdLogSingleEntry1(6LL, 1732LL);
-      v10 = L"Out of memory allocating ROTATING_BUFFER_IDX class";
-LABEL_7:
-      DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)v10, v9, 0LL, 0LL, 0LL, 0LL);
+      v13 = WdLogNewEntry5_WdLowResource(v9, v8, v10, v11);
+      *(_QWORD *)(v13 + 24) = 1667LL;
+LABEL_6:
+      WdLogEvent5_WdLowResource(v13);
       return 3221225495LL;
     }
   }
-  v12 = operator new[](0x18uLL, 0x4B677844u, 256LL, v3);
-  if ( v12 )
+  v15 = operator new[](0x18uLL, 0x4B677844u, PagedPool);
+  if ( v15 )
   {
-    v16 = *((_DWORD *)this + 52);
-    *(_DWORD *)v12 = 20;
-    *(_QWORD *)(v12 + 8) = 0LL;
-    *(_QWORD *)(v12 + 16) = 0LL;
-    *(_DWORD *)(v12 + 4) = v16;
+    v17 = *((unsigned int *)this + 50);
+    v15[2] = 0;
+    v15[3] = 0;
+    *((_QWORD *)v15 + 2) = 0LL;
+    *v15 = 20;
+    v15[1] = v17;
   }
-  else
+  *((_QWORD *)this + 26) = v15;
+  if ( !v15 )
   {
-    v12 = 0LL;
+    v13 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+    *(_QWORD *)(v13 + 24) = 1676LL;
+    goto LABEL_6;
   }
-  *((_QWORD *)this + 27) = v12;
-  if ( !v12 )
+  v20 = DXGFIXEDQUEUE::Init((DXGFIXEDQUEUE *)v15);
+  v23 = v20;
+  if ( v20 >= 0 )
   {
-    v9 = 1741LL;
-    WdLogSingleEntry1(6LL, 1741LL);
-    v10 = L"Failed to allocate surface queue";
-    goto LABEL_7;
-  }
-  v17 = DXGFIXEDQUEUE::Init((DXGFIXEDQUEUE *)v12, v13, v14, v15);
-  v21 = v17;
-  if ( v17 >= 0 )
-  {
-    *((_QWORD *)this + 25) = *(_QWORD *)(*((_QWORD *)a2 + 2) + 404LL);
-    v22 = *(unsigned int *)(*((_QWORD *)a2 + 2) + 436LL);
-    if ( (v22 & 0x10) != 0 )
-      *((_DWORD *)this + 49) = 1;
-    Current = DXGPROCESS::GetCurrent(v22, v18, v19, v20);
-    WdLogSingleEntry2(4LL, this, Current);
+    *((_QWORD *)this + 24) = *(_QWORD *)(*((_QWORD *)a2 + 2) + 316LL);
+    v25 = *(unsigned int *)(*((_QWORD *)a2 + 2) + 348LL);
+    if ( (v25 & 0x10) != 0 )
+      *((_DWORD *)this + 47) = 1;
+    v26 = WdLogNewEntry5_WdEvent(v25, v21);
+    *(_QWORD *)(v26 + 24) = this;
+    *(_QWORD *)(v26 + 32) = DXGPROCESS::GetCurrent(v28, v27);
+    WdLogEvent5_WdEvent(v26);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, v17);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to init queue. Returning 0x%I64x",
-      v21,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v21;
+    v24 = WdLogNewEntry5_WdError(v22, v21);
+    *(_QWORD *)(v24 + 24) = v23;
+    WdLogEvent5_WdError(v24);
+    return (unsigned int)v23;
   }
 }

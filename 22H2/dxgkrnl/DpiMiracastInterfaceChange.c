@@ -1,375 +1,406 @@
 /*
- * XREFs of DpiMiracastInterfaceChange @ 0x1C0060160
+ * XREFs of DpiMiracastInterfaceChange @ 0x1C0053650
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DxgkFreeUnicodeString @ 0x1C021D03C (DxgkFreeUnicodeString.c)
- *     DpiGetDevicePropertyString @ 0x1C02249AC (DpiGetDevicePropertyString.c)
- *     DpiGetDevicePropertyDataString @ 0x1C0224AB8 (DpiGetDevicePropertyDataString.c)
- *     DpiGetDeviceInstanceId @ 0x1C039AB08 (DpiGetDeviceInstanceId.c)
- *     DpiMiracastSendSyncUserModeRequest @ 0x1C039FC34 (DpiMiracastSendSyncUserModeRequest.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiGetDevicePropertyString @ 0x1C018AC18 (DpiGetDevicePropertyString.c)
+ *     DpiGetDevicePropertyDataString @ 0x1C018AD24 (DpiGetDevicePropertyDataString.c)
+ *     DxgkFreeUnicodeString @ 0x1C0196230 (DxgkFreeUnicodeString.c)
+ *     DpiGetDeviceInstanceId @ 0x1C02C8798 (DpiGetDeviceInstanceId.c)
+ *     DpiMiracastSendSyncUserModeRequest @ 0x1C02CF2E0 (DpiMiracastSendSyncUserModeRequest.c)
  */
 
 __int64 __fastcall DpiMiracastInterfaceChange(char *NotificationStructure, PVOID Context)
 {
-  __int64 v3; // rax
+  __int64 v3; // rdx
   __int64 v4; // rcx
   __int64 v5; // rax
-  __int64 v6; // rdx
-  char v7; // r12
-  char v8; // r13
-  void *Pool2; // rax
-  __int64 v10; // rsi
-  const UNICODE_STRING *v12; // rdx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // r13
+  char v9; // r12
+  PVOID PoolWithTag; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rsi
+  __int64 v16; // rax
+  __int16 v18; // dx
   NTSTATUS DeviceObjectPointer; // eax
-  __int64 v14; // rdx
-  PKEVENT v15; // rax
-  struct _DEVICE_OBJECT *v16; // rbx
-  int v17; // r12d
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  char v24; // bl
+  PKEVENT v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  int v29; // r15d
+  const void **v30; // rbx
   int DevicePropertyDataString; // eax
-  unsigned int v19; // r13d
-  unsigned int v20; // r12d
-  unsigned __int64 v21; // rdx
-  char *v22; // rax
-  char *v23; // r9
-  unsigned __int16 v24; // ax
+  unsigned int v32; // r12d
+  unsigned int v33; // r15d
+  SIZE_T v34; // rdx
+  _WORD *v35; // rax
+  _WORD *v36; // r9
+  unsigned __int16 Length; // ax
   int DeviceInstanceId; // eax
-  NTSTATUS v26; // eax
-  __int64 v27; // rdx
-  __int128 v28; // xmm1
-  __int128 v29; // xmm0
-  __int128 v30; // xmm1
-  __int128 v31; // xmm0
-  __int128 v32; // xmm1
-  __int128 v33; // xmm0
-  __int16 v34; // ax
-  void *v35; // rcx
-  __int64 v36; // rbx
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // rax
+  int v42; // eax
+  __int64 v43; // rax
+  NTSTATUS v44; // eax
+  __int64 v45; // rbx
   NTSTATUS LocallyUniqueId; // eax
-  PDEVICE_OBJECT v38; // rbx
-  __int64 *v39; // rax
-  void *v40; // rcx
-  void *v41; // rcx
-  void *v42; // rcx
-  void *v43; // rcx
-  void *v44; // rcx
-  void *v45; // rcx
-  __int64 v46; // rcx
-  _QWORD *v47; // rax
-  char v48; // [rsp+4Ah] [rbp-BEh]
-  int v49; // [rsp+4Ch] [rbp-BCh] BYREF
-  PDEVICE_OBJECT DestinationString[3]; // [rsp+50h] [rbp-B8h] BYREF
+  NTSTATUS v47; // eax
+  __int64 *v48; // rax
+  NTSTATUS v49; // eax
+  void *v50; // rcx
+  void *v51; // rcx
+  void *v52; // rcx
+  void *v53; // rcx
+  void *v54; // rcx
+  void *v55; // rcx
+  __int64 v56; // rcx
+  _QWORD *v57; // rax
+  __int64 v58; // rax
+  char v59; // [rsp+48h] [rbp-C0h]
+  char v60; // [rsp+49h] [rbp-BFh]
+  char v61; // [rsp+4Ah] [rbp-BEh]
+  __int64 v62; // [rsp+4Ch] [rbp-BCh] BYREF
+  struct _UNICODE_STRING v63; // [rsp+58h] [rbp-B0h] BYREF
   void *EventHandle; // [rsp+68h] [rbp-A0h] BYREF
-  __m256i SourceString; // [rsp+70h] [rbp-98h] BYREF
-  __int128 v53; // [rsp+90h] [rbp-78h]
-  _OWORD v54[9]; // [rsp+A8h] [rbp-60h] BYREF
+  PCWSTR SourceString; // [rsp+70h] [rbp-98h]
+  PCWSTR SourceString_8[2]; // [rsp+78h] [rbp-90h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+88h] [rbp-80h] BYREF
+  _OWORD v68[9]; // [rsp+A8h] [rbp-60h] BYREF
 
-  memset(v54, 0, 0x88uLL);
-  memset(&SourceString.m256i_u64[1], 0, 24);
+  memset(v68, 0, 0x88uLL);
   if ( NotificationStructure )
   {
-    v3 = *(_QWORD *)(NotificationStructure + 20) - *(_QWORD *)&GUID_DEVINTERFACE_UMDF_MIRACAST_DIVICE_ARRIVAL.Data1;
-    if ( !v3 )
-      v3 = *(_QWORD *)(NotificationStructure + 28) - *(_QWORD *)GUID_DEVINTERFACE_UMDF_MIRACAST_DIVICE_ARRIVAL.Data4;
-    if ( !v3 )
+    v5 = *(_QWORD *)(NotificationStructure + 20) - *(_QWORD *)&GUID_DEVINTERFACE_UMDF_MIRACAST_DIVICE_ARRIVAL.Data1;
+    if ( !v5 )
+      v5 = *(_QWORD *)(NotificationStructure + 28) - *(_QWORD *)GUID_DEVINTERFACE_UMDF_MIRACAST_DIVICE_ARRIVAL.Data4;
+    if ( !v5 )
     {
       v4 = *((_QWORD *)NotificationStructure + 5);
       if ( v4 )
       {
-        v5 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_DEVICE_INTERFACE_ARRIVAL.Data1;
-        if ( !v5 )
-          v5 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_DEVICE_INTERFACE_ARRIVAL.Data4;
-        if ( v5 )
+        v6 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_DEVICE_INTERFACE_ARRIVAL.Data1;
+        if ( !v6 )
+          v6 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_DEVICE_INTERFACE_ARRIVAL.Data4;
+        if ( v6 )
           return 0LL;
         EventHandle = 0LL;
-        v53 = 0LL;
-        v6 = *(unsigned __int16 *)(v4 + 2) + 792LL;
-        DestinationString[0] = 0LL;
-        v49 = 0;
-        v48 = 0;
-        v7 = 0;
-        v8 = 0;
-        Pool2 = (void *)ExAllocatePool2(64LL, v6, 1953656900LL);
-        v10 = (__int64)Pool2;
-        if ( !Pool2 )
+        *(_OWORD *)SourceString_8 = 0LL;
+        v7 = *(unsigned __int16 *)(v4 + 2);
+        LODWORD(v62) = 0;
+        v59 = 0;
+        v61 = 0;
+        v60 = 0;
+        DeviceAttachmentBaseRef = 0LL;
+        v9 = 0;
+        PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, v7 + 792, 0x74727044u);
+        v15 = (__int64)PoolWithTag;
+        if ( !PoolWithTag )
         {
-          WdLogSingleEntry1(6LL, -1073741801LL);
+          v16 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+          *(_QWORD *)(v16 + 24) = -1073741801LL;
+          WdLogEvent5_WdLowResource(v16);
           return 0LL;
         }
-        memset(Pool2, 0, 0x318uLL);
-        *(_DWORD *)(v10 + 16) = 1953656900;
-        *(_DWORD *)(v10 + 20) = 14;
-        *(_DWORD *)(v10 + 420) = -1;
-        *(_DWORD *)(v10 + 456) = -1;
-        *(_QWORD *)(v10 + 24) = 1LL;
-        *(_QWORD *)(v10 + 88) = 0LL;
-        *(_DWORD *)(v10 + 32) = 1;
-        *(_QWORD *)(v10 + 40) = 0LL;
-        *(_DWORD *)(v10 + 48) = 0;
-        KeInitializeEvent((PRKEVENT)(v10 + 56), SynchronizationEvent, 0);
-        KeInitializeDpc((PRKDPC)(v10 + 520), (PKDEFERRED_ROUTINE)DpiMiracastChunkInfoCallbackDpc, (PVOID)v10);
-        v12 = (const UNICODE_STRING *)*((_QWORD *)NotificationStructure + 5);
-        *(_WORD *)(v10 + 144) = 0;
-        *(_WORD *)(v10 + 146) = v12->MaximumLength;
-        *(_QWORD *)(v10 + 152) = v10 + 792;
-        RtlCopyUnicodeString((PUNICODE_STRING)(v10 + 144), v12);
+        memset(PoolWithTag, 0, 0x318uLL);
+        *(_DWORD *)(v15 + 16) = 1953656900;
+        *(_DWORD *)(v15 + 420) = -1;
+        *(_DWORD *)(v15 + 456) = -1;
+        *(_DWORD *)(v15 + 20) = 14;
+        *(_QWORD *)(v15 + 24) = 1LL;
+        *(_QWORD *)(v15 + 88) = 0LL;
+        *(_DWORD *)(v15 + 32) = 1;
+        *(_QWORD *)(v15 + 40) = 0LL;
+        *(_DWORD *)(v15 + 48) = 0;
+        KeInitializeEvent((PRKEVENT)(v15 + 56), SynchronizationEvent, 0);
+        KeInitializeDpc((PRKDPC)(v15 + 520), (PKDEFERRED_ROUTINE)DpiMiracastChunkInfoCallbackDpc, (PVOID)v15);
+        *(_WORD *)(v15 + 144) = 0;
+        v18 = *(_WORD *)(*((_QWORD *)NotificationStructure + 5) + 2LL);
+        *(_QWORD *)(v15 + 152) = v15 + 792;
+        *(_WORD *)(v15 + 146) = v18;
+        RtlCopyUnicodeString((PUNICODE_STRING)(v15 + 144), *((PCUNICODE_STRING *)NotificationStructure + 5));
         DeviceObjectPointer = IoGetDeviceObjectPointer(
-                                (PUNICODE_STRING)(v10 + 144),
+                                (PUNICODE_STRING)(v15 + 144),
                                 0x80000000,
-                                (PFILE_OBJECT *)(v10 + 176),
-                                (PDEVICE_OBJECT *)(v10 + 184));
+                                (PFILE_OBJECT *)(v15 + 176),
+                                (PDEVICE_OBJECT *)(v15 + 184));
+        v22 = DeviceObjectPointer;
         if ( DeviceObjectPointer < 0 )
         {
-          v14 = DeviceObjectPointer;
-LABEL_16:
-          WdLogSingleEntry1(2LL, v14);
-LABEL_50:
-          v40 = *(void **)(v10 + 336);
-          if ( v40 )
+LABEL_13:
+          v23 = WdLogNewEntry5_WdError(v21, v20);
+          *(_QWORD *)(v23 + 24) = v22;
+          WdLogEvent5_WdError(v23);
+          goto LABEL_45;
+        }
+        v24 = 1;
+        v59 = 1;
+        v25 = IoCreateNotificationEvent(0LL, &EventHandle);
+        *(_QWORD *)(v15 + 464) = v25;
+        if ( !v25 )
+        {
+          v28 = WdLogNewEntry5_WdError(v27, v26);
+          *(_QWORD *)(v28 + 24) = -1073741801LL;
+          WdLogEvent5_WdError(v28);
+LABEL_49:
+          v50 = *(void **)(v15 + 336);
+          if ( v50 )
           {
-            ExFreePoolWithTag(v40, 0);
-            *(_QWORD *)(v10 + 336) = 0LL;
+            ExFreePoolWithTag(v50, 0);
+            *(_QWORD *)(v15 + 336) = 0LL;
           }
-          v41 = *(void **)(v10 + 344);
-          if ( v41 )
+          v51 = *(void **)(v15 + 344);
+          if ( v51 )
           {
-            ExFreePoolWithTag(v41, 0);
-            *(_QWORD *)(v10 + 344) = 0LL;
+            ExFreePoolWithTag(v51, 0);
+            *(_QWORD *)(v15 + 344) = 0LL;
           }
-          v42 = *(void **)(v10 + 352);
-          if ( v42 )
+          v52 = *(void **)(v15 + 352);
+          if ( v52 )
           {
-            ExFreePoolWithTag(v42, 0);
-            *(_QWORD *)(v10 + 352) = 0LL;
+            ExFreePoolWithTag(v52, 0);
+            *(_QWORD *)(v15 + 352) = 0LL;
           }
-          v43 = *(void **)(v10 + 360);
-          if ( v43 )
+          v53 = *(void **)(v15 + 360);
+          if ( v53 )
           {
-            ExFreePoolWithTag(v43, 0);
-            *(_QWORD *)(v10 + 360) = 0LL;
+            ExFreePoolWithTag(v53, 0);
+            *(_QWORD *)(v15 + 360) = 0LL;
           }
-          v44 = *(void **)(v10 + 368);
-          if ( v44 )
+          v54 = *(void **)(v15 + 368);
+          if ( v54 )
           {
-            ExFreePoolWithTag(v44, 0);
-            *(_QWORD *)(v10 + 368) = 0LL;
+            ExFreePoolWithTag(v54, 0);
+            *(_QWORD *)(v15 + 368) = 0LL;
           }
-          if ( v7 )
-            ObfDereferenceObject(*(PVOID *)(v10 + 176));
-          v45 = *(void **)(v10 + 464);
-          if ( v45 )
-            ObfDereferenceObject(v45);
-          if ( *(_QWORD *)(v10 + 136) )
-            RtlFreeUnicodeString((PUNICODE_STRING)(v10 + 128));
-          if ( !v48 )
-            goto LABEL_70;
-          KeAcquireInStackQueuedSpinLock(&SpinLock, (PKLOCK_QUEUE_HANDLE)&SourceString.m256i_u64[1]);
-          v46 = *(_QWORD *)v10;
-          if ( *(_QWORD *)(*(_QWORD *)v10 + 8LL) == v10 )
+          if ( v24 )
+            ObfDereferenceObject(*(PVOID *)(v15 + 176));
+          v55 = *(void **)(v15 + 464);
+          if ( v55 )
+            ObfDereferenceObject(v55);
+          if ( *(_QWORD *)(v15 + 136) )
+            RtlFreeUnicodeString((PUNICODE_STRING)(v15 + 128));
+          if ( !v60 )
+            goto LABEL_69;
+          KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+          v56 = *(_QWORD *)v15;
+          if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) == v15 )
           {
-            v47 = *(_QWORD **)(v10 + 8);
-            if ( *v47 == v10 )
+            v57 = *(_QWORD **)(v15 + 8);
+            if ( *v57 == v15 )
             {
-              *v47 = v46;
-              *(_QWORD *)(v46 + 8) = v47;
-              KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)&SourceString.m256i_u64[1]);
-LABEL_70:
-              ExFreePoolWithTag((PVOID)v10, 0);
-              v38 = DestinationString[0];
-LABEL_72:
-              if ( v38 )
-                ObfDereferenceObject(v38);
-              if ( v8 )
-              {
-                _InterlockedExchange64(&qword_1C01404D8, 0LL);
-                KeReleaseMutex(Mutex, 0);
-              }
-              return 0LL;
+              *v57 = v56;
+              *(_QWORD *)(v56 + 8) = v57;
+              KeReleaseInStackQueuedSpinLock(&LockHandle);
+LABEL_69:
+              ExFreePoolWithTag((PVOID)v15, 0);
+              goto LABEL_70;
             }
           }
-LABEL_76:
+LABEL_74:
           __fastfail(3u);
         }
-        v7 = 1;
-        v15 = IoCreateNotificationEvent(0LL, &EventHandle);
-        *(_QWORD *)(v10 + 464) = v15;
-        if ( !v15 )
-        {
-          v14 = -1073741801LL;
-          goto LABEL_16;
-        }
-        ObfReferenceObject(v15);
+        ObfReferenceObject(v25);
         ZwClose(EventHandle);
-        DestinationString[0] = IoGetDeviceAttachmentBaseRef(*(PDEVICE_OBJECT *)(v10 + 184));
-        v16 = DestinationString[0];
+        DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*(PDEVICE_OBJECT *)(v15 + 184));
         if ( (int)DpiGetDevicePropertyDataString(
-                    DestinationString[0],
+                    DeviceAttachmentBaseRef,
                     (DEVPROPKEY *)&DEVPKEY_DeviceContainer_Manufacturer,
-                    v10 + 336,
-                    (__int64)&v49) >= 0
-          || (v17 = 0, (int)DpiGetDevicePropertyString(v16, DevicePropertyManufacturer, (__int64)&v49) >= 0) )
+                    v15 + 336,
+                    (__int64)&v62) >= 0
+          || (v29 = 0,
+              (int)DpiGetDevicePropertyString(
+                     DeviceAttachmentBaseRef,
+                     DevicePropertyManufacturer,
+                     PagedPool,
+                     (__int64)&v62) >= 0) )
         {
-          v17 = v49;
+          v29 = v62;
         }
+        v30 = (const void **)(v15 + 344);
         DevicePropertyDataString = DpiGetDevicePropertyDataString(
-                                     v16,
+                                     DeviceAttachmentBaseRef,
                                      (DEVPROPKEY *)&DEVPKEY_DeviceContainer_ModelName,
-                                     v10 + 344,
-                                     (__int64)&v49);
-        v19 = v49;
+                                     v15 + 344,
+                                     (__int64)&v62);
+        v32 = v62;
         if ( DevicePropertyDataString < 0 )
-          v19 = 0;
-        v49 = v19;
-        v20 = v19 + v17;
-        if ( v20 )
+          v32 = 0;
+        LODWORD(v62) = v32;
+        v33 = v32 + v29;
+        if ( v33 )
         {
-          v21 = v20 + 4LL;
-          if ( v21 < 0xFFFF )
+          v34 = v33 + 4LL;
+          if ( v34 < 0xFFFF )
           {
-            v22 = (char *)ExAllocatePool2(64LL, v21, 1953656900LL);
-            *(_QWORD *)(v10 + 352) = v22;
-            v23 = v22;
-            if ( v22 )
+            v35 = ExAllocatePoolWithTag((POOL_TYPE)512, v34, 0x74727044u);
+            *(_QWORD *)(v15 + 352) = v35;
+            v36 = v35;
+            if ( v35 )
             {
-              *(_OWORD *)&DestinationString[1] = 0LL;
-              if ( v20 == v19 )
+              v63 = 0LL;
+              if ( v33 == v32 )
               {
-                v24 = (unsigned __int16)DestinationString[1];
+                Length = v63.Length;
               }
               else
               {
-                memmove(v22, *(const void **)(v10 + 336), v20 - v19);
-                *(_WORD *)(*(_QWORD *)(v10 + 352) + 2 * ((unsigned __int64)(v20 - v19) >> 1)) = 0;
-                RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], *(PCWSTR *)(v10 + 352));
-                v16 = DestinationString[0];
-                *(_WORD *)(*(_QWORD *)(v10 + 352) + 2 * ((unsigned __int64)LOWORD(DestinationString[1]) >> 1)) = 32;
-                v23 = *(char **)(v10 + 352);
-                v24 = LOWORD(DestinationString[1]) + 2;
-                LOWORD(DestinationString[1]) += 2;
+                memmove(v35, *(const void **)(v15 + 336), v33 - v32);
+                *(_WORD *)(*(_QWORD *)(v15 + 352) + 2 * ((unsigned __int64)(v33 - v32) >> 1)) = 0;
+                RtlInitUnicodeString(&v63, *(PCWSTR *)(v15 + 352));
+                v30 = (const void **)(v15 + 344);
+                *(_WORD *)(*(_QWORD *)(v15 + 352) + 2 * ((unsigned __int64)v63.Length >> 1)) = 32;
+                v36 = *(_WORD **)(v15 + 352);
+                Length = v63.Length + 2;
+                v63.Length += 2;
               }
-              WORD1(DestinationString[1]) = v20 + 4;
-              if ( v19 )
+              v63.MaximumLength = v33 + 4;
+              if ( v32 )
               {
-                memmove(&v23[2 * ((unsigned __int64)v24 >> 1)], *(const void **)(v10 + 344), v19);
-                v24 = (unsigned __int16)DestinationString[1];
+                memmove(&v36[(unsigned __int64)Length >> 1], *v30, v32);
+                v36 = *(_WORD **)(v15 + 352);
+                Length = v63.Length;
               }
-              *(_WORD *)(*(_QWORD *)(v10 + 352) + 2 * ((unsigned __int64)(v19 + v24) >> 1)) = 0;
+              v36[(unsigned __int64)(v32 + Length) >> 1] = 0;
             }
           }
         }
         DpiGetDevicePropertyDataString(
-          v16,
+          DeviceAttachmentBaseRef,
           (DEVPROPKEY *)&DEVPKEY_DeviceContainer_ModelNumber,
-          v10 + 360,
-          (__int64)&v49);
-        DpiGetDevicePropertyDataString(v16, (DEVPROPKEY *)&DEVPKEY_Device_FriendlyName, v10 + 368, (__int64)&v49);
-        SourceString.m256i_i64[0] = 0LL;
-        DeviceInstanceId = DpiGetDeviceInstanceId(v16);
-        if ( DeviceInstanceId < 0 )
+          v15 + 360,
+          (__int64)&v62);
+        DpiGetDevicePropertyDataString(
+          DeviceAttachmentBaseRef,
+          (DEVPROPKEY *)&DEVPKEY_Device_FriendlyName,
+          v15 + 368,
+          (__int64)&v62);
+        SourceString = 0LL;
+        DeviceInstanceId = DpiGetDeviceInstanceId(DeviceAttachmentBaseRef);
+        v22 = DeviceInstanceId;
+        if ( DeviceInstanceId >= 0 )
         {
-          WdLogSingleEntry1(2LL, DeviceInstanceId);
-          v8 = 0;
-LABEL_49:
-          v7 = 1;
-          goto LABEL_50;
-        }
-        RtlInitUnicodeString((PUNICODE_STRING)(v10 + 160), (PCWSTR)SourceString.m256i_i64[0]);
-        v26 = DpiMiracastSendSyncUserModeRequest(v10, 2295808LL);
-        if ( v26 >= 0 )
-        {
-          if ( *((_QWORD *)&v53 + 1) < 0x88uLL )
+          RtlInitUnicodeString((PUNICODE_STRING)(v15 + 160), SourceString);
+          v9 = 1;
+          v42 = DpiMiracastSendSyncUserModeRequest(v15, 2295808LL);
+          v22 = v42;
+          if ( v42 < 0 )
+            goto LABEL_13;
+          if ( SourceString_8[1] < (PCWSTR)0x88 )
           {
-            v27 = -1073741811LL;
-LABEL_36:
-            WdLogSingleEntry1(2LL, v27);
-            v8 = 0;
+            v43 = WdLogNewEntry5_WdError(v21, v20);
+            *(_QWORD *)(v43 + 24) = -1073741811LL;
+            WdLogEvent5_WdError(v43);
+LABEL_47:
+            DxgkFreeUnicodeString(v15 + 160);
 LABEL_48:
-            DxgkFreeUnicodeString(v10 + 160);
+            v24 = v59;
             goto LABEL_49;
           }
-          v28 = v54[1];
-          *(_OWORD *)(v10 + 204) = v54[0];
-          v29 = v54[2];
-          *(_OWORD *)(v10 + 220) = v28;
-          v30 = v54[3];
-          *(_OWORD *)(v10 + 236) = v29;
-          v31 = v54[4];
-          *(_OWORD *)(v10 + 252) = v30;
-          v32 = v54[5];
-          *(_OWORD *)(v10 + 268) = v31;
-          v33 = v54[6];
-          *(_OWORD *)(v10 + 284) = v32;
-          *(_OWORD *)(v10 + 300) = v33;
-          v34 = v54[8];
-          *(_OWORD *)(v10 + 316) = v54[7];
-          *(_WORD *)(v10 + 332) = v34;
-          v35 = (void *)DWORD1(v54[8]);
-          *(_WORD *)(v10 + 332) = 0;
-          v26 = PsLookupProcessByProcessId(v35, (PEPROCESS *)(v10 + 104));
-          if ( v26 >= 0 )
+          *(_OWORD *)(v15 + 204) = v68[0];
+          *(_OWORD *)(v15 + 220) = v68[1];
+          *(_OWORD *)(v15 + 236) = v68[2];
+          *(_OWORD *)(v15 + 252) = v68[3];
+          *(_OWORD *)(v15 + 268) = v68[4];
+          *(_OWORD *)(v15 + 284) = v68[5];
+          *(_OWORD *)(v15 + 300) = v68[6];
+          *(_OWORD *)(v15 + 316) = v68[7];
+          *(_WORD *)(v15 + 332) = v68[8];
+          *(_WORD *)(v15 + 332) = 0;
+          v44 = PsLookupProcessByProcessId((HANDLE)DWORD1(v68[8]), (PEPROCESS *)(v15 + 104));
+          v22 = v44;
+          if ( v44 < 0 )
+            goto LABEL_13;
+          ObfDereferenceObject(*(PVOID *)(v15 + 104));
+          AcquireMiniportListMutex();
+          v45 = qword_1C00B2F18;
+          v61 = 1;
+          while ( (__int64 *)v45 != &qword_1C00B2F18 )
           {
-            ObfDereferenceObject(*(PVOID *)(v10 + 104));
-            AcquireMiniportListMutex();
-            v36 = qword_1C01408A0;
-            v8 = 1;
-            while ( (__int64 *)v36 != &qword_1C01408A0 )
-            {
-              if ( !RtlCompareUnicodeString(
-                      *((PCUNICODE_STRING *)NotificationStructure + 5),
-                      (PCUNICODE_STRING)(v36 + 144),
-                      0) )
-                goto LABEL_48;
-              v36 = *(_QWORD *)v36;
-            }
-            LocallyUniqueId = ZwAllocateLocallyUniqueId((PLUID)(v10 + 96));
-            if ( LocallyUniqueId >= 0 )
-            {
-              v38 = DestinationString[0];
-              LocallyUniqueId = IoRegisterDeviceInterface(
-                                  DestinationString[0],
-                                  &GUID_DEVINTERFACE_MIRACAST_DISPLAY_ARRIVAL,
-                                  0LL,
-                                  (PUNICODE_STRING)(v10 + 128));
-              if ( LocallyUniqueId >= 0 )
-              {
-                KeAcquireInStackQueuedSpinLock(&SpinLock, (PKLOCK_QUEUE_HANDLE)&SourceString.m256i_u64[1]);
-                v39 = (__int64 *)qword_1C01408A8;
-                if ( *(__int64 **)qword_1C01408A8 != &qword_1C01408A0 )
-                  goto LABEL_76;
-                *(_QWORD *)v10 = &qword_1C01408A0;
-                *(_QWORD *)(v10 + 8) = v39;
-                *v39 = v10;
-                qword_1C01408A8 = v10;
-                v48 = 1;
-                KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)&SourceString.m256i_u64[1]);
-                LocallyUniqueId = IoRegisterPlugPlayNotification(
-                                    EventCategoryTargetDeviceChange,
-                                    0,
-                                    *(PVOID *)(v10 + 176),
-                                    g_pDriverObject,
-                                    DpiMiracastTargetDeviceChange,
-                                    (PVOID)v10,
-                                    (PVOID *)(v10 + 400));
-                if ( LocallyUniqueId >= 0 )
-                {
-                  IoSetDeviceInterfaceState((PUNICODE_STRING)(v10 + 128), 1u);
-                  goto LABEL_72;
-                }
-              }
-            }
-            WdLogSingleEntry1(2LL, LocallyUniqueId);
-            goto LABEL_48;
+            if ( !RtlCompareUnicodeString(
+                    *((PCUNICODE_STRING *)NotificationStructure + 5),
+                    (PCUNICODE_STRING)(v45 + 144),
+                    0) )
+              goto LABEL_47;
+            v45 = *(_QWORD *)v45;
           }
+          LocallyUniqueId = ZwAllocateLocallyUniqueId((PLUID)(v15 + 96));
+          v22 = LocallyUniqueId;
+          if ( LocallyUniqueId < 0 )
+            goto LABEL_13;
+          v47 = IoRegisterDeviceInterface(
+                  DeviceAttachmentBaseRef,
+                  &GUID_DEVINTERFACE_MIRACAST_DISPLAY_ARRIVAL,
+                  0LL,
+                  (PUNICODE_STRING)(v15 + 128));
+          v22 = v47;
+          if ( v47 < 0 )
+            goto LABEL_13;
+          KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+          v48 = (__int64 *)qword_1C00B2F20;
+          if ( *(__int64 **)qword_1C00B2F20 != &qword_1C00B2F18 )
+            goto LABEL_74;
+          *(_QWORD *)v15 = &qword_1C00B2F18;
+          *(_QWORD *)(v15 + 8) = v48;
+          *v48 = v15;
+          qword_1C00B2F20 = v15;
+          v60 = 1;
+          KeReleaseInStackQueuedSpinLock(&LockHandle);
+          v49 = IoRegisterPlugPlayNotification(
+                  EventCategoryTargetDeviceChange,
+                  0,
+                  *(PVOID *)(v15 + 176),
+                  g_pDriverObject,
+                  DpiMiracastTargetDeviceChange,
+                  (PVOID)v15,
+                  (PVOID *)(v15 + 400));
+          v22 = v49;
+          if ( v49 < 0 )
+            goto LABEL_13;
+          IoSetDeviceInterfaceState((PUNICODE_STRING)(v15 + 128), 1u);
         }
-        v27 = v26;
-        goto LABEL_36;
+        else
+        {
+          v41 = WdLogNewEntry5_WdError(v40, v39);
+          *(_QWORD *)(v41 + 24) = v22;
+          WdLogEvent5_WdError(v41);
+          v9 = 0;
+        }
+LABEL_45:
+        if ( (int)v22 >= 0 )
+        {
+LABEL_70:
+          if ( DeviceAttachmentBaseRef )
+            ObfDereferenceObject(DeviceAttachmentBaseRef);
+          if ( v61 )
+          {
+            _InterlockedExchange64(&qword_1C00B2B50, 0LL);
+            KeReleaseMutex(Mutex, 0);
+          }
+          return 0LL;
+        }
+        if ( !v9 )
+          goto LABEL_48;
+        goto LABEL_47;
       }
     }
   }
-  WdLogSingleEntry1(2LL, -1073741585LL);
+  v58 = WdLogNewEntry5_WdError(v4, v3);
+  *(_QWORD *)(v58 + 24) = -1073741585LL;
+  WdLogEvent5_WdError(v58);
   return 3221225711LL;
 }

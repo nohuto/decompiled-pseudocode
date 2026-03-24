@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpPopulateKeyNodeInformation @ 0x1407074F8
+ * XREFs of CmpPopulateKeyNodeInformation @ 0x1406E3380
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x14061733C (CmpQueryKeyDataFromKeyNodeStack.c)
- *     CmpQueryKeyDataFromNode @ 0x1406DAB00 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404ED99C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromNode @ 0x1406E3910 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpCopyCompressedName @ 0x140708D60 (CmpCopyCompressedName.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     CmpCopyCompressedName @ 0x1406E2D64 (CmpCopyCompressedName.c)
  */
 
 __int64 __fastcall CmpPopulateKeyNodeInformation(
@@ -22,7 +22,7 @@ __int64 __fastcall CmpPopulateKeyNodeInformation(
   unsigned int v13; // ebx
   unsigned int v14; // esi
   int v15; // eax
-  __int64 v16; // rdx
+  unsigned int v16; // edx
   int v17; // eax
   unsigned int v18; // eax
 
@@ -55,11 +55,11 @@ __int64 __fastcall CmpPopulateKeyNodeInformation(
   *(_DWORD *)(a5 + 12) = v17;
   if ( (*(_BYTE *)(a2 + 2) & 0x20) != 0 )
   {
-    CmpCopyCompressedName(a5 + 24, v16, a2 + 76, *(unsigned __int16 *)(a2 + 72));
+    CmpCopyCompressedName((_WORD *)(a5 + 24), v16, (unsigned __int8 *)(a2 + 76), *(unsigned __int16 *)(a2 + 72));
   }
   else
   {
-    if ( (unsigned int)v16 <= v12 )
+    if ( v16 <= v12 )
       v12 = a6 - 24;
     memmove((void *)(a5 + 24), (const void *)(a2 + 76), v12);
   }

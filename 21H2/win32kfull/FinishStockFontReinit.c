@@ -1,12 +1,12 @@
 /*
- * XREFs of FinishStockFontReinit @ 0x1C00C8A00
+ * XREFs of FinishStockFontReinit @ 0x1C00E5160
  * Callers:
  *     <none>
  * Callees:
- *     GreSetLFONTOwner @ 0x1C00C59D8 (GreSetLFONTOwner.c)
- *     FinishStockFontInit @ 0x1C00C81E0 (FinishStockFontInit.c)
- *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00C86C0 (-bSetStockFont@@YAHPEAXHH@Z.c)
- *     hfontInitDefaultGuiFont @ 0x1C03909E0 (hfontInitDefaultGuiFont.c)
+ *     GreSetLFONTOwner @ 0x1C00E2C40 (GreSetLFONTOwner.c)
+ *     FinishStockFontInit @ 0x1C00E4810 (FinishStockFontInit.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00E4CF0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03939F0 (hfontInitDefaultGuiFont.c)
  */
 
 void __fastcall FinishStockFontReinit(unsigned int c, __int64 a2, __int64 a3)

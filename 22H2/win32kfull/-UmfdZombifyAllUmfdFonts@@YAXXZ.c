@@ -1,62 +1,55 @@
 /*
- * XREFs of ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C0086ACC
+ * XREFs of ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C00F3498
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
  * Callees:
- *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C00847AC (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0087B88 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     _lambda_42f186421c331d4d68df43a01bbfc838_::operator() @ 0x1C013FD78 (_lambda_42f186421c331d4d68df43a01bbfc838_--operator().c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009D600 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C009E458 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     _lambda_42f186421c331d4d68df43a01bbfc838_::operator() @ 0x1C016C170 (_lambda_42f186421c331d4d68df43a01bbfc838_--operator().c)
  */
 
-void __fastcall UmfdZombifyAllUmfdFonts(Gre::Base *a1)
+void UmfdZombifyAllUmfdFonts(void)
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rdi
-  Gre::Base *v2; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v3; // rbx
-  __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  _QWORD *i; // rdi
-  __int64 v9; // rcx
-  struct RFONT *j; // rbx
-  __int64 v11; // rcx
-  struct RFONT *k; // rbx
-  _QWORD *v13; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v15; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v0; // rcx
+  __int64 v1; // rcx
+  struct PDEV *i; // r8
+  struct RFONT *j; // rax
+  __int64 v4; // r9
+  struct RFONT *k; // rax
+  struct PDEV **v6; // r8
+  __int64 v7; // r9
+  struct PDEV *v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+40h] [rbp+18h] BYREF
 
-  v1 = Gre::Base::Globals(a1);
-  v3 = Gre::Base::Globals(v2);
-  v13 = (_QWORD *)*((_QWORD *)v3 + 6);
-  GreAcquireSemaphore(v13);
-  GreAcquireFastMutex(*((_QWORD *)v3 + 18));
-  v5 = SGDGetSessionState(v4);
-  lambda_42f186421c331d4d68df43a01bbfc838_::operator()(v6, *(_QWORD *)(*(_QWORD *)(v5 + 32) + 20272LL));
-  lambda_42f186421c331d4d68df43a01bbfc838_::operator()(v7, *((_QWORD *)v3 + 796));
-  GreReleaseFastMutex(*((_QWORD *)v3 + 18));
-  SEMOBJ::vUnlock((SEMOBJ *)&v13);
-  v15 = *((_QWORD *)v1 + 3);
-  GreAcquireSemaphore(v15);
-  v14 = *((_QWORD *)v1 + 1);
-  GreAcquireSemaphore(v14);
-  for ( i = (_QWORD *)*((_QWORD *)v1 + 760); i; i = (_QWORD *)*i )
+  v8 = (struct PDEV *)ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  GreAcquireFastMutex(ghfmMemory);
+  lambda_42f186421c331d4d68df43a01bbfc838_::operator()(v0, gpPFTPublic);
+  lambda_42f186421c331d4d68df43a01bbfc838_::operator()(v1, gpPFTPrivate);
+  GreReleaseFastMutex(ghfmMemory);
+  SEMOBJ::vUnlock((SEMOBJ *)&v8);
+  v10 = ghsemDriverMgmt;
+  GreAcquireSemaphore(ghsemDriverMgmt);
+  v9 = ghsemRFONTList;
+  GreAcquireSemaphore(ghsemRFONTList);
+  for ( i = gppdevList; i; i = *v6 )
   {
-    v13 = i;
-    for ( j = PDEVOBJ::prfntActive((PDEVOBJ *)&v13); j; j = (struct RFONT *)*((_QWORD *)j + 84) )
+    v8 = i;
+    if ( !i )
+      break;
+    for ( j = PDEVOBJ::prfntActive((PDEVOBJ *)&v8); j; j = (struct RFONT *)*((_QWORD *)j + 84) )
     {
-      v9 = *(_QWORD *)(SGDGetSessionState(v9) + 32);
-      if ( *((_QWORD *)j + 12) == *(_QWORD *)(v9 + 23448) )
+      if ( *((_QWORD *)j + 12) == v4 )
         *((_QWORD *)j + 7) = 0LL;
     }
-    for ( k = PDEVOBJ::prfntInactive((PDEVOBJ *)&v13); k; k = (struct RFONT *)*((_QWORD *)k + 84) )
+    for ( k = PDEVOBJ::prfntInactive((PDEVOBJ *)&v8); k; k = (struct RFONT *)*((_QWORD *)k + 84) )
     {
-      v11 = *(_QWORD *)(SGDGetSessionState(v11) + 32);
-      if ( *((_QWORD *)k + 12) == *(_QWORD *)(v11 + 23448) )
+      if ( *((_QWORD *)k + 12) == v7 )
         *((_QWORD *)k + 7) = 0LL;
     }
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v14);
-  SEMOBJ::vUnlock((SEMOBJ *)&v15);
+  SEMOBJ::vUnlock((SEMOBJ *)&v9);
+  SEMOBJ::vUnlock((SEMOBJ *)&v10);
 }

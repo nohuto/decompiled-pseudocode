@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_Gtype_info@@UEAAPEAXI@Z @ 0x180100FC0
+ * XREFs of ??_Gtype_info@@UEAAPEAXI@Z @ 0x1800E7AC0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800CCAB8 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 type_info *__fastcall type_info::`scalar deleting destructor'(type_info *this, char a2)

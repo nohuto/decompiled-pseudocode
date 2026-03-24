@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIInternalInterruptHonorBiosPolarities @ 0x1C002E848
+ * XREFs of ACPIInternalInterruptHonorBiosPolarities @ 0x1C0026CA8
  * Callers:
- *     ACPIInitialize @ 0x1C00A8F88 (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     ACPIGetTableVersion @ 0x1C0031D70 (ACPIGetTableVersion.c)
+ *     ACPIGetTableVersion @ 0x1C0001E10 (ACPIGetTableVersion.c)
  */
 
 bool ACPIInternalInterruptHonorBiosPolarities()
@@ -11,12 +11,6 @@ bool ACPIInternalInterruptHonorBiosPolarities()
   unsigned int v1; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0;
-  if ( (AcpiOverrideAttributes & 0x20000) == 0 )
-  {
-    if ( (AcpiOverrideAttributes & 0x40000) != 0 )
-      return 1;
-    if ( (int)ACPIGetTableVersion(1346584902LL, &v1) >= 0 )
-      return v1 >= 5;
-  }
-  return 0;
+  return (AcpiOverrideAttributes & 0x20000) == 0
+      && ((AcpiOverrideAttributes & 0x40000) != 0 || (int)ACPIGetTableVersion(1346584902, &v1) >= 0 && v1 >= 5);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSurfaceLuid@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1801231C0
+ * XREFs of ?GetSurfaceLuid@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1800F8A50
  * Callers:
  *     <none>
  * Callees:

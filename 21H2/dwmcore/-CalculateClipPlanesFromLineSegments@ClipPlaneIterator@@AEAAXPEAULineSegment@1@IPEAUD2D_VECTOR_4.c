@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4F@@@Z @ 0x1801B6A48
+ * XREFs of ?CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4F@@@Z @ 0x18018EE38
  * Callers:
- *     ?GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801B6E74 (-GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
- *     ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801B6F48 (-GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
+ *     ?GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x18018F268 (-GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
+ *     ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x18018F33C (-GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
  * Callees:
- *     _o__hypot_0 @ 0x18010181A (_o__hypot_0.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     _o__hypot_0 @ 0x1800E811A (_o__hypot_0.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 void __fastcall ClipPlaneIterator::CalculateClipPlanesFromLineSegments(
@@ -24,22 +24,20 @@ void __fastcall ClipPlaneIterator::CalculateClipPlanesFromLineSegments(
   float v13; // xmm6_4
   float v14; // xmm1_4
   float v15; // xmm6_4
-  float v16; // xmm7_4
-  float v17; // xmm1_4
-  float v18; // xmm2_4
+  float v16; // xmm1_4
+  float v17; // xmm2_4
+  float v18; // xmm0_4
   float v19; // xmm6_4
-  float v20; // xmm1_4
+  float v20; // xmm8_4
   float v21; // xmm9_4
-  float v22; // xmm7_4
-  float v23; // xmm8_4
-  float v24; // xmm10_4
-  float v25; // xmm1_4
-  __int128 v26; // [rsp+20h] [rbp-78h]
+  float v22; // xmm10_4
+  float v23; // xmm1_4
+  float v24[16]; // [rsp+20h] [rbp-78h]
 
   v6 = a3;
   if ( a3 )
   {
-    DWORD2(v26) = 0;
+    v24[2] = 0.0;
     v7 = (float *)((char *)a2 + 8);
     v8 = a3;
     v9 = (char *)a4 - (char *)a2;
@@ -58,20 +56,19 @@ void __fastcall ClipPlaneIterator::CalculateClipPlanesFromLineSegments(
       v15 = v13 / v14;
       v16 = v12 / v14;
       v17 = (float)(v16 * v10) + (float)(v15 * v11);
-      v18 = v17 * v15;
+      v18 = v15;
       v19 = COERCE_FLOAT(LODWORD(v15) ^ _xmm) * *((float *)this + 4);
-      v20 = v17 * v16;
-      v21 = v11 - v18;
-      v22 = v16 * *((float *)this + 4);
-      v23 = v10 - v20;
-      if ( (float)((float)(v21 * v22) + (float)(v23 * v19)) <= 0.0 )
-        v24 = *(float *)&FLOAT_1_0;
+      v20 = v10 - (float)(v16 * v17);
+      v21 = v11 - (float)(v18 * v17);
+      if ( (float)((float)((float)(v16 * *((float *)this + 4)) * v21) + (float)(v19 * v20)) <= 0.0 )
+        v22 = *(float *)&FLOAT_1_0;
       else
-        v24 = FLOAT_N1_0;
-      *(_QWORD *)&v26 = __PAIR64__(LODWORD(v22), LODWORD(v19));
-      v25 = o__hypot_0(v23, v21);
-      *((float *)&v26 + 3) = v25 * v24;
-      *(_OWORD *)((char *)v7 + v9 - 8) = v26;
+        v22 = FLOAT_N1_0;
+      v24[0] = v19;
+      v24[1] = v16 * *((float *)this + 4);
+      v23 = o__hypot_0(v20, v21);
+      v24[3] = v23 * v22;
+      *(_OWORD *)((char *)v7 + v9 - 8) = *(_OWORD *)v24;
       v7 += 4;
       --v8;
     }

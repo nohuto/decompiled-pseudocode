@@ -1,9 +1,9 @@
 /*
- * XREFs of xHalTscSynchronization @ 0x1405430C0
+ * XREFs of xHalTscSynchronization @ 0x1404F17D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAdjustInterruptTime @ 0x140398D58 (KeAdjustInterruptTime.c)
+ *     KeAdjustInterruptTime @ 0x14038D81C (KeAdjustInterruptTime.c)
  */
 
 char xHalTscSynchronization()

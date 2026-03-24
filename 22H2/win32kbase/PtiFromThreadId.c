@@ -1,60 +1,41 @@
 /*
- * XREFs of PtiFromThreadId @ 0x1C0098730
+ * XREFs of PtiFromThreadId @ 0x1C0083920
  * Callers:
- *     GetKeyboardDelegationTargetQ @ 0x1C00D5540 (GetKeyboardDelegationTargetQ.c)
- *     NtMITPostThreadEventMessage @ 0x1C0141B80 (NtMITPostThreadEventMessage.c)
- *     NtMITSetLastInputRecipient @ 0x1C0142180 (NtMITSetLastInputRecipient.c)
+ *     NtMITPostThreadEventMessage @ 0x1C012B630 (NtMITPostThreadEventMessage.c)
+ *     NtMITSetLastInputRecipient @ 0x1C012BA30 (NtMITSetLastInputRecipient.c)
  * Callees:
- *     <none>
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     LockThreadByClientId @ 0x1C00839E4 (LockThreadByClientId.c)
  */
 
 __int64 __fastcall PtiFromThreadId(int a1)
 {
-  HANDLE v1; // rsi
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  NTSTATUS v4; // edi
-  __int64 v5; // r8
-  __int64 v6; // r9
-  int v7; // ebx
-  __int64 v8; // rbx
-  __int64 *ThreadWin32Thread; // rax
-  int v10; // eax
+  HANDLE v1; // rdi
+  __int64 ThreadWin32Thread; // rbx
+  int v3; // eax
   PETHREAD Thread; // [rsp+48h] [rbp+10h] BYREF
 
   Thread = 0LL;
   v1 = (HANDLE)a1;
-  v4 = PsLookupThreadByThreadId((HANDLE)a1, &Thread);
-  if ( v4 >= 0 )
-  {
-    v7 = *(_DWORD *)SGDGetUserSessionState(v3, v2, v5, v6);
-    if ( (unsigned int)PsGetThreadSessionId(Thread) != v7 )
-    {
-      ObfDereferenceObject(Thread);
-      return 0LL;
-    }
-  }
-  if ( v4 < 0 )
+  if ( (int)LockThreadByClientId(a1, &Thread) < 0 )
     return 0LL;
-  v8 = 0LL;
-  if ( !PsIsThreadTerminating(Thread) )
+  if ( PsIsThreadTerminating(Thread) )
+    ThreadWin32Thread = 0LL;
+  else
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)Thread);
+  if ( ThreadWin32Thread )
   {
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(Thread);
-    if ( ThreadWin32Thread )
-      v8 = *ThreadWin32Thread;
-    if ( v8 )
+    if ( PsGetThreadId(*(PETHREAD *)ThreadWin32Thread) == v1
+      && (v3 = *(_DWORD *)(ThreadWin32Thread + 488), (v3 & 0x1000000) != 0) )
     {
-      if ( PsGetThreadId(*(PETHREAD *)v8) == v1 && (v10 = *(_DWORD *)(v8 + 488), (v10 & 0x1000000) != 0) )
-      {
-        if ( (v10 & 1) != 0 )
-          v8 = 0LL;
-      }
-      else
-      {
-        v8 = 0LL;
-      }
+      if ( (v3 & 1) != 0 )
+        ThreadWin32Thread = 0LL;
+    }
+    else
+    {
+      ThreadWin32Thread = 0LL;
     }
   }
   ObfDereferenceObject(Thread);
-  return v8;
+  return ThreadWin32Thread;
 }

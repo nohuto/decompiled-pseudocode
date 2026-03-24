@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_ProcessExpectedEventTRBs @ 0x1C000F6F0
+ * XREFs of Bulk_EP_ProcessExpectedEventTRBs @ 0x1C000EE50
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 void __fastcall Bulk_EP_ProcessExpectedEventTRBs(__int64 a1)
@@ -33,7 +33,7 @@ void __fastcall Bulk_EP_ProcessExpectedEventTRBs(__int64 a1)
     if ( !*(_BYTE *)(v5 + 37)
       || (v6 = *(_QWORD *)(v5 + 136), _InterlockedIncrement((volatile signed __int32 *)(v6 + 20)) == *(_DWORD *)(v6 + 8)) )
     {
-      ESM_AddEvent((KSPIN_LOCK *)(v5 + 296), 150);
+      ESM_AddEvent((KSPIN_LOCK *)(v5 + 288), 150);
     }
   }
 }

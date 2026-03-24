@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLogAuditTerminateRemoteProcessEvent @ 0x1406CE254
+ * XREFs of PspLogAuditTerminateRemoteProcessEvent @ 0x1406CE234
  * Callers:
- *     NtTerminateProcess @ 0x14067A830 (NtTerminateProcess.c)
+ *     NtTerminateProcess @ 0x14067A810 (NtTerminateProcess.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PspLogAuditTerminateRemoteProcessEvent(int a1, int a2)

@@ -1,102 +1,87 @@
 /*
- * XREFs of StartFirstUserProcess @ 0x140B69B90
+ * XREFs of StartFirstUserProcess @ 0x140A4BB74
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     InbvIsBootDriverInstalled @ 0x1403A9A50 (InbvIsBootDriverInstalled.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetInformationProcess @ 0x14041AA20 (ZwSetInformationProcess.c)
- *     ZwResumeThread @ 0x14041B0E0 (ZwResumeThread.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     FinalizeBootLogo @ 0x14054E85C (FinalizeBootLogo.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     RtlCreateUserProcessEx @ 0x140B69D9C (RtlCreateUserProcessEx.c)
- *     QueryRegistryHideMachine @ 0x140B6A03C (QueryRegistryHideMachine.c)
- *     RegistryOverwriteCentralProcessor @ 0x140B91CD8 (RegistryOverwriteCentralProcessor.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     InbvIsBootDriverInstalled @ 0x1403B47F0 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetInformationProcess @ 0x1403F9DA0 (ZwSetInformationProcess.c)
+ *     ZwResumeThread @ 0x1403FA460 (ZwResumeThread.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     FinalizeBootLogo @ 0x1404FEE3C (FinalizeBootLogo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlCreateUserProcessEx @ 0x140A4BD54 (RtlCreateUserProcessEx.c)
+ *     QueryRegistryHideMachine @ 0x140A4C008 (QueryRegistryHideMachine.c)
+ *     RegistryOverwriteCentralProcessor @ 0x140A8C5C0 (RegistryOverwriteCentralProcessor.c)
  */
 
 void StartFirstUserProcess()
 {
-  UNICODE_STRING *p_UnicodeString; // rsi
-  int v1; // eax
-  __int64 MaximumLength; // r14
-  __int64 v3; // rbx
-  __int64 Pool2; // rax
-  __int64 v5; // rdi
-  __int64 v6; // rbx
-  __int128 v7; // xmm0
-  int v8; // r8d
-  int v9; // r9d
+  __int64 MaximumLength; // rsi
+  __int64 v1; // rbx
+  SIZE_T v2; // r14
+  char *PoolWithTag; // rax
+  char *v4; // rdi
+  __int128 v5; // xmm0
+  int v6; // r8d
+  int v7; // r9d
   ULONG_PTR UserProcess; // rbx
-  int v11; // eax
-  int v12; // eax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-59h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-49h] BYREF
-  HANDLE v15[18]; // [rsp+50h] [rbp-39h] BYREF
-  LARGE_INTEGER Interval; // [rsp+F8h] [rbp+6Fh] BYREF
+  int v9; // eax
+  int v10; // eax
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-49h] BYREF
+  HANDLE v12[18]; // [rsp+40h] [rbp-39h] BYREF
+  LARGE_INTEGER Interval; // [rsp+E8h] [rbp+6Fh] BYREF
 
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
-  p_UnicodeString = (UNICODE_STRING *)&NtInitialUserProcess;
-  UnicodeString = 0LL;
-  memset(v15, 0, 0x64uLL);
+  memset(v12, 0, 0x68uLL);
   if ( (unsigned __int8)QueryRegistryHideMachine() )
     RegistryOverwriteCentralProcessor();
-  v1 = ExpInitializeRunLevel0(&UnicodeString);
-  if ( v1 >= 0 )
-  {
-    p_UnicodeString = &UnicodeString;
-  }
-  else if ( v1 != -1073741637 )
-  {
-    KeBugCheckEx(0x6Du, v1, 0LL, 4uLL, 0LL);
-  }
-  MaximumLength = stru_140D49DB8.MaximumLength;
-  v3 = p_UnicodeString->MaximumLength + stru_140D49DA8.MaximumLength + 1096LL;
-  Pool2 = ExAllocatePool2(64LL, v3 + stru_140D49DB8.MaximumLength, 0x62537350u);
-  v5 = Pool2;
-  if ( !Pool2 )
+  MaximumLength = stru_140D24938.MaximumLength;
+  v1 = stru_140D24928.MaximumLength + 1148LL;
+  v2 = v1 + stru_140D24938.MaximumLength;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v2, 0x62537350u);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
     KeBugCheckEx(0x6Du, 0xFFFFFFFFC000009AuLL, 0LL, 0LL, 0LL);
-  *(_DWORD *)(Pool2 + 4) = v3;
-  *(_DWORD *)Pool2 = v3;
-  *(_DWORD *)(Pool2 + 8) = 4194305;
-  *(_QWORD *)(Pool2 + 1008) = MaximumLength;
-  *(_QWORD *)(Pool2 + 128) = v3 + Pool2;
-  v6 = Pool2 + 1096;
-  *(_OWORD *)(Pool2 + 80) = 0LL;
-  *(_QWORD *)(Pool2 + 88) = 0LL;
-  *(_QWORD *)(Pool2 + 64) = Pool2 + 1096;
-  *(_WORD *)(Pool2 + 58) = stru_140D49DA8.MaximumLength;
-  RtlCopyUnicodeString((PUNICODE_STRING)(Pool2 + 56), &stru_140D49DA8);
-  *(_QWORD *)(v5 + 104) = v6 + *(unsigned __int16 *)(v5 + 58);
-  *(_WORD *)(v5 + 98) = p_UnicodeString->MaximumLength;
-  RtlCopyUnicodeString((PUNICODE_STRING)(v5 + 96), p_UnicodeString);
-  v7 = *(_OWORD *)(v5 + 96);
-  DestinationString.Buffer = *(wchar_t **)(v5 + 128);
-  *(_OWORD *)(v5 + 112) = v7;
+  memset(PoolWithTag, 0, v2);
+  *((_DWORD *)v4 + 1) = v1;
+  *(_DWORD *)v4 = v1;
+  *((_QWORD *)v4 + 16) = &v4[v1];
+  *((_DWORD *)v4 + 2) = 4194305;
+  *((_QWORD *)v4 + 126) = MaximumLength;
+  *((_OWORD *)v4 + 5) = 0LL;
+  *((_QWORD *)v4 + 11) = 0LL;
+  *((_QWORD *)v4 + 8) = v4 + 1088;
+  *((_WORD *)v4 + 29) = stru_140D24928.MaximumLength;
+  RtlCopyUnicodeString((PUNICODE_STRING)(v4 + 56), &stru_140D24928);
+  *((_QWORD *)v4 + 13) = &v4[*((unsigned __int16 *)v4 + 29) + 1088];
+  *((_WORD *)v4 + 49) = 60;
+  RtlCopyUnicodeString((PUNICODE_STRING)v4 + 6, &NtInitialUserProcess);
+  v5 = *((_OWORD *)v4 + 6);
+  DestinationString.Buffer = (wchar_t *)*((_QWORD *)v4 + 16);
+  *((_OWORD *)v4 + 7) = v5;
   DestinationString.Length = 0;
   DestinationString.MaximumLength = MaximumLength;
-  RtlCopyUnicodeString(&DestinationString, &stru_140D49DB8);
-  UserProcess = (int)RtlCreateUserProcessEx((int)v5 + 96, v5, v8, v9, (__int64)v15);
+  RtlCopyUnicodeString(&DestinationString, &stru_140D24938);
+  UserProcess = (int)RtlCreateUserProcessEx((int)v4 + 96, (_DWORD)v4, v6, v7, (__int64)v12);
   if ( InbvIsBootDriverInstalled() )
     FinalizeBootLogo();
   if ( (UserProcess & 0x80000000) != 0LL )
     KeBugCheckEx(0x6Du, UserProcess, 0LL, 1uLL, 0LL);
-  v11 = ZwSetInformationProcess((__int64)v15[1], 29LL);
-  if ( v11 < 0 )
-    KeBugCheckEx(0x6Du, v11, 0LL, 2uLL, 0LL);
-  v12 = ZwResumeThread((__int64)v15[2], 0LL);
-  if ( v12 < 0 )
-    KeBugCheckEx(0x6Du, v12, 0LL, 3uLL, 0LL);
-  byte_140C6AC4C = 1;
+  v9 = ZwSetInformationProcess((__int64)v12[1], 29LL);
+  if ( v9 < 0 )
+    KeBugCheckEx(0x6Du, v9, 0LL, 2uLL, 0LL);
+  v10 = ZwResumeThread((__int64)v12[2], 0LL);
+  if ( v10 < 0 )
+    KeBugCheckEx(0x6Du, v10, 0LL, 3uLL, 0LL);
+  byte_140C50B70 = 1;
   Interval.QuadPart = -50000000LL;
   KeDelayExecutionThread(0, 0, &Interval);
-  ZwClose(v15[2]);
-  ZwClose(v15[1]);
-  ExFreePoolWithTag((PVOID)v5, 0);
-  RtlFreeUnicodeString(&UnicodeString);
+  ZwClose(v12[2]);
+  ZwClose(v12[1]);
+  ExFreePoolWithTag(v4, 0);
 }

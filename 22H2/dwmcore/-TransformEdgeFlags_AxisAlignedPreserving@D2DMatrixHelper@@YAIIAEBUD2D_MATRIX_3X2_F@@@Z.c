@@ -1,118 +1,123 @@
 /*
- * XREFs of ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D5054
+ * XREFs of ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180007E1C
  * Callers:
- *     ?Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x18005C958 (-Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc.c)
- *     ?ProcessBrushClampEdges_Rectangle@CBrushDrawListGenerator@@CAXV?$span@PEBVCDrawListBrush@@$0?0@gsl@@AEBUD2D_RECT_F@@PEAW4D2D1_EDGE_FLAGS@@@Z @ 0x1800D4E3C (-ProcessBrushClampEdges_Rectangle@CBrushDrawListGenerator@@CAXV-$span@PEBVCDrawListBrush@@$0-0@g.c)
- *     ?AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z @ 0x1800D9EF4 (-AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z.c)
- *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1801FFFF0 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
+ *     ?ProcessBrushClampEdges_Rectangle@CBrushDrawListGenerator@@CAXV?$span@PEBVCDrawListBrush@@$0?0@gsl@@AEBUD2D_RECT_F@@PEAW4D2D1_EDGE_FLAGS@@@Z @ 0x180007CA4 (-ProcessBrushClampEdges_Rectangle@CBrushDrawListGenerator@@CAXV-$span@PEBVCDrawListBrush@@$0-0@g.c)
+ *     ?InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x18019CAEC (-InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributes.c)
+ *     ApplyEdgeFlags @ 0x1801A18E8 (ApplyEdgeFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?IsCloseRealZero@@YA_NMM@Z @ 0x180094908 (-IsCloseRealZero@@YA_NMM@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall D2DMatrixHelper::TransformEdgeFlags_AxisAlignedPreserving(
         D2DMatrixHelper *this,
-        float *a2,
+        __int64 a2,
         const struct D2D_MATRIX_3X2_F *a3)
 {
-  int v3; // r8d
-  float v4; // xmm3_4
-  int v5; // eax
+  float v3; // xmm2_4
+  float *v4; // rdx
+  int v5; // ecx
   bool v6; // cc
-  float v7; // xmm0_4
-  int v8; // eax
+  int v7; // eax
+  float v8; // xmm0_4
   int v9; // eax
   int v10; // eax
-  int *v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // rbx
-  __int64 v14; // r10
-  __int64 v15; // rdi
-  _DWORD *v16; // r11
-  float v18; // xmm0_4
-  int v19; // eax
-  int v20; // eax
-  int v21; // eax
-  int v22; // [rsp+0h] [rbp-40h] BYREF
-  int v23; // [rsp+4h] [rbp-3Ch]
-  int v24; // [rsp+8h] [rbp-38h]
-  int v25; // [rsp+Ch] [rbp-34h]
-  _DWORD v26[8]; // [rsp+10h] [rbp-30h] BYREF
+  int v11; // eax
+  float v12; // xmm0_4
+  int v13; // eax
+  int v14; // eax
+  int v15; // eax
+  int *v16; // r9
+  unsigned int v17; // edx
+  __int64 v18; // r8
+  __int64 v19; // rbx
+  __int64 v20; // r10
+  __int64 v21; // rdi
+  _DWORD *v22; // r11
+  int v24; // [rsp+20h] [rbp-40h] BYREF
+  int v25; // [rsp+24h] [rbp-3Ch]
+  int v26; // [rsp+28h] [rbp-38h]
+  int v27; // [rsp+2Ch] [rbp-34h]
+  _DWORD v28[8]; // [rsp+30h] [rbp-30h] BYREF
 
-  v3 = (int)this;
-  if ( (_DWORD)this != 50529027 && (_DWORD)this )
+  if ( (_DWORD)this == 50529027 || !(_DWORD)this )
   {
-    v4 = a2[1];
-    v26[0] = 0x1000000;
-    v26[1] = 0x2000000;
-    v26[2] = 1;
-    v26[3] = 2;
-    v26[4] = 256;
-    v26[5] = 512;
-    v26[6] = 0x10000;
-    v26[7] = 0x20000;
-    if ( COERCE_FLOAT(LODWORD(v4) & _xmm) >= 0.000081380211 || COERCE_FLOAT((_DWORD)a2[2] & _xmm) >= 0.000081380211 )
+    return (unsigned int)this;
+  }
+  else
+  {
+    v3 = *(float *)(a2 + 4);
+    v28[0] = 0x1000000;
+    v28[1] = 0x2000000;
+    v28[2] = 1;
+    v28[3] = 2;
+    v28[4] = 256;
+    v28[5] = 512;
+    v28[6] = 0x10000;
+    v28[7] = 0x20000;
+    if ( IsCloseRealZero(v3, 0.000081380211) && IsCloseRealZero(v4[2], 0.000081380211) )
     {
-      v18 = a2[2];
-      v19 = 3;
-      if ( v18 > 0.0 )
-        v19 = 1;
-      v22 = v19;
-      v20 = 1;
-      if ( v18 > 0.0 )
-        v20 = 3;
-      v24 = v20;
-      v21 = 2;
-      if ( v4 > 0.0 )
-        v21 = 0;
-      v23 = v21;
-      v10 = 0;
-      if ( v4 > 0.0 )
-        v10 = 2;
+      v6 = *v4 <= 0.0;
+      v7 = 2;
+      v8 = v4[3];
+      if ( *v4 > 0.0 )
+        v7 = 0;
+      v24 = v7;
+      v9 = 0;
+      if ( !v6 )
+        v9 = 2;
+      v26 = v9;
+      v10 = 3;
+      if ( v8 > 0.0 )
+        v10 = 1;
+      v25 = v10;
+      v11 = 1;
+      if ( v8 > 0.0 )
+        v11 = 3;
     }
     else
     {
-      v5 = 2;
-      v6 = *a2 <= 0.0;
-      v7 = a2[3];
-      if ( *a2 > 0.0 )
-        v5 = 0;
-      v22 = v5;
-      v8 = 0;
-      if ( !v6 )
-        v8 = 2;
-      v24 = v8;
-      v9 = 3;
-      if ( v7 > 0.0 )
-        v9 = 1;
-      v23 = v9;
-      v10 = 1;
-      if ( v7 > 0.0 )
-        v10 = 3;
+      v12 = v4[2];
+      v13 = 3;
+      if ( v12 > 0.0 )
+        v13 = 1;
+      v24 = v13;
+      v14 = 1;
+      if ( v12 > 0.0 )
+        v14 = 3;
+      v26 = v14;
+      v15 = 2;
+      if ( v3 > 0.0 )
+        v15 = 0;
+      v25 = v15;
+      v11 = 0;
+      if ( v3 > 0.0 )
+        v11 = 2;
     }
-    v25 = v10;
-    v11 = &v22;
-    LODWORD(this) = 0;
-    v12 = 0LL;
-    v13 = 4LL;
+    v27 = v11;
+    v16 = &v24;
+    v17 = 0;
+    v18 = 0LL;
+    v19 = 4LL;
     do
     {
-      v14 = 0LL;
-      v15 = 2LL;
-      v16 = &v26[2 * *v11];
+      v20 = 0LL;
+      v21 = 2LL;
+      v22 = &v28[2 * *v16];
       do
       {
-        if ( (v3 & *v16) != 0 )
-          LODWORD(this) = v26[v12 + v14] | (unsigned int)this;
-        ++v14;
-        ++v16;
-        --v15;
+        if ( (v5 & *v22) != 0 )
+          v17 |= v28[v18 + v20];
+        ++v20;
+        ++v22;
+        --v21;
       }
-      while ( v15 );
-      ++v11;
-      v12 += 2LL;
-      --v13;
+      while ( v21 );
+      ++v16;
+      v18 += 2LL;
+      --v19;
     }
-    while ( v13 );
+    while ( v19 );
   }
-  return (unsigned int)this;
+  return v17;
 }

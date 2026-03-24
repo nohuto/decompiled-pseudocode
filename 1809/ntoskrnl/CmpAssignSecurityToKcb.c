@@ -4,16 +4,16 @@
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmpRebuildKcbCacheFromNode @ 0x1405AC984 (CmpRebuildKcbCacheFromNode.c)
  *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     CmpAssignKeySecurity @ 0x14075B97C (CmpAssignKeySecurity.c)
- *     CmpDoBuildVirtualStack @ 0x1407F2A38 (CmpDoBuildVirtualStack.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x140803610 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140803C7C (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpAssignKeySecurity @ 0x14075B95C (CmpAssignKeySecurity.c)
+ *     CmpDoBuildVirtualStack @ 0x1407F2A18 (CmpDoBuildVirtualStack.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x1408035F0 (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140803C5C (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 char __fastcall CmpAssignSecurityToKcb(

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00F38F4
+ * XREFs of ?_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0105098
  * Callers:
- *     NtUserGetCurrentInputMessageSource @ 0x1C00F3810 (NtUserGetCurrentInputMessageSource.c)
- *     NtUserGetCIMSSM @ 0x1C0151400 (NtUserGetCIMSSM.c)
+ *     NtUserGetCurrentInputMessageSource @ 0x1C0104FB0 (NtUserGetCurrentInputMessageSource.c)
+ *     NtUserGetCIMSSM @ 0x1C01553C0 (NtUserGetCIMSSM.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall _GetCurrentInputMessageSource(int a1, struct tagINPUT_MESSAGE_SOURCE *a2)
@@ -21,8 +21,8 @@ __int64 __fastcall _GetCurrentInputMessageSource(int a1, struct tagINPUT_MESSAGE
     if ( v5 || (**(_DWORD **)(ThreadWin32Thread + 448) & 8) != 0 )
       goto LABEL_4;
 LABEL_8:
-    *(_DWORD *)a2 = *(_DWORD *)(ThreadWin32Thread + 1272);
-    *((_DWORD *)a2 + 1) = *(_DWORD *)(ThreadWin32Thread + 1276);
+    *(_DWORD *)a2 = *(_DWORD *)(ThreadWin32Thread + 1240);
+    *((_DWORD *)a2 + 1) = *(_DWORD *)(ThreadWin32Thread + 1244);
     return 1LL;
   }
   if ( !v7 && (**(_DWORD **)(ThreadWin32Thread + 448) & 6) == 0 )

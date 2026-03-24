@@ -1,58 +1,48 @@
 /*
- * XREFs of HvlpSlowFlushPasidAddressList @ 0x14054645C
+ * XREFs of HvlpSlowFlushPasidAddressList @ 0x1404F74C8
  * Callers:
- *     HvlFlushPasid @ 0x140543EF0 (HvlFlushPasid.c)
+ *     HvlSvmFlushPasid @ 0x1404F6B50 (HvlSvmFlushPasid.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
- *     HvlpFlushPasidAddressSpace @ 0x140546350 (HvlpFlushPasidAddressSpace.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpFlushPasidAddressSpace @ 0x1404F73C4 (HvlpFlushPasidAddressSpace.c)
  */
 
-char __fastcall HvlpSlowFlushPasidAddressList(int a1, int a2, unsigned int a3, const void *a4, char a5)
+char __fastcall HvlpSlowFlushPasidAddressList(int a1, int a2, unsigned int a3, __int64 a4)
 {
-  __int64 v5; // rbx
-  PHYSICAL_ADDRESS *v9; // rax
-  PHYSICAL_ADDRESS *v10; // rdi
-  PHYSICAL_ADDRESS *v12; // r9
-  signed __int64 v13; // rsi
-  __int64 v14; // rdx
-  __int128 v15; // [rsp+28h] [rbp-30h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-20h]
-  __int64 v17; // [rsp+40h] [rbp-18h]
+  __int64 v4; // rbx
+  _QWORD *v8; // rax
+  __int64 v9; // r9
+  __int64 *v11; // rdx
+  __int64 v12; // rdi
+  __int64 v13; // r8
+  __int128 v14; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v15; // [rsp+38h] [rbp-20h]
 
-  v5 = a3;
+  v4 = a3;
+  v14 = 0LL;
   v15 = 0LL;
-  v16 = 0LL;
-  LODWORD(v17) = 0;
-  v9 = HvlpAcquireHypercallPage((__int64)&v15, 5, 0LL, 0LL);
-  v10 = v9;
-  if ( !v9 )
+  v8 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v14, 5, 0LL, 0LL);
+  if ( !v8 )
     return HvlpFlushPasidAddressSpace(a1, a2);
-  v9[1].QuadPart = 0LL;
-  v12 = v9 + 2;
-  v9->HighPart = a1;
-  v9->LowPart = a2;
-  if ( a5 )
+  v8[1] = 0LL;
+  v11 = v8 + 2;
+  *((_DWORD *)v8 + 1) = a1;
+  *(_DWORD *)v8 = a2;
+  if ( (_DWORD)v4 )
   {
-    memmove(&v9[2], a4, 8 * v5);
-    v10[1].LowPart |= 1u;
-  }
-  else if ( (_DWORD)v5 )
-  {
-    v13 = (_BYTE *)a4 - (_BYTE *)v12;
-    v14 = v5;
+    v12 = a4 - (_QWORD)v11;
+    v13 = v4;
     do
     {
-      v12->QuadPart = *(LONGLONG *)((_BYTE *)&v12->QuadPart + v13) & 0x800 | (*(LONGLONG *)((char *)&v12->QuadPart + v13)
-                                                                            + (*(LONGLONG *)((_BYTE *)&v12->QuadPart
-                                                                                           + v13) & 0xC00));
-      ++v12;
-      --v14;
+      *v11 = *(__int64 *)((char *)v11 + v12) & 0x800 | (*(__int64 *)((char *)v11 + v12)
+                                                      + (*(__int64 *)((char *)v11 + v12) & 0xC00));
+      ++v11;
+      --v13;
     }
-    while ( v14 );
+    while ( v13 );
   }
-  HvcallInitiateHypercall(161);
-  return HvlpReleaseHypercallPage((__int64)&v15);
+  HvcallInitiateHypercall(161, *((__int64 *)&v15 + 1), 0LL, v9);
+  return HvlpReleaseHypercallPage((__int64)&v14);
 }

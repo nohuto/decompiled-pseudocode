@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180216F30
+ * XREFs of ?GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801C4010
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18009AF00 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x18009B4C0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
- *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800AD884 (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800D33F8 (--0CRectanglesShape@@QEAA@XZ.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ??2CRectanglesShape@@SAPEAX_K@Z @ 0x1800E810C (--2CRectanglesShape@@SAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??2CRectanglesShape@@SAPEAX_K@Z @ 0x180016B6C (--2CRectanglesShape@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180067BCC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800805D0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087600 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800CC6E4 (--0CRectanglesShape@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGeometryGroup::GetShapeDataCore(
@@ -18,92 +18,91 @@ __int64 __fastcall CGeometryGroup::GetShapeDataCore(
         const struct D2D_SIZE_F *a2,
         struct CShapePtr *a3)
 {
-  int v3; // eax
-  unsigned int v4; // ebx
-  CRectanglesShape *v8; // rax
-  __int64 v9; // rcx
-  struct CShape *v10; // rdi
+  struct CShape *v3; // rbx
+  unsigned int v4; // edi
+  int v6; // eax
+  CRectanglesShape *v9; // rax
+  __int64 v10; // rcx
   int ShapeData; // eax
   __int64 v12; // rcx
-  unsigned int v13; // r14d
-  __int64 v14; // rdx
-  struct CShape *v15; // rcx
-  unsigned int v17; // [rsp+20h] [rbp-38h]
-  struct CShape *v18; // [rsp+60h] [rbp+8h] BYREF
-  struct CShape *v19; // [rsp+78h] [rbp+20h] BYREF
+  int v13; // eax
+  __int64 v14; // rcx
+  unsigned int v15; // r14d
+  __int64 v16; // rdx
+  unsigned int v18; // [rsp+20h] [rbp-28h]
+  struct CShape *v19; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = *((_DWORD *)this + 8);
+  v3 = 0LL;
   v4 = 0;
-  v18 = 0LL;
-  *((_DWORD *)this + 8) = v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6;
-  if ( (((unsigned __int8)v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6) & 6) != 2 )
+  v19 = 0LL;
+  v6 = *((_DWORD *)this + 8);
+  *((_DWORD *)this + 8) = v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(v6 + 2)) & 6;
+  if ( (((unsigned __int8)v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(v6 + 2)) & 6) & 6) != 2 )
   {
-    v8 = (CRectanglesShape *)CRectanglesShape::operator new(this);
-    if ( !v8 || (v18 = CRectanglesShape::CRectanglesShape(v8), (v10 = v18) == 0LL) )
+    v9 = (CRectanglesShape *)CRectanglesShape::operator new(this);
+    if ( v9 )
+      v3 = CRectanglesShape::CRectanglesShape(v9);
+    if ( !v3 )
     {
       v4 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2147024882, 0x25u);
-      goto LABEL_21;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0x25u, 0LL);
+      goto LABEL_20;
     }
-    goto LABEL_17;
+    goto LABEL_14;
   }
-  ShapeData = CGeometry::GetShapeData(**((CGeometry ***)this + 22), a2, a3);
+  ShapeData = CGeometry::GetShapeData(**((CGeometry ***)this + 21), a2, a3);
   v4 = ShapeData;
   if ( ShapeData < 0 )
   {
-    v17 = 47;
+    v18 = 47;
   }
   else
   {
-    ShapeData = CShape::CopyShape(*(CShape **)a3, 0LL, &v18);
-    v4 = ShapeData;
-    if ( ShapeData < 0 )
+    v13 = CShape::CopyShape(*(CShape **)a3, 0LL, &v19);
+    v4 = v13;
+    if ( v13 < 0 )
     {
-      v17 = 48;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x30u, 0LL);
+      v3 = v19;
+      goto LABEL_20;
     }
-    else
+    v3 = v19;
+    v15 = 1;
+    if ( *((_DWORD *)this + 40) <= 1u )
     {
-      v13 = 1;
-      if ( *((_DWORD *)this + 42) <= 1u )
-      {
-        v10 = v18;
-LABEL_17:
-        CShapePtr::Release(a3);
-        v18 = 0LL;
-        *(_QWORD *)a3 = v10;
-        *((_BYTE *)a3 + 8) = 1;
-        goto LABEL_21;
-      }
-      while ( 1 )
-      {
-        ShapeData = CGeometry::GetShapeData(*(CGeometry **)(*((_QWORD *)this + 22) + 8LL * v13), a2, a3);
-        v4 = ShapeData;
-        if ( ShapeData < 0 )
-          break;
-        ShapeData = CShape::Combine((__int64)v18, v14, *(_QWORD *)a3, 0LL, 1, &v19);
-        v4 = ShapeData;
-        if ( ShapeData < 0 )
-        {
-          v17 = 65;
-          goto LABEL_20;
-        }
-        if ( v18 )
-          (**(void (__fastcall ***)(struct CShape *, __int64))v18)(v18, 1LL);
-        v10 = v19;
-        ++v13;
-        v18 = v19;
-        if ( v13 >= *((_DWORD *)this + 42) )
-          goto LABEL_17;
-      }
-      v17 = 57;
+LABEL_14:
+      CShapePtr::Release(a3);
+      *(_QWORD *)a3 = v3;
+      v3 = 0LL;
+      *((_BYTE *)a3 + 8) = 1;
+      goto LABEL_20;
     }
+    while ( 1 )
+    {
+      ShapeData = CGeometry::GetShapeData(*(CGeometry **)(*((_QWORD *)this + 21) + 8LL * v15), a2, a3);
+      v4 = ShapeData;
+      if ( ShapeData < 0 )
+        break;
+      ShapeData = CShape::Combine((__int64)v3, v16, *(_QWORD *)a3, 0LL, 1, &v19);
+      v4 = ShapeData;
+      if ( ShapeData < 0 )
+      {
+        v18 = 65;
+        goto LABEL_19;
+      }
+      if ( v3 )
+        (**(void (__fastcall ***)(struct CShape *, __int64))v3)(v3, 1LL);
+      v3 = v19;
+      if ( ++v15 >= *((_DWORD *)this + 40) )
+        goto LABEL_14;
+    }
+    v18 = 57;
   }
+LABEL_19:
+  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, ShapeData, v18, 0LL);
 LABEL_20:
-  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, ShapeData, v17);
-LABEL_21:
-  v15 = v18;
   *((_DWORD *)this + 8) ^= (*((_DWORD *)this + 8) ^ (2 * (*((_DWORD *)this + 8) >> 1) - 2)) & 6;
-  if ( v15 )
-    (**(void (__fastcall ***)(struct CShape *, __int64))v15)(v15, 1LL);
+  if ( v3 )
+    (**(void (__fastcall ***)(struct CShape *, __int64))v3)(v3, 1LL);
   return v4;
 }

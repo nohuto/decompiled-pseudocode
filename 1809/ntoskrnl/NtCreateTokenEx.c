@@ -1,7 +1,7 @@
 /*
  * XREFs of NtCreateTokenEx @ 0x1405BC550
  * Callers:
- *     NtCreateToken @ 0x1408A19A0 (NtCreateToken.c)
+ *     NtCreateToken @ 0x1408A1980 (NtCreateToken.c)
  * Callees:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
  *     SeReleaseLuidAndAttributesArray @ 0x1405BCE84 (SeReleaseLuidAndAttributesArray.c)
@@ -14,8 +14,8 @@
  *     SeReleaseSid @ 0x1406112AC (SeReleaseSid.c)
  *     SeCaptureSid @ 0x1406112D4 (SeCaptureSid.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     SeCaptureSecurityQos @ 0x14064A47C (SeCaptureSecurityQos.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SeCaptureSecurityQos @ 0x14064A45C (SeCaptureSecurityQos.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtCreateTokenEx(

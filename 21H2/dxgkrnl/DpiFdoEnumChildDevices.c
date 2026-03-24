@@ -1,360 +1,389 @@
 /*
- * XREFs of DpiFdoEnumChildDevices @ 0x1C020E59C
+ * XREFs of DpiFdoEnumChildDevices @ 0x1C01971D4
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0011E60 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiAcpiExposeInfo @ 0x1C020E2D0 (DpiAcpiExposeInfo.c)
- *     DpiFdoCreateChildDescriptor @ 0x1C020E8E8 (DpiFdoCreateChildDescriptor.c)
- *     DxgkDWCloneCheckTargetID @ 0x1C020EA70 (DxgkDWCloneCheckTargetID.c)
- *     DpiDxgkDdiQueryChildRelations @ 0x1C020F0B4 (DpiDxgkDdiQueryChildRelations.c)
- *     DpiFdoRemoveChildDescriptors @ 0x1C038B16C (DpiFdoRemoveChildDescriptors.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A84C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiAcpiExposeInfo @ 0x1C0196F08 (DpiAcpiExposeInfo.c)
+ *     DpiFdoCreateChildDescriptor @ 0x1C0197504 (DpiFdoCreateChildDescriptor.c)
+ *     DxgkDWCloneCheckTargetID @ 0x1C019768C (DxgkDWCloneCheckTargetID.c)
+ *     DpiDxgkDdiQueryChildRelations @ 0x1C0197AAC (DpiDxgkDdiQueryChildRelations.c)
+ *     DpiFdoRemoveChildDescriptors @ 0x1C02CBBAC (DpiFdoRemoveChildDescriptors.c)
  */
 
 __int64 __fastcall DpiFdoEnumChildDevices(__int64 a1)
 {
   __int64 v1; // rbp
-  __int64 v2; // r15
+  __int64 v2; // r14
   __int64 v3; // r13
   unsigned int v4; // ebx
   _DWORD *PoolWithTag; // rax
-  _DWORD *v6; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  _DWORD *v10; // rdi
   int ChildRelations; // eax
-  int ChildDescriptor; // edi
-  __int64 v9; // r10
-  unsigned int v10; // r12d
-  unsigned int v11; // eax
   __int64 v12; // rdx
-  int v13; // ecx
-  __int64 v14; // r8
-  __int64 v15; // rbx
-  __int64 v16; // r15
-  int v17; // eax
-  int v18; // ebx
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v19; // ebx
-  bool v20; // zf
+  __int64 v13; // rcx
+  __int64 v14; // rsi
+  unsigned int v15; // eax
+  unsigned int v16; // r12d
+  __int64 v17; // rdx
+  char v18; // r9
+  int v19; // r8d
+  __int64 v20; // rcx
+  __int64 v21; // r14
+  __int64 v22; // r15
+  int v23; // eax
+  int v24; // ebx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v28; // ebx
+  __int64 v29; // rcx
+  char v30; // r8
+  bool v31; // zf
   unsigned int i; // ebx
-  unsigned int v23; // eax
-  __int64 v24; // rdx
-  SIZE_T v25; // rax
-  bool v26; // al
-  __int64 v27; // rax
-  unsigned int v28; // eax
-  int v29; // eax
-  unsigned int v30; // ecx
-  int v31; // eax
-  __int64 v32; // r8
-  __int64 v33; // rdx
-  __int64 v34; // rcx
-  int v35; // [rsp+30h] [rbp-68h]
-  unsigned int v36; // [rsp+34h] [rbp-64h]
-  int v37; // [rsp+38h] [rbp-60h]
-  char v39; // [rsp+A8h] [rbp+10h]
-  unsigned int v40; // [rsp+B0h] [rbp+18h]
-  unsigned int v41; // [rsp+B8h] [rbp+20h]
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  bool v39; // al
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // rbx
+  int v45; // eax
+  __int64 v46; // rcx
+  __int64 v47; // rax
+  __int64 v48; // rcx
+  __int64 v49; // rax
+  int v50; // [rsp+30h] [rbp-68h]
+  unsigned int v51; // [rsp+34h] [rbp-64h]
+  int v52; // [rsp+38h] [rbp-60h]
+  char v54; // [rsp+A8h] [rbp+10h]
+  unsigned int v55; // [rsp+B0h] [rbp+18h]
+  unsigned int v56; // [rsp+B8h] [rbp+20h]
 
   v1 = *(_QWORD *)(a1 + 64);
   v2 = a1;
   v3 = *(_QWORD *)(v1 + 40);
   v4 = 28 * (*(_DWORD *)(v1 + 2680) + 1);
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4, 0x74727044u);
-  v6 = PoolWithTag;
+  v10 = PoolWithTag;
   if ( !PoolWithTag )
   {
-    ChildDescriptor = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    goto LABEL_38;
+    LODWORD(v14) = -1073741801;
+    v34 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+    *(_QWORD *)(v34 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v34);
+    goto LABEL_41;
   }
   memset(PoolWithTag, 0, v4);
-  ChildRelations = DpiDxgkDdiQueryChildRelations(v3, *(_QWORD *)(v1 + 48), v6, v4);
-  ChildDescriptor = ChildRelations;
+  ChildRelations = DpiDxgkDdiQueryChildRelations(v3, *(_QWORD *)(v1 + 48), v10, v4);
+  v14 = ChildRelations;
   if ( ChildRelations < 0 )
   {
-    WdLogSingleEntry2(2LL, *(_QWORD *)(v3 + 200), ChildRelations);
-    goto LABEL_38;
+    v35 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v35 + 24) = *(_QWORD *)(v3 + 200);
+    *(_QWORD *)(v35 + 32) = v14;
+    WdLogEvent5_WdError(v35);
+    goto LABEL_33;
   }
   KeEnterCriticalRegion();
   ExAcquireResourceExclusiveLite((PERESOURCE)(v1 + 3304), 1u);
   KeWaitForSingleObject((PVOID)(v1 + 3408), Executive, 0, 0, 0LL);
-  v35 = -1;
-  v9 = 0LL;
-  v10 = -1;
-  v11 = 0;
-  v12 = 0xFFFFFFFFLL;
-  v39 = 0;
-  v13 = -1;
-  v40 = -1;
-  LOBYTE(v14) = 0;
-  v37 = -1;
-  v36 = 0;
+  v50 = -1;
+  v15 = 0;
   *(_DWORD *)(v1 + 3480) = 0;
+  v16 = -1;
+  v17 = 0xFFFFFFFFLL;
+  v51 = 0;
+  v18 = 0;
+  v56 = -1;
+  v19 = -1;
+  v54 = 0;
+  v20 = 0LL;
+  v52 = -1;
   *(_WORD *)(v1 + 2698) = 257;
-  v41 = 0;
+  v55 = 0;
   if ( !*(_DWORD *)(v1 + 2680) )
   {
 LABEL_16:
-    if ( *(_QWORD *)(v1 + 3184) == v9 )
+    if ( *(_QWORD *)(v1 + 3184) )
     {
-      if ( !v11 )
-      {
-        v20 = 0;
-LABEL_24:
-        if ( v20 )
-          *(_DWORD *)(v1 + 3224) = v13;
-        if ( v10 != -1 )
-        {
-          v34 = 7LL * v10;
-          if ( v6[v34 + 1] == 6 )
-            v6[v34 + 1] = 0x80000000;
-          if ( (_BYTE)v14 )
-          {
-            WdLogSingleEntry1(2LL, 0LL);
-            *(_DWORD *)(v1 + 2720) |= 1u;
-          }
-        }
-        if ( *(_BYTE *)(v1 + 1157) == 1 )
-          DpiAcpiExposeInfo(v2);
-        for ( i = 0; i < *(_DWORD *)(v1 + 2680); ++i )
-        {
-          LOBYTE(v14) = 1;
-          ChildDescriptor = DpiFdoCreateChildDescriptor(
-                              v1,
-                              v6[7 * i + 6],
-                              v14,
-                              (unsigned int)v6 + 28 * i,
-                              (__int64)&v6[7 * i + 1],
-                              v6[7 * i + 5]);
-          if ( ChildDescriptor < 0 )
-            break;
-        }
-        goto LABEL_32;
-      }
-    }
-    else
-    {
-      v20 = v11 == 1;
-      if ( v11 <= 1 )
+      v31 = v15 == 1;
+      if ( v15 <= 1 )
         goto LABEL_24;
     }
-LABEL_98:
-    ChildDescriptor = -1073741637;
-    v24 = -1073741637LL;
-LABEL_94:
-    WdLogSingleEntry1(2LL, v24);
+    else if ( !v15 )
+    {
+      v31 = 0;
+LABEL_24:
+      if ( v31 )
+        *(_DWORD *)(v1 + 3224) = v19;
+      if ( v16 != -1 )
+      {
+        v48 = 7LL * v16;
+        if ( v10[v48 + 1] == 6 )
+          v10[v48 + 1] = 0x80000000;
+        if ( v18 )
+        {
+          v49 = WdLogNewEntry5_WdError(v48 * 4, v17);
+          *(_QWORD *)(v49 + 24) = 0LL;
+          WdLogEvent5_WdError(v49);
+          *(_DWORD *)(v1 + 2720) |= 1u;
+        }
+      }
+      if ( *(_BYTE *)(v1 + 1156) == 1 )
+        DpiAcpiExposeInfo(v2);
+      for ( i = 0; i < *(_DWORD *)(v1 + 2680); ++i )
+      {
+        LOBYTE(v19) = 1;
+        LODWORD(v14) = DpiFdoCreateChildDescriptor(
+                         v1,
+                         v10[7 * i + 6],
+                         v19,
+                         (unsigned int)v10 + 28 * i,
+                         (__int64)&v10[7 * i + 1],
+                         v10[7 * i + 5]);
+        if ( (int)v14 < 0 )
+          break;
+      }
+      goto LABEL_32;
+    }
+LABEL_95:
+    LODWORD(v14) = -1073741637;
+    v47 = WdLogNewEntry5_WdError(v20, v17);
+    *(_QWORD *)(v47 + 24) = -1073741637LL;
+    WdLogEvent5_WdError(v47);
     goto LABEL_32;
   }
-  v15 = 0LL;
   while ( 1 )
   {
-    v16 = 7 * v15;
-    if ( v6[7 * v15 + 4] == 2 )
+    v21 = (unsigned int)v20;
+    v22 = 7LL * (unsigned int)v20;
+    if ( v10[v22 + 4] == 2 )
     {
-      WdLogSingleEntry1(2LL, 0LL);
-      v12 = v40;
-      v9 = 0LL;
-      v6[v16 + 4] = 4;
+      v36 = WdLogNewEntry5_WdError(v20, v17);
+      *(_QWORD *)(v36 + 24) = 0LL;
+      WdLogEvent5_WdError(v36);
+      v20 = v55;
+      v17 = v56;
+      v10[v22 + 4] = 4;
     }
-    v17 = v6[v16];
-    if ( v17 == 1 )
+    v23 = v10[v22];
+    if ( v23 == 1 )
     {
-      *(_BYTE *)(v1 + 2698) &= DxgkDWCloneCheckTargetID((unsigned int)v6[v16 + 6], v12, v14, -1073741637LL);
-      v18 = v6[v16 + 6];
-      DXGGLOBAL_GetGlobal();
-      *(_BYTE *)(v1 + 2699) &= (v18 & 0xF0000000) == 0;
+      *(_BYTE *)(v1 + 2698) &= DxgkDWCloneCheckTargetID((unsigned int)v10[v22 + 6]);
+      v24 = v10[v22 + 6];
+      DXGGLOBAL::GetGlobal(v26, v25);
+      *(_BYTE *)(v1 + 2699) &= (v24 & 0xF0000000) == 0;
       if ( *(_DWORD *)(v3 + 28) < 0x104Fu )
       {
-        v6[v16 + 1] = -1;
-        v19 = D3DKMDT_VOT_OTHER;
-        WdLogSingleEntry1(3LL, 0LL);
+        v10[v22 + 1] = -1;
+        v28 = D3DKMDT_VOT_OTHER;
+        v37 = WdLogNewEntry5_WdWarning(v20, v17, v27);
+        *(_QWORD *)(v37 + 24) = 0LL;
+        WdLogEvent5_WdWarning(v37);
       }
       else
       {
-        v19 = v6[v16 + 1];
-        if ( v19 < D3DKMDT_VOT_HD15 )
+        v28 = v10[v22 + 1];
+        if ( v28 < D3DKMDT_VOT_HD15 )
         {
-          if ( (v19 & 0x7FFFFFFFu) <= 0xE )
-            v23 = 0x80000000;
-          else
-            v23 = -1;
-          v19 = v23;
-          v6[v16 + 1] = v23;
+          v28 = D3DKMDT_VOT_OTHER;
+          if ( (v10[v22 + 1] & 0x7FFFFFFFu) <= 0xE )
+            v28 = 0x80000000;
         }
-        else
+        v10[v22 + 1] = v28;
+        if ( (unsigned int)v28 >= D3DKMDT_VOT_MIRACAST
+          && (unsigned int)v28 <= (D3DKMDT_VOT_SVIDEO_7PIN|D3DKMDT_VOT_INDIRECT_WIRED) )
         {
-          v6[v16 + 1] = v19;
-          if ( (unsigned int)v19 >= D3DKMDT_VOT_MIRACAST
-            && (unsigned int)v19 <= (D3DKMDT_VOT_SVIDEO_7PIN|D3DKMDT_VOT_INDIRECT_WIRED) )
+          if ( v10[v22 + 4] != 4 )
+            goto LABEL_45;
+          if ( v28 == D3DKMDT_VOT_MIRACAST )
           {
-            if ( v6[v16 + 4] != 4 )
-              goto LABEL_46;
-            if ( v19 == D3DKMDT_VOT_MIRACAST )
-            {
-              ++v36;
-              v37 = v6[v16 + 6];
-            }
-            else if ( !*(_BYTE *)(v1 + 1159) )
-            {
-              goto LABEL_46;
-            }
+            ++v51;
+            v52 = v10[v22 + 6];
+          }
+          else if ( !*(_BYTE *)(v1 + 1158) )
+          {
+            goto LABEL_45;
           }
         }
       }
-      if ( !IsInternalVideoOutput(v19) && v19 != D3DKMDT_VOT_LVDS )
-        goto LABEL_13;
-      v12 = v40;
-      if ( v40 != -1 )
+      if ( !IsInternalVideoOutput(v28) && v28 != D3DKMDT_VOT_LVDS )
+        goto LABEL_12;
+      v17 = v56;
+      if ( v56 == -1 )
       {
-        ChildDescriptor = -1073741637;
-        v33 = (unsigned int)v6[v16 + 6];
-        v32 = (unsigned int)v6[7 * v40 + 6];
-        goto LABEL_97;
-      }
-      *(_DWORD *)(v1 + 3484) = v6[v16 + 6];
-      if ( *(_BYTE *)(*(_QWORD *)(v1 + 168) + 108LL) == (_BYTE)v9
-        && (*(_BYTE *)(v1 + 1154) == (_BYTE)v9 || *(_BYTE *)(v1 + 480) == (_BYTE)v9)
-        && *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 64) + 40LL) + 28LL) >= 0x4000u
-        && *(_BYTE *)(v1 + 2692) == (_BYTE)v9 )
-      {
-LABEL_46:
-        ChildDescriptor = -1073741637;
-        v24 = -1073741637LL;
-        goto LABEL_94;
-      }
-      if ( v10 == -1 )
-      {
-        v10 = v41;
-        v35 = v19;
-        goto LABEL_14;
-      }
-      if ( *(_BYTE *)(v1 + 2692) != (_BYTE)v9 )
-        goto LABEL_14;
-      v25 = RtlCompareMemory((const void *)(v1 + 544), &GUID_BUS_VMBUS, 0x10uLL);
-      v9 = 0LL;
-      if ( v25 == 16 )
-      {
-        if ( byte_1C0130498 )
-          goto LABEL_13;
-      }
-      v39 = 1;
-      if ( v19 == v35 )
-        goto LABEL_66;
-      switch ( v19 )
-      {
-        case D3DKMDT_VOT_INTERNAL:
-LABEL_65:
-          v27 = v10;
-          v10 = v41;
-          v35 = v19;
-          v6[7 * v27 + 1] = -1;
-LABEL_13:
-          v12 = v40;
+        *(_DWORD *)(v1 + 3484) = v10[v22 + 6];
+        if ( *(_BYTE *)(*(_QWORD *)(v1 + 168) + 108LL) == v30
+          && (*(_BYTE *)(v1 + 1154) == v30 || *(_BYTE *)(v1 + 480) == v30) )
+        {
+          v2 = a1;
+          v20 = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 40LL);
+          if ( *(_DWORD *)(v20 + 28) >= 0x4000u && *(_BYTE *)(v1 + 2692) == v30 )
+            goto LABEL_95;
+        }
+        if ( v16 == -1 )
+        {
+          v16 = v55;
+          LODWORD(v20) = v55;
+          v50 = v28;
           goto LABEL_14;
-        case D3DKMDT_VOT_LVDS:
-          v26 = v35 != 0x80000000;
-          break;
-        case D3DKMDT_VOT_DISPLAYPORT_EMBEDDED:
-          v26 = v35 == 13;
-          break;
-        default:
+        }
+        if ( *(_BYTE *)(v1 + 2692) != v30 )
+        {
+          LODWORD(v20) = v55;
+          goto LABEL_14;
+        }
+        if ( RtlCompareMemory((const void *)(v1 + 544), &GUID_BUS_VMBUS, 0x10uLL) == 16 && byte_1C00B2B19 )
+          goto LABEL_12;
+        v54 = 1;
+        if ( v28 == v50 )
           goto LABEL_66;
-      }
-      if ( v26 )
-        goto LABEL_65;
+        switch ( v28 )
+        {
+          case D3DKMDT_VOT_INTERNAL:
+            v39 = 1;
+            break;
+          case D3DKMDT_VOT_LVDS:
+            v39 = v50 != 0x80000000;
+            break;
+          case D3DKMDT_VOT_DISPLAYPORT_EMBEDDED:
+            v39 = v50 == 13;
+            break;
+          default:
 LABEL_66:
-      v6[v16 + 1] = -1;
-      goto LABEL_13;
-    }
-    if ( v17 != 3 )
-    {
-      if ( v17 != 2 && *(_DWORD *)(v3 + 28) >= 0x700Au )
-      {
-        ChildDescriptor = -1073741637;
-        v32 = (int)v6[v16];
-        v33 = (unsigned int)v6[7 * v15 + 6];
-        goto LABEL_97;
+            v10[v22 + 1] = -1;
+LABEL_12:
+            LODWORD(v20) = v55;
+LABEL_13:
+            v17 = v56;
+            goto LABEL_14;
+        }
+        if ( v39 )
+        {
+          v40 = v16;
+          v16 = v55;
+          v50 = v28;
+          v10[7 * v40 + 1] = -1;
+          LODWORD(v20) = v55;
+          goto LABEL_13;
+        }
+        goto LABEL_66;
       }
-      goto LABEL_14;
-    }
-    v28 = *(_DWORD *)(v3 + 28);
-    if ( v28 < 0x7007 )
-    {
-      ChildDescriptor = -1073741637;
-      WdLogSingleEntry2(2LL, v28, 28680LL);
-      v9 = 0LL;
-      goto LABEL_13;
-    }
-    if ( v10 != -1 )
-      break;
-    if ( *(_BYTE *)(*(_QWORD *)(v1 + 168) + 108LL) == (_BYTE)v9
-      && (*(_BYTE *)(v1 + 1154) == (_BYTE)v9 || *(_BYTE *)(v1 + 480) == (_BYTE)v9)
-      && *(_BYTE *)(v1 + 2692) == (_BYTE)v9
-      || *(_BYTE *)(v1 + 2692) == (_BYTE)v9 && byte_1C0130498 == (_BYTE)v9 && (_DWORD)v12 != -1 )
-    {
-      goto LABEL_98;
-    }
-    v29 = DxgkDWCloneCheckTargetID((unsigned int)v6[v16 + 6], v12, v14, -1073741637LL);
-    v9 = 0LL;
-    if ( !v29 )
-    {
-      ChildDescriptor = -1073741637;
-      v24 = (unsigned int)v6[v16 + 6];
+      LODWORD(v14) = -1073741637;
+      v38 = WdLogNewEntry5_WdError(v29, v56);
+      *(_QWORD *)(v38 + 24) = (unsigned int)v10[v22 + 6];
+      v46 = (unsigned int)v10[7 * v56 + 6];
+LABEL_97:
+      *(_QWORD *)(v38 + 32) = v46;
       goto LABEL_94;
     }
-    v30 = v6[v16 + 1];
-    if ( v30 < 4 || v30 > 6 && (v30 <= 7 || v30 > 0xD && v30 != 18 && v30 != 0x80000000) )
+    if ( v23 != 3 )
     {
-      ChildDescriptor = -1073741637;
-      v33 = (int)v6[v16 + 1];
-      v32 = (unsigned int)v6[7 * v15 + 6];
+      if ( v23 == 2 || *(_DWORD *)(v3 + 28) < 0x700Au )
+        goto LABEL_14;
+      LODWORD(v14) = -1073741637;
+      v38 = WdLogNewEntry5_WdError(v20, v17);
+      *(_QWORD *)(v38 + 24) = (unsigned int)v10[7 * v21 + 6];
+      v46 = (int)v10[7 * v21];
       goto LABEL_97;
     }
-    v31 = v6[v16 + 4];
-    if ( v31 != 4 && v31 != 1 )
+    if ( *(_DWORD *)(v3 + 28) < 0x7007u )
     {
-      ChildDescriptor = -1073741637;
-      v24 = (unsigned int)v6[7 * v15 + 6];
+      LODWORD(v14) = -1073741637;
+      v41 = WdLogNewEntry5_WdError(v20, v17);
+      *(_QWORD *)(v41 + 24) = *(unsigned int *)(v3 + 28);
+      *(_QWORD *)(v41 + 32) = 28680LL;
+      WdLogEvent5_WdError(v41);
+      goto LABEL_12;
+    }
+    if ( v16 != -1 )
+    {
+      LODWORD(v14) = -1073741637;
+      v38 = WdLogNewEntry5_WdError(v20, v17);
+      *(_QWORD *)(v38 + 24) = (unsigned int)v10[7 * v16 + 6];
+      goto LABEL_100;
+    }
+    if ( !*(_BYTE *)(*(_QWORD *)(v1 + 168) + 108LL)
+      && (!*(_BYTE *)(v1 + 1154) || !*(_BYTE *)(v1 + 480))
+      && !*(_BYTE *)(v1 + 2692)
+      || !*(_BYTE *)(v1 + 2692) && !byte_1C00B2B19 && (_DWORD)v17 != -1 )
+    {
+LABEL_45:
+      LODWORD(v14) = -1073741637;
+      v38 = WdLogNewEntry5_WdError(v20, v17);
+      *(_QWORD *)(v38 + 24) = -1073741637LL;
       goto LABEL_94;
     }
-    v12 = v40;
-    if ( v40 == -1 )
+    if ( !(unsigned int)DxgkDWCloneCheckTargetID((unsigned int)v10[v22 + 6]) )
     {
-      v12 = v41;
-      v40 = v41;
-      *(_DWORD *)(v1 + 3484) = v6[v16 + 6];
+      LODWORD(v14) = -1073741637;
+      v38 = WdLogNewEntry5_WdError(v43, v42);
+      *(_QWORD *)(v38 + 24) = (unsigned int)v10[v22 + 6];
+      goto LABEL_94;
+    }
+    v44 = (int)v10[v22 + 1];
+    if ( (_DWORD)v44 != 0x80000000 && ((int)v44 <= 3 || (int)v44 > 6 && (unsigned int)(v44 - 8) > 5) )
+      break;
+    v45 = v10[v22 + 4];
+    if ( v45 != 4 && v45 != 1 )
+    {
+      LODWORD(v14) = -1073741637;
+      v38 = WdLogNewEntry5_WdError(v43, v42);
+      *(_QWORD *)(v38 + 24) = (unsigned int)v10[7 * v21 + 6];
+      goto LABEL_94;
+    }
+    v17 = v56;
+    if ( v56 == -1 )
+    {
+      v17 = v55;
+      LODWORD(v20) = v55;
+      v56 = v55;
+      *(_DWORD *)(v1 + 3484) = v10[v22 + 6];
+    }
+    else
+    {
+      LODWORD(v20) = v55;
     }
 LABEL_14:
-    v15 = v41 + 1;
-    v41 = v15;
-    if ( (unsigned int)v15 >= *(_DWORD *)(v1 + 2680) )
+    v20 = (unsigned int)(v20 + 1);
+    v55 = v20;
+    if ( (unsigned int)v20 >= *(_DWORD *)(v1 + 2680) )
     {
-      v11 = v36;
+      v15 = v51;
       v2 = a1;
-      v13 = v37;
-      LOBYTE(v14) = v39;
+      v19 = v52;
+      v18 = v54;
       goto LABEL_16;
     }
   }
-  ChildDescriptor = -1073741637;
-  v32 = (unsigned int)v6[7 * v15 + 6];
-  v33 = (unsigned int)v6[7 * v10 + 6];
-LABEL_97:
-  WdLogSingleEntry2(2LL, v33, v32);
+  LODWORD(v14) = -1073741637;
+  v38 = WdLogNewEntry5_WdError(v43, v42);
+  *(_QWORD *)(v38 + 24) = v44;
+LABEL_100:
+  *(_QWORD *)(v38 + 32) = (unsigned int)v10[7 * v21 + 6];
+LABEL_94:
+  WdLogEvent5_WdError(v38);
+  v2 = a1;
 LABEL_32:
   KeReleaseMutex((PRKMUTEX)(v1 + 3408), 0);
   ExReleaseResourceLite((PERESOURCE)(v1 + 3304));
   KeLeaveCriticalRegion();
-  if ( ChildDescriptor >= 0 )
-  {
 LABEL_33:
-    ExFreePoolWithTag(v6, 0);
-    return (unsigned int)ChildDescriptor;
-  }
-  v2 = a1;
-LABEL_38:
-  DpiFdoRemoveChildDescriptors(v2);
-  if ( v6 )
-    goto LABEL_33;
-  return (unsigned int)ChildDescriptor;
+  if ( (int)v14 < 0 )
+LABEL_41:
+    DpiFdoRemoveChildDescriptors(v2);
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0);
+  return (unsigned int)v14;
 }

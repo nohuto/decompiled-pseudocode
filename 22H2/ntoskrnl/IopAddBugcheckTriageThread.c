@@ -1,18 +1,16 @@
 /*
- * XREFs of IopAddBugcheckTriageThread @ 0x14055C1EC
+ * XREFs of IopAddBugcheckTriageThread @ 0x14050B39C
  * Callers:
- *     IoAddBugcheckTriageThread @ 0x14054F770 (IoAddBugcheckTriageThread.c)
- *     IopAddBugcheckTriageDataFromParameters @ 0x140551B14 (IopAddBugcheckTriageDataFromParameters.c)
- *     IopAddBugcheckPnpTriageData @ 0x14055BAF8 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14055BB60 (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x14055BC20 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x14055C380 (IopAddBugcheckTriageWorkQueue.c)
- *     KiCollectTriageDumpDataBlocks @ 0x140569D34 (KiCollectTriageDumpDataBlocks.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x1405030FC (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14050ACE0 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050AD48 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14050ADF0 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x14050B52C (IopAddBugcheckTriageWorkQueue.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403A7C94 (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     IopGetMaxValidMemorySize @ 0x140553320 (IopGetMaxValidMemorySize.c)
- *     IopAddBugcheckTriageIrp @ 0x14055C070 (IopAddBugcheckTriageIrp.c)
+ *     KiIsAddressRangeValid @ 0x1403C9B9C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     IopGetMaxValidMemorySize @ 0x140503DCC (IopGetMaxValidMemorySize.c)
+ *     IopAddBugcheckTriageIrp @ 0x14050B240 (IopAddBugcheckTriageIrp.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
@@ -30,9 +28,9 @@ __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
 
   v1 = 0;
   v3 = 0;
-  if ( KiIsAddressRangeValid(MaxDataSize, 2320LL) )
+  if ( KiIsAddressRangeValid(MaxDataSize, 2200LL) )
   {
-    IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x910);
+    IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x898);
     if ( (*(_DWORD *)(MaxDataSize + 120) & 0x20000) != 0 )
     {
       v4 = *(_QWORD *)(MaxDataSize + 56);
@@ -46,8 +44,8 @@ __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
       if ( MaxValidMemorySize )
         IoAddTriageDumpDataBlock(v7, (PVOID)MaxValidMemorySize);
     }
-    v9 = (_QWORD *)(MaxDataSize + 1280);
-    v10 = *(_QWORD **)(MaxDataSize + 1280);
+    v9 = (_QWORD *)(MaxDataSize + 1200);
+    v10 = *(_QWORD **)(MaxDataSize + 1200);
     v11 = v9;
     while ( v10 && v10 != v9 && v3 < 10 )
     {

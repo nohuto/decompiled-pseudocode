@@ -1,148 +1,108 @@
 /*
- * XREFs of EtwTraceSystemTimeChange @ 0x140A526FC
+ * XREFs of EtwTraceSystemTimeChange @ 0x140998CE8
  * Callers:
- *     PoNotifySystemTimeSet @ 0x1403B65EC (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7804 (PoNotifySystemTimeSet.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     PsGetProcessId @ 0x140361530 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3, _QWORD *a4, int a5, int a6, int a7)
+char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
 {
   _KPROCESS *Process; // rbx
   unsigned int ProcessId; // eax
-  unsigned __int16 *v12; // rbx
-  int v13; // r9d
-  int v14; // ecx
-  int v16; // [rsp+38h] [rbp-D0h] BYREF
-  int v17; // [rsp+3Ch] [rbp-CCh] BYREF
-  int v18; // [rsp+40h] [rbp-C8h] BYREF
-  int v19; // [rsp+44h] [rbp-C4h] BYREF
-  int v20; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned int v21; // [rsp+4Ch] [rbp-BCh] BYREF
-  _QWORD v22[2]; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v25; // [rsp+70h] [rbp-98h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp-90h] BYREF
-  _QWORD *v27; // [rsp+88h] [rbp-80h]
-  __int64 v28; // [rsp+90h] [rbp-78h]
-  int *v29; // [rsp+98h] [rbp-70h]
-  __int64 v30; // [rsp+A0h] [rbp-68h]
-  __int64 v31; // [rsp+A8h] [rbp-60h]
-  int v32; // [rsp+B0h] [rbp-58h]
-  int v33; // [rsp+B4h] [rbp-54h]
-  unsigned int *v34; // [rsp+B8h] [rbp-50h]
-  __int64 v35; // [rsp+C0h] [rbp-48h]
-  _QWORD *v36; // [rsp+C8h] [rbp-40h]
-  __int64 v37; // [rsp+D0h] [rbp-38h]
-  int *v38; // [rsp+D8h] [rbp-30h]
-  __int64 v39; // [rsp+E0h] [rbp-28h]
-  int *v40; // [rsp+E8h] [rbp-20h]
-  __int64 v41; // [rsp+F0h] [rbp-18h]
-  int *v42; // [rsp+F8h] [rbp-10h]
-  __int64 v43; // [rsp+100h] [rbp-8h]
-  struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+108h] [rbp+0h] BYREF
-  __int64 *v45; // [rsp+128h] [rbp+20h]
-  __int64 v46; // [rsp+130h] [rbp+28h]
-  __int64 *v47; // [rsp+138h] [rbp+30h]
-  __int64 v48; // [rsp+140h] [rbp+38h]
-  int *v49; // [rsp+148h] [rbp+40h]
-  __int64 v50; // [rsp+150h] [rbp+48h]
-  _DWORD *v51; // [rsp+158h] [rbp+50h]
-  __int64 v52; // [rsp+160h] [rbp+58h]
-  __int64 v53; // [rsp+168h] [rbp+60h]
-  _DWORD v54[2]; // [rsp+170h] [rbp+68h] BYREF
-  int *v55; // [rsp+178h] [rbp+70h]
-  __int64 v56; // [rsp+180h] [rbp+78h]
-  __int64 *v57; // [rsp+188h] [rbp+80h]
-  __int64 v58; // [rsp+190h] [rbp+88h]
-  int *v59; // [rsp+198h] [rbp+90h]
-  __int64 v60; // [rsp+1A0h] [rbp+98h]
-  int *v61; // [rsp+1A8h] [rbp+A0h]
-  __int64 v62; // [rsp+1B0h] [rbp+A8h]
-  int *v63; // [rsp+1B8h] [rbp+B0h]
-  __int64 v64; // [rsp+1C0h] [rbp+B8h]
-  int v65; // [rsp+218h] [rbp+110h] BYREF
+  unsigned __int16 *v7; // rbx
+  int v8; // edx
+  int v9; // r9d
+  int v11; // [rsp+38h] [rbp-D0h] BYREF
+  int v12; // [rsp+3Ch] [rbp-CCh] BYREF
+  __int64 v13; // [rsp+40h] [rbp-C8h] BYREF
+  _QWORD v14[2]; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v15; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v16; // [rsp+60h] [rbp-A8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD *v18; // [rsp+78h] [rbp-90h]
+  __int64 v19; // [rsp+80h] [rbp-88h]
+  int *v20; // [rsp+88h] [rbp-80h]
+  __int64 v21; // [rsp+90h] [rbp-78h]
+  __int64 v22; // [rsp+98h] [rbp-70h]
+  int v23; // [rsp+A0h] [rbp-68h]
+  int v24; // [rsp+A4h] [rbp-64h]
+  __int64 *v25; // [rsp+A8h] [rbp-60h]
+  __int64 v26; // [rsp+B0h] [rbp-58h]
+  struct _EVENT_DATA_DESCRIPTOR v27; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 *v28; // [rsp+D8h] [rbp-30h]
+  __int64 v29; // [rsp+E0h] [rbp-28h]
+  __int64 *v30; // [rsp+E8h] [rbp-20h]
+  __int64 v31; // [rsp+F0h] [rbp-18h]
+  int *v32; // [rsp+F8h] [rbp-10h]
+  __int64 v33; // [rsp+100h] [rbp-8h]
+  _DWORD *v34; // [rsp+108h] [rbp+0h]
+  __int64 v35; // [rsp+110h] [rbp+8h]
+  __int64 v36; // [rsp+118h] [rbp+10h]
+  _DWORD v37[2]; // [rsp+120h] [rbp+18h] BYREF
+  int *v38; // [rsp+128h] [rbp+20h]
+  __int64 v39; // [rsp+130h] [rbp+28h]
+  int v40; // [rsp+188h] [rbp+80h] BYREF
 
-  v65 = a3;
-  v22[0] = 0x20000LL;
-  v22[1] = &word_140A5BBC0;
+  v40 = a3;
+  v14[0] = 0x20000LL;
+  v14[1] = &word_1409A1D10;
   Process = KeGetCurrentThread()->ApcState.Process;
   ProcessId = (unsigned int)PsGetProcessId(Process);
-  v21 = ProcessId;
-  v12 = (unsigned __int16 *)Process[1].ActiveProcessors.StaticBitmap[2];
-  if ( !v12 || !*v12 )
-    v12 = (unsigned __int16 *)v22;
-  if ( (unsigned int)dword_140C043E0 > 5 )
+  LODWORD(v13) = ProcessId;
+  v7 = (unsigned __int16 *)Process[1].ActiveProcessors.Bitmap[2];
+  if ( !v7 || !*v7 )
+    v7 = (unsigned __int16 *)v14;
+  if ( (unsigned int)dword_140C02BF0 > 5 )
   {
-    LOBYTE(ProcessId) = tlgKeywordOn((__int64)&dword_140C043E0, 0x400000000000LL);
+    LOBYTE(ProcessId) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
     if ( (_BYTE)ProcessId )
     {
-      v23 = *a1;
-      v17 = v13;
-      v45 = &v23;
-      v24 = *a2;
-      v47 = &v24;
-      v16 = v65;
-      v49 = &v16;
-      v51 = v54;
-      v53 = *((_QWORD *)v12 + 1);
-      v54[0] = *v12;
-      v55 = &v17;
-      v25 = *a4;
-      v57 = &v25;
-      v18 = a5;
-      v59 = &v18;
-      v19 = a6;
-      v61 = &v19;
-      v20 = a7;
-      v63 = &v20;
-      v46 = 8LL;
-      v48 = 8LL;
-      v50 = 4LL;
-      v52 = 2LL;
-      v54[1] = 0;
-      v56 = 4LL;
-      v58 = 8LL;
-      v60 = 4LL;
-      v62 = 4LL;
-      v64 = 4LL;
+      v15 = *a1;
+      v12 = v9;
+      v28 = &v15;
+      v16 = *a2;
+      v30 = &v16;
+      v11 = v40;
+      v32 = &v11;
+      v34 = v37;
+      v36 = *((_QWORD *)v7 + 1);
+      v37[0] = *v7;
+      v38 = &v12;
+      v29 = 8LL;
+      v31 = 8LL;
+      v33 = 4LL;
+      v35 = 2LL;
+      v37[1] = 0;
+      v39 = 4LL;
       LOBYTE(ProcessId) = tlgWriteTransfer_EtwWriteTransfer(
-                            (__int64)&dword_140C043E0,
-                            (unsigned __int8 *)&dword_1400352C4,
+                            (__int64)&dword_140C02BF0,
+                            (unsigned __int8 *)&dword_14002C784,
                             0LL,
                             0LL,
-                            0xCu,
-                            &v44);
+                            8u,
+                            &v27);
     }
   }
   if ( EtwKernelProvRegHandle )
   {
     UserData.Ptr = (ULONGLONG)a1;
-    v29 = &v65;
+    v20 = &v40;
     *(_QWORD *)&UserData.Size = 8LL;
-    v27 = a2;
-    v28 = 8LL;
-    v30 = 4LL;
-    v14 = v12[1];
-    v31 = *((_QWORD *)v12 + 1);
-    v34 = &v21;
-    v38 = &a5;
-    v40 = &a6;
-    v42 = &a7;
-    v32 = v14;
-    v33 = 0;
-    v35 = 4LL;
-    v36 = a4;
-    v37 = 8LL;
-    v39 = 4LL;
-    v41 = 4LL;
-    v43 = 4LL;
-    LOBYTE(ProcessId) = EtwWrite(EtwKernelProvRegHandle, &KernelSystemTimeChange, 0LL, 9u, &UserData);
+    v18 = a2;
+    v19 = 8LL;
+    v21 = 4LL;
+    v8 = v7[1];
+    v22 = *((_QWORD *)v7 + 1);
+    v25 = &v13;
+    v23 = v8;
+    v24 = 0;
+    v26 = 4LL;
+    LOBYTE(ProcessId) = EtwWrite(EtwKernelProvRegHandle, &KernelSystemTimeChange, 0LL, 5u, &UserData);
   }
   return ProcessId;
 }

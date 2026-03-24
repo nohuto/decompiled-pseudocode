@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C00517D0
+ * XREFs of ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C004C930
  * Callers:
- *     DxgkUnload @ 0x1C0301B10 (DxgkUnload.c)
+ *     DxgkUnload @ 0x1C0261750 (DxgkUnload.c)
  * Callees:
- *     TlgUnregisterAggregateProvider @ 0x1C03C2338 (TlgUnregisterAggregateProvider.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C0300F70 (TlgUnregisterAggregateProvider.c)
  */
 
 void DxgkCleanupTelemetry(void)
@@ -13,22 +13,22 @@ void DxgkCleanupTelemetry(void)
   REGHANDLE v2; // rcx
   REGHANDLE v3; // rcx
 
-  TlgUnregisterAggregateProvider(&dword_1C012F8A8);
-  v0 = qword_1C012F9A8;
-  qword_1C012F9A8 = 0LL;
-  dword_1C012F988 = 0;
+  TlgUnregisterAggregateProvider(&dword_1C00B19E8);
+  v0 = qword_1C00B1B20;
+  qword_1C00B1B20 = 0LL;
+  dword_1C00B1B00 = 0;
   EtwUnregister(v0);
-  v1 = qword_1C012F970;
-  qword_1C012F970 = 0LL;
-  dword_1C012F950 = 0;
+  v1 = qword_1C00B1AE8;
+  qword_1C00B1AE8 = 0LL;
+  dword_1C00B1AC8 = 0;
   EtwUnregister(v1);
-  v2 = qword_1C012F900;
-  qword_1C012F900 = 0LL;
-  dword_1C012F8E0 = 0;
+  v2 = qword_1C00B1A40;
+  qword_1C00B1A40 = 0LL;
+  dword_1C00B1A20 = 0;
   EtwUnregister(v2);
-  TlgUnregisterAggregateProvider(&dword_1C012F918);
-  v3 = qword_1C012F9E0;
-  qword_1C012F9E0 = 0LL;
-  dword_1C012F9C0 = 0;
+  TlgUnregisterAggregateProvider(&dword_1C00B1A90);
+  v3 = qword_1C00B1A78;
+  qword_1C00B1A78 = 0LL;
+  dword_1C00B1A58 = 0;
   EtwUnregister(v3);
 }

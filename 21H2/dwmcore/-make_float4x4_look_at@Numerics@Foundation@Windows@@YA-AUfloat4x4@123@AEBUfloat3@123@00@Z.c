@@ -1,91 +1,73 @@
 /*
- * XREFs of ?make_float4x4_look_at@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@00@Z @ 0x1802AA7B4
+ * XREFs of ?make_float4x4_look_at@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@00@Z @ 0x18000B10C
  * Callers:
- *     ?GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Numerics@Foundation@Windows@@PEAVCMILMatrix@@@Z @ 0x1802AA298 (-GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Num.c)
+ *     ?GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Numerics@Foundation@Windows@@PEAVCMILMatrix@@@Z @ 0x18000975C (-GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Num.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall Windows::Foundation::Numerics::make_float4x4_look_at(__int64 a1, float *a2, float *a3, __int64 a4)
+__int64 __fastcall Windows::Foundation::Numerics::make_float4x4_look_at(__int64 a1, float *a2, float *a3, float *a4)
 {
-  float v4; // xmm3_4
-  __m128 v5; // xmm4
-  __m128 v6; // xmm7
+  float v4; // xmm11_4
+  float v5; // xmm12_4
+  float v6; // xmm13_4
   __m128 v7; // xmm10
-  float v8; // xmm12_4
+  __m128 v8; // xmm2
   __m128 v9; // xmm1
-  float v10; // xmm13_4
-  __m128 v11; // xmm2
-  __m128 v12; // xmm10
-  __m128 v13; // xmm2
-  __m128 v14; // xmm1
-  __m128 v15; // xmm10
-  float v16; // xmm9_4
-  float v17; // xmm8_4
-  float v18; // xmm0_4
-  __m128 v19; // xmm10
-  __m128 v20; // xmm2
-  __m128 v21; // xmm7
-  __m128 v22; // xmm2
-  __m128 v23; // xmm1
-  __m128 v24; // xmm7
-  float v25; // xmm6_4
-  float v26; // xmm5_4
+  __m128 v10; // xmm10
+  float v11; // xmm9_4
+  float v12; // xmm8_4
+  __m128 v13; // xmm7
+  __m128 v14; // xmm2
+  __m128 v15; // xmm1
+  __m128 v16; // xmm7
+  float v17; // xmm6_4
+  float v18; // xmm4_4
+  float v19; // xmm5_4
   __int64 result; // rax
+  float v21; // xmm3_4
+  unsigned __int64 v22; // [rsp+8h] [rbp-39h]
 
-  v4 = *(float *)(a4 + 4);
-  v5 = (__m128)*(unsigned int *)(a4 + 8);
-  v6 = 0LL;
-  v7 = 0LL;
-  v8 = *a2;
-  v9 = (__m128)*(unsigned int *)a2;
-  v9.m128_f32[0] = v9.m128_f32[0] - *a3;
-  v10 = a2[1];
-  v11 = (__m128)LODWORD(v10);
-  v11.m128_f32[0] = v10 - a3[1];
-  v7.m128_u64[0] = _mm_unpacklo_ps(v9, v11).m128_u64[0];
-  v12 = _mm_movelh_ps(v7, (__m128)COERCE_UNSIGNED_INT(a2[2] - a3[2]));
-  v13 = _mm_mul_ps(v12, v12);
-  v14 = _mm_shuffle_ps(v13, v13, 102);
-  v13.m128_f32[0] = (float)(v13.m128_f32[0] + v14.m128_f32[0]) + _mm_shuffle_ps(v14, v14, 85).m128_f32[0];
-  v15 = _mm_div_ps(v12, _mm_sqrt_ps(_mm_shuffle_ps(v13, v13, 0)));
-  v16 = v15.m128_f32[1];
-  v17 = v15.m128_f32[0];
-  v18 = v5.m128_f32[0] * v15.m128_f32[1];
-  v19 = _mm_shuffle_ps(v15, v15, 170);
-  v20 = v19;
-  v20.m128_f32[0] = (float)(v19.m128_f32[0] * v4) - v18;
-  v5.m128_f32[0] = (float)(v5.m128_f32[0] * v17) - (float)(v19.m128_f32[0] * *(float *)a4);
-  v6.m128_u64[0] = _mm_unpacklo_ps(v20, v5).m128_u64[0];
-  v21 = _mm_movelh_ps(v6, (__m128)COERCE_UNSIGNED_INT((float)(*(float *)a4 * v16) - (float)(v4 * v17)));
-  v22 = _mm_mul_ps(v21, v21);
-  v23 = _mm_shuffle_ps(v22, v22, 102);
-  v22.m128_f32[0] = (float)(v22.m128_f32[0] + v23.m128_f32[0]) + _mm_shuffle_ps(v23, v23, 85).m128_f32[0];
-  v24 = _mm_div_ps(v21, _mm_sqrt_ps(_mm_shuffle_ps(v22, v22, 0)));
-  v22.m128_i32[0] = v24.m128_i32[0];
-  v24.m128_f32[0] = _mm_shuffle_ps(v24, v24, 170).m128_f32[0];
-  v25 = (float)(v24.m128_f32[0] * v16) - (float)(v19.m128_f32[0] * v24.m128_f32[1]);
+  v4 = a2[2];
+  v5 = *a2;
+  v6 = a2[1];
+  *(float *)&v22 = *a2 - *a3;
+  *((float *)&v22 + 1) = v6 - a3[1];
+  v7 = _mm_movelh_ps((__m128)v22, (__m128)COERCE_UNSIGNED_INT(v4 - a3[2]));
+  v8 = _mm_mul_ps(v7, v7);
+  v9 = _mm_shuffle_ps(v8, v8, 102);
+  v8.m128_f32[0] = (float)(v8.m128_f32[0] + v9.m128_f32[0]) + _mm_shuffle_ps(v9, v9, 85).m128_f32[0];
+  v10 = _mm_div_ps(v7, _mm_sqrt_ps(_mm_shuffle_ps(v8, v8, 0)));
+  v11 = _mm_shuffle_ps(v10, v10, 170).m128_f32[0];
+  v12 = _mm_shuffle_ps(v10, v10, 85).m128_f32[0];
+  *(float *)&v22 = (float)(v11 * a4[1]) - (float)(v12 * a4[2]);
+  *((float *)&v22 + 1) = (float)(v10.m128_f32[0] * a4[2]) - (float)(v11 * *a4);
+  v13 = _mm_movelh_ps((__m128)v22, (__m128)COERCE_UNSIGNED_INT((float)(v12 * *a4) - (float)(v10.m128_f32[0] * a4[1])));
+  v14 = _mm_mul_ps(v13, v13);
+  v15 = _mm_shuffle_ps(v14, v14, 102);
+  v14.m128_f32[0] = (float)(v14.m128_f32[0] + v15.m128_f32[0]) + _mm_shuffle_ps(v15, v15, 85).m128_f32[0];
+  v16 = _mm_div_ps(v13, _mm_sqrt_ps(_mm_shuffle_ps(v14, v14, 0)));
+  v17 = _mm_shuffle_ps(v16, v16, 85).m128_f32[0];
+  v15.m128_f32[0] = _mm_shuffle_ps(v16, v16, 170).m128_f32[0];
+  v18 = (float)(v15.m128_f32[0] * v12) - (float)(v17 * v11);
+  *(float *)(a1 + 16) = v17;
   *(_DWORD *)(a1 + 60) = 1065353216;
-  *(float *)(a1 + 4) = v25;
   *(_DWORD *)(a1 + 12) = 0;
-  v26 = (float)(v19.m128_f32[0] * v22.m128_f32[0]) - (float)(v24.m128_f32[0] * v17);
+  *(_DWORD *)(a1 + 32) = v15.m128_i32[0];
   *(_DWORD *)(a1 + 28) = 0;
+  v19 = (float)(v16.m128_f32[0] * v11) - (float)(v15.m128_f32[0] * v10.m128_f32[0]);
+  *(_DWORD *)a1 = v16.m128_i32[0];
   *(_DWORD *)(a1 + 44) = 0;
   result = a1;
-  *(float *)(a1 + 20) = v26;
-  v5.m128_f32[0] = (float)(v17 * v24.m128_f32[1]) - (float)(v22.m128_f32[0] * v16);
-  *(_DWORD *)(a1 + 40) = v19.m128_i32[0];
-  v19.m128_f32[0] = v19.m128_f32[0] * a2[2];
-  *(_DWORD *)(a1 + 32) = v24.m128_i32[0];
-  v24.m128_f32[0] = v24.m128_f32[0] * a2[2];
-  *(_DWORD *)(a1 + 36) = v5.m128_i32[0];
-  v5.m128_f32[0] = v5.m128_f32[0] * a2[2];
-  *(float *)(a1 + 8) = v17;
-  *(_DWORD *)(a1 + 56) = COERCE_UNSIGNED_INT((float)((float)(v10 * v16) + (float)(v8 * v17)) + v19.m128_f32[0]) ^ _xmm;
-  *(float *)(a1 + 24) = v16;
-  *(_DWORD *)(a1 + 48) = COERCE_UNSIGNED_INT((float)((float)(v10 * v24.m128_f32[1]) + (float)(v8 * v22.m128_f32[0])) + v24.m128_f32[0]) ^ _xmm;
-  *(_DWORD *)a1 = v22.m128_i32[0];
-  *(_DWORD *)(a1 + 16) = v24.m128_i32[1];
-  *(_DWORD *)(a1 + 52) = COERCE_UNSIGNED_INT((float)((float)(v26 * v10) + (float)(v25 * v8)) + v5.m128_f32[0]) ^ _xmm;
+  v21 = (float)(v17 * v10.m128_f32[0]) - (float)(v16.m128_f32[0] * v12);
+  *(float *)(a1 + 20) = v19;
+  *(_DWORD *)(a1 + 8) = v10.m128_i32[0];
+  *(float *)(a1 + 24) = v12;
+  *(float *)(a1 + 40) = v11;
+  *(_DWORD *)(a1 + 48) = COERCE_UNSIGNED_INT((float)((float)(v17 * v6) + (float)(v16.m128_f32[0] * v5)) + (float)(v15.m128_f32[0] * v4)) ^ _xmm;
+  *(_DWORD *)(a1 + 56) = COERCE_UNSIGNED_INT((float)((float)(v6 * v12) + (float)(v5 * v10.m128_f32[0])) + (float)(v4 * v11)) ^ _xmm;
+  *(_DWORD *)(a1 + 52) = COERCE_UNSIGNED_INT((float)((float)(v19 * v6) + (float)(v5 * v18)) + (float)(v4 * v21)) ^ _xmm;
+  *(float *)(a1 + 4) = v18;
+  *(float *)(a1 + 36) = v21;
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMapImageInSystemProcess @ 0x140A30C24
+ * XREFs of MiMapImageInSystemProcess @ 0x1408C47F4
  * Callers:
- *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x14066BCCC (MiMapImageInSystemSpace.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiGetUserReservationHighestAddress @ 0x140722040 (MiGetUserReservationHighestAddress.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiGetUserReservationHighestAddress @ 0x1406397DC (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapImageInSystemProcess(__int64 a1, char a2, unsigned __int64 *a3, __int64 *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall MiMapImageInSystemProcess(__int64 a1, char a2, unsigned __int
   Process = KeGetCurrentThread()->ApcState.Process;
   memset(v13, 0, sizeof(v13));
   v13[1] = MiGetUserReservationHighestAddress((__int64)Process, 0LL);
-  BYTE1(v13[7]) = v10;
+  LOBYTE(v13[13]) = v10;
   v13[3] = (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL;
   v13[2] = 0x10000LL;
   v13[4] = v8;

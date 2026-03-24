@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBREG_UxdShutdown @ 0x1C0082684
+ * XREFs of HUBREG_UxdShutdown @ 0x1C008111C
  * Callers:
- *     HUBFDO_EvtDeviceShutdownPreprocess @ 0x1C000C4D0 (HUBFDO_EvtDeviceShutdownPreprocess.c)
+ *     HUBFDO_EvtDeviceShutdownPreprocess @ 0x1C000C0E0 (HUBFDO_EvtDeviceShutdownPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_QueryGlobalUxdSettings @ 0x1C0081584 (HUBREG_QueryGlobalUxdSettings.c)
- *     HUBREG_DeleteUxdSubKeys @ 0x1C0082464 (HUBREG_DeleteUxdSubKeys.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0080018 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_DeleteUxdSubKeys @ 0x1C0080EF8 (HUBREG_DeleteUxdSubKeys.c)
  */
 
 __int64 __fastcall HUBREG_UxdShutdown(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall HUBREG_UxdShutdown(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   HUBREG_QueryGlobalUxdSettings(v2);
   if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *, __int64, _QWORD, __int64 *))(WdfFunctions_01015 + 1832))(
          WdfDriverGlobals,
@@ -72,7 +72,7 @@ LABEL_8:
           2u,
           3u,
           v4,
-          (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+          (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
           v6);
       }
     }

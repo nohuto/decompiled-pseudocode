@@ -1,15 +1,15 @@
 /*
- * XREFs of _handle_errorf @ 0x1403DD4FC
+ * XREFs of _handle_errorf @ 0x1403D597C
  * Callers:
- *     sqrtf @ 0x1403DA7B0 (sqrtf.c)
+ *     sqrtf @ 0x1403D2DA0 (sqrtf.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _call_matherr @ 0x1403DD280 (_call_matherr.c)
- *     _exception_enabled @ 0x1403DD2FC (_exception_enabled.c)
- *     _raise_excf @ 0x1403DDBF4 (_raise_excf.c)
- *     _ctrlfp @ 0x1403DDC4C (_ctrlfp.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _call_matherr @ 0x1403D570C (_call_matherr.c)
+ *     _exception_enabled @ 0x1403D577C (_exception_enabled.c)
+ *     _raise_excf @ 0x1403D6060 (_raise_excf.c)
+ *     _set_errno_from_matherr @ 0x1403D6094 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x1403D60E4 (_ctrlfp.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 float __fastcall handle_errorf(
@@ -26,27 +26,29 @@ float __fastcall handle_errorf(
   BOOL v13; // eax
   __int64 v14; // r9
   float v15; // xmm6_4
-  __int64 v17; // [rsp+48h] [rbp-91h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-89h] BYREF
-  _DWORD v19[28]; // [rsp+58h] [rbp-81h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-A1h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-99h] BYREF
+  int v19; // [rsp+58h] [rbp-91h]
+  _DWORD v20[28]; // [rsp+68h] [rbp-81h] BYREF
 
   v18 = ctrlfp(8064LL, 65472LL);
+  v19 = a3;
   LODWORD(v17) = a3;
   v13 = exception_enabled(a5, v18);
   v15 = a8;
   if ( !v13 )
   {
-    memset(v19, 0, sizeof(v19));
+    memset(v20, 0, sizeof(v20));
     if ( a9 == 2 )
     {
-      *(float *)&v19[12] = a8;
-      v19[16] = 1;
+      *(float *)&v20[12] = a8;
+      v20[16] = 1;
     }
-    raise_excf((unsigned int)v19, (unsigned int)&v18, a5, a2, (__int64)&a7, (__int64)&v17);
+    raise_excf((unsigned int)v20, (unsigned int)&v18, a5, a2, (__int64)&a7, (__int64)&v17);
   }
   if ( !matherr_flag && a4 )
     return call_matherr(a4, a6, a1, v14, COERCE__INT64(v15), *(float *)&v17, v18);
-  xHalTimerWatchdogStop();
+  set_errno_from_matherr(a4);
   ctrlfp(v18, 65472LL);
   return *(float *)&v17;
 }

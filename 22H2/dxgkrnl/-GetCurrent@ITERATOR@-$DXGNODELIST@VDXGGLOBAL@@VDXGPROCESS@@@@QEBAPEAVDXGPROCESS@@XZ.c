@@ -1,10 +1,9 @@
 /*
- * XREFs of ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGGLOBAL@@VDXGPROCESS@@@@QEBAPEAVDXGPROCESS@@XZ @ 0x1C00223F4
+ * XREFs of ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGGLOBAL@@VDXGPROCESS@@@@QEBAPEAVDXGPROCESS@@XZ @ 0x1C0024248
  * Callers:
- *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C0223158 (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
- *     ?IterateProcessAndApplyCSFn@DXGGLOBAL@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z @ 0x1C02E64B8 (-IterateProcessAndApplyCSFn@DXGGLOBAL@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z.c)
- *     ?HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ @ 0x1C0313500 (-HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ.c)
- *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C0314EAC (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C019AC9C (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
+ *     ?HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ @ 0x1C026A494 (-HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?IterateProcessAndApplyCSFn@DXGGLOBAL@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z @ 0x1C02BF87C (-IterateProcessAndApplyCSFn@DXGGLOBAL@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z.c)
  * Callees:
  *     <none>
  */

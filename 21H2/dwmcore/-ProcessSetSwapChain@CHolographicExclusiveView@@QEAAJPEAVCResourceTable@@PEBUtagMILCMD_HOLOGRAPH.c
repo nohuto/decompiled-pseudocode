@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN@@@Z @ 0x180299440
+ * XREFs of ?ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN@@@Z @ 0x180257480
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z @ 0x180298DF8 (-AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z.c)
- *     ?ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180299648 (-ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z @ 0x180256EB8 (-AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z.c)
+ *     ?ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180257674 (-ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CHolographicExclusiveView::ProcessSetSwapChain(
@@ -23,7 +23,7 @@ __int64 __fastcall CHolographicExclusiveView::ProcessSetSwapChain(
   int v11; // eax
   __int64 v12; // rcx
 
-  if ( *((_BYTE *)this + 83) )
+  if ( *((_BYTE *)this + 75) )
     return 2147942487LL;
   v6 = *((_DWORD *)a3 + 2);
   v7 = 0LL;
@@ -34,7 +34,7 @@ __int64 __fastcall CHolographicExclusiveView::ProcessSetSwapChain(
           40LL) )
   {
     v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2003303421, 0x82u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003303421, 0x82u, 0LL);
   }
   else
   {
@@ -42,7 +42,7 @@ __int64 __fastcall CHolographicExclusiveView::ProcessSetSwapChain(
     v11 = CHolographicExclusiveView::AttachSwapChain((RTL_SRWLOCK *)this, v7);
     v10 = v11;
     if ( v11 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x89u);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x89u, 0LL);
   }
   return v10;
 }

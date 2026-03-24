@@ -1,32 +1,35 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_MULTIPLANE_OVERLAY_PLANE_WITH_SOURCE2@@$02@@QEAAPEAU_DXGK_MULTIPLANE_OVERLAY_PLANE_WITH_SOURCE2@@I@Z @ 0x1C022FDDC
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_MULTIPLANE_OVERLAY_PLANE_WITH_SOURCE2@@$02@@QEAAPEAU_DXGK_MULTIPLANE_OVERLAY_PLANE_WITH_SOURCE2@@I@Z @ 0x1C0252710
  * Callers:
- *     ?CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E71DC (-CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
+ *     ?CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0252D04 (-CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<_DXGK_MULTIPLANE_OVERLAY_PLANE_WITH_SOURCE2,3>::AllocateElements(
-        __int64 *a1,
+PVOID __fastcall PagedPoolZeroedArray<_DXGK_MULTIPLANE_OVERLAY_PLANE_WITH_SOURCE2,3>::AllocateElements(
+        _DWORD *a1,
         unsigned int a2)
 {
-  __int64 result; // rax
-  void *v5; // rcx
+  __int64 v4; // rdi
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 3 )
   {
-    v5 = a1 + 1;
-    *a1 = (__int64)v5;
-    if ( a2 )
-      memset(v5, 0, 104LL * a2);
+    result = a1 + 2;
   }
   else
   {
     if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 0x68 )
       return 0LL;
-    *a1 = ExAllocatePool2(256LL, 104LL * a2, 1265072196LL);
+    result = ExAllocatePoolWithTag(PagedPool, 104LL * a2, 0x4B677844u);
   }
-  result = *a1;
-  *((_DWORD *)a1 + 80) = a2;
+  *(_QWORD *)a1 = result;
+  a1[80] = a2;
+  if ( result )
+  {
+    memset(result, 0, 104 * v4);
+    return *(PVOID *)a1;
+  }
   return result;
 }

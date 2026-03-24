@@ -1,9 +1,9 @@
 /*
- * XREFs of KeTryToAcquireGuardedMutex @ 0x14033DAC0
+ * XREFs of KeTryToAcquireGuardedMutex @ 0x1402E3CF0
  * Callers:
  *     <none>
  * Callees:
- *     ExTryToAcquireFastMutex @ 0x14033DAE0 (ExTryToAcquireFastMutex.c)
+ *     ExTryToAcquireFastMutex @ 0x1402E3D10 (ExTryToAcquireFastMutex.c)
  */
 
 BOOLEAN __stdcall KeTryToAcquireGuardedMutex(PKGUARDED_MUTEX Mutex)

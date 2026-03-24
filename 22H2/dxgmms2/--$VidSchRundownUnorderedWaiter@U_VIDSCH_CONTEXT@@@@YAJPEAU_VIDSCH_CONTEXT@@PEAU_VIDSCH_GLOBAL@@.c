@@ -1,12 +1,12 @@
 /*
- * XREFs of ??$VidSchRundownUnorderedWaiter@U_VIDSCH_CONTEXT@@@@YAJPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C00026A0
+ * XREFs of ??$VidSchRundownUnorderedWaiter@U_VIDSCH_CONTEXT@@@@YAJPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C0011F14
  * Callers:
- *     VidSchFlushContext @ 0x1C0089DD0 (VidSchFlushContext.c)
+ *     VidSchFlushContext @ 0x1C00801A0 (VidSchFlushContext.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000A370 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchiRundownUnorderedWaiterContext @ 0x1C003C23C (VidSchiRundownUnorderedWaiterContext.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000B050 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiRundownUnorderedWaiterContext @ 0x1C0031578 (VidSchiRundownUnorderedWaiterContext.c)
  */
 
 __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_CONTEXT>(
@@ -25,7 +25,7 @@ __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_CONTEXT>(
   v5 = 0;
   if ( a3 != 5 && *(_DWORD *)(a1 + 796) )
   {
-    if ( a3 < 8 )
+    if ( a3 < 6 )
     {
       return (unsigned int)-2147483631;
     }
@@ -36,8 +36,8 @@ __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_CONTEXT>(
       if ( *(_DWORD *)(a1 + 796) )
       {
         v12 = 0;
-        v11[0] = a2 + 1728;
-        AcquireSpinLock::Acquire((AcquireSpinLock *)v11);
+        v11[0] = a2 + 1712;
+        AcquireSpinLock::Acquire((Acquire *)v11);
         v10 = 0;
         v9[1] = v9;
         v9[0] = v9;

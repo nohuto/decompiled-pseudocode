@@ -1,28 +1,23 @@
 /*
- * XREFs of VerifierKeWaitForSingleObject @ 0x140AC1540
+ * XREFs of VerifierKeWaitForSingleObject @ 0x1409DBA20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViKeInjectStatusAlerted @ 0x140AC1618 (ViKeInjectStatusAlerted.c)
+ *     ViKeObjectAcquired @ 0x1409DC214 (ViKeObjectAcquired.c)
+ *     ViKeWaitForSingleObjectCommon @ 0x1409DC568 (ViKeWaitForSingleObjectCommon.c)
  */
 
-__int64 __fastcall VerifierKeWaitForSingleObject(__int64 a1, unsigned int a2, char a3, char a4, __int64 a5)
+__int64 __fastcall VerifierKeWaitForSingleObject(__int64 a1, int a2, int a3, int a4, __int64 a5)
 {
-  __int64 v5; // rbp
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v5; // rdi
+  unsigned int v6; // ebx
+  void *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = a1;
-  LOBYTE(a1) = a4;
-  if ( (unsigned int)ViKeInjectStatusAlerted(a1) )
-    return 257LL;
-  LOBYTE(v10) = a4;
-  LOBYTE(v9) = a3;
-  return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, __int64))pXdvKeWaitForSingleObject)(
-           v5,
-           a2,
-           v9,
-           v10,
-           a5);
+  v9 = a1;
+  v5 = a5;
+  v6 = ViKeWaitForSingleObjectCommon(a1, a2, a3, a4, a5);
+  if ( ((MmVerifierData & 0x400000) == 0 || ViDeadlockDetectionEnabled) && (v6 & 0xFFFFFF7F) == 0 )
+    ViKeObjectAcquired(1LL, &v9, v5, retaddr);
+  return v6;
 }

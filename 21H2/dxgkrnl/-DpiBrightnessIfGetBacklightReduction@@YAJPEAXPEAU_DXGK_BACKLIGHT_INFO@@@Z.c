@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DpiBrightnessIfGetBacklightReduction@@YAJPEAXPEAU_DXGK_BACKLIGHT_INFO@@@Z @ 0x1C038FA10
+ * XREFs of ?DpiBrightnessIfGetBacklightReduction@@YAJPEAXPEAU_DXGK_BACKLIGHT_INFO@@@Z @ 0x1C02D0D10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
  */
 
 __int64 __fastcall DpiBrightnessIfGetBacklightReduction(_QWORD *a1, struct _DXGK_BACKLIGHT_INFO *a2)
@@ -15,38 +15,37 @@ __int64 __fastcall DpiBrightnessIfGetBacklightReduction(_QWORD *a1, struct _DXGK
   __int16 v6; // bp
   int v8; // ebx
   __int64 v9; // rcx
-  __int64 v10; // rcx
-  __int64 (__fastcall *v11)(_QWORD, struct _DXGK_BACKLIGHT_INFO *); // rax
-  __int64 v12; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
 
   v2 = a1[8];
   v3 = 0LL;
-  v6 = *(_WORD *)(v2 + 4666);
+  v6 = *(_WORD *)(v2 + 4738);
   if ( v6 == 2 )
-    v3 = v2 + 4664;
+    v3 = v2 + 4736;
   if ( !v3 )
     return 3221225659LL;
   v8 = -1073741661;
-  KeWaitForSingleObject((PVOID)(v2 + 4392), Executive, 0, 0, 0LL);
+  KeWaitForSingleObject((PVOID)(v2 + 4464), Executive, 0, 0, 0LL);
   v9 = 32LL;
   if ( v6 == 2 )
-    v9 = v2 + 4696;
+    v9 = v2 + 4768;
   if ( *(_QWORD *)v9 )
   {
     v8 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
     if ( v8 >= 0 )
     {
       v10 = 80LL;
+      v11 = 8LL;
       if ( v6 == 2 )
-        v10 = v2 + 4744;
-      v11 = *(__int64 (__fastcall **)(_QWORD, struct _DXGK_BACKLIGHT_INFO *))v10;
-      v12 = 8LL;
-      if ( v6 == 2 )
-        v12 = v2 + 4672;
-      v8 = v11(*(_QWORD *)v12, a2);
+      {
+        v10 = v2 + 4816;
+        v11 = v2 + 4744;
+      }
+      v8 = (*(__int64 (__fastcall **)(_QWORD, struct _DXGK_BACKLIGHT_INFO *))v10)(*(_QWORD *)v11, a2);
       DpiReleaseCoreSyncAccessSafe((__int64)a1, 0);
     }
   }
-  KeReleaseMutex((PRKMUTEX)(v2 + 4392), 0);
+  KeReleaseMutex((PRKMUTEX)(v2 + 4464), 0);
   return (unsigned int)v8;
 }

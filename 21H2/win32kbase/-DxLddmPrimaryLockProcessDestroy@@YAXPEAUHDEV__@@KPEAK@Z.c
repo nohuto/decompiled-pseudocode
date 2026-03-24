@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C006FEC8
+ * XREFs of ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C001113C
  * Callers:
- *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006FB60 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0010D28 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
  * Callees:
- *     DxLddmFindProcessEntry @ 0x1C006FF20 (DxLddmFindProcessEntry.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     DxLddmFindProcessEntry @ 0x1C0011190 (DxLddmFindProcessEntry.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DxLddmPrimaryLockProcessDestroy(_DWORD *a1, __int64 a2, unsigned int *a3)
@@ -16,9 +16,10 @@ void __fastcall DxLddmPrimaryLockProcessDestroy(_DWORD *a1, __int64 a2, unsigned
   _QWORD *v8; // rcx
   int v9; // eax
   void (__fastcall *v10)(_QWORD, char *); // rax
-  unsigned int v11; // edx
+  int v11; // eax
+  unsigned int v12; // eax
 
-  ProcessEntry = (_QWORD *)DxLddmFindProcessEntry(a1 + 650);
+  ProcessEntry = (_QWORD *)DxLddmFindProcessEntry(a1 + 656);
   v6 = ProcessEntry;
   if ( ProcessEntry )
   {
@@ -30,19 +31,22 @@ void __fastcall DxLddmPrimaryLockProcessDestroy(_DWORD *a1, __int64 a2, unsigned
     v9 = *((_DWORD *)v6 + 5);
     if ( v9 )
     {
-      a1[654] -= v9;
-      v10 = (void (__fastcall *)(_QWORD, char *))*((_QWORD *)a1 + 328);
+      a1[660] -= v9;
+      v10 = (void (__fastcall *)(_QWORD, char *))*((_QWORD *)a1 + 331);
       if ( v10 )
-        v10(*((_QWORD *)a1 + 221), (char *)v6 + 28);
-      if ( qword_1C029ADC0 && (int)qword_1C029ADC0() >= 0 && qword_1C029ADC8 )
-        qword_1C029ADC8(a1, (char *)v6 + 28, 1LL);
+        v10(*((_QWORD *)a1 + 225), (char *)v6 + 28);
+      if ( qword_1C0256040 )
+        v11 = qword_1C0256040();
+      else
+        v11 = -1073741637;
+      if ( v11 >= 0 && qword_1C0256048 )
+        qword_1C0256048(a1, (char *)v6 + 28, 1LL);
     }
-    v11 = *a3 + *((_DWORD *)v6 + 6);
-    if ( v11 < *a3 )
-      v11 = -1;
-    *a3 = v11;
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v6);
+    if ( *a3 + *((_DWORD *)v6 + 6) < *a3 )
+      v12 = -1;
+    else
+      v12 = *a3 + *((_DWORD *)v6 + 6);
+    *a3 = v12;
+    Win32FreePool(v6);
   }
 }

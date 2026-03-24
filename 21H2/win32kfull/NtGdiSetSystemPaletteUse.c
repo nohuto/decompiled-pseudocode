@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetSystemPaletteUse @ 0x1C02AEB40
+ * XREFs of NtGdiSetSystemPaletteUse @ 0x1C02B03E0
  * Callers:
  *     <none>
  * Callees:
- *     GreSetSystemPaletteUse @ 0x1C02B6390 (GreSetSystemPaletteUse.c)
+ *     GreSetSystemPaletteUse @ 0x1C02B8254 (GreSetSystemPaletteUse.c)
  */
 
 __int64 __fastcall NtGdiSetSystemPaletteUse(HDC a1)

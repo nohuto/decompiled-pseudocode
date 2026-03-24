@@ -1,5 +1,5 @@
 /*
- * XREFs of ObWaitForSingleObject @ 0x14071E0C0
+ * XREFs of ObWaitForSingleObject @ 0x14071E0A0
  * Callers:
  *     <none>
  * Callees:

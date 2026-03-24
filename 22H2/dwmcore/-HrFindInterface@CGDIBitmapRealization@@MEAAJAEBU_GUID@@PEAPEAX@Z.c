@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CGDIBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180104E10
+ * XREFs of ?HrFindInterface@CGDIBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC240
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180077540 (-HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180068C00 (-HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CGDIBitmapRealization::HrFindInterface(
@@ -26,7 +26,7 @@ __int64 __fastcall CGDIBitmapRealization::HrFindInterface(
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 400) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 368) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

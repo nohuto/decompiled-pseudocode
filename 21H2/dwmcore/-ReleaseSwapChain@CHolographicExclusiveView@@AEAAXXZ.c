@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180299648
+ * XREFs of ?ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180257674
  * Callers:
- *     ?DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180298FD0 (-DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ?ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN@@@Z @ 0x180299440 (-ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPH.c)
+ *     ?DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180257090 (-DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN@@@Z @ 0x180257480 (-ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPH.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicExclusiveView::ReleaseSwapChain(RTL_SRWLOCK *this)
@@ -15,15 +15,15 @@ void __fastcall CHolographicExclusiveView::ReleaseSwapChain(RTL_SRWLOCK *this)
   PVOID v4; // rax
   CHolographicInteropTaskQueue *v5; // rcx
 
-  v1 = this + 51;
-  AcquireSRWLockExclusive(this + 51);
-  Ptr = (struct CResource *)this[11].Ptr;
+  v1 = this + 50;
+  AcquireSRWLockExclusive(this + 50);
+  Ptr = (struct CResource *)this[10].Ptr;
   if ( Ptr )
   {
     CResource::UnRegisterNotifierInternal((CResource *)this, Ptr);
-    this[11].Ptr = 0LL;
+    this[10].Ptr = 0LL;
     ReleaseSRWLockExclusive(v1);
-    v4 = this[8].Ptr;
+    v4 = this[7].Ptr;
     if ( v4 )
     {
       v5 = (CHolographicInteropTaskQueue *)*((_QWORD *)v4 + 6);

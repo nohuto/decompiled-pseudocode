@@ -1,23 +1,23 @@
 /*
- * XREFs of KeCapturePersistentThreadState @ 0x1405558E0
+ * XREFs of KeCapturePersistentThreadState @ 0x140505040
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14092BC54 (DbgkpWerCaptureLiveTriageDump.c)
- *     LkmdTelCreateReport @ 0x140A36E2C (LkmdTelCreateReport.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x140888F28 (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x140982DD8 (LkmdTelCreateReport.c)
  * Callees:
- *     RtlGetNtProductType @ 0x140245CC0 (RtlGetNtProductType.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1403CFB04 (SecureDump_GetSecureDumpSettings.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IoGetLoadedDriverInfo @ 0x1405528FC (IoGetLoadedDriverInfo.c)
- *     IopGetMaxValidSectionSize @ 0x1405548F0 (IopGetMaxValidSectionSize.c)
- *     IopGetMaxValidSectionSizeDown @ 0x140554938 (IopGetMaxValidSectionSizeDown.c)
- *     IopValidateSectionSize @ 0x14055547C (IopValidateSectionSize.c)
- *     IopWriteDriverList @ 0x140555698 (IopWriteDriverList.c)
- *     KdCopyDataBlock @ 0x140564F3C (KdCopyDataBlock.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x1402C2020 (RtlGetNtProductType.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1403BFF24 (SecureDump_GetSecureDumpSettings.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IoGetLoadedDriverInfo @ 0x14050245C (IoGetLoadedDriverInfo.c)
+ *     IopGetMaxValidSectionSize @ 0x140504238 (IopGetMaxValidSectionSize.c)
+ *     IopGetMaxValidSectionSizeDown @ 0x140504280 (IopGetMaxValidSectionSizeDown.c)
+ *     IopValidateSectionSize @ 0x140504B68 (IopValidateSectionSize.c)
+ *     IopWriteDriverList @ 0x140504DEC (IopWriteDriverList.c)
+ *     KdCopyDataBlock @ 0x140510748 (KdCopyDataBlock.c)
  */
 
 __int64 __fastcall KeCapturePersistentThreadState(
@@ -68,18 +68,19 @@ __int64 __fastcall KeCapturePersistentThreadState(
   __int64 v46; // rcx
   __int64 result; // rax
   int v48; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v49; // [rsp+28h] [rbp-18h] BYREF
-  int v50; // [rsp+30h] [rbp-10h]
+  int v49; // [rsp+24h] [rbp-1Ch] BYREF
+  __int64 v50; // [rsp+28h] [rbp-18h] BYREF
+  int v51; // [rsp+30h] [rbp-10h]
 
   v8 = Size;
-  v49 = 0LL;
-  v50 = 0;
+  v50 = 0LL;
+  v51 = 0;
   CurrentThread = a2;
   if ( !Size )
     return 0LL;
   if ( !a2 )
     CurrentThread = KeGetCurrentThread();
-  if ( ForceDumpDisabled || !AllowCrashDump || (int)SecureDump_GetSecureDumpSettings((__int64)&v49) < 0 || (_BYTE)v49 )
+  if ( ForceDumpDisabled || (int)SecureDump_GetSecureDumpSettings((__int64)&v50) < 0 || (_BYTE)v50 )
     return 0LL;
   memset((void *)(v8 + 8), 0, 0x3FFF8uLL);
   v13 = (void *)v8;
@@ -168,7 +169,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
     KdCopyDataBlock(v8 + 8320, v23);
     v17 = 9216;
   }
-  LODWORD(Size) = 48896;
+  LODWORD(Size) = 44800;
   if ( IopValidateSectionSize(v17, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 4u;
@@ -176,7 +177,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
     memmove((void *)(v8 + v17), KeGetCurrentPrcb(), (unsigned int)Size);
     v17 += Size;
   }
-  LODWORD(Size) = 2944;
+  LODWORD(Size) = 2624;
   if ( IopValidateSectionSize((v17 + 7) & 0xFFFFFFF8, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 8u;
@@ -186,7 +187,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
     memmove((void *)(v8 + v24), CurrentThread->ApcState.Process, v25);
     v17 = Size + v26;
   }
-  LODWORD(Size) = 2288;
+  LODWORD(Size) = 2200;
   if ( IopValidateSectionSize((v17 + 7) & 0xFFFFFFF8, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 0x10u;
@@ -225,19 +226,19 @@ __int64 __fastcall KeCapturePersistentThreadState(
   if ( KeGetCurrentIrql() < 2u )
   {
     v36 = KeGetCurrentThread();
-    LODWORD(Size) = 0;
-    v37 = (v17 + 7) & 0xFFFFFFF8;
     v48 = 0;
+    v37 = (v17 + 7) & 0xFFFFFFF8;
+    v49 = 0;
     --v36->KernelApcDisable;
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
-    if ( (int)IoGetLoadedDriverInfo(0, &Size, &v48) >= 0 )
+    if ( (int)IoGetLoadedDriverInfo(0, &v48, &v49) >= 0 )
     {
-      v38 = Size;
-      LODWORD(Size) = 144 * Size;
-      if ( (_DWORD)Size && IopValidateSectionSize(v37, (unsigned int *)&Size) )
+      v38 = v48;
+      LODWORD(Size) = 144 * v48;
+      if ( 144 * v48 && IopValidateSectionSize(v37, (unsigned int *)&Size) )
       {
         v39 = v37 + Size;
-        LODWORD(Size) = (v48 + 7 + 6 * v38) & 0xFFFFFFF8;
+        LODWORD(Size) = (v49 + 7 + 6 * v38) & 0xFFFFFFF8;
         if ( (_DWORD)Size && IopValidateSectionSize(v39, (unsigned int *)&Size) )
         {
           if ( (int)IopWriteDriverList(v8, 0, v37, v39) >= 0 )

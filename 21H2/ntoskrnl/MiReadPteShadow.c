@@ -1,13 +1,26 @@
 /*
- * XREFs of MiReadPteShadow @ 0x14027D890
+ * XREFs of MiReadPteShadow @ 0x140305A30
  * Callers:
- *     MiResolveProtoPteFault @ 0x14031EAA0 (MiResolveProtoPteFault.c)
- *     MiChargeSegmentCommit @ 0x1406A4140 (MiChargeSegmentCommit.c)
- *     MiPrefetchDriverPages @ 0x1406F4650 (MiPrefetchDriverPages.c)
- *     MiIsRangeFullyCommitted @ 0x1407BBF50 (MiIsRangeFullyCommitted.c)
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1407BD420 (MiPfPrepareReadList.c)
- *     MiConvertHiberPhasePte @ 0x140A4FFC0 (MiConvertHiberPhasePte.c)
+ *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiChargeSegmentCommit @ 0x14061FED0 (MiChargeSegmentCommit.c)
+ *     MiPrefetchDriverPages @ 0x1406885A0 (MiPrefetchDriverPages.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MmHardFaultBytesRequired @ 0x1406EF710 (MmHardFaultBytesRequired.c)
+ *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiIsRangeFullyCommitted @ 0x1406F02C0 (MiIsRangeFullyCommitted.c)
+ *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
+ *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
+ *     MiMarkBootGuardPage @ 0x14079F9BC (MiMarkBootGuardPage.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407A1470 (MiProtectLargeKernelHalRange.c)
+ *     MmFreeNonCachedMemory @ 0x1408C68E0 (MmFreeNonCachedMemory.c)
+ *     MiCaptureSparsePages @ 0x1408D8564 (MiCaptureSparsePages.c)
+ *     MiConvertHiberPhasePte @ 0x1409957D0 (MiConvertHiberPhasePte.c)
+ *     MiMarkHiberNotCachedPte @ 0x1409B0300 (MiMarkHiberNotCachedPte.c)
+ *     MiMarkNonPagedHiberPhasePte @ 0x1409B0520 (MiMarkNonPagedHiberPhasePte.c)
  * Callees:
  *     <none>
  */

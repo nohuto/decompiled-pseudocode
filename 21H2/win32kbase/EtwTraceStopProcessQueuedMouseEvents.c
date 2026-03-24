@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceStopProcessQueuedMouseEvents @ 0x1C00AD980
+ * XREFs of EtwTraceStopProcessQueuedMouseEvents @ 0x1C0043010
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C003ADD4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0040F54 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceStopProcessQueuedMouseEvents(__int64 a1)

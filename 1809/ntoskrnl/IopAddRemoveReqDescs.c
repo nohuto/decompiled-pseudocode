@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAddRemoveReqDescs @ 0x14072FD74
+ * XREFs of IopAddRemoveReqDescs @ 0x14072FD54
  * Callers:
- *     IopSelectNextConfiguration @ 0x14072DD10 (IopSelectNextConfiguration.c)
- *     PnpFindBestConfigurationWorker @ 0x14072E204 (PnpFindBestConfigurationWorker.c)
- *     PnpSelectFirstConfiguration @ 0x14072E464 (PnpSelectFirstConfiguration.c)
- *     IopBootAllocation @ 0x14072FC94 (IopBootAllocation.c)
+ *     IopSelectNextConfiguration @ 0x14072DCF0 (IopSelectNextConfiguration.c)
+ *     PnpFindBestConfigurationWorker @ 0x14072E1E4 (PnpFindBestConfigurationWorker.c)
+ *     PnpSelectFirstConfiguration @ 0x14072E444 (PnpSelectFirstConfiguration.c)
+ *     IopBootAllocation @ 0x14072FC74 (IopBootAllocation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, char a4)

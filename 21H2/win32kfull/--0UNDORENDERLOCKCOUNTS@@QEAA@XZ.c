@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C0116EA0
+ * XREFs of ??0UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C01291A0
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 UNDORENDERLOCKCOUNTS *__fastcall UNDORENDERLOCKCOUNTS::UNDORENDERLOCKCOUNTS(UNDORENDERLOCKCOUNTS *this)

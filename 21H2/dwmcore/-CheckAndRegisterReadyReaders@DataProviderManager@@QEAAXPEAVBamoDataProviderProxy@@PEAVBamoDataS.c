@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CheckAndRegisterReadyReaders@DataProviderManager@@QEAAXPEAVBamoDataProviderProxy@@PEAVBamoDataSourceProxy@@@Z @ 0x1801954E0
+ * XREFs of ?CheckAndRegisterReadyReaders@DataProviderManager@@QEAAXPEAVBamoDataProviderProxy@@PEAVBamoDataSourceProxy@@@Z @ 0x180164C1C
  * Callers:
- *     ?AddDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z @ 0x1801BDC60 (-AddDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z.c)
+ *     ?AddDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z @ 0x180181730 (-AddDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z.c)
  * Callees:
- *     ??$GetUniqueId@VBamoDataProviderProxy@@@DataProviderHelper@@YA_KPEAVBamoDataProviderProxy@@@Z @ 0x1800F2E40 (--$GetUniqueId@VBamoDataProviderProxy@@@DataProviderHelper@@YA_KPEAVBamoDataProviderProxy@@@Z.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ??$GetUniqueId@VBamoDataSourceProxy@@@DataProviderHelper@@YA_KPEAVBamoDataSourceProxy@@@Z @ 0x180195130 (--$GetUniqueId@VBamoDataSourceProxy@@@DataProviderHelper@@YA_KPEAVBamoDataSourceProxy@@@Z.c)
- *     ?RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x1801BCE5C (-RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
+ *     ??$GetUniqueId@VBamoDataProviderProxy@@@DataProviderHelper@@YA_KPEAVBamoDataProviderProxy@@@Z @ 0x1800DBF84 (--$GetUniqueId@VBamoDataProviderProxy@@@DataProviderHelper@@YA_KPEAVBamoDataProviderProxy@@@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ??$GetUniqueId@VDataSourceProxy@@@DataProviderHelper@@YA_KPEAVDataSourceProxy@@@Z @ 0x1801647D4 (--$GetUniqueId@VDataSourceProxy@@@DataProviderHelper@@YA_KPEAVDataSourceProxy@@@Z.c)
+ *     ?RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x180180D08 (-RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
  */
 
 void __fastcall DataProviderManager::CheckAndRegisterReadyReaders(
@@ -25,22 +25,25 @@ void __fastcall DataProviderManager::CheckAndRegisterReadyReaders(
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
   Unique = DataProviderHelper::GetUniqueId<BamoDataProviderProxy>((__int64)a2);
-  v6 = DataProviderHelper::GetUniqueId<BamoDataSourceProxy>((__int64)a3);
+  v6 = DataProviderHelper::GetUniqueId<DataSourceProxy>((__int64)a3);
   v7 = (struct CDataSourceReader **)*((_QWORD *)this + 13);
   v8 = v6;
   for ( i = (struct CDataSourceReader **)*((_QWORD *)this + 14); v7 != i; ++v7 )
   {
     v10 = *v7;
-    if ( *((_QWORD *)*v7 + 8) == Unique && *((_QWORD *)v10 + 9) == v8 )
+    if ( *((_QWORD *)*v7 + 7) == Unique && *((_QWORD *)v10 + 8) == v8 )
     {
       v11 = DataSourceProxy::RegisterReader(a3, v10);
       if ( ((v11 + 0x80000000) & 0x80000000) == 0 && v11 != -2147024891 )
+      {
         wil::details::in1diag3::_FailFast_Unexpected(
           retaddr,
-          527LL,
+          (void *)0x20F,
           (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
           v12);
-      *((_BYTE *)*v7 + 80) &= ~2u;
+        JUMPOUT(0x180164CE5LL);
+      }
+      *((_BYTE *)*v7 + 72) &= ~2u;
     }
   }
   DataProviderManager::RemoveProcessedReadersFromReadyList(this);

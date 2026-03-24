@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FlushData@CDataStreamWriter@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x180042C08
+ * XREFs of ?FlushData@CDataStreamWriter@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x180038174
  * Callers:
- *     ?CheckPrimitives@CRenderData@@AEAAJXZ @ 0x1800447FC (-CheckPrimitives@CRenderData@@AEAAJXZ.c)
- *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180044A1C (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
+ *     ?CheckPrimitiveCount@CRenderData@@AEAAJXZ @ 0x180037B60 (-CheckPrimitiveCount@CRenderData@@AEAAJXZ.c)
+ *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180037C58 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */

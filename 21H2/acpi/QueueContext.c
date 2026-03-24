@@ -1,9 +1,9 @@
 /*
- * XREFs of QueueContext @ 0x1C002A818
+ * XREFs of QueueContext @ 0x1C00686E4
  * Callers:
- *     ParseAcquire @ 0x1C0017EA0 (ParseAcquire.c)
- *     WriteCookAccess @ 0x1C0026A60 (WriteCookAccess.c)
- *     WaitASLEvent @ 0x1C002A6C0 (WaitASLEvent.c)
+ *     ParseAcquire @ 0x1C000A6C0 (ParseAcquire.c)
+ *     WriteCookAccess @ 0x1C0029900 (WriteCookAccess.c)
+ *     WaitASLEvent @ 0x1C00688BC (WaitASLEvent.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ void __fastcall QueueContext(__int64 a1, unsigned __int16 a2, __int64 a3)
   _QWORD *v7; // rcx
 
   v4 = a2;
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&SpinLock);
+  byte_1C00827B0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
   v6 = (_QWORD *)(a1 + 32);
   v7 = *(_QWORD **)(a3 + 8);
   if ( *v7 != a3 )
@@ -29,5 +29,5 @@ void __fastcall QueueContext(__int64 a1, unsigned __int16 a2, __int64 a3)
     *(_DWORD *)(a1 + 64) |= 1u;
     KeSetTimer((PKTIMER)(a1 + 192), (LARGE_INTEGER)(-10000 * v4), (PKDPC)(a1 + 256));
   }
-  KeReleaseSpinLock(&SpinLock, NewIrql);
+  KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
 }

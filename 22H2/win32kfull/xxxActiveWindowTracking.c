@@ -1,63 +1,70 @@
 /*
- * XREFs of xxxActiveWindowTracking @ 0x1C01B7230
+ * XREFs of xxxActiveWindowTracking @ 0x1C01E246C
  * Callers:
- *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C0041F3C (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
- *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00F188C (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C004B32C (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C00C07B8 (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
  * Callees:
- *     IsForegroundLocked @ 0x1C005FED4 (IsForegroundLocked.c)
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
- *     ?xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C01AE408 (-xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z.c)
- *     GetActiveTrackPwnd @ 0x1C01B68AC (GetActiveTrackPwnd.c)
+ *     IsForegroundLocked @ 0x1C003D1C4 (IsForegroundLocked.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C01D2320 (-xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z.c)
+ *     GetActiveTrackPwnd @ 0x1C01E16AC (GetActiveTrackPwnd.c)
  */
 
-__int64 __fastcall xxxActiveWindowTracking(struct tagWND *a1)
+__int64 __fastcall xxxActiveWindowTracking(__int64 a1, unsigned __int16 a2, unsigned __int16 a3)
 {
-  __int64 v2; // rcx
-  int v3; // eax
-  unsigned int v4; // ebx
-  struct tagWND *ActiveTrackPwnd; // rax
-  struct tagWND *v6; // rdi
-  __int64 v7; // rcx
-  int v8; // esi
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-18h]
+  __int64 v6; // rcx
+  int v7; // eax
+  unsigned __int64 *ActiveTrackPwnd; // rax
+  unsigned __int64 *v9; // rdi
+  __int64 ThreadWin32Thread; // rax
+  int v11; // eax
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
+  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-18h]
 
-  v12 = 0LL;
-  v13 = 0LL;
-  v2 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 432LL);
-  v3 = *(_DWORD *)(v2 + 396);
-  if ( (v3 & 0x200000) == 0 )
+  v15 = 0LL;
+  v16 = 0LL;
+  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL);
+  v7 = *(_DWORD *)(v6 + 388);
+  if ( (v7 & 0x200000) == 0 )
     return 0LL;
-  *(_DWORD *)(v2 + 396) = v3 & 0xFFDFFFFF;
-  v4 = 0;
+  *(_DWORD *)(v6 + 388) = v7 & 0xFFDFFFFF;
   if ( (unsigned int)IsForegroundLocked() )
     return 0LL;
-  ActiveTrackPwnd = GetActiveTrackPwnd(a1);
-  v6 = ActiveTrackPwnd;
+  ActiveTrackPwnd = GetActiveTrackPwnd((const struct tagWND *)a1);
+  v9 = ActiveTrackPwnd;
   if ( !ActiveTrackPwnd )
     return 0LL;
-  if ( a1 != ActiveTrackPwnd )
-    ThreadLockAlways(ActiveTrackPwnd, &v12);
-  v8 = xxxSendMessage((ULONG_PTR)v6);
-  if ( v8 == 1 || v8 == 2 )
+  if ( (unsigned __int64 *)a1 != ActiveTrackPwnd )
   {
-    v4 = 1;
-    if ( xxxTrackingActivateWindow(v6) )
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    *(_QWORD *)&v15 = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = &v15;
+    *((_QWORD *)&v15 + 1) = v9;
+    HMLockObject(v9);
+  }
+  v11 = xxxSendMessage((unsigned __int64)v9, 0x21u, *v9, (struct _LARGE_STRING *)(a3 | (a2 << 16)));
+  v13 = v11;
+  if ( v11 <= 0 )
+    goto LABEL_9;
+  if ( v11 > 2 )
+  {
+    if ( v11 != 4 )
     {
-      if ( v8 == 2 )
-        v8 = 1;
-      v4 = v8;
+LABEL_9:
+      v13 = 0;
+      goto LABEL_10;
     }
+LABEL_15:
+    v13 = 1;
+    goto LABEL_10;
   }
-  else
-  {
-    v10 = (unsigned int)(v8 - 3);
-    if ( v8 == 4 )
-      v4 = 1;
-  }
-  if ( a1 != v6 )
-    ThreadUnlock1(v7, v10, v9);
-  return v4;
+  if ( !xxxTrackingActivateWindow((struct tagWND *)v9) || v13 == 2 )
+    goto LABEL_15;
+LABEL_10:
+  if ( (unsigned __int64 *)a1 != v9 )
+    ThreadUnlock1(v12);
+  return v13;
 }

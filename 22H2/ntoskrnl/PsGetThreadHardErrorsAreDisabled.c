@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetThreadHardErrorsAreDisabled @ 0x1403C7260
+ * XREFs of PsGetThreadHardErrorsAreDisabled @ 0x14039A8D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall PsGetThreadHardErrorsAreDisabled(__int64 a1)
 {
-  return (*(_BYTE *)(a1 + 1376) & 0x10) != 0;
+  return (*(_BYTE *)(a1 + 1296) & 0x10) != 0;
 }

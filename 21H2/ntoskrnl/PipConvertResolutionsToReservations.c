@@ -1,11 +1,11 @@
 /*
- * XREFs of PipConvertResolutionsToReservations @ 0x14085CA7C
+ * XREFs of PipConvertResolutionsToReservations @ 0x1407CD718
  * Callers:
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PipDeleteAllDependencyRelations @ 0x14085C97C (PipDeleteAllDependencyRelations.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD600 (PipDeleteAllDependencyRelations.c)
  * Callees:
- *     PipDeleteBindingIds @ 0x14085CAE8 (PipDeleteBindingIds.c)
- *     PipSetDependency @ 0x140942DE4 (PipSetDependency.c)
+ *     PipDeleteBindingIds @ 0x1407CD780 (PipDeleteBindingIds.c)
+ *     PipSetDependency @ 0x14089DFF4 (PipSetDependency.c)
  */
 
 __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
@@ -17,11 +17,9 @@ __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
   _QWORD *v8; // rdi
   _QWORD *v9; // rdx
   __int64 v10; // rax
-  __int64 v11; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-20h]
+  __int128 v11; // [rsp+20h] [rbp-28h] BYREF
 
   v11 = 0LL;
-  LODWORD(v12) = 0;
   if ( a1 )
   {
     v3 = 0;
@@ -43,7 +41,7 @@ __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
           {
             v10 = v7[3];
             LODWORD(v11) = 0;
-            v12 = *(_QWORD *)(v10 + 48);
+            *((_QWORD *)&v11 + 1) = *(_QWORD *)(v10 + 48);
             v3 = PipSetDependency(&v11);
           }
         }

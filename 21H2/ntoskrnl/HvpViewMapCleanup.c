@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapCleanup @ 0x1406D8150
+ * XREFs of HvpViewMapCleanup @ 0x1406B58BC
  * Callers:
- *     HvHiveCleanup @ 0x14079B518 (HvHiveCleanup.c)
+ *     HvHiveCleanup @ 0x140709C24 (HvHiveCleanup.c)
  * Callees:
- *     CmSiCloseSection @ 0x140250FF0 (CmSiCloseSection.c)
- *     HvpViewMapDeleteViewTreeNode @ 0x1406DC040 (HvpViewMapDeleteViewTreeNode.c)
+ *     CmSiCloseSection @ 0x1402C81B8 (CmSiCloseSection.c)
+ *     HvpViewMapDeleteViewTreeNode @ 0x140725C18 (HvpViewMapDeleteViewTreeNode.c)
  */
 
 char __fastcall HvpViewMapCleanup(__int64 a1)

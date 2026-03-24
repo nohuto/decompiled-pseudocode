@@ -3,12 +3,12 @@
  * Callers:
  *     PopCreatePowerRequestObject @ 0x140588F40 (PopCreatePowerRequestObject.c)
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
- *     EtwpWriteUserEvent @ 0x1406473F0 (EtwpWriteUserEvent.c)
- *     NtSetInformationObject @ 0x14068D6D0 (NtSetInformationObject.c)
- *     PnpNotifyDriverCallback @ 0x140703774 (PnpNotifyDriverCallback.c)
- *     PfpProcessScenarioPhase @ 0x14071BBDC (PfpProcessScenarioPhase.c)
- *     IoGetContainerInformation @ 0x14071DE20 (IoGetContainerInformation.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
+ *     NtSetInformationObject @ 0x14068D6B0 (NtSetInformationObject.c)
+ *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
+ *     PfpProcessScenarioPhase @ 0x14071BBBC (PfpProcessScenarioPhase.c)
+ *     IoGetContainerInformation @ 0x14071DE00 (IoGetContainerInformation.c)
  * Callees:
  *     <none>
  */

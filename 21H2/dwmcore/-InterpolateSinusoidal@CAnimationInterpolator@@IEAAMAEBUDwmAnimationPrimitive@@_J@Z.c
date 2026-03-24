@@ -1,10 +1,11 @@
 /*
- * XREFs of ?InterpolateSinusoidal@CAnimationInterpolator@@IEAAMAEBUDwmAnimationPrimitive@@_J@Z @ 0x180270A6C
+ * XREFs of ?InterpolateSinusoidal@CAnimationInterpolator@@IEAAMAEBUDwmAnimationPrimitive@@_J@Z @ 0x180220304
  * Callers:
- *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x1800CD75C (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
+ *     ?UpdateAnimateValues@CAnimation@@UEAAXXZ @ 0x1800BB5D0 (-UpdateAnimateValues@CAnimation@@UEAAXXZ.c)
+ *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x180220090 (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
  * Callees:
- *     _o_sin_0 @ 0x180101958 (_o_sin_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _o_sin_0 @ 0x1800E81D4 (_o_sin_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 float __fastcall CAnimationInterpolator::InterpolateSinusoidal(

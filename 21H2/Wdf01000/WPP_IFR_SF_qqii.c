@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_qqii @ 0x1C0057618
+ * XREFs of WPP_IFR_SF_qqii @ 0x1C0034770
  * Callers:
- *     ?StartTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C0056BC0 (-StartTransfer@FxDmaPacketTransaction@@UEAAJXZ.c)
- *     ?TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C0056E20 (-TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ.c)
+ *     ?StartTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C0033D30 (-StartTransfer@FxDmaPacketTransaction@@UEAAJXZ.c)
+ *     ?TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C0033F90 (-TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqii(

@@ -1,27 +1,23 @@
 /*
- * XREFs of RemoveAllEdgePalmRejectionZonesForDevice @ 0x1C01E75D0
+ * XREFs of RemoveAllEdgePalmRejectionZonesForDevice @ 0x1C01ADD70
  * Callers:
  *     <none>
  * Callees:
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0081348 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E71EC (-RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006CB48 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD9E8 (-RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
  */
 
-DelayZonePalmRejection *__fastcall RemoveAllEdgePalmRejectionZonesForDevice(
-        void *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+DelayZonePalmRejection *__fastcall RemoveAllEdgePalmRejectionZonesForDevice(void *a1)
 {
   DelayZonePalmRejection *result; // rax
-  unsigned int v6; // ebx
+  unsigned int v3; // ebx
 
-  result = DelayZonePalmRejection::GetInstance((__int64)a1, a2, a3, a4);
-  v6 = 0;
+  result = DelayZonePalmRejection::GetInstance();
+  v3 = 0;
   if ( result )
   {
-    LOBYTE(v6) = DelayZonePalmRejection::RemoveEdgeZonesForDevice(result, a1) != 0;
-    return (DelayZonePalmRejection *)v6;
+    LOBYTE(v3) = DelayZonePalmRejection::RemoveEdgeZonesForDevice(result, a1) != 0;
+    return (DelayZonePalmRejection *)v3;
   }
   return result;
 }

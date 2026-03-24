@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A697D8
+ * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14097BA98
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140799F80 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x1407369EC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
@@ -17,15 +17,15 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
         _BYTE *a6,
         ULONG a7)
 {
-  int v7; // ebx
-  HANDLE v8; // r10
-  int v9; // r14d
-  int v11; // r8d
+  int v7; // r14d
+  int v8; // ebx
+  int v9; // r11d
+  HANDLE v11; // rcx
   DEVPROPKEY **v15; // r9
-  unsigned int i; // r11d
-  DEVPROPKEY *v17; // rdx
+  unsigned int i; // r10d
+  DEVPROPKEY *v17; // r8
   DEVPROPKEY **v18; // rdi
-  __int64 v19; // rcx
+  __int64 v19; // rdx
   const WCHAR *v20; // rdx
   ULONG v21; // r8d
   __int64 v22; // rax
@@ -34,18 +34,18 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
   int v26; // [rsp+40h] [rbp-38h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-30h] BYREF
 
-  v7 = 0;
-  v8 = 0LL;
+  v7 = *(_DWORD *)(a4 + 16);
+  v8 = 0;
   v9 = 0;
-  Handle = 0LL;
+  v11 = 0LL;
   v26 = 0;
-  v11 = *(_DWORD *)(a4 + 16);
-  v15 = &off_140A783B0;
+  Handle = 0LL;
+  v15 = &off_140983E10;
   for ( i = 0; i < 2; ++i )
   {
     v17 = *v15;
     v18 = v15;
-    if ( v11 == (*v15)->pid )
+    if ( v7 == (*v15)->pid )
     {
       v19 = *(_QWORD *)a4 - *(_QWORD *)&v17->fmtid.Data1;
       if ( *(_QWORD *)a4 == *(_QWORD *)&v17->fmtid.Data1 )
@@ -62,10 +62,10 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
     return (unsigned int)-1073741811;
   if ( !a3 )
   {
-    v7 = CmOpenDeviceRegKey(a1, a2, 16, 0, 2, 0, (__int64)&Handle, 0LL);
-    if ( v7 < 0 )
+    v8 = CmOpenDeviceRegKey(a1, a2, 16, 0, 2, 0, (__int64)&Handle, 0LL);
+    if ( v8 < 0 )
       goto LABEL_31;
-    v8 = Handle;
+    v11 = Handle;
     v9 = v26;
   }
   v20 = (const WCHAR *)v18[2];
@@ -79,12 +79,12 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
   {
 LABEL_26:
     if ( a3 )
-      v8 = a3;
-    v24 = RegRtlSetValue(v8, v20, v21, a6, a7);
+      v11 = a3;
+    v24 = RegRtlSetValue(v11, v20, v21, a6, a7);
     if ( v24 != -1073741444 )
     {
       if ( v24 < 0 )
-        v7 = v24;
+        v8 = v24;
       goto LABEL_31;
     }
   }
@@ -94,18 +94,18 @@ LABEL_26:
       v9 = 1;
     v26 = v9;
     if ( a3 )
-      v8 = a3;
-    v23 = RegRtlSetValue(v8, v20, v21, &v26, 4u);
+      v11 = a3;
+    v23 = RegRtlSetValue(v11, v20, v21, &v26, 4u);
     if ( v23 != -1073741444 )
     {
       if ( v23 < 0 )
-        v7 = v23;
+        v8 = v23;
       goto LABEL_31;
     }
   }
-  v7 = -1073741810;
+  v8 = -1073741810;
 LABEL_31:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)v7;
+  return (unsigned int)v8;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRevertRelocations @ 0x1406538AC
+ * XREFs of MiRevertRelocations @ 0x14065388C
  * Callers:
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
  *     MiPerformFixups @ 0x1405DFB58 (MiPerformFixups.c)

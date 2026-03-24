@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteMappedMdls @ 0x14058DC5C
+ * XREFs of MiDeleteMappedMdls @ 0x14053557C
  * Callers:
- *     MiMappedPageWriter @ 0x1403C5160 (MiMappedPageWriter.c)
- *     MiEnablePartitionMappedWrites @ 0x1406F9808 (MiEnablePartitionMappedWrites.c)
+ *     MiMappedPageWriter @ 0x1403B7730 (MiMappedPageWriter.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406D3284 (MiEnablePartitionMappedWrites.c)
  * Callees:
- *     MiFreeModWriterEntry @ 0x14028C978 (MiFreeModWriterEntry.c)
+ *     MiFreeModWriterEntry @ 0x1402557E8 (MiFreeModWriterEntry.c)
  */
 
 void __fastcall MiDeleteMappedMdls(__int64 a1)
@@ -13,7 +13,7 @@ void __fastcall MiDeleteMappedMdls(__int64 a1)
   _QWORD *v2; // rcx
   _QWORD *v3; // rax
 
-  v1 = (_QWORD **)(a1 + 656);
+  v1 = (_QWORD **)(a1 + 632);
   while ( 1 )
   {
     v2 = *v1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CcMapDataCommon @ 0x140706164
+ * XREFs of CcMapDataCommon @ 0x1406942C4
  * Callers:
- *     CcMapDataForOverwrite @ 0x14029C154 (CcMapDataForOverwrite.c)
+ *     CcMapDataForOverwrite @ 0x1402AF3C8 (CcMapDataForOverwrite.c)
  * Callees:
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
  */
 
 char __fastcall CcMapDataCommon(__int64 a1, __int64 *a2, unsigned int a3, unsigned int a4, _QWORD *a5, __int64 *a6)
@@ -12,12 +12,12 @@ char __fastcall CcMapDataCommon(__int64 a1, __int64 *a2, unsigned int a3, unsign
   __int64 VirtualAddress; // rcx
   char result; // al
   _QWORD v8[3]; // [rsp+50h] [rbp-18h] BYREF
-  __int64 *v9; // [rsp+70h] [rbp+8h] BYREF
+  volatile signed __int32 *v9; // [rsp+70h] [rbp+8h] BYREF
   int v10; // [rsp+88h] [rbp+20h] BYREF
 
   v8[0] = 0LL;
   v9 = 0LL;
-  __incgsdword(4 * (a4 & 1) + 33868);
+  __incgsdword(4 * (a4 & 1) + 33036);
   KeGetCurrentThread()[1].Timer.DueTime.HighPart = 0;
   if ( (a4 & 1) != 0 )
   {
@@ -28,9 +28,9 @@ LABEL_3:
     *a5 = v9;
     return result;
   }
-  result = CcPinFileData(a1, a2, a3, 1, 0, a4, (ULONG_PTR *)&v9, a6, v8);
+  result = CcPinFileData(a1, a2, a3, 1, 0, a4, (__int64 *)&v9, a6, v8);
   if ( result )
     goto LABEL_3;
-  __incgsdword(0x848Cu);
+  __incgsdword(0x814Cu);
   return result;
 }

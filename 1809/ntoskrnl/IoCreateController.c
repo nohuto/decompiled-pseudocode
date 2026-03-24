@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateController @ 0x14081C200
+ * XREFs of IoCreateController @ 0x14081C1E0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDeviceQueue @ 0x1400DADB0 (KeInitializeDeviceQueue.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeDeviceQueue @ 0x1400DADD0 (KeInitializeDeviceQueue.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)

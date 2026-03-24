@@ -1,20 +1,20 @@
 /*
- * XREFs of ?GreExtSelectClipRgnLocked@@YAHAEAVXDCOBJ@@PEAU_RECTL@@H@Z @ 0x1C008DA1C
+ * XREFs of ?GreExtSelectClipRgnLocked@@YAHAEAVXDCOBJ@@PEAU_RECTL@@H@Z @ 0x1C00B5AD0
  * Callers:
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0034690 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EFE0 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
  * Callees:
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0041E20 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C0043D24 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
- *     ?bTightenRao@DC@@QEAAHXZ @ 0x1C008DC2C (-bTightenRao@DC@@QEAAHXZ.c)
- *     ?iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C008DF8C (-iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C008E110 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B2CDC (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C00B3134 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?bTightenRao@DC@@QEAAHXZ @ 0x1C00B5CF0 (-bTightenRao@DC@@QEAAHXZ.c)
+ *     ?iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C00B6048 (-iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C00B7A60 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreExtSelectClipRgnLocked(DC **this, struct _RECTL *a2, int a3)
 {
-  unsigned int v4; // ebp
+  unsigned int v4; // r14d
   unsigned int v5; // ebx
   DC *v7; // rcx
   struct REGION *v8; // rax
@@ -22,21 +22,21 @@ __int64 __fastcall GreExtSelectClipRgnLocked(DC **this, struct _RECTL *a2, int a
   __int128 v11; // xmm0
   __int64 v12; // rax
   ULONG v13; // ecx
-  struct REGION *v14[2]; // [rsp+20h] [rbp-18h] BYREF
-  struct REGION *v15; // [rsp+58h] [rbp+20h] BYREF
+  struct REGION *v14[2]; // [rsp+20h] [rbp-10h] BYREF
+  struct REGION *v15; // [rsp+68h] [rbp+38h] BYREF
 
   v4 = a3 & 0xF7FFFFFF;
   v5 = 0;
   if ( (a3 & 0xF7FFFFFF) - 1 > 4 )
   {
     v13 = 87;
-    goto LABEL_28;
+    goto LABEL_29;
   }
   v7 = *this;
   if ( !v7 )
   {
     v13 = 6;
-LABEL_28:
+LABEL_29:
     EngSetLastError(v13);
     return v5;
   }
@@ -79,7 +79,10 @@ LABEL_28:
   if ( !v14[0] )
   {
 LABEL_25:
-    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v14);
+    RGNMEMOBJ::vPopThreadGuardedObject((RGNMEMOBJ *)v14);
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)v14);
+    if ( LODWORD(v14[1]) == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)v14);
     return v5;
   }
   if ( ((a2->left & 0xF8000000) == 0 || (a2->left & 0xF8000000) == -134217728)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopReferenceDriverObjectByName @ 0x14067BCBC
+ * XREFs of IopReferenceDriverObjectByName @ 0x140742838
  * Callers:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x14067B998 (PipCallDriverAddDeviceQueryRoutine.c)
- *     PiGetDefaultMessageString @ 0x1408523B4 (PiGetDefaultMessageString.c)
- *     IopInitializeSystemDrivers @ 0x140B110B4 (IopInitializeSystemDrivers.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140742518 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PiGetDefaultMessageString @ 0x14076B024 (PiGetDefaultMessageString.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 PVOID __fastcall IopReferenceDriverObjectByName(_WORD *a1)
@@ -32,7 +32,7 @@ PVOID __fastcall IopReferenceDriverObjectByName(_WORD *a1)
   v4 = 0LL;
   v6 = 576;
   v8 = 0LL;
-  if ( (int)ObOpenObjectByName((unsigned int)v3, (_DWORD)IoDriverObjectType, 0, 0, 128, 0LL, (__int64)&Handle) < 0 )
+  if ( (int)ObOpenObjectByName((__int64)v3, (__int64)IoDriverObjectType, 0, 0LL, 128, 0LL, (__int64)&Handle) < 0 )
     return 0LL;
   Object = 0LL;
   v2 = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, 0, &Object, 0LL);

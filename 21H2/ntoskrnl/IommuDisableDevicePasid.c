@@ -1,16 +1,16 @@
 /*
- * XREFs of IommuDisableDevicePasid @ 0x140525620
+ * XREFs of IommuDisableDevicePasid @ 0x1404D7F90
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IommuHvSetAddressSpace @ 0x140527410 (IommuHvSetAddressSpace.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IommuHvSetAddressSpace @ 0x1404D9E40 (IommuHvSetAddressSpace.c)
  */
 
 __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
@@ -83,7 +83,7 @@ __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
   {
     v15 = *(_DWORD *)(v2 + 16);
     v16 = *(_QWORD *)(a2 + 40);
-    if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4C598)((unsigned int)v16, v15) == 3473497 )
+    if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4A298)((unsigned int)v16, v15) == 3473497 )
       KeBugCheckEx(0x159u, 0x3001uLL, (unsigned int)v16, v15, 0LL);
     v4 = v34;
   }
@@ -95,7 +95,7 @@ __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
     else
       (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(v17 + 224))(
         *(_QWORD *)(v17 + 16),
-        *(_QWORD *)(a2 + 88),
+        *(_QWORD *)(a2 + 64),
         *(unsigned int *)(v2 + 16),
         0LL);
   }
@@ -110,13 +110,13 @@ __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
   if ( !*(_DWORD *)(a2 + 32) && !HalpHvIommu )
   {
     (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(v17 + 208))(*(_QWORD *)(v17 + 16), *(_QWORD *)(a2 + 40), 0LL);
-    v20 = *(_QWORD *)(a2 + 96);
-    v21 = *(_QWORD **)(a2 + 104);
-    if ( *(_QWORD *)(v20 + 8) == a2 + 96 && *v21 == a2 + 96 )
+    v20 = *(_QWORD *)(a2 + 72);
+    v21 = *(_QWORD **)(a2 + 80);
+    if ( *(_QWORD *)(v20 + 8) == a2 + 72 && *v21 == a2 + 72 )
     {
       *v21 = v20;
       *(_QWORD *)(v20 + 8) = v21;
-      *(_QWORD *)(a2 + 88) = 0LL;
+      *(_QWORD *)(a2 + 64) = 0LL;
       goto LABEL_29;
     }
 LABEL_46:
@@ -144,7 +144,7 @@ LABEL_29:
     }
   }
   __writecr8(CurrentIrql);
-  v27 = v9[2056];
+  v27 = v9[1544];
   if ( v27 )
     HalpMmAllocCtxFree(v22, v27);
   HalpMmAllocCtxFree(v22, (__int64)v9);

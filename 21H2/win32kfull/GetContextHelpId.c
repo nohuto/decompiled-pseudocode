@@ -1,8 +1,8 @@
 /*
- * XREFs of GetContextHelpId @ 0x1C025D408
+ * XREFs of GetContextHelpId @ 0x1C0260798
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     xxxHelpLoop @ 0x1C024A384 (xxxHelpLoop.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     xxxHelpLoop @ 0x1C025019C (xxxHelpLoop.c)
  * Callees:
  *     <none>
  */

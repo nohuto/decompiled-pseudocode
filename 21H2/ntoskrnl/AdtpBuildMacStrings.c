@@ -1,44 +1,45 @@
 /*
- * XREFs of AdtpBuildMacStrings @ 0x140A1B1B8
+ * XREFs of AdtpBuildMacStrings @ 0x14096D31C
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140A1BC24 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x14096DD88 (AdtpBuildSockAddrString.c)
  * Callees:
- *     RtlEthernetAddressToStringW @ 0x1403DE770 (RtlEthernetAddressToStringW.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlEthernetAddressToStringW @ 0x14058C060 (RtlEthernetAddressToStringW.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMacStrings(__int64 a1, __int64 a2, _BYTE *a3)
 {
-  __int64 Pool2; // rax
-  unsigned int v7; // edi
+  unsigned int v6; // edi
+  PVOID PoolWithTag; // rax
 
-  if ( *(_WORD *)a1 != 33 )
+  if ( *(_WORD *)a1 == 33 )
   {
-    v7 = -1073741503;
-    if ( !a3 )
-      return v7;
-    goto LABEL_9;
-  }
-  if ( !a2 || !a3 )
+    if ( a2 && a3 )
+    {
+      *(_WORD *)(a2 + 2) = 36;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x24uLL, 0x6B416553u);
+      *(_QWORD *)(a2 + 8) = PoolWithTag;
+      if ( !PoolWithTag )
+      {
+        v6 = -1073741801;
+        goto LABEL_7;
+      }
+      *a3 = 1;
+      *(_WORD *)a2 = 2
+                   * ((__int64)((unsigned int)RtlEthernetAddressToStringW(
+                                                (const DL_EUI48 *)(a1 + 2),
+                                                *(PWSTR *)(a2 + 8))
+                              - *(_DWORD *)(a2 + 8)) >> 1);
+    }
     return 0;
-  *(_WORD *)(a2 + 2) = 36;
-  Pool2 = ExAllocatePool2(256LL, 36LL, 1799447891LL);
-  *(_QWORD *)(a2 + 8) = Pool2;
-  if ( Pool2 )
-  {
-    *a3 = 1;
-    *(_WORD *)a2 = 2
-                 * ((__int64)((unsigned int)RtlEthernetAddressToStringW((const DL_EUI48 *)(a1 + 2), *(PWSTR *)(a2 + 8))
-                            - *(_DWORD *)(a2 + 8)) >> 1);
-    return 0;
   }
-  v7 = -1073741801;
-LABEL_9:
-  if ( *a3 )
+  v6 = -1073741503;
+LABEL_7:
+  if ( a3 && *a3 )
   {
     *a3 = 0;
     ExFreePoolWithTag(*(PVOID *)(a2 + 8), 0);
   }
-  return v7;
+  return v6;
 }

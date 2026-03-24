@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWheaInitSystem @ 0x140A5B290
+ * XREFs of HalpWheaInitSystem @ 0x1409A01E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14036FA84 (HalpInterruptModel.c)
- *     HalpMcaInitializePcrContext @ 0x140A5B2F8 (HalpMcaInitializePcrContext.c)
- *     HalpWheaInitDiscard @ 0x140AF9508 (HalpWheaInitDiscard.c)
+ *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpMcaInitializePcrContext @ 0x1409A023C (HalpMcaInitializePcrContext.c)
+ *     HalpWheaInitDiscard @ 0x140A63B9C (HalpWheaInitDiscard.c)
  */
 
 __int64 HalpWheaInitSystem()
@@ -15,22 +15,19 @@ __int64 HalpWheaInitSystem()
 
   if ( (unsigned int)HalpInterruptModel() != 1 )
     return 0LL;
-  if ( v0 == 19 )
-    goto LABEL_7;
-  if ( v0 != 12 )
+  switch ( v0 )
   {
-    if ( v0 != 17 )
-      return 0LL;
-    off_140C01D18[0] = (__int64 (__fastcall *)())HalpReadWheaPhysicalMemory;
-    off_140C01D20[0] = (__int64 (__fastcall *)())HalpWriteWheaPhysicalMemory;
+    case 19:
 LABEL_7:
-    HalpMcaInitializePcrContext();
-    return 0LL;
+      HalpMcaInitializePcrContext();
+      return 0LL;
+    case 12:
+      HalpWheaInitDiscard(v1);
+      return 0LL;
+    case 17:
+      off_140C006C8[0] = (__int64 (__fastcall *)())HalpReadWheaPhysicalMemory;
+      off_140C006D0[0] = (__int64 (__fastcall *)())HalpWriteWheaPhysicalMemory;
+      goto LABEL_7;
   }
-  if ( v1 )
-  {
-    HalpWheaInitDiscard(v1);
-    return 0LL;
-  }
-  return 3221225473LL;
+  return 0LL;
 }

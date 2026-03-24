@@ -1,63 +1,45 @@
 /*
- * XREFs of ?ReferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D25B0
+ * XREFs of ?ReferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019AFD0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D2390 (-ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019AE48 (-ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
  */
 
 void __fastcall CTouchProcessor::ReferenceMsgDataExternal(__int64 a1, void *a2, int a3)
 {
-  int v3; // ebp
-  void *v4; // rdi
-  char v6; // bl
-  int v7; // edx
-  int v8; // r8d
-  CInpLockGuard *v9[8]; // [rsp+40h] [rbp-58h] BYREF
+  void *v4; // rbx
+  int v6; // edx
+  CInpLockGuard *v7[8]; // [rsp+30h] [rbp-48h] BYREF
 
-  v3 = a3;
   v4 = a2;
-  v6 = 1;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            && LOWORD(WPP_GLOBAL_Control->DeviceType);
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      a3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      4,
-      291,
-      (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
-  CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v9,
-    (struct CInpLockGuard *)(a1 + 32),
-    v4);
-  CTouchProcessor::ReferenceMsgData((CTouchProcessor *)a1, (__int64)v4, v3);
-  LOBYTE(v7) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v6 = 0;
-  if ( (_BYTE)v7 || v6 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(v8) = v6;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v7,
-      v8,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      4,
-      292,
-      (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
+      (_DWORD)a2,
+      7,
+      290,
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
   }
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v9);
+  CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
+    (CInpLockGuardExclusiveIfNeeded *)v7,
+    (struct CInpLockGuard *)(a1 + 40),
+    v4);
+  CTouchProcessor::ReferenceMsgData(a1, (__int64)v4, a3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v6) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v6,
+      7,
+      291,
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+  }
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v7);
 }

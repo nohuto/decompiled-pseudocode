@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x14095EEB0
+ * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x1408A7284
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14087C44C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14095DB3C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x14076DED4 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E54 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1403CE1A8 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x14095E510 (PiDevCfgFreeDeviceMigrationNode.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PnpValidateMultiSzData @ 0x14036E3C8 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x1408A6828 (PiDevCfgFreeDeviceMigrationNode.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2, __int64 *a3)
+__int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2, _QWORD *a3)
 {
   unsigned int v3; // r14d
   __int64 v5; // rdx
   __int64 v6; // rcx
   int RegistryValues; // edi
-  __int64 Pool2; // rax
-  __int64 v9; // rbx
+  char *PoolWithTag; // rax
+  char *v9; // rbx
   __m128i v10; // xmm6
   __m128i v11; // xmm0
   __m128i si128; // xmm1
@@ -36,7 +36,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   UNICODE_STRING *v18; // r9
   HANDLE Handle; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING GuidString; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 *v22; // [rsp+50h] [rbp-B8h]
+  _QWORD *v22; // [rsp+50h] [rbp-B8h]
   _QWORD v23[70]; // [rsp+58h] [rbp-B0h] BYREF
 
   v3 = 0;
@@ -52,26 +52,27 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   RegistryValues = SysCtxRegOpenKey(v6, v5, (__int64)a2, 0, 0x20019u, (__int64)&Handle);
   if ( RegistryValues >= 0 )
   {
-    Pool2 = ExAllocatePool2(256LL, 192LL, 1667526736LL);
-    v9 = Pool2;
-    v10 = _mm_unpacklo_epi64((__m128i)(unsigned __int64)Pool2, (__m128i)(unsigned __int64)Pool2);
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0xC0uLL, 0x63647050u);
+    v9 = PoolWithTag;
+    v10 = _mm_unpacklo_epi64((__m128i)(unsigned __int64)PoolWithTag, (__m128i)(unsigned __int64)PoolWithTag);
+    if ( !PoolWithTag )
     {
       RegistryValues = -1073741670;
       goto LABEL_32;
     }
-    *(_QWORD *)(Pool2 + 184) = -1LL;
-    if ( !RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 24), a2) )
+    memset(PoolWithTag, 0, 0xB8uLL);
+    *((_QWORD *)v9 + 23) = -1LL;
+    if ( !RtlCreateUnicodeString((PUNICODE_STRING)(v9 + 24), a2) )
     {
       RegistryValues = -1073741670;
 LABEL_31:
-      PiDevCfgFreeDeviceMigrationNode((char *)v9);
+      PiDevCfgFreeDeviceMigrationNode(v9);
       goto LABEL_32;
     }
-    *(_QWORD *)(v9 + 40) = Handle;
+    *((_QWORD *)v9 + 5) = Handle;
     Handle = 0LL;
     memset(v23, 0, sizeof(v23));
-    v11 = _mm_loadu_si128((const __m128i *)off_140A782A0);
+    v11 = _mm_loadu_si128((const __m128i *)off_140983D40);
     si128 = _mm_load_si128((const __m128i *)&_xmm);
     v13 = _mm_load_si128((const __m128i *)&_xmm);
     v23[2] = v11.m128i_i64[0];
@@ -103,9 +104,9 @@ LABEL_31:
     LODWORD(v23[39]) = 0x1000000;
     LODWORD(v23[36]) = 288;
     LODWORD(v23[53]) = 0x1000000;
+    v15 = (const WCHAR *)*((_QWORD *)v9 + 5);
     LODWORD(v23[50]) = 288;
     LODWORD(v23[60]) = 0x4000000;
-    v15 = *(const WCHAR **)(v9 + 40);
     LODWORD(v23[57]) = 288;
     v23[59] = v9 + 176;
     LODWORD(v23[11]) = _mm_cvtsi128_si32(_mm_srli_si128(si128, 4));
@@ -116,37 +117,37 @@ LABEL_31:
     LODWORD(v23[46]) = 117440512;
     LODWORD(v23[43]) = 304;
     v23[52] = v9 + 160;
-    RegistryValues = RtlpQueryRegistryValues(3221225472LL, v15, v23, 0LL);
+    RegistryValues = RtlpQueryRegistryValues(3221225472LL, v15, (__int64)v23, 0LL);
     if ( RegistryValues < 0 )
       goto LABEL_31;
-    if ( !GuidString.Buffer || RtlGUIDFromString(&GuidString, (GUID *)(v9 + 80)) < 0 )
+    if ( !GuidString.Buffer || RtlGUIDFromString(&GuidString, (GUID *)v9 + 5) < 0 )
     {
       RegistryValues = -1073741772;
       goto LABEL_31;
     }
-    v16 = (_QWORD *)(v9 + 56);
+    v16 = v9 + 56;
     do
     {
       if ( *((_WORD *)v16 - 4) <= 2u && *v16 )
-        RtlFreeUnicodeString((PUNICODE_STRING)(v9 + 16 * (v3 + 3LL)));
+        RtlFreeAnsiString((PUNICODE_STRING)&v9[16 * v3 + 48]);
       ++v3;
       v16 += 2;
     }
     while ( v3 < 2 );
-    if ( !*(_WORD *)(v9 + 104) && *(_QWORD *)(v9 + 112) )
-      RtlFreeUnicodeString((PUNICODE_STRING)(v9 + 104));
-    if ( !*(_WORD *)(v9 + 120) && *(_QWORD *)(v9 + 128) )
-      RtlFreeUnicodeString((PUNICODE_STRING)(v9 + 120));
-    v17 = *(_WORD **)(v9 + 144);
-    if ( v17 && !PnpValidateMultiSzData(v17, *(unsigned __int16 *)(v9 + 136)) )
-      RtlFreeUnicodeString(v18);
-    if ( !*(_WORD *)(v9 + 160) && *(_QWORD *)(v9 + 168) )
-      RtlFreeUnicodeString((PUNICODE_STRING)(v9 + 160));
+    if ( !*((_WORD *)v9 + 52) && *((_QWORD *)v9 + 14) )
+      RtlFreeAnsiString((PUNICODE_STRING)(v9 + 104));
+    if ( !*((_WORD *)v9 + 60) && *((_QWORD *)v9 + 16) )
+      RtlFreeAnsiString((PUNICODE_STRING)(v9 + 120));
+    v17 = (_WORD *)*((_QWORD *)v9 + 18);
+    if ( v17 && !PnpValidateMultiSzData(v17, *((unsigned __int16 *)v9 + 68)) )
+      RtlFreeAnsiString(v18);
+    if ( !*((_WORD *)v9 + 80) && *((_QWORD *)v9 + 21) )
+      RtlFreeAnsiString((PUNICODE_STRING)v9 + 10);
     *v22 = v9;
   }
 LABEL_32:
   if ( Handle )
     ZwClose(Handle);
-  RtlFreeUnicodeString(&GuidString);
+  RtlFreeAnsiString(&GuidString);
   return (unsigned int)RegistryValues;
 }

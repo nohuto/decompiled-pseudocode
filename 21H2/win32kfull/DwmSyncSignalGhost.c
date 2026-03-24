@@ -1,14 +1,14 @@
 /*
- * XREFs of DwmSyncSignalGhost @ 0x1C0273440
+ * XREFs of DwmSyncSignalGhost @ 0x1C0275BCC
  * Callers:
- *     ?xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z @ 0x1C02116A4 (-xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z.c)
+ *     ?xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z @ 0x1C020A0B4 (-xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmSyncSignalGhost(PVOID Object, __int128 *a2)
 {
-  int v4; // ebx
+  signed int v4; // edi
   __int128 v5; // xmm0
   __int128 v6; // xmm1
   int v7; // ecx
@@ -19,6 +19,7 @@ __int64 __fastcall DwmSyncSignalGhost(PVOID Object, __int128 *a2)
   v4 = -1073741823;
   if ( Object )
   {
+    v4 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
     if ( !gbInVideoPnpCallout )
     {
       memset(v10, 0, sizeof(v10));
@@ -27,7 +28,7 @@ __int64 __fastcall DwmSyncSignalGhost(PVOID Object, __int128 *a2)
       LOWORD(v10[1]) = 0x8000;
       v10[19] = *((_DWORD *)a2 + 8);
       v10[0] = 5242920;
-      v10[10] = 1073741877;
+      v10[10] = 1073741876;
       *(_OWORD *)&v10[11] = v5;
       v11 = 80LL;
       *(_OWORD *)&v10[15] = v6;

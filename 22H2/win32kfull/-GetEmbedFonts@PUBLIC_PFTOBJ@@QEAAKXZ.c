@@ -1,75 +1,69 @@
 /*
- * XREFs of ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C026A9A8
+ * XREFs of ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C0272128
  * Callers:
- *     NtGdiGetEmbedFonts @ 0x1C02C2EA0 (NtGdiGetEmbedFonts.c)
+ *     NtGdiGetEmbedFonts @ 0x1C02AE840 (NtGdiGetEmbedFonts.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C013E750 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
- *     ?bIsPrivatePFT@PFTOBJ@@QEBAHXZ @ 0x1C026AF1C (-bIsPrivatePFT@PFTOBJ@@QEBAHXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016A260 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
  */
 
-__int64 __fastcall PUBLIC_PFTOBJ::GetEmbedFonts(PUBLIC_PFTOBJ *this)
+__int64 __fastcall PUBLIC_PFTOBJ::GetEmbedFonts(struct PFT **const *this)
 {
-  unsigned int v2; // ebx
-  __int64 result; // rax
+  unsigned int v1; // ebx
   unsigned int v4; // r14d
   unsigned int CurrentThreadId; // r15d
-  Gre::Base *v6; // rcx
-  __int64 v7; // rdi
-  __int64 v8; // rbp
-  struct PFF **v9; // rcx
+  __int64 v6; // rdi
+  __int64 v7; // rbp
+  struct PFF **v8; // rcx
   struct PFF *i; // rcx
-  __int64 j; // rdx
-  int v12; // r9d
-  unsigned int v13; // eax
-  struct PFF *v14; // rax
-  struct PFF *v15; // r8
-  __int64 v16; // [rsp+48h] [rbp+10h] BYREF
+  __int64 j; // rcx
+  int v11; // r8d
+  unsigned int v12; // eax
+  struct PFF *v13; // rax
+  struct PFF *v14; // rdx
+  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = 0;
-  result = PFTOBJ::bIsPrivatePFT(this);
-  if ( (_DWORD)result )
+  v1 = 0;
+  if ( *this != gpPFTPrivate )
+    return 0LL;
+  v4 = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
+  CurrentThreadId = (unsigned int)PsGetCurrentThreadId();
+  v15 = ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  v6 = 5LL;
+  v7 = 20LL;
+  do
   {
-    v4 = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
-    CurrentThreadId = (unsigned int)PsGetCurrentThreadId();
-    v16 = *((_QWORD *)Gre::Base::Globals(v6) + 6);
-    GreAcquireSemaphore(v16);
-    v7 = 40LL;
-    v8 = 20LL;
-    do
+    v8 = &(*this)[v6];
+    if ( v8 )
     {
-      v9 = (struct PFF **)(v7 + *(_QWORD *)this);
-      if ( v9 )
+      for ( i = *v8; ; i = (struct PFF *)*((_QWORD *)v14 + 1) )
       {
-        for ( i = *v9; ; i = (struct PFF *)*((_QWORD *)v15 + 1) )
+        v13 = SkipInvalidPff(i);
+        v14 = v13;
+        if ( !v13 )
+          break;
+        for ( j = *((_QWORD *)v13 + 18); j; j = *(_QWORD *)(j + 16) )
         {
-          v14 = SkipInvalidPff(i);
-          v15 = v14;
-          if ( !v14 )
-            break;
-          for ( j = *((_QWORD *)v14 + 18); j; j = *(_QWORD *)(j + 16) )
+          v11 = *(_DWORD *)(j + 12);
+          if ( (*(_DWORD *)(j + 8) & 4) != 0 )
           {
-            v12 = *(_DWORD *)(j + 12);
-            if ( (*(_DWORD *)(j + 8) & 4) != 0 )
-            {
-              v13 = v2 + 1;
-              if ( v12 != CurrentThreadId )
-                v13 = v2;
-              v2 = v13;
-            }
-            else if ( v12 == v4 )
-            {
-              ++v2;
-            }
+            v12 = v1 + 1;
+            if ( v11 != CurrentThreadId )
+              v12 = v1;
+            v1 = v12;
+          }
+          else if ( v11 == v4 )
+          {
+            ++v1;
           }
         }
       }
-      v7 += 8LL;
-      --v8;
     }
-    while ( v8 );
-    SEMOBJ::vUnlock((SEMOBJ *)&v16);
-    return v2;
+    ++v6;
+    --v7;
   }
-  return result;
+  while ( v7 );
+  SEMOBJ::vUnlock((SEMOBJ *)&v15);
+  return v1;
 }

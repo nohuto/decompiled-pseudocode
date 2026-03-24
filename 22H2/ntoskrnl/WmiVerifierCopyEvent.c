@@ -1,22 +1,22 @@
 /*
- * XREFs of WmiVerifierCopyEvent @ 0x1405FBBD8
+ * XREFs of WmiVerifierCopyEvent @ 0x1405A57B0
  * Callers:
- *     VerifierIoWMIWriteEvent @ 0x140AE5170 (VerifierIoWMIWriteEvent.c)
+ *     VerifierIoWMIWriteEvent @ 0x1409E8060 (VerifierIoWMIWriteEvent.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall WmiVerifierCopyEvent(unsigned int *Src)
+PVOID __fastcall WmiVerifierCopyEvent(unsigned int *Src)
 {
   unsigned int v1; // esi
-  void *Pool2; // rax
-  void *v4; // rbx
+  PVOID PoolWithTag; // rax
+  PVOID v4; // rbx
 
   v1 = *Src;
-  Pool2 = (void *)ExAllocatePool2(64LL, *Src, 1885957463LL);
-  v4 = Pool2;
-  if ( Pool2 )
-    memmove(Pool2, Src, v1);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, *Src, 0x70696D57u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
+    memmove(PoolWithTag, Src, v1);
   return v4;
 }

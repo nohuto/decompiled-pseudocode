@@ -4,7 +4,7 @@
  *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlLookupImageSectionByName @ 0x1402F3F30 (RtlLookupImageSectionByName.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4030 (RtlLookupImageSectionByName.c)
  */
 
 __int64 __fastcall MiSetRetpolineRoutines(char *a1)

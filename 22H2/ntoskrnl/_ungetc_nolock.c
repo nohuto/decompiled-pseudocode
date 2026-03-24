@@ -1,19 +1,19 @@
 /*
- * XREFs of _ungetc_nolock @ 0x1403E2B48
+ * XREFs of _ungetc_nolock @ 0x1403DB0E8
  * Callers:
- *     ReadString @ 0x1403E1024 (ReadString.c)
- *     _input_s @ 0x1403E1374 (_input_s.c)
+ *     ReadString @ 0x1403D94B4 (ReadString.c)
+ *     _input_s @ 0x1403D9814 (_input_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 int __cdecl ungetc_nolock(int Ch, FILE *File)
 {
   int flag; // r8d
-  char *base; // r9
-  char *ptr; // rax
-  char *v5; // r9
-  int v6; // eax
+  char *base; // rax
+  char *ptr; // r9
+  char *v5; // r11
+  int result; // eax
 
   if ( !File )
     goto LABEL_14;
@@ -46,11 +46,12 @@ LABEL_9:
     else
     {
       *v5 = Ch;
+      flag = File->_flag;
     }
-    v6 = File->_flag;
     ++File->_cnt;
-    File->_flag = v6 & 0xFFFFFFEE | 1;
-    return (unsigned __int8)Ch;
+    result = (unsigned __int8)Ch;
+    File->_flag = flag & 0xFFFFFFEE | 1;
+    return result;
   }
   if ( !File->_cnt )
   {

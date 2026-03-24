@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCreateErrorRecord @ 0x1405063D0
+ * XREFs of HalpCreateErrorRecord @ 0x1404B9AB0
  * Callers:
  *     <none>
  * Callees:
- *     HalpCreateMachineCheckErrorRecord @ 0x140506410 (HalpCreateMachineCheckErrorRecord.c)
- *     HalpCreateNMIErrorRecord @ 0x14050A324 (HalpCreateNMIErrorRecord.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x1404B9AF0 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpCreateNMIErrorRecord @ 0x1404BD8A8 (HalpCreateNMIErrorRecord.c)
  */
 
 __int64 __fastcall HalpCreateErrorRecord(__int64 a1)

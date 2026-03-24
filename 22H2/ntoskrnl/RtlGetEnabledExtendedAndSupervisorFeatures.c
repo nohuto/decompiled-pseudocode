@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetEnabledExtendedAndSupervisorFeatures @ 0x1405AFAB0
+ * XREFs of RtlGetEnabledExtendedAndSupervisorFeatures @ 0x14058CED0
  * Callers:
  *     <none>
  * Callees:

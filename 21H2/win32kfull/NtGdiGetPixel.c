@@ -1,23 +1,23 @@
 /*
- * XREFs of NtGdiGetPixel @ 0x1C008A200
+ * XREFs of NtGdiGetPixel @ 0x1C01093E0
  * Callers:
  *     <none>
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C003D428 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C0088D80 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
- *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C008A13C (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C008A518 (-bIsCMYKColor@DC@@QEBAHXZ.c)
- *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C008AE30 (--0DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087D58 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00A9BEC (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B63B0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C0109700 (-bIsCMYKColor@DC@@QEBAHXZ.c)
+ *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C010A0D0 (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtGdiGetPixel(HDC a1, LONG a2, LONG a3)
@@ -45,11 +45,12 @@ __int64 __fastcall NtGdiGetPixel(HDC a1, LONG a2, LONG a3)
   struct _POINTL v26[2]; // [rsp+150h] [rbp+50h] BYREF
   _DWORD v27[4]; // [rsp+160h] [rbp+60h] BYREF
   _BYTE v28[4]; // [rsp+170h] [rbp+70h] BYREF
-  _BYTE v29[76]; // [rsp+174h] [rbp+74h] BYREF
-  __int64 v30; // [rsp+1C0h] [rbp+C0h]
-  int v31; // [rsp+1C8h] [rbp+C8h]
-  int v32; // [rsp+1F0h] [rbp+F0h]
-  __int64 v33; // [rsp+200h] [rbp+100h]
+  _BYTE v29[52]; // [rsp+174h] [rbp+74h] BYREF
+  __int64 v30; // [rsp+1A8h] [rbp+A8h]
+  __int64 v31; // [rsp+1C0h] [rbp+C0h]
+  int v32; // [rsp+1C8h] [rbp+C8h]
+  int v33; // [rsp+1F0h] [rbp+F0h]
+  __int64 v34; // [rsp+200h] [rbp+100h]
 
   v13 = -1;
   DCOBJ::DCOBJ((DCOBJ *)v21, a1);
@@ -64,7 +65,7 @@ __int64 __fastcall NtGdiGetPixel(HDC a1, LONG a2, LONG a3)
       {
         if ( (unsigned int)SrcSurfaceAccessCheck(*((struct SURFACE **)v21[0] + 62)) )
         {
-          EXFORMOBJ::vQuickInit((EXFORMOBJ *)v22, (struct XDCOBJ *)v21, 0x204u);
+          EXFORMOBJ::vQuickInit((EXFORMOBJ *)v22, (struct XDCOBJ *)v21, 516);
           v26[0].x = a2;
           v26[0].y = a3;
           EXFORMOBJ::bXform((EXFORMOBJ *)v22, v26, 1LL);
@@ -77,9 +78,10 @@ __int64 __fastcall NtGdiGetPixel(HDC a1, LONG a2, LONG a3)
           v27[3] = *((_DWORD *)v6 + 1) + v26[0].y + 1;
           v7 = XDCOBJ::prgnEffRao(v21);
           v30 = 0LL;
-          v31 = 0;
-          v32 = 1;
-          v33 = 0LL;
+          v31 = 0LL;
+          v32 = 0;
+          v33 = 1;
+          v34 = 0LL;
           XCLIPOBJ::vSetup((XCLIPOBJ *)v28, v7, (struct ERECTL *)v27, 0);
           if ( !ERECTL::bEmpty((ERECTL *)v29) )
           {
@@ -121,7 +123,7 @@ __int64 __fastcall NtGdiGetPixel(HDC a1, LONG a2, LONG a3)
                       xloIdent,
                       v26,
                       v27)
-                  : (*(unsigned __int64 (__fastcall **)(__int64, __int64, _QWORD, XLATEOBJ *const, struct _POINTL *, _DWORD *))(*(_QWORD *)(v5 + 48) + 2816LL))(
+                  : (*(unsigned __int64 (__fastcall **)(__int64, __int64, _QWORD, XLATEOBJ *const, struct _POINTL *, _DWORD *))(*(_QWORD *)(v5 + 48) + 2840LL))(
                       (v14 + 24) & -(__int64)(v14 != 0),
                       v5 + 24,
                       0LL,

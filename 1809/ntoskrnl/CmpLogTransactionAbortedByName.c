@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLogTransactionAbortedByName @ 0x1407F8720
+ * XREFs of CmpLogTransactionAbortedByName @ 0x1407F8700
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF688 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __int64 a3, unsigned int a4)
@@ -41,7 +41,7 @@ void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __i
           v7 = a2;
           v10 = 2;
           v15 = 4;
-          TlgWrite(&stru_1403FFAA0, &unk_14036C3BB, 0LL, 0LL, 5u, &pData);
+          TlgWrite(&stru_1403FFAA0, &unk_14036C4CB, 0LL, 0LL, 5u, &pData);
         }
       }
       --v5;

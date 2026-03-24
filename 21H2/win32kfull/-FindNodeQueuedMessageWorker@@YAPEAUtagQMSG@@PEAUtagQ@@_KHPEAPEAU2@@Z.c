@@ -1,41 +1,40 @@
 /*
- * XREFs of ?FindNodeQueuedMessageWorker@@YAPEAUtagQMSG@@PEAUtagQ@@_KHPEAPEAU2@@Z @ 0x1C016D6B6
+ * XREFs of ?FindNodeQueuedMessageWorker@@YAPEAUtagQMSG@@PEAUtagQ@@_KHPEAPEAU2@@Z @ 0x1C0208D1C
  * Callers:
- *     EditionFindNodeQueuedMessage @ 0x1C02091D0 (EditionFindNodeQueuedMessage.c)
+ *     EditionFindNodeQueuedMessage @ 0x1C0208E70 (EditionFindNodeQueuedMessage.c)
  * Callees:
- *     IsPointerInputMessage @ 0x1C00AC3A0 (IsPointerInputMessage.c)
+ *     IsPointerInputMessage @ 0x1C006B374 (IsPointerInputMessage.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C1800 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
  */
 
-struct tagQMSG *__fastcall FindNodeQueuedMessageWorker(struct tagQ *a1, __int64 a2, __int64 a3, struct tagQ **a4)
+struct tagQMSG *__fastcall FindNodeQueuedMessageWorker(struct tagQ *a1, __int64 a2, int a3, struct tagQ **a4)
 {
-  __int64 v5; // rdx
-  int v6; // ecx
-  int v7; // r8d
-  _QWORD *v8; // r9
-  __int64 v9; // r10
-  __int64 v10; // r11
+  __int64 v9; // rdx
+  int v10; // ecx
+  _BYTE v11[40]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( !a1 )
     return 0LL;
-  v5 = *((_QWORD *)a1 + 4);
-  if ( v5 )
+  CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)v11, (__int64)a1);
+  v9 = *((_QWORD *)a1 + 4);
+  if ( v9 )
   {
     do
     {
-      if ( IsPointerInputMessage(*(_DWORD *)(v5 + 24))
-        && *(_QWORD *)(v5 + 40) == v10
-        && (!v7 || (unsigned int)(v6 - 585) > 1) )
+      if ( IsPointerInputMessage(*(_DWORD *)(v9 + 24))
+        && *(_QWORD *)(v9 + 40) == a2
+        && (!a3 || (unsigned int)(v10 - 585) > 1) )
       {
         break;
       }
-      v5 = *(_QWORD *)(v5 + 8);
+      v9 = *(_QWORD *)(v9 + 8);
     }
-    while ( v5 );
-    if ( v5 )
+    while ( v9 );
+    if ( v9 )
     {
-      if ( v8 )
-        *v8 = v9;
+      if ( a4 )
+        *a4 = a1;
     }
   }
-  return (struct tagQMSG *)v5;
+  return (struct tagQMSG *)v9;
 }

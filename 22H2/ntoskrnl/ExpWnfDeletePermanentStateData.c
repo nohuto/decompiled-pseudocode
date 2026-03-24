@@ -1,81 +1,53 @@
 /*
- * XREFs of ExpWnfDeletePermanentStateData @ 0x140A0739C
+ * XREFs of ExpWnfDeletePermanentStateData @ 0x14095CB64
  * Callers:
- *     NtDeleteWnfStateName @ 0x1407C98C0 (NtDeleteWnfStateName.c)
- *     ExpNtDeleteWnfStateData @ 0x14085C35C (ExpNtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x14060D820 (NtDeleteWnfStateName.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD72C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     ExpWnfComposeValueName @ 0x140710D70 (ExpWnfComposeValueName.c)
- *     ExpWnfAcquirePermanentDataStoreHandle @ 0x1407E2E00 (ExpWnfAcquirePermanentDataStoreHandle.c)
- *     ExpWnfGetPermanentDataStore @ 0x1407E45C0 (ExpWnfGetPermanentDataStore.c)
- *     ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A076F4 (ExpWnfEnumeratePermanentDataStoreHandles.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     ExpWnfGetPermanentDataStoreHandle @ 0x1406A4EC0 (ExpWnfGetPermanentDataStoreHandle.c)
+ *     ExpWnfComposeValueName @ 0x1406F67D0 (ExpWnfComposeValueName.c)
+ *     ExpWnfEnumeratePermanentDataStores @ 0x14095CD30 (ExpWnfEnumeratePermanentDataStores.c)
  */
 
-__int64 __fastcall ExpWnfDeletePermanentStateData(__int64 a1, unsigned __int64 a2)
+int __fastcall ExpWnfDeletePermanentStateData(__int64 a1, unsigned __int64 a2)
 {
   __int64 v3; // rbx
-  __int64 v4; // rsi
-  __int64 v5; // r14
-  int v6; // r12d
-  __int64 result; // rax
-  unsigned int v8; // edi
-  HANDLE KeyHandle; // [rsp+20h] [rbp-60h] BYREF
-  __int64 v10; // [rsp+28h] [rbp-58h] BYREF
-  UNICODE_STRING ValueName; // [rsp+30h] [rbp-50h] BYREF
-  char v12; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v4; // rdi
+  int v5; // esi
+  int result; // eax
+  HANDLE KeyHandle; // [rsp+20h] [rbp-50h] BYREF
+  UNICODE_STRING ValueName; // [rsp+28h] [rbp-48h] BYREF
+  char v9; // [rsp+38h] [rbp-38h] BYREF
 
-  v10 = 0LL;
-  *(_QWORD *)&ValueName.Length = 2228224LL;
-  v3 = 0LL;
-  ValueName.Buffer = (wchar_t *)&v12;
-  v4 = (a2 >> 4) & 3;
-  v5 = (a2 >> 6) & 0xF;
-  ExpWnfComposeValueName(a2, &ValueName);
   KeyHandle = 0LL;
-  v6 = 0;
+  *(_QWORD *)&ValueName.Length = 2228224LL;
+  v3 = (a2 >> 4) & 3;
+  v4 = (a2 >> 6) & 0xF;
+  ValueName.Buffer = (wchar_t *)&v9;
+  ExpWnfComposeValueName(a2, &ValueName);
+  v5 = 0;
   if ( a1 )
-  {
-    result = ExpWnfGetPermanentDataStore(a1, v4, 0LL, &v10);
-    if ( (int)result < 0 )
-      return result;
-    v3 = v10;
-    result = ExpWnfAcquirePermanentDataStoreHandle(v10, &KeyHandle);
-  }
+    result = ExpWnfGetPermanentDataStoreHandle(a1, (unsigned int)v3, 0LL, &KeyHandle);
   else
-  {
-    result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, HANDLE *))ExpWnfEnumeratePermanentDataStoreHandles)(
-               (unsigned int)v5,
-               (unsigned int)v4,
-               0LL,
-               &KeyHandle);
-  }
-  if ( (int)result >= 0 )
+    result = ExpWnfEnumeratePermanentDataStores((unsigned int)v4, (unsigned int)v3, 0LL, &KeyHandle, KeyHandle);
+  if ( result >= 0 )
   {
     while ( 1 )
     {
-      v8 = ZwDeleteValueKey(KeyHandle, &ValueName);
-      if ( v3 )
-      {
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 8), 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)(v3 + 8));
-        KeAbPostRelease(v3 + 8);
-        v3 = 0LL;
-      }
+      result = ZwDeleteValueKey(KeyHandle, &ValueName);
       if ( a1 )
         break;
       ZwClose(KeyHandle);
-      if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, HANDLE *))ExpWnfEnumeratePermanentDataStoreHandles)(
-                  (unsigned int)v5,
+      if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, HANDLE *))ExpWnfEnumeratePermanentDataStores)(
                   (unsigned int)v4,
-                  (unsigned int)++v6,
+                  (unsigned int)v3,
+                  (unsigned int)++v5,
                   &KeyHandle) < 0 )
         return 0;
     }
-    return v8;
   }
   return result;
 }

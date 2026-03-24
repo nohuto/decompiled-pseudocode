@@ -1,20 +1,19 @@
 /*
- * XREFs of HmgShareUnlockRemoveObject @ 0x1C00979E0
+ * XREFs of HmgShareUnlockRemoveObject @ 0x1C0085570
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C001F9F0 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0022D40 (-TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z.c)
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0030230 (-TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z.c)
+ *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0031DB0 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
  */
 
-__int64 __fastcall HmgShareUnlockRemoveObject(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
+__int64 __fastcall HmgShareUnlockRemoveObject(__int64 a1, int a2, int a3, int a4, char a5)
 {
-  int v6; // r14d
   __int16 v7; // r15
   unsigned int v8; // ebx
   __int64 v9; // rdx
@@ -34,13 +33,12 @@ __int64 __fastcall HmgShareUnlockRemoveObject(__int64 a1, __int64 a2, __int64 a3
   __int64 v24; // [rsp+30h] [rbp-38h] BYREF
   int v25; // [rsp+38h] [rbp-30h]
 
-  v6 = a3;
   v7 = a2;
   v8 = a1;
   GreAcquireHmgrSemaphore(a1, a2, a3);
   v24 = 0LL;
   v25 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v24, (unsigned __int16)v8 | (v8 >> 8) & 0xFF0000, 1LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v24, (unsigned __int16)v8 | (v8 >> 8) & 0xFF0000, 1, 0, 0);
   if ( v25 )
   {
     v12 = v24;
@@ -69,7 +67,7 @@ LABEL_22:
       TrackHmgrReferenceDecrement(v13, (struct OBJECT *)v21);
       v22 = *(_DWORD *)(v21 + 8) - 1;
       *(_DWORD *)(v21 + 8) = v22;
-      if ( v22 == v6 && *(_WORD *)(v21 + 12) == v7 && (a4 || (*(_BYTE *)(v12 + 15) & 1) == 0) )
+      if ( v22 == a3 && *(_WORD *)(v21 + 12) == v7 && (a4 || (*(_BYTE *)(v12 + 15) & 1) == 0) )
       {
         HANDLELOCK::vUnlockAndRelease((HANDLELOCK *)&v24);
         goto LABEL_16;

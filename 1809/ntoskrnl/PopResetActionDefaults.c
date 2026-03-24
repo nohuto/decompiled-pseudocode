@@ -1,8 +1,8 @@
 /*
- * XREFs of PopResetActionDefaults @ 0x14071EDEC
+ * XREFs of PopResetActionDefaults @ 0x14071EDCC
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopExecutePowerAction @ 0x1406DE110 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
  *     <none>

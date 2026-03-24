@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE9C
+ * XREFs of TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE7C
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x14087D73C (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x14087D71C (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmpFindDeviceByDeviceId @ 0x14087E03C (TtmpFindDeviceByDeviceId.c)
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E388 (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmpFindDeviceByDeviceId @ 0x14087E01C (TtmpFindDeviceByDeviceId.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E368 (TtmpPushTerminalDisplayStateOntoDevice.c)
  */
 
 void __fastcall TtmpCommitTerminalDisplayStateUpdateWorker(__int64 a1, int a2)

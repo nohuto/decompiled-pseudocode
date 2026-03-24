@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CAdapter@@UEAAJXZ @ 0x1C0020620
+ * XREFs of ?AddRef@CAdapter@@UEAAJXZ @ 0x1C001BA20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CAdapter::AddRef(CAdapter *this)
 {
-  return (unsigned int)_InterlockedIncrement((volatile signed __int32 *)this + 25);
+  return (unsigned int)_InterlockedIncrement((volatile signed __int32 *)this + 23);
 }

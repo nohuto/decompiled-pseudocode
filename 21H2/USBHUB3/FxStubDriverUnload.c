@@ -1,15 +1,15 @@
 /*
- * XREFs of FxStubDriverUnload @ 0x1C003F2A0
+ * XREFs of FxStubDriverUnload @ 0x1C003E9C0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C003F190 (-FxStubDriverUnloadCommon@@YAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C003E918 (-FxStubDriverUnloadCommon@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void FxStubDriverUnload()
 {
-  if ( qword_1C006AB98 && qword_1C006AB98 != FxStubDriverUnload )
-    qword_1C006AB98();
+  if ( qword_1C0069AD8 && qword_1C0069AD8 != FxStubDriverUnload )
+    qword_1C0069AD8();
   FxStubDriverUnloadCommon();
 }

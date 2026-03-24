@@ -1,5 +1,5 @@
 /*
- * XREFs of EngLoadImage @ 0x1C026C4C0
+ * XREFs of EngLoadImage @ 0x1C02739D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,28 +8,26 @@
 
 HANDLE __stdcall EngLoadImage(LPWSTR pwszDriver)
 {
-  struct Gre::Base::SESSION_GLOBALS *v2; // rdi
-  void *v3; // rbx
-  LPWSTR v5; // [rsp+30h] [rbp-18h] BYREF
-  int v6; // [rsp+38h] [rbp-10h]
-  int v7; // [rsp+3Ch] [rbp-Ch]
-  int v8; // [rsp+50h] [rbp+8h] BYREF
+  void *v2; // rbx
+  LPWSTR v4; // [rsp+30h] [rbp-18h] BYREF
+  int v5; // [rsp+38h] [rbp-10h]
+  int v6; // [rsp+3Ch] [rbp-Ch]
+  int v7; // [rsp+50h] [rbp+8h] BYREF
 
-  v8 = 0;
-  v2 = Gre::Base::Globals((Gre::Base *)pwszDriver);
-  GreAcquireSemaphore(*((_QWORD *)v2 + 1));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDriverMgmt", *((_QWORD *)v2 + 1), 16LL);
-  v5 = pwszDriver;
-  v6 = 5;
-  v7 = 1;
-  v3 = (void *)((__int64 (__fastcall *)(LPWSTR, __int64, int *, __int64, _DWORD, LPWSTR *))ldevLoadImage)(
+  v7 = 0;
+  GreAcquireSemaphore(ghsemDriverMgmt);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+  v4 = pwszDriver;
+  v5 = 5;
+  v6 = 1;
+  v2 = (void *)((__int64 (__fastcall *)(LPWSTR, __int64, int *, __int64, _DWORD, LPWSTR *))ldevLoadImage)(
                  pwszDriver,
                  1LL,
-                 &v8,
+                 &v7,
                  1LL,
                  0,
-                 &v5);
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDriverMgmt");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v2 + 1));
-  return v3;
+                 &v4);
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+  GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+  return v2;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgvsStateWrap @ 0x1C0122F90
+ * XREFs of GetgvsStateWrap @ 0x1C0137850
  * Callers:
  *     <none>
  * Callees:

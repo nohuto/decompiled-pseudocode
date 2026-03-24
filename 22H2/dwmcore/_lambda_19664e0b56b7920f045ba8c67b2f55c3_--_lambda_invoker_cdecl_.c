@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_19664e0b56b7920f045ba8c67b2f55c3_::_lambda_invoker_cdecl_ @ 0x180135070
+ * XREFs of _lambda_19664e0b56b7920f045ba8c67b2f55c3_::_lambda_invoker_cdecl_ @ 0x180221170
  * Callers:
  *     <none>
  * Callees:
- *     ?OnInput@CManipulationManager@@IEAAXXZ @ 0x18019EE5C (-OnInput@CManipulationManager@@IEAAXXZ.c)
+ *     ?OnInput@CManipulationManager@@IEAAXXZ @ 0x1802254F4 (-OnInput@CManipulationManager@@IEAAXXZ.c)
  */
 
 __int64 __fastcall lambda_19664e0b56b7920f045ba8c67b2f55c3_::_lambda_invoker_cdecl_(CManipulationManager *a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAddBootEntry @ 0x1409FE8F0
+ * XREFs of NtAddBootEntry @ 0x140952FE0
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetBootEntry @ 0x1409FD220 (ExpSetBootEntry.c)
+ *     ExpSetBootEntry @ 0x140951150 (ExpSetBootEntry.c)
  */
 
 __int64 __fastcall NtAddBootEntry(const void *a1, unsigned __int64 a2)
 {
-  if ( dword_140C31AF0 == 2 )
+  if ( dword_140C197B0 == 2 )
     return ExpSetBootEntry(1, a1, a2);
   else
     return 3221225474LL;

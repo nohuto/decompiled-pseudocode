@@ -1,13 +1,13 @@
 /*
- * XREFs of MiBackSystemImageWithPagefile @ 0x140871FC8
+ * XREFs of MiBackSystemImageWithPagefile @ 0x1407809E8
  * Callers:
- *     MmBackSystemImageWithPagefile @ 0x140871F6C (MmBackSystemImageWithPagefile.c)
- *     MiBackSystemImageWithPagefile @ 0x140871FC8 (MiBackSystemImageWithPagefile.c)
+ *     MmBackSystemImageWithPagefile @ 0x14078098C (MmBackSystemImageWithPagefile.c)
+ *     MiBackSystemImageWithPagefile @ 0x1407809E8 (MiBackSystemImageWithPagefile.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiBackSystemImageWithPagefile @ 0x140871FC8 (MiBackSystemImageWithPagefile.c)
- *     MiBackSingleImageWithPagefile @ 0x1408720F4 (MiBackSingleImageWithPagefile.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiBackSystemImageWithPagefile @ 0x1407809E8 (MiBackSystemImageWithPagefile.c)
+ *     MiBackSingleImageWithPagefile @ 0x140780B14 (MiBackSingleImageWithPagefile.c)
  */
 
 __int64 __fastcall MiBackSystemImageWithPagefile(__int64 a1)

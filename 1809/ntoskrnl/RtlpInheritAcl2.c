@@ -3,9 +3,9 @@
  * Callers:
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpGenerateInheritedAce @ 0x14062F2D0 (RtlpGenerateInheritedAce.c)
  *     RtlpCopyAces @ 0x14062FDC0 (RtlpCopyAces.c)
  *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)

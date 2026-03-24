@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CMatrixTransformMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0219F20
+ * XREFs of ?SetFloatProperty@CMatrixTransformMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E3BC0
  * Callers:
  *     <none>
  * Callees:
@@ -25,10 +25,10 @@ __int64 __fastcall DirectComposition::CMatrixTransformMarshaler::SetFloatPropert
     v8 = (unsigned __int64)a2 >> 1;
     v9 = 1;
     v10 = (v7 & 1) + 2 * v8;
-    if ( *((float *)this + v10 + 20) == a3 )
+    if ( *((float *)this + v10 + 18) == a3 )
       v9 = 0;
     else
-      *((float *)this + v10 + 20) = a3;
+      *((float *)this + v10 + 18) = a3;
     *a4 = v9;
   }
   else

@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiShutdownNotificationTimerCallback @ 0x1C003D9D0
+ * XREFs of AcpiShutdownNotificationTimerCallback @ 0x1C005F250
  * Callers:
  *     <none>
  * Callees:

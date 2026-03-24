@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwReleaseSemaphore @ 0x1401B82B0
+ * XREFs of ZwReleaseSemaphore @ 0x1401B82D0
  * Callers:
  *     <none>
  * Callees:

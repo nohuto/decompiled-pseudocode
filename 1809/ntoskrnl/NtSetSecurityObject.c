@@ -1,8 +1,8 @@
 /*
  * XREFs of NtSetSecurityObject @ 0x1405B9CF0
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1406D6658 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x1408964A0 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1406D6638 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolTakeOwnership @ 0x140896480 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
@@ -14,7 +14,7 @@
  *     RtlGetSaclSecurityDescriptor @ 0x14060DCC0 (RtlGetSaclSecurityDescriptor.c)
  *     SeCaptureSecurityDescriptor @ 0x140630CC0 (SeCaptureSecurityDescriptor.c)
  *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     SepRmGlobalSaclFind @ 0x1408A3AD8 (SepRmGlobalSaclFind.c)
+ *     SepRmGlobalSaclFind @ 0x1408A3AB8 (SepRmGlobalSaclFind.c)
  */
 
 NTSTATUS __stdcall NtSetSecurityObject(

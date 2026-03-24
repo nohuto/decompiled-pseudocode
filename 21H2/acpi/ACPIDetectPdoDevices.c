@@ -1,394 +1,390 @@
 /*
- * XREFs of ACPIDetectPdoDevices @ 0x1C0006CE8
+ * XREFs of ACPIDetectPdoDevices @ 0x1C0019338
  * Callers:
- *     ACPIRootIrpQueryBusRelations @ 0x1C0091924 (ACPIRootIrpQueryBusRelations.c)
- *     ACPIBusIrpQueryBusRelations @ 0x1C00A0C78 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIRootIrpQueryBusRelations @ 0x1C009DB7C (ACPIRootIrpQueryBusRelations.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C00A2AC0 (ACPIBusIrpQueryBusRelations.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
- *     ACPIBuildPdo @ 0x1C0005FA8 (ACPIBuildPdo.c)
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C00071F0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     ACPIDevicePowerFlushQueue @ 0x1C000776C (ACPIDevicePowerFlushQueue.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     ACPIBuildMissingChildren @ 0x1C004A3DC (ACPIBuildMissingChildren.c)
- *     ACPIDetectPdoMatch @ 0x1C0093204 (ACPIDetectPdoMatch.c)
- *     ACPIBuildFlushQueue @ 0x1C0094E40 (ACPIBuildFlushQueue.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     ACPIBuildPdo @ 0x1C0011198 (ACPIBuildPdo.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C00198D8 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIDetectPdoMatch @ 0x1C009DCB0 (ACPIDetectPdoMatch.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
  */
 
 __int64 __fastcall ACPIDetectPdoDevices(ULONG_PTR a1, PVOID *a2)
 {
-  PVOID *v2; // r13
-  ULONG_PTR v3; // rbp
-  ULONG_PTR v4; // r15
-  unsigned int *v5; // r12
-  unsigned int v6; // esi
-  __int64 DeviceExtension; // rbx
-  KIRQL v8; // al
-  __int64 v9; // rcx
-  KIRQL v10; // di
-  __int64 v11; // rdx
-  int v12; // edx
-  int v13; // edi
-  KIRQL v14; // dl
-  __int64 v15; // rdi
-  _DWORD *Pool2; // rax
-  ULONG_PTR v18; // rdi
-  KIRQL v19; // dl
-  char v20; // r14
-  KIRQL v21; // al
-  __int64 v22; // rcx
-  char v23; // bp
+  ULONG_PTR v3; // r13
+  unsigned int *v4; // r15
+  unsigned int v5; // r14d
+  __int64 DeviceExtension; // rdi
+  KIRQL v7; // al
+  __int64 v8; // rcx
+  KIRQL v9; // bl
+  __int64 v10; // rdx
+  int v11; // ebx
+  __int64 v12; // rbx
+  KIRQL v13; // dl
+  __int64 v14; // rsi
+  ULONG_PTR v15; // rsi
+  KIRQL v16; // dl
+  char v17; // bp
+  char v18; // r12
+  KIRQL v19; // al
+  __int64 v20; // rcx
+  KIRQL v21; // bl
+  _OWORD *PoolWithTag; // rax
   __int64 v24; // r8
   unsigned int v25; // eax
-  __int64 v26; // rax
-  _DWORD *v27; // rdi
-  unsigned int v28; // r14d
-  KIRQL v29; // al
-  KIRQL v30; // dl
-  __int64 v31; // rcx
+  unsigned int v26; // esi
+  unsigned int *v27; // rax
+  unsigned int *v28; // rbx
+  unsigned int v29; // ebp
+  KIRQL v30; // al
+  KIRQL v31; // dl
+  __int64 v32; // rcx
   __int64 i; // rcx
-  __int64 v33; // rax
-  __int64 v34; // rcx
-  unsigned int v35; // esi
-  __int64 v36; // r13
-  NTSTATUS v37; // eax
-  int v38; // edx
-  __int64 v39; // r8
-  __int64 v40; // rax
-  __int64 v41; // r8
-  void *v42; // rcx
-  void *v43; // r10
-  int v44; // r9d
-  __int64 v45; // r8
-  __int64 v46; // rcx
-  __int64 v47; // rdx
-  __int64 v48; // rcx
-  unsigned int v49; // r8d
-  __int64 v50; // rbp
-  __int64 v51; // r14
-  __int64 v52; // rsi
-  __int64 v53; // r14
-  __int64 v54; // rdx
-  __int64 v57; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  unsigned int v36; // esi
+  __int64 v37; // r13
+  NTSTATUS v38; // eax
+  int v39; // edx
+  __int64 v40; // r8
+  __int64 v41; // rax
+  _OWORD *v42; // rax
+  int v43; // ecx
+  __int64 v44; // r8
+  void *v45; // rcx
+  int v46; // edx
+  void *v47; // r10
+  int v48; // r9d
+  __int64 v49; // r8
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  unsigned int v52; // r8d
+  __int64 j; // rbp
+  __int64 v54; // r14
+  __int64 v55; // rsi
+  __int64 v56; // r14
+  __int64 v57; // rdx
+  __int64 v60; // [rsp+A0h] [rbp+18h] BYREF
 
-  v2 = a2;
-  v3 = a1;
+  v3 = 0LL;
   v4 = 0LL;
-  v5 = 0LL;
-  v6 = 0;
+  v5 = 0;
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  if ( v2 && *v2 )
+  if ( a2 && *a2 )
   {
-    v6 = *(_DWORD *)*v2;
-    v5 = (unsigned int *)*v2;
+    v5 = *(_DWORD *)*a2;
+    v4 = (unsigned int *)*a2;
   }
-  v8 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  v9 = *(_QWORD *)(DeviceExtension + 8);
-  v10 = v8;
-  if ( (v9 & 0x20000000000LL) != 0 )
+  v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  v8 = *(_QWORD *)(DeviceExtension + 8);
+  v9 = v7;
+  if ( (v8 & 0x20000000000LL) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(DeviceExtension + 8), 0xFFFFFDFFFFFFFFFFuLL);
     ACPIBuildMissingChildren(DeviceExtension);
-    v9 = *(_QWORD *)(DeviceExtension + 8);
+    v8 = *(_QWORD *)(DeviceExtension + 8);
   }
-  if ( (v9 & 0x40000000000LL) != 0 )
+  if ( (v8 & 0x40000000000LL) != 0 )
     _InterlockedAnd64((volatile signed __int64 *)(DeviceExtension + 8), 0xFFFFFBFFFFFFFFFFuLL);
-  if ( (*(_DWORD *)(DeviceExtension + 1000) & 0x200LL) != 0 )
-    _InterlockedAnd64((volatile signed __int64 *)(DeviceExtension + 1000), 0xFFFFFFFFFFFFFDFFuLL);
-  KeReleaseSpinLock(&AcpiDeviceTreeLock, v10);
-  LOBYTE(v11) = 1;
-  v13 = ACPIBuildFlushQueue(DeviceExtension, v11);
-  if ( v13 < 0 )
+  if ( (*(_DWORD *)(DeviceExtension + 960) & 0x200LL) != 0 )
+    _InterlockedAnd64((volatile signed __int64 *)(DeviceExtension + 960), 0xFFFFFFFFFFFFFDFFuLL);
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v9);
+  LOBYTE(v10) = 1;
+  v11 = ACPIBuildFlushQueue(DeviceExtension, v10);
+  if ( v11 < 0 )
   {
-    v41 = *(_QWORD *)(DeviceExtension + 8);
-    v42 = &unk_1C006FB8B;
-    v43 = &unk_1C006FB8B;
-    if ( (v41 & 0x200000000000LL) != 0 )
+    v44 = *(_QWORD *)(DeviceExtension + 8);
+    v45 = &unk_1C00701BA;
+    v46 = 0;
+    v47 = &unk_1C00701BA;
+    if ( (v44 & 0x200000000000LL) != 0 )
     {
-      v42 = *(void **)(DeviceExtension + 608);
-      if ( (v41 & 0x400000000000LL) != 0 )
-        v43 = *(void **)(DeviceExtension + 616);
+      v45 = *(void **)(DeviceExtension + 568);
+      if ( (v44 & 0x400000000000LL) != 0 )
+        v47 = *(void **)(DeviceExtension + 576);
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return (unsigned int)v13;
-    v44 = 20;
-    goto LABEL_76;
+      return (unsigned int)v11;
+    v48 = 20;
+    goto LABEL_77;
   }
-  v13 = ACPIDevicePowerFlushQueue(DeviceExtension);
-  if ( v13 < 0 )
+  v11 = ACPIDevicePowerFlushQueue(DeviceExtension);
+  if ( v11 < 0 )
   {
-    v45 = *(_QWORD *)(DeviceExtension + 8);
-    v42 = &unk_1C006FB8B;
-    v43 = &unk_1C006FB8B;
-    if ( (v45 & 0x200000000000LL) != 0 )
+    v49 = *(_QWORD *)(DeviceExtension + 8);
+    v45 = &unk_1C00701BA;
+    v46 = 0;
+    v47 = &unk_1C00701BA;
+    if ( (v49 & 0x200000000000LL) != 0 )
     {
-      v42 = *(void **)(DeviceExtension + 608);
-      if ( (v45 & 0x400000000000LL) != 0 )
-        v43 = *(void **)(DeviceExtension + 616);
+      v45 = *(void **)(DeviceExtension + 568);
+      if ( (v49 & 0x400000000000LL) != 0 )
+        v47 = *(void **)(DeviceExtension + 576);
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return (unsigned int)v13;
-    v44 = 21;
-LABEL_76:
-    LOBYTE(v12) = 2;
+      return (unsigned int)v11;
+    v48 = 21;
+LABEL_77:
+    LOBYTE(v46) = 2;
     WPP_RECORDER_SF_Lqss(
       WPP_GLOBAL_Control->DeviceExtension,
-      v12,
+      v46,
       10,
-      v44,
-      (__int64)&WPP_e848b9e179ab32f347f39b604d9f0dbd_Traceguids,
-      v13,
+      v48,
+      (__int64)&WPP_c0e337b8db3d3f7e68015837118db5e6_Traceguids,
+      v11,
       DeviceExtension,
-      (__int64)v42,
-      (__int64)v43);
-    return (unsigned int)v13;
+      (__int64)v45,
+      (__int64)v47);
+    return (unsigned int)v11;
   }
-  v14 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  v15 = *(_QWORD *)(DeviceExtension + 800);
-  if ( v15 == DeviceExtension + 800 )
+  v12 = DeviceExtension + 760;
+  v13 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  v14 = *(_QWORD *)(DeviceExtension + 760);
+  if ( v14 == DeviceExtension + 760 )
   {
-    KeReleaseSpinLock(&AcpiDeviceTreeLock, v14);
-    if ( v5 )
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v13);
+    if ( v4 )
       return 0LL;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 16LL, 1148216129LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x44706341u);
+    if ( PoolWithTag )
     {
-      *Pool2 = 0;
-      goto LABEL_16;
+      *a2 = PoolWithTag;
+      *PoolWithTag = 0LL;
+      return 0LL;
     }
     return 3221225626LL;
   }
-  v18 = v15 - 816;
-  ACPIInitReferenceDeviceExtension(v18);
-  KeReleaseSpinLock(&AcpiDeviceTreeLock, v19);
-  v20 = 0;
+  v15 = v14 - 776;
+  ACPIInitReferenceDeviceExtension(v15);
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v16);
+  v17 = 0;
+  v18 = 0;
   while ( 1 )
   {
-    _InterlockedOr64((volatile signed __int64 *)(v18 + 8), 0x100uLL);
-    v57 = 0LL;
-    if ( (int)ACPIGet(v18, 1096045407, -1878783998, 0, 0, 0LL, 0LL, (__int64)&v57, 0LL) >= 0
-      && ((*(_QWORD *)(v18 + 8) & 0x2000000000002LL) == 0
-       || (AcpiOverrideAttributes & 0x80000) != 0 && (*(_DWORD *)(v18 + 1000) & 0x200000LL) != 0) )
+    _InterlockedOr64((volatile signed __int64 *)(v15 + 8), 0x100uLL);
+    v60 = 0LL;
+    if ( (int)ACPIGet((__int64 *)v15, 1096045407, -1878783998, 0LL, 0, 0LL, 0LL, (__int64)&v60, 0LL) >= 0
+      && ((*(_QWORD *)(v15 + 8) & 0x2000000000002LL) == 0
+       || (AcpiOverrideAttributes & 0x80000) != 0 && (*(_DWORD *)(v15 + 960) & 0x200000LL) != 0) )
     {
-      if ( !(unsigned __int8)ACPIDetectPdoMatch(v18, v5) )
+      if ( (unsigned __int8)ACPIDetectPdoMatch(v15, v4) )
       {
-        if ( ACPIBuildPdo(
-               *(struct _DRIVER_OBJECT **)(v3 + 8),
-               v18,
-               *(struct _DEVICE_OBJECT **)(DeviceExtension + 784),
-               (*(_BYTE *)(DeviceExtension + 8) & 0x10) == 0) < 0 )
-          goto LABEL_23;
-        ++v6;
-        goto LABEL_33;
-      }
-      if ( (*(_BYTE *)(v18 + 8) & 0x20) != 0 )
-      {
-        v24 = *(_QWORD *)(v18 + 768);
-        if ( v24 )
+        if ( (*(_BYTE *)(v15 + 8) & 0x20) != 0 )
         {
-          if ( v5 && (v46 = 0LL, *v5) )
+          v24 = *(_QWORD *)(v15 + 728);
+          if ( v24 )
           {
-            while ( *(_QWORD *)&v5[2 * v46 + 2] != v24 )
+            if ( !v4 || (v43 = 0, !*v4) )
             {
-              v46 = (unsigned int)(v46 + 1);
-              if ( (unsigned int)v46 >= *v5 )
-                goto LABEL_36;
+LABEL_34:
+              if ( (*(_DWORD *)(v15 + 960) & 0x20000000) != 0 )
+                goto LABEL_18;
+              ++v5;
+              _InterlockedAnd64((volatile signed __int64 *)(v15 + 8), 0xFFFFFFFFFFFFFEFFuLL);
+              goto LABEL_36;
             }
-            if ( (*(_DWORD *)(v18 + 1000) & 0x20000000) != 0 )
+            while ( *(_QWORD *)&v4[2 * v43 + 2] != v24 )
             {
-              --v6;
-              goto LABEL_33;
+              if ( ++v43 >= *v4 )
+                goto LABEL_34;
             }
-          }
-          else
-          {
-LABEL_36:
-            if ( (*(_DWORD *)(v18 + 1000) & 0x20000000) == 0 )
+            if ( (*(_DWORD *)(v15 + 960) & 0x20000000) != 0 )
             {
-              ++v6;
-              _InterlockedAnd64((volatile signed __int64 *)(v18 + 8), 0xFFFFFFFFFFFFFEFFuLL);
-LABEL_33:
-              v20 = 1;
+              --v5;
+              goto LABEL_36;
             }
           }
         }
       }
+      else if ( ACPIBuildPdo(
+                  *(struct _DRIVER_OBJECT **)(a1 + 8),
+                  v15,
+                  *(struct _DEVICE_OBJECT **)(DeviceExtension + 744),
+                  (*(_BYTE *)(DeviceExtension + 8) & 0x10) == 0) >= 0 )
+      {
+        ++v5;
+LABEL_36:
+        v18 = 1;
+      }
     }
-LABEL_23:
-    v21 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-    v22 = *(_QWORD *)(v18 + 816);
-    if ( v22 == DeviceExtension + 800 )
+LABEL_18:
+    v19 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+    v20 = *(_QWORD *)(v15 + 776);
+    if ( v20 == v12 )
     {
-      v23 = 1;
+      v17 = 1;
     }
     else
     {
-      v4 = v22 - 816;
-      if ( *(_DWORD *)(v22 - 816 + 732) )
-        _InterlockedIncrement((volatile signed __int32 *)(v4 + 732));
-      v23 = 0;
+      v3 = v20 - 776;
+      if ( *(_DWORD *)(v20 - 776 + 692) )
+        _InterlockedIncrement((volatile signed __int32 *)(v3 + 692));
     }
-    KeReleaseSpinLock(&AcpiDeviceTreeLock, v21);
-    ACPIInitDereferenceDeviceExtensionUnlocked(v18);
-    if ( v23 )
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v19);
+    v21 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+    KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
+    ACPIInitDereferenceDeviceExtensionLocked(v15);
+    KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
+    KeReleaseSpinLock(&AcpiPowerLock, v21);
+    if ( v17 )
       break;
-    v3 = a1;
-    v18 = v4;
+    v15 = v3;
+    v12 = DeviceExtension + 760;
+    v17 = 0;
   }
-  v2 = a2;
-  if ( v20 )
+  if ( v18 )
   {
     v25 = 16;
-    if ( v6 )
-      v25 = 8 * v6 + 8;
-    v26 = ExAllocatePool2(64LL, v25, 1148216129LL);
-    v27 = (_DWORD *)v26;
-    if ( v26 )
+    if ( v5 )
+      v25 = 8 * v5 + 8;
+    v26 = v25;
+    v27 = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, v25, 0x44706341u);
+    v28 = v27;
+    if ( !v27 )
+      return 3221225626LL;
+    memset(v27, 0, v26);
+    if ( v4 )
     {
-      if ( v5 )
+      memmove(v28 + 2, v4 + 2, 8LL * *v4);
+      v29 = *v4;
+    }
+    else
+    {
+      v29 = 0;
+    }
+    v30 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+    v31 = v30;
+    v32 = *(_QWORD *)(DeviceExtension + 760);
+    if ( v32 == DeviceExtension + 760 )
+    {
+      KeReleaseSpinLock(&AcpiDeviceTreeLock, v30);
+      ExFreePoolWithTag(v28, 0);
+    }
+    else
+    {
+      for ( i = v32 - 776; i; i = v35 - 776 )
       {
-        memmove((void *)(v26 + 8), v5 + 2, 8LL * *v5);
-        v28 = *v5;
-      }
-      else
-      {
-        v28 = 0;
-      }
-      v29 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-      v30 = v29;
-      v31 = *(_QWORD *)(DeviceExtension + 800);
-      if ( v31 == DeviceExtension + 800 )
-      {
-        KeReleaseSpinLock(&AcpiDeviceTreeLock, v29);
-        ExFreePoolWithTag(v27, 0);
-      }
-      else
-      {
-        for ( i = v31 - 816; i; i = v34 - 816 )
+        v34 = *(_QWORD *)(i + 8);
+        if ( (v34 & 0x20) != 0 )
         {
-          v33 = *(_QWORD *)(i + 8);
-          if ( (v33 & 0x20) != 0 )
+          v40 = *(_QWORD *)(i + 728);
+          if ( v40 )
           {
-            v39 = *(_QWORD *)(i + 768);
-            if ( v39 )
+            if ( ((v34 & 0x2000000000002LL) == 0
+               || (AcpiOverrideAttributes & 0x80000) != 0 && (*(_DWORD *)(i + 960) & 0x200000) != 0)
+              && (*(_DWORD *)(i + 960) & 0x20000000) == 0 )
             {
-              if ( ((v33 & 0x2000000000002LL) == 0
-                 || (AcpiOverrideAttributes & 0x80000) != 0 && (*(_DWORD *)(i + 1000) & 0x200000) != 0)
-                && (*(_DWORD *)(i + 1000) & 0x20000000) == 0 )
-              {
-                if ( v28 >= v6 )
-                  break;
-                v40 = v28++;
-                *(_QWORD *)&v27[2 * v40 + 2] = v39;
-                _InterlockedAnd64((volatile signed __int64 *)(i + 8), 0xFFFFFFFFFFFFFEFFuLL);
-              }
+              if ( v29 >= v5 )
+                break;
+              v41 = v29++;
+              *(_QWORD *)&v28[2 * v41 + 2] = v40;
+              _InterlockedAnd64((volatile signed __int64 *)(i + 8), 0xFFFFFFFFFFFFFEFFuLL);
             }
           }
-          if ( v6 == v28 )
-            break;
-          v34 = *(_QWORD *)(i + 816);
-          if ( v34 == DeviceExtension + 800 )
-            break;
         }
-        *v27 = v28;
-        KeReleaseSpinLock(&AcpiDeviceTreeLock, v30);
-        if ( v5 )
-          v35 = *v5;
-        else
-          v35 = 0;
-        if ( v35 < v28 )
+        if ( v5 == v29 )
+          break;
+        v35 = *(_QWORD *)(i + 776);
+        if ( v35 == DeviceExtension + 760 )
+          break;
+      }
+      *v28 = v29;
+      KeReleaseSpinLock(&AcpiDeviceTreeLock, v31);
+      if ( v4 )
+        v36 = *v4;
+      else
+        v36 = 0;
+      for ( ; v36 < v29; ++v36 )
+      {
+        v37 = v36;
+        v38 = ObReferenceObjectByPointer(*(PVOID *)&v28[2 * v36 + 2], 0, 0LL, 0);
+        if ( v38 < 0 )
         {
-          do
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            v36 = v35;
-            v37 = ObReferenceObjectByPointer(*(PVOID *)&v27[2 * v35 + 2], 0, 0LL, 0);
-            if ( v37 < 0 )
-            {
-              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                LOBYTE(v38) = 2;
-                WPP_RECORDER_SF_qD(
-                  WPP_GLOBAL_Control->DeviceExtension,
-                  v38,
-                  22,
-                  22,
-                  (__int64)&WPP_e848b9e179ab32f347f39b604d9f0dbd_Traceguids,
-                  *(_QWORD *)&v27[2 * v35 + 2],
-                  v37);
-              }
-              --*v27;
-              --v35;
-              v47 = (unsigned int)*v27;
-              --v28;
-              v48 = *(_QWORD *)&v27[2 * v47 + 2];
-              *(_QWORD *)&v27[2 * v47 + 2] = *(_QWORD *)&v27[2 * v36 + 2];
-              *(_QWORD *)&v27[2 * v36 + 2] = v48;
-            }
-            ++v35;
+            LOBYTE(v39) = 2;
+            WPP_RECORDER_SF_qD(
+              WPP_GLOBAL_Control->DeviceExtension,
+              v39,
+              22,
+              22,
+              (__int64)&WPP_c0e337b8db3d3f7e68015837118db5e6_Traceguids,
+              *(_QWORD *)&v28[2 * v36 + 2],
+              v38);
           }
-          while ( v35 < v28 );
-          v2 = a2;
+          --*v28;
+          --v36;
+          v50 = *v28;
+          --v29;
+          v51 = *(_QWORD *)&v28[2 * v50 + 2];
+          *(_QWORD *)&v28[2 * v50 + 2] = *(_QWORD *)&v28[2 * v37 + 2];
+          *(_QWORD *)&v28[2 * v37 + 2] = v51;
         }
-        if ( _bittest64((const signed __int64 *)(DeviceExtension + 8), 0x25u) )
+      }
+      if ( (*(_QWORD *)(DeviceExtension + 8) & 0x2000000000LL) != 0 )
+      {
+        v52 = *v28;
+        for ( j = 0LL; (unsigned int)j < v52; j = (unsigned int)(j + 1) )
         {
-          v49 = *v27;
-          v50 = 0LL;
-          if ( *v27 )
+          v54 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&v28[2 * j + 2] + 64LL) + 8LL);
+          if ( (v54 & 0x12000000000LL) != 0 && (v54 & 0x40000000000000LL) != 0 )
           {
-            do
+            IoDuplicateDependency(*(_QWORD *)(DeviceExtension + 728));
+            v52 = *v28;
+          }
+          if ( (v54 & 0x3000000000LL) != 0 )
+          {
+            v55 = 0LL;
+            if ( v52 )
             {
-              v51 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&v27[2 * v50 + 2] + 64LL) + 8LL);
-              if ( (v51 & 0x12000000000LL) != 0 && (v51 & 0x40000000000000LL) != 0 )
+              v56 = v54 & 0x1000000000LL;
+              do
               {
-                IoDuplicateDependency(*(_QWORD *)(DeviceExtension + 768));
-                v49 = *v27;
-              }
-              if ( (v51 & 0x3000000000LL) != 0 )
-              {
-                v52 = 0LL;
-                if ( v49 )
+                v57 = *(_QWORD *)&v28[2 * v55 + 2];
+                if ( (_DWORD)v55 != (_DWORD)j
+                  && (((-(__int64)(v56 != 0) & 0x2000000000LL) + 0x10000000000LL) & *(_QWORD *)(*(_QWORD *)(v57 + 64)
+                                                                                              + 8LL)) != 0
+                  && (*(_QWORD *)(*(_QWORD *)(v57 + 64) + 8LL) & 0x40000000000000LL) != 0 )
                 {
-                  v53 = v51 & 0x1000000000LL;
-                  do
-                  {
-                    v54 = *(_QWORD *)&v27[2 * v52 + 2];
-                    if ( (_DWORD)v52 != (_DWORD)v50
-                      && (((-(__int64)(v53 != 0) & 0x2000000000LL) + 0x10000000000LL) & *(_QWORD *)(*(_QWORD *)(v54 + 64)
-                                                                                                  + 8LL)) != 0
-                      && (*(_QWORD *)(*(_QWORD *)(v54 + 64) + 8LL) & 0x40000000000000LL) != 0 )
-                    {
-                      IoSetDependency(*(_QWORD *)&v27[2 * v50 + 2], v54, 2LL);
-                    }
-                    v49 = *v27;
-                    v52 = (unsigned int)(v52 + 1);
-                  }
-                  while ( (unsigned int)v52 < *v27 );
+                  IoSetDependency(*(_QWORD *)&v28[2 * j + 2], v57, 2LL);
                 }
+                v52 = *v28;
+                v55 = (unsigned int)(v55 + 1);
               }
-              v50 = (unsigned int)(v50 + 1);
+              while ( (unsigned int)v55 < *v28 );
             }
-            while ( (unsigned int)v50 < v49 );
-            v2 = a2;
           }
         }
-        if ( v5 )
-          ExFreePoolWithTag(*v2, 0);
-        *v2 = v27;
       }
+      if ( v4 )
+        ExFreePoolWithTag(*a2, 0);
+      *a2 = v28;
+    }
+    return 0LL;
+  }
+  else
+  {
+    if ( v4 )
+      return 0LL;
+    v42 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x44706341u);
+    if ( v42 )
+    {
+      *v42 = 0LL;
+      *a2 = v42;
       return 0LL;
     }
     return 3221225626LL;
   }
-  if ( v5 )
-    return 0LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(64LL, 16LL, 1148216129LL);
-  if ( !Pool2 )
-    return 3221225626LL;
-  *Pool2 = 0;
-LABEL_16:
-  *v2 = Pool2;
-  return 0LL;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00C2990
+ * XREFs of ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00B5EB0
  * Callers:
- *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00B5150 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0134470 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00ABCF0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011BB50 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
  *     <none>
  */

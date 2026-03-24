@@ -1,12 +1,12 @@
 /*
- * XREFs of ??0DDAMetaData@@QEAA@II@Z @ 0x1C0331118
+ * XREFs of ??0DDAMetaData@@QEAA@II@Z @ 0x1C02A07A0
  * Callers:
- *     ?Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C03322C4 (-Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
+ *     ?Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C02A16B0 (-Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
  * Callees:
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-DDAMetaData *__fastcall DDAMetaData::DDAMetaData(DDAMetaData *this)
+DDAMetaData *__fastcall DDAMetaData::DDAMetaData(DDAMetaData *this, __int64 a2, __int64 a3, __int64 a4)
 {
   struct DXGPROCESS *Current; // rax
 
@@ -14,7 +14,7 @@ DDAMetaData *__fastcall DDAMetaData::DDAMetaData(DDAMetaData *this)
   *((_QWORD *)this + 6) = 0LL;
   *((_DWORD *)this + 5) = 128;
   *((_DWORD *)this + 10) = 64;
-  Current = DXGPROCESS::GetCurrent((__int64)this);
+  Current = DXGPROCESS::GetCurrent((__int64)this, a2, a3, a4);
   if ( Current )
     Current = (struct DXGPROCESS *)*((_QWORD *)Current + 11);
   *((_QWORD *)this + 8) = 0LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpEnlistFreeCell @ 0x14079C440
+ * XREFs of HvpEnlistFreeCell @ 0x1407082E8
  * Callers:
- *     HvpEnlistFreeCells @ 0x14068C700 (HvpEnlistFreeCells.c)
- *     HvFreeCell @ 0x14079BD98 (HvFreeCell.c)
- *     HvpDoAllocateCell @ 0x14079C920 (HvpDoAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x140708E68 (HvpDoAllocateCell.c)
+ *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     HvpEnlistFreeCells @ 0x140709B00 (HvpEnlistFreeCells.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvpAddFreeCellHint @ 0x14079C578 (HvpAddFreeCellHint.c)
- *     HvpGetCellMap @ 0x140AB44C0 (HvpGetCellMap.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
+ *     HvpAddFreeCellHint @ 0x1407090E0 (HvpAddFreeCellHint.c)
  */
 
 ULONG_PTR __fastcall HvpEnlistFreeCell(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, int a4)
@@ -50,7 +50,7 @@ ULONG_PTR __fastcall HvpEnlistFreeCell(ULONG_PTR BugCheckParameter2, __int64 a2,
     LODWORD(v7) = v7 + 4096;
     *CellMap = v13;
   }
-  result = 632 * v4 + BugCheckParameter2 + 888;
+  result = 632 * v4 + BugCheckParameter2 + 880;
   v15 = *(_QWORD *)result;
   if ( *(_QWORD *)(*(_QWORD *)result + 8LL) != result )
     __fastfail(3u);

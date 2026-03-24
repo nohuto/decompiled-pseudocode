@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DestroyVSyncPhaseState@DXGADAPTER@@AEAAXXZ @ 0x1C02B6C60
+ * XREFs of ?DestroyVSyncPhaseState@DXGADAPTER@@AEAAXXZ @ 0x1C020CF48
  * Callers:
- *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C02B5998 (--1DXGADAPTER@@QEAA@XZ.c)
+ *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C020BA34 (--1DXGADAPTER@@QEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
  */
 
 void __fastcall DXGADAPTER::DestroyVSyncPhaseState(DXGADAPTER *this)
@@ -16,33 +16,29 @@ void __fastcall DXGADAPTER::DestroyVSyncPhaseState(DXGADAPTER *this)
   void *v7; // rcx
   void *v8; // rcx
   void *v9; // rcx
-  void *v10; // rcx
 
-  v2 = (void *)*((_QWORD *)this + 514);
+  v2 = (void *)*((_QWORD *)this + 486);
   if ( v2 )
-    operator delete(v2);
-  v3 = (void *)*((_QWORD *)this + 515);
+    operator delete[](v2);
+  v3 = (void *)*((_QWORD *)this + 487);
   if ( v3 )
-    operator delete(v3);
-  v4 = (void *)*((_QWORD *)this + 516);
+    operator delete[](v3);
+  v4 = (void *)*((_QWORD *)this + 488);
   if ( v4 )
-    operator delete(v4);
-  v5 = (void *)*((_QWORD *)this + 517);
+    operator delete[](v4);
+  v5 = (void *)*((_QWORD *)this + 489);
   if ( v5 )
-    operator delete(v5);
-  v6 = (void *)*((_QWORD *)this + 518);
+    operator delete[](v5);
+  v6 = (void *)*((_QWORD *)this + 490);
   if ( v6 )
-    operator delete(v6);
-  v7 = (void *)*((_QWORD *)this + 519);
+    operator delete[](v6);
+  v7 = (void *)*((_QWORD *)this + 491);
   if ( v7 )
-    operator delete(v7);
-  v8 = (void *)*((_QWORD *)this + 526);
+    operator delete[](v7);
+  v8 = (void *)*((_QWORD *)this + 498);
   if ( v8 )
-    operator delete(v8);
-  v9 = (void *)*((_QWORD *)this + 525);
+    operator delete[](v8);
+  v9 = (void *)*((_QWORD *)this + 497);
   if ( v9 )
-    operator delete(v9);
-  v10 = (void *)*((_QWORD *)this + 527);
-  if ( v10 )
-    operator delete(v10);
+    operator delete[](v9);
 }

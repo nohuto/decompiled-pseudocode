@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180112000
+ * XREFs of ?HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18016F0D0
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B33F0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E5360 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CIndirectSwapchainRenderTarget::HrFindInterface(
@@ -26,7 +26,7 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::HrFindInterface(
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 1864) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 1880) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

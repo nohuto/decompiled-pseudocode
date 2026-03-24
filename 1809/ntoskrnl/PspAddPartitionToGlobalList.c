@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAddPartitionToGlobalList @ 0x1401908D4
+ * XREFs of PspAddPartitionToGlobalList @ 0x1401908F4
  * Callers:
- *     PspAllocatePartition @ 0x14075CA68 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspAddPartitionToGlobalList(__int64 a1)

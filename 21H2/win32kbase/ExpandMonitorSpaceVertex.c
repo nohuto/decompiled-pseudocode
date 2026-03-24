@@ -1,9 +1,10 @@
 /*
- * XREFs of ExpandMonitorSpaceVertex @ 0x1C006C4C8
+ * XREFs of ExpandMonitorSpaceVertex @ 0x1C006FA78
  * Callers:
- *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C006F314 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
+ *     GetMonitorRectForDpi @ 0x1C006EE58 (GetMonitorRectForDpi.c)
+ *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C00713A8 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
  * Callees:
- *     EngMulDiv @ 0x1C006E450 (EngMulDiv.c)
+ *     EngMulDiv @ 0x1C0070E10 (EngMulDiv.c)
  */
 
 __int64 __fastcall ExpandMonitorSpaceVertex(unsigned __int16 a1, unsigned __int16 a2, __int64 a3)

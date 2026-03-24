@@ -1,38 +1,60 @@
 /*
- * XREFs of RootHub_ReleaseReadModifyWriteLock @ 0x1C0011F9C
+ * XREFs of RootHub_ReleaseReadModifyWriteLock @ 0x1C0011EE0
  * Callers:
- *     RootHub_D0Exit @ 0x1C000D388 (RootHub_D0Exit.c)
- *     RootHub_WaitForPendingU3TransitionCompletion @ 0x1C000D734 (RootHub_WaitForPendingU3TransitionCompletion.c)
- *     RootHub_HandlePortStatusChangeEvent @ 0x1C001171C (RootHub_HandlePortStatusChangeEvent.c)
- *     RootHub_D0Entry @ 0x1C0011DD8 (RootHub_D0Entry.c)
- *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0011EE8 (RootHub_DetectAndAcknowledgePortResume.c)
- *     RootHub_UcxEvtClearPortFeature @ 0x1C0011FE0 (RootHub_UcxEvtClearPortFeature.c)
- *     RootHub_UcxEvtSetPortFeature @ 0x1C00125C0 (RootHub_UcxEvtSetPortFeature.c)
- *     Controller_WdfEvtDeviceArmWakeFromS0 @ 0x1C0034C90 (Controller_WdfEvtDeviceArmWakeFromS0.c)
- *     Controller_WdfEvtDeviceDisarmWakeFromS0 @ 0x1C0034EA0 (Controller_WdfEvtDeviceDisarmWakeFromS0.c)
- *     RootHub_DisableLPMForSlot @ 0x1C003D604 (RootHub_DisableLPMForSlot.c)
- *     RootHub_ForceU0AndWait @ 0x1C003D7D8 (RootHub_ForceU0AndWait.c)
- *     RootHub_ForceU3 @ 0x1C003DB7C (RootHub_ForceU3.c)
- *     RootHub_SetPortResumeTime @ 0x1C003DE94 (RootHub_SetPortResumeTime.c)
- *     RootHub_Update20HardwareLpmParameters @ 0x1C003E620 (RootHub_Update20HardwareLpmParameters.c)
- *     RootHub_WdfEvtTimer20PortResumeComplete @ 0x1C003E828 (RootHub_WdfEvtTimer20PortResumeComplete.c)
- *     UsbDevice_UcxEvtDisable @ 0x1C00476E0 (UsbDevice_UcxEvtDisable.c)
+ *     RootHub_D0Exit @ 0x1C000B838 (RootHub_D0Exit.c)
+ *     RootHub_HandlePortStatusChangeEvent @ 0x1C0011BE0 (RootHub_HandlePortStatusChangeEvent.c)
+ *     RootHub_WaitForPendingU3TransitionCompletion @ 0x1C0011CC0 (RootHub_WaitForPendingU3TransitionCompletion.c)
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0011E24 (RootHub_DetectAndAcknowledgePortResume.c)
+ *     RootHub_D0Entry @ 0x1C0011F50 (RootHub_D0Entry.c)
+ *     RootHub_UcxEvtClearPortFeature @ 0x1C00120A0 (RootHub_UcxEvtClearPortFeature.c)
+ *     RootHub_UcxEvtSetPortFeature @ 0x1C0013360 (RootHub_UcxEvtSetPortFeature.c)
+ *     RootHub_WdfEvtTimer20PortResumeComplete @ 0x1C001766C (RootHub_WdfEvtTimer20PortResumeComplete.c)
+ *     RootHub_DetectLinkErrorState @ 0x1C001A2AC (RootHub_DetectLinkErrorState.c)
+ *     Controller_WdfEvtDeviceArmWakeFromS0 @ 0x1C0034A20 (Controller_WdfEvtDeviceArmWakeFromS0.c)
+ *     Controller_WdfEvtDeviceDisarmWakeFromS0 @ 0x1C0034C10 (Controller_WdfEvtDeviceDisarmWakeFromS0.c)
+ *     RootHub_DisableLPMForSlot @ 0x1C003D094 (RootHub_DisableLPMForSlot.c)
+ *     RootHub_ForceU0AndWait @ 0x1C003D268 (RootHub_ForceU0AndWait.c)
+ *     RootHub_ForceU3 @ 0x1C003D60C (RootHub_ForceU3.c)
+ *     RootHub_SetPortResumeTime @ 0x1C003D924 (RootHub_SetPortResumeTime.c)
+ *     RootHub_Update20HardwareLpmParameters @ 0x1C003E0B0 (RootHub_Update20HardwareLpmParameters.c)
+ *     UsbDevice_UcxEvtDisable @ 0x1C0047300 (UsbDevice_UcxEvtDisable.c)
  * Callees:
- *     DynamicLock_Release @ 0x1C0003E5C (DynamicLock_Release.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
-char __fastcall RootHub_ReleaseReadModifyWriteLock(__int64 a1, unsigned int a2)
+char __fastcall RootHub_ReleaseReadModifyWriteLock(__int64 a1, unsigned int a2, int a3, int a4)
 {
-  __int64 v3; // rcx
-  char v4; // bl
+  __int64 v5; // rdx
+  __int64 v6; // rdi
+  char v7; // bl
   char result; // al
 
-  v3 = *(_QWORD *)(a1 + 48) + 112LL * a2;
-  v4 = *(_BYTE *)(v3 + 32);
-  *(_BYTE *)(v3 + 32) = 0;
-  result = DynamicLock_Release(*(_QWORD *)(v3 + 24));
-  if ( v4 )
+  v5 = *(_QWORD *)(a1 + 48) + 112LL * a2;
+  v6 = *(_QWORD *)(v5 + 24);
+  v7 = *(_BYTE *)(v5 + 32);
+  *(_BYTE *)(v5 + 32) = 0;
+  if ( *(_DWORD *)v6 == 1 )
+  {
+    if ( KeGetCurrentIrql() )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v5, a3, a4);
+      if ( !KdRefreshDebuggerNotPresent() )
+        __debugbreak();
+    }
+    result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 2512))(
+               WdfDriverGlobals,
+               *(_QWORD *)(v6 + 8));
+  }
+  else
+  {
+    result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 2536))(
+               WdfDriverGlobals,
+               *(_QWORD *)(v6 + 8));
+  }
+  if ( v7 )
     return Controller_RaiseAndTrackIrql(*(_QWORD *)(a1 + 8));
   return result;
 }

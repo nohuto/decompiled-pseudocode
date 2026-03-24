@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_DELETERESOURCE@@@Z @ 0x18009C3C8
+ * XREFs of ?Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_DELETERESOURCE@@@Z @ 0x1800A2154
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z @ 0x1800DEF34 (-AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z.c)
- *     _anonymous_namespace_::AddToResourceCount @ 0x1800E0070 (_anonymous_namespace_--AddToResourceCount.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801B4B04 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z @ 0x1800C6E2C (-AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z.c)
+ *     _anonymous_namespace_::AddToResourceCount @ 0x1800C6E9C (_anonymous_namespace_--AddToResourceCount.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801556E0 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
  */
 
 __int64 __fastcall CComposition::Channel_DeleteResource(
@@ -18,31 +18,34 @@ __int64 __fastcall CComposition::Channel_DeleteResource(
         const struct tagMILCMD_CHANNEL_DELETERESOURCE *a4)
 {
   unsigned int v4; // edi
-  unsigned int v5; // ebx
-  __int64 v8; // rax
+  __int64 v7; // rax
+  __int64 v8; // rcx
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rsi
-  __int64 v12; // rax
-  unsigned int *v13; // r14
+  unsigned int v12; // ebp
+  unsigned int *v13; // rbx
   unsigned int v14; // eax
   unsigned int v15; // r8d
-  unsigned int v17; // ecx
+  __int64 v17; // rcx
 
   v4 = *((_DWORD *)a4 + 1);
-  v5 = 0;
-  if ( !v4
-    || v4 >= *((_DWORD *)a3 + 7)
-    || (v8 = *((_QWORD *)a3 + 5), !*(_DWORD *)(*((_DWORD *)a3 + 6) * v4 + v8))
-    || (v9 = *(_QWORD *)(*((_DWORD *)a3 + 6) * v4 + v8 + 8)) == 0 )
-  {
+  if ( v4 && v4 < *((_DWORD *)a3 + 7) && (v7 = *((_QWORD *)a3 + 5), v8 = v4 * *((_DWORD *)a3 + 6), *(_DWORD *)(v8 + v7)) )
+    v9 = *(_QWORD *)(v8 + v7 + 8);
+  else
+    v9 = 0LL;
+  if ( !v9 )
     CComposition::FailFastOnMalformedPacket(this, 724106194LL, 0LL);
+  (*(void (__fastcall **)(__int64, struct CChannelContext *, _QWORD))(*(_QWORD *)v9 + 176LL))(v9, a2, 0LL);
+  v11 = *((_QWORD *)a2 + 3);
+  v12 = -2147024890;
+  if ( !v4
+    || v4 >= *(_DWORD *)(v11 + 28)
+    || (v13 = (unsigned int *)(*(_QWORD *)(v11 + 40) + v4 * *(_DWORD *)(v11 + 24)), !*v13) )
+  {
+    v13 = 0LL;
   }
-  (*(void (__fastcall **)(__int64, struct CChannelContext *, _QWORD))(*(_QWORD *)v9 + 168LL))(v9, a2, 0LL);
-  v11 = *((_QWORD *)a2 + 4);
-  if ( v4 < *(_DWORD *)(v11 + 28)
-    && (v12 = *(_QWORD *)(v11 + 40), v10 = *(_DWORD *)(v11 + 24) * v4, *(_DWORD *)(v10 + v12))
-    && (v13 = (unsigned int *)(v12 + *(_DWORD *)(v11 + 24) * v4)) != 0LL )
+  if ( v13 && *v13 )
   {
     if ( *((_QWORD *)v13 + 1) )
     {
@@ -52,12 +55,12 @@ __int64 __fastcall CComposition::Channel_DeleteResource(
       *((_QWORD *)v13 + 1) = 0LL;
     }
     memset_0((void *)(*(_QWORD *)(v11 + 40) + v4 * *(_DWORD *)(v11 + 24)), 0, *(unsigned int *)(v11 + 24));
+    return 0;
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024890, 0x991u, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024890, 0x600u, 0LL);
-    return (unsigned int)-2147024890;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024890, 0xA18u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024890, 0x64Bu, 0LL);
   }
-  return v5;
+  return v12;
 }

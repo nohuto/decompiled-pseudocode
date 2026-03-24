@@ -1,10 +1,10 @@
 /*
- * XREFs of HalWriteBootRegister @ 0x140A90CFC
+ * XREFs of HalWriteBootRegister @ 0x1409A97D8
  * Callers:
- *     HalpResetSBF @ 0x140A90C78 (HalpResetSBF.c)
- *     HalpInitBootTable @ 0x140B66DDC (HalpInitBootTable.c)
+ *     HalpResetSBF @ 0x14099B48C (HalpResetSBF.c)
+ *     HalpInitBootTable @ 0x140A64DF0 (HalpInitBootTable.c)
  * Callees:
- *     HalpSetCmosData @ 0x1403A4D70 (HalpSetCmosData.c)
+ *     HalpSetCmosData @ 0x1404CC290 (HalpSetCmosData.c)
  */
 
 __int64 __fastcall HalWriteBootRegister(unsigned __int8 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall HalWriteBootRegister(unsigned __int8 a1)
   for ( i = 1; (unsigned __int8)i < 0x80u; i *= 2 )
   {
     v5 = v1 + 1;
-    if ( ((unsigned __int8)i & a1) == 0 )
+    if ( (a1 & (unsigned __int8)i) == 0 )
       v5 = v1;
     v1 = v5;
   }

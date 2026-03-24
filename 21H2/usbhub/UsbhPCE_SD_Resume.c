@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhPCE_SD_Resume @ 0x1C0034204
+ * XREFs of UsbhPCE_SD_Resume @ 0x1C0035568
  * Callers:
- *     Usbh_PCE_SoftDisconnect_Action @ 0x1C0035734 (Usbh_PCE_SoftDisconnect_Action.c)
+ *     Usbh_PCE_SoftDisconnect_Action @ 0x1C00369F0 (Usbh_PCE_SoftDisconnect_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
  */
 
-int *__fastcall UsbhPCE_SD_Resume(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall UsbhPCE_SD_Resume(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdx
   __int64 v7; // r8
@@ -29,5 +29,5 @@ int *__fastcall UsbhPCE_SD_Resume(__int64 a1, __int64 a2, __int64 a3)
       a3);
   }
   Log(a1, 512, 1346711859, 0LL, *(unsigned __int16 *)(a2 + 4));
-  return UsbhDispatch_PortChangeQueueEventEx(a1, a2, 13LL, a3, 0LL, 0, 0LL, 0LL);
+  return UsbhDispatch_PortChangeQueueEventEx(a1, a2, 13, a3, 0LL, 0, 0LL, 0LL);
 }

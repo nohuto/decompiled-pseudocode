@@ -1,13 +1,13 @@
 /*
- * XREFs of GreDCSelectBrush @ 0x1C001DC40
+ * XREFs of GreDCSelectBrush @ 0x1C002A5E0
  * Callers:
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C002F130 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
- *     GreRestoreDCInternal @ 0x1C00BEFB0 (GreRestoreDCInternal.c)
- *     ?GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00D8DA0 (-GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0092720 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00C7C90 (-GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z.c)
+ *     GreRestoreDCInternal @ 0x1C00CC090 (GreRestoreDCInternal.c)
  * Callees:
- *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
- *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C0021290 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
- *     GreSetSolidBrushLight @ 0x1C00989A0 (GreSetSolidBrushLight.c)
+ *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C002D890 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
+ *     HmgShareLockCheck @ 0x1C002DBE0 (HmgShareLockCheck.c)
+ *     GreSetSolidBrushLight @ 0x1C00916C0 (GreSetSolidBrushLight.c)
  */
 
 __int64 __fastcall GreDCSelectBrush(__int64 a1, __int64 a2)

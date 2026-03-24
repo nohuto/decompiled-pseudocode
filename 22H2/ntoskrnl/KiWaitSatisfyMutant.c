@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWaitSatisfyMutant @ 0x140311900
+ * XREFs of KiWaitSatisfyMutant @ 0x1402EDB88
  * Callers:
- *     KiTryUnwaitThread @ 0x140238CB0 (KiTryUnwaitThread.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x14034A8FC (KiWaitForAllObjects.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     KiTryUnwaitThread @ 0x1402C2EB0 (KiTryUnwaitThread.c)
+ *     KiWaitSatisfyAny @ 0x1402ED5CC (KiWaitSatisfyAny.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ _QWORD *__fastcall KiWaitSatisfyMutant(__int64 a1, __int64 a2, __int64 a3)
   if ( *(_BYTE *)(a1 + 49) )
     --*(_WORD *)(a2 + 484);
   if ( *(_QWORD *)(a3 + 8) == a2 )
-    v3 = *(_BYTE *)(a3 + 13242);
+    v3 = *(_BYTE *)(a3 + 12586);
   v9 = *(_DWORD *)a1;
   BYTE2(v9) = v3;
   *(_DWORD *)a1 = v9;
@@ -32,8 +32,9 @@ _QWORD *__fastcall KiWaitSatisfyMutant(__int64 a1, __int64 a2, __int64 a3)
   {
     *(_BYTE *)(a1 + 48) = v4 & 0xFE;
     *(_QWORD *)(a2 + 200) |= 0x80uLL;
+    v4 = *(_BYTE *)(a1 + 48);
   }
-  v5 = a1 & -(__int64)((*(_BYTE *)(a1 + 48) & 2) != 0);
+  v5 = a1 & -(__int64)((v4 & 2) != 0);
   v6 = (_QWORD *)(a1 + 24);
   *(_QWORD *)(a2 + 976) = v5;
   v7 = a2 + 776;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiImageCantMove @ 0x140655FD8
+ * XREFs of MiImageCantMove @ 0x140554BC0
  * Callers:
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiImageCantMove(__int64 a1)
@@ -25,16 +25,19 @@ __int64 __fastcall MiImageCantMove(__int64 a1)
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v8 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v8 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);

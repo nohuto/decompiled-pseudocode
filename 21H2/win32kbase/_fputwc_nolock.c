@@ -1,10 +1,10 @@
 /*
- * XREFs of _fputwc_nolock @ 0x1C00D7AA0
+ * XREFs of _fputwc_nolock @ 0x1C00C6C68
  * Callers:
- *     write_char_0 @ 0x1C00D77F0 (write_char_0.c)
+ *     write_char_0 @ 0x1C00C69AC (write_char_0.c)
  * Callees:
- *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C0019C10 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
- *     _flswbuf @ 0x1C00D7B40 (_flswbuf.c)
+ *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C0091240 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
+ *     _flswbuf @ 0x1C00C6D08 (_flswbuf.c)
  */
 
 wint_t __cdecl fputwc_nolock(wchar_t Ch, FILE *File)

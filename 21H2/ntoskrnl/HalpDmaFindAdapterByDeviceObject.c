@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaFindAdapterByDeviceObject @ 0x1403CD208
+ * XREFs of HalpDmaFindAdapterByDeviceObject @ 0x14037996C
  * Callers:
- *     HalGetAdapterV2 @ 0x140845A60 (HalGetAdapterV2.c)
- *     HalGetAdapterV3 @ 0x140845F30 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140764810 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x1407C33B0 (HalGetAdapterV3.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall HalpDmaFindAdapterByDeviceObject(__int64 a1)

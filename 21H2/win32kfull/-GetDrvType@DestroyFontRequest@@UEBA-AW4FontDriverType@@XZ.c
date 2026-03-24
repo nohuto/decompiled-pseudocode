@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDrvType@DestroyFontRequest@@UEBA?AW4FontDriverType@@XZ @ 0x1C0124130
+ * XREFs of ?GetDrvType@DestroyFontRequest@@UEBA?AW4FontDriverType@@XZ @ 0x1C0137FD0
  * Callers:
  *     <none>
  * Callees:

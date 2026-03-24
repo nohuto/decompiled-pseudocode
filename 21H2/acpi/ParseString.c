@@ -1,18 +1,17 @@
 /*
- * XREFs of ParseString @ 0x1C0027434
+ * XREFs of ParseString @ 0x1C00020D8
  * Callers:
- *     ParseArg @ 0x1C000B10C (ParseArg.c)
- *     ParseOpcode @ 0x1C000B180 (ParseOpcode.c)
- *     ParsePackage @ 0x1C0012D00 (ParsePackage.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseScope @ 0x1C0014A90 (ParseScope.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ParseArg @ 0x1C0022094 (ParseArg.c)
+ *     ParseOpcode @ 0x1C0022530 (ParseOpcode.c)
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 __int64 __fastcall ParseString(__int64 a1, const void **a2, __int64 a3, char a4)
@@ -20,8 +19,7 @@ __int64 __fastcall ParseString(__int64 a1, const void **a2, __int64 a3, char a4)
   unsigned int v4; // ebx
   __int64 v9; // rax
   _BYTE *v10; // rdx
-  unsigned int v11; // r8d
-  _SLIST_ENTRY *v12; // rax
+  void *v11; // rax
 
   v4 = 0;
   if ( *(_BYTE *)*a2 == 13 )
@@ -33,18 +31,14 @@ __int64 __fastcall ParseString(__int64 a1, const void **a2, __int64 a3, char a4)
     do
       ++v9;
     while ( v10[v9] );
-    v11 = v9 + 1;
     *(_DWORD *)(a3 + 24) = v9 + 1;
     if ( (gDebugger & 0xD0) != 0 )
-    {
       ConPrintf("\"%s\"");
-      v11 = *(_DWORD *)(a3 + 24);
-    }
-    v12 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v11);
-    *(_QWORD *)(a3 + 32) = v12;
-    if ( v12 )
+    v11 = (void *)HeapAlloc(gpheapGlobal, 1381258056LL);
+    *(_QWORD *)(a3 + 32) = v11;
+    if ( v11 )
     {
-      memmove(v12, *a2, *(unsigned int *)(a3 + 24));
+      memmove(v11, *a2, *(unsigned int *)(a3 + 24));
     }
     else
     {

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsCaptureBitsResponsePending@CGlobalSurfaceManager@@UEBA_NXZ @ 0x1800DCB20
+ * XREFs of ?IsCaptureBitsResponsePending@CGlobalSurfaceManager@@UEBA_NXZ @ 0x1800C51B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CGlobalSurfaceManager::IsCaptureBitsResponsePending(CGlobalSurfaceManager *this)
 {
-  return *((_QWORD *)this + 41) != 0LL;
+  return *((_QWORD *)this + 38) != 0LL;
 }

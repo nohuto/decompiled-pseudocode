@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFreeVirtualMemory @ 0x1407B98F0
+ * XREFs of NtFreeVirtualMemory @ 0x1406ED530
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x1409B75F8 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140911A54 (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)

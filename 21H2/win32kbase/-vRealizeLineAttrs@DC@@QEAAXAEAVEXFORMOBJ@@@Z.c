@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0032358
+ * XREFs of ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0023EF4
  * Callers:
- *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C0031540 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
- *     GreDCSelectPen @ 0x1C0098770 (GreDCSelectPen.c)
+ *     GreDCSelectPen @ 0x1C0020D90 (GreDCSelectPen.c)
+ *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C0023160 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
  * Callees:
- *     ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C009C840 (-bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00BE300 (-bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
  */
 
 void __fastcall DC::vRealizeLineAttrs(DC *this, struct EXFORMOBJ *a2)

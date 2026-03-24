@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CNotificationResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E65F0
+ * XREFs of ?IsOfType@CNotificationResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180182D50
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CNotificationResource::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 114;
+  return a2 == 112;
 }

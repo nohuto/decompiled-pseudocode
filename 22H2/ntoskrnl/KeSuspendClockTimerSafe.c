@@ -1,44 +1,42 @@
 /*
- * XREFs of KeSuspendClockTimerSafe @ 0x14056FB70
+ * XREFs of KeSuspendClockTimerSafe @ 0x140513D30
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140A9C3C0 (IopLiveDumpProcessCorralStateChange.c)
- *     PnprQuiesceProcessorDpc @ 0x140A9D540 (PnprQuiesceProcessorDpc.c)
- *     PnprQuiesceProcessors @ 0x140A9D9C4 (PnprQuiesceProcessors.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1409AD4BC (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE4D0 (PnprQuiesceProcessorDpc.c)
+ *     PnprQuiesceProcessors @ 0x1409AE8B4 (PnprQuiesceProcessors.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 KeSuspendClockTimerSafe()
 {
-  unsigned __int8 CurrentIrql; // si
+  unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  __int64 v2; // rdx
-  struct _KPRCB *v3; // rdi
-  int v4; // ebp
-  unsigned __int8 v5; // al
-  struct _KPRCB *v6; // r9
-  _DWORD *v7; // r8
-  int v8; // eax
-  bool v9; // zf
+  struct _KPRCB *v2; // rbx
+  int v3; // ebp
+  unsigned __int8 v4; // al
+  struct _KPRCB *v5; // r9
+  _DWORD *v6; // r8
+  int v7; // eax
+  bool v8; // zf
   __int64 result; // rax
-  struct _KPRCB *CurrentPrcb; // rdi
-  int v12; // esi
+  struct _KPRCB *CurrentPrcb; // rbx
+  int v11; // edi
 
   if ( ObGetCurrentIrql() >= 0xDu )
   {
     CurrentPrcb = KeGetCurrentPrcb();
     result = (unsigned int)KiClockState;
-    v12 = KiClockTimerOwner;
+    v11 = KiClockTimerOwner;
     if ( (CurrentPrcb->PendingTickFlags & 1) != 0 )
     {
-      result = off_140C01C98[0]();
+      result = off_140C00888[0]();
       CurrentPrcb->PendingTickFlags &= ~1u;
-      CurrentPrcb->ClockTimerState.ClockActive = 0;
     }
-    if ( CurrentPrcb->Number == v12 )
-      ++dword_140C41BA8;
+    if ( CurrentPrcb->Number == v11 )
+      ++dword_140C31668;
     if ( CurrentPrcb->ClockOwner )
       CurrentPrcb->ClockOwner = 0;
   }
@@ -49,36 +47,34 @@ __int64 KeSuspendClockTimerSafe()
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 13 )
-        LODWORD(v2) = 0x2000;
-      else
-        v2 = (-1LL << (CurrentIrql + 1)) & 0x3FFC;
-      SchedulerAssist[5] |= v2;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x3FFC;
     }
-    v3 = KeGetCurrentPrcb();
-    v4 = KiClockTimerOwner;
-    if ( (v3->PendingTickFlags & 1) != 0 )
+    v2 = KeGetCurrentPrcb();
+    v3 = KiClockTimerOwner;
+    if ( (v2->PendingTickFlags & 1) != 0 )
     {
-      off_140C01C98[0]();
-      v3->PendingTickFlags &= ~1u;
-      v3->ClockTimerState.ClockActive = 0;
+      off_140C00888[0]();
+      v2->PendingTickFlags &= ~1u;
     }
-    if ( v3->Number == v4 )
-      ++dword_140C41BA8;
-    if ( v3->ClockOwner )
-      v3->ClockOwner = 0;
+    if ( v2->Number == v3 )
+      ++dword_140C31668;
+    if ( v2->ClockOwner )
+      v2->ClockOwner = 0;
     if ( KiIrqlFlags )
     {
-      v5 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v6 = KeGetCurrentPrcb();
-        v7 = v6->SchedulerAssist;
-        v8 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v9 = (v8 & v7[5]) == 0;
-        v7[5] &= v8;
-        if ( v9 )
-          KiRemoveSystemWorkPriorityKick((__int64)v6);
+        v4 = KeGetCurrentIrql();
+        if ( v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+        {
+          v5 = KeGetCurrentPrcb();
+          v6 = v5->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v8 = (v7 & v6[5]) == 0;
+          v6[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick((__int64)v5);
+        }
       }
     }
     result = CurrentIrql;

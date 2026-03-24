@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C00FF710
+ * XREFs of ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C010F6F0
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
- *     xxxRecreateSmallIcons @ 0x1C0158A28 (xxxRecreateSmallIcons.c)
- *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C01E3498 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
- *     ClassUnlock @ 0x1C01E3888 (ClassUnlock.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C01E8E2C (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     ClassUnlock @ 0x1C01E9294 (ClassUnlock.c)
+ *     xxxRecreateSmallIcons @ 0x1C024343C (xxxRecreateSmallIcons.c)
  * Callees:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
  */
 
 struct _CALLPROCDATA **__fastcall ClassUnlockWorker(struct _CALLPROCDATA **a1)

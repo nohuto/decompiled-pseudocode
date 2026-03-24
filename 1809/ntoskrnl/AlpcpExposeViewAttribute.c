@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpExposeViewAttribute @ 0x1406A557C
+ * XREFs of AlpcpExposeViewAttribute @ 0x1406A555C
  * Callers:
  *     AlpcpExposeAttributes @ 0x140633190 (AlpcpExposeAttributes.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)

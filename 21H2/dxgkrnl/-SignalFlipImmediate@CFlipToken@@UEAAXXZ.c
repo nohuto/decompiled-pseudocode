@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SignalFlipImmediate@CFlipToken@@UEAAXXZ @ 0x1C00056C0
+ * XREFs of ?SignalFlipImmediate@CFlipToken@@UEAAXXZ @ 0x1C001C770
  * Callers:
  *     <none>
  * Callees:
- *     ?SignalGpuFenceAndPresentLimitSemaphore@CFlipToken@@IEAAX_N@Z @ 0x1C00056EC (-SignalGpuFenceAndPresentLimitSemaphore@CFlipToken@@IEAAX_N@Z.c)
- *     ?GetAnalogExclusive@CompositionSurfaceObject@@QEAA_NXZ @ 0x1C0005748 (-GetAnalogExclusive@CompositionSurfaceObject@@QEAA_NXZ.c)
+ *     ?SignalGpuFenceAndPresentLimitSemaphore@CFlipToken@@IEAAX_N@Z @ 0x1C001C79C (-SignalGpuFenceAndPresentLimitSemaphore@CFlipToken@@IEAAX_N@Z.c)
+ *     ?GetAnalogExclusive@CompositionSurfaceObject@@QEAA_NXZ @ 0x1C001C868 (-GetAnalogExclusive@CompositionSurfaceObject@@QEAA_NXZ.c)
  */
 
 void __fastcall CFlipToken::SignalFlipImmediate(CompositionSurfaceObject **this)

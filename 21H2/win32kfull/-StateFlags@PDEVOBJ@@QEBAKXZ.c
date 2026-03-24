@@ -1,7 +1,7 @@
 /*
- * XREFs of ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0274120
+ * XREFs of ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0276814
  * Callers:
- *     DxgkEngDetectGDIPath @ 0x1C0274F70 (DxgkEngDetectGDIPath.c)
+ *     DxgkEngDetectGDIPath @ 0x1C0277720 (DxgkEngDetectGDIPath.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ __int64 __fastcall PDEVOBJ::StateFlags(PDEVOBJ *this)
 {
   __int64 v1; // rdx
 
-  v1 = *(_QWORD *)(*(_QWORD *)this + 2552LL);
+  v1 = *(_QWORD *)(*(_QWORD *)this + 2576LL);
   if ( ((v1 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
     return *(unsigned int *)(v1 + 160);
   else

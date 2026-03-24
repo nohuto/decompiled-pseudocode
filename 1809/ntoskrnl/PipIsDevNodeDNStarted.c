@@ -1,17 +1,17 @@
 /*
  * XREFs of PipIsDevNodeDNStarted @ 0x140007294
  * Callers:
- *     PipSetDevNodeState @ 0x140159DB8 (PipSetDevNodeState.c)
- *     PipRestoreDevNodeState @ 0x14015ACA0 (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
+ *     PipRestoreDevNodeState @ 0x14015ACC0 (PipRestoreDevNodeState.c)
  *     PiControlGetUserFlagsFromDeviceNode @ 0x14059C36C (PiControlGetUserFlagsFromDeviceNode.c)
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
- *     PnpCheckForActiveDependencies @ 0x1406E6BA0 (PnpCheckForActiveDependencies.c)
- *     PnpProcessDependencyRelations @ 0x1406EC8B0 (PnpProcessDependencyRelations.c)
- *     PnpRequestDeviceRemovalWorker @ 0x1406ECD68 (PnpRequestDeviceRemovalWorker.c)
- *     PiDevCfgLogDeviceStarted @ 0x1406F36B8 (PiDevCfgLogDeviceStarted.c)
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
- *     PnpDriverLoadingFailed @ 0x1407630D0 (PnpDriverLoadingFailed.c)
- *     PiControlGetDevicePowerData @ 0x14083B688 (PiControlGetDevicePowerData.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PnpCheckForActiveDependencies @ 0x1406E6B80 (PnpCheckForActiveDependencies.c)
+ *     PnpProcessDependencyRelations @ 0x1406EC890 (PnpProcessDependencyRelations.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1406ECD48 (PnpRequestDeviceRemovalWorker.c)
+ *     PiDevCfgLogDeviceStarted @ 0x1406F3698 (PiDevCfgLogDeviceStarted.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     PnpDriverLoadingFailed @ 0x1407630B0 (PnpDriverLoadingFailed.c)
+ *     PiControlGetDevicePowerData @ 0x14083B668 (PiControlGetDevicePowerData.c)
  * Callees:
  *     <none>
  */

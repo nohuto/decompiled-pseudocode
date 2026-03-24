@@ -1,79 +1,82 @@
 /*
- * XREFs of PipCreateNewDependencyEdge @ 0x140396794
+ * XREFs of PipCreateNewDependencyEdge @ 0x14050C4F0
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x1403966F8 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C450 (PipAddDependencyEdgeBetweenNodes.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PipReferenceDependencyNode @ 0x140839C00 (PipReferenceDependencyNode.c)
- *     PipAddRequestToEdge @ 0x140839C0C (PipAddRequestToEdge.c)
- *     PipNotifyDependenciesChanged @ 0x140839DCC (PipNotifyDependenciesChanged.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PipAddRequestToEdge @ 0x14089D9AC (PipAddRequestToEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DFBC (PipNotifyDependenciesChanged.c)
+ *     PipReferenceDependencyNode @ 0x14089E038 (PipReferenceDependencyNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v7; // rbx
-  unsigned __int64 v8; // rsi
-  _QWORD *v9; // r8
-  _QWORD *v10; // rax
-  _QWORD *v11; // rax
+  unsigned __int64 v9; // rsi
+  _QWORD *v10; // rdx
+  _QWORD *v11; // r8
+  _QWORD *v12; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v16; // eax
   bool v17; // zf
 
-  Pool2 = ExAllocatePool2(64LL, 80LL, 1399877200LL);
-  v7 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x53706E50u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 48) = 0;
-    *(_QWORD *)(Pool2 + 64) = Pool2 + 56;
-    *(_QWORD *)(Pool2 + 56) = Pool2 + 56;
-    *(_QWORD *)(Pool2 + 40) = a1;
-    *(_QWORD *)(Pool2 + 32) = a2;
-    *(_BYTE *)(Pool2 + 72) = 0;
-    if ( PipAddRequestToEdge(Pool2, a3) )
+    *((_DWORD *)PoolWithTag + 12) = 0;
+    PoolWithTag[8] = PoolWithTag + 7;
+    PoolWithTag[7] = PoolWithTag + 7;
+    PoolWithTag[5] = a1;
+    PoolWithTag[4] = a2;
+    *((_BYTE *)PoolWithTag + 72) = 0;
+    if ( PipAddRequestToEdge(PoolWithTag, a3) )
     {
       PipReferenceDependencyNode(a1);
       PipReferenceDependencyNode(a2);
-      v8 = KeAcquireSpinLockRaiseToDpc(&PiDependencyEdgeWriteLock);
-      v9 = *(_QWORD **)(a2 + 40);
+      v9 = KeAcquireSpinLockRaiseToDpc(&PiDependencyEdgeWriteLock);
       v10 = v7 + 2;
-      if ( *v9 != a2 + 32
+      v11 = *(_QWORD **)(a2 + 40);
+      if ( *v11 != a2 + 32
         || (*v10 = a2 + 32,
-            v7[3] = v9,
-            *v9 = v10,
+            v7[3] = v11,
+            *v11 = v10,
             *(_QWORD *)(a2 + 40) = v10,
-            v11 = *(_QWORD **)(a1 + 24),
-            *v11 != a1 + 16) )
+            v12 = *(_QWORD **)(a1 + 24),
+            *v12 != a1 + 16) )
       {
         __fastfail(3u);
       }
       *v7 = a1 + 16;
-      v7[1] = v11;
-      *v11 = v7;
+      v7[1] = v12;
+      *v12 = v7;
       *(_QWORD *)(a1 + 24) = v7;
-      KxReleaseSpinLock((volatile signed __int64 *)&PiDependencyEdgeWriteLock);
+      KxReleaseSpinLock(&PiDependencyEdgeWriteLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+            v17 = (v16 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v16;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
-      __writecr8(v8);
+      __writecr8(v9);
       PipNotifyDependenciesChanged(a1, a2);
     }
     else

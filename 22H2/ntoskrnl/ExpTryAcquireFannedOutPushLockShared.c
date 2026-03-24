@@ -1,32 +1,24 @@
 /*
- * XREFs of ExpTryAcquireFannedOutPushLockShared @ 0x1403CD4FC
+ * XREFs of ExpTryAcquireFannedOutPushLockShared @ 0x1403903C0
  * Callers:
- *     ExTryAcquireAutoExpandPushLockShared @ 0x1403CD420 (ExTryAcquireAutoExpandPushLockShared.c)
+ *     ExTryAcquireAutoExpandPushLockShared @ 0x140390300 (ExTryAcquireAutoExpandPushLockShared.c)
  * Callees:
- *     ExfTryAcquirePushLockSharedEx @ 0x14032F93C (ExfTryAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x1402E0E80 (ExfTryAcquirePushLockShared.c)
  */
 
-volatile signed __int64 *__fastcall ExpTryAcquireFannedOutPushLockShared(unsigned int a1, int a2)
+unsigned __int64 __fastcall ExpTryAcquireFannedOutPushLockShared(unsigned int a1)
 {
-  __int64 v2; // r10
-  unsigned int v3; // r8d
-  unsigned int v4; // ecx
-  unsigned int v5; // ebx
-  volatile signed __int64 *v6; // r11
+  unsigned int v1; // eax
+  unsigned __int64 v2; // r9
+  unsigned int v3; // ecx
+  unsigned __int64 v4; // rbx
 
-  v2 = (a1 >> 4) & 0x1FF;
-  v3 = (a1 >> 13) & 0x3FFFF;
-  _BitScanReverse(&v4, v3);
-  v5 = a2 | 2;
-  v6 = (volatile signed __int64 *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v4 - 2)
-                                             + 8LL * (v3 ^ (1 << v4))
-                                             + 8)
-                                 + 8 * v2);
-  if ( (a2 & 0xFFFFFFF8) != 0 )
-    KeBugCheckEx(0x152u, v5, (ULONG_PTR)v6, 0LL, 0LL);
-  if ( !_InterlockedCompareExchange64(v6, 17LL, 0LL) || ExfTryAcquirePushLockSharedEx((signed __int64 *)v6, v5) )
-    return v6;
-  else
-    return 0LL;
+  v1 = (a1 >> 13) & 0x3FFFF;
+  v2 = (unsigned __int64)a1 >> 4;
+  _BitScanReverse(&v3, v1);
+  v4 = *(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v3 - 2) + 8LL * (v1 ^ (1 << v3)) + 8)
+     + 8 * (v2 & 0x1FF);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
+    v4 &= -(__int64)(ExfTryAcquirePushLockShared((unsigned __int64 *)v4) != 0);
+  return v4;
 }

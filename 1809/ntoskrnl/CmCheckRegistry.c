@@ -5,9 +5,9 @@
  *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
  *     CmpCheckRegistry2 @ 0x1405D8EF0 (CmpCheckRegistry2.c)
  *     HvCheckHive @ 0x1405F991C (HvCheckHive.c)

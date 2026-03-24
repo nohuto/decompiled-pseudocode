@@ -1,23 +1,21 @@
 /*
- * XREFs of ?GetTargetDevicePowerStateFromPendingDevicePowerDownIrp@FxPkgPnp@@QEAA?AW4_WDF_POWER_DEVICE_STATE@@XZ @ 0x1C000D280
+ * XREFs of ?GetTargetDevicePowerStateFromPendingDevicePowerDownIrp@FxPkgPnp@@QEAA?AW4_WDF_POWER_DEVICE_STATE@@XZ @ 0x1C001C058
  * Callers:
- *     ?PowerGotoDxIoStoppedCommon@FxPkgPnp@@IEAAEE@Z @ 0x1C000CFC0 (-PowerGotoDxIoStoppedCommon@FxPkgPnp@@IEAAEE@Z.c)
- *     ?PowerGotoDx@FxPkgPnp@@IEAAXXZ @ 0x1C000F798 (-PowerGotoDx@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerGotoDx@FxPkgPnp@@IEAAXXZ @ 0x1C0011284 (-PowerGotoDx@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerGotoDxIoStoppedCommon@FxPkgPnp@@IEAAEE@Z @ 0x1C001C28C (-PowerGotoDxIoStoppedCommon@FxPkgPnp@@IEAAEE@Z.c)
  * Callees:
- *     ?GetSystemPowerAction@FxPkgPnp@@QEAA?AW4POWER_ACTION@@XZ @ 0x1C0018E48 (-GetSystemPowerAction@FxPkgPnp@@QEAA-AW4POWER_ACTION@@XZ.c)
+ *     ?GetSystemPowerAction@FxPkgPnp@@QEAA?AW4POWER_ACTION@@XZ @ 0x1C0080534 (-GetSystemPowerAction@FxPkgPnp@@QEAA-AW4POWER_ACTION@@XZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::GetTargetDevicePowerStateFromPendingDevicePowerDownIrp(FxPkgPnp *this)
 {
-  POWER_ACTION SystemPowerAction; // eax
-  __int64 v2; // r10
-  __int64 v3; // r11
   __int64 result; // rax
+  __int64 v2; // r9
+  __int64 v3; // r10
 
   if ( !this->m_PendingDevicePowerIrp )
     return 5LL;
-  SystemPowerAction = FxPkgPnp::GetSystemPowerAction(this);
-  if ( SystemPowerAction < PowerActionShutdown || SystemPowerAction > PowerActionShutdownOff )
+  if ( (unsigned int)(FxPkgPnp::GetSystemPowerAction(this) - 4) > 2 )
     result = *(unsigned int *)(*(_QWORD *)(v2 + 184) + 24LL);
   else
     result = 5LL;

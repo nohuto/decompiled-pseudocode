@@ -1,84 +1,106 @@
 /*
- * XREFs of ?Present@CDDisplayRenderTarget@@UEAAJ_N@Z @ 0x1801E85AC
+ * XREFs of ?Present@CDDisplayRenderTarget@@UEAAJ_N@Z @ 0x18018C380
  * Callers:
- *     ?Present@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x18011CAC0 (-Present@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?Present@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F4A80 (-Present@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
  * Callees:
- *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x180042648 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?Ready@CTargetStats@@QEAA_NAEBUtagCOMPOSITION_TARGET_ID@@_KPEAVIOverlaySwapChain@@@Z @ 0x18008C140 (-Ready@CTargetStats@@QEAA_NAEBUtagCOMPOSITION_TARGET_ID@@_KPEAVIOverlaySwapChain@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800C9BC8 (-Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@UtagR.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?NeedsPresent@COverlayContext@@QEBA_NXZ @ 0x1800E2C24 (-NeedsPresent@COverlayContext@@QEBA_NXZ.c)
- *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F2828 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
- *     ?CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAJJ@Z @ 0x1801E8308 (-CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAJJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DumpVisualTree@CDebugTreeDumper@@SAJPEAVCVisualTree@@PEAVIDeviceTarget@@@Z @ 0x1800BF258 (-DumpVisualTree@CDebugTreeDumper@@SAJPEAVCVisualTree@@PEAVIDeviceTarget@@@Z.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800D8A44 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800EBBD8 (-Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@UtagR.c)
+ *     ?CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAXJ@Z @ 0x1800EDF40 (-CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAXJ@Z.c)
+ *     ?GetDirtyRects@CDDisplaySwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EDF80 (-GetDirtyRects@CDDisplaySwapChain@@UEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std.c)
+ *     ??1?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAA@XZ @ 0x18016B820 (--1-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAA@XZ.c)
+ *     ?IsPrimaryMonitor@CDDisplayRenderTarget@@UEBA_NXZ @ 0x18016F870 (-IsPrimaryMonitor@CDDisplayRenderTarget@@UEBA_NXZ.c)
+ *     ?GetEffectiveDirectFlipMode@COverlayContext@@QEBA?AW4Enum@DirectFlipMode@@XZ @ 0x18017BECC (-GetEffectiveDirectFlipMode@COverlayContext@@QEBA-AW4Enum@DirectFlipMode@@XZ.c)
+ *     ?FlushAndWaitAtPresent@CDDisplayRenderTarget@@IEAAXXZ @ 0x18018C114 (-FlushAndWaitAtPresent@CDDisplayRenderTarget@@IEAAXXZ.c)
+ *     ?GetCurrentBackBuffer@CDDisplaySwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x18018C1E0 (-GetCurrentBackBuffer@CDDisplaySwapChain@@UEBAPEAVIDeviceTarget@@XZ.c)
+ *     ?GetOutstandingFrameCount@CDDisplayRenderTarget@@UEBAIPEAI@Z @ 0x18018C210 (-GetOutstandingFrameCount@CDDisplayRenderTarget@@UEBAIPEAI@Z.c)
  */
 
-__int64 __fastcall CDDisplayRenderTarget::Present(struct IOverlaySwapChain **this, unsigned __int8 a2)
+__int64 __fastcall CDDisplayRenderTarget::Present(CDDisplayRenderTarget *this, char a2)
 {
-  unsigned int v2; // edi
-  struct IOverlaySwapChain **v5; // rsi
-  unsigned __int8 v6; // r14
-  bool v7; // cl
-  __int64 v8; // rcx
-  int v9; // eax
+  signed int v4; // edi
+  CDDisplayRenderTarget *v5; // rbp
+  unsigned int OutstandingFrameCount; // r14d
+  __int64 v7; // rcx
+  int v8; // eax
+  __int64 v9; // rcx
   __int64 v10; // rcx
-  unsigned int v11; // eax
-  unsigned __int64 v12; // rax
+  struct IDeviceTarget *v11; // rdx
+  struct CVisualTree *v12; // rcx
   __int128 v14; // [rsp+30h] [rbp-38h] BYREF
   __int64 v15; // [rsp+40h] [rbp-28h]
-  unsigned __int64 v16; // [rsp+70h] [rbp+8h] BYREF
+  int v16; // [rsp+70h] [rbp+8h] BYREF
 
-  v2 = 0;
-  if ( *(this - 2317) )
+  v4 = 0;
+  if ( *((_QWORD *)this - 2314) )
   {
-    QueryPerformanceCounter((LARGE_INTEGER *)&v16);
-    v5 = this - 30;
-    v6 = CTargetStats::Ready(
-           (CTargetStats *)(this - 30),
-           (const struct tagCOMPOSITION_TARGET_ID *)(this - 38),
-           v16,
-           *(this - 2317));
-    v7 = *((_BYTE *)this - 56)
-      || !*(_DWORD *)*(this - 20) && COverlayContext::NeedsPresent((COverlayContext *)(this - 2316));
-    if ( *((_BYTE *)this - 55) | a2 || v6 && v7 )
+    v5 = (CDDisplayRenderTarget *)((char *)this - 18544);
+    v16 = 0;
+    OutstandingFrameCount = CDDisplayRenderTarget::GetOutstandingFrameCount(
+                              (CDDisplayRenderTarget *)((char *)this - 18544),
+                              (unsigned int *)&v16);
+    if ( *((_BYTE *)this - 58)
+      || CDDisplayRenderTarget::IsPrimaryMonitor(v5)
+      && !*((_BYTE *)this - 56)
+      && (unsigned int)COverlayContext::GetEffectiveDirectFlipMode((__int64)this - 18504) != 1 )
     {
-      v8 = (__int64)*(this - 2317);
+      a2 = 1;
+    }
+    if ( a2 || *((_BYTE *)this - 59) )
+      goto LABEL_31;
+    if ( !*((_BYTE *)this - 60) )
+      goto LABEL_21;
+    if ( OutstandingFrameCount < 2 )
+    {
+LABEL_31:
+      if ( *((_BYTE *)this - 57) )
+        CDDisplayRenderTarget::FlushAndWaitAtPresent((CDDisplayRenderTarget *)((char *)this - 18680));
+      if ( !*((_BYTE *)this - 60) && !*((_BYTE *)this - 58) )
+        v4 = 2;
+      v7 = *((_QWORD *)this - 2314);
       v15 = 0LL;
       v14 = 0LL;
-      CRegion::GetRectangles((FastRegion::Internal::CRgnData **)(v8 + 136), &v14);
-      v9 = COverlayContext::Present(
-             this - 2316,
-             *(this - 2317),
-             0,
+      CDDisplaySwapChain::GetDirtyRects(v7 + 64);
+      v8 = COverlayContext::Present(
+             (CDDisplayRenderTarget *)((char *)this - 18504),
+             (*((_QWORD *)this - 2314) + 64LL) & -(__int64)(*((_QWORD *)this - 2314) != 0LL),
+             v4,
              (__int64)&v14,
-             *((_DWORD *)this - 59) + 1 + *((_DWORD *)this - 58),
+             v16,
              0);
-      v2 = v9;
-      if ( v9 < 0 )
+      v4 = v8;
+      if ( v8 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x21Au, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x200u, 0LL);
       }
       else
       {
-        *((_WORD *)this - 28) = 0;
-        v11 = CDDisplayRenderTarget::CheckForOcclusionChange((CDDisplayRenderTarget *)(this - 2340), v9);
-        ++*(_DWORD *)v5;
-        v2 = v11;
-        v12 = v16;
-        ++*((_DWORD *)v5 + 1);
-        v5[7] = (struct IOverlaySwapChain *)v12;
-        v5[8] = (struct IOverlaySwapChain *)GetCurrentFrameId();
+        *((_WORD *)this - 30) = 0;
+        *((_BYTE *)this - 58) = 0;
+        CDDisplayRenderTarget::CheckForOcclusionChange((CDDisplayRenderTarget *)((char *)this - 18680), v8);
       }
-      if ( (_QWORD)v14 )
-        std::_Deallocate<16,0>((void *)v14, (v15 - v14) & 0xFFFFFFFFFFFFFFF0uLL);
+      std::vector<tagRECT>::~vector<tagRECT>((__int64)&v14);
     }
-    else if ( v7 )
+    else
     {
-      ScheduleCompositionPass(0, 2u);
+      ScheduleCompositionPass(0, 0x2000u);
     }
   }
-  if ( *((_BYTE *)this - 54) )
-    return 142213121;
-  return v2;
+LABEL_21:
+  if ( *((_BYTE *)this - 56) )
+    v4 = 142213121;
+  if ( v4 >= 0 )
+  {
+    if ( *((_QWORD *)this - 2322) )
+    {
+      v10 = *((_QWORD *)this - 2314);
+      if ( v10 )
+      {
+        if ( CDDisplaySwapChain::GetCurrentBackBuffer((CDDisplaySwapChain *)(v10 + 64)) )
+          CDebugTreeDumper::DumpVisualTree(v12, v11);
+      }
+    }
+  }
+  return (unsigned int)v4;
 }

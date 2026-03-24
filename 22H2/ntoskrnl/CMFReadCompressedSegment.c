@@ -1,75 +1,72 @@
 /*
- * XREFs of CMFReadCompressedSegment @ 0x140A02670
+ * XREFs of CMFReadCompressedSegment @ 0x140958F40
  * Callers:
- *     CMFSystemThreadRoutine @ 0x140A02B70 (CMFSystemThreadRoutine.c)
+ *     CMFSystemThreadRoutine @ 0x140959420 (CMFSystemThreadRoutine.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     XpressDecode @ 0x140679C88 (XpressDecode.c)
- *     XpressDecodeClose @ 0x140679DAC (XpressDecodeClose.c)
- *     XpressDecodeCreate @ 0x140679DD8 (XpressDecodeCreate.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     XpressDecode @ 0x1405CA278 (XpressDecode.c)
+ *     XpressDecodeClose @ 0x1405CA3A4 (XpressDecodeClose.c)
+ *     XpressDecodeCreate @ 0x1405CA3D0 (XpressDecodeCreate.c)
  */
 
 __int64 __fastcall CMFReadCompressedSegment(HANDLE FileHandle, char *a2, unsigned int a3, _DWORD *a4)
 {
-  _DWORD *v8; // r14
+  _DWORD *v4; // r14
+  char *v7; // rsi
   NTSTATUS v9; // ebx
   int v10; // ebx
-  unsigned int v11; // r9d
+  char *v11; // rcx
   unsigned int v12; // eax
-  char *v13; // r10
-  __int64 v14; // rbx
-  char *v15; // rcx
-  unsigned int v16; // r13d
-  unsigned int v17; // r15d
-  unsigned int v18; // esi
-  int v19; // esi
-  __int64 v20; // rax
-  unsigned int v21; // eax
-  __int64 v22; // r12
+  unsigned int v13; // r8d
+  char *v14; // r13
+  unsigned int v15; // r12d
+  __int64 v16; // r15
+  unsigned int v17; // ebx
+  unsigned int v18; // eax
   PVOID BaseAddress; // [rsp+58h] [rbp-29h] BYREF
-  char *v25; // [rsp+60h] [rbp-21h]
+  void *i; // [rsp+60h] [rbp-21h]
   HANDLE SectionHandle; // [rsp+68h] [rbp-19h] BYREF
   ULONG_PTR ViewSize; // [rsp+70h] [rbp-11h] BYREF
-  char *i; // [rsp+78h] [rbp-9h]
-  LARGE_INTEGER SectionOffset; // [rsp+80h] [rbp-1h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp+7h] BYREF
-  unsigned int v31; // [rsp+E8h] [rbp+67h]
+  LARGE_INTEGER SectionOffset; // [rsp+78h] [rbp-9h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-1h] BYREF
+  int v26; // [rsp+E8h] [rbp+67h]
 
   SectionOffset.QuadPart = 0LL;
   SectionHandle = 0LL;
+  v4 = 0LL;
   ViewSize = 0LL;
   BaseAddress = 0LL;
-  v8 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  v7 = a2;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( !FileHandle || !a4 || !a2 )
   {
     v9 = -1073741811;
-    goto LABEL_30;
+    goto LABEL_29;
   }
   if ( a4[21] > 0x400u )
     return (unsigned int)-1073741811;
-  v8 = (_DWORD *)XpressDecodeCreate();
-  if ( !v8 )
+  v4 = (_DWORD *)XpressDecodeCreate();
+  if ( !v4 )
   {
     v9 = -1073741801;
-    goto LABEL_30;
+    goto LABEL_29;
   }
-  ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.Attributes = 576;
   ObjectAttributes.ObjectName = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v9 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
   if ( v9 < 0 )
   {
-LABEL_30:
+LABEL_29:
     if ( BaseAddress )
       ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-    goto LABEL_32;
+    goto LABEL_31;
   }
   v9 = ZwMapViewOfSection(
          SectionHandle,
@@ -89,68 +86,59 @@ LABEL_30:
     {
 LABEL_12:
       v9 = -1073741306;
-      goto LABEL_30;
+      goto LABEL_29;
     }
-    memmove(a2, a4, 0x1060uLL);
-    v11 = v10 - 4192;
+    memmove(v7, a4, 0x1060uLL);
+    v11 = v7 + 4192;
     v12 = a4[21];
-    v13 = a2 + 4192;
-    LODWORD(v14) = a4[20];
-    v15 = (char *)BaseAddress + 4192;
-    v16 = a3 - 4192;
-    v31 = v11;
-    v25 = (char *)BaseAddress + 4192;
-    v17 = 0;
-    for ( i = a2 + 4192; v17 < v12; i += v22 )
+    v13 = v10 - 4192;
+    LODWORD(v7) = a4[20];
+    v14 = (char *)BaseAddress + 4192;
+    v15 = a3 - 4192;
+    v26 = v10 - 4192;
+    v16 = 0LL;
+    for ( i = v11; (unsigned int)v16 < v12; i = (char *)i + (_QWORD)v7 )
     {
-      if ( v17 == v12 - 1 )
+      if ( (_DWORD)v16 == v12 - 1 )
       {
-        v18 = a4[22];
-        ++v17;
+        v17 = a4[22];
       }
       else
       {
-        v15 = v25;
-        v19 = a4[v17 + 24];
-        v20 = v17++;
-        v18 = v19 - a4[v20 + 23];
+        v11 = (char *)i;
+        v17 = a4[(unsigned int)(v16 + 1) + 23] - a4[v16 + 23];
       }
-      if ( v18 > v11 || !v16 )
+      if ( v17 > v13 || !v15 )
         goto LABEL_12;
-      v21 = v16;
-      if ( (unsigned int)v14 <= v16 )
-        v21 = v14;
-      v14 = v21;
-      if ( v18 == v21 )
+      v18 = v15;
+      if ( (unsigned int)v7 <= v15 )
+        v18 = (unsigned int)v7;
+      v7 = (char *)v18;
+      if ( v17 == v18 )
       {
-        v22 = v21;
-        memmove(v13, v15, v21);
+        memmove(v11, v14, v18);
       }
-      else
+      else if ( (unsigned int)XpressDecode((__int64)v4, (__int64)v11, v18, v18, (__int64)v14, v17) != v18 )
       {
-        if ( (unsigned int)XpressDecode((__int64)v8, (__int64)v13, v21, v21, (__int64)v15, v18) != v21 )
-        {
-          v9 = -1073741217;
-          goto LABEL_30;
-        }
-        v22 = v14;
+        v9 = -1073741217;
+        goto LABEL_29;
       }
-      v16 -= v14;
-      v11 = v31 - v18;
-      v13 = &i[v22];
-      v15 = &v25[v18];
-      v31 -= v18;
+      v15 -= (unsigned int)v7;
+      v13 = v26 - v17;
+      v11 = (char *)i + (_QWORD)v7;
+      v14 += v17;
+      v26 -= v17;
       v12 = a4[21];
-      v25 = v15;
+      v16 = (unsigned int)(v16 + 1);
     }
     v9 = 0;
-    goto LABEL_30;
+    goto LABEL_29;
   }
   BaseAddress = 0LL;
-LABEL_32:
+LABEL_31:
   if ( SectionHandle )
     ZwClose(SectionHandle);
-  if ( v8 )
-    XpressDecodeClose(v8);
+  if ( v4 )
+    XpressDecodeClose(v4);
   return (unsigned int)v9;
 }

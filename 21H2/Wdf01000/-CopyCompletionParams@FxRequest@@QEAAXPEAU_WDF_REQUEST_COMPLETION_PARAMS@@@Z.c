@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CopyCompletionParams@FxRequest@@QEAAXPEAU_WDF_REQUEST_COMPLETION_PARAMS@@@Z @ 0x1C0064074
+ * XREFs of ?CopyCompletionParams@FxRequest@@QEAAXPEAU_WDF_REQUEST_COMPLETION_PARAMS@@@Z @ 0x1C0049C4C
  * Callers:
- *     imp_WdfRequestGetCompletionParams @ 0x1C00646B0 (imp_WdfRequestGetCompletionParams.c)
+ *     imp_WdfRequestGetCompletionParams @ 0x1C004A400 (imp_WdfRequestGetCompletionParams.c)
  * Callees:
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
  */
 
 void __fastcall FxRequest::CopyCompletionParams(FxRequest *this, _WDF_REQUEST_COMPLETION_PARAMS *Params)

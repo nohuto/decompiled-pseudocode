@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIInternalInterruptPolarityCacheCleanup @ 0x1C00575A8
+ * XREFs of ACPIInternalInterruptPolarityCacheCleanup @ 0x1C002D168
  * Callers:
- *     ACPIInitDeleteDeviceExtension @ 0x1C00569B4 (ACPIInitDeleteDeviceExtension.c)
- *     ACPIInitResetDeviceExtension @ 0x1C0056F0C (ACPIInitResetDeviceExtension.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002CF60 (ACPIInitResetDeviceExtension.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
  * Callees:
  *     <none>
  */
@@ -13,8 +13,8 @@ void __fastcall ACPIInternalInterruptPolarityCacheCleanup(__int64 a1)
   _QWORD *v2; // rcx
   _QWORD *v3; // rbx
 
-  v1 = (_QWORD *)(a1 + 712);
-  v2 = *(_QWORD **)(a1 + 712);
+  v1 = (_QWORD *)(a1 + 672);
+  v2 = *(_QWORD **)(a1 + 672);
   if ( v2 != v1 )
   {
     do

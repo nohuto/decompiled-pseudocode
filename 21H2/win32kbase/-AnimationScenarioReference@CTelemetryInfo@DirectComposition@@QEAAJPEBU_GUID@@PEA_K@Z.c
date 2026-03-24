@@ -1,40 +1,36 @@
 /*
- * XREFs of ?AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z @ 0x1C0008EEC
+ * XREFs of ?AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z @ 0x1C00A3A2C
  * Callers:
- *     NtDCompositionTelemetryAnimationScenarioReference @ 0x1C00088F0 (NtDCompositionTelemetryAnimationScenarioReference.c)
+ *     NtDCompositionTelemetryAnimationScenarioReference @ 0x1C00A1690 (NtDCompositionTelemetryAnimationScenarioReference.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
  */
 
 __int64 __fastcall DirectComposition::CTelemetryInfo::AnimationScenarioReference(
-        DirectComposition::CTelemetryInfo ***this,
+        DirectComposition::CTelemetryInfo *this,
         const struct _GUID *a2,
         unsigned __int64 *a3)
 {
   unsigned int v5; // ebx
-  char *Quota; // rax
+  __int64 v7; // rax
   DirectComposition::CTelemetryInfo **v8; // rcx
 
   v5 = 0;
-  Quota = (char *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-                    (NSInstrumentation::CLeakTrackingAllocator *)this,
-                    0x104uLL,
-                    0x38uLL,
-                    0x6F744344u);
-  if ( Quota )
+  v7 = Win32AllocPoolWithQuota(56LL, 0x6F744344u);
+  if ( v7 )
   {
-    *((_DWORD *)Quota + 6) = 281;
-    *((_DWORD *)Quota + 4) = 36;
-    *((_DWORD *)Quota + 5) = 36;
-    *(struct _GUID *)(Quota + 28) = *a2;
-    *((_QWORD *)Quota + 6) = *a3;
-    v8 = this[7];
-    if ( *v8 != (DirectComposition::CTelemetryInfo *)(this + 6) )
+    *(_DWORD *)(v7 + 24) = 288;
+    *(_DWORD *)(v7 + 16) = 36;
+    *(_DWORD *)(v7 + 20) = 36;
+    *(struct _GUID *)(v7 + 28) = *a2;
+    *(_QWORD *)(v7 + 48) = *a3;
+    v8 = (DirectComposition::CTelemetryInfo **)*((_QWORD *)this + 7);
+    if ( *v8 != (DirectComposition::CTelemetryInfo *)((char *)this + 48) )
       __fastfail(3u);
-    *(_QWORD *)Quota = this + 6;
-    *((_QWORD *)Quota + 1) = v8;
-    *v8 = (DirectComposition::CTelemetryInfo *)Quota;
-    this[7] = (DirectComposition::CTelemetryInfo **)Quota;
+    *(_QWORD *)v7 = (char *)this + 48;
+    *(_QWORD *)(v7 + 8) = v8;
+    *v8 = (DirectComposition::CTelemetryInfo *)v7;
+    *((_QWORD *)this + 7) = v7;
   }
   else
   {

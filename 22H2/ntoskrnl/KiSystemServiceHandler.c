@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSystemServiceHandler @ 0x140433380
+ * XREFs of KiSystemServiceHandler @ 0x140410E80
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnwindEx @ 0x1402A4C20 (RtlUnwindEx.c)
- *     KiBugCheckDispatch @ 0x1404342C0 (KiBugCheckDispatch.c)
+ *     RtlUnwindEx @ 0x14033EA40 (RtlUnwindEx.c)
+ *     KiBugCheckDispatch @ 0x140411D40 (KiBugCheckDispatch.c)
  */
 
-__int64 __fastcall KiSystemServiceHandler(unsigned int *a1, ULONG_PTR a2, unsigned int *a3, __int64 a4)
+__int64 __fastcall KiSystemServiceHandler(unsigned int *a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KTRAP_FRAME *TrapFrame; // rcx

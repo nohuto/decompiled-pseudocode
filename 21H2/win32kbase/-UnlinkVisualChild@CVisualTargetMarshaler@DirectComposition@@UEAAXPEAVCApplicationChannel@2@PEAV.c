@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UnlinkVisualChild@CVisualTargetMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@@Z @ 0x1C00CB4B0
+ * XREFs of ?UnlinkVisualChild@CVisualTargetMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@@Z @ 0x1C00BC3C0
  * Callers:
  *     <none>
  * Callees:

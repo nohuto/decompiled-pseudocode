@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCheckDebugInfoEqual @ 0x140602DD8
+ * XREFs of EtwpCheckDebugInfoEqual @ 0x1405AE310
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x1409F133C (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextGetModule @ 0x140943470 (EtwpCovSampContextGetModule.c)
  * Callees:
  *     <none>
  */

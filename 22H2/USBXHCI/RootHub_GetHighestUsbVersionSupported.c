@@ -1,7 +1,7 @@
 /*
- * XREFs of RootHub_GetHighestUsbVersionSupported @ 0x1C001C790
+ * XREFs of RootHub_GetHighestUsbVersionSupported @ 0x1C0015734
  * Callers:
- *     Controller_SetDeviceDescription @ 0x1C0073F2C (Controller_SetDeviceDescription.c)
+ *     Controller_SetDeviceDescription @ 0x1C006C400 (Controller_SetDeviceDescription.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall RootHub_GetHighestUsbVersionSupported(__int64 a1)
     v5 = *(_QWORD *)(a1 + 48);
     do
     {
-      v6 = 120LL * (v4 - 1);
+      v6 = 112LL * (v4 - 1);
       if ( *(_BYTE *)(v6 + v5 + 13) > v2 )
       {
         v2 = *(_BYTE *)(v6 + v5 + 13);

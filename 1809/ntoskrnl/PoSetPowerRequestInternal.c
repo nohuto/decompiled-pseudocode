@@ -2,7 +2,7 @@
  * XREFs of PoSetPowerRequestInternal @ 0x140002E88
  * Callers:
  *     PoSetPowerRequest @ 0x140001FD0 (PoSetPowerRequest.c)
- *     PpmBeginHighPerfRequest @ 0x1401785A0 (PpmBeginHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1401785C0 (PpmBeginHighPerfRequest.c)
  *     PopPowerRequestActionInfo @ 0x140588A30 (PopPowerRequestActionInfo.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
@@ -11,9 +11,9 @@
  *     PopPowerRequestCallbackWorker @ 0x140003790 (PopPowerRequestCallbackWorker.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     PopProcessDisplayRequiredChange @ 0x1405886FC (PopProcessDisplayRequiredChange.c)
  *     PopReleasePowerRequestPushLock @ 0x140589A6C (PopReleasePowerRequestPushLock.c)
  *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)

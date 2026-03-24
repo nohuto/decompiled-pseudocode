@@ -1,10 +1,9 @@
 /*
- * XREFs of PopIsRunningAsLocalSystem @ 0x1406EBAD8
+ * XREFs of PopIsRunningAsLocalSystem @ 0x14077A3E8
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1402E0C80 (RtlCheckTokenMembership.c)
+ *     RtlCheckTokenMembership @ 0x14027F430 (RtlCheckTokenMembership.c)
  */
 
 char PopIsRunningAsLocalSystem()

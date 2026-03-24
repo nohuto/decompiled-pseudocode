@@ -1,14 +1,14 @@
 /*
- * XREFs of Crashdump_Cleanup @ 0x1C0049CD0
+ * XREFs of Crashdump_Cleanup @ 0x1C0049210
  * Callers:
  *     <none>
  * Callees:
- *     Crashdump_Register_SaveStateForHybridSleep @ 0x1C004BCF0 (Crashdump_Register_SaveStateForHybridSleep.c)
- *     Crashdump_Register_StopController @ 0x1C004BED4 (Crashdump_Register_StopController.c)
- *     Crashdump_Command_Stop @ 0x1C004CBD0 (Crashdump_Command_Stop.c)
- *     Crashdump_UsbDevice_Cleanup @ 0x1C004D9CC (Crashdump_UsbDevice_Cleanup.c)
- *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004E00C (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
- *     Crashdump_UsbDevice_SuspendPort @ 0x1C004EFA4 (Crashdump_UsbDevice_SuspendPort.c)
+ *     Crashdump_Register_SaveStateForHybridSleep @ 0x1C004B278 (Crashdump_Register_SaveStateForHybridSleep.c)
+ *     Crashdump_Register_StopController @ 0x1C004B454 (Crashdump_Register_StopController.c)
+ *     Crashdump_Command_Stop @ 0x1C004C150 (Crashdump_Command_Stop.c)
+ *     Crashdump_UsbDevice_Cleanup @ 0x1C004CF48 (Crashdump_UsbDevice_Cleanup.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C004E528 (Crashdump_UsbDevice_SuspendPort.c)
  */
 
 __int64 __fastcall Crashdump_Cleanup(__int64 a1)

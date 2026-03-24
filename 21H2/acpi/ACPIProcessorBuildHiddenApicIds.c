@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIProcessorBuildHiddenApicIds @ 0x1C00907C8
+ * XREFs of ACPIProcessorBuildHiddenApicIds @ 0x1C00912B4
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C0004D10 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ACPIProcessorBuildHiddenApicIds()
@@ -27,7 +27,7 @@ __int64 ACPIProcessorBuildHiddenApicIds()
   AcpiHiddenProcessorCount = v1;
   if ( !v1 )
     return 0LL;
-  AcpiHiddenProcessorApicIds = ExAllocatePool2(64LL, 4LL * v1, 1299211073LL);
+  AcpiHiddenProcessorApicIds = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 4LL * v1, 0x4D706341u);
   if ( AcpiHiddenProcessorApicIds )
   {
     v3 = 0LL;

@@ -1,35 +1,36 @@
 /*
- * XREFs of AdtpBuildIPv4Strings @ 0x140A1AEE8
+ * XREFs of AdtpBuildIPv4Strings @ 0x14096D06C
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140A1BC24 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x14096DD88 (AdtpBuildSockAddrString.c)
  * Callees:
- *     RtlIpv4AddressToStringW @ 0x14023FEC0 (RtlIpv4AddressToStringW.c)
- *     StringCchPrintfW @ 0x1402511F0 (StringCchPrintfW.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
+ *     RtlIpv4AddressToStringW @ 0x140381CC0 (RtlIpv4AddressToStringW.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   unsigned int v9; // ebx
-  __int64 Pool2; // rax
-  __int64 v11; // rax
+  PVOID PoolWithTag; // rax
+  PVOID v11; // rax
   __int64 v12; // rax
 
   if ( a1->S_un.S_un_w.s_w1 != 2 )
   {
     v9 = -1073741503;
-    goto LABEL_14;
+    goto LABEL_13;
   }
   if ( a2 && a3 )
   {
     *(_WORD *)(a2 + 2) = 32;
-    Pool2 = ExAllocatePool2(256LL, 32LL, 1799447891LL);
-    *(_QWORD *)(a2 + 8) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x6B416553u);
+    *(_QWORD *)(a2 + 8) = PoolWithTag;
+    if ( !PoolWithTag )
     {
+LABEL_6:
       v9 = -1073741801;
-      goto LABEL_15;
+      goto LABEL_13;
     }
     *a3 = 1;
     *(_WORD *)a2 = 2
@@ -38,13 +39,10 @@ __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _B
   if ( !a4 || !a5 )
     return 0;
   *(_WORD *)(a4 + 2) = 16;
-  v11 = ExAllocatePool2(256LL, 16LL, 1799447891LL);
+  v11 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x6B416553u);
   *(_QWORD *)(a4 + 8) = v11;
   if ( !v11 )
-  {
-    v9 = -1073741801;
-    goto LABEL_14;
-  }
+    goto LABEL_6;
   *a5 = 1;
   if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)__ROL2__(a1->S_un.S_un_w.s_w2, 8)) >= 0 )
   {
@@ -56,15 +54,11 @@ __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _B
     return 0;
   }
   v9 = -1073741811;
-LABEL_14:
-  if ( a3 )
+LABEL_13:
+  if ( a3 && *a3 )
   {
-LABEL_15:
-    if ( *a3 )
-    {
-      *a3 = 0;
-      ExFreePoolWithTag(*(PVOID *)(a2 + 8), 0);
-    }
+    *a3 = 0;
+    ExFreePoolWithTag(*(PVOID *)(a2 + 8), 0);
   }
   if ( a5 && *a5 )
   {

@@ -1,13 +1,15 @@
 /*
- * XREFs of ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002D830
+ * XREFs of ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180028320
  * Callers:
- *     ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002CFF0 (-AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
- *     ?SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x18002D308 (-SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
- *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x180193A64 (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
- *     ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x1801A9A4C (-DestroyHandle@CChannelTable@@QEAAXI@Z.c)
+ *     ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180027A38 (-AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x180027D28 (-SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?PostMessageToClient@CInternalMilCmdConnection@@UEAAJPEBUUCE_RDP_HEADER@@@Z @ 0x180028210 (-PostMessageToClient@CInternalMilCmdConnection@@UEAAJPEBUUCE_RDP_HEADER@@@Z.c)
+ *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x18014F08C (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?SendConnectionLostNotification@CInternalMilCmdConnection@@EEAAXJ@Z @ 0x18014F1C0 (-SendConnectionLostNotification@CInternalMilCmdConnection@@EEAAXJ@Z.c)
+ *     ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x18014F41C (-DestroyHandle@CChannelTable@@QEAAXI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x1800BE004 (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x18005DBD0 (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
  */
 
 __int64 __fastcall CChannelTable::GetMasterTableEntry(

@@ -1,34 +1,22 @@
 /*
- * XREFs of KiWaitForContextSwap @ 0x140299240
+ * XREFs of KiWaitForContextSwap @ 0x14024B24C
  * Callers:
- *     PspReaper @ 0x140299150 (PspReaper.c)
- *     KiOutSwapKernelStacks @ 0x140299FBC (KiOutSwapKernelStacks.c)
+ *     KiOutSwapKernelStacks @ 0x1402E4740 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x1402E4B78 (KeDeleteThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x14039D930 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x14039EA10 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
  */
 
 char __fastcall KiWaitForContextSwap(__int64 a1)
 {
-  unsigned int v2; // ebx
   char result; // al
+  int i; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
-  while ( 1 )
+  for ( i = 0; ; KeYieldProcessorEx(&i) )
   {
     result = *(_BYTE *)(a1 + 113);
     if ( !result )
       break;
-    if ( (++v2 & HvlLongSpinCountMask) == 0
-      && (HvlEnlightenments & 0x40) != 0
-      && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall() )
-    {
-      HvlNotifyLongSpinWait(v2);
-    }
-    else
-    {
-      _mm_pause();
-    }
   }
   return result;
 }

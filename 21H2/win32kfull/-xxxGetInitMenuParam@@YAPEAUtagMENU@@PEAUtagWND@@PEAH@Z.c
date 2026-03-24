@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z @ 0x1C021B8C8
+ * XREFs of ?xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z @ 0x1C0221788
  * Callers:
- *     xxxMNStartMenu @ 0x1C021C1CC (xxxMNStartMenu.c)
+ *     xxxMNStartMenu @ 0x1C0222640 (xxxMNStartMenu.c)
  * Callees:
- *     xxxGetSysMenu @ 0x1C00BBF14 (xxxGetSysMenu.c)
+ *     xxxGetSysMenu @ 0x1C00DB164 (xxxGetSysMenu.c)
  */
 
 struct tagMENU *__fastcall xxxGetInitMenuParam(struct tagWND *a1, int *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSafeWcslen @ 0x1409FD474
+ * XREFs of ExpSafeWcslen @ 0x1409510D0
  * Callers:
- *     ExpSetBootEntry @ 0x1409FD4A0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FDC88 (ExpSetDriverEntry.c)
- *     ExpVerifyFilePath @ 0x1409FF178 (ExpVerifyFilePath.c)
- *     ExpVerifyWindowsOsOptions @ 0x1409FF2C4 (ExpVerifyWindowsOsOptions.c)
- *     NtEnumerateBootEntries @ 0x1409FF6B0 (NtEnumerateBootEntries.c)
- *     NtEnumerateDriverEntries @ 0x1409FFD10 (NtEnumerateDriverEntries.c)
+ *     ExpSetBootEntry @ 0x140951100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1409518F4 (ExpSetDriverEntry.c)
+ *     ExpVerifyFilePath @ 0x140952DC8 (ExpVerifyFilePath.c)
+ *     ExpVerifyWindowsOsOptions @ 0x140952F24 (ExpVerifyWindowsOsOptions.c)
+ *     NtEnumerateBootEntries @ 0x140953310 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x140953960 (NtEnumerateDriverEntries.c)
  * Callees:
  *     <none>
  */
@@ -18,10 +18,15 @@ __int64 __fastcall ExpSafeWcslen(_WORD *a1, unsigned __int64 a2)
   v2 = a1;
   if ( (unsigned __int64)a1 >= a2 )
     return 0xFFFFFFFFLL;
-  while ( *v2 )
+  do
   {
-    if ( (unsigned __int64)++v2 >= a2 )
-      return 0xFFFFFFFFLL;
+    if ( !*v2 )
+      break;
+    ++v2;
   }
-  return v2 - a1;
+  while ( (unsigned __int64)v2 < a2 );
+  if ( (unsigned __int64)v2 >= a2 )
+    return 0xFFFFFFFFLL;
+  else
+    return v2 - a1;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceSavePersistedLoggerStop @ 0x1409EDA14
+ * XREFs of EtwpTraceSavePersistedLoggerStop @ 0x14094959C
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwpTraceSavePersistedLoggerStop(unsigned __int16 *a1, int a2, int a3, int a4, char a5, int a6)

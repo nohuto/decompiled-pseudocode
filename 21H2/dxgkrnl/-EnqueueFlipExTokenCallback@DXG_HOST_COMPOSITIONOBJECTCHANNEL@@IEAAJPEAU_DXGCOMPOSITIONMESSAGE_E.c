@@ -1,17 +1,16 @@
 /*
- * XREFs of ?EnqueueFlipExTokenCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN@@PEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN@@@Z @ 0x1C02DF6F4
+ * XREFs of ?EnqueueFlipExTokenCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN@@PEAU_DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN@@@Z @ 0x1C028CCA4
  * Callers:
- *     ?ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C02E0840 (-ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z.c)
+ *     ?ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C028D990 (-ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0009278 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C006C430 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0001FAC (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C005E834 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::EnqueueFlipExTokenCallback(
@@ -19,83 +18,102 @@ __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::EnqueueFlipExTokenCallback
         struct _DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN *a2,
         struct _DXGCOMPOSITIONMESSAGE_ENQUEUEFLIPEXTOKEN_RETURN *a3)
 {
-  unsigned int v6; // ebx
+  __int64 v6; // rbx
   DxgkCompositionObject *v7; // rdi
   BOOL v8; // esi
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
   struct DXGPROCESS *Current; // rax
-  struct DXGFASTMUTEX *v14; // rax
-  DxgkCompositionObject *v15; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
   int v16; // eax
-  _BYTE v18[8]; // [rsp+50h] [rbp-28h] BYREF
-  char v19; // [rsp+58h] [rbp-20h]
+  struct DXGFASTMUTEX *v17; // rax
+  DxgkCompositionObject *v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  __int64 v23; // rax
+  __int64 v24; // rax
+  int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rax
+  __int64 result; // rax
+  _BYTE v31[8]; // [rsp+30h] [rbp-28h] BYREF
+  char v32; // [rsp+38h] [rbp-20h]
 
-  v6 = -1073741811;
+  LODWORD(v6) = -1073741811;
   v7 = 0LL;
   v8 = 0;
-  DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v18);
-  Current = DXGPROCESS::GetCurrent(v10, v9, v11, v12);
+  DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v31);
+  Current = DXGPROCESS::GetCurrent(v10, v9);
   if ( Current )
   {
-    if ( (*((_DWORD *)Current + 106) & 0x800) == 0 )
-      v8 = (*(__int64 (**)(void))(*((_QWORD *)Current + 11) + 216LL))() != 0;
+    if ( *((char *)Current + 347) >= 0 )
+    {
+      v16 = (*(__int64 (**)(void))(*((_QWORD *)Current + 11) + 216LL))();
+      v13 = 1LL;
+      v8 = v16 != 0;
+    }
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context. Returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v15 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v15);
   }
-  if ( v19 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v18);
+  if ( v32 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31, v12);
   if ( v8 )
   {
-    v14 = (struct DXGFASTMUTEX *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 1) + 48LL))(*((_QWORD *)this + 1));
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v18, v14, 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v18);
-    v15 = (DxgkCompositionObject *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 1) + 72LL))(
+    v17 = (struct DXGFASTMUTEX *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 1) + 48LL))(*((_QWORD *)this + 1));
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, v17, 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
+    v18 = (DxgkCompositionObject *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 1) + 72LL))(
                                      *((_QWORD *)this + 1),
                                      *((unsigned int *)a2 + 3),
                                      17LL);
-    if ( v15 )
+    if ( v18 )
     {
-      v7 = v15;
-      DxgkCompositionObject::AddRef(v15);
+      v7 = v18;
+      DxgkCompositionObject::AddRef(v18);
     }
     else
     {
-      WdLogSingleEntry1(3LL, -1073741811LL);
+      v23 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+      *(_QWORD *)(v23 + 24) = -1073741811LL;
+      WdLogEvent5_WdWarning(v23);
     }
-    if ( v19 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v18);
-    if ( v7 )
-    {
-      v16 = (*(__int64 (__fastcall **)(_QWORD *, _QWORD, _QWORD, char *))(*((_QWORD *)v7 + 4) + 40LL))(
-              (_QWORD *)v7 + 4,
-              *((_QWORD *)a2 + 2),
-              *((_QWORD *)a2 + 3),
-              (char *)a2 + 32);
-      v6 = v16;
-      if ( v16 < 0 )
-        WdLogSingleEntry1(3LL, v16);
-      DxgkCompositionObject::Release(v7);
-    }
+    if ( v32 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31, v22);
   }
   else
   {
-    WdLogSingleEntry1(3LL, -1073741811LL);
+    v24 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+    *(_QWORD *)(v24 + 24) = -1073741811LL;
+    WdLogEvent5_WdWarning(v24);
   }
+  if ( v7 )
+  {
+    v25 = (*(__int64 (__fastcall **)(_QWORD *, _QWORD, _QWORD, char *))(*((_QWORD *)v7 + 4) + 40LL))(
+            (_QWORD *)v7 + 4,
+            *((_QWORD *)a2 + 2),
+            *((_QWORD *)a2 + 3),
+            (char *)a2 + 32);
+    v6 = v25;
+    if ( v25 < 0 )
+    {
+      v29 = WdLogNewEntry5_WdWarning(v27, v26, v28);
+      *(_QWORD *)(v29 + 24) = v6;
+      WdLogEvent5_WdWarning(v29);
+    }
+    DxgkCompositionObject::Release(v7);
+  }
+  result = (unsigned int)v6;
   *((_DWORD *)a3 + 1) = v6;
-  return v6;
+  return result;
 }

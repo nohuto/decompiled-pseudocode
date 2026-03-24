@@ -1,5 +1,5 @@
 /*
- * XREFs of HvIsCurrentLogSwappable @ 0x1406CD1CC
+ * XREFs of HvIsCurrentLogSwappable @ 0x1406CD1AC
  * Callers:
  *     CmpGenerateFlushControlData @ 0x1405A5D78 (CmpGenerateFlushControlData.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)

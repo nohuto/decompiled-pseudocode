@@ -1,22 +1,21 @@
 /*
- * XREFs of ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18001548C
+ * XREFs of ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18025EEE0
  * Callers:
- *     ?GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z @ 0x18001523C (-GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z.c)
+ *     ?GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z @ 0x1801B5AEC (-GetTrimmedShapeData@CGeometry@@AEBAJAEBVCShape@@PEAVCShapePtr@@@Z.c)
  * Callees:
- *     ?ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z @ 0x1800156FC (-ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z.c)
- *     ??0CPathLengthOperation@@QEAA@XZ @ 0x1800158E8 (--0CPathLengthOperation@@QEAA@XZ.c)
- *     ??0CPathData@@QEAA@PEAUID2D1Factory@@$$QEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180015928 (--0CPathData@@QEAA@PEAUID2D1Factory@@$$QEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
- *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x180016324 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
- *     ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x1800167AC (-IsSimpleGeometry@CPathData@@QEBA_NXZ.c)
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FB80 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??0CPathData@@QEAA@PEAUID2D1Factory@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x1800ABB84 (--0CPathData@@QEAA@PEAUID2D1Factory@@V-$span@$$CBE$0-0@gsl@@@Z.c)
- *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1800AC08C (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x1800D4924 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     fmodf_0 @ 0x18011B8F0 (fmodf_0.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     fmodf_0 @ 0x1800F3FAB (fmodf_0.c)
+ *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1801B1408 (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5A28 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ??0CPathData@@QEAA@PEAUID2D1Factory@@$$QEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180220378 (--0CPathData@@QEAA@PEAUID2D1Factory@@$$QEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ??0CPathData@@QEAA@PEAUID2D1Factory@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x180220408 (--0CPathData@@QEAA@PEAUID2D1Factory@@V-$span@$$CBE$0-0@gsl@@@Z.c)
+ *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x180220604 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
+ *     ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x180220CD4 (-IsSimpleGeometry@CPathData@@QEBA_NXZ.c)
+ *     ??0CPathLengthOperation@@QEAA@XZ @ 0x18025E1AC (--0CPathLengthOperation@@QEAA@XZ.c)
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18025E38C (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z @ 0x18025ED00 (-ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z.c)
  */
 
 __int64 __fastcall CTrimPathOperation::Trim(
@@ -33,30 +32,28 @@ __int64 __fastcall CTrimPathOperation::Trim(
   float v11; // xmm6_4
   __int64 v12; // r15
   struct CPathData *v13; // rbx
-  unsigned int v14; // ecx
-  float v15; // xmm7_4
-  float v16; // xmm0_4
-  float v17; // xmm6_4
-  CPathLengthOperation *v18; // rax
-  __int64 v19; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  float v17; // xmm7_4
+  float v18; // xmm0_4
+  float v19; // xmm6_4
+  float v20; // xmm0_4
+  CPathLengthOperation *v21; // rax
   float Length; // xmm0_4
-  __int64 *v21; // rbx
-  __int64 *v22; // rdi
-  const struct Path::Segment *v23; // rdx
-  void *v25; // rax
-  unsigned int v26; // ecx
-  void *v27; // rax
-  float v28; // xmm0_4
-  char v29; // al
-  int v30; // xmm1_4
-  char v31; // al
-  unsigned int v32; // [rsp+28h] [rbp-E0h]
-  struct CPathData *v33; // [rsp+38h] [rbp-D0h] BYREF
-  __int128 v34; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v35; // [rsp+50h] [rbp-B8h]
-  __int64 v36; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 *i; // [rsp+60h] [rbp-A8h] BYREF
-  _BYTE v38[224]; // [rsp+68h] [rbp-A0h] BYREF
+  char *v23; // rbx
+  char *v24; // rdi
+  char v25; // al
+  int v26; // xmm1_4
+  const struct Path::Segment *v27; // rdx
+  char v28; // al
+  __int64 v29; // rax
+  unsigned int v31; // [rsp+28h] [rbp-E0h]
+  struct CPathData *v32; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 v33; // [rsp+40h] [rbp-C8h] BYREF
+  __int128 v34; // [rsp+48h] [rbp-C0h] BYREF
+  char *i; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE v36[224]; // [rsp+68h] [rbp-A0h] BYREF
 
   v6 = 0;
   v9 = fminf(1.0, fmaxf(a4, 0.0));
@@ -64,111 +61,107 @@ __int64 __fastcall CTrimPathOperation::Trim(
   v11 = v9 - v10;
   if ( (float)(v9 - v10) < 0.0 )
     v11 = v11 + 1.0;
-  v12 = *((_QWORD *)a2 + 5);
+  v12 = *((_QWORD *)a2 + 6);
   v13 = 0LL;
-  v33 = 0LL;
-  if ( CPathData::IsSimpleGeometry(a2) )
+  v32 = 0LL;
+  if ( !CPathData::IsSimpleGeometry(a2) )
   {
-    if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v11 - 1.0) & _xmm) < 0.0000011920929 )
+    v6 = -2003304315;
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2003304315, 0xA5u, 0LL);
+    goto LABEL_33;
+  }
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v11 - 1.0) & _xmm) < 0.0000011920929 )
+  {
+    Microsoft::WRL::ComPtr<CPathData>::operator=((__int64 *)&v32, (__int64)a2);
+    v13 = v32;
+    goto LABEL_33;
+  }
+  if ( COERCE_FLOAT(LODWORD(v11) & _xmm) >= 0.0000011920929 )
+  {
+    v17 = fmodf_0(v10 + a5, 1.0);
+    v18 = fmodf_0(v9 + a5, 1.0);
+    v19 = v18;
+    if ( v17 < 0.0 )
+      v17 = v17 + 1.0;
+    if ( v18 < 0.0 )
+      v19 = v18 + 1.0;
+    *((_BYTE *)this + 396) = 0;
+    if ( v17 > v19 )
     {
-      Microsoft::WRL::ComPtr<CPathData>::operator=(&v33, a2);
-      v13 = v33;
+      v20 = v17;
+      *((_BYTE *)this + 396) = 1;
+      v17 = v19;
+      v19 = v20;
     }
-    else if ( COERCE_FLOAT(LODWORD(v11) & _xmm) < 0.0000011920929 )
+    v21 = CPathLengthOperation::CPathLengthOperation((CPathLengthOperation *)v36);
+    Length = CPathLengthOperation::GetLength(v21, a2);
+    *((_DWORD *)this + 8) = 0;
+    *((_DWORD *)this + 11) = 0;
+    *((float *)this + 6) = Length * v17;
+    *((float *)this + 7) = Length * v19;
+    *((_BYTE *)this + 397) = 1;
+    *((_QWORD *)this + 1) = *(_QWORD *)this;
+    v23 = (char *)*((_QWORD *)a2 + 3);
+    v24 = (char *)*((_QWORD *)a2 + 4);
+    for ( i = v23; v23 != v24; v23 = i )
     {
-      v27 = DefaultHeap::Alloc(0x50uLL);
-      if ( v27 )
+      if ( *v23 == 1 && v23[2] )
       {
-        *((_QWORD *)&v34 + 1) = 0LL;
-        v35 = 0LL;
-        v27 = (void *)CPathData::CPathData(v27, v12, (char *)&v34 + 8);
+        if ( COERCE_FLOAT(*((_DWORD *)v23 + 1) & _xmm) >= 0.0000011920929 )
+        {
+          Path::Segment::Segment(&v34, 2);
+          v25 = v23[1];
+          v26 = *((_DWORD *)this + 14);
+          DWORD1(v34) = *((_DWORD *)v23 + 1);
+          HIDWORD(v34) = *((_DWORD *)this + 15);
+          DWORD2(v34) = v26;
+          BYTE1(v34) = v25;
+          CTrimPathOperation::ProcessSegment(this, (const struct Path::Segment *)&v34);
+        }
+        v27 = (const struct Path::Segment *)&v33;
+        v33 = *(_QWORD *)v23;
+        v28 = *((_BYTE *)this + 397);
+        HIDWORD(v33) = 0;
+        BYTE2(v33) = v28;
       }
-      Microsoft::WRL::ComPtr<CPathData>::operator=(&v33, v27);
-      v13 = v33;
-      if ( !v33 )
+      else
       {
-        v32 = 179;
-        goto LABEL_33;
+        v27 = (const struct Path::Segment *)v23;
       }
+      if ( !CTrimPathOperation::ProcessSegment(this, v27) )
+        break;
+      Path::SegmentCollection::const_iterator::operator++(&i);
     }
-    else
+    v29 = (__int64)DefaultHeap::Alloc(0x58uLL);
+    if ( v29 )
+      v29 = CPathData::CPathData(v29, v12, this);
+    Microsoft::WRL::ComPtr<CPathData>::operator=((__int64 *)&v32, v29);
+    v13 = v32;
+    if ( !v32 )
     {
-      v15 = fmodf_0(v10 + a5, 1.0);
-      v16 = fmodf_0(v9 + a5, 1.0);
-      v17 = v16;
-      if ( v15 < 0.0 )
-        v15 = v15 + 1.0;
-      if ( v16 < 0.0 )
-        v17 = v16 + 1.0;
-      *((_BYTE *)this + 396) = 0;
-      if ( v15 > v17 )
-      {
-        v28 = v15;
-        *((_BYTE *)this + 396) = 1;
-        v15 = v17;
-        v17 = v28;
-      }
-      v18 = CPathLengthOperation::CPathLengthOperation((CPathLengthOperation *)v38);
-      Length = CPathLengthOperation::GetLength(v18, a2);
-      *((_DWORD *)this + 8) = 0;
-      *((_DWORD *)this + 11) = 0;
-      *((float *)this + 6) = Length * v15;
-      *((float *)this + 7) = Length * v17;
-      *((_BYTE *)this + 397) = 1;
-      *((_QWORD *)this + 1) = *(_QWORD *)this;
-      v21 = (__int64 *)*((_QWORD *)a2 + 2);
-      v22 = (__int64 *)*((_QWORD *)a2 + 3);
-      for ( i = v21; v21 != v22; v21 = i )
-      {
-        if ( *(_BYTE *)v21 == 1 && *((_BYTE *)v21 + 2) )
-        {
-          if ( COERCE_FLOAT(*((_DWORD *)v21 + 1) & _xmm) >= 0.0000011920929 )
-          {
-            LOBYTE(v19) = 2;
-            Path::Segment::Segment((char *)&v34 + 8, v19);
-            v29 = *((_BYTE *)v21 + 1);
-            v30 = *((_DWORD *)this + 14);
-            HIDWORD(v34) = *((_DWORD *)v21 + 1);
-            HIDWORD(v35) = *((_DWORD *)this + 15);
-            LODWORD(v35) = v30;
-            BYTE9(v34) = v29;
-            CTrimPathOperation::ProcessSegment(this, (const struct Path::Segment *)((char *)&v34 + 8));
-          }
-          v23 = (const struct Path::Segment *)&v36;
-          v36 = *v21;
-          v31 = *((_BYTE *)this + 397);
-          HIDWORD(v36) = 0;
-          BYTE2(v36) = v31;
-        }
-        else
-        {
-          v23 = (const struct Path::Segment *)v21;
-        }
-        if ( !CTrimPathOperation::ProcessSegment(this, v23) )
-          break;
-        Path::SegmentCollection::const_iterator::operator++(&i);
-      }
-      v25 = DefaultHeap::Alloc(0x50uLL);
-      if ( v25 )
-        v25 = (void *)CPathData::CPathData(v25, v12, this);
-      Microsoft::WRL::ComPtr<CPathData>::operator=(&v33, v25);
-      v13 = v33;
-      if ( !v33 )
-      {
-        v32 = 243;
-LABEL_33:
-        v6 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024882, v32, 0LL);
-      }
+      v31 = 243;
+      goto LABEL_32;
     }
   }
   else
   {
-    v6 = -2003304315;
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2003304315, 0xA5u, 0LL);
+    v15 = (__int64)DefaultHeap::Alloc(0x58uLL);
+    if ( v15 )
+    {
+      v34 = 0LL;
+      v15 = CPathData::CPathData(v15, v12, (SIZE_T *)&v34);
+    }
+    Microsoft::WRL::ComPtr<CPathData>::operator=((__int64 *)&v32, v15);
+    v13 = v32;
+    if ( !v32 )
+    {
+      v31 = 179;
+LABEL_32:
+      v6 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024882, v31, 0LL);
+    }
   }
-  v33 = 0LL;
+LABEL_33:
   *a6 = v13;
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v33);
   return v6;
 }

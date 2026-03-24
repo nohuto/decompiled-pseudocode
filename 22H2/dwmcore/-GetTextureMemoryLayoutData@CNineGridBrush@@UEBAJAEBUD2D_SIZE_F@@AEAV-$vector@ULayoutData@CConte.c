@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetTextureMemoryLayoutData@CNineGridBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x18023FBB0
+ * XREFs of ?GetTextureMemoryLayoutData@CNineGridBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801DA7B0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CNineGridBrush::GetTextureMemoryLayoutData(__int64 a1, __int64 a2, _QWORD *a3)
@@ -16,10 +16,10 @@ __int64 __fastcall CNineGridBrush::GetTextureMemoryLayoutData(__int64 a1, __int6
 
   v3 = 0;
   a3[1] = *a3;
-  v4 = *(_QWORD *)(a1 + 88);
+  v4 = *(_QWORD *)(a1 + 80);
   if ( v4 )
   {
-    v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 272LL))(v4);
+    v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 280LL))(v4);
     v3 = v5;
     if ( v5 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x50u, 0LL);

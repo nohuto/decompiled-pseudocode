@@ -1,39 +1,17 @@
 /*
- * XREFs of IoGetRequestorProcessId @ 0x140223290
+ * XREFs of IoGetRequestorProcessId @ 0x1403CF9D0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
  */
 
 ULONG __stdcall IoGetRequestorProcessId(PIRP Irp)
 {
-  PETHREAD Thread; // rdx
-  CCHAR ApcEnvironment; // al
-  unsigned __int64 Process; // rax
+  PEPROCESS RequestorProcess; // rax
 
-  Thread = Irp->Tail.Overlay.Thread;
-  if ( (Irp->Flags & 0x2000) != 0 )
-  {
-    Process = Irp->Overlay.AllocationSize.QuadPart & 0xFFFFFFFFFFFFFFF9uLL;
-  }
-  else
-  {
-    if ( !Thread )
-      return 0;
-    ApcEnvironment = Irp->ApcEnvironment;
-    if ( ApcEnvironment )
-    {
-      if ( ApcEnvironment != 1 )
-        return 0;
-      Process = (unsigned __int64)Thread->ApcState.Process;
-    }
-    else
-    {
-      Process = (unsigned __int64)Thread->Process;
-    }
-  }
-  if ( Process )
-    return *(_DWORD *)(Process + 1088);
-  return 0;
+  RequestorProcess = IoGetRequestorProcess(Irp);
+  if ( RequestorProcess )
+    LODWORD(RequestorProcess) = RequestorProcess[1].Header.WaitListHead.Flink;
+  return (unsigned int)RequestorProcess;
 }

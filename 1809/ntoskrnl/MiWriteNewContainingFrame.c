@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWriteNewContainingFrame @ 0x1402C5E60
+ * XREFs of MiWriteNewContainingFrame @ 0x1402C5F60
  * Callers:
- *     MiDemotePfnListChain @ 0x1402C52D0 (MiDemotePfnListChain.c)
+ *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  */

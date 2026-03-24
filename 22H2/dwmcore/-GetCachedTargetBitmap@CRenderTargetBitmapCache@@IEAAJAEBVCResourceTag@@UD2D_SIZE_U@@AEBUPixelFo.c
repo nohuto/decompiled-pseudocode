@@ -1,18 +1,18 @@
 /*
- * XREFs of ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034E64
+ * XREFs of ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060E68
  * Callers:
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D70 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060D74 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
  * Callees:
- *     ?SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z @ 0x18003500C (-SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z.c)
- *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800352EC (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCSc.c)
- *     ?SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z @ 0x180035760 (-SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z.c)
- *     ?SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1800357C0 (-SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
- *     ?SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180035840 (-SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z @ 0x1800358C0 (-SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z.c)
- *     ?CreateScratchRenderTargetBitmap@CD3DDevice@@IEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x18003BCFC (-CreateScratchRenderTargetBitmap@CD3DDevice@@IEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRende.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800E7D3C (-MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ.c)
+ *     ?CreateScratchRenderTargetBitmap@CD3DDevice@@IEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x18003B2CC (-CreateScratchRenderTargetBitmap@CD3DDevice@@IEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRende.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z @ 0x18006100C (-SetPurpose@CScratchRenderTargetBitmap@@QEAAXAEBVCResourceTag@@_N@Z.c)
+ *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800610D4 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScrat.c)
+ *     ?SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180062FC0 (-SetAlphaMode@CRenderTargetBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
+ *     ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800CB304 (-MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ.c)
+ *     ?SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z @ 0x1800D07B0 (-SetDisplayId@CRenderTargetBitmap@@UEAAXVDisplayId@@@Z.c)
+ *     ?SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800D4330 (-SetColorSpace@CRenderTargetBitmap@@UEAAXW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z @ 0x1800D5480 (-SetSDRBoost@CRenderTargetBitmap@@UEAAXM@Z.c)
  */
 
 __int64 __fastcall CRenderTargetBitmapCache::GetCachedTargetBitmap(
@@ -22,74 +22,63 @@ __int64 __fastcall CRenderTargetBitmapCache::GetCachedTargetBitmap(
         __int64 a4,
         struct RenderTargetInfo *a5,
         int a6,
-        unsigned __int64 *a7)
+        CD2DBitmapCache *a7)
 {
-  unsigned __int64 *v7; // rdi
-  unsigned int v8; // r15d
-  int v9; // esi
-  bool v12; // al
+  CD2DBitmapCache *v7; // r12
+  int v8; // r14d
+  unsigned int v11; // ebp
+  bool v12; // cl
   struct RenderTargetInfo *v13; // r13
   CD2DBitmapCache *v14; // rbx
   CRenderTargetBitmap *v15; // rdi
-  CD2DBitmapCache *v16; // rcx
-  CD2DBitmapCache *v18; // rcx
-  int v19; // eax
-  unsigned int v20; // ecx
-  struct D2D_SIZE_U v22; // [rsp+80h] [rbp+50h] BYREF
-  CD2DBitmapCache *v23; // [rsp+88h] [rbp+58h] BYREF
+  CD2DBitmapCache *v17; // rcx
+  int v18; // eax
+  __int64 v19; // rcx
+  struct D2D_SIZE_U v21; // [rsp+80h] [rbp+18h] BYREF
 
-  v22 = a3;
+  v21 = a3;
   v7 = a7;
-  v8 = 0;
-  v23 = 0LL;
-  v9 = a6;
-  *a7 = 0LL;
-  v12 = (v9 & 0xFFFFFFF9) == 0 && v9 != 6;
+  v8 = a6;
+  a7 = 0LL;
+  v11 = 0;
+  *(_QWORD *)v7 = 0LL;
+  if ( (v8 & 0xFFFFFFF9) != 0 || (v12 = 1, v8 == 6) )
+    v12 = 0;
   v13 = a5;
-  if ( CRenderTargetBitmapCache::FindMatchingBitmap(a1, &v22, *(enum DXGI_FORMAT *)a4, *((_BYTE *)a5 + 20), v12, &v23) )
+  if ( CRenderTargetBitmapCache::FindMatchingBitmap(a1, a3, *(enum DXGI_FORMAT *)a4, *((_BYTE *)a5 + 20), v12, &a7) )
   {
-    v14 = v23;
-    v15 = (CD2DBitmapCache *)((char *)v23 + 120);
-    CRenderTargetBitmap::SetAlphaMode((CD2DBitmapCache *)((char *)v23 + 120), *(enum DXGI_ALPHA_MODE *)(a4 + 4));
+    v14 = a7;
+    v15 = (CD2DBitmapCache *)((char *)a7 + 120);
+    CRenderTargetBitmap::SetAlphaMode((CD2DBitmapCache *)((char *)a7 + 120), *(enum DXGI_ALPHA_MODE *)(a4 + 4));
     CRenderTargetBitmap::SetColorSpace(v15, *(enum DXGI_COLOR_SPACE_TYPE *)(a4 + 8));
     CRenderTargetBitmap::SetDisplayId(v15, *((unsigned int *)v13 + 2));
     CRenderTargetBitmap::SetSDRBoost(v15, *((float *)v13 + 4));
     CD2DBitmapCache::MarkFullInvalid(v14);
-    v7 = a7;
+LABEL_5:
+    CScratchRenderTargetBitmap::SetPurpose(v14, a2, (unsigned int)(v8 - 1) <= 1);
+    if ( *((_BYTE *)v14 + 177) )
+      ++*((_DWORD *)a1 + 10);
+    *(_QWORD *)v7 = ((unsigned __int64)v14 + 120) & -(__int64)(v14 != 0LL);
+    return v11;
   }
-  else
+  v17 = a7;
+  a7 = 0LL;
+  if ( v17 )
+    CRenderTargetBitmap::Release(v17);
+  v18 = CD3DDevice::CreateScratchRenderTargetBitmap(
+          (CD3DDevice *)(((unsigned __int64)a1 - 512) & -(__int64)(a1 != 0LL)),
+          &v21,
+          (const struct PixelFormatInfo *)a4,
+          v13,
+          &a7);
+  v11 = v18;
+  if ( v18 >= 0 )
   {
-    if ( (v9 & 0xFFFFFFF9) != 0 || v9 == 6 )
-    {
-      v22.width = (v22.width + 63) & 0xFFFFFFC0;
-      v22.height = (v22.height + 63) & 0xFFFFFFC0;
-    }
-    v18 = v23;
-    v23 = 0LL;
-    if ( v18 )
-      CMILRefCountBaseT<IUnknown>::InternalRelease(v18);
-    v19 = CD3DDevice::CreateScratchRenderTargetBitmap(
-            (CD3DDevice *)(((unsigned __int64)a1 - 464) & -(__int64)(a1 != 0LL)),
-            &v22,
-            (const struct PixelFormatInfo *)a4,
-            v13,
-            &v23);
-    v8 = v19;
-    if ( v19 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x3Eu, 0LL);
-      v16 = v23;
-      goto LABEL_8;
-    }
-    v14 = v23;
+    v14 = a7;
+    goto LABEL_5;
   }
-  CScratchRenderTargetBitmap::SetPurpose(v14, a2, (unsigned int)(v9 - 1) <= 1);
-  if ( *((_BYTE *)v14 + 177) )
-    ++*((_DWORD *)a1 + 10);
-  v16 = 0LL;
-  *v7 = ((unsigned __int64)v14 + 120) & -(__int64)(v14 != 0LL);
-LABEL_8:
-  if ( v16 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v16);
-  return v8;
+  MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x37u, 0LL);
+  if ( a7 )
+    CRenderTargetBitmap::Release(a7);
+  return v11;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CProjectedShadowReceiverMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0009A20
+ * XREFs of ?ReleaseAllReferences@CProjectedShadowReceiverMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0005B10
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::ReleaseAllReferences(
@@ -13,16 +13,16 @@ void __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::ReleaseAll
   struct DirectComposition::CResourceMarshaler *v4; // rdx
   struct DirectComposition::CResourceMarshaler *v5; // rdx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 10);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    *((_QWORD *)this + 10) = 0LL;
+    *((_QWORD *)this + 9) = 0LL;
   }
-  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 12);
+  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 11);
   if ( v5 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v5);
-    *((_QWORD *)this + 12) = 0LL;
+    *((_QWORD *)this + 11) = 0LL;
   }
 }

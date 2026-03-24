@@ -6,11 +6,11 @@
  *     MiNonPagedPoolToNode @ 0x1400261A4 (MiNonPagedPoolToNode.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiSystemVaToDynamicBitmap @ 0x1400F71E0 (MiSystemVaToDynamicBitmap.c)
- *     MiReleaseSessionVa @ 0x140138064 (MiReleaseSessionVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1400F7200 (MiSystemVaToDynamicBitmap.c)
+ *     MiReleaseSessionVa @ 0x140138084 (MiReleaseSessionVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMakeSystemRangeAvailable(

@@ -1,26 +1,26 @@
 /*
- * XREFs of HalpInterruptEnablePerformanceEvents @ 0x1403B0670
+ * XREFs of HalpInterruptEnablePerformanceEvents @ 0x1403A39A0
  * Callers:
- *     EmonPreOverflowHandler @ 0x140521260 (EmonPreOverflowHandler.c)
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
- *     HalpInterruptInitSystem @ 0x140A54BA0 (HalpInterruptInitSystem.c)
- *     HalpDpPostReplaceInitialization @ 0x140A62458 (HalpDpPostReplaceInitialization.c)
+ *     EmonPreOverflowHandler @ 0x1404D40E0 (EmonPreOverflowHandler.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
+ *     HalpInterruptInitSystem @ 0x14099B890 (HalpInterruptInitSystem.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A84D8 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x140251FD8 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetLineState @ 0x1403B07C8 (HalpInterruptSetLineState.c)
- *     HalpInterruptGetPriority @ 0x1403B0D74 (HalpInterruptGetPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
+ *     HalpInterruptGetPriority @ 0x1403A407C (HalpInterruptGetPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
 {
   __int64 v1; // rbx
   unsigned __int8 v2; // di
-  bool v3; // zf
+  bool v4; // zf
   int v5; // ecx
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
@@ -46,13 +46,12 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
   v1 = HalpInterruptController;
   v23 = 0LL;
   v2 = 0;
-  DWORD1(v19) = 0;
   v22 = 0LL;
-  v3 = *(_DWORD *)(HalpInterruptController + 224) == 2;
+  v4 = *(_DWORD *)(HalpInterruptController + 216) == 2;
   memset(v21, 0, sizeof(v21));
-  if ( v3 )
+  if ( v4 )
   {
-    LODWORD(v23) = *(_DWORD *)(HalpInterruptController + 240);
+    LODWORD(v23) = *(_DWORD *)(HalpInterruptController + 232);
     HIDWORD(v23) = -3;
     if ( !HalpInterruptPerfLinesFound )
     {
@@ -84,9 +83,9 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
             v10 = ~(unsigned __int16)(-1LL << (v2 + 1));
-            v3 = (v10 & SchedulerAssist[5]) == 0;
+            v4 = (v10 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v10;
-            if ( v3 )
+            if ( v4 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -94,7 +93,7 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
       __writecr8(v2);
     }
   }
-  v5 = *(_DWORD *)(v1 + 224);
+  v5 = *(_DWORD *)(v1 + 216);
   result = (unsigned int)(v5 - 3);
   if ( (result & 0xFFFFFFFC) == 0 && v5 != 5 )
   {
@@ -128,9 +127,9 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
               v17 = KeGetCurrentPrcb();
               result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
               v18 = v17->SchedulerAssist;
-              v3 = ((unsigned int)result & v18[5]) == 0;
+              v4 = ((unsigned int)result & v18[5]) == 0;
               v18[5] &= result;
-              if ( v3 )
+              if ( v4 )
                 result = KiRemoveSystemWorkPriorityKick(v17);
             }
           }

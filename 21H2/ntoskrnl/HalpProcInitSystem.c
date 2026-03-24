@@ -1,15 +1,16 @@
 /*
- * XREFs of HalpProcInitSystem @ 0x140A54E70
+ * XREFs of HalpProcInitSystem @ 0x14099B4C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMcUpdateMicrocode @ 0x1403B607C (HalpMcUpdateMicrocode.c)
- *     HalpProcGetFeatureBits @ 0x1403BAD80 (HalpProcGetFeatureBits.c)
- *     HalMcFinishMicrocode @ 0x1403BAEE8 (HalMcFinishMicrocode.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051E084 (HalpInterruptStartBlockedProcessors.c)
- *     HalpMcUpdateInitialize @ 0x14082481C (HalpMcUpdateInitialize.c)
- *     HalpProcInitDiscard @ 0x140AF8908 (HalpProcInitDiscard.c)
- *     HalpBlkInitSystem @ 0x140AF8974 (HalpBlkInitSystem.c)
+ *     HalpMcUpdateMicrocode @ 0x1403A6514 (HalpMcUpdateMicrocode.c)
+ *     HalpProcGetFeatureBits @ 0x1403A803C (HalpProcGetFeatureBits.c)
+ *     HalMcFinishMicrocode @ 0x1403A8370 (HalMcFinishMicrocode.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1404D1ABC (HalpInterruptStartBlockedProcessors.c)
+ *     HalpMcUpdateInitialize @ 0x140790E20 (HalpMcUpdateInitialize.c)
+ *     HalpProcInitDiscard @ 0x140A394E4 (HalpProcInitDiscard.c)
+ *     HalpBlkInitSystem @ 0x140A39550 (HalpBlkInitSystem.c)
+ *     HalpMcInitializeMicrocodeInfo @ 0x140A395C8 (HalpMcInitializeMicrocodeInfo.c)
  */
 
 __int64 __fastcall HalpProcInitSystem(__int64 a1, __int64 a2, __int64 a3)
@@ -33,13 +34,14 @@ __int64 __fastcall HalpProcInitSystem(__int64 a1, __int64 a2, __int64 a3)
   {
     if ( (_DWORD)a1 != 21 )
       return 0LL;
-    HalMcFinishMicrocode();
+    HalMcFinishMicrocode(a1);
     v4 = 21LL;
 LABEL_10:
     HalpBlkInitSystem(v4);
     return 0LL;
   }
   HalpMcUpdateInitialize(a3, 0LL);
+  HalpMcInitializeMicrocodeInfo();
   if ( HalpInterruptBlockedProcessors )
     HalpInterruptStartBlockedProcessors(0);
   return 0LL;

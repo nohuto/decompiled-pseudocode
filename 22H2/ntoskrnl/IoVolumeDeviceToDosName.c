@@ -1,21 +1,21 @@
 /*
- * XREFs of IoVolumeDeviceToDosName @ 0x14075B4A0
+ * XREFs of IoVolumeDeviceToDosName @ 0x140620F70
  * Callers:
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
- *     IopQueryNameInternal @ 0x14075AE74 (IopQueryNameInternal.c)
- *     IopValidateJunctionTarget @ 0x140946694 (IopValidateJunctionTarget.c)
+ *     IopQueryNameInternal @ 0x140620924 (IopQueryNameInternal.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
+ *     IopValidateJunctionTarget @ 0x140892F34 (IopValidateJunctionTarget.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022BAA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_STRING DosName)
@@ -27,7 +27,7 @@ NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_ST
   IRP *v8; // rax
   int Status; // ebx
   ULONG OutputBufferLength; // ebx
-  _WORD *Pool2; // rdi
+  _WORD *PoolWithTag; // rdi
   IRP *v12; // rax
   unsigned __int16 v13; // ax
   PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp-B0h] BYREF
@@ -100,11 +100,11 @@ NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_ST
         {
           Status = -1073741306;
 LABEL_19:
-          ObfDereferenceObject(FileObject);
+          HalPutDmaAdapter((PADAPTER_OBJECT)FileObject);
           return Status;
         }
-        Pool2 = (_WORD *)ExAllocatePool2(256LL, OutputBufferLength, 543437380LL);
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, OutputBufferLength, 0x20643244u);
+        if ( PoolWithTag )
         {
           KeInitializeEvent(&Event, NotificationEvent, 0);
           v12 = IoBuildDeviceIoControlRequest(
@@ -112,7 +112,7 @@ LABEL_19:
                   DeviceObject,
                   InputBuffer,
                   0x200u,
-                  Pool2,
+                  PoolWithTag,
                   OutputBufferLength,
                   0,
                   &Event,
@@ -127,21 +127,21 @@ LABEL_19:
             }
             if ( Status < 0 )
             {
-              ExFreePoolWithTag(Pool2, 0);
+              ExFreePoolWithTag(PoolWithTag, 0);
             }
             else
             {
-              v13 = *Pool2 - 4;
-              DosName->Buffer = Pool2;
+              v13 = *PoolWithTag - 4;
+              DosName->Buffer = PoolWithTag;
               DosName->Length = v13;
               DosName->MaximumLength = v13 + 2;
-              memmove(Pool2, Pool2 + 2, v13);
+              memmove(PoolWithTag, PoolWithTag + 2, v13);
               Status = 0;
               DosName->Buffer[(unsigned __int64)DosName->Length >> 1] = 0;
             }
             goto LABEL_19;
           }
-          ExFreePoolWithTag(Pool2, 0);
+          ExFreePoolWithTag(PoolWithTag, 0);
         }
       }
       Status = -1073741670;

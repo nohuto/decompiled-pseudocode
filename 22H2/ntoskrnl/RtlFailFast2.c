@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFailFast2 @ 0x140429B30
+ * XREFs of RtlFailFast2 @ 0x1404081B0
  * Callers:
- *     RtlGuardRestoreContext @ 0x14033FD9C (RtlGuardRestoreContext.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1405B1F78 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlGuardCheckExceptionHandler @ 0x140340314 (RtlGuardCheckExceptionHandler.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x14058F388 (RtlGuardCheckLongJumpTarget.c)
  * Callees:
  *     <none>
  */

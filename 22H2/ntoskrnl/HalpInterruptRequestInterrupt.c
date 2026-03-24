@@ -1,16 +1,15 @@
 /*
- * XREFs of HalpInterruptRequestInterrupt @ 0x140505280
+ * XREFs of HalpInterruptRequestInterrupt @ 0x1404BC6A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x14031FD7C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpInterruptRequestSecondaryInterrupt @ 0x14051A31C (HalpInterruptRequestSecondaryInterrupt.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378A18 (HalpInterruptFindLinesForGsiRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x1404D10B4 (HalpInterruptRequestSecondaryInterrupt.c)
  */
 
 __int64 __fastcall HalpInterruptRequestInterrupt(unsigned int a1)
@@ -33,9 +32,9 @@ __int64 __fastcall HalpInterruptRequestInterrupt(unsigned int a1)
   v3 = LinesForGsiRange;
   if ( !LinesForGsiRange )
   {
-    if ( ((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C01B90[0])(0LL, a1) )
+    if ( ((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C00780[0])(0LL, a1) )
       return (unsigned int)HalpInterruptRequestSecondaryInterrupt(a1);
-    HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 3960);
+    HalpInterruptLastProblem = 18;
     return (unsigned int)-1073741811;
   }
   LODWORD(v14) = LinesForGsiRange[4];
@@ -43,7 +42,7 @@ __int64 __fastcall HalpInterruptRequestInterrupt(unsigned int a1)
   v5 = HalpInterruptLookupController(v14);
   if ( !v5 )
   {
-    HalpInterruptSetProblemEx(0, 17, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 3976);
+    HalpInterruptLastProblem = 17;
     return (unsigned int)-1073741811;
   }
   v6 = HalpAcquireHighLevelLock(&HalpInterruptLock);
@@ -57,19 +56,22 @@ __int64 __fastcall HalpInterruptRequestInterrupt(unsigned int a1)
            v7 + 16);
   else
     v4 = -1073741811;
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
+  KxReleaseSpinLock(&HalpInterruptLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v12 = (v11 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);

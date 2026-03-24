@@ -1,8 +1,8 @@
 /*
- * XREFs of HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C0010380
+ * XREFs of HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C000FF64
  * Callers:
- *     HUBPARENT_QueryParentIfDeviceWasReset @ 0x1C0007368 (HUBPARENT_QueryParentIfDeviceWasReset.c)
- *     HUBPARENT_ResetHubComplete @ 0x1C0007790 (HUBPARENT_ResetHubComplete.c)
+ *     HUBPARENT_QueryParentIfDeviceWasReset @ 0x1C0007090 (HUBPARENT_QueryParentIfDeviceWasReset.c)
+ *     HUBPARENT_ResetHubComplete @ 0x1C00074C0 (HUBPARENT_ResetHubComplete.c)
  * Callees:
  *     <none>
  */

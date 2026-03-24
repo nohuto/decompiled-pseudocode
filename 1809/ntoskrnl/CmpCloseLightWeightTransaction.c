@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCloseLightWeightTransaction @ 0x1406938F0
+ * XREFs of CmpCloseLightWeightTransaction @ 0x1406938D0
  * Callers:
  *     <none>
  * Callees:
- *     CmpRollbackLightWeightTransaction @ 0x140693910 (CmpRollbackLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1406938F0 (CmpRollbackLightWeightTransaction.c)
  */
 
 __int64 __fastcall CmpCloseLightWeightTransaction(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

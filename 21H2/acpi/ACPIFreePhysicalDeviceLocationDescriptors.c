@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C00A1730
+ * XREFs of ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C009A1C8
  * Callers:
- *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C0006718 (ACPIBusAndFilterIrpQueryContainerId.c)
- *     ACPIQueryPhysicalDeviceLocation @ 0x1C00939F8 (ACPIQueryPhysicalDeviceLocation.c)
+ *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C002E158 (ACPIBusAndFilterIrpQueryContainerId.c)
+ *     ACPIQueryPhysicalDeviceLocation @ 0x1C0099B3C (ACPIQueryPhysicalDeviceLocation.c)
  * Callees:
- *     ACPIFreePhysicalDeviceLocationDescriptor @ 0x1C00A1774 (ACPIFreePhysicalDeviceLocationDescriptor.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptor @ 0x1C009A20C (ACPIFreePhysicalDeviceLocationDescriptor.c)
  */
 
 void __fastcall ACPIFreePhysicalDeviceLocationDescriptors(_QWORD **a1)

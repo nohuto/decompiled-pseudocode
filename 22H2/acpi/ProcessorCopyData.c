@@ -1,152 +1,189 @@
 /*
- * XREFs of ProcessorCopyData @ 0x1C009A974
+ * XREFs of ProcessorCopyData @ 0x1C00944E0
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC (AcpiIrqLibSetupSciInterrupt.c)
- *     IrqArbBootAllocation @ 0x1C009CFA0 (IrqArbBootAllocation.c)
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4E0 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     IrqArbBootAllocation @ 0x1C00942E0 (IrqArbBootAllocation.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     ProcessorpClearData @ 0x1C009B0A8 (ProcessorpClearData.c)
- *     ProcessorpInsertAssignment @ 0x1C009BBA0 (ProcessorpInsertAssignment.c)
+ *     ProcessorpClearData @ 0x1C0094850 (ProcessorpClearData.c)
  */
 
-__int64 __fastcall ProcessorCopyData(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall ProcessorCopyData(__int64 a1)
 {
-  unsigned int v4; // esi
-  int v5; // eax
-  __int64 v6; // rbx
-  struct _RTL_RANGE_LIST *v7; // rcx
-  struct _RTL_RANGE_LIST *v8; // rdx
-  __int64 v9; // rdx
-  NTSTATUS v10; // edi
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rbx
-  struct _RTL_RANGE_LIST *v14; // rcx
-  __int64 v15; // rdi
-  struct _RTL_RANGE_LIST *v16; // r14
-  struct _RTL_RANGE_LIST *v17; // rcx
+  unsigned int v1; // r12d
+  int v2; // eax
+  unsigned int v3; // ebx
+  struct _RTL_RANGE_LIST *v4; // rcx
+  struct _RTL_RANGE_LIST *v5; // rdx
+  NTSTATUS v6; // edi
+  unsigned int v7; // ebx
+  struct _RTL_RANGE_LIST *v8; // rcx
+  PRTL_RANGE i; // rax
+  ULONG v10; // r14d
+  struct _RTL_RANGE_LIST *v11; // rdi
+  struct _RTL_RANGE_LIST *v12; // rcx
+  PRTL_RANGE j; // rax
   _WORD *UserData; // rbx
-  __int64 v19; // r14
-  _OWORD *Pool2; // rax
-  _OWORD *v21; // rdx
-  struct _RANGE_LIST_ITERATOR Iterator; // [rsp+20h] [rbp-40h] BYREF
-  struct _RANGE_LIST_ITERATOR v24; // [rsp+40h] [rbp-20h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+98h] [rbp+38h] BYREF
-  PRTL_RANGE Range; // [rsp+A0h] [rbp+40h] BYREF
-  PRTL_RANGE v27; // [rsp+A8h] [rbp+48h] BYREF
+  __int64 v15; // rdi
+  _OWORD *PoolWithTag; // rax
+  _DWORD *v18; // rbx
+  unsigned __int8 v19; // si
+  _OWORD *v20; // rcx
+  __int64 v21; // rdi
+  PVOID Owner; // r15
+  ULONG ProcessorIndexFromNumber; // eax
+  struct _RTL_RANGE_LIST *v24; // rcx
+  PRTL_RANGE v25; // rcx
+  unsigned __int8 v26; // al
+  PRTL_RANGE Range; // [rsp+20h] [rbp-59h] BYREF
+  PRTL_RANGE v28; // [rsp+28h] [rbp-51h] BYREF
+  PRTL_RANGE v29; // [rsp+30h] [rbp-49h] BYREF
+  struct _RANGE_LIST_ITERATOR Iterator; // [rsp+38h] [rbp-41h] BYREF
+  struct _RANGE_LIST_ITERATOR v31; // [rsp+58h] [rbp-21h] BYREF
+  struct _RANGE_LIST_ITERATOR v32; // [rsp+78h] [rbp-1h] BYREF
+  struct _PROCESSOR_NUMBER k; // [rsp+E8h] [rbp+6Fh]
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+F0h] [rbp+77h] BYREF
+  struct _PROCESSOR_NUMBER v35; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v27 = 0LL;
+  v28 = 0LL;
   Range = 0LL;
+  v1 = a1;
+  memset(&v32, 0, sizeof(v32));
   ProcNumber = 0;
-  v4 = a1;
-  memset(&v24, 0, sizeof(v24));
-  ProcessorpClearData(a1, a2, a3, a4, 0LL, 0LL, 0LL, 0LL);
-  v5 = ProcessorInstanceCount;
-  v6 = 0LL;
+  memset(&Iterator, 0, sizeof(Iterator));
+  ProcessorpClearData(a1);
+  v2 = ProcessorInstanceCount;
+  v3 = 0;
   if ( ProcessorInstanceCount )
   {
     while ( 1 )
     {
-      v7 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v6);
-      if ( v7 )
+      v4 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v3);
+      if ( v4 )
       {
-        v8 = v7 + 1;
-        if ( v4 )
+        v5 = v4 + 1;
+        if ( v1 )
         {
-          v8 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v6);
-          ++v7;
+          v5 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v3);
+          ++v4;
         }
-        v10 = RtlCopyRangeList(v7, v8);
-        if ( v10 < 0 )
+        v6 = RtlCopyRangeList(v4, v5);
+        if ( v6 < 0 )
           break;
       }
-      v5 = ProcessorInstanceCount;
-      v6 = (unsigned int)(v6 + 1);
-      if ( (unsigned int)v6 >= ProcessorInstanceCount )
+      v2 = ProcessorInstanceCount;
+      if ( ++v3 >= ProcessorInstanceCount )
         goto LABEL_7;
     }
-LABEL_33:
-    ProcessorpClearData(
-      v4,
-      v9,
-      v11,
-      v12,
-      Iterator.RangeListHead,
-      Iterator.MergedHead,
-      Iterator.Current,
-      *(_QWORD *)&Iterator.Stamp);
+LABEL_45:
+    ProcessorpClearData(v1);
+    return (unsigned int)v6;
   }
   else
   {
 LABEL_7:
-    v13 = 0LL;
-    if ( v5 )
+    v7 = 0;
+    if ( v2 )
     {
       do
       {
-        v14 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v13);
-        if ( v14 )
+        v8 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v7);
+        if ( v8 )
         {
-          if ( v4 )
-            ++v14;
-          RtlGetFirstRange(v14, &Iterator, &Range);
-          while ( Range )
+          if ( v1 )
+            ++v8;
+          RtlGetFirstRange(v8, &Iterator, &Range);
+          for ( i = Range; Range; i = Range )
           {
-            Range->UserData = 0LL;
+            i->UserData = 0LL;
             RtlGetNextRange(&Iterator, &Range, 1u);
           }
         }
-        v5 = ProcessorInstanceCount;
-        v13 = (unsigned int)(v13 + 1);
+        v2 = ProcessorInstanceCount;
+        ++v7;
       }
-      while ( (unsigned int)v13 < ProcessorInstanceCount );
+      while ( v7 < ProcessorInstanceCount );
     }
-    v15 = 0LL;
-    if ( v5 )
+    v10 = 0;
+    if ( v2 )
     {
       do
       {
-        v16 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v15);
-        if ( v16 )
+        v11 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v10);
+        if ( v11 )
         {
-          v17 = v16 + 1;
-          if ( v4 )
-            v17 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v15);
-          RtlGetFirstRange(v17, &v24, &v27);
-          if ( v4 )
-            ++v16;
-          RtlGetFirstRange(v16, &Iterator, &Range);
-          while ( v27 )
+          v12 = v11 + 1;
+          if ( v1 )
+            v12 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v10);
+          RtlGetFirstRange(v12, &v32, &v28);
+          if ( v1 )
+            ++v11;
+          RtlGetFirstRange(v11, &Iterator, &Range);
+          for ( j = v28; v28; j = v28 )
           {
-            UserData = v27->UserData;
+            UserData = j->UserData;
             if ( UserData )
             {
-              v19 = *(_QWORD *)UserData;
-              KeGetProcessorNumberFromIndex(v15, &ProcNumber);
-              if ( UserData[4] == ProcNumber.Group && ((1LL << ProcNumber.Number) & (v19 ^ (v19 - 1)) & v19) != 0 )
+              v15 = *(_QWORD *)UserData;
+              KeGetProcessorNumberFromIndex(v10, &ProcNumber);
+              if ( UserData[4] == ProcNumber.Group && ((1LL << ProcNumber.Number) & (v15 ^ (v15 - 1)) & v15) != 0 )
               {
-                Pool2 = (_OWORD *)ExAllocatePool2(256LL, 32LL, 1232102209LL);
-                if ( !Pool2 )
+                PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x49706341u);
+                v18 = PoolWithTag;
+                if ( !PoolWithTag )
                 {
-                  v10 = -1073741670;
-                  goto LABEL_33;
+                  v6 = -1073741670;
+                  goto LABEL_45;
                 }
-                v21 = v27->UserData;
-                *Pool2 = *v21;
-                Pool2[1] = v21[1];
-                ProcessorpInsertAssignment(v27->Owner, Pool2, v4);
+                v19 = 0;
+                v29 = 0LL;
+                v20 = v28->UserData;
+                *PoolWithTag = *v20;
+                PoolWithTag[1] = v20[1];
+                v21 = *(_QWORD *)PoolWithTag;
+                memset(&v31, 0, sizeof(v31));
+                Owner = v28->Owner;
+                for ( k = (struct _PROCESSOR_NUMBER)*((unsigned __int16 *)PoolWithTag + 4); v21; v21 &= ~(1LL << v26) )
+                {
+                  if ( _bittest64(&v21, v19) )
+                  {
+                    k.Number = v19;
+                    v35 = k;
+                    ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&v35);
+                    if ( ProcessorIndexFromNumber == -1 || ProcessorIndexFromNumber >= ProcessorInstanceCount )
+                      v24 = 0LL;
+                    else
+                      v24 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + ProcessorIndexFromNumber);
+                    if ( v1 )
+                      ++v24;
+                    RtlGetFirstRange(v24, &v31, &v29);
+                    v25 = v29;
+                    if ( v29 )
+                    {
+                      while ( LODWORD(v25->Start) != v18[5] || v25->Owner != Owner )
+                      {
+                        RtlGetNextRange(&v31, &v29, 1u);
+                        v25 = v29;
+                        if ( !v29 )
+                          goto LABEL_41;
+                      }
+                      v25->UserData = v18;
+                    }
+                  }
+LABEL_41:
+                  v26 = v19++;
+                }
               }
             }
-            RtlGetNextRange(&v24, &v27, 1u);
+            RtlGetNextRange(&v32, &v28, 1u);
             RtlGetNextRange(&Iterator, &Range, 1u);
           }
         }
-        v15 = (unsigned int)(v15 + 1);
+        ++v10;
       }
-      while ( (unsigned int)v15 < ProcessorInstanceCount );
+      while ( v10 < ProcessorInstanceCount );
     }
-    return 0;
+    return 0LL;
   }
-  return (unsigned int)v10;
 }

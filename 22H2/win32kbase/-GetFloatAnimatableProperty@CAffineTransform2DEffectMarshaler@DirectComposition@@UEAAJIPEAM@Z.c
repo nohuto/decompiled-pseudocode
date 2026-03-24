@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C02125A0
+ * XREFs of ?GetFloatAnimatableProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E3760
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::GetFloatAnimatableProperty(
@@ -12,19 +12,20 @@ __int64 __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::GetFloa
         float *a3)
 {
   unsigned int v3; // r10d
+  int v4; // ecx
 
   v3 = 0;
   if ( a2 == 3 )
   {
-    *a3 = *((float *)this + 36);
+    v4 = *((_DWORD *)this + 36);
+    goto LABEL_6;
   }
-  else if ( (unsigned int)(a2 - 4) > 5 )
+  if ( (unsigned int)(a2 - 4) <= 5 )
   {
-    return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
+    v4 = *((_DWORD *)this + 2 * ((unsigned __int64)(unsigned int)(a2 - 4) >> 1) + (a2 & 1) + 30);
+LABEL_6:
+    *(_DWORD *)a3 = v4;
+    return v3;
   }
-  else
-  {
-    *a3 = *((float *)this + 2 * ((unsigned __int64)(unsigned int)(a2 - 4) >> 1) + (a2 & 1) + 30);
-  }
-  return v3;
+  return (unsigned int)-1073741811;
 }

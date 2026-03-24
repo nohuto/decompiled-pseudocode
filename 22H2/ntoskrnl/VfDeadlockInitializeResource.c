@@ -1,39 +1,41 @@
 /*
- * XREFs of VfDeadlockInitializeResource @ 0x140AD8738
+ * XREFs of VfDeadlockInitializeResource @ 0x1409DE1C4
  * Callers:
- *     ViDeadlockKeInitializeMutant_Exit @ 0x140ADA350 (ViDeadlockKeInitializeMutant_Exit.c)
- *     ViDeadlockKeInitializeMutex_Exit @ 0x140ADA3A0 (ViDeadlockKeInitializeMutex_Exit.c)
+ *     VerifierKeInitializeMutant @ 0x1409DABE0 (VerifierKeInitializeMutant.c)
+ *     VerifierKeInitializeMutex @ 0x1409DAC60 (VerifierKeInitializeMutex.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ViLowerIrql @ 0x1405D1B48 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1BC0 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockCanProceed @ 0x140AC179A (ViDeadlockCanProceed.c)
- *     ViDeadlockAddResource @ 0x140AD93DC (ViDeadlockAddResource.c)
- *     ViDeadlockAllocate @ 0x140AD96E4 (ViDeadlockAllocate.c)
- *     ViDeadlockDetectionLock @ 0x140AD9DD8 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD9E10 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140ADA280 (ViDeadlockFree.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ViLowerIrql @ 0x1405A23F8 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405A2470 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockAddResource @ 0x1409DE848 (ViDeadlockAddResource.c)
+ *     ViDeadlockAllocate @ 0x1409DEB48 (ViDeadlockAllocate.c)
+ *     ViDeadlockCanProceed @ 0x1409DEE18 (ViDeadlockCanProceed.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2BC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x1409DF2F4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x1409DF5B8 (ViDeadlockFree.c)
  */
 
-__int64 __fastcall VfDeadlockInitializeResource(LONG *a1, __int64 a2, void *a3)
+__int64 __fastcall VfDeadlockInitializeResource(__int64 a1, __int64 a2, void *a3)
 {
   void *v5; // rdi
   USHORT v6; // ax
-  int v7; // ecx
-  unsigned __int8 v8; // bl
-  unsigned int v9; // esi
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rbx
-  PVOID Entry; // [rsp+30h] [rbp-68h] BYREF
-  PVOID v14; // [rsp+38h] [rbp-60h] BYREF
-  PVOID BackTrace[8]; // [rsp+40h] [rbp-58h] BYREF
+  PVOID v7; // rcx
+  unsigned int v8; // edx
+  __int64 v9; // rax
+  unsigned __int8 v10; // bl
+  unsigned int v11; // esi
+  _QWORD *v12; // rcx
+  _QWORD *v13; // rbx
+  PVOID Entry; // [rsp+30h] [rbp-19h] BYREF
+  PVOID v16; // [rsp+38h] [rbp-11h] BYREF
+  PVOID BackTrace[8]; // [rsp+40h] [rbp-9h] BYREF
 
   Entry = 0LL;
-  v14 = 0LL;
+  v16 = 0LL;
   memset(BackTrace, 0, sizeof(BackTrace));
-  if ( !ViDeadlockCanProceed(a1) )
+  if ( !(unsigned int)ViDeadlockCanProceed(a1) )
     return 0LL;
   if ( *((_DWORD *)ViDeadlockGlobals + 8196) )
     return 0LL;
@@ -43,37 +45,35 @@ __int64 __fastcall VfDeadlockInitializeResource(LONG *a1, __int64 a2, void *a3)
   if ( !v5 )
     return 0LL;
   v6 = RtlCaptureStackBackTrace(2u, 8u, BackTrace, 0LL);
-  v7 = v6;
-  if ( !v6 )
-  {
-    BackTrace[0] = a3;
-    v7 = 1;
-LABEL_8:
-    BackTrace[v7] = 0LL;
-    goto LABEL_9;
-  }
-  if ( v6 < 8u )
-    goto LABEL_8;
-LABEL_9:
-  v8 = ViRaiseIrqlToDpcLevel();
+  v7 = BackTrace[0];
+  v8 = v6;
+  v9 = 1LL;
+  if ( v8 )
+    v9 = v8;
+  else
+    v7 = a3;
+  BackTrace[0] = v7;
+  if ( (unsigned int)v9 < 8 )
+    BackTrace[v9] = 0LL;
+  v10 = ViRaiseIrqlToDpcLevel();
   ViDeadlockDetectionLock(1LL);
-  v9 = ViDeadlockAddResource((int)a1, (__int64)&Entry, (__int64)&v14);
+  v11 = ViDeadlockAddResource(a1, (__int64)&Entry, (__int64)&v16);
   ViDeadlockDetectionUnlock(1LL);
-  ViLowerIrql(v8);
-  if ( !v9 )
+  ViLowerIrql(v10);
+  if ( !v11 )
     ViDeadlockFree(v5);
   if ( Entry )
     ViDeadlockFree(Entry);
-  v10 = v14;
-  if ( v14 )
+  v12 = v16;
+  if ( v16 )
   {
     do
     {
-      v11 = (_QWORD *)*v10;
-      ViDeadlockFree(v10);
-      v10 = v11;
+      v13 = (_QWORD *)*v12;
+      ViDeadlockFree(v12);
+      v12 = v13;
     }
-    while ( v11 );
+    while ( v13 );
   }
-  return v9;
+  return v11;
 }

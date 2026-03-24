@@ -1,15 +1,15 @@
 /*
- * XREFs of XmDaaOp @ 0x140533650
+ * XREFs of XmDaaOp @ 0x1404E5C20
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall XmDaaOp(__int64 a1)
 {
-  unsigned __int8 v1; // dl
-  unsigned int *v2; // r8
+  unsigned __int8 v1; // r8
+  unsigned int *v2; // rdx
   unsigned int v3; // eax
   __int64 result; // rax
 

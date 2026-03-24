@@ -1,12 +1,12 @@
 /*
- * XREFs of ReadTestOverrideValue @ 0x1C005C094
+ * XREFs of ReadTestOverrideValue @ 0x1C005D718
  * Callers:
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005C534 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005DBB8 (UsbDualRoleFeaturesQueryLocalMachine.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     GetPersistedKeyPath @ 0x1C005BE04 (GetPersistedKeyPath.c)
- *     MyRegOpenKeyForRead @ 0x1C005C7F8 (MyRegOpenKeyForRead.c)
- *     MyRegQueryUlong @ 0x1C005CA44 (MyRegQueryUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     GetPersistedKeyPath @ 0x1C005D4A4 (GetPersistedKeyPath.c)
+ *     MyRegOpenKeyForRead @ 0x1C005DE7C (MyRegOpenKeyForRead.c)
+ *     MyRegQueryUlong @ 0x1C005E0BC (MyRegQueryUlong.c)
  */
 
 __int64 __fastcall ReadTestOverrideValue(int *a1)

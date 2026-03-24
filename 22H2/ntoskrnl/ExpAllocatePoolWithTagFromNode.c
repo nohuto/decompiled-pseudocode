@@ -1,68 +1,65 @@
 /*
- * XREFs of ExpAllocatePoolWithTagFromNode @ 0x1402AD220
+ * XREFs of ExpAllocatePoolWithTagFromNode @ 0x1402BC810
  * Callers:
- *     CcWriteBehind @ 0x14029B438 (CcWriteBehind.c)
- *     CcFlushCachePriv @ 0x14029CC14 (CcFlushCachePriv.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402C0BD4 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncCopyRead @ 0x1402C1040 (CcAsyncCopyRead.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     CcInitializePartition @ 0x1403A00A0 (CcInitializePartition.c)
- *     CcInitializeAsyncReadForNodeHelper @ 0x1403BEA00 (CcInitializeAsyncReadForNodeHelper.c)
- *     CcInitializeNumaNodeForVolume @ 0x1403C0A5C (CcInitializeNumaNodeForVolume.c)
- *     CcInitializeQuickLWSThreadItem @ 0x1403C0DA0 (CcInitializeQuickLWSThreadItem.c)
- *     CcInitializeAsyncLazywriteForNodeHelper @ 0x140539FE0 (CcInitializeAsyncLazywriteForNodeHelper.c)
- *     CcInitializeNumaNode @ 0x14053A8E8 (CcInitializeNumaNode.c)
- *     CcWriteBehindAsyncPreProcess @ 0x14053B8D4 (CcWriteBehindAsyncPreProcess.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140AAF008 (ExpAllocatePoolWithQuotaTag.c)
- *     ExAllocatePool3 @ 0x140AAF430 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
- *     ExpAllocatePoolWithTagPriority @ 0x140AAFCF4 (ExpAllocatePoolWithTagPriority.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402BBA40 (ExAllocatePoolMm.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402BC770 (ExAllocatePoolWithTagPriority.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403916E8 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaBinaryArrayInsert @ 0x140391AE4 (ExpSaBinaryArrayInsert.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403C8090 (ExAllocateCacheAwarePushLock.c)
+ *     ExpSaInitialize @ 0x1403C9C5C (ExpSaInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x1409B4270 (ExAllocatePool3.c)
  * Callees:
- *     ExAllocateHeapPool @ 0x1402AD2B0 (ExAllocateHeapPool.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     MmGetNextNode @ 0x14034E6C0 (MmGetNextNode.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExAllocateHeapPool @ 0x1402BC8A0 (ExAllocateHeapPool.c)
+ *     MmGetNextNode @ 0x1402F0F74 (MmGetNextNode.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, __int64 a3, int a4, int a5)
+__int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, ULONG a3, int a4, int a5)
 {
-  int v7; // r14d
-  int v8; // r15d
-  unsigned int v9; // ebx
+  int v8; // r14d
+  int v9; // r15d
+  unsigned int v10; // ebx
+  unsigned int NextNode; // eax
   __int64 result; // rax
-  _QWORD *v11; // rcx
-  int v12; // [rsp+68h] [rbp+20h] BYREF
+  _QWORD *v13; // rcx
+  int v14; // [rsp+68h] [rbp+20h] BYREF
 
   if ( a4 >= 0 )
-    v7 = 1;
+    v8 = 1;
   else
-    v7 = (unsigned __int16)KeNumberNodes;
-  v8 = a5;
-  v9 = a4 & 0x7FFFFFFF;
-  v12 = 0;
+    v8 = (unsigned __int16)KeNumberNodes;
+  v9 = a5;
+  v10 = a4 & 0x7FFFFFFF;
+  v14 = 0;
   if ( a4 >= 0 )
-    v9 = a4;
+    v10 = a4;
+  NextNode = v10;
   while ( 1 )
   {
-    result = ExAllocateHeapPool(a1, v8);
+    result = ExAllocateHeapPool(a1, a2, a3, NextNode, v9);
     if ( result )
       break;
-    if ( !--v7 || (unsigned int)MmGetNextNode(v9, &v12) == -1 )
+    if ( --v8 )
     {
-      ++ExPoolFailures;
-      if ( (a1 & 2) != 0 )
-      {
-        v11 = (_QWORD *)qword_140C74AC0;
-        if ( (a1 & 0x200) != 0 )
-          v11 = (_QWORD *)qword_140C74AC8;
-        KeBugCheckEx(0x41u, a2, (unsigned int)v11[17], (unsigned int)v11[21] + (unsigned int)v11[23], 0LL);
-      }
-      if ( (a1 & 0x10) != 0 )
-        RtlRaiseStatus(3221225626LL);
-      return 0LL;
+      NextNode = MmGetNextNode(v10, &v14);
+      if ( NextNode != -1 )
+        continue;
     }
+    ++ExPoolFailures;
+    if ( (a1 & 2) != 0 )
+    {
+      v13 = (_QWORD *)qword_140C580C0[0];
+      if ( (a1 & 0x200) != 0 )
+        v13 = (_QWORD *)qword_140C580C8;
+      KeBugCheckEx(0x41u, a2, (unsigned int)v13[17], (unsigned int)v13[21] + (unsigned int)v13[23], 0LL);
+    }
+    if ( (a1 & 0x10) != 0 )
+      RtlRaiseStatus(3221225626LL);
+    return 0LL;
   }
   return result;
 }

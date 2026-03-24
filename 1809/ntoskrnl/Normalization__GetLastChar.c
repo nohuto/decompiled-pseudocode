@@ -1,7 +1,7 @@
 /*
- * XREFs of Normalization__GetLastChar @ 0x14089813C
+ * XREFs of Normalization__GetLastChar @ 0x14089811C
  * Callers:
- *     Normalization__IsNormalized @ 0x1408983F4 (Normalization__IsNormalized.c)
+ *     Normalization__IsNormalized @ 0x1408983D4 (Normalization__IsNormalized.c)
  * Callees:
  *     <none>
  */

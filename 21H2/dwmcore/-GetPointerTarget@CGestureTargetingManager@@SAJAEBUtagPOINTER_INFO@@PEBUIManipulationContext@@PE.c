@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PEAUTargetingInfo@@@Z @ 0x180186268
+ * XREFs of ?GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PEAUTargetingInfo@@@Z @ 0x1802376D8
  * Callers:
- *     ?TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEAPEAX@Z @ 0x18017FDCC (-TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEA.c)
+ *     ?TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEAPEAX@Z @ 0x18022794C (-TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEA.c)
  * Callees:
- *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18002B610 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800DF980 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18017BCE8 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     _anonymous_namespace_::AllSupportedWithSingleTarget @ 0x180185FA8 (_anonymous_namespace_--AllSupportedWithSingleTarget.c)
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18004EC24 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180224624 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     _anonymous_namespace_::AllSupportedWithSingleTarget @ 0x180237494 (_anonymous_namespace_--AllSupportedWithSingleTarget.c)
  */
 
 __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
@@ -56,7 +56,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
   v27 = 0LL;
   v30 = 0LL;
   v29 = 1;
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v30);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v30);
   v5 = ConvertToInputType(*(_DWORD *)a1, *((_DWORD *)a1 + 3));
   v6 = (*(__int64 (__fastcall **)(const struct IManipulationContext *, _QWORD, int *))(*(_QWORD *)a2 + 64LL))(
          a2,
@@ -90,8 +90,8 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
     }
     v31 = 0LL;
     v27 = v7;
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease(&v31);
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease(&v35);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v31);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v35);
   }
   if ( v7 )
   {
@@ -105,7 +105,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
           (*(unsigned int (__fastcall **)(const struct IManipulationContext *, __int64, _QWORD))(v12 + 56))(a2, v13, v5) > v11) )
     {
       v26 = 0;
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v27);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v27);
       v7 = v27;
     }
   }
@@ -120,7 +120,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
         if ( !anonymous_namespace_::AllSupportedWithSingleTarget((__int64)a2, v15) )
         {
           v26 = 1;
-          Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v27);
+          Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v27);
           v7 = v27;
         }
       }
@@ -129,7 +129,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
   if ( (*((_DWORD *)a1 + 3) & 0x40000) != 0 && v29 == 2 && v26 == 1 && v7 )
   {
     v26 = 1;
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v27);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v27);
     v7 = v27;
   }
   v16 = (__int64)v30;
@@ -169,7 +169,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
     if ( !v29 && (*((_DWORD *)a1 + 3) & 0x40000) == 0 )
       goto LABEL_49;
     v26 = 1;
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v27);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v27);
     v7 = v27;
   }
   if ( v26 == 1 && !v7 )
@@ -177,7 +177,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
     (*(void (__fastcall **)(const struct IManipulationContext *, __int64 *))(*(_QWORD *)a2 + 96LL))(a2, &v31);
     if ( v32 )
     {
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v27);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v27);
       Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v32);
       v23 = 0;
       v27 = v32;
@@ -186,7 +186,7 @@ __int64 __fastcall CGestureTargetingManager::GetPointerTarget(
     {
       v23 = v28;
     }
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v32);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v32);
     goto LABEL_50;
   }
 LABEL_49:
@@ -196,7 +196,7 @@ LABEL_50:
   *(_DWORD *)v33 = v26;
   Microsoft::WRL::ComPtr<IInteractionResource>::operator=((__int64 (__fastcall ****)(_QWORD))v24 + 1, &v27);
 LABEL_52:
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v30);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v27);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v30);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v27);
   return v23;
 }

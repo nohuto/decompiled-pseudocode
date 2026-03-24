@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02A1D20
+ * XREFs of ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02A3F80
  * Callers:
  *     <none>
  * Callees:
- *     BRUSHOBJ_pvAllocRbrush @ 0x1C026B050 (BRUSHOBJ_pvAllocRbrush.c)
+ *     BRUSHOBJ_pvAllocRbrush @ 0x1C026D2E0 (BRUSHOBJ_pvAllocRbrush.c)
  */
 
 _BOOL8 __fastcall MulRealizeBrush(struct _BRUSHOBJ *a1, struct _SURFOBJ *a2, struct _SURFOBJ *a3, struct _SURFOBJ *a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of GreDwmDesktopOverlaysEnabled @ 0x1C026D280
+ * XREFs of GreDwmDesktopOverlaysEnabled @ 0x1C026F560
  * Callers:
  *     <none>
  * Callees:

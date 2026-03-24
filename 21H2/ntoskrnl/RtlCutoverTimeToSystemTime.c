@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCutoverTimeToSystemTime @ 0x140835D14
+ * XREFs of RtlCutoverTimeToSystemTime @ 0x1407A9CD0
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     ExInitializeUtcTimeZoneBias @ 0x140864D14 (ExInitializeUtcTimeZoneBias.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x1407D4B40 (ExInitializeUtcTimeZoneBias.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x14022D4D0 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x1402D1A30 (RtlTimeToTimeFields.c)
+ *     RtlTimeFieldsToTime @ 0x1402B5900 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x14036E9A0 (RtlTimeToTimeFields.c)
  */
 
 bool __fastcall RtlCutoverTimeToSystemTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time, PLARGE_INTEGER a3)
@@ -15,19 +15,17 @@ bool __fastcall RtlCutoverTimeToSystemTime(PTIME_FIELDS TimeFields, PLARGE_INTEG
   __int16 Weekday; // r15
   __int16 v8; // bx
   __int16 Milliseconds; // ax
-  __int16 v10; // r15
-  __int16 v11; // si
-  TIME_FIELDS v13; // [rsp+20h] [rbp-30h] BYREF
-  TIME_FIELDS v14; // [rsp+30h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFieldsa; // [rsp+40h] [rbp-10h] BYREF
-  LARGE_INTEGER Timea; // [rsp+80h] [rbp+30h] BYREF
+  __int16 v10; // si
+  __int16 v11; // r15
+  TIME_FIELDS TimeFieldsa; // [rsp+20h] [rbp-20h] BYREF
+  TIME_FIELDS v14; // [rsp+30h] [rbp-10h] BYREF
+  LARGE_INTEGER Timea; // [rsp+70h] [rbp+30h] BYREF
 
   TimeFieldsa = 0LL;
   RtlTimeToTimeFields(a3, &TimeFieldsa);
   if ( !TimeFields->Year )
   {
     Day = TimeFields->Day;
-    v13.Day = 0;
     Timea.QuadPart = 0LL;
     v14 = 0LL;
     if ( Day <= 5 )
@@ -37,49 +35,54 @@ bool __fastcall RtlCutoverTimeToSystemTime(PTIME_FIELDS TimeFields, PLARGE_INTEG
         Month = TimeFields->Month;
         Weekday = TimeFields->Weekday;
         v8 = 1;
-        v13.Year = TimeFieldsa.Year;
-        v13.Hour = TimeFields->Hour;
-        v13.Minute = TimeFields->Minute;
-        v13.Second = TimeFields->Second;
+        TimeFieldsa.Hour = TimeFields->Hour;
+        TimeFieldsa.Minute = TimeFields->Minute;
+        TimeFieldsa.Second = TimeFields->Second;
         Milliseconds = TimeFields->Milliseconds;
-        v13.Month = Month;
-        v13.Milliseconds = Milliseconds;
-        v13.Day = 1;
-        v13.Weekday = 0;
-        if ( RtlTimeFieldsToTime(&v13, &Timea) )
+        TimeFieldsa.Month = Month;
+        TimeFieldsa.Milliseconds = Milliseconds;
+        TimeFieldsa.Day = 1;
+        TimeFieldsa.Weekday = 0;
+        if ( RtlTimeFieldsToTime(&TimeFieldsa, &Timea) )
         {
           RtlTimeToTimeFields(&Timea, &v14);
           if ( v14.Weekday <= Weekday )
           {
-            if ( v14.Weekday < Weekday )
-              v8 = Weekday - v14.Weekday + 1;
+            v10 = 1;
+            if ( v14.Weekday >= Weekday )
+            {
+LABEL_8:
+              v11 = 1;
+              if ( Day > 1 )
+              {
+                do
+                {
+                  v8 += 7;
+                  TimeFieldsa.Day = v8;
+                  if ( !RtlTimeFieldsToTime(&TimeFieldsa, &Timea) )
+                    break;
+                  RtlTimeToTimeFields(&Timea, &v14);
+                  v10 = v14.Day;
+                  ++v11;
+                }
+                while ( v11 < Day );
+              }
+              TimeFieldsa.Day = v10;
+              if ( RtlTimeFieldsToTime(&TimeFieldsa, &Timea) )
+              {
+                *Time = Timea;
+                return 1;
+              }
+              return 0;
+            }
+            v8 = Weekday - v14.Weekday + 1;
           }
           else
           {
             v8 = Weekday - v14.Weekday + 8;
           }
           v10 = v8;
-          v11 = 1;
-          if ( Day > 1 )
-          {
-            do
-            {
-              v8 += 7;
-              v13.Day = v8;
-              if ( !RtlTimeFieldsToTime(&v13, &Timea) )
-                break;
-              RtlTimeToTimeFields(&Timea, &v14);
-              v10 = v14.Day;
-              ++v11;
-            }
-            while ( v11 < Day );
-          }
-          v13.Day = v10;
-          if ( RtlTimeFieldsToTime(&v13, &Timea) )
-          {
-            *Time = Timea;
-            return 1;
-          }
+          goto LABEL_8;
         }
       }
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x140A9C4E0
+ * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x1409E4C30
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 PVOID __fastcall VerifierPortExAllocatePoolWithQuotaTag(
@@ -26,8 +26,14 @@ PVOID __fastcall VerifierPortExAllocatePoolWithQuotaTag(
   v8 = PoolType & 0xFFFFFFF7;
   if ( (PoolType & 8) == 0 )
     v8 = PoolType;
-  if ( (VfRuleClasses & 0x400000) != 0 && (MmVerifierData & 1) == 0 )
+  if ( (MmVerifierData & 0x400000) != 0 && (MmVerifierData & 1) == 0 )
     return ExAllocatePoolWithQuotaTag((POOL_TYPE)v8, NumberOfBytes, Tag);
   LODWORD(v8) = v8 | 0x80;
-  return (PVOID)pXdvExAllocatePoolWithTagPriority(v8, 0, NumberOfBytes, Tag, 32, 0LL, 0, a4, (__int64)VfHandlePoolAlloc);
+  return (PVOID)pXdvExAllocatePoolWithTagPriority(
+                  v8,
+                  NumberOfBytes,
+                  Tag,
+                  32,
+                  a4,
+                  (__int64)VeAllocatePoolWithTagPriority);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C00B1FA0
+ * XREFs of ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C000E0FC
  * Callers:
- *     ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C00B1D78 (-GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z.c)
+ *     ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C000E288 (-GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z.c)
  * Callees:
- *     RtlStringVPrintfWorkerW_0 @ 0x1C00B20A0 (RtlStringVPrintfWorkerW_0.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     RtlStringExHandleOtherFlagsW @ 0x1C02659B0 (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C000E1FC (RtlStringVPrintfWorkerW.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C026D47C (RtlStringExHandleOtherFlagsW.c)
  */
 
 __int64 RtlStringCchPrintfExW(
@@ -51,7 +51,7 @@ __int64 RtlStringCchPrintfExW(
     v11 = cchDest;
     if ( (dwFlags & 0x100) != 0 )
     {
-      v12 = &word_1C030D60C;
+      v12 = &word_1C02E497C;
       if ( pszFormat )
         v12 = pszFormat;
     }
@@ -69,7 +69,7 @@ __int64 RtlStringCchPrintfExW(
     else if ( cchDest )
     {
       pcchNewDestLength[0] = 0LL;
-      v13 = RtlStringVPrintfWorkerW_0(pszDest, cchDest, pcchNewDestLength, v12, va);
+      v13 = RtlStringVPrintfWorkerW(pszDest, cchDest, pcchNewDestLength, v12, va);
       v14 = pcchNewDestLength[0];
       v9 = v13;
       v11 = cchDest - pcchNewDestLength[0];
@@ -79,7 +79,7 @@ __int64 RtlStringCchPrintfExW(
       if ( v13 >= 0 )
       {
         if ( (dwFlags & 0x200) != 0 && v11 > 1 && 2 * v11 > 2 )
-          memset_0(v10 + 1, (unsigned __int8)dwFlags, 2 * v11 - 2);
+          memset(v10 + 1, (unsigned __int8)dwFlags, 2 * v11 - 2);
         goto LABEL_11;
       }
     }

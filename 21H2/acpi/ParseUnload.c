@@ -1,15 +1,15 @@
 /*
- * XREFs of ParseUnload @ 0x1C006C0C0
+ * XREFs of ParseUnload @ 0x1C006BE10
  * Callers:
  *     <none>
  * Callees:
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     AMLIApplyNamespaceOverride @ 0x1C0028690 (AMLIApplyNamespaceOverride.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     Simulator_RefreshTree @ 0x1C0065440 (Simulator_RefreshTree.c)
- *     FreeObjOwner @ 0x1C00663E4 (FreeObjOwner.c)
- *     FreeOwnedObjects @ 0x1C00665BC (FreeOwnedObjects.c)
- *     NotifyObjectDestruction @ 0x1C0066970 (NotifyObjectDestruction.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     AMLIApplyNamespaceOverride @ 0x1C0023700 (AMLIApplyNamespaceOverride.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     Simulator_RefreshTree @ 0x1C00641C0 (Simulator_RefreshTree.c)
+ *     FreeObjOwner @ 0x1C006517C (FreeObjOwner.c)
+ *     FreeOwnedObjects @ 0x1C006535C (FreeOwnedObjects.c)
+ *     NotifyObjectDestruction @ 0x1C00655B8 (NotifyObjectDestruction.c)
  */
 
 __int64 __fastcall ParseUnload(__int64 a1, __int64 a2, unsigned int a3)

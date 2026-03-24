@@ -1,118 +1,97 @@
 /*
- * XREFs of ?ReleaseReference@DXGHWQUEUE@@QEAAXXZ @ 0x1C00254D0
+ * XREFs of ?ReleaseReference@DXGHWQUEUE@@QEAAXXZ @ 0x1C002621C
  * Callers:
- *     DxgkDestroyHwQueueInternal @ 0x1C031E478 (DxgkDestroyHwQueueInternal.c)
+ *     DxgkDestroyHwQueueInternal @ 0x1C0271F78 (DxgkDestroyHwQueueInternal.c)
  * Callees:
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z @ 0x1C0004690 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C00075BC (--1COREACCESS@@QEAA@XZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?DestroyContext@DXGDEVICE@@QEAAXPEAVDXGCONTEXT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C018C168 (-DestroyContext@DXGDEVICE@@QEAAXPEAVDXGCONTEXT@@PEAVCOREDEVICEACCESS@@@Z.c)
- *     ?DestroyHwQueue@DXGCONTEXT@@QEAAXPEAVDXGHWQUEUE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C03178C0 (-DestroyHwQueue@DXGCONTEXT@@QEAAXPEAVDXGHWQUEUE@@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C0004E50 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z @ 0x1C0005500 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?DestroyContext@DXGDEVICE@@QEAAXPEAVDXGCONTEXT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C00EFD60 (-DestroyContext@DXGDEVICE@@QEAAXPEAVDXGCONTEXT@@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyHwQueue@DXGCONTEXT@@QEAAXPEAVDXGHWQUEUE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C026D644 (-DestroyHwQueue@DXGCONTEXT@@QEAAXPEAVDXGHWQUEUE@@PEAVCOREDEVICEACCESS@@@Z.c)
  */
 
-void __fastcall DXGHWQUEUE::ReleaseReference(volatile signed __int64 *P)
+void __fastcall DXGHWQUEUE::ReleaseReference(DXGHWQUEUE *this, __int64 a2)
 {
-  __int64 v2; // rax
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
-  __int64 v6; // rsi
-  struct DXGDEVICE *v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // r9
-  char *v10; // rdx
-  __int64 v11; // rbx
-  __int64 v12; // rax
-  __int64 v13; // r9
-  char *v14; // rdx
-  _BYTE v15[8]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v16; // [rsp+70h] [rbp-90h]
-  char v17; // [rsp+78h] [rbp-88h]
-  _BYTE v18[8]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v19; // [rsp+88h] [rbp-78h]
-  char v20; // [rsp+90h] [rbp-70h]
-  _QWORD v21[2]; // [rsp+98h] [rbp-68h] BYREF
-  _QWORD v22[3]; // [rsp+A8h] [rbp-58h] BYREF
-  _BYTE v23[8]; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v24[64]; // [rsp+C8h] [rbp-38h] BYREF
-  _BYTE v25[88]; // [rsp+108h] [rbp+8h] BYREF
-  _BYTE v26[8]; // [rsp+160h] [rbp+60h] BYREF
-  _BYTE v27[64]; // [rsp+168h] [rbp+68h] BYREF
-  _BYTE v28[88]; // [rsp+1A8h] [rbp+A8h] BYREF
+  __int64 v3; // rbx
+  __int64 v4; // rax
+  __int64 v5; // rdi
+  struct DXGDEVICE *v6; // rbx
+  __int64 v7; // rax
+  __int64 v8; // r9
+  char *v9; // rdx
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v12; // r9
+  char *v13; // rdx
+  _BYTE v14[8]; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-C0h]
+  char v16; // [rsp+48h] [rbp-B8h]
+  _BYTE v17[8]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-A8h]
+  char v19; // [rsp+60h] [rbp-A0h]
+  _QWORD v20[2]; // [rsp+68h] [rbp-98h] BYREF
+  _QWORD v21[3]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v22[8]; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE v23[64]; // [rsp+98h] [rbp-68h] BYREF
+  _BYTE v24[88]; // [rsp+D8h] [rbp-28h] BYREF
+  _BYTE v25[8]; // [rsp+130h] [rbp+30h] BYREF
+  _BYTE v26[64]; // [rsp+138h] [rbp+38h] BYREF
+  _BYTE v27[88]; // [rsp+178h] [rbp+78h] BYREF
 
-  v2 = _InterlockedDecrement64(P + 13);
-  if ( v2 >= 0 )
+  v3 = _InterlockedDecrement64((volatile signed __int64 *)this + 11);
+  if ( v3 < 0 )
   {
-    if ( !v2 )
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 111LL;
+    WdLogEvent5_WdAssertion(v4);
+  }
+  if ( !v3 )
+  {
+    v5 = *((_QWORD *)this + 2);
+    v6 = *(struct DXGDEVICE **)(v5 + 16);
+    DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v20, v6);
+    v7 = *((_QWORD *)v6 + 2);
+    v16 = 0;
+    v15 = *(_QWORD *)(v7 + 16);
+    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v14);
+    COREDEVICEACCESS::COREDEVICEACCESS((__int64)v22, (__int64)v6, 2, v8, 0);
+    COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)v22, v9);
+    if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v6 + 2) + 16LL) + 200LL) != 4 )
+      DXGCONTEXT::DestroyHwQueue((DXGCONTEXT *)v5, this, (struct COREDEVICEACCESS *)v22);
+    COREACCESS::~COREACCESS((COREACCESS *)v24);
+    COREACCESS::~COREACCESS((COREACCESS *)v23);
+    if ( v16 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v14);
+    if ( v20[0] )
+      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v20);
+    if ( !_InterlockedDecrement64((volatile signed __int64 *)(v5 + 32)) )
     {
-      v6 = *((_QWORD *)P + 2);
-      v7 = *(struct DXGDEVICE **)(v6 + 16);
-      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v21, v7);
-      v8 = *((_QWORD *)v7 + 2);
-      v17 = 0;
-      v16 = *(_QWORD *)(v8 + 16);
-      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v15);
-      COREDEVICEACCESS::COREDEVICEACCESS((__int64)v23, (__int64)v7, 2, v9, 0);
-      COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)v23, v10);
-      if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v7 + 2) + 16LL) + 200LL) != 4 )
-        DXGCONTEXT::DestroyHwQueue((DXGCONTEXT *)v6, (PVOID)P, (struct COREDEVICEACCESS *)v23);
-      COREACCESS::~COREACCESS((COREACCESS *)v25);
-      COREACCESS::~COREACCESS((COREACCESS *)v24);
-      if ( v17 )
-        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v15);
+      v10 = *(_QWORD *)(v5 + 16);
+      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE(
+        (DXGDEVICEACCESSLOCKEXCLUSIVE *)v21,
+        (struct DXGDEVICE *)v10);
+      v11 = *(_QWORD *)(v5 + 16);
+      v19 = 0;
+      v18 = *(_QWORD *)(*(_QWORD *)(v11 + 16) + 16LL);
+      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v17);
+      COREDEVICEACCESS::COREDEVICEACCESS((__int64)v25, v10, 2, v12, 0);
+      COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)v25, v13);
+      if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 16) + 16LL) + 200LL) != 4 )
+        DXGDEVICE::DestroyContext((DXGDEVICE *)v10, (struct DXGCONTEXT *)v5, (struct COREDEVICEACCESS *)v25);
+      COREACCESS::~COREACCESS((COREACCESS *)v27);
+      COREACCESS::~COREACCESS((COREACCESS *)v26);
+      if ( v19 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v17);
       if ( v21[0] )
         DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v21);
-      if ( !_InterlockedDecrement64((volatile signed __int64 *)(v6 + 32)) )
-      {
-        v11 = *(_QWORD *)(v6 + 16);
-        DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE(
-          (DXGDEVICEACCESSLOCKEXCLUSIVE *)v22,
-          (struct DXGDEVICE *)v11);
-        v12 = *(_QWORD *)(v6 + 16);
-        v20 = 0;
-        v19 = *(_QWORD *)(*(_QWORD *)(v12 + 16) + 16LL);
-        DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v18);
-        COREDEVICEACCESS::COREDEVICEACCESS((__int64)v26, v11, 2, v13, 0);
-        COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)v26, v14);
-        if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v11 + 16) + 16LL) + 200LL) != 4 )
-          DXGDEVICE::DestroyContext((DXGDEVICE *)v11, (struct DXGCONTEXT *)v6, (struct COREDEVICEACCESS *)v26);
-        COREACCESS::~COREACCESS((COREACCESS *)v28);
-        COREACCESS::~COREACCESS((COREACCESS *)v27);
-        if ( v20 )
-          DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v18);
-        if ( v22[0] )
-          DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v22);
-        if ( !_InterlockedDecrement64((volatile signed __int64 *)(v11 + 64)) )
-          ADAPTER_RENDER::DestroyDeviceNoLocks(*(ADAPTER_RENDER **)(v11 + 16), (struct DXGDEVICE *)v11);
-      }
-    }
-  }
-  else
-  {
-    WdLogSingleEntry1(1LL, 141LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v4,
-          v3,
-          v5,
-          0,
-          2,
-          -1,
-          (__int64)L"NewReferenceCount >= 0",
-          141LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+      if ( !_InterlockedDecrement64((volatile signed __int64 *)(v10 + 64)) )
+        ADAPTER_RENDER::DestroyDeviceNoLocks(*(ADAPTER_RENDER **)(v10 + 16), (struct DXGDEVICE *)v10);
     }
   }
 }

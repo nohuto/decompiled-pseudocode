@@ -1,24 +1,31 @@
 /*
- * XREFs of CHidInput_CreateInstance @ 0x1C0082FD0
+ * XREFs of CHidInput_CreateInstance @ 0x1C008BAD0
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateInstance@CHidInput@@SAJPEAPEAV1@@Z @ 0x1C0083080 (-CreateInstance@CHidInput@@SAJPEAPEAV1@@Z.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ??0CBaseInput@@IEAA@K@Z @ 0x1C008BD48 (--0CBaseInput@@IEAA@K@Z.c)
  */
 
-__int64 __fastcall CHidInput_CreateInstance(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+CBaseInput *CHidInput_CreateInstance()
 {
-  __int64 v4; // rax
-  int Instance; // eax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
+  CBaseInput *v0; // rax
+  CBaseInput *v1; // rbx
 
-  v4 = SGDGetUserSessionState(a1, a2, a3, a4);
-  Instance = CHidInput::CreateInstance((struct CHidInput **)(v4 + 16840));
-  v9 = 0LL;
-  if ( Instance >= 0 )
-    return *(_QWORD *)(SGDGetUserSessionState(0LL, v6, v7, v8) + 16840);
-  return v9;
+  gpHidInput = 0LL;
+  v0 = (CBaseInput *)Win32AllocPool(1376LL, 0x70694843u);
+  v1 = v0;
+  if ( v0 )
+  {
+    CBaseInput::CBaseInput(v0, 0x3Cu);
+    *((_DWORD *)v1 + 320) = 0;
+    *(_QWORD *)v1 = &CHidInput::`vftable';
+  }
+  else
+  {
+    v1 = 0LL;
+  }
+  if ( v1 )
+    gpHidInput = v1;
+  return v1;
 }

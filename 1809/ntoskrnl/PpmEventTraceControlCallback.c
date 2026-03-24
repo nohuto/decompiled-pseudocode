@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmEventTraceControlCallback @ 0x140764290
+ * XREFs of PpmEventTraceControlCallback @ 0x140764270
  * Callers:
  *     <none>
  * Callees:
@@ -10,24 +10,24 @@
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PopExecuteOnTargetProcessors @ 0x1400A5EA8 (PopExecuteOnTargetProcessors.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     PpmEventPlatformVetoRundown @ 0x1402E5D14 (PpmEventPlatformVetoRundown.c)
- *     PpmEventProcessorVetoRundown @ 0x1402E6014 (PpmEventProcessorVetoRundown.c)
- *     PpmEventTraceLPIState @ 0x1402E67D4 (PpmEventTraceLPIState.c)
- *     PpmEventQosSupport @ 0x140719D20 (PpmEventQosSupport.c)
- *     PpmEventHeteroPolicy @ 0x14074F6E0 (PpmEventHeteroPolicy.c)
- *     PpmEventTraceProfiles @ 0x140756D88 (PpmEventTraceProfiles.c)
- *     PpmInfoTraceProfileSettings @ 0x1408758C4 (PpmInfoTraceProfileSettings.c)
- *     PpmEventStaticPolicyRundown @ 0x140877CA4 (PpmEventStaticPolicyRundown.c)
- *     PpmEventTraceAccountingBucketIntervalsRundown @ 0x140877E10 (PpmEventTraceAccountingBucketIntervalsRundown.c)
- *     PpmEventTraceCoordinatedIdleStates @ 0x140877EE8 (PpmEventTraceCoordinatedIdleStates.c)
- *     PpmEventTraceParkNodeRundown @ 0x140878140 (PpmEventTraceParkNodeRundown.c)
- *     PpmEventTracePlatformIdleAccounting @ 0x140878258 (PpmEventTracePlatformIdleAccounting.c)
- *     PpmEventTracePpmProfileStatusRundown @ 0x1408784B0 (PpmEventTracePpmProfileStatusRundown.c)
- *     PpmEventTraceProcessorIdle @ 0x14087853C (PpmEventTraceProcessorIdle.c)
- *     PpmEventTraceProcessorPerformance @ 0x14087876C (PpmEventTraceProcessorPerformance.c)
- *     PpmEventVetoReasonRundown @ 0x140878B48 (PpmEventVetoReasonRundown.c)
+ *     PopExecuteOnTargetProcessors @ 0x1400A5EC8 (PopExecuteOnTargetProcessors.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     PpmEventPlatformVetoRundown @ 0x1402E5E14 (PpmEventPlatformVetoRundown.c)
+ *     PpmEventProcessorVetoRundown @ 0x1402E6114 (PpmEventProcessorVetoRundown.c)
+ *     PpmEventTraceLPIState @ 0x1402E68D4 (PpmEventTraceLPIState.c)
+ *     PpmEventQosSupport @ 0x140719D00 (PpmEventQosSupport.c)
+ *     PpmEventHeteroPolicy @ 0x14074F6C0 (PpmEventHeteroPolicy.c)
+ *     PpmEventTraceProfiles @ 0x140756D68 (PpmEventTraceProfiles.c)
+ *     PpmInfoTraceProfileSettings @ 0x1408758A4 (PpmInfoTraceProfileSettings.c)
+ *     PpmEventStaticPolicyRundown @ 0x140877C84 (PpmEventStaticPolicyRundown.c)
+ *     PpmEventTraceAccountingBucketIntervalsRundown @ 0x140877DF0 (PpmEventTraceAccountingBucketIntervalsRundown.c)
+ *     PpmEventTraceCoordinatedIdleStates @ 0x140877EC8 (PpmEventTraceCoordinatedIdleStates.c)
+ *     PpmEventTraceParkNodeRundown @ 0x140878120 (PpmEventTraceParkNodeRundown.c)
+ *     PpmEventTracePlatformIdleAccounting @ 0x140878238 (PpmEventTracePlatformIdleAccounting.c)
+ *     PpmEventTracePpmProfileStatusRundown @ 0x140878490 (PpmEventTracePpmProfileStatusRundown.c)
+ *     PpmEventTraceProcessorIdle @ 0x14087851C (PpmEventTraceProcessorIdle.c)
+ *     PpmEventTraceProcessorPerformance @ 0x14087874C (PpmEventTraceProcessorPerformance.c)
+ *     PpmEventVetoReasonRundown @ 0x140878B28 (PpmEventVetoReasonRundown.c)
  */
 
 void __fastcall PpmEventTraceControlCallback(

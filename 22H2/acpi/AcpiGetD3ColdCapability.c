@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiGetD3ColdCapability @ 0x1C0082B80
+ * XREFs of AcpiGetD3ColdCapability @ 0x1C009BF30
  * Callers:
  *     <none>
  * Callees:
- *     AcpiGetIdleWakeInfo @ 0x1C0082BE0 (AcpiGetIdleWakeInfo.c)
+ *     AcpiGetIdleWakeInfo @ 0x1C009CB40 (AcpiGetIdleWakeInfo.c)
  */
 
 __int64 __fastcall AcpiGetD3ColdCapability(__int64 a1, _BYTE *a2)
@@ -13,9 +13,9 @@ __int64 __fastcall AcpiGetD3ColdCapability(__int64 a1, _BYTE *a2)
 
   v4 = 0;
   *a2 = 0;
-  if ( (*(_DWORD *)(a1 + 1008) & 0x800LL) == 0 )
+  if ( (*(_DWORD *)(a1 + 960) & 0x800LL) == 0 )
     return 0LL;
-  if ( *(_QWORD *)(a1 + 440) )
+  if ( *(_QWORD *)(a1 + 400) )
   {
     *a2 = 1;
     return 0LL;

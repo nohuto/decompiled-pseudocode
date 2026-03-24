@@ -1,36 +1,41 @@
 /*
- * XREFs of CmpSnapshotKcbStackSecurity @ 0x140A1BDB0
+ * XREFs of CmpSnapshotKcbStackSecurity @ 0x1408720C4
  * Callers:
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5730 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
  */
 
-__int64 __fastcall CmpSnapshotKcbStackSecurity(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
+__int64 __fastcall CmpSnapshotKcbStackSecurity(__int64 a1, __int64 a2, ULONG a3, _QWORD *a4)
 {
   __int64 SecurityCacheEntryForKcbStack; // rdi
-  void *Pool; // rax
-  unsigned int v8; // ebx
-  void *v9; // rsi
+  PLOOKASIDE_LIST_EX v7; // r9
+  PVOID TransientPoolWithTag; // rax
+  unsigned int v9; // ebx
+  PVOID v10; // rsi
 
   SecurityCacheEntryForKcbStack = CmpGetSecurityCacheEntryForKcbStack(a1, a2, 0LL);
-  Pool = (void *)CmpAllocatePool(256LL, *(unsigned int *)(SecurityCacheEntryForKcbStack + 24), a3);
-  v8 = 0;
-  v9 = Pool;
-  if ( Pool )
+  TransientPoolWithTag = CmpAllocateTransientPoolWithTag(
+                           PagedPool,
+                           *(unsigned int *)(SecurityCacheEntryForKcbStack + 24),
+                           a3,
+                           v7);
+  v9 = 0;
+  v10 = TransientPoolWithTag;
+  if ( TransientPoolWithTag )
   {
     memmove(
-      Pool,
+      TransientPoolWithTag,
       (const void *)(SecurityCacheEntryForKcbStack + 32),
       *(unsigned int *)(SecurityCacheEntryForKcbStack + 24));
-    *a4 = v9;
+    *a4 = v10;
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v8;
+  return v9;
 }

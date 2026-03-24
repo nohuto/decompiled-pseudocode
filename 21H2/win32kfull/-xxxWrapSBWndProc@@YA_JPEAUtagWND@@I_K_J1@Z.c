@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01DE6E0
+ * XREFs of ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01E3D30
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0119178 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
- *     xxxSBWndProc @ 0x1C02420E0 (xxxSBWndProc.c)
+ *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0129398 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
+ *     xxxSBWndProc @ 0x1C0246160 (xxxSBWndProc.c)
  */
 
 __int64 __fastcall xxxWrapSBWndProc(struct tagWND *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)

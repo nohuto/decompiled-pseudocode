@@ -1,67 +1,65 @@
 /*
- * XREFs of HdlspAddLogEntry @ 0x140AEAB20
+ * XREFs of HdlspAddLogEntry @ 0x1409EEAE0
  * Callers:
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcscmp @ 0x1403DB2F0 (wcscmp.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403D3840 (wcscmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall HdlspAddLogEntry(_WORD *Src)
 {
   __int64 v2; // rax
-  void *v3; // r13
-  ULONG_PTR v4; // rbx
-  void *Pool2; // rax
-  void *v6; // rbp
-  KIRQL v7; // si
-  PKSPIN_LOCK v8; // rdi
-  __int16 v9; // r14
-  __int64 v10; // r12
-  unsigned __int16 v11; // r14
+  void *v3; // r12
+  SIZE_T v4; // rbx
+  PVOID PoolWithTag; // rax
+  PVOID v6; // r14
+  KIRQL v7; // di
+  PKSPIN_LOCK v8; // rsi
+  __int16 v9; // bp
+  __int64 v10; // r15
+  unsigned __int16 v11; // bp
   const wchar_t *v12; // rbx
   int v13; // eax
   __int64 v14; // rcx
   KSPIN_LOCK v15; // rax
-  KSPIN_LOCK v16; // rdx
-  __int64 v17; // rcx
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v21; // eax
-  bool v22; // zf
-  __int128 v23; // [rsp+20h] [rbp-68h] BYREF
-  __int128 v24; // [rsp+30h] [rbp-58h]
-  __int128 v25; // [rsp+40h] [rbp-48h]
+  int v19; // eax
+  bool v20; // zf
+  __int128 v21; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v22; // [rsp+30h] [rbp-58h]
+  __int128 v23; // [rsp+40h] [rbp-48h]
 
   v2 = -1LL;
   v3 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
   do
     ++v2;
   while ( Src[v2] );
   v4 = 2 * v2 + 2;
   if ( KeGetCurrentIrql() < 2u )
   {
-    if ( (int)ZwQuerySystemInformation(3LL, (__int64)&v23) < 0 )
+    if ( (int)ZwQuerySystemInformation(3LL, (__int64)&v21) < 0 )
     {
+      v21 = 0LL;
+      v22 = 0LL;
       v23 = 0LL;
-      v24 = 0LL;
-      v25 = 0LL;
     }
-    Pool2 = (void *)ExAllocatePool2(64LL, v4, 0x736C6448u);
-    v6 = Pool2;
-    if ( Pool2 )
-      memmove(Pool2, Src, v4);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x736C6448u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
+      memmove(PoolWithTag, Src, v4);
     if ( (HeadlessGlobals[6] & 2) != 0 )
       v7 = -1;
     else
@@ -85,30 +83,32 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
     }
     v14 = 56LL * v11;
     v15 = v8[2];
-    *(_OWORD *)(v14 + v15) = v23;
-    *(_OWORD *)(v14 + v15 + 16) = v24;
-    *(_OWORD *)(v14 + v15 + 32) = v25;
-    v16 = v8[2];
-    v17 = 56LL * *((unsigned __int16 *)v8 + 48);
+    *(_OWORD *)(v14 + v15) = v21;
+    *(_OWORD *)(v14 + v15 + 16) = v22;
+    *(_OWORD *)(v14 + v15 + 32) = v23;
     if ( v6 )
-      *(_QWORD *)(v17 + v16 + 48) = v6;
+      *(_QWORD *)(56LL * *((unsigned __int16 *)HeadlessGlobals + 48) + HeadlessGlobals[2] + 48) = v6;
     else
-      *(_QWORD *)(v17 + v16 + 48) = L"Entry could not be recorded due to lack of memory.\n";
+      *(_QWORD *)(56LL * *((unsigned __int16 *)HeadlessGlobals + 48) + HeadlessGlobals[2] + 48) = L"Entry could not be rec"
+                                                                                                   "orded due to lack of memory.\n";
     if ( v7 != 0xFF )
     {
-      KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
+      KxReleaseSpinLock(HeadlessGlobals);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v21 = ~(unsigned __int16)(-1LL << (v7 + 1));
-          v22 = (v21 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v21;
-          if ( v22 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << (v7 + 1));
+            v20 = (v19 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v19;
+            if ( v20 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(v7);

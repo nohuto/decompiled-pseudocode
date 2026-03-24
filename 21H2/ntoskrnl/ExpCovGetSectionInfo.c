@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCovGetSectionInfo @ 0x1407606CC
+ * XREFs of ExpCovGetSectionInfo @ 0x14075E500
  * Callers:
- *     MiConstructLoaderEntry @ 0x14075F4A4 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
  */
 
 char *__fastcall ExpCovGetSectionInfo(char *a1, _DWORD *a2)

@@ -1,104 +1,94 @@
 /*
- * XREFs of xxxClientFindMnemChar @ 0x1C0212504
+ * XREFs of xxxClientFindMnemChar @ 0x1C02322F0
  * Callers:
- *     xxxMNFindChar @ 0x1C023F070 (xxxMNFindChar.c)
+ *     xxxMNFindChar @ 0x1C0250318 (xxxMNFindChar.c)
  * Callees:
- *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0022D84 (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
- *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C0024328 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C00219B8 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
+ *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0021A5C (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-unsigned __int8 *__fastcall xxxClientFindMnemChar(char **a1, __int16 a2)
+unsigned __int8 *__fastcall xxxClientFindMnemChar(unsigned __int16 *a1, __int16 a2)
 {
   unsigned __int8 *result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  unsigned __int8 *v9; // rdi
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  int v13; // ebx
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 *v16; // rcx
-  __int64 v17; // rbx
-  _BYTE v18[4]; // [rsp+30h] [rbp-2A8h] BYREF
-  int v19; // [rsp+34h] [rbp-2A4h] BYREF
-  ULONG_PTR RegionSize; // [rsp+38h] [rbp-2A0h] BYREF
-  unsigned __int64 v21; // [rsp+40h] [rbp-298h] BYREF
-  __int128 v22; // [rsp+48h] [rbp-290h] BYREF
-  __int64 v23; // [rsp+58h] [rbp-280h]
-  __int64 v24; // [rsp+60h] [rbp-278h]
-  unsigned __int8 v25[80]; // [rsp+70h] [rbp-268h] BYREF
-  unsigned __int8 v26[512]; // [rsp+C0h] [rbp-218h] BYREF
+  unsigned __int8 *v5; // rdi
+  int v6; // ebx
+  __int64 *v7; // rcx
+  __int64 v8; // rbx
+  char v9; // [rsp+30h] [rbp-2B8h] BYREF
+  _BYTE v10[3]; // [rsp+31h] [rbp-2B7h] BYREF
+  int v11; // [rsp+34h] [rbp-2B4h] BYREF
+  _QWORD v12[2]; // [rsp+38h] [rbp-2B0h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp-2A0h] BYREF
+  __int128 v14; // [rsp+50h] [rbp-298h] BYREF
+  __int64 v15; // [rsp+60h] [rbp-288h]
+  __int64 v16; // [rsp+68h] [rbp-280h]
+  unsigned __int8 v17[72]; // [rsp+80h] [rbp-268h] BYREF
+  unsigned __int8 v18[512]; // [rsp+D0h] [rbp-218h] BYREF
 
-  memset_0(v25, 0, 0x48uLL);
-  v21 = 0LL;
-  v19 = 0;
-  result = AllocCallbackMessage(72, 1u, *((unsigned __int16 *)a1 + 1), v26, 1, 0x200uLL);
-  v9 = result;
-  RegionSize = (ULONG_PTR)result;
+  memset(v17, 0, sizeof(v17));
+  v12[0] = 0LL;
+  v11 = 0;
+  result = AllocCallbackMessage(72, 1u, a1[1], v18, 1, 0x200uLL);
+  v5 = result;
+  v12[1] = result;
   if ( result )
   {
-    PtiCurrentShared(v6, v5, v7, v8);
-    v22 = 0LL;
-    v23 = 0LL;
-    if ( v9 != v25 && v9 != v26 )
-      PushW32ThreadLock((__int64)v9, &v22, (__int64)Win32FreePool);
-    *((_WORD *)v9 + 28) = a2;
-    *((_DWORD *)v9 + 15) = 1;
-    *((_DWORD *)v9 + 16) = 1;
-    *((_WORD *)v9 + 20) = *(_WORD *)a1;
-    *((_WORD *)v9 + 21) = *((_WORD *)a1 + 1);
-    if ( (int)CaptureCallbackData(
-                (struct _CAPTUREBUF *)v9,
-                a1[1],
-                (unsigned int)*(unsigned __int16 *)a1 + 2,
-                (void **)v9 + 6) >= 0
-      && (LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition(
-            (LeaveEnterCritProperDisposition *)v18,
-            v10,
-            v11,
-            v12),
-          EtwTraceBeginCallback(66LL),
-          *((_QWORD *)v9 + 2) = 0LL,
-          v13 = KeUserModeCallback(66LL, v9, *(unsigned int *)v9, &v21, &v19),
-          EtwTraceEndCallback(66LL),
-          LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition(
-            (LeaveEnterCritProperDisposition *)v18,
-            v14,
-            v15),
-          v13 >= 0)
-      && v19 == 24 )
+    W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v14 = 0LL;
+    v15 = 0LL;
+    if ( v5 != v17 && v5 != v18 )
+      PushW32ThreadLock((__int64)v5, &v14, (__int64)Win32FreePool);
+    *((_WORD *)v5 + 28) = a2;
+    *((_DWORD *)v5 + 15) = 1;
+    *((_DWORD *)v5 + 16) = 1;
+    *((_WORD *)v5 + 20) = *a1;
+    *((_WORD *)v5 + 21) = a1[1];
+    if ( (int)CaptureCallbackData((struct _CAPTUREBUF *)v5, *((_QWORD *)a1 + 1), (unsigned int)*a1 + 2, (void **)v5 + 6) < 0 )
+      goto LABEL_15;
+    if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v10);
+    LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9);
+    EtwTraceBeginCallback(66LL);
+    *((_QWORD *)v5 + 2) = 0LL;
+    v6 = KeUserModeCallback(66LL, v5, *(unsigned int *)v5, v12, &v11);
+    EtwTraceEndCallback(66LL);
+    LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9);
+    ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v10);
+    if ( v6 < 0 )
+      goto LABEL_15;
+    if ( v11 == 24 )
     {
-      v16 = (__int64 *)v21;
-      if ( v21 + 8 < v21 || v21 + 8 > MmUserProbeAddress )
-        v16 = (__int64 *)MmUserProbeAddress;
-      v17 = *v16;
-      v24 = *v16;
+      v7 = (__int64 *)v12[0];
+      if ( (unsigned __int64)(v12[0] + 8LL) < v12[0] || v12[0] + 8LL > MmUserProbeAddress )
+        v7 = (__int64 *)MmUserProbeAddress;
+      v8 = *v7;
+      v16 = *v7;
     }
     else
     {
-      LODWORD(v17) = 0;
+LABEL_15:
+      LODWORD(v8) = 0;
     }
-    if ( v9 != v25 && v9 != v26 )
+    if ( v5 != v17 && v5 != v18 )
     {
-      if ( *((_QWORD *)v9 + 4) )
+      if ( *((_QWORD *)v5 + 4) )
       {
         RegionSize = 0LL;
-        ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v9 + 4, &RegionSize, 0x8000u);
+        ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v5 + 4, &RegionSize, 0x8000u);
       }
-      PopAndFreeAlwaysW32ThreadLock((__int64)&v22);
+      PopAndFreeAlwaysW32ThreadLock((__int64)&v14);
     }
-    return (unsigned __int8 *)(unsigned int)v17;
+    return (unsigned __int8 *)(unsigned int)v8;
   }
   return result;
 }

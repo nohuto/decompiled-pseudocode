@@ -1,13 +1,13 @@
 /*
- * XREFs of PspLockQuotaExpansion @ 0x14024393C
+ * XREFs of PspLockQuotaExpansion @ 0x1402BF4C0
  * Callers:
- *     PspReturnResourceQuota @ 0x140243648 (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x1402436C8 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x1403DAB6C (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x1405E0320 (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x1402BF168 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x1402BF1E8 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x1403CBC54 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x14058123C (PspExpandLimit.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 KIRQL __fastcall PspLockQuotaExpansion(__int64 a1, KIRQL *a2)

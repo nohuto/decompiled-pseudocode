@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpInitializeTrustedInstallerSid @ 0x140B7373C
+ * XREFs of CmpInitializeTrustedInstallerSid @ 0x140A7199C
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
- *     RtlLengthRequiredSid @ 0x1407D1BF0 (RtlLengthRequiredSid.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 int CmpInitializeTrustedInstallerSid()
 {
   ULONG v0; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   _DWORD *v2; // rbx
   struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   v0 = RtlLengthRequiredSid(6u);
-  Pool2 = (void *)ExAllocatePool2(256LL, v0, 0x65536D43u);
-  CmpTrustedInstallerSid = Pool2;
-  v2 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v0, 0x65536D43u);
+  CmpTrustedInstallerSid = PoolWithTag;
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    LODWORD(Pool2) = RtlInitializeSid(Pool2, &IdentifierAuthority, 6u);
+    LODWORD(PoolWithTag) = RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 6u);
     v2[2] = 80;
     v2[3] = 956008885;
     v2[4] = -876444647;
@@ -31,5 +31,5 @@ int CmpInitializeTrustedInstallerSid()
     v2[6] = 1853292631;
     v2[7] = -2023488832;
   }
-  return (int)Pool2;
+  return (int)PoolWithTag;
 }

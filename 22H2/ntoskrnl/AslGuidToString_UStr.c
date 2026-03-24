@@ -1,12 +1,12 @@
 /*
- * XREFs of AslGuidToString_UStr @ 0x140A53CC8
+ * XREFs of AslGuidToString_UStr @ 0x140967780
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140A527E0 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140966AEC (SdbResolveDatabaseEx.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslGuidToString_UStr(__int64 a1, unsigned int *a2)
@@ -36,13 +36,15 @@ __int64 __fastcall AslGuidToString_UStr(__int64 a1, unsigned int *a2)
     if ( v5 >= 0 )
     {
       *(_QWORD *)(a1 + 8) = v4;
-      return 0;
+      v4 = 0LL;
+      v5 = 0;
     }
     else
     {
       AslLogCallPrintf(1LL);
-      ExFreePoolWithTag(v4, 0x74705041u);
     }
+    if ( v4 )
+      ExFreePoolWithTag(v4, 0x74705041u);
   }
   else
   {

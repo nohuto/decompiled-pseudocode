@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPINotifyOsShutdownWorker @ 0x1C005F8A0
+ * XREFs of ACPINotifyOsShutdownWorker @ 0x1C005EA80
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalEvaluateOST @ 0x1C00573B4 (ACPIInternalEvaluateOST.c)
- *     ACPIInitShutdownInProgress @ 0x1C005F760 (ACPIInitShutdownInProgress.c)
- *     ACPIStopShutdownInProgress @ 0x1C005FFD8 (ACPIStopShutdownInProgress.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     ACPIInitShutdownInProgress @ 0x1C005E94C (ACPIInitShutdownInProgress.c)
+ *     ACPIStopShutdownInProgress @ 0x1C005F1E8 (ACPIStopShutdownInProgress.c)
  */
 
 void __fastcall ACPINotifyOsShutdownWorker(__int64 a1)

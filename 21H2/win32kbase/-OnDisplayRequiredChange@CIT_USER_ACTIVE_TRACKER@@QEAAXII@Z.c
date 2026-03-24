@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C007DADC
+ * XREFs of ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C00B2490
  * Callers:
- *     CitDisplayRequestChange @ 0x1C007DA30 (CitDisplayRequestChange.c)
+ *     CitDisplayRequestChange @ 0x1C00B23E4 (CitDisplayRequestChange.c)
  * Callees:
- *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C00168D4 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
- *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0016918 (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
+ *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C00487F4 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
+ *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C0048838 (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
  */
 
 void __fastcall CIT_USER_ACTIVE_TRACKER::OnDisplayRequiredChange(
@@ -22,7 +22,7 @@ LABEL_3:
     CIT_USER_ACTIVITY_STAT::SetActive((CIT_USER_ACTIVE_TRACKER *)((char *)this + 16), v5);
     goto LABEL_4;
   }
-  if ( *(_DWORD *)this && (unsigned int)(*(&xmmword_1C029A204 + 1) + *((_DWORD *)this + 1)) < *((_DWORD *)this + 2) )
+  if ( *(_DWORD *)this && (unsigned int)(DWORD1(xmmword_1C0255534) + *((_DWORD *)this + 1)) < *((_DWORD *)this + 2) )
   {
     v5 = 0;
     goto LABEL_3;

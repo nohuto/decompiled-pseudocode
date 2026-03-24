@@ -12,12 +12,12 @@
  *     KeCleanupThreadState @ 0x14008D8C0 (KeCleanupThreadState.c)
  *     KeFoldProcessStatisticsThread @ 0x14008D94C (KeFoldProcessStatisticsThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeEnumerateKernelStackSegments @ 0x14013D2C8 (KeEnumerateKernelStackSegments.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeEnumerateKernelStackSegments @ 0x14013D2E8 (KeEnumerateKernelStackSegments.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
  *     PspDeleteThreadSecurity @ 0x1405FB2C4 (PspDeleteThreadSecurity.c)
@@ -186,7 +186,7 @@ LABEL_15:
       KeLeaveCriticalRegionThread((__int64)CurrentThread);
     }
     if ( (*(_DWORD *)(BugCheckParameter2 + 1744) & 0x100000) != 0 )
-      ((void (__fastcall *)(ULONG_PTR))xmmword_14040E2F0)(BugCheckParameter2);
+      ((void (__fastcall *)(ULONG_PTR))xmmword_14040E2D0)(BugCheckParameter2);
     return ObfDereferenceObjectWithTag((PVOID)v8, 0x72437350u);
   }
   return result;

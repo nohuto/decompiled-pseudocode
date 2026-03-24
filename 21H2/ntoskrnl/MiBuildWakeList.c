@@ -1,16 +1,16 @@
 /*
- * XREFs of MiBuildWakeList @ 0x140287B04
+ * XREFs of MiBuildWakeList @ 0x140357480
  * Callers:
- *     MiUnlockControlAreaSectionExtend @ 0x14022C984 (MiUnlockControlAreaSectionExtend.c)
- *     MiPreventControlAreaDeletion @ 0x14023F8E8 (MiPreventControlAreaDeletion.c)
- *     MiReferencePfBackedSection @ 0x14023FA50 (MiReferencePfBackedSection.c)
- *     MiPrepareSegmentForDeletion @ 0x140270274 (MiPrepareSegmentForDeletion.c)
- *     MiComputeDataFlushRange @ 0x140286AB0 (MiComputeDataFlushRange.c)
- *     MiCheckControlArea @ 0x140287660 (MiCheckControlArea.c)
- *     MiDecrementModifiedWriteCount @ 0x140287A8C (MiDecrementModifiedWriteCount.c)
- *     MiReferenceActiveControlArea @ 0x140287F58 (MiReferenceActiveControlArea.c)
- *     MiDecrementLargeSubsections @ 0x14059DF58 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x14059F23C (MiIncrementLargeSubsections.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x1402A1234 (MiUnlockControlAreaSectionExtend.c)
+ *     MiReferencePfBackedSection @ 0x1402C5218 (MiReferencePfBackedSection.c)
+ *     MiPreventControlAreaDeletion @ 0x1402EE728 (MiPreventControlAreaDeletion.c)
+ *     MiPrepareSegmentForDeletion @ 0x1402F7D04 (MiPrepareSegmentForDeletion.c)
+ *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
+ *     MiComputeDataFlushRange @ 0x1403152C0 (MiComputeDataFlushRange.c)
+ *     MiReferenceActiveControlArea @ 0x140357348 (MiReferenceActiveControlArea.c)
+ *     MiDecrementModifiedWriteCount @ 0x140357408 (MiDecrementModifiedWriteCount.c)
+ *     MiDecrementLargeSubsections @ 0x140540410 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x140541480 (MiIncrementLargeSubsections.c)
  * Callees:
  *     <none>
  */

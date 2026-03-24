@@ -1,35 +1,41 @@
 /*
- * XREFs of ?TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ @ 0x1C030EF00
+ * XREFs of ?TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ @ 0x1C0265FC0
  * Callers:
- *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C030DED0 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
- *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03D4A60 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
+ *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C0264F30 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
+ *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03005F4 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
  * Callees:
- *     ?TdrReferenceRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@PEAU1@@Z @ 0x1C030F558 (-TdrReferenceRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@PEAU1@@Z.c)
+ *     ?TdrAllocatePool@@YAPEAX_KW4_POOL_TYPE@@@Z @ 0x1C0264EE0 (-TdrAllocatePool@@YAPEAX_KW4_POOL_TYPE@@@Z.c)
+ *     ?TdrReferenceRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@PEAU1@@Z @ 0x1C02665E8 (-TdrReferenceRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@PEAU1@@Z.c)
  */
 
 struct _TDR_RECOVERY_CONTEXT *TdrCreateRecoveryContext(void)
 {
-  __int64 Pool2; // rax
-  struct _TDR_RECOVERY_CONTEXT *v1; // rbx
+  struct _TDR_RECOVERY_CONTEXT *Pool; // rax
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  struct _TDR_RECOVERY_CONTEXT *v3; // rbx
+  __int64 v4; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 2920LL, 1380209782LL);
-  v1 = (struct _TDR_RECOVERY_CONTEXT *)Pool2;
-  if ( Pool2 )
+  Pool = (struct _TDR_RECOVERY_CONTEXT *)TdrAllocatePool(0xB60uLL, (POOL_TYPE)512);
+  v3 = Pool;
+  if ( Pool )
   {
-    *(_DWORD *)(Pool2 + 16) = 0;
-    *(_DWORD *)(Pool2 + 116) = 0;
-    *(_DWORD *)Pool2 = 1380209782;
-    *(_DWORD *)(Pool2 + 112) = 1380209782;
-    *(_DWORD *)(Pool2 + 128) = 12;
-    *(_DWORD *)(Pool2 + 2784) = g_TdrConfig;
-    *(_DWORD *)(Pool2 + 2788) = dword_1C0140A74;
-    *(_DWORD *)(Pool2 + 2792) = dword_1C0140A80;
-    *(_QWORD *)(Pool2 + 120) = MEMORY[0xFFFFF78000000320];
-    *(_DWORD *)(Pool2 + 2836) = 1380209782;
+    *((_DWORD *)Pool + 4) = 0;
+    *((_DWORD *)Pool + 27) = 0;
+    *(_DWORD *)Pool = 1380209782;
+    *((_DWORD *)Pool + 26) = 1380209782;
+    *((_DWORD *)Pool + 30) = 12;
+    *((_DWORD *)Pool + 694) = g_TdrConfig;
+    *((_DWORD *)Pool + 695) = dword_1C00B3164;
+    *((_DWORD *)Pool + 696) = dword_1C00B3170;
+    *((_QWORD *)Pool + 14) = MEMORY[0xFFFFF78000000320];
+    *((_DWORD *)Pool + 707) = 1380209782;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 2920LL);
+    v4 = WdLogNewEntry5_WdError(v2, v1);
+    *(_QWORD *)(v4 + 24) = 2912LL;
+    WdLogEvent5_WdError(v4);
   }
-  return TdrReferenceRecoveryContext(v1);
+  return TdrReferenceRecoveryContext(v3);
 }

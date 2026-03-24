@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateToken @ 0x1408A19A0
+ * XREFs of NtCreateToken @ 0x1408A1980
  * Callers:
  *     <none>
  * Callees:

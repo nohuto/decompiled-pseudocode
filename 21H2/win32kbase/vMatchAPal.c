@@ -1,9 +1,9 @@
 /*
- * XREFs of vMatchAPal @ 0x1C016B6C0
+ * XREFs of vMatchAPal @ 0x1C013E780
  * Callers:
- *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C016F7F8 (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
+ *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C01427C0 (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
  * Callees:
- *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C0168F64 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C013BD64 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
  */
 
 _DWORD *__fastcall vMatchAPal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
@@ -15,8 +15,8 @@ _DWORD *__fastcall vMatchAPal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _D
   __int64 v9; // r15
   int v10; // ebp
   int v11; // esi
-  __int64 v12; // r11
-  __int64 v13; // r10
+  __int64 v12; // r10
+  __int64 v13; // r11
   __int64 v14; // rcx
   __int64 v15; // r10
   __int64 v16; // r12
@@ -57,18 +57,18 @@ _DWORD *__fastcall vMatchAPal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _D
   v11 = 0;
   if ( v7 < 256 - v7 )
   {
-    v12 = 256 - v7 - v7;
-    v13 = 4LL * v7;
+    v12 = 4LL * v7;
+    v13 = 256 - v7 - v7;
     do
     {
       v14 = *(_QWORD *)(a2 + 112);
-      v29 = *(_DWORD *)(v13 + v14);
+      v29 = *(_DWORD *)(v12 + v14);
       HIBYTE(v29) &= 0xDEu;
-      *(_DWORD *)(v13 + v14) = v29;
-      v13 += 4LL;
-      --v12;
+      *(_DWORD *)(v12 + v14) = v29;
+      v12 += 4LL;
+      --v13;
     }
-    while ( v12 );
+    while ( v13 );
   }
   v15 = 0LL;
   if ( *(_DWORD *)(a3 + 28) )

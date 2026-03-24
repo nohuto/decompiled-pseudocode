@@ -1,14 +1,12 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1C0019F84
+ * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1C0017DB0
  * Callers:
- *     Feature_DelayedForceEviction__private_ReportDeviceUsage @ 0x1C0019AA0 (Feature_DelayedForceEviction__private_ReportDeviceUsage.c)
- *     Feature_Wddm30CpuVisible__private_ReportDeviceUsage @ 0x1C0019B54 (Feature_Wddm30CpuVisible__private_ReportDeviceUsage.c)
- *     wil_details_IsEnabledFallback @ 0x1C001A3AC (wil_details_IsEnabledFallback.c)
- *     Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage @ 0x1C001A4E8 (Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage.c)
+ *     Feature_VidMMVerifyIntegrity__private_ReportDeviceUsage @ 0x1C0017994 (Feature_VidMMVerifyIntegrity__private_ReportDeviceUsage.c)
+ *     wil_details_IsEnabledFallback @ 0x1C00181F8 (wil_details_IsEnabledFallback.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C001A00C (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     wil_details_MapReportingKind @ 0x1C001A448 (wil_details_MapReportingKind.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C0017E38 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_MapReportingKind @ 0x1C001828C (wil_details_MapReportingKind.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportUsageToService(

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetIntegerProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00BDDF0
+ * XREFs of ?SetIntegerProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00AE150
  * Callers:
- *     ?SetIntegerProperty@CLegacyStereoRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C020C7D0 (-SetIntegerProperty@CLegacyStereoRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationC.c)
+ *     ?SetIntegerProperty@CLegacyStereoRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01D5150 (-SetIntegerProperty@CLegacyStereoRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationC.c)
  * Callees:
  *     <none>
  */
@@ -19,8 +19,7 @@ __int64 __fastcall DirectComposition::CLegacyRenderTargetMarshaler::SetIntegerPr
   int v8; // r8d
   int v9; // r8d
   int v10; // r8d
-  int v11; // r8d
-  int v13; // r8d
+  int v12; // r8d
 
   v5 = 0;
   v6 = a3 - 1;
@@ -35,37 +34,31 @@ __int64 __fastcall DirectComposition::CLegacyRenderTargetMarshaler::SetIntegerPr
         v9 = v8 - 1;
         if ( v9 )
         {
-          v10 = v9 - 4;
+          v10 = v9 - 3;
           if ( !v10 )
           {
             if ( (unsigned int)(a4 - 1) <= 3 )
             {
               *((_DWORD *)this + 4) |= 0x80u;
-              *((_DWORD *)this + 31) = a4;
-LABEL_11:
+              *((_DWORD *)this + 30) = a4;
+LABEL_8:
               *a5 = 1;
               return v5;
             }
             return (unsigned int)-1073741811;
           }
-          v11 = v10 - 1;
-          if ( v11 )
+          v12 = v10 - 1;
+          if ( v12 )
           {
-            v13 = v11 - 2;
-            if ( !v13 )
+            if ( v12 == 2 )
             {
               *((_DWORD *)this + 4) |= 0x200u;
-              *((_BYTE *)this + 136) = a4 != 0;
-              goto LABEL_11;
-            }
-            if ( v13 == 1 )
-            {
-              *((_DWORD *)this + 4) |= 0x400u;
-              goto LABEL_11;
+              *((_BYTE *)this + 132) = a4 != 0;
+              goto LABEL_8;
             }
             return (unsigned int)-1073741811;
           }
-          *((_DWORD *)this + 33) = a4;
+          *((_DWORD *)this + 32) = a4;
         }
         else
         {
@@ -86,7 +79,7 @@ LABEL_11:
       *((_DWORD *)this + 16) = a4;
     }
     *((_DWORD *)this + 4) |= 0x20u;
-    goto LABEL_11;
+    goto LABEL_8;
   }
   if ( *((_QWORD *)this + 9) != a4 )
   {

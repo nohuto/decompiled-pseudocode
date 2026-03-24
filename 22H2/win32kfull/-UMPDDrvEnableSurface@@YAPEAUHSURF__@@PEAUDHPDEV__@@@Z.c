@@ -1,18 +1,18 @@
 /*
- * XREFs of ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C02B9F50
+ * XREFs of ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C015E840
  * Callers:
  *     <none>
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1C0274D2C (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
- *     ?vClient@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C029A1A4 (-vClient@UMPDOBJ@@QEAAXPEAX@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1C0001008 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     _tlgKeywordOn @ 0x1C00305A8 (_tlgKeywordOn.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082F38 (--1SURFREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?vClient@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C00A3064 (-vClient@UMPDOBJ@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?vKeepIt@SURFREF@@QEAAXXZ @ 0x1C02730D0 (-vKeepIt@SURFREF@@QEAAXXZ.c)
  */
 
 HSURF __fastcall UMPDDrvEnableSurface(struct DHPDEV__ *a1)
@@ -21,150 +21,103 @@ HSURF __fastcall UMPDDrvEnableSurface(struct DHPDEV__ *a1)
   UMPDOBJ *v3; // rbx
   int v4; // eax
   HSURF v5; // rsi
-  __int64 v6; // r9
+  __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
   __int64 v9; // r9
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r8
-  int v15; // r10d
-  _QWORD *v16; // rdx
+  int *v10; // rax
+  UMPDOBJ *v11; // rcx
   size_t Size; // [rsp+28h] [rbp-39h]
-  int v18; // [rsp+48h] [rbp-19h] BYREF
-  int v19; // [rsp+4Ch] [rbp-15h] BYREF
-  HSURF v20; // [rsp+50h] [rbp-11h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-9h] BYREF
-  UMPDOBJ *v22; // [rsp+60h] [rbp-1h] BYREF
-  _BYTE v23[32]; // [rsp+68h] [rbp+7h] BYREF
-  __int64 v24; // [rsp+88h] [rbp+27h]
-  _DWORD v25[2]; // [rsp+90h] [rbp+2Fh] BYREF
-  __int64 v26; // [rsp+98h] [rbp+37h]
-  __int64 v27; // [rsp+A0h] [rbp+3Fh]
-  struct DHPDEV__ *v28; // [rsp+A8h] [rbp+47h]
+  int *v14; // [rsp+40h] [rbp-21h]
+  int v15; // [rsp+48h] [rbp-19h] BYREF
+  int v16; // [rsp+4Ch] [rbp-15h] BYREF
+  HSURF v17; // [rsp+50h] [rbp-11h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-9h] BYREF
+  UMPDOBJ *v19; // [rsp+60h] [rbp-1h] BYREF
+  _BYTE v20[32]; // [rsp+68h] [rbp+7h] BYREF
+  __int64 v21; // [rsp+88h] [rbp+27h]
+  __int128 v22; // [rsp+90h] [rbp+2Fh] BYREF
+  __int128 v23; // [rsp+A0h] [rbp+3Fh]
 
   v2 = 0LL;
-  v26 = 0LL;
-  v20 = 0LL;
-  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v22);
-  v3 = v22;
-  v26 = 0LL;
-  if ( !v22 )
-    goto LABEL_37;
-  v25[1] = 3;
-  v25[0] = 32;
-  v27 = *(_QWORD *)v22;
-  v28 = a1;
-  LODWORD(Size) = 8;
-  v4 = UMPDOBJ::Thunk(v22, v25, 0x20u, &v20, Size);
-  v5 = v20;
-  if ( v4 == -1 )
-    v5 = 0LL;
-  if ( !v5 )
+  v17 = 0LL;
+  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v19);
+  v3 = v19;
+  v22 = 0LL;
+  v23 = 0LL;
+  if ( v19 )
   {
-LABEL_36:
-    v2 = v5;
-LABEL_37:
-    XUMPDOBJ::~XUMPDOBJ(&v22);
-    return v2;
-  }
-  SURFREF::SURFREF((SURFREF *)v23, v5);
-  v6 = v24;
-  if ( !v24 )
-  {
-    v5 = 0LL;
-LABEL_33:
-    if ( v6 )
-      DEC_SHARE_REF_CNT(v6);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v23);
-    goto LABEL_36;
-  }
-  if ( *(_QWORD *)(v24 + 48) )
-  {
-    v11 = *(unsigned int *)(v24 + 112);
-    if ( (v11 & 0x40000) == 0 )
-    {
-      if ( (unsigned int)dword_1C0354098 > 5 && tlgKeywordOn((__int64)&dword_1C0354098, 0x400000000000LL) )
-      {
-        LODWORD(v20) = 0;
-        v21 = 0x1000000LL;
-        v19 = 1;
-        v18 = 71980;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          v12,
-          byte_1C031E89C,
-          v13,
-          v6,
-          (__int64)&v18,
-          (__int64)&v21,
-          (__int64)&v19,
-          (__int64)&v20);
-        v6 = v24;
-      }
-      if ( v6 )
-        DEC_SHARE_REF_CNT(v6);
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v23);
-      goto LABEL_37;
-    }
-    if ( *(_WORD *)(v24 + 100) == 1 && (v11 & 0x29) != 0x29 )
+    *(_QWORD *)&v22 = 0x300000020LL;
+    *(_QWORD *)&v23 = *(_QWORD *)v19;
+    *((_QWORD *)&v23 + 1) = a1;
+    LODWORD(Size) = 8;
+    v4 = UMPDOBJ::Thunk(v19, &v22, 0x20u, &v17, Size);
+    v5 = v17;
+    if ( v4 == -1 )
       v5 = 0LL;
-    if ( (v11 & 0x4000000) != 0 )
-    {
-      if ( (unsigned int)dword_1C0354098 > 5 && tlgKeywordOn((__int64)&dword_1C0354098, 0x400000000000LL) )
-      {
-        LODWORD(v20) = 0;
-        v19 = v15;
-        v21 = 0x1000000LL;
-        v18 = 64770;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          v11,
-          byte_1C031E89C,
-          v14,
-          v6,
-          (__int64)&v18,
-          (__int64)&v21,
-          (__int64)&v19,
-          (__int64)&v20);
-        v6 = v24;
-      }
-      v5 = 0LL;
-    }
-    if ( *((_DWORD *)v3 + 110) )
-    {
-      v16 = (_QWORD *)(v6 + 24);
-      if ( !v6 )
-        v16 = 0LL;
-      UMPDOBJ::vClient((UMPDOBJ *)v11, v16);
-      v6 = v24;
-    }
     if ( v5 )
     {
-      INC_SHARE_REF_CNT(v6);
-      v6 = v24;
+      SURFREF::SURFREF((SURFREF *)v20, v5);
+      v6 = v21;
+      if ( v21 )
+      {
+        if ( !*(_QWORD *)(v21 + 48) )
+        {
+          if ( (unsigned int)dword_1C032A3D8 <= 5 || !tlgKeywordOn((__int64)&dword_1C032A3D8, 0x400000000000LL) )
+            goto LABEL_15;
+          v15 = 0;
+          v16 = 1;
+          LODWORD(v17) = 73876;
+          v14 = &v15;
+          v10 = (int *)&v17;
+LABEL_14:
+          v18 = 0x1000000LL;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+            v7,
+            (int)&unk_1C02F401A,
+            v8,
+            v9,
+            (__int64)v10,
+            (__int64)&v18,
+            (__int64)&v16,
+            (__int64)v14);
+LABEL_15:
+          SURFREF::~SURFREF((SURFREF *)v20, v6);
+          goto LABEL_30;
+        }
+        v11 = (UMPDOBJ *)*(unsigned int *)(v21 + 112);
+        if ( ((unsigned int)v11 & 0x40000) == 0 )
+        {
+          if ( (unsigned int)dword_1C032A3D8 <= 5 || !tlgKeywordOn((__int64)&dword_1C032A3D8, 0x400000000000LL) )
+            goto LABEL_15;
+          LODWORD(v17) = 0;
+          v16 = 1;
+          v15 = 71980;
+          v14 = (int *)&v17;
+          v10 = &v15;
+          goto LABEL_14;
+        }
+        if ( *(_WORD *)(v21 + 100) == 1
+          && (((unsigned __int8)v11 & 1) == 0 || ((unsigned __int8)v11 & 0x20) == 0 || ((unsigned __int8)v11 & 8) == 0) )
+        {
+          v5 = 0LL;
+        }
+        if ( ((unsigned int)v11 & 0x4000000) != 0 )
+          v5 = 0LL;
+        if ( *((_DWORD *)v3 + 106) )
+          UMPDOBJ::vClient(v11, (_QWORD *)(v21 + 24));
+        if ( v5 )
+          SURFREF::vKeepIt((SURFREF *)v20);
+      }
+      else
+      {
+        v5 = 0LL;
+      }
+      SURFREF::~SURFREF((SURFREF *)v20, v6);
     }
-    goto LABEL_33;
+    v2 = v5;
   }
-  if ( (unsigned int)dword_1C0354098 > 5 )
-  {
-    if ( tlgKeywordOn((__int64)&dword_1C0354098, 0x400000000000LL) )
-    {
-      v18 = 0;
-      v19 = 1;
-      v21 = 0x1000000LL;
-      LODWORD(v20) = 73876;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v7,
-        byte_1C031E89C,
-        v8,
-        v9,
-        (__int64)&v20,
-        (__int64)&v21,
-        (__int64)&v19,
-        (__int64)&v18);
-    }
-  }
-  SURFREF::~SURFREF((SURFREF *)v23);
-  XUMPDOBJ::~XUMPDOBJ(&v22);
-  return 0LL;
+LABEL_30:
+  XUMPDOBJ::~XUMPDOBJ(&v19);
+  return v2;
 }

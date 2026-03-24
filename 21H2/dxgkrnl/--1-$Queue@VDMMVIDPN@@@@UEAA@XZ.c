@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1?$Queue@VDMMVIDPN@@@@UEAA@XZ @ 0x1C0067B30
+ * XREFs of ??1?$Queue@VDMMVIDPN@@@@UEAA@XZ @ 0x1C005AF2C
  * Callers:
- *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C0067D34 (--1VIDPN_MGR@@UEAA@XZ.c)
- *     ??_E?$Set@VDMMVIDPN@@@@UEAAPEAXI@Z @ 0x1C0068590 (--_E-$Set@VDMMVIDPN@@@@UEAAPEAXI@Z.c)
+ *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C005B0D0 (--1VIDPN_MGR@@UEAA@XZ.c)
+ *     ??_E?$Set@VDMMVIDPN@@@@UEAAPEAXI@Z @ 0x1C005B9E0 (--_E-$Set@VDMMVIDPN@@@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Clear@?$DoublyLinkedList@VDMMVIDPN@@U?$DoubleLinkedListElementDeleter@VDMMVIDPN@@@@@@QEAAXXZ @ 0x1C0068C60 (-Clear@-$DoublyLinkedList@VDMMVIDPN@@U-$DoubleLinkedListElementDeleter@VDMMVIDPN@@@@@@QEAAXXZ.c)
+ *     ?Clear@?$DoublyLinkedList@VDMMVIDPN@@U?$DoubleLinkedListElementDeleter@VDMMVIDPN@@@@@@QEAAXXZ @ 0x1C005BE64 (-Clear@-$DoublyLinkedList@VDMMVIDPN@@U-$DoubleLinkedListElementDeleter@VDMMVIDPN@@@@@@QEAAXXZ.c)
  */
 
 __int64 __fastcall Queue<DMMVIDPN>::~Queue<DMMVIDPN>(_QWORD *a1)

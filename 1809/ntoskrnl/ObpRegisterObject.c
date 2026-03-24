@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpRegisterObject @ 0x14086362C
+ * XREFs of ObpRegisterObject @ 0x14086360C
  * Callers:
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     CmpCreateKeyBody @ 0x1405E0970 (CmpCreateKeyBody.c)
@@ -10,11 +10,11 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ObpGetObjectRefInfo @ 0x140862ED0 (ObpGetObjectRefInfo.c)
- *     ObpIsObjectPoolTagTraced @ 0x140863370 (ObpIsObjectPoolTagTraced.c)
- *     EtwTraceObject @ 0x1408B7D38 (EtwTraceObject.c)
+ *     ObpGetObjectRefInfo @ 0x140862EB0 (ObpGetObjectRefInfo.c)
+ *     ObpIsObjectPoolTagTraced @ 0x140863350 (ObpIsObjectPoolTagTraced.c)
+ *     EtwTraceObject @ 0x1408B7D18 (EtwTraceObject.c)
  */
 
 __int64 __fastcall ObpRegisterObject(__int64 a1)

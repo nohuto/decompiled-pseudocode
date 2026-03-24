@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetSurfacePlaneResource@CLegacySwapChain@@UEBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1801356E0
+ * XREFs of ?GetSurfacePlaneResource@CLegacySwapChain@@UEBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x180249B0C
  * Callers:
- *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18011F960 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
- *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1801209E0 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
- *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1801210A0 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
+ *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@A@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1800F6DD0 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@A@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAU.c)
+ *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1800F7270 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEA.c)
+ *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1800F7600 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLegacySwapChain::GetSurfacePlaneResource(
@@ -38,17 +38,17 @@ __int64 __fastcall CLegacySwapChain::GetSurfacePlaneResource(
     v6 = v9;
     if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x2D7u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x19Eu, 0LL);
     }
     else
     {
-      v11 = (*(__int64 (__fastcall **)(__int64, struct IUnknown **, unsigned int *))(*(_QWORD *)v14 + 144LL))(
+      v11 = (*(__int64 (__fastcall **)(__int64, struct IUnknown **, unsigned int *))(*(_QWORD *)v14 + 128LL))(
               v14,
               a3,
               a4);
       v6 = v11;
       if ( v11 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x2DAu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x1A1u, 0LL);
     }
     wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v14);
   }

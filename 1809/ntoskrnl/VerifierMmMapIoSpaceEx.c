@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D40 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
  *     VfCheckPageProtection @ 0x140927548 (VfCheckPageProtection.c)
  */
 

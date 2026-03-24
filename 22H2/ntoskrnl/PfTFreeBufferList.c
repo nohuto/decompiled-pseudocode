@@ -1,48 +1,55 @@
 /*
- * XREFs of PfTFreeBufferList @ 0x14079D8A0
+ * XREFs of PfTFreeBufferList @ 0x14062FAF4
  * Callers:
- *     PfTCreateTraceDump @ 0x14079D100 (PfTCreateTraceDump.c)
+ *     PfTCreateTraceDump @ 0x14062F2F0 (PfTCreateTraceDump.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     PfTLbInitialize @ 0x14079D968 (PfTLbInitialize.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfTLbInitialize @ 0x14062FBC8 (PfTLbInitialize.c)
  */
 
 __int64 __fastcall PfTFreeBufferList(unsigned int *a1)
 {
-  _QWORD *v1; // rsi
-  unsigned int v2; // ebp
-  _QWORD *v4; // rbx
-  _QWORD *v5; // rax
   __int64 result; // rax
+  _QWORD *v2; // rsi
+  _QWORD *v3; // rbx
+  unsigned int v5; // ebp
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rax
 
-  v1 = a1 + 6;
-  v2 = *a1 >> 4;
-  while ( 1 )
-  {
-    v4 = (_QWORD *)v1[1];
-    if ( (_QWORD *)*v1 == v4 )
-      break;
-    if ( (_QWORD *)*v4 != v1 || (v5 = (_QWORD *)v4[1], (_QWORD *)*v5 != v4) )
-      __fastfail(3u);
-    v1[1] = v5;
-    *v5 = v1;
-    if ( (*a1 & 0xF) != 0 )
-    {
-      memset(v4, 0, v2);
-      v4[1] = v4;
-      *v4 = v4;
-      *((_DWORD *)v4 + 8) = 2048;
-    }
-    else
-    {
-      PfTLbInitialize(v4, v2, 1LL);
-    }
-    *v4 = *((_QWORD *)a1 + 2);
-    ++*((_WORD *)a1 + 5);
-    *((_QWORD *)a1 + 2) = v4;
-  }
   result = *a1;
+  v2 = a1 + 6;
+  v3 = (_QWORD *)*((_QWORD *)a1 + 4);
+  v5 = *a1 >> 4;
+  v6 = (_QWORD *)*((_QWORD *)a1 + 3);
+  if ( v6 != v3 )
+  {
+    do
+    {
+      if ( (_QWORD *)*v3 != v2 || (v7 = (_QWORD *)v3[1], (_QWORD *)*v7 != v3) )
+        __fastfail(3u);
+      v2[1] = v7;
+      *v7 = v2;
+      if ( (*a1 & 0xF) != 0 )
+      {
+        memset(v3, 0, v5);
+        v3[1] = v3;
+        *v3 = v3;
+        *((_DWORD *)v3 + 8) = 2048;
+      }
+      else
+      {
+        PfTLbInitialize(v3, v5, 1LL);
+      }
+      *v3 = *((_QWORD *)a1 + 2);
+      ++*((_WORD *)a1 + 5);
+      *((_QWORD *)a1 + 2) = v3;
+      v6 = (_QWORD *)*v2;
+      v3 = (_QWORD *)v2[1];
+    }
+    while ( (_QWORD *)*v2 != v3 );
+    result = *a1;
+  }
   if ( (result & 0xF) == 0 )
-    return PfTLbInitialize(*v1, v2, 1LL);
+    return PfTLbInitialize(v6, v5, 1LL);
   return result;
 }

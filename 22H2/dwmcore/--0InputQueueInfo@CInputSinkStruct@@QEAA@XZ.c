@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0InputQueueInfo@CInputSinkStruct@@QEAA@XZ @ 0x180105340
+ * XREFs of ??0InputQueueInfo@CInputSinkStruct@@QEAA@XZ @ 0x1800E3140
  * Callers:
  *     <none>
  * Callees:

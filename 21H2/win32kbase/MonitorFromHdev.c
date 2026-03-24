@@ -1,8 +1,8 @@
 /*
- * XREFs of MonitorFromHdev @ 0x1C0071B98
+ * XREFs of MonitorFromHdev @ 0x1C00212C8
  * Callers:
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0063D18 (-zzzUpdateUserScreen@@YAJXZ.c)
- *     UserGetMonitorDC @ 0x1C0071A64 (UserGetMonitorDC.c)
+ *     UserGetMonitorDC @ 0x1C00211C8 (UserGetMonitorDC.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C7464 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall MonitorFromHdev(__int64 a1)
 {
   __int64 result; // rax
 
-  for ( result = *((_QWORD *)gpDispInfo + 13); result && *(_QWORD *)(result + 80) != a1; result = *(_QWORD *)(result + 56) )
+  for ( result = *(_QWORD *)(gpDispInfo + 104); result && *(_QWORD *)(result + 232) != a1; result = *(_QWORD *)(result + 56) )
     ;
   return result;
 }

@@ -1,16 +1,17 @@
 /*
- * XREFs of ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0138BBC
+ * XREFs of ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0136400
  * Callers:
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
- *     xxxDesktopThreadWaiter @ 0x1C006A140 (xxxDesktopThreadWaiter.c)
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0125FC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
- *     xxxUserModeCallback @ 0x1C02139E4 (xxxUserModeCallback.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxDesktopThreadWaiter @ 0x1C00D9CA4 (xxxDesktopThreadWaiter.c)
+ *     SfnINOUTNCCALCSIZE @ 0x1C00F9950 (SfnINOUTNCCALCSIZE.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
+ *     xxxUserModeCallback @ 0x1C02334E8 (xxxUserModeCallback.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall LeaveEnterCrit::~LeaveEnterCrit(LeaveEnterCrit *this)
 {
-  EnterCrit(1LL, 0LL);
+  EnterCrit(0LL, 1LL);
 }

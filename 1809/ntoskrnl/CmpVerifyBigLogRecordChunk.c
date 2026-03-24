@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpVerifyBigLogRecordChunk @ 0x140580D88
  * Callers:
- *     CmpDoReadTxRBigLogRecord @ 0x1407F8D74 (CmpDoReadTxRBigLogRecord.c)
+ *     CmpDoReadTxRBigLogRecord @ 0x1407F8D54 (CmpDoReadTxRBigLogRecord.c)
  * Callees:
  *     <none>
  */

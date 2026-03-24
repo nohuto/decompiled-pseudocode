@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlAddAce @ 0x140724BB0
+ * XREFs of RtlAddAce @ 0x14065F130
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140257C7C (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14064B9D8 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140678874 (PiDevCfgGetKeySecurityDescriptor.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140724550 (SepAppendAceToTokenObjectAcl.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402C91B4 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x14065F440 (SepAppendAceToTokenObjectAcl.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14073C380 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x140724CE0 (RtlFirstFreeAce.c)
- *     RtlValidAcl @ 0x1407B4A50 (RtlValidAcl.c)
+ *     RtlFirstFreeAce @ 0x14065B880 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)
@@ -31,7 +31,7 @@ NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex
   __int64 v23[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v23[0] = 0LL;
-  if ( !(unsigned __int8)RtlValidAcl(Acl) || !(unsigned __int8)RtlFirstFreeAce(Acl, v23) )
+  if ( !RtlValidAcl((__int64)Acl) || !RtlFirstFreeAce((__int64)Acl, v23) )
     return -1073741811;
   v9 = (char *)AceList;
   AclRevision = AceRevision;

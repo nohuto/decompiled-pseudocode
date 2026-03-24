@@ -1,38 +1,41 @@
 /*
- * XREFs of EtwpAddDataSource @ 0x1407918AC
+ * XREFs of EtwpAddDataSource @ 0x1406E44BC
  * Callers:
- *     EtwpQueueNotification @ 0x140790EEC (EtwpQueueNotification.c)
- *     EtwpAddNotificationEvent @ 0x140791804 (EtwpAddNotificationEvent.c)
+ *     EtwpQueueNotification @ 0x1406E424C (EtwpQueueNotification.c)
+ *     EtwpAddNotificationEvent @ 0x1406E4414 (EtwpAddNotificationEvent.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpAddDataSource(__int64 a1)
+_QWORD *__fastcall EtwpAddDataSource(__int64 a1)
 {
-  __int64 result; // rax
-  void *v3; // rcx
+  _QWORD *result; // rax
+  _QWORD *v3; // rcx
   _QWORD *v4; // rax
   signed __int64 v5; // rbx
 
-  result = *(_QWORD *)(a1 + 1424);
+  result = *(_QWORD **)(a1 + 1424);
   if ( !result )
   {
-    result = ExAllocatePool2(64LL, 40LL, 1400337477LL);
-    v3 = (void *)result;
+    result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x53777445u);
+    v3 = result;
     if ( result )
     {
-      *(_QWORD *)(result + 16) = 0LL;
-      v4 = (_QWORD *)(result + 24);
+      *result = 0LL;
+      result[1] = 0LL;
+      result[4] = 0LL;
+      v4 = result + 3;
       v4[1] = v4;
       *v4 = v4;
+      v3[2] = 0LL;
       v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1424), (signed __int64)v3, 0LL);
       if ( v5 )
       {
         ExFreePoolWithTag(v3, 0);
-        return v5;
+        return (_QWORD *)v5;
       }
-      return (__int64)v3;
+      return v3;
     }
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetSignedFieldValue @ 0x140318EE0
+ * XREFs of EtwpGetSignedFieldValue @ 0x140318FE0
  * Callers:
- *     EtwpApplyPredicate @ 0x140318910 (EtwpApplyPredicate.c)
+ *     EtwpApplyPredicate @ 0x140318A10 (EtwpApplyPredicate.c)
  * Callees:
- *     ExSystemExceptionFilter @ 0x1406E2790 (ExSystemExceptionFilter.c)
+ *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
  */
 
 char __fastcall EtwpGetSignedFieldValue(char *a1, int a2, _QWORD *a3)

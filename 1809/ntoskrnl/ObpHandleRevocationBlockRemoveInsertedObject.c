@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x140861280
+ * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x140861260
  * Callers:
- *     ObpHandleRevocationBlockRemoveObject @ 0x140691B80 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObDestroyHandleRevocationBlock @ 0x1406B3860 (ObDestroyHandleRevocationBlock.c)
- *     ObRevokeHandles @ 0x1406E1D54 (ObRevokeHandles.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140691B60 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1406B3840 (ObDestroyHandleRevocationBlock.c)
+ *     ObRevokeHandles @ 0x1406E1D34 (ObRevokeHandles.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)

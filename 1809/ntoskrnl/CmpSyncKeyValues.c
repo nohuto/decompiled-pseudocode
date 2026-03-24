@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSyncKeyValues @ 0x1407FE4FC
+ * XREFs of CmpSyncKeyValues @ 0x1407FE4DC
  * Callers:
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
- *     CmpMergeKeyValues @ 0x1407FDB00 (CmpMergeKeyValues.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmpMergeKeyValues @ 0x1407FDAE0 (CmpMergeKeyValues.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
  *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     CmpFreeSecurityDescriptor @ 0x1405AF34C (CmpFreeSecurityDescriptor.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpCopyCell @ 0x140695738 (CmpCopyCell.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1406FFD24 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD54 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpCopyValue @ 0x1407FD3A4 (CmpCopyValue.c)
- *     CmpFreeKeyValues @ 0x1407FD724 (CmpFreeKeyValues.c)
+ *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x1406FFD04 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD34 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
+ *     CmpFreeKeyValues @ 0x1407FD704 (CmpFreeKeyValues.c)
  */
 
 char __fastcall CmpSyncKeyValues(

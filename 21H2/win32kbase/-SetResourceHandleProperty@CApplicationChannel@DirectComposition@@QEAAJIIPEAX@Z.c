@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetResourceHandleProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEAX@Z @ 0x1C00854A8
+ * XREFs of ?SetResourceHandleProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEAX@Z @ 0x1C0098E7C
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0085EE4 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00263C8 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceHandleProperty(
@@ -14,16 +14,22 @@ __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceHandleProp
         void *a4)
 {
   unsigned __int64 v5; // rcx
-  struct DirectComposition::CResourceMarshaler *v6; // rsi
-  int v7; // edi
+  struct DirectComposition::CResourceMarshaler *v6; // rbx
+  int v7; // esi
   char v9; // [rsp+48h] [rbp+10h] BYREF
 
   v9 = 0;
   v5 = (unsigned int)(a2 - 1);
-  if ( a2
-    && v5 < *((_QWORD *)this + 10)
-    && (_mm_lfence(),
-        (v6 = *(struct DirectComposition::CResourceMarshaler **)(v5 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7))) != 0LL) )
+  if ( a2 && v5 < *((_QWORD *)this + 10) )
+  {
+    _mm_lfence();
+    v6 = *(struct DirectComposition::CResourceMarshaler **)(v5 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( v6 )
   {
     v7 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, _QWORD, void *, char *))(*(_QWORD *)v6 + 128LL))(
            v6,

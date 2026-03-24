@@ -1,10 +1,10 @@
 /*
- * XREFs of KiValidateComponentName @ 0x140292E60
+ * XREFs of KiValidateComponentName @ 0x140292F60
  * Callers:
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140292960 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140292A60 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     RtlStringCbLengthA @ 0x140286194 (RtlStringCbLengthA.c)
+ *     RtlStringCbLengthA @ 0x140286294 (RtlStringCbLengthA.c)
  */
 
 char __fastcall KiValidateComponentName(__int64 psz, _DWORD *a2)

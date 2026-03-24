@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetEnergyTrackingStateJobTree @ 0x1406954C8
+ * XREFs of PspSetEnergyTrackingStateJobTree @ 0x140716C84
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PspIsContextAdmin @ 0x1406950FC (PspIsContextAdmin.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspIsContextAdmin @ 0x140715EE0 (PspIsContextAdmin.c)
  */
 
 __int64 __fastcall PspSetEnergyTrackingStateJobTree(char *Object, _DWORD *a2)
@@ -16,8 +16,14 @@ __int64 __fastcall PspSetEnergyTrackingStateJobTree(char *Object, _DWORD *a2)
   if ( !PspIsContextAdmin() )
     return 3221225506LL;
   ExAcquireResourceExclusiveLite((PERESOURCE)(Object + 56), 1u);
-  *((_QWORD *)Object + 221) = *(_QWORD *)a2;
-  PspEnumJobsAndProcessesInJobHierarchy(Object, (__int64)a2, 5);
+  *((_QWORD *)Object + 197) = *(_QWORD *)a2;
+  PspEnumJobsAndProcessesInJobHierarchy(
+    Object,
+    (int)PspSetJobEnergyTrackingStateCallback,
+    0,
+    (int)PspSetProcessEnergyTrackingStateCallback,
+    (__int64)a2,
+    5);
   ExReleaseResourceLite((PERESOURCE)(Object + 56));
   return 0LL;
 }

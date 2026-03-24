@@ -3,7 +3,7 @@
  * Callers:
  *     CmpRemoveHiveFromNamespace @ 0x14000FBF0 (CmpRemoveHiveFromNamespace.c)
  *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     CmpInvalidateSubtreeWorker @ 0x1406E1330 (CmpInvalidateSubtreeWorker.c)
+ *     CmpInvalidateSubtreeWorker @ 0x1406E1310 (CmpInvalidateSubtreeWorker.c)
  * Callees:
  *     CmpDelayDerefKeyControlBlock @ 0x1405D4264 (CmpDelayDerefKeyControlBlock.c)
  */

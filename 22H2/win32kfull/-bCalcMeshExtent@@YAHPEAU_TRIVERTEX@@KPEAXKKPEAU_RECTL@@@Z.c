@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z @ 0x1C0002078
+ * XREFs of ?bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z @ 0x1C00B7754
  * Callers:
- *     GreGradientFill @ 0x1C0001610 (GreGradientFill.c)
+ *     GreGradientFill @ 0x1C00B6084 (GreGradientFill.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bCalcMeshExtent(
@@ -14,10 +14,10 @@ __int64 __fastcall bCalcMeshExtent(
         unsigned int a5,
         struct _RECTL *a6)
 {
-  LONG v6; // edi
-  LONG v7; // r11d
-  LONG v8; // esi
-  LONG v9; // ebp
+  LONG v6; // ebx
+  LONG v7; // edi
+  LONG v8; // ebp
+  LONG v9; // r14d
   __int64 v14; // rax
   unsigned int v15; // ecx
   __int64 v16; // rax
@@ -30,19 +30,19 @@ __int64 __fastcall bCalcMeshExtent(
   LONG v23; // eax
   int v24; // ecx
   __int64 result; // rax
-  int v26; // r9d
-  __int64 v27; // r10
+  int v26; // r8d
+  __int64 v27; // r9
   __int64 v28; // rax
   __int64 v29; // rax
-  LONG x; // ecx
-  LONG v31; // r8d
+  LONG v30; // ecx
   LONG y; // edx
+  LONG x; // eax
   LONG v33; // eax
   int v34; // [rsp+0h] [rbp-48h]
   _DWORD v35[4]; // [rsp+8h] [rbp-40h]
 
-  v6 = 0x80000000;
-  v7 = 0x7FFFFFFF;
+  v6 = 0x7FFFFFFF;
+  v7 = 0x80000000;
   v8 = 0x7FFFFFFF;
   v9 = 0x80000000;
   if ( a5 >= 2 )
@@ -52,7 +52,7 @@ __int64 __fastcall bCalcMeshExtent(
       v26 = 0;
       if ( a4 )
       {
-LABEL_31:
+LABEL_29:
         v27 = 0LL;
         v35[0] = *a3;
         v35[1] = a3[1];
@@ -63,47 +63,43 @@ LABEL_31:
           if ( (unsigned int)v28 >= a2 )
             break;
           v29 = v28;
-          x = a1[v29].x;
-          v31 = x;
+          ++v27;
           y = a1[v29].y;
-          v33 = y;
-          if ( x >= v7 )
-            v31 = v7;
-          v7 = v31;
-          if ( x <= v6 )
+          x = a1[v29].x;
+          v30 = x;
+          if ( x >= v6 )
             x = v6;
           v6 = x;
+          v33 = y;
+          if ( v30 <= v7 )
+            v30 = v7;
+          v7 = v30;
           if ( y >= v8 )
             v33 = v8;
           v8 = v33;
           if ( y <= v9 )
             y = v9;
-          ++v27;
           v9 = y;
           if ( v27 >= 3 )
           {
             a3 += 3;
             if ( ++v26 < a4 )
-              goto LABEL_31;
-            goto LABEL_22;
-          }
-        }
-      }
-      else
-      {
+              goto LABEL_29;
 LABEL_22:
-        if ( v7 >= -134217728
-          && v7 <= 0x8000000
-          && (unsigned int)(v6 + 0x8000000) <= 0x10000000
-          && (unsigned int)(v8 + 0x8000000) <= 0x10000000
-          && (unsigned int)(v9 + 0x8000000) <= 0x10000000 )
-        {
-          a6->left = v7;
-          result = 1LL;
-          a6->right = v6;
-          a6->top = v8;
-          a6->bottom = v9;
-          return result;
+            if ( (unsigned int)(v6 + 0x8000000) <= 0x10000000
+              && (unsigned int)(v7 + 0x8000000) <= 0x10000000
+              && (unsigned int)(v8 + 0x8000000) <= 0x10000000
+              && (unsigned int)(v9 + 0x8000000) <= 0x10000000 )
+            {
+              a6->left = v6;
+              result = 1LL;
+              a6->right = v7;
+              a6->top = v8;
+              a6->bottom = v9;
+              return result;
+            }
+            break;
+          }
         }
       }
     }
@@ -129,12 +125,12 @@ LABEL_22:
         v21 = a1[v19].x;
         v22 = a1[v19].y;
         v23 = v18;
-        if ( v18 >= v7 )
-          v23 = v7;
-        v7 = v21;
-        if ( v18 <= v6 )
-          v18 = v6;
+        if ( v18 >= v6 )
+          v23 = v6;
         v6 = v21;
+        if ( v18 <= v7 )
+          v18 = v7;
+        v7 = v21;
         if ( v17 >= v8 )
           v20 = v8;
         v8 = v22;
@@ -142,9 +138,9 @@ LABEL_22:
           v17 = v9;
         v9 = v22;
         if ( v21 >= v23 )
-          v7 = v23;
+          v6 = v23;
         if ( v21 <= v18 )
-          v6 = v18;
+          v7 = v18;
         if ( v22 >= v20 )
           v8 = v20;
         v24 = v34;

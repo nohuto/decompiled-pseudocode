@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_UsbDevice_SetPortPower @ 0x1C0050F68
+ * XREFs of Crashdump_UsbDevice_SetPortPower @ 0x1C004E498
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004C768 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
- *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004F968 (Crashdump_UsbDevice_ChangePortFeature.c)
+ *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004CE90 (Crashdump_UsbDevice_ChangePortFeature.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_SetPortPower(__int64 a1, int a2)

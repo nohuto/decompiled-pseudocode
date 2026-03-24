@@ -1,11 +1,11 @@
 /*
- * XREFs of LsaCallAuthenticationPackage @ 0x1409C91F0
+ * XREFs of LsaCallAuthenticationPackage @ 0x14091C470
  * Callers:
  *     <none>
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall LsaCallAuthenticationPackage(

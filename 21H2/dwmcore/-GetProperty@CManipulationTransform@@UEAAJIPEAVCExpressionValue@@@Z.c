@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800F0B50
+ * XREFs of ?GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800D90D0
  * Callers:
  *     <none>
  * Callees:
- *     ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x18000E410 (-CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z.c)
+ *     ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x180024174 (-CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z.c)
  */
 
 __int64 __fastcall CManipulationTransform::GetProperty(
@@ -34,20 +34,20 @@ __int64 __fastcall CManipulationTransform::GetProperty(
           {
             if ( v8 == 1 )
             {
-              if ( *((_BYTE *)this + 272) )
+              if ( *((_BYTE *)this + 264) )
               {
                 CManipulationTransform::CalculateMatrixFromDelta(
-                  (CManipulationTransform *)((char *)this + 160),
-                  (CManipulationTransform *)((char *)this + 184),
-                  (CManipulationTransform *)((char *)this + 196),
-                  (CManipulationTransform *)((char *)this + 208));
-                *((_BYTE *)this + 272) = 0;
+                  (CManipulationTransform *)((char *)this + 152),
+                  (CManipulationTransform *)((char *)this + 176),
+                  (CManipulationTransform *)((char *)this + 188),
+                  (CManipulationTransform *)((char *)this + 200));
+                *((_BYTE *)this + 264) = 0;
               }
               *((_DWORD *)a3 + 18) = 265;
-              *(_OWORD *)a3 = *((_OWORD *)this + 13);
-              *((_OWORD *)a3 + 1) = *((_OWORD *)this + 14);
-              *((_OWORD *)a3 + 2) = *((_OWORD *)this + 15);
-              v9 = *((_OWORD *)this + 16);
+              *(_OWORD *)a3 = *(_OWORD *)((char *)this + 200);
+              *((_OWORD *)a3 + 1) = *(_OWORD *)((char *)this + 216);
+              *((_OWORD *)a3 + 2) = *(_OWORD *)((char *)this + 232);
+              v9 = *(_OWORD *)((char *)this + 248);
               *((_BYTE *)a3 + 76) = 1;
               *((_OWORD *)a3 + 3) = v9;
             }
@@ -58,29 +58,29 @@ __int64 __fastcall CManipulationTransform::GetProperty(
             return v3;
           }
           *((_DWORD *)a3 + 18) = 52;
-          *(_QWORD *)a3 = *(_QWORD *)((char *)this + 196);
-          v11 = *((_DWORD *)this + 51);
+          *(_QWORD *)a3 = *(_QWORD *)((char *)this + 188);
+          v11 = *((_DWORD *)this + 49);
         }
         else
         {
           *((_DWORD *)a3 + 18) = 52;
-          *(_QWORD *)a3 = *((_QWORD *)this + 23);
-          v11 = *((_DWORD *)this + 48);
+          *(_QWORD *)a3 = *((_QWORD *)this + 22);
+          v11 = *((_DWORD *)this + 46);
         }
       }
       else
       {
         *((_DWORD *)a3 + 18) = 52;
-        *(_QWORD *)a3 = *(_QWORD *)((char *)this + 172);
-        v11 = *((_DWORD *)this + 45);
+        *(_QWORD *)a3 = *(_QWORD *)((char *)this + 164);
+        v11 = *((_DWORD *)this + 43);
       }
       *((_DWORD *)a3 + 2) = v11;
     }
     else
     {
       *((_DWORD *)a3 + 18) = 52;
-      *(_QWORD *)a3 = *((_QWORD *)this + 20);
-      *((_DWORD *)a3 + 2) = *((_DWORD *)this + 42);
+      *(_QWORD *)a3 = *((_QWORD *)this + 19);
+      *((_DWORD *)a3 + 2) = *((_DWORD *)this + 40);
     }
     *((_BYTE *)a3 + 76) = 1;
     return v3;

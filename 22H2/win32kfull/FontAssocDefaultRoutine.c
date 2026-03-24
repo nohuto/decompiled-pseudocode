@@ -1,44 +1,42 @@
 /*
- * XREFs of FontAssocDefaultRoutine @ 0x1C029E620
+ * XREFs of FontAssocDefaultRoutine @ 0x1C02975B0
  * Callers:
  *     <none>
  * Callees:
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00860F8 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01150FC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     cCapString @ 0x1C0116A58 (cCapString.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064C1C (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A096C (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     cCapString @ 0x1C00BBAF4 (cCapString.c)
  */
 
 __int64 __fastcall FontAssocDefaultRoutine(wchar_t *Str1, __int64 a2, char *a3)
 {
-  __int64 v5; // rbx
-  unsigned int v6; // edi
-  __int64 v7; // rbp
+  unsigned int v5; // ebx
+  __int64 v6; // r14
 
-  v5 = *(_QWORD *)(SGDGetSessionState(Str1) + 32);
   if ( _wcsicmp(Str1, L"AssocSystemFont") )
   {
     if ( _wcsicmp(Str1, L"FontPackage") )
     {
-      v6 = 0;
+      v5 = 0;
       while ( 1 )
       {
-        v7 = 664LL * v6;
-        if ( !_wcsicmp(Str1, (const wchar_t *)(v7 + v5 + 14096)) )
+        v6 = 664LL * v5;
+        if ( !_wcsicmp(Str1, (const wchar_t *)((char *)&FontAssocDefaultTable + v6 + 8)) )
           break;
-        if ( ++v6 >= 7 )
+        if ( ++v5 >= 7 )
           return 0LL;
       }
-      if ( *(_WORD *)a3 && (int)StringCchCopyW((char *)(v7 + v5 + 14146), 33LL, a3) >= 0 )
-        *(_DWORD *)(v5 + v7 + 14088) = 1;
+      if ( *(_WORD *)a3 && (int)StringCchCopyW((char *)&FontAssocDefaultTable + v6 + 58, 33LL, a3) >= 0 )
+        *((_DWORD *)&FontAssocDefaultTable + 166 * v5) = 1;
     }
     else
     {
-      cCapString((WCHAR *)(v5 + 19268), (WCHAR *)a3, 32);
+      cCapString(word_1C0339BF0, (WCHAR *)a3, 32);
     }
   }
   else
   {
-    bAppendSysDirectory((unsigned __int16 *)(v5 + 18748), (size_t *)a3);
+    bAppendSysDirectory(&gawcSystemDBCSFontPath, (const unsigned __int16 *)a3);
   }
   return 0LL;
 }

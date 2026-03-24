@@ -1,16 +1,16 @@
 /*
- * XREFs of VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C0038B38
+ * XREFs of VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C002FD8C
  * Callers:
- *     VidSchiScheduleCommandToRun @ 0x1C0009B20 (VidSchiScheduleCommandToRun.c)
- *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003BC24 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B040 (VidSchiScheduleCommandToRun.c)
+ *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0033178 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
  * Callees:
- *     VidSchiUnwaitMonitoredFences @ 0x1C000B960 (VidSchiUnwaitMonitoredFences.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0018B1C (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
- *     VidSchiCompleteSignalCommmand @ 0x1C0019138 (VidSchiCompleteSignalCommmand.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     memset @ 0x1C001DC40 (memset.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CC70 (VidSchiUnwaitMonitoredFences.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015ED4 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     VidSchiCompleteSignalCommmand @ 0x1C00165FC (VidSchiCompleteSignalCommmand.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
  */
 
 _QWORD *__fastcall VidSchiProcessCrossAdapterSignaledSyncObjects(struct HwQueueStagingList *a1, __int64 a2)
@@ -31,15 +31,14 @@ _QWORD *__fastcall VidSchiProcessCrossAdapterSignaledSyncObjects(struct HwQueueS
   __int64 *v17; // [rsp+28h] [rbp-D8h]
   _QWORD v18[4]; // [rsp+30h] [rbp-D0h] BYREF
   __int16 v19; // [rsp+50h] [rbp-B0h]
-  _QWORD v20[140]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v20[134]; // [rsp+60h] [rbp-A0h] BYREF
 
-  memset(v20, 0, sizeof(v20));
   v19 = 0;
   v17 = &v16;
   v16 = (__int64)&v16;
-  v18[0] = a2 + 3176;
+  v18[0] = a2 + 3080;
   AcquireSpinLock::Acquire((Acquire *)v18);
-  v4 = (__int64 **)(a2 + 3160);
+  v4 = (__int64 **)(a2 + 3064);
   while ( 1 )
   {
     v5 = *v4;
@@ -55,7 +54,7 @@ LABEL_20:
     v7[1] = (__int64)v17;
     *v7 = (__int64)&v16;
     *v8 = (__int64)v7;
-    --*(_DWORD *)(a2 + 3192);
+    --*(_DWORD *)(a2 + 3096);
     v17 = v7;
   }
   AcquireSpinLock::Release((AcquireSpinLock *)v18);
@@ -74,8 +73,8 @@ LABEL_20:
     v11 = result - 22;
     *result = 0LL;
     result[1] = 0LL;
-    v12 = *((_DWORD *)result - 32);
-    v13 = *(_QWORD *)(a2 + 248);
+    v12 = *((_DWORD *)result - 33);
+    v13 = *(_QWORD *)(a2 + 240);
     if ( v12 == 2 )
     {
       memset(v20, 0, sizeof(v20));
@@ -97,7 +96,7 @@ LABEL_20:
       if ( *(_BYTE *)(v11[26] + 48LL) )
         _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled((_VIDSCH_SYNC_OBJECT *)v11, a1, 0);
       else
-        VidSchiUnwaitMonitoredFences((__int64)a1, a2, 0LL);
+        VidSchiUnwaitMonitoredFences(a1, a2, 0LL);
     }
   }
 }

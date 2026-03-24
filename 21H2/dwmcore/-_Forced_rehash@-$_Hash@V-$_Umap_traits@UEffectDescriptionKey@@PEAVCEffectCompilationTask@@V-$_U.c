@@ -1,10 +1,12 @@
 /*
- * XREFs of ?_Forced_rehash@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@IEAAX_K@Z @ 0x180016594
+ * XREFs of ?_Forced_rehash@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@IEAAX_K@Z @ 0x18001AA28
  * Callers:
- *     ?_Rehash_for_1@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@IEAAXXZ @ 0x18001A98C (-_Rehash_for_1@-$_Hash@V-$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V-$_Uh.c)
+ *     ?_Check_size@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@IEAAXXZ @ 0x1800CB068 (-_Check_size@-$_Hash@V-$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V-$_Uhas.c)
  * Callees:
- *     ?_Assign_grow@?$_Hash_vec@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAX_KV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@2@@Z @ 0x18003080C (-_Assign_grow@-$_Hash_vec@V-$allocator@V-$_List_unchecked_iterator@V-$_List_val@U-$_ea_18003080C.c)
- *     ??$?RUEffectDescriptionKey@@U0@@?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@QEBA_NAEBUEffectDescriptionKey@@0@Z @ 0x1800DA740 (--$-RUEffectDescriptionKey@@U0@@-$_Uhash_compare@UEffectDescriptionKey@@U-$hash@UEffectDescripti.c)
+ *     ??$_Insert_unverified@AEAU?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@std@@@std@@@2@@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@IEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@std@@@std@@@std@@_N@1@AEAU?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@1@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@std@@@std@@@1@@Z @ 0x18001AB18 (--$_Insert_unverified@AEAU-$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@V-.c)
+ *     ?assign@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@std@@@std@@@std@@@2@@std@@QEAAX_KAEBV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@std@@@std@@@2@@Z @ 0x18001AC14 (-assign@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@$$CBUEff.c)
+ *     ?_Reallocate_exactly@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCChannelContext@@M@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCChannelContext@@M@std@@@std@@@std@@@std@@@2@@std@@AEAAX_K@Z @ 0x18001AD0C (-_Reallocate_exactly@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1800EB3A0 (-_Xlength@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@.c)
  */
 
 _QWORD *__fastcall std::_Hash<std::_Umap_traits<EffectDescriptionKey,CEffectCompilationTask *,std::_Uhash_compare<EffectDescriptionKey,std::hash<EffectDescriptionKey>,std::equal_to<EffectDescriptionKey>>,std::allocator<std::pair<EffectDescriptionKey const,CEffectCompilationTask *>>,0>>::_Forced_rehash(
@@ -12,114 +14,48 @@ _QWORD *__fastcall std::_Hash<std::_Umap_traits<EffectDescriptionKey,CEffectComp
         unsigned __int64 a2)
 {
   unsigned __int64 v3; // rcx
-  _QWORD *v4; // rbp
-  __int64 *v5; // rsi
-  unsigned __int64 v6; // rcx
-  __int64 v7; // rbx
-  _QWORD *v8; // rcx
+  unsigned __int64 v4; // rcx
+  __int64 v5; // rbx
   _QWORD *result; // rax
-  _QWORD *v10; // rbx
-  _QWORD *v11; // rdi
-  __int64 v12; // r15
-  __int64 v13; // r14
-  _QWORD *v14; // rsi
-  _QWORD **v15; // r8
-  _QWORD *v16; // rdx
-  _QWORD *v17; // r8
-  _QWORD *v18; // rdx
-  _QWORD *v19; // r8
-  _QWORD *v20; // rdx
+  __int64 v7; // rsi
+  __int64 v8; // rbx
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
   _BitScanReverse64(&v3, 0xFFFFFFFFFFFFFFFuLL);
   if ( a2 > 1LL << v3 )
     std::_Xlength_error("invalid hash bucket count");
-  v4 = (_QWORD *)a1[1];
-  v5 = a1 + 3;
-  _BitScanReverse64(&v6, (a2 - 1) | 1);
-  v7 = 1LL << ((unsigned __int8)v6 + 1);
-  std::_Hash_vec<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CResource * const,CAnimationLoggingManager::ResourceDebugInfo>>>>>>::_Assign_grow(
-    a1 + 3,
-    2 * v7,
-    v4);
-  result = (_QWORD *)(v7 - 1);
-  a1[7] = v7;
-  a1[6] = v7 - 1;
-  v10 = *(_QWORD **)a1[1];
-  v11 = v10;
-  while ( v10 != v4 )
+  _BitScanReverse64(&v4, (a2 - 1) | 1);
+  v5 = 1LL << ((unsigned __int8)v4 + 1);
+  if ( 2 * v5 > (unsigned __int64)((__int64)(a1[5] - a1[3]) >> 3) )
   {
-    v12 = *v5;
-    v11 = (_QWORD *)*v11;
-    v13 = 2 * (a1[6] & (unsigned int)v10[2]);
-    if ( *(_QWORD **)(*v5 + 16 * (a1[6] & (unsigned int)v10[2])) == v4 )
+    if ( (unsigned __int64)(2 * v5) > 0x1FFFFFFFFFFFFFFFLL )
+      std::vector<std::unique_ptr<CCheckMPOCache>>::_Xlength();
+    std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CChannelContext * const,float>>>>>::_Reallocate_exactly(
+      a1 + 3,
+      2 * v5);
+  }
+  v10 = a1[1];
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<EffectDescriptionKey const,CEffectCompilationTask *>>>>>::assign(
+    a1 + 3,
+    2 * v5,
+    &v10);
+  a1[7] = v5;
+  a1[6] = v5 - 1;
+  result = (_QWORD *)a1[1];
+  if ( (_QWORD *)*result != result )
+  {
+    v7 = result[1];
+    do
     {
-      *(_QWORD *)(v12 + 16 * (a1[6] & (unsigned int)v10[2])) = v10;
-      *(_QWORD *)(v12 + 8 * v13 + 8) = v10;
+      v8 = *(_QWORD *)a1[1];
+      result = (_QWORD *)std::_Hash<std::_Umap_traits<EffectDescriptionKey,CEffectCompilationTask *,std::_Uhash_compare<EffectDescriptionKey,std::hash<EffectDescriptionKey>,std::equal_to<EffectDescriptionKey>>,std::allocator<std::pair<EffectDescriptionKey const,CEffectCompilationTask *>>,0>>::_Insert_unverified<std::pair<EffectDescriptionKey const,CEffectCompilationTask *> &,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<EffectDescriptionKey const,CEffectCompilationTask *>>>>>(
+                           a1,
+                           v9,
+                           v8 + 16,
+                           v8);
     }
-    else
-    {
-      v14 = *(_QWORD **)(v12 + 16 * (a1[6] & (unsigned int)v10[2]) + 8);
-      result = (_QWORD *)std::_Uhash_compare<EffectDescriptionKey,std::hash<EffectDescriptionKey>,std::equal_to<EffectDescriptionKey>>::operator()<EffectDescriptionKey,EffectDescriptionKey>(
-                           v8,
-                           v10 + 2,
-                           v14 + 2);
-      if ( (_BYTE)result )
-      {
-        do
-        {
-          v15 = (_QWORD **)(v14 + 1);
-          if ( *(_QWORD **)(v12 + 8 * v13) == v14 )
-          {
-            v16 = (_QWORD *)v10[1];
-            *v16 = v11;
-            result = (_QWORD *)v11[1];
-            *result = v14;
-            v8 = *v15;
-            *v8 = v10;
-            *v15 = result;
-            v11[1] = v16;
-            v10[1] = v8;
-            *(_QWORD *)(v12 + 8 * v13) = v10;
-            goto LABEL_10;
-          }
-          v14 = *v15;
-        }
-        while ( (unsigned __int8)std::_Uhash_compare<EffectDescriptionKey,std::hash<EffectDescriptionKey>,std::equal_to<EffectDescriptionKey>>::operator()<EffectDescriptionKey,EffectDescriptionKey>(
-                                   v8,
-                                   v10 + 2,
-                                   *v15 + 2) );
-        v19 = (_QWORD *)*v14;
-        v20 = (_QWORD *)v10[1];
-        *v20 = v11;
-        v8 = (_QWORD *)v11[1];
-        *v8 = v19;
-        result = (_QWORD *)v19[1];
-        *result = v10;
-        v19[1] = v8;
-        v11[1] = v20;
-        v10[1] = result;
-      }
-      else
-      {
-        v17 = (_QWORD *)*v14;
-        if ( (_QWORD *)*v14 != v10 )
-        {
-          v18 = (_QWORD *)v10[1];
-          *v18 = v11;
-          v8 = (_QWORD *)v11[1];
-          *v8 = v17;
-          result = (_QWORD *)v17[1];
-          *result = v10;
-          v17[1] = v8;
-          v11[1] = v18;
-          v10[1] = result;
-        }
-        *(_QWORD *)(v12 + 8 * v13 + 8) = v10;
-      }
-LABEL_10:
-      v5 = a1 + 3;
-    }
-    v10 = v11;
+    while ( v8 != v7 );
   }
   return result;
 }

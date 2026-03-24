@@ -1,19 +1,20 @@
 /*
- * XREFs of EtwpUpdateDisallowedGuids @ 0x1409EFF90
+ * XREFs of EtwpUpdateDisallowedGuids @ 0x14094168C
  * Callers:
- *     EtwpUpdateDisallowList @ 0x1409E79A8 (EtwpUpdateDisallowList.c)
+ *     EtwpUpdateDisallowList @ 0x140934430 (EtwpUpdateDisallowList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E7580 (EtwpNotifyDisallowedGuidChange.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933C54 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933F3C (EtwpDisallowedGuidRemoval.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateDisallowedGuids(
@@ -25,31 +26,32 @@ __int64 __fastcall EtwpUpdateDisallowedGuids(
         __int64 a6,
         __int64 a7)
 {
-  size_t v7; // r14
+  size_t v7; // r13
   unsigned int v8; // ebx
-  void *Pool2; // rax
-  unsigned __int64 v13; // r15
-  unsigned int v14; // r8d
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  char *v17; // rsi
-  char *v18; // r13
-  char *v19; // r12
-  char *v20; // rdi
+  char *PoolWithTag; // rax
+  char *v12; // r14
+  unsigned int v13; // r8d
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r15
+  char *v17; // rdi
+  char *v18; // r12
+  char *v19; // rsi
+  char *v20; // r13
   int v21; // eax
-  PVOID **v22; // rax
+  PVOID *v22; // rax
   PVOID *v23; // rcx
-  PVOID **v24; // r14
-  PVOID *v25; // rax
+  _QWORD *v24; // r15
+  _OWORD *v25; // rax
   PVOID *v26; // rax
-  PVOID **v27; // rsi
+  void *v27; // rcx
   PVOID *v28; // rax
-  PVOID *v29; // rax
-  PVOID **v30; // rcx
-  PVOID **v31; // rax
-  PVOID *v32; // rcx
+  PVOID *v29; // rcx
+  _QWORD *v30; // rdi
+  _OWORD *v31; // rax
+  PVOID *v32; // rax
   volatile signed __int64 *v33; // rdi
-  void *v34; // r14
+  void *v34; // r15
   PVOID *v35; // rax
   _QWORD *v36; // rsi
   void *v37; // rdi
@@ -86,45 +88,83 @@ __int64 __fastcall EtwpUpdateDisallowedGuids(
   v57 = &v57;
   if ( a2 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, 16LL * a2, 1685550149LL);
-    v13 = (unsigned __int64)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 16LL * a2, 0x64777445u);
+    v12 = PoolWithTag;
+    if ( !PoolWithTag )
     {
+LABEL_53:
       v8 = -1073741670;
-      goto LABEL_55;
+LABEL_54:
+      v40 = (PVOID *)P;
+      v41 = P;
+      while ( v40 != &P )
+      {
+        v42 = (_QWORD *)*v41;
+        v43 = v41;
+        v41 = v42;
+        if ( (_QWORD *)v42[1] != v43 )
+          goto LABEL_69;
+        v44 = (_QWORD *)v43[1];
+        if ( (_QWORD *)*v44 != v43 )
+          goto LABEL_69;
+        *v44 = v42;
+        v42[1] = v44;
+        ExFreePoolWithTag((PVOID)v43[2], 0);
+        ExFreePoolWithTag(v43, 0);
+        v40 = (PVOID *)P;
+      }
+      v45 = (PVOID *)v57;
+      v46 = v57;
+      while ( v45 != &v57 )
+      {
+        v47 = *v46;
+        v48 = v46;
+        v46 = (_QWORD *)v47;
+        if ( *(_QWORD **)(v47 + 8) != v48 )
+          goto LABEL_69;
+        v49 = (_QWORD *)v48[1];
+        if ( (_QWORD *)*v49 != v48 )
+          goto LABEL_69;
+        *v49 = v47;
+        *(_QWORD *)(v47 + 8) = v49;
+        ExFreePoolWithTag(v48, 0);
+        v45 = (PVOID *)v57;
+      }
+      return v8;
     }
-    memmove(Pool2, a3, 16 * v7);
-    qsort((void *)v13, v7, 0x10uLL, (int (__cdecl *)(const void *, const void *))EtwpCompareGuid);
-    v14 = 0;
+    memmove(PoolWithTag, a3, 16 * v7);
+    qsort(v12, v7, 0x10uLL, (int (__cdecl *)(const void *, const void *))EtwpCompareGuid);
+    v13 = 0;
     if ( (_DWORD)v7 != 1 )
     {
       while ( 1 )
       {
-        v15 = 16LL * v14;
-        v16 = *(_QWORD *)(v15 + v13) - *(_QWORD *)(v15 + v13 + 16);
-        if ( !v16 )
-          v16 = *(_QWORD *)(v15 + v13 + 8) - *(_QWORD *)(v15 + v13 + 24);
-        if ( !v16 )
+        v14 = 16LL * v13;
+        v15 = *(_QWORD *)&v12[v14] - *(_QWORD *)&v12[v14 + 16];
+        if ( !v15 )
+          v15 = *(_QWORD *)&v12[v14 + 8] - *(_QWORD *)&v12[v14 + 24];
+        if ( !v15 )
           break;
-        if ( ++v14 >= (int)v7 - 1 )
-          goto LABEL_14;
+        if ( ++v13 >= (int)v7 - 1 )
+          goto LABEL_13;
       }
-      ExFreePoolWithTag((PVOID)v13, 0);
+      ExFreePoolWithTag(v12, 0);
       v8 = -1073741811;
-      goto LABEL_55;
+      goto LABEL_54;
     }
   }
   else
   {
-    v13 = 0LL;
+    v12 = 0LL;
   }
-LABEL_14:
-  Mutex = (struct _KMUTANT *)(a1 + 632);
-  KeWaitForSingleObject((PVOID)(a1 + 632), Executive, 0, 0, 0LL);
-  if ( *(_WORD *)(a1 + 1064) )
+LABEL_13:
+  v16 = a1;
+  Mutex = (struct _KMUTANT *)(a1 + 648);
+  KeWaitForSingleObject((PVOID)(a1 + 648), Executive, 0, 0, 0LL);
+  if ( *(_WORD *)(a1 + 1048) )
   {
-    v17 = *(char **)(a1 + 1072);
-    v18 = &v17[16 * *(unsigned __int16 *)(a1 + 1064)];
+    v17 = *(char **)(a1 + 1056);
+    v18 = &v17[16 * *(unsigned __int16 *)(a1 + 1048)];
   }
   else
   {
@@ -132,209 +172,172 @@ LABEL_14:
     v18 = 0LL;
   }
   if ( (_WORD)v7 )
-    v19 = (char *)(v13 + 16 * v7);
-  else
-    v19 = 0LL;
-  v20 = (char *)(v13 & -(__int64)((_WORD)v7 != 0));
-  if ( v17 >= v18 )
   {
-LABEL_34:
-    if ( v20 >= v19 )
-    {
-LABEL_45:
-      v33 = (volatile signed __int64 *)(a1 + 688);
-      ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-      *(_WORD *)(a1 + 1064) = v7;
-      v34 = *(void **)(a1 + 1072);
-      *(_QWORD *)(a1 + 1072) = v13;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 688), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v33);
-      KeAbPostRelease((ULONG_PTR)v33);
-      KeReleaseMutex((PRKMUTEX)(a1 + 632), 0);
-      v35 = (PVOID *)P;
-      v36 = P;
-      while ( v35 != &P )
-      {
-        v37 = v36;
-        v36 = (_QWORD *)*v36;
-        EtwpNotifyDisallowedGuidChange(*((_DWORD **)v37 + 2), a7, 0);
-        v38 = *(_DWORD **)v37;
-        if ( *(void **)(*(_QWORD *)v37 + 8LL) != v37 )
-          goto LABEL_70;
-        v39 = (void **)*((_QWORD *)v37 + 1);
-        if ( *v39 != v37 )
-          goto LABEL_70;
-        *v39 = v38;
-        *((_QWORD *)v38 + 1) = v39;
-        ExFreePoolWithTag(*((PVOID *)v37 + 2), 0);
-        ExFreePoolWithTag(v37, 0);
-        v35 = (PVOID *)P;
-      }
-      v50 = (PVOID *)v57;
-      v51 = v57;
-      while ( v50 != &v57 )
-      {
-        v52 = (_DWORD **)v51;
-        v51 = (_QWORD *)*v51;
-        EtwpNotifyDisallowedGuidChange(v52[2], a7, 1);
-        v53 = *v52;
-        if ( *((_DWORD ***)*v52 + 1) != v52 )
-          goto LABEL_70;
-        v54 = (void **)v52[1];
-        if ( *v54 != v52 )
-          goto LABEL_70;
-        *v54 = v53;
-        *((_QWORD *)v53 + 1) = v54;
-        ExFreePoolWithTag(v52, 0);
-        v50 = (PVOID *)v57;
-      }
-      if ( v34 )
-        ExFreePoolWithTag(v34, 0);
-      return v8;
-    }
-    while ( 1 )
-    {
-      v27 = (PVOID **)ExAllocatePool2(256LL, 24LL, 1953985605LL);
-      if ( !v27 )
-        break;
-      v28 = (PVOID *)ExAllocatePool2(256LL, 16LL, 1953985605LL);
-      if ( !v28 )
-      {
-        v30 = v27;
-        goto LABEL_53;
-      }
-      *(_OWORD *)v28 = *(_OWORD *)v20;
-      v27[2] = v28;
-      v29 = p_P;
-      if ( *p_P != &P )
-        goto LABEL_70;
-      v27[1] = p_P;
-      *v27 = &P;
-      v20 += 16;
-      *v29 = v27;
-      p_P = (PVOID *)v27;
-      if ( v20 >= v19 )
-        goto LABEL_45;
-    }
+    v19 = v12;
+    v20 = &v12[16 * v7];
   }
   else
   {
-    while ( v20 < v19 )
+    v19 = 0LL;
+    v20 = 0LL;
+  }
+  if ( v17 < v18 )
+  {
+    while ( v19 < v20 )
     {
-      v21 = memcmp(v17, v20, 0x10uLL);
+      v21 = memcmp(v17, v19, 0x10uLL);
       if ( v21 )
       {
         if ( v21 >= 0 )
         {
-          v24 = (PVOID **)ExAllocatePool2(256LL, 24LL, 1953985605LL);
+          v24 = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x74777445u);
           if ( !v24 )
-            goto LABEL_54;
-          v25 = (PVOID *)ExAllocatePool2(256LL, 16LL, 1953985605LL);
+            goto LABEL_52;
+          v25 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x74777445u);
           if ( !v25 )
           {
-            v30 = v24;
-LABEL_53:
-            ExFreePoolWithTag(v30, 0);
-            goto LABEL_54;
+            v27 = v24;
+LABEL_51:
+            ExFreePoolWithTag(v27, 0);
+            goto LABEL_52;
           }
-          *(_OWORD *)v25 = *(_OWORD *)v20;
+          *v25 = *(_OWORD *)v19;
           v24[2] = v25;
           v26 = p_P;
           if ( *p_P != &P )
-            goto LABEL_70;
+            goto LABEL_69;
           v24[1] = p_P;
           *v24 = &P;
-          v20 += 16;
+          v19 += 16;
           *v26 = v24;
           p_P = (PVOID *)v24;
         }
         else
         {
-          v22 = (PVOID **)ExAllocatePool2(256LL, 24LL, 1953985605LL);
+          v22 = (PVOID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x74777445u);
           if ( !v22 )
-            goto LABEL_54;
-          v22[2] = (PVOID *)v17;
+            goto LABEL_52;
+          v22[2] = v17;
           v23 = v58;
           if ( *v58 != &v57 )
-LABEL_70:
+LABEL_69:
             __fastfail(3u);
           v22[1] = v58;
           *v22 = &v57;
           v17 += 16;
           *v23 = v22;
-          v58 = (PVOID *)v22;
+          v58 = v22;
         }
       }
       else
       {
         v17 += 16;
-        v20 += 16;
+        v19 += 16;
       }
       if ( v17 >= v18 )
       {
-        LOWORD(v7) = a2;
-        goto LABEL_34;
+LABEL_37:
+        v16 = a1;
+        goto LABEL_38;
       }
     }
     while ( 1 )
     {
-      v31 = (PVOID **)ExAllocatePool2(256LL, 24LL, 1953985605LL);
-      if ( !v31 )
-        break;
-      v31[2] = (PVOID *)v17;
-      v32 = v58;
+      v28 = (PVOID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x74777445u);
+      if ( !v28 )
+        goto LABEL_52;
+      v28[2] = v17;
+      v29 = v58;
       if ( *v58 != &v57 )
-        goto LABEL_70;
-      v31[1] = v58;
-      *v31 = &v57;
+        goto LABEL_69;
+      v28[1] = v58;
+      *v28 = &v57;
       v17 += 16;
-      *v32 = v31;
-      v58 = (PVOID *)v31;
+      *v29 = v28;
+      v58 = v28;
       if ( v17 >= v18 )
-      {
-        LOWORD(v7) = a2;
-        goto LABEL_45;
-      }
+        goto LABEL_37;
     }
   }
-LABEL_54:
-  v8 = -1073741670;
+LABEL_38:
+  if ( v19 < v20 )
+  {
+    while ( 1 )
+    {
+      v30 = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x74777445u);
+      if ( !v30 )
+        break;
+      v31 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x74777445u);
+      if ( !v31 )
+      {
+        v27 = v30;
+        goto LABEL_51;
+      }
+      *v31 = *(_OWORD *)v19;
+      v30[2] = v31;
+      v32 = p_P;
+      if ( *p_P != &P )
+        goto LABEL_69;
+      v30[1] = p_P;
+      *v30 = &P;
+      v19 += 16;
+      *v32 = v30;
+      p_P = (PVOID *)v30;
+      if ( v19 >= v20 )
+        goto LABEL_43;
+    }
+LABEL_52:
+    KeReleaseMutex(Mutex, 0);
+    goto LABEL_53;
+  }
+LABEL_43:
+  v33 = (volatile signed __int64 *)(v16 + 704);
+  ExAcquirePushLockExclusiveEx(v16 + 704, 0LL);
+  *(_WORD *)(v16 + 1048) = a2;
+  v34 = *(void **)(v16 + 1056);
+  *(_QWORD *)(a1 + 1056) = v12;
+  if ( (_InterlockedExchangeAdd64(v33, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v33);
+  KeAbPostRelease((ULONG_PTR)v33);
   KeReleaseMutex(Mutex, 0);
-LABEL_55:
-  v40 = (PVOID *)P;
-  v41 = P;
-  while ( v40 != &P )
+  v35 = (PVOID *)P;
+  v36 = P;
+  while ( v35 != &P )
   {
-    v42 = (_QWORD *)*v41;
-    v43 = v41;
-    v41 = v42;
-    if ( (_QWORD *)v42[1] != v43 )
-      goto LABEL_70;
-    v44 = (_QWORD *)v43[1];
-    if ( (_QWORD *)*v44 != v43 )
-      goto LABEL_70;
-    *v44 = v42;
-    v42[1] = v44;
-    ExFreePoolWithTag((PVOID)v43[2], 0);
-    ExFreePoolWithTag(v43, 0);
-    v40 = (PVOID *)P;
+    v37 = v36;
+    v36 = (_QWORD *)*v36;
+    EtwpDisallowedGuidAddition(*((_DWORD **)v37 + 2), a7);
+    v38 = *(_DWORD **)v37;
+    if ( *(void **)(*(_QWORD *)v37 + 8LL) != v37 )
+      goto LABEL_69;
+    v39 = (void **)*((_QWORD *)v37 + 1);
+    if ( *v39 != v37 )
+      goto LABEL_69;
+    *v39 = v38;
+    *((_QWORD *)v38 + 1) = v39;
+    ExFreePoolWithTag(*((PVOID *)v37 + 2), 0);
+    ExFreePoolWithTag(v37, 0);
+    v35 = (PVOID *)P;
   }
-  v45 = (PVOID *)v57;
-  v46 = v57;
-  while ( v45 != &v57 )
+  v50 = (PVOID *)v57;
+  v51 = v57;
+  while ( v50 != &v57 )
   {
-    v47 = *v46;
-    v48 = v46;
-    v46 = (_QWORD *)v47;
-    if ( *(_QWORD **)(v47 + 8) != v48 )
-      goto LABEL_70;
-    v49 = (_QWORD *)v48[1];
-    if ( (_QWORD *)*v49 != v48 )
-      goto LABEL_70;
-    *v49 = v47;
-    *(_QWORD *)(v47 + 8) = v49;
-    ExFreePoolWithTag(v48, 0);
-    v45 = (PVOID *)v57;
+    v52 = (_DWORD **)v51;
+    v51 = (_QWORD *)*v51;
+    EtwpDisallowedGuidRemoval(v52[2], a7);
+    v53 = *v52;
+    if ( *((_DWORD ***)*v52 + 1) != v52 )
+      goto LABEL_69;
+    v54 = (void **)v52[1];
+    if ( *v54 != v52 )
+      goto LABEL_69;
+    *v54 = v53;
+    *((_QWORD *)v53 + 1) = v54;
+    ExFreePoolWithTag(v52, 0);
+    v50 = (PVOID *)v57;
   }
+  if ( v34 )
+    ExFreePoolWithTag(v34, 0);
   return v8;
 }

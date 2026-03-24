@@ -1,14 +1,14 @@
 /*
- * XREFs of PspDetachSession @ 0x1407C61FC
+ * XREFs of PspDetachSession @ 0x140660AA4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmDetachSession @ 0x140355CB0 (MmDetachSession.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmDetachSession @ 0x1402EC090 (MmDetachSession.c)
  */
 
-LONG_PTR __fastcall PspDetachSession(PVOID Object, $115DCDF994C6370D29323EAB0E0C9502 *a2)
+void __fastcall PspDetachSession(PADAPTER_OBJECT DmaAdapter, __int64 a2)
 {
-  MmDetachSession((__int64)Object, a2);
-  return ObfDereferenceObject(Object);
+  MmDetachSession((__int64)DmaAdapter, a2);
+  HalPutDmaAdapter(DmaAdapter);
 }

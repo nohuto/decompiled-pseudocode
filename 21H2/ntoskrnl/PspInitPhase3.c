@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitPhase3 @ 0x140B313B8
+ * XREFs of PspInitPhase3 @ 0x140A4B0C0
  * Callers:
- *     PsInitSystem @ 0x140B02300 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PspMapSystemDll @ 0x140756AD4 (PspMapSystemDll.c)
- *     PspGetSystemDllSecureHandle @ 0x140B533E0 (PspGetSystemDllSecureHandle.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PspMapSystemDll @ 0x140712408 (PspMapSystemDll.c)
+ *     PspGetSystemDllSecureHandle @ 0x140A93648 (PspGetSystemDllSecureHandle.c)
  */
 
 bool __fastcall PspInitPhase3(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -27,20 +27,20 @@ bool __fastcall PspInitPhase3(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
   if ( !VslVsmEnabled )
     return 1;
   KiStackAttachProcess((_KPROCESS *)PsSecureSystemProcess, 0LL, (__int64)v10, a4);
-  SystemDllSecureHandle = PspGetSystemDllSecureHandle(*PspSystemDlls[0], &v9);
+  SystemDllSecureHandle = PspGetSystemDllSecureHandle(PspSystemDlls, &v9);
   if ( SystemDllSecureHandle >= 0 )
   {
-    SystemDllSecureHandle = PspMapSystemDll((struct _KPROCESS *)PsSecureSystemProcess, (__int64)PspSystemDlls[0], 0, 0);
+    SystemDllSecureHandle = PspMapSystemDll((struct _KPROCESS *)PsSecureSystemProcess, (__int64)PspSystemDlls, 0, 0);
     if ( SystemDllSecureHandle >= 0 )
     {
       v8 = 0LL;
-      if ( (int)PspGetSystemDllSecureHandle(*off_140D3B1A8, &v8) < 0 )
+      if ( (int)PspGetSystemDllSecureHandle(off_140D2D268, &v8) < 0 )
       {
         v7 = v8;
       }
       else
       {
-        v6 = PspMapSystemDll((struct _KPROCESS *)PsSecureSystemProcess, (__int64)off_140D3B1A8, 0, 0);
+        v6 = PspMapSystemDll((struct _KPROCESS *)PsSecureSystemProcess, (__int64)off_140D2D268, 0, 0);
         v7 = v8;
         if ( v6 < 0 )
           v7 = 0LL;
@@ -51,6 +51,6 @@ bool __fastcall PspInitPhase3(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
       SystemDllSecureHandle = VslpEnterIumSecureMode(2u, 4, 0, (__int64)v11);
     }
   }
-  KiUnstackDetachProcess((__int64)v10, 0LL);
+  KiUnstackDetachProcess((__int64)v10, 0);
   return SystemDllSecureHandle >= 0;
 }

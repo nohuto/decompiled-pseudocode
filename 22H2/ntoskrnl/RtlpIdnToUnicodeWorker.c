@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpIdnToUnicodeWorker @ 0x1405AFCE0
+ * XREFs of RtlpIdnToUnicodeWorker @ 0x14058D144
  * Callers:
- *     RtlIdnToUnicode @ 0x1409BF450 (RtlIdnToUnicode.c)
+ *     RtlIdnToUnicode @ 0x140916650 (RtlIdnToUnicode.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     punycode_decode @ 0x1409BF750 (punycode_decode.c)
- *     RtlIsNormalizedString @ 0x1409C1C70 (RtlIsNormalizedString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IdnaMemAlloc @ 0x14058D0D0 (IdnaMemAlloc.c)
+ *     punycode_decode @ 0x14091692C (punycode_decode.c)
+ *     RtlIsNormalizedString @ 0x140918E40 (RtlIsNormalizedString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpIdnToUnicodeWorker(
@@ -20,19 +20,19 @@ __int64 __fastcall RtlpIdnToUnicodeWorker(
         PCWSTR SourceString,
         BOOLEAN Normalized)
 {
-  void *v7; // r15
+  void *v7; // r13
   wchar_t *v8; // r11
   char v9; // di
   int *v10; // rsi
-  const WCHAR *v11; // r13
-  wchar_t v12; // r14
+  const WCHAR *v11; // r14
+  wchar_t v12; // r15
   __int64 result; // rax
   int v14; // ebx
   int v15; // ebx
   __int64 v16; // r12
   __int64 v17; // rdx
-  __int64 v18; // r15
-  _BYTE *Pool2; // r14
+  LONG v18; // r13d
+  _BYTE *v19; // r14
   __int64 i; // rcx
   __int16 v21; // dx
   __int64 j; // rax
@@ -88,10 +88,9 @@ LABEL_16:
   v17 = (v16 - (__int64)v11) >> 1;
   if ( v17 >= v15 - (v12 == 0) )
     goto LABEL_38;
-  v18 = v15 - (2 - (v12 != 0)) - (int)v17;
-  LODWORD(pcchLength) = v15 - (2 - (v12 != 0)) - v17;
-  Pool2 = (_BYTE *)ExAllocatePool2(256LL, v18, 1164862537LL);
-  if ( !Pool2 )
+  v18 = v15 - (2 - (v12 != 0)) - v17;
+  v19 = IdnaMemAlloc(v18);
+  if ( !v19 )
     return 3221225495LL;
   if ( v18 > 0 )
   {
@@ -101,24 +100,25 @@ LABEL_16:
       if ( (unsigned __int16)(v21 - 65) <= 0x19u )
       {
         *(_WORD *)(v16 + 2 * i + 2) = v21 + 32;
-        Pool2[i] = 1;
+        v19[i] = 1;
       }
     }
   }
-  if ( RtlIsNormalizedString((((v9 & 1) == 0) << 8) + 13, (PCWSTR)(v16 + 2), pcchLength, &Normalized) < 0 || !Normalized )
+  if ( RtlIsNormalizedString((((v9 & 1) == 0) << 8) + 13, (PCWSTR)(v16 + 2), v18, &Normalized) < 0 || !Normalized )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v19, 0);
     return 3221227286LL;
   }
   if ( v18 > 0 )
   {
     for ( j = 0LL; j < v18; ++j )
     {
-      if ( Pool2[j] == 1 )
+      if ( v19[j] == 1 )
         *(_WORD *)(v16 + 2 * j + 2) -= 32;
     }
   }
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(v19, 0);
+  v11 = SourceString;
   v7 = v25;
 LABEL_38:
   if ( v7 && *v10 )

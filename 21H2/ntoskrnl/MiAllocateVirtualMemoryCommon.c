@@ -1,122 +1,106 @@
 /*
- * XREFs of MiAllocateVirtualMemoryCommon @ 0x1407E6840
+ * XREFs of MiAllocateVirtualMemoryCommon @ 0x1406944E8
  * Callers:
- *     MmAllocateVirtualMemory @ 0x1407E66D0 (MmAllocateVirtualMemory.c)
- *     MmAllocateUserStack @ 0x1407E75A4 (MmAllocateUserStack.c)
+ *     MmAllocateUserStack @ 0x140694420 (MmAllocateUserStack.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x1407DE8D0 (PsReferencePartitionByHandle.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1407E6C40 (MiAllocateVirtualMemoryPrepare.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1405F99F0 (MiAllocateVirtualMemoryPrepare.c)
+ *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemoryCommon(
-        int a1,
-        __int64 *a2,
-        int a3,
-        __int64 *a4,
-        int a5,
-        int a6,
+        ULONG_PTR a1,
+        unsigned __int64 *a2,
+        __int64 a3,
+        unsigned __int64 *a4,
+        unsigned int a5,
+        unsigned int a6,
         __int64 a7,
         char a8,
-        int a9,
+        signed int a9,
         int a10,
         __int64 a11)
 {
-  unsigned __int64 v15; // rsi
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  int VirtualMemoryPrepare; // ebx
-  ULONG_PTR v19; // rcx
-  int v21; // eax
-  int v22; // eax
-  unsigned __int64 v23; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v24; // [rsp+78h] [rbp-88h] BYREF
-  PVOID Object[2]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v26[16]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int64 v13; // rsi
+  int v14; // ebx
+  __int64 v15; // r8
+  ULONG_PTR v16; // rcx
+  int v17; // eax
+  int v19; // eax
+  unsigned __int64 v20; // [rsp+78h] [rbp-90h] BYREF
+  unsigned __int64 v21; // [rsp+80h] [rbp-88h] BYREF
+  PVOID Object; // [rsp+88h] [rbp-80h] BYREF
+  _QWORD v23[22]; // [rsp+98h] [rbp-70h] BYREF
 
-  memset(v26, 0, sizeof(v26));
-  v15 = 0LL;
-  v16 = *a4;
-  v17 = *a2;
-  v24 = 0LL;
-  Object[0] = 0LL;
-  v23 = 0LL;
-  VirtualMemoryPrepare = MiAllocateVirtualMemoryPrepare(
-                           a1,
-                           v17,
-                           a3,
-                           v16,
-                           a5,
-                           a6,
-                           a7,
-                           a8,
-                           a9,
-                           a10,
-                           a11,
-                           (__int64)v26,
-                           (__int64)Object);
-  if ( VirtualMemoryPrepare < 0 )
-    goto LABEL_20;
-  v19 = *(_QWORD *)(a7 + 24);
-  if ( v19 )
+  memset(v23, 0, 0x80uLL);
+  v13 = 0LL;
+  v21 = 0LL;
+  Object = 0LL;
+  v20 = 0LL;
+  v14 = MiAllocateVirtualMemoryPrepare(a1, *a2, a3, *a4, a5, a6, a7, a8, a9, a10, a11, (__int64)v23, &Object);
+  if ( v14 < 0 )
+    goto LABEL_19;
+  v16 = *(_QWORD *)(a7 + 24);
+  if ( v16 )
   {
-    if ( v19 == -3LL )
+    if ( v16 == -3LL )
     {
-      v15 = 1LL;
+      v13 = 1LL;
     }
     else
     {
-      v22 = PsReferencePartitionByHandle(v19, 2, a8, 0x61566D4Du, &v23);
-      v15 = v23;
-      VirtualMemoryPrepare = v22;
-      if ( v22 < 0 )
-        goto LABEL_20;
+      LOBYTE(v15) = a8;
+      v19 = PsReferencePartitionByHandle(v16, 2LL, v15, 0x61566D4Du, &v20);
+      v13 = v20;
+      v14 = v19;
+      if ( v19 < 0 )
+        goto LABEL_19;
     }
   }
-  if ( !*(_BYTE *)(a7 + 48) || (a5 & 0x20400000) == 0x400000 )
+  if ( *(_BYTE *)(a7 + 48) != 1 || (a5 & 0x20400000) == 0x400000 )
   {
-    if ( a9 < 0 )
+    if ( a9 >= 0 )
     {
-      v23 = 0LL;
-      if ( (v26[8] & 0x40000000) != 0 )
+      v14 = MiAllocateVirtualMemory((__int64)v23, (_QWORD *)v13, &v21);
+    }
+    else
+    {
+      v20 = 0LL;
+      if ( (v23[7] & 0x4000000000000000LL) != 0 )
       {
-        HIDWORD(v26[8]) = 536870913;
-        v26[9] = &v23;
+        HIDWORD(v23[9]) = 536870913;
+        v23[10] = &v20;
       }
-      v21 = MiAllocateVirtualMemory((__int64)v26, 0LL, &v24);
-      v26[9] = 0LL;
-      VirtualMemoryPrepare = v21;
-      HIDWORD(v26[8]) = 0;
-      if ( v21 >= 0 )
-        VirtualMemoryPrepare = 0;
+      v17 = MiAllocateVirtualMemory((__int64)v23, 0LL, &v21);
+      v23[10] = 0LL;
+      v14 = v17;
+      HIDWORD(v23[9]) = 0;
+      if ( v17 >= 0 )
+        v14 = 0;
     }
-    else
+    if ( v14 >= 0 )
     {
-      VirtualMemoryPrepare = MiAllocateVirtualMemory((__int64)v26, (LARGE_INTEGER)v15, &v24);
-    }
-    if ( VirtualMemoryPrepare >= 0 )
-    {
-      *a2 = v24;
-      *a4 = v26[3];
-      goto LABEL_8;
+      *a2 = v21;
+      *a4 = v23[3];
+      goto LABEL_11;
     }
   }
   else
   {
-    VirtualMemoryPrepare = -1073741811;
+    v14 = -1073741811;
   }
-LABEL_20:
-  if ( v26[0] )
-    ++dword_140C52B24;
+LABEL_19:
+  if ( v23[0] )
+    ++dword_140C4E7EC;
   else
-    ++dword_140C52B20;
-LABEL_8:
-  if ( v15 >= 2 )
-    PsDereferencePartition(v15);
-  if ( Object[0] )
-    ObfDereferenceObjectWithTag(Object[0], 0x6D566D4Du);
-  return (unsigned int)VirtualMemoryPrepare;
+    ++dword_140C4E7E8;
+LABEL_11:
+  if ( v13 >= 2 )
+    PsDereferencePartition(v13);
+  if ( Object )
+    ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
+  return (unsigned int)v14;
 }

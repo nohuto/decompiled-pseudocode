@@ -6,11 +6,11 @@
  *     MiProbeAndLockComplete @ 0x1400936AC (MiProbeAndLockComplete.c)
  *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
  *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x140153D54 (MmStoreProbeAndLockPages.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8390 (MiSplitReducedCommitClonePage.c)
+ *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiUnlockProbePacketWorkingSet(__int64 a1)

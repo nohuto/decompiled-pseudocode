@@ -1,25 +1,19 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x140737BD0
+ * XREFs of NtOpenProcessTokenEx @ 0x140653D50
  * Callers:
- *     NtOpenProcessToken @ 0x1407C5500 (NtOpenProcessToken.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BEC08 (RtlpSysVolTakeOwnership.c)
+ *     NtOpenProcessToken @ 0x140653D30 (NtOpenProcessToken.c)
+ *     RtlpSysVolTakeOwnership @ 0x140915ED8 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B20 (SepCreateAccessStateFromSubjectContext.c)
- *     ObReferenceObjectByPointerWithTag @ 0x1402B6810 (ObReferenceObjectByPointerWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14063E320 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessTokenEx(
@@ -28,48 +22,32 @@ NTSTATUS __stdcall NtOpenProcessTokenEx(
         ULONG HandleAttributes,
         PHANDLE TokenHandle)
 {
-  PHANDLE v4; // r12
-  KPROCESSOR_MODE PreviousMode; // r15
-  int v6; // edi
-  ULONG v7; // edi
+  KPROCESSOR_MODE AccessMode; // r15
+  int v7; // ebx
+  ULONG v8; // ebx
+  __int64 v9; // rdx
   NTSTATUS result; // eax
-  char *v9; // r14
-  POBJECT_TYPE *v10; // rsi
-  NTSTATUS v11; // ebx
-  struct _KTHREAD *CurrentThread; // r13
-  __int64 Process; // rbx
-  _QWORD *v14; // r12
-  ULONG_PTR v15; // rax
-  _KPROCESS *v16; // rdx
-  signed __int64 v17; // r8
-  signed __int64 v18; // rax
-  signed __int64 v19; // rtt
-  __int64 v20; // rdx
-  signed __int64 *v21; // r13
-  PVOID Object; // [rsp+68h] [rbp-210h] BYREF
-  PHANDLE v24; // [rsp+70h] [rbp-208h]
-  void *v25; // [rsp+78h] [rbp-200h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+80h] [rbp-1F8h]
-  _QWORD *v27; // [rsp+88h] [rbp-1F0h] BYREF
-  __int128 v28; // [rsp+90h] [rbp-1E8h]
-  __int64 v29; // [rsp+A0h] [rbp-1D8h]
-  struct _KTHREAD *v30; // [rsp+A8h] [rbp-1D0h]
-  PVOID v31[20]; // [rsp+B0h] [rbp-1C8h] BYREF
-  _QWORD v32[28]; // [rsp+150h] [rbp-128h] BYREF
+  PVOID v11; // rsi
+  _QWORD *v12; // r12
+  struct _DMA_ADAPTER *v13; // rdi
+  int v14; // ebx
+  signed __int64 *v15; // rsi
+  PVOID Object; // [rsp+40h] [rbp-38h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-30h] BYREF
+  struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-28h]
 
-  v4 = TokenHandle;
-  v24 = TokenHandle;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v6 = 73714;
-  if ( PreviousMode )
-    v6 = 7666;
-  v7 = HandleAttributes & v6;
-  if ( PreviousMode )
+  Handle = 0LL;
+  AccessMode = KeGetCurrentThread()->PreviousMode;
+  v7 = 73714;
+  if ( AccessMode )
+    v7 = 7666;
+  v8 = HandleAttributes & v7;
+  if ( AccessMode )
   {
-    v20 = (__int64)TokenHandle;
+    v9 = (__int64)TokenHandle;
     if ( (unsigned __int64)TokenHandle >= 0x7FFFFFFF0000LL )
-      v20 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)v20 = *(_QWORD *)v20;
+      v9 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v9 = *(_QWORD *)v9;
   }
   Object = 0LL;
   result = ObpReferenceObjectByHandleWithTag(
@@ -83,138 +61,28 @@ NTSTATUS __stdcall NtOpenProcessTokenEx(
              0LL);
   if ( result >= 0 )
   {
-    v9 = (char *)PsReferencePrimaryTokenWithTag((__int64)Object, 0x746C6644u);
-    ObfDereferenceObjectWithTag(Object, 0x65537350u);
-    v10 = SeTokenObjectType;
-    memset(v32, 0, sizeof(v32));
-    memset(v31, 0, sizeof(v31));
-    v25 = 0LL;
-    v11 = ObReferenceObjectByPointerWithTag(v9, 0, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, 0x6E48624Fu);
-    if ( v11 >= 0 )
+    v11 = Object;
+    v12 = (char *)Object + 1208;
+    v13 = (struct _DMA_ADAPTER *)ObFastReferenceObject((signed __int64 *)Object + 151);
+    if ( !v13 )
     {
-      if ( !v10 )
-        v10 = (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*(v9 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v9 - 48) >> 8)];
-      if ( (v7 & (_DWORD)v10[9]) != 0 || (*(v9 - 21) & 1) != 0 && *((_QWORD *)v9 - 2) )
-      {
-        ++ObpInvalidOpenByPointer;
-        ObfDereferenceObjectWithTag(v9, 0x6E48624Fu);
-        v11 = -1073741811;
-      }
-      else
-      {
-        CurrentThread = KeGetCurrentThread();
-        Process = (__int64)CurrentThread->ApcState.Process;
-        v28 = 0LL;
-        v29 = *(_QWORD *)(Process + 1088);
-        if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
-        {
-          v30 = KeGetCurrentThread();
-          --v30->KernelApcDisable;
-          BugCheckParameter2 = (ULONG_PTR)&CurrentThread[1].WaitBlockList;
-          ExAcquirePushLockSharedEx((ULONG_PTR)&CurrentThread[1].WaitBlockList, 0LL);
-          if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
-          {
-            v14 = (_QWORD *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
-            ObfReferenceObjectWithTag(v14, 0x75536553u);
-            LODWORD(v28) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
-          }
-          else
-          {
-            v14 = 0LL;
-          }
-          v21 = (signed __int64 *)BugCheckParameter2;
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(v21);
-          KeAbPostRelease((ULONG_PTR)v21);
-          KeLeaveCriticalRegionThread((__int64)v30);
-        }
-        else
-        {
-          v14 = 0LL;
-        }
-        v27 = v14;
-        v15 = PsReferencePrimaryTokenWithTag(Process, 0x75536553u);
-        *((_QWORD *)&v28 + 1) = v15;
-        if ( HIDWORD(NlsMbOemCodePageTag) )
-        {
-          if ( v15 )
-          {
-            _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v15 + 1144) + 284LL));
-            if ( *((_QWORD *)&v28 + 1) == SepTokenLeakToken )
-              __debugbreak();
-            v14 = v27;
-          }
-          if ( v14 )
-          {
-            _InterlockedIncrement((volatile signed __int32 *)(v14[143] + 284LL));
-            if ( v27 == (_QWORD *)SepTokenLeakToken )
-              __debugbreak();
-          }
-        }
-        v11 = SepCreateAccessStateFromSubjectContext(&v27, v31, v32, DesiredAccess, (_DWORD *)v10 + 19);
-        if ( v11 < 0 )
-        {
-          ObfDereferenceObjectWithTag(v9, 0x6E48624Fu);
-          v4 = v24;
-        }
-        else
-        {
-          v11 = ObpCreateHandle(1, v9, 0, (__int64)v31, 0, v7, PreviousMode, 0LL, 0, 0LL, &v25);
-          if ( v11 < 0 )
-            ObfDereferenceObjectWithTag(v9, 0x6E48624Fu);
-          SepDeleteAccessState((__int64)v31);
-          if ( HIDWORD(NlsMbOemCodePageTag) )
-          {
-            if ( v31[6] )
-            {
-              _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)v31[6] + 143) + 284LL));
-              if ( v31[6] == (PVOID)SepTokenLeakToken )
-                __debugbreak();
-            }
-            if ( v31[4] )
-            {
-              _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)v31[4] + 143) + 284LL));
-              if ( v31[4] == (PVOID)SepTokenLeakToken )
-                __debugbreak();
-            }
-          }
-          v16 = KeGetCurrentThread()->ApcState.Process;
-          v17 = (signed __int64)v31[6];
-          _m_prefetchw(&v16[1].Affinity.StaticBitmap[5]);
-          v18 = v16[1].Affinity.StaticBitmap[5];
-          if ( (v18 ^ (unsigned __int64)v31[6]) >= 0xF )
-          {
-LABEL_37:
-            ObfDereferenceObjectWithTag((PVOID)v17, 0x75536553u);
-          }
-          else
-          {
-            while ( 1 )
-            {
-              v19 = v18;
-              v18 = _InterlockedCompareExchange64(
-                      (volatile signed __int64 *)&v16[1].Affinity.StaticBitmap[5],
-                      v18 + 1,
-                      v18);
-              if ( v19 == v18 )
-                break;
-              if ( (v17 ^ (unsigned __int64)v18) >= 0xF )
-                goto LABEL_37;
-            }
-            if ( ObpTraceFlags )
-              ObpPushStackInfo(v17 - 48, 0, 1u, 0x75536553u);
-          }
-          v31[6] = 0LL;
-          if ( v31[4] )
-            ObfDereferenceObjectWithTag(v31[4], 0x75536553u);
-          v4 = v24;
-        }
-      }
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
+      v15 = (signed __int64 *)((char *)Object + 1080);
+      ExAcquirePushLockSharedEx((ULONG_PTR)Object + 1080, 0LL);
+      v13 = (struct _DMA_ADAPTER *)ObFastReferenceObjectLocked(v12);
+      if ( _InterlockedCompareExchange64(v15, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v15);
+      KeAbPostRelease((ULONG_PTR)v15);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      v11 = Object;
     }
-    ObfDereferenceObject(v9);
-    if ( v11 >= 0 )
-      *v4 = v25;
-    return v11;
+    ObfDereferenceObjectWithTag(v11, 0x65537350u);
+    v14 = ObOpenObjectByPointer(v13, v8, 0LL, DesiredAccess, (POBJECT_TYPE)SeTokenObjectType, AccessMode, &Handle);
+    HalPutDmaAdapter(v13);
+    if ( v14 >= 0 )
+      *TokenHandle = Handle;
+    return v14;
   }
   return result;
 }

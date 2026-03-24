@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x140190DDC
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x140190DFC
  * Callers:
  *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiSetTrimWhileAgingState @ 0x140120300 (MiSetTrimWhileAgingState.c)
- *     KeGenericCallDpc @ 0x1401203D0 (KeGenericCallDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSetTrimWhileAgingState @ 0x140120320 (MiSetTrimWhileAgingState.c)
+ *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

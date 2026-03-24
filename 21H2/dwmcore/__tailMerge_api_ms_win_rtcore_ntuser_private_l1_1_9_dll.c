@@ -1,10 +1,10 @@
 /*
- * XREFs of __tailMerge_api_ms_win_rtcore_ntuser_private_l1_1_9_dll @ 0x1801025ED
+ * XREFs of __tailMerge_api_ms_win_rtcore_ntuser_private_l1_1_9_dll @ 0x1800E8A75
  * Callers:
- *     __imp_load_ReportInertia @ 0x1801025E1 (__imp_load_ReportInertia.c)
- *     __imp_load_GetPointerDeviceOrientation @ 0x1801026F7 (__imp_load_GetPointerDeviceOrientation.c)
+ *     __imp_load_ReportInertia @ 0x1800E8A69 (__imp_load_ReportInertia.c)
+ *     __imp_load_GetPointerDeviceOrientation @ 0x1800E8B7F (__imp_load_GetPointerDeviceOrientation.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_api_ms_win_rtcore_ntuser_private_l1_1_9_dll(

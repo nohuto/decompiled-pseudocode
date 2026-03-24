@@ -1,41 +1,39 @@
 /*
- * XREFs of ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18003272C
+ * XREFs of ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DE8C
  * Callers:
- *     _lambda_efd5facd022cf831717386964e02a8d7_::_lambda_invoker_cdecl_ @ 0x180102840 (_lambda_efd5facd022cf831717386964e02a8d7_--_lambda_invoker_cdecl_.c)
+ *     _lambda_efd5facd022cf831717386964e02a8d7_::_lambda_invoker_cdecl_ @ 0x1800DD640 (_lambda_efd5facd022cf831717386964e02a8d7_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x180032978 (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1800329A8 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x180032A40 (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
- *     ??_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z @ 0x180032AE0 (--_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z.c)
- *     ?Insert@?$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z @ 0x180033678 (-Insert@-$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z.c)
- *     ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180035FB0 (-InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CMa.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?SetInteractionConfiguration@CInteractionProcessor@@QEAAJW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@PEBXI@Z @ 0x1800C4374 (-SetInteractionConfiguration@CInteractionProcessor@@QEAAJW4Enum@InteractionConfigurationUpdateTy.c)
- *     ?Remove@?$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAPEAUInteractionUpdate@CManipulationManager@@_NPEAI@Z @ 0x1800EC584 (-Remove@-$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAPEAUInteractionUpdate@CManipu.c)
- *     ?SetRailsEnabled@CInteractionProcessor@@QEAAX_NW4RailsAxis@@@Z @ 0x1800F16C4 (-SetRailsEnabled@CInteractionProcessor@@QEAAX_NW4RailsAxis@@@Z.c)
- *     ?LockComposition@CManipulationManager@@SAXPEAVCComposition@@_N@Z @ 0x1800FFCA4 (-LockComposition@CManipulationManager@@SAXPEAVCComposition@@_N@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@45555544@Z @ 0x18019C560 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_18019C560.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U?$_tlgWrapperByVal@$00@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@4555554AEBU?$_tlgWrapperByVal@$00@@3@Z @ 0x18019C964 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_18019C964.c)
- *     ?InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x18019E414 (-InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
- *     ?InteractionFurtherProcessingForInput@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x18019E464 (-InteractionFurtherProcessingForInput@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
- *     ?InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x18019E49C (-InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
- *     ?InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x18019E510 (-InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
- *     ?MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z @ 0x18019E5F8 (-MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z.c)
- *     ?OnCaptureManipulation@CManipulationManager@@IEAAXPEAVCInteraction@@I_K@Z @ 0x18019EB2C (-OnCaptureManipulation@CManipulationManager@@IEAAXPEAVCInteraction@@I_K@Z.c)
- *     ?OnCapturePointer@CManipulationManager@@IEAAXIPEAVCInteraction@@@Z @ 0x18019EBE0 (-OnCapturePointer@CManipulationManager@@IEAAXIPEAVCInteraction@@@Z.c)
- *     ?TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x1801A2100 (-TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionU.c)
- *     ?UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x1801A2654 (-UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager.c)
- *     ?FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z @ 0x1801A44A8 (-FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z.c)
- *     ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x1801A4904 (-InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidM.c)
- *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x1801A52DC (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
- *     ?Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x1801A5954 (-Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@@Z.c)
- *     ?SetTemporaryConfiguration@CInteractionProcessor@@QEAAXW4TemporaryConfigurationAxis@@W4Enum@InteractionConfigurationUpdateType@@_NU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@@Z @ 0x1801B0158 (-SetTemporaryConfiguration@CInteractionProcessor@@QEAAXW4TemporaryConfigurationAxis@@W4Enum@Inte.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x18004DC30 (-InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CMa.c)
+ *     ??_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z @ 0x18004DE4C (--_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z.c)
+ *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x18004EB68 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x18004EBCC (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18004EC34 (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?Insert@?$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z @ 0x180062548 (-Insert@-$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x1800A0360 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?SetInteractionConfiguration@CInteractionProcessor@@QEAAJW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@PEBXI@Z @ 0x1800B8578 (-SetInteractionConfiguration@CInteractionProcessor@@QEAAJW4Enum@InteractionConfigurationUpdateTy.c)
+ *     ?Remove@?$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAPEAUInteractionUpdate@CManipulationManager@@_NPEAI@Z @ 0x1800CD19C (-Remove@-$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAPEAUInteractionUpdate@CManipu.c)
+ *     ?SetRailsEnabled@CInteractionProcessor@@QEAAX_NW4RailsAxis@@@Z @ 0x1800D0618 (-SetRailsEnabled@CInteractionProcessor@@QEAAX_NW4RailsAxis@@@Z.c)
+ *     ?LockComposition@CManipulationManager@@SAXPEAVCComposition@@_N@Z @ 0x1800DA9CC (-LockComposition@CManipulationManager@@SAXPEAVCComposition@@_N@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@455554@Z @ 0x1802237B0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_1802237B0.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U?$_tlgWrapperByVal@$00@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@45555AEBU?$_tlgWrapperByVal@$00@@3@Z @ 0x180223B48 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_180223B48.c)
+ *     ?InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x180224B88 (-InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
+ *     ?InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x180224BF4 (-InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
+ *     ?InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x180224C68 (-InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
+ *     ?MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z @ 0x180224DB8 (-MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z.c)
+ *     ?OnCaptureManipulation@CManipulationManager@@IEAAXPEAVCInteraction@@I_K@Z @ 0x18022528C (-OnCaptureManipulation@CManipulationManager@@IEAAXPEAVCInteraction@@I_K@Z.c)
+ *     ?OnCapturePointer@CManipulationManager@@IEAAXIPEAVCInteraction@@@Z @ 0x180225328 (-OnCapturePointer@CManipulationManager@@IEAAXIPEAVCInteraction@@@Z.c)
+ *     ?TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180227A24 (-TemporaryInteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionU.c)
+ *     ?UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180227E94 (-UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager.c)
+ *     ?SetTemporaryConfiguration@CInteractionProcessor@@QEAAXW4TemporaryConfigurationAxis@@W4Enum@InteractionConfigurationUpdateType@@_NU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@@Z @ 0x18022ECDC (-SetTemporaryConfiguration@CInteractionProcessor@@QEAAXW4TemporaryConfigurationAxis@@W4Enum@Inte.c)
+ *     ?FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z @ 0x1802340C4 (-FindWorkspace@CManipulationContext@@SAXPEAUMCCollections@@PEAVCInteraction@@PEAK@Z.c)
+ *     ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x1802345A0 (-InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidM.c)
+ *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x180234E80 (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
+ *     ?Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180235420 (-Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@@Z.c)
  */
 
 void __fastcall CManipulationManager::OnInteractionUpdate(struct CComposition **this)
@@ -43,397 +41,361 @@ void __fastcall CManipulationManager::OnInteractionUpdate(struct CComposition **
   int *v2; // r13
   char v3; // r12
   __int64 v4; // rdx
-  unsigned int *v5; // rax
-  __int64 v6; // rcx
-  unsigned int *v7; // rbx
-  int v8; // eax
-  int v9; // eax
-  int v10; // eax
-  _DWORD *v11; // r9
-  CVisual *v12; // r15
-  struct CInteraction *v13; // rsi
-  __int64 v14; // rdx
-  int v15; // edx
-  int v16; // edx
-  void *v17; // rcx
+  __int64 v5; // rcx
+  const struct CManipulationManager::InteractionUpdate *v6; // rax
+  __int64 v7; // rcx
+  const struct CManipulationManager::InteractionUpdate *v8; // rbx
+  CRenderTargetBitmap *v9; // rdx
+  CVisual *v10; // r15
+  struct CInteraction *v11; // rdi
+  int v12; // r9d
+  void *v13; // rcx
+  __int64 v15; // r8
+  unsigned int v16; // ecx
+  char *v17; // rax
+  const struct CInteraction *v18; // rdx
   int v19; // eax
-  __int64 v20; // rax
-  int v21; // edx
-  __int64 v22; // rax
-  const struct CInteraction *v23; // rdx
-  BOOL v24; // eax
-  const struct CInteraction *v25; // rdx
-  __int64 v26; // rdx
-  unsigned __int8 v27; // al
+  __int64 v20; // rdx
+  unsigned __int8 v21; // al
+  int v22; // eax
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  int v25; // eax
+  const struct CInteraction *v26; // rdx
+  __int64 v27; // rdx
   __int64 v28; // rax
   __int64 v29; // rcx
-  int v30; // eax
-  const struct CInteraction *v31; // rdx
-  const char *v32; // rax
-  __int64 v33; // rcx
+  int v30; // r8d
+  __int64 v31; // r8
+  const struct CInteraction *v32; // rdx
+  int v33; // eax
   __int64 v34; // rdx
-  int v35; // r9d
-  unsigned int v37; // ecx
-  const char *v38; // rax
-  const struct CInteraction *v39; // rdx
-  BOOL v40; // eax
-  const struct CInteraction *v41; // rdx
-  __int64 v42; // rdx
-  unsigned __int8 v43; // al
-  __int64 v44; // rax
-  __int64 v45; // rcx
-  int v46; // eax
-  const struct CInteraction *v47; // rdx
-  const char *v48; // rax
-  __int64 v49; // rcx
-  __int64 v50; // rdx
-  int v51; // r9d
+  unsigned __int8 v35; // al
+  int v36; // eax
+  __int64 v37; // rax
+  __int64 v38; // rcx
+  int v39; // eax
+  const struct CInteraction *v40; // rdx
+  __int64 v41; // rdx
+  __int64 v42; // rax
+  __int64 v43; // rcx
+  int v44; // r8d
+  void *v45; // rcx
   struct CInteraction *InteractionInternal; // rax
-  CResource *v53; // rcx
-  struct CComposition *v54; // r14
-  __int64 v55; // rax
-  void (__fastcall *v56)(struct CComposition *, unsigned __int64, CResource **); // r12
-  CResource *v57; // rcx
-  void *v58; // rcx
-  __int64 v59; // [rsp+A8h] [rbp-80h] BYREF
-  CResource *updated; // [rsp+B0h] [rbp-78h] BYREF
-  int v61; // [rsp+B8h] [rbp-70h] BYREF
-  int v62; // [rsp+BCh] [rbp-6Ch] BYREF
-  int v63; // [rsp+C0h] [rbp-68h] BYREF
-  BOOL v64; // [rsp+C4h] [rbp-64h] BYREF
-  BOOL v65; // [rsp+C8h] [rbp-60h] BYREF
-  BOOL v66; // [rsp+CCh] [rbp-5Ch] BYREF
-  int v67; // [rsp+D0h] [rbp-58h] BYREF
-  int v68; // [rsp+D4h] [rbp-54h] BYREF
-  BOOL v69; // [rsp+D8h] [rbp-50h] BYREF
-  BOOL v70; // [rsp+DCh] [rbp-4Ch] BYREF
-  BOOL v71; // [rsp+E0h] [rbp-48h] BYREF
-  int v72; // [rsp+E4h] [rbp-44h] BYREF
-  int v73; // [rsp+E8h] [rbp-40h] BYREF
-  unsigned int v74; // [rsp+ECh] [rbp-3Ch] BYREF
-  int v75; // [rsp+F0h] [rbp-38h] BYREF
-  __int64 v76; // [rsp+F8h] [rbp-30h] BYREF
-  __int64 v77; // [rsp+100h] [rbp-28h] BYREF
-  __int64 v78; // [rsp+108h] [rbp-20h] BYREF
-  __int64 v79; // [rsp+110h] [rbp-18h] BYREF
-  __int64 v80; // [rsp+118h] [rbp-10h] BYREF
-  __int64 v81; // [rsp+120h] [rbp-8h] BYREF
-  __int64 v82; // [rsp+128h] [rbp+0h] BYREF
-  unsigned __int64 v83; // [rsp+130h] [rbp+8h]
-  __int64 v84; // [rsp+138h] [rbp+10h] BYREF
-  __int64 v85; // [rsp+140h] [rbp+18h] BYREF
-  __int64 v86; // [rsp+148h] [rbp+20h] BYREF
-  __int64 v87; // [rsp+150h] [rbp+28h] BYREF
-  _BYTE v88[48]; // [rsp+158h] [rbp+30h] BYREF
-  _BYTE v89[48]; // [rsp+188h] [rbp+60h] BYREF
+  CRenderTargetBitmap *v47; // rcx
+  struct CComposition *v48; // rsi
+  __int64 v49; // rax
+  void (__fastcall *v50)(struct CComposition *, unsigned __int64, CRenderTargetBitmap **); // r12
+  int *v51; // [rsp+20h] [rbp-F0h]
+  __int64 v52; // [rsp+90h] [rbp-80h] BYREF
+  CRenderTargetBitmap *v53; // [rsp+98h] [rbp-78h] BYREF
+  int v54; // [rsp+A0h] [rbp-70h] BYREF
+  int v55; // [rsp+A4h] [rbp-6Ch] BYREF
+  BOOL v56; // [rsp+A8h] [rbp-68h] BYREF
+  int v57; // [rsp+ACh] [rbp-64h] BYREF
+  int v58; // [rsp+B0h] [rbp-60h] BYREF
+  int v59; // [rsp+B4h] [rbp-5Ch] BYREF
+  int v60; // [rsp+B8h] [rbp-58h] BYREF
+  BOOL v61; // [rsp+BCh] [rbp-54h] BYREF
+  int v62; // [rsp+C0h] [rbp-50h] BYREF
+  int v63; // [rsp+C4h] [rbp-4Ch] BYREF
+  int v64; // [rsp+C8h] [rbp-48h] BYREF
+  unsigned int v65; // [rsp+CCh] [rbp-44h] BYREF
+  int v66; // [rsp+D0h] [rbp-40h] BYREF
+  __int64 v67; // [rsp+D8h] [rbp-38h] BYREF
+  __int64 v68; // [rsp+E0h] [rbp-30h] BYREF
+  __int64 updated; // [rsp+E8h] [rbp-28h] BYREF
+  unsigned __int64 v70; // [rsp+F0h] [rbp-20h]
+  __int64 v71; // [rsp+F8h] [rbp-18h] BYREF
+  __int64 v72; // [rsp+100h] [rbp-10h] BYREF
+  __int64 v73; // [rsp+108h] [rbp-8h] BYREF
+  __int64 v74; // [rsp+110h] [rbp+0h] BYREF
+  __int64 v75; // [rsp+118h] [rbp+8h] BYREF
+  __int64 v76; // [rsp+120h] [rbp+10h] BYREF
+  _BYTE v77[48]; // [rsp+128h] [rbp+18h] BYREF
+  _BYTE v78[48]; // [rsp+158h] [rbp+48h] BYREF
 
-  InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v88, "GestureTargetingUpdate", 0LL);
-  v2 = &v63;
+  InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v77, "GestureTargetingUpdate", 0LL);
+  v2 = &v54;
   CManipulationManager::LockComposition(this[2], 1);
   v3 = 0;
-  v75 = 0;
+  v66 = 0;
   do
   {
     InputTraceLogging::PerfRegion::PerfRegion(
-      (InputTraceLogging::PerfRegion *)v89,
+      (InputTraceLogging::PerfRegion *)v78,
       "GestureTargetingUpdateEvent",
-      (const struct InputTraceLogging::PerfRegion *)v88);
-    v5 = (unsigned int *)CQueue<CManipulationManager::InteractionUpdate *>::Remove(
-                           &CManipulationManager::s_InteractionUpdateQueue,
-                           v4,
-                           v2);
-    v7 = v5;
+      (const struct InputTraceLogging::PerfRegion *)v77);
+    v6 = (const struct CManipulationManager::InteractionUpdate *)CQueue<CManipulationManager::InteractionUpdate *>::Remove(
+                                                                   v5,
+                                                                   v4,
+                                                                   v2);
+    v8 = v6;
     v2 = 0LL;
-    if ( !v5 )
+    if ( !v6 )
       goto LABEL_17;
-    v8 = *v5 - 5;
-    if ( v8 && (v9 = v8 - 1) != 0 )
+    if ( *(int *)v6 < 5 )
+      goto LABEL_59;
+    if ( *(int *)v6 <= 6 )
     {
-      v10 = v9 - 1;
-      if ( v10 )
-      {
-        v19 = v10 - 1;
-        if ( v19 )
+      InputTraceLogging::GestureTargeting::UpdateCapture(v6);
+      goto LABEL_7;
+    }
+    switch ( *(_DWORD *)v6 )
+    {
+      case 7:
+        InputTraceLogging::GestureTargeting::InteractionConfigurationUpdate(v6);
+        break;
+      case 8:
+        InputTraceLogging::GestureTargeting::TemporaryInteractionConfigurationUpdate(v6);
+        break;
+      case 9:
+        v15 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                            v7,
+                            _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                        + 8);
+        if ( *(_DWORD *)v15 > 4u
+          && (*(_DWORD *)(v15 + 16) & 0x800LL) != 0
+          && (*(_QWORD *)(v15 + 24) & 0x800LL) == *(_QWORD *)(v15 + 24) )
         {
-          if ( v19 == 1 )
+          v16 = *((_DWORD *)v8 + 11);
+          if ( v16 )
           {
-            v20 = wil::details::static_lazy<InputTraceLogging>::get(
-                    v6,
-                    _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-            v11 = *(_DWORD **)(v20 + 8);
-            if ( *v11 > 4u )
-            {
-              if ( (unsigned __int8)tlgKeywordOn(*(_QWORD *)(v20 + 8), 2048LL) )
-              {
-                v37 = v7[11];
-                if ( v37 )
-                {
-                  if ( v37 == 1 )
-                    v38 = "Y";
-                  else
-                    v38 = "UNKNOWN";
-                }
-                else
-                {
-                  v38 = "X";
-                }
-                v39 = (const struct CInteraction *)*((_QWORD *)v7 + 2);
-                v78 = (__int64)v38;
-                LOBYTE(v59) = (v7[16] & 2) != 0;
-                if ( v39 )
-                {
-                  v81 = *((_QWORD *)v39 + 214);
-                  v40 = *((_QWORD *)v39 + 35) != 0LL;
-                }
-                else
-                {
-                  v81 = 0LL;
-                  v40 = 0;
-                }
-                v69 = v40;
-                v70 = InputTraceLogging::InteractionInputTransparency(v39);
-                v71 = InputTraceLogging::InteractionFurtherProcessingForInput(v41);
-                if ( v42 )
-                  v43 = *(_BYTE *)(v42 + 192) & 1;
-                else
-                  v43 = 0;
-                v72 = v43;
-                if ( v42 )
-                {
-                  v62 = *(_DWORD *)(v42 + 188);
-                  v44 = 0LL;
-                  v45 = *(_QWORD *)(v42 + 104);
-                  if ( v45 )
-                    v44 = *(_QWORD *)(v45 + 64);
-                  v82 = v44;
-                  v46 = *(_DWORD *)(v42 + 1704);
-                }
-                else
-                {
-                  v62 = 0;
-                  v46 = 0;
-                  v82 = 0LL;
-                }
-                v73 = v46;
-                v77 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v42);
-                v48 = InputTraceLogging::InteractionSourceTypeToString(v47);
-                v49 = *v7;
-                v76 = (__int64)v48;
-                v86 = v50;
-                v87 = v50;
-                updated = (CResource *)InputTraceLogging::MidManipulationUpdateTypeToString(v49);
-                _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<1>,_tlgWrapSz<char>>(
-                  v51,
-                  (int)&dword_18037CE31,
-                  (__int64)&updated,
-                  (__int64)&v87,
-                  (__int64)&v86,
-                  (__int64)&v76,
-                  (__int64)&v77,
-                  (__int64)&v73,
-                  (__int64)&v82,
-                  (__int64)&v62,
-                  (__int64)&v72,
-                  (__int64)&v71,
-                  (__int64)&v70,
-                  (__int64)&v69,
-                  (__int64)&v81,
-                  (__int64)&v59,
-                  (__int64)&v78);
-              }
-            }
+            if ( v16 == 1 )
+              v17 = "Y";
+            else
+              v17 = "UNKNOWN";
           }
           else
           {
-            v22 = wil::details::static_lazy<InputTraceLogging>::get(
-                    v6,
-                    _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-            v11 = *(_DWORD **)(v22 + 8);
-            if ( *v11 > 4u && (unsigned __int8)tlgKeywordOn(*(_QWORD *)(v22 + 8), 2048LL) )
-            {
-              v23 = (const struct CInteraction *)*((_QWORD *)v7 + 2);
-              updated = (CResource *)*((_QWORD *)v7 + 1);
-              if ( v23 )
-              {
-                v79 = *((_QWORD *)v23 + 214);
-                v24 = *((_QWORD *)v23 + 35) != 0LL;
-              }
-              else
-              {
-                v79 = 0LL;
-                v24 = 0;
-              }
-              v64 = v24;
-              v65 = InputTraceLogging::InteractionInputTransparency(v23);
-              v66 = InputTraceLogging::InteractionFurtherProcessingForInput(v25);
-              if ( v26 )
-                v27 = *(_BYTE *)(v26 + 192) & 1;
-              else
-                v27 = 0;
-              v67 = v27;
-              if ( v26 )
-              {
-                v61 = *(_DWORD *)(v26 + 188);
-                v28 = 0LL;
-                v29 = *(_QWORD *)(v26 + 104);
-                if ( v29 )
-                  v28 = *(_QWORD *)(v29 + 64);
-                v80 = v28;
-                v30 = *(_DWORD *)(v26 + 1704);
-              }
-              else
-              {
-                v61 = 0;
-                v30 = 0;
-                v80 = 0LL;
-              }
-              v68 = v30;
-              v76 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v26);
-              v32 = InputTraceLogging::InteractionSourceTypeToString(v31);
-              v33 = *v7;
-              v77 = (__int64)v32;
-              v84 = v34;
-              v85 = v34;
-              v78 = InputTraceLogging::MidManipulationUpdateTypeToString(v33);
-              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-                v35,
-                (int)&dword_18037D514,
-                (__int64)&v78,
-                (__int64)&v85,
-                (__int64)&v84,
-                (__int64)&v77,
-                (__int64)&v76,
-                (__int64)&v68,
-                (__int64)&v80,
-                (__int64)&v61,
-                (__int64)&v67,
-                (__int64)&v66,
-                (__int64)&v65,
-                (__int64)&v64,
-                (__int64)&v79,
-                (__int64)&updated);
-            }
+            v17 = "X";
           }
-        }
-        else
-        {
-          InputTraceLogging::GestureTargeting::TemporaryInteractionConfigurationUpdate((const struct CManipulationManager::InteractionUpdate *)v7);
-        }
-      }
-      else
-      {
-        InputTraceLogging::GestureTargeting::InteractionConfigurationUpdate((const struct CManipulationManager::InteractionUpdate *)v7);
-      }
-    }
-    else
-    {
-      InputTraceLogging::GestureTargeting::UpdateCapture((const struct CManipulationManager::InteractionUpdate *)v7);
-    }
-    v12 = (CVisual *)*((_QWORD *)v7 + 1);
-    v13 = (struct CInteraction *)*((_QWORD *)v7 + 2);
-    *((_QWORD *)v7 + 1) = 0LL;
-    *((_QWORD *)v7 + 2) = 0LL;
-    v14 = *v7;
-    if ( (int)v14 <= 5 )
-    {
-      if ( (_DWORD)v14 == 5 )
-      {
-        CManipulationManager::OnCapturePointer((CManipulationManager *)this, v7[6], v13);
-      }
-      else
-      {
-        if ( (unsigned int)v14 >= 4 )
-        {
-          if ( (_DWORD)v14 == 4 )
+          v18 = (const struct CInteraction *)*((_QWORD *)v8 + 2);
+          v53 = (CRenderTargetBitmap *)v17;
+          LOBYTE(v52) = (*((_BYTE *)v8 + 64) & 2) != 0;
+          v19 = 0;
+          if ( v18 )
+            LOBYTE(v19) = *((_QWORD *)v18 + 34) != 0LL;
+          v55 = v19;
+          v56 = InputTraceLogging::InteractionInputTransparency(v18);
+          if ( v20 )
+            v21 = *(_BYTE *)(v20 + 184) & 1;
+          else
+            v21 = 0;
+          v57 = v21;
+          if ( v20 )
+            v22 = *(_DWORD *)(v20 + 180);
+          else
+            v22 = 0;
+          v58 = v22;
+          v23 = 0LL;
+          if ( v20 )
           {
-            updated = 0LL;
-            InteractionInternal = CVisual::GetInteractionInternal(v12);
-            CManipulationContext::FindWorkspace((struct MCCollections *)(this + 20), InteractionInternal, &v74);
-            v53 = updated;
-            v54 = this[2];
-            v83 = v74 | 0xFFFFFFFE00000000uLL;
-            v55 = *(_QWORD *)v54;
-            updated = 0LL;
-            v56 = *(void (__fastcall **)(struct CComposition *, unsigned __int64, CResource **))(v55 + 56);
-            if ( v53 )
-              CResource::InternalRelease(v53);
-            v56(v54, v83, &updated);
-            v57 = updated;
-            if ( updated )
-            {
-              CManipulationContext::OnVisualPropertyChange(v12, updated);
-              v57 = updated;
-            }
-            v3 = 1;
-            if ( v57 )
-              CResource::InternalRelease(v57);
+            v24 = *(_QWORD *)(v20 + 96);
+            if ( v24 )
+              v23 = *(_QWORD *)(v24 + 64);
           }
-          goto LABEL_12;
+          v71 = v23;
+          if ( v20 )
+            v25 = *(_DWORD *)(v20 + 1696);
+          else
+            v25 = 0;
+          v59 = v25;
+          v67 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v20);
+          v68 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v26);
+          v28 = v27 + 8;
+          if ( !v27 )
+            v28 = 0LL;
+          v29 = *(unsigned int *)v8;
+          v72 = v28;
+          v73 = v27;
+          updated = InputTraceLogging::MidManipulationUpdateTypeToString(v29);
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapSz<char>>(
+            v30,
+            (int)&dword_1802EAC9F,
+            (__int64)&updated,
+            (__int64)&v73,
+            (__int64)&v72,
+            (__int64)&v68,
+            (__int64)&v67,
+            (__int64)&v59,
+            (__int64)&v71,
+            (__int64)&v58,
+            (__int64)&v57,
+            (__int64)&v56,
+            (__int64)&v55,
+            (__int64)&v52,
+            (__int64)&v53);
         }
-        CManipulationContext::InvalidateMCs(this + 20, v12, v13, (unsigned int)v14, &v75);
+        break;
+      default:
+LABEL_59:
+        v31 = *(_QWORD *)(wil::details::static_lazy<InputTraceLogging>::get(
+                            v7,
+                            _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)
+                        + 8);
+        if ( *(_DWORD *)v31 > 4u
+          && (*(_DWORD *)(v31 + 16) & 0x800LL) != 0
+          && (*(_QWORD *)(v31 + 24) & 0x800LL) == *(_QWORD *)(v31 + 24) )
+        {
+          v32 = (const struct CInteraction *)*((_QWORD *)v8 + 2);
+          updated = *((_QWORD *)v8 + 1);
+          v33 = 0;
+          if ( v32 )
+            LOBYTE(v33) = *((_QWORD *)v32 + 34) != 0LL;
+          v60 = v33;
+          v61 = InputTraceLogging::InteractionInputTransparency(v32);
+          if ( v34 )
+            v35 = *(_BYTE *)(v34 + 184) & 1;
+          else
+            v35 = 0;
+          v62 = v35;
+          if ( v34 )
+            v36 = *(_DWORD *)(v34 + 180);
+          else
+            v36 = 0;
+          v63 = v36;
+          v37 = 0LL;
+          if ( v34 )
+          {
+            v38 = *(_QWORD *)(v34 + 96);
+            if ( v38 )
+              v37 = *(_QWORD *)(v38 + 64);
+          }
+          v74 = v37;
+          if ( v34 )
+            v39 = *(_DWORD *)(v34 + 1696);
+          else
+            v39 = 0;
+          v64 = v39;
+          v68 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v34);
+          v67 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v40);
+          v42 = v41 + 8;
+          if ( !v41 )
+            v42 = 0LL;
+          v43 = *(unsigned int *)v8;
+          v75 = v42;
+          v76 = v41;
+          v53 = (CRenderTargetBitmap *)InputTraceLogging::MidManipulationUpdateTypeToString(v43);
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
+            v44,
+            (int)&dword_1802EAA2B,
+            (__int64)&v53,
+            (__int64)&v76,
+            (__int64)&v75,
+            (__int64)&v67,
+            (__int64)&v68,
+            (__int64)&v64,
+            (__int64)&v74,
+            (__int64)&v63,
+            (__int64)&v62,
+            (__int64)&v61,
+            (__int64)&v60,
+            (__int64)&updated);
+        }
+        break;
+    }
+LABEL_7:
+    v10 = (CVisual *)*((_QWORD *)v8 + 1);
+    v11 = (struct CInteraction *)*((_QWORD *)v8 + 2);
+    *((_QWORD *)v8 + 1) = 0LL;
+    *((_QWORD *)v8 + 2) = 0LL;
+    v12 = *(_DWORD *)v8;
+    if ( *(int *)v8 >= 0 )
+    {
+      if ( v12 <= 3 )
+      {
+        v51 = &v66;
+        CManipulationContext::InvalidateMCs(this + 23, v10, v11);
       }
-LABEL_75:
+      else
+      {
+        switch ( v12 )
+        {
+          case 7:
+            LODWORD(v51) = *((_DWORD *)v8 + 12);
+            CInteractionProcessor::SetInteractionConfiguration(
+              (char *)v11 + 344,
+              *((unsigned int *)v8 + 10),
+              *((unsigned int *)v8 + 11),
+              *((_QWORD *)v8 + 7),
+              v51);
+            v13 = (void *)*((_QWORD *)v8 + 7);
+            if ( v13 )
+              operator delete(v13);
+            goto LABEL_12;
+          case 4:
+            v53 = 0LL;
+            InteractionInternal = CVisual::GetInteractionInternal(v10);
+            CManipulationContext::FindWorkspace((struct MCCollections *)(this + 23), InteractionInternal, &v65);
+            v47 = v53;
+            v48 = this[2];
+            v70 = v65 | 0xFFFFFFFE00000000uLL;
+            v49 = *(_QWORD *)v48;
+            v53 = 0LL;
+            v50 = *(void (__fastcall **)(struct CComposition *, unsigned __int64, CRenderTargetBitmap **))(v49 + 32);
+            if ( v47 )
+              CRenderTargetBitmap::Release(v47);
+            v50(v48, v70, &v53);
+            v9 = v53;
+            if ( v53 )
+            {
+              CManipulationContext::OnVisualPropertyChange(v10, v53);
+              if ( v53 )
+                CRenderTargetBitmap::Release(v53);
+            }
+            break;
+          case 5:
+            CManipulationManager::OnCapturePointer((CManipulationManager *)this, *((_DWORD *)v8 + 6), v11);
+            break;
+          default:
+            switch ( v12 )
+            {
+              case 6:
+                CManipulationManager::OnCaptureManipulation(
+                  (CManipulationManager *)this,
+                  v11,
+                  *((_DWORD *)v8 + 6),
+                  *((_QWORD *)v8 + 4));
+                break;
+              case 8:
+                CInteractionProcessor::SetTemporaryConfiguration(
+                  (_DWORD)v11 + 344,
+                  *((_DWORD *)v8 + 11),
+                  *((_DWORD *)v8 + 10),
+                  *((_BYTE *)v8 + 64) & 1,
+                  **((_DWORD **)v8 + 7));
+                v45 = (void *)*((_QWORD *)v8 + 7);
+                if ( v45 )
+                  operator delete(v45);
+                break;
+              case 9:
+                LOBYTE(v9) = (*((_BYTE *)v8 + 64) & 2) != 0;
+                CInteractionProcessor::SetRailsEnabled((char *)v11 + 344, v9, *((unsigned int *)v8 + 11));
+                break;
+            }
+            goto LABEL_12;
+        }
+      }
       v3 = 1;
-      goto LABEL_12;
     }
-    v15 = v14 - 6;
-    if ( !v15 )
-    {
-      CManipulationManager::OnCaptureManipulation((CManipulationManager *)this, v13, v7[6], *((_QWORD *)v7 + 4));
-      goto LABEL_12;
-    }
-    v16 = v15 - 1;
-    if ( !v16 )
-    {
-      CInteractionProcessor::SetInteractionConfiguration((char *)v13 + 352, v7[10], v7[11], *((_QWORD *)v7 + 7), v7[12]);
-      v17 = (void *)*((_QWORD *)v7 + 7);
-      if ( v17 )
-        operator delete(v17);
-      goto LABEL_12;
-    }
-    v21 = v16 - 1;
-    if ( !v21 )
-    {
-      LOBYTE(v11) = v7[16] & 1;
-      CInteractionProcessor::SetTemporaryConfiguration(
-        (_DWORD)v13 + 352,
-        v7[11],
-        v7[10],
-        (_DWORD)v11,
-        **((_DWORD **)v7 + 7));
-      v58 = (void *)*((_QWORD *)v7 + 7);
-      if ( v58 )
-        operator delete(v58, 0LL);
-      goto LABEL_12;
-    }
-    v14 = (unsigned int)(v21 - 1);
-    if ( (_DWORD)v14 )
-    {
-      if ( (_DWORD)v14 != 1 )
-        goto LABEL_12;
-      goto LABEL_75;
-    }
-    LODWORD(v14) = (v7[16] & 2) != 0;
-    CInteractionProcessor::SetRailsEnabled((char *)v13 + 352, v14, v7[11]);
 LABEL_12:
-    if ( v12 )
-      CQueue<CResource *>::Insert(this + 10, v14, v12);
-    if ( v13 )
-      CQueue<CResource *>::Insert(this + 10, v14, v13);
-    CManipulationManager::InteractionUpdate::`scalar deleting destructor'(
-      (CManipulationManager::InteractionUpdate *)v7,
-      v14);
+    if ( v10 )
+      CQueue<CResource *>::Insert(this + 13, v9, v10);
+    if ( v11 )
+      CQueue<CResource *>::Insert(this + 13, v9, (char *)v11 + 8);
+    CManipulationManager::InteractionUpdate::`scalar deleting destructor'(v8);
 LABEL_17:
-    InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v89);
+    InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v78);
   }
-  while ( v63-- );
+  while ( v54-- );
   if ( v3 )
-    CManipulationContext::Revalidate((struct MCCollections *)(this + 20));
-  ReleaseSRWLockShared((PSRWLOCK)this[2] + 84);
-  if ( *((_DWORD *)this + 24) )
-    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this[2] + 82) + 32LL))(
-      *((_QWORD *)this[2] + 82),
+    CManipulationContext::Revalidate((struct MCCollections *)(this + 23));
+  ReleaseSRWLockShared((PSRWLOCK)this[2] + 65);
+  if ( *((_DWORD *)this + 30) )
+    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this[2] + 63) + 96LL))(
+      *((_QWORD *)this[2] + 63),
       0LL,
       0x4000LL);
-  InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v88);
+  InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v77);
 }

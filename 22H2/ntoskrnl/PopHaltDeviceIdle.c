@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHaltDeviceIdle @ 0x140587550
+ * XREFs of PopHaltDeviceIdle @ 0x1403886C8
  * Callers:
- *     PoInitializeBroadcast @ 0x14098BC94 (PoInitializeBroadcast.c)
+ *     PoInitializeBroadcast @ 0x140778138 (PoInitializeBroadcast.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS PopHaltDeviceIdle()
@@ -24,8 +24,8 @@ NTSTATUS PopHaltDeviceIdle()
   v6 = 0LL;
   v7 = 0LL;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  byte_140D17BEC = 1;
-  if ( dword_140D17BE8 )
+  byte_140C505B4 = 1;
+  if ( dword_140C505B0 )
   {
     DWORD1(v6) = 0;
     v7 = (char *)&v6 + 8;
@@ -35,22 +35,23 @@ NTSTATUS PopHaltDeviceIdle()
     PopDeviceIdleSync = (PRKEVENT)&v6;
     BYTE2(v6) = 6;
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
+  KxReleaseSpinLock(&PopDopeGlobalLock);
+  result = KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v1 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-      v5 = (result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v5 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v1 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+        v5 = (result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v5 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v1);

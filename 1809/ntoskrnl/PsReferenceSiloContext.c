@@ -1,9 +1,9 @@
 /*
- * XREFs of PsReferenceSiloContext @ 0x14013A750
+ * XREFs of PsReferenceSiloContext @ 0x14013A770
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PsReferenceSiloContext(void *a1)

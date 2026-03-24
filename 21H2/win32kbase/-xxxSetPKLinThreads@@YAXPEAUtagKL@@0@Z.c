@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C0050088
+ * XREFs of ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C000A1D0
  * Callers:
- *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C004EC08 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0008658 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
  * Callees:
- *     HMAssignmentLock @ 0x1C003A420 (HMAssignmentLock.c)
- *     ?GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z @ 0x1C0050170 (-GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z.c)
- *     xxxChangeForegroundKeyboardTable @ 0x1C0051CD0 (xxxChangeForegroundKeyboardTable.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ApiSetEditionImmActivateAndUnloadThreadsLayout @ 0x1C020828C (ApiSetEditionImmActivateAndUnloadThreadsLayout.c)
+ *     xxxChangeForegroundKeyboardTable @ 0x1C0007210 (xxxChangeForegroundKeyboardTable.c)
+ *     ?GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z @ 0x1C000A2B0 (-GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z.c)
+ *     HMAssignmentLock @ 0x1C0030310 (HMAssignmentLock.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ApiSetEditionImmActivateAndUnloadThreadsLayout @ 0x1C01CBD30 (ApiSetEditionImmActivateAndUnloadThreadsLayout.c)
  */
 
 void __fastcall xxxSetPKLinThreads(struct tagKL *a1, struct tagKL *a2)
@@ -15,8 +15,8 @@ void __fastcall xxxSetPKLinThreads(struct tagKL *a1, struct tagKL *a2)
   __int64 ThreadsWithPKL; // rsi
   int v5; // r8d
   struct tagTHREADINFO **v6; // r14
-  __int64 *v7; // rax
-  __int64 *v8[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v7; // rax
+  _QWORD v8[2]; // [rsp+30h] [rbp-38h] BYREF
   __int128 v9; // [rsp+40h] [rbp-28h] BYREF
   __int64 v10; // [rsp+50h] [rbp-18h]
   struct tagTHREADINFO **v11; // [rsp+70h] [rbp+8h] BYREF
@@ -38,17 +38,17 @@ void __fastcall xxxSetPKLinThreads(struct tagKL *a1, struct tagKL *a2)
       v6 = v11;
       do
       {
-        v7 = (__int64 *)((char *)*v6 + 440);
-        v8[1] = (__int64 *)a1;
+        v7 = (__int64)*v6 + 440;
+        v8[1] = a1;
         v8[0] = v7;
-        HMAssignmentLock(v8, 0LL);
+        HMAssignmentLock(v8);
         ++v6;
         --ThreadsWithPKL;
       }
       while ( ThreadsWithPKL );
     }
-    if ( qword_1C029BE28 )
-      qword_1C029BE28(&v9);
+    if ( qword_1C02570E8 )
+      qword_1C02570E8(&v9);
   }
   if ( a2 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of VslLoadEnclaveModule @ 0x140932778
+ * XREFs of VslLoadEnclaveModule @ 0x14088FEB8
  * Callers:
- *     MiLoadSectionIntoVsmEnclave @ 0x14097A714 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D3570 (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockMdlForTransfer @ 0x14039424C (VslpLockMdlForTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslLoadEnclaveModule(
@@ -15,40 +15,39 @@ __int64 __fastcall VslLoadEnclaveModule(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        struct _MDL *a5,
-        ULONG a6,
-        _BYTE *a7,
-        _DWORD *a8,
-        _DWORD *a9)
+        __int64 a5,
+        _BYTE *a6,
+        _DWORD *a7,
+        _DWORD *a8)
 {
   __int64 result; // rax
-  int v13; // ebx
-  __int64 *v15[10]; // [rsp+48h] [rbp-C0h] BYREF
-  _QWORD v16[14]; // [rsp+98h] [rbp-70h] BYREF
+  NTSTATUS v12; // r14d
+  __int64 *v14[10]; // [rsp+38h] [rbp-B9h] BYREF
+  _QWORD v15[14]; // [rsp+88h] [rbp-69h] BYREF
 
-  memset(v16, 0, 0x68uLL);
-  memset(v15, 0, 0x48uLL);
-  result = VslpLockPagesForTransfer((__int64)v15, a5, a6, 0, 0);
+  memset(v15, 0, 0x68uLL);
+  memset(v14, 0, 0x48uLL);
+  result = VslpLockMdlForTransfer((__int64)v14, a5, 0);
   if ( (int)result >= 0 )
   {
-    v16[1] = a1;
-    v16[5] = v15[0];
-    v16[6] = v15[7];
-    v16[2] = a2;
-    v16[3] = a4;
-    v16[4] = a3;
-    v13 = VslpEnterIumSecureMode(2u, 48, 0, (__int64)v16);
-    VslpUnlockPagesForTransfer(v15);
-    if ( v13 >= 0 )
+    v15[1] = a1;
+    v15[6] = v14[7];
+    v15[2] = a2;
+    v15[3] = a4;
+    v15[4] = a3;
+    v15[5] = a5;
+    v12 = VslpEnterIumSecureMode(2u, 47, 0, (__int64)v15);
+    VslpUnlockPagesForTransfer(v14);
+    if ( v12 >= 0 )
     {
+      if ( a6 )
+        *a6 = v15[2];
       if ( a7 )
-        *a7 = v16[2];
+        *a7 = v15[3];
       if ( a8 )
-        *a8 = v16[3];
-      if ( a9 )
-        *a9 = v16[4];
+        *a8 = v15[4];
     }
-    return (unsigned int)v13;
+    return (unsigned int)v12;
   }
   return result;
 }

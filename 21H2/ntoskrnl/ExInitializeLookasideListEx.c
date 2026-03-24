@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInitializeLookasideListEx @ 0x1402A0360
+ * XREFs of ExInitializeLookasideListEx @ 0x14035E190
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x1402A03B0 (ExInitializeLookasideListExInternal.c)
+ *     ExInitializeLookasideListExInternal @ 0x14035E1E0 (ExInitializeLookasideListExInternal.c)
  */
 
 NTSTATUS __stdcall ExInitializeLookasideListEx(

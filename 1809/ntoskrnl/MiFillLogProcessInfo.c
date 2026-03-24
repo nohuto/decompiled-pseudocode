@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFillLogProcessInfo @ 0x1401310D4
+ * XREFs of MiFillLogProcessInfo @ 0x1401310F4
  * Callers:
- *     MiLogTrimWs @ 0x140131028 (MiLogTrimWs.c)
- *     MiLogWsEmptyControl @ 0x1402CB8A0 (MiLogWsEmptyControl.c)
+ *     MiLogTrimWs @ 0x140131048 (MiLogTrimWs.c)
+ *     MiLogWsEmptyControl @ 0x1402CB9A0 (MiLogWsEmptyControl.c)
  * Callees:
  *     <none>
  */

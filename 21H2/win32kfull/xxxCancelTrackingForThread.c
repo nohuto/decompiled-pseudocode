@@ -1,15 +1,15 @@
 /*
- * XREFs of xxxCancelTrackingForThread @ 0x1C02104C0
+ * XREFs of xxxCancelTrackingForThread @ 0x1C02113F0
  * Callers:
- *     xxxCancelTracking @ 0x1C00DCB94 (xxxCancelTracking.c)
+ *     xxxCancelTracking @ 0x1C003DE90 (xxxCancelTracking.c)
  * Callees:
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     xxxCapture @ 0x1C00AA7F8 (xxxCapture.c)
- *     SetWakeBit @ 0x1C00ABE30 (SetWakeBit.c)
- *     IsInsideMenuLoop @ 0x1C010931C (IsInsideMenuLoop.c)
- *     bSetDevDragRect @ 0x1C010FE70 (bSetDevDragRect.c)
- *     ChangeComposableCursor @ 0x1C01CFAF0 (ChangeComposableCursor.c)
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C020C464 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     IsInsideMenuLoop @ 0x1C000E860 (IsInsideMenuLoop.c)
+ *     bSetDevDragRect @ 0x1C0029500 (bSetDevDragRect.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     SetWakeBit @ 0x1C0051920 (SetWakeBit.c)
+ *     xxxCapture @ 0x1C00C062C (xxxCapture.c)
+ *     ChangeComposableCursor @ 0x1C01D42BC (ChangeComposableCursor.c)
+ *     xxxDrawDragRectEx @ 0x1C0211504 (xxxDrawDragRectEx.c)
  */
 
 void __fastcall xxxCancelTrackingForThread(__int64 a1)
@@ -23,18 +23,18 @@ void __fastcall xxxCancelTrackingForThread(__int64 a1)
     v1 = *(_QWORD *)(a1 + 672);
     if ( v1 )
     {
-      v3 = *(_DWORD *)(v1 + 200);
-      if ( (v3 & 0x4000000) != 0 )
+      v3 = *(_DWORD *)(v1 + 196);
+      if ( (v3 & 0x8000000) != 0 )
       {
         ChangeComposableCursor(0LL);
-        v3 = *(_DWORD *)(v1 + 200) & 0xFBFFFFFF;
+        v3 = *(_DWORD *)(v1 + 196) & 0xF7FFFFFF;
       }
-      *(_DWORD *)(v1 + 200) = v3 | 8;
+      *(_DWORD *)(v1 + 196) = v3 | 8;
       if ( (*(_DWORD *)(a1 + 488) & 0x10) != 0 )
       {
         bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL), 0LL, 0LL, 0);
-        if ( (*(_DWORD *)(v1 + 200) & 0x20) == 0 )
-          xxxDrawDragRectEx((struct MOVESIZEDATA *)v1, 0LL, 2, (struct tagRECT *)(v1 + 24));
+        if ( (*(_DWORD *)(v1 + 196) & 0x20) == 0 )
+          xxxDrawDragRectEx((struct _MOVESIZEDATA *)v1);
       }
       *(_DWORD *)(a1 + 488) &= ~0x10u;
       if ( *(_QWORD *)(a1 + 432) )

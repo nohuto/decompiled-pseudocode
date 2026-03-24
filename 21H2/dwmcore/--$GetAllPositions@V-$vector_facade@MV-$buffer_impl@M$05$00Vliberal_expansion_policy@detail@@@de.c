@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$GetAllPositions@V?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@CoordMap@@AEBAXAEBV?$vector_facade@URampEntry@CoordMap@@V?$buffer_impl@URampEntry@CoordMap@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@AEAV?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@2@MMM@Z @ 0x18003BBE8
+ * XREFs of ??$GetAllPositions@V?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@CoordMap@@AEBAXAEBV?$vector_facade@URampEntry@CoordMap@@V?$buffer_impl@URampEntry@CoordMap@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@AEAV?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@2@MMM@Z @ 0x180042B54
  * Callers:
- *     ??$ComputeMeshPositions@V?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@V12@@CoordMap@@QEBAXAEAV?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@0AEBUD2D_RECT_F@@M@Z @ 0x18003BB14 (--$ComputeMeshPositions@V-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail.c)
+ *     ??$ComputeMeshPositions@V?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@V12@@CoordMap@@QEBAXAEAV?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@0AEBUD2D_RECT_F@@M@Z @ 0x180042678 (--$ComputeMeshPositions@V-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail.c)
  * Callees:
- *     ?clear@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003BBC0 (-clear@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail.c)
- *     ?reserve_region@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAM_K0@Z @ 0x18003BF30 (-reserve_region@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail.c)
+ *     ?clear@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18004280C (-clear@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail.c)
+ *     ?reserve_region@?$vector_facade@MV?$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAM_K0@Z @ 0x180042CD4 (-reserve_region@-$vector_facade@MV-$buffer_impl@M$05$00Vliberal_expansion_policy@detail@@@detail.c)
  */
 
 float *__fastcall CoordMap::GetAllPositions<detail::vector_facade<float,detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>>>(
@@ -23,12 +23,12 @@ float *__fastcall CoordMap::GetAllPositions<detail::vector_facade<float,detail::
   float *v13; // rbx
   char v14; // r8
   float *v15; // rsi
-  float v16; // xmm0_4
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  _DWORD *v19; // rax
-  unsigned __int64 v20; // rdx
-  _DWORD *v21; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  _DWORD *v18; // rax
+  unsigned __int64 v19; // rdx
+  _DWORD *v20; // rax
+  float v21; // xmm0_4
 
   detail::vector_facade<float,detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>>::clear(a3);
   v9 = fmaxf(a4, **a2);
@@ -45,33 +45,34 @@ float *__fastcall CoordMap::GetAllPositions<detail::vector_facade<float,detail::
     *v12 = v9;
     while ( v13 != v15 )
     {
-      v16 = *v13;
+      v21 = *v13;
       if ( (float)(v9 + a6) < *v13 )
       {
-        if ( v16 >= (float)(v11 - a6) )
+        if ( v21 >= (float)(v11 - a6) )
           break;
-        v17 = a3[1];
-        v18 = *a3;
-        if ( !((v17 - *a3) >> 2) || a6 < COERCE_FLOAT(COERCE_UNSIGNED_INT(v16 - *(float *)(v17 - 4)) & _xmm) )
+        v16 = a3[1];
+        v17 = *a3;
+        if ( ((v16 - *a3) & 0xFFFFFFFFFFFFFFFCuLL) == 0
+          || a6 < COERCE_FLOAT(COERCE_UNSIGNED_INT(v21 - *(float *)(v16 - 4)) & _xmm) )
         {
-          v19 = (_DWORD *)detail::vector_facade<float,detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>>::reserve_region(
+          v18 = (_DWORD *)detail::vector_facade<float,detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>>::reserve_region(
                             a3,
-                            (a3[1] - *a3) >> 2);
+                            (v16 - v17) >> 2);
           v14 = 0;
-          *v19 = *(_DWORD *)v13;
-          v17 = a3[1];
-          v18 = *a3;
+          *v18 = *(_DWORD *)v13;
+          v16 = a3[1];
+          v17 = *a3;
         }
         if ( !v14 && v13[1] != v13[2] )
         {
-          v20 = (v17 - v18) >> 2;
-          if ( v20 > 1 )
+          v19 = (v16 - v17) >> 2;
+          if ( v19 > 1 )
           {
-            v21 = (_DWORD *)detail::vector_facade<float,detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>>::reserve_region(
+            v20 = (_DWORD *)detail::vector_facade<float,detail::buffer_impl<float,6,1,detail::liberal_expansion_policy>>::reserve_region(
                               a3,
-                              v20);
+                              v19);
             v14 = 1;
-            *v21 = *(_DWORD *)v13;
+            *v20 = *(_DWORD *)v13;
           }
         }
       }

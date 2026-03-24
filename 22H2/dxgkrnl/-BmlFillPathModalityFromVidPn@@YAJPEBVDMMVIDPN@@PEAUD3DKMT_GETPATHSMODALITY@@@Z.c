@@ -1,127 +1,142 @@
 /*
- * XREFs of ?BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C016E890
+ * XREFs of ?BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0160C90
  * Callers:
- *     _BmlGetPathModalityForAdapter @ 0x1C016ECB8 (_BmlGetPathModalityForAdapter.c)
+ *     _BmlGetPathModalityForAdapter @ 0x1C0142488 (_BmlGetPathModalityForAdapter.c)
  * Callees:
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ??$_BmlFillOnePathModalityFromVidPn@UD3DKMT_PATHMODALITY_DESCRIPTOR@@@@YAXPEBVDMMVIDPNPRESENTPATH@@PEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C01700C0 (--$_BmlFillOnePathModalityFromVidPn@UD3DKMT_PATHMODALITY_DESCRIPTOR@@@@YAXPEBVDMMVIDPNPRESENTPAT.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??$_BmlFillOnePathModalityFromVidPn@UD3DKMT_PATHMODALITY_DESCRIPTOR@@@@YAXPEBVDMMVIDPNPRESENTPATH@@PEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C0160EA4 (--$_BmlFillOnePathModalityFromVidPn@UD3DKMT_PATHMODALITY_DESCRIPTOR@@@@YAXPEBVDMMVIDPNPRESENTPAT.c)
  */
 
 __int64 __fastcall BmlFillPathModalityFromVidPn(const struct DMMVIDPN *a1, struct D3DKMT_GETPATHSMODALITY *a2)
 {
   __int64 v2; // r13
   const struct DMMVIDPN *v3; // r8
-  char *v4; // r10
-  char *v5; // rbp
-  char *v7; // r12
-  bool v8; // cf
-  unsigned int v9; // ebx
-  char *v10; // rsi
-  __int64 v11; // rdx
-  __int64 v12; // rbx
+  char *v4; // rbp
+  struct D3DKMT_GETPATHSMODALITY *v5; // r14
+  char *v6; // r12
+  bool v7; // cf
+  unsigned int v8; // ebx
+  char *v9; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rdi
   char v13; // r15
-  struct DMMVIDPNTARGETMODESET *v14; // rdi
+  __int64 v14; // rbx
   __int64 v15; // rax
-  struct DMMVIDPNTARGETMODESET *v16; // rax
-  __int64 v17; // rdx
-  int v18; // ecx
-  char *v19; // rax
-  unsigned int v21; // [rsp+54h] [rbp+Ch]
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  int v21; // eax
+  char *v22; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  unsigned int v26; // [rsp+64h] [rbp+Ch]
 
   v2 = *((_QWORD *)a1 + 6);
   v3 = (const struct DMMVIDPN *)*((_QWORD *)a1 + 15);
   v4 = 0LL;
-  v5 = 0LL;
+  v5 = a2;
   if ( v3 != (const struct DMMVIDPN *)((char *)a1 + 120) )
-    v5 = (char *)v3 - 8;
-  if ( v5 )
+    v4 = (char *)v3 - 8;
+  if ( v4 )
   {
-    v7 = (char *)a1 + 120;
+    v6 = (char *)a1 + 120;
     do
     {
-      v8 = (unsigned __int16)v4 < *((_WORD *)a2 + 10);
-      v9 = (unsigned int)v4;
-      while ( v8 )
+      v7 = *((_WORD *)v5 + 10) != 0;
+      v8 = 0;
+      while ( v7 )
       {
-        v10 = (char *)a2 + 296 * v9;
-        if ( (*((_QWORD *)v10 + 7) & 0x700000000000LL) == 0x700000000000LL )
+        v9 = (char *)v5 + 272 * v8;
+        if ( (*((_QWORD *)v9 + 6) & 0x700000000000LL) == 0x700000000000LL )
         {
-          if ( *(char **)(v2 + 8) == v4 )
+          v10 = *(_QWORD *)(v2 + 8);
+          if ( !v10 )
           {
-            WdLogSingleEntry0(1LL);
-            v4 = 0LL;
+            v24 = WdLogNewEntry5_WdAssertion(0x700000000000LL, a2);
+            WdLogEvent5_WdAssertion(v24);
+            v10 = *(_QWORD *)(v2 + 8);
           }
-          v11 = *(_QWORD *)(v2 + 8);
-          if ( *((_DWORD *)v10 + 18) == *(_DWORD *)(*(_QWORD *)(v11 + 16) + 404LL) )
+          v11 = *(_QWORD *)(v10 + 16);
+          if ( *((_DWORD *)v9 + 16) == *(_DWORD *)(v11 + 316)
+            && *((_DWORD *)v9 + 17) == *(_DWORD *)(v11 + 320)
+            && *((_DWORD *)v9 + 18) == *(_DWORD *)(*((_QWORD *)v4 + 11) + 24LL)
+            && *((_DWORD *)v9 + 19) == *(_DWORD *)(*((_QWORD *)v4 + 12) + 24LL) )
           {
-            if ( !v11 )
+            LODWORD(v12) = 0;
+            v26 = 0;
+            v13 = 0;
+            if ( (*((_BYTE *)v5 + 24) & 1) != 0 && (*((_QWORD *)v9 + 6) & 0x100LL) != 0 )
             {
-              WdLogSingleEntry0(1LL);
-              v4 = 0LL;
+              v12 = *((_QWORD *)v9 + 18);
+              v13 = 1;
+              v26 = HIDWORD(v12);
             }
-            if ( *((_DWORD *)v10 + 19) == *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 8) + 16LL) + 408LL)
-              && *((_DWORD *)v10 + 20) == *(_DWORD *)(*((_QWORD *)v5 + 11) + 24LL)
-              && *((_DWORD *)v10 + 21) == *(_DWORD *)(*((_QWORD *)v5 + 12) + 24LL) )
+            _BmlFillOnePathModalityFromVidPn<D3DKMT_PATHMODALITY_DESCRIPTOR>(v4, v9 + 48);
+            v14 = *((_QWORD *)v4 + 11);
+            v15 = *(_QWORD *)(v14 + 104);
+            if ( v15 )
             {
-              v21 = HIDWORD(v4);
-              LODWORD(v12) = (_DWORD)v4;
-              v13 = (char)v4;
-              if ( (*((_BYTE *)a2 + 24) & 1) != 0 && (*((_QWORD *)v10 + 7) & 0x100LL) != 0 )
-              {
-                v12 = *((_QWORD *)v10 + 19);
-                v13 = 1;
-                v21 = HIDWORD(v12);
-              }
-              _BmlFillOnePathModalityFromVidPn<D3DKMT_PATHMODALITY_DESCRIPTOR>(v5, v10 + 56);
-              v14 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)v5 + 11));
-              v15 = *((_QWORD *)v14 + 18);
-              if ( v15 )
-                v10[184] = (unsigned int)(*(_DWORD *)(v15 + 72) - 3) <= 1;
-              v16 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)v5 + 12));
-              v17 = *((_QWORD *)v16 + 18);
-              if ( v17 )
-              {
-                *((_DWORD *)v10 + 65) = *(_DWORD *)(v17 + 132);
-                v18 = *(_DWORD *)(v17 + 136);
-                *((_QWORD *)v10 + 7) |= 8uLL;
-              }
-              else
-              {
-                *((_DWORD *)v10 + 65) = (_DWORD)v4;
-                v18 = 4;
-              }
-              *((_DWORD *)v10 + 66) = v18;
-              if ( v13 && *((_QWORD *)v10 + 19) != __PAIR64__(v21, v12) )
-                *((_QWORD *)v10 + 7) &= ~0x20000uLL;
-              if ( v16 )
-              {
-                ReferenceCounted::Release((struct DMMVIDPNTARGETMODESET *)((char *)v16 + 88));
-                v4 = 0LL;
-              }
-              if ( v14 )
-              {
-                ReferenceCounted::Release((struct DMMVIDPNTARGETMODESET *)((char *)v14 + 88));
-                v4 = 0LL;
-              }
-              break;
+              _InterlockedIncrement((volatile signed __int32 *)(v15 + 96));
+              v16 = *(_QWORD *)(v14 + 104);
             }
+            else
+            {
+              v16 = 0LL;
+            }
+            v17 = *(_QWORD *)(v16 + 144);
+            if ( v17 )
+              v9[176] = (unsigned int)(*(_DWORD *)(v17 + 72) - 3) <= 1;
+            v18 = *((_QWORD *)v4 + 12);
+            v19 = *(_QWORD *)(v18 + 104);
+            if ( v19 )
+            {
+              _InterlockedIncrement((volatile signed __int32 *)(v19 + 96));
+              v20 = *(_QWORD *)(v18 + 104);
+            }
+            else
+            {
+              v20 = 0LL;
+            }
+            a2 = *(struct D3DKMT_GETPATHSMODALITY **)(v20 + 144);
+            if ( a2 )
+            {
+              *((_DWORD *)v9 + 63) = *((_DWORD *)a2 + 33);
+              v21 = *((_DWORD *)a2 + 34);
+              *((_QWORD *)v9 + 6) |= 8uLL;
+            }
+            else
+            {
+              *((_DWORD *)v9 + 63) = 0;
+              v21 = 4;
+            }
+            *((_DWORD *)v9 + 64) = v21;
+            if ( v13 && *((_QWORD *)v9 + 18) != __PAIR64__(v26, v12) )
+              *((_QWORD *)v9 + 6) &= ~0x20000uLL;
+            if ( v20 )
+              ReferenceCounted::Release((ReferenceCounted *)(v20 + 88), (__int64)a2);
+            if ( v16 )
+              ReferenceCounted::Release((ReferenceCounted *)(v16 + 88), (__int64)a2);
+            break;
           }
         }
         else
         {
-          WdLogSingleEntry2(3LL, v9, a2);
+          v25 = WdLogNewEntry5_WdWarning(0x700000000000LL, a2, v3);
+          *(_QWORD *)(v25 + 24) = v8;
+          *(_QWORD *)(v25 + 32) = v5;
+          WdLogEvent5_WdWarning(v25);
         }
-        ++v9;
-        v4 = 0LL;
-        v8 = v9 < *((unsigned __int16 *)a2 + 10);
+        v7 = ++v8 < *((unsigned __int16 *)v5 + 10);
       }
-      v19 = (char *)*((_QWORD *)v5 + 1);
-      v5 = v19 - 8;
-      if ( v19 == v7 )
-        v5 = v4;
+      v22 = (char *)*((_QWORD *)v4 + 1);
+      v4 = v22 - 8;
+      if ( v22 == v6 )
+        v4 = 0LL;
     }
-    while ( v5 );
+    while ( v4 );
   }
   return 0LL;
 }

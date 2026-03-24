@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceBufferEstimation @ 0x14055A324
+ * XREFs of IopLiveDumpTraceBufferEstimation @ 0x140508BD0
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B25C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AC3CC (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559E30 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14050895C (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceBufferEstimation()
@@ -52,9 +52,9 @@ char IopLiveDumpTraceBufferEstimation()
     v10 = &v4;
     v12 = &v5;
     v14 = &v6;
-    v16 = v1 + 55;
-    v18 = v1 + 56;
-    v20 = v1 + 57;
+    v16 = v1 + 54;
+    v18 = v1 + 55;
+    v20 = v1 + 56;
     v22 = v1 + 58;
     v24 = v1 + 59;
     v26 = v1 + 36;

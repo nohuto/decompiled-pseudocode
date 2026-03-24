@@ -1,8 +1,8 @@
 /*
- * XREFs of RIMComputePower @ 0x1C01B6C4C
+ * XREFs of RIMComputePower @ 0x1C0181498
  * Callers:
- *     RIMComputeSpecificHighMetricValue @ 0x1C01B6C84 (RIMComputeSpecificHighMetricValue.c)
- *     RIMRetrieveRealAngularPhysicalValues @ 0x1C01B6EBC (RIMRetrieveRealAngularPhysicalValues.c)
+ *     RIMComputeSpecificHighMetricValue @ 0x1C01814D0 (RIMComputeSpecificHighMetricValue.c)
+ *     RIMRetrieveRealAngularPhysicalValues @ 0x1C0181724 (RIMRetrieveRealAngularPhysicalValues.c)
  * Callees:
  *     <none>
  */

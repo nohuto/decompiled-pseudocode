@@ -1,18 +1,18 @@
 /*
- * XREFs of BiBindEfiEntries @ 0x1408F21B4
+ * XREFs of BiBindEfiEntries @ 0x1408F2194
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1408F23EC (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiNamespaceObjects @ 0x1408F23CC (BiBindEfiNamespaceObjects.c)
  * Callees:
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BcdDeleteObject @ 0x1408F08A0 (BcdDeleteObject.c)
- *     BiIsPortableWorkspaceBoot @ 0x1408F1464 (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1EA4 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiBindEfiEntryToBcdObject @ 0x1408F22F8 (BiBindEfiEntryToBcdObject.c)
- *     BiCreateEfiEntry @ 0x1408F2DC0 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x1408F3304 (BiDeleteBootEntry.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F44B0 (BiRemoveBootEntryFromNvramDisplayOrder.c)
- *     BiUpdateBcdObject @ 0x1408F4908 (BiUpdateBcdObject.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BcdDeleteObject @ 0x1408F0880 (BcdDeleteObject.c)
+ *     BiIsPortableWorkspaceBoot @ 0x1408F1444 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1E84 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1408F22D8 (BiBindEfiEntryToBcdObject.c)
+ *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x1408F32E4 (BiDeleteBootEntry.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F4490 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiUpdateBcdObject @ 0x1408F48E8 (BiUpdateBcdObject.c)
  */
 
 __int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)

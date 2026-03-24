@@ -1,21 +1,22 @@
 /*
- * XREFs of HalpInitializeCmc @ 0x140A5AA64
+ * XREFs of HalpInitializeCmc @ 0x1409A11B8
  * Callers:
- *     HalpInitializeErrSrc @ 0x140A5A680 (HalpInitializeErrSrc.c)
+ *     HalpInitializeErrSrc @ 0x1409A0DE0 (HalpInitializeErrSrc.c)
  * Callees:
- *     HalpCmcInitializePolling @ 0x1403D256C (HalpCmcInitializePolling.c)
- *     HalpCmciInitializeErrorPacket @ 0x1403D2750 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmcStartPolling @ 0x1403D2BFC (HalpCmcStartPolling.c)
- *     HalpIsCmciImplemented @ 0x140A5367C (HalpIsCmciImplemented.c)
- *     HalpCmciInitProcessor @ 0x140A53718 (HalpCmciInitProcessor.c)
- *     HalpCmciInit @ 0x140A5AAF0 (HalpCmciInit.c)
+ *     HalpCmcInitializePolling @ 0x1403C53E0 (HalpCmcInitializePolling.c)
+ *     HalpCmcStartPolling @ 0x1403C5798 (HalpCmcStartPolling.c)
+ *     HalpIsCmciImplemented @ 0x140999C64 (HalpIsCmciImplemented.c)
+ *     HalpCmciInitProcessor @ 0x140999D20 (HalpCmciInitProcessor.c)
+ *     HalpCmciInit @ 0x1409A1244 (HalpCmciInit.c)
+ *     HalpCmciInitializeErrorPacket @ 0x1409A136C (HalpCmciInitializeErrorPacket.c)
  */
 
 __int64 __fastcall HalpInitializeCmc(int a1, __int64 a2)
 {
-  __int64 v4; // [rsp+40h] [rbp+18h]
+  __int64 v4; // rcx
+  __int64 v5; // [rsp+40h] [rbp+18h]
 
-  HIDWORD(v4) = 0;
+  HIDWORD(v5) = 0;
   if ( a1 )
   {
     if ( a1 == 1 )
@@ -28,15 +29,15 @@ __int64 __fastcall HalpInitializeCmc(int a1, __int64 a2)
         HalpCmciInit(a2);
       }
       HalpCmcInitializePolling(a2);
-      HalpCmcStartPolling();
+      HalpCmcStartPolling(v4);
     }
     else
     {
-      LODWORD(v4) = KeGetPcr()->Prcb.Number;
+      LODWORD(v5) = KeGetPcr()->Prcb.Number;
       if ( HalpIsCmciImplemented() )
       {
-        HalpCmciInitializeErrorPacket(a2, v4);
-        HalpCmciInitProcessor(a2, v4);
+        HalpCmciInitializeErrorPacket(a2, v5);
+        HalpCmciInitProcessor(a2, v5);
       }
     }
   }

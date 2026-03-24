@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitializeBitMapEx @ 0x1403DE010
+ * XREFs of RtlInitializeBitMapEx @ 0x1402D0FC0
  * Callers:
  *     <none>
  * Callees:

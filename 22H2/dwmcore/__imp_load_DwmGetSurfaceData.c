@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DwmGetSurfaceData @ 0x1801110AC
+ * XREFs of __imp_load_DwmGetSurfaceData @ 0x1800E8CD4
  * Callers:
  *     <none>
  * Callees:

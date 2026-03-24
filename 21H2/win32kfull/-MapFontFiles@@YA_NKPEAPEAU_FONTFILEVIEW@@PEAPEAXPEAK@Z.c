@@ -1,11 +1,12 @@
 /*
- * XREFs of ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C000FA44
+ * XREFs of ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C00A4EDC
  * Callers:
- *     _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00103BC (_lambda_3837b0e11e5c1550d1f290a74bcd7a94_--operator().c)
- *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C001AEF0 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
+ *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098AC0 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C0099714 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
+ *     _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00A6E4C (_lambda_3837b0e11e5c1550d1f290a74bcd7a94_--operator().c)
  * Callees:
- *     EngMapFontFileFDInternal @ 0x1C000FAC4 (EngMapFontFileFDInternal.c)
- *     EngUnmapFontFileFD @ 0x1C0011220 (EngUnmapFontFileFD.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4F5C (EngMapFontFileFDInternal.c)
+ *     EngUnmapFontFileFD @ 0x1C011DA70 (EngUnmapFontFileFD.c)
  */
 
 char __fastcall MapFontFiles(unsigned int a1, struct _FONTFILEVIEW **a2, void **a3, unsigned int *a4)

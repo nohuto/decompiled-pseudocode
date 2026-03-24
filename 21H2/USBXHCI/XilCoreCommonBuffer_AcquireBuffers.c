@@ -1,12 +1,12 @@
 /*
- * XREFs of XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009E10
+ * XREFs of XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00
  * Callers:
- *     CommonBuffer_AcquireBuffers @ 0x1C0009DA4 (CommonBuffer_AcquireBuffers.c)
- *     CommonBuffer_WorkItem @ 0x1C0015A10 (CommonBuffer_WorkItem.c)
- *     XilCoreDeviceSlot_AllocateResources @ 0x1C00164C4 (XilCoreDeviceSlot_AllocateResources.c)
+ *     CommonBuffer_AcquireBuffers @ 0x1C0009A94 (CommonBuffer_AcquireBuffers.c)
+ *     CommonBuffer_WorkItem @ 0x1C0015DF0 (CommonBuffer_WorkItem.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C00161E8 (XilCoreDeviceSlot_AllocateResources.c)
  * Callees:
- *     XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009F1C (XilCoreCommonBuffer_AcquireBuffersWithSegmenter.c)
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015B94 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009C0C (XilCoreCommonBuffer_AcquireBuffersWithSegmenter.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  */
 
 __int64 __fastcall XilCoreCommonBuffer_AcquireBuffers(

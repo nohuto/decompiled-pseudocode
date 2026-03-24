@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVsChunkSetExtraPresent @ 0x1405B7430
+ * XREFs of RtlpHpVsChunkSetExtraPresent @ 0x140595610
  * Callers:
- *     RtlpHpSegSetExtraPresent @ 0x1405B6BD0 (RtlpHpSegSetExtraPresent.c)
+ *     RtlpHpSegSetExtraPresent @ 0x140594F88 (RtlpHpSegSetExtraPresent.c)
  * Callees:
  *     <none>
  */

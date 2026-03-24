@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GCIndirectSwapchainRenderTarget@@EEAAPEAXI@Z @ 0x18019EEC0
+ * XREFs of ??_GCIndirectSwapchainRenderTarget@@EEAAPEAXI@Z @ 0x18016D320
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CIndirectSwapchainRenderTarget@@EEAA@XZ @ 0x1801C6480 (--1CIndirectSwapchainRenderTarget@@EEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CIndirectSwapchainRenderTarget@@EEAA@XZ @ 0x1801897B8 (--1CIndirectSwapchainRenderTarget@@EEAA@XZ.c)
  */
 
 CIndirectSwapchainRenderTarget *__fastcall CIndirectSwapchainRenderTarget::`scalar deleting destructor'(
@@ -16,9 +16,9 @@ CIndirectSwapchainRenderTarget *__fastcall CIndirectSwapchainRenderTarget::`scal
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x800);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

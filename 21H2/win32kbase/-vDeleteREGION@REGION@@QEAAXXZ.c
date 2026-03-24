@@ -1,176 +1,64 @@
 /*
- * XREFs of ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0023E50
+ * XREFs of ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002B9F0
  * Callers:
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0023C00 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ??1RGNMEMOBJ@@QEAA@XZ @ 0x1C0023D3C (--1RGNMEMOBJ@@QEAA@XZ.c)
- *     NtGdiDeleteObjectApp @ 0x1C0024430 (NtGdiDeleteObjectApp.c)
- *     ??0RGNMEMOBJ@@QEAA@HH@Z @ 0x1C0025980 (--0RGNMEMOBJ@@QEAA@HH@Z.c)
- *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C0025B30 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
- *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C0025E10 (--0RGNMEMOBJ@@QEAA@XZ.c)
- *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0026860 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
- *     ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C0027E60 (-iCombine@DC@@QEAAJPEAU_RECTL@@J@Z.c)
- *     GreCreateRectRgnIndirect @ 0x1C0028800 (GreCreateRectRgnIndirect.c)
- *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C002F514 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
- *     GreExtCreateRegion @ 0x1C00311B0 (GreExtCreateRegion.c)
- *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0032680 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
- *     ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C0062E20 (-vUpdateScaledRegions@DC@@QEAAXXZ.c)
- *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C008E200 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
- *     GreCreateRectRgn @ 0x1C008E350 (GreCreateRectRgn.c)
- *     NtGdiCreateRectRgn @ 0x1C008E4C0 (NtGdiCreateRectRgn.c)
- *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C008EF30 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
- *     vRestoreRegion @ 0x1C00944C0 (vRestoreRegion.c)
- *     ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C009AE20 (-SetEmpty@CRegion@@UEAAXXZ.c)
- *     ?SetFullRegion@CRegion@@UEAAXXZ @ 0x1C00B1AF0 (-SetFullRegion@CRegion@@UEAAXXZ.c)
- *     ?vCleanUp@W32PIDLOCK@@QEAAXXZ @ 0x1C00B2270 (-vCleanUp@W32PIDLOCK@@QEAAXXZ.c)
- *     GreCreatePolyPolygonRgnInternal @ 0x1C00CDB30 (GreCreatePolyPolygonRgnInternal.c)
- *     ?CleanUpRegion@@YAXPEAVREGION@@@Z @ 0x1C016B240 (-CleanUpRegion@@YAXPEAVREGION@@@Z.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C016D4E0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
- *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C016D8A0 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
- *     ?vReleaseVis@DC@@QEAAXXZ @ 0x1C016D964 (-vReleaseVis@DC@@QEAAXXZ.c)
- *     EngCreateClip @ 0x1C0177EF0 (EngCreateClip.c)
- *     EngDeleteClip @ 0x1C0177FB0 (EngDeleteClip.c)
+ *     ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C0020530 (-vUpdateScaledRegions@DC@@QEAAXXZ.c)
+ *     GreExtCreateRegion @ 0x1C0022DA0 (GreExtCreateRegion.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0024D00 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C0027480 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C002AC70 (--0RGNMEMOBJ@@QEAA@XZ.c)
+ *     ??0RGNMEMOBJ@@QEAA@HH@Z @ 0x1C002AF30 (--0RGNMEMOBJ@@QEAA@HH@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002B038 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C002B1C0 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002B874 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJ@@QEAA@XZ @ 0x1C002B8FC (--1RGNMEMOBJ@@QEAA@XZ.c)
+ *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C00314E0 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
+ *     NtGdiDeleteObjectApp @ 0x1C0032310 (NtGdiDeleteObjectApp.c)
+ *     ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C0033AB0 (-iCombine@DC@@QEAAJPEAU_RECTL@@J@Z.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0034360 (GreCreateRectRgnIndirect.c)
+ *     NtGdiCreateRectRgn @ 0x1C007FA80 (NtGdiCreateRectRgn.c)
+ *     vRestoreRegion @ 0x1C00848B0 (vRestoreRegion.c)
+ *     ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C00917D0 (-SetEmpty@CRegion@@UEAAXXZ.c)
+ *     ?SetFullRegion@CRegion@@UEAAXXZ @ 0x1C009E750 (-SetFullRegion@CRegion@@UEAAXXZ.c)
+ *     ?vCleanUp@W32PIDLOCK@@QEAAXXZ @ 0x1C00A5438 (-vCleanUp@W32PIDLOCK@@QEAAXXZ.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C00BD804 (GreCreatePolyPolygonRgnInternal.c)
+ *     ?CleanUpRegion@@YAXPEAVREGION@@@Z @ 0x1C013E3B0 (-CleanUpRegion@@YAXPEAVREGION@@@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C01405B0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
+ *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0140988 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
+ *     ?vReleaseVis@DC@@QEAAXXZ @ 0x1C0140A50 (-vReleaseVis@DC@@QEAAXXZ.c)
+ *     EngCreateClip @ 0x1C014BE40 (EngCreateClip.c)
+ *     EngDeleteClip @ 0x1C014BF10 (EngDeleteClip.c)
+ *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C014D3F0 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C0179900 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C017B0D8 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
- *     ?Remove@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAA_NQEBVCBackTraceStorageUnit@2@@Z @ 0x1C017BA3C (-Remove@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?Free@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C011C62C (-Free@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  */
 
-void __fastcall REGION::vDeleteREGION(PSLIST_ENTRY ListEntry)
+void __fastcall REGION::vDeleteREGION(REGION *this)
 {
-  struct _SLIST_ENTRY *v2; // rdi
-  void *v3; // rbx
-  NSInstrumentation::CPrioritizedWriterLock **v4; // rbp
-  __int64 v5; // rbx
-  __int64 v6; // rdi
-  _QWORD *i; // r14
-  __int64 *v8; // r15
-  unsigned __int64 v9; // r9
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rbp
-  __int64 v13; // rbx
-  ULONG v14; // ebp
-  NSInstrumentation::CPointerHashTable *v15; // rcx
-  __int64 v16; // rcx
-  __int64 v17; // rbx
-  struct NSInstrumentation::CBackTraceStorageUnit *v18; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v2; // rdi
+  void *v3; // rsi
+  unsigned __int8 *v4; // rcx
 
-  if ( !ListEntry || ListEntry == (PSLIST_ENTRY)prgnDefault )
-    return;
-  v2 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[5].Next + 1);
-  if ( v2 )
+  if ( this && this != prgnDefault )
   {
-    if ( *((_DWORD *)&ListEntry[1].Next + 2) != 112 )
+    v2 = *((_QWORD *)this + 11);
+    if ( v2 )
     {
-      if ( *((_DWORD *)&ListEntry[1].Next + 2) > 0x70u )
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v2);
-      goto LABEL_8;
-    }
-    v3 = RGNMEMOBJ::s_pSCANLookAsideList;
-    v4 = (NSInstrumentation::CPrioritizedWriterLock **)gpLeakTrackingAllocator;
-    if ( *(_BYTE *)RGNMEMOBJ::s_pSCANLookAsideList )
-    {
-      v15 = (NSInstrumentation::CPointerHashTable *)*((_QWORD *)gpLeakTrackingAllocator + 6);
-      --v2;
-      v18 = 0LL;
-      if ( !NSInstrumentation::CPointerHashTable::Remove(v15, v2, (void **)&v18) )
+      if ( *((_DWORD *)this + 6) == 112 )
       {
-LABEL_8:
-        *((_QWORD *)&ListEntry[5].Next + 1) = 0LL;
-        goto LABEL_9;
+        v3 = RGNMEMOBJ::s_pSCANLookAsideList;
+        if ( qword_1C0257D60 && (int)qword_1C0257D60() >= 0 && qword_1C0257D68 )
+          qword_1C0257D68(v3, v2);
       }
-      NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Remove(
-        v4[8],
-        v18);
-    }
-    ++*((_DWORD *)v3 + 11);
-    if ( ExQueryDepthSList((PSLIST_HEADER)v3 + 1) >= *((_WORD *)v3 + 16) )
-    {
-      ++*((_DWORD *)v3 + 12);
-      (*((void (__fastcall **)(struct _SLIST_ENTRY *))v3 + 9))(v2);
-    }
-    else
-    {
-      ExpInterlockedPushEntrySList((PSLIST_HEADER)v3 + 1, v2);
-    }
-    goto LABEL_8;
-  }
-LABEL_9:
-  v5 = *((_QWORD *)gpTypeIsolation + 7);
-  if ( v5 )
-  {
-    if ( *(_BYTE *)(v5 + 36) )
-    {
-      memset(ListEntry, 0, 0x70uLL);
-      v17 = *(_QWORD *)(v5 + 24);
-      ++*(_DWORD *)(v17 + 28);
-      if ( ExQueryDepthSList((PSLIST_HEADER)v17) < *(_WORD *)(v17 + 16) )
+      else if ( *((_DWORD *)this + 6) > 0x70u )
       {
-        ExpInterlockedPushEntrySList((PSLIST_HEADER)v17, ListEntry);
+        Win32FreePool(v2);
       }
-      else
-      {
-        ++*(_DWORD *)(v17 + 32);
-        (*(void (__fastcall **)(PSLIST_ENTRY))(v17 + 56))(ListEntry);
-      }
+      *((_QWORD *)this + 11) = 0LL;
     }
-    else
-    {
-      v6 = *(_QWORD *)(v5 + 16);
-      KeEnterCriticalRegion();
-      ExAcquirePushLockSharedEx(v6, 0LL);
-      for ( i = *(_QWORD **)v5; i != (_QWORD *)v5; i = (_QWORD *)*i )
-      {
-        v8 = (__int64 *)i[4];
-        v9 = v8[1];
-        v10 = v8[2];
-        if ( (unsigned __int64)ListEntry >= (v10 ^ v9) && (unsigned __int64)ListEntry < (v10 ^ v9) + 28672 )
-        {
-          v11 = (((unsigned __int16)ListEntry & 0xFFF) * (unsigned __int128)0x2492492492492493uLL) >> 64;
-          v12 = (v11 + (((unsigned __int64)((unsigned __int16)ListEntry & 0xFFF) - v11) >> 1)) >> 6;
-          if ( ((unsigned __int16)ListEntry & 0xFFF) == 112 * v12 )
-          {
-            if ( RtlTestBit(
-                   (PRTL_BITMAP)(v10 ^ v8[3]),
-                   v12 + 36 * (((unsigned int)ListEntry - ((unsigned int)v9 ^ (unsigned int)v10)) >> 12)) )
-            {
-              v13 = *v8;
-              KeEnterCriticalRegion();
-              ExAcquirePushLockExclusiveEx(v13, 0LL);
-              v14 = v12 + 36 * ((unsigned int)((_DWORD)ListEntry - (*((_DWORD *)v8 + 4) ^ *((_DWORD *)v8 + 2))) >> 12);
-              RtlClearBit((PRTL_BITMAP)(v8[2] ^ v8[3]), v14);
-              *ListEntry = 0LL;
-              ListEntry[1] = 0LL;
-              ListEntry[2] = 0LL;
-              ListEntry[3] = 0LL;
-              ListEntry[4] = 0LL;
-              ListEntry[5] = 0LL;
-              ListEntry[6] = 0LL;
-              *((_DWORD *)v8 + 8) = v14;
-              ExReleasePushLockExclusiveEx(v13, 0LL);
-              KeLeaveCriticalRegion();
-              ExReleasePushLockSharedEx(v6, 0LL);
-              KeLeaveCriticalRegion();
-              return;
-            }
-            v16 = 1LL;
-          }
-          else
-          {
-            v16 = 2LL;
-          }
-          NSInstrumentation::PlatformAbort(v16, ListEntry, 0LL);
-        }
-      }
-      ExReleasePushLockSharedEx(v6, 0LL);
-      KeLeaveCriticalRegion();
-      NSInstrumentation::PlatformAbort(3LL, ListEntry, 0LL);
-    }
+    v4 = gpTypeIsolation[7];
+    if ( v4 )
+      NSInstrumentation::CTypeIsolation<28672,112>::Free(v4, this);
   }
 }

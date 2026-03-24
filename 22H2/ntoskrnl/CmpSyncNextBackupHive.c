@@ -1,46 +1,55 @@
 /*
- * XREFs of CmpSyncNextBackupHive @ 0x140A1AEB8
+ * XREFs of CmpSyncNextBackupHive @ 0x1408714B0
  * Callers:
- *     NtInitializeRegistry @ 0x1407E91B0 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14078D400 (NtInitializeRegistry.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     CmpFlushBackupHive @ 0x140A1A998 (CmpFlushBackupHive.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF6008 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF602C (CmpAcquireHiveLoadUnloadRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     CmpFlushBackupHive @ 0x140870F90 (CmpFlushBackupHive.c)
+ *     TryLockShutdownShared @ 0x140875CB0 (TryLockShutdownShared.c)
  */
 
 __int64 CmpSyncNextBackupHive()
 {
   unsigned int v0; // ebx
+  struct _KTHREAD *CurrentThread; // rax
+  BOOLEAN v2; // di
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  unsigned int v3; // [rsp+80h] [rbp+10h]
-  int v4; // [rsp+88h] [rbp+18h]
-  HANDLE KeyHandle; // [rsp+90h] [rbp+20h] BYREF
+  unsigned int v5; // [rsp+90h] [rbp+20h]
+  int v6; // [rsp+98h] [rbp+28h]
+  HANDLE KeyHandle; // [rsp+A0h] [rbp+30h] BYREF
 
-  v0 = 0;
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  if ( (unsigned __int8)CmpAcquireHiveLoadUnloadRundown() )
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  if ( !(unsigned __int8)TryLockShutdownShared() )
+    return (unsigned int)-2147483622;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v2 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( v2 )
   {
     if ( CmpDoIdleProcessing )
     {
       do
       {
-        v4 = CmpPeriodicBackupFlushHiveCount;
+        v6 = CmpPeriodicBackupFlushHiveCount;
         if ( (unsigned int)CmpPeriodicBackupFlushHiveCount >= 6 )
-          v3 = 0;
+          v5 = 0;
         else
-          v3 = CmpPeriodicBackupFlushHiveCount + 1;
+          v5 = CmpPeriodicBackupFlushHiveCount + 1;
       }
-      while ( _InterlockedCompareExchange(&CmpPeriodicBackupFlushHiveCount, v3, CmpPeriodicBackupFlushHiveCount) != v4 );
-      if ( ((__int64)CmpMachineHiveList[23 * v3 + 4] & 1) == 0 && CmpMachineHiveList[23 * v3 + 6] )
-        CmpFlushBackupHive(v3);
-      if ( v3 == 6 )
+      while ( _InterlockedCompareExchange(&CmpPeriodicBackupFlushHiveCount, v5, CmpPeriodicBackupFlushHiveCount) != v6 );
+      if ( ((__int64)CmpMachineHiveList[25 * v5 + 4] & 1) == 0 && CmpMachineHiveList[25 * v5 + 6] )
+        CmpFlushBackupHive(v5);
+      if ( v5 == 6 )
       {
-        ObjectAttributes.Length = 48;
         ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 576;
         ObjectAttributes.ObjectName = (PUNICODE_STRING)&CmpConfigurationManagerKeyName;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -52,16 +61,25 @@ __int64 CmpSyncNextBackupHive()
         }
         v0 = -2147483622;
       }
+      else
+      {
+        v0 = 0;
+      }
+      goto LABEL_19;
     }
-    else
-    {
-      v0 = -1073741431;
-    }
-    CmpReleaseHiveLoadUnloadRundown();
   }
   else
   {
-    return (unsigned int)-1073741431;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
+  v0 = -1073741431;
+LABEL_19:
+  ExReleasePushLockEx((ULONG_PTR)&CmpShutdownLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v2 )
+  {
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v0;
 }

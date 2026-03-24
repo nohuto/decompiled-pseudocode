@@ -1,18 +1,17 @@
 /*
- * XREFs of MiPerformSafePdeWrite @ 0x14025D6C0
+ * XREFs of MiPerformSafePdeWrite @ 0x14038179C
  * Callers:
- *     MiLockLowestValidPageTable @ 0x14027D6E0 (MiLockLowestValidPageTable.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     MiMakeSystemAddressValid @ 0x14032CE60 (MiMakeSystemAddressValid.c)
- *     MiGetWsAndMakePageTablesNx @ 0x1403DC188 (MiGetWsAndMakePageTablesNx.c)
- *     MiValidVirtualizationFault @ 0x14045C52A (MiValidVirtualizationFault.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403CCBD0 (MiGetWsAndMakePageTablesNx.c)
+ *     MiValidVirtualizationFault @ 0x140548F5C (MiValidVirtualizationFault.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x14033DBC0 (MiWriteValidPteNewProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall MiPerformSafePdeWrite(__int64 a1, volatile signed __int64 *a2, signed __int64 a3, char a4)
+char __fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2, signed __int64 a3, char a4)
 {
   unsigned __int64 v7; // rcx
   int v8; // r8d
@@ -22,14 +21,14 @@ __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, volatile signed __int64 *a2
   __int64 v12; // rcx
   unsigned __int64 v13; // rax
   signed __int64 v14; // rcx
-  __int64 result; // rax
+  signed __int64 v15; // rax
   __int64 v16; // rdx
   unsigned __int64 v17; // r8
   __int64 v18; // rdx
-  _BYTE v19[184]; // [rsp+20h] [rbp-D8h] BYREF
+  _BYTE v20[184]; // [rsp+20h] [rbp-D8h] BYREF
 
-  memset(v19, 0, sizeof(v19));
-  v7 = (__int64)((_QWORD)a2 << 25) >> 16;
+  memset(v20, 0, sizeof(v20));
+  v7 = (__int64)(a2 << 25) >> 16;
   if ( v7 < 0xFFFFF68000000000uLL || v7 > 0xFFFFF6FFFFFFFFFFuLL )
   {
     v16 = a3 | 0x20;
@@ -41,7 +40,7 @@ __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, volatile signed __int64 *a2
     v18 = v17 | 4;
     if ( (a4 & 4) == 0 )
       v18 = v17;
-    return MiWriteValidPteNewProtection(a2, v18);
+    LOBYTE(v15) = MiWriteValidPteNewProtection(a2, v18);
   }
   else
   {
@@ -60,12 +59,10 @@ __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, volatile signed __int64 *a2
       v14 = v13 | 4;
       if ( !v10 )
         v14 = v13;
-      if ( (MiFlags & 0x4000000) != 0 )
-        _mm_lfence();
-      result = _InterlockedCompareExchange64(a2, v14, a3);
-      a3 = result;
+      v15 = _InterlockedCompareExchange64((volatile signed __int64 *)a2, v14, a3);
+      a3 = v15;
     }
-    while ( result != v11 );
+    while ( v15 != v11 );
   }
-  return result;
+  return v15;
 }

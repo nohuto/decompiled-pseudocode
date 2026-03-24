@@ -1,94 +1,61 @@
 /*
- * XREFs of MiLogMdlRangeEvent @ 0x140623510
+ * XREFs of MiLogMdlRangeEvent @ 0x140533FD8
  * Callers:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetLeafPfnBuddy @ 0x140389ACC (MiGetLeafPfnBuddy.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetPfnPidSafe @ 0x140626754 (MiGetPfnPidSafe.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     MiGetLeafPfnBuddy @ 0x1403801FC (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-char __fastcall MiLogMdlRangeEvent(_QWORD *a1, __int16 a2, __int64 a3, __int64 a4)
+void __fastcall MiLogMdlRangeEvent(_QWORD *a1, unsigned __int16 a2, __int64 a3)
 {
-  _QWORD *v7; // rdi
-  __int64 v8; // rbx
-  int v9; // eax
-  unsigned __int64 v10; // rbp
-  __int64 PfnPidSafe; // rsi
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
-  __int64 v15; // rbx
-  __int64 v16; // rsi
-  _QWORD *v17; // rdx
-  _QWORD *v18; // rax
-  _QWORD v20[3]; // [rsp+30h] [rbp-58h] BYREF
-  _QWORD *v21; // [rsp+48h] [rbp-40h] BYREF
-  int v22; // [rsp+50h] [rbp-38h]
-  int v23; // [rsp+54h] [rbp-34h]
+  _QWORD *v3; // rbx
+  __int64 v4; // rsi
+  _QWORD *v6; // rcx
+  unsigned __int64 LeafPfnBuddy; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rdi
+  _QWORD *v10; // rcx
+  _QWORD v11[3]; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD *v12; // [rsp+48h] [rbp-30h] BYREF
+  int v13; // [rsp+50h] [rbp-28h]
+  int v14; // [rsp+54h] [rbp-24h]
 
-  v7 = a1;
-  v8 = 48LL * *a1 - 0x220000000000LL;
-  LOBYTE(v9) = (*(_QWORD *)(v8 + 40) >> 60) & 7;
-  if ( (_BYTE)v9 == 1 )
+  v3 = a1;
+  v4 = a3;
+  v6 = (_QWORD *)(48LL * *a1 - 0x58000000000LL);
+  if ( ((v6[5] >> 60) & 7) == 1 )
   {
-    v10 = (unsigned __int8)MiLockPageInline(48LL * *a1 - 0x220000000000LL);
-    if ( *(_QWORD *)MiGetLeafPfnBuddy((_QWORD *)v8) == 399680LL )
-      PfnPidSafe = 0LL;
-    else
-      PfnPidSafe = (unsigned int)MiGetPfnPidSafe(v8, 3LL);
-    LOBYTE(v9) = -1;
-    _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
-    {
-      LOBYTE(v9) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)v9 <= 0xFu
-        && (unsigned __int8)v10 <= 0xFu
-        && (unsigned __int8)v9 >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-        v14 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v14 )
-          LOBYTE(v9) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-      }
-    }
-    __writecr8(v10);
-    v15 = 9LL;
+    LeafPfnBuddy = MiGetLeafPfnBuddy(v6);
+    v8 = 9LL;
   }
   else
   {
-    PfnPidSafe = 0LL;
-    v15 = 10LL;
+    LeafPfnBuddy = 0LL;
+    v8 = 10LL;
   }
   if ( a3 )
   {
-    v16 = 16 * PfnPidSafe;
+    v9 = v8 | (16 * (LeafPfnBuddy & 0xFFFFFFFFFFFFLL));
     do
     {
-      v17 = v7;
-      v20[1] = *v7;
-      v20[0] = v15 | v16;
+      v10 = v3;
+      v11[1] = *v3;
+      v11[0] = v9;
       do
       {
-        v18 = v7++;
-        --a3;
+        ++v3;
+        --v4;
       }
-      while ( a3 && *v7 == a4 + *v18 );
-      v23 = 0;
-      v22 = 24;
-      v20[2] = v7 - v17;
-      v21 = v20;
-      LOBYTE(v9) = EtwTraceKernelEvent((int)&v21, 1, 0x20000001u, a2, 289413892);
+      while ( v4 && *v3 == *(v3 - 1) + 1LL );
+      v14 = 0;
+      v13 = 24;
+      v11[2] = v3 - v10;
+      v12 = v11;
+      EtwTraceKernelEvent((__int64)&v12, 1u, 0x20000001u, a2, 0x11401B02u);
     }
-    while ( a3 );
+    while ( v4 );
   }
-  return v9;
 }

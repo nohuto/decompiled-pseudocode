@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsExtendTopology@@YAHXZ @ 0x1C01A6E70
+ * XREFs of ?IsExtendTopology@@YAHXZ @ 0x1C01D0BB4
  * Callers:
- *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01A7B94 (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
+ *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01D1954 (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 IsExtendTopology(void)
   v6 = 0;
   if ( !(unsigned int)DrvGetDisplayConfigBufferSizes(18LL, &v6) && v6 > 1 )
   {
-    v1 = Win32AllocPoolZInit(216LL * v6, 1665430357LL);
+    v1 = Win32AllocPool(200LL * v6, 1665430357LL);
     v2 = (char *)v1;
     if ( v1 )
     {
@@ -30,7 +30,7 @@ __int64 IsExtendTopology(void)
         {
           while ( 1 )
           {
-            v4 = 216LL * v3;
+            v4 = 200LL * v3;
             if ( *(_DWORD *)&v2[v4 + 116] || *(_DWORD *)&v2[v4 + 120] )
               break;
             if ( ++v3 >= v6 )

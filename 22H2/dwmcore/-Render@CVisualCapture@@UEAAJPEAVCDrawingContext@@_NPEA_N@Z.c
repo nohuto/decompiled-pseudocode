@@ -1,53 +1,56 @@
 /*
- * XREFs of ?Render@CVisualCapture@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802561E0
+ * XREFs of ?Render@CVisualCapture@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EFF54
  * Callers:
- *     ?Render@CVisualCapture@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18011E600 (-Render@CVisualCapture@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CVisualCapture@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F6430 (-Render@CVisualCapture@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EA030 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?CheckForCaptureCompleted@CVisualCapture@@IEAAXXZ @ 0x180255B8C (-CheckForCaptureCompleted@CVisualCapture@@IEAAXXZ.c)
- *     ?EnqueueSetEvent@CVisualCapture@@IEAAJXZ @ 0x180255C0C (-EnqueueSetEvent@CVisualCapture@@IEAAJXZ.c)
- *     ?SendCaptureCompleted@CVisualCapture@@IEAAXXZ @ 0x1802562D0 (-SendCaptureCompleted@CVisualCapture@@IEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ECD04 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?CheckForCaptureCompleted@CVisualCapture@@IEAAXXZ @ 0x1801F197C (-CheckForCaptureCompleted@CVisualCapture@@IEAAXXZ.c)
+ *     ?EnqueueSetEvent@CVisualCapture@@IEAAJXZ @ 0x1801F19FC (-EnqueueSetEvent@CVisualCapture@@IEAAJXZ.c)
+ *     ?SendCaptureCompleted@CVisualCapture@@IEAAXXZ @ 0x1801F1F50 (-SendCaptureCompleted@CVisualCapture@@IEAAXXZ.c)
  */
 
-__int64 __fastcall CVisualCapture::Render(LARGE_INTEGER *this, struct CDrawingContext *a2, char a3, bool *a4)
+__int64 __fastcall CVisualCapture::Render(CVisualCapture *this, struct CDrawingContext *a2, __int64 a3, bool *a4)
 {
-  CVisualCapture *v4; // rdi
-  __int64 v9; // r8
+  int v4; // ebx
+  CVisualCapture *v5; // rsi
+  int v8; // eax
+  __int64 v9; // rcx
   int v10; // eax
   __int64 v11; // rcx
-  int v12; // eax
-  __int64 v13; // rcx
-  bool v14; // zf
+  char v12; // al
+  bool v13; // zf
 
-  v4 = (CVisualCapture *)&this[-246];
-  if ( !(*(unsigned __int8 (__fastcall **)(LARGE_INTEGER *))(this[-246].QuadPart + 264))(this - 246) )
-    goto LABEL_5;
-  LOBYTE(v9) = a3;
-  v10 = COffScreenRenderTarget::Render(this - 7, a2, v9, a4);
-  if ( v10 < 0 )
+  v4 = 0;
+  v5 = (CVisualCapture *)((char *)this - 1984);
+  if ( *((_BYTE *)this - 212) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xA1u, 0LL);
-    goto LABEL_11;
+    v8 = COffScreenRenderTarget::Render((CVisualCapture *)((char *)this - 56), a2, a3, a4);
+    v4 = v8;
+    if ( v8 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x9Au, 0LL);
+      goto LABEL_10;
+    }
+    v10 = CVisualCapture::EnqueueSetEvent(v5);
+    v4 = v10;
+    if ( v10 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x9Bu, 0LL);
+      goto LABEL_10;
+    }
   }
-  v12 = CVisualCapture::EnqueueSetEvent(v4);
-  if ( v12 < 0 )
+  v12 = *((_BYTE *)this - 55);
+  v13 = v12 == 0;
+  if ( !v12 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xA2u, 0LL);
-LABEL_11:
-    BYTE4(this[-27].QuadPart) = 0;
-    CVisualCapture::SendCaptureCompleted(v4);
-    return 0LL;
+    CVisualCapture::CheckForCaptureCompleted(v5);
+    v13 = *((_BYTE *)this - 55) == 0;
   }
-  BYTE4(this[-27].QuadPart) = 0;
-LABEL_5:
-  v14 = BYTE1(this[-7].LowPart) == 0;
-  if ( !BYTE1(this[-7].LowPart) )
-  {
-    CVisualCapture::CheckForCaptureCompleted(v4);
-    v14 = BYTE1(this[-7].LowPart) == 0;
-  }
-  *a4 = v14;
+  *a4 = v13;
+LABEL_10:
+  *((_BYTE *)this - 212) = 0;
+  if ( v4 < 0 )
+    CVisualCapture::SendCaptureCompleted(v5);
   return 0LL;
 }

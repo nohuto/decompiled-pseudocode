@@ -1,17 +1,17 @@
 /*
- * XREFs of IoControl_WdfEvtIoDeviceControl @ 0x1C003C700
+ * XREFs of IoControl_WdfEvtIoDeviceControl @ 0x1C003C170
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_qD @ 0x1C0013AB0 (WPP_RECORDER_SF_qD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     WPP_RECORDER_SF_Dddd @ 0x1C003CBCC (WPP_RECORDER_SF_Dddd.c)
- *     WPP_RECORDER_SF_PP @ 0x1C003CCE8 (WPP_RECORDER_SF_PP.c)
- *     WPP_RECORDER_SF_Pd @ 0x1C003CDB8 (WPP_RECORDER_SF_Pd.c)
- *     WPP_RECORDER_SF_dL @ 0x1C003CE94 (WPP_RECORDER_SF_dL.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C0013E50 (WPP_RECORDER_SF_qD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_Dddd @ 0x1C003C63C (WPP_RECORDER_SF_Dddd.c)
+ *     WPP_RECORDER_SF_PP @ 0x1C003C758 (WPP_RECORDER_SF_PP.c)
+ *     WPP_RECORDER_SF_Pd @ 0x1C003C828 (WPP_RECORDER_SF_Pd.c)
+ *     WPP_RECORDER_SF_dL @ 0x1C003C904 (WPP_RECORDER_SF_dL.c)
  */
 
 PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -46,7 +46,7 @@ PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061130);
+         off_1C0060130);
   v13 = v9;
   if ( a5 == 2229304 )
   {

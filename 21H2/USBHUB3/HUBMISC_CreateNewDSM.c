@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBMISC_CreateNewDSM @ 0x1C002E6B0
+ * XREFs of HUBMISC_CreateNewDSM @ 0x1C002E02C
  * Callers:
- *     HUBPSM30_CreatingDeviceInConnectedWithResetInProgress @ 0x1C0010AD0 (HUBPSM30_CreatingDeviceInConnectedWithResetInProgress.c)
+ *     HUBPSM30_CreatingDeviceInConnectedWithResetInProgress @ 0x1C00106C0 (HUBPSM30_CreatingDeviceInConnectedWithResetInProgress.c)
  * Callees:
  *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_qq @ 0x1C0013FF0 (WPP_RECORDER_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0013A28 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBMISC_CreateNewDSM(__int64 *a1)
@@ -27,68 +27,69 @@ __int64 __fastcall HUBMISC_CreateNewDSM(__int64 *a1)
   __int64 v13; // rax
   __int64 v14; // rcx
   __int64 Timer; // rax
-  __int64 v16; // rbx
-  __int64 v17; // rax
+  __int64 v16; // rax
+  __int64 v17; // rbx
   __int64 v18; // rax
-  int v19; // eax
-  unsigned int v20; // ebx
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v24; // [rsp+28h] [rbp-49h]
-  __int64 v25; // [rsp+30h] [rbp-41h]
-  __int128 v26; // [rsp+48h] [rbp-29h] BYREF
-  __int128 v27; // [rsp+58h] [rbp-19h]
-  __int64 v28; // [rsp+68h] [rbp-9h]
-  __int128 v29; // [rsp+70h] [rbp-1h] BYREF
-  __int64 (__fastcall *v30)(); // [rsp+80h] [rbp+Fh]
-  __int64 v31; // [rsp+88h] [rbp+17h]
-  __int128 v32; // [rsp+90h] [rbp+1Fh]
-  void *v33; // [rsp+A0h] [rbp+2Fh]
-  __int64 v34; // [rsp+E0h] [rbp+6Fh] BYREF
+  __int64 v19; // rax
+  int v20; // eax
+  unsigned int v21; // ebx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v25; // [rsp+28h] [rbp-49h]
+  __int64 v26; // [rsp+30h] [rbp-41h]
+  __int128 v27; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v28; // [rsp+58h] [rbp-19h]
+  __int64 v29; // [rsp+68h] [rbp-9h]
+  __int128 v30; // [rsp+70h] [rbp-1h] BYREF
+  __int64 (__fastcall *v31)(); // [rsp+80h] [rbp+Fh]
+  __int64 v32; // [rsp+88h] [rbp+17h]
+  __int128 v33; // [rsp+90h] [rbp+1Fh]
+  void *v34; // [rsp+A0h] [rbp+2Fh]
+  __int64 v35; // [rsp+E0h] [rbp+6Fh] BYREF
 
-  HIDWORD(v31) = 1;
-  v34 = 0LL;
-  v29 = 0x38uLL;
-  *((_QWORD *)&v32 + 1) = 0LL;
+  v30 = 0x38uLL;
+  v35 = 0LL;
+  *((_QWORD *)&v33 + 1) = 0LL;
   v2 = 0LL;
-  LODWORD(v28) = 0;
   v3 = -1073741823;
-  v33 = off_1C00670D0;
-  v26 = 0LL;
+  v29 = 0LL;
+  v34 = off_1C00660A8;
   v27 = 0LL;
-  *(_QWORD *)&v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
+  HIDWORD(v32) = 1;
+  v28 = 0LL;
+  *(_QWORD *)&v33 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
                       WdfDriverGlobals,
                       a1);
-  LODWORD(v31) = 2;
-  v30 = HUBMISC_EvtDsmDestroy;
+  LODWORD(v32) = 2;
+  v31 = HUBMISC_EvtDsmDestroy;
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int64 *))(WdfFunctions_01015 + 1656))(
          WdfDriverGlobals,
-         &v29,
-         &v34);
+         &v30,
+         &v35);
   v5 = v4;
   if ( v4 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_d(a1[179], 2u, 4u, 0x2Eu, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids, v4);
-    v34 = 0LL;
-    goto LABEL_33;
+      WPP_RECORDER_SF_d(a1[179], 2u, 4u, 0x2Eu, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v4);
+    v35 = 0LL;
+    goto LABEL_34;
   }
   v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, a1);
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const char *, __int64, const char *))(WdfFunctions_01015 + 1640))(
     WdfDriverGlobals,
     v6,
     "DSM Create Tag",
-    6839LL,
+    6736LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
-         v34,
-         off_1C00670D0);
+         v35,
+         off_1C00660A8);
   memset((void *)v2, 0, 0xAA0uLL);
   if ( (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                       WdfDriverGlobals,
                       WdfDriverGlobals->Driver,
-                      off_1C00671E8)
+                      off_1C00661C0)
                   + 4) & 0x1000) != 0 )
     v3 = EtwActivityIdControl(3u, (LPGUID)(v2 + 1516));
   *(_QWORD *)(v2 + 8) = a1;
@@ -104,21 +105,21 @@ __int64 __fastcall HUBMISC_CreateNewDSM(__int64 *a1)
     _InterlockedOr((volatile signed __int32 *)(v2 + 1632), 0x20u);
   if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 0x40) != 0 )
   {
-    LODWORD(v24) = *((unsigned __int16 *)a1 + 100);
+    LODWORD(v25) = *((unsigned __int16 *)a1 + 100);
     McTemplateK0pq_EtwWriteTransfer(
       v8,
       &USBHUB3_ETW_EVENT_DEVICE_ENUMERATION_START,
       (const GUID *)(v2 + 1516),
       *(_QWORD *)(*(_QWORD *)v2 + 248LL),
-      v24);
+      v25);
   }
-  v33 = 0LL;
+  v34 = 0LL;
+  v31 = 0LL;
+  v32 = 0x100000001LL;
   v30 = 0LL;
-  v31 = 0x100000001LL;
-  v29 = 0LL;
-  LODWORD(v29) = 56;
-  v32 = 0LL;
-  *(_QWORD *)&v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
+  LODWORD(v30) = 56;
+  v33 = 0LL;
+  *(_QWORD *)&v33 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
                       WdfDriverGlobals,
                       a1);
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 336))(
@@ -127,7 +128,7 @@ __int64 __fastcall HUBMISC_CreateNewDSM(__int64 *a1)
   v10 = (_QWORD *)(v2 + 248);
   v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int64, __int64))(WdfFunctions_01015 + 1976))(
           WdfDriverGlobals,
-          &v29,
+          &v30,
           v9,
           v2 + 248);
   v5 = v11;
@@ -137,86 +138,7 @@ __int64 __fastcall HUBMISC_CreateNewDSM(__int64 *a1)
     {
 LABEL_16:
       *v10 = 0LL;
-LABEL_33:
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LODWORD(v25) = v5;
-        WPP_RECORDER_SF_d(a1[179], 2u, 4u, 0x35u, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids, v25);
-      }
-      if ( SLOBYTE(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) < 0 )
-      {
-        LODWORD(v24) = v5;
-        McTemplateK0pq_EtwWriteTransfer(
-          v2 + 1516,
-          &USBHUB3_ETW_EVENT_DEVICE_ENUMERATION_FAILED,
-          (const GUID *)((v2 + 1516) & -(__int64)(v2 != 0)),
-          *(_QWORD *)(*a1 + 248),
-          v24);
-      }
-      v20 = 3009;
-      if ( v2 )
-      {
-        if ( *(_QWORD *)(v2 + 248) )
-        {
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015 + 1648))(
-            WdfDriverGlobals,
-            *(_QWORD *)(v2 + 248),
-            "DSM Tag",
-            7272LL,
-            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
-          *(_QWORD *)(v2 + 248) = 0LL;
-        }
-        v21 = *(_QWORD *)(v2 + 416);
-        if ( v21 )
-        {
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015 + 1648))(
-            WdfDriverGlobals,
-            *(_QWORD *)(v2 + 416),
-            "DSM Tag",
-            7272LL,
-            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
-          *(_QWORD *)(v2 + 416) = 0LL;
-        }
-        v22 = *(_QWORD *)(v2 + 1544);
-        if ( v22 )
-        {
-          LOBYTE(v21) = 1;
-          ExDeleteTimer(v22, v21, 0LL, 0LL);
-          *(_QWORD *)(v2 + 1544) = 0LL;
-        }
-        if ( *(_QWORD *)(v2 + 2416) )
-        {
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015 + 1648))(
-            WdfDriverGlobals,
-            *(_QWORD *)(v2 + 2416),
-            "DSM Tag",
-            7272LL,
-            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
-          *(_QWORD *)(v2 + 2416) = 0LL;
-        }
-        if ( *(_QWORD *)(v2 + 432) )
-        {
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015 + 1648))(
-            WdfDriverGlobals,
-            *(_QWORD *)(v2 + 432),
-            "DSM Tag",
-            7272LL,
-            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
-          *(_QWORD *)(v2 + 432) = 0LL;
-        }
-        if ( *(_QWORD *)(v2 + 1496) )
-        {
-          (*(void (**)(void))(*(_QWORD *)v2 + 504LL))();
-          *(_QWORD *)(v2 + 1496) = 0LL;
-        }
-        if ( v34 )
-          (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
-      }
-      return v20;
+      goto LABEL_34;
     }
     v12 = 47;
 LABEL_15:
@@ -225,7 +147,7 @@ LABEL_15:
       2u,
       5u,
       v12,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v11);
     goto LABEL_16;
   }
@@ -233,18 +155,18 @@ LABEL_15:
     WdfDriverGlobals,
     *v10,
     "DSM Tag",
-    6899LL,
+    6796LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
   *(_QWORD *)(v2 + 264) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2280))(
                             WdfDriverGlobals,
                             *v10);
-  v33 = 0LL;
+  v34 = 0LL;
+  v31 = 0LL;
+  v32 = 0x100000001LL;
   v30 = 0LL;
-  v31 = 0x100000001LL;
-  v29 = 0LL;
-  LODWORD(v29) = 56;
-  v32 = 0LL;
-  *(_QWORD *)&v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
+  LODWORD(v30) = 56;
+  v33 = 0LL;
+  *(_QWORD *)&v33 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
                       WdfDriverGlobals,
                       a1);
   v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 336))(
@@ -253,7 +175,7 @@ LABEL_15:
   v10 = (_QWORD *)(v2 + 416);
   v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int64, __int64))(WdfFunctions_01015 + 1976))(
           WdfDriverGlobals,
-          &v29,
+          &v30,
           v13,
           v2 + 416);
   v5 = v11;
@@ -268,7 +190,7 @@ LABEL_15:
     WdfDriverGlobals,
     *v10,
     "DSM Tag",
-    6935LL,
+    6832LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
   *(_QWORD *)(v2 + 424) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2280))(
                             WdfDriverGlobals,
@@ -291,28 +213,25 @@ LABEL_15:
   *(_QWORD *)(v2 + 1544) = Timer;
   if ( Timer )
   {
-    v33 = 0LL;
+    v34 = 0LL;
+    v31 = 0LL;
     v30 = 0LL;
-    v29 = 0LL;
-    LODWORD(v29) = 56;
-    v32 = 0LL;
-    v31 = 0x100000001LL;
+    LODWORD(v30) = 56;
+    v33 = 0LL;
+    v32 = 0x100000001LL;
+    v16 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, a1);
+    LODWORD(v28) = 0;
     v10 = (_QWORD *)(v2 + 2416);
-    *(_QWORD *)&v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
-                        WdfDriverGlobals,
-                        a1);
-    LODWORD(v31) = 2;
-    v28 = 0LL;
-    v27 = 0LL;
-    LODWORD(v27) = 0;
-    DWORD2(v27) = 0;
-    *((_QWORD *)&v26 + 1) = HUBPDO_EvtOutOfBandwidthTimer;
-    *(_QWORD *)&v26 = 40LL;
-    BYTE4(v27) = 1;
+    DWORD2(v28) = 0;
+    *(_QWORD *)&v33 = v16;
+    LODWORD(v32) = 2;
+    *((_QWORD *)&v27 + 1) = HUBPDO_EvtOutOfBandwidthTimer;
+    LODWORD(v27) = 40;
+    BYTE4(v28) = 1;
     v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int128 *, __int64))(WdfFunctions_01015 + 2544))(
             WdfDriverGlobals,
-            &v26,
-            &v29,
+            &v27,
+            &v30,
             v2 + 2416);
     v5 = v11;
     if ( v11 < 0 )
@@ -326,18 +245,18 @@ LABEL_15:
       WdfDriverGlobals,
       *v10,
       "DSM Tag",
-      7030LL,
+      6927LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
     KeInitializeEvent((PRKEVENT)(v2 + 1584), NotificationEvent, 0);
     KeInitializeEvent((PRKEVENT)(v2 + 1608), NotificationEvent, 0);
     KeInitializeEvent((PRKEVENT)(v2 + 472), NotificationEvent, 0);
-    v16 = *(_QWORD *)v2;
-    v17 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 248))(
+    v17 = *(_QWORD *)v2;
+    v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 248))(
             WdfDriverGlobals,
             *(_QWORD *)(*(_QWORD *)v2 + 16LL));
-    v18 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(v16 + 496))(*(_QWORD *)(v16 + 248), v17, 1LL);
-    *(_QWORD *)(v2 + 1496) = v18;
-    if ( !v18 )
+    v19 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(v17 + 496))(*(_QWORD *)(v17 + 248), v18, 1LL);
+    *(_QWORD *)(v2 + 1496) = v19;
+    if ( !v19 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_(
@@ -345,51 +264,51 @@ LABEL_15:
           2u,
           5u,
           0x33u,
-          (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+          (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
       v5 = -1073741670;
-      goto LABEL_33;
+      goto LABEL_35;
     }
-    v33 = 0LL;
+    v34 = 0LL;
+    v31 = 0LL;
+    v32 = 0x100000001LL;
     v30 = 0LL;
-    v31 = 0x100000001LL;
-    v29 = 0LL;
-    LODWORD(v29) = 56;
-    v32 = 0LL;
-    *(_QWORD *)&v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
+    LODWORD(v30) = 56;
+    v33 = 0LL;
+    *(_QWORD *)&v33 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 *))(WdfFunctions_01015 + 1632))(
                         WdfDriverGlobals,
                         a1);
-    v19 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, _QWORD, __int64, __int64, __int64, _QWORD))(WdfFunctions_01015 + 1536))(
+    v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, _QWORD, __int64, __int64, __int64, _QWORD))(WdfFunctions_01015 + 1536))(
             WdfDriverGlobals,
-            &v29,
+            &v30,
             (unsigned int)ExDefaultNonPagedPoolType,
             1681082453LL,
             96LL,
             v2 + 432,
             0LL);
-    v5 = v19;
-    if ( v19 < 0 )
+    v5 = v20;
+    if ( v20 >= 0 )
     {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LODWORD(v25) = v19;
-        WPP_RECORDER_SF_d(
-          *(_QWORD *)(*(_QWORD *)(v2 + 8) + 1432LL),
-          2u,
-          5u,
-          0x34u,
-          (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
-          v25);
-      }
-      goto LABEL_33;
+      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015
+                                                                                               + 1640))(
+        WdfDriverGlobals,
+        *(_QWORD *)(v2 + 432),
+        "DSM Tag",
+        6985LL,
+        "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
+      KeInitializeSpinLock((PKSPIN_LOCK)(v2 + 40));
+      a1[166] = v2;
     }
-    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015 + 1640))(
-      WdfDriverGlobals,
-      *(_QWORD *)(v2 + 432),
-      "DSM Tag",
-      7088LL,
-      "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
-    KeInitializeSpinLock((PKSPIN_LOCK)(v2 + 40));
-    a1[166] = v2;
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(v26) = v20;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(*(_QWORD *)(v2 + 8) + 1432LL),
+        2u,
+        5u,
+        0x34u,
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
+        v26);
+    }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -398,7 +317,95 @@ LABEL_15:
       2u,
       3u,
       0x31u,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
+  }
+LABEL_34:
+  if ( v5 < 0 )
+  {
+LABEL_35:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(v26) = v5;
+      WPP_RECORDER_SF_d(a1[179], 2u, 4u, 0x35u, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v26);
+    }
+    if ( SLOBYTE(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) < 0 )
+    {
+      LODWORD(v25) = v5;
+      McTemplateK0pq_EtwWriteTransfer(
+        v2 + 1516,
+        &USBHUB3_ETW_EVENT_DEVICE_ENUMERATION_FAILED,
+        (const GUID *)((v2 + 1516) & -(__int64)(v2 != 0)),
+        *(_QWORD *)(*a1 + 248),
+        v25);
+    }
+    v21 = 3009;
+    if ( v2 )
+    {
+      if ( *(_QWORD *)(v2 + 248) )
+      {
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015
+                                                                                                 + 1648))(
+          WdfDriverGlobals,
+          *(_QWORD *)(v2 + 248),
+          "DSM Tag",
+          7169LL,
+          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
+        *(_QWORD *)(v2 + 248) = 0LL;
+      }
+      v22 = *(_QWORD *)(v2 + 416);
+      if ( v22 )
+      {
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015
+                                                                                                 + 1648))(
+          WdfDriverGlobals,
+          *(_QWORD *)(v2 + 416),
+          "DSM Tag",
+          7169LL,
+          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
+        *(_QWORD *)(v2 + 416) = 0LL;
+      }
+      v23 = *(_QWORD *)(v2 + 1544);
+      if ( v23 )
+      {
+        LOBYTE(v22) = 1;
+        ExDeleteTimer(v23, v22, 0LL, 0LL);
+        *(_QWORD *)(v2 + 1544) = 0LL;
+      }
+      if ( *(_QWORD *)(v2 + 2416) )
+      {
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015
+                                                                                                 + 1648))(
+          WdfDriverGlobals,
+          *(_QWORD *)(v2 + 2416),
+          "DSM Tag",
+          7169LL,
+          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
+        *(_QWORD *)(v2 + 2416) = 0LL;
+      }
+      if ( *(_QWORD *)(v2 + 432) )
+      {
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, const char *, __int64, const char *))(WdfFunctions_01015
+                                                                                                 + 1648))(
+          WdfDriverGlobals,
+          *(_QWORD *)(v2 + 432),
+          "DSM Tag",
+          7169LL,
+          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
+        *(_QWORD *)(v2 + 432) = 0LL;
+      }
+      if ( *(_QWORD *)(v2 + 1496) )
+      {
+        (*(void (**)(void))(*(_QWORD *)v2 + 504LL))();
+        *(_QWORD *)(v2 + 1496) = 0LL;
+      }
+      if ( v35 )
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
+    }
+    return v21;
   }
   if ( v3 >= 0 )
   {
@@ -414,7 +421,7 @@ LABEL_15:
       4u,
       4u,
       0x36u,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       a1,
       v2);
   return 3013;

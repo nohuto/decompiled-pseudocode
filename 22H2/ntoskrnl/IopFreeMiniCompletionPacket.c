@@ -1,62 +1,60 @@
 /*
- * XREFs of IopFreeMiniCompletionPacket @ 0x140728C70
+ * XREFs of IopFreeMiniCompletionPacket @ 0x1405E4380
  * Callers:
- *     IoRemoveIoCompletion @ 0x1402A9C40 (IoRemoveIoCompletion.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     IopFreeCompletionListPackets @ 0x140700ED4 (IopFreeCompletionListPackets.c)
- *     IoFreeMiniCompletionPacket @ 0x14076CD50 (IoFreeMiniCompletionPacket.c)
- *     NtCreateWorkerFactory @ 0x1407860A0 (NtCreateWorkerFactory.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140786418 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     IoRemoveIoCompletion @ 0x140204390 (IoRemoveIoCompletion.c)
+ *     IoFreeMiniCompletionPacket @ 0x14065CB10 (IoFreeMiniCompletionPacket.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x1407023FC (AlpcpAllocateCompletionPacketLookaside.c)
+ *     IopFreeCompletionListPackets @ 0x140702870 (IopFreeCompletionListPackets.c)
  * Callees:
- *     ExReturnPoolQuota @ 0x1402ACCB0 (ExReturnPoolQuota.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExReturnPoolQuota @ 0x14030631C (ExReturnPoolQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopFreeMiniCompletionPacket(ULONG_PTR BugCheckParameter2)
+void __fastcall IopFreeMiniCompletionPacket(struct _SLIST_ENTRY *P)
 {
-  void (__fastcall *v2)(ULONG_PTR, _QWORD); // rax
+  void (__fastcall *v2)(struct _SLIST_ENTRY *, _SLIST_ENTRY *); // rax
   struct _KPRCB *CurrentPrcb; // rcx
-  _GENERAL_LOOKASIDE *P; // rdi
+  _GENERAL_LOOKASIDE *L; // rdi
 
-  if ( *(_BYTE *)(BugCheckParameter2 + 16) != 4 )
+  if ( LOBYTE(P[1].Next) != 4 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    P = CurrentPrcb->PPLookasideList[7].P;
-    ++P->TotalFrees;
-    if ( LOWORD(P->ListHead.Alignment) >= P->Depth )
+    L = CurrentPrcb->PPLookasideList[7].P;
+    ++L->TotalFrees;
+    if ( LOWORD(L->ListHead.Alignment) >= L->Depth )
     {
-      ++P->FreeMisses;
-      P = CurrentPrcb->PPLookasideList[7].L;
-      ++P->TotalFrees;
-      if ( LOWORD(P->ListHead.Alignment) >= P->Depth )
+      ++L->FreeMisses;
+      L = CurrentPrcb->PPLookasideList[7].L;
+      ++L->TotalFrees;
+      if ( LOWORD(L->ListHead.Alignment) >= L->Depth )
       {
-        ++P->FreeMisses;
-        ExFreePoolWithTag((PVOID)BugCheckParameter2, 0);
+        ++L->FreeMisses;
+        ExFreePoolWithTag(P, 0);
         return;
       }
-      if ( *(_BYTE *)(BugCheckParameter2 + 16) != 3 )
+      if ( LOBYTE(P[1].Next) != 3 )
       {
 LABEL_7:
-        RtlpInterlockedPushEntrySList(&P->ListHead, (PSLIST_ENTRY)BugCheckParameter2);
+        RtlpInterlockedPushEntrySList(&L->ListHead, P);
         return;
       }
     }
-    else if ( *(_BYTE *)(BugCheckParameter2 + 16) != 3 )
+    else if ( LOBYTE(P[1].Next) != 3 )
     {
       goto LABEL_7;
     }
-    ExReturnPoolQuota(BugCheckParameter2);
+    ExReturnPoolQuota((ULONG_PTR)P);
     goto LABEL_7;
   }
-  v2 = *(void (__fastcall **)(ULONG_PTR, _QWORD))(BugCheckParameter2 + 56);
+  v2 = (void (__fastcall *)(struct _SLIST_ENTRY *, _SLIST_ENTRY *))*((_QWORD *)&P[3].Next + 1);
   if ( v2 )
   {
-    v2(BugCheckParameter2, *(_QWORD *)(BugCheckParameter2 + 64));
+    v2(P, P[4].Next);
   }
-  else if ( *(_BYTE *)(BugCheckParameter2 + 72) )
+  else if ( *((_BYTE *)&P[4].Next + 8) )
   {
-    ExFreePoolWithTag((PVOID)BugCheckParameter2, 0);
+    ExFreePoolWithTag(P, 0);
   }
 }

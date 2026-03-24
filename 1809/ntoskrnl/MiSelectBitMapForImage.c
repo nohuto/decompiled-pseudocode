@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSelectBitMapForImage @ 0x14064FAB8
+ * XREFs of MiSelectBitMapForImage @ 0x14064FA98
  * Callers:
  *     MiSelectCfgBitMap @ 0x1405F482C (MiSelectCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmap @ 0x14064F764 (MiUpdateCfgSystemWideBitmap.c)
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14064F744 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwClose_0 @ 0x1C0001A67
+ * XREFs of ZwClose_0 @ 0x1C0031D17
  * Callers:
- *     ArbAddInaccessibleAllocationRange @ 0x1C00A0780 (ArbAddInaccessibleAllocationRange.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1C00A0994 (ArbAddMmConfigRangeAsBootReserved.c)
- *     ArbBuildAssignmentOrdering @ 0x1C00A125C (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1C009FF94 (ArbBuildAssignmentOrdering.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x1C00B7760 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x1C00B7974 (ArbAddMmConfigRangeAsBootReserved.c)
  * Callees:
  *     <none>
  */

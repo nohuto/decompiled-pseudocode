@@ -1,102 +1,97 @@
 /*
- * XREFs of ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C02FDB50
+ * XREFs of ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C015254C
  * Callers:
- *     xInsertMetricsPlusRFONTOBJ @ 0x1C007F014 (xInsertMetricsPlusRFONTOBJ.c)
+ *     xInsertMetricsPlusRFONTOBJ @ 0x1C009C988 (xInsertMetricsPlusRFONTOBJ.c)
  * Callees:
- *     ?bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z @ 0x1C0021A34 (-bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z.c)
- *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C007F49C (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0080E54 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C028669C (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
+ *     ?bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z @ 0x1C001DFB8 (-bAllocateCache@RFONTOBJ@@QEAAHPEAV1@@Z.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A248 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C009AF98 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C0152750 (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall RFONTOBJ::bInsertMetricsPlusPath(RFONTOBJ *this, struct _GLYPHDATA **a2, __int64 a3, __int64 a4)
+__int64 __fastcall RFONTOBJ::bInsertMetricsPlusPath(RFONTOBJ *this, struct _GLYPHDATA **a2, unsigned __int16 a3)
 {
-  __int64 v4; // rbx
-  unsigned int v5; // esi
+  __int64 v3; // rdi
+  unsigned int v4; // ebx
+  unsigned int v5; // r14d
+  __int64 v8; // rdx
+  struct _GLYPHDATA *v9; // rax
+  __int64 v10; // rax
+  unsigned int v11; // r15d
+  EPATHFONTOBJ *v12; // rax
+  EPATHFONTOBJ *v13; // r14
+  EPATHOBJ *v14; // rcx
   __int64 result; // rax
-  unsigned int v9; // r14d
-  __int64 v10; // r8
-  struct _GLYPHDATA *v11; // rax
-  __int64 v12; // rax
-  unsigned int v13; // r15d
-  __int64 v14; // r8
-  __int64 v15; // r9
-  EPATHFONTOBJ *v16; // rax
-  EPATHFONTOBJ *v17; // rsi
-  EPATHOBJ *v18; // rcx
-  unsigned __int16 v19; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v20; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v22[8]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-98h]
-  struct _GLYPHDATA v24; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned __int16 v16; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v17; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v19[8]; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v20; // [rsp+68h] [rbp-98h]
+  struct _GLYPHDATA v21; // [rsp+E0h] [rbp-20h] BYREF
 
-  v4 = *(_QWORD *)this;
-  v5 = (unsigned __int16)a3;
+  v3 = *(_QWORD *)this;
+  v4 = 0;
+  v5 = a3;
   if ( *(_QWORD *)(*(_QWORD *)this + 480LL)
-    || (result = RFONTOBJ::bAllocateCache(this, (struct RFONTOBJ *)a2, a3, a4), (_DWORD)result) )
+    || (result = RFONTOBJ::bAllocateCache(this, (struct RFONTOBJ *)a2), (_DWORD)result) )
   {
-    v9 = 1;
     if ( (*(_DWORD *)(*(_QWORD *)this + 84LL) & 2) != 0 )
     {
-      v19 = v5;
-      v20 = 0;
-      RFONTOBJ::vXlatGlyphArray(this, &v19, 1, &v20, 0, 0);
-      v5 = v20;
+      v16 = v5;
+      v17 = 0;
+      RFONTOBJ::vXlatGlyphArray(this, &v16, 1, &v17, 0, 0);
+      v5 = v17;
     }
-    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v22);
-    if ( !v23 )
-      goto LABEL_16;
-    memset_0(&v24, 0, sizeof(v24));
-    v10 = *(_QWORD *)this;
-    v21 = *(_QWORD *)(*(_QWORD *)this + 128LL);
-    v11 = &v24;
-    if ( !*(_DWORD *)(v10 + 640) )
-      v11 = *(struct _GLYPHDATA **)(v4 + 512);
-    if ( (unsigned int)PFFOBJ::QueryFontData(
-                         (PFFOBJ *)&v21,
-                         *(struct DHPDEV__ **)(v10 + 112),
-                         (struct _FONTOBJ *)v10,
-                         2u,
-                         v5,
-                         v11,
-                         v22,
-                         0) == -1 )
+    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v19);
+    if ( v20 )
     {
-LABEL_16:
-      v9 = 0;
+      memset(&v21, 0, sizeof(v21));
+      v8 = *(_QWORD *)this;
+      v18 = *(_QWORD *)(*(_QWORD *)this + 128LL);
+      v9 = &v21;
+      if ( !*(_DWORD *)(v8 + 640) )
+        v9 = *(struct _GLYPHDATA **)(v3 + 512);
+      if ( (unsigned int)PFFOBJ::QueryFontData(
+                           (PFFOBJ *)&v18,
+                           *(struct DHPDEV__ **)(v8 + 112),
+                           (struct _FONTOBJ *)v8,
+                           2u,
+                           v5,
+                           v9,
+                           v19,
+                           0) != -1 )
+      {
+        if ( *(_DWORD *)(*(_QWORD *)this + 640LL) )
+        {
+          v10 = *(_QWORD *)(v3 + 512);
+          *(_OWORD *)v10 = *(_OWORD *)&v21.gdf.pgb;
+          *(_QWORD *)(v10 + 16) = *(_QWORD *)&v21.fxA;
+        }
+        v11 = EPATHOBJ::cjSize((EPATHOBJ *)v19) + 424;
+        v12 = (EPATHFONTOBJ *)RFONTOBJ::pgbCheckGlyphCache(this, v11);
+        v13 = v12;
+        if ( v12 )
+        {
+          EPATHFONTOBJ::vInit(v12, v11);
+          EPATHOBJ::bClone(v14, (struct EPATHOBJ *)v19);
+          **(_QWORD **)(v3 + 512) = v13;
+        }
+        else
+        {
+          **(_QWORD **)(v3 + 512) = 0LL;
+        }
+        *a2 = *(struct _GLYPHDATA **)(v3 + 512);
+        *(_QWORD *)(v3 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
+        if ( v13 )
+          *(_QWORD *)(v3 + 584) += v11;
+        v4 = 1;
+      }
     }
-    else
-    {
-      if ( *(_DWORD *)(*(_QWORD *)this + 640LL) )
-      {
-        v12 = *(_QWORD *)(v4 + 512);
-        *(_OWORD *)v12 = *(_OWORD *)&v24.gdf.pgb;
-        *(_QWORD *)(v12 + 16) = *(_QWORD *)&v24.fxA;
-      }
-      v13 = EPATHOBJ::cjSize((EPATHOBJ *)v22) + 424;
-      v16 = (EPATHFONTOBJ *)RFONTOBJ::pgbCheckGlyphCache(this, v13, v14, v15);
-      v17 = v16;
-      if ( v16 )
-      {
-        EPATHFONTOBJ::vInit(v16, v13);
-        EPATHOBJ::bClone(v18, (struct EPATHOBJ *)v22);
-        **(_QWORD **)(v4 + 512) = v17;
-      }
-      else
-      {
-        **(_QWORD **)(v4 + 512) = 0LL;
-      }
-      *a2 = *(struct _GLYPHDATA **)(v4 + 512);
-      *(_QWORD *)(v4 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
-      if ( v17 )
-        *(_QWORD *)(v4 + 584) += v13;
-    }
-    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v22);
-    return v9;
+    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v19);
+    return v4;
   }
   return result;
 }

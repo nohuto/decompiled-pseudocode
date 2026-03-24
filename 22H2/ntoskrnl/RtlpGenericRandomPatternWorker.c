@@ -1,164 +1,175 @@
 /*
- * XREFs of RtlpGenericRandomPatternWorker @ 0x14067B698
+ * XREFs of RtlpGenericRandomPatternWorker @ 0x140590B4C
  * Callers:
- *     RtlScrubMemory @ 0x14067B008 (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x1405904A8 (RtlScrubMemory.c)
  * Callees:
- *     RtlpFillMemoryRandomUp @ 0x14067B140 (RtlpFillMemoryRandomUp.c)
- *     RtlpTestMemoryRandomUp @ 0x14067BB58 (RtlpTestMemoryRandomUp.c)
+ *     RtlpFillMemoryRandomUp @ 0x1405905DC (RtlpFillMemoryRandomUp.c)
+ *     RtlpTestMemoryRandomUp @ 0x140591038 (RtlpTestMemoryRandomUp.c)
  */
 
-char __fastcall RtlpGenericRandomPatternWorker(unsigned __int64 *a1)
+char __fastcall RtlpGenericRandomPatternWorker(unsigned __int64 a1)
 {
-  unsigned int v2; // esi
-  __int64 *v3; // r14
-  __int64 v4; // rdi
-  unsigned __int64 v5; // r10
-  unsigned __int64 v6; // rax
-  unsigned int v7; // ecx
-  __int64 v8; // rdx
-  __int64 v9; // rax
-  unsigned __int64 v10; // r10
-  unsigned __int64 v11; // r11
+  unsigned int v1; // ebp
+  char *v2; // rdi
+  __int64 *v4; // r15
+  __int64 v5; // r14
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v7; // rax
+  unsigned int v8; // ecx
+  __int64 v9; // rdx
+  unsigned __int64 v10; // rax
   struct _KPRCB *CurrentPrcb; // r9
   __int64 CFlushSize; // rdx
   char *i; // rcx
-  _DWORD *v15; // r8
-  unsigned __int64 v16; // rax
-  struct _KPRCB *v17; // rax
-  __int64 v18; // rdx
+  char *v14; // rdx
+  unsigned __int64 v15; // rax
+  struct _KPRCB *v16; // rax
+  __int64 v17; // rdx
   char *j; // rcx
-  __int64 v20; // r9
-  unsigned __int64 v21; // r10
-  unsigned __int64 v22; // r11
-  unsigned __int64 *v23; // r8
-  unsigned __int64 k; // rdx
-  struct _KPRCB *v25; // rax
-  __int64 v26; // rdx
+  unsigned __int64 *v19; // r8
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // rdx
+  struct _KPRCB *v23; // rax
+  __int64 v24; // rdx
+  char *k; // rcx
+  struct _KPRCB *v26; // r9
+  __int64 v27; // rdx
   char *m; // rcx
-  __int64 v28; // r10
-  unsigned __int64 v29; // r11
-  struct _KPRCB *v30; // r9
-  __int64 v31; // rdx
+  char *v29; // rdx
+  unsigned __int64 v30; // rcx
+  struct _KPRCB *v31; // rax
+  __int64 v32; // rdx
   char *n; // rcx
-  unsigned __int64 v33; // r10
-  unsigned __int64 *v34; // r11
-  unsigned __int64 *v35; // r8
-  unsigned __int64 v36; // rdx
-  struct _KPRCB *v37; // rax
-  __int64 v38; // rdx
+  char *v34; // rdx
+  unsigned __int64 v35; // rcx
+  struct _KPRCB *v36; // rax
+  __int64 v37; // rdx
   char *ii; // rcx
-  unsigned __int64 *v40; // r8
-  unsigned __int64 v41; // rdx
-  struct _KPRCB *v42; // rax
-  __int64 v43; // rdx
-  char *jj; // rcx
-  unsigned __int64 *v45; // rdx
-  signed __int32 v47[10]; // [rsp+0h] [rbp-28h] BYREF
+  char *v39; // r8
+  signed __int32 v41[14]; // [rsp+0h] [rbp-38h] BYREF
 
-  v2 = 0;
-  v3 = (__int64 *)GlfsrXorLookupTables;
+  v1 = 0;
+  v2 = (char *)(a1 + 4096);
+  v4 = (__int64 *)&GlfsrXorLookupTables;
 LABEL_2:
-  v4 = *v3;
-  v5 = *(_QWORD *)RtlpSeedGlfsr;
-  v6 = __rdtsc();
-  v7 = 0;
-  v8 = (unsigned int)v6;
+  v5 = *v4;
+  v6 = *(_QWORD *)RtlpSeedGlfsr;
+  v7 = __rdtsc();
+  v8 = 0;
+  v9 = (unsigned int)v7;
   do
   {
-    v9 = (v8 & (1LL << v7)) << v7;
-    ++v7;
-    v5 ^= v9;
+    v10 = ((unsigned int)v9 & (unsigned __int64)(1LL << v8)) << v8;
+    ++v8;
+    v6 ^= v10;
   }
-  while ( v7 < 0x20 );
-  RtlpFillMemoryRandomUp(a1, v8, v5, *v3);
+  while ( v8 < 0x20 );
+  RtlpFillMemoryRandomUp(a1, v9, v6, *v4);
   CurrentPrcb = KeGetCurrentPrcb();
   CFlushSize = CurrentPrcb->CFlushSize;
   if ( CurrentPrcb->CFlushSize )
   {
-    _InterlockedOr(v47, 0);
-    for ( i = (char *)((unsigned __int64)a1 & ~(CFlushSize - 1)); (unsigned __int64)i < v11; i += CFlushSize )
+    _InterlockedOr(v41, 0);
+    for ( i = (char *)(a1 & ~(CFlushSize - 1)); i < v2; i += CFlushSize )
       _mm_clflush(i);
   }
-  v15 = a1;
-  v16 = v10;
-  if ( (unsigned __int64)a1 >= v11 )
+  v14 = (char *)a1;
+  v15 = v6;
+  if ( a1 >= (unsigned __int64)v2 )
   {
 LABEL_12:
-    v17 = KeGetCurrentPrcb();
-    v18 = v17->CFlushSize;
-    if ( v17->CFlushSize )
+    v16 = KeGetCurrentPrcb();
+    v17 = v16->CFlushSize;
+    if ( v16->CFlushSize )
     {
-      _InterlockedOr(v47, 0);
-      for ( j = (char *)((unsigned __int64)a1 & ~(v18 - 1)); (unsigned __int64)j < v11; j += v18 )
+      _InterlockedOr(v41, 0);
+      for ( j = (char *)(a1 & ~(v17 - 1)); j < v2; j += v17 )
         _mm_clflush(j);
     }
-    if ( (unsigned __int8)RtlpTestMemoryRandomUp(a1, v18, v10, v4) )
+    if ( (unsigned __int8)RtlpTestMemoryRandomUp(a1, v17, v6, v5) )
     {
-      v23 = a1;
-      for ( k = v21; (unsigned __int64)v23 < v22; k = *(_QWORD *)(v4 + 8 * (k & 0xF)) ^ (k >> 4) )
-        *v23++ = ~k;
-      v25 = KeGetCurrentPrcb();
-      v26 = v25->CFlushSize;
-      if ( v25->CFlushSize )
+      v19 = (unsigned __int64 *)a1;
+      v20 = v6;
+      v21 = 0LL;
+      v22 = (unsigned __int64)&v2[-a1 + 7] >> 3;
+      if ( a1 > (unsigned __int64)v2 )
+        v22 = 0LL;
+      if ( v22 )
       {
-        _InterlockedOr(v47, 0);
-        for ( m = (char *)((unsigned __int64)a1 & ~(v26 - 1)); (unsigned __int64)m < v22; m += v26 )
+        do
+        {
+          ++v21;
+          *v19++ = ~v20;
+          v20 = (v20 >> 4) ^ *(_QWORD *)(v5 + 8 * (v20 & 0xF));
+        }
+        while ( v21 < v22 );
+      }
+      v23 = KeGetCurrentPrcb();
+      v24 = v23->CFlushSize;
+      if ( v23->CFlushSize )
+      {
+        _InterlockedOr(v41, 0);
+        for ( k = (char *)(a1 & ~(v24 - 1)); k < v2; k += v24 )
+          _mm_clflush(k);
+      }
+      RtlpFillMemoryRandomUp(a1, v24, v6, v5);
+      v26 = KeGetCurrentPrcb();
+      v27 = v26->CFlushSize;
+      if ( v26->CFlushSize )
+      {
+        _InterlockedOr(v41, 0);
+        for ( m = (char *)(a1 & ~(v27 - 1)); m < v2; m += v27 )
           _mm_clflush(m);
       }
-      RtlpFillMemoryRandomUp(a1, v26, v21, v20);
-      v30 = KeGetCurrentPrcb();
-      v31 = v30->CFlushSize;
-      if ( v30->CFlushSize )
+      if ( (unsigned __int8)RtlpTestMemoryRandomUp(a1, v27, v6, v5) )
       {
-        _InterlockedOr(v47, 0);
-        for ( n = (char *)((unsigned __int64)a1 & ~(v31 - 1)); (unsigned __int64)n < v29; n += v31 )
-          _mm_clflush(n);
-      }
-      if ( (unsigned __int8)RtlpTestMemoryRandomUp(a1, v31, v28, v4) )
-      {
-        v35 = v34;
-        v36 = v33;
+        v29 = v2;
+        v30 = v6;
         do
         {
-          *--v35 = ~v36;
-          v36 = *(_QWORD *)(v4 + 8 * (v36 & 0xF)) ^ (v36 >> 4);
+          v29 -= 8;
+          *(_QWORD *)v29 = ~v30;
+          v30 = (v30 >> 4) ^ *(_QWORD *)(v5 + 8 * (v30 & 0xF));
         }
-        while ( v35 != a1 );
-        v37 = KeGetCurrentPrcb();
-        v38 = v37->CFlushSize;
-        if ( v37->CFlushSize )
+        while ( v29 != (char *)a1 );
+        v31 = KeGetCurrentPrcb();
+        v32 = v31->CFlushSize;
+        if ( v31->CFlushSize )
         {
-          _InterlockedOr(v47, 0);
-          for ( ii = (char *)((unsigned __int64)a1 & ~(v38 - 1)); ii < (char *)v34; ii += v38 )
+          _InterlockedOr(v41, 0);
+          for ( n = (char *)(a1 & ~(v32 - 1)); n < v2; n += v32 )
+            _mm_clflush(n);
+        }
+        v34 = v2;
+        v35 = v6;
+        do
+        {
+          v34 -= 8;
+          *(_QWORD *)v34 = v35;
+          v35 = (v35 >> 4) ^ *(_QWORD *)(v5 + 8 * (v35 & 0xF));
+        }
+        while ( v34 != (char *)a1 );
+        v36 = KeGetCurrentPrcb();
+        v37 = v36->CFlushSize;
+        if ( v36->CFlushSize )
+        {
+          _InterlockedOr(v41, 0);
+          for ( ii = (char *)(a1 & ~(v37 - 1)); ii < v2; ii += v37 )
             _mm_clflush(ii);
         }
-        v40 = v34;
-        v41 = v33;
-        do
+        v39 = v2;
+        while ( *((_DWORD *)v39 - 1) == HIDWORD(v6) )
         {
-          *--v40 = v41;
-          v41 = *(_QWORD *)(v4 + 8 * (v41 & 0xF)) ^ (v41 >> 4);
-        }
-        while ( v40 != a1 );
-        v42 = KeGetCurrentPrcb();
-        v43 = v42->CFlushSize;
-        if ( v42->CFlushSize )
-        {
-          _InterlockedOr(v47, 0);
-          for ( jj = (char *)((unsigned __int64)a1 & ~(v43 - 1)); jj < (char *)v34; jj += v43 )
-            _mm_clflush(jj);
-        }
-        v45 = v34;
-        while ( *((_DWORD *)v45 - 1) == HIDWORD(v33) )
-        {
-          if ( *(_DWORD *)--v45 != (_DWORD)v33 )
+          v39 -= 8;
+          if ( *(_DWORD *)v39 != (_DWORD)v6 )
             break;
-          v33 = *(_QWORD *)(v4 + 8 * (v33 & 0xF)) ^ (v33 >> 4);
-          if ( v45 == a1 )
+          v6 = (v6 >> 4) ^ *(_QWORD *)(v5 + 8 * (v6 & 0xF));
+          if ( v39 == (char *)a1 )
           {
-            ++v2;
-            ++v3;
-            if ( v2 < 5 )
+            ++v1;
+            ++v4;
+            if ( v1 < 5 )
               goto LABEL_2;
             return 1;
           }
@@ -168,15 +179,15 @@ LABEL_12:
   }
   else
   {
-    while ( *v15 == (_DWORD)v16 )
+    while ( *(_DWORD *)v14 == (_DWORD)v15 )
     {
-      *v15 = v16;
-      if ( v15[1] != HIDWORD(v16) )
+      *(_DWORD *)v14 = v15;
+      if ( *((_DWORD *)v14 + 1) != HIDWORD(v15) )
         break;
-      v15[1] = HIDWORD(v16);
-      v15 += 2;
-      v16 = *(_QWORD *)(v4 + 8 * (v16 & 0xF)) ^ (v16 >> 4);
-      if ( (unsigned __int64)v15 >= v11 )
+      *((_DWORD *)v14 + 1) = HIDWORD(v15);
+      v14 += 8;
+      v15 = (v15 >> 4) ^ *(_QWORD *)(v5 + 8 * (v15 & 0xF));
+      if ( v14 >= v2 )
         goto LABEL_12;
     }
   }

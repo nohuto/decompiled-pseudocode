@@ -3,7 +3,7 @@
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvpMapHiveImage @ 0x1407F796C (HvpMapHiveImage.c)
+ *     HvpMapHiveImage @ 0x1407F794C (HvpMapHiveImage.c)
  * Callees:
  *     ExProtectPool @ 0x14000DEB8 (ExProtectPool.c)
  */

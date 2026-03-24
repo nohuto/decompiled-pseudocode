@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetFlipPropertySet@CFlipPresentUpdate@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C0081910
+ * XREFs of ?SetFlipPropertySet@CFlipPresentUpdate@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C006EB8C
  * Callers:
- *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C007C744 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
- *     ?CreatePresentUpdateForProducer@CFlipManager@@QEAAJ_N_KPEAVCFlipPropertySet@@PEAPEAVCFlipPresentUpdate@@PEAPEAUFlipManagerTokenIFlipInfo@@@Z @ 0x1C007D264 (-CreatePresentUpdateForProducer@CFlipManager@@QEAAJ_N_KPEAVCFlipPropertySet@@PEAPEAVCFlipPresent.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006ACF4 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?CreatePresentUpdateForProducer@CFlipManager@@QEAAJ_N0_KPEAVCFlipPropertySet@@PEAPEAVCFlipPresentUpdate@@@Z @ 0x1C006B0B0 (-CreatePresentUpdateForProducer@CFlipManager@@QEAAJ_N0_KPEAVCFlipPropertySet@@PEAPEAVCFlipPresen.c)
  * Callees:
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007A178 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A40 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
  */
 
 void __fastcall CFlipPresentUpdate::SetFlipPropertySet(CFlipPresentUpdate *this, struct CFlipPropertySet *a2)

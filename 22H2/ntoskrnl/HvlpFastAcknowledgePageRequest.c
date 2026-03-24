@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpFastAcknowledgePageRequest @ 0x140546160
+ * XREFs of HvlpFastAcknowledgePageRequest @ 0x1404F7200
  * Callers:
- *     HvlAcknowledgePageRequest @ 0x140542910 (HvlAcknowledgePageRequest.c)
- *     HvlpSlowAcknowledgePageRequest @ 0x140546398 (HvlpSlowAcknowledgePageRequest.c)
+ *     HvlSvmAcknowledgePageRequest @ 0x1404F6640 (HvlSvmAcknowledgePageRequest.c)
+ *     HvlpSlowAcknowledgePageRequest @ 0x1404F740C (HvlpSlowAcknowledgePageRequest.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
  */
 
 __int64 __fastcall HvlpFastAcknowledgePageRequest(int a1, __int64 a2, int *a3)
@@ -14,7 +14,7 @@ __int64 __fastcall HvlpFastAcknowledgePageRequest(int a1, __int64 a2, int *a3)
 
   LODWORD(v5) = 65702;
   HIDWORD(v5) = a1 & 0xFFF;
-  result = HvcallFastExtended(v5, a2, 32 * a1, 0LL, 0);
+  result = HvcallFastExtended(v5, a2, (unsigned int)(40 * a1), 0LL, 0);
   *a3 = WORD2(result) & 0xFFF;
   return result;
 }

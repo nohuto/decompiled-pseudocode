@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CallEvtDmaCompleted@FxDmaSystemTransaction@@MEAAXW4DMA_COMPLETION_STATUS@@@Z @ 0x1C0058770
+ * XREFs of ?CallEvtDmaCompleted@FxDmaSystemTransaction@@MEAAXW4DMA_COMPLETION_STATUS@@@Z @ 0x1C0035B30
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxDmaSystemTransaction::CallEvtDmaCompleted(FxDmaSystemTransaction *this, DMA_COMPLETION_STATUS Status)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z @ 0x1C02C17F8
+ * XREFs of ?QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z @ 0x1C0216FC8
  * Callers:
- *     NtDxgkGetProcessList @ 0x1C02D6800 (NtDxgkGetProcessList.c)
+ *     NtDxgkGetProcessList @ 0x1C0227840 (NtDxgkGetProcessList.c)
  * Callees:
  *     <none>
  */
@@ -14,24 +14,27 @@ __int64 __fastcall ADAPTER_RENDER::QueryProcessAdapterInfo(
 {
   unsigned int v4; // r15d
   char *v5; // rbp
-  unsigned int *v6; // rbx
   __int64 v9; // rsi
   _QWORD *v10; // r14
   _QWORD *v11; // rdi
-  void *v12; // r12
   struct _OBJECT_TYPE *ObjectType; // rax
-  NTSTATUS v14; // eax
+  PVOID v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
+  PVOID Objecta; // [rsp+80h] [rbp+8h]
+  NTSTATUS Object; // [rsp+80h] [rbp+8h]
 
   v4 = 0;
   v5 = (char *)this + 72;
-  v6 = a3;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v5, 0LL);
   *((_QWORD *)v5 + 1) = KeGetCurrentThread();
-  LODWORD(v9) = *((_DWORD *)this + 78);
-  if ( (unsigned int)v9 <= *v6 && a2 )
+  LODWORD(v9) = *((_DWORD *)this + 76);
+  if ( (unsigned int)v9 <= *a3 && a2 )
   {
-    v10 = (_QWORD *)((char *)this + 296);
+    v10 = (_QWORD *)((char *)this + 288);
     v9 = 0LL;
     v11 = (_QWORD *)*v10;
     if ( (_QWORD *)*v10 != v10 )
@@ -40,26 +43,33 @@ __int64 __fastcall ADAPTER_RENDER::QueryProcessAdapterInfo(
       {
         if ( *((_BYTE *)v11 + 21) )
         {
-          v12 = *(void **)(*(v11 - 3) + 56LL);
-          ObjectType = (struct _OBJECT_TYPE *)ObGetObjectType(v12);
-          v14 = ObOpenObjectByPointer(v12, 0x400u, 0LL, a4, ObjectType, 1, &a2[v9]);
-          if ( v14 >= 0 )
+          Objecta = *(PVOID *)(*(v11 - 3) + 56LL);
+          ObjectType = (struct _OBJECT_TYPE *)ObGetObjectType();
+          v13 = Objecta;
+          Object = ObOpenObjectByPointer(Objecta, 0x400u, 0LL, a4, ObjectType, 1, &a2[v9]);
+          if ( Object >= 0 )
+          {
             v9 = (unsigned int)(v9 + 1);
+          }
           else
-            WdLogSingleEntry2(3LL, v12, v14);
+          {
+            v17 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+            *(_QWORD *)(v17 + 24) = v13;
+            *(_QWORD *)(v17 + 32) = Object;
+            WdLogEvent5_WdWarning(v17);
+          }
         }
         v11 = (_QWORD *)*v11;
       }
       while ( v11 != v10 );
       v4 = 0;
-      v6 = a3;
     }
   }
   else
   {
     v4 = -1073741789;
   }
-  *v6 = v9;
+  *a3 = v9;
   *((_QWORD *)v5 + 1) = 0LL;
   ExReleasePushLockExclusiveEx(v5, 0LL);
   KeLeaveCriticalRegion();

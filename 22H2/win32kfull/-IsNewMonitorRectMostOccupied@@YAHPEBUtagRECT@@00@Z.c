@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01B92E4
+ * XREFs of ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01E3C20
  * Callers:
- *     GetNewMonitor @ 0x1C010B39C (GetNewMonitor.c)
- *     ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01B8A28 (-DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z.c)
+ *     GetNewMonitor @ 0x1C006BEBC (GetNewMonitor.c)
+ *     DetectNewMonitor @ 0x1C01E4B14 (DetectNewMonitor.c)
  * Callees:
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
  */
 
 _BOOL8 __fastcall IsNewMonitorRectMostOccupied(
@@ -15,9 +15,9 @@ _BOOL8 __fastcall IsNewMonitorRectMostOccupied(
   __int128 v6; // [rsp+20h] [rbp-28h] BYREF
   __int128 v7; // [rsp+30h] [rbp-18h] BYREF
 
-  v7 = 0LL;
   v6 = 0LL;
-  IntersectRect(&v7, &a1->left, &a2->left);
-  IntersectRect(&v6, &a1->left, &a3->left);
-  return (DWORD2(v7) - (int)v7) * (HIDWORD(v7) - DWORD1(v7)) > (DWORD2(v6) - (int)v6) * (HIDWORD(v6) - DWORD1(v6));
+  v7 = 0LL;
+  IntersectRect(&v6, &a1->left, &a2->left);
+  IntersectRect(&v7, &a1->left, &a3->left);
+  return (DWORD2(v6) - (int)v6) * (HIDWORD(v6) - DWORD1(v6)) > (DWORD2(v7) - (int)v7) * (HIDWORD(v7) - DWORD1(v7));
 }

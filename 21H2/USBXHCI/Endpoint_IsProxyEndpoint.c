@@ -1,7 +1,7 @@
 /*
- * XREFs of Endpoint_IsProxyEndpoint @ 0x1C0005C10
+ * XREFs of Endpoint_IsProxyEndpoint @ 0x1C0009774
  * Callers:
- *     TR_Create @ 0x1C006BCD8 (TR_Create.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpReturnAccessBuffer @ 0x1402009E4
+ * XREFs of PfpReturnAccessBuffer @ 0x1402D40D0
  * Callers:
- *     PfpFlushBuffers @ 0x1407D9F00 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     MmFreeAccessPfnBuffer @ 0x14035FA80 (MmFreeAccessPfnBuffer.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     MmFreeAccessPfnBuffer @ 0x1402D4628 (MmFreeAccessPfnBuffer.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall PfpReturnAccessBuffer(struct _SLIST_ENTRY *P)
@@ -15,12 +15,12 @@ void __fastcall PfpReturnAccessBuffer(struct _SLIST_ENTRY *P)
   unsigned int Alignment_low; // ebx
   int v3; // ebx
 
-  if ( !ExAcquireRundownProtection(&RunRef) )
-    goto LABEL_6;
+  if ( !ExAcquireRundownProtection_0(&RunRef) )
+    goto LABEL_8;
   Alignment_low = LOWORD(ListHead.Alignment);
-  if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_140CF5E28 )
+  if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_140CEC328 )
   {
-    _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C4EC70, 0x64u);
+    _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C4FED0, 0x64u);
     v3 = 0;
   }
   else
@@ -30,8 +30,8 @@ void __fastcall PfpReturnAccessBuffer(struct _SLIST_ENTRY *P)
       KeSetEvent(&Event, 0, 0);
     v3 = 1;
   }
-  ExReleaseRundownProtection(&RunRef);
+  ExReleaseRundownProtection_0(&RunRef);
   if ( !v3 )
-LABEL_6:
+LABEL_8:
     MmFreeAccessPfnBuffer(P);
 }

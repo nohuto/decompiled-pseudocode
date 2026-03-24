@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCloneNoChange @ 0x14084F3DC
+ * XREFs of MiCloneNoChange @ 0x14084F3BC
  * Callers:
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
  * Callees:
  *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
  */

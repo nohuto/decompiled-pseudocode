@@ -6,8 +6,8 @@
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     SepIsImageInMinTcbList @ 0x1406B4428 (SepIsImageInMinTcbList.c)
- *     SepSetSystemPaths @ 0x140759F30 (SepSetSystemPaths.c)
+ *     SepIsImageInMinTcbList @ 0x1406B4408 (SepIsImageInMinTcbList.c)
+ *     SepSetSystemPaths @ 0x140759F10 (SepSetSystemPaths.c)
  */
 
 __int64 __fastcall SepIsMinTCB(

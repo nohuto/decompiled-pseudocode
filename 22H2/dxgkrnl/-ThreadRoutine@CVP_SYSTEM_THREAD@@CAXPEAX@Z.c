@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ThreadRoutine@CVP_SYSTEM_THREAD@@CAXPEAX@Z @ 0x1C030FA40
+ * XREFs of ?ThreadRoutine@CVP_SYSTEM_THREAD@@CAXPEAX@Z @ 0x1C0266B10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVP_SYSTEM_THREAD::ThreadRoutine(PVOID StartContext)

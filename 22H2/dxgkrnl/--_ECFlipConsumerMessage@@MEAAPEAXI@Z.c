@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C007FAD0
+ * XREFs of ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C00682F0
  * Callers:
- *     ??_ECFlipConsumerMessage@@OCI@EAAPEAXI@Z @ 0x1C0028F20 (--_ECFlipConsumerMessage@@OCI@EAAPEAXI@Z.c)
+ *     ??_ECFlipConsumerMessage@@OCI@EAAPEAXI@Z @ 0x1C0029400 (--_ECFlipConsumerMessage@@OCI@EAAPEAXI@Z.c)
  * Callees:
- *     ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C007FA70 (--1CFlipConsumerMessage@@MEAA@XZ.c)
+ *     ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C0068294 (--1CFlipConsumerMessage@@MEAA@XZ.c)
  */
 
 CFlipConsumerMessage *__fastcall CFlipConsumerMessage::`vector deleting destructor'(CFlipConsumerMessage *P, char a2)

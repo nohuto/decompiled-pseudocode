@@ -1,23 +1,21 @@
 /*
- * XREFs of RtlCompareUnicodeStrings @ 0x1406DA090
+ * XREFs of RtlCompareUnicodeStrings @ 0x14065F910
  * Callers:
- *     ApiSetpSearchForApiSet @ 0x14035EF30 (ApiSetpSearchForApiSet.c)
- *     EtwpAvlCompareKeyNames @ 0x140392EB0 (EtwpAvlCompareKeyNames.c)
- *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x140417984 (ApiSetpSearchForHostOverrideIndex_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x140417A3C (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetpSearchForApiSetHost @ 0x140614958 (ApiSetpSearchForApiSetHost.c)
- *     AsiSortValueList @ 0x140615350 (AsiSortValueList.c)
- *     CmpFindNameInListFromIndex @ 0x1406DFF10 (CmpFindNameInListFromIndex.c)
- *     PnpCheckDeviceIdsChanged @ 0x140798D00 (PnpCheckDeviceIdsChanged.c)
- *     sub_1408314D0 @ 0x1408314D0 (sub_1408314D0.c)
- *     PiDevCfgResolveVariableExpression @ 0x140960200 (PiDevCfgResolveVariableExpression.c)
- *     PnpCompareMultiSz @ 0x14096C670 (PnpCompareMultiSz.c)
- *     PopDirectedDripsUmTestDeviceCompare @ 0x14099FB80 (PopDirectedDripsUmTestDeviceCompare.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x140A7570C (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A759B8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     ApiSetpSearchForApiSet @ 0x1403A2C30 (ApiSetpSearchForApiSet.c)
+ *     EtwpAvlCompareKeyNames @ 0x1403BC700 (EtwpAvlCompareKeyNames.c)
+ *     ApiSetpSearchForApiSetHost @ 0x1405BE40C (ApiSetpSearchForApiSetHost.c)
+ *     AsiSortValueList @ 0x1405BEDB0 (AsiSortValueList.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     EtwpExpandFileName @ 0x14065F6D8 (EtwpExpandFileName.c)
+ *     PnpCheckDeviceIdsChanged @ 0x140769CA8 (PnpCheckDeviceIdsChanged.c)
+ *     sub_1407B1F20 @ 0x1407B1F20 (sub_1407B1F20.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8160 (PiDevCfgResolveVariableExpression.c)
+ *     PnpCompareMultiSz @ 0x1408B22D4 (PnpCompareMultiSz.c)
+ *     PopDirectedDripsUmTestDeviceCompare @ 0x1408F8A90 (PopDirectedDripsUmTestDeviceCompare.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x1409820EC (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098238C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
 LONG __stdcall RtlCompareUnicodeStrings(
@@ -27,64 +25,59 @@ LONG __stdcall RtlCompareUnicodeStrings(
         SIZE_T String2Length,
         BOOLEAN CaseInSensitive)
 {
-  int v5; // r14d
+  SIZE_T v5; // rax
   int v6; // ebp
-  __int64 v7; // rbx
-  unsigned __int64 v8; // r9
-  unsigned __int16 *v9; // r10
-  __int64 v10; // r11
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // rax
-  unsigned __int16 *v13; // r9
-  __int64 v14; // r11
-  int v15; // eax
-  int v16; // ecx
-  int v18; // esi
-  unsigned __int16 v19; // ax
-  unsigned __int16 v20; // di
+  int v7; // esi
+  unsigned __int16 *v8; // r10
+  const WCHAR *v9; // r11
+  signed __int64 v10; // rbx
+  int v11; // eax
+  int v12; // ecx
+  int v14; // edi
+  unsigned __int16 v15; // r9
+  unsigned __int16 v16; // ax
 
-  v5 = String2Length;
-  v6 = String1Length;
-  v7 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
-  v12 = v11;
-  if ( v11 > v8 )
-    v12 = v8;
-  v13 = &v9[v12];
-  if ( v9 >= v13 )
-    return v6 - v5;
-  v14 = v10 - (_QWORD)v9;
+  v5 = String1Length;
+  v6 = String2Length;
+  if ( String1Length > String2Length )
+    v5 = String2Length;
+  v7 = String1Length;
+  v8 = (unsigned __int16 *)String1;
+  v9 = &String1[v5];
+  if ( String1 >= v9 )
+    return String1Length - String2Length;
+  v10 = (char *)String2 - (char *)String1;
   if ( CaseInSensitive )
   {
     do
     {
-      v20 = *(unsigned __int16 *)((char *)v9 + v14);
-      if ( *v9 != v20 )
+      if ( *v8 != *(unsigned __int16 *)((char *)v8 + v10) )
       {
-        v18 = NLS_UPCASE(v7, *v9);
-        v19 = NLS_UPCASE(v7, v20);
-        if ( (_WORD)v18 != v19 )
+        v14 = NLS_UPCASE(*v8);
+        v16 = NLS_UPCASE(v15);
+        if ( (_WORD)v14 != v16 )
         {
-          v16 = v19;
-          v15 = v18;
-          return v15 - v16;
+          v12 = v16;
+          v11 = v14;
+          return v11 - v12;
         }
       }
-      ++v9;
+      ++v8;
     }
-    while ( v9 < v13 );
-    return v6 - v5;
+    while ( v8 < v9 );
+    return v7 - v6;
   }
   else
   {
     while ( 1 )
     {
-      v15 = *v9;
-      v16 = *(unsigned __int16 *)((char *)v9 + v14);
-      if ( (_WORD)v15 != (_WORD)v16 )
+      v11 = *v8;
+      v12 = *(unsigned __int16 *)((char *)v8 + v10);
+      if ( (_WORD)v11 != (_WORD)v12 )
         break;
-      if ( ++v9 >= v13 )
-        return v6 - v5;
+      if ( ++v8 >= v9 )
+        return String1Length - String2Length;
     }
-    return v15 - v16;
+    return v11 - v12;
   }
 }

@@ -6,11 +6,11 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     IopCheckUnloadDriver @ 0x14016AABC (IopCheckUnloadDriver.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ObMakeTemporaryObject @ 0x1406C73F0 (ObMakeTemporaryObject.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     IopCheckUnloadDriver @ 0x14016AADC (IopCheckUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ObMakeTemporaryObject @ 0x1406C73D0 (ObMakeTemporaryObject.c)
  */
 
 __int64 __fastcall IovpUnloadDriver(_QWORD *Object)

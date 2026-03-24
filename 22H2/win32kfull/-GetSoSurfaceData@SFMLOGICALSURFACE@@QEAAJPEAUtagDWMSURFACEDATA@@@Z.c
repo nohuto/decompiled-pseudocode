@@ -1,76 +1,74 @@
 /*
- * XREFs of ?GetSoSurfaceData@SFMLOGICALSURFACE@@QEAAJPEAUtagDWMSURFACEDATA@@@Z @ 0x1C007AC9C
+ * XREFs of ?GetSoSurfaceData@SFMLOGICALSURFACE@@QEAAJPEAUtagDWMSURFACEDATA@@@Z @ 0x1C00172EC
  * Callers:
- *     GreDwmGetSurfaceData @ 0x1C007AA30 (GreDwmGetSurfaceData.c)
+ *     GreDwmGetSurfaceData @ 0x1C00170D8 (GreDwmGetSurfaceData.c)
  * Callees:
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C007AD98 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
  */
 
 __int64 __fastcall SFMLOGICALSURFACE::GetSoSurfaceData(SFMLOGICALSURFACE *this, struct tagDWMSURFACEDATA *a2)
 {
-  __int64 v4; // rax
-  _DWORD *v5; // rdx
+  _DWORD *v2; // r9
   struct _ACCESS_STATE *ObjectType; // r8
-  __int64 v7; // r9
-  __int64 v8; // rax
-  __int64 v9; // rax
-  _QWORD *v10; // rdx
-  __int64 v11; // rax
-  void *v13; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  _QWORD *v6; // r9
+  __int64 v7; // rax
+  void *v9; // rcx
 
-  v4 = SGDGetSessionState(this);
-  v5 = (_DWORD *)*((_QWORD *)this + 23);
+  v2 = (_DWORD *)*((_QWORD *)this + 23);
   LODWORD(ObjectType) = 0;
-  v7 = *(_QWORD *)(v4 + 32);
-  if ( !v5 )
+  if ( !v2 )
   {
     *(_DWORD *)a2 = 0;
     *((_DWORD *)a2 + 1) = *((_DWORD *)this + 68);
     *((_DWORD *)a2 + 2) = *((_DWORD *)this + 69);
     *((_DWORD *)a2 + 3) = 6;
-    goto LABEL_14;
-  }
-  *((_DWORD *)a2 + 1) = v5[8];
-  *((_DWORD *)a2 + 2) = v5[9];
-  *((_DWORD *)a2 + 3) = v5[18];
-  *((_DWORD *)a2 + 4) = v5[16];
-  v8 = *((_QWORD *)this + 23);
-  if ( v8 )
-    v9 = *(_QWORD *)(v8 + 8);
-  else
-    v9 = 0LL;
-  *((_QWORD *)a2 + 3) = v9;
-  if ( v5[18] != 6 )
-  {
-LABEL_11:
-    *(_DWORD *)a2 = (_DWORD)ObjectType;
-LABEL_14:
-    v11 = *(_QWORD *)(v7 + 20128);
+LABEL_12:
+    v7 = qword_1C033C5D8;
     goto LABEL_7;
   }
-  if ( !(unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(this) )
+  *((_DWORD *)a2 + 1) = v2[8];
+  *((_DWORD *)a2 + 2) = v2[9];
+  *((_DWORD *)a2 + 3) = v2[18];
+  *((_DWORD *)a2 + 4) = v2[16];
+  v4 = *((_QWORD *)this + 23);
+  if ( v4 )
+    v5 = *(_QWORD *)(v4 + 8);
+  else
+    v5 = 0LL;
+  *((_QWORD *)a2 + 3) = v5;
+  if ( v2[18] != 6 )
   {
-    v13 = (void *)v10[28];
-    if ( v13 )
-    {
-      *(_DWORD *)a2 = 1;
-      *((_QWORD *)a2 + 4) = *(_QWORD *)(v7 + 20128);
-      LODWORD(ObjectType) = ObOpenObjectByPointer(
-                              v13,
-                              0,
-                              ObjectType,
-                              6u,
-                              (POBJECT_TYPE)ObjectType,
-                              (KPROCESSOR_MODE)ObjectType,
-                              (PHANDLE)a2 + 5);
-      return (unsigned int)ObjectType;
-    }
-    goto LABEL_11;
+    *(_DWORD *)a2 = 0;
+    goto LABEL_12;
   }
-  *(_DWORD *)a2 = 2;
-  *((_QWORD *)a2 + 5) = v10[68];
-  v11 = v10[69];
+  if ( (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(this) )
+  {
+    *(_DWORD *)a2 = 2;
+    *((_QWORD *)a2 + 5) = v6[68];
+    v7 = v6[69];
 LABEL_7:
-  *((_QWORD *)a2 + 4) = v11;
+    *((_QWORD *)a2 + 4) = v7;
+    return (unsigned int)ObjectType;
+  }
+  v9 = (void *)v6[28];
+  *((_QWORD *)a2 + 4) = qword_1C033C5D8;
+  if ( v9 )
+  {
+    *(_DWORD *)a2 = 1;
+    LODWORD(ObjectType) = ObOpenObjectByPointer(
+                            v9,
+                            0,
+                            ObjectType,
+                            6u,
+                            (POBJECT_TYPE)ObjectType,
+                            (KPROCESSOR_MODE)ObjectType,
+                            (PHANDLE)a2 + 5);
+  }
+  else
+  {
+    *(_DWORD *)a2 = (_DWORD)ObjectType;
+  }
   return (unsigned int)ObjectType;
 }

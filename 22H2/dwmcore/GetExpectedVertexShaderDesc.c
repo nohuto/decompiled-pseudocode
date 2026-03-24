@@ -1,32 +1,32 @@
 /*
- * XREFs of GetExpectedVertexShaderDesc @ 0x180027F2C
+ * XREFs of GetExpectedVertexShaderDesc @ 0x1800462C8
  * Callers:
- *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180028604 (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
+ *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180047838 (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
  * Callees:
- *     HasLighting @ 0x180027FE8 (HasLighting.c)
+ *     HasLighting @ 0x180046160 (HasLighting.c)
  */
 
-__int64 __fastcall GetExpectedVertexShaderDesc(__int64 a1, _QWORD *a2, __int64 a3, unsigned int a4, char a5)
+__int64 __fastcall GetExpectedVertexShaderDesc(__int64 *a1, _QWORD *a2, __int64 a3, unsigned int a4, char a5)
 {
-  _QWORD *v7; // rbx
-  _QWORD *v8; // rsi
+  __int64 **v7; // rbx
+  __int64 **v8; // rsi
   __int64 v10; // [rsp+40h] [rbp+18h]
 
   if ( a5 || (HIDWORD(v10) = 2, a4 > 2) )
     HIDWORD(v10) = 4;
-  if ( *(_DWORD *)(a3 + 128) != -1 || (unsigned __int8)((__int64 (*)(void))HasLighting)() )
-    goto LABEL_12;
-  v7 = (_QWORD *)a2[1];
+  if ( *(_DWORD *)(a3 + 128) != -1 || HasLighting(a1) )
+    goto LABEL_9;
+  v7 = (__int64 **)a2[1];
   v8 = &v7[*a2];
   while ( v7 != v8 )
   {
-    if ( (unsigned __int8)HasLighting(*v7) )
-      goto LABEL_12;
+    if ( HasLighting(*v7) )
+      goto LABEL_9;
     ++v7;
   }
   LOBYTE(v10) = 0;
   if ( a5 )
-LABEL_12:
+LABEL_9:
     LOBYTE(v10) = 1;
   *(_WORD *)((char *)&v10 + 1) = *(_WORD *)(a3 + 153);
   BYTE3(v10) = *(_BYTE *)(a3 + 160);

@@ -1,32 +1,32 @@
 /*
- * XREFs of PiCMGetDeviceInterfaceAlias @ 0x1406DB388
+ * XREFs of PiCMGetDeviceInterfaceAlias @ 0x14072AE3C
  * Callers:
- *     PiCMHandleIoctl @ 0x14077BCA0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402DF554 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IoGetDeviceInterfaceAlias @ 0x1406DB590 (IoGetDeviceInterfaceAlias.c)
- *     PiCMCaptureInterfaceAliasInputData @ 0x1406DB910 (PiCMCaptureInterfaceAliasInputData.c)
- *     PiCMReturnBufferResultData @ 0x14077C780 (PiCMReturnBufferResultData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072B010 (IoGetDeviceInterfaceAlias.c)
+ *     PiCMCaptureInterfaceAliasInputData @ 0x14072B500 (PiCMCaptureInterfaceAliasInputData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetDeviceInterfaceAlias(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        _DWORD *a3,
         unsigned int a4,
         unsigned int a5,
         _DWORD *a6)
 {
   unsigned int v6; // esi
-  _WORD *Pool2; // rdi
+  _WORD *PoolWithTag; // rdi
   unsigned __int64 v10; // r14
   NTSTATUS inited; // ebx
-  __int64 v12; // rdx
+  unsigned int v12; // edx
   NTSTATUS v13; // eax
   UNICODE_STRING AliasSymbolicLinkName; // [rsp+50h] [rbp-49h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-39h] BYREF
@@ -38,7 +38,7 @@ __int64 __fastcall PiCMGetDeviceInterfaceAlias(
   *a6 = 0;
   AliasSymbolicLinkName = 0LL;
   v19 = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   AliasInterfaceClassGuid = 0LL;
   LODWORD(v10) = 0;
   *(_OWORD *)SourceString = 0LL;
@@ -46,51 +46,66 @@ __int64 __fastcall PiCMGetDeviceInterfaceAlias(
   inited = PiCMCaptureInterfaceAliasInputData(a1, a2, a5, &AliasInterfaceClassGuid);
   if ( inited < 0 )
     goto LABEL_23;
-  if ( !SourceString[1] || *(_DWORD *)&AliasInterfaceClassGuid.Data2 || !a3 || a4 < 0x14 )
+  if ( !SourceString[1] || *(_DWORD *)&AliasInterfaceClassGuid.Data2 )
   {
-    v12 = 0LL;
     inited = -1073741811;
-    goto LABEL_20;
   }
-  if ( a4 - 20 >= 2 )
-    v6 = a4 - 20;
-  if ( v6 )
+  else
   {
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, v6, 879783504LL);
-    if ( !Pool2 )
-      inited = -1073741670;
-    if ( inited < 0 )
-      goto LABEL_26;
-    if ( v6 >= 2 )
-      *Pool2 = 0;
-  }
-  inited = RtlInitUnicodeStringEx(&DestinationString, SourceString[1]);
-  if ( inited < 0
-    || (inited = IoGetDeviceInterfaceAlias(
+    if ( !a3 || a4 < 0x14 )
+    {
+      inited = -1073741811;
+      v12 = 0;
+      goto LABEL_28;
+    }
+    if ( a4 - 20 >= 2 )
+      v6 = a4 - 20;
+    if ( v6 )
+    {
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x34706E50u);
+      if ( !PoolWithTag )
+        inited = -1073741670;
+    }
+    if ( inited >= 0 )
+    {
+      if ( v6 >= 2 )
+        *PoolWithTag = 0;
+      inited = RtlInitUnicodeStringEx(&DestinationString, SourceString[1]);
+      if ( inited >= 0 )
+      {
+        inited = IoGetDeviceInterfaceAlias(
                    &DestinationString,
                    (const GUID *)AliasInterfaceClassGuid.Data4,
-                   &AliasSymbolicLinkName),
-        inited >= 0)
-    && ((v10 = ((unsigned __int64)AliasSymbolicLinkName.Length + 2) >> 1, 2 * (unsigned __int64)(unsigned int)v10 > v6)
-      ? (inited = -1073741789)
-      : (memmove(Pool2, AliasSymbolicLinkName.Buffer, AliasSymbolicLinkName.Length), Pool2[(unsigned int)(v10 - 1)] = 0),
-        ExFreePoolWithTag(AliasSymbolicLinkName.Buffer, 0),
-        inited < 0) )
+                   &AliasSymbolicLinkName);
+        if ( inited >= 0 )
+        {
+          v10 = ((unsigned __int64)AliasSymbolicLinkName.Length + 2) >> 1;
+          if ( 2 * (unsigned __int64)(unsigned int)v10 > v6 )
+          {
+            inited = -1073741789;
+          }
+          else
+          {
+            memmove(PoolWithTag, AliasSymbolicLinkName.Buffer, AliasSymbolicLinkName.Length);
+            PoolWithTag[(unsigned int)(v10 - 1)] = 0;
+          }
+          ExFreePoolWithTag(AliasSymbolicLinkName.Buffer, 0);
+        }
+      }
+    }
+  }
+  v12 = 2 * v10;
+  if ( inited >= 0 )
   {
-    v12 = (unsigned int)(2 * v10);
-LABEL_20:
-    v13 = PiCMReturnBufferResultData((unsigned int)inited, v12, 0LL, 0LL, 0, HIDWORD(v19), a3, a4, a6);
+    v13 = PiCMReturnBufferResultData(inited, v12, 0, PoolWithTag, v12, SHIDWORD(v19), a3, a4, a6);
     goto LABEL_21;
   }
-LABEL_26:
-  v12 = (unsigned int)(2 * v10);
-  if ( inited < 0 )
-    goto LABEL_20;
-  v13 = PiCMReturnBufferResultData((unsigned int)inited, v12, 0LL, Pool2, v12, HIDWORD(v19), a3, a4, a6);
+LABEL_28:
+  v13 = PiCMReturnBufferResultData(inited, v12, 0, 0LL, 0, SHIDWORD(v19), a3, a4, a6);
 LABEL_21:
   inited = v13;
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x34706E50u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x34706E50u);
 LABEL_23:
   if ( SourceString[1] )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, (void *)SourceString[1]);

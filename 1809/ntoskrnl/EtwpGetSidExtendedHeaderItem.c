@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpGetSidExtendedHeaderItem @ 0x140649050
+ * XREFs of EtwpGetSidExtendedHeaderItem @ 0x140649030
  * Callers:
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406473F0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     PsReferenceEffectiveToken @ 0x1406492D0 (PsReferenceEffectiveToken.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
  */
 
 void *__fastcall EtwpGetSidExtendedHeaderItem(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpCallProcessing @ 0x14033BEA8
+ * XREFs of ExpCallProcessing @ 0x140307ED8
  * Callers:
- *     ExNotifyWithProcessing @ 0x14033BD60 (ExNotifyWithProcessing.c)
+ *     ExNotifyWithProcessing @ 0x140307DA8 (ExNotifyWithProcessing.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExpCallProcessing(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

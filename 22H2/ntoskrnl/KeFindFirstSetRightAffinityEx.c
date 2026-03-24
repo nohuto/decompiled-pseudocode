@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFindFirstSetRightAffinityEx @ 0x14056F480
+ * XREFs of KeFindFirstSetRightAffinityEx @ 0x1405134D0
  * Callers:
- *     PpmCheckContinueExecution @ 0x1402BFA34 (PpmCheckContinueExecution.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7030 (KeResumeClockTimerFromIdle.c)
- *     PpmParkComputeUnparkMask @ 0x14059C694 (PpmParkComputeUnparkMask.c)
+ *     KeResumeClockTimerFromIdle @ 0x140224BA0 (KeResumeClockTimerFromIdle.c)
+ *     PpmParkSteerInterrupts @ 0x140228E20 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x14022B0F0 (PpmCheckContinueExecution.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@
 __int64 __fastcall KeFindFirstSetRightAffinityEx(_WORD *a1)
 {
   __int16 v1; // dx
-  unsigned __int64 v2; // r9
+  unsigned __int64 v2; // r8
   unsigned __int64 v4; // rcx
 
   v1 = 0;

@@ -1,14 +1,14 @@
 /*
- * XREFs of IrqLibAcquireArbiterLock @ 0x1C005CCA8
+ * XREFs of IrqLibAcquireArbiterLock @ 0x1C000F38C
  * Callers:
- *     IrqLibpGetVectorInput @ 0x1C005CD70 (IrqLibpGetVectorInput.c)
- *     ProcessorpAddInstanceCallback @ 0x1C005E1A0 (ProcessorpAddInstanceCallback.c)
- *     AcpiUpdateInterruptProperties @ 0x1C0084170 (AcpiUpdateInterruptProperties.c)
- *     IrqLibAllocateMessageTarget @ 0x1C0098FB0 (IrqLibAllocateMessageTarget.c)
- *     IrqLibFreeMessageTarget @ 0x1C0099260 (IrqLibFreeMessageTarget.c)
- *     LinkNodepAddLinkNodeWorker @ 0x1C0099730 (LinkNodepAddLinkNodeWorker.c)
- *     IrqTransGetInterruptVector @ 0x1C009A420 (IrqTransGetInterruptVector.c)
- *     IrqTranslateResources @ 0x1C009A530 (IrqTranslateResources.c)
+ *     IrqLibpGetVectorInput @ 0x1C002DD90 (IrqLibpGetVectorInput.c)
+ *     ProcessorpAddInstanceCallback @ 0x1C006C600 (ProcessorpAddInstanceCallback.c)
+ *     LinkNodepAddLinkNodeWorker @ 0x1C0091AF0 (LinkNodepAddLinkNodeWorker.c)
+ *     IrqTranslateResources @ 0x1C0093510 (IrqTranslateResources.c)
+ *     AcpiUpdateInterruptProperties @ 0x1C00AF560 (AcpiUpdateInterruptProperties.c)
+ *     IrqLibAllocateMessageTarget @ 0x1C00B6480 (IrqLibAllocateMessageTarget.c)
+ *     IrqLibFreeMessageTarget @ 0x1C00B6730 (IrqLibFreeMessageTarget.c)
+ *     IrqTransGetInterruptVector @ 0x1C00B6C80 (IrqTransGetInterruptVector.c)
  * Callees:
  *     <none>
  */
@@ -20,10 +20,10 @@ NTSTATUS __fastcall IrqLibAcquireArbiterLock(char a1)
   result = KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
   if ( a1 )
   {
-    while ( byte_1C006E7E8 )
+    while ( byte_1C0081748 )
     {
-      KeSetEvent((PRKEVENT)Object, 0, 0);
-      KeWaitForSingleObject(qword_1C006E7F0, Executive, 0, 0, 0LL);
+      KeSetEvent(Object, 0, 0);
+      KeWaitForSingleObject(qword_1C0081750, Executive, 0, 0, 0LL);
       result = KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
     }
   }

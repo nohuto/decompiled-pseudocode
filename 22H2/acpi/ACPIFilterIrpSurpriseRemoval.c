@@ -1,57 +1,57 @@
 /*
- * XREFs of ACPIFilterIrpSurpriseRemoval @ 0x1C0086E50
+ * XREFs of ACPIFilterIrpSurpriseRemoval @ 0x1C00A3290
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_sDqss @ 0x1C0029150 (WPP_RECORDER_SF_sDqss.c)
- *     ACPIInternalIsReportedMissing @ 0x1C002EBB0 (ACPIInternalIsReportedMissing.c)
- *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450DC (ACPIWakeDisconnectWakeInterrupts.c)
- *     ACPIFilterIrpStopDevice @ 0x1C0086CB0 (ACPIFilterIrpStopDevice.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_sDqss @ 0x1C0030C70 (WPP_RECORDER_SF_sDqss.c)
+ *     ACPIInternalIsReportedMissing @ 0x1C0056F80 (ACPIInternalIsReportedMissing.c)
+ *     ACPIFilterIrpStopDevice @ 0x1C00AFB30 (ACPIFilterIrpStopDevice.c)
  */
 
 __int64 __fastcall ACPIFilterIrpSurpriseRemoval(ULONG_PTR a1, IRP *a2)
 {
-  __int64 DeviceExtension; // rax
-  __int64 v5; // rbx
-  __int64 v7; // rcx
-  unsigned int v8; // edi
+  __int64 DeviceExtension; // rbx
+  NTSTATUS v5; // eax
+  __int64 v6; // rcx
+  unsigned int v7; // edi
   char *IrpText; // rax
-  __int64 v10; // rdx
-  const char *v11; // r8
-  const char *v12; // r9
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   int v13; // [rsp+20h] [rbp-38h]
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v5 = DeviceExtension;
-  if ( _bittest64((const signed __int64 *)(DeviceExtension + 8), 0x33u)
-    || ACPIInternalIsReportedMissing(DeviceExtension) )
+  if ( (*(_QWORD *)(DeviceExtension + 8) & 0x8000000000000LL) != 0 || ACPIInternalIsReportedMissing(DeviceExtension) )
   {
     ++a2->CurrentLocation;
     ++a2->Tail.Overlay.CurrentStackLocation;
-    v8 = IofCallDriver(*(PDEVICE_OBJECT *)(v5 + 776), a2);
+    v5 = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
+    v6 = 0x200000000000LL;
+    v7 = v5;
+    if ( (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
+      v6 = 0x400000000000LL;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      IrpText = ACPIDebugGetIrpText(v7, 0x17u);
+      IrpText = ACPIDebugGetIrpText(v6, 0x17u);
       WPP_RECORDER_SF_sDqss(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        v9,
         v10,
-        (__int64)v11,
-        (__int64)v12,
+        v11,
         v13,
         IrpText,
-        v8,
-        v5,
-        v11,
-        v12);
+        v7,
+        DeviceExtension,
+        v10,
+        v11);
     }
-    ACPIWakeDisconnectWakeInterrupts((struct _EX_RUNDOWN_REF *)v5);
-    return v8;
+    return v7;
   }
   else
   {
-    *(_DWORD *)(v5 + 368) = 1;
+    *(_DWORD *)(DeviceExtension + 328) = 1;
     return ACPIFilterIrpStopDevice(a1, a2);
   }
 }

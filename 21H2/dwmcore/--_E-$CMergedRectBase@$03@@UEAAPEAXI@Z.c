@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_E?$CMergedRectBase@$03@@UEAAPEAXI@Z @ 0x1801F68D0
+ * XREFs of ??_E?$CMergedRectBase@$03@@UEAAPEAXI@Z @ 0x1801ACEE0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 _QWORD *__fastcall CMergedRectBase<4>::`vector deleting destructor'(_QWORD *a1, char a2)

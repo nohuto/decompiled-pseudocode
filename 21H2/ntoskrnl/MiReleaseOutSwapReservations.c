@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReleaseOutSwapReservations @ 0x14025EB44
+ * XREFs of MiReleaseOutSwapReservations @ 0x14035D154
  * Callers:
- *     MiProcessWsInSwapRanges @ 0x14025EA9C (MiProcessWsInSwapRanges.c)
+ *     MiProcessWsInSwapRanges @ 0x14035D09C (MiProcessWsInSwapRanges.c)
  * Callees:
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-_QWORD *__fastcall MiReleaseOutSwapReservations(ULONG_PTR *a1, unsigned __int64 a2)
+_QWORD *__fastcall MiReleaseOutSwapReservations(unsigned __int64 *a1, unsigned __int64 a2)
 {
   _QWORD *result; // rax
-  ULONG_PTR v5; // rbx
-  ULONG_PTR v6; // rsi
+  unsigned __int64 v5; // rbx
+  unsigned __int64 v6; // rsi
   _QWORD v7[14]; // [rsp+28h] [rbp-29h] BYREF
 
   memset(&v7[2], 0, 0x60uLL);
@@ -30,7 +30,7 @@ _QWORD *__fastcall MiReleaseOutSwapReservations(ULONG_PTR *a1, unsigned __int64 
     while ( v5 < v6 )
     {
       v7[0] = v5;
-      result = (_QWORD *)MmAccessFault(0LL, v5);
+      result = (_QWORD *)MmAccessFault(0LL, v5, 0, (ULONG_PTR)&v7[2] + 1);
       v5 += 4096LL;
     }
     a1 += 2;

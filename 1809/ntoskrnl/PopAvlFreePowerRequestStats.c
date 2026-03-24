@@ -1,5 +1,5 @@
 /*
- * XREFs of PopAvlFreePowerRequestStats @ 0x1406D06E0
+ * XREFs of PopAvlFreePowerRequestStats @ 0x1406D06C0
  * Callers:
  *     <none>
  * Callees:

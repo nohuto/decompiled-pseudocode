@@ -1,30 +1,29 @@
 /*
- * XREFs of NtGdiConfigureOPMProtectedOutput @ 0x1C015C2B0
+ * XREFs of NtGdiConfigureOPMProtectedOutput @ 0x1C0140340
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_ @ 0x1C015AF08 (SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_.c)
- *     ?ConfigureProtectedOutput@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z @ 0x1C015B458 (-ConfigureProtectedOutput@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_ @ 0x1C013FC24 (SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_.c)
+ *     ?ConfigureProtectedOutput@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z @ 0x1C013FE68 (-ConfigureProtectedOutput@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z.c)
  */
 
-__int64 __fastcall NtGdiConfigureOPMProtectedOutput(void *a1, char *a2, unsigned int a3, char *a4)
+__int64 __fastcall NtGdiConfigureOPMProtectedOutput(unsigned __int64 a1, char *a2, unsigned int a3, char *a4)
 {
   size_t v4; // r13
   unsigned int v6; // ebx
-  void *v7; // rsi
-  struct _DXGKMDT_OPM_CONFIGURE_PARAMETERS *Pool2; // r14
+  PVOID v7; // rsi
+  struct _DXGKMDT_OPM_CONFIGURE_PARAMETERS *PoolWithTag; // r14
   int v9; // edi
-  __int64 v10; // rcx
-  __int64 v11; // rax
+  COPM *v10; // rcx
 
   v4 = a3;
   v6 = 0;
   v7 = 0LL;
-  Pool2 = (struct _DXGKMDT_OPM_CONFIGURE_PARAMETERS *)ExAllocatePool2(258LL, 4096LL, 1297108807LL);
-  if ( Pool2 && (!(_DWORD)v4 || (v7 = (void *)ExAllocatePool2(258LL, v4, 1297108807LL)) != 0LL) )
+  PoolWithTag = (struct _DXGKMDT_OPM_CONFIGURE_PARAMETERS *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x4D504F47u);
+  if ( PoolWithTag && (!(_DWORD)v4 || (v7 = ExAllocatePoolWithTag(PagedPool, v4, 0x4D504F47u)) != 0LL) )
   {
-    v9 = SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_(Pool2, a2);
+    v9 = SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_(PoolWithTag, a2);
     if ( v9 >= 0 )
     {
       if ( (_DWORD)v4 )
@@ -33,13 +32,7 @@ __int64 __fastcall NtGdiConfigureOPMProtectedOutput(void *a1, char *a2, unsigned
           *(_BYTE *)MmUserProbeAddress = 0;
         memmove(v7, a4, v4);
       }
-      v11 = SGDGetSessionState(v10);
-      v9 = COPM::ConfigureProtectedOutput(
-             *(void ***)(*(_QWORD *)(v11 + 24) + 3824LL),
-             a1,
-             Pool2,
-             v4,
-             (unsigned __int8 *)v7);
+      v9 = COPM::ConfigureProtectedOutput(v10, a1, PoolWithTag, v4, (unsigned __int8 *)v7);
     }
   }
   else
@@ -48,8 +41,8 @@ __int64 __fastcall NtGdiConfigureOPMProtectedOutput(void *a1, char *a2, unsigned
   }
   if ( v7 )
     ExFreePoolWithTag(v7, 0x4D504F47u);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x4D504F47u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x4D504F47u);
   if ( v9 < 0 )
     return (unsigned int)v9;
   return v6;

@@ -1,13 +1,13 @@
 /*
- * XREFs of NtQuerySecurityObject @ 0x1406A5FA0
+ * XREFs of NtQuerySecurityObject @ 0x14068A550
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140731FF8 (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     SeQuerySecurityAccessMask @ 0x1406A6138 (SeQuerySecurityAccessMask.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     SeQuerySecurityAccessMask @ 0x14068A6E8 (SeQuerySecurityAccessMask.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtQuerySecurityObject(
@@ -21,7 +21,7 @@ NTSTATUS __stdcall NtQuerySecurityObject(
   PULONG v8; // rbx
   __int64 v9; // rcx
   NTSTATUS result; // eax
-  PVOID v11; // r14
+  struct _DMA_ADAPTER *v11; // r14
   __int64 v12; // r8
   NTSTATUS v13; // edi
   ACCESS_MASK DesiredAccess; // [rsp+50h] [rbp-38h] BYREF
@@ -53,7 +53,7 @@ NTSTATUS __stdcall NtQuerySecurityObject(
   result = ObReferenceObjectByHandle(Handle, DesiredAccess, 0LL, PreviousMode, &Object, &HandleInformation);
   if ( result >= 0 )
   {
-    v11 = Object;
+    v11 = (struct _DMA_ADAPTER *)Object;
     v12 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
     v13 = (*(__int64 (__fastcall **)(PVOID, __int64, SECURITY_INFORMATION *, PSECURITY_DESCRIPTOR, SIZE_T *, char *, _DWORD, __int64, KPROCESSOR_MODE))(v12 + 152))(
             Object,
@@ -66,7 +66,7 @@ NTSTATUS __stdcall NtQuerySecurityObject(
             v12 + 76,
             PreviousMode);
     *v8 = Lengtha;
-    ObfDereferenceObject(v11);
+    HalPutDmaAdapter(v11);
     return v13;
   }
   return result;

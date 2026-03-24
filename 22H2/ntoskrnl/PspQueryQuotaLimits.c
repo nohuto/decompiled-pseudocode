@@ -1,28 +1,28 @@
 /*
- * XREFs of PspQueryQuotaLimits @ 0x1407BD124
+ * XREFs of PspQueryQuotaLimits @ 0x14062069C
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MmQueryWorkingSetInformation @ 0x14034BC58 (MmQueryWorkingSetInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     MmQueryWorkingSetInformation @ 0x14025BFB0 (MmQueryWorkingSetInformation.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall PspQueryQuotaLimits(
-        ULONG_PTR BugCheckParameter1,
+NTSTATUS __fastcall PspQueryQuotaLimits(
+        HANDLE Handle,
         __int64 a2,
         void *a3,
         unsigned int a4,
         _DWORD *a5,
-        char a6)
+        KPROCESSOR_MODE AccessMode)
 {
   size_t v6; // rdi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v10; // rcx
   int v11; // ebx
   int v12; // edx
@@ -33,25 +33,24 @@ __int64 __fastcall PspQueryQuotaLimits(
   __int64 v17; // [rsp+B0h] [rbp-68h] BYREF
   __int64 v18; // [rsp+B8h] [rbp-60h] BYREF
   __int64 v19; // [rsp+C0h] [rbp-58h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v20; // [rsp+C8h] [rbp-50h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+C8h] [rbp-50h] BYREF
 
   v6 = a4;
   memset(Src, 0, 0x58uLL);
   Object = 0LL;
   v14 = 0;
-  memset(&v20, 0, sizeof(v20));
+  memset(&ApcState, 0, sizeof(ApcState));
   if ( (_DWORD)v6 != 48 && (_DWORD)v6 != 88 )
-    return 3221225476LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             4096,
-             (__int64)PsProcessType,
-             a6,
+    return -1073741820;
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             0x1000u,
+             (POBJECT_TYPE)PsProcessType,
+             AccessMode,
              0x79517350u,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v10 = (_QWORD *)*((_QWORD *)Object + 173);
     Src[0] = v10[24];
@@ -59,9 +58,9 @@ __int64 __fastcall PspQueryQuotaLimits(
     Src[4] = v10[40];
     Src[6] = v10[56];
     Src[5] = -1LL;
-    KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v20);
+    KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
     v11 = MmQueryWorkingSetInformation(&v19, &v18, &v17, &Src[2], &Src[3], &v14);
-    KiUnstackDetachProcess(&v20);
+    KeUnstackDetachProcess(&ApcState);
     v12 = 2 - ((v14 & 4) != 0);
     if ( (v14 & 1) != 0 )
       v13 = v12 | 4;
@@ -75,7 +74,7 @@ __int64 __fastcall PspQueryQuotaLimits(
       if ( a5 )
         *a5 = v6;
     }
-    return (unsigned int)v11;
+    return v11;
   }
   return result;
 }

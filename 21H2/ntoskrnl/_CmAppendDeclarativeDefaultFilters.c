@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmAppendDeclarativeDefaultFilters @ 0x140A29C1C
+ * XREFs of _CmAppendDeclarativeDefaultFilters @ 0x140979458
  * Callers:
- *     _CmGetDeclarativeFilterList @ 0x140A2A8B4 (_CmGetDeclarativeFilterList.c)
+ *     _CmGetDeclarativeFilterList @ 0x140979BC4 (_CmGetDeclarativeFilterList.c)
  * Callees:
- *     _PnpMultiSzAppend @ 0x1406D0858 (_PnpMultiSzAppend.c)
- *     _CmAppendDeclarativeFilterLevel @ 0x140A29D04 (_CmAppendDeclarativeFilterLevel.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x140979540 (_CmAppendDeclarativeFilterLevel.c)
+ *     _PnpMultiSzAppend @ 0x14097C1EC (_PnpMultiSzAppend.c)
  */
 
 __int64 __fastcall CmAppendDeclarativeDefaultFilters(
         __int64 a1,
         __int64 a2,
-        const wchar_t *a3,
+        __int64 a3,
         __int64 a4,
         NTSTRSAFE_PWSTR pszDest,
         int a6,
         _DWORD *a7)
 {
   NTSTRSAFE_PWSTR v7; // r10
-  unsigned int v8; // ebx
+  int v8; // ebx
   int v9; // edi
   __int64 v13; // rax
   int v14; // esi
@@ -33,12 +33,12 @@ __int64 __fastcall CmAppendDeclarativeDefaultFilters(
   v13 = -1LL;
   do
     ++v13;
-  while ( a3[v13] );
+  while ( *(_WORD *)(a3 + 2 * v13) );
   v14 = 2 * v13 + 2;
   if ( pszDest )
   {
     v19 = a6;
-    v15 = PnpMultiSzAppend(pszDest, (unsigned int *)&v19, a3, &pszDest);
+    v15 = PnpMultiSzAppend(pszDest);
     v7 = (NTSTRSAFE_PWSTR)((unsigned __int64)pszDest & -(__int64)(v15 != 0));
     v9 -= v14;
   }

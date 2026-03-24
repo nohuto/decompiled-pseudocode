@@ -1,12 +1,12 @@
 /*
- * XREFs of DpiAcpiProcessEventRequests @ 0x1C0394D68
+ * XREFs of DpiAcpiProcessEventRequests @ 0x1C02D64EC
  * Callers:
- *     DpiAcpiHandleAcpiEvent @ 0x1C0394794 (DpiAcpiHandleAcpiEvent.c)
+ *     DpiAcpiHandleAcpiEvent @ 0x1C02D5EC4 (DpiAcpiHandleAcpiEvent.c)
  * Callees:
- *     DxgkReleaseAdapterCoreSync @ 0x1C01B4124 (DxgkReleaseAdapterCoreSync.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C01B45E8 (DxgkAcquireAdapterCoreSync.c)
- *     DpiFdoInvalidateChildRelations @ 0x1C01F3230 (DpiFdoInvalidateChildRelations.c)
- *     ?DmmInvalidateActiveVidPn@@YAJQEAXW4_DXGK_ACTIVE_VIDPN_INVALIDATION_REASON@@PEAXIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@_N@Z @ 0x1C039BE90 (-DmmInvalidateActiveVidPn@@YAJQEAXW4_DXGK_ACTIVE_VIDPN_INVALIDATION_REASON@@PEAXIPEAU_DXGK_DISPL.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C01217AC (DxgkReleaseAdapterCoreSync.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C0121B10 (DxgkAcquireAdapterCoreSync.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C0179340 (DpiFdoInvalidateChildRelations.c)
+ *     ?DmmInvalidateActiveVidPn@@YAJQEAXW4_DXGK_ACTIVE_VIDPN_INVALIDATION_REASON@@PEAXIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@_N@Z @ 0x1C02DD774 (-DmmInvalidateActiveVidPn@@YAJQEAXW4_DXGK_ACTIVE_VIDPN_INVALIDATION_REASON@@PEAXIPEAU_DXGK_DISPL.c)
  */
 
 __int64 __fastcall DpiAcpiProcessEventRequests(

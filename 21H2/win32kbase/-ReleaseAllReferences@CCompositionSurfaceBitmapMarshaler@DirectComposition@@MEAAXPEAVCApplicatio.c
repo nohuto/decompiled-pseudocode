@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseAllReferences@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BA1E0
+ * XREFs of ?ReleaseAllReferences@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A72B0
  * Callers:
  *     <none>
  * Callees:
@@ -12,10 +12,10 @@ void __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::ReleaseAl
 {
   void *v3; // rcx
 
-  v3 = (void *)*((_QWORD *)this + 8);
+  v3 = (void *)*((_QWORD *)this + 7);
   if ( v3 )
   {
     DxgkReleaseCompositionObjectReference(v3);
-    *((_QWORD *)this + 8) = 0LL;
+    *((_QWORD *)this + 7) = 0LL;
   }
 }

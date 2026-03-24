@@ -1,51 +1,51 @@
 /*
- * XREFs of _RegRtlDeleteTreeInternal @ 0x1406CB238
+ * XREFs of _RegRtlDeleteTreeInternal @ 0x140766974
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgFreeResolveContext @ 0x1406979BC (PiDevCfgFreeResolveContext.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x140697B34 (PiDevCfgConfigureSoftwareDevices.c)
- *     PiDevCfgInitResolveContext @ 0x140698128 (PiDevCfgInitResolveContext.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     PipHardwareConfigActivateService @ 0x1406DF35C (PipHardwareConfigActivateService.c)
- *     PpDevCfgProcessDeviceOperations @ 0x14074761C (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     _PnpSetPropertyWorker @ 0x140772790 (_PnpSetPropertyWorker.c)
- *     _PnpCtxRegDeleteTree @ 0x14082E95C (_PnpCtxRegDeleteTree.c)
- *     PiDqDeleteUserObject @ 0x14094A3E4 (PiDqDeleteUserObject.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x14094D930 (PiDevCfgResetDeviceDriverSettings.c)
- *     PpDevCfgProcessDeviceReset @ 0x14094F4CC (PpDevCfgProcessDeviceReset.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140A23328 (_CmDeleteCommonClassRegKeyWorker.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A23A34 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A24104 (_CmDeleteDeviceRegKeyWorker.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A25AC0 (_CmDeleteDeviceContainerRegKeyWorker.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140A26994 (_CmRemoveDeviceFromContainerWorker.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A281F8 (_CmDeleteDevicePanelRegKeyWorker.c)
- *     _CmRemovePanelDeviceWorker @ 0x140A293B4 (_CmRemovePanelDeviceWorker.c)
- *     _RegRtlDeletePathInternal @ 0x140A2D760 (_RegRtlDeletePathInternal.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A2DB88 (DrvDbDeleteObjectSubKey.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x14072BC20 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x14072C290 (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14072C7B4 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x14072D04C (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiDqDeleteUserObject @ 0x14072D748 (PiDqDeleteUserObject.c)
+ *     PpDevCfgProcessDeviceReset @ 0x1407301CC (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140730420 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x14073A2B8 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     _PnpSetPropertyWorker @ 0x1407467E0 (_PnpSetPropertyWorker.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgFreeResolveContext @ 0x14076777C (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x1407678F8 (PiDevCfgConfigureSoftwareDevices.c)
+ *     PiDevCfgInitResolveContext @ 0x140767D0C (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
+ *     PipHardwareConfigActivateService @ 0x14077BAC0 (PipHardwareConfigActivateService.c)
+ *     _PnpCtxRegDeleteTree @ 0x1407AC128 (_PnpCtxRegDeleteTree.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140974E48 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x140977EBC (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140978BDC (_CmRemovePanelDeviceWorker.c)
+ *     _RegRtlDeletePathInternal @ 0x14097C99C (_RegRtlDeletePathInternal.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CDAC (DrvDbDeleteObjectSubKey.c)
  * Callees:
- *     IoGetStackLimits @ 0x1402AB940 (IoGetStackLimits.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlEnumKey @ 0x1406CB3B4 (_RegRtlEnumKey.c)
- *     _RegRtlQueryInfoKey @ 0x1406CB590 (_RegRtlQueryInfoKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x14078003C (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IoGetStackLimits @ 0x140350420 (IoGetStackLimits.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406426FC (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlQueryInfoKey @ 0x1406B69A8 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RegRtlDeleteTreeInternal(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall RegRtlDeleteTreeInternal(char *a1, const WCHAR *a2, __int64 a3, char a4)
 {
   int v4; // r14d
-  _WORD *Pool2; // rsi
+  PVOID PoolWithTag; // rsi
   unsigned int v8; // r15d
   int v10; // ebx
-  unsigned int v12; // eax
-  unsigned __int64 v13; // rdi
-  int v14; // eax
-  __int64 v15; // r9
-  int v16; // eax
+  unsigned int v11; // eax
+  unsigned __int64 v12; // rdi
+  int v13; // eax
+  __int64 v14; // r9
+  int v15; // eax
   unsigned int v17; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
   unsigned __int64 HighLimit; // [rsp+40h] [rbp-10h] BYREF
@@ -55,92 +55,113 @@ __int64 __fastcall RegRtlDeleteTreeInternal(__int64 a1, __int64 a2, __int64 a3, 
   Handle = 0LL;
   v17 = 0;
   HighLimit = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   LowLimit = 0LL;
   v8 = 0;
   IoGetStackLimits(&LowLimit, &HighLimit);
   if ( (unsigned __int64)&HighLimit - LowLimit < 0x400 )
   {
     v10 = -1073741670;
-    goto LABEL_3;
-  }
-  v10 = RegRtlOpenKeyTransacted(a1, a2, 0LL, 196639LL, &Handle, a3);
-  if ( v10 < 0 )
-    goto LABEL_3;
-  if ( (unsigned int)RegRtlQueryInfoKey((_DWORD)Handle, 0, (unsigned int)&v17, 0, 0LL, 0LL) )
-  {
-    LODWORD(v13) = 0;
     goto LABEL_12;
   }
-  v12 = v17;
-  if ( v17 )
+  v10 = RegRtlOpenKeyTransacted(a1, a2, 0, 0x3001Fu, &Handle, a3);
+  if ( v10 < 0 )
+    goto LABEL_12;
+  if ( (unsigned int)RegRtlQueryInfoKey(Handle, 0LL, &v17, 0LL, 0LL, 0LL) )
   {
-    if ( v17 + 1 < v17 )
-      goto LABEL_16;
-    v12 = v17 + 1;
+    LODWORD(v12) = 0;
   }
-  v13 = 2LL * v12;
-  if ( v13 > 0xFFFFFFFF )
+  else
   {
-LABEL_16:
-    v10 = -1073741675;
-    goto LABEL_3;
+    v11 = v17;
+    if ( v17 )
+    {
+      if ( v17 + 1 < v17 )
+      {
+        v10 = -1073741675;
+        v11 = -1;
+      }
+      else
+      {
+        v10 = 0;
+        v11 = v17 + 1;
+      }
+      if ( v10 < 0 )
+        goto LABEL_12;
+    }
+    v12 = 2LL * v11;
+    if ( v12 > 0xFFFFFFFF )
+    {
+      v10 = -1073741675;
+      goto LABEL_12;
+    }
+    v10 = 0;
   }
-  v10 = 0;
-  if ( (_DWORD)v13 )
-    goto LABEL_21;
-  do
+  if ( (_DWORD)v12 )
+  {
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v12, 0x4C474552u);
+    if ( !PoolWithTag )
+    {
+      v10 = -1073741801;
+      goto LABEL_12;
+    }
+  }
+  while ( 1 )
   {
     while ( 1 )
     {
-LABEL_12:
-      while ( 1 )
-      {
-        v17 = (unsigned int)v13 >> 1;
-        v14 = RegRtlEnumKey(Handle);
-        if ( v14 != -2147483622 && v14 != -1073741444 )
-          break;
-LABEL_13:
-        v16 = RegRtlDeleteKeyTransacted(a1, a2, a3);
-        if ( v16 != -1073741535 )
-        {
-          if ( v16 >= 0 )
-            goto LABEL_3;
-LABEL_15:
-          v10 = v16;
-          goto LABEL_3;
-        }
-        if ( v4 || v8 >= 0xA )
-          goto LABEL_15;
-        ++v8;
-        v4 = 0;
-      }
-      if ( v14 == -1073741789 )
+      v17 = (unsigned int)v12 >> 1;
+      v13 = RegRtlEnumKey(Handle);
+      if ( v13 == -2147483622 || v13 == -1073741444 )
         break;
-      if ( v14 )
-        goto LABEL_13;
-      LOBYTE(v15) = a4;
-      Pool2[((unsigned __int64)(unsigned int)v13 >> 1) - 1] = 0;
-      if ( (unsigned int)RegRtlDeleteTreeInternal(Handle, Pool2, a3, v15) )
-        ++v4;
+      if ( v13 == -1073741789 )
+      {
+        v12 = 2LL * v17;
+        if ( v12 > 0xFFFFFFFF )
+        {
+          v10 = -1073741675;
+          goto LABEL_12;
+        }
+        v10 = 0;
+        if ( PoolWithTag )
+          ExFreePoolWithTag(PoolWithTag, 0);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v12, 0x4C474552u);
+        if ( !PoolWithTag )
+        {
+          v10 = -1073741801;
+          break;
+        }
+      }
       else
-        v4 = 0;
+      {
+        if ( v13 )
+          break;
+        LOBYTE(v14) = a4;
+        *((_WORD *)PoolWithTag + ((unsigned __int64)(unsigned int)v12 >> 1) - 1) = 0;
+        if ( (unsigned int)RegRtlDeleteTreeInternal(Handle, PoolWithTag, a3, v14) )
+          ++v4;
+        else
+          v4 = 0;
+      }
     }
-    v13 = 2LL * v17;
-    if ( v13 > 0xFFFFFFFF )
-      goto LABEL_16;
-    v10 = 0;
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
-LABEL_21:
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, (unsigned int)v13, 1279739218LL);
+    if ( v10 < 0 )
+      goto LABEL_12;
+    v15 = RegRtlDeleteKeyTransacted(a1, a2, a3);
+    if ( v15 != -1073741535 )
+      break;
+    if ( v4 || v8 >= 0xA )
+      goto LABEL_42;
+    ++v8;
+    v4 = 0;
   }
-  while ( Pool2 );
-  v10 = -1073741801;
-LABEL_3:
+  if ( v15 >= 0 )
+    goto LABEL_12;
+LABEL_42:
+  v10 = v15;
+LABEL_12:
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)v10;
 }

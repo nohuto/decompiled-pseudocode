@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateProcessDefaultAweInfo @ 0x14097CC1C
+ * XREFs of MiCreateProcessDefaultAweInfo @ 0x1408D5AC0
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x14097BD88 (MiAllocateUserPhysicalPages.c)
- *     MiCreateUserPhysicalView @ 0x14097CD04 (MiCreateUserPhysicalView.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4CE8 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BA8 (MiCreateUserPhysicalView.c)
  * Callees:
- *     MiLockAweVadsExclusive @ 0x1405AB9B8 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1405AC950 (MiUnlockAweVadsExclusive.c)
- *     MiAllocateAweInfo @ 0x14097BBE0 (MiAllocateAweInfo.c)
- *     MiDeleteAweInfo @ 0x14097CFDC (MiDeleteAweInfo.c)
+ *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
+ *     MiAllocateAweInfo @ 0x1408D4B80 (MiAllocateAweInfo.c)
+ *     MiDeleteAweInfo @ 0x1408D5E44 (MiDeleteAweInfo.c)
  */
 
-__int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, __int64 *a2)
+__int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   _KPROCESS *Process; // rbp
@@ -23,8 +23,8 @@ __int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, __int64 *a2
   *a2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v5 = Process[1].ActiveProcessors.StaticBitmap[28];
-  v6 = *(_QWORD *)(v5 + 376);
+  v5 = Process[1].ActiveProcessorsPadding[8];
+  v6 = *(_QWORD *)(v5 + 392);
   v9 = v6;
   if ( !v6 )
   {
@@ -34,16 +34,16 @@ __int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, __int64 *a2
     v8 = 0;
     MiLockAweVadsExclusive((__int64)CurrentThread);
     v6 = v9;
-    if ( !*(_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 376) )
+    if ( !*(_QWORD *)(Process[1].ActiveProcessorsPadding[8] + 392) )
     {
-      *(_QWORD *)(v5 + 376) = v9;
+      *(_QWORD *)(v5 + 392) = v9;
       v8 = 1;
     }
     MiUnlockAweVadsExclusive((__int64)CurrentThread);
     if ( !v8 )
     {
       MiDeleteAweInfo(KeGetCurrentThread()->ApcState.Process, v9);
-      v6 = *(_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 376);
+      v6 = *(_QWORD *)(Process[1].ActiveProcessorsPadding[8] + 392);
     }
   }
   *a2 = v6;

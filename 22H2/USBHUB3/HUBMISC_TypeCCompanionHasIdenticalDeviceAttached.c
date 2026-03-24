@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0034034
+ * XREFs of HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0031144
  * Callers:
- *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0023040 (HUBDSM_AddingDeviceToGlobalChildList.c)
+ *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0020A40 (HUBDSM_AddingDeviceToGlobalChildList.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBCONNECTOR_GetCompanionPort @ 0x1C00813B4 (HUBCONNECTOR_GetCompanionPort.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBCONNECTOR_GetCompanionPort @ 0x1C007B9DC (HUBCONNECTOR_GetCompanionPort.c)
  */
 
 bool __fastcall HUBMISC_TypeCCompanionHasIdenticalDeviceAttached(__int64 a1)
@@ -23,7 +23,7 @@ bool __fastcall HUBMISC_TypeCCompanionHasIdenticalDeviceAttached(__int64 a1)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 2504))(
     WdfDriverGlobals,
     *(_QWORD *)(v4 + 56),
@@ -44,7 +44,7 @@ bool __fastcall HUBMISC_TypeCCompanionHasIdenticalDeviceAttached(__int64 a1)
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2512))(
     WdfDriverGlobals,
     *(_QWORD *)(v7 + 56));

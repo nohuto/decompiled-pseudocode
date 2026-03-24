@@ -1,26 +1,26 @@
 /*
- * XREFs of VslpIumInitializeTelemetry @ 0x140B723DC
+ * XREFs of VslpIumInitializeTelemetry @ 0x140A72D90
  * Callers:
- *     VslpIumPhase4Initialize @ 0x1403B03AC (VslpIumPhase4Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x1403CE6D8 (VslpIumPhase4Initialize.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408034B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078CF94 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 char VslpIumInitializeTelemetry()
 {
   char result; // al
-  unsigned int v1; // r9d
-  __int64 v2; // r10
-  __int64 v3; // rax
-  int v4; // edx
-  int *v5; // rcx
-  int v6; // ecx
-  int v7; // edx
-  REGHANDLE v8; // rcx
+  REGHANDLE v1; // rcx
+  unsigned int v2; // r9d
+  __int64 v3; // r10
+  __int64 v4; // rax
+  int v5; // edx
+  int *v6; // rcx
+  int v7; // ecx
+  int v8; // edx
   int v9; // [rsp+30h] [rbp-39h] BYREF
   int v10; // [rsp+34h] [rbp-35h] BYREF
   int v11; // [rsp+38h] [rbp-31h] BYREF
@@ -39,39 +39,39 @@ char VslpIumInitializeTelemetry()
   int v24; // [rsp+A8h] [rbp+3Fh]
   int v25; // [rsp+ACh] [rbp+43h]
 
-  result = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06270, 0LL, 0LL);
+  result = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C044A0, 0LL, 0LL);
   if ( (*(_DWORD *)(KeLoaderBlock_0 + 264) & 1) != 0 )
   {
-    if ( (unsigned int)dword_140C06270 <= 5 )
-      goto LABEL_8;
-    result = tlgKeywordOn((__int64)&dword_140C06270, 0x400000000000LL);
+    if ( (unsigned int)dword_140C044A0 <= 5 )
+      goto LABEL_5;
+    result = tlgKeywordOn((__int64)&dword_140C044A0, 0x400000000000LL);
     if ( result )
     {
-      v3 = *(_QWORD *)(v2 + 240);
-      v4 = *(unsigned __int16 *)(v3 + 2784);
-      v5 = *(int **)(v3 + 2792);
+      v4 = *(_QWORD *)(v3 + 240);
+      v5 = *(unsigned __int16 *)(v4 + 2752);
+      v6 = *(int **)(v4 + 2760);
       v16 = 0;
       v19 = 0;
       v22 = 0;
       v14 = (__int64 *)&v18;
       v20 = &v9;
-      v17 = v5;
-      v18 = v4;
-      v9 = (v1 >> 2) & 1;
+      v17 = v6;
+      v18 = v5;
+      v9 = (v2 >> 2) & 1;
       v15 = 2;
       v21 = 4;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140C06270,
-                 (unsigned __int8 *)word_14002B47A,
+                 (__int64)&dword_140C044A0,
+                 (unsigned __int8 *)byte_1400245ED,
                  0LL,
                  0LL,
                  5u,
                  v13);
     }
   }
-  if ( (unsigned int)dword_140C06270 > 5 )
+  if ( (unsigned int)dword_140C044A0 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C06270, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C044A0, 0x400000000000LL);
     if ( result )
     {
       v16 = 0;
@@ -82,32 +82,32 @@ char VslpIumInitializeTelemetry()
       v12 = 0x1000000LL;
       v15 = 8;
       v18 = 4;
-      v6 = *(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2888LL);
+      v7 = *(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2856LL);
       v22 = 0;
       v20 = &v10;
-      v10 = v6;
+      v10 = v7;
       v21 = 4;
-      v7 = *(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2892LL);
+      v8 = *(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2860LL);
       v25 = 0;
       v23 = &v11;
-      v11 = v7;
+      v11 = v8;
       v24 = 4;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140C06270,
-                 (unsigned __int8 *)byte_14002B42B,
+                 (__int64)&dword_140C044A0,
+                 (unsigned __int8 *)&word_14002459E,
                  0LL,
                  0LL,
                  6u,
                  v13);
     }
   }
-LABEL_8:
+LABEL_5:
   if ( !VslVsmEnabled )
   {
-    v8 = qword_140C06290;
-    qword_140C06290 = 0LL;
-    dword_140C06270 = 0;
-    return EtwUnregister(v8);
+    v1 = qword_140C044C0;
+    qword_140C044C0 = 0LL;
+    dword_140C044A0 = 0;
+    return EtwUnregister(v1);
   }
   return result;
 }

@@ -1,38 +1,25 @@
 /*
- * XREFs of KiOpPreprocessSecureFault @ 0x14056ABF0
+ * XREFs of KiOpPreprocessSecureFault @ 0x140514C00
  * Callers:
- *     KiPreprocessFault @ 0x140299840 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x140273930 (KiPreprocessFault.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-char __fastcall KiOpPreprocessSecureFault(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, _QWORD *a3)
+char __fastcall KiOpPreprocessSecureFault(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
-  ULONG_PTR v4; // rdx
-  ULONG_PTR v5; // r10
-  __int64 v6; // rax
+  ULONG_PTR v3; // rdx
 
-  if ( !VslVsmEnabled || *(_DWORD *)(BugCheckParameter2 + 24) != 3 )
+  if ( !VslVsmEnabled || *(_DWORD *)(BugCheckParameter2 + 24) != 2 )
     KeBugCheckEx(0x12u, 4uLL, BugCheckParameter2, BugCheckParameter3, *(_QWORD *)(BugCheckParameter2 + 32));
-  v4 = *(_QWORD *)(BugCheckParameter2 + 32);
-  v5 = *(_QWORD *)(BugCheckParameter2 + 40);
-  v6 = *(_QWORD *)(BugCheckParameter2 + 48);
-  if ( a3 )
-    *a3 = -1LL;
-  if ( !v4 || v4 > 2 && v4 != 4 )
-    KeBugCheckEx(0x18Du, v4, v5, BugCheckParameter2, BugCheckParameter3);
+  v3 = *(_QWORD *)(BugCheckParameter2 + 32);
+  if ( !v3 || v3 > 2 && v3 != 4 )
+    KeBugCheckEx(0x18Du, v3, *(_QWORD *)(BugCheckParameter2 + 40), BugCheckParameter2, BugCheckParameter3);
   *(_DWORD *)BugCheckParameter2 = 268435460;
-  *(_QWORD *)(BugCheckParameter2 + 48) = 0LL;
   *(_DWORD *)(BugCheckParameter2 + 24) = 2;
-  if ( v4 == 1 )
-  {
+  if ( v3 == 1 )
     *(_QWORD *)(BugCheckParameter2 + 32) = 8LL;
-  }
   else
-  {
-    *(_QWORD *)(BugCheckParameter2 + 32) = v4 != 2;
-    if ( a3 )
-      *a3 = v6;
-  }
+    *(_QWORD *)(BugCheckParameter2 + 32) = v3 != 2;
   return 0;
 }

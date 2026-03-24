@@ -5,11 +5,11 @@
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeCopyPage @ 0x1401C09B0 (KeCopyPage.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
  *     MxGetPhase0Mapping @ 0x1409C07B0 (MxGetPhase0Mapping.c)
  */
 

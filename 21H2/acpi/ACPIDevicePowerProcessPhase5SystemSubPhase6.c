@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0051080
+ * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0051B40
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDeviceCompletePhase3Common @ 0x1C00080D4 (ACPIDeviceCompletePhase3Common.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000E14C (WPP_RECORDER_SF_qqss.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001CD30 (ACPIDeviceCompletePhase3Common.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase6(__int64 a1)
@@ -20,19 +20,19 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase6(__int64 a1)
   KIRQL Irql; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = *(_QWORD **)(a1 + 40);
-  v2 = (const char *)&unk_1C006FB8B;
+  v2 = (const char *)&unk_1C00701BA;
   v3 = 0;
   Irql = 0;
-  v5 = (const char *)&unk_1C006FB8B;
+  v5 = (const char *)&unk_1C00701BA;
   if ( v1 )
   {
     v6 = v1[1];
     v3 = (char)v1;
     if ( (v6 & 0x200000000000LL) != 0 )
     {
-      v2 = (const char *)v1[76];
+      v2 = (const char *)v1[71];
       if ( (v6 & 0x400000000000LL) != 0 )
-        v5 = (const char *)v1[77];
+        v5 = (const char *)v1[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -40,8 +40,8 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase6(__int64 a1)
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       0xAu,
-      0x58u,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      0x56u,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a1,
       v3,
       v2,
@@ -51,7 +51,7 @@ __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase6(__int64 a1)
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
   AcpiMostRecentSleepState = v7.SystemState;
   ACPIWakeRemoveDevicesAndUpdate(0LL, 0LL);
-  v8 = (struct _DEVICE_OBJECT *)v1[96];
+  v8 = (struct _DEVICE_OBJECT *)v1[91];
   KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
   IoReleaseCancelSpinLock(Irql);
   if ( v8 )

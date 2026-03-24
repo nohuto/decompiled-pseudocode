@@ -1,25 +1,20 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x1407582A0
+ * XREFs of RtlRunOnceExecuteOnce @ 0x14066F550
  * Callers:
- *     LdrUnloadAlternateResourceModuleEx @ 0x14020B660 (LdrUnloadAlternateResourceModuleEx.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402F6DF0 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpGetFromMUIMemCache @ 0x1402F7A78 (LdrpGetFromMUIMemCache.c)
- *     RtlpHpMetadataHeapStart @ 0x140324474 (RtlpHpMetadataHeapStart.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403A1D34 (LdrpSetAlternateResourceModuleHandle.c)
- *     ExPoolSetLimit @ 0x140607774 (ExPoolSetLimit.c)
- *     SdbGetIndex @ 0x1407559D8 (SdbGetIndex.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x1407581C4 (SdbpGetStringTableItemFromStringRef.c)
- *     ExCheckFullProcessInformationAccess @ 0x1407E0FE8 (ExCheckFullProcessInformationAccess.c)
- *     RtlpLogCapabilityCheckLatency @ 0x1407ED150 (RtlpLogCapabilityCheckLatency.c)
- *     ExQueryBootEntropyInformation @ 0x140822DA8 (ExQueryBootEntropyInformation.c)
- *     ExpCheckTestsigningEnabled @ 0x1409FBB18 (ExpCheckTestsigningEnabled.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC894 (ExpFirmwareAccessAppContainerCheck.c)
+ *     RtlpHpMetadataHeapStart @ 0x1402FE738 (RtlpHpMetadataHeapStart.c)
+ *     ExCheckFullProcessInformationAccess @ 0x14069DFCC (ExCheckFullProcessInformationAccess.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x140755E40 (SdbpGetStringTableItemFromStringRef.c)
+ *     SdbGetIndex @ 0x140759E60 (SdbGetIndex.c)
+ *     ExQueryBootEntropyInformation @ 0x14079EFC4 (ExQueryBootEntropyInformation.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x14091B6C4 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpCheckTestsigningEnabled @ 0x14094F5BC (ExpCheckTestsigningEnabled.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950450 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlRunOnceBeginInitialize @ 0x140758380 (RtlRunOnceBeginInitialize.c)
- *     RtlRunOnceComplete @ 0x1407D97B0 (RtlRunOnceComplete.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlRunOnceBeginInitialize @ 0x14066F630 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceComplete @ 0x14066F6E0 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(

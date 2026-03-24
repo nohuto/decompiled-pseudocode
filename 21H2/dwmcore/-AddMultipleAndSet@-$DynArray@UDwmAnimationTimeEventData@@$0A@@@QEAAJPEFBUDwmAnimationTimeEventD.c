@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AddMultipleAndSet@?$DynArray@UDwmAnimationTimeEventData@@$0A@@@QEAAJPEFBUDwmAnimationTimeEventData@@I@Z @ 0x180209538
+ * XREFs of ?AddMultipleAndSet@?$DynArray@UDwmAnimationTimeEventData@@$0A@@@QEAAJPEFBUDwmAnimationTimeEventData@@I@Z @ 0x1801B6534
  * Callers:
- *     ?ProcessAddTimeEvents@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_ADDTIMEEVENTS@@PEBXI@Z @ 0x1802095D8 (-ProcessAddTimeEvents@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_ADDTIMEEVENTS.c)
+ *     ?ProcessAddTimeEvents@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_ADDTIMEEVENTS@@PEBXI@Z @ 0x1801B65D4 (-ProcessAddTimeEvents@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_ADDTIMEEVENTS.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 __int64 __fastcall DynArray<DwmAnimationTimeEventData,0>::AddMultipleAndSet(
-        unsigned __int64 a1,
+        __int64 a1,
         const void *a2,
         unsigned int a3)
 {
@@ -26,10 +26,10 @@ __int64 __fastcall DynArray<DwmAnimationTimeEventData,0>::AddMultipleAndSet(
     v6 = 0;
     if ( v5 > *(_DWORD *)(a1 + 20) )
     {
-      v7 = DynArrayImpl<0>::AddMultipleAndSet(a1, 0x10u, a3, a2);
+      v7 = DynArrayImpl<0>::AddMultipleAndSet(a1, 16, a3, a2);
       v6 = v7;
       if ( v7 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0xC0u);
+        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC0u, 0LL);
     }
     else
     {
@@ -40,7 +40,7 @@ __int64 __fastcall DynArray<DwmAnimationTimeEventData,0>::AddMultipleAndSet(
   else
   {
     v6 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024362, 0xB5u);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   return v6;
 }

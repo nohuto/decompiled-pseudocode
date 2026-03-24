@@ -1,32 +1,34 @@
 /*
- * XREFs of ExpAcquireSpinLockDisabled @ 0x14024319C
+ * XREFs of ExpAcquireSpinLockDisabled @ 0x1402A04C4
  * Callers:
- *     ExInterlockedInsertHeadList @ 0x1402430F0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedAddUlong @ 0x140386240 (ExInterlockedAddUlong.c)
- *     ExInterlockedAddLargeInteger @ 0x14063F230 (ExInterlockedAddLargeInteger.c)
- *     ExInterlockedPopEntryList @ 0x14063F290 (ExInterlockedPopEntryList.c)
- *     ExInterlockedPushEntryList @ 0x14063F2E0 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedInsertHeadList @ 0x1402A0300 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x1402A0380 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedRemoveHeadList @ 0x1402A0430 (ExInterlockedRemoveHeadList.c)
+ *     ExInterlockedAddUlong @ 0x140379B40 (ExInterlockedAddUlong.c)
+ *     ExInterlockedAddLargeInteger @ 0x1405B6E60 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedPopEntryList @ 0x1405B6EC0 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x1405B6F10 (ExInterlockedPushEntryList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1)
+bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int16 v2; // di
-  bool v3; // di
+  __int16 v5; // di
+  bool v6; // di
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *SchedulerAssist; // rcx
-  int v7; // eax
-  _DWORD *v8; // rcx
-  int v9; // eax
-  __int16 v10; // [rsp+20h] [rbp-8h]
-  int v11; // [rsp+38h] [rbp+10h] BYREF
+  _DWORD *v10; // rcx
+  int v11; // eax
+  int v12; // eax
+  __int16 v13; // [rsp+20h] [rbp-8h]
+  int v14; // [rsp+38h] [rbp+10h] BYREF
 
-  v11 = 0;
-  v2 = v10;
+  v14 = 0;
+  v5 = v13;
   _disable();
-  v3 = (v2 & 0x200) != 0;
+  v6 = (v5 & 0x200) != 0;
   while ( 1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -35,31 +37,31 @@ bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1)
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v7 = SchedulerAssist[6];
-        SchedulerAssist[6] = v7 + 1;
-        if ( v7 == -1 )
+        v11 = SchedulerAssist[6];
+        SchedulerAssist[6] = v11 + 1;
+        if ( v11 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64(a1, 0LL) )
       break;
-    v8 = CurrentPrcb->SchedulerAssist;
-    if ( v8 )
+    v10 = CurrentPrcb->SchedulerAssist;
+    if ( v10 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v9 = v8[6] - 1;
-        v8[6] = v9;
-        if ( !v9 )
+        v12 = v10[6] - 1;
+        v10[6] = v12;
+        if ( !v12 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    if ( v3 )
+    if ( v6 )
       _enable();
     do
-      KeYieldProcessorEx(&v11);
+      KeYieldProcessorEx(&v14, a2, a3, a4);
     while ( *(_QWORD *)a1 );
     _disable();
   }
-  return v3;
+  return v6;
 }

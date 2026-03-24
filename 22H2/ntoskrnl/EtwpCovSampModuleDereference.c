@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampModuleDereference @ 0x1408A9E10
+ * XREFs of EtwpCovSampModuleDereference @ 0x140945318
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1408A9D00 (EtwpCovSampImageNotify.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408AA14C (EtwpCovSampProcessRemoveModule.c)
- *     EtwpCovSampProcessCleanup @ 0x1409F2B58 (EtwpCovSampProcessCleanup.c)
+ *     EtwpCovSampImageNotify @ 0x1409450A0 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampProcessCleanup @ 0x140945750 (EtwpCovSampProcessCleanup.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x140945A9C (EtwpCovSampProcessRemoveModule.c)
  * Callees:
  *     <none>
  */
@@ -24,7 +24,7 @@ signed __int64 __fastcall EtwpCovSampModuleDereference(__int64 a1, __int64 a2)
   }
   else if ( result == 1 && !*(_DWORD *)(a2 + 132) && a1 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 1636));
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 1124));
   }
   return result;
 }

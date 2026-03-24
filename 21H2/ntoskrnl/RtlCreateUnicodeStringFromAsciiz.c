@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCreateUnicodeStringFromAsciiz @ 0x140837640
+ * XREFs of RtlCreateUnicodeStringFromAsciiz @ 0x1407A7040
  * Callers:
- *     CmpSetSystemRegistryString @ 0x1403C7CF8 (CmpSetSystemRegistryString.c)
- *     IopInitializeBootLogging @ 0x1409346B0 (IopInitializeBootLogging.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     VhdiInitializeBootDisk @ 0x140B54800 (VhdiInitializeBootDisk.c)
+ *     CmpSetSystemRegistryString @ 0x1403B7D94 (CmpSetSystemRegistryString.c)
+ *     IopInitializeBootLogging @ 0x140891718 (IopInitializeBootLogging.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
  * Callees:
- *     RtlInitAnsiStringEx @ 0x1403C7DA0 (RtlInitAnsiStringEx.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiStringEx @ 0x1403B7E40 (RtlInitAnsiStringEx.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
  */
 
 bool __fastcall RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, const char *a2)

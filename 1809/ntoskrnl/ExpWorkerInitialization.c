@@ -9,11 +9,11 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
  *     ExfReleasePushLock @ 0x140091480 (ExfReleasePushLock.c)
- *     ExQueueDebuggerWorker @ 0x14018CF90 (ExQueueDebuggerWorker.c)
- *     ExpLegacyWorkerInitialization @ 0x14018CFC4 (ExpLegacyWorkerInitialization.c)
- *     ExpPartitionStart @ 0x14075481C (ExpPartitionStart.c)
- *     ExpPartitionInitialize @ 0x140754A84 (ExpPartitionInitialize.c)
- *     ExpNodeInitialize @ 0x140754ED8 (ExpNodeInitialize.c)
+ *     ExQueueDebuggerWorker @ 0x14018CFB0 (ExQueueDebuggerWorker.c)
+ *     ExpLegacyWorkerInitialization @ 0x14018CFE4 (ExpLegacyWorkerInitialization.c)
+ *     ExpPartitionStart @ 0x1407547FC (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x140754A64 (ExpPartitionInitialize.c)
+ *     ExpNodeInitialize @ 0x140754EB8 (ExpNodeInitialize.c)
  */
 
 __int64 ExpWorkerInitialization()

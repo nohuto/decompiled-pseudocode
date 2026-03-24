@@ -1,13 +1,13 @@
 /*
- * XREFs of PoSetHiberRange @ 0x1401447B0
+ * XREFs of PoSetHiberRange @ 0x1401447D0
  * Callers:
- *     IoGetDumpHiberRanges @ 0x1401446B8 (IoGetDumpHiberRanges.c)
- *     HvlDiscardPagesFromHibernation @ 0x14027683C (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x14027689C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlpMarkHvlPagesForHibernation @ 0x140277078 (HvlpMarkHvlPagesForHibernation.c)
- *     HvlpMarkHypervisorPagesForHibernation @ 0x140277148 (HvlpMarkHypervisorPagesForHibernation.c)
- *     MiMarkKernelPageTablePte @ 0x1402AA690 (MiMarkKernelPageTablePte.c)
- *     RtlMarkHiberPhase @ 0x1402FAC40 (RtlMarkHiberPhase.c)
+ *     IoGetDumpHiberRanges @ 0x1401446D8 (IoGetDumpHiberRanges.c)
+ *     HvlDiscardPagesFromHibernation @ 0x14027693C (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x14027699C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlpMarkHvlPagesForHibernation @ 0x140277178 (HvlpMarkHvlPagesForHibernation.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x140277248 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     MiMarkKernelPageTablePte @ 0x1402AA790 (MiMarkKernelPageTablePte.c)
+ *     RtlMarkHiberPhase @ 0x1402FAD40 (RtlMarkHiberPhase.c)
  *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
  *     BgkResumePrepare @ 0x14056B58C (BgkResumePrepare.c)
  *     PopBuildMemoryImageHeader @ 0x14056B820 (PopBuildMemoryImageHeader.c)
@@ -19,17 +19,17 @@
  *     MiMarkNonPagedHiberPhasePte @ 0x14057C260 (MiMarkNonPagedHiberPhasePte.c)
  *     MmMarkHiberPhase @ 0x14057C328 (MmMarkHiberPhase.c)
  *     PopMarkHiberPhase @ 0x14057CFF4 (PopMarkHiberPhase.c)
- *     PopHiberInitializeResources @ 0x1406DF264 (PopHiberInitializeResources.c)
- *     MmMarkHiberRange @ 0x1406DF510 (MmMarkHiberRange.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
- *     VslAllocateSecureHibernateResources @ 0x140817C98 (VslAllocateSecureHibernateResources.c)
+ *     PopHiberInitializeResources @ 0x1406DF244 (PopHiberInitializeResources.c)
+ *     MmMarkHiberRange @ 0x1406DF4F0 (MmMarkHiberRange.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     VslAllocateSecureHibernateResources @ 0x140817C78 (VslAllocateSecureHibernateResources.c)
  *     BgpFwMarkHiberPhase @ 0x140953F40 (BgpFwMarkHiberPhase.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     PopSetRange @ 0x14014494C (PopSetRange.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     PopSetRange @ 0x14014496C (PopSetRange.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     MmMarkImageForHiberPhase @ 0x14057C5C8 (MmMarkImageForHiberPhase.c)
- *     MmGetSectionRange @ 0x14084EDC8 (MmGetSectionRange.c)
+ *     MmGetSectionRange @ 0x14084EDA8 (MmGetSectionRange.c)
  */
 
 void __stdcall PoSetHiberRange(PVOID MemoryMap, ULONG Flags, PVOID Address, ULONG_PTR Length, ULONG Tag)

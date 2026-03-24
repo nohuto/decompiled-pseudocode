@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DxgkCddSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@H@Z @ 0x1C0338A90
+ * XREFs of ?DxgkCddSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@H@Z @ 0x1C014EC50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HHH@Z @ 0x1C0338AF0 (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HHH@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
  */
 
 __int64 __fastcall DxgkCddSetPointerPosition(
@@ -14,9 +14,9 @@ __int64 __fastcall DxgkCddSetPointerPosition(
 {
   struct DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL::GetGlobal();
-  if ( Global && *((_BYTE *)Global + 1616) )
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, (__int64)a2);
+  if ( Global && *((_BYTE *)Global + 1488) )
     return 3221225659LL;
   else
-    return DxgkSetPointerPosition(a1, a2, a3, 0, 0);
+    return DxgkSetPointerPosition(a1, a2, a3, 0);
 }

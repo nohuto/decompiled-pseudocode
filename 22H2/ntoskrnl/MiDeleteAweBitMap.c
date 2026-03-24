@@ -1,25 +1,28 @@
 /*
- * XREFs of MiDeleteAweBitMap @ 0x140A41A68
+ * XREFs of MiDeleteAweBitMap @ 0x1408D5E3C
  * Callers:
- *     MiDeleteAweInfo @ 0x140A41AB8 (MiDeleteAweInfo.c)
- *     MiResizeAweBitMap @ 0x140A42180 (MiResizeAweBitMap.c)
+ *     MiDeleteAweInfo @ 0x1408D5E94 (MiDeleteAweInfo.c)
+ *     MiResizeAweBitMap @ 0x1408D6534 (MiResizeAweBitMap.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiDeleteAweBitMap(struct _KPROCESS *a1, __int64 a2)
+void __fastcall MiDeleteAweBitMap(struct _KPROCESS *a1, _QWORD *a2)
 {
-  __int64 v3; // rdx
+  void *v4; // rcx
+  __int64 v5; // rdx
 
-  v3 = 0LL;
-  if ( *(_QWORD *)(a2 + 8) )
+  v4 = (void *)a2[1];
+  v5 = 0LL;
+  if ( v4 )
   {
     if ( a1 )
     {
-      LOBYTE(v3) = (*(_QWORD *)a2 & 0x3FLL) != 0;
-      PsReturnProcessNonPagedPoolQuota(a1, 8 * ((*(_QWORD *)a2 >> 6) + v3));
+      LOBYTE(v5) = (*a2 & 0x3FLL) != 0;
+      PsReturnProcessNonPagedPoolQuota(a1, 8 * ((*a2 >> 6) + v5));
+      v4 = (void *)a2[1];
     }
-    ExFreePoolWithTag(*(PVOID *)(a2 + 8), 0);
+    ExFreePoolWithTag(v4, 0);
   }
 }

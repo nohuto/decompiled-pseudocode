@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C00923D0
+ * XREFs of ?bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C0081C80
  * Callers:
- *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C00921C0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C0081A70 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall BEZIER32::bNext(BEZIER32 *this, struct _POINTFIX *a2)
 {
-  int v3; // esi
+  int v3; // ebp
   __int64 result; // rax
   int v5; // r9d
   int v6; // r15d
@@ -16,33 +16,32 @@ __int64 __fastcall BEZIER32::bNext(BEZIER32 *this, struct _POINTFIX *a2)
   int v8; // ecx
   int v9; // r10d
   int v10; // r11d
-  int v11; // r12d
-  int v12; // r14d
-  signed int v13; // eax
-  int v14; // edx
+  int v11; // r14d
+  signed int v12; // eax
+  int v13; // edx
+  int i; // r9d
   int v15; // ecx
   int v16; // edx
   int v17; // eax
   int v18; // eax
   int v19; // ecx
   int v20; // ecx
-  int v21; // r9d
-  int v22; // r10d
-  int v23; // eax
+  int v21; // eax
+  int v22; // ebx
+  int v23; // r10d
   int v24; // ecx
-  int v25; // edx
-  int v26; // r11d
-  int v27; // edi
+  int v25; // eax
+  int v26; // eax
+  int v27; // r10d
   int v28; // ecx
   int v29; // eax
-  int v30; // edx
-  int v31; // eax
+  int v30; // eax
+  int v31; // edx
   int v32; // ecx
   int v33; // eax
   int v34; // ecx
   int v35; // eax
   int v36; // ecx
-  int v37; // eax
 
   a2->x = *((_DWORD *)this + 9) + ((*((_DWORD *)this + 1) + 4096) >> 13);
   a2->y = *((_DWORD *)this + 10) + ((*((_DWORD *)this + 5) + 4096) >> 13);
@@ -66,22 +65,21 @@ __int64 __fastcall BEZIER32::bNext(BEZIER32 *this, struct _POINTFIX *a2)
       v9 = -v5;
   }
   v10 = *((_DWORD *)this + 8);
-  v11 = *((_DWORD *)this + 7);
-  v12 = -v10;
+  v11 = -v10;
   if ( v10 >= 0 )
-    v12 = *((_DWORD *)this + 8);
-  v13 = abs32(*((_DWORD *)this + 7));
-  if ( v13 > v12 )
+    v11 = *((_DWORD *)this + 8);
+  v12 = abs32(*((_DWORD *)this + 7));
+  if ( v12 > v11 )
   {
-    v14 = v13;
+    v13 = v12;
   }
   else
   {
-    v14 = *((_DWORD *)this + 8);
+    v13 = *((_DWORD *)this + 8);
     if ( v10 < 0 )
-      v14 = -*((_DWORD *)this + 8);
+      v13 = -*((_DWORD *)this + 8);
   }
-  if ( v9 > v14 )
+  if ( v9 > v13 )
   {
     if ( v8 <= v7 )
     {
@@ -90,9 +88,9 @@ __int64 __fastcall BEZIER32::bNext(BEZIER32 *this, struct _POINTFIX *a2)
         v8 = -v5;
     }
   }
-  else if ( v13 > v12 )
+  else if ( v12 > v11 )
   {
-    v8 = v13;
+    v8 = v12;
   }
   else
   {
@@ -105,74 +103,64 @@ __int64 __fastcall BEZIER32::bNext(BEZIER32 *this, struct _POINTFIX *a2)
     v34 = (v6 + v5) >> 3;
     *((_DWORD *)this + 3) = v34;
     v35 = *((_DWORD *)this + 2) - v34;
-    *((_DWORD *)this + 4) = v5 >> 2;
+    v36 = v10 + *((_DWORD *)this + 7);
     *((_DWORD *)this + 2) = v35 >> 1;
-    v36 = (v10 + v11) >> 3;
-    v37 = (*((_DWORD *)this + 6) - v36) >> 1;
-    v3 *= 2;
+    v36 >>= 3;
+    *((_DWORD *)this + 6) = (*((_DWORD *)this + 6) - v36) >> 1;
+    *((_DWORD *)this + 4) = v5 >> 2;
     *((_DWORD *)this + 7) = v36;
-    *((_DWORD *)this + 6) = v37;
     *((_DWORD *)this + 8) = v10 >> 2;
-    *(_DWORD *)this = v3;
+    *(_DWORD *)this *= 2;
+    v3 = *(_DWORD *)this;
   }
-  if ( (v3 & 1) == 0 )
+  for ( i = v3; (i & 1) == 0; *(_DWORD *)this = i )
   {
     v21 = *((_DWORD *)this + 4);
     v22 = *((_DWORD *)this + 3);
-    do
+    v23 = 2 * v22 - v21;
+    v24 = v21 - 2 * v22;
+    v25 = abs32(v21);
+    if ( v23 >= 0 )
+      v24 = v23;
+    if ( v25 <= v24 )
     {
-      v23 = v21 - 2 * v22;
-      v24 = -v21;
-      if ( v21 >= 0 )
-        v24 = v21;
-      v25 = 2 * v22 - v21;
-      if ( v25 >= 0 )
-        v23 = 2 * v22 - v21;
-      if ( v24 <= v23 )
-      {
-        v24 = 2 * v22 - v21;
-        if ( v25 < 0 )
-          v24 = v21 - 2 * v22;
-      }
-      if ( v24 > 130944 )
-        break;
-      v26 = *((_DWORD *)this + 8);
-      v27 = *((_DWORD *)this + 7);
-      v28 = -v26;
-      v29 = v26 - 2 * v27;
-      if ( v26 >= 0 )
-        v28 = *((_DWORD *)this + 8);
-      v30 = 2 * v27 - v26;
-      if ( v30 >= 0 )
-        v29 = 2 * v27 - v26;
-      if ( v28 <= v29 )
-      {
-        v28 = 2 * v27 - v26;
-        if ( v30 < 0 )
-          v28 = v26 - 2 * v27;
-      }
-      if ( v28 > 130944 )
-        break;
-      v31 = *((_DWORD *)this + 2);
-      v21 *= 4;
-      *((_DWORD *)this + 4) = v21;
-      v32 = v22 + 2 * v31;
-      v33 = *((_DWORD *)this + 6);
-      *((_DWORD *)this + 2) = v32;
-      v22 = 8 * v22 - v21;
-      *((_DWORD *)this + 3) = v22;
-      *((_DWORD *)this + 6) = v27 + 2 * v33;
-      *((_DWORD *)this + 8) = 4 * v26;
-      *((_DWORD *)this + 7) = 8 * v27 - 4 * v26;
-      *(int *)this >>= 1;
+      v25 = v23;
+      if ( v23 < 0 )
+        v25 = *((_DWORD *)this + 4) - 2 * v22;
     }
-    while ( (*(_DWORD *)this & 1) == 0 );
+    if ( v25 > 130944 )
+      break;
+    v26 = *((_DWORD *)this + 8);
+    v27 = 2 * *((_DWORD *)this + 7) - v26;
+    v28 = v26 - 2 * *((_DWORD *)this + 7);
+    v29 = abs32(v26);
+    if ( v27 >= 0 )
+      v28 = v27;
+    if ( v29 <= v28 )
+    {
+      v29 = v27;
+      if ( v27 < 0 )
+        v29 = *((_DWORD *)this + 8) - 2 * *((_DWORD *)this + 7);
+    }
+    if ( v29 > 130944 )
+      break;
+    v30 = *((_DWORD *)this + 2);
+    v31 = *((_DWORD *)this + 7);
+    *((_DWORD *)this + 4) *= 4;
+    *((_DWORD *)this + 8) *= 4;
+    v32 = v22 + 2 * v30;
+    v33 = *((_DWORD *)this + 6);
+    *((_DWORD *)this + 2) = v32;
+    *((_DWORD *)this + 3) = 8 * v22 - *((_DWORD *)this + 4);
+    *((_DWORD *)this + 6) = v31 + 2 * v33;
+    *((_DWORD *)this + 7) = 8 * v31 - *((_DWORD *)this + 8);
+    i = *(int *)this >> 1;
   }
   v15 = *((_DWORD *)this + 3);
   v16 = *((_DWORD *)this + 7);
+  *(_DWORD *)this = i - 1;
   v17 = *((_DWORD *)this + 2);
   *((_DWORD *)this + 1) += v17;
-  --*(_DWORD *)this;
   *((_DWORD *)this + 2) = v15 + v17;
   v18 = v15 + v15 - *((_DWORD *)this + 4);
   *((_DWORD *)this + 4) = v15;

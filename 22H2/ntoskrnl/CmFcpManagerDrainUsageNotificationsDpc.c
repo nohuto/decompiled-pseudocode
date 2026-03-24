@@ -1,16 +1,12 @@
 /*
- * XREFs of CmFcpManagerDrainUsageNotificationsDpc @ 0x140617300
+ * XREFs of CmFcpManagerDrainUsageNotificationsDpc @ 0x1404ED8D0
  * Callers:
  *     <none>
  * Callees:
- *     CmpWorkItemQueueWork @ 0x140374BF0 (CmpWorkItemQueueWork.c)
+ *     CmFcpWorkItemQueueWork @ 0x1404ED90C (CmFcpWorkItemQueueWork.c)
  */
 
-void __fastcall CmFcpManagerDrainUsageNotificationsDpc(
-        struct _KDPC *Dpc,
-        char *DeferredContext,
-        PVOID SystemArgument1,
-        PVOID SystemArgument2)
+__int64 __fastcall CmFcpManagerDrainUsageNotificationsDpc(__int64 a1, __int64 a2)
 {
-  CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(DeferredContext + 424));
+  return CmFcpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a2 + 424));
 }

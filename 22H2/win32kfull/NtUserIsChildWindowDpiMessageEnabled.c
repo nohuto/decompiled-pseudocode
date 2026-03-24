@@ -1,44 +1,75 @@
 /*
- * XREFs of NtUserIsChildWindowDpiMessageEnabled @ 0x1C00CFDF0
+ * XREFs of NtUserIsChildWindowDpiMessageEnabled @ 0x1C00F81F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsChildWindowDpiMessageEnabledX@@YA_NPEAUtagWND@@@Z @ 0x1C00CFE9C (-IsChildWindowDpiMessageEnabledX@@YA_NPEAUtagWND@@@Z.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     <none>
  */
 
-_BOOL8 __fastcall NtUserIsChildWindowDpiMessageEnabled(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserIsChildWindowDpiMessageEnabled(__int64 a1)
 {
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  _BOOL8 v9; // rbx
-  struct tagWND *v10; // rdi
-  struct tagTHREADINFO *v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int128 v16; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+30h] [rbp-18h]
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  _QWORD *v5; // rsi
+  __int64 v6; // rdi
+  __int64 v7; // rcx
+  _QWORD *v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // r9
+  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+30h] [rbp-18h]
 
-  v16 = 0LL;
-  v17 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  v4 = ValidateHwnd(a1);
-  v9 = 0LL;
-  v10 = (struct tagWND *)v4;
-  if ( v4 )
+  v13 = 0LL;
+  v14 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v2 = ValidateHwnd(a1);
+  v4 = 0LL;
+  v5 = (_QWORD *)v2;
+  if ( v2 )
   {
-    v11 = PtiCurrentShared();
-    *(_QWORD *)&v16 = *((_QWORD *)v11 + 52);
-    *((_QWORD *)v11 + 52) = &v16;
-    *((_QWORD *)&v16 + 1) = v10;
-    HMLockObject(v10);
-    v9 = IsChildWindowDpiMessageEnabledX(v10);
-    ThreadUnlock1(v13, v12, v14);
+    *(_QWORD *)&v13 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v13;
+    *((_QWORD *)&v13 + 1) = v2;
+    HMLockObject(v2);
+    v6 = 0LL;
+    v7 = *(unsigned int *)(v5[5] + 288LL);
+    LOBYTE(v7) = v7 & 0xF;
+    if ( (_BYTE)v7 == 2 )
+    {
+      v8 = v5;
+      do
+      {
+        v7 = v8[13];
+        if ( v7 )
+        {
+          v9 = v8[3];
+          v10 = 0LL;
+          if ( v9 )
+          {
+            v11 = *(_QWORD *)(v9 + 8);
+            if ( v11 )
+              v10 = *(_QWORD *)(v11 + 24);
+          }
+          if ( v7 == v10 )
+            break;
+        }
+        v8 = (_QWORD *)v8[13];
+      }
+      while ( v7 );
+      if ( v5 == v8 )
+      {
+        v6 = 1LL;
+      }
+      else if ( v8 && (*(_DWORD *)(v8[5] + 232LL) & 0x20000000) != 0 )
+      {
+        v6 = 1LL;
+      }
+    }
+    ThreadUnlock1(v7);
+    v4 = v6;
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

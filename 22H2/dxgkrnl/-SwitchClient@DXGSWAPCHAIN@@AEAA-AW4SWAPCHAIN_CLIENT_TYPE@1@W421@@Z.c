@@ -1,41 +1,24 @@
 /*
- * XREFs of ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C0059324
+ * XREFs of ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C004BFE0
  * Callers:
- *     ?GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C00590E0 (-GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF.c)
- *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C0359050 (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
- *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C03596D4 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
+ *     ?GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C004BE64 (-GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF.c)
+ *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C02ABEEC (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C02AC574 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGSWAPCHAIN::SwitchClient(__int64 a1, int a2)
+__int64 __fastcall DXGSWAPCHAIN::SwitchClient(__int64 a1, __int64 a2)
 {
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
+  __int64 v3; // rax
 
-  if ( !a2 )
+  if ( !(_DWORD)a2 )
     return 1LL;
-  if ( a2 != 1 )
+  if ( (_DWORD)a2 != 1 )
   {
-    WdLogSingleEntry1(1LL, 457LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v4,
-          v3,
-          v5,
-          0LL,
-          2,
-          -1,
-          L"Owner == SWAPCHAIN_CLIENT_TYPE_CONSUMER",
-          457LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v3 + 24) = 454LL;
+    WdLogEvent5_WdAssertion(v3);
   }
   return 0LL;
 }

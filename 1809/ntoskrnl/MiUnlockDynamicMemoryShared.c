@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockDynamicMemoryShared @ 0x1400A8940
+ * XREFs of MiUnlockDynamicMemoryShared @ 0x1400A8960
  * Callers:
  *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
- *     MiGetPhysicalMemoryRanges @ 0x1406DAE1C (MiGetPhysicalMemoryRanges.c)
- *     MiAddPhysicalMemory @ 0x14084C8B4 (MiAddPhysicalMemory.c)
- *     MiMapNewPfns @ 0x14084D3C0 (MiMapNewPfns.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
+ *     MiGetPhysicalMemoryRanges @ 0x1406DADFC (MiGetPhysicalMemoryRanges.c)
+ *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
+ *     MiMapNewPfns @ 0x14084D3A0 (MiMapNewPfns.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

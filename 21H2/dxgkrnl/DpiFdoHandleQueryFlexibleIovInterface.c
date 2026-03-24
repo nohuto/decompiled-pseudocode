@@ -1,61 +1,67 @@
 /*
- * XREFs of DpiFdoHandleQueryFlexibleIovInterface @ 0x1C03907F0
+ * XREFs of DpiFdoHandleQueryFlexibleIovInterface @ 0x1C02D33B0
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D24 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiGetPartitionedInterfaceContextPointer @ 0x1C0391484 (DpiGetPartitionedInterfaceContextPointer.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0059090 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiGetPartitionedInterfaceContextPointer @ 0x1C02D4148 (DpiGetPartitionedInterfaceContextPointer.c)
  */
 
-__int64 __fastcall DpiFdoHandleQueryFlexibleIovInterface(
-        __int64 a1,
-        unsigned __int16 a2,
-        __int16 a3,
-        _QWORD *a4,
-        PVOID Object)
+__int64 __fastcall DpiFdoHandleQueryFlexibleIovInterface(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, PVOID Object)
 {
   __int64 v5; // rdi
   unsigned int v6; // ebx
-  void *v11; // rax
+  __int16 v8; // si
+  unsigned __int16 v9; // bp
+  __int64 v10; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
+  void *v18; // rax
   _DWORD *PartitionedInterfaceContextPointer; // rax
 
   v5 = *(_QWORD *)(a1 + 64);
   v6 = 0;
+  v8 = a3;
+  v9 = a2;
   if ( bTracingEnabled )
     VgpuTrace(1, 0, (void *)v5, L"DpiFdoHandleQueryFlexibleIovInterface", 0LL);
   if ( Object )
   {
-    if ( a3 == 1 )
+    if ( v8 == 1 )
     {
-      if ( a2 >= 0x78u )
+      if ( v9 >= 0x78u )
       {
         KeEnterCriticalRegion();
         if ( *(_BYTE *)(v5 + 484) )
           DpiCheckForOutstandingD3Requests(v5);
         ExAcquireResourceSharedLite(*(PERESOURCE *)(v5 + 168), 1u);
-        if ( *(_BYTE *)(v5 + 5192) )
+        if ( *(_BYTE *)(v5 + 5264) )
         {
-          qword_1C012FCD8 = 0LL;
-          qword_1C012FCE0 = 0LL;
-          qword_1C012FCE8 = 0LL;
-          if ( *(_QWORD *)(v5 + 5232) )
+          qword_1C00B1CB8 = 0LL;
+          qword_1C00B1CC0 = 0LL;
+          qword_1C00B1CC8 = 0LL;
+          if ( *(_QWORD *)(v5 + 5304) )
           {
-            qword_1C012FCD8 = (__int64)&DpiIovGetBackingResource;
-            qword_1C012FCE0 = (__int64)DpiIovGetMmioRangeCount;
-            qword_1C012FCE8 = (__int64)DpiIovGetMmioRanges;
+            qword_1C00B1CB8 = (__int64)&DpiIovGetBackingResource;
+            qword_1C00B1CC0 = (__int64)DpiIovGetMmioRangeCount;
+            qword_1C00B1CC8 = (__int64)DpiIovGetMmioRanges;
           }
           else
           {
-            v11 = 0LL;
+            v18 = 0LL;
             if ( *(_BYTE *)(v5 + 2692) )
-              v11 = &DpiIovGetBackingResource;
-            qword_1C012FCD8 = (__int64)v11;
+              v18 = &DpiIovGetBackingResource;
+            qword_1C00B1CB8 = (__int64)v18;
           }
-          memmove(a4, &unk_1C012FCA0, 0x78uLL);
+          memmove(a4, &unk_1C00B1C80, 0x78uLL);
           PartitionedInterfaceContextPointer = (_DWORD *)DpiGetPartitionedInterfaceContextPointer(v5, Object);
           a4[1] = PartitionedInterfaceContextPointer;
           Object = 0LL;
@@ -66,7 +72,9 @@ __int64 __fastcall DpiFdoHandleQueryFlexibleIovInterface(
         }
         else
         {
-          WdLogSingleEntry1(3LL, 0LL);
+          v17 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+          *(_QWORD *)(v17 + 24) = 0LL;
+          WdLogEvent5_WdWarning(v17);
           if ( *(_BYTE *)(v5 + 484) )
             DpiEnableD3Requests(*(_QWORD *)(v5 + 24));
           v6 = -1073741637;
@@ -76,20 +84,26 @@ __int64 __fastcall DpiFdoHandleQueryFlexibleIovInterface(
       }
       else
       {
+        v13 = WdLogNewEntry5_WdError(a1, a2);
         v6 = -1073741789;
-        WdLogSingleEntry1(2LL, -1073741789LL);
+        *(_QWORD *)(v13 + 24) = -1073741789LL;
+        WdLogEvent5_WdError(v13);
       }
       return v6;
     }
     else
     {
-      WdLogSingleEntry1(3LL, 0LL);
+      v12 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+      *(_QWORD *)(v12 + 24) = 0LL;
+      WdLogEvent5_WdWarning(v12);
       return 3221225659LL;
     }
   }
   else
   {
-    WdLogSingleEntry1(3LL, 0LL);
+    v10 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+    *(_QWORD *)(v10 + 24) = 0LL;
+    WdLogEvent5_WdWarning(v10);
     return 3221225485LL;
   }
 }

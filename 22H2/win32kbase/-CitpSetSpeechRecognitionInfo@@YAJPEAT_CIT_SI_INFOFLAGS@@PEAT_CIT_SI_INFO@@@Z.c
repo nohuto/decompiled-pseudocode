@@ -1,103 +1,97 @@
 /*
- * XREFs of ?CitpSetSpeechRecognitionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C02348C8
+ * XREFs of ?CitpSetSpeechRecognitionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C01FEA44
  * Callers:
- *     CitSetInfo @ 0x1C0033570 (CitSetInfo.c)
+ *     CitSetInfo @ 0x1C00483E0 (CitSetInfo.c)
  * Callees:
- *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C00331FC (-CitpStatIncrement@@YAXPEAGG@Z.c)
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0033220 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C003330C (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C004782C (-CitpStatIncrement@@YAXPEAGG@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0047850 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0047958 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
  */
 
 __int64 __fastcall CitpSetSpeechRecognitionInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2)
 {
   struct _CIT_IMPACT_CONTEXT *v2; // rbx
-  __int64 CurrentProcessWin32Process; // rax
-  struct tagPROCESSINFO *v6; // r11
-  unsigned __int16 v8; // r8
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r9
-  unsigned __int16 v11; // dx
-  unsigned int v12; // r8d
-  int v13; // eax
-  __int16 v14; // di
-  unsigned int v15; // r10d
-  unsigned __int64 v16; // rsi
-  unsigned __int64 v17; // r8
-  __int16 v18; // ax
-  __int64 v19; // rdx
-  __int64 v20; // rsi
-  __int64 v21; // rax
-  struct tagPROCESSINFO **v22; // rax
-  struct _CIT_INTERACTION_SUMMARY *v23; // rax
+  struct _CIT_PROCESS **CurrentProcessWin32Process; // r11
+  __int64 v7; // r8
+  unsigned __int64 v8; // rdx
+  unsigned __int64 v9; // r9
+  unsigned __int16 v10; // dx
+  unsigned int v11; // r8d
+  int v12; // eax
+  __int16 v13; // di
+  unsigned int v14; // r10d
+  __int64 v15; // rsi
+  __int64 v16; // r8
+  __int16 v17; // ax
+  __int64 v18; // rsi
+  __int64 v19; // rax
+  struct tagPROCESSINFO **v20; // rax
+  struct _CIT_INTERACTION_SUMMARY *v21; // rax
 
-  v2 = xmmword_1C0293D30;
-  if ( (unsigned int)dword_1C02898AC < MEMORY[0xFFFFF7800000037C] )
-    EtwTelemetryCoverageReport(&off_1C02898A0);
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v6 = (struct tagPROCESSINFO *)CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v6 = (struct tagPROCESSINFO *)(-(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process);
+  v2 = xmmword_1C0254590;
+  if ( (unsigned int)dword_1C024AB2C < MEMORY[0xFFFFF7800000037C] )
+    EtwTelemetryCoverageReport(&off_1C024AB20);
+  CurrentProcessWin32Process = (struct _CIT_PROCESS **)PsGetCurrentProcessWin32Process(a1);
   if ( (*(_DWORD *)a2 & 0x10000) != 0 )
-    v6 = (struct tagPROCESSINFO *)*((_QWORD *)v2 + 15);
-  if ( !v6 )
+    CurrentProcessWin32Process = (struct _CIT_PROCESS **)*((_QWORD *)v2 + 15);
+  if ( !CurrentProcessWin32Process )
     return 3221226021LL;
-  v8 = *((_WORD *)a1 + 1);
-  if ( v8 >= 0x40u )
-    v8 = 64;
-  v9 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+  v7 = *(_QWORD *)a1 >> 24;
+  if ( (unsigned __int16)v7 >= 0x40u )
+    LOWORD(v7) = 64;
+  v8 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-  if ( v9 >= 0x3E800000000LL )
-    LODWORD(v10) = -1;
+  if ( v8 >= 0x3E800000000LL )
+    LODWORD(v9) = -1;
   else
-    v10 = v9 / 0x3E8;
-  v11 = v10;
-  if ( v8 <= (unsigned int)v10 )
-    v11 = v8;
-  if ( (unsigned int)v10 >= 0x40 )
+    v9 = v8 / 0x3E8;
+  v10 = v9;
+  if ( (unsigned __int16)v7 <= (unsigned int)v9 )
+    v10 = v7;
+  if ( (unsigned int)v9 >= 0x40 )
   {
-    v12 = *((_DWORD *)v2 + 76);
-    v13 = v10 - 63;
-    if ( (int)v10 - 63 > v12 )
+    v11 = *((_DWORD *)v2 + 222);
+    v12 = v9 - 63;
+    if ( (int)v9 - 63 > v11 )
     {
-      *((_DWORD *)v2 + 76) = v13;
-      if ( v13 - v12 < 0x40 )
-        *((_QWORD *)v2 + 37) >>= (unsigned __int8)v13 - (unsigned __int8)v12;
+      *((_DWORD *)v2 + 222) = v12;
+      if ( v12 - v11 < 0x40 )
+        *((_QWORD *)v2 + 110) >>= (unsigned __int8)v12 - (unsigned __int8)v11;
       else
-        *((_QWORD *)v2 + 37) = 0LL;
+        *((_QWORD *)v2 + 110) = 0LL;
     }
   }
-  v14 = 0;
-  if ( (unsigned int)v10 > 0x40 )
-    LODWORD(v10) = 64;
-  v15 = 64 - v11;
-  if ( v15 < (unsigned int)v10 )
+  v13 = 0;
+  if ( (unsigned int)v9 > 0x40 )
+    LODWORD(v9) = 64;
+  v14 = 64 - v10;
+  if ( v14 < (unsigned int)v9 )
   {
-    v16 = *((_QWORD *)v2 + 37);
+    v15 = *((_QWORD *)v2 + 110);
     do
     {
-      v17 = v16;
-      v18 = v14;
-      v19 = 1LL << v15;
-      v20 = (1LL << v15) & v16;
+      v16 = v15;
+      v17 = v13;
+      v18 = (1LL << v14) & v15;
+      ++v13;
+      if ( v18 )
+        v13 = v17;
+      v19 = v18;
+      v15 = (1LL << v14) | v16;
+      if ( v19 )
+        v15 = v16;
       ++v14;
-      if ( v20 )
-        v14 = v18;
-      v21 = v20;
-      v16 = v19 | v17;
-      if ( v21 )
-        v16 = v17;
-      ++v15;
     }
-    while ( v15 < (unsigned int)v10 );
-    *((_QWORD *)v2 + 37) = v16;
-    if ( v14 )
+    while ( v14 < (unsigned int)v9 );
+    *((_QWORD *)v2 + 110) = v15;
+    if ( v13 )
     {
-      v22 = (struct tagPROCESSINFO **)CitpProcessEnsureContext(v6, (const char *)v19);
-      if ( v22 )
+      v20 = (struct tagPROCESSINFO **)CitpProcessEnsureContext(CurrentProcessWin32Process);
+      if ( v20 )
       {
-        v23 = CitpInteractionSummaryEnsure(v2, v22, 1);
-        if ( v23 )
-          CitpStatIncrement((unsigned __int16 *)v23 + 52, v14);
+        v21 = CitpInteractionSummaryEnsure(v2, v20, 1);
+        if ( v21 )
+          CitpStatIncrement((unsigned __int16 *)v21 + 52, v13);
       }
     }
   }

@@ -1,28 +1,29 @@
 /*
- * XREFs of FsRtlFindInTunnelCacheEx @ 0x14079F500
+ * XREFs of FsRtlFindInTunnelCacheEx @ 0x140668870
  * Callers:
- *     FsRtlFindInTunnelCache @ 0x14093DB00 (FsRtlFindInTunnelCache.c)
+ *     FsRtlFindInTunnelCache @ 0x14088B780 (FsRtlFindInTunnelCache.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     FsRtlCompareNodeAndKey @ 0x140326C48 (FsRtlCompareNodeAndKey.c)
- *     FsRtlEmptyFreePoolList @ 0x140326CB0 (FsRtlEmptyFreePoolList.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     FsRtlPruneTunnelCache @ 0x14079F660 (FsRtlPruneTunnelCache.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     FsRtlCompareNodeAndKey @ 0x1402F81F8 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x1402F8264 (FsRtlEmptyFreePoolList.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x140668D04 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall FsRtlFindInTunnelCacheEx(
-        PFAST_MUTEX FastMutex,
+        PKGUARDED_MUTEX Mutex,
         unsigned __int64 a2,
         const UNICODE_STRING *a3,
         UNICODE_STRING *a4,
-        PUNICODE_STRING a5,
+        PUNICODE_STRING DestinationString,
         char a6,
         _DWORD *a7,
         void *a8)
 {
+  PKGUARDED_MUTEX v10; // r14
   char v11; // bl
   __int64 v12; // rsi
   __int64 v13; // rdi
@@ -32,52 +33,58 @@ char __fastcall FsRtlFindInTunnelCacheEx(
   unsigned __int16 v17; // ax
   _QWORD *v19[7]; // [rsp+20h] [rbp-38h] BYREF
 
+  v10 = Mutex;
   v11 = 0;
   v12 = 0LL;
-  if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 2) )
+  if ( !TunnelMaxEntries )
     return 0;
   v19[1] = v19;
   v19[0] = v19;
-  ExAcquireFastMutex(FastMutex);
-  FsRtlPruneTunnelCache(FastMutex, v19);
-  v13 = *(_QWORD *)&FastMutex[1].Count;
-  while ( v13 )
+  ExAcquireFastMutex(Mutex);
+  FsRtlPruneTunnelCache(v10, v19);
+  v13 = *(_QWORD *)&v10[1].Count;
+  if ( v13 )
   {
-    v12 = v13;
-    v14 = FsRtlCompareNodeAndKey(v13, a2, a3, a6 & 1);
-    if ( v14 > 0 )
+    do
     {
-      v13 = *(_QWORD *)(v13 + 8);
+      v12 = v13;
+      v14 = FsRtlCompareNodeAndKey(v13, a2, a3, a6 & 1);
+      if ( v14 > 0 )
+      {
+        v13 = *(_QWORD *)(v13 + 8);
+      }
+      else
+      {
+        if ( v14 >= 0 )
+          break;
+        v13 = *(_QWORD *)(v13 + 16);
+      }
     }
-    else
-    {
-      if ( v14 >= 0 )
-        break;
-      v13 = *(_QWORD *)(v13 + 16);
-    }
+    while ( v13 );
+    v10 = Mutex;
   }
   if ( v13 )
   {
     RtlCopyUnicodeString(a4, (PCUNICODE_STRING)(v12 + 80));
     v15 = (unsigned __int16 *)(v12 + 64);
-    if ( a5->MaximumLength < *(_WORD *)(v12 + 64) )
+    if ( DestinationString->MaximumLength < *(_WORD *)(v12 + 64) )
     {
       PoolWithTag = (wchar_t *)ExAllocatePoolWithTag((POOL_TYPE)17, *(unsigned __int16 *)(v12 + 64), 0x346E7554u);
-      a5->Buffer = PoolWithTag;
+      DestinationString->Buffer = PoolWithTag;
       v17 = *v15;
-      a5->MaximumLength = *v15;
-      a5->Length = v17;
+      DestinationString->MaximumLength = *v15;
+      DestinationString->Length = v17;
       memmove(PoolWithTag, *(const void **)(v12 + 72), *v15);
     }
     else
     {
-      RtlCopyUnicodeString(a5, (PCUNICODE_STRING)(v12 + 64));
+      RtlCopyUnicodeString(DestinationString, (PCUNICODE_STRING)(v12 + 64));
     }
     memmove(a8, *(const void **)(v12 + 96), *(unsigned int *)(v12 + 104));
     *a7 = *(_DWORD *)(v12 + 104);
     v11 = 1;
   }
-  ExReleaseFastMutex(FastMutex);
+  KeReleaseGuardedMutex(v10);
   FsRtlEmptyFreePoolList(v19);
   return v11;
 }

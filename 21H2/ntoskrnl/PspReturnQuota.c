@@ -1,19 +1,19 @@
 /*
- * XREFs of PspReturnQuota @ 0x1403493B0
+ * XREFs of PspReturnQuota @ 0x140341980
  * Callers:
- *     PsReturnProcessQuota @ 0x140216EB4 (PsReturnProcessQuota.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1402331E0 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403107C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     PsReturnPoolQuota @ 0x140367E30 (PsReturnPoolQuota.c)
- *     PsReturnProcessPageFileQuota @ 0x1406FEC90 (PsReturnProcessPageFileQuota.c)
- *     PsReturnSharedPoolQuota @ 0x140724DC8 (PsReturnSharedPoolQuota.c)
- *     PsChargeSharedPoolQuota @ 0x140726494 (PsChargeSharedPoolQuota.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
- *     ObpFreeObject @ 0x1407CDBA0 (ObpFreeObject.c)
+ *     PsReturnProcessQuota @ 0x140296F38 (PsReturnProcessQuota.c)
+ *     PsReturnPoolQuota @ 0x1402AEC50 (PsReturnPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     PsChargeSharedPoolQuota @ 0x140660338 (PsChargeSharedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x1406603C4 (PsReturnSharedPoolQuota.c)
+ *     PsReturnProcessPageFileQuota @ 0x1406EE75C (PsReturnProcessPageFileQuota.c)
+ *     ObpFreeObject @ 0x1406F0520 (ObpFreeObject.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x140243648 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x1402BF168 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, ULONG_PTR a4)
@@ -46,7 +46,7 @@ signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, 
   {
     if ( v13 > v12 )
     {
-      v19 = (unsigned __int64 *)&qword_140C1BF08[7 * a3];
+      v19 = (unsigned __int64 *)&qword_140C1E148[7 * a3];
       v20 = *v19;
       if ( v13 - v12 > *v19 )
       {

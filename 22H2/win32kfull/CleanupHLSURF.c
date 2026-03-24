@@ -1,27 +1,31 @@
 /*
- * XREFs of CleanupHLSURF @ 0x1C00BE3E0
+ * XREFs of CleanupHLSURF @ 0x1C0136EA0
  * Callers:
  *     <none>
  * Callees:
- *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@H@Z @ 0x1C00D5374 (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@H@Z.c)
+ *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z @ 0x1C00BE60C (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z.c)
  */
 
-__int64 CleanupHLSURF()
+__int64 __fastcall CleanupHLSURF(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v0; // rdx
-  __int64 i; // rcx
-  unsigned int v2; // ebx
-  struct SFMLOGICALSURFACE *v4; // [rsp+30h] [rbp+8h] BYREF
+  int v4; // edi
+  __int64 v5; // rdx
+  HLSURF i; // rcx
+  HLSURF *Objt; // rax
+  HLSURF v9; // rbx
 
-  GreAcquireHmgrSemaphore();
-  v4 = 0LL;
-  for ( i = 0LL; ; i = v2 )
+  v4 = a1;
+  GreAcquireHmgrSemaphore(a1, a2, a3, a4);
+  for ( i = 0LL; ; i = v9 )
   {
-    LOBYTE(v0) = 18;
-    v2 = HmgSafeNextObjt(i, v0, &v4);
-    if ( !v2 )
+    LOBYTE(v5) = 18;
+    Objt = (HLSURF *)HmgSafeNextObjt(i, v5);
+    if ( !Objt )
       break;
-    bhLSurfDestroyLogicalSurfaceObject(v4, 1);
+    v9 = *Objt;
+    if ( !*Objt )
+      break;
+    bhLSurfDestroyLogicalSurfaceObject(Objt, 1, v4);
   }
   return GreReleaseHmgrSemaphore();
 }

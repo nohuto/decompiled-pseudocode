@@ -1,258 +1,218 @@
 /*
- * XREFs of xxxQueryInformationThread @ 0x1C00E21E4
+ * XREFs of xxxQueryInformationThread @ 0x1C00D8048
  * Callers:
- *     NtUserQueryInformationThread @ 0x1C00E2020 (NtUserQueryInformationThread.c)
+ *     NtUserQueryInformationThread @ 0x1C00D7E80 (NtUserQueryInformationThread.c)
  * Callees:
- *     LockW32Thread @ 0x1C0061F84 (LockW32Thread.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     xxxSetCsrssThreadDesktop @ 0x1C00697C0 (xxxSetCsrssThreadDesktop.c)
- *     xxxRestoreCsrssThreadDesktop @ 0x1C0069B30 (xxxRestoreCsrssThreadDesktop.c)
- *     ?IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z @ 0x1C0071E94 (-IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z.c)
- *     ?IsProcessUserService@@YAHQEAU_EPROCESS@@@Z @ 0x1C00E1954 (-IsProcessUserService@@YAHQEAU_EPROCESS@@@Z.c)
- *     GreIsProcessSystemCritical @ 0x1C00E26AC (GreIsProcessSystemCritical.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     Feature_YieldToHAM2__private_IsEnabledDeviceUsage @ 0x1C0139D48 (Feature_YieldToHAM2__private_IsEnabledDeviceUsage.c)
- *     ?AppModelPolicy_GetPolicy_Internal@@YAJPEAXW4AppModelPolicy_Type@@PEAW4AppModelPolicy_PolicyValue@@PEAU_PS_PKG_CLAIM@@PEA_K@Z @ 0x1C01B2E38 (-AppModelPolicy_GetPolicy_Internal@@YAJPEAXW4AppModelPolicy_Type@@PEAW4AppModelPolicy_PolicyValu.c)
- *     GetTaskName @ 0x1C01B320C (GetTaskName.c)
+ *     LockW32Thread @ 0x1C003D9CC (LockW32Thread.c)
+ *     IsThreadHung @ 0x1C003E0F4 (IsThreadHung.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A82E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     ?IsProcessUserService@@YAHQEAU_EPROCESS@@@Z @ 0x1C00D846C (-IsProcessUserService@@YAHQEAU_EPROCESS@@@Z.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C00D8E60 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00D90F0 (xxxSetCsrssThreadDesktop.c)
+ *     GetTaskName @ 0x1C01D28B4 (GetTaskName.c)
  */
 
-NTSTATUS __fastcall xxxQueryInformationThread(void *a1, int a2, __int64 a3, unsigned int a4)
+NTSTATUS __fastcall xxxQueryInformationThread(void *a1, int a2, unsigned int *a3, unsigned int a4)
 {
-  int v4; // edi
-  __int64 ThreadWin32Thread; // r15
-  __int64 v8; // r13
+  unsigned int v4; // edi
+  unsigned __int64 v5; // r13
+  struct _KTHREAD *v7; // r12
+  __int64 ThreadWin32Thread; // r14
+  __int64 ProcessWin32Process; // rbx
   NTSTATUS result; // eax
-  __int64 v10; // rcx
-  PETHREAD v11; // r12
-  int v12; // r14d
-  int v13; // ebx
-  __int64 ProcessWin32Process; // rax
-  __int64 v15; // rcx
-  int v16; // ebx
+  NTSTATUS v11; // r15d
   PEPROCESS ThreadProcess; // rax
-  bool v18; // zf
-  struct _KTHREAD *v19; // rbx
-  int v20; // r12d
-  int v21; // r12d
-  int v22; // r12d
-  unsigned int v23; // r15d
+  unsigned int v13; // r13d
+  __int64 v14; // rdx
+  __int64 *v15; // rax
+  __int64 v16; // rax
+  PEPROCESS v17; // rbx
+  bool v18; // bl
+  PEPROCESS v19; // rax
+  struct _KPROCESS *v20; // rax
+  __int64 v21; // rax
+  struct _KTHREAD *v22; // rcx
+  unsigned int v23; // r14d
   int v24; // eax
   unsigned __int64 v25; // rcx
   __int64 i; // rbx
-  HANDLE ThreadId; // rax
-  __int64 v28; // rcx
-  PETHREAD v29; // rcx
-  int v30; // r12d
-  __int64 v31; // rdx
-  __int64 *v32; // rax
-  __int64 v33; // rax
-  struct _EPROCESS *v34; // rax
-  PEPROCESS v35; // rax
-  struct _KPROCESS *v36; // rax
-  __int64 v37; // rax
-  char v38; // r13
-  struct _KPROCESS *v39; // rax
-  __int64 v40; // rdx
-  PACCESS_TOKEN v41; // r12
-  PETHREAD Thread; // [rsp+30h] [rbp-30h] BYREF
-  PVOID Object; // [rsp+38h] [rbp-28h] BYREF
-  __int64 v44; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v45; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v46; // [rsp+58h] [rbp-8h]
-  int v47; // [rsp+A8h] [rbp+48h] BYREF
-  unsigned int v48; // [rsp+B8h] [rbp+58h]
+  HANDLE ThreadId; // rcx
+  __int64 v28; // rax
+  struct _KTHREAD *v29; // [rsp+30h] [rbp-40h]
+  PVOID v30; // [rsp+38h] [rbp-38h] BYREF
+  PVOID Object; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v32; // [rsp+48h] [rbp-28h] BYREF
+  __int128 v33; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v34; // [rsp+60h] [rbp-10h]
 
-  v48 = a4;
   v4 = 0;
+  v5 = a4;
+  v29 = 0LL;
+  v7 = 0LL;
   ThreadWin32Thread = 0LL;
-  v8 = 0LL;
+  ProcessWin32Process = 0LL;
   if ( a2 == 11 )
   {
-    Thread = 0LL;
-    result = ObReferenceObjectByHandle(a1, 0x400u, (POBJECT_TYPE)PsProcessType, 1, (PVOID *)&Thread, 0LL);
-    v11 = Thread;
-    v12 = result;
+    v30 = 0LL;
+    v11 = ObReferenceObjectByHandle(a1, 0x400u, (POBJECT_TYPE)PsProcessType, 1, &v30, 0LL);
+    v29 = (struct _KTHREAD *)v30;
+    if ( v11 < 0 )
+      return v11;
+    if ( (unsigned int)PsGetProcessSessionId(v30) == gSessionId )
+      ProcessWin32Process = PsGetProcessWin32Process(v29);
+  }
+  else
+  {
+    Object = 0LL;
+    result = ObReferenceObjectByHandle(a1, 0x40u, (POBJECT_TYPE)PsThreadType, 1, &Object, 0LL);
+    v7 = (struct _KTHREAD *)Object;
+    v11 = result;
     if ( result < 0 )
       return result;
-    v13 = *(_DWORD *)SGDGetUserSessionState(v10);
-    if ( (unsigned int)PsGetProcessSessionId(v11) == v13 )
-    {
-      ProcessWin32Process = PsGetProcessWin32Process(v11);
-      v8 = ProcessWin32Process;
-      if ( ProcessWin32Process )
-        v8 = -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL) & ProcessWin32Process;
-    }
-    goto LABEL_16;
+    ThreadProcess = PsGetThreadProcess((PETHREAD)Object);
+    if ( (unsigned int)PsGetProcessSessionId(ThreadProcess) == gSessionId )
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)v7);
   }
-  Object = 0LL;
-  v12 = ObReferenceObjectByHandle(a1, 0x40u, (POBJECT_TYPE)PsThreadType, 1, &Object, 0LL);
-  Thread = (PETHREAD)Object;
-  if ( v12 >= 0 )
+  switch ( a2 )
   {
-    v16 = *(_DWORD *)SGDGetUserSessionState(v15);
-    ThreadProcess = PsGetThreadProcess(Thread);
-    v18 = (unsigned int)PsGetProcessSessionId(ThreadProcess) == v16;
-    v19 = Thread;
-    if ( v18 )
-      ThreadWin32Thread = W32GetThreadWin32Thread(Thread);
-    if ( a2 )
-    {
-      v20 = a2 - 1;
-      if ( v20 )
+    case 0:
+      v13 = a3[3];
+      *(_OWORD *)a3 = 0LL;
+      if ( ThreadWin32Thread )
       {
-        v21 = v20 - 1;
-        if ( v21 )
+        v14 = *(_QWORD *)(ThreadWin32Thread + 456);
+        if ( v14 )
         {
-          v22 = v21 - 2;
-          if ( v22 )
+          if ( (*(_DWORD *)(*(_QWORD *)(v14 + 40) + 64LL) & 4) == 0 )
           {
-            if ( v22 == 7 )
+            v15 = *(__int64 **)(*(_QWORD *)(v14 + 8) + 24LL);
+            if ( v15 )
+              v16 = *v15;
+            else
+              v16 = 0LL;
+            *(_QWORD *)a3 = v16;
+          }
+        }
+      }
+      if ( PsGetThreadProcessId(v7) != (HANDLE)gpidLogon && PsGetThreadProcessId(v7) != (HANDLE)gpidLogonUI )
+      {
+        v17 = PsGetThreadProcess(v7);
+        AutoSharedPushLock::AutoSharedPushLock(
+          (AutoSharedPushLock *)&v32,
+          (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
+        v18 = UmfdHostLifeTimeManager::s_UmfdHostProcess == v17;
+        if ( v32 )
+        {
+          GreReleasePushLockShared(v32);
+          KeLeaveCriticalRegion();
+        }
+        if ( !v18 )
+        {
+          v19 = PsGetThreadProcess(v7);
+          if ( !(unsigned int)IsProcessDwm(v19) )
+          {
+            v20 = PsGetThreadProcess(v7);
+            if ( !(unsigned int)IsProcessUserService(v20) )
             {
-              v11 = 0LL;
-LABEL_16:
-              v23 = 0;
-              if ( v48 >= 8 )
+              if ( !ThreadWin32Thread || !*(_QWORD *)(ThreadWin32Thread + 456) )
               {
-                if ( v8 && (v24 = *(_DWORD *)(v8 + 376)) != 0 )
-                {
-                  v25 = 8LL * (unsigned int)(v24 + 1);
-                  if ( v25 <= v48 )
-                  {
-                    for ( i = *(_QWORD *)(v8 + 320); i; i = *(_QWORD *)(i + 664) )
-                    {
-                      ThreadId = PsGetThreadId(*(PETHREAD *)i);
-                      v28 = v23++;
-                      *(_QWORD *)(a3 + 8 * v28) = ThreadId;
-                    }
-                    *(_QWORD *)(a3 + 8LL * v23) = 0LL;
-                  }
-                  else
-                  {
-                    *(_QWORD *)a3 = v25;
-                    v12 = -1073741801;
-                  }
-                }
-                else
-                {
-                  *(_QWORD *)a3 = 0LL;
-                }
+                a3[2] = 2;
+LABEL_23:
+                if ( ThreadWin32Thread && *(_DWORD *)(ThreadWin32Thread + 896) )
+                  a3[3] |= 1u;
+                if ( (a3[3] & 1) == 0 )
+                  goto LABEL_27;
+                if ( a3[2] )
+                  goto LABEL_27;
+                v33 = 0LL;
+                v34 = 0LL;
+                if ( *(_QWORD *)(gptiCurrent + 456LL) == *(_QWORD *)(ThreadWin32Thread + 456) )
+                  goto LABEL_27;
+                LockW32Thread(ThreadWin32Thread, (__int64)&v33);
+                if ( *(_QWORD *)(gptiCurrent + 456LL) )
+                  v11 = xxxRestoreCsrssThreadDesktop(a3 + 4, 0LL);
+                if ( v11 >= 0 )
+                  v11 = xxxSetCsrssThreadDesktop(*(PVOID *)(ThreadWin32Thread + 456));
+                PopAndFreeW32ThreadLock((__int64)&v33);
+                goto LABEL_51;
               }
-              else
-              {
-                v12 = -1073741811;
-              }
-              v29 = v11;
-              goto LABEL_74;
+              v21 = *(_QWORD *)(ThreadWin32Thread + 424);
+              if ( !v21 || *(char *)(v21 + 820) >= 0 || (v13 & 0x800) != 0 )
+                goto LABEL_23;
             }
-            v12 = -1073741821;
           }
-          else
+        }
+      }
+      a3[2] = 1;
+      goto LABEL_23;
+    case 1:
+      if ( ThreadWin32Thread )
+      {
+        *a3 = *(_DWORD *)(ThreadWin32Thread + 488);
+        goto LABEL_27;
+      }
+      goto LABEL_69;
+    case 2:
+      if ( ThreadWin32Thread )
+      {
+        GetTaskName(ThreadWin32Thread, a3, (unsigned int)v5);
+        goto LABEL_27;
+      }
+LABEL_69:
+      v11 = -1073741816;
+      goto LABEL_27;
+    case 3:
+      *(_OWORD *)a3 = 0LL;
+      goto LABEL_27;
+    case 4:
+      if ( ThreadWin32Thread )
+        v4 = IsThreadHung((_QWORD *)ThreadWin32Thread, *a3);
+      *a3 = v4;
+      goto LABEL_27;
+    case 11:
+      v23 = 0;
+      if ( (unsigned int)v5 < 8 )
+      {
+        v11 = -1073741811;
+      }
+      else if ( ProcessWin32Process && (v24 = *(_DWORD *)(ProcessWin32Process + 384)) != 0 )
+      {
+        v25 = 8LL * (unsigned int)(v24 + 1);
+        if ( v25 > v5 )
+        {
+          *(_QWORD *)a3 = v25;
+          v11 = -1073741801;
+        }
+        else
+        {
+          for ( i = *(_QWORD *)(ProcessWin32Process + 320); i; i = *(_QWORD *)(i + 664) )
           {
-            if ( ThreadWin32Thread )
-              LOBYTE(v4) = IsThreadHungTimeCheck((const struct tagTHREADINFO *)ThreadWin32Thread, *(_DWORD *)a3);
-            *(_DWORD *)a3 = v4;
+            ThreadId = PsGetThreadId(*(PETHREAD *)i);
+            v28 = v23++;
+            *(_QWORD *)&a3[2 * v28] = ThreadId;
           }
-LABEL_73:
-          v29 = v19;
-LABEL_74:
-          ObfDereferenceObject(v29);
-          return v12;
-        }
-        if ( ThreadWin32Thread )
-        {
-          GetTaskName(ThreadWin32Thread, a3, v48);
-          goto LABEL_73;
+          *(_QWORD *)&a3[2 * v23] = 0LL;
         }
       }
-      else if ( ThreadWin32Thread )
+      else
       {
-        *(_DWORD *)a3 = *(_DWORD *)(ThreadWin32Thread + 488);
-        goto LABEL_73;
+        *(_QWORD *)a3 = 0LL;
       }
-      v12 = -1073741816;
-      goto LABEL_73;
-    }
-    v30 = *(_DWORD *)(a3 + 12);
-    *(_OWORD *)a3 = 0LL;
-    if ( ThreadWin32Thread )
-    {
-      v31 = *(_QWORD *)(ThreadWin32Thread + 456);
-      if ( v31 )
-      {
-        if ( (*(_DWORD *)(*(_QWORD *)(v31 + 40) + 64LL) & 4) == 0 )
-        {
-          v32 = *(__int64 **)(*(_QWORD *)(v31 + 8) + 24LL);
-          if ( v32 )
-            v33 = *v32;
-          else
-            v33 = 0LL;
-          *(_QWORD *)a3 = v33;
-        }
-      }
-    }
-    if ( PsGetThreadProcessId(v19) == (HANDLE)gpidLogon
-      || PsGetThreadProcessId(v19) == (HANDLE)gpidLogonUI
-      || (v34 = PsGetThreadProcess(v19), (unsigned int)GreIsProcessSystemCritical(v34))
-      || (v35 = PsGetThreadProcess(v19), (unsigned int)IsProcessDwm(v35))
-      || (v36 = PsGetThreadProcess(v19), (unsigned int)IsProcessUserService(v36)) )
-    {
-      *(_DWORD *)(a3 + 8) = 1;
-    }
-    else
-    {
-      if ( ThreadWin32Thread && *(_QWORD *)(ThreadWin32Thread + 456) )
-      {
-        v37 = *(_QWORD *)(ThreadWin32Thread + 424);
-        if ( v37 && (*(_DWORD *)(v37 + 816) & 0x80u) != 0 && (v30 & 0x800) == 0 )
-          *(_DWORD *)(a3 + 8) = 1;
-        goto LABEL_64;
-      }
-      if ( !(unsigned int)Feature_YieldToHAM2__private_IsEnabledDeviceUsage() )
-        goto LABEL_61;
-      v38 = 1;
-      if ( (v30 & 0x800) != 0 )
-        goto LABEL_61;
-      v39 = PsGetThreadProcess(v19);
-      v41 = PsReferencePrimaryToken(v39);
-      if ( !v41 )
-        goto LABEL_61;
-      v47 = 0;
-      Thread = 0LL;
-      v44 = 0LL;
-      if ( (int)AppModelPolicy_GetPolicy_Internal(v41, v40, &v47, &v44, &Thread) >= 0 && v47 == 65537 )
-      {
-        *(_DWORD *)(a3 + 8) = 1;
-        v38 = 0;
-      }
-      ObfDereferenceObject(v41);
-      if ( v38 )
-LABEL_61:
-        *(_DWORD *)(a3 + 8) = 2;
-    }
-    if ( !ThreadWin32Thread )
-    {
-LABEL_66:
-      if ( (*(_DWORD *)(a3 + 12) & 1) != 0 && !*(_DWORD *)(a3 + 8) )
-      {
-        v45 = 0LL;
-        v46 = 0LL;
-        if ( *(_QWORD *)(gptiCurrent + 456LL) != *(_QWORD *)(ThreadWin32Thread + 456) )
-        {
-          LockW32Thread(ThreadWin32Thread, &v45);
-          if ( !*(_QWORD *)(gptiCurrent + 456LL)
-            || (v12 = xxxRestoreCsrssThreadDesktop((_QWORD *)(a3 + 16), 0), v12 >= 0) )
-          {
-            v12 = xxxSetCsrssThreadDesktop(*(_DWORD **)(ThreadWin32Thread + 456), (PVOID *)(a3 + 16));
-          }
-          PopAndFreeW32ThreadLock((__int64)&v45);
-        }
-      }
-      goto LABEL_73;
-    }
-LABEL_64:
-    if ( *(_DWORD *)(ThreadWin32Thread + 904) )
-      *(_DWORD *)(a3 + 12) |= 1u;
-    goto LABEL_66;
+      goto LABEL_57;
   }
-  return v12;
+  v11 = -1073741821;
+LABEL_51:
+  if ( a2 == 11 )
+  {
+LABEL_57:
+    v22 = v29;
+    goto LABEL_28;
+  }
+LABEL_27:
+  v22 = v7;
+LABEL_28:
+  ObfDereferenceObject(v22);
+  return v11;
 }

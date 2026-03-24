@@ -1,48 +1,55 @@
 /*
- * XREFs of MmTriageActiveInLastCrash @ 0x140B9A874
+ * XREFs of MmTriageActiveInLastCrash @ 0x140A9228C
  * Callers:
- *     VfTriageSystem @ 0x140B6AC28 (VfTriageSystem.c)
+ *     VfTriageSystem @ 0x140A6FCE4 (VfTriageSystem.c)
  * Callees:
- *     TriageGetBugcheckData @ 0x140B9CFE0 (TriageGetBugcheckData.c)
- *     TriagepVerifyDump @ 0x140B9D0D4 (TriagepVerifyDump.c)
+ *     TriageGetBugcheckData @ 0x140A95C78 (TriageGetBugcheckData.c)
+ *     TriagepVerifyDump @ 0x140A95D6C (TriagepVerifyDump.c)
  */
 
-__int64 __fastcall MmTriageActiveInLastCrash(__int64 a1)
+_BOOL8 __fastcall MmTriageActiveInLastCrash(__int64 a1)
 {
   __int64 v1; // rax
-  unsigned int v2; // ebx
-  __int64 v3; // rdi
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v7; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v2; // rbx
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  _BOOL8 result; // rax
+  __int64 v6; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+50h] [rbp-18h] BYREF
 
   v1 = *(_QWORD *)(a1 + 240);
-  v2 = 0;
-  if ( !v1 )
-    return 0LL;
-  if ( *(_DWORD *)v1 < 0xF28u )
-    return 0LL;
-  v3 = *(_QWORD *)(v1 + 40);
-  if ( (int)TriageGetBugcheckData(
-              v3,
-              (unsigned int)&v7,
-              (unsigned int)&v8,
-              (unsigned int)&v9,
-              (__int64)&v10,
-              (__int64)&v11) < 0 )
-    return 0LL;
-  if ( !(unsigned __int8)TriagepVerifyDump(v3) )
-    return 0LL;
-  v4 = v3 + (unsigned int)TriageImagePageSize;
-  if ( !v4 )
-    return 0LL;
-  v5 = v3 + *(unsigned int *)(v4 + 20);
-  if ( !v5 )
-    return 0LL;
-  LOBYTE(v2) = *(_DWORD *)(v5 + 12) != 0;
-  return v2;
+  result = 0;
+  if ( v1 )
+  {
+    if ( *(_DWORD *)v1 >= 0xE38u )
+    {
+      v2 = *(_QWORD *)(v1 + 40);
+      if ( (int)TriageGetBugcheckData(
+                  v2,
+                  (unsigned int)&v6,
+                  (unsigned int)&v7,
+                  (unsigned int)&v8,
+                  (__int64)&v9,
+                  (__int64)&v10) >= 0 )
+      {
+        if ( (unsigned __int8)TriagepVerifyDump(v2) )
+        {
+          v3 = v2 + (unsigned int)TriageImagePageSize;
+          if ( v3 )
+          {
+            v4 = v2 + *(unsigned int *)(v3 + 20);
+            if ( v4 )
+            {
+              if ( *(_DWORD *)(v4 + 12) )
+                return 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of TelemetryCoverageTableLocateInternal @ 0x14012A638
+ * XREFs of TelemetryCoverageTableLocateInternal @ 0x14012A658
  * Callers:
- *     EtwpCoverageRecord @ 0x1406B41FC (EtwpCoverageRecord.c)
- *     EtwpCoverageCheckCP @ 0x1408B68A8 (EtwpCoverageCheckCP.c)
- *     EtwpCoverageResetCP @ 0x1408B6C28 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageRecord @ 0x1406B41DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageCheckCP @ 0x1408B6888 (EtwpCoverageCheckCP.c)
+ *     EtwpCoverageResetCP @ 0x1408B6C08 (EtwpCoverageResetCP.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x18021E688
+ * XREFs of ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x1801CD660
  * Callers:
- *     ?CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180256630 (-CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack.c)
- *     ?CalculateInertiaValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180256740 (-CalculateInertiaValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@.c)
+ *     ?CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205DE0 (-CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack.c)
+ *     ?CalculateInertiaValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205EF0 (-CalculateInertiaValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@W4ScrollAxis@@PEAM@Z @ 0x180219564 (-CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollStat.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@W4ScrollAxis@@PEAM@Z @ 0x1801C8434 (-CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollStat.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CInteractionTracker::UpdateCenterPointForState(
@@ -26,20 +26,20 @@ __int64 __fastcall CInteractionTracker::UpdateCenterPointForState(
 
   if ( a4 == 1 )
   {
-    v8 = 156LL;
+    v8 = 148LL;
   }
   else
   {
     if ( a4 != 2 )
       ModuleFailFastForHRESULT(2147942487LL, retaddr);
-    v8 = 164LL;
+    v8 = 156LL;
   }
   v9 = a1 + v8;
   v10 = CInteractionTracker::CalculateCenterPointForAxis((float *)a1, a2, a3, a4, 0, (void *)(a1 + v8));
   v12 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x1709u);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x16EBu, 0LL);
   }
   else
   {
@@ -47,11 +47,11 @@ __int64 __fastcall CInteractionTracker::UpdateCenterPointForState(
     v12 = v13;
     if ( v13 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x170Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x16EDu, 0LL);
     }
     else if ( a4 == 1 )
     {
-      *(_QWORD *)(a1 + 164) = *(_QWORD *)(a1 + 156);
+      *(_QWORD *)(a1 + 156) = *(_QWORD *)(a1 + 148);
     }
   }
   return v12;

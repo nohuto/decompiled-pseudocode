@@ -1,9 +1,9 @@
 /*
- * XREFs of __GSHandlerCheck @ 0x1C00449B8
+ * XREFs of __GSHandlerCheck @ 0x1C00429C8
  * Callers:
  *     <none>
  * Callees:
- *     __GSHandlerCheckCommon @ 0x1C00449DC (__GSHandlerCheckCommon.c)
+ *     __GSHandlerCheckCommon @ 0x1C00429EC (__GSHandlerCheckCommon.c)
  */
 
 __int64 __fastcall _GSHandlerCheck(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

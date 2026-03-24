@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBlockSessionSwitch @ 0x1406DDB50
+ * XREFs of PopBlockSessionSwitch @ 0x1406DDB30
  * Callers:
- *     PoSessionBuiltinPanelState @ 0x1402E6F50 (PoSessionBuiltinPanelState.c)
- *     PoSessionEngagementUpdate @ 0x1402E6FD4 (PoSessionEngagementUpdate.c)
- *     PopNotifyCsStateExited @ 0x14086EF90 (PopNotifyCsStateExited.c)
- *     PopScreenOff @ 0x14086F4B8 (PopScreenOff.c)
- *     PopScreenOn @ 0x14086F500 (PopScreenOn.c)
- *     PoSessionPowerControl @ 0x140879298 (PoSessionPowerControl.c)
+ *     PoSessionBuiltinPanelState @ 0x1402E7050 (PoSessionBuiltinPanelState.c)
+ *     PoSessionEngagementUpdate @ 0x1402E70D4 (PoSessionEngagementUpdate.c)
+ *     PopNotifyCsStateExited @ 0x14086EF70 (PopNotifyCsStateExited.c)
+ *     PopScreenOff @ 0x14086F498 (PopScreenOff.c)
+ *     PopScreenOn @ 0x14086F4E0 (PopScreenOn.c)
+ *     PoSessionPowerControl @ 0x140879278 (PoSessionPowerControl.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PoBlockConsoleSwitch @ 0x1406DDC30 (PoBlockConsoleSwitch.c)
- *     PopDispatchStateCallout @ 0x1406DDC80 (PopDispatchStateCallout.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PoBlockConsoleSwitch @ 0x1406DDC10 (PoBlockConsoleSwitch.c)
+ *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
  */
 
 __int64 __fastcall PopBlockSessionSwitch(char a1, int *a2)

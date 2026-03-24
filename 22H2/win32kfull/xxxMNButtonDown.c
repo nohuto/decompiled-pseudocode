@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxMNButtonDown @ 0x1C0216BE8
+ * XREFs of xxxMNButtonDown @ 0x1C0236CBC
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C0213DC8 (xxxHandleMenuMessages.c)
- *     xxxMNMouseMove @ 0x1C0218950 (xxxMNMouseMove.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
+ *     xxxHandleMenuMessages @ 0x1C02339B8 (xxxHandleMenuMessages.c)
+ *     xxxMNMouseMove @ 0x1C023913C (xxxMNMouseMove.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
  * Callees:
- *     ?xxxMNDoScroll@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@IH@Z @ 0x1C0215F70 (-xxxMNDoScroll@@YAHAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@IH@Z.c)
- *     ?xxxMNHideNextHierarchy@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C0216030 (-xxxMNHideNextHierarchy@@YAHAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@@Z.c)
- *     xxxMNOpenHierarchy @ 0x1C0218BF0 (xxxMNOpenHierarchy.c)
- *     xxxMNSelectItem @ 0x1C0219AA0 (xxxMNSelectItem.c)
+ *     ?xxxMNDoScroll@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@IH@Z @ 0x1C0235BEC (-xxxMNDoScroll@@YAHAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@IH@Z.c)
+ *     ?xxxMNHideNextHierarchy@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C0235CAC (-xxxMNHideNextHierarchy@@YAHAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@@Z.c)
+ *     xxxMNOpenHierarchy @ 0x1C02394F8 (xxxMNOpenHierarchy.c)
+ *     xxxMNSelectItem @ 0x1C023A5BC (xxxMNSelectItem.c)
  */
 
 __int64 __fastcall xxxMNButtonDown(__int64 *a1, __int64 a2, unsigned int a3, int a4)
@@ -22,47 +22,42 @@ __int64 __fastcall xxxMNButtonDown(__int64 *a1, __int64 a2, unsigned int a3, int
     if ( a4 )
       **(_DWORD **)*a1 |= 0x80u;
     result = xxxMNHideNextHierarchy(a1);
-    if ( (_DWORD)result )
+    if ( !(_DWORD)result )
     {
-LABEL_10:
       if ( !a4 )
         return result;
-      goto LABEL_11;
-    }
-    if ( a4 )
-    {
-      if ( xxxMNOpenHierarchy(a1, a2) )
+      result = xxxMNOpenHierarchy(a1, a2);
+      if ( result )
+      {
+        result = *a1;
         **(_DWORD **)*a1 &= ~0x80u;
-LABEL_11:
-      *(_DWORD *)(a2 + 8) |= 8u;
-      return xxxMNDoScroll((__int64)a1, a3, 1);
+      }
     }
+    goto LABEL_17;
+  }
+  v8 = (_DWORD **)*a1;
+  if ( a4 )
+  {
+    v9 = 1;
+    **v8 &= ~0x80u;
   }
   else
   {
-    v8 = (_DWORD **)*a1;
+    v9 = (**v8 >> 10) & 1;
+  }
+  result = xxxMNSelectItem(a1, a2);
+  if ( !result
+    || !*(_QWORD *)(result + 16)
+    || (result = *(_QWORD *)result, (*(_DWORD *)(result + 4) & 3) != 0)
+    || !v9
+    || (result = xxxMNOpenHierarchy(a1, a2), result != -1) )
+  {
+LABEL_17:
     if ( a4 )
     {
-      v9 = 1;
-      **v8 &= ~0x80u;
+      *(_DWORD *)(a2 + 8) |= 8u;
+      return xxxMNDoScroll((__int64)a1, a3, 1);
     }
-    else
-    {
-      v9 = (**v8 >> 10) & 1;
-    }
-    result = xxxMNSelectItem(a1, a2);
-    if ( !result )
-      goto LABEL_10;
-    if ( !*(_QWORD *)(result + 16) )
-      goto LABEL_10;
-    result = *(_QWORD *)result;
-    if ( (*(_DWORD *)(result + 4) & 3) != 0 )
-      goto LABEL_10;
-    if ( !v9 )
-      goto LABEL_10;
-    result = xxxMNOpenHierarchy(a1, a2);
-    if ( result != -1 )
-      goto LABEL_10;
   }
   return result;
 }

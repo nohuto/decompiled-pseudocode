@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UpdateHolographicViewer@CHolographicManager@@QEAAXPEAVCHolographicViewer@@@Z @ 0x180296D10
+ * XREFs of ?UpdateHolographicViewer@CHolographicManager@@QEAAXPEAVCHolographicViewer@@@Z @ 0x1802547B4
  * Callers:
- *     ?OnChanged@CHolographicViewer@@AEAAXXZ @ 0x18029C960 (-OnChanged@CHolographicViewer@@AEAAXXZ.c)
+ *     ?OnChanged@CHolographicViewer@@AEAAXXZ @ 0x18025A350 (-OnChanged@CHolographicViewer@@AEAAXXZ.c)
  * Callees:
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x180024D8C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x180024E64 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ?DwmHolographicViewerUpdate_@CompositorTracing@@QEAAXI@Z @ 0x180295B68 (-DwmHolographicViewerUpdate_@CompositorTracing@@QEAAXI@Z.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB3BC (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB3E0 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?DwmHolographicViewerUpdate_@CompositorTracing@@QEAAXI@Z @ 0x18025370C (-DwmHolographicViewerUpdate_@CompositorTracing@@QEAAXI@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicManager::UpdateHolographicViewer(CHolographicManager *this, struct CHolographicViewer *a2)
@@ -18,7 +18,7 @@ void __fastcall CHolographicManager::UpdateHolographicViewer(CHolographicManager
 
   if ( a2 )
   {
-    v4 = *((_DWORD *)a2 + 20);
+    v4 = *((_DWORD *)a2 + 18);
     if ( CompositorTracing::IsEnabled((__int64)this) )
     {
       wil::details::static_lazy<CompositorTracing>::get(
@@ -32,7 +32,7 @@ void __fastcall CHolographicManager::UpdateHolographicViewer(CHolographicManager
     CHolographicInteropTaskQueue::PostMessageW(
       v7,
       0x19u,
-      (struct IUnknown *)(((unsigned __int64)a2 + 64) & -(__int64)(a2 != 0LL)),
+      (struct IUnknown *)(((unsigned __int64)a2 + 56) & -(__int64)(a2 != 0LL)),
       0LL,
       0LL,
       0LL,

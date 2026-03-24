@@ -1,75 +1,59 @@
 /*
- * XREFs of ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E5A70
+ * XREFs of ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01ACBAC
  * Callers:
- *     ?FlushDelayZonePalmRejectInputTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C00E8E0E (-FlushDelayZonePalmRejectInputTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E6194 (-PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E625C (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ *     ?OnFlushDelayZonePalmRejectInputTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A9710 (-OnFlushDelayZonePalmRejectInputTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01AA2E0 (-PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01AD1A4 (-PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD228 (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
  * Callees:
- *     HMAssignmentUnlockWorker @ 0x1C0038F7C (HMAssignmentUnlockWorker.c)
- *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C0056338 (WPP_RECORDER_AND_TRACE_SF_dd.c)
- *     ?DispatchFramePostDelayZoneProcessingAndGetNext@CTouchProcessor@@QEAAPEAXPEAX@Z @ 0x1C01C4D10 (-DispatchFramePostDelayZoneProcessingAndGetNext@CTouchProcessor@@QEAAPEAXPEAX@Z.c)
+ *     HMAssignmentUnlock @ 0x1C0030630 (HMAssignmentUnlock.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C013705C (WPP_RECORDER_SF_Dd.c)
+ *     ?DispatchFramePostDelayZoneProcessingAndGetNext@CTouchProcessor@@QEAAPEAXPEAX@Z @ 0x1C018DA80 (-DispatchFramePostDelayZoneProcessingAndGetNext@CTouchProcessor@@QEAAPEAXPEAX@Z.c)
  */
 
-void __fastcall DelayZonePalmRejection::DispatchBufferedInputFrames(
-        DelayZonePalmRejection *this,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall DelayZonePalmRejection::DispatchBufferedInputFrames(DelayZonePalmRejection *this)
 {
-  char v5; // cl
-  int v6; // edx
   struct CPointerInputFrame *Next; // rax
-  struct CPointerInputFrame *v8; // rdi
-  int v9; // eax
+  struct CPointerInputFrame *v3; // rdi
+  int v4; // eax
+  int v5; // [rsp+28h] [rbp-20h]
+  int v6; // [rsp+30h] [rbp-18h]
 
-  v5 = 1;
   if ( *((_DWORD *)this + 1) == 1 && !*((_BYTE *)this + 8) )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v5 = 0;
-    }
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v6 = 12;
-      LOBYTE(v6) = v5;
-      WPP_RECORDER_AND_TRACE_SF_dd(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v6,
-        a3,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        8,
-        12,
-        (__int64)&WPP_86908d42d98631d196c6ca9688fccfc3_Traceguids,
-        *((_DWORD *)this + 10),
-        *((_DWORD *)this + 11));
+      v6 = *((_DWORD *)this + 11);
+      v5 = *((_DWORD *)this + 10);
+      WPP_RECORDER_SF_Dd(
+        (__int64)gBaseLog,
+        4u,
+        8u,
+        0xCu,
+        (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+        v5,
+        v6);
     }
     Next = (struct CPointerInputFrame *)*((_QWORD *)this + 7);
-    v8 = (struct CPointerInputFrame *)*((_QWORD *)this + 8);
-    while ( Next && Next != v8 )
-      Next = CTouchProcessor::DispatchFramePostDelayZoneProcessingAndGetNext(
-               (struct _LIST_ENTRY *)gpTouchProcessor,
-               Next);
-    if ( v8 )
-      CTouchProcessor::DispatchFramePostDelayZoneProcessingAndGetNext((struct _LIST_ENTRY *)gpTouchProcessor, v8);
+    v3 = (struct CPointerInputFrame *)*((_QWORD *)this + 8);
+    while ( Next && Next != v3 )
+      Next = CTouchProcessor::DispatchFramePostDelayZoneProcessingAndGetNext(gpTouchProcessor, Next);
+    if ( v3 )
+      CTouchProcessor::DispatchFramePostDelayZoneProcessingAndGetNext(gpTouchProcessor, v3);
     *((_QWORD *)this + 7) = 0LL;
     *((_QWORD *)this + 8) = 0LL;
     if ( *((_DWORD *)this + 10) || *((_DWORD *)this + 11) )
     {
-      v9 = 2;
+      v4 = 2;
     }
     else
     {
       *((_QWORD *)this + 4) = 0LL;
       *((_QWORD *)this + 2) = 0LL;
-      v9 = 0;
+      v4 = 0;
     }
-    *((_DWORD *)this + 1) = v9;
+    *((_DWORD *)this + 1) = v4;
     if ( *((_QWORD *)this + 3) )
-      HMAssignmentUnlockWorker((__int64 *)this + 3, a2, a3, a4);
+      HMAssignmentUnlock((__int64 *)this + 3);
   }
 }

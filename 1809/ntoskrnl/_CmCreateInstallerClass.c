@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateInstallerClass @ 0x1408F60A4
+ * XREFs of _CmCreateInstallerClass @ 0x1408F6084
  * Callers:
- *     PiCMOpenClassKey @ 0x1406A6D40 (PiCMOpenClassKey.c)
- *     _PnpDispatchInstallerClass @ 0x1406F09D0 (_PnpDispatchInstallerClass.c)
+ *     PiCMOpenClassKey @ 0x1406A6D20 (PiCMOpenClassKey.c)
+ *     _PnpDispatchInstallerClass @ 0x1406F09B0 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     _CmCreateInstallerClassWorker @ 0x1408F6220 (_CmCreateInstallerClassWorker.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     _CmCreateInstallerClassWorker @ 0x1408F6200 (_CmCreateInstallerClassWorker.c)
  */
 
 __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)

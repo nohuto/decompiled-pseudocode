@@ -1,24 +1,24 @@
 /*
- * XREFs of VidSchTerminateHwQueue @ 0x1C0042A20
+ * XREFs of VidSchTerminateHwQueue @ 0x1C003AC20
  * Callers:
- *     VidSchCreateHwQueue @ 0x1C0041830 (VidSchCreateHwQueue.c)
- *     VidSchTerminateAdapter @ 0x1C00F55F0 (VidSchTerminateAdapter.c)
+ *     VidSchCreateHwQueue @ 0x1C0039B80 (VidSchCreateHwQueue.c)
+ *     VidSchTerminateAdapter @ 0x1C00D2C00 (VidSchTerminateAdapter.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C003FE50 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
- *     ?VidSchiRemoveHwQueueFromSyncPoints@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0040338 (-VidSchiRemoveHwQueueFromSyncPoints@@YAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
- *     VidSchFlushHwQueue @ 0x1C00F4440 (VidSchFlushHwQueue.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     VidSchFlushHwQueue @ 0x1C0034D90 (VidSchFlushHwQueue.c)
+ *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C0037660 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
+ *     ?VidSchiRemoveHwQueueFromSyncPoints@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00382D4 (-VidSchiRemoveHwQueueFromSyncPoints@@YAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
  */
 
-void __fastcall VidSchTerminateHwQueue(struct VIDSCH_HW_QUEUE *a1)
+void __fastcall VidSchTerminateHwQueue(struct VIDSCH_HW_QUEUE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v1; // rdi
+  __int64 v4; // rdi
 
-  v1 = *((_QWORD *)a1 + 5);
-  VidSchFlushHwQueue();
-  if ( (*(_DWORD *)(v1 + 56) & 1) != 0 && *((_QWORD *)a1 + 14) )
+  v4 = *((_QWORD *)a1 + 5);
+  VidSchFlushHwQueue((__int64)a1, a2, a3, a4);
+  if ( (*(_DWORD *)(v4 + 56) & 1) != 0 && *((_QWORD *)a1 + 14) )
   {
-    ((void (__fastcall *)(_QWORD))DxgCoreInterface[25])(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 16) + 24LL) + 8LL));
+    ((void (__fastcall *)(_QWORD))DxgCoreInterface[24])(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 24LL) + 8LL));
     *((_QWORD *)a1 + 14) = 0LL;
   }
   VidSchiRemoveHwQueueFromSyncPoints(a1);

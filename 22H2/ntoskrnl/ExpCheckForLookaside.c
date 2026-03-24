@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCheckForLookaside @ 0x14060B408
+ * XREFs of ExpCheckForLookaside @ 0x1405B6988
  * Callers:
- *     ExpFreePoolChecks @ 0x1402AC370 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x1402EB05C (ExpFreePoolChecks.c)
  * Callees:
- *     ExpCheckForLookasideList @ 0x14060B474 (ExpCheckForLookasideList.c)
- *     VfCheckForLookaside @ 0x140AE3178 (VfCheckForLookaside.c)
+ *     ExpCheckForLookasideList @ 0x1405B69F4 (ExpCheckForLookasideList.c)
+ *     VfCheckForLookaside @ 0x1409E1528 (VfCheckForLookaside.c)
  */
 
 __int64 __fastcall ExpCheckForLookaside(ULONG_PTR a1, ULONG_PTR a2)

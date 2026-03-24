@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CLegacyRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0227620
+ * XREFs of ?SetRemarshalingFlags@CLegacyRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EE850
  * Callers:
  *     <none>
  * Callees:
@@ -9,19 +9,19 @@
 char __fastcall DirectComposition::CLegacyRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CLegacyRenderTargetMarshaler *this)
 {
-  int *v1; // rdx
+  int v1; // eax
   float v2; // xmm0_4
   int v3; // eax
 
-  v1 = (int *)((char *)this + 16);
   if ( *((_DWORD *)this + 16) )
-    *v1 |= 0x20u;
-  if ( *((_QWORD *)this + 18) )
-    *v1 |= 0x40u;
-  v2 = *((float *)this + 32);
-  v3 = *v1 | 0x80;
-  *v1 = v3;
+    *((_DWORD *)this + 4) |= 0x20u;
+  v1 = *((_DWORD *)this + 4);
+  if ( *((_QWORD *)this + 17) )
+    v1 |= 0x40u;
+  v2 = *((float *)this + 31);
+  v3 = v1 | 0x80;
+  *((_DWORD *)this + 4) = v3;
   if ( v2 != 1.0 )
-    *v1 = v3 | 0x100;
+    *((_DWORD *)this + 4) = v3 | 0x100;
   return 1;
 }

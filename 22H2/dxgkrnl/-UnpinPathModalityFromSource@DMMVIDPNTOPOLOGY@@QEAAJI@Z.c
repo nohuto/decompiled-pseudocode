@@ -1,71 +1,89 @@
 /*
- * XREFs of ?UnpinPathModalityFromSource@DMMVIDPNTOPOLOGY@@QEAAJI@Z @ 0x1C03B7228
+ * XREFs of ?UnpinPathModalityFromSource@DMMVIDPNTOPOLOGY@@QEAAJI@Z @ 0x1C02E7838
  * Callers:
- *     ?UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z @ 0x1C03B041C (-UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z.c)
+ *     ?UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z @ 0x1C02E1724 (-UnpinPathModalityFromSource@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@I@Z.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0007078 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ?UnpinMode@DMMVIDPNTARGETMODESET@@QEAAJXZ @ 0x1C0020028 (-UnpinMode@DMMVIDPNTARGETMODESET@@QEAAJXZ.c)
- *     ?UnpinMode@DMMVIDPNSOURCEMODESET@@QEAAJXZ @ 0x1C002304C (-UnpinMode@DMMVIDPNSOURCEMODESET@@QEAAJXZ.c)
- *     ?UnpinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C0023660 (-UnpinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
- *     ?UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C0069BB4 (-UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C019A618 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C00074C4 (-UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0009724 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?UnpinMode@DMMVIDPNTARGETMODESET@@QEAAJXZ @ 0x1C0019488 (-UnpinMode@DMMVIDPNTARGETMODESET@@QEAAJXZ.c)
+ *     ?UnpinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C001A9B0 (-UnpinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C012F520 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
  */
 
-__int64 __fastcall DMMVIDPNTOPOLOGY::UnpinPathModalityFromSource(DMMVIDPNTOPOLOGY *this, unsigned int a2)
+__int64 __fastcall DMMVIDPNTOPOLOGY::UnpinPathModalityFromSource(char **this, unsigned int a2)
 {
-  __int64 v2; // rdi
-  __int64 i; // rbp
+  __int64 v2; // rsi
+  __int64 i; // rdi
   int v5; // eax
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rbx
-  DMMVIDPNTARGET **Path; // rbx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  struct DMMVIDPNPRESENTPATH *Path; // rbx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  volatile signed __int32 *v14; // rcx
   __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  _QWORD *v25; // rax
-  DMMVIDPNTARGETMODESET *v26; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  DMMVIDPNTARGETMODESET *v18; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // rdx
+  _QWORD *v22; // rax
+  DMMVIDPNTARGETMODESET *v23; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v24; // [rsp+60h] [rbp+18h] BYREF
+  volatile signed __int32 *v25; // [rsp+68h] [rbp+20h] BYREF
 
   v2 = a2;
   for ( i = 0LL; ; ++i )
   {
-    LODWORD(v26) = -1;
-    v5 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(this, (char *)(unsigned int)v2, i, (unsigned int *)&v26);
-    v10 = v5;
+    v24 = -1;
+    v5 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(this, (unsigned int)v2, i, &v24);
+    v8 = v5;
     if ( v5 < 0 )
       break;
-    if ( (_DWORD)v26 == -1 )
+    if ( v24 == -1 )
       return 0LL;
-    Path = (DMMVIDPNTARGET **)DMMVIDPNTOPOLOGY::FindPath(this, v2, (int)v26);
+    Path = DMMVIDPNTOPOLOGY::FindPath((DMMVIDPNTOPOLOGY *)this, v2, v24);
     if ( !Path )
-      WdLogSingleEntry0(1LL);
-    v26 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(Path[11]);
-    DMMVIDPNSOURCEMODESET::UnpinMode(v26, v12, v13, v14);
-    auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v26, 0LL);
-    v26 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(Path[12]);
-    DMMVIDPNTARGETMODESET::UnpinMode(v26, v15, v16, v17);
-    auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v26, 0LL);
-    DMMVIDPNPRESENTPATH::UnpinContentScaling((DMMVIDPNPRESENTPATH *)Path, v18, v19, v20);
-    DMMVIDPNPRESENTPATH::UnpinContentRotation((DMMVIDPNPRESENTPATH *)Path, v21, v22, v23);
+    {
+      v12 = WdLogNewEntry5_WdAssertion(v10, v9);
+      WdLogEvent5_WdAssertion(v12);
+    }
+    v13 = *((_QWORD *)Path + 11);
+    v14 = *(volatile signed __int32 **)(v13 + 104);
+    if ( v14 )
+    {
+      _InterlockedIncrement(v14 + 24);
+      v14 = *(volatile signed __int32 **)(v13 + 104);
+    }
+    v25 = v14;
+    DMMVIDPNTARGETMODESET::UnpinMode((DMMVIDPNTARGETMODESET *)v14, v9);
+    auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v25, 0LL);
+    v16 = *((_QWORD *)Path + 12);
+    v17 = *(_QWORD *)(v16 + 104);
+    if ( v17 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v17 + 96));
+      v18 = *(DMMVIDPNTARGETMODESET **)(v16 + 104);
+    }
+    else
+    {
+      v18 = 0LL;
+    }
+    v23 = v18;
+    DMMVIDPNTARGETMODESET::UnpinMode(v18, v15);
+    auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v23, 0LL);
+    DMMVIDPNPRESENTPATH::UnpinContentScaling(Path, v19);
+    DMMVIDPNPRESENTPATH::UnpinContentRotation(Path, v20);
   }
-  v25 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6, v8, v9);
-  v25[3] = i;
-  v25[4] = v2;
-  v25[5] = this;
-  v25[6] = v10;
-  return (unsigned int)v10;
+  v22 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6);
+  v22[3] = i;
+  v22[4] = v2;
+  v22[5] = this;
+  v22[6] = v8;
+  return (unsigned int)v8;
 }

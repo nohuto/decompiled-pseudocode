@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HasNonEmptyContent@CLayerVisual@@UEAA_NXZ @ 0x1800B3C80
+ * XREFs of ?HasNonEmptyContent@CLayerVisual@@UEAA_NXZ @ 0x18000F8E0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B3CA0 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     <none>
  */
 
 bool __fastcall CLayerVisual::HasNonEmptyContent(CLayerVisual *this)
 {
-  return TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((char *)this + 148) ^ 1;
+  return *((float *)this + 37) > *((float *)this + 35) && *((float *)this + 38) > *((float *)this + 36);
 }

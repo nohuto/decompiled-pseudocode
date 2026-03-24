@@ -3,9 +3,9 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeInitializeQueue @ 0x1401219B0 (KeInitializeQueue.c)
- *     IopCreatePassiveInterruptRealtimeThreads @ 0x14075A364 (IopCreatePassiveInterruptRealtimeThreads.c)
- *     IopQueryPassiveInterruptRegistryOptions @ 0x14075A480 (IopQueryPassiveInterruptRegistryOptions.c)
+ *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x14075A344 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     IopQueryPassiveInterruptRegistryOptions @ 0x14075A460 (IopQueryPassiveInterruptRegistryOptions.c)
  */
 
 __int64 IopInitializePassiveInterruptServices()

@@ -1,10 +1,10 @@
 /*
- * XREFs of FD6DivL @ 0x1C009588C
+ * XREFs of FD6DivL @ 0x1C001F814
  * Callers:
- *     RaisePower @ 0x1C0095584 (RaisePower.c)
- *     AntiLog @ 0x1C0095678 (AntiLog.c)
- *     Log @ 0x1C00957B4 (Log.c)
- *     ComputeBGRMappingTable @ 0x1C025E794 (ComputeBGRMappingTable.c)
+ *     RaisePower @ 0x1C001F508 (RaisePower.c)
+ *     AntiLog @ 0x1C001F5FC (AntiLog.c)
+ *     Log @ 0x1C001F73C (Log.c)
+ *     ComputeBGRMappingTable @ 0x1C0261908 (ComputeBGRMappingTable.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x1408A224C
+ * XREFs of SepSetTokenUserAndGroups @ 0x1408A222C
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     SepDuplicateSid @ 0x140648FC0 (SepDuplicateSid.c)
- *     SepLogTokenSidManagement @ 0x14089C174 (SepLogTokenSidManagement.c)
- *     SepCompareSidValuesBlocks @ 0x1408A1E1C (SepCompareSidValuesBlocks.c)
- *     SepCreateSidValuesBlock @ 0x1408A1EC4 (SepCreateSidValuesBlock.c)
- *     SepDereferenceSidValuesBlock @ 0x1408A20F4 (SepDereferenceSidValuesBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SepDuplicateSid @ 0x140648FA0 (SepDuplicateSid.c)
+ *     SepLogTokenSidManagement @ 0x14089C154 (SepLogTokenSidManagement.c)
+ *     SepCompareSidValuesBlocks @ 0x1408A1DFC (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x1408A1EA4 (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x1408A20D4 (SepDereferenceSidValuesBlock.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, unsigned int a3, __int64 a4, int a5)

@@ -1,56 +1,42 @@
 /*
- * XREFs of PopInitSystemSleeperThread @ 0x14098B850
+ * XREFs of PopInitSystemSleeperThread @ 0x1407798D8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1406FAFC0 (PsLookupThreadByThreadId.c)
- *     PsCreateSystemThreadEx @ 0x140772B10 (PsCreateSystemThreadEx.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140AA622C (PoDelistPowerStateTransitionBlocker.c)
- *     PopPushPowerStateTransitionRecord @ 0x140AA62CC (PopPushPowerStateTransitionRecord.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1406FDA60 (PsCreateSystemThreadEx.c)
  */
 
-__int64 __fastcall PopInitSystemSleeperThread(LONG a1, struct _KEVENT *a2, _OWORD *a3)
+__int64 __fastcall PopInitSystemSleeperThread(LONG a1, struct _KEVENT *a2)
 {
   __int64 result; // rax
-  int v6; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  HANDLE Handle; // [rsp+50h] [rbp-9h] BYREF
-  HANDLE ProcessId[2]; // [rsp+58h] [rbp-1h] BYREF
-  __int128 v13; // [rsp+68h] [rbp+Fh] BYREF
-  __int64 v14; // [rsp+78h] [rbp+1Fh]
-  int v15; // [rsp+80h] [rbp+27h]
-  int v16; // [rsp+84h] [rbp+2Bh]
-  __int128 v17; // [rsp+88h] [rbp+2Fh]
-  PEPROCESS Process; // [rsp+C8h] [rbp+6Fh] BYREF
-  PETHREAD Thread; // [rsp+D8h] [rbp+7Fh] BYREF
+  __int128 v4; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+60h] [rbp-28h]
+  int v6; // [rsp+68h] [rbp-20h]
+  int v7; // [rsp+6Ch] [rbp-1Ch]
+  __int128 v8; // [rsp+70h] [rbp-18h]
+  HANDLE Handle; // [rsp+98h] [rbp+10h] BYREF
 
-  a2[3].Header.LockNV = a1;
-  v16 = 0;
+  DWORD1(v4) = 0;
+  v7 = 0;
   Handle = 0LL;
-  Process = 0LL;
-  Thread = 0LL;
-  *(_OWORD *)ProcessId = 0LL;
+  a2[3].Header.LockNV = a1;
   KeInitializeEvent(a2, SynchronizationEvent, 0);
   KeInitializeEvent(a2 + 1, SynchronizationEvent, 0);
   KeInitializeEvent(a2 + 2, SynchronizationEvent, 0);
-  v14 = 0LL;
-  v13 = 0x30uLL;
-  v15 = 512;
-  v17 = 0LL;
+  *((_QWORD *)&v4 + 1) = 0LL;
+  v5 = 0LL;
+  LODWORD(v4) = 48;
+  v6 = 512;
+  v8 = 0LL;
   result = PsCreateSystemThreadEx(
              (__int64)&Handle,
              0,
-             &v13,
+             &v4,
              0LL,
-             (__int64)ProcessId,
+             0LL,
              (__int64)PopTransitionToSleep,
              (__int64)a2,
              0LL,
@@ -58,18 +44,8 @@ __int64 __fastcall PopInitSystemSleeperThread(LONG a1, struct _KEVENT *a2, _OWOR
   if ( (int)result >= 0 )
   {
     ZwClose(Handle);
-    PsLookupProcessByProcessId(ProcessId[0], &Process);
-    PsLookupThreadByThreadId(ProcessId[1], &Thread);
-    v6 = PopPushPowerStateTransitionRecord(Process, Thread, 0LL);
     KeWaitForSingleObject(a2, Executive, 0, 0, 0LL);
-    if ( v6 >= 0 )
-      PoDelistPowerStateTransitionBlocker(v8, v7, v9, v10);
-    if ( Process )
-      ObfDereferenceObject(Process);
-    if ( Thread )
-      ObfDereferenceObject(Thread);
-    result = 0LL;
-    *a3 = *(_OWORD *)ProcessId;
+    return 0LL;
   }
   return result;
 }

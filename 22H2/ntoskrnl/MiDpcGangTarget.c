@@ -1,84 +1,89 @@
 /*
- * XREFs of MiDpcGangTarget @ 0x140666F50
+ * XREFs of MiDpcGangTarget @ 0x140560260
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiGetGangAssignment @ 0x140389904 (MiGetGangAssignment.c)
- *     MiDoGangAssignment @ 0x140389954 (MiDoGangAssignment.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiDoGangAssignment @ 0x1405600B0 (MiDoGangAssignment.c)
+ *     MiGetGangAssignment @ 0x140560434 (MiGetGangAssignment.c)
  */
 
-__int64 __fastcall MiDpcGangTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
+__int64 __fastcall MiDpcGangTarget(
+        __int64 a1,
+        struct _KPRCB *CurrentPrcb,
+        unsigned __int64 CoreProcessorSet,
+        __int64 a4)
 {
-  int GangAssignment; // r14d
-  struct _KPRCB *CurrentPrcb; // rdx
-  unsigned int v9; // eax
-  __int64 v10; // rcx
-  signed __int32 v11; // ecx
-  unsigned int v12; // esi
+  volatile signed __int32 *v5; // r14
+  __int64 v6; // rbx
+  int GangAssignment; // ebp
+  signed __int32 v8; // eax
+  unsigned int v9; // esi
   __int64 result; // rax
-  unsigned int v14; // ebx
+  signed __int32 v11; // eax
+  unsigned int v12; // ebx
   int i; // [rsp+20h] [rbp-28h] BYREF
-  ULONG_PTR *v16[4]; // [rsp+28h] [rbp-20h] BYREF
-  int v17; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR *v14[4]; // [rsp+28h] [rbp-20h] BYREF
+  int v15; // [rsp+58h] [rbp+10h] BYREF
 
-  v16[0] = 0LL;
-  GangAssignment = 0;
-  if ( KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] == *(_DWORD *)(a2 + 192) )
+  v14[0] = 0LL;
+  v5 = (volatile signed __int32 *)CoreProcessorSet;
+  v6 = (__int64)CurrentPrcb;
+  if ( KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0] != LODWORD(CurrentPrcb->ParentNode) )
+    goto LABEL_8;
+  CurrentPrcb = KeGetCurrentPrcb();
+  if ( CurrentPrcb->Group != *(_WORD *)(v6 + 208) )
+    goto LABEL_8;
+  CoreProcessorSet = CurrentPrcb->CoreProcessorSet;
+  if ( (CoreProcessorSet & *(_QWORD *)(v6 + 200)) == 0
+    || (CoreProcessorSet = ~CoreProcessorSet,
+        _m_prefetchw((const void *)(v6 + 200)),
+        (_InterlockedAnd64((volatile signed __int64 *)(v6 + 200), CoreProcessorSet) & CurrentPrcb->CoreProcessorSet) == 0) )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v9 = 0;
-    v10 = *(_QWORD *)(a2 + 224);
-    if ( *(_WORD *)(a2 + 208) )
+    CurrentPrcb = 0LL;
+  }
+  if ( CurrentPrcb )
+    GangAssignment = MiGetGangAssignment(v6, v14);
+  else
+LABEL_8:
+    GangAssignment = 0;
+  if ( (*(_DWORD *)(v6 + 184) & 2) != 0 )
+  {
+    v15 = 0;
+    v8 = _InterlockedDecrement((volatile signed __int32 *)a4);
+    v9 = ~v8 & 0x80000000;
+    if ( (v8 & 0x7FFFFFFF) != 0 )
     {
-      while ( CurrentPrcb->Group != *(_WORD *)(v10 + 8) )
-      {
-        ++v9;
-        v10 += 16LL;
-        if ( v9 >= *(unsigned __int16 *)(a2 + 208) )
-          goto LABEL_8;
-      }
-      if ( (CurrentPrcb->GroupSetMember & *(_QWORD *)v10) != 0 )
-        GangAssignment = MiGetGangAssignment(a2, v16);
+      while ( (*(_DWORD *)a4 & 0x80000000) != v9 )
+        KeYieldProcessorEx(&v15, (__int64)CurrentPrcb, CoreProcessorSet, a4);
+    }
+    else
+    {
+      *(_DWORD *)a4 = v9 | *(_DWORD *)(a4 + 4);
     }
   }
-LABEL_8:
-  if ( (*(_DWORD *)(a2 + 184) & 2) != 0 )
+  if ( GangAssignment )
+    MiDoGangAssignment(v6, v14);
+  result = *(unsigned int *)(v6 + 184);
+  if ( (result & 2) != 0 )
   {
     v11 = _InterlockedDecrement((volatile signed __int32 *)a4);
     v12 = ~v11 & 0x80000000;
     if ( (v11 & 0x7FFFFFFF) != 0 )
     {
-      v17 = 0;
-      while ( (*(_DWORD *)a4 & 0x80000000) != v12 )
-        KeYieldProcessorEx(&v17);
-    }
-    else
-    {
-      *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v12;
-    }
-  }
-  if ( GangAssignment )
-    MiDoGangAssignment(a2, v16);
-  result = *(unsigned int *)(a2 + 184);
-  if ( (result & 2) != 0 )
-  {
-    result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a4);
-    v14 = ~(_DWORD)result & 0x80000000;
-    if ( (result & 0x7FFFFFFF) != 0 )
-    {
-      for ( i = 0; ; KeYieldProcessorEx(&i) )
+      for ( i = 0; ; KeYieldProcessorEx(&i, (__int64)CurrentPrcb, CoreProcessorSet, a4) )
       {
         result = *(_DWORD *)a4 & 0x80000000;
-        if ( (_DWORD)result == v14 )
+        if ( (_DWORD)result == v12 )
           break;
       }
     }
     else
     {
-      *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v14;
+      result = v12 | *(_DWORD *)(a4 + 4);
+      *(_DWORD *)a4 = result;
     }
   }
-  _InterlockedDecrement(a3);
+  _InterlockedDecrement(v5);
   return result;
 }

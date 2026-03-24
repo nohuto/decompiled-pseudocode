@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPurgeBadFileOnlyPages @ 0x1402B6520
+ * XREFs of MiPurgeBadFileOnlyPages @ 0x1402B6620
  * Callers:
- *     MiDeleteExtentPfns @ 0x1402B59C0 (MiDeleteExtentPfns.c)
+ *     MiDeleteExtentPfns @ 0x1402B5AC0 (MiDeleteExtentPfns.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)
@@ -11,15 +11,15 @@
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiDecrementSubsection @ 0x1400E76F8 (MiDecrementSubsection.c)
- *     MiPreventControlAreaDeletion @ 0x1400E94D8 (MiPreventControlAreaDeletion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B68A8 (MiPurgeFileOnlyPfn.c)
- *     MiUnlinkPageFromBadList @ 0x1402BFD00 (MiUnlinkPageFromBadList.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiDecrementSubsection @ 0x1400E7718 (MiDecrementSubsection.c)
+ *     MiPreventControlAreaDeletion @ 0x1400E94F8 (MiPreventControlAreaDeletion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
+ *     MiUnlinkPageFromBadList @ 0x1402BFE00 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 __fastcall MiPurgeBadFileOnlyPages(__int64 a1, __int64 a2, __int64 a3)

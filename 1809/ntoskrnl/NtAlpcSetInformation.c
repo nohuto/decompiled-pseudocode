@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAlpcSetInformation @ 0x1406B1070
+ * XREFs of NtAlpcSetInformation @ 0x1406B1050
  * Callers:
  *     <none>
  * Callees:
@@ -10,14 +10,14 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpAssociateIoCompletionPort @ 0x1406B146C (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x1406D4C00 (AlpcpInitializeCompletionList.c)
- *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1406D6050 (AlpcpAdjustCompletionListConcurrencyCount.c)
- *     AlpcpFreeCompletionList @ 0x1406D69E0 (AlpcpFreeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406B144C (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpInitializeCompletionList @ 0x1406D4BE0 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1406D6030 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ *     AlpcpFreeCompletionList @ 0x1406D69C0 (AlpcpFreeCompletionList.c)
  */
 
 __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, unsigned __int64 a3, unsigned int a4)

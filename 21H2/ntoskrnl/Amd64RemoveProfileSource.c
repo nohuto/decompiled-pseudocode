@@ -1,104 +1,102 @@
 /*
- * XREFs of Amd64RemoveProfileSource @ 0x14052C660
+ * XREFs of Amd64RemoveProfileSource @ 0x1404DE020
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140345D30 (KeCheckProcessorAffinityEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpRemoveProfileSourceFromList @ 0x14050BA34 (HalpRemoveProfileSourceFromList.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpRemoveProfileSourceFromList @ 0x1404BF12C (HalpRemoveProfileSourceFromList.c)
  */
 
-__int64 __fastcall Amd64RemoveProfileSource(__int64 a1)
+__int64 __fastcall Amd64RemoveProfileSource(int *a1)
 {
-  unsigned int v1; // ebp
+  unsigned int v1; // ebx
   unsigned int v2; // edi
-  ULONG ActiveProcessorCount; // r14d
-  int v6; // ebx
-  __int64 v7; // rax
-  unsigned int v8; // ecx
-  unsigned __int64 v9; // rbx
-  __int64 v10; // rdx
-  char v11; // si
-  __int64 v12; // rcx
+  ULONG ActiveProcessorCount; // r11d
+  ULONG v6; // r8d
+  __int64 v7; // r9
+  int *v8; // r10
+  unsigned int v9; // ecx
+  _DWORD *v10; // rax
+  unsigned __int64 v11; // rbx
+  char v12; // si
+  __int64 v13; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  __int64 v18; // rbx
-  __int64 v19; // rcx
-  __int64 v20; // [rsp+40h] [rbp+8h] BYREF
+  int v17; // eax
+  bool v18; // zf
+  __int64 v19; // rbx
+  __int64 v20; // rcx
+  __int64 v21; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = *(_DWORD *)a1;
+  v1 = *a1;
   v2 = 0;
-  v20 = 0LL;
-  if ( v1 <= 0x21 )
+  v21 = 0LL;
+  if ( v1 <= 0xBF )
     return 3221225659LL;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   v6 = 0;
   if ( ActiveProcessorCount )
   {
-    while ( 1 )
+    v7 = Amd64CounterStatus;
+    v8 = KiProcessorIndexToNumberMappingTable;
+    while ( ((*(_QWORD *)&a1[2 * ((unsigned int)*v8 >> 6) + 4] >> (*(_BYTE *)v8 & 0x3F)) & 1) == 0 )
     {
-      if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)(a1 + 8), v6) )
-      {
-        v7 = HalpCounterStatus;
-        if ( HalpProfileInterface != &DefaultProfileInterface )
-          v7 = HalpCounterStatus + 8LL * (unsigned int)(v6 * HalpNumberOfCounters);
-        v8 = 0;
-        if ( Amd64NumberCounters )
-          break;
-      }
-LABEL_11:
-      if ( ++v6 >= ActiveProcessorCount )
-        goto LABEL_12;
-    }
-    while ( *(_DWORD *)(*(_QWORD *)v7 + 24LL) == 3 || *(_DWORD *)(*(_QWORD *)v7 + 32LL) != v1 )
-    {
+LABEL_10:
+      ++v6;
       ++v8;
-      v7 += 8LL;
-      if ( v8 >= Amd64NumberCounters )
+      v7 += 64LL;
+      if ( v6 >= ActiveProcessorCount )
         goto LABEL_11;
+    }
+    v9 = 0;
+    v10 = (_DWORD *)v7;
+    while ( *v10 == 3 || v10[1] != v1 )
+    {
+      ++v9;
+      v10 += 4;
+      if ( v9 >= 4 )
+        goto LABEL_10;
     }
     return 2147483665LL;
   }
   else
   {
-LABEL_12:
-    v9 = HalpAcquireHighLevelLock(&HalpProfileSourceDescriptorListLock);
-    v11 = HalpRemoveProfileSourceFromList((int *)a1, v10, &v20);
-    KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
+LABEL_11:
+    v11 = HalpAcquireHighLevelLock(&Amd64ProfileSourceDescriptorListLock);
+    v12 = HalpRemoveProfileSourceFromList(a1, (_QWORD **)&Amd64ProfileSourceDescriptorListHead, &v21);
+    KxReleaseSpinLock(&Amd64ProfileSourceDescriptorListLock);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v12 = (unsigned int)(v9 + 1);
+          v13 = (unsigned int)(v11 + 1);
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
+          v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+          v18 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
+          if ( v18 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
-    __writecr8(v9);
-    if ( v11 )
+    __writecr8(v11);
+    if ( v12 )
     {
-      v18 = v20;
-      HalpMmAllocCtxFree(v12, *(_QWORD *)(v20 + 296));
-      HalpMmAllocCtxFree(v19, v18);
-      --HalpProfileSourceDescriptorCount;
+      v19 = v21;
+      HalpMmAllocCtxFree(v13, *(_QWORD *)(v21 + 200));
+      HalpMmAllocCtxFree(v20, v19);
+      --Amd64ProfileSourceDescriptorCount;
     }
-    else if ( !v20 )
+    else if ( !v21 )
     {
       return (unsigned int)-1073741823;
     }

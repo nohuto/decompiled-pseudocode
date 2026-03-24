@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDeviceIdDriverInfMatches @ 0x140698FBC
+ * XREFs of DrvDbGetDeviceIdDriverInfMatches @ 0x1406C44C0
  * Callers:
- *     DrvDbGetDeviceIdMappedProperty @ 0x140785234 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406C4158 (DrvDbGetDeviceIdMappedProperty.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     DrvDbBuildDeviceIdDriverInfMatch @ 0x1406991C8 (DrvDbBuildDeviceIdDriverInfMatch.c)
- *     _PnpCtxRegEnumValue @ 0x14069946C (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     _PnpCtxRegEnumValue @ 0x1406C4714 (_PnpCtxRegEnumValue.c)
+ *     DrvDbBuildDeviceIdDriverInfMatch @ 0x1406C4764 (DrvDbBuildDeviceIdDriverInfMatch.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdDriverInfMatches(
@@ -20,14 +20,14 @@ __int64 __fastcall DrvDbGetDeviceIdDriverInfMatches(
         char a6)
 {
   unsigned int *v6; // r12
-  __int64 v7; // r15
+  unsigned int v7; // r13d
+  __int64 v8; // r15
   int InfoKey; // ebx
-  unsigned int v9; // edi
-  unsigned int v10; // r14d
-  unsigned int v11; // eax
-  __int64 v12; // rcx
-  wchar_t *Pool2; // rsi
-  unsigned int v14; // r13d
+  unsigned int v10; // edi
+  unsigned int v11; // r14d
+  unsigned int v12; // eax
+  __int64 v13; // rcx
+  wchar_t *PoolWithTag; // rsi
   int v15; // eax
   __int64 v16; // rcx
   __int64 v17; // rdi
@@ -49,7 +49,8 @@ __int64 __fastcall DrvDbGetDeviceIdDriverInfMatches(
   v28 = a2;
   v27 = HIDWORD(a1);
   v6 = a5;
-  v7 = a3;
+  v7 = 0;
+  v8 = a3;
   v24 = 0;
   v26 = 0;
   v23 = 0;
@@ -57,105 +58,121 @@ __int64 __fastcall DrvDbGetDeviceIdDriverInfMatches(
   v25 = 0;
   *a5 = 0;
   InfoKey = PnpCtxRegQueryInfoKey((unsigned int)&v24, a2, 0, 0, (__int64)&v24, (__int64)&v26, 0LL);
-  if ( InfoKey < 0 )
-    return (unsigned int)InfoKey;
-  v9 = v24;
-  v10 = v26 + 1;
-  if ( !v24 )
-    return (unsigned int)-1073741275;
-  v11 = v26 + 1;
-  if ( a6 )
+  if ( InfoKey >= 0 )
   {
-    v11 = v26 + 17;
-    v10 = v26 + 17;
-  }
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2LL * v11, 1111770192LL);
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  v14 = 0;
-  if ( !v9 )
-    goto LABEL_22;
-  while ( 1 )
-  {
-    v26 = v10;
-    if ( a6 )
+    v10 = v24;
+    v11 = v26 + 1;
+    if ( v24 )
     {
-      LODWORD(a5) = 4;
-      v15 = PnpCtxRegEnumValue(v12, v28, v14, Pool2, &v26, &v23, &v22, &a5);
-      InfoKey = v15;
-      if ( v15 < 0 )
-        break;
-      if ( !v26 )
+      v12 = v26 + 1;
+      if ( a6 )
       {
-LABEL_36:
-        InfoKey = -1073741595;
-        goto LABEL_26;
+        v12 = v26 + 17;
+        v11 = v26 + 17;
       }
-      if ( v23 == 3 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v12, 0x42444450u);
+      if ( PoolWithTag )
       {
-        if ( (_DWORD)a5 != 4 )
-          goto LABEL_36;
+        if ( v10 )
+        {
+          do
+          {
+            v26 = v11;
+            if ( a6 )
+            {
+              LODWORD(a5) = 4;
+              v15 = PnpCtxRegEnumValue(v13, v28, v7, PoolWithTag, &v26, &v23, &v22, &a5);
+              InfoKey = v15;
+              if ( v15 < 0 )
+                goto LABEL_37;
+              if ( !v26 )
+              {
+LABEL_35:
+                InfoKey = -1073741595;
+                goto LABEL_26;
+              }
+              if ( v23 == 3 )
+              {
+                if ( (_DWORD)a5 != 4 )
+                  goto LABEL_35;
+              }
+              else
+              {
+                v22 = 0;
+              }
+              InfoKey = DrvDbBuildDeviceIdDriverInfMatch(v16, &v22, &PoolWithTag[v26], v11 - v26);
+              if ( InfoKey < 0 )
+                goto LABEL_26;
+              v17 = -1LL;
+              do
+                ++v17;
+              while ( PoolWithTag[v17] );
+              v18 = v17 + 1;
+            }
+            else
+            {
+              v15 = PnpCtxRegEnumValue(v13, v28, v7, PoolWithTag, &v26, &v23, 0LL, 0LL);
+              InfoKey = v15;
+              if ( v15 < 0 )
+              {
+LABEL_37:
+                if ( v15 == -2147483622 )
+                  InfoKey = 0;
+                break;
+              }
+              v13 = v26;
+              if ( !v26 )
+              {
+                InfoKey = -1073741595;
+                break;
+              }
+              PoolWithTag[v26] = 0;
+              v18 = v13 + 1;
+            }
+            if ( v8 )
+            {
+              v13 = v25;
+              v19 = v18 + v25;
+              if ( v18 + v25 < v30 )
+              {
+                RtlStringCchCopyExW((NTSTRSAFE_PWSTR)(v29 + 2LL * v25), v30 - v25, PoolWithTag, 0LL, 0LL, 0x900u);
+                v25 = v19;
+              }
+              v8 = v29;
+            }
+            *v6 += v18;
+            ++v7;
+          }
+          while ( v7 < v24 );
+        }
+        if ( InfoKey >= 0 )
+        {
+          if ( *v6 )
+          {
+            v20 = *v6 + 1;
+            *v6 = v20;
+            if ( v8 && v20 <= v30 )
+              *(_WORD *)(v8 + 2LL * (v20 - 1)) = 0;
+            else
+              InfoKey = -1073741789;
+          }
+          else
+          {
+            InfoKey = -1073741275;
+          }
+        }
+LABEL_26:
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
       else
       {
-        v22 = 0;
+        return (unsigned int)-1073741801;
       }
-      InfoKey = DrvDbBuildDeviceIdDriverInfMatch(v16, &v22, &Pool2[v26], v10 - v26);
-      if ( InfoKey < 0 )
-        goto LABEL_26;
-      v17 = -1LL;
-      do
-        ++v17;
-      while ( Pool2[v17] );
-      v18 = v17 + 1;
-      goto LABEL_16;
     }
-    v15 = PnpCtxRegEnumValue(v12, v28, v14, Pool2, &v26, &v23, 0LL, 0LL);
-    InfoKey = v15;
-    if ( v15 < 0 )
-      break;
-    v12 = v26;
-    if ( !v26 )
-      goto LABEL_36;
-    Pool2[v26] = 0;
-    v18 = v12 + 1;
-LABEL_16:
-    if ( v7 )
-    {
-      v12 = v25;
-      v19 = v18 + v25;
-      if ( v18 + v25 < v30 )
-      {
-        RtlStringCchCopyExW((NTSTRSAFE_PWSTR)(v29 + 2LL * v25), v30 - v25, Pool2, 0LL, 0LL, 0x900u);
-        v25 = v19;
-      }
-      v7 = v29;
-    }
-    *v6 += v18;
-    if ( ++v14 >= v24 )
-      goto LABEL_21;
-  }
-  if ( v15 != -2147483622 )
-    goto LABEL_26;
-  InfoKey = 0;
-LABEL_21:
-  if ( InfoKey < 0 )
-    goto LABEL_26;
-LABEL_22:
-  if ( *v6 )
-  {
-    v20 = *v6 + 1;
-    *v6 = v20;
-    if ( v7 && v20 <= v30 )
-      *(_WORD *)(v7 + 2LL * (v20 - 1)) = 0;
     else
-      InfoKey = -1073741789;
+    {
+      return (unsigned int)-1073741275;
+    }
   }
-  else
-  {
-    InfoKey = -1073741275;
-  }
-LABEL_26:
-  ExFreePoolWithTag(Pool2, 0);
   return (unsigned int)InfoKey;
 }

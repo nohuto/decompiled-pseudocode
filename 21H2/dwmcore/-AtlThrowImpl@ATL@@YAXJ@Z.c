@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x18026C10C
+ * XREFs of ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x180216C60
  * Callers:
- *     ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x18001F8E4 (-RemoveAt@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBL.c)
+ *     ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x180024C08 (-RemoveAt@-$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV-$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBL.c)
  * Callees:
- *     _CxxThrowException_0 @ 0x180105167 (_CxxThrowException_0.c)
+ *     _CxxThrowException_0 @ 0x1800F47C3 (_CxxThrowException_0.c)
  */
 
 void __fastcall __noreturn ATL::AtlThrowImpl(int a1)

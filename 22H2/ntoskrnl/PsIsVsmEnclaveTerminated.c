@@ -1,34 +1,37 @@
 /*
- * XREFs of PsIsVsmEnclaveTerminated @ 0x1409B77BC
+ * XREFs of PsIsVsmEnclaveTerminated @ 0x14090E14C
  * Callers:
- *     MiCanDeleteEnclave @ 0x1406471B8 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x1405495A8 (MiCanDeleteEnclave.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
 bool __fastcall PsIsVsmEnclaveTerminated(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v2; // rdi
-  bool v4; // si
+  volatile signed __int64 *v3; // rdi
+  int v4; // eax
+  bool v5; // si
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (volatile signed __int64 *)(a1 + 48);
   --CurrentThread->KernelApcDisable;
+  v3 = (volatile signed __int64 *)(a1 + 48);
   ExAcquirePushLockExclusiveEx(a1 + 48, 0LL);
-  if ( !*(_DWORD *)(a1 + 44) )
+  v4 = *(_DWORD *)(a1 + 44);
+  if ( !v4 )
   {
     *(_DWORD *)(a1 + 44) = 2;
     KeSetEvent((PRKEVENT)(a1 + 80), 0, 0);
+    v4 = *(_DWORD *)(a1 + 44);
   }
-  v4 = *(_DWORD *)(a1 + 44) == 2;
-  if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v2);
-  KeAbPostRelease((ULONG_PTR)v2);
+  v5 = v4 == 2;
+  if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v3);
+  KeAbPostRelease((ULONG_PTR)v3);
   KeLeaveCriticalRegion();
-  return v4;
+  return v5;
 }

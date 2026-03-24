@@ -1,17 +1,17 @@
 /*
- * XREFs of ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030EBC0
+ * XREFs of ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265C60
  * Callers:
- *     ?PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z @ 0x1C02B9010 (-PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z.c)
- *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02B9C5C (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z @ 0x1C020F030 (-PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z.c)
+ *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020FAD0 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
- *     ?DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z @ 0x1C02CE3E0 (-DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z.c)
- *     ??0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z @ 0x1C030D4FC (--0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z.c)
- *     ??_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z @ 0x1C030D584 (--_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z.c)
- *     ?AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z @ 0x1C030D658 (-AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z.c)
- *     ?Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ @ 0x1C030D6EC (-Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ.c)
- *     ?ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ @ 0x1C030DDD0 (-ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ.c)
- *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F850 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?DmmCollectTdrDiagInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAX_K@Z @ 0x1C03AC674 (-DmmCollectTdrDiagInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAX_K@Z.c)
+ *     ?DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z @ 0x1C0221A68 (-DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z.c)
+ *     ??0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z @ 0x1C0264590 (--0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z.c)
+ *     ??_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z @ 0x1C02645E4 (--_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z.c)
+ *     ?AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z @ 0x1C02646C8 (-AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z.c)
+ *     ?Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ @ 0x1C026475C (-Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ.c)
+ *     ?ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ @ 0x1C0264DAC (-ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ.c)
+ *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266910 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?DmmCollectTdrDiagInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAX_K@Z @ 0x1C02DC60C (-DmmCollectTdrDiagInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAX_K@Z.c)
  */
 
 void __fastcall TdrCollectDbgInfoStage2(struct _TDR_RECOVERY_CONTEXT *a1)
@@ -22,92 +22,107 @@ void __fastcall TdrCollectDbgInfoStage2(struct _TDR_RECOVERY_CONTEXT *a1)
   char *v5; // rbx
   unsigned __int64 v6; // r8
   int v7; // eax
-  unsigned int *v8; // rbx
-  char *v9; // rax
-  char *v10; // rbx
-  int v11; // eax
-  unsigned int *v12; // rbx
-  CTDR_DUMP_BUFFER *v13; // rcx
-  _DWORD *v14; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
+  unsigned int *v11; // rbx
+  char *v12; // rax
+  char *v13; // rbx
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
+  unsigned int *v18; // rbx
+  CTDR_DUMP_BUFFER *v19; // rcx
+  _DWORD *v20; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *((_DWORD *)a1 + 4);
-  if ( *((_QWORD *)a1 + 356) )
+  if ( *((_QWORD *)a1 + 355) )
   {
-    v3 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 358);
+    v3 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 357);
     if ( v3 )
     {
       if ( v2 != 6 )
       {
-        if ( *(_QWORD *)(*((_QWORD *)a1 + 4) + 2920LL) )
+        if ( *(_QWORD *)(*((_QWORD *)a1 + 4) + 2696LL) )
         {
           v4 = (char *)CTDR_DUMP_BUFFER::AddSegment(v3, 5, 0x2004u);
           v5 = v4;
           if ( v4 )
           {
-            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v14, v4, 0x2000);
+            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v20, v4, 0x2000);
             v7 = DmmCollectTdrDiagInfo(a1, v5, v6);
             if ( v7 == -2147483643 )
             {
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
             }
             else if ( v7 < 0 )
             {
-              *((_DWORD *)a1 + 29) |= 0x80000000;
+              *((_DWORD *)a1 + 27) |= 0x80000000;
             }
-            if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v14) )
+            if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v20) )
             {
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
-              WdLogSingleEntry3(1LL, a1, v5, 0x2000LL);
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
+              v10 = (_QWORD *)WdLogNewEntry5_WdAssertion(v9, v8);
+              v10[3] = a1;
+              v10[4] = v5;
+              v10[5] = 0x2000LL;
+              WdLogEvent5_WdAssertion(v10);
             }
-            if ( v14 )
-              *v14 = 0;
+            if ( v20 )
+              *v20 = 0;
           }
           else
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          v8 = (unsigned int *)*((_QWORD *)a1 + 358);
-          CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v8);
-          *((_QWORD *)a1 + 357) = v8[6];
-          *((_DWORD *)a1 + 35) = 5;
+          v11 = (unsigned int *)*((_QWORD *)a1 + 357);
+          CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v11);
+          *((_QWORD *)a1 + 356) = v11[6];
+          *((_DWORD *)a1 + 33) = 5;
           TdrUpdateDbgReport(a1, 1);
+          v3 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 357);
         }
-        v9 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 7, 0x804u);
-        v10 = v9;
-        if ( v9 )
+        v12 = (char *)CTDR_DUMP_BUFFER::AddSegment(v3, 7, 0x804u);
+        v13 = v12;
+        if ( v12 )
         {
-          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v14, v9, 2048);
-          v11 = DxgkCollectCoreDbgInfo(a1, v10);
-          if ( v11 == -2147483643 )
+          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v20, v12, 2048);
+          v14 = DxgkCollectCoreDbgInfo(a1, v13);
+          if ( v14 == -2147483643 )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
           }
-          else if ( v11 < 0 )
+          else if ( v14 < 0 )
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v14) )
+          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v20) )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
-            WdLogSingleEntry3(1LL, a1, v10, 2048LL);
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
+            v17 = (_QWORD *)WdLogNewEntry5_WdAssertion(v16, v15);
+            v17[3] = a1;
+            v17[4] = v13;
+            v17[5] = 2048LL;
+            WdLogEvent5_WdAssertion(v17);
           }
-          if ( v14 )
-            *v14 = 0;
+          if ( v20 )
+            *v20 = 0;
         }
         else
         {
-          *((_DWORD *)a1 + 29) |= 0x80000000;
+          *((_DWORD *)a1 + 27) |= 0x80000000;
         }
-        v12 = (unsigned int *)*((_QWORD *)a1 + 358);
-        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v12);
-        *((_QWORD *)a1 + 357) = v12[6];
-        *((_DWORD *)a1 + 35) = 7;
+        v18 = (unsigned int *)*((_QWORD *)a1 + 357);
+        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v18);
+        *((_QWORD *)a1 + 356) = v18[6];
+        *((_DWORD *)a1 + 33) = 7;
         TdrUpdateDbgReport(a1, 1);
       }
-      v13 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 358);
-      if ( v13 )
-        CTDR_DUMP_BUFFER::`scalar deleting destructor'(v13);
-      *((_QWORD *)a1 + 358) = 0LL;
+      v19 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 357);
+      if ( v19 )
+        CTDR_DUMP_BUFFER::`scalar deleting destructor'(v19);
+      *((_QWORD *)a1 + 357) = 0LL;
     }
   }
 }

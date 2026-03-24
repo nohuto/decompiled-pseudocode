@@ -1,10 +1,10 @@
 /*
- * XREFs of DequeueAndReadyContext @ 0x1C0026C94
+ * XREFs of DequeueAndReadyContext @ 0x1C0029B50
  * Callers:
- *     SignalASLEvent @ 0x1C0026A00 (SignalASLEvent.c)
- *     WriteCookAccess @ 0x1C0026A60 (WriteCookAccess.c)
+ *     WriteCookAccess @ 0x1C0029900 (WriteCookAccess.c)
+ *     SignalASLEvent @ 0x1C0068798 (SignalASLEvent.c)
  * Callees:
- *     InsertReadyQueue @ 0x1C000E2B0 (InsertReadyQueue.c)
+ *     InsertReadyQueue @ 0x1C00047A0 (InsertReadyQueue.c)
  */
 
 struct _SLIST_ENTRY *__fastcall DequeueAndReadyContext(struct _SLIST_ENTRY **a1)
@@ -14,7 +14,7 @@ struct _SLIST_ENTRY *__fastcall DequeueAndReadyContext(struct _SLIST_ENTRY **a1)
   struct _SLIST_ENTRY *Next; // rcx
 
   v2 = 0LL;
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&SpinLock);
+  byte_1C00827B0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
   v3 = *a1;
   if ( *a1 != (struct _SLIST_ENTRY *)a1 )
   {
@@ -27,6 +27,6 @@ struct _SLIST_ENTRY *__fastcall DequeueAndReadyContext(struct _SLIST_ENTRY **a1)
     v3->Next = v3;
     InsertReadyQueue(v3 - 2, 1);
   }
-  KeReleaseSpinLock(&SpinLock, NewIrql);
+  KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
   return v2;
 }

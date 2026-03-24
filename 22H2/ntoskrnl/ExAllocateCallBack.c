@@ -1,29 +1,29 @@
 /*
- * XREFs of ExAllocateCallBack @ 0x140844F90
+ * XREFs of ExAllocateCallBack @ 0x140799C50
  * Callers:
- *     KeRegisterBoundCallback @ 0x14056CA90 (KeRegisterBoundCallback.c)
- *     DbgkLkmdRegisterCallback @ 0x140844A20 (DbgkLkmdRegisterCallback.c)
- *     PsEstablishWin32Callouts @ 0x140844AE0 (PsEstablishWin32Callouts.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x140844B70 (PsSetLoadImageNotifyRoutineEx.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x140844DF4 (PspSetCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140844E98 (PspSetCreateProcessNotifyRoutine.c)
+ *     KeRegisterBoundCallback @ 0x1405147E0 (KeRegisterBoundCallback.c)
+ *     DbgkLkmdRegisterCallback @ 0x1407996C0 (DbgkLkmdRegisterCallback.c)
+ *     PsEstablishWin32Callouts @ 0x140799790 (PsEstablishWin32Callouts.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140799870 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x140799AB4 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140799B58 (PspSetCreateProcessNotifyRoutine.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-struct _EX_RUNDOWN_REF *__fastcall ExAllocateCallBack(unsigned __int64 a1, unsigned __int64 a2)
+KSPIN_LOCK *__fastcall ExAllocateCallBack(KSPIN_LOCK a1, KSPIN_LOCK a2)
 {
-  struct _EX_RUNDOWN_REF *Pool2; // rax
-  struct _EX_RUNDOWN_REF *v5; // rbx
+  KSPIN_LOCK *PoolWithTag; // rax
+  KSPIN_LOCK *v5; // rbx
 
-  Pool2 = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(64LL, 24LL, 1651663427LL);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (KSPIN_LOCK *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x62726243u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2[1].Count = a1;
-    Pool2[2].Count = a2;
-    ExInitializePushLock(Pool2);
+    PoolWithTag[1] = a1;
+    PoolWithTag[2] = a2;
+    ExInitializePushLock(PoolWithTag);
   }
   return v5;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcProcessStatsRequest @ 0x1409D50C0
+ * XREFs of SmcProcessStatsRequest @ 0x14092AB78
  * Callers:
- *     SmQueryStoreInformation @ 0x1407FA644 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406C2DB8 (SmQueryStoreInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SmcGetCacheStats @ 0x1409D7F04 (SmcGetCacheStats.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcGetCacheStats @ 0x14092D9E0 (SmcGetCacheStats.c)
  */
 
 __int64 __fastcall SmcProcessStatsRequest(__int64 a1, unsigned __int64 a2, int a3, _DWORD *a4, char a5)
@@ -27,9 +27,9 @@ __int64 __fastcall SmcProcessStatsRequest(__int64 a1, unsigned __int64 a2, int a
     {
       if ( (a2 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v10 = 0x7FFFFFFF0000LL;
-      if ( a2 < 0x7FFFFFFF0000LL )
-        v10 = a2;
+      v10 = a2;
+      if ( a2 >= 0x7FFFFFFF0000LL )
+        v10 = 0x7FFFFFFF0000LL;
       *(_BYTE *)v10 = *(_BYTE *)v10;
       *(_BYTE *)(v10 + 1127) = *(_BYTE *)(v10 + 1127);
     }

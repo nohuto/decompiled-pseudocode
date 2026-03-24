@@ -1,12 +1,12 @@
 /*
- * XREFs of READ_REGISTER_USHORT @ 0x140371B80
+ * XREFs of READ_REGISTER_USHORT @ 0x1402524E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-USHORT __stdcall READ_REGISTER_USHORT(volatile USHORT *Register)
+USHORT __stdcall READ_REGISTER_USHORT(PSLIST_HEADER SListHead)
 {
-  return *Register;
+  return SListHead->Alignment;
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x180272F28
+ * XREFs of ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x180210010
  * Callers:
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E9C8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
- *     ?DebugInspectBitmap@@YAJPEAUID2D1Bitmap@@@Z @ 0x1802727D8 (-DebugInspectBitmap@@YAJPEAUID2D1Bitmap@@@Z.c)
- *     ?LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z @ 0x18029FA8C (-LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?DebugInspectBitmap@@YAJPEAUID2D1Bitmap@@@Z @ 0x18020F9A8 (-DebugInspectBitmap@@YAJPEAUID2D1Bitmap@@@Z.c)
+ *     ?LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z @ 0x180249088 (-LockAndRead@CD2DBitmap@@UEBAXPEBVID2DContextOwner@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x180272E38 (-DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z.c)
- *     GetStagingTexture @ 0x18027332C (GetStagingTexture.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x18020FF3C (-DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z.c)
+ *     GetStagingTexture @ 0x180210588 (GetStagingTexture.c)
  */
 
 __int64 __fastcall DebugInspectTexture(struct ID3D11Texture2D *a1, unsigned int a2)
 {
   int StagingTexture; // eax
-  unsigned int v4; // ebx
-  __int64 *v5; // rbx
-  __int64 v6; // rax
+  unsigned int v5; // edi
+  __int64 *v6; // rbx
   __int64 v7; // rax
-  int v8; // eax
-  int v9; // edi
+  __int64 v8; // rax
+  int v9; // eax
   __int64 v11; // [rsp+40h] [rbp-19h] BYREF
   __int64 *v12; // [rsp+48h] [rbp-11h] BYREF
   __int64 *v13; // [rsp+50h] [rbp-9h] BYREF
@@ -30,55 +30,53 @@ __int64 __fastcall DebugInspectTexture(struct ID3D11Texture2D *a1, unsigned int 
   unsigned int v16[12]; // [rsp+68h] [rbp+Fh] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+B8h] [rbp+5Fh]
 
-  v13 = 0LL;
-  StagingTexture = GetStagingTexture(a1, &v13);
-  v4 = StagingTexture;
+  v12 = 0LL;
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)&v12);
+  StagingTexture = GetStagingTexture(a1, &v12);
+  v5 = StagingTexture;
   if ( StagingTexture >= 0 )
   {
-    v5 = v13;
-    (*(void (__fastcall **)(__int64 *, unsigned int *))(*v13 + 80))(v13, v16);
-    v6 = *v5;
-    v12 = 0LL;
-    (*(void (__fastcall **)(__int64 *, __int64 **))(v6 + 24))(v5, &v12);
-    v7 = *v12;
+    v6 = v12;
+    (*(void (__fastcall **)(__int64 *, unsigned int *))(*v12 + 80))(v12, v16);
+    v7 = *v6;
+    v13 = 0LL;
+    (*(void (__fastcall **)(__int64 *, __int64 **))(v7 + 24))(v6, &v13);
+    v8 = *v13;
     v11 = 0LL;
-    (*(void (__fastcall **)(__int64 *, __int64 *))(v7 + 320))(v12, &v11);
-    v8 = (*(__int64 (__fastcall **)(__int64, __int64 *, _QWORD, __int64, _DWORD, void **))(*(_QWORD *)v11 + 112LL))(
+    (*(void (__fastcall **)(__int64 *, __int64 *))(v8 + 320))(v13, &v11);
+    v9 = (*(__int64 (__fastcall **)(__int64, __int64 *, _QWORD, __int64, _DWORD, void **))(*(_QWORD *)v11 + 112LL))(
            v11,
-           v5,
+           v6,
            a2,
            1LL,
            0,
            &v14);
-    v9 = v8;
-    if ( v8 >= 0 )
+    v5 = v9;
+    if ( v9 >= 0 )
     {
       DebugInspectSysMemSurface(v14, v16[0], v16[1], (enum DXGI_FORMAT)v16[4], v15);
-      (*(void (__fastcall **)(__int64, __int64 *, _QWORD))(*(_QWORD *)v11 + 120LL))(v11, v5, a2);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v11);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v12);
-      v4 = 0;
+      (*(void (__fastcall **)(__int64, __int64 *, _QWORD))(*(_QWORD *)v11 + 120LL))(v11, v6, a2);
+      v5 = 0;
     }
     else
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x9E,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
-        (const char *)(unsigned int)v8);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v11);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v12);
-      v4 = v9;
+        (void *)0x9D,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
+        (const char *)(unsigned int)v9);
     }
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v11);
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v13);
   }
   else
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x92,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
+      (void *)0x91,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
       (const char *)(unsigned int)StagingTexture);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v13);
-  return v4;
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v12);
+  return v5;
 }

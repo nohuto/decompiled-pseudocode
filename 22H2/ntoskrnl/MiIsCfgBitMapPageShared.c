@@ -1,122 +1,87 @@
 /*
- * XREFs of MiIsCfgBitMapPageShared @ 0x1402E53F0
+ * XREFs of MiIsCfgBitMapPageShared @ 0x14028DCEC
  * Callers:
- *     MiMarkSharedImageCfgBits @ 0x140747214 (MiMarkSharedImageCfgBits.c)
+ *     MiMarkSharedImageCfgBits @ 0x140636D24 (MiMarkSharedImageCfgBits.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiFastLockLeafPageTable @ 0x140237260 (MiFastLockLeafPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CDE0 (MiIsPrototypePteVadLookup.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiGetNextPageTable @ 0x14028DEA0 (MiGetNextPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiIsPrototypePteVadLookup @ 0x1402E3470 (MiIsPrototypePteVadLookup.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiIsCfgBitMapPageShared(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall MiIsCfgBitMapPageShared(unsigned __int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v4; // rsi
-  unsigned __int64 *v5; // rbp
-  unsigned __int8 v6; // r15
-  unsigned __int64 v7; // rbx
-  unsigned __int64 LeafVa; // rax
-  unsigned int v9; // r14d
-  char *AnyMultiplexedVm; // rdi
-  __int64 v11; // rbx
-  __int64 v12; // rdi
-  signed __int64 v13; // rbx
-  __int64 ProtoPteAddress; // rsi
-  unsigned __int64 v16; // rax
-  __int64 v17; // [rsp+20h] [rbp-118h] BYREF
-  __int64 v18[3]; // [rsp+28h] [rbp-110h] BYREF
-  __m128i v19; // [rsp+40h] [rbp-F8h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-E8h]
-  char *v21; // [rsp+58h] [rbp-E0h]
-  __int64 v22; // [rsp+60h] [rbp-D8h]
-  __int64 v23; // [rsp+68h] [rbp-D0h]
-  _BYTE v24[112]; // [rsp+70h] [rbp-C8h] BYREF
-  __int64 (__fastcall *v25)(); // [rsp+E0h] [rbp-58h]
-  __int64 *v26; // [rsp+E8h] [rbp-50h]
+  unsigned __int64 v6; // rbx
+  unsigned __int64 *v7; // r14
+  unsigned __int8 v8; // r15
+  int v9; // r9d
+  unsigned int v10; // edi
+  __int64 v11; // rsi
+  __int64 v12; // rbx
+  __int64 ProtoPteAddress; // rax
+  __int64 v14; // rbp
+  unsigned __int64 v15; // rax
+  __int64 v16; // rcx
+  bool v17; // zf
+  int v19; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v20; // [rsp+80h] [rbp+18h] BYREF
+  char v21; // [rsp+88h] [rbp+20h] BYREF
 
-  v4 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v5 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  v6 = MiLockWorkingSetShared((__int64)v5);
-  v19.m128i_i16[2] = 0;
-  *(_OWORD *)v18 = 0LL;
-  v19.m128i_i8[6] = 0;
-  v19.m128i_i64[1] = 0LL;
-  memset(v24, 0, sizeof(v24));
-  v19.m128i_i32[0] = 2145;
-  v7 = (__int64)(v4 << 25) >> 16;
-  LeafVa = MiGetLeafVa(v7);
-  v9 = 1;
-  if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_140C6A658 && LeafVa <= qword_140C67170 )
-    AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  else
-    AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  if ( (unsigned int)MiFastLockLeafPageTable((__int64)AnyMultiplexedVm, v7, 0) )
+  v19 = 0;
+  v6 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v7 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
+  v8 = MiLockWorkingSetShared((__int64)v7, a2, a3, a4);
+  LOBYTE(v9) = v8;
+  if ( v6 != MiGetNextPageTable(v6, v6, 0, v9, 0, (__int64)&v19) )
   {
-    v11 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v10 = 3;
+    goto LABEL_19;
   }
-  else
+  v11 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v20 = MI_READ_PTE_LOCK_FREE(v6);
+  v12 = v20;
+  if ( !v20 )
   {
-    v19.m128i_i32[0] |= 4u;
-    v26 = v18;
-    v20 = 0LL;
-    v21 = AnyMultiplexedVm;
-    v19.m128i_i8[4] = v19.m128i_i8[4] & 0xE3 | 4;
-    v25 = MiGetNextPageTableTail;
-    v19.m128i_i8[7] = v6;
-    v22 = (__int64)(v4 << 25) >> 16;
-    v23 = v22;
-    MiWalkPageTables(&v19);
-    v11 = v18[1];
-  }
-  if ( v4 != v11 )
-  {
-    v9 = 3;
-    goto LABEL_10;
-  }
-  v12 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v17 = MI_READ_PTE_LOCK_FREE(v4);
-  v13 = v17;
-  if ( !v17 )
-  {
-    v9 = 2;
-    goto LABEL_8;
-  }
-  ProtoPteAddress = MiGetProtoPteAddress(a2, a1 >> 12, 0, v18);
-  if ( (v17 & 1) == 0 )
-  {
-    if ( (v17 & 0x400) != 0 )
-    {
-      if ( MiIsPrototypePteVadLookup(v17) )
-        goto LABEL_8;
-      if ( qword_140C65C40 )
-      {
-        if ( (v17 & 0x10) != 0 )
-          v13 = v17 & 0xFFFFFFFFFFFFFFEFuLL;
-        else
-          v13 = ~qword_140C65C40 & v17;
-      }
-      if ( ProtoPteAddress == v13 >> 16 )
-        goto LABEL_8;
-    }
+    v10 = 2;
     goto LABEL_17;
   }
-  v16 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFFLL)
-      - 0x220000000000LL;
-  if ( *(__int64 *)(v16 + 40) >= 0 || (*(_QWORD *)(v16 + 8) | 0x8000000000000000uLL) != ProtoPteAddress )
+  ProtoPteAddress = MiGetProtoPteAddress(a2, a1 >> 12, 0LL, &v21);
+  v10 = 1;
+  v14 = ProtoPteAddress;
+  if ( (v12 & 1) != 0 )
+  {
+    v15 = MI_READ_PTE_LOCK_FREE(&v20);
+    if ( (unsigned int)MI_PFN_IS_PROTO(48 * ((v15 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL) )
+    {
+      v17 = (*(_QWORD *)(v16 + 8) | 0x8000000000000000uLL) == v14;
+      goto LABEL_15;
+    }
+  }
+  else if ( (v12 & 0x400) != 0 )
+  {
+    if ( (unsigned int)MiIsPrototypePteVadLookup(v12) )
+      goto LABEL_17;
+    if ( qword_140C4DF40 )
+    {
+      if ( (v12 & 0x10) != 0 )
+        v12 &= ~0x10uLL;
+      else
+        v12 &= ~qword_140C4DF40;
+    }
+    v17 = v14 == v12 >> 16;
+LABEL_15:
+    if ( v17 )
+      goto LABEL_17;
+  }
+  v10 = 0;
 LABEL_17:
-    v9 = 0;
-LABEL_8:
-  if ( v12 )
-    MiUnlockPageTableInternal(v5, v12);
-LABEL_10:
-  MiUnlockWorkingSetShared((__int64)v5, v6);
-  return v9;
+  if ( v11 )
+    MiUnlockPageTableInternal(v7, v11);
+LABEL_19:
+  MiUnlockWorkingSetShared((__int64)v7, v8);
+  return v10;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C01357C0
+ * XREFs of NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C01639E0
  * Callers:
  *     <none>
  * Callees:
- *     GreDwmCreatedBitmapRemotingOutput @ 0x1C01357DC (GreDwmCreatedBitmapRemotingOutput.c)
+ *     GreDwmCreatedBitmapRemotingOutput @ 0x1C01639FC (GreDwmCreatedBitmapRemotingOutput.c)
  */
 
 __int64 NtGdiDwmCreatedBitmapRemotingOutput()

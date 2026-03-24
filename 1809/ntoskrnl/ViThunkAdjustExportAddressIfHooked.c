@@ -5,7 +5,7 @@
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAF0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ViThunkAdjustExportAddressIfHooked(

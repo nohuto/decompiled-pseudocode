@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpSetKernelDataProtection @ 0x1406A71F0
+ * XREFs of ExpSetKernelDataProtection @ 0x140685DD0
  * Callers:
- *     ExpGetLicenseTamperState @ 0x140639C30 (ExpGetLicenseTamperState.c)
- *     ExpSetLicenseTamperState @ 0x140639FC4 (ExpSetLicenseTamperState.c)
- *     ExInitLicenseData @ 0x14082D3F8 (ExInitLicenseData.c)
- *     ExSetLicenseTamperState @ 0x1409F97C0 (ExSetLicenseTamperState.c)
- *     sub_1409F9AD0 @ 0x1409F9AD0 (sub_1409F9AD0.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA6E0 (SLUpdateLicenseDataInternal.c)
+ *     ExpGetLicenseTamperState @ 0x1405B2CC8 (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x1405B3064 (ExpSetLicenseTamperState.c)
+ *     ExInitLicenseData @ 0x1407AAD08 (ExInitLicenseData.c)
+ *     ExSetLicenseTamperState @ 0x14094D2D0 (ExSetLicenseTamperState.c)
+ *     sub_14094D610 @ 0x14094D610 (sub_14094D610.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E290 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     sub_1406A7498 @ 0x1406A7498 (sub_1406A7498.c)
- *     sub_140855A64 @ 0x140855A64 (sub_140855A64.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     sub_140686078 @ 0x140686078 (sub_140686078.c)
+ *     sub_1407C6D34 @ 0x1407C6D34 (sub_1407C6D34.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, __int64 a2, char a3, char a4)
@@ -51,7 +51,7 @@ __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, __int64 a2, char a3, c
   if ( v9 )
   {
     v19 = *v9;
-    v16 = sub_1406A7498(&v19);
+    v16 = sub_140686078(&v19);
     if ( v16 >= 0 )
     {
       PoolWithTag = v19;
@@ -84,7 +84,7 @@ LABEL_7:
       *((_QWORD *)PoolWithTag + 3) = 0LL;
       *((_QWORD *)PoolWithTag + 4) = 0LL;
       *((_BYTE *)PoolWithTag + 40) = 1;
-      v16 = sub_140855A64(v11);
+      v16 = sub_1407C6D34(v11);
       if ( v16 >= 0 )
       {
         *(_QWORD *)(a1 + 47016) = v12;

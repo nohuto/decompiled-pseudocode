@@ -2,9 +2,9 @@
  * XREFs of BgpDisplayCharacterDestroyContext @ 0x140950EF8
  * Callers:
  *     BgConsoleDestroyInterface @ 0x140950E9C (BgConsoleDestroyInterface.c)
- *     BgpBcInitializeCriticalMode @ 0x1409FB410 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x1409FB420 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
  *     BgpTxtDestroyRegion @ 0x14095101C (BgpTxtDestroyRegion.c)
  */
 

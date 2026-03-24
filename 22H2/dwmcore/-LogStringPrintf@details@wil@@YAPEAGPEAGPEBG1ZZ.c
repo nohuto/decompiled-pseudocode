@@ -1,9 +1,9 @@
 /*
- * XREFs of ?LogStringPrintf@details@wil@@YAPEAGPEAGPEBG1ZZ @ 0x180198F0C
+ * XREFs of ?LogStringPrintf@details@wil@@YAPEAGPEAGPEBG1ZZ @ 0x18014DAA4
  * Callers:
- *     ?GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z @ 0x180198920 (-GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z.c)
+ *     ?GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z @ 0x18014D164 (-GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z.c)
  * Callees:
- *     ?StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z @ 0x18019A6F0 (-StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z.c)
+ *     ?StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z @ 0x18014E764 (-StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z.c)
  */
 
 unsigned __int16 *wil::details::LogStringPrintf(

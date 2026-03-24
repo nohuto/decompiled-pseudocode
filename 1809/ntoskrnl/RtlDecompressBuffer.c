@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBuffer @ 0x1402EC6C0
+ * XREFs of RtlDecompressBuffer @ 0x1402EC7C0
  * Callers:
- *     RtlDecompressChunks @ 0x1408907B0 (RtlDecompressChunks.c)
+ *     RtlDecompressChunks @ 0x140890790 (RtlDecompressChunks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlDecompressBuffer(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetSurfaceManagerEvents@CPartitionVerticalBlankScheduler@@UEAAXPEAX0@Z @ 0x1800FA670
+ * XREFs of ?SetSurfaceManagerEvents@CPartitionVerticalBlankScheduler@@UEAAXPEAX0@Z @ 0x1800E1C70
  * Callers:
  *     <none>
  * Callees:

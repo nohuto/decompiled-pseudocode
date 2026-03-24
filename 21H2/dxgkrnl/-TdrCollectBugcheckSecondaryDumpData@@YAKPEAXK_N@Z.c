@@ -1,15 +1,15 @@
 /*
- * XREFs of ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0052318
+ * XREFs of ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0044E2C
  * Callers:
- *     _DxgDbgBugcheckCallback @ 0x1C004C9E0 (_DxgDbgBugcheckCallback.c)
- *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z @ 0x1C02CEAA0 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z.c)
- *     ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C02EB624 (-DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z.c)
- *     ?DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C0304978 (-DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLL.c)
+ *     _DxgDbgBugcheckCallback @ 0x1C0043BC0 (_DxgDbgBugcheckCallback.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z @ 0x1C0220DE0 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z.c)
+ *     ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C025A788 (-DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z.c)
+ *     ?DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C0264018 (-DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLL.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?TdrGatherPowerTriage@@YA?AU_DPI_DBG_POWER_ACTIVITY@@XZ @ 0x1C00525B4 (-TdrGatherPowerTriage@@YA-AU_DPI_DBG_POWER_ACTIVITY@@XZ.c)
- *     DpiGetDbgInfoAdapters @ 0x1C005F594 (DpiGetDbgInfoAdapters.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?TdrGatherPowerTriage@@YA?AU_DPI_DBG_POWER_ACTIVITY@@XZ @ 0x1C00450C4 (-TdrGatherPowerTriage@@YA-AU_DPI_DBG_POWER_ACTIVITY@@XZ.c)
+ *     DpiGetDbgInfoAdapters @ 0x1C0051488 (DpiGetDbgInfoAdapters.c)
  */
 
 __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(_QWORD *a1, unsigned int a2, char a3)
@@ -30,14 +30,13 @@ __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(_QWORD *a1, unsigned int 
   __int64 v18; // rax
   unsigned __int16 v19; // bx
   __int64 v20; // rdx
-  unsigned int RecentEvents; // r8d
-  unsigned __int64 v22; // rdx
-  __int64 v23; // rdx
-  unsigned int v24; // eax
-  __int64 v25; // rdx
-  _DWORD v27[9]; // [rsp+28h] [rbp-91h]
-  __int64 v28; // [rsp+4Ch] [rbp-6Dh]
-  _DWORD v29[28]; // [rsp+60h] [rbp-59h] BYREF
+  unsigned __int64 RecentEvents; // r9
+  __int64 v22; // rdx
+  int v23; // eax
+  __int64 v24; // rdx
+  _DWORD v26[9]; // [rsp+28h] [rbp-91h]
+  __int64 v27; // [rsp+4Ch] [rbp-6Dh]
+  _DWORD v28[28]; // [rsp+60h] [rbp-59h] BYREF
 
   v3 = a3;
   v4 = a2;
@@ -54,28 +53,31 @@ __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(_QWORD *a1, unsigned int 
   }
   v9 = 0;
   v10 = 8;
-  if ( a2 < 0xB0 )
+  if ( a2 >= 0xB0 )
+  {
+    if ( a1 )
+    {
+      *((_DWORD *)a1 + 42) = 2;
+      v9 = 1;
+      *((_BYTE *)a1 + 172) = word_1C00B2B1D;
+      *((_BYTE *)a1 + 173) = 0;
+      *((_DWORD *)a1 + 2) = 168;
+      *((_DWORD *)a1 + 3) = 9;
+    }
+  }
+  else
   {
     v10 = 0;
   }
-  else if ( a1 )
-  {
-    *((_DWORD *)a1 + 42) = 2;
-    v9 = 1;
-    *((_BYTE *)a1 + 172) = word_1C013049C;
-    *((_BYTE *)a1 + 173) = 0;
-    *((_DWORD *)a1 + 2) = 168;
-    *((_DWORD *)a1 + 3) = 9;
-  }
   v11 = (unsigned int)(v10 + 168);
-  memset(v29, 0, sizeof(v29));
-  if ( (int)DpiGetDbgInfoAdapters(v29) >= 0 )
+  memset(v28, 0, sizeof(v28));
+  if ( (int)DpiGetDbgInfoAdapters(v28) >= 0 )
   {
     for ( j = 0; j < 7u; ++j )
     {
       if ( (unsigned int)v11 >= (unsigned int)v4 )
         break;
-      v13 = v29[4 * j];
+      v13 = v28[4 * j];
       if ( !v13 )
         break;
       if ( v11 + 16 <= v4 )
@@ -83,10 +85,10 @@ __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(_QWORD *a1, unsigned int 
         ++v9;
         if ( a1 )
         {
-          *(_DWORD *)((char *)a1 + v11 + 4) = v29[4 * j + 1];
-          *(_DWORD *)((char *)a1 + v11 + 8) = v29[4 * j + 2];
+          *(_DWORD *)((char *)a1 + v11 + 4) = v28[4 * j + 1];
+          *(_DWORD *)((char *)a1 + v11 + 8) = v28[4 * j + 2];
           v14 = v9;
-          v15 = (*(_DWORD *)((char *)a1 + v11 + 12) ^ v29[4 * j + 3]) & 3;
+          v15 = (*(_DWORD *)((char *)a1 + v11 + 12) ^ v28[4 * j + 3]) & 3;
           *(_DWORD *)((char *)a1 + v11) = v13;
           *(_DWORD *)((char *)a1 + v11 + 12) ^= v15;
           LODWORD(a1[v14]) = v11;
@@ -106,17 +108,17 @@ __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(_QWORD *a1, unsigned int 
     v11 = (unsigned int)(v11 + 8);
     HIDWORD(a1[v18]) = 48;
   }
-  v27[0] = 1;
-  v27[3] = 64;
+  v26[0] = 1;
+  v26[3] = 64;
   v19 = 0;
-  v27[4] = 64;
-  v27[5] = 64;
-  v27[7] = 64;
-  v28 = 64LL;
-  v27[1] = 32;
-  v27[2] = 32;
-  v27[6] = 32;
-  v27[8] = 32;
+  v26[4] = 64;
+  v26[5] = 64;
+  v26[7] = 64;
+  v27 = 64LL;
+  v26[1] = 32;
+  v26[2] = 32;
+  v26[6] = 32;
+  v26[8] = 32;
   do
   {
     if ( (unsigned int)v11 >= (unsigned int)v4 )
@@ -124,28 +126,27 @@ __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(_QWORD *a1, unsigned int 
     if ( v3 )
       v20 = 0xFFFFFFFFLL;
     else
-      v20 = (unsigned int)v27[v19];
-    RecentEvents = WdLogGetRecentEvents(v19, v20, 0LL, 0LL);
-    v22 = v11 + RecentEvents;
-    if ( v22 < RecentEvents || v22 > v4 )
-      RecentEvents = v4 - v11;
-    if ( RecentEvents )
+      v20 = (unsigned int)v26[v19];
+    RecentEvents = (unsigned int)WdLogGetRecentEvents(v19, v20, 0LL, 0LL);
+    if ( v11 + RecentEvents < RecentEvents || v11 + RecentEvents > v4 )
+      RecentEvents = (unsigned int)(v4 - v11);
+    if ( (_DWORD)RecentEvents )
     {
       ++v16;
       if ( a1 )
       {
         if ( a3 )
-          v23 = 0xFFFFFFFFLL;
+          v22 = 0xFFFFFFFFLL;
         else
-          v23 = (unsigned int)v27[v19];
-        v24 = WdLogGetRecentEvents(v19, v23, (char *)a1 + v11, RecentEvents);
-        v25 = v16;
-        RecentEvents = v24;
-        LODWORD(a1[v25]) = v11;
-        HIDWORD(a1[v25]) = v19 + 16;
+          v22 = (unsigned int)v26[v19];
+        v23 = WdLogGetRecentEvents(v19, v22, (char *)a1 + (unsigned int)v11, RecentEvents);
+        v24 = v16;
+        LODWORD(RecentEvents) = v23;
+        LODWORD(a1[v24]) = v11;
+        HIDWORD(a1[v24]) = v19 + 16;
       }
       v3 = a3;
-      v11 = RecentEvents + (unsigned int)v11;
+      v11 = (unsigned int)(RecentEvents + v11);
     }
     ++v19;
   }

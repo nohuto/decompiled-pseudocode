@@ -1,118 +1,110 @@
 /*
- * XREFs of HalpSaveAndDisableEnlightenment @ 0x14050C2B0
+ * XREFs of HalpSaveAndDisableEnlightenment @ 0x1404C3090
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031F8FC (HalpInterruptModel.c)
- *     HalpTimerUpdateApiConsumers @ 0x14051F9E4 (HalpTimerUpdateApiConsumers.c)
+ *     HalpInterruptModel @ 0x14037ADC4 (HalpInterruptModel.c)
+ *     HalpTimerUpdateApiConsumers @ 0x1404D55F8 (HalpTimerUpdateApiConsumers.c)
  */
 
 __int64 HalpSaveAndDisableEnlightenment()
 {
   __int64 result; // rax
-  char v1; // dl
 
   result = HalpInterruptModel();
   if ( (_DWORD)result == 1 )
   {
-    dword_140C622FC = dword_140C6257C;
-    qword_140C62300 = (__int64)qword_140C62580;
-    dword_140C622E4 = dword_140C62564;
-    qword_140C62310 = qword_140C62590;
-    qword_140C62318 = qword_140C62598;
-    qword_140C62320 = qword_140C625A0;
-    qword_140C62328 = qword_140C625A8;
-    qword_140C62330 = qword_140C625B0;
-    qword_140C62338 = qword_140C625B8;
-    qword_140C62350 = (__int64)qword_140C625D0;
-    qword_140C62378 = (__int64)qword_140C625F8;
-    qword_140C62380 = qword_140C62600;
-    qword_140C62388 = qword_140C62608;
-    qword_140C62390 = qword_140C62610;
-    qword_140C62398 = qword_140C62618;
-    qword_140C623A0 = qword_140C62620;
+    dword_140C4A3FC = dword_140C4A1FC;
+    qword_140C4A400 = (__int64)qword_140C4A200;
+    dword_140C4A3E4 = dword_140C4A1E4;
+    qword_140C4A410 = qword_140C4A210;
+    qword_140C4A418 = qword_140C4A218;
+    qword_140C4A420 = qword_140C4A220;
+    qword_140C4A428 = qword_140C4A228;
+    qword_140C4A430 = qword_140C4A230;
+    qword_140C4A438 = qword_140C4A238;
+    qword_140C4A450 = (__int64)qword_140C4A250;
+    qword_140C4A478 = (__int64)qword_140C4A278;
+    qword_140C4A480 = qword_140C4A280;
+    qword_140C4A488 = qword_140C4A288;
+    qword_140C4A490 = qword_140C4A290;
+    qword_140C4A498 = qword_140C4A298;
+    qword_140C4A4A0 = qword_140C4A2A0;
     HalpEnlightenmentHbSaved = HalpEnlightenment;
-    qword_140C62468 = (__int64)qword_140C626E8;
-    qword_140C62470 = qword_140C626F0;
-    qword_140C623E0 = qword_140C62660;
-    qword_140C623C8 = (__int64)qword_140C62648;
-    qword_140C623D0 = qword_140C62650;
-    xmmword_140C622E8 = xmmword_140C62568;
-    qword_140C62340 = qword_140C625C0;
-    qword_140C62348 = qword_140C625C8;
-    qword_140C62358 = (__int64)qword_140C625D8;
-    qword_140C62360 = (__int64)qword_140C625E0;
-    qword_140C62368 = (__int64)qword_140C625E8;
-    qword_140C62370 = qword_140C625F0;
-    qword_140C623B0 = (__int64)qword_140C62630;
-    qword_140C623B8 = (__int64)qword_140C62638;
-    qword_140C623C0 = qword_140C62640;
-    qword_140C623D8 = qword_140C62658;
-    qword_140C623E8 = qword_140C62668;
-    qword_140C623F0 = qword_140C62670;
-    qword_140C623F8 = qword_140C62678;
-    qword_140C62400 = qword_140C62680;
-    qword_140C62408 = qword_140C62688;
-    qword_140C62410 = qword_140C62690;
-    qword_140C62418 = qword_140C62698;
-    qword_140C62420 = qword_140C626A0;
-    qword_140C62428 = qword_140C626A8;
-    qword_140C62430 = qword_140C626B0;
-    qword_140C62438 = qword_140C626B8;
-    qword_140C62440 = qword_140C626C0;
-    qword_140C62448 = qword_140C626C8;
-    qword_140C62450 = qword_140C626D0;
-    qword_140C62458 = qword_140C626D8;
-    qword_140C62460 = qword_140C626E0;
+    qword_140C4A550 = (__int64)qword_140C4A350;
+    qword_140C4A558 = qword_140C4A358;
+    qword_140C4A4C8 = (__int64)qword_140C4A2C8;
+    qword_140C4A4D0 = qword_140C4A2D0;
+    xmmword_140C4A3E8 = xmmword_140C4A1E8;
+    qword_140C4A440 = qword_140C4A240;
+    qword_140C4A448 = qword_140C4A248;
+    qword_140C4A458 = (__int64)qword_140C4A258;
+    qword_140C4A460 = (__int64)qword_140C4A260;
+    qword_140C4A468 = (__int64)qword_140C4A268;
+    qword_140C4A470 = qword_140C4A270;
+    qword_140C4A4B0 = (__int64)qword_140C4A2B0;
+    qword_140C4A4B8 = (__int64)qword_140C4A2B8;
+    qword_140C4A4C0 = qword_140C4A2C0;
+    qword_140C4A4D8 = qword_140C4A2D8;
+    qword_140C4A4E0 = qword_140C4A2E0;
+    qword_140C4A4E8 = qword_140C4A2E8;
+    qword_140C4A4F0 = qword_140C4A2F0;
+    qword_140C4A4F8 = qword_140C4A2F8;
+    qword_140C4A500 = qword_140C4A300;
+    qword_140C4A508 = qword_140C4A308;
+    qword_140C4A510 = qword_140C4A310;
+    qword_140C4A518 = qword_140C4A318;
+    qword_140C4A520 = qword_140C4A320;
+    qword_140C4A528 = qword_140C4A328;
+    qword_140C4A530 = qword_140C4A330;
+    qword_140C4A538 = qword_140C4A338;
+    qword_140C4A540 = qword_140C4A340;
+    qword_140C4A548 = qword_140C4A348;
     HalpEnlightenment = 0;
-    dword_140C6257C = -1;
-    qword_140C62580 = 0LL;
-    dword_140C62564 = 0;
-    qword_140C62590 = 0LL;
-    qword_140C62598 = 0LL;
-    qword_140C625A0 = 0LL;
-    qword_140C625A8 = 0LL;
-    qword_140C625B0 = 0LL;
-    qword_140C625B8 = 0LL;
-    qword_140C625D0 = 0LL;
-    qword_140C625F8 = 0LL;
-    qword_140C62600 = 0LL;
-    qword_140C62608 = 0LL;
-    qword_140C62610 = 0LL;
-    qword_140C62618 = 0LL;
-    qword_140C62620 = 0LL;
-    qword_140C626E8 = 0LL;
-    qword_140C62660 = 0LL;
-    if ( !v1 )
-      qword_140C62648 = 0LL;
-    qword_140C62650 = 0LL;
-    xmmword_140C62568 = 0uLL;
-    qword_140C625C0 = 0LL;
-    qword_140C625C8 = 0LL;
-    qword_140C625D8 = 0LL;
-    qword_140C625E0 = 0LL;
-    qword_140C625E8 = 0LL;
-    qword_140C625F0 = 0LL;
-    qword_140C62630 = 0LL;
-    qword_140C62638 = 0LL;
-    qword_140C62640 = 0LL;
-    qword_140C62658 = 0LL;
-    qword_140C62668 = 0LL;
-    qword_140C62670 = 0LL;
-    qword_140C62678 = 0LL;
-    qword_140C62680 = 0LL;
-    qword_140C62688 = 0LL;
-    qword_140C62690 = 0LL;
-    qword_140C62698 = 0LL;
-    qword_140C626A0 = 0LL;
-    qword_140C626A8 = 0LL;
-    qword_140C626B0 = 0LL;
-    qword_140C626B8 = 0LL;
-    qword_140C626C0 = 0LL;
-    qword_140C626C8 = 0LL;
-    qword_140C626D0 = 0LL;
-    qword_140C626D8 = 0LL;
-    qword_140C626E0 = 0LL;
+    dword_140C4A1FC = -1;
+    qword_140C4A200 = 0LL;
+    dword_140C4A1E4 = 0;
+    qword_140C4A210 = 0LL;
+    qword_140C4A218 = 0LL;
+    qword_140C4A220 = 0LL;
+    qword_140C4A228 = 0LL;
+    qword_140C4A230 = 0LL;
+    qword_140C4A238 = 0LL;
+    qword_140C4A250 = 0LL;
+    qword_140C4A278 = 0LL;
+    qword_140C4A280 = 0LL;
+    qword_140C4A288 = 0LL;
+    qword_140C4A290 = 0LL;
+    qword_140C4A298 = 0LL;
+    qword_140C4A2A0 = 0LL;
+    qword_140C4A350 = 0LL;
+    qword_140C4A2C8 = 0LL;
+    qword_140C4A2D0 = 0LL;
+    xmmword_140C4A1E8 = 0uLL;
+    qword_140C4A240 = 0LL;
+    qword_140C4A248 = 0LL;
+    qword_140C4A258 = 0LL;
+    qword_140C4A260 = 0LL;
+    qword_140C4A268 = 0LL;
+    qword_140C4A270 = 0LL;
+    qword_140C4A2B0 = 0LL;
+    qword_140C4A2B8 = 0LL;
+    qword_140C4A2C0 = 0LL;
+    qword_140C4A2D8 = 0LL;
+    qword_140C4A2E0 = 0LL;
+    qword_140C4A2E8 = 0LL;
+    qword_140C4A2F0 = 0LL;
+    qword_140C4A2F8 = 0LL;
+    qword_140C4A300 = 0LL;
+    qword_140C4A308 = 0LL;
+    qword_140C4A310 = 0LL;
+    qword_140C4A318 = 0LL;
+    qword_140C4A320 = 0LL;
+    qword_140C4A328 = 0LL;
+    qword_140C4A330 = 0LL;
+    qword_140C4A338 = 0LL;
+    qword_140C4A340 = 0LL;
+    qword_140C4A348 = 0LL;
     return HalpTimerUpdateApiConsumers();
   }
   return result;

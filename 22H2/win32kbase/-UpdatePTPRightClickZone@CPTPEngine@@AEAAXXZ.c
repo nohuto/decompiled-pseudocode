@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ @ 0x1C0204A80
+ * XREFs of ?UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ @ 0x1C01C9354
  * Callers:
- *     ?ProcessEnvironment@CPTPEngine@@MEAAJXZ @ 0x1C0201F90 (-ProcessEnvironment@CPTPEngine@@MEAAJXZ.c)
+ *     ?ProcessEnvironment@CPTPEngine@@MEAAJXZ @ 0x1C01C66D0 (-ProcessEnvironment@CPTPEngine@@MEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -13,11 +13,11 @@ void __fastcall CPTPEngine::UpdatePTPRightClickZone(CPTPEngine *this)
 
   v1 = *((_DWORD *)this + 7);
   v2 = *((_OWORD *)this + 5);
-  *((_OWORD *)this + 242) = v2;
+  *(_OWORD *)((char *)this + 3768) = v2;
   if ( v1 )
   {
-    *((_DWORD *)this + 968) = 0;
-    *((_DWORD *)this + 970) = DWORD2(v2) - v2;
+    *((_DWORD *)this + 942) = 0;
+    *((_DWORD *)this + 944) = DWORD2(v2) - v2;
   }
-  *((_DWORD *)this + 984) ^= (*((_DWORD *)this + 984) ^ (v1 << 19)) & 0x80000;
+  *((_DWORD *)this + 958) ^= (*((_DWORD *)this + 958) ^ (v1 << 19)) & 0x80000;
 }

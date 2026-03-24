@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_SM_CompleteResetRequestFromClient @ 0x1C003B858
+ * XREFs of Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039920
  * Callers:
- *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C003B904 (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
- *     ESM_CompletingResetRequestWhenEndpointNotHalted @ 0x1C00515F0 (ESM_CompletingResetRequestWhenEndpointNotHalted.c)
+ *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C00399CC (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
+ *     ESM_CompletingResetRequestWhenEndpointNotHalted @ 0x1C004EA40 (ESM_CompletingResetRequestWhenEndpointNotHalted.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ddqd @ 0x1C003D7E0 (WPP_RECORDER_SF_ddqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003B4AC (WPP_RECORDER_SF_ddqd.c)
  */
 
 __int64 __fastcall Endpoint_SM_CompleteResetRequestFromClient(__int64 a1, __int64 a2, int a3)
@@ -14,10 +14,10 @@ __int64 __fastcall Endpoint_SM_CompleteResetRequestFromClient(__int64 a1, __int6
   __int64 v4; // rdi
 
   _InterlockedAnd((volatile signed __int32 *)(a1 + 32), 0xFFFFFF7F);
-  v3 = *(_DWORD *)(a1 + 288);
-  v4 = *(_QWORD *)(a1 + 280);
-  *(_QWORD *)(a1 + 280) = 0LL;
-  *(_DWORD *)(a1 + 288) = 259;
+  v3 = *(_DWORD *)(a1 + 280);
+  v4 = *(_QWORD *)(a1 + 272);
+  *(_QWORD *)(a1 + 272) = 0LL;
+  *(_DWORD *)(a1 + 280) = 259;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_ddqd(*(_QWORD *)(a1 + 80), 4, a3, 115);
   return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(

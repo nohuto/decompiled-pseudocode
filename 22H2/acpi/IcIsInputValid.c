@@ -1,9 +1,9 @@
 /*
- * XREFs of IcIsInputValid @ 0x1C009F434
+ * XREFs of IcIsInputValid @ 0x1C0096C34
  * Callers:
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB1C (IrqArbpAssignIrqFromLinkNode.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDD0 (IrqArbpFindSuitableRangeIsa.c)
- *     IrqArbpFindSuitableRangePci @ 0x1C009E1B4 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
  * Callees:
  *     <none>
  */
@@ -12,12 +12,10 @@ char __fastcall IcIsInputValid(unsigned int a1)
 {
   __int64 i; // rax
 
-  for ( i = IcListHead; ; i = *(_QWORD *)i )
+  for ( i = IcListHead; &IcListHead != (__int64 *)i; i = *(_QWORD *)i )
   {
-    if ( &IcListHead == (__int64 *)i )
-      return 0;
     if ( *(int *)(i + 28) >= 0 && *(_DWORD *)(i + 16) <= a1 && *(_DWORD *)(i + 20) >= a1 )
-      break;
+      return 1;
   }
-  return 1;
+  return 0;
 }

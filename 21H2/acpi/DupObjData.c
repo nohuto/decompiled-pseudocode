@@ -1,45 +1,53 @@
 /*
- * XREFs of DupObjData @ 0x1C00169A0
+ * XREFs of DupObjData @ 0x1C000A400
  * Callers:
- *     RunContext @ 0x1C0010A50 (RunContext.c)
- *     AsyncEvalObject @ 0x1C00114E0 (AsyncEvalObject.c)
- *     ParseCall @ 0x1C00123D0 (ParseCall.c)
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     Return @ 0x1C00174B0 (Return.c)
- *     AMLIEvalPkgDataElement @ 0x1C0019244 (AMLIEvalPkgDataElement.c)
- *     EvalPackageElement @ 0x1C0024344 (EvalPackageElement.c)
- *     Simulator_Copy_Arguments @ 0x1C0064C68 (Simulator_Copy_Arguments.c)
- *     Simulator_DuplicateObjData @ 0x1C0064D30 (Simulator_DuplicateObjData.c)
- *     ParseDLMObjectInternal @ 0x1C0066C60 (ParseDLMObjectInternal.c)
- *     NestAsyncEvalObject @ 0x1C006982C (NestAsyncEvalObject.c)
- *     CopyObject @ 0x1C0069E40 (CopyObject.c)
- *     ProcessLoadTable @ 0x1C006A9B0 (ProcessLoadTable.c)
- *     ParseNestedContext @ 0x1C006BFA0 (ParseNestedContext.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     AsyncEvalObject @ 0x1C0005890 (AsyncEvalObject.c)
+ *     ParseCall @ 0x1C0006B60 (ParseCall.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     Return @ 0x1C000A590 (Return.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     AMLIEvalPkgDataElement @ 0x1C000F09C (AMLIEvalPkgDataElement.c)
+ *     EvalPackageElement @ 0x1C001246C (EvalPackageElement.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
+ *     Simulator_Copy_Arguments @ 0x1C00639E8 (Simulator_Copy_Arguments.c)
+ *     Simulator_DuplicateObjData @ 0x1C0063AB0 (Simulator_DuplicateObjData.c)
+ *     ParseDLMObjectInternal @ 0x1C00658A8 (ParseDLMObjectInternal.c)
+ *     NestAsyncEvalObject @ 0x1C00683FC (NestAsyncEvalObject.c)
+ *     CopyObject @ 0x1C0069110 (CopyObject.c)
+ *     ProcessLoadTable @ 0x1C006A1F0 (ProcessLoadTable.c)
+ *     ParseNestedContext @ 0x1C006BCF0 (ParseNestedContext.c)
  * Callees:
- *     NewObjData @ 0x1C0015D5C (NewObjData.c)
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
 __int64 __fastcall DupObjData(struct _SLIST_ENTRY *a1, __int64 a2, __int64 a3)
 {
+  struct _SLIST_ENTRY *v5; // r15
   unsigned int v6; // ebp
   __int64 result; // rax
-  _SLIST_ENTRY *v8; // rax
-  int v9; // ecx
-  _DWORD *v10; // r12
-  _DWORD *v11; // r15
-  int v12; // edi
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  _QWORD *v16; // rcx
-  _QWORD *v17; // rcx
+  int v8; // eax
+  void *v9; // r14
+  int v10; // edx
+  int v11; // ecx
+  _DWORD *v12; // r14
+  int v13; // edi
+  _DWORD *v14; // rcx
+  _DWORD *v15; // r12
+  int v16; // ecx
+  int v17; // ecx
+  int v18; // ecx
+  int ObjectTypeName; // eax
+  _QWORD *v20; // rcx
+  _QWORD *v21; // rcx
 
+  v5 = a1;
   v6 = 0;
   if ( a2 == a3 )
     return 0LL;
@@ -48,65 +56,133 @@ __int64 __fastcall DupObjData(struct _SLIST_ENTRY *a1, __int64 a2, __int64 a3)
   *(_QWORD *)(a2 + 32) = *(_QWORD *)(a3 + 32);
   if ( !*(_QWORD *)(a3 + 32) )
     return 0LL;
-  v8 = NewObjData(a1, a3);
-  *(_QWORD *)(a2 + 32) = v8;
-  if ( v8 )
+  v8 = *(unsigned __int16 *)(a3 + 2);
+  v9 = 0LL;
+  if ( v8 == 4 )
   {
-    memmove(v8, *(const void **)(a3 + 32), *(unsigned int *)(a3 + 24));
-    v9 = *(unsigned __int16 *)(a2 + 2);
-    if ( v9 == 4 )
+    v10 = 1196118088;
+    goto LABEL_6;
+  }
+  if ( v8 == 3 )
+  {
+    v10 = 1179992648;
+LABEL_6:
+    a1 = (struct _SLIST_ENTRY *)gpheapGlobal;
+LABEL_7:
+    v9 = (void *)HeapAlloc(a1, v10, *(_DWORD *)(a3 + 24));
+    goto LABEL_8;
+  }
+  switch ( *(_WORD *)(a3 + 2) )
+  {
+    case 2:
+      v10 = 1381258056;
+      goto LABEL_6;
+    case 5:
+      v10 = 1430537800;
+      goto LABEL_7;
+    case 7:
+      v10 = 1314276680;
+      goto LABEL_7;
+    case 8:
+      v10 = 1413827912;
+      goto LABEL_7;
+    case 9:
+      v10 = 1414876488;
+      goto LABEL_7;
+    case 0xA:
+      v10 = 1196576584;
+      goto LABEL_7;
+    case 0xB:
+      v10 = 1397903432;
+      goto LABEL_7;
+    case 0xC:
+      v10 = 1330794568;
+      goto LABEL_7;
+    case 0xE:
+      v10 = 1145455176;
+      goto LABEL_7;
+    case 0x82:
+      v10 = 1179337288;
+      goto LABEL_7;
+    case 0x83:
+      v10 = 1329874504;
+      goto LABEL_7;
+    case 0x84:
+      v10 = 1180191048;
+      goto LABEL_7;
+    default:
+      LogError(3222536195LL);
+      AcpiDiagTraceAmlError(0LL, 3222536195LL);
+      ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(a3 + 2));
+      PrintDebugMessage(112, ObjectTypeName, 0, 0, 0LL);
+      break;
+  }
+LABEL_8:
+  *(_QWORD *)(a2 + 32) = v9;
+  if ( v9 )
+  {
+    memmove(v9, *(const void **)(a3 + 32), *(unsigned int *)(a3 + 24));
+    v11 = *(unsigned __int16 *)(a2 + 2);
+    if ( v11 == 4 )
     {
-      v10 = *(_DWORD **)(a2 + 32);
-      v11 = *(_DWORD **)(a3 + 32);
-      v12 = 0;
-      for ( *v10 = *v11; v12 < *v11; ++v12 )
+      v12 = *(_DWORD **)(a3 + 32);
+      v13 = 0;
+      v14 = *(_DWORD **)(a2 + 32);
+      *v14 = *v12;
+      if ( (int)*v12 > 0 )
       {
-        v6 = DupObjData(a1, &v10[10 * v12 + 2], &v11[10 * v12 + 2]);
-        if ( v6 )
-          break;
+        v15 = v14 + 2;
+        do
+        {
+          v6 = DupObjData(v5, &v15[10 * v13], &v12[10 * v13 + 2]);
+          if ( v6 )
+            break;
+          ++v13;
+        }
+        while ( v13 < *v12 );
       }
     }
     else
     {
-      v13 = v9 - 5;
-      if ( !v13 )
-        goto LABEL_24;
-      v14 = v13 - 125;
-      if ( !v14 )
+      v16 = v11 - 5;
+      if ( !v16 )
+        goto LABEL_45;
+      v17 = v16 - 125;
+      if ( !v17 )
       {
-        v17 = *(_QWORD **)(a2 + 32);
+        v21 = *(_QWORD **)(a2 + 32);
         if ( (gdwfAMLI & 4) != 0 )
         {
-          _InterlockedIncrement((volatile signed __int32 *)(*v17 + 112LL));
-          v17 = *(_QWORD **)(a2 + 32);
+          _InterlockedIncrement((volatile signed __int32 *)(*v21 + 112LL));
+          v21 = *(_QWORD **)(a2 + 32);
         }
         if ( (gdwfAMLI & 4) != 0 )
-          _InterlockedIncrement((volatile signed __int32 *)(v17[1] + 112LL));
-        goto LABEL_9;
+          _InterlockedIncrement((volatile signed __int32 *)(v21[1] + 112LL));
+        goto LABEL_14;
       }
-      v15 = v14 - 1;
-      if ( v15 )
+      v18 = v17 - 1;
+      if ( v18 )
       {
-        if ( v15 == 1 )
+        if ( v18 == 1 )
         {
-          v16 = *(_QWORD **)(a2 + 32);
+          v20 = *(_QWORD **)(a2 + 32);
           if ( (gdwfAMLI & 4) != 0 )
           {
-            _InterlockedIncrement((volatile signed __int32 *)(v16[1] + 112LL));
-            v16 = *(_QWORD **)(a2 + 32);
+            _InterlockedIncrement((volatile signed __int32 *)(v20[1] + 112LL));
+            v20 = *(_QWORD **)(a2 + 32);
           }
           if ( (gdwfAMLI & 4) != 0 )
-            _InterlockedIncrement((volatile signed __int32 *)(*v16 + 112LL));
+            _InterlockedIncrement((volatile signed __int32 *)(*v20 + 112LL));
         }
       }
       else
       {
-LABEL_24:
+LABEL_45:
         if ( (gdwfAMLI & 4) != 0 )
           _InterlockedIncrement((volatile signed __int32 *)(**(_QWORD **)(a2 + 32) + 112LL));
       }
     }
-LABEL_9:
+LABEL_14:
     *(_WORD *)a2 &= ~1u;
     result = v6;
     _InterlockedExchange((volatile __int32 *)(a2 + 8), 0);

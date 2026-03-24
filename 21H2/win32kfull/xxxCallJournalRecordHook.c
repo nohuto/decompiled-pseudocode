@@ -1,18 +1,18 @@
 /*
- * XREFs of xxxCallJournalRecordHook @ 0x1C01E1344
+ * XREFs of xxxCallJournalRecordHook @ 0x1C01E6E64
  * Callers:
- *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C00AB408 (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
+ *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C00662E8 (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     PhkFirstGlobalValid @ 0x1C004DAB0 (PhkFirstGlobalValid.c)
- *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C0053590 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C005BDB0 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     PhkFirstGlobalValid @ 0x1C006672C (PhkFirstGlobalValid.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
 __int16 __fastcall xxxCallJournalRecordHook(__int64 a1)
 {
   int v1; // eax
   int v3; // eax
-  __int64 v4; // rcx
+  unsigned __int64 v4; // rcx
   int v5; // edx
   int v6; // eax
   struct tagHOOK *GlobalValid; // rax

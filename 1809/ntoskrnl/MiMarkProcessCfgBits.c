@@ -5,7 +5,7 @@
  * Callees:
  *     MiMarkSharedImageCfgBits @ 0x1405F01D0 (MiMarkSharedImageCfgBits.c)
  *     MiMarkPrivateOpenCfgBits @ 0x1405F6524 (MiMarkPrivateOpenCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x1406513D4 (MiMarkPrivateImageCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1406513B4 (MiMarkPrivateImageCfgBits.c)
  */
 
 __int64 __fastcall MiMarkProcessCfgBits(

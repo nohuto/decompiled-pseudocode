@@ -1,18 +1,18 @@
 /*
- * XREFs of HdlspProcessDumpCommand @ 0x140AEBCAC
+ * XREFs of HdlspProcessDumpCommand @ 0x1409EFC18
  * Callers:
- *     HdlspBugCheckProcessing @ 0x140AEAD84 (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
+ *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlTimeToTimeFields @ 0x14033B4B0 (RtlTimeToTimeFields.c)
- *     sprintf_s @ 0x1403DF0C0 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758B90 (RtlUnicodeStringToAnsiString.c)
- *     HdlspPutMore @ 0x140AEC0B8 (HdlspPutMore.c)
- *     HdlspPutString @ 0x140AEC194 (HdlspPutString.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x14036DE60 (RtlTimeToTimeFields.c)
+ *     sprintf_s @ 0x1403D74F0 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     HdlspPutMore @ 0x1409F0020 (HdlspPutMore.c)
+ *     HdlspPutString @ 0x1409F00C0 (HdlspPutString.c)
  */
 
 __int64 __fastcall HdlspProcessDumpCommand(char a1)
@@ -25,12 +25,12 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
   unsigned __int8 v6; // al
   unsigned int v7; // r13d
   unsigned int v8; // r12d
-  __int64 v9; // r15
+  LARGE_INTEGER *v9; // r15
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v13; // eax
-  __int64 v14; // rcx
+  LARGE_INTEGER v14; // rdx
   unsigned __int64 v15; // rax
   unsigned __int8 v16; // al
   struct _KPRCB *v17; // r10
@@ -68,27 +68,30 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
     *(_DWORD *)&v27.Length = 5242880;
     while ( 1 )
     {
-      v9 = v3[2] + 56LL * v7;
+      v9 = (LARGE_INTEGER *)(v3[2] + 56LL * v7);
       if ( v2 != 0xFF )
       {
-        KxReleaseSpinLock((volatile signed __int64 *)v3);
+        KxReleaseSpinLock(v3);
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v13 = ~(unsigned __int16)(-1LL << (v2 + 1));
-            v21 = (v13 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v13;
-            if ( v21 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v13 = ~(unsigned __int16)(-1LL << (v2 + 1));
+              v21 = (v13 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v13;
+              if ( v21 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
         __writecr8(v2);
       }
-      RtlTimeToTimeFields((PLARGE_INTEGER)(v9 + 8), &TimeFields);
+      RtlTimeToTimeFields(v9 + 1, &TimeFields);
       sprintf_s(
         (char *)HeadlessGlobals[3],
         0x50uLL,
@@ -98,14 +101,17 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
         TimeFields.Second,
         TimeFields.Milliseconds);
       HdlspPutString(HeadlessGlobals[3]);
-      v14 = *(_QWORD *)(v9 + 48);
+      v14 = v9[6];
       v15 = -1LL;
       do
         ++v15;
-      while ( *(_WORD *)(v14 + 2 * v15) );
+      while ( *(_WORD *)(v14.QuadPart + 2 * v15) );
       if ( v15 >= 0x4F )
-        *(_WORD *)(v14 + 158) = 0;
-      RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v9 + 48));
+      {
+        *(_WORD *)(v14.QuadPart + 158) = 0;
+        v14 = v9[6];
+      }
+      RtlInitUnicodeString(&DestinationString, (PCWSTR)v14.QuadPart);
       RtlUnicodeStringToAnsiString(&v27, &DestinationString, 0);
       v2 = (HeadlessGlobals[6] & 2) != 0 ? -1 : KeAcquireSpinLockRaiseToDpc(HeadlessGlobals);
       if ( (HeadlessGlobals[6] & 4) != 0 )
@@ -125,19 +131,22 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
       {
         if ( v2 != 0xFF )
         {
-          KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
+          KxReleaseSpinLock(HeadlessGlobals);
           if ( KiIrqlFlags )
           {
-            v16 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v2 <= 0xFu && v16 >= 2u )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              v17 = KeGetCurrentPrcb();
-              v18 = v17->SchedulerAssist;
-              v19 = ~(unsigned __int16)(-1LL << (v2 + 1));
-              v21 = (v19 & v18[5]) == 0;
-              v18[5] &= v19;
-              if ( v21 )
-                KiRemoveSystemWorkPriorityKick((__int64)v17);
+              v16 = KeGetCurrentIrql();
+              if ( v16 <= 0xFu && v2 <= 0xFu && v16 >= 2u )
+              {
+                v17 = KeGetCurrentPrcb();
+                v18 = v17->SchedulerAssist;
+                v19 = ~(unsigned __int16)(-1LL << (v2 + 1));
+                v21 = (v19 & v18[5]) == 0;
+                v18[5] &= v19;
+                if ( v21 )
+                  KiRemoveSystemWorkPriorityKick((__int64)v17);
+              }
             }
           }
           __writecr8(v2);
@@ -172,30 +181,35 @@ LABEL_55:
       return result;
     v3 = HeadlessGlobals;
 LABEL_57:
-    KxReleaseSpinLock((volatile signed __int64 *)v3);
+    KxReleaseSpinLock(v3);
     if ( !KiIrqlFlags )
       goto LABEL_64;
+    if ( (KiIrqlFlags & 1) == 0 )
+      goto LABEL_64;
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v22 > 0xFu || v2 > 0xFu || v22 < 2u )
+    if ( v22 > 0xFu || v2 > 0xFu || v22 < 2u )
       goto LABEL_64;
     goto LABEL_62;
   }
   if ( v2 == 0xFF )
     return result;
-  KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
+  KxReleaseSpinLock(HeadlessGlobals);
   if ( KiIrqlFlags )
   {
-    v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && v2 <= 0xFu && v6 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
+      v6 = KeGetCurrentIrql();
+      if ( v6 <= 0xFu && v2 <= 0xFu && v6 >= 2u )
+      {
 LABEL_62:
-      v23 = KeGetCurrentPrcb();
-      v24 = v23->SchedulerAssist;
-      v25 = ~(unsigned __int16)(-1LL << (v2 + 1));
-      v21 = (v25 & v24[5]) == 0;
-      v24[5] &= v25;
-      if ( v21 )
-        KiRemoveSystemWorkPriorityKick((__int64)v23);
+        v23 = KeGetCurrentPrcb();
+        v24 = v23->SchedulerAssist;
+        v25 = ~(unsigned __int16)(-1LL << (v2 + 1));
+        v21 = (v25 & v24[5]) == 0;
+        v24[5] &= v25;
+        if ( v21 )
+          KiRemoveSystemWorkPriorityKick((__int64)v23);
+      }
     }
   }
 LABEL_64:

@@ -1,16 +1,17 @@
 /*
- * XREFs of AuthzBasepDeleteAllSecurityAttributes @ 0x14064A2A8
+ * XREFs of AuthzBasepDeleteAllSecurityAttributes @ 0x1405C123C
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeToLists @ 0x140205370 (AuthzBasepAddSecurityAttributeToLists.c)
- *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x140376790 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x140251034 (AuthzBasepAddSecurityAttributeToLists.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x1402C9764 (AuthzBasepDeleteAllSecurityAttributeValues.c)
  */
 
 __int64 __fastcall AuthzBasepDeleteAllSecurityAttributes(__int64 a1)
 {
   __int64 v1; // rdi
   __int64 i; // rbx
+  __int64 v4; // rdx
   __int64 result; // rax
 
   v1 = a1 + 8;
@@ -18,7 +19,7 @@ __int64 __fastcall AuthzBasepDeleteAllSecurityAttributes(__int64 a1)
   {
     *(_DWORD *)(i + 56) |= 4u;
     AuthzBasepAddSecurityAttributeToLists(a1, i, 0, 1);
-    result = AuthzBasepDeleteAllSecurityAttributeValues(i);
+    result = AuthzBasepDeleteAllSecurityAttributeValues(i, v4);
   }
   return result;
 }

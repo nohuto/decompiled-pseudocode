@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessClearSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_CLEARSURFACERESOURCES@@@Z @ 0x1800DEF90
+ * XREFs of ?ProcessClearSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_CLEARSURFACERESOURCES@@@Z @ 0x18005965C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z @ 0x1800DF578 (-ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z.c)
- *     ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x1800DF644 (-ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x180059684 (-ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z @ 0x180059C74 (-ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z.c)
  */
 
 __int64 __fastcall CPrimitiveGroup::ProcessClearSurfaceResources(

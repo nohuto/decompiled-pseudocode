@@ -1,15 +1,16 @@
 /*
- * XREFs of CmpUnlockHiveList @ 0x1406DEFDC
+ * XREFs of CmpUnlockHiveList @ 0x14071D2C4
  * Callers:
- *     CmpUnJoinClassOfTrust @ 0x140208994 (CmpUnJoinClassOfTrust.c)
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x140256264 (CmpJoinClassOfTrust.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
+ *     CmpJoinClassOfTrust @ 0x1402D3974 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x14036173C (CmpUnJoinClassOfTrust.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
+ *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-__int64 CmpUnlockHiveList()
+char CmpUnlockHiveList()
 {
   return ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
 }

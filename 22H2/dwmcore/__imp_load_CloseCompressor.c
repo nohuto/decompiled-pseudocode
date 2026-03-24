@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_CloseCompressor @ 0x18011048C
+ * XREFs of __imp_load_CloseCompressor @ 0x1800E8186
  * Callers:
  *     <none>
  * Callees:

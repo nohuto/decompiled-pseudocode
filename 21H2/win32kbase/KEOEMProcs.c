@@ -1,9 +1,9 @@
 /*
- * XREFs of KEOEMProcs @ 0x1C00ADB84
+ * XREFs of KEOEMProcs @ 0x1C009964C
  * Callers:
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall KEOEMProcs(struct tagKE *a1)

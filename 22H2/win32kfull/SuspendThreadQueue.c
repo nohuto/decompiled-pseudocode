@@ -1,138 +1,144 @@
 /*
- * XREFs of SuspendThreadQueue @ 0x1C00A7F30
+ * XREFs of SuspendThreadQueue @ 0x1C0117410
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     xxxReceiverDied @ 0x1C006C930 (xxxReceiverDied.c)
- *     UnlinkSendListSms @ 0x1C006C9DC (UnlinkSendListSms.c)
- *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C009CDF0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
- *     ?CleanInputMessage@@YAXIPEAUtagQMSG@@@Z @ 0x1C00AE248 (-CleanInputMessage@@YAXIPEAUtagQMSG@@@Z.c)
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UnlinkSendListSms @ 0x1C006A290 (UnlinkSendListSms.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C14A0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     xxxReceiverDied @ 0x1C00DAA6C (xxxReceiverDied.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C010D500 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?CleanInputMessage@@YAXIPEAUtagQMSG@@@Z @ 0x1C0121C48 (-CleanInputMessage@@YAXIPEAUtagQMSG@@@Z.c)
  */
 
 void __fastcall SuspendThreadQueue(__int64 a1)
 {
-  _QWORD *v2; // rsi
-  unsigned int *v3; // rbx
-  __int64 *v4; // rbx
-  _QWORD *v5; // r14
-  _QWORD *v6; // rsi
-  unsigned int *v7; // rbp
-  __int64 v8; // rax
+  __int64 v1; // rdi
+  __int64 v2; // rsi
+  __int64 v3; // r8
+  __int64 v4; // r9
+  __int64 *v5; // rbx
+  __int64 *v6; // rbx
+  _QWORD *v7; // r14
+  _QWORD *v8; // rsi
   __int64 *v9; // rbp
-  __int64 v10; // rcx
-  __int64 v11; // rbx
-  _QWORD *v12; // rdx
-  bool v13; // zf
-  int v14; // eax
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  _QWORD *v20; // rax
-  char v21; // [rsp+40h] [rbp+8h] BYREF
+  __int64 *v10; // rbp
+  __int64 v12; // rax
+  __int64 v14; // rbx
+  _QWORD *v15; // rdx
+  bool v16; // zf
+  int v17; // eax
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  __int64 v24; // rcx
+  _QWORD *v25; // rax
+  __int64 v26; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v27; // [rsp+70h] [rbp+8h] BYREF
 
+  v27 = a1;
+  v1 = a1;
   if ( (*(_DWORD *)(a1 + 488) & 0x1000001) == 0x1000000 )
   {
-    v2 = *(_QWORD **)(a1 + 432);
-    v3 = (unsigned int *)v2[3];
-    if ( v3 )
+    v2 = *(_QWORD *)(a1 + 432);
+    CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)&v26, v2);
+    v5 = *(__int64 **)(v2 + 24);
+    if ( v5 )
     {
       do
       {
-        v7 = *(unsigned int **)v3;
-        if ( v3[24] == 9
-          && v3 != (unsigned int *)v2[11]
-          && v3 != (unsigned int *)v2[10]
-          && !_bittest((const signed __int32 *)v3 + 25, 8u) )
+        v9 = (__int64 *)*v5;
+        if ( *((_DWORD *)v5 + 24) == 9
+          && v5 != *(__int64 **)(v2 + 80)
+          && v5 != *(__int64 **)(v2 + 72)
+          && (*((_DWORD *)v5 + 25) & 0x100) == 0 )
         {
-          v8 = v3[6];
-          if ( (unsigned int)v8 < 0x400 && (MessageTable[v8] & 0x1C00) == 0 )
+          v12 = *((unsigned int *)v5 + 6);
+          if ( !((unsigned int)v12 >= 0x400 ? 1 : ((unsigned __int16)MessageTable[v12] >> 10) & 7) )
           {
-            CleanEventMessage((void **)v3);
-            DelQEntry(v2 + 3, v3, 1LL);
+            CleanEventMessage((struct tagQMSG *)v5);
+            DelQEntry((unsigned int **)(v2 + 24), (unsigned int *)v5, 1);
           }
         }
-        v3 = v7;
-      }
-      while ( v7 );
-    }
-    v4 = *(__int64 **)(a1 + 808);
-    if ( v4 )
-    {
-      do
-      {
-        v9 = (__int64 *)*v4;
-        if ( v4 != (__int64 *)v2[11] && v4 != (__int64 *)v2[10] && !_bittest((const signed __int32 *)v4 + 25, 8u) )
-        {
-          v10 = *((unsigned int *)v4 + 6);
-          if ( (unsigned int)v10 < 0x400 && (MessageTable[v10] & 0x1C00) == 0 )
-          {
-            CleanInputMessage(v10, (struct tagQMSG *)v4);
-            DelQEntry(a1 + 808, v4, 1LL);
-          }
-        }
-        v4 = v9;
+        v5 = v9;
       }
       while ( v9 );
+      v1 = v27;
     }
-    v5 = (_QWORD *)(a1 + 520);
-    v6 = *(_QWORD **)(a1 + 520);
-    if ( v6 != (_QWORD *)(a1 + 520) )
+    v6 = *(__int64 **)(v1 + 808);
+    if ( v6 )
     {
       do
       {
-        v11 = (__int64)(v6 - 2);
-        v12 = v6;
-        v13 = v6[6] == 0LL;
-        v6 = (_QWORD *)*v6;
-        if ( v13 )
+        v10 = (__int64 *)*v6;
+        if ( v6 != *(__int64 **)(v2 + 80) && v6 != *(__int64 **)(v2 + 72) && (*((_DWORD *)v6 + 25) & 0x100) == 0 )
         {
-          v14 = *(_DWORD *)(v11 + 84);
-          if ( (v14 & 0x4000) == 0 )
+          v3 = *((unsigned int *)v6 + 6);
+          if ( !((unsigned int)v3 < 0x400 ? ((unsigned __int16)MessageTable[v3] >> 10) & 7 : 1) )
           {
-            v15 = *(_QWORD *)(v11 + 32);
-            if ( v15 )
+            CleanInputMessage(v3, (struct tagQMSG *)v6);
+            DelQEntry((unsigned int **)(v1 + 808), (unsigned int *)v6, 1);
+          }
+        }
+        v6 = v10;
+      }
+      while ( v10 );
+      v1 = v27;
+    }
+    v7 = (_QWORD *)(v1 + 520);
+    v8 = *(_QWORD **)(v1 + 520);
+    if ( v8 != (_QWORD *)(v1 + 520) )
+    {
+      do
+      {
+        v14 = (__int64)(v8 - 2);
+        v15 = v8;
+        v16 = v8[6] == 0LL;
+        v8 = (_QWORD *)*v8;
+        if ( v16 )
+        {
+          v17 = *(_DWORD *)(v14 + 84);
+          if ( (v17 & 0x4000) == 0 )
+          {
+            v18 = *(_QWORD *)(v14 + 32);
+            if ( v18 )
             {
-              if ( !PsGetProcessCommonJob(**(_QWORD **)(a1 + 424), **(_QWORD **)(v15 + 424)) )
+              if ( !PsGetProcessCommonJob(**(_QWORD **)(v1 + 424), **(_QWORD **)(v18 + 424)) )
               {
-                AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v21);
-                xxxReceiverDied(v11);
-                AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v21, v16, v17);
+                UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v27);
+                xxxReceiverDied(v14, v21, v22, v23);
+                UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v27);
               }
             }
-            else if ( (v14 & 8) != 0 )
+            else if ( (v17 & 8) != 0 )
             {
-              v18 = *(unsigned int *)(v11 + 104);
-              if ( (unsigned int)v18 < 0x400 && (MessageTable[v18] & 0x1C00) == 0 )
+              v19 = *(unsigned int *)(v14 + 104);
+              if ( !((unsigned int)v19 >= 0x400 ? 1 : ((unsigned __int16)MessageTable[v19] >> 10) & 7) )
               {
-                --*(_DWORD *)(a1 + 536);
-                v19 = *v12;
-                if ( *(_QWORD **)(*v12 + 8LL) != v12 || (v20 = (_QWORD *)v12[1], (_QWORD *)*v20 != v12) )
+                --*(_DWORD *)(v1 + 536);
+                v24 = *v15;
+                if ( *(_QWORD **)(*v15 + 8LL) != v15 || (v25 = (_QWORD *)v15[1], (_QWORD *)*v25 != v15) )
                   __fastfail(3u);
-                *v20 = v19;
-                *(_QWORD *)(v19 + 8) = v20;
-                *v12 = 0LL;
-                if ( (_QWORD *)*v5 == v5 )
+                *v25 = v24;
+                *(_QWORD *)(v24 + 8) = v25;
+                *v15 = 0LL;
+                if ( (_QWORD *)*v7 == v7 )
                 {
-                  _InterlockedAnd(
-                    (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v11 + 40) + 448LL) + 8LL),
-                    0xFFFFFFBF);
-                  _InterlockedAnd(
-                    (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v11 + 40) + 448LL) + 4LL),
-                    0xFFFFFFBF);
+                  *(_WORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 40) + 448LL) + 6LL) &= ~0x40u;
+                  *(_WORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 40) + 448LL) + 4LL) &= ~0x40u;
                 }
-                UnlinkSendListSms((__int64 *)v11);
+                UnlinkSendListSms((__int64 *)v14, (__int64)v15, v3, v4);
               }
             }
           }
         }
       }
-      while ( v6 != v5 );
+      while ( v8 != v7 );
     }
-    *(_DWORD *)(a1 + 1272) |= 0x20u;
+    *(_DWORD *)(v1 + 1232) |= 0x20u;
   }
 }

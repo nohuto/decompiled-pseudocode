@@ -1,7 +1,7 @@
 /*
- * XREFs of KsepPoolFreeNonPaged @ 0x1400F533C
+ * XREFs of KsepPoolFreeNonPaged @ 0x1400F535C
  * Callers:
- *     KseShimDriverIoCallbacks @ 0x14068091C (KseShimDriverIoCallbacks.c)
+ *     KseShimDriverIoCallbacks @ 0x1406808FC (KseShimDriverIoCallbacks.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

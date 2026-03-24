@@ -1,1 +1,44 @@
-/*\n * XREFs of MouseClassSystemControl @ 0x1C000CBA0\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall MouseClassSystemControl(PDEVICE_OBJECT DeviceObject, IRP *Tag)\n{\n  char *DeviceExtension; // r14\n  NTSTATUS v5; // eax\n  unsigned int v6; // edi\n  _SYSCTL_IRP_DISPOSITION IrpDisposition; // [rsp+50h] [rbp+8h] BYREF\n\n  DeviceExtension = (char *)DeviceObject->DeviceExtension;\n  v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, Tag, File, 1u, 0x20u);\n  v6 = v5;\n  if ( v5 >= 0 )\n  {\n    v6 = WmiSystemControl((PWMILIB_CONTEXT)(DeviceExtension + 184), DeviceObject, Tag, &IrpDisposition);\n    if ( IrpDisposition )\n    {\n      if ( IrpDisposition == IrpNotCompleted )\n      {\n        IofCompleteRequest(Tag, 0);\n      }\n      else\n      {\n        ++Tag->CurrentLocation;\n        ++Tag->Tail.Overlay.CurrentStackLocation;\n        v6 = IofCallDriver(*((PDEVICE_OBJECT *)DeviceObject->DeviceExtension + 2), Tag);\n      }\n    }\n    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, Tag, 0x20u);\n  }\n  else\n  {\n    Tag->IoStatus.Information = 0LL;\n    Tag->IoStatus.Status = v5;\n    IofCompleteRequest(Tag, 0);\n  }\n  return v6;\n}\n
+/*
+ * XREFs of MouseClassSystemControl @ 0x1C000CBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MouseClassSystemControl(PDEVICE_OBJECT DeviceObject, IRP *Tag)
+{
+  char *DeviceExtension; // r14
+  NTSTATUS v5; // eax
+  unsigned int v6; // edi
+  _SYSCTL_IRP_DISPOSITION IrpDisposition; // [rsp+50h] [rbp+8h] BYREF
+
+  DeviceExtension = (char *)DeviceObject->DeviceExtension;
+  v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, Tag, File, 1u, 0x20u);
+  v6 = v5;
+  if ( v5 >= 0 )
+  {
+    v6 = WmiSystemControl((PWMILIB_CONTEXT)(DeviceExtension + 184), DeviceObject, Tag, &IrpDisposition);
+    if ( IrpDisposition )
+    {
+      if ( IrpDisposition == IrpNotCompleted )
+      {
+        IofCompleteRequest(Tag, 0);
+      }
+      else
+      {
+        ++Tag->CurrentLocation;
+        ++Tag->Tail.Overlay.CurrentStackLocation;
+        v6 = IofCallDriver(*((PDEVICE_OBJECT *)DeviceObject->DeviceExtension + 2), Tag);
+      }
+    }
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, Tag, 0x20u);
+  }
+  else
+  {
+    Tag->IoStatus.Information = 0LL;
+    Tag->IoStatus.Status = v5;
+    IofCompleteRequest(Tag, 0);
+  }
+  return v6;
+}

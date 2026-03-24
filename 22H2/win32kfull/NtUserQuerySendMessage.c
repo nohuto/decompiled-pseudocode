@@ -1,50 +1,48 @@
 /*
- * XREFs of NtUserQuerySendMessage @ 0x1C01D8C70
+ * XREFs of NtUserQuerySendMessage @ 0x1C0200290
  * Callers:
  *     <none>
  * Callees:
- *     _QuerySendMessage @ 0x1C01FBDEC (_QuerySendMessage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _QuerySendMessage @ 0x1C021DE4C (_QuerySendMessage.c)
  */
 
-__int64 __fastcall NtUserQuerySendMessage(_OWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserQuerySendMessage(_OWORD *a1)
 {
-  _OWORD *v3; // rdi
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  ULONG64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v9; // ebx
-  __int128 v11; // [rsp+28h] [rbp-40h] BYREF
-  __int128 v12; // [rsp+38h] [rbp-30h]
-  __int128 v13; // [rsp+48h] [rbp-20h]
+  __int64 v2; // rbx
+  __int64 v3; // rcx
+  int v4; // ebx
+  __int128 v6; // [rsp+28h] [rbp-40h] BYREF
+  __int128 v7; // [rsp+38h] [rbp-30h]
+  __int128 v8; // [rsp+48h] [rbp-20h]
 
-  v3 = a1;
-  v11 = 0LL;
-  v12 = 0LL;
-  v13 = 0LL;
-  v4 = EnterSharedCrit(a1, a2, a3);
-  if ( *(_QWORD *)(v4 + 512) )
+  v6 = 0LL;
+  v7 = 0LL;
+  v8 = 0LL;
+  v2 = EnterSharedCrit(0LL, 1LL);
+  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9221);
+  if ( *(_QWORD *)(v2 + 512) )
   {
-    v9 = QuerySendMessage(v4, &v11);
-    if ( v9 && v3 )
+    v4 = QuerySendMessage(v2, &v6);
+    if ( v4 && a1 )
     {
-      v5 = *((_QWORD *)&v12 + 1);
-      *((_QWORD *)&v12 + 1) &= -(__int64)(*((_QWORD *)&v12 + 1) < (unsigned __int64)MmSystemRangeStart);
-      HIDWORD(v11) = 0;
-      HIDWORD(v13) = 0;
-      v6 = MmUserProbeAddress;
-      if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-        v3 = (_OWORD *)MmUserProbeAddress;
-      *v3 = v11;
-      v3[1] = v12;
-      v3[2] = v13;
+      v3 = *((_QWORD *)&v7 + 1);
+      if ( *((_QWORD *)&v7 + 1) > MmUserProbeAddress )
+        v3 = 0LL;
+      *((_QWORD *)&v7 + 1) = v3;
+      HIDWORD(v6) = 0;
+      HIDWORD(v8) = 0;
+      if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+        a1 = (_OWORD *)MmUserProbeAddress;
+      *a1 = v6;
+      a1[1] = v7;
+      a1[2] = v8;
     }
   }
   else
   {
-    v9 = 0;
+    v4 = 0;
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

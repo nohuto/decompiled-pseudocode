@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhFdoReturnTtDeviceHandle @ 0x1C002A0D8
+ * XREFs of UsbhFdoReturnTtDeviceHandle @ 0x1C002B428
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhGetDeviceHandle @ 0x1C003772C (UsbhGetDeviceHandle.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhGetDeviceHandle @ 0x1C00389F4 (UsbhGetDeviceHandle.c)
  */
 
 NTSTATUS __fastcall UsbhFdoReturnTtDeviceHandle(__int64 a1, ULONG_PTR a2, IRP *a3)

@@ -9,7 +9,7 @@
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     FsRtlPruneTunnelCache @ 0x1405C007C (FsRtlPruneTunnelCache.c)
  */

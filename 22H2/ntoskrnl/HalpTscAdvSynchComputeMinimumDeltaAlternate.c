@@ -1,44 +1,52 @@
 /*
- * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14038B538
+ * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14039CBF4
  * Callers:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038B35C (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscAdvSynchTarget @ 0x14038B444 (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14039CA04 (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscAdvSynchTarget @ 0x14039CAEC (HalpTscAdvSynchTarget.c)
  * Callees:
- *     <none>
+ *     HalpProcessorFence @ 0x1403F9340 (HalpProcessorFence.c)
  */
 
-__int64 __fastcall HalpTscAdvSynchComputeMinimumDeltaAlternate(unsigned __int64 *a1, __int64 *a2)
+__int64 __fastcall HalpTscAdvSynchComputeMinimumDeltaAlternate(unsigned int a1, int a2)
 {
-  unsigned int v2; // r11d
-  __int64 v3; // r8
-  __int64 v4; // r10
-  unsigned int i; // r9d
-  __int64 v6; // rax
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rax
-  __int64 v9; // rax
+  __int64 v2; // rdi
+  int v3; // esi
+  __int64 v4; // rbp
+  int v5; // r14d
+  unsigned __int64 *v6; // r12
+  __int64 *v7; // r15
+  __int64 v8; // rbx
+  unsigned __int64 v9; // rax
+  __int64 v10; // rax
 
-  v2 = HalpTscRequestedIterations;
-  v3 = 0LL;
+  v2 = 0LL;
+  v3 = a2;
   v4 = 0x7FFFFFFFFFFFFFFFLL;
-  for ( i = 0; i < v2; ++i )
+  v5 = 2;
+  v6 = *(unsigned __int64 **)(((unsigned __int64)KeGetCurrentPrcb()->Number << 7) + TscRequest + 16);
+  v7 = *(__int64 **)(((unsigned __int64)a1 << 7) + TscRequest + 16);
+  while ( v3 )
   {
-    v6 = v3;
+    --v3;
     do
     {
       _mm_pause();
-      v3 = *a2;
+      v8 = *v7;
     }
-    while ( *a2 == v6 );
-    v7 = __readcr2();
-    __writecr2(v7);
-    v8 = __rdtsc();
-    *a1 = v8;
-    if ( i >= 2 )
+    while ( *v7 == v2 );
+    v2 = *v7;
+    HalpProcessorFence();
+    v9 = __rdtsc();
+    *v6 = v9;
+    if ( v5 )
     {
-      v9 = v8 - v3;
-      if ( v9 < v4 )
-        v4 = v9;
+      --v5;
+    }
+    else
+    {
+      v10 = v9 - v8;
+      if ( v10 < v4 )
+        v4 = v10;
     }
   }
   return v4;

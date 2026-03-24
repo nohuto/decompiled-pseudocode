@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInfoTraceProfileSettings @ 0x1408758C4
+ * XREFs of PpmInfoTraceProfileSettings @ 0x1408758A4
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140764290 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140764270 (PpmEventTraceControlCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PpmEventTraceProfileSetting @ 0x1407567B8 (PpmEventTraceProfileSetting.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PpmEventTraceProfileSetting @ 0x140756798 (PpmEventTraceProfileSetting.c)
  */
 
 char PpmInfoTraceProfileSettings()

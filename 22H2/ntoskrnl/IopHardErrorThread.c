@@ -1,13 +1,13 @@
 /*
- * XREFs of IopHardErrorThread @ 0x140944E40
+ * XREFs of IopHardErrorThread @ 0x1408916B0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IopCheckHardErrorEmpty @ 0x140554F80 (IopCheckHardErrorEmpty.c)
- *     IopRemoveHardErrorPacket @ 0x140555C68 (IopRemoveHardErrorPacket.c)
- *     ExRaiseHardError @ 0x140A00C30 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IopCheckHardErrorEmpty @ 0x140500258 (IopCheckHardErrorEmpty.c)
+ *     IopRemoveHardErrorPacket @ 0x140500CE0 (IopRemoveHardErrorPacket.c)
+ *     ExRaiseHardError @ 0x140956160 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void IopHardErrorThread()
@@ -23,7 +23,7 @@ void IopHardErrorThread()
   v5 = 0;
   do
   {
-    KeWaitForSingleObject(&byte_140C5DEB8, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&Semaphore, Executive, 0, 0, 0LL);
     v0 = IopRemoveHardErrorPacket();
     v1 = *(_QWORD *)(v0 + 32);
     v6 = v0 + 24;

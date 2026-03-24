@@ -1,129 +1,126 @@
 /*
- * XREFs of ?VmBusSendAcquireKeyedMutexSync@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I_KHPEAT_LARGE_INTEGER@@PEA_K4@Z @ 0x1C0373A04
+ * XREFs of ?VmBusSendAcquireKeyedMutexSync@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I_KHPEAT_LARGE_INTEGER@@PEA_K4@Z @ 0x1C0245E14
  * Callers:
- *     ?AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z @ 0x1C033E6E8 (-AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z.c)
+ *     ?AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z @ 0x1C028F9BC (-AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005CCCC (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C033633C (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
- *     ?GetHostHandle@DXGKEYEDMUTEX@@QEAAII@Z @ 0x1C033FD28 (-GetHostHandle@DXGKEYEDMUTEX@@QEAAII@Z.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0364EA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C037E618 (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_M.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024CF2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
+ *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C0285260 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
+ *     ?GetHostHandle@DXGKEYEDMUTEX@@QEAAII@Z @ 0x1C0290D94 (-GetHostHandle@DXGKEYEDMUTEX@@QEAAII@Z.c)
  */
 
 __int64 __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusSendAcquireKeyedMutexSync(
         DXG_GUEST_GLOBAL_VMBUS *this,
         struct DXGPROCESS *a2,
         void **a3,
-        int a4,
+        unsigned int a4,
         unsigned __int64 a5,
-        int a6,
+        unsigned int a6,
         union _LARGE_INTEGER *a7,
         unsigned __int64 *a8,
         unsigned __int64 *a9)
 {
+  unsigned int HostHandle; // eax
+  union _LARGE_INTEGER *v13; // rdi
+  unsigned int v14; // r13d
   LONGLONG QuadPart; // rsi
-  struct DXGKVMB_COMMAND_BASE *v12; // rdi
-  int v13; // ebx
-  int v14; // ebx
-  int HostProcess; // eax
-  __int64 v16; // r9
-  int v17; // eax
-  size_t v18; // r14
-  unsigned int v19; // esi
-  _QWORD *v20; // rdi
-  struct _MDL *v22; // [rsp+30h] [rbp-D0h]
-  unsigned int HostHandle; // [rsp+50h] [rbp-B0h] BYREF
-  DXGPROCESS *v24; // [rsp+58h] [rbp-A8h]
-  unsigned __int64 *v25; // [rsp+60h] [rbp-A0h]
-  struct DXGKVMB_COMMAND_BASE *v26[2]; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int v27; // [rsp+80h] [rbp-80h]
+  int v16; // ebx
+  unsigned int HostProcess; // eax
+  __int64 v18; // rdx
+  size_t v19; // r14
+  BOOL v20; // ecx
+  unsigned int v21; // edi
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  _QWORD *v25; // rbx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rax
+  int v30; // esi
+  __int64 v31; // rax
+  struct _MDL *v32; // [rsp+28h] [rbp-48h]
+  __int64 v33; // [rsp+30h] [rbp-40h] BYREF
+  unsigned int v34; // [rsp+38h] [rbp-38h]
+  int v35; // [rsp+3Ch] [rbp-34h]
+  int v36; // [rsp+40h] [rbp-30h]
+  int v37; // [rsp+48h] [rbp-28h]
+  unsigned int v38; // [rsp+4Ch] [rbp-24h]
+  unsigned __int64 v39; // [rsp+50h] [rbp-20h]
+  unsigned int v40; // [rsp+58h] [rbp-18h]
+  LONGLONG v41; // [rsp+60h] [rbp-10h]
+  int v42; // [rsp+68h] [rbp-8h]
 
-  v24 = a2;
-  v25 = a8;
   HostHandle = DXGKEYEDMUTEX::GetHostHandle((DXGKEYEDMUTEX *)a3, a4);
+  v13 = a7;
+  v14 = HostHandle;
   if ( a7 )
     QuadPart = a7->QuadPart;
   else
     QuadPart = 0LL;
-  v27 = 0;
-  *(_OWORD *)v26 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v26, this, 0x40u, 0LL, 0LL, 0LL);
-  v12 = v26[0];
-  if ( !v26[0] )
-    goto LABEL_5;
-  v14 = *((_DWORD *)a3 + 8);
-  HostProcess = DXGPROCESS::GetHostProcess(v24);
-  *(_QWORD *)v12 = 0LL;
-  *((_DWORD *)v12 + 5) = 0;
-  *((_DWORD *)v12 + 2) = HostProcess;
-  *((_DWORD *)v12 + 7) = HostHandle;
-  *((_QWORD *)v12 + 4) = a5;
-  *((_DWORD *)v12 + 10) = a6;
-  v17 = *((_DWORD *)v12 + 14);
-  *((_QWORD *)v12 + 6) = QuadPart;
-  *((_BYTE *)v12 + 12) = 1;
-  *((_DWORD *)v12 + 3) &= 0x1FFu;
-  *((_DWORD *)v12 + 4) = 1014;
-  *((_DWORD *)v12 + 6) = v14;
-  *((_DWORD *)v12 + 14) = v17 & 0xFFFFFFFE | (a7 == 0LL);
-  v18 = *((unsigned int *)a3 + 42);
-  v19 = (v18 + 31) & 0xFFFFFFF8;
-  if ( v19 > 0x20000 || v19 < (unsigned int)v18 )
+  v16 = *((_DWORD *)a3 + 8);
+  HostProcess = DXGPROCESS::GetHostProcess(a2);
+  v33 = 0LL;
+  v19 = *((unsigned int *)a3 + 40);
+  v34 = HostProcess;
+  v20 = v13 == 0LL;
+  v39 = a5;
+  v40 = a6;
+  v21 = (v19 + 31) & 0xFFFFFFF8;
+  v35 = 1;
+  v22 = v42 & 0xFFFFFFFE | v20;
+  v36 = 1014;
+  v37 = v16;
+  v38 = v14;
+  v41 = QuadPart;
+  v42 = v22;
+  if ( v21 > 0x20000 || v21 < (unsigned int)v19 )
   {
-    WdLogSingleEntry1(3LL, v19);
-    v13 = -2147483643;
-    goto LABEL_19;
+    v31 = WdLogNewEntry5_WdWarning(v22, v18, 1LL);
+    *(_QWORD *)(v31 + 24) = v21;
+    WdLogEvent5_WdWarning(v31);
+    return 2147483653LL;
   }
-  v20 = (_QWORD *)operator new[](v19, 0x4B677844u, 64LL, v16);
-  if ( !v20 )
+  else
   {
-    WdLogSingleEntry1(6LL, 13421LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate output buffer for VmBusSendAcquireKeyedMutexSync",
-      13421LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_5:
-    v13 = -1073741801;
-    goto LABEL_19;
-  }
-  HostHandle = (v18 + 31) & 0xFFFFFFF8;
-  v13 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
-          this,
-          (unsigned __int8 *)v26[1],
-          v26[0],
-          v27,
-          v20,
-          &HostHandle,
-          v22);
-  if ( v13 >= 0 )
-  {
-    if ( HostHandle < v19 )
+    v25 = operator new(v21, 0x4B677844u, 1, (POOL_TYPE)512);
+    if ( v25 )
     {
-      v13 = -1073741823;
+      a6 = (v19 + 31) & 0xFFFFFFF8;
+      v30 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
+              this,
+              (struct DXGKVMB_COMMAND_BASE *)&v33,
+              0x40u,
+              v25,
+              &a6,
+              v32);
+      if ( v30 >= 0 )
+      {
+        if ( a6 < v21 )
+        {
+          v30 = -1073741823;
+        }
+        else
+        {
+          v30 = *(_DWORD *)v25;
+          if ( (_DWORD)v19 )
+            memmove(a3[19], v25 + 3, v19);
+          *a8 = v25[2];
+          if ( a9 )
+            *a9 = v25[1];
+        }
+      }
+      operator delete[](v25);
+      return (unsigned int)v30;
     }
     else
     {
-      v13 = *(_DWORD *)v20;
-      if ( (_DWORD)v18 )
-        memmove(a3[20], v20 + 3, v18);
-      *v25 = v20[2];
-      if ( a9 )
-        *a9 = v20[1];
+      v28 = WdLogNewEntry5_WdLowResource(v24, v23, v26, v27);
+      *(_QWORD *)(v28 + 24) = 11840LL;
+      WdLogEvent5_WdLowResource(v28);
+      return 3221225495LL;
     }
   }
-  operator delete[](v20);
-LABEL_19:
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v26);
-  return (unsigned int)v13;
 }

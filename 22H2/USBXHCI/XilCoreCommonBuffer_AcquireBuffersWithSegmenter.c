@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C000B5D4
+ * XREFs of XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009C0C
  * Callers:
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B4C0 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
  * Callees:
- *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C000B70C (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
- *     WPP_RECORDER_SF_qdd @ 0x1C001E530 (WPP_RECORDER_SF_qdd.c)
+ *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C0009D48 (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C0015C18 (WPP_RECORDER_SF_qdd.c)
  */
 
 __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
@@ -24,7 +24,7 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
 
   v8 = 0;
   *(_BYTE *)(a1 + 25) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 16));
-  v12 = &WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids;
+  v12 = &WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v12) = 5;
@@ -33,11 +33,11 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
       (_DWORD)v12,
       8,
       19,
-      (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
+      (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
       a2,
       a3,
       *(_DWORD *)(a2 + 28));
-    v12 = &WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids;
+    v12 = &WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids;
   }
   if ( *(_DWORD *)(a2 + 28) < a3 )
   {
@@ -49,7 +49,7 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
         (_DWORD)v12,
         8,
         20,
-        (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
+        (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
         a2,
         a3,
         *(_DWORD *)(a2 + 28));

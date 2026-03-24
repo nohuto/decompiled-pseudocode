@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C009AE20
+ * XREFs of ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C00917D0
  * Callers:
- *     ?Release@CRegion@@UEBAJXZ @ 0x1C0093AC0 (-Release@CRegion@@UEBAJXZ.c)
+ *     ?Release@CRegion@@UEBAJXZ @ 0x1C0084B90 (-Release@CRegion@@UEBAJXZ.c)
  * Callees:
- *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0023E50 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002B9F0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
  */
 
 void __fastcall CRegion::SetEmpty(CRegion *this)
 {
-  struct _SLIST_ENTRY *v2; // rcx
+  REGION *v2; // rcx
 
-  v2 = (struct _SLIST_ENTRY *)*((_QWORD *)this + 2);
+  v2 = (REGION *)*((_QWORD *)this + 2);
   if ( v2 )
   {
     REGION::vDeleteREGION(v2);

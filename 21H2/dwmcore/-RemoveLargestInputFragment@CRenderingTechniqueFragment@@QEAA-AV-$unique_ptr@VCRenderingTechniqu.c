@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RemoveLargestInputFragment@CRenderingTechniqueFragment@@QEAA?AV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAVCBrushRenderingGraph@@I@Z @ 0x1802AD2BC
+ * XREFs of ?RemoveLargestInputFragment@CRenderingTechniqueFragment@@QEAA?AV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAVCBrushRenderingGraph@@I@Z @ 0x18026A4F8
  * Callers:
- *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x180037300 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AEB4 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
  * Callees:
- *     ?GetCumulativeSurfaceInputCount@CRenderingTechniqueFragment@@AEBAIPEAVCBrushRenderingGraph@@PEAV?$vector_facade@USurfaceDescription@CRenderingTechniqueFragment@@V?$buffer_impl@USurfaceDescription@CRenderingTechniqueFragment@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180037CEC (-GetCumulativeSurfaceInputCount@CRenderingTechniqueFragment@@AEBAIPEAVCBrushRenderingGraph@@PEAV.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ @ 0x1802AD22C (-ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ.c)
+ *     ?GetCumulativeSurfaceInputCount@CRenderingTechniqueFragment@@AEBAIPEAVCBrushRenderingGraph@@PEAV?$vector_facade@USurfaceDescription@CRenderingTechniqueFragment@@V?$buffer_impl@USurfaceDescription@CRenderingTechniqueFragment@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18004AFC8 (-GetCumulativeSurfaceInputCount@CRenderingTechniqueFragment@@AEBAIPEAVCBrushRenderingGraph@@PEAV.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ @ 0x18026A468 (-ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ.c)
  */
 
 _QWORD *__fastcall CRenderingTechniqueFragment::RemoveLargestInputFragment(
@@ -28,10 +28,10 @@ _QWORD *__fastcall CRenderingTechniqueFragment::RemoveLargestInputFragment(
   __int64 v16; // rbx
   CRenderingTechniqueFragment *v17; // rcx
   __int64 v18; // rax
-  _BYTE *v19; // r8
-  _BYTE *v20; // rcx
-  __int64 v21; // rdx
-  unsigned __int64 v22; // rdx
+  _BYTE *v19; // r9
+  _BYTE *v20; // r8
+  _BYTE *v21; // rcx
+  __int64 v22; // rdx
   _BYTE *v26; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE *v27; // [rsp+48h] [rbp-B8h]
   char *v28; // [rsp+50h] [rbp-B0h]
@@ -59,7 +59,7 @@ _QWORD *__fastcall CRenderingTechniqueFragment::RemoveLargestInputFragment(
         CumulativeSurfaceInputCount = CRenderingTechniqueFragment::GetCumulativeSurfaceInputCount(
                                         v14,
                                         a3,
-                                        (__int64 *)&v26);
+                                        (__int64)&v26);
         if ( CumulativeSurfaceInputCount > v9 )
         {
           v9 = CumulativeSurfaceInputCount;
@@ -82,14 +82,14 @@ _QWORD *__fastcall CRenderingTechniqueFragment::RemoveLargestInputFragment(
   *(_QWORD *)(v16 + 8) = 0LL;
   v19 = v27;
   v20 = v26;
-  v21 = v27 - v26;
+  v21 = v27;
   *v6 = v18;
-  v22 = 0xAAAAAAAAAAAAAAABuLL * (v21 >> 2);
+  v22 = (v21 - v20) / 12;
   if ( v22 )
     v27 = &v19[-12 * v22];
   v26 = 0LL;
   if ( v20 == v29 )
     v20 = 0LL;
-  DefaultHeap::Free(v20);
+  operator delete(v20);
   return v6;
 }

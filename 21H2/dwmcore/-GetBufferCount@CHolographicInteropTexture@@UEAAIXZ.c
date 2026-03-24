@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBufferCount@CHolographicInteropTexture@@UEAAIXZ @ 0x1800FC7E0
+ * XREFs of ?GetBufferCount@CHolographicInteropTexture@@UEAAIXZ @ 0x1800E3080
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CHolographicInteropTexture::GetBufferCount(CHolographicInteropTexture *this)
 {
-  return *((unsigned int *)this + 41);
+  return *((unsigned int *)this + 39);
 }

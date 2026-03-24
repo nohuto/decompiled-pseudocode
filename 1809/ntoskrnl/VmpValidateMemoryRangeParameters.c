@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpValidateMemoryRangeParameters @ 0x1408B0B5C
+ * XREFs of VmpValidateMemoryRangeParameters @ 0x1408B0B3C
  * Callers:
- *     VmCreateMemoryRange @ 0x1408B0140 (VmCreateMemoryRange.c)
- *     VmDeleteMemoryRange @ 0x1408B02F0 (VmDeleteMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x1408B0120 (VmCreateMemoryRange.c)
+ *     VmDeleteMemoryRange @ 0x1408B02D0 (VmDeleteMemoryRange.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCheckThermalPolicy @ 0x140850E08
+ * XREFs of PopCheckThermalPolicy @ 0x1407C0714
  * Callers:
- *     PopThermalWorker @ 0x140850980 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x1407C0270 (PopThermalWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PopPrintEx @ 0x140369B48 (PopPrintEx.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, _DWORD *a4)
 {
   void *DeviceAttachmentBaseRefWithTag; // rax
   void *v9; // rdi
-  __int64 v10; // rax
+  __int64 v10; // rcx
   const wchar_t *v11; // r8
   unsigned int v12; // eax
   unsigned int v13; // ecx
@@ -37,15 +37,14 @@ char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, _DWORD *
 
   DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 48), 0x6D546F50u);
   v9 = DeviceAttachmentBaseRefWithTag;
-  if ( DeviceAttachmentBaseRefWithTag
-    && (v10 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL)) != 0 )
-  {
-    v11 = *(const wchar_t **)(v10 + 136);
-  }
+  if ( DeviceAttachmentBaseRefWithTag )
+    v10 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
   else
-  {
-    v11 = &word_140867F00;
-  }
+    v10 = 0LL;
+  if ( v10 )
+    v11 = *(const wchar_t **)(v10 + 136);
+  else
+    v11 = &word_1407D7BA0;
   *(_DWORD *)(a1 + 232) = 1000000 * *(_DWORD *)(a1 + 200);
   v12 = *(_DWORD *)(a1 + 140);
   if ( v12 && (v13 = *(_DWORD *)(a1 + 128), v13 >= v12) )

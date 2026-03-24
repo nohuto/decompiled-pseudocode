@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpQueueWorkItem @ 0x1400B7300
+ * XREFs of ExpQueueWorkItem @ 0x1400B7320
  * Callers:
- *     ExQueueWorkItemFromIo @ 0x1400D1684 (ExQueueWorkItemFromIo.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2ECC (ExQueueWorkItemToPartition.c)
- *     ExQueueWorkItemEx @ 0x1401296C4 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPrivatePool @ 0x140151420 (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemExFromIo @ 0x14031CF88 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemFromIo @ 0x1400D16A4 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemEx @ 0x1401296E4 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x140151440 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x14031D088 (ExQueueWorkItemExFromIo.c)
  * Callees:
  *     MmGetNextNode @ 0x140061FC0 (MmGetNextNode.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExpNewThreadNecessary @ 0x1400B6AE0 (ExpNewThreadNecessary.c)
- *     ExpIsPoolReadyForWork @ 0x1400B75D0 (ExpIsPoolReadyForWork.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiTryUnwaitThreadWithPriority @ 0x1400CE5D0 (KiTryUnwaitThreadWithPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpNewThreadNecessary @ 0x1400B6B00 (ExpNewThreadNecessary.c)
+ *     ExpIsPoolReadyForWork @ 0x1400B75F0 (ExpIsPoolReadyForWork.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1400CE5F0 (KiTryUnwaitThreadWithPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpQueueWorkItem(__int64 a1, __int64 *a2, int a3, unsigned int a4, unsigned int a5)

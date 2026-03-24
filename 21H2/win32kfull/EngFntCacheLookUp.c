@@ -1,9 +1,9 @@
 /*
- * XREFs of EngFntCacheLookUp @ 0x1C000CCE0
+ * XREFs of EngFntCacheLookUp @ 0x1C00A6A70
  * Callers:
- *     ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C000C160 (-CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z.c)
+ *     ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5D30 (-CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z.c)
  * Callees:
- *     SearchFNTCacheHlink @ 0x1C000D1C8 (SearchFNTCacheHlink.c)
+ *     SearchFNTCacheHlink @ 0x1C00A7374 (SearchFNTCacheHlink.c)
  */
 
 PVOID __stdcall EngFntCacheLookUp(ULONG FastCheckSum, ULONG *pulSize)
@@ -19,12 +19,12 @@ PVOID __stdcall EngFntCacheLookUp(ULONG FastCheckSum, ULONG *pulSize)
   v8 = 0LL;
   if ( !FastCheckSum )
     return 0LL;
-  if ( (dword_1C0335DA0 & 1) != 0 )
+  if ( (dword_1C033ABE0 & 1) != 0 )
   {
-    v4 = qword_1C0335DA8;
-    if ( qword_1C0335DA8 )
+    v4 = qword_1C033ABE8;
+    if ( qword_1C033ABE8 )
     {
-      if ( *(_QWORD *)qword_1C0335DA8 )
+      if ( *(_QWORD *)qword_1C033ABE8 )
       {
         SearchFNTCacheHlink(FastCheckSum, &v8);
         v5 = v8;

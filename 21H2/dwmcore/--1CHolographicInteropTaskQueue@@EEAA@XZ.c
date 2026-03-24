@@ -1,22 +1,20 @@
 /*
- * XREFs of ??1CHolographicInteropTaskQueue@@EEAA@XZ @ 0x18029CD14
+ * XREFs of ??1CHolographicInteropTaskQueue@@EEAA@XZ @ 0x18025A6FC
  * Callers:
- *     ??_GCHolographicInteropTaskQueue@@EEAAPEAXI@Z @ 0x18029CD60 (--_GCHolographicInteropTaskQueue@@EEAAPEAXI@Z.c)
+ *     ??_GCHolographicInteropTaskQueue@@EEAAPEAXI@Z @ 0x18025A740 (--_GCHolographicInteropTaskQueue@@EEAAPEAXI@Z.c)
  * Callees:
- *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800F6630 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
- *     ?ClearList@CHolographicInteropTaskQueue@@AEAAXPEAT_SLIST_HEADER@@@Z @ 0x18029CD9C (-ClearList@CHolographicInteropTaskQueue@@AEAAXPEAT_SLIST_HEADER@@@Z.c)
+ *     ?ClearList@CHolographicInteropTaskQueue@@AEAAXPEAT_SLIST_HEADER@@@Z @ 0x18025A77C (-ClearList@CHolographicInteropTaskQueue@@AEAAXPEAT_SLIST_HEADER@@@Z.c)
  */
 
-void __fastcall CHolographicInteropTaskQueue::~CHolographicInteropTaskQueue(union _SLIST_HEADER *this)
+void __fastcall CHolographicInteropTaskQueue::~CHolographicInteropTaskQueue(CHolographicInteropTaskQueue *this)
 {
   CHolographicInteropTaskQueue *v2; // rcx
   void *v3; // rdx
-  wil::details *Alignment; // rcx
 
-  this->Alignment = (ULONGLONG)&CHolographicInteropTaskQueue::`vftable';
-  CHolographicInteropTaskQueue::ClearList((CHolographicInteropTaskQueue *)this, this + 1);
-  CHolographicInteropTaskQueue::ClearList(v2, this + 2);
-  Alignment = (wil::details *)this[3].Alignment;
-  if ( Alignment )
-    wil::details::CloseHandle(Alignment, v3);
+  *(_QWORD *)this = &CHolographicInteropTaskQueue::`vftable';
+  CHolographicInteropTaskQueue::ClearList(this, (union _SLIST_HEADER *)this + 1);
+  CHolographicInteropTaskQueue::ClearList(v2, (union _SLIST_HEADER *)this + 2);
+  wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(
+    (wil::details **)this + 6,
+    v3);
 }

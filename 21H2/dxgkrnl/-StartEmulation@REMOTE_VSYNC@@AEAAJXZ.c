@@ -1,82 +1,85 @@
 /*
- * XREFs of ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C0160258
+ * XREFs of ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C00DF854
  * Callers:
- *     ?EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ @ 0x1C01601B4 (-EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ.c)
+ *     ?EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ @ 0x1C00DF7B0 (-EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GBLTQUEUE@@QEAAPEAXI@Z @ 0x1C00585B0 (--_GBLTQUEUE@@QEAAPEAXI@Z.c)
- *     ?UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z @ 0x1C0160330 (-UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z.c)
- *     ?EnableVSync@BLTQUEUE@@QEAAXXZ @ 0x1C016051C (-EnableVSync@BLTQUEUE@@QEAAXXZ.c)
- *     ?Startup@BLTQUEUE@@QEAAJXZ @ 0x1C0160578 (-Startup@BLTQUEUE@@QEAAJXZ.c)
- *     ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C0160824 (--0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??_GBLTQUEUE@@QEAAPEAXI@Z @ 0x1C0048E5C (--_GBLTQUEUE@@QEAAPEAXI@Z.c)
+ *     ?UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z @ 0x1C00DF928 (-UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z.c)
+ *     ?EnableVSync@BLTQUEUE@@QEAAXXZ @ 0x1C00DF974 (-EnableVSync@BLTQUEUE@@QEAAXXZ.c)
+ *     ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C0166A8C (--0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z.c)
+ *     ?Startup@BLTQUEUE@@QEAAJXZ @ 0x1C016DDE8 (-Startup@BLTQUEUE@@QEAAJXZ.c)
  */
 
-__int64 __fastcall REMOTE_VSYNC::StartEmulation(REMOTE_VSYNC *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall REMOTE_VSYNC::StartEmulation(REMOTE_VSYNC *this)
 {
-  unsigned int v5; // ebx
-  BLTQUEUE *v6; // rax
+  BLTQUEUE *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
   int v7; // eax
-  __int64 v8; // rsi
-  int v9; // ecx
-  BLTQUEUE *v11; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rdi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int v13; // ecx
+  unsigned int v14; // eax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  BLTQUEUE *v18; // rcx
 
-  v5 = 64;
-  v6 = (BLTQUEUE *)operator new[](0xB68uLL, 0x4B677844u, 64LL, a4);
-  if ( v6 )
-    v6 = BLTQUEUE::BLTQUEUE(v6, 0LL, 0xFFFFFFFF, (struct _KEVENT *)((char *)this + 16), 0);
-  *((_QWORD *)this + 1) = v6;
-  if ( v6 )
+  v2 = (BLTQUEUE *)operator new[](0xB58uLL, 0x4B677844u, (POOL_TYPE)512);
+  if ( v2 )
+    v2 = BLTQUEUE::BLTQUEUE(v2, 0LL, 0xFFFFFFFF, (struct _KEVENT *)((char *)this + 16), 0);
+  *((_QWORD *)this + 1) = v2;
+  if ( v2 )
   {
-    v7 = BLTQUEUE::Startup(v6);
-    v8 = v7;
+    v7 = BLTQUEUE::Startup(v2);
+    v10 = v7;
     if ( v7 < 0 )
     {
-      WdLogSingleEntry1(2LL, v7);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to start remote VSync emulation, status 0x%I64x",
-        v8,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v11 = (BLTQUEUE *)*((_QWORD *)this + 1);
-      if ( v11 )
-      {
-        BLTQUEUE::`scalar deleting destructor'(v11, 1);
-        *((_QWORD *)this + 1) = 0LL;
-      }
+      v17 = WdLogNewEntry5_WdError(v9, v8);
+      *(_QWORD *)(v17 + 24) = v10;
+      WdLogEvent5_WdError(v17);
     }
     else
     {
       BLTQUEUE::EnableVSync(*((BLTQUEUE **)this + 1));
-      if ( !*((_BYTE *)this + 1) )
+      if ( *((_BYTE *)this + 1) )
       {
-        v9 = *((_DWORD *)DXGGLOBAL_GetGlobal() + 76202);
-        if ( !v9 || (v5 = 0x3E8u / (v9 + 1)) == 0 )
-          v5 = 32;
+        v14 = 64;
       }
-      BLTQUEUE::UpdateDisplayModeInfo(*((BLTQUEUE **)this + 1), (struct _D3DDDI_RATIONAL)(v5 | 0x100000000LL), 0x300u);
+      else
+      {
+        v13 = *((_DWORD *)DXGGLOBAL::GetGlobal(v12, v11) + 76140);
+        if ( v13 )
+          v14 = 0x3E8u / (v13 + 1);
+        else
+          v14 = 0;
+        if ( !v14 )
+          v14 = 32;
+      }
+      BLTQUEUE::UpdateDisplayModeInfo(*((BLTQUEUE **)this + 1), (struct _D3DDDI_RATIONAL)(v14 | 0x100000000LL), 0x300u);
     }
-    return (unsigned int)v8;
+    if ( (int)v10 < 0 )
+    {
+      v18 = (BLTQUEUE *)*((_QWORD *)this + 1);
+      if ( v18 )
+      {
+        BLTQUEUE::`scalar deleting destructor'(v18, 1);
+        *((_QWORD *)this + 1) = 0LL;
+      }
+    }
+    return (unsigned int)v10;
   }
   else
   {
-    WdLogSingleEntry1(6LL, 43LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to create remote VSync emulation class",
-      43LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdLowResource(v4, v3, v5, v6);
+    *(_QWORD *)(v16 + 24) = 43LL;
+    WdLogEvent5_WdLowResource(v16);
     return 3221225495LL;
   }
 }

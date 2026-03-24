@@ -1,14 +1,12 @@
 /*
- * XREFs of ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BD6F0
+ * XREFs of ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800ACA0C
  * Callers:
- *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x180020104 (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056CD0 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800BB33C (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800BD3F8 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
- *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800BD560 (-Play@KeyframeSequence@@QEAAXXZ.c)
- *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800F9EE8 (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
- *     ?StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ @ 0x18023A420 (-StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ.c)
+ *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800187AC (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800A9DC8 (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9ECC (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC998 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?ProgressSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1801D178C (-ProgressSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x1801D1A28 (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,9 +14,9 @@
 void __fastcall KeyframeSequence::ConfigureTimer(KeyframeSequence *this)
 {
   float v1; // xmm1_4
-  bool v2; // r8
+  bool v2; // dl
   int v3; // r9d
-  int v4; // edx
+  int v4; // r8d
   float v5; // xmm1_4
   int v6; // eax
 

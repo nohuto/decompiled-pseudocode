@@ -1,31 +1,23 @@
 /*
- * XREFs of ?_QueryULong@CUmdfSvcConfig@@CAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0031CF4
+ * XREFs of ?_QueryULong@CUmdfSvcConfig@@CAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C008E594
  * Callers:
- *     ?IsCompanionSecure@CUmdfSvcConfig@@SAJPEAXPEAE@Z @ 0x1C0031B7C (-IsCompanionSecure@CUmdfSvcConfig@@SAJPEAXPEAE@Z.c)
- *     ?GetSecureSoftwareDeviceTag@CUmdfSvcConfig@@QEAAJPEAXPEAK@Z @ 0x1C0031C00 (-GetSecureSoftwareDeviceTag@CUmdfSvcConfig@@QEAAJPEAXPEAK@Z.c)
+ *     ?GetSecureSoftwareDeviceTag@CUmdfSvcConfig@@QEAAJPEAXPEAK@Z @ 0x1C008E1F8 (-GetSecureSoftwareDeviceTag@CUmdfSvcConfig@@QEAAJPEAXPEAK@Z.c)
+ *     ?IsCompanionSecure@CUmdfSvcConfig@@SAJPEAXPEAE@Z @ 0x1C008E2E8 (-IsCompanionSecure@CUmdfSvcConfig@@SAJPEAXPEAE@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall CUmdfSvcConfig::_QueryULong(void *Key, _UNICODE_STRING *ValueName, unsigned int *Value)
+__int64 __fastcall CUmdfSvcConfig::_QueryULong(void *Key, _UNICODE_STRING *ValueName, unsigned int *Value)
 {
-  NTSTATUS result; // eax
+  NTSTATUS v4; // edx
   unsigned int length; // [rsp+30h] [rbp-28h] BYREF
   unsigned __int8 buffer[16]; // [rsp+38h] [rbp-20h] BYREF
 
   length = 16;
-  result = ZwQueryValueKey(Key, ValueName, KeyValuePartialInformation, buffer, 0x10u, &length);
-  if ( (int)(result + 0x80000000) < 0 || result == -2147483643 )
-  {
-    if ( *(_DWORD *)&buffer[4] == 4 )
-    {
-      if ( result >= 0 )
-        *Value = *(_DWORD *)&buffer[12];
-    }
-    else
-    {
-      return -1073741788;
-    }
-  }
-  return result;
+  v4 = ZwQueryValueKey(Key, ValueName, KeyValuePartialInformation, buffer, 0x10u, &length);
+  if ( ((int)(v4 + 0x80000000) < 0 || v4 == -2147483643) && *(_DWORD *)&buffer[4] != 4 )
+    v4 = -1073741788;
+  if ( v4 >= 0 )
+    *Value = *(_DWORD *)&buffer[12];
+  return (unsigned int)v4;
 }

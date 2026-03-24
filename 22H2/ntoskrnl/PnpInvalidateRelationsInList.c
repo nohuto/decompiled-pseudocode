@@ -1,31 +1,31 @@
 /*
- * XREFs of PnpInvalidateRelationsInList @ 0x140881998
+ * XREFs of PnpInvalidateRelationsInList @ 0x14074AF10
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PnpProcessCompletedEject @ 0x1409590A0 (PnpProcessCompletedEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x1408A2500 (PnpProcessCompletedEject.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     IopEnumerateRelations @ 0x140868860 (IopEnumerateRelations.c)
- *     IopFreeRelationList @ 0x14086898C (IopFreeRelationList.c)
- *     IopAllocateRelationList @ 0x1408689DC (IopAllocateRelationList.c)
- *     IopAddRelationToList @ 0x14086918C (IopAddRelationToList.c)
- *     IopSetRelationsTag @ 0x140881B08 (IopSetRelationsTag.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     IopSetRelationsTag @ 0x140749870 (IopSetRelationsTag.c)
+ *     IopAddRelationToList @ 0x1407498C8 (IopAddRelationToList.c)
+ *     IopAllocateRelationList @ 0x14074A604 (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x14074A6C8 (IopFreeRelationList.c)
+ *     IopEnumerateRelations @ 0x14074B374 (IopEnumerateRelations.c)
  */
 
-__int64 __fastcall PnpInvalidateRelationsInList(unsigned int **a1, unsigned int a2, char a3, char a4)
+__int64 __fastcall PnpInvalidateRelationsInList(__int64 *a1, unsigned int a2, char a3, char a4)
 {
-  unsigned int **RelationList; // rsi
-  unsigned int *v9; // rdx
+  _BYTE *RelationList; // rsi
+  _DWORD *v9; // rdx
   unsigned int i; // r8d
   __int64 v11; // rax
   _QWORD *j; // rbx
-  _QWORD *v13; // r9
+  __int64 v13; // r9
   __int64 v15; // rax
   __int64 v16; // rdi
   __int64 v17; // rbx
   int v18; // eax
-  unsigned int v19; // edx
+  int v19; // edx
   int v20; // [rsp+40h] [rbp-20h] BYREF
   int v21; // [rsp+44h] [rbp-1Ch] BYREF
   __int64 v22; // [rsp+48h] [rbp-18h] BYREF
@@ -34,11 +34,11 @@ __int64 __fastcall PnpInvalidateRelationsInList(unsigned int **a1, unsigned int 
   Object[0] = 0LL;
   v21 = 0;
   v20 = 0;
-  RelationList = (unsigned int **)IopAllocateRelationList(a2);
+  RelationList = IopAllocateRelationList(a2);
   if ( !RelationList )
     return 3221225626LL;
-  v9 = *a1;
-  for ( i = 0; i < **a1; v9 = *a1 )
+  v9 = (_DWORD *)*a1;
+  for ( i = 0; i < *(_DWORD *)*a1; v9 = (_DWORD *)*a1 )
   {
     v11 = i++;
     v9[6 * v11 + 8] &= ~1u;
@@ -46,14 +46,20 @@ __int64 __fastcall PnpInvalidateRelationsInList(unsigned int **a1, unsigned int 
   v9[2] = 0;
   v22 = 0LL;
 LABEL_5:
-  while ( IopEnumerateRelations(a1, (int *)&v22, Object, &v20, &v21) )
+  while ( (unsigned __int8)IopEnumerateRelations(
+                             (_DWORD)a1,
+                             (unsigned int)&v22,
+                             (unsigned int)Object,
+                             (unsigned int)&v20,
+                             (__int64)&v21) )
   {
     if ( (!a3 || !v20) && !v21 )
     {
       for ( j = Object[0]; ; j = *(_QWORD **)(v17 + 32) )
       {
-        if ( (unsigned int)IopSetRelationsTag(a1, j) )
+        if ( (unsigned int)IopSetRelationsTag(a1, (__int64)j) )
         {
+LABEL_11:
           if ( j )
             IopAddRelationToList(RelationList, (__int64)j, 2LL, 0);
           goto LABEL_5;
@@ -82,13 +88,16 @@ LABEL_5:
 LABEL_17:
         v17 = *(_QWORD *)(v16 + 16);
         if ( !v17 )
-          goto LABEL_5;
+        {
+          j = 0LL;
+          goto LABEL_11;
+        }
       }
     }
   }
   v22 = 0LL;
-  while ( IopEnumerateRelations(RelationList, (int *)&v22, Object, 0LL, 0LL) )
-    PnpRequestDeviceAction(Object[0], 9u, 0, v13, 0LL, 0LL, 0LL);
+  while ( (unsigned __int8)IopEnumerateRelations((_DWORD)RelationList, (unsigned int)&v22, (unsigned int)Object, 0, 0LL) )
+    PnpRequestDeviceAction(Object[0], 9, 0, v13, 0LL, 0LL, 0LL);
   IopFreeRelationList(RelationList);
   return 0LL;
 }

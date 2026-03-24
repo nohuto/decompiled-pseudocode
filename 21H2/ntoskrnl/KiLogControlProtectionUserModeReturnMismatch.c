@@ -1,30 +1,34 @@
 /*
- * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x140569768
+ * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x1403F2B88
  * Callers:
- *     KiProcessControlProtection @ 0x140569910 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x140512760 (KiProcessControlProtection.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     KiShouldLogUserModeReturnMismatch @ 0x140960B34 (KiShouldLogUserModeReturnMismatch.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E6BB0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2A24 (Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
  */
 
-__int64 (__fastcall *__fastcall KiLogControlProtectionUserModeReturnMismatch(
-        unsigned int a1,
-        __int64 a2,
-        __int64 a3))(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
+void __fastcall KiLogControlProtectionUserModeReturnMismatch(__int64 a1)
 {
-  _KPROCESS *Process; // rsi
-  int v7; // [rsp+30h] [rbp-18h]
+  _KPROCESS *Process; // r10
+  signed __int32 Blink_high; // eax
+  signed __int32 v3; // ett
 
   Process = KeGetCurrentThread()->Process;
-  if ( (unsigned __int8)KiShouldLogUserModeReturnMismatch(Process, a1, *(_QWORD *)(a3 + 8)) )
-    EtwTimLogControlProtectionUserModeReturnMismatch(a1, Process, a3);
-  return wil_details_FeatureReporting_ReportUsageToService(
-           (__int64)&Feature_CET_User_Audit_Livedump__private_reporting,
-           0x178806Fu,
-           0,
-           0,
-           (__int64)&Feature_LiveDumpOnAppxAllUserStoreAccessDenied_logged_traits,
-           0,
-           v7);
+  _m_prefetchw((char *)&Process[2].ReadyListHead.Blink + 4);
+  Blink_high = HIDWORD(Process[2].ReadyListHead.Blink);
+  do
+  {
+    v3 = Blink_high;
+    Blink_high = _InterlockedCompareExchange(
+                   (volatile signed __int32 *)&Process[2].ReadyListHead.Blink + 1,
+                   Blink_high | 0x10000,
+                   Blink_high);
+  }
+  while ( v3 != Blink_high );
+  if ( (Blink_high & 0x10000) == 0 )
+  {
+    if ( (_DWORD)a1 == 1 || (_DWORD)a1 == 2 )
+      EtwTimLogControlProtectionUserModeReturnMismatch(a1, Process);
+    Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage();
+  }
 }

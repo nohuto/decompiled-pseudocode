@@ -1,31 +1,29 @@
 /*
- * XREFs of ??0CD3DTexture@@IEAA@_N@Z @ 0x1802BF5FC
+ * XREFs of ??0CD3DTexture@@IEAA@_N@Z @ 0x18026D1FC
  * Callers:
- *     ??0CD3DVidMemOnlyTexture@@IEAA@_N@Z @ 0x1802BFC08 (--0CD3DVidMemOnlyTexture@@IEAA@_N@Z.c)
+ *     ??0CD3DVidMemOnlyTexture@@IEAA@_N@Z @ 0x18026CF48 (--0CD3DVidMemOnlyTexture@@IEAA@_N@Z.c)
  * Callees:
- *     ??0CD3DResource@@IEAA@_N@Z @ 0x1800D0F04 (--0CD3DResource@@IEAA@_N@Z.c)
+ *     ??0CD3DResource@@IEAA@_N@Z @ 0x18002C12C (--0CD3DResource@@IEAA@_N@Z.c)
  */
 
 CD3DTexture *__fastcall CD3DTexture::CD3DTexture(CD3DTexture *this)
 {
-  __int64 v1; // rcx
-  __int64 v2; // rax
-  __int64 v3; // rdx
+  __int64 v2; // rcx
 
   CD3DResource::CD3DResource(this, 1);
-  v2 = *(_QWORD *)(v1 + 8);
-  *(_QWORD *)v1 = &CD3DTexture::`vftable'{for `IDeviceResource'};
-  *(_QWORD *)(*(int *)(v2 + 4) + v1 + 8) = &CD3DTexture::`vftable'{for `IUnknown'};
-  v3 = *(int *)(*(_QWORD *)(v1 + 8) + 4LL);
-  *(_DWORD *)(v3 + v1 + 4) = v3 - 224;
-  *(_QWORD *)(v1 + 96) = 0LL;
-  *(_QWORD *)(v1 + 148) = 0LL;
-  *(_DWORD *)(v1 + 156) = 0;
-  *(_QWORD *)(v1 + 168) = 0LL;
-  *(_QWORD *)(v1 + 176) = 0LL;
-  *(_QWORD *)(v1 + 184) = 0LL;
-  *(_QWORD *)(v1 + 192) = 0LL;
-  *(_QWORD *)(v1 + 200) = 0LL;
-  *(_QWORD *)(v1 + 208) = 0LL;
-  return (CD3DTexture *)v1;
+  *(_QWORD *)this = &CD3DTexture::`vftable';
+  *((_QWORD *)this + 3) = &CD3DVidMemOnlyTexture::`vftable'{for `IDeviceResource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 4) + 4LL) + 32) = &CD3DTexture::`vftable'{for `IUnknown'};
+  v2 = *(int *)(*((_QWORD *)this + 4) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 28) = v2 - 216;
+  *((_QWORD *)this + 14) = 0LL;
+  *(_QWORD *)((char *)this + 164) = 0LL;
+  *((_DWORD *)this + 43) = 0;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_QWORD *)this + 24) = 0LL;
+  *((_QWORD *)this + 25) = 0LL;
+  *((_QWORD *)this + 26) = 0LL;
+  *((_QWORD *)this + 27) = 0LL;
+  *((_QWORD *)this + 28) = 0LL;
+  return this;
 }

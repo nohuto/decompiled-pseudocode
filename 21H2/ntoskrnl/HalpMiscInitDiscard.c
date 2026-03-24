@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMiscInitDiscard @ 0x140B27708
+ * XREFs of HalpMiscInitDiscard @ 0x140A6D378
  * Callers:
- *     HalpMiscInitSystem @ 0x140A5B550 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x1409A1520 (HalpMiscInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024AE50 (KeRegisterBugCheckReasonCallback.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 HalpMiscInitDiscard()
@@ -15,12 +15,12 @@ __int64 HalpMiscInitDiscard()
   if ( (_WORD)MajorVersion != 1 )
     KeBugCheckEx(0x79u, 1uLL, MajorVersion, 1uLL, 0LL);
   HalpMiscCallbackRecord.State = 0;
-  off_140C020D8[0] = (__int64 (__fastcall *)())HaliQuerySystemInformation;
-  off_140C020E0[0] = (__int64 (__fastcall *)())HalpSetSystemInformation;
+  off_140C00A68[0] = (__int64 (__fastcall *)())HaliQuerySystemInformation;
+  off_140C00A70[0] = (__int64 (__fastcall *)())HalpSetSystemInformation;
   KeRegisterBugCheckReasonCallback(
     &HalpMiscCallbackRecord,
     (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HalpMiscBugCheckCallback,
-    (KBUGCHECK_CALLBACK_REASON)8,
+    KbCallbackReserved1,
     (PUCHAR)"HAL");
   if ( HalpMiscDebugBreakRequested )
     __debugbreak();

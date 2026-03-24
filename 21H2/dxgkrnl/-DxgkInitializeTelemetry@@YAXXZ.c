@@ -1,18 +1,18 @@
 /*
- * XREFs of ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0025EFC
+ * XREFs of ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0023810
  * Callers:
- *     DriverEntry @ 0x1C03C7238 (DriverEntry.c)
+ *     DriverEntry @ 0x1C0307D3C (DriverEntry.c)
  * Callees:
- *     TlgRegisterAggregateProviderEx @ 0x1C01F4AB0 (TlgRegisterAggregateProviderEx.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C01F4BEC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C0198878 (TlgRegisterAggregateProviderEx.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C01989B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 void DxgkInitializeTelemetry(void)
 {
-  TlgRegisterAggregateProviderEx(&dword_1C012F918);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C012F9C0);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C012F8E0);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C012F988);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C012F950);
-  TlgRegisterAggregateProviderEx(&dword_1C012F8A8);
+  TlgRegisterAggregateProviderEx(&dword_1C00B1A90);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C00B1A58);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C00B1A20);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C00B1B00);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C00B1AC8);
+  TlgRegisterAggregateProviderEx(&dword_1C00B19E8);
 }

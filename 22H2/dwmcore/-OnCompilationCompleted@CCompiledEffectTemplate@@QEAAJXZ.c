@@ -1,13 +1,13 @@
 /*
- * XREFs of ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800EB630
+ * XREFs of ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800A97FC
  * Callers:
- *     ?HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ @ 0x1800EB444 (-HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ.c)
+ *     ?HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ @ 0x1800A96F8 (-HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ.c)
  * Callees:
- *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180098C90 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800EB710 (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
- *     ?GetChannelCallbackId@CNotificationResource@@IEBAIXZ @ 0x1800EB758 (-GetChannelCallbackId@CNotificationResource@@IEBAIXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x18006645C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800A98D4 (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
+ *     ?GetChannelCallbackId@CNotificationResource@@IEBAIXZ @ 0x1800AD3D0 (-GetChannelCallbackId@CNotificationResource@@IEBAIXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompiledEffectTemplate::OnCompilationCompleted(CCompiledEffectTemplate *this)
@@ -15,52 +15,47 @@ __int64 __fastcall CCompiledEffectTemplate::OnCompilationCompleted(CCompiledEffe
   unsigned int v2; // edi
   __int64 v3; // rsi
   CNotificationResource *v4; // rcx
-  __int64 v5; // r9
-  __int64 v6; // rax
-  unsigned int v7; // r10d
-  int v8; // eax
-  __int64 v9; // rcx
-  CNotificationResource *v11; // rcx
+  unsigned int v5; // eax
+  unsigned int v6; // r10d
+  int v7; // eax
+  __int64 v8; // rcx
+  CNotificationResource *v10; // rcx
   __int64 ChannelCallbackId; // rcx
-  __int64 v13; // rax
-  unsigned int v14; // r10d
-  int v15; // r9d
-  int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // [rsp+30h] [rbp-28h]
-  __int64 v19; // [rsp+40h] [rbp-18h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-10h]
+  __int64 v12; // rax
+  unsigned int v13; // r10d
+  int v14; // eax
+  __int64 v15; // rcx
+  __int64 v16; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-10h]
 
   v2 = 0;
-  v3 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1240LL) + 40LL);
+  v3 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1080LL) + 48LL);
   CCompiledEffectTemplate::SignalCompileCompletedEvent(this);
-  if ( *(_DWORD *)(*((_QWORD *)this + 10) + 64LL) == 2 )
+  if ( *(_DWORD *)(*((_QWORD *)this + 9) + 64LL) == 2 )
   {
     if ( CNotificationResource::ShouldNotify(this) )
     {
-      ChannelCallbackId = CNotificationResource::GetChannelCallbackId(v11);
-      v13 = *((unsigned int *)this + 16);
-      LODWORD(v18) = v15;
-      v19 = ChannelCallbackId;
-      v20 = v13;
-      v16 = CoreUICallSend(v3, &v19, v14, 8LL, 1, &unk_18033C478, v18);
-      v2 = v16;
-      if ( v16 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x8Eu, 0LL);
+      ChannelCallbackId = CNotificationResource::GetChannelCallbackId(v10);
+      v12 = *((unsigned int *)this + 14);
+      v16 = ChannelCallbackId;
+      v17 = v12;
+      v14 = CoreUICallSend(v3, &v16, v13, 5LL, 1, &unk_1802CE73D);
+      v2 = v14;
+      if ( v14 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x8Eu, 0LL);
     }
   }
-  else if ( *(_DWORD *)(*((_QWORD *)this + 10) + 64LL) == 3 )
+  else if ( *(_DWORD *)(*((_QWORD *)this + 9) + 64LL) == 3 )
   {
     if ( CNotificationResource::ShouldNotify(this)
       && (v5 = CNotificationResource::GetChannelCallbackId(v4),
-          v6 = *((unsigned int *)this + 16),
-          v19 = v5,
-          v20 = v6,
-          v8 = CoreUICallSend(v3, &v19, v7, 8LL, 0, &unk_18033C46E, v18),
-          v2 = v8,
-          v8 < 0) )
+          v17 = *((unsigned int *)this + 14),
+          v16 = v5,
+          v7 = CoreUICallSend(v3, &v16, v6, 5LL, 0, &unk_1802CE72E),
+          v2 = v7,
+          v7 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x80u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x80u, 0LL);
     }
     else
     {

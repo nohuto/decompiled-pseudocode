@@ -1,15 +1,15 @@
 /*
- * XREFs of NtCreateRegistryTransaction @ 0x1406C7D00
+ * XREFs of NtCreateRegistryTransaction @ 0x1406C7CE0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)

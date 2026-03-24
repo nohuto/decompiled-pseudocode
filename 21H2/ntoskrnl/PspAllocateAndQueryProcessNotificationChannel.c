@@ -1,20 +1,20 @@
 /*
- * XREFs of PspAllocateAndQueryProcessNotificationChannel @ 0x1406C32B0
+ * XREFs of PspAllocateAndQueryProcessNotificationChannel @ 0x140604C58
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x14041D180 (ZwCreateWnfStateName.c)
- *     ZwDeleteWnfStateName @ 0x14041D320 (ZwDeleteWnfStateName.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FBD20 (ZwCreateWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x1403FBEC0 (ZwDeleteWnfStateName.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
  */
 
 __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)

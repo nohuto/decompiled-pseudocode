@@ -1,25 +1,25 @@
 /*
- * XREFs of PopPepTriggerActivity @ 0x140356BCC
+ * XREFs of PopPepTriggerActivity @ 0x1402621F8
  * Callers:
- *     PopPepUpdateIdleState @ 0x140354B48 (PopPepUpdateIdleState.c)
- *     PopPepTryPowerUpComponent @ 0x140354C00 (PopPepTryPowerUpComponent.c)
- *     PopPepTryPowerDownDevice @ 0x140355DFC (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     PopPepSurprisePowerOn @ 0x140397B04 (PopPepSurprisePowerOn.c)
+ *     PopPepTryPowerDownDevice @ 0x140261410 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     PopPepUpdateIdleState @ 0x140262538 (PopPepUpdateIdleState.c)
+ *     PopPepTryPowerUpComponent @ 0x140262688 (PopPepTryPowerUpComponent.c)
+ *     PopPepSurprisePowerOn @ 0x14038BB98 (PopPepSurprisePowerOn.c)
  * Callees:
- *     PopPepCancelActivities @ 0x140356CB8 (PopPepCancelActivities.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     PopPepCancelActivities @ 0x1402622E4 (PopPepCancelActivities.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
-  ULONG_PTR v4; // rbx
+  ULONG_PTR v4; // rdi
   BOOL v8; // ecx
-  ULONG_PTR v9; // r10
+  ULONG_PTR v9; // r11
   int v10; // edx
-  __int64 v11; // r9
-  _DWORD *v12; // r11
+  __int64 v11; // r8
+  _DWORD *v12; // r9
   _DWORD *v13; // rax
 
   v4 = (int)a3;
@@ -34,7 +34,7 @@ __int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, unsigned int a3
   {
     v12 = *(_DWORD **)(v9 + 8 * v11);
     if ( v12 && (*(_DWORD *)&ActivityAttributes[136 * v4 + 16 + 4 * v11] & *v12) != 0 )
-      PopFxBugCheck(0x666uLL, v9, v4, (unsigned int)v10);
+      PopFxBugCheck(0x666uLL, v9, v4, v10);
     ++v10;
     ++v11;
   }
@@ -45,9 +45,5 @@ __int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, unsigned int a3
     v13 = *(_DWORD **)(a1 + 8 * v4 + 72);
   *v13 |= 1u;
   v13[1] = a4;
-  return (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64))&ActivityAttributes[136 * v4 + 112])(
-           a1,
-           a2,
-           a4,
-           v11);
+  return (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))&ActivityAttributes[136 * v4 + 112])(a1, a2, a4);
 }

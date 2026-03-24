@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetSDRBoost@CDeviceTextureTarget@@$4PPPPPPPM@A@EAAXM@Z @ 0x180120680
+ * XREFs of ?SetSDRBoost@CDeviceTextureTarget@@$4PPPPPPPM@A@EAAXM@Z @ 0x1800F7BF0
  * Callers:
  *     <none>
  * Callees:

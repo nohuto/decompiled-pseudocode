@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfInterruptTryToAcquireLock @ 0x1C00C1FC0
+ * XREFs of imp_VfWdfInterruptTryToAcquireLock @ 0x1C00C0FC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall imp_VfWdfInterruptTryToAcquireLock(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFINTERRUPT__ *Interrupt)

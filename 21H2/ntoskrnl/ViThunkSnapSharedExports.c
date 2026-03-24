@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkSnapSharedExports @ 0x140A7BF74
+ * XREFs of ViThunkSnapSharedExports @ 0x1409C229C
  * Callers:
- *     ViThunkCreateSharedExportInformation @ 0x140A7C0B8 (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkCreateSharedExportInformation @ 0x1409C21C8 (ViThunkCreateSharedExportInformation.c)
  * Callees:
- *     RtlFindNextForwardRunClear @ 0x1402E1F90 (RtlFindNextForwardRunClear.c)
- *     ViThunkSnapSharedExportByName @ 0x140A7BE54 (ViThunkSnapSharedExportByName.c)
+ *     RtlFindNextForwardRunClear @ 0x140267B70 (RtlFindNextForwardRunClear.c)
+ *     ViThunkSnapSharedExportByName @ 0x1409C234C (ViThunkSnapSharedExportByName.c)
  */
 
 __int64 __fastcall ViThunkSnapSharedExports(
@@ -17,37 +17,34 @@ __int64 __fastcall ViThunkSnapSharedExports(
 {
   ULONG v6; // ebx
   unsigned int v7; // edi
-  __int64 v8; // rsi
-  __int64 v12; // r15
+  unsigned int v8; // esi
   ULONG v13; // eax
-  ULONG v14; // ebx
-  int v15; // eax
+  __int64 v14; // r8
+  ULONG v15; // ebx
+  int v16; // eax
   ULONG StartingRunIndex; // [rsp+60h] [rbp+18h] BYREF
-  int v18; // [rsp+64h] [rbp+1Ch]
 
-  v18 = HIDWORD(a3);
   v6 = 0;
   v7 = 0;
-  v8 = 0LL;
+  v8 = 0;
   StartingRunIndex = 0;
   if ( a5 )
   {
-    v12 = a6;
     v13 = 0;
     do
     {
       if ( v13 >= a4->SizeOfBitMap || !RtlFindNextForwardRunClear(a4, v6, &StartingRunIndex) )
         break;
-      v14 = StartingRunIndex;
-      v15 = ViThunkSnapSharedExportByName(a1, (const char **)(a2 + 56LL * StartingRunIndex), v12 + 24 * v8);
-      if ( v7 || v15 )
+      v15 = StartingRunIndex;
+      v16 = ViThunkSnapSharedExportByName(a1, a2 + a3 * StartingRunIndex, v14, a6 + 32LL * v8);
+      if ( v7 || v16 )
         v7 = 1;
-      v6 = v14 + 1;
-      v8 = (unsigned int)(v8 + 1);
+      v6 = v15 + 1;
+      ++v8;
       v13 = v6;
       StartingRunIndex = v6;
     }
-    while ( (unsigned int)v8 < a5 );
+    while ( v8 < a5 );
   }
   return v7;
 }

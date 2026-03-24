@@ -1,17 +1,16 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U3@U3@U3@U3@U2@U?$_tlgWrapSz@G@@U1@U3@U3@U3@U3@U3@U3@U3@U3@U3@U2@U3@U2@U3@U3@U3@U3@U3@U3@U3@U3@U2@U2@U1@U2@U2@U3@U1@U1@U1@U2@U2@U2@U4@U4@U4@U4@U4@U3@U1@U1@U1@U4@U_tlgWrapperBinary@@U1@U3@U4@U3@U?$_tlgWrapperByVal@$00@@U?$_tlgWrapperArray@$00@@U8@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$03@@555AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@55554AEBU?$_tlgWrapSz@G@@3555555555454555555554434453334446666653336AEBU_tlgWrapperBinary@@3565AEBU?$_tlgWrapperByVal@$00@@AEBU?$_tlgWrapperArray@$00@@AEBU?$_tlgWrapperArray@$00@@555@Z @ 0x1C003ED50
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U3@U3@U3@U3@U2@U?$_tlgWrapSz@G@@U1@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U3@U2@U2@U1@U2@U2@U3@U1@U1@U1@U2@U2@U2@U4@U4@U4@U4@U4@U3@U1@U1@U4@U_tlgWrapperBinary@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$03@@555AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@55554AEBU?$_tlgWrapSz@G@@35555555555555555443445333444666665336AEBU_tlgWrapperBinary@@3@Z @ 0x1C0001008
  * Callers:
- *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021A2B8 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0194BDC (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0014CD0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ??$_tlgCreate1Sz@G@@YAXPEAU_EVENT_DATA_DESCRIPTOR@@PEBG@Z @ 0x1C0016468 (--$_tlgCreate1Sz@G@@YAXPEAU_EVENT_DATA_DESCRIPTOR@@PEBG@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00213AC (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperBinary,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperArray<1>,_tlgWrapperArray<1>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+__int64 __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapperByVal<2>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperBinary,_tlgWrapperByVal<8>>(
         __int64 a1,
-        unsigned __int8 *a2,
-        const GUID *a3,
+        int a2,
+        int a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
@@ -25,7 +24,7 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
         __int64 a14,
         __int64 a15,
         __int64 a16,
-        _WORD **a17,
+        void **a17,
         __int64 a18,
         __int64 a19,
         __int64 a20,
@@ -55,60 +54,61 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
         __int64 a44,
         __int64 a45,
         __int64 a46,
-        __int64 a47,
-        __int64 a48,
-        __int64 a49,
-        __int64 a50,
+        unsigned __int16 **a47,
+        unsigned __int16 **a48,
+        unsigned __int16 **a49,
+        unsigned __int16 **a50,
         unsigned __int16 **a51,
-        unsigned __int16 **a52,
-        unsigned __int16 **a53,
-        unsigned __int16 **a54,
+        __int64 a52,
+        __int64 a53,
+        __int64 a54,
         unsigned __int16 **a55,
-        __int64 a56,
-        __int64 a57,
-        __int64 a58,
-        __int64 a59,
-        unsigned __int16 **a60,
-        __int64 *a61,
-        __int64 a62,
-        __int64 a63)
+        __int64 *a56,
+        __int64 a57)
 {
-  unsigned __int16 **a64; // [rsp+768h] [rbp+668h]
-  unsigned __int64 v66; // rax
-  unsigned __int64 v67; // rcx
-  unsigned __int64 v68; // rax
+  unsigned __int16 *v58; // rax
+  int v59; // ecx
+  unsigned __int16 *v60; // rax
+  int v61; // ecx
+  int v62; // ecx
+  int v63; // ecx
+  int v64; // ecx
+  int v65; // ecx
+  _WORD *v66; // rcx
+  __int64 v67; // rax
+  int v68; // edx
   unsigned __int16 *v69; // rax
-  _WORD *v70; // rdx
-  unsigned __int16 *v71; // rax
-  int v72; // ecx
-  struct _EVENT_DATA_DESCRIPTOR v74; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v75; // [rsp+50h] [rbp-B0h]
-  __int64 v76; // [rsp+58h] [rbp-A8h]
-  __int64 v77; // [rsp+60h] [rbp-A0h]
-  __int64 v78; // [rsp+68h] [rbp-98h]
-  __int64 v79; // [rsp+70h] [rbp-90h]
-  __int64 v80; // [rsp+78h] [rbp-88h]
-  __int64 v81; // [rsp+80h] [rbp-80h]
-  __int64 v82; // [rsp+88h] [rbp-78h]
-  __int64 v83; // [rsp+90h] [rbp-70h]
-  __int64 v84; // [rsp+98h] [rbp-68h]
-  __int64 v85; // [rsp+A0h] [rbp-60h]
-  __int64 v86; // [rsp+A8h] [rbp-58h]
-  _DWORD *v87; // [rsp+B0h] [rbp-50h]
-  __int64 v88; // [rsp+B8h] [rbp-48h]
-  __int64 v89; // [rsp+C0h] [rbp-40h]
-  _DWORD v90[2]; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 v91; // [rsp+D0h] [rbp-30h]
-  __int64 v92; // [rsp+D8h] [rbp-28h]
-  __int64 v93; // [rsp+E0h] [rbp-20h]
-  __int64 v94; // [rsp+E8h] [rbp-18h]
-  __int64 v95; // [rsp+F0h] [rbp-10h]
-  __int64 v96; // [rsp+F8h] [rbp-8h]
-  __int64 v97; // [rsp+100h] [rbp+0h]
-  __int64 v98; // [rsp+108h] [rbp+8h]
-  __int64 v99; // [rsp+110h] [rbp+10h]
-  __int64 v100; // [rsp+118h] [rbp+18h]
-  char v101[16]; // [rsp+120h] [rbp+20h] BYREF
+  int v70; // ecx
+  struct _EVENT_DATA_DESCRIPTOR v72; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v73; // [rsp+50h] [rbp-B0h]
+  __int64 v74; // [rsp+58h] [rbp-A8h]
+  __int64 v75; // [rsp+60h] [rbp-A0h]
+  __int64 v76; // [rsp+68h] [rbp-98h]
+  __int64 v77; // [rsp+70h] [rbp-90h]
+  __int64 v78; // [rsp+78h] [rbp-88h]
+  __int64 v79; // [rsp+80h] [rbp-80h]
+  __int64 v80; // [rsp+88h] [rbp-78h]
+  __int64 v81; // [rsp+90h] [rbp-70h]
+  __int64 v82; // [rsp+98h] [rbp-68h]
+  __int64 v83; // [rsp+A0h] [rbp-60h]
+  __int64 v84; // [rsp+A8h] [rbp-58h]
+  _DWORD *v85; // [rsp+B0h] [rbp-50h]
+  __int64 v86; // [rsp+B8h] [rbp-48h]
+  __int64 v87; // [rsp+C0h] [rbp-40h]
+  _DWORD v88[2]; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v89; // [rsp+D0h] [rbp-30h]
+  __int64 v90; // [rsp+D8h] [rbp-28h]
+  __int64 v91; // [rsp+E0h] [rbp-20h]
+  __int64 v92; // [rsp+E8h] [rbp-18h]
+  __int64 v93; // [rsp+F0h] [rbp-10h]
+  __int64 v94; // [rsp+F8h] [rbp-8h]
+  __int64 v95; // [rsp+100h] [rbp+0h]
+  __int64 v96; // [rsp+108h] [rbp+8h]
+  __int64 v97; // [rsp+110h] [rbp+10h]
+  __int64 v98; // [rsp+118h] [rbp+18h]
+  _WORD *v99; // [rsp+120h] [rbp+20h]
+  int v100; // [rsp+128h] [rbp+28h]
+  int v101; // [rsp+12Ch] [rbp+2Ch]
   __int64 v102; // [rsp+130h] [rbp+30h]
   __int64 v103; // [rsp+138h] [rbp+38h]
   __int64 v104; // [rsp+140h] [rbp+40h]
@@ -167,14 +167,14 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   __int64 v157; // [rsp+2E8h] [rbp+1E8h]
   __int64 v158; // [rsp+2F0h] [rbp+1F0h]
   __int64 v159; // [rsp+2F8h] [rbp+1F8h]
-  __int64 v160; // [rsp+300h] [rbp+200h]
+  _DWORD *v160; // [rsp+300h] [rbp+200h]
   __int64 v161; // [rsp+308h] [rbp+208h]
   __int64 v162; // [rsp+310h] [rbp+210h]
-  __int64 v163; // [rsp+318h] [rbp+218h]
-  __int64 v164; // [rsp+320h] [rbp+220h]
+  _DWORD v163[2]; // [rsp+318h] [rbp+218h] BYREF
+  _DWORD *v164; // [rsp+320h] [rbp+220h]
   __int64 v165; // [rsp+328h] [rbp+228h]
   __int64 v166; // [rsp+330h] [rbp+230h]
-  __int64 v167; // [rsp+338h] [rbp+238h]
+  _DWORD v167[2]; // [rsp+338h] [rbp+238h] BYREF
   _DWORD *v168; // [rsp+340h] [rbp+240h]
   __int64 v169; // [rsp+348h] [rbp+248h]
   __int64 v170; // [rsp+350h] [rbp+250h]
@@ -187,161 +187,77 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   __int64 v177; // [rsp+388h] [rbp+288h]
   __int64 v178; // [rsp+390h] [rbp+290h]
   _DWORD v179[2]; // [rsp+398h] [rbp+298h] BYREF
-  _DWORD *v180; // [rsp+3A0h] [rbp+2A0h]
+  __int64 v180; // [rsp+3A0h] [rbp+2A0h]
   __int64 v181; // [rsp+3A8h] [rbp+2A8h]
   __int64 v182; // [rsp+3B0h] [rbp+2B0h]
-  _DWORD v183[2]; // [rsp+3B8h] [rbp+2B8h] BYREF
-  _DWORD *v184; // [rsp+3C0h] [rbp+2C0h]
+  __int64 v183; // [rsp+3B8h] [rbp+2B8h]
+  __int64 v184; // [rsp+3C0h] [rbp+2C0h]
   __int64 v185; // [rsp+3C8h] [rbp+2C8h]
-  __int64 v186; // [rsp+3D0h] [rbp+2D0h]
-  _DWORD v187[2]; // [rsp+3D8h] [rbp+2D8h] BYREF
+  _DWORD *v186; // [rsp+3D0h] [rbp+2D0h]
+  __int64 v187; // [rsp+3D8h] [rbp+2D8h]
   __int64 v188; // [rsp+3E0h] [rbp+2E0h]
-  __int64 v189; // [rsp+3E8h] [rbp+2E8h]
-  __int64 v190; // [rsp+3F0h] [rbp+2F0h]
+  _DWORD v189[2]; // [rsp+3E8h] [rbp+2E8h] BYREF
+  _DWORD *v190; // [rsp+3F0h] [rbp+2F0h]
   __int64 v191; // [rsp+3F8h] [rbp+2F8h]
   __int64 v192; // [rsp+400h] [rbp+300h]
-  __int64 v193; // [rsp+408h] [rbp+308h]
+  _DWORD v193[2]; // [rsp+408h] [rbp+308h] BYREF
   __int64 v194; // [rsp+410h] [rbp+310h]
   __int64 v195; // [rsp+418h] [rbp+318h]
-  _DWORD *v196; // [rsp+420h] [rbp+320h]
-  __int64 v197; // [rsp+428h] [rbp+328h]
-  __int64 v198; // [rsp+430h] [rbp+330h]
-  _DWORD v199[2]; // [rsp+438h] [rbp+338h] BYREF
-  _DWORD *v200; // [rsp+440h] [rbp+340h]
-  __int64 v201; // [rsp+448h] [rbp+348h]
-  __int64 v202; // [rsp+450h] [rbp+350h]
-  _DWORD v203[2]; // [rsp+458h] [rbp+358h] BYREF
-  __int64 v204; // [rsp+460h] [rbp+360h]
-  __int64 v205; // [rsp+468h] [rbp+368h]
-  __int64 v206; // [rsp+470h] [rbp+370h]
-  __int64 v207; // [rsp+478h] [rbp+378h]
-  _DWORD *v208; // [rsp+480h] [rbp+380h]
-  __int64 v209; // [rsp+488h] [rbp+388h]
-  __int64 v210; // [rsp+490h] [rbp+390h]
-  _DWORD v211[2]; // [rsp+498h] [rbp+398h] BYREF
-  unsigned __int64 v212; // [rsp+4A0h] [rbp+3A0h]
-  __int64 v213; // [rsp+4A8h] [rbp+3A8h]
-  unsigned __int64 v214; // [rsp+4B0h] [rbp+3B0h]
-  __int64 v215; // [rsp+4B8h] [rbp+3B8h]
-  unsigned __int64 v216; // [rsp+4C0h] [rbp+3C0h]
-  __int64 v217; // [rsp+4C8h] [rbp+3C8h]
-  __int64 v218; // [rsp+4D0h] [rbp+3D0h]
-  int v219; // [rsp+4D8h] [rbp+3D8h]
-  int v220; // [rsp+4DCh] [rbp+3DCh]
-  unsigned __int64 v221; // [rsp+4E0h] [rbp+3E0h]
-  __int64 v222; // [rsp+4E8h] [rbp+3E8h]
-  __int64 v223; // [rsp+4F0h] [rbp+3F0h]
-  int v224; // [rsp+4F8h] [rbp+3F8h]
-  int v225; // [rsp+4FCh] [rbp+3FCh]
-  unsigned __int64 v226; // [rsp+500h] [rbp+400h]
-  __int64 v227; // [rsp+508h] [rbp+408h]
-  unsigned __int64 v228; // [rsp+510h] [rbp+410h]
-  __int64 v229; // [rsp+518h] [rbp+418h]
-  unsigned __int64 v230; // [rsp+520h] [rbp+420h]
-  __int64 v231; // [rsp+528h] [rbp+428h]
 
-  v230 = STACK[0x7A0];
-  v228 = STACK[0x798];
-  v226 = STACK[0x790];
-  v66 = STACK[0x788];
-  v231 = 4LL;
-  v229 = 4LL;
-  v227 = 4LL;
-  v67 = v66 + 8;
-  v222 = 2LL;
-  v223 = *(_QWORD *)v66;
-  v224 = *(unsigned __int16 *)(v66 + 8);
-  v68 = STACK[0x780];
-  v221 = v67;
-  v225 = 0;
-  v217 = 2LL;
-  v220 = 0;
-  v218 = *(_QWORD *)v68;
-  v219 = *(unsigned __int16 *)(v68 + 8);
-  v214 = STACK[0x778];
-  v212 = STACK[0x770];
-  v208 = v211;
-  v216 = v68 + 8;
-  v215 = 1LL;
-  v213 = 4LL;
-  v69 = *a64;
-  v209 = 2LL;
-  LODWORD(v67) = *v69;
-  v210 = *((_QWORD *)v69 + 1);
-  v206 = a63;
-  v204 = a62;
-  v200 = v203;
-  v211[0] = v67;
-  v211[1] = 0;
-  v207 = 4LL;
-  v205 = 8LL;
-  v202 = *a61;
-  v203[0] = *((unsigned __int16 *)a61 + 4);
-  v196 = v199;
-  v201 = 2LL;
-  v203[1] = 0;
-  v197 = 2LL;
-  LODWORD(v67) = **a60;
-  v198 = *((_QWORD *)*a60 + 1);
-  v194 = a59;
-  v192 = a58;
-  v190 = a57;
-  v199[0] = v67;
-  v199[1] = 0;
+  v194 = a57;
+  v190 = v193;
+  v192 = *a56;
+  v193[0] = *((unsigned __int16 *)a56 + 4);
+  v186 = v189;
   v195 = 8LL;
-  v193 = 8LL;
-  v191 = 8LL;
-  v188 = a56;
-  v184 = v187;
-  v189 = 4LL;
-  v185 = 2LL;
-  LODWORD(v67) = **a55;
-  v186 = *((_QWORD *)*a55 + 1);
-  v180 = v183;
-  v187[0] = v67;
-  v187[1] = 0;
-  v181 = 2LL;
-  LODWORD(v67) = **a54;
-  v182 = *((_QWORD *)*a54 + 1);
+  v191 = 2LL;
+  v193[1] = 0;
+  v58 = *a55;
+  v187 = 2LL;
+  v59 = *v58;
+  v188 = *((_QWORD *)v58 + 1);
+  v184 = a54;
+  v182 = a53;
+  v180 = a52;
   v176 = v179;
-  v183[0] = v67;
-  v183[1] = 0;
+  v189[0] = v59;
+  v189[1] = 0;
+  v185 = 8LL;
+  v60 = *a51;
+  v183 = 8LL;
+  v181 = 4LL;
   v177 = 2LL;
-  LODWORD(v67) = **a53;
-  v178 = *((_QWORD *)*a53 + 1);
+  v61 = *v60;
+  v178 = *((_QWORD *)v60 + 1);
   v172 = v175;
-  v179[0] = v67;
+  v179[0] = v61;
   v179[1] = 0;
   v173 = 2LL;
-  LODWORD(v67) = **a52;
-  v174 = *((_QWORD *)*a52 + 1);
+  v62 = **a50;
+  v174 = *((_QWORD *)*a50 + 1);
   v168 = v171;
-  v175[0] = v67;
+  v175[0] = v62;
   v175[1] = 0;
   v169 = 2LL;
-  LODWORD(v67) = **a51;
-  v170 = *((_QWORD *)*a51 + 1);
-  v166 = a50;
-  v164 = a49;
-  v162 = a48;
-  v160 = a47;
+  v63 = **a49;
+  v170 = *((_QWORD *)*a49 + 1);
+  v164 = v167;
+  v171[0] = v63;
+  v171[1] = 0;
+  v165 = 2LL;
+  v64 = **a48;
+  v166 = *((_QWORD *)*a48 + 1);
+  v160 = v163;
+  v167[0] = v64;
+  v167[1] = 0;
+  v161 = 2LL;
+  v65 = **a47;
+  v162 = *((_QWORD *)*a47 + 1);
   v158 = a46;
   v156 = a45;
   v154 = a44;
   v152 = a43;
   v150 = a42;
-  v171[0] = v67;
-  v171[1] = 0;
-  v167 = 2LL;
-  v165 = 2LL;
-  v163 = 2LL;
-  v161 = 8LL;
-  v159 = 8LL;
-  v157 = 8LL;
-  v155 = 4LL;
-  v153 = 2LL;
-  v151 = 2LL;
-  v70 = *a17;
   v148 = a41;
   v146 = a40;
   v144 = a39;
@@ -363,23 +279,27 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   v112 = a23;
   v110 = a22;
   v108 = a21;
-  v106 = a20;
-  v104 = a19;
-  v102 = a18;
+  v163[0] = v65;
+  v163[1] = 0;
+  v159 = 2LL;
+  v157 = 2LL;
+  v155 = 2LL;
+  v153 = 8LL;
+  v151 = 8LL;
   v149 = 8LL;
-  v147 = 2LL;
+  v147 = 4LL;
   v145 = 2LL;
-  v143 = 4LL;
-  v141 = 4LL;
-  v139 = 4LL;
-  v137 = 4LL;
+  v143 = 2LL;
+  v141 = 8LL;
+  v139 = 2LL;
+  v137 = 2LL;
   v135 = 4LL;
   v133 = 4LL;
   v131 = 4LL;
   v129 = 4LL;
-  v127 = 2LL;
+  v127 = 4LL;
   v125 = 4LL;
-  v123 = 2LL;
+  v123 = 4LL;
   v121 = 4LL;
   v119 = 4LL;
   v117 = 4LL;
@@ -387,38 +307,57 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   v113 = 4LL;
   v111 = 4LL;
   v109 = 4LL;
+  v106 = a20;
+  v104 = a19;
+  v102 = a18;
   v107 = 4LL;
   v105 = 4LL;
   v103 = 8LL;
-  _tlgCreate1Sz<unsigned short>((__int64)v101, v70);
-  v99 = a16;
-  v97 = a15;
-  v100 = 2LL;
-  v98 = 4LL;
-  v95 = a14;
-  v93 = a13;
-  v91 = a12;
-  v87 = v90;
+  v66 = *a17;
+  if ( *a17 )
+  {
+    v67 = -1LL;
+    do
+      ++v67;
+    while ( v66[v67] );
+    v68 = 2 * v67 + 2;
+  }
+  else
+  {
+    v66 = &unk_1C0083744;
+    v68 = 2;
+  }
+  v97 = a16;
+  v95 = a15;
+  v93 = a14;
+  v91 = a13;
+  v89 = a12;
+  v85 = v88;
+  v99 = v66;
+  v100 = v68;
+  v101 = 0;
+  v69 = *a11;
+  v98 = 2LL;
   v96 = 4LL;
   v94 = 4LL;
   v92 = 4LL;
-  v71 = *a11;
-  v88 = 2LL;
-  v72 = *v71;
-  v89 = *((_QWORD *)v71 + 1);
-  v85 = a10;
-  v83 = a9;
-  v81 = a8;
-  v79 = a7;
-  v77 = a6;
-  v75 = a5;
-  v90[0] = v72;
-  v90[1] = 0;
-  v86 = 4LL;
+  v90 = 4LL;
+  v86 = 2LL;
+  v70 = *v69;
+  v87 = *((_QWORD *)v69 + 1);
+  v83 = a10;
+  v81 = a9;
+  v79 = a8;
+  v77 = a7;
+  v75 = a6;
+  v73 = a5;
+  v88[0] = v70;
+  v88[1] = 0;
   v84 = 4LL;
   v82 = 4LL;
   v80 = 4LL;
-  v78 = 2LL;
-  v76 = 8LL;
-  return tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C013F9C0, a2, a3, 0LL, 0x50u, &v74);
+  v78 = 4LL;
+  v76 = 2LL;
+  v74 = 8LL;
+  return tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C00B1A58, a2, a3, 0, 0x3Fu, &v72);
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpFcCompareFeatureToUpdate @ 0x1409C7F64
+ * XREFs of RtlpFcCompareFeatureToUpdate @ 0x14091A00C
  * Callers:
- *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409C7CD4 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C820C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140919D78 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A534 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall RtlpFcCompareFeatureToUpdate(_DWORD *a1, _DWORD *a2)
 {
-  int v2; // eax
-  unsigned int v3; // ecx
-  unsigned int v4; // eax
+  unsigned int v2; // eax
 
   if ( *a1 <= *a2 )
   {
     if ( *a1 < *a2 )
       return 0xFFFFFFFFLL;
-    v2 = a1[1];
-    v3 = a2[1];
-    v4 = v2 & 0xF;
-    if ( v4 >= v3 )
-      return (unsigned int)-(v3 < v4);
+    v2 = a1[1] & 0xF;
+    if ( v2 >= a2[1] )
+    {
+      if ( v2 <= a2[1] )
+        return 0LL;
+      return 0xFFFFFFFFLL;
+    }
   }
   return 1LL;
 }

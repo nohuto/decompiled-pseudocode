@@ -1,25 +1,23 @@
 /*
- * XREFs of WMultiStringToAscii @ 0x1C0027AD4
+ * XREFs of WMultiStringToAscii @ 0x1C001E368
  * Callers:
- *     ReadMultiSzRegistryValueAndCompareId @ 0x1C00278D8 (ReadMultiSzRegistryValueAndCompareId.c)
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C001E16C (ReadMultiSzRegistryValueAndCompareId.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
  */
 
 unsigned __int8 __fastcall WMultiStringToAscii(_WORD *a1, unsigned int a2)
 {
-  _BYTE *v2; // r10
+  _BYTE *v2; // r9
   unsigned int v3; // r8d
   unsigned __int8 result; // al
 
-  if ( a1 )
+  v2 = a1;
+  if ( a1 && a2 >= 4 )
   {
-    v2 = a1;
-    if ( a2 >= 4 )
+    v3 = 0;
+    if ( a2 >> 1 != 1 )
     {
-      v3 = 0;
-      if ( a2 >> 1 == 1 )
-        return (unsigned __int8)NVMeZeroMemory(v2, a2 - v3);
       do
       {
         if ( !*a1 && !a1[1] )
@@ -29,9 +27,9 @@ unsigned __int8 __fastcall WMultiStringToAscii(_WORD *a1, unsigned int a2)
         *v2++ = *(_BYTE *)a1++;
       }
       while ( v3 < (a2 >> 1) - 1 );
-      if ( a2 > v3 )
-        return (unsigned __int8)NVMeZeroMemory(v2, a2 - v3);
     }
+    if ( a2 > v3 )
+      return (unsigned __int8)NVMeZeroMemory(v2, a2 - v3);
   }
   return result;
 }

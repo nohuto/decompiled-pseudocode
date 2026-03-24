@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerBuildKnownResourceIdString @ 0x1403BE3D0
+ * XREFs of HalpTimerBuildKnownResourceIdString @ 0x1403ABF14
  * Callers:
- *     HalpInitializeTimers @ 0x1403BBAC8 (HalpInitializeTimers.c)
- *     HalpTimerRegister @ 0x1403BE0BC (HalpTimerRegister.c)
+ *     HalpInitializeTimers @ 0x1403A9638 (HalpInitializeTimers.c)
+ *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
  * Callees:
- *     HalpExtBuildResourceIdString @ 0x1403BE424 (HalpExtBuildResourceIdString.c)
+ *     HalpExtBuildResourceIdString @ 0x1403ABF68 (HalpExtBuildResourceIdString.c)
  */
 
 __int64 __fastcall HalpTimerBuildKnownResourceIdString(__int64 a1, int a2, wchar_t *Dst)

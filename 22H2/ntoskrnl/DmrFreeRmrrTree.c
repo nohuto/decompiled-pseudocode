@@ -1,10 +1,10 @@
 /*
- * XREFs of DmrFreeRmrrTree @ 0x14053512C
+ * XREFs of DmrFreeRmrrTree @ 0x1404E87F4
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
- *     DmrEnumerateRmrrDomains @ 0x14037F720 (DmrEnumerateRmrrDomains.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
+ *     DmrEnumerateRmrrDomains @ 0x1404E86B0 (DmrEnumerateRmrrDomains.c)
  * Callees:
- *     ExtEnvFreeMemory @ 0x14051F66C (ExtEnvFreeMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D52FC (ExtEnvFreeMemory.c)
  */
 
 void __fastcall DmrFreeRmrrTree(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDeleteObjectAuditAlarm @ 0x14041D2A0
+ * XREFs of ZwDeleteObjectAuditAlarm @ 0x1403FBE40
  * Callers:
  *     <none>
  * Callees:

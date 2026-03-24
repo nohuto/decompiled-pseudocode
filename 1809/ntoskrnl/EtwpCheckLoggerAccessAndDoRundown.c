@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE634
+ * XREFs of EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE614
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x140656BB0 (EtwpEnableDisableSpecialGuids.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4EC (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x140656B90 (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4CC (EtwpCheckGuidAccessAndDoRundown.c)
  * Callees:
- *     EtwpStackRundown @ 0x1403158D4 (EtwpStackRundown.c)
+ *     EtwpStackRundown @ 0x1403159D4 (EtwpStackRundown.c)
  *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpLogKernelTraceRundown @ 0x1408BE988 (EtwpLogKernelTraceRundown.c)
- *     EtwpLogPmcCounterRundown @ 0x1408BEA54 (EtwpLogPmcCounterRundown.c)
+ *     EtwpLogKernelTraceRundown @ 0x1408BE968 (EtwpLogKernelTraceRundown.c)
+ *     EtwpLogPmcCounterRundown @ 0x1408BEA34 (EtwpLogPmcCounterRundown.c)
  */
 
 __int64 __fastcall EtwpCheckLoggerAccessAndDoRundown(__int64 a1, unsigned int a2, unsigned int a3, char a4)

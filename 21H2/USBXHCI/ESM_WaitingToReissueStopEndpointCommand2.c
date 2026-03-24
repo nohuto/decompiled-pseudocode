@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_WaitingToReissueStopEndpointCommand2 @ 0x1C004FD10
+ * XREFs of ESM_WaitingToReissueStopEndpointCommand2 @ 0x1C004F1C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ESM_WaitingToReissueStopEndpointCommand2(__int64 a1)

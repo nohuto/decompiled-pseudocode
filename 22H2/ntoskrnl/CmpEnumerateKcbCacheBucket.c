@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpEnumerateKcbCacheBucket @ 0x140699B80
+ * XREFs of CmpEnumerateKcbCacheBucket @ 0x14066D1A8
  * Callers:
- *     CmpEnumerateAllOpenSubKeys @ 0x140699ABC (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x14066D0E4 (CmpEnumerateAllOpenSubKeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpEnumerateKcbCacheBucket(

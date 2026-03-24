@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetPositionInertiaDecayRate@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x180234F7C
+ * XREFs of ?SetPositionInertiaDecayRate@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CC0BC
  * Callers:
- *     ?ProcessSetInertiaDecayRates@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETINERTIADECAYRATES@@@Z @ 0x180233B4C (-ProcessSetInertiaDecayRates@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERAC.c)
- *     ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180235040 (-SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetInertiaDecayRates@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETINERTIADECAYRATES@@@Z @ 0x1801CA6F4 (-ProcessSetInertiaDecayRates@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERAC.c)
+ *     ?SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801CC180 (-SetProperty@CInteractionTracker@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098F64 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180066030 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 void __fastcall CInteractionTracker::SetPositionInertiaDecayRate(
@@ -20,13 +20,13 @@ void __fastcall CInteractionTracker::SetPositionInertiaDecayRate(
          COERCE_UNSIGNED_INT(fminf(1.0, fmaxf(1.0 - *((float *)a2 + 1), 0.0))),
          COERCE_UNSIGNED_INT(fminf(1.0, fmaxf(1.0 - *(float *)a2, 0.0))));
   v3 = fminf(1.0, fmaxf(1.0 - *((float *)a2 + 2), 0.0));
-  v4 = *(_QWORD *)((char *)this + 116) - v5;
+  v4 = *(_QWORD *)((char *)this + 108) - v5;
   if ( !v4 )
-    v4 = *((unsigned int *)this + 31) - (unsigned __int64)LODWORD(v3);
+    v4 = *((unsigned int *)this + 29) - (unsigned __int64)LODWORD(v3);
   if ( v4 )
   {
-    *(_QWORD *)((char *)this + 116) = v5;
-    *((float *)this + 31) = v3;
+    *(_QWORD *)((char *)this + 108) = v5;
+    *((float *)this + 29) = v3;
   }
   CResource::InvalidateAnimationSources(this, 61);
 }

@@ -1,186 +1,195 @@
 /*
- * XREFs of ?OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z @ 0x1801A4E2C
+ * XREFs of ?OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z @ 0x180234A34
  * Callers:
- *     ?ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019F664 (-ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180225CD4 (-ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180031A34 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x18012D2B0 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
- *     ?LockTree@CManipulationManager@@SAXPEAVCVisualTree@@_N@Z @ 0x18019E5C8 (-LockTree@CManipulationManager@@SAXPEAVCVisualTree@@_N@Z.c)
- *     ?Add@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x1801A3ABC (-Add@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInteractio.c)
- *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x1801A52DC (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
- *     ?SetAtIndex@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x1801A6968 (-SetAtIndex@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInt.c)
- *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1801A6A1C (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180062454 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x1800A0360 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x1802249F8 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
+ *     ?LockTree@CManipulationManager@@SAXPEAVCVisualTree@@_N@Z @ 0x180224D40 (-LockTree@CManipulationManager@@SAXPEAVCVisualTree@@_N@Z.c)
+ *     ?Add@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x1802337C0 (-Add@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInteractio.c)
+ *     ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x180234E80 (-OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z.c)
+ *     ?SetAtIndex@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x180236314 (-SetAtIndex@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInt.c)
+ *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1802363DC (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
  */
 
-__int64 __fastcall CManipulationContext::OnHoverContact(__int64 a1, __int64 a2, int a3, unsigned int a4)
+__int64 __fastcall CManipulationContext::OnHoverContact(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
-  struct CInteraction *v5; // rbx
-  unsigned int v7; // edi
-  unsigned int v9; // esi
-  struct CInteraction *v10; // rdi
-  __int64 *v11; // rsi
-  __int64 v12; // rax
-  __int64 (__fastcall *v13)(__int64 *, __int64, struct CVisualTree **); // r12
-  int v14; // eax
-  __int64 v15; // rcx
-  __int64 v16; // r14
-  CVisual *v17; // r14
+  __int64 v4; // rax
+  unsigned int v8; // esi
+  struct CInteraction *v9; // rbx
+  unsigned int (__fastcall *v10)(__int64, _QWORD, _QWORD); // rax
+  unsigned int v12; // eax
+  __int64 v13; // rsi
+  __int64 (__fastcall *v14)(__int64, unsigned __int64, struct CVisualTree **); // r14
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // r14
+  __int64 v18; // r14
+  CVisual *v19; // r14
   struct CInteraction *InteractionInternal; // rax
+  __int64 (__fastcall ***v21)(_QWORD); // rdi
   unsigned int Key; // eax
-  __int64 v20; // r10
-  __int64 v21; // rax
-  __int64 *v22; // rdi
-  __int64 v23; // rax
+  __int64 v23; // r10
   __int64 v24; // rax
-  struct CVisual *v25; // rcx
-  __int64 v26; // rcx
-  unsigned int v28; // [rsp+20h] [rbp-30h]
-  struct CInteraction *v29; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v30; // [rsp+38h] [rbp-18h]
-  __int64 v31[2]; // [rsp+40h] [rbp-10h] BYREF
-  struct CVisualTree *v32; // [rsp+98h] [rbp+48h] BYREF
-  unsigned int v33; // [rsp+A0h] [rbp+50h] BYREF
+  __int64 *v25; // rcx
+  __int64 v26; // rax
+  struct CVisual *v27; // rcx
+  __int64 v28; // rcx
+  unsigned int v30; // [rsp+20h] [rbp-30h]
+  struct CInteraction *v31; // [rsp+30h] [rbp-20h] BYREF
+  unsigned __int64 v32; // [rsp+38h] [rbp-18h]
+  __int64 (__fastcall ***v33[2])(_QWORD); // [rsp+40h] [rbp-10h] BYREF
+  struct CVisualTree *v34; // [rsp+98h] [rbp+48h] BYREF
+  unsigned int v35; // [rsp+A0h] [rbp+50h] BYREF
 
-  v33 = a3;
-  v5 = 0LL;
-  v32 = 0LL;
-  v29 = 0LL;
-  v7 = a3;
-  v9 = 0;
-  if ( (*(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(a2 + 64) + 80LL))(a2 + 64, a4, 0LL) )
+  v35 = a3;
+  v4 = *(_QWORD *)a2;
+  v8 = 0;
+  v9 = 0LL;
+  v34 = 0LL;
+  v10 = *(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(v4 + 80);
+  v31 = 0LL;
+  if ( v10(a2, a4, 0LL) )
   {
-    Microsoft::WRL::ComPtr<CInteraction>::operator=((__int64 *)&v29, a2);
-    v5 = v29;
+    Microsoft::WRL::ComPtr<CInteraction>::operator=((__int64 *)&v31, a2);
+    v9 = v31;
   }
   else
   {
-    v10 = 0LL;
-    v11 = *(__int64 **)(a1 + 40);
-    LODWORD(v30) = *(_DWORD *)(a2 + 1720);
-    v31[0] = 0LL;
-    v12 = *v11;
-    HIDWORD(v30) = -2;
-    v13 = *(__int64 (__fastcall **)(__int64 *, __int64, struct CVisualTree **))(v12 + 56);
-    if ( v32 )
-      CResource::InternalRelease(v32);
-    v14 = v13(v11, v30, &v32);
-    v9 = v14;
-    if ( v14 < 0 )
+    v12 = *(_DWORD *)(a2 + 1712);
+    v13 = *(_QWORD *)(a1 + 40);
+    v33[0] = 0LL;
+    v32 = v12 | 0xFFFFFFFE00000000uLL;
+    v14 = *(__int64 (__fastcall **)(__int64, unsigned __int64, struct CVisualTree **))(*(_QWORD *)v13 + 32LL);
+    if ( v34 )
+      CRenderTargetBitmap::Release(v34);
+    v15 = v14(v13, v32, &v34);
+    v8 = v15;
+    if ( v15 < 0 )
     {
-      v28 = 145;
-      goto LABEL_34;
+      v30 = 145;
+      goto LABEL_33;
     }
-    CManipulationManager::LockTree(v32, 1);
-    v16 = *(_QWORD *)(a2 + 112);
-    if ( v16 )
+    CManipulationManager::LockTree(v34, 1);
+    v17 = *(_QWORD *)(a2 + 104);
+    if ( v17 )
     {
-      v17 = *(CVisual **)(v16 + 16);
-      if ( v17 )
+      v18 = *(_QWORD *)(v17 + 16);
+      if ( v18 )
       {
-        while ( 1 )
+        v19 = *(CVisual **)(v18 + 80);
+        if ( v19 )
         {
-          v17 = (CVisual *)*((_QWORD *)v17 + 11);
-          if ( !v17 )
-            break;
-          InteractionInternal = CVisual::GetInteractionInternal(v17);
-          Microsoft::WRL::ComPtr<CInteraction>::operator=(v31, (__int64)InteractionInternal);
-          v10 = (struct CInteraction *)v31[0];
-          if ( v31[0]
-            && (*(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(v31[0] + 64) + 80LL))(
-                 v31[0] + 64,
-                 a4,
-                 0LL) )
+          while ( 1 )
           {
-            if ( !v10 )
-              goto LABEL_17;
-            v31[0] = (__int64)v10;
-            Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(v31);
-            v5 = v10;
-            v29 = v10;
-            break;
+            InteractionInternal = CVisual::GetInteractionInternal(v19);
+            Microsoft::WRL::ComPtr<CInteraction>::operator=((__int64 *)v33, (__int64)InteractionInternal);
+            v21 = v33[0];
+            if ( v33[0] )
+            {
+              if ( (*((unsigned int (__fastcall **)(__int64 (__fastcall ***)(_QWORD), _QWORD, _QWORD))*v33[0] + 10))(
+                     v33[0],
+                     a4,
+                     0LL) )
+              {
+                break;
+              }
+            }
+            v19 = (CVisual *)*((_QWORD *)v19 + 10);
+            if ( !v19 )
+              goto LABEL_15;
           }
+          if ( !v21 )
+            goto LABEL_17;
+          v33[0] = v21;
+          Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(v33);
+          v9 = (struct CInteraction *)v21;
+          v31 = (struct CInteraction *)v21;
+LABEL_15:
+          if ( v21 )
+            (*v21)[1](v21);
         }
       }
     }
-    if ( v10 )
-      (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v10 + 16LL))(v10);
-LABEL_17:
-    v7 = v33;
   }
+LABEL_17:
   Key = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
           a1 + 56,
-          (int *)&v33);
+          (int *)&v35);
   if ( Key == -1 )
   {
     if ( !(unsigned int)CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::Add(
-                          v20,
-                          (__int64)&v33,
-                          (__int64)&v29) )
+                          v23,
+                          &v35,
+                          &v31) )
     {
-      v9 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024882, 0xB9u, 0LL);
-      goto LABEL_35;
+      v8 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, -2147024882, 0xB9u, 0LL);
+      goto LABEL_34;
     }
   }
   else
   {
-    if ( *(struct CInteraction **)(*(_QWORD *)(a1 + 64) + 8LL * (int)Key) == v5 )
-      goto LABEL_35;
+    if ( *(struct CInteraction **)(*(_QWORD *)(a1 + 64) + 8LL * (int)Key) == v9 )
+      goto LABEL_34;
     CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::SetAtIndex(
-      v20,
+      v23,
       Key,
-      &v33,
-      &v29);
+      &v35,
+      &v31);
   }
-  InputTraceLogging::GestureTargeting::SetInteractionChain(v7, v5);
-  if ( v5 )
+  InputTraceLogging::GestureTargeting::SetInteractionChain(a3, v9);
+  if ( v9 )
   {
-    v21 = *((_QWORD *)v5 + 14);
-    if ( v21 )
+    v24 = *((_QWORD *)v9 + 13);
+    if ( v24 )
     {
-      if ( *(_QWORD *)(v21 + 16) )
+      if ( *(_QWORD *)(v24 + 16) )
       {
-        if ( v32 )
+        if ( v34 )
         {
-LABEL_27:
-          v24 = *((_QWORD *)v5 + 14);
+LABEL_26:
           if ( v24 )
           {
-            v25 = *(struct CVisual **)(v24 + 16);
-            if ( v25 )
-              CManipulationContext::OnVisualPropertyChange(v25, v32);
+            v27 = *(struct CVisual **)(v24 + 16);
+            if ( v27 )
+              CManipulationContext::OnVisualPropertyChange(v27, v34);
           }
-          goto LABEL_35;
+          goto LABEL_34;
         }
-        v22 = *(__int64 **)(a1 + 40);
-        LODWORD(v31[0]) = *((_DWORD *)v5 + 430);
-        HIDWORD(v31[0]) = -2;
-        v23 = *v22;
-        v32 = 0LL;
-        v14 = (*(__int64 (__fastcall **)(__int64 *, __int64, struct CVisualTree **))(v23 + 56))(v22, v31[0], &v32);
-        v9 = v14;
-        if ( v14 >= 0 )
+        v25 = *(__int64 **)(a1 + 40);
+        LODWORD(v33[0]) = *((_DWORD *)v9 + 428);
+        HIDWORD(v33[0]) = -2;
+        v26 = *v25;
+        v34 = 0LL;
+        v15 = (*(__int64 (__fastcall **)(__int64 *, __int64 (__fastcall ***)(_QWORD), struct CVisualTree **))(v26 + 32))(
+                v25,
+                v33[0],
+                &v34);
+        v8 = v15;
+        if ( v15 >= 0 )
         {
-          CManipulationManager::LockTree(v32, 1);
-          goto LABEL_27;
+          CManipulationManager::LockTree(v34, 1);
+          v24 = *((_QWORD *)v9 + 13);
+          goto LABEL_26;
         }
-        v28 = 204;
-LABEL_34:
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, v28, 0LL);
+        v30 = 204;
+LABEL_33:
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, v30, 0LL);
       }
     }
   }
-LABEL_35:
-  if ( v32 )
-    CManipulationManager::LockTree(v32, 0);
-  if ( v5 )
-    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v5 + 16LL))(v5);
-  if ( v32 )
-    CResource::InternalRelease(v32);
-  return v9;
+LABEL_34:
+  if ( v34 )
+    CManipulationManager::LockTree(v34, 0);
+  if ( v9 )
+    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v9 + 8LL))(v9);
+  if ( v34 )
+    CRenderTargetBitmap::Release(v34);
+  return v8;
 }

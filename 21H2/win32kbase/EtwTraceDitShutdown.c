@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDitShutdown @ 0x1C00C5FA0
+ * XREFs of EtwTraceDitShutdown @ 0x1C00B83E0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDitShutdown(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z_0 @ 0x1C01596B0
+ * XREFs of ?RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z_0 @ 0x1C0165FD0
  * Callers:
  *     <none>
  * Callees:

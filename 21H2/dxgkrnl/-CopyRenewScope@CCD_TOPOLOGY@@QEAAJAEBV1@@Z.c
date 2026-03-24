@@ -1,40 +1,42 @@
 /*
- * XREFs of ?CopyRenewScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C03AA4E8
+ * XREFs of ?CopyRenewScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C02F08CC
  * Callers:
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F0FB0 (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
- *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F20A0 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
- *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C03AE4D0 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C029624C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0296F98 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
+ *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C02EEF94 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01ACA7C (-Global@CCD_BTL@@SAAEAV1@XZ.c)
- *     ?SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C01ACAA4 (-SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z.c)
- *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01B71EC (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
- *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C01E3C20 (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C0130FD8 (-SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z.c)
+ *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01352C8 (-Global@CCD_BTL@@SAAEAV1@XZ.c)
+ *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01478E8 (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C0169BBC (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::CopyRenewScope(CCD_TOPOLOGY *this, const struct CCD_TOPOLOGY *a2)
 {
-  int v3; // ebx
-  struct CCD_BTL *v4; // rax
-  int v6; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v7; // [rsp+28h] [rbp-40h]
-  __int64 v8; // [rsp+38h] [rbp-30h]
-  __int16 v9; // [rsp+40h] [rbp-28h]
-  __int128 v10; // [rsp+48h] [rbp-20h]
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  int v5; // ebx
+  struct CCD_BTL *v6; // rax
+  int v8; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v9; // [rsp+28h] [rbp-40h]
+  __int64 v10; // [rsp+38h] [rbp-30h]
+  __int16 v11; // [rsp+40h] [rbp-28h]
+  __int128 v12; // [rsp+48h] [rbp-20h]
 
-  v3 = CCD_TOPOLOGY::CopyInheritScope(this, a2);
-  if ( v3 >= 0 )
+  v5 = CCD_TOPOLOGY::CopyInheritScope(this, a2);
+  if ( v5 >= 0 )
   {
-    v6 = 0;
-    v7 = 0LL;
-    v8 = 0LL;
+    v8 = 0;
+    v9 = 0LL;
     v10 = 0LL;
-    v9 = 0;
-    v4 = CCD_BTL::Global();
-    v3 = (**(__int64 (__fastcall ***)(struct CCD_BTL *, int *))v4)(v4, &v6);
-    if ( v3 >= 0 )
-      v3 = CCD_TOPOLOGY::SetConnectivityHash(this, (const struct CCD_SET_STRING_ID *)&v6);
-    CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)&v6);
+    v12 = 0LL;
+    v11 = 0;
+    v6 = CCD_BTL::Global(v4, v3);
+    v5 = (**(__int64 (__fastcall ***)(struct CCD_BTL *, int *))v6)(v6, &v8);
+    if ( v5 >= 0 )
+      v5 = CCD_TOPOLOGY::SetConnectivityHash(this, (const struct CCD_SET_STRING_ID *)&v8);
+    CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)&v8);
   }
-  return (unsigned int)v3;
+  return (unsigned int)v5;
 }

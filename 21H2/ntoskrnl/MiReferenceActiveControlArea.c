@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReferenceActiveControlArea @ 0x140287F58
+ * XREFs of MiReferenceActiveControlArea @ 0x140357348
  * Callers:
- *     MiReferenceExistingControlArea @ 0x14023F590 (MiReferenceExistingControlArea.c)
- *     MiReferenceControlArea @ 0x140287C84 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x1402743E4 (MiReferenceExistingControlArea.c)
+ *     MiReferenceControlArea @ 0x140356824 (MiReferenceControlArea.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x140287A2C (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140287B04 (MiBuildWakeList.c)
+ *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x140357480 (MiBuildWakeList.c)
  */
 
-__int64 *__fastcall MiReferenceActiveControlArea(_DWORD *a1, __int64 a2)
+__int64 __fastcall MiReferenceActiveControlArea(_DWORD *a1, __int64 a2)
 {
-  __int64 *v4; // rax
-  __int64 *v5; // rsi
+  __int64 v4; // rax
+  __int64 v5; // rsi
 
-  v4 = MiBuildWakeList(a2, 4);
+  v4 = MiBuildWakeList(a2, 4LL);
   ++*(_QWORD *)(a2 + 24);
   v5 = v4;
   MiRemoveUnusedSegment(a2);

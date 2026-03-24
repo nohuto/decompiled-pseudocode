@@ -1,23 +1,23 @@
 /*
- * XREFs of PiProfileUpdateDeviceTree @ 0x1409637A4
+ * XREFs of PiProfileUpdateDeviceTree @ 0x1408AB080
  * Callers:
- *     PpProfileCancelTransitioningDock @ 0x140963BC8 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x140963C74 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileCancelTransitioningDock @ 0x1408AB480 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB52C (PpProfileCommitTransitioningDock.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PiProfileUpdateDeviceTree()
 {
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
 
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 538996816LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x20207050u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  Pool2->List.Flink = 0LL;
-  Pool2->WorkerRoutine = (void (__fastcall *)(void *))PiProfileUpdateDeviceTreeWorker;
-  Pool2->Parameter = Pool2;
-  ExQueueWorkItem(Pool2, CriticalWorkQueue);
+  PoolWithTag->List.Flink = 0LL;
+  PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PiProfileUpdateDeviceTreeWorker;
+  PoolWithTag->Parameter = PoolWithTag;
+  ExQueueWorkItem(PoolWithTag, CriticalWorkQueue);
   return 0LL;
 }

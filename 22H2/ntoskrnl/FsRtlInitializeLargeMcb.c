@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeLargeMcb @ 0x14034A5F0
+ * XREFs of FsRtlInitializeLargeMcb @ 0x1402F25C0
  * Callers:
- *     FsRtlInitializeMcb @ 0x14093DA80 (FsRtlInitializeMcb.c)
+ *     FsRtlInitializeMcb @ 0x14088B700 (FsRtlInitializeMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     FsRtlInitializeBaseMcbEx @ 0x14034A660 (FsRtlInitializeBaseMcbEx.c)
+ *     FsRtlInitializeBaseMcbEx @ 0x140202C10 (FsRtlInitializeBaseMcbEx.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
  */
 
 void __stdcall FsRtlInitializeLargeMcb(PLARGE_MCB Mcb, POOL_TYPE PoolType)
@@ -17,7 +17,7 @@ void __stdcall FsRtlInitializeLargeMcb(PLARGE_MCB Mcb, POOL_TYPE PoolType)
   v3 = (struct _FAST_MUTEX *)ExAllocateFromNPagedLookasideList(&FsRtlFastMutexLookasideList);
   Mcb->GuardedMutex = v3;
   if ( !v3 )
-    RtlRaiseStatus(-1073741670);
+    RtlRaiseStatus(0xC000009A);
   v3->Count = 1;
   v3->Owner = 0LL;
   v3->Contention = 0;

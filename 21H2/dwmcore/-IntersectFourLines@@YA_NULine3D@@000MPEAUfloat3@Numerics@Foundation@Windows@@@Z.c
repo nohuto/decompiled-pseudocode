@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IntersectFourLines@@YA_NULine3D@@000MPEAUfloat3@Numerics@Foundation@Windows@@@Z @ 0x180200580
+ * XREFs of ?IntersectFourLines@@YA_NULine3D@@000MPEAUfloat3@Numerics@Foundation@Windows@@@Z @ 0x1801F44D0
  * Callers:
- *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x1801FFDCC (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
+ *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x18002068C (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
- *     ?IntersectTwoLines@@YA_NULine3D@@0MPEAUfloat3@Numerics@Foundation@Windows@@@Z @ 0x180200708 (-IntersectTwoLines@@YA_NULine3D@@0MPEAUfloat3@Numerics@Foundation@Windows@@@Z.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
+ *     ?IntersectTwoLines@@YA_NULine3D@@0MPEAUfloat3@Numerics@Foundation@Windows@@@Z @ 0x1801F4658 (-IntersectTwoLines@@YA_NULine3D@@0MPEAUfloat3@Numerics@Foundation@Windows@@@Z.c)
  */
 
 bool __fastcall IntersectFourLines(__int128 *a1, __int128 *a2, __int128 *a3, __int128 *a4, float a5, float *a6)
@@ -67,7 +67,7 @@ bool __fastcall IntersectFourLines(__int128 *a1, __int128 *a2, __int128 *a3, __i
   a6[2] = v25;
   return v14
       && v17
-      && a5 > o_sqrtf_0(
+      && a5 > sqrtf_0(
                 (float)((float)((float)(v19 - v22) * (float)(v19 - v22))
                       + (float)((float)(v18 - v21) * (float)(v18 - v21)))
               + (float)((float)(v20 - v23) * (float)(v20 - v23)));

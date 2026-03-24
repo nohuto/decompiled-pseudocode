@@ -1,11 +1,11 @@
 /*
- * XREFs of XmGroup2By1 @ 0x1403CC4C0
+ * XREFs of XmGroup2By1 @ 0x1403C0FA0
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmSetDestinationValue @ 0x1403A3038 (XmSetDestinationValue.c)
- *     XmEvaluateAddressSpecifier @ 0x1403A30B4 (XmEvaluateAddressSpecifier.c)
- *     XmSetDataType @ 0x1403A346C (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDataType @ 0x1403973C8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmGroup2By1(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCtxRegCopyTree @ 0x140A60B1C
+ * XREFs of _PnpCtxRegCopyTree @ 0x1409748BC
  * Callers:
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
  * Callees:
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
  */
 
 __int64 __fastcall PnpCtxRegCopyTree(__int64 a1, int a2, int a3, int a4, __int64 a5)

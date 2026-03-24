@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAdjustCurrentThresholdWrtTop @ 0x1400D8150
+ * XREFs of CcAdjustCurrentThresholdWrtTop @ 0x1400D8170
  * Callers:
- *     CcAdjustThrottle @ 0x1400D7534 (CcAdjustThrottle.c)
+ *     CcAdjustThrottle @ 0x1400D7554 (CcAdjustThrottle.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeThawExecution @ 0x1402DA4C0
+ * XREFs of KeThawExecution @ 0x14051DBE0
  * Callers:
- *     ExpWaitForBootDevices @ 0x14063A300 (ExpWaitForBootDevices.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
+ *     ExpWaitForBootDevices @ 0x1405B33A0 (ExpWaitForBootDevices.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiEndDebugAccumulation @ 0x14029B270 (KiEndDebugAccumulation.c)
- *     KiSendThawExecution @ 0x1402DA5B0 (KiSendThawExecution.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiEndDebugAccumulation @ 0x14051DDB0 (KiEndDebugAccumulation.c)
+ *     KiSendThawExecution @ 0x14051E250 (KiSendThawExecution.c)
  */
 
 __int64 __fastcall KeThawExecution(char a1)
@@ -18,8 +18,8 @@ __int64 __fastcall KeThawExecution(char a1)
   __int64 v3; // rcx
   unsigned __int64 v4; // rbx
   unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // rax
   __int64 result; // rax
-  unsigned __int64 v7; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v10; // zf
@@ -27,7 +27,7 @@ __int64 __fastcall KeThawExecution(char a1)
   v2 = 0;
   if ( (KiFreezeFlag & 8) == 0 )
     v2 = KdPortLocked;
-  ((void (__fastcall *)(_QWORD, _QWORD))off_140C01D88[0])(0LL, 0LL);
+  ((void (__fastcall *)(_QWORD, _QWORD))off_140C00738[0])(0LL, 0LL);
   if ( !PoAllProcIntrDisabled )
   {
     MEMORY[0xFFFFF78000000350] = KeQueryPerformanceCounter(0LL);
@@ -48,10 +48,10 @@ __int64 __fastcall KeThawExecution(char a1)
   }
   else
   {
-    v7 = __readcr3();
-    __writecr3(v7);
+    v6 = __readcr3();
+    __writecr3(v6);
   }
-  KiEndDebugAccumulation((__int64)KeGetCurrentPrcb());
+  KiEndDebugAccumulation(KeGetCurrentPrcb());
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
@@ -66,7 +66,7 @@ __int64 __fastcall KeThawExecution(char a1)
         v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
         if ( v10 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }

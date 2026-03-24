@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreatePrivateNamespace @ 0x1401B97D0
+ * XREFs of ZwCreatePrivateNamespace @ 0x1401B97F0
  * Callers:
  *     <none>
  * Callees:

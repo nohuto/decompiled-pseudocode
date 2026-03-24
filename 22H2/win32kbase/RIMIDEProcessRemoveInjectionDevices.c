@@ -1,114 +1,97 @@
 /*
- * XREFs of RIMIDEProcessRemoveInjectionDevices @ 0x1C0173BA4
+ * XREFs of RIMIDEProcessRemoveInjectionDevices @ 0x1C0151FD0
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMIDERemoveInjectionDevice @ 0x1C0178FE8 (RIMIDERemoveInjectionDevice.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIDERemoveInjectionDevice @ 0x1C0156DF4 (RIMIDERemoveInjectionDevice.c)
  */
 
-_QWORD *__fastcall RIMIDEProcessRemoveInjectionDevices(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_QWORD *__fastcall RIMIDEProcessRemoveInjectionDevices(__int64 a1)
 {
+  __int64 *v2; // rbx
+  __int64 *v3; // rdx
+  __int64 v4; // r14
   __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rax
-  _QWORD *v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 *v14; // rdx
-  _QWORD *v15; // rsi
-  _QWORD *v16; // rbx
-  __int64 v17; // r15
-  __int64 v18; // rax
-  __int64 v19; // rdi
-  __int64 v20; // rax
-  _QWORD *v21; // rdi
-  __int64 v22; // rcx
-  _QWORD *v23; // rax
-  _QWORD *v24; // rsi
-  _QWORD *v25; // rdx
-  __int64 v26; // rbx
+  __int64 v6; // rdi
+  _QWORD *v7; // rdi
+  __int64 v8; // rcx
+  _QWORD *v9; // rax
+  _QWORD *v10; // r14
+  _QWORD *v11; // rdx
+  __int64 v12; // rbx
   _QWORD *result; // rax
-  _QWORD *v28; // [rsp+20h] [rbp-10h] BYREF
-  __int64 *v29; // [rsp+28h] [rbp-8h]
+  _QWORD *v14; // [rsp+20h] [rbp-10h] BYREF
+  __int64 *v15; // [rsp+28h] [rbp-8h]
 
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLockExclusive(v5 + 240);
-  v10 = SGDGetUserSessionState(v7, v6, v8, v9);
-  v14 = (__int64 *)&v28;
-  v15 = (_QWORD *)(v10 + 320);
-  v16 = *(_QWORD **)(v10 + 320);
-  v29 = (__int64 *)&v28;
-  v28 = &v28;
-  while ( v16 != v15 )
+  RIMLockExclusive((__int64)&gObListLock);
+  v2 = (__int64 *)gObRimDevList;
+  v3 = (__int64 *)&v14;
+  v15 = (__int64 *)&v14;
+  v14 = &v14;
+  while ( v2 != &gObRimDevList )
   {
-    v11 = v16 - 2;
-    v17 = (__int64)(v16 + 55);
-    if ( v16 == (_QWORD *)16 )
-      v17 = 384LL;
-    if ( *(_QWORD *)v17 && *(_QWORD *)(*(_QWORD *)v17 + 88LL) == a1 )
+    v4 = (__int64)(v2 + 57);
+    if ( v2 == (__int64 *)16 )
+      v4 = 384LL;
+    if ( *(_QWORD *)v4 && *(_QWORD *)(*(_QWORD *)v4 + 88LL) == a1 )
     {
-      v18 = (__int64)(v16 + 32);
-      v12 = 200LL;
-      if ( v16 == (_QWORD *)16 )
-        v18 = 200LL;
-      if ( (*(_DWORD *)v18 & 4) == 0 )
+      v5 = (__int64)(v2 + 34);
+      if ( v2 == (__int64 *)16 )
+        v5 = 200LL;
+      if ( (*(_DWORD *)v5 & 4) == 0 )
       {
-        v19 = (__int64)(v16 + 24);
-        if ( v16 == (_QWORD *)16 )
-          v19 = 136LL;
-        if ( *(_QWORD *)v19 != v19 )
+        v6 = (__int64)(v2 + 26);
+        if ( v2 == (__int64 *)16 )
+          v6 = 136LL;
+        if ( *(_QWORD *)v6 != v6 )
         {
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 925);
-          v14 = v29;
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 846);
+          v3 = v15;
         }
-        if ( (_QWORD **)*v14 != &v28 )
-LABEL_24:
+        if ( (_QWORD **)*v3 != &v14 )
+LABEL_23:
           __fastfail(3u);
-        *(_QWORD *)(v19 + 8) = v14;
-        *(_QWORD *)v19 = &v28;
-        *v14 = v19;
-        v29 = (__int64 *)v19;
+        *(_QWORD *)(v6 + 8) = v3;
+        *(_QWORD *)v6 = &v14;
+        *v3 = v6;
+        v15 = (__int64 *)v6;
+        *(_QWORD *)(*(_QWORD *)v4 + 88LL) = 0LL;
+        v3 = v15;
       }
-      *(_QWORD *)(*(_QWORD *)v17 + 88LL) = 0LL;
-      v14 = v29;
     }
-    v16 = (_QWORD *)*v16;
+    v2 = (__int64 *)*v2;
   }
-  v20 = SGDGetUserSessionState(v11, v14, v12, v13);
-  *(_QWORD *)(v20 + 248) = 0LL;
-  ExReleasePushLockExclusiveEx(v20 + 240, 0LL);
+  qword_1C0254458 = 0LL;
+  ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
-  v21 = v28;
+  v7 = v14;
   while ( 1 )
   {
-    result = &v28;
-    if ( v21 == &v28 )
+    result = &v14;
+    if ( v7 == &v14 )
       break;
-    v22 = *v21;
-    v23 = v21;
-    v24 = v21;
-    v21 = (_QWORD *)v22;
-    if ( *(_QWORD **)(v22 + 8) != v23 )
-      goto LABEL_24;
-    v25 = (_QWORD *)v23[1];
-    if ( (_QWORD *)*v25 != v23 )
-      goto LABEL_24;
-    *v25 = v22;
-    *(_QWORD *)(v22 + 8) = v25;
-    v23[1] = v23;
-    *v23 = v23;
-    v26 = *(_QWORD *)(*(v24 - 13) + 408LL);
-    RIMLockExclusive(v26 + 104);
-    RIMIDERemoveInjectionDevice(*(v24 - 13));
-    *(_QWORD *)(v26 + 112) = 0LL;
-    ExReleasePushLockExclusiveEx(v26 + 104, 0LL);
+    v8 = *v7;
+    v9 = v7;
+    v10 = v7;
+    v7 = (_QWORD *)v8;
+    if ( *(_QWORD **)(v8 + 8) != v9 )
+      goto LABEL_23;
+    v11 = (_QWORD *)v9[1];
+    if ( (_QWORD *)*v11 != v9 )
+      goto LABEL_23;
+    *v11 = v8;
+    *(_QWORD *)(v8 + 8) = v11;
+    v9[1] = v9;
+    *v9 = v9;
+    v12 = *(_QWORD *)(*(v10 - 13) + 424LL);
+    RIMLockExclusive(v12 + 104);
+    RIMIDERemoveInjectionDevice(*(v10 - 13));
+    *(_QWORD *)(v12 + 112) = 0LL;
+    ExReleasePushLockExclusiveEx(v12 + 104, 0LL);
     KeLeaveCriticalRegion();
   }
-  *(_DWORD *)(a1 + 816) &= ~0x200000u;
+  *(_DWORD *)(a1 + 820) &= ~0x200000u;
   return result;
 }

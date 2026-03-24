@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C008ABA0
+ * XREFs of ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00E63FC
  * Callers:
- *     GdiMultiUserFontCleanup @ 0x1C008AAF0 (GdiMultiUserFontCleanup.c)
+ *     GdiMultiUserFontCleanup @ 0x1C00E6080 (GdiMultiUserFontCleanup.c)
  * Callees:
- *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C007BD70 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
- *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C008AC3C (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
+ *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00A55D0 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00E6498 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
  */
 
 __int64 __fastcall bCleanupFontTable(struct PFT **a1)
@@ -13,14 +13,14 @@ __int64 __fastcall bCleanupFontTable(struct PFT **a1)
   unsigned int v2; // edi
   int v4; // eax
   int v5; // edi
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
-  v7[0] = *a1;
-  v1 = v7[0];
-  if ( v7[0] )
+  v7 = (__int64)*a1;
+  v1 = v7;
+  if ( v7 )
   {
-    v4 = PFTOBJ::bUnloadAllButPermanentFonts((PFTOBJ *)v7);
+    v4 = PFTOBJ::bUnloadAllButPermanentFonts((PFTOBJ *)&v7);
     v5 = v4;
     if ( *(_QWORD *)(v1 + 8) )
       v5 = bCleanupFontHash((struct _FONTHASH **)(v1 + 8)) & v4;

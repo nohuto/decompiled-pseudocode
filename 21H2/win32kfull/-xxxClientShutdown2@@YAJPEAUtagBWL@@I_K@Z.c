@@ -1,65 +1,63 @@
 /*
- * XREFs of ?xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z @ 0x1C010945C
+ * XREFs of ?xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z @ 0x1C000B354
  * Callers:
- *     xxxClientShutdown @ 0x1C01093D0 (xxxClientShutdown.c)
+ *     xxxClientShutdown @ 0x1C000B2CC (xxxClientShutdown.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     DestroyWindowsTimers @ 0x1C0060DA4 (DestroyWindowsTimers.c)
+ *     DestroyWindowsTimers @ 0x1C000B4B8 (DestroyWindowsTimers.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
-__int64 __fastcall xxxClientShutdown2(struct tagBWL *a1, int a2, __int16 a3)
+__int64 __fastcall xxxClientShutdown2(struct tagBWL *a1, __int64 a2, int a3)
 {
   _QWORD *v3; // rsi
   __int64 v4; // r15
-  ULONG_PTR v6; // rbx
+  int v5; // r13d
+  __int64 v6; // rbp
+  __int64 v7; // r14
+  __int64 v8; // rbx
   __int64 ThreadWin32Thread; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  int v11; // edi
-  __int128 v13; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v14; // [rsp+30h] [rbp-38h]
+  BOOL v10; // edi
+  __int128 v12; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-38h]
 
   v3 = (_QWORD *)((char *)a1 + 32);
+  v12 = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
   v4 = a3 & 0x108;
+  v5 = a2;
+  v6 = a3 & 0xC0000001;
+  v7 = a3 & 0x100;
   while ( 1 )
   {
     if ( *v3 == 1LL )
       return 1LL;
-    v6 = HMValidateHandleNoSecure(*v3, 1);
-    if ( v6 )
-      break;
-LABEL_3:
+    LOBYTE(a2) = 1;
+    v8 = HMValidateHandleNoSecure(*v3, a2);
+    if ( v8 )
+    {
+      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+      *(_QWORD *)&v12 = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = &v12;
+      *((_QWORD *)&v12 + 1) = v8;
+      HMLockObject(v8);
+      if ( v5 == 17 )
+      {
+        v10 = gptiCurrent == gptiShutdownNotify || xxxSendMessage(v8, 17LL, 0LL, v6) != 0;
+      }
+      else
+      {
+        xxxSendMessage(v8, 22LL, v7 != 0, v6);
+        v10 = 1;
+        if ( v4 == 264 )
+          DestroyWindowsTimers(v8);
+      }
+      ThreadUnlock1();
+      if ( !v10 )
+        break;
+    }
     ++v3;
   }
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  *(_QWORD *)&v13 = *(_QWORD *)(ThreadWin32Thread + 416);
-  *(_QWORD *)(ThreadWin32Thread + 416) = &v13;
-  *((_QWORD *)&v13 + 1) = v6;
-  HMLockObject(v6);
-  if ( a2 != 17 )
-  {
-    xxxSendMessage(v6);
-    v11 = 1;
-    if ( v4 != 264 )
-      goto LABEL_2;
-    DestroyWindowsTimers();
-    goto LABEL_9;
-  }
-  if ( gptiCurrent == gptiShutdownNotify || xxxSendMessage(v6) )
-  {
-LABEL_9:
-    ThreadUnlock1(v9, v8, v10);
-    goto LABEL_3;
-  }
-  v11 = 0;
-LABEL_2:
-  ThreadUnlock1(v9, v8, v10);
-  if ( v11 )
-    goto LABEL_3;
   return 3LL;
 }

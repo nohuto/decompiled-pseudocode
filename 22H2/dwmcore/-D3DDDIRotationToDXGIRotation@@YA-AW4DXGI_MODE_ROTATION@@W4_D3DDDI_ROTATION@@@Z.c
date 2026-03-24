@@ -1,7 +1,7 @@
 /*
- * XREFs of ?D3DDDIRotationToDXGIRotation@@YA?AW4DXGI_MODE_ROTATION@@W4_D3DDDI_ROTATION@@@Z @ 0x180014C84
+ * XREFs of ?D3DDDIRotationToDXGIRotation@@YA?AW4DXGI_MODE_ROTATION@@W4_D3DDDI_ROTATION@@@Z @ 0x180017FC4
  * Callers:
- *     ?GetRotation@CDxHandleBitmapRealization@@UEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x180014C70 (-GetRotation@CDxHandleBitmapRealization@@UEBA-AW4DXGI_MODE_ROTATION@@XZ.c)
+ *     ?GetRotation@CDxHandleBitmapRealization@@UEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x180017FB0 (-GetRotation@CDxHandleBitmapRealization@@UEBA-AW4DXGI_MODE_ROTATION@@XZ.c)
  * Callees:
  *     <none>
  */

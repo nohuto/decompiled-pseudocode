@@ -1,39 +1,37 @@
 /*
- * XREFs of CmpPerformKeyBodyDeletionCheck @ 0x140AB43C0
+ * XREFs of CmpPerformKeyBodyDeletionCheck @ 0x1405F4700
  * Callers:
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmQueryLayeredKey @ 0x140226200 (CmQueryLayeredKey.c)
- *     CmpDoQueryKeyName @ 0x140346910 (CmpDoQueryKeyName.c)
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
- *     CmpSetKeySecurity @ 0x140677810 (CmpSetKeySecurity.c)
- *     CmpPerformUnloadKey @ 0x14069E98C (CmpPerformUnloadKey.c)
- *     CmEnumerateValueKey @ 0x1406A18C0 (CmEnumerateValueKey.c)
- *     NtFlushKey @ 0x1406A5C00 (NtFlushKey.c)
- *     CmpQueryKeySecurity @ 0x140721254 (CmpQueryKeySecurity.c)
- *     CmEnumerateKey @ 0x1407C16A0 (CmEnumerateKey.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1407CA1C0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
- *     CmpAssignKeySecurity @ 0x14085BE8C (CmpAssignKeySecurity.c)
- *     CmpSaveBootControlSet @ 0x14090BC6C (CmpSaveBootControlSet.c)
- *     CmpLoadHiveVolatile @ 0x14090D4E8 (CmpLoadHiveVolatile.c)
- *     CmpRefreshHive @ 0x14090D9E8 (CmpRefreshHive.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x14090E160 (CmOpenKeyForBugCheckRecovery.c)
- *     NtCompactKeys @ 0x14090E310 (NtCompactKeys.c)
- *     NtCompressKey @ 0x14090E5E0 (NtCompressKey.c)
- *     NtQueryOpenSubKeys @ 0x14090E9C0 (NtQueryOpenSubKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x14090EC00 (NtQueryOpenSubKeysEx.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x14091210C (CmQueryMultipleValueForLayeredKey.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140913E28 (CmSetLastWriteTimeKey.c)
- *     CmpEnumerateLayeredKey @ 0x140914324 (CmpEnumerateLayeredKey.c)
- *     CmKeyBodyRemapToVirtual @ 0x140915DB8 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x14091607C (CmKeyBodyReplicateToVirtual.c)
- *     CmpIsKeyBodyEligibleForDump @ 0x140AB4A00 (CmpIsKeyBodyEligibleForDump.c)
- *     CmpAcquireSystemDriverHiveContext @ 0x140B13368 (CmpAcquireSystemDriverHiveContext.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpDoQueryKeyName @ 0x14027EBD0 (CmpDoQueryKeyName.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
+ *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406556B0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpQueryKeySecurity @ 0x140665360 (CmpQueryKeySecurity.c)
+ *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406A0A00 (CmKeyBodyReplicateToVirtual.c)
+ *     NtFlushKey @ 0x1406B3C40 (NtFlushKey.c)
+ *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
+ *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
+ *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
+ *     NtCompactKeys @ 0x140868000 (NtCompactKeys.c)
+ *     NtCompressKey @ 0x1408682E0 (NtCompressKey.c)
+ *     NtQueryOpenSubKeys @ 0x1408686D0 (NtQueryOpenSubKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x1408688F0 (NtQueryOpenSubKeysEx.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C548 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
+ *     CmKeyBodyRemapToVirtual @ 0x14086F820 (CmKeyBodyRemapToVirtual.c)
+ *     CmDumpKey @ 0x14087BD18 (CmDumpKey.c)
+ *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
+ *     CmpAcquireSystemDriverHiveContext @ 0x140A60258 (CmpAcquireSystemDriverHiveContext.c)
  * Callees:
- *     CmEqualTrans @ 0x140721FD0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
  */
 
 __int64 __fastcall CmpPerformKeyBodyDeletionCheck(__int64 a1, __int64 a2)
@@ -41,11 +39,11 @@ __int64 __fastcall CmpPerformKeyBodyDeletionCheck(__int64 a1, __int64 a2)
   __int64 v3; // rcx
   int v4; // eax
   __int64 result; // rax
-  char *NextElement; // rcx
+  __int64 NextElement; // rcx
   __int64 v7; // r9
-  _QWORD **v8; // r10
+  __int64 v8; // r10
   int v9; // eax
-  _QWORD *v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10 = 0LL;
   v3 = *(_QWORD *)(a1 + 8);
@@ -54,20 +52,20 @@ __int64 __fastcall CmpPerformKeyBodyDeletionCheck(__int64 a1, __int64 a2)
   {
     if ( !a2 )
       return 0LL;
-    NextElement = CmListGetNextElement((_QWORD **)(v3 + 208), &v10, 32);
+    NextElement = CmListGetNextElement(v3 + 208, &v10, 32LL);
     if ( !NextElement )
       return 0LL;
     while ( 1 )
     {
-      v9 = *((_DWORD *)NextElement + 17);
+      v9 = *(_DWORD *)(NextElement + 68);
       if ( v9 == 2 || v9 == 11 )
         break;
-      result = (__int64)CmListGetNextElement(v8, &v10, 32);
-      NextElement = (char *)result;
+      result = CmListGetNextElement(v8, &v10, 32LL);
+      NextElement = result;
       if ( !result )
         return result;
     }
-    if ( !CmEqualTrans(*((_QWORD *)NextElement + 7), v7) )
+    if ( !(unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), v7) )
       return 0LL;
     v4 = *(_DWORD *)(a1 + 48);
   }

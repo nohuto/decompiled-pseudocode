@@ -1,20 +1,19 @@
 /*
- * XREFs of PsGetEffectiveServerSilo @ 0x14020A3D0
+ * XREFs of PsGetEffectiveServerSilo @ 0x1403621B0
  * Callers:
- *     EtwpTraceIo @ 0x14020A0D0 (EtwpTraceIo.c)
- *     EtwpTraceFileIo @ 0x1402AB040 (EtwpTraceFileIo.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x1402D7D00 (UpcaseUnicodeToSingleByteNHelper.c)
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     PsGetJobServerSilo @ 0x140377150 (PsGetJobServerSilo.c)
- *     PspIsSiloInServerSilo @ 0x1405E009C (PspIsSiloInServerSilo.c)
- *     PspEstimateNewProcessServerSilo @ 0x14066F8EC (PspEstimateNewProcessServerSilo.c)
- *     PspImplicitAssignProcessToJob @ 0x140682900 (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x140682A98 (PspGetMemoryPartitionImplicit.c)
- *     PspValidateJobAssignmentSiloPolicy @ 0x140687E80 (PspValidateJobAssignmentSiloPolicy.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     ObpSetSiloDeviceMap @ 0x14082C6E0 (ObpSetSiloDeviceMap.c)
+ *     PsGetJobServerSilo @ 0x140201820 (PsGetJobServerSilo.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PspIsSiloInServerSilo @ 0x140580FC0 (PspIsSiloInServerSilo.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspEstimateNewProcessServerSilo @ 0x14060D348 (PspEstimateNewProcessServerSilo.c)
+ *     PspGetMemoryPartitionImplicit @ 0x140613FA4 (PspGetMemoryPartitionImplicit.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     PspValidateJobAssignmentSiloPolicy @ 0x140720064 (PspValidateJobAssignmentSiloPolicy.c)
+ *     ObpSetSiloDeviceMap @ 0x1407A102C (ObpSetSiloDeviceMap.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
  */
 
 __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)
@@ -23,7 +22,7 @@ __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)
 
   if ( !a1 )
     return 0LL;
-  while ( !(unsigned __int8)PsIsServerSilo() )
-    ;
+  while ( !(unsigned __int8)PsIsServerSilo(a1) )
+    a1 = *(_QWORD *)(v2 + 1072);
   return v2;
 }

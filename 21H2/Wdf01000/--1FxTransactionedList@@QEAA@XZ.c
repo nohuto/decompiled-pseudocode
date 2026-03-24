@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1FxTransactionedList@@QEAA@XZ @ 0x1C002BAA0
+ * XREFs of ??1FxTransactionedList@@QEAA@XZ @ 0x1C0061DB0
  * Callers:
- *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0020990 (--1FxPkgPnp@@MEAA@XZ.c)
- *     ??1FxDevice@@UEAA@XZ @ 0x1C002B720 (--1FxDevice@@UEAA@XZ.c)
- *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C0083258 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
- *     ??_GFxEnumerationInfo@@QEAAPEAXI@Z @ 0x1C0087B3C (--_GFxEnumerationInfo@@QEAAPEAXI@Z.c)
+ *     ??1FxDevice@@UEAA@XZ @ 0x1C0051420 (--1FxDevice@@UEAA@XZ.c)
+ *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C0078D50 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C007EEF0 (--1FxPkgPnp@@MEAA@XZ.c)
+ *     ??_GFxEnumerationInfo@@QEAAPEAXI@Z @ 0x1C007F15C (--_GFxEnumerationInfo@@QEAAPEAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxTransactionedList::~FxTransactionedList(FxTransactionedList *this)
@@ -33,7 +33,7 @@ void __fastcall FxTransactionedList::~FxTransactionedList(FxTransactionedList *t
       if ( p_m_ListHead->Flink == p_m_ListHead )
         break;
       if ( Flink->Blink != p_m_ListHead || (v5 = Flink->Flink, Flink->Flink->Blink != Flink) )
-LABEL_17:
+LABEL_16:
         __fastfail(3u);
       p_m_ListHead->Flink = v5;
       v5->Blink = p_m_ListHead;
@@ -45,10 +45,10 @@ LABEL_17:
         v6 = Flink + 1;
         v7 = Flink[1].Flink;
         if ( v7->Blink != &Flink[1] )
-          goto LABEL_17;
+          goto LABEL_16;
         Blink = Flink[1].Blink;
         if ( Blink->Flink != v6 )
-          goto LABEL_17;
+          goto LABEL_16;
         Blink->Flink = v7;
         v7->Blink = Blink;
         Flink[1].Blink = Flink + 1;
@@ -68,10 +68,10 @@ LABEL_17:
       if ( p_m_TransactionHead->Flink == p_m_TransactionHead )
         break;
       if ( v10->Blink != p_m_TransactionHead )
-        goto LABEL_17;
+        goto LABEL_16;
       v11 = v10->Flink;
       if ( v10->Flink->Blink != v10 )
-        goto LABEL_17;
+        goto LABEL_16;
       p_m_TransactionHead->Flink = v11;
       v11->Blink = p_m_TransactionHead;
       v10->Blink = v10;

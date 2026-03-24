@@ -1,19 +1,21 @@
 /*
- * XREFs of EtwpAllocateLbrData @ 0x1409EE394
+ * XREFs of EtwpAllocateLbrData @ 0x140948064
  * Callers:
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x1409EE454 (EtwpUpdateLastBranchTracingConfiguration.c)
- *     EtwpUpdateLastBranchTracingEvents @ 0x1409EE518 (EtwpUpdateLastBranchTracingEvents.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x140948130 (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingEvents @ 0x1409481F4 (EtwpUpdateLastBranchTracingEvents.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocateLbrData(__int64 a1)
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 20LL, 2021094469LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x14uLL, 0x78777445u);
+  if ( !PoolWithTag )
     return 3221225495LL;
-  *(_QWORD *)(a1 + 1024) = Pool2;
+  *(_OWORD *)PoolWithTag = 0LL;
+  PoolWithTag[4] = 0;
+  *(_QWORD *)(a1 + 1008) = PoolWithTag;
   return 0LL;
 }

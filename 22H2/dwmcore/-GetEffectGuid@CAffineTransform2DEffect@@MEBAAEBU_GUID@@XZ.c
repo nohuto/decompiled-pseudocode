@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CAffineTransform2DEffect@@MEBAAEBU_GUID@@XZ @ 0x180105BA0
+ * XREFs of ?GetEffectGuid@CAffineTransform2DEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1E60
  * Callers:
  *     <none>
  * Callees:

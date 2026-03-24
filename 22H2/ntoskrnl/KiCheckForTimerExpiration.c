@@ -1,231 +1,236 @@
 /*
- * XREFs of KiCheckForTimerExpiration @ 0x1402C8110
+ * XREFs of KiCheckForTimerExpiration @ 0x1402247B0
  * Callers:
- *     KeAccumulateTicks @ 0x1402C7AE0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402243D0 (KeAccumulateTicks.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     HalpInterruptSendIpi @ 0x140254C30 (HalpInterruptSendIpi.c)
- *     RtlBackoff @ 0x1402FD2B0 (RtlBackoff.c)
- *     KiResetClockIntervalOneShot @ 0x1403405F8 (KiResetClockIntervalOneShot.c)
- *     KiSetClockIntervalOneShot @ 0x140340658 (KiSetClockIntervalOneShot.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlBackoff @ 0x140273780 (RtlBackoff.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1402F0908 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1402F0984 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiGetClockIntervalOneShot @ 0x1402F10CC (KiGetClockIntervalOneShot.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     HalRequestSoftwareInterrupt @ 0x14035E9C0 (HalRequestSoftwareInterrupt.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall KiCheckForTimerExpiration(__int64 a1, unsigned int a2)
+void __fastcall KiCheckForTimerExpiration(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 SchedulerAssist)
 {
-  _BYTE *v3; // rbx
-  char v4; // r12
-  unsigned __int64 v5; // rbp
-  __int64 v6; // rcx
-  unsigned int v7; // r13d
-  __int64 v8; // rax
-  __int64 v9; // rsi
-  bool v10; // r11
-  bool v11; // r15
-  int *v12; // r14
-  __int64 v13; // r10
-  unsigned int v14; // r13d
-  unsigned int v15; // r9d
-  __int64 v16; // rbx
-  int v17; // edx
-  unsigned int v18; // edx
-  unsigned __int64 v19; // r8
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // rdx
-  __int64 v22; // rax
-  unsigned __int8 CurrentIrql; // r14
-  signed __int16 i; // dx
-  _DWORD *SchedulerAssist; // r11
-  __int64 v26; // r9
-  unsigned __int8 v27; // cl
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v29; // r8
-  int v30; // eax
-  bool v31; // zf
-  __int16 v32; // cx
-  int v34; // [rsp+34h] [rbp-74h] BYREF
-  _DWORD v35[6]; // [rsp+38h] [rbp-70h] BYREF
-  __int128 v36; // [rsp+50h] [rbp-58h] BYREF
-  _QWORD v37[2]; // [rsp+60h] [rbp-48h] BYREF
+  bool v4; // si
+  unsigned __int64 v5; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rbp
+  bool v9; // dl
+  __int64 v10; // rdx
+  __int64 v11; // r14
+  int v12; // r13d
+  _DWORD *v13; // r12
+  int v14; // r11d
+  unsigned int v15; // edx
+  unsigned int v16; // r15d
+  unsigned __int64 v17; // r10
+  unsigned __int64 v18; // rbp
+  unsigned __int64 v19; // r10
+  __int64 v20; // rax
+  unsigned __int8 CurrentIrql; // r15
+  unsigned int ClockIntervalOneShot; // eax
+  __int64 v23; // r8
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int16 v26; // tt
+  unsigned __int8 v27; // al
+  int v28; // eax
+  bool v29; // zf
+  __int16 v30; // tt
+  __int16 v31; // cx
+  bool v32; // [rsp+30h] [rbp-58h]
+  int v33; // [rsp+34h] [rbp-54h] BYREF
+  __int128 v34; // [rsp+38h] [rbp-50h] BYREF
+  _QWORD v35[2]; // [rsp+48h] [rbp-40h] BYREF
 
-  v3 = (_BYTE *)(a1 + 33);
+  v34 = 0LL;
   v4 = 0;
-  v36 = 0LL;
   v5 = MEMORY[0xFFFFF78000000008];
-  v6 = 0LL;
-  v7 = a2;
-  if ( (*(_BYTE *)(a1 + 13244) & 8) == 0 )
+  if ( (*(_BYTE *)(a1 + 12588) & 8) == 0 )
   {
     if ( KiSerializeTimerExpiration )
     {
-      if ( !*v3 )
-        goto LABEL_22;
-      v8 = KiProcessorBlock[0];
+      if ( !*(_BYTE *)(a1 + 33) )
+        goto LABEL_4;
+      v7 = KiProcessorBlock[0];
     }
     else
     {
-      v8 = a1;
+      v7 = a1;
     }
-    v9 = v8 + 15360;
-    if ( v8 != -15360 )
+    v8 = v7 + 14656;
+    if ( v7 != -14656 )
     {
-      v10 = *(_QWORD *)(v8 + 32264) != KiLastNonHrTimerExpiration;
-      v11 = *(_QWORD *)(v8 + 32256) != KiLastPseudoHrTimerExpiration;
-      if ( KiGlobalTimerResolutionRequests )
-        v10 = *(_QWORD *)(v8 + 32256) != KiLastPseudoHrTimerExpiration;
-      if ( v10 || *(_QWORD *)(v8 + 32256) != KiLastPseudoHrTimerExpiration )
+      v9 = *(_QWORD *)(v7 + 31552) != KiLastPseudoHrTimerExpiration;
+      a3 = v9;
+      if ( (KiVelocityFlags & 0x2000) != 0 )
+        a3 = *(_QWORD *)(v7 + 31560) != KiLastNonHrTimerExpiration;
+      v32 = *(_QWORD *)(v7 + 31552) != KiLastPseudoHrTimerExpiration;
+      if ( (_BYTE)a3 || *(_QWORD *)(v7 + 31552) != KiLastPseudoHrTimerExpiration )
       {
-        v12 = (int *)(v8 + 32272);
-        v13 = MEMORY[0xFFFFF78000000008] >> 18;
-        v14 = -1;
-        v15 = 0;
-        v16 = 0LL;
+        LODWORD(SchedulerAssist) = 0;
+        v10 = MEMORY[0xFFFFF78000000008] >> 18;
+        v11 = 0LL;
+        v12 = -1;
+        v13 = (_DWORD *)(v7 + 31568);
         while ( 1 )
         {
-          v17 = *v12;
-          if ( (unsigned int)(v13 - *v12) >= 0x100 )
-            LODWORD(v13) = v17 + 255;
-          v18 = v17 - 1;
+          v14 = *v13 + 255;
+          if ( (unsigned int)(v10 - *v13) < 0x100 )
+            v14 = v10;
+          v15 = *v13 - 1;
           while ( 1 )
           {
-            v6 = 32 * (v16 + (unsigned __int8)++v18);
-            v19 = *(_QWORD *)(v6 + v9 + 536);
-            if ( v15 != 1 || v10 )
+            ++v15;
+            v16 = v12;
+            v17 = *(_QWORD *)(32 * (v11 + (unsigned __int8)v15) + v8 + 536);
+            if ( (_DWORD)SchedulerAssist != 1 || (_BYTE)a3 )
               break;
-            if ( v5 >= v19 )
+            if ( v5 >= v17 )
             {
-              if ( v14 >= v18 )
-                v14 = v18;
-              if ( v5 + (unsigned int)KePseudoHrTimeIncrement > (unsigned int)KeNonHrTimeIncrement + v19 )
+              v12 = v15;
+              if ( v16 < v15 )
+                v12 = v16;
+              if ( v5 + (unsigned int)KePseudoHrTimeIncrement > (unsigned int)KeNonHrTimeIncrement + v17 )
               {
                 v4 = 1;
                 KiLastNonHrTimerExpiration = v5;
-                v10 = 1;
-                v18 = v14;
-                goto LABEL_18;
+                a3 = 1LL;
+                v15 = v12;
+                goto LABEL_23;
               }
             }
-LABEL_15:
-            if ( v18 == (_DWORD)v13 )
-              goto LABEL_16;
+LABEL_20:
+            if ( v15 == v14 )
+              goto LABEL_21;
           }
-          if ( v5 < v19 )
-            goto LABEL_15;
+          if ( v5 < v17 )
+            goto LABEL_20;
           v4 = 1;
-LABEL_16:
-          if ( !v15 || v10 )
-LABEL_18:
-            *(_DWORD *)(v9 + 4LL * v15 + 16912) = v18;
-          ++v15;
-          ++v12;
-          v16 += 256LL;
-          if ( v15 >= 2 )
+LABEL_21:
+          if ( !(_DWORD)SchedulerAssist || (_BYTE)a3 )
+LABEL_23:
+            *(_DWORD *)(v8 + 4LL * (unsigned int)SchedulerAssist + 16912) = v15;
+          SchedulerAssist = (unsigned int)(SchedulerAssist + 1);
+          ++v13;
+          v11 += 256LL;
+          LODWORD(v10) = v14;
+          if ( (unsigned int)SchedulerAssist >= 2 )
           {
-            v7 = a2;
+            v9 = v32;
             break;
           }
         }
       }
-      v3 = (_BYTE *)(a1 + 33);
-      if ( *(_BYTE *)(a1 + 33) )
+      if ( !*(_BYTE *)(a1 + 33) )
+        goto LABEL_5;
+      if ( !(_BYTE)a3
+        && v9
+        && v5 >= qword_140C31D38
+        && v5 + (unsigned int)KePseudoHrTimeIncrement > (unsigned __int64)(unsigned int)KeNonHrTimeIncrement
+                                                      + qword_140C31D38 )
       {
-        if ( v10
-          || !v11
-          || v5 < qword_140C42338
-          || v5 + (unsigned int)KePseudoHrTimeIncrement <= (unsigned __int64)(unsigned int)KeNonHrTimeIncrement
-                                                         + qword_140C42338 )
-        {
-          v3 = (_BYTE *)(a1 + 33);
-          if ( v4 )
-            goto LABEL_22;
-          if ( v10 )
-          {
-            if ( KiNextTimer2DueTime > v5 )
-            {
-LABEL_39:
-              v3 = (_BYTE *)(a1 + 33);
-              goto LABEL_22;
-            }
-          }
-          else if ( !v11 || qword_140C42320 > v5 )
-          {
-            v3 = (_BYTE *)(a1 + 33);
-            if ( qword_140C42308 > v5 )
-              goto LABEL_22;
-          }
-        }
-        else
-        {
-          KiLastNonHrTimerExpiration = v5;
-        }
+        KiLastNonHrTimerExpiration = v5;
+LABEL_61:
         v4 = 1;
-        goto LABEL_39;
+        goto LABEL_4;
       }
+      if ( v4 )
+        goto LABEL_4;
+      if ( (_BYTE)a3 )
+      {
+        v4 = KiNextTimer2DueTime <= v5;
+        goto LABEL_4;
+      }
+      if ( v9 && qword_140C31D20 <= v5 || qword_140C31D08 <= v5 )
+        goto LABEL_61;
     }
   }
-LABEL_22:
-  if ( !*v3 )
-    goto LABEL_23;
-  v20 = qword_140C42308;
-  v21 = v5 + (unsigned int)KeMaximumIncrement;
-  if ( qword_140C42308 > v5 )
+LABEL_4:
+  if ( !*(_BYTE *)(a1 + 33) )
+    goto LABEL_5;
+  v18 = qword_140C31D08;
+  v19 = v5 + (unsigned int)KeMaximumIncrement;
+  if ( qword_140C31D08 > v5 )
   {
-    v22 = KiClockOwnerOneShotRequest;
+    v20 = KiClockOwnerOneShotRequest;
     if ( !KiClockOwnerOneShotRequest )
-      v22 = -1LL;
-    if ( v22 != qword_140C42308 )
+      v20 = -1LL;
+    if ( v20 != qword_140C31D08 )
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
-        SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( CurrentIrql == 15 )
-        {
-          LODWORD(v26) = 0x8000;
-        }
-        else
-        {
-          v6 = (unsigned int)CurrentIrql + 1;
-          v26 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-        }
-        SchedulerAssist[5] |= v26;
+        SchedulerAssist = (unsigned __int64)KeGetCurrentPrcb()->SchedulerAssist;
+        a3 = (-1 << (CurrentIrql + 1)) & 0xFFFCu | *(_DWORD *)(SchedulerAssist + 20);
+        *(_DWORD *)(SchedulerAssist + 20) = a3;
       }
-      if ( v21 > v20 )
-        KiSetClockIntervalOneShot(v20, v5);
+      if ( v19 <= v18 )
+      {
+        if ( KiClockOwnerOneShotRequest )
+        {
+          LOBYTE(a3) = 1;
+          PoTraceSystemTimerResolutionKernel(0LL, 1397707336LL, a3);
+          KiClockOwnerOneShotRequest = 0LL;
+          KiSetClockIntervalToMinimumRequested();
+        }
+      }
       else
-        KiResetClockIntervalOneShot(v6);
+      {
+        KiClockOwnerOneShotRequest = v18;
+        KiSetClockIntervalToMinimumRequested();
+        ClockIntervalOneShot = KiGetClockIntervalOneShot(v18, v5);
+        LOBYTE(v23) = 1;
+        PoTraceSystemTimerResolutionKernel(ClockIntervalOneShot, 1397707336LL, v23);
+      }
       if ( KiIrqlFlags )
       {
-        v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v29 = CurrentPrcb->SchedulerAssist;
-          v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v31 = (v30 & v29[5]) == 0;
-          v29[5] &= v30;
-          if ( v31 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v27 = KeGetCurrentIrql();
+          if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+          {
+            SchedulerAssist = (unsigned __int64)KeGetCurrentPrcb();
+            a3 = *(_QWORD *)(SchedulerAssist + 33976);
+            v28 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v29 = (v28 & *(_DWORD *)(a3 + 20)) == 0;
+            *(_DWORD *)(a3 + 20) &= v28;
+            if ( v29 )
+              KiRemoveSystemWorkPriorityKick(SchedulerAssist);
+          }
         }
       }
       __writecr8(CurrentIrql);
     }
-LABEL_23:
+LABEL_5:
     if ( !v4 )
-      goto LABEL_24;
+      goto LABEL_6;
   }
-  v34 = 0;
-  _m_prefetchw((const void *)(a1 + 13244));
-  for ( i = *(_WORD *)(a1 + 13244);
-        i != _InterlockedCompareExchange16((volatile signed __int16 *)(a1 + 13244), i | 8, i);
-        i = *(_WORD *)(a1 + 13244) )
+  v33 = 0;
+  _m_prefetchw((const void *)(a1 + 12588));
+  v24 = *(unsigned __int16 *)(a1 + 12588);
+  v25 = (unsigned __int16)v24;
+  BYTE1(v25) = HIBYTE(*(_WORD *)(a1 + 12588));
+  v26 = *(_WORD *)(a1 + 12588);
+  if ( v26 != _InterlockedCompareExchange16((volatile signed __int16 *)(a1 + 12588), v24 | 8, v24) )
   {
-    RtlBackoff(&v34);
-    _m_prefetchw((const void *)(a1 + 13244));
+    do
+    {
+      RtlBackoff(&v33, v24, a3, SchedulerAssist);
+      _m_prefetchw((const void *)(a1 + 12588));
+      v24 = *(unsigned __int16 *)(a1 + 12588);
+      v25 = (unsigned __int16)v24;
+      BYTE1(v25) = HIBYTE(*(_WORD *)(a1 + 12588));
+      v30 = *(_WORD *)(a1 + 12588);
+    }
+    while ( v30 != _InterlockedCompareExchange16((volatile signed __int16 *)(a1 + 12588), v24 | 8, v24) );
   }
-  if ( (i & 0xA9) == 0 )
+  if ( (v24 & 0x29) == 0 )
   {
     if ( *(_BYTE *)(a1 + 32) )
     {
@@ -233,32 +238,26 @@ LABEL_23:
     }
     else
     {
-      v35[0] = 5;
-      *(_OWORD *)&v35[1] = 0LL;
-      HalpInterruptSendIpi(v35, 0x2Fu);
+      LOBYTE(v25) = 2;
+      HalRequestSoftwareInterrupt(v25);
     }
   }
-LABEL_24:
+LABEL_6:
   if ( (DWORD2(PerfGlobalGroupMask) & 0x40000) != 0 && KeGetCurrentIrql() == 13 )
   {
-    v31 = *v3 == 0;
-    v32 = 0;
-    WORD4(v36) = 0;
-    *(_QWORD *)&v36 = v5;
-    if ( !v31 )
+    v29 = *(_BYTE *)(a1 + 33) == 0;
+    v31 = 0;
+    WORD4(v34) = 0;
+    *(_QWORD *)&v34 = v5;
+    if ( !v29 )
     {
-      v32 = 1;
-      WORD4(v36) = 1;
+      v31 = 1;
+      WORD4(v34) = 1;
     }
-    if ( (*(_BYTE *)(a1 + 13244) & 8) != 0 )
-    {
-      v32 |= 8u;
-      WORD4(v36) = v32;
-    }
-    if ( v7 <= 1 )
-      WORD4(v36) = v32 | 0x10;
-    v37[1] = 16LL;
-    v37[0] = &v36;
-    EtwTraceKernelEvent((int)v37, 1, 0x40040000u, 3919, 4196866);
+    if ( (*(_BYTE *)(a1 + 12588) & 8) != 0 )
+      WORD4(v34) = v31 | 8;
+    v35[1] = 16LL;
+    v35[0] = &v34;
+    EtwTraceKernelEvent((unsigned int)v35, 1, 1074003968, 3919, 4196866);
   }
 }

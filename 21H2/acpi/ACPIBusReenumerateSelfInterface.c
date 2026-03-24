@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBusReenumerateSelfInterface @ 0x1C0090C3C
+ * XREFs of ACPIBusReenumerateSelfInterface @ 0x1C009A158
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIBusReenumerateSelfInterface(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall ACPIBusReenumerateSelfInterface(__int64 a1, __int64 a2)
     if ( v2 )
     {
       *(_OWORD *)v3 = ReenumerateSelfInterface;
-      *(_OWORD *)(v3 + 16) = *(_OWORD *)&off_1C006D808;
+      *(_OWORD *)(v3 + 16) = *(_OWORD *)off_1C006E2E0;
       *(_QWORD *)(v3 + 32) = ACPIBusReenumerateSelf;
       *(_QWORD *)(v3 + 8) = v4;
     }

@@ -1,61 +1,47 @@
 /*
- * XREFs of ProcessNvmeHealthInfoLog @ 0x1C0024B24
+ * XREFs of ProcessNvmeHealthInfoLog @ 0x1C0004590
  * Callers:
- *     NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0016A00 (NVMeModeSenseGetLogPageHealthInfoCompletion.c)
- *     QueryProtocolInfoCompletion @ 0x1C0018BF0 (QueryProtocolInfoCompletion.c)
- *     NVMeGetLogPageCompletion @ 0x1C001E280 (NVMeGetLogPageCompletion.c)
+ *     QueryProtocolInfoCompletion @ 0x1C0002180 (QueryProtocolInfoCompletion.c)
+ *     NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0004670 (NVMeModeSenseGetLogPageHealthInfoCompletion.c)
+ *     NVMeGetLogPageCompletion @ 0x1C00193A0 (NVMeGetLogPageCompletion.c)
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetLunExtension @ 0x1C001B7C4 (GetLunExtension.c)
+ *     GetLunExtension @ 0x1C0004630 (GetLunExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 char __fastcall ProcessNvmeHealthInfoLog(__int64 a1, __int64 a2, char *a3, int a4)
 {
   __int64 SrbExtension; // rax
   __int64 LunExtension; // r14
-  char v9; // bp
-  char v10; // al
-  char v11; // al
-  char v12; // al
+  char v9; // al
+  char v10; // si
 
   SrbExtension = GetSrbExtension(a2);
   LunExtension = GetLunExtension(a1, HIDWORD(*(_QWORD *)(SrbExtension + 4096)));
-  v9 = 0;
-  if ( (*(_DWORD *)(a1 + 64) & 0x80u) != 0 )
-    *a3 |= 4u;
-  if ( (*(_DWORD *)(a1 + 64) & 0x100) != 0 )
-    *a3 |= 8u;
-  if ( (*(_DWORD *)(a1 + 64) & 0x200) != 0 )
-    *a3 |= 0x10u;
-  v10 = *(_BYTE *)(a1 + 148);
-  if ( v10 )
-    a3[3] = v10;
-  v11 = *(_BYTE *)(a1 + 149);
-  if ( v11 )
-    a3[4] = v11;
-  if ( (*(_BYTE *)(a1 + 148) || *(_BYTE *)(a1 + 149)) && (unsigned __int8)a3[3] < (unsigned __int8)a3[4] )
-    *a3 |= 1u;
-  v12 = *a3;
-  if ( *a3 && v12 != *(_BYTE *)(a1 + 26) )
+  v9 = *a3;
+  v10 = 0;
+  if ( *a3 )
   {
-    *(_BYTE *)(a1 + 26) = v12;
-    if ( *(_BYTE *)(a1 + 23) )
-      StorPortExtendedFunction(87LL, a1, LunExtension);
-    if ( a4 == 9 && (*a3 & 2) != *a3 )
+    if ( v9 != *(_BYTE *)(a1 + 19) )
     {
-      v9 = 1;
-      *(_DWORD *)(a1 + 4232) = *(_DWORD *)(a1 + 4232) & ~*(unsigned __int8 *)(a1 + 26) | 2;
+      *(_BYTE *)(a1 + 19) = v9;
+      StorPortExtendedFunction(87LL, a1, LunExtension, 2LL);
+      if ( a4 == 9 && (*a3 & 2) != *a3 )
+      {
+        v10 = 1;
+        *(_DWORD *)(a1 + 4016) = *(_DWORD *)(a1 + 4016) & ~*(unsigned __int8 *)(a1 + 19) | 2;
+      }
     }
   }
-  if ( (unsigned __int8)a3[5] >= 0x5Fu && *(_BYTE *)(a1 + 23) && !*(_BYTE *)(a1 + 27) )
+  if ( (unsigned __int8)a3[5] >= 0x5Fu && !*(_BYTE *)(a1 + 20) )
   {
-    StorPortExtendedFunction(85LL, a1, LunExtension);
-    *(_BYTE *)(a1 + 27) = 1;
+    StorPortExtendedFunction(85LL, a1, LunExtension, 2LL);
+    *(_BYTE *)(a1 + 20) = 1;
   }
-  if ( (unsigned __int8)a3[3] <= 2u && *(_BYTE *)(a1 + 23) && !*(_BYTE *)(a1 + 28) )
+  if ( (unsigned __int8)a3[3] <= 2u && !*(_BYTE *)(a1 + 21) )
   {
-    StorPortExtendedFunction(85LL, a1, LunExtension);
-    *(_BYTE *)(a1 + 28) = 1;
+    StorPortExtendedFunction(85LL, a1, LunExtension, 2LL);
+    *(_BYTE *)(a1 + 21) = 1;
   }
-  return v9;
+  return v10;
 }

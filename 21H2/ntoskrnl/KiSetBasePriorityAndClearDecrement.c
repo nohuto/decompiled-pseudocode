@@ -1,16 +1,14 @@
 /*
- * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1402EC3E4
+ * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1402E9CCC
  * Callers:
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1402B9FC0 (KiUpdateVPBackingThreadPriority.c)
- *     KiTryUnwaitThreadWithPriority @ 0x1402EB9D0 (KiTryUnwaitThreadWithPriority.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1402EBB58 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetBasePriorityThread @ 0x1402EBF30 (KeSetBasePriorityThread.c)
- *     KeRemovePriQueue @ 0x14033D110 (KeRemovePriQueue.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1405779D0 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
+ *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x140258E10 (KiUpdateVPBackingThreadPriority.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1402E9944 (KeSetPriorityAndQuantumProcess.c)
+ *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520CC0 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x140229D30 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
  */
 
 __int64 __fastcall KiSetBasePriorityAndClearDecrement(__int64 a1, char *a2, int a3)
@@ -34,8 +32,8 @@ __int64 __fastcall KiSetBasePriorityAndClearDecrement(__int64 a1, char *a2, int 
         v11 = (PVOID *)(a1 + 816);
         if ( *(_QWORD *)(a1 + 816) == 1LL )
         {
-          p_SystemArgument2 = &CurrentPrcb[557].SystemArgument2;
-          if ( CurrentPrcb != (struct _KDPC *)-35696LL )
+          p_SystemArgument2 = &CurrentPrcb[541].SystemArgument2;
+          if ( CurrentPrcb != (struct _KDPC *)-34672LL )
           {
             *v11 = *p_SystemArgument2;
             *p_SystemArgument2 = v11;

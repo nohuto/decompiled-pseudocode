@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsMultiUsersInSessionSku @ 0x1409B9200
+ * XREFs of RtlIsMultiUsersInSessionSku @ 0x140913920
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x140372788 (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A484C (OpenGlobalizationUserSettingsKey.c)
  * Callees:
  *     <none>
  */

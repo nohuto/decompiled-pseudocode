@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIoRateStartRateControl @ 0x140362154
+ * XREFs of IopIoRateStartRateControl @ 0x1402007C8
  * Callers:
- *     IoStartIoRateControl @ 0x14036204C (IoStartIoRateControl.c)
+ *     IoStartIoRateControl @ 0x1402006C0 (IoStartIoRateControl.c)
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x14020C244 (IoDiskIoAttributionQuery.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IoDiskIoAttributionQuery @ 0x1402E027C (IoDiskIoAttributionQuery.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopIoRateStartRateControl(
@@ -35,7 +35,7 @@ __int64 __fastcall IopIoRateStartRateControl(
   v19 = 0LL;
   v16 = 0LL;
   v17 = 0LL;
-  ExtensionTable = (__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, _QWORD *, __int64, __int64 *, __int64))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)IopIoRateExtensionHost);
+  ExtensionTable = (__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, _QWORD *, __int64, __int64 *, __int64))ExGetExtensionTable(IopIoRateExtensionHost);
   if ( ExtensionTable )
   {
     IoDiskIoAttributionQuery(a5, &v18, &v16);
@@ -52,7 +52,7 @@ __int64 __fastcall IopIoRateStartRateControl(
       v12 = 0;
       *a6 = v13;
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
   }
   else
   {

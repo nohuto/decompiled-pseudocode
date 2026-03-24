@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetInitialDelay@CKeyframeAnimation@@AEAAJM@Z @ 0x180222850
+ * XREFs of ?SetInitialDelay@CKeyframeAnimation@@AEAAJM@Z @ 0x1801D1D48
  * Callers:
- *     ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180045BC0 (-SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800C3E50 (-SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::SetInitialDelay(CKeyframeAnimation *this, float a2)
@@ -28,14 +28,14 @@ __int64 __fastcall CKeyframeAnimation::SetInitialDelay(CKeyframeAnimation *this,
   }
   if ( v2 >= 0 )
   {
-    *((_DWORD *)this + 121) = 0;
+    *((_DWORD *)this + 115) = 0;
     v5 = 0;
-    *((_DWORD *)this + 120) = v2;
+    *((_DWORD *)this + 114) = v2;
   }
   else
   {
     v5 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0xCD7u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0xC32u, 0LL);
   }
   return v5;
 }

@@ -1,71 +1,69 @@
 /*
- * XREFs of DbgpInsertDebugPrintCallback @ 0x1405A78D4
+ * XREFs of DbgpInsertDebugPrintCallback @ 0x140585584
  * Callers:
- *     DbgSetDebugPrintCallback @ 0x1405A7870 (DbgSetDebugPrintCallback.c)
+ *     DbgSetDebugPrintCallback @ 0x140585520 (DbgSetDebugPrintCallback.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall DbgpInsertDebugPrintCallback(unsigned __int64 a1)
+__int64 __fastcall DbgpInsertDebugPrintCallback(KSPIN_LOCK a1)
 {
-  struct _EX_RUNDOWN_REF *Pool2; // rax
-  struct _EX_RUNDOWN_REF *v3; // rdi
+  KSPIN_LOCK *PoolWithTag; // rax
+  KSPIN_LOCK *v3; // rdi
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  __int64 v7; // rdx
-  struct _EX_RUNDOWN_REF **v8; // rax
-  struct _EX_RUNDOWN_REF *v9; // rdi
-  unsigned __int8 v10; // al
+  KSPIN_LOCK **v7; // rax
+  KSPIN_LOCK *v8; // rdi
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v12; // r8
-  int v13; // eax
-  bool v14; // zf
+  _DWORD *v11; // r8
+  int v12; // eax
+  bool v13; // zf
 
-  Pool2 = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(64LL, 40LL, 1648583236LL);
-  v3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (KSPIN_LOCK *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62436244u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  ExInitializePushLock(Pool2 + 1);
-  LODWORD(v3->Count) = 0;
-  v3[2].Count = a1;
+  ExInitializePushLock(PoolWithTag + 1);
+  *(_DWORD *)v3 = 0;
+  v3[2] = a1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v7) = 4096;
-    else
-      v7 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v7;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   ExAcquireSpinLockExclusiveAtDpcLevel(&RtlpDebugPrintCallbackLock);
-  v8 = (struct _EX_RUNDOWN_REF **)off_140C04298;
-  v9 = v3 + 3;
-  if ( *off_140C04298 != (_UNKNOWN *)&RtlpDebugPrintCallbackList )
+  v7 = (KSPIN_LOCK **)off_140C02B68;
+  v8 = v3 + 3;
+  if ( *off_140C02B68 != (_UNKNOWN *)&RtlpDebugPrintCallbackList )
     __fastfail(3u);
-  v9->Count = (unsigned __int64)&RtlpDebugPrintCallbackList;
-  v9[1].Count = (unsigned __int64)v8;
-  *v8 = v9;
-  off_140C04298 = (_UNKNOWN **)v9;
+  *v8 = (KSPIN_LOCK)&RtlpDebugPrintCallbackList;
+  v8[1] = (KSPIN_LOCK)v7;
+  *v7 = v8;
+  off_140C02B68 = (_UNKNOWN **)v8;
   RtlpDebugPrintCallbacksActive = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpDebugPrintCallbackLock);
   if ( KiIrqlFlags )
   {
-    v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v12 = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v14 = (v13 & v12[5]) == 0;
-      v12[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v9 = KeGetCurrentIrql();
+      if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v11 = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v12 & v11[5]) == 0;
+        v11[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

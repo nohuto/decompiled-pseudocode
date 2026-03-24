@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vUpdateStyleState@XCLIPOBJ@@QEAAXXZ @ 0x1C02CE3C0
+ * XREFs of ?vUpdateStyleState@XCLIPOBJ@@QEAAXXZ @ 0x1C02CFEBC
  * Callers:
- *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C0143E74 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C014B7A8 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
  * Callees:
  *     <none>
  */

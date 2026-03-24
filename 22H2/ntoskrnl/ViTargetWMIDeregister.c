@@ -1,26 +1,26 @@
 /*
- * XREFs of ViTargetWMIDeregister @ 0x140ACCEB8
+ * XREFs of ViTargetWMIDeregister @ 0x1409D77FC
  * Callers:
- *     VerifierIoWMIRegistrationControl @ 0x140AE5080 (VerifierIoWMIRegistrationControl.c)
+ *     VerifierIoWMIRegistrationControl @ 0x1409E7F70 (VerifierIoWMIRegistrationControl.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     VfAvlEnumerateNodes @ 0x140ADD2A4 (VfAvlEnumerateNodes.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     VfAvlEnumerateNodes @ 0x1409E0668 (VfAvlEnumerateNodes.c)
  */
 
-void __fastcall ViTargetWMIDeregister(__int64 a1)
+char __fastcall ViTargetWMIDeregister(__int64 a1)
 {
   int v2; // edx
   unsigned __int64 v3; // r8
   _QWORD *v4; // rax
   __int64 v5; // rcx
   __int64 v6; // rax
-  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
 
-  v7 = 0LL;
-  VfAvlInitializeLockContext((__int64)&v7, 0);
-  v4 = VfAvlLookupTreeNode((__int64 *)&ViTargetDriversAvl, (__int64)&v7, v3, (unsigned int)(v2 + 1));
+  v8 = 0LL;
+  VfAvlInitializeLockContext((__int64)&v8, 0);
+  v4 = VfAvlLookupTreeNode((__int64 *)&ViTargetDriversAvl, (__int64)&v8, v3, (unsigned int)(v2 + 1));
   if ( v4 && (v6 = v4[7]) != 0 && *(_QWORD *)(v6 + 8) == a1 )
   {
     *(_QWORD *)(v6 + 8) = 0LL;
@@ -30,9 +30,9 @@ void __fastcall ViTargetWMIDeregister(__int64 a1)
     ++ViTargetWMIRegistrationMismatches;
     ((void (__fastcall *)(__int64, __int128 *, __int64 (__fastcall *)(), __int64))VfAvlEnumerateNodes)(
       v5,
-      &v7,
+      &v8,
       ViTargetWMIDeregisterCallback,
       a1);
   }
-  VfAvlCleanupLockContext((__int64)&v7);
+  return VfAvlCleanupLockContext((__int64)&v8);
 }

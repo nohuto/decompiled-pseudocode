@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiEngDeletePalette @ 0x1C01511F0
+ * XREFs of NtGdiEngDeletePalette @ 0x1C0136B60
  * Callers:
  *     <none>
  * Callees:

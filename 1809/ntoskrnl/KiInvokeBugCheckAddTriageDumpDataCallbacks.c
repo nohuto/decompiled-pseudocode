@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140292960
+ * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140292A60
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140292180 (KeValidateBugCheckCallbackRecord.c)
- *     KiValidateComponentName @ 0x140292E60 (KiValidateComponentName.c)
- *     KiValidateTriageDumpDataArray @ 0x140292F10 (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140292280 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x140292F60 (KiValidateComponentName.c)
+ *     KiValidateTriageDumpDataArray @ 0x140293010 (KiValidateTriageDumpDataArray.c)
  */
 
 char KiInvokeBugCheckAddTriageDumpDataCallbacks()

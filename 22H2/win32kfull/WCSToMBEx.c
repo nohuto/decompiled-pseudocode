@@ -1,11 +1,12 @@
 /*
- * XREFs of WCSToMBEx @ 0x1C024BFF4
+ * XREFs of WCSToMBEx @ 0x1C00D3208
  * Callers:
- *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C00246CC (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     SfnIMECONTROL @ 0x1C0206A40 (SfnIMECONTROL.c)
+ *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C002452C (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     SfnOUTSTRING @ 0x1C00D25F0 (SfnOUTSTRING.c)
+ *     SfnIMECONTROL @ 0x1C0229020 (SfnIMECONTROL.c)
  * Callees:
- *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C0098480 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A49A4 (ConvertToAndFromWideChar.c)
  */
 
 __int64 __fastcall WCSToMBEx(
@@ -17,10 +18,10 @@ __int64 __fastcall WCSToMBEx(
         ULONG BytesInMultiByteString)
 {
   int v6; // eax
-  __int64 v7; // rax
   ULONG BytesInUnicodeString; // r8d
+  NTSTATUS v8; // eax
   __int64 result; // rax
-  NTSTATUS v10; // eax
+  __int64 v10; // rax
 
   BytesInMultiByteString = 0;
   v6 = a3;
@@ -28,11 +29,11 @@ __int64 __fastcall WCSToMBEx(
     return 0LL;
   if ( a3 == -1 )
   {
-    v7 = -1LL;
+    v10 = -1LL;
     do
-      ++v7;
-    while ( a2[v7] );
-    v6 = v7 + 1;
+      ++v10;
+    while ( a2[v10] );
+    v6 = v10 + 1;
   }
   else if ( a3 < -1 )
   {
@@ -43,8 +44,8 @@ __int64 __fastcall WCSToMBEx(
   BytesInUnicodeString = 2 * v6;
   if ( a1 == NlsAnsiCodePage || !a1 )
   {
-    v10 = RtlUnicodeToMultiByteN(*a4, MaxBytesInMultiByteString, &BytesInMultiByteString, a2, BytesInUnicodeString);
-    if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
+    v8 = RtlUnicodeToMultiByteN(*a4, MaxBytesInMultiByteString, &BytesInMultiByteString, a2, BytesInUnicodeString);
+    if ( (int)(v8 + 0x80000000) < 0 || v8 == -2147483643 )
       return BytesInMultiByteString;
     return 0LL;
   }

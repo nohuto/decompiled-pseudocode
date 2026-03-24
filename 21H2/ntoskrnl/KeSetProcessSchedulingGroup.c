@@ -1,21 +1,21 @@
 /*
- * XREFs of KeSetProcessSchedulingGroup @ 0x14035EC68
+ * XREFs of KeSetProcessSchedulingGroup @ 0x1402EAB4C
  * Callers:
- *     PspSetProcessSchedulingGroup @ 0x1406CAA7C (PspSetProcessSchedulingGroup.c)
- *     PspTerminateProcess @ 0x1407D7E94 (PspTerminateProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x1406ABF00 (PspSetProcessSchedulingGroup.c)
+ *     PspTerminateProcess @ 0x1406D9D20 (PspTerminateProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiSetThreadSchedulingGroup @ 0x14035EE9C (KiSetThreadSchedulingGroup.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadSchedulingGroup @ 0x1402EC058 (KiSetThreadSchedulingGroup.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetProcessSchedulingGroup(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di
   __int64 v5; // r12
-  _DWORD *SchedulerAssist; // r9
   _QWORD *i; // rbx
+  _DWORD *SchedulerAssist; // r9
   unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v11; // r9

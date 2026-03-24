@@ -1,46 +1,41 @@
 /*
- * XREFs of VerifierInitialization @ 0x1C03B51B0
+ * XREFs of VerifierInitialization @ 0x1C0393F90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall VerifierInitialization(Gre::Base *a1)
+__int64 VerifierInitialization()
 {
-  unsigned int v1; // ebx
-  struct Gre::Base::SESSION_GLOBALS *v2; // rsi
-  __int64 v3; // rcx
-  __int64 v4; // rdi
+  unsigned int v0; // ebx
   NTSTATUS IsVerifierEnabled; // ecx
-  ULONG v6; // edx
+  ULONG v2; // r8d
   __int64 result; // rax
   ULONG VerifierFlags; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
+  v0 = 0;
   VerifierFlags = 0;
-  v2 = Gre::Base::Globals(a1);
-  v4 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
   IsVerifierEnabled = MmIsVerifierEnabled(&VerifierFlags);
   if ( (int)(IsVerifierEnabled + 0x80000000) < 0 || IsVerifierEnabled == -1073741820 )
   {
-    v6 = VerifierFlags;
+    v2 = VerifierFlags;
     if ( (VerifierFlags & 0xF) == 0 || (VerifierFlags & 0x400000) != 0 )
       goto LABEL_4;
-    if ( !*((_DWORD *)v2 + 752) )
+    if ( !G_fServiceSession )
     {
-      v1 = 1;
-      *(_DWORD *)(v4 + 23596) = 1;
-      v6 = VerifierFlags & 0xFFFFFFF7;
+      v0 = 1;
+      v2 = VerifierFlags & 0xFFFFFFF7;
+      dword_1C032FC9C = 1;
       goto LABEL_4;
     }
-    *(_QWORD *)(v4 + 23584) = MEMORY[0xFFFFF78000000014];
-    if ( MmAddVerifierThunks(&off_1C030AD80, 0xF0u) >= 0 )
-      v1 = 1;
+    GreBootTime.QuadPart = MEMORY[0xFFFFF78000000014];
+    if ( MmAddVerifierThunks(&off_1C02E2D90, 0xF0u) >= 0 )
+      v0 = 1;
   }
-  v6 = VerifierFlags;
+  v2 = VerifierFlags;
 LABEL_4:
-  result = v1;
-  *(_DWORD *)(v4 + 23592) = v1 != 0 ? v6 & 0xFFFFFFF7 : 0;
+  result = v0;
+  gvs = v0 != 0 ? v2 & 0xFFFFFFF7 : 0;
   return result;
 }

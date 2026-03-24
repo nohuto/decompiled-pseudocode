@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPICacheCoherencyInterface @ 0x1C0090A3C
+ * XREFs of ACPICacheCoherencyInterface @ 0x1C009A0F4
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
  *     <none>
  */
@@ -17,9 +17,9 @@ __int64 __fastcall ACPICacheCoherencyInterface(__int64 a1, __int64 a2)
   v3 = -1073741637;
   if ( *(_WORD *)(a2 + 16) < 0x28u )
     return (unsigned int)-1073741789;
-  if ( *(_WORD *)(a2 + 18) && (*(_DWORD *)(a1 + 1000) & 0x1000000) != 0 )
+  if ( *(_WORD *)(a2 + 18) && (*(_DWORD *)(a1 + 960) & 0x1000000) != 0 )
   {
-    v4 = *(_DWORD *)(a1 + 940) - 2;
+    v4 = *(_DWORD *)(a1 + 900) - 2;
     if ( v4 )
     {
       if ( v4 != 1 )

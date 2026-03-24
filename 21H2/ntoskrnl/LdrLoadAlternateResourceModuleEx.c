@@ -1,29 +1,34 @@
 /*
- * XREFs of LdrLoadAlternateResourceModuleEx @ 0x1402D708C
+ * XREFs of LdrLoadAlternateResourceModuleEx @ 0x1402A94D4
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x140206200 (LdrpResSearchResourceMappedFile.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1402D6FB0 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrResSearchResource @ 0x140673120 (LdrResSearchResource.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1402A7F28 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1402A93F8 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
  * Callees:
- *     LdrpGetFromMUIMemCache @ 0x1402D72FC (LdrpGetFromMUIMemCache.c)
- *     LdrpKrnGetDataTableEntry @ 0x1402D7504 (LdrpKrnGetDataTableEntry.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     DownLevelLangIDToLanguageName @ 0x140372644 (DownLevelLangIDToLanguageName.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403D525C (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrpMapResourceFile @ 0x1403D79F4 (LdrpMapResourceFile.c)
- *     LdrpGetResourceFileName @ 0x1403D7C1C (LdrpGetResourceFileName.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x1403DA094 (LdrpVerifyAlternateResourceModuleEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmUnmapViewInSystemSpace @ 0x1406DF130 (MmUnmapViewInSystemSpace.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1402A8F80 (LdrpKrnGetDataTableEntry.c)
+ *     LdrpGetFromMUIMemCache @ 0x1402A9744 (LdrpGetFromMUIMemCache.c)
+ *     DownLevelLangIDToLanguageName @ 0x1402A99BC (DownLevelLangIDToLanguageName.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14037F45C (LdrpSetAlternateResourceModuleHandle.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     LdrpMapResourceFile @ 0x1403806CC (LdrpMapResourceFile.c)
+ *     LdrpGetResourceFileName @ 0x140380C48 (LdrpGetResourceFileName.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x140381B5C (LdrpVerifyAlternateResourceModuleEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
  */
 
-__int64 __fastcall LdrLoadAlternateResourceModuleEx(__int64 a1, unsigned __int16 a2, _QWORD *a3, __int64 *a4, int a5)
+__int64 __fastcall LdrLoadAlternateResourceModuleEx(
+        unsigned __int64 a1,
+        unsigned __int16 a2,
+        _QWORD *a3,
+        __int64 *a4,
+        int a5)
 {
   int v7; // r13d
   unsigned __int64 v9; // rsi
-  __int64 DataTableEntry; // rax
+  PVOID *DataTableEntry; // rax
   __int64 v12; // rdx
   int v13; // edi
   const wchar_t *v14; // r8
@@ -35,7 +40,7 @@ __int64 __fastcall LdrLoadAlternateResourceModuleEx(__int64 a1, unsigned __int16
   HANDLE Handle; // [rsp+50h] [rbp-338h] BYREF
   int v21; // [rsp+58h] [rbp-330h]
   __int128 v22; // [rsp+60h] [rbp-328h] BYREF
-  __int64 v23; // [rsp+78h] [rbp-310h]
+  PVOID *v23; // [rsp+78h] [rbp-310h]
   _BYTE v24[176]; // [rsp+80h] [rbp-308h] BYREF
   char v25; // [rsp+130h] [rbp-258h] BYREF
 

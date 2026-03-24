@@ -1,22 +1,22 @@
 /*
- * XREFs of PsReferencePartitionByHandle @ 0x1407DE8D0
+ * XREFs of PsReferencePartitionByHandle @ 0x140692204
  * Callers:
- *     EtwpSetPartitionContext @ 0x14063383C (EtwpSetPartitionContext.c)
- *     MiInitializeCreateSectionPacket @ 0x1406FD6C0 (MiInitializeCreateSectionPacket.c)
- *     NtManagePartition @ 0x1407DE5F0 (NtManagePartition.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1407E6840 (MiAllocateVirtualMemoryCommon.c)
- *     NtAllocateVirtualMemory @ 0x1407E69E0 (NtAllocateVirtualMemory.c)
- *     PsCreatePartition @ 0x14085BC40 (PsCreatePartition.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140936BF8 (IopSetFileMemoryPartitionInformation.c)
- *     MiInitializePartitionSpecialPurposeMemory @ 0x14096E4D8 (MiInitializePartitionSpecialPurposeMemory.c)
- *     PspSetJobMemoryPartition @ 0x1409B08E8 (PspSetJobMemoryPartition.c)
+ *     EtwpSetPartitionContext @ 0x1405B0AA0 (EtwpSetPartitionContext.c)
+ *     MmAllocateVirtualMemory @ 0x1405F94E0 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1405FA740 (NtAllocateVirtualMemory.c)
+ *     NtManagePartition @ 0x140691E80 (NtManagePartition.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1406944E8 (MiAllocateVirtualMemoryCommon.c)
+ *     MiInitializeCreateSectionPacket @ 0x140705930 (MiInitializeCreateSectionPacket.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x1408942EC (IopSetFileMemoryPartitionInformation.c)
+ *     PspSetJobMemoryPartition @ 0x14090953C (PspSetJobMemoryPartition.c)
+ *     NtCreatePartition @ 0x14090CD70 (NtCreatePartition.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePartitionSafe @ 0x1403606EC (PsReferencePartitionSafe.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall PsReferencePartitionByHandle(ULONG_PTR a1, int a2, char a3, ULONG Tag, _QWORD *a5)
+__int64 __fastcall PsReferencePartitionByHandle(ULONG_PTR a1, __int64 a2, __int64 a3, ULONG Tag, _QWORD *a5)
 {
   unsigned int v5; // ebx
   __int64 result; // rax
@@ -36,7 +36,7 @@ __int64 __fastcall PsReferencePartitionByHandle(ULONG_PTR a1, int a2, char a3, U
   }
   else
   {
-    result = ObpReferenceObjectByHandleWithTag(a1, a2, (__int64)PsPartitionType, a3, Tag, &v11, 0LL, 0LL);
+    result = ObpReferenceObjectByHandleWithTag(a1, Tag, (__int64)&v11, 0LL, 0LL);
     if ( (int)result < 0 )
       return result;
     Next = v11;

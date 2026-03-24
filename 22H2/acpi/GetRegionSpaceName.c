@@ -1,7 +1,7 @@
 /*
- * XREFs of GetRegionSpaceName @ 0x1C004BDBC
+ * XREFs of GetRegionSpaceName @ 0x1C00654A4
  * Callers:
- *     DumpObject @ 0x1C0051EB8 (DumpObject.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
  * Callees:
  *     <none>
  */
@@ -14,19 +14,19 @@ const char *__fastcall GetRegionSpaceName(char a1)
   const char *result; // rax
 
   v1 = 0;
-  if ( !off_1C006DE98 )
+  if ( !off_1C00810F8 )
     return "VendorDefined";
   v2 = 0LL;
   v3 = 0LL;
-  while ( a1 != *((_BYTE *)&unk_1C006DE90 + v3) )
+  while ( a1 != *((_BYTE *)&unk_1C00810F0 + v3) )
   {
     ++v2;
     ++v1;
     v3 = 16 * v2;
-    if ( !*((_QWORD *)&unk_1C006DE90 + 2 * v2 + 1) )
+    if ( !*((_QWORD *)&unk_1C00810F0 + 2 * v2 + 1) )
       return "VendorDefined";
   }
-  result = (const char *)*((_QWORD *)&unk_1C006DE90 + 2 * v1 + 1);
+  result = (const char *)*((_QWORD *)&unk_1C00810F0 + 2 * v1 + 1);
   if ( !result )
     return "VendorDefined";
   return result;

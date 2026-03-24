@@ -3,13 +3,13 @@
  * Callers:
  *     MiRevertRelocatedImagePfn @ 0x1405A8A60 (MiRevertRelocatedImagePfn.c)
  *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiRevertRelocations @ 0x1406538AC (MiRevertRelocations.c)
+ *     MiRevertRelocations @ 0x14065388C (MiRevertRelocations.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiApplyStraddleFixups @ 0x140127DFC (MiApplyStraddleFixups.c)
+ *     MiApplyStraddleFixups @ 0x140127E1C (MiApplyStraddleFixups.c)
  *     MiApplyCompressedFixups @ 0x1405DFCA0 (MiApplyCompressedFixups.c)
- *     MiApplyRetpolineFixups @ 0x140853728 (MiApplyRetpolineFixups.c)
- *     MiApplyRawFixups @ 0x14085C0A8 (MiApplyRawFixups.c)
+ *     MiApplyRetpolineFixups @ 0x140853708 (MiApplyRetpolineFixups.c)
+ *     MiApplyRawFixups @ 0x14085C088 (MiApplyRawFixups.c)
  */
 
 __int64 __fastcall MiPerformFixups(

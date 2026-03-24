@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgQueryDriverConfiguration @ 0x1406F4004
+ * XREFs of PiDevCfgQueryDriverConfiguration @ 0x1406F3FE4
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C90 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B57C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14082E840 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140831A64 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C70 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B55C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x14082E820 (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x140831A44 (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x1406F5A30 (PiDevCfgBuildDriverConfigurationId.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6260 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C90 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgVerifyService @ 0x1407051F8 (PiDevCfgVerifyService.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x1406F5A10 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C70 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgVerifyService @ 0x1407051D8 (PiDevCfgVerifyService.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDriverConfiguration(__int64 a1)

@@ -1,29 +1,29 @@
 /*
- * XREFs of SshpFlushBlockerDataCache @ 0x140807088
+ * XREFs of SshpFlushBlockerDataCache @ 0x1408FAA00
  * Callers:
- *     SshpSendSessionData @ 0x140809BEC (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FACA8 (SshpSendSessionData.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportEtwWrite @ 0x1403B5B68 (SSHSupportEtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SSHSupportEtwWrite @ 0x140580CF0 (SSHSupportEtwWrite.c)
  */
 
 __int64 __fastcall SshpFlushBlockerDataCache(ULONG *a1)
 {
   ULONG v2; // r11d
-  __int64 result; // rax
-  ULONG v4; // ebx
-  ULONGLONG v5; // rsi
-  ULONG v6; // r9d
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  unsigned __int16 *v10; // rcx
-  __int64 v11; // r8
+  ULONG v3; // ebx
+  ULONGLONG v4; // rsi
+  ULONG v5; // r9d
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  unsigned __int16 *v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rcx
   __int64 v12; // rcx
-  __int64 v13; // rcx
-  ULONGLONG v14; // rax
-  __int64 v15; // rcx
+  ULONGLONG v13; // rax
+  __int64 v14; // rcx
+  __int64 result; // rax
   __int64 v16; // rax
   __int64 v17; // rbx
   char v18; // [rsp+30h] [rbp-D0h] BYREF
@@ -42,47 +42,47 @@ __int64 __fastcall SshpFlushBlockerDataCache(ULONG *a1)
     v2 = a1[4];
     if ( v2 )
     {
-      v4 = 0;
-      v5 = (ULONGLONG)(a1 + 2);
+      v3 = 0;
+      v4 = (ULONGLONG)(a1 + 2);
       i = 0;
       do
       {
-        v6 = v4 + 4 * v4 + 2;
-        v7 = 2LL * (v6 + 2);
-        v20 = **(unsigned __int16 **)&a1[6 * v4 + 6] >> 1;
-        v8 = 2LL * (v6 + 1);
-        v21 = LOWORD(a1[6 * v4 + 8]) >> 1;
-        v9 = 2LL * v6;
-        *(&v22.Ptr + v9) = v5;
-        *((_QWORD *)&v22.Size + v9) = 16LL;
-        *(&v22.Ptr + v8) = (ULONGLONG)&v20;
-        *((_QWORD *)&v22.Size + v8) = 4LL;
-        v10 = *(unsigned __int16 **)&a1[6 * v4 + 6];
-        v11 = *v10;
-        *(&v22.Ptr + v7) = *((_QWORD *)v10 + 1);
-        v12 = 2LL * (v6 + 3);
-        *(&v22.Size + 2 * v7) = v11;
-        *(&v22.Reserved + 2 * v7) = 0;
-        *(&v22.Ptr + v12) = (ULONGLONG)&v21;
-        *((_QWORD *)&v22.Size + v12) = 4LL;
-        LODWORD(v7) = LOWORD(a1[6 * v4 + 8]);
-        v13 = 2LL * (v6 + 4);
-        v14 = *(_QWORD *)&a1[6 * ++v4 + 4];
-        i = v4;
-        *(&v22.Size + 2 * v13) = v7;
-        *(&v22.Ptr + v13) = v14;
-        *(&v22.Reserved + 2 * v13) = 0;
+        v5 = v3 + 4 * v3 + 2;
+        v6 = 2LL * (v5 + 2);
+        v20 = **(unsigned __int16 **)&a1[6 * v3 + 6] >> 1;
+        v7 = 2LL * (v5 + 1);
+        v21 = LOWORD(a1[6 * v3 + 8]) >> 1;
+        v8 = 2LL * v5;
+        *(&v22.Ptr + v8) = v4;
+        *((_QWORD *)&v22.Size + v8) = 16LL;
+        *(&v22.Ptr + v7) = (ULONGLONG)&v20;
+        *((_QWORD *)&v22.Size + v7) = 4LL;
+        v9 = *(unsigned __int16 **)&a1[6 * v3 + 6];
+        v10 = *v9;
+        *(&v22.Ptr + v6) = *((_QWORD *)v9 + 1);
+        v11 = 2LL * (v5 + 3);
+        *(&v22.Size + 2 * v6) = v10;
+        *(&v22.Reserved + 2 * v6) = 0;
+        *(&v22.Ptr + v11) = (ULONGLONG)&v21;
+        *((_QWORD *)&v22.Size + v11) = 4LL;
+        LODWORD(v6) = LOWORD(a1[6 * v3 + 8]);
+        v12 = 2LL * (v5 + 4);
+        v13 = *(_QWORD *)&a1[6 * ++v3 + 4];
+        i = v3;
+        *(&v22.Size + 2 * v12) = v6;
+        *(&v22.Ptr + v12) = v13;
+        *(&v22.Reserved + 2 * v12) = 0;
       }
-      while ( v4 < v2 );
+      while ( v3 < v2 );
       v18 = SshpSessionId;
       *(_QWORD *)&v22.Size = 1LL;
       v22.Ptr = (ULONGLONG)&v18;
       v24 = 4LL;
       v23 = &i;
-      v15 = 2LL * (v2 + 4 * v2 + 2);
-      *(&v22.Ptr + v15) = (ULONGLONG)&SshpSessionId;
-      *((_QWORD *)&v22.Size + v15) = 8LL;
-      SSHSupportEtwWrite(v15, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DATA, v11, v4 + 4 * v4 + 3, &v22);
+      v14 = 2LL * (v2 + 4 * v2 + 2);
+      *(&v22.Ptr + v14) = (ULONGLONG)&SshpSessionId;
+      *((_QWORD *)&v22.Size + v14) = 8LL;
+      SSHSupportEtwWrite(v14, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER_DATA, v10, v3 + 4 * v3 + 3, &v22);
     }
   }
   result = 0LL;

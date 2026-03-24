@@ -1,17 +1,18 @@
 /*
- * XREFs of RtlpCopyLegacyContextAmd64 @ 0x14030D98C
+ * XREFs of RtlpCopyLegacyContextAmd64 @ 0x14033FDC0
  * Callers:
- *     RtlpCopyLegacyContext @ 0x14030D95C (RtlpCopyLegacyContext.c)
+ *     RtlpCopyLegacyContext @ 0x14033E548 (RtlpCopyLegacyContext.c)
+ *     RtlpCopyExtendedContext @ 0x14033F8C0 (RtlpCopyExtendedContext.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall RtlpCopyLegacyContextAmd64(char a1, __int64 a2, int a3, __int64 a4)
 {
-  _OWORD *v4; // rcx
+  __int128 *v4; // rcx
   __int64 v5; // r10
-  _OWORD *v6; // rax
-  __int128 v7; // xmm1
+  __int128 *v6; // rax
+  __int128 v7; // xmm0
 
   *(_DWORD *)(a2 + 48) = a3 & 0x67FFFFFF;
   if ( a1 )
@@ -46,23 +47,23 @@ void __fastcall RtlpCopyLegacyContextAmd64(char a1, __int64 a2, int a3, __int64 
     }
     if ( (a3 & 0x100008) == 0x100008 )
     {
-      v4 = (_OWORD *)(a4 + 256);
-      v5 = 3LL;
+      v4 = (__int128 *)(a4 + 256);
       *(_DWORD *)(a2 + 52) = *(_DWORD *)(a4 + 52);
-      v6 = (_OWORD *)(a2 + 256);
+      v5 = 3LL;
+      v6 = (__int128 *)(a2 + 256);
       do
       {
-        *v6 = *v4;
-        v6[1] = v4[1];
-        v6[2] = v4[2];
-        v6[3] = v4[3];
-        v6[4] = v4[4];
-        v6[5] = v4[5];
-        v6[6] = v4[6];
         v6 += 8;
-        v7 = v4[7];
+        v7 = *v4;
         v4 += 8;
-        *(v6 - 1) = v7;
+        *(v6 - 8) = v7;
+        *(v6 - 7) = *(v4 - 7);
+        *(v6 - 6) = *(v4 - 6);
+        *(v6 - 5) = *(v4 - 5);
+        *(v6 - 4) = *(v4 - 4);
+        *(v6 - 3) = *(v4 - 3);
+        *(v6 - 2) = *(v4 - 2);
+        *(v6 - 1) = *(v4 - 1);
         --v5;
       }
       while ( v5 );

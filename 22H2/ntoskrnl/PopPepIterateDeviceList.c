@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepIterateDeviceList @ 0x14059F928
+ * XREFs of PopPepIterateDeviceList @ 0x1405752F0
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x1405A1924 (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x14057E964 (PopPlRegisterPowerPlane.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char __fastcall PopPepIterateDeviceList(
+bool __fastcall PopPepIterateDeviceList(
         void (__fastcall *a1)(__int64),
         unsigned __int8 (__fastcall *a2)(__int64 *, __int64),
         void (__fastcall *a3)(void (__fastcall *)(__int64), __int64),
@@ -21,8 +21,8 @@ char __fastcall PopPepIterateDeviceList(
 {
   void (__fastcall *v9)(__int64); // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v11; // rdi
-  char v12; // bl
+  __int64 *v11; // rbx
+  bool v12; // di
 
   v9 = a1;
   if ( a5 )
@@ -35,14 +35,16 @@ char __fastcall PopPepIterateDeviceList(
     v9(a7);
   v11 = (__int64 *)PopPepDeviceList;
   v12 = 1;
-  while ( v11 != &PopPepDeviceList )
+  if ( (__int64 *)PopPepDeviceList != &PopPepDeviceList )
   {
-    if ( !a2(v11, a7) )
+    do
     {
-      v12 = 0;
-      break;
+      if ( !a2(v11, a7) )
+        break;
+      v11 = (__int64 *)*v11;
     }
-    v11 = (__int64 *)*v11;
+    while ( v11 != &PopPepDeviceList );
+    v12 = v11 == &PopPepDeviceList;
   }
   if ( a3 )
   {
@@ -54,7 +56,7 @@ char __fastcall PopPepIterateDeviceList(
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPepDeviceListLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PopPepDeviceListLock);
     KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v12;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsLockAllowedByIndex @ 0x1407F08D4
+ * XREFs of CmpIsLockAllowedByIndex @ 0x1407F08B4
  * Callers:
- *     CmpRunDownDelayDerefKCBEngine @ 0x140692DF4 (CmpRunDownDelayDerefKCBEngine.c)
+ *     CmpRunDownDelayDerefKCBEngine @ 0x140692DD4 (CmpRunDownDelayDerefKCBEngine.c)
  * Callees:
  *     <none>
  */

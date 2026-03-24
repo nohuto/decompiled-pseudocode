@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsValid@CDDASwapChain@@UEBAJXZ @ 0x180116066
+ * XREFs of ?IsValid@CDDASwapChain@@UEBAJXZ @ 0x180250794
  * Callers:
- *     ?IsValid@CDDASwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x18010A9B0 (-IsValid@CDDASwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
+ *     ?IsValid@CDDASwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F8070 (-IsValid@CDDASwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,32 @@
 /*
- * XREFs of KevSkipVerification @ 0x140679C1C
+ * XREFs of KevSkipVerification @ 0x1405CA20C
  * Callers:
- *     ExFreePoolSanityChecks @ 0x140AE8DFC (ExFreePoolSanityChecks.c)
+ *     ExFreePoolSanityChecks @ 0x1409ECF60 (ExFreePoolSanityChecks.c)
  * Callees:
  *     <none>
  */
 
-__int64 KevSkipVerification()
+_BOOL8 KevSkipVerification()
 {
   struct _KPRCB *CurrentPrcb; // rcx
-  unsigned int v1; // edx
-  unsigned int v2; // ecx
+  int v1; // eax
+  _BOOL8 result; // rax
 
-  if ( KeGetCurrentIrql() < 2u )
-    return 0LL;
-  CurrentPrcb = KeGetCurrentPrcb();
-  v1 = 0;
-  if ( !CurrentPrcb->DpcRoutineActive || (CurrentPrcb->DpcRequestSummary & 8) == 0 )
-    return 0LL;
-  if ( KiSerializeTimerExpiration )
-    v2 = *(_DWORD *)(KiProcessorBlock[0] + 32276);
-  else
-    v2 = CurrentPrcb->TimerTable.TableState.LastTimerHand[1];
-  LOBYTE(v1) = v2 + 100 < (unsigned int)(MEMORY[0xFFFFF78000000008] >> 18);
-  return v1;
+  result = 0;
+  if ( KeGetCurrentIrql() >= 2u )
+  {
+    CurrentPrcb = KeGetCurrentPrcb();
+    if ( CurrentPrcb->DpcRoutineActive )
+    {
+      if ( (CurrentPrcb->DpcRequestSummary & 8) != 0 )
+      {
+        v1 = KiSerializeTimerExpiration
+           ? *(_DWORD *)(KiProcessorBlock[0] + 31572)
+           : CurrentPrcb->TimerTable.TableState.LastTimerHand[1];
+        if ( v1 + 100 < (unsigned int)(MEMORY[0xFFFFF78000000008] >> 18) )
+          return 1;
+      }
+    }
+  }
+  return result;
 }

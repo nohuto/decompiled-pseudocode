@@ -1,91 +1,153 @@
 /*
- * XREFs of SeCaptureSubjectContext @ 0x1407380C0
+ * XREFs of SeCaptureSubjectContext @ 0x1406CE8F0
  * Callers:
- *     SeReportSecurityEventWithSubCategory @ 0x140226BA0 (SeReportSecurityEventWithSubCategory.c)
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     RtlCheckTokenMembershipEx @ 0x14031D010 (RtlCheckTokenMembershipEx.c)
- *     RtlCheckTokenCapability @ 0x14036FFE0 (RtlCheckTokenCapability.c)
- *     IoCheckRedirectionTrustLevel @ 0x1403D09D0 (IoCheckRedirectionTrustLevel.c)
- *     IoComputeRedirectionTrustLevel @ 0x140558BE0 (IoComputeRedirectionTrustLevel.c)
- *     WdipAccessCheck @ 0x1405FB898 (WdipAccessCheck.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x140616408 (CmpCheckHivePrimaryFileReadWriteAccess.c)
- *     CmpLogHiveFileInaccessible @ 0x14068F4C0 (CmpLogHiveFileInaccessible.c)
- *     SepAdtTokenRightAdjusted @ 0x1406BB15C (SepAdtTokenRightAdjusted.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     EtwpAccessCheck @ 0x1406BDBDC (EtwpAccessCheck.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1406BF740 (EtwpFindOrCreateGuidEntry.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0580 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C3580 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtAuditThisEventByCategoryWithContext @ 0x1406C3600 (SepAdtAuditThisEventByCategoryWithContext.c)
- *     NtSetValueKey @ 0x1406D2AB0 (NtSetValueKey.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     sub_1406EF620 @ 0x1406EF620 (sub_1406EF620.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     NtDeleteValueKey @ 0x14070EAF0 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14070FD60 (NtDeleteKey.c)
- *     ExpWnfCheckCallerAccess @ 0x1407138E4 (ExpWnfCheckCallerAccess.c)
- *     CmpNotifyChangeKey @ 0x140767A00 (CmpNotifyChangeKey.c)
- *     PiUEventHandleRegistration @ 0x14077FBAC (PiUEventHandleRegistration.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiCMValidateDeviceInstance @ 0x14079A3C8 (PiCMValidateDeviceInstance.c)
- *     PiAuVerifyAccessToObject @ 0x14079ADDC (PiAuVerifyAccessToObject.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A60F0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     NtSetInformationKey @ 0x1407ACFA0 (NtSetInformationKey.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC7B0 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     NtCloseObjectAuditAlarm @ 0x1407C3E40 (NtCloseObjectAuditAlarm.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C5A60 (IoGetDeviceInterfaceAlias.c)
- *     PiCMGetDeviceIdList @ 0x1407C7F0C (PiCMGetDeviceIdList.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1407C87E0 (NtPrivilegedServiceAuditAlarm.c)
- *     PspIsContextAdmin @ 0x1407D07D8 (PspIsContextAdmin.c)
- *     ExIsRestrictedCaller @ 0x1407D8DA4 (ExIsRestrictedCaller.c)
- *     NtOpenObjectAuditAlarm @ 0x1407DFA00 (NtOpenObjectAuditAlarm.c)
- *     SeCheckPrivilegedObject @ 0x1407E05E4 (SeCheckPrivilegedObject.c)
- *     PspSinglePrivCheck @ 0x1407E4308 (PspSinglePrivCheck.c)
- *     PopBootStatAccessCheck @ 0x1407EC0D4 (PopBootStatAccessCheck.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1407F1980 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     ObpGetIntegrityLevel @ 0x1407F3C74 (ObpGetIntegrityLevel.c)
- *     RtlIsSandboxedToken @ 0x1407F3D10 (RtlIsSandboxedToken.c)
- *     SepCheckCreateLowBox @ 0x1407F4A84 (SepCheckCreateLowBox.c)
- *     NtImpersonateAnonymousToken @ 0x1407F5620 (NtImpersonateAnonymousToken.c)
- *     PiDqQueryCreate @ 0x1407F9734 (PiDqQueryCreate.c)
- *     PiDqOpenUserObjectRegKey @ 0x1407FAB88 (PiDqOpenUserObjectRegKey.c)
- *     SeAuditBootConfiguration @ 0x14084231C (SeAuditBootConfiguration.c)
- *     SepAuditAssignPrimaryToken @ 0x140842830 (SepAuditAssignPrimaryToken.c)
- *     SeAuditProcessCreation @ 0x140842A54 (SeAuditProcessCreation.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x140846050 (NtPrivilegeObjectAuditAlarm.c)
- *     NtSetUuidSeed @ 0x140851720 (NtSetUuidSeed.c)
- *     PnpGetCallerSessionId @ 0x140958A90 (PnpGetCallerSessionId.c)
- *     PiAuCheckTokenMembership @ 0x14095B7C0 (PiAuCheckTokenMembership.c)
- *     PiAuDoesClientHavePrivilege @ 0x14095B968 (PiAuDoesClientHavePrivilege.c)
- *     PspIumVerifyParentSd @ 0x1409B6494 (PspIumVerifyParentSd.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA0C4 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeAuditFipsCryptoSelftests @ 0x1409CA680 (SeAuditFipsCryptoSelftests.c)
- *     SeAuditHandleDuplication @ 0x1409CA84C (SeAuditHandleDuplication.c)
- *     SeAuditHardLinkCreationWithTransaction @ 0x1409CAA40 (SeAuditHardLinkCreationWithTransaction.c)
- *     SeAuditPlugAndPlay @ 0x1409CABF8 (SeAuditPlugAndPlay.c)
- *     SeAuditSystemTimeChange @ 0x1409CB148 (SeAuditSystemTimeChange.c)
- *     SeAuditTransactionStateChange @ 0x1409CB310 (SeAuditTransactionStateChange.c)
- *     SeOperationAuditAlarm @ 0x1409CB54C (SeOperationAuditAlarm.c)
- *     NtDeleteObjectAuditAlarm @ 0x1409CDF70 (NtDeleteObjectAuditAlarm.c)
- *     SeCloseObjectAuditAlarm @ 0x1409CE080 (SeCloseObjectAuditAlarm.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409CE140 (SeDeleteObjectAuditAlarmWithTransaction.c)
- *     EtwpCoverageUserIsAdmin @ 0x1409E89E8 (EtwpCoverageUserIsAdmin.c)
- *     NtRenameKey @ 0x140A0E060 (NtRenameKey.c)
- *     CmUpdateFeatureConfiguration @ 0x140A11EDC (CmUpdateFeatureConfiguration.c)
- *     CmUpdateFeatureUsageSubscription @ 0x140A121EC (CmUpdateFeatureUsageSubscription.c)
- *     CmFcInitSystem2 @ 0x140B3A224 (CmFcInitSystem2.c)
- *     WmipInitializeSecurity @ 0x140B3C860 (WmipInitializeSecurity.c)
+ *     SeReportSecurityEventWithSubCategory @ 0x140252250 (SeReportSecurityEventWithSubCategory.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     RtlCheckTokenMembershipEx @ 0x140348460 (RtlCheckTokenMembershipEx.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1403F09C0 (IoCheckRedirectionTrustLevel.c)
+ *     IoComputeRedirectionTrustLevel @ 0x1403F0B10 (IoComputeRedirectionTrustLevel.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1404EC7E8 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     RtlCheckTokenCapability @ 0x140586670 (RtlCheckTokenCapability.c)
+ *     WdipAccessCheck @ 0x1405A5550 (WdipAccessCheck.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     NtSetInformationKey @ 0x1405F3A00 (NtSetInformationKey.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
+ *     SepAdtTokenRightAdjusted @ 0x140608AA0 (SepAdtTokenRightAdjusted.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608B90 (SeAuditingWithTokenForSubcategory.c)
+ *     ExpWnfCheckCallerAccess @ 0x14060FF00 (ExpWnfCheckCallerAccess.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140627E10 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627EE0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140627F60 (SepAdtAuditThisEventByCategoryWithContext.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
+ *     RtlIsSandboxedToken @ 0x140652B50 (RtlIsSandboxedToken.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x14067BC20 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     PiCMValidateDeviceInstance @ 0x140684800 (PiCMValidateDeviceInstance.c)
+ *     PiAuVerifyAccessToObject @ 0x140684DD8 (PiAuVerifyAccessToObject.c)
+ *     NtCloseObjectAuditAlarm @ 0x140684FD0 (NtCloseObjectAuditAlarm.c)
+ *     ExIsRestrictedCaller @ 0x140686630 (ExIsRestrictedCaller.c)
+ *     PspSinglePrivCheck @ 0x140688E8C (PspSinglePrivCheck.c)
+ *     PiCMGetDeviceIdList @ 0x140689BD4 (PiCMGetDeviceIdList.c)
+ *     NtOpenObjectAuditAlarm @ 0x14068BC10 (NtOpenObjectAuditAlarm.c)
+ *     PiDqOpenUserObjectRegKey @ 0x14068C868 (PiDqOpenUserObjectRegKey.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x14069A6E0 (NtPrivilegedServiceAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x14069F338 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SepCheckCreateLowBox @ 0x1406A2224 (SepCheckCreateLowBox.c)
+ *     PiDqQueryCreate @ 0x1406A7BF8 (PiDqQueryCreate.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     EtwpAccessCheck @ 0x1406BC938 (EtwpAccessCheck.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
+ *     CmpNotifyChangeKey @ 0x1406DC890 (CmpNotifyChangeKey.c)
+ *     NtSetValueKey @ 0x1406DCBB0 (NtSetValueKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     NtDeleteValueKey @ 0x1406E1EF0 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1406E5000 (NtDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmpLogHiveFileInaccessible @ 0x1406F00E4 (CmpLogHiveFileInaccessible.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x1406F5028 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PspIsContextAdmin @ 0x14070CE38 (PspIsContextAdmin.c)
+ *     NtImpersonateAnonymousToken @ 0x14070DED0 (NtImpersonateAnonymousToken.c)
+ *     PiUEventHandleRegistration @ 0x140715950 (PiUEventHandleRegistration.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072BED0 (IoGetDeviceInterfaceAlias.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F800 (PiAuDoesClientHavePrivilege.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140734F10 (NtDeleteObjectAuditAlarm.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14078B920 (NtPrivilegeObjectAuditAlarm.c)
+ *     SeCheckPrivilegedObject @ 0x14078DD60 (SeCheckPrivilegedObject.c)
+ *     SepAuditAssignPrimaryToken @ 0x1407BC5A4 (SepAuditAssignPrimaryToken.c)
+ *     SeAuditBootConfiguration @ 0x1407BC844 (SeAuditBootConfiguration.c)
+ *     SeAuditProcessCreation @ 0x1407BCD58 (SeAuditProcessCreation.c)
+ *     PopBootStatAccessCheck @ 0x1407C1BDC (PopBootStatAccessCheck.c)
+ *     NtSetUuidSeed @ 0x1407C7220 (NtSetUuidSeed.c)
+ *     NtRenameKey @ 0x140868C80 (NtRenameKey.c)
+ *     CmUpdateFeatureConfiguration @ 0x14086B380 (CmUpdateFeatureConfiguration.c)
+ *     CmUpdateFeatureUsageSubscription @ 0x14086B518 (CmUpdateFeatureUsageSubscription.c)
+ *     PnpGetCallerSessionId @ 0x1408A1E7C (PnpGetCallerSessionId.c)
+ *     PiAuCheckTokenMembership @ 0x1408A3BB8 (PiAuCheckTokenMembership.c)
+ *     PspIumVerifyParentSd @ 0x14090CD04 (PspIumVerifyParentSd.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D39C (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAuditFipsCryptoSelftests @ 0x14091D950 (SeAuditFipsCryptoSelftests.c)
+ *     SeAuditHandleDuplication @ 0x14091DB1C (SeAuditHandleDuplication.c)
+ *     SeAuditHardLinkCreationWithTransaction @ 0x14091DD10 (SeAuditHardLinkCreationWithTransaction.c)
+ *     SeAuditPlugAndPlay @ 0x14091DEC8 (SeAuditPlugAndPlay.c)
+ *     SeAuditSystemTimeChange @ 0x14091E414 (SeAuditSystemTimeChange.c)
+ *     SeAuditTransactionStateChange @ 0x14091E5D0 (SeAuditTransactionStateChange.c)
+ *     SeOperationAuditAlarm @ 0x14091E80C (SeOperationAuditAlarm.c)
+ *     SeCloseObjectAuditAlarm @ 0x140921340 (SeCloseObjectAuditAlarm.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x140921400 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     EtwpCoverageUserIsAdmin @ 0x1409357A8 (EtwpCoverageUserIsAdmin.c)
+ *     CmFcInitSystem2 @ 0x140A38398 (CmFcInitSystem2.c)
+ *     WmipInitializeSecurity @ 0x140A69C2C (WmipInitializeSecurity.c)
  * Callees:
- *     SeCaptureSubjectContextEx @ 0x1407380F0 (SeCaptureSubjectContextEx.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406CF720 (PsReferenceImpersonationTokenEx.c)
  */
 
 void __stdcall SeCaptureSubjectContext(PSECURITY_SUBJECT_CONTEXT SubjectContext)
 {
   struct _KTHREAD *CurrentThread; // rcx
+  _KPROCESS *Process; // rsi
+  void *v4; // rax
+  unsigned __int64 *v5; // rbp
+  _QWORD *v6; // rdi
+  struct _KTHREAD *v7; // r15
+  signed __int64 *p_Lock; // rsi
+  char v9; // [rsp+60h] [rbp+8h] BYREF
+  char v10; // [rsp+68h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  SeCaptureSubjectContextEx(CurrentThread, CurrentThread->ApcState.Process, SubjectContext);
+  Process = CurrentThread->ApcState.Process;
+  v10 = 0;
+  v9 = 0;
+  SubjectContext->ProcessAuditId = Process[1].Header.WaitListHead.Flink;
+  if ( CurrentThread )
+    v4 = (void *)PsReferenceImpersonationTokenEx(
+                   (_DWORD)CurrentThread,
+                   0,
+                   (unsigned int)&v10,
+                   (unsigned int)&v9,
+                   (__int64)&SubjectContext->ImpersonationLevel,
+                   0LL);
+  else
+    v4 = 0LL;
+  v5 = &Process[1].Affinity.Bitmap[5];
+  SubjectContext->ClientToken = v4;
+  v6 = (_QWORD *)ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
+  if ( !v6 )
+  {
+    v7 = KeGetCurrentThread();
+    --v7->KernelApcDisable;
+    p_Lock = (signed __int64 *)&Process[1].Header.Lock;
+    ExAcquirePushLockSharedEx((ULONG_PTR)p_Lock, 0LL);
+    v6 = (_QWORD *)ObFastReferenceObjectLocked(v5);
+    if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(p_Lock);
+    KeAbPostRelease((ULONG_PTR)p_Lock);
+    KeLeaveCriticalRegionThread((__int64)v7);
+  }
+  SubjectContext->PrimaryToken = v6;
+  if ( SeTokenLeakTracking )
+  {
+    if ( v6 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v6[143] + 284LL));
+      if ( SubjectContext->PrimaryToken == (PACCESS_TOKEN)SepTokenLeakToken )
+        __debugbreak();
+    }
+    if ( SubjectContext->ClientToken )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)SubjectContext->ClientToken + 143) + 284LL));
+      if ( SubjectContext->ClientToken == (PACCESS_TOKEN)SepTokenLeakToken )
+        __debugbreak();
+    }
+  }
 }

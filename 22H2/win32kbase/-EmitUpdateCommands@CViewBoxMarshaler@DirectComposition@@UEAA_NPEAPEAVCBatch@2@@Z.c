@@ -1,13 +1,13 @@
 /*
- * XREFs of ?EmitUpdateCommands@CViewBoxMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0215580
+ * XREFs of ?EmitUpdateCommands@CViewBoxMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E73B0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_510ad0fdc6a4a65631513f99199301c6___ @ 0x1C0215334 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_510ad0fdc6a4a65631513f99199301c.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_656fcd5762369dd788581355f3f7a4ef___ @ 0x1C02153A8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_656fcd5762369dd788581355f3f7a4e.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_74d20138f35096ed876432e29420d709___ @ 0x1C021541C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_74d20138f35096ed876432e29420d70.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_dd862a133fbcf6820f5014d20e4036af___ @ 0x1C0215490 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_dd862a133fbcf6820f5014d20e4036a.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e6a0e39a3eeee7e539b4e5382bb69da0___ @ 0x1C0215504 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e6a0e39a3eeee7e539b4e5382bb69da.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_510ad0fdc6a4a65631513f99199301c6___ @ 0x1C01E7160 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_510ad0fdc6a4a65631513f99199301c.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_656fcd5762369dd788581355f3f7a4ef___ @ 0x1C01E71D4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_656fcd5762369dd788581355f3f7a4e.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_74d20138f35096ed876432e29420d709___ @ 0x1C01E7248 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_74d20138f35096ed876432e29420d70.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_dd862a133fbcf6820f5014d20e4036af___ @ 0x1C01E72BC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_dd862a133fbcf6820f5014d20e4036a.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e6a0e39a3eeee7e539b4e5382bb69da0___ @ 0x1C01E7330 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e6a0e39a3eeee7e539b4e5382bb69da.c)
  */
 
 char __fastcall DirectComposition::CViewBoxMarshaler::EmitUpdateCommands(

@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpInitSIDToHiveMapping @ 0x140764234
+ * XREFs of CmpInitSIDToHiveMapping @ 0x140764214
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:

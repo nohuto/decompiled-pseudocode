@@ -18,8 +18,8 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
  *     MiGetPageForHeader @ 0x1400934B8 (MiGetPageForHeader.c)
- *     KeCopyPage @ 0x1401C09B0 (KeCopyPage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall MiInitializeImageProtos(__int64 a1, __int64 a2, __int64 a3)

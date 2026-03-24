@@ -1,14 +1,14 @@
 /*
- * XREFs of strstr @ 0x140194EA0
+ * XREFs of strstr @ 0x140194EC0
  * Callers:
- *     InbvDetermineFunction @ 0x14018E434 (InbvDetermineFunction.c)
- *     HvlDebuggerSupportInitialize @ 0x140193EF4 (HvlDebuggerSupportInitialize.c)
- *     KiIsSafeBoot @ 0x1401B4604 (KiIsSafeBoot.c)
- *     KiIsWinPEBoot @ 0x1401B4820 (KiIsWinPEBoot.c)
+ *     InbvDetermineFunction @ 0x14018E454 (InbvDetermineFunction.c)
+ *     HvlDebuggerSupportInitialize @ 0x140193F14 (HvlDebuggerSupportInitialize.c)
+ *     KiIsSafeBoot @ 0x1401B4624 (KiIsSafeBoot.c)
+ *     KiIsWinPEBoot @ 0x1401B4840 (KiIsWinPEBoot.c)
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
  *     KiMatchLoadOption @ 0x1405738D8 (KiMatchLoadOption.c)
- *     HvlPhase0Initialize @ 0x1407259E8 (HvlPhase0Initialize.c)
- *     SepIsOptionPresent @ 0x140727824 (SepIsOptionPresent.c)
+ *     HvlPhase0Initialize @ 0x1407259C8 (HvlPhase0Initialize.c)
+ *     SepIsOptionPresent @ 0x140727804 (SepIsOptionPresent.c)
  *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
  *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
  *     KiInitializeNxSupportDiscard @ 0x1409AF820 (KiInitializeNxSupportDiscard.c)
@@ -24,7 +24,7 @@
  *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
  *     MiInitializeBootDefaults @ 0x1409DBEF0 (MiInitializeBootDefaults.c)
  *     KitpInitAitSampleRate @ 0x1409DD5E8 (KitpInitAitSampleRate.c)
- *     RamdiskStart @ 0x1409F9D3C (RamdiskStart.c)
+ *     RamdiskStart @ 0x1409F9D4C (RamdiskStart.c)
  * Callees:
  *     <none>
  */

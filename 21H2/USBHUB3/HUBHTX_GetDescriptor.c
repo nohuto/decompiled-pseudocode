@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBHTX_GetDescriptor @ 0x1C0003060
+ * XREFs of HUBHTX_GetDescriptor @ 0x1C0002E90
  * Callers:
- *     HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C0003190 (HUBHTX_GetHubDescriptorUsingControlTransfer.c)
- *     HUBHSM_GettingHubConfigurationDescriptorWithDefaultLength @ 0x1C00090E0 (HUBHSM_GettingHubConfigurationDescriptorWithDefaultLength.c)
- *     HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength @ 0x1C0009220 (HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength.c)
+ *     HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C0002FC0 (HUBHTX_GetHubDescriptorUsingControlTransfer.c)
+ *     HUBHSM_GettingHubConfigurationDescriptorWithDefaultLength @ 0x1C0008DD0 (HUBHSM_GettingHubConfigurationDescriptorWithDefaultLength.c)
+ *     HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength @ 0x1C0008F10 (HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength.c)
  * Callees:
- *     WPP_RECORDER_SF_c @ 0x1C000232C (WPP_RECORDER_SF_c.c)
- *     WPP_RECORDER_SF_cd @ 0x1C0002844 (WPP_RECORDER_SF_cd.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_c @ 0x1C0002150 (WPP_RECORDER_SF_c.c)
+ *     WPP_RECORDER_SF_cd @ 0x1C0002668 (WPP_RECORDER_SF_cd.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBHTX_GetDescriptor(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6)
@@ -32,7 +32,7 @@ __int64 __fastcall HUBHTX_GetDescriptor(__int64 a1, __int64 a2, __int64 a3, __in
         4u,
         3u,
         0xFu,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         a4);
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

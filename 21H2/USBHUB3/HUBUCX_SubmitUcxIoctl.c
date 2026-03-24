@@ -1,28 +1,28 @@
 /*
- * XREFs of HUBUCX_SubmitUcxIoctl @ 0x1C0023D84
+ * XREFs of HUBUCX_SubmitUcxIoctl @ 0x1C0023950
  * Callers:
- *     HUBDSM_ResettingPipeInUCXOnClientReset @ 0x1C001D860 (HUBDSM_ResettingPipeInUCXOnClientReset.c)
- *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001DA00 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
- *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C001E460 (HUBDSM_UpdatingDeviceInformationInEnum.c)
- *     HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C001E980 (HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum.c)
- *     HUBDSM_SettingNonZeroAddress @ 0x1C001FED0 (HUBDSM_SettingNonZeroAddress.c)
- *     HUBDSM_AbortingDeviceIoInSuspendingBeforeArmingForWakeFailure @ 0x1C0021D00 (HUBDSM_AbortingDeviceIoInSuspendingBeforeArmingForWakeFailure.c)
- *     HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C0023340 (HUBDSM_CheckingIf20LPMShouldBeEnabled.c)
- *     HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl @ 0x1C0023FFC (HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl.c)
- *     HUBUCX_NotifyDeviceResetUsingUCXIoctl @ 0x1C00240B0 (HUBUCX_NotifyDeviceResetUsingUCXIoctl.c)
- *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0024278 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
- *     HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C00244F8 (HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl.c)
- *     HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0024644 (HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl.c)
- *     HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C00248B0 (HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl.c)
- *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C002674C (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
- *     HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl @ 0x1C00267FC (HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl.c)
- *     HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl @ 0x1C00268B0 (HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl.c)
- *     HUBUCX_StartDeviceIoUsingUCXIoctl @ 0x1C0026960 (HUBUCX_StartDeviceIoUsingUCXIoctl.c)
+ *     HUBDSM_ResettingPipeInUCXOnClientReset @ 0x1C001D320 (HUBDSM_ResettingPipeInUCXOnClientReset.c)
+ *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001D4C0 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
+ *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C001DF20 (HUBDSM_UpdatingDeviceInformationInEnum.c)
+ *     HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C001E440 (HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum.c)
+ *     HUBDSM_SettingNonZeroAddress @ 0x1C001FAC0 (HUBDSM_SettingNonZeroAddress.c)
+ *     HUBDSM_AbortingDeviceIoInSuspendingBeforeArmingForWakeFailure @ 0x1C00218B0 (HUBDSM_AbortingDeviceIoInSuspendingBeforeArmingForWakeFailure.c)
+ *     HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C0022EF0 (HUBDSM_CheckingIf20LPMShouldBeEnabled.c)
+ *     HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl @ 0x1C0023BBC (HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl.c)
+ *     HUBUCX_NotifyDeviceResetUsingUCXIoctl @ 0x1C0023C70 (HUBUCX_NotifyDeviceResetUsingUCXIoctl.c)
+ *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0023E38 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
+ *     HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C00240B8 (HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl.c)
+ *     HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0024204 (HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl.c)
+ *     HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C0024470 (HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C002629C (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl @ 0x1C002634C (HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl @ 0x1C0026400 (HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl.c)
+ *     HUBUCX_StartDeviceIoUsingUCXIoctl @ 0x1C00264B0 (HUBUCX_StartDeviceIoUsingUCXIoctl.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C00144D4 (HUBPDO_GetUSBDErrorFromNTStatus.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C001402C (HUBPDO_GetUSBDErrorFromNTStatus.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_SubmitUcxIoctl(__int64 *a1, unsigned int a2)
@@ -35,8 +35,8 @@ __int64 __fastcall HUBUCX_SubmitUcxIoctl(__int64 *a1, unsigned int a2)
   __int64 v9; // rcx
   __int64 v10; // r8
   int v11; // eax
-  int v12; // edi
-  int v13; // eax
+  int v12; // ebx
+  int USBDErrorFromNTStatus; // eax
   int v15; // [rsp+28h] [rbp-60h]
   _DWORD v16[3]; // [rsp+60h] [rbp-28h] BYREF
   __int64 v17; // [rsp+6Ch] [rbp-1Ch]
@@ -59,14 +59,14 @@ __int64 __fastcall HUBUCX_SubmitUcxIoctl(__int64 *a1, unsigned int a2)
     v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00671E8);
+           off_1C00661C0);
     v15 = v7;
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v8 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v15);
   }
   v9 = a1[54];
@@ -85,13 +85,7 @@ __int64 __fastcall HUBUCX_SubmitUcxIoctl(__int64 *a1, unsigned int a2)
           0LL);
   v12 = v11;
   if ( v11 < 0 )
-  {
-    *((_DWORD *)a1 + 390) = v11;
-    *((_DWORD *)a1 + 391) = HUBPDO_GetUSBDErrorFromNTStatus(v11);
-LABEL_8:
-    HUBSM_AddEvent((__int64)(a1 + 63), 4020);
-    return (unsigned int)v12;
-  }
+    goto LABEL_7;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, char (__fastcall *)(__int64, __int64, __int64, __int64), __int64 *))(WdfFunctions_01015 + 2080))(
     WdfDriverGlobals,
     a1[52],
@@ -103,14 +97,19 @@ LABEL_8:
           v6,
           0LL) )
   {
-    v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(
+    v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(
             WdfDriverGlobals,
             a1[52]);
-    *((_DWORD *)a1 + 390) = v13;
-    v12 = v13;
-    *((_DWORD *)a1 + 391) = HUBPDO_GetUSBDErrorFromNTStatus(v13);
-    if ( v12 < 0 )
-      goto LABEL_8;
+    v12 = v11;
+LABEL_7:
+    *((_DWORD *)a1 + 390) = v11;
+    if ( v11 == -1073741667 )
+      USBDErrorFromNTStatus = -1073713152;
+    else
+      USBDErrorFromNTStatus = HUBPDO_GetUSBDErrorFromNTStatus(v11);
+    *((_DWORD *)a1 + 391) = USBDErrorFromNTStatus;
   }
+  if ( v12 < 0 )
+    HUBSM_AddEvent((__int64)(a1 + 63), 4020);
   return (unsigned int)v12;
 }

@@ -1,17 +1,15 @@
 /*
- * XREFs of ?UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x1801A2654
+ * XREFs of ?UpdateCapture@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180227E94
  * Callers:
- *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18003272C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DE8C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
  * Callees:
- *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x180032A40 (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U2@U3@U3@U2@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@4555554554AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x18019C744 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_18019C744.c)
- *     ?InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x18019E414 (-InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
- *     ?InteractionFurtherProcessingForInput@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x18019E464 (-InteractionFurtherProcessingForInput@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
- *     ?InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x18019E49C (-InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
- *     ?InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x18019E510 (-InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
- *     ?MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z @ 0x18019E5F8 (-MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z.c)
+ *     ?get@?$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z @ 0x18004EC34 (-get@-$static_lazy@VInputTraceLogging@@@details@wil@@QEAAPEAVInputTraceLogging@@P6AXXZ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U3@U3@U3@U3@U3@U3@U2@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@433AEBU?$_tlgWrapperByVal@$03@@45555554AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x180223958 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U-$_tlgWrapperByVal@$03_ea_180223958.c)
+ *     ?InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x180224B88 (-InteractionDefaultToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
+ *     ?InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z @ 0x180224BF4 (-InteractionInputTransparency@InputTraceLogging@@CA_NPEBVCInteraction@@@Z.c)
+ *     ?InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z @ 0x180224C68 (-InteractionSourceTypeToString@InputTraceLogging@@CAPEBDPEBVCInteraction@@@Z.c)
+ *     ?MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z @ 0x180224DB8 (-MidManipulationUpdateTypeToString@InputTraceLogging@@CAPEBDW4MidManipulationUpdateType@@@Z.c)
  */
 
 void __fastcall InputTraceLogging::GestureTargeting::UpdateCapture(
@@ -19,113 +17,101 @@ void __fastcall InputTraceLogging::GestureTargeting::UpdateCapture(
 {
   char v2; // di
   __int64 v3; // rcx
-  __int64 *v4; // rax
+  __int64 v4; // r9
   const struct CInteraction *v5; // r8
-  BOOL v6; // eax
-  const struct CInteraction *v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  unsigned __int8 v10; // al
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  unsigned __int8 v9; // al
+  int v10; // eax
   __int64 v11; // rax
-  const struct CInteraction *v12; // r8
-  const char *v13; // rax
-  int v14; // ecx
+  __int64 v12; // rcx
+  const struct CInteraction *v13; // r8
+  __int64 v14; // r8
   __int64 v15; // r8
-  __int64 v16; // r8
-  __int64 v17; // r9
-  BOOL v18; // [rsp+B0h] [rbp-80h] BYREF
-  BOOL v19; // [rsp+B4h] [rbp-7Ch] BYREF
-  BOOL v20; // [rsp+B8h] [rbp-78h] BYREF
-  int v21; // [rsp+BCh] [rbp-74h] BYREF
-  int v22; // [rsp+C0h] [rbp-70h] BYREF
-  __int64 v23; // [rsp+C8h] [rbp-68h] BYREF
-  __int64 v24; // [rsp+D0h] [rbp-60h] BYREF
-  __int64 v25; // [rsp+D8h] [rbp-58h] BYREF
-  __int64 v26; // [rsp+E0h] [rbp-50h] BYREF
-  __int64 v27; // [rsp+E8h] [rbp-48h] BYREF
-  __int64 v28; // [rsp+F0h] [rbp-40h] BYREF
-  __int64 v29; // [rsp+F8h] [rbp-38h] BYREF
-  __int64 updated; // [rsp+100h] [rbp-30h] BYREF
-  __int64 v31; // [rsp+130h] [rbp+0h] BYREF
-  __int64 v32; // [rsp+138h] [rbp+8h] BYREF
-  __int64 v33; // [rsp+140h] [rbp+10h] BYREF
-  __int64 v34; // [rsp+148h] [rbp+18h] BYREF
+  __int64 v16; // r9
+  BOOL v17; // [rsp+A0h] [rbp-9h] BYREF
+  int v18; // [rsp+A4h] [rbp-5h] BYREF
+  int v19; // [rsp+A8h] [rbp-1h] BYREF
+  int v20; // [rsp+ACh] [rbp+3h] BYREF
+  __int64 v21; // [rsp+B0h] [rbp+7h] BYREF
+  __int64 v22; // [rsp+B8h] [rbp+Fh] BYREF
+  __int64 v23; // [rsp+C0h] [rbp+17h] BYREF
+  __int64 v24; // [rsp+C8h] [rbp+1Fh] BYREF
+  __int64 v25; // [rsp+D0h] [rbp+27h] BYREF
+  __int64 v26; // [rsp+D8h] [rbp+2Fh] BYREF
+  __int64 updated; // [rsp+E0h] [rbp+37h] BYREF
+  __int64 v28; // [rsp+110h] [rbp+67h] BYREF
+  __int64 v29; // [rsp+118h] [rbp+6Fh] BYREF
+  __int64 v30; // [rsp+120h] [rbp+77h] BYREF
+  __int64 v31; // [rsp+128h] [rbp+7Fh] BYREF
 
-  v2 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)a1 + 2) + 64LL) + 224LL))(
-         *((_QWORD *)a1 + 2) + 64LL,
+  v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)a1 + 2) + 224LL))(
+         *((_QWORD *)a1 + 2),
          *((unsigned int *)a1 + 6),
          0LL);
   v4 = wil::details::static_lazy<InputTraceLogging>::get(
          v3,
-         (void (__cdecl *)())_lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_);
-  if ( *(_DWORD *)v4[1] > 4u && tlgKeywordOn(v4[1], 2048LL) )
+         _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_)[1];
+  if ( *(_DWORD *)v4 > 4u
+    && (*(_DWORD *)(v4 + 16) & 0x800LL) != 0
+    && (*(_QWORD *)(v4 + 24) & 0x800LL) == *(_QWORD *)(v4 + 24) )
   {
     v5 = (const struct CInteraction *)*((_QWORD *)a1 + 2);
-    v25 = *((_QWORD *)a1 + 4);
-    LODWORD(v33) = *((_DWORD *)a1 + 7);
-    LODWORD(v34) = *((_DWORD *)a1 + 6);
-    LOBYTE(v31) = v2;
+    v21 = *((_QWORD *)a1 + 4);
+    LODWORD(v29) = *((_DWORD *)a1 + 7);
+    LODWORD(v30) = *((_DWORD *)a1 + 6);
+    v6 = 0;
+    LOBYTE(v28) = v2;
     if ( v5 )
-    {
-      v23 = *((_QWORD *)v5 + 214);
-      v6 = *((_QWORD *)v5 + 35) != 0LL;
-    }
+      LOBYTE(v6) = *((_QWORD *)v5 + 34) != 0LL;
+    LODWORD(v31) = v6;
+    v17 = InputTraceLogging::InteractionInputTransparency(v5);
+    if ( v8 )
+      v9 = *(_BYTE *)(v8 + 184) & 1;
     else
-    {
-      v23 = 0LL;
-      v6 = 0;
-    }
-    v18 = v6;
-    v19 = InputTraceLogging::InteractionInputTransparency(v5);
-    v20 = InputTraceLogging::InteractionFurtherProcessingForInput(v7);
-    if ( v9 )
-      v10 = *(_BYTE *)(v9 + 192) & 1;
+      v9 = v7;
+    v18 = v9;
+    if ( v8 )
+      v10 = *(_DWORD *)(v8 + 180);
     else
-      v10 = v8;
-    v21 = v10;
-    if ( v9 )
+      v10 = v7;
+    v19 = v10;
+    v11 = v7;
+    if ( v8 )
     {
-      LODWORD(v32) = *(_DWORD *)(v9 + 188);
-      v11 = *(_QWORD *)(v9 + 104);
-      if ( v11 )
-        v8 = *(_QWORD *)(v11 + 64);
-      v24 = v8;
-      LODWORD(v8) = *(_DWORD *)(v9 + 1704);
+      v12 = *(_QWORD *)(v8 + 96);
+      if ( v12 )
+        v11 = *(_QWORD *)(v12 + 64);
     }
-    else
-    {
-      LODWORD(v32) = v8;
-      v24 = v8;
-    }
-    v22 = v8;
-    v26 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v9);
-    v13 = InputTraceLogging::InteractionSourceTypeToString(v12);
-    v14 = *(_DWORD *)a1;
-    v27 = (__int64)v13;
-    v28 = v15;
-    v29 = v15;
-    updated = (__int64)InputTraceLogging::MidManipulationUpdateTypeToString(v14);
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<1>>(
-      v17,
-      (unsigned __int8 *)dword_18037CF3D,
+    v22 = v11;
+    if ( v8 )
+      LODWORD(v7) = *(_DWORD *)(v8 + 1696);
+    v20 = v7;
+    v23 = (__int64)InputTraceLogging::InteractionDefaultToString((const struct CInteraction *)v8);
+    v24 = (__int64)InputTraceLogging::InteractionSourceTypeToString(v13);
+    v26 = v14;
+    v25 = (v14 + 8) & -(__int64)(v14 != 0);
+    updated = (__int64)InputTraceLogging::MidManipulationUpdateTypeToString(*(_DWORD *)a1);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<1>>(
       v16,
-      v17,
-      (const char **)&updated,
-      (__int64)&v29,
-      (__int64)&v28,
-      (const char **)&v27,
-      (const char **)&v26,
-      (__int64)&v22,
-      (__int64)&v24,
-      (__int64)&v32,
-      (__int64)&v21,
+      (unsigned __int8 *)dword_1802EAEC2,
+      v15,
+      v16,
+      (const unsigned __int16 **)&updated,
+      (__int64)&v26,
+      (__int64)&v25,
+      (const unsigned __int16 **)&v24,
+      (const unsigned __int16 **)&v23,
       (__int64)&v20,
+      (__int64)&v22,
       (__int64)&v19,
       (__int64)&v18,
-      (__int64)&v23,
-      (__int64)&v34,
-      (__int64)&v33,
-      (__int64)&v25,
-      (__int64)&v31);
+      (__int64)&v17,
+      (__int64)&v31,
+      (__int64)&v30,
+      (__int64)&v29,
+      (__int64)&v21,
+      (__int64)&v28);
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSendFreeze @ 0x1402978B0
+ * XREFs of KiSendFreeze @ 0x1402979B0
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     KeFreezeExecution @ 0x140296EC8 (KeFreezeExecution.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KeFreezeExecution @ 0x140296FC8 (KeFreezeExecution.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA50 (KeRemoveProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
  */
 
 __int64 __fastcall KiSendFreeze(__int64 a1, char a2)

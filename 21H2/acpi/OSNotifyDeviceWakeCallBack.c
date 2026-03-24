@@ -1,13 +1,13 @@
 /*
- * XREFs of OSNotifyDeviceWakeCallBack @ 0x1C005A1F0
+ * XREFs of OSNotifyDeviceWakeCallBack @ 0x1C0059380
  * Callers:
- *     OSNotifyDeviceWake @ 0x1C0059B80 (OSNotifyDeviceWake.c)
- *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0059E04 (OSNotifyDeviceWakeByGPEEvent.c)
- *     OSNotifyDeviceWakeByInterrupt @ 0x1C005A010 (OSNotifyDeviceWakeByInterrupt.c)
- *     ACPIWakeDisableAsync @ 0x1C00627FC (ACPIWakeDisableAsync.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
+ *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0058F78 (OSNotifyDeviceWakeByGPEEvent.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C0059198 (OSNotifyDeviceWakeByInterrupt.c)
+ *     ACPIWakeDisableAsync @ 0x1C00619AC (ACPIWakeDisableAsync.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     ACPIWakeCompleteRequestQueue @ 0x1C002ED3C (ACPIWakeCompleteRequestQueue.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0025860 (ACPIWakeCompleteRequestQueue.c)
  */
 
 void __fastcall OSNotifyDeviceWakeCallBack(__int64 a1, int a2, __int64 a3, _QWORD **a4)

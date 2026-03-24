@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_lambda_invoker_cdecl_@_lambda_103e920f2f8a7257353075347c127b30_@@CAJPEAVOUTPUTDUPL_MGR@@P82@EAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@II@Z12II@Z @ 0x1C01DD3A0
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_103e920f2f8a7257353075347c127b30_@@CAJPEAVOUTPUTDUPL_MGR@@P82@EAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@II@Z12II@Z @ 0x1C015C254
  * Callers:
- *     <none>
+ *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N5@Z @ 0x1C01228E0 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall _lambda_103e920f2f8a7257353075347c127b30_::_lambda_invoker_cdecl_(

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CProjectedShadow@@QEAAJPEAVCProjectedShadowScene@@PEAVCProjectedShadowCaster@@PEAVCProjectedShadowReceiver@@@Z @ 0x18024B050
+ * XREFs of ?Initialize@CProjectedShadow@@QEAAJPEAVCProjectedShadowScene@@PEAVCProjectedShadowCaster@@PEAVCProjectedShadowReceiver@@@Z @ 0x18001EF20
  * Callers:
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004FF4 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A740 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
  * Callees:
- *     ?InsertAt@CPtrArrayBase@@IEAAJ_K0@Z @ 0x18004A94C (-InsertAt@CPtrArrayBase@@IEAAJ_K0@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA890 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InsertAt@CPtrArrayBase@@IEAAJ_K0@Z @ 0x18009DA14 (-InsertAt@CPtrArrayBase@@IEAAJ_K0@Z.c)
+ *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800C13A8 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
  */
 
 __int64 __fastcall CProjectedShadow::Initialize(
@@ -19,16 +19,16 @@ __int64 __fastcall CProjectedShadow::Initialize(
   unsigned __int64 v10; // rdx
   CPtrArrayBase *v11; // rcx
   int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   unsigned int v14; // ebx
   unsigned __int64 v15; // rax
   CPtrArrayBase *v16; // rcx
   int v17; // eax
-  __int64 v18; // rcx
+  unsigned int v18; // ecx
   unsigned __int64 v19; // rax
   CPtrArrayBase *v20; // rcx
   int v21; // eax
-  __int64 v22; // rcx
+  unsigned int v22; // ecx
 
   v4 = (CProjectedShadow *)((char *)this + 24);
   Count = CPtrArrayBase::GetCount((CProjectedShadow *)((char *)this + 24));
@@ -40,7 +40,7 @@ __int64 __fastcall CProjectedShadow::Initialize(
   }
   else
   {
-    *((_QWORD *)this + 9) = a2;
+    *((_QWORD *)this + 8) = a2;
     v15 = CPtrArrayBase::GetCount(v4);
     v17 = CPtrArrayBase::InsertAt(v16, (unsigned __int64)a3, v15);
     v14 = v17;
@@ -50,14 +50,14 @@ __int64 __fastcall CProjectedShadow::Initialize(
     }
     else
     {
-      *((_QWORD *)this + 10) = a3;
+      *((_QWORD *)this + 9) = a3;
       v19 = CPtrArrayBase::GetCount(v4);
       v21 = CPtrArrayBase::InsertAt(v20, (unsigned __int64)a4, v19);
       v14 = v21;
       if ( v21 < 0 )
         MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x6Bu, 0LL);
       else
-        *((_QWORD *)this + 11) = a4;
+        *((_QWORD *)this + 10) = a4;
     }
   }
   return v14;

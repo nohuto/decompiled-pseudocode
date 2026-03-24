@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C003E4F0
+ * XREFs of ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C004CA8C
  * Callers:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C003DC00 (xxxUpdateGlobalsAndSendKeyEvent.c)
- *     NtUserPostKeyboardInputMessage @ 0x1C015FED0 (NtUserPostKeyboardInputMessage.c)
- *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01ED550 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004C1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     NtUserPostKeyboardInputMessage @ 0x1C0132AB0 (NtUserPostKeyboardInputMessage.c)
+ *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B7AE0 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
  * Callees:
  *     <none>
  */

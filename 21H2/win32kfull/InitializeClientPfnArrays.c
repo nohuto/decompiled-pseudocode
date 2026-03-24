@@ -1,7 +1,7 @@
 /*
- * XREFs of InitializeClientPfnArrays @ 0x1C011C0E0
+ * XREFs of InitializeClientPfnArrays @ 0x1C01314B4
  * Callers:
- *     NtUserInitializeClientPfnArrays @ 0x1C011BFF0 (NtUserInitializeClientPfnArrays.c)
+ *     NtUserInitializeClientPfnArrays @ 0x1C01313C0 (NtUserInitializeClientPfnArrays.c)
  * Callees:
  *     <none>
  */
@@ -14,12 +14,12 @@ __int64 __fastcall InitializeClientPfnArrays(__int128 *a1, _OWORD *a2, __int64 a
   __int128 v11; // xmm1
   _OWORD *v12; // rdi
 
-  if ( dword_1C0336190 || !a1 )
+  if ( dword_1C033AED8 || !a1 )
     return 0LL;
-  if ( PsGetCurrentProcess(a1, a2) == gpepCSRSS )
+  if ( PsGetCurrentProcess(a1, a2, a3) == gpepCSRSS )
   {
     v8 = *a1;
-    WPP_MAIN_CB.Reserved = (PVOID)4;
+    *(_QWORD *)&WPP_MAIN_CB.SectorSize = 4LL;
     *(_OWORD *)(gpsi + 392LL) = v8;
     *(_OWORD *)(gpsi + 408LL) = a1[1];
     *(_OWORD *)(gpsi + 424LL) = a1[2];
@@ -54,21 +54,21 @@ __int64 __fastcall InitializeClientPfnArrays(__int128 *a1, _OWORD *a2, __int64 a
     *(_OWORD *)(gpsi + 824LL) = *(_OWORD *)(a3 + 48);
     *(_OWORD *)(gpsi + 840LL) = *(_OWORD *)(a3 + 64);
     *(_QWORD *)(gpsi + 856LL) = *(_QWORD *)(a3 + 80);
-    WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)(gpsi + 640LL);
-    WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(gpsi + 616LL);
-    *(_QWORD *)&WPP_MAIN_CB.SectorSize = *(_QWORD *)(gpsi + 696LL);
-    WPP_MAIN_CB.DeviceObjectExtension = *(struct _DEVOBJ_EXTENSION **)(gpsi + 680LL);
-    *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = *(_QWORD *)(gpsi + 648LL);
-    qword_1C0335160 = *(_QWORD *)(gpsi + 664LL);
-    qword_1C0335178 = *(_QWORD *)(gpsi + 592LL);
-    qword_1C0335100 = *(_QWORD *)(gpsi + 688LL);
-    qword_1C0335108 = *(_QWORD *)(gpsi + 656LL);
-    qword_1C0335158 = 1LL;
-    qword_1C0335168 = 3LL;
-    qword_1C0335170 = 2LL;
-    qword_1C0335180 = 5LL;
-    *(_QWORD *)&WPP_MAIN_CB.DeviceLock.Header.Lock = a4;
-    dword_1C0336190 = 1;
+    WPP_MAIN_CB.SecurityDescriptor = *(PSECURITY_DESCRIPTOR *)(gpsi + 640LL);
+    *(_QWORD *)&WPP_MAIN_CB.DeviceLock.Header.Lock = *(_QWORD *)(gpsi + 616LL);
+    WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)(gpsi + 696LL);
+    WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(gpsi + 680LL);
+    WPP_MAIN_CB.DeviceObjectExtension = *(struct _DEVOBJ_EXTENSION **)(gpsi + 648LL);
+    qword_1C0339F20 = *(_QWORD *)(gpsi + 664LL);
+    qword_1C0339F38 = *(_QWORD *)(gpsi + 592LL);
+    WPP_MAIN_CB.Reserved = *(PVOID *)(gpsi + 688LL);
+    *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = *(_QWORD *)(gpsi + 656LL);
+    qword_1C0339F18 = 1LL;
+    qword_1C0339F28 = 3LL;
+    qword_1C0339F30 = 2LL;
+    qword_1C0339F40 = 5LL;
+    hModClient = a4;
+    dword_1C033AED8 = 1;
     return 0LL;
   }
   return 3221225506LL;

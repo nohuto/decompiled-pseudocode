@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedCompositionDistantLightMarshaler @ 0x1C00B3320
+ * XREFs of CreateSharedCompositionDistantLightMarshaler @ 0x1C00A48A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedCompositionDistantLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00B3360 (-Create@CSharedCompositionDistantLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@.c)
+ *     ?Create@CSharedCompositionDistantLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A48E0 (-Create@CSharedCompositionDistantLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@.c)
  */
 
 __int64 __fastcall CreateSharedCompositionDistantLightMarshaler(

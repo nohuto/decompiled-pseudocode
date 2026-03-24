@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwPulseEvent @ 0x14041DFE0
+ * XREFs of ZwPulseEvent @ 0x1403FCB60
  * Callers:
- *     DifZwPulseEventWrapper @ 0x1406237D0 (DifZwPulseEventWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

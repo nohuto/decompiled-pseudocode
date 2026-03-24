@@ -1,27 +1,26 @@
 /*
- * XREFs of ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180093140
+ * XREFs of ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180051C50
  * Callers:
- *     ??0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z @ 0x180033954 (--0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z.c)
- *     ??4EffectInput@@QEAAAEAU0@AEBU0@@Z @ 0x1800930B8 (--4EffectInput@@QEAAAEAU0@AEBU0@@Z.c)
- *     ??0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V?$span@PEBVCDrawListBrush@@$0?0@gsl@@V?$span@_N$0?0@3@@Z @ 0x180095E9C (--0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V-$span@PEBVCDrawListBrush@@$0-0@gsl@@V-.c)
- *     ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x1800A69B8 (-ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z.c)
- *     ?Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z @ 0x1802B765C (-Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z.c)
+ *     ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x18003D378 (-ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z.c)
+ *     ?Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapRealization@@PEBVCDrawingContext@@@Z @ 0x180040814 (-Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapRealization@@PEBVCDrawingContext@@@Z.c)
+ *     ??4CDrawListBitmap@@QEAAAEAV0@AEBV0@@Z @ 0x180051BFC (--4CDrawListBitmap@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z @ 0x1802682A0 (-Initialize@CColorKeyBitmap@@IEAAJPEAVIBitmapRealization@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 *__fastcall wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rdi
-  __int64 v4; // rcx
+  __int64 v5; // rcx
   __int64 v6; // rcx
 
   v2 = *a1;
   *a1 = a2;
   if ( a2 )
   {
-    v4 = *(int *)(*(_QWORD *)(a2 + 8) + 4LL) + a2 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+    v5 = *(int *)(*(_QWORD *)(a2 + 8) + 4LL) + a2 + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
   }
   if ( v2 )
   {

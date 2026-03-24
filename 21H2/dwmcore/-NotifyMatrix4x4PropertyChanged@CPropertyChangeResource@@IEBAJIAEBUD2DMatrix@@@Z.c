@@ -1,67 +1,69 @@
 /*
- * XREFs of ?NotifyMatrix4x4PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DMatrix@@@Z @ 0x1800477A4
+ * XREFs of ?NotifyMatrix4x4PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DMatrix@@@Z @ 0x180065E58
  * Callers:
- *     ?NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x180047FBC (-NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180048504 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180065DA4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BD120 (-NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
  * Callees:
- *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800483E8 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180065F4C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::NotifyMatrix4x4PropertyChanged(
         CPropertyChangeResource *this,
-        unsigned int a2,
+        __int64 a2,
         const struct D2DMatrix *a3)
 {
-  unsigned int v3; // ebx
+  int v3; // ebx
   __int64 v4; // rcx
-  __int128 *v5; // r10
-  __int64 v7; // r8
-  __int64 v8; // rax
-  __int64 v9; // r11
-  unsigned int v10; // ecx
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
-  int v15; // eax
-  unsigned int v16; // ecx
+  _OWORD *v5; // r8
+  __int64 v6; // r9
+  unsigned int v7; // r10d
+  int v8; // eax
+  __int128 v10; // xmm1
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int128 v13; // xmm1
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rcx
   _QWORD v17[2]; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v18; // [rsp+50h] [rbp-48h]
-  __int128 v19; // [rsp+60h] [rbp-38h]
-  __int128 v20; // [rsp+70h] [rbp-28h]
-  __int128 v21; // [rsp+80h] [rbp-18h]
+  _OWORD v18[4]; // [rsp+50h] [rbp-48h] BYREF
 
   v3 = 0;
-  if ( CPropertyChangeResource::ShouldNotify(this, a2) )
+  if ( CNotificationResource::ShouldNotify(this) )
   {
-    v7 = *(unsigned int *)(v4 + 64);
-    v8 = *(_QWORD *)(v4 + 48);
-    v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 1240LL) + 40LL);
-    if ( v8 )
-      v10 = *(_DWORD *)(v8 + 76);
-    else
-      v10 = 0;
-    v11 = *v5;
-    v12 = v5[1];
-    v17[0] = v10;
-    v17[1] = v7;
-    v18 = v11;
-    v13 = v5[2];
-    v19 = v12;
-    v14 = v5[3];
-    v20 = v13;
-    v21 = v14;
-    v15 = CoreUICallSend(v9, v17, 2LL, 15LL, 8, &unk_18032C449);
-    v3 = v15;
-    if ( v15 == -2018375675 )
+    v8 = *(_DWORD *)(v4 + 64);
+    if ( _bittest(&v8, v7) )
     {
-      return 0;
-    }
-    else if ( v15 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x228u, 0LL);
+      v10 = v5[1];
+      v11 = *(_QWORD *)(*(_QWORD *)(v4 + 16) + 1080LL);
+      v12 = *(_QWORD *)(v6 + 48);
+      v18[0] = *v5;
+      v18[1] = v10;
+      v13 = v5[3];
+      v18[2] = v5[2];
+      v18[3] = v13;
+      if ( v12 )
+        v14 = *(unsigned int *)(v12 + 68);
+      else
+        v14 = 0LL;
+      v15 = *(_QWORD *)(v11 + 48);
+      v17[0] = v14;
+      v17[1] = *(unsigned int *)(v6 + 56);
+      v3 = ((__int64 (__fastcall *)(__int64, _QWORD *, __int64, __int64, __int16, void *, unsigned int, _OWORD *))CoreUICallSend)(
+             v15,
+             v17,
+             2LL,
+             13LL,
+             8,
+             &unk_1802CE7C3,
+             v7,
+             v18);
+      if ( v3 == -2018375675 )
+        v3 = 0;
+      if ( v3 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v3, 0x228u, 0LL);
     }
   }
-  return v3;
+  return (unsigned int)v3;
 }

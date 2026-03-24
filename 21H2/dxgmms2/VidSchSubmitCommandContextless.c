@@ -1,42 +1,34 @@
 /*
- * XREFs of VidSchSubmitCommandContextless @ 0x1C003E070
+ * XREFs of VidSchSubmitCommandContextless @ 0x1C0035880
  * Callers:
  *     <none>
  * Callees:
- *     ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0003B04 (-VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C00394DC (VidSchiRedirectedFlipWaitOnSyncObject.c)
+ *     ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C00056D4 (-VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_.c)
+ *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C00308E0 (VidSchiRedirectedFlipWaitOnSyncObject.c)
  */
 
 __int64 __fastcall VidSchSubmitCommandContextless(char *Src, struct _VIDSCH_DEVICE *a2, __int64 a3)
 {
   struct _VIDSCH_GLOBAL *v5; // rsi
   __int64 result; // rax
-  __int64 v7; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v7; // rax
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
   if ( a3 && a2 && Src )
   {
     v5 = *(struct _VIDSCH_GLOBAL **)(a3 + 8);
-    v7 = *(_QWORD *)Src;
-    if ( (v7 & 0x20) == 0 )
-      return VidSchiRedirectedFlipWaitOnSyncObject(v5, Src, a3, &v7);
-    result = VidSchValidatePresentFlags((struct VIDSCH_SUBMIT_DATA2 *)Src, a2, (struct _VIDSCH_SUBMIT_FLAGS *)&v7);
+    v8 = *(_QWORD *)Src;
+    if ( (v8 & 0x20) == 0 )
+      return VidSchiRedirectedFlipWaitOnSyncObject(v5, Src, a3, &v8);
+    result = VidSchValidatePresentFlags((struct VIDSCH_SUBMIT_DATA2 *)Src, a2, (struct _VIDSCH_SUBMIT_FLAGS *)&v8);
     if ( (int)result >= 0 )
-      return VidSchiRedirectedFlipWaitOnSyncObject(v5, Src, a3, &v7);
+      return VidSchiRedirectedFlipWaitOnSyncObject(v5, Src, a3, &v8);
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"NULL pointer in pVidSchSyncObj, pVidSchDevice or pVidSchSubmitCommandData, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdAssertion(Src, a2, a3);
+    *(_QWORD *)(v7 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v7);
     return 3221225485LL;
   }
   return result;

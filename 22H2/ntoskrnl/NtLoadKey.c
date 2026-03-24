@@ -1,9 +1,9 @@
 /*
- * XREFs of NtLoadKey @ 0x140865910
+ * XREFs of NtLoadKey @ 0x140781A80
  * Callers:
  *     <none>
  * Callees:
- *     NtLoadKeyEx @ 0x140691020 (NtLoadKeyEx.c)
+ *     NtLoadKeyEx @ 0x1406E7310 (NtLoadKeyEx.c)
  */
 
 __int64 __fastcall NtLoadKey(int a1, int a2)

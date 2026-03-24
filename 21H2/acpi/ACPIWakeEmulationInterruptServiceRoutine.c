@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIWakeEmulationInterruptServiceRoutine @ 0x1C0057FA0
+ * XREFs of ACPIWakeEmulationInterruptServiceRoutine @ 0x1C0057200
  * Callers:
  *     <none>
  * Callees:
- *     OSNotifyDeviceWakeByInterrupt @ 0x1C005A010 (OSNotifyDeviceWakeByInterrupt.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C0059198 (OSNotifyDeviceWakeByInterrupt.c)
  */
 
 char __fastcall ACPIWakeEmulationInterruptServiceRoutine(__int64 a1, __int64 a2)

@@ -1,53 +1,66 @@
 /*
- * XREFs of MiFreeLargePageMemory @ 0x14028CA70
+ * XREFs of MiFreeLargePageMemory @ 0x1402FE654
  * Callers:
- *     MiFreeContiguousPages @ 0x140213FA8 (MiFreeContiguousPages.c)
- *     MiDecommitLargePoolVa @ 0x140228464 (MiDecommitLargePoolVa.c)
- *     MiFreeMdlPageRun @ 0x1402C3410 (MiFreeMdlPageRun.c)
- *     MiFreeSlabEntry @ 0x1405B0E30 (MiFreeSlabEntry.c)
- *     MiFreeLargePages @ 0x1405C1CE0 (MiFreeLargePages.c)
- *     MiFreeBootDriverPages @ 0x140B05620 (MiFreeBootDriverPages.c)
+ *     MiFreeContiguousPages @ 0x140296068 (MiFreeContiguousPages.c)
+ *     MiFreeMdlPageRun @ 0x1402FFCF8 (MiFreeMdlPageRun.c)
+ *     MiDecommitLargePoolVa @ 0x140370CE0 (MiDecommitLargePoolVa.c)
+ *     MiFreeSlabEntry @ 0x140552BD0 (MiFreeSlabEntry.c)
+ *     MiFreeLargePages @ 0x14055E498 (MiFreeLargePages.c)
+ *     MiFreeBootDriverPages @ 0x140A50050 (MiFreeBootDriverPages.c)
  * Callees:
- *     MiColdPageSizeSupported @ 0x14023073C (MiColdPageSizeSupported.c)
- *     MiFinishLargePageFree @ 0x14028CB64 (MiFinishLargePageFree.c)
- *     MiReadyLargePageToFree @ 0x14028CEE0 (MiReadyLargePageToFree.c)
- *     MiConvertSmallPageRangeToLarge @ 0x14028CF90 (MiConvertSmallPageRangeToLarge.c)
- *     MiUpdateLargePageBitMap @ 0x1402C38D0 (MiUpdateLargePageBitMap.c)
- *     MiChangePageHeatImmediate @ 0x1405B766C (MiChangePageHeatImmediate.c)
+ *     MiUnlockPage @ 0x1402AF34C (MiUnlockPage.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiReadyLargePageToFree @ 0x140329D30 (MiReadyLargePageToFree.c)
+ *     MiSetPfnPageState @ 0x140329F00 (MiSetPfnPageState.c)
+ *     MiSetFreeZeroPfnCold @ 0x1403B1490 (MiSetFreeZeroPfnCold.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403F6180 (MiConvertSmallPageRangeToLarge.c)
+ *     MiFinishLargePageFree @ 0x1403F7A04 (MiFinishLargePageFree.c)
+ *     MiChangePageHeatImmediate @ 0x1403F7CB0 (MiChangePageHeatImmediate.c)
+ *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
  */
 
 __int64 __fastcall MiFreeLargePageMemory(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  __int64 v3; // rbx
-  __int64 v6; // r12
-  unsigned int v7; // r15d
-  int v8; // r8d
-  int v9; // edx
+  __int64 v3; // rsi
+  __int64 v6; // r15
+  __int64 v7; // rbx
+  BOOL v8; // edi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r8
+  __int64 v12; // rcx
+  __int64 v13; // r9
+  __int64 v14; // r8
+  __int64 v15; // rcx
+  unsigned __int8 v16; // r10
+  int v17; // r8d
+  int v18; // edx
 
   v3 = a2;
   if ( (a3 & 2) != 0 )
     MiConvertSmallPageRangeToLarge(a1, a2);
   v6 = MiLargePageSizes[v3];
-  v7 = 1;
-  if ( (a3 & 1) != 0 && (unsigned int)MiColdPageSizeSupported(v3) )
+  v7 = 48 * a1 - 0x58000000000LL;
+  v8 = (a3 & 1) == 0;
+  if ( (a3 & 1) != 0 && (unsigned int)MiColdPageSizeSupported((unsigned int)v3) )
   {
-    v7 = 0;
     MiChangePageHeatImmediate(a1, (unsigned int)v3, 0LL);
+    MiLockPageInline(48 * a1 - 0x58000000000LL, v9, v10);
+    MiSetPfnPageState(48 * a1 - 0x58000000000LL, (unsigned int)(v8 + 5), v11, *(_BYTE *)(v7 + 34) & 7);
+    MiSetFreeZeroPfnCold(v12, (unsigned int)(v8 + 1));
+    MiSetPfnPageState(48 * a1 - 0x58000000000LL, (unsigned int)v13, v14, v13);
+    MiUnlockPage(v15, v16);
   }
-  v8 = 512;
-  v9 = a1;
+  v17 = 512;
+  v18 = a1;
   if ( (unsigned int)v3 > 1 )
-    v9 = a1 & 0xFFFFFE00;
+    v18 = a1 & 0xFFFFFE00;
   else
-    v8 = v6;
-  MiUpdateLargePageBitMap(
-    *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(48 * a1 - 0x220000000000LL + 40) >> 43) & 0x3FFLL)),
-    v9,
-    v8,
-    0,
-    0);
+    v17 = v6;
+  MiUpdateLargePageBitMap(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v7 + 40) >> 39) & 0x3FFLL)), v18, v17, 0, 0);
   if ( (unsigned int)MiReadyLargePageToFree(a1, (unsigned int)v3, a3) )
-    return MiFinishLargePageFree(48 * a1 - 0x220000000000LL, (a3 & 1) == 0, v7);
+    return MiFinishLargePageFree(48 * a1 - 0x58000000000LL, (a3 & 1) == 0);
   else
     return 0LL;
 }

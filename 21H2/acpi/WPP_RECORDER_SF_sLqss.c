@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_sLqss @ 0x1C004BA74
+ * XREFs of WPP_RECORDER_SF_sLqss @ 0x1C004CCCC
  * Callers:
- *     ACPIBuildDevicePowerNodes @ 0x1C002A088 (ACPIBuildDevicePowerNodes.c)
- *     ACPIBuildDeviceResetPowerNode @ 0x1C002E5C4 (ACPIBuildDeviceResetPowerNode.c)
- *     ACPIBuildWakeEventDeviceContext @ 0x1C004B2C8 (ACPIBuildWakeEventDeviceContext.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C0015E24 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIBuildDeviceResetPowerNode @ 0x1C004B128 (ACPIBuildDeviceResetPowerNode.c)
+ *     ACPIBuildWakeEventDeviceContext @ 0x1C004C584 (ACPIBuildWakeEventDeviceContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_sLqss(
@@ -93,7 +93,7 @@ __int64 __fastcall WPP_RECORDER_SF_sLqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, const ULONG_PTR *, _QWORD, const char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       v15,
       v24,
       v23,
@@ -130,5 +130,5 @@ __int64 __fastcall WPP_RECORDER_SF_sLqss(
   if ( !a6 )
     v14 = "NULL";
   LOWORD(v28) = v15;
-  return WppAutoLogTrace(a1, 2LL, 10LL, &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids, v28, v14);
+  return WppAutoLogTrace(a1, 2LL, 10LL, &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids, v28, v14);
 }

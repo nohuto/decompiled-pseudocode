@@ -1,14 +1,14 @@
 /*
- * XREFs of PoStoreDiagnosticContext @ 0x1402D3170
+ * XREFs of PoStoreDiagnosticContext @ 0x1402D3270
  * Callers:
- *     PopTraceThermalRequestPassiveHistogram @ 0x1402E26CC (PopTraceThermalRequestPassiveHistogram.c)
- *     ExGetWakeTimerList @ 0x14031C530 (ExGetWakeTimerList.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1402E27CC (PopTraceThermalRequestPassiveHistogram.c)
+ *     ExGetWakeTimerList @ 0x14031C630 (ExGetWakeTimerList.c)
  *     ExGetNextWakeTime @ 0x14057E734 (ExGetNextWakeTime.c)
- *     PopDiagTraceThermalRequest @ 0x1406DB178 (PopDiagTraceThermalRequest.c)
- *     PopGetPowerRequestListInfo @ 0x140868CAC (PopGetPowerRequestListInfo.c)
+ *     PopDiagTraceThermalRequest @ 0x1406DB158 (PopDiagTraceThermalRequest.c)
+ *     PopGetPowerRequestListInfo @ 0x140868C8C (PopGetPowerRequestListInfo.c)
  * Callees:
  *     PoStoreRequester @ 0x140002BAC (PoStoreRequester.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)

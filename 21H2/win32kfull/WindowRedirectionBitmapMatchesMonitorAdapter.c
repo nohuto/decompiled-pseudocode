@@ -1,11 +1,11 @@
 /*
- * XREFs of WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C00ED8B4
+ * XREFs of WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C0118DEC
  * Callers:
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C020E1A8 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020EF28 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
  * Callees:
- *     GreGetDxSharedSurface @ 0x1C00ED940 (GreGetDxSharedSurface.c)
- *     GetWindowMonitorAdapterLuid @ 0x1C00EDD08 (GetWindowMonitorAdapterLuid.c)
+ *     GetWindowMonitorAdapterLuid @ 0x1C0118E78 (GetWindowMonitorAdapterLuid.c)
+ *     GreGetDxSharedSurface @ 0x1C0118EDC (GreGetDxSharedSurface.c)
  */
 
 __int64 __fastcall WindowRedirectionBitmapMatchesMonitorAdapter(HWND *a1)

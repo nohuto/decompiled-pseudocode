@@ -1,18 +1,18 @@
 /*
- * XREFs of TransformVectorWithInputTargetPrecedence @ 0x1C010F7F8
+ * XREFs of TransformVectorWithInputTargetPrecedence @ 0x1C00F2CB8
  * Callers:
- *     EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C010F780 (EditionGetLogicalPointForMouseCaptureButtonEvent.c)
- *     EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C014C470 (EditionPhysicalToLogicalDPIPointWithInputDestHint.c)
- *     EditionMouseCaptureHitTest @ 0x1C0206CE0 (EditionMouseCaptureHitTest.c)
+ *     EditionMouseSpeedHitTest @ 0x1C004CC50 (EditionMouseSpeedHitTest.c)
+ *     EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C00F10B0 (EditionPhysicalToLogicalDPIPointWithInputDestHint.c)
+ *     EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C00F2C40 (EditionGetLogicalPointForMouseCaptureButtonEvent.c)
  * Callees:
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     GetMonitorTransform @ 0x1C009B038 (GetMonitorTransform.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     TransformVector @ 0x1C02073DC (TransformVector.c)
+ *     GetMonitorTransform @ 0x1C0042784 (GetMonitorTransform.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     TransformVector @ 0x1C021757C (TransformVector.c)
  */
 
-__int64 __fastcall TransformVectorWithInputTargetPrecedence(const struct tagWND *a1, int a2, int a3)
+__int64 __fastcall TransformVectorWithInputTargetPrecedence(__int64 a1, int a2, int a3)
 {
   _BYTE *v6; // rbx
   unsigned int v7; // edi
@@ -30,8 +30,8 @@ __int64 __fastcall TransformVectorWithInputTargetPrecedence(const struct tagWND 
   v9 = result;
   if ( result )
   {
-    v10 = *((_QWORD *)a1 + 2);
-    if ( result == GetTopLevelWindow((__int64)a1) )
+    v10 = *(_QWORD *)(a1 + 16);
+    if ( result == GetTopLevelWindow(a1) )
     {
       v11 = *(_QWORD *)(v10 + 672);
       if ( v11 && *(_QWORD *)(v11 + 16) == v9 )

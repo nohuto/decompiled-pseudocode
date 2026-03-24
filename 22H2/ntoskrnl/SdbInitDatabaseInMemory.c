@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbInitDatabaseInMemory @ 0x1406951D8
+ * XREFs of SdbInitDatabaseInMemory @ 0x140755900
  * Callers:
- *     PiInitializeDDB @ 0x14069378C (PiInitializeDDB.c)
- *     KsepSdbMapToMemory @ 0x140694E7C (KsepSdbMapToMemory.c)
- *     PpBootDDBHelper @ 0x140814E34 (PpBootDDBHelper.c)
- *     KsepSdbBootInitialize @ 0x140861F18 (KsepSdbBootInitialize.c)
+ *     KsepSdbMapToMemory @ 0x140755244 (KsepSdbMapToMemory.c)
+ *     PiInitializeDDB @ 0x14077E864 (PiInitializeDDB.c)
+ *     PpBootDDBHelper @ 0x1407A4350 (PpBootDDBHelper.c)
+ *     KsepSdbBootInitialize @ 0x1407D1DF8 (KsepSdbBootInitialize.c)
  * Callees:
- *     SdbpOpenDatabaseInMemory @ 0x140695260 (SdbpOpenDatabaseInMemory.c)
- *     SdbpInitializeMatchers @ 0x1406954A4 (SdbpInitializeMatchers.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbCloseDatabaseRead @ 0x140695724 (SdbCloseDatabaseRead.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpInitializeMatchers @ 0x140755988 (SdbpInitializeMatchers.c)
+ *     SdbCloseDatabaseRead @ 0x1407559FC (SdbCloseDatabaseRead.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140755A44 (SdbpOpenDatabaseInMemory.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
@@ -20,22 +20,22 @@ __int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
   __int64 v5; // rax
   void *v7; // rcx
 
-  v4 = AslAlloc(a1, 1784LL);
+  v4 = AslAlloc(a1, 1776LL);
   if ( v4 )
   {
-    v5 = SdbpOpenDatabaseInMemory(a1, a2, 0LL);
+    v5 = SdbpOpenDatabaseInMemory(a1, a2);
     *(_QWORD *)(v4 + 8) = v5;
     if ( v5 )
     {
-      *(_DWORD *)(v4 + 32) = 1;
-      *(_DWORD *)(v4 + 36) = 1;
-      *(_DWORD *)(v4 + 64) = 2;
-      *(_QWORD *)(v4 + 56) = v5;
-      *(_OWORD *)(v4 + 40) = *(_OWORD *)(v5 + 28);
+      *(_DWORD *)(v4 + 24) = 1;
+      *(_DWORD *)(v4 + 28) = 1;
+      *(_DWORD *)(v4 + 56) = 2;
+      *(_QWORD *)(v4 + 48) = v5;
+      *(_OWORD *)(v4 + 32) = *(_OWORD *)(v5 + 28);
       SdbpInitializeMatchers(v4);
       return v4;
     }
-    AslLogCallPrintf(1, (unsigned int)"SdbInitDatabaseInMemory", 1894, (unsigned int)"Unable to open main database");
+    AslLogCallPrintf(1LL);
     v7 = *(void **)(v4 + 8);
     if ( v7 )
       SdbCloseDatabaseRead(v7);
@@ -43,7 +43,7 @@ __int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
   }
   else
   {
-    AslLogCallPrintf(1, (unsigned int)"SdbInitDatabaseInMemory", 1885, (unsigned int)"Failed to allocate sdbcontext");
+    AslLogCallPrintf(1LL);
   }
   return 0LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of StringCopyWorkerW_0 @ 0x180280A30
+ * XREFs of StringCopyWorkerW_0 @ 0x18021F624
  * Callers:
- *     ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x180280950 (-StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z.c)
+ *     ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x18021F524 (-StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z.c)
  * Callees:
  *     <none>
  */

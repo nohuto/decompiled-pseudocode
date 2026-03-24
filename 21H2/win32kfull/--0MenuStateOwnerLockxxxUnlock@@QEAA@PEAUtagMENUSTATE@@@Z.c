@@ -1,13 +1,13 @@
 /*
- * XREFs of ??0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z @ 0x1C01DB7A8
+ * XREFs of ??0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z @ 0x1C01DFF34
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0107A0C (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
- *     xxxMNEndMenuStateInternal @ 0x1C021C050 (xxxMNEndMenuStateInternal.c)
- *     xxxMNStartMenuState @ 0x1C021C5F4 (xxxMNStartMenuState.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C00468C8 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
+ *     xxxMNEndMenuStateInternal @ 0x1C02223F0 (xxxMNEndMenuStateInternal.c)
+ *     xxxMNStartMenuState @ 0x1C0222A90 (xxxMNStartMenuState.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
  *     <none>
  */

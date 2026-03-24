@@ -1,21 +1,23 @@
 /*
- * XREFs of RunningHash @ 0x1402A1EB0
+ * XREFs of RunningHash @ 0x1403763B0
  * Callers:
- *     ComputeEventEntryHash @ 0x1402A1E18 (ComputeEventEntryHash.c)
- *     ComputeFlushPeriod @ 0x140828134 (ComputeFlushPeriod.c)
+ *     ComputeEventEntryHash @ 0x140376320 (ComputeEventEntryHash.c)
+ *     ComputeFlushPeriod @ 0x1407A4D1C (ComputeFlushPeriod.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RunningHash(unsigned int *a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RunningHash(_DWORD *a1, __int64 a2, unsigned __int64 a3)
 {
-  unsigned __int64 result; // rax
-  int v4; // r9d
+  unsigned __int64 i; // r10
+  int v4; // eax
+  __int64 result; // rax
 
-  for ( result = 0LL; result < a3; *a1 = (1025 * (*a1 + v4)) ^ ((1025 * (*a1 + v4)) >> 6) )
+  for ( i = 0LL; i < a3; *a1 = result )
   {
-    v4 = *(unsigned __int8 *)(result + a2);
-    ++result;
+    v4 = *(unsigned __int8 *)(i + a2);
+    ++i;
+    result = (1025 * (*a1 + v4)) ^ ((unsigned int)(1025 * (*a1 + v4)) >> 6);
   }
   return result;
 }

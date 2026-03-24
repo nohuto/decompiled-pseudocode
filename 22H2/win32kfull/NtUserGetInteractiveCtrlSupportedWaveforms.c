@@ -1,84 +1,82 @@
 /*
- * XREFs of NtUserGetInteractiveCtrlSupportedWaveforms @ 0x1C01D1FE0
+ * XREFs of NtUserGetInteractiveCtrlSupportedWaveforms @ 0x1C01F9D50
  * Callers:
  *     <none>
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z @ 0x1C0240920 (-GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z @ 0x1C025199C (-GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z.c)
  */
 
-__int64 __fastcall NtUserGetInteractiveCtrlSupportedWaveforms(__int64 a1, volatile void *a2, int *a3)
+__int64 __fastcall NtUserGetInteractiveCtrlSupportedWaveforms(unsigned __int16 a1, volatile void *a2, int *a3)
 {
-  unsigned __int16 v5; // r15
-  int v6; // ebx
-  int v7; // ecx
-  _DWORD *v8; // rdx
-  ULONG64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  SIZE_T v15; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  int v8; // edi
+  __int64 v9; // rcx
+  ULONG64 v10; // rcx
+  __int64 v11; // rcx
+  SIZE_T v12; // r14
   __int64 CurrentProcessWow64Process; // rax
-  InteractiveControlManager *v17; // rax
-  int v19; // [rsp+20h] [rbp-48h]
-  int v20; // [rsp+80h] [rbp+18h] BYREF
+  InteractiveControlManager *v14; // rax
+  _DWORD *v15; // rdx
+  void *v16; // rdx
+  int v18; // [rsp+20h] [rbp-48h]
+  int v19; // [rsp+80h] [rbp+18h] BYREF
   void *Src; // [rsp+88h] [rbp+20h] BYREF
 
-  v5 = a1;
-  EnterSharedCrit(a1, a2, a3);
-  v6 = 0;
-  v20 = 0;
+  EnterSharedCrit(0LL, 1LL);
+  v8 = 0;
+  v19 = 0;
   Src = 0LL;
   if ( !a3 )
   {
-    v7 = 87;
+    v9 = 87LL;
 LABEL_3:
-    UserSetLastError(v7);
+    UserSetLastError(v9, v6, v7);
     goto LABEL_21;
   }
   ProbeForRead(a3, 4uLL, 4u);
-  v15 = *a3;
-  v19 = *a3;
-  if ( a2 && (int)v15 > 0 )
+  v12 = *a3;
+  v18 = *a3;
+  if ( a2 && (int)v12 > 0 )
   {
-    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v13, v12, v14);
-    ProbeForWrite(a2, v15, CurrentProcessWow64Process != 0 ? 1 : 4);
+    CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v11);
+    ProbeForWrite(a2, v12, CurrentProcessWow64Process != 0 ? 1 : 4);
   }
-  v17 = InteractiveControlManager::Instance(v13);
-  if ( (int)InteractiveControlManager::GetDeviceSupportedWaveforms(v17, v5, (struct _WAVEFORM_INFO **)&Src, &v20) >= 0 )
+  v14 = InteractiveControlManager::Instance();
+  if ( (int)InteractiveControlManager::GetDeviceSupportedWaveforms(v14, a1, (struct _WAVEFORM_INFO **)&Src, &v19) >= 0 )
   {
-    if ( (unsigned __int64)v20 >= 0xFFFFFFF )
+    v7 = v19;
+    if ( (unsigned __int64)v19 >= 0xFFFFFFF )
     {
-      v7 = 534;
+      v9 = 534LL;
       goto LABEL_3;
     }
-    v10 = (unsigned int)(8 * v20);
-    if ( (int)v15 > 0 && (int)v15 < (int)v10 )
+    v7 = (unsigned int)(8 * v19);
+    if ( (int)v12 > 0 && (int)v12 < (int)v7 )
     {
-      v7 = 122;
+      v9 = 122LL;
       goto LABEL_3;
     }
-    v9 = MmUserProbeAddress;
-    v8 = a3;
+    v10 = MmUserProbeAddress;
+    v15 = a3;
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-      v8 = (_DWORD *)MmUserProbeAddress;
-    *v8 = *v8;
-    if ( a2 && (v8 = Src) != 0LL && v19 >= (int)v10 )
+      v15 = (_DWORD *)MmUserProbeAddress;
+    *v15 = *v15;
+    if ( a2 && (v16 = Src) != 0LL && v18 >= (int)v7 )
     {
-      *a3 = v10;
-      memmove((void *)a2, v8, (int)v10);
+      *a3 = v7;
+      memmove((void *)a2, v16, (int)v7);
     }
     else
     {
-      *a3 = v10;
+      *a3 = v7;
     }
-    v6 = 1;
+    v8 = 1;
   }
 LABEL_21:
-  UserSessionSwitchLeaveCrit(v9, v8, v10, v11);
-  return v6;
+  UserSessionSwitchLeaveCrit(v10);
+  return v8;
 }

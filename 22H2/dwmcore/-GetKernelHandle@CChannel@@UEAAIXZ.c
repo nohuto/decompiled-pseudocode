@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetKernelHandle@CChannel@@UEAAIXZ @ 0x180106510
+ * XREFs of ?GetKernelHandle@CChannel@@UEAAIXZ @ 0x1800E1B20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CChannel::GetKernelHandle(CChannel *this)
 {
-  return *((unsigned int *)this + 18);
+  return *((unsigned int *)this + 14);
 }

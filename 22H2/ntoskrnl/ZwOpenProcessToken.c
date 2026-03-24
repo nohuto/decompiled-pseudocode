@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenProcessToken @ 0x14041CCC0
+ * XREFs of ZwOpenProcessToken @ 0x1403FBF40
  * Callers:
- *     DifZwOpenProcessTokenWrapper @ 0x1405F2220 (DifZwOpenProcessTokenWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,31 +1,31 @@
 /*
- * XREFs of WmsgpConnect @ 0x1C02BFB4C
+ * XREFs of WmsgpConnect @ 0x1C027E818
  * Callers:
- *     _RegisterLogonProcess @ 0x1C00BE030 (_RegisterLogonProcess.c)
+ *     _RegisterLogonProcess @ 0x1C00B1D00 (_RegisterLogonProcess.c)
  * Callees:
- *     StringCchPrintfW @ 0x1C00BE214 (StringCchPrintfW.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AE020 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
  */
 
-__int64 __fastcall WmsgpConnect(_DWORD *a1, int a2)
+__int64 __fastcall WmsgpConnect(_DWORD *a1)
 {
-  unsigned int v2; // ebx
+  unsigned int v1; // ebx
 
-  if ( a2 == -1 )
+  if ( gSessionId == -1 )
   {
-    v2 = -1073741822;
+    v1 = -1073741822;
   }
   else
   {
-    StringCchPrintfW(&StringEndPoint, 0x91uLL, L"WMsgKRpc%X%X%X", (unsigned int)a1[1], *a1, a2, 0);
+    StringCchPrintfW(&StringEndPoint, 145LL, L"WMsgKRpc%X%X%X", (unsigned int)a1[1], *a1, gSessionId, 0);
     Template.StringEndpoint = &StringEndPoint;
-    v2 = RpcBindingCreateW(&Template, &Security, &Options, &gWinLogonRpcHandle);
-    if ( !v2 )
-      v2 = RpcBindingBind(0LL, gWinLogonRpcHandle, &unk_1C023C880);
+    v1 = RpcBindingCreateW(&Template, &Security, &Options, &gWinLogonRpcHandle);
+    if ( !v1 )
+      v1 = RpcBindingBind(0LL, gWinLogonRpcHandle, &unk_1C0204AC0);
   }
-  if ( v2 && gWinLogonRpcHandle )
+  if ( v1 && gWinLogonRpcHandle )
   {
     RpcBindingFree(&gWinLogonRpcHandle);
     gWinLogonRpcHandle = 0LL;
   }
-  return v2;
+  return v1;
 }

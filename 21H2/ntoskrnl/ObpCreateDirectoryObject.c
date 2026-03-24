@@ -1,38 +1,34 @@
 /*
- * XREFs of ObpCreateDirectoryObject @ 0x1406C2A70
+ * XREFs of ObpCreateDirectoryObject @ 0x1406A1B60
  * Callers:
- *     NtCreateDirectoryObjectEx @ 0x1406C2A30 (NtCreateDirectoryObjectEx.c)
- *     NtCreateDirectoryObject @ 0x1406C2A50 (NtCreateDirectoryObject.c)
+ *     NtCreateDirectoryObjectEx @ 0x1406A1B20 (NtCreateDirectoryObjectEx.c)
+ *     NtCreateDirectoryObject @ 0x1406A1B40 (NtCreateDirectoryObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x14079F1E0 (RtlIsSandboxedToken.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObpCreateDirectoryObject(__int64 a1, __int64 a2, int a3, void *a4, int a5)
 {
-  _QWORD *v6; // r13
-  PVOID v7; // rsi
-  KPROCESSOR_MODE PreviousMode; // r14
+  _QWORD *v6; // r12
+  KPROCESSOR_MODE PreviousMode; // si
   int inserted; // edi
-  _QWORD *v11; // rdi
-  int v12; // r15d
-  int v13; // edx
-  int v14; // eax
-  PVOID Object; // [rsp+50h] [rbp-38h] BYREF
-  PVOID v16; // [rsp+58h] [rbp-30h]
-  __int64 v17; // [rsp+60h] [rbp-28h] BYREF
+  int v10; // r14d
+  int v11; // edx
+  int v12; // eax
+  struct _DMA_ADAPTER *DmaAdapter; // [rsp+50h] [rbp-38h]
+  PVOID Object; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+68h] [rbp-20h] BYREF
 
   v6 = (_QWORD *)a1;
-  v17 = 0LL;
-  v16 = 0LL;
-  v7 = 0LL;
-  Object = 0LL;
+  v15 = 0LL;
+  DmaAdapter = 0LL;
   if ( (a5 & 0xFFFFFFFC) != 0 )
-    goto LABEL_25;
+    goto LABEL_23;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -44,7 +40,7 @@ __int64 __fastcall ObpCreateDirectoryObject(__int64 a1, __int64 a2, int a3, void
       *(_QWORD *)a1 = *(_QWORD *)a1;
       goto LABEL_7;
     }
-LABEL_25:
+LABEL_23:
     inserted = -1073741581;
     goto LABEL_9;
   }
@@ -52,43 +48,38 @@ LABEL_7:
   if ( !a4
     || (Object = 0LL,
         inserted = ObReferenceObjectByHandle(a4, 3u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL),
-        v7 = Object,
+        DmaAdapter = (struct _DMA_ADAPTER *)Object,
         inserted >= 0) )
   {
     LOBYTE(a1) = PreviousMode;
     inserted = ObCreateObjectEx(a1, (_DWORD)ObpDirectoryObjectType, a3, PreviousMode);
     if ( inserted >= 0 )
     {
-      v11 = v16;
-      memset(v16, 0, 0x158uLL);
-      v11[37] = 0LL;
-      *((_DWORD *)v11 + 85) = -1;
-      v12 = 0;
-      if ( v7 )
+      memset(0LL, 0, 0x158uLL);
+      MEMORY[0x128] = 0LL;
+      MEMORY[0x154] = -1;
+      v10 = 0;
+      if ( DmaAdapter )
       {
-        v12 = 4;
-        v11[39] = v7;
-        v7 = 0LL;
-        Object = 0LL;
+        v10 = 4;
+        MEMORY[0x138] = DmaAdapter;
+        DmaAdapter = 0LL;
         if ( (unsigned __int8)RtlIsSandboxedToken(0LL) )
-          v12 = 20;
+          v10 = 20;
       }
-      v13 = v12 | 8;
+      v11 = v10 | 8;
       if ( (a5 & 1) == 0 )
-        v13 = v12;
-      v14 = v13 | 0x20;
+        v11 = v10;
+      v12 = v11 | 0x20;
       if ( (a5 & 2) == 0 )
-        v14 = v13;
-      *((_DWORD *)v11 + 84) |= v14;
-      inserted = ObInsertObjectEx(v11, 0LL, 0, 0LL, (__int64)&v17);
-      v16 = 0LL;
-      *v6 = v17;
+        v12 = v11;
+      MEMORY[0x150] |= v12;
+      inserted = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v15);
+      *v6 = v15;
     }
   }
 LABEL_9:
-  if ( v7 )
-    ObfDereferenceObject(v7);
-  if ( v16 )
-    ObfDereferenceObject(v16);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return (unsigned int)inserted;
 }

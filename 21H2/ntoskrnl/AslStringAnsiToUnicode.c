@@ -1,17 +1,17 @@
 /*
- * XREFs of AslStringAnsiToUnicode @ 0x140A14988
+ * XREFs of AslStringAnsiToUnicode @ 0x140967884
  * Callers:
- *     AslpFileGet16BitDescription @ 0x140A18474 (AslpFileGet16BitDescription.c)
- *     AslpFileGet16BitModuleName @ 0x140A18558 (AslpFileGet16BitModuleName.c)
- *     AslpFileGetClrVersionAttribute @ 0x140A18AA0 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetExportName @ 0x140A18E64 (AslpFileGetExportName.c)
+ *     AslpFileGet16BitDescription @ 0x14096A744 (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitModuleName @ 0x14096A828 (AslpFileGet16BitModuleName.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14096AD80 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetExportName @ 0x14096B144 (AslpFileGetExportName.c)
  * Callees:
- *     RtlInitString @ 0x14036B950 (RtlInitString.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlxAnsiStringToUnicodeSize @ 0x14075A820 (RtlxAnsiStringToUnicodeSize.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x14062C7D0 (RtlxAnsiStringToUnicodeSize.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
   STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
 
   DestinationString = 0LL;
-  RtlInitString(&DestinationString, a2);
+  RtlInitAnsiString(&DestinationString, a2);
   v3 = RtlxAnsiStringToUnicodeSize(&DestinationString);
   v5 = v3;
   *a1 = 0LL;

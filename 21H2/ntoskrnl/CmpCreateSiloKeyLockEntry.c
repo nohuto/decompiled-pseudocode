@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCreateSiloKeyLockEntry @ 0x14080FD5C
+ * XREFs of CmpCreateSiloKeyLockEntry @ 0x1407C3358
  * Callers:
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14071BC64 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071C0FC (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
  */
 
 _QWORD *__fastcall CmpCreateSiloKeyLockEntry(volatile signed __int64 *a1)

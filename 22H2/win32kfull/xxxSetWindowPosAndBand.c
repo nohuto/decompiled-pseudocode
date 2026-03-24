@@ -1,24 +1,23 @@
 /*
- * XREFs of xxxSetWindowPosAndBand @ 0x1C0028948
+ * XREFs of xxxSetWindowPosAndBand @ 0x1C006BD30
  * Callers:
- *     xxxResetTooltip @ 0x1C0016C80 (xxxResetTooltip.c)
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     NtUserSetWindowPos @ 0x1C0028F90 (NtUserSetWindowPos.c)
- *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0225AC8 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ *     xxxResetTooltip @ 0x1C002B35C (xxxResetTooltip.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C024267C (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
  * Callees:
- *     InternalBeginDeferWindowPos @ 0x1C0028A94 (InternalBeginDeferWindowPos.c)
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0029418 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     xxxRedrawWindow @ 0x1C0031604 (xxxRedrawWindow.c)
- *     ?IsWindowGhosted@@YA_NPEBUtagWND@@@Z @ 0x1C005EF60 (-IsWindowGhosted@@YA_NPEBUtagWND@@@Z.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     xxxEndDeferWindowPosEx @ 0x1C0122FB0 (xxxEndDeferWindowPosEx.c)
- *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01A5DB4 (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
- *     ?xxxHandleHealthyWindow@@YA_NPEAUtagWND@@@Z @ 0x1C01F493C (-xxxHandleHealthyWindow@@YA_NPEAUtagWND@@@Z.c)
+ *     xxxHandleHealthyWindow @ 0x1C00035B0 (xxxHandleHealthyWindow.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     InternalBeginDeferWindowPos @ 0x1C006B960 (InternalBeginDeferWindowPos.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C006B9F0 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
+ *     xxxRedrawWindow @ 0x1C00722B4 (xxxRedrawWindow.c)
+ *     IsWindowGhosted @ 0x1C007E5FC (IsWindowGhosted.c)
+ *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01CFA10 (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
  */
 
 __int64 __fastcall xxxSetWindowPosAndBand(
         struct tagWND *a1,
-        __int64 a2,
+        __int64 *a2,
         int a3,
         int a4,
         int a5,
@@ -29,12 +28,12 @@ __int64 __fastcall xxxSetWindowPosAndBand(
   int v8; // ebx
   int v9; // esi
   int v10; // ebp
-  unsigned int v11; // r14d
-  unsigned int v14; // r8d
+  int v11; // r14d
+  int v14; // r8d
   _BYTE *v15; // rdx
   int v16; // r15d
   int v17; // r12d
-  __int64 v18; // rax
+  void *v18; // rax
   struct tagSMWP *v19; // rax
   __int64 v21; // rcx
   __int64 v22; // rax
@@ -48,7 +47,7 @@ __int64 __fastcall xxxSetWindowPosAndBand(
   v9 = 0;
   v10 = a4;
   v11 = a3;
-  if ( (a7 & 0x80u) != 0 && *((_QWORD *)a1 + 2) == gptiCurrent && IsWindowGhosted(a1) )
+  if ( (a7 & 0x80u) != 0 && *((_QWORD *)a1 + 2) == gptiCurrent && (unsigned int)IsWindowGhosted(a1) )
     xxxHandleHealthyWindow(a1);
   v14 = 1;
   if ( (v8 & 0xC0) != 0 )
@@ -74,7 +73,7 @@ __int64 __fastcall xxxSetWindowPosAndBand(
     if ( v22 )
     {
       v23 = *(_QWORD *)(v22 + 40);
-      if ( (*(_BYTE *)(v23 + 31) & 0x10) != 0 && !(unsigned int)IsRectEmptyInl((const struct tagRECT *)(v23 + 88)) )
+      if ( (*(_BYTE *)(v23 + 31) & 0x10) != 0 && !IsRectEmptyInl((const struct tagRECT *)(v23 + 88)) )
       {
         FixBogusSWP(a1, &v24, &v25, v17, v16, v8);
         v10 = v25;
@@ -86,7 +85,7 @@ __int64 __fastcall xxxSetWindowPosAndBand(
   v18 = InternalBeginDeferWindowPos(v14);
   if ( !v18 )
     return 0LL;
-  v19 = (struct tagSMWP *)_DeferWindowPos(v18, a1, a2, v11, v10, v17, v16, v8, a8);
+  v19 = (struct tagSMWP *)_DeferWindowPos((__int64)v18, a1, a2, v11, v10, v17, v16, v8, a8);
   if ( !v19 || !(unsigned int)xxxEndDeferWindowPosEx(v19) )
     return 0LL;
   if ( v9 )

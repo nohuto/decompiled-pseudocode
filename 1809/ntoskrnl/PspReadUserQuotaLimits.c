@@ -1,16 +1,16 @@
 /*
- * XREFs of PspReadUserQuotaLimits @ 0x14065A44C
+ * XREFs of PspReadUserQuotaLimits @ 0x14065A42C
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x14065A154 (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x14065A134 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6D0 (RtlConvertSidToUnicodeString.c)
- *     PspSanitizeResourceLimits @ 0x140757ECC (PspSanitizeResourceLimits.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
+ *     PspSanitizeResourceLimits @ 0x140757EAC (PspSanitizeResourceLimits.c)
  */
 
 __int64 __fastcall PspReadUserQuotaLimits(PSID Sid, _DWORD *a2, _DWORD *a3)

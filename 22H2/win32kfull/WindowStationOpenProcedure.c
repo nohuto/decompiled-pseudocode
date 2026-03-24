@@ -1,5 +1,5 @@
 /*
- * XREFs of WindowStationOpenProcedure @ 0x1C00A06F0
+ * XREFs of WindowStationOpenProcedure @ 0x1C010D140
  * Callers:
  *     <none>
  * Callees:

@@ -1,137 +1,136 @@
 /*
- * XREFs of ?CalculateCasterBounds@CProjectedShadowCaster@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCVisualTree@@PEA_N@Z @ 0x1800091D8
+ * XREFs of ?CalculateCasterBounds@CProjectedShadowCaster@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCVisualTree@@PEA_N@Z @ 0x180010C50
  * Callers:
- *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z @ 0x180009044 (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z.c)
+ *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@_N@Z @ 0x18001065C (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@_N@Z.c)
  * Callees:
- *     ?TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180009460 (-TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DR.c)
- *     ?CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z @ 0x1800707C0 (-CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?GetTransformParent@CVisual@@QEBAPEBV1@PEBVCVisualTree@@PEA_N@Z @ 0x18008A730 (-GetTransformParent@CVisual@@QEBAPEBV1@PEBVCVisualTree@@PEA_N@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ??$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ @ 0x1800E67B0 (--$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800E8FC4 (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?GetTransformParentNoRef@CVisual@@QEBAPEAV1@XZ @ 0x180011698 (-GetTransformParentNoRef@CVisual@@QEBAPEAV1@XZ.c)
+ *     ?TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180011AA8 (-TryGetAxisAlignedRectangle@CGeometry@@QEAA_NPEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DR.c)
+ *     ??$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ @ 0x18001623C (--$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?CalcCpuClippingTransform@CVisual@@QEAAXW4Enum@CpuClippingMode@@PEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV5@4@Z @ 0x1800818F0 (-CalcCpuClippingTransform@CVisual@@QEAAXW4Enum@CpuClippingMode@@PEBVCVisualTree@@PEBVCMILMatrix@.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x180086EA0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800D6204 (-Invert@CMILMatrix@@QEAA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-_DWORD *__fastcall CProjectedShadowCaster::CalculateCasterBounds(
-        __int64 a1,
-        _DWORD *a2,
-        const struct CVisualTree *a3,
-        char *a4)
+__int64 __fastcall CProjectedShadowCaster::CalculateCasterBounds(__int64 a1, __int64 a2, __int64 a3, char *a4)
 {
   __int64 v4; // rax
-  float v6; // xmm6_4
-  float v7; // xmm7_4
-  int v10; // xmm1_4
-  int v12; // xmm0_4
-  float v13; // xmm8_4
-  float v14; // xmm9_4
+  float v5; // xmm6_4
+  float v6; // xmm9_4
+  float v9; // xmm0_4
+  float v10; // xmm1_4
+  char v13; // si
+  float v14; // xmm7_4
   CVisual *v15; // rbx
-  char v16; // si
+  float v16; // xmm8_4
   __int64 v17; // rcx
-  float v18; // xmm3_4
-  float v19; // xmm2_4
+  float v18; // xmm1_4
+  float v19; // xmm3_4
   float v20; // xmm0_4
-  bool v22; // [rsp+30h] [rbp-D0h] BYREF
-  _BYTE v23[64]; // [rsp+40h] [rbp-C0h] BYREF
-  int v24; // [rsp+80h] [rbp-80h]
-  _BYTE v25[64]; // [rsp+90h] [rbp-70h] BYREF
-  int v26; // [rsp+D0h] [rbp-30h]
-  float v27; // [rsp+E0h] [rbp-20h] BYREF
-  float v28; // [rsp+E4h] [rbp-1Ch]
-  float v29; // [rsp+E8h] [rbp-18h]
-  float v30; // [rsp+ECh] [rbp-14h]
-  __int128 v31; // [rsp+F0h] [rbp-10h] BYREF
+  char v22; // [rsp+40h] [rbp-C0h]
+  _OWORD v23[4]; // [rsp+50h] [rbp-B0h] BYREF
+  int v24; // [rsp+90h] [rbp-70h]
+  _BYTE v25[64]; // [rsp+A0h] [rbp-60h] BYREF
+  int v26; // [rsp+E0h] [rbp-20h]
+  float v27; // [rsp+F0h] [rbp-10h]
+  float v28; // [rsp+F4h] [rbp-Ch]
+  float v29; // [rsp+F8h] [rbp-8h]
+  float v30; // [rsp+FCh] [rbp-4h]
+  __int128 v31; // [rsp+100h] [rbp+0h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 64);
+  v4 = *(_QWORD *)(a1 + 56);
+  v24 = 0;
+  v5 = 0.0;
   v6 = 0.0;
-  v7 = 0.0;
   v27 = 0.0;
   v28 = 0.0;
-  v10 = *(_DWORD *)(v4 + 144);
-  v12 = *(_DWORD *)(v4 + 140);
-  *a2 = 0;
-  a2[1] = 0;
-  a2[2] = v12;
-  a2[3] = v10;
-  v13 = *(float *)(v4 + 140);
-  v14 = *(float *)(v4 + 144);
-  v15 = *(CVisual **)(a1 + 64);
-  v26 = 0;
-  v29 = v13;
-  v30 = v14;
-  CMILMatrix::SetToIdentity((CMILMatrix *)v25);
-  v16 = 0;
+  v9 = *(float *)(v4 + 132);
+  v10 = *(float *)(v4 + 136) + 0.0;
+  *(_DWORD *)a2 = 0;
+  *(_DWORD *)(a2 + 4) = 0;
+  LOWORD(v24) = 32085;
+  v13 = 0;
+  *(float *)(a2 + 12) = v10;
+  *(float *)(a2 + 8) = v9 + 0.0;
+  v14 = *(float *)(v4 + 132) + 0.0;
+  v15 = *(CVisual **)(a1 + 56);
+  v16 = *(float *)(v4 + 136) + 0.0;
+  v23[0] = _xmm;
+  v23[1] = _xmm;
+  v29 = v14;
+  v30 = v16;
+  v23[2] = _xmm;
+  v23[3] = _xmm;
   while ( v15 )
   {
-    v17 = *((_QWORD *)v15 + 31);
+    v17 = *((_QWORD *)v15 + 30);
     if ( v17 )
     {
       v31 = 0LL;
-      if ( (unsigned __int8)CGeometry::TryGetAxisAlignedRectangle(v17, (char *)v15 + 140, &v31) )
+      if ( (unsigned __int8)CGeometry::TryGetAxisAlignedRectangle(v17, (char *)v15 + 132, &v31) )
       {
-        if ( *(float *)&v31 > v6 )
+        if ( *(float *)&v31 > v5 )
         {
           v27 = *(float *)&v31;
-          v6 = *(float *)&v31;
+          v5 = *(float *)&v31;
         }
-        v18 = v7;
-        if ( *((float *)&v31 + 1) > v7 )
+        v18 = v6;
+        if ( *((float *)&v31 + 1) > v6 )
         {
           v28 = *((float *)&v31 + 1);
-          v7 = *((float *)&v31 + 1);
+          v6 = *((float *)&v31 + 1);
           v18 = *((float *)&v31 + 1);
         }
-        v19 = v13;
-        if ( v13 > *((float *)&v31 + 2) )
+        v19 = v14;
+        if ( v14 > *((float *)&v31 + 2) )
         {
           v29 = *((float *)&v31 + 2);
-          v13 = *((float *)&v31 + 2);
+          v14 = *((float *)&v31 + 2);
           v19 = *((float *)&v31 + 2);
         }
-        v20 = v14;
-        if ( v14 > *((float *)&v31 + 3) )
+        v20 = v16;
+        if ( v16 > *((float *)&v31 + 3) )
         {
           v30 = *((float *)&v31 + 3);
-          v14 = *((float *)&v31 + 3);
+          v16 = *((float *)&v31 + 3);
           v20 = *((float *)&v31 + 3);
         }
-        if ( v19 <= v6 || v20 <= v18 )
+        if ( v19 <= v5 || v20 <= v18 )
         {
           v14 = 0.0;
-          v13 = 0.0;
-          v7 = 0.0;
           v30 = 0.0;
-          v6 = 0.0;
+          v5 = 0.0;
           v29 = 0.0;
-          v28 = 0.0;
           v27 = 0.0;
+          v16 = 0.0;
+          v28 = 0.0;
+          v6 = 0.0;
         }
-        v16 = 1;
+        v13 = 1;
       }
     }
-    if ( !*(_QWORD *)(a1 + 72) || CVisual::GetTransformParent(v15, a3, 0LL) )
+    if ( !*(_QWORD *)(a1 + 64) || CVisual::GetTransformParentNoRef(v15) )
       break;
-    v24 = 0;
-    CVisual::CalcTransform(v15, a3, 0LL, &v22, (struct CMILMatrix *)v23, 0LL);
+    v26 = 0;
+    CVisual::CalcCpuClippingTransform(v15, 5LL, a3);
     if ( v22 )
     {
-      if ( !(unsigned __int8)CMILMatrix::IsTranslateAndScale<1>(v23) )
+      if ( !(unsigned __int8)CMILMatrix::IsTranslateAndScale<1>(v25) )
         break;
-      CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v23, (struct MilRectF *)&v27);
-      CMILMatrix::Multiply((CMILMatrix *)v25, (const struct CMILMatrix *)v23);
-      v14 = v30;
-      v13 = v29;
-      v7 = v28;
-      v6 = v27;
+      CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v25);
+      CMILMatrix::Multiply((CMILMatrix *)v23, (const struct CMILMatrix *)v25);
+      v16 = v30;
+      v14 = v29;
+      v6 = v28;
+      v5 = v27;
     }
-    v15 = (CVisual *)*((_QWORD *)v15 + 11);
+    v15 = (CVisual *)*((_QWORD *)v15 + 10);
   }
-  if ( CMILMatrix::Invert((CMILMatrix *)v25) )
+  if ( CMILMatrix::Invert((CMILMatrix *)v23) )
   {
-    *a4 = v16;
-    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v25, (struct MilRectF *)&v27);
+    *a4 = v13;
+    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v23);
   }
   return a2;
 }

@@ -1,7 +1,7 @@
 /*
  * XREFs of VfThunkAddSpecialDriverThunks @ 0x1409367A8
  * Callers:
- *     MmAddVerifierSpecialThunks @ 0x14084DA60 (MmAddVerifierSpecialThunks.c)
+ *     MmAddVerifierSpecialThunks @ 0x14084DA40 (MmAddVerifierSpecialThunks.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

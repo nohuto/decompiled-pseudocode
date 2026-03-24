@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcConnectGpeVector @ 0x1C00AD498
+ * XREFs of ACPIEcConnectGpeVector @ 0x1C00AE818
  * Callers:
- *     ACPIEcInitOpRegionHandler @ 0x1C0020398 (ACPIEcInitOpRegionHandler.c)
- *     ACPIEcConnectInterrupt @ 0x1C00AD5A0 (ACPIEcConnectInterrupt.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcConnectInterrupt @ 0x1C00AE918 (ACPIEcConnectInterrupt.c)
  * Callees:
- *     ACPIVectorConnect @ 0x1C00618E0 (ACPIVectorConnect.c)
+ *     ACPIVectorConnect @ 0x1C0060B20 (ACPIVectorConnect.c)
  */
 
 __int64 __fastcall ACPIEcConnectGpeVector(__int64 a1)

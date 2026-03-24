@@ -1,39 +1,30 @@
 /*
- * XREFs of bEnableFontDriver @ 0x1C00A5710
+ * XREFs of bEnableFontDriver @ 0x1C00F46E0
  * Callers:
- *     UmfdSessionInitialize @ 0x1C00A5360 (UmfdSessionInitialize.c)
+ *     UmfdSessionInitialize @ 0x1C00F35D0 (UmfdSessionInitialize.c)
  * Callees:
- *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00A5D80 (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
+ *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00F47AC (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
  */
 
 __int64 __fastcall bEnableFontDriver(__int64 a1, unsigned int a2)
 {
   struct _LDEV *Internal; // rax
-  __int64 v4; // rcx
-  struct PDEV *v5; // rbx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
   __int64 result; // rax
-  struct PDEV *v9; // [rsp+90h] [rbp+18h] BYREF
+  struct PDEV *v5; // [rsp+90h] [rbp+18h] BYREF
 
   Internal = (struct _LDEV *)ldevLoadInternal(a1, 6LL);
   if ( !Internal )
     return 0LL;
-  PDEVOBJ::PDEVOBJ((PDEVOBJ *)&v9, Internal, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0, 0, 0);
-  v5 = v9;
-  if ( !v9 )
+  PDEVOBJ::PDEVOBJ((PDEVOBJ *)&v5, Internal, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0, 0, 0);
+  if ( !v5 )
     return 0LL;
   if ( a2 == 5 )
   {
-    v6 = *(_QWORD *)(SGDGetSessionState(v4) + 32);
-    *(_QWORD *)(v6 + 23448) = v5;
-    v7 = *(_QWORD *)(SGDGetSessionState(v6) + 32);
-    *(_DWORD *)(v7 + 23648) = 2;
-    *(_DWORD *)(v7 + 23652) = 1;
-    v5 = v9;
+    qword_1C0340AC0 = v5;
+    gufiLocalType1Rasterizer = 0x100000002LL;
   }
   FntCacheHDEV(v5, a2);
   result = 1LL;
-  *((_DWORD *)v9 + 10) |= 0x2000u;
+  *((_DWORD *)v5 + 10) |= 0x2000u;
   return result;
 }

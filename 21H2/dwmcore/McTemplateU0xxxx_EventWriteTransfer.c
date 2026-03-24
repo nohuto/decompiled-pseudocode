@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateU0xxxx_EventWriteTransfer @ 0x18029A760
+ * XREFs of McTemplateU0xxxx_EventWriteTransfer @ 0x1802583E0
  * Callers:
- *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180299F98 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18029D640 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F2900 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18025AF4C (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)

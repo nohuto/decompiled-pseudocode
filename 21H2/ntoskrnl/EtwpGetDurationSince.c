@@ -1,24 +1,26 @@
 /*
- * XREFs of EtwpGetDurationSince @ 0x14062EDA8
+ * XREFs of EtwpGetDurationSince @ 0x1405A8A74
  * Callers:
- *     MiAllocateContiguousMemory @ 0x140214244 (MiAllocateContiguousMemory.c)
- *     MiAllocatePagesForMdl @ 0x140265428 (MiAllocatePagesForMdl.c)
+ *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
+ *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
  */
 
-unsigned __int64 __fastcall EtwpGetDurationSince(__int64 a1)
+ULONGLONG __fastcall EtwpGetDurationSince(__int64 a1)
 {
-  LARGE_INTEGER v1; // r8
-  LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER v2; // rax
+  unsigned __int64 v3; // r10
+  ULONGLONG pullResult; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v6; // [rsp+38h] [rbp+10h] BYREF
 
-  PerformanceFrequency.QuadPart = 0LL;
-  v1.QuadPart = *(_QWORD *)&KeQueryPerformanceCounter(&PerformanceFrequency) - a1;
-  if ( is_mul_ok(v1.QuadPart, 0xF4240uLL) )
-    return (unsigned __int64)v1.QuadPart
-         * (unsigned __int128)0xF4240uLL
-         / (unsigned __int64)PerformanceFrequency.QuadPart;
-  if ( PerformanceFrequency.QuadPart / 0xF4240uLL )
-    return v1.QuadPart / (PerformanceFrequency.QuadPart / 0xF4240uLL);
+  v6.QuadPart = 0LL;
+  pullResult = 0LL;
+  v2 = KeQueryPerformanceCounter(&v6);
+  if ( RtlULongLongMult(v2.QuadPart - a1, 0xF4240uLL, &pullResult) >= 0 )
+    return pullResult / v6.QuadPart;
+  if ( v6.QuadPart / 0xF4240uLL )
+    return v3 / (v6.QuadPart / 0xF4240uLL);
   return 0LL;
 }

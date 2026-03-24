@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECContentResourceState@@UEAAPEAXI@Z @ 0x1C0085F30
+ * XREFs of ??_ECContentResourceState@@UEAAPEAXI@Z @ 0x1C006C050
  * Callers:
  *     <none>
  * Callees:
- *     ??1CContentResourceState@@UEAA@XZ @ 0x1C00886A8 (--1CContentResourceState@@UEAA@XZ.c)
+ *     ??1CContentResourceState@@UEAA@XZ @ 0x1C006E3B4 (--1CContentResourceState@@UEAA@XZ.c)
  */
 
 CContentResourceState *__fastcall CContentResourceState::`vector deleting destructor'(

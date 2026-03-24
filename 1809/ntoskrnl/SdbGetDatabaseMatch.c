@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbGetDatabaseMatch @ 0x14067E81C
+ * XREFs of SdbGetDatabaseMatch @ 0x14067E7FC
  * Callers:
- *     PiIsDriverBlocked @ 0x14067EB10 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SdbpCreateSearchDBContext @ 0x14067C5C0 (SdbpCreateSearchDBContext.c)
- *     SdbpSearchDB @ 0x14067D58C (SdbpSearchDB.c)
- *     AslFileMappingCreate @ 0x14067E49C (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14067E984 (AslFileMappingDelete.c)
- *     SdbpReleaseSearchDBContext @ 0x14067E9E4 (SdbpReleaseSearchDBContext.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     AslFileMappingCreateFromImageView @ 0x14071F250 (AslFileMappingCreateFromImageView.c)
- *     SdbTagIDToTagRef @ 0x14075D6B4 (SdbTagIDToTagRef.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SdbpCreateSearchDBContext @ 0x14067C5A0 (SdbpCreateSearchDBContext.c)
+ *     SdbpSearchDB @ 0x14067D56C (SdbpSearchDB.c)
+ *     AslFileMappingCreate @ 0x14067E47C (AslFileMappingCreate.c)
+ *     AslFileMappingDelete @ 0x14067E964 (AslFileMappingDelete.c)
+ *     SdbpReleaseSearchDBContext @ 0x14067E9C4 (SdbpReleaseSearchDBContext.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     AslFileMappingCreateFromImageView @ 0x14071F230 (AslFileMappingCreateFromImageView.c)
+ *     SdbTagIDToTagRef @ 0x14075D694 (SdbTagIDToTagRef.c)
  */
 
 __int64 __fastcall SdbGetDatabaseMatch(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, __int64 a5)

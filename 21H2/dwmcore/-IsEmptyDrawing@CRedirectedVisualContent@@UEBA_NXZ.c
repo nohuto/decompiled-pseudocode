@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmptyDrawing@CRedirectedVisualContent@@UEBA_NXZ @ 0x18025B6D0
+ * XREFs of ?IsEmptyDrawing@CRedirectedVisualContent@@UEBA_NXZ @ 0x1800DABF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CRedirectedVisualContent::IsEmptyDrawing(CRedirectedVisualContent *this)
 {
-  return (*(_DWORD *)(*((_QWORD *)this + 9) + 96LL) & 0x100) == 0;
+  return (*(_DWORD *)(*((_QWORD *)this + 8) + 88LL) & 0x100) == 0;
 }

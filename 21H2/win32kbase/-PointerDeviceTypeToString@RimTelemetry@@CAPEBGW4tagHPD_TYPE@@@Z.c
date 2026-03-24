@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PointerDeviceTypeToString@RimTelemetry@@CAPEBGW4tagHPD_TYPE@@@Z @ 0x1C017C82C
+ * XREFs of ?PointerDeviceTypeToString@RimTelemetry@@CAPEBGW4tagHPD_TYPE@@@Z @ 0x1C014FC10
  * Callers:
- *     ?ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z @ 0x1C004B44C (-ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z.c)
+ *     ?ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z @ 0x1C00AC460 (-ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 const wchar_t *__fastcall RimTelemetry::PointerDeviceTypeToString(int a1)

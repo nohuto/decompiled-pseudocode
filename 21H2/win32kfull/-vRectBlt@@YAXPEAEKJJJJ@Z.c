@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vRectBlt@@YAXPEAEKJJJJ@Z @ 0x1C028DE20
+ * XREFs of ?vRectBlt@@YAXPEAEKJJJJ@Z @ 0x1C0290120
  * Callers:
  *     <none>
  * Callees:
@@ -31,14 +31,14 @@ void __fastcall vRectBlt(unsigned __int8 *a1, unsigned int a2, int a3, int a4, i
     v10 += a2;
     if ( (int)v9 < 0 )
     {
-      v13 = word_1C02F8B78[v11] & word_1C02F8B58[v8];
+      v13 = word_1C02FB4C0[v11] & word_1C02FB4E0[v8];
 LABEL_12:
       *(_WORD *)v12 |= v13;
       goto LABEL_13;
     }
     if ( (_DWORD)v8 )
     {
-      *(_WORD *)v12 |= word_1C02F8B58[v8];
+      *(_WORD *)v12 |= word_1C02FB4E0[v8];
       v12 += 2;
     }
     if ( (int)v9 > 0 )
@@ -55,7 +55,7 @@ LABEL_12:
     }
     if ( (a5 & 0xF) != 0 )
     {
-      v13 = word_1C02F8B78[v11];
+      v13 = word_1C02FB4C0[v11];
       goto LABEL_12;
     }
 LABEL_13:

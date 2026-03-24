@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxTransitionCriticalResource @ 0x1405CE300
+ * XREFs of PopFxTransitionCriticalResource @ 0x14056D410
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxTransitionCriticalResource(__int64 a1, unsigned int a2, unsigned __int8 a3)

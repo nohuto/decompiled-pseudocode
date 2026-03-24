@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhValidateStringDescriptor @ 0x1C00527D4
+ * XREFs of UsbhValidateStringDescriptor @ 0x1C0053E24
  * Callers:
- *     UsbhGetBillboardInfo @ 0x1C003743C (UsbhGetBillboardInfo.c)
- *     UsbhGetLanguageIdString @ 0x1C004FB20 (UsbhGetLanguageIdString.c)
- *     UsbhGetProductIdString @ 0x1C004FF10 (UsbhGetProductIdString.c)
- *     UsbhGetSerialNumber @ 0x1C00500D4 (UsbhGetSerialNumber.c)
+ *     UsbhGetBillboardInfo @ 0x1C00386F0 (UsbhGetBillboardInfo.c)
+ *     UsbhGetLanguageIdString @ 0x1C00510CC (UsbhGetLanguageIdString.c)
+ *     UsbhGetProductIdString @ 0x1C00514DC (UsbhGetProductIdString.c)
+ *     UsbhGetSerialNumber @ 0x1C00516AC (UsbhGetSerialNumber.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 char __fastcall UsbhValidateStringDescriptor(__int64 a1, unsigned __int8 *a2, unsigned int a3, _DWORD *a4)

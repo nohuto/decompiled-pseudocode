@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     AlpcpSendCloseMessage @ 0x140616910 (AlpcpSendCloseMessage.c)
  *     AlpcpDoPortCleanup @ 0x140619108 (AlpcpDoPortCleanup.c)
  */

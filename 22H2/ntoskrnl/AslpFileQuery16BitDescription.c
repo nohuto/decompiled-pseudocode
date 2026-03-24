@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileQuery16BitDescription @ 0x140A59044
+ * XREFs of AslpFileQuery16BitDescription @ 0x14096BC18
  * Callers:
- *     AslpFileGet16BitDescription @ 0x140A57B98 (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitDescription @ 0x14096A794 (AslpFileGet16BitDescription.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileQuery16BitDescription(_BYTE *a1, __int64 a2)

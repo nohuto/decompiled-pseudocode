@@ -1,21 +1,27 @@
 /*
- * XREFs of ??1CCompositionTextLine@@MEAA@XZ @ 0x18021018C
+ * XREFs of ??1CCompositionTextLine@@MEAA@XZ @ 0x1801BCD1C
  * Callers:
- *     ??_GCCompositionTextLine@@MEAAPEAXI@Z @ 0x18019EC40 (--_GCCompositionTextLine@@MEAAPEAXI@Z.c)
+ *     ??_GCCompositionTextLine@@MEAAPEAXI@Z @ 0x18016CEB0 (--_GCCompositionTextLine@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5FE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
-void __fastcall CCompositionTextLine::~CCompositionTextLine(struct CResource **this)
+void __fastcall CCompositionTextLine::~CCompositionTextLine(CCompositionTextLine *this)
 {
   __int64 *v2; // rbx
+  __int64 v3; // rdx
 
-  v2 = (__int64 *)(this + 13);
-  *this = (struct CResource *)&CCompositionTextLine::`vftable';
-  CResource::UnRegisterNotifierInternal((CResource *)this, this[13]);
+  *(_QWORD *)this = &CCompositionTextLine::`vftable';
+  v2 = (__int64 *)((char *)this + 104);
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CHwndBitmap::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CCompositionTextLine::`vftable'{for `IContent'};
+  v3 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v3 + 52) = v3 - 64;
+  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 52) = *(_DWORD *)(*((_QWORD *)this + 7) + 8LL) - 80;
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 13));
   wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(v2);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v2);
-  CTextObjectGeneratedT<CTextObject,CResource>::~CTextObjectGeneratedT<CTextObject,CResource>(this);
+  CTextObjectGeneratedT<CTextObject,CContent>::~CTextObjectGeneratedT<CTextObject,CContent>((struct CResource **)this);
 }

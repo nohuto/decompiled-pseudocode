@@ -1,19 +1,19 @@
 /*
- * XREFs of WdipSemQueryValueFromRegistry @ 0x140833138
+ * XREFs of WdipSemQueryValueFromRegistry @ 0x1407950F4
  * Callers:
- *     WdipSemLoadGroupPolicy @ 0x14083160C (WdipSemLoadGroupPolicy.c)
- *     WdipSemLoadConfigInfo @ 0x14083193C (WdipSemLoadConfigInfo.c)
- *     WdipSemLoadNextEndEvent @ 0x1408322D0 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextContextProvider @ 0x1408325D4 (WdipSemLoadNextContextProvider.c)
- *     WdipSemLoadScenarioTable @ 0x140832854 (WdipSemLoadScenarioTable.c)
- *     WdipSemLoadNextScenario @ 0x140832C60 (WdipSemLoadNextScenario.c)
- *     WdipSemLoadLocalGroupPolicy @ 0x1409DE138 (WdipSemLoadLocalGroupPolicy.c)
+ *     WdipSemLoadGroupPolicy @ 0x140794080 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadConfigInfo @ 0x1407940D8 (WdipSemLoadConfigInfo.c)
+ *     WdipSemLoadNextEndEvent @ 0x140794284 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextContextProvider @ 0x140794588 (WdipSemLoadNextContextProvider.c)
+ *     WdipSemLoadScenarioTable @ 0x140794808 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140794C14 (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadLocalGroupPolicy @ 0x140930300 (WdipSemLoadLocalGroupPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall WdipSemQueryValueFromRegistry(

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRestoreThreadIptState @ 0x1402947F0
+ * XREFs of KiRestoreThreadIptState @ 0x1402948F0
  * Callers:
- *     SwapContext @ 0x1401C42A0 (SwapContext.c)
+ *     SwapContext @ 0x1401C42C0 (SwapContext.c)
  * Callees:
- *     KiInitIptState @ 0x14029463C (KiInitIptState.c)
- *     KiRestoreIptState @ 0x140294700 (KiRestoreIptState.c)
+ *     KiInitIptState @ 0x14029473C (KiInitIptState.c)
+ *     KiRestoreIptState @ 0x140294800 (KiRestoreIptState.c)
  */
 
 unsigned __int64 __fastcall KiRestoreThreadIptState(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of IsValidAxisAlignedRect @ 0x1800859E4
+ * XREFs of IsValidAxisAlignedRect @ 0x180067128
  * Callers:
- *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180084B28 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180067194 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,21 +19,21 @@ bool __fastcall IsValidAxisAlignedRect(__int64 a1)
   v4 = *(float *)(v2 + *(_QWORD *)a1);
   if ( v3 == v4 )
   {
-    if ( *(float *)((char *)v1 + v2 + 4) != *(float *)((char *)v1 + 2 * (int)v2 + 4)
-      || *(float *)((char *)v1 + 2 * (int)v2) != *(float *)((char *)v1 + 3 * (int)v2) )
+    if ( *(float *)((char *)v1 + v2 + 4) != *(float *)((char *)v1 + 3 * (int)v2 + 4)
+      || *(float *)((char *)v1 + 3 * (int)v2) != *(float *)((char *)v1 + 2 * (int)v2) )
     {
       return 0;
     }
-    return *(float *)((char *)v1 + 3 * (int)v2 + 4) == v1[1];
+    return *(float *)((char *)v1 + 2 * (int)v2 + 4) == v1[1];
   }
   else
   {
     if ( v1[1] != *(float *)((char *)v1 + v2 + 4)
-      || v4 != *(float *)((char *)v1 + 2 * (int)v2)
-      || *(float *)((char *)v1 + 2 * (int)v2 + 4) != *(float *)((char *)v1 + 3 * (int)v2 + 4) )
+      || v4 != *(float *)((char *)v1 + 3 * (int)v2)
+      || *(float *)((char *)v1 + 3 * (int)v2 + 4) != *(float *)((char *)v1 + 2 * (int)v2 + 4) )
     {
       return 0;
     }
-    return *(float *)((char *)v1 + 3 * (int)v2) == v3;
+    return *(float *)((char *)v1 + 2 * (int)v2) == v3;
   }
 }

@@ -1,20 +1,19 @@
 /*
- * XREFs of IsVisible @ 0x1C006C350
+ * XREFs of IsVisible @ 0x1C0068164
  * Callers:
- *     xxxDrawWindowFrame @ 0x1C00638D4 (xxxDrawWindowFrame.c)
- *     DirtyVisRgnTrackers @ 0x1C006C250 (DirtyVisRgnTrackers.c)
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C007DC84 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     xxxDrawCaptionBar @ 0x1C00BAE5C (xxxDrawCaptionBar.c)
- *     xxxScrollWindowEx @ 0x1C00BFE8C (xxxScrollWindowEx.c)
- *     ?UT_InvertCaret@@YAXXZ @ 0x1C00C2950 (-UT_InvertCaret@@YAXXZ.c)
- *     xxxSetScrollBar @ 0x1C00C64F8 (xxxSetScrollBar.c)
- *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00C6AA0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00CA7B4 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     SpbCheckRect @ 0x1C00DC7C0 (SpbCheckRect.c)
- *     ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C00DC928 (-FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z.c)
- *     RestoreSpb @ 0x1C0158DC0 (RestoreSpb.c)
- *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C0240BC8 (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
- *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C025D360 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039F08 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C004500C (-UT_InvertCaret@@YAXXZ.c)
+ *     xxxDrawWindowFrame @ 0x1C004BB1C (xxxDrawWindowFrame.c)
+ *     xxxScrollWindowEx @ 0x1C006788C (xxxScrollWindowEx.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCE08 (xxxDrawCaptionBar.c)
+ *     xxxSetScrollBar @ 0x1C00F6058 (xxxSetScrollBar.c)
+ *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00F6740 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
+ *     ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C0219E74 (-FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z.c)
+ *     RestoreSpb @ 0x1C021A4F0 (RestoreSpb.c)
+ *     SpbCheckRect @ 0x1C021A844 (SpbCheckRect.c)
+ *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C0244C5C (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
+ *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C02606F0 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
  * Callees:
  *     <none>
  */

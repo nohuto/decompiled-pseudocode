@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EnsureComputeScribbleResources@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x180120840
+ * XREFs of ?EnsureComputeScribbleResources@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F71B0
  * Callers:
  *     <none>
  * Callees:

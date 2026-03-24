@@ -1,10 +1,11 @@
 /*
- * XREFs of SeAssignSecurity @ 0x1407C2210
+ * XREFs of SeAssignSecurity @ 0x1406E32F0
  * Callers:
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmFcInitSystem2 @ 0x140B3A224 (CmFcInitSystem2.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x14078DAF0 (CmpCreateHiveRootCell.c)
+ *     CmFcInitSystem2 @ 0x140A38398 (CmFcInitSystem2.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurity(
@@ -16,25 +17,26 @@ NTSTATUS __stdcall SeAssignSecurity(
         PGENERIC_MAPPING GenericMapping,
         POOL_TYPE PoolType)
 {
-  unsigned int v7; // r11d
-  _BYTE *v8; // r10
+  unsigned int v7; // r10d
 
   v7 = 0;
   if ( ParentDescriptor )
   {
-    v8 = (char *)ExplicitDescriptor + 2;
-    if ( (!ExplicitDescriptor || (*v8 & 4) == 0) && _bittest16((const signed __int16 *)ParentDescriptor + 1, 0xAu) )
-      v7 = 1;
-    if ( !ExplicitDescriptor || (*v8 & 0x10) == 0 )
+    if ( (!ExplicitDescriptor || (*((_BYTE *)ExplicitDescriptor + 2) & 4) == 0)
+      && (*((_WORD *)ParentDescriptor + 1) & 0x400) != 0 )
     {
-      if ( _bittest16((const signed __int16 *)ParentDescriptor + 1, 0xBu) )
-        v7 |= 2u;
+      v7 = 1;
+    }
+    if ( (!ExplicitDescriptor || (*((_BYTE *)ExplicitDescriptor + 2) & 0x10) == 0)
+      && (*((_WORD *)ParentDescriptor + 1) & 0x800) != 0 )
+    {
+      v7 |= 2u;
     }
   }
   return RtlpNewSecurityObject(
            (__int64)ParentDescriptor,
            ExplicitDescriptor,
-           (__int64 *)NewDescriptor,
+           NewDescriptor,
            0LL,
            0,
            IsDirectoryObject,

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Dispose@FxDmaTransactionBase@@UEAAEXZ @ 0x1C00590A0
+ * XREFs of ?Dispose@FxDmaTransactionBase@@UEAAEXZ @ 0x1C0036430
  * Callers:
- *     ?Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ @ 0x1C0057E50 (-Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ.c)
+ *     ?Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ @ 0x1C0034F90 (-Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_ql @ 0x1C0053CE8 (WPP_IFR_SF_ql.c)
- *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C0068854 (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_ql @ 0x1C002FAEC (WPP_IFR_SF_ql.c)
+ *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C004F104 (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 unsigned __int8 __fastcall FxDmaTransactionBase::Dispose(FxDmaTransactionBase *this, __int64 a2)

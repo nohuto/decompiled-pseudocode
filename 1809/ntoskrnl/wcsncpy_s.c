@@ -1,16 +1,16 @@
 /*
- * XREFs of wcsncpy_s @ 0x14019BE50
+ * XREFs of wcsncpy_s @ 0x14019BE70
  * Callers:
- *     _wsplitpath_s @ 0x14019B260 (_wsplitpath_s.c)
- *     LocalGetAclForString @ 0x1406AFCAC (LocalGetAclForString.c)
- *     LocalGetStringForControl @ 0x1408A61B0 (LocalGetStringForControl.c)
- *     GetOperatorIndexByName @ 0x1408A7E7C (GetOperatorIndexByName.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A6C (EtwSetPerformanceTraceInformation.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1408BB920 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     ExpFindArcName @ 0x1408D0578 (ExpFindArcName.c)
- *     ExpParseSignatureName @ 0x1408D13F8 (ExpParseSignatureName.c)
+ *     _wsplitpath_s @ 0x14019B280 (_wsplitpath_s.c)
+ *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalGetStringForControl @ 0x1408A6190 (LocalGetStringForControl.c)
+ *     GetOperatorIndexByName @ 0x1408A7E5C (GetOperatorIndexByName.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x1408BB900 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     ExpFindArcName @ 0x1408D0558 (ExpFindArcName.c)
+ *     ExpParseSignatureName @ 0x1408D13D8 (ExpParseSignatureName.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)

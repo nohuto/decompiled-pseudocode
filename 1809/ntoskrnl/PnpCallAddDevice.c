@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpCallAddDevice @ 0x14070CC30
+ * XREFs of PnpCallAddDevice @ 0x14070CC10
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C6C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
  * Callees:
  *     PnpSetDeviceAffinityThread @ 0x14000EA6C (PnpSetDeviceAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     PpvUtilCallAddDevice @ 0x14016BD04 (PpvUtilCallAddDevice.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     McTemplateK0q @ 0x14028AFFC (McTemplateK0q.c)
- *     McTemplateK0qhzr1z @ 0x14028B068 (McTemplateK0qhzr1z.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     PpvUtilCallAddDevice @ 0x14016BD24 (PpvUtilCallAddDevice.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McTemplateK0q @ 0x14028B0FC (McTemplateK0q.c)
+ *     McTemplateK0qhzr1z @ 0x14028B168 (McTemplateK0qhzr1z.c)
  */
 
 __int64 __fastcall PnpCallAddDevice(

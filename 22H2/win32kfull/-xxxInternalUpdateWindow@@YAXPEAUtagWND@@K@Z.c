@@ -1,16 +1,17 @@
 /*
- * XREFs of ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C008B640
+ * XREFs of ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00F5200
  * Callers:
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     NtUserUpdateWindow @ 0x1C00AD040 (NtUserUpdateWindow.c)
- *     ?xxxUpdateThreadsWindows@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C01571A6 (-xxxUpdateThreadsWindows@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@PEAUHRGN__@@@Z.c)
- *     xxxPrintWindow @ 0x1C01BCFE4 (xxxPrintWindow.c)
- *     ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01C9F1C (-xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z.c)
- *     xxxMNOpenHierarchy @ 0x1C0218BF0 (xxxMNOpenHierarchy.c)
- *     xxxDragObject @ 0x1C022F868 (xxxDragObject.c)
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     xxxUpdateWindow @ 0x1C00F51E0 (xxxUpdateWindow.c)
+ *     xxxPrintWindow @ 0x1C01E7D10 (xxxPrintWindow.c)
+ *     ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F3580 (-xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z.c)
+ *     xxxUpdateThreadsWindows @ 0x1C0212ABC (xxxUpdateThreadsWindows.c)
+ *     xxxbFullscreenSwitch @ 0x1C021E2EC (xxxbFullscreenSwitch.c)
+ *     xxxMNOpenHierarchy @ 0x1C02394F8 (xxxMNOpenHierarchy.c)
+ *     xxxDragObject @ 0x1C02480D4 (xxxDragObject.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
  * Callees:
- *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C008B690 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C00F5250 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
  */
 
 void __fastcall xxxInternalUpdateWindow(struct tagWND *a1, unsigned int a2)

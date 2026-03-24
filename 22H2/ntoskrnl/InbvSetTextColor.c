@@ -1,16 +1,16 @@
 /*
- * XREFs of InbvSetTextColor @ 0x14054E760
+ * XREFs of InbvSetTextColor @ 0x1404FED40
  * Callers:
- *     DisplayBootBitmap @ 0x1403A9958 (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1403B46F0 (DisplayBootBitmap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 InbvSetTextColor()
 {
   __int64 (*v0)(void); // rax
 
-  if ( qword_140C6AC58 && (v0 = *(__int64 (**)(void))(qword_140C6AC58 + 80)) != 0LL )
+  if ( qword_140C50B78 && (v0 = *(__int64 (**)(void))(qword_140C50B78 + 80)) != 0LL )
     return v0();
   else
     return 0xFFFFFFFFLL;

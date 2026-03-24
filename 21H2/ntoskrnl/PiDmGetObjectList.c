@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmGetObjectList @ 0x1406DD014
+ * XREFs of PiDmGetObjectList @ 0x1406C0378
  * Callers:
- *     PiDmGetCmObjectListFromCache @ 0x1406DCFC0 (PiDmGetCmObjectListFromCache.c)
- *     PiPnpRtlObjectActionCallback @ 0x14077AA70 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140636410 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1406C0324 (PiDmGetCmObjectListFromCache.c)
  * Callees:
- *     PiDmEnumObjectsWithCallback @ 0x140779850 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406350E8 (PiDmEnumObjectsWithCallback.c)
  */
 
-__int64 __fastcall PiDmGetObjectList(__int64 a1, __int64 a2, __int64 a3, _WORD *a4, unsigned int a5, _DWORD *a6)
+__int64 __fastcall PiDmGetObjectList(unsigned int a1, __int64 a2, __int64 a3, _WORD *a4, unsigned int a5, _DWORD *a6)
 {
   int v7; // edx
   int v8; // ecx
@@ -21,7 +21,10 @@ __int64 __fastcall PiDmGetObjectList(__int64 a1, __int64 a2, __int64 a3, _WORD *
   v11 = a5;
   if ( a5 )
     *a4 = 0;
-  v7 = PiDmEnumObjectsWithCallback(a1, PiDmGetObjectListCallback, v10);
+  v7 = PiDmEnumObjectsWithCallback(
+         a1,
+         (__int64 (__fastcall *)(void *, __int64, _BYTE *))PiDmGetObjectListCallback,
+         (__int64)v10);
   if ( v7 >= 0 )
   {
     v8 = HIDWORD(v11);

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExUpdateSystemTimeFromCmos @ 0x140A88304
+ * XREFs of ExUpdateSystemTimeFromCmos @ 0x14098F8C4
  * Callers:
- *     ExpTimeRefreshWork @ 0x140A920C0 (ExpTimeRefreshWork.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
- *     KdpTimeSlipWork @ 0x140AB1480 (KdpTimeSlipWork.c)
+ *     ExpTimeRefreshWork @ 0x14098F840 (ExpTimeRefreshWork.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     KdpTimeSlipWork @ 0x1409B8FB0 (KdpTimeSlipWork.c)
  * Callees:
- *     HalQueryRealTimeClock @ 0x14033AF30 (HalQueryRealTimeClock.c)
- *     ExLocalTimeToSystemTime @ 0x14033B0A0 (ExLocalTimeToSystemTime.c)
- *     RtlTimeFieldsToTime @ 0x14033B150 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExpSetSystemTime @ 0x140AAAD24 (ExpSetSystemTime.c)
+ *     ExLocalTimeToSystemTime @ 0x14030CC80 (ExLocalTimeToSystemTime.c)
+ *     HalQueryRealTimeClock @ 0x14030CCC0 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x14030D050 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExpSetSystemTime @ 0x140998FB8 (ExpSetSystemTime.c)
  */
 
 char __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)

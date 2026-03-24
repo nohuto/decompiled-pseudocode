@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTimerQueryWakeTime @ 0x140398F60
+ * XREFs of HalpTimerQueryWakeTime @ 0x14038D9D0
  * Callers:
  *     <none>
  * Callees:

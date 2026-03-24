@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01D525C
+ * XREFs of ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01DAE58
  * Callers:
- *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01D53B0 (-xxxSwitchCursors@@YAXHH@Z.c)
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01DAFB0 (-xxxSwitchCursors@@YAXHH@Z.c)
  * Callees:
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00A1C0C (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     xxxClientLoadImage @ 0x1C00A2F18 (xxxClientLoadImage.c)
- *     RtlInitUnicodeStringOrId @ 0x1C00BC910 (RtlInitUnicodeStringOrId.c)
+ *     xxxClientLoadImage @ 0x1C0022900 (xxxClientLoadImage.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00249F4 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C0025544 (RtlInitUnicodeStringOrId.c)
  */
 
 void __fastcall Feedback::xxxReplaceMouseCursorsWithPenCursors(Feedback *this)
@@ -18,7 +18,7 @@ void __fastcall Feedback::xxxReplaceMouseCursorsWithPenCursors(Feedback *this)
   unsigned __int8 *Image; // rax
   struct _UNICODE_STRING v7; // [rsp+40h] [rbp-18h] BYREF
 
-  v1 = (unsigned __int16 *)&unk_1C02F3CC0;
+  v1 = (unsigned __int16 *)&unk_1C02F69C0;
   v2 = 4LL;
   v7 = 0LL;
   v3 = *(_DWORD *)(gpsi + 2056LL);

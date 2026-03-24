@@ -1,265 +1,147 @@
 /*
- * XREFs of _anonymous_namespace_::CanSetForegroundWindow @ 0x1C005F270
+ * XREFs of _anonymous_namespace_::CanSetForegroundWindow @ 0x1C003CA90
  * Callers:
- *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C005E3E8 (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C003AFFC (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C005F1AC (WPP_RECORDER_AND_TRACE_SF_s.c)
- *     IsDebuggerAttached @ 0x1C005FB64 (IsDebuggerAttached.c)
- *     _anonymous_namespace_::CheckCanonicalForegroundAccess @ 0x1C005FC30 (_anonymous_namespace_--CheckCanonicalForegroundAccess.c)
- *     IsForegroundLocked @ 0x1C005FED4 (IsForegroundLocked.c)
- *     _anonymous_namespace_::CheckImmersiveForegroundAccess @ 0x1C005FEFC (_anonymous_namespace_--CheckImmersiveForegroundAccess.c)
- *     IsNonImmersiveBand @ 0x1C00CEFB4 (IsNonImmersiveBand.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     IsNonImmersiveBand @ 0x1C00372D4 (IsNonImmersiveBand.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     WPP_RECORDER_SF_s @ 0x1C003B7A4 (WPP_RECORDER_SF_s.c)
+ *     _anonymous_namespace_::CheckImmersiveForegroundAccess @ 0x1C003C690 (_anonymous_namespace_--CheckImmersiveForegroundAccess.c)
+ *     IsDebuggerAttached @ 0x1C003CE18 (IsDebuggerAttached.c)
+ *     ?CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z @ 0x1C003D134 (-CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z.c)
+ *     IsForegroundLocked @ 0x1C003D1C4 (IsForegroundLocked.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall anonymous_namespace_::CanSetForegroundWindow(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall anonymous_namespace_::CanSetForegroundWindow(__int64 a1, _WORD *a2, __int64 a3)
 {
-  unsigned int v4; // r15d
-  __int64 v6; // r14
-  PDEVICE_OBJECT v7; // rcx
-  char v8; // di
-  int v9; // edx
+  unsigned int v3; // r14d
+  __int64 v4; // rdi
+  __int64 v5; // rbp
+  __int64 v6; // rcx
   __int64 CurrentProcess; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // r8
+  __int64 v8; // rcx
   struct tagTHREADINFO *PtiLastWokenHotKey; // rax
-  __int64 v17; // rdx
-  int v18; // edx
-  int v19; // r8d
-  int v20; // eax
-  char v22; // r14
-  const char *v23; // rax
-  int v24; // eax
-  __int16 v25; // [rsp+30h] [rbp-38h]
+  __int64 v10; // rdx
+  char v11; // di
+  const char *v12; // rcx
+  int v14; // r9d
+  __int64 v15; // rdx
+  int v16; // r9d
 
-  v4 = a2;
-  v6 = *(_QWORD *)(gptiCurrent + 424LL);
+  v3 = (unsigned int)a2;
+  v4 = a1;
+  v5 = *(_QWORD *)(gptiCurrent + 424LL);
   if ( *(_DWORD *)(*(_QWORD *)(a1 + 40) + 236LL) == 15 )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      LOBYTE(a2) = 0;
-    }
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        37,
-        4,
-        2,
-        37,
-        (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids);
-    }
-    return 1LL;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return 1LL;
+    v14 = 24;
+    goto LABEL_23;
   }
-  if ( *(int *)(v6 + 12) < 0 )
+  if ( *(int *)(v5 + 12) < 0 )
   {
     gppiLockSFW = 0LL;
-    v7 = WPP_GLOBAL_Control;
-    v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return 2LL;
-    v9 = 38;
-LABEL_88:
-    v25 = v9;
-    LOBYTE(v9) = v8;
-    WPP_RECORDER_AND_TRACE_SF_(
-      v7->AttachedDevice,
-      v9,
-      a3,
-      a4,
-      4,
-      2,
-      v25,
-      (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids);
+    v16 = 25;
+    goto LABEL_32;
+  }
+  v6 = grpdeskRitInput;
+  if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput && ((_DWORD)a2 == 31 || IAMThreadAccessGranted(gptiCurrent)) )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_(v6, (_DWORD)a2, 2, 26, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+    }
+    gppiLockSFW = 0LL;
     return 2LL;
   }
-  if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput && (_DWORD)a2 == 31 )
+  CurrentProcess = PsGetCurrentProcess(v6, a2, a3);
+  if ( (unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    gppiLockSFW = 0LL;
-    v7 = WPP_GLOBAL_Control;
-    v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return 2LL;
-    v9 = 39;
-    goto LABEL_88;
-  }
-  CurrentProcess = PsGetCurrentProcess(grpdeskRitInput, a2, a3);
-  if ( (unsigned int)IsProcessDwm(CurrentProcess)
-    && **(_WORD **)(*(_QWORD *)(a1 + 136) + 8LL) != *(_WORD *)(gpsi + 900LL) )
-  {
-    v7 = WPP_GLOBAL_Control;
-    v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return 2LL;
-    v9 = 40;
-    goto LABEL_88;
-  }
-  if ( !LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) )
-  {
-    if ( (unsigned int)IsDebuggerAttached(v6) && (unsigned int)IsNonImmersiveBand(a1, v11, v12) )
+    a2 = *(_WORD **)(*(_QWORD *)(v4 + 136) + 8LL);
+    LODWORD(a1) = gpsi;
+    if ( *a2 != *(_WORD *)(gpsi + 900LL) )
     {
-      v7 = WPP_GLOBAL_Control;
-      v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-        && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return 2LL;
-      v9 = 41;
-      goto LABEL_88;
+      v16 = 27;
+LABEL_32:
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_(a1, (_DWORD)a2, 2, v16, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+      return 2LL;
+    }
+  }
+  if ( !gfDebugForegroundIgnoreDebugPort )
+  {
+    if ( (unsigned int)IsDebuggerAttached(v5) && IsNonImmersiveBand(v4) )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return 2LL;
+      v16 = 28;
+      goto LABEL_32;
     }
     if ( gpqForeground )
     {
-      v13 = *(_QWORD *)(gpqForeground + 128LL);
-      if ( v13 )
+      v8 = *(_QWORD *)(gpqForeground + 120LL);
+      if ( v8 )
       {
-        if ( (unsigned int)IsDebuggerAttached(*(_QWORD *)(*(_QWORD *)(v13 + 16) + 424LL))
-          && (unsigned int)IsNonImmersiveBand(a1, v14, v15) )
+        if ( (unsigned int)IsDebuggerAttached(*(_QWORD *)(*(_QWORD *)(v8 + 16) + 424LL)) && IsNonImmersiveBand(v4) )
         {
-          v7 = WPP_GLOBAL_Control;
-          v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             return 2LL;
-          v9 = 42;
-          goto LABEL_88;
+          v16 = 29;
+          goto LABEL_32;
         }
       }
     }
   }
-  v8 = 1;
-  if ( gptiCurrent == GetProp(a1, LOWORD(WPP_MAIN_CB.DeviceLock.Header.SignalState), 1LL) )
+  if ( gptiCurrent == GetProp(v4, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL) )
   {
-    v7 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-    {
-      v8 = 0;
-    }
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return 2LL;
-    v9 = 43;
-    goto LABEL_88;
+    v16 = 30;
+    goto LABEL_32;
   }
-  if ( v6 == gppiScreenSaver )
+  if ( v5 == gppiScreenSaver )
   {
-    v7 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-    {
-      v8 = 0;
-    }
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return 2LL;
-    v9 = 44;
-    goto LABEL_88;
+    v16 = 31;
+    goto LABEL_32;
   }
   PtiLastWokenHotKey = CInputGlobals::GetPtiLastWokenHotKey(gpInputGlobals);
   if ( PtiLastWokenHotKey
     && *((_QWORD *)PtiLastWokenHotKey + 53) == *(_QWORD *)(gptiCurrent + 424LL)
     && !(unsigned int)IsForegroundLocked()
-    && (unsigned int)IsDesktopApp(v17, v17) )
+    && (unsigned int)IsDesktopApp(v15) )
   {
-    v7 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-    {
-      v8 = 0;
-    }
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return 2LL;
-    v9 = 45;
-    goto LABEL_88;
+    v16 = 32;
+    goto LABEL_32;
   }
-  if ( !(unsigned __int8)anonymous_namespace_::CheckImmersiveForegroundAccess(a1, v4) )
+  if ( !anonymous_namespace_::CheckImmersiveForegroundAccess(v4, v3) )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || (LOBYTE(v18) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      LOBYTE(v18) = 0;
-    }
-    if ( (_BYTE)v18 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v19) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v18,
-        v19,
-        46,
-        4,
-        2,
-        46,
-        (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids);
-    }
-    if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput )
-    {
-      LOBYTE(v20) = IAMThreadAccessGranted(gptiCurrent);
-      if ( v20 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1645LL);
-    }
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return 1LL;
+    v14 = 33;
+LABEL_23:
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_(a1, (_DWORD)a2, 2, v14, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
     return 1LL;
   }
-  v22 = anonymous_namespace_::CheckCanonicalForegroundAccess(v4);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+  v11 = CheckCanonicalForegroundAccess(v3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v8 = 0;
+    v12 = "HasRight";
+    if ( !v11 )
+      v12 = "NoRights";
+    WPP_RECORDER_SF_s((__int64)v12, v10, 2u, 0x22u, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids, v12);
   }
-  if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v23 = "HasRight";
-    if ( !v22 )
-      v23 = "NoRights";
-    WPP_RECORDER_AND_TRACE_SF_s(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
-      v8,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (__int64)gFullLog,
-      4u,
-      2u,
-      0x2Fu,
-      (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids,
-      v23);
-  }
-  if ( v22 )
-    return 2LL;
-  if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput )
-  {
-    LOBYTE(v24) = IAMThreadAccessGranted(gptiCurrent);
-    if ( v24 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1663LL);
-  }
-  return 0LL;
+  return v11 != 0 ? 2 : 0;
 }

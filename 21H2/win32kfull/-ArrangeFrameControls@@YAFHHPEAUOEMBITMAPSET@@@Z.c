@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z @ 0x1C00C3490
+ * XREFs of ?ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z @ 0x1C0107670
  * Callers:
- *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C00C3180 (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
+ *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C01074EC (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
  * Callees:
  *     <none>
  */

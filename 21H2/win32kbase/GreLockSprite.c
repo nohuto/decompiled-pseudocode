@@ -1,15 +1,15 @@
 /*
- * XREFs of GreLockSprite @ 0x1C0030D20
+ * XREFs of GreLockSprite @ 0x1C003BAF0
  * Callers:
- *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006FB60 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
- *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C0075534 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C00106D8 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0010D28 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
 __int64 GreLockSprite()
 {
-  EngAcquireSemaphore((HSEMAPHORE)ghsemSprite);
+  EngAcquireSemaphore(ghsemSprite);
   return EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
 }

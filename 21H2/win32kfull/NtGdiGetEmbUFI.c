@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiGetEmbUFI @ 0x1C02AD440
+ * XREFs of NtGdiGetEmbUFI @ 0x1C02AED10
  * Callers:
  *     <none>
  * Callees:
- *     GreGetUFI @ 0x1C013C2B0 (GreGetUFI.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreGetUFI @ 0x1C014F860 (GreGetUFI.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtGdiGetEmbUFI(

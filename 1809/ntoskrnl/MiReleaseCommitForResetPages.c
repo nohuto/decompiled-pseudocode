@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReleaseCommitForResetPages @ 0x1402A4CC4
+ * XREFs of MiReleaseCommitForResetPages @ 0x1402A4DC4
  * Callers:
- *     KiOutSwapProcesses @ 0x14010B430 (KiOutSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x14010B450 (KiOutSwapProcesses.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,12 +10,12 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeForceDetachProcess @ 0x140127F54 (KeForceDetachProcess.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1402A3E30 (MiIsVadEligibleForCommitRelease.c)
- *     MiLogResetPagesCommitRelease @ 0x1402A4180 (MiLogResetPagesCommitRelease.c)
- *     MiWalkResetCommitPages @ 0x1402A5260 (MiWalkResetCommitPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x1402A3F30 (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x1402A4280 (MiLogResetPagesCommitRelease.c)
+ *     MiWalkResetCommitPages @ 0x1402A5360 (MiWalkResetCommitPages.c)
  */
 
 LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)

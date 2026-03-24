@@ -1,14 +1,22 @@
 /*
- * XREFs of ?GetContainingAdapter@VIDPN_MGR@@QEBAPEAVDXGADAPTER@@XZ @ 0x1C0027038
+ * XREFs of ?GetContainingAdapter@VIDPN_MGR@@QEBAPEAVDXGADAPTER@@XZ @ 0x1C00287FC
  * Callers:
- *     ?DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B3158 (-DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILUR.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C00E767C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
  * Callees:
  *     <none>
  */
 
-struct DXGADAPTER *__fastcall VIDPN_MGR::GetContainingAdapter(VIDPN_MGR *this)
+struct DXGADAPTER *__fastcall VIDPN_MGR::GetContainingAdapter(VIDPN_MGR *this, __int64 a2)
 {
-  if ( !*((_QWORD *)this + 1) )
-    WdLogSingleEntry0(1LL);
-  return *(struct DXGADAPTER **)(*((_QWORD *)this + 1) + 16LL);
+  __int64 v2; // rax
+  __int64 v4; // rax
+
+  v2 = *((_QWORD *)this + 1);
+  if ( !v2 )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v4);
+    v2 = *((_QWORD *)this + 1);
+  }
+  return *(struct DXGADAPTER **)(v2 + 16);
 }

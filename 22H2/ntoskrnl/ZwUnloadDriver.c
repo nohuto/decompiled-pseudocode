@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwUnloadDriver @ 0x14041E160
+ * XREFs of ZwUnloadDriver @ 0x1403FD320
  * Callers:
- *     DifZwUnloadDriverWrapper @ 0x1405F8050 (DifZwUnloadDriverWrapper.c)
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407D5BF0 (EtwpUpdateFileInfoDriverState.c)
- *     IopUnloadDriver @ 0x1408585F4 (IopUnloadDriver.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
+ *     IopUnloadDriver @ 0x140768DB8 (IopUnloadDriver.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140793488 (EtwpUpdateFileInfoDriverState.c)
  * Callees:
  *     <none>
  */

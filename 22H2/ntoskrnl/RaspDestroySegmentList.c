@@ -1,49 +1,60 @@
 /*
- * XREFs of RaspDestroySegmentList @ 0x1403851C0
+ * XREFs of RaspDestroySegmentList @ 0x1403AD25C
  * Callers:
- *     RaspScanConvert @ 0x140385440 (RaspScanConvert.c)
- *     RaspCreateSegmentList @ 0x1403863FC (RaspCreateSegmentList.c)
+ *     RaspScanConvert @ 0x1403AD430 (RaspScanConvert.c)
+ *     RaspCreateSegmentList @ 0x1403AE450 (RaspCreateSegmentList.c)
  * Callees:
- *     RaspFreeMemory @ 0x140385284 (RaspFreeMemory.c)
+ *     RaspFreeMemory @ 0x1403AD328 (RaspFreeMemory.c)
  */
 
 __int64 __fastcall RaspDestroySegmentList(__int64 a1, unsigned int a2, __int64 a3)
 {
-  unsigned int v3; // esi
-  _BYTE *v7; // rbx
-  _QWORD *v8; // r14
-  __int64 v10; // rcx
+  int v3; // ebp
+  char *i; // rbx
+  char *v8; // rsi
+  char v9; // al
   __int64 v11; // rcx
+  __int64 v12; // rcx
 
   v3 = 0;
   if ( a2 )
   {
-    v7 = (_BYTE *)(a1 + 24);
-    do
+    for ( i = (char *)(a1 + 24); ; i += 25 )
     {
-      v8 = v7 - 24;
-      if ( v7 == (_BYTE *)24 )
+      v8 = i - 24;
+      if ( i == (char *)24 )
+        return RaspFreeMemory(a1, a3);
+      v9 = *i;
+      if ( *i == 3 )
+      {
+        v9 = 3;
+        if ( *(_QWORD *)v8 )
+        {
+          RaspFreeMemory(*(_QWORD *)v8, a3);
+          v9 = *i;
+        }
+      }
+      if ( v9 != 4 )
+        goto LABEL_6;
+      v12 = *((_QWORD *)i - 1);
+      if ( v12 )
         break;
-      if ( *v7 == 3 && *v8 )
-        RaspFreeMemory(*v8, a3);
-      if ( *v7 == 4 )
-      {
-        v11 = *((_QWORD *)v7 - 1);
-        if ( v11 )
-          RaspFreeMemory(v11, a3);
-      }
-      if ( *v7 == 5 )
-      {
-        if ( *v8 )
-          RaspFreeMemory(*v8, a3);
-        v10 = *((_QWORD *)v7 - 1);
-        if ( v10 )
-          RaspFreeMemory(v10, a3);
-      }
-      v7 += 25;
-      ++v3;
+LABEL_7:
+      if ( ++v3 >= a2 )
+        return RaspFreeMemory(a1, a3);
     }
-    while ( v3 < a2 );
+    RaspFreeMemory(v12, a3);
+    v9 = *i;
+LABEL_6:
+    if ( v9 == 5 )
+    {
+      if ( *(_QWORD *)v8 )
+        RaspFreeMemory(*(_QWORD *)v8, a3);
+      v11 = *((_QWORD *)i - 1);
+      if ( v11 )
+        RaspFreeMemory(v11, a3);
+    }
+    goto LABEL_7;
   }
   return RaspFreeMemory(a1, a3);
 }

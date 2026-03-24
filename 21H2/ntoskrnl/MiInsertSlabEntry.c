@@ -1,33 +1,32 @@
 /*
- * XREFs of MiInsertSlabEntry @ 0x1403C2B24
+ * XREFs of MiInsertSlabEntry @ 0x14039A0CC
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1405B1974 (MiReplenishSlabAllocator.c)
- *     MiCreateBootSlabEntries @ 0x140B04E44 (MiCreateBootSlabEntries.c)
- *     MmUpdateSlabRangeType @ 0x140B52548 (MmUpdateSlabRangeType.c)
+ *     MiReplenishSlabAllocator @ 0x140392814 (MiReplenishSlabAllocator.c)
+ *     MiCreateBootSlabEntries @ 0x140A4F8C0 (MiCreateBootSlabEntries.c)
+ *     MmUpdateSlabRangeProtection @ 0x140A929A8 (MmUpdateSlabRangeProtection.c)
  * Callees:
- *     MiCompareSlabEntry @ 0x140248F48 (MiCompareSlabEntry.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSlabCurrentTime @ 0x1404192EC (MiGetSlabCurrentTime.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     MiCompareSlabEntry @ 0x140379C58 (MiCompareSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   KIRQL v6; // al
-  unsigned __int64 v7; // rdi
+  unsigned __int64 v7; // rbx
   unsigned __int64 v8; // r14
   bool v9; // r8
   int v10; // ebp
   unsigned __int64 v11; // rax
-  __int64 v12; // rdx
+  __int64 v12; // rcx
   unsigned int v13; // eax
-  unsigned int v14; // ecx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v18; // zf
+  bool v17; // zf
 
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a2 + 16));
   v7 = *(_QWORD *)a2;
@@ -77,17 +76,14 @@ LABEL_16:
   }
   RtlRbInsertNodeEx((unsigned __int64 *)a2, v7, v9, a3);
   v12 = *(_QWORD *)(a2 + 24);
-  if ( !v12 || (v13 = *(_DWORD *)(a3 + 132), v14 = v13, *(_DWORD *)(v12 + 132) > v13) && v13 )
-  {
+  if ( !v12 || (v13 = *(_DWORD *)(a3 + 132), *(_DWORD *)(v12 + 132) > v13) && v13 )
     *(_QWORD *)(a2 + 24) = a3;
-    v14 = *(_DWORD *)(a3 + 132);
-  }
-  *(_QWORD *)(a2 + 32) += v14;
+  *(_QWORD *)(a2 + 32) += *(unsigned int *)(a3 + 132);
   ++*(_QWORD *)(a2 + 40);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17536), 0x200uLL);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7632), 0x200uLL);
   if ( *(_DWORD *)(a3 + 132) == 512 )
   {
-    *(_QWORD *)(a2 + 152) = MiGetSlabCurrentTime();
+    *(_QWORD *)(a2 + 104) = KiQueryUnbiasedInterruptTime();
     *(_DWORD *)(a2 + 56) |= 1u;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
@@ -102,9 +98,9 @@ LABEL_16:
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v18 )
+        if ( v17 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

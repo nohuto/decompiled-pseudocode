@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_SignalingDeviceQueryTextEvent @ 0x1C00206E0
+ * XREFs of HUBDSM_SignalingDeviceQueryTextEvent @ 0x1C001DCC0
  * Callers:
  *     <none>
  * Callees:

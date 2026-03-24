@@ -1,53 +1,53 @@
 /*
- * XREFs of PfTAccessTracingCleanup @ 0x140A874E0
+ * XREFs of PfTAccessTracingCleanup @ 0x14099A9EC
  * Callers:
- *     PfTTraceListAdd @ 0x14075F1E8 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x14097F218 (PfTCleanup.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140AA0194 (PfpPowerActionStartScenarioTracing.c)
+ *     PfTTraceListAdd @ 0x14062FFAC (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x1408E040C (PfTCleanup.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140990F10 (PfpPowerActionStartScenarioTracing.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MmFreeAccessPfnBuffer @ 0x1402F55AC (MmFreeAccessPfnBuffer.c)
- *     MmGetDefaultPagePriority @ 0x1402F5F64 (MmGetDefaultPagePriority.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     MmSetAccessLogging @ 0x14036A840 (MmSetAccessLogging.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     MmEnablePeriodicAccessClearing @ 0x140A88A18 (MmEnablePeriodicAccessClearing.c)
- *     PfTAccessTracingInitialize @ 0x140A88A4C (PfTAccessTracingInitialize.c)
+ *     MmGetDefaultPagePriority @ 0x14026E790 (MmGetDefaultPagePriority.c)
+ *     MmFreeAccessPfnBuffer @ 0x14026E7A0 (MmFreeAccessPfnBuffer.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     MmSetAccessLogging @ 0x140380304 (MmSetAccessLogging.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     MmEnablePeriodicAccessClearing @ 0x1409904F8 (MmEnablePeriodicAccessClearing.c)
+ *     PfTAccessTracingInitialize @ 0x14099AAE4 (PfTAccessTracingInitialize.c)
  */
 
 void __fastcall PfTAccessTracingCleanup(__int64 a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v4; // rsi
-  char v8; // r15
+  char v6; // r14
+  volatile signed __int64 *v7; // rsi
   int DefaultPagePriority; // eax
-  PSLIST_ENTRY v10; // rdi
+  PSLIST_ENTRY v9; // rdi
   _QWORD *p_Next; // rcx
 
   CurrentThread = KeGetCurrentThread();
-  v4 = (volatile signed __int64 *)(a1 + 16);
-  v8 = a3 == 4;
+  v6 = a3 == 4;
   --CurrentThread->KernelApcDisable;
+  v7 = (volatile signed __int64 *)(a1 + 16);
   ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
   *(_DWORD *)(a1 + 12) |= a3;
   DefaultPagePriority = MmGetDefaultPagePriority();
   MmSetAccessLogging(0, DefaultPagePriority);
-  *(_DWORD *)(a2 + 40) = 0;
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a2 + 8));
-  v10 = RtlpInterlockedFlushSList(&stru_140D0C240);
-  while ( v10 )
+  dword_140CEC328 = 0;
+  ExWaitForRundownProtectionRelease(&RunRef);
+  v9 = RtlpInterlockedFlushSList(&ListHead);
+  while ( v9 )
   {
-    p_Next = &v10->Next;
-    v10 = v10->Next;
-    MmFreeAccessPfnBuffer(p_Next, v8);
+    p_Next = &v9->Next;
+    v9 = v9->Next;
+    MmFreeAccessPfnBuffer(p_Next, v6);
   }
-  MmEnablePeriodicAccessClearing(0LL);
-  PfTAccessTracingInitialize(a1, a2, 1LL);
-  if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v4);
-  KeAbPostRelease((ULONG_PTR)v4);
+  MmEnablePeriodicAccessClearing(0);
+  PfTAccessTracingInitialize(a1, &PfKernelGlobals, 1LL);
+  if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v7);
+  KeAbPostRelease((ULONG_PTR)v7);
   KeLeaveCriticalRegion();
 }

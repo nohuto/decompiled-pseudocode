@@ -1,19 +1,19 @@
 /*
- * XREFs of PiQueryAndAllocateBootResources @ 0x14078FF34
+ * XREFs of PiQueryAndAllocateBootResources @ 0x14074FA7C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
@@ -72,21 +72,21 @@ __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-        v1 = Data;
         if ( Data )
           ZwSetValueKey(KeyHandle, &ValueName, 0, 8u, Data, DataSize);
         else
           ZwDeleteValueKey(KeyHandle, &ValueName);
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
-        KeLeaveCriticalRegion();
-        if ( !v1 )
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        v1 = Data;
+        if ( !Data )
           goto LABEL_11;
         v3 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID))IopAllocateBootResourcesRoutine)(
                4LL,
                *(_QWORD *)(a1 + 32),
-               v1);
+               Data);
         if ( v3 >= 0 )
-          PipSetDevNodeFlags(a1, 64LL);
+          PipSetDevNodeFlags(a1, 64);
       }
     }
   }

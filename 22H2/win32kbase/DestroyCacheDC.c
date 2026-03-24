@@ -1,141 +1,138 @@
 /*
- * XREFs of DestroyCacheDC @ 0x1C005D380
+ * XREFs of DestroyCacheDC @ 0x1C0008970
  * Callers:
- *     DestroyMonitorDCs @ 0x1C00122F0 (DestroyMonitorDCs.c)
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
- *     ReleaseCacheDC @ 0x1C004C160 (ReleaseCacheDC.c)
- *     xxxUserProcessCallout @ 0x1C0050580 (xxxUserProcessCallout.c)
- *     DestroyCacheDCEntries @ 0x1C0050FE8 (DestroyCacheDCEntries.c)
- *     DelayedDestroyCacheDC @ 0x1C00A065C (DelayedDestroyCacheDC.c)
+ *     DelayedDestroyCacheDC @ 0x1C00087FC (DelayedDestroyCacheDC.c)
+ *     DestroyCacheDCEntries @ 0x1C00088C8 (DestroyCacheDCEntries.c)
+ *     ReleaseCacheDC @ 0x1C0037B20 (ReleaseCacheDC.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     xxxUserProcessCallout @ 0x1C003D2A0 (xxxUserProcessCallout.c)
+ *     DestroyMonitorDCs @ 0x1C00C34E0 (DestroyMonitorDCs.c)
  * Callees:
- *     GrepDeleteDC @ 0x1C003B5E0 (GrepDeleteDC.c)
- *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C0041CB0 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
- *     HmgShareLockEx @ 0x1C0041D30 (HmgShareLockEx.c)
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
- *     GreSetDCOwnerEx @ 0x1C004BDD0 (GreSetDCOwnerEx.c)
- *     GreLockVisRgn @ 0x1C0051080 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C0051170 (GreUnlockVisRgn.c)
- *     IsGreSelectRedirectionBitmapSupported @ 0x1C005D4DC (IsGreSelectRedirectionBitmapSupported.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     HmgMarkDeletable @ 0x1C009DCF0 (HmgMarkDeletable.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     IsGreSelectRedirectionBitmapSupported @ 0x1C0008A90 (IsGreSelectRedirectionBitmapSupported.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C002E6D8 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     HmgShareLockEx @ 0x1C002EA50 (HmgShareLockEx.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     GreDeleteObject @ 0x1C0039970 (GreDeleteObject.c)
+ *     GreUnlockVisRgn @ 0x1C0039F20 (GreUnlockVisRgn.c)
+ *     GreLockVisRgn @ 0x1C003A140 (GreLockVisRgn.c)
+ *     bDeleteDCInternalEx @ 0x1C003C730 (bDeleteDCInternalEx.c)
+ *     HmgMarkDeletable @ 0x1C0087350 (HmgMarkDeletable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DestroyCacheDC(char *a1, __int64 a2)
+__int64 __fastcall DestroyCacheDC(__int64 *a1, __int64 a2)
 {
-  char *v3; // rdi
-  unsigned int v4; // esi
-  int v5; // r14d
-  void *v6; // rbx
-  int v7; // eax
-  unsigned __int64 v8; // rbp
-  HPALETTE v9; // rcx
-  HPALETTE v10; // rcx
-  HPALETTE v11; // rcx
-  NSInstrumentation::CLeakTrackingAllocator *v12; // rcx
-  char *i; // rax
-  __int64 v15; // rdx
+  unsigned int v2; // ebp
+  int v3; // r14d
+  __int64 *v5; // rdi
+  __int64 v6; // rbx
+  unsigned __int64 v7; // rsi
+  HBRUSH v8; // rcx
+  HBRUSH v9; // rcx
+  __int64 v10; // rdx
+  __int64 *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
   __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  HDC *v20[7]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v18; // [rsp+20h] [rbp-28h] BYREF
+  int v19; // [rsp+28h] [rbp-20h]
+  int v20; // [rsp+2Ch] [rbp-1Ch]
 
-  v3 = a1;
-  v4 = 0;
-  v5 = 0;
+  v2 = 0;
+  v3 = 0;
+  v5 = a1;
   if ( !a1 )
   {
-    GreLockVisRgn(*((_QWORD *)gpDispInfo + 5));
-    v5 = 1;
-    v3 = (char *)gpDispInfo + 24;
-    for ( i = (char *)*((_QWORD *)gpDispInfo + 3); i; i = *(char **)i )
+    GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+    v3 = 1;
+    v5 = (__int64 *)(gpDispInfo + 24);
+    v12 = *(__int64 **)(gpDispInfo + 24);
+    if ( !v12 )
+      goto LABEL_27;
+    do
     {
-      if ( *((_QWORD *)i + 1) == a2 )
-        goto LABEL_2;
-      v3 = i;
+      if ( v12[1] == a2 )
+        break;
+      v5 = v12;
+      v12 = (__int64 *)*v12;
     }
-    goto LABEL_33;
+    while ( v12 );
+    if ( !v12 || !v5 )
+    {
+LABEL_27:
+      GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+      return 0LL;
+    }
   }
-LABEL_2:
-  if ( !v3 )
+  v6 = *v5;
+  *(_DWORD *)(v6 + 64) |= 0x400000u;
+  if ( (*(_DWORD *)(v6 + 64) & 0x40000) == 0 )
   {
-LABEL_33:
-    GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5));
-    return 0LL;
-  }
-  v6 = *(void **)v3;
-  v7 = *(_DWORD *)(*(_QWORD *)v3 + 64LL) | 0x400000;
-  *(_DWORD *)(*(_QWORD *)v3 + 64LL) = v7;
-  if ( (v7 & 0x40000) == 0 )
-  {
-    v8 = *((_QWORD *)v6 + 5);
-    if ( v8 > 2 )
+    v7 = *(_QWORD *)(v6 + 40);
+    if ( v7 > 2 )
     {
       PsGetCurrentProcessId();
-      LOBYTE(v15) = 4;
-      HmgMarkDeletable(v8, v15);
+      LOBYTE(v13) = 4;
+      HmgMarkDeletable(v7, v13);
+      if ( *(_QWORD *)(v6 + 40) > 2uLL )
+        GreDeleteObject(*(HBRUSH *)(v6 + 40));
     }
-    v9 = (HPALETTE)*((_QWORD *)v6 + 5);
-    if ( (unsigned __int64)v9 > 2 )
-      GreDeleteObject(v9);
-    *((_QWORD *)v6 + 5) = 0LL;
+    *(_QWORD *)(v6 + 40) = 0LL;
   }
-  v10 = (HPALETTE)*((_QWORD *)v6 + 6);
-  if ( v10 )
+  v8 = *(HBRUSH *)(v6 + 48);
+  if ( v8 )
   {
-    GreDeleteObject(v10);
-    *((_QWORD *)v6 + 6) = 0LL;
+    GreDeleteObject(v8);
+    *(_QWORD *)(v6 + 48) = 0LL;
   }
-  v11 = (HPALETTE)*((_QWORD *)v6 + 7);
-  if ( v11 )
+  v9 = *(HBRUSH *)(v6 + 56);
+  if ( v9 )
   {
-    GreDeleteObject(v11);
-    *((_QWORD *)v6 + 7) = 0LL;
+    GreDeleteObject(v9);
+    *(_QWORD *)(v6 + 56) = 0LL;
   }
-  if ( !(unsigned int)GreSetDCOwnerEx(*((_QWORD *)v6 + 1), 0x80000002, 1, 0) )
-    goto LABEL_35;
-  if ( (*((_DWORD *)v6 + 16) & 0x4000) != 0 )
+  if ( !(unsigned int)GreSetDCOwnerEx(*(_QWORD *)(v6 + 8), 2147483650LL, 1LL) )
+    goto LABEL_31;
+  if ( (*(_DWORD *)(v6 + 64) & 0x4000) != 0 )
   {
-    if ( !gbIgnoreStressedOutStuff && !*((_QWORD *)v6 + 4) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2127LL);
-    if ( (int)IsGreSelectRedirectionBitmapSupported() >= 0 && qword_1C0294EA0 )
-      qword_1C0294EA0(*((_QWORD *)v6 + 1), 0LL);
-    *((_DWORD *)v6 + 16) &= ~0x4000u;
-    *((_QWORD *)v6 + 4) = 0LL;
+    if ( (int)IsGreSelectRedirectionBitmapSupported() >= 0 && qword_1C0255AA8 )
+      qword_1C0255AA8(*(_QWORD *)(v6 + 8), 0LL);
+    *(_DWORD *)(v6 + 64) &= ~0x4000u;
+    *(_QWORD *)(v6 + 32) = 0LL;
   }
-  if ( !(unsigned int)GrepDeleteDC(*((HDC *)v6 + 1), 0x400000u) )
+  if ( !(unsigned int)bDeleteDCInternalEx(*(HDC *)(v6 + 8)) )
   {
-    GreSetDCOwnerEx(*((_QWORD *)v6 + 1), 0x80000012, 1, 0);
-LABEL_35:
-    v16 = *((_QWORD *)v6 + 1);
-    *((_QWORD *)v6 + 2) = 0LL;
-    *((_QWORD *)v6 + 3) = 0LL;
-    *((_QWORD *)v6 + 4) = 0LL;
-    *((_QWORD *)v6 + 11) = 0LL;
-    v20[1] = 0LL;
-    v17 = HmgShareLockEx(v16, 1, 0);
-    v20[0] = (HDC *)v17;
-    if ( v17 )
+    GreSetDCOwnerEx(*(_QWORD *)(v6 + 8), 2147483666LL, 1LL);
+LABEL_31:
+    v14 = *(_QWORD *)(v6 + 8);
+    *(_QWORD *)(v6 + 16) = 0LL;
+    LOBYTE(v10) = 1;
+    *(_QWORD *)(v6 + 24) = 0LL;
+    *(_QWORD *)(v6 + 32) = 0LL;
+    *(_QWORD *)(v6 + 88) = 0LL;
+    v19 = 0;
+    v20 = 0;
+    v15 = HmgShareLockEx(v14, v10, 0LL);
+    v18 = v15;
+    if ( v15 )
     {
-      *(_DWORD *)(v17 + 36) |= 0x80000u;
-      XDCOBJ::vAltUnlockFast(v20);
+      *(_DWORD *)(v15 + 36) |= 0x80000u;
+      XDCOBJ::vAltUnlockFast((XDCOBJ *)&v18);
     }
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v18);
-    if ( CurrentProcessWin32Process )
-      CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v16);
     *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x200u;
     goto LABEL_19;
   }
-  if ( (*((_DWORD *)v6 + 16) & 0x1002) == 2 )
+  if ( (*(_DWORD *)(v6 + 64) & 0x1002) == 2 )
     --gnDCECount;
-  v12 = gpLeakTrackingAllocator;
-  *(_QWORD *)v3 = *(_QWORD *)v6;
-  NSInstrumentation::CLeakTrackingAllocator::Free(v12, v6);
-  v4 = 1;
+  *v5 = *(_QWORD *)v6;
+  Win32FreePool(v6);
+  v2 = 1;
 LABEL_19:
-  if ( v5 )
-    GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5));
-  return v4;
+  if ( v3 )
+    GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+  return v2;
 }

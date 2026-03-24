@@ -1,54 +1,33 @@
 /*
- * XREFs of ExInterlockedInsertHeadList @ 0x1403519A0
+ * XREFs of ExInterlockedInsertHeadList @ 0x1402F8650
  * Callers:
- *     CcCanIWrite @ 0x14020F1A0 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x140537530 (CcDeferWrite.c)
- *     ViAllocateMapRegisterFile @ 0x140AC8C84 (ViAllocateMapRegisterFile.c)
- *     ViHookDmaAdapter @ 0x140ACA520 (ViHookDmaAdapter.c)
- *     ViScatterGatherCallback @ 0x140ACAD90 (ViScatterGatherCallback.c)
- *     ViSpecialAllocateCommonBuffer @ 0x140ACAE2C (ViSpecialAllocateCommonBuffer.c)
+ *     CcCanIWrite @ 0x140293850 (CcCanIWrite.c)
+ *     CcDeferWrite @ 0x1404E9F80 (CcDeferWrite.c)
+ *     ViAllocateMapRegisterFile @ 0x1409CD5D4 (ViAllocateMapRegisterFile.c)
+ *     ViHookDmaAdapter @ 0x1409CEE9C (ViHookDmaAdapter.c)
+ *     ViScatterGatherCallback @ 0x1409CF6A0 (ViScatterGatherCallback.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x1409CF73C (ViSpecialAllocateCommonBuffer.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x140351A48 (ExpAcquireSpinLockDisabled.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockDisabled @ 0x1402F8744 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1402F8814 (ExpAcquireSpinLockDisabled.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)
 {
   char v6; // al
+  __int64 v7; // rdx
   struct _LIST_ENTRY *Flink; // rbx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v11; // eax
-  signed __int32 v12; // ett
 
   v6 = ExpAcquireSpinLockDisabled(Lock);
   Flink = ListHead->Flink;
   if ( ListHead->Flink->Blink != ListHead )
     __fastfail(3u);
   ListEntry->Flink = Flink;
+  LOBYTE(v7) = v6;
   ListEntry->Blink = ListHead;
   Flink->Blink = ListEntry;
   ListHead->Flink = ListEntry;
-  _InterlockedAnd64((volatile signed __int64 *)Lock, 0LL);
-  if ( v6 )
-  {
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
-    {
-      _m_prefetchw(SchedulerAssist);
-      v11 = *SchedulerAssist;
-      do
-      {
-        v12 = v11;
-        v11 = _InterlockedCompareExchange(SchedulerAssist, v11 & 0xFFDFFFFF, v11);
-      }
-      while ( v12 != v11 );
-      if ( (v11 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-    }
-    _enable();
-  }
+  ExpReleaseSpinLockDisabled(Lock, v7);
   if ( Flink == ListHead )
     return 0LL;
   return Flink;

@@ -1,148 +1,125 @@
 /*
- * XREFs of ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01AC420
+ * XREFs of ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648
  * Callers:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000882C (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0014DEC (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
- *     MonitorNotifyDXGIGammaRampChange @ 0x1C0173A70 (MonitorNotifyDXGIGammaRampChange.c)
- *     MonitorGetMonitorHandle @ 0x1C0183734 (MonitorGetMonitorHandle.c)
- *     DpiPdoDispatchIoctl @ 0x1C01982A0 (DpiPdoDispatchIoctl.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C019BA70 (DxgkGetAdapterDeviceDesc.c)
- *     DxgkGetMonitorInternalInfo @ 0x1C01A0250 (DxgkGetMonitorInternalInfo.c)
- *     MonitorGetMonitorOrientationsFromTarget @ 0x1C01AB980 (MonitorGetMonitorOrientationsFromTarget.c)
- *     _lambda_b5f01eb3f4b149c357ab2eab84592b3f_::operator() @ 0x1C01ABA70 (_lambda_b5f01eb3f4b149c357ab2eab84592b3f_--operator().c)
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
- *     ?_GetMonitorInformationForTargets@MONITOR_MGR@@QEAAJP6AJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z0I@Z @ 0x1C01D7920 (-_GetMonitorInformationForTargets@MONITOR_MGR@@QEAAJP6AJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z0I@.c)
- *     MonitorIsMonitorConnected @ 0x1C01DCB78 (MonitorIsMonitorConnected.c)
- *     DpiPdoDispatchInternalIoctl @ 0x1C01DCED0 (DpiPdoDispatchInternalIoctl.c)
- *     MonitorCreatePhysicalMonitor @ 0x1C0209A70 (MonitorCreatePhysicalMonitor.c)
- *     ?_HandleCreateMonitorStep2@MONITOR_MGR@@QEAAJIPEAVDXGMONITOR@@0PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0209C44 (-_HandleCreateMonitorStep2@MONITOR_MGR@@QEAAJIPEAVDXGMONITOR@@0PEAU_DXGK_DISPLAY_SCENARIO_CONTEX.c)
- *     ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4_INFO@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0209E7C (-_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4.c)
- *     MonitorNotifyDeviceNodeReady @ 0x1C020A2F0 (MonitorNotifyDeviceNodeReady.c)
- *     ?_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z @ 0x1C020A560 (-_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z.c)
- *     ?_CreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAPEAVDXGMONITOR@@PEAU_DXGK_CONNECTION_USB4_INFO@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020A8B0 (-_CreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAPEAVDXGMONITOR@@PEAU_DXGK_CO.c)
- *     ?_CancelSkippedDepartures@MONITOR_MGR@@QEAAJI@Z @ 0x1C020F988 (-_CancelSkippedDepartures@MONITOR_MGR@@QEAAJI@Z.c)
- *     ?ReleaseAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEBU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C03C6B40 (-ReleaseAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEBU_DXGK_TARGETMODE_DETAIL_TIM.c)
- *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C7C9C (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
- *     ?_HandleRemovePhysicalMonitor@MONITOR_MGR@@QEAAJIEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C8044 (-_HandleRemovePhysicalMonitor@MONITOR_MGR@@QEAAJIEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?_HandleRemoveSimulatedMonitor@MONITOR_MGR@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C8274 (-_HandleRemoveSimulatedMonitor@MONITOR_MGR@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@@Z @ 0x1C03C84B0 (-_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3.c)
- *     ?_QuerySkippedRemovalState@MONITOR_MGR@@QEAAJIPEAE@Z @ 0x1C03C8820 (-_QuerySkippedRemovalState@MONITOR_MGR@@QEAAJIPEAE@Z.c)
- *     ?_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z @ 0x1C03C96E0 (-_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z.c)
+ *     MonitorIsMonitorConnected @ 0x1C00E67DC (MonitorIsMonitorConnected.c)
+ *     MonitorNotifyDXGIGammaRampChange @ 0x1C00EB174 (MonitorNotifyDXGIGammaRampChange.c)
+ *     MonitorSetLastWireformatAndColorspace @ 0x1C00EC238 (MonitorSetLastWireformatAndColorspace.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C0128030 (DxgkGetMonitorInternalInfo.c)
+ *     ?IsPathSupportVirtualMode@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0130824 (-IsPathSupportVirtualMode@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     MonitorGetLinkInfoFromTarget @ 0x1C0133134 (MonitorGetLinkInfoFromTarget.c)
+ *     IsVirtualizationDisabledForTarget @ 0x1C0133224 (IsVirtualizationDisabledForTarget.c)
+ *     MonitorGetMonitorHandle @ 0x1C0133530 (MonitorGetMonitorHandle.c)
+ *     MonitorGetDeviceObject @ 0x1C01358E8 (MonitorGetDeviceObject.c)
+ *     ?_ProcessVidPnPath@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDXGADAPTER@@PEAVDMMVIDPNPRESENTPATH@@_N2@Z @ 0x1C013C858 (-_ProcessVidPnPath@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDXGADAPTER@@PEAVDMMVIDPNPRESENTPATH@.c)
+ *     ?_GetMonitorInformationForTargets@MONITOR_MGR@@QEAAJP6AJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z0I@Z @ 0x1C013D7F0 (-_GetMonitorInformationForTargets@MONITOR_MGR@@QEAAJP6AJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z0I@.c)
+ *     ?DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@3PEAE4@Z @ 0x1C0140780 (-DmmGetTargetIdFromCcdMonitorId@@YAJQEAXPEBU_UNICODE_STRING@@IPEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TEC.c)
+ *     ?_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0140C6C (-_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0146674 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
+ *     MonitorGetMonitorDeviceInterfaceName @ 0x1C014CA9C (MonitorGetMonitorDeviceInterfaceName.c)
+ *     MonitorGetPreferredScaleFactor @ 0x1C014CC64 (MonitorGetPreferredScaleFactor.c)
+ *     MonitorGetDpiInfoFromDescriptor @ 0x1C014D558 (MonitorGetDpiInfoFromDescriptor.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
+ *     ?AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@_N@Z @ 0x1C014FF00 (-AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_C.c)
+ *     DxgkQueryMonitorTypeLockHeld @ 0x1C0151550 (DxgkQueryMonitorTypeLockHeld.c)
+ *     DpiPdoDispatchIoctl @ 0x1C015EE80 (DpiPdoDispatchIoctl.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C01665C0 (DpiPdoDispatchInternalIoctl.c)
+ *     ?_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z @ 0x1C017EB30 (-_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z.c)
+ *     DpiPdoGetDeviceContainerIdFromDescriptor @ 0x1C0181CDC (DpiPdoGetDeviceContainerIdFromDescriptor.c)
+ *     MonitorGetContainerIDFromDescriptor @ 0x1C018206C (MonitorGetContainerIDFromDescriptor.c)
+ *     MonitorGetMonitorDescriptorIDs @ 0x1C01827EC (MonitorGetMonitorDescriptorIDs.c)
+ *     MonitorNotifyDeviceNodeReady @ 0x1C01838B8 (MonitorNotifyDeviceNodeReady.c)
+ *     ?_CreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAPEAVDXGMONITOR@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0184BD8 (-_CreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAPEAVDXGMONITOR@@PEAU_DXGK_DI.c)
+ *     ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0185280 (-_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_DISPLAY_SCENARI.c)
+ *     ?_HandleCreateMonitorStep2@MONITOR_MGR@@QEAAJIPEAVDXGMONITOR@@0PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01853E8 (-_HandleCreateMonitorStep2@MONITOR_MGR@@QEAAJIPEAVDXGMONITOR@@0PEAU_DXGK_DISPLAY_SCENARIO_CONTEX.c)
+ *     MonitorCreatePhysicalMonitor @ 0x1C0185598 (MonitorCreatePhysicalMonitor.c)
+ *     ?GetAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C019A190 (-GetAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_.c)
+ *     ?ReleaseAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEBU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C019D310 (-ReleaseAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEBU_DXGK_TARGETMODE_DETAIL_TIM.c)
+ *     ?IsAudioAvailableInEdid@DpiInternal@@YAHPEAXI@Z @ 0x1C02A999C (-IsAudioAvailableInEdid@DpiInternal@@YAHPEAXI@Z.c)
+ *     ?_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02EE0A0 (-_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z @ 0x1C02EEBF0 (-_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z.c)
+ *     ?_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z @ 0x1C02F1678 (-_ExtendTopology@CDS_JOURNAL@@CAJPEAVCCD_TOPOLOGY@@AEBU_ENTRY@1@@Z.c)
+ *     ?RebuildMonitorModeListCacheHelper@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F1F44 (-RebuildMonitorModeListCacheHelper@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F27C8 (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
+ *     ?_HandleRemovePhysicalMonitor@MONITOR_MGR@@QEAAJIEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2BA8 (-_HandleRemovePhysicalMonitor@MONITOR_MGR@@QEAAJIEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_HandleRemoveSimulatedMonitor@MONITOR_MGR@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2D80 (-_HandleRemoveSimulatedMonitor@MONITOR_MGR@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@@Z @ 0x1C02F3044 (-_MigrateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3.c)
+ *     MonitorDisableMonitorVirtualModeSupport @ 0x1C02F3BA0 (MonitorDisableMonitorVirtualModeSupport.c)
+ *     MonitorGetEdidBaseBlockPtr @ 0x1C02F408C (MonitorGetEdidBaseBlockPtr.c)
+ *     MonitorIsMonitorVirtualModeDisabled @ 0x1C02F43C0 (MonitorIsMonitorVirtualModeDisabled.c)
+ *     MonitorSetPhysicalSizeOverride @ 0x1C02F52BC (MonitorSetPhysicalSizeOverride.c)
+ *     MonitorSetScaleFactorOverride @ 0x1C02F553C (MonitorSetScaleFactorOverride.c)
+ *     MonitorSetUsageClass @ 0x1C02F5688 (MonitorSetUsageClass.c)
+ *     ?_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z @ 0x1C02F9460 (-_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     <none>
  */
 
 __int64 __fastcall MONITOR_MGR::_GetMonitorInstance(
-        MONITOR_MGR *this,
-        unsigned int a2,
+        struct _FAST_MUTEX *this,
+        __int64 a2,
         char a3,
         struct DXGMONITOR **a4)
 {
-  __int64 v7; // rsi
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rcx
-  MONITOR_MGR *v11; // rcx
-  MONITOR_MGR *v12; // rdx
-  char *v13; // rax
+  __int64 v4; // rsi
+  ULONG *p_Contention; // rdx
+  char *i; // rcx
+  char *v10; // rax
+  unsigned int v11; // edi
+  __int64 v13; // rax
   __int64 v14; // rax
-  unsigned int v15; // edi
-  int v18; // r9d
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
 
-  v7 = a2;
+  v4 = (unsigned int)a2;
   if ( !a4 )
-    WdLogSingleEntry0(1LL);
-  if ( (_DWORD)v7 == -1 )
-    WdLogSingleEntry0(1LL);
+  {
+    v14 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v14);
+  }
+  if ( (_DWORD)v4 == -1 )
+  {
+    v15 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v15);
+  }
   *a4 = 0LL;
-  if ( this == (MONITOR_MGR *)-80LL )
-    WdLogSingleEntry0(1LL);
-  KeEnterCriticalRegion();
-  if ( *((struct _KTHREAD **)this + 13) == KeGetCurrentThread() )
+  if ( this == (struct _FAST_MUTEX *)-168LL )
   {
-    if ( *((int *)this + 28) <= 0 )
-    {
-      WdLogSingleEntry1(1LL, 491LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OwnerAcquireCount > 0", 491LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    ++*((_DWORD *)this + 28);
+    v16 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v16);
   }
-  else
+  KeAcquireGuardedMutex(this + 3);
+  p_Contention = &this[2].Contention;
+  for ( i = *(char **)&this[2].Contention; i != (char *)p_Contention; i = (char *)*((_QWORD *)v10 + 2) )
   {
-    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)this + 88, 0LL) )
+    v10 = i - 16;
+    if ( !i )
+      v10 = 0LL;
+    if ( !v10 )
+      break;
+    if ( *((_DWORD *)v10 + 11) == (_DWORD)v4 )
     {
-      if ( bTracingEnabled )
+      if ( a3 && *((_DWORD *)v10 + 108) != 1 )
+        v10 = (char *)*((_QWORD *)v10 + 55);
+      if ( v10 )
       {
-        v18 = *((_DWORD *)this + 29);
-        if ( v18 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v10, &EventBlockThread, v8, v18);
+        *a4 = (struct DXGMONITOR *)v10;
+        v11 = 0;
+        goto LABEL_18;
       }
-      _InterlockedIncrement64((volatile signed __int64 *)this + 12);
-      ExAcquirePushLockExclusiveEx((char *)this + 88, 0LL);
+      break;
     }
-    if ( *((_QWORD *)this + 13) )
-    {
-      WdLogSingleEntry1(1LL, 515LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NULL == m_OwningThread", 515LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    if ( *((_DWORD *)this + 28) )
-    {
-      WdLogSingleEntry1(1LL, 516LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"0 == m_OwnerAcquireCount", 516LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    *((_QWORD *)this + 13) = KeGetCurrentThread();
-    *((_DWORD *)this + 28) = 1;
   }
-  v11 = (MONITOR_MGR *)*((_QWORD *)this + 5);
-  v12 = (MONITOR_MGR *)((char *)this + 40);
-  if ( v11 == (MONITOR_MGR *)((char *)this + 40) )
-    goto LABEL_20;
-  v13 = (char *)v11 - 152;
-  if ( !v11 )
-    v13 = 0LL;
-  if ( !v13 )
-    goto LABEL_20;
-  while ( *((_DWORD *)v13 + 45) != (_DWORD)v7 )
+  v13 = WdLogNewEntry5_WdTrace(i, p_Contention);
+  v11 = -1073741275;
+  *(_QWORD *)(v13 + 24) = v4;
+  *(_QWORD *)(v13 + 32) = this;
+LABEL_18:
+  if ( this == (struct _FAST_MUTEX *)-168LL )
   {
-    v11 = (MONITOR_MGR *)*((_QWORD *)v13 + 19);
-    if ( v11 != v12 )
-    {
-      v13 = (char *)v11 - 152;
-      if ( !v11 )
-        v13 = 0LL;
-      if ( v13 )
-        continue;
-    }
-    goto LABEL_20;
+    v17 = WdLogNewEntry5_WdAssertion(i, p_Contention);
+    WdLogEvent5_WdAssertion(v17);
   }
-  if ( a3 && *((_DWORD *)v13 + 78) != 1 )
-    v13 = (char *)*((_QWORD *)v13 + 40);
-  if ( v13 )
-  {
-    *a4 = (struct DXGMONITOR *)v13;
-    v15 = 0;
-  }
-  else
-  {
-LABEL_20:
-    v14 = WdLogNewEntry5_WdTrace(v11, v12, v8, v9);
-    v15 = -1073741275;
-    *(_QWORD *)(v14 + 24) = v7;
-    *(_QWORD *)(v14 + 32) = this;
-  }
-  if ( *((struct _KTHREAD **)this + 13) != KeGetCurrentThread() )
-    WdLogSingleEntry5(0LL, 275LL, 4LL, (char *)this + 80, 0LL, 0LL);
-  if ( *((int *)this + 28) <= 0 )
-  {
-    WdLogSingleEntry1(1LL, 535LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OwnerAcquireCount > 0", 535LL, 0LL, 0LL, 0LL, 0LL);
-  }
-  if ( (*((_DWORD *)this + 28))-- == 1 )
-  {
-    *((_QWORD *)this + 13) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
-  }
-  KeLeaveCriticalRegion();
-  return v15;
+  KeReleaseGuardedMutex(this + 3);
+  return v11;
 }

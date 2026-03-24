@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x140863818
+ * XREFs of ObpStartRuntimeStackTrace @ 0x1408637F8
  * Callers:
- *     ObSetRefTraceInformation @ 0x140862B30 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x140862B10 (ObSetRefTraceInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpInitStackAndObjectTables @ 0x1408631D4 (ObpInitStackAndObjectTables.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ObpInitStackAndObjectTables @ 0x1408631B4 (ObpInitStackAndObjectTables.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
@@ -126,9 +126,9 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     Buffer = ObpRuntimeTraceProcessName.Buffer;
     ObpRuntimeTraceProcessName = *(UNICODE_STRING *)&v17[4];
     ObpRuntimeTracePoolTags = v20[0];
-    xmmword_14041A1B0 = v20[1];
-    xmmword_14041A1C0 = v20[2];
-    xmmword_14041A1D0 = v20[3];
+    xmmword_14041A190 = v20[1];
+    xmmword_14041A1A0 = v20[2];
+    xmmword_14041A1B0 = v20[3];
     ObpTraceFlags = v3 | ObpTraceFlags & 0xFFFFFF8E | 2;
     ObpRuntimeTraceFlags = ObpTraceFlags;
     ObpTracePoolTags = (unsigned __int64)&ObpRuntimeTracePoolTags & -(__int64)((ObpTraceFlags & 0x10) != 0);

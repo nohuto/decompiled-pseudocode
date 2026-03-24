@@ -1,17 +1,17 @@
 /*
- * XREFs of ?SetProperty@?$CRotateTransform3DGeneratedT@VCRotateTransform3D@@VCTransform3D@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801C8E90
+ * XREFs of ?SetProperty@?$CRotateTransform3DGeneratedT@VCRotateTransform3D@@VCTransform3D@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180172520
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRotateTransform3DGeneratedT<CRotateTransform3D,CTransform3D>::SetProperty(
-        __int64 a1,
+        float *a1,
         int a2,
         int a3,
-        _DWORD *a4)
+        float *a4)
 {
   int v4; // edx
   int v5; // edx
@@ -19,85 +19,79 @@ __int64 __fastcall CRotateTransform3DGeneratedT<CRotateTransform3D,CTransform3D>
   int v7; // edx
   int v8; // edx
   unsigned int v9; // ebx
-  __int64 v10; // rax
-  unsigned int v12; // [rsp+20h] [rbp-18h]
+  unsigned int v11; // [rsp+20h] [rbp-18h]
 
   if ( a3 == 18 )
   {
-    if ( !a2 )
+    if ( a2 )
     {
-      if ( *(float *)a4 != *(float *)(a1 + 160) )
+      v4 = a2 - 1;
+      if ( v4 )
       {
-        v10 = *(_QWORD *)a1;
-        *(_DWORD *)(a1 + 160) = *a4;
-        (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(v10 + 72))(a1, 0LL, 0LL);
-      }
-      return 0;
-    }
-    v4 = a2 - 1;
-    if ( v4 )
-    {
-      v5 = v4 - 1;
-      if ( v5 )
-      {
-        v6 = v5 - 1;
-        if ( v6 )
+        v5 = v4 - 1;
+        if ( v5 )
         {
-          v7 = v6 - 1;
-          if ( v7 )
+          v6 = v5 - 1;
+          if ( v6 )
           {
-            v8 = v7 - 1;
-            if ( v8 )
+            v7 = v6 - 1;
+            if ( v7 )
             {
-              if ( v8 != 1 )
+              v8 = v7 - 1;
+              if ( v8 )
               {
-                v12 = 7212;
-                goto LABEL_11;
+                if ( v8 != 1 )
+                {
+                  v11 = 5181;
+                  goto LABEL_11;
+                }
+                if ( *a4 != a1[44] )
+                {
+                  a1[44] = *a4;
+LABEL_26:
+                  (*(void (__fastcall **)(float *, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
+                }
               }
-              if ( *(float *)a4 == *(float *)(a1 + 184) )
-                return 0;
-              *(_DWORD *)(a1 + 184) = *a4;
+              else if ( *a4 != a1[43] )
+              {
+                a1[43] = *a4;
+                goto LABEL_26;
+              }
             }
-            else
+            else if ( *a4 != a1[42] )
             {
-              if ( *(float *)a4 == *(float *)(a1 + 180) )
-                return 0;
-              *(_DWORD *)(a1 + 180) = *a4;
+              a1[42] = *a4;
+              goto LABEL_26;
             }
           }
-          else
+          else if ( *a4 != a1[41] )
           {
-            if ( *(float *)a4 == *(float *)(a1 + 176) )
-              return 0;
-            *(_DWORD *)(a1 + 176) = *a4;
+            a1[41] = *a4;
+            goto LABEL_26;
           }
         }
-        else
+        else if ( *a4 != a1[40] )
         {
-          if ( *(float *)a4 == *(float *)(a1 + 172) )
-            return 0;
-          *(_DWORD *)(a1 + 172) = *a4;
+          a1[40] = *a4;
+          goto LABEL_26;
         }
       }
-      else
+      else if ( *a4 != a1[39] )
       {
-        if ( *(float *)a4 == *(float *)(a1 + 168) )
-          return 0;
-        *(_DWORD *)(a1 + 168) = *a4;
+        a1[39] = *a4;
+        goto LABEL_26;
       }
     }
-    else
+    else if ( *a4 != a1[38] )
     {
-      if ( *(float *)a4 == *(float *)(a1 + 164) )
-        return 0;
-      *(_DWORD *)(a1 + 164) = *a4;
+      a1[38] = *a4;
+      goto LABEL_26;
     }
-    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
     return 0;
   }
-  v12 = 7217;
+  v11 = 5186;
 LABEL_11:
   v9 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, v12, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, v11, 0LL);
   return v9;
 }

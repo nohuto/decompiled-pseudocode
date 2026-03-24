@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnChanged@CGeometry2D@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180202D00
+ * XREFs of ?OnChanged@CGeometry2D@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801B4B40
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeCaches@CGeometry2D@@AEAAXXZ @ 0x180202ADC (-FreeCaches@CGeometry2D@@AEAAXXZ.c)
+ *     ?FreeCaches@CGeometry2D@@AEAAXXZ @ 0x1801B4958 (-FreeCaches@CGeometry2D@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CGeometry2D::OnChanged(void **a1)

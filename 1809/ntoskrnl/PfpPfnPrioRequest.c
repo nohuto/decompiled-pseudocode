@@ -2,21 +2,21 @@
  * XREFs of PfpPfnPrioRequest @ 0x14062A220
  * Callers:
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x1400A7E10 (MiIdentifyPfnWrapper.c)
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
- *     MiLockDynamicMemoryShared @ 0x1400A8914 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1400A8940 (MiUnlockDynamicMemoryShared.c)
- *     MmQueryMemoryListInformation @ 0x1400A89B0 (MmQueryMemoryListInformation.c)
- *     MmSetPfnListInfo @ 0x14013FC70 (MmSetPfnListInfo.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     MiIdentifyPfnWrapper @ 0x1400A7E30 (MiIdentifyPfnWrapper.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
+ *     MiLockDynamicMemoryShared @ 0x1400A8934 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1400A8960 (MiUnlockDynamicMemoryShared.c)
+ *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
+ *     MmSetPfnListInfo @ 0x14013FC90 (MmSetPfnListInfo.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     PfpCopyUserPfnPrioRequest @ 0x14062A520 (PfpCopyUserPfnPrioRequest.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
- *     ExRaiseAccessViolation @ 0x1408D65C0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
+ *     ExRaiseAccessViolation @ 0x1408D65A0 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfpPfnPrioRequest(__int64 a1, char a2, unsigned int *a3)

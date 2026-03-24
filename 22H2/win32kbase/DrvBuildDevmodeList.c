@@ -1,124 +1,102 @@
 /*
- * XREFs of DrvBuildDevmodeList @ 0x1C00169E4
+ * XREFs of DrvBuildDevmodeList @ 0x1C00182C0
  * Callers:
- *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C00179AC (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
- *     DrvEnumDisplaySettings @ 0x1C0033CC0 (DrvEnumDisplaySettings.c)
+ *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C0017868 (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
+ *     DrvEnumDisplaySettings @ 0x1C0020E50 (DrvEnumDisplaySettings.c)
  * Callees:
- *     DrvGetDisplayDriverNames @ 0x1C0017080 (DrvGetDisplayDriverNames.c)
- *     ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C00171B4 (-ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z.c)
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z @ 0x1C0080338 (-DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C00D0048 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C012DA74 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     PruneModesByDisplayDeviceCaps @ 0x1C0164084 (PruneModesByDisplayDeviceCaps.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     DrvGetDisplayDriverNames @ 0x1C00156C0 (DrvGetDisplayDriverNames.c)
+ *     ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C00166C4 (-ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     ?PruneModesByDisplayDeviceCaps@@YAKPEAUtagGRAPHICS_DEVICE@@KPEAUtagDEVMODEMARK@@@Z @ 0x1C0091528 (-PruneModesByDisplayDeviceCaps@@YAKPEAUtagGRAPHICS_DEVICE@@KPEAUtagDEVMODEMARK@@@Z.c)
+ *     ?DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z @ 0x1C00B7694 (-DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C00C72FC (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0114434 (wil_details_FeatureReporting_ReportUsageToService.c)
  */
 
-void __fastcall DrvBuildDevmodeList(struct tagGRAPHICS_DEVICE *a1, __int64 a2, int a3)
+int __fastcall DrvBuildDevmodeList(struct tagGRAPHICS_DEVICE *a1, int a2, int a3)
 {
-  int v3; // eax
-  __int64 DxgkWin32kInterface; // rax
-  void *v6; // rdx
-  void *v7; // rdx
+  __int64 v3; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
   unsigned int *DisplayDriverNames; // rax
   unsigned int *v9; // rdi
   unsigned int v10; // esi
   unsigned int DriverModes; // eax
-  size_t v12; // r14
-  unsigned int v13; // eax
-  char *v14; // r15
-  unsigned int v15; // eax
-  void *v16; // rdx
-  unsigned int v17; // edx
-  int v18; // r15d
-  unsigned int i; // r8d
-  NSInstrumentation::CLeakTrackingAllocator *v20; // rsi
-  unsigned __int64 v21; // rdi
-  int v22; // eax
-  __int64 Pool2; // rdi
-  _QWORD *v24; // rax
-  __int64 v25; // r10
-  char v26; // r14
-  void *v27; // rdx
-  unsigned int v28; // r8d
-  unsigned int j; // edi
-  __int64 v30; // rdx
-  int v31; // ecx
-  __int64 v32; // rcx
-  unsigned int v33; // edx
-  unsigned int v34; // r9d
-  __int64 v35; // rsi
-  unsigned int v36; // r14d
-  unsigned int v37; // eax
-  __int64 v38; // r8
-  int v39; // r11d
-  __int64 v40; // r10
-  unsigned __int64 v41[2]; // [rsp+20h] [rbp-99h] BYREF
-  __int64 v42; // [rsp+30h] [rbp-89h] BYREF
-  unsigned __int64 v43; // [rsp+38h] [rbp-81h] BYREF
-  PVOID BackTrace[26]; // [rsp+40h] [rbp-79h] BYREF
-  void *Src; // [rsp+120h] [rbp+67h] BYREF
-  unsigned int v46; // [rsp+128h] [rbp+6Fh] BYREF
-  __int64 v47; // [rsp+138h] [rbp+7Fh] BYREF
+  void *v12; // r15
+  size_t v13; // r12
+  char *v14; // rax
+  char *v15; // r14
+  __int64 v16; // rcx
+  unsigned int v17; // r8d
+  unsigned int v18; // edi
+  unsigned int i; // r9d
+  __int64 v20; // rcx
+  unsigned int v21; // r8d
+  unsigned int v22; // esi
+  __int64 v23; // rdx
+  int v24; // ecx
+  int v25; // eax
+  __int64 v26; // rcx
+  __int64 v27; // rdx
+  __int64 v28; // r11
+  int v29; // r14d
+  __int64 v30; // r8
+  unsigned int v31; // r10d
+  __int64 v32; // r9
+  __int64 v34; // [rsp+70h] [rbp+40h] BYREF
+  void *Src; // [rsp+88h] [rbp+58h] BYREF
 
-  v3 = *((_DWORD *)a1 + 40);
+  LODWORD(v3) = *((_DWORD *)a1 + 40);
   Src = 0LL;
-  if ( (v3 & 0x4000000) == 0 || gRemoteSessionUseWddm )
+  if ( (v3 & 0x4000000) != 0 && !gRemoteSessionUseWddm )
+    goto LABEL_13;
+  if ( (v3 & 0x800000) != 0 && *((_DWORD *)a1 + 46) && *((_QWORD *)a1 + 22) )
   {
-    if ( (v3 & 0x800000) != 0 && *((_DWORD *)a1 + 46) && *((_QWORD *)a1 + 22) )
+    if ( a3 && !a2 )
+      goto LABEL_17;
+    v5 = *((unsigned int *)a1 + 64);
+    v34 = 0LL;
+    LODWORD(v3) = ((__int64 (__fastcall *)(char *, __int64, __int64 *))qword_1C02509E8)((char *)a1 + 248, v5, &v34);
+    if ( (int)v3 >= 0 )
     {
-      if ( a3 && !(_DWORD)a2 )
-        goto LABEL_16;
-      v47 = 0LL;
-      DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(a1, a2);
-      if ( (*(int (__fastcall **)(char *, _QWORD, __int64 *))(DxgkWin32kInterface + 344))(
-             (char *)a1 + 240,
-             *((unsigned int *)a1 + 62),
-             &v47) >= 0 )
-      {
-        if ( *((_QWORD *)a1 + 21) == v47 )
-          goto LABEL_16;
-        *((_QWORD *)a1 + 21) = v47;
-      }
+      LODWORD(v3) = v34;
+      if ( *((_QWORD *)a1 + 21) == v34 )
+        goto LABEL_17;
+      *((_QWORD *)a1 + 21) = v34;
+      goto LABEL_13;
     }
-    else if ( !(_DWORD)a2 )
-    {
-      goto LABEL_16;
-    }
+    a2 = 1;
   }
+  if ( !a2 )
+    goto LABEL_17;
+LABEL_13:
   if ( *((_DWORD *)a1 + 46) )
   {
-    v6 = (void *)*((_QWORD *)a1 + 22);
+    v6 = *((_QWORD *)a1 + 22);
     if ( v6 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v6);
-      v7 = (void *)*((_QWORD *)a1 + 24);
+      LODWORD(v3) = Win32FreePool(v6);
+      v7 = *((_QWORD *)a1 + 24);
       *((_QWORD *)a1 + 22) = 0LL;
       *((_DWORD *)a1 + 46) = 0;
       if ( v7 )
       {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v7);
+        LODWORD(v3) = Win32FreePool(v7);
         *((_QWORD *)a1 + 24) = 0LL;
       }
     }
-LABEL_16:
+LABEL_17:
     if ( *((_DWORD *)a1 + 46) )
-      return;
+      return v3;
   }
   if ( *((_QWORD *)a1 + 22) )
-    return;
+    return v3;
   *((_DWORD *)a1 + 47) = 0;
-  DisplayDriverNames = (unsigned int *)DrvGetDisplayDriverNames(a1);
+  DisplayDriverNames = DrvGetDisplayDriverNames((__int64)a1);
   v9 = DisplayDriverNames;
   if ( DisplayDriverNames )
   {
@@ -132,44 +110,37 @@ LABEL_16:
                         *(const unsigned __int16 **)&v9[4 * v10 + 4],
                         *(void **)&v9[4 * v10 + 2],
                         (struct _devicemodeW **)&Src);
-        v12 = DriverModes;
+        v12 = Src;
+        v13 = DriverModes;
         if ( DriverModes )
         {
-          v13 = DriverModes + *((_DWORD *)a1 + 46);
-          if ( v13 )
+          v14 = (char *)PALLOCMEM2(DriverModes + *((_DWORD *)a1 + 46));
+          v15 = v14;
+          if ( v14 )
           {
-            v14 = (char *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                            gpLeakTrackingAllocator,
-                            0x104uLL,
-                            v13,
-                            0x73726447u);
-            v15 = *((_DWORD *)a1 + 46);
-            if ( v14 )
+            v16 = *((unsigned int *)a1 + 46);
+            if ( (_DWORD)v16 )
             {
-              if ( v15 )
-              {
-                memmove(v14, *((const void **)a1 + 22), v15);
-                v16 = (void *)*((_QWORD *)a1 + 22);
-                if ( v16 )
-                  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v16);
-              }
-              memmove(&v14[*((unsigned int *)a1 + 46)], Src, v12);
-              *((_DWORD *)a1 + 46) += v12;
-              *((_QWORD *)a1 + 22) = v14;
+              memmove(v14, *((const void **)a1 + 22), (unsigned int)v16);
+              Win32FreePool(*((_QWORD *)a1 + 22));
+              v16 = *((unsigned int *)a1 + 46);
             }
+            memmove(&v15[v16], v12, v13);
+            *((_DWORD *)a1 + 46) += v13;
+            *((_QWORD *)a1 + 22) = v15;
           }
         }
-        if ( Src )
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, Src);
+        if ( v12 )
+          Win32FreePool(v12);
         ++v10;
       }
       while ( v10 < *v9 );
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v9);
+    Win32FreePool(v9);
   }
   v17 = *((_DWORD *)a1 + 46);
   if ( !v17 && !*((_QWORD *)a1 + 22) )
-    goto LABEL_91;
+    goto LABEL_68;
   v18 = 0;
   for ( i = 0;
         i < v17;
@@ -178,198 +149,127 @@ LABEL_16:
   {
     ++v18;
   }
-  if ( !(16 * v18) )
-    goto LABEL_58;
-  v20 = gpLeakTrackingAllocator;
-  v21 = (unsigned int)(16 * v18);
-  v46 = 1936876615;
-  v42 = 260LL;
-  v22 = *(_DWORD *)gpLeakTrackingAllocator;
-  v43 = v21;
-  if ( !v22 )
+  v3 = PALLOCMEM2(16 * v18);
+  *((_QWORD *)a1 + 24) = v3;
+  if ( !v3 )
   {
-    Pool2 = ExAllocatePool2(260LL, (unsigned int)v21, 1936876615LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v20 + 14);
-    goto LABEL_59;
-  }
-  if ( v22 != 1 )
-  {
-    if ( v22 == 2 )
-    {
-      v41[0] = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x73726447u, v41) )
-      {
-        v41[0] = (unsigned __int64)&v42;
-        v41[1] = (unsigned __int64)&v46;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  v20,
-                  v41,
-                  &v43);
-        goto LABEL_59;
-      }
-      v26 = 0;
-      if ( v21 < 0x1000 || (v21 & 0xFFF) != 0 )
-      {
-        v21 += 16LL;
-        v26 = 1;
-        v43 = v21;
-      }
-      Pool2 = ExAllocatePool2(v25, v21, 1936876615LL);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v20 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( v26 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v20,
-                                  Pool2,
-                                  v41[0],
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-            goto LABEL_59;
-          }
-        }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v20,
-                                     Pool2,
-                                     v41[0],
-                                     BackTrace) )
-        {
-          goto LABEL_59;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v20 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
-    goto LABEL_58;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x73726447u)
-    || v21 + 16 < v21 )
-  {
-LABEL_58:
-    Pool2 = 0LL;
-    goto LABEL_59;
-  }
-  v24 = (_QWORD *)ExAllocatePool2(v42 & 0xFFFFFFFFFFFFFFFDuLL, v21 + 16, v46);
-  Pool2 = (__int64)v24;
-  if ( !v24
-    || (_InterlockedIncrement64((volatile signed __int64 *)v20 + 14),
-        *v24 = 1936876615LL,
-        Pool2 = (__int64)(v24 + 2),
-        v24 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v20 + 1),
-      (const void *)0x73726447);
-  }
-LABEL_59:
-  *((_QWORD *)a1 + 24) = Pool2;
-  if ( !Pool2 )
-  {
-    v27 = (void *)*((_QWORD *)a1 + 22);
+    v20 = *((_QWORD *)a1 + 22);
     *((_DWORD *)a1 + 46) = 0;
-    if ( v27 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v27);
+    Win32FreePool(v20);
     *((_QWORD *)a1 + 22) = 0LL;
-LABEL_91:
-    DrvLogDisplayDriverEvent(2LL);
-    return;
+    goto LABEL_68;
   }
-  v28 = 0;
+  v21 = 0;
   *((_DWORD *)a1 + 47) = v18;
-  for ( j = 0; j < *((_DWORD *)a1 + 46); j += *(unsigned __int16 *)(v30 + 70) + *(unsigned __int16 *)(v30 + 68) )
+  v22 = 0;
+  if ( !*((_DWORD *)a1 + 46) )
+    goto LABEL_47;
+  do
   {
-    v30 = *((_QWORD *)a1 + 22) + j;
-    v31 = *(_DWORD *)(v30 + 72);
-    if ( (v31 & 0x80u) != 0 )
+    v23 = *((_QWORD *)a1 + 22) + v22;
+    v24 = *(_DWORD *)(v23 + 72);
+    if ( (v24 & 0x80u) != 0 )
     {
-      if ( *(_DWORD *)(v30 + 84) <= 3u )
-        goto LABEL_68;
+      v25 = *(_DWORD *)(v23 + 72);
+      if ( *(_DWORD *)(v23 + 84) <= 3u )
+        goto LABEL_41;
     }
     else
     {
-      v31 |= 0x80u;
-      *(_DWORD *)(v30 + 72) = v31;
+      v24 |= 0x80u;
+      *(_DWORD *)(v23 + 72) = v24;
+      v25 = v24;
     }
-    *(_DWORD *)(v30 + 84) = 0;
-LABEL_68:
-    if ( (v31 & 0x20000000) == 0 )
-      goto LABEL_71;
-    if ( (unsigned int)(*(_DWORD *)(v30 + 88) - 1) > 1 )
+    *(_DWORD *)(v23 + 84) = 0;
+LABEL_41:
+    if ( (v25 & 0x20000000) != 0 )
     {
-      *(_DWORD *)(v30 + 72) = v31 & 0xDFFFFFFF;
-LABEL_71:
-      *(_DWORD *)(v30 + 88) = 0;
+      if ( (unsigned int)(*(_DWORD *)(v23 + 88) - 1) <= 1 )
+        goto LABEL_45;
+      *(_DWORD *)(v23 + 72) = v24 & 0xDFFFFFFF;
     }
-    v32 = v28++;
-    v32 *= 2LL;
-    *(_DWORD *)(*((_QWORD *)a1 + 24) + 8 * v32) = 0;
-    *(_QWORD *)(*((_QWORD *)a1 + 24) + 8 * v32 + 8) = v30;
+    *(_DWORD *)(v23 + 88) = 0;
+LABEL_45:
+    v26 = v21++;
+    v26 *= 2LL;
+    *(_DWORD *)(*((_QWORD *)a1 + 24) + 8 * v26) = 0;
+    *(_QWORD *)(*((_QWORD *)a1 + 24) + 8 * v26 + 8) = v23;
+    LODWORD(v3) = *(unsigned __int16 *)(v23 + 68);
+    v22 += *(unsigned __int16 *)(v23 + 70) + (_DWORD)v3;
   }
-  v33 = *((_DWORD *)a1 + 47);
-  v34 = 1;
-  if ( v33 )
+  while ( v22 < *((_DWORD *)a1 + 46) );
+  v18 = *((_DWORD *)a1 + 47);
+LABEL_47:
+  v27 = 1LL;
+  if ( v18 )
   {
     do
     {
-      v35 = *((_QWORD *)a1 + 24);
-      v36 = v34 - 1;
-      v37 = v33;
-      v38 = *(_QWORD *)(v35 + 16LL * (v34 - 1) + 8);
-      if ( *(_DWORD *)(v38 + 184) == 1 )
+      v28 = *((_QWORD *)a1 + 24);
+      v29 = v27 - 1;
+      LODWORD(v3) = v18;
+      v30 = *(_QWORD *)(v28 + 16LL * (unsigned int)(v27 - 1) + 8);
+      if ( *(_DWORD *)(v30 + 184) == 1 )
       {
-        v39 = 1;
-        if ( v33 )
+        v31 = 1;
+        if ( v18 )
         {
           while ( 1 )
           {
-            if ( v39 != v34 )
+            if ( v31 != (_DWORD)v27 )
             {
-              v40 = *(_QWORD *)(v35 + 16LL * (unsigned int)(v39 - 1) + 8);
-              if ( *(_DWORD *)(v38 + 168) == *(_DWORD *)(v40 + 168)
-                && *(_DWORD *)(v38 + 172) == *(_DWORD *)(v40 + 172)
-                && *(_DWORD *)(v38 + 176) == *(_DWORD *)(v40 + 176)
-                && ((*(_BYTE *)(v38 + 180) ^ *(_BYTE *)(v40 + 180)) & 4) == 0
-                && *(_DWORD *)(v38 + 84) == *(_DWORD *)(v40 + 84)
-                && *(_DWORD *)(v38 + 88) == *(_DWORD *)(v40 + 88) )
+              v32 = *(_QWORD *)(v28 + 16LL * (v31 - 1) + 8);
+              if ( *(_DWORD *)(v30 + 168) == *(_DWORD *)(v32 + 168)
+                && *(_DWORD *)(v30 + 172) == *(_DWORD *)(v32 + 172)
+                && *(_DWORD *)(v30 + 176) == *(_DWORD *)(v32 + 176)
+                && ((*(_BYTE *)(v30 + 180) ^ *(_BYTE *)(v32 + 180)) & 4) == 0
+                && *(_DWORD *)(v30 + 84) == *(_DWORD *)(v32 + 84)
+                && *(_DWORD *)(v30 + 88) == *(_DWORD *)(v32 + 88) )
               {
                 break;
               }
             }
-            if ( ++v39 > v33 )
-            {
-              v37 = v33;
-              goto LABEL_85;
-            }
+            LODWORD(v3) = *((_DWORD *)a1 + 47);
+            ++v31;
+            v18 = v3;
+            if ( v31 > (unsigned int)v3 )
+              goto LABEL_62;
           }
-          if ( v33 > v34 )
-            memmove((void *)(v35 + 16LL * (v34 - 1)), (const void *)(v35 + 16LL * v34), 16LL * (v33 - v34));
-          --*((_DWORD *)a1 + 47);
-          v34 = v36;
-          v37 = *((_DWORD *)a1 + 47);
+          if ( v18 > (unsigned int)v27 )
+          {
+            memmove(
+              (void *)(v28 + 16LL * (unsigned int)(v27 - 1)),
+              (const void *)(v28 + 16 * v27),
+              16LL * (v18 - (unsigned int)v27));
+            v18 = *((_DWORD *)a1 + 47);
+          }
+          LODWORD(v3) = v18 - 1;
+          LODWORD(v27) = v29;
+          *((_DWORD *)a1 + 47) = v18 - 1;
         }
       }
-LABEL_85:
-      ++v34;
-      v33 = v37;
+LABEL_62:
+      v27 = (unsigned int)(v27 + 1);
+      v18 = v3;
     }
-    while ( v34 <= v37 );
+    while ( (unsigned int)v27 <= (unsigned int)v3 );
   }
-  Src = (void *)(unsigned int)Feature_RemoveGdiModePruning__private_featureState;
   if ( (Feature_RemoveGdiModePruning__private_featureState & 0x10) == 0 )
   {
-    LODWORD(Src) = Feature_RemoveGdiModePruning__private_featureState | 1;
-    wil_details_FeatureReporting_ReportUsageToService(&Feature_RemoveGdiModePruning__private_descriptor, Src, 3LL);
-    wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
-      Src,
-      3LL,
-      &Feature_RemoveGdiModePruning__private_descriptor);
+    v34 = Feature_RemoveGdiModePruning__private_featureState | 1u;
+    wil_details_FeatureReporting_ReportUsageToService(&Feature_RemoveGdiModePruning__private_descriptor, v34, 3LL);
+    LODWORD(v3) = wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
+                    v34,
+                    3LL,
+                    &Feature_RemoveGdiModePruning__private_descriptor);
   }
   if ( (*((_DWORD *)a1 + 40) & 0x6000008) == 0 )
-    j = PruneModesByDisplayDeviceCaps(a1);
-  if ( !j )
-    goto LABEL_91;
+  {
+    LODWORD(v3) = PruneModesByDisplayDeviceCaps(a1, *((_DWORD *)a1 + 47), *((struct tagDEVMODEMARK **)a1 + 24));
+    v22 = v3;
+  }
+  if ( !v22 )
+LABEL_68:
+    LODWORD(v3) = DrvLogDisplayDriverEvent(2LL);
+  return v3;
 }

@@ -1,404 +1,416 @@
 /*
- * XREFs of VidSchCollectDbgInfo @ 0x1C00F64B0
+ * XREFs of VidSchCollectDbgInfo @ 0x1C00D3C50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C001AF04 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
- *     ??EVIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR@@QEAAXXZ @ 0x1C001B448 (--EVIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR@@QEAAXXZ.c)
- *     memmove @ 0x1C001D980 (memmove.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?VidSchiGetVSyncState@@YA?AW4VIDSCH_VSYNC_STATE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0044438 (-VidSchiGetVSyncState@@YA-AW4VIDSCH_VSYNC_STATE@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     VidSchiCaptureProcessName @ 0x1C004450C (VidSchiCaptureProcessName.c)
- *     ?VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0046580 (-VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?VidSchiGetNumHistoryLayersUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C00465F8 (-VidSchiGetNumHistoryLayersUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?VidSchiGetNumOverlayPlanesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C00466A8 (-VidSchiGetNumOverlayPlanesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     VidSchQueryDmaHeader @ 0x1C00F6D10 (VidSchQueryDmaHeader.c)
- *     VidSchiGetNumFlipAllocAttribs @ 0x1C00F6FB0 (VidSchiGetNumFlipAllocAttribs.c)
+ *     ??EVIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR@@QEAAXXZ @ 0x1C00055D0 (--EVIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR@@QEAAXXZ.c)
+ *     memmove @ 0x1C0018C00 (memmove.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0029F94 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ *     ?VidSchiGetVSyncState@@YA?AW4VIDSCH_VSYNC_STATE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C003C7B8 (-VidSchiGetVSyncState@@YA-AW4VIDSCH_VSYNC_STATE@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     VidSchiCaptureProcessName @ 0x1C003C808 (VidSchiCaptureProcessName.c)
+ *     ?VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C003D8EC (-VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?VidSchiGetNumHistoryLayersUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C003D974 (-VidSchiGetNumHistoryLayersUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?VidSchiGetNumOverlayPlanesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C003DA24 (-VidSchiGetNumOverlayPlanesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     VidSchQueryDmaHeader @ 0x1C00D44A0 (VidSchQueryDmaHeader.c)
+ *     VidSchiGetNumFlipAllocAttribs @ 0x1C00D4740 (VidSchiGetNumFlipAllocAttribs.c)
  */
 
-__int64 __fastcall VidSchCollectDbgInfo(__int64 a1, unsigned int *a2, size_t a3)
+__int64 __fastcall VidSchCollectDbgInfo(__int64 a1, _DWORD *a2, size_t a3)
 {
   size_t v3; // r15
-  unsigned int *v4; // rsi
+  _DWORD *v4; // rsi
   __int64 v6; // r9
   int v7; // eax
   __int64 v8; // r14
   __int64 v9; // r13
-  _QWORD *v10; // rdi
-  int v11; // ebx
-  unsigned int NumHistoryLayersUsed; // eax
-  unsigned int v13; // ebx
-  int NumFlipAllocAttribs; // eax
-  __int64 v15; // r11
-  unsigned int v16; // edx
-  unsigned int v17; // edi
-  __int64 v18; // rcx
-  __int64 v19; // rdi
-  __int64 v20; // rcx
-  __int64 v21; // r12
-  char *v22; // r12
-  int v23; // r13d
+  __int64 v10; // r12
+  _QWORD *v11; // rdi
+  int v12; // ebx
+  int NumHistoryLayersUsed; // eax
+  unsigned int v14; // ebx
+  int v15; // r12d
+  int v16; // edx
+  __int64 v17; // r11
+  int v18; // r12d
+  size_t v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rdi
+  __int64 v22; // rcx
+  unsigned int v23; // r15d
+  __int64 v24; // r13
+  char *v25; // r13
+  int v26; // r12d
   struct VIDSCH_FLIP_QUEUE *FlipQueue; // rax
-  unsigned int v25; // r10d
-  __int64 v26; // r11
-  __int64 v27; // rdx
-  char *v28; // r10
-  unsigned int *v29; // r15
-  unsigned int v30; // r13d
-  __int64 v31; // rcx
-  char *v32; // r11
-  unsigned int v33; // eax
-  int v34; // edx
-  unsigned int v35; // eax
-  int v36; // ecx
-  bool v37; // zf
-  unsigned int v38; // ecx
-  __int64 v39; // rax
-  unsigned int v40; // r13d
-  __int64 v41; // rdi
-  unsigned int v42; // edx
-  unsigned int v43; // r8d
+  unsigned int v28; // r10d
+  __int64 v29; // r11
+  __int64 v30; // rcx
+  char *v31; // r10
+  __int64 v32; // rdx
+  unsigned int *v33; // r9
+  unsigned int v34; // r12d
+  __int64 v35; // rcx
+  char *v36; // r11
+  unsigned int v37; // eax
+  int v38; // edx
+  unsigned int v39; // eax
+  int v40; // ecx
+  bool v41; // zf
+  unsigned int v42; // ecx
+  __int64 v43; // rdi
   unsigned int v44; // edx
-  int v45; // eax
-  char v46; // cl
-  unsigned int v47; // r9d
-  char v48; // cl
-  int v49; // eax
-  unsigned int v50; // eax
-  __int64 v51; // r9
-  __int64 v52; // rdx
-  __int64 v53; // rax
-  int v54; // ecx
-  int v55; // edx
-  int v56; // eax
-  int v57; // ecx
-  int v58; // edx
-  unsigned int v59; // r8d
-  __int64 v60; // rdx
-  unsigned int *v61; // r8
-  __int64 v62; // r9
-  __int64 v63; // rdx
-  unsigned int i; // r9d
-  __int64 v65; // r8
-  __int64 v66; // r10
+  unsigned int v45; // r8d
+  unsigned int v46; // edx
+  unsigned int v47; // r12d
+  int v48; // eax
+  char v49; // cl
+  int v50; // r15d
+  unsigned int v51; // r9d
+  char v52; // cl
+  int v53; // eax
+  unsigned int v54; // eax
+  __int64 v55; // r9
+  __int64 v56; // rdx
+  __int64 v57; // rax
+  int v58; // ecx
+  int v59; // edx
+  int v60; // eax
+  int v61; // ecx
+  int v62; // edx
+  unsigned int v63; // r8d
+  __int64 v64; // rdx
+  _DWORD *v65; // r8
+  __int64 v66; // r9
   __int64 v67; // rdx
-  __int64 v68; // rax
-  __int64 v69; // rdx
-  __int64 v70; // rax
-  int v72; // [rsp+30h] [rbp-69h]
-  unsigned int v73; // [rsp+34h] [rbp-65h]
-  unsigned int NumFlipQueueEntriesUsed; // [rsp+38h] [rbp-61h]
-  unsigned int v75; // [rsp+3Ch] [rbp-5Dh]
-  unsigned int NumOverlayPlanesUsed; // [rsp+40h] [rbp-59h]
-  __int64 v77; // [rsp+48h] [rbp-51h]
-  __int64 v78; // [rsp+58h] [rbp-41h]
-  __int64 v79; // [rsp+60h] [rbp-39h] BYREF
-  unsigned int v80; // [rsp+68h] [rbp-31h]
-  int v81; // [rsp+6Ch] [rbp-2Dh]
-  __int64 v82; // [rsp+70h] [rbp-29h] BYREF
-  unsigned int *v83; // [rsp+78h] [rbp-21h]
-  unsigned int v84; // [rsp+80h] [rbp-19h]
-  unsigned int v85; // [rsp+84h] [rbp-15h]
-  int v86; // [rsp+88h] [rbp-11h]
-  unsigned int v87; // [rsp+8Ch] [rbp-Dh]
-  unsigned int v88; // [rsp+90h] [rbp-9h]
-  char *v89; // [rsp+98h] [rbp-1h]
-  __int64 v90; // [rsp+A0h] [rbp+7h]
-  __int64 v91; // [rsp+100h] [rbp+67h]
-  unsigned int v92; // [rsp+100h] [rbp+67h]
-  unsigned int v93; // [rsp+100h] [rbp+67h]
-  unsigned int v96; // [rsp+118h] [rbp+7Fh]
+  unsigned int i; // r9d
+  __int64 v69; // r8
+  __int64 v70; // r10
+  __int64 v71; // rdx
+  __int64 v72; // rax
+  __int64 v73; // rdx
+  __int64 v74; // rax
+  int v76; // [rsp+30h] [rbp-69h]
+  int NumFlipQueueEntriesUsed; // [rsp+34h] [rbp-65h]
+  unsigned int v78; // [rsp+38h] [rbp-61h]
+  int NumOverlayPlanesUsed; // [rsp+3Ch] [rbp-5Dh]
+  int v80; // [rsp+40h] [rbp-59h]
+  __int64 v81; // [rsp+48h] [rbp-51h]
+  unsigned int *v82; // [rsp+58h] [rbp-41h]
+  __int64 v83; // [rsp+60h] [rbp-39h]
+  __int64 v84; // [rsp+68h] [rbp-31h] BYREF
+  int v85; // [rsp+70h] [rbp-29h]
+  int v86; // [rsp+74h] [rbp-25h]
+  __int64 v87; // [rsp+78h] [rbp-21h] BYREF
+  unsigned int *v88; // [rsp+80h] [rbp-19h]
+  unsigned int v89; // [rsp+88h] [rbp-11h]
+  unsigned int v90; // [rsp+8Ch] [rbp-Dh]
+  int v91; // [rsp+90h] [rbp-9h]
+  unsigned int v92; // [rsp+94h] [rbp-5h]
+  unsigned int v93; // [rsp+98h] [rbp-1h]
+  char *v94; // [rsp+A0h] [rbp+7h]
+  size_t v95; // [rsp+A8h] [rbp+Fh]
+  unsigned int v96; // [rsp+100h] [rbp+67h]
+  unsigned int v99; // [rsp+118h] [rbp+7Fh]
 
   v3 = a3;
   v4 = a2;
-  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 32) + 2800LL);
+  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 32) + 2704LL);
   v7 = *(_DWORD *)(a1 + 16);
-  v8 = *(_QWORD *)(v6 + 632);
+  v8 = *(_QWORD *)(v6 + 624);
   if ( v7 == 2 )
   {
-    v9 = 16LL;
-    v91 = *(_QWORD *)(v8 + 3024);
-    v10 = (_QWORD *)(v91 + 560);
+    v9 = *(_QWORD *)(v8 + 2928);
+    v10 = 16LL;
+    v11 = (_QWORD *)(v9 + 552);
     do
     {
-      VidSchQueryDmaHeader(v8, *(_QWORD *)(v8 + 3024), *v10, *((_DWORD *)v10 - 4) == 3, (__int64)(v10 - 4));
-      v10 += 7;
-      --v9;
+      VidSchQueryDmaHeader(v8, *(_QWORD *)(v8 + 2928), *v11, *((_DWORD *)v11 - 4) == 3, (__int64)(v11 - 4));
+      v11 += 7;
+      --v10;
     }
-    while ( v9 );
+    while ( v10 );
     if ( v3 >= 0x390 )
       v3 = 912LL;
-    memmove(v4, (const void *)(v91 + 496), v3);
+    memmove(v4, (const void *)(v9 + 488), v3);
   }
   else if ( v7 == 3 )
   {
-    v11 = *(_DWORD *)(a1 + 80);
-    NumOverlayPlanesUsed = VidSchiGetNumOverlayPlanesUsed(*(struct _VIDSCH_GLOBAL **)(v6 + 632), v11);
-    NumHistoryLayersUsed = VidSchiGetNumHistoryLayersUsed((struct _VIDSCH_GLOBAL *)v8, v11);
-    v13 = *(_DWORD *)(a1 + 80);
-    v73 = NumHistoryLayersUsed;
-    NumFlipQueueEntriesUsed = VidSchiGetNumFlipQueueEntriesUsed((struct _VIDSCH_GLOBAL *)v8, v13);
-    LODWORD(v77) = (((_DWORD)v4 + 163) & 0xFFFFFFF8) - (_DWORD)v4;
-    NumFlipAllocAttribs = VidSchiGetNumFlipAllocAttribs(v8, v13);
-    v15 = 4LL;
-    v16 = (((_DWORD)v4 + 163) & 0xFFFFFFF8) + 280 * NumFlipAllocAttribs;
-    HIDWORD(v77) = v16 - (_DWORD)v4;
-    v17 = v16 + 48 * v73 - (_DWORD)v4 + 48 * NumFlipQueueEntriesUsed;
-    v92 = v16 + 48 * v73 - (_DWORD)v4;
-    v90 = v17;
-    if ( v3 >= v17 )
+    v12 = *(_DWORD *)(a1 + 80);
+    NumOverlayPlanesUsed = VidSchiGetNumOverlayPlanesUsed(*(struct _VIDSCH_GLOBAL **)(v6 + 624), v12);
+    NumHistoryLayersUsed = VidSchiGetNumHistoryLayersUsed((struct _VIDSCH_GLOBAL *)v8, v12);
+    v14 = *(_DWORD *)(a1 + 80);
+    v80 = NumHistoryLayersUsed;
+    v15 = NumHistoryLayersUsed;
+    NumFlipQueueEntriesUsed = VidSchiGetNumFlipQueueEntriesUsed((struct _VIDSCH_GLOBAL *)v8, v14);
+    LODWORD(v81) = (((_DWORD)v4 + 163) & 0xFFFFFFF8) - (_DWORD)v4;
+    v16 = (((_DWORD)v4 + 163) & 0xFFFFFFF8) + 280 * VidSchiGetNumFlipAllocAttribs(v8, v14);
+    v17 = 4LL;
+    v18 = v16 + 48 * v15 - (_DWORD)v4;
+    HIDWORD(v81) = v16 - (_DWORD)v4;
+    v19 = (unsigned int)(v18 + 48 * NumFlipQueueEntriesUsed);
+    v95 = v19;
+    if ( v3 >= v19 )
     {
-      memset(v4, 0, v17);
-      *v4 = v17;
-      v4[1] = 3;
+      memset(v4, 0, (unsigned int)v19);
+      *v4 = v18 + 48 * NumFlipQueueEntriesUsed;
+      v4[1] = 2;
       v4[3] = VidSchiGetVSyncState(v8, *(_DWORD *)(a1 + 80));
-      v18 = *(unsigned int *)(a1 + 80);
-      v4[2] = v18;
-      v4[37] = *(_DWORD *)(a1 + 88);
-      *(_QWORD *)(v4 + 35) = *(_QWORD *)(a1 + 96);
-      *((_QWORD *)v4 + 16) = v77;
-      v4[34] = v92;
-      if ( (_DWORD)v18 != -1 && (unsigned int)v18 < *(_DWORD *)(v8 + 40) )
+      v4[2] = *(_DWORD *)(a1 + 80);
+      *((_QWORD *)v4 + 16) = v81;
+      v4[34] = v18;
+      v20 = (unsigned int)v4[2];
+      if ( (_DWORD)v20 != -1 && (unsigned int)v20 < *(_DWORD *)(v8 + 40) )
       {
-        v19 = *(_QWORD *)(v8 + 8 * v18 + 3200);
-        if ( v19 )
+        v21 = *(_QWORD *)(v8 + 8 * v20 + 3104);
+        if ( v21 )
         {
-          v20 = *(_QWORD *)(v19 + 16);
-          if ( v20 )
+          v22 = *(_QWORD *)(v21 + 16);
+          if ( v22 )
           {
-            VidSchiCaptureProcessName(v20, (_BYTE *)v4 + 16);
-            v21 = v4[34];
-            v4[8] = *(_DWORD *)(v19 + 4);
-            v22 = (char *)v4 + v21;
-            v89 = (char *)v4 + v4[33];
-            v23 = -1;
-            v80 = v4[2];
-            v72 = 0;
+            VidSchiCaptureProcessName(v22, (_BYTE *)v4 + 16);
+            v23 = 0;
+            v24 = (unsigned int)v4[34];
+            v4[8] = *(_DWORD *)(v21 + 4);
+            v25 = (char *)v4 + v24;
+            v94 = (char *)v4 + (unsigned int)v4[33];
+            v26 = -1;
+            v85 = v4[2];
+            v76 = 0;
+            v99 = 0;
             v96 = 0;
-            v93 = 0;
-            v79 = v8;
+            v84 = v8;
             while ( 1 )
             {
-              v81 = v23;
-              if ( v23 == *(_DWORD *)(v8 + 152) )
+              v86 = v26;
+              if ( v26 == *(_DWORD *)(v8 + 144) )
                 break;
-              FlipQueue = VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v79);
+              FlipQueue = VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v84);
               if ( FlipQueue )
               {
-                v27 = 280LL * v25;
-                v28 = (char *)FlipQueue + 1296;
-                v29 = (unsigned int *)(v27 + v26 + 24);
-                *(_DWORD *)(v27 + v26) = v23;
-                v30 = v93;
-                *(_DWORD *)(v27 + v26 + 4) = *((_DWORD *)FlipQueue + 14);
-                *(_DWORD *)(v27 + v26 + 8) = *((_DWORD *)FlipQueue + 15);
-                *(_DWORD *)(v27 + v26 + 12) = *((_DWORD *)FlipQueue + 16);
-                *(_DWORD *)(v27 + v26 + 16) = *((_DWORD *)FlipQueue + 17);
-                v31 = 64LL;
-                *(_DWORD *)(v27 + v26 + 20) = *((_DWORD *)FlipQueue + 19);
-                v32 = v89;
-                v78 = 64LL;
+                v30 = v28;
+                v31 = (char *)FlipQueue + 1264;
+                v32 = 280 * v30;
+                v33 = (unsigned int *)(280 * v30 + v29 + 24);
+                v82 = v33;
+                *(_DWORD *)(v32 + v29) = v26;
+                v34 = v96;
+                *(_DWORD *)(v32 + v29 + 4) = *((_DWORD *)FlipQueue + 8);
+                *(_DWORD *)(v32 + v29 + 8) = *((_DWORD *)FlipQueue + 9);
+                *(_DWORD *)(v32 + v29 + 12) = *((_DWORD *)FlipQueue + 10);
+                *(_DWORD *)(v32 + v29 + 16) = *((_DWORD *)FlipQueue + 11);
+                v35 = 64LL;
+                *(_DWORD *)(v32 + v29 + 20) = *((_DWORD *)FlipQueue + 13);
+                v36 = v94;
+                v83 = 64LL;
                 do
                 {
-                  v33 = *((_DWORD *)v28 - 31);
-                  if ( v33 <= 0xC && (v34 = 4673, _bittest(&v34, v33)) )
+                  v37 = *((_DWORD *)v31 - 31);
+                  if ( v37 <= 0xC && (v38 = 4673, _bittest(&v38, v37)) )
                   {
-                    *v29 = -1;
+                    *v33 = -1;
                   }
                   else
                   {
-                    *v29 = v30;
-                    v35 = 0;
-                    v36 = *((_DWORD *)v28 - 24);
-                    if ( (v36 & 1) == 0 )
+                    *v33 = v34;
+                    v39 = 0;
+                    v40 = *((_DWORD *)v31 - 24);
+                    if ( (v40 & 1) == 0 )
                     {
                       do
                       {
-                        if ( v35 >= *(_DWORD *)(v8 + 76) )
+                        if ( v39 >= *(_DWORD *)(v8 + 68) )
                           break;
-                        ++v35;
+                        ++v39;
                       }
-                      while ( !_bittest(&v36, v35) );
+                      while ( !_bittest(&v40, v39) );
                     }
-                    v37 = v35 == *(_DWORD *)(v8 + 76);
-                    v38 = 0;
-                    v82 = v8;
-                    if ( !v37 )
-                      v38 = v35;
-                    v39 = v30;
-                    v40 = v96;
-                    v75 = v38;
-                    v41 = 6 * v39;
-                    *(_DWORD *)&v22[8 * v41] = v96;
-                    *(_DWORD *)&v22[8 * v41 + 44] ^= (*(_DWORD *)&v22[48 * v39 + 44] ^ **(_DWORD **)v28) & 0x3FF;
-                    v83 = *(unsigned int **)v28;
-                    v42 = *v83;
-                    v43 = *v83 & 0x3FF;
-                    v84 = v43;
-                    if ( *(_BYTE *)(v8 + 156) )
+                    v41 = v39 == *(_DWORD *)(v8 + 68);
+                    v42 = 0;
+                    v87 = v8;
+                    if ( !v41 )
+                      v42 = v39;
+                    v78 = v42;
+                    v43 = 6LL * v34;
+                    *(_DWORD *)&v25[8 * v43] = v23;
+                    *(_DWORD *)&v25[8 * v43 + 44] ^= (*(_DWORD *)&v25[48 * v34 + 44] ^ **(_DWORD **)v31) & 0x3FF;
+                    v88 = *(unsigned int **)v31;
+                    v44 = *v88;
+                    v45 = *v88 & 0x3FF;
+                    v89 = v45;
+                    if ( *(_BYTE *)(v8 + 148) )
                     {
-                      v44 = (v42 >> 10) & 0x3FF;
-                      v85 = v44;
+                      v46 = (v44 >> 10) & 0x3FF;
+                      v90 = v46;
                     }
                     else
                     {
-                      v44 = 0;
-                      v85 = 0;
+                      v46 = 0;
+                      v90 = 0;
                     }
-                    v37 = !_BitScanForward((unsigned int *)&v45, v43);
-                    v46 = -1;
-                    v86 = 0;
-                    if ( !v37 )
-                      v46 = v45;
-                    v47 = v46;
-                    v48 = -1;
-                    v37 = !_BitScanForward((unsigned int *)&v49, v44);
-                    v87 = v47;
-                    if ( !v37 )
-                      v48 = v49;
-                    v50 = v48;
-                    v88 = v48;
-                    while ( v43 || v44 )
+                    v47 = v99;
+                    v41 = !_BitScanForward((unsigned int *)&v48, v45);
+                    v49 = -1;
+                    v91 = 0;
+                    v50 = 0;
+                    if ( !v41 )
+                      v49 = v48;
+                    v51 = v49;
+                    v52 = -1;
+                    v41 = !_BitScanForward((unsigned int *)&v53, v46);
+                    v92 = v51;
+                    if ( !v41 )
+                      v52 = v53;
+                    v54 = v52;
+                    v93 = v52;
+                    while ( v45 || v46 )
                     {
-                      if ( v47 < v50 )
+                      if ( v51 < v54 )
                       {
-                        v51 = 6LL * v40;
-                        *(_QWORD *)&v32[8 * v51] = *(_QWORD *)(((unsigned __int64)(v86
-                                                                                 + v75
-                                                                                 * *(_DWORD *)(*(_QWORD *)v28 + 4LL)) << 6)
-                                                             + *(_QWORD *)v28
-                                                             + *(_DWORD *)(*(_QWORD *)v28 + 4LL)
-                                                             * ((8 * *(_DWORD *)(*(_QWORD *)v28 + 8LL) + 231) & 0xFFFFFFF8)
+                        v55 = 6LL * v47;
+                        *(_QWORD *)&v36[8 * v55] = *(_QWORD *)(((unsigned __int64)(v50
+                                                                                 + v78
+                                                                                 * *(_DWORD *)(*(_QWORD *)v31 + 4LL)) << 6)
+                                                             + *(_QWORD *)v31
+                                                             + *(_DWORD *)(*(_QWORD *)v31 + 4LL)
+                                                             * ((8 * *(_DWORD *)(*(_QWORD *)v31 + 8LL) + 199) & 0xFFFFFFF8)
                                                              + 40);
-                        v52 = *(_QWORD *)v28;
-                        v53 = v86 * ((8 * *(_DWORD *)(*(_QWORD *)v28 + 8LL) + 231) & 0xFFFFFFF8);
-                        ++v40;
-                        *(_OWORD *)&v32[8 * v51 + 8] = *(_OWORD *)(v53 + *(_QWORD *)v28 + 160);
-                        *(_OWORD *)&v32[8 * v51 + 24] = *(_OWORD *)(v53 + v52 + 176);
-                        *(_DWORD *)&v32[8 * v51 + 40] = *(_DWORD *)(v53 + v52 + 192);
+                        v56 = *(_QWORD *)v31;
+                        v57 = v50 * ((8 * *(_DWORD *)(*(_QWORD *)v31 + 8LL) + 199) & 0xFFFFFFF8);
+                        ++v47;
+                        *(_OWORD *)&v36[8 * v55 + 8] = *(_OWORD *)(v57 + *(_QWORD *)v31 + 160);
+                        *(_OWORD *)&v36[8 * v55 + 24] = *(_OWORD *)(v57 + v56 + 176);
+                        *(_DWORD *)&v36[8 * v55 + 40] = *(_DWORD *)(v57 + v56 + 192);
                       }
-                      VIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR::operator++((unsigned int *)&v82);
-                      v50 = v88;
-                      v44 = v85;
-                      v43 = v84;
-                      v47 = v87;
+                      VIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR::operator++((unsigned int *)&v87);
+                      v54 = v93;
+                      v46 = v90;
+                      v45 = v89;
+                      v51 = v92;
+                      v50 = v91;
                     }
-                    *(_DWORD *)&v22[8 * v41 + 4] = *((_DWORD *)v28 - 31);
-                    *(_DWORD *)&v22[8 * v41 + 8] = *((_DWORD *)v28 - 30);
-                    v96 = v40;
-                    *(_DWORD *)&v22[8 * v41 + 44] ^= (*(_DWORD *)&v22[8 * v41 + 44] ^ (*((_DWORD *)v28 - 26) << 10)) & 0x3C00;
-                    v54 = *(_DWORD *)&v22[8 * v41 + 44];
-                    *(_DWORD *)&v22[8 * v41 + 12] = *((_DWORD *)v28 - 24);
-                    *(_QWORD *)&v22[8 * v41 + 16] = *((_QWORD *)v28 - 9);
-                    *(_QWORD *)&v22[8 * v41 + 24] = *((_QWORD *)v28 - 8);
-                    *(_DWORD *)&v22[8 * v41 + 36] = *((_DWORD *)v28 - 12);
-                    v55 = v54 ^ (v54 ^ ((unsigned __int8)*(v28 - 100) << 18)) & 0x40000;
-                    *(_DWORD *)&v22[8 * v41 + 44] = v55;
-                    v22[8 * v41 + 40] = *(v28 - 88);
-                    v22[8 * v41 + 41] = *(v28 - 84);
-                    v56 = v55 ^ ((unsigned __int16)v55 ^ (unsigned __int16)((unsigned __int16)*((_DWORD *)v28 - 10) << 10)) & 0x4000;
-                    *(_DWORD *)&v22[8 * v41 + 44] = v56;
-                    v57 = v56 ^ ((unsigned __int16)v56 ^ (unsigned __int16)((unsigned __int16)*((_DWORD *)v28 - 10) << 10)) & 0x8000;
-                    *(_DWORD *)&v22[8 * v41 + 44] = v57;
-                    v58 = v57 ^ (v57 ^ (*((_DWORD *)v28 - 10) << 9)) & 0x10000;
-                    v31 = v78;
-                    *(_DWORD *)&v22[8 * v41 + 44] = v58;
-                    v30 = v93 + 1;
-                    *(_DWORD *)&v22[8 * v41 + 44] = v58 ^ (v58 ^ (*((_DWORD *)v28 - 10) << 9)) & 0x20000;
-                    ++v93;
+                    v33 = v82;
+                    *(_DWORD *)&v25[8 * v43 + 4] = *((_DWORD *)v31 - 31);
+                    *(_DWORD *)&v25[8 * v43 + 8] = *((_DWORD *)v31 - 30);
+                    v99 = v47;
+                    *(_DWORD *)&v25[8 * v43 + 44] ^= (*(_DWORD *)&v25[8 * v43 + 44] ^ (*((_DWORD *)v31 - 26) << 10)) & 0x3C00;
+                    v58 = *(_DWORD *)&v25[8 * v43 + 44];
+                    v23 = v47;
+                    *(_DWORD *)&v25[8 * v43 + 12] = *((_DWORD *)v31 - 24);
+                    *(_QWORD *)&v25[8 * v43 + 16] = *((_QWORD *)v31 - 9);
+                    *(_QWORD *)&v25[8 * v43 + 24] = *((_QWORD *)v31 - 8);
+                    *(_DWORD *)&v25[8 * v43 + 36] = *((_DWORD *)v31 - 12);
+                    v59 = v58 ^ (v58 ^ ((unsigned __int8)*(v31 - 100) << 18)) & 0x40000;
+                    *(_DWORD *)&v25[8 * v43 + 44] = v59;
+                    v25[8 * v43 + 40] = *(v31 - 88);
+                    v25[8 * v43 + 41] = *(v31 - 84);
+                    v60 = v59 ^ ((unsigned __int16)v59 ^ (unsigned __int16)((unsigned __int16)*((_DWORD *)v31 - 10) << 10)) & 0x4000;
+                    *(_DWORD *)&v25[8 * v43 + 44] = v60;
+                    v61 = v60 ^ ((unsigned __int16)v60 ^ (unsigned __int16)((unsigned __int16)*((_DWORD *)v31 - 10) << 10)) & 0x8000;
+                    *(_DWORD *)&v25[8 * v43 + 44] = v61;
+                    v62 = v61 ^ (v61 ^ (*((_DWORD *)v31 - 10) << 9)) & 0x10000;
+                    v35 = v83;
+                    *(_DWORD *)&v25[8 * v43 + 44] = v62;
+                    v34 = v96 + 1;
+                    *(_DWORD *)&v25[8 * v43 + 44] = v62 ^ (v62 ^ (*((_DWORD *)v31 - 10) << 9)) & 0x20000;
+                    ++v96;
                   }
-                  ++v29;
-                  v28 += 1376;
-                  v78 = --v31;
+                  ++v33;
+                  v31 += 1344;
+                  --v35;
+                  v82 = v33;
+                  v83 = v35;
                 }
-                while ( v31 );
-                v23 = v81;
-                ++v72;
+                while ( v35 );
+                v26 = v86;
+                ++v76;
               }
-              ++v23;
+              ++v26;
             }
             v4 = a2;
             v3 = a3;
           }
         }
       }
-      v59 = 0;
-      v4[14] = *(_DWORD *)(v8 + 2208);
+      v63 = 0;
+      v4[14] = *(_DWORD *)(v8 + 2128);
       v4[15] = *(_DWORD *)(v8 + 40);
-      v4[10] = *(_DWORD *)(v8 + 152);
+      v4[10] = *(_DWORD *)(v8 + 144);
       v4[11] = NumOverlayPlanesUsed;
-      v4[12] = v73;
+      v4[12] = v80;
       v4[13] = NumFlipQueueEntriesUsed;
-      for ( v4[9] = *(_DWORD *)(v8 + 76);
-            v59 < *(_DWORD *)(v8 + 40);
-            v4[v60 + 16] = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 16) + 2792LL) + 128LL)
-                                     + 4000 * v60
-                                     + 1088) )
+      for ( v4[9] = *(_DWORD *)(v8 + 68);
+            v63 < *(_DWORD *)(v8 + 40);
+            v4[v64 + 16] = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 16) + 2696LL) + 112LL)
+                                     + 3968 * v64
+                                     + 1068) )
       {
-        v60 = v59++;
+        v64 = v63++;
       }
-      v3 -= v90;
-      v15 = 4LL;
-      v4 = (unsigned int *)((char *)v4 + v90);
+      v3 -= v95;
+      v17 = 4LL;
+      v4 = (_DWORD *)((char *)v4 + v95);
     }
     if ( v3 >= 0x40 )
     {
-      v61 = v4;
-      v62 = 4LL;
-      v63 = (*(_DWORD *)(v8 + 6392) - 1) & 3;
+      v65 = v4;
+      v66 = 4LL;
+      v67 = ((unsigned __int8)*(_DWORD *)(v8 + 6288) - 1) & 3;
       do
       {
-        *(_QWORD *)v61 = *(_QWORD *)(v8 + 8 * v63 + 6400);
-        v61[2] = *(_DWORD *)(v8 + 4 * v63 + 6432);
-        v63 = ((_DWORD)v63 - 1) & 3;
-        v61 += 4;
-        --v62;
+        *(_QWORD *)v65 = *(_QWORD *)(v8 + 8 * v67 + 6296);
+        v65[2] = *(_DWORD *)(v8 + 4 * v67 + 6328);
+        v67 = ((_BYTE)v67 - 1) & 3;
+        v65 += 4;
+        --v66;
       }
-      while ( v62 );
+      while ( v66 );
       v3 -= 64LL;
       v4 += 16;
     }
     for ( i = 0; i < *(_DWORD *)(v8 + 40); ++i )
     {
-      v65 = *(_QWORD *)(v8 + 8LL * i + 3200);
-      if ( v3 >= 0x160 && v65 )
+      if ( v3 >= 0x160 )
       {
-        v66 = 4LL;
-        v67 = (*(_DWORD *)(v65 + 44236) - 1) & 3;
-        do
+        v69 = *(_QWORD *)(v8 + 8LL * i + 3104);
+        if ( v69 )
         {
-          *(_QWORD *)v4 = *(_QWORD *)(v65 + 8 * v67 + 44240);
-          v68 = 10 * v67;
-          v67 = ((_DWORD)v67 - 1) & 3;
-          *(_OWORD *)(v4 + 2) = *(_OWORD *)(v65 + 8 * v68 + 44272);
-          *(_OWORD *)(v4 + 6) = *(_OWORD *)(v65 + 8 * v68 + 44288);
-          *(_OWORD *)(v4 + 10) = *(_OWORD *)(v65 + 8 * v68 + 44304);
-          *(_OWORD *)(v4 + 14) = *(_OWORD *)(v65 + 8 * v68 + 44320);
-          *(_OWORD *)(v4 + 18) = *(_OWORD *)(v65 + 8 * v68 + 44336);
-          v4 += 22;
-          --v66;
+          v70 = 4LL;
+          v71 = ((unsigned __int8)*(_DWORD *)(v69 + 33292) - 1) & 3;
+          do
+          {
+            *(_QWORD *)v4 = *(_QWORD *)(v69 + 8 * v71 + 33296);
+            v72 = 10 * v71;
+            v71 = ((_BYTE)v71 - 1) & 3;
+            *(_OWORD *)(v4 + 2) = *(_OWORD *)(v69 + 8 * v72 + 33328);
+            *(_OWORD *)(v4 + 6) = *(_OWORD *)(v69 + 8 * v72 + 33344);
+            *(_OWORD *)(v4 + 10) = *(_OWORD *)(v69 + 8 * v72 + 33360);
+            *(_OWORD *)(v4 + 14) = *(_OWORD *)(v69 + 8 * v72 + 33376);
+            *(_OWORD *)(v4 + 18) = *(_OWORD *)(v69 + 8 * v72 + 33392);
+            v4 += 22;
+            --v70;
+          }
+          while ( v70 );
+          v3 -= 352LL;
         }
-        while ( v66 );
-        v3 -= 352LL;
       }
     }
     if ( v3 >= 0x160 )
     {
-      v69 = (*(_DWORD *)(v8 + 6032) - 1) & 3;
+      v73 = ((unsigned __int8)*(_DWORD *)(v8 + 5928) - 1) & 3;
       do
       {
-        *(_QWORD *)v4 = *(_QWORD *)(v8 + 8 * v69 + 6040);
-        v70 = 10 * v69;
+        *(_QWORD *)v4 = *(_QWORD *)(v8 + 8 * v73 + 5936);
+        v74 = 10 * v73;
         v4 += 22;
-        v69 = ((_DWORD)v69 - 1) & 3;
-        *((_OWORD *)v4 - 5) = *(_OWORD *)(v8 + 8 * v70 + 6072);
-        *((_OWORD *)v4 - 4) = *(_OWORD *)(v8 + 8 * v70 + 6088);
-        *((_OWORD *)v4 - 3) = *(_OWORD *)(v8 + 8 * v70 + 6104);
-        *((_OWORD *)v4 - 2) = *(_OWORD *)(v8 + 8 * v70 + 6120);
-        *((_OWORD *)v4 - 1) = *(_OWORD *)(v8 + 8 * v70 + 6136);
-        --v15;
+        v73 = ((_BYTE)v73 - 1) & 3;
+        *((_OWORD *)v4 - 5) = *(_OWORD *)(v8 + 8 * v74 + 5968);
+        *((_OWORD *)v4 - 4) = *(_OWORD *)(v8 + 8 * v74 + 5984);
+        *((_OWORD *)v4 - 3) = *(_OWORD *)(v8 + 8 * v74 + 6000);
+        *((_OWORD *)v4 - 2) = *(_OWORD *)(v8 + 8 * v74 + 6016);
+        *((_OWORD *)v4 - 1) = *(_OWORD *)(v8 + 8 * v74 + 6032);
+        --v17;
       }
-      while ( v15 );
+      while ( v17 );
     }
   }
   return 0LL;

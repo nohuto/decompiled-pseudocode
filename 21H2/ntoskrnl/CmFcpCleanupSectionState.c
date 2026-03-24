@@ -1,18 +1,17 @@
 /*
- * XREFs of CmFcpCleanupSectionState @ 0x140832C30
+ * XREFs of CmFcpCleanupSectionState @ 0x1407D4AC8
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140B156F8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall CmFcpCleanupSectionState(__int64 a1)
+void __fastcall CmFcpCleanupSectionState(__int64 a1)
 {
-  void *v1; // rcx
-  LONG_PTR result; // rax
+  struct _DMA_ADAPTER *v1; // rcx
 
-  v1 = *(void **)(a1 + 8);
+  v1 = *(struct _DMA_ADAPTER **)(a1 + 8);
   if ( v1 )
-    return ObfDereferenceObject(v1);
-  return result;
+    HalPutDmaAdapter(v1);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of BuildTranslatorRanges @ 0x1C00974F0
+ * XREFs of BuildTranslatorRanges @ 0x1C00B5BE0
  * Callers:
- *     TranslateEjectInterface @ 0x1C0097A48 (TranslateEjectInterface.c)
+ *     TranslateEjectInterface @ 0x1C009A244 (TranslateEjectInterface.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall BuildTranslatorRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 v3; // r15
   unsigned int v4; // r12d
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   unsigned int v6; // edi
-  void *v7; // r13
+  char *v7; // r13
   unsigned int v8; // ebx
   int v9; // r14d
-  __int64 v10; // rsi
+  char *v10; // rsi
   __int64 v11; // r13
-  __int64 v12; // rbp
+  char *v12; // rbp
   char *v13; // r15
   __int64 v14; // rdx
   char v15; // r8
@@ -29,43 +29,43 @@ __int64 __fastcall BuildTranslatorRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
   __int64 v20; // xmm0_8
   int v21; // eax
   unsigned __int64 v22; // rdx
-  void *v23; // rax
+  PVOID v23; // rax
   int v25; // [rsp+20h] [rbp-88h]
   unsigned int v26; // [rsp+40h] [rbp-68h]
-  void *Src; // [rsp+50h] [rbp-58h]
+  char *Src; // [rsp+50h] [rbp-58h]
   struct _IO_RESOURCE_DESCRIPTOR *v28; // [rsp+B0h] [rbp+8h]
   char v29; // [rsp+B0h] [rbp+8h]
   unsigned __int16 v32; // [rsp+C8h] [rbp+20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 24);
   v4 = *(_DWORD *)(v3 + 36);
-  Pool2 = ExAllocatePool2(256LL, 80 * v4, 1483760449LL);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 80 * v4, 0x58706341u);
   v6 = 0;
-  Src = (void *)Pool2;
-  v7 = (void *)Pool2;
-  if ( Pool2 )
+  Src = PoolWithTag;
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v8 = 0;
     v9 = 0;
     v26 = 0;
-    v10 = Pool2;
+    v10 = PoolWithTag;
     if ( !v4 )
       goto LABEL_22;
     v11 = v3;
-    v12 = Pool2 + 40;
+    v12 = PoolWithTag + 40;
     v13 = (char *)(v3 + 48);
     do
     {
       if ( *(v13 - 7) == -127 && (*((_WORD *)v13 - 2) & 0x6000) != 0 )
       {
-        *(_BYTE *)v10 = *v13;
+        *v10 = *v13;
         v28 = (struct _IO_RESOURCE_DESCRIPTOR *)(v11 + 32LL * (v8 - 1) + 40);
-        *(_BYTE *)(v10 + 1) = v28->Type;
-        *(_DWORD *)(v10 + 8) = *((_DWORD *)v13 + 1);
-        *(_DWORD *)(v10 + 12) = *((_DWORD *)v13 + 2);
-        *(_QWORD *)(v10 + 24) = RtlIoDecodeMemIoResource(v28, 0LL, (PULONGLONG)(v10 + 16), 0LL);
-        *(_DWORD *)(v10 + 32) = 3;
-        if ( qword_1C006EA40 )
+        v10[1] = v28->Type;
+        *((_DWORD *)v10 + 2) = *((_DWORD *)v13 + 1);
+        *((_DWORD *)v10 + 3) = *((_DWORD *)v13 + 2);
+        *((_QWORD *)v10 + 3) = RtlIoDecodeMemIoResource(v28, 0LL, (PULONGLONG)v10 + 2, 0LL);
+        *((_DWORD *)v10 + 8) = 3;
+        if ( qword_1C00819A0 )
         {
           v14 = v11 + 32LL * (v8 - 1) + 40;
           if ( v28->Type == 1 )
@@ -81,7 +81,7 @@ __int64 __fastcall BuildTranslatorRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
             LOBYTE(v14) = v15 == 3;
             v25 = Length;
             LOBYTE(Length) = v16;
-            if ( (int)((__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, int, unsigned __int16 *))qword_1C006EA40)(
+            if ( (int)((__int64 (__fastcall *)(__int64, __int64, _QWORD, __int64, int, unsigned __int16 *))qword_1C00819A0)(
                         Length,
                         v14,
                         0LL,
@@ -89,31 +89,31 @@ __int64 __fastcall BuildTranslatorRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
                         v25,
                         &v32) >= 0 )
             {
-              v19 = *(_OWORD *)(v10 + 16);
+              v19 = *((_OWORD *)v10 + 1);
               *(_OWORD *)v12 = *(_OWORD *)v10;
-              v20 = *(_QWORD *)(v10 + 32);
-              *(_OWORD *)(v12 + 16) = v19;
-              *(_DWORD *)(v10 + 32) = 2;
-              *(_QWORD *)(v12 + 32) = v20;
+              v20 = *((_QWORD *)v10 + 4);
+              *((_OWORD *)v12 + 1) = v19;
+              *((_DWORD *)v10 + 8) = 2;
+              *((_QWORD *)v12 + 4) = v20;
               if ( v29 )
-                *(_QWORD *)(v10 + 8) = v18
-                                     + ((*(_QWORD *)(v10 + 16) & 0xFFFCLL) << 10)
-                                     + (*(_QWORD *)(v10 + 16) & 0xFFFLL);
-              v21 = *(_DWORD *)(v10 + 56);
-              v10 += 40LL;
+                *((_QWORD *)v10 + 1) = v18
+                                     + ((*((_QWORD *)v10 + 2) & 0xFFFCLL) << 10)
+                                     + (*((_QWORD *)v10 + 2) & 0xFFFLL);
+              v21 = *((_DWORD *)v10 + 14);
+              v10 += 40;
               ++v9;
-              v12 += 40LL;
+              v12 += 40;
               v22 = (unsigned __int16)v21 | ((unsigned __int64)v32 << 16);
-              *(_DWORD *)(v10 + 32) = 1;
-              *(_QWORD *)(v10 + 8) = v22;
-              *(_BYTE *)v10 = 1;
+              *((_DWORD *)v10 + 8) = 1;
+              *((_QWORD *)v10 + 1) = v22;
+              *v10 = 1;
             }
             v8 = v26;
           }
         }
         ++v9;
-        v10 += 40LL;
-        v12 += 40LL;
+        v10 += 40;
+        v12 += 40;
       }
       ++v8;
       v13 += 32;
@@ -123,7 +123,7 @@ __int64 __fastcall BuildTranslatorRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
     v7 = Src;
     if ( v9 )
     {
-      v23 = (void *)ExAllocatePool2(256LL, (unsigned int)(40 * v9), 1483760449LL);
+      v23 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(40 * v9), 0x58706341u);
       *a3 = v23;
       if ( !v23 )
       {

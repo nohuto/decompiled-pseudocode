@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipQueueLegacyEtwWork @ 0x140853C20
+ * XREFs of WmipQueueLegacyEtwWork @ 0x1407C7768
  * Callers:
- *     WmipRegisterEtwProvider @ 0x140853B8C (WmipRegisterEtwProvider.c)
- *     WmipLegacyEtwCallback @ 0x1409E1970 (WmipLegacyEtwCallback.c)
- *     WmipUnregisterEtwProvider @ 0x1409E1BC0 (WmipUnregisterEtwProvider.c)
+ *     WmipUnregisterEtwProvider @ 0x1407C7680 (WmipUnregisterEtwProvider.c)
+ *     WmipRegisterEtwProvider @ 0x1407C76D8 (WmipRegisterEtwProvider.c)
+ *     WmipLegacyEtwCallback @ 0x140933620 (WmipLegacyEtwCallback.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)
@@ -17,38 +17,37 @@ void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)
   _QWORD *v7; // rcx
   int v8; // eax
   struct _WORK_QUEUE_ITEM *v9; // rcx
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v11; // rcx
-  _QWORD *v12; // r9
-  __int64 v13; // rax
+  _QWORD *v12; // rcx
+  char *v13; // rax
   _QWORD *v14; // rbx
-  _QWORD *v15; // rax
-  __int64 v16; // rsi
+  _QWORD *v15; // rcx
+  _QWORD *v16; // rcx
   _QWORD *v17; // rbx
-  _QWORD *v18; // rcx
 
   WmipReferenceEntry(a2);
   if ( a3 )
   {
     if ( (*(_DWORD *)(a2 + 16) & 0x10) == 0 )
     {
-      Pool2 = (_QWORD *)ExAllocatePool2(256LL, 56LL, 1885957463LL);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x70696D57u);
+      if ( PoolWithTag )
       {
-        Pool2[2] = a2;
-        Pool2[4] = Pool2 + 3;
-        Pool2[3] = Pool2 + 3;
-        Pool2[6] = Pool2 + 5;
-        Pool2[5] = Pool2 + 5;
+        PoolWithTag[2] = a2;
+        PoolWithTag[4] = PoolWithTag + 3;
+        PoolWithTag[3] = PoolWithTag + 3;
+        PoolWithTag[6] = PoolWithTag + 5;
+        PoolWithTag[5] = PoolWithTag + 5;
         v11 = *(_QWORD **)(a3 + 8);
         if ( *v11 != a3 )
           goto LABEL_17;
-        *Pool2 = a3;
-        Pool2[1] = v11;
-        *v11 = Pool2;
-        *(_QWORD *)(a3 + 8) = Pool2;
+        *PoolWithTag = a3;
+        PoolWithTag[1] = v11;
+        *v11 = PoolWithTag;
+        *(_QWORD *)(a3 + 8) = PoolWithTag;
         *(_DWORD *)(a2 + 16) |= 0x10u;
-        *(_QWORD *)(a2 + 128) = Pool2;
+        *(_QWORD *)(a2 + 128) = PoolWithTag;
       }
     }
   }
@@ -83,26 +82,25 @@ LABEL_17:
   *(_QWORD *)(v6 + 32) = a1;
   if ( a3 )
   {
-    v13 = ExAllocatePool2(256LL, 56LL, 1885957463LL);
-    v14 = (_QWORD *)v13;
+    v13 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x70696D57u);
+    v14 = v13;
     if ( v13 )
     {
       KeInitializeEvent((PRKEVENT)(v13 + 32), NotificationEvent, 0);
       v15 = *(_QWORD **)(a3 + 24);
-      v16 = a3 + 16;
-      if ( *v15 == v16 )
+      if ( *v15 == a3 + 16 )
       {
+        *v14 = a3 + 16;
         v14[1] = v15;
-        *v14 = v16;
         *v15 = v14;
-        *(_QWORD *)(v16 + 8) = v14;
+        *(_QWORD *)(a3 + 24) = v14;
+        v16 = *(_QWORD **)(v6 + 48);
         v17 = v14 + 2;
-        v18 = *(_QWORD **)(v6 + 48);
-        if ( *v18 == v6 + 40 )
+        if ( *v16 == v6 + 40 )
         {
           *v17 = v6 + 40;
-          v17[1] = v18;
-          *v18 = v17;
+          v17[1] = v16;
+          *v16 = v17;
           *(_QWORD *)(v6 + 48) = v17;
           return;
         }

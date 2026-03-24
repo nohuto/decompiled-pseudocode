@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddOcclusionInformation@CBrush@@$4PPPPPPPM@FA@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x180107610
+ * XREFs of ?AddOcclusionInformation@CBrush@@$4PPPPPPPM@FA@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800F65E0
  * Callers:
  *     <none>
  * Callees:

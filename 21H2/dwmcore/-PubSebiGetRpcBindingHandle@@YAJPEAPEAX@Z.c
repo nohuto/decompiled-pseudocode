@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x18001F840
+ * XREFs of ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x180024B64
  * Callers:
- *     PubSebUnregisterRpc @ 0x18001F4E4 (PubSebUnregisterRpc.c)
- *     PubSebRegisterRpc @ 0x18001F600 (PubSebRegisterRpc.c)
- *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x18026C12C (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
+ *     PubSebUnregisterRpc @ 0x180024614 (PubSebUnregisterRpc.c)
+ *     PubSebRegisterRpc @ 0x180024930 (PubSebRegisterRpc.c)
+ *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x180216C80 (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,13 @@
 /*
- * XREFs of BapdGetISRegistryKey @ 0x140A892D4
+ * XREFs of BapdGetISRegistryKey @ 0x14099AFF0
  * Callers:
- *     BapdRegisterSiData @ 0x140A88B80 (BapdRegisterSiData.c)
- *     BapdRemoveWbclData @ 0x140AAAB84 (BapdRemoveWbclData.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140B39350 (BapdpProcessVsmKeyBlobs.c)
+ *     BapdRegisterSiData @ 0x14099ACF8 (BapdRegisterSiData.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140A4083C (BapdpProcessVsmKeyBlobs.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
  */
 
 __int64 __fastcall BapdGetISRegistryKey(PHANDLE KeyHandle)
@@ -18,13 +17,14 @@ __int64 __fastcall BapdGetISRegistryKey(PHANDLE KeyHandle)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE KeyHandlea; // [rsp+98h] [rbp+18h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandlea = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v2 = ZwOpenKey(&KeyHandlea, 0x20019u, &ObjectAttributes);

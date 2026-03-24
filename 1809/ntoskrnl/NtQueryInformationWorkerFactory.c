@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryInformationWorkerFactory @ 0x14031EE60
+ * XREFs of NtQueryInformationWorkerFactory @ 0x14031EF60
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x1406E2790 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4, _DWORD *a5)

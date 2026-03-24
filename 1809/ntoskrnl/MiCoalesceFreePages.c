@@ -16,9 +16,9 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C30 (ExfTryAcquirePushLockShared.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 __int64 __fastcall MiCoalesceFreePages(__int64 a1)

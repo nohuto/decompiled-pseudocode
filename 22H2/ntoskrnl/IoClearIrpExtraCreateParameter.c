@@ -1,7 +1,7 @@
 /*
- * XREFs of IoClearIrpExtraCreateParameter @ 0x1405568B0
+ * XREFs of IoClearIrpExtraCreateParameter @ 0x140505610
  * Callers:
- *     IopSymlinkAllocateAndAddECP @ 0x1407CDE5C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14068303C (IopSymlinkAllocateAndAddECP.c)
  * Callees:
  *     <none>
  */

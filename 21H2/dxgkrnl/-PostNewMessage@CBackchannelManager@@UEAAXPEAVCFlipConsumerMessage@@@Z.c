@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PostNewMessage@CBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C0080F00
+ * XREFs of ?PostNewMessage@CBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C006D970
  * Callers:
- *     ?PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C0080D80 (-PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z.c)
+ *     ?PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C006D7B0 (-PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z.c)
  * Callees:
  *     <none>
  */

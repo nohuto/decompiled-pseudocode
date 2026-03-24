@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCountSystemPool @ 0x1401B4E00
+ * XREFs of MiCountSystemPool @ 0x1401B4E20
  * Callers:
  *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiReturnNonPagedPoolPde @ 0x140161680 (MiReturnNonPagedPoolPde.c)
- *     MiIncreaseNonPagedPoolUsage @ 0x140163E28 (MiIncreaseNonPagedPoolUsage.c)
+ *     MiReturnNonPagedPoolPde @ 0x1401616A0 (MiReturnNonPagedPoolPde.c)
+ *     MiIncreaseNonPagedPoolUsage @ 0x140163E48 (MiIncreaseNonPagedPoolUsage.c)
  * Callees:
- *     MiFreeExcessSegments @ 0x1401643B4 (MiFreeExcessSegments.c)
- *     MiSignalNonPagedPoolWatchers @ 0x14017F900 (MiSignalNonPagedPoolWatchers.c)
+ *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x14017F920 (MiSignalNonPagedPoolWatchers.c)
  */
 
 void __fastcall MiCountSystemPool(char a1, unsigned __int64 a2, int a3)

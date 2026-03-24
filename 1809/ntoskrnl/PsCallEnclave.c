@@ -1,7 +1,7 @@
 /*
- * XREFs of PsCallEnclave @ 0x14088D5A0
+ * XREFs of PsCallEnclave @ 0x14088D580
  * Callers:
- *     NtCallEnclave @ 0x1401C5F80 (NtCallEnclave.c)
+ *     NtCallEnclave @ 0x1401C5FA0 (NtCallEnclave.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,20 +10,20 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwTerminateProcess @ 0x1401B86F0 (ZwTerminateProcess.c)
- *     PsGetBaseTrapFrame @ 0x1402E996C (PsGetBaseTrapFrame.c)
- *     RtlCreateEnclaveReturnFrame @ 0x1402FB464 (RtlCreateEnclaveReturnFrame.c)
- *     RtlPrepareEnclaveCall @ 0x1402FB590 (RtlPrepareEnclaveCall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwTerminateProcess @ 0x1401B8710 (ZwTerminateProcess.c)
+ *     PsGetBaseTrapFrame @ 0x1402E9A6C (PsGetBaseTrapFrame.c)
+ *     RtlCreateEnclaveReturnFrame @ 0x1402FB564 (RtlCreateEnclaveReturnFrame.c)
+ *     RtlPrepareEnclaveCall @ 0x1402FB690 (RtlPrepareEnclaveCall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VslCallEnclave @ 0x140817D1C (VslCallEnclave.c)
- *     MiHotPatchImageTreeCompare @ 0x140855608 (MiHotPatchImageTreeCompare.c)
- *     MmSelectVsmEnclaveByAddress @ 0x14085A84C (MmSelectVsmEnclaveByAddress.c)
- *     PsDereferenceVsmEnclave @ 0x14088E1A4 (PsDereferenceVsmEnclave.c)
- *     PspPrepareEnclaveThreadWait @ 0x14088E62C (PspPrepareEnclaveThreadWait.c)
- *     PspReleaseEnclaveThread @ 0x14088E6C0 (PspReleaseEnclaveThread.c)
- *     PspRemoveEnclaveThreadWait @ 0x14088E71C (PspRemoveEnclaveThreadWait.c)
- *     PspSelectVsmEnclaveByNumber @ 0x14088E7CC (PspSelectVsmEnclaveByNumber.c)
+ *     VslCallEnclave @ 0x140817CFC (VslCallEnclave.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408555E8 (MiHotPatchImageTreeCompare.c)
+ *     MmSelectVsmEnclaveByAddress @ 0x14085A82C (MmSelectVsmEnclaveByAddress.c)
+ *     PsDereferenceVsmEnclave @ 0x14088E184 (PsDereferenceVsmEnclave.c)
+ *     PspPrepareEnclaveThreadWait @ 0x14088E60C (PspPrepareEnclaveThreadWait.c)
+ *     PspReleaseEnclaveThread @ 0x14088E6A0 (PspReleaseEnclaveThread.c)
+ *     PspRemoveEnclaveThreadWait @ 0x14088E6FC (PspRemoveEnclaveThreadWait.c)
+ *     PspSelectVsmEnclaveByNumber @ 0x14088E7AC (PspSelectVsmEnclaveByNumber.c)
  */
 
 __int64 __fastcall PsCallEnclave(unsigned __int64 a1, __int64 a2, NTSTATUS a3, __int64 *a4)

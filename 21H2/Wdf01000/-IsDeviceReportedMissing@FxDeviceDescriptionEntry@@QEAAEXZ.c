@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsDeviceReportedMissing@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C005C218
+ * XREFs of ?IsDeviceReportedMissing@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C003BAF0
  * Callers:
- *     ?DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z @ 0x1C0083510 (-DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z.c)
+ *     ?DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z @ 0x1C0078FD0 (-DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z.c)
  * Callees:
  *     <none>
  */

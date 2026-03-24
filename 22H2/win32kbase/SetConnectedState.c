@@ -1,9 +1,9 @@
 /*
- * XREFs of SetConnectedState @ 0x1C000FA30
+ * XREFs of SetConnectedState @ 0x1C00B0CC0
  * Callers:
- *     <none>
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     PowerConnectionEvent @ 0x1C00110E4 (PowerConnectionEvent.c)
+ *     PowerConnectionEvent @ 0x1C00B0D4C (PowerConnectionEvent.c)
  */
 
 __int64 __fastcall SetConnectedState(int a1, int a2)

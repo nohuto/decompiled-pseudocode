@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIInitShutdownInProgress @ 0x1C003CC28
+ * XREFs of ACPIInitShutdownInProgress @ 0x1C005E94C
  * Callers:
- *     ACPINotifyOsShutdownWorker @ 0x1C003CD60 (ACPINotifyOsShutdownWorker.c)
- *     AcpiShutdownNotificationTimerWorkItem @ 0x1C003DA00 (AcpiShutdownNotificationTimerWorkItem.c)
+ *     ACPINotifyOsShutdownWorker @ 0x1C005EA80 (ACPINotifyOsShutdownWorker.c)
+ *     AcpiShutdownNotificationTimerWorkItem @ 0x1C005F280 (AcpiShutdownNotificationTimerWorkItem.c)
  * Callees:
- *     ACPIInternalEvaluateOST @ 0x1C002E580 (ACPIInternalEvaluateOST.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
  */
 
 BOOLEAN __fastcall ACPIInitShutdownInProgress(char *DeferredContext)
@@ -14,6 +14,6 @@ BOOLEAN __fastcall ACPIInitShutdownInProgress(char *DeferredContext)
   *((_QWORD *)DeferredContext + 20) = 0LL;
   *((_QWORD *)DeferredContext + 22) = AcpiShutdownNotificationTimerWorkItem;
   *((_QWORD *)DeferredContext + 23) = DeferredContext;
-  ACPIInternalEvaluateOST(*((_QWORD **)DeferredContext + 25), 129, 129);
+  ACPIInternalEvaluateOST(*((_QWORD *)DeferredContext + 25), 129, 129);
   return KeSetTimer((PKTIMER)(DeferredContext + 8), (LARGE_INTEGER)-100000000LL, (PKDPC)(DeferredContext + 72));
 }

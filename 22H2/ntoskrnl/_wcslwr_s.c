@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcslwr_s @ 0x1403D94B0
+ * XREFs of _wcslwr_s @ 0x1403D1A90
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     wcsnlen @ 0x1403DB480 (wcsnlen.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     wcsnlen @ 0x1403D39D0 (wcsnlen.c)
  */
 
 errno_t __cdecl wcslwr_s(wchar_t *Str, size_t SizeInWords)

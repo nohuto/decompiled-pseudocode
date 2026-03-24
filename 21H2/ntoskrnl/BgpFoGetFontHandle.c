@@ -1,47 +1,47 @@
 /*
- * XREFs of BgpFoGetFontHandle @ 0x140AABE98
+ * XREFs of BgpFoGetFontHandle @ 0x1409F334C
  * Callers:
- *     ResFwConfigureDisplayStringResources @ 0x140AAB88C (ResFwConfigureDisplayStringResources.c)
- *     AnFwConfigureProgressResources @ 0x140AAB930 (AnFwConfigureProgressResources.c)
- *     BgpTxtGetRegionContext @ 0x140AABF48 (BgpTxtGetRegionContext.c)
- *     BgpTxtCreateRegion @ 0x140AAC868 (BgpTxtCreateRegion.c)
- *     BgpConsoleInitialize @ 0x140AAE560 (BgpConsoleInitialize.c)
- *     BgpFoDetermineFontInformation @ 0x140B55FC4 (BgpFoDetermineFontInformation.c)
+ *     ResFwConfigureDisplayStringResources @ 0x1409F16A8 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x1409F1744 (AnFwConfigureProgressResources.c)
+ *     BgpTxtGetRegionContext @ 0x1409F2944 (BgpTxtGetRegionContext.c)
+ *     BgpTxtCreateRegion @ 0x1409F30D4 (BgpTxtCreateRegion.c)
+ *     BgpConsoleInitialize @ 0x1409F4820 (BgpConsoleInitialize.c)
+ *     BgpFoDetermineFontInformation @ 0x140A96D5C (BgpFoDetermineFontInformation.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
  */
 
 __int64 __fastcall BgpFoGetFontHandle(wchar_t *Str2, __int64 **a2)
 {
-  __int64 result; // rax
-  __int64 v5; // rdi
-  __int64 *i; // rbx
+  int v4; // esi
+  __int64 i; // rdi
+  __int64 *j; // rbx
 
-  result = 3221226021LL;
+  v4 = -1073741275;
   if ( !a2 || !FontLibraryInitialized )
     return 3221225485LL;
   *a2 = 0LL;
-  v5 = FopFontFileListHead;
-  while ( (__int64 *)v5 != &FopFontFileListHead )
+  for ( i = FopFontFileListHead; (__int64 *)i != &FopFontFileListHead; i = *(_QWORD *)i )
   {
-    for ( i = *(__int64 **)(v5 + 40); i != (__int64 *)(v5 + 40); i = (__int64 *)*i )
+    for ( j = *(__int64 **)(i + 40); j != (__int64 *)(i + 40); j = (__int64 *)*j )
     {
       if ( Str2 )
       {
-        if ( !wcsicmp((const wchar_t *)i[4], Str2) )
+        if ( !wcsicmp((const wchar_t *)j[4], Str2) )
         {
 LABEL_9:
-          *a2 = i;
-          return 0LL;
+          *a2 = j;
+          v4 = 0;
+          break;
         }
       }
-      else if ( (*(_DWORD *)(v5 + 28) & 1) != 0 )
+      else if ( (*(_DWORD *)(i + 28) & 1) != 0 )
       {
         goto LABEL_9;
       }
     }
-    v5 = *(_QWORD *)v5;
-    result = 3221226021LL;
+    if ( v4 >= 0 )
+      break;
   }
-  return result;
+  return (unsigned int)v4;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of GreRectInRegion @ 0x1C0098880
+ * XREFs of GreRectInRegion @ 0x1C0081E00
  * Callers:
- *     NtGdiRectInRegion @ 0x1C0158C60 (NtGdiRectInRegion.c)
- *     EngRectInRgn @ 0x1C016AB60 (EngRectInRgn.c)
+ *     NtGdiRectInRegion @ 0x1C00BECA0 (NtGdiRectInRegion.c)
+ *     EngRectInRgn @ 0x1C014BDC0 (EngRectInRgn.c)
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C003F148 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?bInside@RGNOBJ@@QEAAHPEAU_RECTL@@@Z @ 0x1C00988E0 (-bInside@RGNOBJ@@QEAAHPEAU_RECTL@@@Z.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00D2140 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0035D10 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?bInside@RGNOBJ@@QEAAHPEAU_RECTL@@@Z @ 0x1C0081E60 (-bInside@RGNOBJ@@QEAAHPEAU_RECTL@@@Z.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C9240 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall GreRectInRegion(HRGN a1, struct _RECTL *a2)

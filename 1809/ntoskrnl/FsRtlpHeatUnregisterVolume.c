@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlpHeatUnregisterVolume @ 0x140816704
+ * XREFs of FsRtlpHeatUnregisterVolume @ 0x1408166E4
  * Callers:
- *     FsRtlHeatUninit @ 0x140816540 (FsRtlHeatUninit.c)
+ *     FsRtlHeatUninit @ 0x140816520 (FsRtlHeatUninit.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)

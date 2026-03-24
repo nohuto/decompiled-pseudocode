@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSwapHiveStorage @ 0x140919B78
+ * XREFs of CmpSwapHiveStorage @ 0x14087310C
  * Callers:
- *     CmpReorganizeHive @ 0x14068B1C8 (CmpReorganizeHive.c)
- *     CmpRefreshHive @ 0x14090D9E8 (CmpRefreshHive.c)
+ *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
+ *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
  * Callees:
- *     HvSwapHiveStorage @ 0x14091A644 (HvSwapHiveStorage.c)
+ *     HvSwapHiveStorage @ 0x14087396C (HvSwapHiveStorage.c)
  */
 
 __int64 __fastcall CmpSwapHiveStorage(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpSwapHiveStorage(__int64 a1, __int64 a2)
   _QWORD *v32; // [rsp+28h] [rbp-8h]
 
   HvSwapHiveStorage();
-  v4 = (_QWORD *)(a2 + 1544);
+  v4 = (_QWORD *)(a2 + 1536);
   v5 = a1 - a2;
   v6 = 6LL;
   do
@@ -51,34 +51,34 @@ __int64 __fastcall CmpSwapHiveStorage(__int64 a1, __int64 a2)
     --v6;
   }
   while ( v6 );
-  v8 = *(_DWORD *)(a1 + 1792);
-  v9 = (_QWORD *)(a1 + 1896);
+  v8 = *(_DWORD *)(a1 + 1784);
+  v9 = (_QWORD *)(a1 + 1888);
   v10 = 64LL;
-  *(_DWORD *)(a1 + 1792) = *(_DWORD *)(a2 + 1792);
-  *(_DWORD *)(a2 + 1792) = v8;
+  *(_DWORD *)(a1 + 1784) = *(_DWORD *)(a2 + 1784);
+  *(_DWORD *)(a2 + 1784) = v8;
   v11 = a2 - a1;
-  v12 = *(_QWORD *)(a1 + 1808);
-  *(_QWORD *)(a1 + 1808) = *(_QWORD *)(a2 + 1808);
-  v13 = *(_QWORD *)(a2 + 1816);
-  *(_QWORD *)(a2 + 1808) = v12;
-  v14 = *(_QWORD *)(a1 + 1816);
-  *(_QWORD *)(a1 + 1816) = v13;
-  *(_QWORD *)(a2 + 1816) = v14;
+  v12 = *(_QWORD *)(a1 + 1800);
+  *(_QWORD *)(a1 + 1800) = *(_QWORD *)(a2 + 1800);
+  v13 = *(_QWORD *)(a2 + 1808);
+  *(_QWORD *)(a2 + 1800) = v12;
+  v14 = *(_QWORD *)(a1 + 1808);
+  *(_QWORD *)(a1 + 1808) = v13;
+  *(_QWORD *)(a2 + 1808) = v14;
+  LODWORD(v13) = *(_DWORD *)(a1 + 1864);
+  *(_DWORD *)(a1 + 1864) = *(_DWORD *)(a2 + 1864);
+  LODWORD(v14) = *(_DWORD *)(a2 + 1868);
+  *(_DWORD *)(a2 + 1864) = v13;
+  LODWORD(v13) = *(_DWORD *)(a1 + 1868);
+  *(_DWORD *)(a1 + 1868) = v14;
+  LODWORD(v14) = *(_DWORD *)(a2 + 1872);
+  *(_DWORD *)(a2 + 1868) = v13;
   LODWORD(v13) = *(_DWORD *)(a1 + 1872);
-  *(_DWORD *)(a1 + 1872) = *(_DWORD *)(a2 + 1872);
-  LODWORD(v14) = *(_DWORD *)(a2 + 1876);
+  *(_DWORD *)(a1 + 1872) = v14;
+  v15 = *(_QWORD *)(a2 + 1880);
   *(_DWORD *)(a2 + 1872) = v13;
-  LODWORD(v13) = *(_DWORD *)(a1 + 1876);
-  *(_DWORD *)(a1 + 1876) = v14;
-  LODWORD(v14) = *(_DWORD *)(a2 + 1880);
-  *(_DWORD *)(a2 + 1876) = v13;
-  LODWORD(v13) = *(_DWORD *)(a1 + 1880);
-  *(_DWORD *)(a1 + 1880) = v14;
-  v15 = *(_QWORD *)(a2 + 1888);
-  *(_DWORD *)(a2 + 1880) = v13;
-  v16 = *(_QWORD *)(a1 + 1888);
-  *(_QWORD *)(a1 + 1888) = v15;
-  *(_QWORD *)(a2 + 1888) = v16;
+  v16 = *(_QWORD *)(a1 + 1880);
+  *(_QWORD *)(a1 + 1880) = v15;
+  *(_QWORD *)(a2 + 1880) = v16;
   do
   {
     v17 = (_QWORD *)*v9;
@@ -124,42 +124,42 @@ __int64 __fastcall CmpSwapHiveStorage(__int64 a1, __int64 a2)
     --v10;
   }
   while ( v10 );
-  v25 = *(_QWORD *)(a1 + 4136);
-  *(_QWORD *)(a1 + 4136) = *(_QWORD *)(a2 + 4136);
-  v26 = *(_QWORD *)(a2 + 4144);
-  *(_QWORD *)(a2 + 4136) = v25;
-  v27 = *(_QWORD *)(a1 + 4144);
-  *(_QWORD *)(a1 + 4144) = v26;
-  *(_QWORD *)(a2 + 4144) = v27;
-  v28 = *(_QWORD *)(a1 + 4184);
-  *(_QWORD *)(a1 + 4184) = *(_QWORD *)(a2 + 4184);
-  *(_QWORD *)(a2 + 4184) = v28;
-  LODWORD(v27) = *(_DWORD *)(a1 + 4224);
-  *(_DWORD *)(a1 + 4224) = *(_DWORD *)(a2 + 4224);
-  LODWORD(v28) = *(_DWORD *)(a2 + 4228);
-  *(_DWORD *)(a2 + 4224) = v27;
-  LODWORD(v27) = *(_DWORD *)(a1 + 4228);
-  *(_DWORD *)(a1 + 4228) = v28;
-  LODWORD(v28) = *(_DWORD *)(a2 + 4752);
-  *(_DWORD *)(a2 + 4228) = v27;
-  LODWORD(v27) = *(_DWORD *)(a1 + 4752);
-  *(_DWORD *)(a1 + 4752) = v28;
-  LODWORD(v28) = *(_DWORD *)(a2 + 4756);
-  *(_DWORD *)(a2 + 4752) = v27;
-  LODWORD(v27) = *(_DWORD *)(a1 + 4756);
-  *(_DWORD *)(a1 + 4756) = v28;
-  LODWORD(v28) = *(_DWORD *)(a2 + 4760);
-  *(_DWORD *)(a2 + 4756) = v27;
-  LODWORD(v27) = *(_DWORD *)(a1 + 4760);
-  *(_DWORD *)(a1 + 4760) = v28;
-  LODWORD(v28) = *(_DWORD *)(a2 + 4764);
-  *(_DWORD *)(a2 + 4760) = v27;
-  LODWORD(v27) = *(_DWORD *)(a1 + 4764);
-  *(_DWORD *)(a1 + 4764) = v28;
-  result = *(_QWORD *)(a2 + 4792);
-  *(_DWORD *)(a2 + 4764) = v27;
-  v30 = *(_QWORD *)(a1 + 4792);
-  *(_QWORD *)(a1 + 4792) = result;
-  *(_QWORD *)(a2 + 4792) = v30;
+  v25 = *(_QWORD *)(a1 + 4176);
+  *(_QWORD *)(a1 + 4176) = *(_QWORD *)(a2 + 4176);
+  v26 = *(_QWORD *)(a2 + 4184);
+  *(_QWORD *)(a2 + 4176) = v25;
+  v27 = *(_QWORD *)(a1 + 4184);
+  *(_QWORD *)(a1 + 4184) = v26;
+  *(_QWORD *)(a2 + 4184) = v27;
+  v28 = *(_QWORD *)(a1 + 4224);
+  *(_QWORD *)(a1 + 4224) = *(_QWORD *)(a2 + 4224);
+  *(_QWORD *)(a2 + 4224) = v28;
+  LODWORD(v27) = *(_DWORD *)(a1 + 4264);
+  *(_DWORD *)(a1 + 4264) = *(_DWORD *)(a2 + 4264);
+  LODWORD(v28) = *(_DWORD *)(a2 + 4268);
+  *(_DWORD *)(a2 + 4264) = v27;
+  LODWORD(v27) = *(_DWORD *)(a1 + 4268);
+  *(_DWORD *)(a1 + 4268) = v28;
+  LODWORD(v28) = *(_DWORD *)(a2 + 4792);
+  *(_DWORD *)(a2 + 4268) = v27;
+  LODWORD(v27) = *(_DWORD *)(a1 + 4792);
+  *(_DWORD *)(a1 + 4792) = v28;
+  LODWORD(v28) = *(_DWORD *)(a2 + 4796);
+  *(_DWORD *)(a2 + 4792) = v27;
+  LODWORD(v27) = *(_DWORD *)(a1 + 4796);
+  *(_DWORD *)(a1 + 4796) = v28;
+  LODWORD(v28) = *(_DWORD *)(a2 + 4800);
+  *(_DWORD *)(a2 + 4796) = v27;
+  LODWORD(v27) = *(_DWORD *)(a1 + 4800);
+  *(_DWORD *)(a1 + 4800) = v28;
+  LODWORD(v28) = *(_DWORD *)(a2 + 4804);
+  *(_DWORD *)(a2 + 4800) = v27;
+  LODWORD(v27) = *(_DWORD *)(a1 + 4804);
+  *(_DWORD *)(a1 + 4804) = v28;
+  result = *(_QWORD *)(a2 + 4832);
+  *(_DWORD *)(a2 + 4804) = v27;
+  v30 = *(_QWORD *)(a1 + 4832);
+  *(_QWORD *)(a1 + 4832) = result;
+  *(_QWORD *)(a2 + 4832) = v30;
   return result;
 }

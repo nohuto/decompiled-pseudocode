@@ -4,7 +4,7 @@
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  *     PopShutdownSystem @ 0x14057E014 (PopShutdownSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void PopSetMemoryOverwriteRequestAction()

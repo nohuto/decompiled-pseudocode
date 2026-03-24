@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifyTcbPrivileges @ 0x1C00BE320
+ * XREFs of VerifyTcbPrivileges @ 0x1C01370B0
  * Callers:
  *     <none>
  * Callees:

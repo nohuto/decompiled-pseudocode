@@ -1,47 +1,46 @@
 /*
- * XREFs of PoEnergyContextStart @ 0x1407B15EC
+ * XREFs of PoEnergyContextStart @ 0x14067C358
  * Callers:
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PopEtInit @ 0x140B6B730 (PopEtInit.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     PopEtInit @ 0x140A6D9A4 (PopEtInit.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopEtGetProcessAppId @ 0x1407B16E0 (PopEtGetProcessAppId.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopEtGetProcessAppId @ 0x14067C448 (PopEtGetProcessAppId.c)
  */
 
 __int64 __fastcall PoEnergyContextStart(ULONG_PTR BugCheckParameter1)
 {
-  __int64 v1; // r14
-  char v2; // si
+  __int64 v1; // rbp
+  char v3; // si
   struct _EX_RUNDOWN_REF *v4; // rdi
+  _DWORD *v5; // r9
   int ProcessAppId; // ebx
-  $115DCDF994C6370D29323EAB0E0C9502 v7; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD v8[3]; // [rsp+20h] [rbp-58h] BYREF
 
   v1 = *(_QWORD *)(BugCheckParameter1 + 2280);
-  v2 = 0;
-  memset(&v7, 0, sizeof(v7));
+  v3 = 0;
+  memset(v8, 0, sizeof(v8));
   if ( PopEtGlobals )
   {
     v4 = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112);
     if ( KeGetCurrentThread()->ApcState.Process != (_KPROCESS *)BugCheckParameter1 )
     {
-      if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+      if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
         return (unsigned int)-1073741558;
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v7);
-      v2 = 1;
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v8, v5);
+      v3 = 1;
     }
     ProcessAppId = PopEtGetProcessAppId(BugCheckParameter1, v1 + 448);
-    if ( ProcessAppId < 0 )
-      *(_QWORD *)(v1 + 448) = PopEtGlobals + 872;
-    else
+    if ( ProcessAppId >= 0 )
       ProcessAppId = 0;
-    if ( v2 )
+    if ( v3 )
     {
-      KiUnstackDetachProcess(&v7);
-      ExReleaseRundownProtection_0(v4);
+      KiUnstackDetachProcess((__int64)v8, 0);
+      ExReleaseRundownProtection(v4);
     }
   }
   else

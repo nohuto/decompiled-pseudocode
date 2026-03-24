@@ -1,375 +1,378 @@
 /*
- * XREFs of xxxDispatchMessage @ 0x1C0117884
+ * XREFs of xxxDispatchMessage @ 0x1C006ADB4
  * Callers:
- *     xxxSetCsrssThreadDesktop @ 0x1C00697C0 (xxxSetCsrssThreadDesktop.c)
- *     xxxRestoreCsrssThreadDesktop @ 0x1C0069B30 (xxxRestoreCsrssThreadDesktop.c)
- *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C006A3B0 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     NtUserDispatchMessage @ 0x1C0117770 (NtUserDispatchMessage.c)
- *     xxxDCETrackCaptionButton @ 0x1C01BA87C (xxxDCETrackCaptionButton.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01EFC00 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
- *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022992C (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
- *     xxxTrackCaptionButton @ 0x1C022C718 (xxxTrackCaptionButton.c)
- *     xxxHelpLoop @ 0x1C0239514 (xxxHelpLoop.c)
+ *     NtUserDispatchMessage @ 0x1C006ACA0 (NtUserDispatchMessage.c)
+ *     xxxDCETrackCaptionButton @ 0x1C00D79AC (xxxDCETrackCaptionButton.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C00D8E60 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00D90F0 (xxxSetCsrssThreadDesktop.c)
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D9B74 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
+ *     xxxMoveSize @ 0x1C02122B4 (xxxMoveSize.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
+ *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C0244A64 (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
+ *     xxxTrackCaptionButton @ 0x1C0247450 (xxxTrackCaptionButton.c)
+ *     xxxHelpLoop @ 0x1C024FBDC (xxxHelpLoop.c)
  * Callees:
- *     ValidateTimerCallback @ 0x1C009B944 (ValidateTimerCallback.c)
- *     DwmAsyncChildStyleChange @ 0x1C00C8EAC (DwmAsyncChildStyleChange.c)
- *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00EE714 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     DirtyVisRgnTrackers @ 0x1C00F319C (DirtyVisRgnTrackers.c)
- *     xxxSimpleDoSyncPaint @ 0x1C0118654 (xxxSimpleDoSyncPaint.c)
- *     SfnDWORD @ 0x1C0123CE0 (SfnDWORD.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??1CEtwTraceDispatchMessage@@QEAA@XZ @ 0x1C01C0E10 (--1CEtwTraceDispatchMessage@@QEAA@XZ.c)
- *     RtlMBMessageWParamCharToWCS @ 0x1C024BD78 (RtlMBMessageWParamCharToWCS.c)
- *     RtlWCSMessageWParamCharToMB @ 0x1C024BEC8 (RtlWCSMessageWParamCharToMB.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     DwmAsyncChildStyleChange @ 0x1C004E050 (DwmAsyncChildStyleChange.c)
+ *     DirtyVisRgnTrackers @ 0x1C004E4D0 (DirtyVisRgnTrackers.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     SfnDWORD @ 0x1C006B320 (SfnDWORD.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D7A0 (xxxSimpleDoSyncPaint.c)
+ *     RtlWCSMessageWParamCharToMB @ 0x1C012D660 (RtlWCSMessageWParamCharToMB.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ValidateTimerCallback @ 0x1C01E1ED0 (ValidateTimerCallback.c)
+ *     RtlMBMessageWParamCharToWCS @ 0x1C025D4A0 (RtlMBMessageWParamCharToWCS.c)
  */
 
-__int64 __fastcall xxxDispatchMessage(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxDispatchMessage(__int64 a1)
 {
-  unsigned int v4; // ebp
-  PERESOURCE *v6; // rax
-  __int64 v7; // rdi
-  __int64 v8; // rbx
+  __int64 v1; // rdi
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v4; // rbp
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
   __int64 *ThreadWin32Thread; // rax
+  __int64 v9; // rcx
   __int64 v10; // rcx
-  struct tagWND *v11; // r14
-  __int64 v13; // rdx
-  BOOL v14; // eax
-  unsigned __int64 v15; // rdx
+  __int64 v11; // r14
+  __int64 v12; // rdx
+  struct _KTHREAD *v13; // r15
+  __int64 v14; // rbp
+  __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r8
-  int v18; // eax
-  __int64 v19; // rbp
-  __int64 v20; // rax
+  __int64 *v18; // rax
+  __int64 (__fastcall *i)(int, int, int, int, __int64, __int64, char); // rcx
+  int v20; // eax
   __int64 v21; // rax
-  int v22; // ecx
-  int v23; // ebx
-  int v24; // r15d
+  int v22; // r12d
+  int v23; // ebp
+  int v24; // r13d
   _DWORD *v25; // rax
-  int v26; // r12d
-  int v27; // ecx
-  int v28; // edx
-  int v29; // ebp
-  int v30; // eax
-  int v31; // r13d
-  int v32; // r15d
-  __int64 v33; // rbx
-  __int64 v34; // rcx
-  void *v35; // rax
-  __int64 v36; // rax
-  __int64 (__fastcall *v37)(int, int, int, int, __int64, __int64, char); // rax
-  unsigned __int64 v38; // rax
-  __int64 v39; // rbp
-  unsigned int v40; // r10d
-  __int64 *v41; // rbx
-  __int64 v42; // rdx
-  __int64 v43; // r8
-  __int64 v44; // rax
-  __int64 v45; // r8
-  __int64 v46; // rax
-  __int64 v47; // rbx
-  __int64 v48; // rsi
-  _QWORD *v49; // r15
-  int v50; // eax
-  int v51; // ebx
-  int v52; // r13d
-  _DWORD *v53; // rax
-  int v54; // r15d
-  int v55; // ecx
-  int v56; // edx
-  int v57; // esi
-  int v58; // eax
-  int v59; // r12d
-  __int64 v60; // rbx
-  __int64 v61; // rcx
-  void *v62; // rax
-  __int64 v63; // rdx
+  int v26; // r9d
+  int v27; // r8d
+  int v28; // ebx
+  __int64 v29; // rdx
+  char v30; // r9
+  __int64 v31; // rbp
+  unsigned int v32; // r10d
+  __int64 v33; // r8
+  __int64 v34; // rax
+  __int64 v35; // rbp
+  unsigned __int64 v36; // rsi
+  struct _KTHREAD *v37; // r12
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  __int64 v41; // rbx
+  unsigned __int64 v42; // rsi
+  _QWORD *v43; // r12
+  struct _KTHREAD *v44; // rsi
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // r8
+  __int64 *v48; // rax
+  __int64 v49; // rcx
+  char *v51; // rbx
+  __int64 v52; // r8
+  __int64 (__fastcall *v53)(int, int, int, int, __int64, __int64, char); // rax
+  unsigned __int64 v54; // rax
+  __int64 v55; // rax
+  __int64 *v56; // rbx
+  __int64 v57; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v60; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v62; // rax
+  int v63; // ebx
   __int64 v64; // rcx
-  __int64 v65; // r8
-  __int64 v66; // r9
-  PERESOURCE *v67; // rax
-  __int64 *v68; // rax
-  __int64 v69; // rcx
-  __int128 v70; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v71; // [rsp+60h] [rbp-48h]
-  int v72; // [rsp+B0h] [rbp+8h]
-  unsigned int v73; // [rsp+B8h] [rbp+10h] BYREF
-  int v74; // [rsp+C0h] [rbp+18h]
+  __int64 v65; // rax
+  int v66; // ecx
+  int v67; // edx
+  unsigned int v68; // ebp
+  __int64 v69; // rdx
+  __int64 v70; // rcx
+  void *v71; // rax
+  __int64 v72; // rax
+  int v73; // ebx
+  __int64 v74; // rcx
+  __int64 v75; // rax
+  __int64 v76; // rax
+  int v77; // ebx
+  __int64 v78; // rcx
+  __int64 v79; // rax
+  __int128 v80; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v81; // [rsp+60h] [rbp-48h]
+  unsigned int v82; // [rsp+B8h] [rbp+10h]
 
-  v4 = *((_DWORD *)a1 + 2);
-  v73 = v4;
-  v70 = 0LL;
-  v71 = 0LL;
-  v6 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(a1, a2, a3, a4);
-  v7 = 0LL;
-  if ( !ExIsResourceAcquiredSharedLite(*v6) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  v8 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v8 = *ThreadWin32Thread;
-  LOBYTE(v10) = *(_BYTE *)(v8 + 1296);
-  EtwTraceBeginDispatchMessage(v10, v4);
+  v80 = 0LL;
+  v81 = 0LL;
+  v1 = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  v4 = 0LL;
+  v82 = *(_DWORD *)(a1 + 8);
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v6, v5, v7),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v60),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v4 = *ThreadWin32Thread;
+  }
+  LOBYTE(v9) = *(_BYTE *)(v4 + 1248);
+  EtwTraceBeginDispatchMessage(v9, v82);
+  v10 = *(_QWORD *)a1;
   v11 = 0LL;
-  if ( *a1 )
+  if ( *(_QWORD *)a1 )
   {
-    v11 = (struct tagWND *)ValidateHwnd(*a1);
+    v11 = ValidateHwnd(v10);
     if ( !v11 )
-      goto LABEL_7;
+      goto LABEL_74;
   }
-  v13 = *((unsigned int *)a1 + 2);
-  if ( (unsigned int)v13 < 0x400 )
+  v12 = *(unsigned int *)(a1 + 8);
+  if ( (unsigned int)v12 < 0x400
+    && ((v10 = 512LL, (MessageTable[v12] & 0x200) != 0) || (_DWORD)v12 == 537 && (*(_DWORD *)(a1 + 16) & 0x8000LL) != 0)
+    || (_DWORD)v12 == 536 && (*(_DWORD *)(a1 + 16) & 0x8000LL) != 0 )
   {
-    v14 = _bittest16(&MessageTable[v13], 9u) || (_DWORD)v13 == 537 && (a1[2] & 0x8000) != 0;
-    if ( v14 || (_DWORD)v13 == 536 && (a1[2] & 0x8000) != 0 )
-    {
-      UserSetLastError(1159);
-LABEL_7:
-      CEtwTraceDispatchMessage::~CEtwTraceDispatchMessage((CEtwTraceDispatchMessage *)&v73);
-      return 0LL;
-    }
+    UserSetLastError(1159LL, v12, 0x8000LL);
+LABEL_74:
+    v35 = 0LL;
+    goto LABEL_40;
   }
-  ThreadLock(v11, &v70);
-  v18 = *((_DWORD *)a1 + 2);
-  if ( v18 != 275 && v18 != 280 || (v15 = a1[3]) == 0 )
+  v13 = KeGetCurrentThread();
+  v14 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v10)
+    || (v62 = PsGetCurrentProcess(v16, v15, v17),
+        v63 = PsGetProcessSessionIdEx(v62),
+        v65 = PsGetCurrentThreadProcess(v64),
+        v63 == (unsigned int)PsGetProcessSessionIdEx(v65)) )
   {
-    if ( !v11 )
-      goto LABEL_24;
-    v72 = -16;
-    if ( v18 != 15
-      || (v21 = *((_QWORD *)v11 + 5),
-          v22 = *(_DWORD *)(v21 + 232),
-          v23 = *(_DWORD *)(v21 + 28),
-          v24 = *(_DWORD *)(v21 + 24),
-          *(_BYTE *)(v21 + 18) |= 0x40u,
-          v74 = v22,
-          !(unsigned int)IsWindowDesktopComposed(v11)) )
+    v18 = (__int64 *)PsGetThreadWin32Thread(v13);
+    if ( v18 )
+      v14 = *v18;
+  }
+  *(_QWORD *)&v80 = *(_QWORD *)(v14 + 416);
+  *(_QWORD *)(v14 + 416) = &v80;
+  *((_QWORD *)&v80 + 1) = v11;
+  if ( v11 )
+    HMLockObject(v11);
+  v20 = *(_DWORD *)(a1 + 8);
+  if ( (v20 == 280 || v20 == 275) && *(_QWORD *)(a1 + 24) )
+  {
+    if ( v20 == 280 )
     {
-LABEL_44:
-      v36 = *((_QWORD *)v11 + 5);
-      LOBYTE(v17) = *(_BYTE *)(v36 + 18);
-      if ( (v17 & 4) != 0 )
+      v35 = 0LL;
+      for ( i = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))gtmrListHead[0];
+            i != (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))gtmrListHead[0];
+            i = *(__int64 (__fastcall **)(int, int, int, int, __int64, __int64, char))i )
       {
-        v16 = *((unsigned int *)a1 + 2);
-        if ( (unsigned int)v16 < 0x400 )
-          v37 = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))gapfnScSendMessage[(unsigned __int8)MessageTable[v16]];
-        else
-          v37 = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))SfnDWORD;
-        v15 = (unsigned __int64)SfnINWPARAMCHAR;
-        if ( v37 == SfnINWPARAMCHAR && (v17 & 8) != 0 )
-          RtlMBMessageWParamCharToWCS(v16, a1 + 2);
-        v38 = *(_QWORD *)(*((_QWORD *)v11 + 5) + 120LL);
-        if ( v38 < 7 )
+        v51 = (char *)i - 72;
+        if ( (*((_DWORD *)i - 6) & 2) != 0
+          && *(_QWORD *)(a1 + 16) == *((_QWORD *)v51 + 12)
+          && v11 == *((_QWORD *)v51 + 11) )
         {
-          v20 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, __int64, __int64))(&gServerHandlers)[v38])(
-                  v11,
-                  *((unsigned int *)a1 + 2),
-                  a1[2],
-                  a1[3]);
-          goto LABEL_27;
+          goto LABEL_53;
         }
-LABEL_24:
-        v19 = 0LL;
-        goto LABEL_88;
       }
-      v39 = *(_QWORD *)(v36 + 120);
-      v40 = *((_DWORD *)a1 + 2);
-      if ( (v17 & 8) != 0 )
+      v51 = 0LL;
+LABEL_53:
+      if ( v51 )
       {
-        v41 = a1 + 2;
-        RtlWCSMessageWParamCharToMB(v40, a1 + 2);
-        v42 = *((unsigned int *)a1 + 2);
-        if ( (_DWORD)v42 != 576 && (_DWORD)v42 != 281 )
+        if ( *((_QWORD *)v51 + 4)
+          || (MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3691LL), *((_QWORD *)v51 + 4)) )
         {
-          v43 = *v41;
-LABEL_57:
-          v44 = SfnDWORD((_DWORD)v11, v42, v43, a1[3], v39, *(_QWORD *)(gpsi + 752LL));
-          goto LABEL_64;
+          (*((void (__fastcall **)(__int64, __int64, _QWORD, _QWORD))v51 + 4))(
+            v11,
+            280LL,
+            *(unsigned int *)(a1 + 16),
+            (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24));
         }
-        v45 = *v41;
-        v46 = (unsigned __int16)v42;
+      }
+      goto LABEL_39;
+    }
+    i = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))gptiCurrent;
+    if ( (*(_DWORD *)(gptiCurrent + 488LL) & 4) == 0 && (unsigned int)ValidateTimerCallback() )
+    {
+      v55 = SfnDWORD(
+              v11,
+              275,
+              *(_QWORD *)(a1 + 16),
+              (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24,
+              *(_QWORD *)(a1 + 24),
+              *(_QWORD *)(gpsi + 752LL));
+      goto LABEL_61;
+    }
+LABEL_66:
+    v35 = 0LL;
+    goto LABEL_39;
+  }
+  if ( !v11 )
+    goto LABEL_66;
+  if ( v20 == 15 )
+  {
+    v21 = *(_QWORD *)(v11 + 40);
+    v22 = *(_DWORD *)(v21 + 28);
+    v23 = *(_DWORD *)(v21 + 24);
+    v24 = *(_DWORD *)(v21 + 232);
+    *(_BYTE *)(v21 + 18) |= 0x40u;
+    if ( (unsigned int)IsWindowDesktopComposed(v11) )
+    {
+      v25 = *(_DWORD **)(v11 + 40);
+      v26 = v25[7];
+      v27 = v25[6];
+      v28 = v25[58];
+      if ( v22 != v26 )
+        goto LABEL_85;
+      if ( v23 == v27 && v24 == v28 )
+        goto LABEL_23;
+      if ( v22 == v26 )
+      {
+        if ( v23 == v27 )
+        {
+          if ( ((v24 ^ v28) & 0x2E00300) == 0 )
+            goto LABEL_23;
+          v67 = 1;
+          v68 = -268435456;
+        }
+        else
+        {
+          v66 = (v23 ^ v27) & 0x4E27A9;
+          v67 = v66 != 0;
+          v68 = -v67 & 0xFFFFFFEC;
+          v28 = v27 & -v67;
+        }
       }
       else
       {
-        if ( v40 != 576 && v40 != 281 )
-        {
-          v43 = a1[2];
-          LODWORD(v42) = *((_DWORD *)a1 + 2);
-          goto LABEL_57;
-        }
-        v45 = a1[2];
-        v42 = v40;
-        v46 = (unsigned __int16)v40;
+LABEL_85:
+        v67 = ((v22 ^ v26) & 0xB1CF0000) != 0;
+        v68 = -v67 & 0xFFFFFFF0;
+        v28 = v26 & -v67;
       }
-      v44 = ((__int64 (__fastcall *)(struct tagWND *, __int64, __int64, __int64, __int64, _QWORD, int, _QWORD))gapfnScSendMessage[(unsigned __int8)MessageTable[v46]])(
-              v11,
-              v42,
-              v45,
-              a1[3],
-              v39,
-              *(_QWORD *)(gpsi + 752LL),
-              1,
-              0LL);
-LABEL_64:
-      v19 = v44;
-      if ( *((_DWORD *)a1 + 2) != 15 )
-        goto LABEL_88;
-      v47 = *a1;
-      PsGetThreadWin32Thread(KeGetCurrentThread());
-      v15 = (unsigned __int16)v47;
-      v16 = gpsi;
-      if ( (unsigned __int64)(unsigned __int16)v47 >= *(_QWORD *)(gpsi + 8LL) )
-        goto LABEL_88;
-      v48 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v47;
-      v49 = (_QWORD *)HMPkheFromPhe(v48);
-      LOWORD(v47) = WORD1(v47) & 0x7FFF;
-      if ( (WORD1(v47) & 0x7FFF) != *(_WORD *)(v48 + 26)
-        && (_WORD)v47 != 0x7FFF
-        && ((_WORD)v47 || !PsGetCurrentProcessWow64Process(v16, v15, v17)) )
+      if ( v67 )
       {
-        goto LABEL_88;
+        DirtyVisRgnTrackers((struct tagWND *)v11);
+        v71 = (void *)ReferenceDwmApiPort(v70, v69);
+        DwmAsyncChildStyleChange(v71, *(_QWORD *)v11, v68, v28);
       }
-      if ( (*(_BYTE *)(v48 + 25) & 1) != 0 )
-        goto LABEL_88;
-      if ( *(_BYTE *)(v48 + 24) != 1 )
-        goto LABEL_88;
-      if ( !*v49 )
-        goto LABEL_88;
-      v16 = *((_QWORD *)v11 + 5);
-      if ( (*(_BYTE *)(v16 + 18) & 0x40) == 0 )
-        goto LABEL_88;
-      v50 = *(_DWORD *)(v16 + 232);
-      v51 = *(_DWORD *)(v16 + 28);
-      v52 = *(_DWORD *)(v16 + 24);
-      *(_BYTE *)(v16 + 20) &= ~1u;
-      v74 = v50;
-      if ( !(unsigned int)IsWindowDesktopComposed(v11) )
-        goto LABEL_87;
-      v53 = (_DWORD *)*((_QWORD *)v11 + 5);
-      v54 = v53[7];
-      v55 = v53[6];
-      v56 = v53[58];
-      v57 = v52 ^ v55;
-      v58 = v74 ^ v56;
-      v59 = v51 ^ v54;
-      if ( v51 == v54 )
+    }
+  }
+LABEL_23:
+  v29 = *(_QWORD *)(v11 + 40);
+  v30 = *(_BYTE *)(v29 + 18);
+  if ( (v30 & 4) == 0 )
+  {
+    v31 = *(_QWORD *)(v29 + 120);
+    v32 = *(_DWORD *)(a1 + 8);
+    if ( (v30 & 8) != 0 )
+    {
+      v56 = (__int64 *)(a1 + 16);
+      RtlWCSMessageWParamCharToMB(v32, a1 + 16);
+      v32 = *(_DWORD *)(a1 + 8);
+      if ( v32 != 576 && v32 != 281 )
       {
-        if ( v57 )
-        {
-LABEL_79:
-          if ( (v57 & 0x4E27A9) != 0 )
-          {
-            v72 = -20;
-            v54 = v55;
-          }
-          else
-          {
-            if ( (v58 & 0x12C0) == 0 )
-            {
-LABEL_84:
-              if ( (v59 & 0xC40000) != 0 || (v57 & 0x200A0381) != 0 )
-                WindowMargins::CheckForChanges(v11, 1);
-              goto LABEL_87;
-            }
-            v72 = -268435456;
-            v54 = v56;
-          }
-LABEL_83:
-          DirtyVisRgnTrackers((__int64)v11);
-          v60 = *(_QWORD *)v11;
-          v62 = (void *)ReferenceDwmApiPort(v61);
-          DwmAsyncChildStyleChange(v62, v60, v72, v54);
-          goto LABEL_84;
-        }
-        if ( !v58 )
-        {
-LABEL_87:
-          xxxSimpleDoSyncPaint(v11);
-          goto LABEL_88;
-        }
+        v33 = *v56;
+        goto LABEL_28;
       }
-      if ( (v59 & 0xB1CF0000) != 0 )
-        goto LABEL_83;
-      goto LABEL_79;
-    }
-    v25 = (_DWORD *)*((_QWORD *)v11 + 5);
-    v26 = v25[7];
-    v27 = v25[6];
-    v28 = v25[58];
-    v29 = v24 ^ v27;
-    v30 = v74 ^ v28;
-    v31 = v23 ^ v26;
-    if ( v23 == v26 )
-    {
-      if ( v29 )
-        goto LABEL_36;
-      if ( !v30 )
-        goto LABEL_44;
-    }
-    if ( (v31 & 0xB1CF0000) != 0 )
-    {
-      v32 = -16;
-      goto LABEL_40;
-    }
-LABEL_36:
-    if ( (v29 & 0x4E27A9) != 0 )
-    {
-      v32 = -20;
-      v26 = v27;
+      v57 = *v56;
     }
     else
     {
-      if ( (v30 & 0x12C0) == 0 )
+      if ( v32 != 576 && v32 != 281 )
       {
-LABEL_41:
-        if ( (v31 & 0xC40000) != 0 || (v29 & 0x200A0381) != 0 )
-          WindowMargins::CheckForChanges(v11, 1);
-        goto LABEL_44;
+        v33 = *(_QWORD *)(a1 + 16);
+LABEL_28:
+        v34 = SfnDWORD(v11, v32, v33, *(_QWORD *)(a1 + 24), v31, *(_QWORD *)(gpsi + 752LL));
+        goto LABEL_29;
       }
-      v32 = -268435456;
-      v26 = v28;
+      v57 = *(_QWORD *)(a1 + 16);
     }
-LABEL_40:
-    DirtyVisRgnTrackers((__int64)v11);
-    v33 = *(_QWORD *)v11;
-    v35 = (void *)ReferenceDwmApiPort(v34);
-    DwmAsyncChildStyleChange(v35, v33, v32, v26);
-    goto LABEL_41;
-  }
-  if ( v18 != 280 )
-  {
-    v16 = gptiCurrent;
-    if ( (*(_DWORD *)(gptiCurrent + 488LL) & 4) == 0 && ValidateTimerCallback(gptiCurrent) )
+    v34 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _QWORD, __int64, _QWORD, int, _QWORD))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v32]])(
+            v11,
+            v32,
+            v57,
+            *(_QWORD *)(a1 + 24),
+            v31,
+            *(_QWORD *)(gpsi + 752LL),
+            1,
+            0LL);
+LABEL_29:
+    v35 = v34;
+    if ( *(_DWORD *)(a1 + 8) == 15 )
     {
-      v20 = SfnDWORD(
-              (_DWORD)v11,
-              275,
-              a1[2],
-              (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24,
-              a1[3],
-              *(_QWORD *)(gpsi + 752LL));
-LABEL_27:
-      v19 = v20;
-      goto LABEL_88;
+      v36 = *(_QWORD *)a1;
+      v37 = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess(i)
+        || (v72 = PsGetCurrentProcess(v39, v38, v40),
+            v73 = PsGetProcessSessionIdEx(v72),
+            v75 = PsGetCurrentThreadProcess(v74),
+            v73 == (unsigned int)PsGetProcessSessionIdEx(v75)) )
+      {
+        PsGetThreadWin32Thread(v37);
+      }
+      i = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))gpsi;
+      if ( (unsigned __int64)(unsigned __int16)v36 < *(_QWORD *)(gpsi + 8LL) )
+      {
+        v41 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v36 * LODWORD(gSharedInfo[2]);
+        v42 = v36 >> 16;
+        v43 = (_QWORD *)HMPkheFromPhe(v41);
+        if ( ((_WORD)v42 == *(_WORD *)(v41 + 26)
+           || (_WORD)v42 == 0xFFFF
+           || !(_WORD)v42 && PsGetCurrentProcessWow64Process(i))
+          && (*(_BYTE *)(v41 + 25) & 1) == 0
+          && *(_BYTE *)(v41 + 24) == 1
+          && *v43
+          && (*(_BYTE *)(*(_QWORD *)(v11 + 40) + 18LL) & 0x40) != 0 )
+        {
+          SetOrClrWF(0, v11, 0x401u, 1);
+          xxxSimpleDoSyncPaint((struct tagWND *)v11);
+        }
+      }
     }
-    goto LABEL_24;
+    goto LABEL_39;
   }
-  v15 = gtmrListHead;
-  v19 = 0LL;
-  v16 = gtmrListHead;
-LABEL_88:
-  ThreadUnlock1(v16, v15, v17);
-  v67 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v64, v63, v65, v66);
-  if ( !ExIsResourceAcquiredSharedLite(*v67) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  v68 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( v68 )
-    v7 = *v68;
-  LOBYTE(v69) = *(_BYTE *)(v7 + 1296);
-  EtwTraceEndDispatchMessage(v69, v73);
-  return v19;
+  v52 = *(unsigned int *)(a1 + 8);
+  if ( (unsigned int)v52 >= 0x400 )
+    v53 = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))SfnDWORD;
+  else
+    v53 = (__int64 (__fastcall *)(int, int, int, int, __int64, __int64, char))gapfnScSendMessage[(unsigned __int8)MessageTable[v52]];
+  i = SfnINWPARAMCHAR;
+  if ( v53 == SfnINWPARAMCHAR && (v30 & 8) != 0 )
+  {
+    RtlMBMessageWParamCharToWCS((unsigned int)v52, a1 + 16);
+    v29 = *(_QWORD *)(v11 + 40);
+  }
+  v54 = *(_QWORD *)(v29 + 120);
+  if ( v54 >= 7 )
+    goto LABEL_66;
+  v55 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))(&gServerHandlers)[v54])(
+          v11,
+          *(unsigned int *)(a1 + 8),
+          *(_QWORD *)(a1 + 16),
+          *(_QWORD *)(a1 + 24));
+LABEL_61:
+  v35 = v55;
+LABEL_39:
+  ThreadUnlock1(i);
+LABEL_40:
+  v44 = KeGetCurrentThread();
+  if ( !(unsigned __int8)KeIsAttachedProcess(v10)
+    || (v76 = PsGetCurrentProcess(v46, v45, v47),
+        v77 = PsGetProcessSessionIdEx(v76),
+        v79 = PsGetCurrentThreadProcess(v78),
+        v77 == (unsigned int)PsGetProcessSessionIdEx(v79)) )
+  {
+    v48 = (__int64 *)PsGetThreadWin32Thread(v44);
+    if ( v48 )
+      v1 = *v48;
+  }
+  LOBYTE(v49) = *(_BYTE *)(v1 + 1248);
+  EtwTraceEndDispatchMessage(v49, v82);
+  return v35;
 }

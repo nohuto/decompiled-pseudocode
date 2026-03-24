@@ -1,7 +1,7 @@
 /*
- * XREFs of GetFirstHardwareId @ 0x1C007170C
+ * XREFs of GetFirstHardwareId @ 0x1C005FD64
  * Callers:
- *     LogDriverInfoStream @ 0x1C0071780 (LogDriverInfoStream.c)
+ *     LogDriverInfoStream @ 0x1C00600B0 (LogDriverInfoStream.c)
  * Callees:
  *     <none>
  */

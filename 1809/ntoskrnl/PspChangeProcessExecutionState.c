@@ -1,27 +1,27 @@
 /*
  * XREFs of PspChangeProcessExecutionState @ 0x1406035AC
  * Callers:
- *     PspExecuteJobFreezeThawCallback @ 0x140108B40 (PspExecuteJobFreezeThawCallback.c)
+ *     PspExecuteJobFreezeThawCallback @ 0x140108B60 (PspExecuteJobFreezeThawCallback.c)
  *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PsSwapProcessWorkingSet @ 0x1408887DC (PsSwapProcessWorkingSet.c)
+ *     PsSwapProcessWorkingSet @ 0x1408887BC (PsSwapProcessWorkingSet.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MmInSwapWorkingSet @ 0x1400E4E64 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x1400E5108 (MmOutSwapWorkingSet.c)
- *     ExReleaseExtensionTable @ 0x14010DBCC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MmInSwapWorkingSet @ 0x1400E4E84 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PsFreezeProcess @ 0x140588E24 (PsFreezeProcess.c)
- *     PsThawProcess @ 0x14067E324 (PsThawProcess.c)
+ *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
  */
 
 __int64 __fastcall PspChangeProcessExecutionState(PEPROCESS Process)

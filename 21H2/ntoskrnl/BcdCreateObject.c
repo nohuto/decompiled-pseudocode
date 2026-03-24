@@ -1,22 +1,22 @@
 /*
- * XREFs of BcdCreateObject @ 0x140A1CB84
+ * XREFs of BcdCreateObject @ 0x14096EC18
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x140644D30 (WheaPersistBadPageToBcd.c)
- *     PopBcdRegenerateResumeObject @ 0x14099D244 (PopBcdRegenerateResumeObject.c)
- *     BiBindEfiBootManager @ 0x140A1E354 (BiBindEfiBootManager.c)
+ *     WheaPersistBadPageToBcd @ 0x1405BC750 (WheaPersistBadPageToBcd.c)
+ *     PopBcdRegenerateResumeObject @ 0x1408F5884 (PopBcdRegenerateResumeObject.c)
+ *     BiBindEfiBootManager @ 0x1409703EC (BiBindEfiBootManager.c)
  * Callees:
- *     BiSetFirmwareModified @ 0x1403A7718 (BiSetFirmwareModified.c)
- *     BiIsOfflineHandle @ 0x1403A7864 (BiIsOfflineHandle.c)
- *     BiIsLinkedToFirmwareVariable @ 0x140803438 (BiIsLinkedToFirmwareVariable.c)
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
- *     BiCreateObject @ 0x140A1CF34 (BiCreateObject.c)
+ *     BiSetFirmwareModified @ 0x14039B498 (BiSetFirmwareModified.c)
+ *     BiIsOfflineHandle @ 0x14039B59C (BiIsOfflineHandle.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x1407849A8 (BiIsLinkedToFirmwareVariable.c)
+ *     BiCreateObject @ 0x14096EFC8 (BiCreateObject.c)
  */
 
-NTSTATUS __fastcall BcdCreateObject(__int64 a1, int a2, int a3, __int64 *a4)
+int __fastcall BcdCreateObject(__int64 a1, int a2, int a3, __int64 *a4)
 {
   char IsOfflineHandle; // bp
-  NTSTATUS result; // eax
+  int result; // eax
   int Object; // ebx
 
   IsOfflineHandle = BiIsOfflineHandle(a1);

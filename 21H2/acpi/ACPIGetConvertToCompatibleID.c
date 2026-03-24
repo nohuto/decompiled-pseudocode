@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIGetConvertToCompatibleID @ 0x1C001DF4C
+ * XREFs of ACPIGetConvertToCompatibleID @ 0x1C0027CF0
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C0019740 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIWideStringToAnsiHelper @ 0x1C001C598 (ACPIWideStringToAnsiHelper.c)
- *     ACPIGetConvertToCompatibleIDWide @ 0x1C001DFB4 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C0027D58 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
  */
 
-__int64 __fastcall ACPIGetConvertToCompatibleID(int a1, int a2, int a3, int a4, _BYTE **a5, unsigned int *a6)
+__int64 __fastcall ACPIGetConvertToCompatibleID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)
 {
   int v6; // edi
   unsigned int v7; // ebx
-  unsigned int v9[6]; // [rsp+30h] [rbp-18h] BYREF
+  _DWORD v9[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v9[0] = 0;
   v6 = ACPIGetConvertToCompatibleIDWide(a1, a2, a3, a4, (__int64)a5, (__int64)v9);

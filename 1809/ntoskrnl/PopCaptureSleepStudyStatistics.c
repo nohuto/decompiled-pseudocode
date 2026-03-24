@@ -1,45 +1,45 @@
 /*
- * XREFs of PopCaptureSleepStudyStatistics @ 0x1402DEFEC
+ * XREFs of PopCaptureSleepStudyStatistics @ 0x1402DF0EC
  * Callers:
- *     PopDiagNextCsSleepStudySession @ 0x140870290 (PopDiagNextCsSleepStudySession.c)
+ *     PopDiagNextCsSleepStudySession @ 0x140870270 (PopDiagNextCsSleepStudySession.c)
  * Callees:
  *     PopGetPowerSettingValue @ 0x140003B10 (PopGetPowerSettingValue.c)
- *     PpmGetPlatformSelectionVetoCounts @ 0x1402D3F38 (PpmGetPlatformSelectionVetoCounts.c)
- *     PpmIdleCaptureCsVetoAccounting @ 0x1402D3F78 (PpmIdleCaptureCsVetoAccounting.c)
- *     PpmIdleStartCsVetoAccounting @ 0x1402D5134 (PpmIdleStartCsVetoAccounting.c)
- *     PpmResetDripsAccountingSnapshot @ 0x1402D57D8 (PpmResetDripsAccountingSnapshot.c)
- *     PpmSnapDripsAccountingSnapshot @ 0x1402D5AE0 (PpmSnapDripsAccountingSnapshot.c)
- *     PopFxStartDeviceAccounting @ 0x1402D99E8 (PopFxStartDeviceAccounting.c)
- *     PopFxStopDeviceAccounting @ 0x1402D9C5C (PopFxStopDeviceAccounting.c)
- *     PopCalculateCsSummary @ 0x1402DEA58 (PopCalculateCsSummary.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x1402D4038 (PpmGetPlatformSelectionVetoCounts.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x1402D4078 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PpmIdleStartCsVetoAccounting @ 0x1402D5234 (PpmIdleStartCsVetoAccounting.c)
+ *     PpmResetDripsAccountingSnapshot @ 0x1402D58D8 (PpmResetDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x1402D5BE0 (PpmSnapDripsAccountingSnapshot.c)
+ *     PopFxStartDeviceAccounting @ 0x1402D9AE8 (PopFxStartDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1402D9D5C (PopFxStopDeviceAccounting.c)
+ *     PopCalculateCsSummary @ 0x1402DEB58 (PopCalculateCsSummary.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  *     PopCurrentPowerState @ 0x14058DED4 (PopCurrentPowerState.c)
  *     PopIsHibernateSupported @ 0x1405B0850 (PopIsHibernateSupported.c)
  *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PopBatteryUpdateCurrentState @ 0x14071C1E4 (PopBatteryUpdateCurrentState.c)
- *     PopDirectedDripsNotify @ 0x14071E768 (PopDirectedDripsNotify.c)
- *     PopClearConnectedStandbyMarker @ 0x140865EE8 (PopClearConnectedStandbyMarker.c)
- *     PopSetConnectedStandbyMarker @ 0x1408662D0 (PopSetConnectedStandbyMarker.c)
- *     PopFxLogSocSubsystemBlockingTimes @ 0x140869A80 (PopFxLogSocSubsystemBlockingTimes.c)
- *     PopFxLogSocSubsystemMetadata @ 0x140869BFC (PopFxLogSocSubsystemMetadata.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140869FE0 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopFxResetSocSubsystemAccounting @ 0x14086A768 (PopFxResetSocSubsystemAccounting.c)
- *     PopGetEnergyCounter @ 0x14086DB48 (PopGetEnergyCounter.c)
- *     PopDiagIdleWakeAccountingStart @ 0x14086FC50 (PopDiagIdleWakeAccountingStart.c)
- *     PopDiagIdleWakeAccountingStop @ 0x14086FCE8 (PopDiagIdleWakeAccountingStop.c)
- *     PopDiagTraceCsConsumption @ 0x14087102C (PopDiagTraceCsConsumption.c)
- *     PopDiagTraceCsEnterReason @ 0x140871174 (PopDiagTraceCsEnterReason.c)
- *     PopDiagTraceCsExitReason @ 0x1408713E8 (PopDiagTraceCsExitReason.c)
- *     PopNetCheckOpportunisticDs @ 0x140876BF4 (PopNetCheckOpportunisticDs.c)
- *     PopNetCheckUserConnectivityPolicy @ 0x140876C18 (PopNetCheckUserConnectivityPolicy.c)
- *     PopNetIsCompliantNicPresent @ 0x140876DE8 (PopNetIsCompliantNicPresent.c)
- *     PopNetIsDisconnectStandbyActive @ 0x140876DFC (PopNetIsDisconnectStandbyActive.c)
- *     PopIsLockConsoleTimeoutActive @ 0x140878F18 (PopIsLockConsoleTimeoutActive.c)
- *     PopStatsNotifyPowerRequestCsState @ 0x14087B190 (PopStatsNotifyPowerRequestCsState.c)
- *     ExStartRecordingIRTimerExpiries @ 0x1408CF7BC (ExStartRecordingIRTimerExpiries.c)
- *     ExStopRecordingIRTimerExpiries @ 0x1408CF844 (ExStopRecordingIRTimerExpiries.c)
+ *     PopBatteryUpdateCurrentState @ 0x14071C1C4 (PopBatteryUpdateCurrentState.c)
+ *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
+ *     PopClearConnectedStandbyMarker @ 0x140865EC8 (PopClearConnectedStandbyMarker.c)
+ *     PopSetConnectedStandbyMarker @ 0x1408662B0 (PopSetConnectedStandbyMarker.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x140869A60 (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x140869BDC (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140869FC0 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopFxResetSocSubsystemAccounting @ 0x14086A748 (PopFxResetSocSubsystemAccounting.c)
+ *     PopGetEnergyCounter @ 0x14086DB28 (PopGetEnergyCounter.c)
+ *     PopDiagIdleWakeAccountingStart @ 0x14086FC30 (PopDiagIdleWakeAccountingStart.c)
+ *     PopDiagIdleWakeAccountingStop @ 0x14086FCC8 (PopDiagIdleWakeAccountingStop.c)
+ *     PopDiagTraceCsConsumption @ 0x14087100C (PopDiagTraceCsConsumption.c)
+ *     PopDiagTraceCsEnterReason @ 0x140871154 (PopDiagTraceCsEnterReason.c)
+ *     PopDiagTraceCsExitReason @ 0x1408713C8 (PopDiagTraceCsExitReason.c)
+ *     PopNetCheckOpportunisticDs @ 0x140876BD4 (PopNetCheckOpportunisticDs.c)
+ *     PopNetCheckUserConnectivityPolicy @ 0x140876BF8 (PopNetCheckUserConnectivityPolicy.c)
+ *     PopNetIsCompliantNicPresent @ 0x140876DC8 (PopNetIsCompliantNicPresent.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x140876DDC (PopNetIsDisconnectStandbyActive.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x140878EF8 (PopIsLockConsoleTimeoutActive.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x14087B170 (PopStatsNotifyPowerRequestCsState.c)
+ *     ExStartRecordingIRTimerExpiries @ 0x1408CF79C (ExStartRecordingIRTimerExpiries.c)
+ *     ExStopRecordingIRTimerExpiries @ 0x1408CF824 (ExStopRecordingIRTimerExpiries.c)
  */
 
 __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a3)
@@ -170,7 +170,7 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
     byte_14043C45C = 0;
     PopNetIsDisconnectStandbyActive(&v43);
     PopGetEnergyCounter(&CsSessionEnergyCounter);
-    byte_14043C450 = (dword_14041810C == 0) | byte_14043C450 & 0xFE;
+    byte_14043C450 = (dword_1404180CC == 0) | byte_14043C450 & 0xFE;
     IsCompliantNicPresent = PopNetIsCompliantNicPresent();
     v14 = (unsigned int)v43;
     LOBYTE(v15) = byte_14043C451 ^ (byte_14043C451 ^ IsCompliantNicPresent) & 1;

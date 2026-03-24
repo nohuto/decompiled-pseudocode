@@ -1,11 +1,11 @@
 /*
  * XREFs of McTemplateK0pquuxqqqqqqqsss_EtwWriteTransfer @ 0x1C000195C
  * Callers:
- *     HUBDRIVER_EtwRundownHub @ 0x1C0073540 (HUBDRIVER_EtwRundownHub.c)
- *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0075090 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     HUBDRIVER_EtwRundownHub @ 0x1C0072540 (HUBDRIVER_EtwRundownHub.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0073E00 (HUBFDO_EvtDevicePrepareHardware.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pquuxqqqqqqqsss_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

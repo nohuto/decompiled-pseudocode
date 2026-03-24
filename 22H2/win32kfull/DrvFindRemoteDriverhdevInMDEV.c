@@ -1,97 +1,94 @@
 /*
- * XREFs of DrvFindRemoteDriverhdevInMDEV @ 0x1C026BF38
+ * XREFs of DrvFindRemoteDriverhdevInMDEV @ 0x1C02733CC
  * Callers:
- *     GetRemoteHDEV @ 0x1C0203084 (GetRemoteHDEV.c)
+ *     GetRemoteHDEV @ 0x1C0225D68 (GetRemoteHDEV.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall DrvFindRemoteDriverhdevInMDEV(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // rbx
-  __int64 v6; // rdx
+  __int64 v5; // rsi
+  __int64 v6; // rax
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  Gre::Base *v10; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v11; // rbp
-  unsigned int v12; // esi
-  __int64 v13; // rbx
-  __int64 v14; // r15
+  unsigned int v8; // edi
+  __int64 v9; // r15
   _DWORD *DisplayDriverNames; // rax
-  _QWORD *v16; // rdx
-  unsigned int v17; // r11d
-  unsigned int v18; // r8d
-  unsigned __int16 *v19; // rax
-  __int64 v20; // r10
-  int v21; // r9d
-  int v22; // ecx
+  void *v11; // rdx
+  unsigned int v12; // r11d
+  unsigned int v13; // r8d
+  unsigned __int16 *v14; // rax
+  __int64 v15; // r10
+  int v16; // r9d
+  int v17; // ecx
+  __int64 v18; // rax
+  __int64 v20; // rbx
+  __int64 v21; // rax
 
   v5 = 0LL;
-  WdLogSingleEntry1(4LL, a1);
-  if ( (unsigned int)UserIsDisconnectConnection(v7, v6, v8, v9) || (unsigned int)UserIsConsoleConnection() || !a3 )
+  v6 = WdLogNewEntry5_WdEvent();
+  *(_QWORD *)(v6 + 24) = a1;
+  WdLogEvent5_WdEvent(v6);
+  if ( (unsigned int)UserIsDisconnectConnection(v7) || (unsigned int)UserIsConsoleConnection() || !a3 )
   {
-    v5 = *(_QWORD *)(a1 + 40);
-    WdLogSingleEntry1(5LL, v5);
+    v20 = *(_QWORD *)(a1 + 40);
+    v21 = WdLogNewEntry5_WdTrace();
+    *(_QWORD *)(v21 + 24) = v20;
+    WdLogEvent5_WdTrace(v21);
+    return v20;
   }
-  else
+  GreAcquireSemaphore(ghsemDynamicModeChange);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
+  v8 = 0;
+  if ( !*(_DWORD *)(a1 + 20) )
+    goto LABEL_19;
+  while ( 1 )
   {
-    v11 = Gre::Base::Globals(v10);
-    GreAcquireSemaphore(*((_QWORD *)v11 + 10));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDynamicModeChange", *((_QWORD *)v11 + 10), 1LL);
-    v12 = 0;
-    if ( *(_DWORD *)(a1 + 20) )
-    {
-      do
-      {
-        v13 = 56LL * v12;
-        v14 = *(_QWORD *)(*(_QWORD *)(v13 + a1 + 40) + 2552LL);
-        DisplayDriverNames = (_DWORD *)DrvGetDisplayDriverNames(v14);
-        v16 = DisplayDriverNames;
-        if ( DisplayDriverNames )
-        {
-          v17 = *DisplayDriverNames;
-          v18 = 0;
-          if ( *DisplayDriverNames )
-          {
-            while ( 1 )
-            {
-              v19 = (unsigned __int16 *)v16[2 * v18 + 2];
-              v20 = a3 - (_QWORD)v19;
-              do
-              {
-                v21 = *(unsigned __int16 *)((char *)v19 + v20);
-                v22 = *v19 - v21;
-                if ( v22 )
-                  break;
-                ++v19;
-              }
-              while ( v21 );
-              if ( !v22 && (*(_DWORD *)(v14 + 160) & 0x4000004) == 0x4000004 )
-                break;
-              if ( ++v18 >= v17 )
-                goto LABEL_13;
-            }
-            v5 = *(_QWORD *)(v13 + a1 + 40);
-            goto LABEL_16;
-          }
+    v9 = *(_QWORD *)(*(_QWORD *)(56LL * v8 + a1 + 40) + 2576LL);
+    DisplayDriverNames = (_DWORD *)DrvGetDisplayDriverNames(v9);
+    v11 = DisplayDriverNames;
+    if ( DisplayDriverNames )
+      break;
+LABEL_14:
+    if ( ++v8 >= *(_DWORD *)(a1 + 20) )
+      goto LABEL_17;
+  }
+  v12 = *DisplayDriverNames;
+  v13 = 0;
+  if ( !*DisplayDriverNames )
+  {
 LABEL_13:
-          Win32FreePool(v16);
-          v16 = 0LL;
-        }
-        ++v12;
-      }
-      while ( v12 < *(_DWORD *)(a1 + 20) );
-      v5 = 0LL;
-      if ( !v16 )
-        goto LABEL_17;
-LABEL_16:
-      Win32FreePool(v16);
-    }
-LABEL_17:
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDynamicModeChange");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v11 + 10));
-    WdLogSingleEntry1(5LL, v5);
+    Win32FreePool(v11);
+    v11 = 0LL;
+    goto LABEL_14;
   }
+  while ( 1 )
+  {
+    v14 = (unsigned __int16 *)*((_QWORD *)v11 + 2 * v13 + 2);
+    v15 = a3 - (_QWORD)v14;
+    do
+    {
+      v16 = *(unsigned __int16 *)((char *)v14 + v15);
+      v17 = *v14 - v16;
+      if ( v17 )
+        break;
+      ++v14;
+    }
+    while ( v16 );
+    if ( !v17 && (*(_DWORD *)(v9 + 160) & 0x4000004) == 0x4000004 )
+      break;
+    if ( ++v13 >= v12 )
+      goto LABEL_13;
+  }
+  v5 = *(_QWORD *)(56LL * v8 + a1 + 40);
+LABEL_17:
+  if ( v11 )
+    Win32FreePool(v11);
+LABEL_19:
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
+  v18 = WdLogNewEntry5_WdTrace();
+  *(_QWORD *)(v18 + 24) = v5;
+  WdLogEvent5_WdTrace(v18);
   return v5;
 }

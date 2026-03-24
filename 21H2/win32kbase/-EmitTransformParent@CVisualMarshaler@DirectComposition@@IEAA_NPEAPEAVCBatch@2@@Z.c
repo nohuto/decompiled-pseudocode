@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitTransformParent@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C001186C
+ * XREFs of ?EmitTransformParent@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062644
  * Callers:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010FE0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVisualMarshaler::EmitTransformParent(
@@ -11,7 +11,7 @@ char __fastcall DirectComposition::CVisualMarshaler::EmitTransformParent(
         struct DirectComposition::CBatch **a2)
 {
   int v4; // edi
-  char *v5; // rcx
+  char *v5; // rdx
   __int64 v6; // rax
   void *v7; // [rsp+30h] [rbp+8h] BYREF
 
@@ -24,13 +24,13 @@ char __fastcall DirectComposition::CVisualMarshaler::EmitTransformParent(
     v5 = (char *)v7;
     *(_DWORD *)v7 = 20;
     *(_OWORD *)(v5 + 4) = 0LL;
-    *((_DWORD *)v5 + 1) = 431;
-    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
-    v6 = *((_QWORD *)this + 19);
+    *((_DWORD *)v5 + 1) = 433;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 18);
     if ( v6 )
-      v4 = *(_DWORD *)(v6 + 32);
+      v4 = *(_DWORD *)(v6 + 24);
     *((_DWORD *)v5 + 3) = v4;
-    v5[16] = *((_BYTE *)this + 320) >> 7;
+    v5[16] = *((_BYTE *)this + 289) & 1;
     *((_DWORD *)this + 4) &= ~0x200u;
     return 1;
   }

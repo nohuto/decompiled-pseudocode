@@ -1,5 +1,5 @@
 /*
- * XREFs of ?WasLastInputInjected@CInputGlobals@@QEBA_NXZ @ 0x1C01DCB30
+ * XREFs of ?WasLastInputInjected@CInputGlobals@@QEBA_NXZ @ 0x1C01A37E0
  * Callers:
  *     <none>
  * Callees:

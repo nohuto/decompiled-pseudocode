@@ -1,29 +1,30 @@
 /*
- * XREFs of IsToplevelWindowDesktopComposed @ 0x1C00D3B08
+ * XREFs of IsToplevelWindowDesktopComposed @ 0x1C006BE7C
  * Callers:
- *     xxxGetTitleBarInfoEx @ 0x1C000C37C (xxxGetTitleBarInfoEx.c)
- *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C001F89C (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
- *     EditionUpdateCursorOnMouseMove @ 0x1C00A0760 (EditionUpdateCursorOnMouseMove.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     DecomposeWindowIfNeeded @ 0x1C00C85B8 (DecomposeWindowIfNeeded.c)
- *     xxxDWP_DoNCActivate @ 0x1C00C9228 (xxxDWP_DoNCActivate.c)
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
- *     SetRedirectedWindow @ 0x1C00D36F4 (SetRedirectedWindow.c)
- *     ComposeWindowIfNeeded @ 0x1C00D3A58 (ComposeWindowIfNeeded.c)
- *     ?xxxSetClassIconEnum@@YAHPEAUtagWND@@_J@Z @ 0x1C0157270 (-xxxSetClassIconEnum@@YAHPEAUtagWND@@_J@Z.c)
- *     ?xxxSendNCHitTest@@YAXPEAUtagWND@@UtagPOINT@@1PEAU2@PEAHPEAUtagPNTRWINDOWHITTTESTARGS@@@Z @ 0x1C01E5250 (-xxxSendNCHitTest@@YAXPEAUtagWND@@UtagPOINT@@1PEAU2@PEAHPEAUtagPNTRWINDOWHITTTESTARGS@@@Z.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01EFC00 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
- *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C0222AD8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
- *     xxxDrawAnimatedRects @ 0x1C0224A30 (xxxDrawAnimatedRects.c)
- *     xxxSnapWindow @ 0x1C02281E8 (xxxSnapWindow.c)
- *     xxxRecreateSmallIcons @ 0x1C022DD3C (xxxRecreateSmallIcons.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C00234E4 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     xxxGetTitleBarInfoEx @ 0x1C002E488 (xxxGetTitleBarInfoEx.c)
+ *     DecomposeWindowIfNeeded @ 0x1C0035294 (DecomposeWindowIfNeeded.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
+ *     ComposeWindowIfNeeded @ 0x1C004C260 (ComposeWindowIfNeeded.c)
+ *     EditionUpdateCursorOnMouseMove @ 0x1C004DC20 (EditionUpdateCursorOnMouseMove.c)
+ *     SetRedirectedWindow @ 0x1C00BCE5C (SetRedirectedWindow.c)
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C00DACB8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
+ *     xxxDWP_DoNCActivate @ 0x1C00DC844 (xxxDWP_DoNCActivate.c)
+ *     xxxSnapWindow @ 0x1C016040C (xxxSnapWindow.c)
+ *     ?xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0167424 (-xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW.c)
+ *     xxxMoveSize @ 0x1C02122B4 (xxxMoveSize.c)
+ *     ?xxxSendNCHitTest@@YAXPEAUtagWND@@UtagPOINT@@1PEAU2@PEAHPEAUtagPNTRWINDOWHITTTESTARGS@@@Z @ 0x1C02158E0 (-xxxSendNCHitTest@@YAXPEAUtagWND@@UtagPOINT@@1PEAU2@PEAHPEAUtagPNTRWINDOWHITTTESTARGS@@@Z.c)
+ *     ?xxxSetClassIconEnum@@YAHPEAUtagWND@@_J@Z @ 0x1C023D6D0 (-xxxSetClassIconEnum@@YAHPEAUtagWND@@_J@Z.c)
+ *     xxxDrawAnimatedRects @ 0x1C023EA44 (xxxDrawAnimatedRects.c)
+ *     xxxRecreateSmallIcons @ 0x1C0242E7C (xxxRecreateSmallIcons.c)
  * Callees:
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall IsToplevelWindowDesktopComposed(__int64 a1)
 {
-  __int64 v1; // rcx
+  __int64 v1; // r9
   unsigned int v2; // ebx
 
   v2 = 0;

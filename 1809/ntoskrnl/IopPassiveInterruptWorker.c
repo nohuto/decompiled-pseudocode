@@ -1,18 +1,18 @@
 /*
- * XREFs of IopPassiveInterruptWorker @ 0x1402886D0
+ * XREFs of IopPassiveInterruptWorker @ 0x1402887D0
  * Callers:
  *     <none>
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x1402883B0 (IopAcquirePassiveInterruptBlockLock.c)
- *     IopDereferencePassiveInterruptBlock @ 0x140288408 (IopDereferencePassiveInterruptBlock.c)
- *     KiInterruptDispatchCommon @ 0x140299764 (KiInterruptDispatchCommon.c)
- *     IopAcquireReleaseDispatcherLock @ 0x14082743C (IopAcquireReleaseDispatcherLock.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x1402884B0 (IopAcquirePassiveInterruptBlockLock.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x140288508 (IopDereferencePassiveInterruptBlock.c)
+ *     KiInterruptDispatchCommon @ 0x140299864 (KiInterruptDispatchCommon.c)
+ *     IopAcquireReleaseDispatcherLock @ 0x14082741C (IopAcquireReleaseDispatcherLock.c)
  */
 
 void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)

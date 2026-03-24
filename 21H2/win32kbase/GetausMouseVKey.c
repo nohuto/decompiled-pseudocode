@@ -1,5 +1,5 @@
 /*
- * XREFs of GetausMouseVKey @ 0x1C00DC600
+ * XREFs of GetausMouseVKey @ 0x1C00B8320
  * Callers:
  *     <none>
  * Callees:

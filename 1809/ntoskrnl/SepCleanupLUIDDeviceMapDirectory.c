@@ -1,8 +1,8 @@
 /*
- * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x1406B38EC
+ * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x1406B38CC
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1406B3600 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x1406F71F8 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x1406F71D8 (SepDeleteLogonSessionTrack.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
@@ -11,15 +11,15 @@
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcscmp @ 0x1401976E0 (wcscmp.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1401B8C70 (ZwOpenDirectoryObject.c)
- *     ZwMakeTemporaryObject @ 0x1401BA290 (ZwMakeTemporaryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x1401BA650 (ZwOpenSymbolicLinkObject.c)
- *     ZwQueryDirectoryObject @ 0x1401BA8F0 (ZwQueryDirectoryObject.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcscmp @ 0x140197700 (wcscmp.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1401B8C90 (ZwOpenDirectoryObject.c)
+ *     ZwMakeTemporaryObject @ 0x1401BA2B0 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1401BA670 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQueryDirectoryObject @ 0x1401BA910 (ZwQueryDirectoryObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

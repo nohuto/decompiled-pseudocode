@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxTracePerfRegistration @ 0x140874D38
+ * XREFs of PopFxTracePerfRegistration @ 0x140874D18
  * Callers:
- *     PopFxTraceDeviceRegistration @ 0x1406DA374 (PopFxTraceDeviceRegistration.c)
- *     PopFxRegisterComponentPerfStates @ 0x14086A2A4 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxTraceDeviceRegistration @ 0x1406DA354 (PopFxTraceDeviceRegistration.c)
+ *     PopFxRegisterComponentPerfStates @ 0x14086A284 (PopFxRegisterComponentPerfStates.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x1400FE7E4 (PopFxAddLogEntry.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopDiagTraceFxPerfRegistration @ 0x140872B98 (PopDiagTraceFxPerfRegistration.c)
- *     PopDiagTraceFxPerfSetRegistration @ 0x140872C28 (PopDiagTraceFxPerfSetRegistration.c)
+ *     PopDiagTraceFxPerfRegistration @ 0x140872B78 (PopDiagTraceFxPerfRegistration.c)
+ *     PopDiagTraceFxPerfSetRegistration @ 0x140872C08 (PopDiagTraceFxPerfSetRegistration.c)
  */
 
 void __fastcall PopFxTracePerfRegistration(unsigned int *a1, char a2)

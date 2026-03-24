@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterface @ 0x14095D4A0
+ * XREFs of PiDevCfgConfigureDeviceInterface @ 0x1408A5A88
  * Callers:
- *     PiDevCfgConfigureDeviceInterfaceCallback @ 0x140561E30 (PiDevCfgConfigureDeviceInterfaceCallback.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x14087D270 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgConfigureDeviceInterfaceCallback @ 0x14050DFE0 (PiDevCfgConfigureDeviceInterfaceCallback.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140766FC4 (PiDevCfgConfigureDeviceInterfaces.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC2A8 (_CmOpenDeviceInterfaceRegKey.c)
- *     PiDevCfgCopyObjectProperties @ 0x14087C8C4 (PiDevCfgCopyObjectProperties.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14087E7E4 (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406B6624 (_CmOpenDeviceInterfaceRegKey.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140767498 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x14076931C (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
  */
 
-__int64 __fastcall PiDevCfgConfigureDeviceInterface(const WCHAR *a1, void *a2, __int64 a3)
+__int64 __fastcall PiDevCfgConfigureDeviceInterface(__int64 a1, void *a2, __int64 a3)
 {
   NTSTATUS v6; // eax
   __int64 v7; // r9
@@ -21,7 +21,7 @@ __int64 __fastcall PiDevCfgConfigureDeviceInterface(const WCHAR *a1, void *a2, _
   __int64 v9; // r8
   NTSTATUS v10; // eax
   __int64 v11; // r9
-  unsigned int v13; // [rsp+20h] [rbp-49h]
+  SIZE_T NumberOfBytes; // [rsp+20h] [rbp-49h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   HANDLE KeyHandle; // [rsp+D8h] [rbp+6Fh] BYREF
@@ -42,7 +42,7 @@ __int64 __fastcall PiDevCfgConfigureDeviceInterface(const WCHAR *a1, void *a2, _
   {
     if ( v6 < 0 )
       goto LABEL_12;
-    v8 = CmOpenDeviceInterfaceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)a1, 0x32u, v7, 983103, 1, (__int64)&Handle, 0LL);
+    v8 = CmOpenDeviceInterfaceRegKey(*(__int64 *)&PiPnpRtlCtx, a1, 0x32u, v7, 983103, 1, (__int64)&Handle, 0LL);
     if ( v8 < 0 )
       goto LABEL_12;
     v8 = PiDevCfgCopyDeviceKeys(KeyHandle, Handle, v9, a3);
@@ -68,20 +68,23 @@ __int64 __fastcall PiDevCfgConfigureDeviceInterface(const WCHAR *a1, void *a2, _
   }
   else if ( v10 >= 0 )
   {
-    v8 = CmOpenDeviceInterfaceRegKey(
-           *(__int64 *)&PiPnpRtlCtx,
-           (__int64)a1,
-           0x30u,
-           v11,
-           983103,
-           0,
-           (__int64)&Handle,
-           0LL);
+    v8 = CmOpenDeviceInterfaceRegKey(*(__int64 *)&PiPnpRtlCtx, a1, 0x30u, v11, 983103, 0, (__int64)&Handle, 0LL);
     if ( v8 >= 0 )
     {
-      v8 = PiDevCfgCopyObjectProperties(*(__int64 *)&PiPnpRtlCtx, 0LL, 0, (__int64)a2, v13, a1, 3u, Handle, 0LL, 0LL, 0);
+      v8 = PiDevCfgCopyObjectProperties(
+             *(__int64 *)&PiPnpRtlCtx,
+             0LL,
+             0,
+             (__int64)a2,
+             NumberOfBytes,
+             a1,
+             3u,
+             Handle,
+             0LL,
+             0LL,
+             0);
       if ( v8 >= 0 )
-        v8 = PiDevCfgCopyDeviceKey(KeyHandle, Handle, (__int64)a1, 3, 1, 0LL, a3);
+        v8 = PiDevCfgCopyDeviceKey(KeyHandle, Handle, a1, 3u, 1, 0LL, a3);
     }
   }
 LABEL_12:

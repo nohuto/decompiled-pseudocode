@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ForwardInputToISM@CKeyboardProcessor@@SAX_NGGGPEAXK0_KPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C006A030
+ * XREFs of ?ForwardInputToISM@CKeyboardProcessor@@SAX_NGGGPEAXK0_KPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C004CEE0
  * Callers:
  *     <none>
  * Callees:
- *     SendMessageTo @ 0x1C006A100 (SendMessageTo.c)
- *     ?CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0G_KPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@PEAU_MIT_KEYBOARD_INPUT_MESSAGE@@@Z @ 0x1C006AD8C (-CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0G_KPEAU_KEYBOARD_VIRTUAL_DEVICE_IN.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004DFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     ?CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0G_KPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@PEAU_MIT_KEYBOARD_INPUT_MESSAGE@@@Z @ 0x1C004EA48 (-CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0G_KPEAU_KEYBOARD_VIRTUAL_DEVICE_IN.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 void __fastcall CKeyboardProcessor::ForwardInputToISM(
@@ -19,9 +19,10 @@ void __fastcall CKeyboardProcessor::ForwardInputToISM(
         unsigned __int64 a8,
         struct _KEYBOARD_VIRTUAL_DEVICE_INFO *a9)
 {
-  _BYTE v13[352]; // [rsp+60h] [rbp-168h] BYREF
+  __int64 v13; // rcx
+  _BYTE v14[352]; // [rsp+60h] [rbp-168h] BYREF
 
-  memset(v13, 0, sizeof(v13));
+  memset(v14, 0, sizeof(v14));
   CKeyboardProcessor::CreateKeyboardInputMessage(
     a1,
     a2,
@@ -33,6 +34,6 @@ void __fastcall CKeyboardProcessor::ForwardInputToISM(
     0,
     a8,
     a9,
-    (struct _MIT_KEYBOARD_INPUT_MESSAGE *)v13);
-  SendMessageTo(8LL, v13, 352LL);
+    (struct _MIT_KEYBOARD_INPUT_MESSAGE *)v14);
+  InputExtensibilityCallout::CoreMsgSendMessage(v13, 9LL, v14);
 }

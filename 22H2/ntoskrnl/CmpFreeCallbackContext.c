@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFreeCallbackContext @ 0x14046B1AA
+ * XREFs of CmpFreeCallbackContext @ 0x1404EC79C
  * Callers:
- *     CmpCallCallBacksEx @ 0x1406E86A0 (CmpCallCallBacksEx.c)
+ *     CmpCallCallBacksEx @ 0x140640B60 (CmpCallCallBacksEx.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFreeCallbackContext(PSLIST_ENTRY ListEntry)

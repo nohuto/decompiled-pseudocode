@@ -1,25 +1,37 @@
 /*
- * XREFs of ?DisallowModifyingAction@ProtectableFromChange@@QEAAXE@Z @ 0x1C018A32C
+ * XREFs of ?DisallowModifyingAction@ProtectableFromChange@@QEAAXE@Z @ 0x1C0110A28
  * Callers:
- *     ?OnModifyingActionCompletion@ProtectableFromChange@@QEAAXE@Z @ 0x1C001125C (-OnModifyingActionCompletion@ProtectableFromChange@@QEAAXE@Z.c)
- *     ?UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C018AA10 (-UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PE.c)
- *     ??1ApplyPermissionWithinThisScope@@IEAA@XZ @ 0x1C01A8214 (--1ApplyPermissionWithinThisScope@@IEAA@XZ.c)
+ *     ?OnModifyingActionCompletion@ProtectableFromChange@@QEAAXE@Z @ 0x1C0007FC8 (-OnModifyingActionCompletion@ProtectableFromChange@@QEAAXE@Z.c)
+ *     ?UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C0110740 (-UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PE.c)
+ *     ??1ApplyPermissionWithinThisScope@@IEAA@XZ @ 0x1C01116D8 (--1ApplyPermissionWithinThisScope@@IEAA@XZ.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-void __fastcall ProtectableFromChange::DisallowModifyingAction(ProtectableFromChange *this, __int64 a2)
+void __fastcall ProtectableFromChange::DisallowModifyingAction(
+        ProtectableFromChange *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
 {
-  unsigned __int64 v2; // rsi
-  __int64 v4; // rax
+  unsigned __int64 v4; // rsi
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  v2 = (unsigned __int8)a2;
+  v4 = (unsigned __int8)a2;
   if ( (unsigned __int8)a2 >= *((_BYTE *)this + 20) && (_BYTE)a2 != 0xFF )
-    WdLogSingleEntry0(1LL);
-  v4 = WdLogNewEntry5_WdTrace(this, a2);
-  *(_QWORD *)(v4 + 24) = v2;
-  *(_QWORD *)(v4 + 32) = this;
-  if ( (_BYTE)v2 == 0xFF )
+  {
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v9);
+  }
+  v6 = WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+  *(_QWORD *)(v6 + 24) = v4;
+  *(_QWORD *)(v6 + 32) = this;
+  if ( (_BYTE)v4 == 0xFF )
   {
     *((_WORD *)this + 11) = 0;
     memset(*((void **)this + 6), 0, *((_QWORD *)this + 5));
@@ -27,12 +39,20 @@ void __fastcall ProtectableFromChange::DisallowModifyingAction(ProtectableFromCh
   }
   else
   {
-    *((_WORD *)this + 11) &= ~(1 << v2);
-    if ( v2 >= *((_QWORD *)this + 5) )
-      WdLogSingleEntry0(1LL);
-    *(_BYTE *)(*((_QWORD *)this + 6) + v2) &= 0xF0u;
-    if ( v2 >= *((_QWORD *)this + 10) )
-      WdLogSingleEntry0(1LL);
-    *(_QWORD *)(*((_QWORD *)this + 11) + 8 * v2) = 0LL;
+    v8 = *((unsigned __int16 *)this + 11);
+    LODWORD(v8) = v8 & ~(1 << v4);
+    *((_WORD *)this + 11) = v8;
+    if ( v4 >= *((_QWORD *)this + 5) )
+    {
+      v10 = WdLogNewEntry5_WdAssertion(v8, v7);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    *(_BYTE *)(*((_QWORD *)this + 6) + v4) &= 0xF0u;
+    if ( v4 >= *((_QWORD *)this + 10) )
+    {
+      v11 = WdLogNewEntry5_WdAssertion(v8, v7);
+      WdLogEvent5_WdAssertion(v11);
+    }
+    *(_QWORD *)(*((_QWORD *)this + 11) + 8 * v4) = 0LL;
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x1800F65E0
+ * XREFs of ??0?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x1800DE220
  * Callers:
- *     _dynamic_initializer_for__CPointerDeviceCache::s_deviceCache__ @ 0x180001270 (_dynamic_initializer_for__CPointerDeviceCache--s_deviceCache__.c)
+ *     _dynamic_initializer_for__CPointerDeviceCache::s_deviceCache__ @ 0x1800035D0 (_dynamic_initializer_for__CPointerDeviceCache--s_deviceCache__.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
  */
 
 __int128 *std::map<void *,DEVICE_INFO>::map<void *,DEVICE_INFO>()

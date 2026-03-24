@@ -1,43 +1,47 @@
 /*
- * XREFs of PspSetThreadPpmPolicy @ 0x1407CD7B0
+ * XREFs of PspSetThreadPpmPolicy @ 0x140773A40
  * Callers:
- *     NtSetInformationThread @ 0x140733AB0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14064A5A0 (NtSetInformationThread.c)
  * Callees:
- *     KeSetThreadPpmPolicy @ 0x14035977C (KeSetThreadPpmPolicy.c)
+ *     <none>
  */
 
 __int64 __fastcall PspSetThreadPpmPolicy(__int64 a1, int a2)
 {
-  __int64 result; // rax
+  int v2; // r8d
   int v3; // edx
-  int v4; // edx
-  int v5; // edx
+  __int64 result; // rax
+  signed __int32 v5; // ett
+  int v6; // edx
 
-  result = 0LL;
-  if ( !a2 )
-    return KeSetThreadPpmPolicy(a1, result);
-  v3 = a2 - 1;
-  if ( !v3 )
+  v2 = 0;
+  if ( a2 )
   {
-    LODWORD(result) = 1;
-    return KeSetThreadPpmPolicy(a1, result);
+    v3 = a2 - 1;
+    if ( v3 )
+    {
+      v6 = v3 - 1;
+      if ( v6 )
+      {
+        if ( v6 != 1 )
+          return result;
+        v2 = 768;
+      }
+      else
+      {
+        v2 = 512;
+      }
+    }
+    else
+    {
+      v2 = 256;
+    }
   }
-  v4 = v3 - 1;
-  if ( !v4 )
+  do
   {
-    LODWORD(result) = 2;
-    return KeSetThreadPpmPolicy(a1, result);
+    v5 = *(_DWORD *)(a1 + 956);
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 956), v2 | v5 & 0xFFFFFCFF, v5);
   }
-  v5 = v4 - 1;
-  if ( !v5 )
-  {
-    LODWORD(result) = 3;
-    return KeSetThreadPpmPolicy(a1, result);
-  }
-  if ( v5 == 5 )
-  {
-    LODWORD(result) = 4;
-    return KeSetThreadPpmPolicy(a1, result);
-  }
+  while ( v5 != (_DWORD)result );
   return result;
 }

@@ -2,11 +2,11 @@
  * XREFs of CmpAddSubKeyEx @ 0x1405AEA60
  * Callers:
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
- *     CmpAddSubKey @ 0x1407FEAA0 (CmpAddSubKey.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140805288 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmpAddSubKey @ 0x1407FEA80 (CmpAddSubKey.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140805268 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     CmpAddSubKeyToList @ 0x1405AECF4 (CmpAddSubKeyToList.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)

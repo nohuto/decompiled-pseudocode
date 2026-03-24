@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C01523F0
+ * XREFs of ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C013CAC0
  * Callers:
  *     <none>
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0001C08 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     efSin @ 0x1C0003A40 (efSin.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z @ 0x1C0080270 (-bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z.c)
- *     ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C00B2DD0 (-eqLength@EFLOAT@@QEAA-AV1@AEBVPOINTFL@@@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z @ 0x1C0024180 (-bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00245AC (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C0094520 (-eqLength@EFLOAT@@QEAA-AV1@AEBVPOINTFL@@@Z.c)
+ *     efSin @ 0x1C00A49D0 (efSin.c)
  */
 
 __int64 __fastcall EXFORMOBJ::bComputeUnits(
@@ -17,9 +17,9 @@ __int64 __fastcall EXFORMOBJ::bComputeUnits(
         struct EFLOAT *a5)
 {
   unsigned int v5; // ebx
-  int v6; // r10d
-  __m128 *v8; // r8
-  __int32 v11; // r14d
+  float *v8; // r8
+  __int32 v11; // esi
+  int v12; // r10d
   float v13; // xmm1_4
   float v14; // xmm3_4
   float v15; // xmm2_4
@@ -35,15 +35,13 @@ __int64 __fastcall EXFORMOBJ::bComputeUnits(
   float v26; // [rsp+A8h] [rbp+38h] BYREF
 
   v5 = 0;
-  v6 = -a2;
-  v8 = *this;
+  v8 = (float *)*this;
+  v11 = (*this)[2].m128_i32[0];
   v26 = 0.0;
-  v11 = v8[2].m128_i32[0];
-  if ( a2 >= 0 )
-    v6 = a2;
-  if ( (v11 & 1) == 0 || v6 != 900 * (v6 / 900) )
+  v12 = abs32(a2);
+  if ( (v11 & 1) == 0 || v12 != 900 * (v12 / 900) )
   {
-    v19 = (__m128i)COERCE_UNSIGNED_INT((float)v6);
+    v19 = (__m128i)COERCE_UNSIGNED_INT((float)v12);
     *(float *)v19.m128i_i32 = *(float *)v19.m128i_i32 / 10.0;
     v20 = v19;
     *(float *)v19.m128i_i32 = *(float *)v19.m128i_i32 + *(float *)&FP_90_0;
@@ -62,11 +60,11 @@ __int64 __fastcall EXFORMOBJ::bComputeUnits(
     v15 = v24[1] / v26;
     v13 = v26 * 16.0;
     v24[0] = v21 / v26;
-    goto LABEL_18;
+    goto LABEL_16;
   }
-  if ( ((v6 / 900) & 1) != 0 )
+  if ( ((v12 / 900) & 1) != 0 )
   {
-    v13 = v8->m128_f32[3];
+    v13 = v8[3];
     v14 = 0.0;
     v24[0] = 0.0;
     v15 = FLOAT_1_0;
@@ -74,7 +72,7 @@ __int64 __fastcall EXFORMOBJ::bComputeUnits(
   }
   else
   {
-    v13 = v8->m128_f32[0];
+    v13 = *v8;
     v15 = 0.0;
     v14 = FLOAT_1_0;
     *(_QWORD *)v24 = LODWORD(FLOAT_1_0);
@@ -89,7 +87,7 @@ __int64 __fastcall EXFORMOBJ::bComputeUnits(
     LODWORD(v24[0]) = LODWORD(v14) ^ _xmm;
     LODWORD(v13) ^= _xmm;
     LODWORD(v15) = v18 ^ _xmm;
-LABEL_18:
+LABEL_16:
     v24[1] = v15;
   }
   if ( a2 < 0 )

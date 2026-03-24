@@ -1,42 +1,34 @@
 /*
- * XREFs of ?Present@CRemoteRenderTarget@@UEAAJ_N@Z @ 0x18010A240
+ * XREFs of ?Present@CRemoteRenderTarget@@UEAAJ_N@Z @ 0x1800E54F4
  * Callers:
- *     ?Present@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x18011CB40 (-Present@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?Present@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F4AC0 (-Present@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsPrimaryMonitor@CRemoteRenderTarget@@UEBA_NXZ @ 0x18010A5E0 (-IsPrimaryMonitor@CRemoteRenderTarget@@UEBA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::Present(CRemoteRenderTarget *this, char a2)
 {
-  __int64 v2; // r14
-  unsigned int v3; // esi
+  __int64 v4; // rcx
+  unsigned int v5; // edi
   int v6; // eax
   __int64 v7; // rcx
 
-  v2 = *((_QWORD *)this - 34);
-  v3 = 0;
-  if ( v2 )
+  v4 = *((_QWORD *)this - 25);
+  v5 = 0;
+  if ( v4 && *(int *)(*((_QWORD *)this - 43) + 952LL) <= 3 )
   {
-    if ( CRemoteRenderTarget::IsPrimaryMonitor((CRemoteRenderTarget *)((char *)this - 304)) && !*((_BYTE *)this - 55) )
+    if ( !*((_DWORD *)this - 44) && !*((_DWORD *)this - 43) && !*((_BYTE *)this - 51) )
       a2 = 1;
-    if ( a2 || *((_BYTE *)this - 56) )
+    if ( a2 || *((_BYTE *)this - 52) )
     {
-      v6 = (*(__int64 (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v2 + 112LL))(
-             v2,
-             ((unsigned __int64)this - 128) & -(__int64)(*((_BYTE *)this - 56) != 0));
-      v3 = v6;
+      v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 96LL))(v4);
+      v5 = v6;
       if ( v6 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x108u, 0LL);
-      }
+        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x11Bu, 0LL);
       else
-      {
-        **((_DWORD **)this - 16) = 0;
-        *((_BYTE *)this - 56) = 0;
-      }
+        *((_BYTE *)this - 52) = 0;
     }
   }
-  return v3;
+  return v5;
 }

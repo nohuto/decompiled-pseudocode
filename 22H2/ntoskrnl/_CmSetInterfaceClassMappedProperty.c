@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedProperty @ 0x140A6A0A8
+ * XREFs of _CmSetInterfaceClassMappedProperty @ 0x14097BE30
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1407C6330 (_PnpDispatchInterfaceClass.c)
- *     _CmDeleteInterfaceClassWorker @ 0x140A62F58 (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x1406B4230 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1409756D4 (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x140797804 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140A679E8 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140A6A1EC (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140742554 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140979980 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14097BF74 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedProperty(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        void *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -33,7 +33,7 @@ __int64 __fastcall CmSetInterfaceClassMappedProperty(
   v11 = -1073741802;
   if ( !a4 )
   {
-    v12 = &off_140A77B28;
+    v12 = &off_1409836F8;
     v13 = 0;
     while ( 1 )
     {
@@ -54,36 +54,32 @@ __int64 __fastcall CmSetInterfaceClassMappedProperty(
     if ( a6 < 2 )
       v16 = CmDeleteInterfaceClassMappedPropertyFromRegValue(a1, a2, a3, a5);
     else
-      v16 = CmSetInterfaceClassMappedPropertyFromRegValue(a1, a2, a3, a5, a6, a7, a8);
+      v16 = CmSetInterfaceClassMappedPropertyFromRegValue(a1, a2, (int)a3, a5, a6, a7, a8);
     v11 = v16;
     if ( v16 >= 0 )
-    {
-      PnpObjectRaisePropertyChangeEvent(a1, a2, 4LL, a3, 0LL, a5);
+      PnpObjectRaisePropertyChangeEvent(a1, a2, 4LL, (__int64)a3, 0LL, a5);
+    if ( v11 != -1073741802 )
       return v11;
-    }
-    if ( v16 == -1073741802 )
-    {
 LABEL_16:
-      v17 = &off_140A77BD8;
-      v18 = 0;
-      while ( 1 )
+    v17 = &off_1409837A8;
+    v18 = 0;
+    while ( 1 )
+    {
+      v19 = *v17;
+      if ( *(_DWORD *)(a5 + 16) == (*v17)->pid )
       {
-        v19 = *v17;
-        if ( *(_DWORD *)(a5 + 16) == (*v17)->pid )
-        {
-          v20 = *(_QWORD *)a5 - *(_QWORD *)&v19->fmtid.Data1;
-          if ( *(_QWORD *)a5 == *(_QWORD *)&v19->fmtid.Data1 )
-            v20 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v19->fmtid.Data4;
-          if ( !v20 )
-            break;
-        }
-        ++v18;
-        v17 += 2;
-        if ( v18 )
-          return v11;
+        v20 = *(_QWORD *)a5 - *(_QWORD *)&v19->fmtid.Data1;
+        if ( *(_QWORD *)a5 == *(_QWORD *)&v19->fmtid.Data1 )
+          v20 = *(_QWORD *)(a5 + 8) - *(_QWORD *)v19->fmtid.Data4;
+        if ( !v20 )
+          break;
       }
-      return (unsigned int)-1073741790;
+      ++v18;
+      v17 += 2;
+      if ( v18 )
+        return v11;
     }
+    return (unsigned int)-1073741790;
   }
   return v11;
 }

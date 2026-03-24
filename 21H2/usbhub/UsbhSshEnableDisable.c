@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhSshEnableDisable @ 0x1C0058AEC
+ * XREFs of UsbhSshEnableDisable @ 0x1C005A1BC
  * Callers:
- *     Usbh_FDO_WaitPnpRestart @ 0x1C0043C50 (Usbh_FDO_WaitPnpRestart.c)
- *     UsbhSetWmiDataBlock @ 0x1C0049660 (UsbhSetWmiDataBlock.c)
- *     UsbhHubSSH_PnpStart @ 0x1C0058560 (UsbhHubSSH_PnpStart.c)
- *     UsbhPowerCallback @ 0x1C0058810 (UsbhPowerCallback.c)
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044F00 (Usbh_FDO_WaitPnpRestart.c)
+ *     UsbhSetWmiDataBlock @ 0x1C004AA10 (UsbhSetWmiDataBlock.c)
+ *     UsbhHubSSH_PnpStart @ 0x1C0059C30 (UsbhHubSSH_PnpStart.c)
+ *     UsbhPowerCallback @ 0x1C0059EE0 (UsbhPowerCallback.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhSshDisabled @ 0x1C00589F0 (UsbhSshDisabled.c)
- *     UsbhSshEnabled @ 0x1C0058C10 (UsbhSshEnabled.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhSshDisabled @ 0x1C005A0C0 (UsbhSshDisabled.c)
+ *     UsbhSshEnabled @ 0x1C005A2E0 (UsbhSshEnabled.c)
  */
 
 LONG __fastcall UsbhSshEnableDisable(__int64 a1, int a2)

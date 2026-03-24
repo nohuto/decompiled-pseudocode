@@ -1,13 +1,13 @@
 /*
- * XREFs of CanForceForeground @ 0x1C007B000
+ * XREFs of CanForceForeground @ 0x1C003C530
  * Callers:
- *     CheckAllowForeground @ 0x1C007AD80 (CheckAllowForeground.c)
- *     _anonymous_namespace_::CheckCanonicalForegroundAccess @ 0x1C00A66BC (_anonymous_namespace_--CheckCanonicalForegroundAccess.c)
- *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00A6928 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
- *     ?ForceForegroundChangeOnMinimize@@YAHPEAUtagWND@@0@Z @ 0x1C00CE268 (-ForceForegroundChangeOnMinimize@@YAHPEAUtagWND@@0@Z.c)
- *     ?_AllowSetForegroundWindow@@YA?AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPolicy@@@Z @ 0x1C01067C8 (-_AllowSetForegroundWindow@@YA-AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPol.c)
- *     ?_LockSetForegroundWindow@@YAHI@Z @ 0x1C01CE668 (-_LockSetForegroundWindow@@YAHI@Z.c)
- *     xxxHardErrorControl @ 0x1C023CD7C (xxxHardErrorControl.c)
+ *     ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C0027BBC (-xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z.c)
+ *     CheckAllowForeground @ 0x1C003C2A0 (CheckAllowForeground.c)
+ *     ?_AllowSetForegroundWindow@@YAHK@Z @ 0x1C003CFF0 (-_AllowSetForegroundWindow@@YAHK@Z.c)
+ *     ?CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z @ 0x1C003D1D4 (-CheckCanonicalForegroundAccess@@YA_NW4ForegroundChangeAllowPolicy@@@Z.c)
+ *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C003ED58 (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     ?_LockSetForegroundWindow@@YAHI@Z @ 0x1C01D2510 (-_LockSetForegroundWindow@@YAHI@Z.c)
+ *     xxxHardErrorControl @ 0x1C0241E6C (xxxHardErrorControl.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ _BOOL8 __fastcall CanForceForeground(__int64 a1)
       && (*(_DWORD *)(a1 + 12) & 0x80100) == 0
       && a1 != gppiInputProvider
       && gpqForeground
-      && (LODWORD(WPP_MAIN_CB.Dpc.ProcessorHistory)
+      && (gfDebugForegroundIgnoreDebugPort
        || !PsGetProcessDebugPort(*v3) && !PsGetProcessDebugPort(**(_QWORD **)(gptiForeground + 424LL))) )
     {
       v4 = (unsigned int *)UPDWORDPointer(0x2000LL);

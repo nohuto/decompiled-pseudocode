@@ -1,5 +1,5 @@
 /*
- * XREFs of vSrcAlphaCopyS4D32 @ 0x1C02774E0
+ * XREFs of vSrcAlphaCopyS4D32 @ 0x1C02791B0
  * Callers:
  *     <none>
  * Callees:
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall vSrcAlphaCopyS4D32(__int64 a1, int a2, int a3, __int
         v18 = v10 + 1;
         if ( (result & 0xF) != 0 )
         {
-          result = dword_1C02F8270[result & 0xF];
+          result = dword_1C02FABB0[result & 0xF];
           *v10 = result;
         }
         v17 = v15 + 1;
@@ -60,13 +60,13 @@ unsigned __int64 __fastcall vSrcAlphaCopyS4D32(__int64 a1, int a2, int a3, __int
           v22 = *v17;
           if ( (*v17 & 0xF0) != 0 )
           {
-            result = dword_1C02F8270[(unsigned __int64)(unsigned __int8)*v17 >> 4];
+            result = dword_1C02FABB0[(unsigned __int64)(unsigned __int8)*v17 >> 4];
             *v18 = result;
           }
           v18 += 2;
           if ( (v20 & 0xF) != 0 )
           {
-            result = dword_1C02F8270[v22 & 0xF];
+            result = dword_1C02FABB0[v22 & 0xF];
             *v21 = result;
           }
           ++v17;
@@ -80,7 +80,7 @@ unsigned __int64 __fastcall vSrcAlphaCopyS4D32(__int64 a1, int a2, int a3, __int
         result = (unsigned __int8)*v17;
         if ( (result & 0xF0) != 0 )
         {
-          result = dword_1C02F8270[result >> 4];
+          result = dword_1C02FABB0[result >> 4];
           *v18 = result;
         }
       }

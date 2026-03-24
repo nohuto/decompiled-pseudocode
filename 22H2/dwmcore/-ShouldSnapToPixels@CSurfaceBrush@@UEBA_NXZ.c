@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ShouldSnapToPixels@CSurfaceBrush@@UEBA_NXZ @ 0x180107840
+ * XREFs of ?ShouldSnapToPixels@CSurfaceBrush@@UEBA_NXZ @ 0x1800E2C80
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSurfaceBrush::ShouldSnapToPixels(CSurfaceBrush *this)
 {
-  return *((_BYTE *)this + 168);
+  return *((_BYTE *)this + 152);
 }

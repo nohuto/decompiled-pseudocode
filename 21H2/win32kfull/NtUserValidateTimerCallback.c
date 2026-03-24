@@ -1,21 +1,53 @@
 /*
- * XREFs of NtUserValidateTimerCallback @ 0x1C00E9E50
+ * XREFs of NtUserValidateTimerCallback @ 0x1C00D2810
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ValidateTimerCallback @ 0x1C00E9EA0 (ValidateTimerCallback.c)
+ *     <none>
  */
 
-__int64 __fastcall NtUserValidateTimerCallback(__int64 a1, __int64 a2, __int64 a3)
+__int64 NtUserValidateTimerCallback()
 {
-  __int64 ThreadWin32Thread; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rcx
+  __int64 v0; // rbp
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v2; // rdi
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v8; // rcx
+  int v9; // eax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v13; // rcx
+  __int64 CurrentThreadProcess; // rax
+  HANDLE ProcessId; // rax
 
-  EnterSharedCrit(a1, a2, a3);
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v5 = (int)ValidateTimerCallback(ThreadWin32Thread, a1);
-  UserSessionSwitchLeaveCrit(v6);
-  return v5;
+  v0 = 1LL;
+  EnterSharedCrit(0LL, 1LL);
+  CurrentThread = KeGetCurrentThread();
+  v2 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v3)
+    || (CurrentProcess = PsGetCurrentProcess(v5, v4, v6),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v13),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v2 = *ThreadWin32Thread;
+  }
+  if ( *(_DWORD *)(v2 + 632) <= 0x501u )
+    v9 = *(_DWORD *)(v2 + 648);
+  else
+    v9 = 0;
+  if ( (v9 & 0x1000000) == 0
+    || (*(_DWORD *)(v2 + 488) & 0xC) != 0
+    || (ProcessId = PsGetProcessId(**(PEPROCESS **)(v2 + 424)), v8 = gpidLogon, ProcessId == (HANDLE)gpidLogon) )
+  {
+    v0 = 0LL;
+  }
+  UserSessionSwitchLeaveCrit(v8);
+  return v0;
 }

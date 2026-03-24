@@ -1,32 +1,32 @@
 /*
- * XREFs of WdipSemEnableSemProvider @ 0x140831D74
+ * XREFs of WdipSemEnableSemProvider @ 0x1407941C8
  * Callers:
- *     WdipSemCleanStart @ 0x1408315A0 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140793EEC (WdipSemCleanStart.c)
  * Callees:
- *     EtwRegister @ 0x14078DD90 (EtwRegister.c)
- *     WdipSemEnableDisableTrace @ 0x1408337F0 (WdipSemEnableDisableTrace.c)
+ *     EtwRegister @ 0x1407622D0 (EtwRegister.c)
+ *     WdipSemEnableDisableTrace @ 0x140789AC8 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 WdipSemEnableSemProvider()
 {
-  NTSTATUS v0; // ecx
+  int v0; // ecx
   ULONGLONG RegHandle; // [rsp+40h] [rbp+8h] BYREF
 
   RegHandle = 0LL;
   v0 = WdipSemEnableDisableTrace(
          _InterlockedExchange(&WdipDiagLoggerId, WdipDiagLoggerId),
-         (unsigned int)&WDI_SEM_PROVIDER,
+         (__int64)&WDI_SEM_PROVIDER,
          0,
-         0,
+         0x200000000LL,
          0,
          1);
   if ( v0 >= 0 )
   {
     v0 = WdipSemEnableDisableTrace(
            _InterlockedExchange(&WdipContextLoggerId, WdipContextLoggerId),
-           (unsigned int)&WDI_SEM_PROVIDER,
+           (__int64)&WDI_SEM_PROVIDER,
            0,
-           0,
+           0x100000000LL,
            0,
            1);
     if ( v0 >= 0 && !WdipSemRegHandle )

@@ -1,46 +1,52 @@
 /*
- * XREFs of MiFreeRelocations @ 0x1407FB090
+ * XREFs of MiFreeRelocations @ 0x14076B198
  * Callers:
- *     MiDeleteControlArea @ 0x1402700FC (MiDeleteControlArea.c)
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     MiDeleteControlArea @ 0x1402F7AE4 (MiDeleteControlArea.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
  * Callees:
- *     MiReturnImageBase @ 0x1406FC148 (MiReturnImageBase.c)
- *     MiFreeImageLoadConfig @ 0x1407FB114 (MiFreeImageLoadConfig.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x1405542F4 (MiDeleteDirectMapFixupPfn.c)
+ *     MiReturnImageBase @ 0x1406EABD8 (MiReturnImageBase.c)
+ *     MiFreeImageLoadConfig @ 0x14076B228 (MiFreeImageLoadConfig.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRelocations(_DWORD *a1, _QWORD *a2)
 {
   __int64 v2; // rax
   _QWORD *v5; // rcx
-  _QWORD *v6; // rbx
-  unsigned int v7; // ecx
-  bool v8; // zf
-  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-18h]
+  _QWORD *LeafPfnBuddy; // rbx
+  _QWORD *v7; // rbx
+  unsigned int v8; // ecx
+  bool v9; // zf
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+30h] [rbp-18h]
 
   if ( a2 )
   {
-    v10 = 0LL;
+    v14 = 0LL;
     v2 = (unsigned int)a1[22];
-    v9 = 0LL;
+    v13 = 0LL;
     if ( v2 != 0xFFFFFFFFLL )
     {
-      v7 = a1[23];
-      *(_QWORD *)&v9 = v2;
-      DWORD2(v9) = (unsigned __int16)v7;
-      v8 = (a1[14] & 0x20000000) == 0;
-      LODWORD(v10) = (v7 >> 20) & 3;
-      if ( v8 )
+      v8 = a1[23];
+      *(_QWORD *)&v13 = v2;
+      DWORD2(v13) = (unsigned __int16)v8;
+      v9 = (a1[14] & 0x10000000) == 0;
+      LODWORD(v14) = (v8 >> 20) & 3;
+      if ( v9 )
       {
-        BYTE12(v9) = 0;
+        BYTE12(v13) = 0;
       }
       else
       {
-        BYTE12(v9) = 1;
-        BYTE13(v9) = BYTE2(v7) & 1;
+        BYTE12(v13) = 1;
+        BYTE13(v13) = BYTE2(v8) & 1;
       }
-      MiReturnImageBase((__int64)&v9);
+      MiReturnImageBase((__int64)&v13);
       a1[22] = -1;
     }
     MiFreeImageLoadConfig(a2 + 9);
@@ -49,11 +55,17 @@ void __fastcall MiFreeRelocations(_DWORD *a1, _QWORD *a2)
     {
       do
       {
-        v6 = (_QWORD *)*v5;
+        v7 = (_QWORD *)*v5;
         ExFreePoolWithTag(v5, 0);
-        v5 = v6;
+        v5 = v7;
       }
-      while ( v6 );
+      while ( v7 );
+    }
+    LeafPfnBuddy = (_QWORD *)a2[13];
+    while ( LeafPfnBuddy )
+    {
+      LeafPfnBuddy = (_QWORD *)MiGetLeafPfnBuddy(LeafPfnBuddy);
+      MiDeleteDirectMapFixupPfn(v10, v10, v11, v12);
     }
     ExFreePoolWithTag(a2, 0);
   }

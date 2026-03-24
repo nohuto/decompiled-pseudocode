@@ -1,58 +1,57 @@
 /*
- * XREFs of GreSetPaletteEntries @ 0x1C02D2050
+ * XREFs of GreSetPaletteEntries @ 0x1C02B7500
  * Callers:
  *     <none>
  * Callees:
- *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C000741C (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02D8DF8 (-ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0017954 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02BCBC8 (-ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
  */
 
 __int64 __fastcall GreSetPaletteEntries(HPALETTE a1, unsigned int a2, unsigned int a3, struct tagPALETTEENTRY *a4)
 {
-  unsigned int v7; // r14d
-  Gre::Base *v8; // rcx
-  __int64 v9; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 *v14; // rcx
-  HDC v15; // rdi
-  __int64 v16; // rsi
-  __int64 v18; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v19; // [rsp+28h] [rbp-18h] BYREF
-  __int64 v20; // [rsp+30h] [rbp-10h] BYREF
+  unsigned int v7; // esi
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 *v13; // rcx
+  HDC v14; // rdi
+  __int64 v15; // rbp
+  __int64 v16; // rdx
+  __int64 v18; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v19; // [rsp+28h] [rbp-20h] BYREF
+  _QWORD v20[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v7 = 0;
   EPALOBJ::EPALOBJ((EPALOBJ *)&v18, a1);
-  v9 = v18;
+  v8 = v18;
   if ( v18 )
   {
-    v19 = *((_QWORD *)Gre::Base::Globals(v8) + 5);
-    GreAcquireSemaphore(v19);
+    v19 = ghsemPalette;
+    GreAcquireSemaphore(ghsemPalette);
     v7 = XEPALOBJ::ulSetEntries((XEPALOBJ *)&v18, a2, a3, a4);
-    GreAcquireHmgrSemaphore(v11, v10, v12, v13);
-    v15 = *(HDC *)(v9 + 40);
-    while ( v15 )
+    GreAcquireHmgrSemaphore(v10, v9, v11, v12);
+    v14 = *(HDC *)(v8 + 40);
+    while ( v14 )
     {
-      MDCOBJA::MDCOBJA((MDCOBJA *)&v20, v15);
-      v14 = (__int64 *)v20;
-      if ( !v20 )
+      MDCOBJA::MDCOBJA((MDCOBJA *)v20, v14);
+      v13 = (__int64 *)v20[0];
+      if ( !v20[0] )
         break;
-      *(_DWORD *)(v20 + 316) |= 0xFu;
+      *(_DWORD *)(v20[0] + 316LL) |= 0xFu;
       LODWORD(v18) = 0;
-      v15 = (HDC)v14[123];
-      v16 = *v14;
-      HmgDecrementShareReferenceCountEx(v14, &v18);
+      v14 = (HDC)v13[123];
+      v15 = *v13;
+      HmgDecrementShareReferenceCountEx(v13, &v18);
       if ( (_DWORD)v18 )
-        GrepDeleteDC(v16, 0x2000000LL);
+        bDeleteDCInternalEx(v15, 0LL);
     }
-    GreReleaseHmgrSemaphore(v14);
+    GreReleaseHmgrSemaphore(v13);
     SEMOBJ::vUnlock((SEMOBJ *)&v19);
-    if ( v9 )
-      DEC_SHARE_REF_CNT(v9);
+    DEC_SHARE_REF_CNT(v8, v16);
   }
   return v7;
 }

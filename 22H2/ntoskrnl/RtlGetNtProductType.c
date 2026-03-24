@@ -1,43 +1,53 @@
 /*
- * XREFs of RtlGetNtProductType @ 0x1402F7F40
+ * XREFs of RtlGetNtProductType @ 0x14031B310
  * Callers:
- *     IoFillDumpHeader @ 0x14054FC68 (IoFillDumpHeader.c)
- *     KeCapturePersistentThreadState @ 0x140554360 (KeCapturePersistentThreadState.c)
- *     MmWriteTriageInformation @ 0x14063093C (MmWriteTriageInformation.c)
- *     RtlGetVersion @ 0x140759210 (RtlGetVersion.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B9AC (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     RtlRestoreBootStatusDefaults @ 0x1409BDB50 (RtlRestoreBootStatusDefaults.c)
- *     AstInitialize @ 0x140B75974 (AstInitialize.c)
+ *     IoFillDumpHeader @ 0x140501778 (IoFillDumpHeader.c)
+ *     KeCapturePersistentThreadState @ 0x140504CC0 (KeCapturePersistentThreadState.c)
+ *     MmWriteTriageInformation @ 0x140538CFC (MmWriteTriageInformation.c)
+ *     RtlGetVersion @ 0x14068F5D0 (RtlGetVersion.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1407195A0 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1409155F8 (RtlRestoreBootStatusDefaults.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x14087F714 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PsGetThreadServerSilo @ 0x140206500 (PsGetThreadServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x14077A904 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+char __fastcall RtlGetNtProductType(_DWORD *a1, __int64 a2)
 {
-  char v2; // bl
-  __int64 CurrentServerSilo; // rax
-  _QWORD *v5; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  char v5; // bl
+  __int64 ThreadServerSilo; // rax
+  _QWORD *v7; // rax
 
-  v2 = 0;
-  if ( PsIsCurrentThreadInServerSilo() )
+  if ( PsIsCurrentThreadInServerSilo((__int64)a1, a2) )
   {
-    CurrentServerSilo = PsGetCurrentServerSilo();
-    if ( CurrentServerSilo )
-      v5 = *(_QWORD **)(CurrentServerSilo + 1488);
+    if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v4, v3)
+      || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
+    {
+      v7 = &PspHostSiloGlobals;
+    }
     else
-      v5 = &PspHostSiloGlobals;
-    *a1 = *(_DWORD *)(v5[165] + 16LL);
+    {
+      v7 = *(_QWORD **)(ThreadServerSilo + 1272);
+    }
+    v5 = 1;
+    *a1 = *(_DWORD *)(v7[141] + 16LL);
   }
-  else if ( MEMORY[0xFFFFF78000000268] )
+  else
   {
-    *a1 = MEMORY[0xFFFFF78000000264];
+    v5 = 1;
+    if ( MEMORY[0xFFFFF78000000268] )
+    {
+      *a1 = MEMORY[0xFFFFF78000000264];
+    }
+    else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
+    {
+      *a1 = 1;
+      return 0;
+    }
   }
-  else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
-  {
-    *a1 = 1;
-    return v2;
-  }
-  return 1;
+  return v5;
 }

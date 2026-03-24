@@ -1,142 +1,100 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x140367CB0
+ * XREFs of MiReplicatePteChange @ 0x1403A3E44
  * Callers:
- *     MiWriteTopLevelPxe @ 0x140201D04 (MiWriteTopLevelPxe.c)
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiUnlockNestedPageTableWritePte @ 0x1402E5B30 (MiUnlockNestedPageTableWritePte.c)
- *     MiReplacePfnWithGapMapping @ 0x14038D978 (MiReplacePfnWithGapMapping.c)
- *     MiInitializeShadowPageTable @ 0x140820480 (MiInitializeShadowPageTable.c)
+ *     MiDeleteVaTail @ 0x1402BB1C0 (MiDeleteVaTail.c)
+ *     MiZeroAndFlushPtes @ 0x1402EA790 (MiZeroAndFlushPtes.c)
+ *     MiDeleteSystemPageTable @ 0x14030E4E0 (MiDeleteSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x140356770 (MiCreateSystemPageTable.c)
+ *     MiDecommitLargePoolVa @ 0x1403714C0 (MiDecommitLargePoolVa.c)
+ *     MiReplicatePfnDatabaseMappings @ 0x14052EE6C (MiReplicatePfnDatabaseMappings.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0798 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiReplicatePteChangeToProcess @ 0x140367E94 (MiReplicatePteChangeToProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReplicatePteChangeToProcess @ 0x1403A3FA8 (MiReplicatePteChangeToProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiReplicatePteChange(unsigned __int64 a1, __int64 a2, int a3)
+__int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)
 {
+  unsigned __int64 v3; // rbp
+  __int64 v4; // rdx
   _KPROCESS *Process; // r15
   unsigned __int64 LeafVa; // rax
-  unsigned __int64 v8; // rdi
-  __int64 *v9; // r14
-  __int64 *i; // rsi
-  _KPROCESS *v11; // rcx
-  int DirectoryTableBase_high; // eax
-  _QWORD *v13; // rsi
-  __int64 v14; // rbp
-  __int64 *v15; // rdi
-  BOOL v16; // eax
-  __int64 v17; // r8
-  int v18; // edx
+  unsigned __int64 v7; // rsi
+  __int64 *v8; // rdi
+  __int64 *i; // rbx
+  __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
-  unsigned __int8 CurrentIrql; // al
+  _KPROCESS *v12; // rcx
+  int DirectoryTableBase_high; // eax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v24; // eax
-  bool v25; // zf
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
+  bool v16; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
+  v3 = a1;
+  v4 = 3LL;
+  do
+  {
+    v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    a2 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    --v4;
+  }
+  while ( v4 );
   Process = KeGetCurrentThread()->ApcState.Process;
   LeafVa = MiGetLeafVa(a1);
   if ( (unsigned int)MiGetSystemRegionType(LeafVa) == 1 )
   {
-    v8 = Process[1].Affinity.StaticBitmap[25];
-    v9 = (__int64 *)(v8 + 16);
+    v7 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
+    v8 = (__int64 *)(v7 + 16);
   }
   else
   {
-    v8 = 0LL;
-    v9 = &qword_140C65B18;
+    v7 = 0LL;
+    v8 = &qword_140C4DE28;
   }
-  if ( !a3 )
-    KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &LockHandle);
-  if ( v8 )
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+  for ( i = (__int64 *)*v8; i != v8; i = (__int64 *)*i )
   {
-    v13 = (_QWORD *)(v8 + 104);
-    v14 = 2LL;
-    do
-    {
-      if ( *v13 )
-        MiReplicatePteChangeToProcess(*v13, a1);
-      ++v13;
-      --v14;
-    }
-    while ( v14 );
-  }
-  for ( i = (__int64 *)*v9; i != v9; i = (__int64 *)*i )
-  {
-    v11 = (_KPROCESS *)((char *)i + (v8 != 0 ? -1184LL : -1984LL));
-    DirectoryTableBase_high = HIDWORD(v11[1].DirectoryTableBase);
+    v12 = (_KPROCESS *)((char *)i + (v7 != 0 ? -1184LL : -1984LL));
+    DirectoryTableBase_high = HIDWORD(v12[1].DirectoryTableBase);
     if ( (DirectoryTableBase_high & 0x800000) == 0 )
     {
       if ( (DirectoryTableBase_high & 0xC00) != 0 && (DirectoryTableBase_high & 0x80u) == 0 )
       {
-        if ( v11 != Process )
-          MiReplicatePteChangeToProcess(v11, a1);
+        if ( v12 != Process )
+          MiReplicatePteChangeToProcess(v12, v3, a2);
       }
       else
       {
-        _InterlockedOr((volatile signed __int32 *)&v11[1].DirectoryTableBase + 1, 0x800000u);
+        _InterlockedOr((volatile signed __int32 *)&v12[1].DirectoryTableBase + 1, 0x800000u);
       }
     }
   }
-  if ( v8 )
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  OldIrql = LockHandle.OldIrql;
+  if ( KiIrqlFlags )
   {
-    v15 = (__int64 *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25] + 744);
-    v16 = MiPteInShadowRange((unsigned __int64)v15);
-    v18 = 0;
-    if ( (a2 & 1) == 0 )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      if ( v16 )
-      {
-        if ( MiPteHasShadow() )
-          v18 = 1;
-      }
-      goto LABEL_25;
-    }
-    if ( v16 )
-    {
-      if ( MiPteHasShadow() )
-      {
-        v18 = 1;
-        if ( HIBYTE(word_140C66DFC) )
-          goto LABEL_25;
-      }
-      else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-      {
-        goto LABEL_25;
-      }
-      a2 |= 0x8000000000000000uLL;
-    }
-LABEL_25:
-    *v15 = a2;
-    if ( v18 )
-      MiWritePteShadow((__int64)v15, a2, v17);
-  }
-  if ( !a3 )
-  {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
-    {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v24 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v25 = (v24 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v24;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v16 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    __writecr8(OldIrql);
   }
+  __writecr8(OldIrql);
+  return result;
 }

@@ -1,137 +1,134 @@
 /*
- * XREFs of PfSnOpenVolumesForPrefetch @ 0x140686328
+ * XREFs of PfSnOpenVolumesForPrefetch @ 0x140634420
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x14074E1B0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x14062E400 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     memset @ 0x140435400 (memset.c)
- *     PfSnIsVolumeMounted @ 0x140686890 (PfSnIsVolumeMounted.c)
- *     PfSnQueryVolumeInfo @ 0x1406869B4 (PfSnQueryVolumeInfo.c)
- *     PfMetadataRecordIsEqual @ 0x140687098 (PfMetadataRecordIsEqual.c)
- *     PfSnLogOpenVolumesForPrefetch @ 0x1406870B8 (PfSnLogOpenVolumesForPrefetch.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x14068714C (PfSnVolumeCheckSeekPenalty.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     NtCreateEvent @ 0x14075D290 (NtCreateEvent.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     PfSnVolumeCheckIsSdBus @ 0x1408A5DF4 (PfSnVolumeCheckIsSdBus.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     PfSnQueryVolumeInfo @ 0x1406342E4 (PfSnQueryVolumeInfo.c)
+ *     PfSnIsVolumeMounted @ 0x140634A00 (PfSnIsVolumeMounted.c)
+ *     PfMetadataRecordIsEqual @ 0x140634B54 (PfMetadataRecordIsEqual.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtCreateEvent @ 0x140651360 (NtCreateEvent.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x14069BE7C (PfSnVolumeCheckSeekPenalty.c)
+ *     PfSnLogOpenVolumesForPrefetch @ 0x14069C914 (PfSnLogOpenVolumesForPrefetch.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x1408E0A2C (PfSnVolumeCheckIsSdBus.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
 {
   __int64 v2; // r14
-  unsigned int v3; // esi
-  WCHAR *v5; // r12
-  int v6; // ebx
-  unsigned int v7; // eax
-  __int64 Pool2; // rax
+  WCHAR *v4; // r12
+  int v5; // ebx
+  unsigned int v6; // eax
+  PVOID PoolWithTag; // rax
+  unsigned int i; // esi
   _QWORD *v9; // rdi
   int v10; // edi
   int DeviceInterfaces; // eax
-  unsigned int v12; // edi
-  const WCHAR *i; // rsi
-  __int64 v14; // r15
+  bool v12; // zf
+  unsigned int v13; // edi
+  const WCHAR *v14; // rsi
+  __int64 v15; // r15
   int IsVolumeMounted; // eax
-  int v16; // ecx
-  _OWORD *v17; // rax
-  _OWORD *v18; // rdi
-  int v19; // eax
-  __int128 v20; // xmm1
-  PVOID v21; // rcx
-  PVOID *v22; // rax
-  wchar_t *v23; // r15
-  __int64 v24; // rdx
-  __int64 v25; // rax
-  __int64 v26; // rdi
-  unsigned int *v27; // rcx
-  PVOID *k; // rsi
-  __int64 v29; // r8
-  wchar_t *v30; // rax
-  __int64 v31; // rcx
-  __int64 v32; // rsi
-  __int128 v33; // xmm1
-  __int128 v34; // xmm0
-  __int64 *v35; // rdx
-  HANDLE v36; // rdx
-  _QWORD *v37; // rbx
-  __int64 v38; // rax
-  __int64 *v40; // rcx
+  int v17; // ecx
+  _OWORD *v18; // rax
+  _OWORD *v19; // rdi
+  int v20; // eax
+  __int128 v21; // xmm1
+  PVOID v22; // rcx
+  PVOID *v23; // rax
+  wchar_t *v24; // rsi
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  __int64 v27; // rdi
+  unsigned int *v28; // rcx
+  PVOID *v29; // r9
+  __int64 v30; // r8
+  PVOID *v31; // r15
+  wchar_t *v32; // rax
+  __int64 v33; // r8
+  __int64 v34; // rdx
+  __int64 v35; // r15
+  __int128 v36; // xmm1
+  __int128 v37; // xmm0
+  __int64 *v38; // rdx
+  HANDLE v39; // rdx
+  _QWORD *v40; // rbx
+  __int64 v41; // rax
+  __int64 *v43; // rcx
   PVOID P; // [rsp+40h] [rbp-99h] BYREF
   PVOID *p_P; // [rsp+48h] [rbp-91h]
-  int v43; // [rsp+50h] [rbp-89h] BYREF
+  int v46; // [rsp+50h] [rbp-89h] BYREF
   PCWSTR SourceString; // [rsp+58h] [rbp-81h] BYREF
-  PVOID v45; // [rsp+60h] [rbp-79h] BYREF
+  PVOID v48; // [rsp+60h] [rbp-79h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-71h] BYREF
-  __int128 v47; // [rsp+70h] [rbp-69h] BYREF
-  __m256i v48; // [rsp+80h] [rbp-59h] BYREF
-  __m256i v49; // [rsp+A0h] [rbp-39h] BYREF
-  _DWORD v50[2]; // [rsp+C0h] [rbp-19h] BYREF
-  __int64 v51; // [rsp+C8h] [rbp-11h]
-  __int64 v52; // [rsp+D0h] [rbp-9h]
-  int v53; // [rsp+D8h] [rbp-1h]
-  int v54; // [rsp+DCh] [rbp+3h]
-  __int128 v55; // [rsp+E0h] [rbp+7h]
-  int v56; // [rsp+140h] [rbp+67h]
+  __int128 v50; // [rsp+70h] [rbp-69h] BYREF
+  __m256i v51; // [rsp+80h] [rbp-59h] BYREF
+  __m256i v52; // [rsp+A0h] [rbp-39h] BYREF
+  _DWORD v53[2]; // [rsp+C0h] [rbp-19h] BYREF
+  __int64 v54; // [rsp+C8h] [rbp-11h]
+  __int64 v55; // [rsp+D0h] [rbp-9h]
+  int v56; // [rsp+D8h] [rbp-1h]
+  int v57; // [rsp+DCh] [rbp+3h]
+  __int128 v58; // [rsp+E0h] [rbp+7h]
+  int v59; // [rsp+140h] [rbp+67h]
   int j; // [rsp+140h] [rbp+67h]
-  _DWORD *v58; // [rsp+148h] [rbp+6Fh]
+  _DWORD *v61; // [rsp+148h] [rbp+6Fh]
   unsigned int cbDest; // [rsp+150h] [rbp+77h]
   size_t cbDesta; // [rsp+150h] [rbp+77h]
-  __int64 v61; // [rsp+158h] [rbp+7Fh]
+  __int64 v64; // [rsp+158h] [rbp+7Fh]
 
-  v58 = a2;
+  v61 = a2;
   v2 = *a1;
-  v3 = 0;
   p_P = &P;
-  v50[1] = 0;
-  v54 = 0;
+  v53[1] = 0;
+  v57 = 0;
   P = &P;
-  v45 = 0LL;
+  v48 = 0LL;
   LOBYTE(a2) = 1;
-  v43 = 0;
-  v56 = 0;
-  v47 = 0LL;
-  v5 = 0LL;
+  v52.m256i_i64[3] = 0x200000000LL;
+  v51.m256i_i64[3] = 0x200000000LL;
+  v50 = 0LL;
+  v46 = 0;
+  v4 = 0LL;
+  v59 = 0;
+  v5 = 0;
   SourceString = 0LL;
-  v6 = 0;
-  memset(&v49, 0, 24);
-  v49.m256i_i64[3] = 0x200000000LL;
-  memset(&v48, 0, 24);
-  v48.m256i_i64[3] = 0x200000000LL;
+  memset(&v52, 0, 24);
+  memset(&v51, 0, 24);
   Handle = 0LL;
   PfSnLogOpenVolumesForPrefetch(v2, a2);
-  if ( v2 && (v7 = *(_DWORD *)(v2 + 112), v7 < 0x4000) )
+  if ( v2 && (v6 = *(_DWORD *)(v2 + 112), v6 < 0x4000) )
   {
-    Pool2 = ExAllocatePool2(256LL, 112 * v7, 1984979779LL);
-    a1[2] = Pool2;
-    if ( !Pool2 )
-      goto LABEL_53;
-    if ( *(_DWORD *)(v2 + 112) )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 112 * v6, 0x76506343u);
+    a1[2] = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_55;
+    for ( i = 0; i < *(_DWORD *)(v2 + 112); v9[11] |= 0x200000000uLL )
     {
-      do
-      {
-        v9 = (_QWORD *)(a1[2] + 112LL * v3);
-        memset(v9, 0, 0x70uLL);
-        v9[1] = v9;
-        *v9 = v9;
-        ++v3;
-        *((_OWORD *)v9 + 2) = 0LL;
-        *((_OWORD *)v9 + 3) = 0LL;
-        v9[7] |= 0x200000000uLL;
-        *((_OWORD *)v9 + 4) = 0LL;
-        *((_OWORD *)v9 + 5) = 0LL;
-        v9[11] |= 0x200000000uLL;
-      }
-      while ( v3 < *(_DWORD *)(v2 + 112) );
+      v9 = (_QWORD *)(a1[2] + 112LL * i);
+      memset(v9, 0, 0x70uLL);
+      v9[1] = v9;
+      *v9 = v9;
+      ++i;
+      *((_OWORD *)v9 + 2) = 0LL;
+      *((_OWORD *)v9 + 3) = 0LL;
+      v9[7] |= 0x200000000uLL;
+      *((_OWORD *)v9 + 4) = 0LL;
+      *((_OWORD *)v9 + 5) = 0LL;
     }
-    v50[0] = 48;
-    v51 = 0LL;
-    v52 = 0LL;
-    v53 = 512;
+    v53[0] = 48;
+    v54 = 0LL;
+    v56 = 512;
     v55 = 0LL;
-    v10 = NtCreateEvent(&Handle, 2031619LL, v50, 0LL, 0);
+    v58 = 0LL;
+    v10 = NtCreateEvent(&Handle, 2031619LL, v53, 0LL, 0);
     if ( v10 < 0 )
       goto LABEL_39;
     DeviceInterfaces = IopGetDeviceInterfaces(
@@ -141,149 +138,164 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
                          0,
                          (__int64)&SourceString,
                          0LL);
-    v5 = (WCHAR *)SourceString;
+    v4 = (WCHAR *)SourceString;
     v10 = DeviceInterfaces;
     if ( DeviceInterfaces < 0 )
       goto LABEL_39;
+    v12 = *SourceString == 0;
+    v13 = 0;
     cbDest = 0;
-    v12 = 0;
-    for ( i = SourceString; *i; v12 = cbDest )
+    v14 = SourceString;
+    while ( !v12 )
     {
-      v14 = -1LL;
+      v15 = -1LL;
       do
-        ++v14;
-      while ( i[v14] );
-      SourceString = (PCWSTR)(2LL * (unsigned int)(v14 + 1));
-      if ( v12 <= (unsigned __int64)SourceString )
-        cbDest = 2 * v14 + 2;
-      IsVolumeMounted = PfSnIsVolumeMounted(i);
-      v16 = v56;
+        ++v15;
+      while ( v14[v15] );
+      SourceString = (PCWSTR)(2LL * (unsigned int)(v15 + 1));
+      if ( v13 <= (unsigned __int64)SourceString )
+        cbDest = 2 * v15 + 2;
+      IsVolumeMounted = PfSnIsVolumeMounted(v14);
+      v17 = v59;
       if ( IsVolumeMounted < 0 )
-        v16 = 0;
-      v56 = v16;
-      if ( v16 && (int)PfSnQueryVolumeInfo(a1[1], (_DWORD)i, (unsigned int)&v49, (unsigned int)&v45, (__int64)&v43) >= 0 )
+        v17 = 0;
+      v59 = v17;
+      if ( v17 && (int)PfSnQueryVolumeInfo(a1[1], v14, &v52, &v48, &v46) >= 0 )
       {
-        v17 = (_OWORD *)ExAllocatePool2(256LL, 72LL, 1984979779LL);
-        v18 = v17;
-        if ( !v17 )
-          goto LABEL_53;
-        memset(v17, 0, 0x48uLL);
-        v19 = v43;
-        v20 = *(_OWORD *)&v49.m256i_u64[2];
-        v21 = v45;
-        v18[1] = *(_OWORD *)v49.m256i_i8;
-        *((_DWORD *)v18 + 15) = v19;
-        *((_QWORD *)v18 + 8) = v21;
-        v18[2] = v20;
-        *((_QWORD *)v18 + 6) = i;
-        *((_DWORD *)v18 + 14) = v14;
-        memset(&v49, 0, 24);
-        v22 = p_P;
-        v49.m256i_i64[3] = 0x200000000LL;
+        v18 = ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x76506343u);
+        v19 = v18;
+        if ( !v18 )
+          goto LABEL_55;
+        memset(v18, 0, 0x48uLL);
+        v20 = v46;
+        v21 = *(_OWORD *)&v52.m256i_u64[2];
+        v22 = v48;
+        v19[1] = *(_OWORD *)v52.m256i_i8;
+        *((_DWORD *)v19 + 15) = v20;
+        *((_QWORD *)v19 + 8) = v22;
+        v19[2] = v21;
+        *((_QWORD *)v19 + 6) = v14;
+        *((_DWORD *)v19 + 14) = v15;
+        memset(&v52, 0, 24);
+        v23 = p_P;
+        v52.m256i_i64[3] = 0x200000000LL;
         if ( *p_P != &P )
 LABEL_59:
           __fastfail(3u);
-        *((_QWORD *)v18 + 1) = p_P;
-        *(_QWORD *)v18 = &P;
-        *v22 = v18;
-        p_P = (PVOID *)v18;
+        *((_QWORD *)v19 + 1) = p_P;
+        *(_QWORD *)v19 = &P;
+        *v23 = v19;
+        p_P = (PVOID *)v19;
       }
-      i = (const WCHAR *)((char *)i + (_QWORD)SourceString);
+      v14 = (const WCHAR *)((char *)v14 + (_QWORD)SourceString);
+      v13 = cbDest;
+      v12 = *v14 == 0;
     }
-    cbDesta = v12 + 2;
-    v23 = (wchar_t *)ExAllocatePool2(256LL, cbDesta, 1984979779LL);
-    if ( v23 )
+    cbDesta = v13 + 2;
+    v24 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, cbDesta, 0x76506343u);
+    if ( v24 )
     {
-      v24 = v2 + *(unsigned int *)(v2 + 108);
-      v25 = 0LL;
-      v61 = v24;
-      for ( j = 0; (unsigned int)v25 < *(_DWORD *)(v2 + 112); j = v25 )
+      v25 = v2 + *(unsigned int *)(v2 + 108);
+      v26 = 0LL;
+      v64 = v25;
+      for ( j = 0; (unsigned int)v26 < *(_DWORD *)(v2 + 112); j = v26 )
       {
-        v26 = a1[2] + 112 * v25;
-        v27 = (unsigned int *)(v24 + 96 * v25);
-        *(_QWORD *)(v26 + 16) = v24 + *v27;
-        *(_DWORD *)(v26 + 24) = v27[1];
-        *(_DWORD *)(v26 + 104) = 0;
-        *(_QWORD *)(v26 + 96) = v24 + v27[7];
-        for ( k = (PVOID *)P; ; k = (PVOID *)*k )
+        v27 = a1[2] + 112 * v26;
+        v28 = (unsigned int *)(v25 + 96 * v26);
+        *(_QWORD *)(v27 + 16) = v25 + *v28;
+        *(_DWORD *)(v27 + 24) = v28[1];
+        *(_DWORD *)(v27 + 104) = 0;
+        *(_QWORD *)(v27 + 96) = v25 + v28[7];
+        v29 = (PVOID *)P;
+        if ( P == &P )
+          goto LABEL_52;
+        do
         {
-          if ( k == &P )
-            goto LABEL_57;
-          v29 = *((unsigned int *)k + 15);
-          v45 = k[8];
-          if ( (unsigned __int8)PfMetadataRecordIsEqual(v27, &v45, v29) )
+          v30 = *((unsigned int *)v29 + 15);
+          v31 = v29;
+          v48 = v29[8];
+          if ( (unsigned __int8)PfMetadataRecordIsEqual(v28, &v48, v30) )
             break;
+          v29 = (PVOID *)*v29;
         }
-        RtlStringCbPrintfW(v23, cbDesta, L"%s\\", k[6]);
-        v30 = v23;
-        v47 = 0LL;
-        v31 = 0x7FFFLL;
-        while ( *v30 )
+        while ( v29 != &P );
+        if ( v29 == &P )
+          goto LABEL_52;
+        RtlStringCbPrintfW(v24, cbDesta, L"%s\\", v31[6]);
+        v32 = v24;
+        v50 = 0LL;
+        v33 = 0x7FFFLL;
+        do
         {
-          ++v30;
-          if ( !--v31 )
-            goto LABEL_33;
+          if ( !*v32 )
+            break;
+          ++v32;
+          --v33;
         }
-        *((_QWORD *)&v47 + 1) = v23;
-        LOWORD(v47) = 2 * (0x7FFF - v31);
-        WORD1(v47) = v47 + 2;
-LABEL_33:
-        v32 = (__int64)(k + 2);
-        if ( (int)PfpOpenHandleCreate((unsigned int)&v48, a1[1], (unsigned int)&v47, 0, 1179785, 33, 128, v32) < 0 )
+        while ( v33 );
+        v34 = (0x7FFF - v33) & ((unsigned __int128)-(__int128)(unsigned __int64)v33 >> 64);
+        if ( v33 )
         {
-LABEL_57:
-          v48.m256i_i64[3] = 0x200000000LL;
-          memset(&v48, 0, 24);
-          v40 = (__int64 *)a1[4];
-          if ( (__int64 *)*v40 != a1 + 3 )
+          *((_QWORD *)&v50 + 1) = v24;
+          LOWORD(v50) = 2 * v34;
+          WORD1(v50) = 2 * v34 + 2;
+        }
+        v35 = (__int64)(v31 + 2);
+        if ( (int)PfpOpenHandleCreate((__int64)&v51, a1[1], (__int64)&v50, 0LL, 1179785, 0x21u, 0x80u, v35) < 0 )
+        {
+LABEL_52:
+          memset(&v51, 0, 24);
+          v51.m256i_i64[3] = 0x200000000LL;
+          v43 = (__int64 *)a1[4];
+          if ( (__int64 *)*v43 != a1 + 3 )
             goto LABEL_59;
-          *(_QWORD *)v26 = a1 + 3;
-          *(_QWORD *)(v26 + 8) = v40;
-          *v40 = v26;
-          a1[4] = v26;
+          *(_QWORD *)v27 = a1 + 3;
+          *(_QWORD *)(v27 + 8) = v43;
+          *v43 = v27;
+          a1[4] = v27;
         }
         else
         {
-          *(_OWORD *)(v26 + 32) = *(_OWORD *)v32;
-          *(_OWORD *)(v26 + 48) = *(_OWORD *)(v32 + 16);
-          v33 = *(_OWORD *)&v48.m256i_u64[2];
-          v48.m256i_i64[3] = 0x200000000LL;
-          *(_OWORD *)v32 = 0LL;
-          *(_OWORD *)(v32 + 16) = 0LL;
-          *(_QWORD *)(v32 + 24) |= 0x200000000uLL;
-          v34 = *(_OWORD *)v48.m256i_i8;
-          v48.m256i_i64[0] = 0LL;
-          *(_OWORD *)(v26 + 64) = v34;
-          *(_OWORD *)(v26 + 80) = v33;
-          v35 = (__int64 *)a1[6];
-          *(_OWORD *)&v48.m256i_u64[1] = 0LL;
-          if ( (__int64 *)*v35 != a1 + 5 )
+          *(_OWORD *)(v27 + 32) = *(_OWORD *)v35;
+          *(_OWORD *)(v27 + 48) = *(_OWORD *)(v35 + 16);
+          v36 = *(_OWORD *)&v51.m256i_u64[2];
+          v51.m256i_i64[3] = 0x200000000LL;
+          *(_OWORD *)v35 = 0LL;
+          *(_OWORD *)(v35 + 16) = 0LL;
+          *(_QWORD *)(v35 + 24) |= 0x200000000uLL;
+          v37 = *(_OWORD *)v51.m256i_i8;
+          v51.m256i_i64[0] = 0LL;
+          *(_OWORD *)(v27 + 64) = v37;
+          *(_OWORD *)(v27 + 80) = v36;
+          v38 = (__int64 *)a1[6];
+          *(_OWORD *)&v51.m256i_u64[1] = 0LL;
+          if ( (__int64 *)*v38 != a1 + 5 )
             goto LABEL_59;
-          *(_QWORD *)v26 = a1 + 5;
-          *(_QWORD *)(v26 + 8) = v35;
-          *v35 = v26;
-          v36 = Handle;
-          a1[6] = v26;
-          *(_DWORD *)(v26 + 108) ^= (*(_DWORD *)(v26 + 108) ^ PfSnVolumeCheckSeekPenalty(v26 + 32, v36)) & 1;
-          if ( (*(_DWORD *)(v26 + 108) & 1) != 0 )
+          *(_QWORD *)v27 = a1 + 5;
+          *(_QWORD *)(v27 + 8) = v38;
+          *v38 = v27;
+          v39 = Handle;
+          a1[6] = v27;
+          *(_DWORD *)(v27 + 108) ^= (*(_DWORD *)(v27 + 108) ^ PfSnVolumeCheckSeekPenalty(v27 + 32, v39)) & 1;
+          if ( (*(_DWORD *)(v27 + 108) & 1) != 0 )
           {
-            v6 |= 1u;
+            v5 |= 1u;
           }
-          else if ( (v6 & 3) == 0 && !(unsigned int)PfSnVolumeCheckIsSdBus(v26 + 32, Handle) )
+          else if ( (v5 & 3) == 0 && !(unsigned int)PfSnVolumeCheckIsSdBus(v27 + 32, Handle) )
           {
-            v6 |= 2u;
+            v5 |= 2u;
           }
         }
-        v24 = v61;
-        v25 = (unsigned int)(j + 1);
+        v25 = v64;
+        v26 = (unsigned int)(j + 1);
       }
       v10 = 0;
-      *v58 = v6;
-      ExFreePoolWithTag(v23, 0);
+      *v61 = v5;
+      ExFreePoolWithTag(v24, 0);
     }
     else
     {
-LABEL_53:
+LABEL_55:
       v10 = -1073741670;
     }
   }
@@ -292,26 +304,26 @@ LABEL_53:
     v10 = -1073741811;
   }
 LABEL_39:
-  if ( (v49.m256i_i64[3] & 0x400000000LL) != 0 )
-    PfpOpenHandleClose(&v49, a1[1]);
+  if ( (v52.m256i_i64[3] & 0x400000000LL) != 0 )
+    PfpOpenHandleClose(&v52, a1[1]);
   while ( 1 )
   {
-    v37 = P;
+    v40 = P;
     if ( P == &P )
       break;
     if ( *((PVOID **)P + 1) != &P )
       goto LABEL_59;
-    v38 = *(_QWORD *)P;
+    v41 = *(_QWORD *)P;
     if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P )
       goto LABEL_59;
     P = *(PVOID *)P;
-    *(_QWORD *)(v38 + 8) = &P;
-    if ( (v37[5] & 0x400000000LL) != 0 )
-      PfpOpenHandleClose(v37 + 2, a1[1]);
-    ExFreePoolWithTag(v37, 0);
+    *(_QWORD *)(v41 + 8) = &P;
+    if ( (v40[5] & 0x400000000LL) != 0 )
+      PfpOpenHandleClose(v40 + 2, a1[1]);
+    ExFreePoolWithTag(v40, 0);
   }
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0);
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0);
   if ( Handle )
     NtClose(Handle);
   PfSnLogOpenVolumesForPrefetch(v2, 0LL);

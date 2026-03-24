@@ -1,15 +1,16 @@
 /*
- * XREFs of ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x1800A69B8
+ * XREFs of ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x18003D378
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetStockTransparentBitmap@CD3DDevice@@QEAAPEAVIBitmapRealization@@XZ @ 0x180019AEC (-GetStockTransparentBitmap@CD3DDevice@@QEAAPEAVIBitmapRealization@@XZ.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180093140 (--4-$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapReal.c)
- *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x1800A6A7C (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180285EB8 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
+ *     ?GetStockTransparentBitmap@CD3DDevice@@QEAAPEAVIBitmapRealization@@XZ @ 0x1800085C8 (-GetStockTransparentBitmap@CD3DDevice@@QEAAPEAVIBitmapRealization@@XZ.c)
+ *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x18003D1E8 (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
+ *     ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180051C50 (--4-$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapReal.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x1802388F8 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
  */
 
 __int64 __fastcall CBitmapResource::ProcessSource(
@@ -17,24 +18,26 @@ __int64 __fastcall CBitmapResource::ProcessSource(
         struct CResourceTable *a2,
         struct IWICBitmapSource **a3)
 {
-  struct IBitmapRealization **v3; // rdi
+  struct IBitmapRealization **v3; // rsi
   __int64 v5; // r8
   struct IBitmapRealization *v7; // rdx
   int v8; // eax
   unsigned int v9; // ecx
-  unsigned int v10; // ebx
+  unsigned int v10; // edi
   struct IWICBitmapSource *v11; // rcx
   __int64 v13; // rcx
   __int64 v14; // rcx
+  CDeviceManager *v15; // rcx
   int DefaultDevice; // eax
-  unsigned int v16; // ecx
+  unsigned int v17; // ecx
   struct IBitmapRealization *StockTransparentBitmap; // rax
-  CD3DDevice *v18; // [rsp+48h] [rbp+10h] BYREF
+  CD3DDevice *v19; // rcx
+  CD3DDevice *v20; // [rsp+48h] [rbp+10h] BYREF
 
-  v18 = a2;
-  v3 = (struct IBitmapRealization **)((char *)this + 72);
-  v5 = *((_QWORD *)this + 9);
-  *((_QWORD *)this + 9) = 0LL;
+  v20 = a2;
+  v3 = (struct IBitmapRealization **)((char *)this + 64);
+  v5 = *((_QWORD *)this + 8);
+  *((_QWORD *)this + 8) = 0LL;
   if ( v5 )
   {
     v13 = *(int *)(*(_QWORD *)(v5 + 8) + 4LL) + v5 + 8;
@@ -56,23 +59,28 @@ __int64 __fastcall CBitmapResource::ProcessSource(
   }
   else
   {
-    v18 = 0LL;
-    DefaultDevice = CDeviceManager::GetDefaultDevice(this, &v18);
+    v20 = 0LL;
+    wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v20);
+    DefaultDevice = CDeviceManager::GetDefaultDevice(v15, &v20);
     v10 = DefaultDevice;
     if ( DefaultDevice < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, DefaultDevice, 0x1Fu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, DefaultDevice, 0x1Fu, 0LL);
+      v19 = v20;
+      if ( !v20 )
+        goto LABEL_8;
     }
     else
     {
-      StockTransparentBitmap = CD3DDevice::GetStockTransparentBitmap(v18);
-      wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=(
-        (__int64 *)v3,
-        (__int64)StockTransparentBitmap);
+      StockTransparentBitmap = CD3DDevice::GetStockTransparentBitmap(v20);
+      wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=(v3, StockTransparentBitmap);
+      if ( !v20 )
+        goto LABEL_8;
+      v19 = v20;
     }
-    if ( v18 )
-      CD3DDevice::Release(v18);
+    CD3DDevice::Release(v19);
   }
+LABEL_8:
   v11 = a3[1];
   if ( v11 )
     ((void (__fastcall *)(struct IWICBitmapSource *))v11->lpVtbl->Release)(v11);

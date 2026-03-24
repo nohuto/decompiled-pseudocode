@@ -1,0 +1,167 @@
+/*
+ * XREFs of ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0
+ * Callers:
+ *     NtUserGetRawInputData @ 0x1C00032C0 (NtUserGetRawInputData.c)
+ *     ?AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C00050C0 (-AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C0006AAC (-CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z.c)
+ *     NtUserGetWindowGroupId @ 0x1C00073E0 (NtUserGetWindowGroupId.c)
+ *     NtUserSetActivationFilter @ 0x1C00080B0 (NtUserSetActivationFilter.c)
+ *     FreeTimer @ 0x1C000B6C0 (FreeTimer.c)
+ *     NtUserKillTimer @ 0x1C000B860 (NtUserKillTimer.c)
+ *     xxxCreateWindowStation @ 0x1C000C6EC (xxxCreateWindowStation.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C0011DA8 (-zzzRecalc2@@YAXPEAUtagQ@@@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     NtUserUnhookWinEvent @ 0x1C0024200 (NtUserUnhookWinEvent.c)
+ *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C0027F68 (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
+ *     NtUserDeferWindowPosAndBand @ 0x1C0032160 (NtUserDeferWindowPosAndBand.c)
+ *     NtUserUnregisterHotKey @ 0x1C0032860 (NtUserUnregisterHotKey.c)
+ *     NtUserRegisterHotKey @ 0x1C0032940 (NtUserRegisterHotKey.c)
+ *     ComposeWindow @ 0x1C00353BC (ComposeWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0035DC0 (xxxSetLayeredWindow.c)
+ *     SendDwmIconChange @ 0x1C0038A00 (SendDwmIconChange.c)
+ *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C003A730 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C003C920 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     zzzLockWindowUpdate2 @ 0x1C003DDFC (zzzLockWindowUpdate2.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C003E22C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     ?NormalizeRect@@YAPEAUtagMONITOR@@PEAUtagWND@@PEAUtagRECT@@1PEAUtagMONITORRECTS@@HH@Z @ 0x1C003E480 (-NormalizeRect@@YAPEAUtagMONITOR@@PEAUtagWND@@PEAUtagRECT@@1PEAUtagMONITORRECTS@@HH@Z.c)
+ *     NtUserDrawIconEx @ 0x1C0043E90 (NtUserDrawIconEx.c)
+ *     ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C00459C4 (-CreateDPIBitmapStrip@@YAHI@Z.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C004639C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     NtUserDestroyCursor @ 0x1C00483C0 (NtUserDestroyCursor.c)
+ *     ?xxxGetShellShowWindowAction@@YAEPEAUtagWND@@EPEAH@Z @ 0x1C0049690 (-xxxGetShellShowWindowAction@@YAEPEAUtagWND@@EPEAH@Z.c)
+ *     ?DCETopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C004C878 (-DCETopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     xxxProcessNotifyWinEvent @ 0x1C0050F60 (xxxProcessNotifyWinEvent.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C00654F4 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     NtUserSetCursorIconData @ 0x1C0065A40 (NtUserSetCursorIconData.c)
+ *     NtUserGetIconInfo @ 0x1C00672D0 (NtUserGetIconInfo.c)
+ *     NtUserSetThreadInputBlocked @ 0x1C00675F0 (NtUserSetThreadInputBlocked.c)
+ *     xxxScrollWindowEx @ 0x1C006788C (xxxScrollWindowEx.c)
+ *     EditionGetUserObjectInformationEntryPoint @ 0x1C00681B0 (EditionGetUserObjectInformationEntryPoint.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     UpdateWindowMonitor @ 0x1C0070270 (UpdateWindowMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxInsertMenuItem @ 0x1C007933C (xxxInsertMenuItem.c)
+ *     _GetClassInfoEx @ 0x1C00BC568 (_GetClassInfoEx.c)
+ *     SetRedirectedWindow @ 0x1C00BD1BC (SetRedirectedWindow.c)
+ *     xxxCapture @ 0x1C00C062C (xxxCapture.c)
+ *     NtUserSetBrokeredForeground @ 0x1C00D7200 (NtUserSetBrokeredForeground.c)
+ *     ?CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z @ 0x1C00D796C (-CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z.c)
+ *     ?UnInitializeWindowGroupFunctionality@WindowGroupingFeature@@YAX_K@Z @ 0x1C00DA9F8 (-UnInitializeWindowGroupFunctionality@WindowGroupingFeature@@YAX_K@Z.c)
+ *     _lambda_cb10391b5661d01073277e9ca426a942_::_lambda_invoker_cdecl_ @ 0x1C00DAB20 (_lambda_cb10391b5661d01073277e9ca426a942_--_lambda_invoker_cdecl_.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9970 (xxxDwmStopRedirection.c)
+ *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C00EAF38 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
+ *     UnsetLayeredWindow @ 0x1C00EF178 (UnsetLayeredWindow.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1368 (zzzUpdateWindowsAfterModeChange.c)
+ *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00F59B8 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
+ *     ?HandleRawInput@@YA?AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_SUPPLEMENTAL_INFO@@@Z @ 0x1C0105A68 (-HandleRawInput@@YA-AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_.c)
+ *     NtUserRegisterRawInputDevices @ 0x1C0107D50 (NtUserRegisterRawInputDevices.c)
+ *     NtUserCopyAcceleratorTable @ 0x1C010B890 (NtUserCopyAcceleratorTable.c)
+ *     NtUserSetMenuDefaultItem @ 0x1C0110FE0 (NtUserSetMenuDefaultItem.c)
+ *     NtUserGetPointerDevices @ 0x1C01135D0 (NtUserGetPointerDevices.c)
+ *     UserJobCallout @ 0x1C0114020 (UserJobCallout.c)
+ *     NtUserUpdateInputContext @ 0x1C0116960 (NtUserUpdateInputContext.c)
+ *     SuspendThreadQueue @ 0x1C0117790 (SuspendThreadQueue.c)
+ *     NtUserAssociateInputContext @ 0x1C0118BA0 (NtUserAssociateInputContext.c)
+ *     NtUserRegisterUserApiHook @ 0x1C011CF50 (NtUserRegisterUserApiHook.c)
+ *     NtUserRegisterDManipHook @ 0x1C011D290 (NtUserRegisterDManipHook.c)
+ *     NtUserDestroyMenu @ 0x1C011D990 (NtUserDestroyMenu.c)
+ *     NtUserGetPointerDeviceRects @ 0x1C0122A90 (NtUserGetPointerDeviceRects.c)
+ *     _GetPointerDeviceRects @ 0x1C0122BAC (_GetPointerDeviceRects.c)
+ *     NtUserBuildHimcList @ 0x1C0125E40 (NtUserBuildHimcList.c)
+ *     xxxCsDdeInitialize @ 0x1C01280E0 (xxxCsDdeInitialize.c)
+ *     NtUserSetGestureConfig @ 0x1C012B1C0 (NtUserSetGestureConfig.c)
+ *     NtUserBroadcastThemeChangeEvent @ 0x1C012C420 (NtUserBroadcastThemeChangeEvent.c)
+ *     NtUserSetWindowStationUser @ 0x1C012E3F0 (NtUserSetWindowStationUser.c)
+ *     NtUserCallHwndOpt @ 0x1C01363D0 (NtUserCallHwndOpt.c)
+ *     NtUserDestroyInputContext @ 0x1C01584D0 (NtUserDestroyInputContext.c)
+ *     NtUserCheckMenuItem @ 0x1C015BA40 (NtUserCheckMenuItem.c)
+ *     NtUserGetOwnerTransformedMonitorRect @ 0x1C0161AF0 (NtUserGetOwnerTransformedMonitorRect.c)
+ *     ?xxxCloneWindowPosAndArrangement@@YAXPEAUtagWND@@AEBUWINDOWPOSANDCHECKPOINT@@@Z @ 0x1C01D051C (-xxxCloneWindowPosAndArrangement@@YAXPEAUtagWND@@AEBUWINDOWPOSANDCHECKPOINT@@@Z.c)
+ *     ProcessHidRawInput @ 0x1C01D5720 (ProcessHidRawInput.c)
+ *     ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01E00E0 (-CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E1860 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01E7108 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     ?InvalidateWEFCOMPOSITEDWindow@@YAHPEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01E77F8 (-InvalidateWEFCOMPOSITEDWindow@@YAHPEAUtagWND@@PEBUtagRECT@@@Z.c)
+ *     zzzAnimateFade @ 0x1C01E865C (zzzAnimateFade.c)
+ *     zzzStartSonar @ 0x1C01E88C8 (zzzStartSonar.c)
+ *     DestroyTask @ 0x1C01EA9D0 (DestroyTask.c)
+ *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01F5FA4 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
+ *     NtUserBlockInput @ 0x1C01F6D60 (NtUserBlockInput.c)
+ *     NtUserClearForeground @ 0x1C01F7290 (NtUserClearForeground.c)
+ *     NtUserCreateWindowGroup @ 0x1C01F77A0 (NtUserCreateWindowGroup.c)
+ *     NtUserDeleteWindowGroup @ 0x1C01F7A60 (NtUserDeleteWindowGroup.c)
+ *     NtUserEnableWindowGroupPolicy @ 0x1C01F8810 (NtUserEnableWindowGroupPolicy.c)
+ *     NtUserGetGestureConfig @ 0x1C01F9680 (NtUserGetGestureConfig.c)
+ *     NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01F9CA0 (NtUserGetHimetricScaleFactorFromPixelLocation.c)
+ *     NtUserGetLayeredWindowAttributes @ 0x1C01FA630 (NtUserGetLayeredWindowAttributes.c)
+ *     NtUserGetPhysicalDeviceRect @ 0x1C01FAD80 (NtUserGetPhysicalDeviceRect.c)
+ *     NtUserGetPointerDevice @ 0x1C01FAEA0 (NtUserGetPointerDevice.c)
+ *     NtUserGetPointerDeviceCursors @ 0x1C01FAFB0 (NtUserGetPointerDeviceCursors.c)
+ *     NtUserGetPointerDeviceProperties @ 0x1C01FB1B0 (NtUserGetPointerDeviceProperties.c)
+ *     NtUserGetRawInputBuffer @ 0x1C01FB5C0 (NtUserGetRawInputBuffer.c)
+ *     NtUserGetRawInputDeviceInfo @ 0x1C01FB930 (NtUserGetRawInputDeviceInfo.c)
+ *     NtUserGetRawInputDeviceList @ 0x1C01FBDF0 (NtUserGetRawInputDeviceList.c)
+ *     NtUserGetRegisteredRawInputDevices @ 0x1C01FC050 (NtUserGetRegisteredRawInputDevices.c)
+ *     NtUserImpersonateDdeClientWindow @ 0x1C01FD8F0 (NtUserImpersonateDdeClientWindow.c)
+ *     NtUserInjectGesture @ 0x1C01FDA90 (NtUserInjectGesture.c)
+ *     NtUserSetCalibrationData @ 0x1C02017C0 (NtUserSetCalibrationData.c)
+ *     NtUserSetDisplayMapping @ 0x1C0201DC0 (NtUserSetDisplayMapping.c)
+ *     NtUserSetFallbackForeground @ 0x1C0201F40 (NtUserSetFallbackForeground.c)
+ *     NtUserSetMenuContextHelpId @ 0x1C0202470 (NtUserSetMenuContextHelpId.c)
+ *     NtUserSetMenuFlagRtoL @ 0x1C0202540 (NtUserSetMenuFlagRtoL.c)
+ *     NtUserSetObjectInformation @ 0x1C0202700 (NtUserSetObjectInformation.c)
+ *     NtUserUnregisterUserApiHook @ 0x1C0204030 (NtUserUnregisterUserApiHook.c)
+ *     ?TopLevelTouchTarget@@YAPEAUtagWND@@PEAU1@PEAUtagTOUCHTARGETINGCONTACT@@PEAUtagPOINT@@2H@Z @ 0x1C02153C0 (-TopLevelTouchTarget@@YAPEAUtagWND@@PEAU1@PEAUtagTOUCHTARGETINGCONTACT@@PEAUtagPOINT@@2H@Z.c)
+ *     ?SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z @ 0x1C021A180 (-SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z.c)
+ *     xxxCompositedPaint @ 0x1C023E5B0 (xxxCompositedPaint.c)
+ *     ?HandleWindowDestruction@WindowGroupingWindowManagement@@YAXPEAUtagWND@@@Z @ 0x1C02405A0 (-HandleWindowDestruction@WindowGroupingWindowManagement@@YAXPEAUtagWND@@@Z.c)
+ *     ?InitializeWindowGroupFunctionality@WindowGroupingFeature@@YAJ_K@Z @ 0x1C02406F0 (-InitializeWindowGroupFunctionality@WindowGroupingFeature@@YAJ_K@Z.c)
+ *     ?_TemplateWindow@CWindowGroup@@AEAA_NPEAVCWindow@@0W4TemplateWindowOptions@@@Z @ 0x1C0240DDC (-_TemplateWindow@CWindowGroup@@AEAA_NPEAVCWindow@@0W4TemplateWindowOptions@@@Z.c)
+ *     ?_UpdateWindowInternal@CWindowGroup@@AEAA_NPEAVCWindow@@W4GROUP_WINDOW_ROLE@@W4SET_WINDOW_GROUP_OPTIONS@@@Z @ 0x1C0240E5C (-_UpdateWindowInternal@CWindowGroup@@AEAA_NPEAVCWindow@@W4GROUP_WINDOW_ROLE@@W4SET_WINDOW_GROUP_.c)
+ *     xxxRedrawHungWindow @ 0x1C02412D4 (xxxRedrawHungWindow.c)
+ *     xxxHardErrorControl @ 0x1C0241E6C (xxxHardErrorControl.c)
+ *     ?xxxSetWindowShowState@@YA_NPEAUtagWND@@EPEAUtagRECT@@@Z @ 0x1C024243C (-xxxSetWindowShowState@@YA_NPEAUtagWND@@EPEAUtagRECT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// write access to const memory has been detected, the output may be wrong!
+UserAtomicCheck *__fastcall UserAtomicCheck::UserAtomicCheck(UserAtomicCheck *this)
+{
+  unsigned int v3; // ecx
+  unsigned __int64 v4; // rdi
+
+  *(_BYTE *)this = 0;
+  if ( gpresUser )
+  {
+    if ( (unsigned int)UserIsUserCritSecInExclusive(this) )
+    {
+      ++gdwInAtomicOperation;
+      if ( gpAtomickCheckStacks )
+      {
+        v3 = 0;
+        *((_DWORD *)this + 1) = ++gdwAtomicCheckSerial;
+        if ( gdwAtomicCheckLogSize )
+        {
+          while ( *(_DWORD *)(((unsigned __int64)v3 << 6) + gpAtomickCheckStacks) )
+          {
+            if ( ++v3 >= gdwAtomicCheckLogSize )
+              return this;
+          }
+          v4 = (unsigned __int64)v3 << 6;
+          *(_DWORD *)(v4 + gpAtomickCheckStacks) = gdwAtomicCheckSerial;
+          *(_DWORD *)(gpAtomickCheckStacks + v4 + 4) = (unsigned int)PsGetCurrentThreadId();
+          *(_DWORD *)(gpAtomickCheckStacks + v4 + 8) = (MEMORY[0xFFFFF78000000320]
+                                                      * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+          RtlWalkFrameChain((PVOID *)(v4 + gpAtomickCheckStacks + 16LL), 6u, 0x200u);
+        }
+      }
+    }
+  }
+  return this;
+}

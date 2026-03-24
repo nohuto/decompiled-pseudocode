@@ -1,147 +1,174 @@
 /*
- * XREFs of ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x18009F040
+ * XREFs of ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800A34F0
  * Callers:
- *     ?ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x18009BAB0 (-ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
- *     ?ProcessDataOnChannel@CComposition@@IEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800AAC40 (-ProcessDataOnChannel@CComposition@@IEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
+ *     ?ProcessDataOnChannel@CComposition@@IEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A1770 (-ProcessDataOnChannel@CComposition@@IEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
+ *     ?ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A2010 (-ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
  * Callees:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?LogDebugPropertyUpdates@CAnimationLoggingManager@@QEAAJ_K@Z @ 0x1800C1E00 (-LogDebugPropertyUpdates@CAnimationLoggingManager@@QEAAJ_K@Z.c)
- *     ?IsOOM@@YA_NJ@Z @ 0x1800C22CC (-IsOOM@@YA_NJ@Z.c)
- *     McTemplateU0qq_EventWriteTransfer @ 0x18012D476 (McTemplateU0qq_EventWriteTransfer.c)
- *     McTemplateU0x_EventWriteTransfer @ 0x18012DF9E (McTemplateU0x_EventWriteTransfer.c)
- *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801B4B04 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
- *     ?GetStackCaptureRootFailureAddress@@YAPEAXJ@Z @ 0x18027C280 (-GetStackCaptureRootFailureAddress@@YAPEAXJ@Z.c)
- *     ?MilUnexpectedError@@YAXJPEBG@Z @ 0x18027C4CC (-MilUnexpectedError@@YAXJPEBG@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?LogDebugPropertyUpdates@CAnimationLoggingManager@@QEAAJ_K@Z @ 0x1800A103C (-LogDebugPropertyUpdates@CAnimationLoggingManager@@QEAAJ_K@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?IsOOM@@YA_NJ@Z @ 0x1800DBA5C (-IsOOM@@YA_NJ@Z.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801526D8 (McTemplateU0qq_EventWriteTransfer.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180153F28 (McTemplateU0x_EventWriteTransfer.c)
+ *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801556E0 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
+ *     ?GetStackCaptureRootFailureAddress@@YAPEAXJ@Z @ 0x1802164B4 (-GetStackCaptureRootFailureAddress@@YAPEAXJ@Z.c)
+ *     ?MilUnexpectedError@@YAXJPEBG@Z @ 0x180216710 (-MilUnexpectedError@@YAXJPEBG@Z.c)
  */
 
 __int64 __fastcall CComposition::ProcessCommandBatch(
         CComposition *this,
-        char *a2,
+        _DWORD *a2,
         unsigned int a3,
-        struct CChannelContext *a4,
+        unsigned int **a4,
         unsigned int *a5)
 {
-  unsigned int v6; // esi
-  unsigned __int64 v8; // r15
-  CComposition *v10; // rbp
-  unsigned int *v11; // rax
-  char *v12; // rbx
-  unsigned __int64 v13; // rbp
-  __int64 v14; // rax
-  char *v15; // rdi
-  unsigned int v16; // ebp
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rbp
+  char *v9; // r15
+  unsigned int v10; // r13d
+  struct CChannelContext *v11; // rdi
+  unsigned int *v12; // rax
+  unsigned int *v13; // r14
+  int v14; // ebx
+  unsigned __int64 v15; // rax
+  CComposition *v16; // rdi
   int v17; // eax
-  __int64 v18; // r9
-  int v19; // eax
-  unsigned __int64 v20; // rcx
-  int v21; // edi
-  char *v22; // rax
+  unsigned __int64 v18; // rcx
+  int v19; // edi
+  char *v20; // rax
+  unsigned int v21; // eax
+  bool v22; // sf
   CAnimationLoggingManager *v23; // rcx
   int v25; // eax
-  unsigned int v26; // ecx
+  __int64 v26; // rcx
   int v27; // ecx
   void *StackCaptureRootFailureAddress; // rax
-  unsigned int *v30; // [rsp+90h] [rbp+28h]
+  unsigned int v29[2]; // [rsp+20h] [rbp-48h]
+  unsigned int v31; // [rsp+80h] [rbp+18h]
+  unsigned int *v33; // [rsp+90h] [rbp+28h]
 
-  v6 = 0;
+  v7 = 0LL;
   v8 = a3;
-  v10 = this;
+  v9 = 0LL;
+  v31 = 0;
+  v10 = 0;
+  v11 = (struct CChannelContext *)a4;
   *a5 = 0;
-  ++*((_DWORD *)a4 + 22);
-  v11 = (unsigned int *)*((_QWORD *)a4 + 4);
-  *((_QWORD *)this + 79) = a2;
-  *((_DWORD *)this + 160) = a3;
-  v30 = v11;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  ++*((_DWORD *)a4 + 20);
+  v12 = a4[3];
+  *((_QWORD *)this + 60) = a2;
+  *((_DWORD *)this + 122) = a3;
+  v33 = v12;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+  {
     McTemplateU0x_EventWriteTransfer(this, &EVTDESC_MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT, a3);
-  v12 = a2;
-  if ( v8 )
-  {
-    if ( v8 >= 8 )
-    {
-      v13 = *(unsigned int *)a2;
-      if ( (unsigned int)v13 >= 8 && (v13 & 3) == 0 )
-      {
-        v14 = (unsigned int)v13;
-        if ( v13 <= v8 )
-        {
-          v6 = *((_DWORD *)a2 + 1);
-          v15 = a2 + 4;
-          v16 = v13 - 4;
-          v12 = &a2[v14];
-          v17 = 0;
-          goto LABEL_9;
-        }
-      }
-      v10 = this;
-    }
-    v21 = -2147467259;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147467259, 0x22Fu, 0LL);
-    goto LABEL_32;
+    v12 = v33;
+    v7 = 0LL;
   }
-  v15 = 0LL;
-  v16 = 0;
-  v17 = 1;
-LABEL_9:
-  if ( v17 != 1 )
+  v13 = a2;
+  v14 = -2147467259;
+  if ( !v8 )
   {
-    while ( 1 )
-    {
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400000) != 0 )
-        McTemplateU0qq_EventWriteTransfer(
-          &Microsoft_Windows_Dwm_Core_Provider_Context,
-          &EVTDESC_COMMAND_PROCESSED_ONBEHALF,
-          *((unsigned int *)a4 + 5),
-          v6);
-      v18 = v16;
-      v10 = this;
-      v19 = CComposition::ProcessMessage(this, v6, v15, v18, a4, v30);
-      v21 = v19;
-      if ( v19 < 0 )
-        break;
-      v21 = -2147467259;
-      v22 = &a2[v8 - (_QWORD)v12];
-      if ( !v22 )
-      {
-        ++*a5;
-        goto LABEL_20;
-      }
-      if ( (unsigned __int64)v22 < 8
-        || (v20 = *(unsigned int *)v12, (unsigned int)v20 < 8)
-        || (v20 & 3) != 0
-        || v20 > (unsigned __int64)v22 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147467259, 0x253u, 0LL);
-        ++*a5;
-        goto LABEL_32;
-      }
-      v6 = *((_DWORD *)v12 + 1);
-      v15 = v12 + 4;
-      v12 += v20;
-      v16 = v20 - 4;
-      ++*a5;
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x249u, 0LL);
-    goto LABEL_32;
+    v14 = 1;
+    goto LABEL_11;
   }
-  v10 = this;
-LABEL_20:
-  *(_BYTE *)(*((_QWORD *)v10 + 53) + 448LL) |= 2u;
-  v23 = (CAnimationLoggingManager *)*((_QWORD *)a4 + 8);
-  if ( v23 && (v25 = CAnimationLoggingManager::LogDebugPropertyUpdates(v23, *((_QWORD *)v10 + 62)), v21 = v25, v25 < 0) )
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x12Eu, 0LL);
-  else
-    v21 = 0;
-  if ( v21 < 0 )
+  if ( v8 >= 8 )
   {
-LABEL_32:
-    if ( !IsOOM(v21) )
+    v15 = (unsigned int)*a2;
+    if ( (unsigned int)v15 >= 8 && (v15 & 3) == 0 && v15 <= v8 )
+    {
+      v7 = (unsigned int)a2[1];
+      v9 = (char *)(a2 + 1);
+      v31 = a2[1];
+      v10 = v15 - 4;
+      v13 = (_DWORD *)((char *)a2 + v15);
+      v14 = 0;
+    }
+    v12 = v33;
+  }
+  if ( v14 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v14, 0x1DBu, 0LL);
+    v16 = this;
+LABEL_35:
+    if ( !IsOOM(v14) )
     {
       MilUnexpectedError(v27, L"batch processing error");
-      StackCaptureRootFailureAddress = GetStackCaptureRootFailureAddress(v21);
-      CComposition::FailFastOnMalformedPacket(v10, (unsigned int)v21, StackCaptureRootFailureAddress);
+      StackCaptureRootFailureAddress = GetStackCaptureRootFailureAddress(v14);
+      CComposition::FailFastOnMalformedPacket(v16, (unsigned int)v14, StackCaptureRootFailureAddress);
+    }
+    return (unsigned int)v14;
+  }
+LABEL_11:
+  while ( v14 != 1 )
+  {
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200000) != 0 )
+    {
+      McTemplateU0qq_EventWriteTransfer(
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
+        &EVTDESC_COMMAND_PROCESSED_ONBEHALF,
+        *((unsigned int *)v11 + 5),
+        (unsigned int)v7);
+      v7 = v31;
+      v12 = v33;
+    }
+    *(_QWORD *)v29 = v11;
+    v16 = this;
+    v17 = CComposition::ProcessMessage(this, v7, v9, v10, *(_QWORD *)v29, v12);
+    v14 = v17;
+    if ( v17 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x1F5u, 0LL);
+      goto LABEL_28;
+    }
+    v19 = -2147467259;
+    v20 = (char *)a2 + v8 - (_QWORD)v13;
+    if ( v20 )
+    {
+      if ( (unsigned __int64)v20 >= 8 )
+      {
+        v18 = *v13;
+        if ( (unsigned int)v18 >= 8 && (v18 & 3) == 0 && v18 <= (unsigned __int64)v20 )
+        {
+          v21 = v13[1];
+          v9 = (char *)(v13 + 1);
+          v13 = (unsigned int *)((char *)v13 + v18);
+          v31 = v21;
+          v19 = 0;
+          v10 = v18 - 4;
+        }
+      }
+      v14 = v19;
+      if ( v19 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v19, 0x1FFu, 0LL);
+    }
+    else
+    {
+      v9 = 0LL;
+      v19 = 1;
+      v10 = 0;
+      v14 = 1;
+    }
+    ++*a5;
+    v7 = v31;
+    v22 = v19 < 0;
+    v11 = (struct CChannelContext *)a4;
+    v12 = v33;
+    if ( v22 )
+    {
+      v16 = this;
+      goto LABEL_35;
     }
   }
-  return (unsigned int)v21;
+  *(_BYTE *)(*((_QWORD *)this + 34) + 416LL) |= 2u;
+  v23 = (CAnimationLoggingManager *)*((_QWORD *)v11 + 7);
+  if ( v23 && (v25 = CAnimationLoggingManager::LogDebugPropertyUpdates(v23, *((_QWORD *)this + 44)), v14 = v25, v25 < 0) )
+    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x132u, 0LL);
+  else
+    v14 = 0;
+  v16 = this;
+LABEL_28:
+  if ( v14 < 0 )
+    goto LABEL_35;
+  return (unsigned int)v14;
 }

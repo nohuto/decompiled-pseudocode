@@ -1,16 +1,17 @@
 /*
- * XREFs of ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C01650C4
+ * XREFs of ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C0138018
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0165BD0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000BBC0 (xxxSystemParametersInfo.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
+__int64 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
 {
   unsigned int v1; // ecx
   bool v2; // zf
   unsigned int v3; // ecx
+  bool v4; // zf
   unsigned int v6; // ecx
   unsigned int v7; // ecx
   bool v8; // zf
@@ -18,9 +19,9 @@ _BOOL8 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
   unsigned int v10; // ecx
   unsigned int v11; // ecx
 
-  if ( a1 <= 0x94 )
+  if ( a1 <= 0x92 )
   {
-    if ( a1 != 148 )
+    if ( a1 != 146 )
     {
       switch ( a1 )
       {
@@ -87,7 +88,6 @@ _BOOL8 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
         case 0x8Cu:
         case 0x8Eu:
         case 0x90u:
-        case 0x92u:
           return 1LL;
         default:
           return 0LL;
@@ -128,86 +128,85 @@ _BOOL8 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
       }
       return 1LL;
     }
-    if ( a1 <= 0x200A )
+    if ( a1 > 0x200A )
     {
-      if ( a1 == 8202 )
-        return 1LL;
-      if ( a1 <= 0x1050 )
+      switch ( a1 )
       {
-        if ( a1 == 4176 )
+        case 0x200Cu:
+        case 0x200Eu:
+        case 0x2010u:
+        case 0x2012u:
+        case 0x2014u:
+        case 0x2016u:
+        case 0x2018u:
+        case 0x201Au:
+        case 0x201Cu:
+        case 0x201Eu:
+        case 0x2020u:
           return 1LL;
-        v6 = a1 - 4160;
-        if ( !v6 )
-          return 1LL;
-        v7 = v6 - 2;
-        if ( !v7 )
-          return 1LL;
-        v9 = v7 - 6;
-        v8 = v9 == 0;
-LABEL_32:
-        if ( v8 )
-          return 1LL;
-        v10 = v9 - 2;
-        if ( !v10 )
-          return 1LL;
-        v11 = v10 - 2;
-        if ( !v11 )
-          return 1LL;
-        return v11 == 2;
+        default:
+          return 0LL;
       }
-      v3 = a1 - 0x2000;
-      v2 = v3 == 0;
-LABEL_30:
-      if ( v2 )
-        return 1LL;
-      v9 = v3 - 2;
-      v8 = v9 == 0;
-      goto LABEL_32;
     }
-    if ( a1 <= 0x2030 )
-    {
-      if ( a1 != 8240 )
-      {
-        switch ( a1 )
-        {
-          case 0x200Cu:
-          case 0x200Eu:
-          case 0x2010u:
-          case 0x2012u:
-          case 0x2014u:
-          case 0x2016u:
-          case 0x2018u:
-          case 0x201Au:
-          case 0x201Cu:
-          case 0x201Eu:
-          case 0x2020u:
-            return 1LL;
-          default:
-            return 0LL;
-        }
-      }
+    if ( a1 == 8202 )
       return 1LL;
+    if ( a1 <= 0x1050 )
+    {
+      if ( a1 == 4176 )
+        return 1LL;
+      v6 = a1 - 4160;
+      if ( !v6 )
+        return 1LL;
+      v7 = v6 - 2;
+      if ( !v7 )
+        return 1LL;
+      v9 = v7 - 6;
+      v8 = v9 == 0;
+LABEL_32:
+      if ( v8 )
+        return 1LL;
+      v10 = v9 - 2;
+      if ( !v10 )
+        return 1LL;
+      v11 = v10 - 2;
+      if ( !v11 )
+        return 1LL;
+      v4 = v11 == 2;
+      goto LABEL_17;
     }
-    return 0LL;
+    v3 = a1 - 0x2000;
+    v2 = v3 == 0;
+LABEL_30:
+    if ( v2 )
+      return 1LL;
+    v9 = v3 - 2;
+    v8 = v9 == 0;
+    goto LABEL_32;
   }
   if ( a1 == 4096 )
     return 1LL;
-  if ( a1 <= 0xA2 )
+  if ( a1 <= 0xA0 )
   {
-    if ( a1 == 162 )
+    if ( a1 == 160 )
       return 1LL;
-    v1 = a1 - 150;
+    v1 = a1 - 148;
     if ( !v1 )
       return 1LL;
     v3 = v1 - 2;
     v2 = v3 == 0;
     goto LABEL_30;
   }
-  if ( a1 == 165 )
-    return 1LL;
-  if ( a1 <= 0xA6 )
-    return 0LL;
-  if ( a1 <= 0xA8 || a1 == 170 || a1 == 172 || a1 == 174 )
-    return 1LL;
-  return a1 == 176;
+  if ( a1 != 162 && a1 != 165 )
+  {
+    if ( a1 <= 0xA6 )
+      return 0LL;
+    if ( a1 > 0xA8 && a1 != 170 && a1 != 172 )
+    {
+      v4 = a1 == 174;
+LABEL_17:
+      if ( !v4 )
+        return 0LL;
+    }
+  }
+  return 1LL;
 }

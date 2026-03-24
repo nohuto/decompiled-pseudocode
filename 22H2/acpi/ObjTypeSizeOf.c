@@ -1,13 +1,13 @@
 /*
- * XREFs of ObjTypeSizeOf @ 0x1C00067D0
+ * XREFs of ObjTypeSizeOf @ 0x1C0069FC0
  * Callers:
  *     <none>
  * Callees:
- *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     GetBaseData @ 0x1C000B5C4 (GetBaseData.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
 __int64 __fastcall ObjTypeSizeOf(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall ObjTypeSizeOf(__int64 a1, __int64 a2)
   __int64 BaseData; // rbx
   __int64 v5; // r8
   __int64 v6; // rdx
-  int ObjectTypeName; // eax
+  const void *ObjectTypeName; // rax
   __int64 v8; // rcx
 
   v3 = 0;
@@ -37,10 +37,10 @@ __int64 __fastcall ObjTypeSizeOf(__int64 a1, __int64 a2)
         v8 = **(unsigned int **)(BaseData + 32);
         break;
       default:
-        LogError(3222536200LL);
-        AcpiDiagTraceAmlError(a1, 3222536200LL);
-        ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(BaseData + 2));
-        PrintDebugMessage(176, ObjectTypeName, 0, 0, 0LL);
+        LogError(-1072431096);
+        AcpiDiagTraceAmlError(a1, -1072431096);
+        ObjectTypeName = (const void *)GetObjectTypeName(*(unsigned __int16 *)(BaseData + 2));
+        PrintDebugMessage(176, ObjectTypeName, 0LL, 0LL, 0LL);
         return (unsigned int)-1072431096;
     }
     *(_QWORD *)(*(_QWORD *)(v5 + 88) + 16LL) = v8;

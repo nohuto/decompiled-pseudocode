@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CShapeTree@@QEAA@PEAVCComposition@@@Z @ 0x180042024
+ * XREFs of ??0CShapeTree@@QEAA@PEAVCComposition@@@Z @ 0x1801EC67C
  * Callers:
- *     ?EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z @ 0x180041F7C (-EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z.c)
+ *     ?EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z @ 0x1801EC730 (-EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z.c)
  * Callees:
- *     ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x180043BAC (--0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x18016A648 (--0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z.c)
  */
 
 CShapeTree *__fastcall CShapeTree::CShapeTree(CShapeTree *this, struct CComposition *a2)
@@ -12,18 +12,18 @@ CShapeTree *__fastcall CShapeTree::CShapeTree(CShapeTree *this, struct CComposit
   __int64 v4; // rcx
   CShapeTree *result; // rax
 
-  *((_QWORD *)this + 8) = &CContainerVectorShape::`vbtable'{for `CContent'};
-  *((_QWORD *)this + 20) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-  *((_QWORD *)this + 19) = &IContent::`vftable'{for `IContent'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 20) + 4LL) + 160) = &ILegacySwapChain::`vftable'{for `IUnknown'};
-  CContainerVectorShape::CContainerVectorShape(this, a2);
+  *((_QWORD *)this + 7) = &CCompositionSkyBoxBrush::`vbtable'{for `CContent'};
+  *((_QWORD *)this + 19) = &CInk::`vbtable'{for `IContent'};
+  *((_QWORD *)this + 18) = &IContent::`vftable'{for `IContent'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 19) + 4LL) + 152) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  CContainerVectorShape::CContainerVectorShape(this, a2, 0);
   *(_QWORD *)this = &CShapeTree::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CContainerVectorShape::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CShapeTree::`vftable'{for `IContent'};
-  v3 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v3 + 60) = v3 - 72;
-  v4 = *(int *)(*((_QWORD *)this + 8) + 8LL);
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CContainerVectorShape::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CShapeTree::`vftable'{for `IContent'};
+  v3 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v3 + 52) = v3 - 72;
+  v4 = *(int *)(*((_QWORD *)this + 7) + 8LL);
   result = this;
-  *(_DWORD *)((char *)this + v4 + 60) = v4 - 88;
+  *(_DWORD *)((char *)this + v4 + 52) = v4 - 88;
   return result;
 }

@@ -1,63 +1,67 @@
 /*
- * XREFs of NtUserPostMessage @ 0x1C011E4B0
+ * XREFs of NtUserPostMessage @ 0x1C0054600
  * Callers:
  *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004F0AC (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
- *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C004FA44 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
- *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C0050BB8 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     ForwardTouchMessage @ 0x1C01B01AC (ForwardTouchMessage.c)
- *     ValidateDDEConvPair @ 0x1C01FB050 (ValidateDDEConvPair.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C003F8FC (-IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z.c)
+ *     MSGSQMAddMessage @ 0x1C003FA68 (MSGSQMAddMessage.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C003FAEC (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C00549A0 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ForwardTouchMessage @ 0x1C01DC09C (ForwardTouchMessage.c)
+ *     ValidateDDEConvPair @ 0x1C021C530 (ValidateDDEConvPair.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserPostMessage(unsigned __int64 a1, unsigned int a2, unsigned __int64 a3, volatile void *a4)
 {
   __int64 v4; // rbx
-  __int16 *v8; // rcx
-  int v9; // edi
-  __int64 v10; // rdx
+  unsigned __int64 v8; // rcx
+  __int64 v9; // r8
+  int v10; // edi
   __int64 v11; // rsi
-  __int64 v12; // r8
-  __int64 v13; // r9
-  BOOL v14; // ebp
-  __int64 v15; // r14
-  _QWORD *CurrentProcessWin32Process; // rax
-  _QWORD *v17; // rbp
-  struct tagQMSG *v18; // rax
-  void *const *WindowMessageFilter; // rax
-  int v21; // ecx
-  int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // [rsp+50h] [rbp-38h] BYREF
+  BOOL v12; // ebp
+  __int64 v13; // rbp
+  struct tagPROCESSINFO *CurrentProcessWin32Process; // rax
+  struct tagPROCESSINFO *v15; // r14
+  struct tagQMSG *v16; // rax
+  unsigned __int8 v18; // al
+  int v19; // r13d
+  char v20; // al
+  __int16 v21; // cx
+  __int64 v22; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // [rsp+50h] [rbp-38h] BYREF
 
   v4 = a2;
   EnterCrit(0LL, 1LL);
+  gbValidateHandleForIL = 0;
   if ( (v4 & 0xFFFE0000) != 0 )
   {
-    UserSetLastError(87);
-    v9 = 0;
-    goto LABEL_25;
+    UserSetLastError(87LL);
+    v10 = 0;
+    goto LABEL_21;
   }
   if ( (unsigned int)v4 < 0x400 )
   {
-    v8 = MessageTable;
-    if ( _bittest16(&MessageTable[v4], 0xDu) )
+    v8 = (unsigned __int16)MessageTable[v4];
+    if ( (v8 & 0x2000) != 0 )
     {
-      v9 = 0;
-      v21 = 5;
-      goto LABEL_36;
+      v10 = 0;
+      v22 = 5LL;
+LABEL_60:
+      UserSetLastError(v22);
+      goto LABEL_21;
     }
   }
-  v9 = 0;
+  v10 = 0;
   if ( a1 >= 0x10000 && a1 != -1LL )
-    goto LABEL_6;
+    goto LABEL_5;
   if ( !a1 )
   {
     v11 = 0LL;
-    goto LABEL_7;
+    goto LABEL_6;
   }
   if ( a1 == 0xFFFF || a1 == -1LL )
   {
@@ -65,88 +69,108 @@ __int64 __fastcall NtUserPostMessage(unsigned __int64 a1, unsigned int a2, unsig
   }
   else
   {
-LABEL_6:
+LABEL_5:
     v11 = ValidateHwnd(a1);
     if ( !v11 )
     {
       if ( (_DWORD)v4 == 993 )
-        v9 = 1;
-      goto LABEL_25;
+        v10 = 1;
+      goto LABEL_21;
     }
   }
-LABEL_7:
+LABEL_6:
   if ( (_DWORD)v4 == 576 )
   {
-    if ( (unsigned __int64)(v11 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    if ( (unsigned __int64)(v11 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
     {
-      v9 = ForwardTouchMessage(gptiCurrent, a4, 1, 0LL, 0, 0LL);
-      goto LABEL_25;
+      v22 = 1400LL;
+      goto LABEL_60;
     }
-    v21 = 1400;
-    goto LABEL_36;
+    v10 = ForwardTouchMessage(gptiCurrent, a4, 1, 0LL, 0, 0LL);
   }
-  if ( (((_DWORD)v4 - 281) & 0xFFFFFFFD) == 0
-    || (unsigned int)(v4 - 577) <= 3
-    || (unsigned int)(v4 - 581) <= 0x12 && (_DWORD)v4 != 589 )
+  else
   {
-    v21 = 1002;
-    goto LABEL_36;
-  }
-  v14 = 0;
-  if ( (unsigned int)(v4 - 992) <= 8 )
-    v14 = ValidateDDEConvPair(a3, v11) != 0;
-  if ( (_DWORD)v4 == 274 && a3 == 61488 )
-  {
-    LOBYTE(v22) = IAMThreadAccessGranted(gptiCurrent);
-    if ( v22 )
-      v14 = 1;
-  }
-  if ( (unsigned __int64)(v11 - 1) <= 0xFFFFFFFFFFFFFFFDuLL && !v14 )
-  {
-    v15 = *(_QWORD *)(*(_QWORD *)(v11 + 16) + 424LL);
-    CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(v8);
-    v17 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process && !*CurrentProcessWin32Process )
-      v17 = 0LL;
-    if ( (_QWORD *)v15 != v17 )
+    if ( (((_DWORD)v4 - 281) & 0xFFFFFFFD) == 0
+      || (unsigned int)(v4 - 577) <= 3
+      || (unsigned int)(v4 - 581) <= 0x12 && (_DWORD)v4 != 589 )
     {
-      if ( (_DWORD)v4 == 717 )
-        goto LABEL_25;
-      if ( !(unsigned int)IsMessageAllowedByFilterEx(*(void *const **)(v15 + 864), v4, 0LL, 0LL) )
+      v22 = 1002LL;
+      goto LABEL_60;
+    }
+    v12 = 0;
+    if ( (unsigned int)(v4 - 992) <= 8 )
+      v12 = ValidateDDEConvPair(a3, v11, v9) != 0;
+    if ( (_DWORD)v4 == 274 && a3 == 61488 && IAMThreadAccessGranted(gptiCurrent) )
+      v12 = 1;
+    if ( (unsigned __int64)(v11 - 1) <= 0xFFFFFFFFFFFFFFFDuLL && !v12 )
+    {
+      v13 = *(_QWORD *)(*(_QWORD *)(v11 + 16) + 424LL);
+      CurrentProcessWin32Process = (struct tagPROCESSINFO *)PsGetCurrentProcessWin32Process(v8);
+      v15 = CurrentProcessWin32Process;
+      if ( (struct tagPROCESSINFO *)v13 != CurrentProcessWin32Process )
       {
-        WindowMessageFilter = GetWindowMessageFilter((struct tagWND *)v11);
-        if ( !(unsigned int)IsMessageAllowedByFilterEx(WindowMessageFilter, v4, 0LL, 0LL)
-          && !(unsigned int)IsMessageAlwaysAllowedAcrossIL(v4)
-          && ((_DWORD)v4 != 274 || ((a3 - 61472) & 0xFFFFFFFFFFFFFEBFuLL) != 0 || a3 == 61792) )
+        if ( (_DWORD)v4 == 717 )
+          goto LABEL_21;
+        if ( !(unsigned int)IsMessageAllowedAcrossILByReceiver(
+                              CurrentProcessWin32Process,
+                              (void *const **)v13,
+                              (struct tagWND *)v11,
+                              v4,
+                              a3,
+                              (__int64)a4,
+                              0) )
         {
-          v24 = *(_QWORD *)v15 == gpepCSRSS ? 0x2000LL : *(_QWORD *)(v15 + 888);
-          if ( !(unsigned __int8)CheckAccess(v17 + 111, &v24) )
+          if ( (unsigned int)IsMessageAlwaysAllowedAcrossIL(v4) )
           {
-            if ( (_DWORD)v4 != 793
-              || (v23 = *(_QWORD *)(v11 + 16), *(_QWORD *)(v23 + 1432) != v11)
-              || *(_QWORD *)(v23 + 432) != *(_QWORD *)(gptiCurrent + 432LL) )
+            MSGSQMAddMessage(v15, (struct tagPROCESSINFO *)v13, v4, a3, (unsigned __int64)a4, 0, 2);
+          }
+          else if ( (_DWORD)v4 != 274 || ((a3 - 61472) & 0xFFFFFFFFFFFFFEBFuLL) != 0 || a3 == 61792 )
+          {
+            if ( *(_QWORD *)v13 == gpepCSRSS )
+              v25 = 0x2000LL;
+            else
+              v25 = *(_QWORD *)(v13 + 880);
+            v18 = CheckAccess((char *)v15 + 880, &v25);
+            v19 = v18;
+            if ( v18 )
             {
-              EtwTraceUIPIMsgError(v17, v15, (unsigned int)v4, a3, a4);
-              v21 = 5;
-LABEL_36:
-              UserSetLastError(v21);
-              goto LABEL_25;
+              v20 = Enforced();
+              v21 = 1;
+              if ( v20 )
+                v21 = 5;
+              MSGSQMAddMessage(v15, (struct tagPROCESSINFO *)v13, v4, a3, (unsigned __int64)a4, 0, v21);
             }
+            if ( !v19 )
+            {
+              if ( (_DWORD)v4 != 793
+                || (v24 = *(_QWORD *)(v11 + 16), *(_QWORD *)(v24 + 1392) != v11)
+                || *(_QWORD *)(v24 + 432) != *(_QWORD *)(gptiCurrent + 432LL) )
+              {
+                EtwTraceUIPIMsgError(v15, v13, (unsigned int)v4, a3, a4);
+                UserSetLastError(5LL);
+                MSGSQMAddMessage(v15, (struct tagPROCESSINFO *)v13, v4, a3, (unsigned __int64)a4, 0, 0);
+                goto LABEL_21;
+              }
+            }
+          }
+          else
+          {
+            MSGSQMAddMessage(v15, (struct tagPROCESSINFO *)v13, 0x112u, a3, (unsigned __int64)a4, 0, 2);
           }
         }
       }
     }
+    v16 = _PostTransformableMessageExtended((struct tagWND *)v11, v4, a3, (__int64)a4, 0LL, 1);
+    v8 = (unsigned __int64)MmSystemRangeStart;
+    if ( v16 >= MmSystemRangeStart )
+    {
+      if ( v16 )
+        v10 = 1;
+      LODWORD(v16) = v10;
+    }
+    v10 = (int)v16;
   }
-  v18 = _PostTransformableMessageExtended((struct tagWND *)v11, v4, a3, (__int64)a4, 0LL, 1);
-  v8 = (__int16 *)MmSystemRangeStart;
-  if ( v18 >= MmSystemRangeStart )
-  {
-    if ( v18 )
-      v9 = 1;
-    LODWORD(v18) = v9;
-  }
-  v9 = (int)v18;
-LABEL_25:
-  UserSessionSwitchLeaveCrit(v8, v10, v12, v13);
-  return v9;
+LABEL_21:
+  UserSessionSwitchLeaveCrit(v8);
+  return v10;
 }

@@ -1,79 +1,65 @@
 /*
- * XREFs of NtUserTransformRect @ 0x1C00937C0
+ * XREFs of NtUserTransformRect @ 0x1C00FA940
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall NtUserTransformRect(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtUserTransformRect(_OWORD *a1, unsigned int a2, unsigned int a3, __int64 a4)
 {
-  unsigned int v5; // r12d
-  unsigned int v6; // r15d
-  unsigned int v8; // ecx
-  __int64 v9; // r9
-  int v10; // ebx
-  BOOL v11; // eax
-  unsigned int v12; // ecx
-  BOOL v13; // eax
-  _BYTE *v14; // rdx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  _QWORD v20[3]; // [rsp+20h] [rbp-88h] BYREF
-  __int64 v21; // [rsp+38h] [rbp-70h]
-  __int128 v22; // [rsp+58h] [rbp-50h] BYREF
+  int v8; // ebx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  int v11; // eax
+  int v12; // eax
+  _OWORD *v13; // rax
+  __int64 v14; // rcx
+  _QWORD v16[3]; // [rsp+20h] [rbp-88h] BYREF
+  __int64 v17; // [rsp+38h] [rbp-70h]
+  __int128 v18; // [rsp+58h] [rbp-50h] BYREF
 
-  v5 = a3;
-  v6 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v22 = 0LL;
-  v20[0] = 0LL;
-  v8 = v6 & 0x7FFFFFFF;
-  v9 = 24592LL;
-  if ( (v6 & 0x7FFFFFFF) == 0x22 || v8 == 24592 || v8 == 1073766416 || v8 == 18 )
+  v8 = 1;
+  EnterCrit(0LL, 1LL);
+  v18 = 0LL;
+  v16[0] = 0LL;
+  v11 = a2 & 0x5FFFFFFF;
+  if ( ((a2 & 0x5FFFFFFF) == 0x6010
+     || v11 == 34
+     || v11 == 18
+     || v11 == 1073766416
+     || (a2 & 0x5FFE00FF) == 0x11
+     || (a2 & 0x5FFE00FF) == 0x13 && (unsigned int)DrvIsUniformSpaceMapping(*(_QWORD *)(gpDispInfo + 16LL)))
+    && ((v12 = a3 & 0x5FFFFFFF, (a3 & 0x5FFFFFFF) == 0x22)
+     || v12 == 24592
+     || v12 == 18
+     || v12 == 1073766416
+     || (a3 & 0x5FFE00FF) == 0x11
+     || (a3 & 0x5FFE00FF) == 0x13 && (unsigned int)DrvIsUniformSpaceMapping(*(_QWORD *)(gpDispInfo + 16LL))) )
   {
-    v10 = 1;
-    v11 = 1;
-  }
-  else
-  {
-    v10 = 1;
-    v11 = (((v6 & 0x7FFE00FF) - 17) & 0xFFFFFFFD) == 0 && ((v8 >> 8) & 0x1FF) != 0;
-  }
-  if ( v11
-    && ((v12 = v5 & 0x7FFFFFFF, (v5 & 0x7FFFFFFF) == 0x6010) || v12 == 18 || v12 == 34 || v12 == 1073766416
-      ? (v13 = 1)
-      : (((v5 & 0x7FFE00FF) - 17) & 0xFFFFFFFD) != 0
-      ? (v13 = 0)
-      : (v13 = ((v12 >> 8) & 0x1FF) != 0),
-        v13) )
-  {
-    v14 = a1;
+    v13 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v14 = (_BYTE *)MmUserProbeAddress;
-    *v14 = *v14;
-    v14[15] = v14[15];
-    v22 = *a1;
-    if ( a4 && (v6 & 0xF) == 2 )
-      v20[0] = ValidateHmonitor(a4);
-    if ( !v20[0] )
+      v13 = (_OWORD *)MmUserProbeAddress;
+    *v13 = *v13;
+    v18 = *a1;
+    if ( a4 && (a2 & 0xF) == 2 )
+      v16[0] = ValidateHmonitor(a4);
+    if ( !v16[0] )
     {
-      LODWORD(v21) = (DWORD2(v22) + (int)v22) / 2;
-      HIDWORD(v21) = (HIDWORD(v22) + DWORD1(v22)) / 2;
-      v20[0] = GuessMonitorOverrideForCoordinateConversions(v21, v5, 0LL, v9);
+      LODWORD(v17) = (DWORD2(v18) + (int)v18) / 2;
+      HIDWORD(v17) = (HIDWORD(v18) + DWORD1(v18)) / 2;
+      v16[0] = GuessMonitorOverrideForCoordinateConversions(v17, a3, 0LL);
     }
-    LogicalToPhysicalDPIRect(&v22, &v22, v5, v20);
-    PhysicalToLogicalDPIRect(&v22, &v22, v6, v20);
-    *a1 = v22;
+    LogicalToPhysicalDPIRect(&v18, &v18, a3, v16);
+    PhysicalToLogicalDPIRect(&v18, &v18, a2, v16);
+    *a1 = v18;
   }
   else
   {
-    v10 = 0;
-    UserSetLastError(87LL);
+    v8 = 0;
+    UserSetLastError(87LL, v9, v10);
   }
-  UserSessionSwitchLeaveCrit(v16, v15, v17, v18);
-  return v10;
+  UserSessionSwitchLeaveCrit(v14);
+  return v8;
 }

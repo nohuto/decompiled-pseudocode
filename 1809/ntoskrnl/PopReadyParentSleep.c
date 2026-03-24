@@ -3,7 +3,7 @@
  * Callers:
  *     PopSystemIrpCompletion @ 0x14056C720 (PopSystemIrpCompletion.c)
  * Callees:
- *     IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B230 (IoQueryDeviceNodeDirectedDripsFlags.c)
+ *     IoQueryDeviceNodeDirectedDripsFlags @ 0x14028B330 (IoQueryDeviceNodeDirectedDripsFlags.c)
  */
 
 char __fastcall PopReadyParentSleep(__int64 *a1, __int64 a2, char a3, char a4)

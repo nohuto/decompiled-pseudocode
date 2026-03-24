@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpAllocateDeviceInstancePath @ 0x140814AB8
+ * XREFs of PnpAllocateDeviceInstancePath @ 0x1407A5630
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x140814744 (IopInitializeDeviceInstanceKey.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     PiInitializeDevice @ 0x14096DB94 (PiInitializeDevice.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074E544 (IopInitializeDeviceInstanceKey.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x1408B3CBC (PiInitializeDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpAllocateDeviceInstancePath(__int64 a1, unsigned int a2)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   *(_WORD *)(a1 + 42) = a2;
   *(_WORD *)(a1 + 40) = 0;
-  Pool2 = ExAllocatePool2(64LL, a2, 1232105040LL);
-  *(_QWORD *)(a1 + 48) = Pool2;
-  return Pool2 == 0 ? 0xC000009A : 0;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, a2, 0x49706E50u);
+  *(_QWORD *)(a1 + 48) = PoolWithTag;
+  return PoolWithTag == 0LL ? 0xC000009A : 0;
 }

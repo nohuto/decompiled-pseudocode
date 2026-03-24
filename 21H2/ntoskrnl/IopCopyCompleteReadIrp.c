@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCopyCompleteReadIrp @ 0x140417DE0
+ * XREFs of IopCopyCompleteReadIrp @ 0x1403F16B0
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     IopDropIrp @ 0x140234D58 (IopDropIrp.c)
- *     KeAreAllApcsDisabled @ 0x140281980 (KeAreAllApcsDisabled.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSpinLock @ 0x1402B1CB0 (KeReleaseSpinLock.c)
- *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x1402F47B0 (KeInitializeApc.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     IopCopyCompleteReadRequest @ 0x140418160 (IopCopyCompleteReadRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopUnlockAndFreeMdl @ 0x1405570D0 (IopUnlockAndFreeMdl.c)
+ *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeAreAllApcsDisabled @ 0x14025AC80 (KeAreAllApcsDisabled.c)
+ *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IopDropIrp @ 0x1402E9444 (IopDropIrp.c)
+ *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopUnlockAndFreeMdl @ 0x1403F11E0 (IopUnlockAndFreeMdl.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 char __fastcall IopCopyCompleteReadIrp(__int64 *a1, ULONG_PTR a2, int a3)
@@ -44,16 +44,17 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, ULONG_PTR a2, int a3)
   __int64 **v23; // rax
   __int64 v24; // r9
   __int64 v25; // r14
-  unsigned int v26; // ebx
-  unsigned int v27; // r8d
-  __int64 v28; // rcx
-  int v30; // [rsp+40h] [rbp-58h]
-  ULONG_PTR v32; // [rsp+A8h] [rbp+10h] BYREF
-  int v33; // [rsp+B0h] [rbp+18h]
-  char v34; // [rsp+B8h] [rbp+20h]
+  unsigned int v26; // r8d
+  unsigned int v27; // ecx
+  unsigned int v28; // ebx
+  __int64 v29; // rcx
+  int v31; // [rsp+40h] [rbp-58h]
+  ULONG_PTR BugCheckParameter2; // [rsp+A8h] [rbp+10h] BYREF
+  int v34; // [rsp+B0h] [rbp+18h]
+  char v35; // [rsp+B8h] [rbp+20h]
 
-  v33 = a3;
-  v32 = a2;
+  v34 = a3;
+  BugCheckParameter2 = a2;
   v3 = *a1;
   v4 = 0;
   v6 = *(_DWORD *)(*a1 + 48);
@@ -62,8 +63,8 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, ULONG_PTR a2, int a3)
   v9 = *(_BYTE *)(v3 + 68);
   v10 = *(_QWORD *)(v3 + 152);
   v11 = *(_QWORD *)(v3 + 112);
-  v30 = v6;
-  v34 = *(_BYTE *)(v3 + 65);
+  v31 = v6;
+  v35 = *(_BYTE *)(v3 + 65);
   if ( v7 )
   {
     IopUnlockAndFreeMdl(v7);
@@ -71,8 +72,8 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, ULONG_PTR a2, int a3)
   }
   if ( v10 )
   {
-    v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v10 + 1496));
-    KeReleaseSpinLock((PKSPIN_LOCK)(v10 + 1496), v12);
+    v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v10 + 1416));
+    KeReleaseSpinLock((PKSPIN_LOCK)(v10 + 1416), v12);
   }
   if ( (struct _KTHREAD *)v10 != KeGetCurrentThread()
     || KeAreAllApcsDisabled()
@@ -89,7 +90,7 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, ULONG_PTR a2, int a3)
         0LL,
         0,
         0LL);
-      KeInsertQueueApc(v3 + 120, v32, 0LL, a3);
+      KeInsertQueueApc(v3 + 120, BugCheckParameter2, 0LL, a3);
       goto LABEL_29;
     }
 LABEL_18:
@@ -110,7 +111,7 @@ LABEL_21:
           0LL,
           0,
           0LL);
-        KeInsertQueueApc(v3 + 120, v32, 0LL, v33);
+        KeInsertQueueApc(v3 + 120, BugCheckParameter2, 0LL, v34);
         KeReleaseQueuedSpinLock(0xBuLL, v21);
         goto LABEL_29;
       }
@@ -133,17 +134,17 @@ LABEL_21:
       v22[1] = (__int64)v23;
       *(_QWORD *)(v20 - 32 + 40) = v20;
       *(_QWORD *)v20 = v20;
-      ObfDereferenceObject((PVOID)v10);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v10);
     }
     KeReleaseQueuedSpinLock(0xBuLL, v21);
-    IopDropIrp((PIRP)v3, v32);
+    IopDropIrp((PIRP)v3, BugCheckParameter2);
     goto LABEL_29;
   }
   if ( v9 )
     goto LABEL_18;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
-  IopCopyCompleteReadRequest(v3 + 120, 0LL, 0LL, &v32, 0LL);
+  IopCopyCompleteReadRequest(v3 + 120, 0LL, 0LL, &BugCheckParameter2, 0LL);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -163,13 +164,13 @@ LABEL_21:
   }
   __writecr8(CurrentIrql);
 LABEL_29:
-  if ( v30 < 0 || v9 )
+  if ( v31 < 0 || v9 )
   {
-    *(_DWORD *)(*(_QWORD *)(v11 - 40) + 48LL) = v30;
-    *(_BYTE *)(*(_QWORD *)(v11 - 40) + 65LL) = v34;
-    v28 = *(_QWORD *)(v11 - 40);
-    *a1 = v28;
-    IopFreeIrpExtension(v28, 9, 1);
+    *(_DWORD *)(*(_QWORD *)(v11 - 40) + 48LL) = v31;
+    *(_BYTE *)(*(_QWORD *)(v11 - 40) + 65LL) = v35;
+    v29 = *(_QWORD *)(v11 - 40);
+    *a1 = v29;
+    IopFreeIrpExtension(v29, 9, 1);
   }
   else
   {
@@ -181,16 +182,17 @@ LABEL_29:
       v27 = *(unsigned __int16 *)(*(_QWORD *)(v11 - 32) + 304LL);
       if ( !(_WORD)v27 )
         v27 = 4096;
-      if ( v27 + v26 - 1 - (v27 + v26 - 1) % v27 < v26 )
-        v26 = v27 + v26 - 1 - (v27 + v26 - 1) % v27;
-      if ( (unsigned int)v8 < v26 )
-        memset((void *)(*(_QWORD *)(v24 + 112) + v8), 0, v26 - (unsigned int)v8);
+      v28 = v27 + v26 - 1 - (v27 + v26 - 1) % v27;
+      if ( v28 >= v26 )
+        v28 = *(_DWORD *)(v25 - 64);
+      if ( (unsigned int)v8 < v28 )
+        memset((void *)(*(_QWORD *)(v24 + 112) + v8), 0, v28 - (unsigned int)v8);
     }
     else
     {
-      v26 = v8;
+      v28 = v8;
     }
-    *(_DWORD *)(v25 - 64) = v26;
+    *(_DWORD *)(v25 - 64) = v28;
     *(_QWORD *)(v11 - 56) = IopQueueCopyWrite;
     *(_QWORD *)(v11 - 48) = v11 - 40;
     *(_QWORD *)(v11 - 72) = 0LL;

@@ -1,32 +1,31 @@
 /*
- * XREFs of SepRmReferenceFindCap @ 0x1405F5D18
+ * XREFs of SepRmReferenceFindCap @ 0x140597E54
  * Callers:
- *     SeComputeCreatorDeniedRights @ 0x1402AC350 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     SeRmReferenceFindCapName @ 0x1405F5B98 (SeRmReferenceFindCapName.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeRmReferenceFindCapName @ 0x140597CD4 (SeRmReferenceFindCapName.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     RtlLookupEntryHashTable @ 0x14021F920 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x14022DEA0 (RtlGetNextEntryHashTable.c)
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     SepRmDereferenceCapTable @ 0x1405F4304 (SepRmDereferenceCapTable.c)
- *     SepComputeSidSignature @ 0x140696928 (SepComputeSidSignature.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlGetNextEntryHashTable @ 0x1402A2500 (RtlGetNextEntryHashTable.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     RtlLookupEntryHashTable @ 0x140360330 (RtlLookupEntryHashTable.c)
+ *     SepRmDereferenceCapTable @ 0x140596390 (SepRmDereferenceCapTable.c)
+ *     SepComputeSidSignature @ 0x140718284 (SepComputeSidSignature.c)
  */
 
 __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v5; // esi
-  struct _RTL_DYNAMIC_HASH_TABLE *v6; // rbx
+  struct _RTL_DYNAMIC_HASH_TABLE *v6; // rdi
   ULONG_PTR v7; // rax
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY v9; // rdi
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY NextEntryHashTable; // rbx
   struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
 
   *a2 = 0LL;
@@ -44,22 +43,29 @@ __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTR
   KeLeaveCriticalRegion();
   if ( v6 )
   {
-    if ( SepRmEnforceCap )
+    if ( !SepRmEnforceCap )
+      goto LABEL_13;
+    v7 = SepComputeSidSignature(Sid1);
+    NextEntryHashTable = RtlLookupEntryHashTable(v6, v7, &Context);
+    if ( !NextEntryHashTable )
+      goto LABEL_13;
+    do
     {
-      v7 = SepComputeSidSignature(Sid1);
-      for ( i = RtlLookupEntryHashTable(v6, v7, &Context); ; i = RtlGetNextEntryHashTable(v6, &Context) )
-      {
-        v9 = i;
-        if ( !i )
-          break;
-        if ( RtlEqualSid(Sid1, i[1].Linkage.Flink) == 1 )
-        {
-          *a2 = v9;
-          return 0;
-        }
-      }
+      if ( RtlEqualSid(Sid1, NextEntryHashTable[1].Linkage.Flink) == 1 )
+        break;
+      NextEntryHashTable = RtlGetNextEntryHashTable(v6, &Context);
     }
-    SepRmDereferenceCapTable((volatile signed __int64 *)v6);
+    while ( NextEntryHashTable );
+    if ( NextEntryHashTable )
+    {
+      *a2 = NextEntryHashTable;
+      return 0;
+    }
+    else
+    {
+LABEL_13:
+      SepRmDereferenceCapTable((volatile signed __int64 *)v6);
+    }
   }
   return v5;
 }

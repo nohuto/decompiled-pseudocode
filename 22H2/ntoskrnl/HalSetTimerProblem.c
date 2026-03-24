@@ -1,10 +1,12 @@
 /*
- * XREFs of HalSetTimerProblem @ 0x14051F970
+ * XREFs of HalSetTimerProblem @ 0x1404D5540
  * Callers:
- *     HalpRtcArmTimer @ 0x14051FAF0 (HalpRtcArmTimer.c)
- *     HalpHpetAcknowledgeInterrupt @ 0x14051FD30 (HalpHpetAcknowledgeInterrupt.c)
- *     HalpHpetArmTimer @ 0x14051FD70 (HalpHpetArmTimer.c)
- *     HalpHpetSetMatchValue @ 0x14051FDBC (HalpHpetSetMatchValue.c)
+ *     HalpSfiTimerArm @ 0x1404D56B0 (HalpSfiTimerArm.c)
+ *     HalpSfiTimerInitialize @ 0x1404D57B0 (HalpSfiTimerInitialize.c)
+ *     HalpRtcArmTimer @ 0x1404D5990 (HalpRtcArmTimer.c)
+ *     HalpHpetAcknowledgeInterrupt @ 0x1404D5D00 (HalpHpetAcknowledgeInterrupt.c)
+ *     HalpHpetArmTimer @ 0x1404D5D40 (HalpHpetArmTimer.c)
+ *     HalpHpetSetMatchValue @ 0x1404D5D8C (HalpHpetSetMatchValue.c)
  * Callees:
  *     <none>
  */

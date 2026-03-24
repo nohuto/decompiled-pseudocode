@@ -1,16 +1,15 @@
 /*
- * XREFs of ?GetTransform@CWICBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800E5060
+ * XREFs of ?GetTransform@CWICBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800D3080
  * Callers:
  *     <none>
  * Callees:
- *     ?GetSize@CWICBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800E5100 (-GetSize@CWICBitmapRealization@@UEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CWICBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800D3110 (-GetSize@CWICBitmapRealization@@UEBA-AUD2D_SIZE_U@@XZ.c)
  */
 
 char __fastcall CWICBitmapRealization::GetTransform(CWICBitmapRealization *a1, __int64 a2, __int64 a3)
 {
-  char v4; // al
-  int v6; // [rsp+38h] [rbp+10h]
-  int v7; // [rsp+3Ch] [rbp+14h]
+  int v5; // [rsp+38h] [rbp+10h]
+  int v6; // [rsp+3Ch] [rbp+14h]
 
   *(_QWORD *)a2 = 1065353216LL;
   *(_QWORD *)(a2 + 8) = 0LL;
@@ -22,15 +21,13 @@ char __fastcall CWICBitmapRealization::GetTransform(CWICBitmapRealization *a1, _
   *(_QWORD *)(a2 + 48) = 0LL;
   *(_DWORD *)(a2 + 56) = 0;
   *(_DWORD *)(a2 + 60) = 1065353216;
-  v4 = *(_BYTE *)(a2 + 65) & 0xD7;
-  *(_BYTE *)(a2 + 64) = 85;
-  *(_BYTE *)(a2 + 65) = v4 | 0x17;
+  *(_WORD *)(a2 + 64) = 32085;
   if ( a3 )
   {
     CWICBitmapRealization::GetSize(a1);
     *(_QWORD *)a3 = 0LL;
-    *(float *)(a3 + 8) = (float)v6;
-    *(float *)(a3 + 12) = (float)v7;
+    *(float *)(a3 + 8) = (float)v5;
+    *(float *)(a3 + 12) = (float)v6;
   }
   return 0;
 }

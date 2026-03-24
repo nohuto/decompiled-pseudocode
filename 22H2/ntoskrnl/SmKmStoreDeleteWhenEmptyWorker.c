@@ -1,27 +1,23 @@
 /*
- * XREFs of SmKmStoreDeleteWhenEmptyWorker @ 0x140342D90
+ * XREFs of SmKmStoreDeleteWhenEmptyWorker @ 0x1403294D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SmKmStoreDelete @ 0x1407B7898 (SmKmStoreDelete.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     SmKmStoreDelete @ 0x1406A0870 (SmKmStoreDelete.c)
  */
 
 __int64 __fastcall SmKmStoreDeleteWhenEmptyWorker(__int64 a1)
 {
   __int64 v1; // rdi
   unsigned int v2; // ebx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rax
-  __int64 v6; // rcx
+  __int64 v3; // rax
+  __int64 v4; // rcx
 
   v1 = *(_QWORD *)(a1 + 56);
   v2 = *(_DWORD *)(a1 + 64);
   KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
-  v5 = SmKmStoreRefFromStoreIndex(v1, v2, v3, v4);
-  SmKmStoreDelete(v6, *(unsigned int *)(*(_QWORD *)v5 + 6016LL), 0LL);
-  return (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v1 + 256))(v1, 0LL, 9LL);
+  v3 = SmKmStoreRefFromStoreIndex(v1, v2);
+  return SmKmStoreDelete(v4, *(unsigned int *)(*(_QWORD *)v3 + 6016LL), 0LL);
 }

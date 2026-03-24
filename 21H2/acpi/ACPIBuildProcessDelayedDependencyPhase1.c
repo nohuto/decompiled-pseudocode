@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBuildProcessDelayedDependencyPhase1 @ 0x1C002AB10
+ * XREFs of ACPIBuildProcessDelayedDependencyPhase1 @ 0x1C002FD30
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDelayedDependencyPhase1(__int64 a1)
@@ -31,25 +31,25 @@ __int64 __fastcall ACPIBuildProcessDelayedDependencyPhase1(__int64 a1)
   *(_QWORD *)(a1 + 80) = 0LL;
   *(_DWORD *)(v3 + 20) &= ~0x20u;
   _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 24), v4, 1);
-  _InterlockedAnd64((volatile signed __int64 *)(v1 + 1000), 0xFFFFFFFFFFDFFFFFuLL);
-  v6 = (__int64 *)qword_1C0081638;
-  if ( *(__int64 **)qword_1C0081638 != &AcpiBuildQueueList )
+  _InterlockedAnd64((volatile signed __int64 *)(v1 + 960), 0xFFFFFFFFFFDFFFFFuLL);
+  v6 = (__int64 *)qword_1C0082418;
+  if ( *(__int64 **)qword_1C0082418 != &AcpiBuildQueueList )
     __fastfail(3u);
   AcpiBuildDpcFlags |= 2u;
   *(_QWORD *)v3 = &AcpiBuildQueueList;
   *(_QWORD *)(v3 + 8) = v6;
   *v6 = v3;
-  qword_1C0081638 = v3;
+  qword_1C0082418 = v3;
   KeReleaseSpinLockFromDpcLevel(&AcpiBuildQueueLock);
   *(_DWORD *)(a1 + 32) = 0;
-  v7 = &unk_1C006FB8B;
+  v7 = &unk_1C00701BA;
   v8 = *(_QWORD *)(v1 + 8);
-  v9 = &unk_1C006FB8B;
+  v9 = &unk_1C00701BA;
   if ( (v8 & 0x200000000000LL) != 0 )
   {
-    v7 = *(void **)(v1 + 608);
+    v7 = *(void **)(v1 + 568);
     if ( (v8 & 0x400000000000LL) != 0 )
-      v9 = *(void **)(v1 + 616);
+      v9 = *(void **)(v1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -58,7 +58,7 @@ __int64 __fastcall ACPIBuildProcessDelayedDependencyPhase1(__int64 a1)
       4u,
       6u,
       0x33u,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v1,
       (__int64)v7,

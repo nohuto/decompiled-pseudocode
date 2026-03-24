@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSetCompositionSurface@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETCOMPOSITIONSURFACE@@@Z @ 0x180244304
+ * XREFs of ?ProcessSetCompositionSurface@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETCOMPOSITIONSURFACE@@@Z @ 0x1801F3A8C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCCompositionSurfaceBitmap@@@Z @ 0x1801B9B1C (-CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCC.c)
- *     ?SetFlipExSurface@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z @ 0x1802446E8 (-SetFlipExSurface@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCCompositionSurfaceBitmap@@@Z @ 0x18017E094 (-CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCC.c)
+ *     ?SetFlipExBitmap@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z @ 0x1801F3E70 (-SetFlipExBitmap@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z.c)
  */
 
 __int64 __fastcall CWindowNode::ProcessSetCompositionSurface(
@@ -15,13 +15,13 @@ __int64 __fastcall CWindowNode::ProcessSetCompositionSurface(
         const struct tagMILCMD_WINDOWNODE_SETCOMPOSITIONSURFACE *a3)
 {
   void *v3; // r8
-  CResource *v4; // rbx
+  struct CCompositionSurfaceBitmap *v4; // rbx
   int v6; // eax
   __int64 v7; // rcx
   unsigned int v8; // edi
   int v9; // eax
   __int64 v10; // rcx
-  CResource *v12; // [rsp+48h] [rbp+10h] BYREF
+  CRenderTargetBitmap *v12; // [rsp+48h] [rbp+10h] BYREF
 
   v12 = a2;
   v3 = (void *)*((_QWORD *)a3 + 1);
@@ -30,25 +30,25 @@ __int64 __fastcall CWindowNode::ProcessSetCompositionSurface(
   if ( v3 )
   {
     v6 = CCompositionSurfaceManager::CreateCompositionSurfaceBitmap(
-           (CCompositionSurfaceManager *)(*((_QWORD *)g_pComposition + 28) + 16LL),
+           (CCompositionSurfaceManager *)(*((_QWORD *)g_pComposition + 12) + 16LL),
            this[2],
            v3,
            &v12);
     v8 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x2D9u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x32Fu, 0LL);
       v4 = v12;
       goto LABEL_7;
     }
     v4 = v12;
   }
-  v9 = CWindowNode::SetFlipExSurface((CWindowNode *)this, v4);
+  v9 = CWindowNode::SetFlipExBitmap((CWindowNode *)this, v4);
   v8 = v9;
   if ( v9 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x2DCu);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x332u, 0LL);
 LABEL_7:
   if ( v4 )
-    CResource::InternalRelease(v4);
+    CRenderTargetBitmap::Release(v4);
   return v8;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpCHashEmpty @ 0x14069E34C
+ * XREFs of PfpRpCHashEmpty @ 0x14069E32C
  * Callers:
- *     PfpRpControlRequestReset @ 0x14069E2F4 (PfpRpControlRequestReset.c)
+ *     PfpRpControlRequestReset @ 0x14069E2D4 (PfpRpControlRequestReset.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

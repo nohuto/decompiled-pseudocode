@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSchedulingGroupCpuRates @ 0x140115DCC
+ * XREFs of KeSetSchedulingGroupCpuRates @ 0x140115DEC
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiAssignSchedulingGroupWeights @ 0x140115E8C (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateMinimumWeight @ 0x140116108 (KiUpdateMinimumWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x140116228 (KiUpdateCpuTargetByRate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiAssignSchedulingGroupWeights @ 0x140115EAC (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateMinimumWeight @ 0x140116128 (KiUpdateMinimumWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x140116248 (KiUpdateCpuTargetByRate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetSchedulingGroupCpuRates(__int64 a1, _QWORD *a2, _QWORD *a3)

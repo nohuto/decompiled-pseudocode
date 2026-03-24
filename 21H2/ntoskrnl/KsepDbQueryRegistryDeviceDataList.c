@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x140963B40
+ * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x1408BFAC0
  * Callers:
- *     KseQueryDeviceDataList @ 0x140963440 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceDataList @ 0x1408BF3E0 (KseQueryDeviceDataList.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1402D8494 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     KsepRegistryOpenKey @ 0x14075CB14 (KsepRegistryOpenKey.c)
- *     KsepStringFree @ 0x14075CDC4 (KsepStringFree.c)
- *     KsepStringTransform @ 0x1407ED3AC (KsepStringTransform.c)
- *     KsepRegistryEnumValue @ 0x1409653FC (KsepRegistryEnumValue.c)
- *     KsepRegistryQueryKeyInformation @ 0x1409654F8 (KsepRegistryQueryKeyInformation.c)
+ *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     KsepRegistryOpenKey @ 0x14075B464 (KsepRegistryOpenKey.c)
+ *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x14075F938 (KsepStringTransform.c)
+ *     KsepRegistryEnumValue @ 0x1408C140C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x1408C1508 (KsepRegistryQueryKeyInformation.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceDataList(_WORD *a1, char *a2, unsigned int a3, _DWORD *a4)
@@ -103,7 +103,7 @@ LABEL_17:
     if ( Handle )
     {
       ZwClose(Handle);
-      _InterlockedIncrement(&dword_140C2A1BC);
+      _InterlockedIncrement(&dword_140C2AA3C);
     }
   }
   KsepStringFree((__int64)&v17);

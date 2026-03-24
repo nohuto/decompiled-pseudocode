@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@CHolographicFrameProcessor@@UEAAJPEAI0@Z @ 0x180108B20
+ * XREFs of ?GetSize@CHolographicFrameProcessor@@UEAAJPEAI0@Z @ 0x1800E36E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,13 @@
 /*
- * XREFs of ?Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z @ 0x1C000F7C4
+ * XREFs of ?Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z @ 0x1C001219C
  * Callers:
- *     ?Initialize@CFlipExBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO_@@_N@Z @ 0x1C000F540 (-Initialize@CFlipExBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO_@@_N@Z.c)
- *     ?Initialize@CCompositionBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x1C007D854 (-Initialize@CCompositionBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z.c)
- *     ?PrepareCompTexOptimizedUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@PEAUFlipManagerObject@@@Z @ 0x1C00866D8 (-PrepareCompTexOptimizedUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPrese.c)
- *     ?PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@PEAUFlipManagerObject@@@Z @ 0x1C0086EA8 (-PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpd.c)
+ *     ?Initialize@CFlipExBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO@@_N@Z @ 0x1C0011FD4 (-Initialize@CFlipExBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO@@_N@Z.c)
+ *     ?Initialize@CCompositionBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x1C0066A6C (-Initialize@CCompositionBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z.c)
+ *     ?Initialize@CCompositionSwapchainBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_COMPOSITION_SWAPCHAIN_BUFFER_INFO@@@Z @ 0x1C0067480 (-Initialize@CCompositionSwapchainBuffer@@AEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_COMPOSITION_SWA.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Initialize@CBufferRealization@@IEAAJ_N@Z @ 0x1C000F8A8 (-Initialize@CBufferRealization@@IEAAJ_N@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Initialize@CBufferRealization@@IEAAJ_N@Z @ 0x1C0012274 (-Initialize@CBufferRealization@@IEAAJ_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBufferRealization::Create(
@@ -16,44 +15,51 @@ __int64 __fastcall CBufferRealization::Create(
         bool a2,
         struct CBufferRealization **a3)
 {
-  signed int v6; // edi
-  __int64 v7; // rbx
-  __int64 v8; // xmm0_8
+  int v3; // eax
+  signed int v7; // ebx
+  char *v8; // rdi
+  __int128 v9; // xmm1
 
+  v3 = *(_DWORD *)a1;
   *a3 = 0LL;
-  v6 = -1073741811;
-  if ( *(_DWORD *)a1 != 1 )
+  v7 = -1073741811;
+  if ( v3 == 1 )
   {
-    if ( *(_DWORD *)a1 == 2 || (unsigned int)(*(_DWORD *)a1 - 3) <= 1 )
-      v6 = *((_QWORD *)a1 + 1) == 0LL ? 0xC000000D : 0;
-LABEL_4:
-    if ( v6 < 0 )
-      return (unsigned int)v6;
-    goto LABEL_5;
+    if ( *((_QWORD *)a1 + 1) )
+      v7 = 0;
   }
-  if ( !*((_QWORD *)a1 + 1) )
-    goto LABEL_4;
-LABEL_5:
-  v7 = operator new[](0x58uLL, 0x724D5343u, 256LL);
-  if ( v7 )
+  else if ( (unsigned int)(v3 - 2) <= 2 )
   {
-    *(_QWORD *)v7 = &CBufferRealization::`vftable';
-    *(_OWORD *)(v7 + 24) = *(_OWORD *)a1;
-    *(_OWORD *)(v7 + 40) = *((_OWORD *)a1 + 1);
-    v8 = *((_QWORD *)a1 + 4);
-    *(_QWORD *)(v7 + 64) = 0LL;
-    *(_QWORD *)(v7 + 72) = 0LL;
-    *(_DWORD *)(v7 + 80) = 0;
-    *(_QWORD *)(v7 + 56) = v8;
-    v6 = CBufferRealization::Initialize((CBufferRealization *)v7, a2);
-    if ( v6 < 0 )
-      (**(void (__fastcall ***)(__int64, __int64))v7)(v7, 1LL);
+    v7 = *((_QWORD *)a1 + 1) == 0LL ? 0xC000000D : 0;
+  }
+  if ( v7 >= 0 )
+  {
+    v8 = (char *)operator new[](0x48uLL, 0x724D5343u, PagedPool);
+    if ( v8 )
+    {
+      *(_QWORD *)v8 = &CBufferRealization::`vftable';
+      *(_OWORD *)(v8 + 24) = *(_OWORD *)a1;
+      v9 = *((_OWORD *)a1 + 1);
+      *((_QWORD *)v8 + 7) = 0LL;
+      *((_QWORD *)v8 + 8) = 0LL;
+      *(_OWORD *)(v8 + 40) = v9;
+    }
     else
-      *a3 = (struct CBufferRealization *)v7;
+    {
+      v8 = 0LL;
+    }
+    if ( v8 )
+    {
+      v7 = CBufferRealization::Initialize((CBufferRealization *)v8, a2);
+      if ( v7 < 0 )
+        (**(void (__fastcall ***)(PVOID, __int64))v8)(v8, 1LL);
+      else
+        *a3 = (struct CBufferRealization *)v8;
+    }
+    else
+    {
+      return (unsigned int)-1073741801;
+    }
   }
-  else
-  {
-    return (unsigned int)-1073741801;
-  }
-  return (unsigned int)v6;
+  return (unsigned int)v7;
 }

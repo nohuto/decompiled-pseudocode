@@ -1,17 +1,14 @@
 /*
- * XREFs of ExDeleteTimer @ 0x1402D3D40
+ * XREFs of ExDeleteTimer @ 0x14027F910
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
- *     PnpCallDriverEntry @ 0x140747DDC (PnpCallDriverEntry.c)
- *     PnpCallAddDevice @ 0x140749DA0 (PnpCallAddDevice.c)
- *     PnpDisableWatchdog @ 0x14074D6EC (PnpDisableWatchdog.c)
- *     PnpDelayedRemoveWorker @ 0x14080EBD0 (PnpDelayedRemoveWorker.c)
- *     PnpProcessCompletedEject @ 0x140947450 (PnpProcessCompletedEject.c)
- *     CancelTimerCallbacksAndDeleteTimer @ 0x140A31BF4 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
+ *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     PnpCallDriverEntry @ 0x1407703C4 (PnpCallDriverEntry.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x14097FF54 (CancelTimerCallbacksAndDeleteTimer.c)
  * Callees:
- *     KeDisableTimer2 @ 0x1402D40E4 (KeDisableTimer2.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x1402D57D4 (ExpCheckForFreedEnhancedTimer.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeDisableTimer2 @ 0x14027FC30 (KeDisableTimer2.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1402800F4 (ExpCheckForFreedEnhancedTimer.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExDeleteTimer(ULONG_PTR a1, char a2, char a3, unsigned int *a4)

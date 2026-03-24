@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDqOpenObjectRegKey @ 0x1406D9C24
+ * XREFs of PiDqOpenObjectRegKey @ 0x1406D9C04
  * Callers:
  *     PiDqActionDataGetRequestedProperties @ 0x140590E50 (PiDqActionDataGetRequestedProperties.c)
  *     PiDqPropertyCallback @ 0x140595AB0 (PiDqPropertyCallback.c)
- *     PiDqIrpPropertySet @ 0x1406D58FC (PiDqIrpPropertySet.c)
- *     PiDqActionDataGetChangedProperties @ 0x1406DB264 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14082A68C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14082A918 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqIrpPropertySet @ 0x1406D58DC (PiDqIrpPropertySet.c)
+ *     PiDqActionDataGetChangedProperties @ 0x1406DB244 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14082A66C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14082A8F8 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
  *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
- *     PiDqOpenUserObjectRegKey @ 0x1406D9CA0 (PiDqOpenUserObjectRegKey.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406D9C80 (PiDqOpenUserObjectRegKey.c)
  */
 
 __int64 __fastcall PiDqOpenObjectRegKey(int a1, __int64 a2, unsigned int a3, int a4, char a5, __int64 a6, _QWORD *a7)

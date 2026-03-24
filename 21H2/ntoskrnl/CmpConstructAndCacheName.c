@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpConstructAndCacheName @ 0x1406815C0
+ * XREFs of CmpConstructAndCacheName @ 0x1406BB054
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
- *     CmCallbackGetKeyObjectID @ 0x1408812B0 (CmCallbackGetKeyObjectID.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869A70 (CmCallbackGetKeyObjectID.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     CmpConstructNameWithStatus @ 0x1407C0690 (CmpConstructNameWithStatus.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
  */
 
 __int64 __fastcall CmpConstructAndCacheName(__int64 a1, _QWORD *a2)

@@ -1,41 +1,36 @@
 /*
- * XREFs of PiPnpRtlGatherPanelRemoveInfo @ 0x140948AC4
+ * XREFs of PiPnpRtlGatherPanelRemoveInfo @ 0x1408A3334
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     PiDmGetObject @ 0x14077B0A4 (PiDmGetObject.c)
- *     PiPnpRtlFreePanelRemoveInfo @ 0x140948594 (PiPnpRtlFreePanelRemoveInfo.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
+ *     PiPnpRtlFreePanelRemoveInfo @ 0x140734B74 (PiPnpRtlFreePanelRemoveInfo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlGatherPanelRemoveInfo(__int64 a1, __int64 a2, unsigned int ***a3)
 {
-  __int64 *Pool2; // rax
-  unsigned int Object; // ebx
-  int v8; // eax
+  __int64 *PoolWithTag; // rax
+  int Object; // ebx
 
-  Pool2 = (__int64 *)ExAllocatePool2(256LL, 16LL, 1198550608LL);
-  *a3 = (unsigned int **)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x47706E50u);
+  *a3 = (unsigned int **)PoolWithTag;
+  if ( !PoolWithTag )
   {
     Object = -1073741670;
 LABEL_8:
     PiPnpRtlFreePanelRemoveInfo(*a3);
     *a3 = 0LL;
-    return Object;
+    return (unsigned int)Object;
   }
-  Object = PiDmGetObject(1LL, a1, Pool2);
+  *(_OWORD *)PoolWithTag = 0LL;
+  Object = PiDmGetObject(1LL, a1, PoolWithTag);
   if ( (int)(Object + 0x80000000) >= 0 && Object != -1073741772 )
     goto LABEL_8;
-  v8 = PiDmGetObject(6LL, a2, (__int64 *)*a3 + 1);
-  Object = v8;
-  if ( v8 == -1073741772 )
-  {
-    return 0;
-  }
-  else if ( v8 < 0 )
-  {
+  Object = PiDmGetObject(6LL, a2, (__int64 *)*a3 + 1);
+  if ( Object == -1073741772 )
+    Object = 0;
+  if ( Object < 0 )
     goto LABEL_8;
-  }
-  return Object;
+  return (unsigned int)Object;
 }

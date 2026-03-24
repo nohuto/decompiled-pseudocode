@@ -1,13 +1,13 @@
 /*
- * XREFs of NtRequestPort @ 0x1407CBE60
+ * XREFs of NtRequestPort @ 0x140694C30
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpSendMessage @ 0x1407395B0 (AlpcpSendMessage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtRequestPort(HANDLE Handle, __m256i *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall NtRequestPort(HANDLE Handle, __m256i *a2)
     --CurrentThread->KernelApcDisable;
     v4 = AlpcpSendMessage((__int64)v7, a2, 0LL, KeGetCurrentThread()->PreviousMode);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
   return (unsigned int)v4;
 }

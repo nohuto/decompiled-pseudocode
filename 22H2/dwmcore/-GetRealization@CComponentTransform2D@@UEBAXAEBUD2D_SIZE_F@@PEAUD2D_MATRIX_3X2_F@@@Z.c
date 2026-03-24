@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetRealization@CComponentTransform2D@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x180072B90
+ * XREFs of ?GetRealization@CComponentTransform2D@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x180081750
  * Callers:
  *     <none>
  * Callees:
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 void __fastcall CComponentTransform2D::GetRealization(
@@ -26,20 +26,20 @@ void __fastcall CComponentTransform2D::GetRealization(
   __int64 v16; // [rsp+38h] [rbp-30h]
   D2D1_MATRIX_3X2_F matrix; // [rsp+40h] [rbp-28h] BYREF
 
-  v5 = COERCE_FLOAT(*((_DWORD *)this + 40) ^ _xmm) * a2->width;
-  v6 = COERCE_FLOAT(*((_DWORD *)this + 41) ^ _xmm) * a2->height;
+  LODWORD(v5) = COERCE_UNSIGNED_INT(*((float *)this + 38) * a2->width) ^ _xmm;
+  LODWORD(v6) = COERCE_UNSIGNED_INT(*((float *)this + 39) * a2->height) ^ _xmm;
   *(_QWORD *)&a3->m11 = 1065353216LL;
   a3->m21 = 0.0;
   a3->m22 = 1.0;
   a3->dx = v5;
   a3->dy = v6;
-  v7 = *((float *)this + 46);
-  v8 = *((float *)this + 42);
-  v9 = *((float *)this + 43);
+  v7 = *((float *)this + 44);
+  v8 = *((float *)this + 40);
+  v9 = *((float *)this + 41);
   center = (D2D1_POINT_2F)__PAIR64__(LODWORD(v9), LODWORD(v8));
-  if ( v7 != 1.0 || *((float *)this + 47) != 1.0 )
+  if ( v7 != 1.0 || *((float *)this + 45) != 1.0 )
   {
-    matrix.m22 = *((FLOAT *)this + 47);
+    matrix.m22 = *((FLOAT *)this + 45);
     matrix.m11 = v7;
     *(_QWORD *)&matrix.m[0][1] = 0LL;
     matrix.dy = v9 - (float)(matrix.m22 * v9);
@@ -52,7 +52,7 @@ void __fastcall CComponentTransform2D::GetRealization(
     *(_OWORD *)&a3->m11 = v15;
     *(_QWORD *)&a3->m[2][0] = v12;
   }
-  v10 = *((float *)this + 48);
+  v10 = *((float *)this + 46);
   if ( v10 != 0.0 )
   {
     D2D1MakeRotateMatrix(v10 * 57.295776, center, &matrix);
@@ -64,12 +64,12 @@ void __fastcall CComponentTransform2D::GetRealization(
     *(_OWORD *)&a3->m11 = v15;
     *(_QWORD *)&a3->m[2][0] = v13;
   }
-  a3->dx = *((float *)this + 44) + a3->dx;
-  a3->dy = *((float *)this + 45) + a3->dy;
+  a3->dx = *((float *)this + 42) + a3->dx;
+  a3->dy = *((float *)this + 43) + a3->dy;
   D2D1::Matrix3x2F::SetProduct(
     (D2D1::Matrix3x2F *)&v15,
     (const struct D2D1::Matrix3x2F *)a3,
-    (CComponentTransform2D *)((char *)this + 196));
+    (CComponentTransform2D *)((char *)this + 188));
   v11 = v16;
   *(_OWORD *)&a3->m11 = v15;
   *(_QWORD *)&a3->m[2][0] = v11;

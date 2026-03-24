@@ -1,33 +1,19 @@
 /*
- * XREFs of ?Release@CDrawListEntryBatch@@UEAAKXZ @ 0x1800E2830
+ * XREFs of ?Release@CDrawListEntryBatch@@UEAAKXZ @ 0x180092A60
  * Callers:
- *     ?Release@CDrawListEntryBatch@@W7EAAKXZ @ 0x18011DB40 (-Release@CDrawListEntryBatch@@W7EAAKXZ.c)
+ *     ?Release@CDrawListEntryBatch@@W7EAAKXZ @ 0x1800F5CD0 (-Release@CDrawListEntryBatch@@W7EAAKXZ.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDrawListEntryBatch::Release(CDrawListEntryBatch *this)
 {
-  char *v1; // rsi
-  volatile signed __int32 *v2; // rdi
-  unsigned __int32 v3; // ebx
-  __int64 v5; // rdx
+  volatile signed __int32 *v1; // rcx
+  unsigned __int32 v2; // ebx
 
-  v1 = (char *)this + 8;
-  v2 = (volatile signed __int32 *)((char *)this + 16);
-  v3 = _InterlockedDecrement((volatile signed __int32 *)this + 4);
-  if ( !v3 )
-  {
-    CMILRefCountImpl::AddReference((CDrawListEntryBatch *)((char *)this + 16));
-    (*(void (__fastcall **)(char *))(*(_QWORD *)v1 + 24LL))(v1);
-    v3 = _InterlockedDecrement(v2);
-    if ( !v3 )
-    {
-      v5 = *(_QWORD *)v1;
-      --*v2;
-      (*(void (__fastcall **)(char *, __int64))(v5 + 16))(v1, 1LL);
-    }
-  }
-  return v3;
+  v1 = (volatile signed __int32 *)((char *)this + 8);
+  v2 = _InterlockedDecrement(v1 + 2);
+  if ( !v2 && v1 )
+    (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v1 + 16LL))(v1, 1LL);
+  return v2;
 }

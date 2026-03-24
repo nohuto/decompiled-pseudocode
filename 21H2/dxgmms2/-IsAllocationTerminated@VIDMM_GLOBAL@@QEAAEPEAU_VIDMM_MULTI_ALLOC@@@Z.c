@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsAllocationTerminated@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00D7BEC
+ * XREFs of ?IsAllocationTerminated@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00B0D6C
  * Callers:
- *     VidMmIsAllocationTerminated @ 0x1C002D360 (VidMmIsAllocationTerminated.c)
+ *     VidMmIsAllocationTerminated @ 0x1C0022E60 (VidMmIsAllocationTerminated.c)
  * Callees:
- *     ?IsPagingOperationPending@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0083FB8 (-IsPagingOperationPending@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?IsPagingOperationPending@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0075C78 (-IsPagingOperationPending@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
  */
 
 bool __fastcall VIDMM_GLOBAL::IsAllocationTerminated(VIDMM_GLOBAL *this, struct _VIDMM_MULTI_ALLOC *a2)

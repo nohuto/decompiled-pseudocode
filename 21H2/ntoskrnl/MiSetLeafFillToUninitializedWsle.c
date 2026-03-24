@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetLeafFillToUninitializedWsle @ 0x1405B857C
+ * XREFs of MiSetLeafFillToUninitializedWsle @ 0x14055C430
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x14026DC5C (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall MiSetLeafFillToUninitializedWsle(__int64 a1)
   __int64 result; // rax
   __int64 v2; // rdx
 
-  result = *(_QWORD *)(a1 + 352);
+  result = *(_QWORD *)(a1 + 288);
   v2 = 8LL;
   do
   {
@@ -19,6 +19,6 @@ __int64 __fastcall MiSetLeafFillToUninitializedWsle(__int64 a1)
     --v2;
   }
   while ( v2 );
-  *(_QWORD *)(a1 + 352) = result;
+  *(_QWORD *)(a1 + 288) = result;
   return result;
 }

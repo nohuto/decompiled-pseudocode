@@ -1,10 +1,10 @@
 /*
- * XREFs of HT_ComputeRGBGammaTable @ 0x1C024FC10
+ * XREFs of HT_ComputeRGBGammaTable @ 0x1C0260BD0
  * Callers:
  *     <none>
  * Callees:
- *     DivFD6 @ 0x1C0157C2C (DivFD6.c)
- *     RaisePower @ 0x1C0157F8A (RaisePower.c)
+ *     DivFD6 @ 0x1C001CD3C (DivFD6.c)
+ *     RaisePower @ 0x1C001F468 (RaisePower.c)
  */
 
 LONG __stdcall HT_ComputeRGBGammaTable(
@@ -27,10 +27,10 @@ LONG __stdcall HT_ComputeRGBGammaTable(
   LPBYTE v16; // rbx
   LPBYTE v17; // r14
   __int16 v18; // di
-  int v19; // ebp
+  signed int v19; // ebp
   int v20; // eax
   LONG result; // eax
-  int v22; // [rsp+20h] [rbp-38h]
+  signed int v22; // [rsp+20h] [rbp-38h]
   LONG v23; // [rsp+28h] [rbp-30h]
 
   v6 = GammaTableEntries;

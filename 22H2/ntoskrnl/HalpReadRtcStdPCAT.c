@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReadRtcStdPCAT @ 0x140520070
+ * XREFs of HalpReadRtcStdPCAT @ 0x1404D6040
  * Callers:
- *     HalpCmosRangeHandler @ 0x14051FF8C (HalpCmosRangeHandler.c)
+ *     HalpCmosRangeHandler @ 0x1404D5F5C (HalpCmosRangeHandler.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x14033BA0C (HalpAcquireCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x14030D87C (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 __fastcall HalpReadRtcStdPCAT(__int64 a1, __int64 a2, __int64 a3)
@@ -13,7 +13,6 @@ __int64 __fastcall HalpReadRtcStdPCAT(__int64 a1, __int64 a2, __int64 a3)
   char v6; // al
   __int64 v7; // r8
   unsigned __int8 v8; // al
-  unsigned __int8 v9; // al
 
   v4 = a1 + a3;
   v5 = a1;
@@ -27,10 +26,10 @@ __int64 __fastcall HalpReadRtcStdPCAT(__int64 a1, __int64 a2, __int64 a3)
   v7 = 0LL;
   while ( v5 < v4 )
   {
-    v8 = v5++;
-    __outbyte(0x70u, v8);
-    v9 = __inbyte(0x71u);
-    *(_BYTE *)(v7 + a2) = v9;
+    __outbyte(0x70u, v5);
+    v8 = __inbyte(0x71u);
+    ++v5;
+    *(_BYTE *)(v7 + a2) = v8;
     v7 = (unsigned int)(v7 + 1);
   }
   _InterlockedExchange(&HalpSystemHardwareLock, -1);

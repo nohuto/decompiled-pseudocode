@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z @ 0x1801DCE34
+ * XREFs of ?ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z @ 0x18017B354
  * Callers:
- *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x180052F90 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087434 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x18006D978 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x1800905F0 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memcmp_0 @ 0x18011B98C (memcmp_0.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
  */
 
 void __fastcall COverlayContext::ComparePlaneAttributes(

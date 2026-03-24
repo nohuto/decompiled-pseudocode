@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTimerExpirationDpc @ 0x1403951E0
+ * XREFs of KiTimerExpirationDpc @ 0x1403891D0
  * Callers:
  *     <none>
  * Callees:
- *     KiTimer2Expiration @ 0x1402F27B0 (KiTimer2Expiration.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     KiTimerExpiration @ 0x140395300 (KiTimerExpiration.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KiTimer2Expiration @ 0x1402487E0 (KiTimer2Expiration.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     KiTimerExpiration @ 0x1403892F0 (KiTimerExpiration.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __fastcall KiTimerExpirationDpc(
@@ -35,7 +35,7 @@ void __fastcall KiTimerExpirationDpc(
     v11 = 0LL;
     v12 = 0;
     v13 = 0;
-    EtwTraceKernelEvent((__int64)&v11, 1u, 0x40020000u, 0xF56u, 0x400A02u);
+    EtwTraceKernelEvent((int)&v11, 1, 0x40020000u, 3926, 4196866);
   }
   CurrentPrcb = KeGetCurrentPrcb();
   v14[1] = MEMORY[0xFFFFF78000000014];
@@ -45,7 +45,7 @@ void __fastcall KiTimerExpirationDpc(
   {
     if ( CurrentPrcb->ClockOwner )
     {
-      v8 = 32272LL;
+      v8 = 31568LL;
       v9 = MEMORY[0xFFFFF78000000008] >> 18;
       v10 = 2LL;
       do
@@ -67,5 +67,5 @@ void __fastcall KiTimerExpirationDpc(
   KiTimerExpiration((_DWORD)CurrentPrcb, v4, v7, v5, (__int64)v14);
   CurrentPrcb->DpcData[0].ActiveDpc = 0LL;
   if ( CurrentPrcb->ClockOwner )
-    KiTimer2Expiration((__int64)CurrentPrcb, v7, 1, 1);
+    KiTimer2Expiration((__int64)CurrentPrcb, v7, 1, 1, (__int64)v14);
 }

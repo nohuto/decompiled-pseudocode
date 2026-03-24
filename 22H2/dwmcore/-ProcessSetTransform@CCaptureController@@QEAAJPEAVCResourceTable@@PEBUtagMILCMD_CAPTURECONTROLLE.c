@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSetTransform@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETTRANSFORM@@@Z @ 0x180220958
+ * XREFs of ?ProcessSetTransform@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETTRANSFORM@@@Z @ 0x1801B6C74
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetTransform@CCaptureRenderTarget@@QEAAJPEAVCTransform3D@@@Z @ 0x1801EE0C4 (-SetTransform@CCaptureRenderTarget@@QEAAJPEAVCTransform3D@@@Z.c)
- *     ??4?$com_ptr_t@VCTransform3D@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCTransform3D@@@Z @ 0x180220690 (--4-$com_ptr_t@VCTransform3D@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCTransform3D@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?SetTransform@CCaptureRenderTarget@@QEAAJPEAVCTransform3D@@@Z @ 0x18018803C (-SetTransform@CCaptureRenderTarget@@QEAAJPEAVCTransform3D@@@Z.c)
  */
 
 __int64 __fastcall CCaptureController::ProcessSetTransform(
@@ -14,44 +14,47 @@ __int64 __fastcall CCaptureController::ProcessSetTransform(
         struct CResourceTable *a2,
         const struct tagMILCMD_CAPTURECONTROLLER_SETTRANSFORM *a3)
 {
-  unsigned int v4; // ebx
   unsigned int v5; // edx
-  __int64 Resource; // rax
-  __int64 v8; // rcx
-  struct CTransform3D **v9; // rsi
-  struct CResource ***v10; // rdi
-  struct CResource ***v11; // rbp
-  int v12; // eax
-  __int64 v13; // rcx
+  __int64 Resource; // rcx
+  unsigned int v7; // edi
+  __int64 v8; // rbx
+  struct CResource ***v9; // rbx
+  struct CResource ***v10; // rbp
+  int v11; // eax
+  __int64 v12; // rcx
 
-  v4 = 0;
   v5 = *((_DWORD *)a3 + 2);
   Resource = 0LL;
-  if ( !v5 || (Resource = CResourceTable::GetResource((__int64)a2, v5, 0xBBu)) != 0 )
+  v7 = 0;
+  if ( !v5 || (Resource = CResourceTable::GetResource((__int64)a2, v5, 0xBAu)) != 0 )
   {
-    v9 = (struct CTransform3D **)((char *)this + 120);
-    if ( Resource != *((_QWORD *)this + 15) )
+    v8 = *((_QWORD *)this + 15);
+    if ( Resource != v8 )
     {
-      wil::com_ptr_t<CTransform3D,wil::err_returncode_policy>::operator=((__int64 *)this + 15, Resource);
+      *((_QWORD *)this + 15) = Resource;
+      if ( Resource )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)Resource + 8LL))(Resource);
+      if ( v8 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+      v9 = (struct CResource ***)*((_QWORD *)this + 7);
       v10 = (struct CResource ***)*((_QWORD *)this + 8);
-      v11 = (struct CResource ***)*((_QWORD *)this + 9);
-      while ( v10 != v11 )
+      while ( v9 != v10 )
       {
-        v12 = CCaptureRenderTarget::SetTransform(*v10, *v9);
-        v4 = v12;
-        if ( v12 < 0 )
+        v11 = CCaptureRenderTarget::SetTransform(*v9, *((struct CTransform3D **)this + 15));
+        v7 = v11;
+        if ( v11 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x67u, 0LL);
-          return v4;
+          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x77u, 0LL);
+          return v7;
         }
-        ++v10;
+        ++v9;
       }
     }
   }
   else
   {
-    v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x5Cu, 0LL);
+    v7 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2003303421, 0x6Cu, 0LL);
   }
-  return v4;
+  return v7;
 }

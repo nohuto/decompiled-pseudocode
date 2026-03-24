@@ -4,7 +4,7 @@
  *     VerifierKeWaitForMultipleObjects @ 0x14093A6F0 (VerifierKeWaitForMultipleObjects.c)
  *     VerifierKeWaitForMultipleObjectsNoReboot @ 0x14093A7D0 (VerifierKeWaitForMultipleObjectsNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ViKeInjectStatusAlerted @ 0x14093AE4C (ViKeInjectStatusAlerted.c)
  *     ViKeWaitSanityChecks @ 0x14093B3CC (ViKeWaitSanityChecks.c)
  */

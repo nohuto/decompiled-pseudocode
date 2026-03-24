@@ -1,17 +1,17 @@
 /*
- * XREFs of VmpSplitMemoryRange @ 0x14030D7D4
+ * XREFs of VmpSplitMemoryRange @ 0x14030D8D4
  * Callers:
- *     VmSplitMemoryRange @ 0x1408B0520 (VmSplitMemoryRange.c)
+ *     VmSplitMemoryRange @ 0x1408B0500 (VmSplitMemoryRange.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessContextLockExclusive @ 0x14030D0AC (VmpProcessContextLockExclusive.c)
- *     VmpProcessContextLockShared @ 0x14030D104 (VmpProcessContextLockShared.c)
- *     VmpVaRangeNumberOfGpaRanges @ 0x14030DC14 (VmpVaRangeNumberOfGpaRanges.c)
- *     VmpAllocateMemoryRanges @ 0x1408B05F4 (VmpAllocateMemoryRanges.c)
- *     VmpFreeMemoryRanges @ 0x1408B073C (VmpFreeMemoryRanges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14030D1AC (VmpProcessContextLockExclusive.c)
+ *     VmpProcessContextLockShared @ 0x14030D204 (VmpProcessContextLockShared.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x14030DD14 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpAllocateMemoryRanges @ 0x1408B05D4 (VmpAllocateMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x1408B071C (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)

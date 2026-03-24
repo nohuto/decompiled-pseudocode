@@ -1,5 +1,5 @@
 /*
- * XREFs of SepValidOwnerSubjectContext @ 0x1406A52EC
+ * XREFs of SepValidOwnerSubjectContext @ 0x1406A52CC
  * Callers:
  *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
@@ -7,9 +7,9 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     SeSinglePrivilegeCheckEx @ 0x1406121AC (SeSinglePrivilegeCheckEx.c)
- *     SepIdAssignableAsOwner @ 0x1406A53E8 (SepIdAssignableAsOwner.c)
+ *     SepIdAssignableAsOwner @ 0x1406A53C8 (SepIdAssignableAsOwner.c)
  */
 
 BOOLEAN __fastcall SepValidOwnerSubjectContext(struct _SECURITY_SUBJECT_CONTEXT *a1, void *a2, char a3)

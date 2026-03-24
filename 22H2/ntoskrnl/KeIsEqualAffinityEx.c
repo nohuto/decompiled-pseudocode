@@ -1,16 +1,11 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x1402BFEA0
+ * XREFs of KeIsEqualAffinityEx @ 0x1403C1EB0
  * Callers:
- *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
- *     KiComputeThreadAffinity @ 0x1402BF804 (KiComputeThreadAffinity.c)
- *     KiTestNodeAffinity @ 0x1402BFDCC (KiTestNodeAffinity.c)
- *     PpmParkReportMask @ 0x14035A760 (PpmParkReportMask.c)
- *     KiForwardTick @ 0x1403CB080 (KiForwardTick.c)
- *     KeCpuPartitionMoveCpus @ 0x140574E64 (KeCpuPartitionMoveCpus.c)
- *     PspSetEffectiveJobLimits @ 0x1407D9D74 (PspSetEffectiveJobLimits.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
- *     PpmHeteroComputeRelativePerformance @ 0x140830C58 (PpmHeteroComputeRelativePerformance.c)
- *     ExpWorkQueueManagerThread @ 0x14083A910 (ExpWorkQueueManagerThread.c)
+ *     PpmParkReportMask @ 0x14030F3B0 (PpmParkReportMask.c)
+ *     KeIsSubsetAffinityEx @ 0x140513580 (KeIsSubsetAffinityEx.c)
+ *     PspSetEffectiveJobLimits @ 0x1406937D4 (PspSetEffectiveJobLimits.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x1407BC0F8 (PpmHeteroComputeRelativePerformance.c)
  * Callees:
  *     <none>
  */
@@ -34,13 +29,13 @@ __int64 __fastcall KeIsEqualAffinityEx(unsigned __int16 *a1, unsigned __int16 *a
     while ( *(_QWORD *)&a1[4 * v5 + 4] == *(_QWORD *)&a2[4 * v5 + 4] )
     {
       if ( ++v5 >= v3 )
-        goto LABEL_7;
+        goto LABEL_6;
     }
     return 0LL;
   }
   else
   {
-LABEL_7:
+LABEL_6:
     while ( v5 < *v2 )
     {
       if ( *(_QWORD *)&v2[4 * v5 + 4] )

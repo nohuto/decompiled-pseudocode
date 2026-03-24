@@ -1,67 +1,65 @@
 /*
- * XREFs of RIMComputeSpecificHighMetricValue @ 0x1C01B0D6C
+ * XREFs of RIMComputeSpecificHighMetricValue @ 0x1C0181400
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C0182600 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0187070 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161CFC (RIMPopulatePointerDevice.c)
  * Callees:
- *     RIMComputePower @ 0x1C01B0D38 (RIMComputePower.c)
+ *     RIMComputePower @ 0x1C01813C8 (RIMComputePower.c)
  */
 
-__int64 __fastcall RIMComputeSpecificHighMetricValue(int a1, __int64 a2)
+__int64 __fastcall RIMComputeSpecificHighMetricValue(unsigned int a1, __int64 a2)
 {
-  int v2; // edi
-  unsigned int v3; // r8d
+  unsigned int v2; // r8d
+  unsigned int v3; // edi
   unsigned int v4; // r10d
-  _BYTE *v5; // rax
-  unsigned int v6; // esi
+  unsigned int v5; // esi
+  _BYTE *v6; // rax
   __int64 v7; // rax
   int v8; // ebx
   unsigned int v9; // eax
-  __int16 v10; // cx
+  __int16 v10; // r9
   int v11; // r10d
   int v12; // r10d
   __int64 result; // rax
 
-  v2 = -a1;
-  v3 = 0;
+  v2 = 0;
+  v3 = abs32(a1);
   v4 = 0;
-  v5 = word_1C0265988;
-  if ( a1 >= 0 )
-    v2 = a1;
-  v6 = (unsigned int)a1 >> 31;
+  v5 = a1 >> 31;
+  v6 = word_1C02260D0;
   do
   {
-    if ( *v5 == (*(_BYTE *)(a2 + 32) & 0xF) )
+    if ( *v6 == (*(_BYTE *)(a2 + 32) & 0xF) )
       break;
-    ++v3;
-    v5 += 4;
+    ++v2;
+    v6 += 4;
   }
-  while ( v3 < 0xB );
+  while ( v2 < 0xB );
   v7 = *(_DWORD *)(a2 + 36) & 0xF;
   if ( (unsigned int)v7 < 5 )
   {
-    v8 = dword_1C02659B8[v7];
-    if ( (unsigned int)(v8 - 1) <= 1 && v3 < 0xB )
+    v8 = dword_1C0226110[v7];
+    if ( (unsigned int)(v8 - 1) <= 1 && v2 < 0xB )
     {
-      v9 = RIMComputePower(word_1C0265988[2 * v3 + 1]);
+      v9 = RIMComputePower(word_1C02260D0[2 * v2 + 1]);
       if ( v10 >= 0 )
       {
         v12 = 2540;
         if ( v8 != 1 )
           v12 = 1000;
-        v4 = v9 * v2 * v12;
+        v4 = v9 * v3 * v12;
       }
       else if ( v9 )
       {
         v11 = 2540;
         if ( v8 != 1 )
           v11 = 1000;
-        v4 = v2 * v11 / v9;
+        v4 = v3 * v11 / v9;
       }
     }
   }
   result = -v4;
-  if ( !(_BYTE)v6 )
+  if ( !(_BYTE)v5 )
     return v4;
   return result;
 }

@@ -1,37 +1,39 @@
 /*
- * XREFs of ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4
+ * XREFs of ??1DCOBJ@@QEAA@XZ @ 0x1C003B478
  * Callers:
- *     ?vCleanupDCs@@YAXK@Z @ 0x1C001783C (-vCleanupDCs@@YAXK@Z.c)
- *     GreGetClipBox @ 0x1C001BC60 (GreGetClipBox.c)
- *     bDeleteDCInternalEx @ 0x1C002DFD0 (bDeleteDCInternalEx.c)
- *     GreCreateCompatibleDC @ 0x1C002E050 (GreCreateCompatibleDC.c)
- *     ??1DCMEMOBJ@@QEAA@XZ @ 0x1C002E1F0 (--1DCMEMOBJ@@QEAA@XZ.c)
- *     NtGdiGetDeviceCaps @ 0x1C002E300 (NtGdiGetDeviceCaps.c)
- *     GreGetNearestColor @ 0x1C0062D20 (GreGetNearestColor.c)
- *     GreGetDeviceCaps @ 0x1C00642D0 (GreGetDeviceCaps.c)
- *     hdcOpenDCW @ 0x1C0071480 (hdcOpenDCW.c)
- *     GreCleanDC @ 0x1C009C3E0 (GreCleanDC.c)
- *     GreSetLayout @ 0x1C009E0A0 (GreSetLayout.c)
- *     GreGetDCPoint @ 0x1C00AB470 (GreGetDCPoint.c)
- *     GreRestoreDCInternal @ 0x1C00BEFB0 (GreRestoreDCInternal.c)
- *     GreIntersectClipRect @ 0x1C00CA500 (GreIntersectClipRect.c)
- *     NtGdiGetDeviceCapsAll @ 0x1C00CD460 (NtGdiGetDeviceCapsAll.c)
- *     NtGdiCreateMetafileDC @ 0x1C00CDAB0 (NtGdiCreateMetafileDC.c)
- *     GreCleanDCAndSetOwnerEx @ 0x1C00DBCF0 (GreCleanDCAndSetOwnerEx.c)
- *     GreSelectBrush @ 0x1C0169250 (GreSelectBrush.c)
- *     GreSelectPen @ 0x1C01692B0 (GreSelectPen.c)
- *     ?DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z @ 0x1C0171244 (-DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z.c)
- *     GreSelectPalette @ 0x1C01757D0 (GreSelectPalette.c)
- *     GreSetMagicColors @ 0x1C0175868 (GreSetMagicColors.c)
- *     ?DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z @ 0x1C0176230 (-DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C000AAF0 (-vCleanupDCs@@YAXK@Z.c)
+ *     GreGetNearestColor @ 0x1C00202A0 (GreGetNearestColor.c)
+ *     hdcOpenDCW @ 0x1C0021590 (hdcOpenDCW.c)
+ *     GreGetClipBox @ 0x1C003A0D0 (GreGetClipBox.c)
+ *     bDeleteDCInternalEx @ 0x1C003B2C0 (bDeleteDCInternalEx.c)
+ *     GreCreateCompatibleDC @ 0x1C003B340 (GreCreateCompatibleDC.c)
+ *     ??1DCMEMOBJ@@QEAA@XZ @ 0x1C003B430 (--1DCMEMOBJ@@QEAA@XZ.c)
+ *     GreGetDCPoint @ 0x1C0071810 (GreGetDCPoint.c)
+ *     GreIntersectClipRect @ 0x1C0071A70 (GreIntersectClipRect.c)
+ *     GreGetDeviceCaps @ 0x1C0091480 (GreGetDeviceCaps.c)
+ *     GreCleanDC @ 0x1C00926D0 (GreCleanDC.c)
+ *     GreSetLayout @ 0x1C00930A0 (GreSetLayout.c)
+ *     NtGdiCreateMetafileDC @ 0x1C00A3AD0 (NtGdiCreateMetafileDC.c)
+ *     GreCleanDCAndSetOwnerEx @ 0x1C00CBFF0 (GreCleanDCAndSetOwnerEx.c)
+ *     GreRestoreDCInternal @ 0x1C00CC090 (GreRestoreDCInternal.c)
+ *     GreSelectBrush @ 0x1C013BE20 (GreSelectBrush.c)
+ *     GreSelectPen @ 0x1C013BE80 (GreSelectPen.c)
+ *     NtGdiGetDeviceCapsAll @ 0x1C0142390 (NtGdiGetDeviceCapsAll.c)
+ *     ?DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z @ 0x1C01442F0 (-DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z.c)
+ *     ?GreSetPrivateDeviceGammaRamp@@YAHPEAUHDC__@@PEAXH@Z @ 0x1C014856C (-GreSetPrivateDeviceGammaRamp@@YAHPEAUHDC__@@PEAXH@Z.c)
+ *     NtGdiGetAppliedDeviceGammaRamp @ 0x1C01489D0 (NtGdiGetAppliedDeviceGammaRamp.c)
+ *     NtGdiGetGammaRampCapability @ 0x1C0148B90 (NtGdiGetGammaRampCapability.c)
+ *     GreSelectPalette @ 0x1C01494A0 (GreSelectPalette.c)
+ *     GreSetMagicColors @ 0x1C0149538 (GreSetMagicColors.c)
+ *     ?DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z @ 0x1C0149F60 (-DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z.c)
  * Callees:
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C00D8C28 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00D9014 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00C7F00 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
  */
 
 void __fastcall DCOBJ::~DCOBJ(DCOBJ *this)
 {
   if ( *(_QWORD *)this )
     XDCOBJ::vUnlockFast(this);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((char *)this + 16);
+  PopThreadGuardedObject((_QWORD *)this + 2);
 }

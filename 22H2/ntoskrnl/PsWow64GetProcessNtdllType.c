@@ -1,14 +1,14 @@
 /*
- * XREFs of PsWow64GetProcessNtdllType @ 0x1407A1C50
+ * XREFs of PsWow64GetProcessNtdllType @ 0x1406120AC
  * Callers:
- *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     DbgkCreateThread @ 0x14077012C (DbgkCreateThread.c)
- *     PspWow64InitThread @ 0x14079F8D4 (PspWow64InitThread.c)
- *     PspSetupUserProcessAddressSpace @ 0x1407A176C (PspSetupUserProcessAddressSpace.c)
- *     PspPrepareSystemDllInitBlock @ 0x1407A19D8 (PspPrepareSystemDllInitBlock.c)
- *     PsMapSystemDlls @ 0x1407A36D8 (PsMapSystemDlls.c)
- *     DbgkSendSystemDllMessages @ 0x140936E84 (DbgkSendSystemDllMessages.c)
+ *     PspSetupUserProcessAddressSpace @ 0x140611BDC (PspSetupUserProcessAddressSpace.c)
+ *     PspPrepareSystemDllInitBlock @ 0x140611E28 (PspPrepareSystemDllInitBlock.c)
+ *     PspWow64InitThread @ 0x140679DC0 (PspWow64InitThread.c)
+ *     PsThawProcess @ 0x1406857E4 (PsThawProcess.c)
+ *     DbgkCreateThread @ 0x1406C01E0 (DbgkCreateThread.c)
+ *     PsMapSystemDlls @ 0x1406FC94C (PsMapSystemDlls.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     DbgkSendSystemDllMessages @ 0x14088452C (DbgkSendSystemDllMessages.c)
  * Callees:
  *     <none>
  */
@@ -19,6 +19,6 @@ __int64 __fastcall PsWow64GetProcessNtdllType(__int64 a1)
 
   result = *(_QWORD *)(a1 + 1408);
   if ( result )
-    return *(unsigned int *)(result + 8);
+    return *(unsigned int *)(result + 12);
   return result;
 }

@@ -1,32 +1,34 @@
 /*
- * XREFs of MiRealVaToFlushType @ 0x140227300
+ * XREFs of MiRealVaToFlushType @ 0x1403791A8
  * Callers:
- *     MiFlushValidPteFromTb @ 0x140227254 (MiFlushValidPteFromTb.c)
- *     MiDbgReleaseAddress @ 0x1403AD0A8 (MiDbgReleaseAddress.c)
- *     MiDbgWriteCheck @ 0x1403AD16C (MiDbgWriteCheck.c)
+ *     MiFlushValidPteFromTb @ 0x1403790FC (MiFlushValidPteFromTb.c)
+ *     MiDbgReleaseAddress @ 0x1405460BC (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x1405466BC (MiDbgWriteCheck.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14027A0F4 (MiHyperSpaceSize.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
+ *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
  */
 
-__int64 __fastcall MiRealVaToFlushType(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiRealVaToFlushType(unsigned __int64 a1)
 {
-  unsigned __int64 v4; // r10
+  unsigned __int64 v1; // r10
+  __int64 v2; // rax
   int SystemRegionType; // eax
-  unsigned int v6; // ecx
-  __int64 v8; // rax
+  unsigned int v4; // ecx
 
-  v4 = a1;
-  if ( a1 >= 0xFFFF800000000000uLL && (a1 < qword_140C51BE8 || (v8 = MiHyperSpaceSize(), v4 >= qword_140C51BE8 + v8)) )
-  {
-    SystemRegionType = MiGetSystemRegionType(v4, a2, a3, a4);
-    v6 = 0;
-    if ( SystemRegionType == 1 )
-      return 2;
-  }
-  else
+  v1 = a1;
+  if ( a1 < 0xFFFF800000000000uLL )
+    return 1;
+  if ( a1 >= qword_140C4E360 && (v2 = MiHyperSpaceSize(), v1 < qword_140C4E360 + v2) )
   {
     return 1;
   }
-  return v6;
+  else
+  {
+    SystemRegionType = MiGetSystemRegionType(v1);
+    v4 = 0;
+    if ( SystemRegionType == 1 )
+      return 2;
+  }
+  return v4;
 }

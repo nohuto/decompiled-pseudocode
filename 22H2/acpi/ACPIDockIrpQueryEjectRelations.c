@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIDockIrpQueryEjectRelations @ 0x1C007B238
+ * XREFs of ACPIDockIrpQueryEjectRelations @ 0x1C00ABD18
  * Callers:
- *     ACPIDockIrpQueryDeviceRelations @ 0x1C007B020 (ACPIDockIrpQueryDeviceRelations.c)
+ *     ACPIDockIrpQueryDeviceRelations @ 0x1C00ABAE0 (ACPIDockIrpQueryDeviceRelations.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
- *     WPP_RECORDER_SF_qqqss @ 0x1C000A12C (WPP_RECORDER_SF_qqqss.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
- *     ACPIDetectEjectDevices @ 0x1C001A6E0 (ACPIDetectEjectDevices.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     WPP_RECORDER_SF_qqqss @ 0x1C004AC64 (WPP_RECORDER_SF_qqqss.c)
+ *     ACPIDetectEjectDevices @ 0x1C004F600 (ACPIDetectEjectDevices.c)
  */
 
 __int64 __fastcall ACPIDockIrpQueryEjectRelations(ULONG_PTR a1, char a2, PVOID *a3)
@@ -31,19 +31,19 @@ __int64 __fastcall ACPIDockIrpQueryEjectRelations(ULONG_PTR a1, char a2, PVOID *
   v7 = *(_QWORD *)(DeviceExtension + 184);
   if ( v7 )
   {
-    if ( *(_QWORD *)(v7 + 760) )
+    if ( *(_QWORD *)(v7 + 720) )
     {
       v15 = ACPIDetectEjectDevices(v7, a3, *(_QWORD *)(DeviceExtension + 184));
       if ( v15 < 0 )
       {
         v16 = v6[1];
-        v17 = byte_1C00622D0;
-        v18 = byte_1C00622D0;
+        v17 = byte_1C00701BA;
+        v18 = byte_1C00701BA;
         if ( (v16 & 0x200000000000LL) != 0 )
         {
-          v17 = (const char *)v6[76];
+          v17 = (const char *)v6[71];
           if ( (v16 & 0x400000000000LL) != 0 )
-            v18 = (const char *)v6[77];
+            v18 = (const char *)v6[72];
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_qLqss(
@@ -63,13 +63,13 @@ __int64 __fastcall ACPIDockIrpQueryEjectRelations(ULONG_PTR a1, char a2, PVOID *
     else
     {
       v12 = *(_QWORD *)(DeviceExtension + 8);
-      v13 = byte_1C00622D0;
-      v14 = byte_1C00622D0;
+      v13 = byte_1C00701BA;
+      v14 = byte_1C00701BA;
       if ( (v12 & 0x200000000000LL) != 0 )
       {
-        v13 = (const char *)v6[76];
+        v13 = (const char *)v6[71];
         if ( (v12 & 0x400000000000LL) != 0 )
-          v14 = (const char *)v6[77];
+          v14 = (const char *)v6[72];
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_qqqss(
@@ -89,13 +89,13 @@ __int64 __fastcall ACPIDockIrpQueryEjectRelations(ULONG_PTR a1, char a2, PVOID *
   else
   {
     v8 = *(_QWORD *)(DeviceExtension + 8);
-    v9 = byte_1C00622D0;
-    v10 = byte_1C00622D0;
+    v9 = byte_1C00701BA;
+    v10 = byte_1C00701BA;
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v9 = (const char *)v6[76];
+      v9 = (const char *)v6[71];
       if ( (v8 & 0x400000000000LL) != 0 )
-        v10 = (const char *)v6[77];
+        v10 = (const char *)v6[72];
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qqss(

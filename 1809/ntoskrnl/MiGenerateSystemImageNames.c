@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGenerateSystemImageNames @ 0x140681A8C
+ * XREFs of MiGenerateSystemImageNames @ 0x140681A6C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

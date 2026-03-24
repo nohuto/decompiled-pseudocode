@@ -1,97 +1,135 @@
 /*
- * XREFs of ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C02186E0
+ * XREFs of ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C0190348
  * Callers:
- *     ?_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021864C (-_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?_AddTargetIntoPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z @ 0x1C03B34FC (-_AddTargetIntoPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z.c)
- *     ?_DeleteTargetFromPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z @ 0x1C03B3A0C (-_DeleteTargetFromPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z.c)
+ *     ?_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0190240 (-_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_AddTargetIntoPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z @ 0x1C02F1AB0 (-_AddTargetIntoPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z.c)
+ *     ?_DeleteTargetFromPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z @ 0x1C02F1F44 (-_DeleteTargetFromPersistencyRegistry@MONITOR_MGR@@QEBAJI@Z.c)
  * Callees:
- *     ?DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C001CBB4 (-DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
- *     ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C002806C (-DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C0190668 (-DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
+ *     ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C02F53C0 (-DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
  */
 
-__int64 __fastcall MONITOR_MGR::_OpenPersistencyRegistry(MONITOR_MGR *this, ACCESS_MASK a2, void **a3)
+__int64 __fastcall MONITOR_MGR::_OpenPersistencyRegistry(MONITOR_MGR *this, __int64 a2, void **a3)
 {
+  ACCESS_MASK v4; // edi
   __int64 v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // r15
-  __int64 v8; // rbx
-  void *v9; // r8
-  NTSTATUS v10; // eax
+  __int64 v10; // rbx
   __int64 v11; // rdx
   __int64 v12; // rcx
-  __int64 v13; // rax
-  NTSTATUS v15; // eax
+  void *v13; // r8
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  int v27; // eax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
   void *DeviceRegKey; // [rsp+20h] [rbp-50h] BYREF
-  struct _UNICODE_STRING v17; // [rsp+28h] [rbp-48h] BYREF
-  _OWORD v18[2]; // [rsp+38h] [rbp-38h] BYREF
-  int v19; // [rsp+58h] [rbp-18h]
-  wchar_t v20; // [rsp+5Ch] [rbp-14h]
+  struct _UNICODE_STRING v32; // [rsp+28h] [rbp-48h] BYREF
+  _OWORD v33[2]; // [rsp+38h] [rbp-38h] BYREF
+  int v34; // [rsp+58h] [rbp-18h]
+  wchar_t v35; // [rsp+5Ch] [rbp-14h]
 
-  if ( a2 != 131097 && a2 != 131078 && a2 != 983103 )
-    WdLogSingleEntry0(1LL);
+  v4 = a2;
+  if ( (_DWORD)a2 != 131097 && (_DWORD)a2 != 131078 && (_DWORD)a2 != 983103 )
+  {
+    v21 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v21);
+  }
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
-  v6 = *((_QWORD *)this + 3);
+  {
+    v22 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v22);
+  }
+  v6 = *((_QWORD *)this + 1);
   DeviceRegKey = 0LL;
   if ( !*(_QWORD *)(v6 + 16) )
   {
-    WdLogSingleEntry0(1LL);
-    v6 = *((_QWORD *)this + 3);
+    v23 = WdLogNewEntry5_WdAssertion(v6, a2);
+    WdLogEvent5_WdAssertion(v23);
+    v6 = *((_QWORD *)this + 1);
   }
   if ( !*(_QWORD *)(*(_QWORD *)(v6 + 16) + 216LL) )
   {
-    WdLogSingleEntry0(1LL);
-    v6 = *((_QWORD *)this + 3);
+    v24 = WdLogNewEntry5_WdAssertion(v6, a2);
+    WdLogEvent5_WdAssertion(v24);
+    v6 = *((_QWORD *)this + 1);
   }
   DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*(PDEVICE_OBJECT *)(*(_QWORD *)(v6 + 16) + 216LL));
   if ( !DeviceAttachmentBaseRef )
-    WdLogSingleEntry0(1LL);
-  v8 = IoOpenDeviceRegistryKey(DeviceAttachmentBaseRef, 1u, a2, &DeviceRegKey);
-  ObfDereferenceObject(DeviceAttachmentBaseRef);
-  if ( (int)v8 < 0 )
   {
-    WdLogSingleEntry2(2LL, *(_QWORD *)(*((_QWORD *)this + 3) + 16LL), v8);
-    return (unsigned int)v8;
+    v25 = WdLogNewEntry5_WdAssertion(v8, v7);
+    WdLogEvent5_WdAssertion(v25);
   }
-  v9 = DeviceRegKey;
+  v10 = IoOpenDeviceRegistryKey(DeviceAttachmentBaseRef, 1u, v4, &DeviceRegKey);
+  ObfDereferenceObject(DeviceAttachmentBaseRef);
+  if ( (int)v10 < 0 )
+  {
+    v30 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v30 + 24) = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+    *(_QWORD *)(v30 + 32) = v10;
+    WdLogEvent5_WdError(v30);
+    return (unsigned int)v10;
+  }
+  v13 = DeviceRegKey;
   if ( !DeviceRegKey )
   {
-    WdLogSingleEntry0(1LL);
-    v9 = DeviceRegKey;
+    v26 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v26);
+    v13 = DeviceRegKey;
   }
-  v19 = *(_DWORD *)L"cy";
+  v34 = *(_DWORD *)L"cy";
   *a3 = 0LL;
-  v20 = aMonitorpersist[18];
-  v17.Buffer = (wchar_t *)v18;
-  v18[0] = *(_OWORD *)L"MonitorPersistency";
-  *(_QWORD *)&v17.Length = 2490404LL;
-  v18[1] = *(_OWORD *)L"ersistency";
-  v10 = DxgkOpenRegistrySubkey(a3, a2, v9, &v17);
-  v8 = v10;
-  if ( v10 != -1073741772 )
+  v35 = aMonitorpersist[18];
+  v32.Buffer = (wchar_t *)v33;
+  v33[0] = *(_OWORD *)L"MonitorPersistency";
+  *(_QWORD *)&v32.Length = 2490404LL;
+  v33[1] = *(_OWORD *)L"ersistency";
+  v14 = DxgkOpenRegistrySubkey(a3, v4, v13, &v32);
+  v10 = v14;
+  if ( v14 != -1073741772 )
   {
-    if ( v10 >= 0 )
+    if ( v14 >= 0 )
     {
       if ( !*a3 )
-        WdLogSingleEntry0(1LL);
+      {
+        v29 = WdLogNewEntry5_WdAssertion(v16, v15);
+        WdLogEvent5_WdAssertion(v29);
+      }
       goto LABEL_17;
     }
     goto LABEL_23;
   }
-  if ( a2 == 131078 || a2 == 983103 )
+  if ( v4 == 131078 || v4 == 983103 )
   {
-    v15 = DxgkCreateRegistrySubkey(a3, a2, DeviceRegKey, &v17);
-    v8 = v15;
-    if ( v15 >= 0 )
+    v27 = DxgkCreateRegistrySubkey(a3, v4, DeviceRegKey, &v32);
+    v10 = v27;
+    if ( v27 >= 0 )
       goto LABEL_17;
 LABEL_23:
-    WdLogSingleEntry2(2LL, *(_QWORD *)(*((_QWORD *)this + 3) + 16LL), v8);
+    v28 = WdLogNewEntry5_WdError(v16, v15);
+    *(_QWORD *)(v28 + 24) = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+    *(_QWORD *)(v28 + 32) = v10;
+    WdLogEvent5_WdError(v28);
     goto LABEL_17;
   }
-  v13 = WdLogNewEntry5_WdTrace(v12, v11);
-  *(_QWORD *)(v13 + 24) = *(_QWORD *)(*((_QWORD *)this + 3) + 16LL);
-  *(_QWORD *)(v13 + 32) = -1073741772LL;
+  v19 = WdLogNewEntry5_WdTrace(v16, v15, v17, v18);
+  *(_QWORD *)(v19 + 24) = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+  *(_QWORD *)(v19 + 32) = -1073741772LL;
 LABEL_17:
   ZwClose(DeviceRegKey);
-  return (unsigned int)v8;
+  return (unsigned int)v10;
 }

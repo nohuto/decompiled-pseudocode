@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpEnumerateAllOpenSubKeys @ 0x140699ABC
+ * XREFs of CmpEnumerateAllOpenSubKeys @ 0x14066D0E4
  * Callers:
- *     CmpDoesKeyHaveOpenSubkeys @ 0x140699A80 (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x140699DD0 (CmpPrepareForSubtreeInvalidation.c)
- *     CmpInvalidateSubtree @ 0x140699EE8 (CmpInvalidateSubtree.c)
- *     CmpSearchForOpenSubKeys @ 0x140875624 (CmpSearchForOpenSubKeys.c)
+ *     CmpSearchForOpenSubKeys @ 0x14066C648 (CmpSearchForOpenSubKeys.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x14066D074 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x140772784 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpInvalidateSubtree @ 0x1407729A0 (CmpInvalidateSubtree.c)
  * Callees:
- *     CmpEnumerateKcbCacheBucket @ 0x140699B80 (CmpEnumerateKcbCacheBucket.c)
- *     CmpCleanUpKCBCacheTable @ 0x140699C14 (CmpCleanUpKCBCacheTable.c)
+ *     CmpEnumerateKcbCacheBucket @ 0x14066D1A8 (CmpEnumerateKcbCacheBucket.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14066D23C (CmpCleanUpKCBCacheTable.c)
  */
 
 __int64 __fastcall CmpEnumerateAllOpenSubKeys(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -23,34 +23,34 @@ __int64 __fastcall CmpEnumerateAllOpenSubKeys(__int64 a1, char a2, __int64 a3, _
   {
     v10 = 0LL;
     v11 = 0;
-    if ( *(_DWORD *)(v4 + 1656) )
+    if ( *(_DWORD *)(v4 + 1648) )
     {
       while ( 1 )
       {
-        result = CmpEnumerateKcbCacheBucket(a1, *(_QWORD *)(v4 + 1648) + 24LL * v11, a3, a4);
+        result = CmpEnumerateKcbCacheBucket(a1, *(_QWORD *)(v4 + 1640) + 24LL * v11, a3, a4);
         if ( (_DWORD)result == 1 )
           break;
         if ( (_DWORD)result == 2 )
           --v11;
-        if ( ++v11 >= *(_DWORD *)(v4 + 1656) )
-          goto LABEL_10;
+        if ( ++v11 >= *(_DWORD *)(v4 + 1648) )
+          goto LABEL_9;
       }
     }
     else
     {
-LABEL_10:
-      if ( a2 && *(_DWORD *)(v4 + 1672) )
+LABEL_9:
+      if ( a2 && *(_DWORD *)(v4 + 1664) )
       {
         do
         {
-          result = CmpEnumerateKcbCacheBucket(a1, *(_QWORD *)(v4 + 1664) + 24 * v10, a3, a4);
+          result = CmpEnumerateKcbCacheBucket(a1, *(_QWORD *)(v4 + 1656) + 24 * v10, a3, a4);
           if ( (_DWORD)result == 1 )
             break;
           if ( (_DWORD)result == 2 )
             LODWORD(v10) = v10 - 1;
           v10 = (unsigned int)(v10 + 1);
         }
-        while ( (unsigned int)v10 < *(_DWORD *)(v4 + 1672) );
+        while ( (unsigned int)v10 < *(_DWORD *)(v4 + 1664) );
       }
     }
   }

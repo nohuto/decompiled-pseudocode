@@ -1,17 +1,18 @@
 /*
- * XREFs of RtlAddRange @ 0x140816E70
+ * XREFs of RtlAddRange @ 0x140763A30
  * Callers:
- *     ArbAddInaccessibleAllocationRange @ 0x140815AD4 (ArbAddInaccessibleAllocationRange.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x140816844 (ArbAddMmConfigRangeAsBootReserved.c)
- *     IopMemInitialize @ 0x140816A54 (IopMemInitialize.c)
- *     IopPortAddAllocation @ 0x140816C90 (IopPortAddAllocation.c)
- *     RtlInvertRangeListEx @ 0x140816D30 (RtlInvertRangeListEx.c)
- *     ArbAddAllocation @ 0x140816E20 (ArbAddAllocation.c)
- *     ArbInitializeRangeList @ 0x1409361E0 (ArbInitializeRangeList.c)
+ *     IopMemInitialize @ 0x1407A2064 (IopMemInitialize.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x1407A2290 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x1407A249C (ArbAddInaccessibleAllocationRange.c)
+ *     RtlInvertRangeListEx @ 0x1407B8120 (RtlInvertRangeListEx.c)
+ *     ArbAddAllocation @ 0x1407BA100 (ArbAddAllocation.c)
+ *     IopPortAddAllocation @ 0x1407C7BC0 (IopPortAddAllocation.c)
+ *     ArbInitializeRangeList @ 0x140867100 (ArbInitializeRangeList.c)
+ *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BC9C4 (KiTpBuildExcludedKernelTracepointRangeList.c)
  * Callees:
- *     RtlpCreateRangeListEntry @ 0x140816F14 (RtlpCreateRangeListEntry.c)
- *     RtlpAddRange @ 0x140816F84 (RtlpAddRange.c)
- *     RtlpFreeRangeListEntry @ 0x140817C48 (RtlpFreeRangeListEntry.c)
+ *     RtlpFreeRangeListEntry @ 0x140760C88 (RtlpFreeRangeListEntry.c)
+ *     RtlpAddRange @ 0x140763AD4 (RtlpAddRange.c)
+ *     RtlpCreateRangeListEntry @ 0x140763B80 (RtlpCreateRangeListEntry.c)
  */
 
 __int64 __fastcall RtlAddRange(
@@ -19,13 +20,13 @@ __int64 __fastcall RtlAddRange(
         unsigned __int64 a2,
         unsigned __int64 a3,
         char a4,
-        unsigned int a5,
+        char a5,
         __int64 a6,
         __int64 a7)
 {
   int v7; // r10d
   __int64 RangeListEntry; // rax
-  void *v10; // rdi
+  void *v10; // rbx
   int v11; // esi
 
   v7 = a3;
@@ -40,7 +41,7 @@ __int64 __fastcall RtlAddRange(
     *(_BYTE *)(RangeListEntry + 33) |= 1u;
   if ( (a5 & 0x10) != 0 )
     *(_BYTE *)(RangeListEntry + 33) |= 0x10u;
-  v11 = RtlpAddRange(a1, RangeListEntry, a5);
+  v11 = RtlpAddRange(a1, RangeListEntry);
   if ( v11 < 0 )
   {
     RtlpFreeRangeListEntry(v10);

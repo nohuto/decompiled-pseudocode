@@ -1,9 +1,9 @@
 /*
- * XREFs of ApplySecurityAttributesToWinsta @ 0x1C0057160
+ * XREFs of ApplySecurityAttributesToWinsta @ 0x1C0069570
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
  */
 
 __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
@@ -13,13 +13,11 @@ __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
   NTSTATUS v7; // ecx
   ULONG v8; // eax
   __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+40h] [rbp-30h] BYREF
   PSECURITY_DESCRIPTOR NewDescriptor; // [rsp+48h] [rbp-28h] BYREF
-  _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+50h] [rbp-20h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+50h] [rbp-20h] BYREF
   unsigned __int8 MemoryAllocated; // [rsp+A0h] [rbp+30h] BYREF
-  int v16; // [rsp+A8h] [rbp+38h] BYREF
+  int v14; // [rsp+A8h] [rbp+38h] BYREF
 
   SecurityDescriptor = 0LL;
   NewDescriptor = 0LL;
@@ -52,12 +50,12 @@ __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
       if ( ObjectSecurity != -1073741790 )
         v7 = ObjectSecurity;
       v8 = RtlNtStatusToDosError(v7);
-      UserSetLastError(v8, v9, v10, v11);
+      UserSetLastError(v8, v9);
     }
     else
     {
-      v16 = 15;
-      ObjectSecurity = ObSetSecurityDescriptorInfo(a1, &v16, NewDescriptor, a1 - 8, 1, &WinStaMapping);
+      v14 = 15;
+      ObjectSecurity = ObSetSecurityDescriptorInfo(a1, &v14, NewDescriptor, a1 - 8, 1, &WinStaMapping);
       SeDeassignSecurity(&NewDescriptor);
     }
   }

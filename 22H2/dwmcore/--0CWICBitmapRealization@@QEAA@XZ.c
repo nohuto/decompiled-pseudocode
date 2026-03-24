@@ -1,22 +1,22 @@
 /*
- * XREFs of ??0CWICBitmapRealization@@QEAA@XZ @ 0x1800A6B6C
+ * XREFs of ??0CWICBitmapRealization@@QEAA@XZ @ 0x18003D2CC
  * Callers:
- *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x1800A6A7C (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
+ *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x18003D1E8 (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
  * Callees:
- *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180032D5C (--0CD2DBitmapCache@@IEAA@XZ.c)
+ *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180064784 (--0CD2DBitmapCache@@IEAA@XZ.c)
  */
 
 CWICBitmapRealization *__fastcall CWICBitmapRealization::CWICBitmapRealization(CWICBitmapRealization *this)
 {
-  CWICBitmapRealization *v1; // r11
+  CWICBitmapRealization *v1; // r10
   CWICBitmapRealization *result; // rax
 
   *((_QWORD *)this + 2) = &CWICBitmapRealization::`vbtable';
   *((_QWORD *)this + 11) = &CWICBitmapRealization::`vbtable'{for `IBitmapRealization'};
   *((_QWORD *)this + 17) = &CWICBitmapRealization::`vbtable'{for `IPixelFormat'};
-  CD2DBitmapCache::CD2DBitmapCache(this, 0);
-  *(_QWORD *)v1 = &CWICBitmapRealization::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  CD2DBitmapCache::CD2DBitmapCache(this);
   *((_QWORD *)v1 + 10) = &CWICBitmapRealization::`vftable'{for `IBitmapRealization'};
+  *(_QWORD *)v1 = &CWICBitmapRealization::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)v1 + 12) = &CWICBitmapRealization::`vftable'{for `IWICDecoderBitmapSource'};
   *(_QWORD *)((char *)v1 + *(int *)(*((_QWORD *)v1 + 2) + 4LL) + 16) = &CWICBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
   *(_QWORD *)((char *)v1 + *(int *)(*((_QWORD *)v1 + 2) + 8LL) + 16) = &CWICBitmapRealization::`vftable'{for `IUnknown'};

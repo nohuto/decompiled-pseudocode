@@ -1,7 +1,7 @@
 /*
- * XREFs of KzRaiseIrql @ 0x1402AFD30
+ * XREFs of KzRaiseIrql @ 0x14021FA60
  * Callers:
- *     KiVirtualizationException @ 0x140431440 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x14040F200 (KiVirtualizationException.c)
  * Callees:
  *     <none>
  */
@@ -10,18 +10,13 @@ KIRQL __stdcall KzRaiseIrql(KIRQL NewIrql)
 {
   KIRQL result; // al
   _DWORD *SchedulerAssist; // r10
-  int v3; // r8d
 
   result = KeGetCurrentIrql();
   __writecr8(NewIrql);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && result <= 0xFu && (unsigned __int8)(NewIrql - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( result == NewIrql )
-      v3 = 1 << NewIrql;
-    else
-      v3 = (-1LL << (result + 1)) & ((1LL << (NewIrql + 1)) - 1) & 0xFFFFFFFC;
-    SchedulerAssist[5] |= v3;
+    SchedulerAssist[5] |= ((1LL << (NewIrql + 1)) - 1) & ~((1LL << (result + 1)) - 1) & 0xFFFFFFFC;
   }
   return result;
 }

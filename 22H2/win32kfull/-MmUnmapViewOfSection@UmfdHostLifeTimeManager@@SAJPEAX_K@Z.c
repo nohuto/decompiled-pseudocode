@@ -1,36 +1,28 @@
 /*
- * XREFs of ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00799B0
+ * XREFs of ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00A73BC
  * Callers:
- *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C0079C54 (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
- *     vUnmapRemoteFonts @ 0x1C028C080 (vUnmapRemoteFonts.c)
+ *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C00A8B64 (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
+ *     vUnmapRemoteFonts @ 0x1C028A6F0 (vUnmapRemoteFonts.c)
  * Callees:
- *     ??0UmfdHostSharedReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C0079BC0 (--0UmfdHostSharedReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C013F038 (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A82E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall UmfdHostLifeTimeManager::MmUnmapViewOfSection(void *a1, __int64 a2)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rbx
-  __int64 v6; // rcx
-  unsigned int v7; // ebx
-  __int64 v9; // [rsp+40h] [rbp+18h] BYREF
+  unsigned int v4; // ebx
+  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
 
-  UmfdHostLifeTimeManager::UmfdHostSharedReadyLock::UmfdHostSharedReadyLock((UmfdHostLifeTimeManager::UmfdHostSharedReadyLock *)&v9);
-  v5 = *(_QWORD *)(SGDGetSessionState(v4) + 32);
-  if ( *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v6) + 32) + 23536LL) && a2 == *(_QWORD *)(v5 + 23488) )
-  {
-    v7 = MmUnmapViewOfSection(*(_QWORD *)(v5 + 23496), a1);
-    AutoSharedUmfdLookupLock::~AutoSharedUmfdLookupLock((AutoSharedUmfdLookupLock *)&v9);
-    return v7;
-  }
+  AutoSharedPushLock::AutoSharedPushLock(
+    (AutoSharedPushLock *)&v6,
+    (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
+  if ( UmfdHostLifeTimeManager::s_Ready && a2 == UmfdHostLifeTimeManager::s_UmfdHostGenerationId )
+    v4 = MmUnmapViewOfSection(UmfdHostLifeTimeManager::s_UmfdHostProcess, a1);
   else
+    v4 = -1073741823;
+  if ( v6 )
   {
-    if ( v9 )
-    {
-      GreReleasePushLockShared(v9);
-      KeLeaveCriticalRegion();
-    }
-    return 3221225473LL;
+    GreReleasePushLockShared(v6);
+    KeLeaveCriticalRegion();
   }
+  return v4;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhEnumFailurePopup @ 0x1C0049EB0
+ * XREFs of UsbhEnumFailurePopup @ 0x1C004B280
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhBuildWmiConnectionNotification @ 0x1C0048514 (UsbhBuildWmiConnectionNotification.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhBuildWmiConnectionNotification @ 0x1C0049894 (UsbhBuildWmiConnectionNotification.c)
  */
 
 void __fastcall UsbhEnumFailurePopup(PDEVICE_OBJECT DeviceObject, __int64 a2)
@@ -20,7 +20,7 @@ void __fastcall UsbhEnumFailurePopup(PDEVICE_OBJECT DeviceObject, __int64 a2)
   v5 = *(unsigned __int16 *)(a2 + 20);
   if ( (*(_DWORD *)(*((_QWORD *)v4 + 377) + 4 * v5) & 0x10) == 0 || (v4[641] & 1) == 0 )
   {
-    EventData = (_DWORD *)UsbhBuildWmiConnectionNotification((__int64)DeviceObject, v5);
+    EventData = UsbhBuildWmiConnectionNotification((__int64)DeviceObject, v5);
     v7 = (__int64)EventData;
     if ( EventData )
     {

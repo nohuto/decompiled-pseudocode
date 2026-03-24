@@ -1,12 +1,12 @@
 /*
- * XREFs of xxxInvalidateRect @ 0x1C022EAE0
+ * XREFs of xxxInvalidateRect @ 0x1C023533C
  * Callers:
- *     xxxMNSetTop @ 0x1C0233C0C (xxxMNSetTop.c)
- *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C0240BC8 (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
- *     xxxMNUpdateShownMenu @ 0x1C02451B0 (xxxMNUpdateShownMenu.c)
- *     xxxMNSetGapState @ 0x1C024568C (xxxMNSetGapState.c)
+ *     xxxMNSetTop @ 0x1C023B578 (xxxMNSetTop.c)
+ *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C0244C5C (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
+ *     xxxMNUpdateShownMenu @ 0x1C0249854 (xxxMNUpdateShownMenu.c)
+ *     xxxMNSetGapState @ 0x1C0249E4C (xxxMNSetGapState.c)
  * Callees:
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
  */
 
 __int64 __fastcall xxxInvalidateRect(struct tagWND *a1, int *a2, int a3)

@@ -1,18 +1,18 @@
 /*
- * XREFs of xxxGetUpdateRect @ 0x1C01071D4
+ * XREFs of xxxGetUpdateRect @ 0x1C0117F40
  * Callers:
- *     NtUserGetUpdateRect @ 0x1C0107040 (NtUserGetUpdateRect.c)
+ *     NtUserGetUpdateRect @ 0x1C0117D60 (NtUserGetUpdateRect.c)
  * Callees:
- *     IntersectWithParents @ 0x1C004B7F8 (IntersectWithParents.c)
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     xxxSimpleDoSyncPaint @ 0x1C00720D0 (xxxSimpleDoSyncPaint.c)
- *     GreTransformPoints @ 0x1C00E2F9C (GreTransformPoints.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D840 (xxxSimpleDoSyncPaint.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     IntersectWithParents @ 0x1C0073118 (IntersectWithParents.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     GreTransformPoints @ 0x1C00FA65C (GreTransformPoints.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxGetUpdateRect(struct tagWND *a1, _OWORD *a2, int a3)
+__int64 __fastcall xxxGetUpdateRect(__int64 a1, _OWORD *a2, int a3)
 {
   __int64 v5; // rax
   __int64 v6; // rcx
@@ -28,9 +28,9 @@ __int64 __fastcall xxxGetUpdateRect(struct tagWND *a1, _OWORD *a2, int a3)
 
   v16 = 0LL;
   if ( a3 )
-    xxxSimpleDoSyncPaint(a1);
+    xxxSimpleDoSyncPaint((struct tagWND *)a1);
   SetOrClrWF(0, a1, 0x120u, 1);
-  v5 = *((_QWORD *)a1 + 5);
+  v5 = *(_QWORD *)(a1 + 40);
   v6 = *(_QWORD *)(v5 + 136);
   if ( v6 )
   {
@@ -42,13 +42,13 @@ __int64 __fastcall xxxGetUpdateRect(struct tagWND *a1, _OWORD *a2, int a3)
     {
       if ( (unsigned int)GreGetRgnBox(v6, &v16) <= 1 )
         v16 = 0LL;
-      IntersectRect(&v16, (int *)&v16, (int *)(*((_QWORD *)a1 + 5) + 104LL));
+      IntersectRect(&v16, (int *)&v16, (int *)(*(_QWORD *)(a1 + 40) + 104LL));
     }
-    if ( (unsigned int)IntersectWithParents((__int64)a1, (int *)&v16) )
+    if ( (unsigned int)IntersectWithParents(a1, (int *)&v16) )
     {
-      if ( a1 != (struct tagWND *)GetDesktopWindow((__int64)a1) )
+      if ( a1 != GetDesktopWindow(a1) )
       {
-        v7 = *((_QWORD *)a1 + 5);
+        v7 = *(_QWORD *)(a1 + 40);
         v8 = *(_DWORD *)(v7 + 104);
         v9 = -*(_DWORD *)(v7 + 108);
         HIDWORD(v16) -= *(_DWORD *)(v7 + 108);
@@ -57,9 +57,9 @@ __int64 __fastcall xxxGetUpdateRect(struct tagWND *a1, _OWORD *a2, int a3)
         DWORD2(v16) += v10;
         DWORD1(v16) += v9;
       }
-      if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 8LL) & 0x20) != 0 )
+      if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 136) + 8LL) + 8LL) & 0x20) != 0 )
       {
-        v13 = *((_QWORD *)a1 + 5);
+        v13 = *(_QWORD *)(a1 + 40);
         if ( (*(_BYTE *)(v13 + 21) & 1) != 0 || *(_QWORD *)(v13 + 136) != 1LL )
         {
           GreLockVisRgnShared(*(_QWORD *)(gpDispInfo + 40LL));
@@ -85,7 +85,7 @@ LABEL_23:
     }
     if ( a2 )
     {
-      v11 = *((_QWORD *)a1 + 5);
+      v11 = *(_QWORD *)(a1 + 40);
       if ( (*(_BYTE *)(v11 + 26) & 0x40) != 0 )
       {
         v15 = *(_DWORD *)(v11 + 112) - *(_DWORD *)(v11 + 104) - v16;

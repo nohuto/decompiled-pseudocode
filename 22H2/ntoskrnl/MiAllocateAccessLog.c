@@ -1,58 +1,71 @@
 /*
- * XREFs of MiAllocateAccessLog @ 0x1402E6400
+ * XREFs of MiAllocateAccessLog @ 0x14033DCF0
  * Callers:
- *     MiLogPageAccess @ 0x14027CA90 (MiLogPageAccess.c)
+ *     MiLogPageAccess @ 0x1402BACE0 (MiLogPageAccess.c)
  * Callees:
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiEmptyPageAccessLog @ 0x1402E1F40 (MiEmptyPageAccessLog.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiInitializePageAccessLogging @ 0x1402E6508 (MiInitializePageAccessLogging.c)
+ *     MiEmptyPageAccessLog @ 0x14025B4D0 (MiEmptyPageAccessLog.c)
+ *     ExAllocatePoolMm @ 0x1402BBA40 (ExAllocatePoolMm.c)
+ *     MiInitializePageAccessLogging @ 0x14033DE30 (MiInitializePageAccessLogging.c)
+ *     MiSufficientAvailablePages @ 0x14033E480 (MiSufficientAvailablePages.c)
  */
 
-unsigned __int64 **__fastcall MiAllocateAccessLog(__int64 a1)
+PVOID **__fastcall MiAllocateAccessLog(__int64 a1)
 {
-  __int64 v2; // rbx
-  SIZE_T v3; // rbx
-  void *SharedVm; // rsi
-  unsigned __int64 *v5; // rdi
-  PVOID Pool; // rax
-  unsigned __int64 **v7; // rdx
-  unsigned __int64 **result; // rax
-  unsigned __int64 *v9; // rcx
+  __int64 v2; // rdi
+  SIZE_T v3; // rbp
+  PVOID **v4; // rdi
+  PVOID *v5; // rsi
+  PVOID *PoolMm; // rax
+  PVOID **v7; // rdx
+  PVOID **result; // rax
+  _QWORD *v9; // rax
 
-  v2 = *(_QWORD *)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(a1 + 174));
-  if ( !(unsigned int)MiSufficientAvailablePages(v2, 0x420uLL)
-    || *(__int64 *)(v2 + 17280) < 1056
-    || (v3 = 4096LL, (unsigned __int64)(MiState[0] - qword_140C65588) < 0x800) )
+  v2 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  if ( (unsigned int)MiSufficientAvailablePages(v2, 1056LL)
+    && *(__int64 *)(v2 + 7168) >= 1056
+    && (unsigned __int64)(MiState[0] - qword_140C4C8C8) >= 0x800 )
+  {
+    v3 = 4096LL;
+  }
+  else
   {
     v3 = 512LL;
   }
-  SharedVm = MiGetSharedVm(a1);
-  v5 = (unsigned __int64 *)*((_QWORD *)SharedVm + 5);
-  if ( v5 && (v3 == 512 || *v5 && *(_QWORD *)*v5) )
+  if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
+    v4 = (PVOID **)&unk_140C4F7A8;
+  else
+    v4 = (PVOID **)(a1 + 232);
+  v5 = *v4;
+  if ( *v4 )
   {
-    MiEmptyPageAccessLog(v5);
-    v5 = 0LL;
-    *((_QWORD *)SharedVm + 5) = 0LL;
+    v9 = *v5;
+    if ( v3 == 512 || v9 && *v9 )
+    {
+      MiEmptyPageAccessLog(*v4);
+      v5 = 0LL;
+      *v4 = 0LL;
+    }
   }
   do
   {
-    Pool = MiAllocatePool(64, v3, 0x63416D4Du);
-    if ( Pool )
+    PoolMm = (PVOID *)ExAllocatePoolMm(
+                        64,
+                        v3,
+                        0x63416D4Du,
+                        KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0] | 0x80000000);
+    if ( PoolMm )
     {
-      *((_QWORD *)SharedVm + 5) = Pool;
-      MiInitializePageAccessLogging(a1, Pool, v3);
+      *v4 = PoolMm;
+      MiInitializePageAccessLogging(a1, PoolMm, v3);
       result = v7;
       *v7 = v5;
       return result;
     }
-    v9 = (unsigned __int64 *)*((_QWORD *)SharedVm + 5);
-    if ( v9 )
+    if ( *v4 )
     {
-      MiEmptyPageAccessLog(v9);
+      MiEmptyPageAccessLog(*v4);
       v5 = 0LL;
-      *((_QWORD *)SharedVm + 5) = 0LL;
+      *v4 = 0LL;
     }
     v3 >>= 1;
   }

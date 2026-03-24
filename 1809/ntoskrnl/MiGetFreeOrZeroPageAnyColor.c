@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x1400EB0B0
+ * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x1400EB0D0
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  * Callees:
  *     MiDemoteLocalLargePage @ 0x140064060 (MiDemoteLocalLargePage.c)
- *     MiRemovePageAnyColor @ 0x1400EB15C (MiRemovePageAnyColor.c)
- *     MiGetPageSlist @ 0x14010CC80 (MiGetPageSlist.c)
+ *     MiRemovePageAnyColor @ 0x1400EB17C (MiRemovePageAnyColor.c)
+ *     MiGetPageSlist @ 0x14010CCA0 (MiGetPageSlist.c)
  */
 
 __int64 __fastcall MiGetFreeOrZeroPageAnyColor(__int64 a1, unsigned int a2, unsigned int a3)

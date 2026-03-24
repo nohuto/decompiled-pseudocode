@@ -1,22 +1,22 @@
 /*
- * XREFs of SepAdtStagingEvent @ 0x1409C9C64
+ * XREFs of SepAdtStagingEvent @ 0x140920200
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeAuditHandleCreation @ 0x1406CE5F8 (SeAuditHandleCreation.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeAuditHandleCreation @ 0x1406B0F68 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1405F4CC8 (SepCheckAndCopySelfRelativeSD.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140596D28 (SepCheckAndCopySelfRelativeSD.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall SepAdtStagingEvent(
@@ -53,8 +53,8 @@ bool __fastcall SepAdtStagingEvent(
   __int16 *v29; // rcx
   int v30; // eax
   size_t v31; // r13
-  __int64 v32; // r15
-  char *Pool2; // rax
+  SIZE_T v32; // r15
+  char *PoolWithTag; // rax
   char *v34; // rbx
   __int64 v36; // rax
   __int64 v37; // rdx
@@ -82,10 +82,10 @@ bool __fastcall SepAdtStagingEvent(
   Src = 0LL;
   v44 = 0LL;
   v40 = 0;
-  if ( !v15 || !*(_BYTE *)(v15 + 216) || a1 != 116 && a1 != 128 && RtlCompareUnicodeString(a4, &SepFileTypeName, 0) )
+  if ( !v15 || !*(_BYTE *)(v15 + 216) || a1 != 117 && a1 != 129 && RtlCompareUnicodeString(a4, &SepFileTypeName, 0) )
     return 1;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, &P);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
   if ( AllocatedFullProcessImageName >= 0 )
   {
     if ( a6 )
@@ -101,7 +101,7 @@ bool __fastcall SepAdtStagingEvent(
     v46 = *v18;
     memset(v49, 0, 0x418uLL);
     v49[0] = 0x12D200000003LL;
-    LOWORD(v49[2]) = 129;
+    LOWORD(v49[2]) = 130;
     v20 = 16;
     v21 = 8;
     if ( (a8 & 0x2000000) != 0 || (WORD1(v49[2]) = 8, !a10) )
@@ -126,7 +126,7 @@ bool __fastcall SepAdtStagingEvent(
       HIDWORD(v49[19]) = v23;
       if ( a5 )
       {
-        if ( v41 == 116 || (LODWORD(v49[23]) = 1, v41 == 128) )
+        if ( v41 == 117 || (LODWORD(v49[23]) = 1, v41 == 129) )
           LODWORD(v49[23]) = 2;
         v24 = *a5;
         v49[26] = a5;
@@ -168,11 +168,11 @@ bool __fastcall SepAdtStagingEvent(
             v21 = 0;
           v31 = HIDWORD(Size);
           v32 = (unsigned int)(Size - v21 + HIDWORD(Size) + 152);
-          Pool2 = (char *)ExAllocatePool2(256LL, v32, 1883333971LL);
-          v34 = Pool2;
-          if ( Pool2 )
+          PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v32, 0x70416553u);
+          v34 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            memset(Pool2, 0, (unsigned int)v32);
+            memset(PoolWithTag, 0, (unsigned int)v32);
             *((_DWORD *)v34 + 34) = a10;
             if ( !a10 )
               a9 = a8;

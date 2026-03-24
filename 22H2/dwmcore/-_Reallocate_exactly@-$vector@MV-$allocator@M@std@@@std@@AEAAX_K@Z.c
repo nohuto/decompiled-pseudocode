@@ -1,22 +1,23 @@
 /*
- * XREFs of ?_Reallocate_exactly@?$vector@MV?$allocator@M@std@@@std@@AEAAX_K@Z @ 0x1801CADF4
+ * XREFs of ?_Reallocate_exactly@?$vector@MV?$allocator@M@std@@@std@@AEAAX_K@Z @ 0x180173980
  * Callers:
- *     ?reserve@?$vector@MV?$allocator@M@std@@@std@@QEAAX_K@Z @ 0x18001E058 (-reserve@-$vector@MV-$allocator@M@std@@@std@@QEAAX_K@Z.c)
+ *     ?reserve@?$vector@MV?$allocator@M@std@@@std@@QEAAX_K@Z @ 0x180173C70 (-reserve@-$vector@MV-$allocator@M@std@@@std@@QEAAX_K@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ??$_Get_size_of_n@$03@std@@YA_K_K@Z @ 0x1801B8880 (--$_Get_size_of_n@$03@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 __int64 __fastcall std::vector<float>::_Reallocate_exactly(__int64 a1, unsigned __int64 a2)
 {
   __int64 v4; // rdi
-  SIZE_T size_of; // rax
+  SIZE_T v5; // rcx
   void *v6; // rbx
 
   v4 = (__int64)(*(_QWORD *)(a1 + 8) - *(_QWORD *)a1) >> 2;
-  size_of = std::_Get_size_of_n<4>(a2);
-  v6 = (void *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  v5 = 4 * a2;
+  if ( a2 > 0x3FFFFFFFFFFFFFFFLL )
+    v5 = -1LL;
+  v6 = (void *)std::_Allocate<16,std::_Default_allocate_traits,0>(v5);
   memmove_0(v6, *(const void **)a1, *(_QWORD *)(a1 + 8) - *(_QWORD *)a1);
-  return std::vector<float>::_Change_array(a1, (__int64)v6, v4, a2);
+  return std::vector<int>::_Change_array(a1, (__int64)v6, v4, a2);
 }

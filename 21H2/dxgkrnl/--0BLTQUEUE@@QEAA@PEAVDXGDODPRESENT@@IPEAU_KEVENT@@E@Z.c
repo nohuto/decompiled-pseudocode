@@ -1,148 +1,137 @@
 /*
- * XREFs of ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C0160824
+ * XREFs of ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C0166A8C
  * Callers:
- *     ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C0160258 (-StartEmulation@REMOTE_VSYNC@@AEAAJXZ.c)
- *     ??0DXGDODPRESENT@@QEAA@PEAVADAPTER_DISPLAY@@PEAEE@Z @ 0x1C020F200 (--0DXGDODPRESENT@@QEAA@PEAVADAPTER_DISPLAY@@PEAEE@Z.c)
+ *     ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C00DF854 (-StartEmulation@REMOTE_VSYNC@@AEAAJXZ.c)
+ *     ??0DXGDODPRESENT@@QEAA@PEAVADAPTER_DISPLAY@@PEAEE@Z @ 0x1C019E704 (--0DXGDODPRESENT@@QEAA@PEAVADAPTER_DISPLAY@@PEAEE@Z.c)
  * Callees:
- *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C0002624 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0002C48 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019FF4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-BLTQUEUE *__fastcall BLTQUEUE::BLTQUEUE(
-        BLTQUEUE *this,
-        struct DXGDODPRESENT *a2,
-        int a3,
-        struct _KEVENT *a4,
-        unsigned __int8 a5)
+BLTQUEUE *__fastcall BLTQUEUE::BLTQUEUE(BLTQUEUE *this, struct DXGDODPRESENT *a2, int a3, struct _KEVENT *a4, char a5)
 {
   char *v5; // rbx
-  __int64 v6; // rbp
-  char *v10; // rcx
-  unsigned int v11; // edx
-  char **v12; // rbx
+  void *v6; // rbp
+  char *v9; // rcx
+  unsigned int v10; // edx
+  char **v11; // rbx
   char **i; // rax
-  char **v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rax
-  BLTQUEUE *result; // rax
+  char **v13; // r8
+  char *v14; // rax
 
-  *((_DWORD *)this + 65) = -1;
-  v5 = (char *)this + 968;
+  *((_DWORD *)this + 63) = -1;
+  v5 = (char *)this + 952;
   v6 = 0LL;
   *(_QWORD *)this = a2;
-  *((_QWORD *)this + 47) = a4;
+  *((_QWORD *)this + 46) = a4;
   *((_QWORD *)this + 16) = 0LL;
   *((_QWORD *)this + 18) = 0LL;
   *((_QWORD *)this + 19) = 0LL;
-  *((_QWORD *)this + 31) = 0LL;
-  *((_BYTE *)this + 352) = 0;
-  *((_QWORD *)this + 48) = 0LL;
-  *((_DWORD *)this + 98) = 0;
+  *((_BYTE *)this + 344) = 0;
+  *((_QWORD *)this + 47) = 0LL;
+  *((_DWORD *)this + 96) = 0;
+  *((_QWORD *)this + 50) = 0LL;
   *((_QWORD *)this + 51) = 0LL;
-  *((_QWORD *)this + 52) = 0LL;
-  *((_DWORD *)this + 107) = 64;
-  *((_DWORD *)this + 106) = 0;
-  *((_DWORD *)this + 108) = -1;
-  *((_QWORD *)this + 59) = 0LL;
-  *((_DWORD *)this + 120) = 0;
-  *((_DWORD *)this + 180) = 0;
+  *((_DWORD *)this + 104) = 0;
+  *((_DWORD *)this + 105) = 53;
+  *((_DWORD *)this + 106) = -1;
+  *((_QWORD *)this + 58) = 0LL;
+  *((_DWORD *)this + 118) = 0;
+  *((_DWORD *)this + 178) = 0;
+  *((_QWORD *)this + 90) = 0LL;
+  *((_QWORD *)this + 91) = 0LL;
   *((_QWORD *)this + 92) = 0LL;
-  *((_QWORD *)this + 93) = 0LL;
-  *((_QWORD *)this + 94) = 0LL;
-  *((_DWORD *)this + 190) = 0;
-  *((_DWORD *)this + 191) = -1;
-  *((_DWORD *)this + 192) = 64;
-  *((_DWORD *)this + 240) = 0;
-  `vector constructor iterator'((char *)this + 968, 576LL, 3LL, (void (__fastcall *)(char *))BLTENTRY::BLTENTRY);
+  *((_DWORD *)this + 186) = 0;
+  *((_DWORD *)this + 187) = -1;
+  *((_DWORD *)this + 188) = 53;
+  *((_DWORD *)this + 236) = 0;
+  `vector constructor iterator'((char *)this + 952, 576LL, 3LL, (void (__fastcall *)(char *))BLTENTRY::BLTENTRY);
   *((_QWORD *)v5 + 216) = 0LL;
-  v10 = (char *)this + 232;
+  v9 = (char *)this + 232;
   *((_DWORD *)v5 + 434) = 0;
-  *(_OWORD *)((char *)this + 2840) = 0LL;
-  *((_QWORD *)this + 339) = 0LL;
-  v11 = 0;
+  *(_OWORD *)((char *)this + 2824) = 0LL;
+  *((_QWORD *)this + 337) = 0LL;
+  v10 = 0;
+  *((_QWORD *)this + 345) = 0LL;
+  *((_QWORD *)this + 346) = 0LL;
   *((_QWORD *)this + 347) = 0LL;
   *((_QWORD *)this + 348) = 0LL;
   *((_QWORD *)this + 349) = 0LL;
-  *((_QWORD *)this + 350) = 0LL;
+  *((_DWORD *)this + 700) = 0;
   *((_QWORD *)this + 351) = 0LL;
-  *((_DWORD *)this + 704) = 0;
-  *((_QWORD *)this + 353) = 0LL;
-  *((_QWORD *)this + 354) = 0LL;
-  *((_DWORD *)this + 714) = 0;
-  *((_QWORD *)this + 358) = 0LL;
-  *((_QWORD *)this + 359) = 0LL;
-  *((_DWORD *)this + 722) = -1;
-  *((_DWORD *)this + 721) = 64;
-  *((_DWORD *)this + 720) = 0;
-  *((_QWORD *)this + 364) = 0LL;
+  *((_QWORD *)this + 352) = 0LL;
+  *((_DWORD *)this + 710) = 0;
+  *((_QWORD *)this + 356) = 0LL;
+  *((_QWORD *)this + 357) = 0LL;
+  *((_DWORD *)this + 718) = -1;
+  *((_DWORD *)this + 717) = 53;
+  *((_DWORD *)this + 716) = 0;
+  *((_QWORD *)this + 362) = 0LL;
   *((_QWORD *)this + 28) = (char *)this + 216;
   *((_QWORD *)this + 27) = (char *)this + 216;
-  *((_QWORD *)this + 362) = 1LL;
-  *((_DWORD *)this + 726) = 0;
-  v12 = (char **)(v5 + 8);
+  *((_QWORD *)this + 360) = 1LL;
+  *((_DWORD *)this + 722) = 0;
+  v11 = (char **)(v5 + 8);
   *((_QWORD *)this + 30) = (char *)this + 232;
   *((_QWORD *)this + 29) = (char *)this + 232;
   *((_DWORD *)this + 34) = 2 - (a5 != 0);
-  for ( i = (char **)*((_QWORD *)this + 30); ; i = v14 )
+  for ( i = (char **)*((_QWORD *)this + 30); ; i = v13 )
   {
-    v14 = v12;
-    if ( *i != v10 )
+    v13 = v11;
+    if ( *i != v9 )
       __fastfail(3u);
-    *v12 = v10;
-    ++v11;
-    v12[1] = (char *)i;
-    *i = (char *)v12;
-    *((_QWORD *)this + 30) = v12;
-    v12 += 72;
-    if ( v11 >= 3 )
+    *v11 = v9;
+    ++v10;
+    v11[1] = (char *)i;
+    *i = (char *)v11;
+    *((_QWORD *)this + 30) = v11;
+    v11 += 72;
+    if ( v10 >= 3 )
       break;
   }
-  if ( a2 )
-    *((_QWORD *)this + 31) = *(_QWORD *)((char *)DXGDODPRESENT::GetAdapter(a2) + 404);
-  *((_DWORD *)this + 64) = a3;
-  *((_QWORD *)this + 45) = 0LL;
-  *((_DWORD *)this + 100) = 0;
-  *((_QWORD *)this + 55) = 0LL;
-  *((_QWORD *)this + 58) = 0LL;
-  *((_QWORD *)this + 119) = 0LL;
-  *(_QWORD *)((char *)this + 484) = 0LL;
-  *((_QWORD *)this + 46) = 0x100000040LL;
-  *((_DWORD *)this + 99) = 0;
-  *((_OWORD *)this + 20) = 0LL;
-  *((_OWORD *)this + 21) = 0LL;
-  *(_OWORD *)((char *)this + 568) = 0LL;
-  *(_OWORD *)((char *)this + 584) = 0LL;
+  *((_DWORD *)this + 62) = a3;
+  *((_QWORD *)this + 44) = 0LL;
+  *((_DWORD *)this + 98) = 0;
+  *((_QWORD *)this + 54) = 0LL;
+  *((_QWORD *)this + 57) = 0LL;
+  *((_QWORD *)this + 117) = 0LL;
+  *(_QWORD *)((char *)this + 476) = 0LL;
+  *((_QWORD *)this + 45) = 0x100000040LL;
+  *((_DWORD *)this + 97) = 0;
+  *(_OWORD *)((char *)this + 312) = 0LL;
+  *(_OWORD *)((char *)this + 328) = 0LL;
+  *((_OWORD *)this + 35) = 0LL;
+  *((_OWORD *)this + 36) = 0LL;
+  *((_QWORD *)this + 74) = 0LL;
   *((_QWORD *)this + 75) = 0LL;
   *((_QWORD *)this + 76) = 0LL;
   *((_QWORD *)this + 77) = 0LL;
-  *((_QWORD *)this + 78) = 0LL;
-  KeInitializeEvent((PRKEVENT)((char *)this + 632), NotificationEvent, 1u);
+  KeInitializeEvent((PRKEVENT)this + 26, NotificationEvent, 1u);
   KeInitializeDpc(
-    (PRKDPC)((char *)this + 656),
+    (PRKDPC)((char *)this + 648),
     (PKDEFERRED_ROUTINE)BLTQUEUE::PresentDisplayOnlyProgressDpcCb,
-    (char *)this + 632);
-  KeSetImportanceDpc((PRKDPC)((char *)this + 656), HighImportance);
-  memset((char *)this + 776, 0, 0xB0uLL);
-  KeInitializeEvent((PRKEVENT)((char *)this + 496), SynchronizationEvent, 0);
-  KeInitializeEvent((PRKEVENT)((char *)this + 520), SynchronizationEvent, 0);
-  KeInitializeEvent((PRKEVENT)((char *)this + 544), SynchronizationEvent, 0);
+    (char *)this + 624);
+  KeSetImportanceDpc((PRKDPC)((char *)this + 648), HighImportance);
+  memset((char *)this + 760, 0, 0xB0uLL);
+  KeInitializeEvent((PRKEVENT)((char *)this + 488), SynchronizationEvent, 0);
+  KeInitializeEvent((PRKEVENT)((char *)this + 512), SynchronizationEvent, 0);
+  KeInitializeEvent((PRKEVENT)((char *)this + 536), SynchronizationEvent, 0);
   KeInitializeMutex((PRKMUTEX)((char *)this + 160), 0);
-  KeInitializeMutex((PRKMUTEX)((char *)this + 264), 0);
-  KeInitializeMutex((PRKMUTEX)((char *)this + 2720), 0);
-  v16 = operator new[](0x208uLL, 0x4B677844u, 256LL, v15);
-  if ( v16 )
+  KeInitializeMutex((PRKMUTEX)((char *)this + 256), 0);
+  KeInitializeMutex((PRKMUTEX)((char *)this + 2704), 0);
+  v14 = (char *)operator new[](0x208uLL, 0x4B677844u, PagedPool);
+  if ( v14 )
   {
-    v6 = v16 + 8;
-    *(_QWORD *)v16 = 8LL;
+    v6 = v14 + 8;
+    *(_QWORD *)v14 = 8LL;
     `vector constructor iterator'(
-      (char *)(v16 + 8),
+      v14 + 8,
       64LL,
       8LL,
       (void (__fastcall *)(char *))_DXGDOD_PERIODIC_FRAME_NOTIFICATION_STORAGE::_DXGDOD_PERIODIC_FRAME_NOTIFICATION_STORAGE);
   }
-  result = this;
-  *((_QWORD *)this + 364) = v6;
-  return result;
+  *((_QWORD *)this + 362) = v6;
+  memset(v6, 0, 0x200uLL);
+  return this;
 }

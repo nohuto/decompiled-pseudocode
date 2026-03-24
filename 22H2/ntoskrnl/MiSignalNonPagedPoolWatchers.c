@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSignalNonPagedPoolWatchers @ 0x140396C88
+ * XREFs of MiSignalNonPagedPoolWatchers @ 0x1403B5B18
  * Callers:
- *     MiInitializeNonPagedPoolThresholds @ 0x140396C10 (MiInitializeNonPagedPoolThresholds.c)
- *     MiInitializeMemoryEvents @ 0x14081E318 (MiInitializeMemoryEvents.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1403B5AA0 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiInitializeMemoryEvents @ 0x1407A0B04 (MiInitializeMemoryEvents.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiSignalNonPagedPoolWatchers()
@@ -25,44 +25,47 @@ __int64 MiSignalNonPagedPoolWatchers()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C6F300, &LockHandle);
-  if ( qword_140C6B628 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C520C0, &LockHandle);
+  if ( qword_140C50E90 )
   {
     v0 = MiState[0];
-    v1 = qword_140C65588;
-    if ( qword_140C65588 >= (unsigned __int64)(MiState[0] - 5120) )
+    v1 = qword_140C4C8C8;
+    if ( qword_140C4C8C8 >= (unsigned __int64)(MiState[0] - 5120) )
     {
-      if ( qword_140C6B628->Header.SignalState )
-        KeResetEvent(qword_140C6B628);
+      if ( qword_140C50E90->Header.SignalState )
+        KeResetEvent(qword_140C50E90);
     }
-    else if ( !qword_140C6B628->Header.SignalState )
+    else if ( !qword_140C50E90->Header.SignalState )
     {
-      KeSetEvent(qword_140C6B628, 0, 0);
+      KeSetEvent(qword_140C50E90, 0, 0);
     }
     if ( v1 >= v0 - 2048 )
     {
-      if ( !qword_140C6B620->Header.SignalState )
-        KeSetEvent(qword_140C6B620, 0, 0);
+      if ( !qword_140C50E88->Header.SignalState )
+        KeSetEvent(qword_140C50E88, 0, 0);
     }
-    else if ( qword_140C6B620->Header.SignalState )
+    else if ( qword_140C50E88->Header.SignalState )
     {
-      KeResetEvent(qword_140C6B620);
+      KeResetEvent(qword_140C50E88);
     }
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v8 = (v7 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v7 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v8 = (v7 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v7;
+        if ( v8 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   result = OldIrql;

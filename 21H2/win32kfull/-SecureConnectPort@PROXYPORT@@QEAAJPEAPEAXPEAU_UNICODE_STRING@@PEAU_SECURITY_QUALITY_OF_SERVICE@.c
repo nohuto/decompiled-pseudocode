@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@@PEAU_PORT_VIEW@@PEAXPEAU_REMOTE_PORT_VIEW@@PEAK46@Z @ 0x1C012BB18
+ * XREFs of ?SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@@PEAU_PORT_VIEW@@PEAXPEAU_REMOTE_PORT_VIEW@@PEAK46@Z @ 0x1C011FB30
  * Callers:
- *     ??0PROXYPORT@@QEAA@_K@Z @ 0x1C012B728 (--0PROXYPORT@@QEAA@_K@Z.c)
+ *     ??0PROXYPORT@@QEAA@_K@Z @ 0x1C011F740 (--0PROXYPORT@@QEAA@_K@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     Win32DestroySection @ 0x1C01E4138 (Win32DestroySection.c)
- *     Win32MapViewInSessionSpace @ 0x1C01E4154 (Win32MapViewInSessionSpace.c)
- *     Win32OpenSectionByHandle @ 0x1C026E520 (Win32OpenSectionByHandle.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     Win32DestroySection @ 0x1C01D4760 (Win32DestroySection.c)
+ *     Win32OpenSectionByHandle @ 0x1C01D477C (Win32OpenSectionByHandle.c)
+ *     Win32MapViewInSessionSpace @ 0x1C01E9944 (Win32MapViewInSessionSpace.c)
  */
 
 __int64 __fastcall PROXYPORT::SecureConnectPort(

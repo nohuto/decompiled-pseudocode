@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CDrawListEntryBatch@@W7EAAKXZ @ 0x1801072D0
+ * XREFs of ?Release@CDrawListEntryBatch@@W7EAAKXZ @ 0x1800F64A0
  * Callers:
  *     <none>
  * Callees:

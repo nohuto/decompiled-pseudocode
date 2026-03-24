@@ -1,20 +1,21 @@
 /*
- * XREFs of ExpTimerPause @ 0x1403691B8
+ * XREFs of ExpTimerPause @ 0x140320ECC
  * Callers:
- *     PsInsertVirtualizedTimer @ 0x140356060 (PsInsertVirtualizedTimer.c)
- *     PspSetProcessFreezeStateCallback @ 0x14036A060 (PspSetProcessFreezeStateCallback.c)
- *     ExWakeTimersPause @ 0x14060BAB8 (ExWakeTimersPause.c)
+ *     PsInsertVirtualizedTimer @ 0x14031B20C (PsInsertVirtualizedTimer.c)
+ *     PspSetProcessFreezeStateCallback @ 0x14031E8C0 (PspSetProcessFreezeStateCallback.c)
+ *     ExWakeTimersPause @ 0x14038CB60 (ExWakeTimersPause.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeCancelTimerInternal @ 0x140369280 (KeCancelTimerInternal.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeCancelTimerInternal @ 0x140320F88 (KeCancelTimerInternal.c)
  */
 
-char __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
+void __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
 {
-  unsigned __int64 v8; // rax
+  char v8; // al
   char v9; // dl
   unsigned __int64 v10; // rdi
+  unsigned __int64 v11; // rax
   unsigned __int64 v12; // [rsp+40h] [rbp+8h] BYREF
   int v13; // [rsp+58h] [rbp+20h] BYREF
 
@@ -22,24 +23,22 @@ char __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char 
   v13 = 0;
   if ( !a4 )
     KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 64));
-  LOBYTE(v8) = *(_BYTE *)(a1 + 304);
+  v8 = *(_BYTE *)(a1 + 304);
   if ( (v8 & 2) == 0 )
   {
     *(_BYTE *)(a1 + 304) = v8 | 2;
-    LOBYTE(v8) = KeCancelTimerInternal(a1, &v12, &v13, a1 + 320);
-    if ( (_BYTE)v8 )
+    if ( (unsigned __int8)KeCancelTimerInternal(a1, &v12, &v13, a1 + 320) )
     {
       v9 = v13;
       switch ( v13 )
       {
         case 1:
-          LOBYTE(v8) = v12;
           if ( v12 <= a3 )
           {
             *(_QWORD *)(a1 + 312) = 0LL;
             break;
           }
-          v8 = a2 + v12 - a3;
+          v11 = a2 + v12 - a3;
           goto LABEL_20;
         case 2:
           if ( v12 <= a3 )
@@ -49,9 +48,9 @@ char __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char 
           *(_QWORD *)(a1 + 312) = v10;
           break;
         case 3:
-          v8 = v12;
+          v11 = v12;
 LABEL_20:
-          *(_QWORD *)(a1 + 312) = v8;
+          *(_QWORD *)(a1 + 312) = v11;
           break;
       }
     }
@@ -62,6 +61,5 @@ LABEL_20:
     *(_BYTE *)(a1 + 248) = v9;
   }
   if ( !a4 )
-    LOBYTE(v8) = KxReleaseSpinLock((volatile signed __int64 *)(a1 + 64));
-  return v8;
+    KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 64));
 }

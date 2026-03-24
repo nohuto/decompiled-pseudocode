@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x1409AD60C
+ * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x140906944
  * Callers:
- *     PspSiloInitializeSuiteMask @ 0x1409AD758 (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSuiteMask @ 0x140906A2C (PspSiloInitializeSuiteMask.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall PspSiloGetSuiteMaskStringFromRegistry(_OWORD *a1)
@@ -19,7 +19,7 @@ __int64 __fastcall PspSiloGetSuiteMaskStringFromRegistry(_OWORD *a1)
   LODWORD(v4[4]) = 117440512;
   v4[2] = L"ProductSuite";
   v4[3] = &v3;
-  result = RtlpQueryRegistryValues(2LL, L"ProductOptions", v4, 0LL);
+  result = RtlpQueryRegistryValues(2LL, L"ProductOptions", (__int64)v4, 0LL);
   if ( (int)result >= 0 )
     *a1 = v3;
   return result;

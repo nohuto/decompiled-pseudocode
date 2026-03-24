@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryInterface@CRenderDataBuilder@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801F1B60
+ * XREFs of ?QueryInterface@CRenderDataBuilder@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180154310
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::QueryInterface(CRenderDataBuilder *this, const struct _GUID *a2, void **a3)
@@ -18,7 +18,7 @@ __int64 __fastcall CRenderDataBuilder::QueryInterface(CRenderDataBuilder *this, 
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_92ca7dff_2ac8_4c49_9927_fab209db648e.Data1 )
       v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_92ca7dff_2ac8_4c49_9927_fab209db648e.Data4;
     if ( !v4 )
-      goto LABEL_9;
+      goto LABEL_11;
     v5 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1;
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1 )
       v5 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4;
@@ -30,7 +30,7 @@ __int64 __fastcall CRenderDataBuilder::QueryInterface(CRenderDataBuilder *this, 
     }
     else
     {
-LABEL_9:
+LABEL_11:
       *a3 = this;
       _InterlockedIncrement((volatile signed __int32 *)this + 3);
       return 0;

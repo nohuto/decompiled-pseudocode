@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AllocTableData@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@CAPEAXPEAU_RTL_GENERIC_TABLE@@K@Z @ 0x180042FB0
+ * XREFs of ?AllocTableData@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@CAPEAXPEAU_RTL_GENERIC_TABLE@@K@Z @ 0x1800595D0
  * Callers:
  *     <none>
  * Callees:

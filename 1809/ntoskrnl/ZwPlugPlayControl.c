@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwPlugPlayControl @ 0x1401BA6F0
+ * XREFs of ZwPlugPlayControl @ 0x1401BA710
  * Callers:
  *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
- *     PiPnpRtlGetDeviceInterfaceEnabled @ 0x1406AF4D0 (PiPnpRtlGetDeviceInterfaceEnabled.c)
- *     PlugPlayGetDeviceStatus @ 0x1406B3DA4 (PlugPlayGetDeviceStatus.c)
- *     PlugPlayGetDeviceProperty @ 0x1406C5E00 (PlugPlayGetDeviceProperty.c)
- *     PlugPlayGetRelatedDevice @ 0x1406FC5F0 (PlugPlayGetRelatedDevice.c)
- *     PiCMDeleteDevice @ 0x1408371A8 (PiCMDeleteDevice.c)
- *     PiCMSetProblem @ 0x140838DD8 (PiCMSetProblem.c)
- *     PlugPlayGetDeviceRelations @ 0x140900C9C (PlugPlayGetDeviceRelations.c)
+ *     PiPnpRtlGetDeviceInterfaceEnabled @ 0x1406AF4B0 (PiPnpRtlGetDeviceInterfaceEnabled.c)
+ *     PlugPlayGetDeviceStatus @ 0x1406B3D84 (PlugPlayGetDeviceStatus.c)
+ *     PlugPlayGetDeviceProperty @ 0x1406C5DE0 (PlugPlayGetDeviceProperty.c)
+ *     PlugPlayGetRelatedDevice @ 0x1406FC5D0 (PlugPlayGetRelatedDevice.c)
+ *     PiCMDeleteDevice @ 0x140837188 (PiCMDeleteDevice.c)
+ *     PiCMSetProblem @ 0x140838DB8 (PiCMSetProblem.c)
+ *     PlugPlayGetDeviceRelations @ 0x140900C7C (PlugPlayGetDeviceRelations.c)
  * Callees:
  *     <none>
  */

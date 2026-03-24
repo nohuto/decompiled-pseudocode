@@ -1,135 +1,130 @@
 /*
- * XREFs of ?VmBusQueryAllocationResidency@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0383D80
+ * XREFs of ?VmBusQueryAllocationResidency@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0245C90
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B804 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkQueryAllocationResidency @ 0x1C02DACE0 (DxgkQueryAllocationResidency.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040634 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkQueryAllocationResidency @ 0x1C022AED0 (DxgkQueryAllocationResidency.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusQueryAllocationResidency(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bp
-  __int64 v4; // rbx
-  const wchar_t *v5; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // si
   __int64 v6; // rax
-  __int64 v7; // rbx
-  int v8; // ecx
-  __int64 v9; // rax
-  unsigned __int64 v10; // rax
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rbx
+  __int64 v10; // rcx
   __int64 v11; // rax
   unsigned __int64 v12; // rax
-  unsigned int v13; // r15d
-  __int64 v14; // rdx
-  int *v15; // rsi
-  __int64 v16; // r8
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  unsigned __int64 v15; // rax
+  unsigned int v16; // r14d
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  int *v19; // rdi
+  __int64 v20; // r8
   int AllocationResidency; // eax
-  _BYTE v19[8]; // [rsp+50h] [rbp-38h] BYREF
-  DXGPUSHLOCK *v20; // [rsp+58h] [rbp-30h]
-  int v21; // [rsp+60h] [rbp-28h]
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  _BYTE v26[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v27; // [rsp+28h] [rbp-20h]
+  int v28; // [rsp+30h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v19, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v20);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v21 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v26, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v27);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 1;
+  v28 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    v4 = 3148LL;
-    WdLogSingleEntry1(2LL, 3148LL);
-    v5 = L"The adapter is already closed by the guest";
-LABEL_25:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v5, v4, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_26;
-  }
-  v6 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
-  v7 = v6;
-  if ( !v6 )
-  {
-LABEL_26:
-    v3 = 0;
-    goto LABEL_27;
-  }
-  v8 = *(_DWORD *)(v6 + 28);
-  if ( v8 )
-    v9 = 0LL;
-  else
-    v9 = *(unsigned int *)(v6 + 40);
-  v10 = 4 * v9;
-  if ( v10 > 0xFFFFFFFF )
-  {
-    v4 = 3155LL;
-    WdLogSingleEntry1(2LL, 3155LL);
-    goto LABEL_24;
-  }
-  if ( (unsigned int)v10 >= 0xFFFFFFC8 )
-  {
-    v4 = 3161LL;
-    WdLogSingleEntry1(2LL, 3161LL);
-    goto LABEL_24;
-  }
-  if ( (unsigned int)(v10 + 56) > *((_DWORD *)a1 + 36) )
-  {
-    v4 = 3166LL;
-    WdLogSingleEntry1(2LL, 3166LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 2707LL;
 LABEL_24:
-    v5 = L"Invalid packet size";
+    WdLogEvent5_WdError(v6);
     goto LABEL_25;
   }
-  v11 = 1LL;
-  if ( !v8 )
+  v7 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
+  v9 = v7;
+  if ( !v7 )
+  {
+LABEL_25:
+    v5 = 0;
+    goto LABEL_26;
+  }
+  v10 = *(unsigned int *)(v7 + 28);
+  if ( (_DWORD)v10 )
+    v11 = 0LL;
+  else
     v11 = *(unsigned int *)(v7 + 40);
   v12 = 4 * v11;
   if ( v12 > 0xFFFFFFFF )
   {
-    v4 = 3175LL;
-    WdLogSingleEntry1(2LL, 3175LL);
+    v6 = WdLogNewEntry5_WdError(v10, v8);
+    *(_QWORD *)(v6 + 24) = 2714LL;
     goto LABEL_24;
   }
-  v13 = v12 + 4;
-  if ( (unsigned int)v12 >= 0xFFFFFFFC )
+  v13 = (unsigned int)(v12 + 56);
+  if ( (unsigned int)v12 >= 0xFFFFFFC8 )
   {
-    v4 = 3180LL;
-    WdLogSingleEntry1(2LL, 3180LL);
+    v6 = WdLogNewEntry5_WdError(v10, v13);
+    *(_QWORD *)(v6 + 24) = 2720LL;
     goto LABEL_24;
   }
-  v15 = (int *)operator new[](v13, 0x4B677844u, 64LL);
-  if ( !v15 )
+  if ( (unsigned int)v13 > *((_DWORD *)a1 + 22) )
   {
-    v4 = 3187LL;
-    WdLogSingleEntry1(2LL, 3187LL);
-    v5 = L"Memory allocation failed";
-    goto LABEL_25;
+    v6 = WdLogNewEntry5_WdError(v10, v13);
+    *(_QWORD *)(v6 + 24) = 2725LL;
+    goto LABEL_24;
   }
-  *(_QWORD *)(v7 + 32) = v7 + 56;
-  *(_QWORD *)(v7 + 48) = v15 + 1;
-  AllocationResidency = DxgkQueryAllocationResidency(v7 + 24, v14, v16);
-  *v15 = AllocationResidency;
+  v14 = 1LL;
+  if ( !(_DWORD)v10 )
+    v14 = *(unsigned int *)(v9 + 40);
+  v15 = 4 * v14;
+  if ( v15 > 0xFFFFFFFF )
+  {
+    v6 = WdLogNewEntry5_WdError(v10, v13);
+    *(_QWORD *)(v6 + 24) = 2734LL;
+    goto LABEL_24;
+  }
+  v16 = v15 + 4;
+  if ( (unsigned int)v15 >= 0xFFFFFFFC )
+  {
+    v6 = WdLogNewEntry5_WdError(v10, v13);
+    *(_QWORD *)(v6 + 24) = 2739LL;
+    goto LABEL_24;
+  }
+  v19 = (int *)operator new(v16, 0x4B677844u, 1, (POOL_TYPE)512);
+  if ( !v19 )
+  {
+    v6 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v6 + 24) = 2746LL;
+    goto LABEL_24;
+  }
+  *(_QWORD *)(v9 + 32) = v9 + 56;
+  *(_QWORD *)(v9 + 48) = v19 + 1;
+  AllocationResidency = DxgkQueryAllocationResidency(v9 + 24, v17, v20);
+  *v19 = AllocationResidency;
   if ( AllocationResidency < 0 )
   {
-    WdLogSingleEntry1(2LL, AllocationResidency);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkQueryAllocationResidency failed: 0x%I64x",
-      *v15,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v24 = WdLogNewEntry5_WdError(v23, v22);
+    *(_QWORD *)(v24 + 24) = *v19;
+    WdLogEvent5_WdError(v24);
   }
-  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), v15, v13);
-  operator delete(v15);
-LABEL_27:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
-  return v3;
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v19, v16);
+  operator delete[](v19);
+LABEL_26:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v26);
+  return v5;
 }

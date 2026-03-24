@@ -1,10 +1,10 @@
 /*
- * XREFs of VslRundownSecureProcess @ 0x140818DE0
+ * XREFs of VslRundownSecureProcess @ 0x140818DC0
  * Callers:
- *     KeRundownSecureProcess @ 0x14028E658 (KeRundownSecureProcess.c)
+ *     KeRundownSecureProcess @ 0x14028E758 (KeRundownSecureProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslRundownSecureProcess(__int64 a1)

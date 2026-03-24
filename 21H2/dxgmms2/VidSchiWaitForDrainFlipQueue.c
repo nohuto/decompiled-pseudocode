@@ -1,15 +1,15 @@
 /*
- * XREFs of VidSchiWaitForDrainFlipQueue @ 0x1C00AA188
+ * XREFs of VidSchiWaitForDrainFlipQueue @ 0x1C00D0C38
  * Callers:
- *     VidSchiDrainFlipQueue @ 0x1C00AA160 (VidSchiDrainFlipQueue.c)
+ *     VidSchiDrainFlipQueue @ 0x1C00CFD90 (VidSchiDrainFlipQueue.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000A180 (VidSchiProfilePerformanceTick.c)
- *     VidSchiIsMmIoFlipPending @ 0x1C001AF30 (VidSchiIsMmIoFlipPending.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     VidSchWaitForCompletionEvent @ 0x1C00937C4 (VidSchWaitForCompletionEvent.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B670 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiIsMmIoFlipPending @ 0x1C00150AC (VidSchiIsMmIoFlipPending.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0082620 (VidSchWaitForCompletionEvent.c)
  */
 
-char __fastcall VidSchiWaitForDrainFlipQueue(struct _KEVENT *a1)
+char __fastcall VidSchiWaitForDrainFlipQueue(__int64 a1)
 {
   char result; // al
   _DWORD v3[42]; // [rsp+40h] [rbp-A8h] BYREF
@@ -17,16 +17,16 @@ char __fastcall VidSchiWaitForDrainFlipQueue(struct _KEVENT *a1)
   memset(v3, 0, 0xA0uLL);
   v3[4] = 3;
   v3[5] = 1;
-  a1[67].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
-  KeResetEvent(a1 + 66);
+  *(_QWORD *)(a1 + 1608) = MEMORY[0xFFFFF78000000320];
+  KeResetEvent((PRKEVENT)(a1 + 1568));
   while ( 1 )
   {
-    result = VidSchiIsMmIoFlipPending((__int64)a1);
+    result = VidSchiIsMmIoFlipPending(a1);
     if ( !result )
       break;
-    VidSchiProfilePerformanceTick(16LL, (__int64)a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
-    VidSchWaitForCompletionEvent((struct _VIDSCH_GLOBAL *)a1, (__int64)v3, 0xFFFFFFFFLL);
-    VidSchiProfilePerformanceTick(17LL, (__int64)a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
+    VidSchiProfilePerformanceTick(16LL, a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
+    VidSchWaitForCompletionEvent(a1, (__int64)v3, 0xFFFFFFFFLL);
+    VidSchiProfilePerformanceTick(17LL, a1, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
   }
   return result;
 }

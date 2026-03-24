@@ -1,9 +1,9 @@
 /*
- * XREFs of _itow @ 0x1401950C0
+ * XREFs of _itow @ 0x1401950E0
  * Callers:
  *     <none>
  * Callees:
- *     xtow @ 0x140195110 (xtow.c)
+ *     xtow @ 0x140195130 (xtow.c)
  */
 
 wchar_t *__cdecl itow(int Value, wchar_t *Dest, int Radix)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PspTerminateThreadByPointer @ 0x1406765B0
+ * XREFs of PspTerminateThreadByPointer @ 0x140676590
  * Callers:
- *     PspSystemThreadStartup @ 0x140132510 (PspSystemThreadStartup.c)
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     PspSystemThreadStartup @ 0x140132530 (PspSystemThreadStartup.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  *     PspUserThreadStartup @ 0x1405F6E40 (PspUserThreadStartup.c)
- *     PspTerminateAllThreads @ 0x140676204 (PspTerminateAllThreads.c)
- *     NtTerminateThread @ 0x140676540 (NtTerminateThread.c)
- *     NtTerminateProcess @ 0x14067A830 (NtTerminateProcess.c)
- *     PsTerminateSystemThread @ 0x1406CC590 (PsTerminateSystemThread.c)
+ *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
+ *     NtTerminateThread @ 0x140676520 (NtTerminateThread.c)
+ *     NtTerminateProcess @ 0x14067A810 (NtTerminateProcess.c)
+ *     PsTerminateSystemThread @ 0x1406CC570 (PsTerminateSystemThread.c)
  * Callees:
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
- *     KeRequestTerminationThread @ 0x1400F1328 (KeRequestTerminationThread.c)
+ *     KeRequestTerminationThread @ 0x1400F1348 (KeRequestTerminationThread.c)
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     PspCatchCriticalBreak @ 0x14088B490 (PspCatchCriticalBreak.c)
+ *     PspCatchCriticalBreak @ 0x14088B470 (PspCatchCriticalBreak.c)
  */
 
 __int64 __fastcall PspTerminateThreadByPointer(__int64 a1, __int64 a2, __int64 a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vSynchronizeDriver@@YAXK@Z @ 0x1C00278BC
+ * XREFs of ?vSynchronizeDriver@@YAXK@Z @ 0x1C0082E5C
  * Callers:
- *     GreFlush @ 0x1C00278A0 (GreFlush.c)
- *     ?GreSynchronizeTimer@@YAXPEAXI_K_J@Z @ 0x1C029D570 (-GreSynchronizeTimer@@YAXPEAXI_K_J@Z.c)
+ *     GreFlush @ 0x1C0082E40 (GreFlush.c)
+ *     ?GreSynchronizeTimer@@YAXPEAXI_K_J@Z @ 0x1C029EC90 (-GreSynchronizeTimer@@YAXPEAXI_K_J@Z.c)
  * Callees:
  *     <none>
  */
@@ -24,45 +24,53 @@ void __fastcall vSynchronizeDriver(int a1)
       v3 = hdevEnumerate(i);
       v4 = v3;
       if ( !v3 )
-        break;
-      v6 = v3;
-      if ( (a1 & *(_DWORD *)(v3 + 2096)) != 0 )
       {
-        if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6) )
-        {
-          GreAcquireSemaphore(ghsemGreLock);
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
-          GreAcquireSemaphore(*(_QWORD *)(v6 + 48));
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"pdo.hsemDevLock()", *(_QWORD *)(v6 + 48), 11LL);
-        }
-        if ( (a1 & *(_DWORD *)(v6 + 2096)) != 0 && (*(_DWORD *)(v6 + 40) & 0x400) == 0 )
-        {
-          v5 = 0;
-          if ( a1 == 64 )
-          {
-            if ( gcSynchronizeFlush != -1 )
-              v5 = 2;
-          }
-          else if ( a1 == 128 )
-          {
-            v5 = gcSynchronizeTimer != -1;
-          }
-          PDEVOBJ::vSync(
-            (PDEVOBJ *)&v6,
-            (struct _SURFOBJ *)((*(_QWORD *)(v6 + 2528) + 24LL) & -(__int64)(*(_QWORD *)(v6 + 2528) != 0LL)),
-            0LL,
-            v5);
-        }
-        if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6) )
-        {
-          EtwTraceGreLockReleaseSemaphore(L"pdo.hsemDevLock()", *(_QWORD *)(v6 + 48));
-          GreReleaseSemaphoreInternal(*(_QWORD *)(v6 + 48));
-          EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
-          GreReleaseSemaphoreInternal(ghsemGreLock);
-        }
+        EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+        GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
+        return;
       }
+      v6 = v3;
+      if ( (a1 & *(_DWORD *)(v3 + 2128)) != 0 )
+        break;
+LABEL_17:
+      ;
     }
-    EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
-    GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
+    if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6) )
+    {
+      GreAcquireSemaphore(ghsemGreLock);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
+      GreAcquireSemaphore(*(_QWORD *)(v6 + 48));
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"pdo.hsemDevLock()", *(_QWORD *)(v6 + 48), 11LL);
+    }
+    if ( (a1 & *(_DWORD *)(v6 + 2128)) == 0 || (*(_DWORD *)(v6 + 40) & 0x400) != 0 )
+    {
+LABEL_15:
+      if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6) )
+      {
+        EtwTraceGreLockReleaseSemaphore(L"pdo.hsemDevLock()", *(_QWORD *)(v6 + 48));
+        GreReleaseSemaphoreInternal(*(_QWORD *)(v6 + 48));
+        EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
+        GreReleaseSemaphoreInternal(ghsemGreLock);
+      }
+      goto LABEL_17;
+    }
+    v5 = 0;
+    if ( a1 == 64 )
+    {
+      if ( gcSynchronizeFlush == -1 )
+      {
+LABEL_14:
+        PDEVOBJ::vSync(
+          (PDEVOBJ *)&v6,
+          (struct _SURFOBJ *)((*(_QWORD *)(v6 + 2552) + 24LL) & -(__int64)(*(_QWORD *)(v6 + 2552) != 0LL)),
+          0LL,
+          v5);
+        goto LABEL_15;
+      }
+      v5 = 2;
+    }
+    if ( a1 == 128 && gcSynchronizeTimer != -1 )
+      v5 |= 1u;
+    goto LABEL_14;
   }
 }

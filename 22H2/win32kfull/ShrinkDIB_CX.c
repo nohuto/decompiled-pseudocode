@@ -1,5 +1,5 @@
 /*
- * XREFs of ShrinkDIB_CX @ 0x1C0263310
+ * XREFs of ShrinkDIB_CX @ 0x1C026B920
  * Callers:
  *     <none>
  * Callees:
@@ -137,7 +137,7 @@ void __fastcall ShrinkDIB_CX(__int64 a1, unsigned __int8 *a2, _BYTE *a3, __int64
         if ( (v33 & 0xFF00) != 0 )
           LOBYTE(v33) = ~HIBYTE(v33);
         a3[1] = v33;
-        v34 = (6 * *(_DWORD *)&v40[12] - *(_DWORD *)v40 - v31) >> 15;
+        v34 = (6 * *(_DWORD *)&v40[12] - v31 - *(_DWORD *)v40) >> 15;
         if ( (v34 & 0xFF00) != 0 )
           LOBYTE(v34) = ~HIBYTE(v34);
         a3[2] = v34;

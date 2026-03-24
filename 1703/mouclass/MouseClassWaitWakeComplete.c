@@ -1,1 +1,81 @@
-/*\n * XREFs of MouseClassWaitWakeComplete @ 0x1C0004C10\n * Callers:\n *     <none>\n * Callees:\n *     MouseToggleWaitWake @ 0x1C0004DC8 (MouseToggleWaitWake.c)\n *     WPP_RECORDER_SF_qd @ 0x1C0005534 (WPP_RECORDER_SF_qd.c)\n *     WPP_RECORDER_SF_qqd @ 0x1C0005BFC (WPP_RECORDER_SF_qqd.c)\n */\n\nvoid __fastcall MouseClassWaitWakeComplete(\n        PDEVICE_OBJECT DeviceObject,\n        UCHAR MinorFunction,\n        POWER_STATE PowerState,\n        PVOID Context,\n        PIO_STATUS_BLOCK IoStatus)\n{\n  struct _IO_STATUS_BLOCK *v6; // rdi\n  KIRQL v7; // al\n  struct _IO_STATUS_BLOCK *v8; // rdx\n  int v9; // edx\n  int v10; // r8d\n  int v11; // edx\n  int v12; // r8d\n  NTSTATUS Status; // eax\n  int v14; // edx\n  int v15; // r8d\n  int v16; // r9d\n\n  v6 = 0LL;\n  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Context + 9);\n  v8 = (struct _IO_STATUS_BLOCK *)*((_QWORD *)Context + 37);\n  if ( v8 && IoStatus == &v8[3] )\n  {\n    *((_QWORD *)Context + 37) = 0LL;\nLABEL_7:\n    v6 = v8;\n    goto LABEL_8;\n  }\n  v8 = (struct _IO_STATUS_BLOCK *)*((_QWORD *)Context + 35);\n  if ( v8 && IoStatus == &v8[3] )\n  {\n    *((_QWORD *)Context + 35) = 0LL;\n    *((_BYTE *)Context + 288) = 0;\n    goto LABEL_7;\n  }\nLABEL_8:\n  KeReleaseSpinLock((PKSPIN_LOCK)Context + 9, v7);\n  LOBYTE(v9) = 4;\n  WPP_RECORDER_SF_qqd(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 85);\n  Status = IoStatus->Status;\n  if ( IoStatus->Status != -2147483631\n    && Status != -1073741536\n    && Status != -1073741436\n    && Status != -1073741101\n    && Status != -1072431071 )\n  {\n    if ( Status )\n    {\n      LOBYTE(v11) = 2;\n      WPP_RECORDER_SF_qqd(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 87);\n      if ( (int)MouseToggleWaitWake(Context, 0LL) < 0 )\n        WPP_RECORDER_SF_qd(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16);\n      goto LABEL_19;\n    }\n    PoRequestPowerIrp(\n      *((PDEVICE_OBJECT *)Context + 3),\n      2u,\n      (POWER_STATE)1,\n      (PREQUEST_POWER_COMPLETE)MouseClassWWPowerUpComplete,\n      Context,\n      0LL);\n  }\n  if ( IoStatus->Status < 0 )\n  {\n    LOBYTE(v11) = 2;\n    WPP_RECORDER_SF_qqd(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 86);\n  }\nLABEL_19:\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)Context + 1, v6, 0x20u);\n}\n
+/*
+ * XREFs of MouseClassWaitWakeComplete @ 0x1C0004C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseToggleWaitWake @ 0x1C0004DC8 (MouseToggleWaitWake.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0005534 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C0005BFC (WPP_RECORDER_SF_qqd.c)
+ */
+
+void __fastcall MouseClassWaitWakeComplete(
+        PDEVICE_OBJECT DeviceObject,
+        UCHAR MinorFunction,
+        POWER_STATE PowerState,
+        PVOID Context,
+        PIO_STATUS_BLOCK IoStatus)
+{
+  struct _IO_STATUS_BLOCK *v6; // rdi
+  KIRQL v7; // al
+  struct _IO_STATUS_BLOCK *v8; // rdx
+  int v9; // edx
+  int v10; // r8d
+  int v11; // edx
+  int v12; // r8d
+  NTSTATUS Status; // eax
+  int v14; // edx
+  int v15; // r8d
+  int v16; // r9d
+
+  v6 = 0LL;
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Context + 9);
+  v8 = (struct _IO_STATUS_BLOCK *)*((_QWORD *)Context + 37);
+  if ( v8 && IoStatus == &v8[3] )
+  {
+    *((_QWORD *)Context + 37) = 0LL;
+LABEL_7:
+    v6 = v8;
+    goto LABEL_8;
+  }
+  v8 = (struct _IO_STATUS_BLOCK *)*((_QWORD *)Context + 35);
+  if ( v8 && IoStatus == &v8[3] )
+  {
+    *((_QWORD *)Context + 35) = 0LL;
+    *((_BYTE *)Context + 288) = 0;
+    goto LABEL_7;
+  }
+LABEL_8:
+  KeReleaseSpinLock((PKSPIN_LOCK)Context + 9, v7);
+  LOBYTE(v9) = 4;
+  WPP_RECORDER_SF_qqd(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 85);
+  Status = IoStatus->Status;
+  if ( IoStatus->Status != -2147483631
+    && Status != -1073741536
+    && Status != -1073741436
+    && Status != -1073741101
+    && Status != -1072431071 )
+  {
+    if ( Status )
+    {
+      LOBYTE(v11) = 2;
+      WPP_RECORDER_SF_qqd(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 87);
+      if ( (int)MouseToggleWaitWake(Context, 0LL) < 0 )
+        WPP_RECORDER_SF_qd(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16);
+      goto LABEL_19;
+    }
+    PoRequestPowerIrp(
+      *((PDEVICE_OBJECT *)Context + 3),
+      2u,
+      (POWER_STATE)1,
+      (PREQUEST_POWER_COMPLETE)MouseClassWWPowerUpComplete,
+      Context,
+      0LL);
+  }
+  if ( IoStatus->Status < 0 )
+  {
+    LOBYTE(v11) = 2;
+    WPP_RECORDER_SF_qqd(WPP_GLOBAL_Control->DeviceExtension, v11, v12, 86);
+  }
+LABEL_19:
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)Context + 1, v6, 0x20u);
+}

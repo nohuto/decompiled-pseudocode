@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801A04B0
+ * XREFs of ?GetProperty@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EAD0
  * Callers:
  *     <none>
  * Callees:

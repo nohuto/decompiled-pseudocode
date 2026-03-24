@@ -1,19 +1,19 @@
 /*
- * XREFs of IrqArbpFindSuitableRangePci @ 0x1C009D25C
+ * XREFs of IrqArbpFindSuitableRangePci @ 0x1C0096AB8
  * Callers:
- *     IrqArbFindSuitableRange @ 0x1C009D510 (IrqArbFindSuitableRange.c)
+ *     IrqArbFindSuitableRange @ 0x1C00918B0 (IrqArbFindSuitableRange.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DD @ 0x1C004B644 (WPP_RECORDER_SF_DD.c)
- *     IcGetPossibleInput @ 0x1C0097288 (IcGetPossibleInput.c)
- *     IrqArbGsivFromIrq @ 0x1C009A2C0 (IrqArbGsivFromIrq.c)
- *     IcIsInputValid @ 0x1C009D3D8 (IcIsInputValid.c)
- *     LinkNodeGetPossibleGsiv @ 0x1C00B5F4C (LinkNodeGetPossibleGsiv.c)
- *     IrqArbIrqFromGsiv @ 0x1C00B690C (IrqArbIrqFromGsiv.c)
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B6B6C (IrqArbpAssignIrqFromLinkNode.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C004CA24 (WPP_RECORDER_SF_DD.c)
+ *     IcGetPossibleInput @ 0x1C0091E28 (IcGetPossibleInput.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
+ *     IcIsInputValid @ 0x1C0096C34 (IcIsInputValid.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C00B68E4 (LinkNodeGetPossibleGsiv.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
  */
 
 char __fastcall IrqArbpFindSuitableRangePci(__int64 a1, _QWORD *a2)
@@ -73,7 +73,7 @@ char __fastcall IrqArbpFindSuitableRangePci(__int64 a1, _QWORD *a2)
           4u,
           0x14u,
           0x19u,
-          (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+          (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
           v9);
       v6 = v23;
     }
@@ -108,7 +108,7 @@ LABEL_12:
         2u,
         0x14u,
         0x1Au,
-        (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
+        (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
     return 0;
   }
   v19 = IrqArbIrqFromGsiv(v23, v17);
@@ -119,7 +119,7 @@ LABEL_12:
       4u,
       0x14u,
       0x17u,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
       v19);
   if ( a2[2] <= v20 && a2[3] >= v20 )
   {
@@ -136,7 +136,7 @@ LABEL_12:
       4u,
       0x14u,
       0x18u,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
       v21,
       *((_DWORD *)a2 + 2));
   }

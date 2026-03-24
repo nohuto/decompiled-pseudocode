@@ -1,5 +1,5 @@
 /*
- * XREFs of NtThawTransactions @ 0x1403DFE40
+ * XREFs of NtThawTransactions @ 0x1403D0B40
  * Callers:
  *     <none>
  * Callees:

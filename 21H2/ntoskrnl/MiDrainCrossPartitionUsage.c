@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDrainCrossPartitionUsage @ 0x1405BE340
+ * XREFs of MiDrainCrossPartitionUsage @ 0x14056209C
  * Callers:
- *     MiDeletePartition @ 0x14058DDC0 (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1405356DC (MiDeletePartition.c)
  * Callees:
- *     MiDecrementControlAreaCount @ 0x140270204 (MiDecrementControlAreaCount.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1402D3100 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     CcExitPartition @ 0x14053E098 (CcExitPartition.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x14058B540 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiDecrementCloneHeaderCount @ 0x1405BA5F0 (MiDecrementCloneHeaderCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiDecrementControlAreaCount @ 0x1402F7BE8 (MiDecrementControlAreaCount.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1403613A0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcExitPartition @ 0x1404EC154 (CcExitPartition.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140529D68 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiDecrementCloneHeaderCount @ 0x140559FC0 (MiDecrementCloneHeaderCount.c)
  */
 
 void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
@@ -42,10 +42,10 @@ void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
   Object.Header.WaitListHead.Blink = &Object.Header.WaitListHead;
   Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C51F00, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
   *(_DWORD *)(a1 + 4) |= 1u;
-  *(_QWORD *)(a1 + 2352) = &Object;
+  *(_QWORD *)(a1 + 2128) = &Object;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
@@ -73,17 +73,17 @@ void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
   CcExitPartition(*(_QWORD **)(a1 + 176), 0);
   KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
   v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1344));
-  v9 = (_QWORD *)(a1 + 2280);
-  v10 = 7LL;
+  v9 = (_QWORD *)(a1 + 1896);
+  v10 = 0LL;
   while ( !*v9 )
   {
     ++v10;
     v9 += 4;
-    if ( v10 >= 9 )
+    if ( v10 >= 7 )
       goto LABEL_13;
   }
   KeResetEvent(&Object);
-  *(_QWORD *)(a1 + 2344) = &Object;
+  *(_QWORD *)(a1 + 2120) = &Object;
 LABEL_13:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
   if ( KiIrqlFlags )
@@ -106,10 +106,10 @@ LABEL_13:
   __writecr8(v8);
   KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
   KeResetEvent(&Object);
-  *(_QWORD *)(a1 + 2360) = &Object;
+  *(_QWORD *)(a1 + 2136) = &Object;
   MiDecrementCloneHeaderCount(a1);
   KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-  v15 = *(struct _EX_RUNDOWN_REF_CACHE_AWARE **)(a1 + 2368);
+  v15 = *(struct _EX_RUNDOWN_REF_CACHE_AWARE **)(a1 + 2144);
   if ( v15 )
     ExWaitForRundownProtectionReleaseCacheAware(v15);
 }

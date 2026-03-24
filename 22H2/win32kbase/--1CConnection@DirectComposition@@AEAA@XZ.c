@@ -1,14 +1,13 @@
 /*
- * XREFs of ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C0083968
+ * XREFs of ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C00AB6C4
  * Callers:
- *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0083E50 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ *     NtDCompositionConfirmFrame @ 0x1C0057920 (NtDCompositionConfirmFrame.c)
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C00AB69C (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C0021510 (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00835D0 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??1CChannelGroup@DirectComposition@@QEAA@XZ @ 0x1C0083A0C (--1CChannelGroup@DirectComposition@@QEAA@XZ.c)
- *     ?DiscardAllCompositionFrames@CConnection@DirectComposition@@AEAAXXZ @ 0x1C0083BF4 (-DiscardAllCompositionFrames@CConnection@DirectComposition@@AEAAXXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C005A59C (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
+ *     ?DiscardAllCompositionFrames@CConnection@DirectComposition@@AEAAXXZ @ 0x1C00AB7A0 (-DiscardAllCompositionFrames@CConnection@DirectComposition@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DirectComposition::CConnection::~CConnection(DirectComposition::CConnection *this)
@@ -16,9 +15,11 @@ void __fastcall DirectComposition::CConnection::~CConnection(DirectComposition::
   __int64 v2; // rcx
   DirectComposition::CChannel *v3; // rcx
   struct _ERESOURCE *v4; // rcx
-  __int64 v5; // rcx
-  void *v6; // rcx
-  void *v7; // rdx
+  struct _ERESOURCE *v5; // rcx
+  __int64 v6; // rcx
+  void *v7; // rcx
+  struct _ERESOURCE *v8; // rcx
+  __int64 v9; // rcx
 
   DirectComposition::CConnection::DiscardAllCompositionFrames(this);
   v2 = *((_QWORD *)this + 23);
@@ -31,20 +32,27 @@ void __fastcall DirectComposition::CConnection::~CConnection(DirectComposition::
   if ( v4 )
   {
     ExDeleteResourceLite(v4);
-    v7 = (void *)*((_QWORD *)this + 1);
-    if ( v7 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v7);
+    Win32FreePool(*((_QWORD *)this + 1));
   }
-  v5 = *((_QWORD *)this + 33);
+  v5 = (struct _ERESOURCE *)*((_QWORD *)this + 30);
   if ( v5 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
-  `vector destructor iterator'(
-    (char *)this + 392,
-    464LL,
-    300LL,
-    (void (__fastcall *)(char *))DirectComposition::CConnection::CFrameStats::~CFrameStats);
-  v6 = (void *)*((_QWORD *)this + 26);
+  {
+    ExDeleteResourceLite(v5);
+    Win32FreePool(*((_QWORD *)this + 30));
+  }
+  v6 = *((_QWORD *)this + 31);
   if ( v6 )
-    ObfDereferenceObject(v6);
-  DirectComposition::CChannelGroup::~CChannelGroup((DirectComposition::CConnection *)((char *)this + 16));
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 8LL))(v6);
+  v7 = (void *)*((_QWORD *)this + 26);
+  if ( v7 )
+    ObfDereferenceObject(v7);
+  v8 = (struct _ERESOURCE *)*((_QWORD *)this + 9);
+  if ( v8 )
+  {
+    ExDeleteResourceLite(v8);
+    Win32FreePool(*((_QWORD *)this + 9));
+  }
+  v9 = *((_QWORD *)this + 2);
+  if ( v9 )
+    Win32FreePool(v9);
 }

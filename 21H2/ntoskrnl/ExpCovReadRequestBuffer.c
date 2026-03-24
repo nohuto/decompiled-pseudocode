@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpCovReadRequestBuffer @ 0x140A03C14
+ * XREFs of ExpCovReadRequestBuffer @ 0x140957EDC
  * Callers:
- *     ExpCovQueryInformation @ 0x140A0350C (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140A03DA4 (ExpCovResetInformation.c)
+ *     ExpCovQueryInformation @ 0x1409577DC (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x140958064 (ExpCovResetInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlDuplicateUnicodeString @ 0x1406A9D20 (RtlDuplicateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCovReadRequestBuffer(int *a1, UNICODE_STRING *a2, _OWORD *a3, _DWORD *a4)

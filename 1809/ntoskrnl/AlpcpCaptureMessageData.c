@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpCaptureMessageData @ 0x1406A4228
+ * XREFs of AlpcpCaptureMessageData @ 0x1406A4208
  * Callers:
  *     AlpcpReplyLegacySynchronousRequest @ 0x140615538 (AlpcpReplyLegacySynchronousRequest.c)
  *     AlpcpSetupMessageDataForDeferredCopy @ 0x14061A884 (AlpcpSetupMessageDataForDeferredCopy.c)
  *     AlpcpSendLegacySynchronousRequest @ 0x14061A900 (AlpcpSendLegacySynchronousRequest.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     AlpcpAvailableBufferSize @ 0x140582068 (AlpcpAvailableBufferSize.c)

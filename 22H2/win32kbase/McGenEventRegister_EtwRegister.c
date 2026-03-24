@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventRegister_EtwRegister @ 0x1C00C5150
+ * XREFs of McGenEventRegister_EtwRegister @ 0x1C00B8654
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02DEBC0 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029A770 (Win32kBaseDriverEntry.c)
  * Callees:
  *     <none>
  */

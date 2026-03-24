@@ -1,18 +1,19 @@
 /*
- * XREFs of XilRegister_WriteUlong64 @ 0x1C0014420
+ * XREFs of XilRegister_WriteUlong64 @ 0x1C00142E0
  * Callers:
- *     XilCoreDeviceSlot_Initialize @ 0x1C00142F8 (XilCoreDeviceSlot_Initialize.c)
- *     Interrupter_UpdateERDP @ 0x1C0014370 (Interrupter_UpdateERDP.c)
- *     XilCoreCommand_Initialize @ 0x1C0014460 (XilCoreCommand_Initialize.c)
- *     Interrupter_InterrupterRegisterIntialize @ 0x1C00144F0 (Interrupter_InterrupterRegisterIntialize.c)
- *     Interrupter_DeInitializeAfterOffload @ 0x1C003BDEC (Interrupter_DeInitializeAfterOffload.c)
- *     Interrupter_InitializeForOffload @ 0x1C003C1CC (Interrupter_InitializeForOffload.c)
- *     XilCoreCommand_AbortCommandRing @ 0x1C0050860 (XilCoreCommand_AbortCommandRing.c)
- *     XilCoreCommand_FreeResources @ 0x1C00508AC (XilCoreCommand_FreeResources.c)
- *     XilCoreDeviceSlot_FreeResources @ 0x1C0050CC8 (XilCoreDeviceSlot_FreeResources.c)
- *     Interrupter_ReleaseInterrupter @ 0x1C0077CD4 (Interrupter_ReleaseInterrupter.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
+ *     XilCoreDeviceSlot_Initialize @ 0x1C00141B0 (XilCoreDeviceSlot_Initialize.c)
+ *     Interrupter_UpdateERDP @ 0x1C0014228 (Interrupter_UpdateERDP.c)
+ *     XilCoreCommand_Initialize @ 0x1C0014334 (XilCoreCommand_Initialize.c)
+ *     Interrupter_InterrupterRegisterIntialize @ 0x1C00143C4 (Interrupter_InterrupterRegisterIntialize.c)
+ *     Interrupter_DeInitializeAfterOffload @ 0x1C003B8B8 (Interrupter_DeInitializeAfterOffload.c)
+ *     Interrupter_InitializeForOffload @ 0x1C003BC78 (Interrupter_InitializeForOffload.c)
+ *     XilCoreCommand_AbortCommandRing @ 0x1C004FC5C (XilCoreCommand_AbortCommandRing.c)
+ *     XilCoreCommand_FreeResources @ 0x1C004FCA8 (XilCoreCommand_FreeResources.c)
+ *     XilCoreDeviceSlot_FreeResources @ 0x1C00500C4 (XilCoreDeviceSlot_FreeResources.c)
+ *     Interrupter_ReleaseInterrupter @ 0x1C00768D4 (Interrupter_ReleaseInterrupter.c)
  * Callees:
- *     Register_WriteSecureMmio @ 0x1C003D41C (Register_WriteSecureMmio.c)
+ *     Register_WriteSecureMmio @ 0x1C003CEA0 (Register_WriteSecureMmio.c)
  */
 
 __int64 __fastcall XilRegister_WriteUlong64(__int64 a1, _DWORD *a2, unsigned __int64 a3)

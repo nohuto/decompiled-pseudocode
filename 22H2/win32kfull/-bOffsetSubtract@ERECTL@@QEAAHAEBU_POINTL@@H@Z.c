@@ -1,21 +1,9 @@
 /*
- * XREFs of ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266514
+ * XREFs of ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C026DF64
  * Callers:
- *     ?vInitStrDDAClip@@YAXPEAU_RECTL@@0000@Z @ 0x1C00DA880 (-vInitStrDDAClip@@YAXPEAU_RECTL@@0000@Z.c)
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0101D80 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
- *     ?iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C01083FC (-iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z.c)
- *     ?iSelect@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C011AC4C (-iSelect@DC@@QEAAHPEAVREGION@@H@Z.c)
- *     ?bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEAU_RECTL@@PEAVPALETTE@@PEAK4PEAPEAV3@@Z @ 0x1C013411C (-bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEA.c)
- *     ??ZERECTL@@QEAAXAEBU_POINTL@@@Z @ 0x1C026575C (--ZERECTL@@QEAAXAEBU_POINTL@@@Z.c)
- *     ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C0266BF4 (-vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ.c)
- *     DxgkEngAccumD3DPresentBounds @ 0x1C026F1A0 (DxgkEngAccumD3DPresentBounds.c)
- *     GreLockDisplayArea @ 0x1C02839D0 (GreLockDisplayArea.c)
- *     GreUnlockDisplayArea @ 0x1C0283BC8 (GreUnlockDisplayArea.c)
- *     ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C02A8980 (-bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
- *     ?bClipSrcDstRects@@YA_NQEAU_RECTL@@0PEAU1@1@Z @ 0x1C02DE278 (-bClipSrcDstRects@@YA_NQEAU_RECTL@@0PEAU1@1@Z.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
  * Callees:
- *     LongLongToLong @ 0x1C00149AC (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C01585F0 (LongLongToLong.c)
  */
 
 __int64 __fastcall ERECTL::bOffsetSubtract(ERECTL *this, const struct _POINTL *a2, int a3)

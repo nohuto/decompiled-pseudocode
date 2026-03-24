@@ -1,26 +1,23 @@
 /*
- * XREFs of ?SpbApc@@YAXPEAX00@Z @ 0x1C01F92E0
+ * XREFs of ?SpbApc@@YAXPEAX00@Z @ 0x1C0219A60
  * Callers:
  *     <none>
  * Callees:
- *     GreSaveScreenBits @ 0x1C02A7EE4 (GreSaveScreenBits.c)
+ *     GreSaveScreenBits @ 0x1C029E814 (GreSaveScreenBits.c)
  */
 
 void __fastcall SpbApc(void *a1, void *a2, void *a3)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  void *v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v5; // rcx
+  void *v6; // [rsp+38h] [rbp+10h] BYREF
 
-  EnterCrit(1LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( a2 )
   {
-    v9 = a2;
-    HMAssignmentUnlock(&v9);
+    v6 = a2;
+    HMAssignmentUnlock(&v6);
   }
   if ( a3 )
-    GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), 2LL, a3);
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
+    GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), 2LL, a3, 0LL);
+  UserSessionSwitchLeaveCrit(v5);
 }

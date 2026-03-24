@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z @ 0x180243260
+ * XREFs of ?NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z @ 0x1801F17E0
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@@Z @ 0x1800C5520 (-NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV-$span@QEBUAnimatedProperty@.c)
+ *     ?NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@@Z @ 0x1800BE2E8 (-NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV-$span@QEBUAnimatedProperty@.c)
  */
 
 __int64 __fastcall CViewBox::NotifyCurrentPropertyValues(CViewBox *this, int a2)

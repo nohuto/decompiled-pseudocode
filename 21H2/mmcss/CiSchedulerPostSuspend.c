@@ -1,9 +1,9 @@
 /*
- * XREFs of CiSchedulerPostSuspend @ 0x1C0004E0C
+ * XREFs of CiSchedulerPostSuspend @ 0x1C0004B5C
  * Callers:
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
  * Callees:
- *     CiSchedulerUpdateTimer @ 0x1C0001F80 (CiSchedulerUpdateTimer.c)
+ *     CiSchedulerUpdateTimer @ 0x1C0002990 (CiSchedulerUpdateTimer.c)
  */
 
 void __fastcall CiSchedulerPostSuspend(char a1, int a2, unsigned __int64 a3, bool *a4)

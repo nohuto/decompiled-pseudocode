@@ -1,18 +1,17 @@
 /*
- * XREFs of ViInitSystemPhase1 @ 0x140B75DE4
+ * XREFs of ViInitSystemPhase1 @ 0x140A6FD8C
  * Callers:
- *     VerifierInitSystem @ 0x140B53244 (VerifierInitSystem.c)
+ *     VerifierInitSystem @ 0x140A6FA84 (VerifierInitSystem.c)
  * Callees:
- *     VfIsRuleClassEnabled @ 0x140ABE5F0 (VfIsRuleClassEnabled.c)
- *     VfPendingInitPhase1 @ 0x140AD2860 (VfPendingInitPhase1.c)
- *     VfFaultsInitPhase1 @ 0x140AD6EA0 (VfFaultsInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x140ADB118 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADBE88 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140799990 (PsSetCreateProcessNotifyRoutine.c)
+ *     VfPendingInitPhase1 @ 0x1409D57AC (VfPendingInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x1409E0230 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x1409E0588 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
-char ViInitSystemPhase1()
+__int64 ViInitSystemPhase1()
 {
-  char result; // al
+  __int64 result; // rax
 
   if ( ViVerifierEnabled )
   {
@@ -20,13 +19,10 @@ char ViInitSystemPhase1()
     VfSettingsMiscellaneousChecksInitPhase1();
     VfPendingInitPhase1();
   }
-  result = VfIsRuleClassEnabled(2u);
-  if ( result )
-    result = VfFaultsInitPhase1();
+  PsSetCreateProcessNotifyRoutine((PCREATE_PROCESS_NOTIFY_ROUTINE)ViCreateProcessCallback, 0);
+  result = (unsigned int)ViImageExecutionOptions;
+  ViFaultsProcessNotifyRoutineSet = 1;
   if ( ViImageExecutionOptions == 1 )
-  {
-    result = MmWriteableSharedUserData;
-    _InterlockedOr((volatile signed __int32 *)(MmWriteableSharedUserData + 928), 1u);
-  }
+    _InterlockedOr((volatile signed __int32 *)0xFFFFF780000003A0LL, 1u);
   return result;
 }

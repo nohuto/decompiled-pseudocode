@@ -1,63 +1,50 @@
 /*
- * XREFs of InvalidateChildRelationsOnAdapterCallback @ 0x1C02F2610
+ * XREFs of InvalidateChildRelationsOnAdapterCallback @ 0x1C0297510
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??$?9V?$unique_storage@U?$resource_policy@PEAU_FILE_OBJECT@@$$A6AXPEAX@Z$1?DereferenceObject@details@widxg@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@wil@@YA_NAEBV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_FILE_OBJECT@@$$A6AXPEAX@Z$1?DereferenceObject@details@widxg@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@0@$$T@Z @ 0x1C000954C (--$-9V-$unique_storage@U-$resource_policy@PEAU_FILE_OBJECT@@$$A6AXPEAX@Z$1-DereferenceObject@det.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAU_FILE_OBJECT@@$$A6AXPEAX@Z$1?DereferenceObject@details@widxg@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_FILE_OBJECT@@@Z @ 0x1C0027E5C (-reset@-$unique_storage@U-$resource_policy@PEAU_FILE_OBJECT@@$$A6AXPEAX@Z$1-DereferenceObject@de.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_DEVICE_OBJECT@@$$A6AXPEAX@Z$1?DereferenceObject@details@widxg@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C004D3F0 (--1-$unique_storage@U-$resource_policy@PEAU_DEVICE_OBJECT@@$$A6AXPEAX@Z$1-DereferenceObject@deta.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InvalidateChildRelationsOnAdapterCallback(struct _DEVICE_OBJECT **a1)
 {
   int v2; // eax
-  unsigned int v3; // ebx
-  struct _DEVICE_OBJECT *v4; // rcx
-  DxgkCompositionObject *DeviceAttachmentBaseRef; // rax
-  PDEVICE_OBJECT DeviceObject[2]; // [rsp+50h] [rbp-B8h] BYREF
-  _BYTE v8[144]; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v3; // rdx
+  unsigned int v4; // ebx
+  struct _DEVICE_OBJECT *v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // rbx
+  __int64 v9; // rax
+  _BYTE v11[144]; // [rsp+20h] [rbp-A8h] BYREF
 
-  DeviceObject[0] = 0LL;
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v8, (struct DXGADAPTER *const)a1, 0LL);
-  v2 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v8, 0LL);
-  v3 = v2;
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v11, (struct DXGADAPTER *const)a1, 0LL);
+  v2 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v11, 0LL);
+  v4 = v2;
   if ( v2 >= 0 )
   {
-    v4 = a1[27];
-    if ( v4 )
+    v5 = a1[27];
+    if ( v5 )
     {
-      DeviceAttachmentBaseRef = (DxgkCompositionObject *)IoGetDeviceAttachmentBaseRef(v4);
-      wil::details::unique_storage<wil::details::resource_policy<_FILE_OBJECT *,void (void *),&void widxg::details::DereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_FILE_OBJECT *,_FILE_OBJECT *,0,std::nullptr_t>>::reset(
-        (DxgkCompositionObject **)DeviceObject,
-        DeviceAttachmentBaseRef);
-      if ( !wil::operator!=<wil::details::unique_storage<wil::details::resource_policy<_FILE_OBJECT *,void (void *),&void widxg::details::DereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_FILE_OBJECT *,_FILE_OBJECT *,0,std::nullptr_t>>>(DeviceObject) )
+      DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(v5);
+      if ( !DeviceAttachmentBaseRef )
       {
-        WdLogSingleEntry1(1LL, 2519LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"PhysicalDeviceObject != NULL",
-          2519LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v9 = WdLogNewEntry5_WdAssertion(v7, v6);
+        *(_QWORD *)(v9 + 24) = 2509LL;
+        WdLogEvent5_WdAssertion(v9);
       }
-      IoInvalidateDeviceRelations(DeviceObject[0], BusRelations);
+      IoInvalidateDeviceRelations(DeviceAttachmentBaseRef, BusRelations);
+      ObfDereferenceObject(DeviceAttachmentBaseRef);
     }
-    v3 = 0;
+    v4 = 0;
   }
   else if ( v2 == -1073741130 )
   {
-    v3 = 0;
+    v4 = 0;
   }
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v8);
-  wil::details::unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,void (void *),&void widxg::details::DereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_DEVICE_OBJECT *,void (void *),&void widxg::details::DereferenceObject(void *),wistd::integral_constant<unsigned __int64,0>,_DEVICE_OBJECT *,_DEVICE_OBJECT *,0,std::nullptr_t>>((DxgkCompositionObject **)DeviceObject);
-  return v3;
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v11, v3);
+  return v4;
 }

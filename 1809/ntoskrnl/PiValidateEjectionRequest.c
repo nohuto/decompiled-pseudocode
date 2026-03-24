@@ -1,7 +1,7 @@
 /*
- * XREFs of PiValidateEjectionRequest @ 0x140840590
+ * XREFs of PiValidateEjectionRequest @ 0x140840570
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     <none>
  */

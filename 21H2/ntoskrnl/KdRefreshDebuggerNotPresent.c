@@ -1,34 +1,34 @@
 /*
- * XREFs of KdRefreshDebuggerNotPresent @ 0x1403DC750
+ * XREFs of KdRefreshDebuggerNotPresent @ 0x1403CFF10
  * Callers:
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x1405674E0 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
  * Callees:
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
- *     KdpPrintString @ 0x140A7131C (KdpPrintString.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdpPrintString @ 0x1409BA7A0 (KdpPrintString.c)
  */
 
 BOOLEAN KdRefreshDebuggerNotPresent(void)
 {
-  __int64 v0; // rax
-  char v1; // di
-  BOOLEAN v2; // bl
-  __int64 v3; // rcx
+  __int64 v1; // rax
+  char v2; // di
+  BOOLEAN v3; // bl
+  __int64 v4; // rcx
   __int128 v5; // [rsp+20h] [rbp-18h] BYREF
 
   v5 = 0LL;
   if ( KdPitchDebugger || !(_BYTE)KdDebuggerEnabled )
     return 1;
-  v0 = -1LL;
+  v1 = -1LL;
   *((_QWORD *)&v5 + 1) = "KDTARGET: Refreshing KD connection\n";
   do
-    ++v0;
-  while ( aKdtargetRefres[v0] );
-  LOWORD(v5) = v0;
-  v1 = KdEnterDebugger(0LL, 0LL);
+    ++v1;
+  while ( aKdtargetRefres[v1] );
+  LOWORD(v5) = v1;
+  v2 = KdEnterDebugger(0LL, 0LL);
   KdpPrintString(&v5);
-  v2 = (unsigned __int8)KdDebuggerNotPresent;
-  LOBYTE(v3) = v1;
-  KdExitDebugger(v3);
-  return v2;
+  v3 = (unsigned __int8)KdDebuggerNotPresent;
+  LOBYTE(v4) = v2;
+  KdExitDebugger(v4);
+  return v3;
 }

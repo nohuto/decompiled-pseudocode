@@ -8,8 +8,8 @@
  *     ViDeadlockRemoveResource @ 0x14093D948 (ViDeadlockRemoveResource.c)
  *     ViDeadlockRemoveThread @ 0x14093DAE4 (ViDeadlockRemoveThread.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  */
 
 __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, ...)
@@ -32,9 +32,9 @@ __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __in
     if ( (result & 0x10) != 0 )
       *a1 = 0;
     ViDeadlockIssue = a3;
-    qword_14040CF88 = a4;
-    qword_14040CF90 = a5;
-    qword_14040CF98 = a6;
+    qword_14040CF68 = a4;
+    qword_14040CF70 = a5;
+    qword_14040CF78 = a6;
     VfUtilDbgPrint("************ Verifier Detected a Potential Deadlock *************\n");
     VfUtilDbgPrint("**\n");
     VfUtilDbgPrint("** ");

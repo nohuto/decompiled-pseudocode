@@ -1,18 +1,18 @@
 /*
- * XREFs of HsaInitializeIommu @ 0x140A64A00
+ * XREFs of HsaInitializeIommu @ 0x1409AA5F0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HalSocRequestApi @ 0x1403B38C8 (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x1403BE7F0 (HalMapIoSpace.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HsaBuildDeviceTableEntry @ 0x1405313B4 (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x1405323B0 (HsaGetBlockedDomain.c)
- *     HsaProcessDeviceExceptions @ 0x140532C98 (HsaProcessDeviceExceptions.c)
- *     HsaInitializeInterruptRemapping @ 0x140A64868 (HsaInitializeInterruptRemapping.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HsaBuildDeviceTableEntry @ 0x1404E2700 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x1404E3730 (HsaGetBlockedDomain.c)
+ *     HsaProcessDeviceExceptions @ 0x1404E3FAC (HsaProcessDeviceExceptions.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA448 (HsaInitializeInterruptRemapping.c)
  */
 
 __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
@@ -37,7 +37,7 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
   __int16 v21; // r8
   __int16 BlockedDomain; // ax
   int v23; // edx
-  __int64 v24; // rax
+  __int128 v24; // rax
   _QWORD *v25; // r9
   unsigned __int64 v26; // r8
   __int64 v27; // r11
@@ -168,9 +168,9 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
           }
         }
         ++v10;
-        v24 = v12[1] / 4096LL;
+        v24 = (__int64)v12[1];
         v12 += 3;
-        *v11++ = v24;
+        *v11++ = (__int64)((WORD4(v24) & 0xFFF) + (_QWORD)v24) >> 12;
       }
       while ( v10 < 4 );
       if ( v4 != 2 || v41 || (int)HsaProcessDeviceExceptions(a1) >= 0 )

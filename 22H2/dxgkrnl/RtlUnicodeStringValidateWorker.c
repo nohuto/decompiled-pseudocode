@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker @ 0x1C0003C50
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x1C000CC30
  * Callers:
- *     RtlUnicodeStringValidateDestWorker @ 0x1C0003B20 (RtlUnicodeStringValidateDestWorker.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0003B8C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000CAFC (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C000CBC4 (RtlUnicodeStringValidateDestWorker.c)
  * Callees:
  *     <none>
  */

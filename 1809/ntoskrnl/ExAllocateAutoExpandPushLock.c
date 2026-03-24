@@ -1,5 +1,5 @@
 /*
- * XREFs of ExAllocateAutoExpandPushLock @ 0x140167040
+ * XREFs of ExAllocateAutoExpandPushLock @ 0x140167060
  * Callers:
  *     <none>
  * Callees:

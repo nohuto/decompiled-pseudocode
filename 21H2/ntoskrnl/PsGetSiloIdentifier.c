@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetSiloIdentifier @ 0x140864FF0
+ * XREFs of PsGetSiloIdentifier @ 0x1407D51B0
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ __int64 __fastcall PsGetSiloIdentifier(__int64 a1)
 
   result = 0LL;
   if ( a1 )
-    return *(unsigned int *)(a1 + 1428);
+    return *(unsigned int *)(a1 + 1236);
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmiSessionDeviceListWorker @ 0x14087D73C
+ * XREFs of TtmiSessionDeviceListWorker @ 0x14087D71C
  * Callers:
- *     TtmpSessionWorker @ 0x1408810E0 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x1408810C0 (TtmpSessionWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmpCallAssignedToTerminal @ 0x14087D94C (TtmpCallAssignedToTerminal.c)
- *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE9C (TtmpCommitTerminalDisplayStateUpdateWorker.c)
- *     TtmpPublishDeviceEvent @ 0x14087E260 (TtmpPublishDeviceEvent.c)
- *     TtmpPushTerminalState @ 0x14087E43C (TtmpPushTerminalState.c)
- *     TtmpStartCallout @ 0x14087E600 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x14087E6EC (TtmpStopCallout.c)
+ *     TtmpCallAssignedToTerminal @ 0x14087D92C (TtmpCallAssignedToTerminal.c)
+ *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE7C (TtmpCommitTerminalDisplayStateUpdateWorker.c)
+ *     TtmpPublishDeviceEvent @ 0x14087E240 (TtmpPublishDeviceEvent.c)
+ *     TtmpPushTerminalState @ 0x14087E41C (TtmpPushTerminalState.c)
+ *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
  */
 
 __int64 __fastcall TtmiSessionDeviceListWorker(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpAcpiCheckAndMapTable @ 0x14033564C
+ * XREFs of HalpAcpiCheckAndMapTable @ 0x1402E7D28
  * Callers:
- *     HalpAcpiGetTableFromBios @ 0x1403354A0 (HalpAcpiGetTableFromBios.c)
- *     HalpAcpiGetRsdt @ 0x140336C28 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetAllTablesWork @ 0x14037E278 (HalpAcpiGetAllTablesWork.c)
- *     HalpAcpiGetFacsMapping @ 0x140394CB8 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetRsdt @ 0x1402E7690 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableFromBios @ 0x1402E7B80 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403BA168 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetAllTablesWork @ 0x1403BAE94 (HalpAcpiGetAllTablesWork.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     strncmp @ 0x1403D8830 (strncmp.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     strncmp @ 0x1403D0E40 (strncmp.c)
  */
 
 __int64 __fastcall HalpAcpiCheckAndMapTable(
@@ -23,10 +23,10 @@ __int64 __fastcall HalpAcpiCheckAndMapTable(
         char a7,
         _DWORD *a8)
 {
-  __int64 v8; // rdi
-  __int64 v13; // rbp
+  __int64 v8; // r12
+  __int64 v13; // rsi
   __int64 v14; // rax
-  __int64 v15; // rsi
+  __int64 v15; // rdi
   __int64 v17; // rax
   int v18; // ecx
   char v19; // dl
@@ -47,30 +47,34 @@ __int64 __fastcall HalpAcpiCheckAndMapTable(
         || Str1 && strncmp(Str1, (const char *)(v14 + 10), 6uLL)
         || a6 && strncmp(a6, (const char *)(v15 + 16), 8uLL) )
       {
-        if ( !v15 )
-          return v8;
-        goto LABEL_9;
+LABEL_8:
+        if ( v15 )
+        {
+          if ( a1 )
+            HalpUnmapVirtualAddress(v15, ((v15 & 0xFFF) + 4095 + (unsigned __int64)(unsigned int)v13) >> 12, 0LL);
+          else
+            MmUnmapIoSpace((PVOID)v15, (unsigned int)v13);
+        }
+        return v8;
       }
       v13 = *(unsigned int *)(v15 + 4);
       if ( a1 )
-      {
         HalpUnmapVirtualAddress(v15, ((unsigned __int64)(v15 & 0xFFF) + 4131) >> 12, 0LL);
-        v17 = HalpMap(a2, (v13 + (unsigned __int64)(a2 & 0xFFF) + 4095) >> 12, 1, 0, 4);
-      }
       else
-      {
         MmUnmapIoSpace((PVOID)v15, 0x24uLL);
-        v17 = MmMapIoSpaceEx(a2, (unsigned int)v13, 516LL);
-      }
+      if ( a1 )
+        v17 = HalpMap(a2, ((unsigned __int64)(a2 & 0xFFF) + 4095 + v13) >> 12, 1, 0, 4);
+      else
+        v17 = MmMapIoSpaceEx(a2, v13, 516LL);
       v15 = v17;
       if ( v17 )
       {
         if ( !a7 )
-          goto LABEL_24;
+          goto LABEL_26;
         v18 = *(_DWORD *)(v17 + 4);
         v19 = 0;
         if ( !v18 )
-          goto LABEL_24;
+          goto LABEL_26;
         v20 = (char *)v17;
         do
         {
@@ -82,16 +86,12 @@ __int64 __fastcall HalpAcpiCheckAndMapTable(
         while ( v18 );
         if ( !v22 )
         {
-LABEL_24:
+LABEL_26:
           v8 = v15;
+          v15 = 0LL;
           *a8 = v13;
-          return v8;
         }
-LABEL_9:
-        if ( a1 )
-          HalpUnmapVirtualAddress(v15, ((v15 & 0xFFF) + 4095 + (unsigned __int64)(unsigned int)v13) >> 12, 0LL);
-        else
-          MmUnmapIoSpace((PVOID)v15, (unsigned int)v13);
+        goto LABEL_8;
       }
     }
   }

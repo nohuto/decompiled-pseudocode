@@ -1,28 +1,35 @@
 /*
- * XREFs of CommonBuffer_AcquireShadowBuffer @ 0x1C003219C
+ * XREFs of CommonBuffer_AcquireShadowBuffer @ 0x1C003062C
  * Callers:
- *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BB4C (XilCommonBuffer_AcquireBufferEx.c)
- *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038ADC (XilEndpoint_AllocateStreamContextArray.c)
- *     TR_CreateSecureObject @ 0x1C004129C (TR_CreateSecureObject.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C00165F0 (XilCommonBuffer_AcquireBufferEx.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C003701C (XilEndpoint_AllocateStreamContextArray.c)
+ *     TR_AcquireSecureSegments @ 0x1C003E894 (TR_AcquireSecureSegments.c)
+ *     TR_CreateSecureObject @ 0x1C003EDAC (TR_CreateSecureObject.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
-__int64 __fastcall CommonBuffer_AcquireShadowBuffer(int a1, __int64 a2, int a3)
+_DWORD *__fastcall CommonBuffer_AcquireShadowBuffer(int a1, __int64 a2, int a3)
 {
-  int v3; // edi
-  __int64 result; // rax
+  unsigned int v3; // esi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v8; // rbx
 
   v3 = a1 + 88;
-  result = ExAllocatePool2(64LL, (unsigned int)(a1 + 88), 1229146200LL);
-  if ( result )
+  PoolWithTag = ExAllocatePoolWithTag(
+                  (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                  (unsigned int)(a1 + 88),
+                  0x49434858u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(result + 40) = v3;
-    *(_QWORD *)(result + 16) = result + 88;
-    *(_DWORD *)(result + 44) = a1;
-    *(_DWORD *)(result + 64) = a3;
-    *(_QWORD *)(result + 72) = a2;
-    *(_DWORD *)(result + 80) = 2;
+    memset(PoolWithTag, 0, v3);
+    v8[10] = v3;
+    *((_QWORD *)v8 + 2) = v8 + 22;
+    v8[11] = a1;
+    v8[16] = a3;
+    *((_QWORD *)v8 + 9) = a2;
+    v8[20] = 2;
   }
-  return result;
+  return v8;
 }

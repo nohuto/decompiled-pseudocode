@@ -1,16 +1,16 @@
 /*
- * XREFs of Isoch_MapTransfers @ 0x1C0001C9C
+ * XREFs of Isoch_MapTransfers @ 0x1C0001D00
  * Callers:
  *     Isoch_EvtDmaCallback @ 0x1C0001010 (Isoch_EvtDmaCallback.c)
- *     Isoch_EP_StartMapping @ 0x1C0001C10 (Isoch_EP_StartMapping.c)
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140 (Isoch_WdfEvtIoQueueReadyNotification.c)
- *     Isoch_CommonBufferCallback @ 0x1C0043A30 (Isoch_CommonBufferCallback.c)
- *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C0044F3C (Isoch_ProcessTransferRingEmptyEvent.c)
+ *     Isoch_EP_StartMapping @ 0x1C0001C90 (Isoch_EP_StartMapping.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0002AE0 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ *     Isoch_CommonBufferCallback @ 0x1C0040DA0 (Isoch_CommonBufferCallback.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C00422A0 (Isoch_ProcessTransferRingEmptyEvent.c)
  * Callees:
- *     Isoch_MappingLoop @ 0x1C0001D18 (Isoch_MappingLoop.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     Isoch_MappingLoop @ 0x1C0001D7C (Isoch_MappingLoop.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Isoch_MapTransfers(__int64 a1)
@@ -25,12 +25,12 @@ __int64 __fastcall Isoch_MapTransfers(__int64 a1)
     {
       v4 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
       LOBYTE(v4) = 5;
-      WPP_RECORDER_SF_DDD(
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v4,
         14,
         67,
-        (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+        (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
         *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
         *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
         i);

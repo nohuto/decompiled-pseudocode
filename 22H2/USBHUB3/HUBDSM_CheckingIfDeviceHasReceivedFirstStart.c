@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDeviceHasReceivedFirstStart @ 0x1C001F140
+ * XREFs of HUBDSM_CheckingIfDeviceHasReceivedFirstStart @ 0x1C001C730
  * Callers:
  *     <none>
  * Callees:

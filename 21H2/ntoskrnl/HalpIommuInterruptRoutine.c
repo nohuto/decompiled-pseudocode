@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuInterruptRoutine @ 0x140518140
+ * XREFs of HalpIommuInterruptRoutine @ 0x1404CBFF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char HalpIommuInterruptRoutine()
@@ -20,7 +20,7 @@ char HalpIommuInterruptRoutine()
   {
     v3 = v0;
     v0 = (__int64 *)*v0;
-    if ( (v3[59] & 0x120) != 0 && ((unsigned __int8 (__fastcall *)(__int64))v3[36])(v3[2]) )
+    if ( (v3[57] & 0x120) != 0 && ((unsigned __int8 (__fastcall *)(__int64))v3[36])(v3[2]) )
     {
       v2 = 1;
       (*(void (__fastcall **)(_QWORD))(HalIommuDispatch + 96))(v1);

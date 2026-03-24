@@ -1,15 +1,14 @@
 /*
- * XREFs of SSHSupportAllocatePaged @ 0x14069376C
+ * XREFs of SSHSupportAllocatePaged @ 0x14069D95C
  * Callers:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperSetBlockerFriendlyName @ 0x140209A80 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SshpCopyDataEntry @ 0x1405A2D10 (SshpCopyDataEntry.c)
- *     SshpWriteBlocker @ 0x1405A2E50 (SshpWriteBlocker.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x140325750 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x140325850 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     SshpCopyDataEntry @ 0x14057FB30 (SshpCopyDataEntry.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SSHSupportAllocatePaged(__int64 a1, unsigned int a2)
+PVOID __fastcall SSHSupportAllocatePaged(SIZE_T NumberOfBytes, ULONG Tag)
 {
-  return ExAllocatePool2(256LL, a1, a2);
+  return ExAllocatePoolWithTag(PagedPool, NumberOfBytes, Tag);
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of CcFastCopyRead @ 0x140936BD0
+ * XREFs of CcFastCopyRead @ 0x1408677E0
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyReadEx @ 0x140261C40 (CcCopyReadEx.c)
+ *     CcCopyReadEx @ 0x1402A0DB0 (CcCopyReadEx.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 void __stdcall CcFastCopyRead(
         PFILE_OBJECT FileObject,
         ULONG FileOffset,
@@ -18,5 +17,5 @@ void __stdcall CcFastCopyRead(
   __int64 v6[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v6[0] = FileOffset;
-  CcCopyReadEx(FileObject, v6, *(__int64 *)&Length, 1u, Buffer, IoStatus, 0LL);
+  CcCopyReadEx((_SLIST_ENTRY *)FileObject, v6, Length, 1, Buffer, IoStatus, 0LL);
 }

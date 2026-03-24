@@ -1,165 +1,95 @@
 /*
- * XREFs of NtSetCachedSigningLevel2 @ 0x1407FFC80
+ * XREFs of NtSetCachedSigningLevel2 @ 0x14072B4F0
  * Callers:
- *     NtSetCachedSigningLevel @ 0x1407FFC50 (NtSetCachedSigningLevel.c)
+ *     NtSetCachedSigningLevel @ 0x14072B4C0 (NtSetCachedSigningLevel.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlUnicodeStringValidateEx @ 0x1405A7158 (RtlUnicodeStringValidateEx.c)
- *     SepCaptureUnicodeStringArray @ 0x1406D4D00 (SepCaptureUnicodeStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlUnicodeStringValidateEx @ 0x1405851E8 (RtlUnicodeStringValidateEx.c)
+ *     SepCaptureUnicodeStringArray @ 0x140601510 (SepCaptureUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetCachedSigningLevel2(
-        __int64 a1,
-        __int64 a2,
+        __int16 a1,
+        char a2,
         const void *a3,
         unsigned int a4,
         __int64 a5,
         unsigned __int64 a6)
 {
-  __int64 v6; // r12
-  size_t v7; // rbx
+  __int64 v6; // r15
+  SIZE_T v7; // rbx
   __int16 v8; // si
-  UNICODE_STRING *Pool2; // r15
-  char v10; // r13
-  char PreviousMode; // r14
+  UNICODE_STRING *PoolWithTag; // r14
+  char v10; // r12
+  char PreviousMode; // r13
   int v12; // ebx
-  __int128 v13; // xmm0
-  __int64 v14; // rbx
-  int v15; // eax
-  _KPROCESS *Process; // rcx
-  char v17; // bl
-  size_t v18; // r12
-  __int64 v19; // rbx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  ULONG v22; // edx
-  __int64 v23; // rdx
-  PVOID P; // [rsp+60h] [rbp-68h]
-  PCUNICODE_STRING SourceString[2]; // [rsp+68h] [rbp-60h] BYREF
-  void *Src[2]; // [rsp+78h] [rbp-50h]
-  __int64 v28; // [rsp+88h] [rbp-40h]
-  char v29; // [rsp+D8h] [rbp+10h]
+  SIZE_T v14; // r15
+  __int64 v15; // rbx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  ULONG v18; // edx
+  __int64 v19; // rdx
+  _KPROCESS *Process; // rdx
+  _KPROCESS *v21; // rcx
+  char v22; // bl
+  PCUNICODE_STRING SourceString[10]; // [rsp+58h] [rbp-50h] BYREF
 
-  v29 = a2;
   v6 = a4;
-  v7 = (size_t)a3;
+  v7 = (SIZE_T)a3;
   v8 = a1;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v10 = 0;
   SourceString[0] = 0LL;
-  P = 0LL;
-  *(_OWORD *)Src = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a1 & 0x2000) != 0 )
+  if ( !qword_140C1DAE8 )
   {
-    if ( !qword_140C37AA8 )
-    {
-LABEL_3:
-      v12 = -1073741822;
-      goto LABEL_76;
-    }
-    if ( !a6 || !a5 )
-    {
-      v12 = -1073741811;
-      goto LABEL_76;
-    }
-    if ( PreviousMode == 1 )
-    {
-      if ( (BYTE2(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 7) != 1 )
-      {
-LABEL_8:
-        v12 = -1073741790;
-        goto LABEL_76;
-      }
-      if ( (a6 & 3) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( a6 + 24 > 0x7FFFFFFF0000LL || a6 + 24 < a6 )
-        MEMORY[0x7FFFFFFF0000] = 0;
-      v13 = *(_OWORD *)(a6 + 8);
-      *(_OWORD *)Src = v13;
-      v14 = v13;
-      if ( (_QWORD)v13 )
-      {
-        if ( ((__int64)Src[1] & 3) != 0 )
-          ExRaiseDatatypeMisalignment();
-        if ( (char *)Src[1] + (unsigned __int64)v13 > (void *)0x7FFFFFFF0000LL
-          || (char *)Src[1] + (unsigned __int64)v13 < Src[1] )
-        {
-          MEMORY[0x7FFFFFFF0000] = 0;
-        }
-      }
-      v28 = v13;
-      if ( !Src[1] || !(_QWORD)v13 )
-      {
-        v12 = -1073741811;
-        goto LABEL_76;
-      }
-      if ( (unsigned __int64)v13 > 0xFFFF )
-      {
-        v12 = -1073741811;
-        goto LABEL_76;
-      }
-      P = (PVOID)ExAllocatePool2(259LL, v13, 1668499779LL);
-      if ( !P )
-      {
-        v12 = -1073741670;
-        goto LABEL_76;
-      }
-      memmove(P, Src[1], v13);
-    }
-    else
-    {
-      v14 = *(_QWORD *)(a6 + 8);
-      P = *(PVOID *)(a6 + 16);
-    }
-    LOBYTE(a1) = PreviousMode;
-    v15 = ((__int64 (__fastcall *)(__int64, __int64, __int64, PVOID))qword_140C37AA8)(a1, a5, v14, P);
-LABEL_28:
-    v12 = v15;
-    goto LABEL_76;
+    v12 = -1073741823;
+    goto LABEL_10;
   }
-  if ( !qword_140C379C8 )
-    goto LABEL_3;
   if ( (a2 & 0x30) != 0 )
-  {
-LABEL_32:
-    v12 = -1073741584;
-    goto LABEL_76;
-  }
+    goto LABEL_43;
   if ( a4 - 1 > 0xFFF )
-    goto LABEL_75;
-  if ( (a1 & 6) == 0 && (_BYTE)a2 )
-    goto LABEL_32;
+    goto LABEL_57;
+  if ( (a1 & 6) == 0 && a2 )
+  {
+LABEL_43:
+    v12 = -1073741584;
+    goto LABEL_10;
+  }
   if ( (a1 & 3) == 3 )
   {
-LABEL_37:
+LABEL_6:
     v12 = -1073741585;
-    goto LABEL_76;
+    goto LABEL_10;
   }
   if ( PreviousMode == 1 )
   {
     if ( (a1 & 2) != 0 )
-      goto LABEL_37;
+      goto LABEL_6;
     v8 = a1 | 1;
     if ( (a1 & 4) == 0 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
+      v21 = Process;
       if ( (BYTE2(Process[2].Header.WaitListHead.Flink) & 7) != 1 )
-        goto LABEL_8;
-      v10 = (__int64)Process[2].Header.WaitListHead.Flink & 0xF;
-      v17 = BYTE1(Process[2].Header.WaitListHead.Flink) & 0xF;
-      if ( !qword_140C37A00
-        || (LOBYTE(a2) = (__int64)Process[2].Header.WaitListHead.Flink & 0xF,
-            LOBYTE(Process) = BYTE1(Process[2].Header.WaitListHead.Flink) & 0xF,
-            !(unsigned int)qword_140C37A00(Process, a2)) )
       {
-        v10 = v17;
+        v12 = -1073741790;
+        goto LABEL_10;
       }
-      v7 = (size_t)a3;
+      v10 = (__int64)Process[2].Header.WaitListHead.Flink & 0xF;
+      v22 = BYTE1(Process[2].Header.WaitListHead.Flink) & 0xF;
+      if ( !qword_140C1DB20
+        || (LOBYTE(Process) = (__int64)Process[2].Header.WaitListHead.Flink & 0xF,
+            LOBYTE(v21) = v22,
+            !(unsigned int)qword_140C1DB20(v21, Process)) )
+      {
+        v10 = v22;
+      }
+      v7 = (SIZE_T)a3;
     }
   }
   else if ( (a1 & 1) != 0 )
@@ -169,27 +99,27 @@ LABEL_37:
   else
   {
     if ( (a1 & 2) == 0 )
-      goto LABEL_37;
+      goto LABEL_6;
     v10 = 8;
   }
-  v18 = 8 * v6;
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, v18, 1668499779LL);
-  SourceString[1] = Pool2;
-  if ( !Pool2 )
+  v14 = 8 * v6;
+  PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, v14, 0x63734943u);
+  SourceString[2] = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v12 = -1073741670;
-    goto LABEL_76;
+    goto LABEL_10;
   }
   if ( PreviousMode == 1 )
   {
-    if ( v18 )
+    if ( v14 )
     {
       if ( (v7 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( v18 + v7 > 0x7FFFFFFF0000LL || v18 + v7 < v7 )
+      if ( v14 + v7 > 0x7FFFFFFF0000LL || v14 + v7 < v7 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    v19 = a6;
+    v15 = a6;
     if ( a6 )
     {
       if ( (a6 & 3) != 0 )
@@ -200,57 +130,55 @@ LABEL_37:
   }
   else
   {
-    v19 = a6;
+    v15 = a6;
   }
-  memmove(Pool2, a3, v18);
-  if ( !v19 )
-    goto LABEL_70;
-  if ( *(_DWORD *)v19 < 0x18u )
+  memmove(PoolWithTag, a3, v14);
+  if ( !v15 )
+    goto LABEL_40;
+  if ( *(_DWORD *)v15 < 0x18u )
   {
     v12 = -1073741580;
-    goto LABEL_76;
+    goto LABEL_10;
   }
-  if ( !*(_WORD *)(v19 + 8)
-    || (LOBYTE(v20) = PreviousMode, v12 = SepCaptureUnicodeStringArray(v19 + 8, 1u, v20, SourceString), v12 >= 0)
-    && (v12 = RtlUnicodeStringValidateEx(SourceString[0], v22), v12 >= 0) )
+  if ( !*(_WORD *)(v15 + 8)
+    || (LOBYTE(v16) = PreviousMode, v12 = SepCaptureUnicodeStringArray(v15 + 8, 1u, v16, SourceString), v12 >= 0)
+    && (v12 = RtlUnicodeStringValidateEx(SourceString[0], v18), v12 >= 0) )
   {
-LABEL_70:
-    v23 = a4;
+LABEL_40:
+    v19 = a4;
     if ( (v8 & 6) == 0 )
     {
-LABEL_74:
-      LOBYTE(v21) = v10;
-      LOBYTE(v20) = v29;
-      LOBYTE(v23) = PreviousMode;
-      v15 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, UNICODE_STRING *, unsigned int, __int64, PCUNICODE_STRING))qword_140C379C8)(
+LABEL_9:
+      LOBYTE(v17) = v10;
+      LOBYTE(v16) = a2;
+      LOBYTE(v19) = PreviousMode;
+      v12 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, UNICODE_STRING *, unsigned int, __int64, PCUNICODE_STRING))qword_140C1DAE8)(
               v8 & 0x807,
-              v23,
-              v20,
-              v21,
-              Pool2,
+              v19,
+              v16,
+              v17,
+              PoolWithTag,
               a4,
               a5,
               SourceString[0]);
-      goto LABEL_28;
+      goto LABEL_10;
     }
     if ( a4 == 1 )
     {
-      if ( a5 != *(_QWORD *)&Pool2->Length )
+      if ( a5 != *(_QWORD *)&PoolWithTag->Length )
       {
         v12 = -1073741581;
-        goto LABEL_76;
+        goto LABEL_10;
       }
-      goto LABEL_74;
+      goto LABEL_9;
     }
-LABEL_75:
+LABEL_57:
     v12 = -1073741582;
   }
-LABEL_76:
+LABEL_10:
   if ( PreviousMode == 1 && SourceString[0] )
     ExFreePoolWithTag((PVOID)SourceString[0], 0);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x63734943u);
-  if ( P && PreviousMode == 1 )
-    ExFreePoolWithTag(P, 0x63734943u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x63734943u);
   return (unsigned int)v12;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSuspectDriversParseRegistryString @ 0x140B53B88
+ * XREFs of VfSuspectDriversParseRegistryString @ 0x140A93DD8
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140B0DBD4 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140A89E7C (VfDriverUnlock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140A9A588 (VfSuspectDriversAllocateEntry.c)
- *     VfSuspectDriversInsert @ 0x140A9A8C4 (VfSuspectDriversInsert.c)
- *     VfSuspectExcludedDriversAllocateEntry @ 0x140A9AE5C (VfSuspectExcludedDriversAllocateEntry.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x1409C88EC (VfDriverUnlock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409D9828 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversInsert @ 0x1409D9B64 (VfSuspectDriversInsert.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x1409DA120 (VfSuspectExcludedDriversAllocateEntry.c)
  */
 
 int VfSuspectDriversParseRegistryString()
@@ -31,41 +31,62 @@ int VfSuspectDriversParseRegistryString()
   v1 = (VfOptionFlags & 1) == 0;
   Entry = ((unsigned __int64)(unsigned int)MmVerifyDriverBufferLength - 2) >> 1;
   v3 = (__int64 *)((char *)MmVerifyDriverBuffer + 2 * Entry);
-  if ( MmVerifyDriverBuffer >= v3 )
-    return Entry;
-  v4 = 0x100002601LL;
-  while ( 1 )
+  if ( MmVerifyDriverBuffer < v3 )
   {
-    v5 = *(unsigned __int16 *)v0;
-    if ( (unsigned int)v5 <= 0x20 && _bittest64(&v4, v5) || (_WORD)v5 == 12288 )
+    v4 = 0x100002601LL;
+    while ( 1 )
     {
-      v6 = v0;
-      goto LABEL_29;
-    }
-    if ( (_DWORD)v5 == 42 && v1 )
-    {
-      ViVerifyAllDrivers = 1;
-      return Entry;
-    }
-    v6 = (__int64 *)((char *)v0 + 2);
-    if ( (_DWORD)v5 == 34 )
-      break;
-    while ( v6 < v3 )
-    {
-      v7 = *(unsigned __int16 *)v6;
-      if ( (unsigned int)v7 <= 0x20 )
+      v5 = *(unsigned __int16 *)v0;
+      if ( (unsigned int)v5 <= 0x20 && _bittest64(&v4, v5) || (_WORD)v5 == 12288 )
       {
-        if ( _bittest64(&v4, v7) )
-          break;
+        v6 = v0;
+        goto LABEL_30;
       }
-      if ( (_WORD)v7 == 12288 )
+      if ( (_DWORD)v5 == 42 && v1 )
+      {
+        ViVerifyAllDrivers = 1;
+        return Entry;
+      }
+      v6 = (__int64 *)((char *)v0 + 2);
+      if ( (_DWORD)v5 == 34 )
+      {
+        v0 = (__int64 *)((char *)v0 + 2);
+        v6 = (__int64 *)((char *)v6 + 2);
+        if ( v6 >= v3 )
+          return Entry;
+        do
+        {
+          if ( *(_WORD *)v6 == 34 )
+            break;
+          v6 = (__int64 *)((char *)v6 + 2);
+        }
+        while ( v6 < v3 );
+        if ( v6 >= v3 )
+          return Entry;
+      }
+      else
+      {
+        while ( v6 < v3 )
+        {
+          v7 = *(unsigned __int16 *)v6;
+          if ( (unsigned int)v7 <= 0x20 )
+          {
+            if ( _bittest64(&v4, v7) )
+              break;
+          }
+          if ( (_WORD)v7 == 12288 )
+            break;
+          v6 = (__int64 *)((char *)v6 + 2);
+        }
+      }
+      v8 = 2 * (((char *)v6 - (char *)v0) >> 1);
+      if ( v8 )
         break;
-      v6 = (__int64 *)((char *)v6 + 2);
+LABEL_30:
+      v0 = (__int64 *)((char *)v6 + 2);
+      if ( (__int64 *)((char *)v6 + 2) >= v3 )
+        return Entry;
     }
-LABEL_18:
-    v8 = 2 * (((char *)v6 - (char *)v0) >> 1);
-    if ( !v8 )
-      goto LABEL_29;
     LODWORD(Entry) = v8 + 2;
     LOWORD(v13[0]) = 2 * (((char *)v6 - (char *)v0) >> 1);
     WORD1(v13[0]) = v8 + 2;
@@ -74,46 +95,35 @@ LABEL_18:
     *((_QWORD *)&v13[0] + 1) = v0;
     if ( v1 )
     {
-      Entry = VfSuspectDriversAllocateEntry((const void **)v13);
+      Entry = (unsigned __int64)VfSuspectDriversAllocateEntry((const void **)v13);
       v9 = (_QWORD *)Entry;
       if ( Entry )
       {
         VfDriverLock();
         VfSuspectDriversInsert(v9);
-LABEL_26:
+LABEL_27:
         LODWORD(Entry) = VfDriverUnlock();
       }
     }
     else
     {
-      Entry = VfSuspectExcludedDriversAllocateEntry((unsigned __int16 *)v13, 0x44456656u);
+      Entry = (unsigned __int64)VfSuspectExcludedDriversAllocateEntry((unsigned __int16 *)v13, 0x44456656u);
       v10 = (_QWORD *)Entry;
       if ( Entry )
       {
         VfDriverLock();
-        v11 = (_QWORD *)qword_140C1ADC8;
-        if ( *(__int64 **)qword_140C1ADC8 != &VfExcludedDriversList )
+        v11 = (_QWORD *)qword_140C1CBE8;
+        if ( *(__int64 **)qword_140C1CBE8 != &VfExcludedDriversList )
           __fastfail(3u);
         *v10 = &VfExcludedDriversList;
         v10[1] = v11;
         *v11 = v10;
-        qword_140C1ADC8 = (__int64)v10;
-        goto LABEL_26;
+        qword_140C1CBE8 = (__int64)v10;
+        goto LABEL_27;
       }
     }
     v4 = 0x100002601LL;
-LABEL_29:
-    v0 = (__int64 *)((char *)v6 + 2);
-    if ( (__int64 *)((char *)v6 + 2) >= v3 )
-      return Entry;
+    goto LABEL_30;
   }
-  v0 = (__int64 *)((char *)v0 + 2);
-  while ( 1 )
-  {
-    v6 = (__int64 *)((char *)v6 + 2);
-    if ( v6 >= v3 )
-      return Entry;
-    if ( *(_WORD *)v6 == 34 )
-      goto LABEL_18;
-  }
+  return Entry;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCheckKeyBodyAccess @ 0x1407F48E0
+ * XREFs of CmpCheckKeyBodyAccess @ 0x1407F48C0
  * Callers:
  *     CmpVEPerformOpenAccessCheck @ 0x140596A64 (CmpVEPerformOpenAccessCheck.c)
- *     CmpDoAccessCheckOnKCB @ 0x1407F28D8 (CmpDoAccessCheckOnKCB.c)
+ *     CmpDoAccessCheckOnKCB @ 0x1407F28B8 (CmpDoAccessCheckOnKCB.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeOpenObjectAuditAlarm @ 0x1405961B0 (SeOpenObjectAuditAlarm.c)
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
  *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
@@ -14,7 +14,7 @@
  *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920 (CmpGetSecurityCacheEntryForKcbStack.c)
  *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
  *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
- *     SeAppendPrivileges @ 0x140699A40 (SeAppendPrivileges.c)
+ *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
  */
 
 BOOLEAN __fastcall CmpCheckKeyBodyAccess(

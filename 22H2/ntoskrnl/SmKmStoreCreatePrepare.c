@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmStoreCreatePrepare @ 0x1407B7F8C
+ * XREFs of SmKmStoreCreatePrepare @ 0x1406FB8D4
  * Callers:
- *     SmProcessCreateRequest @ 0x1407B7C2C (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x1406FD1F0 (SmProcessCreateRequest.c)
  * Callees:
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall SmKmStoreCreatePrepare(unsigned int *a1, char a2, _QWORD *a3, __int64 a4)
@@ -12,7 +12,7 @@ __int64 __fastcall SmKmStoreCreatePrepare(unsigned int *a1, char a2, _QWORD *a3,
   unsigned int v4; // eax
   const void **v5; // rdi
   unsigned int v6; // ebx
-  void *NonPaged; // rbp
+  PVOID NonPaged; // rbp
   size_t v10; // rsi
   const void *v11; // rax
 
@@ -32,7 +32,7 @@ __int64 __fastcall SmKmStoreCreatePrepare(unsigned int *a1, char a2, _QWORD *a3,
     v10 = a1[12];
     if ( (_DWORD)v10 )
     {
-      NonPaged = (void *)SSHSupportAllocateNonPaged((unsigned int)v10, 0x4B456D73u);
+      NonPaged = SSHSupportAllocateNonPaged((unsigned int)v10, 0x4B456D73u);
       if ( !NonPaged )
         return (unsigned int)-1073741670;
     }

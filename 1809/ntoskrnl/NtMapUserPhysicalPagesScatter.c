@@ -1,21 +1,21 @@
 /*
- * XREFs of NtMapUserPhysicalPagesScatter @ 0x1408516D0
+ * XREFs of NtMapUserPhysicalPagesScatter @ 0x1408516B0
  * Callers:
  *     <none>
  * Callees:
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiFreePhysicalPageChain @ 0x1402B04BC (MiFreePhysicalPageChain.c)
- *     MiGetAweNode @ 0x1402B0C18 (MiGetAweNode.c)
- *     MiLockAwePagesShared @ 0x1402B11B8 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x1402B1214 (MiLockAweVadsShared.c)
- *     MiUnlockAweVadsShared @ 0x1402B1FE0 (MiUnlockAweVadsShared.c)
- *     MiWriteAwePtes @ 0x1402B2178 (MiWriteAwePtes.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
+ *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
+ *     MiLockAwePagesShared @ 0x1402B12B8 (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x1402B1314 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
+ *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCaptureUlongPtrArray @ 0x14084F71C (MiCaptureUlongPtrArray.c)
- *     MiReferenceIncomingPhysicalPages @ 0x14084FF5C (MiReferenceIncomingPhysicalPages.c)
+ *     MiCaptureUlongPtrArray @ 0x14084F6FC (MiCaptureUlongPtrArray.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x14084FF3C (MiReferenceIncomingPhysicalPages.c)
  */
 
 NTSTATUS __stdcall NtMapUserPhysicalPagesScatter(

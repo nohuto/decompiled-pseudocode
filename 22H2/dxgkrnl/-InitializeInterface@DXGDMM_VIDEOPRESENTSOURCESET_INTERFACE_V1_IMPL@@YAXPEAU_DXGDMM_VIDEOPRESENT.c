@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeInterface@DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE@@@Z @ 0x1C021608C
+ * XREFs of ?InitializeInterface@DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE@@@Z @ 0x1C017D0A4
  * Callers:
- *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0215E98 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C017CC20 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,13 @@ void __fastcall DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::InitializeInterf
         DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *this,
         struct _DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE *a2)
 {
+  __int64 v3; // rax
+
   if ( !this )
-    WdLogSingleEntry0(1LL);
+  {
+    v3 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v3);
+  }
   *(_QWORD *)this = DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::GetNumSources;
   *((_QWORD *)this + 1) = DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::AcquireFirstSourceInfo;
   *((_QWORD *)this + 2) = DXGDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::AcquireNextSourceInfo;

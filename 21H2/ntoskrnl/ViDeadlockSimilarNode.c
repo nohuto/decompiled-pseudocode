@@ -1,7 +1,7 @@
 /*
- * XREFs of ViDeadlockSimilarNode @ 0x140A9A090
+ * XREFs of ViDeadlockSimilarNode @ 0x1409DFE68
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
  * Callees:
  *     <none>
  */

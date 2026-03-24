@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptIsCmciSupported @ 0x1403DEB00
+ * XREFs of HalpInterruptIsCmciSupported @ 0x1403CF864
  * Callers:
- *     HalpIsCmciImplemented @ 0x140A5367C (HalpIsCmciImplemented.c)
+ *     HalpIsCmciImplemented @ 0x140999C64 (HalpIsCmciImplemented.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
  */
 
 bool HalpInterruptIsCmciSupported()
@@ -13,9 +13,9 @@ bool HalpInterruptIsCmciSupported()
   int v2; // [rsp+34h] [rbp+Ch]
 
   result = 0;
-  if ( *(_DWORD *)(HalpInterruptController + 224) == 2 )
+  if ( *(_DWORD *)(HalpInterruptController + 216) == 2 )
   {
-    v1 = *(_DWORD *)(HalpInterruptController + 240);
+    v1 = *(_DWORD *)(HalpInterruptController + 232);
     v2 = -7;
     if ( HalpInterruptFindLines(&v1) )
       return 1;

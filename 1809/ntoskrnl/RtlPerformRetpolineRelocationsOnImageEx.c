@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F6FA4
+ * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4
  * Callers:
- *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F6F74 (RtlPerformRetpolineRelocationsOnImage.c)
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F7074 (RtlPerformRetpolineRelocationsOnImage.c)
  *     MiApplyRetpolineToBootDrivers @ 0x1409B88C4 (MiApplyRetpolineToBootDrivers.c)
  *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlApplyImportRelocationToImage @ 0x1402F6A44 (RtlApplyImportRelocationToImage.c)
- *     RtlpApplyGenericRetpolineFixup @ 0x1402F745C (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F74A4 (RtlpCaptureDynamicRelocationTableRva.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7570 (RtlpCaptureRetpolineBinaryInfoForImage.c)
- *     RtlpConstructIndirectRelocationFixup @ 0x1402F79A0 (RtlpConstructIndirectRelocationFixup.c)
- *     RtlpConstructSwitchJumpRelocationFixup @ 0x1402F7B58 (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlApplyImportRelocationToImage @ 0x1402F6B44 (RtlApplyImportRelocationToImage.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402F755C (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F75A4 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7670 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x1402F7AA0 (RtlpConstructIndirectRelocationFixup.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x1402F7C58 (RtlpConstructSwitchJumpRelocationFixup.c)
  */
 
 __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(

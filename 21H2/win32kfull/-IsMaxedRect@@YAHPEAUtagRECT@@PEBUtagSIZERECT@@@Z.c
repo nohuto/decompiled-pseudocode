@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z @ 0x1C0062208
+ * XREFs of ?IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z @ 0x1C007C8C4
  * Callers:
- *     xxxCheckFullScreen @ 0x1C0061F88 (xxxCheckFullScreen.c)
+ *     xxxCheckFullScreen @ 0x1C007C5FC (xxxCheckFullScreen.c)
  * Callees:
  *     <none>
  */

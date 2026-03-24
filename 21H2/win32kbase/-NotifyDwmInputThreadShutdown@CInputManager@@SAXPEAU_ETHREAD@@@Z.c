@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyDwmInputThreadShutdown@CInputManager@@SAXPEAU_ETHREAD@@@Z @ 0x1C023C4C0
+ * XREFs of ?NotifyDwmInputThreadShutdown@CInputManager@@SAXPEAU_ETHREAD@@@Z @ 0x1C01FA740
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     ?CleanupDwmInputThread@CInputManager@@IEAAXXZ @ 0x1C023BDC0 (-CleanupDwmInputThread@CInputManager@@IEAAXXZ.c)
+ *     ?CleanupDwmInputThread@CInputManager@@IEAAXXZ @ 0x1C01F9FA8 (-CleanupDwmInputThread@CInputManager@@IEAAXXZ.c)
  */
 
 void __fastcall CInputManager::NotifyDwmInputThreadShutdown(struct _ETHREAD *a1)

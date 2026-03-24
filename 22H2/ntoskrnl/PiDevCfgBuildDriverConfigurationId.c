@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgBuildDriverConfigurationId @ 0x14087BF60
+ * XREFs of PiDevCfgBuildDriverConfigurationId @ 0x140739908
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140879844 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076B620 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlTimeToTimeFields @ 0x14033B4B0 (RtlTimeToTimeFields.c)
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CDA68 (RtlUnicodeStringPrintfEx.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x14055F938 (RtlUnicodeStringExHandleOtherFlags.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PnpIsNullGuid @ 0x140786D44 (PnpIsNullGuid.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
+ *     RtlTimeToTimeFields @ 0x14036DE60 (RtlTimeToTimeFields.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036E520 (RtlUnicodeStringPrintfEx.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14050C398 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpIsNullGuid @ 0x140634DDC (PnpIsNullGuid.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgBuildDriverConfigurationId(__int64 a1, UNICODE_STRING *a2)
@@ -21,13 +21,13 @@ __int64 __fastcall PiDevCfgBuildDriverConfigurationId(__int64 a1, UNICODE_STRING
   NTSTATUS v8; // ebx
   unsigned __int16 Length; // di
   wchar_t *Buffer; // r8
-  size_t v12; // r9
-  unsigned __int64 v13; // rdx
-  const wchar_t *v14; // rax
-  signed __int64 v15; // r10
-  __int64 v16; // rcx
-  wchar_t *v17; // r11
-  size_t v18; // r14
+  size_t v12; // rdx
+  wchar_t *v13; // r9
+  __int16 v14; // cx
+  size_t v15; // rax
+  const wchar_t *v16; // rcx
+  __int64 v17; // r9
+  size_t v18; // r10
   wchar_t **ppszDestEnd; // [rsp+20h] [rbp-60h]
   size_t *pcchRemaining; // [rsp+28h] [rbp-58h]
   __int64 dwFlags; // [rsp+30h] [rbp-50h]
@@ -87,7 +87,7 @@ LABEL_12:
     }
     if ( *(_QWORD *)(a1 + 96) )
     {
-LABEL_43:
+LABEL_46:
       RtlTimeToTimeFields((PLARGE_INTEGER)(a1 + 112), &TimeFields);
       LODWORD(dwFlags) = *(unsigned __int16 *)(a1 + 124);
       LODWORD(pcchRemaining) = (unsigned __int16)HIWORD(*(_DWORD *)(a1 + 124));
@@ -107,72 +107,85 @@ LABEL_43:
       DestinationString.Length = RemainingString.Length + Length;
       goto LABEL_12;
     }
+    Buffer = 0LL;
+    v12 = 0LL;
+    v8 = 0;
     if ( (RemainingString.Length & 1) != 0
       || (RemainingString.MaximumLength & 1) != 0
       || RemainingString.Length > RemainingString.MaximumLength
-      || RemainingString.MaximumLength == 0xFFFF
-      || (Buffer = RemainingString.Buffer) == 0LL && (RemainingString.Length || RemainingString.MaximumLength) )
+      || RemainingString.MaximumLength == 0xFFFF )
     {
       v8 = -1073741811;
-      goto LABEL_13;
-    }
-    v12 = 0LL;
-    v13 = (unsigned __int64)RemainingString.MaximumLength >> 1;
-    if ( v13 )
-    {
-      v14 = L",";
-      v15 = (char *)RemainingString.Buffer - (char *)L",";
-      v16 = 0x7FFFLL;
-      v8 = 0;
-      v17 = RemainingString.Buffer;
-      v18 = (unsigned __int64)RemainingString.MaximumLength >> 1;
-      while ( v16 )
-      {
-        if ( *v14 )
-        {
-          *(const wchar_t *)((char *)v14 + v15) = *v14;
-          --v16;
-          ++v14;
-          ++v12;
-          if ( --v13 )
-            continue;
-        }
-        if ( !v13 && v16 && *v14 )
-          v8 = -2147483643;
-        break;
-      }
-      pcchNewDestLength = v12;
-      LOWORD(v13) = v18 - v12;
-      Buffer = &v17[v12];
-      v25 = Buffer;
-      v26 = v18 - v12;
+LABEL_44:
       if ( v8 < 0 )
-      {
-        RtlUnicodeStringExHandleOtherFlags(v17, v18, (size_t)Buffer, &pcchNewDestLength, &v25, &v26, 0x800u);
-        Buffer = v25;
-        LOWORD(v13) = v26;
-        LOWORD(v12) = pcchNewDestLength;
-      }
+        goto LABEL_13;
+      Length += 2;
+      DestinationString.Length = Length;
+      goto LABEL_46;
+    }
+    if ( !RemainingString.Buffer && (RemainingString.Length || RemainingString.MaximumLength) )
+    {
+      v8 = -1073741811;
     }
     else
     {
-      v8 = RemainingString.Buffer != 0LL ? -2147483643 : -1073741811;
-    }
-    RemainingString.Length = 2 * v12;
-    if ( (int)(v8 + 0x80000000) < 0 || v8 == -2147483643 )
-    {
-      RemainingString.Length = 0;
-      RemainingString.MaximumLength = 2 * v13;
-      RemainingString.Buffer = Buffer;
+      Buffer = RemainingString.Buffer;
+      v12 = (unsigned __int64)RemainingString.MaximumLength >> 1;
     }
     if ( v8 >= 0 )
     {
-      Length += 2;
-      DestinationString.Length = Length;
-      goto LABEL_43;
+      v13 = Buffer;
+      v14 = v12;
+      v15 = 0LL;
+      if ( v12 )
+      {
+        v16 = L",";
+        v17 = 0x7FFFLL;
+        v18 = v12;
+        v8 = 0;
+        do
+        {
+          if ( !v17 )
+            break;
+          if ( !*v16 )
+            break;
+          *(const wchar_t *)((char *)v16 + (char *)Buffer - (char *)L",") = *v16;
+          --v17;
+          ++v16;
+          ++v15;
+          --v18;
+        }
+        while ( v18 );
+        if ( !v18 && v17 && *v16 )
+          v8 = -2147483643;
+        pcchNewDestLength = v15;
+        v14 = v12 - v15;
+        v13 = &Buffer[v15];
+        v25 = v13;
+        v26 = v12 - v15;
+        if ( v8 < 0 )
+        {
+          RtlUnicodeStringExHandleOtherFlags(Buffer, v12, (size_t)Buffer, &pcchNewDestLength, &v25, &v26, 0x800u);
+          v13 = v25;
+          v14 = v26;
+          LOWORD(v15) = pcchNewDestLength;
+        }
+      }
+      else
+      {
+        v8 = Buffer != 0LL ? -2147483643 : -1073741811;
+      }
+      RemainingString.Length = 2 * v15;
+      if ( (int)(v8 + 0x80000000) < 0 || v8 == -2147483643 )
+      {
+        RemainingString.Length = 0;
+        RemainingString.MaximumLength = 2 * v14;
+        RemainingString.Buffer = v13;
+      }
+      goto LABEL_44;
     }
   }
 LABEL_13:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)v8;
 }

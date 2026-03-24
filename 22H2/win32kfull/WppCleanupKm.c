@@ -1,9 +1,9 @@
 /*
- * XREFs of WppCleanupKm @ 0x1C0399EB0
+ * XREFs of WppCleanupKm @ 0x1C037AD24
  * Callers:
- *     EditionUninitializeWppLogging @ 0x1C00BD660 (EditionUninitializeWppLogging.c)
+ *     EditionUninitializeWppLogging @ 0x1C0135770 (EditionUninitializeWppLogging.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppCleanupKm(__int64 a1)

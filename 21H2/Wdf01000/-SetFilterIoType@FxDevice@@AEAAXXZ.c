@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C003420C
+ * XREFs of ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C005265C
  * Callers:
- *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C0021924 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
- *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002693C (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0050780 (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C007B7F8 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C0010C88 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
- *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018170 (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018234 (-LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?GetTargetIoType@FxIoTarget@@IEAAEXZ @ 0x1C0026DE0 (-GetTargetIoType@FxIoTarget@@IEAAEXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010A9C (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010B60 (-LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C0016E48 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
+ *     ?GetTargetIoType@FxIoTarget@@IEAAEXZ @ 0x1C0064ED0 (-GetTargetIoType@FxIoTarget@@IEAAEXZ.c)
  */
 
 void __fastcall FxDevice::SetFilterIoType(FxDevice *this)
@@ -17,11 +17,11 @@ void __fastcall FxDevice::SetFilterIoType(FxDevice *this)
   _DEVICE_OBJECT *m_DeviceObject; // rax
   unsigned int Flags; // ecx
   FxTransactionedEntry *i; // rdx
-  FxTransactionedEntry *NextEntryLocked; // rax
-  FxTransactionedEntry *v6; // rsi
   FxObject *m_TransactionedObject; // rdi
   unsigned __int8 TargetIoType; // r14
   const void *_a1; // rax
+  FxTransactionedEntry *NextEntryLocked; // rax
+  FxTransactionedEntry *v9; // rsi
 
   this->m_DeviceObject.m_DeviceObject->Flags &= 0xFFFFFFEB;
   m_DeviceObject = this->m_AttachedDevice.FxDeviceBase::m_DeviceObject;
@@ -33,10 +33,10 @@ void __fastcall FxDevice::SetFilterIoType(FxDevice *this)
   else
     this->m_ReadWriteIoType = (Flags & 0x10 | 8) >> 3;
   FxTransactionedList::LockForEnum(&this->m_IoTargetsList, this->m_Globals);
-  for ( i = 0LL; ; i = v6 )
+  for ( i = 0LL; ; i = v9 )
   {
     NextEntryLocked = FxTransactionedList::GetNextEntryLocked(&this->m_IoTargetsList, i);
-    v6 = NextEntryLocked;
+    v9 = NextEntryLocked;
     if ( !NextEntryLocked )
       break;
     m_TransactionedObject = NextEntryLocked->m_TransactionedObject;

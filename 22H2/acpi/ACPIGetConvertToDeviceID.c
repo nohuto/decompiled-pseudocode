@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetConvertToDeviceID @ 0x1C0029CD8
+ * XREFs of ACPIGetConvertToDeviceID @ 0x1C0028138
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C002B880 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D40 (ACPIGetConvertToDeviceIDWide.c)
- *     ACPIWideStringToAnsiHelper @ 0x1C0043C78 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0028368 (ACPIGetConvertToDeviceIDWide.c)
  */
 
 __int64 __fastcall ACPIGetConvertToDeviceID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)

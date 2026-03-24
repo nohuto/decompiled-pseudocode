@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgkpInitializePhase0SiloState @ 0x140727DA8
+ * XREFs of DbgkpInitializePhase0SiloState @ 0x140727D88
  * Callers:
  *     DbgkpInitializePhase0 @ 0x1409AEA9C (DbgkpInitializePhase0.c)
  * Callees:

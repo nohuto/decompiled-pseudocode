@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateDevicePanel @ 0x140A27D84
+ * XREFs of _CmCreateDevicePanel @ 0x140977A44
  * Callers:
- *     _CmUpdateDevicePanel @ 0x14076E224 (_CmUpdateDevicePanel.c)
- *     _CmAddPanelDeviceWorker @ 0x140A27B38 (_CmAddPanelDeviceWorker.c)
+ *     _CmUpdateDevicePanel @ 0x1407476A8 (_CmUpdateDevicePanel.c)
+ *     _CmAddPanelDeviceWorker @ 0x140977890 (_CmAddPanelDeviceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmCreateDevicePanelWorker @ 0x140A27EE4 (_CmCreateDevicePanelWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmCreateDevicePanelWorker @ 0x140977BB4 (_CmCreateDevicePanelWorker.c)
  */
 
 __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4, _BYTE *a5)
@@ -18,12 +18,14 @@ __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDL
   int DevicePanelWorker; // eax
   int v11; // ebx
   int v12; // eax
-  HANDLE v14[12]; // [rsp+40h] [rbp-59h] BYREF
+  int v13; // ecx
+  int v14; // eax
+  HANDLE v16[12]; // [rsp+40h] [rbp-59h] BYREF
 
-  memset(v14, 0, 0x58uLL);
+  memset(v16, 0, 0x58uLL);
   v8 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 504);
-  HIDWORD(v14[4]) = 0;
-  LODWORD(v14[2]) = 4;
+  HIDWORD(v16[4]) = 0;
+  LODWORD(v16[2]) = 4;
   if ( v8 )
   {
     v9 = v8(a1, a2, 6LL);
@@ -34,44 +36,44 @@ __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDL
     else
     {
       if ( v9 == -1073741536 )
-        goto LABEL_12;
-      if ( v9 )
         goto LABEL_14;
-    }
-  }
-  DevicePanelWorker = CmCreateDevicePanelWorker(a1, a2, v14[2], (unsigned int)&v14[3], (__int64)&v14[4], SWORD2(v14[4]));
-  v11 = DevicePanelWorker;
-  if ( v8 )
-  {
-    LODWORD(v14[0]) = DevicePanelWorker;
-    v12 = v8(a1, a2, 6LL);
-    if ( v12 != -1073741822 )
-    {
-      if ( v12 != -1073741536 )
+      if ( v9 )
       {
-        if ( !v12 )
-          goto LABEL_8;
-LABEL_14:
         v11 = -1073741595;
-        goto LABEL_15;
+        goto LABEL_17;
       }
-LABEL_12:
-      v11 = (int)v14[0];
     }
   }
-LABEL_8:
+  DevicePanelWorker = CmCreateDevicePanelWorker(a1, a2, v16[2], (unsigned int)&v16[3], (__int64)&v16[4], SWORD2(v16[4]));
+  v11 = DevicePanelWorker;
+  if ( !v8 )
+    goto LABEL_10;
+  LODWORD(v16[0]) = DevicePanelWorker;
+  v12 = v8(a1, a2, 6LL);
+  v13 = v12;
+  if ( v12 == -1073741822 )
+    goto LABEL_10;
+  if ( v12 == -1073741536 )
+  {
+LABEL_14:
+    v11 = (int)v16[0];
+    goto LABEL_10;
+  }
+  v14 = v11;
+  if ( v13 )
+    v14 = -1073741595;
+  v11 = v14;
+LABEL_10:
   if ( v11 >= 0 && a4 )
   {
-    *a4 = v14[3];
-LABEL_18:
-    if ( a5 )
-      *a5 = v14[4];
-    return (unsigned int)v11;
+    *a4 = v16[3];
+    goto LABEL_19;
   }
-LABEL_15:
-  if ( v14[3] )
-    ZwClose(v14[3]);
-  if ( v11 >= 0 )
-    goto LABEL_18;
+LABEL_17:
+  if ( v16[3] )
+    ZwClose(v16[3]);
+LABEL_19:
+  if ( v11 >= 0 && a5 )
+    *a5 = v16[4];
   return (unsigned int)v11;
 }

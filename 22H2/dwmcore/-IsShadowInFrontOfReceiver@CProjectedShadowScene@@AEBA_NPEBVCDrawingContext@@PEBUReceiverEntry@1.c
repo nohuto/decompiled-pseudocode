@@ -1,13 +1,12 @@
 /*
- * XREFs of ?IsShadowInFrontOfReceiver@CProjectedShadowScene@@AEBA_NPEBVCDrawingContext@@PEBUReceiverEntry@1@@Z @ 0x180005E8C
+ * XREFs of ?IsShadowInFrontOfReceiver@CProjectedShadowScene@@AEBA_NPEBVCDrawingContext@@PEBUReceiverEntry@1@@Z @ 0x18000A620
  * Callers:
- *     ?UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z @ 0x1800053B8 (-UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z.c)
+ *     ?UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z @ 0x18000A4A4 (-UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z.c)
  * Callees:
- *     ?GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D_VECTOR_3F@@@Z @ 0x180005FC8 (-GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D.c)
- *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x180006414 (-Transpose@CMILMatrix@@QEAAXXZ.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800E8FC4 (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Log_Hr@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z @ 0x1801CFABC (-Log_Hr@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z.c)
+ *     ?GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D_VECTOR_3F@@@Z @ 0x18000BAFC (-GetLightPosition@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@PEAVCVisual@@PEAUD2D.c)
+ *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x180020A74 (-Transpose@CMILMatrix@@QEAAXXZ.c)
+ *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800D6204 (-Invert@CMILMatrix@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CProjectedShadowScene::IsShadowInFrontOfReceiver(
@@ -15,64 +14,49 @@ bool __fastcall CProjectedShadowScene::IsShadowInFrontOfReceiver(
         ShadowHelpers **a2,
         const struct CProjectedShadowScene::ReceiverEntry *a3)
 {
-  const struct CVisualTree *v3; // rsi
+  const struct CVisualTree *v3; // rdi
   const struct CCompositionLight *v6; // rax
-  int LightPosition; // eax
-  __int128 v8; // xmm0
-  __int128 v9; // xmm1
-  __int128 v10; // xmm0
-  __int128 v11; // xmm1
-  float v12; // xmm6_4
-  float v13; // xmm7_4
-  float v14; // xmm8_4
-  float v15; // xmm3_4
-  struct D2D_VECTOR_3F *v17; // [rsp+28h] [rbp-49h] BYREF
-  float v18; // [rsp+30h] [rbp-41h]
-  _OWORD v19[2]; // [rsp+38h] [rbp-39h] BYREF
-  __int128 v20; // [rsp+58h] [rbp-19h]
-  __int128 v21; // [rsp+68h] [rbp-9h]
-  int v22; // [rsp+78h] [rbp+7h]
-  wil::details::in1diag3 *retaddr; // [rsp+D0h] [rbp+5Fh]
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  float v11; // xmm6_4
+  float v12; // xmm7_4
+  float v13; // xmm8_4
+  float v14; // xmm3_4
+  struct D2D_VECTOR_3F *v16; // [rsp+28h] [rbp-49h] BYREF
+  float v17; // [rsp+30h] [rbp-41h]
+  _OWORD v18[2]; // [rsp+38h] [rbp-39h] BYREF
+  __int128 v19; // [rsp+58h] [rbp-19h]
+  __int128 v20; // [rsp+68h] [rbp-9h]
+  int v21; // [rsp+78h] [rbp+7h]
 
-  v3 = (const struct CVisualTree *)*((_QWORD *)this + 12);
-  v6 = (const struct CCompositionLight *)(*(__int64 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)v3 + 200LL))(v3);
-  LightPosition = ShadowHelpers::GetLightPosition(a2[1007], v3, v6, (struct CVisual *)&v17, v17);
-  if ( LightPosition < 0 )
+  v3 = (const struct CVisualTree *)*((_QWORD *)this + 11);
+  v6 = (const struct CCompositionLight *)(*(__int64 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)v3 + 216LL))(v3);
+  ShadowHelpers::GetLightPosition(a2[741], v3, v6, (struct CVisual *)&v16, v16);
+  v7 = *((_OWORD *)a3 + 2);
+  v8 = *((_OWORD *)a3 + 3);
+  v21 = *((_DWORD *)a3 + 24);
+  v18[0] = v7;
+  v9 = *((_OWORD *)a3 + 4);
+  v18[1] = v8;
+  v10 = *((_OWORD *)a3 + 5);
+  v19 = v9;
+  v20 = v10;
+  CMILMatrix::Invert((CMILMatrix *)v18);
+  CMILMatrix::Transpose((CMILMatrix *)v18);
+  v11 = *(float *)&v16;
+  v12 = *((float *)&v16 + 1);
+  v13 = v17;
+  if ( (*(unsigned int (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)v3 + 232LL))(v3) == 2 )
   {
-    wil::details::in1diag3::Log_Hr(
-      retaddr,
-      (void *)0x3CF,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\projectedshadowscene.cpp",
-      (const char *)(unsigned int)LightPosition,
-      (int)v17);
-    return 0;
+    v11 = v11 - (float)(*((float *)a3 + 20) / *((float *)a3 + 23));
+    v12 = v12 - (float)(*((float *)a3 + 21) / *((float *)a3 + 23));
+    v13 = v13 - (float)(*((float *)a3 + 22) / *((float *)a3 + 23));
   }
-  else
-  {
-    v8 = *((_OWORD *)a3 + 2);
-    v9 = *((_OWORD *)a3 + 3);
-    v22 = *((_DWORD *)a3 + 24);
-    v19[0] = v8;
-    v10 = *((_OWORD *)a3 + 4);
-    v19[1] = v9;
-    v11 = *((_OWORD *)a3 + 5);
-    v20 = v10;
-    v21 = v11;
-    CMILMatrix::Invert((CMILMatrix *)v19);
-    CMILMatrix::Transpose((CMILMatrix *)v19);
-    v12 = *(float *)&v17;
-    v13 = *((float *)&v17 + 1);
-    v14 = v18;
-    if ( (*(unsigned int (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)v3 + 216LL))(v3) == 2 )
-    {
-      v12 = v12 - (float)(*((float *)a3 + 20) / *((float *)a3 + 23));
-      v13 = v13 - (float)(*((float *)a3 + 21) / *((float *)a3 + 23));
-      v14 = v14 - (float)(*((float *)a3 + 22) / *((float *)a3 + 23));
-    }
-    v15 = *((float *)&v20 + 2);
-    if ( (float)((float)((float)(*((float *)&v20 + 1) * v13) + (float)(*(float *)&v20 * v12))
-               + (float)(*((float *)&v20 + 2) * v14)) <= 0.0 )
-      LODWORD(v15) = DWORD2(v20) ^ _xmm;
-    return v15 > 0.0;
-  }
+  v14 = *((float *)&v19 + 2);
+  if ( (float)((float)((float)(*((float *)&v19 + 1) * v12) + (float)(*(float *)&v19 * v11))
+             + (float)(*((float *)&v19 + 2) * v13)) <= 0.0 )
+    LODWORD(v14) = DWORD2(v19) ^ _xmm;
+  return v14 > 0.0;
 }

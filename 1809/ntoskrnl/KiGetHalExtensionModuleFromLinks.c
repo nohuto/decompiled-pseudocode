@@ -1,5 +1,5 @@
 /*
- * XREFs of KiGetHalExtensionModuleFromLinks @ 0x1409F661C
+ * XREFs of KiGetHalExtensionModuleFromLinks @ 0x1409F662C
  * Callers:
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:

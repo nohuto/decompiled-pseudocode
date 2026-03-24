@@ -1,56 +1,54 @@
 /*
- * XREFs of IvtInitializeLargePagePte @ 0x14052D29C
+ * XREFs of IvtInitializeLargePagePte @ 0x1404E030C
  * Callers:
- *     IvtInitializeIdentityMappings @ 0x14052D0C0 (IvtInitializeIdentityMappings.c)
+ *     IvtInitializeIdentityMappings @ 0x1404E0130 (IvtInitializeIdentityMappings.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall IvtInitializeLargePagePte(unsigned __int64 *a1, __int64 a2, int a3)
 {
-  __int64 v4; // r10
-  __int64 v6; // r11
-  __int64 v7; // rax
-  __int64 v8; // r8
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 v9; // rcx
-  __int64 v10; // rcx
-  unsigned __int64 v11; // rax
+  unsigned __int64 v10; // rax
   unsigned __int64 result; // rax
 
-  v4 = 1LL << a3;
-  v6 = 512LL;
+  v5 = 512LL;
   do
   {
-    v7 = 1LL;
-    v8 = *a1 | 0x80;
-    v9 = 2LL;
+    v6 = 1LL;
+    v7 = *a1 | 0x80;
+    v8 = 2LL;
     if ( a3 == 30 )
     {
       do
       {
-        v8 |= v7++;
-        --v9;
+        v7 |= v6++;
+        --v8;
       }
-      while ( v9 );
-      v10 = 0xFFFFFC0000000LL;
-      v11 = a2 & 0xFFFFFFFFC0000000uLL;
+      while ( v8 );
+      v9 = 0xFFFFFC0000000LL;
+      v10 = a2 & 0xFFFFFFFFC0000000uLL;
     }
     else
     {
       do
       {
-        v8 |= v7++;
-        --v9;
+        v7 |= v6++;
+        --v8;
       }
-      while ( v9 );
-      v10 = 0xFFFFFFFE00000LL;
-      v11 = a2 >> a3 << 21;
+      while ( v8 );
+      v9 = 0xFFFFFFFE00000LL;
+      v10 = a2 >> a3 << 21;
     }
-    a2 += v4;
-    result = v8 ^ v10 & (v8 ^ v11);
+    a2 += 1LL << a3;
+    result = v7 ^ v9 & (v7 ^ v10);
     *a1++ = result;
-    --v6;
+    --v5;
   }
-  while ( v6 );
+  while ( v5 );
   return result;
 }

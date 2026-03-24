@@ -2,7 +2,7 @@
  * XREFs of CmpVolumeManagerGetContextForFile @ 0x1405A4298
  * Callers:
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x140759830 (CmpVolumeManagerGetContextForFilePath.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x140759810 (CmpVolumeManagerGetContextForFilePath.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -11,13 +11,13 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     IoGetAttachedDeviceReference @ 0x1400ACE20 (IoGetAttachedDeviceReference.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     IoGetAttachedDeviceReference @ 0x1400ACE40 (IoGetAttachedDeviceReference.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     CmpVolumeManagerGetContextForGuidUnsafe @ 0x1405A4450 (CmpVolumeManagerGetContextForGuidUnsafe.c)
  *     IoVolumeDeviceToGuid @ 0x1405A44B0 (IoVolumeDeviceToGuid.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpVolumeContextCreate @ 0x14075F6A0 (CmpVolumeContextCreate.c)
- *     CmpVolumeContextCleanup @ 0x1407F6534 (CmpVolumeContextCleanup.c)
+ *     CmpVolumeContextCreate @ 0x14075F680 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCleanup @ 0x1407F6514 (CmpVolumeContextCleanup.c)
  */
 
 __int64 __fastcall CmpVolumeManagerGetContextForFile(__int64 a1, void *a2, __int64 a3, PPRIVILEGE_SET *a4)

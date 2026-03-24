@@ -1,5 +1,5 @@
 /*
- * XREFs of PsInsertVirtualizedTimer @ 0x14012D07C
+ * XREFs of PsInsertVirtualizedTimer @ 0x14012D09C
  * Callers:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     NtCreateTimer @ 0x140623F30 (NtCreateTimer.c)
@@ -7,9 +7,9 @@
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     ExpTimerPause @ 0x14013205C (ExpTimerPause.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ExpTimerPause @ 0x14013207C (ExpTimerPause.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(

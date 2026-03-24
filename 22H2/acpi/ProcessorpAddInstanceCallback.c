@@ -1,10 +1,10 @@
 /*
- * XREFs of ProcessorpAddInstanceCallback @ 0x1C005E1A0
+ * XREFs of ProcessorpAddInstanceCallback @ 0x1C006C600
  * Callers:
  *     <none>
  * Callees:
- *     IrqLibAcquireArbiterLock @ 0x1C005CCA8 (IrqLibAcquireArbiterLock.c)
- *     ProcessorAddInstance @ 0x1C009A7D4 (ProcessorAddInstance.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     ProcessorAddInstance @ 0x1C0097B80 (ProcessorAddInstance.c)
  */
 
 void __fastcall ProcessorpAddInstanceCallback(
@@ -16,6 +16,6 @@ void __fastcall ProcessorpAddInstanceCallback(
   {
     IrqLibAcquireArbiterLock(0);
     ProcessorAddInstance((unsigned int)ChangeContext[1].State, ChangeContext->NtNumber);
-    KeSetEvent((PRKEVENT)Object, 0, 0);
+    KeSetEvent(Object, 0, 0);
   }
 }

@@ -1,33 +1,30 @@
 /*
- * XREFs of PnpDeviceCompletionRequestCreate @ 0x14074D338
+ * XREFs of PnpDeviceCompletionRequestCreate @ 0x140746FAC
  * Callers:
- *     PiProcessNewDeviceNodeAsync @ 0x1406E60B0 (PiProcessNewDeviceNodeAsync.c)
- *     PnpStartDeviceNode @ 0x140749C4C (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x14074B420 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
  * Callees:
- *     PnpEnableWatchdog @ 0x14074ECA8 (PnpEnableWatchdog.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpDeviceCompletionRequestCreate(__int64 a1, int a2, __int64 a3)
+_QWORD *__fastcall PnpDeviceCompletionRequestCreate(__int64 a1, int a2)
 {
-  __int64 Pool2; // rax
-  __int64 v7; // rbx
+  _QWORD *PoolWithTag; // rbx
 
-  Pool2 = ExAllocatePool2(64LL, 72LL, 829451856LL);
-  v7 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x31706E50u);
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 36) = 0;
-    *(_QWORD *)(Pool2 + 48) = 0LL;
-    *(_QWORD *)(Pool2 + 8) = Pool2;
-    *(_QWORD *)Pool2 = Pool2;
-    *(_DWORD *)(Pool2 + 56) = 1;
-    *(_QWORD *)(Pool2 + 24) = a3;
-    *(_QWORD *)(Pool2 + 16) = a1;
-    *(_DWORD *)(Pool2 + 32) = a2;
-    *(_DWORD *)(Pool2 + 40) = -1073741595;
-    *(_QWORD *)(Pool2 + 64) = PnpEnableWatchdog(2LL, Pool2);
+    PoolWithTag[1] = PoolWithTag;
+    *PoolWithTag = PoolWithTag;
+    *((_DWORD *)PoolWithTag + 14) = 1;
+    *((_DWORD *)PoolWithTag + 9) = 0;
+    PoolWithTag[3] = 0LL;
+    PoolWithTag[2] = a1;
+    *((_DWORD *)PoolWithTag + 8) = a2;
+    *((_DWORD *)PoolWithTag + 10) = -1073741595;
+    PoolWithTag[6] = 0LL;
+    PoolWithTag[8] = PnpEnableWatchdog(2, (__int64)PoolWithTag);
   }
-  return v7;
+  return PoolWithTag;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchFilesTrickle @ 0x14075D9A0
+ * XREFs of PfpPrefetchFilesTrickle @ 0x140633C60
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x1402F88F8 (PfpCheckPrefetchAbort.c)
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     PfpReadSupportInitialize @ 0x1402F9BEC (PfpReadSupportInitialize.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MmPrefetchPagesEx @ 0x14073EBE8 (MmPrefetchPagesEx.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14075DCF0 (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x14075DE0C (PfpGetPageListCount.c)
- *     PfpReadSupportCleanup @ 0x14075E660 (PfpReadSupportCleanup.c)
- *     PfpFileBuildReadSupport @ 0x14075E6B4 (PfpFileBuildReadSupport.c)
+ *     PfpCheckPrefetchAbort @ 0x14026E9CC (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x14026EA10 (MmQueryMemoryListInformation.c)
+ *     PfpReadSupportInitialize @ 0x14026EDC8 (PfpReadSupportInitialize.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MmPrefetchPagesEx @ 0x14061C774 (MmPrefetchPagesEx.c)
+ *     PfpFileBuildReadSupport @ 0x14063290C (PfpFileBuildReadSupport.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x140633FAC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x1406340C8 (PfpGetPageListCount.c)
+ *     PfpReadSupportCleanup @ 0x1406340E4 (PfpReadSupportCleanup.c)
  */
 
 __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)
@@ -23,20 +23,20 @@ __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)
   unsigned int v6; // r15d
   int *v7; // r15
   int v8; // eax
-  unsigned __int8 v9; // r12
-  int v10; // r9d
-  __int64 v11; // r9
-  __int64 v12; // rcx
-  unsigned int v13; // r13d
-  unsigned int v14; // r10d
-  unsigned int v15; // eax
-  __int64 v16; // rcx
-  _QWORD *v17; // rbx
-  int v18; // ecx
-  int v19; // eax
-  char v20; // cl
-  bool v21; // zf
+  char v9; // r12
+  int v10; // edx
+  int v11; // ecx
+  bool v12; // zf
   __int64 result; // rax
+  __int64 v14; // r9
+  __int64 v15; // rcx
+  unsigned int v16; // r13d
+  unsigned int v17; // r10d
+  unsigned int v18; // eax
+  __int64 v19; // rcx
+  _QWORD *v20; // rbx
+  int v21; // ecx
+  int v22; // eax
   unsigned int v23; // [rsp+30h] [rbp-59h]
   unsigned int v24; // [rsp+34h] [rbp-55h]
   __int64 v25; // [rsp+38h] [rbp-51h] BYREF
@@ -51,8 +51,8 @@ __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)
   __int64 v34; // [rsp+98h] [rbp+Fh]
   char v35; // [rsp+F0h] [rbp+67h]
   int v36; // [rsp+F8h] [rbp+6Fh]
-  int v37; // [rsp+100h] [rbp+77h]
-  __int16 v38; // [rsp+108h] [rbp+7Fh]
+  unsigned int v37; // [rsp+100h] [rbp+77h]
+  unsigned int v38; // [rsp+108h] [rbp+7Fh]
 
   v1 = *a1;
   v34 = 0LL;
@@ -64,119 +64,121 @@ __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)
   v33 = 0LL;
   v35 = 0;
   v37 = 0;
-  v38 = *(_WORD *)(*a1 + 30LL);
+  v38 = *(unsigned __int16 *)(*a1 + 30LL);
   v30 = ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
       + (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
   while ( v4 < *(_DWORD *)(v1 + 8) )
   {
-    if ( !_bittest64((const signed __int64 *)(((unsigned __int64)v4 << 6) + a1[2] + 24), 0x22u) )
-      goto LABEL_27;
+    if ( (*(_QWORD *)(((unsigned __int64)v4 << 6) + a1[2] + 24) & 0x400000000LL) == 0 )
+      goto LABEL_14;
     v5 = *(_QWORD *)(v1 + 32);
+    v28 = 5LL * v4;
     v6 = 0;
     v24 = 0;
-    v28 = 5LL * v4;
     v27 = v5;
     if ( (*(_DWORD *)(v5 + 40LL * v4 + 12) & 0xFFFFFFFE) == 0 )
-      goto LABEL_27;
+      goto LABEL_14;
     do
     {
       v7 = (int *)(*(_QWORD *)(v5 + 8 * v28 + 16) + 48LL * v6);
       v8 = *v7;
       if ( (*v7 & 2) != 0 || !v7[4] )
-        goto LABEL_26;
+        goto LABEL_13;
       v9 = 0;
-      while ( v9 )
+      while ( !v9 )
       {
-        if ( (v8 & 1) != 0 )
-          goto LABEL_9;
-LABEL_23:
-        ++v9;
-        v20 = v8;
-        if ( v9 > 1u )
-          goto LABEL_24;
-      }
-      if ( (v8 & 1) != 0 )
-        goto LABEL_23;
+        if ( (v8 & 1) == 0 )
+          goto LABEL_17;
 LABEL_9:
+        LOBYTE(v10) = v8;
+LABEL_10:
+        ++v9;
+        LOBYTE(v11) = v10;
+        if ( (unsigned __int8)v9 > 1u )
+          goto LABEL_11;
+      }
+      if ( (v8 & 1) == 0 )
+        goto LABEL_9;
+LABEL_17:
       PfpReadSupportInitialize((__int64)&v31);
-      LOBYTE(v10) = v9;
-      if ( (int)PfpFileBuildReadSupport((_DWORD)a1, (_DWORD)v7, v4, v10, (__int64)&v31) >= 0 )
+      if ( (int)PfpFileBuildReadSupport(a1, v7, v4, v9, (__int64)&v31) >= 0 )
       {
-        v12 = v31;
+        v15 = v31;
         v26 = v31;
-        v13 = 0;
+        v16 = 0;
         v29 = v31;
         *(_QWORD *)v31 = v32;
-        v23 = *(_DWORD *)(v12 + 8);
+        v23 = *(_DWORD *)(v15 + 8);
         v36 = 0;
-        MmQueryMemoryListInformation(0xFFFFFFFFFFFFFFFFuLL, (_OWORD *)a1 + 3, 0xB0u, v11, &v25);
+        MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, (_OWORD *)a1 + 3, 0xB0u, v14, &v25);
         if ( v23 )
         {
-          while ( !(unsigned int)PfpCheckPrefetchAbort(a1)
-               && (unsigned __int64)(a1[6] + a1[7] + PfpGetPageListCount(a1 + 11, 0LL)) >= 0x80 )
+          while ( !PfpCheckPrefetchAbort(a1)
+               && (unsigned __int64)(a1[6] + a1[7] + PfpGetPageListCount(a1 + 11, 0LL, v38)) >= 0x80 )
           {
-            if ( v13 + 16 > v14 )
-              v15 = v14 - v13;
+            if ( v16 + 16 > v17 )
+              v18 = v17 - v16;
             else
-              v15 = 16;
-            v16 = v26;
-            *(_DWORD *)(v26 + 8) = v15;
-            v17 = (_QWORD *)(v16 + 16);
-            memmove((void *)(v16 + 16), (const void *)(v16 + 16 + 8LL * v13), 8LL * v15);
-            *v17 |= (8 * (v38 & 7u)) | (unsigned __int64)(*(_DWORD *)(*a1 + 28LL) & 7);
-            LODWORD(v17) = MmPrefetchPagesEx(1u, (__int64)&v29, 0LL);
+              v18 = 16;
+            v19 = v26;
+            *(_DWORD *)(v26 + 8) = v18;
+            v20 = (_QWORD *)(v19 + 16);
+            memmove((void *)(v19 + 16), (const void *)(v19 + 16 + 8LL * v16), 8LL * v18);
+            *v20 |= (8 * (v38 & 7)) | (unsigned __int64)(*(_DWORD *)(*a1 + 28LL) & 7);
+            LODWORD(v20) = MmPrefetchPagesEx(1u, (__int64)&v29, 0LL);
             PfpUpdateRepurposedByPrefetch(a1 + 6, *(unsigned int *)(v26 + 8));
-            v18 = v36;
-            if ( (int)v17 >= 0 )
+            v21 = v36;
+            if ( (int)v20 >= 0 )
             {
-              v19 = *(_DWORD *)(v26 + 8);
-              v18 = v19 + v36;
-              v13 += v19;
-              v36 += v19;
-              if ( v13 < v23 )
+              v22 = *(_DWORD *)(v26 + 8);
+              v21 = v22 + v36;
+              v16 += v22;
+              v36 += v22;
+              if ( v16 < v23 )
                 continue;
             }
             v4 = v37;
-            goto LABEL_18;
+            goto LABEL_26;
           }
           v4 = v37;
-          v18 = v36;
+          v21 = v36;
           v35 = 1;
         }
         else
         {
-          v18 = 0;
+          v21 = 0;
         }
-LABEL_18:
+LABEL_26:
         if ( v9 )
-          *(_DWORD *)(v1 + 100) += v18;
+          *(_DWORD *)(v1 + 100) += v21;
         else
-          *(_DWORD *)(v1 + 96) += v18;
+          *(_DWORD *)(v1 + 96) += v21;
       }
       PfpReadSupportCleanup(a1[5], &v31);
-      if ( v35 || (unsigned int)PfpCheckPrefetchAbort(a1) )
+      if ( v35 || PfpCheckPrefetchAbort(a1) )
       {
         v3 = -1073741248;
-        goto LABEL_28;
+        goto LABEL_15;
       }
       v8 = *v7;
-      v20 = *v7;
-      if ( (v20 & 8) == 0 )
-        goto LABEL_23;
-LABEL_24:
-      v21 = (v20 & 8) == 0;
+      v10 = *v7;
+      v11 = *v7;
+      if ( (*v7 & 8) == 0 )
+        goto LABEL_10;
+LABEL_11:
+      v12 = (v11 & 8) == 0;
       v5 = v27;
-      if ( v21 )
+      if ( v12 )
         ++*(_DWORD *)(v1 + 84);
-LABEL_26:
+LABEL_13:
       v6 = v24 + 1;
       v24 = v6;
     }
     while ( v6 < *(_DWORD *)(v5 + 8 * v28 + 12) >> 1 );
-LABEL_27:
+LABEL_14:
     v37 = ++v4;
   }
-LABEL_28:
+LABEL_15:
   result = v3;
   *(_DWORD *)(*a1 + 112LL) += ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
                             + ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)

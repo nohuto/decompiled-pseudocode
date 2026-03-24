@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpReplicateKeyToVirtual @ 0x1407F37B8
+ * XREFs of CmpReplicateKeyToVirtual @ 0x1407F3798
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1406B1DD4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyReplicateToVirtual @ 0x1407F1C94 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x1406B1DB4 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1407F1C74 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     ExConvertExclusiveToSharedLite @ 0x140120F30 (ExConvertExclusiveToSharedLite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ExTryConvertSharedToExclusiveLite @ 0x14031BA08 (ExTryConvertSharedToExclusiveLite.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140120F50 (ExConvertExclusiveToSharedLite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x14031BB08 (ExTryConvertSharedToExclusiveLite.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmRealKCBToVirtualPath @ 0x1407F1FC8 (CmRealKCBToVirtualPath.c)
- *     CmpBuildVirtualReplicationStack @ 0x1407F262C (CmpBuildVirtualReplicationStack.c)
- *     CmpDestroyVirtualStack @ 0x1407F2870 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x1407F2A38 (CmpDoBuildVirtualStack.c)
- *     CmpGetVirtualStoreRoot @ 0x1407F34A8 (CmpGetVirtualStoreRoot.c)
+ *     CmRealKCBToVirtualPath @ 0x1407F1FA8 (CmRealKCBToVirtualPath.c)
+ *     CmpBuildVirtualReplicationStack @ 0x1407F260C (CmpBuildVirtualReplicationStack.c)
+ *     CmpDestroyVirtualStack @ 0x1407F2850 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x1407F2A18 (CmpDoBuildVirtualStack.c)
+ *     CmpGetVirtualStoreRoot @ 0x1407F3488 (CmpGetVirtualStoreRoot.c)
  */
 
 __int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, unsigned __int64 *a4)

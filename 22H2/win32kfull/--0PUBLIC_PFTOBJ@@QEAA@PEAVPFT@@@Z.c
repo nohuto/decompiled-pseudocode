@@ -1,15 +1,16 @@
 /*
- * XREFs of ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C013E724
+ * XREFs of ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C016A238
  * Callers:
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C010CB90 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
- *     ?bFindRFONT@RFONTOBJ@@QEAAHPEAU_FD_XFORM@@KKAEAVPDEVOBJ@@PEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z @ 0x1C01315E4 (-bFindRFONT@RFONTOBJ@@QEAAHPEAU_FD_XFORM@@KKAEAVPDEVOBJ@@PEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z.c)
- *     NtGdiAddEmbFontToDC @ 0x1C0277E60 (NtGdiAddEmbFontToDC.c)
- *     NtGdiAddRemoteMMInstanceToDC @ 0x1C0277FC0 (NtGdiAddRemoteMMInstanceToDC.c)
- *     NtGdiAddRemoteFontToDC @ 0x1C028B900 (NtGdiAddRemoteFontToDC.c)
- *     NtGdiEngTextOut @ 0x1C02CBFB0 (NtGdiEngTextOut.c)
- *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02CC810 (NtGdiFONTOBJ_cGetGlyphs.c)
- *     NtGdiFONTOBJ_pQueryGlyphAttrs @ 0x1C02CCA70 (NtGdiFONTOBJ_pQueryGlyphAttrs.c)
- *     NtGdiFONTOBJ_pifi @ 0x1C02CCD00 (NtGdiFONTOBJ_pifi.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093A30 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?bFindRFONT@RFONTOBJ@@QEAAHPEAU_FD_XFORM@@KKAEAVPDEVOBJ@@PEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z @ 0x1C00E85E8 (-bFindRFONT@RFONTOBJ@@QEAAHPEAU_FD_XFORM@@KKAEAVPDEVOBJ@@PEAVEXFORMOBJ@@PEAVPFE@@HHHK@Z.c)
+ *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C011E610 (vUnlinkAllEudcRFONTsAndPFEs.c)
+ *     NtGdiEngTextOut @ 0x1C013BC80 (NtGdiEngTextOut.c)
+ *     NtGdiFONTOBJ_pifi @ 0x1C013C4B0 (NtGdiFONTOBJ_pifi.c)
+ *     NtGdiAddEmbFontToDC @ 0x1C027C760 (NtGdiAddEmbFontToDC.c)
+ *     vUnlinkEudcRFONTs @ 0x1C02983B4 (vUnlinkEudcRFONTs.c)
+ *     vUnlinkEudcRFONTsAndPFEs @ 0x1C02984B0 (vUnlinkEudcRFONTsAndPFEs.c)
+ *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02B40C0 (NtGdiFONTOBJ_cGetGlyphs.c)
+ *     NtGdiFONTOBJ_pQueryGlyphAttrs @ 0x1C02B4310 (NtGdiFONTOBJ_pQueryGlyphAttrs.c)
  * Callees:
  *     <none>
  */

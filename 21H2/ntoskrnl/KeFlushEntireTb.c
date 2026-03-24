@@ -1,13 +1,13 @@
 /*
- * XREFs of KeFlushEntireTb @ 0x1403C39C0
+ * XREFs of KeFlushEntireTb @ 0x1403B70F0
  * Callers:
- *     MiRebaseDynamicRelocationRegions @ 0x140B06C7C (MiRebaseDynamicRelocationRegions.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140A4F400 (MiRebaseDynamicRelocationRegions.c)
  * Callees:
- *     KiPreprocessFlushTb @ 0x1402F3FE0 (KiPreprocessFlushTb.c)
- *     KxFlushEntireTb @ 0x1402F411C (KxFlushEntireTb.c)
- *     KiFlushAddressSpaceTb @ 0x14039D960 (KiFlushAddressSpaceTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFlushTb @ 0x14063F75C (ExFlushTb.c)
+ *     KxFlushEntireTb @ 0x14022F980 (KxFlushEntireTb.c)
+ *     KiPreprocessFlushTb @ 0x1402316E0 (KiPreprocessFlushTb.c)
+ *     KiFlushAddressSpaceTb @ 0x1403901AC (KiFlushAddressSpaceTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFlushTb @ 0x1405B7218 (ExFlushTb.c)
  */
 
 __int64 KeFlushEntireTb()

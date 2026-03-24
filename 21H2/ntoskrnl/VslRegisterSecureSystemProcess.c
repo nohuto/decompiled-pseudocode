@@ -1,17 +1,17 @@
 /*
- * XREFs of VslRegisterSecureSystemProcess @ 0x14054F1B8
+ * XREFs of VslRegisterSecureSystemProcess @ 0x1404FD404
  * Callers:
- *     PspInitPhase1 @ 0x140B1E0A8 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 VslRegisterSecureSystemProcess()
+NTSTATUS VslRegisterSecureSystemProcess()
 {
   ULONG_PTR v0; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v2[14]; // [rsp+20h] [rbp-88h] BYREF
 
   v0 = PsSecureSystemProcess;
@@ -19,7 +19,7 @@ __int64 VslRegisterSecureSystemProcess()
   v2[1] = *(_QWORD *)(PsSecureSystemProcess + 1088);
   v2[2] = PsSecureSystemProcess;
   result = VslpEnterIumSecureMode(2u, 5, 0, (__int64)v2);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     *(_QWORD *)(v0 + 992) = v2[3];
     *(_QWORD *)(v0 + 992) = v2[3] | 1LL;

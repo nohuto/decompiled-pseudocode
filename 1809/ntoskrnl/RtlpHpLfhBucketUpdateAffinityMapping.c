@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C440
+ * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C460
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1400BAE80 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,14 +10,14 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC480 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1400FE8A0 (KeGetCurrentProcessorNumberEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlpHpLfhBucketAllocateSlot @ 0x1402FD188 (RtlpHpLfhBucketAllocateSlot.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1400FE8C0 (KeGetCurrentProcessorNumberEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlpHpLfhBucketAllocateSlot @ 0x1402FD288 (RtlpHpLfhBucketAllocateSlot.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)

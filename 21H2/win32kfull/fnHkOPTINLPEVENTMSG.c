@@ -1,24 +1,25 @@
 /*
- * XREFs of fnHkOPTINLPEVENTMSG @ 0x1C022B0C0
+ * XREFs of fnHkOPTINLPEVENTMSG @ 0x1C0231500
  * Callers:
- *     xxxHkCallHook @ 0x1C0053C4C (xxxHkCallHook.c)
+ *     xxxHkCallHook @ 0x1C005CAB0 (xxxHkCallHook.c)
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
-__int64 __fastcall fnHkOPTINLPEVENTMSG(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall fnHkOPTINLPEVENTMSG(int a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v9; // rax
   bool v10; // zf
   int v11; // eax
   int v12; // ebx
   __int64 *v13; // rcx
-  __int64 v14; // rbx
-  __int64 v15; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rdx
   ULONG64 v16; // rcx
   __int64 v17; // xmm0_8
   _QWORD v19[13]; // [rsp+50h] [rbp-68h] BYREF
@@ -52,11 +53,15 @@ __int64 __fastcall fnHkOPTINLPEVENTMSG(int a1, __int64 a2, __int64 a3, __int64 a
       LODWORD(v19[8]) = v11;
     }
   }
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
   LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v20);
   EtwTraceBeginCallback(49LL);
   v12 = KeUserModeCallback(49LL, v19, 72LL, &v22, &v21);
   EtwTraceEndCallback(49LL);
   LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v20);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
   if ( v12 >= 0 && v21 == 24 )
   {
     v13 = (__int64 *)v22;
@@ -65,7 +70,7 @@ __int64 __fastcall fnHkOPTINLPEVENTMSG(int a1, __int64 a2, __int64 a3, __int64 a
     v14 = *v13;
     if ( !a3 )
       return v14;
-    v15 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 512);
+    v15 = *(_QWORD *)(gptiCurrent + 512LL);
     if ( !v15 || (*(_DWORD *)(v15 + 84) & 1) == 0 || *(_QWORD *)(v15 + 96) != a3 )
     {
       v16 = *(_QWORD *)(v22 + 16);

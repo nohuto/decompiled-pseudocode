@@ -1,33 +1,30 @@
 /*
- * XREFs of EtwWriteKMSecurityEvent @ 0x140399294
+ * XREFs of EtwWriteKMSecurityEvent @ 0x1403C0274
  * Callers:
- *     AdtpWriteToEtwEx @ 0x14066FBB0 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x14083EAE0 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1405C20A4 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x1407B8E98 (AdtpWriteToEtw.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 EtwWriteKMSecurityEvent()
+__int64 __fastcall EtwWriteKMSecurityEvent(unsigned __int16 *a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned int v1; // r8d
-  __int64 v2; // r9
-  __int64 v3; // r10
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)a1, a2);
   return EtwpEventWriteFull(
-           (_QWORD *)(CurrentServerSiloGlobals[108] + 24LL),
+           CurrentServerSiloGlobals[108] + 24LL,
            *(_BYTE *)(CurrentServerSiloGlobals[108] + 4064LL),
            0,
            0,
-           v3,
+           a1,
            0,
            0,
            0LL,
            0LL,
-           v1,
-           v2,
+           a3,
+           a4,
            0LL,
            0LL,
            0LL,

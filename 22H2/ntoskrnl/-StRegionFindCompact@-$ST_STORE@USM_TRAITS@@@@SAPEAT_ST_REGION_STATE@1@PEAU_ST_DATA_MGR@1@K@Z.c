@@ -1,55 +1,57 @@
 /*
- * XREFs of ?StRegionFindCompact@?$ST_STORE@USM_TRAITS@@@@SAPEAT_ST_REGION_STATE@1@PEAU_ST_DATA_MGR@1@K@Z @ 0x140465630
+ * XREFs of ?StRegionFindCompact@?$ST_STORE@USM_TRAITS@@@@SAPEAT_ST_REGION_STATE@1@PEAU_ST_DATA_MGR@1@K@Z @ 0x140321740
  * Callers:
- *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x1405C7ED0 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
+ *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x140264C20 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
  * Callees:
- *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x1405C0DEC (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
+ *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x14034F750 (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
  */
 
 unsigned __int16 *__fastcall ST_STORE<SM_TRAITS>::StRegionFindCompact(__int64 a1, int a2)
 {
-  int v2; // r15d
+  int v2; // ebp
   unsigned int v3; // edx
-  __int64 v4; // r10
-  unsigned int v5; // r14d
-  __int64 v6; // r8
+  __int64 v4; // r9
+  unsigned int v5; // r15d
+  unsigned int v6; // r8d
   __int64 v7; // r13
-  unsigned __int16 *v8; // rbx
+  unsigned __int16 *v8; // rsi
   unsigned __int16 *v9; // r12
-  unsigned int v10; // edi
-  __int64 v11; // r9
-  __int64 v12; // r15
-  _DWORD *v13; // r11
-  unsigned __int64 v14; // rsi
-  int v15; // edx
-  _DWORD *i; // rax
-  unsigned int v17; // edx
-  __int64 v18; // rcx
-  unsigned int v19; // edx
-  __int64 v20; // rax
-  unsigned int v21; // r8d
-  unsigned int v22; // ebp
-  unsigned __int16 *v23; // r11
-  int v24; // esi
-  int IsRegionBusy; // eax
-  int v26; // eax
-  unsigned __int64 v27; // rbp
-  unsigned int v28; // edi
-  unsigned __int16 *v29; // r9
-  int v30; // esi
-  unsigned __int16 *v31; // rax
-  unsigned int v32; // r11d
-  int v33; // eax
+  unsigned __int16 *v10; // rbp
+  unsigned int v11; // ebx
+  unsigned __int16 *v12; // rcx
+  int v13; // edi
+  unsigned __int16 *v14; // r10
+  unsigned int v15; // r11d
+  int v16; // eax
+  unsigned int v17; // ecx
+  unsigned __int16 v18; // cx
   unsigned __int16 *result; // rax
-  int v35; // ecx
-  _DWORD v36[18]; // [rsp+20h] [rbp-48h] BYREF
+  int v20; // edx
+  unsigned int v21; // ebx
+  unsigned int v22; // r8d
+  const signed __int32 *v23; // r14
+  unsigned int v24; // r11d
+  const signed __int32 *v25; // rdi
+  const signed __int32 *v26; // r10
+  __int64 v27; // rbp
+  int v28; // r8d
+  __int64 v29; // rbx
+  const signed __int32 *v30; // r10
+  unsigned int v31; // ecx
+  unsigned int v32; // eax
+  unsigned int v33; // edi
+  unsigned __int16 *v34; // r10
+  int v35; // r11d
+  int IsRegionBusy; // eax
+  int v37; // eax
+  _WORD v38[36]; // [rsp+20h] [rbp-48h] BYREF
 
   v2 = a2;
   v3 = 0;
   v4 = a1;
   if ( *(_QWORD *)(*(_QWORD *)(a1 + 800) + 6568LL) )
   {
-    v6 = 0LL;
+    v6 = 0;
     v5 = 0;
   }
   else
@@ -58,150 +60,154 @@ unsigned __int16 *__fastcall ST_STORE<SM_TRAITS>::StRegionFindCompact(__int64 a1
     v6 = (unsigned int)(*(_DWORD *)(a1 + 808) + 1) >> 1;
   }
   v7 = *(unsigned int *)(a1 + 856);
-  v8 = (unsigned __int16 *)v36;
+  v8 = v38;
   v9 = *(unsigned __int16 **)(a1 + 1032);
-  LOWORD(v36[0]) = (*(_WORD *)(a1 + 816) - *(_WORD *)(a1 + 820) + 1) & 0x1FFF;
-  if ( *(_DWORD *)(a1 + 1088) && (_DWORD)v6 )
+  v38[0] = (*(_WORD *)(a1 + 816) - *(_WORD *)(a1 + 820) + 1) & 0x1FFF;
+  if ( *(_DWORD *)(a1 + 1088) && v6 )
   {
-    v10 = *(_DWORD *)(a1 + 1072);
-    LODWORD(v11) = 0;
-LABEL_7:
-    while ( v10 > (unsigned int)v11 )
+    v21 = 0;
+    while ( 1 )
     {
-      v12 = *(_QWORD *)(v4 + 1080);
-      v6 = 0LL;
-      v13 = (_DWORD *)(v12 + 4 * ((unsigned __int64)(unsigned int)v11 >> 5));
-      v14 = v12 + 4 * ((unsigned __int64)(v10 - 1) >> 5);
-      v15 = ((1 << (v11 & 0x1F)) - 1) | *v13;
-      for ( i = v13 + 1; ; ++i )
-      {
-        v17 = ~v15;
-        if ( v17 )
-          break;
-        if ( (unsigned __int64)i > v14 )
-          goto LABEL_13;
-        v15 = *++v13;
-      }
-      _BitScanForward64((unsigned __int64 *)&v18, v17);
-      v11 = (unsigned int)v18 + 32 * (unsigned int)(((__int64)v13 - v12) >> 2);
-      if ( (unsigned int)v11 > v10 )
-      {
-LABEL_13:
-        v11 = v10;
-        goto LABEL_23;
-      }
-      v19 = ~(((1 << v18) - 1) | v17);
-      while ( !v19 )
-      {
-        if ( (unsigned __int64)(v13 + 1) > v14 )
-        {
-          LODWORD(v20) = 32;
-          goto LABEL_20;
-        }
-        v19 = v13[1];
-        ++v13;
-      }
-      _BitScanForward64((unsigned __int64 *)&v20, v19);
-LABEL_20:
-      v21 = v20 + 32 * (((__int64)v13 - v12) >> 2);
-      if ( v21 > v10 )
-        v21 = v10;
-      v6 = v21 - (unsigned int)v11;
-LABEL_23:
-      v2 = a2;
-      v3 = 0;
-      if ( !(_DWORD)v6 )
+LABEL_29:
+      v22 = *(_DWORD *)(v4 + 1072);
+      if ( v22 <= v21 )
         break;
-      v22 = v11 + v6;
-      v23 = &v9[(unsigned int)v11];
-      if ( (unsigned int)v11 < (int)v11 + (int)v6 )
+      v23 = *(const signed __int32 **)(v4 + 1080);
+      v24 = v21;
+      v25 = &v23[(unsigned __int64)(v22 - 1) >> 5];
+      v26 = &v23[(unsigned __int64)v21 >> 5];
+      if ( v26 != v25 )
       {
-        v24 = *(_DWORD *)(v4 + 776);
+        v27 = v21 & 0x1F;
+        if ( (*v26 | *((_DWORD *)qword_1400127A0 + v27)) == -1 )
+        {
+          v24 = v21 - v27 + 32;
+          for ( ++v26; v26 < v25 && *v26 == -1; ++v26 )
+            v24 += 32;
+        }
+        v2 = a2;
+        v3 = 0;
+      }
+      while ( v24 < v22 && _bittest(v23, v24) )
+        ++v24;
+      v28 = 0;
+      if ( v26 != v25 )
+      {
+        v29 = v24 & 0x1F;
+        if ( (*v26 & ~*((_DWORD *)qword_1400127A0 + v29)) != 0 )
+        {
+          v3 = 0;
+        }
+        else
+        {
+          v28 = 32 - v29;
+          v3 = 0;
+          if ( (_DWORD)v29 == 33 )
+            goto LABEL_54;
+          v30 = v26 + 1;
+          while ( v30 < v25 && !*v30 )
+          {
+            ++v30;
+            v28 += 32;
+            if ( v28 == -1 )
+              goto LABEL_54;
+          }
+        }
+      }
+      v31 = *(_DWORD *)(v4 + 1072);
+      v32 = v28 + v24;
+      if ( v28 + v24 < v31 )
+      {
+        do
+        {
+          if ( _bittest(*(const signed __int32 **)(v4 + 1080), v32) )
+            break;
+          if ( v28 == -1 )
+            break;
+          ++v32;
+          ++v28;
+        }
+        while ( v32 < v31 );
+        v3 = 0;
+      }
+LABEL_54:
+      v21 = v24;
+      if ( !v28 )
+        break;
+      v33 = v28 + v24;
+      v34 = &v9[v24];
+      if ( v24 < v28 + v24 )
+      {
+        v35 = *(_DWORD *)(v4 + 776);
         while ( 1 )
         {
-          if ( (v24 & 0x40000) != 0
-            && (IsRegionBusy = SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(
-                                 *(_QWORD *)(v4 + 800),
-                                 (unsigned int)v11,
-                                 v6,
-                                 v11,
-                                 v36[0]),
-                v3 = 0,
-                IsRegionBusy) )
+          if ( (v35 & 0x40000) == 0
+            || (IsRegionBusy = SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(*(_QWORD *)(v4 + 800), v21), v3 = 0, !IsRegionBusy) )
           {
-            v2 = a2;
+            v37 = (_BYTE)v35 ? 0 : *v34 >> 13;
+            if ( v37 == v2 )
+              break;
           }
-          else
-          {
-            if ( (_BYTE)v24 )
-              v26 = 0;
-            else
-              v26 = *v23 >> 13;
-            v2 = a2;
-            if ( v26 == a2 )
-            {
-              v8 = v23;
-              goto LABEL_53;
-            }
-          }
-          v11 = (unsigned int)(v11 + 1);
-          ++v23;
-          if ( (unsigned int)v11 >= v22 )
-            goto LABEL_7;
+          ++v21;
+          ++v34;
+          if ( v21 >= v33 )
+            goto LABEL_29;
         }
+        v8 = v34;
+LABEL_20:
+        result = v8;
+        v20 = v8 - v9 + 1;
+        if ( v20 == *(_DWORD *)(v4 + 856) )
+          v20 = 0;
+        *(_DWORD *)(v4 + 1092) = v20;
+        return result;
       }
     }
   }
-  v27 = (unsigned __int64)&v9[v7];
-  v28 = 0;
-  v29 = &v9[v5];
+  v10 = &v9[v7];
+  v11 = 0;
+  v12 = &v9[v5];
   if ( !(_DWORD)v7 )
     return 0LL;
-  v30 = *(_DWORD *)(v4 + 776);
+  v13 = *(_DWORD *)(v4 + 776);
   do
   {
-    v31 = v29;
-    if ( (unsigned __int64)v29 >= v27 )
-      v29 = v9;
-    v32 = (unsigned __int64)v31 < v27 ? v5 : 0;
-    if ( (v30 & 0x40000) == 0
-      || (v33 = SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(*(_QWORD *)(v4 + 800), v32, v6, v29, v36[0]), v3 = 0, !v33) )
+    v14 = v9;
+    v15 = v12 < v10 ? v5 : 0;
+    if ( v12 < v10 )
+      v14 = v12;
+    if ( (v13 & 0x40000) == 0
+      || (v16 = SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(*(_QWORD *)(v4 + 800), v15), v3 = 0, !v16) )
     {
-      if ( !(_BYTE)v30 )
-        v3 = *v29 >> 13;
-      v6 = *v29;
-      if ( (unsigned __int16)(v6 & 0x1FFF) >= (unsigned __int16)(*v8 & 0x1FFF) )
-        goto LABEL_50;
-      LOWORD(v6) = v6 & 0x1FFF;
-      if ( v3 != v2 )
+      v17 = *v14;
+      if ( !(_BYTE)v13 )
+        v3 = v17 >> 13;
+      v18 = v17 & 0x1FFF;
+      if ( v18 >= (unsigned __int16)(*v8 & 0x1FFF) )
+        goto LABEL_13;
+      if ( v3 != a2 )
       {
-        if ( !(_WORD)v6 && v29 != &v9[*(unsigned int *)(v4 + 16 * (v3 + 78LL))] )
+        if ( !v18 && v14 != &v9[*(unsigned int *)(v4 + 16 * (v3 + 78LL))] )
         {
-          v8 = v29;
-          goto LABEL_53;
+          v8 = v14;
+          goto LABEL_20;
         }
-LABEL_50:
+LABEL_13:
         v3 = 0;
-        goto LABEL_51;
+        goto LABEL_14;
       }
       v3 = 0;
-      v8 = v29;
-      if ( !(_WORD)v6 )
-        goto LABEL_53;
+      v8 = v14;
+      if ( !v18 )
+        goto LABEL_20;
     }
-LABEL_51:
-    ++v29;
-    v5 = v32 + 1;
-    ++v28;
+LABEL_14:
+    ++v11;
+    v12 = v14 + 1;
+    v5 = v15 + 1;
   }
-  while ( v28 < (unsigned int)v7 );
-  if ( v8 == (unsigned __int16 *)v36 )
-    return 0LL;
-LABEL_53:
-  result = v8;
-  v35 = v8 - v9 + 1;
-  if ( v35 == (_DWORD)v7 )
-    v35 = 0;
-  *(_DWORD *)(v4 + 1092) = v35;
-  return result;
+  while ( v11 < (unsigned int)v7 );
+  if ( v8 != v38 )
+    goto LABEL_20;
+  return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_98a973f9db80c22b1740ef6057097b25_::_lambda_invoker_cdecl_ @ 0x1C021B630
+ * XREFs of _lambda_98a973f9db80c22b1740ef6057097b25_::_lambda_invoker_cdecl_ @ 0x1C019F610
  * Callers:
  *     <none>
  * Callees:
- *     IsStartedIndirectDisplayDevice @ 0x1C021B658 (IsStartedIndirectDisplayDevice.c)
+ *     IsStartedIndirectDisplayDevice @ 0x1C019F638 (IsStartedIndirectDisplayDevice.c)
  */
 
 __int64 __fastcall lambda_98a973f9db80c22b1740ef6057097b25_::_lambda_invoker_cdecl_(__int64 a1, _DWORD *a2)

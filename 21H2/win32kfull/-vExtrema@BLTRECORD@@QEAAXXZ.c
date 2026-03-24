@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vExtrema@BLTRECORD@@QEAAXXZ @ 0x1C028A17C
+ * XREFs of ?vExtrema@BLTRECORD@@QEAAXXZ @ 0x1C028C4D4
  * Callers:
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C02894C8 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     GrePlgBlt @ 0x1C028B85C (GrePlgBlt.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B878 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     GrePlgBlt @ 0x1C028DBB0 (GrePlgBlt.c)
  * Callees:
  *     <none>
  */

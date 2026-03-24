@@ -1,24 +1,24 @@
 /*
- * XREFs of ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C00D1414
+ * XREFs of ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C0126E20
  * Callers:
- *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C00CD5E4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
- *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00D1010 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01CD6C8 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
- *     ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01CD918 (-RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z.c)
+ *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C002EC84 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
+ *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C0126A30 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01D1308 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
+ *     ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01D1548 (-RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z.c)
  * Callees:
- *     ?ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z @ 0x1C00D14C0 (-ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z @ 0x1C0126ECC (-ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetCurrentOrientation(unsigned int *a1)
 {
   __int64 result; // rax
-  int v3; // [rsp+20h] [rbp-108h] BYREF
-  int v4[3]; // [rsp+24h] [rbp-104h] BYREF
-  _BYTE v5[16]; // [rsp+30h] [rbp-F8h] BYREF
-  _BYTE v6[8]; // [rsp+40h] [rbp-E8h] BYREF
-  unsigned int v7; // [rsp+48h] [rbp-E0h]
-  unsigned int v8; // [rsp+98h] [rbp-90h]
+  int v3; // [rsp+20h] [rbp-F8h] BYREF
+  int v4[3]; // [rsp+24h] [rbp-F4h] BYREF
+  _BYTE v5[16]; // [rsp+30h] [rbp-E8h] BYREF
+  _BYTE v6[8]; // [rsp+40h] [rbp-D8h] BYREF
+  unsigned int v7; // [rsp+48h] [rbp-D0h]
+  unsigned int v8; // [rsp+98h] [rbp-80h]
 
   v3 = 0;
   v4[0] = 1;

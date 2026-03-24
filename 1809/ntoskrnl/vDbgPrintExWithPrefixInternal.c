@@ -1,28 +1,28 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternal @ 0x140126330
+ * XREFs of vDbgPrintExWithPrefixInternal @ 0x140126350
  * Callers:
- *     DbgPrint @ 0x1401262B0 (DbgPrint.c)
- *     vDbgPrintEx @ 0x140126300 (vDbgPrintEx.c)
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     IopDebugPrint @ 0x14028883C (IopDebugPrint.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     DbgPrintReturnControlC @ 0x1402EC840 (DbgPrintReturnControlC.c)
- *     vDbgPrintExWithPrefix @ 0x1402ECC20 (vDbgPrintExWithPrefix.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
+ *     vDbgPrintEx @ 0x140126320 (vDbgPrintEx.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     IopDebugPrint @ 0x14028893C (IopDebugPrint.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     DbgPrintReturnControlC @ 0x1402EC940 (DbgPrintReturnControlC.c)
+ *     vDbgPrintExWithPrefix @ 0x1402ECD20 (vDbgPrintExWithPrefix.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     RtlStringCbVPrintfA @ 0x1400F4E3C (RtlStringCbVPrintfA.c)
- *     NtQueryDebugFilterState @ 0x140126480 (NtQueryDebugFilterState.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     DbgBreakPointWithStatus @ 0x1401C5330 (DbgBreakPointWithStatus.c)
- *     DebugPrint @ 0x1401C5340 (DebugPrint.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlStringCbVPrintfA @ 0x1400F4E5C (RtlStringCbVPrintfA.c)
+ *     NtQueryDebugFilterState @ 0x1401264A0 (NtQueryDebugFilterState.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     DbgBreakPointWithStatus @ 0x1401C5350 (DbgBreakPointWithStatus.c)
+ *     DebugPrint @ 0x1401C5360 (DebugPrint.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall vDbgPrintExWithPrefixInternal(

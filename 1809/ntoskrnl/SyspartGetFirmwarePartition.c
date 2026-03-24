@@ -1,10 +1,10 @@
 /*
- * XREFs of SyspartGetFirmwarePartition @ 0x140714E20
+ * XREFs of SyspartGetFirmwarePartition @ 0x140714E00
  * Callers:
- *     BiGetSystemPartition @ 0x140714D98 (BiGetSystemPartition.c)
+ *     BiGetSystemPartition @ 0x140714D78 (BiGetSystemPartition.c)
  * Callees:
- *     SiGetSystemDeviceName @ 0x1406BEFE4 (SiGetSystemDeviceName.c)
- *     SiQuerySystemInformationString @ 0x140714E7C (SiQuerySystemInformationString.c)
+ *     SiGetSystemDeviceName @ 0x1406BEFC4 (SiGetSystemDeviceName.c)
+ *     SiQuerySystemInformationString @ 0x140714E5C (SiQuerySystemInformationString.c)
  */
 
 __int64 __fastcall SyspartGetFirmwarePartition(void *a1, unsigned int a2, unsigned int *a3)

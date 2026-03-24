@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmiWriteEventToSingleQueue @ 0x1408825B4
+ * XREFs of TtmiWriteEventToSingleQueue @ 0x140882594
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x14087E260 (TtmpPublishDeviceEvent.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x1408805D4 (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmiWriteEventToAllQueues @ 0x140880670 (TtmiWriteEventToAllQueues.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x140881678 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x14087E240 (TtmpPublishDeviceEvent.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1408805B4 (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmiWriteEventToAllQueues @ 0x140880650 (TtmiWriteEventToAllQueues.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x140881658 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiLogQueueEnqueueEvent @ 0x1408847FC (TtmiLogQueueEnqueueEvent.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiLogQueueEnqueueEvent @ 0x1408847DC (TtmiLogQueueEnqueueEvent.c)
  */
 
 __int64 __fastcall TtmiWriteEventToSingleQueue(__int64 a1, _OWORD *a2)

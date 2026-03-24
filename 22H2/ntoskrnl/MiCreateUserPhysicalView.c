@@ -1,162 +1,139 @@
 /*
- * XREFs of MiCreateUserPhysicalView @ 0x140A417E8
+ * XREFs of MiCreateUserPhysicalView @ 0x1408D5BF8
  * Callers:
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MiCheckPurgeAndUpMapCount @ 0x1402870D0 (MiCheckPurgeAndUpMapCount.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MiGetAweInfoPartition @ 0x14064A8C8 (MiGetAweInfoPartition.c)
- *     MiGetAwePageSize @ 0x14064A988 (MiGetAwePageSize.c)
- *     MiReferenceAweHandle @ 0x14064BD88 (MiReferenceAweHandle.c)
- *     MiCreateProcessDefaultAweInfo @ 0x140A41700 (MiCreateProcessDefaultAweInfo.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x14025B21C (MiInsertVadEvent.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140296630 (MiCheckPurgeAndUpMapCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381AA0 (ExGetCallBackBlockRoutine.c)
+ *     MiGetAweInfoPartition @ 0x14054C2D4 (MiGetAweInfoPartition.c)
+ *     MiReferenceAweHandle @ 0x14054DB8C (MiReferenceAweHandle.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x1408D5B10 (MiCreateProcessDefaultAweInfo.c)
  */
 
 int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a4)
 {
-  PVOID v4; // rdi
+  PVOID v4; // rbx
   void *v6; // rcx
-  unsigned __int64 v7; // r13
-  __int64 v8; // rbx
-  char v10; // r10
-  unsigned int v11; // r9d
+  unsigned __int64 v7; // r15
+  __int64 v8; // rsi
+  char v11; // r10
+  unsigned int v12; // r9d
   KPROCESSOR_MODE PreviousMode; // r8
-  ACCESS_MASK v13; // edx
+  ACCESS_MASK v14; // edx
   int result; // eax
-  __int64 v15; // r15
-  unsigned __int64 AwePageSize; // rax
-  __int64 v17; // r14
-  unsigned __int64 v18; // rbx
-  unsigned __int64 v19; // rax
-  __int64 v20; // rdx
-  unsigned __int64 *Pool; // rax
-  unsigned __int64 *v22; // rbp
-  _WORD *AweInfoPartition; // rax
-  __int64 v24; // r9
-  unsigned __int64 *v25; // rsi
-  int v26; // eax
-  unsigned int v27; // eax
-  PVOID Object; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v29[8]; // [rsp+38h] [rbp-40h] BYREF
-  PVOID v30; // [rsp+90h] [rbp+18h] BYREF
-  _WORD *v31; // [rsp+98h] [rbp+20h]
+  __int64 v16; // r14
+  __int64 v17; // rax
+  __int64 v18; // rbp
+  __int64 v19; // rsi
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  _QWORD *Pool; // rax
+  _QWORD *v23; // rdi
+  int v24; // eax
+  unsigned int v25; // eax
+  PVOID Object; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v27; // [rsp+38h] [rbp-30h] BYREF
+  PVOID v28; // [rsp+80h] [rbp+18h] BYREF
 
-  v31 = a4;
   Object = 0LL;
   v4 = 0LL;
-  v29[0] = 0LL;
-  v6 = *(void **)(a3 + 104);
+  v27 = 0LL;
+  v6 = *(void **)(a3 + 112);
   v7 = 0LL;
-  v8 = *(_QWORD *)(a3 + 112);
-  v30 = 0LL;
-  v10 = a2;
+  v8 = *(_QWORD *)(a3 + 120);
+  v28 = 0LL;
+  v11 = a2;
   if ( v6 )
   {
-    v11 = (a2 & 4 | 8u) >> 1;
+    v12 = (a2 & 4 | 8u) >> 1;
     PreviousMode = KeGetCurrentThread()->PreviousMode;
-    v13 = v11 | 8;
-    if ( (v10 & 2) == 0 )
-      v13 = v11;
-    result = MiReferenceAweHandle(v6, v13, PreviousMode, &Object, &v30);
+    v14 = v12 | 8;
+    if ( (v11 & 2) == 0 )
+      v14 = v12;
+    result = MiReferenceAweHandle(v6, v14, PreviousMode, &Object, &v28);
     if ( result >= 0 )
     {
-      v4 = v30;
-      if ( !v30 )
+      v4 = v28;
+      if ( !v28 )
       {
         if ( Object )
           ObfDereferenceObjectWithTag(Object, 0x68506D4Du);
         return -1073741816;
       }
-      v7 = MiSectionControlArea((__int64)v30);
-      v15 = *(_QWORD *)(v7 + 8);
-      AwePageSize = MiGetAwePageSize(v15);
-      v17 = AwePageSize;
+      v7 = MiSectionControlArea((__int64)v28);
+      v16 = *(_QWORD *)(v7 + 8);
+      v17 = ExGetCallBackBlockRoutine(v16);
+      v18 = v17;
       if ( (v8 & 2) != 0 )
+        goto LABEL_10;
+      if ( (v8 & 8) != 0 )
       {
-        v18 = 16LL;
-      }
-      else if ( (v8 & 8) != 0 )
-      {
-        v18 = 512LL;
+        v19 = 512LL;
+        if ( v17 != 16 )
+        {
+LABEL_10:
+          ObfDereferenceObjectWithTag(v4, 0x68506D4Du);
+          return -1073741811;
+        }
       }
       else
       {
-        if ( (v8 & 0x10) == 0 )
-        {
-          v18 = AwePageSize;
-LABEL_23:
-          v19 = v18 << 12;
-          if ( *(_QWORD *)(a3 + 16) < v18 << 12 )
-            *(_QWORD *)(a3 + 16) = v19;
-          v20 = *(_QWORD *)(a3 + 24);
-          if ( (v20 & (v19 - 1)) != 0
-            || *(_QWORD *)(a3 + 8) - *(_QWORD *)a3 + 1LL == v20 && (*(_QWORD *)a3 & (v19 - 1)) != 0 )
-          {
-            goto LABEL_20;
-          }
-          goto LABEL_34;
-        }
-        v18 = 0x40000LL;
+        v19 = v17;
       }
-      if ( v18 <= AwePageSize || v18 % AwePageSize || ((v18 - 1) & v18) != 0 || v18 != 512 || AwePageSize != 16 )
+      v20 = v19 << 12;
+      if ( *(_QWORD *)(a3 + 16) < (unsigned __int64)(v19 << 12) )
+        *(_QWORD *)(a3 + 16) = v20;
+      v21 = *(_QWORD *)(a3 + 24);
+      if ( (v21 & (v20 - 1)) != 0
+        || *(_QWORD *)(a3 + 8) - *(_QWORD *)a3 + 1LL == v21 && (*(_QWORD *)a3 & (v20 - 1)) != 0 )
       {
-LABEL_20:
-        ObfDereferenceObjectWithTag(v4, 0x68506D4Du);
-        return -1073741811;
+        goto LABEL_10;
       }
-      goto LABEL_23;
+      goto LABEL_27;
     }
   }
   else
   {
-    if ( (v8 & 0x1A) != 0 )
+    if ( (v8 & 0xA) != 0 )
       return -1073741811;
     if ( a2 != 4 )
       return -1073741755;
-    result = MiCreateProcessDefaultAweInfo(*(_BYTE *)(a3 + 57), v29);
+    result = MiCreateProcessDefaultAweInfo(*(_BYTE *)(a3 + 104), &v27);
     if ( result >= 0 )
     {
-      v15 = v29[0];
+      v16 = v27;
       v18 = 1LL;
-      v17 = 1LL;
-LABEL_34:
-      Pool = (unsigned __int64 *)MiAllocatePool(64, 0x48uLL, 0x76706D4Du);
-      v22 = Pool;
+      v19 = 1LL;
+LABEL_27:
+      Pool = MiAllocatePool(64, 0x48uLL, 0x76706D4Du);
+      v23 = Pool;
       if ( Pool )
       {
         *((_DWORD *)Pool + 16) = 256;
         Pool[4] = a1;
-        Pool[5] = v15;
-        AweInfoPartition = (_WORD *)MiGetAweInfoPartition(v15);
-        v25 = v22 + 6;
-        *v31 = *AweInfoPartition;
+        Pool[5] = v16;
+        *a4 = *(_WORD *)MiGetAweInfoPartition(v16);
         if ( v4 )
         {
           MiCheckPurgeAndUpMapCount(v7);
-          *v25 = v7;
+          v23[6] = v7;
           ObfDereferenceObjectWithTag(v4, 0x68506D4Du);
         }
-        if ( v18 != v17 )
+        if ( v19 != v18 )
         {
-          v26 = *(_DWORD *)v25;
-          if ( v18 == 16 )
-          {
-            v27 = v26 & 0xFFFFFFFC | 1;
-          }
-          else if ( v18 == 0x40000 )
-          {
-            v27 = v26 | 3;
-          }
+          v24 = *((_DWORD *)v23 + 12);
+          if ( v19 == 16 )
+            v25 = v24 & 0xFFFFFFFC | 1;
           else
-          {
-            v27 = v26 & 0xFFFFFFFC | 2;
-          }
-          *(_DWORD *)v25 = v27;
+            v25 = v24 & 0xFFFFFFFC | 2;
+          *((_DWORD *)v23 + 12) = v25;
         }
-        v22[3] = 0LL;
-        MiInsertVadEvent(a1, v22, 0LL, v24);
+        v23[3] = 0LL;
+        MiInsertVadEvent(a1, v23, 0);
         return 0;
       }
       else

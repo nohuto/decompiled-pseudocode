@@ -1,10 +1,9 @@
 /*
- * XREFs of ??1?$CQueue@PEAVCResource@@@@QEAA@XZ @ 0x180100320
+ * XREFs of ??1?$CQueue@PEAVCResource@@@@QEAA@XZ @ 0x180221478
  * Callers:
- *     _dynamic_atexit_destructor_for__CManipulationManager::s_InteractionUpdateQueue__ @ 0x18010D760 (_dynamic_atexit_destructor_for__CManipulationManager--s_InteractionUpdateQueue__.c)
- *     ??1CManipulationManager@@MEAA@XZ @ 0x1802723BC (--1CManipulationManager@@MEAA@XZ.c)
+ *     ??1CManipulationManager@@MEAA@XZ @ 0x180221564 (--1CManipulationManager@@MEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 void __fastcall CQueue<CResource *>::~CQueue<CResource *>(_DWORD *a1)
@@ -27,7 +26,7 @@ void __fastcall CQueue<CResource *>::~CQueue<CResource *>(_DWORD *a1)
     if ( v4 != (_QWORD *)a1 )
     {
       v3 = v4[2];
-      operator delete(v4, 0x18uLL);
+      operator delete(v4);
       --a1[4];
     }
     LeaveCriticalSection(v2);

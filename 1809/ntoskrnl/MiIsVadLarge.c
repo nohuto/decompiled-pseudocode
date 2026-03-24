@@ -5,7 +5,7 @@
  *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
  *     MiRemoveVadCharges @ 0x1405EC820 (MiRemoveVadCharges.c)
  *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     MiProcessVaRangesInfoClass @ 0x1406BCC58 (MiProcessVaRangesInfoClass.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BCC38 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     <none>
  */

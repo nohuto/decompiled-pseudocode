@@ -1,15 +1,17 @@
 /*
- * XREFs of ?EnableDisplayTelemetryProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C021C280
+ * XREFs of ?EnableDisplayTelemetryProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C02B0BA0
  * Callers:
  *     <none>
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C01985C4 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C0133D8C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
  */
 
 void __fastcall EnableDisplayTelemetryProviderCallback(const struct _GUID *a1, int a2)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   struct DXGGLOBAL *Global; // rax
   GUID ActivityId; // [rsp+20h] [rbp-28h] BYREF
 
@@ -17,11 +19,11 @@ void __fastcall EnableDisplayTelemetryProviderCallback(const struct _GUID *a1, i
   {
     ActivityId = 0LL;
     EtwActivityIdControl(3u, &ActivityId);
-    Global = DXGGLOBAL_GetGlobal();
+    Global = DXGGLOBAL::GetGlobal(v3, v2);
     DXGGLOBAL::IterateAdaptersWithCallback(
       (__int64)Global,
       (__int64 (__fastcall *)(_QWORD *, __int64))DisplayTelemetryEnabledCallback,
       (__int64)&ActivityId,
-      1LL);
+      1);
   }
 }

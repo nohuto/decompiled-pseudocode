@@ -1,12 +1,12 @@
 /*
- * XREFs of IopInsertPassiveInterruptBlock @ 0x140560AAC
+ * XREFs of IopInsertPassiveInterruptBlock @ 0x14050D494
  * Callers:
- *     IopAllocatePassiveInterruptBlock @ 0x1409466AC (IopAllocatePassiveInterruptBlock.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x1408A1540 (IopAllocatePassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x140459E52 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     IopFindPassiveInterruptBlockLocked @ 0x140459F42 (IopFindPassiveInterruptBlockLocked.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14050D13C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopFindPassiveInterruptBlockLocked @ 0x14050D45C (IopFindPassiveInterruptBlockLocked.c)
  */
 
 __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)
@@ -28,13 +28,13 @@ __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)
   if ( !PassiveInterruptBlockLocked )
   {
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 192));
-    v5 = (__int64 *)qword_140C468F8;
-    if ( *(__int64 **)qword_140C468F8 != &PassiveInterruptList )
+    v5 = (__int64 *)qword_140C45508;
+    if ( *(__int64 **)qword_140C45508 != &PassiveInterruptList )
       __fastfail(3u);
     *(_QWORD *)a1 = &PassiveInterruptList;
     *(_QWORD *)(a1 + 8) = v5;
     *v5 = a1;
-    qword_140C468F8 = a1;
+    qword_140C45508 = a1;
   }
   KxReleaseSpinLock(&PassiveInterruptListLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )

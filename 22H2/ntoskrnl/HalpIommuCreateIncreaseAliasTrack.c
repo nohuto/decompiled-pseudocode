@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuCreateIncreaseAliasTrack @ 0x1405179F8
+ * XREFs of HalpIommuCreateIncreaseAliasTrack @ 0x1403EF980
  * Callers:
- *     HalpIommuUnblockDevice @ 0x140518860 (HalpIommuUnblockDevice.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9DC0 (HalpIommuUnblockDevice.c)
  * Callees:
- *     HalpIommuCloneDeviceId @ 0x14038F868 (HalpIommuCloneDeviceId.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     IidAreIdsStrictlyEqual @ 0x140673DAC (IidAreIdsStrictlyEqual.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuCloneDeviceId @ 0x1403EF858 (HalpIommuCloneDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C62CC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuCreateIncreaseAliasTrack(void *Src, _QWORD *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpIommuCreateIncreaseAliasTrack(void *Src, _QWORD *a2)
         return 3221225626LL;
       *(_OWORD *)v6 = 0LL;
       *(_OWORD *)(v6 + 16) = 0LL;
-      v10 = HalpIommuCloneDeviceId(Src, (_QWORD *)(v6 + 16));
+      v10 = HalpIommuCloneDeviceId(Src, (__int64 *)(v6 + 16));
       if ( v10 < 0 )
       {
         v12 = v7[2];
@@ -41,13 +41,13 @@ __int64 __fastcall HalpIommuCreateIncreaseAliasTrack(void *Src, _QWORD *a2)
       else
       {
         v7[3] = 1LL;
-        v11 = (_QWORD *)qword_140C61F98;
-        if ( *(__int64 **)qword_140C61F98 != &HalpRidAliasList )
+        v11 = (_QWORD *)qword_140C49EB8;
+        if ( *(__int64 **)qword_140C49EB8 != &HalpRidAliasList )
           __fastfail(3u);
         *v7 = &HalpRidAliasList;
         v7[1] = v11;
         *v11 = v7;
-        qword_140C61F98 = (__int64)v7;
+        qword_140C49EB8 = (__int64)v7;
         *a2 = v7;
       }
       return (unsigned int)v10;

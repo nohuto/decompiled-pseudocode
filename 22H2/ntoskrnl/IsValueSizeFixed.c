@@ -1,18 +1,18 @@
 /*
- * XREFs of IsValueSizeFixed @ 0x1409D4974
+ * XREFs of IsValueSizeFixed @ 0x140927F14
  * Callers:
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
- *     LocalGetConditionForString @ 0x1409D49C4 (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x140927F44 (LocalGetConditionForString.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall IsValueSizeFixed(unsigned __int8 a1)
+bool __fastcall IsValueSizeFixed(unsigned __int8 a1)
 {
-  char v1; // r8
+  bool result; // al
 
-  v1 = 0;
-  if ( a1 < 0x50u && (a1 == 1 || a1 == 2 || (unsigned int)a1 - 3 < 2) )
-    return 1;
-  return v1;
+  result = 0;
+  if ( a1 )
+    return a1 <= 4u;
+  return result;
 }

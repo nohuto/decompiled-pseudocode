@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C011631C
+ * XREFs of ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C009F6C8
  * Callers:
- *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C011681C (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00B9FE0 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
  * Callees:
- *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C0116770 (-flFontType@PFEOBJ@@QEAAKXZ.c)
+ *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C009EBFC (-flFontType@PFEOBJ@@QEAAKXZ.c)
  */
 
 void __fastcall FHOBJ::vDeletePFELink(FHOBJ *this, struct _HASHBUCKET *a2, unsigned int a3, struct PFEOBJ *a4)
@@ -20,12 +20,12 @@ void __fastcall FHOBJ::vDeletePFELink(FHOBJ *this, struct _HASHBUCKET *a2, unsig
   struct _HASHBUCKET **v16; // rdx
   struct _HASHBUCKET *i; // rcx
   __int64 v18; // rax
-  unsigned int v19; // r8d
-  struct _HASHBUCKET *v20; // rcx
-  __int64 v21; // rdx
-  __int64 v22; // rax
+  unsigned int v19; // ecx
+  struct _HASHBUCKET *v20; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rcx
   __int64 v23; // rax
-  __int64 v24; // rdx
+  __int64 v24; // rcx
   __int64 v25; // rax
   _QWORD *v26; // rdx
   _QWORD *v27; // rax
@@ -79,22 +79,22 @@ void __fastcall FHOBJ::vDeletePFELink(FHOBJ *this, struct _HASHBUCKET *a2, unsig
           v21 = *((_QWORD *)a2 + 6);
           if ( v21 )
           {
-            v22 = *((_QWORD *)a2 + 6);
             do
             {
-              if ( *(_DWORD *)(v22 + 56) >= v19 )
+              if ( *(_DWORD *)(v21 + 56) >= v19 )
                 break;
-              v20 = (struct _HASHBUCKET *)v22;
-              v22 = *(_QWORD *)(v22 + 48);
+              v20 = (struct _HASHBUCKET *)v21;
+              v21 = *(_QWORD *)(v21 + 48);
             }
-            while ( v22 );
+            while ( v21 );
             if ( v20 != a2 )
             {
-              v23 = *((_QWORD *)a2 + 5);
-              if ( v23 )
-                *(_QWORD *)(v23 + 48) = v21;
+              v22 = *((_QWORD *)a2 + 5);
+              v23 = *((_QWORD *)a2 + 6);
+              if ( v22 )
+                *(_QWORD *)(v22 + 48) = v23;
               else
-                *(_QWORD *)(*((_QWORD *)this + 1) + 24LL) = v21;
+                *(_QWORD *)(*((_QWORD *)this + 1) + 24LL) = v23;
               v24 = *((_QWORD *)a2 + 6);
               if ( v24 )
                 *(_QWORD *)(v24 + 40) = *((_QWORD *)a2 + 5);

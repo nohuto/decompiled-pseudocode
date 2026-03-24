@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchRestOfCluster @ 0x1403674AC
+ * XREFs of MiPrefetchRestOfCluster @ 0x14032AA04
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A1680 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x14029B880 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140339E94 (MiGetEffectivePagePriorityThread.c)
+ *     MiPrefetchVirtualMemory @ 0x14033DEB0 (MiPrefetchVirtualMemory.c)
  */
 
 void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2, __int64 a3)
@@ -17,7 +17,8 @@ void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2, __int64 a3)
   unsigned __int64 v10; // r8
   unsigned __int64 v11; // rdx
   char EffectivePagePriorityThread; // al
-  _QWORD v13[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int64 v13; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int64 v14; // [rsp+28h] [rbp-20h]
 
   v3 = a2[3];
   if ( v3 < a2[2] )
@@ -33,14 +34,14 @@ void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2, __int64 a3)
       v11 = v8[1];
       if ( v9 < v11 + v10 )
       {
-        v13[0] = (*(unsigned int *)(a1 + 184) + v7 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-        v13[1] = v10 + v11 - v9;
-        EffectivePagePriorityThread = MiGetEffectivePagePriorityThread((__int64)KeGetCurrentThread());
+        v13 = (*(unsigned int *)(a1 + 184) + v7 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+        v14 = v10 + v11 - v9;
+        EffectivePagePriorityThread = MiGetEffectivePagePriorityThread(KeGetCurrentThread(), v14);
         MiPrefetchVirtualMemory(
-          1uLL,
-          (__int64)v13,
+          1LL,
+          &v13,
           a3,
-          EffectivePagePriorityThread & 7 | (8 * (EffectivePagePriorityThread & 7 | 0x2800)));
+          EffectivePagePriorityThread & 7 | (8 * (EffectivePagePriorityThread & 7 | 0x2800u)));
       }
     }
   }

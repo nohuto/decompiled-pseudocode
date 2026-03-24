@@ -1,14 +1,14 @@
 /*
- * XREFs of AuthzBasepCompareFQBNOperands @ 0x140325030
+ * XREFs of AuthzBasepCompareFQBNOperands @ 0x140325130
  * Callers:
- *     AuthzBasepValueInSet @ 0x1400A4788 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x1400A4A20 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x1400A47A8 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x1400A4A40 (AuthzBasepEvaluateExpression.c)
  * Callees:
  *     AuthzBasepUnicodeStringFromOperandValue @ 0x1400175F0 (AuthzBasepUnicodeStringFromOperandValue.c)
  *     RtlIsNameInExpression @ 0x1400A3DB0 (RtlIsNameInExpression.c)
- *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x1400A474C (AuthzBasepGetOperandStringCaseForEvaluation.c)
- *     AuthzBasepGetConstantOperand @ 0x1400A4978 (AuthzBasepGetConstantOperand.c)
- *     AuthzBasepCompareUnsigned @ 0x14032551C (AuthzBasepCompareUnsigned.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x1400A476C (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     AuthzBasepGetConstantOperand @ 0x1400A4998 (AuthzBasepGetConstantOperand.c)
+ *     AuthzBasepCompareUnsigned @ 0x14032561C (AuthzBasepCompareUnsigned.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

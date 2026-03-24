@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x14084A484
+ * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x14084A464
  * Callers:
  *     AlpcpAllocateMessage @ 0x140616D6C (AlpcpAllocateMessage.c)
  *     AlpcpSendLegacySynchronousRequest @ 0x14061A900 (AlpcpSendLegacySynchronousRequest.c)
@@ -8,7 +8,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     AlpcpAllocateMessageLog @ 0x14084A294 (AlpcpAllocateMessageLog.c)
+ *     AlpcpAllocateMessageLog @ 0x14084A274 (AlpcpAllocateMessageLog.c)
  */
 
 __int64 __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnEnablePrefetcherTimerRoutine @ 0x14013B3C0
+ * XREFs of PfSnEnablePrefetcherTimerRoutine @ 0x14013B3E0
  * Callers:
  *     <none>
  * Callees:
- *     PfSnUpdatePrefetcherFlags @ 0x14013B3EC (PfSnUpdatePrefetcherFlags.c)
+ *     PfSnUpdatePrefetcherFlags @ 0x14013B40C (PfSnUpdatePrefetcherFlags.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

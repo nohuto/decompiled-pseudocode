@@ -1,13 +1,13 @@
 /*
- * XREFs of ?hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00B4184
+ * XREFs of ?hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00A2714
  * Callers:
- *     EngCreateDeviceSurface @ 0x1C00B40B0 (EngCreateDeviceSurface.c)
- *     EngCreateRedirectionDeviceBitmap @ 0x1C00B4110 (EngCreateRedirectionDeviceBitmap.c)
- *     EngCreateBitmap @ 0x1C00B4150 (EngCreateBitmap.c)
- *     EngCreateDeviceBitmap @ 0x1C016C530 (EngCreateDeviceBitmap.c)
+ *     EngCreateDeviceSurface @ 0x1C00A2640 (EngCreateDeviceSurface.c)
+ *     EngCreateRedirectionDeviceBitmap @ 0x1C00A26A0 (EngCreateRedirectionDeviceBitmap.c)
+ *     EngCreateBitmap @ 0x1C00A26E0 (EngCreateBitmap.c)
+ *     EngCreateDeviceBitmap @ 0x1C014B5D0 (EngCreateDeviceBitmap.c)
  * Callees:
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0025050 (--1SURFMEM@@QEAA@XZ.c)
- *     ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00DA580 (-CreateDriverSurfMem@@YA-AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C00306C0 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00CB33C (-CreateDriverSurfMem@@YA-AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
  */
 
 __int64 __fastcall hbmCreateDriverSurface(
@@ -19,8 +19,8 @@ __int64 __fastcall hbmCreateDriverSurface(
         unsigned int a6,
         void *a7)
 {
-  __int64 v7; // rdx
-  __int64 v8; // r8
+  int v7; // edx
+  int v8; // r8d
   __int64 v9; // rbx
   _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
 

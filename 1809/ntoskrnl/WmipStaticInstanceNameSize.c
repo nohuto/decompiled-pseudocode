@@ -3,7 +3,7 @@
  * Callers:
  *     WmipInsertStaticNames @ 0x14059D964 (WmipInsertStaticNames.c)
  *     WmipQueryAllData @ 0x14059DBCC (WmipQueryAllData.c)
- *     WmipIncludeStaticNames @ 0x1408B3758 (WmipIncludeStaticNames.c)
+ *     WmipIncludeStaticNames @ 0x1408B3738 (WmipIncludeStaticNames.c)
  * Callees:
  *     <none>
  */

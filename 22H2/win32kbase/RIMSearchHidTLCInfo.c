@@ -1,36 +1,35 @@
 /*
- * XREFs of RIMSearchHidTLCInfo @ 0x1C0191A58
+ * XREFs of RIMSearchHidTLCInfo @ 0x1C00AC7AC
  * Callers:
- *     RIMCreateHidDesc @ 0x1C007EF3C (RIMCreateHidDesc.c)
- *     RIMVirtCreateHidDesc @ 0x1C0184200 (RIMVirtCreateHidDesc.c)
- *     RIMAllocateAndLinkHidTLCInfo @ 0x1C0191414 (RIMAllocateAndLinkHidTLCInfo.c)
- *     RIMIDECreateHIDDesc @ 0x1C019399C (RIMIDECreateHIDDesc.c)
- *     rimObsStartStopDeviceRead @ 0x1C01AF320 (rimObsStartStopDeviceRead.c)
+ *     RIMCreateHidDesc @ 0x1C00582E8 (RIMCreateHidDesc.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C00AC634 (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMVirtCreateHidDesc @ 0x1C0162C3C (RIMVirtCreateHidDesc.c)
+ *     RIMIDECreateHIDDesc @ 0x1C016740C (RIMIDECreateHIDDesc.c)
+ *     rimObsStartStopDeviceRead @ 0x1C017F2C4 (rimObsStartStopDeviceRead.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMIsLegacyDevice @ 0x1C01919E8 (RIMIsLegacyDevice.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00AC818 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AC85C (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     RIMIsLegacyDevice @ 0x1C00AC894 (RIMIsLegacyDevice.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 *__fastcall RIMSearchHidTLCInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 *__fastcall RIMSearchHidTLCInfo(__int16 a1, __int16 a2)
 {
-  __int16 v4; // di
-  __int16 v5; // si
-  __int64 v6; // rdx
-  __int64 v7; // rcx
   __int64 *i; // rbx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  char v6; // [rsp+58h] [rbp+20h] BYREF
 
-  v4 = a2;
-  v5 = a1;
-  for ( i = *(__int64 **)(SGDGetUserSessionState(a1, a2, a3, a4) + 376); ; i = (__int64 *)*i )
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v6, (struct RIMLOCK *)&gTLCInfoLock);
+  for ( i = (__int64 *)RawInputManagerObject::gHidRequestTable;
+        i != (__int64 *)&RawInputManagerObject::gHidRequestTable;
+        i = (__int64 *)*i )
   {
-    if ( i == (__int64 *)(SGDGetUserSessionState(v7, v6, v9, v10) + 376) )
-      return 0LL;
-    if ( (unsigned int)RIMIsLegacyDevice(*((_WORD *)i + 8), *((_WORD *)i + 9)) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 124);
-    if ( *((_WORD *)i + 8) == v5 && *((_WORD *)i + 9) == v4 )
-      break;
+    if ( (unsigned int)RIMIsLegacyDevice(*((unsigned __int16 *)i + 8), *((unsigned __int16 *)i + 9)) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 92LL);
+    if ( *((_WORD *)i + 8) == a1 && *((_WORD *)i + 9) == a2 )
+      goto LABEL_4;
   }
+  i = 0LL;
+LABEL_4:
+  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v6);
   return i;
 }

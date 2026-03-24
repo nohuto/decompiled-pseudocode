@@ -1,57 +1,64 @@
 /*
- * XREFs of SmStoreCreate @ 0x1409D7ACC
+ * XREFs of SmStoreCreate @ 0x14092A3D4
  * Callers:
- *     SmcStoreCreate @ 0x1409DB304 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DBA0 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwSetSystemInformation @ 0x14041DDC0 (ZwSetSystemInformation.c)
- *     memset @ 0x140435400 (memset.c)
- *     SmStorePhysicalRequestIssue @ 0x1409D7C60 (SmStorePhysicalRequestIssue.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwSetSystemInformation @ 0x1403FCFA0 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x14092A558 (SmStorePhysicalRequestIssue.c)
  */
 
-__int64 __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
+__int64 __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)
 {
-  __int128 v8; // xmm0
-  __int128 v9; // xmm1
+  __int128 v3; // xmm0
+  __int128 v4; // xmm1
+  __int128 v6; // xmm0
   __int64 result; // rax
-  int v11; // ecx
-  __int64 v12; // [rsp+30h] [rbp-59h] BYREF
-  _DWORD v13[2]; // [rsp+38h] [rbp-51h] BYREF
-  _QWORD *v14; // [rsp+40h] [rbp-49h]
-  int v15; // [rsp+48h] [rbp-41h]
-  int v16; // [rsp+4Ch] [rbp-3Dh]
-  _QWORD v17[12]; // [rsp+50h] [rbp-39h] BYREF
+  int v8; // ecx
+  __int64 v9; // [rsp+30h] [rbp-39h] BYREF
+  _DWORD v10[2]; // [rsp+38h] [rbp-31h] BYREF
+  __int64 *v11; // [rsp+40h] [rbp-29h]
+  int v12; // [rsp+48h] [rbp-21h]
+  int v13; // [rsp+4Ch] [rbp-1Dh]
+  __int64 v14; // [rsp+50h] [rbp-19h] BYREF
+  __int128 v15; // [rsp+58h] [rbp-11h]
+  __int128 v16; // [rsp+68h] [rbp-1h]
+  __int128 v17; // [rsp+78h] [rbp+Fh]
+  __int128 v18; // [rsp+88h] [rbp+1Fh]
+  __int64 v19; // [rsp+98h] [rbp+2Fh]
+  __int64 v20; // [rsp+A0h] [rbp+37h]
 
-  v12 = 0LL;
-  v16 = 0;
-  v13[0] = 1;
-  v13[1] = 3;
-  v14 = v17;
-  v15 = 88;
-  memset((char *)v17 + 4, 0, 0x54uLL);
-  v8 = *a3;
-  v9 = a3[1];
-  LODWORD(v17[0]) = 6;
-  *(_OWORD *)&v17[1] = v8;
-  *(_OWORD *)&v17[5] = a3[2];
-  v17[9] = *((_QWORD *)a3 + 8);
-  *(_OWORD *)&v17[3] = v9;
-  *(_OWORD *)&v17[7] = a3[3];
-  if ( a2 )
+  v3 = *a2;
+  v4 = a2[1];
+  v9 = 0LL;
+  v13 = 0;
+  v15 = v3;
+  v11 = &v14;
+  v6 = a2[2];
+  v10[0] = 1;
+  v10[1] = 3;
+  v12 = 88;
+  v14 = 6LL;
+  v20 = 0LL;
+  v17 = v6;
+  v19 = *((_QWORD *)a2 + 8);
+  v16 = v4;
+  v18 = a2[3];
+  if ( a1 )
   {
-    if ( a2 != 1 )
+    if ( a1 != 1 )
       return 3221225485LL;
-    result = ZwSetSystemInformation(109LL, (__int64)v13);
-    v11 = v17[10];
+    result = ZwSetSystemInformation(109LL, (__int64)v10);
+    v8 = v20;
   }
   else
   {
-    result = SmStorePhysicalRequestIssue(*(PDEVICE_OBJECT *)(a1 + 1904), 0, (__int64)&v12);
-    v11 = v12;
+    result = SmStorePhysicalRequestIssue(DeviceObject, 0, (__int64)&v9);
+    v8 = v9;
   }
   if ( (int)result >= 0 )
   {
-    *a4 = v11;
+    *a3 = v8;
     return 0LL;
   }
   return result;

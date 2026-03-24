@@ -1,7 +1,7 @@
 /*
- * XREFs of PfSnParametersSetDefaults @ 0x140B23E3C
+ * XREFs of PfSnParametersSetDefaults @ 0x140A6AB60
  * Callers:
- *     PfpParametersInitialize @ 0x140B23B40 (PfpParametersInitialize.c)
+ *     PfpParametersInitialize @ 0x140A6A864 (PfpParametersInitialize.c)
  * Callees:
  *     <none>
  */

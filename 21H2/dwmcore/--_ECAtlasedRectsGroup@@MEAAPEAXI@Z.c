@@ -1,22 +1,24 @@
 /*
- * XREFs of ??_ECAtlasedRectsGroup@@MEAAPEAXI@Z @ 0x1800419C0
+ * XREFs of ??_ECAtlasedRectsGroup@@MEAAPEAXI@Z @ 0x1800368C0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CAtlasedRectsGroup@@MEAA@XZ @ 0x180041A04 (--1CAtlasedRectsGroup@@MEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CAtlasedRectsGroup@@MEAA@XZ @ 0x180036904 (--1CAtlasedRectsGroup@@MEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CAtlasedRectsGroup *__fastcall CAtlasedRectsGroup::`vector deleting destructor'(CAtlasedRectsGroup *this, char a2)
 {
+  unsigned int v4; // r8d
+
   CAtlasedRectsGroup::~CAtlasedRectsGroup(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0xA0uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x98, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

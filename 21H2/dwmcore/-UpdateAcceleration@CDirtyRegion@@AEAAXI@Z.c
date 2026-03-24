@@ -1,9 +1,8 @@
 /*
- * XREFs of ?UpdateAcceleration@CDirtyRegion@@AEAAXI@Z @ 0x180085688
+ * XREFs of ?UpdateAcceleration@CDirtyRegion@@AEAAXI@Z @ 0x1800C2974
  * Callers:
- *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800A3D00 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
- *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x1800A5BA0 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
- *     ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x1800D2BD8 (-Merge@CDirtyRegion@@AEAAXII@Z.c)
+ *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180082980 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ *     ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x1800C27E8 (-Merge@CDirtyRegion@@AEAAXII@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,82 +10,82 @@
 void __fastcall CDirtyRegion::UpdateAcceleration(CDirtyRegion *this, unsigned int a2)
 {
   __int64 v3; // r11
-  __int64 v4; // r8
-  __int64 v5; // r9
-  float *v6; // rdx
+  __int64 v4; // rbx
+  float *v5; // r8
+  float *v6; // rax
   float *v7; // rcx
-  __int64 v8; // r8
-  float v9; // xmm1_4
-  char v10; // al
-  __int64 v11; // rax
-  float v12; // xmm2_4
-  __int64 v13; // rbx
-  float *v14; // r8
-  float *v15; // rax
-  float *v16; // rcx
-  float v17; // xmm1_4
-  char v18; // r9
-  float v19; // xmm2_4
+  float v8; // xmm1_4
+  char v9; // r9
+  float v10; // xmm2_4
+  __int64 v11; // r8
+  __int64 v12; // r9
+  float *v13; // rdx
+  float *v14; // rcx
+  __int64 v15; // r8
+  float v16; // xmm1_4
+  char v17; // al
+  float v18; // xmm2_4
+  __int64 v19; // rax
 
   v3 = a2;
   if ( a2 )
   {
-    v13 = a2;
-    v14 = (float *)((char *)this + 16 * a2 + 1952);
-    v15 = (float *)((char *)this + 32 * a2 + 2080);
-    v16 = (float *)((char *)this + 1956);
+    v4 = a2;
+    v5 = (float *)((char *)this + 16 * a2 + 1984);
+    v6 = (float *)((char *)this + 32 * a2 + 2112);
+    v7 = (float *)((char *)this + 1988);
     do
     {
-      v17 = 0.0;
-      v18 = *((_BYTE *)v14 + 12);
-      if ( *((_BYTE *)v16 + 8) )
+      v8 = 0.0;
+      v9 = *((_BYTE *)v5 + 12);
+      if ( *((_BYTE *)v7 + 8) )
       {
-        if ( !v18 )
-          v17 = FLOAT_3_4028235e38;
+        if ( !v9 )
+          v8 = FLOAT_3_4028235e38;
       }
-      else if ( !v18 )
+      else if ( !v9 )
       {
-        v19 = (float)((float)(*v16 - v14[1]) * (float)(*v16 - v14[1]))
-            + (float)((float)(*(v16 - 1) - *v14) * (float)(*(v16 - 1) - *v14));
-        if ( v19 != 0.0 )
-          v17 = (float)(v16[1] + v14[2]) / v19;
+        v10 = (float)((float)(*v7 - v5[1]) * (float)(*v7 - v5[1]))
+            + (float)((float)(*(v7 - 1) - *v5) * (float)(*(v7 - 1) - *v5));
+        if ( v10 != 0.0 )
+          v8 = (float)(v7[1] + v5[2]) / v10;
       }
-      *v15 = v17;
-      v16 += 4;
-      ++v15;
-      --v13;
+      *v6 = v8;
+      v7 += 4;
+      ++v6;
+      --v4;
     }
-    while ( v13 );
+    while ( v4 );
   }
-  v4 = a2 + 1;
-  if ( (unsigned int)v4 < 8 )
+  v11 = a2 + 1;
+  if ( (unsigned int)v11 < 8 )
   {
-    v5 = 8 * v4 + 520;
-    v6 = (float *)((char *)this + 16 * (unsigned int)v4 + 1956);
-    v7 = (float *)((char *)this + 16 * v3 + 1952);
-    v8 = (unsigned int)(8 - v4);
+    v12 = 8 * v11 + 528;
+    v13 = (float *)((char *)this + 16 * (unsigned int)v11 + 1988);
+    v14 = (float *)((char *)this + 16 * v3 + 1984);
+    v15 = (unsigned int)(8 - v11);
     do
     {
-      v9 = 0.0;
-      v10 = *((_BYTE *)v7 + 12);
-      if ( *((_BYTE *)v6 + 8) )
+      v16 = 0.0;
+      v17 = *((_BYTE *)v14 + 12);
+      if ( *((_BYTE *)v13 + 8) )
       {
-        if ( !v10 )
-          v9 = FLOAT_3_4028235e38;
+        if ( !v17 )
+          v16 = FLOAT_3_4028235e38;
       }
-      else if ( !v10 )
+      else if ( !v17 )
       {
-        v12 = (float)((float)(*v6 - v7[1]) * (float)(*v6 - v7[1]))
-            + (float)((float)(*(v6 - 1) - *v7) * (float)(*(v6 - 1) - *v7));
-        if ( v12 != 0.0 )
-          v9 = (float)(v6[1] + v7[2]) / v12;
+        v18 = (float)((float)(*v13 - v14[1]) * (float)(*v13 - v14[1]))
+            + (float)((float)(*(v13 - 1) - *v14) * (float)(*(v13 - 1) - *v14));
+        if ( v18 != 0.0 )
+          v16 = (float)(v13[1] + v14[2]) / v18;
       }
-      v11 = v5 + v3;
-      v6 += 4;
-      v5 += 8LL;
-      *((float *)this + v11) = v9;
-      --v8;
+      v19 = v12 + v3;
+      v13 += 4;
+      v12 += 8LL;
+      *((float *)this + v19) = v16;
+      --v15;
     }
-    while ( v8 );
+    while ( v15 );
   }
 }

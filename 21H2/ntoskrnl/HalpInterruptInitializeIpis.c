@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptInitializeIpis @ 0x1403B8D0C
+ * XREFs of HalpInterruptInitializeIpis @ 0x1403A92CC
  * Callers:
- *     HalpInitializeInterruptsPn @ 0x1403B8BF8 (HalpInitializeInterruptsPn.c)
- *     HalpInitializeInterrupts @ 0x140AF82A8 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterruptsPn @ 0x1403A91B8 (HalpInitializeInterruptsPn.c)
+ *     HalpInitializeInterrupts @ 0x140A396FC (HalpInitializeInterrupts.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1402949F0 (KeGetProcessorNumberFromIndex.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 NTSTATUS HalpInterruptInitializeIpis()
@@ -24,7 +24,7 @@ NTSTATUS HalpInterruptInitializeIpis()
   _DWORD *v9; // rax
   ULONG v10; // edi
   _DWORD *v11; // rbx
-  _DWORD *v12; // rsi
+  int *v12; // rsi
   int v13; // r8d
   unsigned __int64 v14; // rdx
   unsigned __int16 Group; // ax
@@ -36,8 +36,8 @@ NTSTATUS HalpInterruptInitializeIpis()
   if ( HalpInterruptIpiLines )
     goto LABEL_2;
   v1 = 0LL;
-  v2 = *(_QWORD **)(HalpInterruptController + 248);
-  while ( v2 != (_QWORD *)(HalpInterruptController + 248) )
+  v2 = *(_QWORD **)(HalpInterruptController + 240);
+  while ( v2 != (_QWORD *)(HalpInterruptController + 240) )
   {
     v3 = v2;
     v2 = (_QWORD *)*v2;
@@ -61,9 +61,9 @@ LABEL_2:
       {
         v6 = HalpInterruptMaxProcessors;
         if ( (_DWORD)HalpInterruptMaxCluster
-          && 32 * (int)HalpInterruptMaxCluster < (unsigned int)HalpInterruptMaxProcessors )
+          && 20 * (int)HalpInterruptMaxCluster < (unsigned int)HalpInterruptMaxProcessors )
         {
-          v6 = 32 * HalpInterruptMaxCluster;
+          v6 = 20 * HalpInterruptMaxCluster;
         }
         MemoryInternal = (_DWORD *)HalpMmAllocateMemoryInternal(24 * v6, 1LL);
         HalpInterruptClusterData = (__int64)MemoryInternal;

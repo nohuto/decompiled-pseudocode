@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01A7248
+ * XREFs of ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01D0F88
  * Callers:
- *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C0041DC4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
+ *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C002EBE4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
  * Callees:
- *     ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C003E284 (-GetCurrentOrientation@@YAJPEAK@Z.c)
- *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C0041E00 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
+ *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C002EC20 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
+ *     ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C0126AA0 (-GetCurrentOrientation@@YAJPEAK@Z.c)
  */
 
 _BOOL8 __fastcall CLegacyRotationMgr::RotationRequired(CLegacyRotationMgr *a1, int a2, unsigned int *a3)
@@ -31,14 +31,14 @@ _BOOL8 __fastcall CLegacyRotationMgr::RotationRequired(CLegacyRotationMgr *a1, i
     v6 = v10;
   }
   v7 = a2 - 0x40000000;
-  if ( !dword_1C035A5E8 )
+  if ( !dword_1C0335618 )
   {
     if ( (v7 & 0xBFFFFFFF) != 0 )
     {
       if ( AutoRotationState == 1 )
       {
-        v8 = dword_1C035A5D4;
-        if ( !a2 || _bittest(&a2, dword_1C035A5D4) )
+        v8 = dword_1C0335604;
+        if ( !a2 || _bittest(&a2, dword_1C0335604) )
           goto LABEL_36;
       }
       else
@@ -69,8 +69,8 @@ LABEL_35:
     goto LABEL_35;
   if ( AutoRotationState == 1 )
   {
-    v8 = dword_1C035A5D4;
-    if ( !a2 || _bittest(&a2, ((_BYTE)dword_1C035A5D4 + 1) & 3) )
+    v8 = dword_1C0335604;
+    if ( !a2 || _bittest(&a2, ((_BYTE)dword_1C0335604 + 1) & 3) )
       goto LABEL_36;
 LABEL_15:
     if ( (a2 & 2) == 0 )
@@ -86,7 +86,7 @@ LABEL_15:
   if ( !a2 )
   {
 LABEL_26:
-    if ( dword_1C035A5F8 )
+    if ( dword_1C0335628 )
     {
       v8 = gAutoRotationInfo;
       goto LABEL_36;
@@ -97,7 +97,7 @@ LABEL_26:
   if ( !_bittest(&a2, ((_BYTE)gAutoRotationInfo + 1) & 3) )
     goto LABEL_15;
 LABEL_29:
-  if ( !dword_1C035A5F8 )
+  if ( !dword_1C0335628 )
     return 0LL;
 LABEL_36:
   result = v8 != v6;

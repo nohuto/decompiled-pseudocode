@@ -1,61 +1,61 @@
 /*
- * XREFs of PopBcdSetPendingResume @ 0x14099CEF0
+ * XREFs of PopBcdSetPendingResume @ 0x140777F80
  * Callers:
- *     PopAllocateHiberContext @ 0x140987DE8 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopBcdSetupResumeObject @ 0x1408042AC (PopBcdSetupResumeObject.c)
- *     BcdQueryObject @ 0x14080447C (BcdQueryObject.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x140807480 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     BcdQueryObject @ 0x140783204 (BcdQueryObject.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783ACC (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     PopBcdSetupResumeObject @ 0x140786024 (PopBcdSetupResumeObject.c)
  */
 
-__int64 __fastcall PopBcdSetPendingResume(__int64 a1, __int64 a2, __int64 a3, void *a4)
+__int64 __fastcall PopBcdSetPendingResume(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int Object; // ebx
+  int v6; // ebx
   __int64 v7; // r8
   int v8; // eax
   __int64 v9; // r8
-  void *v10; // rdi
+  __int64 v10; // rdi
   __int64 v11; // r8
   __int64 v12; // r8
   __int16 v14; // [rsp+30h] [rbp-30h] BYREF
-  void *v15; // [rsp+38h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-28h] BYREF
   __int128 v16; // [rsp+40h] [rbp-20h] BYREF
 
   v16 = 0LL;
   v15 = 0LL;
-  Object = PopBcdSetupResumeObject((__int64)a4);
-  if ( Object >= 0 )
+  v6 = PopBcdSetupResumeObject(a4);
+  if ( v6 >= 0 )
   {
     v14 = (_BYTE)KdDebuggerEnabled != 0;
-    BcdSetElementDataWithFlags(a4, 0x26000006u, v7, (__int64)&v14, 2u);
-    Object = BcdQueryObject((__int64)a4, 0, 0LL, (__int64)&v16);
-    if ( Object >= 0 )
+    BcdSetElementDataWithFlags(a4, 637534214LL, v7, &v14, 2);
+    v6 = BcdQueryObject(a4, 0LL, 0LL, &v16);
+    if ( v6 >= 0 )
     {
-      v8 = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR.Data1, &v15);
+      v8 = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR, &v15);
       v10 = v15;
-      Object = v8;
+      v6 = v8;
       if ( v8 >= 0 )
       {
-        Object = BcdSetElementDataWithFlags(v15, 0x23000006u, v9, (__int64)&v16, 0x10u);
-        if ( Object >= 0 )
+        v6 = BcdSetElementDataWithFlags(v15, 587202566LL, v9, &v16, 16);
+        if ( v6 >= 0 )
         {
           v14 = 1;
-          Object = BcdSetElementDataWithFlags(v10, 0x26000005u, v11, (__int64)&v14, 2u);
-          if ( Object >= 0 )
+          v6 = BcdSetElementDataWithFlags(v10, 637534213LL, v11, &v14, 2);
+          if ( v6 >= 0 )
           {
-            v14 = (unsigned __int8)byte_140C3D040;
-            Object = BcdSetElementDataWithFlags(v10, 0x26000025u, v12, (__int64)&v14, 2u);
-            if ( Object >= 0 )
-              Object = 0;
+            v14 = (unsigned __int8)byte_140C23E80;
+            v6 = BcdSetElementDataWithFlags(v10, 637534245LL, v12, &v14, 2);
+            if ( v6 >= 0 )
+              v6 = 0;
           }
         }
       }
       if ( v10 )
-        BcdCloseObject((__int64)v10);
+        BcdCloseObject(v10);
     }
   }
-  return (unsigned int)Object;
+  return (unsigned int)v6;
 }

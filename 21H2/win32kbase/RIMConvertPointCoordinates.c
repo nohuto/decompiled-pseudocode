@@ -1,12 +1,12 @@
 /*
- * XREFs of RIMConvertPointCoordinates @ 0x1C019800C
+ * XREFs of RIMConvertPointCoordinates @ 0x1C0164530
  * Callers:
- *     RIMTransformPointerDevicePointToPhysical @ 0x1C00E64A4 (RIMTransformPointerDevicePointToPhysical.c)
- *     ?TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z @ 0x1C0197654 (-TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z.c)
- *     RIMTransformDimensionFromDigitizer @ 0x1C0198E70 (RIMTransformDimensionFromDigitizer.c)
- *     RIMTransformPhysicalPointToScreen @ 0x1C0198FAC (RIMTransformPhysicalPointToScreen.c)
+ *     ?TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z @ 0x1C0163C1C (-TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z.c)
+ *     RIMTransformDimensionFromDigitizer @ 0x1C0165340 (RIMTransformDimensionFromDigitizer.c)
+ *     RIMTransformPhysicalPointToScreen @ 0x1C01654A8 (RIMTransformPhysicalPointToScreen.c)
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C016551C (RIMTransformPointerDevicePointToPhysical.c)
  * Callees:
- *     rimConvertCoordinatesWithRounding @ 0x1C0199020 (rimConvertCoordinatesWithRounding.c)
+ *     rimConvertCoordinatesWithRounding @ 0x1C0165570 (rimConvertCoordinatesWithRounding.c)
  */
 
 __int64 __fastcall RIMConvertPointCoordinates(__int64 a1, int *a2, int *a3, _QWORD *a4)

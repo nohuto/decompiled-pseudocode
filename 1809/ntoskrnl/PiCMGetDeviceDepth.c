@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMGetDeviceDepth @ 0x140838168
+ * XREFs of PiCMGetDeviceDepth @ 0x140838148
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -7,8 +7,8 @@
  *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
  *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
  *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     PiGetDeviceDepth @ 0x1406C89C8 (PiGetDeviceDepth.c)
- *     PiCMReturnDepthResultData @ 0x140838C5C (PiCMReturnDepthResultData.c)
+ *     PiGetDeviceDepth @ 0x1406C89A8 (PiGetDeviceDepth.c)
+ *     PiCMReturnDepthResultData @ 0x140838C3C (PiCMReturnDepthResultData.c)
  */
 
 __int64 __fastcall PiCMGetDeviceDepth(

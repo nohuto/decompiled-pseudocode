@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgOpenDeviceMigrationKey @ 0x14095ED88
+ * XREFs of PiDevCfgOpenDeviceMigrationKey @ 0x1408A7160
  * Callers:
- *     PiDevCfgMigrateRootDevice @ 0x14095EC94 (PiDevCfgMigrateRootDevice.c)
+ *     PiDevCfgMigrateRootDevice @ 0x1408A706C (PiDevCfgMigrateRootDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall PiDevCfgOpenDeviceMigrationKey(PCWSTR SourceString, __int64 a2, HANDLE *a3)
@@ -24,23 +24,25 @@ __int64 __fastcall PiDevCfgOpenDeviceMigrationKey(PCWSTR SourceString, __int64 a
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v8);
   if ( CachedContextBaseKey >= 0 )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     DestinationString.Buffer = L"Control\\DeviceMigration\\Devices";
     ObjectAttributes.RootDirectory = v8;
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ObjectAttributes.ObjectName = &DestinationString;
     *(_DWORD *)&DestinationString.Length = 4194366;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     CachedContextBaseKey = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( CachedContextBaseKey >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
       v6 = KeyHandle;
+      *(&ObjectAttributes.Length + 1) = 0;
       *(&ObjectAttributes.Attributes + 1) = 0;
       *a3 = 0LL;
       ObjectAttributes.RootDirectory = v6;
-      *(_QWORD *)&ObjectAttributes.Length = 48LL;
       ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       CachedContextBaseKey = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);

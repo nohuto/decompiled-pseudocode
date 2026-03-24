@@ -1,5 +1,5 @@
 /*
- * XREFs of Interrupter_QueryBusEdgeInformationRoutineWithIsrSync @ 0x1C003C3E0
+ * XREFs of Interrupter_QueryBusEdgeInformationRoutineWithIsrSync @ 0x1C003BE60
  * Callers:
  *     <none>
  * Callees:

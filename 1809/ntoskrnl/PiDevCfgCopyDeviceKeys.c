@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgCopyDeviceKeys @ 0x1406F2C08
+ * XREFs of PiDevCfgCopyDeviceKeys @ 0x1406F2BE8
  * Callers:
- *     PiDevCfgConfigureDeviceKeyCallback @ 0x1406F2BB0 (PiDevCfgConfigureDeviceKeyCallback.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14082C034 (PiDevCfgConfigureDeviceInterface.c)
- *     PiDevCfgResetDeviceKeyCallback @ 0x14082ED30 (PiDevCfgResetDeviceKeyCallback.c)
- *     PipCommitPendingOsExtensionResource @ 0x1409F5A60 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x1409F5C70 (PipCommitPendingService.c)
+ *     PiDevCfgConfigureDeviceKeyCallback @ 0x1406F2B90 (PiDevCfgConfigureDeviceKeyCallback.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14082C014 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResetDeviceKeyCallback @ 0x14082ED10 (PiDevCfgResetDeviceKeyCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x1409F5A70 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x1409F5C80 (PipCommitPendingService.c)
  * Callees:
- *     PiDevCfgPopCopyKeyEntry @ 0x14015D010 (PiDevCfgPopCopyKeyEntry.c)
- *     PiDevCfgPushCopyKeyEntry @ 0x14015D118 (PiDevCfgPushCopyKeyEntry.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CF4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgPopCopyKeyEntry @ 0x14015D030 (PiDevCfgPopCopyKeyEntry.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x14015D138 (PiDevCfgPushCopyKeyEntry.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
  */
 
 __int64 __fastcall PiDevCfgCopyDeviceKeys(void *a1, void *a2, int a3, __int64 a4)

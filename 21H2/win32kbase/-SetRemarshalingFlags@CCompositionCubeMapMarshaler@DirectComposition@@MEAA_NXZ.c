@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C00CB450
+ * XREFs of ?SetRemarshalingFlags@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C00BC360
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ bool __fastcall DirectComposition::CCompositionCubeMapMarshaler::SetRemarshaling
 {
   bool result; // al
 
-  *((_DWORD *)this + 19) = 0;
+  *((_DWORD *)this + 17) = 0;
   result = 1;
   *((_DWORD *)this + 4) |= 0x60u;
   return result;

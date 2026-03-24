@@ -1,23 +1,23 @@
 /*
- * XREFs of PopValidateHiberFileSize @ 0x140989320
+ * XREFs of PopValidateHiberFileSize @ 0x140773EB8
  * Callers:
- *     PopResizeHiberFile @ 0x140988F90 (PopResizeHiberFile.c)
- *     PopSetHiberFileSize @ 0x140989134 (PopSetHiberFileSize.c)
- *     PopSetHiberFileType @ 0x1409891D8 (PopSetHiberFileType.c)
+ *     PopResizeHiberFile @ 0x140773D58 (PopResizeHiberFile.c)
+ *     PopSetHiberFileSize @ 0x1408E72F0 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x1408E7400 (PopSetHiberFileType.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041AFC0 (ZwQueryVolumeInformationFile.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FA340 (ZwQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall PopValidateHiberFileSize(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rdi
   NTSTATUS v7; // esi
-  __int64 v8; // rcx
-  __int64 v9; // rbx
+  __int64 v8; // rbx
+  __int64 v9; // rcx
   __int64 v10; // rcx
   HANDLE FileHandle; // [rsp+30h] [rbp-69h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+38h] [rbp-61h] BYREF
@@ -38,18 +38,23 @@ __int64 __fastcall PopValidateHiberFileSize(__int64 a1, _QWORD *a2, _QWORD *a3)
   IoStatusBlock = 0LL;
   if ( FileObject )
   {
-    v7 = ZwQueryInformationFile(PopHiberInfo, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
+    v7 = ZwQueryInformationFile(
+           *(HANDLE *)&PopHiberInfo,
+           &IoStatusBlock,
+           &FileInformation,
+           0x18u,
+           FileStandardInformation);
     if ( v7 < 0 )
     {
-LABEL_3:
-      v8 = 0LL;
-      goto LABEL_12;
+LABEL_15:
+      v10 = 0LL;
+      goto LABEL_10;
     }
-    v9 = FileInformation;
+    v8 = FileInformation;
   }
   else
   {
-    v9 = 0LL;
+    v8 = 0LL;
   }
   ObjectAttributes.ObjectName = &PoHiberFileRoot;
   ObjectAttributes.Length = 48;
@@ -58,22 +63,22 @@ LABEL_3:
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v7 = ZwOpenFile(&FileHandle, 0xC0000000, &ObjectAttributes, &IoStatusBlock, 3u, 0x20u);
   if ( v7 < 0 )
-    goto LABEL_3;
+    goto LABEL_15;
   v7 = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 0x20u, FileFsFullSizeInformation);
   ZwClose(FileHandle);
   if ( v7 < 0 )
-    goto LABEL_3;
+    goto LABEL_15;
   v7 = -1073741823;
   v6 = v16 * (unsigned int)(HIDWORD(v16) * DWORD2(v16));
-  v10 = v6 - 0x10000000;
+  v9 = v6 - 0x10000000;
   if ( v6 - 0x10000000 <= 0 )
-    v10 = 0LL;
-  v8 = v9 + v10;
-  if ( v6 - 0x10000000 >= a1 - v9 )
+    v9 = 0LL;
+  v10 = v8 + v9;
+  if ( v6 - 0x10000000 >= a1 - v8 )
     v7 = 0;
-LABEL_12:
+LABEL_10:
   if ( a2 )
-    *a2 = v8;
+    *a2 = v10;
   if ( a3 )
     *a3 = v6;
   return (unsigned int)v7;

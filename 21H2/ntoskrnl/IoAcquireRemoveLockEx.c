@@ -1,30 +1,29 @@
 /*
- * XREFs of IoAcquireRemoveLockEx @ 0x1403553A0
+ * XREFs of IoAcquireRemoveLockEx @ 0x1402607C0
  * Callers:
- *     PopFxProcessWork @ 0x140354CBC (PopFxProcessWork.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PoFxPowerControl @ 0x1403980F0 (PoFxPowerControl.c)
- *     PopFxAllocatePowerIrp @ 0x1403A46E4 (PopFxAllocatePowerIrp.c)
- *     PopFxLockDevice @ 0x1403A4868 (PopFxLockDevice.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1403BA6E0 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopFxFindAndReferenceAcpiDevice @ 0x1405CC3A0 (PopFxFindAndReferenceAcpiDevice.c)
- *     PopFxPlatformIdleVeto @ 0x1405CD100 (PopFxPlatformIdleVeto.c)
- *     PopFxProcessorIdleVeto @ 0x1405CD400 (PopFxProcessorIdleVeto.c)
- *     PopFxUpdatePlatformIdleState @ 0x1405CE6B0 (PopFxUpdatePlatformIdleState.c)
- *     PopFxUpdateProcessorIdleState @ 0x1405CE7C0 (PopFxUpdateProcessorIdleState.c)
- *     PopFxAcpiForwardNotification @ 0x1405DDCE4 (PopFxAcpiForwardNotification.c)
- *     PopFxAcpiForwardPepWorkRequest @ 0x1405DDE24 (PopFxAcpiForwardPepWorkRequest.c)
- *     PopFxAcpiUnregisterDevice @ 0x1405DE108 (PopFxAcpiUnregisterDevice.c)
- *     DifIoAcquireRemoveLockExWrapper @ 0x14060C770 (DifIoAcquireRemoveLockExWrapper.c)
- *     ViFilterDispatchGeneric @ 0x140A9E460 (ViFilterDispatchGeneric.c)
- *     ViFilterDispatchPnp @ 0x140A9E540 (ViFilterDispatchPnp.c)
- *     ViFilterDispatchPower @ 0x140A9E710 (ViFilterDispatchPower.c)
+ *     PopFxAddRefDevice @ 0x14026077C (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
+ *     PopFxLockDevice @ 0x14036E284 (PopFxLockDevice.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x14037E8D4 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PoFxPowerControl @ 0x14038CD70 (PoFxPowerControl.c)
+ *     PopFxAllocatePowerIrp @ 0x140399A10 (PopFxAllocatePowerIrp.c)
+ *     PopFxFindAndReferenceAcpiDevice @ 0x14056ABE0 (PopFxFindAndReferenceAcpiDevice.c)
+ *     PopFxPlatformIdleVeto @ 0x14056B990 (PopFxPlatformIdleVeto.c)
+ *     PopFxProcessorIdleVeto @ 0x14056BD40 (PopFxProcessorIdleVeto.c)
+ *     PopFxUpdatePlatformIdleState @ 0x14056D6C0 (PopFxUpdatePlatformIdleState.c)
+ *     PopFxUpdateProcessorIdleState @ 0x14056D7D0 (PopFxUpdateProcessorIdleState.c)
+ *     PopFxAcpiForwardNotification @ 0x14057DD6C (PopFxAcpiForwardNotification.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x14057DEA4 (PopFxAcpiForwardPepWorkRequest.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14057E188 (PopFxAcpiUnregisterDevice.c)
+ *     ViFilterDispatchGeneric @ 0x1409E5220 (ViFilterDispatchGeneric.c)
+ *     ViFilterDispatchPnp @ 0x1409E5300 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPower @ 0x1409E54D0 (ViFilterDispatchPower.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoAcquireRemoveLockEx(
@@ -35,7 +34,7 @@ NTSTATUS __stdcall IoAcquireRemoveLockEx(
         ULONG RemlockSize)
 {
   NTSTATUS v9; // esi
-  __int64 Pool2; // rax
+  struct _LIST_ENTRY *PoolWithTag; // rax
   struct _LIST_ENTRY *v12; // r14
   unsigned __int64 v13; // rbp
   unsigned __int8 CurrentIrql; // al
@@ -54,14 +53,20 @@ NTSTATUS __stdcall IoAcquireRemoveLockEx(
   }
   else if ( RemlockSize == 120 )
   {
-    Pool2 = ExAllocatePool2(64LL, 40LL, LODWORD(RemoveLock[1].Common.RemoveEvent.Header.WaitListHead.Flink));
-    v12 = (struct _LIST_ENTRY *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(
+                                          NonPagedPoolNx,
+                                          0x28uLL,
+                                          (ULONG)RemoveLock[1].Common.RemoveEvent.Header.WaitListHead.Flink);
+    v12 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 8) = Tag;
-      *(_QWORD *)(Pool2 + 24) = File;
-      *(_DWORD *)(Pool2 + 32) = Line;
-      *(_QWORD *)(Pool2 + 16) = MEMORY[0xFFFFF78000000320];
+      PoolWithTag->Flink = 0LL;
+      PoolWithTag[1].Flink = 0LL;
+      HIDWORD(PoolWithTag[2].Flink) = 0;
+      PoolWithTag->Blink = (struct _LIST_ENTRY *)Tag;
+      PoolWithTag[1].Blink = (struct _LIST_ENTRY *)File;
+      LODWORD(PoolWithTag[2].Flink) = Line;
+      PoolWithTag[1].Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
       v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&RemoveLock[2].Common.RemoveEvent);
       v12->Flink = RemoveLock[3].Common.RemoveEvent.Header.WaitListHead.Flink;
       RemoveLock[3].Common.RemoveEvent.Header.WaitListHead.Flink = v12;

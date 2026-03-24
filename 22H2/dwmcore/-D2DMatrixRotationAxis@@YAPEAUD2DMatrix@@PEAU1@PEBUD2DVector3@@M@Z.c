@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18027DB48
+ * XREFs of ?D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18021CDF8
  * Callers:
- *     ?Matrix4x4FromAxisAngle@CExpressionValueStack@@QEAAJXZ @ 0x18025EB20 (-Matrix4x4FromAxisAngle@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Matrix4x4FromAxisAngle@CExpressionValueStack@@QEAAJXZ @ 0x1801FDDE4 (-Matrix4x4FromAxisAngle@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x180023AFC (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
- *     ?D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18027DB9C (-D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z.c)
+ *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800C7848 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
+ *     ?D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18021CE4C (-D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z.c)
  */
 
 struct D2DMatrix *__fastcall D2DMatrixRotationAxis(struct D2DMatrix *a1, const struct D2DVector3 *a2, float a3)

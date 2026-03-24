@@ -1,26 +1,26 @@
 /*
- * XREFs of PfpRpCHashDeleteEntries @ 0x1407B5CC0
+ * XREFs of PfpRpCHashDeleteEntries @ 0x14070AA3C
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x1407B5888 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x14070A62C (PfpRpControlRequestUpdate.c)
  * Callees:
- *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14031C3B4 (ExfAcquireReleasePushLockExclusive.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int64 *a3, unsigned int a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v6; // r12
+  volatile signed __int64 *v8; // r12
   unsigned int v9; // edi
   unsigned int v10; // esi
   void *v11; // r15
@@ -38,48 +38,48 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
   __int64 v23; // r8
   struct _KTHREAD *v24; // rax
   unsigned int v26; // ecx
-  _QWORD *v27; // rax
+  char *v27; // rax
   __int64 v28; // r9
   __int64 v29; // rdx
   __int64 i; // rax
   __int64 v31; // r9
-  signed __int32 v32[8]; // [rsp+0h] [rbp-98h] BYREF
-  int v33; // [rsp+20h] [rbp-78h]
-  __int64 Pool2; // [rsp+28h] [rbp-70h]
-  volatile signed __int64 *v35; // [rsp+30h] [rbp-68h]
-  PVOID P; // [rsp+38h] [rbp-60h]
-  void *Src[2]; // [rsp+40h] [rbp-58h]
-  __int64 v38; // [rsp+50h] [rbp-48h]
-  int v39; // [rsp+A0h] [rbp+8h]
-  __int64 v40; // [rsp+A0h] [rbp+8h]
-  char v41; // [rsp+A8h] [rbp+10h]
-  char *v42; // [rsp+A8h] [rbp+10h]
+  signed __int32 v32[8]; // [rsp+0h] [rbp-A8h] BYREF
+  char *PoolWithTag; // [rsp+20h] [rbp-88h]
+  char *v34; // [rsp+28h] [rbp-80h]
+  volatile signed __int64 *v35; // [rsp+30h] [rbp-78h]
+  int v36; // [rsp+40h] [rbp-68h]
+  int v37; // [rsp+48h] [rbp-60h]
+  PVOID P[2]; // [rsp+50h] [rbp-58h]
+  __int64 v39; // [rsp+60h] [rbp-48h]
+  char v40; // [rsp+B0h] [rbp+8h]
+  __int64 v41; // [rsp+B0h] [rbp+8h]
+  char v42; // [rsp+B8h] [rbp+10h]
 
   CurrentThread = KeGetCurrentThread();
-  v6 = (volatile signed __int64 *)(a1 + 128);
-  v35 = (volatile signed __int64 *)(a1 + 128);
   --CurrentThread->KernelApcDisable;
+  v8 = (volatile signed __int64 *)(a1 + 128);
+  v35 = (volatile signed __int64 *)(a1 + 128);
   ExAcquirePushLockExclusiveEx(a1 + 128, 0LL);
   v9 = 0;
   v10 = *(_DWORD *)(a2 + 12) << *(_DWORD *)(a2 + 8);
   if ( v10 )
   {
-    Pool2 = ExAllocatePool2(256LL, v10, 1212376656LL);
-    v11 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v10, 0x48436650u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
     {
       v12 = KeGetCurrentThread();
       --v12->KernelApcDisable;
       ExAcquirePushLockSharedEx((ULONG_PTR)a3, 0LL);
       v13 = -1;
       v14 = *(_QWORD *)(a2 + 16);
-      *(_OWORD *)Src = *(_OWORD *)a2;
-      v38 = v14;
-      v41 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)Src, 8));
-      v15 = 1 << v41;
+      *(_OWORD *)P = *(_OWORD *)a2;
+      v39 = v14;
+      v40 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)P, 8));
+      v15 = 1 << v40;
       v16 = -1;
-      v17 = 1 << v41;
-      if ( 1 << v41 )
+      v17 = 1 << v40;
+      if ( 1 << v40 )
       {
         do
         {
@@ -91,7 +91,7 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
       v18 = v16 + 1;
       if ( ((v15 - 1) & v15) == 0 )
         v18 = v16;
-      v33 = v18;
+      v42 = v18;
       v19 = v10 >> v18;
       if ( ((v19 - 1) & v19) != 0 )
       {
@@ -99,13 +99,13 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
           ++v13;
         v19 = 1 << v13;
       }
-      v39 = 0;
+      v37 = 0;
+      v36 = v18;
       memset(v11, 0, (unsigned __int64)v19 << v18);
-      v20 = (char *)Src[0];
-      v21 = (char *)Src[0] + ((unsigned __int64)HIDWORD(Src[1]) << v41);
-      P = Src[0];
-      v42 = v21;
-      if ( Src[0] < v21 )
+      v20 = (char *)P[0];
+      v21 = (char *)P[0] + ((unsigned __int64)HIDWORD(P[1]) << v40);
+      v34 = v21;
+      if ( P[0] < v21 )
       {
         v22 = 0;
         do
@@ -132,21 +132,21 @@ LABEL_26:
               {
                 v28 = v19 - 1;
                 v29 = 0LL;
-                v40 = *(_QWORD *)v20;
+                v41 = *(_QWORD *)v20;
                 for ( i = 37
-                        * (BYTE6(v40)
+                        * (BYTE6(v41)
                          + 37
-                         * (BYTE5(v40)
+                         * (BYTE5(v41)
                           + 37
-                          * (BYTE4(v40)
+                          * (BYTE4(v41)
                            + 37
-                           * (BYTE3(v40) + 37
-                                         * (BYTE2(v40) + 37 * (BYTE1(v40) + 37 * ((unsigned __int8)v23 + 11623883)))))))
-                        + (unsigned int)HIBYTE(v40); ; i = v19 - 1 )
+                           * (BYTE3(v41) + 37
+                                         * (BYTE2(v41) + 37 * (BYTE1(v41) + 37 * ((unsigned __int8)v23 + 11623883)))))))
+                        + (unsigned int)HIBYTE(v41); ; i = v19 - 1 )
                 {
                   v31 = i & v28;
-                  v27 = (_QWORD *)(Pool2 + (v31 << v33));
-                  if ( !*v27 || *v27 == v23 )
+                  v27 = &PoolWithTag[v31 << v42];
+                  if ( !*(_QWORD *)v27 || *(_QWORD *)v27 == v23 )
                     break;
                   if ( !v29 )
                   {
@@ -162,18 +162,17 @@ LABEL_26:
                 v27 = 0LL;
               }
               memmove(v27, v20, v15);
-              v21 = v42;
-              ++v22;
+              v21 = v34;
+              v37 = ++v22;
             }
           }
           v20 += v15;
         }
         while ( v20 < v21 );
-        v39 = v22;
-        v6 = v35;
+        v8 = v35;
       }
-      *(_QWORD *)a2 = Pool2;
-      *(_DWORD *)(a2 + 16) = v39;
+      *(_QWORD *)a2 = PoolWithTag;
+      *(_DWORD *)(a2 + 16) = v37;
       if ( _InterlockedCompareExchange64(a3, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(a3);
       KeAbPostRelease((ULONG_PTR)a3);
@@ -182,18 +181,18 @@ LABEL_26:
       --v24->KernelApcDisable;
       _InterlockedOr(v32, 0);
       if ( (*a3 & 1) != 0 )
-        ExfAcquireReleasePushLockExclusive((ULONG_PTR)a3);
+        ExfAcquireReleasePushLockExclusive((unsigned __int64 *)a3);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      ExFreePoolWithTag(P, 0);
+      ExFreePoolWithTag(P[0], 0);
     }
     else
     {
       v9 = -1073741670;
     }
   }
-  if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v6);
-  KeAbPostRelease((ULONG_PTR)v6);
+  if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v8);
+  KeAbPostRelease((ULONG_PTR)v8);
   KeLeaveCriticalRegion();
   return v9;
 }

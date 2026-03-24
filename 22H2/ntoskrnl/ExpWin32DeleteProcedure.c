@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32DeleteProcedure @ 0x1407DA0D0
+ * XREFs of ExpWin32DeleteProcedure @ 0x140696FF0
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
  */
 
 POBJECT_TYPE *__fastcall ExpWin32DeleteProcedure(_DWORD *a1)

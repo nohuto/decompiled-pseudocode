@@ -1,11 +1,11 @@
 /*
- * XREFs of rimConvertCoordinatesWithRounding @ 0x1C00E12AA
+ * XREFs of rimConvertCoordinatesWithRounding @ 0x1C01654A0
  * Callers:
- *     RIMUpdatePointerDeviceScalingInfo @ 0x1C00BC790 (RIMUpdatePointerDeviceScalingInfo.c)
- *     RIMConvertPointCoordinates @ 0x1C018F5D8 (RIMConvertPointCoordinates.c)
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C006F508 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     RIMConvertPointCoordinates @ 0x1C0164460 (RIMConvertPointCoordinates.c)
  * Callees:
- *     LongLongToLong @ 0x1C009968C (LongLongToLong.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     LongLongToLong @ 0x1C008123C (LongLongToLong.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall rimConvertCoordinatesWithRounding(int a1, int a2, int a3, int a4, int a5, LONG *plResult)
@@ -21,9 +21,9 @@ __int64 __fastcall rimConvertCoordinatesWithRounding(int a1, int a2, int a3, int
   v6 = 0;
   v7 = a3;
   if ( a1 >= a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 63);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 63);
   if ( (int)v7 >= a4 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 64);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 64);
   v11 = a2 - a1;
   v12 = (a4 - (int)v7) * (__int64)(a5 - a1);
   v13 = 2 * v12;

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpResetSBF @ 0x140A54628
+ * XREFs of HalpResetSBF @ 0x14099B49C
  * Callers:
- *     HalpEndOfBoot @ 0x140865520 (HalpEndOfBoot.c)
- *     HalpAcpiPostSleep @ 0x140A50388 (HalpAcpiPostSleep.c)
+ *     HalpEndOfBoot @ 0x1407D57B0 (HalpEndOfBoot.c)
+ *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     HalReadBootRegister @ 0x140A635B8 (HalReadBootRegister.c)
- *     HalWriteBootRegister @ 0x140A63600 (HalWriteBootRegister.c)
+ *     HalReadBootRegister @ 0x1409A9650 (HalReadBootRegister.c)
+ *     HalWriteBootRegister @ 0x1409A9698 (HalWriteBootRegister.c)
  */
 
 void HalpResetSBF()

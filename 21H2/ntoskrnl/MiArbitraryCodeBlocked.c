@@ -1,13 +1,13 @@
 /*
- * XREFs of MiArbitraryCodeBlocked @ 0x14079EC14
+ * XREFs of MiArbitraryCodeBlocked @ 0x140629364
  * Callers:
- *     MiAllowProtectionChange @ 0x1402EDC48 (MiAllowProtectionChange.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfSection @ 0x1406FCA10 (MiMapViewOfSection.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
+ *     MiAllowProtectionChange @ 0x14025F698 (MiAllowProtectionChange.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
  * Callees:
- *     EtwTraceMemoryAcg @ 0x1402EDDF8 (EtwTraceMemoryAcg.c)
- *     EtwTimLogProhibitDynamicCode @ 0x1409E73C8 (EtwTimLogProhibitDynamicCode.c)
+ *     EtwTraceMemoryAcg @ 0x14025F7E8 (EtwTraceMemoryAcg.c)
+ *     EtwTimLogProhibitDynamicCode @ 0x14093BD78 (EtwTimLogProhibitDynamicCode.c)
  */
 
 __int64 __fastcall MiArbitraryCodeBlocked(__int64 a1)
@@ -17,9 +17,9 @@ __int64 __fastcall MiArbitraryCodeBlocked(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   v3 = *(_DWORD *)(a1 + 2512);
-  if ( (v3 & 0x100) == 0 || _bittest((const signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0x12u) )
+  if ( (v3 & 0x100) == 0 || (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) != 0 )
   {
-    if ( (v3 & 0x800) != 0 && !_bittest((const signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0x12u) )
+    if ( (v3 & 0x800) != 0 && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) == 0 )
       EtwTimLogProhibitDynamicCode(1LL, a1);
     EtwTraceMemoryAcg(0);
     return 0LL;

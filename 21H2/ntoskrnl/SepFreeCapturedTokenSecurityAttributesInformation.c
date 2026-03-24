@@ -1,11 +1,11 @@
 /*
- * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x140754758
+ * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x140675BEC
  * Callers:
- *     NtCreateTokenEx @ 0x1406647E0 (NtCreateTokenEx.c)
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140753F8C (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
- *     SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x140754718 (SepReleaseTokenSecurityAttributesAndOperationsInformation.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x140675BAC (SepReleaseTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140675CFC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepFreeCapturedTokenSecurityAttributesInformation(_QWORD *P)

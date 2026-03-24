@@ -1,59 +1,38 @@
 /*
- * XREFs of PoInitializePrcb @ 0x140A8D210
+ * XREFs of PoInitializePrcb @ 0x14099DBB0
  * Callers:
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     PpmHvUseNativeAlgorithms @ 0x1403819B0 (PpmHvUseNativeAlgorithms.c)
- *     PpmHeteroHgsProcessorInit @ 0x140381A00 (PpmHeteroHgsProcessorInit.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmHeteroAmdProcessorInit @ 0x140A87454 (PpmHeteroAmdProcessorInit.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     PpmHvUseNativeAlgorithms @ 0x1403A917C (PpmHvUseNativeAlgorithms.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 char __fastcall PoInitializePrcb(char *DeferredContext)
 {
-  char *v1; // rbx
-  __int64 v3; // r8
-  unsigned int v4; // ecx
-  _WORD *v5; // rdx
-  unsigned int v6; // eax
+  char *v1; // rdi
   char result; // al
 
-  v1 = DeferredContext + 33600;
-  memset(DeferredContext + 33600, 0, 0x238uLL);
-  *((_DWORD *)DeferredContext + 8302) = 0x10000;
-  *((_QWORD *)v1 + 29) = PpmWmiDispatch;
-  v1[248] = 1;
-  v1[216] = 2;
-  *((_WORD *)v1 + 215) = 100;
-  KeInitializeDpc((PRKDPC)(v1 + 280), (PKDEFERRED_ROUTINE)PpmPerfAction, DeferredContext);
-  PpmHeteroHgsProcessorInit((__int64)DeferredContext, 1, v3);
-  PpmHeteroAmdProcessorInit((__int64)DeferredContext);
-  v4 = 100;
-  v5 = v1 + 554;
-  do
-  {
-    v6 = v4;
-    v4 += 100;
-    *v5++ = (v6 >> 2) - 1;
-  }
-  while ( v4 < 0x1F4 );
-  if ( !*((_QWORD *)v1 + 42) )
-    *((_WORD *)v1 + 141) = *((_DWORD *)DeferredContext + 9) + 2048;
-  v1[281] = 3;
+  v1 = DeferredContext + 0x8000;
+  memset(DeferredContext + 0x8000, 0, 0x200uLL);
+  v1[240] = 1;
+  *((_QWORD *)v1 + 28) = PpmWmiDispatch;
+  v1[208] = 2;
+  *((_WORD *)v1 + 207) = 100;
+  KeInitializeDpc((PRKDPC)(v1 + 272), (PKDEFERRED_ROUTINE)PpmPerfAction, DeferredContext);
+  if ( !*((_QWORD *)v1 + 41) )
+    *((_WORD *)v1 + 137) = *((_DWORD *)DeferredContext + 9) + 1280;
+  v1[273] = 3;
   result = PpmHvUseNativeAlgorithms();
   if ( result )
   {
-    *((_DWORD *)v1 + 56) = 0;
+    *((_DWORD *)v1 + 54) = 0;
   }
   else
   {
-    result = HvlpFlags;
-    if ( (HvlpFlags & 2) != 0 )
-      *((_DWORD *)v1 + 56) = 2;
-    else
-      *((_DWORD *)v1 + 56) = 1;
+    result = -(HvlpFlags & 2);
+    *((_DWORD *)v1 + 54) = ((HvlpFlags & 2) != 0) + 1;
   }
-  v1[436] = 1;
+  v1[420] = 1;
   return result;
 }

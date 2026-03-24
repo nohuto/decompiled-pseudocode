@@ -4,7 +4,7 @@
  *     PspImplicitAssignProcessToJob @ 0x1406047A0 (PspImplicitAssignProcessToJob.c)
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
  * Callees:
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
  */
 
 void __fastcall PspIncrementJobChainProcessCounts(__int64 a1, __int64 a2, __int64 a3, __int16 a4)

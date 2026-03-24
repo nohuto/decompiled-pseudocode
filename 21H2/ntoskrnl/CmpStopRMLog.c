@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpStopRMLog @ 0x14069FF64
+ * XREFs of CmpStopRMLog @ 0x1406BB6A8
  * Callers:
- *     CmShutdownCmRM @ 0x14069FD1C (CmShutdownCmRM.c)
+ *     CmShutdownCmRM @ 0x1406BB458 (CmShutdownCmRM.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     CmpLogCheckpoint @ 0x140742A44 (CmpLogCheckpoint.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x140AB4370 (CmpLockRegistry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
+ *     CmpLogCheckpoint @ 0x1407705E4 (CmpLogCheckpoint.c)
  */
 
 __int64 __fastcall CmpStopRMLog(__int64 a1)
@@ -17,10 +17,8 @@ __int64 __fastcall CmpStopRMLog(__int64 a1)
   __int64 v3; // rdx
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
 
-  CmpLockRegistry();
+  CmpLockRegistry(a1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 128), 1u);
@@ -38,6 +36,6 @@ __int64 __fastcall CmpStopRMLog(__int64 a1)
     *(_QWORD *)(a1 + 88) = 0LL;
   }
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 128));
-  KeLeaveCriticalRegion();
-  return CmpUnlockRegistry(v5, v4, v6, v7);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return CmpUnlockRegistry(v5, v4);
 }

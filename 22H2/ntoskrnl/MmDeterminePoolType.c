@@ -1,16 +1,15 @@
 /*
- * XREFs of MmDeterminePoolType @ 0x140641AA4
+ * XREFs of MmDeterminePoolType @ 0x14032BD2C
  * Callers:
- *     VfPtAddStackInfoIfNotExist @ 0x140ADF5A0 (VfPtAddStackInfoIfNotExist.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140AE1200 (VfMiscMmBuildMdlForNonPagedPool_Entry.c)
- *     ExFreePoolSanityChecks @ 0x140AE8DFC (ExFreePoolSanityChecks.c)
+ *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E6630 (VerifierMmBuildMdlForNonPagedPool.c)
+ *     ExFreePoolSanityChecks @ 0x1409ECF60 (ExFreePoolSanityChecks.c)
  * Callees:
- *     MiDeterminePoolType @ 0x1402123E0 (MiDeterminePoolType.c)
+ *     MiDeterminePoolType @ 0x14027B41C (MiDeterminePoolType.c)
  */
 
-__int64 __fastcall MmDeterminePoolType(unsigned __int64 a1)
+__int64 __fastcall MmDeterminePoolType(__int64 a1)
 {
-  unsigned int v1; // r8d
+  unsigned int v1; // ecx
   __int64 result; // rax
 
   v1 = MiDeterminePoolType(a1);

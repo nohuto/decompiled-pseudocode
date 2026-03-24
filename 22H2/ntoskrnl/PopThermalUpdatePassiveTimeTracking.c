@@ -1,15 +1,15 @@
 /*
- * XREFs of PopThermalUpdatePassiveTimeTracking @ 0x14098B070
+ * XREFs of PopThermalUpdatePassiveTimeTracking @ 0x140778578
  * Callers:
- *     PopCoolingSxTransition @ 0x140586BA0 (PopCoolingSxTransition.c)
- *     PopCoolingTelemetryWorker @ 0x140586CB8 (PopCoolingTelemetryWorker.c)
- *     PopThermalSxEntry @ 0x14058FCD8 (PopThermalSxEntry.c)
- *     PopThermalTelemetryWorker @ 0x140590020 (PopThermalTelemetryWorker.c)
- *     PopThermalWorker @ 0x140801D90 (PopThermalWorker.c)
- *     PoSetThermalPassiveCooling @ 0x140982DA0 (PoSetThermalPassiveCooling.c)
- *     PopDeactiveThermalRequest @ 0x140982F78 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x140983228 (PopOrphanCoolingExtension.c)
- *     PopThermalZoneRemove @ 0x14098B0C0 (PopThermalZoneRemove.c)
+ *     PopThermalSxEntry @ 0x140389B58 (PopThermalSxEntry.c)
+ *     PopCoolingSxTransition @ 0x14038A084 (PopCoolingSxTransition.c)
+ *     PopCoolingTelemetryWorker @ 0x140568620 (PopCoolingTelemetryWorker.c)
+ *     PopThermalTelemetryWorker @ 0x14056F840 (PopThermalTelemetryWorker.c)
+ *     PopThermalWorker @ 0x1407C0A30 (PopThermalWorker.c)
+ *     PoSetThermalPassiveCooling @ 0x1408E2A60 (PoSetThermalPassiveCooling.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2C38 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x1408E2EE8 (PopOrphanCoolingExtension.c)
+ *     PopThermalZoneRemove @ 0x1408E7DD0 (PopThermalZoneRemove.c)
  * Callees:
  *     <none>
  */

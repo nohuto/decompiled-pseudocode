@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditHandleCreation @ 0x1407DCE08
+ * XREFs of SeAuditHandleCreation @ 0x140694128
  * Callers:
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF870 (PsGetCurrentThreadProcessId.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDuplicateObject @ 0x14041AE20 (ZwDuplicateObject.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1406C341C (SepAdtPrivilegeObjectAuditAlarm.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A6618 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC218 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409CCF9C (SepAdtStagingEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402D2070 (PsGetCurrentThreadProcessId.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1403FA1A0 (ZwDuplicateObject.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140627D4C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F4E8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920250 (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1409209D0 (SepAdtClassifyObjectIntoSubCategory.c)
  */
 
 char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
@@ -20,19 +20,20 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   __int64 v4; // r15
   char v5; // si
   void *v6; // r14
-  PVOID v8; // rbx
+  struct _DMA_ADAPTER *v8; // rbx
   __int64 v9; // r8
   unsigned __int16 v10; // r13
-  unsigned __int64 CurrentThreadProcessId; // rbx
-  __int64 v12; // rdx
-  int v14; // [rsp+48h] [rbp-90h]
+  unsigned __int64 CurrentThreadProcessId; // rax
+  unsigned __int64 v12; // rax
+  __int64 v13; // rdx
+  int v15; // [rsp+48h] [rbp-90h]
   _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h] BYREF
   HANDLE TargetHandle; // [rsp+E0h] [rbp+8h] BYREF
-  void *v17; // [rsp+E8h] [rbp+10h] BYREF
+  void *v18; // [rsp+E8h] [rbp+10h] BYREF
   PVOID Object; // [rsp+F0h] [rbp+18h] BYREF
 
   v3 = &retaddr;
-  v17 = a2;
+  v18 = a2;
   v4 = *(_QWORD *)(a1 + 72);
   v5 = 0;
   TargetHandle = 0LL;
@@ -52,7 +53,7 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
                      &SeSubsystemName,
                      (unsigned __int16 *)(a1 + 144),
                      (unsigned __int16 *)(a1 + 128),
-                     (__int64)a2,
+                     (unsigned __int64)a2,
                      *(_QWORD *)(a1 + 32),
                      *(_QWORD *)(a1 + 48),
                      *(_QWORD *)(a1 + 56),
@@ -70,12 +71,12 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   {
     Object = 0LL;
     ObReferenceObjectByHandle(TargetHandle, 0, 0LL, 0, &Object, 0LL);
-    v8 = Object;
+    v8 = (struct _DMA_ADAPTER *)Object;
   }
   LOBYTE(v9) = 1;
   v10 = SepAdtClassifyObjectIntoSubCategory(v8, a1 + 144, v9, 0LL);
   if ( v8 )
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
   if ( TargetHandle )
   {
     ZwClose(TargetHandle);
@@ -85,7 +86,7 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   v5 = SepAdtOpenObjectAuditAlarm(
          v10,
          (int)&SeSubsystemName,
-         (int)&v17,
+         (int)&v18,
          (int)a1 + 144,
          a1 + 128,
          v6,
@@ -102,19 +103,20 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
          0LL,
          v4 + 32,
          a1);
-  LOBYTE(v14) = 1;
+  v12 = PsGetCurrentThreadProcessId();
+  LOBYTE(v15) = 1;
   LOBYTE(v3) = SepAdtStagingEvent(
                  v10,
-                 v12,
-                 &v17,
+                 v13,
+                 &v18,
                  a1 + 144,
                  a1 + 128,
                  *(_QWORD *)(a1 + 32),
                  *(_QWORD *)(a1 + 48),
                  *(_DWORD *)(a1 + 24),
                  *(_DWORD *)(a1 + 20),
-                 v14,
-                 CurrentThreadProcessId,
+                 v15,
+                 v12,
                  a1);
 LABEL_6:
   *(_BYTE *)(a1 + 10) = v5;

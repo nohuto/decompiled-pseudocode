@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceWinlogonSleepStartEvent @ 0x1C00C4FE0
+ * XREFs of EtwTraceWinlogonSleepStartEvent @ 0x1C00C21E0
  * Callers:
- *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C009E7F8 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00C1188 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C013C2EC (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125340 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceWinlogonSleepStartEvent(__int64 a1, __int64 a2, __int64 a3)

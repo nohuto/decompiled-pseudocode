@@ -1,7 +1,7 @@
 /*
- * XREFs of FractionToMantissa @ 0x1C0252CA8
+ * XREFs of FractionToMantissa @ 0x1C001F8D8
  * Callers:
- *     Log @ 0x1C0157D24 (Log.c)
+ *     Log @ 0x1C001F69C (Log.c)
  * Callees:
  *     <none>
  */

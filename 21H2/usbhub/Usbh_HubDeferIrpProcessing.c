@@ -1,11 +1,11 @@
 /*
- * XREFs of Usbh_HubDeferIrpProcessing @ 0x1C003BF80
+ * XREFs of Usbh_HubDeferIrpProcessing @ 0x1C003D238
  * Callers:
- *     UsbhFdoPower @ 0x1C001C7E0 (UsbhFdoPower.c)
- *     UsbhPdoPower @ 0x1C001D420 (UsbhPdoPower.c)
+ *     UsbhFdoPower @ 0x1C001A410 (UsbhFdoPower.c)
+ *     UsbhPdoPower @ 0x1C001B290 (UsbhPdoPower.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubDeferIrpProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

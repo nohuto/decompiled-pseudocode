@@ -1,34 +1,34 @@
 /*
- * XREFs of CmDeleteKeyRecursive @ 0x140A0FE68
+ * XREFs of CmDeleteKeyRecursive @ 0x140876DE0
  * Callers:
- *     CmDeleteKeyRecursive @ 0x140A0FE68 (CmDeleteKeyRecursive.c)
- *     CmpMoveBiosAliasTable @ 0x140A10D4C (CmpMoveBiosAliasTable.c)
- *     CmpCreateHardwareProfiles @ 0x140B679AC (CmpCreateHardwareProfiles.c)
+ *     CmDeleteKeyRecursive @ 0x140876DE0 (CmDeleteKeyRecursive.c)
+ *     CmpMoveBiosAliasTable @ 0x140877C68 (CmpMoveBiosAliasTable.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x14041C1E0 (ZwDeleteKey.c)
- *     CmDeleteKeyRecursive @ 0x140A0FE68 (CmDeleteKeyRecursive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x1403FB4A0 (ZwDeleteKey.c)
+ *     CmDeleteKeyRecursive @ 0x140876DE0 (CmDeleteKeyRecursive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, int a4, ULONG ResultLength)
+NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, __int64 a4, ULONG ResultLength)
 {
   NTSTATUS result; // eax
-  __int64 v9; // rdx
-  wchar_t *Pool2; // rax
-  wchar_t *v11; // r14
-  __int64 v12; // rdx
+  __int64 v8; // rdx
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v10; // r14
+  __int64 v11; // rdx
+  NTSTATUS v12; // ebx
   NTSTATUS v13; // edi
-  NTSTATUS v14; // ebx
   ULONG Length; // [rsp+20h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  HANDLE KeyHandle; // [rsp+A0h] [rbp+30h] BYREF
+  HANDLE KeyHandle; // [rsp+90h] [rbp+20h] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
@@ -44,38 +44,38 @@ NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, 
   {
     do
     {
-      v13 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, (PVOID)a3, a4 - 2, &ResultLength);
-      if ( v13 < 0 )
+      v12 = ZwEnumerateKey(KeyHandle, 0, KeyBasicInformation, (PVOID)a3, 0xFEu, &ResultLength);
+      if ( v12 < 0 )
         break;
-      v9 = -1LL;
+      v8 = -1LL;
       *(_WORD *)(a3 + 2 * ((unsigned __int64)*(unsigned int *)(a3 + 12) >> 1) + 16) = 0;
       do
-        ++v9;
-      while ( *(_WORD *)(a3 + 2 * v9 + 16) );
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2 * v9 + 2, 538987843LL);
-      v11 = Pool2;
-      if ( !Pool2 )
+        ++v8;
+      while ( *(_WORD *)(a3 + 2 * v8 + 16) );
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * v8 + 2, 0x20204D43u);
+      v10 = PoolWithTag;
+      if ( !PoolWithTag )
       {
-        v13 = -1073741670;
+        v12 = -1073741670;
         break;
       }
-      v12 = -1LL;
+      v11 = -1LL;
       do
-        ++v12;
-      while ( *(_WORD *)(a3 + 2 * v12 + 16) );
-      wcscpy_s(Pool2, v12 + 1, (const wchar_t *)(a3 + 16));
+        ++v11;
+      while ( *(_WORD *)(a3 + 2 * v11 + 16) );
+      wcscpy_s(PoolWithTag, v11 + 1, (const wchar_t *)(a3 + 16));
       LOBYTE(Length) = 1;
-      v13 = CmDeleteKeyRecursive((int)KeyHandle, (int)v11, a3, a4, Length);
-      ExFreePoolWithTag(v11, 0);
+      v12 = CmDeleteKeyRecursive((int)KeyHandle, (int)v10, a3, 256, Length);
+      ExFreePoolWithTag(v10, 0);
     }
-    while ( v13 >= 0 );
-    v14 = 0;
-    if ( v13 != -2147483622 )
-      v14 = v13;
-    if ( v14 >= 0 )
-      v14 = ZwDeleteKey(KeyHandle);
+    while ( v12 >= 0 );
+    v13 = 0;
+    if ( v12 != -2147483622 )
+      v13 = v12;
+    if ( v13 >= 0 )
+      v13 = ZwDeleteKey(KeyHandle);
     ZwClose(KeyHandle);
-    return v14;
+    return v13;
   }
   return result;
 }

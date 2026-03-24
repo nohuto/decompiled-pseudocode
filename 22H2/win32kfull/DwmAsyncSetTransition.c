@@ -1,54 +1,45 @@
 /*
- * XREFs of DwmAsyncSetTransition @ 0x1C00B41E8
+ * XREFs of DwmAsyncSetTransition @ 0x1C0123418
  * Callers:
- *     NtUserSetWindowCompositionTransition @ 0x1C00B3F80 (NtUserSetWindowCompositionTransition.c)
+ *     NtUserSetWindowCompositionTransition @ 0x1C01231A0 (NtUserSetWindowCompositionTransition.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncSetTransition(
         PVOID Object,
         __int64 a2,
         int a3,
-        __int128 *a4,
-        __int128 *a5,
-        __int128 *a6,
-        __int128 *a7,
-        __int128 *a8)
+        _OWORD *a4,
+        _OWORD *a5,
+        _OWORD *a6,
+        _OWORD *a7,
+        _OWORD *a8)
 {
   unsigned int v10; // ebx
-  int v14; // [rsp+30h] [rbp-A1h] BYREF
-  __int16 v15; // [rsp+34h] [rbp-9Dh]
-  int v16; // [rsp+58h] [rbp-79h]
-  __int64 v17; // [rsp+5Ch] [rbp-75h]
-  int v18; // [rsp+64h] [rbp-6Dh]
-  __int128 v19; // [rsp+68h] [rbp-69h]
-  __int128 v20; // [rsp+78h] [rbp-59h]
-  __int128 v21; // [rsp+88h] [rbp-49h]
-  __int128 v22; // [rsp+98h] [rbp-39h]
-  __int128 v23; // [rsp+A8h] [rbp-29h]
+  _QWORD v14[18]; // [rsp+30h] [rbp-A1h] BYREF
 
   v10 = -1073741823;
   if ( Object )
   {
-    memset_0(&v14, 0, 0x88uLL);
-    v14 = 8912992;
-    v15 = 0x8000;
-    v17 = a2;
-    v18 = a3;
-    v16 = 1073741868;
+    memset(v14, 0, 0x88uLL);
+    LODWORD(v14[0]) = 8912992;
+    WORD2(v14[0]) = 0x8000;
+    *(_QWORD *)((char *)&v14[5] + 4) = a2;
+    HIDWORD(v14[6]) = a3;
+    LODWORD(v14[5]) = 1073741867;
     if ( a4 )
-      v19 = *a4;
+      *(_OWORD *)&v14[7] = *a4;
     if ( a5 )
-      v20 = *a5;
+      *(_OWORD *)&v14[9] = *a5;
     if ( a6 )
-      v21 = *a6;
+      *(_OWORD *)&v14[11] = *a6;
     if ( a7 )
-      v22 = *a7;
+      *(_OWORD *)&v14[13] = *a7;
     if ( a8 )
-      v23 = *a8;
-    v10 = LpcRequestPort(Object, &v14);
+      *(_OWORD *)&v14[15] = *a8;
+    v10 = LpcRequestPort(Object, v14);
     ObfDereferenceObject(Object);
   }
   return v10;

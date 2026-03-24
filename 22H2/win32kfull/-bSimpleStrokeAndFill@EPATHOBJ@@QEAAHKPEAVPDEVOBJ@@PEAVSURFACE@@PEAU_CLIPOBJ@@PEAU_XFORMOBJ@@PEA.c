@@ -1,20 +1,20 @@
 /*
- * XREFs of ?bSimpleStrokeAndFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEBU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C02856AC
+ * XREFs of ?bSimpleStrokeAndFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C015D7CC
  * Callers:
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0285B9C (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C01468E4 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?bSubOverflow@@YAHJJ@Z @ 0x1C015A73E (-bSubOverflow@@YAHJJ@Z.c)
- *     ??1PRECOMPUTE@@QEAA@XZ @ 0x1C0284E54 (--1PRECOMPUTE@@QEAA@XZ.c)
- *     ?bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C0284F50 (-bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@.c)
- *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEBU_LINEATTRS@@K@Z @ 0x1C02852AC (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
- *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C0286728 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEB.c)
- *     EngStrokeAndFillPath @ 0x1C0289760 (EngStrokeAndFillPath.c)
+ *     ??1PRECOMPUTE@@QEAA@XZ @ 0x1C0145B6C (--1PRECOMPUTE@@QEAA@XZ.c)
+ *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C0145D8C (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
+ *     ?bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C0147110 (-bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@.c)
+ *     ?bSubOverflow@@YAHJJ@Z @ 0x1C014727C (-bSubOverflow@@YAHJJ@Z.c)
+ *     EngStrokeAndFillPath @ 0x1C014BD00 (EngStrokeAndFillPath.c)
+ *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C015A4D4 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 BOOL __fastcall EPATHOBJ::bSimpleStrokeAndFill(
         PATHOBJ *ppo,
-        char a2,
+        unsigned int a2,
         struct PDEVOBJ *a3,
         struct SURFACE *a4,
         CLIPOBJ *pco,
@@ -26,130 +26,118 @@ BOOL __fastcall EPATHOBJ::bSimpleStrokeAndFill(
         MIX mixFill,
         FLONG flOptions)
 {
-  PATHOBJ v12; // r10
-  MIX v13; // r12d
-  struct PDEVOBJ *v16; // r13
-  int v17; // eax
-  __int64 v18; // r10
-  int v19; // edi
-  int v20; // eax
-  __int64 v21; // r9
-  __m128i *v22; // r10
-  char v23; // r11
-  int v25; // eax
-  int v26; // ebx
-  CLIPOBJ *v27; // r15
-  int v28; // r13d
-  __int64 (__fastcall *v29)(unsigned __int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG); // r10
-  int v30; // r15d
-  __int64 (__fastcall *v31)(unsigned __int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG); // r10
-  int v32; // r8d
-  MIX v33; // ecx
-  _OWORD v34[2]; // [rsp+60h] [rbp-88h] BYREF
-  _BYTE v35[32]; // [rsp+80h] [rbp-68h] BYREF
-  __int64 v36; // [rsp+A0h] [rbp-48h]
+  __m128i *v12; // r10
+  MIX v13; // r13d
+  char v15; // r12
+  __m128i *v17; // r10
+  int v18; // ebx
+  PDEVOBJ *v19; // r8
+  __int64 v20; // r9
+  __m128i *v21; // r10
+  struct PDEVOBJ *v22; // r11
+  int v23; // eax
+  int v24; // edi
+  CLIPOBJ *v25; // r14
+  int v26; // r12d
+  __int64 (__fastcall *v27)(char *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG); // rax
+  BOOL v29; // edx
+  MIX v30; // edx
+  __int64 (__fastcall *v31)(char *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG); // rax
+  int v32; // r14d
+  _OWORD v33[2]; // [rsp+60h] [rbp-88h] BYREF
+  _BYTE v34[32]; // [rsp+80h] [rbp-68h] BYREF
+  __int64 v35; // [rsp+A0h] [rbp-48h]
 
-  v12 = ppo[1];
+  v12 = (__m128i *)ppo[1];
   v13 = mixFill;
-  memset(v34, 0, sizeof(v34));
-  v16 = a3;
-  LOBYTE(v17) = bSubOverflow(*(_DWORD *)(*(_QWORD *)&v12 + 56LL), *(_DWORD *)(*(_QWORD *)&v12 + 48LL));
-  v19 = 0;
-  if ( v17 )
-    return 0;
-  LOBYTE(v20) = bSubOverflow(*(_DWORD *)(v18 + 60), *(_DWORD *)(v18 + 52));
-  if ( v20
-    || _mm_cvtsi128_si32(_mm_srli_si128(v22[3], 8)) - v22[3].m128i_i32[0] < 0
-    || (int)(_mm_srli_si128(v22[48LL], 8).m128i_i32[1] - HIDWORD(v22[3].m128i_i64[0])) < 0 )
+  memset(v33, 0, sizeof(v33));
+  v15 = a2;
+  v18 = 0;
+  if ( bSubOverflow(_mm_cvtsi128_si32(_mm_srli_si128(v12[3], 8)), v12[3].m128i_i32[0])
+    || bSubOverflow(_mm_srli_si128(v17[48LL], 8).m128i_i32[1], HIDWORD(v17[3].m128i_i64[0]))
+    || _mm_cvtsi128_si32(_mm_srli_si128(v21[3], 8)) - v21[3].m128i_i32[0] < 0
+    || (int)(_mm_srli_si128(v21[48LL], 8).m128i_i32[1] - HIDWORD(v21[3].m128i_i64[0])) < 0 )
   {
     return 0;
   }
   if ( !ppo->cCurves )
     return 1;
-  v25 = *(_DWORD *)(v21 + 112);
-  v26 = 1;
-  ++*(_DWORD *)(v21 + 92);
-  if ( (v25 & 0x80u) != 0 )
+  v23 = *(_DWORD *)(v20 + 112);
+  v24 = 1;
+  ++*(_DWORD *)(v20 + 92);
+  if ( (v23 & 0x80u) != 0 )
   {
-    v27 = pco;
-    PRECOMPUTE::vInit(v35, a4, v16, ppo, pco, pxo, plineattrs, mixFill, flOptions, 2);
-    if ( !v36 )
+    v25 = pco;
+    PRECOMPUTE::vInit(
+      (__int64)v34,
+      a4,
+      v19,
+      (struct EPATHOBJ *)ppo,
+      (__int64)pco,
+      pxo,
+      plineattrs,
+      mixFill,
+      flOptions,
+      2);
+    if ( !v35 )
     {
       EngSetLastError(8u);
-LABEL_33:
-      PRECOMPUTE::~PRECOMPUTE((PRECOMPUTE *)v35);
-      return v19;
+      goto LABEL_18;
     }
-    if ( (plineattrs->fl & 1) == 0 || (a2 & 2) != 0 )
+    if ( (plineattrs->fl & 1) == 0 || (v15 & 2) != 0 )
     {
-      v28 = -1;
+      v26 = -1;
       if ( (ppo->fl & 1) != 0 )
       {
         if ( (a2 & 1) != 0 )
         {
           if ( (*(_DWORD *)(*(_QWORD *)&ppo[1] + 84LL) & 1) != 0 )
-            PushThreadGuardedObject(v34, ppo, vCleanupPathStackObj);
-          v29 = *(__int64 (__fastcall **)(unsigned __int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG))(*(_QWORD *)a3 + 2792LL);
-          if ( v29 )
-            v30 = v29(
-                    ((unsigned __int64)a4 + 24) & -(__int64)(a4 != 0LL),
-                    ppo,
-                    pco,
-                    pxo,
-                    pboStroke,
-                    plineattrs,
-                    pbo,
-                    pptlBrushOrg,
-                    mixFill,
-                    flOptions);
+            PushThreadGuardedObject(v33, ppo, vCleanupPathStackObj);
+          v31 = *(__int64 (__fastcall **)(char *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG))(*(_QWORD *)a3 + 2816LL);
+          if ( v31 )
+            v32 = v31((char *)a4 + 24, ppo, pco, pxo, pboStroke, plineattrs, pbo, pptlBrushOrg, mixFill, flOptions);
           else
-            v30 = -1;
+            v32 = -1;
           if ( (*(_DWORD *)(*(_QWORD *)&ppo[1] + 84LL) & 1) != 0 )
-            PopThreadGuardedObject(v34);
-          if ( v30 == 1 )
-            goto LABEL_31;
-          if ( v30 == -1 )
-            goto LABEL_33;
-          v27 = pco;
+            PopThreadGuardedObject(v33);
+          if ( v32 == 1 )
+            goto LABEL_17;
+          if ( v32 == -1 )
+            goto LABEL_18;
+          v25 = pco;
         }
         if ( !EPATHOBJ::bFlatten((EPATHOBJ *)ppo) )
-          goto LABEL_33;
+          goto LABEL_18;
       }
       if ( (*(_DWORD *)(*(_QWORD *)&ppo[1] + 84LL) & 1) != 0 )
-        PushThreadGuardedObject(v34, ppo, vCleanupPathStackObj);
-      v31 = *(__int64 (__fastcall **)(unsigned __int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG))(*(_QWORD *)a3 + 2792LL);
-      if ( v31 )
-        v28 = v31(
-                ((unsigned __int64)a4 + 24) & -(__int64)(a4 != 0LL),
-                ppo,
-                v27,
-                pxo,
-                pboStroke,
-                plineattrs,
-                pbo,
-                pptlBrushOrg,
-                mixFill,
-                flOptions);
+        PushThreadGuardedObject(v33, ppo, vCleanupPathStackObj);
+      v27 = *(__int64 (__fastcall **)(char *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, struct _POINTL *, MIX, FLONG))(*(_QWORD *)a3 + 2816LL);
+      if ( v27 )
+        v26 = v27((char *)a4 + 24, ppo, v25, pxo, pboStroke, plineattrs, pbo, pptlBrushOrg, mixFill, flOptions);
       if ( (*(_DWORD *)(*(_QWORD *)&ppo[1] + 84LL) & 1) != 0 )
-        PopThreadGuardedObject(v34);
-      if ( v28 == 1 )
+        PopThreadGuardedObject(v33);
+      if ( v26 == 1 )
       {
-LABEL_31:
-        v19 = 1;
-        goto LABEL_33;
+LABEL_17:
+        v18 = 1;
+LABEL_18:
+        PRECOMPUTE::~PRECOMPUTE((PRECOMPUTE *)v34);
+        return v18;
       }
-      if ( v28 == -1 )
-        goto LABEL_33;
-      v16 = a3;
+      if ( v26 == -1 )
+        goto LABEL_18;
     }
-    PRECOMPUTE::~PRECOMPUTE((PRECOMPUTE *)v35);
-    v23 = a2;
+    PRECOMPUTE::~PRECOMPUTE((PRECOMPUTE *)v34);
+    v22 = a3;
   }
-  if ( (plineattrs->fl & 1) != 0
-    && ((unsigned __int8)mixFill != 13 || (unsigned int)(*(_DWORD *)(*((_QWORD *)a4 + 6) + 2108LL) - 1) > 1) )
-  {
+  v29 = 0;
+  if ( (plineattrs->fl & 1) == 0 )
+    goto LABEL_20;
+  if ( (unsigned __int8)mixFill == 13 )
+    v29 = (unsigned int)(*(_DWORD *)(*((_QWORD *)a4 + 6) + 2140LL) - 1) <= 1;
+  if ( !v29 )
     return EngStrokeAndFillPath(
-             (SURFOBJ *)(((unsigned __int64)a4 + 24) & -(__int64)(a4 != 0LL)),
+             (SURFOBJ *)((char *)a4 + 24),
              ppo,
              pco,
              pxo,
@@ -159,17 +147,16 @@ LABEL_31:
              pptlBrushOrg,
              mixFill,
              flOptions);
-  }
-  v32 = (unsigned __int8)mixFill << 8;
-  v33 = mixFill;
+LABEL_20:
+  v30 = mixFill;
   if ( (pbo[5].iSolidColor & 0x8000) == 0 )
-    v33 = v32 | (unsigned __int8)mixFill;
+    v30 = (unsigned __int8)mixFill | ((unsigned __int8)mixFill << 8);
   if ( (pboStroke[5].iSolidColor & 0x8000) == 0 )
-    v13 = v32 | (unsigned __int8)mixFill;
-  if ( !EPATHOBJ::bSimpleFill(ppo, v23, v16, a4, pco, pbo, pptlBrushOrg, v33, flOptions)
-    || !EPATHOBJ::bSimpleStroke(ppo, a2, v16, a4, pco, pxo, pboStroke, pptlBrushOrg, plineattrs, v13) )
+    v13 = (unsigned __int8)mixFill | ((unsigned __int8)mixFill << 8);
+  if ( !EPATHOBJ::bSimpleFill(ppo, a2, v22, a4, pco, pbo, pptlBrushOrg, v30, flOptions)
+    || !EPATHOBJ::bSimpleStroke(ppo, a2, a3, a4, pco, pxo, pboStroke, pptlBrushOrg, plineattrs, v13) )
   {
     return 0;
   }
-  return v26;
+  return v24;
 }

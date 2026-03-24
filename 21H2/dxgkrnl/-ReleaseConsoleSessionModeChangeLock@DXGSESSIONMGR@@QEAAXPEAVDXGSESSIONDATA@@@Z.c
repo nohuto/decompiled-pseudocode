@@ -1,31 +1,23 @@
 /*
- * XREFs of ?ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C01E3A64
+ * XREFs of ?ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C017128C
  * Callers:
- *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C01586A0 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
- *     DxgkGetDisplayModeList @ 0x1C01EBFF0 (DxgkGetDisplayModeList.c)
+ *     DxgkGetDisplayModeList @ 0x1C0170AF0 (DxgkGetDisplayModeList.c)
+ *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02122A0 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseSessionModeChangeLock@DXGSESSIONDATA@@QEAAXXZ @ 0x1C001E060 (-ReleaseSessionModeChangeLock@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     ?ReleaseSessionModeChangeLock@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0019B74 (-ReleaseSessionModeChangeLock@DXGSESSIONDATA@@QEAAXXZ.c)
  */
 
-void __fastcall DXGSESSIONMGR::ReleaseConsoleSessionModeChangeLock(DXGSESSIONMGR *this, struct DXGSESSIONDATA *a2)
+void __fastcall DXGSESSIONMGR::ReleaseConsoleSessionModeChangeLock(
+        struct DXGSESSIONDATA **this,
+        struct DXGSESSIONDATA *a2)
 {
-  struct DXGSESSIONDATA *v3; // rcx
+  __int64 v3; // rax
 
-  if ( !a2 || (v3 = (struct DXGSESSIONDATA *)*((_QWORD *)this + 17), a2 != v3) )
+  if ( !a2 || a2 != this[15] )
   {
-    WdLogSingleEntry1(1LL, 5727LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(pConsoleSessionData != NULL) && (pConsoleSessionData == m_pConsoleSessionData)",
-      5727LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v3 = (struct DXGSESSIONDATA *)*((_QWORD *)this + 17);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 5565LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  DXGSESSIONDATA::ReleaseSessionModeChangeLock(v3);
+  DXGSESSIONDATA::ReleaseSessionModeChangeLock(this[15]);
 }

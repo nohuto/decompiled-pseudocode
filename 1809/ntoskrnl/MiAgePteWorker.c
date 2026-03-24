@@ -2,18 +2,18 @@
  * XREFs of MiAgePteWorker @ 0x14006B2C0
  * Callers:
  *     MiAgePte @ 0x14006ADD0 (MiAgePte.c)
- *     MiAgeWorkingSetEPTCallback @ 0x1402B2920 (MiAgeWorkingSetEPTCallback.c)
- *     MiSimpleAgePte @ 0x1402B3830 (MiSimpleAgePte.c)
- *     MiSimpleAgeWorkingSetEPTCallback @ 0x1402B3980 (MiSimpleAgeWorkingSetEPTCallback.c)
+ *     MiAgeWorkingSetEPTCallback @ 0x1402B2A20 (MiAgeWorkingSetEPTCallback.c)
+ *     MiSimpleAgePte @ 0x1402B3930 (MiSimpleAgePte.c)
+ *     MiSimpleAgeWorkingSetEPTCallback @ 0x1402B3A80 (MiSimpleAgeWorkingSetEPTCallback.c)
  * Callees:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
- *     MiCompressTbFlushList @ 0x140113A80 (MiCompressTbFlushList.c)
- *     MiLockSetPfnPriority @ 0x140121EF8 (MiLockSetPfnPriority.c)
- *     qsort @ 0x1401962C0 (qsort.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
+ *     MiLockSetPfnPriority @ 0x140121F18 (MiLockSetPfnPriority.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
  */
 
 unsigned __int64 __fastcall MiAgePteWorker(

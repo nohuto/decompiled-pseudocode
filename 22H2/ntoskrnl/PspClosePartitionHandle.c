@@ -1,9 +1,9 @@
 /*
- * XREFs of PspClosePartitionHandle @ 0x1406833C0
+ * XREFs of PspClosePartitionHandle @ 0x14090CF70
  * Callers:
- *     PspAllocatePartition @ 0x14085A080 (PspAllocatePartition.c)
+ *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
  */
 
 void __fastcall PspClosePartitionHandle(__int64 a1, __int64 a2)
@@ -12,7 +12,7 @@ void __fastcall PspClosePartitionHandle(__int64 a1, __int64 a2)
   bool v3; // cc
   signed __int64 v4; // rax
 
-  v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 40), 0xFFFFFFFFFFFFFFFFuLL);
+  v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 32), 0xFFFFFFFFFFFFFFFFuLL);
   v3 = v2 <= 1;
   v4 = v2 - 1;
   if ( v3 )

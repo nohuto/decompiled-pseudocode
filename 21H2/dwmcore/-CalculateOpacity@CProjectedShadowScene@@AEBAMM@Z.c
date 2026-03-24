@@ -1,20 +1,18 @@
 /*
- * XREFs of ?CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z @ 0x180236194
+ * XREFs of ?CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z @ 0x18000C218
  * Callers:
- *     ?IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ @ 0x1802366BC (-IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ.c)
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180236944 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A760 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ @ 0x18000C1B0 (-IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ.c)
  * Callees:
  *     <none>
  */
 
 float __fastcall CProjectedShadowScene::CalculateOpacity(CProjectedShadowScene *this, float a2)
 {
-  float v2; // xmm2_4
-  float v5; // xmm0_4
+  float v3; // xmm0_4
 
-  v2 = *((float *)this + 33);
-  if ( v2 <= 0.0 )
-    return *((float *)this + 31);
-  v5 = fmaxf(*((float *)this + 32), 1.0 - (float)(a2 / v2));
-  return fminf(*((float *)this + 31), v5);
+  if ( *((float *)this + 31) <= 0.0 )
+    return *((float *)this + 29);
+  v3 = fmaxf(*((float *)this + 30), 1.0 - (float)(a2 / *((float *)this + 31)));
+  return fminf(*((float *)this + 29), v3);
 }

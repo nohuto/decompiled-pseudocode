@@ -1,15 +1,16 @@
 /*
- * XREFs of WheapCallErrorSourceUninitialize @ 0x140612870
+ * XREFs of WheapCallErrorSourceUninitialize @ 0x1405BCBE0
  * Callers:
- *     WheaRemoveErrorSource @ 0x140A07970 (WheaRemoveErrorSource.c)
+ *     WheaRemoveErrorSource @ 0x14095CF90 (WheaRemoveErrorSource.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x14038136C (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BA930 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallErrorSourceUninitialize(__int64 a1)
 {
   void (__fastcall *ErrorSourceFunction)(_QWORD); // rax
+  __int64 v2; // r11
   unsigned int v3; // ebx
 
   if ( *(_DWORD *)(a1 + 40) != 16 )
@@ -24,6 +25,6 @@ __int64 __fastcall WheapCallErrorSourceUninitialize(__int64 a1)
   v3 = 0;
   if ( ErrorSourceFunction )
 LABEL_3:
-    ErrorSourceFunction(*(_QWORD *)(a1 + 56));
+    ErrorSourceFunction(*(_QWORD *)(v2 + 56));
   return v3;
 }

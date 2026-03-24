@@ -1,44 +1,48 @@
 /*
- * XREFs of _anonymous_namespace_::SequenceEncoder::AppendIndexSet @ 0x18010CC48
+ * XREFs of _anonymous_namespace_::SequenceEncoder::AppendIndexSet @ 0x18004C424
  * Callers:
- *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18010CCF8 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
+ *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18004C8A4 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
  * Callees:
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18010D554 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
- *     ??$_Find_lower_bound@_K@?$_Tree@V?$_Tmap_traits@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CB_KI@std@@PEAX@std@@@1@AEB_K@Z @ 0x18010D7A4 (--$_Find_lower_bound@_K@-$_Tree@V-$_Tmap_traits@_KIU-$less@_K@std@@V-$allocator@U-$pair@$$CB_KI@.c)
- *     ?_Min@?$_Tree_val@U?$_Tree_simple_types@_K@std@@@std@@SAPEAU?$_Tree_node@_KPEAX@2@PEAU32@@Z @ 0x18010D7F4 (-_Min@-$_Tree_val@U-$_Tree_simple_types@_K@std@@@std@@SAPEAU-$_Tree_node@_KPEAX@2@PEAU32@@Z.c)
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18004D0E4 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ??$_Lbound@_K@?$_Tree@V?$_Tmap_traits@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@$0A@@std@@@std@@IEBAPEAU?$_Tree_node@U?$pair@$$CB_KI@std@@PEAX@1@AEB_K@Z @ 0x18004D47C (--$_Lbound@_K@-$_Tree@V-$_Tmap_traits@_KIU-$less@_K@std@@V-$allocator@U-$pair@$$CB_KI@std@@@2@$0.c)
+ *     ?_Min@?$_Tree_val@U?$_Tree_simple_types@_K@std@@@std@@SAPEAU?$_Tree_node@_KPEAX@2@PEAU32@@Z @ 0x18004D4B0 (-_Min@-$_Tree_val@U-$_Tree_simple_types@_K@std@@@std@@SAPEAU-$_Tree_node@_KPEAX@2@PEAU32@@Z.c)
  */
 
 void __fastcall anonymous_namespace_::SequenceEncoder::AppendIndexSet(Base853Encoder *this, __int64 a2)
 {
-  __int64 i; // rbx
-  unsigned __int64 v5; // r10
+  _QWORD **v4; // rsi
+  _QWORD *i; // rbx
   __int64 v6; // rcx
+  __int64 v7; // rax
+  unsigned __int64 v8; // r10
+  _QWORD *v9; // r9
   __int64 j; // rax
-  _BYTE v8[16]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-18h]
+  __int64 v11; // [rsp+38h] [rbp+10h] BYREF
 
   Base853Encoder::AppendVarInt(this, *(_DWORD *)(a2 + 8));
-  for ( i = **(_QWORD **)a2; !*(_BYTE *)(i + 25); i = j )
+  v4 = *(_QWORD ***)a2;
+  for ( i = **(_QWORD ***)a2; i != v4; i = (_QWORD *)j )
   {
-    std::_Tree<std::_Tmap_traits<unsigned __int64,unsigned int,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const,unsigned int>>,0>>::_Find_lower_bound<unsigned __int64>(
-      *((_QWORD *)this + 3),
-      v8);
-    if ( *(_BYTE *)(v9 + 25) || v5 < *(_QWORD *)(v9 + 32) )
+    v6 = *((_QWORD *)this + 3);
+    v11 = i[4];
+    v7 = std::_Tree<std::_Tmap_traits<unsigned __int64,unsigned int,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const,unsigned int>>,0>>::_Lbound<unsigned __int64>(
+           v6,
+           &v11);
+    if ( v7 == *v9 || v8 < *(_QWORD *)(v7 + 32) )
     {
       std::_Xout_of_range("invalid map<K, T> key");
       __debugbreak();
-      JUMPOUT(0x18010CCF1LL);
+      JUMPOUT(0x180111AB0LL);
     }
-    Base853Encoder::AppendVarInt(this, *(_DWORD *)(v9 + 40));
-    v6 = *(_QWORD *)(i + 16);
-    if ( *(_BYTE *)(v6 + 25) )
+    Base853Encoder::AppendVarInt(this, *(_DWORD *)(v7 + 40));
+    if ( *(_BYTE *)(i[2] + 25LL) )
     {
-      for ( j = *(_QWORD *)(i + 8); !*(_BYTE *)(j + 25) && i == *(_QWORD *)(j + 16); j = *(_QWORD *)(j + 8) )
-        i = j;
+      for ( j = i[1]; !*(_BYTE *)(j + 25) && i == *(_QWORD **)(j + 16); j = *(_QWORD *)(j + 8) )
+        i = (_QWORD *)j;
     }
     else
     {
-      j = std::_Tree_val<std::_Tree_simple_types<unsigned __int64>>::_Min(v6);
+      j = std::_Tree_val<std::_Tree_simple_types<unsigned __int64>>::_Min();
     }
   }
 }

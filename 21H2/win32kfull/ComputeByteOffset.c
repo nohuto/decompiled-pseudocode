@@ -1,8 +1,8 @@
 /*
- * XREFs of ComputeByteOffset @ 0x1C006E514
+ * XREFs of ComputeByteOffset @ 0x1C001D74C
  * Callers:
- *     SetupAAHeader @ 0x1C006DC90 (SetupAAHeader.c)
- *     CheckBMPNeedFixup @ 0x1C00E4948 (CheckBMPNeedFixup.c)
+ *     SetupAAHeader @ 0x1C001CE78 (SetupAAHeader.c)
+ *     CheckBMPNeedFixup @ 0x1C00FF2F8 (CheckBMPNeedFixup.c)
  * Callees:
  *     <none>
  */

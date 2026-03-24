@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertElementGenericTableFull @ 0x14021EAA0
+ * XREFs of RtlInsertElementGenericTableFull @ 0x1402B8E50
  * Callers:
- *     RtlInsertElementGenericTable @ 0x14021EA30 (RtlInsertElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x1402B8DE0 (RtlInsertElementGenericTable.c)
  * Callees:
- *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     RtlSplay @ 0x140359770 (RtlSplay.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableFull(

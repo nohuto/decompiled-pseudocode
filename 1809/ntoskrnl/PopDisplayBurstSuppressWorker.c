@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDisplayBurstSuppressWorker @ 0x140874B30
+ * XREFs of PopDisplayBurstSuppressWorker @ 0x140874B10
  * Callers:
  *     <none>
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087059C (PopDiagStopCsSleepStudySession.c)
- *     PopIdleCsStateChanged @ 0x140877724 (PopIdleCsStateChanged.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
+ *     PopIdleCsStateChanged @ 0x140877704 (PopIdleCsStateChanged.c)
  */
 
 char PopDisplayBurstSuppressWorker()
@@ -43,7 +43,7 @@ char PopDisplayBurstSuppressWorker()
         v10 = &v4;
         v9 = 1LL;
         v11 = 1LL;
-        LOBYTE(v0) = TlgWrite(&pCallbackContext, &unk_14036FDD8, 0LL, 0LL, 4u, &pData);
+        LOBYTE(v0) = TlgWrite(&pCallbackContext, &unk_14036FF86, 0LL, 0LL, 4u, &pData);
       }
     }
   }
@@ -59,7 +59,7 @@ char PopDisplayBurstSuppressWorker()
       v15 = &v6;
       v14 = 1LL;
       v16 = 1LL;
-      TlgWrite(&pCallbackContext, &unk_14036FE71, 0LL, 0LL, 4u, &v12);
+      TlgWrite(&pCallbackContext, &unk_14036FF25, 0LL, 0LL, 4u, &v12);
     }
     PopIdleCsStateChanged(0LL);
     LOBYTE(v1) = 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C00FEE30
+ * XREFs of ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0112020
  * Callers:
- *     EditionKeepMachineUp @ 0x1C00FED70 (EditionKeepMachineUp.c)
+ *     EditionKeepMachineUp @ 0x1C0111F60 (EditionKeepMachineUp.c)
  * Callees:
- *     SetTimerCoalescingTolerance @ 0x1C00FEF70 (SetTimerCoalescingTolerance.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     SetTimerCoalescingTolerance @ 0x1C0112180 (SetTimerCoalescingTolerance.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall KeepMachineUp(unsigned int a1)
@@ -25,7 +25,7 @@ void __fastcall KeepMachineUp(unsigned int a1)
     }
     if ( *v1 && gPowerDisplayState[16] != 2 || v1[2] || gfSwitchInProgress )
     {
-      if ( gdwRITdaemonLockState )
+      if ( gdwRITdemonLockState )
         SetTimerCoalescingTolerance(0LL);
     }
     else

@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmInitializePagingProcess @ 0x1C001CAF0
+ * XREFs of VidMmInitializePagingProcess @ 0x1C00176E0
  * Callers:
  *     <none>
  * Callees:
- *     ?VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00B7814 (-VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     ?VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C0098E04 (-VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ.c)
  */
 
 __int64 __fastcall VidMmInitializePagingProcess(VIDMM_GLOBAL *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of GreScaleRgn @ 0x1C029D89C
+ * XREFs of GreScaleRgn @ 0x1C029EF98
  * Callers:
- *     NtGdiScaleRgn @ 0x1C02AE5F0 (NtGdiScaleRgn.c)
+ *     NtGdiScaleRgn @ 0x1C02AFF00 (NtGdiScaleRgn.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0042D7C (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C011A1AC (-bDpiScaleTransform@DC@@QEBAHXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B307C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C0147FA0 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreScaleRgn(HDC a1, HRGN a2)

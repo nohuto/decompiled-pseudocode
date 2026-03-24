@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIFilterIrpDeviceUsageNotification @ 0x1C0085950
+ * XREFs of ACPIFilterIrpDeviceUsageNotification @ 0x1C00A1AF0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 __int64 __fastcall ACPIFilterIrpDeviceUsageNotification(ULONG_PTR a1, IRP *a2)
@@ -14,11 +14,12 @@ __int64 __fastcall ACPIFilterIrpDeviceUsageNotification(ULONG_PTR a1, IRP *a2)
   _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   __int64 v5; // rbx
   _IO_STACK_LOCATION *v6; // rax
-  __int64 v7; // rcx
-  unsigned int v8; // edi
+  NTSTATUS v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // edi
   char *IrpText; // rax
-  const char *v10; // r8
-  const char *v11; // r10
+  const char *v11; // r8
+  const char *v12; // r10
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
@@ -33,23 +34,27 @@ __int64 __fastcall ACPIFilterIrpDeviceUsageNotification(ULONG_PTR a1, IRP *a2)
   v6[-1].Context = 0LL;
   v6[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIFilterIrpDeviceUsageNotificationCompletion;
   v6[-1].Control = -32;
-  _InterlockedIncrement((volatile signed __int32 *)(v5 + 728));
-  v8 = IofCallDriver(*(PDEVICE_OBJECT *)(v5 + 776), a2);
+  _InterlockedIncrement((volatile signed __int32 *)(v5 + 688));
+  v7 = IofCallDriver(*(PDEVICE_OBJECT *)(v5 + 736), a2);
+  v8 = 0x200000000000LL;
+  v9 = v7;
+  if ( (*(_QWORD *)(v5 + 8) & 0x200000000000LL) != 0 )
+    v8 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(v7, 0x16u);
+    IrpText = ACPIDebugGetIrpText(v8, 0x16u);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0xBu,
-      (__int64)&WPP_da1e537e7f723164eef71e38dd98447a_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       (char)a2,
-      (__int64)IrpText,
-      v8,
+      IrpText,
+      v9,
       v5,
-      v10,
-      v11);
+      v11,
+      v12);
   }
-  return v8;
+  return v9;
 }

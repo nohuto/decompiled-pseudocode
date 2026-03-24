@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgKrnlTelemetryGlobal_LogTelemetryEvent@@YA_NXZ @ 0x1C004F0C0
+ * XREFs of ?DxgKrnlTelemetryGlobal_LogTelemetryEvent@@YA_NXZ @ 0x1C004C880
  * Callers:
  *     <none>
  * Callees:
@@ -16,29 +16,28 @@ bool DxgKrnlTelemetryGlobal_LogTelemetryEvent(void)
 
   v0 = 0;
   v1 = MEMORY[0xFFFFF78000000014];
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_1C0140A68, &LockHandle);
-  v2 = dword_1C0140A58;
+  KeAcquireInStackQueuedSpinLock(&qword_1C00B31D0, &LockHandle);
+  v2 = dword_1C00B31C0;
   if ( v1 - g_DxgKrnlTelemetryProviderGlobal > 600000000 )
   {
-    if ( !dword_1C0140A58 )
+    if ( !dword_1C00B31C0 )
     {
 LABEL_9:
       v0 = v2 < 0x3E8;
       goto LABEL_10;
     }
     v3 = 10000000 * ((v1 - g_DxgKrnlTelemetryProviderGlobal) / 60);
-    if ( dword_1C0140A58 <= v3 )
+    if ( dword_1C00B31C0 <= v3 )
       v2 = 0;
     else
-      v2 = dword_1C0140A58 - v3;
+      v2 = dword_1C00B31C0 - v3;
 LABEL_8:
-    dword_1C0140A58 = v2;
+    dword_1C00B31C0 = v2;
     goto LABEL_9;
   }
-  if ( (unsigned int)dword_1C0140A58 < 0x3E8 )
+  if ( (unsigned int)dword_1C00B31C0 < 0x3E8 )
   {
-    v2 = dword_1C0140A58 + 1;
+    v2 = dword_1C00B31C0 + 1;
     goto LABEL_8;
   }
 LABEL_10:

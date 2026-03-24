@@ -1,9 +1,9 @@
 /*
- * XREFs of MmFillEtwNodeInformation @ 0x14057F634
+ * XREFs of MmFillEtwNodeInformation @ 0x140547BF4
  * Callers:
- *     EtwpLogMemNodeInfo @ 0x14062F0B8 (EtwpLogMemNodeInfo.c)
+ *     EtwpLogMemNodeInfo @ 0x1405A8D98 (EtwpLogMemNodeInfo.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MmFillEtwNodeInformation(unsigned __int16 **a1, __int64 a2, unsigned int a3, _DWORD *a4)
@@ -31,18 +31,18 @@ __int64 __fastcall MmFillEtwNodeInformation(unsigned __int16 **a1, __int64 a2, u
       memset((char *)v9 - 20, 0, 0x4CuLL);
       v10 = *((_QWORD *)v5 + 2);
       *((_DWORD *)v9 - 5) = ++v7;
-      *(v9 - 2) = *(_QWORD *)(v8 + v10 + 22608);
-      *v9 = *(_QWORD *)(v8 + v10 + 22560);
+      *(v9 - 2) = *(_QWORD *)(v8 + v10 + 4176);
+      *v9 = *(_QWORD *)(v8 + v10 + 4128);
       v9 = (_QWORD *)((char *)v9 + 76);
-      *(_QWORD *)((char *)v9 - 84) = *(_QWORD *)(v8 + v10 + 22568);
+      *(_QWORD *)((char *)v9 - 84) = *(_QWORD *)(v8 + v10 + 4136);
       *(_QWORD *)((char *)v9 - 60) = *(_QWORD *)(v8 + v10 + 2144);
       *(_QWORD *)((char *)v9 - 68) = *(_QWORD *)(v8 + v10 + 2152);
       *(_QWORD *)((char *)v9 - 44) = *(_QWORD *)(v8 + v10 + 1072);
       *(_QWORD *)((char *)v9 - 52) = *(_QWORD *)(v8 + v10 + 1080);
       v11 = *(_QWORD *)(v8 + v10);
-      v8 += 24512LL;
+      v8 += 4544LL;
       *(_QWORD *)((char *)v9 - 28) = v11;
-      *(_QWORD *)((char *)v9 - 36) = *(_QWORD *)(v8 + v10 - 24504);
+      *(_QWORD *)((char *)v9 - 36) = *(_QWORD *)(v8 + v10 - 4536);
     }
     while ( v7 < v4 );
   }

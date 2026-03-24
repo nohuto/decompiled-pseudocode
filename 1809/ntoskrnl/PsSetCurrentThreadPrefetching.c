@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetCurrentThreadPrefetching @ 0x14065FC70
+ * XREFs of PsSetCurrentThreadPrefetching @ 0x14065FC50
  * Callers:
- *     PfpPrefetchSharedStart @ 0x14065CDD8 (PfpPrefetchSharedStart.c)
- *     PfpPrefetchSharedCleanup @ 0x14065CF24 (PfpPrefetchSharedCleanup.c)
- *     PfSnSectionInfoCleanupWorkItem @ 0x14065F6A0 (PfSnSectionInfoCleanupWorkItem.c)
- *     PfSnPopulateReadList @ 0x14065F760 (PfSnPopulateReadList.c)
+ *     PfpPrefetchSharedStart @ 0x14065CDB8 (PfpPrefetchSharedStart.c)
+ *     PfpPrefetchSharedCleanup @ 0x14065CF04 (PfpPrefetchSharedCleanup.c)
+ *     PfSnSectionInfoCleanupWorkItem @ 0x14065F680 (PfSnSectionInfoCleanupWorkItem.c)
+ *     PfSnPopulateReadList @ 0x14065F740 (PfSnPopulateReadList.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  */

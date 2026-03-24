@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0InteractiveControlManager@@AEAA@XZ @ 0x1C003D6E4
+ * XREFs of ??0InteractiveControlManager@@AEAA@XZ @ 0x1C00E5A68
  * Callers:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
  * Callees:
- *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0049368 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0399AD8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C00E4368 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C037A67C (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 InteractiveControlManager *__fastcall InteractiveControlManager::InteractiveControlManager(
@@ -17,7 +17,7 @@ InteractiveControlManager *__fastcall InteractiveControlManager::InteractiveCont
   unsigned int v6; // eax
 
   *(_QWORD *)this = 0LL;
-  v1 = (unsigned int *)&unk_1C0309018;
+  v1 = (unsigned int *)&unk_1C02E0BF8;
   *((_QWORD *)this + 2) = 0LL;
   *((_DWORD *)this + 6) = 0;
   v3 = 29LL;
@@ -35,9 +35,9 @@ InteractiveControlManager *__fastcall InteractiveControlManager::InteractiveCont
     --v3;
   }
   while ( v3 );
-  InteractiveControlSettings::ReadSettings(v4);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0354150);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0354118);
+  InteractiveControlSettings::ReadSettings(v4, v5, (__int64)v1);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C032A2F8);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C032A2C0);
   *(_OWORD *)((char *)this + 40) = 0LL;
   *(_OWORD *)((char *)this + 56) = 0LL;
   *((_QWORD *)this + 9) = 0LL;

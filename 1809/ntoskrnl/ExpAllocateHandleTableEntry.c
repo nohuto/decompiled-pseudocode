@@ -6,7 +6,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x140696B94 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140696B74 (ExpAllocateHandleTableEntrySlow.c)
  */
 
 __int64 __fastcall ExpAllocateHandleTableEntry(int *a1, _QWORD *a2)

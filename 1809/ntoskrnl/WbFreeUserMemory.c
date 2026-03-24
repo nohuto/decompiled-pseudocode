@@ -1,5 +1,5 @@
 /*
- * XREFs of WbFreeUserMemory @ 0x1406B1BBC
+ * XREFs of WbFreeUserMemory @ 0x1406B1B9C
  * Callers:
  *     sub_140624A54 @ 0x140624A54 (sub_140624A54.c)
  * Callees:
@@ -9,7 +9,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     sub_140625298 @ 0x140625298 (sub_140625298.c)
- *     WbFreeMemoryBlockRegion @ 0x1406B1CA8 (WbFreeMemoryBlockRegion.c)
+ *     WbFreeMemoryBlockRegion @ 0x1406B1C88 (WbFreeMemoryBlockRegion.c)
  */
 
 __int64 __fastcall WbFreeUserMemory(__int64 a1, __int64 a2)

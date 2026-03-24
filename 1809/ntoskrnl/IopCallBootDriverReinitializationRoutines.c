@@ -4,9 +4,9 @@
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IopInterlockedRemoveHeadList @ 0x140135688 (IopInterlockedRemoveHeadList.c)
- *     PnpDiagnosticTrace @ 0x1401371C4 (PnpDiagnosticTrace.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     IopInterlockedRemoveHeadList @ 0x1401356A8 (IopInterlockedRemoveHeadList.c)
+ *     PnpDiagnosticTrace @ 0x1401371E4 (PnpDiagnosticTrace.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

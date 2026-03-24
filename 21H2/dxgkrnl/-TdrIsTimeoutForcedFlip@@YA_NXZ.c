@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TdrIsTimeoutForcedFlip@@YA_NXZ @ 0x1C0306750
+ * XREFs of ?TdrIsTimeoutForcedFlip@@YA_NXZ @ 0x1C0265E50
  * Callers:
  *     <none>
  * Callees:

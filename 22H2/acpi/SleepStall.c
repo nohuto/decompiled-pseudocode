@@ -1,53 +1,51 @@
 /*
- * XREFs of SleepStall @ 0x1C0006400
+ * XREFs of SleepStall @ 0x1C0021740
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     SleepQueueRequest @ 0x1C005150C (SleepQueueRequest.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     SleepQueueRequest @ 0x1C00675A0 (SleepQueueRequest.c)
  */
 
 __int64 __fastcall SleepStall(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebx
-  __int64 v5; // rax
-  unsigned __int64 v6; // rcx
+  unsigned __int64 v5; // rdx
   int v7; // ecx
 
-  v4 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0LL, "I");
+  v4 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "I");
   if ( !v4 )
   {
-    v5 = *(_QWORD *)(a2 + 80);
+    v5 = *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL);
     if ( *(_DWORD *)(*(_QWORD *)(a2 + 56) + 8LL) != 8795 )
     {
-      if ( *(_QWORD *)(v5 + 16) <= 0xFFuLL )
+      if ( v5 <= 0xFF )
       {
-        KeStallExecutionProcessor(*(_DWORD *)(v5 + 16));
+        KeStallExecutionProcessor(v5);
         return v4;
       }
       v4 = -1072431089;
       LogError(3222536207LL);
       AcpiDiagTraceAmlError(a1, 3222536207LL);
       v7 = 178;
-      goto LABEL_10;
+LABEL_12:
+      PrintDebugMessage(v7, *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL), 0, 0, 0LL);
+      return v4;
     }
-    v6 = *(_QWORD *)(v5 + 16);
-    if ( v6 > 0xFFFF )
+    if ( v5 > 0xFFFF )
     {
       v4 = -1072431089;
       LogError(3222536207LL);
       AcpiDiagTraceAmlError(a1, 3222536207LL);
       v7 = 177;
-LABEL_10:
-      PrintDebugMessage(v7, *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL), 0, 0, 0LL);
-      return v4;
+      goto LABEL_12;
     }
-    if ( v6 )
+    if ( v5 )
     {
-      v4 = SleepQueueRequest(a1, (unsigned int)v6);
+      v4 = SleepQueueRequest(a1);
       if ( !v4 )
         return 32772;
     }

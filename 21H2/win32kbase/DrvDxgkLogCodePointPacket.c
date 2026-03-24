@@ -1,21 +1,21 @@
 /*
- * XREFs of DrvDxgkLogCodePointPacket @ 0x1C00D05E0
+ * XREFs of DrvDxgkLogCodePointPacket @ 0x1C00C3B40
  * Callers:
- *     LogDiagSDC @ 0x1C005C5BC (LogDiagSDC.c)
- *     LogDiagCDS @ 0x1C0065CE8 (LogDiagCDS.c)
- *     DrvSetDisplayConfig @ 0x1C0065F30 (DrvSetDisplayConfig.c)
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
- *     ?DrvValidateAndApplyDevMode@@YAJPEAU_DISPLAYCONFIG_CDS_REQUEST@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C007AAA0 (-DrvValidateAndApplyDevMode@@YAJPEAU_DISPLAYCONFIG_CDS_REQUEST@@PEAPEAUD3DKMT_GETPATHSMODALITY@@.c)
- *     PowerOnMonitor @ 0x1C007D2B0 (PowerOnMonitor.c)
- *     ?bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z @ 0x1C00C2644 (-bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z.c)
- *     PowerOffMonitor @ 0x1C00D1C90 (PowerOffMonitor.c)
- *     VideoPortCalloutThread @ 0x1C00D24E0 (VideoPortCalloutThread.c)
- *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00D2E70 (DrvSetWddmDeviceMonitorPowerState.c)
- *     ?EnforceSDCCloneSourceIndexCoherency@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C0172190 (-EnforceSDCCloneSourceIndexCoherency@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
- *     DrvLogDrvChangeDisplaySettingsFailures @ 0x1C01747B0 (DrvLogDrvChangeDisplaySettingsFailures.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvValidateAndApplyDevMode@@YAJPEAU_DISPLAYCONFIG_CDS_REQUEST@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00161AC (-DrvValidateAndApplyDevMode@@YAJPEAU_DISPLAYCONFIG_CDS_REQUEST@@PEAPEAUD3DKMT_GETPATHSMODALITY@@.c)
+ *     LogDiagCDS @ 0x1C0018DD4 (LogDiagCDS.c)
+ *     DrvSetDisplayConfig @ 0x1C0019050 (DrvSetDisplayConfig.c)
+ *     LogDiagSDC @ 0x1C0075E24 (LogDiagSDC.c)
+ *     PowerOnMonitor @ 0x1C00775A0 (PowerOnMonitor.c)
+ *     ?bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z @ 0x1C00B2214 (-bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z.c)
+ *     PowerOffMonitor @ 0x1C00C1E70 (PowerOffMonitor.c)
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00C35D0 (DrvSetWddmDeviceMonitorPowerState.c)
+ *     VideoPortCalloutThread @ 0x1C011ADB4 (VideoPortCalloutThread.c)
+ *     ?EnforceSDCCloneSourceIndexCoherency@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C01450F0 (-EnforceSDCCloneSourceIndexCoherency@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvDxgkLogCodePointPacket(int a1, int a2, int a3, int a4)
@@ -40,6 +40,5 @@ __int64 __fastcall DrvDxgkLogCodePointPacket(int a1, int a2, int a3, int a4)
   v11 = a2;
   v12 = a3;
   v13 = a4;
-  ((void (__fastcall *)(_DWORD *))qword_1C0296790)(v5);
-  return v6;
+  return ((__int64 (__fastcall *)(_DWORD *))qword_1C02519A0)(v5);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?_PowerPolicyWaitWakeCompletionRoutine@FxPkgPnp@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C008CBF0
+ * XREFs of ?_PowerPolicyWaitWakeCompletionRoutine@FxPkgPnp@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C0088D00
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     ?PowerPolicyUpdateSystemWakeSource@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z @ 0x1C008EBB4 (-PowerPolicyUpdateSystemWakeSource@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     ?PowerPolicyUpdateSystemWakeSource@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z @ 0x1C008C614 (-PowerPolicyUpdateSystemWakeSource@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::_PowerPolicyWaitWakeCompletionRoutine(
@@ -43,7 +43,7 @@ __int64 __fastcall FxPkgPnp::_PowerPolicyWaitWakeCompletionRoutine(
     OriginalIrp->IoStatus.Status = 0;
   }
   if ( _InterlockedExchange64((volatile __int64 *)Context + 114, 0LL)
-    || _InterlockedExchange((volatile __int32 *)(*((_QWORD *)Context + 111) + 928LL), 1) == 1 )
+    || _InterlockedExchange((volatile __int32 *)(*((_QWORD *)Context + 111) + 912LL), 1) == 1 )
   {
     v9 = (_FX_DRIVER_GLOBALS *)*((_QWORD *)Context + 2);
     if ( v9->FxVerboseOn )

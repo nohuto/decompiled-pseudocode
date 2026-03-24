@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRetainTranslationX@CInteractionContextWrapper@@UEAAX_N@Z @ 0x1800FBF40
+ * XREFs of ?SetRetainTranslationX@CInteractionContextWrapper@@UEAAX_N@Z @ 0x1800E33D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CInteractionContextWrapper::SetRetainTranslationX(CInteractionContextWrapper *this, char a2)
 {
-  *((_BYTE *)this + 321) = a2;
+  *((_BYTE *)this + 329) = a2;
 }

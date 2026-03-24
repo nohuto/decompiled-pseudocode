@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039BA0
+ * XREFs of Endpoint_SM_CompleteResetRequestFromClient @ 0x1C0039920
  * Callers:
- *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C0039CD0 (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
- *     ESM_CompletingResetRequestWhenEndpointNotHalted @ 0x1C004F530 (ESM_CompletingResetRequestWhenEndpointNotHalted.c)
+ *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C00399CC (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
+ *     ESM_CompletingResetRequestWhenEndpointNotHalted @ 0x1C004EA40 (ESM_CompletingResetRequestWhenEndpointNotHalted.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ddqd @ 0x1C003BB20 (WPP_RECORDER_SF_ddqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003B4AC (WPP_RECORDER_SF_ddqd.c)
  */
 
 __int64 __fastcall Endpoint_SM_CompleteResetRequestFromClient(__int64 a1, __int64 a2, int a3)

@@ -1,67 +1,38 @@
 /*
- * XREFs of ?VmBusSendWnfNotification@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_SENDWNFNOTIFICATION@@I@Z @ 0x1C037FE78
+ * XREFs of ?VmBusSendWnfNotification@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_SENDWNFNOTIFICATION@@I@Z @ 0x1C024E100
  * Callers:
- *     ?SendWnfNotificationToVmProcessWorkItem@DXGGLOBAL@@SAXPEAX@Z @ 0x1C030C790 (-SendWnfNotificationToVmProcessWorkItem@DXGGLOBAL@@SAXPEAX@Z.c)
+ *     ?SendWnfNotificationToVmProcessWorkItem@DXGGLOBAL@@SAXPEAX@Z @ 0x1C026B780 (-SendWnfNotificationToVmProcessWorkItem@DXGGLOBAL@@SAXPEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?VmBusSendAsyncPacket@@YAJPEAUVMBPACKET__@@PEAUDXGKVMB_COMMAND_BASE@@I@Z @ 0x1C005E160 (-VmBusSendAsyncPacket@@YAJPEAUVMBPACKET__@@PEAUDXGKVMB_COMMAND_BASE@@I@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C00418FC (-VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
  */
 
 __int64 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusSendWnfNotification(
-        DXG_HOST_GLOBAL_VMBUS *this,
+        struct VMBCHANNEL__ **this,
         struct DXGKVMB_COMMAND_SENDWNFNOTIFICATION *a2,
         unsigned int a3)
 {
-  __int64 v6; // rsi
-  struct VMBPACKET__ *v7; // rbp
+  __int64 v6; // rbx
+  struct _MDL *v7; // r9
   int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
 
   LODWORD(v6) = 0;
-  DXGPUSHLOCK::AcquireShared((DXG_HOST_GLOBAL_VMBUS *)((char *)this + 16));
-  if ( *((_BYTE *)this + 68) )
+  DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(this + 1));
+  if ( *((_BYTE *)this + 56) )
   {
-    _InterlockedIncrement((volatile signed __int32 *)this + 19);
-    if ( *((int *)this + 19) >= 16 )
-    {
-LABEL_7:
-      _InterlockedDecrement((volatile signed __int32 *)this + 19);
-      goto LABEL_8;
-    }
-    v7 = (struct VMBPACKET__ *)((__int64 (__fastcall *)(_QWORD))qword_1C0131C98)(*(_QWORD *)this);
-    if ( !v7 )
-    {
-      WdLogSingleEntry1(6LL, 6450LL);
-      DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)L"Failed to allocate VMBPACKET", 6450LL, 0LL, 0LL, 0LL, 0LL);
-      LODWORD(v6) = -1073741801;
-      goto LABEL_7;
-    }
-    ((void (__fastcall *)(struct VMBPACKET__ *, DXG_HOST_GLOBAL_VMBUS *))qword_1C0131CE0)(v7, this);
-    ((void (__fastcall *)(struct VMBPACKET__ *, void (__fastcall *)(struct VMBPACKET__ *, __int64, void *)))qword_1C0131CD8)(
-      v7,
-      WnfPacketCompletionRoutine);
-    v8 = VmBusSendAsyncPacket(v7, a2, a3);
+    v8 = VmBusSendAsyncMessage(*this, a2, a3, v7);
     v6 = v8;
     if ( v8 < 0 )
     {
-      WdLogSingleEntry1(2LL, v8);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendAsyncPacket failed. 0x%I64x",
-        v6,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      ((void (__fastcall *)(struct VMBPACKET__ *))qword_1C0131CA0)(v7);
-      goto LABEL_7;
+      v11 = WdLogNewEntry5_WdError(v10, v9);
+      *(_QWORD *)(v11 + 24) = v6;
+      WdLogEvent5_WdError(v11);
     }
   }
-LABEL_8:
-  ExReleasePushLockSharedEx((char *)this + 16, 0LL);
+  ExReleasePushLockSharedEx(this + 1, 0LL);
   KeLeaveCriticalRegion();
   return (unsigned int)v6;
 }

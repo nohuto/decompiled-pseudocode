@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B5E30
+ * XREFs of ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C0183310
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionKillAccessibilityTimer @ 0x1C0206BD0 (ApiSetEditionKillAccessibilityTimer.c)
- *     ApiSetEditionPostRitSound @ 0x1C0207580 (ApiSetEditionPostRitSound.c)
- *     ApiSetEditionSetAccessibilityTimer @ 0x1C0207894 (ApiSetEditionSetAccessibilityTimer.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C01CC5E0 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD44C (ApiSetEditionPostRitSound.c)
+ *     ApiSetEditionSetAccessibilityTimer @ 0x1C01CDD84 (ApiSetEditionSetAccessibilityTimer.c)
  */
 
-_BOOL8 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
+__int64 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
 {
   char v4; // di
   int v5; // esi
@@ -33,7 +33,7 @@ _BOOL8 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
       }
       gFilterKeysState = 0;
     }
-    else if ( gPhysModifierState == 2 && (dword_1C02905FC & 4) != 0 && !gtmridFKActivation && gFilterKeysState != 8 )
+    else if ( gPhysModifierState == 2 && (xmmword_1C024F974 & 4) != 0 && !gtmridFKActivation && gFilterKeysState != 8 )
     {
       gFilterKeysState = 1;
       gtmridFKActivation = ApiSetEditionSetAccessibilityTimer(0LL, 4000LL, FKActivationTimer);
@@ -49,7 +49,7 @@ _BOOL8 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
       gtmridFKActivation = 0LL;
     }
   }
-  if ( (dword_1C02905FC & 1) == 0 )
+  if ( (xmmword_1C024F974 & 1) == 0 )
     return 1LL;
   if ( !v5 )
   {
@@ -71,7 +71,7 @@ _BOOL8 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
         gBounceVk = 0;
       }
       gdwPUDFlags &= ~0x400u;
-      if ( (dword_1C02905FC & 0x40) != 0 )
+      if ( (xmmword_1C024F974 & 0x40) != 0 )
         ApiSetEditionPostRitSound(4LL, a2, 0LL);
       if ( gtmridFKAcceptanceDelay )
       {
@@ -87,42 +87,47 @@ _BOOL8 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
       gFKExtraInformation = v6;
       gFKNextProcIndex = a3;
       gFKKeyEvent = v10;
-      xmmword_1C0297020 = *((_OWORD *)a1 + 1);
-      if ( !Value )
+      xmmword_1C0257F60 = *((_OWORD *)a1 + 1);
+      if ( !DWORD1(xmmword_1C024F974) )
       {
-        v12 = dword_1C0290608;
-        if ( dword_1C0290608 )
+        v12 = HIDWORD(xmmword_1C024F974);
+        if ( HIDWORD(xmmword_1C024F974) )
         {
-          if ( dword_1C0290604 )
-            v12 = dword_1C0290604;
+          if ( DWORD2(xmmword_1C024F974) )
+            v12 = DWORD2(xmmword_1C024F974);
           gtmridFKResponse = ApiSetEditionSetAccessibilityTimer(0LL, v12, xxxFKRepeatRateTimer);
         }
         return 1LL;
       }
-      v11 = ApiSetEditionSetAccessibilityTimer(0LL, Value, xxxFKAcceptanceDelayTimer);
+      v11 = ApiSetEditionSetAccessibilityTimer(0LL, DWORD1(xmmword_1C024F974), xxxFKAcceptanceDelayTimer);
       gdwPUDFlags &= ~0x800u;
       gtmridFKAcceptanceDelay = v11;
     }
     return 0LL;
   }
-  if ( v4 == gLastVkDown )
+  if ( v4 != gLastVkDown )
+    return 1LL;
+  ApiSetEditionKillAccessibilityTimer(a1, gtmridFKResponse);
+  gtmridFKResponse = 0LL;
+  gLastVkDown = 0;
+  if ( gtmridFKAcceptanceDelay )
   {
-    ApiSetEditionKillAccessibilityTimer(a1, gtmridFKResponse);
-    gtmridFKResponse = 0LL;
-    gLastVkDown = 0;
-    if ( gtmridFKAcceptanceDelay )
+    ApiSetEditionKillAccessibilityTimer(v8, gtmridFKAcceptanceDelay);
+    gtmridFKAcceptanceDelay = 0LL;
+    if ( (gdwPUDFlags & 0x800) != 0 )
     {
-      ApiSetEditionKillAccessibilityTimer(v8, gtmridFKAcceptanceDelay);
-      gtmridFKAcceptanceDelay = 0LL;
-      if ( (gdwPUDFlags & 0x800) == 0 )
-        return 0LL;
       gdwPUDFlags &= ~0x800u;
+      goto LABEL_19;
     }
-    if ( !dword_1C029060C )
-      return 1LL;
+    return 0LL;
+  }
+LABEL_19:
+  if ( Value )
+  {
     gBounceVk = v4;
-    gtmridFKResponse = ApiSetEditionSetAccessibilityTimer(0LL, dword_1C029060C, FKBounceKeyTimer);
-    return (gdwPUDFlags & 0x400) == 0;
+    gtmridFKResponse = ApiSetEditionSetAccessibilityTimer(0LL, Value, FKBounceKeyTimer);
+    if ( (gdwPUDFlags & 0x400) != 0 )
+      return 0LL;
   }
   return 1LL;
 }

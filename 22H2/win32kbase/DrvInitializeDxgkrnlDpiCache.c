@@ -1,71 +1,51 @@
 /*
- * XREFs of DrvInitializeDxgkrnlDpiCache @ 0x1C00BE310
+ * XREFs of DrvInitializeDxgkrnlDpiCache @ 0x1C00B45C0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvInitializeDxgkrnlDpiCache(_DWORD *a1, __int64 a2)
+__int64 __fastcall DrvInitializeDxgkrnlDpiCache(_DWORD *a1)
 {
-  __int64 DxgkWin32kInterface; // rax
-  unsigned int v4; // ebp
-  __int64 v5; // rcx
-  __int64 v6; // rdi
-  __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 i; // rbx
-  __int64 *v11; // r8
-  __int64 v12; // rax
-  __int64 v13; // rax
-  struct _ERESOURCE *v14; // rcx
+  unsigned int v2; // esi
+  int v3; // r8d
+  struct PDEV *i; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
 
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(a1, a2);
-  v4 = (*(__int64 (**)(void))(DxgkWin32kInterface + 616))();
-  v6 = *(_QWORD *)(SGDGetSessionState(v5) + 24);
+  v2 = ((__int64 (*)(void))qword_1C0250B00)();
   if ( a1 )
   {
     *a1 = 0;
-    EngAcquireSemaphore(*(HSEMAPHORE *)(v6 + 8));
-    EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v6 + 8), 16);
-    v9 = *(_QWORD *)(SGDGetSessionState(v7) + 24);
-    for ( i = *(_QWORD *)(v9 + 6080); i; i = *v11 )
+    EngAcquireSemaphore(ghsemDriverMgmt);
+    EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
+    for ( i = gppdevList; i; i = *(struct PDEV **)i )
     {
-      v11 = (__int64 *)i;
-      if ( (*(_DWORD *)(i + 40) & 0x401) == 1 )
+      if ( (*((_DWORD *)i + 10) & 0x401) == 1 )
       {
-        v12 = *(_QWORD *)(i + 2552);
-        if ( v12 )
+        v5 = *((_QWORD *)i + 322);
+        if ( ((v5 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0
+          && (*(_DWORD *)(v5 + 160) & 0x800000) != 0
+          && ((unsigned int)((__int64 (__fastcall *)(__int64, _QWORD))qword_1C0250B08)(
+                              v5 + 248,
+                              *(unsigned int *)(v5 + 256)) != *((_DWORD *)i + 635)
+           || (*((_DWORD *)i + 637) & 0x20) != 0 && (96 * *((_DWORD *)i + 616) + 50) / 0x64u != gdmLogPixels) )
         {
-          if ( v12 != -4 && (*(_DWORD *)(v12 + 160) & 0x800000) != 0 )
-          {
-            v13 = DxDdGetDxgkWin32kInterface(v9, v8);
-            if ( (*(unsigned int (__fastcall **)(__int64, _QWORD))(v13 + 624))(
-                   *(_QWORD *)(i + 2552) + 240LL,
-                   *(unsigned int *)(*(_QWORD *)(i + 2552) + 248LL)) != *(_DWORD *)(i + 2508)
-              || (v11 = (__int64 *)i, (*(_DWORD *)(i + 2516) & 0x20) != 0)
-              && (v9 = (unsigned int)(96 * *(_DWORD *)(i + 2432) + 50),
-                  v8 = (unsigned int)v9 / 0x64,
-                  (_DWORD)v8 != *(unsigned __int16 *)(v6 + 1248)) )
-            {
-              *a1 = 1;
-              break;
-            }
-          }
+          *a1 = 1;
+          break;
         }
       }
     }
-    EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v6 + 8));
-    v14 = *(struct _ERESOURCE **)(v6 + 8);
-    if ( v14 )
+    EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v3);
+    if ( ghsemDriverMgmt )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v14);
-      PsLeavePriorityRegion();
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
+      PsLeavePriorityRegion(v6);
     }
   }
-  return v4;
+  return v2;
 }

@@ -1,60 +1,64 @@
 /*
- * XREFs of CmpInsertCallbackInListByAltitude @ 0x1406902B4
+ * XREFs of CmpInsertCallbackInListByAltitude @ 0x14069D58C
  * Callers:
- *     CmpRegisterCallbackInternal @ 0x140690198 (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x14069D488 (CmpRegisterCallbackInternal.c)
  * Callees:
- *     RtlCompareAltitudes @ 0x140212060 (RtlCompareAltitudes.c)
- *     CmpUnlockCallbackList @ 0x1406930D4 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListExclusive @ 0x140693288 (CmpLockCallbackListExclusive.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlCompareAltitudes @ 0x1402BAD10 (RtlCompareAltitudes.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall CmpInsertCallbackInListByAltitude(__int64 a1, char a2)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rdi
-  LONG v6; // eax
-  __int64 *v7; // rax
-  __int64 v8; // rcx
+  struct _KTHREAD *CurrentThread; // rax
+  unsigned int v3; // ebx
+  __int64 v6; // rsi
+  LONG v7; // eax
+  __int64 *v8; // rax
+  __int64 v9; // rcx
 
-  v4 = 0;
-  CmpLockCallbackListExclusive();
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0;
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
   *(_QWORD *)(a1 + 24) = ++CmpCallbackCookie;
-  v5 = CallbackListHead;
+  v6 = CallbackListHead;
   if ( (__int64 *)CallbackListHead != &CallbackListHead )
   {
     do
     {
-      v6 = RtlCompareAltitudes((PCUNICODE_STRING)(v5 + 48), (PCUNICODE_STRING)(a1 + 48));
-      if ( v6 )
+      v7 = RtlCompareAltitudes((PCUNICODE_STRING)(v6 + 48), (PCUNICODE_STRING)(a1 + 48));
+      if ( v7 )
       {
-        if ( v6 < 0 )
-          goto LABEL_6;
+        if ( v7 < 0 )
+          break;
       }
       else if ( !a2 )
       {
         goto LABEL_12;
       }
-      v5 = *(_QWORD *)v5;
+      v6 = *(_QWORD *)v6;
     }
-    while ( (__int64 *)v5 != &CallbackListHead );
-    if ( !v6 && !a2 )
+    while ( (__int64 *)v6 != &CallbackListHead );
+    if ( !v7 && !a2 )
     {
 LABEL_12:
-      v4 = -1071906799;
+      v3 = -1071906799;
       goto LABEL_8;
     }
   }
-LABEL_6:
-  v7 = *(__int64 **)(v5 + 8);
-  v8 = *v7;
-  if ( *(__int64 **)(*v7 + 8) != v7 )
+  v8 = *(__int64 **)(v6 + 8);
+  v9 = *v8;
+  if ( *(__int64 **)(*v8 + 8) != v8 )
     __fastfail(3u);
-  *(_QWORD *)a1 = v8;
-  *(_QWORD *)(a1 + 8) = v7;
-  *(_QWORD *)(v8 + 8) = a1;
-  *v7 = a1;
+  *(_QWORD *)a1 = v9;
+  *(_QWORD *)(a1 + 8) = v8;
+  *(_QWORD *)(v9 + 8) = a1;
+  *v8 = a1;
   _InterlockedIncrement(&CmpCallBackCount);
 LABEL_8:
-  CmpUnlockCallbackList();
-  return v4;
+  ExReleasePushLockEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v3;
 }

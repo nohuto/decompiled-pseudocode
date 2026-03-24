@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpQueryPersistedMemory @ 0x1409ED014
+ * XREFs of EtwpQueryPersistedMemory @ 0x140948BA0
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryPersistedMemory(__int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)
 {
   int v7; // eax
   int v8; // ebx
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   unsigned int v11; // [rsp+50h] [rbp+8h] BYREF
   int v12; // [rsp+54h] [rbp+Ch]
 
@@ -21,18 +21,18 @@ __int64 __fastcall EtwpQueryPersistedMemory(__int64 a1, __int64 a2, _QWORD *a3, 
   v8 = v7;
   if ( v7 == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, 8LL * v11, 1266119749LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * v11, 0x4B777445u);
+    if ( PoolWithTag )
     {
-      v8 = KsrClaimPersistedMemory(EtwpKsrGuid, a2, Pool2, v11, 0, &v11);
+      v8 = KsrClaimPersistedMemory(EtwpKsrGuid, a2, PoolWithTag, v11, 0, &v11);
       if ( v8 < 0 )
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
       else
       {
         *a4 = v11;
-        *a3 = Pool2;
+        *a3 = PoolWithTag;
       }
     }
     else

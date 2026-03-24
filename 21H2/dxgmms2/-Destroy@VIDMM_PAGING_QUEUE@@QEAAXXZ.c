@@ -1,23 +1,27 @@
 /*
- * XREFs of ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C009A41C
+ * XREFs of ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C0084084
  * Callers:
- *     ??1VIDMM_PAGING_QUEUE@@QEAA@XZ @ 0x1C009A404 (--1VIDMM_PAGING_QUEUE@@QEAA@XZ.c)
+ *     ??1VIDMM_PAGING_QUEUE@@QEAA@XZ @ 0x1C008406C (--1VIDMM_PAGING_QUEUE@@QEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ?RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0014888 (-RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C009A534 (-Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ?RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0012428 (-RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C008419C (-Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_PAGING_QUEUE::Destroy(struct _LIST_ENTRY *this)
 {
   VIDMM_DEVICE *Blink; // rcx
   struct _LIST_ENTRY *Flink; // rbx
-  __int64 v4; // rcx
-  char *v5; // rbx
-  char *v6; // rcx
-  __int64 v7; // rax
-  struct _LIST_ENTRY *v8; // rax
-  VIDMM_PAGING_QUEUE **v9; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  char *v7; // rbx
+  char *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  struct _LIST_ENTRY *v11; // rax
+  VIDMM_PAGING_QUEUE **v12; // rcx
+  __int64 v13; // rax
 
   if ( this[7].Blink )
     VIDMM_PAGING_QUEUE::Flush((VIDMM_PAGING_QUEUE *)this);
@@ -31,40 +35,52 @@ void __fastcall VIDMM_PAGING_QUEUE::Destroy(struct _LIST_ENTRY *this)
     ExAcquirePushLockExclusiveEx(&Flink[9], 0LL);
     Flink[9].Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
     if ( this[2].Flink != &this[2] )
-      WdLogSingleEntry5(0LL, 270LL, 50LL, this, 0LL, 0LL);
+    {
+      v10 = WdLogNewEntry5_WdCriticalError(v5, v4);
+      *(_QWORD *)(v10 + 24) = 270LL;
+      *(_QWORD *)(v10 + 32) = 50LL;
+      *(_QWORD *)(v10 + 40) = this;
+      *(_OWORD *)(v10 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v10);
+    }
     if ( LODWORD(this[7].Flink) == 2 )
     {
-      v8 = this->Flink;
-      if ( this->Flink->Blink != this || (v9 = (VIDMM_PAGING_QUEUE **)this->Blink, *v9 != (VIDMM_PAGING_QUEUE *)this) )
+      v11 = this->Flink;
+      if ( this->Flink->Blink != this || (v12 = (VIDMM_PAGING_QUEUE **)this->Blink, *v12 != (VIDMM_PAGING_QUEUE *)this) )
 LABEL_18:
         __fastfail(3u);
-      *v9 = (VIDMM_PAGING_QUEUE *)v8;
-      v8->Blink = (struct _LIST_ENTRY *)v9;
+      *v12 = (VIDMM_PAGING_QUEUE *)v11;
+      v11->Blink = (struct _LIST_ENTRY *)v12;
       this->Flink = 0LL;
       this->Blink = 0LL;
     }
     else if ( this->Flink || this->Blink )
     {
-      WdLogSingleEntry5(0LL, 270LL, 49LL, this, 0LL, 0LL);
+      v13 = WdLogNewEntry5_WdCriticalError(v5, v4);
+      *(_QWORD *)(v13 + 24) = 270LL;
+      *(_QWORD *)(v13 + 32) = 49LL;
+      *(_QWORD *)(v13 + 40) = this;
+      *(_OWORD *)(v13 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v13);
     }
-    v4 = (__int64)&this[5].Flink[9];
-    *(_QWORD *)(v4 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(v4, 0LL);
+    v6 = (__int64)&this[5].Flink[9];
+    *(_QWORD *)(v6 + 8) = 0LL;
+    ExReleasePushLockExclusiveEx(v6, 0LL);
     KeLeaveCriticalRegion();
-    v5 = (char *)&this[1];
+    v7 = (char *)&this[1];
     while ( 1 )
     {
-      v6 = *(char **)v5;
-      if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 )
+      v8 = *(char **)v7;
+      if ( *(char **)(*(_QWORD *)v7 + 8LL) != v7 )
         goto LABEL_18;
-      v7 = *(_QWORD *)v6;
-      if ( *(char **)(*(_QWORD *)v6 + 8LL) != v6 )
+      v9 = *(_QWORD *)v8;
+      if ( *(char **)(*(_QWORD *)v8 + 8LL) != v8 )
         goto LABEL_18;
-      *(_QWORD *)v5 = v7;
-      *(_QWORD *)(v7 + 8) = v5;
-      if ( v6 == v5 )
+      *(_QWORD *)v7 = v9;
+      *(_QWORD *)(v9 + 8) = v7;
+      if ( v8 == v7 )
         break;
-      operator delete(v6);
+      operator delete(v8);
     }
     operator delete(this[7].Blink);
     this[7].Blink = 0LL;

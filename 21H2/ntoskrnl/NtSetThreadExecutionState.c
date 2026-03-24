@@ -1,21 +1,21 @@
 /*
- * XREFs of NtSetThreadExecutionState @ 0x1407EDD60
+ * XREFs of NtSetThreadExecutionState @ 0x14067D5F0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     PopGetLegacyPowerRequestFlags @ 0x140369870 (PopGetLegacyPowerRequestFlags.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x1403698C4 (PopApplyLegacyPowerRequestFlags.c)
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14036B090 (PoDestroyReasonContext.c)
- *     SessionIsInteractive @ 0x14036B8CC (SessionIsInteractive.c)
- *     PoCaptureReasonContext @ 0x14036B98C (PoCaptureReasonContext.c)
- *     PopSystemRequiredSet @ 0x1403B6DF8 (PopSystemRequiredSet.c)
- *     PoEnergyContextUpdateComponentPower @ 0x1406831A8 (PoEnergyContextUpdateComponentPower.c)
- *     PopNotifyConsoleUserPresent @ 0x1407F2A20 (PopNotifyConsoleUserPresent.c)
- *     PopDiagTraceSetThreadExecutionState @ 0x1407FCC54 (PopDiagTraceSetThreadExecutionState.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PoDestroyReasonContext @ 0x140282BD8 (PoDestroyReasonContext.c)
+ *     SessionIsInteractive @ 0x140283248 (SessionIsInteractive.c)
+ *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
+ *     PopGetLegacyPowerRequestFlags @ 0x140284054 (PopGetLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402840A8 (PopApplyLegacyPowerRequestFlags.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     PopSystemRequiredSet @ 0x1403A7C50 (PopSystemRequiredSet.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14060526C (PoEnergyContextUpdateComponentPower.c)
+ *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
+ *     PopNotifyConsoleUserPresent @ 0x140773100 (PopNotifyConsoleUserPresent.c)
+ *     PopDiagTraceSetThreadExecutionState @ 0x1407734AC (PopDiagTraceSetThreadExecutionState.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
   struct _KTHREAD *CurrentThread; // r15
   __int64 v5; // rcx
   struct _LIST_ENTRY *Blink; // rbx
-  int v7; // ebx
+  int UserPowerRequest; // ebx
   _QWORD *v8; // rsi
   char LegacyPowerRequestFlags; // al
   int v11; // ecx
@@ -35,13 +35,14 @@ __int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
   __int64 v16; // rcx
   bool v17; // bl
   unsigned int SessionId; // eax
-  __int64 v19; // rcx
-  struct _LIST_ENTRY *v20; // [rsp+30h] [rbp-38h] BYREF
-  int v21; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  struct _LIST_ENTRY *v21; // [rsp+30h] [rbp-38h] BYREF
+  int v22; // [rsp+80h] [rbp+18h] BYREF
   PVOID P; // [rsp+88h] [rbp+20h] BYREF
 
   v2 = (_DWORD *)a2;
-  v21 = 0;
+  v22 = 0;
   P = 0LL;
   LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
   if ( !(_BYTE)a2 )
@@ -54,21 +55,21 @@ __int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
     v5 = (__int64)v2;
   *(_DWORD *)v5 = *(_DWORD *)v5;
   Blink = CurrentThread[1].ApcState.ApcListHead[1].Blink;
-  v20 = Blink;
+  v21 = Blink;
   if ( Blink || a1 >= 0 )
     goto LABEL_11;
-  v7 = PoCaptureReasonContext(0LL, a2, 0LL, 1, 0LL, &P);
-  if ( v7 < 0 )
-    return (unsigned int)v7;
+  UserPowerRequest = PoCaptureReasonContext(0LL, a2, 0LL, 1, 0LL, &P);
+  if ( UserPowerRequest < 0 )
+    return (unsigned int)UserPowerRequest;
   v8 = P;
-  v7 = PopPowerRequestCreateCommon(P, 0, &v20);
-  if ( v7 >= 0 )
+  UserPowerRequest = PopCreateUserPowerRequest((__int64 *)&v21, 0, (__int64)P);
+  if ( UserPowerRequest >= 0 )
   {
-    Blink = v20;
-    CurrentThread[1].ApcState.ApcListHead[1].Blink = v20;
+    Blink = v21;
+    CurrentThread[1].ApcState.ApcListHead[1].Blink = v21;
 LABEL_11:
-    LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(Blink, a1, &v21);
-    *v2 = v21;
+    LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(Blink, a1, &v22);
+    *v2 = v22;
     if ( a1 >= 0 )
     {
       PopDiagTraceSetThreadExecutionState(CurrentThread, (unsigned int)a1);
@@ -89,8 +90,8 @@ LABEL_11:
         SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
         if ( SessionIsInteractive(SessionId) && !v17 )
         {
-          LOBYTE(v19) = 1;
-          PopNotifyConsoleUserPresent(v19, 8LL);
+          LOBYTE(v20) = 1;
+          PopNotifyConsoleUserPresent(v20, v19, 8LL);
         }
       }
     }
@@ -102,5 +103,5 @@ LABEL_11:
   }
   if ( v8 )
     PoDestroyReasonContext(v8);
-  return (unsigned int)v7;
+  return (unsigned int)UserPowerRequest;
 }

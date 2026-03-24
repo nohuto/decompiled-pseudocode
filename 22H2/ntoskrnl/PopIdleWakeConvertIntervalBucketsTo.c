@@ -1,32 +1,29 @@
 /*
- * XREFs of PopIdleWakeConvertIntervalBucketsTo @ 0x14099A3F8
+ * XREFs of PopIdleWakeConvertIntervalBucketsTo @ 0x1408F4194
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099A910 (PopIdleWakeNotifyModernStandbyExitWorker.c)
- *     PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x14099B148 (PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14057B950 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x1408F4630 (PopIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
- *     PpmConvertTimeTo @ 0x1403A6A74 (PpmConvertTimeTo.c)
+ *     PpmConvertTimeTo @ 0x140576ED8 (PpmConvertTimeTo.c)
  */
 
-void __fastcall PopIdleWakeConvertIntervalBucketsTo(unsigned int a1, __int64 a2, _QWORD *a3, unsigned __int64 a4)
+void __fastcall PopIdleWakeConvertIntervalBucketsTo(unsigned int a1, __int64 a2, ULONGLONG *a3, ULONGLONG a4)
 {
-  __int64 v4; // rdi
-  __int64 v5; // rbx
-  _QWORD *v7; // r11
-  unsigned __int64 v8; // rax
-  unsigned __int64 *v9; // r11
+  ULONGLONG *v4; // rbx
+  __int64 v5; // rsi
+  __int64 v7; // rdi
 
   if ( a1 )
   {
-    v4 = a1;
-    v5 = a2 - (_QWORD)a3;
-    v7 = a3;
+    v4 = a3;
+    v5 = a1;
+    v7 = a2 - (_QWORD)a3;
     do
     {
-      v8 = PpmConvertTimeTo(*(_QWORD *)((char *)v7 + v5), a4);
-      *v9 = v8;
-      v7 = v9 + 1;
-      --v4;
+      *v4 = PpmConvertTimeTo(*(ULONGLONG *)((char *)v4 + v7), a4);
+      ++v4;
+      --v5;
     }
-    while ( v4 );
+    while ( v5 );
   }
 }

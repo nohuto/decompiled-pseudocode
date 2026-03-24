@@ -1,14 +1,14 @@
 /*
- * XREFs of VhdiGetVolumeNumber @ 0x1409F9318
+ * XREFs of VhdiGetVolumeNumber @ 0x1409F9328
  * Callers:
- *     VhdiInitializeBootDisk @ 0x1409F9470 (VhdiInitializeBootDisk.c)
+ *     VhdiInitializeBootDisk @ 0x1409F9480 (VhdiInitializeBootDisk.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1401B8250 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  */
 
 __int64 __fastcall VhdiGetVolumeNumber(__int64 a1, unsigned int a2, int a3, _DWORD *a4)

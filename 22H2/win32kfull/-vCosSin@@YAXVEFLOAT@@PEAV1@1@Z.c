@@ -1,30 +1,31 @@
 /*
- * XREFs of ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02C6424
+ * XREFs of ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02B0890
  * Callers:
- *     GreAngleArc @ 0x1C02AB948 (GreAngleArc.c)
- *     NtGdiArcInternal @ 0x1C02C6710 (NtGdiArcInternal.c)
+ *     GreAngleArc @ 0x1C029F740 (GreAngleArc.c)
+ *     NtGdiArcInternal @ 0x1C02B0BC0 (NtGdiArcInternal.c)
  * Callees:
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     eFraction @ 0x1C0307EB4 (eFraction.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     eFraction @ 0x1C02DF87C (eFraction.c)
  */
 
-void __fastcall vCosSin(int a1, float *a2, float *a3)
+__int64 __fastcall vCosSin(int a1, float *a2, float *a3)
 {
   float v3; // xmm2_4
   int v6; // edi
   int v7; // ebx
-  double v8; // xmm0_8
-  int v9; // xmm4_4
-  unsigned int v10; // edx
-  int v11; // r8d
-  __int64 v12; // r11
-  __int64 v13; // r9
-  int v14; // r10d
+  int v8; // r8d
+  double v9; // xmm0_8
+  int v10; // xmm4_4
+  unsigned int v11; // edx
+  __int64 v12; // r9
+  int v13; // r10d
+  __int64 v14; // rdi
   float v15; // xmm3_4
   char v16; // r10
   __int64 v17; // rdx
-  float v18; // xmm3_4
-  int v19; // [rsp+38h] [rbp+10h] BYREF
+  __int64 result; // rax
+  float v19; // xmm3_4
+  int v20; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = *(float *)&a1;
   if ( *(float *)&a1 >= 0.0 )
@@ -38,39 +39,46 @@ void __fastcall vCosSin(int a1, float *a2, float *a3)
     v7 = 0;
     LODWORD(v3) = a1 ^ _xmm;
   }
-  v19 = 0;
-  bFToL(FP_SINE_FACTOR * v3, &v19, 5u);
-  v8 = eFraction();
-  v10 = v19;
-  v12 = (unsigned int)(v11 + 27);
-  v13 = (unsigned int)(v11 + 26);
-  v14 = v19 >> 5;
-  if ( ((v19 >> 5) & 2) == 0 )
+  v20 = 0;
+  bFToL(FP_SINE_FACTOR * v3, &v20, 5u);
+  v9 = eFraction();
+  v11 = v20;
+  v12 = (unsigned int)(v8 + 26);
+  v13 = v20 >> 5;
+  if ( ((v20 >> 5) & 2) == 0 )
     v7 = v6;
-  if ( (v14 & 1) != 0 )
+  v14 = (unsigned int)(v8 + 27);
+  if ( (v13 & 1) != 0 )
   {
     v15 = COERCE_FLOAT(COERCE_UNSIGNED_INT(
-                         (float)(gaefSin[(unsigned int)v12 - (unsigned __int64)((unsigned int)v13 & v19)]
-                               - gaefSin[(unsigned int)v13 - (unsigned __int64)((unsigned int)v13 & v19)])
-                       * *(float *)&v8) ^ v9)
-        + gaefSin[(unsigned int)v12 - (unsigned __int64)((unsigned int)v13 & v19)];
+                         (float)(gaefSin[(unsigned int)v14 - (unsigned __int64)((unsigned int)v12 & v20)]
+                               - gaefSin[(unsigned int)v12 - (unsigned __int64)((unsigned int)v12 & v20)])
+                       * *(float *)&v9) ^ v10)
+        + gaefSin[(unsigned int)v14 - (unsigned __int64)((unsigned int)v12 & v20)];
   }
   else
   {
-    v10 = v13 & v19;
-    v15 = (float)((float)(gaefSin[((unsigned int)v13 & v19) + 1] - gaefSin[v10]) * *(float *)&v8) + gaefSin[v10];
+    v11 = v12 & v20;
+    v15 = (float)((float)(gaefSin[(int)((v12 & v20) + 1)] - gaefSin[v11]) * *(float *)&v9) + gaefSin[v11];
   }
   if ( v7 )
-    LODWORD(v15) ^= v9;
-  v16 = v14 + 1;
+    LODWORD(v15) ^= v10;
+  v16 = v13 + 1;
   *a3 = v15;
-  v17 = (unsigned int)v13 & v10;
+  v17 = (unsigned int)v12 & v11;
   if ( (v16 & 1) != 0 )
-    v18 = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)(gaefSin[v12 - (unsigned int)v17] - gaefSin[v13 - (unsigned int)v17]) * *(float *)&v8) ^ v9)
-        + gaefSin[v12 - (unsigned int)v17];
+  {
+    result = (unsigned int)v17;
+    v19 = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)(gaefSin[v14 - (unsigned int)v17] - gaefSin[v12 - (unsigned int)v17]) * *(float *)&v9) ^ v10)
+        + gaefSin[v14 - (unsigned int)v17];
+  }
   else
-    v18 = (float)((float)(gaefSin[v17 + 1] - gaefSin[v17]) * *(float *)&v8) + gaefSin[v17];
+  {
+    result = (unsigned int)(v17 + 1);
+    v19 = (float)((float)(gaefSin[(int)result] - gaefSin[v17]) * *(float *)&v9) + gaefSin[v17];
+  }
   if ( (v16 & 2) != 0 )
-    LODWORD(v18) ^= v9;
-  *a2 = v18;
+    LODWORD(v19) ^= v10;
+  *a2 = v19;
+  return result;
 }

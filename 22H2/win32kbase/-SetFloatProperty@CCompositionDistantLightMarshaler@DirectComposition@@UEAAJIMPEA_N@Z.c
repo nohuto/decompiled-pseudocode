@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetFloatProperty@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C022AD20
+ * XREFs of ?SetFloatProperty@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F1E40
  * Callers:
- *     ?SetFloatProperty@?$CSharedResourceMarshaler@VCCompositionDistantLightMarshaler@DirectComposition@@$01@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00D5DE0 (-SetFloatProperty@-$CSharedResourceMarshaler@VCCompositionDistantLightMarshaler@DirectCompositio.c)
+ *     <none>
  * Callees:
- *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0007DD0 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CCompositionDistantLightMarshaler::SetFloatProperty(
         DirectComposition::CCompositionDistantLightMarshaler *this,
-        unsigned int a2,
+        int a2,
         float a3,
         bool *a4)
 {
@@ -17,7 +17,7 @@ __int64 __fastcall DirectComposition::CCompositionDistantLightMarshaler::SetFloa
   result = 0LL;
   *a4 = 0;
   if ( a2 != 6 )
-    return DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
+    return 3221225485LL;
   if ( *((float *)this + 33) != a3 )
   {
     *((_DWORD *)this + 4) |= 0x800u;

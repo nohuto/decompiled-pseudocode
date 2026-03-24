@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerSetupMessageInterruptRouting @ 0x14050CF10
+ * XREFs of HalpTimerSetupMessageInterruptRouting @ 0x1404C0450
  * Callers:
- *     HalpTimerConfigureInterrupt @ 0x1403AEA08 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerSetupMessageInterruptRouting(__int64 a1)

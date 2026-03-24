@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlGetCoverageData @ 0x140543148
+ * XREFs of HvlGetCoverageData @ 0x1404F1858
  * Callers:
- *     ExpCovQueryHypervisorInformation @ 0x140A032A0 (ExpCovQueryHypervisorInformation.c)
+ *     ExpCovQueryHypervisorInformation @ 0x140957570 (ExpCovQueryHypervisorInformation.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14027C410 (MmBuildMdlForNonPagedPool.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
  */
 
 bool __fastcall HvlGetCoverageData(char a1, ULONG a2, void *a3)
@@ -21,37 +21,29 @@ bool __fastcall HvlGetCoverageData(char a1, ULONG a2, void *a3)
   struct _MDL *v7; // r15
   unsigned __int64 v8; // rdi
   _DWORD *v9; // rbx
-  __int128 v11; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-C0h]
-  __int64 v13; // [rsp+48h] [rbp-B8h]
-  __int128 v14; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v15; // [rsp+60h] [rbp-A0h]
-  __int64 v16; // [rsp+68h] [rbp-98h]
-  _BYTE v17[144]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v18[2064]; // [rsp+100h] [rbp+0h] BYREF
+  _OWORD v11[2]; // [rsp+30h] [rbp-D0h] BYREF
+  _OWORD v12[2]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v13[144]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v14[2064]; // [rsp+100h] [rbp+0h] BYREF
 
   v3 = (__int16)a3;
-  v15 = 0LL;
-  LODWORD(v16) = 0;
   v5 = 0;
-  v12 = 0LL;
-  LODWORD(v13) = 0;
-  v14 = 0LL;
-  v11 = 0LL;
+  memset(v12, 0, sizeof(v12));
+  memset(v11, 0, sizeof(v11));
   Mdl = IoAllocateMdl(a3, a2, 0, 0, 0LL);
   v7 = Mdl;
   if ( Mdl )
   {
     MmBuildMdlForNonPagedPool(Mdl);
     v8 = ((v3 & 0xFFF) + 4095LL + (unsigned __int64)v7->ByteCount) >> 12;
-    v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v14, 1, (__int64)v18, 1032LL);
-    HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v11, 2, (__int64)v17, 72LL);
+    v9 = (_DWORD *)HvlpAcquireHypercallPage(v12, 1LL, v14, 1032LL);
+    HvlpAcquireHypercallPage(v11, 2LL, v13, 72LL);
     *v9 = (a1 != 0) + 1;
     v9[1] = v8;
     memmove(v9 + 2, &v7[1], 8LL * (unsigned int)v8);
     LOWORD(v9) = HvcallInitiateHypercall(147);
-    HvlpReleaseHypercallPage((__int64)&v11);
-    HvlpReleaseHypercallPage((__int64)&v14);
+    HvlpReleaseHypercallPage(v11);
+    HvlpReleaseHypercallPage(v12);
     v5 = (_WORD)v9 == 0;
     IoFreeMdl(v7);
   }

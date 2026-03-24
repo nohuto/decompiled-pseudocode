@@ -1,12 +1,12 @@
 /*
- * XREFs of _soutput_s @ 0x1403E8394
+ * XREFs of _soutput_s @ 0x1403D8F3C
  * Callers:
- *     _vsnprintf_s @ 0x1403E6560 (_vsnprintf_s.c)
- *     vsprintf_s @ 0x1403E7050 (vsprintf_s.c)
+ *     _vsnprintf_s @ 0x1403D7120 (_vsnprintf_s.c)
+ *     vsprintf_s @ 0x1403D7C20 (vsprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _flsbuf @ 0x1403E3D0C (_flsbuf.c)
- *     _output_s @ 0x1403E7A78 (_output_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D4998 (_flsbuf.c)
+ *     _output_s @ 0x1403D862C (_output_s.c)
  */
 
 __int64 __fastcall soutput_s(char *a1, unsigned __int64 a2, char *a3, int *a4)
@@ -39,7 +39,10 @@ LABEL_6:
         if ( File._cnt >= 0 )
         {
           if ( a1 )
-            *a1 = 0;
+          {
+            if ( a2 )
+              *a1 = 0;
+          }
           return v7;
         }
         return 4294967294LL;

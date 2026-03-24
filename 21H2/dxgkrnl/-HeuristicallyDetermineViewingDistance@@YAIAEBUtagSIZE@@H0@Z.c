@@ -1,7 +1,7 @@
 /*
- * XREFs of ?HeuristicallyDetermineViewingDistance@@YAIAEBUtagSIZE@@H0@Z @ 0x1C0019B00
+ * XREFs of ?HeuristicallyDetermineViewingDistance@@YAIAEBUtagSIZE@@H0@Z @ 0x1C001ACB0
  * Callers:
- *     ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C01D5AB8 (-DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z.c)
+ *     ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C016D160 (-DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,12 +16,8 @@ __int64 __fastcall HeuristicallyDetermineViewingDistance(const struct tagSIZE *a
     return 280LL;
   if ( (unsigned int)v3 < 0x1FA4 )
     return 180LL;
-  if ( (unsigned int)v3 < 0x4204 )
-  {
-    if ( *a3 != 0x25800000400LL )
-      return 200LL;
-    return 245LL;
-  }
+  if ( (unsigned int)v3 < 0x4204 && *a3 != 0x25800000400LL )
+    return 200LL;
   if ( (unsigned int)v3 < 0x57E4 )
     return 245LL;
   if ( (unsigned int)v3 < 0x7E90 )

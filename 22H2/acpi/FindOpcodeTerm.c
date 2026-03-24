@@ -1,8 +1,9 @@
 /*
- * XREFs of FindOpcodeTerm @ 0x1C004B424
+ * XREFs of FindOpcodeTerm @ 0x1C00228B8
  * Callers:
- *     RegOpcodeHandler @ 0x1C004CC88 (RegOpcodeHandler.c)
- *     ParseOpcode @ 0x1C005BD60 (ParseOpcode.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseOpcode @ 0x1C0022530 (ParseOpcode.c)
+ *     RegOpcodeHandler @ 0x1C0065B80 (RegOpcodeHandler.c)
  * Callees:
  *     <none>
  */

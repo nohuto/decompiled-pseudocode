@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF__guid_d @ 0x1C00806B8
+ * XREFs of WPP_IFR_SF__guid_d @ 0x1C0073E3C
  * Callers:
- *     ?QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z @ 0x1C007FFD4 (-QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z.c)
+ *     ?QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z @ 0x1C0073768 (-QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF__guid_d(

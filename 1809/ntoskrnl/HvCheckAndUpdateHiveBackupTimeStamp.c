@@ -2,10 +2,10 @@
  * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A73BC
  * Callers:
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpCreateHiveRootCell @ 0x14075BBB8 (CmpCreateHiveRootCell.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     CmpCreateHiveRootCell @ 0x14075BB98 (CmpCreateHiveRootCell.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  */

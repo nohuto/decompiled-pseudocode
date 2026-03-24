@@ -4,9 +4,9 @@
  *     NtAdjustPrivilegesToken @ 0x1406099A0 (NtAdjustPrivilegesToken.c)
  * Callees:
  *     SepCopyTokenIntegrity @ 0x140091E20 (SepCopyTokenIntegrity.c)
- *     RtlSidDominates @ 0x1400A9210 (RtlSidDominates.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlSidDominates @ 0x1400A9230 (RtlSidDominates.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SepAdtTokenRightAdjusted @ 0x14060A2D8 (SepAdtTokenRightAdjusted.c)
  */
 

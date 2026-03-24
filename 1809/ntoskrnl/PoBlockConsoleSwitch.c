@@ -1,16 +1,16 @@
 /*
- * XREFs of PoBlockConsoleSwitch @ 0x1406DDC30
+ * XREFs of PoBlockConsoleSwitch @ 0x1406DDC10
  * Callers:
- *     PoPowerOffMonitor @ 0x140142C88 (PoPowerOffMonitor.c)
+ *     PoPowerOffMonitor @ 0x140142CA8 (PoPowerOffMonitor.c)
  *     PnprQuiesceDevices @ 0x14057A1E0 (PnprQuiesceDevices.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopBlockSessionSwitch @ 0x1406DDB50 (PopBlockSessionSwitch.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FDC (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopBlockSessionSwitch @ 0x1406DDB30 (PopBlockSessionSwitch.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FBC (PopDirectedDripsNotifyAppsAndServices.c)
  * Callees:
  *     RtlGetActiveConsoleId @ 0x140010890 (RtlGetActiveConsoleId.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     PopDispatchStateCallout @ 0x1406DDC80 (PopDispatchStateCallout.c)
+ *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
  */
 
 __int64 __fastcall PoBlockConsoleSwitch(__int64 a1)

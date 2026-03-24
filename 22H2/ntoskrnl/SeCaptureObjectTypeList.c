@@ -1,36 +1,37 @@
 /*
- * XREFs of SeCaptureObjectTypeList @ 0x1402B5968
+ * XREFs of SeCaptureObjectTypeList @ 0x1403470D0
  * Callers:
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureObjectTypeList(unsigned __int64 a1, unsigned int a2, char a3, _QWORD *a4)
 {
-  int v7; // ebx
-  _DWORD *Pool2; // r10
+  int v7; // edi
+  char *PoolWithTag; // r9
   __int64 v9; // rax
-  _DWORD *v10; // r13
-  unsigned int v11; // edx
-  __int64 v12; // r9
-  __int64 v13; // r8
-  __int64 v14; // rcx
-  _OWORD *v15; // rdx
-  __int64 v16; // r11
-  __int64 v17; // r9
-  int i; // [rsp+24h] [rbp-74h]
-  _DWORD *v20; // [rsp+28h] [rbp-70h]
-  _QWORD v21[4]; // [rsp+30h] [rbp-68h]
+  char *v10; // r12
+  __int64 v11; // rdx
+  __int64 v12; // r10
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  char *v15; // rcx
+  _OWORD *v16; // r9
+  unsigned int v17; // r11d
+  __int64 v18; // r10
+  int v20; // [rsp+24h] [rbp-74h]
+  char *v21; // [rsp+28h] [rbp-70h]
+  _QWORD v22[4]; // [rsp+30h] [rbp-68h]
 
-  HIDWORD(v21[0]) = HIDWORD(a4);
+  v22[0] = a4;
   v7 = 0;
-  Pool2 = 0LL;
-  *a4 = 0LL;
+  PoolWithTag = 0LL;
+  *(_QWORD *)v22[0] = 0LL;
   if ( a3 != 1 )
     return 3221225474LL;
   if ( a2 )
@@ -45,54 +46,54 @@ __int64 __fastcall SeCaptureObjectTypeList(unsigned __int64 a1, unsigned int a2,
         if ( v9 + a1 > 0x7FFFFFFF0000LL || v9 + a1 < a1 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, 48LL * a2, 1951360339LL);
-      v20 = Pool2;
-      v10 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 48LL * a2, 0x744F6553u);
+      v21 = PoolWithTag;
+      v10 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v11 = 0;
-        for ( i = 0; ; ++i )
+        v11 = 0LL;
+        v20 = 0;
+        while ( (unsigned int)v11 < a2 )
         {
-          v12 = v11;
-          if ( v11 >= a2 )
-            break;
-          v13 = *(unsigned __int16 *)(a1 + 16LL * v11);
-          if ( (unsigned int)v13 > 4 )
-            goto LABEL_17;
-          v14 = 6LL * v11;
-          Pool2[12 * v11] = (unsigned __int16)v13;
-          v15 = *(_OWORD **)(a1 + 16LL * v11 + 8);
-          if ( ((unsigned __int8)v15 & 3) != 0 )
+          v12 = (unsigned int)v11;
+          v13 = 2 * v11;
+          v14 = *(unsigned __int16 *)(a1 + 8 * v13);
+          if ( (unsigned int)v14 > 4 )
+            goto LABEL_27;
+          v15 = &PoolWithTag[48 * v12];
+          *(_DWORD *)v15 = (unsigned __int16)v14;
+          v16 = *(_OWORD **)(a1 + 8 * v13 + 8);
+          if ( ((unsigned __int8)v16 & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          *(_OWORD *)&Pool2[2 * v14 + 1] = *v15;
-          *(_QWORD *)&Pool2[2 * v14 + 6] = 0LL;
-          Pool2[2 * v14 + 8] = 0;
-          *(_QWORD *)&Pool2[2 * v14 + 10] = 0LL;
-          if ( i )
+          *(_OWORD *)(v15 + 4) = *v16;
+          *((_QWORD *)v15 + 3) = 0LL;
+          *((_DWORD *)v15 + 8) = 0;
+          *((_QWORD *)v15 + 5) = 0LL;
+          if ( v20 )
           {
-            v16 = (unsigned int)v13;
-            Pool2 = v20;
-            if ( (unsigned int)v13 > (unsigned int)LOWORD(v20[12 * (i - 1)]) + 1 || !(_WORD)v13 )
-              goto LABEL_17;
+            v17 = v14;
+            PoolWithTag = v21;
+            if ( (unsigned int)v14 > (unsigned int)*(unsigned __int16 *)&v21[48 * (v20 - 1)] + 1 || !(_WORD)v14 )
+              goto LABEL_27;
           }
           else
           {
-            if ( (_WORD)v13 )
+            if ( (_WORD)v14 )
             {
               v7 = -1073741811;
-              Pool2 = v20;
+              PoolWithTag = v21;
               break;
             }
-            v16 = (unsigned int)v13;
-            Pool2 = v20;
+            v17 = 0;
+            PoolWithTag = v21;
           }
-          v17 = 6 * v12;
-          if ( (_WORD)v13 )
-            v10[2 * v17 + 5] = *((_DWORD *)v21 + v16 + 1);
+          v18 = 6 * v12;
+          if ( (_WORD)v14 )
+            *(_DWORD *)&v10[8 * v18 + 20] = *((_DWORD *)v22 + v17 + 1);
           else
-            v10[2 * v17 + 5] = -1;
-          *((_DWORD *)&v21[1] + v13) = i;
-          v11 = i + 1;
+            *(_DWORD *)&v10[8 * v18 + 20] = -1;
+          *((_DWORD *)&v22[1] + v14) = v20;
+          v11 = (unsigned int)++v20;
           v7 = 0;
         }
       }
@@ -103,18 +104,18 @@ __int64 __fastcall SeCaptureObjectTypeList(unsigned __int64 a1, unsigned int a2,
     }
     else
     {
-LABEL_17:
+LABEL_27:
       v7 = -1073741811;
     }
   }
   if ( v7 < 0 )
   {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {
-    *a4 = Pool2;
+    *a4 = PoolWithTag;
   }
   return (unsigned int)v7;
 }

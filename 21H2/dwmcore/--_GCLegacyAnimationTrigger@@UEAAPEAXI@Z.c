@@ -1,22 +1,26 @@
 /*
- * XREFs of ??_GCLegacyAnimationTrigger@@UEAAPEAXI@Z @ 0x18019EF60
+ * XREFs of ??_GCLegacyAnimationTrigger@@UEAAPEAXI@Z @ 0x18001ED20
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CLegacyAnimationTrigger@@UEAA@XZ @ 0x18019DD14 (--1CLegacyAnimationTrigger@@UEAA@XZ.c)
+ *     ??1CLegacyAnimationTrigger@@UEAA@XZ @ 0x18001ED64 (--1CLegacyAnimationTrigger@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
-void **__fastcall CLegacyAnimationTrigger::`scalar deleting destructor'(void **this, char a2)
+CLegacyAnimationTrigger *__fastcall CLegacyAnimationTrigger::`scalar deleting destructor'(
+        CLegacyAnimationTrigger *this,
+        char a2)
 {
+  unsigned int v4; // r8d
+
   CLegacyAnimationTrigger::~CLegacyAnimationTrigger(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x60, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsUmDirectedFxAddTestDevice @ 0x14099EE9C
+ * XREFs of PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1408F85B4
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x14099F1CC (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x1408F88E4 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     PopDirectedDripsUmCreateTestDevice @ 0x14099EDDC (PopDirectedDripsUmCreateTestDevice.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopDirectedDripsUmCreateTestDevice @ 0x1408F84E0 (PopDirectedDripsUmCreateTestDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmDirectedFxAddTestDevice(unsigned int a1, __int64 a2)

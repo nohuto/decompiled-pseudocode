@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnsureRenderThreadCanReceiveInputThreadMessages@CInputManager@@IEAAJXZ @ 0x1800CCAF0
+ * XREFs of ?EnsureRenderThreadCanReceiveInputThreadMessages@CInputManager@@IEAAJXZ @ 0x1800B6568
  * Callers:
- *     ?Initialize@CInputManager@@UEAAJXZ @ 0x1800CBDD0 (-Initialize@CInputManager@@UEAAJXZ.c)
+ *     ?Initialize@CInputManager@@QEAAJXZ @ 0x1800B4EA8 (-Initialize@CInputManager@@QEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1?IMessageSessionCloseEndpointFunction@details@wil@@YAX01@Z$0A@@wil@@QEAAXPEAUIMessageSession@@_K@Z @ 0x180104258 (-reset@-$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1-IMessageSessionCloseEndpointFun.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1?IMessageSessionCloseEndpointFunction@details@wil@@YAX01@Z$0A@@wil@@QEAAXPEAUIMessageSession@@_K@Z @ 0x1800DFB70 (-reset@-$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1-IMessageSessionCloseEndpointFun.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CInputManager::EnsureRenderThreadCanReceiveInputThreadMessages(CInputManager *this)
@@ -26,7 +26,7 @@ __int64 __fastcall CInputManager::EnsureRenderThreadCanReceiveInputThreadMessage
     (char *)this + 64,
     *((_QWORD *)this + 4));
   v3 = *((_QWORD *)this + 4);
-  v4 = *(__int64 (__fastcall **)(__int64, __int64 (__fastcall *)(void *, const void *, int), CInputManager *, _QWORD *))(*(_QWORD *)v3 + 112LL);
+  v4 = *(__int64 (__fastcall **)(__int64, __int64 (__fastcall *)(void *, const void *, int), CInputManager *, _QWORD *))(*(_QWORD *)v3 + 104LL);
   wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
     v2,
     *v2);
@@ -34,7 +34,7 @@ __int64 __fastcall CInputManager::EnsureRenderThreadCanReceiveInputThreadMessage
   v7 = v5;
   if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x8Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x82u, 0LL);
   }
   else
   {
@@ -45,7 +45,7 @@ __int64 __fastcall CInputManager::EnsureRenderThreadCanReceiveInputThreadMessage
            0LL);
     v7 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x90u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x87u, 0LL);
   }
   return v7;
 }

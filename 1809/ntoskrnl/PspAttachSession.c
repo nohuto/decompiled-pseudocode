@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAttachSession @ 0x14069E7E8
+ * XREFs of PspAttachSession @ 0x14069E7C8
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
  */
 
 __int64 __fastcall PspAttachSession(unsigned int a1, __int64 a2, _KPROCESS **a3)

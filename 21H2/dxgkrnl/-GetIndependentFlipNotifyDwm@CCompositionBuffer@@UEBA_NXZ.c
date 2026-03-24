@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetIndependentFlipNotifyDwm@CCompositionBuffer@@UEBA_NXZ @ 0x1C001FEF0
+ * XREFs of ?GetIndependentFlipNotifyDwm@CCompositionBuffer@@UEBA_NXZ @ 0x1C001B9F0
  * Callers:
  *     <none>
  * Callees:

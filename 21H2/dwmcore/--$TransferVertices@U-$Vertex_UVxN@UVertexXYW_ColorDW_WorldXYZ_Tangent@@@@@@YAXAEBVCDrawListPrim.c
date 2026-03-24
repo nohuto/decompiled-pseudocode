@@ -1,253 +1,338 @@
 /*
- * XREFs of ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@@Z @ 0x18000D1D8
+ * XREFs of ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@@Z @ 0x180020854
  * Callers:
- *     ?EmitGeometry@CCommonRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1800A6FB0 (-EmitGeometry@CCommonRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCom.c)
- *     ?EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@_N@Z @ 0x1800CCED8 (-EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
+ *     ?EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCHWDrawListEntry@@_N@Z @ 0x180078300 (-EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCHWDrawListEntry@@_N@Z.c)
  * Callees:
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x18000D3E8 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_Color.c)
- *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x18000DE4C (-Transpose@CMILMatrix@@QEAAXXZ.c)
- *     ?GetScaleCorrectLocalToWorldTransform@CDrawListPrimitive@@QEBA?AVCMILMatrix@@AEBV2@@Z @ 0x18000DF08 (-GetScaleCorrectLocalToWorldTransform@CDrawListPrimitive@@QEBA-AVCMILMatrix@@AEBV2@@Z.c)
- *     ?Is2DAffineOrNaN@CMILMatrix@@QEBA_N_N@Z @ 0x1800555A8 (-Is2DAffineOrNaN@CMILMatrix@@QEBA_N_N@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800DCDBC (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EDA18 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_Ve_ea_1801EDA18.c)
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EDCC4 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_Ve_ea_1801EDCC4.c)
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EE168 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1801EE168.c)
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EE43C (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1801EE43C.c)
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EE740 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1801EE740.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EEB6C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldX.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EECCC (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801EECCC.c)
- *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EEE2C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801EEE2C.c)
- *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF0DC (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_World.c)
- *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF1D8 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1801EF1D8.c)
- *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF2D4 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1801EF2D4.c)
- *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF5CC (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ.c)
- *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF6F4 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1801EF6F4.c)
- *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF81C (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1801EF81C.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1800123B0 (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldX.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180015E44 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_.c)
+ *     ?GetScaleCorrectLocalToWorldTransform4x4@CDrawListPrimitive@@QEBA?AVCMILMatrix@@AEBV2@@Z @ 0x18001899C (-GetScaleCorrectLocalToWorldTransform4x4@CDrawListPrimitive@@QEBA-AVCMILMatrix@@AEBV2@@Z.c)
+ *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x180020BB4 (-Transpose@CMILMatrix@@QEAAXXZ.c)
+ *     ?GetScaleCorrectLocalToWorldTransform3x2@CDrawListPrimitive@@QEBA?AUD2D_MATRIX_3X2_F@@AEBVCMILMatrix@@@Z @ 0x180020C10 (-GetScaleCorrectLocalToWorldTransform3x2@CDrawListPrimitive@@QEBA-AUD2D_MATRIX_3X2_F@@AEBVCMILMa.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180020C78 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_180020C78.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180020F78 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_Color.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x180021238 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_Ve_ea_180021238.c)
+ *     ?SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z @ 0x18003E1BC (-SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z.c)
+ *     ??$Is2DAffine@$0A@@CMILMatrix@@AEBA_N_N@Z @ 0x180081D20 (--$Is2DAffine@$0A@@CMILMatrix@@AEBA_N_N@Z.c)
+ *     ?IsCloseRealOne@@YA_NMM@Z @ 0x180088338 (-IsCloseRealOne@@YA_NMM@Z.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4638 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?IsCloseRealMatrixEpsilon@@YA_NMM@Z @ 0x1800EFCE0 (-IsCloseRealMatrixEpsilon@@YA_NMM@Z.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A7AB8 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_Ve_ea_1801A7AB8.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8004 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdScale2DOperator_Vertex_UVxN_Verte_ea_1801A8004.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A846C (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801A846C.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A85CC (VertexTransfer--Transfer_VertexTransfer--CGeneral3DOperator_Vertex_UVxN_VertexXYW_C_ea_1801A85CC.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8894 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_World.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8990 (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1801A8990.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8A8C (VertexTransfer--Transfer_VertexTransfer--CNonScale2DOperator_Vertex_UVxN_VertexXYW__ea_1801A8A8C.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8D84 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8EAC (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1801A8EAC.c)
+ *     VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8FD4 (VertexTransfer--Transfer_VertexTransfer--CScale2DOperator_Vertex_UVxN_VertexXYW_Col_ea_1801A8FD4.c)
  */
 
 __int64 __fastcall TransferVertices<Vertex_UVxN<VertexXYW_ColorDW_WorldXYZ_Tangent>>(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        CDrawListPrimitive *this,
+        struct CMILMatrix *a2,
+        char a3,
         float a4,
         __int64 *a5)
 {
-  int v5; // r12d
-  char v7; // r14
-  __int64 v8; // r9
-  int v9; // eax
-  bool v10; // dl
-  __int128 *v11; // r8
-  char v12; // r9
-  __int128 *v13; // rbx
-  _OWORD *v14; // rdi
-  char v15; // r10
-  __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
-  __int128 v19; // xmm1
-  char v20; // si
+  __int64 v5; // rax
+  CMILMatrix *v6; // rbx
+  unsigned int v7; // r15d
+  char v9; // di
+  __int64 v12; // r12
+  char v13; // r9
+  float m11; // xmm3_4
+  int v15; // xmm4_4
+  float m21; // xmm2_4
+  float v17; // xmm5_4
+  CMILMatrix *v18; // rax
+  __int64 v19; // r10
+  CMILMatrix *v20; // rax
+  __int64 v21; // r10
+  CMILMatrix *v22; // rax
+  __int64 v23; // r10
+  CMILMatrix *v24; // rax
+  __int64 v25; // r10
   __int64 result; // rax
-  _QWORD v22[2]; // [rsp+28h] [rbp-E0h] BYREF
-  int v23; // [rsp+38h] [rbp-D0h]
-  int v24; // [rsp+3Ch] [rbp-CCh]
-  __int64 v25; // [rsp+40h] [rbp-C8h]
-  int v26; // [rsp+48h] [rbp-C0h]
-  int v27; // [rsp+4Ch] [rbp-BCh]
-  int v28; // [rsp+50h] [rbp-B8h]
-  float v29; // [rsp+54h] [rbp-B4h]
-  __int64 v30; // [rsp+58h] [rbp-B0h]
-  __int64 v31; // [rsp+60h] [rbp-A8h]
-  int v32; // [rsp+68h] [rbp-A0h]
-  int v33; // [rsp+6Ch] [rbp-9Ch]
-  float v34[4]; // [rsp+78h] [rbp-90h] BYREF
-  float v35; // [rsp+88h] [rbp-80h]
-  float v36; // [rsp+8Ch] [rbp-7Ch]
-  _OWORD v37[4]; // [rsp+C8h] [rbp-40h] BYREF
-  int v38; // [rsp+108h] [rbp+0h]
+  CMILMatrix *v27; // rax
+  __int64 v28; // r10
+  CMILMatrix *v29; // rax
+  __int64 v30; // r10
+  unsigned int *v31; // rax
+  unsigned int *v32; // r10
+  CMILMatrix *v33; // rax
+  __int64 v34; // r10
+  CMILMatrix *v35; // r10
+  __int64 v36; // [rsp+28h] [rbp-E0h] BYREF
+  __int64 v37; // [rsp+30h] [rbp-D8h]
+  __int64 v38; // [rsp+38h] [rbp-D0h]
+  __int64 v39; // [rsp+40h] [rbp-C8h]
+  __int64 v40; // [rsp+48h] [rbp-C0h]
+  unsigned __int64 v41; // [rsp+50h] [rbp-B8h]
+  __int64 v42; // [rsp+58h] [rbp-B0h]
+  __int64 v43; // [rsp+60h] [rbp-A8h]
+  __int64 v44; // [rsp+68h] [rbp-A0h]
+  _BYTE v45[80]; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v46[64]; // [rsp+C8h] [rbp-40h] BYREF
+  int v47; // [rsp+108h] [rbp+0h]
+  struct D2D_MATRIX_3X2_F v48; // [rsp+118h] [rbp+10h] BYREF
 
-  v5 = *(_DWORD *)(a1 + 16);
-  v7 = *(_BYTE *)(a1 + 96);
-  v22[0] = *(_QWORD *)(a1 + 48);
-  v22[1] = *(_QWORD *)(a1 + 32);
-  v24 = *(_DWORD *)(a1 + 8);
-  v25 = *(_QWORD *)(a1 + 40);
-  v27 = *(_DWORD *)(a1 + 12);
-  v23 = 8 * v5 + 16;
-  v26 = v23;
-  v8 = *a5;
-  v32 = *((_DWORD *)a5 + 2);
-  v9 = *((_DWORD *)a5 + 3);
-  v29 = a4;
-  v28 = v5;
-  LOBYTE(v30) = v7;
-  v31 = v8;
-  v33 = v9;
-  CDrawListPrimitive::GetScaleCorrectLocalToWorldTransform(a1, v34, a2);
-  v13 = 0LL;
-  v14 = 0LL;
-  v38 = 0;
-  if ( !v15 )
+  v5 = *((_QWORD *)this + 6);
+  v6 = 0LL;
+  v7 = *((_DWORD *)this + 4);
+  v9 = *((_BYTE *)this + 97);
+  v47 = 0;
+  v36 = v5;
+  v37 = *((_QWORD *)this + 4);
+  HIDWORD(v38) = *((_DWORD *)this + 2);
+  v39 = *((_QWORD *)this + 5);
+  HIDWORD(v40) = *((_DWORD *)this + 3);
+  LODWORD(v38) = 8 * v7 + 16;
+  v12 = *a5;
+  v44 = a5[1];
+  LODWORD(v40) = v38;
+  v41 = __PAIR64__(LODWORD(a4), v7);
+  LOBYTE(v42) = v9;
+  v43 = v12;
+  if ( !a3 )
   {
-    v16 = *v11;
-    v17 = v11[1];
-    v13 = v11;
-    v38 = *((_DWORD *)v11 + 16);
-    v37[0] = v16;
-    v18 = v11[2];
-    v37[1] = v17;
-    v19 = v11[3];
-    v37[2] = v18;
-    v37[3] = v19;
-    CMILMatrix::Invert((CMILMatrix *)v37);
-    CMILMatrix::Transpose((CMILMatrix *)v37);
-    v14 = v37;
+    CMILMatrix::SetToInverse((CMILMatrix *)v46, a2);
+    CMILMatrix::Transpose((CMILMatrix *)v46);
+    v6 = (CMILMatrix *)v46;
   }
-  v20 = 1;
-  if ( (v5 & 1) != 0 || (v12 & 0xF) != 0 )
-    v20 = 0;
-  if ( CMILMatrix::Is2DAffineOrNaN((CMILMatrix *)v34, v10) )
+  if ( (unsigned __int8)CMILMatrix::Is2DAffine<0>(a2) )
   {
-    if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v34[0] - v36) & _xmm) > 0.000081380211
-      || COERCE_FLOAT(COERCE_UNSIGNED_INT(v34[1] - COERCE_FLOAT(LODWORD(v35) ^ _xmm)) & _xmm) > 0.000081380211
-      || COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v35 * v35) + (float)(v34[0] * v34[0])) - 1.0) & _xmm) >= 0.000081380211 )
+    CDrawListPrimitive::GetScaleCorrectLocalToWorldTransform3x2(this, &v48, a2);
+    m11 = v48.m11;
+    v15 = _xmm;
+    if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v48.m11 - v48.m22) & _xmm) <= 0.000081380211
+      && (m21 = v48.m21, IsCloseRealMatrixEpsilon(v48.m12, COERCE_FLOAT(LODWORD(v48.m21) ^ _xmm)))
+      && IsCloseRealOne((float)(m21 * m21) + (float)(m11 * m11), v17) )
     {
-      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a4 - 1.0) & _xmm) >= 0.0000011920929 )
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a4 - 1.0) & v15) >= 0.0000011920929 )
       {
-        if ( v20 )
+        if ( v13 )
         {
-          if ( v7 )
-            VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+          v22 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+          if ( v9 )
+            VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
               v22,
-              v34,
-              v13,
-              v14);
+              v23,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
           else
-            VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+            VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
               v22,
-              v34,
-              v13,
-              v14);
-        }
-        else if ( v7 )
-        {
-          VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-            v22,
-            v34,
-            v13,
-            v14);
+              v23,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
         }
         else
         {
-          VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-            v22,
-            v34,
-            v13,
-            v14);
+          v24 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+          if ( v9 )
+            VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
+              v24,
+              v25,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
+          else
+            VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
+              v24,
+              v25,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
         }
       }
-      else if ( v20 )
+      else if ( v13 )
       {
-        VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-          v22,
-          v34,
-          v13,
-          v14);
+        v18 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+        ((void (__fastcall *)(__int64 *, CMILMatrix *, __int64, CMILMatrix *))VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___)(
+          &v36,
+          v18,
+          v19,
+          v6);
       }
       else
       {
-        VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-          v22,
-          v34,
-          v13,
-          v14);
+        v20 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+        ((void (__fastcall *)(__int64 *, CMILMatrix *, __int64, CMILMatrix *))VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___)(
+          &v36,
+          v20,
+          v21,
+          v6);
       }
-      result = *(unsigned int *)(a1 + 8);
-      dword_1803D3268 += result;
+      result = *((unsigned int *)this + 2);
+      dword_1803473B4 += result;
     }
     else
     {
-      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a4 - 1.0) & _xmm) >= 0.0000011920929 )
+      if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a4 - 1.0) & v15) >= 0.0000011920929 )
       {
-        if ( v20 )
+        if ( v13 )
         {
-          if ( v7 )
-            VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-              v22,
-              v34,
-              v13,
-              v14);
+          v31 = (unsigned int *)CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+          if ( v9 )
+            VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
+              v31,
+              v32,
+              v6);
           else
-            VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-              v22,
-              v34,
-              v13,
-              v14);
-        }
-        else if ( v7 )
-        {
-          VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-            v22,
-            v34,
-            v13,
-            v14);
+            VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
+              v31,
+              v32,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
         }
         else
         {
-          VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-            v22,
-            v34,
-            v13,
-            v14);
+          v33 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+          if ( v9 )
+            VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
+              v33,
+              v34,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
+          else
+            VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+              &v36,
+              v33,
+              v34,
+              v6,
+              v36,
+              v37,
+              v38,
+              v39,
+              v40,
+              v41,
+              v42,
+              v43,
+              v44);
         }
       }
-      else if ( v20 )
+      else if ( v13 )
       {
-        VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-          v22,
-          v34,
-          v13,
-          v14);
+        v27 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+        ((void (__fastcall *)(__int64 *, CMILMatrix *, __int64, CMILMatrix *))VertexTransfer::SimdTransfer_VertexTransfer::CSimdScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___)(
+          &v36,
+          v27,
+          v28,
+          v6);
       }
       else
       {
-        VertexTransfer::Transfer_VertexTransfer::CNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-          v22,
-          v34,
-          v13,
-          v14);
+        v29 = CMILMatrix::CMILMatrix((CMILMatrix *)v45, &v48);
+        ((void (__fastcall *)(__int64 *, CMILMatrix *, __int64, CMILMatrix *))VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___)(
+          &v36,
+          v29,
+          v30,
+          v6);
       }
-      result = *(unsigned int *)(a1 + 8);
-      dword_1803D3264 += result;
+      result = *((unsigned int *)this + 2);
+      dword_1803473B8 += result;
     }
   }
   else
   {
+    CDrawListPrimitive::GetScaleCorrectLocalToWorldTransform4x4((__int64)this, (__int64)v45, (__int64)a2);
     if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a4 - 1.0) & _xmm) >= 0.0000011920929 )
     {
-      if ( v7 )
+      if ( v9 )
         VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____2_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-          v22,
-          v34,
-          v13,
-          v14);
+          &v36,
+          v45,
+          v35,
+          v6,
+          v36,
+          v37,
+          v38,
+          v39,
+          v40,
+          v41,
+          v42,
+          v43,
+          v44);
       else
         VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-          v22,
-          v34,
-          v13,
-          v14);
+          &v36,
+          v45,
+          v35,
+          v6,
+          v36,
+          v37,
+          v38,
+          v39,
+          v40,
+          v41,
+          v42,
+          v43,
+          v44);
     }
     else
     {
       VertexTransfer::Transfer_VertexTransfer::CGeneral3DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____0_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
-        v22,
-        v34,
-        v13,
-        v14);
+        (__int64)&v36,
+        (CMILMatrix *)v45,
+        v35);
     }
-    result = *(unsigned int *)(a1 + 8);
-    dword_1803D326C += result;
+    result = *((unsigned int *)this + 2);
+    dword_1803473BC += result;
   }
   return result;
 }

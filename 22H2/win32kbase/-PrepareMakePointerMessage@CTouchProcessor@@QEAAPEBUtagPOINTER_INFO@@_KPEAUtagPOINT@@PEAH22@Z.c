@@ -1,56 +1,53 @@
 /*
- * XREFs of ?PrepareMakePointerMessage@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@_KPEAUtagPOINT@@PEAH22@Z @ 0x1C01CF1D0
+ * XREFs of ?PrepareMakePointerMessage@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@_KPEAUtagPOINT@@PEAH22@Z @ 0x1C0198BC0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?FindFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C01C26AC (-FindFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?FindFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C00CCEEC (-FindFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
  */
 
 const struct tagPOINTER_INFO *__fastcall CTouchProcessor::PrepareMakePointerMessage(
-        struct _KTHREAD **this,
-        void *a2,
+        CTouchProcessor *this,
+        __int64 a2,
         struct tagPOINT *a3,
         int *a4,
         int *a5,
         int *a6)
 {
-  CTouchProcessor *v10; // rcx
-  struct CPointerMsgData *NonConstMsgData; // rax
-  struct CPointerMsgData *v12; // rsi
-  _QWORD *FrameById; // rax
-  _QWORD *v14; // rdi
-  _DWORD *v15; // rbx
-  _DWORD *v16; // rdi
-  CInpLockGuard *v18[8]; // [rsp+20h] [rbp-68h] BYREF
+  _QWORD *FrameById; // rdi
+  __int64 v11; // rax
+  _DWORD *v12; // rsi
+  _DWORD *v13; // rdi
+  CInpLockGuard *v15[8]; // [rsp+20h] [rbp-68h] BYREF
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v18,
-    (struct CInpLockGuard *)(this + 4),
-    a2);
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(v10, (__int64)a2);
-  v12 = NonConstMsgData;
-  if ( NonConstMsgData
-    && (FrameById = CTouchProcessor::FindFrameById(this, *((_DWORD *)NonConstMsgData + 7), 4), (v14 = FrameById) != 0LL) )
+    (CInpLockGuardExclusiveIfNeeded *)v15,
+    (CTouchProcessor *)((char *)this + 40),
+    (void *)a2);
+  if ( a2 && (FrameById = CTouchProcessor::FindFrameById(this, *(_DWORD *)(a2 + 28))) != 0LL )
   {
-    if ( *((_DWORD *)v12 + 8) >= *((_DWORD *)FrameById + 12) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13557);
-    v15 = (_DWORD *)(v14[30] + 480LL * *((unsigned int *)v12 + 8));
-    v16 = v15 + 42;
-    if ( v15[43] != *((unsigned __int16 *)v12 + 8) )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13562);
-    *a3 = *(struct tagPOINT *)(v15 + 37);
-    *a4 = v15[36];
-    *a5 = -__CFSHR__(*v15, 18);
-    *a6 = -__CFSHR__(*v15, 19);
+    v11 = *(unsigned int *)(a2 + 32);
+    if ( (unsigned int)v11 >= *((_DWORD *)FrameById + 12) )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12950);
+      v11 = *(unsigned int *)(a2 + 32);
+    }
+    v12 = (_DWORD *)(FrameById[17] + 480 * v11);
+    v13 = v12 + 42;
+    if ( v12[43] != *(unsigned __int16 *)(a2 + 16) )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12955);
+    *a3 = *(struct tagPOINT *)(v12 + 37);
+    *a4 = v12[36];
+    *a5 = -__CFSHR__(*v12, 18);
+    *a6 = -__CFSHR__(*v12, 19);
   }
   else
   {
-    v16 = 0LL;
+    v13 = 0LL;
   }
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v18);
-  return (const struct tagPOINTER_INFO *)v16;
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v15);
+  return (const struct tagPOINTER_INFO *)v13;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DecComposited@@YAXPEAUtagWND@@@Z @ 0x1C0220610
+ * XREFs of ?DecComposited@@YAXPEAUtagWND@@@Z @ 0x1C023D690
  * Callers:
  *     <none>
  * Callees:
- *     DecrementCompositedCount @ 0x1C00178C4 (DecrementCompositedCount.c)
+ *     DecrementCompositedCount @ 0x1C01E774C (DecrementCompositedCount.c)
  */
 
 void __fastcall DecComposited(struct tagWND *a1)

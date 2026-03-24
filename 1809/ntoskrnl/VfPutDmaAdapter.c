@@ -5,10 +5,10 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ViFlushZeroMapRegisterBaseWcbs @ 0x14030A0B8 (ViFlushZeroMapRegisterBaseWcbs.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ViFlushZeroMapRegisterBaseWcbs @ 0x14030A1B8 (ViFlushZeroMapRegisterBaseWcbs.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     VF_ASSERT_MAX_IRQL @ 0x140929720 (VF_ASSERT_MAX_IRQL.c)
  *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
@@ -41,10 +41,10 @@ __int64 (__fastcall *__fastcall VfPutDmaAdapter(ULONG_PTR a1))(ULONG_PTR)
         if ( _InterlockedDecrement((volatile signed __int32 *)&Flink[2].Flink + 1) < 0 )
         {
           ViHalPreprocessOptions(
-            byte_1404054E8,
+            byte_1404054DC,
             "Driver has attempted to access an adapter (%p) that has already been released.",
             (const void *)0x18);
-          VfReportIssueWithOptions(0xE6u, 0x18uLL, a1, (ULONG_PTR)Flink, 0LL, byte_1404054E8);
+          VfReportIssueWithOptions(0xE6u, 0x18uLL, a1, (ULONG_PTR)Flink, 0LL, byte_1404054DC);
         }
         ViFlushZeroMapRegisterBaseWcbs((__int64)Flink);
         if ( HIDWORD(Flink[11].Flink) != LODWORD(Flink[11].Blink) )
@@ -65,7 +65,7 @@ __int64 (__fastcall *__fastcall VfPutDmaAdapter(ULONG_PTR a1))(ULONG_PTR)
         if ( HIDWORD(Flink[10].Blink) != LODWORD(Flink[11].Flink) )
         {
           ViHalPreprocessOptions(
-            byte_1404054E4,
+            byte_1404054D4,
             "Cannot put adapter %p until all common buffers are freed (%x left).",
             (const void *)7,
             a1);
@@ -75,7 +75,7 @@ __int64 (__fastcall *__fastcall VfPutDmaAdapter(ULONG_PTR a1))(ULONG_PTR)
             a1,
             (unsigned int)(HIDWORD(Flink[10].Blink) - LODWORD(Flink[11].Flink)),
             (ULONG_PTR)Flink,
-            byte_1404054E4);
+            byte_1404054D4);
         }
         if ( LODWORD(Flink[10].Flink) )
         {
@@ -89,11 +89,11 @@ __int64 (__fastcall *__fastcall VfPutDmaAdapter(ULONG_PTR a1))(ULONG_PTR)
         if ( LODWORD(Flink[10].Blink) )
         {
           ViHalPreprocessOptions(
-            byte_1404054DC,
+            byte_1404054D0,
             "Cannot put adapter %p until all scatter gather lists are freed (%x left).",
             (const void *)0xA,
             a1);
-          VfReportIssueWithOptions(0xE6u, 0xAuLL, a1, SLODWORD(Flink[10].Blink), (ULONG_PTR)Flink, byte_1404054DC);
+          VfReportIssueWithOptions(0xE6u, 0xAuLL, a1, SLODWORD(Flink[10].Blink), (ULONG_PTR)Flink, byte_1404054D0);
         }
         if ( !Flink[1].Blink || BYTE2(Flink[2].Flink) )
         {

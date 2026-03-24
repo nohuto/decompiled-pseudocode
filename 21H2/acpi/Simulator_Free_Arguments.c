@@ -1,14 +1,14 @@
 /*
- * XREFs of Simulator_Free_Arguments @ 0x1C0064DF4
+ * XREFs of Simulator_Free_Arguments @ 0x1C0063B74
  * Callers:
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
- *     AMLIRegEventHandler @ 0x1C00292D8 (AMLIRegEventHandler.c)
- *     Simulator_AsyncEvalObjectCallBack @ 0x1C0064AF0 (Simulator_AsyncEvalObjectCallBack.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     AMLIRegEventHandler @ 0x1C002C19C (AMLIRegEventHandler.c)
+ *     Simulator_AsyncEvalObjectCallBack @ 0x1C0063870 (Simulator_AsyncEvalObjectCallBack.c)
  * Callees:
- *     FreeObjData @ 0x1C0018AA0 (FreeObjData.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
  */
 
 __int64 __fastcall Simulator_Free_Arguments(int a1, _QWORD *a2)

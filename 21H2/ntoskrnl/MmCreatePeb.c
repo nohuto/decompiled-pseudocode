@@ -1,23 +1,22 @@
 /*
- * XREFs of MmCreatePeb @ 0x140755B70
+ * XREFs of MmCreatePeb @ 0x140611D98
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     KeQueryGroupMaskProcess @ 0x1402D7598 (KeQueryGroupMaskProcess.c)
- *     KeQueryGroupAffinity @ 0x1402D75B0 (KeQueryGroupAffinity.c)
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiInitializeWowPeb @ 0x1406D8E14 (MiInitializeWowPeb.c)
- *     MiCreatePebOrTeb @ 0x1407099A4 (MiCreatePebOrTeb.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KeQueryGroupMaskProcess @ 0x14025C828 (KeQueryGroupMaskProcess.c)
+ *     KeQueryGroupAffinity @ 0x1402C95F0 (KeQueryGroupAffinity.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     Feature_Leap_Seconds_Sixty_Second__private_ReportDeviceUsage @ 0x1403F7DEC (Feature_Leap_Seconds_Sixty_Second__private_ReportDeviceUsage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
+ *     MiCreatePebOrTeb @ 0x14064C104 (MiCreatePebOrTeb.c)
+ *     MiInitializeWowPeb @ 0x14068BBB4 (MiInitializeWowPeb.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmCreatePeb(_QWORD *a1, __int64 a2, _QWORD *a3, __int64 a4)
@@ -25,200 +24,210 @@ __int64 __fastcall MmCreatePeb(_QWORD *a1, __int64 a2, _QWORD *a3, __int64 a4)
   unsigned int v7; // eax
   _KPROCESS *v8; // rcx
   _DWORD *v9; // r9
-  __int64 v10; // rdx
-  int v11; // ebx
-  _WORD *CurrentServerSiloGlobals; // rax
-  __int64 v13; // rbx
-  __int16 v14; // si
-  __int64 v15; // rdi
-  __int16 v16; // r15
-  int v17; // edx
-  __int64 v18; // rax
-  __int64 v19; // rbx
-  int v20; // r12d
-  int v21; // r13d
-  int v22; // edx
-  __int64 v23; // rbx
-  bool v24; // zf
-  _QWORD *v25; // rax
-  __int64 v26; // rbx
-  int v28; // edi
-  char v29; // di
-  char v30; // di
-  __int64 v31; // rbx
-  int v32; // [rsp+30h] [rbp-188h]
-  USHORT v33; // [rsp+54h] [rbp-164h]
-  __int64 v35; // [rsp+60h] [rbp-158h]
-  _QWORD v36[18]; // [rsp+70h] [rbp-148h] BYREF
-  __int64 v37; // [rsp+100h] [rbp-B8h] BYREF
-  __int64 v38; // [rsp+108h] [rbp-B0h] BYREF
-  __int64 v39; // [rsp+110h] [rbp-A8h] BYREF
-  char v40; // [rsp+118h] [rbp-A0h] BYREF
-  __int64 v41; // [rsp+120h] [rbp-98h] BYREF
-  __int64 v42; // [rsp+128h] [rbp-90h]
-  __int64 v43; // [rsp+130h] [rbp-88h]
-  _QWORD *v44; // [rsp+138h] [rbp-80h]
-  _BYTE v45[48]; // [rsp+140h] [rbp-78h] BYREF
+  int v10; // ebx
+  __int64 v12; // rbx
+  __int16 v13; // r14
+  __int64 v14; // rdi
+  __int16 v15; // r15
+  int v16; // edx
+  __int64 v17; // rax
+  __int64 v18; // rbx
+  int v19; // r12d
+  int v20; // r13d
+  int v21; // edx
+  __int64 v22; // rbx
+  bool v23; // zf
+  _QWORD *v24; // rax
+  char v25; // di
+  char v26; // di
+  __int64 v27; // rbx
+  __int64 v28; // rbx
+  int v29; // edi
+  USHORT v30; // [rsp+54h] [rbp-174h]
+  __int64 v32; // [rsp+60h] [rbp-168h] BYREF
+  __int64 v33; // [rsp+68h] [rbp-160h] BYREF
+  __int64 v34; // [rsp+70h] [rbp-158h]
+  __int64 v35; // [rsp+78h] [rbp-150h] BYREF
+  __int64 v36; // [rsp+80h] [rbp-148h] BYREF
+  __int64 v37; // [rsp+88h] [rbp-140h] BYREF
+  _OWORD v38[10]; // [rsp+90h] [rbp-138h] BYREF
+  char v39; // [rsp+130h] [rbp-98h] BYREF
+  __int64 v40; // [rsp+138h] [rbp-90h]
+  __int64 v41; // [rsp+140h] [rbp-88h]
+  _QWORD *v42; // [rsp+148h] [rbp-80h]
+  _BYTE v43[48]; // [rsp+150h] [rbp-78h] BYREF
 
-  v44 = a3;
-  v39 = 0LL;
-  memset(v45, 0, sizeof(v45));
-  memset(v36, 0, sizeof(v36));
+  v42 = a3;
+  v37 = 0LL;
+  v34 = 0LL;
+  memset(v43, 0, sizeof(v43));
+  memset(v38, 0, sizeof(v38));
+  v35 = 0LL;
+  v32 = 0LL;
+  v33 = 0LL;
   *(_OWORD *)a4 = 0LL;
   _BitScanForward(&v7, KeQueryGroupMaskProcess((__int64)a1));
-  v33 = v7;
+  v30 = v7;
   *(_WORD *)(a4 + 8) = v7;
-  KiStackAttachProcess(v8, 0LL, (__int64)v45, v9);
-  v38 = 0LL;
-  v37 = 0LL;
-  v41 = 0LL;
-  v11 = MmMapViewOfSection(ExLeapSecondDataSectionPointer, a1, &v38, 0LL, 0LL, &v37, &v41, 1, 5242880, 2);
-  if ( v11 < 0 || (v11 = MiCreatePebOrTeb(0LL, v10, &v39), v11 < 0) )
+  KiStackAttachProcess(v8, 0LL, (__int64)v43, v9);
+  if ( InitNlsSectionPointer
+    && (v10 = MmMapViewOfSection(InitNlsSectionPointer, a1, &v35, 0LL, 0LL, &v32, &v33, 1, 5242880, 2), v10 < 0)
+    || (v36 = 0LL,
+        v32 = 0LL,
+        v33 = 0LL,
+        v10 = MmMapViewOfSection(ExLeapSecondDataSectionPointer, a1, &v36, 0LL, 0LL, &v32, &v33, 1, 5242880, 2),
+        v10 < 0)
+    || (v10 = MiCreatePebOrTeb(0LL, 0LL, &v37), v10 < 0) )
   {
-    KiUnstackDetachProcess((__int64)v45, 0LL);
-    return (unsigned int)v11;
+    KiUnstackDetachProcess((__int64)v43, 0);
+    return (unsigned int)v10;
   }
   else
   {
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v13 = a1[164];
-    v43 = v13;
-    *(_QWORD *)((char *)&v36[1] + 4) = 10LL;
-    LOWORD(v36[3]) = NtBuildNumber;
-    HIDWORD(v36[2]) = 2;
-    v14 = CmNtCSDVersion;
-    WORD1(v36[3]) = CmNtCSDVersion;
-    v36[4] = qword_140D051F8;
-    v36[5] = qword_140D051F0;
-    v36[6] = __PAIR64__(NtGlobalFlag, KeNumberProcessors_0);
-    LODWORD(v36[7]) = NtGlobalFlag2;
-    v36[8] = qword_140C50650;
-    v36[9] = (unsigned int)dword_140D051D8;
-    v36[10] = qword_140D051E8;
-    v36[11] = qword_140D051E0;
-    LOBYTE(v36[12]) = *(_BYTE *)a2;
-    BYTE1(v36[12]) = *(_BYTE *)(a2 + 3);
-    v36[13] = *(_QWORD *)(a2 + 8);
-    v36[14] = v13;
-    LOWORD(v36[15]) = CurrentServerSiloGlobals[532];
-    WORD1(v36[15]) = CurrentServerSiloGlobals[564];
-    if ( *((_QWORD *)CurrentServerSiloGlobals + 154) )
-      WORD2(v36[15]) = 1701;
+    v12 = a1[164];
+    v41 = v12;
+    *(_QWORD *)((char *)v38 + 12) = 10LL;
+    WORD4(v38[1]) = NtBuildNumber;
+    DWORD1(v38[1]) = 2;
+    v13 = CmNtCSDVersion;
+    WORD5(v38[1]) = CmNtCSDVersion;
+    *(_QWORD *)&v38[2] = qword_140CFB1B8;
+    *((_QWORD *)&v38[2] + 1) = qword_140CFB1B0;
+    *(_QWORD *)&v38[3] = __PAIR64__(NtGlobalFlag, KeNumberProcessors_0);
+    DWORD2(v38[3]) = NtGlobalFlag2;
+    *(_QWORD *)&v38[4] = qword_140C4DE20;
+    *((_QWORD *)&v38[4] + 1) = (unsigned int)dword_140CFB198;
+    *(_QWORD *)&v38[5] = qword_140CFB1A8;
+    *((_QWORD *)&v38[5] + 1) = qword_140CFB1A0;
+    LOBYTE(v38[6]) = *(_BYTE *)a2;
+    BYTE1(v38[6]) = *(_BYTE *)(a2 + 3);
+    *((_QWORD *)&v38[6] + 1) = *(_QWORD *)(a2 + 8);
+    *(_QWORD *)&v38[7] = v12;
+    if ( v35 )
+    {
+      *((_QWORD *)&v38[8] + 1) = v35 + (unsigned int)InitUnicodeCaseTableDataOffset;
+      if ( InitUnicodeCaseTableDataOffset )
+      {
+        *((_QWORD *)&v38[7] + 1) = v35 + (unsigned int)InitAnsiCodePageDataOffset;
+        *(_QWORD *)&v38[8] = v35 + (unsigned int)InitOemCodePageDataOffset;
+      }
+      else
+      {
+        *((_QWORD *)&v38[7] + 1) = 0LL;
+        *(_QWORD *)&v38[8] = 0LL;
+      }
+    }
     else
-      WORD2(v36[15]) = 0;
+    {
+      *((_QWORD *)&v38[7] + 1) = 0LL;
+      v38[8] = 0LL;
+    }
     if ( a1[171] )
-      HIDWORD(v36[7]) = MmGetSessionId((__int64)a1);
+      HIDWORD(v38[3]) = MmGetSessionId((__int64)a1);
     else
-      HIDWORD(v36[7]) = 0;
-    v36[16] = v38;
-    LODWORD(v36[17]) = 0;
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_Leap_Seconds_Sixty_Second__private_reporting,
-      0xCCD568u,
-      0,
-      0,
-      (__int64)&Feature_PdttSupport_logged_traits,
-      0,
-      v32);
-    v15 = RtlImageNtHeader(v13);
-    v35 = v15;
-    v16 = *(_WORD *)(v15 + 22);
-    LOBYTE(v17) = 1;
-    v18 = RtlImageDirectoryEntryToData(v13, v17, 10, (int)&v40);
-    v19 = v18;
-    v42 = v18;
+      HIDWORD(v38[3]) = 0;
+    *(_QWORD *)&v38[9] = v36;
+    DWORD2(v38[9]) = 0;
+    Feature_Leap_Seconds_Sixty_Second__private_ReportDeviceUsage();
+    v14 = RtlImageNtHeader(v12);
+    v34 = v14;
+    v15 = *(_WORD *)(v14 + 22);
+    LOBYTE(v16) = 1;
+    v17 = RtlImageDirectoryEntryToData(v12, v16, 10, (int)&v39);
+    v18 = v17;
+    v40 = v17;
+    if ( v17 )
+    {
+      if ( (v17 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v14 = v34;
+      v18 = v40;
+      v13 = WORD5(v38[1]);
+    }
+    v19 = *(unsigned __int16 *)(v14 + 92);
+    LODWORD(v38[0]) = v19;
+    v20 = *(unsigned __int16 *)(v14 + 72);
+    DWORD1(v38[0]) = v20;
+    DWORD2(v38[0]) = *(unsigned __int16 *)(v14 + 74);
+    v21 = *(_DWORD *)(v14 + 76);
+    if ( v21 )
+    {
+      if ( v18 )
+      {
+        if ( *(_WORD *)(v18 + 76) )
+          v13 = *(_WORD *)(v18 + 76);
+        WORD5(v38[1]) = v13;
+      }
+      HIDWORD(v38[0]) = (unsigned __int8)v21;
+      LODWORD(v38[1]) = BYTE1(v21);
+      WORD4(v38[1]) = HIWORD(v21);
+      DWORD1(v38[1]) = (v21 ^ 0xBFFFFFFF) >> 30;
+    }
     if ( v18 )
     {
-      if ( (v18 & 3) != 0 )
-        ExRaiseDatatypeMisalignment();
-      v19 = v42;
-      v14 = WORD1(v36[3]);
-    }
-    v20 = *(unsigned __int16 *)(v15 + 92);
-    LODWORD(v36[0]) = v20;
-    v21 = *(unsigned __int16 *)(v15 + 72);
-    HIDWORD(v36[0]) = v21;
-    LODWORD(v36[1]) = *(unsigned __int16 *)(v15 + 74);
-    v22 = *(_DWORD *)(v15 + 76);
-    if ( v22 )
-    {
-      if ( v19 )
-      {
-        if ( *(_WORD *)(v19 + 76) )
-          v14 = *(_WORD *)(v19 + 76);
-        WORD1(v36[3]) = v14;
-      }
-      HIDWORD(v36[1]) = (unsigned __int8)v22;
-      LODWORD(v36[2]) = BYTE1(v22);
-      LOWORD(v36[3]) = HIWORD(v22);
-      HIDWORD(v36[2]) = (v22 ^ 0xBFFFFFFF) >> 30;
-    }
-    if ( v19 )
-    {
-      v23 = *(_QWORD *)(v19 + 64);
-      *(_QWORD *)a4 = v23;
-      v24 = (v23 & KeQueryGroupAffinity(v33)) == v23;
-      v25 = (_QWORD *)a4;
-      if ( !v24 )
+      v22 = *(_QWORD *)(v18 + 64);
+      *(_QWORD *)a4 = v22;
+      v23 = (v22 & KeQueryGroupAffinity(v30)) == v22;
+      v24 = (_QWORD *)a4;
+      if ( !v23 )
         *(_QWORD *)a4 = 0LL;
     }
     else
     {
-      v25 = (_QWORD *)a4;
+      v24 = (_QWORD *)a4;
     }
-    if ( (v16 & 0x4000) != 0 )
+    if ( (v15 & 0x4000) != 0 )
     {
-      v29 = _InterlockedExchangeAdd(&dword_140C5064C, 1u) + 1;
+      v25 = _InterlockedExchangeAdd(&dword_140C4DE1C, 1u) + 1;
       do
       {
-        v30 = v29 & 0x3F;
-        v31 = 1LL << v30;
-        *v25 = 1LL << v30;
-        v29 = v30 + 1;
-        v24 = (KeQueryGroupAffinity(v33) & v31) == 0;
-        v25 = (_QWORD *)a4;
+        v26 = v25 & 0x3F;
+        v27 = 1LL << v26;
+        *v24 = 1LL << v26;
+        v25 = v26 + 1;
+        v23 = (KeQueryGroupAffinity(v30) & v27) == 0;
+        v24 = (_QWORD *)a4;
       }
-      while ( v24 );
-      v15 = v35;
-      v14 = WORD1(v36[3]);
-      v21 = HIDWORD(v36[0]);
-      v20 = v36[0];
+      while ( v23 );
+      v14 = v34;
+      v13 = WORD5(v38[1]);
+      v20 = DWORD1(v38[0]);
+      v19 = v38[0];
     }
-    v26 = v39;
-    *(_QWORD *)(v39 + 280) = *(_QWORD *)((char *)&v36[1] + 4);
-    *(_WORD *)(v26 + 288) = v36[3];
-    *(_DWORD *)(v26 + 292) = HIDWORD(v36[2]);
-    *(_WORD *)(v26 + 290) = v14;
-    *(_QWORD *)(v26 + 200) = v36[4];
-    *(_QWORD *)(v26 + 208) = v36[5];
-    *(_DWORD *)(v26 + 184) = KeNumberProcessors_0;
-    *(_DWORD *)(v26 + 188) = NtGlobalFlag;
-    *(_DWORD *)(v26 + 1988) = NtGlobalFlag2;
-    *(_QWORD *)(v26 + 192) = qword_140C50650;
-    *(_QWORD *)(v26 + 792) = (unsigned int)dword_140D051D8;
-    *(_QWORD *)(v26 + 216) = qword_140D051E8;
-    *(_QWORD *)(v26 + 224) = qword_140D051E0;
-    *(_DWORD *)(v26 + 704) = HIDWORD(v36[7]);
-    *(_DWORD *)(v26 + 296) = v20;
-    *(_DWORD *)(v26 + 300) = v21;
-    *(_DWORD *)(v26 + 304) = v36[1];
-    *(_BYTE *)v26 = v36[12];
-    *(_BYTE *)(v26 + 3) = BYTE1(v36[12]);
-    *(_QWORD *)(v26 + 8) = v36[13];
-    *(_QWORD *)(v26 + 16) = v43;
-    *(_DWORD *)(v26 + 844) = v36[15];
-    *(_WORD *)(v26 + 848) = WORD2(v36[15]);
-    *(_QWORD *)(v26 + 1976) = v36[16];
-    *(_DWORD *)(v26 + 1984) = 0;
-    if ( a1[176] && (v28 = MiInitializeWowPeb((__int64)v36, v15, (__int64)a1, a4), v28 < 0) )
+    v28 = v37;
+    *(_QWORD *)(v37 + 280) = *(_QWORD *)((char *)v38 + 12);
+    *(_WORD *)(v28 + 288) = WORD4(v38[1]);
+    *(_DWORD *)(v28 + 292) = DWORD1(v38[1]);
+    *(_WORD *)(v28 + 290) = v13;
+    *(_OWORD *)(v28 + 200) = v38[2];
+    *(_DWORD *)(v28 + 184) = KeNumberProcessors_0;
+    *(_DWORD *)(v28 + 188) = NtGlobalFlag;
+    *(_DWORD *)(v28 + 1988) = NtGlobalFlag2;
+    *(_QWORD *)(v28 + 192) = qword_140C4DE20;
+    *(_QWORD *)(v28 + 792) = (unsigned int)dword_140CFB198;
+    *(_QWORD *)(v28 + 216) = qword_140CFB1A8;
+    *(_QWORD *)(v28 + 224) = qword_140CFB1A0;
+    *(_DWORD *)(v28 + 704) = HIDWORD(v38[3]);
+    *(_DWORD *)(v28 + 296) = v19;
+    *(_DWORD *)(v28 + 300) = v20;
+    *(_DWORD *)(v28 + 304) = DWORD2(v38[0]);
+    *(_BYTE *)v28 = v38[6];
+    *(_BYTE *)(v28 + 3) = BYTE1(v38[6]);
+    *(_QWORD *)(v28 + 8) = *((_QWORD *)&v38[6] + 1);
+    *(_QWORD *)(v28 + 16) = v41;
+    *(_QWORD *)(v28 + 160) = *((_QWORD *)&v38[7] + 1);
+    *(_OWORD *)(v28 + 168) = v38[8];
+    *(_QWORD *)(v28 + 1976) = *(_QWORD *)&v38[9];
+    *(_DWORD *)(v28 + 1984) = 0;
+    if ( a1[176] && (v29 = MiInitializeWowPeb(v38, v14, a1, a4), v29 < 0) )
     {
-      KiUnstackDetachProcess((__int64)v45, 0LL);
-      return (unsigned int)v28;
+      KiUnstackDetachProcess((__int64)v43, 0);
+      return (unsigned int)v29;
     }
     else
     {
-      KiUnstackDetachProcess((__int64)v45, 0LL);
-      *v44 = v26;
+      KiUnstackDetachProcess((__int64)v43, 0);
+      *v42 = v28;
       return 0LL;
     }
   }

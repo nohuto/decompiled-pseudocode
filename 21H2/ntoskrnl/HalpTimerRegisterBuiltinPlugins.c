@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpTimerRegisterBuiltinPlugins @ 0x1403BCA40
+ * XREFs of HalpTimerRegisterBuiltinPlugins @ 0x1403AA5BC
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403BCA0C (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AA588 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalSocRequestConfigurationData @ 0x1403B36F4 (HalSocRequestConfigurationData.c)
- *     HalpPmTimerDiscover @ 0x1403BCAD0 (HalpPmTimerDiscover.c)
- *     HalpSfiTimerDiscover @ 0x1403BCBD0 (HalpSfiTimerDiscover.c)
- *     HalpRtcDiscover @ 0x1403BCC5C (HalpRtcDiscover.c)
- *     HalpApicTimerDiscover @ 0x1403BCDA0 (HalpApicTimerDiscover.c)
- *     HalpTscDiscover @ 0x1403BCF1C (HalpTscDiscover.c)
- *     HalpHpetDiscover @ 0x1403BD8C8 (HalpHpetDiscover.c)
- *     HalpTimerRegister @ 0x1403BE0BC (HalpTimerRegister.c)
- *     HalpHvWatchdogDiscover @ 0x1403BE8A0 (HalpHvWatchdogDiscover.c)
- *     HalpArtDiscover @ 0x1403BE8FC (HalpArtDiscover.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalSocRequestConfigurationData @ 0x1403A1E9C (HalSocRequestConfigurationData.c)
+ *     HalpPmTimerDiscover @ 0x1403AA64C (HalpPmTimerDiscover.c)
+ *     HalpSfiTimerDiscover @ 0x1403AA74C (HalpSfiTimerDiscover.c)
+ *     HalpRtcDiscover @ 0x1403AA7D8 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403AA91C (HalpApicTimerDiscover.c)
+ *     HalpTscDiscover @ 0x1403AAA90 (HalpTscDiscover.c)
+ *     HalpHpetDiscover @ 0x1403AB43C (HalpHpetDiscover.c)
+ *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
+ *     HalpHvWatchdogDiscover @ 0x1403AC380 (HalpHvWatchdogDiscover.c)
+ *     HalpArtDiscover @ 0x1403AC3DC (HalpArtDiscover.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpTimerRegisterBuiltinPlugins(int a1)

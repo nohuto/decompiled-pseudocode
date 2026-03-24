@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushValidPteFromTb @ 0x14016A790
+ * XREFs of MiFlushValidPteFromTb @ 0x14016A7B0
  * Callers:
- *     MiTransformValidPteInPlace @ 0x14016A6EC (MiTransformValidPteInPlace.c)
+ *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
  * Callees:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x1401118C8 (MiInsertRecursiveTbFlushEntries.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121464 (MiInsertLargeTbFlushEntry.c)
- *     MiRealVaToFlushType @ 0x14016A828 (MiRealVaToFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1401118E8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
+ *     MiRealVaToFlushType @ 0x14016A848 (MiRealVaToFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall MiFlushValidPteFromTb(unsigned __int64 a1)

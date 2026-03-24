@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C0210E68
+ * XREFs of ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C020987C
  * Callers:
- *     WritePointerDeviceSettingsFull @ 0x1C021122C (WritePointerDeviceSettingsFull.c)
+ *     WritePointerDeviceSettingsFull @ 0x1C0209C3C (WritePointerDeviceSettingsFull.c)
  * Callees:
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00A0C7C (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C0210FE4 (-WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E14E0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C02099F8 (-WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z.c)
  */
 
 _BOOL8 __fastcall SetFlickMap(struct tagFLICK_MAP *a1, int a2)
@@ -36,7 +36,7 @@ _BOOL8 __fastcall SetFlickMap(struct tagFLICK_MAP *a1, int a2)
     v12[4] = (char *)a1 + 32;
     v12[14] = (char *)a1 + 112;
     v12[6] = (char *)a1 + 48;
-    v6 = &xmmword_1C03266E8;
+    v6 = &xmmword_1C032B728;
     v12[8] = (char *)a1 + 64;
     v12[10] = (char *)a1 + 80;
     v7 = (const GUID *const *)v12;

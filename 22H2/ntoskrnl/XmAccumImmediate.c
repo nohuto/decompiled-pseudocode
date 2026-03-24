@@ -1,11 +1,11 @@
 /*
- * XREFs of XmAccumImmediate @ 0x1403B8470
+ * XREFs of XmAccumImmediate @ 0x140396070
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
- *     XmGetImmediateSourceValue @ 0x1403B8EB4 (XmGetImmediateSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmGetImmediateSourceValue @ 0x1403968C0 (XmGetImmediateSourceValue.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmAccumImmediate(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall XmAccumImmediate(__int64 a1)
   __int64 result; // rax
   int v3; // r8d
 
-  XmSetDataType(a1);
+  XmSetDataType();
   XmGetImmediateSourceValue(a1, 0LL);
   XmSetDestinationValue(a1, a1 + 24);
   result = 1LL;

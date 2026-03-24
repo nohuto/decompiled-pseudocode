@@ -1,7 +1,7 @@
 /*
- * XREFs of DxgkMiracastQueryMiracastSupportNoLock @ 0x1C0026B04
+ * XREFs of DxgkMiracastQueryMiracastSupportNoLock @ 0x1C0021BEC
  * Callers:
- *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FC7F0 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01827BC (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
  * Callees:
  *     <none>
  */
@@ -11,9 +11,9 @@ __int64 __fastcall DxgkMiracastQueryMiracastSupportNoLock(__int64 a1)
   __m128i v1; // xmm0
   int v2; // edx
 
-  v1 = (__m128i)xmmword_1C0130968;
-  v2 = dword_1C0130978;
-  *(_OWORD *)a1 = xmmword_1C0130968;
+  v1 = (__m128i)xmmword_1C00B2FE0;
+  v2 = dword_1C00B2FF0;
+  *(_OWORD *)a1 = xmmword_1C00B2FE0;
   *(_DWORD *)(a1 + 16) = v2;
   return (_mm_cvtsi128_si32(_mm_srli_si128(v1, 12)) | v2) == 0 ? 0xC00000BB : 0;
 }

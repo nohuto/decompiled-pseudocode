@@ -1,9 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CHolographicExclusiveViewMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0226BB0
+ * XREFs of ?SetReferenceProperty@CHolographicExclusiveViewMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01EDD60
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::SetReferenceProperty(
@@ -13,17 +15,29 @@ __int64 __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::SetRef
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  if ( a3 == 2 )
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             (struct DirectComposition::CResourceMarshaler **)this + 12,
-             (unsigned int *)a4,
-             1,
-             42,
-             (int *)this + 4,
-             64,
-             0,
-             a5);
+  unsigned int v5; // ebx
+  struct DirectComposition::CResourceMarshaler *v9; // rdx
+
+  v5 = 0;
+  if ( a3 == 2
+    && (!a4
+     || (*(unsigned int (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)a4 + 8LL))(a4) == 40) )
+  {
+    v9 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 12);
+    if ( v9 != a4 )
+    {
+      if ( v9 )
+        DirectComposition::CApplicationChannel::ReleaseResource(a2, v9);
+      *((_QWORD *)this + 12) = a4;
+      if ( a4 )
+        DirectComposition::CResourceMarshaler::AddRef(a4);
+      *((_DWORD *)this + 4) |= 0x40u;
+      *a5 = 1;
+    }
+  }
   else
-    return 3221225485LL;
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v5;
 }

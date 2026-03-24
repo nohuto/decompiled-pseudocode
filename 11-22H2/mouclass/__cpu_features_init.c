@@ -1,1 +1,39 @@
-/*\n * XREFs of __cpu_features_init @ 0x1C0002AB0\n * Callers:\n *     __memset_query @ 0x1C00030C0 (__memset_query.c)\n * Callees:\n *     <none>\n */\n\n__int64 _cpu_features_init()\n{\n  int v5; // r8d\n  char v7; // r9\n  int v12; // r10d\n\n  _RAX = 0LL;\n  __asm { cpuid }\n  v5 = _RAX;\n  _RAX = 1LL;\n  v7 = 0;\n  __asm { cpuid }\n  v12 = _RCX;\n  _RAX = 7LL;\n  if ( v5 >= 7 )\n  {\n    v7 = 0;\n    __asm { cpuid }\n    LOBYTE(_RAX) = 2;\n    if ( (_RBX & 0x200) != 0 )\n      v7 = 2;\n  }\n  if ( (v12 & 0x100000) != 0 && (v12 & 0x8000000) != 0 && (v12 & 0x10000000) != 0 )\n  {\n    __asm { xgetbv }\n    if ( (_RAX & 6) == 6 )\n      v7 |= 4u;\n  }\n  _isa_info = v7 | 1;\n  return 0LL;\n}\n
+/*
+ * XREFs of __cpu_features_init @ 0x1C0002AB0
+ * Callers:
+ *     __memset_query @ 0x1C00030C0 (__memset_query.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 _cpu_features_init()
+{
+  int v5; // r8d
+  char v7; // r9
+  int v12; // r10d
+
+  _RAX = 0LL;
+  __asm { cpuid }
+  v5 = _RAX;
+  _RAX = 1LL;
+  v7 = 0;
+  __asm { cpuid }
+  v12 = _RCX;
+  _RAX = 7LL;
+  if ( v5 >= 7 )
+  {
+    v7 = 0;
+    __asm { cpuid }
+    LOBYTE(_RAX) = 2;
+    if ( (_RBX & 0x200) != 0 )
+      v7 = 2;
+  }
+  if ( (v12 & 0x100000) != 0 && (v12 & 0x8000000) != 0 && (v12 & 0x10000000) != 0 )
+  {
+    __asm { xgetbv }
+    if ( (_RAX & 6) == 6 )
+      v7 |= 4u;
+  }
+  _isa_info = v7 | 1;
+  return 0LL;
+}

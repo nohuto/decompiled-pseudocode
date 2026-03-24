@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CheckTokenForVMGroupMembership@@YAJXZ @ 0x1C004FDA0
+ * XREFs of ?CheckTokenForVMGroupMembership@@YAJXZ @ 0x1C0043E1C
  * Callers:
- *     DxgkDeviceIoctl @ 0x1C0050460 (DxgkDeviceIoctl.c)
+ *     DxgkDeviceIoctl @ 0x1C0044460 (DxgkDeviceIoctl.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS CheckTokenForVMGroupMembership(void)

@@ -1,88 +1,184 @@
 /*
- * XREFs of IommupGetSystemContext @ 0x1403B0178
+ * XREFs of IommupGetSystemContext @ 0x1403CB914
  * Callers:
- *     IommuGetLibraryContext @ 0x140523020 (IommuGetLibraryContext.c)
- *     IommuGetConfiguration @ 0x140B72210 (IommuGetConfiguration.c)
- *     IommuHvGetConfiguration @ 0x140B93640 (IommuHvGetConfiguration.c)
+ *     IommuGetLibraryContext @ 0x1404D8D10 (IommuGetLibraryContext.c)
+ *     IommuGetConfiguration @ 0x140A6FE20 (IommuGetConfiguration.c)
+ *     IommuHvGetConfiguration @ 0x140A8D710 (IommuHvGetConfiguration.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     memset @ 0x140435400 (memset.c)
- *     IommupHvCreateSvmPasidSpace @ 0x140524860 (IommupHvCreateSvmPasidSpace.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 PVOID *__fastcall IommupGetSystemContext(unsigned int a1)
 {
-  __int64 v2; // rcx
-  PVOID *v3; // rax
-  PVOID *v4; // rax
-  PVOID *v5; // rbx
-  bool v6; // zf
-  _QWORD *v7; // rax
-  char v8; // al
-  __int64 v10; // rcx
+  PVOID *v2; // rsi
+  unsigned __int8 CurrentIrql; // bl
+  PVOID *i; // rax
+  __int64 v5; // rcx
+  _DWORD *v6; // rax
+  _DWORD *v7; // rbx
+  unsigned __int8 v8; // di
+  PVOID *v9; // rax
+  _QWORD *v10; // rax
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v13; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *v15; // r9
+  int v16; // eax
+  bool v17; // zf
+  _DWORD *v18; // r9
+  int v19; // ecx
+  __int64 v20; // rcx
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r9
+  _DWORD *v23; // r8
+  int v24; // eax
+  unsigned __int8 v25; // al
+  struct _KPRCB *v26; // r9
+  _DWORD *v27; // r8
+  int v28; // eax
 
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&IommupSystemContextListPushLock, 0LL);
-  v3 = (PVOID *)IommupSystemContextListHead;
-  if ( IommupSystemContextListHead == &IommupSystemContextListHead )
+  v2 = 0LL;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xFuLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-LABEL_2:
-    v4 = (PVOID *)HalpMmAllocCtxAlloc(v2, 72LL);
-    v5 = v4;
-    if ( !v4 )
-    {
-LABEL_14:
-      if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&IommupSystemContextListPushLock,
-              0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&IommupSystemContextListPushLock);
-      KeAbPostRelease((ULONG_PTR)&IommupSystemContextListPushLock);
-      return 0LL;
-    }
-    memset(v4, 0, 0x48uLL);
-    v5[3] = 0LL;
-    v6 = HalpHvIommu == 0;
-    v5[5] = v5 + 4;
-    v5[4] = v5 + 4;
-    v5[7] = v5 + 6;
-    v5[6] = v5 + 6;
-    *((_DWORD *)v5 + 4) = a1;
-    if ( !v6 && (int)IommupHvCreateSvmPasidSpace(a1) < 0 )
-    {
-      HalpMmAllocCtxFree(v10, (__int64)v5);
-      goto LABEL_14;
-    }
-    v7 = IommupSystemContextListHead;
-    if ( *((PVOID **)IommupSystemContextListHead + 1) != &IommupSystemContextListHead )
-      __fastfail(3u);
-    *v5 = IommupSystemContextListHead;
-    v5[1] = &IommupSystemContextListHead;
-    v7[1] = v5;
-    IommupSystemContextListHead = v5;
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  else
+  KxAcquireSpinLock(&IommupSystemContextListLock);
+  for ( i = (PVOID *)IommupSystemContextListHead; i != &IommupSystemContextListHead; i = (PVOID *)*i )
   {
-    while ( 1 )
+    v2 = i;
+    if ( *((_DWORD *)i + 4) == a1 )
+      break;
+  }
+  KxReleaseSpinLock(&IommupSystemContextListLock);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v2 = *((unsigned int *)v3 + 4);
-      v5 = v3;
-      if ( (_DWORD)v2 == a1 )
-        break;
-      v3 = (PVOID *)*v3;
-      if ( v3 == &IommupSystemContextListHead )
+      v13 = KeGetCurrentIrql();
+      if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
-        if ( (_DWORD)v2 == a1 )
-          break;
-        goto LABEL_2;
+        CurrentPrcb = KeGetCurrentPrcb();
+        v5 = (unsigned int)CurrentIrql + 1;
+        v15 = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v17 = (v16 & v15[5]) == 0;
+        v15[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)&IommupSystemContextListPushLock, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v8 & 2) != 0 && (v8 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&IommupSystemContextListPushLock);
-  KeAbPostRelease((ULONG_PTR)&IommupSystemContextListPushLock);
-  return v5;
+  __writecr8(CurrentIrql);
+  if ( v2 && *((_DWORD *)v2 + 4) == a1 )
+    return v2;
+  v6 = (_DWORD *)HalpMmAllocCtxAlloc(v5, 64LL);
+  v7 = v6;
+  if ( v6 )
+  {
+    memset(v6, 0, 0x40uLL);
+    v7[4] = a1;
+    *((_QWORD *)v7 + 5) = v7 + 8;
+    *((_QWORD *)v7 + 4) = v7 + 8;
+    *((_QWORD *)v7 + 7) = v7 + 12;
+    *((_QWORD *)v7 + 6) = v7 + 12;
+    *((_QWORD *)v7 + 3) = 0LL;
+    v8 = KeGetCurrentIrql();
+    __writecr8(0xFuLL);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v8 <= 0xFu )
+    {
+      v18 = KeGetCurrentPrcb()->SchedulerAssist;
+      v18[5] |= (-1 << (v8 + 1)) & 0xFFFC;
+    }
+    KxAcquireSpinLock(&IommupSystemContextListLock);
+    v9 = (PVOID *)IommupSystemContextListHead;
+    if ( IommupSystemContextListHead == &IommupSystemContextListHead )
+    {
+LABEL_9:
+      if ( HalpHvIommu
+        && (!IommupHvSvmEnabled
+         || (int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4A2E8)(a1, (unsigned int)IommupHvMaximumAsids) < 0) )
+      {
+        KxReleaseSpinLock(&IommupSystemContextListLock);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v21 = KeGetCurrentIrql();
+            if ( v21 <= 0xFu && v8 <= 0xFu && v21 >= 2u )
+            {
+              v22 = KeGetCurrentPrcb();
+              v20 = (unsigned int)v8 + 1;
+              v23 = v22->SchedulerAssist;
+              v24 = ~(unsigned __int16)(-1LL << (v8 + 1));
+              v17 = (v24 & v23[5]) == 0;
+              v23[5] &= v24;
+              if ( v17 )
+                KiRemoveSystemWorkPriorityKick(v22);
+            }
+          }
+        }
+        __writecr8(v8);
+        HalpMmAllocCtxFree(v20, (__int64)v7);
+        return 0LL;
+      }
+      v10 = IommupSystemContextListHead;
+      if ( *((PVOID **)IommupSystemContextListHead + 1) != &IommupSystemContextListHead )
+        __fastfail(3u);
+      *(_QWORD *)v7 = IommupSystemContextListHead;
+      v2 = (PVOID *)v7;
+      *((_QWORD *)v7 + 1) = &IommupSystemContextListHead;
+      v10[1] = v7;
+      IommupSystemContextListHead = v7;
+      v7 = 0LL;
+    }
+    else
+    {
+      while ( 1 )
+      {
+        v19 = *((_DWORD *)v9 + 4);
+        v2 = v9;
+        if ( v19 == a1 )
+          break;
+        v9 = (PVOID *)*v9;
+        if ( v9 == &IommupSystemContextListHead )
+        {
+          if ( v19 == a1 )
+            break;
+          goto LABEL_9;
+        }
+      }
+    }
+    KxReleaseSpinLock(&IommupSystemContextListLock);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v25 = KeGetCurrentIrql();
+        if ( v25 <= 0xFu && v8 <= 0xFu && v25 >= 2u )
+        {
+          v26 = KeGetCurrentPrcb();
+          v27 = v26->SchedulerAssist;
+          v28 = ~(unsigned __int16)(-1LL << (v8 + 1));
+          v17 = (v28 & v27[5]) == 0;
+          v27[5] &= v28;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick(v26);
+        }
+      }
+    }
+    __writecr8(v8);
+    if ( v7 )
+      HalpMmAllocCtxFree(v8, (__int64)v7);
+    return v2;
+  }
+  return 0LL;
 }

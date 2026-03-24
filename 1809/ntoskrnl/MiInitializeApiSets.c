@@ -4,7 +4,7 @@
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
  *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
  */

@@ -1,72 +1,72 @@
 /*
- * XREFs of VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003C7D8
+ * XREFs of VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C00165C4
  * Callers:
- *     VidSchiCleanupDeferredWaiterContext @ 0x1C00027E0 (VidSchiCleanupDeferredWaiterContext.c)
- *     VidSchiUnwaitMonitoredFences @ 0x1C00073A0 (VidSchiUnwaitMonitoredFences.c)
- *     VidSchiSubmitWaitCommand @ 0x1C00141D4 (VidSchiSubmitWaitCommand.c)
- *     ?VidSchiCompleteHwQueueWaitPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CA30 (-VidSchiCompleteHwQueueWaitPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0035690 (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C003657C (-VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiUnblockUnorderedWaiter @ 0x1C003C8E8 (VidSchiUnblockUnorderedWaiter.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CCD0 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiCleanupDeferredWaiterContext @ 0x1C0011CF0 (VidSchiCleanupDeferredWaiterContext.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C0013AB8 (VidSchiSubmitWaitCommand.c)
+ *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002A898 (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002BD34 (-VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiUnblockUnorderedWaiter @ 0x1C0031F1C (VidSchiUnblockUnorderedWaiter.c)
+ *     ?VidSchiRundownHardwarePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00383B0 (-VidSchiRundownHardwarePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@PEAUVIDSCH_H.c)
  * Callees:
- *     VidSchiUnwaitWaitQueuePacket @ 0x1C00021F0 (VidSchiUnwaitWaitQueuePacket.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0010CF4 (VidSchiUnwaitWaitQueuePacket.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
-int __fastcall VidSchiUnblockUnorderedWaitQueuePacket(__int64 a1, __int64 a2, __int64 a3)
+int __fastcall VidSchiUnblockUnorderedWaitQueuePacket(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // r9
-  __int64 v5; // r9
-  __int64 v6; // rcx
-  _QWORD *v7; // rax
-  __int64 v8; // r10
-  __int64 v9; // rbx
-  _QWORD *v10; // r11
-  _QWORD *v11; // r11
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  __int64 v14; // r8
+  __int64 v6; // r9
+  __int64 v7; // r11
+  _QWORD *v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  _QWORD *v11; // r8
+  _QWORD *v12; // r8
+  __int64 v13; // rax
+  __int64 v14; // rcx
 
   v3 = *(_QWORD *)(a2 + 88);
   if ( v3 )
-    v5 = *(_QWORD *)(v3 + 104);
+    v6 = *(_QWORD *)(v3 + 104);
   else
-    v5 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 96) + 40LL) + 8LL);
-  v6 = *(_QWORD *)(v5 + 32);
-  v7 = (_QWORD *)(a2 + 288);
-  v8 = *(_QWORD *)(a2 + 288);
-  v9 = *(_QWORD *)(a2 + 280);
-  if ( *(_QWORD *)(v8 + 8) != a2 + 288
-    || (v10 = *(_QWORD **)(a2 + 296), (_QWORD *)*v10 != v7)
-    || (*v10 = v8, *(_QWORD *)(v8 + 8) = v10, v11 = *(_QWORD **)(v9 + 104), *v11 != v9 + 96) )
+    v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 96) + 40LL) + 8LL);
+  v7 = *(_QWORD *)(v6 + 32);
+  v8 = (_QWORD *)(a2 + 288);
+  v9 = *(_QWORD *)(a2 + 288);
+  v10 = *(_QWORD *)(a2 + 280);
+  if ( *(_QWORD *)(v9 + 8) != a2 + 288
+    || (v11 = *(_QWORD **)(a2 + 296), (_QWORD *)*v11 != v8)
+    || (*v11 = v9, *(_QWORD *)(v9 + 8) = v11, v12 = *(_QWORD **)(v10 + 104), *v12 != v10 + 96) )
   {
     __fastfail(3u);
   }
-  *v7 = v9 + 96;
-  *(_QWORD *)(a2 + 296) = v11;
-  *v11 = v7;
-  *(_QWORD *)(v9 + 104) = v7;
+  *v8 = v10 + 96;
+  *(_QWORD *)(a2 + 296) = v12;
+  *v12 = v8;
+  *(_QWORD *)(v10 + 104) = v8;
   *(_DWORD *)(a2 + 272) &= ~4u;
-  --*(_DWORD *)(v9 + 40);
-  v12 = *(_QWORD *)(a2 + 88);
-  if ( v12 )
+  --*(_DWORD *)(v10 + 36);
+  v13 = *(_QWORD *)(a2 + 88);
+  if ( v13 )
   {
-    --*(_DWORD *)(v12 + 796);
+    --*(_DWORD *)(v13 + 796);
   }
   else
   {
-    v12 = *(_QWORD *)(a2 + 96);
-    if ( v12 )
-      --*(_DWORD *)(v12 + 156);
+    v13 = *(_QWORD *)(a2 + 96);
+    if ( v13 )
+      --*(_DWORD *)(v13 + 156);
   }
-  --*(_DWORD *)(v5 + 1588);
-  --*(_DWORD *)(v6 + 816);
-  if ( (_BYTE)a3 )
+  --*(_DWORD *)(v6 + 1588);
+  --*(_DWORD *)(v7 + 808);
+  if ( a3 )
   {
-    LODWORD(v12) = VidSchiUnwaitWaitQueuePacket(a1, a2, a3, 0LL);
-    if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
-      LODWORD(v12) = McTemplateK0q_EtwWriteTransfer(v13, (__int64)&EventPerformanceWarning, v14, 15);
+    LOBYTE(v12) = a3;
+    LODWORD(v13) = VidSchiUnwaitWaitQueuePacket(a1, a2, (__int64)v12, 0LL);
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      LODWORD(v13) = McTemplateK0q_EtwWriteTransfer(v14, &EventPerformanceWarning);
     _InterlockedIncrement(&gulSyncObjTimeouted);
   }
-  return v12;
+  return v13;
 }

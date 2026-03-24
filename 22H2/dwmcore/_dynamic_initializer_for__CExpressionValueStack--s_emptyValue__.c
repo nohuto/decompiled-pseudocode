@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CExpressionValueStack::s_emptyValue__ @ 0x1800032D0
+ * XREFs of _dynamic_initializer_for__CExpressionValueStack::s_emptyValue__ @ 0x180002B20
  * Callers:
  *     <none>
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
  */
 
 int dynamic_initializer_for__CExpressionValueStack::s_emptyValue__()

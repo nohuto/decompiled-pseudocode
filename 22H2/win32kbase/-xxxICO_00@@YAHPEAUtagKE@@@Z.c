@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxICO_00@@YAHPEAUtagKE@@@Z @ 0x1C00B7D80
+ * XREFs of ?xxxICO_00@@YAHPEAUtagKE@@@Z @ 0x1C00A3780
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  */
 
 __int64 __fastcall xxxICO_00(struct tagKE *a1)
@@ -17,9 +17,9 @@ __int64 __fastcall xxxICO_00(struct tagKE *a1)
     if ( v2 >= 0 )
     {
       xxxKeyEventEx(
-        48LL,
+        0x30u,
         *(unsigned __int8 *)a1,
-        *((unsigned int *)a1 + 1),
+        *((_DWORD *)a1 + 1),
         0LL,
         *((void **)a1 + 1),
         (unsigned __int16 *)a1 + 8,
@@ -28,9 +28,9 @@ __int64 __fastcall xxxICO_00(struct tagKE *a1)
         0LL,
         0LL);
       xxxKeyEventEx(
-        32816LL,
+        0x8030u,
         *(unsigned __int8 *)a1,
-        *((unsigned int *)a1 + 1),
+        *((_DWORD *)a1 + 1),
         0LL,
         *((void **)a1 + 1),
         (unsigned __int16 *)a1 + 8,

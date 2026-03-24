@@ -1,188 +1,217 @@
 /*
- * XREFs of ?UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z @ 0x1C00832C4
+ * XREFs of ?UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z @ 0x1C0067664
  * Callers:
- *     ?NotifyFlipContentTokenInFrame@CCompositionSwapchainBuffer@@IEAAJPEBVCFlipContentToken@@PEA_N@Z @ 0x1C0083154 (-NotifyFlipContentTokenInFrame@CCompositionSwapchainBuffer@@IEAAJPEBVCFlipContentToken@@PEA_N@Z.c)
+ *     ?NotifyTokenInFrame@CCompositionSwapchainBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C0067590 (-NotifyTokenInFrame@CCompositionSwapchainBuffer@@UEAAJAEBVCToken@@PEA_N@Z.c)
  * Callees:
- *     ?EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ @ 0x1C0078D80 (-EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ @ 0x1C0066E64 (-EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ.c)
  */
 
 char __fastcall CCompositionSwapchainBuffer::UpdateAttributes(
         CCompositionSwapchainBuffer *this,
-        const struct CFlipContentToken *a2,
-        __int64 a3,
-        __int64 a4)
+        const struct CFlipContentToken *a2)
 {
-  int v4; // eax
-  int v6; // esi
+  char v2; // al
+  char v3; // r8
+  int v6; // ecx
+  int v7; // ecx
   char v8; // cl
-  int v9; // eax
-  unsigned int v10; // edx
-  unsigned __int8 *v11; // rdi
-  __int64 v12; // rax
-  int v13; // r8d
-  int v14; // eax
-  float *v15; // rax
-  __int64 v16; // r8
-  float v17; // xmm1_4
-  float v18; // xmm1_4
-  float v19; // xmm1_4
-  float v20; // xmm1_4
-  float v21; // xmm1_4
-  int v22; // r8d
-  __int64 v23; // rdx
-  int v24; // eax
-  int v25; // eax
-  int v26; // eax
-  __int64 v27; // rax
-  int v28; // ecx
-  __int64 v29; // xmm0_8
-  __int64 v30; // rax
-  __int128 v31; // xmm3
-  __int128 v32; // xmm4
-  __int128 v33; // xmm5
-  __int64 v34; // xmm0_8
+  __int64 v9; // rax
+  int v10; // edx
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // xmm1_8
+  float *v14; // rax
+  float v15; // xmm1_4
+  char v16; // al
+  int v17; // r10d
+  int v18; // ecx
+  int v19; // eax
+  unsigned __int8 v20; // r9
+  bool v21; // cl
+  bool v22; // al
+  char v23; // al
+  int v24; // esi
+  __int64 v25; // rax
+  int v26; // ecx
+  __int64 v27; // xmm0_8
+  __int64 v28; // rax
+  __int128 v29; // xmm3
+  __int128 v30; // xmm4
+  __int128 v31; // xmm5
+  __int64 v32; // xmm0_8
+  __int16 v33; // cx
+  __int128 v35; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v36; // [rsp+30h] [rbp-18h]
 
-  v4 = *((_DWORD *)a2 + 30);
-  v6 = 0;
-  v8 = 0;
-  if ( *((_DWORD *)this + 21) != v4 )
+  v2 = *((_BYTE *)a2 + 120);
+  v3 = 0;
+  if ( (v2 & 1) != 0 )
   {
-    *((_DWORD *)this + 21) = v4;
-    v8 = 1;
-  }
-  v9 = *((_DWORD *)a2 + 31);
-  if ( *((_DWORD *)this + 22) == v9 )
-  {
-    v10 = *((_DWORD *)this + 46);
-  }
-  else
-  {
-    v8 = 1;
-    v10 = *((_DWORD *)this + 46) & 0xFFFFDFFF | (v9 != 0 ? 0x2000 : 0);
-    *((_DWORD *)this + 46) = v10;
-    *((_DWORD *)this + 22) = *((_DWORD *)a2 + 31);
-  }
-  v11 = (unsigned __int8 *)a2 + 136;
-  v12 = *((_QWORD *)a2 + 24);
-  if ( *((_QWORD *)this + 7) != v12 )
-  {
-    *((_QWORD *)this + 7) = v12;
-    v8 = 1;
-    v10 = v10 & 0xFFFFFFFE | (*((_QWORD *)a2 + 24) != 0LL);
-    *((_DWORD *)this + 46) = v10;
-  }
-  v13 = *((_BYTE *)a2 + 137) & 1;
-  if ( ((v10 >> 1) & 1) != v13 )
-  {
-    v8 = 1;
-    *((_DWORD *)this + 46) = v10 & 0xFFFFFFFD | (2 * v13);
-  }
-  v14 = *((_DWORD *)a2 + 46);
-  if ( *((_DWORD *)this + 24) != v14 )
-  {
-    *((_DWORD *)this + 24) = v14;
-    v8 = 1;
-  }
-  if ( *((_DWORD *)this + 25) != *((_DWORD *)a2 + 35)
-    || *((_DWORD *)this + 26) != *((_DWORD *)a2 + 36)
-    || *((_DWORD *)this + 27) != *((_DWORD *)a2 + 37)
-    || *((_DWORD *)this + 28) != *((_DWORD *)a2 + 38) )
-  {
-    v8 = 1;
-    *(_OWORD *)((char *)this + 100) = *(_OWORD *)((char *)a2 + 140);
-  }
-  v15 = (float *)((char *)this + 120);
-  v16 = 6LL;
-  do
-  {
-    v17 = *(float *)((char *)v15 + v11 - (unsigned __int8 *)this - 96);
-    if ( *v15 != v17 )
+    v6 = *((_DWORD *)a2 + 31);
+    if ( *((_DWORD *)this + 13) != v6 )
     {
-      *v15 = v17;
-      v8 = 1;
+      *((_DWORD *)this + 13) = v6;
+      v3 = 1;
+      v2 = *((_BYTE *)a2 + 120);
     }
-    ++v15;
-    --v16;
   }
-  while ( v16 );
-  v18 = *((float *)a2 + 51);
-  if ( *((float *)this + 36) != v18 )
+  if ( (v2 & 2) != 0 )
   {
-    *((float *)this + 36) = v18;
-    v8 = 1;
-  }
-  v19 = *((float *)a2 + 52);
-  if ( *((float *)this + 37) != v19 )
-  {
-    *((float *)this + 37) = v19;
-    v8 = 1;
-  }
-  v20 = *((float *)a2 + 53);
-  if ( *((float *)this + 38) != v20 )
-  {
-    *((float *)this + 38) = v20;
-    v8 = 1;
-  }
-  v21 = *((float *)a2 + 54);
-  if ( *((float *)this + 39) != v21 )
-  {
-    *((float *)this + 39) = v21;
-    v8 = 1;
-  }
-  if ( *((float *)a2 + 51) != 0.0
-    || *((float *)a2 + 52) != 0.0
-    || *((float *)a2 + 53) != 0.0
-    || (v22 = 0, *((float *)a2 + 54) != 0.0) )
-  {
-    v22 = 1;
-  }
-  v23 = *((unsigned int *)this + 46);
-  if ( ((*((_DWORD *)this + 46) >> 15) & 1) != v22 )
-  {
-    v23 = (v22 << 15) | (unsigned int)v23 & 0xFFFF7FFF;
-    v8 = 1;
-    *((_DWORD *)this + 46) = v23;
-  }
-  if ( !*((_DWORD *)this + 68) || (v24 = 3, *(_DWORD *)(*((_QWORD *)this + 32) + 16LL) != 4) )
-    v24 = *((_DWORD *)a2 + 39);
-  if ( *((_DWORD *)this + 12) != v24 )
-  {
-    *((_DWORD *)this + 12) = v24;
-    v8 = 1;
-  }
-  v25 = v23 ^ (v23 ^ (*v11 << 10)) & 0x400;
-  *((_DWORD *)this + 46) = v25;
-  if ( (v25 & 0x400) != 0 )
-  {
-    if ( *((_DWORD *)a2 + 50) && (int)CFlipExBuffer::EnsureHDR10MetaData(this, v23, 1024LL, a4) >= 0 )
+    v7 = *((_BYTE *)a2 + 224) & 1;
+    if ( ((*((_DWORD *)this + 41) >> 12) & 1) != v7 )
     {
-      v26 = *((_DWORD *)a2 + 50);
-      if ( v26 == 1 )
-      {
-        v27 = *((_QWORD *)this + 46);
-        v28 = *((_DWORD *)a2 + 63);
-        v29 = *(_QWORD *)((char *)a2 + 244);
-        *(_OWORD *)v27 = *(_OWORD *)((char *)a2 + 228);
-        *(_QWORD *)(v27 + 16) = v29;
-        *(_DWORD *)(v27 + 24) = v28;
-      }
-      else if ( v26 == 2 )
-      {
-        v30 = *((_QWORD *)this + 46);
-        v31 = *(_OWORD *)((char *)a2 + 244);
-        v32 = *(_OWORD *)((char *)a2 + 260);
-        v33 = *(_OWORD *)((char *)a2 + 276);
-        v34 = *(_QWORD *)((char *)a2 + 292);
-        *(_OWORD *)v30 = *(_OWORD *)((char *)a2 + 228);
-        *(_OWORD *)(v30 + 16) = v31;
-        *(_OWORD *)(v30 + 32) = v32;
-        *(_OWORD *)(v30 + 48) = v33;
-        *(_QWORD *)(v30 + 64) = v34;
-      }
-      v6 = *((_DWORD *)a2 + 50);
+      v3 = 1;
+      *((_DWORD *)this + 41) = *((_DWORD *)this + 41) & 0xFFFFEFFF | (v7 << 12);
     }
-    *((_DWORD *)this + 94) = v6;
-    return 1;
   }
-  return v8;
+  v8 = *((_BYTE *)a2 + 128);
+  if ( (v8 & 1) != 0 )
+  {
+    v9 = *((_QWORD *)a2 + 17);
+    if ( *((_QWORD *)this + 7) != v9 )
+    {
+      *((_QWORD *)this + 7) = v9;
+      v3 = 1;
+      *((_DWORD *)this + 41) = *((_DWORD *)this + 41) & 0xFFFFFFFE | (v9 != 0);
+      v8 = *((_BYTE *)a2 + 128);
+    }
+  }
+  if ( (v8 & 2) != 0 )
+  {
+    v10 = (*((unsigned __int8 *)a2 + 224) >> 2) & 1;
+    if ( ((*((_DWORD *)this + 41) >> 1) & 1) != v10 )
+    {
+      v3 = 1;
+      *((_DWORD *)this + 41) = *((_DWORD *)this + 41) & 0xFFFFFFFD | (2 * v10);
+      v8 = *((_BYTE *)a2 + 128);
+    }
+  }
+  if ( (v8 & 0x10) != 0 )
+  {
+    v11 = *((_DWORD *)a2 + 43);
+    if ( *((_DWORD *)this + 23) != v11 )
+    {
+      *((_DWORD *)this + 23) = v11;
+      v3 = 1;
+      v8 = *((_BYTE *)a2 + 128);
+    }
+  }
+  if ( (v8 & 0x20) != 0
+    && (*((_DWORD *)this + 24) != *((_DWORD *)a2 + 44)
+     || *((_DWORD *)this + 25) != *((_DWORD *)a2 + 45)
+     || *((_DWORD *)this + 26) != *((_DWORD *)a2 + 46)
+     || *((_DWORD *)this + 27) != *((_DWORD *)a2 + 47)) )
+  {
+    v3 = 1;
+    *((_OWORD *)this + 6) = *((_OWORD *)a2 + 11);
+    v8 = *((_BYTE *)a2 + 128);
+  }
+  if ( (v8 & 4) != 0 )
+  {
+    v12 = 6LL;
+    v13 = *((_QWORD *)a2 + 20);
+    v14 = (float *)((char *)this + 116);
+    v35 = *((_OWORD *)a2 + 9);
+    v36 = v13;
+    do
+    {
+      v15 = *(float *)((char *)v14 + (char *)&v35 - (char *)this - 116);
+      if ( *v14 != v15 )
+      {
+        *v14 = v15;
+        v3 = 1;
+      }
+      ++v14;
+      --v12;
+    }
+    while ( v12 );
+  }
+  v16 = *((_BYTE *)a2 + 129);
+  v17 = 3;
+  if ( (v16 & 1) != 0 )
+  {
+    *((_DWORD *)this + 35) = *((_DWORD *)a2 + 49);
+    *((_DWORD *)this + 36) = *((_DWORD *)a2 + 50);
+    v18 = *((_DWORD *)a2 + 51);
+    *(_OWORD *)((char *)this + 148) = *((_OWORD *)a2 + 13);
+    if ( v18 )
+    {
+      if ( v18 == 1 )
+        v19 = 2;
+      else
+        v19 = (v18 != 2) + 3;
+    }
+    else
+    {
+      v19 = 1;
+    }
+    *((_DWORD *)this + 28) = v19;
+    v3 = 1;
+    v16 = *((_BYTE *)a2 + 129);
+  }
+  v20 = *((_BYTE *)a2 + 128);
+  v21 = 0;
+  v22 = (v16 & 1) == 0;
+  if ( (v20 & 8) == 0 )
+    v21 = v22;
+  if ( !v21 )
+  {
+    if ( !*((_DWORD *)this + 60) || *(_DWORD *)(*((_QWORD *)this + 28) + 16LL) != 4 )
+      v17 = *((_DWORD *)a2 + 42);
+    if ( *((_DWORD *)this + 12) != v17 )
+    {
+      *((_DWORD *)this + 12) = v17;
+      v3 = 1;
+      v20 = *((_BYTE *)a2 + 128);
+    }
+  }
+  *((_DWORD *)this + 41) ^= (*((_DWORD *)this + 41) ^ (16 * v20)) & 0x400;
+  v23 = *((_BYTE *)a2 + 128);
+  if ( (v23 & 0x40) != 0 )
+  {
+    v24 = *((_DWORD *)a2 + 48);
+    if ( v24 )
+    {
+      if ( (int)CFlipExBuffer::EnsureHDR10MetaData(this) < 0 )
+      {
+        v24 = 0;
+      }
+      else if ( v24 == 1 )
+      {
+        v25 = *((_QWORD *)this + 42);
+        v26 = *((_DWORD *)a2 + 63);
+        v27 = *(_QWORD *)((char *)a2 + 244);
+        *(_OWORD *)v25 = *(_OWORD *)((char *)a2 + 228);
+        *(_QWORD *)(v25 + 16) = v27;
+        *(_DWORD *)(v25 + 24) = v26;
+      }
+      else if ( v24 == 2 )
+      {
+        v28 = *((_QWORD *)this + 42);
+        v29 = *(_OWORD *)((char *)a2 + 244);
+        v30 = *(_OWORD *)((char *)a2 + 260);
+        v31 = *(_OWORD *)((char *)a2 + 276);
+        v32 = *(_QWORD *)((char *)a2 + 292);
+        *(_OWORD *)v28 = *(_OWORD *)((char *)a2 + 228);
+        *(_OWORD *)(v28 + 16) = v29;
+        *(_OWORD *)(v28 + 32) = v30;
+        *(_OWORD *)(v28 + 48) = v31;
+        *(_QWORD *)(v28 + 64) = v32;
+      }
+    }
+    *((_DWORD *)this + 86) = v24;
+    v3 = 1;
+    v23 = *((_BYTE *)a2 + 128);
+  }
+  if ( v23 < 0 )
+  {
+    v33 = *((unsigned __int8 *)a2 + 224);
+    if ( (((unsigned __int8)v33 ^ (unsigned __int8)(*((_DWORD *)this + 41) >> 7)) & 2) != 0 )
+    {
+      v3 = 1;
+      *((_DWORD *)this + 41) ^= ((unsigned __int16)*((_DWORD *)this + 41) ^ (unsigned __int16)(v33 << 7)) & 0x100;
+    }
+  }
+  return v3;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetRotationAxis@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800206E0
+ * XREFs of ?SetRotationAxis@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800C78E0
  * Callers:
  *     <none>
  * Callees:
- *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800207F8 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800443B0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?NotifyVector3PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector3@@@Z @ 0x180047888 (-NotifyVector3PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector3@@@Z.c)
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x1800485B4 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyVector3PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector3@@@Z @ 0x1800659B8 (-NotifyVector3PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector3@@@Z.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180065B20 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800C79F8 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CComponentTransform3D::SetRotationAxis(
@@ -20,23 +20,26 @@ __int64 __fastcall CComponentTransform3D::SetRotationAxis(
   unsigned int v5; // edx
   unsigned __int64 v6; // rcx
   int v8; // eax
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
   __int64 v10; // [rsp+30h] [rbp-28h] BYREF
   unsigned int v11; // [rsp+38h] [rbp-20h]
 
   v4 = 0;
   D3DXVec3Normalize((struct D2DVector3 *)&v10, a3);
   v5 = v11;
-  v6 = *((_QWORD *)this + 24) - v10;
+  v6 = *((_QWORD *)this + 23) - v10;
   if ( !v6 )
-    v6 = *((unsigned int *)this + 50) - (unsigned __int64)v11;
+    v6 = *((unsigned int *)this + 48) - (unsigned __int64)v11;
   if ( v6 )
   {
-    *((_QWORD *)this + 24) = v10;
-    *((_DWORD *)this + 50) = v5;
-    CResource::InvalidateAnimationSources(this, 6u);
-    CResource::NotifyOnChanged(this, 0LL, 0LL);
-    v8 = CPropertyChangeResource::NotifyVector3PropertyChanged(this, 6u, (CComponentTransform3D *)((char *)this + 192));
+    *((_QWORD *)this + 23) = v10;
+    *((_DWORD *)this + 48) = v5;
+    CResource::InvalidateAnimationSources(this, 25);
+    CResource::NotifyOnChanged((__int64)this, 0, 0LL);
+    v8 = CPropertyChangeResource::NotifyVector3PropertyChanged(
+           this,
+           0x19u,
+           (CComponentTransform3D *)((char *)this + 184));
     v4 = v8;
     if ( v8 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x181u, 0LL);

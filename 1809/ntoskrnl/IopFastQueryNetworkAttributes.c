@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFastQueryNetworkAttributes @ 0x14081CE14
+ * XREFs of IopFastQueryNetworkAttributes @ 0x14081CDF4
  * Callers:
- *     IoFastQueryNetworkAttributes @ 0x14081C420 (IoFastQueryNetworkAttributes.c)
+ *     IoFastQueryNetworkAttributes @ 0x14081C400 (IoFastQueryNetworkAttributes.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     FsRtlpCleanupEcps @ 0x14060B7E4 (FsRtlpCleanupEcps.c)

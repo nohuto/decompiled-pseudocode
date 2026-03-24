@@ -1,10 +1,11 @@
 /*
- * XREFs of ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800F8F78
+ * XREFs of ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800CB558
  * Callers:
- *     ??1CWindowNode@@MEAA@XZ @ 0x1800AB654 (--1CWindowNode@@MEAA@XZ.c)
- *     ??1CThreadContext@@AEAA@XZ @ 0x180271B08 (--1CThreadContext@@AEAA@XZ.c)
+ *     ??_GCWindowAssociationMapEntry@@QEAAPEAXI@Z @ 0x180035420 (--_GCWindowAssociationMapEntry@@QEAAPEAXI@Z.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A08FC (--1CVisual@@MEAA@XZ.c)
+ *     ??1CThreadContext@@AEAA@XZ @ 0x180210850 (--1CThreadContext@@AEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CPtrArrayBase::Clear(CPtrArrayBase *this)

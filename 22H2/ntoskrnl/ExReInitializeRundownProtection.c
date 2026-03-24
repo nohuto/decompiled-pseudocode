@@ -1,7 +1,7 @@
 /*
- * XREFs of ExReInitializeRundownProtection @ 0x140360BF0
+ * XREFs of ExReInitializeRundownProtection @ 0x14037E680
  * Callers:
- *     <none>
+ *     EtwpCoverageSamplerStart @ 0x1409471DC (EtwpCoverageSamplerStart.c)
  * Callees:
  *     <none>
  */

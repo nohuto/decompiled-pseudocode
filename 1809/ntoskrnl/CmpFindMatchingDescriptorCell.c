@@ -4,8 +4,8 @@
  *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
  *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     RtlLengthSecurityDescriptorStrict @ 0x1401B5E94 (RtlLengthSecurityDescriptorStrict.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1401B5EB4 (RtlLengthSecurityDescriptorStrict.c)
  *     CmpSecConvKey @ 0x1405AD0CC (CmpSecConvKey.c)
  */
 

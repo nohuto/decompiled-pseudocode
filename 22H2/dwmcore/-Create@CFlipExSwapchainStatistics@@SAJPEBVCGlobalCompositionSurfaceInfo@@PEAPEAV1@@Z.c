@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Create@CFlipExSwapchainStatistics@@SAJPEBVCGlobalCompositionSurfaceInfo@@PEAPEAV1@@Z @ 0x18001D038
+ * XREFs of ?Create@CFlipExSwapchainStatistics@@SAJPEBVCGlobalCompositionSurfaceInfo@@PEAPEAV1@@Z @ 0x18001F334
  * Callers:
- *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x1800F2C40 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
+ *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x180038804 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?AddRef@CProjectedShadowReceiver@@UEAAKXZ @ 0x18001E380 (-AddRef@CProjectedShadowReceiver@@UEAAKXZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CFlipExSwapchainStatistics::Create(
@@ -17,15 +17,16 @@ __int64 __fastcall CFlipExSwapchainStatistics::Create(
   __int64 result; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v4 = (struct CFlipExSwapchainStatistics *)DefaultHeap::AllocClear(0x20uLL);
+  v4 = (struct CFlipExSwapchainStatistics *)DefaultHeap::AllocClear(0x28uLL);
   v5 = v4;
   if ( !v4 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   *((_DWORD *)v4 + 2) = 0;
-  *((_DWORD *)v4 + 7) = 0;
-  *(_QWORD *)v4 = &CFlipExSwapchainStatistics::`vftable';
-  *((_QWORD *)v4 + 2) = a1;
-  *((_DWORD *)v4 + 6) = 2;
+  *((_DWORD *)v4 + 9) = 0;
+  *(_QWORD *)v4 = &CFlipExSwapchainStatistics::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)v4 + 2) = &CFlipExSwapchainStatistics::`vftable'{for `ICompositionSurfaceStatistics'};
+  *((_QWORD *)v4 + 3) = a1;
+  *((_DWORD *)v4 + 8) = 2;
   CProjectedShadowReceiver::AddRef(v4);
   result = 0LL;
   *a2 = v5;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetContactVisualizationPointerEventInt@CTouchProcessor@@QEAAPEBUtagPOINTEREVENTINT@@PEAXPEAH@Z @ 0x1C00E7FA0
+ * XREFs of ?GetContactVisualizationPointerEventInt@CTouchProcessor@@QEAAPEBUtagPOINTEREVENTINT@@PEAXPEAH@Z @ 0x1C0191930
  * Callers:
  *     <none>
  * Callees:
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE868 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01971B4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 const struct tagPOINTEREVENTINT *__fastcall CTouchProcessor::GetContactVisualizationPointerEventInt(

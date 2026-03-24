@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach @ 0x1C00336D8
+ * XREFs of HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach @ 0x1C00304E8
  * Callers:
- *     HUBPSM20_Disconnected @ 0x1C0011BF0 (HUBPSM20_Disconnected.c)
+ *     HUBPSM20_Disconnected @ 0x1C00107D0 (HUBPSM20_Disconnected.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach(__int64 a
             4u,
             5u,
             0x64u,
-            (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids);
+            (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
         result = (__int64)g_ExNotifyBootDeviceRemoval;
         if ( g_ExNotifyBootDeviceRemoval )
           return g_ExNotifyBootDeviceRemoval(*(_QWORD *)(*(_QWORD *)(a1 + 1328) + 2232LL));

@@ -1,23 +1,23 @@
 /*
- * XREFs of KiAccumulateProcessorCycleStats @ 0x14020E8B0
+ * XREFs of KiAccumulateProcessorCycleStats @ 0x1403F2CC0
  * Callers:
  *     <none>
  * Callees:
- *     KiGetProcessorEfficiencyClass @ 0x14020E8F4 (KiGetProcessorEfficiencyClass.c)
- *     PoGetFrequencyBucket @ 0x140249C00 (PoGetFrequencyBucket.c)
+ *     PoGetFrequencyBucket @ 0x14031CAB8 (PoGetFrequencyBucket.c)
  */
 
-__int64 __fastcall KiAccumulateProcessorCycleStats(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiAccumulateProcessorCycleStats(__int64 a1)
 {
   unsigned int FrequencyBucket; // eax
-  __int64 v6; // rdx
-  __int64 v7; // r8
+  __int64 v3; // r8
+  __int64 v4; // rdx
   __int64 result; // rax
-  __int64 v9; // r9
-  __int64 v10; // r11
+  __int64 v6; // r11
 
-  FrequencyBucket = PoGetFrequencyBucket(a1, a2, a3, a4);
-  result = KiGetProcessorEfficiencyClass(a1, v6, v7, FrequencyBucket);
-  *(_QWORD *)(a1 + 8 * ((unsigned __int8)result + 2 * v9) + 33408) += v10;
+  FrequencyBucket = PoGetFrequencyBucket(a1);
+  v3 = *(unsigned __int8 *)(a1 + 33208);
+  v4 = *(_QWORD *)(a1 + 8 * (v3 + 2LL * FrequencyBucket) + 32576);
+  result = v3 + 2LL * FrequencyBucket;
+  *(_QWORD *)(a1 + 8 * result + 32576) = v6 + v4;
   return result;
 }

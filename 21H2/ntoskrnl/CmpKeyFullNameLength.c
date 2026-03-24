@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpKeyFullNameLength @ 0x1407C4930
+ * XREFs of CmpKeyFullNameLength @ 0x1405F3480
  * Callers:
- *     CmpDoWritethroughReparse @ 0x140680100 (CmpDoWritethroughReparse.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1406E137C (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
- *     CmpConstructNameFromKeyNodes @ 0x1407C8830 (CmpConstructNameFromKeyNodes.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405F3210 (CmpConstructNameFromKeyNodes.c)
+ *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140778C38 (CmpConstructNameFromKcbNameBlocks.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@
 __int64 __fastcall CmpKeyFullNameLength(__int64 a1)
 {
   unsigned int v1; // r8d
-  __int64 v2; // rdx
-  int v3; // eax
+  __int64 v2; // rax
+  int v3; // edx
 
   v1 = 0;
   while ( a1 )

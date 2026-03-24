@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateAccessLog @ 0x1401147F0
+ * XREFs of MiAllocateAccessLog @ 0x140114810
  * Callers:
  *     MiLogPageAccess @ 0x14006BDB0 (MiLogPageAccess.c)
  * Callees:
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
  *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
- *     MiInitializePageAccessLogging @ 0x140114904 (MiInitializePageAccessLogging.c)
+ *     MiInitializePageAccessLogging @ 0x140114924 (MiInitializePageAccessLogging.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

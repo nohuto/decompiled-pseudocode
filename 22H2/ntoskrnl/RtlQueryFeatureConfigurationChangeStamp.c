@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryFeatureConfigurationChangeStamp @ 0x14036B630
+ * XREFs of RtlQueryFeatureConfigurationChangeStamp @ 0x14058E090
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 RtlQueryFeatureConfigurationChangeStamp()
 {
-  return qword_140C14038;
+  return qword_140C48198;
 }

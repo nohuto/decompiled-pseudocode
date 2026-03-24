@@ -1,28 +1,31 @@
 /*
- * XREFs of ?GetVirtualModeClip@COverlayContext@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x18012F82A
+ * XREFs of ?GetVirtualModeClip@COverlayContext@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x18017BFE0
  * Callers:
- *     ?CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x1801304AE (-CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisu.c)
- *     ?GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x1801DD8F0 (-GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x18017BF04 (-GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180182F54 (-CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisu.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 float *__fastcall COverlayContext::GetVirtualModeClip(_QWORD *a1, float *a2)
 {
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  unsigned __int64 v5; // xmm1_8
-  float v6; // xmm0_4
+  int *v3; // rax
+  float v4; // xmm0_4
+  float v5; // xmm1_4
+  int v6; // ecx
+  float v7; // xmm1_4
   float *result; // rax
 
-  v3 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 160LL))(*a1);
-  v4 = *(_QWORD *)(v3 + 20);
-  v5 = _mm_srli_si128(*(__m128i *)(v3 + 20), 8).m128i_u64[0];
-  v6 = (float)(int)*(_OWORD *)(v3 + 20);
+  v3 = (int *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a1 + 152LL))(*a1);
+  v4 = (float)*v3;
+  v5 = (float)v3[1];
+  v6 = v3[2];
+  LODWORD(v3) = v3[3];
+  *a2 = v4;
+  a2[1] = v5;
+  v7 = (float)(int)v3;
   result = a2;
-  *a2 = v6;
-  a2[1] = (float)SHIDWORD(v4);
-  a2[2] = (float)(int)v5;
-  a2[3] = (float)SHIDWORD(v5);
+  a2[2] = (float)v6;
+  a2[3] = v7;
   return result;
 }

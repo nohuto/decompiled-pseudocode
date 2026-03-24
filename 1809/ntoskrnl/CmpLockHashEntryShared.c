@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockHashEntryShared @ 0x1406F8390
+ * XREFs of CmpLockHashEntryShared @ 0x1406F8370
  * Callers:
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1406F81FC (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1406F81DC (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     CmpReferenceHive @ 0x1405D16FC (CmpReferenceHive.c)
  */
 

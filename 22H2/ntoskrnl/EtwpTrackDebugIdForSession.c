@@ -1,56 +1,56 @@
 /*
- * XREFs of EtwpTrackDebugIdForSession @ 0x14077E660
+ * XREFs of EtwpTrackDebugIdForSession @ 0x14068E028
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x14077E16C (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x14068DF0C (EtwpProviderArrivalCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-signed __int32 __fastcall EtwpTrackDebugIdForSession(__int64 a1, const void *a2, unsigned int a3)
+char __fastcall EtwpTrackDebugIdForSession(__int64 a1, const void *a2, unsigned int a3)
 {
   volatile signed __int64 *v3; // rbp
   SIZE_T v4; // r15
   __int64 *v7; // r14
   __int64 *i; // rsi
-  __int64 Pool2; // rax
-  __int64 v11; // rbx
-  __int64 v12; // rax
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v10; // rbx
+  __int64 v11; // rax
 
-  v3 = (volatile signed __int64 *)(a1 + 688);
+  v3 = (volatile signed __int64 *)(a1 + 704);
   v4 = a3;
-  ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-  if ( (unsigned int)v4 <= 0x8000 && (unsigned int)(v4 + *(_DWORD *)(a1 + 324)) <= *(_DWORD *)(a1 + 4) )
+  ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+  if ( (unsigned int)v4 <= 0x8000 && (unsigned int)(v4 + *(_DWORD *)(a1 + 340)) <= *(_DWORD *)(a1 + 4) )
   {
-    v7 = (__int64 *)(a1 + 96);
-    for ( i = *(__int64 **)(a1 + 96); i != v7; i = (__int64 *)*i )
+    v7 = (__int64 *)(a1 + 112);
+    for ( i = *(__int64 **)(a1 + 112); i != v7; i = (__int64 *)*i )
     {
       if ( *((_DWORD *)i + 5) == (_DWORD)v4 && RtlCompareMemory(i + 3, a2, v4) == v4 )
-        goto LABEL_8;
+        goto LABEL_12;
     }
-    Pool2 = ExAllocatePool2(64LL, (unsigned int)(v4 + 24), 1651995717LL);
-    v11 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(v4 + 24), 0x62777445u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(a1 + 324) += v4;
-      *(_DWORD *)(Pool2 + 20) = v4;
-      memmove((void *)(Pool2 + 24), a2, v4);
-      v12 = *v7;
+      *(_DWORD *)(a1 + 340) += v4;
+      PoolWithTag[5] = v4;
+      memmove(PoolWithTag + 6, a2, v4);
+      v11 = *v7;
       if ( *(__int64 **)(*v7 + 8) != v7 )
         __fastfail(3u);
-      *(_QWORD *)v11 = v12;
-      *(_QWORD *)(v11 + 8) = v7;
-      *(_QWORD *)(v12 + 8) = v11;
-      *v7 = v11;
-      *(_BYTE *)(v11 + 16) = 0;
-      _InterlockedOr((volatile signed __int32 *)(a1 + 824), 0x8C0u);
+      *(_QWORD *)v10 = v11;
+      *((_QWORD *)v10 + 1) = v7;
+      *(_QWORD *)(v11 + 8) = v10;
+      *v7 = (__int64)v10;
+      *((_BYTE *)v10 + 16) = 0;
+      _InterlockedOr((volatile signed __int32 *)(a1 + 836), 0x8C0u);
     }
   }
-LABEL_8:
+LABEL_12:
   if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v3);
   return KeAbPostRelease((ULONG_PTR)v3);

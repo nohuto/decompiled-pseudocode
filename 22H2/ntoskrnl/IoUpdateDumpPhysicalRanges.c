@@ -1,24 +1,21 @@
 /*
- * XREFs of IoUpdateDumpPhysicalRanges @ 0x140551100
+ * XREFs of IoUpdateDumpPhysicalRanges @ 0x1405028CC
  * Callers:
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14061BFF4 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiAddPhysicalMemoryChunks @ 0x140A2BEFC (MiAddPhysicalMemoryChunks.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
- *     MiHotAddPartitionMemory @ 0x140A44D10 (MiHotAddPartitionMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4EE0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IopGetPhysicalMemoryBlock @ 0x140394850 (IopGetPhysicalMemoryBlock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopConstructInMemoryDumpHeader @ 0x1405524DC (IopConstructInMemoryDumpHeader.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1403CAAA4 (IopGetPhysicalMemoryBlock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopConstructInMemoryDumpHeader @ 0x140503880 (IopConstructInMemoryDumpHeader.c)
  */
 
 _QWORD *IoUpdateDumpPhysicalRanges()
 {
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 PhysicalMemoryBlock; // rcx
+  char *PhysicalMemoryBlock; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -26,7 +23,7 @@ _QWORD *IoUpdateDumpPhysicalRanges()
   {
     PhysicalMemoryBlock = IopGetPhysicalMemoryBlock();
     if ( PhysicalMemoryBlock )
-      ((void (__fastcall *)(__int64))qword_140C6AD60)(PhysicalMemoryBlock);
+      ((void (__fastcall *)(char *))qword_140C50CC0)(PhysicalMemoryBlock);
     ExReleaseResourceLite(&IopCrashDumpLock);
   }
   if ( OfflineDumpEnabled )

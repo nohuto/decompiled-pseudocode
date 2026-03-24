@@ -1,13 +1,13 @@
 /*
- * XREFs of SeClearLearningModeObjectInformation @ 0x140347840
+ * XREFs of SeClearLearningModeObjectInformation @ 0x14027C5B0
  * Callers:
- *     RtlpAllowsLowBoxAccess @ 0x140244198 (RtlpAllowsLowBoxAccess.c)
- *     ObReferenceObjectByNameEx @ 0x1406686C8 (ObReferenceObjectByNameEx.c)
- *     ObReferenceObjectByName @ 0x14071EEC0 (ObReferenceObjectByName.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1402C7068 (RtlpAllowsLowBoxAccess.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 void SeClearLearningModeObjectInformation()
@@ -30,7 +30,7 @@ void SeClearLearningModeObjectInformation()
       if ( Blink[2].Flink )
       {
         if ( Blink[3].Flink )
-          RtlFreeUnicodeString((PUNICODE_STRING)&Blink[2].Blink);
+          RtlFreeAnsiString((PUNICODE_STRING)&Blink[2].Blink);
       }
     }
   }

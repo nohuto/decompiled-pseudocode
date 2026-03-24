@@ -1,12 +1,12 @@
 /*
- * XREFs of Normalization__Normalize @ 0x1409BDA38
+ * XREFs of Normalization__Normalize @ 0x1409183D4
  * Callers:
- *     RtlpNormalizeStringWorker @ 0x1409BE594 (RtlpNormalizeStringWorker.c)
+ *     RtlpNormalizeStringWorker @ 0x140918F04 (RtlpNormalizeStringWorker.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     NormBuffer__Append @ 0x1405ED07C (NormBuffer__Append.c)
- *     Normalization__GuessCharCountBySize @ 0x1409BD350 (Normalization__GuessCharCountBySize.c)
- *     Normalization__NormalizeCharacter @ 0x1409BDBFC (Normalization__NormalizeCharacter.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     NormBuffer__Append @ 0x14058DA1C (NormBuffer__Append.c)
+ *     Normalization__GuessCharCountBySize @ 0x140917CEC (Normalization__GuessCharCountBySize.c)
+ *     Normalization__NormalizeCharacter @ 0x140918590 (Normalization__NormalizeCharacter.c)
  */
 
 __int64 __fastcall Normalization__Normalize(__int64 a1, __int64 a2, int a3, __int64 a4, unsigned int a5, _DWORD *a6)
@@ -58,7 +58,8 @@ __int64 __fastcall Normalization__Normalize(__int64 a1, __int64 a2, int a3, __in
       if ( !NormBuffer__Append((__int64)v21, v13) )
       {
         a2 = v21[2];
-        goto LABEL_18;
+        v11 = -1073741789;
+        break;
       }
     }
     else
@@ -73,21 +74,22 @@ __int64 __fastcall Normalization__Normalize(__int64 a1, __int64 a2, int a3, __in
     goto LABEL_24;
   }
 LABEL_17:
-  if ( v11 != -1073741789 )
+  if ( v11 == -1073741789 )
+  {
+    v14 = ((v21[1] - a2) >> 1) + 1;
+    v15 = (a2 - v21[0]) >> 1;
+    if ( !(_DWORD)v15 )
+      LODWORD(v15) = 1;
+    v16 = Normalization__GuessCharCountBySize(a1, v14);
+    v19 = v18 * v17 / (int)v15;
+    if ( v19 <= v16 )
+      v19 = v16;
+    LODWORD(a2) = v17 + v19 + (v19 >> 3);
+  }
+  else
   {
     LODWORD(a2) = ((a2 - v21[0]) >> 1) - 1;
-    goto LABEL_24;
   }
-LABEL_18:
-  v14 = ((v21[1] - a2) >> 1) + 1;
-  v15 = (a2 - v21[0]) >> 1;
-  if ( !(_DWORD)v15 )
-    LODWORD(v15) = 1;
-  v16 = Normalization__GuessCharCountBySize(a1, v14);
-  v19 = v18 * v17 / (int)v15;
-  if ( v19 <= v16 )
-    v19 = v16;
-  LODWORD(a2) = v17 + v19 + (v19 >> 3);
 LABEL_24:
   *a6 = a2;
   return v11;

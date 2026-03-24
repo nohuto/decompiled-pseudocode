@@ -1,10 +1,10 @@
 /*
- * XREFs of AddPalmRejectionDelayZone @ 0x1C01E7534
+ * XREFs of AddPalmRejectionDelayZone @ 0x1C01ADCD4
  * Callers:
- *     NtUserCreatePalmRejectionDelayZone @ 0x1C0143570 (NtUserCreatePalmRejectionDelayZone.c)
+ *     NtUserCreatePalmRejectionDelayZone @ 0x1C012D620 (NtUserCreatePalmRejectionDelayZone.c)
  * Callees:
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0081348 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01E5544 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006CB48 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01AC608 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
  */
 
 __int64 __fastcall AddPalmRejectionDelayZone(void *a1, struct tagRECT *a2, void *a3, struct tagRECT *a4, int a5)
@@ -16,7 +16,7 @@ __int64 __fastcall AddPalmRejectionDelayZone(void *a1, struct tagRECT *a2, void 
   struct tagRECT v14; // [rsp+40h] [rbp-18h] BYREF
 
   v9 = 0;
-  Instance = DelayZonePalmRejection::GetInstance((__int64)a1, (__int64)a2, (__int64)a3, (__int64)a4);
+  Instance = DelayZonePalmRejection::GetInstance();
   if ( Instance )
   {
     v11 = *a2;

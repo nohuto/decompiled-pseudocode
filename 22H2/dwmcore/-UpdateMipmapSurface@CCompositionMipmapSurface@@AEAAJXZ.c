@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UpdateMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x18022473C
+ * XREFs of ?UpdateMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x1801BA7DC
  * Callers:
- *     ?OnSceneFrameTick@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1802241D0 (-OnSceneFrameTick@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
+ *     ?OnSceneFrameTick@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x1801BA2A0 (-OnSceneFrameTick@CCompositionMipmapSurface@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
  * Callees:
- *     ?CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@0IIII@Z @ 0x180018A0C (-CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRe.c)
- *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x18001ED10 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x180034B74 (-GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800D5940 (-GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?InternalRelease@?$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ @ 0x180223078 (-InternalRelease@-$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005FC34 (-GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800BBE50 (-GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ @ 0x1801B91A8 (-InternalRelease@-$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@0IIII@Z @ 0x18023D978 (-CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRe.c)
  */
 
 __int64 __fastcall CCompositionMipmapSurface::UpdateMipmapSurface(CCompositionMipmapSurface *this)
@@ -30,7 +30,7 @@ __int64 __fastcall CCompositionMipmapSurface::UpdateMipmapSurface(CCompositionMi
   __int64 v15; // rcx
   __int64 v16; // rbx
   __int64 v17; // rdi
-  __int64 v18; // rax
+  int v18; // eax
   __int64 v20; // [rsp+50h] [rbp-20h] BYREF
   int v21; // [rsp+58h] [rbp-18h]
   __int64 v22; // [rsp+5Ch] [rbp-14h]
@@ -40,14 +40,14 @@ __int64 __fastcall CCompositionMipmapSurface::UpdateMipmapSurface(CCompositionMi
   __int64 (__fastcall ***v26)(_QWORD); // [rsp+C0h] [rbp+50h] BYREF
 
   v2 = 0;
-  if ( !*((_BYTE *)this + 160) )
+  if ( !*((_BYTE *)this + 152) )
     return v2;
-  *((_BYTE *)this + 160) = 0;
-  if ( !*((_QWORD *)this + 21) )
+  *((_BYTE *)this + 152) = 0;
+  if ( !*((_QWORD *)this + 20) )
     return v2;
   v24 = 0LL;
   Microsoft::WRL::ComPtr<CD3DDevice>::InternalRelease(&v24);
-  ExistingDevice = CDeviceManager::GetExistingDevice(v3, *(struct _LUID *)((char *)this + 120), &v24);
+  ExistingDevice = CDeviceManager::GetExistingDevice(v3, *(struct _LUID *)((char *)this + 112), &v24);
   v2 = ExistingDevice;
   if ( ExistingDevice < 0 )
   {
@@ -55,7 +55,7 @@ __int64 __fastcall CCompositionMipmapSurface::UpdateMipmapSurface(CCompositionMi
     goto LABEL_16;
   }
   v6 = 0;
-  if ( !*((_DWORD *)this + 34) )
+  if ( !*((_DWORD *)this + 32) )
   {
 LABEL_11:
     (*(void (__fastcall **)(CCompositionMipmapSurface *, _QWORD, CCompositionMipmapSurface *))(*(_QWORD *)this + 72LL))(
@@ -66,15 +66,15 @@ LABEL_11:
   }
   while ( 1 )
   {
-    v7 = *((_QWORD *)this + 12);
+    v7 = *((_QWORD *)this + 11);
     v8 = 32LL * v6;
     v9 = *(_QWORD *)(v7 + v8);
     if ( !v9 || !*(_BYTE *)(v7 + v8 + 24) )
       goto LABEL_10;
     v25 = 0LL;
-    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v25);
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v25);
     CurrentRenderingRealization = CCompositionSurfaceBitmap::GetCurrentRenderingRealization(
-                                    (CCompositionSurfaceBitmap *)(v9 + 72),
+                                    (CCompositionSurfaceBitmap *)(v9 + 64),
                                     &v25);
     v2 = CurrentRenderingRealization;
     if ( CurrentRenderingRealization < 0 )
@@ -83,31 +83,31 @@ LABEL_11:
     v26 = 0LL;
     v22 = 0LL;
     v23 = 0;
-    v20 = *((_QWORD *)this + 15);
+    v20 = *((_QWORD *)this + 14);
     v21 = DisplayId::None;
     v13 = *(__int64 (__fastcall **)(struct IBitmapRealization *, __int64 *, __int64 (__fastcall ****)(_QWORD)))(*(_QWORD *)v25 + 48LL);
-    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v26);
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v26);
     v14 = v13(v12, &v20, &v26);
     v2 = v14;
     if ( v14 < 0 )
     {
       MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x183u, 0LL);
-      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v26);
+      Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v26);
       goto LABEL_13;
     }
-    v16 = *((_QWORD *)this + 12);
-    v17 = *(_QWORD *)(*((_QWORD *)this + 21) + 112LL);
+    v16 = *((_QWORD *)this + 11);
+    v17 = *(_QWORD *)(*((_QWORD *)this + 20) + 128LL);
     v18 = (**v26)(v26);
-    CD3DDevice::CopySubresourceRegion((__int64)v24, v18, 0, (int *)(v8 + v16 + 8), v17, v6, 0, 0, 0);
-    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v26);
-    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v25);
+    CD3DDevice::CopySubresourceRegion((_DWORD)v24, v18, 0, v8 + v16 + 8, v17, v6, 0, 0, 0);
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v26);
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v25);
 LABEL_10:
-    if ( ++v6 >= *((_DWORD *)this + 34) )
+    if ( ++v6 >= *((_DWORD *)this + 32) )
       goto LABEL_11;
   }
   MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, CurrentRenderingRealization, 0x17Cu, 0LL);
 LABEL_13:
-  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v25);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v25);
 LABEL_16:
   Microsoft::WRL::ComPtr<CD3DDevice>::InternalRelease(&v24);
   return v2;

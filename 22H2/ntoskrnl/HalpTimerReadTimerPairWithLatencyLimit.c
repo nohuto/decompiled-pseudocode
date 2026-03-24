@@ -1,43 +1,37 @@
 /*
- * XREFs of HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A820
+ * XREFs of HalpTimerReadTimerPairWithLatencyLimit @ 0x1403B0D68
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x14037A528 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x14050C760 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403B0A68 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x1404C3500 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     HalpProcessorFence @ 0x1403F9340 (HalpProcessorFence.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-unsigned __int64 __fastcall HalpTimerReadTimerPairWithLatencyLimit(
+__int64 __fastcall HalpTimerReadTimerPairWithLatencyLimit(
         unsigned int a1,
         __int64 a2,
         __int64 a3,
         LARGE_INTEGER *a4,
         LARGE_INTEGER *a5)
 {
-  unsigned __int64 v7; // r14
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rbp
-  unsigned __int64 v11; // rcx
+  unsigned __int64 v7; // r15
+  unsigned __int64 v9; // rbp
   __int64 InternalData; // rax
   LARGE_INTEGER PerformanceCounter; // rax
-  unsigned __int64 v14; // rax
-  __int64 v15; // rax
-  LARGE_INTEGER v16; // rax
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rax
-  unsigned __int64 v19; // rcx
-  unsigned __int64 result; // rax
+  __int64 v12; // rax
+  LARGE_INTEGER v13; // rax
+  unsigned __int64 v14; // rbx
+  __int64 result; // rax
 
   v7 = a1;
   do
   {
-    v9 = __readcr2();
-    __writecr2(v9);
-    v10 = __rdtsc();
-    v11 = __readcr2();
-    __writecr2(v11);
+    HalpProcessorFence();
+    v9 = __rdtsc();
+    HalpProcessorFence();
     if ( a2 == HalpPerformanceCounter && HalpTimerFrequenciesMeasured )
     {
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
@@ -48,25 +42,21 @@ unsigned __int64 __fastcall HalpTimerReadTimerPairWithLatencyLimit(
       PerformanceCounter.QuadPart = (*(__int64 (__fastcall **)(__int64))(a2 + 112))(InternalData);
     }
     *a4 = PerformanceCounter;
-    v14 = __readcr2();
-    __writecr2(v14);
+    HalpProcessorFence();
     if ( a3 == HalpPerformanceCounter && HalpTimerFrequenciesMeasured )
     {
-      v16 = KeQueryPerformanceCounter(0LL);
+      v13 = KeQueryPerformanceCounter(0LL);
     }
     else
     {
-      v15 = HalpTimerGetInternalData(a3);
-      v16.QuadPart = (*(__int64 (__fastcall **)(__int64))(a3 + 112))(v15);
+      v12 = HalpTimerGetInternalData(a3);
+      v13.QuadPart = (*(__int64 (__fastcall **)(__int64))(a3 + 112))(v12);
     }
-    *a5 = v16;
-    v17 = __readcr2();
-    __writecr2(v17);
-    v18 = __rdtsc();
-    v19 = __readcr2();
-    __writecr2(v19);
-    result = (((unsigned __int64)HIDWORD(v18) << 32) | (unsigned int)v18) - v10;
+    *a5 = v13;
+    HalpProcessorFence();
+    v14 = __rdtsc();
+    result = HalpProcessorFence();
   }
-  while ( result > v7 );
+  while ( v14 - v9 > v7 );
   return result;
 }

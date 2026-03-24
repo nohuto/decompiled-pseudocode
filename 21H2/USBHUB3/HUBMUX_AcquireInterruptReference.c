@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMUX_AcquireInterruptReference @ 0x1C000FDFC
+ * XREFs of HUBMUX_AcquireInterruptReference @ 0x1C000F9E0
  * Callers:
- *     HUBPSM30_AcquiringInterruptReferenceOnHSMInEnabled @ 0x1C0010930 (HUBPSM30_AcquiringInterruptReferenceOnHSMInEnabled.c)
+ *     HUBPSM30_AcquiringInterruptReferenceOnHSMInEnabled @ 0x1C0010520 (HUBPSM30_AcquiringInterruptReferenceOnHSMInEnabled.c)
  * Callees:
  *     <none>
  */

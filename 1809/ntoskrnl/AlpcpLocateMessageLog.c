@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpLocateMessageLog @ 0x14084A764
+ * XREFs of AlpcpLocateMessageLog @ 0x14084A744
  * Callers:
- *     AlpcpEnterFreeEventMessageLog @ 0x14084A550 (AlpcpEnterFreeEventMessageLog.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A5B8 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x14084A530 (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
  * Callees:
  *     <none>
  */

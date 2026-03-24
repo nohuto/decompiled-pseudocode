@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetCharWidthInfo @ 0x1C0108960
+ * XREFs of NtGdiGetCharWidthInfo @ 0x1C011E330
  * Callers:
  *     <none>
  * Callees:
- *     GreGetCharWidthInfo @ 0x1C01089C4 (GreGetCharWidthInfo.c)
+ *     GreGetCharWidthInfo @ 0x1C011E394 (GreGetCharWidthInfo.c)
  */
 
 __int64 __fastcall NtGdiGetCharWidthInfo(HDC a1, unsigned __int64 a2)

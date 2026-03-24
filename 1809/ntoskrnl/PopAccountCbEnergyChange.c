@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountCbEnergyChange @ 0x14071A548
+ * XREFs of PopAccountCbEnergyChange @ 0x14071A528
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 int PopAccountCbEnergyChange()
@@ -63,43 +63,43 @@ int PopAccountCbEnergyChange()
   int *v51; // [rsp+1A8h] [rbp+A0h]
   __int64 v52; // [rsp+1B0h] [rbp+A8h]
 
-  v0 = (__int64 *)qword_140417840;
+  v0 = (__int64 *)qword_140417920;
   v1 = 0LL;
   *((_QWORD *)&v23 + 1) = 0LL;
-  if ( (__int64 *)qword_140417840 != &qword_140417840 )
+  if ( (__int64 *)qword_140417920 != &qword_140417920 )
   {
     do
     {
       v1 += v0[25];
       v0 = (__int64 *)*v0;
     }
-    while ( v0 != &qword_140417840 );
+    while ( v0 != &qword_140417920 );
     *((_QWORD *)&v23 + 1) = v1;
   }
-  v2 = qword_140417850;
+  v2 = qword_140417930;
   v3 = 0;
   LODWORD(v23) = 0;
-  if ( (__int64 *)qword_140417850 != &qword_140417850 )
+  if ( (__int64 *)qword_140417930 != &qword_140417930 )
   {
     do
     {
       v3 |= *(_DWORD *)(v2 + 128);
       v2 = *(_QWORD *)v2;
     }
-    while ( (__int64 *)v2 != &qword_140417850 );
+    while ( (__int64 *)v2 != &qword_140417930 );
     LODWORD(v23) = v3;
   }
-  if ( v3 != (_DWORD)xmmword_140417A10 || v1 != *((_QWORD *)&xmmword_140417A10 + 1) )
+  if ( v3 != (_DWORD)xmmword_140417AF0 || v1 != *((_QWORD *)&xmmword_140417AF0 + 1) )
   {
-    v4 = v1 - *((_QWORD *)&xmmword_140417A10 + 1);
-    xmmword_140417A10 = v23;
+    v4 = v1 - *((_QWORD *)&xmmword_140417AF0 + 1);
+    xmmword_140417AF0 = v23;
     if ( pCallbackContext.LevelPlus1 > 5 )
     {
       v24 = v1;
       v5 = "Energy Counter Unavailable";
       if ( (v3 & 1) == 0 )
         v5 = "-";
-      v17 = dword_140417834;
+      v17 = dword_140417914;
       *(_QWORD *)&v23 = v4;
       v6 = "FCC Unavailable";
       v7 = "Capacity Unavailable";
@@ -112,20 +112,20 @@ int PopAccountCbEnergyChange()
       if ( (v3 & 8) == 0 )
         v7 = "-";
       v12 = "Battery charge limiting mode";
-      if ( (unk_140417860 & 1) == 0 )
+      if ( (unk_140417940 & 1) == 0 )
         v8 = "DC Power";
-      if ( (unk_140417860 & 2) == 0 )
+      if ( (unk_140417940 & 2) == 0 )
         v9 = "-";
-      if ( (unk_140417860 & 4) == 0 )
+      if ( (unk_140417940 & 4) == 0 )
         v10 = "-";
-      if ( (unk_140417860 & 8) == 0 )
+      if ( (unk_140417940 & 8) == 0 )
         v11 = "-";
-      if ( (unk_140417860 & 0x10) == 0 )
+      if ( (unk_140417940 & 0x10) == 0 )
         v12 = "-";
-      if ( HIDWORD(qword_140417880) )
+      if ( HIDWORD(qword_140417960) )
       {
-        v16 = ((HIDWORD(qword_140417880) >> 1) + 100 * dword_140417864) / HIDWORD(qword_140417880);
-        v13 = 100000 * (unsigned __int64)dword_140417864 / HIDWORD(qword_140417880);
+        v16 = ((HIDWORD(qword_140417960) >> 1) + 100 * dword_140417944) / HIDWORD(qword_140417960);
+        v13 = 100000 * (unsigned __int64)dword_140417944 / HIDWORD(qword_140417960);
       }
       else
       {
@@ -133,11 +133,11 @@ int PopAccountCbEnergyChange()
         LODWORD(v13) = 0;
       }
       v18 = v13;
-      v19 = dword_140417864;
-      v21 = unk_140417868;
-      v22 = qword_14041786C;
+      v19 = dword_140417944;
+      v21 = unk_140417948;
+      v22 = qword_14041794C;
       v26 = &v24;
-      v20 = HIDWORD(qword_140417880);
+      v20 = HIDWORD(qword_140417960);
       v27 = 8LL;
       TlgCreateSz(&pDesc, v5);
       TlgCreateSz(&v29, v14);
@@ -164,7 +164,7 @@ int PopAccountCbEnergyChange()
       v48 = 4LL;
       v50 = 4LL;
       v52 = 4LL;
-      LODWORD(v1) = TlgWrite(&pCallbackContext, &unk_14036E90C, 0LL, 0LL, 0x14u, &pData);
+      LODWORD(v1) = TlgWrite(&pCallbackContext, &unk_14036ECD0, 0LL, 0LL, 0x14u, &pData);
     }
   }
   return v1;

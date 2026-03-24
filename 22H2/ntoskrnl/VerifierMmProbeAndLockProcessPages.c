@@ -1,21 +1,22 @@
 /*
- * XREFs of VerifierMmProbeAndLockProcessPages @ 0x140AE4540
+ * XREFs of VerifierMmProbeAndLockProcessPages @ 0x1409E6ED0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
  */
 
-void __fastcall VerifierMmProbeAndLockProcessPages(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, unsigned int a4)
+char __fastcall VerifierMmProbeAndLockProcessPages(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, unsigned int a4)
 {
   unsigned __int8 CurrentIrql; // cl
   __int16 v9; // cx
   unsigned __int16 v10; // dx
   __int64 v11; // r8
+  char result; // al
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   CurrentIrql = KeGetCurrentIrql();
@@ -33,13 +34,14 @@ void __fastcall VerifierMmProbeAndLockProcessPages(ULONG_PTR BugCheckParameter2,
       *(__int16 *)(BugCheckParameter2 + 10),
       (unsigned __int16)(v10 & v9));
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1 )
-    RtlRaiseStatus(-1073741663);
+    RtlRaiseStatus(0xC00000A1);
   LOBYTE(v11) = a3;
-  ((void (__fastcall *)(ULONG_PTR, __int64, __int64, _QWORD))pXdvMmProbeAndLockProcessPages)(
-    BugCheckParameter2,
-    a2,
-    v11,
-    a4);
+  result = ((__int64 (__fastcall *)(ULONG_PTR, __int64, __int64, _QWORD))pXdvMmProbeAndLockProcessPages)(
+             BugCheckParameter2,
+             a2,
+             v11,
+             a4);
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetAddToCounter(retaddr, 184LL, 0xC0u, *(unsigned int *)(BugCheckParameter2 + 40));
+    return ViTargetAddToCounter(retaddr, 176LL, 0xB8u, *(unsigned int *)(BugCheckParameter2 + 40));
+  return result;
 }

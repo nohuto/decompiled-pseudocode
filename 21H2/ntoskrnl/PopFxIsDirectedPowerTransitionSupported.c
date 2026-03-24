@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxIsDirectedPowerTransitionSupported @ 0x1405CC890
+ * XREFs of PopFxIsDirectedPowerTransitionSupported @ 0x14056B130
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14099613C (PopDripsWatchdogCallbackHandler.c)
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099F3A0 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x1408EEDD8 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x1408F8AC0 (PopDirectedDripsBuildBroadcastTreeFull.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ char __fastcall PopFxIsDirectedPowerTransitionSupported(__int64 a1, int *a2)
   char result; // al
 
   v2 = 0;
-  if ( (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 824), 0, 0) & 0x900) == 0x100 )
+  if ( (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 824), 0, 0) & 0x100) != 0 )
   {
     result = 0;
     v2 = 2;

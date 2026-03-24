@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetVmProcessorHostProcess @ 0x1409AF410
+ * XREFs of PsSetVmProcessorHostProcess @ 0x140909DA8
  * Callers:
- *     VmSetVpHostProcess @ 0x1409D9920 (VmSetVpHostProcess.c)
+ *     VmSetVpHostProcess @ 0x14092F1D0 (VmSetVpHostProcess.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ExBlockOnAddressPushLock @ 0x140369460 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExBlockOnAddressPushLock @ 0x14029CC60 (ExBlockOnAddressPushLock.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
  */
 
 NTSTATUS __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)

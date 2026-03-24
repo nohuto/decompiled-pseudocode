@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDescribeChunk @ 0x1409B63B0
+ * XREFs of RtlDescribeChunk @ 0x140910600
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlDescribeChunk(
@@ -15,7 +15,7 @@ NTSTATUS __stdcall RtlDescribeChunk(
 {
   if ( (unsigned __int8)CompressionFormat < 2u )
     return -1073741811;
-  if ( (unsigned __int8)CompressionFormat <= 5u )
+  if ( (unsigned __int8)CompressionFormat <= 4u )
     return ((__int64 (__fastcall *)(PUCHAR *, PUCHAR, PUCHAR *, PULONG))RtlDescribeChunkProcs[(unsigned __int8)CompressionFormat])(
              CompressedBuffer,
              EndOfCompressedBufferPlus1,

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspFreeStorage @ 0x1407F7A80
+ * XREFs of PspFreeStorage @ 0x14090EDD8
  * Callers:
- *     PspJobDeleteStorageArrays @ 0x140678A8C (PspJobDeleteStorageArrays.c)
- *     PspCreateSilo @ 0x1406E4FA4 (PspCreateSilo.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PspJobDeleteStorageArrays @ 0x14067F464 (PspJobDeleteStorageArrays.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspFreeStorage(_QWORD *P)
@@ -20,7 +20,8 @@ void __fastcall PspFreeStorage(_QWORD *P)
   do
   {
     if ( *v2 >= 2uLL )
-      __int2c();
+      NT_ASSERT(
+        "(Storage->StorageArray[Index].Object == ((void *)0)) || (Storage->StorageArray[Index].Object == (PVOID)((ULONG_PTR)1))");
     v2 += 2;
     --v3;
   }
@@ -33,7 +34,9 @@ void __fastcall PspFreeStorage(_QWORD *P)
     do
     {
       if ( *v5 >= 2uLL )
-        __int2c();
+        NT_ASSERT(
+          "(Storage->StorageExpansionArray[Index].Object == ((void *)0)) || (Storage->StorageExpansionArray[Index].Object"
+          " == (PVOID)((ULONG_PTR)1))");
       v5 += 2;
       --v6;
     }

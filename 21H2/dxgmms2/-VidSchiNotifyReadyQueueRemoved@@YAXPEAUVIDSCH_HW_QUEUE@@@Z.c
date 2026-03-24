@@ -1,40 +1,43 @@
 /*
- * XREFs of ?VidSchiNotifyReadyQueueRemoved@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001F010
+ * XREFs of ?VidSchiNotifyReadyQueueRemoved@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0037F20
  * Callers:
- *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C00406D0 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
- *     VidSchiSuspendResumeHwContext @ 0x1C0043E14 (VidSchiSuspendResumeHwContext.c)
+ *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C0038620 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
+ *     VidSchiSuspendResumeHwContext @ 0x1C003C1D8 (VidSchiSuspendResumeHwContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?VidSchiCheckHwSchNodeProgress@@YAEPEAU_VIDSCH_NODE@@_N@Z @ 0x1C003ED08 (-VidSchiCheckHwSchNodeProgress@@YAEPEAU_VIDSCH_NODE@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall VidSchiNotifyReadyQueueRemoved(struct VIDSCH_HW_QUEUE *a1)
+void __fastcall VidSchiNotifyReadyQueueRemoved(struct VIDSCH_HW_QUEUE *a1, __int64 a2)
 {
-  __int64 v1; // rbx
-  int v2; // eax
-  __int64 v3; // rdi
-  void (__fastcall *v4)(_QWORD); // rax
+  struct VIDSCH_HW_QUEUE *v2; // rdi
+  __int64 v3; // rbx
+  int v4; // eax
+  void (__fastcall *v5)(_QWORD); // rax
+  _QWORD *v6; // rax
 
-  v1 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL);
-  v2 = *(_DWORD *)(v1 + 1712);
-  if ( !v2 || (v3 = *(_QWORD *)(v1 + 24), !*(_DWORD *)(v3 + 68)) )
+  v2 = a1;
+  v3 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL);
+  v4 = *(_DWORD *)(v3 + 1704);
+  if ( !v4 || (a1 = *(struct VIDSCH_HW_QUEUE **)(v3 + 24), !*((_DWORD *)a1 + 15)) )
   {
-    WdLogSingleEntry5(0LL, 281LL, 4096LL, a1, v1, 0LL);
+    v6 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v6[7] = 0LL;
+    v6[3] = 281LL;
+    v6[4] = 4096LL;
+    v6[5] = v2;
+    v6[6] = v3;
+    WdLogEvent5_WdCriticalError(v6);
     __debugbreak();
-    JUMPOUT(0x1C001F0BBLL);
+    JUMPOUT(0x1C0037FD7LL);
   }
-  *(_DWORD *)(v1 + 1712) = v2 - 1;
-  if ( !*((_BYTE *)a1 + 144) )
-    --*(_DWORD *)(v1 + 1716);
-  --*(_DWORD *)(v3 + 68);
-  if ( !*(_DWORD *)(v1 + 1712) )
+  *(_DWORD *)(v3 + 1704) = v4 - 1;
+  if ( !*((_BYTE *)v2 + 144) )
+    --*(_DWORD *)(v3 + 1708);
+  --*((_DWORD *)a1 + 15);
+  if ( !*(_DWORD *)(v3 + 1704) && *(_DWORD *)(v3 + 11224) != -1 )
   {
-    VidSchiCheckHwSchNodeProgress((struct _VIDSCH_NODE *)v1, 0);
-    if ( *(_DWORD *)(v1 + 11240) != -1 )
-    {
-      v4 = *(void (__fastcall **)(_QWORD))(v3 + 3088);
-      if ( v4 )
-        v4(*(_QWORD *)(v3 + 3120));
-    }
+    v5 = (void (__fastcall *)(_QWORD))*((_QWORD *)a1 + 374);
+    if ( v5 )
+      v5(*((_QWORD *)a1 + 378));
   }
 }

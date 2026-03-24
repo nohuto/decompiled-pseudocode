@@ -7,7 +7,7 @@
  *     EtwpUnlockBufferList @ 0x140015480 (EtwpUnlockBufferList.c)
  *     EtwpLockBufferList @ 0x1400154CC (EtwpLockBufferList.c)
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     EtwpRemoveBufferFromGlobalList @ 0x1401B739C (EtwpRemoveBufferFromGlobalList.c)
+ *     EtwpRemoveBufferFromGlobalList @ 0x1401B73BC (EtwpRemoveBufferFromGlobalList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)

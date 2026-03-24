@@ -1,52 +1,56 @@
 /*
- * XREFs of ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C01FAE14
+ * XREFs of ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C01C1F44
  * Callers:
- *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mouseCursorEvent@@@Z @ 0x1C01F8CB4 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mo.c)
+ *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseCursorEvent@@@Z @ 0x1C01C0D88 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseC.c)
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00C21F0 (-DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C01F4DEC (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
- *     ?DequeueUserModeInput@Mouse@InputTraceLogging@@SAX_KPEBVCInputDest@@@Z @ 0x1C01F6794 (-DequeueUserModeInput@Mouse@InputTraceLogging@@SAX_KPEBVCInputDest@@@Z.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00B5A80 (-DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C01BE76C (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
  */
 
 struct CMouseProcessor::MouseInputMessage *__fastcall CMouseProcessor::BufferedMouseInputList::ResolveIdToMessage(
         CMouseProcessor::BufferedMouseInputList *this,
         __int64 a2)
 {
-  _QWORD *v4; // rax
-  CMouseProcessor::MouseInputMessage *v5; // rbx
-  __int64 v7; // rcx
-  unsigned int v8; // edx
+  CInputThread *v2; // rdi
+  bool v5; // bl
+  _QWORD *v6; // rax
+  CMouseProcessor::MouseInputMessage *v7; // rbx
+  __int64 v9; // rcx
+  unsigned int v10; // edx
 
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7054);
-  v4 = (_QWORD *)((char *)this + 8);
-  v5 = (CMouseProcessor::MouseInputMessage *)*((_QWORD *)this + 1);
-  if ( v5 == (CMouseProcessor::BufferedMouseInputList *)((char *)this + 8) )
+  v2 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v2, 0LL);
+  v5 = CInputThread::_CalledOnInputThread(v2);
+  ExReleasePushLockSharedEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v5 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6760);
+  v6 = (_QWORD *)((char *)this + 8);
+  v7 = (CMouseProcessor::MouseInputMessage *)*((_QWORD *)this + 1);
+  if ( v7 == (CMouseProcessor::BufferedMouseInputList *)((char *)this + 8) )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7058);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6764);
     return 0LL;
   }
   else
   {
-    if ( *((_QWORD **)v5 + 1) != v4
-      || (v7 = *(_QWORD *)v5, *(CMouseProcessor::MouseInputMessage **)(*(_QWORD *)v5 + 8LL) != v5) )
+    if ( *((_QWORD **)v7 + 1) != v6
+      || (v9 = *(_QWORD *)v7, *(CMouseProcessor::MouseInputMessage **)(*(_QWORD *)v7 + 8LL) != v7) )
     {
       __fastfail(3u);
     }
-    *v4 = v7;
-    *(_QWORD *)(v7 + 8) = v4;
-    if ( *((_QWORD *)v5 + 2) != a2 )
+    *v6 = v9;
+    *(_QWORD *)(v9 + 8) = v6;
+    if ( *((_QWORD *)v7 + 2) != a2 )
     {
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7083);
-      CMouseProcessor::MouseInputMessage::`scalar deleting destructor'(v5);
-      CMouseProcessor::BufferedMouseInputList::DropAllMouseInput(this, v8);
-      v5 = 0LL;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6789);
+      CMouseProcessor::MouseInputMessage::`scalar deleting destructor'(v7);
+      CMouseProcessor::BufferedMouseInputList::DropAllMouseInput(this, v10);
+      return 0LL;
     }
-    InputTraceLogging::Mouse::DequeueUserModeInput(
-      a2,
-      (const struct CInputDest *)(((unsigned __int64)v5 + 24) & -(__int64)(v5 != 0LL)));
-    return v5;
+    return v7;
   }
 }

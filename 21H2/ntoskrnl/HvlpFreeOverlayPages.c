@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpFreeOverlayPages @ 0x140213380
+ * XREFs of HvlpFreeOverlayPages @ 0x14036CFD0
  * Callers:
- *     HvlInitializeProcessor @ 0x14082A2D4 (HvlInitializeProcessor.c)
- *     HvlDeleteProcessor @ 0x140931100 (HvlDeleteProcessor.c)
+ *     HvlInitializeProcessor @ 0x14079FD30 (HvlInitializeProcessor.c)
+ *     HvlDeleteProcessor @ 0x14088E6C0 (HvlDeleteProcessor.c)
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
  */
 
 void __stdcall HvlpFreeOverlayPages(PVOID BaseAddress, SIZE_T NumberOfBytes, MEMORY_CACHING_TYPE CacheType)

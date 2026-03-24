@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0211F30
+ * XREFs of ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E3080
  * Callers:
  *     <none>
  * Callees:
- *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C0211D20 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
- *     ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C0211E00 (-RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z.c)
+ *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C01E2EA0 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
+ *     ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C01E2F4C (-RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericInkMarshaler::SetIntegerProperty(

@@ -1,65 +1,69 @@
 /*
- * XREFs of ExpAllocateHandleTable @ 0x1407B0C4C
+ * XREFs of ExpAllocateHandleTable @ 0x140606154
  * Callers:
- *     ExDupHandleTable @ 0x1407B068C (ExDupHandleTable.c)
- *     ExCreateHandleTable @ 0x1407B0B78 (ExCreateHandleTable.c)
+ *     ExDupHandleTable @ 0x1406065C0 (ExDupHandleTable.c)
+ *     ExCreateHandleTable @ 0x1406A6B48 (ExCreateHandleTable.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     ExpInsertLowLevelTableIntoFreeList @ 0x1407B0E1C (ExpInsertLowLevelTableIntoFreeList.c)
- *     ExpAllocateLowLevelTable @ 0x1407B0F40 (ExpAllocateLowLevelTable.c)
- *     PsChargeProcessPagedPoolQuota @ 0x1407B0FE0 (PsChargeProcessPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140298A90 (PsReturnProcessPagedPoolQuota.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x1406063BC (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateLowLevelTable @ 0x1406064EC (ExpAllocateLowLevelTable.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x140606580 (PsChargeProcessPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExpAllocateHandleTable(struct _KPROCESS *a1, char a2)
+_QWORD *__fastcall ExpAllocateHandleTable(struct _KPROCESS *a1, char a2)
 {
-  __int64 Pool2; // rdi
-  __int64 v5; // rcx
-  _QWORD *v6; // rax
+  SIZE_T v4; // rbp
+  _QWORD *PoolWithTag; // rdi
+  __int64 v6; // rcx
+  _QWORD *v7; // rax
   __int64 LowLevelTable; // rax
-  __int64 v8; // r9
-  __int64 v9; // rbp
-  __int64 result; // rax
+  __int64 v9; // r9
+  __int64 v10; // rbp
+  _QWORD *result; // rax
 
-  Pool2 = ExAllocatePool2(264LL, (unsigned int)((ExpFreeListCount + 1) << 6), 1651794511LL);
-  if ( !Pool2 )
+  v4 = (unsigned int)((ExpFreeListCount + 1) << 6);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolCacheAligned, v4, 0x6274624Fu);
+  if ( !PoolWithTag )
     return 0LL;
-  if ( a1 && (int)PsChargeProcessPagedPoolQuota(a1) < 0 )
+  if ( a1 && (int)PsChargeProcessPagedPoolQuota(a1, 128LL) < 0 )
   {
-    ExFreePoolWithTag((PVOID)Pool2, 0x6274624Fu);
+    ExFreePoolWithTag(PoolWithTag, 0x6274624Fu);
     return 0LL;
   }
-  *(_QWORD *)(Pool2 + 16) = a1;
-  v5 = (unsigned int)ExpFreeListCount;
-  *(_DWORD *)(Pool2 + 40) = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-  if ( (_DWORD)v5 )
+  memset(PoolWithTag, 0, v4);
+  PoolWithTag[2] = a1;
+  v6 = (unsigned int)ExpFreeListCount;
+  *((_DWORD *)PoolWithTag + 10) = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
+  if ( (_DWORD)v6 )
   {
-    v6 = (_QWORD *)(Pool2 + 64);
+    v7 = PoolWithTag + 8;
     do
     {
-      *v6 = 0LL;
-      v6 += 8;
-      --v5;
+      *v7 = 0LL;
+      v7 += 8;
+      --v6;
     }
-    while ( v5 );
+    while ( v6 );
   }
-  LowLevelTable = ExpAllocateLowLevelTable(Pool2, 0LL);
-  v9 = LowLevelTable;
+  LowLevelTable = ExpAllocateLowLevelTable(PoolWithTag, 0LL);
+  v10 = LowLevelTable;
   if ( !LowLevelTable )
   {
-    ExFreePoolWithTag((PVOID)Pool2, 0x6274624Fu);
+    ExFreePoolWithTag(PoolWithTag, 0x6274624Fu);
     if ( a1 )
       PsReturnProcessPagedPoolQuota(a1, 128LL);
     return 0LL;
   }
-  LOBYTE(v8) = a2;
-  ExpInsertLowLevelTableIntoFreeList(Pool2, LowLevelTable, Pool2 + 64, v8);
-  *(_QWORD *)(Pool2 + 8) = v9;
+  LOBYTE(v9) = a2;
+  ExpInsertLowLevelTableIntoFreeList(PoolWithTag, LowLevelTable, PoolWithTag + 8, v9);
+  PoolWithTag[1] = v10;
   if ( a1 )
-    *(_BYTE *)(Pool2 + 44) |= 0x10u;
-  *(_QWORD *)(Pool2 + 56) = 0LL;
-  result = Pool2;
-  *(_QWORD *)(Pool2 + 48) = 0LL;
+    *((_BYTE *)PoolWithTag + 44) |= 0x10u;
+  PoolWithTag[7] = 0LL;
+  result = PoolWithTag;
+  PoolWithTag[6] = 0LL;
   return result;
 }

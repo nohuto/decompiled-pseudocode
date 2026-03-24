@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqQueryValidateQueryData @ 0x140776CFC
+ * XREFs of PiDqQueryValidateQueryData @ 0x14062EEF0
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
  * Callees:
- *     ValidFilter @ 0x14076E8F0 (ValidFilter.c)
- *     _PnpValidatePropertyData @ 0x140771CD0 (_PnpValidatePropertyData.c)
- *     PiDqGetPnpObjectType @ 0x140777298 (PiDqGetPnpObjectType.c)
- *     PnpValidateMultiSz @ 0x1407D4D5C (PnpValidateMultiSz.c)
+ *     PnpValidateMultiSz @ 0x14062CF94 (PnpValidateMultiSz.c)
+ *     ValidFilter @ 0x14062DF94 (ValidFilter.c)
+ *     PiDqGetPnpObjectType @ 0x1406386A0 (PiDqGetPnpObjectType.c)
+ *     _PnpValidatePropertyData @ 0x14063A2BC (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
@@ -21,7 +21,6 @@ __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
   __int64 v9; // rax
   int v10; // ecx
   __int64 v11; // rdi
-  int v13; // eax
 
   v2 = -1073741811;
   if ( a1 )
@@ -38,8 +37,7 @@ __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
         }
         else if ( *(_DWORD *)(a1 + 20) == 2 )
         {
-          v13 = PnpValidateMultiSz(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 24));
-          if ( v13 < 0 )
+          if ( PnpValidateMultiSz(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 24)) < 0 )
             return v2;
           v3 = *(_DWORD *)(a1 + 40);
         }
@@ -47,7 +45,7 @@ __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
           return v2;
         if ( (v3 & 4) != 0 )
         {
-          if ( (int)PnpValidateMultiSz(*(_QWORD *)(a1 + 56), *(unsigned int *)(a1 + 48)) < 0 )
+          if ( PnpValidateMultiSz(*(_QWORD *)(a1 + 56), *(unsigned int *)(a1 + 48)) < 0 )
             return v2;
         }
         else if ( *(_QWORD *)(a1 + 56) || *(_DWORD *)(a1 + 48) )
@@ -88,9 +86,8 @@ LABEL_15:
                       if ( v10 )
                       {
                         while ( (int)PnpValidatePropertyData(
-                                       *(__int64 **)(*(_QWORD *)(a1 + 104) + 40 * v11 + 32),
-                                       *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40 * v11 + 24),
-                                       *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40 * v11 + 20)) >= 0 )
+                                       *(PSECURITY_DESCRIPTOR *)(*(_QWORD *)(a1 + 104) + 40 * v11 + 32),
+                                       *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40 * v11 + 24)) >= 0 )
                         {
                           v11 = (unsigned int)(v11 + 1);
                           if ( (unsigned int)v11 >= *(_DWORD *)(a1 + 96) )

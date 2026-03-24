@@ -1,54 +1,54 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhaseUid @ 0x1C00109B0
+ * XREFs of ACPIBuildProcessDevicePhaseUid @ 0x1C002BF90
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDevicePhaseUid(__int64 a1)
 {
   ULONG_PTR v1; // rbx
-  __int64 v3; // rax
+  __int64 *v3; // rax
   unsigned int v4; // eax
   __int64 v5; // rdx
-  const char *v6; // rcx
+  void *v6; // rcx
   unsigned int v7; // edi
-  const char *v8; // rax
+  void *v8; // rax
 
   v1 = *(_QWORD *)(a1 + 40);
   _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x400000000000uLL);
-  v3 = AMLIGetNamedChild(*(_QWORD *)(v1 + 760), 1145653343LL);
+  v3 = AMLIGetNamedChild(*(__int64 **)(v1 + 720), 1145653343);
   if ( !v3 )
     KeBugCheckEx(0xA5u, 0xDuLL, v1, 0x4449485FuLL, 0LL);
-  AMLIDereferenceHandleEx(v3);
+  AMLIDereferenceHandleEx((__int64)v3);
   *(_DWORD *)(a1 + 32) = 7;
-  v4 = ACPIGet(v1, 1145653343, 671612966, 0, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, v1 + 608, 0LL);
+  v4 = ACPIGet((__int64 *)v1, 1145653343, 671612966, 0LL, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, v1 + 568, 0LL);
   v5 = *(_QWORD *)(v1 + 8);
-  v6 = (const char *)&unk_1C00622D0;
+  v6 = &unk_1C00701BA;
   v7 = v4;
-  v8 = (const char *)&unk_1C00622D0;
+  v8 = &unk_1C00701BA;
   if ( (v5 & 0x200000000000LL) != 0 )
   {
-    v6 = *(const char **)(v1 + 608);
+    v6 = *(void **)(v1 + 568);
     if ( (v5 & 0x400000000000LL) != 0 )
-      v8 = *(const char **)(v1 + 616);
+      v8 = *(void **)(v1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
+    WPP_RECORDER_SF_Lqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       6u,
       0x31u,
-      (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       v7,
       v1,
-      v6,
-      v8);
+      (__int64)v6,
+      (__int64)v8);
   if ( v7 == 259 )
     return 0;
   else

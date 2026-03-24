@@ -1,20 +1,16 @@
 /*
- * XREFs of HalpIommuAttachDeviceDomain @ 0x1405153BC
+ * XREFs of HalpIommuAttachDeviceDomain @ 0x1404CBB90
  * Callers:
- *     HalpIommuJoinDmaDomain @ 0x140518404 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x140518574 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C97FC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C98D4 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuAttachDeviceDomain(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
-
   if ( HalpHvIommu )
     return 3221225659LL;
-  result = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, _QWORD))(a1 + 120))(*(_QWORD *)(a1 + 16), a2, a3, 0LL);
-  if ( (int)result >= 0 )
-    *(_QWORD *)(a2 + 16) = a3;
-  return result;
+  else
+    return (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, _QWORD))(a1 + 112))(*(_QWORD *)(a1 + 16), a2, a3, 0LL);
 }

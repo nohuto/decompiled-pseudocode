@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyListenerOfChange@CGradientBrush@@UEAAXPEAVCResource@@W4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800D8220
+ * XREFs of ?NotifyListenerOfChange@CGradientBrush@@UEAAXPEAVCResource@@W4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801E7220
  * Callers:
  *     <none>
  * Callees:
@@ -10,11 +10,11 @@ __int64 __fastcall CGradientBrush::NotifyListenerOfChange(__int64 a1, __int64 a2
 {
   __int64 v4; // rax
   bool v6; // zf
-  __int64 v7; // r8
+  unsigned int v7; // r8d
 
   v4 = 0LL;
   v6 = a3 == 10;
-  v7 = 6LL;
+  v7 = 6;
   if ( !v6 )
   {
     v4 = a4;

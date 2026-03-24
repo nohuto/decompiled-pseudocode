@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0215BD0
+ * XREFs of ?SetRemarshalingFlags@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFDD0
  * Callers:
  *     <none>
  * Callees:
@@ -12,8 +12,8 @@ char __fastcall DirectComposition::CGaussianBlurEffectMarshaler::SetRemarshaling
   char result; // al
 
   result = 0;
-  *((_DWORD *)this + 28) = 0;
-  if ( *((_DWORD *)this + 20) || *((float *)this + 30) != 3.0 || *((_DWORD *)this + 31) != 2 || *((_DWORD *)this + 32) )
+  *((_DWORD *)this + 26) = 0;
+  if ( *((_DWORD *)this + 18) || *((float *)this + 28) != 3.0 || *((_DWORD *)this + 29) != 2 || *((_DWORD *)this + 30) )
     return 1;
   return result;
 }

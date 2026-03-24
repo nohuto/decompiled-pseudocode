@@ -1,25 +1,27 @@
 /*
- * XREFs of MmFlushAllPagesEx @ 0x14063BD38
+ * XREFs of MmFlushAllPagesEx @ 0x140382724
  * Callers:
- *     PopTransitionToSleep @ 0x140AA5400 (PopTransitionToSleep.c)
+ *     PopTransitionToSleep @ 0x140990620 (PopTransitionToSleep.c)
  * Callees:
- *     PsGetNextPartition @ 0x14036A720 (PsGetNextPartition.c)
- *     MiFlushAllPages @ 0x140639C7C (MiFlushAllPages.c)
+ *     PsGetNextPartition @ 0x140303EF8 (PsGetNextPartition.c)
+ *     MiFlushAllPages @ 0x140382774 (MiFlushAllPages.c)
  */
 
-__int64 *__fastcall MmFlushAllPagesEx(char a1)
+_QWORD *__fastcall MmFlushAllPagesEx(char a1, unsigned int a2)
 {
-  __int64 *i; // rcx
-  __int64 *result; // rax
-  __int64 *v4; // rbx
+  _QWORD *i; // rcx
+  _QWORD *result; // rax
+  __int64 v6; // rdx
+  _QWORD *v7; // rbx
 
-  for ( i = 0LL; ; i = v4 )
+  for ( i = 0LL; ; i = v7 )
   {
     result = PsGetNextPartition(i);
-    v4 = result;
+    v7 = result;
     if ( !result )
       break;
-    MiFlushAllPages(*result, a1);
+    LOBYTE(v6) = a1;
+    MiFlushAllPages(*result, v6, a2);
   }
   return result;
 }

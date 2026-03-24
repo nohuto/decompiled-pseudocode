@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Discard@CFlipContentToken@@UEAAXXZ @ 0x1C0082D00
+ * XREFs of ?Discard@CFlipContentToken@@UEAAXXZ @ 0x1C006FD80
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z @ 0x1C0082E14 (-SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z.c)
+ *     ?SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z @ 0x1C006FEB4 (-SetFlipManagerObjectPreReferenced@CFlipContentToken@@QEAAXPEAUFlipManagerObject@@@Z.c)
  */
 
 void __fastcall CFlipContentToken::Discard(CFlipContentToken *this)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140212860
+ * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x14028AC20
  * Callers:
- *     HvpTruncateBins @ 0x140689848 (HvpTruncateBins.c)
+ *     HvpTruncateBins @ 0x140721484 (HvpTruncateBins.c)
  * Callees:
- *     ExIsFastResourceHeldExclusive @ 0x14039C670 (ExIsFastResourceHeldExclusive.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExIsFastResourceHeldExclusive @ 0x140390D90 (ExIsFastResourceHeldExclusive.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall ExIsResourceAcquiredExclusiveLite(PERESOURCE Resource)
 {
-  USHORT Flag; // ax
+  USHORT Flag; // dx
   BOOLEAN v3; // cl
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 CurrentIrql; // cl
 
   Flag = Resource->Flag;
   if ( (Flag & 0x41) == 1 )
@@ -21,13 +21,11 @@ BOOLEAN __stdcall ExIsResourceAcquiredExclusiveLite(PERESOURCE Resource)
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql > 2u )
       KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
+  }
+  if ( (Flag & 1) != 0 )
     return ExIsFastResourceHeldExclusive((ULONG_PTR)Resource);
-  }
-  else
-  {
-    v3 = 0;
-    if ( (Flag & 0x80u) != 0 )
-      return Resource->OwnerEntry.OwnerThread == (_QWORD)KeGetCurrentThread();
-    return v3;
-  }
+  v3 = 0;
+  if ( (Flag & 0x80u) != 0 )
+    return Resource->OwnerEntry.OwnerThread == (_QWORD)KeGetCurrentThread();
+  return v3;
 }

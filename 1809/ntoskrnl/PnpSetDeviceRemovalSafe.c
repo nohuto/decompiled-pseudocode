@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpSetDeviceRemovalSafe @ 0x140833350
+ * XREFs of PnpSetDeviceRemovalSafe @ 0x140833330
  * Callers:
- *     PnpProcessCompletedEject @ 0x1408282A0 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x140828280 (PnpProcessCompletedEject.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     PnpInsertEventInQueue @ 0x14058FED8 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x1406C6920 (PnpCreateDeviceEventEntry.c)
+ *     PnpCreateDeviceEventEntry @ 0x1406C6900 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetDeviceRemovalSafe(_QWORD *Object)

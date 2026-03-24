@@ -1,108 +1,139 @@
 /*
- * XREFs of MiSynchronizeSystemVa @ 0x140279DB0
+ * XREFs of MiSynchronizeSystemVa @ 0x140311C40
  * Callers:
- *     MiLockStealSystemVm @ 0x140230F28 (MiLockStealSystemVm.c)
- *     MiTranslatePageForCopy @ 0x14026C808 (MiTranslatePageForCopy.c)
- *     MiSystemFault @ 0x140279590 (MiSystemFault.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
+ *     MiLockStealSystemVm @ 0x140298704 (MiLockStealSystemVm.c)
+ *     MiTranslatePageForCopy @ 0x1402B4DE4 (MiTranslatePageForCopy.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
  * Callees:
- *     MiPageTableStillExists @ 0x14024F0F8 (MiPageTableStillExists.c)
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockSystemVa @ 0x14027A168 (MiUnlockSystemVa.c)
- *     MiLockLowestValidPageTable @ 0x14027D6E0 (MiLockLowestValidPageTable.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFastLockLeafPageTable @ 0x14031D9B0 (MiFastLockLeafPageTable.c)
- *     MiGetSystemCacheReverseMap @ 0x1403295C0 (MiGetSystemCacheReverseMap.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiFillPteHierarchy @ 0x140352E50 (MiFillPteHierarchy.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140366A20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140461B20 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiFastLockLeafPageTable @ 0x14020E6D0 (MiFastLockLeafPageTable.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiPageTableStillExists @ 0x1402CE2A4 (MiPageTableStillExists.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
+ *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
+ *     MiGetSystemCacheReverseMap @ 0x140311FB0 (MiGetSystemCacheReverseMap.c)
+ *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5C64 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, int a3, int a4, __int64 a5)
+__int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   int v5; // ebp
   __int64 v8; // rbx
   char v9; // al
   unsigned __int8 v10; // al
-  volatile __int32 *v11; // rdi
-  unsigned __int8 CurrentIrql; // r12
-  struct _KPRCB *CurrentPrcb; // r15
+  LONG *v11; // rdi
+  unsigned __int8 v12; // r15
+  struct _KPRCB *CurrentPrcb; // r14
   _DWORD *v14; // rcx
   signed __int32 v15; // ett
-  unsigned __int8 v16; // r10
-  int v17; // eax
-  __int64 v18; // rdx
-  unsigned __int64 v19; // rdi
-  __int64 v20; // r8
-  __int64 v21; // r15
-  unsigned __int64 v22; // rdi
+  unsigned __int8 CurrentIrql; // r10
+  unsigned __int64 v17; // r14
+  unsigned __int64 v18; // r15
+  int v19; // eax
+  unsigned __int64 v20; // rdi
+  unsigned __int64 v21; // rdi
   __int64 SystemCacheReverseMap; // rax
-  __int64 v25; // rdx
-  unsigned __int64 v26; // rdx
-  unsigned __int64 v27; // rcx
+  unsigned __int64 v24; // rdx
+  unsigned __int64 v25; // rcx
   char *AnyMultiplexedVm; // rax
-  _DWORD *v29; // r9
-  _DWORD *v30; // rcx
-  __int64 valid; // rax
-  __int64 SharedVm; // rdi
-  KIRQL v33; // al
+  _DWORD *v27; // rcx
+  unsigned __int64 valid; // rax
+  LONG *SharedVm; // rdi
+  KIRQL v30; // al
   _DWORD *SchedulerAssist; // r9
-  int v35; // eax
-  int v36; // eax
-  __int64 v37; // [rsp+20h] [rbp-58h] BYREF
-  __int128 v38; // [rsp+28h] [rbp-50h] BYREF
-  __int128 v39; // [rsp+38h] [rbp-40h]
-  int v40; // [rsp+90h] [rbp+18h] BYREF
+  int v32; // eax
+  int v33; // eax
+  unsigned __int64 v34; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v35; // [rsp+28h] [rbp-50h] BYREF
+  __int128 v36; // [rsp+38h] [rbp-40h]
+  int v37; // [rsp+90h] [rbp+18h] BYREF
 
   v5 = 0;
-  v40 = 0;
-  v38 = 0LL;
-  v39 = 0LL;
-  if ( !a3 )
+  v37 = 0;
+  v35 = 0LL;
+  v36 = 0LL;
+  if ( !(_DWORD)a3 )
     return 0LL;
   v8 = a5;
   *(_DWORD *)(a5 + 16) = 0;
   v9 = *(_BYTE *)(v8 + 37);
   *(_QWORD *)(v8 + 24) = a1;
-  if ( a4 )
+  if ( (_DWORD)a4 )
   {
     *(_BYTE *)(v8 + 37) = v9 | 1;
     SharedVm = MiGetSharedVm(a1);
-    v33 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
-    *(_DWORD *)(SharedVm + 4) = 0;
-    *(_BYTE *)(v8 + 36) = v33;
-    MiFillPteHierarchy(a2, &v38);
-    if ( !(unsigned int)MiPageTableStillExists((__int64)&v38, &v40) )
-      goto LABEL_56;
-    if ( v40 )
+    v30 = ExAcquireSpinLockExclusive(SharedVm);
+    SharedVm[1] = 0;
+    *(_BYTE *)(v8 + 36) = v30;
+    MiFillPteHierarchy(a2, (unsigned __int64 *)&v35);
+    if ( (unsigned int)MiPageTableStillExists((__int64)&v35, &v37) )
     {
-      if ( (*(_DWORD *)(v8 + 4) & 4) == 0 )
-        goto LABEL_56;
-      *(_DWORD *)(v8 + 16) = v40;
+      if ( v37 )
+      {
+        if ( (*(_DWORD *)(v8 + 4) & 4) == 0 )
+          goto LABEL_55;
+        *(_DWORD *)(v8 + 16) = v37;
+      }
+LABEL_18:
+      if ( (*(_BYTE *)(a1 + 184) & 7) != 2 )
+        return 1LL;
+      if ( *(_DWORD *)(v8 + 48) == 3 )
+      {
+        AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
+LABEL_27:
+        *(_QWORD *)(v8 + 24) = AnyMultiplexedVm;
+        return 1LL;
+      }
+      SystemCacheReverseMap = MiGetSystemCacheReverseMap(a2);
+      if ( SystemCacheReverseMap && *(_QWORD *)(SystemCacheReverseMap + 16) )
+      {
+        v24 = *(_QWORD *)(MiGetSystemCacheReverseMap(a2) + 24);
+        v25 = v24 & 0xFFFFFFFFFFFFFFFEuLL;
+        if ( (v24 & 1) == 0 )
+          v25 = v24;
+        AnyMultiplexedVm = (char *)(*(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)v25 + 60LL) & 0x3FF))
+                                  + 7232LL);
+        goto LABEL_27;
+      }
     }
-    goto LABEL_16;
   }
-  *(_BYTE *)(v8 + 37) = v9 & 0xFE;
-  v10 = *(_BYTE *)(a1 + 184) & 7;
-  if ( v10 <= 4u )
+  else
   {
-    if ( v10 == 2 )
+    *(_BYTE *)(v8 + 37) = v9 & 0xFE;
+    v10 = *(_BYTE *)(a1 + 184) & 7;
+    if ( v10 >= 6u )
     {
-      v11 = (volatile __int32 *)&unk_140C53D00;
-LABEL_6:
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+        SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
+      }
+    }
+    else
+    {
+      if ( v10 == 2 )
+        v11 = &dword_140C4F780;
+      else
+        v11 = (LONG *)(a1 + 192);
+      v12 = KeGetCurrentIrql();
+      __writecr8(2uLL);
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
+      {
+        a4 = KeGetCurrentPrcb()->SchedulerAssist;
+        a3 = (-1 << (v12 + 1)) & 4u | a4[5];
+        a4[5] = a3;
       }
       if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
       {
-        ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v11, CurrentIrql);
+        ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v11, v12, a3, a4);
       }
       else
       {
@@ -112,115 +143,73 @@ LABEL_6:
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v35 = v14[6];
-            v14[6] = v35 + 1;
-            if ( v35 == -1 )
+            v32 = v14[6];
+            v14[6] = v32 + 1;
+            if ( v32 == -1 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
-        _m_prefetchw((const void *)v11);
+        _m_prefetchw(v11);
         v15 = *v11 & 0x7FFFFFFF;
         if ( v15 != _InterlockedCompareExchange(v11, v15 + 1, v15) )
         {
-          v30 = CurrentPrcb->SchedulerAssist;
-          if ( v30 )
+          v27 = CurrentPrcb->SchedulerAssist;
+          if ( v27 )
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v36 = v30[6] - 1;
-              v30[6] = v36;
-              if ( !v36 )
+              v33 = v27[6] - 1;
+              v27[6] = v33;
+              if ( !v33 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
-          ExpWaitForSpinLockSharedAndAcquire(v11, CurrentIrql);
+          ExpWaitForSpinLockSharedAndAcquire((unsigned __int64)v11, v12, a3, a4);
         }
       }
-      if ( *((_DWORD *)v11 + 1) )
+      if ( v11[1] )
         _InterlockedExchange(v11 + 1, 0);
-      v16 = CurrentIrql;
-      goto LABEL_13;
+      CurrentIrql = v12;
     }
-LABEL_5:
-    v11 = (volatile __int32 *)(a1 + 192);
-    goto LABEL_6;
-  }
-  if ( v10 == 5 )
-    goto LABEL_5;
-  v16 = KeGetCurrentIrql();
-  __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v16 <= 0xFu )
-  {
-    v29 = KeGetCurrentPrcb()->SchedulerAssist;
-    v29[5] |= ~((unsigned __int8)(1LL << (v16 + 1)) - 1) & 4;
-  }
-LABEL_13:
-  *(_BYTE *)(v8 + 36) = v16;
-  v37 = 0LL;
-  v17 = MiFastLockLeafPageTable(a1, a2, 0LL);
-  v18 = v17;
-  v19 = a2 >> 9;
-  if ( v17 )
-  {
-    *(_QWORD *)&v38 = (v19 & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    *((_QWORD *)&v38 + 1) = (((unsigned __int64)v38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    *(_QWORD *)&v39 = ((*((_QWORD *)&v38 + 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    *((_QWORD *)&v39 + 1) = (((unsigned __int64)v39 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v20 = *((_QWORD *)&v38 + v17);
-    v21 = *((_QWORD *)&v38 + v17 - 1);
-    v37 = v21;
-    v22 = v38;
-    if ( v20 )
-      goto LABEL_15;
-  }
-  else
-  {
-    v22 = (v19 & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  }
-  valid = MiLockLowestValidPageTable(a1, v22, &v37);
-  v21 = v37;
-  v20 = valid;
-LABEL_15:
-  *(_QWORD *)(v8 + 40) = v20;
-  if ( v21 != v22 )
-  {
-    if ( (*(_DWORD *)(v8 + 4) & 4) != 0 && (MI_READ_PTE_LOCK_FREE(v21) & 0x81) == 0x81 )
+    *(_BYTE *)(v8 + 36) = CurrentIrql;
+    v34 = 0LL;
+    v17 = 0LL;
+    v18 = 0LL;
+    v19 = MiFastLockLeafPageTable(a1, a2, 0);
+    v20 = a2 >> 9;
+    if ( v19 )
+    {
+      *(_QWORD *)&v35 = (v20 & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      *((_QWORD *)&v35 + 1) = (((unsigned __int64)v35 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      *(_QWORD *)&v36 = ((*((_QWORD *)&v35 + 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      *((_QWORD *)&v36 + 1) = (((unsigned __int64)v36 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      v17 = *((_QWORD *)&v35 + v19);
+      v18 = *((_QWORD *)&v35 + v19 - 1);
+      v34 = v18;
+    }
+    v21 = (v20 & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    if ( !v17 )
+    {
+      valid = MiLockLowestValidPageTable(a1, v21, &v34);
+      v18 = v34;
+      v17 = valid;
+    }
+    *(_QWORD *)(v8 + 40) = v17;
+    if ( v18 == v21 )
+      goto LABEL_18;
+    if ( (*(_DWORD *)(v8 + 4) & 4) != 0 && (MI_READ_PTE_LOCK_FREE(v18) & 0x81) == 0x81 )
     {
       do
       {
-        v22 = ((v22 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        v21 = ((v21 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
         ++v5;
       }
-      while ( v22 != v21 );
+      while ( v21 != v18 );
       *(_DWORD *)(v8 + 16) = v5;
       return 1LL;
     }
-    goto LABEL_56;
   }
-LABEL_16:
-  if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-  {
-    if ( *(_DWORD *)(v8 + 48) == 3 )
-    {
-      AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
-LABEL_25:
-      *(_QWORD *)(v8 + 24) = AnyMultiplexedVm;
-      return 1LL;
-    }
-    SystemCacheReverseMap = MiGetSystemCacheReverseMap(a2, v18);
-    if ( SystemCacheReverseMap && *(_QWORD *)(SystemCacheReverseMap + 32) >> 62 == 3 )
-    {
-      v26 = *(_QWORD *)(MiGetSystemCacheReverseMap(a2, v25) + 24);
-      v27 = v26 & 0xFFFFFFFFFFFFFFFEuLL;
-      if ( (v26 & 1) == 0 )
-        v27 = v26;
-      AnyMultiplexedVm = (char *)(*(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(*(_QWORD *)v27 + 60LL) & 0x3FF))
-                                + 17024LL);
-      goto LABEL_25;
-    }
-LABEL_56:
-    MiUnlockSystemVa(v8);
-    return 0LL;
-  }
-  return 1LL;
+LABEL_55:
+  MiUnlockSystemVa(v8);
+  return 0LL;
 }

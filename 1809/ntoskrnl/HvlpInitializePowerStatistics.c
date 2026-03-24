@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializePowerStatistics @ 0x140276F64
+ * XREFs of HvlpInitializePowerStatistics @ 0x140277064
  * Callers:
- *     HvlPhase1Initialize @ 0x1401939D4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 HvlpInitializePowerStatistics()
@@ -29,9 +29,9 @@ __int64 HvlpInitializePowerStatistics()
   }
   else
   {
-    xmmword_1404DDAA8 = *(_OWORD *)v3;
-    xmmword_1404DDAB8 = *((_OWORD *)v3 + 1);
-    qword_1404DDAC8 = v3[4];
+    xmmword_1404DDA68 = *(_OWORD *)v3;
+    xmmword_1404DDA78 = *((_OWORD *)v3 + 1);
+    qword_1404DDA88 = v3[4];
   }
   HvlpReleaseHypercallPage((unsigned int *)v4);
   HvlpReleaseHypercallPage((unsigned int *)v5);

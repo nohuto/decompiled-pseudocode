@@ -1,127 +1,124 @@
 /*
- * XREFs of zzzReattachThreads @ 0x1C00A8E58
+ * XREFs of zzzReattachThreads @ 0x1C001194C
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     zzzAttachThreadInput @ 0x1C009D530 (zzzAttachThreadInput.c)
- *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01E0DC0 (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
+ *     zzzAttachThreadInput @ 0x1C00115F8 (zzzAttachThreadInput.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01E694C (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     SetNewForegroundQueue @ 0x1C007FCD0 (SetNewForegroundQueue.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     zzzInputFocusReceivedWindowEvent @ 0x1C00A86E4 (zzzInputFocusReceivedWindowEvent.c)
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00A898C (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
- *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C00A918C (-zzzRecalcThreadAttachment@@YAXXZ.c)
- *     ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C00A9230 (-GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ.c)
- *     ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C00A9310 (-GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z.c)
- *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C00A9BFC (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     ?InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z @ 0x1C00AC8B0 (-InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z.c)
- *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C00AD9D0 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
- *     ?IsSingleThreadAttached@tagQ@@QEBA_NXZ @ 0x1C010C718 (-IsSingleThreadAttached@tagQ@@QEBA_NXZ.c)
- *     UnpackAffectedThreadList @ 0x1C01108A4 (UnpackAffectedThreadList.c)
- *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C0117970 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     _GetNextQueueWindow @ 0x1C01EE6BC (_GetNextQueueWindow.c)
+ *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C0011CEC (-zzzRecalcThreadAttachment@@YAXXZ.c)
+ *     ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C0011D8C (-GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C0011E6C (-GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
+ *     UnpackAffectedThreadList @ 0x1C001230C (UnpackAffectedThreadList.c)
+ *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C0012370 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
+ *     ?InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z @ 0x1C00124DC (-InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z.c)
+ *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C0012504 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C003508C (zzzInputFocusReceivedWindowEvent.c)
+ *     ?Detach@UserAtomicCheck@@QEAAXXZ @ 0x1C003CADC (-Detach@UserAtomicCheck@@QEAAXXZ.c)
+ *     SetNewForegroundQueue @ 0x1C003DC10 (SetNewForegroundQueue.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _GetNextQueueWindow @ 0x1C01F3ED8 (_GetNextQueueWindow.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall zzzReattachThreads(char a1, const struct tagTHREADINFO *a2, const struct tagTHREADINFO *a3)
 {
-  int v3; // r15d
-  int v4; // edi
-  int v5; // esi
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  struct tagTHREADINFO *v10; // r12
+  __int64 v3; // r15
+  int v4; // esi
+  int v7; // r12d
+  int v8; // edi
+  __int64 v9; // rax
+  __int64 v10; // rcx
   __int64 v11; // rbx
-  __int64 v12; // rsi
+  __int64 v12; // rbp
   __int64 v13; // rcx
-  const struct tagTHREADINFO *v14; // rcx
-  __int64 v15; // rbp
+  __int64 v14; // rcx
+  __int64 v15; // rcx
   __int64 v16; // rcx
-  const struct tagTHREADINFO *v17; // rcx
-  struct _LIST_ENTRY *RecalcHeadPtiListEntry; // r14
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  struct _LIST_ENTRY *RecalcHeadPtiListEntry; // rsi
   struct _LIST_ENTRY *i; // rdi
   struct tagTHREADINFO *RecalcPtiFromListEntry; // rax
-  tagQ *v21; // rcx
-  const struct tagWND *v22; // rdx
-  __int64 v23; // rcx
-  int v24; // eax
-  struct tagQMSG *v25; // rcx
-  __int64 v26; // rcx
+  struct tagQ *v22; // rdx
+  int v23; // eax
+  struct tagQMSG *v24; // rcx
+  int v25; // eax
+  __int64 v26; // rdx
   __int64 v27; // rdx
-  __int64 v28; // r8
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  __int64 v32; // r8
-  __int64 v33; // rdx
-  __int64 v34; // r8
-  __int64 v35; // rcx
   __int64 NextQueueWindow; // rax
-  char v37; // [rsp+70h] [rbp+8h] BYREF
+  struct tagTHREADINFO *v29; // [rsp+40h] [rbp-48h]
+  char v30; // [rsp+A8h] [rbp+20h] BYREF
 
-  v3 = 1;
-  v4 = a1 & 1;
-  v5 = a1 & 2;
-  v8 = *(_QWORD *)(gptiCurrent + 432LL);
-  v9 = *(_QWORD *)(v8 + 112);
-  if ( v9 )
-    v10 = *(struct tagTHREADINFO **)(v9 + 16);
+  v3 = 0LL;
+  v4 = a1 & 2;
+  v7 = 1;
+  v8 = a1 & 1;
+  v9 = *(_QWORD *)(gptiCurrent + 432LL);
+  v10 = *(_QWORD *)(v9 + 112);
+  if ( v10 )
+  {
+    v29 = *(struct tagTHREADINFO **)(v10 + 16);
+    v3 = 0LL;
+  }
   else
-    v10 = *(struct tagTHREADINFO **)(v8 + 96);
+  {
+    v29 = *(struct tagTHREADINFO **)(v9 + 96);
+  }
   ++gdwDeferWinEvent;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v37);
-  if ( v4 )
-    goto LABEL_53;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v30);
+  if ( v8 )
+    goto LABEL_10;
   if ( a2 && a3 )
   {
     PackAffectedThreadList(a2, a3);
-    goto LABEL_7;
+    goto LABEL_11;
   }
-  if ( !v5 && !a3 )
+  if ( !v4 && !a3 )
   {
-LABEL_53:
+LABEL_10:
     UnpackAffectedThreadList();
-    if ( v4 )
+    if ( v8 )
     {
-LABEL_43:
+LABEL_15:
       v11 = 0LL;
-      goto LABEL_11;
+      goto LABEL_16;
     }
   }
-LABEL_7:
+LABEL_11:
   zzzRecalcThreadAttachment();
   v11 = gpqForeground;
   if ( !gpqForeground )
     v11 = *(_QWORD *)(gptiCurrent + 432LL);
-  if ( tagQ::IsSingleThreadAttached((tagQ *)v11) )
-    goto LABEL_43;
-  ++*(_DWORD *)(v11 + 392);
-LABEL_11:
+  if ( *(_DWORD *)(v11 + 392) == 1 )
+    goto LABEL_15;
+  ++*(_DWORD *)(v11 + 396);
+LABEL_16:
   v12 = 0LL;
   if ( gpqForeground && (v13 = *(_QWORD *)(gpqForeground + 120LL)) != 0 )
   {
-    v14 = *(const struct tagTHREADINFO **)(v13 + 16);
-    v12 = *((_QWORD *)v14 + 82);
-    if ( !v12 && !InAffectedThreadList(v14) )
-      v12 = *(_QWORD *)(v30 + 432);
+    v14 = *(_QWORD *)(v13 + 16);
+    v12 = *(_QWORD *)(v14 + 656);
+    if ( !v12 && !InAffectedThreadList((const struct tagTHREADINFO *)v14) )
+      v12 = *(_QWORD *)(v15 + 432);
   }
   else
   {
-    v3 = 0;
+    v7 = 0;
   }
-  v15 = 0LL;
   if ( gpqForegroundPrev )
   {
     v16 = *(_QWORD *)(gpqForegroundPrev + 128LL);
     if ( v16 )
     {
-      v17 = *(const struct tagTHREADINFO **)(v16 + 16);
-      v15 = *((_QWORD *)v17 + 82);
-      if ( !v15 && !InAffectedThreadList(v17) )
-        v15 = *(_QWORD *)(v35 + 432);
+      v17 = *(_QWORD *)(v16 + 16);
+      v3 = *(_QWORD *)(v17 + 656);
+      if ( !v3 && !InAffectedThreadList((const struct tagTHREADINFO *)v17) )
+        v3 = *(_QWORD *)(v18 + 432);
     }
   }
   RecalcHeadPtiListEntry = GetRecalcHeadPtiListEntry();
@@ -130,60 +127,65 @@ LABEL_11:
     RecalcPtiFromListEntry = GetRecalcPtiFromListEntry(i);
     if ( RecalcPtiFromListEntry )
     {
-      v21 = (tagQ *)*((_QWORD *)RecalcPtiFromListEntry + 82);
-      if ( v21 == *((tagQ **)RecalcPtiFromListEntry + 54) )
+      v22 = (struct tagQ *)*((_QWORD *)RecalcPtiFromListEntry + 82);
+      if ( v22 == *((struct tagQ **)RecalcPtiFromListEntry + 54) )
       {
-        tagTHREADINFO::AssignAttachQueue(RecalcPtiFromListEntry, 0LL);
+        *((_QWORD *)RecalcPtiFromListEntry + 82) = 0LL;
       }
-      else if ( v21 )
+      else if ( v22 )
       {
-        tagQ::zzzAttachToQueue(v21, RecalcPtiFromListEntry, (struct tagQ *)v11);
+        *((_QWORD *)RecalcPtiFromListEntry + 82) = 0LL;
+        zzzAttachToQueue(RecalcPtiFromListEntry, v22);
       }
     }
   }
   RecalculateQueueInfo();
   if ( v11 )
   {
-    v24 = *(_DWORD *)(v11 + 392);
-    if ( !v24 )
+    v23 = *(_DWORD *)(v11 + 396);
+    if ( !v23 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v23);
-      v24 = *(_DWORD *)(v11 + 392);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 12461LL);
+      v23 = *(_DWORD *)(v11 + 396);
     }
-    v25 = *(struct tagQMSG **)(v11 + 24);
-    *(_DWORD *)(v11 + 392) = v24 - 1;
+    v24 = *(struct tagQMSG **)(v11 + 24);
+    *(_DWORD *)(v11 + 396) = v23 - 1;
     *(_QWORD *)(v11 + 24) = 0LL;
     *(_QWORD *)(v11 + 32) = 0LL;
     *(_DWORD *)(v11 + 40) = 0;
-    RedistributeInput(v25, (struct tagQ *)v11, v10);
-    if ( !tagQ::IsAnyThreadAttached((tagQ *)v11) )
+    RedistributeInput(v24, (struct tagQ *)v11, v29);
+    v25 = *(_DWORD *)(v11 + 392);
+    if ( !v25 )
     {
-      v22 = 0LL;
-LABEL_28:
-      zzzDestroyQueue(v26, v22);
-      goto LABEL_29;
+      *(_DWORD *)(v11 + 392) = 1;
+LABEL_45:
+      zzzDestroyQueue(v11);
+      goto LABEL_46;
     }
-    v29 = *(_QWORD *)(v11 + 88);
-    if ( v29 && v11 != *(_QWORD *)(v29 + 432) )
-      zzzDestroyQueue(v26, v29);
-    v22 = *(const struct tagWND **)(v11 + 96);
-    if ( v22 && v11 != *((_QWORD *)v22 + 54) )
+    v26 = *(_QWORD *)(v11 + 88);
+    if ( v26 && v11 != *(_QWORD *)(v26 + 432) )
     {
-      v26 = v11;
-      goto LABEL_28;
+      *(_DWORD *)(v11 + 392) = v25 + 1;
+      zzzDestroyQueue(v11);
+    }
+    v27 = *(_QWORD *)(v11 + 96);
+    if ( v27 && v11 != *(_QWORD *)(v27 + 432) )
+    {
+      ++*(_DWORD *)(v11 + 392);
+      goto LABEL_45;
     }
   }
-LABEL_29:
+LABEL_46:
   if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput )
   {
-    SetNewForegroundQueue(v12, v22);
-    gpqForegroundPrev = v15;
+    SetNewForegroundQueue(v12);
+    gpqForegroundPrev = v3;
     if ( gpqForeground && *(_QWORD *)(gpqForeground + 112LL) )
-      zzzInputFocusReceivedWindowEvent(4u);
+      zzzInputFocusReceivedWindowEvent(4LL);
     UnpackAffectedThreadList();
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v37, v27, v28);
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v30);
     zzzEndDeferWinEventNotify();
-    if ( !gpqForeground && v3 )
+    if ( !gpqForeground && v7 )
     {
       NextQueueWindow = GetNextQueueWindow(
                           *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 8LL) + 24LL) + 112LL),
@@ -205,8 +207,8 @@ LABEL_29:
   else
   {
     UnpackAffectedThreadList();
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v37, v31, v32);
+    UserAtomicCheck::Detach((UserAtomicCheck *)&v30);
     zzzEndDeferWinEventNotify();
-    AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v37, v33, v34);
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v30);
   }
 }

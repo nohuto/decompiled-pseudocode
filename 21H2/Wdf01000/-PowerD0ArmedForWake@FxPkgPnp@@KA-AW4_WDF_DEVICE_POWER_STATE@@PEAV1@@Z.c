@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerD0ArmedForWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0013E00
+ * XREFs of ?PowerD0ArmedForWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0018FE0
  * Callers:
  *     <none>
  * Callees:

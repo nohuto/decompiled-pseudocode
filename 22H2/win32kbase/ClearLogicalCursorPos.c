@@ -1,23 +1,20 @@
 /*
- * XREFs of ClearLogicalCursorPos @ 0x1C00C4C90
+ * XREFs of ClearLogicalCursorPos @ 0x1C00B85E0
  * Callers:
- *     InitLoadResources @ 0x1C005D508 (InitLoadResources.c)
+ *     InitLoadResources @ 0x1C0070130 (InitLoadResources.c)
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
  */
 
-_DWORD *__fastcall ClearLogicalCursorPos(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 ClearLogicalCursorPos()
 {
-  _DWORD *result; // rax
-  int v5; // edx
+  __int64 result; // rax
 
-  result = (_DWORD *)anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
+  result = anonymous_namespace_::GetMouseProcessor();
   if ( result )
   {
-    v5 = *((_DWORD *)gpsi + 1241);
-    result[15] = *((_DWORD *)gpsi + 1240);
-    result[16] = v5;
-    result[17] = 18;
+    *(_QWORD *)(result + 68) = *((_QWORD *)gpsi + 620);
+    *(_DWORD *)(result + 76) = 18;
   }
   return result;
 }

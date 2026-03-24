@@ -1,9 +1,9 @@
 /*
- * XREFs of ??8@YA_NAEBU_LUID@@0@Z @ 0x1C006A490
+ * XREFs of ??8@YA_NAEBU_LUID@@0@Z @ 0x1C007D4F8
  * Callers:
- *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C0069E9C (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
- *     ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C006A51C (-DrvAddAdapterLuid@@YAJU_LUID@@@Z.c)
- *     ?SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0172FBC (-SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_.c)
+ *     ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007D274 (-DrvAddAdapterLuid@@YAJU_LUID@@@Z.c)
+ *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007D414 (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
+ *     ?SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0145F70 (-SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_.c)
  * Callees:
  *     <none>
  */

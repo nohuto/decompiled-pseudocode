@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializeHardwareConfiguration @ 0x140B171AC
+ * XREFs of CmpInitializeHardwareConfiguration @ 0x140A58AB0
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmpSetupConfigurationTree @ 0x140B1789C (CmpSetupConfigurationTree.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpSetupConfigurationTree @ 0x140A59198 (CmpSetupConfigurationTree.c)
  */
 
 NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
@@ -19,12 +19,13 @@ NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
   HANDLE KeyHandle; // [rsp+88h] [rbp+18h] BYREF
 
   v1 = *(_QWORD *)(a1 + 176);
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   Disposition = 0;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &CmRegistryMachineHardwareDeviceMapName;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   result = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
   if ( result >= 0 )

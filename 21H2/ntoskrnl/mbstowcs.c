@@ -1,10 +1,10 @@
 /*
- * XREFs of mbstowcs @ 0x1403E1C30
+ * XREFs of mbstowcs @ 0x1403D2870
  * Callers:
  *     <none>
  * Callees:
- *     _mbstrlen @ 0x1403E50F4 (_mbstrlen.c)
- *     RtlMultiByteToUnicodeN @ 0x14075A6A0 (RtlMultiByteToUnicodeN.c)
+ *     _mbstrlen @ 0x1403D5D48 (_mbstrlen.c)
+ *     RtlMultiByteToUnicodeN @ 0x14062C730 (RtlMultiByteToUnicodeN.c)
  */
 
 size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
@@ -33,8 +33,9 @@ size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
     }
     else
     {
+      gbl_errno = 42;
+      v7 = -1;
       *Dest = 0;
-      return -1;
     }
     return v7;
   }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ?InsertAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo@CInputManager@@I@Z @ 0x1C023C318
+ * XREFs of ?InsertAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo@CInputManager@@I@Z @ 0x1C01FA66C
  * Callers:
- *     ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C023C5E0 (-UpdatePointerCapture@CInputManager@@SAJII@Z.c)
+ *     ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C01FA850 (-UpdatePointerCapture@CInputManager@@SAJII@Z.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     ?Grow@?$CDynamicArray@PEAUtagHPD_ACTIVE_DEVICE@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C018ED5C (-Grow@-$CDynamicArray@PEAUtagHPD_ACTIVE_DEVICE@@$0HHHAHDFF@@@IEAAJI@Z.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?Grow@?$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C01E4388 (-Grow@-$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@IEAAJI@Z.c)
  */
 
 __int64 __fastcall CStructDynamicArray<CInputManager::PointerCaptureInfo>::InsertAt(
@@ -15,82 +14,47 @@ __int64 __fastcall CStructDynamicArray<CInputManager::PointerCaptureInfo>::Inser
         unsigned int a3)
 {
   int v3; // ebx
-  __int64 v5; // r14
-  PVOID v7; // rbp
-  __int64 v8; // rax
-  __int64 Pool2; // rdi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-B8h] BYREF
+  __int64 v5; // rsi
+  _QWORD *v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // r10
 
   v3 = 0;
   v5 = a3;
-  if ( *(_DWORD *)(a1 + 8) == *(_DWORD *)(a1 + 12) )
+  if ( *(_DWORD *)(a1 + 8) != *(_DWORD *)(a1 + 12)
+    || (v3 = CDynamicArray<InjectManipulationArgs *,2003858261>::Grow(a1), v3 >= 0) )
   {
-    v3 = CDynamicArray<tagHPD_ACTIVE_DEVICE *,2003858261>::Grow(a1);
-    if ( v3 < 0 )
-      return (unsigned int)v3;
-  }
-  if ( *(_DWORD *)(a1 + 8) >= *(_DWORD *)(a1 + 12) )
-    return (unsigned int)-1073741823;
-  v7 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x32644344) == 0x32644344
-    && (v8 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
-  {
-    while ( *((_DWORD *)gpLeakTrackingAllocator + v8) != 845431620 )
+    if ( *(_DWORD *)(a1 + 8) >= *(_DWORD *)(a1 + 12) )
+      v3 = -1073741823;
+    if ( v3 >= 0 )
     {
-      if ( ++v8 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-        goto LABEL_9;
-    }
-    Pool2 = ExAllocatePool2(260LL, 24LL);
-    if ( !Pool2 )
-      return (unsigned int)-1073741801;
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-    {
-      if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-             (__int64)v7,
-             Pool2,
-             (struct NSInstrumentation::CBackTrace *)BackTrace) )
+      v7 = Win32AllocPoolZInit(8uLL, 1685275460LL);
+      if ( !v7 )
+        v3 = -1073741801;
+      if ( v3 < 0 )
       {
-        goto LABEL_15;
+        if ( v7 )
+          Win32FreePool((__int64)v7);
       }
-      goto LABEL_22;
+      else
+      {
+        *v7 = *a2;
+        LODWORD(v8) = *(_DWORD *)(a1 + 8);
+        if ( (unsigned int)v8 > (unsigned int)v5 )
+        {
+          v9 = 8LL * (unsigned int)v8;
+          do
+          {
+            v8 = (unsigned int)(v8 - 1);
+            *(_QWORD *)(v9 + *(_QWORD *)a1) = *(_QWORD *)(*(_QWORD *)a1 + 8 * v8);
+            v9 -= 8LL;
+          }
+          while ( (unsigned int)v8 > (unsigned int)v5 );
+        }
+        *(_QWORD *)(*(_QWORD *)a1 + 8 * v5) = v7;
+        ++*(_DWORD *)(a1 + 8);
+      }
     }
-    if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-            (__int64)v7,
-            (const void *)Pool2,
-            (struct NSInstrumentation::CBackTrace *)BackTrace) )
-    {
-LABEL_22:
-      ExFreePoolWithTag((PVOID)Pool2, 0);
-      return (unsigned int)-1073741801;
-    }
-    Pool2 += 16LL;
   }
-  else
-  {
-LABEL_9:
-    Pool2 = ExAllocatePool2(260LL, 8LL);
-  }
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-LABEL_15:
-  *(_QWORD *)Pool2 = *a2;
-  v10 = *(unsigned int *)(a1 + 8);
-  if ( (unsigned int)v10 > (unsigned int)v5 )
-  {
-    v11 = 8 * v10;
-    do
-    {
-      v10 = (unsigned int)(v10 - 1);
-      *(_QWORD *)(v11 + *(_QWORD *)a1) = *(_QWORD *)(*(_QWORD *)a1 + 8 * v10);
-      v11 -= 8LL;
-    }
-    while ( (unsigned int)v10 > (unsigned int)v5 );
-  }
-  *(_QWORD *)(*(_QWORD *)a1 + 8 * v5) = Pool2;
-  ++*(_DWORD *)(a1 + 8);
   return (unsigned int)v3;
 }

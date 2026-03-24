@@ -1,9 +1,10 @@
 /*
- * XREFs of ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x1801A9280
+ * XREFs of ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x180174340
  * Callers:
- *     ??1CExcludeVisualReference@@QEAA@XZ @ 0x1801928FC (--1CExcludeVisualReference@@QEAA@XZ.c)
+ *     ??1CExcludeVisualReference@@QEAA@XZ @ 0x1800E50F4 (--1CExcludeVisualReference@@QEAA@XZ.c)
+ *     ?Restore@CCursorVisualReference@@UEAAXXZ @ 0x180174400 (-Restore@CCursorVisualReference@@UEAAXXZ.c)
  * Callees:
- *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1801A9220 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5648 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
  */
 
 void __fastcall CExcludeVisualReference::Restore(CExcludeVisualReference *this)
@@ -16,7 +17,7 @@ void __fastcall CExcludeVisualReference::Restore(CExcludeVisualReference *this)
   {
     if ( *(_DWORD *)(v2 + 16) )
     {
-      *((_BYTE *)Visual + 102) ^= (*((_BYTE *)Visual + 102) ^ (4 * *(_BYTE *)(v2 + 20))) & 4;
+      *((_BYTE *)Visual + 94) ^= (*((_BYTE *)Visual + 94) ^ (4 * *(_BYTE *)(v2 + 20))) & 4;
       *(_DWORD *)(v2 + 16) = 0;
     }
   }

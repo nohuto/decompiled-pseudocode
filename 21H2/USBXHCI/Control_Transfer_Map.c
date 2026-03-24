@@ -1,38 +1,38 @@
 /*
- * XREFs of Control_Transfer_Map @ 0x1C0006150
+ * XREFs of Control_Transfer_Map @ 0x1C00040CC
  * Callers:
- *     Control_MapTransfer @ 0x1C000605C (Control_MapTransfer.c)
+ *     Control_MapTransfer @ 0x1C0003FBC (Control_MapTransfer.c)
  * Callees:
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
- *     Controller_LowerAndTrackIrql @ 0x1C0005CB4 (Controller_LowerAndTrackIrql.c)
- *     Control_Transfer_MapIntoRing @ 0x1C00065C0 (Control_Transfer_MapIntoRing.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     TR_EnsureInputBufferForTrbs @ 0x1C003FA50 (TR_EnsureInputBufferForTrbs.c)
- *     SecureDmaEnabler_PrepareMemoryForDma @ 0x1C004FE30 (SecureDmaEnabler_PrepareMemoryForDma.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C0004610 (Control_Transfer_MapIntoRing.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C003F23C (TR_EnsureInputBufferForTrbs.c)
+ *     SecureDmaEnabler_PrepareMemoryForDma @ 0x1C004F278 (SecureDmaEnabler_PrepareMemoryForDma.c)
  */
 
 __int64 __fastcall Control_Transfer_Map(__int64 a1)
 {
   __int64 v1; // rdi
   int v2; // esi
-  char v3; // r14
-  __int64 v5; // rbp
+  char v3; // r15
+  __int64 v5; // r14
   __int64 v6; // rax
   __int16 v7; // dx
   __int64 v9; // rcx
   bool v10; // zf
   int v11; // r8d
-  __int64 v12; // rax
-  int v13; // r9d
-  int v14; // edx
-  int v15; // r8d
-  int v16; // r9d
+  int v12; // r9d
+  int v13; // edx
+  int v14; // r8d
+  int v15; // r9d
+  int v16; // edx
   _QWORD *v17; // rcx
   __int64 v18; // rsi
-  __int64 v19; // r15
-  int v20; // edx
+  __int64 v19; // r12
+  int v20; // [rsp+20h] [rbp-48h]
   bool v21; // [rsp+38h] [rbp-30h]
 
   v1 = *(_QWORD *)(a1 + 344);
@@ -60,47 +60,11 @@ __int64 __fastcall Control_Transfer_Map(__int64 a1)
       return (unsigned int)-1073741670;
   }
   if ( *(_DWORD *)(v1 + 64) != 3 )
-    goto LABEL_8;
-  if ( *(_BYTE *)(a1 + 280) )
   {
-    v10 = (*(_DWORD *)(a1 + 296))++ == -1;
-    v11 = *(_DWORD *)(a1 + 296);
-    if ( v10 )
-    {
-      *(_DWORD *)(a1 + 296) = 1;
-      v11 = 1;
-    }
-    v12 = *(_QWORD *)(v1 + 96);
-    v13 = *(_DWORD *)(v1 + 104);
-    *(_DWORD *)(v1 + 200) = v11;
-    v2 = SecureDmaEnabler_PrepareMemoryForDma(
-           *(_QWORD *)(*(_QWORD *)(a1 + 40) + 104LL),
-           *(_QWORD *)(v1 + 72),
-           v11,
-           v13,
-           v11,
-           v1 + 168,
-           v12);
-    if ( v2 >= 0 )
-    {
-      if ( **(_DWORD **)(v1 + 96) != 1 )
-      {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16);
-        if ( !KdRefreshDebuggerNotPresent() )
-          __debugbreak();
-      }
-LABEL_8:
-      Control_Transfer_MapIntoRing(a1);
-      return (unsigned int)v2;
-    }
-    *(_DWORD *)(v1 + 200) = 0;
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16);
-    if ( !KdRefreshDebuggerNotPresent() )
-      __debugbreak();
+    Control_Transfer_MapIntoRing(a1);
+    return (unsigned int)v2;
   }
-  else
+  if ( !*(_BYTE *)(a1 + 280) )
   {
     v17 = *(_QWORD **)(a1 + 40);
     v18 = *(_QWORD *)(v17[12] + 24LL);
@@ -118,13 +82,51 @@ LABEL_8:
            a1,
            v21);
     if ( v3 && KeGetCurrentIrql() == 2 )
-      Controller_LowerAndTrackIrql(*(_QWORD **)(a1 + 40));
+      Controller_LowerAndTrackIrql(*(_QWORD *)(a1 + 40));
+    goto LABEL_33;
+  }
+  v10 = (*(_DWORD *)(a1 + 296))++ == -1;
+  v11 = *(_DWORD *)(a1 + 296);
+  if ( v10 )
+  {
+    *(_DWORD *)(a1 + 296) = 1;
+    v11 = 1;
+  }
+  v12 = *(_DWORD *)(v1 + 104);
+  *(_DWORD *)(v1 + 200) = v11;
+  v2 = SecureDmaEnabler_PrepareMemoryForDma(
+         *(_QWORD *)(*(_QWORD *)(a1 + 40) + 104LL),
+         *(_QWORD *)(v1 + 72),
+         v11,
+         v12,
+         v11,
+         v1 + 168,
+         *(_QWORD *)(v1 + 96));
+  if ( v2 >= 0 )
+  {
+    if ( **(_DWORD **)(v1 + 96) != 1 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_sds(
+          WPP_GLOBAL_Control->DeviceExtension,
+          v13,
+          v14,
+          v15,
+          v20,
+          (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\control.c",
+          39,
+          (__int64)"ScatterGatherList->NumberOfElements must be 1");
+      if ( !KdRefreshDebuggerNotPresent() )
+        __debugbreak();
+    }
+    Control_Transfer_MapIntoRing(a1);
+LABEL_33:
     if ( v2 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v20) = 2;
-      WPP_RECORDER_SF_ddd(
+      LOBYTE(v16) = 2;
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-        v20,
+        v16,
         14,
         36,
         (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
@@ -132,6 +134,20 @@ LABEL_8:
         *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
         v2);
     }
+    return (unsigned int)v2;
   }
+  *(_DWORD *)(v1 + 200) = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_sds(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v13,
+      v14,
+      v15,
+      v20,
+      (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\control.c",
+      46,
+      (__int64)"SecureDmaEnabler_PrepareMemoryForDma has failed");
+  if ( !KdRefreshDebuggerNotPresent() )
+    __debugbreak();
   return (unsigned int)v2;
 }

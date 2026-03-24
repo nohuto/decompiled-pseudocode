@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiDestroyOPMProtectedOutput @ 0x1C015C5F0
+ * XREFs of NtGdiDestroyOPMProtectedOutput @ 0x1C01405E0
  * Callers:
  *     <none>
  * Callees:
- *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C015C0B4 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
+ *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C0140318 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
  */
 
-__int64 __fastcall NtGdiDestroyOPMProtectedOutput(void *a1)
+__int64 __fastcall NtGdiDestroyOPMProtectedOutput(COPM *a1)
 {
   int v1; // ecx
   __int64 result; // rax

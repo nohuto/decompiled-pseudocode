@@ -1,5 +1,5 @@
 /*
- * XREFs of MiFreeUnusedPfnPages @ 0x140183FC0
+ * XREFs of MiFreeUnusedPfnPages @ 0x140183FE0
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
@@ -15,14 +15,14 @@
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     MiGetNextNonGapPfnPage @ 0x140184448 (MiGetNextNonGapPfnPage.c)
- *     MiPfnRangeIsZero @ 0x140184634 (MiPfnRangeIsZero.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C30 (RtlCompareMemoryUlong.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     MiGetNextNonGapPfnPage @ 0x140184468 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x140184654 (MiPfnRangeIsZero.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)

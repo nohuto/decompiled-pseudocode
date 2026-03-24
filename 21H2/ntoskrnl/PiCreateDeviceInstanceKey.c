@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCreateDeviceInstanceKey @ 0x140768A4C
+ * XREFs of PiCreateDeviceInstanceKey @ 0x14074CB14
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     _CmCreateDevice @ 0x140768AF8 (_CmCreateDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     _CmCreateDevice @ 0x14074CBC8 (_CmCreateDevice.c)
  */
 
 __int64 __fastcall PiCreateDeviceInstanceKey(__int64 a1, _QWORD *a2, _DWORD *a3)
@@ -27,6 +27,6 @@ __int64 __fastcall PiCreateDeviceInstanceKey(__int64 a1, _QWORD *a2, _DWORD *a3)
   if ( Device >= 0 )
     *a3 = 2 - (v9 != 0);
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)Device;
 }

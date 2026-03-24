@@ -1,10 +1,10 @@
 /*
  * XREFs of TxtpAddCacheEntry @ 0x140951524
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
  *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
  */
 

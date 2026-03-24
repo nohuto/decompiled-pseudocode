@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessSetSurface@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETSURFACE@@@Z @ 0x180049498
+ * XREFs of ?ProcessSetSurface@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETSURFACE@@@Z @ 0x1800A0DDC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?SetSurface@CSurfaceBrush@@QEAAJPEAVCResource@@@Z @ 0x180049558 (-SetSurface@CSurfaceBrush@@QEAAJPEAVCResource@@@Z.c)
- *     ?SetSurfaceContentRect@CSurfaceBrush@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800495FC (-SetSurfaceContentRect@CSurfaceBrush@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAnd.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetSurfaceContentRect@CSurfaceBrush@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800A0E68 (-SetSurfaceContentRect@CSurfaceBrush@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAnd.c)
+ *     ?SetSurface@CSurfaceBrush@@QEAAJPEAVCResource@@@Z @ 0x1800A0F2C (-SetSurface@CSurfaceBrush@@QEAAJPEAVCResource@@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CSurfaceBrush::ProcessSetSurface(
@@ -16,10 +16,10 @@ __int64 __fastcall CSurfaceBrush::ProcessSetSurface(
         const struct tagMILCMD_SURFACEBRUSH_SETSURFACE *a3)
 {
   struct CResource *ResourceWithoutType; // rax
-  __int64 v5; // r9
+  __int64 v5; // r8
   __int64 i; // rdx
   int v7; // eax
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   unsigned int v9; // ebx
   float v11[4]; // [rsp+30h] [rbp-28h] BYREF
 
@@ -29,7 +29,7 @@ __int64 __fastcall CSurfaceBrush::ProcessSetSurface(
   v7 = CSurfaceBrush::SetSurface(this, ResourceWithoutType);
   v9 = v7;
   if ( v7 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x90u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x87u, 0LL);
   else
     CSurfaceBrush::SetSurfaceContentRect(this, v11);
   return v9;

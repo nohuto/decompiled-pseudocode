@@ -1,12 +1,12 @@
 /*
- * XREFs of ExAcquireSharedStarveExclusive @ 0x1400AE080
+ * XREFs of ExAcquireSharedStarveExclusive @ 0x1400AE0A0
  * Callers:
- *     CcPinFileData @ 0x1400AE2B0 (CcPinFileData.c)
+ *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
  *     CcPinMappedData @ 0x1406385A0 (CcPinMappedData.c)
  * Callees:
- *     ExpAcquireSharedStarveExclusive @ 0x1400B19F0 (ExpAcquireSharedStarveExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031B788 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031B888 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

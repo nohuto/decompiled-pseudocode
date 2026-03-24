@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCreateProfileEx @ 0x140A04520
+ * XREFs of NtCreateProfileEx @ 0x14095AD40
  * Callers:
  *     <none>
  * Callees:
- *     ExpProfileCreate @ 0x140A03D28 (ExpProfileCreate.c)
+ *     ExpProfileCreate @ 0x14095A5AC (ExpProfileCreate.c)
  */
 
-__int64 __fastcall NtCreateProfileEx(
-        __int64 *a1,
-        ULONG_PTR a2,
+NTSTATUS __fastcall NtCreateProfileEx(
+        unsigned __int64 a1,
+        void *a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         int a5,

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001E9A0
+ * XREFs of ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001C214
  * Callers:
- *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001F530 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
- *     ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0021B90 (ACPIDeviceRecordBlockedOnPhase3List.c)
- *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C0021D94 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001C330 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
+ *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002ADE8 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ *     ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0031938 (ACPIDeviceRecordBlockedOnPhase3List.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
@@ -18,61 +18,61 @@ __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
   int v8; // ecx
   int v9; // r10d
   int v10; // edx
-  int v11; // ecx
-  int v12; // ebx
-  int v13; // ebx
-  signed int v14; // ebp
-  _QWORD *v15; // r14
+  int v11; // ebx
+  signed int v12; // ebp
+  _QWORD *v13; // r14
   _QWORD *i; // rsi
+  __int64 v15; // rax
   __int64 result; // rax
-  __int64 v18; // rax
+  int v17; // ecx
+  int v18; // ebx
   __int64 v19; // rcx
 
   v3 = *(_QWORD *)(a1 + 40);
   v4 = 0LL;
-  v8 = *(_DWORD *)(v3 + 384);
+  v8 = *(_DWORD *)(v3 + 344);
   v9 = ((*(_DWORD *)(v3 + 8) & 0x800) != 0LL) + 3;
   if ( !v8 )
     v8 = *(_DWORD *)(a1 + 108);
   v10 = 0;
-  if ( (unsigned int)(v8 - 1) > 3 )
-  {
-    v13 = (1 << (((*(_DWORD *)(v3 + 8) & 0x800) != 0LL) + 4)) - 1;
-  }
-  else
+  if ( (unsigned int)(v8 - 1) <= 3 )
   {
     if ( v8 <= v9 )
       v10 = 1 << v8;
-    v11 = *(_DWORD *)(a1 + 104);
-    if ( v11 >= 1 && v11 <= v9 )
-      v10 |= 1 << v11;
-    v12 = v10 | 2;
+    v17 = *(_DWORD *)(a1 + 104);
+    if ( v17 >= 1 && v17 <= v9 )
+      v10 |= 1 << v17;
+    v18 = v10 | 2;
     if ( (*(_DWORD *)(a1 + 56) & 0x30) == 0 )
-      v12 = v10;
-    v13 = v12 | 1;
+      v18 = v10;
+    v11 = v18 | 1;
   }
-  v14 = 0;
-  v15 = (_QWORD *)(v3 + 408);
+  else
+  {
+    v11 = (1 << (((*(_DWORD *)(v3 + 8) & 0x800) != 0LL) + 4)) - 1;
+  }
+  v12 = 0;
+  v13 = (_QWORD *)(v3 + 368);
   do
   {
-    if ( _bittest(&v13, v14) )
+    if ( _bittest(&v11, v12) )
     {
-      for ( i = (_QWORD *)*v15; i; i = (_QWORD *)*i )
+      for ( i = (_QWORD *)*v13; i; i = (_QWORD *)*i )
       {
-        result = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64))a2)(i[1], (unsigned int)v14, a3);
+        result = a2(i[1], (unsigned int)v12, a3, v4);
         v4 = (unsigned int)result;
         if ( (int)result < 0 )
           return result;
       }
     }
-    ++v14;
-    ++v15;
+    ++v12;
+    ++v13;
   }
-  while ( v14 < 5 );
-  v18 = *(_QWORD *)(v3 + 448);
-  if ( !v18 )
+  while ( v12 < 5 );
+  v15 = *(_QWORD *)(v3 + 408);
+  if ( !v15 )
     return (unsigned int)v4;
-  v19 = *(_QWORD *)(v18 + 8);
+  v19 = *(_QWORD *)(v15 + 8);
   if ( (*(_DWORD *)(v19 + 16) & 0x2000LL) == 0 )
     return (unsigned int)v4;
   result = a2(v19, 5LL, a3, v4);

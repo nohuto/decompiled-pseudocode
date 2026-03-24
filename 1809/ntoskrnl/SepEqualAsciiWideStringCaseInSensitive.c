@@ -1,7 +1,7 @@
 /*
- * XREFs of SepEqualAsciiWideStringCaseInSensitive @ 0x1408A3090
+ * XREFs of SepEqualAsciiWideStringCaseInSensitive @ 0x1408A3070
  * Callers:
- *     SepSecureBootFindMatchingRegistryRule @ 0x1408A3318 (SepSecureBootFindMatchingRegistryRule.c)
+ *     SepSecureBootFindMatchingRegistryRule @ 0x1408A32F8 (SepSecureBootFindMatchingRegistryRule.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of SetDpiAllHWProfileSetting @ 0x1C0005438
+ * XREFs of SetDpiAllHWProfileSetting @ 0x1C0008CF4
  * Callers:
- *     SetDpiSetting @ 0x1C00050B0 (SetDpiSetting.c)
+ *     SetDpiSetting @ 0x1C0008EE0 (SetDpiSetting.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SetDpiAllHWProfileSetting(int a1)
@@ -12,7 +12,7 @@ __int64 __fastcall SetDpiAllHWProfileSetting(int a1)
   ULONG i; // edx
   ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
   void *KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   int ValueData; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING Source; // [rsp+58h] [rbp-A8h] BYREF
   _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF

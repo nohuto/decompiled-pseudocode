@@ -1,23 +1,22 @@
 /*
- * XREFs of ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C012C564
+ * XREFs of ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C016B4F4
  * Callers:
- *     NtGdiStartPage @ 0x1C012C8A0 (NtGdiStartPage.c)
- *     NtGdiEndDoc @ 0x1C012CC40 (NtGdiEndDoc.c)
- *     NtGdiAbortDoc @ 0x1C027A8E0 (NtGdiAbortDoc.c)
+ *     NtGdiStartPage @ 0x1C013A7B0 (NtGdiStartPage.c)
+ *     NtGdiEndDoc @ 0x1C0162160 (NtGdiEndDoc.c)
+ *     NtGdiAbortDoc @ 0x1C027CD70 (NtGdiAbortDoc.c)
  * Callees:
- *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C002BB70 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0113C20 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?UMPDServer@@YAHPEAVSURFACE@@@Z @ 0x1C012C514 (-UMPDServer@@YAHPEAVSURFACE@@@Z.c)
- *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C012CA30 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
- *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C012CA70 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
- *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C012CA98 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C015D588 (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C027A0F8 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
- *     ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C0285520 (-bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B5924 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?UMPDServer@@YAHPEAVSURFACE@@@Z @ 0x1C01350C4 (-UMPDServer@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vInit@RESTORESAVEDCATTRS@@QEAAXPEAVXDCOBJ@@@Z @ 0x1C0136E84 (-vInit@RESTORESAVEDCATTRS@@QEAAXPEAVXDCOBJ@@@Z.c)
+ *     ??1RESTORESAVEDCATTRS@@QEAA@XZ @ 0x1C0137098 (--1RESTORESAVEDCATTRS@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@XZ @ 0x1C0137CD0 (--0DCOBJ@@QEAA@XZ.c)
+ *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C013A980 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C027C588 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ *     ?bIsProcessLocalSystem@@YAHXZ @ 0x1C0288A08 (-bIsProcessLocalSystem@@YAHXZ.c)
  */
 
 __int64 __fastcall bEndDocInternal(HDC a1, unsigned int a2, __int16 a3)
@@ -29,81 +28,65 @@ __int64 __fastcall bEndDocInternal(HDC a1, unsigned int a2, __int16 a3)
   __int64 v10; // rax
   int v11; // edx
   struct SURFACE *v12; // rsi
-  int v13; // ecx
-  struct _EPROCESS *CurrentProcess; // rax
-  bool v15; // zf
-  int v16; // edi
-  int v17; // r15d
-  __int64 v18; // r8
-  int v19; // r14d
-  __int64 v20; // rsi
-  __int64 v21; // rdx
-  DC *v22; // rax
-  SURFACE *v23; // rcx
-  int v24; // edx
-  XDCOBJ *v26; // [rsp+28h] [rbp-29h] BYREF
-  DC *v27[2]; // [rsp+30h] [rbp-21h] BYREF
-  char v28[32]; // [rsp+40h] [rbp-11h] BYREF
-  DC *v29; // [rsp+60h] [rbp+Fh] BYREF
-  int v30; // [rsp+68h] [rbp+17h]
-  int v31; // [rsp+6Ch] [rbp+1Bh]
-  _BYTE v32[40]; // [rsp+70h] [rbp+1Fh] BYREF
-  __int64 v33; // [rsp+D0h] [rbp+7Fh] BYREF
+  bool v13; // zf
+  int v14; // edi
+  int v15; // r15d
+  __int64 v16; // r8
+  int v17; // r14d
+  __int64 v18; // rsi
+  __int64 v19; // rdx
+  DC *v20; // rax
+  unsigned int *v21; // rcx
+  __int64 v22; // rdx
+  XDCOBJ *v24; // [rsp+28h] [rbp-29h] BYREF
+  DC *v25[6]; // [rsp+30h] [rbp-21h] BYREF
+  _QWORD v26[7]; // [rsp+60h] [rbp+Fh] BYREF
+  __int64 v27; // [rsp+D0h] [rbp+7Fh] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v27, a1);
-  if ( !v27[0] )
-    goto LABEL_39;
-  v6 = *((_DWORD *)v27[0] + 9);
+  DCOBJ::DCOBJ((DCOBJ *)v25, a1);
+  if ( !v25[0] )
+    goto LABEL_37;
+  v6 = *((_DWORD *)v25[0] + 9);
   if ( (v6 & 0x800) != 0
     || (v6 & 0x200000) != 0
-    || *((_WORD *)v27[0] + 6) != a3
-    || !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v27)
+    || *((_WORD *)v25[0] + 6) != a3
+    || !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v25)
     || ((unsigned int)a1 & 0x7F0000) == 0x10000
     || ((unsigned int)a1 & 0x7F0000) == 0x660000 )
   {
-    goto LABEL_39;
+    goto LABEL_37;
   }
   v8 = *((unsigned int *)v7 + 27);
   if ( *((_DWORD *)v7 + 26) > (int)v8 )
   {
     GreRestoreDC(a1, v8);
-    v7 = v27[0];
+    v7 = v25[0];
   }
   *((_DWORD *)v7 + 9) |= 0x200000u;
   v9 = 1;
-  v10 = *((_QWORD *)v27[0] + 6);
-  v33 = v10;
+  v10 = *((_QWORD *)v25[0] + 6);
+  v27 = v10;
   v11 = *(_DWORD *)(v10 + 40);
-  if ( (v11 & 1) != 0 || !*(_QWORD *)(v10 + 2536) )
+  if ( (v11 & 1) != 0 || !*(_QWORD *)(v10 + 2560) )
   {
-LABEL_39:
+LABEL_37:
     EngSetLastError(0x3EBu);
     v9 = 0;
   }
   else
   {
-    v26 = 0LL;
-    v12 = (struct SURFACE *)*((_QWORD *)v27[0] + 62);
+    v24 = 0LL;
+    v12 = (struct SURFACE *)*((_QWORD *)v25[0] + 62);
     if ( (v11 & 0x8000) != 0 )
     {
-      v13 = *((_DWORD *)v27[0] + 11);
-      v26 = (XDCOBJ *)v27;
-      if ( (v13 & 2) != 0 )
-      {
-        XDCOBJ::RestoreAttributesHelper((XDCOBJ *)v27);
-        *((_DWORD *)v27[0] + 11) &= ~2u;
-        v10 = v33;
-      }
+      RESTORESAVEDCATTRS::vInit((RESTORESAVEDCATTRS *)&v24, (struct XDCOBJ *)v25);
+      v10 = v27;
     }
     if ( gUMPDSecurityLevel == 2
-      || gUMPDSecurityLevel
-      && (CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(gUMPDSecurityLevel, gUMPDSecurityLevel),
-          v15 = (unsigned int)bIsProcessLocalSystem(CurrentProcess) == 0,
-          v10 = v33,
-          !v15)
-      || *(_QWORD *)(v10 + 2936) )
+      || gUMPDSecurityLevel && (v13 = (unsigned int)bIsProcessLocalSystem() == 0, v10 = v27, !v13)
+      || *(_QWORD *)(v10 + 2960) )
     {
-      v16 = (*(__int64 (__fastcall **)(unsigned __int64, _QWORD))(v10 + 2936))(
+      v14 = (*(__int64 (__fastcall **)(unsigned __int64, _QWORD))(v10 + 2960))(
               ((unsigned __int64)v12 + 24) & -(__int64)(v12 != 0LL),
               a2);
     }
@@ -112,67 +95,59 @@ LABEL_39:
       if ( gfUMPDDebug )
         DbgPrint(
           "clientcore\\windows\\core\\ntgdi\\gre\\windows\\print.cxx:%d:bEndDocInternal:!(PPFNVALID(po,EndDoc))\n",
-          2121);
-      v16 = 0;
+          2132);
+      v14 = 0;
     }
-    RESTORESAVEDCATTRS::vDone((RESTORESAVEDCATTRS *)&v26);
-    v17 = *(_DWORD *)(v33 + 40) & 0x8000;
-    *((_WORD *)v27[0] + 1044) = -1;
+    RESTORESAVEDCATTRS::vDone(&v24);
+    v15 = *(_DWORD *)(v27 + 40) & 0x8000;
+    *((_WORD *)v25[0] + 1048) = -1;
     UMPDServer(v12);
-    DC::pSurface(v27[0], 0LL);
-    v19 = 0;
-    *((_DWORD *)v27[0] + 79) |= 0xFu;
-    v20 = *((_QWORD *)v27[0] + 14);
-    if ( *((_DWORD *)v27[0] + 26) - 1 > 0 )
+    DC::pSurface(v25[0], 0LL);
+    v17 = 0;
+    *((_DWORD *)v25[0] + 79) |= 0xFu;
+    v18 = *((_QWORD *)v25[0] + 14);
+    if ( *((_DWORD *)v25[0] + 26) - 1 > 0 )
     {
       while ( 1 )
       {
-        v29 = 0LL;
-        v30 = 0;
-        v31 = 0;
-        UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v32);
-        v29 = 0LL;
-        LOBYTE(v21) = 1;
-        v22 = (DC *)HmgLockIgnoreOwner(v20, v21);
-        v29 = v22;
-        if ( !v22 || (v23 = (SURFACE *)*((_QWORD *)v22 + 62)) == 0LL )
+        DCOBJ::DCOBJ((DCOBJ *)v26);
+        LOBYTE(v19) = 1;
+        v20 = (DC *)HmgLockIgnoreOwner(v18, v19);
+        v26[0] = v20;
+        if ( !v20 || (v21 = (unsigned int *)*((_QWORD *)v20 + 62)) == 0LL )
         {
-          MDCOBJ::~MDCOBJ((MDCOBJ *)&v29);
-          UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v32);
-          goto LABEL_34;
+          DCOBJ::~DCOBJ((DCOBJ *)v26);
+          goto LABEL_33;
         }
-        v24 = *((_DWORD *)v23 + 28);
-        if ( (v24 & 0x800) != 0 )
+        v22 = v21[28];
+        if ( (v22 & 0x800) != 0 )
           break;
-        if ( v24 >= 0 )
+        if ( (int)v22 >= 0 )
         {
-          SURFACE::vDec_cRef(v23);
-          goto LABEL_30;
+          SURFACE::vDec_cRef((SURFACE *)v21);
+          goto LABEL_29;
         }
-LABEL_31:
-        DC::pSurface(v22, 0LL);
-        *((_DWORD *)v29 + 79) |= 0xFu;
-        v20 = *((_QWORD *)v29 + 14);
-        MDCOBJ::~MDCOBJ((MDCOBJ *)&v29);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v32);
-        if ( ++v19 >= *((_DWORD *)v27[0] + 26) - 1 )
-          goto LABEL_34;
-      }
-      DEC_SHARE_REF_CNT(v23);
 LABEL_30:
-      v22 = v29;
-      goto LABEL_31;
+        DC::pSurface(v20, 0LL);
+        *(_DWORD *)(v26[0] + 316LL) |= 0xFu;
+        v18 = *(_QWORD *)(v26[0] + 112LL);
+        DCOBJ::~DCOBJ((DCOBJ *)v26);
+        if ( ++v17 >= *((_DWORD *)v25[0] + 26) - 1 )
+          goto LABEL_33;
+      }
+      DEC_SHARE_REF_CNT(v21, v22);
+LABEL_29:
+      v20 = (DC *)v26[0];
+      goto LABEL_30;
     }
-LABEL_34:
-    LOBYTE(v18) = 1;
-    PDEVOBJ::vDisableSurface(&v33, 0LL, v18);
-    *((_DWORD *)v27[0] + 9) &= ~0x200000u;
-    if ( !v17 || !v16 )
+LABEL_33:
+    LOBYTE(v16) = 1;
+    PDEVOBJ::vDisableSurface(&v27, 0LL, v16);
+    *((_DWORD *)v25[0] + 9) &= ~0x200000u;
+    if ( !v15 || !v14 )
       v9 = 0;
-    if ( v26 )
-      XDCOBJ::vSaveAttributesAlways(v26);
+    RESTORESAVEDCATTRS::~RESTORESAVEDCATTRS(&v24);
   }
-  MDCOBJ::~MDCOBJ((MDCOBJ *)v27);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v28);
+  DCOBJ::~DCOBJ((DCOBJ *)v25);
   return v9;
 }

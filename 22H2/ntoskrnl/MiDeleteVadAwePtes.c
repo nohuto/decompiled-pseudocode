@@ -1,77 +1,52 @@
 /*
- * XREFs of MiDeleteVadAwePtes @ 0x1406499D8
+ * XREFs of MiDeleteVadAwePtes @ 0x14054BA74
  * Callers:
- *     MiDeleteVa @ 0x14027A4A0 (MiDeleteVa.c)
- *     MiDeleteLargeUserPde @ 0x1406503D4 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVa @ 0x1402B8110 (MiDeleteVa.c)
+ *     MiDeleteLargeUserPde @ 0x14054F89C (MiDeleteLargeUserPde.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafPfnBuddy @ 0x140389ACC (MiGetLeafPfnBuddy.c)
- *     MiLockHugePfnInternal @ 0x1406214D8 (MiLockHugePfnInternal.c)
- *     MiGetAweViewPageSize @ 0x14064AA28 (MiGetAweViewPageSize.c)
- *     MiWriteAwePtes @ 0x14064C62C (MiWriteAwePtes.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAweViewPageSize @ 0x14054C418 (MiGetAweViewPageSize.c)
+ *     MiWriteAwePtes @ 0x14054E1D8 (MiWriteAwePtes.c)
  */
 
-__int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, __int64 *a3)
 {
-  __int64 v3; // r14
-  __int64 v7; // r15
-  __int64 v8; // rbp
+  __int64 v6; // rbx
+  char v7; // al
+  __int64 v8; // rdx
+  int v9; // r8d
   __int64 AweViewPageSize; // rax
-  __int64 v10; // rcx
-  unsigned __int64 *v11; // rbx
-  unsigned __int64 v12; // rax
-  _QWORD *LeafPfnBuddy; // rax
-  _QWORD *v14; // rdx
-  unsigned __int64 *v15; // rax
-  unsigned __int64 *v16; // rdx
+  __int64 v11; // r9
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rdx
 
-  v3 = *(_QWORD *)(a1 + 32);
-  v7 = 0LL;
-  v8 = *(_QWORD *)(v3 + 16);
-  if ( (MI_READ_PTE_LOCK_FREE(a2) & 1) != 0 )
+  v6 = 0LL;
+  v7 = MI_READ_PTE_LOCK_FREE(a2);
+  v9 = 1;
+  if ( (v7 & 1) != 0 )
   {
-    v7 = 1LL;
-    AweViewPageSize = MiGetAweViewPageSize(a1);
-    v10 = v8;
+    v6 = 1LL;
+    AweViewPageSize = MiGetAweViewPageSize(a1, v8, 1LL, *(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL));
+    v12 = v11;
     if ( AweViewPageSize )
-      v10 = AweViewPageSize;
-    if ( v10 == 16 )
-      v7 = v8;
+      v12 = AweViewPageSize;
+    if ( v12 != 512 )
+      v6 = v11;
   }
-  v11 = (unsigned __int64 *)MiWriteAwePtes(a1, 0, 1, 0, a2, 0);
-  if ( v11 )
+  v13 = MiWriteAwePtes(a1, 0, v9, 0, a2, 0);
+  if ( v13 )
   {
-    if ( (*(_DWORD *)(v3 + 8) & 8) != 0 )
+    v14 = *(_QWORD *)(v13 + 16);
+    v15 = v13;
+    while ( v14 )
     {
-      MiLockHugePfnInternal((__int64)v11, 0);
-      v12 = *v11 & 0xFFFFFF800001FFFFuLL;
-      if ( *a3 )
-        v12 |= (((__int64)(*a3 - qword_140C67EF0) >> 3) & 0x3FFFFF) << 17;
-      *v11 = v12;
-      _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140C67EF8 + 4 * (((((__int64)v11 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((((__int64)v11 - qword_140C67EF0) >> 3) & 0x1F)));
+      v15 = v14;
+      v14 = *(_QWORD *)(v14 + 16);
     }
-    else if ( v8 == 1 )
-    {
-      v15 = (unsigned __int64 *)v11[2];
-      v16 = v11;
-      while ( v15 )
-      {
-        v16 = v15;
-        v15 = (unsigned __int64 *)v15[2];
-      }
-      v16[2] = *a3;
-    }
-    else
-    {
-      LeafPfnBuddy = v11;
-      do
-        LeafPfnBuddy = (_QWORD *)MiGetLeafPfnBuddy(LeafPfnBuddy);
-      while ( LeafPfnBuddy );
-      *v14 ^= (*v14 ^ (*a3 >> 3)) & 0xFFFFFFFFFFELL;
-    }
-    *a3 = (unsigned __int64)v11;
+    *(_QWORD *)(v15 + 16) = *a3;
+    *a3 = v13;
   }
-  return v7;
+  return v6;
 }

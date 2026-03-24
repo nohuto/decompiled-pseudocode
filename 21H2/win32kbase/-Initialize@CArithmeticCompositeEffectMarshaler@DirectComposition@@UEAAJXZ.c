@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@CArithmeticCompositeEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0219940
+ * XREFs of ?Initialize@CArithmeticCompositeEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E3650
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C0215C70 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C01DFE20 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CArithmeticCompositeEffectMarshaler::Initialize(
@@ -15,8 +15,8 @@ __int64 __fastcall DirectComposition::CArithmeticCompositeEffectMarshaler::Initi
   if ( (int)result >= 0 )
   {
     result = 0LL;
-    *(_OWORD *)((char *)this + 120) = xmmword_1C026B648;
+    *((_OWORD *)this + 7) = xmmword_1C0227EC8;
   }
-  *((_DWORD *)this + 34) = 0;
+  *((_DWORD *)this + 32) = 0;
   return result;
 }

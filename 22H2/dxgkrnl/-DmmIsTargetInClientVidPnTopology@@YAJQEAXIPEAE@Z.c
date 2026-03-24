@@ -1,75 +1,85 @@
 /*
- * XREFs of ?DmmIsTargetInClientVidPnTopology@@YAJQEAXIPEAE@Z @ 0x1C03AE098
+ * XREFs of ?DmmIsTargetInClientVidPnTopology@@YAJQEAXIPEAE@Z @ 0x1C02DE6A0
  * Callers:
- *     ?_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01970EC (-_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DIS.c)
- *     ?Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C02F8D40 (-Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z.c)
- *     ?DisplayConfigHelperCreateSimulateMonitor@@YAJAEBU_LUID@@IW4_DMM_VIDPN_MONITOR_TYPE@@EPEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F9D54 (-DisplayConfigHelperCreateSimulateMonitor@@YAJAEBU_LUID@@IW4_DMM_VIDPN_MONITOR_TYPE@@EPEAEPEAU_D.c)
- *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02FBEA0 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00EA7FC (-_DestroyAllSameTypeSimulatedMonitor@MONITOR_MGR@@QEAAJW4_DMM_VIDPN_MONITOR_TYPE@@EPEAU_DXGK_DIS.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DisplayConfigHelperCreateSimulateMonitor@@YAJAEBU_LUID@@IW4_DMM_VIDPN_MONITOR_TYPE@@EPEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0295F50 (-DisplayConfigHelperCreateSimulateMonitor@@YAJAEBU_LUID@@IW4_DMM_VIDPN_MONITOR_TYPE@@EPEAEPEAU_D.c)
+ *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0297518 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
+ *     ?Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C02BBC90 (-Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0005DCC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ @ 0x1C0007298 (-AcquireLastClientCommittedVidPnRef@VIDPN_MGR@@QEBAPEBVDMMVIDPN@@XZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C000A5E4 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C0006764 (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z @ 0x1C0009364 (-IsTargetInTopology@DMMVIDPNTOPOLOGY@@QEBAEI@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
  */
 
-__int64 __fastcall DmmIsTargetInClientVidPnTopology(_QWORD *a1, int a2, bool *a3)
+__int64 __fastcall DmmIsTargetInClientVidPnTopology(_QWORD *a1, __int64 a2, bool *a3)
 {
   bool IsTargetInTopology; // bl
-  __int64 v8; // rax
-  VIDPN_MGR *v9; // rbp
-  const struct DMMVIDPN *ClientCommittedVidPnRef; // rax
-  const struct DMMVIDPN *v11; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v12; // [rsp+88h] [rbp+20h] BYREF
+  int v5; // ebp
+  __int64 v7; // rax
+  __int64 v9; // rax
+  __int64 v10; // rsi
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+58h] [rbp+20h] BYREF
 
   IsTargetInTopology = 0;
+  v5 = a2;
   if ( !a3 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v7 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v7 + 24) = 0LL;
+    WdLogEvent5_WdError(v7);
     return 3221225485LL;
   }
   *a3 = 0;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v9 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v9 + 24) = 0LL;
+LABEL_5:
+    WdLogEvent5_WdError(v9);
     return 3223191554LL;
   }
-  v8 = a1[365];
-  if ( !v8 )
+  v10 = a1[337];
+  if ( !v10 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v9 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v9 + 24) = a1;
+    goto LABEL_5;
   }
-  v9 = *(VIDPN_MGR **)(v8 + 104);
-  if ( v9 )
+  v11 = *(_QWORD *)(v10 + 88);
+  if ( v11 )
   {
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v12, *(_QWORD *)(v8 + 104));
-    ClientCommittedVidPnRef = VIDPN_MGR::AcquireLastClientCommittedVidPnRef(v9);
-    v11 = ClientCommittedVidPnRef;
-    if ( ClientCommittedVidPnRef )
-      IsTargetInTopology = DMMVIDPNTOPOLOGY::IsTargetInTopology(
-                             (const struct DMMVIDPN *)((char *)ClientCommittedVidPnRef + 96),
-                             a2);
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v17, v11);
+    v13 = *(_QWORD *)(v11 + 88);
+    if ( v13 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(v13 + 32));
+      v14 = *(_QWORD *)(v11 + 88);
+      v16 = v14;
+      if ( v14 )
+        IsTargetInTopology = DMMVIDPNTOPOLOGY::IsTargetInTopology((DMMVIDPNTOPOLOGY *)(v14 + 96), v5);
+    }
+    else
+    {
+      v16 = 0LL;
+    }
     *a3 = IsTargetInTopology;
-    auto_rc<DMMVIDPN const>::reset((__int64 *)&v11, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v12 + 40));
+    auto_rc<DMMVIDPN const>::reset(&v16, 0LL);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v17 + 40), v15);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v12 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v12 + 24) = a1;
+    WdLogEvent5_WdError(v12);
     return 3223192373LL;
   }
 }

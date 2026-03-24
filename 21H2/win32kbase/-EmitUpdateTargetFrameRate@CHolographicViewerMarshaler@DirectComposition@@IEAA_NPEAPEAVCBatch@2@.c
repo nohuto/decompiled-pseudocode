@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateTargetFrameRate@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DEF0
+ * XREFs of ?EmitUpdateTargetFrameRate@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE5C0
  * Callers:
- *     ?EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DE30 (-EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE500 (-EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicViewerMarshaler::EmitUpdateTargetFrameRate(
@@ -13,18 +13,18 @@ char __fastcall DirectComposition::CHolographicViewerMarshaler::EmitUpdateTarget
   _DWORD *v3; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 16) & 0x20) == 0 )
+  if ( (*((_DWORD *)this + 14) & 0x20) == 0 )
     return 1;
   v5 = 0LL;
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x14uLL, &v5) )
   {
     v3 = v5;
     *(_DWORD *)v5 = 20;
-    v3[1] = 178;
-    v3[2] = *((_DWORD *)this + 8);
-    v3[3] = *((_DWORD *)this + 25);
-    v3[4] = *((_DWORD *)this + 26);
-    *((_DWORD *)this + 16) &= ~0x20u;
+    v3[1] = 187;
+    v3[2] = *((_DWORD *)this + 6);
+    v3[3] = *((_DWORD *)this + 23);
+    v3[4] = *((_DWORD *)this + 24);
+    *((_DWORD *)this + 14) &= ~0x20u;
     return 1;
   }
   return 0;

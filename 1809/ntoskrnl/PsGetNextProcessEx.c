@@ -6,7 +6,7 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
  */
 

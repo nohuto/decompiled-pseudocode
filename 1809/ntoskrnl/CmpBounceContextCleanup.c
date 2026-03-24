@@ -5,8 +5,8 @@
  *     NtEnumerateValueKey @ 0x1405D3890 (NtEnumerateValueKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall CmpBounceContextCleanup(__int64 a1)

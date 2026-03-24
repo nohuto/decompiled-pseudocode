@@ -5,8 +5,8 @@
  *     PspClearProcessThreadCidRefs @ 0x1405F6DAC (PspClearProcessThreadCidRefs.c)
  * Callees:
  *     ObpTraceObjectDereferenceIfActive @ 0x14001E38C (ObpTraceObjectDereferenceIfActive.c)
- *     ObpDeferObjectDeletion @ 0x140125DB0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObDereferenceObjectEx(ULONG_PTR BugCheckParameter2, unsigned int a2)

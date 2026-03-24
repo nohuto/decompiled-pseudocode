@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vClosePrintKView@@YAXXZ @ 0x1C02A71D0
+ * XREFs of ?vClosePrintKView@@YAXXZ @ 0x1C02A8A3C
  * Callers:
- *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02A612C (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
+ *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02A7F38 (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 void vClosePrintKView(void)

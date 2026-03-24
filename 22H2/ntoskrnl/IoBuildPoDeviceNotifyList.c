@@ -1,115 +1,104 @@
 /*
- * XREFs of IoBuildPoDeviceNotifyList @ 0x140A9E1B8
+ * XREFs of IoBuildPoDeviceNotifyList @ 0x1409972A0
  * Callers:
- *     PopBuildDeviceNotifyList @ 0x140AA71FC (PopBuildDeviceNotifyList.c)
+ *     PopBuildDeviceNotifyList @ 0x1409971A8 (PopBuildDeviceNotifyList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x140259FE0 (IoGetAttachedDeviceReference.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x140365D8C (IoGetLowerDeviceObjectWithTag.c)
- *     PnpLockDeviceActionQueue @ 0x1403C383C (PnpLockDeviceActionQueue.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140957B44 (PnpPowerStateTransitionWatchdogPopRecord.c)
- *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140957B5C (PnpPowerStateTransitionWatchdogPushRecord.c)
- *     IopCaptureObjectName @ 0x140A9E880 (IopCaptureObjectName.c)
- *     IopCheckDeviceFlags @ 0x140A9E930 (IopCheckDeviceFlags.c)
- *     IopFreePoDeviceNotifyListHead @ 0x140A9E9B4 (IopFreePoDeviceNotifyListHead.c)
- *     IopIsNotifyInBroadcast @ 0x140A9EA34 (IopIsNotifyInBroadcast.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     IoGetAttachedDeviceReference @ 0x14022C380 (IoGetAttachedDeviceReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PnpLockDeviceActionQueue @ 0x140320450 (PnpLockDeviceActionQueue.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14032634C (IoGetLowerDeviceObjectWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopIsNotifyInBroadcast @ 0x14099789C (IopIsNotifyInBroadcast.c)
+ *     IopCheckDeviceFlags @ 0x1409978B4 (IopCheckDeviceFlags.c)
+ *     IopCaptureObjectName @ 0x140997938 (IopCaptureObjectName.c)
+ *     IopFreePoDeviceNotifyListHead @ 0x140997A58 (IopFreePoDeviceNotifyListHead.c)
  */
 
 __int64 *__fastcall IoBuildPoDeviceNotifyList(char *a1, int a2)
 {
-  int v4; // ebx
+  _QWORD *v3; // rdi
   _QWORD *v5; // rcx
   __int64 v6; // rdx
   _QWORD *v7; // rax
-  char *v8; // rbx
-  char *i; // rax
-  __int64 ***v10; // rdi
+  _QWORD *v8; // rbx
+  _QWORD *i; // rax
+  _QWORD *v10; // rdi
   PDEVICE_OBJECT AttachedDeviceReference; // rax
   __int64 v12; // rax
   __int64 v13; // rcx
   __int64 v14; // rax
   void *v15; // rcx
-  char *v16; // rcx
-  _QWORD *v17; // rax
-  char *j; // rax
-  __int64 *v19; // rax
-  __int64 *v20; // rcx
-  __int64 *v21; // rdx
-  __int64 *v22; // rax
-  __int64 *k; // rcx
-  __int64 *v24; // rcx
-  _QWORD *v25; // rdx
-  char v26; // r10
+  _QWORD **v16; // rcx
+  _QWORD *j; // rax
+  _QWORD *v18; // rax
+  _QWORD *v19; // rcx
+  _QWORD *v20; // rax
+  __int64 v21; // rax
+  _QWORD *v22; // rdi
+  _QWORD *k; // rcx
+  _QWORD *v24; // rdx
+  char v25; // r10
   _QWORD *m; // rax
-  _QWORD *v28; // rcx
-  _QWORD *v29; // rax
-  _QWORD *v30; // rcx
-  _QWORD *v31; // rax
-  _QWORD *v32; // rcx
+  _QWORD *v27; // rcx
+  _QWORD *v28; // rax
+  _QWORD *v29; // rcx
+  _QWORD *v30; // rax
+  _QWORD *v31; // rcx
   _QWORD *n; // rax
-  _QWORD *v34; // rdi
+  _QWORD *v33; // rdi
   _QWORD *ii; // rax
-  __int64 v36; // r9
-  char v37; // dl
-  _QWORD *v38; // rax
+  _QWORD *v35; // rax
   _QWORD *jj; // rax
-  char v40; // al
-  _DWORD *v41; // rsi
+  _QWORD *v37; // rax
+  _QWORD *v38; // r9
+  char v39; // al
+  _DWORD *v40; // rsi
   _DWORD *LowerDeviceObjectWithTag; // rbx
-  _QWORD *v43; // rax
-  _QWORD *v44; // r9
-  _QWORD *v45; // rax
-  char v46; // r10
-  _BYTE *v47; // rcx
-  unsigned __int8 v48; // dl
+  _QWORD *v42; // rax
+  char v43; // r10
+  _QWORD *v44; // rax
+  _QWORD **v45; // rdx
+  _BYTE *v46; // rcx
+  unsigned __int8 v47; // al
   _QWORD *kk; // rax
-  _QWORD *v50; // rax
   _QWORD *mm; // rcx
   _QWORD *nn; // rcx
+  _QWORD *v51; // rcx
+  _QWORD *i1; // rax
   __int64 v53; // r8
   unsigned __int8 v54; // r9
-  _QWORD *v55; // rcx
-  _QWORD *i1; // rax
-  __int64 v57; // r9
-  __int64 v58; // r10
-  __int64 *v59; // rax
-  __int64 v60; // rdi
-  char *v61; // rdx
-  __int64 v62; // rbx
+  _QWORD *v55; // r9
+  __int64 v56; // r10
+  __int64 *v57; // r11
   __int64 i2; // r11
-  __int64 *v64; // r11
-  __int64 v65; // rbx
+  __int64 v59; // rbx
   __int64 i3; // r11
-  __int64 *v67; // r11
-  char *v68; // rax
-  char **v69; // rcx
-  _QWORD *i4; // rax
+  char *v61; // rax
+  char **v62; // rcx
+  _QWORD *v63; // rax
+  char *v64; // rdx
+  __int64 v65; // rbx
+  __int64 *v66; // r11
   __int64 *result; // rax
-  __int64 *v72; // [rsp+20h] [rbp-20h] BYREF
-  __int64 **v73; // [rsp+28h] [rbp-18h]
-  __int64 v74; // [rsp+30h] [rbp-10h] BYREF
-  __int64 *v75; // [rsp+38h] [rbp-8h]
+  __int64 v68; // r9
+  char v69; // dl
+  __int64 *v70; // rax
+  _QWORD *v71; // [rsp+20h] [rbp-20h] BYREF
+  _QWORD **v72; // [rsp+28h] [rbp-18h]
+  __int64 v73; // [rsp+30h] [rbp-10h] BYREF
+  __int64 *v74; // [rsp+38h] [rbp-8h]
 
-  v73 = &v72;
-  v72 = (__int64 *)&v72;
-  v75 = &v74;
-  v74 = (__int64)&v74;
+  v72 = &v71;
+  v74 = &v73;
+  v73 = (__int64)&v73;
+  v3 = &v71;
+  v71 = &v71;
   if ( (a2 & 1) == 0 )
   {
-    if ( (a2 & 4) != 0 )
-    {
-      v4 = PnpPowerStateTransitionWatchdogPushRecord();
-      PnpLockDeviceActionQueue();
-      if ( v4 >= 0 )
-        PnpPowerStateTransitionWatchdogPopRecord();
-    }
-    else
-    {
-      PnpLockDeviceActionQueue();
-    }
+    PnpLockDeviceActionQueue();
+    v3 = v71;
   }
   memset(a1, 0, 0x180uLL);
   v5 = a1 + 48;
@@ -130,356 +119,359 @@ __int64 *__fastcall IoBuildPoDeviceNotifyList(char *a1, int a2)
     --v6;
   }
   while ( v6 );
-  v8 = (char *)IopRootDeviceNode;
-  for ( i = (char *)*((_QWORD *)IopRootDeviceNode + 1); i; i = (char *)*((_QWORD *)i + 1) )
+  v8 = IopRootDeviceNode;
+  for ( i = (_QWORD *)*((_QWORD *)IopRootDeviceNode + 1); i; i = (_QWORD *)i[1] )
     v8 = i;
-  while ( v8 != IopRootDeviceNode )
+  if ( v8 == IopRootDeviceNode )
+    goto LABEL_27;
+  do
   {
-    v10 = (__int64 ***)(v8 + 160);
+    v10 = v8 + 20;
     *((_DWORD *)v8 + 62) = 0;
     *((_DWORD *)v8 + 63) = 0;
     *((_DWORD *)v8 + 64) = 0;
     *((_DWORD *)v8 + 65) = 0;
-    v8[216] = 0;
-    *((_QWORD *)v8 + 28) = *((_QWORD *)v8 + 4);
-    AttachedDeviceReference = IoGetAttachedDeviceReference(*((PDEVICE_OBJECT *)v8 + 4));
-    *((_QWORD *)v8 + 26) = AttachedDeviceReference;
+    *((_BYTE *)v8 + 216) = 0;
+    v8[28] = v8[4];
+    AttachedDeviceReference = IoGetAttachedDeviceReference((PDEVICE_OBJECT)v8[4]);
+    v8[26] = AttachedDeviceReference;
     v12 = IopCaptureObjectName(AttachedDeviceReference->DriverObject);
-    v13 = *((_QWORD *)v8 + 26);
-    *((_QWORD *)v8 + 30) = v12;
+    v13 = v8[26];
+    v8[30] = v12;
     v14 = IopCaptureObjectName(v13);
-    v15 = (void *)*((_QWORD *)v8 + 28);
-    *((_QWORD *)v8 + 29) = v14;
+    v15 = (void *)v8[28];
+    v8[29] = v14;
     ObfReferenceObject(v15);
-    v8[216] = 0;
-    if ( (unsigned __int8)IopCheckDeviceFlags(v8 + 160, 0x2000LL) )
-      v8[216] |= 2u;
-    v16 = (char *)*((_QWORD *)v8 + 2);
-    if ( v16 == IopRootDeviceNode && *((_DWORD *)v8 + 112) && (*((_DWORD *)v8 + 99) & 4) == 0 )
+    *((_BYTE *)v8 + 216) = 0;
+    if ( (unsigned __int8)IopCheckDeviceFlags(v8 + 20, 0x2000LL) )
+      *((_BYTE *)v8 + 216) |= 2u;
+    v16 = (_QWORD **)(v8 + 2);
+    if ( (PVOID)v8[2] == IopRootDeviceNode && *((_DWORD *)v8 + 112) && (*((_DWORD *)v8 + 99) & 4) == 0 )
     {
-      v17 = v73;
-      if ( *v73 != (__int64 *)&v72 )
-LABEL_149:
+      v18 = v72;
+      if ( *v72 != &v71 )
+LABEL_136:
         __fastfail(3u);
-      *((_QWORD *)v8 + 21) = v73;
-      *v10 = &v72;
-      *v17 = v10;
-      v73 = (__int64 **)(v8 + 160);
-      v16 = (char *)*((_QWORD *)v8 + 2);
+      v8[21] = v72;
+      *v10 = &v71;
+      *v18 = v10;
+      v72 = (_QWORD **)(v8 + 20);
     }
-    v8 = *(char **)v8;
+    v8 = (_QWORD *)*v8;
     if ( v8 )
     {
-      for ( j = (char *)*((_QWORD *)v8 + 1); j; j = (char *)*((_QWORD *)j + 1) )
+      for ( j = (_QWORD *)v8[1]; j; j = (_QWORD *)j[1] )
         v8 = j;
     }
     else
     {
-      v8 = v16;
+      v8 = *v16;
     }
   }
+  while ( v8 != IopRootDeviceNode );
   while ( 1 )
   {
-    v19 = v72;
-    if ( v72 == (__int64 *)&v72 )
+    v3 = v71;
+LABEL_27:
+    if ( v3 == &v71 )
       break;
-    if ( (__int64 **)v72[1] != &v72 )
-      goto LABEL_149;
-    v20 = (__int64 *)*v72;
-    if ( *(__int64 **)(*v72 + 8) != v72 )
-      goto LABEL_149;
-    v72 = (__int64 *)*v72;
-    v20[1] = (__int64)&v72;
-    v21 = v19 - 20;
-    *((_BYTE *)v19 + 56) |= 1u;
-    v22 = v21;
-    for ( k = (__int64 *)v21[1]; k; k = (__int64 *)k[1] )
-      v22 = k;
-    while ( v22 != v21 )
+    if ( (_QWORD **)v3[1] != &v71 )
+      goto LABEL_136;
+    v21 = *v3;
+    if ( *(_QWORD **)(*v3 + 8LL) != v3 )
+      goto LABEL_136;
+    v71 = (_QWORD *)*v3;
+    *(_QWORD *)(v21 + 8) = &v71;
+    *((_BYTE *)v3 + 56) |= 1u;
+    v22 = v3 - 20;
+    v20 = v22;
+    for ( k = (_QWORD *)v22[1]; k; k = (_QWORD *)k[1] )
+      v20 = k;
+    while ( v20 != v22 )
     {
-      *((_BYTE *)v22 + 216) |= 1u;
-      v24 = (__int64 *)*v22;
-      if ( *v22 )
+      *((_BYTE *)v20 + 216) |= 1u;
+      v19 = (_QWORD *)*v20;
+      if ( *v20 )
       {
         do
         {
-          v22 = v24;
-          v24 = (__int64 *)v24[1];
+          v20 = v19;
+          v19 = (_QWORD *)v19[1];
         }
-        while ( v24 );
+        while ( v19 );
       }
       else
       {
-        v22 = (__int64 *)v22[2];
+        v20 = (_QWORD *)v20[2];
       }
     }
   }
   do
   {
-    v25 = IopRootDeviceNode;
-    v26 = 0;
+    v24 = IopRootDeviceNode;
+    v25 = 0;
     for ( m = (_QWORD *)*((_QWORD *)IopRootDeviceNode + 1); m; m = (_QWORD *)m[1] )
-      v25 = m;
+      v24 = m;
     while ( 1 )
     {
-      v32 = IopRootDeviceNode;
-      if ( v25 == IopRootDeviceNode )
+      v27 = IopRootDeviceNode;
+      if ( v24 == IopRootDeviceNode )
         break;
-      if ( (v25[27] & 2) != 0 )
+      if ( (v24[27] & 2) != 0 )
       {
-        v28 = (_QWORD *)v25[1];
-        v29 = v25;
-        while ( v28 )
+        v29 = (_QWORD *)v24[1];
+        v30 = v24;
+        while ( v29 )
         {
-          v29 = v28;
-          v28 = (_QWORD *)v28[1];
+          v30 = v29;
+          v29 = (_QWORD *)v29[1];
         }
-        while ( v29 != v25 )
+        while ( v30 != v24 )
         {
-          *((_BYTE *)v29 + 216) |= 2u;
-          v30 = (_QWORD *)*v29;
-          if ( *v29 )
+          *((_BYTE *)v30 + 216) |= 2u;
+          v31 = (_QWORD *)*v30;
+          if ( *v30 )
           {
             do
             {
-              v29 = v30;
-              v30 = (_QWORD *)v30[1];
+              v30 = v31;
+              v31 = (_QWORD *)v31[1];
             }
-            while ( v30 );
+            while ( v31 );
           }
           else
           {
-            v29 = (_QWORD *)v29[2];
+            v30 = (_QWORD *)v30[2];
           }
         }
       }
-      v31 = (_QWORD *)*v25;
-      if ( *v25 )
+      v28 = (_QWORD *)*v24;
+      if ( *v24 )
       {
         do
         {
-          v25 = v31;
-          v31 = (_QWORD *)v31[1];
+          v24 = v28;
+          v28 = (_QWORD *)v28[1];
         }
-        while ( v31 );
+        while ( v28 );
       }
       else
       {
-        v25 = (_QWORD *)v25[2];
+        v24 = (_QWORD *)v24[2];
       }
     }
     for ( n = (_QWORD *)*((_QWORD *)IopRootDeviceNode + 1); n; n = (_QWORD *)n[1] )
-      v32 = n;
-    v34 = IopRootDeviceNode;
-    if ( v32 == IopRootDeviceNode )
+      v27 = n;
+    v33 = IopRootDeviceNode;
+    if ( v27 == IopRootDeviceNode )
       break;
     do
     {
-      if ( (v32[27] & 2) != 0 )
+      if ( (v27[27] & 2) != 0 )
       {
-        for ( ii = (_QWORD *)v32[22]; ii != v32 + 22; ii = (_QWORD *)*ii )
+        for ( ii = (_QWORD *)v27[22]; ii != v27 + 22; ii = (_QWORD *)*ii )
         {
-          v36 = *(ii - 1);
-          v37 = *(_BYTE *)(v36 + 56);
-          if ( (v37 & 2) == 0 )
+          v68 = *(ii - 1);
+          v69 = *(_BYTE *)(v68 + 56);
+          if ( (v69 & 2) == 0 )
           {
-            v26 = 1;
-            *(_BYTE *)(v36 + 56) = v37 | 2;
+            v25 = 1;
+            *(_BYTE *)(v68 + 56) = v69 | 2;
           }
         }
       }
-      v38 = (_QWORD *)*v32;
-      if ( *v32 )
+      v35 = (_QWORD *)*v27;
+      if ( *v27 )
       {
         do
         {
-          v32 = v38;
-          v38 = (_QWORD *)v38[1];
+          v27 = v35;
+          v35 = (_QWORD *)v35[1];
         }
-        while ( v38 );
+        while ( v35 );
       }
       else
       {
-        v32 = (_QWORD *)v32[2];
+        v27 = (_QWORD *)v27[2];
       }
-      v34 = IopRootDeviceNode;
+      v33 = IopRootDeviceNode;
     }
-    while ( v32 != IopRootDeviceNode );
+    while ( v27 != IopRootDeviceNode );
   }
-  while ( v26 );
-  for ( jj = (_QWORD *)v34[1]; jj; jj = (_QWORD *)jj[1] )
-    v34 = jj;
+  while ( v25 );
+  for ( jj = (_QWORD *)v33[1]; jj; jj = (_QWORD *)jj[1] )
+    v33 = jj;
   while ( 1 )
   {
-    v44 = IopRootDeviceNode;
-    if ( v34 == IopRootDeviceNode )
+    v38 = IopRootDeviceNode;
+    if ( v33 == IopRootDeviceNode )
       break;
-    v40 = *((_BYTE *)v34 + 216);
-    if ( (v40 & 2) != 0 )
+    v39 = *((_BYTE *)v33 + 216);
+    if ( (v39 & 2) != 0 )
     {
-      v41 = (_DWORD *)v34[26];
-      *((_BYTE *)v34 + 216) = v40 + 1;
-      ObfReferenceObjectWithTag(v41, 0x70506F50u);
-      if ( v41 )
+      v40 = (_DWORD *)v33[26];
+      *((_BYTE *)v33 + 216) = v39 + 1;
+      ObfReferenceObjectWithTag(v40, 0x70506F50u);
+      if ( v40 )
       {
-        while ( v41[18] != 7 )
+        while ( v40[18] != 7 )
         {
-          LowerDeviceObjectWithTag = IoGetLowerDeviceObjectWithTag((__int64)v41, 0x70506F50u);
-          ObfDereferenceObjectWithTag(v41, 0x70506F50u);
-          v41 = LowerDeviceObjectWithTag;
+          LowerDeviceObjectWithTag = IoGetLowerDeviceObjectWithTag((__int64)v40, 0x70506F50u);
+          ObfDereferenceObjectWithTag(v40, 0x70506F50u);
+          v40 = LowerDeviceObjectWithTag;
           if ( !LowerDeviceObjectWithTag )
-            goto LABEL_85;
+            goto LABEL_70;
         }
-        ObfDereferenceObjectWithTag(v41, 0x70506F50u);
-        if ( (unsigned __int8)IopCheckDeviceFlags(v34 + 20, 256LL) )
-          *((_BYTE *)v34 + 216) = 2;
+        ObfDereferenceObjectWithTag(v40, 0x70506F50u);
+        if ( (unsigned __int8)IopCheckDeviceFlags(v33 + 20, 256LL) )
+          *((_BYTE *)v33 + 216) = 2;
       }
     }
-LABEL_85:
-    v43 = (_QWORD *)*v34;
-    if ( *v34 )
+LABEL_70:
+    v37 = (_QWORD *)*v33;
+    if ( *v33 )
     {
       do
       {
-        v34 = v43;
-        v43 = (_QWORD *)v43[1];
+        v33 = v37;
+        v37 = (_QWORD *)v37[1];
       }
-      while ( v43 );
+      while ( v37 );
     }
     else
     {
-      v34 = (_QWORD *)v34[2];
+      v33 = (_QWORD *)v33[2];
     }
   }
   do
   {
-    v45 = (_QWORD *)v44[1];
-    v46 = 0;
-    while ( v45 )
+    v42 = (_QWORD *)v38[1];
+    v43 = 0;
+    while ( v42 )
     {
-      v44 = v45;
-      v45 = (_QWORD *)v45[1];
+      v38 = v42;
+      v42 = (_QWORD *)v42[1];
     }
     while ( 1 )
     {
-      v50 = IopRootDeviceNode;
-      if ( v44 == IopRootDeviceNode )
+      v44 = IopRootDeviceNode;
+      if ( v38 == IopRootDeviceNode )
         break;
-      v47 = (_BYTE *)v44[2];
-      if ( v47 != IopRootDeviceNode )
+      v45 = (_QWORD **)(v38 + 2);
+      v46 = (_BYTE *)v38[2];
+      if ( v46 != IopRootDeviceNode )
       {
-        v48 = *((_BYTE *)v44 + 216);
-        if ( v47[216] > v48 )
-        {
-          v47[216] = v48;
-          v47 = (_BYTE *)v44[2];
-        }
+        v47 = *((_BYTE *)v38 + 216);
+        if ( v46[216] > v47 )
+          v46[216] = v47;
       }
-      v44 = (_QWORD *)*v44;
-      if ( v44 )
+      v38 = (_QWORD *)*v38;
+      if ( v38 )
       {
-        for ( kk = (_QWORD *)v44[1]; kk; kk = (_QWORD *)kk[1] )
-          v44 = kk;
+        for ( kk = (_QWORD *)v38[1]; kk; kk = (_QWORD *)kk[1] )
+          v38 = kk;
       }
       else
       {
-        v44 = v47;
+        v38 = *v45;
       }
     }
     for ( mm = (_QWORD *)*((_QWORD *)IopRootDeviceNode + 1); mm; mm = (_QWORD *)mm[1] )
-      v50 = mm;
-    v44 = IopRootDeviceNode;
-    if ( v50 == IopRootDeviceNode )
+      v44 = mm;
+    v38 = IopRootDeviceNode;
+    if ( v44 == IopRootDeviceNode )
       break;
     do
     {
-      for ( nn = (_QWORD *)v50[24]; nn != v50 + 24; nn = (_QWORD *)*nn )
+      for ( nn = (_QWORD *)v44[24]; nn != v44 + 24; nn = (_QWORD *)*nn )
       {
         v53 = nn[5];
-        v54 = *((_BYTE *)v50 + 216);
+        v54 = *((_BYTE *)v44 + 216);
         if ( *(_BYTE *)(v53 + 56) > v54 )
         {
-          v46 = 1;
+          v43 = 1;
           *(_BYTE *)(v53 + 56) = v54;
         }
       }
-      v55 = (_QWORD *)*v50;
-      if ( *v50 )
+      v51 = (_QWORD *)*v44;
+      if ( *v44 )
       {
         do
         {
-          v50 = v55;
-          v55 = (_QWORD *)v55[1];
+          v44 = v51;
+          v51 = (_QWORD *)v51[1];
         }
-        while ( v55 );
+        while ( v51 );
       }
       else
       {
-        v50 = (_QWORD *)v50[2];
+        v44 = (_QWORD *)v44[2];
       }
-      v44 = IopRootDeviceNode;
+      v38 = IopRootDeviceNode;
     }
-    while ( v50 != IopRootDeviceNode );
+    while ( v44 != IopRootDeviceNode );
   }
-  while ( v46 );
-  for ( i1 = (_QWORD *)v44[1]; i1; i1 = (_QWORD *)i1[1] )
-    v44 = i1;
-  while ( v44 != IopRootDeviceNode )
+  while ( v43 );
+  for ( i1 = (_QWORD *)v38[1]; i1; i1 = (_QWORD *)i1[1] )
+    v38 = i1;
+  while ( v38 != IopRootDeviceNode )
   {
-    if ( (unsigned __int8)IopIsNotifyInBroadcast(*((unsigned int *)a1 + 94), v44 + 20) )
+    if ( (unsigned __int8)IopIsNotifyInBroadcast(*((unsigned int *)a1 + 94), v38 + 20) )
     {
-      v60 = v57 + 16;
-      ++*(_DWORD *)&a1[72 * *(unsigned __int8 *)(v58 + 56) + 16];
-      v61 = *(char **)(v57 + 16);
-      if ( v61 != IopRootDeviceNode && (unsigned __int8)IopIsNotifyInBroadcast(*((unsigned int *)a1 + 94), v61 + 160) )
+      ++*(_DWORD *)&a1[72 * *(unsigned __int8 *)(v56 + 56) + 16];
+      v64 = (char *)v55[2];
+      if ( v64 != IopRootDeviceNode && (unsigned __int8)IopIsNotifyInBroadcast(*((unsigned int *)a1 + 94), v64 + 160) )
       {
-        ++*(_DWORD *)(v58 + 96);
-        ++*(_DWORD *)(*(_QWORD *)v60 + 248LL);
+        ++*(_DWORD *)(v56 + 96);
+        ++*(_DWORD *)(v55[2] + 248LL);
       }
-      v62 = v58 + 32;
-      for ( i2 = *(_QWORD *)(v58 + 32); i2 != v62; i2 = *v64 )
+      v65 = v56 + 32;
+      for ( i2 = *(_QWORD *)(v56 + 32); i2 != v65; i2 = *v57 )
       {
         if ( (unsigned __int8)IopIsNotifyInBroadcast(*((unsigned int *)a1 + 94), *(_QWORD *)(i2 + 40)) )
-          ++*(_DWORD *)(v58 + 96);
+          ++*(_DWORD *)(v56 + 96);
       }
-      v65 = v58 + 16;
-      for ( i3 = *(_QWORD *)(v58 + 16); i3 != v65; i3 = *v67 )
+      v59 = v56 + 16;
+      for ( i3 = *(_QWORD *)(v56 + 16); i3 != v59; i3 = *v66 )
       {
         if ( (unsigned __int8)IopIsNotifyInBroadcast(*((unsigned int *)a1 + 94), *(_QWORD *)(i3 - 8)) )
-          ++*(_DWORD *)(v58 + 88);
+          ++*(_DWORD *)(v56 + 88);
       }
-      v68 = &a1[64 * *(unsigned __int8 *)(v58 + 56) + 24 + 8 * *(unsigned __int8 *)(v58 + 56)];
-      v69 = (char **)*((_QWORD *)v68 + 1);
-      if ( *v69 != v68 )
-        goto LABEL_149;
-      *(_QWORD *)v58 = v68;
-      *(_QWORD *)(v58 + 8) = v69;
-      *v69 = (char *)v58;
-      *((_QWORD *)v68 + 1) = v58;
+      v61 = &a1[64 * *(unsigned __int8 *)(v56 + 56) + 24 + 8 * *(unsigned __int8 *)(v56 + 56)];
+      v62 = (char **)*((_QWORD *)v61 + 1);
+      if ( *v62 != v61 )
+        goto LABEL_136;
+      *(_QWORD *)v56 = v61;
+      *(_QWORD *)(v56 + 8) = v62;
+      *v62 = (char *)v56;
+      *((_QWORD *)v61 + 1) = v56;
     }
     else
     {
-      v59 = v75;
-      if ( (__int64 *)*v75 != &v74 )
-        goto LABEL_149;
-      *(_QWORD *)(v58 + 8) = v75;
-      *(_QWORD *)v58 = &v74;
-      v60 = v57 + 16;
-      *v59 = v58;
-      v75 = (__int64 *)v58;
+      v70 = v74;
+      if ( (__int64 *)*v74 != &v73 )
+        goto LABEL_136;
+      *(_QWORD *)(v56 + 8) = v74;
+      *(_QWORD *)v56 = &v73;
+      *v70 = v56;
+      v74 = (__int64 *)v56;
     }
-    v44 = *(_QWORD **)v57;
-    if ( v44 )
+    v63 = (_QWORD *)*v55;
+    if ( *v55 )
     {
-      for ( i4 = (_QWORD *)v44[1]; i4; i4 = (_QWORD *)i4[1] )
-        v44 = i4;
+      do
+      {
+        v38 = v63;
+        v63 = (_QWORD *)v63[1];
+      }
+      while ( v63 );
     }
     else
     {
-      v44 = *(_QWORD **)v60;
+      v38 = (_QWORD *)v55[2];
     }
   }
-  IopFreePoDeviceNotifyListHead(&v74);
+  IopFreePoDeviceNotifyListHead(&v73);
   result = &IopWarmEjectPdo;
   *((_QWORD *)a1 + 1) = &IopWarmEjectPdo;
   *a1 = 1;

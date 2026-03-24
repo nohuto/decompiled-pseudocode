@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprUnlockPagesForReplace @ 0x140967084
+ * XREFs of PnprUnlockPagesForReplace @ 0x1408AE904
  * Callers:
- *     PnprCompleteWake @ 0x140562C34 (PnprCompleteWake.c)
- *     PnpReplacePartitionUnit @ 0x140964BA0 (PnpReplacePartitionUnit.c)
+ *     PnprCompleteWake @ 0x14050F068 (PnprCompleteWake.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC2C0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x14025A320 (MmUnlockPagableImageSection.c)
- *     ExNotifyCallback @ 0x14033BD40 (ExNotifyCallback.c)
+ *     MmUnlockPagableImageSection @ 0x14029B0A0 (MmUnlockPagableImageSection.c)
+ *     ExNotifyCallback @ 0x140307D90 (ExNotifyCallback.c)
  */
 
 void PnprUnlockPagesForReplace()

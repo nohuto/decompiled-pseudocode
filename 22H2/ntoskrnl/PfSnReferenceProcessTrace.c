@@ -1,40 +1,40 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x1402E25B4
+ * XREFs of PfSnReferenceProcessTrace @ 0x14029E950
  * Callers:
- *     PfSnLogFileDataAccess @ 0x1402E245C (PfSnLogFileDataAccess.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
- *     PfSnLogHelper @ 0x140773DD8 (PfSnLogHelper.c)
- *     PfSnAsyncContextInitialize @ 0x1407DB758 (PfSnAsyncContextInitialize.c)
- *     PfSnEndProcessTrace @ 0x1407E58A0 (PfSnEndProcessTrace.c)
+ *     MiCompleteRestrictedImageFault @ 0x14029D730 (MiCompleteRestrictedImageFault.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14029F220 (MiMakeSystemCacheRangeValid.c)
+ *     PfSnLogPageFault @ 0x1402F38B4 (PfSnLogPageFault.c)
+ *     PfSnEndProcessTrace @ 0x14062E760 (PfSnEndProcessTrace.c)
+ *     PfSnLogHelper @ 0x14062F03C (PfSnLogHelper.c)
+ *     PfSnAsyncContextInitialize @ 0x1406964CC (PfSnAsyncContextInitialize.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExAcquireRundownProtectionEx @ 0x1402F5CE0 (ExAcquireRundownProtectionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExAcquireRundownProtectionEx @ 0x14026D9B0 (ExAcquireRundownProtectionEx.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PfSnReferenceProcessTrace(__int64 a1)
+struct _EX_RUNDOWN_REF *__fastcall PfSnReferenceProcessTrace(__int64 a1)
 {
-  signed __int64 v2; // rdx
+  signed __int64 v2; // r8
   struct _EX_RUNDOWN_REF *v3; // rbx
-  unsigned int v5; // edx
-  signed __int64 *v6; // rsi
-  signed __int64 v7; // rax
-  signed __int64 v8; // rtt
-  signed __int64 v9; // rax
-  BOOLEAN v10; // bl
-  unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // rdi
+  unsigned int v5; // r8d
+  signed __int64 v6; // rax
+  signed __int64 v7; // rtt
+  signed __int64 v8; // rax
+  BOOLEAN v9; // bp
+  unsigned __int64 v10; // rsi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  signed __int64 v18; // rdx
-  signed __int64 v19; // rax
-  unsigned __int64 v20; // rdx
+  int v14; // eax
+  bool v15; // zf
+  signed __int64 Count; // rdx
+  signed __int64 v17; // rax
+  unsigned __int64 v18; // rdx
 
   _m_prefetchw((const void *)(a1 + 1536));
   v2 = *(_QWORD *)(a1 + 1536);
@@ -42,86 +42,89 @@ __int64 __fastcall PfSnReferenceProcessTrace(__int64 a1)
   {
     do
     {
-      v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1536), v2 - 1, v2);
-      if ( v2 == v9 )
+      v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1536), v2 - 1, v2);
+      if ( v2 == v8 )
         break;
-      v2 = v9;
+      v2 = v8;
     }
-    while ( (v9 & 0xF) != 0 );
+    while ( (v8 & 0xF) != 0 );
   }
   v3 = (struct _EX_RUNDOWN_REF *)(v2 & 0xFFFFFFFFFFFFFFF0uLL);
-  if ( (v2 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+  if ( (v2 & 0xFFFFFFFFFFFFFFF0uLL) == 0 )
+    return v3;
+  v5 = v2 & 0xF;
+  if ( v5 > 1 )
+    return v3;
+  if ( v5 )
   {
-    v5 = v2 & 0xF;
-    if ( v5 <= 1 )
+    if ( ExAcquireRundownProtectionEx(v3 + 45, 0xFu) )
     {
-      if ( v5 )
+      _m_prefetchw((const void *)(a1 + 1536));
+      v6 = *(_QWORD *)(a1 + 1536);
+      while ( (v6 & 0xF) == 0 )
       {
-        v6 = (signed __int64 *)&v3[45];
-        if ( ExAcquireRundownProtectionEx(v3 + 45, 0xFu) )
+        if ( v3 != (struct _EX_RUNDOWN_REF *)(v6 & 0xFFFFFFFFFFFFFFF0uLL) )
+          break;
+        v7 = v6;
+        v6 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1536), v6 + 15, v6);
+        if ( v7 == v6 )
+          return v3;
+      }
+      _m_prefetchw(&v3[45]);
+      Count = v3[45].Count;
+      if ( (Count & 1) != 0 )
+      {
+LABEL_30:
+        v18 = Count & 0xFFFFFFFFFFFFFFFEuLL;
+        if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v18, 0xFFFFFFFFFFFFFFF1uLL) == 15
+          && !_interlockedbittestandreset((volatile signed __int32 *)(v18 + 32), 0) )
         {
-          _m_prefetchw((const void *)(a1 + 1536));
-          v7 = *(_QWORD *)(a1 + 1536);
-          while ( (v7 & 0xF) == 0 && v3 == (struct _EX_RUNDOWN_REF *)(v7 & 0xFFFFFFFFFFFFFFF0uLL) )
-          {
-            v8 = v7;
-            v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1536), v7 + 15, v7);
-            if ( v8 == v7 )
-              return (__int64)v3;
-          }
-          _m_prefetchw(v6);
-          v18 = *v6;
-          if ( (*v6 & 1) != 0 )
-          {
-LABEL_28:
-            v20 = v18 & 0xFFFFFFFFFFFFFFFEuLL;
-            if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v20, 0xFFFFFFFFFFFFFFF1uLL) == 15
-              && !_interlockedbittestandreset((volatile signed __int32 *)(v20 + 32), 0) )
-            {
-              KeSetEvent((PRKEVENT)(v20 + 8), 0, 0);
-            }
-          }
-          else
-          {
-            while ( 1 )
-            {
-              v19 = _InterlockedCompareExchange64(v6, v18 - 30, v18);
-              v17 = v18 == v19;
-              v18 = v19;
-              if ( v17 )
-                break;
-              if ( (v19 & 1) != 0 )
-                goto LABEL_28;
-            }
-          }
+          KeSetEvent((PRKEVENT)(v18 + 8), 0, 0);
         }
       }
       else
       {
-        v10 = 1;
-        v11 = KeAcquireSpinLockRaiseToDpc(&qword_140C6A710);
-        v12 = *(_QWORD *)(a1 + 1536) & 0xFFFFFFFFFFFFFFF0uLL;
-        if ( v12 )
-          v10 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 360));
-        KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A710);
-        if ( KiIrqlFlags )
+        while ( 1 )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-            v17 = (v16 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v16;
-            if ( v17 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-          }
+          v17 = _InterlockedCompareExchange64((volatile signed __int64 *)&v3[45], Count - 30, Count);
+          v15 = Count == v17;
+          Count = v17;
+          if ( v15 )
+            break;
+          if ( (v17 & 1) != 0 )
+            goto LABEL_30;
         }
-        __writecr8(v11);
-        return v12 & -(__int64)(v10 != 0);
       }
     }
   }
-  return (__int64)v3;
+  else
+  {
+    v9 = 1;
+    v10 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
+    v3 = (struct _EX_RUNDOWN_REF *)(*(_QWORD *)(a1 + 1536) & 0xFFFFFFFFFFFFFFF0uLL);
+    if ( v3 )
+      v9 = ExAcquireRundownProtection(v3 + 45);
+    KxReleaseSpinLock(&qword_140C50450);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v10);
+    if ( !v9 )
+      return 0LL;
+  }
+  return v3;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x18026616C
+ * XREFs of ?GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204AE4
  * Callers:
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1802337D8 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA380 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ @ 0x180239D60 (-GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ.c)
- *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x180267600 (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ @ 0x1801D1194 (-GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ.c)
+ *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18020607C (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
  */
 
 __int64 __fastcall CScrollPositionKeyframeAnimation::GetLastKeyframeValueForPosition(
@@ -19,36 +19,44 @@ __int64 __fastcall CScrollPositionKeyframeAnimation::GetLastKeyframeValueForPosi
   KeyframeValue *LastKeyframeValue; // rbx
   int Value; // eax
   const char *v5; // r9
-  int v6; // eax
-  __int64 v8; // [rsp+20h] [rbp-58h] BYREF
-  int v9; // [rsp+28h] [rbp-50h]
-  __int64 v10; // [rsp+60h] [rbp-18h] BYREF
-  int v11; // [rsp+68h] [rbp-10h]
-  char v12; // [rsp+6Ch] [rbp-Ch]
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v9; // [rsp+20h] [rbp-58h] BYREF
+  int v10; // [rsp+28h] [rbp-50h]
+  __int64 v11; // [rsp+60h] [rbp-18h]
+  int v12; // [rsp+68h] [rbp-10h]
+  char v13; // [rsp+6Ch] [rbp-Ch]
   wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
 
   LastKeyframeValue = CKeyframeAnimation::GetLastKeyframeValue(a1);
-  memset_0(&v8, 0, 0x40uLL);
-  v10 = 0LL;
-  v11 = 18;
-  v12 = 0;
-  Value = KeyframeValue::GetValue(LastKeyframeValue, 0LL, (struct CExpressionValue *)&v8);
+  memset_0(&v9, 0, 0x40uLL);
+  v11 = 0LL;
+  v12 = 18;
+  v13 = 0;
+  Value = KeyframeValue::GetValue(LastKeyframeValue, 0LL, (struct CExpressionValue *)&v9);
   if ( Value < 0 )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      51LL,
+      (void *)0x33,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
-      (const char *)(unsigned int)Value,
-      v8);
-  if ( v11 != 52 )
+      (const char *)(unsigned int)Value);
+    __debugbreak();
+  }
+  if ( v12 != 52 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      52LL,
+      (void *)0x34,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
       v5);
-  v6 = v9;
-  *(_QWORD *)a2 = v8;
-  *(_DWORD *)(a2 + 8) = v6;
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v10);
+    __debugbreak();
+  }
+  v6 = v11;
+  v7 = v10;
+  *(_QWORD *)a2 = v9;
+  *(_DWORD *)(a2 + 8) = v7;
+  if ( v6 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
   return a2;
 }

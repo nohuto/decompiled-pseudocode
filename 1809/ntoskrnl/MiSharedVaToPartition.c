@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSharedVaToPartition @ 0x14010978C
+ * XREFs of MiSharedVaToPartition @ 0x1401097AC
  * Callers:
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiCreateSharedZeroPages @ 0x1401091A0 (MiCreateSharedZeroPages.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
+ *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
  *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
  */
 
 ULONG_PTR *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

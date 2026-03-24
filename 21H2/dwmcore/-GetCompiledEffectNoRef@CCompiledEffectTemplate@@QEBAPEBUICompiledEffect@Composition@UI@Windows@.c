@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x180036148
+ * XREFs of ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x180049C1C
  * Callers:
- *     ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x180035F40 (-TryCreateEffectInstance@CEffectBrush@@AEAAJXZ.c)
- *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180036214 (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
+ *     ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x1800493B4 (-TryCreateEffectInstance@CEffectBrush@@AEAAJXZ.c)
+ *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180049FB8 (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ const struct Windows::UI::Composition::ICompiledEffect *__fastcall CCompiledEffe
   __int64 v2; // rdi
   struct _TP_WORK *v3; // rcx
 
-  v1 = *((_QWORD *)this + 10);
+  v1 = *((_QWORD *)this + 9);
   v2 = 0LL;
   if ( v1 && *(_DWORD *)(v1 + 64) == 3 )
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdatePerSessionProto @ 0x140255870
+ * XREFs of MiUpdatePerSessionProto @ 0x1402CF0B8
  * Callers:
- *     MiDereferenceSubsectionProtos @ 0x1406DDAE0 (MiDereferenceSubsectionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406DDB48 (MiCreatePerSessionProtos.c)
+ *     MiDereferenceSubsectionProtos @ 0x1406BC8AC (MiDereferenceSubsectionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdatePerSessionProto(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -27,7 +27,7 @@ __int64 __fastcall MiUpdatePerSessionProto(__int64 a1, __int64 a2, __int64 a3, i
   v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
   if ( !a4 )
   {
-    RtlAvlRemoveNode(a2 + 24, a3);
+    RtlAvlRemoveNode((unsigned __int64 *)(a2 + 24), (unsigned __int64 *)a3);
     goto LABEL_9;
   }
   v10 = *(__int64 **)(a2 + 24);

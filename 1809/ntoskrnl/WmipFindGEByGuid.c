@@ -2,13 +2,13 @@
  * XREFs of WmipFindGEByGuid @ 0x1406127A0
  * Callers:
  *     WmipOpenBlock @ 0x140611928 (WmipOpenBlock.c)
- *     WmipProcessEvent @ 0x14068F1CC (WmipProcessEvent.c)
- *     WmipDetermineInstanceBaseIndex @ 0x140707DA0 (WmipDetermineInstanceBaseIndex.c)
- *     WmipEnableCollectionForNewGuid @ 0x140708014 (WmipEnableCollectionForNewGuid.c)
- *     WmipLinkDataSourceToList @ 0x140708244 (WmipLinkDataSourceToList.c)
- *     WmipMangleInstanceName @ 0x140708420 (WmipMangleInstanceName.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140708610 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipIncludeStaticNames @ 0x1408B3758 (WmipIncludeStaticNames.c)
+ *     WmipProcessEvent @ 0x14068F1AC (WmipProcessEvent.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x140707D80 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140707FF4 (WmipEnableCollectionForNewGuid.c)
+ *     WmipLinkDataSourceToList @ 0x140708224 (WmipLinkDataSourceToList.c)
+ *     WmipMangleInstanceName @ 0x140708400 (WmipMangleInstanceName.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1407085F0 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipIncludeStaticNames @ 0x1408B3738 (WmipIncludeStaticNames.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

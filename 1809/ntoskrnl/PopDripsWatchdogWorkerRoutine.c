@@ -1,25 +1,25 @@
 /*
- * XREFs of PopDripsWatchdogWorkerRoutine @ 0x140879C40
+ * XREFs of PopDripsWatchdogWorkerRoutine @ 0x140879C20
  * Callers:
  *     <none>
  * Callees:
  *     PopDeepSleepEnabled @ 0x140003A5C (PopDeepSleepEnabled.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PopOkayToQueueNextWorkItem @ 0x14013BA20 (PopOkayToQueueNextWorkItem.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     PopBatteryCapacityToRate @ 0x1402DC538 (PopBatteryCapacityToRate.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x1402DE3A4 (PopAccumulateNonActivatedCpuTime.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
- *     PopDiagTraceCsDripsDivergence @ 0x1402DF6B0 (PopDiagTraceCsDripsDivergence.c)
- *     PpmConvertTimeTo @ 0x1402E30A4 (PpmConvertTimeTo.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140812510 (DbgkWerCaptureLiveKernelDump.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14087949C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsCallbackTakeAction @ 0x140879568 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408797A8 (PopDripsWatchdogTakeAction.c)
- *     PopSetDripsWatchdog @ 0x14087A070 (PopSetDripsWatchdog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     PopBatteryCapacityToRate @ 0x1402DC638 (PopBatteryCapacityToRate.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1402DE4A4 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x1402DF7B0 (PopDiagTraceCsDripsDivergence.c)
+ *     PpmConvertTimeTo @ 0x1402E31A4 (PpmConvertTimeTo.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x14087947C (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
+ *     PopSetDripsWatchdog @ 0x14087A050 (PopSetDripsWatchdog.c)
  */
 
 void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
@@ -107,10 +107,10 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       if ( !v12 )
       {
         v18 = 1000LL * (unsigned int)v17;
-        if ( !v18 || (unk_140417874 & 0x40000000) != 0 || (v19 = *(_DWORD *)(a1 + 16), dword_140417864 >= v19) )
+        if ( !v18 || (unk_140417954 & 0x40000000) != 0 || (v19 = *(_DWORD *)(a1 + 16), dword_140417944 >= v19) )
           v20 = 0;
         else
-          v20 = PopBatteryCapacityToRate(v19 - dword_140417864, v18);
+          v20 = PopBatteryCapacityToRate(v19 - dword_140417944, v18);
         HIDWORD(v28) = v20;
       }
       PopAccumulateNonActivatedCpuTime(0, (_QWORD *)(a1 + 72), (_QWORD *)(a1 + 80));
@@ -121,7 +121,7 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
         *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 96);
         *(_QWORD *)(a1 + 32) = *(_QWORD *)(a1 + 104);
         *(_QWORD *)(a1 + 40) = v4;
-        *(_DWORD *)(a1 + 16) = dword_140417864;
+        *(_DWORD *)(a1 + 16) = dword_140417944;
       }
       if ( v23 )
       {
@@ -171,7 +171,7 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       {
         _m_prefetchw(&PopDirectedDripsState);
         if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 1) != 0 && !PopDirectedDripsEnableV2 )
-          _InterlockedExchange(&dword_140419184, dword_140419180);
+          _InterlockedExchange(&dword_140419164, dword_140419160);
       }
       else
       {

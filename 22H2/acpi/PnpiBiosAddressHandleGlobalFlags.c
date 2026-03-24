@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpiBiosAddressHandleGlobalFlags @ 0x1C0090C98
+ * XREFs of PnpiBiosAddressHandleGlobalFlags @ 0x1C009CCB8
  * Callers:
- *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C00904B0 (PnpiBiosAddressDoubleToIoDescriptor.c)
- *     PnpiBiosAddressExtendedToIoDescriptor @ 0x1C0090840 (PnpiBiosAddressExtendedToIoDescriptor.c)
- *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C0090EBC (PnpiBiosAddressQuadToIoDescriptor.c)
- *     PnpiBiosAddressToIoDescriptor @ 0x1C00912DC (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C009D6AC (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressToIoDescriptor @ 0x1C00A26F8 (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosAddressExtendedToIoDescriptor @ 0x1C00B35FC (PnpiBiosAddressExtendedToIoDescriptor.c)
+ *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C00B3A44 (PnpiBiosAddressQuadToIoDescriptor.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0092338 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 NTSTATUS __fastcall PnpiBiosAddressHandleGlobalFlags(

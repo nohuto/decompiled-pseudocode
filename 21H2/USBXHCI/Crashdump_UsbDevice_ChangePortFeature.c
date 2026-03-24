@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_UsbDevice_ChangePortFeature @ 0x1C004D914
+ * XREFs of Crashdump_UsbDevice_ChangePortFeature @ 0x1C004CE90
  * Callers:
- *     Crashdump_UsbDevice_ResetPort @ 0x1C004E8F0 (Crashdump_UsbDevice_ResetPort.c)
- *     Crashdump_UsbDevice_SetPortPower @ 0x1C004EF14 (Crashdump_UsbDevice_SetPortPower.c)
- *     Crashdump_UsbDevice_SuspendPort @ 0x1C004EFA4 (Crashdump_UsbDevice_SuspendPort.c)
+ *     Crashdump_UsbDevice_ResetPort @ 0x1C004DE70 (Crashdump_UsbDevice_ResetPort.c)
+ *     Crashdump_UsbDevice_SetPortPower @ 0x1C004E498 (Crashdump_UsbDevice_SetPortPower.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C004E528 (Crashdump_UsbDevice_SuspendPort.c)
  * Callees:
- *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004D3D8 (Crashdump_Endpoint_SendControlTransfer.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954 (Crashdump_Endpoint_SendControlTransfer.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_ChangePortFeature(__int64 a1, int a2, int a3, unsigned __int8 a4)

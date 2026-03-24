@@ -1,10 +1,10 @@
 /*
- * XREFs of ParseWindowStation @ 0x1C0098FC0
+ * XREFs of ParseWindowStation @ 0x1C004E8A0
  * Callers:
- *     W32CalloutDispatch @ 0x1C00E4D10 (W32CalloutDispatch.c)
+ *     W32CalloutDispatch @ 0x1C004DFB0 (W32CalloutDispatch.c)
  * Callees:
- *     ApiSetEditionParseDesktop @ 0x1C00990AC (ApiSetEditionParseDesktop.c)
- *     wcschr @ 0x1C00D5E68 (wcschr.c)
+ *     ApiSetEditionParseDesktop @ 0x1C004E9E4 (ApiSetEditionParseDesktop.c)
+ *     wcschr @ 0x1C00C50C0 (wcschr.c)
  */
 
 __int64 __fastcall ParseWindowStation(__int64 a1)

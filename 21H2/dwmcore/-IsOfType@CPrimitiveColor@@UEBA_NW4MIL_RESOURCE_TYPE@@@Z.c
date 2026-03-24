@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CPrimitiveColor@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1540
+ * XREFs of ?IsOfType@CPrimitiveColor@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F9F0
  * Callers:
  *     <none>
  * Callees:

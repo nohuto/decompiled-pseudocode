@@ -1,1472 +1,1084 @@
 /*
- * XREFs of PopPowerInformationInternal @ 0x1407ED5EC
+ * XREFs of PopPowerInformationInternal @ 0x1406F1BE4
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlStringCbLengthW @ 0x14022BF00 (RtlStringCbLengthW.c)
- *     PopDeepSleepClearDisengageReason @ 0x14028E63C (PopDeepSleepClearDisengageReason.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E728 (PopDeepSleepSetDisengageReason.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceEventNoPayload @ 0x140366FF0 (PopDiagTraceEventNoPayload.c)
- *     PoLatencySensitivityHint @ 0x14036D210 (PoLatencySensitivityHint.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     RtlCheckTokenMembership @ 0x14036FA40 (RtlCheckTokenMembership.c)
- *     PopSetWatchdog @ 0x14036FA5C (PopSetWatchdog.c)
- *     SSHSupportQueryIsLibraryEnabled @ 0x1403A2530 (SSHSupportQueryIsLibraryEnabled.c)
- *     PoDirectedDripsSetDeviceFlags @ 0x1403ABB70 (PoDirectedDripsSetDeviceFlags.c)
- *     PopDiagTraceSessionDisplayStateChange @ 0x1403D6130 (PopDiagTraceSessionDisplayStateChange.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopGetEnergyEstimationInfo @ 0x140583AD4 (PopGetEnergyEstimationInfo.c)
- *     PpmInternalPlatformIdleVeto @ 0x1405859A4 (PpmInternalPlatformIdleVeto.c)
- *     PpmInternalProcessorIdleVeto @ 0x1405859F8 (PpmInternalProcessorIdleVeto.c)
- *     PoDirectedDripsClearDeviceFlags @ 0x140586ED0 (PoDirectedDripsClearDeviceFlags.c)
- *     PopQueryBootSessionStandbyActivationInfo @ 0x1405872B4 (PopQueryBootSessionStandbyActivationInfo.c)
- *     PopFxClearDeviceConstraints @ 0x140589310 (PopFxClearDeviceConstraints.c)
- *     PpmPerfGetVmPerfConfig @ 0x14058D1B4 (PpmPerfGetVmPerfConfig.c)
- *     PpmPerfGetVmPerfSupport @ 0x14058D3B4 (PpmPerfGetVmPerfSupport.c)
- *     PopShutdownListenerRemoveCallback @ 0x140598A38 (PopShutdownListenerRemoveCallback.c)
- *     PopPlRegisterPowerPlane @ 0x1405A1924 (PopPlRegisterPowerPlane.c)
- *     PoUserShutdownCancelled @ 0x140682290 (PoUserShutdownCancelled.c)
- *     PoUserShutdownInitiated @ 0x1406822C0 (PoUserShutdownInitiated.c)
- *     PopTransitionCheckpoint @ 0x1406825AC (PopTransitionCheckpoint.c)
- *     PopSessionWinlogonNotification @ 0x140682D5C (PopSessionWinlogonNotification.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PopEvaluateGlobalUserStatus @ 0x1407A6464 (PopEvaluateGlobalUserStatus.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6860 (PpmPerfUpdateDomainPolicy.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7A80 (PopSetPowerSettingValueAcDc.c)
- *     PspIsContextAdmin @ 0x1407D07D8 (PspIsContextAdmin.c)
- *     PopUpdateExternalDisplayState @ 0x1407EAD2C (PopUpdateExternalDisplayState.c)
- *     PopIsRunningAsLocalSystem @ 0x1407EBFB8 (PopIsRunningAsLocalSystem.c)
- *     PopAdaptiveGetSessionStateUnsafe @ 0x1407EC320 (PopAdaptiveGetSessionStateUnsafe.c)
- *     PopAcquireAdaptiveLock @ 0x1407EC41C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EC4C8 (PopReleaseAdaptiveLock.c)
- *     PopBootStatGet @ 0x1407ECA68 (PopBootStatGet.c)
- *     RtlIsMultiSessionSku @ 0x1407ED2A0 (RtlIsMultiSessionSku.c)
- *     PopBootStatSet @ 0x1407EEFF8 (PopBootStatSet.c)
- *     PopAcquireTransitionLock @ 0x140802E90 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x140802F44 (PopReleaseTransitionLock.c)
- *     PopBroadcastSessionInfo @ 0x140825E74 (PopBroadcastSessionInfo.c)
- *     PpmPerfGetFrequencyBandStats @ 0x140841B88 (PpmPerfGetFrequencyBandStats.c)
- *     PopBootStatCheckIntegrity @ 0x14084E3B0 (PopBootStatCheckIntegrity.c)
- *     PpmIdleGetPackageIdleIntervalStats @ 0x14084F5E0 (PpmIdleGetPackageIdleIntervalStats.c)
- *     PopFanReadFanNoiseInfo @ 0x14085A1E4 (PopFanReadFanNoiseInfo.c)
- *     PpmIdleGetConcurrencyStats @ 0x14085E95C (PpmIdleGetConcurrencyStats.c)
- *     PpmPerfQueryProcMeasurementValues @ 0x1408629E0 (PpmPerfQueryProcMeasurementValues.c)
- *     PopFxPlatformRegisterInterface @ 0x140864248 (PopFxPlatformRegisterInterface.c)
- *     PopUpdateBackgroundCoolingStatus @ 0x140865598 (PopUpdateBackgroundCoolingStatus.c)
- *     PopEsQueueStateEvaluation @ 0x140870CF0 (PopEsQueueStateEvaluation.c)
- *     PopUpdateConsoleDisplayState @ 0x140873D64 (PopUpdateConsoleDisplayState.c)
- *     PopSetDisplayStatus @ 0x140885638 (PopSetDisplayStatus.c)
- *     PopCheckTestsigningEnabled @ 0x140980710 (PopCheckTestsigningEnabled.c)
- *     PopPowerRequestNotifyUserSessionAttributed @ 0x1409818C4 (PopPowerRequestNotifyUserSessionAttributed.c)
- *     PopManageTransitionRecordRequest @ 0x140984548 (PopManageTransitionRecordRequest.c)
- *     PopS0LowPowerIdleInfo @ 0x1409845E0 (PopS0LowPowerIdleInfo.c)
- *     PpmPerfGetBrandedFrequency @ 0x1409869C8 (PpmPerfGetBrandedFrequency.c)
- *     PopReadPagesFromHiberFile @ 0x140988BDC (PopReadPagesFromHiberFile.c)
- *     PopReadResumeContext @ 0x140988E38 (PopReadResumeContext.c)
- *     PopDiagTraceSleepReliabilityDiagConfigUpdate @ 0x1409916AC (PopDiagTraceSleepReliabilityDiagConfigUpdate.c)
- *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140993C60 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
- *     PopNetUpdateStandbyRequest @ 0x140996A5C (PopNetUpdateStandbyRequest.c)
- *     PopQueryPowerButtonBugcheckEnabled @ 0x140996D38 (PopQueryPowerButtonBugcheckEnabled.c)
- *     PopBootStatRestoreDefaults @ 0x140997160 (PopBootStatRestoreDefaults.c)
- *     PopBootStatUnlock @ 0x140997240 (PopBootStatUnlock.c)
- *     PopScreenOff @ 0x1409982E4 (PopScreenOff.c)
- *     PopScreenOn @ 0x140998330 (PopScreenOn.c)
- *     PopSuspendResumeInvocation @ 0x140998380 (PopSuspendResumeInvocation.c)
- *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x14099B974 (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
- *     PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x14099BA48 (PopAdaptiveSetSystemInitiatedRebootTargetStateOverride.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14099C01C (PopUpdateSmartUserPresencePredictions.c)
- *     PopDirectedDripsUmPowerInformationInternal @ 0x14099FA30 (PopDirectedDripsUmPowerInformationInternal.c)
- *     TtmNotifySessionPowerStateChange @ 0x1409A4808 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x1409A4898 (TtmNotifySessionTerminalInput.c)
- *     RtlCapabilityCheckForSingleSessionSku @ 0x1409BC060 (RtlCapabilityCheckForSingleSessionSku.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     RtlStringCbLengthW @ 0x1403224DC (RtlStringCbLengthW.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403265D4 (PopDiagTraceEventNoPayload.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     RtlCheckTokenMembership @ 0x140348440 (RtlCheckTokenMembership.c)
+ *     PopSetWatchdog @ 0x140349578 (PopSetWatchdog.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14034A558 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14034A5E0 (PopDeepSleepClearDisengageReason.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PoLatencySensitivityHint @ 0x14037D5D0 (PoLatencySensitivityHint.c)
+ *     PopDiagTraceSessionDisplayStateChange @ 0x14038D738 (PopDiagTraceSessionDisplayStateChange.c)
+ *     PoDirectedDripsSetDeviceFlags @ 0x1403C9770 (PoDirectedDripsSetDeviceFlags.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     PpmInternalPlatformIdleVeto @ 0x140567218 (PpmInternalPlatformIdleVeto.c)
+ *     PpmInternalProcessorIdleVeto @ 0x14056726C (PpmInternalProcessorIdleVeto.c)
+ *     PoDirectedDripsClearDeviceFlags @ 0x140568700 (PoDirectedDripsClearDeviceFlags.c)
+ *     PopIsRunningInVm @ 0x140568C40 (PopIsRunningInVm.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x140568CB8 (PopQueryBootSessionStandbyActivationInfo.c)
+ *     PopFxClearDeviceConstraints @ 0x140569D04 (PopFxClearDeviceConstraints.c)
+ *     PopPlRegisterPowerPlane @ 0x14057E964 (PopPlRegisterPowerPlane.c)
+ *     RtlIsMultiSessionSku @ 0x1406816A0 (RtlIsMultiSessionSku.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1406F2C58 (PopSetPowerSettingValueAcDc.c)
+ *     PspIsContextAdmin @ 0x14070CE38 (PspIsContextAdmin.c)
+ *     PoUserShutdownInitiated @ 0x140776090 (PoUserShutdownInitiated.c)
+ *     PopTransitionCheckpoint @ 0x1407761D8 (PopTransitionCheckpoint.c)
+ *     PoUserShutdownCancelled @ 0x140779D50 (PoUserShutdownCancelled.c)
+ *     PopIsRunningAsLocalSystem @ 0x14077A2E8 (PopIsRunningAsLocalSystem.c)
+ *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x14077A3A4 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
+ *     PopSetDisplayStatus @ 0x14077A77C (PopSetDisplayStatus.c)
+ *     PopBootStatSet @ 0x14077F168 (PopBootStatSet.c)
+ *     PopEsQueueStateEvaluation @ 0x14077FEBC (PopEsQueueStateEvaluation.c)
+ *     PopUpdateConsoleDisplayState @ 0x1407813E4 (PopUpdateConsoleDisplayState.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14078B4DC (PpmPerfUpdateDomainPolicy.c)
+ *     PopAcquireTransitionLock @ 0x14078D978 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14078D9D4 (PopReleaseTransitionLock.c)
+ *     PopBroadcastSessionInfo @ 0x140791634 (PopBroadcastSessionInfo.c)
+ *     PopBootStatGet @ 0x1407C18F0 (PopBootStatGet.c)
+ *     PopUpdateExternalDisplayState @ 0x1407D2D38 (PopUpdateExternalDisplayState.c)
+ *     PopFxPlatformRegisterInterface @ 0x1407D3C2C (PopFxPlatformRegisterInterface.c)
+ *     PopUpdateBackgroundCoolingStatus @ 0x1407D48D4 (PopUpdateBackgroundCoolingStatus.c)
+ *     PopCheckTestsigningEnabled @ 0x1408E10EC (PopCheckTestsigningEnabled.c)
+ *     PopNotifySessionUserPowerRequestAttributed @ 0x1408E1980 (PopNotifySessionUserPowerRequestAttributed.c)
+ *     PopS0LowPowerIdleInfo @ 0x1408E40BC (PopS0LowPowerIdleInfo.c)
+ *     PpmPerfGetBrandedFrequency @ 0x1408E625C (PpmPerfGetBrandedFrequency.c)
+ *     PopReadPagesFromHiberFile @ 0x1408E6F3C (PopReadPagesFromHiberFile.c)
+ *     PopReadResumeContext @ 0x1408E7198 (PopReadResumeContext.c)
+ *     PopScreenOff @ 0x1408F0318 (PopScreenOff.c)
+ *     PopScreenOn @ 0x1408F0364 (PopScreenOn.c)
+ *     PopNetUpdateStandbyRequest @ 0x1408F207C (PopNetUpdateStandbyRequest.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x1408F22B0 (PopQueryPowerButtonBugcheckEnabled.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F2344 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408F2588 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatUnlock @ 0x1408F2670 (PopBootStatUnlock.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x1408F575C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x1408F8934 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     TtmNotifySessionPowerStateChange @ 0x1408FEE40 (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x1408FEECC (TtmNotifySessionTerminalInput.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x140913780 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPowerInformationInternal(
-        __int64 a1,
+        int a1,
         __int64 a2,
         __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        unsigned int a6,
-        __int64 *a7,
-        _DWORD *a8,
-        _BYTE *a9)
+        __int64 a4,
+        _QWORD *a5,
+        _DWORD *a6,
+        _BYTE *a7)
 {
-  signed int v9; // ebx
-  __m256i *v10; // rdi
+  __int64 v8; // rsi
+  unsigned __int64 v9; // rdi
+  unsigned __int64 v10; // rcx
   __int64 v11; // r14
-  int v12; // eax
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rax
+  unsigned __int64 v12; // rax
+  int v13; // edi
+  int v14; // edi
+  int v15; // edi
+  int v16; // edi
+  int v17; // edi
+  _QWORD *v18; // rdi
+  char *v19; // rax
   int PagesFromHiberFile; // ebx
-  unsigned __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  const wchar_t *v19; // rcx
-  unsigned __int64 v20; // rax
-  int v22; // ebx
-  int v23; // ebx
-  int v24; // ebx
-  char *v25; // rbx
+  unsigned __int64 v22; // rax
+  int v23; // edi
+  int v24; // edi
+  int v25; // edi
+  int v26; // edi
+  int v27; // edi
+  PVOID v28; // r14
+  unsigned __int64 v29; // r15
+  int v30; // eax
+  unsigned int v31; // eax
+  int v32; // edi
+  int v33; // edi
+  int v34; // edi
+  int v35; // edi
+  int v36; // edi
+  int v37; // edi
+  int v38; // edi
+  int v39; // edi
+  int v40; // edi
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  _BYTE *v43; // rdi
   char PowerButtonBugcheckEnabled; // al
-  char *v27; // rdx
-  __int64 *v28; // rcx
-  unsigned int v29; // eax
-  __int64 v30; // rax
-  __int64 v31; // rdi
-  ULONG v32; // edx
-  void *v33; // rcx
-  __int64 v34; // rax
-  __int64 v35; // rsi
-  int v36; // ebx
-  int v37; // ebx
-  int v38; // ebx
-  unsigned int v39; // r14d
-  __int64 v40; // rax
-  _OWORD *v41; // rax
-  __int128 v42; // xmm1
-  __int64 v43; // rsi
-  int v44; // ecx
-  __int64 v45; // rdx
-  __int64 v46; // rcx
-  __int64 v47; // r8
-  int v48; // ebx
-  int v49; // ebx
-  int v50; // ebx
-  int v51; // ebx
-  int v52; // ebx
-  int v53; // ebx
-  int v54; // ebx
-  int v55; // ebx
-  int v56; // ecx
-  bool v57; // zf
-  __int32 v58; // ecx
-  _OWORD *v59; // rax
-  char **v60; // rbx
-  char *v61; // rax
-  _OWORD *v62; // rax
+  _QWORD *v45; // rax
+  char *v46; // rdx
+  __int64 *v47; // rcx
+  _QWORD *v48; // rax
+  _QWORD *v49; // rdi
+  _OWORD *v50; // rax
+  __int128 v51; // xmm1
+  const wchar_t *v52; // rax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  _QWORD *v55; // rax
+  int BrandedFrequency; // eax
+  struct _PROCESSOR_NUMBER *v57; // rcx
+  ULONG v58; // edx
+  char v59; // di
+  int v60; // ecx
+  __int64 v61; // rdx
+  __int64 v62; // rdx
   __int64 v63; // rcx
-  unsigned __int32 v64; // eax
-  unsigned __int64 v65; // rcx
-  int v66; // r14d
-  _DWORD *v67; // rcx
-  char v68; // bl
-  int v69; // eax
-  _BYTE *v70; // rax
-  int v71; // ebx
-  int v72; // ebx
-  int v73; // ebx
-  int v74; // ebx
-  int v75; // ebx
-  int v76; // ebx
-  int v77; // ebx
-  int v78; // ebx
-  int v79; // ecx
-  __int64 v80; // rax
-  struct _PROCESSOR_NUMBER *v81; // rcx
-  int VmPerfConfig; // eax
-  char *v83; // rcx
-  __int64 v84; // rax
-  __int64 v85; // rax
-  __int64 v86; // rax
+  PVOID v64; // rax
+  PVOID v65; // rdi
+  _OWORD *v66; // rax
+  __int128 v67; // xmm0
+  int v68; // eax
+  bool v69; // zf
+  int v70; // edi
+  _DWORD *v71; // rcx
+  char v72; // bl
+  _BYTE *v73; // rax
+  unsigned int v74; // eax
+  _BYTE *v75; // rax
+  _BYTE *PoolWithTag; // rdx
+  __int64 v77; // rax
+  __int64 v78; // rcx
+  __int64 v79; // rax
+  char v80; // al
+  int v81; // edi
+  int v82; // edi
+  int v83; // edi
+  int v84; // edi
+  int v85; // edi
+  _BYTE *v86; // rcx
   char v87; // al
-  __int64 v88; // rax
+  _DWORD *v88; // rax
   __int64 v89; // rcx
-  int v90; // ebx
-  int v91; // ebx
-  int v92; // ebx
-  char v93; // bl
-  __int64 v94; // rcx
-  unsigned __int64 *v95; // rax
-  __int64 v96; // rax
-  __int64 v97; // rbx
-  _DWORD *v98; // rcx
-  __int64 v99; // rcx
-  unsigned __int64 v100; // rbx
-  unsigned __int64 *v101; // rax
-  __int64 v102; // rax
-  int FanNoiseInfo; // eax
-  unsigned int v104; // ebx
-  unsigned __int32 v105; // esi
-  unsigned int v106; // edi
-  _DWORD *v107; // rcx
-  _DWORD *v108; // rax
-  _DWORD *v109; // rbx
-  __int64 *i; // rax
-  __int64 v111; // rcx
-  int v112; // eax
-  __int64 Pool2; // rax
-  int v114; // ebx
-  __int8 v115; // al
-  _KPROCESS *Process; // rcx
-  unsigned int ProcessSessionId; // eax
-  int v118; // ebx
-  int v119; // ebx
-  int v120; // ebx
-  int v121; // ebx
-  int v122; // ebx
-  int v123; // ebx
-  int v124; // ebx
-  int v125; // ebx
-  _DWORD *v126; // rax
-  __int64 v127; // rax
-  _DWORD *v128; // rax
-  __int64 v129; // rcx
-  _BYTE v130[2]; // [rsp+40h] [rbp-69h] BYREF
-  KPROCESSOR_MODE PreviousMode; // [rsp+42h] [rbp-67h]
-  int v132; // [rsp+44h] [rbp-65h] BYREF
-  __int64 v133; // [rsp+48h] [rbp-61h] BYREF
-  int v134; // [rsp+50h] [rbp-59h] BYREF
-  int v135; // [rsp+54h] [rbp-55h] BYREF
-  size_t pcbLength; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v137; // [rsp+60h] [rbp-49h] BYREF
-  __int64 v138; // [rsp+68h] [rbp-41h] BYREF
-  UNICODE_STRING String2; // [rsp+70h] [rbp-39h] BYREF
-  __int64 v140; // [rsp+80h] [rbp-29h]
-  _DWORD v141[8]; // [rsp+88h] [rbp-21h] BYREF
+  char v90; // [rsp+42h] [rbp-5Fh] BYREF
+  _BYTE *v91; // [rsp+48h] [rbp-59h]
+  PVOID P; // [rsp+50h] [rbp-51h]
+  _DWORD v93[2]; // [rsp+58h] [rbp-49h] BYREF
+  size_t pcbLength; // [rsp+60h] [rbp-41h]
+  __int64 v95; // [rsp+68h] [rbp-39h] BYREF
+  UNICODE_STRING SourceString; // [rsp+70h] [rbp-31h] BYREF
+  _DWORD v97[8]; // [rsp+80h] [rbp-21h] BYREF
 
+  v8 = a2;
   v9 = a1;
-  v10 = (__m256i *)a3;
-  String2 = 0LL;
-  v11 = a4;
-  *a7 = 0LL;
-  *a8 = 0;
-  *a9 = 0;
-  LODWORD(v133) = a2;
-  v130[1] = 0;
-  v130[0] = 0;
-  LOBYTE(a1) = KeGetCurrentThread()->PreviousMode;
+  v10 = 0LL;
+  v11 = (unsigned int)a3;
+  *a5 = 0LL;
+  *a6 = 0;
+  *a7 = 0;
+  v91 = a7;
   pcbLength = 0LL;
-  v134 = 0;
-  v137 = 0LL;
-  v138 = 0LL;
-  v135 = 0;
-  v140 = 0LL;
-  PreviousMode = a1;
-  if ( (_BYTE)a1 )
+  v93[0] = 0;
+  v95 = 0LL;
+  P = 0LL;
+  if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (unsigned int)v9 <= 0x17 )
+    if ( (_DWORD)v9 == 36 )
     {
-      v12 = 12058885;
-      if ( _bittest(&v12, v9) )
+      if ( (unsigned __int8)PopIsRunningAsLocalSystem() )
+        goto LABEL_238;
+      return (unsigned int)-1073741790;
+    }
+    if ( (_DWORD)v9 == 65 )
+      return (unsigned int)-1073741790;
+    if ( (unsigned int)v9 <= 0x3F )
+    {
+      v10 = 0x8E00030014B80105uLL;
+      if ( _bittest64((const __int64 *)&v10, v9) )
         return (unsigned int)-1073741790;
     }
-    v13 = (unsigned int)(v9 - 26);
-    if ( (unsigned int)v13 <= 0x3D )
+    if ( (_DWORD)v9 == 67 )
+      return (unsigned int)-1073741790;
+    v22 = (unsigned int)(v9 - 29);
+    if ( (unsigned int)v22 <= 0x23 )
     {
-      a1 = 0x208002A38000C005LL;
-      if ( _bittest64(&a1, v13) )
-        return (unsigned int)-1073741790;
-    }
-    v14 = (unsigned int)(v9 - 29);
-    if ( (unsigned int)v14 <= 0x23 )
-    {
-      a1 = 0x88B4C0001LL;
-      if ( _bittest64(&a1, v14) )
+      v10 = 0x88B4C0001LL;
+      if ( _bittest64((const __int64 *)&v10, v22) )
       {
-        if ( !PspIsContextAdmin() )
+        if ( !(unsigned __int8)PspIsContextAdmin() )
           return (unsigned int)-1073741790;
       }
     }
-    if ( (unsigned int)(v9 - 82) <= 1 && !(unsigned __int8)PopCheckTestsigningEnabled() )
+    if ( ((_DWORD)v9 == 35 || (_DWORD)v9 == 24) && !(unsigned __int8)PopIsRunningAsLocalSystem() )
       return (unsigned int)-1073741790;
-    if ( (v16 = (unsigned int)(v9 - 35), (unsigned int)v16 <= 0x37) && (a1 = 0xA0001000000003LL, _bittest64(&a1, v16))
-      || v9 == 24 )
+    switch ( (_DWORD)v9 )
     {
-      if ( !PopIsRunningAsLocalSystem() )
+      case 0x3D:
+        if ( !(unsigned __int8)PopCheckTestsigningEnabled() || !(unsigned __int8)PspIsContextAdmin() )
+          return (unsigned int)-1073741790;
+        goto LABEL_73;
+      case 0x2D:
+        PagesFromHiberFile = 0;
+        if ( (unsigned __int8)PopIsRunningAsLocalSystem()
+          || (unsigned __int8)PopCheckTestsigningEnabled() && (unsigned __int8)PspIsContextAdmin() )
+        {
+          if ( (_DWORD)v11 != 12 )
+            return (unsigned int)-1073741811;
+          if ( *(_BYTE *)(v8 + 8) )
+            PoUserShutdownInitiated();
+          else
+            PoUserShutdownCancelled();
+          return (unsigned int)PagesFromHiberFile;
+        }
+        return (unsigned int)-1073741790;
+      case 0x19:
+        v52 = L"systemManagement";
+        SourceString = 0LL;
+        v53 = 0x7FFFLL;
+        do
+        {
+          if ( !*v52 )
+            break;
+          ++v52;
+          --v53;
+        }
+        while ( v53 );
+        v54 = (0x7FFF - v53) & -(__int64)(v53 != 0);
+        if ( v53 )
+        {
+          SourceString.Buffer = L"systemManagement";
+          SourceString.Length = 2 * v54;
+          SourceString.MaximumLength = 2 * v54 + 2;
+        }
+        PagesFromHiberFile = RtlCapabilityCheckForSingleSessionSku(0LL, &SourceString);
+        if ( PagesFromHiberFile < 0 )
+          return (unsigned int)PagesFromHiberFile;
         return (unsigned int)-1073741790;
     }
-    switch ( v9 )
-    {
-      case 80:
-        if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
-          return (unsigned int)-1073741727;
-LABEL_401:
-        if ( (_DWORD)v11 == 8 && v10 && !a6 && !a5 )
-        {
-          qword_140D532A8 = PopAdaptiveGetSystemInitiatedRebootTargetState(v17, a2, a3, 0LL);
-          byte_140D532A0 = 1;
-          return 0;
-        }
-        return (unsigned int)-1073741811;
-      case 61:
-        if ( !(unsigned __int8)PopCheckTestsigningEnabled() || !PspIsContextAdmin() )
-          return (unsigned int)-1073741790;
-LABEL_336:
-        if ( (unsigned int)v11 < 0xC )
-          return (unsigned int)-1073741811;
-        if ( a5 )
-        {
-          PopAcquireTransitionLock(8LL);
-          PagesFromHiberFile = PopReadPagesFromHiberFile(v10->m256i_u32[2], 1LL, a7);
-          PopReleaseTransitionLock(8LL);
-          v29 = 0;
-          if ( PagesFromHiberFile < 0 )
-          {
-            *a7 = 0LL;
-            return (unsigned int)PagesFromHiberFile;
-          }
-          *a8 = 4096;
-          *a9 = 1;
-          return v29;
-        }
-        return (unsigned int)-1073741789;
-      case 45:
-        PagesFromHiberFile = 0;
-        if ( !PopIsRunningAsLocalSystem() && (!(unsigned __int8)PopCheckTestsigningEnabled() || !PspIsContextAdmin()) )
-          return (unsigned int)-1073741790;
-        goto LABEL_261;
-      case 25:
-        v18 = 0x7FFFLL;
-        v19 = L"systemManagement";
-        while ( *v19 )
-        {
-          ++v19;
-          if ( !--v18 )
-            goto LABEL_34;
-        }
-        String2.Buffer = L"systemManagement";
-        String2.Length = 2 * (0x7FFF - v18);
-        String2.MaximumLength = String2.Length + 2;
-LABEL_34:
-        PagesFromHiberFile = RtlCapabilityCheckForSingleSessionSku(0LL, &String2);
-        if ( PagesFromHiberFile >= 0 )
-          return (unsigned int)-1073741790;
-        return (unsigned int)PagesFromHiberFile;
-    }
-    a2 = (unsigned int)v133;
-    LOBYTE(a1) = PreviousMode;
   }
   else
   {
-    v20 = (unsigned int)(v9 - 24);
-    if ( (unsigned int)v20 <= 0x3B )
+    v12 = (unsigned int)(v9 - 5);
+    if ( (unsigned int)v12 <= 0x3B )
     {
-      a3 = 0xD00811169F09201LL;
-      if ( _bittest64(&a3, v20) )
-        return (unsigned int)-1073741637;
-    }
-    if ( v9 == 7 || v9 == 5 )
-      return (unsigned int)-1073741637;
-  }
-  if ( v9 > 49 )
-  {
-    if ( v9 > 72 )
-    {
-      if ( v9 <= 82 )
+      a2 = 0x88B4F8410080005LL;
+      if ( _bittest64(&a2, v12) )
       {
-        switch ( v9 )
+        PagesFromHiberFile = -1073741637;
+        goto LABEL_69;
+      }
+    }
+  }
+  if ( (int)v9 > 38 )
+  {
+    if ( (int)v9 <= 54 )
+    {
+      if ( (int)v9 < 53 )
+      {
+        if ( (int)v9 <= 45 )
         {
-          case 'R':
-            if ( (_DWORD)v11 != 12 || !v10 || a6 || a5 )
-              return (unsigned int)-1073741811;
-            v133 = 0LL;
-            LODWORD(v133) = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-            v115 = v10->m256i_i8[8];
-            BYTE4(v133) = 1;
-            Process = KeGetCurrentThread()->ApcState.Process;
-            BYTE5(v133) = v115;
-            ProcessSessionId = PsGetProcessSessionIdEx((__int64)Process);
-            PopSessionWinlogonNotification(ProcessSessionId, (__int64)&v133);
-            break;
-          case 'I':
-            if ( (unsigned int)v11 < 0xC )
-              return (unsigned int)-1073741789;
-            if ( a5 )
-              return (unsigned int)-1073741811;
-            v114 = v10->m256i_i32[2];
-            PopAcquireAdaptiveLock(1);
-            if ( PopHostGlobalUserPresenceState != v114 )
-            {
-              PopHostGlobalUserPresenceState = v114;
-              PopEvaluateGlobalUserStatus();
-            }
-            PopReleaseAdaptiveLock();
-            break;
-          case 'J':
-          case 'K':
+          v23 = v9 - 39;
+          if ( !v23 )
+          {
             if ( (_DWORD)v11 != 12 )
-              return (unsigned int)-1073741789;
-            if ( !a5 )
               return (unsigned int)-1073741811;
-            if ( v9 == 74 )
-              v39 = 296;
+            v46 = &v90;
+            v90 = *(_BYTE *)(v8 + 8);
+            v47 = &WNF_PO_WAKE_ON_VOICE_STATE;
+            return (unsigned int)ZwUpdateWnfStateData((__int64)v47, (__int64)v46);
+          }
+          v24 = v23 - 1;
+          if ( !v24 )
+          {
+            if ( (_DWORD)v11 != 16 || *(_DWORD *)(v8 + 8) )
+              return (unsigned int)-1073741811;
+            if ( *(_BYTE *)(v8 + 12) )
+              PopDeepSleepSetDisengageReason(7u);
             else
-              v39 = 592;
-            Pool2 = ExAllocatePool2(256LL, v39, 544040269LL);
-            v35 = Pool2;
-            if ( !Pool2 )
-              return (unsigned int)-1073741670;
-            PagesFromHiberFile = PpmIdleGetPackageIdleIntervalStats((unsigned int)v9, v10->m256i_u16[4], Pool2);
-            if ( PagesFromHiberFile < 0 )
-            {
-LABEL_91:
-              v32 = 544040269;
-LABEL_92:
-              v33 = (void *)v35;
-              goto LABEL_83;
-            }
-            *a7 = v35;
-LABEL_106:
-            *a8 = v39;
-            goto LABEL_86;
-          case 'L':
-          case 'M':
-            if ( (_DWORD)v11 != 12 )
-              return (unsigned int)-1073741789;
-            if ( !a5 )
-              return (unsigned int)-1073741811;
-            PagesFromHiberFile = PpmIdleGetConcurrencyStats((unsigned int)v9, v10->m256i_u16[4], &v138, &v135);
-            if ( PagesFromHiberFile < 0 )
-              return (unsigned int)PagesFromHiberFile;
-            *a7 = v138;
-            *a8 = v135;
-            goto LABEL_86;
-          case 'N':
-            if ( !a5 )
-              return (unsigned int)-1073741811;
-            v109 = (_DWORD *)ExAllocatePool2(256LL, 4LL, 544040269LL);
-            if ( !v109 )
-              return (unsigned int)-1073741670;
-            for ( i = (__int64 *)PpmPerfDomainHead; ; i = (__int64 *)*i )
-            {
-              if ( i == &PpmPerfDomainHead )
-              {
-                v112 = 0;
-                goto LABEL_422;
-              }
-              v111 = i[52];
-              if ( v111 )
-                break;
-            }
-            v112 = ((__int64 (__fastcall *)(__int64, __int64 *))i[52])(v111, &PpmPerfDomainHead);
-LABEL_422:
-            *v109 = v112;
-            *a7 = (__int64)v109;
-            *a8 = 4;
-            goto LABEL_69;
-          case 'O':
-            if ( !v10 || (_DWORD)v11 != 12 )
-              return (unsigned int)-1073741811;
-            v105 = v10->m256i_u32[2];
-            v132 = 0;
-            PagesFromHiberFile = PpmPerfQueryProcMeasurementValues(v105, &v132, 0LL, 0LL);
-            if ( PagesFromHiberFile < 0 )
-              return (unsigned int)PagesFromHiberFile;
-            v106 = 24 * v132 + 8;
-            if ( a6 != 4 )
-            {
-              if ( a6 < v106 )
-                return (unsigned int)-1073741789;
-              v108 = (_DWORD *)ExAllocatePool2(64LL, v106, 544040269LL);
-              if ( !v108 )
-                return (unsigned int)-1073741670;
-              *a8 = v106;
-              *a9 = 1;
-              *a7 = (__int64)v108;
-              *v108 = v132;
-              return (unsigned int)PpmPerfQueryProcMeasurementValues(v105, &v132, v108 + 2, (unsigned int)(24 * v132));
-            }
-            v107 = (_DWORD *)ExAllocatePool2(256LL, 4LL, 544040269LL);
-            if ( !v107 )
-              return (unsigned int)-1073741670;
-            *v107 = v132;
-            *a7 = (__int64)v107;
-            *a8 = 4;
-LABEL_86:
-            *a9 = 1;
-            return (unsigned int)PagesFromHiberFile;
-          default:
-            v17 = (unsigned int)(v9 - 80);
-            if ( v9 == 80 )
-              goto LABEL_401;
-            if ( (_DWORD)v11 != 40 || !v10 || a6 != 16 || !a5 )
-              return (unsigned int)-1073741811;
-            v104 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-            PopAcquireAdaptiveLock(1);
-            PopAdaptiveGetSessionStateUnsafe(v104, &v10->m256i_i64[1], a5);
-            PopReleaseAdaptiveLock();
+              PopDeepSleepClearDisengageReason(7u);
             return 0;
+          }
+          v25 = v24 - 1;
+          if ( !v25 )
+          {
+            if ( (_DWORD)v11 != 16 )
+              return (unsigned int)-1073741811;
+            if ( a4 )
+            {
+              PoolWithTag = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x206D654Du);
+              if ( !PoolWithTag )
+                return (unsigned int)-1073741670;
+              v77 = *(_QWORD *)(v8 + 8);
+              if ( v77 )
+                v78 = *(_QWORD *)(*(_QWORD *)(v77 + 312) + 40LL);
+              else
+                v78 = 0LL;
+              if ( !v78 || (v79 = *(_QWORD *)(v78 + 80)) == 0 || (v69 = *(_QWORD *)(v79 + 64) == 0LL, v80 = 1, v69) )
+                v80 = 0;
+              *PoolWithTag = v80;
+              *a5 = PoolWithTag;
+              *a6 = 1;
+              *a7 = 1;
+              return 0;
+            }
+            return (unsigned int)-1073741789;
+          }
+          v26 = v25 - 1;
+          if ( !v26 )
+          {
+            if ( (unsigned int)v11 < 8 || !a4 )
+              return (unsigned int)-1073741789;
+            v50 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x206D654Du);
+            if ( !v50 )
+              return (unsigned int)-1073741670;
+            *v50 = 0LL;
+            v50[1] = 0LL;
+            *v50 = PopBsdPowerTransitionExtensionAtBoot;
+            v51 = xmmword_140C54340;
+LABEL_126:
+            v50[1] = v51;
+            *a5 = v50;
+            *a6 = 32;
+LABEL_50:
+            *a7 = 1;
+            return 0;
+          }
+          v27 = v26 - 1;
+          if ( !v27 )
+          {
+            if ( (((_DWORD)v11 - 8) & 0xFFFFFFFB) != 0 )
+              return (unsigned int)-1073741811;
+            if ( !a4 )
+              return (unsigned int)-1073741789;
+            v49 = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x206D654Du);
+            if ( !v49 )
+              return (unsigned int)-1073741670;
+            v57 = (struct _PROCESSOR_NUMBER *)(v8 + 8);
+            *v49 = 0LL;
+            if ( (_DWORD)v11 != 12 )
+              v57 = 0LL;
+            BrandedFrequency = PpmPerfGetBrandedFrequency(v57);
+            goto LABEL_165;
+          }
+          if ( v27 != 1 )
+            return (unsigned int)-1073741811;
+          if ( (unsigned int)v11 < 0x90 )
+            return (unsigned int)-1073741789;
+          if ( a4 )
+            return (unsigned int)-1073741811;
+          PagesFromHiberFile = RtlCheckTokenMembership(0LL, (void *)PopTimeBrokerServiceSid);
+          if ( PagesFromHiberFile < 0 )
+            return (unsigned int)PagesFromHiberFile;
+          return (unsigned int)-1073741790;
         }
+        v81 = v9 - 46;
+        if ( !v81 )
+        {
+          if ( (_DWORD)v11 != 32 || a4 )
+            return (unsigned int)-1073741811;
+          PopNotifySessionUserPowerRequestAttributed(
+            *(unsigned int *)(v8 + 24),
+            *(_QWORD *)(v8 + 8),
+            *(_QWORD *)(v8 + 16));
+          return 0;
+        }
+        v82 = v81 - 1;
+        if ( v82 )
+        {
+          v83 = v82 - 1;
+          if ( v83 )
+          {
+            v84 = v83 - 1;
+            if ( !v84 )
+            {
+              if ( !a4 )
+                return (unsigned int)-1073741789;
+              v43 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x206D654Du);
+              if ( !v43 )
+                return (unsigned int)-1073741670;
+              PowerButtonBugcheckEnabled = PopQueryPowerButtonBugcheckEnabled();
+              goto LABEL_101;
+            }
+            v85 = v84 - 1;
+            if ( v85 )
+            {
+              if ( v85 == 1 )
+              {
+                if ( (unsigned int)v11 >= 0x10 )
+                {
+                  PagesFromHiberFile = 0;
+                  PopWakeAlarmTimeOverride = *(_QWORD *)(v8 + 8);
+                  return (unsigned int)PagesFromHiberFile;
+                }
+                return (unsigned int)-1073741789;
+              }
+              return (unsigned int)-1073741811;
+            }
+            if ( !a4 )
+              return (unsigned int)-1073741789;
+            v86 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x206D654Du);
+            if ( !v86 )
+              return (unsigned int)-1073741670;
+            v87 = PopAutoChkCausedReboot;
+            goto LABEL_297;
+          }
+          if ( (unsigned int)v11 < 0x10 )
+            return (unsigned int)-1073741789;
+          if ( a4 )
+            return (unsigned int)-1073741811;
+          if ( !*(_DWORD *)(v8 + 4) )
+            return (unsigned int)PpmInternalPlatformIdleVeto(*(_DWORD *)(v8 + 8), *(_BYTE *)(v8 + 12));
+        }
+        else
+        {
+          if ( (unsigned int)v11 < 0x14 )
+            return (unsigned int)-1073741789;
+          if ( a4 )
+            return (unsigned int)-1073741811;
+          if ( !*(_DWORD *)(v8 + 4) )
+            return (unsigned int)PpmInternalProcessorIdleVeto(
+                                   *(_DWORD *)(v8 + 8),
+                                   *(_DWORD *)(v8 + 12),
+                                   *(_BYTE *)(v8 + 16));
+        }
+        return (unsigned int)-1073741735;
+      }
+LABEL_342:
+      PagesFromHiberFile = PopDirectedDripsUmPowerInformationInternal(v9, v11, v8, (_DWORD)a6, (__int64)a5);
+      if ( PagesFromHiberFile < 0 || !*a5 )
+        return (unsigned int)PagesFromHiberFile;
+LABEL_121:
+      *v91 = 1;
+      return (unsigned int)PagesFromHiberFile;
+    }
+    if ( (int)v9 > 62 )
+    {
+      if ( (_DWORD)v9 == 63 )
+      {
+        if ( !a4 )
+          return (unsigned int)-1073741811;
+        v45 = ExAllocatePoolWithTag((POOL_TYPE)(v9 - 63 + 1), (unsigned int)(v9 - 63 + 8), 0x206D654Du);
+        if ( !v45 )
+          return (unsigned int)-1073741670;
+        *v45 = &SshpRoutineBlock;
+        *a5 = v45;
+        *a6 = 8;
+        goto LABEL_106;
+      }
+      if ( (_DWORD)v9 != 64 )
+      {
+        if ( (_DWORD)v9 == 65 )
+        {
+          if ( (_DWORD)v11 != 16 )
+            return (unsigned int)-1073741811;
+          v89 = *(_QWORD *)(v8 + 8);
+          if ( !v89 )
+            return (unsigned int)-1073741811;
+          PagesFromHiberFile = PopFxClearDeviceConstraints(v89);
+          v31 = 0;
+          if ( PagesFromHiberFile < 0 )
+            return (unsigned int)PagesFromHiberFile;
+          return v31;
+        }
+        if ( (_DWORD)v9 == 66 )
+          return (unsigned int)-1073741637;
+        if ( (_DWORD)v9 != 67 )
+          return (unsigned int)-1073741811;
+        *a6 = 0;
+        *a5 = 0LL;
+        v88 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x206D654Du);
+        if ( !v88 )
+          return (unsigned int)-1073741670;
+        *v88 = 0;
+        *v88 = PopDisableInboxPepGeneratedConstraintsOverride;
+        *a5 = v88;
+        *a6 = 4;
         return 0;
       }
-      v118 = v9 - 83;
-      if ( !v118 )
+      goto LABEL_342;
+    }
+    if ( (_DWORD)v9 == 62 )
+    {
+      if ( !a4 )
+        return (unsigned int)-1073741789;
+      v86 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x206D654Du);
+      if ( !v86 )
+        return (unsigned int)-1073741670;
+      v87 = PopLastBootSucceeded;
+LABEL_297:
+      *v86 = v87;
+      *a5 = v86;
+      *a6 = 1;
+      goto LABEL_106;
+    }
+LABEL_73:
+    if ( (_DWORD)v9 != 56 )
+    {
+      if ( (_DWORD)v9 == 57 )
       {
-        if ( (_DWORD)v11 != 16 || !v10 || a6 || a5 )
+        if ( a4 )
           return (unsigned int)-1073741811;
-        return (unsigned int)PopAdaptiveSetSystemInitiatedRebootTargetStateOverride(v10);
+        return (unsigned int)PopPlRegisterPowerPlane(v8, v11, a3);
       }
-      v119 = v118 - 1;
-      if ( v119 )
+      else if ( (_DWORD)v9 == 58 )
       {
-        v120 = v119 - 1;
-        if ( v120 )
+        if ( (unsigned int)v11 < 0x18 )
+          return (unsigned int)-1073741811;
+        return (unsigned int)PoDirectedDripsSetDeviceFlags(*(_QWORD *)(v8 + 8), *(_DWORD *)(v8 + 16));
+      }
+      else
+      {
+        if ( (_DWORD)v9 != 59 )
         {
-          v121 = v120 - 1;
-          if ( !v121 )
+          if ( (_DWORD)v9 == 60 )
           {
-            if ( (unsigned int)v11 < 8 || !a5 )
+            if ( !a4 )
               return (unsigned int)-1073741789;
-            v128 = (_DWORD *)ExAllocatePool2(256LL, 8LL, 544040269LL);
-            if ( !v128 )
-              return (unsigned int)-1073741670;
-            *v128 = ExBootAppErrorDiagCode;
-            v128[1] = ExBootAppFailureStatus;
-            *a7 = (__int64)v128;
-            *a8 = 8;
-            goto LABEL_208;
+            PopAcquireTransitionLock(8LL);
+            PagesFromHiberFile = PopReadResumeContext(v93, &v95);
+            PopReleaseTransitionLock(8LL);
+            if ( PagesFromHiberFile < 0 )
+              return (unsigned int)PagesFromHiberFile;
+            *a5 = v95;
+            *a6 = v93[0];
           }
-          v122 = v121 - 1;
-          if ( !v122 )
+          else
           {
-            if ( !v10 || (_DWORD)v11 != 24 || a5 )
+            if ( (_DWORD)v9 != 61 || (unsigned int)v11 < 0xC )
               return (unsigned int)-1073741811;
-            return (unsigned int)PopShutdownListenerRemoveCallback(v10);
-          }
-          v123 = v122 - 1;
-          if ( !v123 )
-            return (unsigned int)PopManageTransitionRecordRequest(a1, v10, (unsigned int)v11);
-          v124 = v123 - 1;
-          if ( !v124 )
-          {
-            if ( !a5 || a6 != 20 )
+            if ( !a4 )
               return (unsigned int)-1073741789;
-            PopAcquirePolicyLock(a1);
-            PagesFromHiberFile = 0;
-            if ( byte_140C3DAD3 )
+            PopAcquireTransitionLock(8LL);
+            PagesFromHiberFile = PopReadPagesFromHiberFile(*(unsigned int *)(v8 + 8), 1LL, a5);
+            PopReleaseTransitionLock(8LL);
+            if ( PagesFromHiberFile < 0 )
             {
-              v127 = ExAllocatePool2(256LL, 20LL, 544040269LL);
-              if ( v127 )
+              *a5 = 0LL;
+              return (unsigned int)PagesFromHiberFile;
+            }
+            *a6 = 4096;
+          }
+          *v91 = 1;
+          return 0;
+        }
+        if ( (unsigned int)v11 < 0x18 )
+          return (unsigned int)-1073741811;
+        return (unsigned int)PoDirectedDripsClearDeviceFlags(*(_QWORD *)(v8 + 8), *(_DWORD *)(v8 + 16));
+      }
+    }
+    goto LABEL_342;
+  }
+  if ( (_DWORD)v9 == 38 )
+    goto LABEL_58;
+  if ( (int)v9 > 22 )
+  {
+    if ( (int)v9 > 29 )
+    {
+      if ( (_DWORD)v9 != 30 )
+      {
+        if ( (int)v9 > 32 )
+        {
+          if ( (_DWORD)v9 == 33 )
+            return (unsigned int)-1073741637;
+          if ( (int)v9 > 35 )
+          {
+            if ( (_DWORD)v9 != 36 )
+            {
+              if ( (unsigned int)v11 < 8 || !a4 )
+                return (unsigned int)-1073741789;
+              v71 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x206D654Du);
+              if ( !v71 )
+                return (unsigned int)-1073741670;
+              *v71 = qword_140C23A44;
+              *a5 = v71;
+              *a6 = 4;
+              goto LABEL_106;
+            }
+LABEL_238:
+            if ( PopIsRunningInVm() )
+            {
+              if ( (unsigned int)v11 >= 0xC )
               {
-                *(_OWORD *)v127 = PopAcpiTimeAndAlarmCapabilities;
-                v46 = (unsigned int)dword_140C3A510;
-                *(_DWORD *)(v127 + 16) = dword_140C3A510;
-                *a7 = v127;
-                *a8 = 20;
-                *a9 = 1;
+                if ( !a4 )
+                {
+                  v72 = *(_BYTE *)(v8 + 8);
+                  PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
+                  PopEsEnabledOnHost = v72;
+                  PopReleaseRwLock((ULONG_PTR)&PopEsLock);
+                  PopEsQueueStateEvaluation(0LL);
+                  return 0;
+                }
+                return (unsigned int)-1073741811;
+              }
+              return (unsigned int)-1073741789;
+            }
+            return (unsigned int)-1073741637;
+          }
+        }
+LABEL_58:
+        if ( (_DWORD)v11 != 24 )
+          return (unsigned int)-1073741811;
+        if ( a4 )
+        {
+          v74 = *(_DWORD *)(v8 + 8);
+          if ( !v74 )
+            return (unsigned int)-1073741811;
+          v29 = 4LL * v74;
+          if ( v29 > 0xFFFFFFFF )
+            return (unsigned int)-1073741675;
+          P = ExAllocatePoolWithTag(PagedPool, (unsigned int)v29, 0x206D654Du);
+          v28 = P;
+          if ( !P )
+            return (unsigned int)-1073741670;
+        }
+        else
+        {
+          v28 = P;
+          LODWORD(v29) = 0;
+        }
+        switch ( (_DWORD)v9 )
+        {
+          case 0x1F:
+            if ( !*(_DWORD *)(v8 + 8) )
+              goto LABEL_251;
+            v30 = PopBootStatGet(v8, v28);
+            break;
+          case 0x20:
+            if ( *(_DWORD *)(v8 + 8) )
+            {
+              v30 = PopBootStatSet(v8, v28);
+              break;
+            }
+LABEL_251:
+            PagesFromHiberFile = -1073741811;
+LABEL_114:
+            v10 = (unsigned __int64)P;
+LABEL_69:
+            if ( !v10 )
+              return (unsigned int)PagesFromHiberFile;
+            v58 = 0;
+LABEL_168:
+            ExFreePoolWithTag((PVOID)v10, v58);
+            return (unsigned int)PagesFromHiberFile;
+          case 0x22:
+            if ( !*(_DWORD *)(v8 + 8) )
+              goto LABEL_251;
+            v30 = PopBootStatCheckIntegrity(v8);
+            break;
+          case 0x23:
+            v30 = PopBootStatRestoreDefaults();
+            break;
+          default:
+            v30 = PopBootStatUnlock();
+            break;
+        }
+        PagesFromHiberFile = v30;
+        if ( v30 >= 0 )
+        {
+          if ( v28 )
+          {
+            v75 = v91;
+            v10 = 0LL;
+            *a5 = v28;
+            *a6 = v29;
+            *v75 = 1;
+          }
+          else
+          {
+            v10 = (unsigned __int64)P;
+          }
+          PagesFromHiberFile = 0;
+          goto LABEL_69;
+        }
+        goto LABEL_114;
+      }
+      if ( (unsigned int)v11 < 8 || !a4 )
+        return (unsigned int)-1073741789;
+      v73 = ExAllocatePoolWithTag(PagedPool, 3uLL, 0x206D654Du);
+      if ( !v73 )
+        return (unsigned int)-1073741670;
+      v73[2] = 0;
+      *v73 = PpmPerfQosSupportedAndConfigured;
+      v73[1] = PpmPerfSchedulerDirectedPerfStatesSupported;
+      v73[2] = PpmPerfQosGroupPolicyDisable != 0;
+      *a5 = v73;
+      *a6 = 3;
+LABEL_106:
+      *a7 = 1;
+      return 0;
+    }
+    if ( (_DWORD)v9 == 29 )
+    {
+      if ( (unsigned int)v11 < 8 || !a4 )
+        return (unsigned int)-1073741789;
+      v66 = ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x206D654Du);
+      if ( !v66 )
+        return (unsigned int)-1073741670;
+      *v66 = 0LL;
+      v66[1] = 0LL;
+      v66[2] = 0LL;
+      *v66 = PopFirmwareResetReason;
+      v66[1] = xmmword_140C54380;
+      v67 = xmmword_140C54390;
+LABEL_197:
+      v66[2] = v67;
+      *a5 = v66;
+      *a6 = 48;
+      goto LABEL_50;
+    }
+    v32 = v9 - 23;
+    if ( v32 )
+    {
+      v33 = v32 - 1;
+      if ( v33 )
+      {
+        v34 = v33 - 1;
+        if ( v34 )
+        {
+          v35 = v34 - 1;
+          if ( v35 )
+          {
+            v36 = v35 - 1;
+            if ( v36 )
+            {
+              if ( v36 == 1 && (_DWORD)v11 == 12 )
+              {
+                v93[1] = *(_DWORD *)(v8 + 8);
+                PopSetPowerSettingValueAcDc(&GUID_ADAPTIVE_INPUT_CONTROLLER_STATE);
+                return 0;
+              }
+              return (unsigned int)-1073741811;
+            }
+            if ( (unsigned int)v11 >= 0x10 )
+            {
+              if ( !a4 )
+              {
+                PopTransitionCheckpoint(*(unsigned int *)(v8 + 8), *(unsigned int *)(v8 + 12));
+                return 0;
+              }
+              return (unsigned int)-1073741811;
+            }
+          }
+          else if ( (unsigned int)v11 >= 0xC )
+          {
+            if ( a4 )
+              return (unsigned int)-1073741811;
+            PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
+            v68 = PpmPerfQosDisableRefcount;
+            if ( *(_BYTE *)(v8 + 8) )
+            {
+              if ( PpmPerfQosDisableRefcount == -1 )
+              {
+                PagesFromHiberFile = -1073741675;
               }
               else
               {
-                PagesFromHiberFile = -1073741670;
+                v68 = PpmPerfQosDisableRefcount + 1;
+                PagesFromHiberFile = 0;
+                ++PpmPerfQosDisableRefcount;
               }
+              v69 = v68 == 1;
             }
             else
             {
-              PagesFromHiberFile = -1073741637;
+              if ( PpmPerfQosDisableRefcount )
+              {
+                v68 = PpmPerfQosDisableRefcount - 1;
+                PagesFromHiberFile = 0;
+                --PpmPerfQosDisableRefcount;
+              }
+              else
+              {
+                PagesFromHiberFile = -1073741637;
+              }
+              v69 = v68 == 0;
             }
-            goto LABEL_125;
-          }
-          v125 = v124 - 1;
-          if ( !v125 )
-          {
-            if ( !v10 || (unsigned int)v11 < 0x14 || a5 && a6 )
-              return (unsigned int)-1073741811;
-            return (unsigned int)PopSuspendResumeInvocation(v10);
-          }
-          if ( v125 != 1 )
-            return (unsigned int)-1073741811;
-          if ( !a5 || a6 < 0x24 )
-            return (unsigned int)-1073741789;
-          v126 = (_DWORD *)ExAllocatePool2(256LL, 36LL, 544040269LL);
-          v31 = (__int64)v126;
-          if ( !v126 )
-            return (unsigned int)-1073741670;
-          PagesFromHiberFile = PopGetEnergyEstimationInfo(v126);
-          if ( PagesFromHiberFile >= 0 )
-          {
-            *a7 = v31;
-            PagesFromHiberFile = 0;
-            *a8 = 36;
-            *a9 = 1;
+            if ( v69 )
+              PpmPerfUpdateDomainPolicy();
+            else
+              PpmReleaseLock(&PpmPerfPolicyLock);
             return (unsigned int)PagesFromHiberFile;
           }
-LABEL_82:
-          v32 = 544040269;
-          v33 = (void *)v31;
-LABEL_83:
-          ExFreePoolWithTag(v33, v32);
-          return (unsigned int)PagesFromHiberFile;
         }
-        if ( !a5 )
+        else if ( (unsigned int)v11 >= 0xC )
+        {
+          if ( !a4 )
+          {
+            if ( *(_BYTE *)(v8 + 8) )
+              PopScreenOn();
+            else
+              PopScreenOff(30LL, a2);
+            return 0;
+          }
           return (unsigned int)-1073741811;
-        v39 = 88;
-        v31 = ExAllocatePool2(256LL, 88LL, 544040269LL);
-        if ( !v31 )
-          return (unsigned int)-1073741670;
-        v129 = 85LL;
+        }
+        return (unsigned int)-1073741789;
       }
-      else
+      if ( (unsigned int)v11 < 0x28 )
+        return (unsigned int)-1073741789;
+      if ( a4 )
+        return (unsigned int)-1073741811;
+      v70 = *(_DWORD *)(v8 + 12);
+      if ( PopVideoHighPrecisionBrightnessEnabled
+        || v70 != -1
+        && (PopVideoHighPrecisionBrightnessEnabled = 1,
+            ZwUpdateWnfStateData(
+              (__int64)&WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
+              (__int64)&PopVideoHighPrecisionBrightnessEnabled),
+            PopDiagTraceEventNoPayload(&POP_ETW_EVENT_BASIC_BRIGHTNESS_ENGINE_OFF),
+            PopVideoHighPrecisionBrightnessEnabled) )
       {
-        if ( !a5 )
-          return (unsigned int)-1073741811;
-        v39 = 160;
-        v31 = ExAllocatePool2(256LL, 160LL, 544040269LL);
-        if ( !v31 )
-          return (unsigned int)-1073741670;
-        v129 = 84LL;
+        if ( v70 == -1 )
+          return (unsigned int)-1073741637;
       }
-      FanNoiseInfo = PopFanReadFanNoiseInfo(v129, v31, v39);
+      v97[0] = *(_DWORD *)(v8 + 8);
+      v97[1] = *(_DWORD *)(v8 + 12);
+      v97[2] = *(_DWORD *)(v8 + 16);
+      v97[3] = *(_DWORD *)(v8 + 20);
+      v97[4] = *(_DWORD *)(v8 + 24);
+      v97[5] = *(_DWORD *)(v8 + 28);
+      v97[6] = *(_DWORD *)(v8 + 32);
+      v97[7] = *(_DWORD *)(v8 + 36);
+      PopBroadcastSessionInfo(4LL, 32LL, v97);
     }
     else
     {
-      if ( v9 != 72 )
-      {
-        if ( v9 <= 62 )
-        {
-          if ( v9 == 62 )
-          {
-            if ( !a5 )
-              return (unsigned int)-1073741789;
-            v83 = (char *)ExAllocatePool2(256LL, 1LL, 544040269LL);
-            if ( !v83 )
-              return (unsigned int)-1073741670;
-            v87 = PopDirtyTransitionDiagInfo;
-          }
-          else
-          {
-            if ( v9 > 57 )
-            {
-              v90 = v9 - 58;
-              if ( !v90 )
-              {
-                if ( (unsigned int)v11 < 0x18 )
-                  return (unsigned int)-1073741811;
-                return (unsigned int)PoDirectedDripsSetDeviceFlags(v10->m256i_i64[1], v10->m256i_i32[4]);
-              }
-              v91 = v90 - 1;
-              if ( !v91 )
-              {
-                if ( (unsigned int)v11 < 0x18 )
-                  return (unsigned int)-1073741811;
-                return (unsigned int)PoDirectedDripsClearDeviceFlags(v10->m256i_i64[1], v10->m256i_i32[4]);
-              }
-              v92 = v91 - 1;
-              if ( v92 )
-              {
-                if ( v92 != 1 )
-                  return (unsigned int)-1073741811;
-                goto LABEL_336;
-              }
-              if ( !a5 )
-                return (unsigned int)-1073741789;
-              PopAcquireTransitionLock(8LL);
-              PagesFromHiberFile = PopReadResumeContext(&v134, &v137);
-              PopReleaseTransitionLock(8LL);
-              if ( PagesFromHiberFile < 0 )
-                return (unsigned int)PagesFromHiberFile;
-              *a7 = v137;
-              *a8 = v134;
-LABEL_115:
-              *a9 = 1;
-              return 0;
-            }
-            if ( v9 == 57 )
-            {
-              if ( a5 )
-                return (unsigned int)-1073741811;
-              return (unsigned int)PopPlRegisterPowerPlane((__int64)v10, v11, a3);
-            }
-            if ( v9 != 50 )
-            {
-              if ( v9 == 51 )
-              {
-                if ( (_DWORD)a2 )
-                {
-                  if ( (_DWORD)a2 != 1 )
-                    return (unsigned int)-1073741811;
-                  if ( (unsigned int)v11 < 0x18 )
-                    return (unsigned int)-1073741789;
-                  v88 = v10->m256i_i64[2];
-                  v89 = v10->m256i_i64[1];
-                }
-                else
-                {
-                  if ( (unsigned int)v11 < 0x10 )
-                    return (unsigned int)-1073741789;
-                  v88 = v10->m256i_i64[1];
-                  v89 = v88;
-                }
-                PopWakeAlarmTimeOverrideAc = v89;
-                PopWakeAlarmTimeOverrideDc = v88;
-                return 0;
-              }
-              if ( v9 != 53 && v9 != 54 && v9 != 56 )
-                return (unsigned int)-1073741811;
-              goto LABEL_316;
-            }
-            if ( !a5 )
-              return (unsigned int)-1073741789;
-            v83 = (char *)ExAllocatePool2(256LL, 1LL, 544040269LL);
-            if ( !v83 )
-              return (unsigned int)-1073741670;
-            v87 = PopAutoChkCausedReboot;
-          }
-LABEL_296:
-          *v83 = v87;
-          *a7 = (__int64)v83;
-          *a8 = 1;
-LABEL_208:
-          *a9 = 1;
-          return 0;
-        }
-        switch ( v9 )
-        {
-          case '?':
-            if ( !a5 )
-              return (unsigned int)-1073741811;
-            v100 = (unsigned __int64)&SshpRoutineBlock & -(__int64)SSHSupportQueryIsLibraryEnabled();
-            if ( !v100 )
-              return (unsigned int)-1073741637;
-            v101 = (unsigned __int64 *)ExAllocatePool2(256LL, 8LL, 544040269LL);
-            if ( !v101 )
-              return (unsigned int)-1073741670;
-            *v101 = v100;
-            *a7 = (__int64)v101;
-            goto LABEL_180;
-          case '@':
-LABEL_316:
-            PagesFromHiberFile = PopDirectedDripsUmPowerInformationInternal(
-                                   v9,
-                                   v11,
-                                   (_DWORD)v10,
-                                   (_DWORD)a8,
-                                   (__int64)a7);
-            if ( PagesFromHiberFile < 0 || !*a7 )
-              return (unsigned int)PagesFromHiberFile;
-            goto LABEL_86;
-          case 'A':
-            if ( (_DWORD)v11 != 16 )
-              return (unsigned int)-1073741811;
-            v99 = v10->m256i_i64[1];
-            if ( !v99 )
-              return (unsigned int)-1073741811;
-            PagesFromHiberFile = PopFxClearDeviceConstraints(v99);
-            v29 = 0;
-            if ( PagesFromHiberFile < 0 )
-              return (unsigned int)PagesFromHiberFile;
-            return v29;
-          case 'B':
-            return (unsigned int)-1073741637;
-          case 'C':
-            *a8 = 0;
-            *a7 = 0LL;
-            v98 = (_DWORD *)ExAllocatePool2(256LL, 4LL, 544040269LL);
-            if ( !v98 )
-              return (unsigned int)-1073741670;
-            *v98 = PopDisableInboxPepGeneratedConstraintsOverride;
-            *a7 = (__int64)v98;
-            *a8 = 4;
-            return 0;
-          case 'D':
-            return PopIdleScanInterval == 0 ? 0xC00000BB : 0;
-        }
-        if ( v9 != 69 )
-        {
-          if ( v9 != 70 )
-          {
-            if ( (_DWORD)v11 == 12 )
-            {
-              v93 = v10->m256i_i8[8];
-              PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepReliabilityDiagLock);
-              if ( PopSleepReliabilityDetailedDiagEnabled != v93 )
-              {
-                LOBYTE(v94) = v93;
-                PopSleepReliabilityDetailedDiagEnabled = v93;
-                PopDiagTraceSleepReliabilityDiagConfigUpdate(v94);
-              }
-              PopReleaseRwLock((__int64 *)&PopSleepReliabilityDiagLock);
-              return 0;
-            }
-            return (unsigned int)-1073741811;
-          }
-          if ( (unsigned int)v11 < 0xC )
-            return (unsigned int)-1073741789;
-          if ( !a5 )
-            return (unsigned int)-1073741811;
-          v95 = (unsigned __int64 *)ExAllocatePool2(256LL, 8LL, 544040269LL);
-          v35 = (__int64)v95;
-          if ( !v95 )
-            return (unsigned int)-1073741670;
-          VmPerfConfig = PpmPerfGetVmPerfConfig(v10->m256i_i32[2], v95);
-          goto LABEL_282;
-        }
-        if ( !a5 )
-          return (unsigned int)-1073741811;
-        v96 = ExAllocatePool2(256LL, 20LL, 544040269LL);
-        v97 = v96;
-        if ( !v96 )
-          return (unsigned int)-1073741670;
-        PpmPerfGetVmPerfSupport(v96);
-        *a7 = v97;
-        *a8 = a6 < 0x14 ? 1 : 20;
-LABEL_69:
-        *a9 = 1;
-        return 0;
-      }
-      if ( !a5 )
-        return (unsigned int)-1073741811;
-      v39 = 2304;
-      v102 = ExAllocatePool2(256LL, 2304LL, 544040269LL);
-      v31 = v102;
-      if ( !v102 )
-        return (unsigned int)-1073741670;
-      FanNoiseInfo = PpmPerfGetFrequencyBandStats(v102);
-    }
-    PagesFromHiberFile = FanNoiseInfo;
-    if ( FanNoiseInfo >= 0 )
-    {
-LABEL_105:
-      *a7 = v31;
-      goto LABEL_106;
-    }
-    goto LABEL_82;
-  }
-  if ( v9 == 49 )
-  {
-    if ( !a5 )
-      return (unsigned int)-1073741789;
-    v25 = (char *)ExAllocatePool2(256LL, 1LL, 544040269LL);
-    if ( !v25 )
-      return (unsigned int)-1073741670;
-    PowerButtonBugcheckEnabled = PopQueryPowerButtonBugcheckEnabled();
-LABEL_68:
-    *v25 = PowerButtonBugcheckEnabled;
-    *a7 = (__int64)v25;
-    *a8 = 1;
-    goto LABEL_69;
-  }
-  if ( v9 > 29 )
-  {
-    if ( v9 <= 39 )
-    {
-      if ( v9 == 39 )
-      {
-        if ( (_DWORD)v11 != 12 )
-          return (unsigned int)-1073741811;
-        v27 = v130;
-        v130[0] = v10->m256i_i8[8];
-        v28 = &WNF_PO_WAKE_ON_VOICE_STATE;
-        return (unsigned int)ZwUpdateWnfStateData((__int64)v28, (__int64)v27);
-      }
-      if ( v9 == 30 )
-      {
-        if ( (unsigned int)v11 < 8 || !a5 )
-          return (unsigned int)-1073741789;
-        v70 = (_BYTE *)ExAllocatePool2(256LL, 3LL, 544040269LL);
-        if ( !v70 )
-          return (unsigned int)-1073741670;
-        *v70 = PpmPerfQosSupportedAndConfigured;
-        v70[1] = PpmPerfSchedulerDirectedPerfStatesSupported;
-        v70[2] = PpmPerfQosGroupPolicyDisable != 0;
-        *a7 = (__int64)v70;
-        *a8 = 3;
-      }
-      else
-      {
-        v63 = (unsigned int)(v9 - 31);
-        if ( v9 == 31 )
-          goto LABEL_198;
-        v63 = (unsigned int)(v9 - 32);
-        if ( v9 == 32 )
-          goto LABEL_198;
-        if ( v9 == 33 )
-          return (unsigned int)-1073741637;
-        v63 = (unsigned int)(v9 - 34);
-        if ( v9 == 34 )
-          goto LABEL_198;
-        v63 = (unsigned int)(v9 - 35);
-        if ( v9 == 35 )
-          goto LABEL_198;
-        if ( v9 == 36 )
-        {
-          if ( (unsigned int)v11 < 0xC )
-            return (unsigned int)-1073741789;
-          if ( a5 )
-            return (unsigned int)-1073741811;
-          v68 = v10->m256i_i8[8];
-          PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
-          PopEsEnabledOnHost = v68;
-          PopReleaseRwLock(&PopEsLock);
-          PopEsQueueStateEvaluation(0LL);
-          return 0;
-        }
-        v63 = (unsigned int)(v9 - 37);
-        if ( v9 != 37 )
-        {
-LABEL_198:
-          if ( (_DWORD)v11 != 24 )
-            return (unsigned int)-1073741811;
-          if ( a5 )
-          {
-            v64 = v10->m256i_u32[2];
-            if ( !v64 )
-              return (unsigned int)-1073741811;
-            v65 = 4LL * v64;
-            if ( v65 > 0xFFFFFFFF )
-              return (unsigned int)-1073741675;
-            v66 = 4 * v64;
-            v35 = ExAllocatePool2(256LL, (unsigned int)v65, 544040269LL);
-            if ( !v35 )
-              return (unsigned int)-1073741670;
-          }
-          else
-          {
-            v35 = v140;
-            v66 = 0;
-          }
-          switch ( v9 )
-          {
-            case 31:
-              if ( !v10->m256i_i32[2] )
-              {
-LABEL_217:
-                PagesFromHiberFile = -1073741811;
-LABEL_231:
-                if ( !v35 )
-                  return (unsigned int)PagesFromHiberFile;
-                v32 = 0;
-                goto LABEL_92;
-              }
-              v69 = PopBootStatGet((__int64)v10, v35);
-              break;
-            case 32:
-              if ( !v10->m256i_i32[2] )
-                goto LABEL_217;
-              v69 = PopBootStatSet(v10, v35, a3, 0LL);
-              break;
-            case 34:
-              if ( !v10->m256i_i32[2] )
-                goto LABEL_217;
-              v69 = PopBootStatCheckIntegrity(v10, a2, a3, 0LL);
-              break;
-            case 35:
-              v69 = PopBootStatRestoreDefaults(v63, a2, a3, 0LL);
-              break;
-            default:
-              v69 = PopBootStatUnlock(v63, a2, a3, 0LL);
-              break;
-          }
-          PagesFromHiberFile = v69;
-          if ( v69 < 0 )
-            goto LABEL_231;
-          if ( v35 )
-          {
-            *a7 = v35;
-            *a8 = v66;
-            *a9 = 1;
-          }
-          return 0;
-        }
-        if ( (unsigned int)v11 < 8 || !a5 )
-          return (unsigned int)-1073741789;
-        v67 = (_DWORD *)ExAllocatePool2(256LL, 4LL, 544040269LL);
-        if ( !v67 )
-          return (unsigned int)-1073741670;
-        *v67 = qword_140C3CE24;
-        *a7 = (__int64)v67;
-        *a8 = 4;
-      }
-      goto LABEL_208;
-    }
-    v71 = v9 - 40;
-    if ( !v71 )
-    {
-      if ( (_DWORD)v11 == 16 && !v10->m256i_i32[2] )
-      {
-        if ( v10->m256i_i8[12] )
-          PopDeepSleepSetDisengageReason(7u);
-        else
-          PopDeepSleepClearDisengageReason(7u);
-        return 0;
-      }
-      return (unsigned int)-1073741811;
-    }
-    v72 = v71 - 1;
-    if ( v72 )
-    {
-      v73 = v72 - 1;
-      if ( !v73 )
-      {
-        if ( (unsigned int)v11 < 8 || !a5 )
-          return (unsigned int)-1073741789;
-        v41 = (_OWORD *)ExAllocatePool2(256LL, 32LL, 544040269LL);
-        if ( !v41 )
-          return (unsigned int)-1073741670;
-        *v41 = PopBsdPowerTransitionExtensionAtBoot;
-        v42 = xmmword_140C6AED0;
-LABEL_114:
-        v41[1] = v42;
-        *a7 = (__int64)v41;
-        *a8 = 32;
-        goto LABEL_115;
-      }
-      v74 = v73 - 1;
-      if ( v74 )
-      {
-        v75 = v74 - 1;
-        if ( v75 )
-        {
-          v76 = v75 - 1;
-          if ( !v76 )
-          {
-            PagesFromHiberFile = 0;
-LABEL_261:
-            if ( (_DWORD)v11 != 12 )
-              return (unsigned int)-1073741811;
-            if ( v10->m256i_i8[8] )
-              PoUserShutdownInitiated();
-            else
-              PoUserShutdownCancelled();
-            return (unsigned int)PagesFromHiberFile;
-          }
-          v77 = v76 - 1;
-          if ( !v77 )
-          {
-            if ( (_DWORD)v11 != 32 || a5 )
-              return (unsigned int)-1073741811;
-            PopPowerRequestNotifyUserSessionAttributed(v10->m256i_u32[6], v10->m256i_i64[1], v10->m256i_i64[2]);
-            return 0;
-          }
-          v78 = v77 - 1;
-          if ( v78 )
-          {
-            if ( v78 != 1 )
-              return (unsigned int)-1073741811;
-            if ( (unsigned int)v11 < 0x10 )
-              return (unsigned int)-1073741789;
-            if ( a5 )
-              return (unsigned int)-1073741811;
-            if ( !v10->m256i_i32[1] )
-              return (unsigned int)PpmInternalPlatformIdleVeto(v10->m256i_u32[2], v10->m256i_i8[12]);
-          }
-          else
-          {
-            if ( (unsigned int)v11 < 0x14 )
-              return (unsigned int)-1073741789;
-            if ( a5 )
-              return (unsigned int)-1073741811;
-            if ( !v10->m256i_i32[1] )
-              return (unsigned int)PpmInternalProcessorIdleVeto(v10->m256i_u32[2], v10->m256i_u32[3], v10->m256i_i8[16]);
-          }
-          return (unsigned int)-1073741735;
-        }
-        if ( (unsigned int)v11 < 0x90 )
-          return (unsigned int)-1073741789;
-        if ( a5 )
-          return (unsigned int)-1073741811;
-        PagesFromHiberFile = RtlCheckTokenMembership(0LL, (void *)PopTimeBrokerServiceSid, v130);
-        if ( PagesFromHiberFile < 0 )
-          return (unsigned int)PagesFromHiberFile;
-        if ( !v130[0] )
-          return (unsigned int)-1073741790;
-        if ( !PopPlatformAoAc )
-          return (unsigned int)-1073741637;
-        PagesFromHiberFile = RtlStringCbLengthW(&v10->m256i_u16[4], 0x80uLL, &pcbLength);
-        if ( PagesFromHiberFile < 0 )
-          return (unsigned int)PagesFromHiberFile;
-        v80 = v10[4].m256i_i64[1];
-        if ( pcbLength )
-        {
-          if ( !v80 )
-            return (unsigned int)-1073741811;
-        }
-        else if ( v80 )
-        {
-          return (unsigned int)-1073741811;
-        }
-        PopAcquirePolicyLock(v79);
-        PopTimeBrokerExpirationReason = 0;
-        PagesFromHiberFile = RtlStringCbCopyW(&PopTimeBrokerExpirationReason, 0x80uLL, &v10->m256i_u16[4]);
-        PopTimeBrokerExpirationDueTime = v10[4].m256i_i64[1];
-        goto LABEL_125;
-      }
-      if ( (((_DWORD)v11 - 8) & 0xFFFFFFFB) != 0 )
-        return (unsigned int)-1073741811;
-      if ( !a5 )
-        return (unsigned int)-1073741789;
-      v35 = ExAllocatePool2(256LL, 8LL, 544040269LL);
-      if ( !v35 )
-        return (unsigned int)-1073741670;
-      v81 = (struct _PROCESSOR_NUMBER *)&v10->m256i_u64[1];
       if ( (_DWORD)v11 != 12 )
-        v81 = 0LL;
-      VmPerfConfig = PpmPerfGetBrandedFrequency(v81);
-LABEL_282:
-      PagesFromHiberFile = VmPerfConfig;
-      if ( VmPerfConfig >= 0 )
-      {
-        *a7 = v35;
-LABEL_85:
-        *a8 = 8;
-        goto LABEL_86;
-      }
-      goto LABEL_91;
+        return (unsigned int)-1073741811;
+      LOBYTE(v10) = *(_BYTE *)(v8 + 8);
+      PopUpdateExternalDisplayState(v10);
     }
-    if ( (_DWORD)v11 != 16 )
-      return (unsigned int)-1073741811;
-    if ( !a5 )
-      return (unsigned int)-1073741789;
-    v83 = (char *)ExAllocatePool2(256LL, 1LL, 544040269LL);
-    if ( !v83 )
-      return (unsigned int)-1073741670;
-    v84 = v10->m256i_i64[1];
-    if ( !v84
-      || (v85 = *(_QWORD *)(*(_QWORD *)(v84 + 312) + 40LL)) == 0
-      || (v86 = *(_QWORD *)(v85 + 80)) == 0
-      || (v57 = *(_QWORD *)(v86 + 64) == 0LL, v87 = 1, v57) )
-    {
-      v87 = 0;
-    }
-    goto LABEL_296;
+    return 0;
   }
-  if ( v9 == 29 )
+  if ( (_DWORD)v9 == 22 )
   {
-    if ( (unsigned int)v11 < 8 || !a5 )
+    if ( (unsigned int)v11 < 8 || !a4 )
       return (unsigned int)-1073741789;
-    v62 = (_OWORD *)ExAllocatePool2(256LL, 48LL, 544040269LL);
-    if ( !v62 )
+    v66 = ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x206D654Du);
+    if ( !v66 )
       return (unsigned int)-1073741670;
-    *v62 = PopFirmwareResetReason;
-    v62[1] = xmmword_140C6AF10;
-    v62[2] = xmmword_140C6AF20;
-    *a7 = (__int64)v62;
-    *a8 = 48;
-    goto LABEL_115;
+    *v66 = 0LL;
+    v66[1] = 0LL;
+    v66[2] = 0LL;
+    *v66 = PopBsdPhysicalPowerButtonInfoAtBoot;
+    v66[1] = xmmword_140C54310;
+    v67 = xmmword_140C54320;
+    goto LABEL_197;
   }
-  if ( v9 <= 19 )
+  if ( (int)v9 <= 6 )
   {
-    if ( v9 != 19 )
+    if ( (_DWORD)v9 != 6 )
     {
-      if ( v9 <= 5 )
+      if ( !(_DWORD)v9 )
       {
-        if ( v9 == 5 )
-        {
-          if ( (unsigned int)v11 < 0xC )
-            return (unsigned int)-1073741789;
-          if ( a5 )
-            return (unsigned int)-1073741811;
-          PoLatencySensitivityHint(v10->m256i_i32[2]);
-          return 0;
-        }
-        if ( v9 )
-        {
-          v22 = v9 - 1;
-          if ( v22 )
-          {
-            v23 = v22 - 1;
-            if ( v23 )
-            {
-              v24 = v23 - 1;
-              if ( v24 )
-              {
-                if ( v24 != 1 )
-                  return (unsigned int)-1073741811;
-                if ( (unsigned int)v11 < 8 || !a5 )
-                  return (unsigned int)-1073741789;
-                v25 = (char *)ExAllocatePool2(256LL, 1LL, 544040269LL);
-                if ( !v25 )
-                  return (unsigned int)-1073741670;
-                if ( !PopPlatformAoAc || (v57 = RtlIsMultiSessionSku() == 0, PowerButtonBugcheckEnabled = 1, v57) )
-                  PowerButtonBugcheckEnabled = 0;
-                goto LABEL_68;
-              }
-              if ( (unsigned int)v11 < 0x10 )
-                return (unsigned int)-1073741789;
-              if ( a5 || (PopSimulate & 1) == 0 )
-                return (unsigned int)-1073741811;
-              PopUpdateSmartUserPresencePredictions(v10->m256i_i64[1], 0LL);
-              return 0;
-            }
-            PopVideoInitialized = 1;
-            v27 = &PopVideoInitialized;
-            v28 = &WNF_PO_VIDEO_INITIALIALIZED;
-            return (unsigned int)ZwUpdateWnfStateData((__int64)v28, (__int64)v27);
-          }
-          if ( !a5 )
-            return (unsigned int)-1073741789;
-          v30 = ExAllocatePool2(256LL, 8LL, 544040269LL);
-          v31 = v30;
-          if ( !v30 )
-            return (unsigned int)-1073741670;
-          PagesFromHiberFile = PopS0LowPowerIdleInfo(v30);
-          if ( PagesFromHiberFile < 0 )
-            goto LABEL_82;
-          *a7 = v31;
-          goto LABEL_85;
-        }
-        if ( (unsigned int)v11 < 0x20 || !a5 )
+        if ( (unsigned int)v11 < 0x20 || !a4 )
           return (unsigned int)-1073741789;
-        v34 = ExAllocatePool2(256LL, 16LL, 544040269LL);
-        v35 = v34;
-        if ( !v34 )
+        v48 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x206D654Du);
+        v49 = v48;
+        if ( !v48 )
           return (unsigned int)-1073741670;
-        PagesFromHiberFile = PopFxPlatformRegisterInterface(v10, v34);
+        PagesFromHiberFile = PopFxPlatformRegisterInterface(v8, v48);
         if ( PagesFromHiberFile >= 0 )
         {
-          *a7 = v35;
-          *a8 = 16;
-          goto LABEL_86;
+          *a5 = v49;
+          *a6 = 16;
+          goto LABEL_121;
         }
-        goto LABEL_91;
+        goto LABEL_167;
       }
-      v36 = v9 - 6;
-      if ( !v36 )
-      {
-        if ( (unsigned int)v11 < 0xC )
-          return (unsigned int)-1073741789;
-        if ( a5 )
-          return (unsigned int)-1073741811;
-        LOBYTE(a1) = v10->m256i_i8[8];
-        return (unsigned int)PopNetUpdateStandbyRequest(a1);
-      }
-      v37 = v36 - 1;
+      v37 = v9 - 1;
       if ( v37 )
       {
         v38 = v37 - 1;
         if ( v38 )
         {
-          if ( v38 != 10 )
-            return (unsigned int)-1073741811;
-          if ( PopPlatformAoAc )
+          v39 = v38 - 1;
+          if ( !v39 )
           {
-            if ( !a5 )
-              return (unsigned int)-1073741789;
-            v39 = 1000;
-            v40 = ExAllocatePool2(256LL, 1000LL, 544040269LL);
-            v31 = v40;
-            if ( !v40 )
-              return (unsigned int)-1073741670;
-            PagesFromHiberFile = PopQueryBootSessionStandbyActivationInfo(v40);
-            if ( PagesFromHiberFile < 0 )
-              return (unsigned int)PagesFromHiberFile;
-            goto LABEL_105;
+            if ( (unsigned int)v11 >= 0x10 )
+            {
+              if ( !a4 && (PopSimulate & 1) != 0 )
+              {
+                PopUpdateSmartUserPresencePredictions(*(_QWORD *)(v8 + 8), 0LL);
+                return 0;
+              }
+              return (unsigned int)-1073741811;
+            }
+            return (unsigned int)-1073741789;
           }
-          return (unsigned int)-1073741637;
+          v40 = v39 - 1;
+          if ( v40 )
+          {
+            if ( v40 != 1 )
+              return (unsigned int)-1073741811;
+            if ( (unsigned int)v11 >= 0xC )
+            {
+              if ( !a4 )
+              {
+                PoLatencySensitivityHint(*(_DWORD *)(v8 + 8));
+                return 0;
+              }
+              return (unsigned int)-1073741811;
+            }
+            return (unsigned int)-1073741789;
+          }
+          if ( (unsigned int)v11 < 8 || !a4 )
+            return (unsigned int)-1073741789;
+          v43 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x206D654Du);
+          if ( !v43 )
+            return (unsigned int)-1073741670;
+          if ( !PopPlatformAoAc || (v69 = RtlIsMultiSessionSku(v42, v41) == 0, PowerButtonBugcheckEnabled = 1, v69) )
+            PowerButtonBugcheckEnabled = 0;
+LABEL_101:
+          *v43 = PowerButtonBugcheckEnabled;
+          *a5 = v43;
+          *a6 = 1;
+          *a7 = 1;
+          return 0;
         }
-        if ( (unsigned int)v11 < 8 )
-          return (unsigned int)-1073741789;
-        if ( a5 )
-          return (unsigned int)-1073741811;
-        LOBYTE(a1) = v10->m256i_i8[8];
-        return (unsigned int)PopUpdateBackgroundCoolingStatus(a1);
+        PopVideoInitialized = 1;
+        v46 = &PopVideoInitialized;
+        v47 = &WNF_PO_VIDEO_INITIALIALIZED;
+        return (unsigned int)ZwUpdateWnfStateData((__int64)v47, (__int64)v46);
       }
-      if ( (unsigned int)v11 < 8 || !a5 )
+      if ( !a4 )
         return (unsigned int)-1073741789;
-      v41 = (_OWORD *)ExAllocatePool2(256LL, 32LL, 544040269LL);
-      if ( !v41 )
+      v55 = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x206D654Du);
+      v49 = v55;
+      if ( !v55 )
         return (unsigned int)-1073741670;
-      *v41 = PopBsdPowerTransitionAtBoot;
-      v42 = xmmword_140C6AEF0;
-      goto LABEL_114;
-    }
-    if ( (_DWORD)v11 != 20 || a5 )
-      return (unsigned int)-1073741811;
-    LOBYTE(a2) = v10->m256i_i8[12];
-    TtmNotifySessionPowerStateChange(v10->m256i_u32[2], a2);
-    v43 = v10->m256i_u8[12];
-    PopAcquirePolicyLock(v44);
-    if ( v10->m256i_i8[13] )
-    {
-      PopSetDisplayStatus((_BYTE)v43 != 0);
-      PopUpdateConsoleDisplayState((_BYTE)v43 != 0);
-      if ( (_BYTE)v43 )
-        PopPowerAggregatorNotifyDisplayPoweredOn();
-    }
-    PopDiagTraceSessionDisplayStateChange(
-      v10->m256i_i8[12] == 0,
-      v10->m256i_i32[2],
-      v10->m256i_u8[13],
-      v10->m256i_i32[4]);
-    PagesFromHiberFile = 0;
-LABEL_125:
-    PopReleasePolicyLock(v46, v45, v47);
-    return (unsigned int)PagesFromHiberFile;
-  }
-  v48 = v9 - 20;
-  if ( !v48 )
-  {
-    if ( (_DWORD)v11 != 20 || a5 )
-      return (unsigned int)-1073741811;
-    LOBYTE(a3) = v10->m256i_i8[16];
-    TtmNotifySessionTerminalInput(v10->m256i_u32[2], v10->m256i_u32[3], a3);
-    return 0;
-  }
-  v49 = v48 - 1;
-  if ( !v49 )
-  {
-    if ( (unsigned int)v11 < 0x60 || !v10->m256i_i64[1] && !a5 )
-      return (unsigned int)-1073741789;
-    if ( v10->m256i_i32[6] == 412 )
-    {
-      if ( v10[2].m256i_i8[24] || !v10->m256i_i32[4] )
+      BrandedFrequency = PopS0LowPowerIdleInfo(v55);
+LABEL_165:
+      PagesFromHiberFile = BrandedFrequency;
+      if ( BrandedFrequency >= 0 )
       {
-        PopBsdPowerWatchdogArmed = 0;
+        *a5 = v49;
+        *a6 = 8;
+        goto LABEL_121;
       }
-      else
-      {
-        PopBsdLastPowerWatchdogStage = v10[1].m256i_i32[0];
-        PopBsdPowerWatchdogArmed = 1;
-      }
+LABEL_167:
+      v58 = 544040269;
+      v10 = (unsigned __int64)v49;
+      goto LABEL_168;
     }
-    v60 = 0LL;
-    if ( a5 )
-    {
-      v60 = (char **)ExAllocatePool2(256LL, 8LL, 544040269LL);
-      if ( !v60 )
-        return (unsigned int)-1073741670;
-    }
-    v61 = PopSetWatchdog((char *)v10->m256i_i64[1], &v10->m256i_u32[4], v10[2].m256i_i8[24]);
-    if ( !a5 )
-      return 0;
-    *v60 = v61;
-    *a7 = (__int64)v60;
-LABEL_180:
-    *a8 = 8;
-    goto LABEL_115;
-  }
-  v50 = v49 - 1;
-  if ( !v50 )
-  {
-    if ( (unsigned int)v11 < 8 || !a5 )
+    if ( (unsigned int)v11 < 0xC )
       return (unsigned int)-1073741789;
-    v59 = (_OWORD *)ExAllocatePool2(256LL, 64LL, 544040269LL);
-    if ( !v59 )
+    if ( a4 )
+      return (unsigned int)-1073741811;
+    LOBYTE(v10) = *(_BYTE *)(v8 + 8);
+    return (unsigned int)PopNetUpdateStandbyRequest(v10);
+  }
+  v13 = v9 - 7;
+  if ( !v13 )
+  {
+    if ( (unsigned int)v11 < 8 || !a4 )
+      return (unsigned int)-1073741789;
+    v50 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x206D654Du);
+    if ( !v50 )
       return (unsigned int)-1073741670;
-    *v59 = PopBsdPhysicalPowerButtonInfoAtBoot;
-    v59[1] = xmmword_140C6AE90;
-    v59[2] = xmmword_140C6AEA0;
-    v59[3] = xmmword_140C6AEB0;
-    *a7 = (__int64)v59;
-    *a8 = 64;
-    goto LABEL_115;
+    *v50 = 0LL;
+    v50[1] = 0LL;
+    *v50 = PopBsdPowerTransitionAtBoot;
+    v51 = xmmword_140C54360;
+    goto LABEL_126;
   }
-  v51 = v50 - 1;
-  if ( !v51 )
+  v14 = v13 - 1;
+  if ( !v14 )
   {
-    if ( (_DWORD)v11 != 12 )
-      return (unsigned int)-1073741811;
-    LOBYTE(a1) = v10->m256i_i8[8];
-    PopUpdateExternalDisplayState(a1);
-    return 0;
-  }
-  v52 = v51 - 1;
-  if ( !v52 )
-  {
-    if ( (unsigned int)v11 < 0x28 )
+    if ( (unsigned int)v11 < 8 )
       return (unsigned int)-1073741789;
-    if ( a5 )
+    if ( a4 )
       return (unsigned int)-1073741811;
-    v58 = v10->m256i_i32[3];
-    if ( PopVideoHighPrecisionBrightnessEnabled )
-    {
-      if ( v58 == -1 )
-        return (unsigned int)-1073741637;
-    }
-    else if ( v58 != -1 )
-    {
-      PopVideoHighPrecisionBrightnessEnabled = 1;
-      ZwUpdateWnfStateData(
-        (__int64)&WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
-        (__int64)&PopVideoHighPrecisionBrightnessEnabled);
-      PopDiagTraceEventNoPayload(&POP_ETW_EVENT_BASIC_BRIGHTNESS_ENGINE_OFF);
-    }
-    v141[0] = v10->m256i_i32[2];
-    v141[1] = v10->m256i_i32[3];
-    v141[2] = v10->m256i_i32[4];
-    v141[3] = v10->m256i_i32[5];
-    v141[4] = v10->m256i_i32[6];
-    v141[5] = v10->m256i_i32[7];
-    v141[6] = v10[1].m256i_i32[0];
-    v141[7] = v10[1].m256i_i32[1];
-    PopBroadcastSessionInfo(4LL, 32LL, v141);
-    return 0;
+    LOBYTE(v10) = *(_BYTE *)(v8 + 8);
+    return (unsigned int)PopUpdateBackgroundCoolingStatus(v10);
   }
-  v53 = v52 - 1;
-  if ( !v53 )
+  v15 = v14 - 10;
+  if ( !v15 )
   {
-    if ( (unsigned int)v11 >= 0xC )
+    if ( PopPlatformAoAc )
     {
-      if ( !a5 )
+      if ( a4 )
       {
-        if ( v10->m256i_i8[8] )
-          PopScreenOn(a1, a2, a3, 0LL);
-        else
-          PopScreenOff(30LL);
-        return 0;
+        v64 = ExAllocatePoolWithTag(PagedPool, 0x3B0uLL, 0x206D654Du);
+        v65 = v64;
+        if ( !v64 )
+          return (unsigned int)-1073741670;
+        PagesFromHiberFile = PopQueryBootSessionStandbyActivationInfo((__int64)v64);
+        if ( PagesFromHiberFile < 0 )
+          return (unsigned int)PagesFromHiberFile;
+        *a5 = v65;
+        *a6 = 944;
+        goto LABEL_121;
       }
-      return (unsigned int)-1073741811;
+      return (unsigned int)-1073741789;
     }
-    return (unsigned int)-1073741789;
+    return (unsigned int)-1073741637;
   }
-  v54 = v53 - 1;
-  if ( v54 )
+  v16 = v15 - 1;
+  if ( v16 )
   {
-    v55 = v54 - 1;
-    if ( v55 )
+    v17 = v16 - 1;
+    if ( v17 )
     {
-      if ( v55 != 1 || (_DWORD)v11 != 12 )
-        return (unsigned int)-1073741811;
-      LODWORD(v133) = v10->m256i_i32[2];
-      PopSetPowerSettingValueAcDc(&GUID_ADAPTIVE_INPUT_CONTROLLER_STATE, 4u, &v133);
+      if ( v17 == 1 )
+      {
+        if ( (unsigned int)v11 < 0x60 || !*(_QWORD *)(v8 + 8) && !a4 )
+          return (unsigned int)-1073741789;
+        if ( *(_DWORD *)(v8 + 24) == 412 )
+        {
+          if ( *(_BYTE *)(v8 + 88) || !*(_DWORD *)(v8 + 16) )
+          {
+            PopBsdPowerWatchdogArmed = 0;
+          }
+          else
+          {
+            PopBsdLastPowerWatchdogStage = *(_DWORD *)(v8 + 32);
+            PopBsdPowerWatchdogArmed = 1;
+          }
+        }
+        v18 = 0LL;
+        if ( a4 )
+        {
+          v18 = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x206D654Du);
+          if ( !v18 )
+            return (unsigned int)-1073741670;
+        }
+        v19 = PopSetWatchdog(*(char **)(v8 + 8), (unsigned int *)(v8 + 16), *(_BYTE *)(v8 + 88));
+        if ( !a4 )
+          return 0;
+        *v18 = v19;
+        *a5 = v18;
+        *a6 = 8;
+        goto LABEL_50;
+      }
     }
-    else
+    else if ( (_DWORD)v11 == 20 && !a4 )
     {
-      if ( (unsigned int)v11 < 0x10 )
-        return (unsigned int)-1073741789;
-      if ( a5 )
-        return (unsigned int)-1073741811;
-      PopTransitionCheckpoint(v10->m256i_i32[2], v10->m256i_i32[3]);
+      LOBYTE(a3) = *(_BYTE *)(v8 + 16);
+      TtmNotifySessionTerminalInput(*(unsigned int *)(v8 + 8), *(unsigned int *)(v8 + 12), a3);
+      return 0;
     }
-    return 0;
-  }
-  if ( (unsigned int)v11 < 0xC )
-    return (unsigned int)-1073741789;
-  if ( a5 )
     return (unsigned int)-1073741811;
-  PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-  v56 = PpmPerfQosDisableRefcount;
-  if ( v10->m256i_i8[8] )
-  {
-    if ( PpmPerfQosDisableRefcount == -1 )
-    {
-      PagesFromHiberFile = -1073741675;
-    }
-    else
-    {
-      v56 = PpmPerfQosDisableRefcount + 1;
-      PagesFromHiberFile = 0;
-      ++PpmPerfQosDisableRefcount;
-    }
-    v57 = v56 == 1;
   }
-  else
+  if ( (_DWORD)v11 != 20 || a4 )
+    return (unsigned int)-1073741811;
+  LOBYTE(a2) = *(_BYTE *)(v8 + 12);
+  TtmNotifySessionPowerStateChange(*(unsigned int *)(v8 + 8), a2);
+  v59 = *(_BYTE *)(v8 + 12);
+  PopAcquirePolicyLock(v60);
+  if ( *(_BYTE *)(v8 + 13) )
   {
-    if ( PpmPerfQosDisableRefcount )
-    {
-      PagesFromHiberFile = 0;
-      v56 = --PpmPerfQosDisableRefcount;
-    }
-    else
-    {
-      PagesFromHiberFile = -1073741637;
-    }
-    v57 = v56 == 0;
+    PopSetDisplayStatus(v59 != 0, v61);
+    PopUpdateConsoleDisplayState(v59 != 0);
+    if ( v59 )
+      PopPowerAggregatorNotifyDisplayPoweredOn();
   }
-  if ( v57 )
-    PpmPerfUpdateDomainPolicy(0);
-  else
-    PpmReleaseLock(&PpmPerfPolicyLock);
+  PopDiagTraceSessionDisplayStateChange(
+    *(_BYTE *)(v8 + 12) == 0,
+    *(_DWORD *)(v8 + 8),
+    *(unsigned __int8 *)(v8 + 13),
+    *(_DWORD *)(v8 + 16));
+  PagesFromHiberFile = 0;
+  PopReleasePolicyLock(v63, v62);
   return (unsigned int)PagesFromHiberFile;
 }

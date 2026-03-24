@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TryLookupPreCompiledBytecode@CommonRenderingShaderDesc@@SA?AV?$span@$$CBE$0?0@gsl@@AEBU1@@Z @ 0x1802AD414
+ * XREFs of ?TryLookupPreCompiledBytecode@CommonRenderingShaderDesc@@SA?AV?$span@$$CBE$0?0@gsl@@AEBU1@@Z @ 0x18026A658
  * Callers:
- *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180039660 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180050ED0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
  * Callees:
  *     <none>
  */
@@ -15,13 +15,13 @@ _QWORD *__fastcall CommonRenderingShaderDesc::TryLookupPreCompiledBytecode(_QWOR
   if ( *(_DWORD *)a2 == 1 )
   {
     *a1 = 800LL;
-    v2 = &unk_18035AE90;
+    v2 = &unk_1802DF050;
     goto LABEL_9;
   }
   if ( *(_DWORD *)a2 == 2 )
   {
     *a1 = 824LL;
-    v2 = &unk_18035AB50;
+    v2 = &unk_1802DF370;
     goto LABEL_9;
   }
   if ( *(_DWORD *)a2 != 5 )
@@ -32,7 +32,7 @@ LABEL_12:
     return a1;
   }
   *a1 = 856LL;
-  v2 = &unk_18035B1B0;
+  v2 = &unk_1802DF6B0;
 LABEL_9:
   a1[1] = v2;
   return a1;

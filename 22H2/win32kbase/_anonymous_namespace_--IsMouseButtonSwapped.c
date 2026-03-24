@@ -1,69 +1,55 @@
 /*
- * XREFs of _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C01F892C
+ * XREFs of _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C009CE78
  * Callers:
- *     ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C01F49B8 (--0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecializatio.c)
- *     ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C01F5C14 (-ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA-AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@.c)
+ *     ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C009CDA0 (--0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecializatio.c)
+ *     ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C01BF1C4 (-ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA-AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_sscc @ 0x1C01FBA04 (WPP_RECORDER_AND_TRACE_SF_sscc.c)
+ *     WPP_RECORDER_SF_sscc @ 0x1C01C2410 (WPP_RECORDER_SF_sscc.c)
  */
 
-bool __fastcall anonymous_namespace_::IsMouseButtonSwapped(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+bool __fastcall anonymous_namespace_::IsMouseButtonSwapped(int a1, unsigned __int8 a2)
 {
-  int v4; // r14d
-  int v5; // edi
-  int v7; // esi
-  bool v8; // bl
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  char v17; // cl
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  const char *v20; // r9
+  int v2; // r11d
+  int v4; // ebx
+  bool v5; // dl
+  char v7; // al
+  int v8; // ecx
+  char v9; // r10
+  int v10; // eax
+  const char *v11; // rcx
 
-  v4 = (unsigned __int8)a2;
-  v5 = a1;
+  v2 = a2;
   if ( (unsigned int)(a1 - 1) > 1 )
     return 0;
-  v7 = *((_DWORD *)gpsi + 497);
-  v8 = v7 != 0;
-  if ( *(_BYTE *)(SGDGetUserSessionState(a1, a2, a3, a4) + 15992) )
+  v4 = *((_DWORD *)gpsi + 497);
+  v5 = v4 != 0;
+  if ( gbSwapMouseButtonsDirty )
   {
-    v13 = SGDGetUserSessionState(v10, v9, v11, v12);
-    v17 = 16;
-    if ( v5 != 1 )
-      v17 = 4;
-    v18 = ((unsigned __int8)v17 & *(_BYTE *)(v13 + 13992)) != 0;
-    if ( (v4 ^ 1) == (_DWORD)v18 )
+    v7 = 16;
+    v8 = 0;
+    v9 = 4;
+    if ( a1 != 1 )
+      v7 = 4;
+    LOBYTE(v8) = (unsigned __int8)(v7 & gafAsyncKeyState) != 0;
+    if ( (v2 ^ 1) == v8 )
     {
-      v19 = SGDGetUserSessionState(v18, v14, v15, v16);
-      v14 = 16LL;
-      v18 = 4LL;
-      if ( v5 != 1 )
-        v18 = 16LL;
-      if ( v4 == (((unsigned __int8)v18 & *(_BYTE *)(v19 + 13992)) != 0) )
+      v10 = 0;
+      if ( a1 != 1 )
+        v9 = 16;
+      LOBYTE(v10) = (unsigned __int8)(v9 & gafAsyncKeyState) != 0;
+      if ( v2 == v10 )
       {
-        v18 = (__int64)WPP_GLOBAL_Control;
-        LOBYTE(v14) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(v15) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v14 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v20 = "Up";
-          if ( !(_BYTE)v4 )
-            v20 = "Down";
-          WPP_RECORDER_AND_TRACE_SF_sscc(WPP_GLOBAL_Control->AttachedDevice, v14, v15, (_DWORD)v20);
+          v11 = "Up";
+          if ( !(_BYTE)v2 )
+            v11 = "Down";
+          WPP_RECORDER_SF_sscc((_DWORD)v11, v4 == 0, a1, v4 != 0);
         }
-        v8 = v7 == 0;
+        v5 = v4 == 0;
       }
     }
-    *(_BYTE *)(SGDGetUserSessionState(v18, v14, v15, v16) + 15992) = 0;
+    gbSwapMouseButtonsDirty = 0;
   }
-  return v8;
+  return v5;
 }

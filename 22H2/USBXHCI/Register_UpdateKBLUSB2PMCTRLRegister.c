@@ -1,10 +1,10 @@
 /*
- * XREFs of Register_UpdateKBLUSB2PMCTRLRegister @ 0x1C003F090
+ * XREFs of Register_UpdateKBLUSB2PMCTRLRegister @ 0x1C003CE48
  * Callers:
- *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C0078288 (Controller_ExecuteKBLPowerTransitionWorkaround.c)
+ *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C00749BC (Controller_ExecuteKBLPowerTransitionWorkaround.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
  */
 
 __int64 __fastcall Register_UpdateKBLUSB2PMCTRLRegister(__int64 a1, unsigned __int8 a2)

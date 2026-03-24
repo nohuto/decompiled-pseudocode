@@ -1,21 +1,19 @@
 /*
- * XREFs of MiDereferenceSession @ 0x140693F68
+ * XREFs of MiDereferenceSession @ 0x1406B48A8
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
- *     MiSessionCreate @ 0x1407F3718 (MiSessionCreate.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
  * Callees:
- *     MiDereferenceSessionFinal @ 0x140693A28 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
  */
 
-unsigned __int64 MiDereferenceSession()
+__int64 MiDereferenceSession()
 {
   _KPROCESS *Process; // rbx
-  unsigned __int64 result; // rax
+  __int64 result; // rax
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  result = (unsigned int)_InterlockedExchangeAdd(
-                           (volatile signed __int32 *)Process[1].Affinity.StaticBitmap[25],
-                           0xFFFFFFFF);
+  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)Process[1].AffinityPadding[5], 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
     result = MiDereferenceSessionFinal();
   _InterlockedAnd((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0xFFFEFFFF);

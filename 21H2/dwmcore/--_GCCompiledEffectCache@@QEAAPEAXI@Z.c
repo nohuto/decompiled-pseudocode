@@ -1,60 +1,58 @@
 /*
- * XREFs of ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x18001A4E4
+ * XREFs of ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x180020060
  * Callers:
- *     ?GetShaderCache@CPassthroughEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x180031BCC (-GetShaderCache@CPassthroughEffect@@QEBAPEAVCCompiledEffectCache@@XZ.c)
- *     ??1CBrushRenderingGraph@@MEAA@XZ @ 0x1800356EC (--1CBrushRenderingGraph@@MEAA@XZ.c)
- *     ?GetShaderCache@CCustomKernelEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x1800C6C50 (-GetShaderCache@CCustomKernelEffect@@QEBAPEAVCCompiledEffectCache@@XZ.c)
- *     ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800EF78C (-Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ.c)
- *     ??1?$unique_ptr@VCCompiledEffectCache@@U?$default_delete@VCCompiledEffectCache@@@std@@@std@@QEAA@XZ @ 0x180100010 (--1-$unique_ptr@VCCompiledEffectCache@@U-$default_delete@VCCompiledEffectCache@@@std@@@std@@QEAA.c)
- *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x1801BF5DC (--1CEffectCompilationTask@@QEAA@XZ.c)
- *     ?GetShaderCache@CRadialGradientEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x1802ABE48 (-GetShaderCache@CRadialGradientEffect@@QEBAPEAVCCompiledEffectCache@@XZ.c)
- *     ?GetShaderCache@CProjectedShadowApproxBlurEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x1802AD1CC (-GetShaderCache@CProjectedShadowApproxBlurEffect@@QEBAPEAVCCompiledEffectCache@@XZ.c)
+ *     ?GetShaderCache@CProjectedShadowApproxBlurEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x18001D41C (-GetShaderCache@CProjectedShadowApproxBlurEffect@@QEBAPEAVCCompiledEffectCache@@XZ.c)
+ *     ??1CBrushRenderingGraph@@EEAA@XZ @ 0x180049D60 (--1CBrushRenderingGraph@@EEAA@XZ.c)
+ *     ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800DAAC0 (-Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ.c)
+ *     ??R?$default_delete@VCCompiledEffectCache@@@std@@QEBAXPEAVCCompiledEffectCache@@@Z @ 0x1800E6B54 (--R-$default_delete@VCCompiledEffectCache@@@std@@QEBAXPEAVCCompiledEffectCache@@@Z.c)
+ *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x180182E58 (--1CEffectCompilationTask@@QEAA@XZ.c)
+ *     ?GetShaderCache@CRadialGradientEffect@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x180269A68 (-GetShaderCache@CRadialGradientEffect@@QEBAPEAVCCompiledEffectCache@@XZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 CCompiledEffectCache *__fastcall CCompiledEffectCache::`scalar deleting destructor'(CCompiledEffectCache *this)
 {
   void *v2; // rcx
-  void *v3; // rcx
-  int v5; // esi
-  __int64 v6; // rdi
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  int v3; // esi
+  __int64 v4; // rdi
+  __int64 v5; // rax
+  CDrawListEntry *v6; // rcx
+  void *v7; // rcx
 
-  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((char *)this + 24);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((char *)this + 24);
   v2 = *(void **)this;
   if ( *(_QWORD *)this )
   {
-    v5 = 0;
+    v3 = 0;
     if ( *((int *)this + 4) > 0 )
     {
-      v6 = 0LL;
+      v4 = 0LL;
       do
       {
-        v7 = *((_QWORD *)this + 1);
-        v8 = *(_QWORD *)(v6 + v7);
-        if ( v8 )
+        v5 = *((_QWORD *)this + 1);
+        v6 = *(CDrawListEntry **)(v4 + v5);
+        if ( v6 )
         {
-          *(_QWORD *)(v6 + v7) = 0LL;
-          CMILRefCountBaseT<IMILRefCount>::InternalRelease(v8);
+          *(_QWORD *)(v4 + v5) = 0LL;
+          CDrawListEntry::Release(v6);
         }
-        ++v5;
-        v6 += 8LL;
+        ++v3;
+        v4 += 8LL;
       }
-      while ( v5 < *((_DWORD *)this + 4) );
+      while ( v3 < *((_DWORD *)this + 4) );
       v2 = *(void **)this;
     }
-    DefaultHeap::Free(v2);
+    operator delete(v2);
     *(_QWORD *)this = 0LL;
   }
-  v3 = (void *)*((_QWORD *)this + 1);
-  if ( v3 )
+  v7 = (void *)*((_QWORD *)this + 1);
+  if ( v7 )
   {
-    DefaultHeap::Free(v3);
+    operator delete(v7);
     *((_QWORD *)this + 1) = 0LL;
   }
   *((_DWORD *)this + 4) = 0;

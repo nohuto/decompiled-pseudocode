@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_E?$AutoBuffer@U_D3DDDI_MULTISAMPLINGMETHOD@@@DMM@@WBI@EAAPEAXI@Z @ 0x1C002D1C0
+ * XREFs of ??_E?$AutoBuffer@U_D3DDDI_MULTISAMPLINGMETHOD@@@DMM@@WBI@EAAPEAXI@Z @ 0x1C0029010
  * Callers:
  *     <none>
  * Callees:

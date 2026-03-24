@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpLogHypervisorSchedulerType @ 0x14054899C
+ * XREFs of HvlpLogHypervisorSchedulerType @ 0x1404F99D4
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpWriteEventLog @ 0x140548CA8 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpWriteEventLog @ 0x1404F9DB4 (HvlpWriteEventLog.c)
  */
 
 __int64 HvlpLogHypervisorSchedulerType()

@@ -1,19 +1,18 @@
 /*
- * XREFs of ?Create@CD3DConstantBuffer@@SAJPEAVCD3DDevice@@IW4D3D11_USAGE@@PEBXPEAPEAV1@@Z @ 0x18003B108
+ * XREFs of ?Create@CD3DConstantBuffer@@SAJPEAVCD3DDevice@@IW4D3D11_USAGE@@PEBXPEAPEAV1@@Z @ 0x18002BF9C
  * Callers:
- *     ?CreateResource@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@PEAPEAVCD3DConstantBuffer@@@Z @ 0x18003B0B8 (-CreateResource@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@PEAPEAVCD3DConstantBuffer@@@Z.c)
- *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x18028A70C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
+ *     ?CreateResource@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@PEAPEAVCD3DConstantBuffer@@@Z @ 0x18002BF4C (-CreateResource@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@PEAPEAVCD3DConstantBuffer@@@Z.c)
+ *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x180248B3C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
  * Callees:
- *     ?Initialize@CD3DConstantBuffer@@IEAAJPEAVCD3DResourceManager@@IPEAUID3D11Buffer@@@Z @ 0x18003B24C (-Initialize@CD3DConstantBuffer@@IEAAJPEAVCD3DResourceManager@@IPEAUID3D11Buffer@@@Z.c)
- *     ?CreateBuffer@CD3DDevice@@QEAAJAEBUD3D11_BUFFER_DESC@@PEBUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Buffer@@@Z @ 0x18003B328 (-CreateBuffer@CD3DDevice@@QEAAJAEBUD3D11_BUFFER_DESC@@PEBUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11B.c)
- *     ??0CD3DConstantBuffer@@IEAA@XZ @ 0x18003B38C (--0CD3DConstantBuffer@@IEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VIDeviceResource@@@@IEAAKXZ @ 0x1800EC208 (-InternalRelease@-$CMILRefCountBaseT@VIDeviceResource@@@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Initialize@CD3DConstantBuffer@@IEAAJPEAVCD3DResourceManager@@IPEAUID3D11Buffer@@@Z @ 0x18002C0D0 (-Initialize@CD3DConstantBuffer@@IEAAJPEAVCD3DResourceManager@@IPEAUID3D11Buffer@@@Z.c)
+ *     ?CreateBuffer@CD3DDevice@@QEAAJAEBUD3D11_BUFFER_DESC@@PEBUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Buffer@@@Z @ 0x18002C1A4 (-CreateBuffer@CD3DDevice@@QEAAJAEBUD3D11_BUFFER_DESC@@PEBUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11B.c)
+ *     ??0CD3DConstantBuffer@@IEAA@XZ @ 0x18002C200 (--0CD3DConstantBuffer@@IEAA@XZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CMILPoolResource@@UEAAKXZ @ 0x1800D52D0 (-Release@CMILPoolResource@@UEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DConstantBuffer::Create(
@@ -26,76 +25,78 @@ __int64 __fastcall CD3DConstantBuffer::Create(
   CD3DConstantBuffer *v8; // rax
   unsigned int v9; // ecx
   CD3DConstantBuffer *v10; // rbx
-  CD3DConstantBuffer *v11; // rax
-  CD3DConstantBuffer *v12; // rbx
-  int v13; // eax
+  volatile signed __int32 *v11; // rbx
+  int v12; // eax
+  unsigned int v13; // ecx
   unsigned int v14; // edi
-  int v16; // r9d
-  unsigned int v17; // [rsp+20h] [rbp-50h]
-  struct ID3D11Buffer *v18; // [rsp+30h] [rbp-40h] BYREF
-  const void *v19; // [rsp+38h] [rbp-38h] BYREF
-  int v20; // [rsp+40h] [rbp-30h]
-  int v21; // [rsp+44h] [rbp-2Ch]
-  D3D11_BUFFER_DESC v22; // [rsp+48h] [rbp-28h] BYREF
+  unsigned int v16; // [rsp+20h] [rbp-50h]
+  struct ID3D11Buffer *v17; // [rsp+30h] [rbp-40h] BYREF
+  const void *v18; // [rsp+38h] [rbp-38h] BYREF
+  int v19; // [rsp+40h] [rbp-30h]
+  int v20; // [rsp+44h] [rbp-2Ch]
+  struct D3D11_BUFFER_DESC v21; // [rsp+48h] [rbp-28h] BYREF
 
-  v18 = 0LL;
-  v8 = (CD3DConstantBuffer *)DefaultHeap::Alloc(0x80uLL);
+  v17 = 0LL;
+  v8 = (CD3DConstantBuffer *)DefaultHeap::Alloc(0x90uLL);
   v10 = v8;
-  if ( !v8 )
+  if ( v8 )
   {
-    v12 = 0LL;
-    goto LABEL_15;
-  }
-  memset_0(v8, 0, 0x80uLL);
-  v11 = CD3DConstantBuffer::CD3DConstantBuffer(v10);
-  v12 = v11;
-  if ( !v11 )
-  {
-LABEL_15:
-    v14 = -2147024882;
-    v16 = -2147024882;
-    v17 = 29;
-    goto LABEL_16;
-  }
-  CMILRefCountImpl::AddReference((CD3DConstantBuffer *)((char *)v11 + 16));
-  v22.MiscFlags = 0;
-  v22.StructureByteStride = 0;
-  v20 = 0;
-  v21 = 0;
-  v19 = a4;
-  v22.BindFlags = 4;
-  v22.ByteWidth = a2;
-  v22.Usage = D3D11_USAGE_DYNAMIC;
-  v22.CPUAccessFlags = 0x10000;
-  v13 = CD3DDevice::CreateBuffer(
-          this,
-          &v22,
-          (const struct D3D11_SUBRESOURCE_DATA *)((unsigned __int64)&v19 & -(__int64)(a4 != 0LL)),
-          &v18);
-  v14 = v13;
-  if ( v13 < 0 )
-  {
-    v17 = 49;
+    memset_0(v8, 0, 0x90uLL);
+    v11 = (volatile signed __int32 *)CD3DConstantBuffer::CD3DConstantBuffer(v10);
   }
   else
   {
-    v13 = CD3DConstantBuffer::Initialize(v12, (struct CD3DDevice *)((char *)this + 1104), a2, v18);
-    v14 = v13;
-    if ( v13 >= 0 )
-    {
-      *a5 = v12;
-      v12 = 0LL;
-      goto LABEL_6;
-    }
-    v17 = 51;
+    v11 = 0LL;
   }
-  v16 = v13;
-LABEL_16:
-  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v16, v17, 0LL);
-LABEL_6:
-  if ( v18 )
-    ((void (__fastcall *)(struct ID3D11Buffer *))v18->lpVtbl->Release)(v18);
-  if ( v12 )
-    CMILRefCountBaseT<IDeviceResource>::InternalRelease(v12);
+  if ( v11 )
+  {
+    _InterlockedIncrement(v11 + 2);
+    v21.MiscFlags = 0;
+    v21.StructureByteStride = 0;
+    v19 = 0;
+    v20 = 0;
+    v18 = a4;
+    v21.BindFlags = 4;
+    v21.ByteWidth = a2;
+    v21.Usage = D3D11_USAGE_DYNAMIC;
+    v21.CPUAccessFlags = 0x10000;
+    v12 = CD3DDevice::CreateBuffer(
+            this,
+            &v21,
+            (const struct D3D11_SUBRESOURCE_DATA *)((unsigned __int64)&v18 & -(__int64)(a4 != 0LL)),
+            &v17);
+    v14 = v12;
+    if ( v12 < 0 )
+    {
+      v16 = 49;
+    }
+    else
+    {
+      v12 = CD3DConstantBuffer::Initialize(
+              (CD3DConstantBuffer *)v11,
+              (struct CD3DDevice *)((char *)this + 1136),
+              a2,
+              v17);
+      v14 = v12;
+      if ( v12 >= 0 )
+      {
+        *a5 = (struct CD3DConstantBuffer *)v11;
+        v11 = 0LL;
+        goto LABEL_7;
+      }
+      v16 = 51;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, v16, 0LL);
+  }
+  else
+  {
+    v14 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x1Du, 0LL);
+  }
+LABEL_7:
+  if ( v17 )
+    ((void (__fastcall *)(struct ID3D11Buffer *))v17->lpVtbl->Release)(v17);
+  if ( v11 )
+    CMILPoolResource::Release((CMILPoolResource *)v11);
   return v14;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of xxxDesktopWndProc @ 0x1C0020C10
+ * XREFs of xxxDesktopWndProc @ 0x1C0046290
  * Callers:
- *     ?xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C00B7740 (-xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0128F90 (-xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
  * Callees:
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C0020C7C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00462FC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
  */
 
-__int64 __fastcall xxxDesktopWndProc(struct tagWND *a1, unsigned int a2, unsigned __int64 a3, __int64 a4)
+__int64 __fastcall xxxDesktopWndProc(__int64 a1, unsigned int a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx
   int v5; // edi
@@ -17,7 +17,7 @@ __int64 __fastcall xxxDesktopWndProc(struct tagWND *a1, unsigned int a2, unsigne
 
   v4 = 0LL;
   v5 = 0;
-  if ( *((_QWORD *)a1 + 13) )
+  if ( *(_QWORD *)(a1 + 104) )
   {
     v6 = *(_QWORD *)(gptiCurrent + 456LL);
     if ( v6 )
@@ -34,7 +34,7 @@ __int64 __fastcall xxxDesktopWndProc(struct tagWND *a1, unsigned int a2, unsigne
       }
     }
   }
-  result = xxxDesktopWndProcWorker(a1, a2, a3, a4);
+  result = xxxDesktopWndProcWorker((struct tagWND *)a1, a2, a3, a4);
   if ( v5 )
     --*(_DWORD *)(v4 + 32);
   return result;

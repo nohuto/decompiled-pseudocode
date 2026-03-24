@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcCacheInitialize @ 0x1408AEAA0
+ * XREFs of SmcCacheInitialize @ 0x1408AEA80
  * Callers:
- *     SmcProcessCreateRequest @ 0x1408ABD28 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x1408ABD08 (SmcProcessCreateRequest.c)
  * Callees:
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     StEtaInitialize @ 0x140306844 (StEtaInitialize.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     StEtaInitialize @ 0x140306944 (StEtaInitialize.c)
  */
 
 void __fastcall SmcCacheInitialize(struct _EX_RUNDOWN_REF *a1)

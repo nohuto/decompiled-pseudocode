@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwTerminateThread @ 0x1401B8BD0
+ * XREFs of ZwTerminateThread @ 0x1401B8BF0
  * Callers:
- *     KiParkUmsThread @ 0x14029D5C0 (KiParkUmsThread.c)
- *     RtlAssert @ 0x1402EF760 (RtlAssert.c)
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
+ *     KiParkUmsThread @ 0x14029D6C0 (KiParkUmsThread.c)
+ *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
  * Callees:
  *     <none>
  */

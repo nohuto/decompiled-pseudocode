@@ -1,12 +1,10 @@
 /*
- * XREFs of ??$_Emplace_reallocate@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@?$vector@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V?$allocator@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@std@@@std@@QEAAPEAU?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAU23@$$QEAU23@@Z @ 0x180229ADC
+ * XREFs of ??$_Emplace_reallocate@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@?$vector@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V?$allocator@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@std@@@std@@QEAAPEAU?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAU23@$$QEAU23@@Z @ 0x1801DAD5C
  * Callers:
- *     ?AppendFrames@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x18022A374 (-AppendFrames@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAE.c)
+ *     ?AppendFrames@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x1801DB658 (-AppendFrames@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAAJAE.c)
  * Callees:
- *     ??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z @ 0x180040FA4 (--$_Get_size_of_n@$0BE@@std@@YA_K_K@Z.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Uninitialized_move@PEAU?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V?$allocator@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@std@@@std@@YAPEAU?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEAU12@0PEAU12@AEAV?$allocator@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@0@@Z @ 0x180229ED0 (--$_Uninitialized_move@PEAU-$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V.c)
- *     ?_Change_array@?$vector@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V?$allocator@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@std@@@std@@AEAAXQEAU?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@_K1@Z @ 0x18022B238 (-_Change_array@-$vector@U-$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V-$.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?_Change_array@?$vector@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V?$allocator@U?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@@std@@@std@@AEAAXQEAU?$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@_K1@Z @ 0x1801DC400 (-_Change_array@-$vector@U-$ParticleKeyframe@Ufloat2@Numerics@Foundation@Windows@@@Particles@@V-$.c)
  */
 
 __int64 __fastcall std::vector<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>::_Emplace_reallocate<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>(
@@ -14,56 +12,89 @@ __int64 __fastcall std::vector<Particles::ParticleKeyframe<Windows::Foundation::
         __int64 a2,
         __int64 a3)
 {
-  unsigned __int64 v4; // rbx
-  __int64 v7; // r15
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // rsi
+  __int64 v3; // rbx
+  __int64 v6; // r14
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rdx
   unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
-  __int64 v13; // rax
-  __int64 v14; // r8
-  __int64 v15; // rbp
+  unsigned __int64 v11; // rdi
+  SIZE_T v12; // rcx
+  __int64 v13; // r10
+  __int64 v14; // r14
+  __int64 v15; // r8
   __int64 v16; // rdx
   __int64 v17; // rcx
-  __int64 v18; // r10
+  int v18; // eax
+  __int64 v19; // rcx
+  int v21; // eax
 
-  v4 = 0xCCCCCCCCCCCCCCCLL;
-  v7 = (a2 - *a1) / 20;
-  v8 = 0xCCCCCCCCCCCCCCCDuLL * ((a1[1] - *a1) >> 2);
-  if ( v8 == 0xCCCCCCCCCCCCCCCLL )
-    std::_Xlength_error("vector too long");
-  v9 = v8 + 1;
-  v10 = 0xCCCCCCCCCCCCCCCDuLL * ((a1[2] - *a1) >> 2);
-  v11 = v10 >> 1;
-  if ( v10 <= 0xCCCCCCCCCCCCCCCLL - (v10 >> 1) )
+  v3 = a2;
+  v6 = (a2 - *a1) / 20;
+  v7 = (a1[1] - *a1) / 20;
+  if ( v7 == 0xCCCCCCCCCCCCCCCLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v7 + 1;
+  v9 = (a1[2] - *a1) / 20;
+  v10 = v9 >> 1;
+  if ( v9 <= 0xCCCCCCCCCCCCCCCLL - (v9 >> 1) )
   {
-    v4 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v4 = v9;
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v8;
   }
-  size_of = std::_Get_size_of_n<20>(v4);
-  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = v13;
-  v15 = v13 + 20 * v7;
-  *(_OWORD *)v15 = *(_OWORD *)a3;
-  *(_DWORD *)(v15 + 16) = *(_DWORD *)(a3 + 16);
+  else
+  {
+    v11 = v8;
+  }
+  v12 = 20 * v11;
+  if ( v11 > 0xCCCCCCCCCCCCCCCLL )
+    v12 = -1LL;
+  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  v14 = 20 * v6;
+  v15 = v13;
+  *(_OWORD *)(v14 + v13) = *(_OWORD *)a3;
+  *(_DWORD *)(v14 + v13 + 16) = *(_DWORD *)(a3 + 16);
   v16 = a1[1];
   v17 = *a1;
-  if ( a2 != v16 )
+  if ( v3 == v16 )
   {
-    std::_Uninitialized_move<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2> *,std::allocator<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>>(
-      v17,
-      a2,
-      v13);
-    v16 = a1[1];
-    v14 = v15 + 20;
-    v17 = a2;
+    while ( v17 != v16 )
+    {
+      *(_OWORD *)v15 = *(_OWORD *)v17;
+      v21 = *(_DWORD *)(v17 + 16);
+      v17 += 20LL;
+      *(_DWORD *)(v15 + 16) = v21;
+      v15 += 20LL;
+    }
   }
-  std::_Uninitialized_move<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2> *,std::allocator<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>>(
-    v17,
-    v16,
-    v14);
-  std::vector<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>::_Change_array(a1, v18, v9, v4);
-  return v15;
+  else
+  {
+    if ( v17 != v3 )
+    {
+      do
+      {
+        *(_OWORD *)v15 = *(_OWORD *)v17;
+        v18 = *(_DWORD *)(v17 + 16);
+        v17 += 20LL;
+        *(_DWORD *)(v15 + 16) = v18;
+        v15 += 20LL;
+      }
+      while ( v17 != v3 );
+      v16 = a1[1];
+    }
+    if ( v3 != v16 )
+    {
+      v19 = v13 + v14 - v3;
+      do
+      {
+        *(_OWORD *)(v19 + v3 + 20) = *(_OWORD *)v3;
+        *(_DWORD *)(v19 + v3 + 36) = *(_DWORD *)(v3 + 16);
+        v3 += 20LL;
+      }
+      while ( v3 != v16 );
+    }
+  }
+  std::vector<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>::_Change_array(a1, v13, v8, v11);
+  return v14 + *a1;
 }

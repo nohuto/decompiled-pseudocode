@@ -1,14 +1,14 @@
 /*
- * XREFs of ??_5ERECTL@@QEAAXAEBU_RECTL@@@Z @ 0x1C008E834
+ * XREFs of ??_5ERECTL@@QEAAXAEBU_RECTL@@@Z @ 0x1C00B7A80
  * Callers:
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C002CE30 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0032FD0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     NtGdiPolyPatBlt @ 0x1C0043A80 (NtGdiPolyPatBlt.c)
- *     ?vCalculateCursorBounds@@YAXPEAU_SURFOBJ@@0PEAU_RECTL@@@Z @ 0x1C008B0D0 (-vCalculateCursorBounds@@YAXPEAU_SURFOBJ@@0PEAU_RECTL@@@Z.c)
- *     GreSetBoundsRect @ 0x1C008BB64 (GreSetBoundsRect.c)
- *     ?vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C010B4E4 (-vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C0138B80 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092390 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     NtGdiPolyPatBlt @ 0x1C00B3160 (NtGdiPolyPatBlt.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B4CCC (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vCalculateCursorBounds@@YAXPEAU_SURFOBJ@@0PEAU_RECTL@@@Z @ 0x1C00CB2CC (-vCalculateCursorBounds@@YAXPEAU_SURFOBJ@@0PEAU_RECTL@@@Z.c)
+ *     GreSetBoundsRect @ 0x1C0111294 (GreSetBoundsRect.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C0145DBC (-vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C01460E4 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
  * Callees:
  *     <none>
  */

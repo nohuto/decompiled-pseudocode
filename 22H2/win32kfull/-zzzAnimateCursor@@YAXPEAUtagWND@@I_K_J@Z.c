@@ -1,148 +1,115 @@
 /*
- * XREFs of ?zzzAnimateCursor@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C00E6080
+ * XREFs of ?zzzAnimateCursor@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C00803C0
  * Callers:
- *     ?Cursor_DaemonTimeRateChanged@@YAXW4RitTimerRate@@@Z @ 0x1C00BD870 (-Cursor_DaemonTimeRateChanged@@YAXW4RitTimerRate@@@Z.c)
+ *     ?AdjustRITDelayableTimers@@YAXH@Z @ 0x1C0111EA4 (-AdjustRITDelayableTimers@@YAXH@Z.c)
  * Callees:
- *     InternalSetTimer @ 0x1C00E6510 (InternalSetTimer.c)
- *     zzzUpdateCursorImage @ 0x1C00E6B60 (zzzUpdateCursorImage.c)
+ *     InternalSetTimer @ 0x1C0080790 (InternalSetTimer.c)
+ *     ?FixupCursorForMonitor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0080DE4 (-FixupCursorForMonitor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     zzzUpdateCursorImage @ 0x1C0080E90 (zzzUpdateCursorImage.c)
  */
 
 void __fastcall zzzAnimateCursor(struct tagWND *a1, __int64 a2, __int64 a3)
 {
-  struct tagCURSOR *v3; // rbp
-  CCursorSizes *v5; // rdi
-  struct tagCURSOR *v6; // rsi
-  int v7; // r14d
-  char *v8; // rbx
-  __int64 v9; // r8
-  int v10; // edi
-  __int64 v11; // r9
-  signed int v12; // r8d
-  int v13; // eax
-  struct tagCURSOR *v14; // rcx
-  signed int v15; // eax
-  struct tagCURSOR *v16; // r14
-  int *v17; // r14
-  signed int v18; // edi
-  int v19; // ebx
-  __int64 v20; // rdx
+  struct tagCURSOR *v4; // rax
+  __int64 v5; // rcx
+  struct tagCURSOR *v6; // rdi
+  signed int v7; // esi
+  __int64 v8; // r9
+  int v9; // eax
+  int v10; // r14d
+  __int64 v11; // rbp
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
   __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rcx
-  unsigned int v25; // ebx
-  int v26; // ebx
-  int v27; // r10d
-  unsigned int v28; // eax
-  __int128 v29; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v30; // [rsp+40h] [rbp-28h]
+  unsigned int v22; // ebx
+  int v23; // ebx
+  int v24; // r10d
+  int v25; // r8d
+  int v26; // eax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v29; // rcx
+  __int64 CurrentThreadProcess; // rax
+  _QWORD v31[4]; // [rsp+30h] [rbp-38h] BYREF
 
-  v3 = gpcurLogCurrent;
-  v29 = 0LL;
-  v30 = 0LL;
-  if ( !gpcurLogCurrent )
-    goto LABEL_31;
-  v5 = gpCursorSizes;
-  v6 = 0LL;
-  v7 = 0x7FFFFFFF;
-  v8 = (char *)gpCursorSizes + 64;
-  KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v8, 0LL);
-  v10 = *(_DWORD *)v5;
-  if ( KeGetCurrentThread() == *((struct _KTHREAD **)v8 + 1) )
+  v31[2] = 0LL;
+  v4 = FixupCursorForMonitor(gpcurLogCurrent);
+  v6 = v4;
+  if ( v4 && (*((_DWORD *)v4 + 20) & 8) != 0 && *((_QWORD *)v4 + 14) )
   {
-    *((_QWORD *)v8 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v8, 0LL);
-  }
-  else
-  {
-    ExReleasePushLockSharedEx(v8, 0LL, v9);
-  }
-  KeLeaveCriticalRegion();
-  v11 = *((_QWORD *)v3 + 6);
-  if ( !v11 )
-    goto LABEL_31;
-  do
-  {
-    v12 = v7;
-    v13 = *(_DWORD *)(v11 + 76) - v10;
-    v14 = (struct tagCURSOR *)v11;
-    v11 = *(_QWORD *)(v11 + 40);
-    v15 = abs32(v13);
-    if ( v15 < v7 )
-      v7 = v15;
-    if ( v15 >= v12 )
-      v14 = v6;
-    v6 = v14;
-  }
-  while ( v11 );
-  if ( v14 )
-  {
-    v16 = v14;
-  }
-  else
-  {
-LABEL_31:
-    v6 = v3;
-    v16 = v3;
-    if ( !v3 )
+    if ( gdwLastAniTick )
     {
-LABEL_32:
-      gdwLastAniTick = 0;
-      return;
+      v7 = 0;
+      v8 = *((int *)v4 + 30);
+      v9 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
+         - 100 * *(_DWORD *)(*((_QWORD *)v4 + 14) + 4 * v8) / 6u
+         - gdwLastAniTick;
+      if ( v9 >= 0 )
+        v7 = v9;
     }
-  }
-  if ( (*((_DWORD *)v6 + 20) & 8) == 0 || !*((_QWORD *)v6 + 14) )
-    goto LABEL_32;
-  if ( gdwLastAniTick )
-  {
-    v17 = (int *)((char *)v6 + 120);
-    v18 = 0;
-    if ( (int)(((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
-             - 100 * *(_DWORD *)(*((_QWORD *)v6 + 14) + 4LL * *((int *)v6 + 30)) / 6u
-             - gdwLastAniTick) >= 0 )
-      v18 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
-          - 100 * *(_DWORD *)(*((_QWORD *)v6 + 14) + 4LL * *((int *)v6 + 30)) / 6u
-          - gdwLastAniTick;
+    else
+    {
+      LODWORD(v8) = *((_DWORD *)v4 + 30);
+      v7 = 0;
+    }
+    v10 = 0;
+    if ( (int)v8 + 1 < *((_DWORD *)v6 + 23) )
+      v10 = v8 + 1;
+    v11 = 0LL;
+    *((_DWORD *)v6 + 30) = v10;
+    CurrentThread = KeGetCurrentThread();
+    if ( !(unsigned __int8)KeIsAttachedProcess(v5)
+      || (CurrentProcess = PsGetCurrentProcess(v14, v13, v15),
+          ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+          CurrentThreadProcess = PsGetCurrentThreadProcess(v29),
+          ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+    {
+      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( ThreadWin32Thread )
+        v11 = *ThreadWin32Thread;
+    }
+    v31[0] = *(_QWORD *)(v11 + 416);
+    *(_QWORD *)(v11 + 416) = v31;
+    v31[1] = v6;
+    HMLockObject(v6);
+    if ( a3 )
+      zzzUpdateCursorImage(v18, v17, v19);
+    v20 = *((_QWORD *)v6 + 14);
+    v21 = (unsigned int)(100 * *(_DWORD *)(v20 + 4LL * v10));
+    v22 = (unsigned int)v21 / 6;
+    if ( (int)((unsigned int)v21 / 6) <= v7 )
+    {
+      v24 = *((_DWORD *)v6 + 23);
+      v25 = *((_DWORD *)v6 + 30);
+      do
+      {
+        v26 = v25 + 1;
+        v7 -= v22;
+        v25 = 0;
+        if ( v26 < v24 )
+          v25 = v26;
+        *((_DWORD *)v6 + 30) = v25;
+        v21 = (unsigned int)(100 * *(_DWORD *)(v20 + 4LL * v25));
+        v22 = (unsigned int)v21 / 6;
+      }
+      while ( (int)((unsigned int)v21 / 6) <= v7 );
+    }
+    ThreadUnlock1(v21);
+    v23 = v22 - v7;
+    gdwLastAniTick = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v7;
+    if ( (gdwRITdemonLockState & 1) != 0 )
+      v23 = 864000000;
+    WPP_MAIN_CB.DeviceQueue.1 = (struct _KDEVICE_QUEUE::$9FAF936D47973D5FBAA72DAF24011AE0::$18E3EACC1E717291AA7C720ECCD5C45C)InternalSetTimer(0, *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy, v23, (unsigned int)zzzAnimateCursor, (gdwRITdemonLockState & 1) != 0 ? 0x36EE80 : 0, 20);
   }
   else
   {
-    v18 = 0;
-    v17 = (int *)((char *)v16 + 120);
+    gdwLastAniTick = 0;
   }
-  v19 = 0;
-  if ( *v17 + 1 < *((_DWORD *)v6 + 23) )
-    v19 = *v17 + 1;
-  *v17 = v19;
-  ThreadLockAlways(v6, &v29);
-  if ( a3 )
-    zzzUpdateCursorImage(v21, v20, v22);
-  v23 = *((_QWORD *)v6 + 14);
-  v24 = (unsigned int)(100 * *(_DWORD *)(v23 + 4LL * v19));
-  LODWORD(v20) = (2863311531u * (unsigned __int64)(unsigned int)v24) >> 32;
-  v25 = (unsigned int)v24 / 6;
-  if ( (int)((unsigned int)v24 / 6) <= v18 )
-  {
-    v27 = *((_DWORD *)v6 + 23);
-    LODWORD(v22) = *v17;
-    do
-    {
-      v28 = v22 + 1;
-      v18 -= v25;
-      v22 = 0LL;
-      if ( (int)v28 < v27 )
-        v22 = v28;
-      *v17 = v22;
-      v24 = (unsigned int)(100 * *(_DWORD *)(v23 + 4LL * (int)v22));
-      LODWORD(v20) = (2863311531u * (unsigned __int64)(unsigned int)v24) >> 32;
-      v25 = (unsigned int)v24 / 6;
-    }
-    while ( (int)((unsigned int)v24 / 6) <= v18 );
-  }
-  ThreadUnlock1(v24, v20, v22);
-  v26 = v25 - v18;
-  gdwLastAniTick = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v18;
-  if ( (gdwRITdaemonLockState & 1) != 0 )
-    v26 = 864000000;
-  WPP_MAIN_CB.DeviceQueue.1 = (struct _KDEVICE_QUEUE::$9FAF936D47973D5FBAA72DAF24011AE0::$18E3EACC1E717291AA7C720ECCD5C45C)InternalSetTimer(0, *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy, v26, (unsigned int)zzzAnimateCursor, (gdwRITdaemonLockState & 1) != 0 ? 0x36EE80 : 0, 20);
 }

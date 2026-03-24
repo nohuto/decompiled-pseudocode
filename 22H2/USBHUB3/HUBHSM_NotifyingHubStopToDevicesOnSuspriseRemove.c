@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove @ 0x1C0008BE0
+ * XREFs of HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove @ 0x1C0008420
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_QueueStopAfterSuspendToAllDSMs @ 0x1C0011188 (HUBMUX_QueueStopAfterSuspendToAllDSMs.c)
+ *     HUBMUX_QueueStopAfterSuspendToAllDSMs @ 0x1C000FD5C (HUBMUX_QueueStopAfterSuspendToAllDSMs.c)
  */
 
 __int64 __fastcall HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove(__int64 a1)

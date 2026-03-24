@@ -1,21 +1,20 @@
 /*
- * XREFs of ?ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@Z @ 0x1C0018474
+ * XREFs of ?ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@Z @ 0x1C000E8B4
  * Callers:
- *     ?PowerStartSelfManagedIo@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000D9A0 (-PowerStartSelfManagedIo@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerStartSelfManagedIoNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000EFA0 (-PowerStartSelfManagedIoNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerGotoDx@FxPkgPnp@@IEAAXXZ @ 0x1C000F798 (-PowerGotoDx@FxPkgPnp@@IEAAXXZ.c)
- *     ?PowerD0StartingStartSelfManagedIo@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0031190 (-PowerD0StartingStartSelfManagedIo@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0083BC8 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
- *     ?PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ @ 0x1C00847C0 (-PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ.c)
- *     ?PowerGotoD3Stopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0086BA0 (-PowerGotoD3Stopped@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerInitialSelfManagedIoFailedStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0087160 (-PowerInitialSelfManagedIoFailedStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerStartSelfManagedIoFailedStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0087560 (-PowerStartSelfManagedIoFailedStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
- *     ?PowerStartSelfManagedIoFailedStartedNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C00875A0 (-PowerStartSelfManagedIoFailedStartedNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerStartSelfManagedIoNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000E0B0 (-PowerStartSelfManagedIoNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerStartSelfManagedIo@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C00111E0 (-PowerStartSelfManagedIo@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?Suspend@FxSelfManagedIoMachine@@QEAAJW4_WDF_POWER_DEVICE_STATE@@@Z @ 0x1C001C748 (-Suspend@FxSelfManagedIoMachine@@QEAAJW4_WDF_POWER_DEVICE_STATE@@@Z.c)
+ *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0079FD0 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ @ 0x1C007AFD0 (-PnpEventRemovedCommonCode@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerD0StartingStartSelfManagedIo@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007D8A0 (-PowerD0StartingStartSelfManagedIo@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerInitialSelfManagedIoFailedStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007E100 (-PowerInitialSelfManagedIoFailedStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerStartSelfManagedIoFailedStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007E500 (-PowerStartSelfManagedIoFailedStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
+ *     ?PowerStartSelfManagedIoFailedStartedNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007E540 (-PowerStartSelfManagedIoFailedStartedNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qqLL @ 0x1C0016980 (WPP_IFR_SF_qqLL.c)
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     WPP_IFR_SF_qqLL @ 0x1C0012660 (WPP_IFR_SF_qqLL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FxSelfManagedIoMachine::ProcessEvent(
@@ -25,7 +24,7 @@ __int64 __fastcall FxSelfManagedIoMachine::ProcessEvent(
 {
   FxWaitLockInternal *p_m_StateMachineLock; // rsi
   int v6; // ebp
-  int _a3; // edi
+  unsigned int _a3; // edi
   __int64 m_CurrentState; // rdx
   __int64 v9; // rax
   unsigned int TargetStatesCount; // r8d
@@ -51,42 +50,38 @@ __int64 __fastcall FxSelfManagedIoMachine::ProcessEvent(
   if ( TargetStatesCount )
   {
     TargetStates = FxSelfManagedIoMachine::m_StateTable[m_CurrentState - 1].TargetStates;
-    do
+    while ( TargetStates[v9].SelfManagedIoEvent != v6 )
     {
-      if ( TargetStates[v9].SelfManagedIoEvent == v6 )
-      {
-        _a3 = TargetStates[v9].SelfManagedIoState;
-        goto LABEL_7;
-      }
       v9 = (unsigned int)(v9 + 1);
+      if ( (unsigned int)v9 >= TargetStatesCount )
+        goto LABEL_7;
     }
-    while ( (unsigned int)v9 < TargetStatesCount );
-    status = 0;
+    _a3 = TargetStates[v9].SelfManagedIoState;
   }
-  else
-  {
 LABEL_7:
-    for ( status = 0; _a3 != 15; _a3 = StateFunc(this, &status, Progress) )
-    {
-      _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_PkgPnp->m_DeviceBase);
-      WPP_IFR_SF_qqLL(
-        *(_FX_DRIVER_GLOBALS **)(v13 + 16),
-        4u,
-        0xCu,
-        0xCu,
-        WPP_SelfManagedIoStateMachine_cpp_Traceguids,
-        _a1,
-        *(const void **)(v14 + 144),
-        _a3,
-        this->m_CurrentState);
-      this->m_States.History[this->m_StateHistoryIndex] = _a3;
-      v15 = this->m_StateHistoryIndex + 1;
-      this->m_CurrentState = _a3;
-      this->m_StateHistoryIndex = v15 & 7;
-      StateFunc = FxSelfManagedIoMachine::m_StateTable[(unsigned __int8)_a3 - 1].StateFunc;
-      if ( !StateFunc )
-        break;
-    }
+  status = 0;
+  while ( _a3 != 15 )
+  {
+    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_PkgPnp->m_DeviceBase);
+    WPP_IFR_SF_qqLL(
+      *(_FX_DRIVER_GLOBALS **)(v13 + 16),
+      4u,
+      0xCu,
+      0xCu,
+      WPP_SelfManagedIoStateMachine_cpp_Traceguids,
+      _a1,
+      *(const void **)(v14 + 144),
+      _a3,
+      this->m_CurrentState);
+    this->m_States.History[this->m_StateHistoryIndex] = _a3;
+    v15 = this->m_StateHistoryIndex + 1;
+    this->m_CurrentState = _a3;
+    this->m_StateHistoryIndex = v15 & 7;
+    StateFunc = FxSelfManagedIoMachine::m_StateTable[(unsigned __int8)_a3 - 1].StateFunc;
+    if ( StateFunc )
+      _a3 = StateFunc(this, &status, Progress);
+    else
+      _a3 = 15;
   }
   p_m_StateMachineLock->m_OwningThread = 0LL;
   KeSetEvent(&p_m_StateMachineLock->m_Event.m_Event, 0, 0);

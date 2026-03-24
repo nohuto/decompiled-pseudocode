@@ -1,7 +1,7 @@
 /*
- * XREFs of ObDeassignSecurity @ 0x1406AACE0
+ * XREFs of ObDeassignSecurity @ 0x1406AACC0
  * Callers:
- *     WmipSecurityMethod @ 0x1406AAAA0 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1406AAA80 (WmipSecurityMethod.c)
  * Callees:
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  */

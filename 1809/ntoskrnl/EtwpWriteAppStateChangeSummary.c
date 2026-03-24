@@ -2,15 +2,15 @@
  * XREFs of EtwpWriteAppStateChangeSummary @ 0x1405B2694
  * Callers:
  *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14066C548 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
  * Callees:
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall EtwpWriteAppStateChangeSummary(
@@ -303,7 +303,7 @@ char __fastcall EtwpWriteAppStateChangeSummary(
       v119 = v29;
       v121[1] = 0;
       v123 = 29LL;
-      LOBYTE(v16) = TlgWriteAgg((__int64)&stru_140400308, (unsigned __int8 *)dword_140372F0D, v30, v31, 0x23u, &v59);
+      LOBYTE(v16) = TlgWriteAgg((__int64)&stru_140400308, (unsigned __int8 *)dword_140373048, v30, v31, 0x23u, &v59);
     }
   }
   return v16;

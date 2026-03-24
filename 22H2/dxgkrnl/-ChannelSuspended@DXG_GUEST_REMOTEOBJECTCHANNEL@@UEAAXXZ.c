@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ChannelSuspended@DXG_GUEST_REMOTEOBJECTCHANNEL@@UEAAXXZ @ 0x1C01EEC20
+ * XREFs of ?ChannelSuspended@DXG_GUEST_REMOTEOBJECTCHANNEL@@UEAAXXZ @ 0x1C016E850
  * Callers:
  *     <none>
  * Callees:

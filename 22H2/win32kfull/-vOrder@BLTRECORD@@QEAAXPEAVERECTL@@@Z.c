@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vOrder@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C02937AC
+ * XREFs of ?vOrder@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C028F970
  * Callers:
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028EBA0 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B248 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ void __fastcall BLTRECORD::vOrder(BLTRECORD *this, struct ERECTL *a2)
   {
     *(_DWORD *)a2 = v3;
     *((_DWORD *)a2 + 2) = v2;
-    *((_DWORD *)this + 53) ^= 8u;
+    *((_DWORD *)this + 55) ^= 8u;
   }
   v4 = *((_DWORD *)a2 + 1);
   v5 = *((_DWORD *)a2 + 3);
@@ -27,6 +27,6 @@ void __fastcall BLTRECORD::vOrder(BLTRECORD *this, struct ERECTL *a2)
   {
     *((_DWORD *)a2 + 1) = v5;
     *((_DWORD *)a2 + 3) = v4;
-    *((_DWORD *)this + 53) ^= 0x10u;
+    *((_DWORD *)this + 55) ^= 0x10u;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpSubscribeCallbacks @ 0x140B019D0
+ * XREFs of SshpSubscribeCallbacks @ 0x140A40C14
  * Callers:
- *     SshInitialize @ 0x140B03360 (SshInitialize.c)
+ *     SshInitialize @ 0x140A40584 (SshInitialize.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
- *     SSHSupportRegisterPowerSettingCallback @ 0x140828B8C (SSHSupportRegisterPowerSettingCallback.c)
+ *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x140796B5C (SSHSupportRegisterPowerSettingCallback.c)
  */
 
 int SshpSubscribeCallbacks()
@@ -16,8 +16,8 @@ int SshpSubscribeCallbacks()
   {
     SshpPowerSettingHandleInitialized = 1;
     result = ExSubscribeWnfStateChange(
-               (int)&SshpWnfSubscription,
-               (int)&WNF_PO_UMPO_SCENARIO_CHANGE,
+               (__int64)&SshpWnfSubscription,
+               (__int64)&WNF_PO_UMPO_SCENARIO_CHANGE,
                1,
                0,
                (__int64)SshpWnfCallback,

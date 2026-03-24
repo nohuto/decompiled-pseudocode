@@ -1,13 +1,13 @@
 /*
- * XREFs of GreHintDCWnd @ 0x1C00DC470
+ * XREFs of GreHintDCWnd @ 0x1C00D5420
  * Callers:
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
- *     UpdateRedirectedDCE @ 0x1C00DC330 (UpdateRedirectedDCE.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     UpdateRedirectedDCE @ 0x1C00D52E0 (UpdateRedirectedDCE.c)
  * Callees:
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ @ 0x1C015D5DC (--0-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ.c)
- *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C016EA98 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C016EAE6 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ @ 0x1C016A654 (--0-$UnexpectedThreadTerminationHandler@VDCOBJA@@@@QEAA@XZ.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C02736D0 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C02737AC (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
  */
 
 __int64 __fastcall GreHintDCWnd(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)

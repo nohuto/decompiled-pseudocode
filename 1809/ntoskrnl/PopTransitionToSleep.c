@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PopDiagTraceEventNoPayload @ 0x140135A40 (PopDiagTraceEventNoPayload.c)
- *     MmFlushAllPagesEx @ 0x1401530CC (MmFlushAllPagesEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MmEmptyAllWorkingSets @ 0x1402B40B4 (MmEmptyAllWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x1402B4238 (MmTrimFilePagesFromWorkingSets.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PopDiagTraceEventNoPayload @ 0x140135A60 (PopDiagTraceEventNoPayload.c)
+ *     MmFlushAllPagesEx @ 0x1401530EC (MmFlushAllPagesEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MmEmptyAllWorkingSets @ 0x1402B41B4 (MmEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x1402B4338 (MmTrimFilePagesFromWorkingSets.c)
  *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
- *     PopEnlargeHiberFile @ 0x1406DFC74 (PopEnlargeHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x1406DFC54 (PopEnlargeHiberFile.c)
  */
 
 LONG __fastcall PopTransitionToSleep(PRKEVENT Event)
@@ -31,7 +31,7 @@ LONG __fastcall PopTransitionToSleep(PRKEVENT Event)
 
   memset(v12, 0, 0x28uLL);
   Lock = Event[3].Header.Lock;
-  qword_140417AF0 = (__int64)KeGetCurrentThread();
+  qword_1404178F0 = (__int64)KeGetCurrentThread();
   v13 = 0;
   if ( Lock == 3 || Lock == 6 )
   {

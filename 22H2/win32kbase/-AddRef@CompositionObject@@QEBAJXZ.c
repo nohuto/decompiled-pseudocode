@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AddRef@CompositionObject@@QEBAJXZ @ 0x1C000F720
+ * XREFs of ?AddRef@CompositionObject@@QEBAJXZ @ 0x1C0059260
  * Callers:
- *     ?SetSystemVisual@CHwndTargetProp@@QEAAJW4_HwndTargetType@@PEAUCompositionObject@@@Z @ 0x1C00B6AE0 (-SetSystemVisual@CHwndTargetProp@@QEAAJW4_HwndTargetType@@PEAUCompositionObject@@@Z.c)
+ *     <none>
  * Callees:
  *     <none>
  */

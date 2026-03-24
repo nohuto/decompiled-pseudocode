@@ -1,14 +1,14 @@
 /*
- * XREFs of PopProcessorInformation @ 0x1407A5E74
+ * XREFs of PopProcessorInformation @ 0x140780D7C
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeQueryGroupAffinity @ 0x14032A0B0 (KeQueryGroupAffinity.c)
- *     PpmPerfGetCurrentState @ 0x14032A3D8 (PpmPerfGetCurrentState.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PpmPerfGetCurrentState @ 0x14031CC24 (PpmPerfGetCurrentState.c)
+ *     KeQueryGroupAffinity @ 0x140322B10 (KeQueryGroupAffinity.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
  */
 
 __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, _DWORD *a4)
@@ -17,8 +17,8 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, _D
   KAFFINITY GroupAffinity; // rdi
   unsigned __int64 v9; // r15
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v11; // ebp
-  __int64 Prcb; // r14
+  unsigned int v11; // r14d
+  __int64 Prcb; // rbp
   __int64 v13; // rax
   int v14; // eax
   __int64 v15; // rcx
@@ -60,24 +60,18 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, _D
       {
         Prcb = KeGetPrcb(v22);
         *(_DWORD *)(a1 + 24LL * v11) = *(unsigned __int8 *)(Prcb + 209);
-        PpmPerfGetCurrentState(
-          Prcb,
-          (_DWORD *)(a1 + 8 + 24LL * v11),
-          (unsigned int *)(a1 + 12 + 24LL * v11),
-          0LL,
-          0LL,
-          0LL);
-        v13 = *(_QWORD *)(Prcb + 33968);
+        PpmPerfGetCurrentState(Prcb, a1 + 8 + 24LL * v11, (_DWORD *)(a1 + 12 + 24LL * v11), 0LL, 0LL, 0LL);
+        v13 = *(_QWORD *)(Prcb + 33128);
         if ( v13 )
-          v14 = *(_DWORD *)(v13 + 440);
+          v14 = *(_DWORD *)(v13 + 316);
         else
           v14 = *(_DWORD *)(Prcb + 68);
         *(_DWORD *)(a1 + 24LL * v11 + 4) = v14;
-        v15 = *(_QWORD *)(Prcb + 33600);
+        v15 = *(_QWORD *)(Prcb + 0x8000);
         if ( v15 )
         {
-          *(_DWORD *)(a1 + 24LL * v11 + 16) = *(_DWORD *)(v15 + 40);
-          v16 = *(_DWORD *)(v15 + 24) + 1;
+          *(_DWORD *)(a1 + 24LL * v11 + 16) = *(_DWORD *)(v15 + 32);
+          v16 = *(_DWORD *)(v15 + 16) + 1;
         }
         else
         {
@@ -86,7 +80,7 @@ __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, _D
         }
         *(_DWORD *)(a1 + 24LL * v11++ + 20) = v16;
       }
-      PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
+      PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
     }
     *a4 = 24 * v9;
   }

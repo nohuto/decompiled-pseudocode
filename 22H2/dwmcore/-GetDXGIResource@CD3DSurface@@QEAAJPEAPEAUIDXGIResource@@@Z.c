@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDXGIResource@CD3DSurface@@QEAAJPEAPEAUIDXGIResource@@@Z @ 0x18029C38C
+ * XREFs of ?GetDXGIResource@CD3DSurface@@QEAAJPEAPEAUIDXGIResource@@@Z @ 0x18024A788
  * Callers:
- *     ?Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z @ 0x18029C528 (-Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z.c)
+ *     ?Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z @ 0x18024A8D0 (-Init@CD3DSurface@@IEAAJPEAVCD3DResourceManager@@PEAII@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DSurface::GetDXGIResource(CD3DSurface *this, struct IDXGIResource **a2)
@@ -16,7 +16,7 @@ __int64 __fastcall CD3DSurface::GetDXGIResource(CD3DSurface *this, struct IDXGIR
   __int64 v8; // rcx
 
   *a2 = 0LL;
-  v4 = (**(__int64 (__fastcall ***)(CD3DSurface *))this)(this);
+  v4 = (**((__int64 (__fastcall ***)(char *))this + 3))((char *)this + 24);
   v6 = v4;
   if ( v4 < 0 )
   {
@@ -24,8 +24,8 @@ __int64 __fastcall CD3DSurface::GetDXGIResource(CD3DSurface *this, struct IDXGIR
   }
   else
   {
-    v7 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, struct IDXGIResource **))this + 14))(
-           *((_QWORD *)this + 14),
+    v7 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, struct IDXGIResource **))this + 16))(
+           *((_QWORD *)this + 16),
            &GUID_035f3ab4_482e_4e50_b41f_8a7f8bd8960b,
            a2);
     v6 = v7;

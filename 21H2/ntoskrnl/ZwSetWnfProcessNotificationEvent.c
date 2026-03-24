@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetWnfProcessNotificationEvent @ 0x14041EF20
+ * XREFs of ZwSetWnfProcessNotificationEvent @ 0x1403FDA40
  * Callers:
  *     <none>
  * Callees:

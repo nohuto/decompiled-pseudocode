@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlTryToAcquireHeaderMutex @ 0x140233310
+ * XREFs of FsRtlTryToAcquireHeaderMutex @ 0x14028AF30
  * Callers:
  *     <none>
  * Callees:
- *     ExTryToAcquireFastMutex @ 0x140233370 (ExTryToAcquireFastMutex.c)
+ *     ExTryToAcquireFastMutex @ 0x14028DD70 (ExTryToAcquireFastMutex.c)
  */
 
 BOOLEAN __fastcall FsRtlTryToAcquireHeaderMutex(__int64 a1, volatile signed __int32 *a2)

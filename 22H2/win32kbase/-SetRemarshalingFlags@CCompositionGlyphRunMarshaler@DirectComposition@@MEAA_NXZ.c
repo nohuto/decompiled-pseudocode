@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F610
+ * XREFs of ?SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DEE60
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0220430 (-SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF9A0 (-SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetRemarshalingFlags(

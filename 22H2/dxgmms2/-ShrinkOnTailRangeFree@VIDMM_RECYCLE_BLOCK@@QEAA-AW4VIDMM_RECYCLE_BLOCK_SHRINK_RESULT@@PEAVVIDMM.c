@@ -1,173 +1,167 @@
 /*
- * XREFs of ?ShrinkOnTailRangeFree@VIDMM_RECYCLE_BLOCK@@QEAA?AW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00A42EC
+ * XREFs of ?ShrinkOnTailRangeFree@VIDMM_RECYCLE_BLOCK@@QEAA?AW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00796C4
  * Callers:
- *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C009EDBC (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
- *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C009F334 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
- *     ?Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z @ 0x1C00A5850 (-Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z.c)
+ *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C0079550 (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C007B500 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C009E990 (-DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
- *     ?RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00A1368 (-RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_.c)
- *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C00A3758 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
- *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00B2348 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
- *     ?RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00F61E8 (-RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE.c)
+ *     ?GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00027A4 (-GetSmallAllocationBlockSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C0074C60 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ *     ?CleanupFreeBlock@VIDMM_RECYCLE_BLOCK@@QEAA_NPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C0079784 (-CleanupFreeBlock@VIDMM_RECYCLE_BLOCK@@QEAA_NPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C0079C88 (-DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
+ *     ?RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C007A0C8 (-RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_.c)
+ *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00871A8 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00C032C (-RemoveRangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_RANGE.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall VIDMM_RECYCLE_BLOCK::ShrinkOnTailRangeFree(_QWORD *a1, __int64 a2)
+__int64 __fastcall VIDMM_RECYCLE_BLOCK::ShrinkOnTailRangeFree(VIDMM_RECYCLE_BLOCK *a1, __int64 a2)
 {
-  int *v2; // rax
-  __int64 v4; // rdi
-  VIDMM_RECYCLE_HEAP_MGR *v6; // r13
-  int v7; // eax
-  int v8; // eax
-  __int64 v9; // r8
-  __int64 v10; // r11
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rax
-  char v13; // r14
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  struct VIDMM_RECYCLE_RANGE *v17; // r9
-  struct VIDMM_RECYCLE_RANGE *v18; // r10
+  __int64 v3; // rdi
+  VIDMM_RECYCLE_HEAP_MGR *v5; // r12
+  char v6; // r15
+  VIDMM_RECYCLE_HEAP_MGR *v7; // rcx
+  unsigned __int64 SmallAllocationBlockSize; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r9
+  __int64 v11; // r8
+  void *v12; // rbp
+  unsigned __int64 v13; // rcx
+  bool v14; // r14
+  bool v15; // al
+  struct VIDMM_RECYCLE_RANGE *v17; // r10
+  struct VIDMM_RECYCLE_RANGE *v18; // r11
   struct VIDMM_RECYCLE_RANGE *NextRange; // rax
-  char v20; // r15
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v22; // eax
-  int v23; // r14d
-  VIDMM_RECYCLE_RANGE *v24; // rbp
-  VIDMM_RECYCLE_RANGE *v25; // r12
-  _QWORD *v26; // rcx
-  char v27; // di
-  struct VIDMM_RECYCLE_RANGE *v28; // rax
-  struct VIDMM_RECYCLE_RANGE *v29; // rsi
-  unsigned int v30; // edi
-  _QWORD *v31; // rcx
-  __int64 v32; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v33; // [rsp+78h] [rbp+10h] BYREF
+  void *v20; // rax
+  NTSTATUS v21; // eax
+  __int64 v22; // rbp
+  _QWORD *v23; // rax
+  unsigned int v24; // ebp
+  VIDMM_RECYCLE_RANGE *v25; // rsi
+  VIDMM_RECYCLE_RANGE *v26; // r14
+  _QWORD *v27; // rax
+  _QWORD *v28; // rcx
+  char v29; // di
+  struct VIDMM_RECYCLE_RANGE *v30; // rax
+  struct VIDMM_RECYCLE_RANGE *v31; // rbx
+  unsigned int v32; // edi
+  _QWORD *v33; // rax
+  _QWORD *v34; // r8
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp+10h] BYREF
 
-  v2 = (int *)a1[4];
-  v4 = *(_QWORD *)(a2 + 136);
-  v6 = (VIDMM_RECYCLE_HEAP_MGR *)*((_QWORD *)v2 + 1);
-  if ( *a1 == 1LL )
-  {
-    v15 = a1[4];
-    if ( v4 )
-    {
-      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(v15, 2, v4);
-      VIDMM_RECYCLE_HEAP_MGR::DestroyMultirange(v6, (struct VIDMM_RECYCLE_MULTIRANGE *)v4);
-    }
-    else
-    {
-      VIDMM_RECYCLE_HEAP::RemoveRangeFromTree(v15, 2LL, a2);
-    }
-    VIDMM_RECYCLE_HEAP_MGR::DestroyRange(v6, (struct VIDMM_RECYCLE_RANGE *)a2);
+  v3 = *(_QWORD *)(a2 + 136);
+  v5 = *(VIDMM_RECYCLE_HEAP_MGR **)(*((_QWORD *)a1 + 4) + 8LL);
+  if ( VIDMM_RECYCLE_BLOCK::CleanupFreeBlock(a1, (struct VIDMM_RECYCLE_RANGE *)a2) )
     return 2LL;
-  }
-  v7 = *v2;
-  if ( v7 != 2 && v7 != 1 )
+  v6 = 1;
+  v7 = (VIDMM_RECYCLE_HEAP_MGR *)**((unsigned int **)a1 + 4);
+  if ( (unsigned int)((_DWORD)v7 - 1) > 1 )
     return 0LL;
-  if ( (unsigned __int64)qword_1C0076288 <= 0x53333333 )
-    v8 = dword_1C0076498;
-  else
-    v8 = dword_1C0076488;
-  v9 = a1[6];
-  v10 = a1[5];
-  v11 = (unsigned int)(v8 << 20);
-  v12 = a1[6] - v10;
-  if ( v4 && v12 > v11 && *(_QWORD *)(v4 + 40) == v9 )
+  SmallAllocationBlockSize = VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationBlockSize(
+                               v7,
+                               (unsigned int)((_DWORD)v7 - 5) <= 1);
+  v11 = *((_QWORD *)a1 + 6);
+  v12 = (void *)*((_QWORD *)a1 + 5);
+  v13 = v11 - (_QWORD)v12;
+  v14 = v3 && v13 > SmallAllocationBlockSize && *(_QWORD *)(v3 + 40) == v11;
+  v15 = !v3 && *(_QWORD *)(a2 + 40) == v11 && v13 > SmallAllocationBlockSize;
+  if ( !v14 && !v15 )
+    return 0LL;
+  BaseAddress = 0LL;
+  if ( v14 )
   {
-    v13 = 1;
-    goto LABEL_8;
-  }
-  v13 = 0;
-  if ( v4 || *(_QWORD *)(a2 + 40) != v9 || v12 <= v11 )
-  {
-LABEL_8:
-    if ( v13 )
+    v17 = *(struct VIDMM_RECYCLE_RANGE **)(v3 + 64);
+    v18 = *(struct VIDMM_RECYCLE_RANGE **)(v3 + 72);
+    NextRange = v17;
+    while ( !*((_DWORD *)NextRange + 16) )
     {
-      v17 = *(struct VIDMM_RECYCLE_RANGE **)(v4 + 64);
-      v18 = *(struct VIDMM_RECYCLE_RANGE **)(v4 + 72);
-      NextRange = v17;
-      v32 = 0LL;
-      while ( !*((_DWORD *)NextRange + 16) )
-      {
-        if ( NextRange == v18 )
-        {
-          v16 = *((_QWORD *)v17 + 4);
-          goto LABEL_27;
-        }
+      if ( NextRange == v18 )
+        LOBYTE(v10) = 1;
+      else
         NextRange = VIDMM_RECYCLE_RANGE::GetNextRange(NextRange);
+      if ( (_BYTE)v10 )
+      {
+        v20 = (void *)*((_QWORD *)v17 + 4);
+        goto LABEL_26;
       }
     }
     return 0LL;
   }
-  v16 = *(_QWORD *)(a2 + 32);
-  v32 = 0LL;
-LABEL_27:
-  v32 = v16;
-  v33 = v9 - v16;
-  if ( v16 != v10 )
+  v20 = *(void **)(a2 + 32);
+LABEL_26:
+  BaseAddress = v20;
+  RegionSize = v11 - (_QWORD)v20;
+  if ( v20 != v12 )
   {
-    v20 = 0;
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    v22 = (*((__int64 (__fastcall **)(__int64, __int64 *, __int64 *, __int64))VirtualMemoryInterface + 2))(
-            -1LL,
-            &v32,
-            &v33,
-            0x8000LL);
-    if ( v22 >= 0 )
+    v6 = 0;
+    v21 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    v22 = v21;
+    if ( v21 < 0 )
     {
-      a1[6] = v32;
-      goto LABEL_32;
+      v23 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v9);
+      v23[3] = BaseAddress;
+      v23[4] = a1;
+      v23[5] = v22;
+      v23[6] = **(_QWORD **)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 8LL) + 8LL);
+      WdLogEvent5_WdWarning(v23);
+      return 0LL;
     }
-    WdLogSingleEntry4(3LL, v32, a1, v22, **(_QWORD **)(*(_QWORD *)(a1[4] + 8LL) + 8LL));
-    return 0LL;
+    *((_QWORD *)a1 + 6) = BaseAddress;
   }
-  v20 = 1;
-LABEL_32:
-  if ( v13 )
+  if ( v14 )
   {
-    v23 = *(_DWORD *)(v4 + 88);
-    v24 = *(VIDMM_RECYCLE_RANGE **)(v4 + 64);
-    v25 = *(VIDMM_RECYCLE_RANGE **)(v4 + 72);
-    if ( v23 != 2 && g_IsInternalRelease )
+    v24 = *(_DWORD *)(v3 + 88);
+    v25 = *(VIDMM_RECYCLE_RANGE **)(v3 + 64);
+    v26 = *(VIDMM_RECYCLE_RANGE **)(v3 + 72);
+    if ( v24 != 2 && g_IsInternalRelease )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+      v27 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v13, v9);
+      v27[5] = 0LL;
+      v27[6] = 0LL;
+      v27[7] = 0LL;
+      v27[3] = 270LL;
+      v27[4] = 9LL;
+      WdLogEvent5_WdCriticalError(v27);
     }
-    VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(a1[4], v23, v4);
-    VIDMM_RECYCLE_HEAP_MGR::DestroyMultirange(v6, (struct VIDMM_RECYCLE_MULTIRANGE *)v4);
-    v26 = (_QWORD *)*((_QWORD *)v24 + 16);
-    v27 = 0;
-    *v26 = a1 + 9;
-    a1[10] = v26;
-    while ( 1 )
+    VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(*((_QWORD *)a1 + 4), v24, v3, v10);
+    VIDMM_RECYCLE_HEAP_MGR::DestroyMultirange(v5, (struct VIDMM_RECYCLE_MULTIRANGE *)v3);
+    v28 = (_QWORD *)*((_QWORD *)v25 + 16);
+    v29 = 0;
+    *v28 = (char *)a1 + 72;
+    *((_QWORD *)a1 + 10) = v28;
+    do
     {
-      v28 = VIDMM_RECYCLE_RANGE::GetNextRange(v24);
-      if ( v24 == v25 )
-        v27 = 1;
-      v29 = v28;
-      VIDMM_RECYCLE_HEAP_MGR::DestroyRange(v6, v24);
-      if ( v27 )
-        break;
-      v24 = v29;
+      v30 = VIDMM_RECYCLE_RANGE::GetNextRange(v25);
+      if ( v25 == v26 )
+        v29 = 1;
+      v31 = v30;
+      VIDMM_RECYCLE_HEAP_MGR::DestroyRange(v5, v25);
+      if ( v29 )
+        v31 = v25;
+      v25 = v31;
     }
+    while ( !v29 );
   }
   else
   {
-    v30 = *(_DWORD *)(a2 + 88);
-    if ( v30 != 2 && g_IsInternalRelease )
+    v32 = *(_DWORD *)(a2 + 88);
+    if ( v32 != 2 && g_IsInternalRelease )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+      v33 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v13, v9);
+      v33[5] = 0LL;
+      v33[6] = 0LL;
+      v33[7] = 0LL;
+      v33[3] = 270LL;
+      v33[4] = 9LL;
+      WdLogEvent5_WdCriticalError(v33);
     }
-    VIDMM_RECYCLE_HEAP::RemoveRangeFromTree(a1[4], v30, a2);
-    v31 = *(_QWORD **)(a2 + 128);
-    *v31 = a1 + 9;
-    a1[10] = v31;
-    VIDMM_RECYCLE_HEAP_MGR::DestroyRange(v6, (struct VIDMM_RECYCLE_RANGE *)a2);
+    VIDMM_RECYCLE_HEAP::RemoveRangeFromTree(*((_QWORD *)a1 + 4), v32, a2);
+    v34 = *(_QWORD **)(a2 + 128);
+    *v34 = (char *)a1 + 72;
+    *((_QWORD *)a1 + 10) = v34;
+    VIDMM_RECYCLE_HEAP_MGR::DestroyRange(v5, (struct VIDMM_RECYCLE_RANGE *)a2);
   }
-  return (unsigned int)(v20 != 0) + 1;
+  if ( v6 )
+    return 2LL;
+  else
+    return 1LL;
 }

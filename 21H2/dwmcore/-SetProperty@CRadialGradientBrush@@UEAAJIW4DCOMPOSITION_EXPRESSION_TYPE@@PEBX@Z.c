@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetProperty@CRadialGradientBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023B260
+ * XREFs of ?SetProperty@CRadialGradientBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E8540
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800C5398 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BE2A8 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRadialGradientBrush::SetProperty(__int64 a1, int a2, int a3)
@@ -29,12 +29,12 @@ __int64 __fastcall CRadialGradientBrush::SetProperty(__int64 a1, int a2, int a3)
            v6);
     v9 = v7;
     if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x36u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x36u, 0LL);
   }
   else
   {
     v9 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, -2147024809, 0x3Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0x3Au, 0LL);
   }
   return v9;
 }

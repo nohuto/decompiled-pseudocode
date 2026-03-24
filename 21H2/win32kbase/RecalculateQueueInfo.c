@@ -1,7 +1,7 @@
 /*
- * XREFs of RecalculateQueueInfo @ 0x1C008F670
+ * XREFs of RecalculateQueueInfo @ 0x1C0082520
  * Callers:
- *     zzzDestroyQueue @ 0x1C0038C50 (zzzDestroyQueue.c)
+ *     zzzDestroyQueue @ 0x1C011D460 (zzzDestroyQueue.c)
  * Callees:
  *     <none>
  */
@@ -23,8 +23,8 @@ struct tagTHREADINFO *RecalculateQueueInfo()
   {
     do
     {
-      *(_DWORD *)(*(v2 - 39) + 424LL) = 0;
       *(_DWORD *)(*(v2 - 39) + 428LL) = 0;
+      *(_DWORD *)(*(v2 - 39) + 432LL) = 0;
       result = (struct tagTHREADINFO *)*(v2 - 39);
       *((_DWORD *)result + 97) &= ~0x2000000u;
       v2 = (_QWORD *)*v2;
@@ -41,20 +41,20 @@ struct tagTHREADINFO *RecalculateQueueInfo()
           v5 = *(_DWORD *)(v4 + 880);
         result = (struct tagTHREADINFO *)*(i - 39);
         v6 = *(_DWORD *)(v4 + 884);
-        if ( *((_DWORD *)result + 106) >= v5 )
+        if ( *((_DWORD *)result + 107) >= v5 )
         {
-          if ( *((_DWORD *)result + 107) != v6 )
-            *((_DWORD *)result + 107) = 0;
+          if ( *((_DWORD *)result + 108) != v6 )
+            *((_DWORD *)result + 108) = 0;
         }
         else
         {
-          *((_DWORD *)result + 106) = v5;
+          *((_DWORD *)result + 107) = v5;
           result = (struct tagTHREADINFO *)*(i - 39);
-          if ( *((_DWORD *)result + 107) )
+          if ( *((_DWORD *)result + 108) )
             v6 = 0;
-          *((_DWORD *)result + 107) = v6;
+          *((_DWORD *)result + 108) = v6;
         }
-        if ( (i[64] & 0x40000) != 0 )
+        if ( (i[61] & 0x40000) != 0 )
         {
           result = (struct tagTHREADINFO *)*(i - 39);
           *((_DWORD *)result + 97) |= 0x2000000u;

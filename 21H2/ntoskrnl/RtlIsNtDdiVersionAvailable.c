@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsNtDdiVersionAvailable @ 0x1403D9CB0
+ * XREFs of RtlIsNtDdiVersionAvailable @ 0x1403CCCE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 BOOLEAN __stdcall RtlIsNtDdiVersionAvailable(ULONG Version)
 {
-  return !(_WORD)Version && Version <= 0xA00000B;
+  return !(_WORD)Version && Version <= 0xA000008;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpDecommissionKeyContext @ 0x140808418
+ * XREFs of VrpDecommissionKeyContext @ 0x1408083F8
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
- *     VrpFreeKeyContext @ 0x1408084B0 (VrpFreeKeyContext.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
+ *     VrpFreeKeyContext @ 0x140808490 (VrpFreeKeyContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

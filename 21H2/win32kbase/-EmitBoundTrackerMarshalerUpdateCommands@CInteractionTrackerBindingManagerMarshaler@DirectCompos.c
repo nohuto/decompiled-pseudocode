@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitBoundTrackerMarshalerUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02311B8
+ * XREFs of ?EmitBoundTrackerMarshalerUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F1488
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02313B0 (-EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVC.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F1680 (-EmitUpdateCommands@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVC.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::EmitBoundTrackerMarshalerUpdateCommands(
@@ -20,13 +20,13 @@ char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::E
 
   v2 = 0;
   v5 = 1;
-  if ( *((_QWORD *)this + 13) )
+  if ( *((_QWORD *)this + 12) )
   {
     v6 = 0LL;
     do
     {
-      v7 = v6 * *((_QWORD *)this + 14);
-      v8 = *((_QWORD *)this + 10);
+      v7 = v6 * *((_QWORD *)this + 13);
+      v8 = *((_QWORD *)this + 9);
       v11 = *(_OWORD *)(v7 + v8);
       if ( *(_DWORD *)(v7 + v8 + 16) )
       {
@@ -37,7 +37,7 @@ char __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::E
       }
       v6 = ++v2;
     }
-    while ( (unsigned __int64)v2 < *((_QWORD *)this + 13) );
+    while ( (unsigned __int64)v2 < *((_QWORD *)this + 12) );
   }
   return v5;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckSystemPageTables @ 0x140279D30
+ * XREFs of MiCheckSystemPageTables @ 0x140311BC0
  * Callers:
- *     MiSystemFault @ 0x140279590 (MiSystemFault.c)
+ *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
  * Callees:
- *     KeInvalidAccessAllowed @ 0x140230BA0 (KeInvalidAccessAllowed.c)
- *     MiCheckSystemNxFault @ 0x140247C5C (MiCheckSystemNxFault.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiGenerateAccessViolation @ 0x1405A7258 (MiGenerateAccessViolation.c)
+ *     KeInvalidAccessAllowed @ 0x1402A2C40 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x1402C77E8 (MiCheckSystemNxFault.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiGenerateAccessViolation @ 0x140548560 (MiGenerateAccessViolation.c)
  */
 
 __int64 __fastcall MiCheckSystemPageTables(ULONG_PTR *a1)
@@ -72,7 +72,7 @@ LABEL_31:
           return 1LL;
       }
     }
-    else if ( KeInvalidAccessAllowed(v10, 0) )
+    else if ( KeInvalidAccessAllowed(v10, 0) == 1 )
     {
       return 1LL;
     }

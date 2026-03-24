@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpGetNextHandleTableEntry @ 0x14068FC00
+ * XREFs of ExpGetNextHandleTableEntry @ 0x14068FBE0
  * Callers:
- *     ExEnumHandleTable @ 0x14068FAF0 (ExEnumHandleTable.c)
- *     ExQueryProcessHandleInformation @ 0x1408CDE90 (ExQueryProcessHandleInformation.c)
+ *     ExEnumHandleTable @ 0x14068FAD0 (ExEnumHandleTable.c)
+ *     ExQueryProcessHandleInformation @ 0x1408CDE70 (ExQueryProcessHandleInformation.c)
  * Callees:
  *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
  */

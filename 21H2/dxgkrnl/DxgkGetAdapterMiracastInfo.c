@@ -1,9 +1,8 @@
 /*
- * XREFs of DxgkGetAdapterMiracastInfo @ 0x1C0062FBC
+ * XREFs of DxgkGetAdapterMiracastInfo @ 0x1C00553E4
  * Callers:
- *     ?IsMultiPlaneOverlaySupported@ADAPTER_RENDER@@QEAAEXZ @ 0x1C0167908 (-IsMultiPlaneOverlaySupported@ADAPTER_RENDER@@QEAAEXZ.c)
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
- *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C0196940 (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
+ *     ?IsMultiPlaneOverlaySupported@ADAPTER_RENDER@@QEAAEXZ @ 0x1C015FF1C (-IsMultiPlaneOverlaySupported@ADAPTER_RENDER@@QEAAEXZ.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +24,6 @@ void __fastcall DxgkGetAdapterMiracastInfo(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 24) = v4;
   if ( (v4 & 1) != 0 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
     *(_DWORD *)(a2 + 24) ^= (*(_DWORD *)(a2 + 24) ^ (2 * *(_DWORD *)(v2 + 3220))) & 2;
     v5 = *(_DWORD *)(a2 + 24) & 0xFFFFFFFB | (*(_QWORD *)(v2 + 3232) != 0LL ? 4 : 0);

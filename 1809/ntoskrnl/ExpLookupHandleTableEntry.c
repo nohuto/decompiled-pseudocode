@@ -8,14 +8,14 @@
  *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
  *     NtWriteFile @ 0x140638C40 (NtWriteFile.c)
- *     PspReferenceCidTableEntry @ 0x140646D30 (PspReferenceCidTableEntry.c)
- *     ExEnumHandleTable @ 0x14068FAF0 (ExEnumHandleTable.c)
- *     ExpGetNextHandleTableEntry @ 0x14068FC00 (ExpGetNextHandleTableEntry.c)
- *     ExDupHandleTable @ 0x1406965A0 (ExDupHandleTable.c)
- *     ExSweepHandleTable @ 0x140697AB0 (ExSweepHandleTable.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE130 (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x1408CE17C (ExpSetHandleExtraInfo.c)
- *     ExpSnapShotHandleTables @ 0x1408CE234 (ExpSnapShotHandleTables.c)
+ *     PspReferenceCidTableEntry @ 0x140646D10 (PspReferenceCidTableEntry.c)
+ *     ExEnumHandleTable @ 0x14068FAD0 (ExEnumHandleTable.c)
+ *     ExpGetNextHandleTableEntry @ 0x14068FBE0 (ExpGetNextHandleTableEntry.c)
+ *     ExDupHandleTable @ 0x140696580 (ExDupHandleTable.c)
+ *     ExSweepHandleTable @ 0x140697A90 (ExSweepHandleTable.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x1408CE15C (ExpSetHandleExtraInfo.c)
+ *     ExpSnapShotHandleTables @ 0x1408CE214 (ExpSnapShotHandleTables.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z @ 0x1C00188E0
+ * XREFs of ?VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z @ 0x1C0015AA0
  * Callers:
  *     <none>
  * Callees:
- *     ?SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z @ 0x1C00A6B3C (-SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z.c)
+ *     ?SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z @ 0x1C008AA94 (-SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z.c)
  */
 
 void __fastcall VidMmSuspendResumeDevice(struct VIDMM_DEVICE *a1, bool a2, bool a3)

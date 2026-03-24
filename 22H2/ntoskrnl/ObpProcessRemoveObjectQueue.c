@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpProcessRemoveObjectQueue @ 0x140749A50
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x140663DF0
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x140254650 (KeInsertQueueDpc.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F4E10 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     MmDetachSession @ 0x140355CB0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140355D50 (MmAttachSession.c)
- *     MmGetNextSession @ 0x14035E6A0 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1406E3750 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpRemoveObjectRoutine @ 0x1407297E0 (ObpRemoveObjectRoutine.c)
- *     MmQuitNextSession @ 0x140884DE0 (MmQuitNextSession.c)
- *     ObpDeregisterObject @ 0x14097CA00 (ObpDeregisterObject.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     MmGetNextSession @ 0x140263DE0 (MmGetNextSession.c)
+ *     MmDetachSession @ 0x1402EC090 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EC130 (MmAttachSession.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F44DC (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     ObpRemoveObjectRoutine @ 0x14063DB60 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140664140 (ObpHandleRevocationBlockRemoveObject.c)
+ *     MmQuitNextSession @ 0x1406A6080 (MmQuitNextSession.c)
+ *     ObpDeregisterObject @ 0x1408DE3CC (ObpDeregisterObject.c)
  */
 
-void ObpProcessRemoveObjectQueue()
+int ObpProcessRemoveObjectQueue()
 {
   _KPROCESS *NextSession; // rax
   __int64 v1; // rbx
@@ -35,41 +35,42 @@ void ObpProcessRemoveObjectQueue()
   __int64 v12; // rbx
   __int64 v13; // rax
   __int64 v14; // rdi
-  unsigned __int64 v15; // rax
-  unsigned int v16; // ecx
-  unsigned __int64 v17; // rax
-  signed __int32 v18[10]; // [rsp+0h] [rbp-98h] BYREF
-  __int128 *v19; // [rsp+28h] [rbp-70h]
-  __int128 *v20; // [rsp+30h] [rbp-68h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v21; // [rsp+38h] [rbp-60h] BYREF
+  signed __int64 v15; // rax
+  unsigned __int64 v16; // rax
+  unsigned int v17; // ecx
+  unsigned __int64 v18; // rax
+  signed __int32 v20[10]; // [rsp+0h] [rbp-98h] BYREF
+  __int128 *v21; // [rsp+28h] [rbp-70h]
+  __int128 *v22; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE v23[48]; // [rsp+38h] [rbp-60h] BYREF
 
-  if ( !qword_140C0E290 )
+  if ( !qword_140C13310 )
   {
-    v15 = __rdtsc();
-    v16 = 41929663 * ((((unsigned __int64)HIDWORD(v15) << 32) | (unsigned int)v15) >> 4);
-    qword_140C0E290 = v16;
-    if ( !v16 )
-      qword_140C0E290 = 1LL;
-    v17 = __rdtsc();
-    qword_140C0E298 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) >> 4)) ^ 0xC38LL;
-    qword_140C0E2A0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+    v16 = __rdtsc();
+    v17 = 41929663 * ((((unsigned __int64)HIDWORD(v16) << 32) | (unsigned int)v16) >> 4);
+    qword_140C13310 = v17;
+    if ( !v17 )
+      qword_140C13310 = 1LL;
+    v18 = __rdtsc();
+    qword_140C13318 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v18) << 32) | (unsigned int)v18) >> 4)) ^ 0xC24LL;
+    qword_140C13320 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
   }
-  if ( KiQueryUnbiasedInterruptTime() >= (unsigned __int64)qword_140C0E2A0 )
+  if ( KiQueryUnbiasedInterruptTime() >= (unsigned __int64)qword_140C13320 )
   {
-    v19 = &xmmword_140D1F2E0;
-    v20 = &xmmword_140D1F160;
+    v21 = &xmmword_140CFCC20;
+    v22 = &xmmword_140CFCA60;
     NextSession = (_KPROCESS *)MmGetNextSession(0LL);
     v1 = (__int64)NextSession;
     if ( NextSession )
     {
-      if ( (int)MmAttachSession(NextSession, (__int64)&v21) >= 0 )
+      if ( (int)MmAttachSession(NextSession, (__int64)v23) >= 0 )
       {
-        if ( !qword_140C0E2A8 )
-          qword_140C0E2A8 = (unsigned int)KiTableInformation;
-        if ( (_DWORD)xmmword_140D1F170 && (_BYTE)KdDebuggerNotPresent )
+        if ( !qword_140C13328 )
+          qword_140C13328 = (unsigned int)KiTableInformation;
+        if ( (_DWORD)xmmword_140CFCA70 && (_BYTE)KdDebuggerNotPresent )
         {
           v2 = 0;
-          v3 = &v20;
+          v3 = &v22;
           v4 = 2;
           do
           {
@@ -94,32 +95,32 @@ void ObpProcessRemoveObjectQueue()
             --v4;
           }
           while ( v4 );
-          if ( v2 != qword_140C0E2A8 && !qword_140C0E260 )
+          if ( v2 != qword_140C13328 && !qword_140C132E0 )
           {
-            v18[8] = -2071986176;
-            qword_140C0E260 = (unsigned int)__ROL4__(-2071986176, 233);
-            xmmword_140C0E268 = 0LL;
-            qword_140C0E278 = 266LL;
-            qword_140C0E280 = v6;
+            v20[8] = -2071986176;
+            qword_140C132E0 = (unsigned int)__ROL4__(-2071986176, 233);
+            xmmword_140C132E8 = 0LL;
+            qword_140C132F8 = 266LL;
+            qword_140C13300 = v6;
           }
         }
-        MmDetachSession(v1, &v21);
+        MmDetachSession(v1, (__int64)v23);
       }
       MmQuitNextSession(v1);
     }
-    if ( qword_140C0E260 )
+    if ( qword_140C132E0 )
     {
       if ( (void (__fastcall __noreturn *)(struct _KDPC *, PVOID, PVOID, PVOID))`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList.DeferredRoutine != KiScanQueues )
         KeInitializeDpc(
           &`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList,
           (PKDEFERRED_ROUTINE)KiScanQueues,
           &`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList);
-      qword_140C0E288 = 3903744LL;
+      qword_140C13308 = 3878784LL;
       KeInsertQueueDpc(&`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList, 0LL, 0LL);
     }
-    qword_140C0E2A0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+    qword_140C13320 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
   }
-  do
+  while ( 1 )
   {
     v12 = _InterlockedExchange64(&ObpRemoveObjectList, 1LL);
     do
@@ -134,9 +135,15 @@ void ObpProcessRemoveObjectQueue()
       v12 = v14;
     }
     while ( v14 && v14 != 1 );
+    if ( ObpRemoveObjectList == 1 )
+    {
+      v15 = _InterlockedCompareExchange64(&ObpRemoveObjectList, 0LL, 1LL);
+      if ( v15 == 1 )
+        break;
+    }
   }
-  while ( ObpRemoveObjectList != 1 || _InterlockedCompareExchange64(&ObpRemoveObjectList, 0LL, 1LL) != 1 );
-  _InterlockedOr(v18, 0);
+  _InterlockedOr(v20, 0);
   if ( ObpRemoveObjectWait )
-    ExfUnblockPushLock(&ObpRemoveObjectWait, 0LL);
+    LODWORD(v15) = ExfUnblockPushLock(&ObpRemoveObjectWait, 0LL);
+  return v15;
 }

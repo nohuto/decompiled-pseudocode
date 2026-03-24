@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_qqdid @ 0x1C0058628
+ * XREFs of WPP_IFR_SF_qqdid @ 0x1C00359F4
  * Callers:
- *     ?InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0058060 (-InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
- *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0058240 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C00351B0 (-InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0035430 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqdid(

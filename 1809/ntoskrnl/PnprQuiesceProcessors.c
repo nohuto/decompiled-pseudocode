@@ -1,15 +1,15 @@
 /*
  * XREFs of PnprQuiesceProcessors @ 0x14057A720
  * Callers:
- *     PnprQuiesce @ 0x14028A46C (PnprQuiesce.c)
+ *     PnprQuiesce @ 0x14028A56C (PnprQuiesce.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA50 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeSuspendClockTimerSafe @ 0x14028E8A0 (KeSuspendClockTimerSafe.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeSuspendClockTimerSafe @ 0x14028E9A0 (KeSuspendClockTimerSafe.c)
  *     PnprGetMillisecondCounter @ 0x1405797BC (PnprGetMillisecondCounter.c)
  */
 

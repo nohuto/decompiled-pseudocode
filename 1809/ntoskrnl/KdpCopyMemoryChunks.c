@@ -1,8 +1,8 @@
 /*
  * XREFs of KdpCopyMemoryChunks @ 0x1409189A8
  * Callers:
- *     KdpSetCommonState @ 0x14028C478 (KdpSetCommonState.c)
- *     KdSystemDebugControl @ 0x1408422D0 (KdSystemDebugControl.c)
+ *     KdpSetCommonState @ 0x14028C578 (KdpSetCommonState.c)
+ *     KdSystemDebugControl @ 0x1408422B0 (KdSystemDebugControl.c)
  *     KdpFillMemory @ 0x140916100 (KdpFillMemory.c)
  *     KdpReadPhysicalMemory @ 0x140916510 (KdpReadPhysicalMemory.c)
  *     KdpReadVirtualMemory @ 0x14091671C (KdpReadVirtualMemory.c)
@@ -20,7 +20,7 @@
  *     KdpPromptString @ 0x1409193A8 (KdpPromptString.c)
  *     KdpCreateRemoteFile @ 0x140919A60 (KdpCreateRemoteFile.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x1402BB4E0 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x1402BB5E0 (MmDbgCopyMemory.c)
  */
 
 __int64 __fastcall KdpCopyMemoryChunks(

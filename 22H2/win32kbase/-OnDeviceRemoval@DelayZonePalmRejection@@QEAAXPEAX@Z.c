@@ -1,51 +1,41 @@
 /*
- * XREFs of ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01E6364
+ * XREFs of ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01ACF80
  * Callers:
- *     ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01CD924 (-OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z.c)
+ *     ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01975E4 (-OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     ?HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z @ 0x1C01E247C (-HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z.c)
- *     ?HandleFlushDelayZonePalmRejectInputTimer@CHidInput@@QEAAX_NK@Z @ 0x1C01E24F8 (-HandleFlushDelayZonePalmRejectInputTimer@CHidInput@@QEAAX_NK@Z.c)
- *     ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C01FBDF4 (-ClearSession@DelayZoneTelemetry@@QEAAXXZ.c)
- *     ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01FBF0C (-UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFram.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     ?HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z @ 0x1C01A93A4 (-HandleDelayZonePalmRejectionTimer@CHidInput@@QEAAX_NK@Z.c)
+ *     ?HandleFlushDelayZonePalmRejectInputTimer@CHidInput@@QEAAX_NK@Z @ 0x1C01A942C (-HandleFlushDelayZonePalmRejectInputTimer@CHidInput@@QEAAX_NK@Z.c)
+ *     ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C01BD34C (-ClearSession@DelayZoneTelemetry@@QEAAXXZ.c)
+ *     ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01BD460 (-UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFram.c)
  */
 
 void __fastcall DelayZonePalmRejection::OnDeviceRemoval(DelayZonePalmRejection *this, void *a2)
 {
-  void *v2; // r8
+  void *v2; // rax
   void *v3; // rdi
-  void *v5; // r9
-  PDEVICE_OBJECT v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  DelayZoneTelemetry *v14; // rcx
-  __int128 v15; // [rsp+50h] [rbp-18h] BYREF
+  void *v5; // rax
+  int v6; // eax
+  __int64 v7; // r8
+  CHidInput *v8; // rcx
+  __int64 v9; // rdx
+  DelayZoneTelemetry *v10; // rcx
+  __int128 v11; // [rsp+30h] [rbp-18h] BYREF
 
   v2 = (void *)*((_QWORD *)this + 4);
   v3 = a2;
   if ( v2 && v2 == a2 )
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        (_DWORD)a2,
-        (_DWORD)v2,
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_q(
         WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        4,
+        (_DWORD)a2,
+        8,
         21,
-        (__int64)&WPP_0bb50b5e51eb3eed098c0ba758ca157d_Traceguids,
-        *((_QWORD *)this + 4));
+        (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
+        v2);
     }
     *((_DWORD *)this + 11) = 0;
     *((_QWORD *)this + 4) = 0LL;
@@ -58,47 +48,42 @@ void __fastcall DelayZonePalmRejection::OnDeviceRemoval(DelayZonePalmRejection *
   v5 = (void *)*((_QWORD *)this + 2);
   if ( v5 && v5 == v3 )
   {
-    v6 = WPP_GLOBAL_Control;
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        (_DWORD)a2,
-        (_DWORD)v2,
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_q(
         WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        4,
+        (_DWORD)a2,
+        8,
         22,
-        (__int64)&WPP_0bb50b5e51eb3eed098c0ba758ca157d_Traceguids,
+        (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids,
         *((_QWORD *)this + 2));
+    }
     *((_DWORD *)this + 10) = 0;
     *((_QWORD *)this + 2) = 0LL;
-    if ( *((_DWORD *)this + 1) == 1 )
+    v6 = *((_DWORD *)this + 1);
+    if ( v6 == 1 )
     {
-      v7 = SGDGetUserSessionState(v6, a2, v2, v5);
-      CHidInput::HandleDelayZonePalmRejectionTimer(*(CHidInput **)(v7 + 16840), 1, 0);
-      v11 = *((_QWORD *)this + 16);
+      CHidInput::HandleDelayZonePalmRejectionTimer(this, 1, 0);
+      v8 = (CHidInput *)*((_QWORD *)this + 16);
       *((_BYTE *)this + 8) = 0;
-      if ( v11 )
+      if ( v8 )
       {
-        v12 = *((unsigned int *)this + 1);
-        v15 = 0LL;
-        DelayZoneTelemetry::UpdateDelayZoneStateInfo(v11, v12, v9, 2LL, &v15);
+        v9 = *((unsigned int *)this + 1);
+        v11 = 0LL;
+        DelayZoneTelemetry::UpdateDelayZoneStateInfo(v8, v9, v7, 2LL, &v11);
       }
-      v13 = SGDGetUserSessionState(v11, v8, v9, v10);
-      CHidInput::HandleFlushDelayZonePalmRejectInputTimer(*(CHidInput **)(v13 + 16840));
+      CHidInput::HandleFlushDelayZonePalmRejectInputTimer(v8);
+      v6 = *((_DWORD *)this + 1);
       *((_BYTE *)this + 9) = 1;
     }
-    if ( *((_DWORD *)this + 1) == 2 && !*((_DWORD *)this + 11) )
+    if ( v6 == 2 && !*((_DWORD *)this + 11) )
     {
       *((_QWORD *)this + 4) = 0LL;
       *((_DWORD *)this + 1) = 0;
     }
   }
-  v14 = (DelayZoneTelemetry *)*((_QWORD *)this + 16);
-  if ( v14 )
-    DelayZoneTelemetry::ClearSession(v14);
+  v10 = (DelayZoneTelemetry *)*((_QWORD *)this + 16);
+  if ( v10 )
+    DelayZoneTelemetry::ClearSession(v10);
 }

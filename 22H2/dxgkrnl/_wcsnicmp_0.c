@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcsnicmp_0 @ 0x1C0023F02
+ * XREFs of _wcsnicmp_0 @ 0x1C0024962
  * Callers:
- *     SepSddlGetAclForString @ 0x1C0397360 (SepSddlGetAclForString.c)
- *     SepSddlGetSidForString @ 0x1C03976D8 (SepSddlGetSidForString.c)
- *     SepSddlLookupAccessMaskInTable @ 0x1C03977A4 (SepSddlLookupAccessMaskInTable.c)
- *     ?_ReadDisplayHdrSupportFromPnpRegistry@MonitorColorState@DxgMonitor@@AEAAJAEAW4_DISPLAYCONFIG_HDR_CERTIFICATIONS@@AEA_N@Z @ 0x1C03CE20C (-_ReadDisplayHdrSupportFromPnpRegistry@MonitorColorState@DxgMonitor@@AEAAJAEAW4_DISPLAYCONFIG_HD.c)
+ *     SepSddlGetAclForString @ 0x1C02C49D4 (SepSddlGetAclForString.c)
+ *     SepSddlGetSidForString @ 0x1C02C4D64 (SepSddlGetSidForString.c)
+ *     SepSddlLookupAccessMaskInTable @ 0x1C02C4E38 (SepSddlLookupAccessMaskInTable.c)
+ *     ?_ReadDisplayHdrSupportFromPnpRegistry@DXGMONITOR@@QEAAJPEA_N00@Z @ 0x1C02F5EC0 (-_ReadDisplayHdrSupportFromPnpRegistry@DXGMONITOR@@QEAAJPEA_N00@Z.c)
  * Callees:
  *     <none>
  */

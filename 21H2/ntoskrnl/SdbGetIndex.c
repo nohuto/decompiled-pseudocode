@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbGetIndex @ 0x14075BCC0
+ * XREFs of SdbGetIndex @ 0x14075A670
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x14075B48C (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14075B7F4 (SdbFindFirstStringIndexedTag.c)
- *     SdbpSearchDB @ 0x14075BB10 (SdbpSearchDB.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140759788 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140759C00 (SdbFindFirstStringIndexedTag.c)
+ *     SdbpSearchDB @ 0x14077E7B4 (SdbpSearchDB.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     RtlRunOnceExecuteOnce @ 0x14075BD80 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x14068A9B0 (RtlRunOnceExecuteOnce.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbGetIndex(union _RTL_RUN_ONCE *Parameter, __int16 a2, __int16 a3, _DWORD *a4)
 {
   unsigned int v7; // edi
-  unsigned int v8; // ecx
+  int v8; // ecx
   __int64 v9; // r8
   _WORD *i; // rax
   __int64 v11; // rcx
@@ -22,7 +22,7 @@ __int64 __fastcall SdbGetIndex(union _RTL_RUN_ONCE *Parameter, __int16 a2, __int
   v7 = 0;
   if ( a4 )
     *a4 = 0;
-  if ( RtlRunOnceExecuteOnce(Parameter + 167, InitOnceScanIndexes, Parameter, &Context) < 0 )
+  if ( RtlRunOnceExecuteOnce(Parameter + 327, (PRTL_RUN_ONCE_INIT_FN)InitOnceScanIndexes, Parameter, &Context) < 0 )
   {
     AslLogCallPrintf(1LL);
   }
@@ -41,7 +41,7 @@ __int64 __fastcall SdbGetIndex(union _RTL_RUN_ONCE *Parameter, __int16 a2, __int
         return v7;
       }
       ++v8;
-      if ( ++v9 >= 32 )
+      if ( ++v9 >= 64 )
         return v7;
     }
   }

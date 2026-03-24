@@ -1,16 +1,16 @@
 /*
- * XREFs of PopMonitorProcessLoop @ 0x1408600E4
+ * XREFs of PopMonitorProcessLoop @ 0x1407D0674
  * Callers:
- *     PopMonitorAlpcCallback @ 0x140999FE0 (PopMonitorAlpcCallback.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140B2CD08 (PopUmpoInitializeMonitorChannel.c)
+ *     PopMonitorAlpcCallback @ 0x1408F2750 (PopMonitorAlpcCallback.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140A70AB0 (PopUmpoInitializeMonitorChannel.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x14036AF00 (PopUmpoSendPowerMessage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x14041C640 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcSendWaitReceivePort @ 0x14041C8E0 (ZwAlpcSendWaitReceivePort.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407525EC (PopSetPowerSettingValueAcDc.c)
+ *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1403FB280 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1403FB520 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 PopMonitorProcessLoop()
@@ -25,9 +25,8 @@ __int64 PopMonitorProcessLoop()
   int v7; // [rsp+160h] [rbp+58h]
   int v8; // [rsp+164h] [rbp+5Ch]
 
-  *(_QWORD *)&v3 = 0LL;
-  DWORD2(v3) = 0;
   memset(&v2[2], 0, 32);
+  v3 = 0LL;
   memset(v5, 0, sizeof(v5));
   while ( 1 )
   {
@@ -57,7 +56,7 @@ __int64 PopMonitorProcessLoop()
       {
         v1 = &GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS;
 LABEL_18:
-        PopSetPowerSettingValueAcDc(v1, 4u, v2);
+        PopSetPowerSettingValueAcDc(v1, 4LL, v2);
       }
     }
     else if ( (unsigned __int8)v6 > 4u )

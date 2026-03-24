@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PanCloseProcess@@YAXQEAXPEAU_EPROCESS@@@Z @ 0x1C0292900
+ * XREFs of ?PanCloseProcess@@YAXQEAXPEAU_EPROCESS@@@Z @ 0x1C0294EF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PanCloseProcess(_QWORD *a1, struct _EPROCESS *a2)

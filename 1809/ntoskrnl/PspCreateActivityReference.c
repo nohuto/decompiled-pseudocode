@@ -1,7 +1,7 @@
 /*
- * XREFs of PspCreateActivityReference @ 0x1406D61FC
+ * XREFs of PspCreateActivityReference @ 0x1406D61DC
  * Callers:
- *     NtAcquireProcessActivityReference @ 0x1406D60F0 (NtAcquireProcessActivityReference.c)
+ *     NtAcquireProcessActivityReference @ 0x1406D60D0 (NtAcquireProcessActivityReference.c)
  * Callees:
  *     PsChargeProcessWakeCounter @ 0x140588720 (PsChargeProcessWakeCounter.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)

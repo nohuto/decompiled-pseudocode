@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDcHandleDeviceEvent @ 0x140787830
+ * XREFs of PiDcHandleDeviceEvent @ 0x140757F14
  * Callers:
- *     PiDcHandleObjectEvent @ 0x140788574 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x140757EC4 (PiDcHandleObjectEvent.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x14022CF30 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140788364 (_PnpStringFromGuid.c)
- *     PiDcContainerRequiresConfiguration @ 0x140878020 (PiDcContainerRequiresConfiguration.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14032D970 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1406B1200 (_PnpStringFromGuid.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140758E58 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
@@ -21,26 +21,26 @@ __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
   char v9[4]; // [rsp+68h] [rbp-59h] BYREF
   int v10; // [rsp+6Ch] [rbp-55h] BYREF
   int v11; // [rsp+70h] [rbp-51h] BYREF
-  __int128 Buffer; // [rsp+78h] [rbp-49h] BYREF
-  __int64 v13; // [rsp+88h] [rbp-39h]
-  __int128 v14; // [rsp+90h] [rbp-31h] BYREF
+  __int128 v12; // [rsp+78h] [rbp-49h] BYREF
+  __int128 Buffer; // [rsp+88h] [rbp-39h] BYREF
+  int v14; // [rsp+98h] [rbp-29h]
+  int v15; // [rsp+9Ch] [rbp-25h]
   wchar_t Str2[40]; // [rsp+A8h] [rbp-19h] BYREF
 
   ObjectProperty = 0;
+  v2 = 0;
   v11 = 0;
   v10 = 0;
-  v2 = 0;
+  v15 = 0;
+  v12 = 0LL;
   v9[0] = 0;
-  v14 = 0LL;
-  v13 = 0LL;
-  Buffer = 0LL;
   if ( *(_DWORD *)(a1 + 76) )
   {
     while ( 1 )
     {
       v4 = 32LL * v2;
       v5 = *(_OWORD *)(v4 + a1 + 80);
-      LODWORD(v13) = *(_DWORD *)(v4 + a1 + 96);
+      v14 = *(_DWORD *)(v4 + a1 + 96);
       Buffer = v5;
       v6 = RtlLookupElementGenericTableAvl(&PiDcUpdateProperties, &Buffer);
       v7 = v6;
@@ -57,13 +57,13 @@ __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
                        0LL,
                        (__int64)&DEVPKEY_Device_ContainerId,
                        (__int64)&v10,
-                       (__int64)&v14,
+                       (__int64)&v12,
                        16,
                        (__int64)&v11,
                        0);
     if ( ObjectProperty >= 0 && v10 == 13 && v11 == 16 )
     {
-      ObjectProperty = PnpStringFromGuid(&v14, Str2);
+      ObjectProperty = PnpStringFromGuid((int *)&v12, Str2);
       if ( ObjectProperty >= 0 )
       {
         ObjectProperty = PnpGetObjectProperty(

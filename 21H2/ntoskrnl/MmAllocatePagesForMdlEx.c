@@ -1,21 +1,17 @@
 /*
- * XREFs of MmAllocatePagesForMdlEx @ 0x1402630A0
+ * XREFs of MmAllocatePagesForMdlEx @ 0x1402E3290
  * Callers:
- *     EtwpAllocateTraceBuffer @ 0x140261A20 (EtwpAllocateTraceBuffer.c)
- *     PopGenerateMdl @ 0x14038DE68 (PopGenerateMdl.c)
- *     PopGenerateScratchMdl @ 0x140394AB4 (PopGenerateScratchMdl.c)
- *     BgpFwAllocateMemory @ 0x1403AA2B8 (BgpFwAllocateMemory.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x1403B2614 (HalpAllocateCommonBufferDmaThin.c)
- *     PpmHeteroInitializeHgsSupport @ 0x1403DCA14 (PpmHeteroInitializeHgsSupport.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x140511BD0 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140514A70 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1405164D0 (HalpAllocateCommonBufferDmarThin.c)
- *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x1405F7240 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
- *     DifMmAllocatePagesForMdlExWrapper @ 0x1406169F0 (DifMmAllocatePagesForMdlExWrapper.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x140940CB0 (IoReserveKsrPersistentMemoryEx.c)
- *     ResFwGetContext @ 0x140AAB320 (ResFwGetContext.c)
+ *     EtwpAllocateTraceBuffer @ 0x1402ED4C8 (EtwpAllocateTraceBuffer.c)
+ *     PopGenerateMdl @ 0x140388268 (PopGenerateMdl.c)
+ *     PopGenerateScratchMdl @ 0x140388430 (PopGenerateScratchMdl.c)
+ *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     PpmHeteroInitializeHgsSupport @ 0x1403CDC44 (PpmHeteroInitializeHgsSupport.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB2F0 (HalpAllocateCommonBufferThin.c)
+ *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x140599500 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     IoReserveKsrPersistentMemory @ 0x14089C000 (IoReserveKsrPersistentMemory.c)
+ *     ResFwGetContext @ 0x1409F1298 (ResFwGetContext.c)
  * Callees:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140264F60 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdlEx(
@@ -32,7 +28,7 @@ PMDL __stdcall MmAllocatePagesForMdlEx(
                  SkipBytes.LowPart,
                  TotalBytes,
                  CacheType,
-                 *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 138LL),
+                 *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 146LL),
                  Flags,
                  0LL);
 }

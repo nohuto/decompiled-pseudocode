@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CommitInputFrame@CTouchProcessor@@IEAAXPEAUCPointerInputFrame@@@Z @ 0x1C00E3E00
+ * XREFs of ?CommitInputFrame@CTouchProcessor@@IEAAXPEAUCPointerInputFrame@@@Z @ 0x1C018B6A4
  * Callers:
- *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C01BE764 (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
- *     ?ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z @ 0x1C01D1808 (-ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z.c)
+ *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C018B6FC (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ *     ?ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z @ 0x1C019A6E0 (-ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z.c)
  * Callees:
- *     ?SetPointerRawDataListFrameId@CTouchProcessor@@AEAAXKPEAUCPointerRawData@@@Z @ 0x1C01D6AD8 (-SetPointerRawDataListFrameId@CTouchProcessor@@AEAAXKPEAUCPointerRawData@@@Z.c)
+ *     ?SetPointerRawDataListFrameId@CTouchProcessor@@AEAAXKPEAUCPointerRawData@@@Z @ 0x1C019E5B4 (-SetPointerRawDataListFrameId@CTouchProcessor@@AEAAXKPEAUCPointerRawData@@@Z.c)
  */
 
 void __fastcall CTouchProcessor::CommitInputFrame(CTouchProcessor *this, struct CPointerInputFrame *a2)
@@ -13,7 +13,7 @@ void __fastcall CTouchProcessor::CommitInputFrame(CTouchProcessor *this, struct 
   _QWORD *v5; // rbx
   __int64 v6; // rax
 
-  CTouchProcessor::SetPointerRawDataListFrameId(this, *((_DWORD *)a2 + 10), *((struct CPointerRawData **)a2 + 29));
+  CTouchProcessor::SetPointerRawDataListFrameId(this, *((_DWORD *)a2 + 10), *((struct CPointerRawData **)a2 + 16));
   v4 = (char *)this + 56;
   v5 = (_QWORD *)((char *)a2 + 8);
   v6 = *(_QWORD *)v4;

@@ -1,20 +1,20 @@
 /*
- * XREFs of IopQueryRegistryKeySystemPath @ 0x140680164
+ * XREFs of IopQueryRegistryKeySystemPath @ 0x140680144
  * Callers:
- *     IopBuildFullDriverPath @ 0x14068063C (IopBuildFullDriverPath.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14083EBA4 (PiDrvDbResolveKeyFilePaths.c)
+ *     IopBuildFullDriverPath @ 0x14068061C (IopBuildFullDriverPath.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x14083EB84 (PiDrvDbResolveKeyFilePaths.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x1401BA650 (ZwOpenSymbolicLinkObject.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1401BA670 (ZwOpenSymbolicLinkObject.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     NtQueryObject @ 0x140660AD0 (NtQueryObject.c)
+ *     NtQueryObject @ 0x140660AB0 (NtQueryObject.c)
  */
 
 __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING DestinationString)

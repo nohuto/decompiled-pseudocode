@@ -1,18 +1,18 @@
 /*
- * XREFs of IoDisconnectInterruptEx @ 0x140816A20
+ * XREFs of IoDisconnectInterruptEx @ 0x140761970
  * Callers:
- *     DifIoDisconnectInterruptExWrapper @ 0x14060EAB0 (DifIoDisconnectInterruptExWrapper.c)
+ *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoDisconnectInterruptEx(PIO_DISCONNECT_INTERRUPT_PARAMETERS Parameters)
 {
   _DWORD *Generic; // rdi
-  unsigned int i; // ebx
   unsigned int j; // ebx
+  unsigned int i; // ebx
 
   if ( Parameters->Version == 1 )
     goto LABEL_5;

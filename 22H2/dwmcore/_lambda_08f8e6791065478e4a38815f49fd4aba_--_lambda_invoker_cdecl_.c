@@ -1,11 +1,11 @@
 /*
- * XREFs of _lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cdecl_ @ 0x180104440
+ * XREFs of _lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cdecl_ @ 0x1800DFD40
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800F9CF8 (-Revert@CMmcssTask@@QEAAXXZ.c)
- *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x180103AFC (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x1800AD7F8 (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800ADB14 (-Revert@CMmcssTask@@QEAAXXZ.c)
  */
 
 __int64 __fastcall lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cdecl_(__int64 a1)
@@ -16,8 +16,8 @@ __int64 __fastcall lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cde
   __int64 v5; // rcx
 
   v1 = *(_QWORD *)(a1 + 16);
-  v2 = (struct _RTL_CRITICAL_SECTION *)(a1 + 312);
-  if ( *(_BYTE *)(v1 + 416) )
+  v2 = (struct _RTL_CRITICAL_SECTION *)(a1 + 336);
+  if ( *(_BYTE *)(v1 + 264) )
   {
     v4 = CMmcssTask::Apply(v2, 1);
     if ( v4 < 0 )

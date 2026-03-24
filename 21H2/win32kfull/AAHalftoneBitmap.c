@@ -1,24 +1,24 @@
 /*
- * XREFs of AAHalftoneBitmap @ 0x1C0093280
+ * XREFs of AAHalftoneBitmap @ 0x1C001AD68
  * Callers:
- *     HT_HalftoneBitmap @ 0x1C0092FAC (HT_HalftoneBitmap.c)
+ *     HT_HalftoneBitmap @ 0x1C001AA8C (HT_HalftoneBitmap.c)
  * Callees:
- *     SetGrayColorTable @ 0x1C00049C8 (SetGrayColorTable.c)
- *     SetupAAHeader @ 0x1C006DC90 (SetupAAHeader.c)
- *     ValidateHTSI @ 0x1C00939E0 (ValidateHTSI.c)
- *     CreateDyesColorMappingTable @ 0x1C0093DC8 (CreateDyesColorMappingTable.c)
- *     InitializeFUDI @ 0x1C011ECDC (InitializeFUDI.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     GetDstBFInfo @ 0x1C025E228 (GetDstBFInfo.c)
- *     FindBGRMapCache @ 0x1C025F284 (FindBGRMapCache.c)
+ *     SetGrayColorTable @ 0x1C00086E0 (SetGrayColorTable.c)
+ *     ValidateHTSI @ 0x1C001B4C8 (ValidateHTSI.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B8B0 (CreateDyesColorMappingTable.c)
+ *     SetupAAHeader @ 0x1C001CE78 (SetupAAHeader.c)
+ *     InitializeFUDI @ 0x1C0133AA8 (InitializeFUDI.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     GetDstBFInfo @ 0x1C02615B8 (GetDstBFInfo.c)
+ *     FindBGRMapCache @ 0x1C02623F4 (FindBGRMapCache.c)
  */
 
-__int64 __fastcall AAHalftoneBitmap(__int64 (__fastcall **a1)(__int128 *a1))
+__int64 __fastcall AAHalftoneBitmap(__int64 *a1)
 {
-  __int64 (__fastcall *v2)(__int128 *); // r14
-  __int64 (__fastcall *v3)(__int128 *); // r15
-  __int64 (__fastcall *v4)(__int128 *); // rdi
+  __int64 v2; // r14
+  __int64 v3; // r15
+  unsigned int *v4; // rdi
   int DyesColorMappingTable; // ebx
   __int64 v7; // r9
   unsigned __int8 v8; // r14
@@ -26,7 +26,7 @@ __int64 __fastcall AAHalftoneBitmap(__int64 (__fastcall **a1)(__int128 *a1))
   int v10; // r15d
   unsigned int v11; // ebx
   __int64 v12; // rax
-  __int64 (__fastcall *v13)(__int128 *); // rax
+  __int64 v13; // rax
   _OWORD *v14; // rdx
   _OWORD *v15; // rcx
   __int64 v16; // r8
@@ -44,7 +44,7 @@ __int64 __fastcall AAHalftoneBitmap(__int64 (__fastcall **a1)(__int128 *a1))
   char v28; // al
   __int64 (__fastcall *v29)(int, int, int, int, __int64, __int64, __int64, int, __int64); // rax
   bool v30; // zf
-  __int64 (__fastcall *v31)(__int128 *); // r11
+  __int64 v31; // r11
   void *v32; // r10
   unsigned __int8 *v33; // rdx
   char v34; // al
@@ -52,14 +52,14 @@ __int64 __fastcall AAHalftoneBitmap(__int64 (__fastcall **a1)(__int128 *a1))
   int v36; // r14d
   __int64 v37; // rcx
   void *v38; // [rsp+20h] [rbp-78h]
-  __int64 (__fastcall *v39)(__int128 *); // [rsp+28h] [rbp-70h]
+  __int64 v39; // [rsp+28h] [rbp-70h]
   int v40; // [rsp+34h] [rbp-64h]
   int v41; // [rsp+38h] [rbp-60h]
-  __int64 (__fastcall *v42[3])(__int128 *); // [rsp+40h] [rbp-58h] BYREF
+  _QWORD v42[3]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v43; // [rsp+58h] [rbp-40h]
-  int v44; // [rsp+A0h] [rbp+8h]
+  unsigned int v44; // [rsp+A0h] [rbp+8h]
   int v45; // [rsp+B0h] [rbp+18h]
-  __int64 (__fastcall *v46)(__int128 *); // [rsp+B8h] [rbp+20h]
+  __int64 v46; // [rsp+B8h] [rbp+20h]
   int v47; // [rsp+B8h] [rbp+20h]
 
   v42[0] = 0LL;
@@ -68,7 +68,7 @@ __int64 __fastcall AAHalftoneBitmap(__int64 (__fastcall **a1)(__int128 *a1))
   v42[1] = *a1;
   v3 = a1[1];
   v46 = v3;
-  v4 = a1[6];
+  v4 = (unsigned int *)a1[6];
   v42[2] = v4;
   DyesColorMappingTable = ValidateHTSI(a1, 0LL);
   if ( DyesColorMappingTable < 0 )
@@ -79,13 +79,13 @@ __int64 __fastcall AAHalftoneBitmap(__int64 (__fastcall **a1)(__int128 *a1))
   DyesColorMappingTable = ValidateHTSI(a1, 2LL);
   if ( DyesColorMappingTable < 0 )
     goto LABEL_6;
-  DyesColorMappingTable = SetupAAHeader(a1, (__int64)v2, (__int64)v4, v42);
+  DyesColorMappingTable = SetupAAHeader(a1, v2, v4, v42);
   if ( DyesColorMappingTable <= 0 )
   {
     *((_QWORD *)v4 + 38) = 0LL;
     *((_QWORD *)v4 + 39) = 0LL;
 LABEL_6:
-    EngReleaseSemaphore(*((HSEMAPHORE *)v2 + 1));
+    EngReleaseSemaphore(*(HSEMAPHORE *)(v2 + 8));
     return (unsigned int)DyesColorMappingTable;
   }
   DyesColorMappingTable = CreateDyesColorMappingTable(a1);
@@ -93,24 +93,24 @@ LABEL_6:
   if ( DyesColorMappingTable > 0 )
   {
     v45 = 1;
-    v8 = *((_BYTE *)v3 + 31);
-    v9 = (_BYTE *)*(unsigned int *)v4;
-    v44 = *(_DWORD *)v4;
+    v8 = *(_BYTE *)(v3 + 31);
+    v9 = (_BYTE *)*v4;
+    v44 = *v4;
     v43 = *((_QWORD *)v4 + 17);
     v10 = *(_DWORD *)(*((_QWORD *)v4 + 38) + 4LL);
-    v11 = *((_DWORD *)v4 + 111);
+    v11 = v4[111];
     v38 = 0LL;
-    v47 = *((_DWORD *)v46 + 14) & 0x2000000;
+    v47 = *(_DWORD *)(v46 + 56) & 0x2000000;
     if ( v47 )
-      v38 = (char *)v39 + 548;
+      v38 = (void *)(v39 + 548);
     v41 = (unsigned __int16)v9 & 0x800;
     if ( (int)v9 >= 0 )
     {
-      memmove(*((void **)v4 + 47), (char *)v39 + 856, 0xC1CuLL);
+      memmove(*((void **)v4 + 47), (const void *)(v39 + 856), 0xC1CuLL);
       v13 = v39;
       if ( v41 )
       {
-        v14 = (_OWORD *)*((_QWORD *)v39 + 883);
+        v14 = *(_OWORD **)(v39 + 7064);
         v15 = (_OWORD *)*((_QWORD *)v4 + 42);
         if ( (v44 & 0x1000) != 0 )
         {
@@ -137,22 +137,22 @@ LABEL_6:
           while ( v16 );
         }
       }
-      EngReleaseSemaphore(*((HSEMAPHORE *)v13 + 1));
+      EngReleaseSemaphore(*(HSEMAPHORE *)(v13 + 8));
     }
     else
     {
       v45 = 0;
       if ( ((unsigned __int16)v9 & 0x800) != 0 )
       {
-        v12 = *((_QWORD *)v39 + 883);
+        v12 = *(_QWORD *)(v39 + 7064);
         *((_QWORD *)v4 + 42) = v12;
         if ( ((unsigned __int16)v9 & 0x1000) != 0 )
           *((_QWORD *)v4 + 42) = v12 + 768;
       }
     }
-    if ( (*((_BYTE *)v4 + 8) & 4) != 0 )
-      SetGrayColorTable(*((_OWORD **)v4 + 48), (__int64)v4 + 8);
-    if ( *((_DWORD *)v4 + 132) )
+    if ( (v4[2] & 4) != 0 )
+      SetGrayColorTable(*((_OWORD **)v4 + 48), (__int64)(v4 + 2));
+    if ( v4[132] )
       InitializeFUDI(v4);
     *((_QWORD *)v4 + 70) -= 4LL;
     if ( v8 > 0xF9u )
@@ -224,7 +224,7 @@ LABEL_40:
             LODWORD(v7) = 366;
             do
             {
-              *v9++ = *((_BYTE *)v31 + *v33++);
+              *v9++ = *(_BYTE *)(*v33++ + v31);
               v19 = (_DWORD)v7 == 1;
               v7 = (unsigned int)(v7 - 1);
             }
@@ -329,13 +329,13 @@ LABEL_92:
         if ( v17 )
         {
           *((_QWORD *)v4 + 35) = v38;
-          if ( (*(_DWORD *)v4 & 0x800) != 0 )
+          if ( (*v4 & 0x800) != 0 )
           {
             LOBYTE(v7) = v11;
             LOBYTE(v9) = v8;
-            GetDstBFInfo(v4, *((_QWORD *)a1[2] + 1), v9, v7);
+            GetDstBFInfo(v4, *(_QWORD *)(a1[2] + 8), v9, v7);
           }
-          DyesColorMappingTable = v42[0]((__int128 *)v4);
+          DyesColorMappingTable = ((__int64 (__fastcall *)(unsigned int *))v42[0])(v4);
           v36 = v45;
         }
         else
@@ -374,7 +374,7 @@ LABEL_92:
   v36 = 0;
 LABEL_101:
   if ( !v36 )
-    EngReleaseSemaphore(*((HSEMAPHORE *)v39 + 1));
+    EngReleaseSemaphore(*(HSEMAPHORE *)(v39 + 8));
   EngFreeMem(*((PVOID *)v4 + 38));
   EngFreeMem(*((PVOID *)v4 + 39));
   *((_QWORD *)v4 + 38) = 0LL;

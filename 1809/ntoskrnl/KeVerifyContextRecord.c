@@ -6,7 +6,7 @@
  * Callees:
  *     PsWow64GetProcessMachine @ 0x140620BA0 (PsWow64GetProcessMachine.c)
  *     RtlGuardIsValidStackPointer @ 0x140620BC4 (RtlGuardIsValidStackPointer.c)
- *     RtlGuardIsValidWow64StackPointer @ 0x1406A955C (RtlGuardIsValidWow64StackPointer.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x1406A953C (RtlGuardIsValidWow64StackPointer.c)
  */
 
 __int64 __fastcall KeVerifyContextRecord(__int64 a1, __int64 a2)

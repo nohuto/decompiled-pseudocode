@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpCtContextFree @ 0x1409BE97C
+ * XREFs of RtlpCtContextFree @ 0x14091947C
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405EDBA0 (RtlRaiseCustomSystemEventTrigger.c)
- *     RtlpCtContextInit @ 0x1409BE9D8 (RtlpCtContextInit.c)
- *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x1409BEBB0 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E5E0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlpCtContextInit @ 0x1409194D8 (RtlpCtContextInit.c)
+ *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x1409196B0 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x140791480 (ExUnsubscribeWnfStateChange.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1406B2A90 (ExUnsubscribeWnfStateChange.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RtlpCtContextFree(PVOID *P)
 {
-  PVOID v2; // rcx
+  struct _EX_RUNDOWN_REF *v2; // rcx
   PVOID v3; // rcx
 
-  v2 = P[1];
+  v2 = (struct _EX_RUNDOWN_REF *)P[1];
   if ( v2 )
     ExUnsubscribeWnfStateChange(v2);
   v3 = P[2];

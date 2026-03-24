@@ -1,29 +1,29 @@
 /*
- * XREFs of MiExpandFlushMdl @ 0x1402404A8
+ * XREFs of MiExpandFlushMdl @ 0x1402BAC80
  * Callers:
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
 {
   __int64 v2; // rdi
   __int64 v4; // rbx
-  void *Pool; // rax
+  PVOID Pool; // rax
   __int64 v6; // rsi
   __int64 result; // rax
 
   v2 = Src[10];
-  if ( (_DWORD)v2 == 0xFFFFF )
+  if ( (_DWORD)v2 == 1048574 )
     return 0LL;
   v4 = (unsigned int)(2 * v2);
-  if ( (unsigned int)v4 <= (unsigned int)v2 || (unsigned int)v4 > 0xFFFFF )
+  if ( (unsigned int)v4 <= (unsigned int)v2 || (unsigned int)v4 > 0xFFFFE )
     return 0LL;
   if ( (unsigned int)v4 > a2 )
     v4 = a2;
-  Pool = (void *)MiAllocatePool(64LL, 8 * v4 + 48, 1816554829LL);
+  Pool = MiAllocatePool(64, 8 * v4 + 48, 0x6C466D4Du);
   v6 = (__int64)Pool;
   if ( !Pool )
     return 0LL;

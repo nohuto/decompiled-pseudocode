@@ -1,175 +1,181 @@
 /*
- * XREFs of ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18010C9DC
+ * XREFs of ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18004C610
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x18010BCB0 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B9C4 (_anonymous_namespace_--SendFramesReport.c)
  * Callees:
- *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800F05D8 (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
- *     ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x18010D5B4 (-AppendByte@Base853Encoder@@QEAAXE@Z.c)
- *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18010D608 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
- *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18010D664 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
- *     ??$_Emplace_reallocate@E@?$vector@EV?$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z @ 0x18010D81C (--$_Emplace_reallocate@E@-$vector@EV-$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z.c)
- *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x18010DCC0 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@V-$basic_string@GU-$char_.c)
- *     _anonymous_namespace_::Compressor::Compress @ 0x18010E030 (_anonymous_namespace_--Compressor--Compress.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@QEBD@Z @ 0x1801D9170 (--0-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAA@QEBD@Z.c)
+ *     ??$_Emplace_reallocate@AEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAPEAEQEAEAEBE@Z @ 0x18004B7DC (--$_Emplace_reallocate@AEBE@-$vector@EV-$allocator@E@std@@@std@@QEAAPEAEQEAEAEBE@Z.c)
+ *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18004D1AC (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x18004D394 (-AppendByte@Base853Encoder@@QEAAXE@Z.c)
+ *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18004D3E8 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800D42BC (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1800D5B3C (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@V-$basic_string@GU-$char_.c)
+ *     _anonymous_namespace_::Compressor::Compress @ 0x1800D6480 (_anonymous_namespace_--Compressor--Compress.c)
+ *     ?_Tidy_deallocate@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ @ 0x1800D8DEC (-_Tidy_deallocate@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEAAXXZ.c)
+ *     ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@QEBD@Z @ 0x1800E666C (--0-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAA@QEBD@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 _OWORD *__fastcall EncodeStringsList(_OWORD *a1, __int64 a2)
 {
-  __int64 *v3; // rax
-  _BYTE *v4; // r11
-  _BYTE *v5; // r10
+  _OWORD *v2; // r14
+  __int64 *v3; // rbx
+  _BYTE *v4; // r10
+  _BYTE *v5; // r11
   __int64 v6; // rax
-  int v7; // r14d
-  unsigned __int16 *v8; // rbx
-  int *v9; // r12
+  int v7; // r15d
+  unsigned __int16 *v8; // rdi
+  int *v9; // r13
   _BYTE *v10; // r10
   _BYTE *v11; // r10
-  int v12; // r15d
-  unsigned __int16 *v13; // rcx
-  unsigned __int16 *v14; // rsi
-  unsigned __int16 *v15; // r12
-  unsigned __int16 v16; // bx
-  _BYTE *v17; // r10
-  __int16 v18; // bx
-  unsigned __int8 *v19; // rbx
-  __int128 v20; // xmm1
-  __int128 v21; // xmm0
-  char v23[8]; // [rsp+20h] [rbp-49h] BYREF
-  __int128 v24; // [rsp+28h] [rbp-41h] BYREF
-  _BYTE *v25; // [rsp+38h] [rbp-31h]
-  __int64 v26; // [rsp+40h] [rbp-29h] BYREF
-  __int128 *v27; // [rsp+48h] [rbp-21h] BYREF
-  int v28; // [rsp+50h] [rbp-19h]
-  int v29; // [rsp+54h] [rbp-15h]
-  int v30; // [rsp+58h] [rbp-11h]
-  _QWORD v31[3]; // [rsp+60h] [rbp-9h] BYREF
-  __int128 v32; // [rsp+78h] [rbp+Fh] BYREF
-  __int128 v33; // [rsp+88h] [rbp+1Fh]
+  int v12; // r12d
+  unsigned __int16 *v13; // rsi
+  unsigned __int16 *v14; // r13
+  unsigned __int16 v15; // di
+  _BYTE *v16; // r10
+  __int16 v17; // di
+  unsigned __int8 *v18; // rbx
+  unsigned __int8 *v19; // rsi
+  __m128i si128; // xmm0
+  unsigned __int8 *v21; // rdi
+  __int128 v22; // xmm0
+  __m128i v23; // xmm1
+  char v25[8]; // [rsp+28h] [rbp-59h] BYREF
+  __int128 v26; // [rsp+30h] [rbp-51h] BYREF
+  _BYTE *v27; // [rsp+40h] [rbp-41h]
+  __int64 v28; // [rsp+48h] [rbp-39h] BYREF
+  __int128 *v29; // [rsp+50h] [rbp-31h] BYREF
+  __int64 v30; // [rsp+58h] [rbp-29h]
+  int v31; // [rsp+60h] [rbp-21h]
+  _OWORD *v32; // [rsp+68h] [rbp-19h]
+  unsigned __int8 *v33; // [rsp+70h] [rbp-11h] BYREF
+  unsigned __int64 v34; // [rsp+78h] [rbp-9h]
+  __int128 v35; // [rsp+88h] [rbp+7h] BYREF
+  __m128i v36; // [rsp+98h] [rbp+17h]
 
+  v32 = a1;
+  v2 = a1;
   if ( *(_QWORD *)(a2 + 8) )
   {
     v3 = *(__int64 **)a2;
+    v27 = 0LL;
+    v26 = 0LL;
     v4 = 0LL;
-    v24 = 0LL;
     v5 = 0LL;
     v6 = *v3;
-    v26 = v6;
-    v25 = 0LL;
-    while ( !*(_BYTE *)(v6 + 25) )
+    v28 = *v3;
+    while ( (__int64 *)v6 != v3 )
     {
       v7 = 0xFFFF;
       v8 = (unsigned __int16 *)(v6 + 32);
       v9 = (int *)(v6 + 48);
       if ( *(_DWORD *)(v6 + 48) < 0xFFFFu )
         v7 = *v9;
-      v23[0] = v7;
+      v25[0] = v7;
       if ( v5 == v4 )
       {
-        std::vector<unsigned char>::_Emplace_reallocate<unsigned char>(&v24, v5, v23);
-        v4 = v25;
-        v10 = (_BYTE *)*((_QWORD *)&v24 + 1);
+        std::vector<unsigned char>::_Emplace_reallocate<unsigned char const &>((const void **)&v26, v4, v25);
+        v5 = v27;
+        v10 = (_BYTE *)*((_QWORD *)&v26 + 1);
       }
       else
       {
-        *v5 = v7;
-        v10 = v5 + 1;
-        *((_QWORD *)&v24 + 1) = v10;
+        *v4 = v7;
+        v10 = v4 + 1;
+        *((_QWORD *)&v26 + 1) = v10;
       }
-      v23[0] = BYTE1(v7);
-      if ( v10 == v4 )
+      v25[0] = BYTE1(v7);
+      if ( v5 == v10 )
       {
-        std::vector<unsigned char>::_Emplace_reallocate<unsigned char>(&v24, v10, v23);
-        v4 = v25;
-        v11 = (_BYTE *)*((_QWORD *)&v24 + 1);
+        std::vector<unsigned char>::_Emplace_reallocate<unsigned char const &>((const void **)&v26, v10, v25);
+        v5 = v27;
+        v11 = (_BYTE *)*((_QWORD *)&v26 + 1);
       }
       else
       {
         *v10 = BYTE1(v7);
         v11 = v10 + 1;
-        *((_QWORD *)&v24 + 1) = v11;
+        *((_QWORD *)&v26 + 1) = v11;
       }
       v12 = 0;
       v13 = v8;
-      if ( *((_QWORD *)v8 + 3) < 8uLL )
-      {
-        v14 = v8;
-      }
-      else
+      if ( *((_QWORD *)v8 + 3) >= 8uLL )
       {
         v13 = *(unsigned __int16 **)v8;
-        v14 = *(unsigned __int16 **)v8;
         v8 = *(unsigned __int16 **)v8;
       }
-      v15 = &v8[*(_QWORD *)v9];
-      if ( v13 != v15 )
+      v14 = &v8[*(_QWORD *)v9];
+      while ( v13 != v14 )
       {
-        do
+        v15 = *v13;
+        v25[0] = *v13;
+        if ( v5 == v11 )
         {
-          v16 = *v14;
-          v23[0] = *v14;
-          if ( v11 == v4 )
-          {
-            std::vector<unsigned char>::_Emplace_reallocate<unsigned char>(&v24, v11, v23);
-            v4 = v25;
-            v17 = (_BYTE *)*((_QWORD *)&v24 + 1);
-          }
-          else
-          {
-            *v11 = v16;
-            v17 = v11 + 1;
-            *((_QWORD *)&v24 + 1) = v17;
-          }
-          v18 = HIBYTE(v16);
-          v23[0] = v18;
-          if ( v17 == v4 )
-          {
-            std::vector<unsigned char>::_Emplace_reallocate<unsigned char>(&v24, v17, v23);
-            v4 = v25;
-            v11 = (_BYTE *)*((_QWORD *)&v24 + 1);
-          }
-          else
-          {
-            *v17 = v18;
-            v11 = v17 + 1;
-            *((_QWORD *)&v24 + 1) = v11;
-          }
-          if ( ++v12 == v7 )
-            break;
-          ++v14;
+          std::vector<unsigned char>::_Emplace_reallocate<unsigned char const &>((const void **)&v26, v11, v25);
+          v5 = v27;
+          v16 = (_BYTE *)*((_QWORD *)&v26 + 1);
         }
-        while ( v14 != v15 );
+        else
+        {
+          *v11 = v15;
+          v16 = v11 + 1;
+          *((_QWORD *)&v26 + 1) = v16;
+        }
+        v17 = HIBYTE(v15);
+        v25[0] = v17;
+        if ( v5 == v16 )
+        {
+          std::vector<unsigned char>::_Emplace_reallocate<unsigned char const &>((const void **)&v26, v16, v25);
+          v5 = v27;
+          v11 = (_BYTE *)*((_QWORD *)&v26 + 1);
+        }
+        else
+        {
+          *v16 = v17;
+          v11 = v16 + 1;
+          *((_QWORD *)&v26 + 1) = v11;
+        }
+        if ( ++v12 == v7 )
+          break;
+        ++v13;
       }
-      std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::wstring>>,std::_Iterator_base0>::operator++(&v26);
-      v6 = v26;
+      std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::wstring>>,std::_Iterator_base0>::operator++(&v28);
+      v6 = v28;
     }
-    anonymous_namespace_::Compressor::Compress(v31, a2, &v24);
-    *(_QWORD *)&v32 = 0LL;
-    *(_QWORD *)&v33 = 0LL;
-    v28 = 0;
-    v29 = 0;
-    v30 = 0;
-    v19 = (unsigned __int8 *)v31[0];
-    v27 = &v32;
-    *((_QWORD *)&v33 + 1) = 15LL;
-    while ( v19 != (unsigned __int8 *)v31[1] )
-      Base853Encoder::AppendByte((Base853Encoder *)&v27, *v19++);
-    Base853Encoder::EnsureZeroesAreSerialized((Base853Encoder *)&v27);
-    if ( v29 )
-      Base853Encoder::EncodeBlock((Base853Encoder *)&v27);
-    v20 = v33;
-    *(_QWORD *)&v33 = 0LL;
-    v21 = v32;
-    *((_QWORD *)&v33 + 1) = 15LL;
-    LOBYTE(v32) = 0;
-    *a1 = v21;
-    a1[1] = v20;
-    std::vector<unsigned char>::_Tidy((__int64)v31);
-    std::vector<unsigned char>::_Tidy((__int64)&v24);
+    anonymous_namespace_::Compressor::Compress(&v33, a2, &v26);
+    v18 = v33;
+    v19 = v33;
+    si128 = _mm_load_si128((const __m128i *)&_xmm);
+    v21 = (unsigned __int8 *)(v34 - (_QWORD)v33);
+    LOBYTE(v35) = 0;
+    if ( (unsigned __int64)v33 > v34 )
+      v21 = 0LL;
+    v30 = 0LL;
+    v31 = 0;
+    v2 = v32;
+    v29 = &v35;
+    v36 = si128;
+    if ( v21 )
+    {
+      do
+        Base853Encoder::AppendByte((Base853Encoder *)&v29, *v18++);
+      while ( (unsigned __int8 *)(v18 - v19) != v21 );
+    }
+    Base853Encoder::EnsureZeroesAreSerialized((Base853Encoder *)&v29);
+    if ( HIDWORD(v30) )
+      Base853Encoder::EncodeBlock((Base853Encoder *)&v29);
+    v22 = v35;
+    LOBYTE(v35) = 0;
+    v23 = v36;
+    *v2 = v22;
+    v36 = _mm_load_si128((const __m128i *)&_xmm);
+    v2[1] = v23;
+    std::string::_Tidy_deallocate(&v35);
+    std::vector<unsigned char>::_Tidy(&v33);
+    std::vector<unsigned char>::_Tidy(&v26);
   }
   else
   {
-    std::string::string(a1, word_18033C020);
+    std::string::string(a1, &word_1802CE406);
   }
-  return a1;
+  return v2;
 }

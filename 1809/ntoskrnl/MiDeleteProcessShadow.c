@@ -3,8 +3,8 @@
  * Callers:
  *     MiDeleteFinalPageTables @ 0x1400918B8 (MiDeleteFinalPageTables.c)
  *     PspDisablePrimaryTokenExchange @ 0x1405F7498 (PspDisablePrimaryTokenExchange.c)
- *     MmCreateProcessAddressSpace @ 0x1406D18B8 (MmCreateProcessAddressSpace.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -12,11 +12,11 @@
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     MiDeleteTopLevelPage @ 0x140091A20 (MiDeleteTopLevelPage.c)
  *     KeFlushProcessTb @ 0x140091B94 (KeFlushProcessTb.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     KeMakeUserDirectoryTableBase @ 0x14013CF80 (KeMakeUserDirectoryTableBase.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     KeMakeUserDirectoryTableBase @ 0x14013CFA0 (KeMakeUserDirectoryTableBase.c)
  */
 
 void __fastcall MiDeleteProcessShadow(__int64 a1, int a2)

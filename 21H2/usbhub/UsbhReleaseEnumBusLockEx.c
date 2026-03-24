@@ -1,56 +1,56 @@
 /*
- * XREFs of UsbhReleaseEnumBusLockEx @ 0x1C000FB0C
+ * XREFs of UsbhReleaseEnumBusLockEx @ 0x1C00029EC
  * Callers:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     Usbh_PCE_psPAUSED_Action @ 0x1C001BF60 (Usbh_PCE_psPAUSED_Action.c)
- *     UsbhCancelEnumeration @ 0x1C001EB50 (UsbhCancelEnumeration.c)
- *     UsbhPCE_Close @ 0x1C0033AA0 (UsbhPCE_Close.c)
- *     UsbhPCE_HW_Stop @ 0x1C0033D98 (UsbhPCE_HW_Stop.c)
- *     UsbhDropDevice @ 0x1C004C208 (UsbhDropDevice.c)
- *     UsbhHardErrorInvalidData @ 0x1C004C5F0 (UsbhHardErrorInvalidData.c)
- *     UsbhHardErrorReset1BadEnable @ 0x1C004C6E0 (UsbhHardErrorReset1BadEnable.c)
- *     UsbhPortConnect @ 0x1C004C820 (UsbhPortConnect.c)
- *     UsbhPortRecycle @ 0x1C004CF80 (UsbhPortRecycle.c)
- *     UsbhReset1Debounce @ 0x1C004D320 (UsbhReset1Debounce.c)
- *     UsbhReset2CycleDevice @ 0x1C004DB10 (UsbhReset2CycleDevice.c)
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
+ *     UsbhCancelEnumeration @ 0x1C00023E0 (UsbhCancelEnumeration.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     Usbh_PCE_psPAUSED_Action @ 0x1C00195F0 (Usbh_PCE_psPAUSED_Action.c)
+ *     UsbhPCE_Close @ 0x1C0034E04 (UsbhPCE_Close.c)
+ *     UsbhPCE_HW_Stop @ 0x1C00350FC (UsbhPCE_HW_Stop.c)
+ *     UsbhDropDevice @ 0x1C004D614 (UsbhDropDevice.c)
+ *     UsbhHardErrorInvalidData @ 0x1C004DA00 (UsbhHardErrorInvalidData.c)
+ *     UsbhHardErrorReset1BadEnable @ 0x1C004DAF0 (UsbhHardErrorReset1BadEnable.c)
+ *     UsbhPortConnect @ 0x1C004DC30 (UsbhPortConnect.c)
+ *     UsbhPortRecycle @ 0x1C004E390 (UsbhPortRecycle.c)
+ *     UsbhReset1Debounce @ 0x1C004E730 (UsbhReset1Debounce.c)
+ *     UsbhReset2CycleDevice @ 0x1C004EF20 (UsbhReset2CycleDevice.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UsbhReleaseEnumBusLockEx(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // rbp
-  _DWORD *v6; // rbx
+  __int64 v6; // rbx
   KIRQL v7; // al
   __int64 v8; // rdx
   KIRQL v9; // r10
 
   v3 = a3;
   v6 = FdoExt(a1);
-  Log(a1, 4, 1967281491, (unsigned int)v6[768], v3);
-  if ( *((_QWORD *)v6 + 550) )
+  Log(a1, 4, 1967281491, *(_DWORD *)(v6 + 3072), v3);
+  if ( *(_QWORD *)(v6 + 4400) )
   {
-    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v6 + 383);
-    if ( v6[768] == (_DWORD)v3 && *((_QWORD *)v6 + 385) == a2 )
+    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 3064));
+    if ( *(_DWORD *)(v6 + 3072) == (_DWORD)v3 && *(_QWORD *)(v6 + 3080) == a2 )
     {
-      KeReleaseSpinLock((PKSPIN_LOCK)v6 + 383, v7);
-      UsbhDecHubBusy(a1, v8, *((_QWORD *)v6 + 386));
-      *((_QWORD *)v6 + 386) = 0LL;
-      v6[768] = 0;
-      *((_QWORD *)v6 + 385) = 0LL;
-      _InterlockedDecrement(v6 + 774);
-      (*((void (__fastcall **)(_QWORD))v6 + 550))(*((_QWORD *)v6 + 529));
+      KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 3064), v7);
+      UsbhDecHubBusy(a1, v8, *(_QWORD *)(v6 + 3088));
+      *(_QWORD *)(v6 + 3088) = 0LL;
+      *(_DWORD *)(v6 + 3072) = 0;
+      *(_QWORD *)(v6 + 3080) = 0LL;
+      _InterlockedDecrement((volatile signed __int32 *)(v6 + 3096));
+      (*(void (__fastcall **)(_QWORD))(v6 + 4400))(*(_QWORD *)(v6 + 4232));
     }
     else
     {
-      Log(a1, 4, 1967281016, (unsigned int)v6[768], *((_QWORD *)v6 + 385));
-      KeReleaseSpinLock((PKSPIN_LOCK)v6 + 383, v9);
+      Log(a1, 4, 1967281016, *(_DWORD *)(v6 + 3072), *(_QWORD *)(v6 + 3080));
+      KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 3064), v9);
     }
   }
 }

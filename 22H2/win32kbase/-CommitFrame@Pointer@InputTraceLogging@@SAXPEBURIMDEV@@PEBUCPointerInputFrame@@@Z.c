@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CommitFrame@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@@Z @ 0x1C01BDB4C
+ * XREFs of ?CommitFrame@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@@Z @ 0x1C018AA9C
  * Callers:
- *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C01BE764 (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
- *     ?CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C01DE940 (-CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N.c)
+ *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C018B6FC (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ *     ?CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C01A567C (-CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C01A3BFC (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C0173330 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
  */
 
 void __fastcall InputTraceLogging::Pointer::CommitFrame(const struct RIMDEV *a1, const struct CPointerInputFrame *a2)
@@ -22,37 +22,37 @@ void __fastcall InputTraceLogging::Pointer::CommitFrame(const struct RIMDEV *a1,
   int v11; // [rsp+80h] [rbp+20h] BYREF
   __int64 v12; // [rsp+88h] [rbp+28h] BYREF
 
-  v2 = *(_DWORD *)(*((_QWORD *)a1 + 59) + 24LL);
+  v2 = *(_DWORD *)(*((_QWORD *)a1 + 60) + 24LL);
   if ( (unsigned int)(v2 - 1) > 3 )
   {
     if ( (unsigned int)(v2 - 5) > 1 )
     {
       if ( v2 == 7 )
       {
-        if ( (unsigned int)dword_1C0289810 <= 4 || !tlgKeywordOn((__int64)&dword_1C0289810, 32LL) )
+        if ( (unsigned int)dword_1C024AA90 <= 4 || !tlgKeywordOn((__int64)&dword_1C024AA90, 32LL) )
           return;
-        v7 = (unsigned __int8 *)&unk_1C025BE25;
+        v7 = (unsigned __int8 *)&unk_1C021DAC4;
       }
       else
       {
-        if ( (unsigned int)dword_1C0289810 <= 4 || !tlgKeywordOn((__int64)&dword_1C0289810, 32LL) )
+        if ( (unsigned int)dword_1C024AA90 <= 4 || !tlgKeywordOn((__int64)&dword_1C024AA90, 32LL) )
           return;
-        v7 = (unsigned __int8 *)&unk_1C025BDC6;
+        v7 = (unsigned __int8 *)&unk_1C021DBDD;
       }
     }
     else
     {
-      if ( (unsigned int)dword_1C0289810 <= 4 || !tlgKeywordOn((__int64)&dword_1C0289810, 32LL) )
+      if ( (unsigned int)dword_1C024AA90 <= 4 || !tlgKeywordOn((__int64)&dword_1C024AA90, 32LL) )
         return;
-      v7 = (unsigned __int8 *)&unk_1C025BD0E;
+      v7 = (unsigned __int8 *)&unk_1C021DB21;
     }
     v10 = *(_DWORD *)(v5 + 48);
     v11 = *(_DWORD *)(v5 + 40);
     v12 = *(_QWORD *)(v5 + 72);
-    v9 = *(_QWORD *)(v5 + 216);
+    v9 = *(_QWORD *)(v5 + 112);
     v8 = v6;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0289810,
+      (__int64)&dword_1C024AA90,
       v7,
       v5,
       v6,
@@ -63,16 +63,16 @@ void __fastcall InputTraceLogging::Pointer::CommitFrame(const struct RIMDEV *a1,
       (__int64)&v10);
     return;
   }
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 32LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 32LL) )
   {
     v10 = *(_DWORD *)(v3 + 48);
     v11 = *(_DWORD *)(v3 + 40);
     v12 = *(_QWORD *)(v3 + 72);
-    v8 = *(_QWORD *)(v3 + 216);
+    v8 = *(_QWORD *)(v3 + 112);
     v9 = v4;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0289810,
-      byte_1C025BD69,
+      (__int64)&dword_1C024AA90,
+      byte_1C021DB7E,
       v3,
       v4,
       (__int64)&v9,

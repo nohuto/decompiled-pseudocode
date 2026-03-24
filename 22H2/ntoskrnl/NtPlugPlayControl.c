@@ -1,13 +1,13 @@
 /*
- * XREFs of NtPlugPlayControl @ 0x1406D4170
+ * XREFs of NtPlugPlayControl @ 0x1406AE380
  * Callers:
  *     <none>
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC8C (PiControlFreeUserModeCallersBuffer.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D42A0 (PiControlMakeUserModeCallersCopy.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14032D940 (PiControlFreeUserModeCallersBuffer.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406AE4B0 (PiControlMakeUserModeCallersCopy.c)
  */
 
 __int64 __fastcall NtPlugPlayControl(unsigned int a1, __int64 a2, unsigned int a3)
@@ -39,7 +39,7 @@ __int64 __fastcall NtPlugPlayControl(unsigned int a1, __int64 a2, unsigned int a
     return 3221225474LL;
   if ( *((_DWORD *)v6 + 1) != a3 )
     return 3221225520LL;
-  if ( PsIsCurrentThreadInServerSilo() && !*((_BYTE *)v6 + 16) )
+  if ( PsIsCurrentThreadInServerSilo(3 * v4, a2) && !*((_BYTE *)v6 + 16) )
     return 3221225569LL;
   v13 = 0LL;
   result = PiControlMakeUserModeCallersCopy(&v13, v12, a3, 4LL, PreviousMode, 1);

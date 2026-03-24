@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x18022F058
+ * XREFs of ??0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1801C4874
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CBaseExpression@@QEAA@PEAVCComposition@@@Z @ 0x18009A180 (--0CBaseExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CBaseExpression@@QEAA@PEAVCComposition@@@Z @ 0x180062CB8 (--0CBaseExpression@@QEAA@PEAVCComposition@@@Z.c)
  */
 
 CInjectionAnimation *__fastcall CInjectionAnimation::CInjectionAnimation(
@@ -12,7 +12,7 @@ CInjectionAnimation *__fastcall CInjectionAnimation::CInjectionAnimation(
 {
   CBaseExpression::CBaseExpression(this, a2);
   *(_QWORD *)this = &CInjectionAnimation::`vftable';
-  *((_QWORD *)this + 42) = 0LL;
-  *(_QWORD *)((char *)this + 348) = 0LL;
+  *((_QWORD *)this + 39) = 0LL;
+  *(_QWORD *)((char *)this + 324) = 0LL;
   return this;
 }

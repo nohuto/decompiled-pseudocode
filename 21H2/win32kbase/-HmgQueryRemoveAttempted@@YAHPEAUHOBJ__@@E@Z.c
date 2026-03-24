@@ -1,15 +1,15 @@
 /*
- * XREFs of ?HmgQueryRemoveAttempted@@YAHPEAUHOBJ__@@E@Z @ 0x1C016BE10
+ * XREFs of ?HmgQueryRemoveAttempted@@YAHPEAUHOBJ__@@E@Z @ 0x1C013EDF8
  * Callers:
- *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C002EB80 (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003B51C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
  */
 
-__int64 __fastcall HmgQueryRemoveAttempted(struct HOBJ__ *a1, __int64 a2, __int64 a3)
+__int64 __fastcall HmgQueryRemoveAttempted(struct HOBJ__ *a1, int a2, int a3)
 {
   unsigned int v3; // edi
   unsigned int v4; // ebx
@@ -24,7 +24,7 @@ __int64 __fastcall HmgQueryRemoveAttempted(struct HOBJ__ *a1, __int64 a2, __int6
   GreAcquireHmgrSemaphore((__int64)a1, a2, a3);
   v9 = 0LL;
   v10 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v9, (unsigned __int16)v3 | (v3 >> 8) & 0xFF0000, 1LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v9, (unsigned __int16)v3 | (v3 >> 8) & 0xFF0000, 1, 0, 0);
   if ( v10 )
   {
     if ( *(_BYTE *)(v9 + 14) == 1 && *(_WORD *)(v9 + 12) == HIWORD(v3) )

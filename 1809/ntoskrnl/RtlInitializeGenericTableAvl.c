@@ -3,9 +3,9 @@
  * Callers:
  *     PiDqQueryCreate @ 0x140590864 (PiDqQueryCreate.c)
  *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiDmObjectManagerInit @ 0x14072CA48 (PiDmObjectManagerInit.c)
- *     EtwpInitializeAutoLoggers @ 0x14074187C (EtwpInitializeAutoLoggers.c)
- *     EtwpEnableKeyProviders @ 0x1407429F0 (EtwpEnableKeyProviders.c)
+ *     PiDmObjectManagerInit @ 0x14072CA28 (PiDmObjectManagerInit.c)
+ *     EtwpInitializeAutoLoggers @ 0x14074185C (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnableKeyProviders @ 0x1407429D0 (EtwpEnableKeyProviders.c)
  *     VfAvlInitializeTreeEx @ 0x1409214B4 (VfAvlInitializeTreeEx.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  *     PiSwInit @ 0x1409C7524 (PiSwInit.c)
@@ -15,7 +15,7 @@
  *     PopStatsInitPowerRequestLibrary @ 0x1409DB758 (PopStatsInitPowerRequestLibrary.c)
  *     PpInitSystem @ 0x1409DDDD4 (PpInitSystem.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __stdcall RtlInitializeGenericTableAvl(

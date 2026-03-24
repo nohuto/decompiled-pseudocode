@@ -1,27 +1,27 @@
 /*
- * XREFs of WmipUnregisterEtwProvider @ 0x1409E1BC0
+ * XREFs of WmipUnregisterEtwProvider @ 0x1407C7680
  * Callers:
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140882C34 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14076C51C (WmipUnlinkInstanceSetFromGuidEntry.c)
  * Callees:
- *     WmipQueueLegacyEtwWork @ 0x140853C20 (WmipQueueLegacyEtwWork.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     WmipQueueLegacyEtwWork @ 0x1407C7768 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipUnregisterEtwProvider(__int64 a1)
 {
-  ULONG_PTR v1; // rbx
-  __int64 Pool2; // rax
+  __int64 v1; // rbx
+  _DWORD *PoolWithTag; // rax
 
   v1 = *(_QWORD *)(a1 + 56);
   if ( (*(_DWORD *)(v1 + 152))-- == 1 )
   {
     *(_QWORD *)(v1 + 112) = 0LL;
     *(_QWORD *)(v1 + 120) = 0LL;
-    Pool2 = ExAllocatePool2(256LL, 24LL, 1885957463LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x70696D57u);
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 16) = 1;
-      WmipQueueLegacyEtwWork((_QWORD *)Pool2, v1, 0LL);
+      PoolWithTag[4] = 1;
+      WmipQueueLegacyEtwWork(PoolWithTag, v1, 0LL);
     }
   }
 }

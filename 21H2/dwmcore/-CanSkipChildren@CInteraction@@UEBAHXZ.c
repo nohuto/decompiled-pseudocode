@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CanSkipChildren@CInteraction@@UEBAHXZ @ 0x1801F2010
+ * XREFs of ?CanSkipChildren@CInteraction@@UEBAHXZ @ 0x1801C6100
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CInteraction::CanSkipChildren(CInteraction *this)
 {
-  return CInteractionProcessor::CanSkipChildren((CInteraction *)((char *)this + 288));
+  return CInteractionProcessor::CanSkipChildren((CInteraction *)((char *)this + 344));
 }

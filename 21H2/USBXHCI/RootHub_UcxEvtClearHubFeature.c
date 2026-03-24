@@ -1,67 +1,58 @@
 /*
- * XREFs of RootHub_UcxEvtClearHubFeature @ 0x1C003DEF0
+ * XREFs of RootHub_UcxEvtClearHubFeature @ 0x1C003D980
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C003ECA4 (WPP_RECORDER_SF_DDDDDDDD.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C003E404 (WPP_RECORDER_SF_DDDDDDDD.c)
  */
 
 __int64 __fastcall RootHub_UcxEvtClearHubFeature(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx
-  __int64 v4; // r14
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  int v4; // edx
+  int v5; // r8d
+  int v6; // r9d
+  __int64 v7; // r14
   int v8; // edx
   __int64 v9; // rbp
   int v10; // r9d
   int v11; // edx
   int v12; // r8d
   int v13; // r9d
-  __int64 v15; // [rsp+20h] [rbp-A8h]
-  _OWORD v16[2]; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v17; // [rsp+90h] [rbp-38h]
+  _OWORD v15[2]; // [rsp+70h] [rbp-58h] BYREF
+  __int64 v16; // [rsp+90h] [rbp-38h]
 
   v3 = 0;
-  v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+  v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061248);
-  if ( *(_BYTE *)(*(_QWORD *)(v4 + 8) + 553LL) && KeGetCurrentIrql() )
+         off_1C0060248);
+  if ( *(_BYTE *)(*(_QWORD *)(v7 + 8) + 553LL) && KeGetCurrentIrql() )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        v5,
-        v6,
-        v7,
-        v15,
-        "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\roothub.c",
-        175,
-        "Code Path Requires Passive Level");
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v4, v5, v6);
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
   }
-  v17 = 0LL;
-  memset(v16, 0, sizeof(v16));
-  LOWORD(v16[0]) = 40;
+  v16 = 0LL;
+  memset(v15, 0, sizeof(v15));
+  LOWORD(v15[0]) = 40;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _OWORD *))(WdfFunctions_01023 + 2128))(
     WdfDriverGlobals,
     a2,
-    v16);
-  v9 = *((_QWORD *)&v16[0] + 1);
-  if ( *(_WORD *)(*((_QWORD *)&v16[0] + 1) + 128LL) != 288 || *(_DWORD *)(*((_QWORD *)&v16[0] + 1) + 132LL) )
+    v15);
+  v9 = *((_QWORD *)&v15[0] + 1);
+  if ( *(_WORD *)(*((_QWORD *)&v15[0] + 1) + 128LL) != 288 || *(_DWORD *)(*((_QWORD *)&v15[0] + 1) + 132LL) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v11 = *(unsigned __int8 *)(*((_QWORD *)&v16[0] + 1) + 134LL);
+      v11 = *(unsigned __int8 *)(*((_QWORD *)&v15[0] + 1) + 134LL);
       v10 = 34;
-      v12 = *(unsigned __int8 *)(*((_QWORD *)&v16[0] + 1) + 133LL);
+      v12 = *(unsigned __int8 *)(*((_QWORD *)&v15[0] + 1) + 133LL);
       goto LABEL_21;
     }
 LABEL_22:
@@ -72,17 +63,17 @@ LABEL_22:
              a2,
              v3);
   }
-  if ( *(_WORD *)(*((_QWORD *)&v16[0] + 1) + 130LL) )
+  if ( *(_WORD *)(*((_QWORD *)&v15[0] + 1) + 130LL) )
   {
-    if ( *(_WORD *)(*((_QWORD *)&v16[0] + 1) + 130LL) != 1 )
+    if ( *(_WORD *)(*((_QWORD *)&v15[0] + 1) + 130LL) != 1 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         v10 = 37;
-        v11 = *(unsigned __int8 *)(*((_QWORD *)&v16[0] + 1) + 134LL);
-        v12 = *(unsigned __int8 *)(*((_QWORD *)&v16[0] + 1) + 133LL);
+        v11 = *(unsigned __int8 *)(*((_QWORD *)&v15[0] + 1) + 134LL);
+        v12 = *(unsigned __int8 *)(*((_QWORD *)&v15[0] + 1) + 133LL);
 LABEL_21:
-        WPP_RECORDER_SF_DDDDDDDD(*(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL), v11, v12, v10);
+        WPP_RECORDER_SF_DDDDDDDD(*(_QWORD *)(*(_QWORD *)(v7 + 8) + 72LL), v11, v12, v10);
         goto LABEL_22;
       }
       goto LABEL_22;
@@ -93,11 +84,11 @@ LABEL_21:
 LABEL_17:
       LOBYTE(v8) = 4;
       WPP_RECORDER_SF_(
-        *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
+        *(_QWORD *)(*(_QWORD *)(v7 + 8) + 72LL),
         v8,
         11,
         v13,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids);
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

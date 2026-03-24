@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveFromDelayedClose @ 0x140692D6C
+ * XREFs of CmpRemoveFromDelayedClose @ 0x140692D4C
  * Callers:
- *     CmpReferenceKeyControlBlock @ 0x140692A5C (CmpReferenceKeyControlBlock.c)
- *     CmpCleanUpKCBCacheTable @ 0x140692B3C (CmpCleanUpKCBCacheTable.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12DC (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140692B1C (CmpCleanUpKCBCacheTable.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x1407F12BC (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

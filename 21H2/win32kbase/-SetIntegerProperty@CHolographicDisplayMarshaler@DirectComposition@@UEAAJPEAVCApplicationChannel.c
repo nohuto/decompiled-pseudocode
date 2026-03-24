@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CHolographicDisplayMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022CDE0
+ * XREFs of ?SetIntegerProperty@CHolographicDisplayMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01ED510
  * Callers:
  *     <none>
  * Callees:
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CHolographicDisplayMarshaler::SetIntegerPr
     if ( v6 == 2 )
     {
       *((_DWORD *)this + 4) |= 0x80u;
-      *((_DWORD *)this + 20) = a4;
+      *((_DWORD *)this + 18) = a4;
       *a5 = 1;
     }
     else
@@ -34,7 +34,7 @@ __int64 __fastcall DirectComposition::CHolographicDisplayMarshaler::SetIntegerPr
   else
   {
     *((_DWORD *)this + 4) |= 0x40u;
-    *((_DWORD *)this + 19) = a4;
+    *((_DWORD *)this + 17) = a4;
     *a5 = 1;
   }
   return v5;

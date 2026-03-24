@@ -1,13 +1,13 @@
 /*
- * XREFs of PopExecuteProcessorCallback @ 0x1402BFBD0
+ * XREFs of PopExecuteProcessorCallback @ 0x1403448D0
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueTargetDpc @ 0x1402BFC20 (PopQueueTargetDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     PopQueueTargetDpc @ 0x140344920 (PopQueueTargetDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall PopExecuteProcessorCallback(ULONG_PTR BugCheckParameter2, __int64 a2)
+__int64 __fastcall PopExecuteProcessorCallback(PRKDPC Dpc, __int64 a2)
 {
   int v4; // eax
 
@@ -17,5 +17,5 @@ __int64 __fastcall PopExecuteProcessorCallback(ULONG_PTR BugCheckParameter2, __i
          *(_QWORD *)(a2 + 16));
   if ( v4 < 0 )
     *(_DWORD *)(a2 + 40) = v4;
-  return PopQueueTargetDpc(BugCheckParameter2);
+  return PopQueueTargetDpc(Dpc);
 }

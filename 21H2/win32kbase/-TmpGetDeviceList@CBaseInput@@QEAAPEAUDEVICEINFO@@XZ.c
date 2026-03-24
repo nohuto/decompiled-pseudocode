@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TmpGetDeviceList@CBaseInput@@QEAAPEAUDEVICEINFO@@XZ @ 0x1C00976C0
+ * XREFs of ?TmpGetDeviceList@CBaseInput@@QEAAPEAUDEVICEINFO@@XZ @ 0x1C00A8740
  * Callers:
  *     <none>
  * Callees:

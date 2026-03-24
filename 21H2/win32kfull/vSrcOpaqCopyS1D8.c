@@ -1,9 +1,9 @@
 /*
- * XREFs of vSrcOpaqCopyS1D8 @ 0x1C028E740
+ * XREFs of vSrcOpaqCopyS1D8 @ 0x1C0290A60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 char __fastcall vSrcOpaqCopyS1D8(
@@ -238,7 +238,7 @@ char __fastcall vSrcOpaqCopyS1D8(
   {
     v44 = v17 + v43;
     v45 = gTextRightMask[2 * (v11 & 7)] & gTextLeftMask[2 * v36];
-    v46 = dword_1C02F8BE4[2 * (v11 & 7)] & dword_1C02F8BA4[2 * v36];
+    v46 = dword_1C02FB444[2 * (v11 & 7)] & dword_1C02FB484[2 * v36];
     v47 = ~(gTextRightMask[2 * v35] & gTextLeftMask[2 * v36]);
     do
     {

@@ -1,19 +1,19 @@
 /*
- * XREFs of NtSuspendThread @ 0x1407DBB40
+ * XREFs of NtSuspendThread @ 0x14069ECF0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PsSuspendThread @ 0x1407DBC10 (PsSuspendThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsSuspendThread @ 0x14069EDC0 (PsSuspendThread.c)
  */
 
-__int64 __fastcall NtSuspendThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
+NTSTATUS __fastcall NtSuspendThread(HANDLE Handle, _DWORD *a2)
 {
-  char PreviousMode; // r9
+  KPROCESSOR_MODE PreviousMode; // r9
   __int64 v5; // rcx
-  __int64 result; // rax
-  unsigned int v7; // edi
+  NTSTATUS result; // eax
+  int v7; // edi
   int v8; // [rsp+70h] [rbp+18h] BYREF
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
@@ -27,16 +27,15 @@ __int64 __fastcall NtSuspendThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
       v5 = (__int64)a2;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             2,
-             (__int64)PsThreadType,
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             2u,
+             (POBJECT_TYPE)PsThreadType,
              PreviousMode,
              0x75537350u,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v7 = PsSuspendThread(Object, &v8);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);

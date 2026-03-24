@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EvaluateCurve@XamlSineInterpolation@@MEAANN@Z @ 0x180257570
+ * XREFs of ?EvaluateCurve@XamlSineInterpolation@@MEAANN@Z @ 0x180206E50
  * Callers:
  *     <none>
  * Callees:
- *     _o_sin_0 @ 0x180101958 (_o_sin_0.c)
+ *     _o_sin_0 @ 0x1800E81D4 (_o_sin_0.c)
  */
 
 double __fastcall XamlSineInterpolation::EvaluateCurve(XamlSineInterpolation *this, double a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C0233DC4
+ * XREFs of ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C024B9B8
  * Callers:
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
- *     xxxMenuBarDraw @ 0x1C0235E48 (xxxMenuBarDraw.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
+ *     xxxMenuBarDraw @ 0x1C024CF54 (xxxMenuBarDraw.c)
  * Callees:
- *     RevalidateDCE @ 0x1C008F0E0 (RevalidateDCE.c)
+ *     RevalidateDCE @ 0x1C00D52B0 (RevalidateDCE.c)
  */
 
 void __fastcall RecalcDCVisRgn(HDC a1)

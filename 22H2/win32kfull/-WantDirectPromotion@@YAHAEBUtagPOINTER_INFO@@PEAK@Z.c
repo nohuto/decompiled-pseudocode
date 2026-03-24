@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z @ 0x1C01562DE
+ * XREFs of ?WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z @ 0x1C0218DC0
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8A18 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219068 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GetAppCompatFlags2QuadWord @ 0x1C010FE30 (GetAppCompatFlags2QuadWord.c)
  */
 
 __int64 __fastcall WantDirectPromotion(const struct tagPOINTER_INFO *a1, unsigned int *a2)
@@ -11,11 +11,6 @@ __int64 __fastcall WantDirectPromotion(const struct tagPOINTER_INFO *a1, unsigne
   int v2; // eax
   unsigned int v4; // ebx
   __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  struct tagTHREADINFO *v10; // rax
 
   v2 = *((_DWORD *)a1 + 3);
   if ( (v2 & 0x10000) != 0 )
@@ -29,16 +24,10 @@ __int64 __fastcall WantDirectPromotion(const struct tagPOINTER_INFO *a1, unsigne
     v4 = 0;
   }
   v5 = ValidateHwnd(*((_QWORD *)a1 + 3));
-  if ( v5 )
+  if ( v5 && (GetAppCompatFlags2QuadWord(*(_QWORD *)(v5 + 16)) & 0x40000000000LL) != 0 )
   {
-    v10 = *(struct tagTHREADINFO **)(v5 + 16);
-    if ( !v10 )
-      v10 = PtiCurrentShared(v7, v6, v8, v9);
-    if ( _bittest64((const signed __int64 *)v10 + 81, 0x2Au) )
-    {
-      *a2 = v4;
-      return 1LL;
-    }
+    *a2 = v4;
+    return 1LL;
   }
   return 0LL;
 }

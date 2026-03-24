@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x140363490
+ * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x1402A3E48
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x1403633A0 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x1402A3D3C (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     RtlCSparseBitmapLeaveLockingRegion @ 0x140363560 (RtlCSparseBitmapLeaveLockingRegion.c)
- *     RtlpCSparseBitmapUnlock @ 0x1403635BC (RtlpCSparseBitmapUnlock.c)
- *     RtlpCSparseBitmapPageCommit @ 0x140363A64 (RtlpCSparseBitmapPageCommit.c)
- *     RtlCSparseBitmapBitsClear @ 0x140368170 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1402A3714 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x1402A47EC (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     RtlpCSparseBitmapUnlock @ 0x1402A4830 (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402A4A74 (RtlpCSparseBitmapPageCommit.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -20,15 +20,19 @@ __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2,
   signed __int64 v13; // rdx
   __int64 v14; // rcx
   signed __int64 i; // rax
-  __int128 v17; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v18; // [rsp+30h] [rbp-18h] BYREF
+  __int128 v17; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v18; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v19; // [rsp+40h] [rbp-18h] BYREF
 
-  *(_QWORD *)&v17 = 0LL;
-  BYTE8(v17) = 0;
+  v17 = 0LL;
   v18 = 0LL;
   if ( a4 )
   {
-    v7 = RtlpCSparseBitmapPageCommit(a1, a2 >> 15, &v18, &v17);
+    v7 = ((__int64 (__fastcall *)(__int64, unsigned __int64, __int128 *, __int128 *))RtlpCSparseBitmapPageCommit)(
+           a1,
+           a2 >> 15,
+           &v17,
+           &v18);
     if ( v7 >= 0 )
     {
       v8 = *(_QWORD *)(a1 + 8);
@@ -46,9 +50,9 @@ __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2,
         v13 = i;
       }
       v7 = 0;
-      RtlpCSparseBitmapUnlock(&v18);
-      v18 = v17;
-      RtlCSparseBitmapLeaveLockingRegion(&v18);
+      RtlpCSparseBitmapUnlock(&v17);
+      v19 = v18;
+      RtlCSparseBitmapLeaveLockingRegion(&v19);
     }
     return (unsigned int)v7;
   }

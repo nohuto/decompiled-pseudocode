@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakePerSessionProtoPte @ 0x140665324
+ * XREFs of MiMakePerSessionProtoPte @ 0x14055B3E0
  * Callers:
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x14036973C (MiGetSharedProtos.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A5B08 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiMakePerSessionProtoPte(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall MiMakePerSessionProtoPte(__int64 a1, __int64 a2, __int64 a3, 
     return ZeroPte;
   v15[0] = *(_QWORD *)(a4 + 72);
   v9 = *(_QWORD *)v15[0];
-  if ( (*(_DWORD *)(*(_QWORD *)v15[0] + 56LL) & 0x8000000) == 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)v15[0] + 56LL) & 0x4000000) == 0 )
     return ZeroPte;
   ProtoPteAddress = MiGetProtoPteAddress(a4, (unsigned __int64)(a3 << 25 >> 16) >> 12, 0, v15);
   if ( !ProtoPteAddress )

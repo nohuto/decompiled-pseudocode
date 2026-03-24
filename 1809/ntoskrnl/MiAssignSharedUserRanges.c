@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAssignSharedUserRanges @ 0x140187930
+ * XREFs of MiAssignSharedUserRanges @ 0x140187950
  * Callers:
  *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)

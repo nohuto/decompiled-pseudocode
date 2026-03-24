@@ -3,7 +3,7 @@
  * Callers:
  *     CmpDoesBufferRequireCapturing @ 0x1405CD49C (CmpDoesBufferRequireCapturing.c)
  *     CmpBounceContextStart @ 0x1405D2F60 (CmpBounceContextStart.c)
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of KsepStringAnsiToUnicode @ 0x1407283D4
+ * XREFs of KsepStringAnsiToUnicode @ 0x1407283B4
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x1409AF1B4 (KsepMatchInitMachineInfo.c)
  *     KsepMatchInitAcpiOemInfo @ 0x1409AF5FC (KsepMatchInitAcpiOemInfo.c)

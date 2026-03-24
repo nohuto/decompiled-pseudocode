@@ -1,76 +1,76 @@
 /*
- * XREFs of ?SendReleaseCompositionSurfaceReference@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@QEAAJI@Z @ 0x1C02E3F98
+ * XREFs of ?SendReleaseCompositionSurfaceReference@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@QEAAJI@Z @ 0x1C028EB00
  * Callers:
- *     ?VailSendReleaseCompositionSurfaceReference@DXGSESSIONDATA@@QEAAJI@Z @ 0x1C0363B34 (-VailSendReleaseCompositionSurfaceReference@DXGSESSIONDATA@@QEAAJI@Z.c)
+ *     ?VailSendReleaseCompositionSurfaceReference@DXGSESSIONDATA@@QEAAJI@Z @ 0x1C02B8290 (-VailSendReleaseCompositionSurfaceReference@DXGSESSIONDATA@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::SendReleaseCompositionSurfaceReference(
         DXG_GUEST_COMPOSITIONOBJECTCHANNEL *this,
         int a2)
 {
-  __int64 v3; // rcx
-  int v4; // eax
-  __int64 v5; // rdi
-  __int64 v6; // rdx
-  unsigned int v8; // [rsp+50h] [rbp-30h] BYREF
-  int v9; // [rsp+58h] [rbp-28h] BYREF
-  int v10; // [rsp+5Ch] [rbp-24h]
-  int v11; // [rsp+60h] [rbp-20h]
-  int v12; // [rsp+64h] [rbp-1Ch]
-  _DWORD v13[4]; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v2; // rcx
+  int v3; // eax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  unsigned int v12; // [rsp+30h] [rbp-30h] BYREF
+  int v13; // [rsp+38h] [rbp-28h] BYREF
+  int v14; // [rsp+3Ch] [rbp-24h]
+  int v15; // [rsp+40h] [rbp-20h]
+  int v16; // [rsp+44h] [rbp-1Ch]
+  _DWORD v17[4]; // [rsp+48h] [rbp-18h] BYREF
 
-  v12 = 0;
-  v13[3] = a2;
-  v13[0] = 1886220131;
-  v9 = 1886220131;
-  v3 = *((_QWORD *)this + 1);
-  v13[1] = -1073741823;
-  v13[2] = 3;
-  v10 = -1073741823;
-  v11 = 4;
-  v8 = 16;
-  v4 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v3 + 32LL))(
-         v3,
-         v13,
+  v2 = *((_QWORD *)this + 1);
+  v16 = 0;
+  v17[3] = a2;
+  v17[0] = 1886220131;
+  v13 = 1886220131;
+  v17[1] = -1073741823;
+  v17[2] = 3;
+  v14 = -1073741823;
+  v15 = 4;
+  v12 = 16;
+  v3 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v2 + 32LL))(
+         v2,
+         v17,
          16LL,
-         &v9,
-         &v8);
-  v5 = v4;
-  if ( v4 >= 0 )
+         &v13,
+         &v12);
+  v7 = v3;
+  if ( v3 >= 0 )
   {
-    if ( v8 == 16 )
+    if ( v12 == 16 )
     {
-      if ( v11 == 4 )
+      if ( v15 == 4 )
       {
-        LODWORD(v5) = v10;
-        return (unsigned int)v5;
+        LODWORD(v7) = v14;
+        return (unsigned int)v7;
       }
-      v6 = v11;
+      v9 = WdLogNewEntry5_WdWarning(v5, v4, v6);
+      v10 = v15;
     }
     else
     {
-      v6 = v8;
+      v9 = WdLogNewEntry5_WdWarning(v5, v4, v6);
+      v10 = v12;
     }
-    WdLogSingleEntry2(3LL, v6, -1073741823LL);
-    LODWORD(v5) = -1073741823;
+    *(_QWORD *)(v9 + 24) = v10;
+    *(_QWORD *)(v9 + 32) = -1073741823LL;
+    WdLogEvent5_WdWarning(v9);
+    LODWORD(v7) = -1073741823;
   }
   else
   {
-    WdLogSingleEntry2(2LL, v4, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"SendSyncMessage returns error from host. Returning 0x%I64x",
-      v5,
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdWarning(v5, v4, v6);
+    *(_QWORD *)(v8 + 24) = v7;
+    WdLogEvent5_WdWarning(v8);
   }
-  return (unsigned int)v5;
+  return (unsigned int)v7;
 }

@@ -5,13 +5,13 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x14011BC4C (EtwTraceTimedEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _local_unwind @ 0x1401951A0 (_local_unwind.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine1 @ 0x1401C7600 (KiCustomAccessRoutine1.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14011BC6C (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1401951C0 (_local_unwind.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine1 @ 0x1401C7620 (KiCustomAccessRoutine1.c)
  */
 
 void __fastcall IopTimerDispatch(

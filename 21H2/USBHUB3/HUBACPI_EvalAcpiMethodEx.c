@@ -1,15 +1,14 @@
 /*
- * XREFs of HUBACPI_EvalAcpiMethodEx @ 0x1C00848B4
+ * XREFs of HUBACPI_EvalAcpiMethodEx @ 0x1C0083130
  * Callers:
- *     HUBACPI_EvaluateDSD @ 0x1C0084CF0 (HUBACPI_EvaluateDSD.c)
- *     HUBACPI_GetAcpiPortAttributes @ 0x1C00854D0 (HUBACPI_GetAcpiPortAttributes.c)
+ *     HUBACPI_GetAcpiPortAttributes @ 0x1C0083988 (HUBACPI_GetAcpiPortAttributes.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     RtlStringCbCatNA @ 0x1C003C844 (RtlStringCbCatNA.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     RtlStringCbCatNA @ 0x1C003C1C4 (RtlStringCbCatNA.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBACPI_EvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, int a3, __int64 a4)
@@ -21,10 +20,10 @@ __int64 __fastcall HUBACPI_EvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, in
   __int64 v11; // rdi
   __int64 v12; // rbx
   __int64 v13; // rdx
-  _BYTE *v14; // rcx
+  char *v14; // rcx
   size_t v15; // rdx
   char v16; // al
-  _BYTE *v17; // rax
+  char *v17; // rax
   size_t v18; // rdx
   __int64 v19; // rbx
   _DWORD *v20; // rax
@@ -74,7 +73,7 @@ __int64 __fastcall HUBACPI_EvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, in
   {
     v9 = -1073741811;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x16u, (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x16u, (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids);
     goto LABEL_31;
   }
   memset(v23, 0, 0x114uLL);
@@ -85,14 +84,12 @@ __int64 __fastcall HUBACPI_EvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, in
   v15 = v13 - ((_QWORD)v23 + 4);
   do
   {
-    if ( !v11 )
+    if ( !(v12 + v11 - 256) )
       break;
     v16 = v14[v15];
     if ( !v16 )
       break;
-    *v14 = v16;
-    --v11;
-    ++v14;
+    *v14++ = v16;
     --v12;
   }
   while ( v12 );
@@ -143,7 +140,7 @@ __int64 __fastcall HUBACPI_EvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, in
           &v31)
     && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x19u, (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x19u, (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids);
   }
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2032))(WdfDriverGlobals, v24);
   v9 = v8;
@@ -159,7 +156,7 @@ LABEL_4:
       2u,
       3u,
       v10,
-      (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids,
+      (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids,
       v22);
     goto LABEL_31;
   }
@@ -170,7 +167,7 @@ LABEL_4:
   if ( *v20 != 1114596673 || !v20[2] )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x1Bu, (__int64)&WPP_c5068035c0c03895c2d054ff6dfe9623_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0x1Bu, (__int64)&WPP_7981730f68f0369ab28b5d2e2e7273fd_Traceguids);
     v9 = -1072431089;
   }
 LABEL_31:

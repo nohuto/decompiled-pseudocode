@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpJoinClassOfTrust @ 0x1401B3170
+ * XREFs of CmpJoinClassOfTrust @ 0x1401B3190
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
- *     CmpResolveHiveLoadConflict @ 0x1407F0348 (CmpResolveHiveLoadConflict.c)
+ *     CmpResolveHiveLoadConflict @ 0x1407F0328 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     CmpPerformTrustClassAccessCheck @ 0x1401B31EC (CmpPerformTrustClassAccessCheck.c)
+ *     CmpPerformTrustClassAccessCheck @ 0x1401B320C (CmpPerformTrustClassAccessCheck.c)
  *     CmpLockHiveListExclusive @ 0x1405B00F8 (CmpLockHiveListExclusive.c)
  *     CmpUnlockHiveList @ 0x1405B0118 (CmpUnlockHiveList.c)
  */

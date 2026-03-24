@@ -1,17 +1,17 @@
 /*
- * XREFs of Isoch_Transfer_CompleteCancelable @ 0x1C0045490
+ * XREFs of Isoch_Transfer_CompleteCancelable @ 0x1C0042800
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
- *     Isoch_MapStage @ 0x1C0004840 (Isoch_MapStage.c)
- *     Isoch_PrepareStage @ 0x1C0004B00 (Isoch_PrepareStage.c)
- *     Isoch_CompleteStaleTransfers @ 0x1C0043A94 (Isoch_CompleteStaleTransfers.c)
- *     Isoch_CompleteTransfers @ 0x1C0043D28 (Isoch_CompleteTransfers.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0040E04 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C004109C (Isoch_CompleteTransfers.c)
  * Callees:
- *     WPP_RECORDER_SF_DDqd @ 0x1C0007EA0 (WPP_RECORDER_SF_DDqd.c)
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Isoch_Transfer_PrepareForCompletion @ 0x1C0045768 (Isoch_Transfer_PrepareForCompletion.c)
+ *     WPP_RECORDER_SF_DDqd @ 0x1C000568C (WPP_RECORDER_SF_DDqd.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_Transfer_PrepareForCompletion @ 0x1C0042AD8 (Isoch_Transfer_PrepareForCompletion.c)
  */
 
 char __fastcall Isoch_Transfer_CompleteCancelable(
@@ -59,7 +59,7 @@ char __fastcall Isoch_Transfer_CompleteCancelable(
           v16,
           v17,
           17,
-          (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+          (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
           v17,
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           a2[3],

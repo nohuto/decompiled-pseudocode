@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetThreadPriority@IBltQueueVSyncSource@@UEAAJXZ @ 0x1C001A000
+ * XREFs of ?GetThreadPriority@IBltQueueVSyncSource@@UEAAJXZ @ 0x1C001B7F0
  * Callers:
  *     <none>
  * Callees:

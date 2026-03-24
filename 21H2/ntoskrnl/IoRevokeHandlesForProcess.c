@@ -1,26 +1,26 @@
 /*
- * XREFs of IoRevokeHandlesForProcess @ 0x140558960
+ * XREFs of IoRevokeHandlesForProcess @ 0x1405071D0
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     IopGetDevicePDO @ 0x1402A4000 (IopGetDevicePDO.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnpDisableUserModeNotifications @ 0x1405610D0 (PnpDisableUserModeNotifications.c)
- *     ExEnumHandleTable @ 0x14066A8E0 (ExEnumHandleTable.c)
- *     ObReferenceProcessHandleTable @ 0x14066B3D8 (ObReferenceProcessHandleTable.c)
- *     ObDereferenceProcessHandleTable @ 0x1406BBE50 (ObDereferenceProcessHandleTable.c)
- *     PsIsProcessAppContainer @ 0x1406C9928 (PsIsProcessAppContainer.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     IopGetDevicePDO @ 0x1402835A8 (IopGetDevicePDO.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpDisableUserModeNotifications @ 0x14050DB5C (PnpDisableUserModeNotifications.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
+ *     ExEnumHandleTable @ 0x140685A70 (ExEnumHandleTable.c)
+ *     ObDereferenceProcessHandleTable @ 0x14069C640 (ObDereferenceProcessHandleTable.c)
+ *     PsIsProcessAppContainer @ 0x1406AD854 (PsIsProcessAppContainer.c)
  */
 
 __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)
 {
-  __int64 v5; // rdi
-  unsigned int v6; // esi
+  __int64 v5; // rsi
+  unsigned int v6; // edi
   _DWORD *DevicePDO; // rax
-  void *v8; // rdi
+  void *v8; // rsi
   PVOID Object[2]; // [rsp+40h] [rbp-C0h] BYREF
   _DWORD v10[2]; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v11; // [rsp+58h] [rbp-A8h]
@@ -31,8 +31,8 @@ __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)
   _OWORD v16[14]; // [rsp+80h] [rbp-80h] BYREF
   char v17; // [rsp+190h] [rbp+90h] BYREF
 
-  v14 = 0;
   v10[1] = 0;
+  v14 = 0;
   if ( !(unsigned __int8)PsIsProcessAppContainer(a2) )
     return 0LL;
   v5 = ObReferenceProcessHandleTable(a2);
@@ -64,9 +64,9 @@ __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)
       if ( DevicePDO )
       {
         PnpDisableUserModeNotifications(DevicePDO, a2);
-        ObfDereferenceObject(v8);
+        ObfDereferenceObjectWithTag(v8, 0x746C6644u);
       }
-      ObfDereferenceObject(Object[0]);
+      ObfDereferenceObjectWithTag(Object[0], 0x746C6644u);
     }
   }
   ObDereferenceProcessHandleTable(a2);

@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pqxq_EtwWriteTransfer @ 0x1C0039234
+ * XREFs of McTemplateK0pqxq_EtwWriteTransfer @ 0x1C002E4CC
  * Callers:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0008770 (VidSchiProcessDpcCompletedPacket.c)
- *     ?VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z @ 0x1C0014144 (-VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0009610 (VidSchiProcessDpcCompletedPacket.c)
+ *     ?VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z @ 0x1C0013748 (-VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqxq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

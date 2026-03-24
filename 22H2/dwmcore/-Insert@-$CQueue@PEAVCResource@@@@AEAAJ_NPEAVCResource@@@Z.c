@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Insert@?$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z @ 0x180033678
+ * XREFs of ?Insert@?$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z @ 0x180062548
  * Callers:
- *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18003272C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
- *     ?RevalidationCleanup@CManipulationContext@@CAXHPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x1801A67A4 (-RevalidationCleanup@CManipulationContext@@CAXHPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@.c)
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DE8C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ *     ?RevalidationCleanup@CManipulationContext@@CAXHPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180236148 (-RevalidationCleanup@CManipulationContext@@CAXHPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CQueue<CResource *>::Insert(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // edi
-  unsigned int v6; // ecx
+  __int64 v6; // rcx
   _QWORD *v7; // rax
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   _QWORD *v9; // rcx
 
   v5 = 0;
@@ -29,6 +29,7 @@ __int64 __fastcall CQueue<CResource *>::Insert(__int64 a1, __int64 a2, __int64 a
     if ( v7 )
     {
       *(_OWORD *)v7 = 0LL;
+      v7[2] = 0LL;
       v7[2] = a3;
       v9 = *(_QWORD **)(a1 + 8);
       if ( *v9 != a1 )

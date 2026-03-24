@@ -1,1 +1,0 @@
-/*\n * XREFs of sub_1C00033C0 @ 0x1C00033C0\n * Callers:\n *     sub_1C0003340 @ 0x1C0003340 (sub_1C0003340.c)\n * Callees:\n *     sub_1C0002E30 @ 0x1C0002E30 (sub_1C0002E30.c)\n */\n\nvoid sub_1C00033C0()\n{\n  sub_1C0002E30();\n}\n

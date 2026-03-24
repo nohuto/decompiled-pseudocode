@@ -1,24 +1,19 @@
 /*
- * XREFs of ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C00BA424
+ * XREFs of ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C013245C
  * Callers:
- *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00A5BB8 (-Initialize@UmfdAllocation@@SA_NXZ.c)
- *     UmfdSessionUninitialize @ 0x1C00BA380 (UmfdSessionUninitialize.c)
+ *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00F3EF4 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ *     UmfdSessionUninitialize @ 0x1C0132320 (UmfdSessionUninitialize.c)
  * Callees:
- *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00BA470 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C01324A0 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
  */
 
-void __fastcall UmfdAllocation::Uninitialize(__int64 a1)
+void UmfdAllocation::Uninitialize(void)
 {
-  __int64 v1; // rbx
-  void *v2; // rcx
-
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 40);
-  if ( *(_QWORD *)v1 )
+  if ( UmfdAllocation::s_allocationLookup )
   {
-    NSInstrumentation::CPointerHashTable::Destroy(*(PVOID *)v1);
-    *(_QWORD *)v1 = 0LL;
+    NSInstrumentation::CPointerHashTable::Destroy(UmfdAllocation::s_allocationLookup);
+    UmfdAllocation::s_allocationLookup = 0LL;
   }
-  v2 = *(void **)(v1 + 8);
-  if ( v2 )
-    EngFreeMem(v2);
+  if ( UmfdAllocation::s_allocationLookupLock )
+    EngFreeMem(UmfdAllocation::s_allocationLookupLock);
 }

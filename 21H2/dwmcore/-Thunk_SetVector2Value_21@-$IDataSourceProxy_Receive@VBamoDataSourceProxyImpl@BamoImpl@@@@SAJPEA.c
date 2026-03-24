@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Thunk_SetVector2Value_21@?$IDataSourceProxy_Receive@VBamoDataSourceProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801E0830
+ * XREFs of ?Thunk_SetVector2Value_21@?$IDataSourceProxy_Receive@VBamoDataSourceProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x180194610
  * Callers:
  *     <none>
  * Callees:

@@ -1,121 +1,120 @@
 /*
- * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x140A9C220
+ * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x1409AD308
  * Callers:
- *     IopLiveDumpCollectPages @ 0x140A9ABC4 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409AC020 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
- *     RtlFindSetBitsEx @ 0x140340B10 (RtlFindSetBitsEx.c)
- *     RtlFindNextForwardRunClearEx @ 0x140463760 (RtlFindNextForwardRunClearEx.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559DDC (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14055B4BC (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x140A9C544 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     RtlFindSetBitsEx @ 0x1402288D0 (RtlFindSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140508908 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x140509D18 (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140587430 (RtlFindNextForwardRunClearEx.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AD5E4 (IopLiveDumpRemoveSystemCacheFromDump.c)
  */
 
 char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
 {
-  __int64 MillisecondCounter; // r12
   int v3; // eax
-  __int64 v5; // rsi
-  unsigned __int64 v6; // r15
-  unsigned __int64 *v7; // r14
+  __int64 v4; // r15
+  unsigned __int64 v5; // r14
+  unsigned __int64 *v6; // rsi
   unsigned __int64 SetBits; // rdi
-  unsigned __int64 NextForwardRunClear; // rax
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r8
-  unsigned __int64 v12; // r15
-  unsigned __int64 v13; // rsi
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rdi
-  int v16; // eax
-  __int64 v17; // rax
-  unsigned __int64 v19; // [rsp+20h] [rbp-28h]
-  unsigned __int64 v20[4]; // [rsp+28h] [rbp-20h] BYREF
+  unsigned __int64 v8; // r14
+  __int64 v9; // rax
+  unsigned __int64 v10; // r15
+  unsigned __int64 v11; // r12
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // r15
+  int v14; // eax
+  unsigned __int64 v15; // rax
+  __int64 v16; // rax
+  unsigned __int64 NextForwardRunClear; // [rsp+20h] [rbp-28h]
+  unsigned __int64 v19; // [rsp+28h] [rbp-20h]
+  __int128 v20; // [rsp+30h] [rbp-18h] BYREF
   unsigned __int64 v21; // [rsp+90h] [rbp+48h] BYREF
   unsigned __int64 v22; // [rsp+98h] [rbp+50h] BYREF
-  __int64 v23; // [rsp+A0h] [rbp+58h] BYREF
-  unsigned __int64 v24; // [rsp+A8h] [rbp+60h]
+  __int64 MillisecondCounter; // [rsp+A0h] [rbp+58h]
+  __int64 v24; // [rsp+A8h] [rbp+60h] BYREF
 
   v22 = 0LL;
+  v24 = 0LL;
   MillisecondCounter = 0LL;
-  v23 = 0LL;
   v3 = *(_DWORD *)(a1 + 80);
-  *(_OWORD *)v20 = 0LL;
+  v20 = 0LL;
   if ( (v3 & 0x80u) != 0 )
     MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
-  v5 = a1 + 544;
-  v6 = *(_QWORD *)(a1 + 544);
-  v19 = v6;
-  IopLiveDumpRemoveSystemCacheFromDump(a1, a2, &v23);
-  v7 = (unsigned __int64 *)(a1 + 600);
+  v4 = a1 + 544;
+  v5 = *(_QWORD *)(a1 + 544);
+  v19 = v5;
+  IopLiveDumpRemoveSystemCacheFromDump(a1, a2, &v24);
+  v6 = (unsigned __int64 *)(a1 + 600);
   if ( a1 != -600 )
   {
     do
     {
-      SetBits = RtlFindSetBitsEx(v7, 1uLL, 0LL);
+      SetBits = RtlFindSetBitsEx(v6, 1uLL, 0LL);
       if ( SetBits != -1LL )
       {
         do
         {
-          NextForwardRunClear = RtlFindNextForwardRunClearEx(v7, SetBits, &v22);
-          v10 = v22;
-          v24 = NextForwardRunClear;
-          if ( !NextForwardRunClear )
-            v10 = v6;
-          v11 = v10 - SetBits;
-          v12 = SetBits + v11;
+          NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)v6, SetBits, &v22);
+          if ( NextForwardRunClear )
+            v5 = v22;
+          v8 = v5 - SetBits;
           if ( (*(_DWORD *)(a1 + 80) & 1) != 0 )
           {
-            RtlSetBitsEx(v5, SetBits, v11);
+            RtlSetBitsEx(v4, SetBits, v8);
           }
           else
           {
-            v20[1] = *(_QWORD *)(a1 + 552);
-            v20[0] = SetBits + v11;
+            v9 = *(_QWORD *)(a1 + 552);
+            *(_QWORD *)&v20 = SetBits + v8;
+            v10 = SetBits;
+            *((_QWORD *)&v20 + 1) = v9;
             v21 = SetBits;
             do
             {
-              v13 = RtlFindNextForwardRunClearEx(v20, SetBits, &v21);
-              if ( !v13 )
+              v11 = RtlFindNextForwardRunClearEx((__int64)&v20, v10, &v21);
+              if ( !v11 )
                 break;
-              v14 = *(_QWORD *)(a1 + 688);
-              if ( v13 > v14 )
+              v12 = *(_QWORD *)(a1 + 688);
+              if ( v11 > v12 )
               {
                 *(_DWORD *)(a1 + 80) |= 2u;
-                v13 = v14;
+                v11 = v12;
               }
-              v15 = v21;
-              if ( v13 )
+              v13 = v21;
+              if ( v11 )
               {
-                RtlSetBitsEx((__int64)v20, v21, v13);
-                *(_QWORD *)(a1 + 688) -= v13;
+                RtlSetBitsEx((__int64)&v20, v21, v11);
+                *(_QWORD *)(a1 + 688) -= v11;
               }
-              v16 = *(_DWORD *)(a1 + 80);
-              if ( (v16 & 2) != 0 )
-                return v16;
-              SetBits = v13 + v15;
-              v21 = SetBits;
+              v14 = *(_DWORD *)(a1 + 80);
+              if ( (v14 & 2) != 0 )
+                return v14;
+              v10 = v11 + v13;
+              v21 = v10;
             }
-            while ( SetBits < v12 );
-            v5 = a1 + 544;
+            while ( v10 < SetBits + v8 );
+            v4 = a1 + 544;
           }
-          SetBits = v12 + v24;
-          v6 = v19;
+          v15 = v8 + NextForwardRunClear;
+          v5 = v19;
+          SetBits += v15;
         }
         while ( SetBits < v19 );
       }
-      if ( v7 != (unsigned __int64 *)(a1 + 600) )
-        break;
-      if ( (*(_DWORD *)(a1 + 40) & 4) == 0 )
-        break;
-      v7 = (unsigned __int64 *)(a1 + 656);
+      if ( v6 == (unsigned __int64 *)(a1 + 600) && (*(_DWORD *)(a1 + 40) & 4) != 0 )
+        v6 = (unsigned __int64 *)(a1 + 656);
+      else
+        v6 = 0LL;
     }
-    while ( a1 != -656 );
+    while ( v6 );
   }
-  v16 = *(_DWORD *)(a1 + 80);
-  if ( (v16 & 0x80u) != 0 )
+  v14 = *(_DWORD *)(a1 + 80);
+  if ( (v14 & 0x80u) != 0 )
   {
-    v17 = IopLiveDumpGetMillisecondCounter(0);
-    LOBYTE(v16) = IopLiveDumpTracePopulateBitmapForDumpDuration(a1, v17 - MillisecondCounter, v23);
+    v16 = IopLiveDumpGetMillisecondCounter(0);
+    LOBYTE(v14) = IopLiveDumpTracePopulateBitmapForDumpDuration((const GUID *)a1, v16 - MillisecondCounter, v24);
   }
-  return v16;
+  return v14;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z @ 0x1C01D6BB0
+ * XREFs of ?xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z @ 0x1C01DC484
  * Callers:
- *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01D6A48 (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
- *     xxxInjectTouchInput @ 0x1C01D73EC (xxxInjectTouchInput.c)
+ *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01DC31C (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
+ *     xxxInjectTouchInput @ 0x1C01DCDAC (xxxInjectTouchInput.c)
  * Callees:
- *     CreateTouchInputBuffer @ 0x1C01D8EA8 (CreateTouchInputBuffer.c)
+ *     CreateTouchInputBuffer @ 0x1C01DE158 (CreateTouchInputBuffer.c)
  */
 
 void __fastcall xxxSendToTouchStack(struct DEVICEINFO *a1, unsigned int a2, struct tagPOINTER_TOUCH_INFO *a3, ULONG a4)
@@ -18,7 +18,7 @@ void __fastcall xxxSendToTouchStack(struct DEVICEINFO *a1, unsigned int a2, stru
   __int64 v13; // rbx
   __int64 CurrentProcessWin32Process; // rax
 
-  v4 = *((_QWORD *)a1 + 57);
+  v4 = *((_QWORD *)a1 + 58);
   *((_DWORD *)a1 + 64) = 0;
   v6 = (int)a3;
   v9 = 0;
@@ -35,7 +35,7 @@ void __fastcall xxxSendToTouchStack(struct DEVICEINFO *a1, unsigned int a2, stru
       v13,
       *(_QWORD *)(*(_QWORD *)(CurrentProcessWin32Process + 896) + 96LL),
       0LL,
-      *(_QWORD *)(*((_QWORD *)a1 + 57) + 24LL),
-      *(unsigned __int16 *)(*((_QWORD *)a1 + 57) + 44LL));
+      *(_QWORD *)(*((_QWORD *)a1 + 58) + 24LL),
+      *(unsigned __int16 *)(*((_QWORD *)a1 + 58) + 44LL));
   }
 }

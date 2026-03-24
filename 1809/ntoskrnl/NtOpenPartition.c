@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenPartition @ 0x140761090
+ * XREFs of NtOpenPartition @ 0x140761070
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,10 @@
 /*
- * XREFs of DmrGetNextDeviceScope @ 0x1405383E4
+ * XREFs of DmrGetNextDeviceScope @ 0x1404E85D4
  * Callers:
- *     IvtpGetNextInternalDeviceScope @ 0x1405378F4 (IvtpGetNextInternalDeviceScope.c)
- *     DmrGetNextDrhdDeviceScope @ 0x1405380DC (DmrGetNextDrhdDeviceScope.c)
- *     DmrEnumerateSatcDevices @ 0x140538278 (DmrEnumerateSatcDevices.c)
- *     DmrEnumerateRmrrDomains @ 0x140538580 (DmrEnumerateRmrrDomains.c)
- *     IvtCheckForReservedRegion @ 0x14090B300 (IvtCheckForReservedRegion.c)
+ *     IvtpGetNextInternalDeviceScope @ 0x1404E7C14 (IvtpGetNextInternalDeviceScope.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1404E842C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x1404E8770 (DmrEnumerateRmrrDomains.c)
+ *     IvtCheckForReservedRegion @ 0x140867000 (IvtCheckForReservedRegion.c)
  * Callees:
  *     <none>
  */

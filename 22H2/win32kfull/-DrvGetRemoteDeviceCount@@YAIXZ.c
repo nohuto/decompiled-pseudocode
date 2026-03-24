@@ -1,29 +1,29 @@
 /*
- * XREFs of ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01336A8
+ * XREFs of ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C0162D10
  * Callers:
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
- *     DxgkEngGetRemoteDeviceCount @ 0x1C026FD80 (DxgkEngGetRemoteDeviceCount.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
+ *     DxgkEngGetRemoteDeviceCount @ 0x1C0277460 (DxgkEngGetRemoteDeviceCount.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DrvGetRemoteDeviceCount(Gre::Base *a1)
+__int64 DrvGetRemoteDeviceCount(void)
 {
-  unsigned int v1; // ebx
-  __int64 v2; // rdx
-  bool v3; // zf
-  unsigned int v4; // ecx
+  unsigned int v0; // edx
+  struct tagGRAPHICS_DEVICE *v1; // r8
+  bool v2; // zf
+  unsigned int v3; // ecx
 
-  v1 = 0;
-  v2 = *((_QWORD *)Gre::Base::Globals(a1) + 158);
-  while ( v2 )
+  v0 = 0;
+  v1 = gpGraphicsDeviceList;
+  while ( v1 )
   {
-    v3 = (*(_DWORD *)(v2 + 160) & 0x4000000) == 0;
-    v4 = v1 + 1;
-    v2 = *(_QWORD *)(v2 + 128);
-    if ( v3 )
-      v4 = v1;
-    v1 = v4;
+    v2 = (*((_DWORD *)v1 + 40) & 0x4000000) == 0;
+    v3 = v0 + 1;
+    v1 = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)v1 + 16);
+    if ( v2 )
+      v3 = v0;
+    v0 = v3;
   }
-  return v1;
+  return v0;
 }

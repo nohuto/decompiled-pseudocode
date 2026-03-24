@@ -1,72 +1,83 @@
 /*
- * XREFs of ACPIExtListEnumNext @ 0x1C0026414
+ * XREFs of ACPIExtListEnumNext @ 0x1C001B0F0
  * Callers:
- *     ACPIDockFindCorrespondingDock @ 0x1C0009314 (ACPIDockFindCorrespondingDock.c)
- *     ACPIBuildProcessRunMethodPhaseRecurse @ 0x1C0011C70 (ACPIBuildProcessRunMethodPhaseRecurse.c)
- *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
- *     ACPIDetectDockDevices @ 0x1C0019FF0 (ACPIDetectDockDevices.c)
- *     ACPIDetectDuplicateHID @ 0x1C001A3EC (ACPIDetectDuplicateHID.c)
- *     ACPIDetectEjectDevices @ 0x1C001A6E0 (ACPIDetectEjectDevices.c)
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C0029008 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIGpeBuildWakeMasks @ 0x1C002C000 (ACPIGpeBuildWakeMasks.c)
- *     ACPIInitDeleteChildDeviceList @ 0x1C002CCA8 (ACPIInitDeleteChildDeviceList.c)
- *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E774 (ACPIInternalFindDeviceExtensionNoLock.c)
- *     EnableDisableDeviceTreeRegionSpace @ 0x1C00399C0 (EnableDisableDeviceTreeRegionSpace.c)
- *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DB00 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C0018210 (EnableDisableDeviceTreeRegionSpace.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     ACPIDetectDockDevices @ 0x1C001A800 (ACPIDetectDockDevices.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C001AAF0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPIDetectDuplicateHID @ 0x1C001ADF4 (ACPIDetectDuplicateHID.c)
+ *     ACPIGpeBuildWakeMasks @ 0x1C001AFA8 (ACPIGpeBuildWakeMasks.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002D204 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIDockFindCorrespondingDock @ 0x1C002D274 (ACPIDockFindCorrespondingDock.c)
+ *     ACPIDetectEjectDevices @ 0x1C004F600 (ACPIDetectEjectDevices.c)
  * Callees:
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0E0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
  */
 
 char *__fastcall ACPIExtListEnumNext(__int64 a1)
 {
-  __int64 v2; // r8
-  _QWORD *v3; // rdx
-  char *result; // rax
-  KIRQL v5; // al
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  _QWORD *v8; // rdi
-  _QWORD *v9; // rcx
-  char *v10; // rdi
-  KIRQL v11; // al
-  __int64 v12; // rcx
+  KIRQL v2; // al
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  _QWORD *v5; // rdi
+  _QWORD *v6; // rcx
+  char *v7; // rdi
+  ULONG_PTR BugCheckParameter4; // rsi
+  KIRQL v9; // bp
+  KIRQL v10; // al
+  bool v11; // zf
+  __int64 v13; // rdx
+  _QWORD *v14; // rcx
+  char *v15; // r8
 
   if ( *(_DWORD *)(a1 + 48) == 1 )
   {
-    v5 = KeAcquireSpinLockRaiseToDpc(*(PKSPIN_LOCK *)(a1 + 16));
-    v6 = *(_QWORD *)(a1 + 32);
-    v7 = *(_QWORD *)(a1 + 40);
-    *(_BYTE *)(a1 + 24) = v5;
-    v8 = *(_QWORD **)(v7 + v6);
-    v9 = (_QWORD *)*v8;
-    if ( (_QWORD *)*v8 == v8 )
+    v2 = KeAcquireSpinLockRaiseToDpc(*(PKSPIN_LOCK *)(a1 + 16));
+    v3 = *(_QWORD *)(a1 + 32);
+    v4 = *(_QWORD *)(a1 + 40);
+    *(_BYTE *)(a1 + 24) = v2;
+    v5 = *(_QWORD **)(v4 + v3);
+    v6 = (_QWORD *)*v5;
+    if ( (_QWORD *)*v5 == v5 )
     {
-      v8 = *(_QWORD **)(a1 + 8);
-      v9 = (_QWORD *)*v8;
+      v5 = *(_QWORD **)(a1 + 8);
+      v6 = (_QWORD *)*v5;
     }
-    v10 = (char *)v8 - v7;
-    *(_QWORD *)(a1 + 8) = v9;
-    KeReleaseSpinLock(*(PKSPIN_LOCK *)(a1 + 16), v5);
-    ACPIInitDereferenceDeviceExtensionUnlocked(*(_QWORD *)(a1 + 32));
-    v11 = KeAcquireSpinLockRaiseToDpc(*(PKSPIN_LOCK *)(a1 + 16));
-    v12 = *(_QWORD *)(a1 + 40);
-    *(_BYTE *)(a1 + 24) = v11;
-    result = 0LL;
-    *(_QWORD *)(a1 + 32) = v10;
-    if ( &v10[v12] != *(char **)a1 )
-      return v10;
+    v7 = (char *)v5 - v4;
+    *(_QWORD *)(a1 + 8) = v6;
+    KeReleaseSpinLock(*(PKSPIN_LOCK *)(a1 + 16), v2);
+    BugCheckParameter4 = *(_QWORD *)(a1 + 32);
+    v9 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+    KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(BugCheckParameter4 + 692), 0xFFFFFFFF) == 1 )
+    {
+      if ( (*(_QWORD *)(BugCheckParameter4 + 8) & 0x200000000000000LL) != 0 && *(_DWORD *)(BugCheckParameter4 + 196) )
+        KeBugCheckEx(0xA3u, 2uLL, 0x9034CuLL, 0LL, BugCheckParameter4);
+      ACPIInitDeleteDeviceExtension((PVOID)BugCheckParameter4);
+    }
+    KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
+    KeReleaseSpinLock(&AcpiPowerLock, v9);
+    v10 = KeAcquireSpinLockRaiseToDpc(*(PKSPIN_LOCK *)(a1 + 16));
+    v11 = &v7[*(_QWORD *)(a1 + 40)] == *(char **)a1;
+    *(_QWORD *)(a1 + 32) = v7;
+    if ( v11 )
+      v7 = 0LL;
+    *(_BYTE *)(a1 + 24) = v10;
+    return v7;
   }
   else
   {
-    v2 = *(_QWORD *)(a1 + 40);
-    v3 = *(_QWORD **)(v2 + *(_QWORD *)(a1 + 32));
-    if ( (_QWORD *)*v3 == v3 )
-      v3 = *(_QWORD **)(a1 + 8);
-    *(_QWORD *)(a1 + 32) = (char *)v3 - v2;
-    *(_QWORD *)(a1 + 8) = *v3;
-    result = 0LL;
-    if ( v3 != *(_QWORD **)a1 )
-      return (char *)v3 - v2;
+    v13 = *(_QWORD *)(a1 + 40);
+    v14 = *(_QWORD **)(v13 + *(_QWORD *)(a1 + 32));
+    if ( (_QWORD *)*v14 == v14 )
+      v14 = *(_QWORD **)(a1 + 8);
+    v15 = (char *)v14 - v13;
+    *(_QWORD *)(a1 + 32) = (char *)v14 - v13;
+    *(_QWORD *)(a1 + 8) = *v14;
+    if ( v14 == *(_QWORD **)a1 )
+      return 0LL;
+    return v15;
   }
-  return result;
 }

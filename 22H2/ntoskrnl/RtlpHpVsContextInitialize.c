@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsContextInitialize @ 0x140362A88
+ * XREFs of RtlpHpVsContextInitialize @ 0x14037B17C
  * Callers:
- *     RtlpHpFixedHeapCreate @ 0x140362838 (RtlpHpFixedHeapCreate.c)
- *     RtlpHpHeapCreate @ 0x140397668 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037A994 (RtlpHpHeapCreate.c)
+ *     RtlpHpFixedHeapCreate @ 0x14037AFC8 (RtlpHpFixedHeapCreate.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     memset @ 0x140435400 (memset.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall RtlpHpVsContextInitialize(unsigned __int64 a1, __int64 a2, __int128 *a3, int a4, int a5, _DWORD *a6)
@@ -27,7 +27,7 @@ void __fastcall RtlpHpVsContextInitialize(unsigned __int64 a1, __int64 a2, __int
   *(_QWORD *)(a1 + 168) = v10;
   *(_DWORD *)(a1 + 176) = *a6;
   for ( i = 0LL; i < 4; ++i )
-    *(_QWORD *)(a1 + 8 * i + 136) ^= RtlpHpHeapGlobals ^ a1;
+    *(_QWORD *)(a1 + 8 * i + 136) ^= a1 ^ RtlpHpHeapGlobals;
   v13 = *(_QWORD *)(a1 + 168);
   if ( v13 )
     *(_QWORD *)(a1 + 168) = a1 ^ RtlpHpHeapGlobals ^ v13;

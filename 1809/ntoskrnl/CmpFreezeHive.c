@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreezeHive @ 0x140691D2C
+ * XREFs of CmpFreezeHive @ 0x140691D0C
  * Callers:
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
  * Callees:
  *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
  *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpSearchForOpenSubKeys @ 0x140691DC0 (CmpSearchForOpenSubKeys.c)
- *     CmpRecordUnloadEventForHive @ 0x140692F0C (CmpRecordUnloadEventForHive.c)
+ *     CmpSearchForOpenSubKeys @ 0x140691DA0 (CmpSearchForOpenSubKeys.c)
+ *     CmpRecordUnloadEventForHive @ 0x140692EEC (CmpRecordUnloadEventForHive.c)
  */
 
 __int64 __fastcall CmpFreezeHive(__int64 a1, __int64 a2)

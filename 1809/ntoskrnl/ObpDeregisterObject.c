@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpDeregisterObject @ 0x140862BE0
+ * XREFs of ObpDeregisterObject @ 0x140862BC0
  * Callers:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationFile @ 0x140100E70 (NtSetInformationFile.c)
- *     NtSetInformationWorkerFactory @ 0x1401060E0 (NtSetInformationWorkerFactory.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406919E0 (ObpProcessRemoveObjectQueue.c)
+ *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
+ *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1406919C0 (ObpProcessRemoveObjectQueue.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwTraceObject @ 0x1408B7D38 (EtwTraceObject.c)
+ *     EtwTraceObject @ 0x1408B7D18 (EtwTraceObject.c)
  */
 
 void __fastcall ObpDeregisterObject(__int64 a1)

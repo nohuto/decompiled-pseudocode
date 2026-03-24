@@ -1,77 +1,35 @@
 /*
- * XREFs of ObDereferenceDeviceMap @ 0x14069C9C0
+ * XREFs of ObDereferenceDeviceMap @ 0x1406B0914
  * Callers:
- *     ObpSetDeviceMap @ 0x14069B8FC (ObpSetDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x14069BBC0 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x14069BDD0 (SepDeleteLogonSessionTrack.c)
- *     ObpDeleteDeviceMap @ 0x14069C07C (ObpDeleteDeviceMap.c)
- *     ObClearProcessDeviceMap @ 0x14069C104 (ObClearProcessDeviceMap.c)
- *     ObpDereferenceCurrentDeviceMap @ 0x14069C7C0 (ObpDereferenceCurrentDeviceMap.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x14069CAE8 (ObpSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x14069CC40 (SeGetTokenDeviceMap.c)
- *     ObpSlowReferenceDeviceMap @ 0x14069D2C0 (ObpSlowReferenceDeviceMap.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     ObCleanupSiloState @ 0x140983EC0 (ObCleanupSiloState.c)
- *     ObpDirectoryTeardownCallback @ 0x140A349B0 (ObpDirectoryTeardownCallback.c)
+ *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
+ *     PspAssignPrimaryToken @ 0x1407BBA40 (PspAssignPrimaryToken.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ObpDeleteDeviceMap @ 0x14069C07C (ObpDeleteDeviceMap.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
  */
 
-void __fastcall ObDereferenceDeviceMap(volatile signed __int64 *P, unsigned int a2)
+void __fastcall ObDereferenceDeviceMap(__int64 a1)
 {
-  volatile signed __int64 *v3; // rdi
-  signed __int64 v4; // rax
-  __int64 v5; // rbp
-  signed __int64 i; // r8
-  signed __int64 v7; // rtt
-  char *ServerSiloGlobals; // rax
-  struct _KTHREAD *CurrentThread; // rcx
-  volatile signed __int64 *v10; // rsi
-  __int64 v11; // rax
-  struct _KTHREAD *v12; // rax
-  bool v13; // zf
+  __int64 ProcessServerSilo; // rax
+  void *ServerSiloGlobals; // rax
+  struct _KTHREAD *CurrentThread; // rdx
+  ULONG_PTR v5; // rbx
+  void *v6; // rsi
 
-  v3 = P;
-  _m_prefetchw((const void *)(P + 30));
-  v4 = *((_QWORD *)P + 30);
-  v5 = a2;
-  for ( i = v4 - a2; i > 0; i = v4 - a2 )
-  {
-    v7 = v4;
-    v4 = _InterlockedCompareExchange64(P + 30, i, v4);
-    if ( v7 == v4 )
-      return;
-  }
-  if ( i )
-    __fastfail(0xEu);
-  ServerSiloGlobals = (char *)PsGetServerSiloGlobals(*((_QWORD *)P + 2));
+  ProcessServerSilo = PsGetProcessServerSilo(a1);
+  ServerSiloGlobals = PsGetServerSiloGlobals(ProcessServerSilo);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v10 = (volatile signed __int64 *)(ServerSiloGlobals + 120);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)(ServerSiloGlobals + 120), 0LL);
-  v11 = _InterlockedExchangeAdd64(v3 + 30, -a2) - v5;
-  if ( v11 > 0 )
-  {
-    v3 = 0LL;
-  }
-  else
-  {
-    if ( v11 )
-      __fastfail(0xEu);
-    *(_QWORD *)(*v3 + 304) = 0LL;
-  }
-  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v10);
-  KeAbPostRelease((ULONG_PTR)v10);
-  v12 = KeGetCurrentThread();
-  v13 = v12->SpecialApcDisable++ == -1;
-  if ( v13 && ($CEA84C04E3712D858E5667A507841A2A *)v12->ApcState.ApcListHead[0].Flink != &v12->152 )
-    KiCheckForKernelApcDelivery();
-  if ( v3 )
-    ObpDeleteDeviceMap((char *)v3);
+  v5 = (ULONG_PTR)ServerSiloGlobals + 120;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)ServerSiloGlobals + 120, 0LL);
+  v6 = *(void **)(a1 + 1416);
+  *(_QWORD *)(a1 + 1416) = 0LL;
+  ExReleasePushLockEx(v5, 0LL);
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+  if ( v6 )
+    ObfDereferenceDeviceMap(v6);
 }

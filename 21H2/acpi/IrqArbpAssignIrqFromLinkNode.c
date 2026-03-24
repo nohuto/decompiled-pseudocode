@@ -1,15 +1,15 @@
 /*
- * XREFs of IrqArbpAssignIrqFromLinkNode @ 0x1C00B6B6C
+ * XREFs of IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C
  * Callers:
- *     IrqArbpFindSuitableRangePci @ 0x1C009D25C (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_d @ 0x1C005E894 (WPP_RECORDER_SF_d.c)
- *     IcGetPossibleInput @ 0x1C0097288 (IcGetPossibleInput.c)
- *     IcIsInputValid @ 0x1C009D3D8 (IcIsInputValid.c)
- *     LinkNodeGetPossibleResources @ 0x1C00B5F70 (LinkNodeGetPossibleResources.c)
- *     IrqArbIrqFromGsiv @ 0x1C00B690C (IrqArbIrqFromGsiv.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     IcGetPossibleInput @ 0x1C0091E28 (IcGetPossibleInput.c)
+ *     IcIsInputValid @ 0x1C0096C34 (IcIsInputValid.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00B6908 (LinkNodeGetPossibleResources.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
  */
 
 __int64 __fastcall IrqArbpAssignIrqFromLinkNode(__int64 a1, _QWORD *a2, __int64 a3)
@@ -45,7 +45,7 @@ __int64 __fastcall IrqArbpAssignIrqFromLinkNode(__int64 a1, _QWORD *a2, __int64 
       4u,
       0x14u,
       0x1Bu,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
       P[0]);
   if ( PossibleResources < 0 )
     goto LABEL_14;
@@ -88,7 +88,7 @@ LABEL_14:
         2u,
         0x14u,
         0x1Du,
-        (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+        (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
         v19);
     }
     goto LABEL_16;
@@ -106,7 +106,7 @@ LABEL_14:
       4u,
       0x14u,
       0x1Cu,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
       v19);
   }
   PossibleResources = 0;

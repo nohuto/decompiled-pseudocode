@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgSystemOemCodePage @ 0x1C0122FF0
+ * XREFs of GetgSystemOemCodePage @ 0x1C01378B0
  * Callers:
  *     <none>
  * Callees:

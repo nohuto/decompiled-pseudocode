@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateKeyedEvent @ 0x1401B96D0
+ * XREFs of ZwCreateKeyedEvent @ 0x1401B96F0
  * Callers:
  *     ExpKeyedEventInitialization @ 0x1409DA2F8 (ExpKeyedEventInitialization.c)
  * Callees:

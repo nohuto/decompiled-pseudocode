@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeForSession@DXGVALIDATION@@QEAAJPEAVDXGSESSIONDATA@@@Z @ 0x1C0002CC4
+ * XREFs of ?InitializeForSession@DXGVALIDATION@@QEAAJPEAVDXGSESSIONDATA@@@Z @ 0x1C0012D28
  * Callers:
- *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C0160D94 (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
+ *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C0155550 (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
  * Callees:
- *     ?CreateValidationProcessInCallerSession@DXGVALIDATION@@AEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C005BA68 (-CreateValidationProcessInCallerSession@DXGVALIDATION@@AEAAJPEAPEAU_EPROCESS@@@Z.c)
+ *     ?CreateValidationProcessInCallerSession@DXGVALIDATION@@AEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C004D16C (-CreateValidationProcessInCallerSession@DXGVALIDATION@@AEAAJPEAPEAU_EPROCESS@@@Z.c)
  */
 
 __int64 __fastcall DXGVALIDATION::InitializeForSession(DXGVALIDATION *this, struct DXGSESSIONDATA *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall DXGVALIDATION::InitializeForSession(DXGVALIDATION *this, stru
     v4 = 0LL;
     result = DXGVALIDATION::CreateValidationProcessInCallerSession(this, &v4);
     if ( (int)result >= 0 )
-      *((_QWORD *)a2 + 2340) = v4;
+      *((_QWORD *)a2 + 2337) = v4;
   }
   return result;
 }

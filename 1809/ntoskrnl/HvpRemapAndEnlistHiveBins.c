@@ -3,8 +3,8 @@
  * Callers:
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     HvpAllocateBin @ 0x1405A2540 (HvpAllocateBin.c)
  *     HvpProtectBin @ 0x1405A2584 (HvpProtectBin.c)
  *     HvpPointMapEntriesToBuffer @ 0x1405A3F90 (HvpPointMapEntriesToBuffer.c)
@@ -13,9 +13,9 @@
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  *     CmpReleaseGlobalQuota @ 0x1405FB668 (CmpReleaseGlobalQuota.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4D0 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpFreeBin @ 0x1406CFFB0 (HvpFreeBin.c)
- *     HvIsRangeDirty @ 0x140800F44 (HvIsRangeDirty.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4B0 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpFreeBin @ 0x1406CFF90 (HvpFreeBin.c)
+ *     HvIsRangeDirty @ 0x140800F24 (HvIsRangeDirty.c)
  */
 
 __int64 __fastcall HvpRemapAndEnlistHiveBins(_DWORD *BugCheckParameter2)

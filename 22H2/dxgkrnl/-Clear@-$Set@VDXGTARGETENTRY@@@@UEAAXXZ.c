@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Clear@?$Set@VDXGTARGETENTRY@@@@UEAAXXZ @ 0x1C0015350
+ * XREFs of ?Clear@?$Set@VDXGTARGETENTRY@@@@UEAAXXZ @ 0x1C001A3A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Clear@?$DoublyLinkedList@VDXGTARGETENTRY@@U?$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@@@QEAAXXZ @ 0x1C001536C (-Clear@-$DoublyLinkedList@VDXGTARGETENTRY@@U-$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@.c)
+ *     ?Clear@?$DoublyLinkedList@VDXGTARGETENTRY@@U?$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@@@QEAAXXZ @ 0x1C001A3BC (-Clear@-$DoublyLinkedList@VDXGTARGETENTRY@@U-$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@.c)
  */
 
 __int64 __fastcall Set<DXGTARGETENTRY>::Clear(__int64 a1)

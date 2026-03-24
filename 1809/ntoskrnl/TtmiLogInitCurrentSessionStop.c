@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogInitCurrentSessionStop @ 0x1408840D4
+ * XREFs of TtmiLogInitCurrentSessionStop @ 0x1408840B4
  * Callers:
- *     TtmInitCurrentSession @ 0x14087F8A8 (TtmInitCurrentSession.c)
+ *     TtmInitCurrentSession @ 0x14087F888 (TtmInitCurrentSession.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogInitCurrentSessionStop(int a1)
@@ -35,7 +35,7 @@ void __fastcall TtmiLogInitCurrentSessionStop(int a1)
       v4 = a1;
       v7 = 4;
       v10 = 4;
-      TlgWrite(&stru_14096D820, &unk_1403728F3, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140372924, 0LL, 0LL, 4u, &pData);
     }
   }
 }

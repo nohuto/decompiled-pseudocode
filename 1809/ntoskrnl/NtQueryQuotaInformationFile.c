@@ -1,34 +1,34 @@
 /*
- * XREFs of NtQueryQuotaInformationFile @ 0x14081E860
+ * XREFs of NtQueryQuotaInformationFile @ 0x14081E840
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
- *     IoAllocateMdl @ 0x1400DFCB0 (IoAllocateMdl.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     IopProbeAndLockPages_1 @ 0x140285938 (IopProbeAndLockPages_1.c)
- *     IopVerifierExAllocatePoolWithQuota_4 @ 0x1402859E0 (IopVerifierExAllocatePoolWithQuota_4.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
+ *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     IopProbeAndLockPages_1 @ 0x140285A38 (IopProbeAndLockPages_1.c)
+ *     IopVerifierExAllocatePoolWithQuota_4 @ 0x140285AE0 (IopVerifierExAllocatePoolWithQuota_4.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
  *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14065E93C (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x1408193D4 (IopAllocateIrpCleanup.c)
- *     IopCheckGetQuotaBufferValidity @ 0x14081979C (IopCheckGetQuotaBufferValidity.c)
- *     IopExceptionCleanup @ 0x140819B48 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousApiServiceTail @ 0x14065E91C (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
+ *     IopCheckGetQuotaBufferValidity @ 0x14081977C (IopCheckGetQuotaBufferValidity.c)
+ *     IopExceptionCleanup @ 0x140819B28 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryQuotaInformationFile(

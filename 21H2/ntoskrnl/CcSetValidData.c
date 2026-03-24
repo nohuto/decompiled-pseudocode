@@ -1,73 +1,58 @@
 /*
- * XREFs of CcSetValidData @ 0x14023F3E8
+ * XREFs of CcSetValidData @ 0x140361EF4
  * Callers:
- *     CcWriteBehindInternal @ 0x140288760 (CcWriteBehindInternal.c)
+ *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
  * Callees:
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140811AB4 (CcSetTelemetryPeriodicTimer.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
  */
 
-__int64 __fastcall CcSetValidData(PFILE_OBJECT FileObject, __int64 *a2)
+__int64 __fastcall CcSetValidData(struct _FILE_OBJECT *a1, __int64 *a2)
 {
-  __int64 v4; // rax
+  __int64 v2; // rax
   PDEVICE_OBJECT RelatedDeviceObject; // rdi
   PIRP Irp; // rax
-  __int64 result; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  NTSTATUS v9; // ecx
-  __int128 v10; // [rsp+30h] [rbp-30h] BYREF
-  __int16 Object; // [rsp+40h] [rbp-20h] BYREF
-  char v12; // [rsp+42h] [rbp-1Eh]
-  char v13; // [rsp+43h] [rbp-1Dh]
-  int v14; // [rsp+44h] [rbp-1Ch]
-  _QWORD v15[3]; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+78h] [rbp+18h] BYREF
+  NTSTATUS v7; // ebx
+  __int64 result; // rax
+  __int128 v9; // [rsp+30h] [rbp-30h] BYREF
+  _DWORD Object[2]; // [rsp+40h] [rbp-20h] BYREF
+  _QWORD v11[3]; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v12; // [rsp+78h] [rbp+18h] BYREF
 
-  ++qword_140C498F8;
-  v13 = 0;
-  v10 = 0LL;
-  if ( !byte_140C498C1 && CcTelemetryGlobalData && !dword_140C499D0 && !dword_140C499D4 )
-    CcSetTelemetryPeriodicTimer(DueTime);
-  v4 = *a2;
-  Object = 0;
-  v14 = 0;
-  v16 = v4;
-  v15[1] = v15;
-  v15[0] = v15;
-  v12 = 6;
-  RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
+  v2 = *a2;
+  Object[1] = 0;
+  v12 = v2;
+  v11[1] = v11;
+  v11[0] = v11;
+  v9 = 0LL;
+  Object[0] = 393216;
+  RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
   Irp = IoAllocateIrp(RelatedDeviceObject->StackSize, 0);
   if ( !Irp )
     return 3221225626LL;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   Irp->Flags = 66;
   Irp->RequestorMode = 0;
-  Irp->UserIosb = (PIO_STATUS_BLOCK)&v10;
-  Irp->UserEvent = (PKEVENT)&Object;
-  Irp->Tail.Overlay.OriginalFileObject = FileObject;
+  Irp->UserIosb = (PIO_STATUS_BLOCK)&v9;
+  Irp->UserEvent = (PKEVENT)Object;
+  Irp->Tail.Overlay.OriginalFileObject = a1;
   Irp->Tail.Overlay.Thread = KeGetCurrentThread();
-  Irp->AssociatedIrp.MasterIrp = (struct _IRP *)&v16;
+  Irp->AssociatedIrp.MasterIrp = (struct _IRP *)&v12;
   CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = 0LL;
   CurrentStackLocation[-1].MajorFunction = 6;
-  CurrentStackLocation[-1].FileObject = FileObject;
+  CurrentStackLocation[-1].FileObject = a1;
   CurrentStackLocation[-1].DeviceObject = RelatedDeviceObject;
   CurrentStackLocation[-1].Parameters.Read.Length = 8;
   CurrentStackLocation[-1].Parameters.Create.Options = 20;
   CurrentStackLocation[-1].Parameters.SetFile.AdvanceOnly = 1;
-  v9 = IofCallDriver(RelatedDeviceObject, Irp);
-  if ( v9 == 259 )
-  {
-    KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-    return (unsigned int)v10;
-  }
-  else
-  {
-    result = (unsigned int)v10;
-    if ( v9 < 0 )
-      return (unsigned int)v9;
-  }
+  v7 = IofCallDriver(RelatedDeviceObject, Irp);
+  if ( v7 == 259 )
+    KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
+  result = (unsigned int)v9;
+  if ( v7 < 0 )
+    return (unsigned int)v7;
   return result;
 }

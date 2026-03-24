@@ -1,27 +1,21 @@
 /*
- * XREFs of zzzInputFocusReceivedWindowEvent @ 0x1C00A86E4
+ * XREFs of zzzInputFocusReceivedWindowEvent @ 0x1C003508C
  * Callers:
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C00A7DFC (_anonymous_namespace_--xxxSendFocusMessages.c)
- *     zzzReattachThreads @ 0x1C00A8E58 (zzzReattachThreads.c)
- *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00DBE0C (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
- *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01DC5A0 (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C0034774 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C0120404 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01E131C (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
  * Callees:
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
  */
 
-void __fastcall zzzInputFocusReceivedWindowEvent(unsigned int a1)
+__int64 zzzInputFocusReceivedWindowEvent()
 {
-  struct tagWND *v2; // r10
-  __int64 v3; // rdx
-  int v4; // ecx
+  unsigned int v0; // ecx
 
-  v2 = *(struct tagWND **)(gpqForeground + 112LL);
-  v3 = *(_QWORD *)(*((_QWORD *)v2 + 2) + 440LL);
-  if ( v3 )
-    v3 = *(_QWORD *)(v3 + 40);
-  v4 = 35;
+  v0 = 35;
   if ( !gdwDeferWinEvent )
-    v4 = 33;
-  xxxWindowEvent(0x80000002, v2, v3, a1, v4);
+    v0 = 33;
+  return xxxWindowEvent(0x80000002, v0);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B8960
+ * XREFs of ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01E3770
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C00B7798 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0128FE8 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  */
 
-__int64 __fastcall xxxWrapSBWndProc(struct tagWND *a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxWrapSBWndProc(struct tagWND *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   if ( (unsigned int)CheckProcessIdentity(a1, a2, a3, a4) )
     return xxxSBWndProc(a1);

@@ -1,13 +1,14 @@
 /*
- * XREFs of _anonymous_namespace_::xxxSetForegroundCheckNoActivate @ 0x1C01AE34C
+ * XREFs of _anonymous_namespace_::xxxSetForegroundCheckNoActivate @ 0x1C01D2240
  * Callers:
- *     EditionSetForegroundCheckNoActivate @ 0x1C01AE590 (EditionSetForegroundCheckNoActivate.c)
+ *     EditionSetForegroundCheckNoActivate @ 0x1C01D2470 (EditionSetForegroundCheckNoActivate.c)
  * Callees:
- *     ?IsIndependentInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C0010D74 (-IsIndependentInputWindow@@YAHPEBUtagWND@@@Z.c)
- *     ?xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z @ 0x1C0013F78 (-xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z.c)
- *     _GetTopLevelWindow @ 0x1C00CFFB0 (_GetTopLevelWindow.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     ?GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C0157404 (-GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z.c)
+ *     _GetTopLevelWindow @ 0x1C006FC20 (_GetTopLevelWindow.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?IsIndependentInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C00C0778 (-IsIndependentInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     ?xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z @ 0x1C01322A0 (-xxxForceForegroundWindowNoRestoreFocus@@YA_NPEAUtagWND@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C01D1F08 (-GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z.c)
  */
 
 bool __fastcall anonymous_namespace_::xxxSetForegroundCheckNoActivate(struct tagWND *a1)
@@ -16,35 +17,40 @@ bool __fastcall anonymous_namespace_::xxxSetForegroundCheckNoActivate(struct tag
   char v2; // di
   __int64 TopLevelWindow; // rax
   __int64 v4; // r8
-  __int64 v5; // rdx
+  __int64 ThreadWin32Thread; // rax
   __int64 v6; // rcx
   bool v7; // bl
-  __int64 v8; // r8
-  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-18h]
+  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+30h] [rbp-18h]
 
+  v9 = 0LL;
   v10 = 0LL;
-  v11 = 0LL;
   CompositionInputWindowUIOwner = a1;
   v2 = 0;
   if ( (unsigned int)IsIndependentInputWindow(a1) )
   {
     CompositionInputWindowUIOwner = GetCompositionInputWindowUIOwner(CompositionInputWindowUIOwner);
-    if ( !CompositionInputWindowUIOwner )
-      return 0;
     v2 = 1;
   }
   if ( CompositionInputWindowUIOwner == (struct tagWND *)GetDesktopWindow((__int64)CompositionInputWindowUIOwner) )
     return 0;
-  if ( (*((_DWORD *)CompositionInputWindowUIOwner + 80) & 0x2000) != 0 )
-    return 0;
   TopLevelWindow = GetTopLevelWindow((__int64)CompositionInputWindowUIOwner);
-  if ( !TopLevelWindow || (*(_BYTE *)(*(_QWORD *)(TopLevelWindow + 40) + 27LL) & 8) != 0 )
+  if ( !TopLevelWindow
+    || (*(_BYTE *)(*(_QWORD *)(TopLevelWindow + 40) + 27LL) & 8) != 0
+    || (*(_BYTE *)(*((_QWORD *)CompositionInputWindowUIOwner + 5) + 233LL) & 0x10) != 0 )
+  {
     return 0;
+  }
   if ( v2 )
-    ThreadLockAlways(CompositionInputWindowUIOwner, &v10);
+  {
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    *(_QWORD *)&v9 = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = &v9;
+    *((_QWORD *)&v9 + 1) = CompositionInputWindowUIOwner;
+    HMLockObject(CompositionInputWindowUIOwner);
+  }
   v7 = xxxForceForegroundWindowNoRestoreFocus((__int64)CompositionInputWindowUIOwner, 0LL, v4);
   if ( v2 )
-    ThreadUnlock1(v6, v5, v8);
+    ThreadUnlock1(v6);
   return v7;
 }

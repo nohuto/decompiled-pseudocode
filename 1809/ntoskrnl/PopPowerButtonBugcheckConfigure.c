@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerButtonBugcheckConfigure @ 0x140729920
+ * XREFs of PopPowerButtonBugcheckConfigure @ 0x140729900
  * Callers:
- *     PopPowerButtonBugcheckWatchCallback @ 0x140877140 (PopPowerButtonBugcheckWatchCallback.c)
+ *     PopPowerButtonBugcheckWatchCallback @ 0x140877120 (PopPowerButtonBugcheckWatchCallback.c)
  *     PopInitializePowerButtonHold @ 0x1409B3CBC (PopInitializePowerButtonHold.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PopQueryPowerButtonBugcheckConfiguration @ 0x14017E000 (PopQueryPowerButtonBugcheckConfiguration.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x1401BA3D0 (ZwNotifyChangeKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopQueryPowerButtonBugcheckConfiguration @ 0x14017E020 (PopQueryPowerButtonBugcheckConfiguration.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
  */
 
 NTSTATUS __fastcall PopPowerButtonBugcheckConfigure(HANDLE KeyHandle)

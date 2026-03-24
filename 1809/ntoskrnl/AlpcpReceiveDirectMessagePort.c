@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpReceiveDirectMessagePort @ 0x14069BA98
+ * XREFs of AlpcpReceiveDirectMessagePort @ 0x14069BA78
  * Callers:
  *     AlpcpReceiveMessage @ 0x1406322B0 (AlpcpReceiveMessage.c)
  * Callees:
@@ -10,8 +10,8 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x14069BCA4 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpLogReceiveMessage @ 0x14084B980 (AlpcpLogReceiveMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x14069BC84 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x14084B960 (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveDirectMessagePort(__int64 *a1, int a2, int a3, ULONG_PTR *a4, int a5)

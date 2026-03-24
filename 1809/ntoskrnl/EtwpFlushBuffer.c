@@ -6,7 +6,7 @@
  *     EtwpFlushBufferToLogfile @ 0x1405C0784 (EtwpFlushBufferToLogfile.c)
  *     EtwpFlushBufferToRealtime @ 0x1405C1C70 (EtwpFlushBufferToRealtime.c)
  *     EtwpPrepareHeader @ 0x1405C1DD0 (EtwpPrepareHeader.c)
- *     EtwpSendSessionNotification @ 0x140658D88 (EtwpSendSessionNotification.c)
+ *     EtwpSendSessionNotification @ 0x140658D68 (EtwpSendSessionNotification.c)
  */
 
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, unsigned int *a2, char a3)

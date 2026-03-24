@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpPortQueryServerInfo @ 0x14084ACE8
+ * XREFs of AlpcpPortQueryServerInfo @ 0x14084ACC8
  * Callers:
- *     NtAlpcQueryInformation @ 0x14068E890 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x14068E870 (NtAlpcQueryInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpGetPortNameInformation @ 0x14084AC30 (AlpcpGetPortNameInformation.c)
- *     AlpcpReferenceMessageByWaitingThread @ 0x14084B2D8 (AlpcpReferenceMessageByWaitingThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpGetPortNameInformation @ 0x14084AC10 (AlpcpGetPortNameInformation.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x14084B2B8 (AlpcpReferenceMessageByWaitingThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall AlpcpPortQueryServerInfo(

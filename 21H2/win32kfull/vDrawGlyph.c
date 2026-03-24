@@ -1,25 +1,25 @@
 /*
- * XREFs of vDrawGlyph @ 0x1C0296DD8
+ * XREFs of vDrawGlyph @ 0x1C016C7FC
  * Callers:
- *     vStringBitmapTextOut @ 0x1C0297210 (vStringBitmapTextOut.c)
+ *     vStringBitmapTextOut @ 0x1C016C9BC (vStringBitmapTextOut.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
+char __fastcall vDrawGlyph(_DWORD *a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rax
   __int64 v5; // rbp
   int v6; // r9d
   int v7; // r11d
-  unsigned int v8; // edx
+  int v8; // edx
   int v9; // ecx
   __int64 v10; // rbx
   unsigned int v11; // esi
   unsigned int v12; // r10d
   unsigned int v13; // r8d
   unsigned int v14; // r10d
-  unsigned __int64 v15; // r11
+  __int64 v15; // r11
   __int64 v16; // rcx
   char v17; // r14
   __int64 v18; // rbp
@@ -47,10 +47,10 @@ char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
     v9 = *(_DWORD *)(a3 + 20);
     v10 = *(_QWORD *)v3 + 16LL;
     v11 = (unsigned int)(v6 + 7) >> 3;
-    if ( (v8 & 0x80000000) != 0 )
+    if ( v8 < 0 )
     {
       LODWORD(v3) = -v8;
-      if ( v6 <= (signed int)-v8 )
+      if ( v6 <= -v8 )
         return v3;
       v6 -= v8;
       v8 = 0;
@@ -63,7 +63,7 @@ char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
       v7 -= v9;
       v9 = 0;
     }
-    if ( v8 < *a1 )
+    if ( (unsigned int)v8 < *a1 )
     {
       v12 = a1[1];
       if ( v9 < v12 )
@@ -74,7 +74,7 @@ char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
         v14 = v12 - v9;
         if ( v14 >= v7 )
           v14 = v7;
-        v15 = (unsigned __int64)a1 + ((unsigned __int64)v8 >> 3) + (unsigned int)(v5 * v9) + 8;
+        v15 = (__int64)a1 + (unsigned int)(v5 * v9) + ((__int64)v8 >> 3) + 8;
         v16 = v5;
         v32 = v5;
         v17 = v8 & 7;
@@ -105,7 +105,7 @@ char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
               }
             }
             if ( (_DWORD)v24 )
-              *v27 |= byte_1C02F8FA8[v24] & (unsigned __int8)(v29 >> v17);
+              *v27 |= byte_1C02EFF20[v24] & (unsigned __int8)(v29 >> v17);
             v16 = v32;
             --v14;
           }
@@ -129,7 +129,7 @@ char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
             }
             if ( (_DWORD)v18 )
             {
-              LOBYTE(v3) = byte_1C02F8FA8[v18] & *v21;
+              LOBYTE(v3) = byte_1C02EFF20[v18] & *v21;
               *v22 |= v3;
             }
             --v14;

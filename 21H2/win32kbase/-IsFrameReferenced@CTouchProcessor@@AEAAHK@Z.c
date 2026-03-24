@@ -1,33 +1,27 @@
 /*
- * XREFs of ?IsFrameReferenced@CTouchProcessor@@AEAAHK@Z @ 0x1C01CE0AC
+ * XREFs of ?IsFrameReferenced@CTouchProcessor@@AEAAHK@Z @ 0x1C01968B8
  * Callers:
- *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01C7310 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
- *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z @ 0x1C01D2144 (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z.c)
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01900D0 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z @ 0x1C0199F0C (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z.c)
  * Callees:
- *     ?UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00DC990 (-UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ?FindAndReferenceFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@K@Z @ 0x1C01C562C (-FindAndReferenceFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@K@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD1DC (-UnreferenceFrameInt@CTouchProcessor@@AEAAKPEAUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?FindAndReferenceFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@K@Z @ 0x1C018E304 (-FindAndReferenceFrameById@CTouchProcessor@@AEAAPEAUCPointerInputFrame@@K@Z.c)
  */
 
-struct CPointerInputFrame *__fastcall CTouchProcessor::IsFrameReferenced(
-        struct _KTHREAD **this,
-        __int64 a2,
-        __int64 a3)
+struct CPointerInputFrame *__fastcall CTouchProcessor::IsFrameReferenced(struct _KTHREAD **this, int a2)
 {
-  unsigned int v3; // edi
+  unsigned int v2; // ebx
   struct CPointerInputFrame *result; // rax
-  __int64 v6; // r8
-  unsigned int v7; // edi
 
-  v3 = a2;
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  result = CTouchProcessor::FindAndReferenceFrameById(this, v3, a3);
-  v7 = 0;
+  v2 = 0;
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7485);
+  result = CTouchProcessor::FindAndReferenceFrameById(this, a2);
   if ( result )
   {
-    LOBYTE(v7) = (unsigned int)CTouchProcessor::UnreferenceFrameInt((CTouchProcessor *)this, (__int64)result, v6) != 0;
-    return (struct CPointerInputFrame *)v7;
+    LOBYTE(v2) = (unsigned int)CTouchProcessor::UnreferenceFrameInt((CTouchProcessor *)this, (__int64)result) != 0;
+    return (struct CPointerInputFrame *)v2;
   }
   return result;
 }

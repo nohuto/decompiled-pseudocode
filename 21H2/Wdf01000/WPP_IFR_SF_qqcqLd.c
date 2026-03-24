@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qqcqLd @ 0x1C000F6B4
+ * XREFs of WPP_IFR_SF_qqcqLd @ 0x1C00139AC
  * Callers:
- *     ?Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z @ 0x1C000B380 (-Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z.c)
+ *     ?Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z @ 0x1C000CBB0 (-Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqcqLd(

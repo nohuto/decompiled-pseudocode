@@ -1,16 +1,16 @@
 /*
- * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1402E8BD8
+ * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1402E8CD8
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x14087CFB4 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x14087CF94 (PopRecordPoBlackboxInformation.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     PopDiagGetDriverName @ 0x140155D74 (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     PopDiagGetDriverName @ 0x140155D94 (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)

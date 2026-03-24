@@ -1,8 +1,8 @@
 /*
- * XREFs of ?VidSchiFreeHistoryBufferStorage@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0035964
+ * XREFs of ?VidSchiFreeHistoryBufferStorage@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002AFB4
  * Callers:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0008770 (VidSchiProcessDpcCompletedPacket.c)
- *     VidSchiDiscardQueuePacket @ 0x1C0105C98 (VidSchiDiscardQueuePacket.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0009610 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C00CE4DC (VidSchiDiscardQueuePacket.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +15,9 @@ void __fastcall VidSchiFreeHistoryBufferStorage(struct _VIDSCH_QUEUE_PACKET *a1)
   v2 = (char *)*((_QWORD *)a1 + 33);
   if ( v2 != (char *)a1 + 200 )
     ExFreePoolWithTag(v2, 0);
-  v3 = (char *)*((_QWORD *)a1 + 77);
+  v3 = (char *)*((_QWORD *)a1 + 76);
   if ( v3 != (char *)a1 + 168 )
     ExFreePoolWithTag(v3, 0);
   *((_QWORD *)a1 + 33) = 0LL;
-  *((_QWORD *)a1 + 77) = 0LL;
+  *((_QWORD *)a1 + 76) = 0LL;
 }

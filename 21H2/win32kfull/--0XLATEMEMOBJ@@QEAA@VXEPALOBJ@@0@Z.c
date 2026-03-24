@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02BE2D4
+ * XREFs of ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02BF96C
  * Callers:
- *     NtGdiUpdateColors @ 0x1C02B6B20 (NtGdiUpdateColors.c)
+ *     NtGdiUpdateColors @ 0x1C02B89F0 (NtGdiUpdateColors.c)
  * Callees:
- *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02BE8FC (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
- *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02BEA2C (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
+ *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02BFF5C (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
+ *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02C008C (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
  */
 
 XLATE **__fastcall XLATEMEMOBJ::XLATEMEMOBJ(XLATE **a1, __int64 a2, __int64 a3)
@@ -41,7 +41,7 @@ XLATE **__fastcall XLATEMEMOBJ::XLATEMEMOBJ(XLATE **a1, __int64 a2, __int64 a3)
       do
       {
         v13 = v4++;
-        *(_DWORD *)(i + 4LL * *(unsigned __int8 *)(v13 + v11 + 4)) = *(unsigned __int8 *)(v13 + v12 + 4);
+        *(_DWORD *)(i + 4LL * *(unsigned __int8 *)(v11 + v13 + 4)) = *(unsigned __int8 *)(v12 + v13 + 4);
       }
       while ( v4 < *(_DWORD *)(a3 + 28) );
       v9 = *a1;

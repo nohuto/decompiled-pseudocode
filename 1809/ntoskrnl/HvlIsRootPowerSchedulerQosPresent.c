@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlIsRootPowerSchedulerQosPresent @ 0x140270DF4
+ * XREFs of HvlIsRootPowerSchedulerQosPresent @ 0x140270EF4
  * Callers:
- *     PpmCheckInitProcessors @ 0x14074EE58 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x14074EE38 (PpmCheckInitProcessors.c)
  * Callees:
  *     <none>
  */

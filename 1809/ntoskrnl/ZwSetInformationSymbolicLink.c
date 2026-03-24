@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetInformationSymbolicLink @ 0x1401BB3D0
+ * XREFs of ZwSetInformationSymbolicLink @ 0x1401BB3F0
  * Callers:
- *     ObpInitializeRootNamespace @ 0x14072BC8C (ObpInitializeRootNamespace.c)
+ *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
  * Callees:
  *     <none>
  */

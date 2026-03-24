@@ -1,8 +1,8 @@
 /*
- * XREFs of ExRegisterHost @ 0x1407275DC
+ * XREFs of ExRegisterHost @ 0x1407275BC
  * Callers:
- *     IopInitializeIoRate @ 0x14017D070 (IopInitializeIoRate.c)
- *     EtwpInitializeProcessorTrace @ 0x140727380 (EtwpInitializeProcessorTrace.c)
+ *     IopInitializeIoRate @ 0x14017D090 (IopInitializeIoRate.c)
+ *     EtwpInitializeProcessorTrace @ 0x140727360 (EtwpInitializeProcessorTrace.c)
  *     PspInitializeBackgroundActivityModeratorCallouts @ 0x1409ADABC (PspInitializeBackgroundActivityModeratorCallouts.c)
  *     PspInitializeDesktopActivityModeratorCallouts @ 0x1409ADB18 (PspInitializeDesktopActivityModeratorCallouts.c)
  *     PspInitializeHwTraceCallouts @ 0x1409ADB6C (PspInitializeHwTraceCallouts.c)
@@ -20,10 +20,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExpFindHost @ 0x140727734 (ExpFindHost.c)
- *     ExpDereferenceHost @ 0x1408D6FA8 (ExpDereferenceHost.c)
+ *     ExpFindHost @ 0x140727714 (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x1408D6F88 (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)

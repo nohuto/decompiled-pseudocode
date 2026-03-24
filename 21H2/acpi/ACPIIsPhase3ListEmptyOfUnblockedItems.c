@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002615C
+ * XREFs of ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002ADE8
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C000F880 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C0008168 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
- *     WPP_RECORDER_SF_sqL @ 0x1C00262B0 (WPP_RECORDER_SF_sqL.c)
+ *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001C214 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
+ *     WPP_RECORDER_SF_sqL @ 0x1C002AF3C (WPP_RECORDER_SF_sqL.c)
  */
 
 bool ACPIIsPhase3ListEmptyOfUnblockedItems()
@@ -12,31 +12,32 @@ bool ACPIIsPhase3ListEmptyOfUnblockedItems()
   char v0; // si
   char v1; // bp
   int v2; // edx
-  __int64 *v3; // rdi
-  __int64 *v4; // rbx
-  int v5; // eax
-  __int64 v7; // rax
-  const char *v8; // rcx
-  __int64 *v9; // rbx
-  __int64 v10; // rcx
-  __int64 *v11; // rbx
-  __int64 v12; // rcx
+  __int64 *v3; // rbx
+  __int64 *v4; // rcx
+  __int64 *v5; // rdi
+  int v6; // eax
+  __int64 v8; // rax
+  const char *v9; // rcx
+  __int64 *v10; // rbx
+  __int64 v11; // rcx
+  __int64 *v12; // rbx
+  __int64 v13; // rcx
 
   v0 = 0;
   v1 = 0;
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
   if ( AcpiPowerCurrentPagingPathTransitions > 0 )
   {
-    v9 = (__int64 *)AcpiPowerPhase3List;
-    while ( v9 != &AcpiPowerPhase3List )
+    v10 = (__int64 *)AcpiPowerPhase3List;
+    while ( v10 != &AcpiPowerPhase3List )
     {
-      v10 = (__int64)v9;
-      v9 = (__int64 *)*v9;
-      if ( !*(_DWORD *)(v10 + 48) && (*(_DWORD *)(v10 + 56) & 0x2000000) != 0 )
+      v11 = (__int64)v10;
+      v10 = (__int64 *)*v10;
+      if ( !*(_DWORD *)(v11 + 48) && (*(_DWORD *)(v11 + 56) & 0x2000000) != 0 )
         ACPIDevicePowerEnumerateAssociatedPowerNodes(
-          v10,
+          v11,
           (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))ACPIMarkPagingPathPowerNodeEnum,
-          v10);
+          v11);
     }
   }
   v3 = (__int64 *)AcpiPowerNodeList;
@@ -45,13 +46,14 @@ bool ACPIIsPhase3ListEmptyOfUnblockedItems()
     do
     {
       v4 = v3;
+      v5 = v3;
       v3 = (__int64 *)*v3;
-      v5 = *((_DWORD *)v4 + 16);
-      if ( v5 == 1 )
+      v6 = *((_DWORD *)v4 + 16);
+      if ( v6 == 1 )
       {
-        v7 = v4[2];
-        if ( (v7 & 0x1000) == 0
-          || (AcpiPowerCurrentPagingPathTransitions <= 0 || (v7 & 0x40000) != 0) && (__int64 *)v4[13] == v4 + 13 )
+        v8 = v5[2];
+        if ( (v8 & 0x1000) == 0
+          || (AcpiPowerCurrentPagingPathTransitions <= 0 || (v8 & 0x40000) != 0) && (__int64 *)v5[13] == v5 + 13 )
         {
           _InterlockedAnd64(v4 + 2, 0xFFFFFFFFFFFFFFF7uLL);
           v1 = 1;
@@ -63,40 +65,40 @@ bool ACPIIsPhase3ListEmptyOfUnblockedItems()
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v8 = "IS";
-          if ( (v4[2] & 8) == 0 )
-            v8 = "NOT";
+          v9 = "IS";
+          if ( (v5[2] & 8) == 0 )
+            v9 = "NOT";
           LOBYTE(v2) = 4;
           WPP_RECORDER_SF_sqL(
             WPP_GLOBAL_Control->DeviceExtension,
             v2,
             10,
             47,
-            (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
-            (__int64)v8,
-            (char)v4,
-            *((_DWORD *)v4 + 4));
+            (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
+            (__int64)v9,
+            (char)v5,
+            *((_DWORD *)v5 + 4));
         }
       }
-      else if ( (unsigned int)(v5 - 3) <= 1 )
+      else if ( (unsigned int)(v6 - 3) <= 1 )
       {
         v0 = 1;
       }
-      _InterlockedAnd64(v4 + 2, 0xFFFFFFFFFFFBFFFFuLL);
+      _InterlockedAnd64(v5 + 2, 0xFFFFFFFFFFFBFFFFuLL);
     }
     while ( v3 != &AcpiPowerNodeList );
     if ( !v1 && v0 )
     {
-      v11 = (__int64 *)AcpiPowerPhase3List;
-      while ( v11 != &AcpiPowerPhase3List )
+      v12 = (__int64 *)AcpiPowerPhase3List;
+      while ( v12 != &AcpiPowerPhase3List )
       {
-        v12 = (__int64)v11;
-        v11 = (__int64 *)*v11;
-        if ( !*(_DWORD *)(v12 + 48) )
+        v13 = (__int64)v12;
+        v12 = (__int64 *)*v12;
+        if ( !*(_DWORD *)(v13 + 48) )
           ACPIDevicePowerEnumerateAssociatedPowerNodes(
-            v12,
+            v13,
             (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum,
-            v12);
+            v13);
       }
     }
   }

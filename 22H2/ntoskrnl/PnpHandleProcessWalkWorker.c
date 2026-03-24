@@ -1,27 +1,26 @@
 /*
- * XREFs of PnpHandleProcessWalkWorker @ 0x1409581F0
+ * XREFs of PnpHandleProcessWalkWorker @ 0x1408A1460
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1402A1D30 (IoGetBaseFileSystemDeviceObject.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x1402D7870 (IoGetBaseFileSystemDeviceObject.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char __fastcall PnpHandleProcessWalkWorker(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+char __fastcall PnpHandleProcessWalkWorker(__int64 a1, volatile signed __int64 *a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 HandlePointer; // rax
+  unsigned __int64 v5; // r11
   char v9; // bl
   struct _DEVICE_OBJECT *v10; // rbp
   unsigned __int64 v11; // rsi
   signed __int32 v13[8]; // [rsp+0h] [rbp-48h] BYREF
 
-  HandlePointer = ExGetHandlePointer(a2);
-  if ( (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(HandlePointer + 24) ^ (unsigned __int64)BYTE1(HandlePointer)] == IoFileObjectType
+  v5 = (*(__int64 *)a2 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
+  if ( (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v5 + 0x18) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(WORD1(*a2) & 0xFFF0) >> 8)] == IoFileObjectType
     && (v10 = *(struct _DEVICE_OBJECT **)a4,
-        v11 = HandlePointer + 48,
-        IoGetBaseFileSystemDeviceObject((PFILE_OBJECT)(HandlePointer + 48)) == v10) )
+        v11 = v5 + 48,
+        IoGetBaseFileSystemDeviceObject((PFILE_OBJECT)(v5 + 48)) == v10) )
   {
     v9 = (*(__int64 (__fastcall **)(struct _DEVICE_OBJECT *, _QWORD, unsigned __int64, __int64, _QWORD))(a4 + 16))(
            v10,

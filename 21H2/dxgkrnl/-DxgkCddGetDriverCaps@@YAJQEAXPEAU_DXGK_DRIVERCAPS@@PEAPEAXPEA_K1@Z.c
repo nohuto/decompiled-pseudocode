@@ -1,20 +1,19 @@
 /*
- * XREFs of ?DxgkCddGetDriverCaps@@YAJQEAXPEAU_DXGK_DRIVERCAPS@@PEAPEAXPEA_K1@Z @ 0x1C01E5FC0
+ * XREFs of ?DxgkCddGetDriverCaps@@YAJQEAXPEAU_DXGK_DRIVERCAPS@@PEAPEAXPEA_K1@Z @ 0x1C016B7E0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??IDXGADAPTER_REFERENCE@@QEAAPEAPEAVDXGADAPTER@@XZ @ 0x1C000969C (--IDXGADAPTER_REFERENCE@@QEAAPEAPEAVDXGADAPTER@@XZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01798C0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ??IDXGADAPTER_REFERENCE@@QEAAPEAPEAVDXGADAPTER@@XZ @ 0x1C0009FD8 (--IDXGADAPTER_REFERENCE@@QEAAPEAPEAVDXGADAPTER@@XZ.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C00F7CD0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
  */
 
 __int64 __fastcall DxgkCddGetDriverCaps(
@@ -24,185 +23,183 @@ __int64 __fastcall DxgkCddGetDriverCaps(
         unsigned __int64 *a4,
         struct _DXGK_DRIVERCAPS *a5)
 {
-  struct _DXGK_DRIVERCAPS *v6; // rdi
-  struct DXGADAPTER **v10; // rax
+  struct _DXGK_DRIVERCAPS *v8; // rdi
+  __int64 v10; // rdx
+  struct DXGADAPTER **v11; // rax
   int PairingAdapters; // eax
-  __int64 v12; // rsi
-  struct DXGADAPTER **v13; // rax
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // rsi
-  struct DXGADAPTER *v18; // r8
-  __int64 v19; // rdx
-  struct _DXGK_DRIVERCAPS *v20; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rsi
+  struct DXGADAPTER **v16; // rax
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
   __int64 v21; // r9
-  _OWORD *v22; // rcx
-  __int128 v23; // xmm1
-  _OWORD *v24; // rax
-  __int128 v25; // xmm1
-  __int128 v26; // xmm0
-  unsigned __int64 v27; // rax
-  __int64 v28; // rcx
-  __int64 v29; // r8
+  __int64 v22; // rsi
+  __int64 v23; // rdx
+  struct DXGADAPTER *v24; // r8
+  struct _DXGK_DRIVERCAPS *v25; // rcx
+  __int64 v26; // r9
+  _OWORD *v27; // rax
+  __int128 v28; // xmm1
+  _OWORD *v29; // rax
+  __int128 v30; // xmm1
   __int64 v31; // rax
-  __int128 v32; // xmm1
-  struct DXGADAPTER *v33; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int64 v34; // [rsp+58h] [rbp-A8h] BYREF
-  struct DXGADAPTER *v35; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v36; // [rsp+68h] [rbp-98h] BYREF
-  int v37; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v38; // [rsp+78h] [rbp-88h]
-  char v39; // [rsp+80h] [rbp-80h]
-  _BYTE v40[144]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int128 v40; // xmm1
+  struct DXGADAPTER *v41; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 v42; // [rsp+48h] [rbp-B8h] BYREF
+  struct DXGADAPTER *v43; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int64 v44; // [rsp+58h] [rbp-A8h] BYREF
+  int v45; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v46; // [rsp+68h] [rbp-98h]
+  char v47; // [rsp+70h] [rbp-90h]
+  _BYTE v48[144]; // [rsp+80h] [rbp-80h] BYREF
 
-  v37 = -1;
-  v6 = a5;
-  v38 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v45 = -1;
+  v46 = 0LL;
+  v8 = a5;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v39 = 1;
-    v37 = 3005;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v47 = 1;
+    v45 = 3005;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, (__int64)a3, 3005);
   }
   else
   {
-    v39 = 0;
+    v47 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v37, 3005);
-  memset(a2, 0, 0x250uLL);
-  v33 = 0LL;
-  v10 = (struct DXGADAPTER **)DXGADAPTER_REFERENCE::operator&(&v33);
-  PairingAdapters = DxgkpGetPairingAdapters(a1, 0, v10, &v34, 0LL, 0LL, 0);
-  v12 = PairingAdapters;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v45, 3005LL);
+  memset(a2, 0, sizeof(struct _DXGK_DRIVERCAPS));
+  v41 = 0LL;
+  v11 = (struct DXGADAPTER **)DXGADAPTER_REFERENCE::operator&(&v41, v10);
+  PairingAdapters = DxgkpGetPairingAdapters(a1, 0LL, v11, &v42, 0LL, 0LL, 0);
+  v15 = PairingAdapters;
   if ( PairingAdapters < 0 )
   {
-    WdLogSingleEntry2(2LL, a1, PairingAdapters);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to get bound render adapter from Adapter 0x%I64x in DxgkCddGetDriverCaps (ntStatus = 0x%I64x).",
-      (__int64)a1,
-      v12,
-      0LL,
-      0LL,
-      0LL);
+    v37 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v37 + 24) = a1;
+    *(_QWORD *)(v37 + 32) = v15;
+    WdLogEvent5_WdError(v37);
   }
   else
   {
-    if ( !v33 )
+    if ( !v41 )
     {
-      WdLogSingleEntry1(1LL, 3216LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"RenderAdapterRef != NULL", 3216LL, 0LL, 0LL, 0LL, 0LL);
+      v38 = WdLogNewEntry5_WdAssertion(v14, v13);
+      *(_QWORD *)(v38 + 24) = 3160LL;
+      WdLogEvent5_WdAssertion(v38);
     }
-    v35 = 0LL;
-    v13 = (struct DXGADAPTER **)DXGADAPTER_REFERENCE::operator&(&v35);
-    v14 = DxgkpGetPairingAdapters(a1, 0, 0LL, 0LL, v13, &v36, 0);
-    v17 = v14;
-    if ( v14 < 0 )
+    v43 = 0LL;
+    v16 = (struct DXGADAPTER **)DXGADAPTER_REFERENCE::operator&(&v43, v13);
+    v17 = DxgkpGetPairingAdapters(a1, 0LL, 0LL, 0LL, v16, &v44, 0);
+    v22 = v17;
+    if ( v17 < 0 )
     {
-      v31 = WdLogNewEntry5_WdTrace(v16, v15);
-      *(_QWORD *)(v31 + 24) = a1;
-      *(_QWORD *)(v31 + 32) = v17;
+      v39 = WdLogNewEntry5_WdTrace(v19, v18, v20, v21);
+      *(_QWORD *)(v39 + 24) = a1;
+      *(_QWORD *)(v39 + 32) = v22;
     }
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v40, v33, v35);
-    LODWORD(v12) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v40, 0LL);
-    if ( (int)v12 >= 0 )
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v48, v41, v43);
+    LODWORD(v15) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v48, 0LL);
+    if ( (int)v15 >= 0 )
     {
-      v18 = v33;
-      v19 = 4LL;
-      v20 = a5;
-      v21 = 4LL;
-      v22 = (_OWORD *)((char *)v33 + 2088);
+      v24 = v41;
+      v23 = 4LL;
+      v25 = a5;
+      v26 = 4LL;
+      v27 = (_OWORD *)((char *)v41 + 1992);
       do
       {
-        *(_OWORD *)&v20->HighestAcceptableAddress.LowPart = *v22;
-        *(_OWORD *)&v20->ApertureSegmentCommitLimit = v22[1];
-        *(_OWORD *)&v20->PointerCaps.0 = v22[2];
-        *(_OWORD *)&v20->GammaRampCaps.0 = v22[3];
-        *(_OWORD *)&v20->SchedulingCaps.0 = v22[4];
-        *(_OWORD *)v20->GpuEngineTopology.Reserved = v22[5];
-        *(_OWORD *)&v20->GpuEngineTopology.Reserved[4] = v22[6];
-        v20 = (struct _DXGK_DRIVERCAPS *)((char *)v20 + 128);
-        v23 = v22[7];
-        v22 += 8;
-        *(_OWORD *)&v20[-1].SupportSurpriseRemoval = v23;
-        --v21;
+        *(_OWORD *)&v25->HighestAcceptableAddress.LowPart = *v27;
+        *(_OWORD *)&v25->ApertureSegmentCommitLimit = v27[1];
+        *(_OWORD *)&v25->PointerCaps.0 = v27[2];
+        *(_OWORD *)&v25->GammaRampCaps.0 = v27[3];
+        *(_OWORD *)&v25->SchedulingCaps.0 = v27[4];
+        *(_OWORD *)v25->GpuEngineTopology.Reserved = v27[5];
+        *(_OWORD *)&v25->GpuEngineTopology.Reserved[4] = v27[6];
+        v25 = (struct _DXGK_DRIVERCAPS *)((char *)v25 + 128);
+        v28 = v27[7];
+        v27 += 8;
+        *(_OWORD *)&v25[-1].SupportSurpriseRemoval = v28;
+        --v26;
       }
-      while ( v21 );
-      *(_OWORD *)&v20->HighestAcceptableAddress.LowPart = *v22;
-      *(_OWORD *)&v20->ApertureSegmentCommitLimit = v22[1];
-      *(_OWORD *)&v20->PointerCaps.0 = v22[2];
-      *(_OWORD *)&v20->GammaRampCaps.0 = v22[3];
-      *(_OWORD *)&v20->SchedulingCaps.0 = v22[4];
-      if ( v35 )
+      while ( v26 );
+      *(_OWORD *)&v25->HighestAcceptableAddress.LowPart = *v27;
+      *(_OWORD *)&v25->ApertureSegmentCommitLimit = v27[1];
+      *(_OWORD *)&v25->PointerCaps.0 = v27[2];
+      *(_OWORD *)&v25->GammaRampCaps.0 = v27[3];
+      *(_QWORD *)&v25->SchedulingCaps.0 = *((_QWORD *)v27 + 8);
+      if ( v43 )
       {
-        v24 = (_OWORD *)((char *)v35 + 2088);
+        v29 = (_OWORD *)((char *)v43 + 1992);
         do
         {
-          *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *v24;
-          *(_OWORD *)&a2->ApertureSegmentCommitLimit = v24[1];
-          *(_OWORD *)&a2->PointerCaps.0 = v24[2];
-          *(_OWORD *)&a2->GammaRampCaps.0 = v24[3];
-          *(_OWORD *)&a2->SchedulingCaps.0 = v24[4];
-          *(_OWORD *)a2->GpuEngineTopology.Reserved = v24[5];
-          *(_OWORD *)&a2->GpuEngineTopology.Reserved[4] = v24[6];
+          *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *v29;
+          *(_OWORD *)&a2->ApertureSegmentCommitLimit = v29[1];
+          *(_OWORD *)&a2->PointerCaps.0 = v29[2];
+          *(_OWORD *)&a2->GammaRampCaps.0 = v29[3];
+          *(_OWORD *)&a2->SchedulingCaps.0 = v29[4];
+          *(_OWORD *)a2->GpuEngineTopology.Reserved = v29[5];
+          *(_OWORD *)&a2->GpuEngineTopology.Reserved[4] = v29[6];
           a2 = (struct _DXGK_DRIVERCAPS *)((char *)a2 + 128);
-          v25 = v24[7];
-          v24 += 8;
-          *(_OWORD *)&a2[-1].SupportSurpriseRemoval = v25;
-          --v19;
+          v30 = v29[7];
+          v29 += 8;
+          *(_OWORD *)&a2[-1].SupportSurpriseRemoval = v30;
+          --v23;
         }
-        while ( v19 );
-        *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *v24;
-        *(_OWORD *)&a2->ApertureSegmentCommitLimit = v24[1];
-        *(_OWORD *)&a2->PointerCaps.0 = v24[2];
-        *(_OWORD *)&a2->GammaRampCaps.0 = v24[3];
-        v26 = v24[4];
+        while ( v23 );
+        *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *v29;
+        *(_OWORD *)&a2->ApertureSegmentCommitLimit = v29[1];
+        *(_OWORD *)&a2->PointerCaps.0 = v29[2];
+        *(_OWORD *)&a2->GammaRampCaps.0 = v29[3];
+        v31 = *((_QWORD *)v29 + 8);
       }
       else
       {
         do
         {
-          *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *(_OWORD *)&v6->HighestAcceptableAddress.LowPart;
-          *(_OWORD *)&a2->ApertureSegmentCommitLimit = *(_OWORD *)&v6->ApertureSegmentCommitLimit;
-          *(_OWORD *)&a2->PointerCaps.0 = *(_OWORD *)&v6->PointerCaps.0;
-          *(_OWORD *)&a2->GammaRampCaps.0 = *(_OWORD *)&v6->GammaRampCaps.0;
-          *(_OWORD *)&a2->SchedulingCaps.0 = *(_OWORD *)&v6->SchedulingCaps.0;
-          *(_OWORD *)a2->GpuEngineTopology.Reserved = *(_OWORD *)v6->GpuEngineTopology.Reserved;
-          *(_OWORD *)&a2->GpuEngineTopology.Reserved[4] = *(_OWORD *)&v6->GpuEngineTopology.Reserved[4];
+          *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *(_OWORD *)&v8->HighestAcceptableAddress.LowPart;
+          *(_OWORD *)&a2->ApertureSegmentCommitLimit = *(_OWORD *)&v8->ApertureSegmentCommitLimit;
+          *(_OWORD *)&a2->PointerCaps.0 = *(_OWORD *)&v8->PointerCaps.0;
+          *(_OWORD *)&a2->GammaRampCaps.0 = *(_OWORD *)&v8->GammaRampCaps.0;
+          *(_OWORD *)&a2->SchedulingCaps.0 = *(_OWORD *)&v8->SchedulingCaps.0;
+          *(_OWORD *)a2->GpuEngineTopology.Reserved = *(_OWORD *)v8->GpuEngineTopology.Reserved;
+          *(_OWORD *)&a2->GpuEngineTopology.Reserved[4] = *(_OWORD *)&v8->GpuEngineTopology.Reserved[4];
           a2 = (struct _DXGK_DRIVERCAPS *)((char *)a2 + 128);
-          v32 = *(_OWORD *)&v6->GpuEngineTopology.Reserved[8];
-          v6 = (struct _DXGK_DRIVERCAPS *)((char *)v6 + 128);
-          *(_OWORD *)&a2[-1].SupportSurpriseRemoval = v32;
-          --v19;
+          v40 = *(_OWORD *)&v8->GpuEngineTopology.Reserved[8];
+          v8 = (struct _DXGK_DRIVERCAPS *)((char *)v8 + 128);
+          *(_OWORD *)&a2[-1].SupportSurpriseRemoval = v40;
+          --v23;
         }
-        while ( v19 );
-        *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *(_OWORD *)&v6->HighestAcceptableAddress.LowPart;
-        *(_OWORD *)&a2->ApertureSegmentCommitLimit = *(_OWORD *)&v6->ApertureSegmentCommitLimit;
-        *(_OWORD *)&a2->PointerCaps.0 = *(_OWORD *)&v6->PointerCaps.0;
-        *(_OWORD *)&a2->GammaRampCaps.0 = *(_OWORD *)&v6->GammaRampCaps.0;
-        v26 = *(_OWORD *)&v6->SchedulingCaps.0;
+        while ( v23 );
+        *(_OWORD *)&a2->HighestAcceptableAddress.LowPart = *(_OWORD *)&v8->HighestAcceptableAddress.LowPart;
+        *(_OWORD *)&a2->ApertureSegmentCommitLimit = *(_OWORD *)&v8->ApertureSegmentCommitLimit;
+        *(_OWORD *)&a2->PointerCaps.0 = *(_OWORD *)&v8->PointerCaps.0;
+        *(_OWORD *)&a2->GammaRampCaps.0 = *(_OWORD *)&v8->GammaRampCaps.0;
+        v31 = *(_QWORD *)&v8->SchedulingCaps.0;
       }
-      v27 = v34;
-      LODWORD(v12) = 0;
-      *(_OWORD *)&a2->SchedulingCaps.0 = v26;
-      *a3 = v18;
-      *a4 = v27;
-      v33 = 0LL;
+      v41 = 0LL;
+      *(_QWORD *)&a2->SchedulingCaps.0 = v31;
+      LODWORD(v15) = 0;
+      v32 = v42;
+      *a3 = v24;
+      *a4 = v32;
     }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v40);
-    DXGADAPTER_REFERENCE::Assign(&v35, 0LL);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v48, v23);
+    DXGADAPTER_REFERENCE::Assign(&v43, 0LL);
   }
-  DXGADAPTER_REFERENCE::Assign(&v33, 0LL);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v37);
-  if ( v39 )
-  {
-    LOBYTE(v28) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v28, &EventProfilerExit, v29, v37);
-  }
-  return (unsigned int)v12;
+  DXGADAPTER_REFERENCE::Assign(&v41, 0LL);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v45, v33);
+  if ( v47 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v34, &EventProfilerExit, v35, v45);
+  return (unsigned int)v15;
 }

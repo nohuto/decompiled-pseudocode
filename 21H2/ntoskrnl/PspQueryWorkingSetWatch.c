@@ -1,24 +1,24 @@
 /*
- * XREFs of PspQueryWorkingSetWatch @ 0x1409AE584
+ * XREFs of PspQueryWorkingSetWatch @ 0x140908250
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExIsRestrictedCaller @ 0x1406C5900 (ExIsRestrictedCaller.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExIsRestrictedCaller @ 0x1406A18B0 (ExIsRestrictedCaller.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall PspQueryWorkingSetWatch(
-        ULONG_PTR BugCheckParameter1,
+NTSTATUS __fastcall PspQueryWorkingSetWatch(
+        HANDLE Handle,
         int a2,
         __int64 a3,
         unsigned int a4,
         unsigned int *a5,
-        char a6)
+        KPROCESSOR_MODE AccessMode)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v8; // r13d
   PVOID v9; // rcx
   __int64 v10; // rdi
@@ -40,25 +40,24 @@ __int64 __fastcall PspQueryWorkingSetWatch(
   if ( a2 == 42 )
   {
     if ( (a4 & 0x1F) != 0 )
-      return 3221225476LL;
+      return -1073741820;
     v8 = 32;
   }
   else
   {
     v8 = 16;
   }
-  if ( ExIsRestrictedCaller(a6) )
-    return 3221225506LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             1024,
-             (__int64)PsProcessType,
-             a6,
+  if ( ExIsRestrictedCaller(AccessMode) )
+    return -1073741790;
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             0x400u,
+             (POBJECT_TYPE)PsProcessType,
+             AccessMode,
              0x79517350u,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v9 = Object;
     v10 = *((_QWORD *)Object + 166);
@@ -68,7 +67,7 @@ __int64 __fastcall PspQueryWorkingSetWatch(
       v11 = -1073741823;
 LABEL_17:
       ObfDereferenceObjectWithTag(v9, 0x79517350u);
-      return (unsigned int)v11;
+      return v11;
     }
     CurrentThread = KeGetCurrentThread();
     v22 = CurrentThread;
@@ -143,7 +142,7 @@ LABEL_17:
       _interlockedbittestandreset((volatile signed __int32 *)v10, 0);
     }
 LABEL_16:
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     v9 = Object;
     goto LABEL_17;
   }

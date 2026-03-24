@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv4StringToAddressA @ 0x140166900
+ * XREFs of RtlIpv4StringToAddressA @ 0x140166920
  * Callers:
- *     RtlIpv4StringToAddressExA @ 0x1402F3480 (RtlIpv4StringToAddressExA.c)
+ *     RtlIpv4StringToAddressExA @ 0x1402F3580 (RtlIpv4StringToAddressExA.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     __isascii @ 0x140195EDC (__isascii.c)
- *     isdigit @ 0x140195EF0 (isdigit.c)
- *     islower @ 0x140195F20 (islower.c)
- *     isxdigit @ 0x140195FE0 (isxdigit.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __isascii @ 0x140195EFC (__isascii.c)
+ *     isdigit @ 0x140195F10 (isdigit.c)
+ *     islower @ 0x140195F40 (islower.c)
+ *     isxdigit @ 0x140196000 (isxdigit.c)
  */
 
 NTSTATUS __stdcall RtlIpv4StringToAddressA(PCSTR S, BOOLEAN Strict, PCSTR *Terminator, struct in_addr *Addr)

@@ -1,37 +1,34 @@
 /*
- * XREFs of ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C011681C
+ * XREFs of ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00B9FE0
  * Callers:
- *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C0115DB0 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C00B9EB4 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A0568 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
- *     ?iHash@@YAIPEBGI@Z @ 0x1C0115910 (-iHash@@YAIPEBGI@Z.c)
- *     ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C011631C (-vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z.c)
- *     ?pwszName@FHOBJ@@QEAAPEAGAEAVPFEOBJ@@@Z @ 0x1C0116A30 (-pwszName@FHOBJ@@QEAAPEAGAEAVPFEOBJ@@@Z.c)
- *     cCapString @ 0x1C0116A58 (cCapString.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C009F6C8 (-vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z.c)
+ *     ?pwszName@FHOBJ@@QEAAPEAGAEAVPFEOBJ@@@Z @ 0x1C00A2CE4 (-pwszName@FHOBJ@@QEAAPEAGAEAVPFEOBJ@@@Z.c)
+ *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00BB998 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
+ *     cCapString @ 0x1C00BBAF4 (cCapString.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall FHOBJ::vDelete(FHOBJ *this, struct PFEOBJ *a2)
 {
   __int64 v4; // rax
   unsigned __int16 *v5; // rax
-  unsigned int v6; // ebx
-  struct _HASHBUCKET *v7; // r11
-  __int64 v8; // r10
-  struct _HASHBUCKET *i; // rdx
-  unsigned __int16 *v10; // rax
-  unsigned __int16 v11; // cx
-  struct _HASHBUCKET *v12; // rax
-  unsigned __int16 *v13; // rbx
-  struct _HASHBUCKET *v15; // rax
-  unsigned int v17; // [rsp+30h] [rbp-19h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-11h] BYREF
-  unsigned __int16 v19[32]; // [rsp+40h] [rbp-9h] BYREF
+  __int64 v6; // r9
+  struct _UNIVERSAL_FONT_ID *v7; // r9
+  unsigned __int16 *v8; // rdx
+  struct _HASHBUCKET *v9; // rax
+  unsigned __int16 *v10; // rbx
+  __int64 v11; // r9
+  struct _HASHBUCKET *v13; // rax
+  unsigned int v15; // [rsp+30h] [rbp-19h] BYREF
+  __int64 v16; // [rsp+38h] [rbp-11h] BYREF
+  unsigned __int16 v17[32]; // [rsp+40h] [rbp-9h] BYREF
 
-  memset_0(v19, 0, sizeof(v19));
+  memset(v17, 0, sizeof(v17));
   v4 = *((_QWORD *)this + 1);
-  v17 = 0;
+  v15 = 0;
   if ( *(_DWORD *)(v4 + 4)
     || _wcsicmp(
          (const wchar_t *)(*(_QWORD *)(*(_QWORD *)a2 + 32LL) + *(int *)(*(_QWORD *)(*(_QWORD *)a2 + 32LL) + 16LL)),
@@ -39,52 +36,31 @@ void __fastcall FHOBJ::vDelete(FHOBJ *this, struct PFEOBJ *a2)
   {
     if ( *(_DWORD *)(*((_QWORD *)this + 1) + 4LL) == 2 )
     {
-      v18 = *(_QWORD *)(*(_QWORD *)a2 + 84LL);
-      v12 = FHOBJ::pbktSearch(this, 0LL, &v17, (struct _UNIVERSAL_FONT_ID *)&v18, 0);
-      v6 = v17;
-      i = v12;
+      v7 = (struct _UNIVERSAL_FONT_ID *)&v16;
+      v8 = 0LL;
+      v16 = *(_QWORD *)(*(_QWORD *)a2 + 84LL);
     }
     else
     {
       v5 = FHOBJ::pwszName(this, a2);
-      cCapString(v19, v5, 32LL);
-      v6 = iHash(v19, *(_DWORD *)(*((_QWORD *)this + 1) + 8LL));
-      v17 = v6;
-      for ( i = *(struct _HASHBUCKET **)(v8 + 8LL * v6 + 40); i; i = *(struct _HASHBUCKET **)i )
-      {
-        v10 = v19;
-        if ( v19[0] == *((_WORD *)i + 30) )
-        {
-          v11 = v19[0];
-          while ( v11 )
-          {
-            v11 = *++v10;
-            if ( *v10 != *(unsigned __int16 *)((char *)v10 + i - (struct _HASHBUCKET *)v19 + 60) )
-              goto LABEL_8;
-          }
-          if ( (*((_DWORD *)i + 8) & 2) == 0 )
-            goto LABEL_11;
-          v7 = i;
-        }
-LABEL_8:
-        ;
-      }
-      i = v7;
+      cCapString(v17, v5, 32LL, v6);
+      v7 = 0LL;
+      v8 = v17;
     }
-LABEL_11:
-    FHOBJ::vDeletePFELink(this, i, v6, a2);
+    v9 = FHOBJ::pbktSearch(this, v8, &v15, v7, 0);
+    FHOBJ::vDeletePFELink(this, v9, v15, a2);
     if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 32LL) + 48LL) & 0x8000000) != 0
       && *(_DWORD *)(*((_QWORD *)this + 1) + 4LL) == 1 )
     {
-      v13 = FHOBJ::pwszName(this, a2);
-      while ( *v13++ )
+      v10 = FHOBJ::pwszName(this, a2);
+      while ( *v10++ )
         ;
-      while ( *v13 )
+      while ( *v10 )
       {
-        cCapString(v19, v13, 32LL);
-        v15 = FHOBJ::pbktSearch(this, v19, &v17, 0LL, 1);
-        FHOBJ::vDeletePFELink(this, v15, v17, a2);
-        while ( *v13++ )
+        cCapString(v17, v10, 32LL, v11);
+        v13 = FHOBJ::pbktSearch(this, v17, &v15, 0LL, 1);
+        FHOBJ::vDeletePFELink(this, v13, v15, a2);
+        while ( *v10++ )
           ;
       }
     }

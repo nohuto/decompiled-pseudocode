@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxEnableWorkOrderWatchdog @ 0x14022EEF4
+ * XREFs of PopFxEnableWorkOrderWatchdog @ 0x140263834
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x14022ED94 (PopFxDispatchPluginWorkOnce.c)
- *     PopFxHandleDirectedPowerTransition @ 0x1405CC460 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1402636DC (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14056ACA8 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x1402E2C60 (KeSetCoalescableTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
@@ -33,13 +33,13 @@ __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
       *(_QWORD *)(v2 + 152) = 0LL;
       *(_QWORD *)(v2 + 160) = v3;
       v4 = KeAcquireSpinLockRaiseToDpc(&PopWorkOrderLock);
-      v5 = (__int64 *)qword_140C23CF8;
-      if ( *(__int64 **)qword_140C23CF8 != &PopWorkOrderList )
+      v5 = (__int64 *)qword_140C248C8;
+      if ( *(__int64 **)qword_140C248C8 != &PopWorkOrderList )
         __fastfail(3u);
       *(_QWORD *)v2 = &PopWorkOrderList;
       *(_QWORD *)(v2 + 8) = v5;
       *v5 = v2;
-      qword_140C23CF8 = v2;
+      qword_140C248C8 = v2;
       KxReleaseSpinLock(&PopWorkOrderLock);
       if ( KiIrqlFlags )
       {

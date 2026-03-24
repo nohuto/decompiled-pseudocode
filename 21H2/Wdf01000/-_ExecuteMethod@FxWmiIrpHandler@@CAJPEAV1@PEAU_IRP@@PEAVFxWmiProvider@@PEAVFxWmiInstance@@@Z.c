@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_ExecuteMethod@FxWmiIrpHandler@@CAJPEAV1@PEAU_IRP@@PEAVFxWmiProvider@@PEAVFxWmiInstance@@@Z @ 0x1C005F580
+ * XREFs of ?_ExecuteMethod@FxWmiIrpHandler@@CAJPEAV1@PEAU_IRP@@PEAVFxWmiProvider@@PEAVFxWmiInstance@@@Z @ 0x1C00404B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z @ 0x1C005F0A8 (-CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z @ 0x1C003FEF4 (-CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z.c)
  */
 
 __int64 __fastcall FxWmiIrpHandler::_ExecuteMethod(
@@ -15,10 +15,10 @@ __int64 __fastcall FxWmiIrpHandler::_ExecuteMethod(
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8
   unsigned int *p_NamedPipeType; // rbx
-  unsigned int v9; // ebp
+  unsigned int v9; // esi
   unsigned int v10; // edi
   int v11; // eax
-  char *v12; // rax
+  char *v12; // rcx
   unsigned int size; // [rsp+68h] [rbp+10h] BYREF
 
   size = 0;

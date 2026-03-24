@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpInitLoggerContext @ 0x14065B14C
+ * XREFs of EtwpInitLoggerContext @ 0x14065B12C
  * Callers:
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
  *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
  *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A60 (KeQueryMaximumProcessorCountEx.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KeInitializeMutex @ 0x1400DD320 (KeInitializeMutex.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpInitializeCompression @ 0x1403154BC (EtwpInitializeCompression.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KeInitializeMutex @ 0x1400DD340 (KeInitializeMutex.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpInitializeCompression @ 0x1403155BC (EtwpInitializeCompression.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

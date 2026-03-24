@@ -4,9 +4,9 @@
  *     AlpcSecurityDestroyProcedure @ 0x140616C90 (AlpcSecurityDestroyProcedure.c)
  *     AlpcViewDestroyProcedure @ 0x140616E90 (AlpcViewDestroyProcedure.c)
  *     AlpcSectionDeleteProcedure @ 0x14061B210 (AlpcSectionDeleteProcedure.c)
- *     AlpcSectionDestroyProcedure @ 0x1406B9520 (AlpcSectionDestroyProcedure.c)
- *     AlpcReserveDestroyProcedure @ 0x1406C9440 (AlpcReserveDestroyProcedure.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF60 (AlpcpMapLegacyPortRemoteView.c)
+ *     AlpcSectionDestroyProcedure @ 0x1406B9500 (AlpcSectionDestroyProcedure.c)
+ *     AlpcReserveDestroyProcedure @ 0x1406C9420 (AlpcReserveDestroyProcedure.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF40 (AlpcpMapLegacyPortRemoteView.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

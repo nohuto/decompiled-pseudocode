@@ -1,18 +1,18 @@
 /*
- * XREFs of NtSetSystemEnvironmentValue @ 0x140A01700
+ * XREFs of NtSetSystemEnvironmentValue @ 0x140955340
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     HalSetEnvironmentVariable @ 0x140508720 (HalSetEnvironmentVariable.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalSetEnvironmentVariable @ 0x1404BBCB0 (HalSetEnvironmentVariable.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075DB90 (RtlxUnicodeStringToAnsiSize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetSystemEnvironmentValue(UNICODE_STRING *a1, UNICODE_STRING *a2)
@@ -82,7 +82,7 @@ LABEL_20:
     UnicodeString = *a1;
     SourceString = *a2;
   }
-  v7 = RtlxUnicodeStringToOemSize(&UnicodeString);
+  v7 = RtlxUnicodeStringToAnsiSize(&UnicodeString);
   v8 = v7;
   v17 = v7;
   DestinationString.Buffer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x72766E45u);
@@ -93,7 +93,7 @@ LABEL_20:
   v19 = v9;
   if ( v9 >= 0 )
   {
-    v10 = RtlxUnicodeStringToOemSize(&SourceString);
+    v10 = RtlxUnicodeStringToAnsiSize(&SourceString);
     v11 = v10;
     v18 = v10;
     v16.Buffer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x72766E45u);
@@ -109,7 +109,7 @@ LABEL_20:
         ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
         v14 = HalSetEnvironmentVariable(DestinationString.Buffer, v16.Buffer);
         ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         ExFreePoolWithTag(DestinationString.Buffer, 0);
         ExFreePoolWithTag(v16.Buffer, 0);
         return v14 != 0 ? 0xC000009A : 0;

@@ -1,48 +1,49 @@
 /*
- * XREFs of VfAllocateAdapterChannel @ 0x140AC5B90
+ * XREFs of VfAllocateAdapterChannel @ 0x1409CA5D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExInterlockedInsertTailList @ 0x14028C180 (ExInterlockedInsertTailList.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ViIsActiveChannelWcb @ 0x1405CEB00 (ViIsActiveChannelWcb.c)
- *     ADD_MAP_REGISTERS @ 0x140AC5180 (ADD_MAP_REGISTERS.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140AC5290 (DECREMENT_ADAPTER_CHANNELS.c)
- *     INCREMENT_ADAPTER_CHANNELS @ 0x140AC54EC (INCREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140AC558C (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140AC56AC (VF_ASSERT_IRQL.c)
- *     ViAllocateMapRegisterFile @ 0x140AC8C84 (ViAllocateMapRegisterFile.c)
- *     ViFreeMapRegisterFile @ 0x140AC9A90 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExInterlockedInsertTailList @ 0x1402F86D0 (ExInterlockedInsertTailList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ViIsActiveChannelWcb @ 0x1405A111C (ViIsActiveChannelWcb.c)
+ *     ADD_MAP_REGISTERS @ 0x1409C9BD0 (ADD_MAP_REGISTERS.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x1409C9CE0 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     INCREMENT_ADAPTER_CHANNELS @ 0x1409C9F3C (INCREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FDC (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x1409CA0FC (VF_ASSERT_IRQL.c)
+ *     ViAllocateMapRegisterFile @ 0x1409CD5D4 (ViAllocateMapRegisterFile.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3D4 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-__int64 __fastcall VfAllocateAdapterChannel(int a1, __int64 a2, unsigned int a3, void *a4, __int64 a5)
+__int64 __fastcall VfAllocateAdapterChannel(__int64 a1, __int64 a2, unsigned int a3, void *a4, __int64 a5)
 {
   char *v6; // rdi
   __int64 AdapterInformationInternal; // rbx
   char *v11; // rax
-  bool v13; // zf
-  __int64 v14; // r15
-  __int64 v15; // rsi
-  __int64 RealDmaAdapter; // rax
-  unsigned int v17; // eax
-  unsigned int v18; // r15d
-  unsigned __int64 v19; // rbp
-  char **v20; // rax
-  void **v21; // r8
+  __int64 v13; // r15
+  __int64 v14; // rbp
+  unsigned int v15; // eax
+  unsigned int v16; // r15d
+  unsigned __int64 v17; // rsi
+  char **v18; // rax
+  void **v19; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v25; // eax
+  int v23; // eax
+  bool v24; // zf
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, _QWORD, void *, __int64); // [rsp+30h] [rbp-38h]
 
   v6 = 0LL;
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, _QWORD, void *, __int64))ViGetRealDmaOperation(a1);
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1);
   if ( AdapterInformationInternal )
   {
@@ -52,68 +53,64 @@ __int64 __fastcall VfAllocateAdapterChannel(int a1, __int64 a2, unsigned int a3,
     if ( !v11 )
       return 3221225626LL;
     memset(v11, 0, 0x98uLL);
-    v13 = ViDoubleBufferDma == 0;
     *(_QWORD *)v6 = a5;
     *((_QWORD *)v6 + 1) = a4;
     *((_QWORD *)v6 + 7) = AdapterInformationInternal;
     *((_DWORD *)v6 + 12) = a3;
-    if ( !v13 && !*(_BYTE *)(AdapterInformationInternal + 73) && *(_DWORD *)(AdapterInformationInternal + 224) < 3u )
+    if ( !*(_BYTE *)(AdapterInformationInternal + 33) && *(_DWORD *)(AdapterInformationInternal + 192) < 3u )
       *((_QWORD *)v6 + 12) = ViAllocateMapRegisterFile(AdapterInformationInternal, a3);
-    if ( !*(_QWORD *)(AdapterInformationInternal + 64) )
-      *(_QWORD *)(AdapterInformationInternal + 64) = a2;
+    if ( !*(_QWORD *)(AdapterInformationInternal + 24) )
+      *(_QWORD *)(AdapterInformationInternal + 24) = a2;
     a4 = &ViAdapterCallback;
-    v14 = (__int64)v6;
+    v13 = (__int64)v6;
     INCREMENT_ADAPTER_CHANNELS(AdapterInformationInternal);
     ADD_MAP_REGISTERS(AdapterInformationInternal, a3, 0);
-    v15 = AdapterInformationInternal + 176;
+    v14 = AdapterInformationInternal + 144;
     ExInterlockedInsertTailList(
-      (PLIST_ENTRY)(AdapterInformationInternal + 160),
+      (PLIST_ENTRY)(AdapterInformationInternal + 128),
       (PLIST_ENTRY)(v6 + 72),
-      (PKSPIN_LOCK)(AdapterInformationInternal + 176));
+      (PKSPIN_LOCK)(AdapterInformationInternal + 144));
   }
   else
   {
-    v14 = a5;
-    v15 = 176LL;
+    v13 = a5;
+    v14 = 144LL;
   }
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  v17 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, void *, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 32LL))(
-          RealDmaAdapter,
-          a2,
-          a3,
-          a4,
-          v14);
-  v18 = v17;
-  if ( AdapterInformationInternal && v17 && ViIsActiveChannelWcb(AdapterInformationInternal, (__int64)v6) )
+  v15 = RealDmaOperation(a1, a2, a3, a4, v13);
+  v16 = v15;
+  if ( AdapterInformationInternal && v15 && ViIsActiveChannelWcb(AdapterInformationInternal, (__int64)v6) )
   {
-    v19 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v15);
-    v20 = (char **)*((_QWORD *)v6 + 9);
-    v21 = (void **)*((_QWORD *)v6 + 10);
-    if ( v20[1] != v6 + 72 || *v21 != v6 + 72 )
+    v17 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v14);
+    v18 = (char **)*((_QWORD *)v6 + 9);
+    v19 = (void **)*((_QWORD *)v6 + 10);
+    if ( v18[1] != v6 + 72 || *v19 != v6 + 72 )
       __fastfail(3u);
-    *v21 = v20;
-    v20[1] = (char *)v21;
-    KxReleaseSpinLock((volatile signed __int64 *)v15);
+    *v19 = v18;
+    v18[1] = (char *)v19;
+    KxReleaseSpinLock((PKSPIN_LOCK)v14);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
-        v13 = (v25 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v25;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
+          v24 = (v23 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v23;
+          if ( v24 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    __writecr8(v19);
+    __writecr8(v17);
     DECREMENT_ADAPTER_CHANNELS(AdapterInformationInternal);
     SUBTRACT_MAP_REGISTERS(AdapterInformationInternal, a3);
     if ( *((_QWORD *)v6 + 12) )
       ViFreeMapRegisterFile(AdapterInformationInternal);
     ExFreeToNPagedLookasideList(&ViHalWaitBlockLookaside, v6);
   }
-  return v18;
+  return v16;
 }

@@ -1,111 +1,113 @@
 /*
- * XREFs of ?CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z @ 0x1C03BC790
+ * XREFs of ?CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z @ 0x1C02ED4FC
  * Callers:
- *     ?ConvertVidPnToPathsModality@CCD_BTL@@QEAAJPEAVDMMVIDPN@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C03BC964 (-ConvertVidPnToPathsModality@CCD_BTL@@QEAAJPEAVDMMVIDPN@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?ConvertVidPnToPathsModality@CCD_BTL@@QEAAJPEAVDMMVIDPN@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C02ED6D8 (-ConvertVidPnToPathsModality@CCD_BTL@@QEAAJPEAVDMMVIDPN@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C0002F04 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
- *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C0003930 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
- *     ?SetUsedReservedFields@CCD_TOPOLOGY@@QEAA?AVAUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@W4D3DKMT_PATHMODALITY_RESERVED_FIELD@@@Z @ 0x1C017F98C (-SetUsedReservedFields@CCD_TOPOLOGY@@QEAA-AVAUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@W4D3DKMT_PATHMODAL.c)
- *     ?_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z @ 0x1C01E20E4 (-_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z.c)
+ *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C000C3EC (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C000DAE8 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
+ *     ?_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z @ 0x1C013A244 (-_ProcessVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJPEAVDMMVIDPN@@_N@Z.c)
+ *     ?SetUsedReservedFields@CCD_TOPOLOGY@@QEAA?AVAUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@W4D3DKMT_PATHMODALITY_RESERVED_FIELD@@@Z @ 0x1C013C828 (-SetUsedReservedFields@CCD_TOPOLOGY@@QEAA-AVAUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@W4D3DKMT_PATHMODAL.c)
  */
 
 __int64 __fastcall CCD_BTL_ACTIVE_PATHS_COLLECTOR::CollectPathsFromLegacyVidPn(
         CCD_BTL_ACTIVE_PATHS_COLLECTOR *this,
         struct DMMVIDPN *a2)
 {
-  int v4; // r8d
-  unsigned int v5; // ebx
-  __int64 v6; // r10
-  __int64 v7; // r11
-  int v8; // ecx
-  int v9; // edx
-  int v10; // eax
-  int v11; // r8d
-  __int64 v12; // rax
-  unsigned int v13; // r9d
-  const struct _LUID *v14; // rdx
-  __int64 v15; // rdi
-  _QWORD *v16; // rcx
-  int v17; // r9d
-  __int64 v18; // rcx
-  __int64 v19; // r9
-  unsigned int i; // r10d
-  __int64 v21; // rax
-  __int64 v22; // rdx
-  __int64 v24; // [rsp+60h] [rbp+8h] BYREF
+  struct DMMVIDPN *v3; // r11
+  int v4; // r9d
+  __int64 v5; // rax
+  unsigned int v6; // ebx
+  __int64 v7; // r10
+  __int64 v8; // r11
+  int v9; // eax
+  int v10; // ecx
+  __int64 v11; // rax
+  unsigned int v12; // r9d
+  const struct _LUID *v13; // rdx
+  __int64 v14; // rdi
+  _QWORD *v15; // rcx
+  int v16; // r9d
+  __int64 v17; // rcx
+  unsigned int v18; // r10d
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  __int64 v21; // r8
+  __int64 v23; // [rsp+60h] [rbp+8h] BYREF
 
-  CCD_TOPOLOGY::SetUsedReservedFields(*(_QWORD *)this, &v24, 96);
-  v4 = CCD_BTL_ACTIVE_PATHS_COLLECTOR::_ProcessVidPn(this, a2, 0);
+  CCD_TOPOLOGY::SetUsedReservedFields(*(_QWORD *)this, &v23, 96);
+  v4 = CCD_BTL_ACTIVE_PATHS_COLLECTOR::_ProcessVidPn(this, v3, 0);
   if ( v4 >= 0 )
   {
-    v5 = 0;
-    v6 = *(_QWORD *)(*(_QWORD *)this + 64LL);
-    if ( *(_WORD *)(v6 + 20) )
+    v5 = *(_QWORD *)this;
+    v6 = 0;
+    v7 = *(_QWORD *)(v5 + 64);
+    if ( *(_WORD *)(v7 + 20) )
     {
       do
       {
-        if ( (((unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION((enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION)*(_DWORD *)(296LL * v5 + v6 + 188))
-             - 1) & 0xFFFFFFFD) != 0 )
+        if ( (((unsigned int)D3DKMDT_VPPR_GET_CONTENT_ROTATION(*(_DWORD *)(272LL * v6 + v7 + 180)) - 1) & 0xFFFFFFFD) != 0 )
         {
-          v8 = *(_DWORD *)(v7 + v6 + 152);
-          v9 = v8;
-          v10 = *(_DWORD *)(v7 + v6 + 156);
+          v9 = *(_DWORD *)(v8 + v7 + 148);
+          v10 = *(_DWORD *)(v8 + v7 + 144);
         }
         else
         {
-          v10 = *(_DWORD *)(v7 + v6 + 152);
-          v9 = v10;
-          v8 = *(_DWORD *)(v7 + v6 + 156);
+          v9 = *(_DWORD *)(v8 + v7 + 144);
+          v10 = *(_DWORD *)(v8 + v7 + 148);
         }
-        v11 = *(_DWORD *)(v7 + v6 + 156);
-        *(_DWORD *)(v7 + v6 + 212) = v8;
-        *(_DWORD *)(v7 + v6 + 208) = v10;
-        v12 = *(_QWORD *)(v7 + v6 + 56) | 0x820000LL;
-        *(_QWORD *)(v7 + v6 + 224) = 0LL;
-        *(_DWORD *)(v7 + v6 + 232) = v9;
-        *(_DWORD *)(v7 + v6 + 236) = v11;
-        *(_QWORD *)(v7 + v6 + 56) = v12;
-        if ( (v12 & 0x4000000000000LL) == 0 )
+        *(_DWORD *)(v8 + v7 + 204) = v10;
+        *(_DWORD *)(v8 + v7 + 200) = v9;
+        *(_DWORD *)(v8 + v7 + 224) = *(_DWORD *)(v8 + v7 + 144);
+        *(_DWORD *)(v8 + v7 + 228) = *(_DWORD *)(v8 + v7 + 148);
+        v11 = *(_QWORD *)(v8 + v7 + 48) | 0x820000LL;
+        *(_QWORD *)(v8 + v7 + 216) = 0LL;
+        *(_QWORD *)(v8 + v7 + 48) = v11;
+        if ( (v11 & 0x4000000000000LL) == 0 )
         {
-          v13 = v5;
-          if ( v5 < *(unsigned __int16 *)(v6 + 20) )
+          v12 = v6;
+          if ( v6 < *(unsigned __int16 *)(v7 + 20) )
           {
-            v14 = (const struct _LUID *)(v7 + v6 + 72);
+            v13 = (const struct _LUID *)(v8 + v7 + 64);
             do
             {
-              v15 = 296LL * v13;
+              v14 = 272LL * v12;
               if ( CCD_TOPOLOGY::IsMatchingSource(
-                     (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v15 + v6 + 56),
-                     v14,
-                     *(_DWORD *)(v7 + v6 + 80)) )
+                     (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v14 + v7 + 48),
+                     v13,
+                     *(_DWORD *)(v8 + v7 + 72)) )
               {
-                *v16 |= 0x4000000000000uLL;
-                *(_DWORD *)(v15 + v6 + 240) = v5 | 0xFE570000;
+                *v15 |= 0x4000000000000uLL;
+                *(_DWORD *)(v14 + v7 + 232) = v6 | 0xFE570000;
               }
-              v13 = v17 + 1;
+              v12 = v16 + 1;
             }
-            while ( v13 < *(unsigned __int16 *)(v6 + 20) );
+            while ( v12 < *(unsigned __int16 *)(v7 + 20) );
           }
         }
-        ++v5;
+        ++v6;
       }
-      while ( v5 < *(unsigned __int16 *)(v6 + 20) );
+      while ( v6 < *(unsigned __int16 *)(v7 + 20) );
     }
     v4 = 0;
   }
-  v18 = v24;
-  if ( v24 )
+  v17 = v23;
+  if ( v23 )
   {
-    v19 = *(_QWORD *)(v24 + 64);
-    for ( i = 0; i < *(unsigned __int16 *)(v19 + 20); v19 = *(_QWORD *)(v18 + 64) )
+    v18 = 0;
+    if ( *(_WORD *)(*(_QWORD *)(v23 + 64) + 20LL) )
     {
-      v21 = i++;
-      v22 = 296 * v21;
-      *(_OWORD *)(v22 + v19 + 312) = 0LL;
-      *(_OWORD *)(v22 + v19 + 328) = 0LL;
-      *(_QWORD *)(v22 + v19 + 344) = 0LL;
+      do
+      {
+        v19 = *(_QWORD *)(v17 + 64);
+        v20 = v18++;
+        v21 = 272 * v20;
+        *(_OWORD *)(v21 + v19 + 280) = 0LL;
+        *(_OWORD *)(v21 + v19 + 296) = 0LL;
+        *(_QWORD *)(v21 + v19 + 312) = 0LL;
+      }
+      while ( v18 < *(unsigned __int16 *)(*(_QWORD *)(v17 + 64) + 20LL) );
     }
-    *(_DWORD *)(v18 + 88) = 0;
+    *(_DWORD *)(v17 + 88) = 0;
   }
   return (unsigned int)v4;
 }

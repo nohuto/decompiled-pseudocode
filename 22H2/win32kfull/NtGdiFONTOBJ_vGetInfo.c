@@ -1,13 +1,14 @@
 /*
- * XREFs of NtGdiFONTOBJ_vGetInfo @ 0x1C02CCFC0
+ * XREFs of NtGdiFONTOBJ_vGetInfo @ 0x1C02B46A0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     FONTOBJ_vGetInfo @ 0x1C0298980 (FONTOBJ_vGetInfo.c)
- *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C0298B0C (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
- *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02C7D6C (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C013C9F4 (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0154D24 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     FONTOBJ_vGetInfo @ 0x1C0293190 (FONTOBJ_vGetInfo.c)
  */
 
 __int64 __fastcall NtGdiFONTOBJ_vGetInfo(__int64 a1, unsigned int a2, char *a3)
@@ -15,33 +16,33 @@ __int64 __fastcall NtGdiFONTOBJ_vGetInfo(__int64 a1, unsigned int a2, char *a3)
   unsigned __int64 v4; // rsi
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  _DWORD *v8; // rbx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  FONTOBJ *v12; // r12
-  FONTINFO *v13; // rax
-  FONTINFO *v14; // r14
+  struct UMPDOBJ *v8; // rbx
+  unsigned __int64 v10; // rax
+  FONTOBJ *v11; // r15
+  FONTINFO *v12; // rax
+  FONTINFO *v13; // r14
 
   v4 = a2;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v8 = (_DWORD *)((char *)ThreadCurrentObj + 436);
+  v8 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
     return 3221225485LL;
-  ++*v8;
-  v12 = (FONTOBJ *)UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
-  if ( v12 && (_DWORD)v4 && a3 && (unsigned int)v4 <= 0x2710000 )
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  v10 = UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
+  v11 = (FONTOBJ *)v10;
+  if ( v10 && (_DWORD)v4 && a3 && (unsigned int)v4 <= 0x2710000 )
   {
-    v13 = (FONTINFO *)Win32AllocPool(v4, 1886221639LL, v10, v11);
-    v14 = v13;
-    if ( v13 )
+    v12 = (FONTINFO *)PALLOCMEM2((unsigned int)v4, 1886221639LL, 0);
+    v13 = v12;
+    if ( v12 )
     {
-      memset(v13, 0, v4);
-      FONTOBJ_vGetInfo(v12, v4, v13);
-      bSafeCopyBits(a3, v14, v4);
-      Win32FreePool(v14);
+      memset(v12, 0, v4);
+      FONTOBJ_vGetInfo(v11, v4, v12);
+      bSafeCopyBits(a3, v13, v4);
+      Win32FreePool(v13);
     }
   }
-  --*v8;
+  --*((_DWORD *)v8 + 105);
   return 0LL;
 }

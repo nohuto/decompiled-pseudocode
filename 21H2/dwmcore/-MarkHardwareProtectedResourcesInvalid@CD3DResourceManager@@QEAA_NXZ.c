@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x18028DE28
+ * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x18024CB40
  * Callers:
- *     ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x18027CFA0 (-ClearProtectedResources@CD3DDevice@@QEAA_NXZ.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180071B10 (-PreRender@CComposition@@IEAAJXZ.c)
  * Callees:
- *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800EC9E8 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800D407C (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CD3DResourceManager::MarkHardwareProtectedResourcesInvalid(CD3DResourceManager *this)
@@ -19,10 +19,11 @@ char __fastcall CD3DResourceManager::MarkHardwareProtectedResourcesInvalid(CD3DR
   v4 = 0;
   while ( v3 != v1 )
   {
-    v5 = (struct CD3DResource *)(v3 - 32);
+    v5 = (struct CD3DResource *)(v3 - 40);
     v3 = *(char **)v3;
-    if ( *((_QWORD *)v5 + 3)
-      && ((*(unsigned __int8 (__fastcall **)(struct CD3DResource *))(*(_QWORD *)v5 + 24LL))(v5) || *((_BYTE *)v5 + 69)) )
+    if ( *((_DWORD *)v5 + 2)
+      && ((*(unsigned __int8 (__fastcall **)(_QWORD *))(*((_QWORD *)v5 + 3) + 24LL))((_QWORD *)v5 + 3)
+       || *((_BYTE *)v5 + 85)) )
     {
       CD3DResourceManager::DestroyResource(this, v5);
       v4 = 1;

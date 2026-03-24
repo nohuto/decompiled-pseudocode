@@ -1,34 +1,43 @@
 /*
- * XREFs of MiCompareActiveCrcEntries @ 0x140215CC4
+ * XREFs of MiCompareActiveCrcEntries @ 0x1403679E8
  * Callers:
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140726CE0 (MiProcessCrcList.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiCompareActiveCrcEntries(__int64 a1, __int64 a2)
+__int64 __fastcall MiCompareActiveCrcEntries(_QWORD *a1, _QWORD *a2)
 {
   unsigned __int64 v2; // rax
   unsigned __int64 v3; // rax
-  unsigned int v4; // eax
+  unsigned int v4; // ecx
+  unsigned __int64 v5; // rax
 
-  v2 = *(_QWORD *)(a1 + 8);
-  if ( v2 < *(_QWORD *)(a2 + 8) )
-    return 0xFFFFFFFFLL;
-  if ( v2 <= *(_QWORD *)(a2 + 8) )
+  if ( *a1 >= *a2 )
   {
-    v3 = *(_QWORD *)(a1 + 24);
-    if ( v3 >= *(_QWORD *)(a2 + 24) )
+    if ( *a1 > *a2 )
+      return 1LL;
+    v2 = a1[3];
+    if ( v2 > a2[3] )
+      return 1LL;
+    if ( v2 >= a2[3] )
     {
-      if ( v3 <= *(_QWORD *)(a2 + 24) )
+      v3 = a1[4];
+      if ( v3 >= 0x100 )
+        v4 = *(_DWORD *)(v3 + 40) & 0x1F;
+      else
+        v4 = a1[4];
+      v5 = a2[4];
+      if ( v5 >= 0x100 )
+        LODWORD(v5) = *(_DWORD *)(v5 + 40) & 0x1F;
+      if ( v4 <= (unsigned int)v5 )
       {
-        v4 = *(_DWORD *)(a1 + 32);
-        if ( v4 <= *(_DWORD *)(a2 + 32) )
-          return (unsigned int)-(v4 < *(_DWORD *)(a2 + 32));
+        if ( v4 >= (unsigned int)v5 )
+          return 0LL;
+        return 0xFFFFFFFFLL;
       }
       return 1LL;
     }
-    return 0xFFFFFFFFLL;
   }
-  return 1LL;
+  return 0xFFFFFFFFLL;
 }

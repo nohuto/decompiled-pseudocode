@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpInitializeResource @ 0x1403A5920
+ * XREFs of ExpInitializeResource @ 0x140399C90
  * Callers:
- *     ExInitializeFastResource @ 0x1403A5830 (ExInitializeFastResource.c)
+ *     ExInitializeFastResource @ 0x140399BA0 (ExInitializeFastResource.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlStdLogStackTrace @ 0x1405E4840 (RtlStdLogStackTrace.c)
- *     RtlStdReleaseStackTrace @ 0x1405E48CC (RtlStdReleaseStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x1405E4CD4 (RtlpStdGetRecordedStackTraceIndex.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlStdLogStackTrace @ 0x140585D10 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x140585D9C (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405861A0 (RtlpStdGetRecordedStackTraceIndex.c)
  */
 
 void *__fastcall ExpInitializeResource(_QWORD *a1)

@@ -1,68 +1,47 @@
 /*
- * XREFs of PiSwCloseDevice @ 0x140967170
+ * XREFs of PiSwCloseDevice @ 0x140734D40
  * Callers:
- *     PiSwIrpCleanup @ 0x14081CA34 (PiSwIrpCleanup.c)
- *     PiSwStopDestroy @ 0x14086A198 (PiSwStopDestroy.c)
- *     PiSwCloseDescendants @ 0x14086A2DC (PiSwCloseDescendants.c)
+ *     PiSwStopDestroy @ 0x14074BAC8 (PiSwStopDestroy.c)
+ *     PiSwCloseDescendants @ 0x14074BCE8 (PiSwCloseDescendants.c)
+ *     PiSwIrpCleanup @ 0x1407734BC (PiSwIrpCleanup.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlDeleteElementGenericTableAvl @ 0x14031E7F0 (RtlDeleteElementGenericTableAvl.c)
- *     IoInvalidateDeviceRelations @ 0x140358990 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140563874 (McTemplateK0zz_EtwWriteTransfer.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwDeviceDereference @ 0x14081CB44 (PiSwDeviceDereference.c)
- *     PiSwBusRelationRemove @ 0x1409670B8 (PiSwBusRelationRemove.c)
- *     PiSwQueuedCreateInfoFree @ 0x140967BC0 (PiSwQueuedCreateInfoFree.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14032DA20 (RtlDeleteElementGenericTableAvl.c)
+ *     IoInvalidateDeviceRelations @ 0x14036F560 (IoInvalidateDeviceRelations.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwBusRelationRemove @ 0x140732FE4 (PiSwBusRelationRemove.c)
+ *     PiSwDeviceDereference @ 0x140773A00 (PiSwDeviceDereference.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1408AEC98 (PiSwQueuedCreateInfoFree.c)
  */
 
-void __fastcall PiSwCloseDevice(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall PiSwCloseDevice(PVOID a1)
 {
-  struct _DEVICE_OBJECT *v3; // rax
-  struct _DEVICE_OBJECT *v4; // rbx
-  _QWORD *Buffer; // [rsp+40h] [rbp+8h] BYREF
+  struct _DEVICE_OBJECT *v1; // rax
+  struct _DMA_ADAPTER *v2; // rbx
+  _QWORD *Buffer; // [rsp+30h] [rbp+8h] BYREF
 
-  Buffer = (_QWORD *)a1;
-  if ( (byte_140C0E20C & 8) != 0 )
+  Buffer = a1;
+  if ( *((_QWORD *)a1 + 11) )
   {
-    McTemplateK0zz_EtwWriteTransfer(
-      a1,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_CloseDevice,
-      a3,
-      *(const wchar_t **)(a1 + 8),
-      *(const wchar_t **)(a1 + 16));
-    a1 = (__int64)Buffer;
-  }
-  if ( *(_QWORD *)(a1 + 88) )
-  {
-    PiSwQueuedCreateInfoFree(*(PVOID *)(a1 + 88));
+    PiSwQueuedCreateInfoFree(*((PVOID *)a1 + 11));
     Buffer[11] = 0LL;
-    a1 = (__int64)Buffer;
+    a1 = Buffer;
   }
-  if ( *(_QWORD *)(a1 + 120) )
+  if ( *((_QWORD *)a1 + 15) )
   {
-    *(_DWORD *)(a1 + 4) |= 2u;
-    v3 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag(Buffer[14], 0x746C6644u);
-    v4 = v3;
-    if ( v3 )
+    *((_DWORD *)a1 + 1) |= 2u;
+    v1 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag(Buffer[14], 0x746C6644u);
+    v2 = (struct _DMA_ADAPTER *)v1;
+    if ( v1 )
     {
-      IoInvalidateDeviceRelations(v3, SingleBusRelations);
-      ObfDereferenceObject(v4);
+      IoInvalidateDeviceRelations(v1, SingleBusRelations);
+      HalPutDmaAdapter(v2);
     }
   }
   else
   {
-    if ( *(_QWORD *)(a1 + 112) )
-    {
-      PiSwBusRelationRemove((const wchar_t **)a1, a2, a3);
-      a1 = (__int64)Buffer;
-    }
-    if ( (byte_140C0E20C & 8) != 0 )
-      McTemplateK0zz_EtwWriteTransfer(
-        a1,
-        (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_InstanceTable_Remove,
-        a3,
-        *(const wchar_t **)(a1 + 8),
-        *(const wchar_t **)(a1 + 16));
+    if ( *((_QWORD *)a1 + 14) )
+      PiSwBusRelationRemove((char *)a1);
     RtlDeleteElementGenericTableAvl(&PiSwDeviceInstanceTable, &Buffer);
     PiSwDeviceDereference(Buffer);
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of mov_first_4_wide_unrotated @ 0x1C02D98E0
+ * XREFs of mov_first_4_wide_unrotated @ 0x1C02DB430
  * Callers:
  *     <none>
  * Callees:
@@ -8,65 +8,76 @@
 
 __int64 __fastcall mov_first_4_wide_unrotated(int a1, __int64 a2, int a3, char *a4, __int64 a5)
 {
-  int v5; // eax
-  _WORD *v6; // rcx
-  char *v7; // rdx
+  __int64 v6; // r11
+  _WORD *v7; // rcx
+  __int64 v8; // r10
+  char *v9; // rdx
   __int64 result; // rax
-  char *v9; // r9
-  _BYTE *v10; // rcx
-  char v11; // al
+  char *v11; // r9
+  _BYTE *v12; // rcx
+  char v13; // al
+  unsigned __int64 v14; // r8
 
-  v5 = 4 * a1;
-  v6 = (_WORD *)a5;
-  v7 = &a4[v5];
+  v6 = a3;
+  v7 = (_WORD *)a5;
+  v8 = 0LL;
+  v9 = &a4[4 * a1];
   result = a5 & 3;
   if ( (a5 & 3) != 0 )
   {
     result = (unsigned int)(result - 1);
-    if ( !(_DWORD)result )
-    {
-LABEL_5:
-      if ( a4 != v7 )
-      {
-        v9 = a4 + 2;
-        v10 = (_BYTE *)(a5 + 2);
-        do
-        {
-          *(v10 - 2) = *(v9 - 2);
-          *(v10 - 1) = *(v9 - 1);
-          v11 = *v9;
-          v9 += 4;
-          *v10 = v11;
-          v10[1] = *(v9 - 3);
-          v10 += a3;
-          result = (__int64)(v9 - 2);
-        }
-        while ( v9 - 2 != v7 );
-      }
-      return result;
-    }
-    result = (unsigned int)(result - 1);
     if ( (_DWORD)result )
     {
+      result = (unsigned int)(result - 1);
+      if ( !(_DWORD)result )
+      {
+        while ( a4 != v9 )
+        {
+          *v7 = *(_WORD *)a4;
+          result = *((unsigned __int16 *)a4 + 1);
+          v7[1] = result;
+          v7 = (_WORD *)((char *)v7 + a3);
+          a4 += 4;
+        }
+        return result;
+      }
       if ( (_DWORD)result != 1 )
         return result;
-      goto LABEL_5;
     }
-    for ( ; a4 != v7; v6 = (_WORD *)((char *)v6 + a3) )
+    if ( a4 != v9 )
     {
-      *v6 = *(_WORD *)a4;
-      result = *((unsigned __int16 *)a4 + 1);
-      a4 += 4;
-      v6[1] = result;
+      v11 = a4 + 2;
+      v12 = (_BYTE *)(a5 + 2);
+      do
+      {
+        *(v12 - 2) = *(v11 - 2);
+        *(v12 - 1) = *(v11 - 1);
+        v13 = *v11;
+        v11 += 4;
+        *v12 = v13;
+        v12[1] = *(v11 - 3);
+        v12 += a3;
+        result = (__int64)(v11 - 2);
+      }
+      while ( v11 - 2 != v9 );
     }
   }
   else
   {
-    for ( ; a4 != v7; v6 = (_WORD *)((char *)v6 + a3) )
+    v14 = (unsigned __int64)(v9 - a4 + 3) >> 2;
+    if ( a4 > v9 )
+      v14 = 0LL;
+    if ( v14 )
     {
-      result = *(unsigned int *)a4;
-      a4 += 4;
-      *(_DWORD *)v6 = result;
+      do
+      {
+        result = *(unsigned int *)a4;
+        ++v8;
+        *(_DWORD *)v7 = result;
+        a4 += 4;
+        v7 = (_WORD *)((char *)v7 + v6);
+      }
+      while ( v8 != v14 );
     }
   }
   return result;

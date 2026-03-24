@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpFindValueByName @ 0x14073D878
+ * XREFs of CmpFindValueByName @ 0x14073D858
  * Callers:
  *     CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409AABC0 (CmpInitializeSystemPoliciesFeatureOverrides.c)
  *     CmpFindRedirectedDriverServiceStateNode @ 0x1409CCD50 (CmpFindRedirectedDriverServiceStateNode.c)

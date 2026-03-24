@@ -1,29 +1,28 @@
 /*
- * XREFs of AuthzBasepMemberOf @ 0x14064B0FC
+ * XREFs of AuthzBasepMemberOf @ 0x1405C2028
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x140219130 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepGetNextValue @ 0x140218EAC (AuthzBasepGetNextValue.c)
- *     SepSidInTokenSidHash @ 0x1402FD65C (SepSidInTokenSidHash.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     AuthzBasepGetNextValue @ 0x1402500A4 (AuthzBasepGetNextValue.c)
+ *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepMemberOf(__int64 a1, __int64 a2, char a3, char a4, char a5, _BYTE *a6)
 {
   char v7; // di
   int NextValue; // eax
-  unsigned int v12; // ebx
+  int v12; // ebx
   size_t v13; // r8
-  bool v14; // al
-  __int128 v16; // [rsp+30h] [rbp-B8h] BYREF
-  __int128 v17; // [rsp+40h] [rbp-A8h]
-  void *Src; // [rsp+50h] [rbp-98h]
-  _BYTE v19[80]; // [rsp+60h] [rbp-88h] BYREF
+  char v14; // al
+  __int128 v16; // [rsp+40h] [rbp-B8h] BYREF
+  __int128 v17; // [rsp+50h] [rbp-A8h]
+  void *Src; // [rsp+60h] [rbp-98h]
+  _BYTE v19[80]; // [rsp+70h] [rbp-88h] BYREF
 
-  LODWORD(Src) = 0;
+  Src = 0LL;
   v7 = a5 != 0;
-  WORD2(Src) = 0;
   *a6 = 0;
   v16 = 0LL;
   v17 = 0LL;
@@ -34,12 +33,12 @@ __int64 __fastcall AuthzBasepMemberOf(__int64 a1, __int64 a2, char a3, char a4, 
     if ( NextValue == -2147483622 )
       break;
     if ( NextValue < 0 )
-      return v12;
+      return (unsigned int)v12;
     v13 = DWORD2(v17);
     if ( DWORD2(v17) >= 0x44 )
       v13 = 68LL;
     memmove(v19, Src, v13);
-    v14 = SepSidInTokenSidHash(a2 + (a4 != 0 ? 504LL : 232LL), 0LL, v19, a3, a4, 0);
+    v14 = SepSidInToken(a2, 0LL, v19, a3, a4, 0, 0);
     if ( a5 )
     {
       v7 &= v14;
@@ -55,6 +54,7 @@ __int64 __fastcall AuthzBasepMemberOf(__int64 a1, __int64 a2, char a3, char a4, 
   }
   v12 = 0;
 LABEL_12:
-  *a6 = v7;
-  return v12;
+  if ( v12 >= 0 )
+    *a6 = v7;
+  return (unsigned int)v12;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ReorderAxisAlignedRectVertices @ 0x1800854A8
+ * XREFs of ReorderAxisAlignedRectVertices @ 0x180066BD8
  * Callers:
- *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180084B28 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180067194 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
  * Callees:
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 void *__fastcall ReorderAxisAlignedRectVertices(__int64 *a1, int a2, __int64 a3)
 {
-  float v3; // xmm3_4
-  float v5; // xmm2_4
+  float v3; // xmm2_4
+  float v5; // xmm3_4
   unsigned int v6; // r8d
   int v7; // r10d
   __int64 v9; // r9
@@ -54,8 +54,8 @@ void *__fastcall ReorderAxisAlignedRectVertices(__int64 *a1, int a2, __int64 a3)
   while ( v13 );
   v17 = 1;
   v18 = 0;
-  v19 = 3;
-  v20 = 2;
+  v19 = 2;
+  v20 = 3;
   v21 = 0;
   do
   {
@@ -83,9 +83,9 @@ void *__fastcall ReorderAxisAlignedRectVertices(__int64 *a1, int a2, __int64 a3)
   v23 = 8 * a2 + 16;
   memcpy_0(*(void **)a3, (const void *)(v9 + (int)(v6 * v7)), v23);
   memcpy_0((void *)(*(_QWORD *)a3 + *(int *)(a3 + 8)), (const void *)(*a1 + v17 * *((_DWORD *)a1 + 2)), v23);
-  memcpy_0((void *)(*(_QWORD *)a3 + 3 * *(_DWORD *)(a3 + 8)), (const void *)(*a1 + v19 * *((_DWORD *)a1 + 2)), v23);
+  memcpy_0((void *)(*(_QWORD *)a3 + 2 * *(_DWORD *)(a3 + 8)), (const void *)(*a1 + v19 * *((_DWORD *)a1 + 2)), v23);
   return memcpy_0(
-           (void *)(*(_QWORD *)a3 + 2 * *(_DWORD *)(a3 + 8)),
+           (void *)(*(_QWORD *)a3 + 3 * *(_DWORD *)(a3 + 8)),
            (const void *)(*a1 + v20 * *((_DWORD *)a1 + 2)),
            v23);
 }

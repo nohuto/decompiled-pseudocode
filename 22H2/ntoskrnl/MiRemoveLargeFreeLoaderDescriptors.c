@@ -1,369 +1,179 @@
 /*
- * XREFs of MiRemoveLargeFreeLoaderDescriptors @ 0x140B6E278
+ * XREFs of MiRemoveLargeFreeLoaderDescriptors @ 0x140A43A34
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x140375D64 (MiRestrictRangeToNode.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403AC2E0 (MiRestrictRangeToNode.c)
  */
 
 void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
 {
-  __int64 v1; // rdi
-  unsigned __int64 v2; // rax
-  unsigned __int64 v3; // r12
-  _QWORD *v4; // rbx
-  char v5; // dl
-  __int64 v6; // rcx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rdx
-  _QWORD *v9; // rcx
-  ULONG_PTR v10; // r14
-  ULONG_PTR v11; // rsi
-  unsigned __int64 v12; // rsi
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // rax
-  unsigned int v17; // ebx
-  __int64 *v18; // rdx
-  unsigned __int64 v19; // r10
+  int v1; // ebx
+  _QWORD *v2; // rax
+  _QWORD *v3; // rsi
+  __int64 v4; // rdi
+  unsigned __int64 v5; // r13
+  ULONG_PTR v6; // r12
+  int v7; // eax
+  ULONG_PTR v8; // r14
+  ULONG_PTR j; // r15
+  ULONG_PTR v10; // rbp
+  ULONG_PTR v11; // rbp
+  ULONG_PTR v12; // r14
+  ULONG_PTR v13; // rsi
+  int v14; // edx
+  __int64 *v15; // r9
+  __int64 v16; // rbp
+  unsigned __int64 v17; // r11
+  unsigned __int64 v18; // r10
+  __int64 **v19; // rax
   unsigned __int64 v20; // r8
-  unsigned __int64 v21; // rcx
-  unsigned __int64 v22; // r11
-  unsigned __int64 v23; // rdx
-  unsigned __int64 v24; // r15
-  ULONG_PTR v25; // rbp
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  _QWORD *v25; // rcx
   __int64 *v26; // rdx
-  __int64 v27; // rcx
-  unsigned __int16 i; // dx
-  unsigned __int64 v29; // r8
-  __int64 v30; // rax
-  unsigned __int64 v31; // rcx
-  unsigned __int64 v32; // r8
-  unsigned __int64 v33; // rcx
-  unsigned __int64 v34; // rax
-  unsigned __int64 v35; // rcx
-  unsigned __int64 v36; // r9
-  unsigned __int64 v37; // r10
-  unsigned __int64 v38; // rcx
-  __int64 v39; // rsi
-  __int64 v40; // r11
-  __int64 v41; // rdx
-  __int64 v42; // rax
-  __int64 *v43; // r11
-  unsigned __int64 v44; // rax
-  unsigned __int64 v45; // rdx
-  bool v46; // r8
-  unsigned __int64 v47; // rax
-  __int64 v48; // [rsp+58h] [rbp+10h]
+  __int64 **v27; // rax
+  unsigned __int64 v28; // rax
+  _QWORD *i; // [rsp+58h] [rbp+10h]
 
-  if ( !_bittest64(&KeFeatureBits, 0x25u) )
-    return;
-  v1 = a1 + 352;
-  v2 = *(_QWORD *)(a1 + 352);
-  v3 = 0LL;
-  v48 = a1 + 352;
-  v4 = 0LL;
-  if ( (*(_BYTE *)(a1 + 360) & 1) != 0 )
+  qword_140D58758 = (__int64)&MxDeferredBootFreeDescriptorHead;
+  MxDeferredBootFreeDescriptorHead = (__int64)&MxDeferredBootFreeDescriptorHead;
+  if ( (KeFeatureBits & 0x2000000000LL) != 0 )
   {
-    if ( !v2 )
-      goto LABEL_39;
-    v2 ^= v1;
-  }
-  if ( v2 )
-  {
-    v5 = *(_BYTE *)(a1 + 360) & 1;
-    do
+    v1 = 0;
+    if ( KeNumberNodes )
     {
-      v6 = *(_QWORD *)(v2 + 8);
-      v4 = (_QWORD *)v2;
-      if ( v5 && v6 )
-        v2 ^= v6;
-      else
-        v2 = *(_QWORD *)(v2 + 8);
-    }
-    while ( v2 );
-  }
-  while ( 1 )
-  {
+      v2 = (_QWORD *)(a1 + 32);
+      for ( i = (_QWORD *)(a1 + 32); ; v2 = i )
+      {
+        v3 = (_QWORD *)*v2;
+        v4 = 0LL;
+        v5 = 0LL;
+        v6 = 0LL;
+        if ( (_QWORD *)*v2 != v2 )
+        {
+          do
+          {
+            v7 = *((_DWORD *)v3 + 4);
+            if ( v7 == 2 || v7 == 24 )
+            {
+              v8 = v3[4];
+              for ( j = v3[3]; v8; v8 -= v10 )
+              {
+                v10 = MiRestrictRangeToNode(j, v8);
+                if ( *((_DWORD *)MiSearchNumaNodeTable(j) + 2) == v1 )
+                {
+                  v5 += v10;
+                  if ( v10 >= 0x200000 && j >= 0x100000 && v10 > v6 )
+                  {
+                    v6 = v10;
+                    v4 = (__int64)v3;
+                  }
+                }
+                j += v10;
+              }
+            }
+            v3 = (_QWORD *)*v3;
+          }
+          while ( v3 != i );
+          if ( v5 >= 0x300000 )
+          {
+            if ( v4 )
+            {
+              v11 = *(_QWORD *)(v4 + 32);
+              v12 = *(_QWORD *)(v4 + 24);
+              if ( v11 )
+              {
+                while ( 1 )
+                {
+                  v13 = MiRestrictRangeToNode(v12, v11);
+                  if ( *((_DWORD *)MiSearchNumaNodeTable(v12) + 2) == v1
+                    && v13 >= 0x200000
+                    && v12 >= 0x100000
+                    && v13 >= v6 )
+                  {
+                    if ( v5 - v13 >= 0x100000 )
+                      goto LABEL_29;
+                    if ( v5 - 0x100000 >= 0x100000 )
+                      break;
+                  }
+                  v12 += v13;
+                  v11 -= v13;
+                  if ( !v11 )
+                    goto LABEL_9;
+                }
+                v13 = v5 - 0x100000;
+LABEL_29:
+                v14 = MxDeferredBootFreeDescriptorIndex;
+                v15 = &MxDeferredBootFreeDescriptor[5 * (unsigned int)MxDeferredBootFreeDescriptorIndex];
+                *((_DWORD *)v15 + 4) = *(_DWORD *)(v4 + 16);
+                v16 = (unsigned int)(v14 + 1);
+                MxDeferredBootFreeDescriptorIndex = v14 + 1;
+                v17 = (v12 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL;
+                v18 = (v12 + v13) & 0xFFFFFFFFFFFC0000uLL;
+                v19 = (__int64 **)qword_140D58758;
+                v20 = v18 - v17;
+                v15[3] = v17;
+                v15[4] = v18 - v17;
+                if ( *v19 != &MxDeferredBootFreeDescriptorHead )
+LABEL_42:
+                  __fastfail(3u);
+                *v15 = (__int64)&MxDeferredBootFreeDescriptorHead;
+                v15[1] = (__int64)v19;
+                *v19 = v15;
+                qword_140D58758 = (__int64)v15;
+                v21 = *(_QWORD *)(v4 + 24);
+                v22 = *(_QWORD *)(v4 + 32);
+                v23 = v22 + v21;
+                if ( v17 == v21 )
+                {
+                  if ( v18 != v23 )
+                  {
+                    *(_QWORD *)(v4 + 24) = v20 + v21;
 LABEL_38:
-    if ( !v4 )
-      goto LABEL_39;
-    v7 = (_QWORD *)*v4;
-    v8 = v4;
-    v9 = v4;
-    if ( *v4 )
-    {
-      do
-      {
-        v4 = v7;
-        v7 = (_QWORD *)v7[1];
-      }
-      while ( v7 );
-    }
-    else
-    {
-      while ( 1 )
-      {
-        v4 = (_QWORD *)(v4[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v4 || (_QWORD *)v4[1] == v9 )
-          break;
-        v9 = v4;
-      }
-    }
-    v10 = v8[5];
-    v11 = v8[4];
-    if ( v10 < 0x200000 )
-      break;
-    if ( v11 < 0x100000 )
-    {
-      v10 += v11 - 0x100000;
-      v11 = 0x100000LL;
-    }
-    v24 = *((int *)v8 + 6);
-    if ( v10 )
-    {
-      while ( 1 )
-      {
-        v25 = MiRestrictRangeToNode(v11, v10);
-        v26 = &MxBootDeferDescriptors[4 * *((unsigned int *)MiSearchNumaNodeTable(v11) + 2)];
-        if ( (unsigned int)(v24 - 30) > 2 && (_DWORD)v24 != 6 )
-        {
-          if ( (unsigned int)v24 <= 0x2A )
-          {
-            v27 = 0x5C400C00008LL;
-            if ( _bittest64(&v27, v24) )
-              goto LABEL_68;
-          }
-          v26[2] += v25;
-          if ( (_DWORD)v24 == 2 )
-            goto LABEL_59;
-        }
-        if ( (_DWORD)v24 == 24 )
-        {
-LABEL_59:
-          v26[3] += v25;
-          if ( v25 >= 0x200000 && v25 > v26[1] )
-          {
-            *v26 = v11;
-            v3 = -1LL;
-            v26[1] = v25;
-            for ( i = 0; i < 0x40u; ++i )
-            {
-              v29 = v3;
-              v30 = 4LL * i;
-              v31 = MxBootDeferDescriptors[v30 + 1];
-              if ( v31 < v3 )
-              {
-                v3 = MxBootDeferDescriptors[v30 + 1];
-                if ( !v31 )
-                  break;
+                    *(_QWORD *)(v4 + 32) = v22 - v20;
+                    goto LABEL_9;
+                  }
+                  v24 = *(_QWORD *)v4;
+                  if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
+                    goto LABEL_42;
+                  v25 = *(_QWORD **)(v4 + 8);
+                  if ( *v25 != v4 )
+                    goto LABEL_42;
+                  *v25 = v24;
+                  *(_QWORD *)(v24 + 8) = v25;
+                }
+                else
+                {
+                  if ( v18 == v23 )
+                    goto LABEL_38;
+                  MxDeferredBootFreeDescriptorIndex = v16 + 1;
+                  v26 = &MxDeferredBootFreeDescriptor[5 * v16];
+                  *((_DWORD *)v26 + 4) = *(_DWORD *)(v4 + 16);
+                  v26[3] = *(_QWORD *)(v4 + 24);
+                  v26[4] = v17 - *(_QWORD *)(v4 + 24);
+                  v27 = *(__int64 ***)(v4 + 8);
+                  if ( *v27 != (__int64 *)v4 )
+                    goto LABEL_42;
+                  v26[1] = (__int64)v27;
+                  *v26 = v4;
+                  *v27 = v26;
+                  *(_QWORD *)(v4 + 8) = v26;
+                  v28 = *(_QWORD *)(v4 + 24) - v17;
+                  *(_QWORD *)(v4 + 24) = v18;
+                  *(_QWORD *)(v4 + 32) += v28 - v20;
+                }
               }
-              v3 = MxBootDeferDescriptors[v30 + 1];
-              if ( v31 >= v29 )
-                v3 = v29;
-              if ( i == (unsigned __int16)KeNumberNodes - 1 )
-                break;
             }
           }
         }
-LABEL_68:
-        v11 += v25;
-        v10 -= v25;
-        if ( !v10 )
-        {
-          v1 = v48;
-          goto LABEL_38;
-        }
+LABEL_9:
+        if ( ++v1 >= (unsigned int)(unsigned __int16)KeNumberNodes )
+          return;
       }
     }
   }
-  if ( v10 + v11 >= 0x300000 && v10 + v11 >= v3 )
-  {
-    v12 = v11 & 0xFFFFFFFFFFFC0000uLL;
-    if ( v12 >= 0x100000 )
-    {
-      v13 = *(_QWORD *)v1;
-      v14 = v12 - 0x40000;
-      if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
-      {
-        if ( v13 )
-          v13 ^= v1;
-        else
-          v13 = 0LL;
-      }
-      v4 = 0LL;
-      while ( 1 )
-      {
-        if ( !v13 )
-          goto LABEL_38;
-        v15 = *(_QWORD *)(v13 + 32);
-        if ( v14 >= v15 )
-        {
-          if ( v14 >= *(_QWORD *)(v13 + 40) + v15 )
-          {
-            v16 = *(_QWORD *)(v13 + 8);
-            goto LABEL_33;
-          }
-          v4 = (_QWORD *)v13;
-        }
-        v16 = *(_QWORD *)v13;
-LABEL_33:
-        if ( (*(_BYTE *)(v1 + 8) & 1) != 0 && v16 )
-          v13 ^= v16;
-        else
-          v13 = v16;
-      }
-    }
-  }
-LABEL_39:
-  v17 = 0;
-  if ( !KeNumberNodes )
-    return;
-  do
-  {
-    v18 = &MxBootDeferDescriptors[4 * v17];
-    v19 = v18[1];
-    if ( !v19 )
-      goto LABEL_110;
-    v20 = v18[3];
-    if ( v20 < 0x300000 )
-      goto LABEL_110;
-    v21 = ((unsigned __int64)(48 * v18[2]) >> 10) & 0x3FFFFFFFFFFFFCLL;
-    if ( v21 < 0x100000 )
-      v21 = 0x100000LL;
-    if ( v20 - v19 < v21 )
-    {
-      if ( v20 <= v21 )
-        goto LABEL_110;
-      v19 = v20 - v21;
-    }
-    v22 = *v18;
-    v23 = *(_QWORD *)v1;
-    if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
-    {
-      if ( v23 )
-        v23 ^= v1;
-      else
-        v23 = 0LL;
-    }
-    v32 = 0LL;
-    while ( v23 )
-    {
-      v33 = *(_QWORD *)(v23 + 32);
-      if ( v22 >= v33 )
-      {
-        if ( v22 >= *(_QWORD *)(v23 + 40) + v33 )
-        {
-          v34 = *(_QWORD *)(v23 + 8);
-          goto LABEL_78;
-        }
-        v32 = v23;
-      }
-      v34 = *(_QWORD *)v23;
-LABEL_78:
-      if ( (*(_BYTE *)(v1 + 8) & 1) != 0 && v34 )
-        v23 ^= v34;
-      else
-        v23 = v34;
-    }
-    v35 = (v22 + v19) & 0xFFFFFFFFFFFC0000uLL;
-    v36 = (v22 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL;
-    v37 = v35;
-    if ( v35 >= v36 )
-    {
-      v38 = v35 - v36;
-      if ( v38 >= 0x40000 )
-      {
-        v39 = 6LL * v17;
-        LODWORD(qword_140D852F8[v39]) = *(_DWORD *)(v32 + 24);
-        qword_140D852F8[v39 + 1] = v36;
-        qword_140D852F8[v39 + 2] = v38;
-        v40 = *(_QWORD *)(v32 + 32);
-        v41 = *(_QWORD *)(v32 + 40);
-        v42 = v40 + v41;
-        if ( v36 == v40 )
-        {
-          if ( v37 == v42 )
-          {
-            RtlRbRemoveNode((unsigned __int64 *)v1, v32);
-            goto LABEL_110;
-          }
-          *(_QWORD *)(v32 + 32) = v40 + v38;
-LABEL_90:
-          *(_QWORD *)(v32 + 40) = v41 - v38;
-        }
-        else
-        {
-          if ( v37 == v42 )
-            goto LABEL_90;
-          v43 = &MxDeferredBootSplitDescriptor[v39];
-          *((_DWORD *)v43 + 6) = *(_DWORD *)(v32 + 24);
-          v43[4] = *(_QWORD *)(v32 + 32);
-          v43[5] = v36 - *(_QWORD *)(v32 + 32);
-          v44 = *(_QWORD *)(v32 + 32) - v36;
-          *(_QWORD *)(v32 + 32) = v37;
-          *(_QWORD *)(v32 + 40) += v44 - v38;
-          if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
-          {
-            if ( *(_QWORD *)v1 )
-              v45 = *(_QWORD *)v1 ^ v1;
-            else
-              v45 = 0LL;
-          }
-          else
-          {
-            v45 = *(_QWORD *)v1;
-          }
-          v46 = 0;
-          if ( v45 )
-          {
-            while ( 1 )
-            {
-              if ( (unsigned __int64)v43[4] >= *(_QWORD *)(v45 + 32) )
-              {
-                v47 = *(_QWORD *)(v45 + 8);
-                if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
-                {
-                  if ( !v47 )
-                    goto LABEL_108;
-                  v47 ^= v45;
-                }
-                if ( !v47 )
-                {
-LABEL_108:
-                  v46 = 1;
-                  break;
-                }
-              }
-              else
-              {
-                v47 = *(_QWORD *)v45;
-                if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
-                {
-                  if ( !v47 )
-                    goto LABEL_102;
-                  v47 ^= v45;
-                }
-                if ( !v47 )
-                {
-LABEL_102:
-                  v46 = 0;
-                  break;
-                }
-              }
-              v45 = v47;
-            }
-          }
-          RtlRbInsertNodeEx((unsigned __int64 *)v1, v45, v46, (unsigned __int64)&MxDeferredBootSplitDescriptor[v39]);
-        }
-      }
-    }
-LABEL_110:
-    ++v17;
-  }
-  while ( v17 < (unsigned __int16)KeNumberNodes );
 }

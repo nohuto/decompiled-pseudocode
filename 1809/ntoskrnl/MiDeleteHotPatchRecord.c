@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeleteHotPatchRecord @ 0x140854BEC
+ * XREFs of MiDeleteHotPatchRecord @ 0x140854BCC
  * Callers:
- *     MiUnloadHotPatch @ 0x140858218 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x1408582D0 (MiUnloadHotPatchForUserSid.c)
+ *     MiUnloadHotPatch @ 0x1408581F8 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408582B0 (MiUnloadHotPatchForUserSid.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,7 +10,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCompareHotPatchNodes @ 0x140854A98 (MiCompareHotPatchNodes.c)
+ *     MiCompareHotPatchNodes @ 0x140854A78 (MiCompareHotPatchNodes.c)
  */
 
 __int64 __fastcall MiDeleteHotPatchRecord(unsigned __int64 *a1, ULONG_PTR a2, int a3, int a4)

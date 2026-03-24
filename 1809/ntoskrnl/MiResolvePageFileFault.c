@@ -1,5 +1,5 @@
 /*
- * XREFs of MiResolvePageFileFault @ 0x140154B24
+ * XREFs of MiResolvePageFileFault @ 0x140154B44
  * Callers:
  *     MiIssueFlowThroughFault @ 0x140003D9C (MiIssueFlowThroughFault.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
@@ -24,19 +24,19 @@
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
  *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiSharedVaToPartition @ 0x14010978C (MiSharedVaToPartition.c)
- *     MiFlowThroughInsertNode @ 0x14010F5C0 (MiFlowThroughInsertNode.c)
- *     MiGetPagingFileOffset @ 0x14010FA04 (MiGetPagingFileOffset.c)
- *     MiSetInPagePrefetchPriority @ 0x140113B94 (MiSetInPagePrefetchPriority.c)
- *     MiReduceMdl @ 0x14011A914 (MiReduceMdl.c)
- *     MiLockSetPfnPriority @ 0x140121EF8 (MiLockSetPfnPriority.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
- *     MiIsPteInStore @ 0x1401417E8 (MiIsPteInStore.c)
- *     MiFreePageChain @ 0x140155A78 (MiFreePageChain.c)
- *     MiKernelStackVaToStackNode @ 0x140155AA0 (MiKernelStackVaToStackNode.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiSharedVaToPartition @ 0x1401097AC (MiSharedVaToPartition.c)
+ *     MiFlowThroughInsertNode @ 0x14010F5E0 (MiFlowThroughInsertNode.c)
+ *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
+ *     MiSetInPagePrefetchPriority @ 0x140113BB4 (MiSetInPagePrefetchPriority.c)
+ *     MiReduceMdl @ 0x14011A934 (MiReduceMdl.c)
+ *     MiLockSetPfnPriority @ 0x140121F18 (MiLockSetPfnPriority.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
+ *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
+ *     MiFreePageChain @ 0x140155A98 (MiFreePageChain.c)
+ *     MiKernelStackVaToStackNode @ 0x140155AC0 (MiKernelStackVaToStackNode.c)
  */
 
 __int64 MiResolvePageFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)

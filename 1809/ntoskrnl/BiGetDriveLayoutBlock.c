@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetDriveLayoutBlock @ 0x14071213C
+ * XREFs of BiGetDriveLayoutBlock @ 0x14071211C
  * Callers:
- *     BiGetNtPartitionPath @ 0x140711D64 (BiGetNtPartitionPath.c)
+ *     BiGetNtPartitionPath @ 0x140711D44 (BiGetNtPartitionPath.c)
  * Callees:
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetDriveLayoutInformation @ 0x1407148AC (BiGetDriveLayoutInformation.c)
- *     BiGetPhysicalDriveName @ 0x1408F194C (BiGetPhysicalDriveName.c)
+ *     BiGetDriveLayoutInformation @ 0x14071488C (BiGetDriveLayoutInformation.c)
+ *     BiGetPhysicalDriveName @ 0x1408F192C (BiGetPhysicalDriveName.c)
  */
 
 __int64 __fastcall BiGetDriveLayoutBlock(unsigned int a1, PVOID *a2, _DWORD *a3)

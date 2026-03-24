@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwQueryDirectoryObject @ 0x14041E0A0
+ * XREFs of ZwQueryDirectoryObject @ 0x1403FCC20
  * Callers:
- *     DifZwQueryDirectoryObjectWrapper @ 0x140624100 (DifZwQueryDirectoryObjectWrapper.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     IopGetLegacyVetoListDrivers @ 0x140799218 (IopGetLegacyVetoListDrivers.c)
- *     BiGetNtPartitionPath @ 0x140802BE0 (BiGetNtPartitionPath.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x1408276AC (PiDrvDbEnumDriverStoreNodes.c)
- *     ExpFindArcName @ 0x1409FC2D0 (ExpFindArcName.c)
- *     SiGetEfiSystemDevice @ 0x140A21C40 (SiGetEfiSystemDevice.c)
- *     CmGetSystemDriverList @ 0x140B12C84 (CmGetSystemDriverList.c)
+ *     IopGetLegacyVetoListDrivers @ 0x140661930 (IopGetLegacyVetoListDrivers.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     BiGetNtPartitionPath @ 0x140782748 (BiGetNtPartitionPath.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407A43FC (PiDrvDbEnumDriverStoreNodes.c)
+ *     ExpFindArcName @ 0x14094FF14 (ExpFindArcName.c)
+ *     SiGetEfiSystemDevice @ 0x140973BD0 (SiGetEfiSystemDevice.c)
+ *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
  * Callees:
  *     <none>
  */

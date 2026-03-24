@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiDeleteColorSpace @ 0x1C0138690
+ * XREFs of NtGdiDeleteColorSpace @ 0x1C0165740
  * Callers:
  *     <none>
  * Callees:

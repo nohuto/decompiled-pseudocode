@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpNodeCreateSystemThread @ 0x14066A9C8
+ * XREFs of ExpNodeCreateSystemThread @ 0x14066A9A8
  * Callers:
- *     ExpPartitionCreateSystemThread @ 0x14066A974 (ExpPartitionCreateSystemThread.c)
+ *     ExpPartitionCreateSystemThread @ 0x14066A954 (ExpPartitionCreateSystemThread.c)
  * Callees:
- *     KeSelectIdealProcessor @ 0x1400D8994 (KeSelectIdealProcessor.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
+ *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall ExpNodeCreateSystemThread(

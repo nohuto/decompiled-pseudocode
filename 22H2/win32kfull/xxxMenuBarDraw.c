@@ -1,47 +1,47 @@
 /*
- * XREFs of xxxMenuBarDraw @ 0x1C0235E48
+ * XREFs of xxxMenuBarDraw @ 0x1C024CF54
  * Callers:
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
- *     xxxDWP_DoNCActivate @ 0x1C00C9228 (xxxDWP_DoNCActivate.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     xxxDWP_DoNCActivate @ 0x1C00DC844 (xxxDWP_DoNCActivate.c)
  * Callees:
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     GetCaptionHeight @ 0x1C00ECE00 (GetCaptionHeight.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ThreadUnlockMenuNoModify @ 0x1C01FF9C4 (ThreadUnlockMenuNoModify.c)
- *     ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C0233DC4 (-RecalcDCVisRgn@@YAXPEAUHDC__@@@Z.c)
- *     xxxMenuDraw @ 0x1C02361F4 (xxxMenuDraw.c)
- *     xxxMenuBarCompute @ 0x1C0239240 (xxxMenuBarCompute.c)
+ *     xxxMenuDraw @ 0x1C0043668 (xxxMenuDraw.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     GetCaptionHeight @ 0x1C0047254 (GetCaptionHeight.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     GetAppCompatFlags2 @ 0x1C00E0FC0 (GetAppCompatFlags2.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     xxxMenuBarCompute @ 0x1C0102284 (xxxMenuBarCompute.c)
+ *     ThreadLockMenuNoModify @ 0x1C01024BC (ThreadLockMenuNoModify.c)
+ *     ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C024B9B8 (-RecalcDCVisRgn@@YAXPEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall xxxMenuBarDraw(_QWORD *a1, HDC a2, int a3, int a4)
 {
   __int64 v8; // rdx
-  unsigned int v9; // ebx
-  __int64 ThreadWin32Thread; // rax
-  __int64 v11; // rcx
-  int v12; // r15d
-  unsigned int v13; // r14d
+  unsigned int v9; // edi
+  __int64 v10; // rcx
+  unsigned int v11; // r15d
+  unsigned int v12; // esi
+  __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // rdi
-  __int64 v21; // r8
-  int v23; // [rsp+28h] [rbp-39h]
-  _QWORD v24[2]; // [rsp+38h] [rbp-29h] BYREF
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rbx
+  __int64 v22; // rcx
+  __int64 **v24[2]; // [rsp+38h] [rbp-29h] BYREF
   __int64 v25; // [rsp+48h] [rbp-19h]
   __int128 v26; // [rsp+50h] [rbp-11h] BYREF
   __int64 v27; // [rsp+60h] [rbp-1h]
   _DWORD v28[4]; // [rsp+68h] [rbp+7h] BYREF
   __int64 v29; // [rsp+78h] [rbp+17h]
   int v30; // [rsp+80h] [rbp+1Fh]
-  int v31; // [rsp+84h] [rbp+23h]
+  unsigned int v31; // [rsp+84h] [rbp+23h]
   int v32; // [rsp+88h] [rbp+27h]
   int v33; // [rsp+8Ch] [rbp+2Bh]
   __int64 v34; // [rsp+90h] [rbp+2Fh]
@@ -61,36 +61,24 @@ __int64 __fastcall xxxMenuBarDraw(_QWORD *a1, HDC a2, int a3, int a4)
   else
   {
     if ( (*(_BYTE *)(a1[5] + 16LL) & 0x40) != 0 && *(_QWORD *)(a1[2] + 432LL) == gpqForeground
-      || (ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread()),
-          *(_DWORD *)(ThreadWin32Thread + 632) <= 0x400u)
-      && (*(_DWORD *)(ThreadWin32Thread + 648) & 0x80u) != 0 )
+      || (GetAppCompatFlags2(0x400u) & 0x80u) != 0LL )
     {
-      *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v24[0] + 40LL) + 40LL) &= ~0x10u;
+      *(_DWORD *)((*v24[0])[5] + 40) &= ~0x10u;
     }
     else
     {
-      *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v24[0] + 40LL) + 40LL) |= 0x10u;
+      *(_DWORD *)((*v24[0])[5] + 40) |= 0x10u;
     }
-    v11 = v25;
+    v10 = v25;
     if ( !v25 )
-      v11 = *(_QWORD *)v24[0];
-    *(_DWORD *)(*(_QWORD *)(v11 + 40) + 40LL) |= 0x200u;
-    ThreadLock(v11, &v26);
-    v12 = GetCaptionHeight((__int64)a1) + a4;
-    v13 = *(_DWORD *)(a1[5] + 96LL) + -2 * a3 - *(_DWORD *)(a1[5] + 88LL);
-    if ( a1 != *(_QWORD **)(*(_QWORD *)v24[0] + 80LL)
-      || !*(_DWORD *)(*(_QWORD *)v24[0] + 64LL)
-      || !*(_DWORD *)(*(_QWORD *)v24[0] + 68LL) )
-    {
-      xxxMenuBarCompute(
-        (unsigned int)v24,
-        (_DWORD)a1,
-        v12,
-        a3,
-        *(_DWORD *)(a1[5] + 96LL) + -2 * a3 - *(_DWORD *)(a1[5] + 88LL));
-    }
-    if ( *(_DWORD *)(*(_QWORD *)v24[0] + 64LL) > v13
-      || v12 + *(_DWORD *)(*(_QWORD *)v24[0] + 68LL) > *(_DWORD *)(a1[5] + 100LL) - *(_DWORD *)(a1[5] + 92LL) - a4 )
+      v10 = (__int64)*v24[0];
+    ThreadLockMenuNoModify(v10, &v26);
+    v11 = GetCaptionHeight((__int64)a1) + a4;
+    v12 = *(_DWORD *)(a1[5] + 96LL) + -2 * a3 - *(_DWORD *)(a1[5] + 88LL);
+    if ( a1 != *((_QWORD **)*v24[0] + 10) || !*((_DWORD *)*v24[0] + 16) || !*((_DWORD *)*v24[0] + 17) )
+      xxxMenuBarCompute(v24, (__int64)a1, v11, a3, *(_DWORD *)(a1[5] + 96LL) + -2 * a3 - *(_DWORD *)(a1[5] + 88LL));
+    if ( *((_DWORD *)*v24[0] + 16) > v12
+      || (int)(v11 + *((_DWORD *)*v24[0] + 17)) > *(_DWORD *)(a1[5] + 100LL) - *(_DWORD *)(a1[5] + 92LL) - a4 )
     {
       GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
       v35 = 1;
@@ -98,51 +86,57 @@ __int64 __fastcall xxxMenuBarDraw(_QWORD *a1, HDC a2, int a3, int a4)
         a2,
         (unsigned int)(*(_DWORD *)(a1[5] + 88LL) + a3),
         *(unsigned int *)(a1[5] + 92LL),
-        a3 + *(_DWORD *)(a1[5] + 88LL) + v13,
+        a3 + *(_DWORD *)(a1[5] + 88LL) + v12,
         *(_DWORD *)(a1[5] + 100LL) - a4);
       GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     }
     v28[0] = a3;
-    v28[1] = v12;
-    v28[2] = *(_DWORD *)(*(_QWORD *)v24[0] + 64LL);
-    v28[3] = *(_DWORD *)(*(_QWORD *)v24[0] + 68LL);
-    if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v24[0] + 40LL) + 24LL) )
+    v28[1] = v11;
+    v28[2] = *((_DWORD *)*v24[0] + 16);
+    v28[3] = *((_DWORD *)*v24[0] + 17);
+    if ( *(_QWORD *)((*v24[0])[5] + 24) )
     {
-      v14 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v24[0] + 40LL) + 24LL);
+      v13 = *(_QWORD *)((*v24[0])[5] + 24);
     }
     else if ( ((unsigned int)gpdwCPUserPreferencesMask & 0x80020000) == 0x80020000 )
     {
-      v14 = *(_QWORD *)(gpsi + 4936LL);
+      v13 = *(_QWORD *)(gpsi + 4936LL);
     }
     else
     {
-      v14 = *(_QWORD *)(gpsi + 4728LL);
+      v13 = *(_QWORD *)(gpsi + 4728LL);
     }
-    v29 = v14;
+    v29 = v13;
     v30 = a3;
-    v15 = *(_QWORD *)v24[0];
+    v14 = (__int64)*v24[0];
     v33 = 1;
-    v31 = v12 + *(_DWORD *)(v15 + 68);
-    v16 = a1[5];
-    v32 = *(_DWORD *)(*(_QWORD *)v24[0] + 64LL);
-    if ( (*(_BYTE *)(v16 + 25) & 3) == 0 || (*(_BYTE *)(v16 + 20) & 8) != 0 )
-      v17 = *(_QWORD *)(gpsi + 4744LL);
+    v31 = v11 + *(_DWORD *)(v14 + 68);
+    v15 = a1[5];
+    v32 = *((_DWORD *)*v24[0] + 16);
+    if ( (*(_BYTE *)(v15 + 25) & 3) == 0 || (*(_BYTE *)(v15 + 20) & 8) != 0 )
+      v16 = *(_QWORD *)(gpsi + 4744LL);
     else
-      v17 = *(_QWORD *)(gpsi + 4816LL);
-    v34 = v17;
-    GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)v28, 2u, v23);
-    v18 = a1[5];
-    if ( (*(_BYTE *)(v18 + 25) & 3) == 0 || (*(_BYTE *)(v18 + 20) & 8) != 0 )
-      v19 = *(_QWORD *)(gpsi + 4744LL);
+      v16 = *(_QWORD *)(gpsi + 4816LL);
+    v34 = v16;
+    GrePolyPatBlt(a2, 0xF00021u, (struct _POLYPATBLT *)v28, 2u);
+    v17 = a1[5];
+    if ( (*(_BYTE *)(v17 + 25) & 3) == 0 || (*(_BYTE *)(v17 + 20) & 8) != 0 )
+      v18 = *(_QWORD *)(gpsi + 4744LL);
     else
-      v19 = *(_QWORD *)(gpsi + 4816LL);
-    v20 = GreSelectBrush(a2, v19);
-    xxxMenuDraw(a2);
-    GreSelectBrush(a2, v20);
+      v18 = *(_QWORD *)(gpsi + 4816LL);
+    v19 = GreSelectBrush(a2, v18);
+    v20 = v25;
+    v21 = v19;
+    if ( !v25 )
+      v20 = (__int64)*v24[0];
+    xxxMenuDraw(a2, v20, 0LL);
+    GreSelectBrush(a2, v21);
     if ( v35 )
       RecalcDCVisRgn(a2);
-    v9 = *(_DWORD *)(*(_QWORD *)v24[0] + 68LL) + 1;
-    ThreadUnlockMenuNoModify((__int64)&v26, *(_QWORD *)v24[0], v21);
+    v9 = *((_DWORD *)*v24[0] + 17) + 1;
+    v22 = *((_QWORD *)&v26 + 1);
+    *(_DWORD *)(*(_QWORD *)(*((_QWORD *)&v26 + 1) + 40LL) + 40LL) &= ~0x200u;
+    ThreadUnlock1(v22);
   }
   SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v24);
   return v9;

@@ -1,14 +1,15 @@
 /*
- * XREFs of KseHookMemcpy_s @ 0x1405824F0
+ * XREFs of KseHookMemcpy_s @ 0x140528860
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall KseHookMemcpy_s(char *a1, size_t a2, __int64 *a3, size_t a4)
 {
   __int64 *v4; // rbx
+  __int64 result; // rax
   size_t i; // rdx
   __int64 v7; // rax
   size_t v8; // r9
@@ -42,5 +43,8 @@ __int64 __fastcall KseHookMemcpy_s(char *a1, size_t a2, __int64 *a3, size_t a4)
     return 0LL;
   }
   memset(a1, 0, a2);
-  return v4 != 0LL ? 34 : 22;
+  result = 34LL;
+  if ( !v4 )
+    return 22LL;
+  return result;
 }

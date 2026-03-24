@@ -1,11 +1,11 @@
 /*
- * XREFs of PopConsoleSessionPassiveInput @ 0x1406DC3C0
+ * XREFs of PopConsoleSessionPassiveInput @ 0x1406DC3A0
  * Callers:
- *     PopSessionInputChange @ 0x1406DC520 (PopSessionInputChange.c)
+ *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
  * Callees:
- *     PopUpdateTimeouts @ 0x1406DC820 (PopUpdateTimeouts.c)
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
- *     PopGetLockConsoleTimeout @ 0x1406DCE14 (PopGetLockConsoleTimeout.c)
+ *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
+ *     PopGetLockConsoleTimeout @ 0x1406DCDF4 (PopGetLockConsoleTimeout.c)
  */
 
 __int64 __fastcall PopConsoleSessionPassiveInput(unsigned int a1, int a2, _DWORD *a3)

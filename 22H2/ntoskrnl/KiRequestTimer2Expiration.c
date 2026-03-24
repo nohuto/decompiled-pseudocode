@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRequestTimer2Expiration @ 0x1403186C0
+ * XREFs of KiRequestTimer2Expiration @ 0x14035E848
  * Callers:
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14039A40C (KiAdjustTimer2DueTimes.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14039DCF0 (KiAdjustTimer2DueTimes.c)
  * Callees:
- *     KiSetDpcRequestFlag @ 0x140318724 (KiSetDpcRequestFlag.c)
- *     KiSendSoftwareInterrupt @ 0x140318764 (KiSendSoftwareInterrupt.c)
- *     KiRequestSoftwareInterrupt @ 0x140318788 (KiRequestSoftwareInterrupt.c)
+ *     KiSetDpcRequestFlag @ 0x14035E8AC (KiSetDpcRequestFlag.c)
+ *     KiSendSoftwareInterrupt @ 0x14035E910 (KiSendSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x14035E984 (KiRequestSoftwareInterrupt.c)
  */
 
 __int64 KiRequestTimer2Expiration()
@@ -18,8 +18,8 @@ __int64 KiRequestTimer2Expiration()
 
   v0 = KiClockTimerOwner;
   v1 = (struct _KPRCB *)KiProcessorBlock[(unsigned int)KiClockTimerOwner];
-  result = KiSetDpcRequestFlag(&v1->13244, 8LL);
-  if ( (result & 0xA9) == 0 )
+  result = KiSetDpcRequestFlag(&v1->12588, 8LL);
+  if ( (result & 0x29) == 0 )
   {
     LOBYTE(v3) = 2;
     if ( KeGetCurrentPrcb() == v1 )

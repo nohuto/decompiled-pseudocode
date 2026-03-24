@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBFDO_QueryHubErrataFlags @ 0x1C00789BC
+ * XREFs of HUBFDO_QueryHubErrataFlags @ 0x1C007760C
  * Callers:
- *     HUBHSM_QueryingForHubHackFlags @ 0x1C00087C0 (HUBHSM_QueryingForHubHackFlags.c)
+ *     HUBHSM_QueryingForHubHackFlags @ 0x1C00084B0 (HUBHSM_QueryingForHubHackFlags.c)
  * Callees:
  *     RtlStringCchPrintfA @ 0x1C00010B0 (RtlStringCchPrintfA.c)
- *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C00315C8 (HUBMISC_ConvertUsbDeviceIdsToString.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C007E918 (HUBREG_QueryUsbHardwareVerifierValue.c)
- *     HUBREG_QueryHubErrataFlags @ 0x1C007FB68 (HUBREG_QueryHubErrataFlags.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0030EE4 (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C007D2C0 (HUBREG_QueryUsbHardwareVerifierValue.c)
+ *     HUBREG_QueryHubErrataFlags @ 0x1C007E5AC (HUBREG_QueryHubErrataFlags.c)
  */
 
 __int64 __fastcall HUBFDO_QueryHubErrataFlags(__int64 a1)

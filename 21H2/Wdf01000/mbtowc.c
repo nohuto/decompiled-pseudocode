@@ -1,9 +1,9 @@
 /*
- * XREFs of mbtowc @ 0x1C00364A8
+ * XREFs of mbtowc @ 0x1C001B10C
  * Callers:
- *     _woutput_l @ 0x1C00359CC (_woutput_l.c)
+ *     _woutput_l @ 0x1C001A67C (_woutput_l.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar_0 @ 0x1C0036642 (RtlAnsiCharToUnicodeChar_0.c)
+ *     RtlAnsiCharToUnicodeChar_0 @ 0x1C001B209 (RtlAnsiCharToUnicodeChar_0.c)
  */
 
 __int64 __fastcall mbtowc(wchar_t *pwc, char *s, unsigned __int64 n)

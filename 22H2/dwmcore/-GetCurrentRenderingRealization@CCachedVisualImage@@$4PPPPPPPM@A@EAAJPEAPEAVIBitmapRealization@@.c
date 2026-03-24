@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentRenderingRealization@CCachedVisualImage@@$4PPPPPPPM@A@EAAJPEAPEAVIBitmapRealization@@@Z @ 0x18011C560
+ * XREFs of ?GetCurrentRenderingRealization@CCachedVisualImage@@$4PPPPPPPM@A@EAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800F4760
  * Callers:
  *     <none>
  * Callees:

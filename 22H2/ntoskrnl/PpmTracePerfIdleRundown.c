@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmTracePerfIdleRundown @ 0x140597F10
+ * XREFs of PpmTracePerfIdleRundown @ 0x1405770F0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     PpmPerfGetCurrentState @ 0x14032A3D8 (PpmPerfGetCurrentState.c)
- *     PpmEventIdleStateChange @ 0x14034E368 (PpmEventIdleStateChange.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     PpmEventIdleStateChange @ 0x140307BC0 (PpmEventIdleStateChange.c)
+ *     PpmPerfGetCurrentState @ 0x14031CC24 (PpmPerfGetCurrentState.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmTracePerfIdleRundown(_QWORD *a1)
@@ -20,18 +20,18 @@ __int64 __fastcall PpmTracePerfIdleRundown(_QWORD *a1)
 
   v5 = 0LL;
   v4 = 0LL;
-  if ( a1[4246] )
+  if ( a1[4141] )
   {
-    PpmPerfGetCurrentState((__int64)a1, (_DWORD *)&v4 + 1, 0LL, 0LL, &v4, 0LL);
+    PpmPerfGetCurrentState((__int64)a1, (unsigned __int64)&v4 + 4, 0LL, 0LL, &v4, 0LL);
     v8 = 0;
     DWORD2(v4) = DWORD1(v4);
     v5 = a1[25];
     v6 = &v4;
     v7 = 24;
-    EtwTraceKernelEvent((int)&v6, 1, 0x80008000, 4659, 4200450);
+    EtwTraceKernelEvent((__int64)&v6, 1u, 0x80008000, 0x1233u, 0x401802u);
   }
-  v2 = a1[4200];
+  v2 = a1[4096];
   if ( v2 )
-    PpmEventIdleStateChange(*(_DWORD *)(v2 + 24), *(_DWORD *)(v2 + 24));
+    PpmEventIdleStateChange(*(_DWORD *)(v2 + 16), *(_DWORD *)(v2 + 16));
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspValidateJobChainLimits @ 0x1406821D4
+ * XREFs of PspValidateJobChainLimits @ 0x14071FEC0
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140682900 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     PspValidateJobAssignmentProcessLimits @ 0x140682240 (PspValidateJobAssignmentProcessLimits.c)
+ *     PspValidateJobAssignmentProcessLimits @ 0x14071FF2C (PspValidateJobAssignmentProcessLimits.c)
  */
 
 __int64 __fastcall PspValidateJobChainLimits(__int64 a1, __int64 a2, __int64 a3, __int16 a4)
@@ -22,7 +22,7 @@ __int64 __fastcall PspValidateJobChainLimits(__int64 a1, __int64 a2, __int64 a3,
     result = PspValidateJobAssignmentProcessLimits(v6, a3, v7);
     if ( (int)result < 0 )
       break;
-    v6 = *(_QWORD *)(v6 + 1264);
+    v6 = *(_QWORD *)(v6 + 1072);
     if ( v6 == a2 )
       return 0LL;
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CMFCheckAccess @ 0x140A03FB4
+ * XREFs of CMFCheckAccess @ 0x140958274
  * Callers:
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     SeCreateAccessState @ 0x14071F140 (SeCreateAccessState.c)
- *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
- *     SePrivilegeCheck @ 0x14072B5E0 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     CMFCreateSecurityDescriptor @ 0x140A04204 (CMFCreateSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
+ *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
+ *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
+ *     CMFCreateSecurityDescriptor @ 0x1409584C4 (CMFCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CMFCheckAccess(__int64 a1, ACCESS_MASK a2, KPROCESSOR_MODE a3)

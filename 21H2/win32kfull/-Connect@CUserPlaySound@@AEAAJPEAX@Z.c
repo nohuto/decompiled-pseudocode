@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C00EFD74
+ * XREFs of ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C012DEBC
  * Callers:
- *     NtUserDoSoundConnect @ 0x1C0120CE0 (NtUserDoSoundConnect.c)
+ *     NtUserDoSoundConnect @ 0x1C0135420 (NtUserDoSoundConnect.c)
  * Callees:
- *     PlaySoundDisconnect @ 0x1C0377450 (PlaySoundDisconnect.c)
- *     PlaySoundConnect @ 0x1C0377490 (PlaySoundConnect.c)
+ *     PlaySoundDisconnect @ 0x1C037B7C8 (PlaySoundDisconnect.c)
+ *     PlaySoundConnect @ 0x1C037B808 (PlaySoundConnect.c)
  */
 
 __int64 __fastcall CUserPlaySound::Connect(CUserPlaySound *this, void *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall CUserPlaySound::Connect(CUserPlaySound *this, void *a2)
 
   Binding = 0LL;
   v2 = CUserPlaySound::s_pUserPlaySound;
-  v3 = PlaySoundConnect(gSessionId, a2, &Binding);
+  v3 = PlaySoundConnect((unsigned int)gSessionId, a2, &Binding);
   if ( v3 >= 0 )
   {
     KeEnterCriticalRegion();

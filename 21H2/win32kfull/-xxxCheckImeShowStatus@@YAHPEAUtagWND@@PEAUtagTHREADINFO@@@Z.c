@@ -1,141 +1,148 @@
 /*
- * XREFs of ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00DFE44
+ * XREFs of ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00F7808
  * Callers:
- *     NtUserCheckImeShowStatusInThread @ 0x1C00DFD70 (NtUserCheckImeShowStatusInThread.c)
- *     ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01DE204 (-xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z.c)
+ *     xxxCheckImeShowStatusInThread @ 0x1C00F77D0 (xxxCheckImeShowStatusInThread.c)
+ *     ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01E2D64 (-xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     BuildHwndList @ 0x1C0071A90 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00722E0 (FreeHwndList.c)
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     BuildHwndList @ 0x1C006CB60 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DAC0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall xxxCheckImeShowStatus(struct tagWND *a1, struct tagTHREADINFO *a2)
 {
-  struct tagTHREADINFO *v2; // r14
-  unsigned int v4; // edi
-  struct tagBWL *v6; // rax
-  struct tagBWL *v7; // r12
-  __int64 *i; // r15
+  unsigned int v3; // ebx
+  struct tagBWL *v5; // rax
+  PRKPROCESS *v6; // rcx
+  unsigned __int64 *i; // r15
+  unsigned __int64 v8; // r14
   __int64 v9; // rsi
-  struct tagWND *v10; // rdi
-  __int64 v11; // r14
-  _QWORD **v12; // rcx
-  bool v13; // zf
-  __int64 v14; // r8
-  __int64 v15; // rsi
-  ULONG64 *v16; // rsi
-  char v17; // r14
-  PRKPROCESS *v18; // rcx
-  ULONG64 v19; // rsi
-  ULONG64 v20; // rax
-  __int64 v21; // rdi
-  __int64 v22; // rax
-  _QWORD **v24; // [rsp+A0h] [rbp+18h]
+  struct _KTHREAD *CurrentThread; // r12
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v16; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v18; // rbx
+  __int64 *v19; // r12
+  unsigned __int64 v20; // r14
+  __int64 v21; // r8
+  __int64 v22; // rbx
+  ULONG64 *v23; // rbx
+  char v24; // r14
+  ULONG64 v25; // rsi
+  ULONG64 v26; // rax
+  __int64 v27; // rbx
+  __int64 v28; // rax
+  struct tagBWL *v29; // [rsp+48h] [rbp-50h]
 
-  v2 = a2;
-  v4 = 0;
+  v3 = 0;
   if ( *(char *)(*((_QWORD *)a1 + 5) + 20LL) < 0 )
     return 0LL;
-  v6 = BuildHwndList(*(ShellWindowManagement **)(*((_QWORD *)a1 + 13) + 112LL), (const struct tagWND *)2, 0LL, 1);
-  v7 = v6;
-  if ( !v6 )
-    return v4;
-  for ( i = (__int64 *)((char *)v6 + 32); ; ++i )
+  v5 = BuildHwndList(*(struct tagWND **)(*((_QWORD *)a1 + 13) + 112LL), 2, 0LL);
+  v29 = v5;
+  if ( v5 )
   {
-    v9 = *i;
-    if ( *i == 1 )
-      break;
-    v10 = 0LL;
-    PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( (unsigned __int64)(unsigned __int16)v9 < *(_QWORD *)(gpsi + 8LL) )
+    for ( i = (unsigned __int64 *)((char *)v5 + 32); ; ++i )
     {
-      v11 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v9 * LODWORD(gSharedInfo[2]);
-      v12 = (_QWORD **)HMPkheFromPhe(v11);
-      v24 = v12;
-      LOWORD(v9) = WORD1(v9) & 0x7FFF;
-      if ( (WORD1(v9) & 0x7FFF) != *(_WORD *)(v11 + 26) && (_WORD)v9 != 0x7FFF )
+      v8 = *i;
+      if ( *i == 1 )
+        break;
+      v9 = 0LL;
+      CurrentThread = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess(v6)
+        || (CurrentProcess = PsGetCurrentProcess(v12, v11, v13),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v16),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
       {
-        if ( (_WORD)v9 || !PsGetCurrentProcessWow64Process(v12) )
+        PsGetThreadWin32Thread(CurrentThread);
+      }
+      v6 = (PRKPROCESS *)gpsi;
+      if ( (unsigned __int64)(unsigned __int16)v8 < *(_QWORD *)(gpsi + 8LL) )
+      {
+        v18 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v8 * LODWORD(gSharedInfo[2]);
+        v19 = (__int64 *)HMPkheFromPhe(v18);
+        v20 = v8 >> 16;
+        if ( ((_WORD)v20 == *(_WORD *)(v18 + 26)
+           || (_WORD)v20 == 0xFFFF
+           || !(_WORD)v20 && PsGetCurrentProcessWow64Process(v6))
+          && (*(_BYTE *)(v18 + 25) & 1) == 0
+          && *(_BYTE *)(v18 + 24) == 1 )
         {
-LABEL_15:
-          v2 = a2;
-          goto LABEL_16;
+          v9 = *v19;
         }
-        v12 = v24;
       }
-      if ( (*(_BYTE *)(v11 + 25) & 1) != 0 )
-        goto LABEL_15;
-      v13 = *(_BYTE *)(v11 + 24) == 1;
-      v2 = a2;
-      if ( v13 )
-        v10 = (struct tagWND *)*v12;
-    }
-LABEL_16:
-    if ( v10 && a1 != v10 )
-    {
-      v14 = *((_QWORD *)v10 + 5);
-      v15 = v14;
-      if ( (*(_WORD *)(v14 + 42) & 0x1000) != 0 )
+      if ( v9 && a1 != (struct tagWND *)v9 )
       {
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(4096LL);
-        v14 = *((_QWORD *)v10 + 5);
-        v15 = v14;
-      }
-      if ( (*(_WORD *)(v15 + 42) & 0x1000) == 0 )
-      {
-        if ( **(_WORD **)(*((_QWORD *)v10 + 17) + 8LL) == *(_WORD *)(gpsi + 898LL) )
-          v16 = *(_DWORD *)(v14 + 248) ? (ULONG64 *)*((_QWORD *)v10 + 35) : *(ULONG64 **)(v15 + 296);
-        else
-          v16 = 0LL;
-        if ( v16 && *(char *)(v14 + 20) >= 0 && (!v2 || v2 == *((struct tagTHREADINFO **)v10 + 2)) )
+        v21 = *(_QWORD *)(v9 + 40);
+        v22 = v21;
+        if ( (*(_WORD *)(v21 + 42) & 0x1000) != 0 )
         {
-          v17 = 0;
-          v18 = *(PRKPROCESS **)(*((_QWORD *)v10 + 2) + 424LL);
-          if ( v18 != *(PRKPROCESS **)(gptiCurrent + 424LL) )
-          {
-            KeAttachProcess(*v18);
-            v17 = 1;
-          }
-          v19 = *v16;
-          if ( v19 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
-          {
-            if ( v17 )
-              KeDetachProcess();
-          }
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1103LL);
+          v21 = *(_QWORD *)(v9 + 40);
+          v22 = v21;
+        }
+        if ( (*(_WORD *)(v22 + 42) & 0x1000) == 0 )
+        {
+          v6 = (PRKPROCESS *)gpsi;
+          if ( **(_WORD **)(*(_QWORD *)(v9 + 136) + 8LL) == *(_WORD *)(gpsi + 898LL) )
+            v23 = *(_DWORD *)(v22 + 252) ? *(ULONG64 **)(v9 + 280) : *(ULONG64 **)(v22 + 296);
           else
+            v23 = 0LL;
+          if ( v23 && *(char *)(v21 + 20) >= 0 && (!a2 || a2 == *(struct tagTHREADINFO **)(v9 + 16)) )
           {
-            v20 = v19;
-            if ( v19 >= MmUserProbeAddress )
-              v20 = MmUserProbeAddress;
-            if ( (*(_DWORD *)(v20 + 44) & 1) != 0 )
+            v24 = 0;
+            v6 = *(PRKPROCESS **)(*(_QWORD *)(v9 + 16) + 424LL);
+            if ( v6 != *(PRKPROCESS **)(gptiCurrent + 424LL) )
             {
-              v21 = HMValidateHandleNoSecure(*(_QWORD *)(v19 + 16), 1);
-              if ( v21 )
-                *(_DWORD *)(v19 + 44) &= ~1u;
+              KeAttachProcess(*v6);
+              v24 = 1;
+            }
+            v25 = *v23;
+            if ( *v23 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
+            {
+              if ( v24 )
+                KeDetachProcess();
             }
             else
             {
-              v21 = 0LL;
-            }
-            if ( v17 )
-              KeDetachProcess();
-            if ( v21 )
-            {
-              v22 = *(_QWORD *)(v21 + 16);
-              if ( v22 )
+              v6 = (PRKPROCESS *)MmUserProbeAddress;
+              v26 = *v23;
+              if ( v25 >= MmUserProbeAddress )
+                v26 = MmUserProbeAddress;
+              if ( (*(_DWORD *)(v26 + 44) & 1) != 0 )
               {
-                if ( (*(_DWORD *)(v22 + 488) & 1) == 0 )
-                  PostMessage(v21, 642, 1, 0);
+                v27 = HMValidateHandleNoSecure(*(_QWORD *)(v25 + 16), 1);
+                if ( v27 )
+                  *(_DWORD *)(v25 + 44) &= ~1u;
+              }
+              else
+              {
+                v27 = 0LL;
+              }
+              if ( v24 )
+                KeDetachProcess();
+              if ( v27 )
+              {
+                v28 = *(_QWORD *)(v27 + 16);
+                if ( v28 )
+                {
+                  if ( (*(_DWORD *)(v28 + 488) & 1) == 0 )
+                    PostMessage(v27, 642, 1, 0);
+                }
               }
             }
           }
         }
       }
     }
-    v2 = a2;
+    FreeHwndList(v29);
+    return 1;
   }
-  FreeHwndList(v7);
-  return 1;
+  return v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlMarkHiberPhase @ 0x1402FAC40
+ * XREFs of RtlMarkHiberPhase @ 0x1402FAD40
  * Callers:
  *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     PopSetRange @ 0x14014494C (PopSetRange.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     PopSetRange @ 0x14014496C (PopSetRange.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void RtlMarkHiberPhase()
@@ -27,7 +27,7 @@ void RtlMarkHiberPhase()
     v1 = *(_DWORD *)(BugCheckParameter4 + 184);
     if ( v1 == 8 )
     {
-      v2 = (unsigned __int64)"tabase." >> 12;
+      v2 = (unsigned __int64)&unk_14037E7CF >> 12;
       for ( i = (unsigned __int64)XpressHashFunction >> 12; i < v2; i += j )
       {
         v4 = i + 1;

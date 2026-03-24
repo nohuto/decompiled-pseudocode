@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CalculatePlane@D2DVectorHelper@@YA?AUD2D_VECTOR_4F@@AEBU2@00@Z @ 0x1801F90CC
+ * XREFs of ?CalculatePlane@D2DVectorHelper@@YA?AUD2D_VECTOR_4F@@AEBU2@00@Z @ 0x18000B7E4
  * Callers:
- *     ?Create@CPolygon@@SAJPEAV?$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W46MilCompositingMode@@W46MilBitmapInterpolationMode@@_N7PEAUD2D_VECTOR_4F@@PEAPEAV1@@Z @ 0x1801FA18C (-Create@CPolygon@@SAJPEAV-$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMa.c)
- *     ?Init@CVisualDepthGeometry@@AEAAXAEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z @ 0x18025AAF4 (-Init@CVisualDepthGeometry@@AEAAXAEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z.c)
- *     ?GetPlaneOfVisual@ShadowHelpers@@YA?AUD2D_VECTOR_4F@@PEAVCVisual@@@Z @ 0x1802AA3F4 (-GetPlaneOfVisual@ShadowHelpers@@YA-AUD2D_VECTOR_4F@@PEAVCVisual@@@Z.c)
+ *     ?Init@CVisualDepthGeometry@@AEAAXAEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z @ 0x18000B424 (-Init@CVisualDepthGeometry@@AEAAXAEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z.c)
+ *     ?GetPlaneOfVisual@ShadowHelpers@@YA?AUD2D_VECTOR_4F@@PEAVCVisual@@@Z @ 0x18000B710 (-GetPlaneOfVisual@ShadowHelpers@@YA-AUD2D_VECTOR_4F@@PEAVCVisual@@@Z.c)
+ *     ?Create@CPolygon@@SAJPEAV?$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W46MilCompositingMode@@W46MilBitmapInterpolationMode@@_N7PEAUD2D_VECTOR_4F@@PEAPEAV1@@Z @ 0x1801F75D0 (-Create@CPolygon@@SAJPEAV-$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMa.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 struct D2D_VECTOR_4F *__fastcall D2DVectorHelper::CalculatePlane(
@@ -63,16 +63,16 @@ struct D2D_VECTOR_4F *__fastcall D2DVectorHelper::CalculatePlane(
   v24.m128_f32[2] = v18 - (float)(v12.m128_f32[0] * v15);
   v19 = _mm_shuffle_ps(v24, v24, 85).m128_f32[0];
   v20 = _mm_shuffle_ps(v24, v24, 170).m128_f32[0];
-  v21 = o_sqrtf_0((float)((float)(v19 * v19) + (float)(v24.m128_f32[0] * v24.m128_f32[0])) + (float)(v20 * v20));
+  v21 = sqrtf_0((float)((float)(v19 * v19) + (float)(v24.m128_f32[0] * v24.m128_f32[0])) + (float)(v20 * v20));
   if ( COERCE_FLOAT(LODWORD(v21) & _xmm) < 0.0000011920929 )
     v21 = *(float *)&FLOAT_1_0;
   result = this;
   this->x = v24.m128_f32[0] / v21;
   this->z = v20 / v21;
-  this->w = COERCE_FLOAT(COERCE_UNSIGNED_INT(
-                           (float)((float)((float)(v8 * v19) + (float)(x * v24.m128_f32[0])) + (float)(v10 * v20))
-                         + (float)(v11 * 0.0)) ^ _xmm)
-          / v21;
+  LODWORD(this->w) = COERCE_UNSIGNED_INT(
+                       (float)((float)((float)((float)(v8 * v19) + (float)(x * v24.m128_f32[0])) + (float)(v10 * v20))
+                             + (float)(v11 * 0.0))
+                     / v21) ^ _xmm;
   this->y = v19 / v21;
   return result;
 }

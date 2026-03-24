@@ -1,32 +1,32 @@
 /*
- * XREFs of AslFileMappingCreate @ 0x14075E160
+ * XREFs of AslFileMappingCreate @ 0x1407589F8
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14075E2D8 (SdbGetDatabaseMatch.c)
- *     SdbpCheckMatchingFiles @ 0x1408414E0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckKObject @ 0x140843160 (SdbpCheckKObject.c)
- *     SdbOpenDatabaseEx @ 0x140A108BC (SdbOpenDatabaseEx.c)
- *     SdbpCheckMatchingTextEntry @ 0x140A11614 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140A11A00 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x1407544C0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
+ *     SdbOpenDatabaseEx @ 0x14096408C (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     RtlFileMapInitializeByNtPath @ 0x1402D8914 (RtlFileMapInitializeByNtPath.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     AslStringDuplicate @ 0x14075B1B8 (AslStringDuplicate.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslFileMappingDelete @ 0x14075E448 (AslFileMappingDelete.c)
- *     AslFileNotFound @ 0x1408415E4 (AslFileNotFound.c)
- *     AslpFileMappingGetFileKind @ 0x140842E88 (AslpFileMappingGetFileKind.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlFileMapInitializeByNtPath @ 0x1403715CC (RtlFileMapInitializeByNtPath.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslFileNotFound @ 0x14075633C (AslFileNotFound.c)
+ *     AslFileMappingDelete @ 0x140756368 (AslFileMappingDelete.c)
+ *     AslStringDuplicate @ 0x14075A8A4 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     AslpFileMappingGetFileKind @ 0x1407B3894 (AslpFileMappingGetFileKind.c)
  */
 
-__int64 __fastcall AslFileMappingCreate(wchar_t ***a1, const WCHAR *a2, void *a3, wchar_t *a4, wchar_t *a5)
+__int64 __fastcall AslFileMappingCreate(__int64 *a1, const WCHAR *a2, void *a3, __int64 a4, __int64 a5)
 {
   __int64 v9; // rcx
-  wchar_t **v10; // rax
-  wchar_t **v11; // rdi
-  int v12; // ebx
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  NTSTATUS v12; // ebx
   void *v13; // rax
   HANDLE *v14; // rsi
   int v15; // eax
@@ -46,84 +46,88 @@ __int64 __fastcall AslFileMappingCreate(wchar_t ***a1, const WCHAR *a2, void *a3
     return 3221225485LL;
   *a1 = 0LL;
   RtlInitUnicodeString(&DestinationString, a2);
-  v10 = (wchar_t **)AslAlloc(v9, 0x58uLL);
+  v10 = AslAlloc(v9, 88LL);
   v11 = v10;
-  if ( !v10 )
+  if ( v10 )
   {
-    v12 = -1073741801;
-    goto LABEL_16;
-  }
-  v12 = AslStringDuplicate(v10, a2);
-  if ( v12 < 0 )
-    goto LABEL_22;
-  v13 = 0LL;
-  if ( a3 != (void *)-1LL )
-    v13 = a3;
-  v14 = (HANDLE *)(v11 + 1);
-  if ( v13 )
-  {
-    *(_OWORD *)v14 = 0LL;
-    *(_OWORD *)(v11 + 3) = 0LL;
-    *(_OWORD *)(v11 + 5) = 0LL;
-    v11[7] = 0LL;
-    *((_BYTE *)v11 + 56) = 0;
-    *v14 = v13;
-  }
-  else
-  {
-    v15 = RtlFileMapInitializeByNtPath((__int64)(v11 + 1), &DestinationString);
-    v12 = v15;
-    if ( v15 < 0 )
+    v12 = AslStringDuplicate(v10, a2);
+    if ( v12 < 0 )
+      goto LABEL_24;
+    v13 = 0LL;
+    if ( a3 != (void *)-1LL )
+      v13 = a3;
+    v14 = (HANDLE *)(v11 + 8);
+    if ( v13 )
     {
-      if ( !(unsigned int)AslFileNotFound((unsigned int)v15) )
-      {
-        v17 = (unsigned int)(v12 + 1073741805);
-        if ( (unsigned int)v17 <= 0x30 && (v18 = 0x1000000008001LL, _bittest64(&v18, v17)) || v12 == -1073741638 )
-          v19 = 3LL;
-        else
-          v19 = 1LL;
-        AslLogCallPrintf(v19);
-      }
-      goto LABEL_20;
+      *(_OWORD *)v14 = 0LL;
+      *(_OWORD *)(v11 + 24) = 0LL;
+      *(_OWORD *)(v11 + 40) = 0LL;
+      *(_QWORD *)(v11 + 56) = 0LL;
+      *(_BYTE *)(v11 + 56) = 0;
+      *v14 = v13;
     }
-  }
-  v12 = ZwQueryInformationFile(*v14, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
-  if ( v12 < 0 )
-  {
-LABEL_22:
-    AslLogCallPrintf(1LL);
-    goto LABEL_20;
-  }
-  if ( a4 )
-  {
-    v11[5] = a5;
-    *((_BYTE *)v11 + 59) = 1;
-    v11[4] = a4;
-  }
-  v11[3] = (wchar_t *)*((_QWORD *)&FileInformation + 1);
-  if ( a4 )
-  {
-    if ( *((_QWORD *)&FileInformation + 1) )
+    else
     {
-      if ( (int)AslpFileMappingGetFileKind(v11 + 1, v11 + 8) < 0 )
+      v15 = RtlFileMapInitializeByNtPath(v11 + 8, &DestinationString);
+      v12 = v15;
+      if ( v15 < 0 )
       {
-        AslLogCallPrintf(1LL);
-        *((_DWORD *)v11 + 16) = 3;
+        if ( !AslFileNotFound(v15) )
+        {
+          v17 = (unsigned int)(v12 + 1073741805);
+          if ( (unsigned int)v17 <= 0x30 && (v18 = 0x1000000008001LL, _bittest64(&v18, v17)) || v12 == -1073741638 )
+            v19 = 3LL;
+          else
+            v19 = 1LL;
+          AslLogCallPrintf(v19);
+        }
+        goto LABEL_16;
       }
-      goto LABEL_15;
     }
-    AslLogCallPrintf(1LL);
-    v12 = -1073741811;
-LABEL_20:
-    AslFileMappingDelete(v11);
-    goto LABEL_16;
-  }
-  *((_DWORD *)v11 + 16) = (*((_QWORD *)&FileInformation + 1) != 0LL) + 1;
+    v12 = ZwQueryInformationFile(*v14, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
+    if ( v12 < 0 )
+    {
+LABEL_24:
+      AslLogCallPrintf(1LL);
+    }
+    else
+    {
+      if ( a4 )
+      {
+        *(_QWORD *)(v11 + 40) = a5;
+        *(_BYTE *)(v11 + 59) = 1;
+        *(_QWORD *)(v11 + 32) = a4;
+      }
+      *(_QWORD *)(v11 + 24) = *((_QWORD *)&FileInformation + 1);
+      if ( !a4 )
+      {
+        *(_DWORD *)(v11 + 64) = (*((_QWORD *)&FileInformation + 1) != 0LL) + 1;
 LABEL_15:
-  *a1 = v11;
-  v12 = 0;
+        *a1 = v11;
+        v12 = 0;
+        v11 = 0LL;
+        goto LABEL_16;
+      }
+      if ( *((_QWORD *)&FileInformation + 1) )
+      {
+        if ( (int)AslpFileMappingGetFileKind(v11 + 8, v11 + 64) < 0 )
+        {
+          AslLogCallPrintf(1LL);
+          *(_DWORD *)(v11 + 64) = 3;
+        }
+        goto LABEL_15;
+      }
+      AslLogCallPrintf(1LL);
+      v12 = -1073741811;
+    }
 LABEL_16:
+    if ( v11 )
+      AslFileMappingDelete((PVOID *)v11);
+    goto LABEL_18;
+  }
+  v12 = -1073741801;
+LABEL_18:
   if ( DestinationString.Buffer != a2 )
-    RtlFreeUnicodeString(&DestinationString);
+    RtlFreeAnsiString(&DestinationString);
   return (unsigned int)v12;
 }

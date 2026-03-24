@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitOpacity@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00113AC
+ * XREFs of ?EmitOpacity@CVisualMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062178
  * Callers:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010FE0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVisualMarshaler::EmitOpacity(
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CVisualMarshaler::EmitOpacity(
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 3) = 0;
-    *((_DWORD *)v4 + 1) = 419;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v4 + 3) = *((_DWORD *)this + 30);
+    *((_DWORD *)v4 + 1) = 422;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v4 + 3) = *((_DWORD *)this + 28);
     *((_DWORD *)this + 4) &= ~0x400000u;
     return 1;
   }

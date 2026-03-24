@@ -1,21 +1,21 @@
 /*
- * XREFs of zzzEnableDwmPointerSupport @ 0x1C0097F94
+ * XREFs of zzzEnableDwmPointerSupport @ 0x1C002979C
  * Callers:
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     SetPointerMetaVisibility @ 0x1C0097EB0 (SetPointerMetaVisibility.c)
- *     zzzDwmStartRedirection @ 0x1C0098F14 (zzzDwmStartRedirection.c)
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
+ *     SetPointerMetaVisibility @ 0x1C0028E2C (SetPointerMetaVisibility.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     zzzDwmStartRedirection @ 0x1C00E977C (zzzDwmStartRedirection.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     GreDwmHasSoftwareCursor @ 0x1C009810C (GreDwmHasSoftwareCursor.c)
- *     GreDwmEnableSoftwareCursorRendering @ 0x1C00981F8 (GreDwmEnableSoftwareCursorRendering.c)
- *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C009BF80 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
- *     SetPointer @ 0x1C00B2D10 (SetPointer.c)
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C00146EC (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     SetPointer @ 0x1C002A4C0 (SetPointer.c)
+ *     GreDwmHasSoftwareCursor @ 0x1C002A78C (GreDwmHasSoftwareCursor.c)
+ *     GreDwmEnableSoftwareCursorRendering @ 0x1C002AC40 (GreDwmEnableSoftwareCursorRendering.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-void __fastcall zzzEnableDwmPointerSupport(unsigned int a1, int a2)
+__int64 __fastcall zzzEnableDwmPointerSupport(unsigned int a1, int a2)
 {
   int HasSoftwareCursor; // eax
   __int64 v5; // rcx
@@ -36,19 +36,19 @@ void __fastcall zzzEnableDwmPointerSupport(unsigned int a1, int a2)
     {
       v6 = 1;
       SetPointer(0LL);
-      HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) = 0;
+      *((_DWORD *)&WPP_MAIN_CB.Dpc.0 + 1) = 0;
     }
     GreDwmEnableSoftwareCursorRendering(v5, a1);
     if ( v6 )
     {
-      HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) = gSoftwareCursorCount > 0;
+      *((_DWORD *)&WPP_MAIN_CB.Dpc.0 + 1) = gSoftwareCursorCount > 0;
       SetPointer(1LL);
       if ( !a2 )
-        zzzInternalSetCursorPos(*(unsigned int *)(gpsi + 4960LL), *(unsigned int *)(gpsi + 4964LL), 2LL);
+        zzzInternalSetCursorPos(*(_DWORD *)(gpsi + 4960LL), *(_DWORD *)(gpsi + 4964LL), 2, 0);
     }
   }
   GreUnlockSprite(*(_QWORD *)(gpDispInfo + 40LL));
   GreUnlockPointer(*(_QWORD *)(gpDispInfo + 40LL));
   GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  zzzEndDeferWinEventNotify();
+  return zzzEndDeferWinEventNotify();
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmsgpPostMessage @ 0x1C02BFD34
+ * XREFs of WmsgpPostMessage @ 0x1C027E2F0
  * Callers:
- *     PostWinlogonMessage @ 0x1C0086360 (PostWinlogonMessage.c)
+ *     PostWinlogonMessage @ 0x1C00763B0 (PostWinlogonMessage.c)
  * Callees:
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     WMsg_midl_user_allocate @ 0x1C00C57B0 (WMsg_midl_user_allocate.c)
- *     ClientI_WMsgkSendMessage @ 0x1C00C57DC (ClientI_WMsgkSendMessage.c)
+ *     ClientI_WMsgkSendMessage @ 0x1C007642C (ClientI_WMsgkSendMessage.c)
+ *     WMsg_midl_user_allocate @ 0x1C0076470 (WMsg_midl_user_allocate.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_63d17d6d41434870d2c55e28a74f5cc8_@@CAXPEAX@Z @ 0x1C00C7EF0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_63d17d6d41434870d2c55e28a74f5cc8_@@CAXPEAX@Z.c)
  */
 
 __int64 __fastcall WmsgpPostMessage(__int64 a1, int a2, int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall WmsgpPostMessage(__int64 a1, int a2, int a3)
 
   v5 = gWinLogonRpcHandle;
   DestinationBinding = 0LL;
-  v6 = (struct _RPC_ASYNC_STATE *)WMsg_midl_user_allocate(88LL);
+  v6 = (struct _RPC_ASYNC_STATE *)WMsg_midl_user_allocate(0x58uLL);
   v7 = (__int64)v6;
   Buffer = v6;
   if ( !v6 )
@@ -27,7 +27,7 @@ __int64 __fastcall WmsgpPostMessage(__int64 a1, int a2, int a3)
   v8 = RpcAsyncInitializeHandle(v6, 0x58u);
   if ( v8 || (v8 = RpcBindingCopy(v5, &DestinationBinding)) != 0 )
   {
-    _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)v7);
+    _lambda_63d17d6d41434870d2c55e28a74f5cc8_::_lambda_invoker_cdecl_<void *>((PVOID)v7);
   }
   else
   {

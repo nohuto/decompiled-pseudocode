@@ -1,13 +1,13 @@
 /*
- * XREFs of VfPendingInitPhase1 @ 0x140AD2860
+ * XREFs of VfPendingInitPhase1 @ 0x1409D57AC
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC3CE8 (VfInitSystemNoRebootNeeded.c)
- *     ViInitSystemPhase1 @ 0x140B75DE4 (ViInitSystemPhase1.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D50 (VfInitSystemNoRebootNeeded.c)
+ *     ViInitSystemPhase1 @ 0x140A6FD8C (ViInitSystemPhase1.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
  */
 
 NTSTATUS VfPendingInitPhase1()
@@ -21,9 +21,9 @@ NTSTATUS VfPendingInitPhase1()
   PVOID Object; // [rsp+98h] [rbp+28h] BYREF
 
   ThreadHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   v0 = (PVOID *)&ViPendingWorkers;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
   v1 = 0LL;
   do
   {

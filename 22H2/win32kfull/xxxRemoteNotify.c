@@ -1,7 +1,7 @@
 /*
- * XREFs of xxxRemoteNotify @ 0x1C00BA7C0
+ * XREFs of xxxRemoteNotify @ 0x1C0133820
  * Callers:
- *     NtUserRemoteNotify @ 0x1C00BA780 (NtUserRemoteNotify.c)
+ *     <none>
  * Callees:
  *     <none>
  */

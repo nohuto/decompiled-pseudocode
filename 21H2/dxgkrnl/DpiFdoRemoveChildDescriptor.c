@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFdoRemoveChildDescriptor @ 0x1C038B124
+ * XREFs of DpiFdoRemoveChildDescriptor @ 0x1C02CBB64
  * Callers:
- *     DpiFdoHandleTargetConnectionState @ 0x1C038A234 (DpiFdoHandleTargetConnectionState.c)
- *     DpiFdoRemoveChildDescriptors @ 0x1C038B16C (DpiFdoRemoveChildDescriptors.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C02CACE4 (DpiFdoHandleTargetConnectionState.c)
+ *     DpiFdoRemoveChildDescriptors @ 0x1C02CBBAC (DpiFdoRemoveChildDescriptors.c)
  * Callees:
- *     DpiFdoReleaseChildDescriptor @ 0x1C038B0B0 (DpiFdoReleaseChildDescriptor.c)
+ *     DpiFdoReleaseChildDescriptor @ 0x1C02CBAF0 (DpiFdoReleaseChildDescriptor.c)
  */
 
 void __fastcall DpiFdoRemoveChildDescriptor(__int64 a1, _QWORD *a2)

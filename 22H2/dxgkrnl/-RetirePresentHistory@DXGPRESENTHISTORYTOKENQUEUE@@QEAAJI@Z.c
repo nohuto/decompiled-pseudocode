@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RetirePresentHistory@DXGPRESENTHISTORYTOKENQUEUE@@QEAAJI@Z @ 0x1C0018A8C
+ * XREFs of ?RetirePresentHistory@DXGPRESENTHISTORYTOKENQUEUE@@QEAAJI@Z @ 0x1C0004A8C
  * Callers:
- *     DxgkGetPresentHistoryInternal @ 0x1C01EB820 (DxgkGetPresentHistoryInternal.c)
+ *     DxgkGetPresentHistoryInternal @ 0x1C0100460 (DxgkGetPresentHistoryInternal.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,6 @@ __int64 __fastcall DXGPRESENTHISTORYTOKENQUEUE::RetirePresentHistory(DXGPRESENTH
   int v4; // ecx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)this, &LockHandle);
   v4 = ((_WORD)a2 + (unsigned __int16)*((_DWORD *)this + 3)) & 0x7FF;
   *((_DWORD *)this + 3) = v4;

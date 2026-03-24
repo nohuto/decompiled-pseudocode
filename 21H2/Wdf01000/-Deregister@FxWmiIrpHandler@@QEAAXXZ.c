@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C005F1C4
+ * XREFs of ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C0040010
  * Callers:
- *     ?DeleteObject@FxDevice@@UEAAXXZ @ 0x1C0033F90 (-DeleteObject@FxDevice@@UEAAXXZ.c)
- *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0035760 (-Dispose@FxDevice@@UEAAEXZ.c)
- *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0083BC8 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?DeleteObject@FxDevice@@UEAAXXZ @ 0x1C0051CB0 (-DeleteObject@FxDevice@@UEAAXXZ.c)
+ *     ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0051E20 (-Dispose@FxDevice@@UEAAEXZ.c)
+ *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0079FD0 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ??0FxCREvent@@QEAA@E@Z @ 0x1C001AC84 (--0FxCREvent@@QEAA@E@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ @ 0x1C005E01C (-DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ??0FxCREvent@@QEAA@E@Z @ 0x1C0017CE0 (--0FxCREvent@@QEAA@E@Z.c)
+ *     ?DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ @ 0x1C003E268 (-DecrementUpdateCount@FxWmiIrpHandler@@AEAAXXZ.c)
  */
 
 void __fastcall FxWmiIrpHandler::Deregister(FxWmiIrpHandler *this, unsigned __int8 a2)

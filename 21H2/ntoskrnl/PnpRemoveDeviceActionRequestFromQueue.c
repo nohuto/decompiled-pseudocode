@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpRemoveDeviceActionRequestFromQueue @ 0x14056205C
+ * XREFs of PnpRemoveDeviceActionRequestFromQueue @ 0x14050E830
  * Callers:
- *     PiQueueDeviceRequest @ 0x14065F5D4 (PiQueueDeviceRequest.c)
- *     PiControlGetSetDeviceStatus @ 0x1407793D0 (PiControlGetSetDeviceStatus.c)
+ *     PiControlGetSetDeviceStatus @ 0x140639930 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14072F218 (PiQueueDeviceRequest.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PopDirectedDripsClearDisengageReason @ 0x1402500D4 (PopDirectedDripsClearDisengageReason.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpDeleteDeviceActionRequest @ 0x1402DDABC (PnpDeleteDeviceActionRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14037A4DC (PopDirectedDripsClearDisengageReason.c)
+ *     PnpDeleteDeviceActionRequest @ 0x14037F174 (PnpDeleteDeviceActionRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32 *a1)
@@ -49,12 +49,12 @@ __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32
     v2 = 1;
     *(_QWORD *)(v4 + 8) = v5;
     v6 = *((unsigned int *)a1 + 6);
-    v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C24268);
-    v8 = dword_140C24270-- == 1;
+    v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C24E48);
+    v8 = dword_140C24E50-- == 1;
     v9 = v7;
     if ( v8 )
       PopDirectedDripsClearDisengageReason(4);
-    KxReleaseSpinLock(&qword_140C24268);
+    KxReleaseSpinLock(&qword_140C24E48);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -73,14 +73,14 @@ __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32
       }
     }
     __writecr8(v9);
-    v14 = KeAcquireSpinLockRaiseToDpc(&qword_140C1CB90);
-    if ( !--dword_140C1CB98 && byte_140C1CC10 )
+    v14 = KeAcquireSpinLockRaiseToDpc(&qword_140C1EBB0);
+    if ( !--dword_140C1EBB8 && byte_140C1EC28 )
     {
-      qword_140C1CC18 += MEMORY[0xFFFFF78000000008] - qword_140C1CC20;
-      qword_140C1CC20 = 0LL;
+      qword_140C1EC30 += MEMORY[0xFFFFF78000000008] - qword_140C1EC38;
+      qword_140C1EC38 = 0LL;
     }
-    --dword_140C1CBA0[v6];
-    KxReleaseSpinLock(&qword_140C1CB90);
+    --dword_140C1EBC0[v6];
+    KxReleaseSpinLock(&qword_140C1EBB0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

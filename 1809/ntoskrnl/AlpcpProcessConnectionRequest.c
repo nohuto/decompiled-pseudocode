@@ -3,7 +3,7 @@
  * Callers:
  *     AlpcpConnectPort @ 0x1406144A4 (AlpcpConnectPort.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     AlpcpProbeMessageAttributes @ 0x140613174 (AlpcpProbeMessageAttributes.c)
  *     AlpcpDispatchConnectionRequest @ 0x140613B5C (AlpcpDispatchConnectionRequest.c)
  *     AlpcpReadMessageData @ 0x140614164 (AlpcpReadMessageData.c)
@@ -12,11 +12,11 @@
  *     AlpcpProbeAndCaptureMessageHeader @ 0x14061AE2C (AlpcpProbeAndCaptureMessageHeader.c)
  *     AlpcpExposeAttributes @ 0x140633190 (AlpcpExposeAttributes.c)
  *     AlpcpReceiveSynchronousReply @ 0x140634290 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1406A4590 (AlpcpProbeForWriteMessageHeader.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1406D4A60 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpLogConnectFail @ 0x14084B860 (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x14084B8C0 (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x14084B924 (AlpcpLogConnectSuccess.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x1406A4570 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D4A40 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpLogConnectFail @ 0x14084B840 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x14084B8A0 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x14084B904 (AlpcpLogConnectSuccess.c)
  */
 
 __int64 __fastcall AlpcpProcessConnectionRequest(

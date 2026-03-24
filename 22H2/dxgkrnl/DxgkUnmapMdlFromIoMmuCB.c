@@ -1,21 +1,22 @@
 /*
- * XREFs of DxgkUnmapMdlFromIoMmuCB @ 0x1C0053410
+ * XREFs of DxgkUnmapMdlFromIoMmuCB @ 0x1C00434F0
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetSysMmAdapterFromDevice @ 0x1C001275C (DpiGetSysMmAdapterFromDevice.c)
- *     ?SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z @ 0x1C0012DB0 (-SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z.c)
- *     ?SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z @ 0x1C0012E04 (-SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z.c)
+ *     ?DxgkFreeMemoryTracker@@YAXQEAXPEAUDXG_DRIVER_MEMORY_TRACKER@@@Z @ 0x1C00426D8 (-DxgkFreeMemoryTracker@@YAXQEAXPEAUDXG_DRIVER_MEMORY_TRACKER@@@Z.c)
  */
 
-void __fastcall DxgkUnmapMdlFromIoMmuCB(__int64 a1, struct SYSMM_ADAPTER ***a2)
+void __fastcall DxgkUnmapMdlFromIoMmuCB(void *a1, struct DXG_DRIVER_MEMORY_TRACKER **a2)
 {
-  struct SYSMM_ADAPTER *SysMmAdapterFromDevice; // rax
-  struct SYSMM_ADAPTER **v4; // rbx
-  int v5; // r8d
+  struct DXG_DRIVER_MEMORY_TRACKER *v2; // rbx
+  __int64 v4; // rax
 
-  SysMmAdapterFromDevice = (struct SYSMM_ADAPTER *)DpiGetSysMmAdapterFromDevice();
-  v4 = *a2;
-  SysMmClosePhysicalObjectByAdapter(v4, SysMmAdapterFromDevice, v5);
-  SysMmUnreferencePhysicalObject((struct SYSMM_PHYSICAL_OBJECT *)v4);
+  v2 = *a2;
+  if ( *((_DWORD *)*a2 + 4) != 2 )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v4 + 24) = 1150LL;
+    WdLogEvent5_WdAssertion(v4);
+  }
+  DxgkFreeMemoryTracker(a1, v2);
 }

@@ -1,11 +1,9 @@
 /*
- * XREFs of MoveObjData @ 0x1C004C184
+ * XREFs of MoveObjData @ 0x1C0065580
  * Callers:
- *     RefOf @ 0x1C00068B0 (RefOf.c)
- *     Name @ 0x1C00553D0 (Name.c)
- *     CopyObject @ 0x1C0056570 (CopyObject.c)
- *     Store @ 0x1C0058B80 (Store.c)
- *     ParseCall @ 0x1C005A6C0 (ParseCall.c)
+ *     ParseCall @ 0x1C0006B60 (ParseCall.c)
+ *     CopyObject @ 0x1C0069110 (CopyObject.c)
+ *     RefOf @ 0x1C006A740 (RefOf.c)
  * Callees:
  *     <none>
  */

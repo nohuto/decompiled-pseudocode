@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSpDrawCursor@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@1@Z @ 0x1C0280FD0
+ * XREFs of ?vSpDrawCursor@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@1@Z @ 0x1C0282E68
  * Callers:
- *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0137568 (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0163E9C (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     OffBitBlt @ 0x1C001AAC0 (OffBitBlt.c)
- *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C001ACB0 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C001EF80 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B565C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010F18C (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     OffBitBlt @ 0x1C0129B40 (OffBitBlt.c)
  */
 
 void __fastcall vSpDrawCursor(
@@ -17,52 +17,50 @@ void __fastcall vSpDrawCursor(
         struct _RECTL *a4,
         struct _POINTL *a5)
 {
-  __int64 v8; // rbx
-  struct Gre::Base::SESSION_GLOBALS *v9; // rax
+  __int64 v8; // rdx
   PVOID *p_pvScan0; // rdi
   int hsurf; // eax
-  __int64 v12; // rax
-  __int64 v13; // rbx
-  int v14; // ecx
-  __int64 v15; // r15
-  BOOL (__stdcall *v16)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
-  struct _POINTL *v17; // r12
-  __int64 v18; // r13
-  __int64 v19; // r15
-  int *v20; // r14
+  __int64 v11; // rax
+  __int64 v12; // rbx
+  int v13; // ecx
+  BOOL (__stdcall *v14)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // r12
+  BOOL (__stdcall *v15)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
+  struct _POINTL *v16; // r15
+  POINTL *v17; // r13
+  __int64 v18; // rbp
+  __int64 v19; // r14
+  int y; // eax
   __int64 v21; // rbx
   int v22; // eax
-  BOOL (__stdcall *v23)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
-  struct _RECTL *v24; // [rsp+48h] [rbp-31h]
-  __int64 v25; // [rsp+78h] [rbp-1h] BYREF
-  int v26[2]; // [rsp+80h] [rbp+7h] BYREF
-  __int64 v27; // [rsp+D8h] [rbp+5Fh] BYREF
-  int *v28; // [rsp+E0h] [rbp+67h]
-  __int64 v29; // [rsp+F0h] [rbp+77h]
+  __int64 v23; // [rsp+20h] [rbp-98h]
+  __int64 v24; // [rsp+70h] [rbp-48h] BYREF
+  __int64 v25; // [rsp+78h] [rbp-40h]
+  __int64 v26; // [rsp+C0h] [rbp+8h] BYREF
+  LONG *v27; // [rsp+C8h] [rbp+10h]
+  __int64 v28; // [rsp+D8h] [rbp+20h]
 
-  v29 = (__int64)a4;
-  v28 = (int *)a2;
-  v27 = 0LL;
+  v28 = (__int64)a4;
+  v27 = (LONG *)a2;
+  v26 = 0LL;
   if ( *((_QWORD *)a1 + 15) )
   {
-    v8 = *((_QWORD *)a1 + 2);
-    v25 = 0LL;
-    v9 = Gre::Base::Globals(a1);
+    v23 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 32LL) + 104LL);
+    v24 = 0LL;
     if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
-                          (Gre::Base *)&v25,
+                          &v24,
                           0LL,
                           0,
-                          *((_QWORD *)v9 + 754),
-                          *(_QWORD *)(*(_QWORD *)(v8 + 32) + 104LL),
-                          *((_QWORD *)v9 + 750),
-                          *((_QWORD *)v9 + 750),
+                          (__int64)ppalMono,
+                          v23,
+                          (__int64)ppalDefault,
+                          (__int64)ppalDefault,
                           0,
                           0xFFFFFF,
                           0,
                           0) )
     {
-LABEL_58:
-      EXLATEOBJ::vAltUnlock((Gre::Base **)&v25);
+LABEL_57:
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v24, v8);
       return;
     }
     p_pvScan0 = 0LL;
@@ -75,19 +73,18 @@ LABEL_58:
         GreLockDisplayDevice(a3->hdev);
       }
     }
-    v12 = *((_QWORD *)a1 + 15);
-    v13 = 0LL;
-    *(_QWORD *)v26 = 0LL;
-    if ( v12 )
+    v11 = *((_QWORD *)a1 + 15);
+    v12 = 0LL;
+    if ( v11 )
     {
-      v14 = *(_DWORD *)(v12 + 88);
-      if ( (v14 & 0x80004000) != 0 && (v14 & 0x200) == 0 )
+      v13 = *(_DWORD *)(v11 + 88);
+      if ( (v13 & 0x80004000) != 0 && (v13 & 0x200) == 0 )
       {
-        v13 = v12 - 24;
-        GreLockDisplayDevice(*(_QWORD *)(v12 - 24 + 48));
+        v12 = v11 - 24;
+        GreLockDisplayDevice(*(_QWORD *)(v11 - 24 + 48));
       }
     }
-    v15 = *((_QWORD *)a1 + 15);
+    v14 = EngBitBlt;
     if ( a3->iType == 1 )
     {
       if ( bAllowShareAccess(a3)
@@ -97,7 +94,7 @@ LABEL_58:
          || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
         && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 1) != 0 )
       {
-        v16 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 72LL);
+        v15 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 72LL);
         goto LABEL_28;
       }
       if ( a3->iType == 1
@@ -112,104 +109,99 @@ LABEL_58:
     }
     if ( ((__int64)a3[1].hsurf & 1) == 0 )
 LABEL_27:
-      v16 = EngBitBlt;
+      v15 = EngBitBlt;
     else
-      v16 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 163);
+      v15 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 164);
 LABEL_28:
-    v17 = a5;
-    v24 = a4;
-    v18 = v25;
+    v16 = a5;
+    v17 = &gptlZero;
+    v25 = v24;
     OffBitBlt(
-      (__int64 (__fastcall *)(__int64, __int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, __int64 *, __int64, __int64, __int64 *, int))v16,
-      v28,
+      (__int64 (__fastcall *)(__int64, __int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, __int64 *, __int64, __int64, __int64 *, int))v15,
+      v27,
       (__int64)a3,
-      v26,
-      v15,
+      &gptlZero,
+      *((_QWORD *)a1 + 15),
       0LL,
       0LL,
-      v25,
-      &v24->left,
+      v24,
+      &a4->left,
       (__int64 *)a5,
       0LL,
       0LL,
       0LL,
       34952);
-    if ( v13 )
-      GreUnlockDisplayDevice(*(_QWORD *)(v13 + 48));
-    v19 = *((_QWORD *)a1 + 16);
-    LODWORD(v27) = v17->x;
-    if ( v19 )
+    if ( v12 )
+      GreUnlockDisplayDevice(*(_QWORD *)(v12 + 48));
+    v18 = *((_QWORD *)a1 + 16);
+    LODWORD(v26) = v16->x;
+    if ( v18 )
     {
-      v20 = (int *)((char *)a1 + 136);
-      HIDWORD(v27) = v17->y;
-      v18 = 0LL;
-      v21 = 0LL;
+      y = v16->y;
+      v17 = (POINTL *)((char *)a1 + 136);
+      v19 = 0LL;
     }
     else
     {
-      v19 = *((_QWORD *)a1 + 15);
-      v20 = v26;
-      HIDWORD(v27) = v17->y + (*(int *)(v19 + 36) >> 1);
-      v21 = 0LL;
-      if ( !v19 )
+      v18 = *((_QWORD *)a1 + 15);
+      v19 = v25;
+      y = v16->y + (*(int *)(v18 + 36) >> 1);
+    }
+    HIDWORD(v26) = y;
+    v21 = 0LL;
+    if ( v18 )
+    {
+      v22 = *(_DWORD *)(v18 + 88);
+      if ( (v22 & 0x80004000) != 0 && (v22 & 0x200) == 0 )
       {
-LABEL_37:
-        if ( a3->iType != 1 )
-          goto LABEL_51;
-        if ( bAllowShareAccess(a3)
-          && W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
-          && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
-          && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
-           || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
-          && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 1) != 0 )
-        {
-          v23 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 72LL);
-LABEL_54:
-          OffBitBlt(
-            (__int64 (__fastcall *)(__int64, __int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, __int64 *, __int64, __int64, __int64 *, int))v23,
-            v28,
-            (__int64)a3,
-            v20,
-            v19,
-            0LL,
-            0LL,
-            v18,
-            (int *)v29,
-            &v27,
-            0LL,
-            0LL,
-            0LL,
-            26214);
-          if ( v21 )
-            GreUnlockDisplayDevice(*(_QWORD *)(v21 + 48));
-          if ( p_pvScan0 )
-            GreUnlockDisplayDevice(p_pvScan0[6]);
-          goto LABEL_58;
-        }
-        if ( a3->iType != 1
-          || !bAllowShareAccess(a3)
-          || !W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
-          || !*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
-          || !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
-          && !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108) )
-        {
-LABEL_51:
-          if ( ((__int64)a3[1].hsurf & 1) != 0 )
-          {
-            v23 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 163);
-            goto LABEL_54;
-          }
-        }
-        v23 = EngBitBlt;
-        goto LABEL_54;
+        v21 = v18 - 24;
+        GreLockDisplayDevice(*(_QWORD *)(v18 - 24 + 48));
       }
     }
-    v22 = *(_DWORD *)(v19 + 88);
-    if ( (v22 & 0x80004000) != 0 && (v22 & 0x200) == 0 )
+    if ( a3->iType == 1 )
     {
-      v21 = v19 - 24;
-      GreLockDisplayDevice(*(_QWORD *)(v19 - 24 + 48));
+      if ( bAllowShareAccess(a3)
+        && W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+        && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+        && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+         || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
+        && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 1) != 0 )
+      {
+        v14 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 72LL);
+LABEL_53:
+        OffBitBlt(
+          (__int64 (__fastcall *)(__int64, __int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, __int64 *, __int64, __int64, __int64 *, int))v14,
+          v27,
+          (__int64)a3,
+          v17,
+          v18,
+          0LL,
+          0LL,
+          v19,
+          (int *)v28,
+          &v26,
+          0LL,
+          0LL,
+          0LL,
+          26214);
+        if ( v21 )
+          GreUnlockDisplayDevice(*(_QWORD *)(v21 + 48));
+        if ( p_pvScan0 )
+          GreUnlockDisplayDevice(p_pvScan0[6]);
+        goto LABEL_57;
+      }
+      if ( a3->iType == 1
+        && bAllowShareAccess(a3)
+        && W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+        && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+        && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+         || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
+      {
+        goto LABEL_53;
+      }
     }
-    goto LABEL_37;
+    if ( ((__int64)a3[1].hsurf & 1) != 0 )
+      v14 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 164);
+    goto LABEL_53;
   }
 }

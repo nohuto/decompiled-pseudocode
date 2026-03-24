@@ -1,10 +1,10 @@
 /*
- * XREFs of KeTryToAcquireQueuedSpinLock @ 0x14056E4F0
+ * XREFs of KeTryToAcquireQueuedSpinLock @ 0x1405161C0
  * Callers:
- *     DifKeTryToAcquireQueuedSpinLockWrapper @ 0x140615DF0 (DifKeTryToAcquireQueuedSpinLockWrapper.c)
+ *     <none>
  * Callees:
- *     KxTryToAcquireQueuedSpinLock @ 0x1402EB110 (KxTryToAcquireQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x14029976C (KxTryToAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LOGICAL __stdcall KeTryToAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number, PKIRQL OldIrql)

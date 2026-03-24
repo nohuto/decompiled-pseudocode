@@ -1,15 +1,12 @@
 /*
- * XREFs of RtlEnumerateGenericTableAvl @ 0x1402DE820
+ * XREFs of RtlEnumerateGenericTableAvl @ 0x1402C9AF0
  * Callers:
- *     PopPowerRequestStatsOnSleepstudySessionChange @ 0x140811940 (PopPowerRequestStatsOnSleepstudySessionChange.c)
- *     EtwpFreeKeyNameList @ 0x140818900 (EtwpFreeKeyNameList.c)
- *     PiDmObjectManagerPopulate @ 0x140844A24 (PiDmObjectManagerPopulate.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140A9B1BC (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140A9B230 (VfAvlEnumerateNodes.c)
- *     VfPtGenerateTraceInformation @ 0x140A9D738 (VfPtGenerateTraceInformation.c)
- *     ViPtDeleteAvlTrees @ 0x140A9DB60 (ViPtDeleteAvlTrees.c)
+ *     EtwpFreeKeyNameList @ 0x14079C1E0 (EtwpFreeKeyNameList.c)
+ *     PiDmObjectManagerPopulate @ 0x1407A2E40 (PiDmObjectManagerPopulate.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x1408F6690 (PopStatsNotifyPowerRequestCsState.c)
+ *     VfAvlEnumerateNodes @ 0x1409E0658 (VfAvlEnumerateNodes.c)
  * Callees:
- *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1402DEA50 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
+ *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x140264490 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)

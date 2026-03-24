@@ -1,71 +1,68 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x140986628
+ * XREFs of ObpStartRuntimeStackTrace @ 0x1408DEFB8
  * Callers:
- *     ObSetRefTraceInformation @ 0x1409858C0 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x1408DE2CC (ObSetRefTraceInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObpInitStackAndObjectTables @ 0x140985FBC (ObpInitStackAndObjectTables.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ObpInitStackAndObjectTables @ 0x1408DE970 (ObpInitStackAndObjectTables.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
 {
-  unsigned int inited; // r12d
-  int v3; // esi
+  unsigned int inited; // r14d
+  int v3; // edi
   char PreviousMode; // r9
   int v5; // r10d
   unsigned __int64 v6; // r11
   unsigned int i; // r9d
   unsigned int j; // r10d
   unsigned __int16 v9; // bx
-  void *Pool2; // r12
+  PVOID PoolWithTag; // r15
   struct _KTHREAD *CurrentThread; // rax
-  wchar_t *Buffer; // r15
-  struct _KTHREAD *v14; // rax
-  bool v15; // zf
-  wchar_t *v16; // rcx
-  struct _KTHREAD *v17; // rax
-  char v18; // [rsp+20h] [rbp-C8h]
-  int v19; // [rsp+24h] [rbp-C4h]
+  wchar_t *Buffer; // rsi
+  wchar_t *v14; // rcx
+  char v15; // [rsp+20h] [rbp-C8h]
+  int v16; // [rsp+24h] [rbp-C4h]
   PVOID P[2]; // [rsp+38h] [rbp-B0h]
-  __int128 v21; // [rsp+48h] [rbp-A0h]
+  __int128 v18; // [rsp+48h] [rbp-A0h]
   void *Src[2]; // [rsp+58h] [rbp-90h]
-  _OWORD v23[4]; // [rsp+70h] [rbp-78h] BYREF
+  _OWORD v20[4]; // [rsp+70h] [rbp-78h] BYREF
 
-  memset(v23, 0, sizeof(v23));
+  memset(v20, 0, sizeof(v20));
   inited = 0;
   *(_OWORD *)P = 0LL;
   v3 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v18 = PreviousMode;
-  v21 = *(_OWORD *)(a1 + 24);
+  v15 = PreviousMode;
+  v18 = *(_OWORD *)(a1 + 24);
   *(_OWORD *)Src = *(_OWORD *)(a1 + 8);
   v5 = *(unsigned __int8 *)(a1 + 1);
-  v19 = v5;
-  if ( (_WORD)v21 )
+  v16 = v5;
+  if ( (_WORD)v18 )
   {
     if ( (*(_OWORD *)(a1 + 24) & 1) != 0
-      || ((((unsigned __int64)(unsigned __int16)v21 >> 1) % 5) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
+      || ((((unsigned __int64)(unsigned __int16)v18 >> 1) % 5) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
     {
       return 3221225485LL;
     }
-    v6 = ((unsigned __int64)(unsigned __int16)v21 + 2) / 0xA;
+    v6 = ((unsigned __int64)(unsigned __int16)v18 + 2) / 0xA;
     if ( (unsigned int)v6 > 0x10 )
       LODWORD(v6) = 16;
     if ( PreviousMode )
     {
-      if ( (BYTE8(v21) & 1) != 0 )
+      if ( (BYTE8(v18) & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)(unsigned __int16)v21 + *((_QWORD *)&v21 + 1) > 0x7FFFFFFF0000LL
-        || (unsigned __int64)(unsigned __int16)v21 + *((_QWORD *)&v21 + 1) < *((_QWORD *)&v21 + 1) )
+      if ( (unsigned __int64)(unsigned __int16)v18 + *((_QWORD *)&v18 + 1) > 0x7FFFFFFF0000LL
+        || (unsigned __int64)(unsigned __int16)v18 + *((_QWORD *)&v18 + 1) < *((_QWORD *)&v18 + 1) )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
       }
@@ -73,11 +70,11 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     for ( i = 0; i < (unsigned int)v6; ++i )
     {
       for ( j = 0; j < 4; ++j )
-        *((_DWORD *)v23 + i) = (*((_DWORD *)v23 + i) << 8) | *(unsigned __int16 *)(*((_QWORD *)&v21 + 1)
+        *((_DWORD *)v20 + i) = (*((_DWORD *)v20 + i) << 8) | *(unsigned __int16 *)(*((_QWORD *)&v18 + 1)
                                                                                  + 2LL * (5 * i - j + 3));
     }
     v3 = 16;
-    v5 = v19;
+    v5 = v16;
   }
   if ( LOWORD(Src[0]) )
   {
@@ -88,23 +85,23 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     else
       v9 = (unsigned __int16)Src[0];
     LOWORD(P[0]) = v9;
-    Pool2 = (void *)ExAllocatePool2(64LL, v9 + 2LL, 1951556175LL);
-    P[1] = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v9 + 2LL, 0x7452624Fu);
+    P[1] = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225495LL;
     WORD1(P[0]) = v9 + 2;
-    if ( v18 )
+    if ( v15 )
     {
       if ( ((__int64)Src[1] & 1) != 0 )
         ExRaiseDatatypeMisalignment();
       if ( (char *)Src[1] + LOWORD(Src[0]) > (void *)0x7FFFFFFF0000LL || (char *)Src[1] + LOWORD(Src[0]) < Src[1] )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    memmove(Pool2, Src[1], v9);
-    *((_WORD *)Pool2 + ((unsigned __int64)v9 >> 1)) = 0;
+    memmove(PoolWithTag, Src[1], v9);
+    *((_WORD *)PoolWithTag + ((unsigned __int64)v9 >> 1)) = 0;
     v3 |= 0x20u;
     inited = 0;
-    v5 = v19;
+    v5 = v16;
   }
   if ( !v3 )
     return 3221225485LL;
@@ -120,11 +117,8 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&ObpStackTraceLock);
     KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-    v17 = KeGetCurrentThread();
-    v15 = v17->SpecialApcDisable++ == -1;
-    if ( v15 && ($CEA84C04E3712D858E5667A507841A2A *)v17->ApcState.ApcListHead[0].Flink != &v17->152 )
-      KiCheckForKernelApcDelivery();
-    v16 = (wchar_t *)P[1];
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    v14 = (wchar_t *)P[1];
     if ( !P[1] )
       return inited;
   }
@@ -132,10 +126,10 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
   {
     Buffer = ObpRuntimeTraceProcessName.Buffer;
     ObpRuntimeTraceProcessName = *(UNICODE_STRING *)P;
-    ObpRuntimeTracePoolTags = v23[0];
-    xmmword_140C25290 = v23[1];
-    xmmword_140C252A0 = v23[2];
-    xmmword_140C252B0 = v23[3];
+    ObpRuntimeTracePoolTags = v20[0];
+    xmmword_140C25E10 = v20[1];
+    xmmword_140C25E20 = v20[2];
+    xmmword_140C25E30 = v20[3];
     ObpTraceFlags = v3 | ObpTraceFlags & 0xFFFFFF8E | 2;
     ObpRuntimeTraceFlags = ObpTraceFlags;
     ObpTracePoolTags = (unsigned __int64)&ObpRuntimeTracePoolTags & -(__int64)((ObpTraceFlags & 0x10) != 0);
@@ -143,14 +137,11 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&ObpStackTraceLock);
     KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-    v14 = KeGetCurrentThread();
-    v15 = v14->SpecialApcDisable++ == -1;
-    if ( v15 && ($CEA84C04E3712D858E5667A507841A2A *)v14->ApcState.ApcListHead[0].Flink != &v14->152 )
-      KiCheckForKernelApcDelivery();
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     if ( !Buffer )
       return inited;
-    v16 = Buffer;
+    v14 = Buffer;
   }
-  ExFreePoolWithTag(v16, 0x7452624Fu);
+  ExFreePoolWithTag(v14, 0x7452624Fu);
   return inited;
 }

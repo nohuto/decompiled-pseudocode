@@ -1,14 +1,14 @@
 /*
- * XREFs of imp_WdfDeviceOpenRegistryKey @ 0x1C002AC00
+ * XREFs of imp_WdfDeviceOpenRegistryKey @ 0x1C0048040
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?_OpenKey@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE_INIT@@PEAV1@KKPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFKEY__@@@Z @ 0x1C002ACCC (-_OpenKey@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE_INIT@@PEAV1@KKPEAU_WDF_OBJECT_ATTRI.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?_OpenKey@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE_INIT@@PEAV1@KKPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFKEY__@@@Z @ 0x1C0050E14 (-_OpenKey@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE_INIT@@PEAV1@KKPEAU_WDF_OBJECT_ATTRI.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 int __fastcall imp_WdfDeviceOpenRegistryKey(
@@ -22,30 +22,34 @@ int __fastcall imp_WdfDeviceOpenRegistryKey(
   WDFKEY__ **v8; // rsi
   _FX_DRIVER_GLOBALS *m_Globals; // rbx
   int v10; // edi
-  _WDF_OBJECT_ATTRIBUTES *v11; // rdi
   int result; // eax
+  _WDF_OBJECT_ATTRIBUTES *v12; // rdi
   void *retaddr; // [rsp+58h] [rbp+0h]
   FxDevice *pDevice; // [rsp+60h] [rbp+8h] BYREF
 
   pDevice = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   v8 = Key;
   m_Globals = pDevice->m_Globals;
   if ( !Key )
     FxVerifierNullBugCheck(m_Globals, retaddr);
   *Key = 0LL;
   v10 = FxVerifierCheckIrqlLevel(m_Globals, 0);
-  if ( v10 < 0 )
+  if ( v10 >= 0 )
   {
-    FxVerifierDbgBreakPoint(m_Globals);
-    return v10;
+    v12 = KeyAttributes;
+    result = FxValidateObjectAttributes(m_Globals, KeyAttributes, 1);
+    if ( result >= 0 )
+      return FxDevice::_OpenKey(pDevice->m_Globals, 0LL, pDevice, DeviceInstanceKeyType, DesiredAccess, v12, v8);
   }
   else
   {
-    v11 = KeyAttributes;
-    result = FxValidateObjectAttributes(m_Globals, KeyAttributes, 1);
-    if ( result >= 0 )
-      return FxDevice::_OpenKey(pDevice->m_Globals, 0LL, pDevice, DeviceInstanceKeyType, DesiredAccess, v11, v8);
+    FxVerifierDbgBreakPoint(m_Globals);
+    return v10;
   }
   return result;
 }

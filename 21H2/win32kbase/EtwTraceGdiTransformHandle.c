@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceGdiTransformHandle @ 0x1C006476C
+ * XREFs of EtwTraceGdiTransformHandle @ 0x1C001616C
  * Callers:
- *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C001E010 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
- *     ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0064500 (-_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z.c)
- *     HmgModifyHandleType @ 0x1C0064660 (HmgModifyHandleType.c)
+ *     ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0015EF8 (-_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z.c)
+ *     HmgModifyHandleType @ 0x1C0016060 (HmgModifyHandleType.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C0034CB0 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
  * Callees:
- *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00E5922 (McTemplateK0ppqqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C0125BF4 (McTemplateK0ppqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceGdiTransformHandle(int a1, int a2, int a3)

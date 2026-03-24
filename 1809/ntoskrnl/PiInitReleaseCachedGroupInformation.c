@@ -1,9 +1,9 @@
 /*
- * XREFs of PiInitReleaseCachedGroupInformation @ 0x14075051C
+ * XREFs of PiInitReleaseCachedGroupInformation @ 0x1407504FC
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x14018B1B4 (PnpCompleteSystemStartProcess.c)
+ *     PnpCompleteSystemStartProcess @ 0x14018B1D4 (PnpCompleteSystemStartProcess.c)
  * Callees:
- *     PnpFreeUnicodeStringList @ 0x14018B260 (PnpFreeUnicodeStringList.c)
+ *     PnpFreeUnicodeStringList @ 0x14018B280 (PnpFreeUnicodeStringList.c)
  */
 
 void PiInitReleaseCachedGroupInformation()

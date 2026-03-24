@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_UpdateGuids@FxWmiIrpHandler@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C005FCA0
+ * XREFs of ?_UpdateGuids@FxWmiIrpHandler@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0040E80
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?UpdateGuids@FxWmiIrpHandler@@AEAAXXZ @ 0x1C005F37C (-UpdateGuids@FxWmiIrpHandler@@AEAAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?UpdateGuids@FxWmiIrpHandler@@AEAAXXZ @ 0x1C00402B4 (-UpdateGuids@FxWmiIrpHandler@@AEAAXXZ.c)
  */
 
 void __fastcall FxWmiIrpHandler::_UpdateGuids(_DEVICE_OBJECT *DeviceObject, FxWmiIrpHandler *Context)

@@ -1,24 +1,27 @@
 /*
- * XREFs of SearchHidTLCInfo @ 0x1C009FC20
+ * XREFs of SearchHidTLCInfo @ 0x1C010888C
  * Callers:
- *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C009F8EC (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C0108520 (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
  * Callees:
- *     <none>
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C01088FC (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C010892C (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
  */
 
-__int64 *__fastcall SearchHidTLCInfo(__int64 a1, __int16 a2)
+__int64 *__fastcall SearchHidTLCInfo(__int16 a1, __int16 a2)
 {
-  __int16 v3; // si
-  __int64 v4; // rcx
   __int64 *i; // rbx
+  char v6; // [rsp+40h] [rbp+18h] BYREF
 
-  v3 = a1;
-  for ( i = *(__int64 **)(SGDGetUserSessionState(a1) + 376); ; i = (__int64 *)*i )
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v6, gTLCInfoLock);
+  for ( i = (__int64 *)RawInputManagerObject::gHidRequestTable[0];
+        i != (__int64 *)RawInputManagerObject::gHidRequestTable[0];
+        i = (__int64 *)*i )
   {
-    if ( i == (__int64 *)(SGDGetUserSessionState(v4) + 376) )
-      return 0LL;
-    if ( *((_WORD *)i + 8) == v3 && *((_WORD *)i + 9) == a2 )
-      break;
+    if ( *((_WORD *)i + 8) == a1 && *((_WORD *)i + 9) == a2 )
+      goto LABEL_8;
   }
+  i = 0LL;
+LABEL_8:
+  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v6);
   return i;
 }

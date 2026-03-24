@@ -1,9 +1,9 @@
 /*
- * XREFs of ScaleDpiValueWithSubpixel @ 0x1C01DFE5C
+ * XREFs of ScaleDpiValueWithSubpixel @ 0x1C01E5ECC
  * Callers:
- *     ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01F10CC (-TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z.c)
+ *     ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01F6974 (-TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z.c)
  * Callees:
- *     ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C0003DF4 (-ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z.c)
+ *     ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C01E42D0 (-ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z.c)
  */
 
 void __fastcall ScaleDpiValueWithSubpixel(int *a1, float *a2, unsigned __int16 a3, unsigned __int16 a4)

@@ -1,41 +1,31 @@
 /*
- * XREFs of PsGetNextProcessEx @ 0x14068F700
+ * XREFs of PsGetNextProcessEx @ 0x1406B4B20
  * Callers:
  *     <none>
  * Callees:
- *     PspUnlockProcessListShared @ 0x14020C7B0 (PspUnlockProcessListShared.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
  */
 
-unsigned __int64 __fastcall PsGetNextProcessEx(_QWORD *Object)
+void *__fastcall PsGetNextProcessEx(PADAPTER_OBJECT DmaAdapter)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  __int64 *v2; // r14
-  int v3; // esi
-  __int64 *v5; // rbx
+  void *NextProcess; // rax
+  void *v3; // rbx
 
-  CurrentThread = KeGetCurrentThread();
-  v2 = 0LL;
-  v3 = 0;
-  --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
-  v5 = (__int64 *)PsActiveProcessHead;
-  if ( Object )
-    v5 = (__int64 *)Object[137];
-  while ( v5 != &PsActiveProcessHead )
+  if ( DmaAdapter )
   {
-    v2 = v5 - 137;
-    if ( ObReferenceObjectSafeWithTag((__int64)(v5 - 137)) )
-    {
-      v3 = 1;
-      break;
-    }
-    v5 = (__int64 *)*v5;
+    ObfReferenceObjectWithTag(DmaAdapter, 0x6E457350u);
+    HalPutDmaAdapter(DmaAdapter);
   }
-  PspUnlockProcessListShared((__int64)CurrentThread);
-  if ( Object )
-    ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-  return (unsigned __int64)v2 & -(__int64)(v3 != 0);
+  NextProcess = (void *)PsGetNextProcess(DmaAdapter);
+  v3 = NextProcess;
+  if ( NextProcess )
+  {
+    ObfReferenceObject(NextProcess);
+    ObfDereferenceObjectWithTag(v3, 0x6E457350u);
+  }
+  return v3;
 }

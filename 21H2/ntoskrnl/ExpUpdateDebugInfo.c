@@ -1,20 +1,19 @@
 /*
- * XREFs of ExpUpdateDebugInfo @ 0x1409F92FC
+ * XREFs of ExpUpdateDebugInfo @ 0x14094CE04
  * Callers:
- *     ExHandleLogBadReference @ 0x14025032C (ExHandleLogBadReference.c)
- *     ExDupHandleTable @ 0x1406A6520 (ExDupHandleTable.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     ObpCloseHandle @ 0x140734160 (ObpCloseHandle.c)
- *     ExCreateHandleEx @ 0x1407A1CE8 (ExCreateHandleEx.c)
- *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
- *     ExDestroyHandle @ 0x1407A2B78 (ExDestroyHandle.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
+ *     ExDestroyHandle @ 0x140619D78 (ExDestroyHandle.c)
+ *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
+ *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     RtlWalkFrameChain @ 0x140295F90 (RtlWalkFrameChain.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExDereferenceHandleDebugInfo @ 0x1409F8D78 (ExDereferenceHandleDebugInfo.c)
- *     ExReferenceHandleDebugInfo @ 0x1409F91B8 (ExReferenceHandleDebugInfo.c)
+ *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExDereferenceHandleDebugInfo @ 0x14094C654 (ExDereferenceHandleDebugInfo.c)
+ *     ExReferenceHandleDebugInfo @ 0x14094CAA4 (ExReferenceHandleDebugInfo.c)
  */
 
 void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -107,7 +106,7 @@ void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)
           __debugbreak();
       }
       v23 = &v9[40 * v21 + 20];
-      *(_OWORD *)v23 = *(_OWORD *)(a2 + 1224);
+      *(_OWORD *)v23 = *(_OWORD *)(a2 + 1144);
       *((_QWORD *)v23 + 2) = a3;
       *((_DWORD *)v23 + 6) = a4;
       v24 = RtlWalkFrameChain((PVOID *)v23 + 4, 0x10u, 0x300u);

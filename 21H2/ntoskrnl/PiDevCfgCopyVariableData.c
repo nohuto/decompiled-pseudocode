@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgCopyVariableData @ 0x1408048F4
+ * XREFs of PiDevCfgCopyVariableData @ 0x1408A5D24
  * Callers:
- *     PiDevCfgResolveVariableExpression @ 0x140804350 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x14094E570 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA440 (PiDevCfgResolveVariableSwitchCase.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyVariableData(__int64 a1, __int64 a2)
 {
   int v2; // esi
-  void *v4; // rdi
+  PVOID v4; // rdi
   __int64 v5; // rdx
-  unsigned int v7; // eax
-  void *Pool2; // rax
-  __int64 v10; // rcx
+  __int64 v7; // rcx
+  unsigned int v8; // eax
+  PVOID PoolWithTag; // rax
   void *v11; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -24,32 +24,36 @@ __int64 __fastcall PiDevCfgCopyVariableData(__int64 a1, __int64 a2)
   v4 = 0LL;
   v5 = *(_QWORD *)(a2 + 40);
   if ( !v5 )
-    goto LABEL_6;
-  if ( (unsigned __int16)*(_DWORD *)(a2 + 32) != 0x8000 )
+    goto LABEL_12;
+  if ( (unsigned __int16)*(_DWORD *)(a2 + 32) == 0x8000 )
   {
-    v7 = *(_DWORD *)(a2 + 36);
-    if ( v7 )
+    if ( *(_QWORD *)&PiPnpRtlCtx )
+      v7 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
+    else
+      v7 = 0LL;
+    v2 = SysCtxRegOpenKey(v7, v5, 0LL, 0, 0x20019u, (__int64)&v11);
+    if ( v2 >= 0 )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, v7, 1667526736LL);
-      v4 = Pool2;
-      if ( !Pool2 )
-        return (unsigned int)-1073741670;
-      memmove(Pool2, *(const void **)(a2 + 40), *(unsigned int *)(a2 + 36));
+      v4 = v11;
+LABEL_12:
+      *(_DWORD *)(a1 + 32) = *(_DWORD *)(a2 + 32);
+      *(_DWORD *)(a1 + 36) = *(_DWORD *)(a2 + 36);
+      *(_QWORD *)(a1 + 40) = v4;
     }
-    goto LABEL_6;
   }
-  if ( *(_QWORD *)&PiPnpRtlCtx )
-    v10 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
   else
-    v10 = 0LL;
-  v2 = SysCtxRegOpenKey(v10, v5, 0LL, 0, 0x20019u, (__int64)&v11);
-  if ( v2 >= 0 )
   {
-    v4 = v11;
-LABEL_6:
-    *(_DWORD *)(a1 + 32) = *(_DWORD *)(a2 + 32);
-    *(_DWORD *)(a1 + 36) = *(_DWORD *)(a2 + 36);
-    *(_QWORD *)(a1 + 40) = v4;
+    v8 = *(_DWORD *)(a2 + 36);
+    if ( !v8 )
+      goto LABEL_12;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x63647050u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memmove(PoolWithTag, *(const void **)(a2 + 40), *(unsigned int *)(a2 + 36));
+      goto LABEL_12;
+    }
+    return (unsigned int)-1073741670;
   }
   return (unsigned int)v2;
 }

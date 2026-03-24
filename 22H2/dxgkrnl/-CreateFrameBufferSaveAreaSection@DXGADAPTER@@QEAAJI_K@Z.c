@@ -1,55 +1,43 @@
 /*
- * XREFs of ?CreateFrameBufferSaveAreaSection@DXGADAPTER@@QEAAJI_K@Z @ 0x1C02B5EF0
+ * XREFs of ?CreateFrameBufferSaveAreaSection@DXGADAPTER@@QEAAJI_K@Z @ 0x1C020C304
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGADAPTER::CreateFrameBufferSaveAreaSection(DXGADAPTER *this, unsigned int a2, __int64 a3)
+__int64 __fastcall DXGADAPTER::CreateFrameBufferSaveAreaSection(DXGADAPTER *this, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rsi
-  int v6; // eax
-  __int64 v7; // rdi
-  __int64 v9; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v4; // rsi
+  __int64 v6; // rax
+  int v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+60h] [rbp+18h] BYREF
 
-  v3 = 344LL * a2;
-  if ( *(_QWORD *)(*((_QWORD *)this + 351) + v3 + 64) )
+  v4 = 360LL * (unsigned int)a2;
+  if ( *(_QWORD *)(*((_QWORD *)this + 323) + v4 + 64) )
   {
-    WdLogSingleEntry1(1LL, 11056LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_pPhysicalAdapter[PhysicalAdapterIndex].m_FrameBufferSaveAreaSection == nullptr",
-      11056LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 10399LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v9 = 0LL;
-  v10 = a3;
-  v6 = MmCreateSection(&v9, 0LL, 0LL, &v10, 4, 0x8000000, 0LL, 0LL);
-  v7 = v6;
-  if ( v6 >= 0 )
+  v13 = 0LL;
+  v14 = a3;
+  v7 = MmCreateSection(&v13, 0LL, 0LL, &v14, 4, 0x8000000, 0LL, 0LL);
+  v10 = v7;
+  if ( v7 >= 0 )
   {
-    *(_QWORD *)(*((_QWORD *)this + 351) + v3 + 64) = v9;
+    *(_QWORD *)(*((_QWORD *)this + 323) + v4 + 64) = v13;
   }
   else
   {
-    WdLogSingleEntry1(2LL, v6);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create section object for buffer save area size. Status 0x%I64x",
-      v7,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v11 + 24) = v10;
+    WdLogEvent5_WdError(v11);
   }
-  return (unsigned int)v7;
+  return (unsigned int)v10;
 }

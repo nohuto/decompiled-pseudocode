@@ -1,5 +1,5 @@
 /*
- * XREFs of ExQueryTimerResolution @ 0x1403B62C0
+ * XREFs of ExQueryTimerResolution @ 0x1403CF850
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ __int64 __fastcall ExQueryTimerResolution(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 
   *a1 = KeMaximumIncrement;
   *a2 = KeMinimumIncrement;
-  result = (unsigned int)KePseudoHrTimeIncrement;
-  *a3 = KePseudoHrTimeIncrement;
+  result = (unsigned int)KeTimeIncrement;
+  *a3 = KeTimeIncrement;
   return result;
 }

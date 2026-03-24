@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRevertContainerImpersonation @ 0x1401BB010
+ * XREFs of ZwRevertContainerImpersonation @ 0x1401BB030
  * Callers:
  *     <none>
  * Callees:

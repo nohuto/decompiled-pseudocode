@@ -1,40 +1,60 @@
 /*
- * XREFs of ApiSetEditionGetInputDelegate @ 0x1C02061F0
+ * XREFs of ApiSetEditionGetInputDelegate @ 0x1C01CB95C
  * Callers:
- *     ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C01C2494 (-EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPoi.c)
- *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@K@Z @ 0x1C01CE024 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@K@Z.c)
- *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C01D358C (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ *     ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C018E0A4 (-EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPoi.c)
+ *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEAUtagCHitTestState@@K@Z @ 0x1C0197C28 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEA.c)
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z @ 0x1C019BBCC (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     EditionGetInputDelegate @ 0x1C0232ABC (EditionGetInputDelegate.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     EditionGetInputDelegate @ 0x1C01FBD94 (EditionGetInputDelegate.c)
  */
 
 __int64 __fastcall ApiSetEditionGetInputDelegate(_OWORD *a1)
 {
-  __int64 v1; // rbx
-  __int128 v3; // xmm1
-  __int128 v4; // xmm0
-  __int128 v5; // xmm1
-  __int128 v6; // xmm0
-  __int128 v7; // xmm1
-  _OWORD v9[7]; // [rsp+20h] [rbp-78h] BYREF
+  __int64 InputDelegate; // rdi
+  int v3; // eax
+  __int128 v4; // xmm1
+  __int128 v5; // xmm0
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  _OWORD v10[7]; // [rsp+30h] [rbp-78h] BYREF
 
-  v1 = 0LL;
-  if ( qword_1C0296920 && (int)qword_1C0296920() >= 0 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      228,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  InputDelegate = 0LL;
+  if ( qword_1C0257678 )
+    v3 = qword_1C0257678();
+  else
+    v3 = -1073741637;
+  if ( v3 >= 0 )
   {
-    v3 = a1[1];
-    v9[0] = *a1;
-    v9[2] = a1[2];
-    v4 = a1[4];
-    v9[1] = v3;
-    v5 = a1[3];
-    v9[4] = v4;
-    v6 = a1[6];
-    v9[3] = v5;
-    v7 = a1[5];
-    v9[6] = v6;
-    v9[5] = v7;
-    return EditionGetInputDelegate(v9);
+    v4 = a1[1];
+    v10[0] = *a1;
+    v10[2] = a1[2];
+    v5 = a1[4];
+    v10[1] = v4;
+    v6 = a1[3];
+    v10[4] = v5;
+    v7 = a1[6];
+    v10[3] = v6;
+    v8 = a1[5];
+    v10[6] = v7;
+    v10[5] = v8;
+    InputDelegate = EditionGetInputDelegate(v10);
   }
-  return v1;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      229,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  return InputDelegate;
 }

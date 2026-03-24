@@ -4,12 +4,12 @@
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtCreateDirectoryObject @ 0x1406ADCE0 (NtCreateDirectoryObject.c)
- *     NtCreateSymbolicLinkObject @ 0x1406B6F20 (NtCreateSymbolicLinkObject.c)
+ *     NtCreateDirectoryObject @ 0x1406ADCC0 (NtCreateDirectoryObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x1406B6F00 (NtCreateSymbolicLinkObject.c)
  */
 
 __int64 __fastcall CreateSystemRootLink(_QWORD *a1)

@@ -1,47 +1,50 @@
 /*
- * XREFs of HalpMapNvsArea @ 0x140A96FC0
+ * XREFs of HalpMapNvsArea @ 0x140998E18
  * Callers:
- *     HalpPowerStateCallback @ 0x1403B0040 (HalpPowerStateCallback.c)
+ *     HalpPowerStateCallback @ 0x1403A67F0 (HalpPowerStateCallback.c)
  * Callees:
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpFreeNvsBuffers @ 0x140A96F44 (HalpFreeNvsBuffers.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpFreeNvsBuffers @ 0x140998EA8 (HalpFreeNvsBuffers.c)
  */
 
-void __fastcall HalpMapNvsArea(__int64 a1)
+__int64 __fastcall HalpMapNvsArea(__int64 a1)
 {
-  __int64 v1; // rdi
-  __int64 v2; // rax
-  __int64 v3; // rcx
+  __int64 result; // rax
+  __int64 v2; // rdi
 
+  result = (unsigned int)HalpNvsPreservedDataSize;
   if ( !HalpNvsPreservedDataSize )
   {
     HalpDisableNvsSaveRestore = 1;
-    return;
+    return result;
   }
   HalpDisableNvsSaveRestore = 0;
-  HalpNvsPreservedData = HalpMmAllocCtxAlloc(a1, (unsigned int)HalpNvsPreservedDataSize);
-  if ( HalpNvsPreservedData )
+  result = HalpMmAllocCtxAlloc(a1, (unsigned int)HalpNvsPreservedDataSize);
+  HalpNvsPreservedData = result;
+  if ( !result )
+    goto LABEL_8;
+  v2 = 0LL;
+  if ( HalpNvsRegionCount )
   {
-    v1 = 0LL;
-    if ( !HalpNvsRegionCount )
-      return;
     while ( 1 )
     {
-      v2 = MmMapIoSpaceEx(
-             *(_QWORD *)(HalpNvsRegionData + 24 * v1),
-             *(unsigned int *)(HalpNvsRegionData + 24 * v1 + 8),
-             0x204u);
-      *(_QWORD *)(HalpNvsRegionData + 24 * v1 + 16) = v2;
-      if ( !v2 )
+      result = MmMapIoSpaceEx(
+                 *(_QWORD *)(HalpNvsRegionData + 24 * v2),
+                 *(unsigned int *)(HalpNvsRegionData + 24 * v2 + 8),
+                 0x204u);
+      *(_QWORD *)(HalpNvsRegionData + 24 * v2 + 16) = result;
+      if ( !result )
         break;
-      v1 = (unsigned int)(v1 + 1);
-      if ( (unsigned int)v1 >= HalpNvsRegionCount )
-        return;
+      v2 = (unsigned int)(v2 + 1);
+      if ( (unsigned int)v2 >= HalpNvsRegionCount )
+        return result;
     }
+LABEL_8:
+    DbgPrint("HALACPI:  The BIOS's non-volatile data will not be preserved\n");
+    HalpDisableNvsSaveRestore = 1;
+    return HalpFreeNvsBuffers();
   }
-  DbgPrint("HALACPI:  The BIOS's non-volatile data will not be preserved\n");
-  HalpDisableNvsSaveRestore = 1;
-  HalpFreeNvsBuffers(v3);
+  return result;
 }

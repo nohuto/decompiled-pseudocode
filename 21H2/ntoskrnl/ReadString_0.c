@@ -1,12 +1,12 @@
 /*
- * XREFs of ReadString_0 @ 0x1403E9C2C
+ * XREFs of ReadString_0 @ 0x1403DA938
  * Callers:
- *     ReadStringDelimited_0 @ 0x1403E9E64 (ReadStringDelimited_0.c)
- *     _winput_s @ 0x1403EA0E8 (_winput_s.c)
+ *     ReadStringDelimited_0 @ 0x1403DAB78 (ReadStringDelimited_0.c)
+ *     _winput_s @ 0x1403DAE08 (_winput_s.c)
  * Callees:
- *     _fgetwc_nolock @ 0x1403EAB5C (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x1403EABA8 (_ungetwc_nolock.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     _fgetwc_nolock @ 0x1403DB880 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x1403DB8CC (_ungetwc_nolock.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall ReadString_0(
@@ -21,12 +21,12 @@ __int64 __fastcall ReadString_0(
         _DWORD *a9)
 {
   _WORD *v12; // r14
-  int v13; // esi
+  int v13; // edi
   unsigned __int64 v14; // rbp
   int v15; // eax
   wint_t v17; // ax
   int v18; // ecx
-  char v19; // si
+  char v19; // di
   __int64 v20; // rax
   _WORD *v22; // rax
   int v24; // [rsp+70h] [rbp+18h]
@@ -72,14 +72,7 @@ LABEL_31:
     else
     {
       if ( !v14 )
-      {
-        if ( (a1 & 2) != 0 )
-          *v12 = 0;
-        else
-LABEL_35:
-          *(_BYTE *)v12 = 0;
-        return 0xFFFFFFFFLL;
-      }
+        goto LABEL_32;
       if ( (a1 & 2) != 0 )
       {
         *(_WORD *)*a5 = v17;
@@ -92,7 +85,14 @@ LABEL_35:
         LOBYTE(Src) = *(_BYTE *)a3;
         v19 = Src;
         if ( (char)Src > 0 && (char)Src > v14 || (unsigned __int8)Src > 5u )
-          goto LABEL_35;
+        {
+LABEL_32:
+          if ( (a1 & 2) != 0 )
+            *v12 = 0;
+          else
+            *(_BYTE *)v12 = 0;
+          return 0xFFFFFFFFLL;
+        }
         memmove(*a5, &Src, (char)Src);
       }
       else

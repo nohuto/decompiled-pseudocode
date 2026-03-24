@@ -1,66 +1,61 @@
 /*
- * XREFs of PsReferenceImpersonationTokenEx @ 0x14072A6B0
+ * XREFs of PsReferenceImpersonationTokenEx @ 0x140656960
  * Callers:
- *     SepReferenceTokenUsingPseudoHandle @ 0x14023B484 (SepReferenceTokenUsingPseudoHandle.c)
- *     SepReferenceTokenByHandle @ 0x1402F8F70 (SepReferenceTokenByHandle.c)
- *     ObpReferenceCurrentDeviceMap @ 0x14069C820 (ObpReferenceCurrentDeviceMap.c)
- *     CmpCmdHiveOpen @ 0x14070AAD0 (CmpCmdHiveOpen.c)
- *     SeCreateClientSecurity @ 0x1407271D0 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x1407275D0 (SeCreateClientSecurityEx.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x14027DC90 (SepReferenceTokenUsingPseudoHandle.c)
+ *     CmpCmdHiveOpen @ 0x140603588 (CmpCmdHiveOpen.c)
+ *     ObpReferenceDeviceMap @ 0x1406256F0 (ObpReferenceDeviceMap.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
+ *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
+ *     PsReferenceImpersonationToken @ 0x140699900 (PsReferenceImpersonationToken.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
  */
 
-void *__fastcall PsReferenceImpersonationTokenEx(
-        __int64 a1,
-        char a2,
-        ULONG a3,
-        _BYTE *a4,
-        bool *a5,
-        int *a6,
-        _BYTE *a7)
+void *__fastcall PsReferenceImpersonationTokenEx(__int64 a1, char a2, _BYTE *a3, bool *a4, int *a5, _BYTE *a6)
 {
+  struct _KTHREAD *CurrentThread; // rbp
   __int64 v12; // r13
-  struct _KTHREAD *CurrentThread; // r15
-  void *v14; // rsi
-  char v15; // al
+  void *v13; // rsi
+  char v14; // al
 
-  if ( (*(_DWORD *)(a1 + 1376) & 8) == 0 )
+  if ( (*(_DWORD *)(a1 + 1296) & 8) == 0 )
     return 0LL;
-  v12 = *(_QWORD *)(a1 + 544);
   CurrentThread = KeGetCurrentThread();
+  v12 = *(_QWORD *)(a1 + 544);
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx(a1 + 1360, 0LL);
-  if ( (*(_DWORD *)(a1 + 1376) & 8) != 0 )
+  ExAcquirePushLockSharedEx(a1 + 1280, 0LL);
+  if ( (*(_DWORD *)(a1 + 1296) & 8) != 0 )
   {
-    if ( (a2 & 1) != 0 && (v14 = *(void **)(a1 + 1544)) != 0LL )
+    if ( (a2 & 1) != 0 && (v13 = *(void **)(a1 + 1464)) != 0LL )
     {
-      v15 = 0;
+      v14 = 0;
     }
     else
     {
-      v14 = (void *)(*(_QWORD *)(a1 + 1272) & 0xFFFFFFFFFFFFFFF8uLL);
-      v15 = BYTE1(*(_DWORD *)(a1 + 1376)) & 1;
+      v13 = (void *)(*(_QWORD *)(a1 + 1192) & 0xFFFFFFFFFFFFFFF8uLL);
+      v14 = BYTE1(*(_DWORD *)(a1 + 1296)) & 1;
     }
-    *a4 = v15;
-    ObfReferenceObjectWithTag(v14, a3);
-    *a6 = *(_DWORD *)(a1 + 1272) & 3;
-    *a5 = (*(_BYTE *)(a1 + 1272) & 4) != 0;
-    if ( a7 )
-      *a7 = *(_BYTE *)(v12 + 2170);
+    *a3 = v14;
+    ObfReferenceObject(v13);
+    *a5 = *(_DWORD *)(a1 + 1192) & 3;
+    *a4 = (*(_BYTE *)(a1 + 1192) & 4) != 0;
+    if ( a6 )
+      *a6 = *(_BYTE *)(v12 + 2170);
   }
   else
   {
-    v14 = 0LL;
+    v13 = 0LL;
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1360), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(a1 + 1360));
-  KeAbPostRelease(a1 + 1360);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1280), 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(a1 + 1280));
+  KeAbPostRelease(a1 + 1280);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  return v14;
+  return v13;
 }

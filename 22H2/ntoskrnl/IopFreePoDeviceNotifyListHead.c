@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFreePoDeviceNotifyListHead @ 0x140A9E9B4
+ * XREFs of IopFreePoDeviceNotifyListHead @ 0x140997A58
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x140A9E1B8 (IoBuildPoDeviceNotifyList.c)
- *     IoFreePoDeviceNotifyList @ 0x140A9E814 (IoFreePoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972A0 (IoBuildPoDeviceNotifyList.c)
+ *     IoFreePoDeviceNotifyList @ 0x1409979EC (IoFreePoDeviceNotifyList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreePoDeviceNotifyListHead(_QWORD *a1)
@@ -24,13 +24,13 @@ void __fastcall IopFreePoDeviceNotifyListHead(_QWORD *a1)
       __fastfail(3u);
     *a1 = v3;
     *(_QWORD *)(v3 + 8) = a1;
-    ObfDereferenceObject((PVOID)v2[8]);
-    ObfDereferenceObject((PVOID)v2[6]);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v2[8]);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v2[6]);
     v4 = (void *)v2[9];
     if ( v4 )
-      ExFreePoolWithTag(v4, 0x69445044u);
+      ExFreePoolWithTag(v4, 0x72775044u);
     v5 = (void *)v2[10];
     if ( v5 )
-      ExFreePoolWithTag(v5, 0x69445044u);
+      ExFreePoolWithTag(v5, 0x72775044u);
   }
 }

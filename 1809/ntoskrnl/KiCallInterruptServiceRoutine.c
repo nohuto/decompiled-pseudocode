@@ -1,21 +1,21 @@
 /*
  * XREFs of KiCallInterruptServiceRoutine @ 0x1400162E0
  * Callers:
- *     KiScanInterruptObjectList @ 0x1401BD5C0 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x1401BD7A0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x1401BD8F0 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x1401BDA40 (KiInterruptSubDispatchNoLockNoEtw.c)
- *     KiInvokeInterruptServiceRoutine @ 0x140299C04 (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x1401BD5E0 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x1401BD7C0 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x1401BD910 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x1401BDA60 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x140299D04 (KiInvokeInterruptServiceRoutine.c)
  * Callees:
  *     KiIntRedirectQueueRequestOnProcessor @ 0x140016548 (KiIntRedirectQueueRequestOnProcessor.c)
  *     KeFindFirstSetRightGroupAffinity @ 0x1400165E0 (KeFindFirstSetRightGroupAffinity.c)
  *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     KiCheckAndRearmForceIdle @ 0x1400F9938 (KiCheckAndRearmForceIdle.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290D28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290E38 (KiReleaseSpinLockInstrumented.c)
- *     KiResetForceIdle @ 0x14029B33C (KiResetForceIdle.c)
+ *     KiCheckAndRearmForceIdle @ 0x1400F9958 (KiCheckAndRearmForceIdle.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
+ *     KiResetForceIdle @ 0x14029B43C (KiResetForceIdle.c)
  */
 
 char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2)

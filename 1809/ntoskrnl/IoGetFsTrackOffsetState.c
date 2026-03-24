@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetFsTrackOffsetState @ 0x140107C00
+ * XREFs of IoGetFsTrackOffsetState @ 0x140107C20
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140107C2C (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x140107C4C (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoGetFsTrackOffsetState(__int64 a1)

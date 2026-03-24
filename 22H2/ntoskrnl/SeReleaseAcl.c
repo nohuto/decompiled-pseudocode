@@ -1,10 +1,10 @@
 /*
- * XREFs of SeReleaseAcl @ 0x1406BA32C
+ * XREFs of SeReleaseAcl @ 0x1405DBD4C
  * Callers:
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeReleaseAcl(void *a1, unsigned __int8 a2)

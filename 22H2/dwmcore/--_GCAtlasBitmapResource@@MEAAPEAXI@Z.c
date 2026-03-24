@@ -1,18 +1,18 @@
 /*
- * XREFs of ??_GCAtlasBitmapResource@@MEAAPEAXI@Z @ 0x1800B6530
+ * XREFs of ??_GCAtlasBitmapResource@@MEAAPEAXI@Z @ 0x18020A290
  * Callers:
  *     <none>
  * Callees:
- *     ??1CAtlasBitmapResource@@MEAA@XZ @ 0x1800B656C (--1CAtlasBitmapResource@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CAtlasBitmapResource@@MEAA@XZ @ 0x18020A1F8 (--1CAtlasBitmapResource@@MEAA@XZ.c)
  */
 
-CAtlasBitmapResource *__fastcall CAtlasBitmapResource::`scalar deleting destructor'(
-        CAtlasBitmapResource *this,
-        char a2)
+CAtlasBitmapResource *__fastcall CAtlasBitmapResource::`scalar deleting destructor'(CAtlasBitmapResource *this)
 {
+  char v2; // r10
+
   CAtlasBitmapResource::~CAtlasBitmapResource(this);
-  if ( (a2 & 1) != 0 )
-    operator delete(this, 0x70uLL);
+  if ( (v2 & 1) != 0 )
+    operator delete(this);
   return this;
 }

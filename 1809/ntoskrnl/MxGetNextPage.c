@@ -4,7 +4,7 @@
  *     MxMapVa @ 0x1409BB8F8 (MxMapVa.c)
  * Callees:
  *     MxBootDescriptorDepleted @ 0x1409BBDCC (MxBootDescriptorDepleted.c)
- *     MxSwitchDescriptors @ 0x1409F7CEC (MxSwitchDescriptors.c)
+ *     MxSwitchDescriptors @ 0x1409F7CFC (MxSwitchDescriptors.c)
  */
 
 __int64 __fastcall MxGetNextPage(unsigned int a1, int a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x14068DAF8
+ * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x14068DAD8
  * Callers:
- *     ObpMarkDirectoryTreeTemporary @ 0x14068DA80 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x14068DA60 (ObpMarkDirectoryTreeTemporary.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ObpUnlockDirectory @ 0x140109EF8 (ObpUnlockDirectory.c)
- *     ObpLockDirectoryExclusive @ 0x140109FB0 (ObpLockDirectoryExclusive.c)
+ *     ObpUnlockDirectory @ 0x140109F18 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryExclusive @ 0x140109FD0 (ObpLockDirectoryExclusive.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpDeleteSymbolicLinkName @ 0x14068E1B4 (ObpDeleteSymbolicLinkName.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14068E194 (ObpDeleteSymbolicLinkName.c)
  */
 
 void __fastcall ObpMarkDirectoryObjectsTemporary(PVOID Object)

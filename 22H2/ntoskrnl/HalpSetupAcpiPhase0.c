@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpSetupAcpiPhase0 @ 0x140B66918
+ * XREFs of HalpSetupAcpiPhase0 @ 0x140A63D20
  * Callers:
- *     HalpAcpiInitDiscard @ 0x140B66744 (HalpAcpiInitDiscard.c)
+ *     HalpAcpiInitDiscard @ 0x140A63B68 (HalpAcpiInitDiscard.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HalpAllocPhysicalMemory @ 0x140B4C03C (HalpAllocPhysicalMemory.c)
- *     HalpAcpiTableCacheInit @ 0x140B4C428 (HalpAcpiTableCacheInit.c)
- *     HalpAcpiInitializePmRegisters @ 0x140B66AE4 (HalpAcpiInitializePmRegisters.c)
- *     HalpInitBootTable @ 0x140B66DDC (HalpInitBootTable.c)
- *     HalpSetPlatformFlags @ 0x140B66E4C (HalpSetPlatformFlags.c)
- *     HalpNumaInitializeStaticConfiguration @ 0x140B66ED8 (HalpNumaInitializeStaticConfiguration.c)
- *     HalpAcpiDetectMachineSpecificActions @ 0x140B66F88 (HalpAcpiDetectMachineSpecificActions.c)
- *     HalpNumaParseHmat @ 0x140B923E4 (HalpNumaParseHmat.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpAcpiTableCacheInit @ 0x140A64690 (HalpAcpiTableCacheInit.c)
+ *     HalpAllocPhysicalMemory @ 0x140A64AC0 (HalpAllocPhysicalMemory.c)
+ *     HalpInitBootTable @ 0x140A64DF0 (HalpInitBootTable.c)
+ *     HalpAcpiDetectMachineSpecificActions @ 0x140A64E3C (HalpAcpiDetectMachineSpecificActions.c)
+ *     HalpAcpiInitializePmRegisters @ 0x140A64ED8 (HalpAcpiInitializePmRegisters.c)
+ *     HalpSetPlatformFlags @ 0x140A65198 (HalpSetPlatformFlags.c)
+ *     HalpNumaParseHmat @ 0x140A8D0E4 (HalpNumaParseHmat.c)
  */
 
 __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
 
   if ( !HalpProcessedACPIPhase0 )
   {
-    result = HalpAcpiTableCacheInit(a1);
+    result = HalpAcpiTableCacheInit();
     if ( (int)result < 0 )
       return result;
     Table = HalpAcpiGetTable(a1, 1346584902, 0, 0);
@@ -51,9 +51,9 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
     memmove(&HalpFixedAcpiDescTable, v4, v6);
     HalpSetPlatformFlags(&HalpFixedAcpiDescTable, a1);
     HalpAcpiInitializePmRegisters(&HalpFixedAcpiDescTable);
-    if ( (dword_140C62170 & 0x40000) != 0 )
+    if ( (dword_140C4A070 & 0x40000) != 0 )
       HalpInterruptClusterModeForced = 1;
-    if ( (dword_140C62170 & 0x80000) != 0 )
+    if ( (dword_140C4A070 & 0x80000) != 0 )
       HalpInterruptPhysicalModeOnly = 1;
     HalpAcpiDetectMachineSpecificActions(a1);
     HalpNumaInitializeStaticConfiguration(a1);
@@ -83,8 +83,8 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
       v15 = *(unsigned __int8 *)(v8 + 36);
       if ( *(unsigned int *)(v9 + 4) >= (unsigned __int64)*(unsigned int *)(v9 + 40) + 2 * v15 )
       {
-        qword_140C6ABC8 = HalpMmAllocateMemoryInternal(136 * (int)v15, 1u);
-        if ( qword_140C6ABC8 )
+        qword_140C50AB0 = HalpMmAllocateMemoryInternal(136 * (int)v15, 1u);
+        if ( qword_140C50AB0 )
           PdttTable = v9;
       }
     }
@@ -94,17 +94,16 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
     if ( !HalpLowStubPhysicalAddress )
     {
       v16 = 0x100000LL;
-      v11 = (void *)HalpAllocPhysicalMemory(a1, (__int64)&v16, 1u);
+      v11 = (void *)HalpAllocPhysicalMemory(a1, &v16, 1LL, 0LL);
       HalpLowStubPhysicalAddress = v11;
       if ( v11 )
         HalpLowStub = HalpMap((__int64)v11, 1LL, 1u, 0LL, 4u);
     }
-    if ( (dword_140C62170 & 3) == 0 )
+    if ( (dword_140C4A070 & 3) == 0 )
       HalpVirtAddrForFlush = HalpMap((__int64)HalpLowStubPhysicalAddress, 1LL, 1u, 0LL, 4u);
     HalpProcessedACPIPhase0 = 1;
-    qword_140C02198 = (__int64)HalpAcpiGetPrmCache;
-    qword_140C02188 = (__int64)HalAcpiGetTableDispatch;
-    qword_140C02190 = (__int64)xHalTimerWatchdogStop;
+    qword_140C00B08 = (__int64)HalAcpiGetTableDispatch;
+    qword_140C00B10 = (__int64)xHalTimerWatchdogStop;
     HalpInitBootTable(a1);
   }
   return 0LL;

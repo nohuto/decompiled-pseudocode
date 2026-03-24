@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwKernelMemoryRundown @ 0x1409E1EFC
+ * XREFs of EtwKernelMemoryRundown @ 0x140935A58
  * Callers:
- *     PopEndMirroring @ 0x140A4E4B0 (PopEndMirroring.c)
+ *     PopEndMirroring @ 0x140996250 (PopEndMirroring.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  */
 
 char EtwKernelMemoryRundown()
@@ -19,13 +19,13 @@ char EtwKernelMemoryRundown()
   LOBYTE(v0) = EtwpHostSiloState;
   memset(v7, 0, sizeof(v7));
   DWORD1(v7[0]) = 8;
-  v1 = *(_DWORD *)(EtwpHostSiloState + 4248);
+  v1 = *(_DWORD *)(EtwpHostSiloState + 4224);
   while ( _BitScanForward(&v5, v1) )
   {
     v1 &= v1 - 1;
     v2 = v5;
     v0 = 32LL * v5;
-    v3 = v0 + EtwpHostSiloState + 4284;
+    v3 = v0 + EtwpHostSiloState + 4260;
     if ( v3 )
     {
       LODWORD(v0) = *(_DWORD *)(v3 + 20);
@@ -33,7 +33,7 @@ char EtwKernelMemoryRundown()
         LOBYTE(v0) = EtwpKernelTraceRundown(
                        (int *)v7,
                        EtwpHostSiloState,
-                       *(unsigned __int8 *)(EtwpHostSiloState + 2 * v2 + 4232),
+                       *(unsigned __int8 *)(EtwpHostSiloState + 2 * v2 + 4208),
                        0,
                        0LL,
                        0);

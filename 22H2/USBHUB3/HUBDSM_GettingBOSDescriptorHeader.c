@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_GettingBOSDescriptorHeader @ 0x1C0022550
+ * XREFs of HUBDSM_GettingBOSDescriptorHeader @ 0x1C001FF50
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetBOSDescriptorHeaderUsingControlTransfer @ 0x1C002B424 (HUBDTX_GetBOSDescriptorHeaderUsingControlTransfer.c)
+ *     HUBDTX_GetBOSDescriptorHeaderUsingControlTransfer @ 0x1C00287A8 (HUBDTX_GetBOSDescriptorHeaderUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_GettingBOSDescriptorHeader(__int64 a1)

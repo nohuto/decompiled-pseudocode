@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C006FDF4
+ * XREFs of ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C0011060
  * Callers:
- *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006FB60 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
- *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C016E490 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0010D28 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C01415E0 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
  * Callees:
- *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00C5210 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
+ *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C0015C00 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
  */
 
 __int64 __fastcall PDEVOBJ::bRenderLddmDriver(PDEVOBJ *this)
@@ -15,7 +15,7 @@ __int64 __fastcall PDEVOBJ::bRenderLddmDriver(PDEVOBJ *this)
   bool v4; // zf
   __int64 v6; // r8
 
-  v1 = *(_QWORD *)(*(_QWORD *)this + 2552LL);
+  v1 = *(_QWORD *)(*(_QWORD *)this + 2576LL);
   if ( ((v1 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
   {
     LODWORD(v2) = 0;

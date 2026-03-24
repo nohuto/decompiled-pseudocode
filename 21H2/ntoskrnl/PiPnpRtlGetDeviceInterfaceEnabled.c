@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceInterfaceEnabled @ 0x1406C2770
+ * XREFs of PiPnpRtlGetDeviceInterfaceEnabled @ 0x1406A1DD0
  * Callers:
  *     <none>
  * Callees:
- *     ZwPlugPlayControl @ 0x14041DE80 (ZwPlugPlayControl.c)
+ *     ZwPlugPlayControl @ 0x1403FCA00 (ZwPlugPlayControl.c)
  */
 
 __int64 __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, _BYTE *a3, int a4)

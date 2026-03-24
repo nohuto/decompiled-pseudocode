@@ -1,26 +1,26 @@
 /*
- * XREFs of Crashdump_Cleanup @ 0x1C004BD10
+ * XREFs of Crashdump_Cleanup @ 0x1C0049210
  * Callers:
  *     <none>
  * Callees:
- *     Crashdump_Register_SaveStateForHybridSleep @ 0x1C004DD3C (Crashdump_Register_SaveStateForHybridSleep.c)
- *     Crashdump_Register_StopController @ 0x1C004DF20 (Crashdump_Register_StopController.c)
- *     Crashdump_Command_Stop @ 0x1C004EC20 (Crashdump_Command_Stop.c)
- *     Crashdump_UsbDevice_Cleanup @ 0x1C004FA20 (Crashdump_UsbDevice_Cleanup.c)
- *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C0050060 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
- *     Crashdump_UsbDevice_SuspendPort @ 0x1C0050FF8 (Crashdump_UsbDevice_SuspendPort.c)
+ *     Crashdump_Register_SaveStateForHybridSleep @ 0x1C004B278 (Crashdump_Register_SaveStateForHybridSleep.c)
+ *     Crashdump_Register_StopController @ 0x1C004B454 (Crashdump_Register_StopController.c)
+ *     Crashdump_Command_Stop @ 0x1C004C150 (Crashdump_Command_Stop.c)
+ *     Crashdump_UsbDevice_Cleanup @ 0x1C004CF48 (Crashdump_UsbDevice_Cleanup.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C004E528 (Crashdump_UsbDevice_SuspendPort.c)
  */
 
 __int64 __fastcall Crashdump_Cleanup(__int64 a1)
 {
   unsigned int v2; // edi
-  _QWORD *v3; // rsi
-  unsigned int i; // ebp
-  __int64 v5; // rdi
-  int v6; // eax
-  unsigned int v7; // edi
-  unsigned int j; // ebp
-  int v9; // eax
+  unsigned int i; // esi
+  __int64 v4; // rdi
+  int v5; // eax
+  bool v6; // zf
+  __int64 j; // rdi
+  int v8; // eax
+  unsigned int v9; // esi
   int *v10; // rcx
   __int64 v11; // rdx
   int v12; // eax
@@ -31,26 +31,30 @@ __int64 __fastcall Crashdump_Cleanup(__int64 a1)
 
   DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_Cleanup: begin\n");
   v2 = *(_DWORD *)(a1 + 536);
-  v3 = (_QWORD *)(a1 + 568);
   for ( i = 0; i < v2; ++i )
   {
-    v5 = 376LL * i;
-    v6 = Crashdump_UsbDevice_Cleanup(v5 + *v3);
-    if ( v6 < 0 )
-      DbgPrintEx(0x93u, 1u, "XHCIDUMP: Crashdump_UsbDevice_Cleanup failed with error 0x%X\n", v6);
-    if ( *(_BYTE *)(a1 + 625) && (int)Crashdump_UsbDevice_ConfigureEndpointsForSaveState(v5 + *v3) < 0 )
+    v4 = 376LL * i;
+    v5 = Crashdump_UsbDevice_Cleanup(v4 + *(_QWORD *)(a1 + 568));
+    if ( v5 < 0 )
+      DbgPrintEx(0x93u, 1u, "XHCIDUMP: Crashdump_UsbDevice_Cleanup failed with error 0x%X\n", v5);
+    if ( *(_BYTE *)(a1 + 625) && (int)Crashdump_UsbDevice_ConfigureEndpointsForSaveState(v4 + *(_QWORD *)(a1 + 568)) < 0 )
       *(_BYTE *)(a1 + 625) = 0;
     v2 = *(_DWORD *)(a1 + 536);
   }
-  v7 = v2 - 1;
-  for ( j = *(_DWORD *)(a1 + 4LL * v7 + 544); v7; j = *(_DWORD *)(a1 + 4LL * v7 + 544) )
+  LODWORD(j) = v2 - 1;
+  v6 = (_DWORD)j == 0;
+  for ( j = (unsigned int)j; ; v6 = (_DWORD)j == 0 )
   {
-    v9 = Crashdump_UsbDevice_SuspendPort(*v3 + 376LL * --v7, j);
-    if ( v9 < 0 )
-      DbgPrintEx(0x93u, 1u, "XHCIDUMP: Crashdump_UsbDevice_SuspendPort failed with error 0x%X\n", v9);
+    v9 = *(_DWORD *)(a1 + 4 * j + 544);
+    if ( v6 )
+      break;
+    j = (unsigned int)(j - 1);
+    v8 = Crashdump_UsbDevice_SuspendPort(*(_QWORD *)(a1 + 568) + 376LL * (unsigned int)j, v9);
+    if ( v8 < 0 )
+      DbgPrintEx(0x93u, 1u, "XHCIDUMP: Crashdump_UsbDevice_SuspendPort failed with error 0x%X\n", v8);
   }
-  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_Register_SuspendPort: begin: port %u\n", j);
-  v10 = (int *)(*(_QWORD *)(*(_QWORD *)a1 + 32LL) + 16 * (j - 1 + 64LL));
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_Register_SuspendPort: begin: port %u\n", v9);
+  v10 = (int *)(*(_QWORD *)(*(_QWORD *)a1 + 32LL) + 16 * (v9 - 1 + 64LL));
   *v10 = *v10 & 0xE00C200 | 0x60;
   _InterlockedOr(v17, 0);
   DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_Register_SuspendPort: end 0x%X\n", 0);

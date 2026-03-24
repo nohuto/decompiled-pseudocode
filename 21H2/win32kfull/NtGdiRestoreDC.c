@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiRestoreDC @ 0x1C00FA420
+ * XREFs of NtGdiRestoreDC @ 0x1C0111EF0
  * Callers:
  *     <none>
  * Callees:

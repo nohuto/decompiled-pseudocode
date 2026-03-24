@@ -1,224 +1,230 @@
 /*
- * XREFs of DxgkHandleVideoParameters @ 0x1C039654C
+ * XREFs of DxgkHandleVideoParameters @ 0x1C02951E8
  * Callers:
- *     DpiGdoHandleVideoParameters @ 0x1C03AA758 (DpiGdoHandleVideoParameters.c)
+ *     DpiGdoHandleVideoParameters @ 0x1C02DA650 (DpiGdoHandleVideoParameters.c)
  * Callees:
- *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0001560 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C02BB920 (-CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z.c)
- *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02BC0FC (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
- *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C02C023C (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
- *     ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C03963A8 (-GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z.c)
- *     ?DmmGetMacrovisonSupportFromClientVidPnSource@@YAJQEAXIPEAU_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT@@@Z @ 0x1C03AD22C (-DmmGetMacrovisonSupportFromClientVidPnSource@@YAJQEAXIPEAU_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTE.c)
- *     ?DmmGetPathContentFromClientVidPnSource@@YAJQEAXIPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C03AD8A4 (-DmmGetPathContentFromClientVidPnSource@@YAJQEAXIPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z.c)
- *     ?DmmIsSourcePresentedOnClientVidPnAnalogTvOut@@YAJQEAXIPEAEPEAI@Z @ 0x1C03ADE4C (-DmmIsSourcePresentedOnClientVidPnAnalogTvOut@@YAJQEAXIPEAEPEAI@Z.c)
- *     ?DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C03AEF64 (-DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@.c)
+ *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C00028F0 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C0211840 (-CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z.c)
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C0211F50 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C0215A70 (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
+ *     ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C0295058 (-GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z.c)
+ *     ?DmmGetMacrovisonSupportFromClientVidPnSource@@YAJQEAXIPEAU_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT@@@Z @ 0x1C02DD24C (-DmmGetMacrovisonSupportFromClientVidPnSource@@YAJQEAXIPEAU_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTE.c)
+ *     ?DmmGetPathContentFromClientVidPnSource@@YAJQEAXIPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C02DDA44 (-DmmGetPathContentFromClientVidPnSource@@YAJQEAXIPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z.c)
+ *     ?DmmIsSourcePresentedOnClientVidPnAnalogTvOut@@YAJQEAXIPEAEPEAI@Z @ 0x1C02DE058 (-DmmIsSourcePresentedOnClientVidPnAnalogTvOut@@YAJQEAXIPEAEPEAI@Z.c)
+ *     ?DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x1C02DF6D0 (-DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@.c)
  */
 
-__int64 __fastcall DxgkHandleVideoParameters(__int64 a1, unsigned int a2, char *Source1)
+__int64 __fastcall DxgkHandleVideoParameters(DXGADAPTER ***a1, __int64 a2, char *Source1, __int64 a4)
 {
-  __int64 v4; // r15
-  __int64 v5; // rsi
+  __int64 v5; // r15
   struct DXGPROCESS *Current; // rax
-  int v8; // r14d
-  int v9; // ebx
-  unsigned int v10; // edi
-  __int64 v11; // rbx
-  const wchar_t *v12; // r9
-  __int64 v13; // r14
-  int v14; // eax
-  unsigned __int8 v15; // r12
-  int v16; // eax
-  int CurrentTvStandard; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  int v11; // edi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
   __int64 v18; // rdx
-  unsigned int v19; // r8d
-  int CopyProtection; // eax
-  unsigned __int8 v21[4]; // [rsp+50h] [rbp-B0h] BYREF
-  struct _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT v22; // [rsp+54h] [rbp-ACh] BYREF
-  unsigned int v23; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE v24[16]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v25[144]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  int v22; // eax
+  int v23; // esi
+  unsigned __int8 v24; // r12
+  int v25; // eax
+  int CurrentTvStandard; // eax
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  int updated; // eax
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  unsigned __int8 v35[4]; // [rsp+20h] [rbp-99h] BYREF
+  struct _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT v36; // [rsp+24h] [rbp-95h] BYREF
+  unsigned int v37; // [rsp+28h] [rbp-91h] BYREF
+  _BYTE v38[16]; // [rsp+30h] [rbp-89h] BYREF
+  _BYTE v39[144]; // [rsp+40h] [rbp-79h] BYREF
 
-  v4 = a2;
-  v5 = a1;
-  Current = DXGPROCESS::GetCurrent(a1);
+  v5 = (unsigned int)a2;
+  Current = DXGPROCESS::GetCurrent((__int64)a1, a2, (__int64)Source1, a4);
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v10 = WdLogNewEntry5_WdError(v9, v8);
+    v11 = -1073741811;
+    *(_QWORD *)(v10 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v10);
+    return (unsigned int)v11;
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v24, (struct DXGPROCESS *)((char *)Current + 376), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v24);
-  v8 = 1;
-  if ( !v5 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v38, *((struct DXGFASTMUTEX *const *)Current + 42), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v38);
+  if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 65LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDxgAdapter != NULL", 65LL, 0LL, 0LL, 0LL, 0LL);
+    v14 = WdLogNewEntry5_WdAssertion(v13, v12);
+    *(_QWORD *)(v14 + 24) = 65LL;
+    WdLogEvent5_WdAssertion(v14);
   }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v25, (struct DXGADAPTER *const)v5, 0LL);
-  v9 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v25, 0LL);
-  if ( !DXGADAPTER::IsFullWDDMAdapter((DXGADAPTER *)v5) )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v39, (struct DXGADAPTER *const)a1, 0LL);
+  v11 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v39, 0LL);
+  if ( !DXGADAPTER::IsFullWDDMAdapter((DXGADAPTER *)a1) )
   {
-    v10 = -1073741637;
-    WdLogSingleEntry2(2LL, v5, -1073741637LL);
-    v11 = v5;
-    v12 = L"DxgkHandleVideoParameters is called on a render only or display only adapter 0x%I64x, returning 0x%I64x.";
-    v5 = -1073741637LL;
+    v17 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v11 = -1073741637;
+    v17[3] = a1;
+    v17[4] = -1073741637LL;
 LABEL_11:
-    v13 = 0LL;
-    goto LABEL_12;
+    WdLogEvent5_WdError(v17);
+    goto LABEL_45;
   }
-  if ( (unsigned int)v4 < *(_DWORD *)(*(_QWORD *)(v5 + 2920) + 96LL) )
+  if ( (unsigned int)v5 >= *((_DWORD *)a1[337] + 20) )
   {
-    if ( RtlCompareMemory(Source1, &GUID_VIDEO_PARAMETERS, 0x10uLL) != 16 )
+    v17 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v11 = -1071774975;
+    v17[3] = v5;
+    v17[4] = a1;
+    v17[5] = -1071774975LL;
+    goto LABEL_11;
+  }
+  if ( RtlCompareMemory(Source1, &GUID_VIDEO_PARAMETERS, 0x10uLL) != 16 )
+  {
+    v17 = (_QWORD *)WdLogNewEntry5_WdError(v19, v18);
+    v11 = -1073741811;
+    v17[3] = -1073741811LL;
+    goto LABEL_11;
+  }
+  v37 = 0;
+  v35[0] = 0;
+  DmmIsSourcePresentedOnClientVidPnAnalogTvOut(a1, v5, v35, &v37);
+  v22 = *((_DWORD *)Source1 + 5);
+  v23 = 1;
+  v24 = v35[0];
+  if ( v22 == 1 )
+  {
+    *(_QWORD *)(Source1 + 28) = 0LL;
+    *(_QWORD *)(Source1 + 36) = 0LL;
+    *(_QWORD *)(Source1 + 44) = 0LL;
+    v11 = 0;
+    *(_QWORD *)(Source1 + 52) = 0LL;
+    *(_QWORD *)(Source1 + 60) = 0LL;
+    *(_QWORD *)(Source1 + 68) = 0LL;
+    *(_QWORD *)(Source1 + 76) = 0LL;
+    *(_QWORD *)(Source1 + 84) = 0LL;
+    *(_QWORD *)(Source1 + 92) = 0LL;
+    memset(Source1 + 100, 0, 0x100uLL);
+    *((_DWORD *)Source1 + 6) = 3;
+    if ( v24 == 1 )
     {
-      v11 = -1073741811LL;
-      WdLogSingleEntry1(2LL, -1073741811LL);
-      v12 = L"Specified GUID does not match VIDEOPARAMETERS GUID, returning 0x%I64x.";
-      v10 = -1073741811;
-      v5 = 0LL;
-      goto LABEL_11;
+      v36 = 0;
+      DmmGetPathContentFromClientVidPnSource(a1, v5, (enum _D3DKMDT_VIDPN_PRESENT_PATH_CONTENT *)&v36);
+      v25 = (v36 == 2) + 1;
     }
-    v23 = 0;
-    v21[0] = 0;
-    DmmIsSourcePresentedOnClientVidPnAnalogTvOut((void *const)v5, v4, v21, &v23);
-    v14 = *((_DWORD *)Source1 + 5);
-    v15 = v21[0];
-    if ( v14 == 1 )
+    else
     {
-      *(_QWORD *)(Source1 + 28) = 0LL;
-      *(_QWORD *)(Source1 + 36) = 0LL;
-      *(_QWORD *)(Source1 + 44) = 0LL;
-      v9 = 0;
-      *(_QWORD *)(Source1 + 52) = 0LL;
-      *(_QWORD *)(Source1 + 60) = 0LL;
-      *(_QWORD *)(Source1 + 68) = 0LL;
-      *(_QWORD *)(Source1 + 76) = 0LL;
-      *(_QWORD *)(Source1 + 84) = 0LL;
-      *(_QWORD *)(Source1 + 92) = 0LL;
-      memset(Source1 + 100, 0, 0x100uLL);
-      *((_DWORD *)Source1 + 6) = 3;
-      if ( v15 == 1 )
-      {
-        v22 = 0;
-        DmmGetPathContentFromClientVidPnSource((void *const)v5, v4, (enum _D3DKMDT_VIDPN_PRESENT_PATH_CONTENT *)&v22);
-        v16 = (v22 == 2) + 1;
-      }
-      else
-      {
-        v16 = 1;
-      }
-      *((_DWORD *)Source1 + 7) = v16;
-      *((_DWORD *)Source1 + 9) = 3;
-      if ( v15 == 1 )
-        CurrentTvStandard = GetCurrentTvStandard((struct DXGADAPTER *)v5, v23);
-      else
-        CurrentTvStandard = 0x8000;
-      *((_DWORD *)Source1 + 8) = CurrentTvStandard;
-      *((_DWORD *)Source1 + 10) = CurrentTvStandard | 0x8000;
-      if ( v15 == 1 )
-      {
-        v22 = 0;
-        DmmGetMacrovisonSupportFromClientVidPnSource((void *const)v5, v4, &v22);
-        if ( (*(_BYTE *)&v22 & 4) == 0 && (*(_BYTE *)&v22 & 2) == 0 )
-          v8 = 0;
-        *((_DWORD *)Source1 + 20) = v8;
-        if ( !v8 )
-          goto LABEL_46;
-      }
-      else
-      {
-        *((_DWORD *)Source1 + 20) = 1;
-      }
+      v25 = 1;
+    }
+    *((_DWORD *)Source1 + 7) = v25;
+    *((_DWORD *)Source1 + 9) = 3;
+    if ( v24 == 1 )
+      CurrentTvStandard = GetCurrentTvStandard((struct DXGADAPTER *)a1, v37);
+    else
+      CurrentTvStandard = 0x8000;
+    *((_DWORD *)Source1 + 8) = CurrentTvStandard;
+    *((_DWORD *)Source1 + 10) = CurrentTvStandard | 0x8000;
+    if ( v24 == 1 )
+    {
+      v36 = 0;
+      DmmGetMacrovisonSupportFromClientVidPnSource(a1, v5, &v36);
+      if ( (*(_BYTE *)&v36 & 4) == 0 && (*(_BYTE *)&v36 & 2) == 0 )
+        v23 = 0;
+    }
+    *((_DWORD *)Source1 + 20) = v23;
+    if ( v23 )
+    {
       *((_DWORD *)Source1 + 6) |= 0x100u;
       *((_DWORD *)Source1 + 22) = 196799;
-LABEL_46:
-      v10 = v9;
-      goto LABEL_47;
     }
-    if ( v14 != 2 )
-      goto LABEL_46;
-    v9 = 0;
-    if ( (*((_DWORD *)Source1 + 6) & 0x100) != 0 )
-    {
-      switch ( *((_DWORD *)Source1 + 21) )
-      {
-        case 1:
-          v18 = *((unsigned int *)Source1 + 24);
-          if ( (unsigned int)(v18 - 1) > 2 || *((_DWORD *)Source1 + 20) != 1 )
-            goto LABEL_36;
-          CopyProtection = ADAPTER_DISPLAY::CreateCopyProtection(
-                             *(DXGADAPTER ***)(v5 + 2920),
-                             v4,
-                             v18,
-                             (unsigned int *)Source1 + 23);
-          break;
-        case 2:
-          CopyProtection = ADAPTER_DISPLAY::DestroyCopyProtection(
-                             *(DXGADAPTER ***)(v5 + 2920),
-                             v4,
-                             *((_DWORD *)Source1 + 23));
-          break;
-        case 4:
-          v19 = *((_DWORD *)Source1 + 24);
-          if ( v19 > 3 )
-          {
-            v18 = v19;
-            goto LABEL_36;
-          }
-          CopyProtection = ADAPTER_DISPLAY::UpdateCopyProtection(
-                             *(DXGADAPTER ***)(v5 + 2920),
-                             v4,
-                             v19,
-                             *((_DWORD *)Source1 + 23));
-          break;
-        default:
-          v18 = *((unsigned int *)Source1 + 21);
-LABEL_36:
-          v9 = -1073741811;
-          WdLogSingleEntry2(3LL, v18, -1073741811LL);
-          goto LABEL_46;
-      }
-      v9 = CopyProtection;
-      if ( CopyProtection < 0 )
-        goto LABEL_46;
-    }
-    if ( v15 == 1 && (*((_DWORD *)Source1 + 6) & 1) != 0 )
-      DmmUpdateContentOnAllClientVidPnPathsFromSource(
-        (void *const)v5,
-        v4,
-        (enum _D3DKMDT_VIDPN_PRESENT_PATH_CONTENT)((*((_DWORD *)Source1 + 7) == 2) + 1));
-    goto LABEL_46;
+    goto LABEL_45;
   }
-  v13 = -1071774975LL;
-  v11 = v4;
-  WdLogSingleEntry3(2LL, v4, v5, -1071774975LL);
-  v12 = L"Caller specified VidPn source 0x%I64x is not valid on  adapter 0x%I64x, returning 0x%I64x.";
-  v10 = -1071774975;
-LABEL_12:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v12, v11, v5, v13, 0LL, 0LL);
-LABEL_47:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v25);
-  if ( v24[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v24);
-  return v10;
+  if ( v22 != 2 )
+    goto LABEL_45;
+  v11 = 0;
+  if ( (*((_DWORD *)Source1 + 6) & 0x100) == 0 )
+  {
+LABEL_42:
+    if ( v24 == 1 && (*((_DWORD *)Source1 + 6) & 1) != 0 )
+      DmmUpdateContentOnAllClientVidPnPathsFromSource(
+        a1,
+        v5,
+        (enum _D3DKMDT_VIDPN_PRESENT_PATH_CONTENT)((*((_DWORD *)Source1 + 7) == 2) + 1));
+    goto LABEL_45;
+  }
+  v27 = (unsigned int)(*((_DWORD *)Source1 + 21) - 1);
+  if ( *((_DWORD *)Source1 + 21) != 1 )
+  {
+    v27 = (unsigned int)(*((_DWORD *)Source1 + 21) - 2);
+    if ( *((_DWORD *)Source1 + 21) == 2 )
+    {
+      updated = ADAPTER_DISPLAY::DestroyCopyProtection(a1[337], v5, *((_DWORD *)Source1 + 23));
+    }
+    else
+    {
+      if ( *((_DWORD *)Source1 + 21) != 4 )
+      {
+        v28 = WdLogNewEntry5_WdWarning(v27, v20, v21);
+        v29 = *((unsigned int *)Source1 + 21);
+LABEL_33:
+        *(_QWORD *)(v28 + 24) = v29;
+        v11 = -1073741811;
+        *(_QWORD *)(v28 + 32) = -1073741811LL;
+        WdLogEvent5_WdWarning(v28);
+        goto LABEL_45;
+      }
+      v30 = *((unsigned int *)Source1 + 24);
+      if ( (unsigned int)v30 > 3 )
+      {
+LABEL_32:
+        v28 = WdLogNewEntry5_WdWarning(v27, v20, v30);
+        v29 = *((unsigned int *)Source1 + 24);
+        goto LABEL_33;
+      }
+      updated = ADAPTER_DISPLAY::UpdateCopyProtection(a1[337], v5, v30, *((_DWORD *)Source1 + 23));
+    }
+    goto LABEL_39;
+  }
+  v30 = *((unsigned int *)Source1 + 24);
+  if ( (unsigned int)(v30 - 1) <= 2 )
+  {
+    if ( *((_DWORD *)Source1 + 20) != 1 )
+      goto LABEL_32;
+    updated = ADAPTER_DISPLAY::CreateCopyProtection(a1[337], v5, v30, (unsigned int *)Source1 + 23);
+LABEL_39:
+    v11 = updated;
+    goto LABEL_41;
+  }
+  v32 = WdLogNewEntry5_WdWarning(v27, v20, v30);
+  v11 = -1073741811;
+  *(_QWORD *)(v32 + 24) = *((unsigned int *)Source1 + 24);
+  *(_QWORD *)(v32 + 32) = -1073741811LL;
+  WdLogEvent5_WdWarning(v32);
+LABEL_41:
+  if ( v11 >= 0 )
+    goto LABEL_42;
+LABEL_45:
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v39, v20);
+  if ( v38[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v38, v33);
+  return (unsigned int)v11;
 }

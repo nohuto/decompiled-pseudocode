@@ -1,16 +1,16 @@
 /*
- * XREFs of IrqArbGsivFromIrq @ 0x1C009A2C0
+ * XREFs of IrqArbGsivFromIrq @ 0x1C00938DC
  * Callers:
- *     IcCopyInputStateToDeviceState @ 0x1C0098F48 (IcCopyInputStateToDeviceState.c)
- *     IrqArbpSetDeviceProperties @ 0x1C0099084 (IrqArbpSetDeviceProperties.c)
- *     IrqArbAddAllocation @ 0x1C0099940 (IrqArbAddAllocation.c)
- *     IrqTranslateResources @ 0x1C009A040 (IrqTranslateResources.c)
- *     IrqArbpUnreferenceArbitrationList @ 0x1C009A974 (IrqArbpUnreferenceArbitrationList.c)
- *     IrqArbpFindSuitableRangePci @ 0x1C009D25C (IrqArbpFindSuitableRangePci.c)
- *     IrqTransGetInterruptVector @ 0x1C00B62D0 (IrqTransGetInterruptVector.c)
- *     IrqArbBacktrackAllocation @ 0x1C00B67A0 (IrqArbBacktrackAllocation.c)
- *     IrqArbUpdateInterruptProperties @ 0x1C00B6A14 (IrqArbUpdateInterruptProperties.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C00B6D8C (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C0092578 (IrqArbpSetDeviceProperties.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqTranslateResources @ 0x1C0093510 (IrqTranslateResources.c)
+ *     IcCopyInputStateToDeviceState @ 0x1C00937A0 (IcCopyInputStateToDeviceState.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqTransGetInterruptVector @ 0x1C00B6C80 (IrqTransGetInterruptVector.c)
+ *     IrqArbBacktrackAllocation @ 0x1C00B6F40 (IrqArbBacktrackAllocation.c)
+ *     IrqArbUpdateInterruptProperties @ 0x1C00B71B4 (IrqArbUpdateInterruptProperties.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxGetListBoxInfo @ 0x1C0244FA4
+ * XREFs of xxxGetListBoxInfo @ 0x1C0249570
  * Callers:
- *     NtUserGetListBoxInfo @ 0x1C01F50F0 (NtUserGetListBoxInfo.c)
+ *     NtUserGetListBoxInfo @ 0x1C01FA7B0 (NtUserGetListBoxInfo.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01D05EC (unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01D48F8 (unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX.c)
  */
 
-__int64 __fastcall xxxGetListBoxInfo(unsigned __int64 *BugCheckParameter2)
+__int64 __fastcall xxxGetListBoxInfo(_QWORD *a1)
 {
   unsigned int v2; // ebx
   __int64 v3; // rcx
@@ -19,10 +19,10 @@ __int64 __fastcall xxxGetListBoxInfo(unsigned __int64 *BugCheckParameter2)
   __int64 v10; // rax
 
   v2 = 0;
-  v4 = (unsigned __int64 *)unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX(BugCheckParameter2);
+  v4 = (unsigned __int64 *)unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX(a1);
   if ( v4 )
   {
-    v6 = *(PRKPROCESS **)(BugCheckParameter2[2] + 424);
+    v6 = *(PRKPROCESS **)(a1[2] + 424LL);
     if ( v6 == (PRKPROCESS *)PsGetCurrentProcessWin32Process(v3) )
     {
       v8 = 0;
@@ -53,6 +53,6 @@ __int64 __fastcall xxxGetListBoxInfo(unsigned __int64 *BugCheckParameter2)
   else
   {
     _InterlockedIncrement(&glSendMessage);
-    return xxxSendTransformableMessageTimeout(BugCheckParameter2, 0x1B2u, 0LL, 0LL, 0, 0, 0LL, 1, 1);
+    return xxxSendTransformableMessageTimeout((unsigned __int64)a1, 0x1B2u, 0LL, 0LL, 0, 0, 0LL, 1, 1);
   }
 }

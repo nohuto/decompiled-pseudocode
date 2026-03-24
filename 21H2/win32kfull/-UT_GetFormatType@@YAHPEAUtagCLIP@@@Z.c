@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UT_GetFormatType@@YAHPEAUtagCLIP@@@Z @ 0x1C014AAA8
+ * XREFs of ?UT_GetFormatType@@YAHPEAUtagCLIP@@@Z @ 0x1C015CDA4
  * Callers:
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C014AA2C (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015CD28 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
  * Callees:
  *     <none>
  */

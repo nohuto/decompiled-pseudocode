@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00EE480
+ * XREFs of ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0134720
  * Callers:
- *     NtGdiAddInitialFonts @ 0x1C00EE420 (NtGdiAddInitialFonts.c)
+ *     NtGdiAddInitialFonts @ 0x1C01346C0 (NtGdiAddInitialFonts.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C0086CD0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     FinishStockFontInit @ 0x1C00C81E0 (FinishStockFontInit.c)
- *     UserOnGreTextReady @ 0x1C00EE588 (UserOnGreTextReady.c)
- *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00EF8F4 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     FinishStockFontInit @ 0x1C00E4810 (FinishStockFontInit.c)
+ *     UserOnGreTextReady @ 0x1C00E62DC (UserOnGreTextReady.c)
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00E6950 (-bInitializeEUDCInternal@@YAHXZ.c)
  */
 
 char UmfdHostLifeTimeManager::AddInitialFonts(void)
@@ -31,14 +31,14 @@ char UmfdHostLifeTimeManager::AddInitialFonts(void)
     v1 = (unsigned int)bInitializeEUDCInternal() != 0;
     HDEV = UserGetHDEV();
     SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v5, ghsemDynamicModeChange);
-    LODWORD(HDEV) = *(_DWORD *)(HDEV + 2148);
+    LODWORD(HDEV) = *(_DWORD *)(HDEV + 2180);
     SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v5);
     FinishStockFontInit(HDEV);
     if ( !gppfeMapperDefault )
-      DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 356LL, 13LL, 0LL, 0LL, 0LL, 0LL, 0LL, 1);
+      DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 356LL, 13LL);
     UmfdHostLifeTimeManager::s_SessionRasterizerInitialized = 1;
     KeSetEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent, 0, 0);
-    v3 = (unsigned int)UserOnGreTextReady() != 0 && v1;
+    v3 = UserOnGreTextReady() && v1;
     KeSetEvent(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, 0, 0);
     return v3;
   }

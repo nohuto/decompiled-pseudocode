@@ -1,15 +1,15 @@
 /*
- * XREFs of VslNotifyShutdown @ 0x14054BDB8
+ * XREFs of VslNotifyShutdown @ 0x1404FCBE4
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x140AA8FD4 (PopShutdownSystem.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x1409B2764 (PopShutdownSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslNotifyShutdown(unsigned __int8 a1)
+NTSTATUS __fastcall VslNotifyShutdown(unsigned __int8 a1)
 {
   __int64 v1; // rbx
   _QWORD v3[14]; // [rsp+20h] [rbp-88h] BYREF

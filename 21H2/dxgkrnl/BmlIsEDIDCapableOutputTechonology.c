@@ -1,9 +1,8 @@
 /*
- * XREFs of BmlIsEDIDCapableOutputTechonology @ 0x1C01D0FC4
+ * XREFs of BmlIsEDIDCapableOutputTechonology @ 0x1C013C8B0
  * Callers:
- *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C01D0A50 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
- *     BmlFillPreferredMonitorMode @ 0x1C01D0BD0 (BmlFillPreferredMonitorMode.c)
- *     BmlGetMonitorModePreference @ 0x1C01D0EB0 (BmlGetMonitorModePreference.c)
+ *     BmlFillPreferredMonitorMode @ 0x1C013BEB8 (BmlFillPreferredMonitorMode.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C013C09C (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
  * Callees:
  *     <none>
  */

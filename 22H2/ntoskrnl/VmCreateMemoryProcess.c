@@ -1,16 +1,22 @@
 /*
- * XREFs of VmCreateMemoryProcess @ 0x1409DC3F0
+ * XREFs of VmCreateMemoryProcess @ 0x14092ECC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x140798E60 (PsCreateMinimalProcess.c)
  */
 
-__int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a4, void *a5, _QWORD *a6)
+__int64 __fastcall VmCreateMemoryProcess(
+        PEPROCESS Process,
+        __int64 a2,
+        struct _DMA_ADAPTER *a3,
+        int a4,
+        __int64 a5,
+        _QWORD *a6)
 {
   char v9; // r9
   NTSTATUS v10; // edi
@@ -19,15 +25,15 @@ __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a
   int v13; // r14d
   int v14; // eax
   HANDLE v15; // rbx
-  PVOID Object; // [rsp+60h] [rbp-20h] BYREF
-  ULONG_PTR RegionSize; // [rsp+68h] [rbp-18h] BYREF
-  PVOID BaseAddress; // [rsp+70h] [rbp-10h] BYREF
-  HANDLE ProcessHandle; // [rsp+A0h] [rbp+20h] BYREF
+  PVOID Object; // [rsp+50h] [rbp-20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp-18h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-10h] BYREF
+  HANDLE ProcessHandle; // [rsp+90h] [rbp+20h] BYREF
 
   BaseAddress = 0LL;
   RegionSize = 0LL;
   ProcessHandle = 0LL;
-  v9 = *(_BYTE *)(a1 + 2170);
+  v9 = BYTE2(Process[2].Header.WaitListHead.Flink);
   if ( (a4 & 0xFFFFFFC0) != 0 )
   {
     return (unsigned int)-1073741811;
@@ -43,7 +49,7 @@ __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a
     v13 = v12 | 0x400;
     if ( (a4 & 0x10) == 0 )
       v13 = v12;
-    v14 = PsCreateMinimalProcess(a1, a2, 0LL, v9, a3, v13, (a4 & 0x20 | 0x40u) >> 3, 0LL, a5, 0LL, &ProcessHandle);
+    v14 = PsCreateMinimalProcess(Process, a2, 0LL, v9, a3, v13, (a4 & 0x20 | 0x40u) >> 3, 0LL, a5, &ProcessHandle);
     v15 = ProcessHandle;
     v10 = v14;
     if ( v14 >= 0 )
@@ -58,7 +64,7 @@ __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a
           Object = 0LL;
           ObReferenceObjectByHandle(v15, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
           _InterlockedOr((volatile signed __int32 *)Object + 543, 0x2000u);
-          ObfDereferenceObject(Object);
+          HalPutDmaAdapter((PADAPTER_OBJECT)Object);
           v15 = ProcessHandle;
         }
         *a6 = v15;

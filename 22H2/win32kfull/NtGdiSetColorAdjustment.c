@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetColorAdjustment @ 0x1C02C4CC0
+ * XREFs of NtGdiSetColorAdjustment @ 0x1C02AFBD0
  * Callers:
  *     <none>
  * Callees:
- *     GreSetColorAdjustment @ 0x1C02A82DC (GreSetColorAdjustment.c)
+ *     GreSetColorAdjustment @ 0x1C029EBEC (GreSetColorAdjustment.c)
  */
 
 __int64 __fastcall NtGdiSetColorAdjustment(HDC a1, ULONG64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall NtGdiSetColorAdjustment(HDC a1, ULONG64 a2)
     && (unsigned __int16)(WORD2(v4) + 100) <= 0xC8u
     && (unsigned __int16)(HIWORD(v4) + 100) <= 0xC8u )
   {
-    return GreSetColorAdjustment(a1, &v3);
+    return GreSetColorAdjustment(a1, (__int64)&v3);
   }
   else
   {

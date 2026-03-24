@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmCheckIdleVeto @ 0x1402D3B54
+ * XREFs of PpmCheckIdleVeto @ 0x1402D3C54
  * Callers:
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4594 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleCheckProcessorStateEligibility @ 0x1402D47D8 (PpmIdleCheckProcessorStateEligibility.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckProcessorStateEligibility @ 0x1402D48D8 (PpmIdleCheckProcessorStateEligibility.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C01F7B40
+ * XREFs of ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C021816C
  * Callers:
- *     ?CancelAutoPromotion@@YAXXZ @ 0x1C01F7A38 (-CancelAutoPromotion@@YAXXZ.c)
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C0217FEC (-CancelAutoPromotion@@YAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -9,21 +9,13 @@
 struct tagMOUSE_PROMOTION_ENTRY *CreateEntryFromLastEntry(void)
 {
   struct tagMOUSE_PROMOTION_ENTRY *result; // rax
-  __int64 v1; // rcx
-  struct tagMOUSE_PROMOTION_ENTRY *v2; // rbx
-  __int64 v3; // rax
-  __int128 v4; // xmm0
 
   result = (struct tagMOUSE_PROMOTION_ENTRY *)Win32AllocPoolZInit(48LL, 1886221141LL);
-  v2 = result;
   if ( result )
   {
-    v3 = SGDGetUserSessionState(v1);
-    *(_OWORD *)v2 = *(_OWORD *)(v3 + 16200);
-    *((_OWORD *)v2 + 1) = *(_OWORD *)(v3 + 16216);
-    v4 = *(_OWORD *)(v3 + 16232);
-    result = v2;
-    *((_OWORD *)v2 + 2) = v4;
+    *(_OWORD *)result = xmmword_1C0339B60;
+    *((_OWORD *)result + 1) = xmmword_1C0339B70;
+    *((_OWORD *)result + 2) = xmmword_1C0339B80;
   }
   return result;
 }

@@ -1,30 +1,33 @@
 /*
- * XREFs of ?PowerEnableWakeAtBusOverload@FxPkgPdo@@EEAAJXZ @ 0x1C008DAF0
+ * XREFs of ?PowerEnableWakeAtBusOverload@FxPkgPdo@@EEAAJXZ @ 0x1C008A740
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
-int (__fastcall *__fastcall FxPkgPdo::PowerEnableWakeAtBusOverload(FxPkgPdo *this))(WDFDEVICE__ *, _SYSTEM_POWER_STATE)
+__int64 __fastcall FxPkgPdo::PowerEnableWakeAtBusOverload(FxPkgPdo *this)
 {
   unsigned __int64 ObjectHandleUnchecked; // rcx
-  int (__fastcall *result)(WDFDEVICE__ *, _SYSTEM_POWER_STATE); // rax
-  FxDeviceBase *m_DeviceBase; // rcx
-  __int64 v5; // rdx
+  int (__fastcall *m_Method)(WDFDEVICE__ *, _SYSTEM_POWER_STATE); // rax
+  int v4; // edx
+  FxDeviceBase *m_DeviceBase; // rax
+  __int64 v6; // rcx
 
   ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-  result = this->m_DeviceEnableWakeAtBus.m_Method;
-  if ( !result
-    || (result = (int (__fastcall *)(WDFDEVICE__ *, _SYSTEM_POWER_STATE))((__int64 (__fastcall *)(unsigned __int64))result)(ObjectHandleUnchecked),
-        (int)result >= 0) )
+  m_Method = this->m_DeviceEnableWakeAtBus.m_Method;
+  if ( m_Method )
+    v4 = m_Method((WDFDEVICE__ *)ObjectHandleUnchecked, (_SYSTEM_POWER_STATE)this->m_SystemPowerState);
+  else
+    v4 = 0;
+  if ( v4 >= 0 )
   {
     m_DeviceBase = this->m_DeviceBase;
     this->m_EnableWakeAtBusInvoked = 1;
-    v5 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&m_DeviceBase[1].m_ObjectFlags + 648LL) + 888LL);
-    if ( v5 )
-      _InterlockedIncrement((volatile signed __int32 *)(v5 + 888));
+    v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&m_DeviceBase[1].m_ObjectFlags + 648LL) + 888LL);
+    if ( v6 )
+      _InterlockedIncrement((volatile signed __int32 *)(v6 + 872));
   }
-  return result;
+  return (unsigned int)v4;
 }

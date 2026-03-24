@@ -1,37 +1,36 @@
 /*
- * XREFs of FxRegistrySettingsInitialize @ 0x1C0027EF4
+ * XREFs of FxRegistrySettingsInitialize @ 0x1C0057AF0
  * Callers:
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     FxOverrideDefaultVerifierSettings @ 0x1C0028478 (FxOverrideDefaultVerifierSettings.c)
- *     ?SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z @ 0x1C00287D8 (-SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     FxDriverGlobalsInitializeDebugExtension @ 0x1C006B864 (FxDriverGlobalsInitializeDebugExtension.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ?SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z @ 0x1C0056B50 (-SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z.c)
+ *     FxDriverGlobalsInitializeDebugExtension @ 0x1C0056E84 (FxDriverGlobalsInitializeDebugExtension.c)
+ *     FxOverrideDefaultVerifierSettings @ 0x1C0057A90 (FxOverrideDefaultVerifierSettings.c)
  */
 
 void __fastcall FxRegistrySettingsInitialize(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
-        const _UNICODE_STRING *WindowsVerifierOn,
-        unsigned __int8 a3)
+        _UNICODE_STRING *RegistryPath,
+        unsigned __int8 WindowsVerifierOn)
 {
-  unsigned int v3; // ebx
-  _DRIVER_OBJECT *m_DriverObject; // rcx
-  unsigned int v6; // edx
-  unsigned int v7; // edx
-  unsigned int v8; // r9d
-  int (__fastcall *SystemRoutineAddress)(unsigned int, const wchar_t *, _RTL_QUERY_REGISTRY_TABLE *, void *, void *); // rax
-  unsigned int v10; // eax
-  bool v11; // zf
-  _FX_DRIVER_GLOBALS *v12; // rcx
-  unsigned int v13; // edx
-  unsigned __int8 v14; // al
+  unsigned int v4; // ebx
+  unsigned int v5; // edx
+  _FX_DRIVER_GLOBALS *v6; // rcx
+  _FX_DRIVER_GLOBALS *v7; // rcx
+  unsigned int v8; // edx
+  unsigned int v9; // r9d
+  PVOID SystemRoutineAddress; // rax
+  unsigned int v11; // eax
+  bool v12; // zf
+  _FX_DRIVER_GLOBALS *v13; // rcx
+  unsigned int v14; // edx
   unsigned __int8 v15; // al
-  _FX_DRIVER_GLOBALS *v16; // rcx
-  _FX_DRIVER_GLOBALS *v17; // rcx
+  unsigned __int8 v16; // al
   unsigned int zero; // [rsp+30h] [rbp-D0h] BYREF
   unsigned int timeoutValue; // [rsp+34h] [rbp-CCh] BYREF
   unsigned int allocateFailValue; // [rsp+38h] [rbp-C8h] BYREF
@@ -52,17 +51,15 @@ void __fastcall FxRegistrySettingsInitialize(
   _UNICODE_STRING timeoutName; // [rsp+98h] [rbp-68h] BYREF
   _UNICODE_STRING FunctionName; // [rsp+A8h] [rbp-58h] BYREF
   _RTL_QUERY_REGISTRY_TABLE paramTable[10]; // [rsp+C0h] [rbp-40h] BYREF
-  wchar_t parametersPath_buffer[4]; // [rsp+2F0h] [rbp+1F0h] BYREF
-  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+2F8h] [rbp+1F8h] BYREF
-  __int64 v40; // [rsp+328h] [rbp+228h]
-  wchar_t v41; // [rsp+330h] [rbp+230h]
-  wchar_t timeoutName_buffer[40]; // [rsp+340h] [rbp+240h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+2F0h] [rbp+1F0h] BYREF
+  __int64 v38; // [rsp+320h] [rbp+220h]
+  wchar_t v39; // [rsp+328h] [rbp+228h]
+  wchar_t parametersPath_buffer[16]; // [rsp+330h] [rbp+230h] BYREF
+  wchar_t timeoutName_buffer[40]; // [rsp+350h] [rbp+250h] BYREF
 
   max = -1;
-  v3 = a3;
-  wcscpy(parametersPath_buffer, L"Wdf");
-  m_DriverObject = FxDriverGlobals->DriverObject.m_DriverObject;
   parametersPath.Buffer = parametersPath_buffer;
+  v4 = WindowsVerifierOn;
   verifierOnValue = 0;
   verifyDownlevelValue = 0;
   verboseValue = 0;
@@ -76,148 +73,159 @@ void __fastcall FxRegistrySettingsInitialize(
   defaultTrue = 1;
   hDriver.m_Key = 0LL;
   hWdf.m_Key = 0LL;
+  *(_QWORD *)&parametersPath.Length = 1966108LL;
+  wcscpy(parametersPath_buffer, L"Parameters\\Wdf");
   FunctionName = 0LL;
-  *(_QWORD *)&parametersPath.Length = 524294LL;
-  if ( (int)IoOpenDriverRegistryKey(m_DriverObject, 0LL, 131097LL, 0LL, &hDriver) >= 0 )
+  if ( RegistryPath )
   {
-    ObjectAttributes.RootDirectory = hDriver.m_Key;
+    ObjectAttributes.ObjectName = RegistryPath;
     *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ObjectAttributes.ObjectName = &parametersPath;
     *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+    ObjectAttributes.RootDirectory = 0LL;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ZwOpenKey(&hWdf.m_Key, 0x20019u, &ObjectAttributes) < 0 )
+    if ( ZwOpenKey(&hDriver.m_Key, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(FxDriverGlobals, v6, 9u) )
+      ObjectAttributes.RootDirectory = hDriver.m_Key;
+      *(_QWORD *)&ObjectAttributes.Length = 48LL;
+      ObjectAttributes.ObjectName = &parametersPath;
+      *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( ZwOpenKey(&hWdf.m_Key, 0x20019u, &ObjectAttributes) >= 0 )
       {
-        _FX_DRIVER_GLOBALS::SetVerifierState(v16, v3);
-        if ( FxDriverGlobals->FxVerifierOn )
-          FxDriverGlobalsInitializeDebugExtension(v17, 0LL);
-      }
-    }
-    else
-    {
-      memset(paramTable, 0, sizeof(paramTable));
-      allocateFailValue = -1;
-      paramTable[0].Name = L"VerboseOn";
-      paramTable[0].DefaultLength = 4;
-      paramTable[0].EntryContext = &verboseValue;
-      paramTable[1].DefaultLength = 4;
-      paramTable[0].DefaultData = &zero;
-      paramTable[0].Flags = 288;
-      paramTable[1].Name = L"VerifierAllocateFailCount";
-      paramTable[0].DefaultType = 0x4000000;
-      paramTable[1].EntryContext = &allocateFailValue;
-      paramTable[1].Flags = 288;
-      paramTable[1].DefaultData = &max;
-      paramTable[1].DefaultType = 0x4000000;
-      if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(FxDriverGlobals, 0x120u, 9u) )
-        verifierOnValue = v3;
-      paramTable[2].Flags = v7;
-      paramTable[2].Name = L"VerifierOn";
-      paramTable[3].Flags = v7;
-      paramTable[2].EntryContext = &verifierOnValue;
-      paramTable[2].DefaultData = &verifierOnValue;
-      paramTable[3].Name = L"VerifyDownLevel";
-      paramTable[3].EntryContext = &verifyDownlevelValue;
-      paramTable[3].DefaultData = &zero;
-      paramTable[4].Name = L"ForceLogsInMiniDump";
-      paramTable[4].EntryContext = &forceLogsInMiniDump;
-      paramTable[4].DefaultData = &zero;
-      paramTable[5].Name = L"TrackDriverForMiniDumpLog";
-      paramTable[5].EntryContext = &trackDriverForMiniDumpLog;
-      paramTable[5].DefaultData = &defaultTrue;
-      paramTable[6].Name = L"RequestParentOptimizationOn";
-      paramTable[6].EntryContext = &requestParentOptimizationOn;
-      paramTable[6].DefaultData = &defaultTrue;
-      paramTable[7].Name = L"DsfOn";
-      paramTable[7].EntryContext = &dsfValue;
-      paramTable[7].DefaultData = &zero;
-      paramTable[8].Name = L"RemoveLockOptionFlags";
-      paramTable[8].EntryContext = &removeLockOptionFlags;
-      paramTable[4].Flags = v7;
-      paramTable[5].Flags = v7;
-      paramTable[6].Flags = v7;
-      paramTable[7].Flags = v7;
-      paramTable[8].Flags = v7;
-      paramTable[8].DefaultData = &zero;
-      paramTable[2].DefaultType = v8;
-      paramTable[2].DefaultLength = 4;
-      paramTable[3].DefaultType = v8;
-      paramTable[3].DefaultLength = 4;
-      paramTable[4].DefaultType = v8;
-      paramTable[4].DefaultLength = 4;
-      trackDriverForMiniDumpLog = 1;
-      paramTable[5].DefaultType = v8;
-      paramTable[5].DefaultLength = 4;
-      requestParentOptimizationOn = 1;
-      paramTable[6].DefaultType = v8;
-      paramTable[6].DefaultLength = 4;
-      paramTable[7].DefaultType = v8;
-      paramTable[7].DefaultLength = 4;
-      paramTable[8].DefaultType = v8;
-      paramTable[8].DefaultLength = 4;
-      RtlInitUnicodeString(&FunctionName, L"RtlQueryRegistryValuesEx");
-      SystemRoutineAddress = (int (__fastcall *)(unsigned int, const wchar_t *, _RTL_QUERY_REGISTRY_TABLE *, void *, void *))MmGetSystemRoutineAddress(&FunctionName);
-      if ( !SystemRoutineAddress )
-        SystemRoutineAddress = RtlxQueryRegistryValues;
-      if ( SystemRoutineAddress(3221225472u, (const wchar_t *)hWdf.m_Key, paramTable, 0LL, 0LL) >= 0 )
-      {
-        FxDriverGlobals->FxVerboseOn = verboseValue != 0;
-        v10 = -1;
-        if ( allocateFailValue != -1 )
-          v10 = allocateFailValue;
-        v11 = verifierOnValue == 0;
-        FxDriverGlobals->WdfVerifierAllocateFailCount = v10;
-        _FX_DRIVER_GLOBALS::SetVerifierState(FxDriverGlobals, !v11);
-        if ( FxDriverGlobals->FxVerifierOn )
-          FxDriverGlobalsInitializeDebugExtension(v12, hWdf.m_Key);
-        FxDriverGlobals->FxVerifyDownlevel = verifyDownlevelValue != 0;
-        FxOverrideDefaultVerifierSettings(hWdf.m_Key, (wchar_t *)L"VerifyOn", &FxDriverGlobals->FxVerifyOn);
-        if ( FxDriverGlobals->FxVerifyOn )
-          FxDriverGlobals->Public.DriverFlags |= 4u;
-        FxOverrideDefaultVerifierSettings(
-          hWdf.m_Key,
-          (wchar_t *)L"DbgBreakOnError",
-          &FxDriverGlobals->FxVerifierDbgBreakOnError);
-        FxOverrideDefaultVerifierSettings(
-          hWdf.m_Key,
-          (wchar_t *)L"DbgBreakOnDeviceStateError",
-          &FxDriverGlobals->FxVerifierDbgBreakOnDeviceStateError);
-        if ( FxDriverGlobals->FxVerifierDbgBreakOnError )
+        memset(paramTable, 0, sizeof(paramTable));
+        allocateFailValue = -1;
+        paramTable[0].Name = L"VerboseOn";
+        paramTable[0].DefaultLength = 4;
+        paramTable[0].EntryContext = &verboseValue;
+        paramTable[0].Flags = 288;
+        paramTable[0].DefaultData = &zero;
+        paramTable[1].Flags = 288;
+        paramTable[1].Name = L"VerifierAllocateFailCount";
+        paramTable[0].DefaultType = 0x4000000;
+        paramTable[1].EntryContext = &allocateFailValue;
+        paramTable[1].DefaultType = 0x4000000;
+        paramTable[1].DefaultData = &max;
+        paramTable[1].DefaultLength = 4;
+        if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(FxDriverGlobals, 0x120u, 9u) )
+          verifierOnValue = v4;
+        paramTable[2].Flags = v8;
+        paramTable[2].Name = L"VerifierOn";
+        paramTable[3].Flags = v8;
+        paramTable[2].EntryContext = &verifierOnValue;
+        paramTable[2].DefaultData = &verifierOnValue;
+        paramTable[3].Name = L"VerifyDownLevel";
+        paramTable[3].EntryContext = &verifyDownlevelValue;
+        paramTable[3].DefaultData = &zero;
+        paramTable[4].Name = L"ForceLogsInMiniDump";
+        paramTable[4].EntryContext = &forceLogsInMiniDump;
+        paramTable[4].DefaultData = &zero;
+        paramTable[5].Name = L"TrackDriverForMiniDumpLog";
+        paramTable[5].EntryContext = &trackDriverForMiniDumpLog;
+        paramTable[5].DefaultData = &defaultTrue;
+        paramTable[6].Name = L"RequestParentOptimizationOn";
+        paramTable[6].EntryContext = &requestParentOptimizationOn;
+        paramTable[6].DefaultData = &defaultTrue;
+        paramTable[7].Name = L"DsfOn";
+        paramTable[7].EntryContext = &dsfValue;
+        paramTable[7].DefaultData = &zero;
+        paramTable[8].Name = L"RemoveLockOptionFlags";
+        paramTable[8].EntryContext = &removeLockOptionFlags;
+        paramTable[4].Flags = v8;
+        trackDriverForMiniDumpLog = 1;
+        paramTable[5].Flags = v8;
+        requestParentOptimizationOn = 1;
+        paramTable[6].Flags = v8;
+        paramTable[7].Flags = v8;
+        paramTable[8].Flags = v8;
+        paramTable[8].DefaultData = &zero;
+        paramTable[2].DefaultType = v9;
+        paramTable[2].DefaultLength = 4;
+        paramTable[3].DefaultType = v9;
+        paramTable[3].DefaultLength = 4;
+        paramTable[4].DefaultType = v9;
+        paramTable[4].DefaultLength = 4;
+        paramTable[5].DefaultType = v9;
+        paramTable[5].DefaultLength = 4;
+        paramTable[6].DefaultType = v9;
+        paramTable[6].DefaultLength = 4;
+        paramTable[7].DefaultType = v9;
+        paramTable[7].DefaultLength = 4;
+        paramTable[8].DefaultType = v9;
+        paramTable[8].DefaultLength = 4;
+        RtlInitUnicodeString(&FunctionName, L"RtlQueryRegistryValuesEx");
+        SystemRoutineAddress = MmGetSystemRoutineAddress(&FunctionName);
+        if ( !SystemRoutineAddress )
+          SystemRoutineAddress = RtlxQueryRegistryValues;
+        if ( ((int (__fastcall *)(__int64, void *, _RTL_QUERY_REGISTRY_TABLE *, _QWORD, _QWORD))SystemRoutineAddress)(
+               3221225472LL,
+               hWdf.m_Key,
+               paramTable,
+               0LL,
+               0LL) >= 0 )
         {
-          ObjectAttributes = *(_OBJECT_ATTRIBUTES *)L"DbgWaitForSignalTimeoutInSec";
-          v41 = aDbgwaitforsign[28];
+          FxDriverGlobals->FxVerboseOn = verboseValue != 0;
+          v11 = -1;
+          if ( allocateFailValue != -1 )
+            v11 = allocateFailValue;
+          v12 = verifierOnValue == 0;
+          FxDriverGlobals->WdfVerifierAllocateFailCount = v11;
+          _FX_DRIVER_GLOBALS::SetVerifierState(FxDriverGlobals, !v12);
+          if ( FxDriverGlobals->FxVerifierOn )
+            FxDriverGlobalsInitializeDebugExtension(v13, hWdf.m_Key);
+          FxDriverGlobals->FxVerifyDownlevel = verifyDownlevelValue != 0;
+          FxOverrideDefaultVerifierSettings(hWdf.m_Key, (wchar_t *)L"VerifyOn", (bool *)&FxDriverGlobals->FxVerifyOn);
+          if ( FxDriverGlobals->FxVerifyOn )
+            FxDriverGlobals->Public.DriverFlags |= 4u;
+          FxOverrideDefaultVerifierSettings(
+            hWdf.m_Key,
+            (wchar_t *)L"DbgBreakOnError",
+            (bool *)&FxDriverGlobals->FxVerifierDbgBreakOnError);
+          FxOverrideDefaultVerifierSettings(
+            hWdf.m_Key,
+            (wchar_t *)L"DbgBreakOnDeviceStateError",
+            (bool *)&FxDriverGlobals->FxVerifierDbgBreakOnDeviceStateError);
+          if ( FxDriverGlobals->FxVerifierDbgBreakOnError )
+          {
+            ObjectAttributes = *(_OBJECT_ATTRIBUTES *)L"DbgWaitForSignalTimeoutInSec";
+            v39 = aDbgwaitforsign[28];
+            timeoutValue = 0;
+            *(_QWORD *)&ValueName.Length = 3801144LL;
+            ValueName.Buffer = (wchar_t *)&ObjectAttributes;
+            v38 = *(_QWORD *)L"nSec";
+            if ( (int)FxRegKey::_QueryULong(hWdf.m_Key, &ValueName, &timeoutValue) >= 0 )
+              FxDriverGlobals->FxVerifierDbgWaitForSignalTimeoutInSec = timeoutValue;
+          }
+          wcscpy(timeoutName_buffer, L"DbgWaitForWakeInterruptIsrTimeoutInSec");
           timeoutValue = 0;
-          *(_QWORD *)&ValueName.Length = 3801144LL;
-          ValueName.Buffer = (wchar_t *)&ObjectAttributes;
-          v40 = *(_QWORD *)L"nSec";
-          if ( FxRegKey::_QueryULong(hWdf.m_Key, &ValueName, &timeoutValue) >= 0 )
-            FxDriverGlobals->FxVerifierDbgWaitForSignalTimeoutInSec = timeoutValue;
+          *(_QWORD *)&timeoutName.Length = 5111884LL;
+          timeoutName.Buffer = timeoutName_buffer;
+          if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(FxDriverGlobals, v14, 0xDu)
+            && (int)FxRegKey::_QueryULong(hWdf.m_Key, &timeoutName, &timeoutValue) >= 0 )
+          {
+            FxDriverGlobals->DbgWaitForWakeInterruptIsrTimeoutInSec = timeoutValue;
+          }
+          v12 = trackDriverForMiniDumpLog == 0;
+          FxDriverGlobals->FxForceLogsInMiniDump = forceLogsInMiniDump != 0;
+          v15 = !v12;
+          v12 = requestParentOptimizationOn == 0;
+          FxDriverGlobals->FxTrackDriverForMiniDumpLog = v15;
+          v16 = !v12;
+          v12 = dsfValue == 0;
+          FxDriverGlobals->FxRequestParentOptimizationOn = v16;
+          FxDriverGlobals->FxDsfOn = !v12;
+          FxDriverGlobals->RemoveLockOptionFlags = removeLockOptionFlags;
         }
-        wcscpy(timeoutName_buffer, L"DbgWaitForWakeInterruptIsrTimeoutInSec");
-        timeoutValue = 0;
-        *(_QWORD *)&timeoutName.Length = 5111884LL;
-        timeoutName.Buffer = timeoutName_buffer;
-        if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(FxDriverGlobals, v13, 0xDu)
-          && FxRegKey::_QueryULong(hWdf.m_Key, &timeoutName, &timeoutValue) >= 0 )
-        {
-          FxDriverGlobals->DbgWaitForWakeInterruptIsrTimeoutInSec = timeoutValue;
-        }
-        v11 = trackDriverForMiniDumpLog == 0;
-        FxDriverGlobals->FxForceLogsInMiniDump = forceLogsInMiniDump != 0;
-        v14 = !v11;
-        v11 = requestParentOptimizationOn == 0;
-        FxDriverGlobals->FxTrackDriverForMiniDumpLog = v14;
-        v15 = !v11;
-        v11 = dsfValue == 0;
-        FxDriverGlobals->FxRequestParentOptimizationOn = v15;
-        FxDriverGlobals->FxDsfOn = !v11;
-        FxDriverGlobals->RemoveLockOptionFlags = removeLockOptionFlags;
+      }
+      else if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(FxDriverGlobals, v5, 9u) )
+      {
+        _FX_DRIVER_GLOBALS::SetVerifierState(v6, v4);
+        if ( FxDriverGlobals->FxVerifierOn )
+          FxDriverGlobalsInitializeDebugExtension(v7, 0LL);
       }
     }
+    if ( hWdf.m_Key )
+      ZwClose(hWdf.m_Key);
+    if ( hDriver.m_Key )
+      ZwClose(hDriver.m_Key);
   }
-  if ( hWdf.m_Key )
-    ZwClose(hWdf.m_Key);
-  if ( hDriver.m_Key )
-    ZwClose(hDriver.m_Key);
 }

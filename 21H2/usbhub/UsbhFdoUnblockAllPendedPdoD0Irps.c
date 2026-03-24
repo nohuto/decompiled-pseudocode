@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C001DB84
+ * XREFs of UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C001B724
  * Callers:
- *     UsbhFdoD0Worker_Action @ 0x1C00070B0 (UsbhFdoD0Worker_Action.c)
- *     Usbh_BusRemove_PdoEvent @ 0x1C003A2BC (Usbh_BusRemove_PdoEvent.c)
- *     UsbhFdoPower_PowerFailureEntry @ 0x1C003B740 (UsbhFdoPower_PowerFailureEntry.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000DC30 (UsbhFdoD0Worker_Action.c)
+ *     Usbh_BusRemove_PdoEvent @ 0x1C003B5CC (Usbh_BusRemove_PdoEvent.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003CA70 (UsbhFdoPower_PowerFailureEntry.c)
  * Callees:
- *     UsbhPdoUnblockPendedD0IrpWI @ 0x1C00018F0 (UsbhPdoUnblockPendedD0IrpWI.c)
- *     UsbhQueueWorkItemEx @ 0x1C0002868 (UsbhQueueWorkItemEx.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhQueueWorkItemEx @ 0x1C0017B0C (UsbhQueueWorkItemEx.c)
+ *     UsbhPdoUnblockPendedD0IrpWI @ 0x1C0018660 (UsbhPdoUnblockPendedD0IrpWI.c)
  */
 
 __int64 *__fastcall UsbhFdoUnblockAllPendedPdoD0Irps(__int64 a1)
@@ -77,7 +77,7 @@ LABEL_14:
             (int)UsbhPdoUnblockPendedD0IrpWI,
             (__int64)(result - 12),
             *(_DWORD *)(*(result - 3) + 148),
-            1230450788,
+            0x49573064u,
             v13) & 0xC0000000) == 0xC0000000 )
       UsbhPdoUnblockPendedD0IrpWI(a1, *(_DWORD *)(*(_QWORD *)(v12 + 72) + 148LL), v12);
   }

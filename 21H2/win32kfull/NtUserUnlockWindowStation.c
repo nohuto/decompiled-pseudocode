@@ -1,27 +1,27 @@
 /*
- * XREFs of NtUserUnlockWindowStation @ 0x1C011B1F0
+ * XREFs of NtUserUnlockWindowStation @ 0x1C0130FD0
  * Callers:
  *     <none>
  * Callees:
- *     _UnlockWindowStation @ 0x1C011B270 (_UnlockWindowStation.c)
+ *     _UnlockWindowStation @ 0x1C0131050 (_UnlockWindowStation.c)
  */
 
 __int64 __fastcall NtUserUnlockWindowStation(__int64 a1)
 {
-  int v2; // edi
+  int v1; // edi
   __int64 v3; // rdx
   __int64 v4; // rcx
   PVOID Object; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0;
+  v1 = 0;
   Object = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   LOBYTE(v3) = 1;
   if ( (int)ValidateHwinsta(a1, v3, 0LL, &Object) >= 0 )
   {
-    v2 = UnlockWindowStation(Object);
+    v1 = UnlockWindowStation(Object);
     ObfDereferenceObject(Object);
   }
   UserSessionSwitchLeaveCrit(v4);
-  return v2;
+  return v1;
 }

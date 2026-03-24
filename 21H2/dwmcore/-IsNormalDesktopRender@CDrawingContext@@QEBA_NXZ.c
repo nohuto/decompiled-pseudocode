@@ -1,8 +1,7 @@
 /*
- * XREFs of ?IsNormalDesktopRender@CDrawingContext@@QEBA_NXZ @ 0x180012BB8
+ * XREFs of ?IsNormalDesktopRender@CDrawingContext@@QEBA_NXZ @ 0x18001A2F4
  * Callers:
- *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x1800B2A90 (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
- *     ?RecordBitmapResourceInfo@CDrawingContext@@QEBAXPEAVIBitmapResource@@@Z @ 0x1801B3E8C (-RecordBitmapResourceInfo@CDrawingContext@@QEBAXPEAVIBitmapResource@@@Z.c)
+ *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x18006858C (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +12,6 @@ bool __fastcall CDrawingContext::IsNormalDesktopRender(CDrawingContext *this)
 
   v1 = 0;
   if ( *((_QWORD *)this + 6) )
-    return *((_BYTE *)g_pComposition + 1274) == 0;
+    return *((_BYTE *)g_pComposition + 1129) == 0;
   return v1;
 }

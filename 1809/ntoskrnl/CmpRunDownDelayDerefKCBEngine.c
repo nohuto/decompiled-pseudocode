@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpRunDownDelayDerefKCBEngine @ 0x140692DF4
+ * XREFs of CmpRunDownDelayDerefKCBEngine @ 0x140692DD4
  * Callers:
- *     CmpCleanUpKCBCacheTable @ 0x140692B3C (CmpCleanUpKCBCacheTable.c)
- *     CmpFreeAllMemory @ 0x1407ECDE0 (CmpFreeAllMemory.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140692B1C (CmpCleanUpKCBCacheTable.c)
+ *     CmpFreeAllMemory @ 0x1407ECDC0 (CmpFreeAllMemory.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
@@ -10,9 +10,9 @@
  *     CmpDoQueueLateUnloadWorker @ 0x1405B1550 (CmpDoQueueLateUnloadWorker.c)
  *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpIsLockAllowedByIndex @ 0x1407F08D4 (CmpIsLockAllowedByIndex.c)
- *     CmpLockHashEntryByIndexExclusive @ 0x1407F954C (CmpLockHashEntryByIndexExclusive.c)
- *     CmpUnlockHashEntryByIndex @ 0x1407F95C4 (CmpUnlockHashEntryByIndex.c)
+ *     CmpIsLockAllowedByIndex @ 0x1407F08B4 (CmpIsLockAllowedByIndex.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x1407F952C (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpUnlockHashEntryByIndex @ 0x1407F95A4 (CmpUnlockHashEntryByIndex.c)
  */
 
 void __fastcall CmpRunDownDelayDerefKCBEngine(__int64 a1, char a2)

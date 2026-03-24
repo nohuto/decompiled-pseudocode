@@ -1,9 +1,9 @@
 /*
- * XREFs of _DllMainCRTStartup @ 0x18010F834
+ * XREFs of _DllMainCRTStartup @ 0x1800E747C
  * Callers:
- *     _DllMainStartup @ 0x1800FCDA0 (_DllMainStartup.c)
+ *     _DllMainStartup @ 0x1800DB530 (_DllMainStartup.c)
  * Callees:
- *     __security_init_cookie @ 0x18010FEAC (__security_init_cookie.c)
+ *     __security_init_cookie @ 0x1800E7BAC (__security_init_cookie.c)
  */
 
 __int64 __fastcall DllMainCRTStartup(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)

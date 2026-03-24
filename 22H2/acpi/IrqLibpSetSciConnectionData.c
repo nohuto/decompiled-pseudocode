@@ -1,32 +1,38 @@
 /*
- * XREFs of IrqLibpSetSciConnectionData @ 0x1C00ABE24
+ * XREFs of IrqLibpSetSciConnectionData @ 0x1C00BCBA8
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC (AcpiIrqLibSetupSciInterrupt.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memset @ 0x1C0002180 (memset.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall IrqLibpSetSciConnectionData(__int64 a1, struct _DEVICE_OBJECT *a2)
+NTSTATUS __fastcall IrqLibpSetSciConnectionData(__int128 *a1, struct _DEVICE_OBJECT *a2)
 {
-  __int128 v4; // xmm1
-  __int128 v5; // xmm0
-  __int128 v6; // xmm1
-  __int128 v7; // xmm0
-  _QWORD Data[12]; // [rsp+40h] [rbp-78h] BYREF
+  __int128 v2; // xmm0
+  __int128 v3; // xmm1
+  __int128 v4; // xmm0
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int64 Data; // [rsp+40h] [rbp-78h] BYREF
+  __int128 v9; // [rsp+48h] [rbp-70h]
+  __int128 v10; // [rsp+58h] [rbp-60h]
+  __int128 v11; // [rsp+68h] [rbp-50h]
+  __int128 v12; // [rsp+78h] [rbp-40h]
+  __int128 v13; // [rsp+88h] [rbp-30h]
+  __int64 v14; // [rsp+98h] [rbp-20h]
 
-  memset((char *)Data + 4, 0, 0x5CuLL);
-  v4 = *(_OWORD *)(a1 + 16);
-  *(_OWORD *)&Data[1] = *(_OWORD *)a1;
-  v5 = *(_OWORD *)(a1 + 32);
-  LODWORD(Data[0]) = 1;
-  *(_OWORD *)&Data[3] = v4;
-  v6 = *(_OWORD *)(a1 + 48);
-  *(_OWORD *)&Data[5] = v5;
-  v7 = *(_OWORD *)(a1 + 64);
-  *(_OWORD *)&Data[7] = v6;
-  *(_QWORD *)&v6 = *(_QWORD *)(a1 + 80);
-  *(_OWORD *)&Data[9] = v7;
-  Data[11] = v6;
-  return IoSetDevicePropertyData(a2, &INTERRUPT_CONNECTION_DATA_PKEY, 0, 0, 0x1003u, 0x60u, Data);
+  v2 = *a1;
+  Data = 1LL;
+  v3 = a1[1];
+  v9 = v2;
+  v4 = a1[2];
+  v10 = v3;
+  v5 = a1[3];
+  v11 = v4;
+  v6 = a1[4];
+  v12 = v5;
+  *(_QWORD *)&v5 = *((_QWORD *)a1 + 10);
+  v13 = v6;
+  v14 = v5;
+  return IoSetDevicePropertyData(a2, &INTERRUPT_CONNECTION_DATA_PKEY, 0, 0, 0x1003u, 0x60u, &Data);
 }

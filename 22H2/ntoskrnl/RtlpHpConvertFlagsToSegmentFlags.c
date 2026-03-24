@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpConvertFlagsToSegmentFlags @ 0x14034C61C
+ * XREFs of RtlpHpConvertFlagsToSegmentFlags @ 0x1402FED9C
  * Callers:
- *     RtlpFreeHeapInternal @ 0x14034C464 (RtlpFreeHeapInternal.c)
- *     RtlpAllocateHeapInternal @ 0x14034C538 (RtlpAllocateHeapInternal.c)
+ *     RtlpFreeHeapInternal @ 0x1402FEBC4 (RtlpFreeHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1402FECA8 (RtlpAllocateHeapInternal.c)
  * Callees:
  *     <none>
  */

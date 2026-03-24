@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhAcquireBusInfo @ 0x1C00480F0
+ * XREFs of UsbhAcquireBusInfo @ 0x1C0049470
  * Callers:
  *     <none>
  * Callees:
- *     UsbhGetDeviceBusInfo @ 0x1C002B0CC (UsbhGetDeviceBusInfo.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
+ *     UsbhGetDeviceBusInfo @ 0x1C002C4C0 (UsbhGetDeviceBusInfo.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
  */
 
 __int64 __fastcall UsbhAcquireBusInfo(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4, _DWORD *a5)

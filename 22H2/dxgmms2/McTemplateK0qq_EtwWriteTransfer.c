@@ -1,20 +1,13 @@
 /*
- * XREFs of McTemplateK0qq_EtwWriteTransfer @ 0x1C002F234
+ * XREFs of McTemplateK0qq_EtwWriteTransfer @ 0x1C002EA44
  * Callers:
- *     VidSchDdiNotifyInterruptWorker @ 0x1C000EC20 (VidSchDdiNotifyInterruptWorker.c)
- *     VidSchiCompleteFlipEntry @ 0x1C0010C40 (VidSchiCompleteFlipEntry.c)
- *     ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00EAB78 (-VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000DED0 (VidSchDdiNotifyInterruptWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall McTemplateK0qq_EtwWriteTransfer(
-        __int64 a1,
-        const EVENT_DESCRIPTOR *a2,
-        __int64 a3,
-        int a4,
-        __int64 a5)
+NTSTATUS __fastcall McTemplateK0qq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-48h] BYREF
   int *v7; // [rsp+40h] [rbp-38h]
@@ -32,5 +25,10 @@ NTSTATUS __fastcall McTemplateK0qq_EtwWriteTransfer(
   v10 = &a5;
   v12 = 0;
   v11 = 4;
-  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, a2, a3, 3u, &v6);
+  return McGenEventWrite_EtwWriteTransfer(
+           &DxgkControlGuid_Context,
+           &EventPeriodicFrameNotificationInterrupt,
+           a3,
+           3u,
+           &v6);
 }

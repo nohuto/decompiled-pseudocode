@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpVolumeOpenAndVerify @ 0x1406AECC0
+ * XREFs of PfpVolumeOpenAndVerify @ 0x1406C5DFC
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406AE11C (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1406C5978 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfVolumeSupportedForPrefetch @ 0x140236694 (PfVolumeSupportedForPrefetch.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     NtQueryVolumeInformationFile @ 0x1407AF670 (NtQueryVolumeInformationFile.c)
- *     PfpOpenHandleCreate @ 0x1407DFC68 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1407DFFD8 (PfpOpenHandleClose.c)
- *     NtCreateFile @ 0x1407E0BC0 (NtCreateFile.c)
- *     NtGetDevicePowerState @ 0x140997410 (NtGetDevicePowerState.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PfVolumeSupportedForPrefetch @ 0x1402D4054 (PfVolumeSupportedForPrefetch.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     NtCreateFile @ 0x14060B430 (NtCreateFile.c)
+ *     NtQueryVolumeInformationFile @ 0x1406508C0 (NtQueryVolumeInformationFile.c)
+ *     PfpOpenHandleCreate @ 0x1406C94F8 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     NtGetDevicePowerState @ 0x1408F0370 (NtGetDevicePowerState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
   __int64 v6; // rsi
   NTSTATUS v7; // eax
   NTSTATUS DevicePowerState; // ebx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int128 v10; // xmm0
   __int128 v11; // xmm1
   __int128 v12; // xmm0
@@ -69,7 +69,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
   if ( v7 >= 0 )
   {
     if ( v7 == 259 )
-      KeBugCheckEx(0x191u, 0x132AuLL, 0LL, 0LL, 0LL);
+      KeBugCheckEx(0x191u, 0x1336uLL, 0LL, 0LL, 0LL);
     DevicePowerState = NtQueryVolumeInformationFile(
                          FileHandle,
                          &IoStatusBlock,
@@ -79,7 +79,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
     if ( (DevicePowerState & 0xC0000000) != 0xC0000000 )
     {
       if ( DevicePowerState == 259 )
-        KeBugCheckEx(0x191u, 0x133AuLL, 0LL, 0LL, 0LL);
+        KeBugCheckEx(0x191u, 0x1346uLL, 0LL, 0LL, 0LL);
       if ( (unsigned int)PfVolumeSupportedForPrefetch(&FsInformation) )
       {
         DevicePowerState = -1073741637;
@@ -113,7 +113,7 @@ LABEL_7:
         if ( (DevicePowerState & 0xC0000000) == 0xC0000000 )
           goto LABEL_16;
         if ( DevicePowerState == 259 )
-          KeBugCheckEx(0x191u, 0x1383uLL, 0LL, 0LL, 0LL);
+          KeBugCheckEx(0x191u, 0x138FuLL, 0LL, 0LL, 0LL);
         if ( (_QWORD)v27 != *(_QWORD *)a3 || DWORD2(v27) != *(_DWORD *)(a3 + 8) )
         {
           DevicePowerState = -1073741735;
@@ -123,11 +123,11 @@ LABEL_7:
 LABEL_13:
           LOWORD(v17) = v19[0] + 2;
           WORD1(v17) = v19[0] + 4;
-          Pool2 = (void *)ExAllocatePool2(256LL, (unsigned __int16)(v19[0] + 4), 1146250832LL);
-          P = Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(v19[0] + 4), 0x44526650u);
+          P = PoolWithTag;
+          if ( PoolWithTag )
           {
-            memmove(Pool2, Src, v19[0]);
+            memmove(PoolWithTag, Src, v19[0]);
             *((_WORD *)P + ((unsigned __int64)v19[0] >> 1)) = 92;
             *((_WORD *)P + ((unsigned __int64)(unsigned __int16)v17 >> 1)) = 0;
             DevicePowerState = PfpOpenHandleCreate(

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckCommitReleaseFromVad @ 0x1402A38CC
+ * XREFs of MiCheckCommitReleaseFromVad @ 0x1402A39CC
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x1402A4E74 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1402A4F74 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -11,11 +11,11 @@
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
  *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiIsPteInStore @ 0x1401417E8 (MiIsPteInStore.c)
- *     MiComputeCommitChargeForZeroPteRange @ 0x1402A3CC4 (MiComputeCommitChargeForZeroPteRange.c)
- *     MiComputeImageVadCommitCharge @ 0x1402A3D70 (MiComputeImageVadCommitCharge.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
+ *     MiComputeCommitChargeForZeroPteRange @ 0x1402A3DC4 (MiComputeCommitChargeForZeroPteRange.c)
+ *     MiComputeImageVadCommitCharge @ 0x1402A3E70 (MiComputeImageVadCommitCharge.c)
  */
 
 __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _QWORD *a6)

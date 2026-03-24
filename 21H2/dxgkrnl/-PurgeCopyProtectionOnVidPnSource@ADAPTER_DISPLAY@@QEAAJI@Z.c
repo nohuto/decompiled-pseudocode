@@ -1,63 +1,62 @@
 /*
- * XREFs of ?PurgeCopyProtectionOnVidPnSource@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01E4EE8
+ * XREFs of ?PurgeCopyProtectionOnVidPnSource@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143C50
  * Callers:
- *     ?FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z @ 0x1C0162FC0 (-FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BBB3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0142C1C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z @ 0x1C014D16C (-FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01BC490 (-SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143528 (-SetCopyProtection@ADAPTER_DISPLAY@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::PurgeCopyProtectionOnVidPnSource(DXGADAPTER **this, unsigned int a2)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  struct DXGPROCESS *Current; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct DXGPROCESS *Current; // rbx
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v10; // rax
   DXGADAPTER **i; // rax
-  unsigned int v10; // ebx
-  _BYTE v12[16]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v12; // rdx
+  unsigned int v13; // ebx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  _BYTE v17[24]; // [rsp+20h] [rbp-18h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 5729LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 5729LL, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v15 + 24) = 5498LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  Current = DXGPROCESS::GetCurrent(v5, v4, v6, v7);
+  Current = DXGPROCESS::GetCurrent(v5, v4);
   if ( !Current )
   {
-    WdLogSingleEntry1(1LL, 5732LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcess != NULL", 5732LL, 0LL, 0LL, 0LL, 0LL);
+    v16 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v16 + 24) = 5501LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  if ( *((struct _KTHREAD **)Current + 50) != KeGetCurrentThread() )
+  CurrentThread = KeGetCurrentThread();
+  if ( *(struct _KTHREAD **)(*((_QWORD *)Current + 42) + 16LL) != CurrentThread )
   {
-    WdLogSingleEntry1(1LL, 5733LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pProcess->IsCopyProtectionMutexOwner()",
-      5733LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(CurrentThread, v6);
+    *(_QWORD *)(v10 + 24) = 5502LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, (struct DXGFASTMUTEX *const)(this + 4), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
-  for ( i = (DXGADAPTER **)this[10]; i != this + 10 && i; i = (DXGADAPTER **)*i )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (struct DXGFASTMUTEX *const)(this + 3), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  for ( i = (DXGADAPTER **)this[8]; i != this + 8 && i; i = (DXGADAPTER **)*i )
   {
     if ( *((_DWORD *)i + 13) == a2 )
       *((_DWORD *)i + 14) = 0;
   }
-  v10 = ADAPTER_DISPLAY::SetCopyProtection(this, a2);
-  if ( v12[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12);
-  return v10;
+  v13 = ADAPTER_DISPLAY::SetCopyProtection(this, a2);
+  if ( v17[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v12);
+  return v13;
 }

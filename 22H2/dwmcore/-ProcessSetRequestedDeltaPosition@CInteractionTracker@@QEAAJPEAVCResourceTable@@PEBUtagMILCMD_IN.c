@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetRequestedDeltaPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDDELTAPOSITION@@@Z @ 0x180233DFC
+ * XREFs of ?ProcessSetRequestedDeltaPosition@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDDELTAPOSITION@@@Z @ 0x1801CA9A4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x1802333AC (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
- *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1802351F8 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
+ *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x1801C9F60 (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
+ *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1801CC338 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
  */
 
 __int64 __fastcall CInteractionTracker::ProcessSetRequestedDeltaPosition(
@@ -18,8 +18,8 @@ __int64 __fastcall CInteractionTracker::ProcessSetRequestedDeltaPosition(
   int v8; // eax
   _DWORD v10[6]; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = *((float *)this + 20) + *((float *)a3 + 2);
-  v5 = *((float *)this + 21) + *((float *)a3 + 3);
+  v3 = *((float *)this + 18) + *((float *)a3 + 2);
+  v5 = *((float *)this + 19) + *((float *)a3 + 3);
   v6 = *((unsigned int *)a3 + 4);
   *(float *)v10 = v3;
   v10[2] = 0;
@@ -30,10 +30,10 @@ __int64 __fastcall CInteractionTracker::ProcessSetRequestedDeltaPosition(
                           v6,
                           0LL) )
   {
-    v8 = *((_DWORD *)this + 47);
+    v8 = *((_DWORD *)this + 45);
     if ( v8 <= *((_DWORD *)a3 + 6) )
       v8 = *((_DWORD *)a3 + 6);
-    *((_DWORD *)this + 47) = v8;
+    *((_DWORD *)this + 45) = v8;
   }
   else
   {

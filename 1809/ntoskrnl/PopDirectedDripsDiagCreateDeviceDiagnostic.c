@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14087B7AC
+ * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14087B78C
  * Callers:
- *     PopDirectedDripsDiagTraceBroadcastRootDevice @ 0x1402E7450 (PopDirectedDripsDiagTraceBroadcastRootDevice.c)
- *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x1402E74E4 (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopDirectedDripsDiagTraceBroadcastRootDevice @ 0x1402E7550 (PopDirectedDripsDiagTraceBroadcastRootDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x1402E75E4 (PopDirectedDripsDiagTraceBroadcastVisit.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PopDiagQueryDevicePropertyString @ 0x1408704C8 (PopDiagQueryDevicePropertyString.c)
- *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14087B900 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408704A8 (PopDiagQueryDevicePropertyString.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14087B8E0 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
  */
 
 _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1, int a2)
@@ -46,14 +46,14 @@ _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1, int a2
           {
             *((_DWORD *)v5 + 26) = a2;
             *(_QWORD *)(a1 + 776) = v5;
-            v8 = (_QWORD *)qword_14040E698;
-            if ( *(__int64 **)qword_14040E698 != &PopDirectedDripsDiagList )
+            v8 = (_QWORD *)qword_14040E6A8;
+            if ( *(__int64 **)qword_14040E6A8 != &PopDirectedDripsDiagList )
               __fastfail(3u);
             *v5 = &PopDirectedDripsDiagList;
             v7 = 0;
             v5[1] = v8;
             *v8 = v5;
-            qword_14040E698 = (__int64)v5;
+            qword_14040E6A8 = (__int64)v5;
           }
         }
       }

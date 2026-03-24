@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DestroyEventPacketTargets@@YAXPEAUtagEVENT_PACKET_TARGETS@@@Z @ 0x1C0003E40
+ * XREFs of ?DestroyEventPacketTargets@@YAXPEAUtagEVENT_PACKET_TARGETS@@@Z @ 0x1C0169F90
  * Callers:
  *     <none>
  * Callees:

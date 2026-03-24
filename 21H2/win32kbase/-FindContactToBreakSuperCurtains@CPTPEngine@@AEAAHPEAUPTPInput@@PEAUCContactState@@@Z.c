@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z @ 0x1C02012AC
+ * XREFs of ?FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z @ 0x1C01C5C10
  * Callers:
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020273C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C709C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,35 +13,37 @@ __int64 __fastcall CPTPEngine::FindContactToBreakSuperCurtains(
 {
   unsigned int v3; // r15d
   unsigned int v4; // r11d
-  int v7; // edi
+  int v5; // edi
   _DWORD *i; // rsi
-  struct CContactState *v9; // rbx
-  int v10; // r8d
-  int v11; // edx
-  unsigned __int64 v13; // [rsp+50h] [rbp+20h]
+  struct CContactState *v7; // rbx
+  __int64 v8; // rax
 
   v3 = *((_DWORD *)a2 + 12);
   v4 = 0;
-  v7 = 0;
+  v5 = 0;
   if ( v3 )
   {
     for ( i = (_DWORD *)((char *)a2 + 60); ; i += 24 )
     {
-      v9 = (CPTPEngine *)((char *)this + 400 * (unsigned int)(*i % *((_DWORD *)this + 4)) + 1208);
-      if ( a3 != v9 && (*(_DWORD *)v9 & 0x20000000) != 0 && ((*(_DWORD *)v9 & 1) != 0 || *((_DWORD *)v9 + 75) == 1) )
+      v7 = (CPTPEngine *)((char *)this + 392 * (unsigned int)(*i % *((_DWORD *)this + 4)) + 1160);
+      if ( a3 != v7 && (*(_DWORD *)v7 & 0x8000000) != 0 && ((*(_DWORD *)v7 & 1) != 0 || *((_DWORD *)v7 + 73) == 1) )
       {
-        v10 = HIDWORD(*((_QWORD *)v9 + 3)) - HIDWORD(*((_QWORD *)a3 + 3));
-        v11 = *((_QWORD *)v9 + 3) - *((_QWORD *)a3 + 3);
-        v13 = v10 * v10 + v11 * v11;
-        if ( (v13 <= *((unsigned int *)this + 85) || v13 <= *((unsigned int *)this + 86))
-          && *(_QWORD *)a2 - *((_QWORD *)v9 + 10) < *((_QWORD *)this + 12)
-                                                  * (unsigned __int64)*((unsigned int *)this + 57)
-                                                  / 0x3E8 )
+        v8 = *((_QWORD *)a3 + 2);
+        if ( ((int)((HIDWORD(*((_QWORD *)v7 + 2)) - HIDWORD(v8)) * (HIDWORD(*((_QWORD *)v7 + 2)) - HIDWORD(v8))
+                  + (*((_QWORD *)v7 + 2) - v8) * (*((_QWORD *)v7 + 2) - v8)) <= (unsigned __int64)*((unsigned int *)this
+                                                                                                  + 73)
+           || (int)((HIDWORD(*((_QWORD *)v7 + 2)) - HIDWORD(*((_QWORD *)a3 + 2)))
+                  * (HIDWORD(*((_QWORD *)v7 + 2)) - HIDWORD(*((_QWORD *)a3 + 2)))
+                  + (*((_QWORD *)v7 + 2) - v8) * (*((_QWORD *)v7 + 2) - v8)) <= (unsigned __int64)*((unsigned int *)this
+                                                                                                  + 74))
+          && *(_QWORD *)a2 - *((_QWORD *)v7 + 9) < *((_QWORD *)this + 12)
+                                                 * (unsigned __int64)*((unsigned int *)this + 45)
+                                                 / 0x3E8 )
         {
           break;
         }
       }
-      if ( ++v7 >= v3 )
+      if ( ++v5 >= v3 )
         return v4;
     }
     return 1;

@@ -1,25 +1,25 @@
 /*
- * XREFs of rimProcessKeyboardInput @ 0x1C00056C8
+ * XREFs of rimProcessKeyboardInput @ 0x1C0175C94
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
- *     rimStackAttachAndProcessInput @ 0x1C00058FC (rimStackAttachAndProcessInput.c)
+ *     rimStackAttachAndProcessInput @ 0x1C01760E4 (rimStackAttachAndProcessInput.c)
  */
 
 NTSTATUS __fastcall rimProcessKeyboardInput(__int64 a1, __int64 a2)
 {
   NTSTATUS result; // eax
 
-  if ( !*(_QWORD *)(a1 + 832) && !*(_DWORD *)(a1 + 1056) )
-    return rimStackAttachAndProcessInput(a1, a2, (int)a2 + 496, (int)a2 + 256, 0);
+  if ( !*(_QWORD *)(a1 + 640) && !*(_DWORD *)(a1 + 864) )
+    return rimStackAttachAndProcessInput(a1, a2, (int)a2 + 504, (int)a2 + 256, 0);
   result = *(_DWORD *)(a2 + 184);
-  if ( (result & 0x2000) == 0 || (result & 0x80000) == 0 || (result & 0x1000000) != 0 )
-    return rimStackAttachAndProcessInput(a1, a2, (int)a2 + 496, (int)a2 + 256, 0);
-  if ( (result & 0x400000) == 0 )
+  if ( (result & 0x2000) == 0 || (result & 0x20000) == 0 || (result & 0x400000) != 0 )
+    return rimStackAttachAndProcessInput(a1, a2, (int)a2 + 504, (int)a2 + 256, 0);
+  if ( (result & 0x100000) == 0 )
   {
-    *(_DWORD *)(a2 + 184) = result | 0x400000;
-    result = ZwSetEvent(*(HANDLE *)(a1 + 344), 0LL);
+    *(_DWORD *)(a2 + 184) = result | 0x100000;
+    result = ZwSetEvent(*(HANDLE *)(a1 + 384), 0LL);
   }
-  *(_BYTE *)(a1 + 776) = 1;
+  *(_BYTE *)(a1 + 584) = 1;
   return result;
 }

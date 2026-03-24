@@ -1,139 +1,141 @@
 /*
- * XREFs of IoSetDiskIoAttributionFromThread @ 0x1402A7B10
+ * XREFs of IoSetDiskIoAttributionFromThread @ 0x14029C670
  * Callers:
- *     IoSynchronousPageWriteEx @ 0x140250E60 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x1402A66F0 (IoPageReadEx.c)
- *     IoAsynchronousPageWrite @ 0x1403693BC (IoAsynchronousPageWrite.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1403715A0 (IopBuildAsynchronousFsdRequest.c)
- *     IoSetIoAttributionIrp @ 0x140557190 (IoSetIoAttributionIrp.c)
- *     IopSynchronousServiceTail @ 0x1406E3F40 (IopSynchronousServiceTail.c)
+ *     IoSynchronousPageWriteEx @ 0x14029C49C (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x14029C7C0 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x1402E5D7C (IoAsynchronousPageWrite.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x140358DF0 (IopBuildAsynchronousFsdRequest.c)
+ *     IoSetIoAttributionIrp @ 0x140505F60 (IoSetIoAttributionIrp.c)
+ *     IopSynchronousServiceTail @ 0x14064C4A0 (IopSynchronousServiceTail.c)
  * Callees:
- *     IopSetDiskIoAttributionFromProcess @ 0x1402901D4 (IopSetDiskIoAttributionFromProcess.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290230 (IopSetDiskIoAttributionExtension.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402C3BD0 (ObDereferenceObjectDeferDelete.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402E66DC (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x14031D458 (IopSetDiskIoAttributionFromProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IoSetDiskIoAttributionFromThread(__int64 a1, struct _KTHREAD *a2)
 {
   _QWORD *Object; // rsi
-  unsigned int v3; // edi
-  int v5; // ebp
-  __int64 Process; // rdx
-  _KPROCESS *v8; // rbx
-  __int64 v9; // r12
-  KIRQL v11; // al
-  unsigned __int64 v12; // rbx
-  KIRQL v13; // r9
-  int v14; // eax
-  KIRQL v15; // al
-  unsigned __int64 v16; // r14
+  int v4; // edi
+  _KPROCESS *Process; // rbx
+  __int64 v7; // rbp
+  int v8; // ebx
+  KIRQL v10; // al
+  unsigned __int64 v11; // rbx
+  unsigned __int64 v12; // r12
+  KIRQL v13; // al
+  unsigned __int64 v14; // rbp
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v20; // eax
-  bool v21; // zf
-  unsigned __int8 v22; // cl
-  struct _KPRCB *v23; // r10
-  _DWORD *v24; // r8
-  int v25; // eax
-  KIRQL v26; // [rsp+58h] [rbp+10h]
+  int v18; // eax
+  bool v19; // zf
+  unsigned __int8 v20; // al
+  struct _KPRCB *v21; // r9
+  int v22; // eax
+  _DWORD *v23; // r8
 
   Object = a2[1].WaitBlock[1].Object;
-  v3 = 0;
-  v5 = 0;
+  v4 = 0;
   if ( !Object )
-    goto LABEL_12;
-  if ( a2 == KeGetCurrentThread() )
-    goto LABEL_11;
-  v15 = ExAcquireSpinLockShared(&PspThreadWorkOnBehalfLock);
-  Object = a2[1].WaitBlock[1].Object;
-  v16 = v15;
-  if ( Object )
+    goto LABEL_14;
+  if ( a2 != KeGetCurrentThread() )
   {
-    ObfReferenceObjectWithTag(a2[1].WaitBlock[1].Object, 0x746C6644u);
-    v5 = 1;
-  }
-  ExReleaseSpinLockSharedFromDpcLevel(&PspThreadWorkOnBehalfLock);
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+    v13 = ExAcquireSpinLockShared(&PspThreadWorkOnBehalfLock);
+    Object = a2[1].WaitBlock[1].Object;
+    v14 = v13;
+    if ( Object )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-      v21 = (v20 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v20;
-      if ( v21 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      ObfReferenceObjectWithTag(a2[1].WaitBlock[1].Object, 0x746C6644u);
+      v4 = 1;
     }
+    ExReleaseSpinLockSharedFromDpcLevel(&PspThreadWorkOnBehalfLock);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v14);
   }
-  __writecr8(v16);
   if ( Object )
   {
-LABEL_11:
-    v8 = (_KPROCESS *)Object[68];
+    Process = (_KPROCESS *)Object[68];
   }
   else
   {
-LABEL_12:
-    if ( a2 == KeGetCurrentThread() )
+LABEL_14:
+    if ( a2 == KeGetCurrentThread()
+      && a2->ApcState.Process != a2->Process
+      && (int)IopSetDiskIoAttributionFromProcess(a1) >= 0 )
     {
-      Process = (__int64)a2->ApcState.Process;
-      if ( (_KPROCESS *)Process != a2->Process && (int)IopSetDiskIoAttributionFromProcess(a1, Process) >= 0 )
-        goto LABEL_7;
+LABEL_15:
+      v8 = 0;
+      goto LABEL_8;
     }
-    v8 = a2->Process;
+    Process = a2->Process;
   }
-  v9 = 0LL;
-  if ( !v8[2].Affinity.StaticBitmap[18] )
+  v7 = 0LL;
+  if ( Process[2].Affinity.Bitmap[18] )
   {
-    v3 = -1073741275;
-    goto LABEL_7;
-  }
-  v11 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
-  v12 = v8[2].Affinity.StaticBitmap[18];
-  v26 = v11;
-  if ( v12 )
-    v9 = *(_QWORD *)(v12 + 24);
-  ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
-  if ( !KiIrqlFlags )
-    goto LABEL_17;
-  v22 = KeGetCurrentIrql();
-  if ( (KiIrqlFlags & 1) == 0 || v22 > 0xFu )
-    goto LABEL_17;
-  v13 = v26;
-  if ( v26 <= 0xFu && v22 >= 2u )
-  {
-    v23 = KeGetCurrentPrcb();
-    v24 = v23->SchedulerAssist;
-    v25 = ~(unsigned __int16)(-1LL << (v26 + 1));
-    v21 = (v25 & v24[5]) == 0;
-    v24[5] &= v25;
-    if ( v21 )
+    v10 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
+    v11 = Process[2].Affinity.Bitmap[18];
+    v12 = v10;
+    if ( v11 )
+      v7 = *(_QWORD *)(v11 + 24);
+    ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
+    if ( KiIrqlFlags )
     {
-      KiRemoveSystemWorkPriorityKick(v23);
-LABEL_17:
-      v13 = v26;
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v20 = KeGetCurrentIrql();
+        if ( v20 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v20 >= 2u )
+        {
+          v21 = KeGetCurrentPrcb();
+          v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+          v23 = v21->SchedulerAssist;
+          v19 = (v22 & v23[5]) == 0;
+          v23[5] &= v22;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick(v21);
+        }
+      }
     }
-  }
-  __writecr8(v13);
-  if ( v12 )
-  {
-    v14 = IopSetDiskIoAttributionExtension(a1, v9, (__int64)KeGetCurrentThread(), 0);
-    if ( v14 < 0 )
-      v3 = v14;
+    __writecr8(v12);
+    if ( v11 )
+    {
+      v8 = IopSetDiskIoAttributionExtension(a1, v7, KeGetCurrentThread(), 0LL);
+      if ( v8 >= 0 )
+        v8 = 0;
+    }
+    else
+    {
+      v8 = -1073741275;
+    }
   }
   else
   {
-    v3 = -1073741275;
+    v8 = -1073741275;
   }
-LABEL_7:
-  if ( v5 )
-    ObDereferenceObjectDeferDeleteWithTag(Object, 0x746C6644u);
-  return v3;
+  if ( v8 >= 0 )
+    goto LABEL_15;
+LABEL_8:
+  if ( v4 )
+    ObDereferenceObjectDeferDelete(Object);
+  return (unsigned int)v8;
 }

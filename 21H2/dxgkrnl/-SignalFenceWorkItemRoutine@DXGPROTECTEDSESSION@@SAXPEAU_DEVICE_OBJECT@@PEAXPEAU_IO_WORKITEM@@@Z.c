@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SignalFenceWorkItemRoutine@DXGPROTECTEDSESSION@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C033A0D0
+ * XREFs of ?SignalFenceWorkItemRoutine@DXGPROTECTEDSESSION@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0288960
  * Callers:
  *     <none>
  * Callees:
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z @ 0x1C0339ABC (-DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z.c)
- *     ?SignalFence@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C033A008 (-SignalFence@DXGPROTECTEDSESSION@@QEAAXXZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z @ 0x1C02884D0 (-DestroyProtectedSession@DXGPROTECTEDSESSION@@SAJPEAV1@I@Z.c)
+ *     ?SignalFence@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C02888CC (-SignalFence@DXGPROTECTEDSESSION@@QEAAXXZ.c)
  */
 
 void __fastcall DXGPROTECTEDSESSION::SignalFenceWorkItemRoutine(
@@ -14,24 +14,28 @@ void __fastcall DXGPROTECTEDSESSION::SignalFenceWorkItemRoutine(
         struct _EX_RUNDOWN_REF *Context,
         PIO_WORKITEM IoWorkItem)
 {
+  __int64 v5; // rax
   ULONG_PTR Count; // rax
-  __int64 v6; // rbx
-  _BYTE v7[8]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-20h]
-  char v9; // [rsp+30h] [rbp-18h]
+  __int64 v7; // rbx
+  __int64 v8; // rdx
+  _BYTE v9[8]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+28h] [rbp-20h]
+  char v11; // [rsp+30h] [rbp-18h]
 
-  WdLogSingleEntry1(4LL, 1233LL);
+  v5 = WdLogNewEntry5_WdEvent(IoObject, Context);
+  *(_QWORD *)(v5 + 24) = 1233LL;
+  WdLogEvent5_WdEvent(v5);
   Count = Context[2].Count;
-  v9 = 0;
-  v8 = *(_QWORD *)(Count + 16);
-  v6 = v8;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v7);
-  if ( *(_DWORD *)(v6 + 200) == 1 )
-    DXGPROTECTEDSESSION::SignalFence((DXGPROTECTEDSESSION *)Context);
-  ExReleaseRundownProtection(Context + 17);
-  DXGPROTECTEDSESSION::DestroyProtectedSession((struct DXGPROTECTEDSESSION *)Context, 0);
+  v11 = 0;
+  v10 = *(_QWORD *)(Count + 16);
+  v7 = v10;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
+  if ( *(_DWORD *)(v7 + 200) == 1 )
+    DXGPROTECTEDSESSION::SignalFence((DXGPROTECTEDSESSION *)Context, v8);
+  ExReleaseRundownProtection(Context + 16);
+  DXGPROTECTEDSESSION::DestroyProtectedSession(Context, 0);
   if ( IoWorkItem )
     IoFreeWorkItem(IoWorkItem);
-  if ( v9 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v7);
+  if ( v11 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
 }

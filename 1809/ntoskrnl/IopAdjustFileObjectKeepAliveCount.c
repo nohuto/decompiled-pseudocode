@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x140284748
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x140284848
  * Callers:
- *     IoDecrementKeepAliveCount @ 0x1402842F0 (IoDecrementKeepAliveCount.c)
- *     IoIncrementKeepAliveCount @ 0x140284420 (IoIncrementKeepAliveCount.c)
+ *     IoDecrementKeepAliveCount @ 0x1402843F0 (IoDecrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x140284520 (IoIncrementKeepAliveCount.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x1400B7950 (IopGetFileObjectExtension.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IopGetFileObjectExtension @ 0x1400B7970 (IopGetFileObjectExtension.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspDeferredWorkerRoutine @ 0x1409ABEA0
+ * XREFs of PspDeferredWorkerRoutine @ 0x140906200
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 LONG __fastcall PspDeferredWorkerRoutine(PRKEVENT Event)

@@ -1,9 +1,9 @@
 /*
- * XREFs of XilCoreCommonBuffer_Cleanup @ 0x1C0052BE4
+ * XREFs of XilCoreCommonBuffer_Cleanup @ 0x1C004FEC4
  * Callers:
- *     CommonBuffer_WdfEvtCleanupCallback @ 0x1C0032280 (CommonBuffer_WdfEvtCleanupCallback.c)
+ *     CommonBuffer_WdfEvtCleanupCallback @ 0x1C0030720 (CommonBuffer_WdfEvtCleanupCallback.c)
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
  */
 
 __int64 __fastcall XilCoreCommonBuffer_Cleanup(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall XilCoreCommonBuffer_Cleanup(__int64 a1)
                  v5,
                  8,
                  10,
-                 (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
+                 (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
                  i,
                  result,
                  v2[1]);

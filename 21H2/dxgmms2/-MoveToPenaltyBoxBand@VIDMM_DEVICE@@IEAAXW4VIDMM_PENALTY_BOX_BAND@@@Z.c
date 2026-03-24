@@ -1,13 +1,13 @@
 /*
- * XREFs of ?MoveToPenaltyBoxBand@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C00DD934
+ * XREFs of ?MoveToPenaltyBoxBand@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C00B8138
  * Callers:
- *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00DDA2C (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
- *     ?Yield@VIDMM_DEVICE@@QEAAXPEAV1@@Z @ 0x1C00DDD18 (-Yield@VIDMM_DEVICE@@QEAAXPEAV1@@Z.c)
+ *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B82A4 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?Yield@VIDMM_DEVICE@@QEAAXPEAV1@@Z @ 0x1C00B87B0 (-Yield@VIDMM_DEVICE@@QEAAXPEAV1@@Z.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C00A2A18 (-MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C0084B74 (-MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z.c)
  */
 
 void __fastcall VIDMM_DEVICE::MoveToPenaltyBoxBand(__int64 a1, int a2)
@@ -16,13 +16,13 @@ void __fastcall VIDMM_DEVICE::MoveToPenaltyBoxBand(__int64 a1, int a2)
   DXGPUSHLOCK *v5; // [rsp+28h] [rbp-20h]
   int v6; // [rsp+30h] [rbp-18h]
 
-  if ( *(struct _KTHREAD **)(*(_QWORD *)a1 + 44488LL) == KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)(*(_QWORD *)a1 + 44480LL) == KeGetCurrentThread() )
   {
     VIDMM_DEVICE::MoveToPenaltyBoxBandNoLock(a1, a2);
   }
   else
   {
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v4, (struct _KTHREAD **)(*(_QWORD *)a1 + 44480LL), 0);
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v4, (struct _KTHREAD **)(*(_QWORD *)a1 + 44472LL), 0);
     DXGPUSHLOCK::AcquireExclusive(v5);
     v6 = 2;
     VIDMM_DEVICE::MoveToPenaltyBoxBandNoLock(a1, a2);

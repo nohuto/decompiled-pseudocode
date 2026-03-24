@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiThermalDestroyContraints @ 0x1C00612B0
+ * XREFs of AcpiThermalDestroyContraints @ 0x1C00604F0
  * Callers:
- *     ACPIThermalStopZoneWorker @ 0x1C006109C (ACPIThermalStopZoneWorker.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C00602DC (ACPIThermalStopZoneWorker.c)
  * Callees:
- *     ACPIThermalReevaluateConstraints @ 0x1C0003ED4 (ACPIThermalReevaluateConstraints.c)
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0047A40 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C004899C (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C000E1B0 (ACPIThermalReevaluateConstraints.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 void __fastcall AcpiThermalDestroyContraints(__int64 a1)
@@ -58,7 +58,7 @@ LABEL_17:
     v8[1] = (__int64 *)v9;
     v10 = v4[5];
     if ( v10 )
-      ACPIThermalReevaluateConstraints(*(PVOID *)(v10 + 656));
+      ACPIThermalReevaluateConstraints(*(PVOID *)(v10 + 616));
     ExFreePoolWithTag(v4, 0x54706341u);
   }
   KeReleaseSpinLock(&AcpiThermalConstraintLock, v2);

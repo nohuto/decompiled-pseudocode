@@ -1,10 +1,10 @@
 /*
- * XREFs of CiDispatchInitialize @ 0x1C000D270
+ * XREFs of CiDispatchInitialize @ 0x1C000E050
  * Callers:
- *     CsInitialize @ 0x1C000D320 (CsInitialize.c)
+ *     CsInitialize @ 0x1C000D2D0 (CsInitialize.c)
  * Callees:
- *     WPP_SF_Zd @ 0x1C00047E8 (WPP_SF_Zd.c)
- *     WPP_SF_Zq @ 0x1C0004878 (WPP_SF_Zq.c)
+ *     WPP_SF_Zd @ 0x1C0004538 (WPP_SF_Zd.c)
+ *     WPP_SF_Zq @ 0x1C00045C8 (WPP_SF_Zq.c)
  */
 
 NTSTATUS __fastcall CiDispatchInitialize(struct _DRIVER_OBJECT *a1)
@@ -32,7 +32,7 @@ NTSTATUS __fastcall CiDispatchInitialize(struct _DRIVER_OBJECT *a1)
     WPP_SF_Zd(
       (__int64)WPP_GLOBAL_Control->AttachedDevice,
       0x14u,
-      (__int64)&WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids,
+      (__int64)&WPP_f2567f649f8e330a8ddb4ba7f0878bc2_Traceguids,
       (const wchar_t *)0x1C000F020LL,
       DeviceCharacteristics);
     return v2;

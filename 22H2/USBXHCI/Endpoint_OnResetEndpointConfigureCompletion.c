@@ -1,13 +1,13 @@
 /*
- * XREFs of Endpoint_OnResetEndpointConfigureCompletion @ 0x1C003AEC0
+ * XREFs of Endpoint_OnResetEndpointConfigureCompletion @ 0x1C0038FB0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C0030AE4 (WPP_RECORDER_SF_ddL.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
  */
 
 void __fastcall Endpoint_OnResetEndpointConfigureCompletion(__int64 a1, int a2)
@@ -34,7 +34,7 @@ void __fastcall Endpoint_OnResetEndpointConfigureCompletion(__int64 a1, int a2)
         v6,
         13,
         54,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL),
         *(_DWORD *)(v5 + 144));
     }
@@ -54,20 +54,12 @@ LABEL_11:
         v9,
         13,
         56,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL),
         *(_DWORD *)(v5 + 144),
         v7);
     }
-    Controller_ReportFatalErrorEx(
-      *(_QWORD *)v5,
-      2u,
-      4130 - (*(_BYTE *)(v5 + 37) != 0),
-      0LL,
-      0LL,
-      *(_QWORD *)(v5 + 16),
-      v5,
-      0LL);
+    Controller_ReportFatalError(*(_QWORD *)v5, 2, 4130 - (*(_BYTE *)(v5 + 37) != 0), 0LL, *(_QWORD *)(v5 + 16), v5, 0LL);
     goto LABEL_11;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -78,13 +70,13 @@ LABEL_11:
       v6,
       13,
       55,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL),
       *(_DWORD *)(v5 + 144));
   }
   v8 = 0;
 LABEL_12:
-  *(_DWORD *)(v5 + 288) = 0;
+  *(_DWORD *)(v5 + 280) = 0;
   if ( v8 < 0 )
   {
     _m_prefetchw((const void *)(v5 + 32));
@@ -96,5 +88,5 @@ LABEL_12:
   {
     v10 = 16;
   }
-  ESM_AddEvent((KSPIN_LOCK *)(v5 + 296), v10);
+  ESM_AddEvent((KSPIN_LOCK *)(v5 + 288), v10);
 }

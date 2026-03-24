@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateKernelStackNode @ 0x140590B00
+ * XREFs of MiCreateKernelStackNode @ 0x140535D48
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x1402704A0 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x1402D5A60 (MiOutPageSingleKernelStack.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
@@ -33,11 +33,11 @@ _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
     result[3] = *a2 - 1LL;
     result[4] = a2[1];
     *((_WORD *)result + 20) = *a1;
-    v6 = ExAcquireSpinLockExclusive(&dword_140C53070);
-    v7 = (_QWORD *)qword_140C53068;
+    v6 = ExAcquireSpinLockExclusive(&dword_140C4EBE0);
+    v7 = (_QWORD *)qword_140C4EBD8;
     v8 = 0;
     v9 = v6;
-    if ( qword_140C53068 )
+    if ( qword_140C4EBD8 )
     {
       v10 = v5[3];
       while ( 1 )
@@ -60,8 +60,8 @@ _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
         v7 = v11;
       }
     }
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C53068, (unsigned __int64)v7, v8, v5);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C53070);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4EBD8, (unsigned __int64)v7, v8, v5);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EBE0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

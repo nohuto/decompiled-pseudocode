@@ -1,24 +1,34 @@
 /*
- * XREFs of RIMEndAllStaleContacts @ 0x1C00E2C6E
+ * XREFs of RIMEndAllStaleContacts @ 0x1C0178168
  * Callers:
- *     RIMOnTimerNotification @ 0x1C017A240 (RIMOnTimerNotification.c)
+ *     RIMOnTimerNotification @ 0x1C01577C0 (RIMOnTimerNotification.c)
  * Callees:
- *     rimEndPointerDeviceStaleContacts @ 0x1C01A894C (rimEndPointerDeviceStaleContacts.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179B00 (rimEndPointerDeviceStaleContacts.c)
  */
 
-LARGE_INTEGER __fastcall RIMEndAllStaleContacts(struct RawInputManagerObject *a1)
+__int64 __fastcall RIMEndAllStaleContacts(__int64 a1)
 {
-  LARGE_INTEGER result; // rax
-  struct RawInputManagerObject *v3; // rdi
-  __int64 v4; // rax
+  _QWORD **v2; // r14
+  LARGE_INTEGER PerformanceCounter; // rbx
+  __int64 result; // rax
+  _QWORD *v5; // rdi
+  unsigned __int64 v6; // rsi
+  __int64 v7; // rax
 
-  result = KeQueryPerformanceCounter(0LL);
-  v3 = (struct RawInputManagerObject *)*((_QWORD *)a1 + 56);
-  while ( v3 != (struct RawInputManagerObject *)((char *)a1 + 448) )
+  v2 = (_QWORD **)(a1 + 448);
+  PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  result = MEMORY[0xFFFFF78000000320];
+  v5 = *v2;
+  v6 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  while ( v5 != v2 )
   {
-    v4 = *((_QWORD *)v3 - 1);
-    v3 = *(struct RawInputManagerObject **)v3;
-    result.QuadPart = rimEndPointerDeviceStaleContacts(a1, *(struct RIMDEV **)(v4 + 16));
+    v7 = *(v5 - 1);
+    v5 = (_QWORD *)*v5;
+    result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))rimEndPointerDeviceStaleContacts)(
+               a1,
+               *(_QWORD *)(v7 + 16),
+               (LARGE_INTEGER)PerformanceCounter.QuadPart,
+               (unsigned int)v6);
   }
   return result;
 }

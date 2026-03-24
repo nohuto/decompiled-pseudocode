@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CheckOwnership@FxCallbackLock@@QEAAXXZ @ 0x1C0012550
+ * XREFs of ?CheckOwnership@FxCallbackLock@@QEAAXXZ @ 0x1C0019E84
  * Callers:
- *     ?Unlock@FxCallbackMutexLock@@UEAAXE@Z @ 0x1C0012480 (-Unlock@FxCallbackMutexLock@@UEAAXE@Z.c)
- *     ?Unlock@FxCallbackSpinLock@@UEAAXE@Z @ 0x1C00124F0 (-Unlock@FxCallbackSpinLock@@UEAAXE@Z.c)
+ *     ?Unlock@FxCallbackMutexLock@@UEAAXE@Z @ 0x1C0019E20 (-Unlock@FxCallbackMutexLock@@UEAAXE@Z.c)
+ *     ?Unlock@FxCallbackSpinLock@@UEAAXE@Z @ 0x1C004DBE0 (-Unlock@FxCallbackSpinLock@@UEAAXE@Z.c)
  * Callees:
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 void __fastcall FxCallbackLock::CheckOwnership(FxCallbackLock *this)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmParkMaximumCoresParked @ 0x14012DBC4
+ * XREFs of PpmParkMaximumCoresParked @ 0x14012DBE4
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1400A5420 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1400A5440 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     <none>
  */

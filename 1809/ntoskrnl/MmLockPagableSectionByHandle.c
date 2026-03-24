@@ -1,7 +1,7 @@
 /*
  * XREFs of MmLockPagableSectionByHandle @ 0x14061F240
  * Callers:
- *     PoRunDownDeviceObject @ 0x1400DAB60 (PoRunDownDeviceObject.c)
+ *     PoRunDownDeviceObject @ 0x1400DAB80 (PoRunDownDeviceObject.c)
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  *     IoUnregisterShutdownNotification @ 0x14056E370 (IoUnregisterShutdownNotification.c)

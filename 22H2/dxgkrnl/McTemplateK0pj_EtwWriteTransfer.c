@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pj_EtwWriteTransfer @ 0x1C0040C1C
+ * XREFs of McTemplateK0pj_EtwWriteTransfer @ 0x1C003A048
  * Callers:
- *     ?DxgkPowerRuntimeControlCallback@@YAJPEAXPEBU_GUID@@0_K02PEA_K@Z @ 0x1C00467E0 (-DxgkPowerRuntimeControlCallback@@YAJPEAXPEBU_GUID@@0_K02PEA_K@Z.c)
- *     DxgkPowerRuntimeControlRequestCB @ 0x1C0049530 (DxgkPowerRuntimeControlRequestCB.c)
+ *     ?DxgkPowerRuntimeControlCallback@@YAJPEAXPEBU_GUID@@0_K02PEA_K@Z @ 0x1C003EB00 (-DxgkPowerRuntimeControlCallback@@YAJPEAXPEBU_GUID@@0_K02PEA_K@Z.c)
+ *     DxgkPowerRuntimeControlRequestCB @ 0x1C0043210 (DxgkPowerRuntimeControlRequestCB.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pj_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopBatteryCapacityToRate @ 0x140598C6C
+ * XREFs of PopBatteryCapacityToRate @ 0x140573CF8
  * Callers:
- *     PopCalculateCsSummary @ 0x1405913C4 (PopCalculateCsSummary.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x14099C994 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopCalculateCsSummary @ 0x14056FDE0 (PopCalculateCsSummary.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x1408EF770 (PopDripsWatchdogUpdateMetrics.c)
  * Callees:
  *     <none>
  */

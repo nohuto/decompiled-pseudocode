@@ -1,86 +1,74 @@
 /*
- * XREFs of ?AddVidPnTargetInfo@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02F6C28
+ * XREFs of ?AddVidPnTargetInfo@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02B9EE0
  * Callers:
- *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02F7728 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02BA930 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C0002E98 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetVidPnTargetInfo@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAPEAVVIDPNTARGETINFO@@I@Z @ 0x1C004A9F8 (-GetVidPnTargetInfo@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAPEAVVIDPNTARGETINFO@@I@Z.c)
- *     ?Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C02F8D40 (-Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C00097F0 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
+ *     ?GetNextVidPnTargetInfo@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAPEAVVIDPNTARGETINFO@@XZ @ 0x1C002817C (-GetNextVidPnTargetInfo@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAPEAVVIDPNTARGETINFO@@XZ.c)
+ *     ?Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C02BBC90 (-Initialize@VIDPNTARGETINFO@@QEAAJPEAVDXGADAPTER@@PEBVDMMVIDEOPRESENTTARGET@@@Z.c)
  */
 
 __int64 __fastcall DISPLAYDIAGNOSTICADAPTERDATA::AddVidPnTargetInfo(
         DISPLAYDIAGNOSTICADAPTERDATA *this,
         struct DXGADAPTER *a2)
 {
-  __int64 v5; // rbx
-  _QWORD *v6; // rbx
-  _QWORD *v7; // rdi
-  const struct DMMVIDEOPRESENTTARGET *NextTarget; // rdi
-  VIDPNTARGETINFO *VidPnTargetInfo; // rax
-  unsigned int v10; // edi
-  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v2; // edi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  __int64 v10; // rdx
+  _QWORD *v11; // rbx
+  _QWORD *v12; // rsi
+  const struct DMMVIDEOPRESENTTARGET *i; // rsi
+  VIDPNTARGETINFO *NextVidPnTargetInfo; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // [rsp+48h] [rbp+10h] BYREF
 
+  v2 = 0;
   if ( !a2 )
     return 3221225485LL;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(a2) )
   {
-    WdLogSingleEntry1(1LL, 1246LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDisplayAdapter->IsCoreResourceSharedOwner()",
-      1246LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v8 + 24) = 1119LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  v5 = *(_QWORD *)(*((_QWORD *)a2 + 365) + 104LL);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v11, v5);
-  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v5 + 120) + 72LL));
-  v6 = *(_QWORD **)(v5 + 120);
-  v7 = (_QWORD *)v6[3];
-  if ( v7 == v6 + 3 || (NextTarget = (const struct DMMVIDEOPRESENTTARGET *)(v7 - 1)) == 0LL )
+  v9 = *(_QWORD *)(*((_QWORD *)a2 + 337) + 88LL);
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v19, v9);
+  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v9 + 80) + 72LL));
+  v11 = *(_QWORD **)(v9 + 80);
+  v12 = (_QWORD *)v11[3];
+  if ( v12 != v11 + 3 )
   {
-LABEL_12:
-    v10 = 0;
-    goto LABEL_13;
+    for ( i = (const struct DMMVIDEOPRESENTTARGET *)(v12 - 1);
+          i;
+          i = DMMVIDEOPRESENTTARGETSET::GetNextTarget((DMMVIDEOPRESENTTARGETSET *)v11, i) )
+    {
+      if ( *((_QWORD *)i + 14) )
+      {
+        NextVidPnTargetInfo = DISPLAYDIAGNOSTICADAPTERDATA::GetNextVidPnTargetInfo(this);
+        if ( !NextVidPnTargetInfo )
+        {
+          v17 = WdLogNewEntry5_WdError(v16, v15);
+          *(_QWORD *)(v17 + 24) = 1141LL;
+          WdLogEvent5_WdError(v17);
+          v2 = -1073741801;
+          break;
+        }
+        if ( VIDPNTARGETINFO::Initialize(NextVidPnTargetInfo, a2, i) >= 0 )
+          ++*((_DWORD *)this + 489);
+      }
+    }
   }
-  while ( !*((_QWORD *)NextTarget + 14) )
-  {
-LABEL_11:
-    NextTarget = DMMVIDEOPRESENTTARGETSET::GetNextTarget((DMMVIDEOPRESENTTARGETSET *)v6, NextTarget);
-    if ( !NextTarget )
-      goto LABEL_12;
-  }
-  VidPnTargetInfo = DISPLAYDIAGNOSTICADAPTERDATA::GetVidPnTargetInfo(this, *((_DWORD *)this + 489));
-  if ( VidPnTargetInfo )
-  {
-    if ( VIDPNTARGETINFO::Initialize(VidPnTargetInfo, a2, NextTarget) >= 0 )
-      ++*((_DWORD *)this + 489);
-    goto LABEL_11;
-  }
-  WdLogSingleEntry1(2LL, 1268LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"No memory available for adding a new display target",
-    1268LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  v10 = -1073741801;
-LABEL_13:
-  if ( v6 )
-    ReferenceCounted::Release((ReferenceCounted *)(v6 + 8));
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v11 + 40));
-  return v10;
+  ReferenceCounted::Release((ReferenceCounted *)(v11 + 8), v10);
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v19 + 40), v18);
+  return v2;
 }

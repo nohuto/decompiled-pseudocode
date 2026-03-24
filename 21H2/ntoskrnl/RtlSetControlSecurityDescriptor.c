@@ -1,8 +1,7 @@
 /*
- * XREFs of RtlSetControlSecurityDescriptor @ 0x1407FCDD0
+ * XREFs of RtlSetControlSecurityDescriptor @ 0x1407738B0
  * Callers:
- *     RtlpSysVolCreateSecurityDescriptor @ 0x1407F813C (RtlpSysVolCreateSecurityDescriptor.c)
- *     DrvDbGetRegistrarSecurityDescriptor @ 0x14086240C (DrvDbGetRegistrarSecurityDescriptor.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x140731E9C (RtlpSysVolCreateSecurityDescriptor.c)
  * Callees:
  *     <none>
  */

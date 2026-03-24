@@ -1,9 +1,8 @@
 /*
- * XREFs of ?InputModeToString@InputTraceLogging@@CAPEBDW4_WIN32K_INPUT_MODE@@@Z @ 0x1C0172FD0
+ * XREFs of ?InputModeToString@InputTraceLogging@@CAPEBDW4_WIN32K_INPUT_MODE@@@Z @ 0x1C01663C8
  * Callers:
- *     ?RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z @ 0x1C0003C9C (-RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z.c)
- *     RIMSetDeviceInputMode @ 0x1C00BF684 (RIMSetDeviceInputMode.c)
- *     RIMSetSystemInputMode @ 0x1C00C3D8C (RIMSetSystemInputMode.c)
+ *     RIMSetDeviceInputMode @ 0x1C00AD280 (RIMSetDeviceInputMode.c)
+ *     RIMSetSystemInputMode @ 0x1C00C2190 (RIMSetSystemInputMode.c)
  * Callees:
  *     <none>
  */

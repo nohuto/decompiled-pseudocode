@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgpastrSetupExe @ 0x1C00BEB90
+ * XREFs of GetgpastrSetupExe @ 0x1C0137390
  * Callers:
  *     <none>
  * Callees:

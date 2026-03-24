@@ -1,17 +1,17 @@
 /*
- * XREFs of ?StartInteraction@CInteraction@@UEAAJ_N0W4InputType@@@Z @ 0x18020CE40
+ * XREFs of ?StartInteraction@CInteraction@@UEAAJ_N0W4InputType@@@Z @ 0x1801C6F40
  * Callers:
  *     <none>
  * Callees:
- *     ?StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z @ 0x1801B0424 (-StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z.c)
+ *     ?StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z @ 0x18022F000 (-StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z.c)
  */
 
-__int64 __fastcall CInteraction::StartInteraction(__int64 a1, char a2, char a3, int a4)
+__int64 __fastcall CInteraction::StartInteraction(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   return CInteractionProcessor::StartInteraction(
-           a1 + 288,
+           a1 + 344,
            a2,
            a3,
-           (*(_QWORD *)(a1 + 208) + 72LL) & -(__int64)(*(_QWORD *)(a1 + 208) != 0LL),
+           (*(_QWORD *)(a1 + 264) + 64LL) & -(__int64)(*(_QWORD *)(a1 + 264) != 0LL),
            a4);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReleaseOutSwapReservations @ 0x1400E5BBC
+ * XREFs of MiReleaseOutSwapReservations @ 0x1400E5BDC
  * Callers:
- *     MiProcessWsInSwapRanges @ 0x1400E5B38 (MiProcessWsInSwapRanges.c)
+ *     MiProcessWsInSwapRanges @ 0x1400E5B58 (MiProcessWsInSwapRanges.c)
  * Callees:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  */

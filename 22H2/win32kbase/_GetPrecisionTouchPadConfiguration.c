@@ -1,93 +1,56 @@
 /*
- * XREFs of _GetPrecisionTouchPadConfiguration @ 0x1C00958C0
+ * XREFs of _GetPrecisionTouchPadConfiguration @ 0x1C000C760
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
- *     NtUserGetPrecisionTouchPadConfiguration @ 0x1C0145720 (NtUserGetPrecisionTouchPadConfiguration.c)
+ *     NtUserGetPrecisionTouchPadConfiguration @ 0x1C00052C0 (NtUserGetPrecisionTouchPadConfiguration.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
  * Callees:
- *     UpdateTPCurrentActiveState @ 0x1C006EA60 (UpdateTPCurrentActiveState.c)
- *     IsLegacyTouchPad @ 0x1C0095A1C (IsLegacyTouchPad.c)
- *     TryUpdatePTPConfigFromRegistry @ 0x1C0095A38 (TryUpdatePTPConfigFromRegistry.c)
+ *     IsLegacyTouchPad @ 0x1C000C858 (IsLegacyTouchPad.c)
+ *     UpdateTPCurrentActiveState @ 0x1C000C880 (UpdateTPCurrentActiveState.c)
+ *     TryUpdatePTPConfigFromRegistry @ 0x1C000CC04 (TryUpdatePTPConfigFromRegistry.c)
  */
 
 __int64 __fastcall GetPrecisionTouchPadConfiguration(__int64 a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rax
-  _DWORD *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 i; // rcx
-  int v18; // edx
-  int v19; // edx
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v30; // rax
-  __int64 v31; // xmm0_8
+  struct DEVICEINFO *i; // rcx
+  int v3; // edx
+  __int64 v4; // rcx
 
   if ( a1 && *(_DWORD *)a1 )
     return 0LL;
   TryUpdatePTPConfigFromRegistry();
-  v6 = SGDGetUserSessionState(v3, v2, v4, v5);
-  v7 = (_DWORD *)(v6 + 16800);
-  *(_DWORD *)(v6 + 16812) &= 0xFFFFFFAE;
-  *(_DWORD *)(v6 + 16820) &= ~0x80u;
-  v12 = *(_QWORD *)(*(_QWORD *)(SGDGetUserSessionState(v9, v8, v10, v11) + 16840) + 1256LL);
+  HIDWORD(gTouchPadParameters) &= 0xFFFFFFAE;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v12, 0LL);
-  for ( i = **(_QWORD **)(*(_QWORD *)(SGDGetUserSessionState(v14, v13, v15, v16) + 16840) + 1264LL);
-        i;
-        i = *(_QWORD *)(v20 + 56) )
+  ExAcquirePushLockSharedEx(&CBaseInput::_sLock, 0LL);
+  for ( i = CBaseInput::_spDevList;
+        i && ((BYTE12(gTouchPadParameters) & 0x10) == 0 || (BYTE12(gTouchPadParameters) & 0x40) == 0);
+        i = *(struct DEVICEINFO **)(v4 + 56) )
   {
-    v18 = v7[3];
-    if ( (v18 & 0x10) != 0 && (v18 & 0x40) != 0 )
-      break;
     if ( (unsigned int)IsLegacyTouchPad() )
     {
-      v7[3] = v19 | 0x10;
+      HIDWORD(gTouchPadParameters) = v3 | 0x10;
     }
-    else if ( (*(_DWORD *)(v20 + 200) & 0x80u) != 0 && *(_DWORD *)(*(_QWORD *)(v20 + 472) + 24LL) == 7 )
+    else if ( (*(_DWORD *)(v4 + 200) & 0x80u) != 0 && *(_DWORD *)(*(_QWORD *)(v4 + 480) + 24LL) == 7 )
     {
-      v7[3] = v19 | 0x40;
-      if ( *(_DWORD *)(*(_QWORD *)(v20 + 472) + 768LL) >= 5u )
-        v7[5] |= 0x20u;
-      if ( (*(_DWORD *)(v20 + 200) & 0x400) != 0 )
-        v7[5] |= 0x80u;
+      HIDWORD(gTouchPadParameters) = v3 | 0x40;
+      if ( *(_DWORD *)(*(_QWORD *)(v4 + 480) + 720LL) >= 5u )
+        *(&qword_1C024ED38 + 1) |= 0x20u;
     }
   }
-  ExReleasePushLockSharedEx(v12, 0LL);
+  ExReleasePushLockSharedEx(&CBaseInput::_sLock, 0LL);
   KeLeaveCriticalRegion();
-  if ( *(_DWORD *)(SGDGetUserSessionState(v22, v21, v23, v24) + 520) )
-    v7[3] |= 1u;
+  if ( gPTPEnabled )
+    HIDWORD(gTouchPadParameters) |= 1u;
   if ( a1 )
   {
-    v30 = SGDGetUserSessionState(v26, v25, v27, v28);
-    v31 = *(_QWORD *)(v30 + 16816);
-    *(_OWORD *)a1 = *(_OWORD *)(v30 + 16800);
-    *(_QWORD *)(a1 + 16) = v31;
-    if ( v7[2] == 4 )
+    *(_OWORD *)a1 = gTouchPadParameters;
+    *(_QWORD *)(a1 + 16) = *(_QWORD *)&qword_1C024ED38;
+    if ( DWORD2(gTouchPadParameters) == 4
+      && (BYTE12(gTouchPadParameters) & 0x10) != 0
+      && (BYTE12(gTouchPadParameters) & 0x40) == 0 )
     {
-      v26 = (unsigned int)v7[3];
-      if ( (v26 & 0x10) != 0 && (v26 & 0x40) == 0 )
-        *(_DWORD *)(a1 + 8) = 3;
+      *(_DWORD *)(a1 + 8) = 3;
     }
   }
-  UpdateTPCurrentActiveState(v26, v25, v27, v28);
+  UpdateTPCurrentActiveState();
   return 1LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDpReplaceControl @ 0x140A97960
+ * XREFs of HalpDpReplaceControl @ 0x1409A88C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDpPostReplace @ 0x140A97548 (HalpDpPostReplace.c)
- *     HalpDpPreReplace @ 0x140A97840 (HalpDpPreReplace.c)
- *     HalpDpStartProcessor @ 0x140A97C34 (HalpDpStartProcessor.c)
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97E20 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpDpPostReplace @ 0x1409A84AC (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x1409A879C (HalpDpPreReplace.c)
+ *     HalpDpStartProcessor @ 0x1409A8B94 (HalpDpStartProcessor.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A8D94 (HalpInterruptSwapProcessorIdentifiers.c)
  */
 
 __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2, __int64 a3)
@@ -23,10 +23,8 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2, __int64 a3)
   unsigned int v11; // edi
   unsigned int v12; // esi
   int v13; // ebp
-  LARGE_INTEGER PerformanceCounter; // rax
-  int v15; // edx
-  __int64 v16; // rdi
-  unsigned int v17; // edi
+  __int64 v14; // rdi
+  unsigned int v15; // edi
 
   v3 = *(_DWORD *)a2;
   v4 = 0;
@@ -49,20 +47,20 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2, __int64 a3)
             v10 = v3 + 1;
             while ( v9 < v10 )
             {
-              if ( (++v8 & dword_140C6257C) != 0 || !qword_140C62580 )
+              if ( (++v8 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
                 _mm_pause();
               else
-                qword_140C62580(v8);
+                qword_140C4A200(v8);
               v9 = *(_DWORD *)(a2 + 48);
             }
             v11 = 0;
             _InterlockedIncrement((volatile signed __int32 *)(a2 + 52));
             while ( *(_DWORD *)(a2 + 52) < v10 )
             {
-              if ( (++v11 & dword_140C6257C) != 0 || !qword_140C62580 )
+              if ( (++v11 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
                 _mm_pause();
               else
-                qword_140C62580(v11);
+                qword_140C4A200(v11);
             }
           }
         }
@@ -80,37 +78,31 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2, __int64 a3)
       v13 = v3 + 1;
       while ( *(_DWORD *)(a2 + 48) < v13 )
       {
-        if ( (++v12 & dword_140C6257C) != 0 || !qword_140C62580 )
+        if ( (++v12 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
           _mm_pause();
         else
-          qword_140C62580(v12);
+          qword_140C4A200(v12);
       }
       while ( *(_DWORD *)(a2 + 56) < v3 )
         _mm_pause();
-      PerformanceCounter = KeQueryPerformanceCounter(0LL);
-      v15 = *(_DWORD *)a2;
-      v16 = 0LL;
-      *(LARGE_INTEGER *)(a2 + 96) = PerformanceCounter;
-      if ( v15 )
+      v14 = 0LL;
+      for ( *(LARGE_INTEGER *)(a2 + 96) = KeQueryPerformanceCounter(0LL);
+            (unsigned int)v14 < *(_DWORD *)a2;
+            v14 = (unsigned int)(v14 + 1) )
       {
-        do
-        {
-          HalpDpStartProcessor(*(unsigned int *)(*(_QWORD *)(a2 + 24) + 4 * v16));
-          v16 = (unsigned int)(v16 + 1);
-        }
-        while ( (unsigned int)v16 < *(_DWORD *)a2 );
+        HalpDpStartProcessor(*(unsigned int *)(*(_QWORD *)(a2 + 24) + 4 * v14));
       }
       *(LARGE_INTEGER *)(a2 + 112) = KeQueryPerformanceCounter(0LL);
       if ( !*(_BYTE *)(a2 + 44) )
         v4 = HalpInterruptSwapProcessorIdentifiers(*(_QWORD *)(a2 + 8));
-      v17 = 0;
+      v15 = 0;
       _InterlockedIncrement((volatile signed __int32 *)(a2 + 52));
       while ( *(_DWORD *)(a2 + 52) < v13 )
       {
-        if ( (++v17 & dword_140C6257C) != 0 || !qword_140C62580 )
+        if ( (++v15 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
           _mm_pause();
         else
-          qword_140C62580(v17);
+          qword_140C4A200(v15);
       }
     }
   }

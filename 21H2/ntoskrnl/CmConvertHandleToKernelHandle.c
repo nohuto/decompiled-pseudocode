@@ -1,12 +1,13 @@
 /*
- * XREFs of CmConvertHandleToKernelHandle @ 0x14067DA70
+ * XREFs of CmConvertHandleToKernelHandle @ 0x14066F224
  * Callers:
- *     CmLoadDifferencingKey @ 0x14067CE4C (CmLoadDifferencingKey.c)
- *     CmUnloadKey @ 0x14069E454 (CmUnloadKey.c)
+ *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
+ *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     NtSaveMergedKeys @ 0x1408697A0 (NtSaveMergedKeys.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall CmConvertHandleToKernelHandle(
@@ -29,7 +30,7 @@ __int64 __fastcall CmConvertHandleToKernelHandle(
     if ( v8 >= 0 )
     {
       v8 = ObOpenObjectByPointer(Object, 0x200u, 0LL, a4, (POBJECT_TYPE)v5, 0, Handle);
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
     return (unsigned int)v8;
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInSwapProcesses @ 0x14010B320
+ * XREFs of KiInSwapProcesses @ 0x14010B340
  * Callers:
- *     KeSwapProcessOrStack @ 0x14017FD80 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14017FDA0 (KeSwapProcessOrStack.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
@@ -9,20 +9,20 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x1400F3364 (MiReturnWsToExpansionList.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiReadyOutSwappedThreads @ 0x14010B660 (KiReadyOutSwappedThreads.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CC9C (KeMakeKernelDirectoryTableBase.c)
- *     MiMarkPfnTradable @ 0x14013D924 (MiMarkPfnTradable.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D988 (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4268 (MiMakeOutswappedPageResident.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4AD4 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiUpdateSystemPdes @ 0x1402A5150 (MiUpdateSystemPdes.c)
- *     EtwTraceInswapProcess @ 0x14030FD88 (EtwTraceInswapProcess.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiReadyOutSwappedThreads @ 0x14010B680 (KiReadyOutSwappedThreads.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiMarkPfnTradable @ 0x14013D944 (MiMarkPfnTradable.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiUpdateSystemPdes @ 0x1402A5250 (MiUpdateSystemPdes.c)
+ *     EtwTraceInswapProcess @ 0x14030FE88 (EtwTraceInswapProcess.c)
  */
 
 __int64 __fastcall KiInSwapProcesses(_QWORD *a1, __int64 a2, _QWORD *a3, int a4)

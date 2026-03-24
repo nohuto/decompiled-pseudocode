@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitContentSize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0236324
+ * XREFs of ?EmitContentSize@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5A74
  * Callers:
- *     ?EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0236490 (-EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5BE0 (-EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitContentSize(
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitContentSize(
     *(_DWORD *)v5 = 20;
     *(_OWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 1) = 33;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 18);
-    *((_DWORD *)v3 + 4) = *((_DWORD *)this + 19);
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 16);
+    *((_DWORD *)v3 + 4) = *((_DWORD *)this + 17);
     *((_DWORD *)this + 4) &= ~0x80u;
     return 1;
   }

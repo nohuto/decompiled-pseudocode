@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagNextCsSleepStudySession @ 0x140870290
+ * XREFs of PopDiagNextCsSleepStudySession @ 0x140870270
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x14071EBF0 (PopConnectedStandbySettingCallback.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087059C (PopDiagStopCsSleepStudySession.c)
+ *     PopConnectedStandbySettingCallback @ 0x14071EBD0 (PopConnectedStandbySettingCallback.c)
+ *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
- *     PopDiagTraceSleepStudyStart @ 0x1408741A0 (PopDiagTraceSleepStudyStart.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopDiagTraceSleepStudyStart @ 0x140874180 (PopDiagTraceSleepStudyStart.c)
  */
 
 char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)

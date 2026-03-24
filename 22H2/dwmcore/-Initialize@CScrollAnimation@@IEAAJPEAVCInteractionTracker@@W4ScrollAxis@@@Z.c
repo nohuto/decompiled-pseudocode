@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1802650D0
+ * XREFs of ?Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1802039C8
  * Callers:
- *     ?Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x180266D10 (-Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
- *     ?Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z @ 0x1802673AC (-Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z.c)
+ *     ?Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1802056F0 (-Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
+ *     ?Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z @ 0x180205D78 (-Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z.c)
  * Callees:
- *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x18009B1C8 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTracker@@QEAAJPEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x180234190 (-RegisterIndirectTargetsForBoundTrackers@CInteractionTracker@@QEAAJPEAVCBaseExpression@@W4Enum@I.c)
- *     ?Create@?$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z @ 0x180264F20 (-Create@-$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z.c)
- *     ?Stop@CScrollAnimation@@QEAAJXZ @ 0x180265654 (-Stop@CScrollAnimation@@QEAAJXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z @ 0x180280818 (-InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180064C24 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
+ *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTracker@@QEAAJPEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x1801CAD38 (-RegisterIndirectTargetsForBoundTrackers@CInteractionTracker@@QEAAJPEAVCBaseExpression@@W4Enum@I.c)
+ *     ?Create@?$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z @ 0x180203894 (-Create@-$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z.c)
+ *     ?Stop@CScrollAnimation@@QEAAJXZ @ 0x180203F48 (-Stop@CScrollAnimation@@QEAAJXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
+ *     ?InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z @ 0x18021F3EC (-InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z.c)
  */
 
-__int64 __fastcall CScrollAnimation::Initialize(__int64 a1, int *a2, int a3)
+__int64 __fastcall CScrollAnimation::Initialize(__int64 a1, unsigned int *a2, int a3)
 {
   int v3; // ebp
   int v7; // eax
@@ -36,14 +36,14 @@ __int64 __fastcall CScrollAnimation::Initialize(__int64 a1, int *a2, int a3)
   v20 = 0;
   v21 = 0;
   v19 = 1;
-  v7 = CWeakReference<CInteractionTracker>::Create((struct CResource *)a2, (struct CWeakResourceReference **)(a1 + 352));
+  v7 = CWeakReference<CInteractionTracker>::Create((struct CResource *)a2, (struct CWeakResourceReference **)(a1 + 328));
   v9 = v7;
   if ( v7 < 0 )
   {
     MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x3Du, 0LL);
     goto LABEL_17;
   }
-  *(_DWORD *)(a1 + 340) = a3;
+  *(_DWORD *)(a1 + 316) = a3;
   if ( a3 )
   {
     v10 = a3 - 1;
@@ -70,7 +70,7 @@ __int64 __fastcall CScrollAnimation::Initialize(__int64 a1, int *a2, int a3)
     if ( v17 < 0 )
       ModuleFailFastForHRESULT((unsigned int)v17, retaddr);
   }
-  v12 = CBaseExpression::SetTarget(a1, a2[48], (struct CResource *)a2, v11, 0x12u, v3, v20, v21);
+  v12 = CBaseExpression::SetTarget(a1, a2[46], (__int64)a2, v11, 0x12u, v3, v20, v21);
   v9 = v12;
   if ( v12 < 0 )
   {
@@ -86,7 +86,7 @@ LABEL_17:
     CScrollAnimation::Stop((CScrollAnimation *)a1);
     return v9;
   }
-  *(_BYTE *)(a1 + 368) |= 1u;
-  *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 448LL) |= 2u;
+  *(_BYTE *)(a1 + 344) |= 1u;
+  *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 272LL) + 416LL) |= 2u;
   return 0;
 }

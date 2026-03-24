@@ -1,18 +1,15 @@
 /*
- * XREFs of ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C0046EB0
+ * XREFs of ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C00335E0
  * Callers:
- *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C003D250 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
- *     HmgAlloc @ 0x1C003DD30 (HmgAlloc.c)
- *     GreCreateRectRgnIndirect @ 0x1C003F2F0 (GreCreateRectRgnIndirect.c)
- *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0044F10 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
- *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0045760 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0046370 (--1SURFMEM@@QEAA@XZ.c)
- *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C0046E44 (-Pid@HANDLELOCK@@QEAAXK@Z.c)
- *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0046F30 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00483E0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     HmgModifyHandleType @ 0x1C0060BA0 (HmgModifyHandleType.c)
- *     ?vDeleteCore@XDCOBJ@@QEAAXXZ @ 0x1C0088250 (-vDeleteCore@XDCOBJ@@QEAAXXZ.c)
- *     ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0236010 (-_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0017368 (-_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z.c)
+ *     HmgModifyHandleType @ 0x1C00174D0 (HmgModifyHandleType.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C002D7C0 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0031B30 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0033220 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
+ *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C003350C (-Pid@HANDLELOCK@@QEAAXK@Z.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0035F00 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C0036120 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
  * Callees:
  *     <none>
  */
@@ -21,104 +18,108 @@ __int64 __fastcall GetEtwGdiHandleType(unsigned __int8 a1)
 {
   __int64 result; // rax
 
-  result = a1;
-  switch ( a1 )
+  result = 15LL;
+  if ( a1 > 0xFu )
   {
-    case 5u:
-      return 5LL;
-    case 4u:
-      return 4LL;
-    case 1u:
-      return 1LL;
-  }
-  if ( a1 != 8 )
-  {
+    result = 23LL;
+    if ( a1 <= 0x17u )
+    {
+      if ( a1 != 23 )
+      {
+        result = 16LL;
+        if ( a1 != 16 )
+        {
+          switch ( a1 )
+          {
+            case 0x11u:
+              return 17LL;
+            case 0x12u:
+              return 18LL;
+            case 0x13u:
+              return 19LL;
+            case 0x14u:
+              return 20LL;
+            case 0x15u:
+              return 21LL;
+            case 0x16u:
+              return 22LL;
+            default:
+              return 0xFFFFFFFFLL;
+          }
+        }
+      }
+      return result;
+    }
+    result = 24LL;
     switch ( a1 )
     {
-      case 0u:
-        result = 0LL;
-        break;
-      case 2u:
-        result = 2LL;
-        break;
-      case 3u:
-        result = 3LL;
-        break;
-      case 6u:
-        result = 6LL;
-        break;
-      case 7u:
-        result = 7LL;
-        break;
-      case 9u:
-        result = 9LL;
-        break;
-      case 0xAu:
-        result = 10LL;
-        break;
-      case 0xBu:
-        result = 11LL;
-        break;
-      case 0xCu:
-        result = 12LL;
-        break;
-      case 0xDu:
-        result = 13LL;
-        break;
-      case 0xEu:
-        result = 14LL;
-        break;
-      case 0xFu:
-        result = 15LL;
-        break;
-      case 0x10u:
-        result = 16LL;
-        break;
-      case 0x11u:
-        result = 17LL;
-        break;
-      case 0x12u:
-        result = 18LL;
-        break;
-      case 0x13u:
-        result = 19LL;
-        break;
-      case 0x14u:
-        result = 20LL;
-        break;
-      case 0x15u:
-        result = 21LL;
-        break;
-      case 0x16u:
-        result = 22LL;
-        break;
-      case 0x17u:
-        result = 23LL;
-        break;
       case 0x18u:
-        result = 24LL;
-        break;
+        return result;
       case 0x19u:
-        result = 25LL;
-        break;
+        return 25LL;
       case 0x1Au:
-        result = 26LL;
-        break;
+        return 26LL;
       case 0x1Bu:
-        result = 27LL;
-        break;
+        return 27LL;
       case 0x1Cu:
-        result = 28LL;
-        break;
+        return 28LL;
       case 0x1Du:
-        result = 29LL;
-        break;
+        return 29LL;
       case 0x1Eu:
-        result = 30LL;
-        break;
-      default:
-        result = 0xFFFFFFFFLL;
-        break;
+        return 30LL;
+    }
+    return 0xFFFFFFFFLL;
+  }
+  if ( a1 == 15 )
+    return result;
+  result = 7LL;
+  if ( a1 > 7u )
+  {
+    result = 8LL;
+    switch ( a1 )
+    {
+      case 8u:
+        return result;
+      case 9u:
+        return 9LL;
+      case 0xAu:
+        return 10LL;
+      case 0xBu:
+        return 11LL;
+      case 0xCu:
+        return 12LL;
+      case 0xDu:
+        return 13LL;
+      case 0xEu:
+        return 14LL;
+    }
+    return 0xFFFFFFFFLL;
+  }
+  if ( a1 != 7 )
+  {
+    if ( a1 )
+    {
+      switch ( a1 )
+      {
+        case 1u:
+          return 1LL;
+        case 2u:
+          return 2LL;
+        case 3u:
+          return 3LL;
+        case 4u:
+          return 4LL;
+        case 5u:
+          return 5LL;
+        case 6u:
+          return 6LL;
+        default:
+          return 0xFFFFFFFFLL;
+      }
+    }
+    else
+    {
+      return 0LL;
     }
   }
   return result;

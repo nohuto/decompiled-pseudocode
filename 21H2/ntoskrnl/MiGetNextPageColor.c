@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetNextPageColor @ 0x1402EB3DC
+ * XREFs of MiGetNextPageColor @ 0x1402E5C08
  * Callers:
- *     MiAllocateDriverPage @ 0x14079D08C (MiAllocateDriverPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1407BD420 (MiPfPrepareReadList.c)
- *     MiAllocateTopLevelPage @ 0x1407F1AF8 (MiAllocateTopLevelPage.c)
- *     MiCombineIdenticalPages @ 0x1407F8CF0 (MiCombineIdenticalPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140829CBC (MmAllocateIndependentPagesEx.c)
- *     MiScrubNodeLargePages @ 0x14097E8C8 (MiScrubNodeLargePages.c)
- *     MiFillPerSessionProtos @ 0x140983680 (MiFillPerSessionProtos.c)
- *     MiInitializeScrubPacket @ 0x1409839C0 (MiInitializeScrubPacket.c)
+ *     MiAllocateTopLevelPage @ 0x1406D0824 (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x1406D1A78 (MiAllocateDriverPage.c)
+ *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiCombineIdenticalPages @ 0x1407266AC (MiCombineIdenticalPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
+ *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     MiFillPerSessionProtos @ 0x1408D7FE0 (MiFillPerSessionProtos.c)
+ *     MiScrubNodeLargePages @ 0x1408D87C8 (MiScrubNodeLargePages.c)
+ *     MiInitializeScrubPacket @ 0x1408DBE50 (MiInitializeScrubPacket.c)
  * Callees:
  *     <none>
  */

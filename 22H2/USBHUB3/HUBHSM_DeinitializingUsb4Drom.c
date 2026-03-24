@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_DeinitializingUsb4Drom @ 0x1C0009F80
+ * XREFs of HUBHSM_DeinitializingUsb4Drom @ 0x1C00097C0
  * Callers:
  *     <none>
  * Callees:

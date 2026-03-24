@@ -1,25 +1,25 @@
 /*
- * XREFs of MiMarkHiberNotCachedPages @ 0x140A4FDB0
+ * XREFs of MiMarkHiberNotCachedPages @ 0x1409B026C
  * Callers:
- *     MmMarkHiberPhase @ 0x140A4EEAC (MmMarkHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x1409B061C (MmMarkHiberPhase.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 MiMarkHiberNotCachedPages()
 {
   char *AnyMultiplexedVm; // rax
-  __m128i v2[11]; // [rsp+20h] [rbp-C8h] BYREF
+  _OWORD v2[11]; // [rsp+20h] [rbp-C8h] BYREF
 
   memset(v2, 0, sizeof(v2));
-  v2[0].m128i_i32[0] = 2817;
-  v2[9].m128i_i64[1] = (__int64)MiMarkHiberNotCachedPte;
+  LOWORD(v2[0]) = 2817;
+  *((_QWORD *)&v2[9] + 1) = MiMarkHiberNotCachedPte;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(3);
   v2[2] = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffff800000000000);
-  v2[1].m128i_i64[1] = (__int64)AnyMultiplexedVm;
-  v2[0].m128i_i8[7] = 17;
-  return MiWalkPageTables(v2);
+  *((_QWORD *)&v2[1] + 1) = AnyMultiplexedVm;
+  BYTE6(v2[0]) = 17;
+  return MiWalkPageTables((__int64)v2);
 }

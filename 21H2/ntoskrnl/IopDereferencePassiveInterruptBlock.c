@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDereferencePassiveInterruptBlock @ 0x140560880
+ * XREFs of IopDereferencePassiveInterruptBlock @ 0x14050D230
  * Callers:
- *     IopPassiveInterruptWorker @ 0x140560BB0 (IopPassiveInterruptWorker.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1409467F8 (IopDestroyPassiveInterruptBlock.c)
+ *     IopPassiveInterruptWorker @ 0x14050D5B0 (IopPassiveInterruptWorker.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1408A16A0 (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x140459E52 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x140459EC8 (IopAcquirePassiveInterruptBlockLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14050D13C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x14050D1B4 (IopAcquirePassiveInterruptBlockLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)

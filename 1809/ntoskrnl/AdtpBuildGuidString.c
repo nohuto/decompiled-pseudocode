@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpBuildGuidString @ 0x1408EEA7C
+ * XREFs of AdtpBuildGuidString @ 0x1408EEA5C
  * Callers:
- *     AdtpBuildObjectTypeStrings @ 0x1408F0368 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpBuildObjectTypeStrings @ 0x1408F0348 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     StringCchPrintfW @ 0x140134AE4 (StringCchPrintfW.c)
+ *     StringCchPrintfW @ 0x140134B04 (StringCchPrintfW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

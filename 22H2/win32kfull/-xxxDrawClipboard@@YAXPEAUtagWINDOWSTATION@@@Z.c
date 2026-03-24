@@ -1,27 +1,26 @@
 /*
- * XREFs of ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FCDAC
+ * XREFs of ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D410
  * Callers:
- *     xxxCloseClipboard @ 0x1C0011320 (xxxCloseClipboard.c)
- *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01FCC58 (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
- *     xxxSetClipboardViewer @ 0x1C01FDFC4 (xxxSetClipboardViewer.c)
+ *     xxxCloseClipboard @ 0x1C002FDB0 (xxxCloseClipboard.c)
+ *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C0123548 (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
+ *     xxxSetClipboardViewer @ 0x1C012C670 (xxxSetClipboardViewer.c)
  * Callees:
- *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C00163E4 (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
+ *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C00300BC (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 void __fastcall xxxDrawClipboard(struct tagWINDOWSTATION *a1)
 {
-  __int64 v2; // rcx
-  _QWORD *v3; // r8
-  __int64 v4; // rdx
+  __int64 v2; // rdi
+  __int64 ThreadWin32Thread; // rax
+  _QWORD *v4; // r8
   __int64 v5; // rcx
-  __int64 v6; // r8
-  struct tagWND *i; // rdi
-  __int64 v8; // rcx
-  unsigned int v9; // eax
-  __int128 v10; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-18h]
+  __int64 i; // rdi
+  __int64 v7; // rcx
+  unsigned int v8; // eax
+  _QWORD v9[5]; // [rsp+30h] [rbp-28h] BYREF
 
   *((_DWORD *)a1 + 16) &= ~0x40u;
   if ( !*((_QWORD *)a1 + 11) )
@@ -29,24 +28,27 @@ void __fastcall xxxDrawClipboard(struct tagWINDOWSTATION *a1)
     v2 = *((_QWORD *)a1 + 13);
     if ( v2 )
     {
-      v11 = 0LL;
-      v10 = 0LL;
+      v9[2] = 0LL;
       *((_QWORD *)a1 + 11) = gptiCurrent;
-      ThreadLockAlways(v2, &v10);
-      v3 = (_QWORD *)*((_QWORD *)a1 + 14);
-      if ( v3 )
-        v3 = (_QWORD *)*v3;
-      xxxSendNotifyMessage(*((struct tagWND **)a1 + 13), 0x308u, (unsigned __int64)v3, 0LL, 1);
-      ThreadUnlock1(v5, v4, v6);
+      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+      v9[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = v9;
+      v9[1] = v2;
+      HMLockObject(v2);
+      v4 = (_QWORD *)*((_QWORD *)a1 + 14);
+      if ( v4 )
+        v4 = (_QWORD *)*v4;
+      xxxSendNotifyMessage(*((_QWORD *)a1 + 13), 776LL, v4, 0LL, 1);
+      ThreadUnlock1(v5);
       *((_QWORD *)a1 + 11) = 0LL;
     }
   }
-  for ( i = (struct tagWND *)*((_QWORD *)a1 + 19); i; i = (struct tagWND *)*((_QWORD *)i + 30) )
+  for ( i = *((_QWORD *)a1 + 19); i; i = *(_QWORD *)(i + 240) )
   {
-    v8 = *(_QWORD *)(*((_QWORD *)i + 2) + 424LL);
-    if ( v8 )
-      v8 = *(_QWORD *)(v8 + 888);
-    v9 = CountNumClipFormatForIL(v8, (__int64)a1);
-    PostMessage(i, 0x31Du, v9, 0LL);
+    v7 = *(_QWORD *)(*(_QWORD *)(i + 16) + 424LL);
+    if ( v7 )
+      v7 = *(_QWORD *)(v7 + 880);
+    v8 = CountNumClipFormatForIL(v7, a1);
+    PostMessage(i, 797LL, v8, 0LL);
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CHolographicExclusiveMode@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180298A40
+ * XREFs of ?HrFindInterface@CHolographicExclusiveMode@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180256B10
  * Callers:
  *     <none>
  * Callees:
@@ -21,6 +21,6 @@ __int64 __fastcall CHolographicExclusiveMode::HrFindInterface(
   if ( v4 )
     return (unsigned int)-2147467262;
   else
-    *a3 = (void *)(((unsigned __int64)this + 64) & -(__int64)(this != 0LL));
+    *a3 = (void *)(((unsigned __int64)this + 56) & -(__int64)(this != 0LL));
   return v3;
 }

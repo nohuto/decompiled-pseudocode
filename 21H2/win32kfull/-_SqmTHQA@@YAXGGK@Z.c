@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_SqmTHQA@@YAXGGK@Z @ 0x1C01E896C
+ * XREFs of ?_SqmTHQA@@YAXGGK@Z @ 0x1C01EE2EC
  * Callers:
- *     ValidateDeviceSignature @ 0x1C01E9620 (ValidateDeviceSignature.c)
+ *     ValidateDeviceSignature @ 0x1C01EF160 (ValidateDeviceSignature.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall _SqmTHQA(unsigned __int16 a1, unsigned __int16 a2, int a3)

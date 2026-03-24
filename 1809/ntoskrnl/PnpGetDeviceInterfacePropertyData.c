@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpGetDeviceInterfacePropertyData @ 0x14082864C
+ * XREFs of PnpGetDeviceInterfacePropertyData @ 0x14082862C
  * Callers:
  *     ExpHwidGetDevicePropertyDataFixed @ 0x140586700 (ExpHwidGetDevicePropertyDataFixed.c)
  *     ExpHwidGetDevicePropertyData @ 0x140586784 (ExpHwidGetDevicePropertyData.c)
- *     IoGetDeviceInterfacePropertyData @ 0x1408245E0 (IoGetDeviceInterfacePropertyData.c)
+ *     IoGetDeviceInterfacePropertyData @ 0x1408245C0 (IoGetDeviceInterfacePropertyData.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
  *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     RtlLCIDToCultureName @ 0x140896610 (RtlLCIDToCultureName.c)
+ *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpGetDeviceInterfacePropertyData(

@@ -1,50 +1,53 @@
 /*
- * XREFs of ?IsScalingTransformationSupported@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0010AC8
+ * XREFs of ?IsScalingTransformationSupported@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0005E10
  * Callers:
- *     ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C00109BC (-PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
+ *     ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0005D64 (-PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
  * Callees:
- *     ?IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C018A274 (-IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C018A2D0 (-IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0110B4C (-IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0110BA8 (-IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
  */
 
-unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsScalingTransformationSupported(
-        DMMVIDPNPRESENTPATH *this,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING a2)
+unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsScalingTransformationSupported(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
-  int v3; // eax
+  __int64 v2; // rdi
+  int v4; // eax
   unsigned __int8 IsDriverAspectRatioCenteredMaxSupported; // al
-  char v6; // cl
-  int v7; // ecx
+  char v7; // cl
+  int v8; // ecx
+  __int64 v9; // rax
   unsigned __int8 IsDriverCustomScalingSupported; // al
 
-  switch ( a2 )
+  v2 = (int)a2;
+  switch ( (_DWORD)a2 )
   {
-    case D3DKMDT_VPPS_IDENTITY:
-      LOBYTE(v3) = *((_BYTE *)this + 120);
-      return v3 & 1;
-    case D3DKMDT_VPPS_CENTERED:
-      v3 = *((_DWORD *)this + 30) >> 1;
-      return v3 & 1;
-    case D3DKMDT_VPPS_STRETCHED:
-      v3 = *((_DWORD *)this + 30) >> 2;
-      return v3 & 1;
-    case D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX:
+    case 1:
+      LOBYTE(v4) = *((_BYTE *)this + 120);
+      return v4 & 1;
+    case 2:
+      v4 = *((_DWORD *)this + 30) >> 1;
+      return v4 & 1;
+    case 3:
+      v4 = *((_DWORD *)this + 30) >> 2;
+      return v4 & 1;
+    case 4:
       IsDriverAspectRatioCenteredMaxSupported = DMMVIDPNPRESENTPATH::IsDriverAspectRatioCenteredMaxSupported(this);
-      v6 = 0;
+      v7 = 0;
       if ( !IsDriverAspectRatioCenteredMaxSupported )
-        return v6;
-      v7 = *((_DWORD *)this + 30) >> 3;
-      return v7 & 1;
-    case D3DKMDT_VPPS_CUSTOM:
+        return v7;
+      v8 = *((_DWORD *)this + 30) >> 3;
+      return v8 & 1;
+    case 5:
       IsDriverCustomScalingSupported = DMMVIDPNPRESENTPATH::IsDriverCustomScalingSupported(this);
-      v6 = 0;
+      v7 = 0;
       if ( !IsDriverCustomScalingSupported )
-        return v6;
-      v7 = *((_DWORD *)this + 30) >> 4;
-      return v7 & 1;
-    case D3DKMDT_VPPS_NOTSPECIFIED:
+        return v7;
+      v8 = *((_DWORD *)this + 30) >> 4;
+      return v8 & 1;
+    case 0xFF:
       return 1;
   }
-  WdLogSingleEntry1(2LL, a2);
+  v9 = WdLogNewEntry5_WdError(this, a2);
+  *(_QWORD *)(v9 + 24) = v2;
+  WdLogEvent5_WdError(v9);
   return 0;
 }

@@ -1,58 +1,84 @@
 /*
- * XREFs of TtmiPurgeSessionPowerRequestEntries @ 0x1409A4A40
+ * XREFs of TtmiPurgeSessionPowerRequestEntries @ 0x1408FF074
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1409AB340 (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1408FD980 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-_QWORD *__fastcall TtmiPurgeSessionPowerRequestEntries(__int64 a1)
+unsigned __int64 __fastcall TtmiPurgeSessionPowerRequestEntries(__int64 a1)
 {
-  _QWORD *v1; // rdi
-  _QWORD *v3; // rbx
-  _QWORD *result; // rax
-  _QWORD *i; // rsi
-  _QWORD *v6; // r9
-  _QWORD *v7; // r8
-  _QWORD *v8; // rdx
-  _QWORD *v9; // rax
+  unsigned __int64 *v1; // r14
+  unsigned __int64 *v3; // rdi
+  unsigned __int64 v4; // rcx
+  unsigned __int64 result; // rax
+  unsigned __int64 *v6; // rdx
+  unsigned __int64 v7; // r8
+  _QWORD *v8; // rsi
+  _QWORD *i; // rbx
+  _QWORD *v10; // r9
+  _QWORD *v11; // rdx
+  _QWORD *v12; // r8
+  _QWORD *v13; // rax
 
-  v1 = *(_QWORD **)(a1 + 280);
+  v1 = *(unsigned __int64 **)(a1 + 280);
   v3 = v1;
-  while ( v3 )
+  while ( 1 )
   {
-    v3 = (_QWORD *)*v3;
-    if ( ((unsigned __int8)v3 & 1) != 0 )
-      break;
-LABEL_9:
-    result = v3;
     if ( !v3 )
-      return result;
-    for ( i = (_QWORD *)v3[6]; i != v3 + 6; i = (_QWORD *)*i )
+      goto LABEL_7;
+    v4 = *v3;
+    result = *v3 & 0x8000000000000002uLL;
+    if ( result == 0x8000000000000002uLL )
     {
-      v6 = i - 1;
-      v7 = i;
-      if ( ((*(char *)(((unsigned __int64)*((unsigned int *)i - 2) >> 3) + *(_QWORD *)(a1 + 64)) >> (*(_DWORD *)(i - 1) & 7)) & 1) == 0 )
+      result = MEMORY[0];
+      v4 = *v3;
+    }
+    if ( (v4 & 1) != 0 )
+    {
+LABEL_7:
+      v6 = v1 + 1;
+      result = *(_QWORD *)(a1 + 280);
+      v7 = result + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 276) >> 5);
+      while ( 1 )
       {
-        v8 = (_QWORD *)*i;
-        v9 = (_QWORD *)i[1];
-        i = v9;
-        if ( *(_QWORD **)(*v7 + 8LL) != v7 || (_QWORD *)*v9 != v7 )
+        if ( (unsigned __int64)v6 >= v7 )
+        {
+          v4 = 0LL;
+          goto LABEL_12;
+        }
+        result = *v6;
+        if ( (*v6 & 1) == 0 )
+          break;
+        ++v6;
+      }
+      v3 = (unsigned __int64 *)*v6;
+      v1 = v6;
+      v4 = *v6;
+    }
+    else
+    {
+      v3 = (unsigned __int64 *)v4;
+    }
+LABEL_12:
+    if ( !v4 )
+      return result;
+    v8 = (_QWORD *)(v4 + 48);
+    for ( i = *(_QWORD **)(v4 + 48); i != v8; i = (_QWORD *)*i )
+    {
+      v10 = i - 1;
+      v11 = i;
+      if ( !_bittest(*(const signed __int32 **)(a1 + 64), *((_DWORD *)i - 2)) )
+      {
+        v12 = (_QWORD *)*i;
+        v13 = (_QWORD *)i[1];
+        i = v13;
+        if ( *(_QWORD **)(*v11 + 8LL) != v11 || (_QWORD *)*v13 != v11 )
           __fastfail(3u);
-        *v9 = v8;
-        v8[1] = v9;
-        ExFreePoolWithTag(v6, 0x52507454u);
+        *v13 = v12;
+        v12[1] = v13;
+        ExFreePoolWithTag(v10, 0x52507454u);
       }
     }
   }
-  ++v1;
-  result = *(_QWORD **)(a1 + 280);
-  while ( v1 < &result[(unsigned __int64)*(unsigned int *)(a1 + 276) >> 5] )
-  {
-    v3 = (_QWORD *)*v1;
-    if ( (*v1 & 1) == 0 )
-      goto LABEL_9;
-    ++v1;
-  }
-  return result;
 }

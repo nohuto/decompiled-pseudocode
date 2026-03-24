@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCoalescingCheck @ 0x14058D914
+ * XREFs of PopCoalescingCheck @ 0x14056EA9C
  * Callers:
- *     PopScanIdleList @ 0x14032C730 (PopScanIdleList.c)
+ *     PopScanIdleList @ 0x140349888 (PopScanIdleList.c)
  * Callees:
- *     PopGetPolicyWorker @ 0x14032C984 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032C9D8 (PopCheckForWork.c)
+ *     PopCheckForWork @ 0x14034A290 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14034AB20 (PopGetPolicyWorker.c)
  */
 
 __int64 __fastcall PopCoalescingCheck(unsigned int a1, unsigned int a2, int a3)

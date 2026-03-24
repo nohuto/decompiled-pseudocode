@@ -1,11 +1,10 @@
 /*
- * XREFs of ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C01521BA
+ * XREFs of ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C00F1F74
  * Callers:
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1C94 (zzzUpdateLayeredWindow.c)
  * Callees:
- *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C0077D38 (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
- *     CalcWindowFullScreen @ 0x1C00CF81C (CalcWindowFullScreen.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
+ *     PostShellHookMessages @ 0x1C0043540 (PostShellHookMessages.c)
+ *     CalcWindowFullScreen @ 0x1C006A9C4 (CalcWindowFullScreen.c)
  */
 
 void __fastcall UpdateWindowRects(
@@ -15,92 +14,98 @@ void __fastcall UpdateWindowRects(
         int *a4,
         int *a5)
 {
-  char *v5; // rbx
-  int v6; // r12d
-  int v7; // r14d
-  unsigned int v11; // ebp
-  unsigned int v12; // esi
-  int v13; // eax
-  int v14; // r8d
-  int v15; // edx
-  _DWORD *v16; // rcx
+  int v5; // ebp
+  int v6; // r15d
+  unsigned int v10; // esi
+  unsigned int v11; // edi
+  _DWORD *v12; // rcx
+  int v13; // r8d
+  int v14; // edx
+  _DWORD *v15; // rcx
+  int v16; // eax
   _DWORD *v17; // rcx
-  int v18; // ecx
-  int v19; // ecx
-  HRGN ExplicitClipRgn; // rax
+  _DWORD *v18; // rcx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  int v21; // ecx
+  __int64 v22; // rax
+  int v23; // ecx
 
-  v5 = (char *)a1 + 40;
-  v6 = 0;
-  v7 = 0;
+  v5 = 0;
   *a4 = 0;
+  v6 = 0;
   *a5 = 0;
   if ( a2 )
   {
-    v11 = a2->x - *(_DWORD *)(*(_QWORD *)v5 + 88LL);
-    v12 = a2->y - *(_DWORD *)(*(_QWORD *)v5 + 92LL);
-    if ( a2->x != *(_DWORD *)(*(_QWORD *)v5 + 88LL) || v12 )
+    v15 = (_DWORD *)*((_QWORD *)a1 + 5);
+    v10 = a2->x - v15[22];
+    v11 = a2->y - v15[23];
+    if ( a2->x != v15[22] || v11 )
     {
-      v13 = *((_DWORD *)a1 + 80);
+      v16 = v15[58];
       v6 = 1;
-      if ( (v13 & 0x400) != 0 )
+      if ( (v16 & 0x8000) != 0 )
       {
-        *((_DWORD *)a1 + 80) = v13 & 0xFFFFFBFF;
-        PostShellHookMessagesEx(0x36u, *(_QWORD *)a1, 0LL);
+        v15[58] = v16 & 0xFFFF7FFF;
+        PostShellHookMessages(0x36uLL, *(_QWORD *)a1);
       }
     }
   }
   else
   {
+    v10 = 0;
     v11 = 0;
-    v12 = 0;
   }
   if ( a3 )
   {
-    v14 = a3->cx + *(_DWORD *)(*(_QWORD *)v5 + 88LL) - *(_DWORD *)(*(_QWORD *)v5 + 96LL);
-    v15 = a3->cy + *(_DWORD *)(*(_QWORD *)v5 + 92LL) - *(_DWORD *)(*(_QWORD *)v5 + 100LL);
-    if ( v14 || v15 )
-      v7 = 1;
+    v12 = (_DWORD *)*((_QWORD *)a1 + 5);
+    v13 = a3->cx + v12[22] - v12[24];
+    v14 = a3->cy + v12[23] - v12[25];
+    if ( v13 || v14 )
+      v5 = 1;
   }
   else
   {
+    v13 = 0;
     v14 = 0;
-    v15 = 0;
   }
-  if ( v6 || v7 )
+  if ( v6 || v5 )
   {
-    v16 = *(_DWORD **)v5;
-    v16[24] += v14 + v11;
-    v16[25] += v15 + v12;
-    v16[22] += v11;
-    v16[23] += v12;
-    v17 = *(_DWORD **)v5;
-    v17[28] += v14 + v11;
-    v17[29] += v15 + v12;
-    v17[26] += v11;
-    v17[27] += v12;
+    v17 = (_DWORD *)*((_QWORD *)a1 + 5);
+    v17[24] += v13 + v10;
+    v17[25] += v14 + v11;
+    v17[22] += v10;
+    v17[23] += v11;
+    v18 = (_DWORD *)*((_QWORD *)a1 + 5);
+    v18[28] += v13 + v10;
+    v18[29] += v14 + v11;
+    v18[26] += v10;
+    v18[27] += v11;
+    if ( v13 < 0 )
+    {
+      v22 = *((_QWORD *)a1 + 5);
+      v23 = *(_DWORD *)(v22 + 88);
+      if ( *(_DWORD *)(v22 + 104) < v23 )
+      {
+        *(_DWORD *)(v22 + 104) = v23;
+        *(_DWORD *)(*((_QWORD *)a1 + 5) + 112LL) = *(_DWORD *)(*((_QWORD *)a1 + 5) + 88LL);
+      }
+    }
     if ( v14 < 0 )
     {
-      v18 = *(_DWORD *)(*(_QWORD *)v5 + 88LL);
-      if ( *(_DWORD *)(*(_QWORD *)v5 + 104LL) < v18 )
+      v20 = *((_QWORD *)a1 + 5);
+      v21 = *(_DWORD *)(v20 + 92);
+      if ( *(_DWORD *)(v20 + 108) < v21 )
       {
-        *(_DWORD *)(*(_QWORD *)v5 + 104LL) = v18;
-        *(_DWORD *)(*(_QWORD *)v5 + 112LL) = *(_DWORD *)(*(_QWORD *)v5 + 88LL);
+        *(_DWORD *)(v20 + 108) = v21;
+        *(_DWORD *)(*((_QWORD *)a1 + 5) + 116LL) = *(_DWORD *)(*((_QWORD *)a1 + 5) + 92LL);
       }
     }
-    if ( v15 < 0 )
-    {
-      v19 = *(_DWORD *)(*(_QWORD *)v5 + 92LL);
-      if ( *(_DWORD *)(*(_QWORD *)v5 + 108LL) < v19 )
-      {
-        *(_DWORD *)(*(_QWORD *)v5 + 108LL) = v19;
-        *(_DWORD *)(*(_QWORD *)v5 + 116LL) = *(_DWORD *)(*(_QWORD *)v5 + 92LL);
-      }
-    }
-    ExplicitClipRgn = tagWND::GetExplicitClipRgn(a1);
-    if ( ExplicitClipRgn )
-      GreOffsetRgn(ExplicitClipRgn, v11, v12);
+    v19 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 168LL);
+    if ( v19 )
+      GreOffsetRgn(v19, v10, v11);
     CalcWindowFullScreen(a1);
   }
+  *a4 = v5;
   *a5 = v6;
-  *a4 = v7;
 }

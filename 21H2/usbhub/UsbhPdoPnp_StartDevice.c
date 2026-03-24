@@ -1,26 +1,27 @@
 /*
- * XREFs of UsbhPdoPnp_StartDevice @ 0x1C0055CA0
+ * XREFs of UsbhPdoPnp_StartDevice @ 0x1C0057340
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
- *     UsbhEtwLogDeviceIrpEvent @ 0x1C000E150 (UsbhEtwLogDeviceIrpEvent.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     Usbh__TestPoint__Ulong @ 0x1C002F940 (Usbh__TestPoint__Ulong.c)
- *     UsbhSetPdo_AllowIo @ 0x1C003CE78 (UsbhSetPdo_AllowIo.c)
- *     UsbhReadPdoRegistryKeys @ 0x1C0045AB4 (UsbhReadPdoRegistryKeys.c)
- *     UsbhPdoRegisterWmi @ 0x1C0049314 (UsbhPdoRegisterWmi.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     SET_PDO_SWPNPSTATE @ 0x1C0052994 (SET_PDO_SWPNPSTATE.c)
- *     UsbhPdoCreateSymbolicLink @ 0x1C0054170 (UsbhPdoCreateSymbolicLink.c)
- *     UsbhPdoPnp_EnablePdo @ 0x1C00548CC (UsbhPdoPnp_EnablePdo.c)
- *     UsbhPdoSetDeviceData @ 0x1C0056490 (UsbhPdoSetDeviceData.c)
- *     UsbhEtwLogDeviceDescription @ 0x1C005ACEC (UsbhEtwLogDeviceDescription.c)
- *     UsbhUpdateSqmFlags @ 0x1C0072540 (UsbhUpdateSqmFlags.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0013F80 (UsbhEtwLogDeviceIrpEvent.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     Usbh__TestPoint__Ulong @ 0x1C0030D10 (Usbh__TestPoint__Ulong.c)
+ *     UsbhSetPdo_AllowIo @ 0x1C003E058 (UsbhSetPdo_AllowIo.c)
+ *     UsbhReadPdoRegistryKeys @ 0x1C0046E00 (UsbhReadPdoRegistryKeys.c)
+ *     UsbhPdoRegisterWmi @ 0x1C004A6C0 (UsbhPdoRegisterWmi.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053FE8 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhPdoCreateSymbolicLink @ 0x1C0055800 (UsbhPdoCreateSymbolicLink.c)
+ *     UsbhPdoPnp_EnablePdo @ 0x1C0055F5C (UsbhPdoPnp_EnablePdo.c)
+ *     UsbhPdoSetDeviceData @ 0x1C0057B50 (UsbhPdoSetDeviceData.c)
+ *     UsbhEtwLogDeviceDescription @ 0x1C005C39C (UsbhEtwLogDeviceDescription.c)
+ *     UsbhUpdateSqmFlags @ 0x1C00759E0 (UsbhUpdateSqmFlags.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -35,10 +36,11 @@ __int64 __fastcall UsbhPdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
   _DWORD *v11; // rbx
   void *v12; // rcx
   __int64 v13; // rcx
-  void *Pool2; // rbx
-  const EVENT_DESCRIPTOR *v15; // r8
-  GUID *v16; // rdx
-  __int64 v17; // rdx
+  PVOID PoolWithTag; // rax
+  void *v15; // rbx
+  const EVENT_DESCRIPTOR *v16; // r8
+  GUID *v17; // rdx
+  __int64 v18; // rdx
   ULONG ResultLength; // [rsp+88h] [rbp+10h] BYREF
 
   ResultLength = 0;
@@ -85,39 +87,41 @@ __int64 __fastcall UsbhPdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
     DeviceProperty = IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, 0, 0LL, &ResultLength);
     if ( DeviceProperty == -1073741789 && ResultLength )
     {
-      Pool2 = (void *)ExAllocatePool2(64LL, ResultLength, 1112885333LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), ResultLength, 0x42554855u);
+      v15 = PoolWithTag;
+      if ( !PoolWithTag )
         goto LABEL_28;
+      memset(PoolWithTag, 0, ResultLength);
       DeviceProperty = IoGetDeviceProperty(
                          DeviceObject,
                          DevicePropertyDeviceDescription,
                          ResultLength,
-                         Pool2,
+                         v15,
                          &ResultLength);
       if ( DeviceProperty < 0 )
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(v15, 0);
         goto LABEL_28;
       }
-      *((_QWORD *)v4 + 280) = Pool2;
+      *((_QWORD *)v4 + 280) = v15;
       v4[562] = ResultLength;
       UsbhEtwLogDeviceDescription(v4, &USBHUB_ETW_EVENT_DEVICE_START_DEVICE_DESCRIPTION);
     }
     DeviceProperty = UsbhReadPdoRegistryKeys(v13, DeviceObject);
     if ( (DeviceProperty & 0xC0000000) == 0xC0000000 )
     {
-      v15 = (const EVENT_DESCRIPTOR *)&USBHUB_ETW_EVENT_DEVICE_START_REGISTRY_FAILURE;
+      v16 = (const EVENT_DESCRIPTOR *)&USBHUB_ETW_EVENT_DEVICE_START_REGISTRY_FAILURE;
 LABEL_22:
-      UsbhEtwLogDeviceIrpEvent((__int64)v4, (__int64)Irp, v15, DeviceProperty);
+      UsbhEtwLogDeviceIrpEvent((__int64)v4, (__int64)Irp, v16, DeviceProperty);
       goto LABEL_28;
     }
-    v16 = &GUID_DEVINTERFACE_USB_HUB;
+    v17 = &GUID_DEVINTERFACE_USB_HUB;
     if ( (v4[355] & 4) == 0 )
-      v16 = &GUID_DEVINTERFACE_USB_DEVICE;
-    DeviceProperty = UsbhPdoCreateSymbolicLink(DeviceObject, v16);
+      v17 = &GUID_DEVINTERFACE_USB_DEVICE;
+    DeviceProperty = UsbhPdoCreateSymbolicLink(DeviceObject, v17);
     if ( (DeviceProperty & 0xC0000000) == 0xC0000000 )
     {
-      v15 = (const EVENT_DESCRIPTOR *)&USBHUB_ETW_EVENT_DEVICE_START_SYMBOLIC_LINK_FAILURE;
+      v16 = (const EVENT_DESCRIPTOR *)&USBHUB_ETW_EVENT_DEVICE_START_SYMBOLIC_LINK_FAILURE;
       goto LABEL_22;
     }
     UsbhPdoRegisterWmi(DeviceObject);
@@ -126,7 +130,7 @@ LABEL_28:
   SET_PDO_SWPNPSTATE((__int64)DeviceObject, 101, 1);
   KeSetEvent((PRKEVENT)(v4 + 724), 0, 0);
   PdoExt((__int64)DeviceObject);
-  UsbhDecHubBusy(*((_QWORD *)v4 + 148), v17, v9);
+  UsbhDecHubBusy(*((_QWORD *)v4 + 148), v18, v9);
   UsbhPdoSetDeviceData(*((_QWORD *)v4 + 148), DeviceObject, DeviceObject);
   v7 = Usbh__TestPoint__Ulong(*((_QWORD *)v4 + 148), 2u, DeviceProperty, *((unsigned __int16 *)v4 + 714));
   if ( v7 < 0 )

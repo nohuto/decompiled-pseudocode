@@ -1,18 +1,18 @@
 /*
- * XREFs of KiLockServiceTable @ 0x14034B8D0
+ * XREFs of KiLockServiceTable @ 0x14039EA94
  * Callers:
- *     KeCompactServiceTable @ 0x14034B874 (KeCompactServiceTable.c)
+ *     KeCompactServiceTable @ 0x14039EA34 (KeCompactServiceTable.c)
  * Callees:
- *     RtlCaptureImageExceptionValues @ 0x140290864 (RtlCaptureImageExceptionValues.c)
- *     RtlpConvertFunctionEntry @ 0x1402A6530 (RtlpConvertFunctionEntry.c)
- *     KeExitRetpoline @ 0x14034BADC (KeExitRetpoline.c)
- *     RtlLookupExceptionHandler @ 0x1403C47A8 (RtlLookupExceptionHandler.c)
- *     KiLockExtendedServiceTable @ 0x1403E3218 (KiLockExtendedServiceTable.c)
- *     KeBugCheck @ 0x14041E370 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiFastGetCallersAddress @ 0x140B35CF0 (KiFastGetCallersAddress.c)
- *     KiFatalExceptionFilter @ 0x140B740E8 (KiFatalExceptionFilter.c)
+ *     KeExitRetpoline @ 0x1402F35B4 (KeExitRetpoline.c)
+ *     RtlLookupExceptionHandler @ 0x14032B31C (RtlLookupExceptionHandler.c)
+ *     RtlpConvertFunctionEntry @ 0x14033F450 (RtlpConvertFunctionEntry.c)
+ *     RtlCaptureImageExceptionValues @ 0x140372D8C (RtlCaptureImageExceptionValues.c)
+ *     KiLockExtendedServiceTable @ 0x1403DB7C8 (KiLockExtendedServiceTable.c)
+ *     KeBugCheck @ 0x1403FD550 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiFastGetCallersAddress @ 0x140A390A4 (KiFastGetCallersAddress.c)
+ *     KiFatalExceptionFilter @ 0x140A7221C (KiFatalExceptionFilter.c)
  */
 
 __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, int a4)
@@ -26,8 +26,8 @@ __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, 
   int v12; // edx
   int v13; // r9d
   int v14; // r10d
-  int v15; // eax
-  int v16; // r9d
+  __int64 v15; // rax
+  __int64 v16; // r9
   int v17; // eax
   __int64 v18; // r8
   unsigned int i; // ecx
@@ -48,7 +48,7 @@ __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, 
     CallersAddress = KiFastGetCallersAddress();
     v9 = v21 / 0xC;
     if ( !(v21 / 0xC) )
-      goto LABEL_26;
+      goto LABEL_31;
     v10 = CallersAddress - 0x140000000LL;
     v11 = (unsigned int *)(v8 + 12LL * (v9 - 1));
     if ( v10 < *v11 )
@@ -72,12 +72,12 @@ __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, 
       }
     }
     if ( v10 < *v11 || v10 >= v11[1] )
-LABEL_26:
       v11 = 0LL;
     if ( !v11 )
+LABEL_31:
       KeBugCheck(0x31u);
     v15 = RtlpConvertFunctionEntry((__int64)v11, 0x140000000uLL);
-    v17 = RtlLookupExceptionHandler(v15, 0x40000000u, 1, v16, 0LL, (__int64)v20);
+    v17 = RtlLookupExceptionHandler(v15, 0x140000000uLL, 1u, v16, 0LL, v20);
     if ( v17 < 0 )
       KeBugCheckEx(0x31u, v17, 0LL, 0LL, 0LL);
     v18 = 1LL;

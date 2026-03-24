@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0082AE4
+ * XREFs of ??0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C006FBC0
  * Callers:
- *     ?CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C0082C54 (-CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z.c)
+ *     ?CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C006FCD4 (-CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0020AEC (--0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ??0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C001C030 (--0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 CFlipContentToken *__fastcall CFlipContentToken::CFlipContentToken(
@@ -13,17 +13,21 @@ CFlipContentToken *__fastcall CFlipContentToken::CFlipContentToken(
         struct CompositionSurfaceObject *a3)
 {
   CToken::CToken(this, a2, a3);
-  *((_BYTE *)this + 224) &= ~1u;
+  *((_BYTE *)this + 224) &= 0xF0u;
   *(_QWORD *)this = &CFlipContentToken::`vftable';
+  *((_QWORD *)this + 21) = 3LL;
   *((_QWORD *)this + 11) = 0LL;
   *((_DWORD *)this + 24) = 0;
   *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 14) = 0LL;
-  *((_DWORD *)this + 76) = 0;
-  *((_QWORD *)this + 39) = 0LL;
-  *((_QWORD *)this + 40) = 0LL;
-  *((_QWORD *)this + 41) = 0LL;
-  memset((char *)this + 120, 0, 0x68uLL);
+  *((_DWORD *)this + 31) = 0;
+  *((_QWORD *)this + 17) = 0LL;
+  *((_DWORD *)this + 48) = 0;
+  *((_BYTE *)this + 120) = 0;
+  *((_WORD *)this + 64) = 0;
+  *((_OWORD *)this + 9) = 0LL;
+  *((_QWORD *)this + 20) = 0LL;
+  *((_OWORD *)this + 11) = 0LL;
   memset((char *)this + 228, 0, 0x48uLL);
   return this;
 }

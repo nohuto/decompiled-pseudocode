@@ -1,11 +1,11 @@
 /*
- * XREFs of LsaLogonUser @ 0x14089BBE0
+ * XREFs of LsaLogonUser @ 0x14089BBC0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14010DBCC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall LsaLogonUser(

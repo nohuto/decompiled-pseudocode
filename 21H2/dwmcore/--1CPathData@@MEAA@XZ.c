@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1CPathData@@MEAA@XZ @ 0x1800CE39C
+ * XREFs of ??1CPathData@@MEAA@XZ @ 0x1802207C0
  * Callers:
- *     ??_GCPathData@@MEAAPEAXI@Z @ 0x1800CE360 (--_GCPathData@@MEAAPEAXI@Z.c)
+ *     ??_GCPathData@@MEAAPEAXI@Z @ 0x180220920 (--_GCPathData@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?Attach@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAXPEAUID2D1PathGeometry@@@Z @ 0x1800CF53C (-Attach@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@QEAAXPEAUID2D1PathGeometry@@@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800D44BC (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ *     ?Attach@?$ComPtr@VCScrollScaleKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollScaleKeyframeAnimation@@@Z @ 0x1801C83B8 (-Attach@-$ComPtr@VCScrollScaleKeyframeAnimation@@@WRL@Microsoft@@QEAAXPEAVCScrollScaleKeyframeAn.c)
  */
 
 void __fastcall CPathData::~CPathData(CPathData *this)
@@ -13,9 +13,11 @@ void __fastcall CPathData::~CPathData(CPathData *this)
   __int64 v2; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0LL;
-  *(_QWORD *)this = &CPathData::`vftable';
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::Attach(&v2, *((_QWORD *)this + 8));
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v2);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((char *)this + 40);
-  std::vector<unsigned char>::_Tidy((char *)this + 16);
+  *(_QWORD *)this = &CPathData::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CPathData::`vftable'{for `ID2D1GeometrySink'};
+  Microsoft::WRL::ComPtr<CScrollScaleKeyframeAnimation>::Attach(&v2, *((_QWORD *)this + 9));
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v2);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 6);
+  std::vector<unsigned char>::_Tidy((__int64)this + 24);
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

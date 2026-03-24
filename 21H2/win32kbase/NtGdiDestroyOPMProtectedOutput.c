@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDestroyOPMProtectedOutput @ 0x1C016D1C0
+ * XREFs of NtGdiDestroyOPMProtectedOutput @ 0x1C0140290
  * Callers:
  *     <none>
  * Callees:
- *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C016CF00 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
+ *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C013FFC8 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
  */
 
 __int64 __fastcall NtGdiDestroyOPMProtectedOutput(COPM *a1)

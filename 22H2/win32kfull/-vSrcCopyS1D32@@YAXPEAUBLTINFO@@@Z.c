@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS1D32@@YAXPEAUBLTINFO@@@Z @ 0x1C008F730
+ * XREFs of ?vSrcCopyS1D32@@YAXPEAUBLTINFO@@@Z @ 0x1C00F8320
  * Callers:
  *     <none>
  * Callees:
@@ -8,100 +8,80 @@
 
 void __fastcall vSrcCopyS1D32(struct BLTINFO *a1)
 {
-  int v1; // ebp
-  unsigned int v3; // r12d
-  unsigned int v4; // r14d
-  int *v5; // rdx
-  int v6; // ecx
-  __int64 v7; // rdx
-  _BYTE *v8; // r9
-  _DWORD *v9; // rbx
-  _BYTE *v10; // r8
-  _DWORD *v11; // r10
-  unsigned int v12; // r11d
-  char v13; // si
-  unsigned __int64 v14; // rdi
-  _BYTE *v15; // r15
-  unsigned __int64 v16; // rcx
-  __int64 v17; // rdx
-  unsigned __int64 v18; // rcx
-  int v19; // [rsp+28h] [rbp+8h]
-  int v20; // [rsp+2Ch] [rbp+Ch]
+  unsigned int v1; // r11d
+  unsigned int v3; // r15d
+  int v4; // ebp
+  _BYTE *v5; // r9
+  _DWORD *v6; // rdi
+  unsigned int v7; // ebx
+  unsigned __int64 v8; // rax
+  __int64 v9; // rcx
+  _BYTE *v10; // r10
+  _DWORD *v11; // rsi
+  unsigned __int64 v12; // r14
+  char v13; // r8
+  unsigned __int64 v14; // rax
+  __int64 v15; // [rsp+20h] [rbp+8h]
 
-  v1 = *((_DWORD *)a1 + 8);
+  LOBYTE(v1) = 0;
   v3 = *((_DWORD *)a1 + 7);
-  LOBYTE(v4) = 0;
-  v5 = *(int **)(*(_QWORD *)a1 + 16LL);
-  v19 = *v5;
-  v6 = v5[1];
-  v7 = *((int *)a1 + 12);
-  v20 = v6;
-  v8 = (_BYTE *)(*((_QWORD *)a1 + 1) + (v7 >> 3));
-  v9 = (_DWORD *)(*((_QWORD *)a1 + 2) + 4 * *((_DWORD *)a1 + 14));
-  if ( v1 )
+  v4 = *((_DWORD *)a1 + 8);
+  v5 = (_BYTE *)(*((_QWORD *)a1 + 1) + ((__int64)*((int *)a1 + 12) >> 3));
+  v15 = **(_QWORD **)(*(_QWORD *)a1 + 16LL);
+  v6 = (_DWORD *)(*((_QWORD *)a1 + 2) + 4 * *((_DWORD *)a1 + 14));
+  while ( v4 )
   {
-    while ( 1 )
+    --v4;
+    v10 = v5;
+    v11 = v6;
+    v7 = v3;
+    v13 = *((_BYTE *)a1 + 48) & 7;
+    if ( v13 )
+      LOBYTE(v1) = *v5 << v13;
+    else
+      v10 = v5 - 1;
+    if ( v3 )
     {
-      --v1;
-      v10 = v8;
-      v11 = v9;
-      v12 = v3;
-      v13 = v7 & 7;
-      if ( (v7 & 7) != 0 )
-        LOBYTE(v4) = *v8 << v13;
-      else
-        v10 = v8 - 1;
-      if ( v3 )
-        break;
-LABEL_12:
-      v8 += *((int *)a1 + 10);
-      v9 = (_DWORD *)((char *)v9 + *((int *)a1 + 11));
-      if ( !v1 )
-        return;
-    }
-    while ( 1 )
-    {
-      if ( !v13 )
+      do
       {
-        ++v10;
-        if ( v12 >= 8 )
+        if ( !v13 )
         {
-          v14 = (unsigned __int64)v12 >> 3;
-          do
+          ++v10;
+          if ( v7 >= 8 )
           {
-            v4 = (unsigned __int8)*v10;
-            v15 = v10;
-            v16 = (unsigned __int64)(unsigned __int8)*v10 >> 7;
-            v17 = *v10++ & 1;
-            v12 -= 8;
-            *v11 = *(&v19 + v16);
-            v11[1] = *(&v19 + ((v4 >> 6) & 1));
-            v11[2] = *(&v19 + ((v4 >> 5) & 1));
-            v11[3] = *(&v19 + ((v4 >> 4) & 1));
-            v11[4] = *(&v19 + ((v4 >> 3) & 1));
-            v11[5] = *(&v19 + ((v4 >> 2) & 1));
-            v11[6] = *(&v19 + ((v4 >> 1) & 1));
-            v11[7] = *(&v19 + v17);
-            v11 += 8;
-            --v14;
+            v12 = (unsigned __int64)v7 >> 3;
+            do
+            {
+              v1 = (unsigned __int8)*v10;
+              v7 -= 8;
+              v8 = (unsigned __int64)(unsigned __int8)*v10 >> 7;
+              v9 = *v10++ & 1;
+              *v11 = *((_DWORD *)&v15 + v8);
+              v11[1] = *((_DWORD *)&v15 + ((v1 >> 6) & 1));
+              v11[2] = *((_DWORD *)&v15 + ((v1 >> 5) & 1));
+              v11[3] = *((_DWORD *)&v15 + ((v1 >> 4) & 1));
+              v11[4] = *((_DWORD *)&v15 + ((v1 >> 3) & 1));
+              v11[5] = *((_DWORD *)&v15 + ((v1 >> 2) & 1));
+              v11[6] = *((_DWORD *)&v15 + ((v1 >> 1) & 1));
+              v11[7] = *((_DWORD *)&v15 + v9);
+              v11 += 8;
+              --v12;
+            }
+            while ( v12 );
+            --v10;
+            continue;
           }
-          while ( v14 );
-          v10 = v15;
-          goto LABEL_10;
+          LOBYTE(v1) = *v10;
         }
-        LOBYTE(v4) = *v10;
+        v14 = (unsigned __int64)(unsigned __int8)v1 >> 7;
+        LOBYTE(v1) = 2 * v1;
+        v13 = (v13 + 1) & 7;
+        *v11++ = *((_DWORD *)&v15 + v14);
+        --v7;
       }
-      v18 = (unsigned __int64)(unsigned __int8)v4 >> 7;
-      LOBYTE(v4) = 2 * v4;
-      v13 = (v13 + 1) & 7;
-      *v11++ = *(&v19 + v18);
-      --v12;
-LABEL_10:
-      if ( !v12 )
-      {
-        LOBYTE(v7) = *((_BYTE *)a1 + 48);
-        goto LABEL_12;
-      }
+      while ( v7 );
     }
+    v5 += *((int *)a1 + 10);
+    v6 = (_DWORD *)((char *)v6 + *((int *)a1 + 11));
   }
 }

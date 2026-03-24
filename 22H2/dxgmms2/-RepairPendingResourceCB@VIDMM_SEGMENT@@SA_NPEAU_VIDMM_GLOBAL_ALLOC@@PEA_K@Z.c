@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RepairPendingResourceCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z @ 0x1C00FED24
+ * XREFs of ?RepairPendingResourceCB@VIDMM_SEGMENT@@SA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z @ 0x1C00C741C
  * Callers:
- *     ?RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6A_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z@Z @ 0x1C0102964 (-RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6.c)
+ *     ?RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6A_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z@Z @ 0x1C00CE0DC (-RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,11 @@ bool __fastcall VIDMM_SEGMENT::RepairPendingResourceCB(struct _VIDMM_GLOBAL_ALLO
 {
   bool result; // al
 
-  if ( !a1 || !*((_QWORD *)a1 + 25) )
+  if ( !a1 || !*((_QWORD *)a1 + 27) )
     return 0;
-  *a2 = *((_QWORD *)a1 + 16);
+  *a2 = *((_QWORD *)a1 + 17);
   result = 1;
-  *((_QWORD *)a1 + 23) = 0LL;
   *((_QWORD *)a1 + 25) = 0LL;
+  *((_QWORD *)a1 + 27) = 0LL;
   return result;
 }

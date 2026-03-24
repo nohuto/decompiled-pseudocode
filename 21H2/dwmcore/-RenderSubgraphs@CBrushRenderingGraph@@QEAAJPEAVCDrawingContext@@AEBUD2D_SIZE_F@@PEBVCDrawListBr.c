@@ -1,55 +1,46 @@
 /*
- * XREFs of ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x18005464C
+ * XREFs of ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056A18
  * Callers:
- *     ?GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180053D70 (-GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180233EB0 (-GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache.c)
+ *     ?GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180006A70 (-GenerateDrawList@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache.c)
+ *     ?GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800573C0 (-GenerateDrawList@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x1800099AC (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180040968 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?RenderExternalEffect@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBU_GUID@@AEBUEffectStage@@AEBUIntermediateConfigurationInputs@1@PEAUEffectInput@@@Z @ 0x180053510 (-RenderExternalEffect@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBU_GUID@@AEBUEffectStage.c)
- *     ?LogEtwEvent@CBackdropVisualImage@@QEBAXVDbgString@DwmDbg@@0@Z @ 0x180053AAC (-LogEtwEvent@CBackdropVisualImage@@QEBAXVDbgString@DwmDbg@@0@Z.c)
- *     ?IsBlurredWallpaperBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z @ 0x180054274 (-IsBlurredWallpaperBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z.c)
- *     ?Reset@EffectInput@@SAXPEAU1@@Z @ 0x180054EB8 (-Reset@EffectInput@@SAXPEAU1@@Z.c)
- *     ?GetEffectStageInput@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIAEBV?$vector@UEffectInput@@V?$allocator@UEffectInput@@@std@@@std@@2PEAUEffectInput@@@Z @ 0x180054EEC (-GetEffectStageInput@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIAEBV-$vec.c)
- *     ??4EffectInput@@QEAAAEAU0@AEBU0@@Z @ 0x180054FB4 (--4EffectInput@@QEAAAEAU0@AEBU0@@Z.c)
- *     ?CleanupEffectStage@CBrushRenderingGraph@@IEAAXPEAUEffectStage@@@Z @ 0x180055104 (-CleanupEffectStage@CBrushRenderingGraph@@IEAAXPEAUEffectStage@@@Z.c)
- *     ??0EffectStage@@QEAA@XZ @ 0x18005517C (--0EffectStage@@QEAA@XZ.c)
- *     ?reserve@?$vector@UEffectInput@@V?$allocator@UEffectInput@@@std@@@std@@QEAAX_K@Z @ 0x1800551CC (-reserve@-$vector@UEffectInput@@V-$allocator@UEffectInput@@@std@@@std@@QEAAX_K@Z.c)
- *     ?IsBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z @ 0x180055214 (-IsBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z.c)
- *     ?CheckIfDisposed@CBrushRenderingGraph@@IEBAXXZ @ 0x180055274 (-CheckIfDisposed@CBrushRenderingGraph@@IEBAXXZ.c)
- *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800553C8 (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
- *     ?IsExternallyImplementedSubgraph@CRenderingTechnique@@QEBA_NPEAU_GUID@@@Z @ 0x180055428 (-IsExternallyImplementedSubgraph@CRenderingTechnique@@QEBA_NPEAU_GUID@@@Z.c)
- *     ?IsWindowBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z @ 0x180055460 (-IsWindowBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z.c)
- *     ?GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z @ 0x1800554AC (-GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z.c)
- *     ?Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800554DC (-Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
- *     ?HasSubtreeSurface@CVisual@@QEBA_NXZ @ 0x180055680 (-HasSubtreeSurface@CVisual@@QEBA_NXZ.c)
- *     ?GenerateEffectInput@CBackdropVisualImage@@QEAA?AUEffectInput@@XZ @ 0x180055710 (-GenerateEffectInput@CBackdropVisualImage@@QEAA-AUEffectInput@@XZ.c)
- *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z @ 0x180058AC0 (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z.c)
- *     ??4?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIRenderTargetBitmap@@@Z @ 0x18005D034 (--4-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIRenderTar.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEffectStage@@PEAVCDrawListCache@@@Z @ 0x180086E30 (-UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEff.c)
- *     ?GetDebugString@CVisualTreePath@@QEBA?BVDbgString@DwmDbg@@XZ @ 0x18008D4A8 (-GetDebugString@CVisualTreePath@@QEBA-BVDbgString@DwmDbg@@XZ.c)
- *     ??0DbgString@DwmDbg@@QEAA@QEBDZZ @ 0x18008D5F4 (--0DbgString@DwmDbg@@QEAA@QEBDZZ.c)
- *     ?GetBackdropVisualImage@CVisual@@QEBAPEAVCBackdropVisualImage@@AEBVCVisualTreePath@@@Z @ 0x18008D714 (-GetBackdropVisualImage@CVisual@@QEBAPEAVCBackdropVisualImage@@AEBVCVisualTreePath@@@Z.c)
- *     ?LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z @ 0x18008E708 (-LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??4CDrawListBitmap@@QEAAAEAV0@$$QEAV0@@Z @ 0x1800BCC70 (--4CDrawListBitmap@@QEAAAEAV0@$$QEAV0@@Z.c)
- *     ??0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z @ 0x1800BCD2C (--0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z.c)
- *     ??1EffectInput@@QEAA@XZ @ 0x1800D0FD0 (--1EffectInput@@QEAA@XZ.c)
- *     ?GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ @ 0x1800D4DD0 (-GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@UEffectInput@@@std@@@std@@YAXPEAUEffectInput@@QEAU1@AEAV?$allocator@UEffectInput@@@0@@Z @ 0x1800D73F8 (--$_Destroy_range@V-$allocator@UEffectInput@@@std@@@std@@YAXPEAUEffectInput@@QEAU1@AEAV-$allocat.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800DD36C (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ?CanUseAsEffectInput@CBackdropVisualImage@@QEBA_NXZ @ 0x1800E109C (-CanUseAsEffectInput@CBackdropVisualImage@@QEBA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetBlurredWallpaperEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x1801B2258 (-GetBlurredWallpaperEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z.c)
- *     ?GetTransparentBlackEffectInput@CDrawingContext@@QEBA?AUEffectInput@@AEBUD2D_SIZE_F@@@Z @ 0x1801B2C3C (-GetTransparentBlackEffectInput@CDrawingContext@@QEBA-AUEffectInput@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA?AVMatrix3x3@@I@Z @ 0x1801D9590 (-GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA-AVMatrix3x3@@I@Z.c)
- *     ??$?4VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@X@?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@$$QEAV?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@1@@Z @ 0x180252038 (--$-4VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@X@-$com_ptr_t@VIBitmapRealization@@Uerr_r.c)
- *     ??$_Emplace_reallocate@$$T@?$vector@UEffectInput@@V?$allocator@UEffectInput@@@std@@@std@@QEAAPEAUEffectInput@@QEAU2@$$QEA$$T@Z @ 0x180252078 (--$_Emplace_reallocate@$$T@-$vector@UEffectInput@@V-$allocator@UEffectInput@@@std@@@std@@QEAAPEA.c)
- *     ?RenderInternalEffect@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEAUEffectStage@@AEBUIntermediateConfigurationInputs@1@PEAUEffectInput@@@Z @ 0x1802524EC (-RenderInternalEffect@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEAUEffectStage@@AEBUInter.c)
+ *     ?GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA?AVMatrix3x3@@I@Z @ 0x18000604C (-GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA-AVMatrix3x3@@I@Z.c)
+ *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x180010F6C (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEAAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
+ *     ??$?4VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@X@?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@$$QEAV?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@1@@Z @ 0x18001C070 (--$-4VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@X@-$com_ptr_t@VIBitmapRealization@@Uerr_r.c)
+ *     ?RenderInternalEffect@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@PEAUEffectStage@@AEBUIntermediateConfigurationInputs@1@PEAUEffectInput@@@Z @ 0x18001C828 (-RenderInternalEffect@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@PEAUEffectStage@@AEBUInter.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAUEffectInput@@@Z @ 0x18003F760 (-GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@.c)
+ *     ?RenderExternalEffect@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBU_GUID@@AEBUEffectStage@@AEBUIntermediateConfigurationInputs@1@PEAUEffectInput@@@Z @ 0x18003FAE8 (-RenderExternalEffect@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBU_GUID@@AEBUEffectStage.c)
+ *     ?Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapRealization@@PEBVCDrawingContext@@@Z @ 0x180040954 (-Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapRealization@@PEBVCDrawingContext@@@Z.c)
+ *     ?IsExternallyImplementedSubgraph@CRenderingTechnique@@QEBA_NPEAU_GUID@@@Z @ 0x18004A790 (-IsExternallyImplementedSubgraph@CRenderingTechnique@@QEBA_NPEAU_GUID@@@Z.c)
+ *     ?GetEffectStageInput@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIAEBV?$vector@UEffectInput@@V?$allocator@UEffectInput@@@std@@@std@@2PEAUEffectInput@@@Z @ 0x18004FCB0 (-GetEffectStageInput@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIAEBV-$vec.c)
+ *     ??4EffectInput@@QEAAAEAU0@AEBU0@@Z @ 0x18004FEF4 (--4EffectInput@@QEAAAEAU0@AEBU0@@Z.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800563A4 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Reset@EffectInput@@SAXPEAU1@@Z @ 0x1800569B0 (-Reset@EffectInput@@SAXPEAU1@@Z.c)
+ *     ??1EffectInput@@QEAA@XZ @ 0x1800569F0 (--1EffectInput@@QEAA@XZ.c)
+ *     ??$_Destroy_range@V?$allocator@UEffectInput@@@std@@@std@@YAXPEAUEffectInput@@0AEAV?$allocator@UEffectInput@@@0@@Z @ 0x180058750 (--$_Destroy_range@V-$allocator@UEffectInput@@@std@@@std@@YAXPEAUEffectInput@@0AEAV-$allocator@UE.c)
+ *     ??$emplace_back@$$T@?$vector@UEffectInput@@V?$allocator@UEffectInput@@@std@@@std@@QEAAAEAUEffectInput@@$$QEA$$T@Z @ 0x180058794 (--$emplace_back@$$T@-$vector@UEffectInput@@V-$allocator@UEffectInput@@@std@@@std@@QEAAAEAUEffect.c)
+ *     ?CleanupEffectStage@CBrushRenderingGraph@@AEAAXPEAUEffectStage@@@Z @ 0x180058898 (-CleanupEffectStage@CBrushRenderingGraph@@AEAAXPEAUEffectStage@@@Z.c)
+ *     ?reserve@?$vector@UEffectInput@@V?$allocator@UEffectInput@@@std@@@std@@QEAAX_K@Z @ 0x180058904 (-reserve@-$vector@UEffectInput@@V-$allocator@UEffectInput@@@std@@@std@@QEAAX_K@Z.c)
+ *     ?IsBackdropInput@CBrushRenderingGraph@@AEBA_NI@Z @ 0x180058EDC (-IsBackdropInput@CBrushRenderingGraph@@AEBA_NI@Z.c)
+ *     ?GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z @ 0x180058F1C (-GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z.c)
+ *     ?IsWindowBackdropInput@CBrushRenderingGraph@@AEBA_NI@Z @ 0x180058FA4 (-IsWindowBackdropInput@CBrushRenderingGraph@@AEBA_NI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIRenderTargetBitmap@@@Z @ 0x18005FEDC (--4-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIRenderTar.c)
+ *     ?CalcWorldSpaceClippedBounds@CDrawingContext@@QEBAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18006B700 (-CalcWorldSpaceClippedBounds@CDrawingContext@@QEBAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
+ *     ?Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800BA3A8 (-Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA7B0 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     ?GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ @ 0x1800C189C (-GetWindowBackgroundTreatmentInternal@CVisual@@QEBAPEAVCWindowBackgroundTreatment@@XZ.c)
+ *     ?UpdateDrawListCache@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAUEffectStage@@PEAVCDrawListCache@@@Z @ 0x1800C5754 (-UpdateDrawListCache@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawLi.c)
+ *     ?CheckIfDisposed@CBrushRenderingGraph@@AEBAXXZ @ 0x1800C6054 (-CheckIfDisposed@CBrushRenderingGraph@@AEBAXXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??0EffectStage@@QEAA@XZ @ 0x1800C9DC0 (--0EffectStage@@QEAA@XZ.c)
+ *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@AEBA_NIPEA_N@Z @ 0x1800CA11C (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@AEBA_NIPEA_N@Z.c)
+ *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x1800CA1FC (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
+ *     ?HasSubtreeSurface@CVisual@@QEBA_NXZ @ 0x1800D2508 (-HasSubtreeSurface@CVisual@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800EBC7C (-GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBrushRenderingGraph::RenderSubgraphs(
@@ -59,581 +50,531 @@ __int64 __fastcall CBrushRenderingGraph::RenderSubgraphs(
         const struct CDrawListBrush *a4,
         struct CDrawListCache *a5)
 {
-  struct D2D_SIZE_F *v5; // r13
-  struct CDrawingContext *v6; // r12
-  struct IBitmapRealization *v8; // rbx
-  unsigned int v9; // eax
-  unsigned int v10; // eax
+  struct D2D_SIZE_F *v5; // r15
+  unsigned int v8; // r14d
+  struct IBitmapRealization *v9; // rbx
+  unsigned int v10; // edi
+  int v11; // eax
+  __int64 v12; // r12
   FLOAT height; // xmm0_4
-  __int64 v12; // rax
-  CVisual *v13; // rdi
   int v14; // eax
   float v15; // xmm1_4
-  char v16; // r15
-  char v17; // al
-  __int64 v18; // rdi
-  CVisual *v19; // rax
-  CBackdropVisualImage *BackdropVisualImage; // rax
-  CBackdropVisualImage *v21; // r15
-  __int64 v22; // rcx
-  __int64 EffectInput; // rax
-  int v24; // edi
-  int v25; // r13d
+  bool v16; // cc
+  struct CBrush *NamedInput; // rax
+  CBrushRenderingGraph *v18; // rcx
+  CVisual *v19; // rdi
+  unsigned int v20; // r12d
+  __int64 v21; // r15
+  __int64 v22; // r14
+  __int64 v23; // r15
+  struct EffectInput *v24; // rdi
+  FLOAT v25; // xmm1_4
   unsigned int v26; // edi
-  unsigned int v27; // r15d
-  __int64 v28; // rdi
-  __int64 v29; // r14
-  __int64 v30; // r12
-  __int64 v31; // r13
-  struct D2D_SIZE_F *v32; // rdi
-  FLOAT v33; // xmm1_4
-  unsigned int v34; // r15d
-  unsigned int v35; // r13d
-  __int64 v36; // rdi
-  char *v37; // rbx
-  __int64 v38; // rax
-  struct EffectInput *v39; // rbx
-  __int64 v40; // r15
-  int BlurredWallpaperEffectInput; // eax
-  CBrushRenderingGraph *v42; // rcx
-  const struct _GUID *v43; // r8
-  unsigned int v44; // edi
-  unsigned int v45; // ebx
+  unsigned int v27; // r12d
+  unsigned int v28; // ebx
+  __int64 v29; // r12
+  int EffectStageInput; // eax
+  unsigned int v31; // ecx
+  struct CDrawListCache *v32; // rbx
+  int updated; // eax
+  __int64 v34; // rbx
+  __int64 v35; // rbx
+  EffectInput *v36; // rsi
+  __int64 v38; // rbx
+  __int64 v39; // rdi
+  struct EffectInput *v40; // rdi
+  __int64 v41; // rbx
+  int v42; // eax
+  unsigned int v43; // ecx
+  int v44; // eax
+  CBrushRenderingGraph *v45; // rcx
   __int64 v46; // rbx
-  __int64 v47; // rbx
-  __int64 v48; // rbx
-  EffectInput *v49; // rsi
-  __int128 *v51; // rdx
-  unsigned int v52; // edx
-  __int64 v53; // rax
-  __int64 v54; // rcx
-  __int64 v55; // rdx
-  __int64 v56; // rdx
-  __int64 v57; // rdx
-  unsigned int v58; // ecx
-  const char **DebugString; // rax
-  __int64 v60; // rdi
-  __int64 v61; // rax
-  void **v62; // rdi
-  void **v63; // rax
+  __int128 *v47; // rdx
+  __int64 v48; // r14
+  char DoesBackdropInputContributeToSubgraph; // di
+  FLOAT width; // xmm0_4
+  FLOAT v51; // xmm1_4
+  int BackdropImageFromRenderTarget; // eax
+  unsigned int v53; // ecx
+  unsigned int v54; // ecx
+  __int64 v55; // rax
+  int v56; // eax
+  unsigned int v57; // ecx
+  __int64 v58; // rcx
+  unsigned __int64 v59; // rdx
+  __int64 v60; // rdx
+  FLOAT v61; // xmm1_4
+  __int128 v62; // xmm0
+  __int64 v63; // rax
   __int64 v64; // rdx
-  CDrawListBitmap *v65; // rax
-  float v66; // xmm1_4
-  __int64 DestToTexSpaceTransform; // rax
-  unsigned int v68; // [rsp+20h] [rbp-E0h]
-  bool v69; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v70; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v71; // [rsp+50h] [rbp-B0h]
-  struct D2D_SIZE_F *v72; // [rsp+58h] [rbp-A8h]
-  unsigned int v73; // [rsp+60h] [rbp-A0h]
-  const struct CVisualTreePath *v74; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v75[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v76; // [rsp+80h] [rbp-80h]
-  __int64 v77[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v78; // [rsp+98h] [rbp-68h]
-  _BYTE v79[24]; // [rsp+A0h] [rbp-60h] BYREF
-  struct IBitmapRealization *v80; // [rsp+B8h] [rbp-48h] BYREF
-  void *v81; // [rsp+C0h] [rbp-40h] BYREF
-  CVisual *v82; // [rsp+C8h] [rbp-38h]
-  struct CDrawingContext *v83; // [rsp+D0h] [rbp-30h]
-  struct CDrawListCache *v84; // [rsp+D8h] [rbp-28h]
-  struct CDrawListBrush *v85; // [rsp+E0h] [rbp-20h]
-  char v86[8]; // [rsp+E8h] [rbp-18h] BYREF
-  char v87[32]; // [rsp+F0h] [rbp-10h] BYREF
-  _BYTE v88[64]; // [rsp+110h] [rbp+10h] BYREF
-  int v89; // [rsp+150h] [rbp+50h]
-  int v90; // [rsp+160h] [rbp+60h]
-  int v91; // [rsp+164h] [rbp+64h]
-  FLOAT width; // [rsp+168h] [rbp+68h]
-  FLOAT v93; // [rsp+16Ch] [rbp+6Ch]
-  struct _GUID v94; // [rsp+170h] [rbp+70h] BYREF
-  __int128 v95; // [rsp+180h] [rbp+80h] BYREF
-  char v96; // [rsp+190h] [rbp+90h]
-  __int128 v97; // [rsp+1B0h] [rbp+B0h]
-  char v98; // [rsp+1E7h] [rbp+E7h]
-  __int128 v99; // [rsp+1F0h] [rbp+F0h] BYREF
-  char v100; // [rsp+200h] [rbp+100h]
-  __int128 v101; // [rsp+220h] [rbp+120h]
-  __int128 v102; // [rsp+260h] [rbp+160h] BYREF
-  char v103; // [rsp+270h] [rbp+170h]
-  __int128 v104; // [rsp+290h] [rbp+190h]
-  unsigned int v105; // [rsp+2D0h] [rbp+1D0h] BYREF
-  unsigned int v106; // [rsp+2D4h] [rbp+1D4h]
-  _QWORD v107[5]; // [rsp+2D8h] [rbp+1D8h] BYREF
-  char v108; // [rsp+304h] [rbp+204h]
-  char v109; // [rsp+305h] [rbp+205h]
-  char v110; // [rsp+33Dh] [rbp+23Dh]
-  char v111; // [rsp+478h] [rbp+378h] BYREF
-  char v112[8]; // [rsp+480h] [rbp+380h] BYREF
-  char v113[104]; // [rsp+488h] [rbp+388h] BYREF
-  char v114[8]; // [rsp+4F0h] [rbp+3F0h] BYREF
-  char v115[104]; // [rsp+4F8h] [rbp+3F8h] BYREF
+  __int64 v65; // rdx
+  int v66; // eax
+  unsigned int v67; // ecx
+  struct EffectInput *v68; // rcx
+  float v69; // xmm1_4
+  _DWORD *DestToTexSpaceTransform; // rax
+  int v71; // eax
+  unsigned int v72; // ecx
+  unsigned int v73; // [rsp+20h] [rbp-E0h]
+  bool v74; // [rsp+40h] [rbp-C0h] BYREF
+  char v75; // [rsp+41h] [rbp-BFh]
+  unsigned int v76; // [rsp+44h] [rbp-BCh]
+  unsigned int v77; // [rsp+48h] [rbp-B8h]
+  __int64 v78; // [rsp+50h] [rbp-B0h] BYREF
+  struct EffectInput *v79; // [rsp+58h] [rbp-A8h]
+  __int64 v80[2]; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v81; // [rsp+70h] [rbp-90h]
+  struct IBitmapRealization *v82; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v83[2]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v84; // [rsp+90h] [rbp-70h]
+  CVisual *CurrentVisual; // [rsp+98h] [rbp-68h]
+  __int128 v86; // [rsp+A0h] [rbp-60h]
+  struct D2D_SIZE_F *v87; // [rsp+B0h] [rbp-50h]
+  struct CDrawListCache *v88; // [rsp+B8h] [rbp-48h]
+  _DWORD v89[2]; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v90; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v91; // [rsp+D8h] [rbp-28h]
+  _BYTE v92[64]; // [rsp+E0h] [rbp-20h] BYREF
+  int v93; // [rsp+120h] [rbp+20h]
+  int v94[10]; // [rsp+130h] [rbp+30h] BYREF
+  __int128 v95; // [rsp+158h] [rbp+58h] BYREF
+  __int64 v96; // [rsp+168h] [rbp+68h] BYREF
+  FLOAT v97; // [rsp+170h] [rbp+70h]
+  FLOAT v98; // [rsp+174h] [rbp+74h]
+  struct CDrawListBrush *v99[2]; // [rsp+178h] [rbp+78h] BYREF
+  struct _GUID v100; // [rsp+188h] [rbp+88h] BYREF
+  __int128 v101; // [rsp+1A0h] [rbp+A0h] BYREF
+  __int64 v102; // [rsp+1B0h] [rbp+B0h]
+  int v103; // [rsp+1B8h] [rbp+B8h]
+  __int64 v104; // [rsp+1BCh] [rbp+BCh]
+  int v105; // [rsp+1C4h] [rbp+C4h]
+  char v106; // [rsp+1C8h] [rbp+C8h]
+  __int128 v107; // [rsp+1E8h] [rbp+E8h]
+  __int128 v108; // [rsp+220h] [rbp+120h] BYREF
+  __int64 v109; // [rsp+230h] [rbp+130h]
+  int v110; // [rsp+238h] [rbp+138h]
+  __int64 v111; // [rsp+23Ch] [rbp+13Ch]
+  int v112; // [rsp+244h] [rbp+144h]
+  char v113; // [rsp+248h] [rbp+148h]
+  __int128 v114; // [rsp+268h] [rbp+168h]
+  unsigned int v115; // [rsp+2A0h] [rbp+1A0h] BYREF
+  int v116; // [rsp+2A4h] [rbp+1A4h]
+  _BYTE v117[512]; // [rsp+2A8h] [rbp+1A8h] BYREF
+  char v118; // [rsp+4A8h] [rbp+3A8h] BYREF
 
   v5 = a3;
-  v84 = a5;
-  v6 = a2;
-  v85 = a4;
-  v72 = a3;
-  v83 = a2;
+  v88 = a5;
+  v99[0] = a4;
+  v87 = a3;
   CBrushRenderingGraph::CheckIfDisposed(this);
-  v8 = 0LL;
-  v80 = 0LL;
-  EffectStage::EffectStage((EffectStage *)&v105);
-  v96 = 0;
-  v94 = 0LL;
-  v95 = 0LL;
-  v97 = 0LL;
-  EffectInput::Reset((struct EffectInput *)&v95);
+  v8 = 0;
+  v9 = 0LL;
+  v10 = 0;
+  v82 = 0LL;
+  EffectStage::EffectStage((EffectStage *)&v115);
   v103 = 0;
-  v102 = 0LL;
   v104 = 0LL;
-  EffectInput::Reset((struct EffectInput *)&v102);
-  v100 = 0;
-  v99 = 0LL;
+  v105 = 0;
   v101 = 0LL;
-  EffectInput::Reset((struct EffectInput *)&v99);
-  v89 = 0;
-  CMatrixStack::Top((struct CDrawingContext *)((char *)v6 + 368), (struct CMILMatrix *)v88);
-  v9 = *((_DWORD *)this + 10);
-  v90 = 0;
-  v91 = 0;
-  v71 = v9;
-  v10 = *((_DWORD *)this + 42) - 1;
-  v76 = 0LL;
-  *(_OWORD *)v75 = 0LL;
-  v73 = v10;
+  v100 = 0LL;
+  v102 = 0LL;
+  v107 = 0LL;
+  v106 = 0;
+  EffectInput::Reset((struct EffectInput *)&v101);
+  v110 = 0;
+  v111 = 0LL;
+  v108 = 0LL;
+  v112 = 0;
+  v109 = 0LL;
+  v114 = 0LL;
+  v113 = 0;
+  EffectInput::Reset((struct EffectInput *)&v108);
+  v93 = 0;
+  CDrawingContext::GetWorldTransform(a2, (struct CMILMatrix *)v92);
+  v11 = *((_DWORD *)this + 42);
+  v12 = *((unsigned int *)this + 10);
+  *(_QWORD *)&v95 = 0LL;
+  *(_OWORD *)v83 = 0LL;
+  v84 = 0LL;
   height = v5->height;
-  v12 = *((_QWORD *)v6 + 3);
-  *(_OWORD *)v77 = 0LL;
-  v78 = 0LL;
-  width = v5->width;
-  v93 = height;
-  v13 = (CVisual *)(*(__int64 (__fastcall **)(__int64))(v12 + 32))((__int64)v6 + 24);
-  v14 = *((_DWORD *)v6 + 776);
+  *(_OWORD *)v80 = 0LL;
+  v81 = 0LL;
+  DWORD2(v95) = LODWORD(v5->width);
+  *((FLOAT *)&v95 + 3) = height;
+  v77 = v12;
+  v76 = v11 - 1;
+  CurrentVisual = CDrawingContext::GetCurrentVisual((struct CDrawingContext *)((char *)a2 + 24));
+  v14 = *((_DWORD *)a2 + 808);
   if ( v14 )
-    v15 = *(float *)(*((_QWORD *)v6 + 390) + 4LL * (unsigned int)(v14 - 1));
+    v15 = *(float *)(*((_QWORD *)a2 + 406) + 4LL * (unsigned int)(v14 - 1));
   else
     v15 = *(float *)&FLOAT_1_0;
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v15 - 1.0) & _xmm) >= 0.0000011920929 || (v16 = 1, *((_DWORD *)v6 + 77) > 1u) )
-    v16 = 0;
-  v70 = 0LL;
-  if ( CVisual::HasSubtreeSurface(v13) )
-    v70 = *(_QWORD *)((*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)v13 + 216LL))(v13) + 8);
-  if ( *((_QWORD *)this + 26) )
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v15 - 1.0) & _xmm) >= 0.0000011920929
+    || (v16 = *((_DWORD *)a2 + 70) <= 1u, v75 = 1, !v16) )
   {
-    if ( (**((_DWORD **)v13 + 29) & 0x200000) != 0
-      && (v57 = *((_QWORD *)CVisual::GetWindowBackgroundTreatmentInternal(v13) + 39)) != 0 )
+    v75 = 0;
+  }
+  v79 = 0LL;
+  if ( (_DWORD)v12 )
+  {
+    while ( 1 )
     {
-      EffectInput::operator=(&v95, v57);
-      v17 = 1;
-      v98 = 1;
+      NamedInput = CBrushRenderingGraph::GetNamedInput(this, v8);
+      if ( NamedInput )
+      {
+        if ( !(*(unsigned __int8 (__fastcall **)(struct CBrush *, struct CDrawingContext *, bool *))(*(_QWORD *)NamedInput + 296LL))(
+                NamedInput,
+                a2,
+                &v74) )
+          break;
+      }
+      if ( ++v8 >= (unsigned int)v12 )
+        goto LABEL_9;
+    }
+LABEL_63:
+    v22 = v80[0];
+    goto LABEL_29;
+  }
+LABEL_9:
+  v19 = CurrentVisual;
+  if ( CVisual::HasSubtreeSurface(CurrentVisual) )
+    v79 = *(struct EffectInput **)((*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)v19 + 240LL))(v19) + 8);
+  if ( *((_BYTE *)this + 196) )
+  {
+    if ( (**((_DWORD **)v19 + 28) & 0x200000) != 0
+      && (v64 = *((_QWORD *)CVisual::GetWindowBackgroundTreatmentInternal(v19) + 46)) != 0 )
+    {
+      EffectInput::operator=((__int64)&v101, v64);
     }
     else
     {
-      v17 = v98;
-    }
-    if ( !v17 )
-    {
-      v18 = v73;
-      v69 = 0;
-      CBrushRenderingGraph::DoesBackdropInputContributeToSubgraph(this, v73, &v69);
-      if ( v69
-        && v16
+      v48 = v76;
+      v74 = 0;
+      DoesBackdropInputContributeToSubgraph = CBrushRenderingGraph::DoesBackdropInputContributeToSubgraph(
+                                                this,
+                                                v76,
+                                                &v74);
+      if ( v74
+        && v75
         && CRenderingTechniqueFragment::IsNoOp(*(CRenderingTechniqueFragment **)(*(_QWORD *)(*((_QWORD *)this + 18)
-                                                                                           + 8 * v18)
+                                                                                           + 8 * v48)
                                                                                + 8LL)) )
       {
-        v44 = -2003304441;
-        MilInstrumentationCheckHR_MaybeFailFast(
-          v58,
-          &`CBitmapRenderStrategy::GetLayoutParameters'::`2'::MILINSTRUMENTATIONHRESULTLIST,
-          2u,
-          -2003304441,
-          0x29Fu,
-          0LL);
-        goto LABEL_50;
+        v10 = -2003304441;
+        MilInstrumentationCheckHR_MaybeFailFast(v72, &dword_1802DC178, 2u, -2003304441, 0x33Eu, 0LL);
+        goto LABEL_63;
       }
-      v19 = (CVisual *)(*(__int64 (__fastcall **)(__int64))(*((_QWORD *)v6 + 3) + 32LL))((__int64)v6 + 24);
-      v74 = (const struct CVisualTreePath *)*((_QWORD *)v6 + 994);
-      v82 = v19;
-      BackdropVisualImage = CVisual::GetBackdropVisualImage(v19, v74);
-      v21 = BackdropVisualImage;
-      if ( BackdropVisualImage && CBackdropVisualImage::CanUseAsEffectInput(BackdropVisualImage) )
+      width = v5->width;
+      v51 = v5->height;
+      v96 = 0LL;
+      v97 = width;
+      v98 = v51;
+      BackdropImageFromRenderTarget = CDrawingContext::GetBackdropImageFromRenderTarget(
+                                        (struct IDeviceTarget **)a2,
+                                        (float *)&v96,
+                                        DoesBackdropInputContributeToSubgraph,
+                                        (__int64)&v101);
+      v10 = BackdropImageFromRenderTarget;
+      if ( BackdropImageFromRenderTarget < 0 )
       {
-        EffectInput = CBackdropVisualImage::GenerateEffectInput(v22, v114);
-        v24 = 0;
-        v25 = 1;
+        v73 = 843;
+LABEL_82:
+        MilInstrumentationCheckHR_MaybeFailFast(v53, &dword_1802DC178, 2u, BackdropImageFromRenderTarget, v73, 0LL);
+        goto LABEL_63;
       }
-      else
-      {
-        EffectInput = CDrawingContext::GetTransparentBlackEffectInput(v6, v112, v5);
-        v25 = 0;
-        v24 = 2;
-      }
-      EffectInput::operator=(&v95, EffectInput);
-      if ( v24 )
-      {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v113);
-        wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)v112);
-      }
-      if ( v25 )
-      {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v115);
-        wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)v114);
-      }
-      if ( dword_1803D0F60 )
-      {
-        if ( v21 )
-        {
-          if ( !CBackdropVisualImage::CanUseAsEffectInput(v21) )
-          {
-            v62 = (void **)DwmDbg::DbgString::DbgString(
-                             (DwmDbg::DbgString *)v79,
-                             "CBrushRenderingGraph::RenderSubgraphs");
-            v63 = (void **)DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v81, "BVI-FallbackToTransparentBlack");
-            CBackdropVisualImage::LogEtwEvent((__int64)v21, v63, v62);
-          }
-        }
-        else
-        {
-          DebugString = (const char **)CVisualTreePath::GetDebugString(v74, &v81);
-          v60 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v74, "bviPath=[%s]", *DebugString);
-          v61 = DwmDbg::DbgString::DbgString(
-                  (DwmDbg::DbgString *)v79,
-                  "BrushRenderingGraph-FallbackToTransparentBlack-NoBVI");
-          DwmDbg::Backdrops::LogBrushEtwEvent(v61, v82, v60);
-          if ( v81 )
-            DefaultHeap::Free(v81);
-        }
-      }
-      v5 = v72;
-    }
-  }
-  if ( *((_BYTE *)this + 197) )
-  {
-    BlurredWallpaperEffectInput = CDrawingContext::GetBlurredWallpaperEffectInput(v6, v5, (struct EffectInput *)&v102);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput < 0 )
-    {
-      v68 = 707;
-      goto LABEL_103;
     }
   }
   if ( *((_BYTE *)this + 198) )
   {
-    BlurredWallpaperEffectInput = CDrawingContext::GetWindowBackgroundTreatmentEffectInput(
-                                    v6,
-                                    v5,
-                                    (struct EffectInput *)&v99);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput < 0 )
+    BackdropImageFromRenderTarget = CDrawingContext::GetWindowBackgroundTreatmentEffectInput(
+                                      (const struct IDeviceTarget **)a2,
+                                      v5,
+                                      (struct EffectInput *)&v108);
+    v10 = BackdropImageFromRenderTarget;
+    if ( BackdropImageFromRenderTarget < 0 )
     {
-      v68 = 713;
-      goto LABEL_103;
+      v73 = 850;
+      goto LABEL_82;
     }
   }
-  v26 = v71;
-  std::vector<EffectInput>::reserve(v77, v71);
-  v27 = 0;
-  if ( v26 )
+  std::vector<EffectInput>::reserve(v80, v12);
+  v20 = 0;
+  if ( v77 )
   {
-    v28 = v77[1];
-    v29 = 0LL;
-    v30 = v70;
+    v21 = 0LL;
+    v96 = 0LL;
     while ( 1 )
     {
-      if ( v28 == v78 )
+      std::vector<EffectInput>::emplace_back<std::nullptr_t>(v80);
+      v22 = v80[0];
+      v23 = v80[0] + v21;
+      EffectInput::Reset((struct EffectInput *)v23);
+      if ( CBrushRenderingGraph::IsBackdropInput(this, v20) )
       {
-        std::vector<EffectInput>::_Emplace_reallocate<std::nullptr_t>(v77, v28);
-        v28 = v77[1];
+        v47 = &v101;
       }
       else
       {
-        *(_QWORD *)v28 = 0LL;
-        *(_QWORD *)(v28 + 8) = 0LL;
-        *(_BYTE *)(v28 + 16) = 0;
-        *(_OWORD *)(v28 + 48) = 0LL;
-        v28 += 104LL;
-        v77[1] = v28;
-      }
-      v31 = v29 + v77[0];
-      EffectInput::Reset((struct EffectInput *)(v29 + v77[0]));
-      if ( CBrushRenderingGraph::IsBackdropInput(this, v27) )
-      {
-        v51 = &v95;
-      }
-      else if ( CBrushRenderingGraph::IsWindowBackdropInput(this, v27) )
-      {
-        v51 = &v99;
-      }
-      else
-      {
-        if ( !CBrushRenderingGraph::IsBlurredWallpaperBackdropInput(this, v27) )
+        if ( !CBrushRenderingGraph::IsWindowBackdropInput(this, v20) )
         {
-          if ( !v30 || CBrushRenderingGraph::GetNamedInput(this, v27) )
+          v24 = v79;
+          if ( !v79 || CBrushRenderingGraph::GetNamedInput(this, v20) )
           {
-            *(_DWORD *)(v31 + 48) = v27;
+            *(_DWORD *)(v23 + 72) = v20;
           }
           else
           {
-            if ( !v8 )
+            if ( !v9 )
             {
-              v64 = *(_QWORD *)(v30 + 8);
-              v70 = 0LL;
-              wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::operator=(&v70, v64);
-              (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v70 + 8LL))(v70, 1LL);
+              v65 = *((_QWORD *)v24 + 1);
+              v78 = 0LL;
+              wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::operator=(&v78, v65);
+              (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v78 + 8LL))(v78, 1LL);
               wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=<IRenderTargetBitmap,wil::err_returncode_policy,void>(
-                &v80,
-                &v70);
-              wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v70);
-              v8 = v80;
+                (__int64 *)&v82,
+                &v78);
+              wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v78);
+              v9 = v82;
             }
-            v65 = CDrawListBitmap::CDrawListBitmap((CDrawListBitmap *)v86, v8);
-            CDrawListBitmap::operator=(v31, v65);
-            wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v87);
-            wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)v86);
-            *(_DWORD *)v79 = 0;
-            *(_DWORD *)&v79[4] = 0;
-            *(_BYTE *)(v31 + 44) = 1;
-            v66 = (float)*(int *)(v30 + 28);
-            *(float *)&v79[8] = (float)*(int *)(v30 + 24);
-            *(float *)&v79[12] = v66;
-            *(_OWORD *)(v31 + 84) = *(_OWORD *)v79;
-            DestToTexSpaceTransform = CTreeEffectLayer::GetDestToTexSpaceTransform(v30, v86, v27);
-            *(_OWORD *)(v31 + 48) = *(_OWORD *)DestToTexSpaceTransform;
-            *(_OWORD *)(v31 + 64) = *(_OWORD *)(DestToTexSpaceTransform + 16);
-            *(_DWORD *)(v31 + 80) = *(_DWORD *)(DestToTexSpaceTransform + 32);
-            *(_BYTE *)(v31 + 100) = 0;
+            v66 = CDrawListBitmap::Initialize((CDrawListBitmap *)v23, v9, a2);
+            v10 = v66;
+            if ( v66 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v67, &dword_1802DC178, 2u, v66, 0x376u, 0LL);
+              goto LABEL_29;
+            }
+            *(_QWORD *)&v86 = 0LL;
+            v68 = v79;
+            *(_BYTE *)(v23 + 68) = 1;
+            *(_BYTE *)(v23 + 124) = 1;
+            v69 = (float)*((int *)v68 + 7);
+            *((float *)&v86 + 2) = (float)*((int *)v68 + 6);
+            *((float *)&v86 + 3) = v69;
+            *(_OWORD *)(v23 + 108) = v86;
+            DestToTexSpaceTransform = CTreeEffectLayer::GetDestToTexSpaceTransform((__int64)v68, v94, v20);
+            *(_OWORD *)(v23 + 72) = *(_OWORD *)DestToTexSpaceTransform;
+            *(_OWORD *)(v23 + 88) = *((_OWORD *)DestToTexSpaceTransform + 1);
+            *(_DWORD *)(v23 + 104) = DestToTexSpaceTransform[8];
           }
-          goto LABEL_32;
+          goto LABEL_19;
         }
-        v51 = &v102;
+        v47 = &v108;
       }
-      EffectInput::operator=(v31, v51);
-LABEL_32:
-      ++v27;
-      v29 += 104LL;
-      if ( v27 >= v71 )
+      EffectInput::operator=(v23, (__int64)v47);
+LABEL_19:
+      ++v20;
+      v21 = v96 + 128;
+      v96 += 128LL;
+      if ( v20 >= v77 )
       {
-        v6 = v83;
-        break;
+        v5 = v87;
+        goto LABEL_21;
       }
     }
   }
-  v32 = v72;
-  *(_OWORD *)&v79[8] = 0LL;
-  v33 = v72->height;
-  *(FLOAT *)v79 = v72->width;
-  *(FLOAT *)&v79[4] = v33;
-  CMILMatrix::Get2DScaleDimensionsWithPerspective((CMILMatrix *)v88, (float *)&v79[8], (float *)&v79[12]);
-  v34 = v73;
-  std::vector<EffectInput>::reserve(v75, v73);
-  v35 = 0;
-  if ( !v34 )
+  v22 = v80[0];
+LABEL_21:
+  v25 = v5->height;
+  v91 = 0LL;
+  *(FLOAT *)&v89[1] = v25;
+  v90 = 0LL;
+  v89[0] = LODWORD(v5->width);
+  CMILMatrix::Get2DScaleDimensionsWithPerspective(v92, &v90, (char *)&v90 + 4, &v95);
+  v26 = v76;
+  std::vector<EffectInput>::reserve(v83, v76);
+  v27 = 0;
+  if ( !v26 )
   {
-LABEL_45:
-    v106 = 0;
-    v45 = 0;
-    v105 = v34;
-    while ( v45 < *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 18) + 8LL * v34) + 60LL) )
+LABEL_22:
+    v116 = 0;
+    v28 = 0;
+    v115 = v26;
+    v29 = v26;
+    while ( v28 < *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 18) + 8 * v29) + 60LL) )
     {
-      BlurredWallpaperEffectInput = CBrushRenderingGraph::GetEffectStageInput(
-                                      this,
-                                      v6,
-                                      v32,
-                                      v34,
-                                      v45,
-                                      (__int64)v77,
-                                      (__int64)v75,
-                                      (struct EffectInput *)&v107[13 * v45]);
-      v44 = BlurredWallpaperEffectInput;
-      if ( BlurredWallpaperEffectInput < 0 )
+      EffectStageInput = CBrushRenderingGraph::GetEffectStageInput(
+                           this,
+                           a2,
+                           v5,
+                           v26,
+                           v28,
+                           v80,
+                           v83,
+                           (struct EffectInput *)&v117[128 * (unsigned __int64)v28]);
+      v10 = EffectStageInput;
+      if ( EffectStageInput < 0 )
       {
-        v68 = 898;
-        goto LABEL_103;
+        MilInstrumentationCheckHR_MaybeFailFast(v31, &dword_1802DC178, 2u, EffectStageInput, 0x406u, 0LL);
+        goto LABEL_29;
       }
-      ++v106;
-      v32 = v72;
-      ++v45;
+      ++v116;
+      v26 = v76;
+      ++v28;
     }
-    BlurredWallpaperEffectInput = CBrushRenderingGraph::UpdateDrawListCache(
-                                    this,
-                                    v6,
-                                    v85,
-                                    (struct EffectStage *)&v105,
-                                    v84);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput >= 0 )
-      goto LABEL_50;
-    v68 = 906;
-    goto LABEL_103;
+    v32 = v88;
+    updated = CBrushRenderingGraph::UpdateDrawListCache(this, a2, v5, v99[0], (struct EffectStage *)&v115, v88);
+    v10 = updated;
+    if ( updated < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v18, &dword_1802DC178, 2u, updated, 0x40Fu, 0LL);
+    }
+    else if ( *((_BYTE *)this + 196) )
+    {
+      v61 = v5->height;
+      *(_QWORD *)&v95 = 0LL;
+      *(_OWORD *)v99 = 0LL;
+      DWORD2(v95) = LODWORD(v5->width);
+      *((FLOAT *)&v95 + 3) = v61;
+      CDrawingContext::CalcWorldSpaceClippedBounds(a2, &v95, v99);
+      v62 = *(_OWORD *)v99;
+      v63 = *((_QWORD *)CurrentVisual + 2);
+      v95 = *(_OWORD *)v99;
+      v18 = *(CBrushRenderingGraph **)(v63 + 456);
+      *((_QWORD *)v32 + 10) = v18;
+      *((_OWORD *)v32 + 4) = v62;
+    }
+    goto LABEL_29;
   }
-  v36 = 0LL;
-  v37 = 0LL;
-  v70 = 0LL;
-  v74 = 0LL;
+  v38 = 0LL;
+  v39 = 0LL;
+  v78 = 0LL;
+  v96 = 0LL;
   while ( 1 )
   {
-    v38 = v75[1];
-    if ( v75[1] == v76 )
-    {
-      std::vector<EffectInput>::_Emplace_reallocate<std::nullptr_t>(v75, v75[1]);
-    }
-    else
-    {
-      *(_QWORD *)v75[1] = 0LL;
-      *(_QWORD *)(v38 + 8) = 0LL;
-      v75[1] += 104LL;
-      *(_BYTE *)(v38 + 16) = 0;
-      *(_OWORD *)(v38 + 48) = 0LL;
-    }
-    v39 = (struct EffectInput *)&v37[v75[0]];
-    EffectInput::Reset(v39);
-    *((_BYTE *)v39 + 44) = 1;
-    *((_BYTE *)v39 + 100) = 1;
-    v40 = *(_QWORD *)(v36 + *((_QWORD *)this + 18));
-    v106 = 0;
-    v105 = v35;
-    if ( !CRenderingTechnique::IsExternallyImplementedSubgraph((CRenderingTechnique *)v40, &v94) )
+    std::vector<EffectInput>::emplace_back<std::nullptr_t>(v83);
+    v40 = (struct EffectInput *)(v83[0] + v39);
+    v79 = v40;
+    EffectInput::Reset(v40);
+    *((_BYTE *)v40 + 68) = 1;
+    v41 = *(_QWORD *)(v38 + *((_QWORD *)this + 18));
+    v116 = 0;
+    v115 = v27;
+    if ( !CRenderingTechnique::IsExternallyImplementedSubgraph((CRenderingTechnique *)v41, &v100) )
       break;
-    if ( CRenderingTechniqueFragment::IsNoOp(*(CRenderingTechniqueFragment **)(v40 + 8)) )
-      goto LABEL_66;
-    BlurredWallpaperEffectInput = CBrushRenderingGraph::GetEffectStageInput(
-                                    this,
-                                    v6,
-                                    v72,
-                                    v35,
-                                    0,
-                                    (__int64)v77,
-                                    (__int64)v75,
-                                    (struct EffectInput *)v107);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput < 0 )
+    if ( CRenderingTechniqueFragment::IsNoOp(*(CRenderingTechniqueFragment **)(v41 + 8)) )
+      goto LABEL_60;
+    v42 = CBrushRenderingGraph::GetEffectStageInput(this, a2, v5, v27, 0, v80, v83, (struct EffectInput *)v117);
+    v10 = v42;
+    if ( v42 < 0 )
     {
-      v68 = 815;
-      goto LABEL_103;
+      MilInstrumentationCheckHR_MaybeFailFast(v43, &dword_1802DC178, 2u, v42, 0x3B3u, 0LL);
+      goto LABEL_29;
     }
-    v106 = 1;
-    if ( v109 )
+    v116 = 1;
+    if ( v117[69] )
     {
-LABEL_66:
-      v54 = *(_QWORD *)(*((_QWORD *)this + 18) + v70);
-      v55 = 104LL * *(unsigned int *)(v54 + 68);
-      if ( *(_BYTE *)(v54 + 72) )
-        v56 = v75[0] + v55;
+LABEL_60:
+      v46 = v78;
+      v58 = *(_QWORD *)(v78 + *((_QWORD *)this + 18));
+      v59 = (unsigned __int64)*(unsigned int *)(v58 + 68) << 7;
+      if ( *(_BYTE *)(v58 + 72) )
+        v60 = v83[0] + v59;
       else
-        v56 = v77[0] + v55;
-      EffectInput::operator=(v39, v56);
-      goto LABEL_43;
+        v60 = v22 + v59;
+      EffectInput::operator=((__int64)v79, v60);
+      goto LABEL_44;
     }
-    BlurredWallpaperEffectInput = CBrushRenderingGraph::RenderExternalEffect(
-                                    this,
-                                    v6,
-                                    v43,
-                                    (const struct EffectStage *)&v105,
-                                    (const struct CBrushRenderingGraph::IntermediateConfigurationInputs *)v79,
-                                    v39);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput < 0 )
+    v44 = CBrushRenderingGraph::RenderExternalEffect(
+            this,
+            a2,
+            &v100,
+            (const struct EffectStage *)&v115,
+            (__m128 *)v89,
+            v79);
+    v10 = v44;
+    if ( v44 < 0 )
     {
-      v68 = 824;
-      goto LABEL_103;
+      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v45, &dword_1802DC178, 2u, v44, 0x3BCu, 0LL);
+      goto LABEL_29;
     }
 LABEL_43:
-    CBrushRenderingGraph::CleanupEffectStage(v42, (struct EffectStage *)&v105);
-    ++v35;
-    v70 += 8LL;
-    v37 = (char *)v74 + 104;
-    v34 = v73;
-    v74 = (const struct CVisualTreePath *)((char *)v74 + 104);
-    if ( v35 >= v73 )
+    v46 = v78;
+LABEL_44:
+    CBrushRenderingGraph::CleanupEffectStage(v45, (struct EffectStage *)&v115);
+    v38 = v46 + 8;
+    v39 = v96 + 128;
+    v78 = v38;
+    ++v27;
+    v96 += 128LL;
+    if ( v27 >= v76 )
     {
-      v32 = v72;
-      goto LABEL_45;
+      v26 = v76;
+      goto LABEL_22;
     }
-    v36 = v70;
   }
-  v52 = v106;
-  v53 = 0LL;
-  v71 = 0;
-  if ( !*(_DWORD *)(v40 + 60) )
+  v54 = v116;
+  v55 = 0LL;
+  v77 = 0;
+  if ( !*(_DWORD *)(v41 + 60) )
   {
-LABEL_62:
-    if ( v52 == 1 && v108 && v110 && CRenderingTechniqueFragment::IsNoOp(*(CRenderingTechniqueFragment **)(v40 + 8)) )
-      goto LABEL_66;
-    BlurredWallpaperEffectInput = CBrushRenderingGraph::RenderInternalEffect(
-                                    this,
-                                    v6,
-                                    (struct EffectStage *)&v105,
-                                    (const struct CBrushRenderingGraph::IntermediateConfigurationInputs *)v79,
-                                    v39);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput < 0 )
+LABEL_56:
+    if ( v117[125]
+      && v54 == 1
+      && v117[68]
+      && CRenderingTechniqueFragment::IsNoOp(*(CRenderingTechniqueFragment **)(v41 + 8)) )
     {
-      v68 = 863;
-      goto LABEL_103;
+      goto LABEL_60;
+    }
+    v71 = CBrushRenderingGraph::RenderInternalEffect(this, a2, (struct EffectStage *)&v115, (__m128 *)v89, v40);
+    v10 = v71;
+    if ( v71 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v45, &dword_1802DC178, 2u, v71, 0x3E3u, 0LL);
+      goto LABEL_29;
     }
     goto LABEL_43;
   }
   while ( 1 )
   {
-    BlurredWallpaperEffectInput = CBrushRenderingGraph::GetEffectStageInput(
-                                    this,
-                                    v6,
-                                    v72,
-                                    v35,
-                                    v52,
-                                    (__int64)v77,
-                                    (__int64)v75,
-                                    (struct EffectInput *)&v107[13 * v53]);
-    v44 = BlurredWallpaperEffectInput;
-    if ( BlurredWallpaperEffectInput < 0 )
+    v56 = CBrushRenderingGraph::GetEffectStageInput(
+            this,
+            a2,
+            v5,
+            v27,
+            v54,
+            v80,
+            v83,
+            (struct EffectInput *)&v117[128 * v55]);
+    v10 = v56;
+    if ( v56 < 0 )
       break;
-    v52 = v106 + 1;
-    v53 = v71 + 1;
-    ++v106;
-    v71 = v53;
-    if ( (unsigned int)v53 >= *(_DWORD *)(v40 + 60) )
-      goto LABEL_62;
+    v54 = v116 + 1;
+    v55 = v77 + 1;
+    ++v116;
+    v77 = v55;
+    if ( (unsigned int)v55 >= *(_DWORD *)(v41 + 60) )
+    {
+      v40 = v79;
+      goto LABEL_56;
+    }
   }
-  v68 = 844;
-LABEL_103:
-  MilInstrumentationCheckHR_MaybeFailFast(
-    (unsigned int)v42,
-    &`CBitmapRenderStrategy::GetLayoutParameters'::`2'::MILINSTRUMENTATIONHRESULTLIST,
-    2u,
-    BlurredWallpaperEffectInput,
-    v68,
-    0LL);
-LABEL_50:
-  CBrushRenderingGraph::CleanupEffectStage(v42, (struct EffectStage *)&v105);
-  v46 = v77[0];
-  if ( v77[0] )
+  MilInstrumentationCheckHR_MaybeFailFast(v57, &dword_1802DC178, 2u, v56, 0x3D0u, 0LL);
+LABEL_29:
+  CBrushRenderingGraph::CleanupEffectStage(v18, (struct EffectStage *)&v115);
+  if ( v22 )
   {
-    std::_Destroy_range<std::allocator<EffectInput>>(v77[0], v77[1]);
-    std::_Deallocate<16,0>(v46, 8 * ((v78 - v46) >> 3));
+    std::_Destroy_range<std::allocator<EffectInput>>(v22, v80[1]);
+    std::_Deallocate<16,0>(v22, (v81 - v22) & 0xFFFFFFFFFFFFFF80uLL);
   }
-  v47 = v75[0];
-  if ( v75[0] )
+  v34 = v83[0];
+  if ( v83[0] )
   {
-    std::_Destroy_range<std::allocator<EffectInput>>(v75[0], v75[1]);
-    std::_Deallocate<16,0>(v47, 8 * ((v76 - v47) >> 3));
+    std::_Destroy_range<std::allocator<EffectInput>>(v83[0], v83[1]);
+    std::_Deallocate<16,0>(v34, (v84 - v34) & 0xFFFFFFFFFFFFFF80uLL);
   }
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v99 + 8);
-  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v99);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v102 + 8);
-  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v102);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v95 + 8);
-  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v95);
-  v48 = 4LL;
-  v49 = (EffectInput *)&v111;
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v108 + 8);
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v108);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v101 + 8);
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v101);
+  v35 = 4LL;
+  v36 = (EffectInput *)&v118;
   do
   {
-    v49 = (EffectInput *)((char *)v49 - 104);
-    EffectInput::~EffectInput(v49);
-    --v48;
+    v36 = (EffectInput *)((char *)v36 - 128);
+    EffectInput::~EffectInput(v36);
+    --v35;
   }
-  while ( v48 );
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v80);
-  return v44;
+  while ( v35 );
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v82);
+  return v10;
 }

@@ -1,52 +1,50 @@
 /*
- * XREFs of ?UnmapHostAddressesFromGuest@VIDMM_PROCESS@@QEAAXPEAX_K1E@Z @ 0x1C00E03D4
+ * XREFs of ?UnmapHostAddressesFromGuest@VIDMM_PROCESS@@QEAAXPEAX_K1E@Z @ 0x1C00BA994
  * Callers:
- *     ?UncommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C007C408 (-UncommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
- *     ??1VIDMM_RECYCLE_BLOCK@@QEAA@XZ @ 0x1C007C74C (--1VIDMM_RECYCLE_BLOCK@@QEAA@XZ.c)
- *     ?FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ @ 0x1C00A7084 (-FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ.c)
- *     ?UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00DA5FC (-UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0069520 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ??1VIDMM_RECYCLE_BLOCK@@QEAA@XZ @ 0x1C008A870 (--1VIDMM_RECYCLE_BLOCK@@QEAA@XZ.c)
+ *     ?FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ @ 0x1C008B194 (-FreeVmMapping@VIDMM_FENCE_STORAGE_PAGE@@QEAAXXZ.c)
+ *     ?UncommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C008B4E4 (-UncommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B4528 (-UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  * Callees:
- *     UnmapChildMmioSpace @ 0x1C002D218 (UnmapChildMmioSpace.c)
- *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00B85BC (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
- *     ?GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ @ 0x1C00DFA78 (-GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ.c)
+ *     UnmapChildMmioSpace @ 0x1C0022C8C (UnmapChildMmioSpace.c)
+ *     ?GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ @ 0x1C00BA0C0 (-GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ.c)
+ *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00BD184 (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS::UnmapHostAddressesFromGuest(VIDMM_PROCESS *this, void *a2, __int64 a3)
 {
-  __int64 v3; // rbx
-  int v5; // eax
-  __int64 v6; // rax
-  VIDMM_PROCESS *v7; // rcx
-  struct _KTHREAD **CpuVisibleBufferAllocator; // rsi
-  int v9; // ecx
-  __int64 v10; // rax
+  __int64 v3; // r10
+  char v5; // al
+  __int64 v6; // rbx
+  __int64 v7; // rax
+  VIDMM_PROCESS *v8; // rcx
+  CVirtualAddressAllocator *CpuVisibleBufferAllocator; // rsi
+  char v10; // cl
+  __int64 v11; // rax
 
   v3 = *((_QWORD *)this + 4);
-  v5 = *(_DWORD *)(v3 + 424);
-  if ( (v5 & 0x100) != 0 )
+  v5 = *(_BYTE *)(v3 + 347);
+  if ( (v5 & 0x20) != 0 )
+    v6 = *(_QWORD *)(v3 + 496);
+  else
+    v6 = v3 & -(__int64)((v5 & 0x10) != 0);
+  if ( v6 )
   {
-    v3 = *(_QWORD *)(v3 + 608);
-  }
-  else if ( (v5 & 0x80u) == 0 )
-  {
-    return;
-  }
-  if ( v3 )
-  {
-    v6 = *(_QWORD *)(v3 + 64);
-    v7 = v6 ? *(VIDMM_PROCESS **)(v6 + 8) : 0LL;
-    CpuVisibleBufferAllocator = (struct _KTHREAD **)VIDMM_PROCESS::GetCpuVisibleBufferAllocator(v7);
+    v7 = *(_QWORD *)(v6 + 64);
+    v8 = v7 ? *(VIDMM_PROCESS **)(v7 + 8) : 0LL;
+    CpuVisibleBufferAllocator = VIDMM_PROCESS::GetCpuVisibleBufferAllocator(v8);
     if ( CpuVisibleBufferAllocator )
     {
       UnmapChildMmioSpace();
-      v9 = *(_DWORD *)(v3 + 424);
-      if ( (v9 & 0x100) != 0 )
-        v10 = *(_QWORD *)(v3 + 608);
+      v10 = *(_BYTE *)(v6 + 347);
+      if ( (v10 & 0x20) != 0 )
+        v11 = *(_QWORD *)(v6 + 496);
       else
-        v10 = v3 & -(__int64)((v9 & 0x80u) != 0);
+        v11 = v6 & -(__int64)((v10 & 0x10) != 0);
       CVirtualAddressAllocator::FreeVirtualAddressRange(
         CpuVisibleBufferAllocator,
-        (struct _RTL_BALANCED_NODE *)(a3 - *(_QWORD *)(*(_QWORD *)(v10 + 608) + 256LL)));
+        a3 - *(_QWORD *)(*(_QWORD *)(v11 + 496) + 216LL));
     }
   }
 }

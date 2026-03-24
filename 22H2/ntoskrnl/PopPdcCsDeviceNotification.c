@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPdcCsDeviceNotification @ 0x140997F1C
+ * XREFs of PopPdcCsDeviceNotification @ 0x1408EFE74
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopPdcCsCheckSystemVolumeDevice @ 0x140B7685C (PopPdcCsCheckSystemVolumeDevice.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140A73F08 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14085B520 (PopNetUpdateCsConsumptionFlags.c)
- *     PopNetCompliantNicUpdate @ 0x140996784 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140996944 (PopNetNonCompliantDeviceUpdate.c)
- *     PopPdcUpdateDeviceCompliance @ 0x140998234 (PopPdcUpdateDeviceCompliance.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x1407CD468 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x1408F01CC (PopPdcUpdateDeviceCompliance.c)
+ *     PopNetCompliantNicUpdate @ 0x1408F1D20 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x1408F1F5C (PopNetNonCompliantDeviceUpdate.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
@@ -25,13 +25,13 @@ __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
   _DWORD *v4; // rcx
   _DWORD *v5; // r8
   char v6; // al
-  __int64 Pool2; // rax
-  __int64 v8; // rcx
-  __int64 *v9; // rax
-  _QWORD *v10; // rdx
-  void **v11; // rax
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v8; // rcx
+  _QWORD *v9; // rax
+  _QWORD *v10; // rax
+  void **v11; // rdx
   int v12; // ecx
-  __int64 v13; // r8
+  __int64 v13; // rcx
   __int64 v14; // rdx
   int *v15; // rcx
 
@@ -68,21 +68,24 @@ LABEL_8:
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, 40LL, 1866683203LL);
-      v8 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x6F435343u);
+      v8 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_QWORD *)(Pool2 + 16) = *(_QWORD *)a1;
-        *(_DWORD *)(Pool2 + 24) = *(_DWORD *)(a1 + 8);
-        *(_BYTE *)(Pool2 + 32) = *(_BYTE *)(a1 + 13);
-        *(_DWORD *)(Pool2 + 28) = 1;
-        v9 = (__int64 *)off_140C091F0;
-        if ( *off_140C091F0 == (_UNKNOWN *)&PopPdcDeviceList )
+        *PoolWithTag = 0LL;
+        PoolWithTag[1] = 0LL;
+        *((_QWORD *)PoolWithTag + 4) = 0LL;
+        *((_QWORD *)PoolWithTag + 2) = *(_QWORD *)a1;
+        *((_DWORD *)PoolWithTag + 6) = *(_DWORD *)(a1 + 8);
+        *((_BYTE *)PoolWithTag + 32) = *(_BYTE *)(a1 + 13);
+        *((_DWORD *)PoolWithTag + 7) = 1;
+        v9 = off_140C0EE30;
+        if ( *off_140C0EE30 == (_UNKNOWN *)&PopPdcDeviceList )
         {
           *(_QWORD *)v8 = &PopPdcDeviceList;
-          *(_QWORD *)(v8 + 8) = v9;
+          *((_QWORD *)v8 + 1) = v9;
           *v9 = v8;
-          off_140C091F0 = (_UNKNOWN **)v8;
+          off_140C0EE30 = (_UNKNOWN **)v8;
           goto LABEL_20;
         }
         goto LABEL_28;
@@ -111,15 +114,21 @@ LABEL_20:
           {
             v15 = PopCsDeviceCompliance;
             if ( PopCsDeviceCompliance[v14] == -1 )
-              PopNetNonCompliantDeviceUpdate(*(_BYTE *)(a1 + 12), v14);
+            {
+              LOBYTE(v15) = *(_BYTE *)(a1 + 12);
+              PopNetNonCompliantDeviceUpdate(v15);
+            }
           }
           else
           {
             if ( *(_BYTE *)(a1 + 13) )
-              PopNetCompliantNicUpdate(*(_BYTE *)(a1 + 12));
+            {
+              LOBYTE(v13) = *(_BYTE *)(a1 + 12);
+              PopNetCompliantNicUpdate(v13);
+            }
             PopNetUpdateCsConsumptionFlags();
           }
-          PopReleasePolicyLock(v15, v14, v13);
+          PopReleasePolicyLock(v15, v14);
           goto LABEL_30;
         }
       }
@@ -135,6 +144,6 @@ LABEL_30:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopPdcDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PopPdcDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopPdcDeviceListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v1;
 }

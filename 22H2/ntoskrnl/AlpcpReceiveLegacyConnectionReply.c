@@ -1,57 +1,61 @@
 /*
- * XREFs of AlpcpReceiveLegacyConnectionReply @ 0x1407C497C
+ * XREFs of AlpcpReceiveLegacyConnectionReply @ 0x1405DDB60
  * Callers:
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
  * Callees:
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpReadMessageData @ 0x14071BF58 (AlpcpReadMessageData.c)
- *     AlpcpReceiveSynchronousReply @ 0x14073E1F0 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpQueryRemoteView @ 0x1407C4AC4 (AlpcpQueryRemoteView.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x140978FFC (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpQueryRemoteView @ 0x1405DDA24 (AlpcpQueryRemoteView.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1405E3A5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveLegacyConnectionReply(
         __int64 *a1,
-        char *a2,
+        __int64 a2,
         _WORD *a3,
         __int64 a4,
         __int64 a5,
         __int64 a6)
 {
-  KPROCESSOR_MODE PreviousMode; // dl
-  __int64 v10; // rsi
-  int v11; // eax
-  int RemoteView; // edi
+  __int64 v8; // r15
+  __int64 v9; // rbx
+  int v10; // eax
+  int RemoteView; // esi
+  ULONG_PTR v12; // rbx
   __int64 v13; // rcx
-  __int16 v14; // si
-  _WORD *v15; // r14
-  unsigned int v16; // eax
-  __int64 v18[2]; // [rsp+30h] [rbp-48h] BYREF
-  _BYTE v19[16]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-28h]
+  __int16 v14; // r14
+  unsigned int v15; // eax
+  ULONG_PTR v16; // rcx
+  ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE v19[16]; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v20; // [rsp+48h] [rbp-20h]
 
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v18[0] = 0LL;
-  v10 = *a1;
-  v11 = AlpcpReceiveSynchronousReply(a1, PreviousMode, v18, 0, 0LL);
-  RemoteView = v11;
-  if ( !v11 )
+  v8 = a2;
+  LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
+  BugCheckParameter2 = 0LL;
+  v9 = *a1;
+  v10 = AlpcpReceiveSynchronousReply((int)a1, a2, (int)&BugCheckParameter2, 0, 0LL);
+  RemoteView = v10;
+  if ( !v10 )
   {
     if ( a4 )
     {
-      LODWORD(v20) = 0;
-      RemoteView = AlpcpQueryRemoteView(v10, a4, v19);
+      v20 = 0LL;
+      RemoteView = AlpcpQueryRemoteView(v9, a4, (__int64)v19);
       if ( RemoteView < 0 )
       {
-LABEL_16:
-        AlpcpUnlockMessage(v18[0]);
+        v16 = BugCheckParameter2;
+LABEL_17:
+        AlpcpUnlockMessage(v16);
         return (unsigned int)RemoteView;
       }
       *(_QWORD *)(a5 + 40) = v20;
     }
+    v12 = BugCheckParameter2;
     if ( a6 )
     {
-      v13 = *(_QWORD *)(v18[0] + 144);
+      v13 = *(_QWORD *)(BugCheckParameter2 + 144);
       if ( v13 )
       {
         *(_DWORD *)a6 = 24;
@@ -59,31 +63,30 @@ LABEL_16:
         *(_QWORD *)(a6 + 8) = *(_QWORD *)(*(_QWORD *)(v13 + 16) + 40LL);
       }
     }
-    if ( a2 )
+    if ( v8 )
     {
       v14 = 0;
-      v15 = (_WORD *)(v18[0] + 240);
-      v18[1] = v18[0] + 240;
-      v16 = *(unsigned __int16 *)(v18[0] + 240);
-      if ( *(_DWORD *)a3 < v16 )
+      v15 = *(unsigned __int16 *)(v12 + 240);
+      if ( *(_DWORD *)a3 < v15 )
       {
-        v14 = *(_WORD *)(v18[0] + 240);
-        *v15 = *a3;
+        v14 = *(_WORD *)(v12 + 240);
+        *(_WORD *)(v12 + 240) = *a3;
       }
       else
       {
-        *(_DWORD *)a3 = v16;
+        *(_DWORD *)a3 = v15;
       }
-      if ( *(_QWORD *)(v18[0] + 176) )
-        AlpcpGetDataFromUserVaSafe(v18[0], a2);
+      if ( *(_QWORD *)(v12 + 176) )
+        AlpcpGetDataFromUserVaSafe(v12, v8);
       else
-        AlpcpReadMessageData(v18[0], a2);
+        AlpcpReadMessageData(v12, v8);
       if ( v14 )
-        *v15 = v14;
+        *(_WORD *)(v12 + 240) = v14;
     }
-    goto LABEL_16;
+    v16 = v12;
+    goto LABEL_17;
   }
-  if ( (*(_DWORD *)(v10 + 416) & 0x10) != 0 || v11 == -1073740031 )
+  if ( (*(_DWORD *)(v9 + 416) & 0x10) != 0 || v10 == -1073740031 )
     return (unsigned int)-1073741759;
   return (unsigned int)RemoteView;
 }

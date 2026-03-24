@@ -1,8 +1,8 @@
 /*
- * XREFs of Bulk_DoesDriverOwnRequests @ 0x1C000E574
+ * XREFs of Bulk_DoesDriverOwnRequests @ 0x1C000BCDC
  * Callers:
- *     Bulk_ProcessTransferCompletion @ 0x1C000E3F8 (Bulk_ProcessTransferCompletion.c)
- *     Bulk_Cleanup @ 0x1C00468E0 (Bulk_Cleanup.c)
+ *     Bulk_ProcessTransferCompletion @ 0x1C000BA38 (Bulk_ProcessTransferCompletion.c)
+ *     Bulk_Cleanup @ 0x1C0043CB0 (Bulk_Cleanup.c)
  * Callees:
  *     <none>
  */

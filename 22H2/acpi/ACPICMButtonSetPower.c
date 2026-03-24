@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPICMButtonSetPower @ 0x1C0018C10
+ * XREFs of ACPICMButtonSetPower @ 0x1C004EA80
  * Callers:
- *     ACPICMLidSetPowerCompletion @ 0x1C00198C0 (ACPICMLidSetPowerCompletion.c)
+ *     ACPICMLidSetPowerCompletion @ 0x1C004F050 (ACPICMLidSetPowerCompletion.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIBusIrpSetPower @ 0x1C00027A0 (ACPIBusIrpSetPower.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
- *     OSNotifyDeviceWake @ 0x1C003301C (OSNotifyDeviceWake.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIBusIrpSetPower @ 0x1C002D8F0 (ACPIBusIrpSetPower.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
  */
 
 __int64 __fastcall ACPICMButtonSetPower(PDEVICE_OBJECT DeviceObject, __int64 a2)
@@ -35,18 +35,18 @@ __int64 __fastcall ACPICMButtonSetPower(PDEVICE_OBJECT DeviceObject, __int64 a2)
       v7 = (*(_DWORD *)(v5 + 8) >> 8) & 0xF;
       if ( v7 == 1 )
       {
-        v8 = OSNotifyDeviceWake(*(_QWORD *)(DeviceExtension + 760));
+        v8 = OSNotifyDeviceWake(*(_QWORD *)(DeviceExtension + 720));
         v9 = v8;
         if ( v8 < 0 )
         {
           v10 = *(_QWORD *)(DeviceExtension + 8);
-          v11 = (const char *)&unk_1C00622D0;
-          v12 = (const char *)&unk_1C00622D0;
+          v11 = (const char *)&unk_1C00701BA;
+          v12 = (const char *)&unk_1C00701BA;
           if ( (v10 & 0x200000000000LL) != 0 )
           {
-            v11 = *(const char **)(DeviceExtension + 608);
+            v11 = *(const char **)(DeviceExtension + 568);
             if ( (v10 & 0x400000000000LL) != 0 )
-              v12 = *(const char **)(DeviceExtension + 616);
+              v12 = *(const char **)(DeviceExtension + 576);
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
@@ -57,7 +57,7 @@ LABEL_19:
               2u,
               5u,
               v13,
-              (__int64)&WPP_54316db9c10838dc0a95ce458be70024_Traceguids,
+              (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
               a2,
               v9,
               DeviceExtension,
@@ -66,20 +66,20 @@ LABEL_19:
           }
         }
       }
-      else if ( *(_DWORD *)(DeviceExtension + 536) >= v7 && (v6 & 0x1000000000000000LL) == 0 )
+      else if ( *(_DWORD *)(DeviceExtension + 496) >= v7 && (v6 & 0x1000000000000000LL) == 0 )
       {
         v14 = PoRequestPowerIrp(DeviceObject, 0, (POWER_STATE)v7, ACPICMButtonWaitWakeComplete, 0LL, 0LL);
         v9 = v14;
         if ( v14 < 0 )
         {
           v15 = *(_QWORD *)(DeviceExtension + 8);
-          v11 = (const char *)&unk_1C00622D0;
-          v12 = (const char *)&unk_1C00622D0;
+          v11 = (const char *)&unk_1C00701BA;
+          v12 = (const char *)&unk_1C00701BA;
           if ( (v15 & 0x200000000000LL) != 0 )
           {
-            v11 = *(const char **)(DeviceExtension + 608);
+            v11 = *(const char **)(DeviceExtension + 568);
             if ( (v15 & 0x400000000000LL) != 0 )
-              v12 = *(const char **)(DeviceExtension + 616);
+              v12 = *(const char **)(DeviceExtension + 576);
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {

@@ -1,88 +1,67 @@
 /*
- * XREFs of PpmParkReportParkedCores @ 0x1403507C0
+ * XREFs of PpmParkReportParkedCores @ 0x140303400
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x140251F58 (PpmPerfQueueAction.c)
- *     KiAndAffinityEx @ 0x140252320 (KiAndAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C0190 (KeCountSetBitsAffinityEx.c)
- *     KiSubtractAffinityEx @ 0x14033D63C (KiSubtractAffinityEx.c)
- *     PpmEventSoftParkRankListChanged @ 0x140391114 (PpmEventSoftParkRankListChanged.c)
- *     KeUpdateSoftParkRankList @ 0x14039116C (KeUpdateSoftParkRankList.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiXorAffinityEx @ 0x14045F90C (KiXorAffinityEx.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeAndAffinityEx @ 0x1402299F0 (KeAndAffinityEx.c)
+ *     KeSubtractAffinityEx @ 0x14022AFE0 (KeSubtractAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140344490 (KeCountSetBitsAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x1403989CC (PpmPerfQueueAction.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeXorAffinityEx @ 0x140513638 (KeXorAffinityEx.c)
  */
 
 char PpmParkReportParkedCores()
 {
-  int v1; // eax
+  int v1; // ebx
   int v2; // ebx
-  int v3; // ebx
-  int v4; // eax
+  int v3; // eax
   __int64 Prcb; // rax
-  __int64 v6; // rax
-  void *v7; // rcx
-  __int64 v8; // [rsp+28h] [rbp-E0h] BYREF
-  unsigned __int16 *v9; // [rsp+30h] [rbp-D8h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-D0h]
-  _WORD v11[4]; // [rsp+40h] [rbp-C8h]
-  _QWORD v12[34]; // [rsp+48h] [rbp-C0h] BYREF
-  _QWORD v13[34]; // [rsp+158h] [rbp+50h] BYREF
-  _DWORD v14[68]; // [rsp+268h] [rbp+160h] BYREF
+  __int64 v5; // rax
+  unsigned int v6; // [rsp+20h] [rbp-E0h] BYREF
+  unsigned __int16 *v7; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v8; // [rsp+30h] [rbp-D0h]
+  __int16 v9; // [rsp+38h] [rbp-C8h]
+  int v10; // [rsp+3Ah] [rbp-C6h]
+  __int16 v11; // [rsp+3Eh] [rbp-C2h]
+  _QWORD v12[22]; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v13[22]; // [rsp+F0h] [rbp-10h] BYREF
+  unsigned __int16 v14[88]; // [rsp+1A0h] [rbp+A0h] BYREF
 
-  *(_DWORD *)&v11[1] = 0;
-  v11[3] = 0;
-  LODWORD(v8) = 0;
-  memset(&v13[1], 0, 0x100uLL);
-  memset(&v14[2], 0, 0x100uLL);
-  memset(&v12[1], 0, 0x100uLL);
+  v10 = 0;
+  v11 = 0;
+  v6 = 0;
+  memset(v13, 0, 0xA8uLL);
+  memset(v14, 0, 0xA8uLL);
+  memset(v12, 0, 0xA8uLL);
   if ( !PpmIsParkingEnabled )
     return 1;
-  LODWORD(v13[0]) = 2097153;
-  memset((char *)v13 + 4, 0, 0x104uLL);
-  v1 = KiAndAffinityEx(&PpmPerfChangedCoreParkingMask, (unsigned __int16 *)&PpmPerfNewCoreParkingMask, v13, 0x20u);
-  v14[0] = 2097153;
-  v2 = v1;
-  memset(&v14[1], 0, 0x104uLL);
-  KiSubtractAffinityEx(
-    (unsigned __int16 *)&PpmPerfNewCoreParkingMask,
-    (char *)&PpmPerfChangedCoreParkingMask,
-    v14,
-    0x20u);
-  LODWORD(v12[0]) = 2097153;
-  memset((char *)v12 + 4, 0, 0x104uLL);
-  KiXorAffinityEx(PpmParkSoftParkingMask, &PpmParkNewSoftParkingMask, v12, 32LL);
-  if ( !(v2 | (unsigned int)KiAndAffinityEx((unsigned __int16 *)v12, (unsigned __int16 *)v14, v12, WORD1(v12[0]))) )
+  v1 = KeAndAffinityEx(PpmPerfChangedCoreParkingMask, (unsigned __int16 *)&PpmPerfNewCoreParkingMask, v13);
+  KeSubtractAffinityEx((unsigned __int16 *)&PpmPerfNewCoreParkingMask, PpmPerfChangedCoreParkingMask, v14);
+  KeXorAffinityEx(&PpmParkSoftParkingMask, &PpmParkNewSoftParkingMask, v12);
+  if ( !(v1 | (unsigned int)KeAndAffinityEx((unsigned __int16 *)v12, v14, v12)) )
     return 1;
-  v3 = KeCountSetBitsAffinityEx((unsigned __int16 *)v12);
-  v4 = KeCountSetBitsAffinityEx((unsigned __int16 *)v13);
-  v11[0] = 0;
-  v10 = v13[1];
-  v9 = (unsigned __int16 *)v13;
-  PpmCheckCount = v4 + v3;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v8, &v9) )
+  v2 = KeCountSetBitsAffinityEx(v12);
+  v3 = KeCountSetBitsAffinityEx(v13);
+  v9 = 0;
+  v8 = v13[1];
+  v7 = (unsigned __int16 *)v13;
+  PpmCheckCount = v3 + v2;
+  while ( !(unsigned int)KeEnumerateNextProcessor(&v6, &v7) )
   {
-    Prcb = KeGetPrcb(v8);
-    PpmPerfQueueAction(Prcb, 3);
+    Prcb = KeGetPrcb(v6);
+    PpmPerfQueueAction(Prcb, 3LL);
   }
-  v10 = v12[1];
-  v9 = (unsigned __int16 *)v12;
-  v11[0] = 0;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v8, &v9) )
+  v8 = v12[1];
+  v7 = (unsigned __int16 *)v12;
+  v9 = 0;
+  while ( !(unsigned int)KeEnumerateNextProcessor(&v6, &v7) )
   {
-    v6 = KeGetPrcb(v8);
-    PpmPerfQueueAction(v6, 4);
-  }
-  if ( PpmParkSoftParkRankListChanged )
-  {
-    KeUpdateSoftParkRankList();
-    PpmEventSoftParkRankListChanged();
-    v7 = PpmParkOldSoftParkRankList;
-    PpmParkOldSoftParkRankList = PpmParkNewSoftParkRankList;
-    PpmParkNewSoftParkRankList = v7;
+    v5 = KeGetPrcb(v6);
+    PpmPerfQueueAction(v5, 4LL);
   }
   return 0;
 }

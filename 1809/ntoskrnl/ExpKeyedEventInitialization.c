@@ -3,20 +3,20 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKeyedEvent @ 0x1401B96D0 (ZwCreateKeyedEvent.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKeyedEvent @ 0x1401B96F0 (ZwCreateKeyedEvent.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     RtlAddMandatoryAce @ 0x1406308A0 (RtlAddMandatoryAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406542B0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140654290 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 int ExpKeyedEventInitialization()

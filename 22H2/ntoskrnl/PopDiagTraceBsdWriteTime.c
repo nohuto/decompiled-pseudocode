@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceBsdWriteTime @ 0x14032AFF8
+ * XREFs of PopDiagTraceBsdWriteTime @ 0x1403F7A7C
  * Callers:
- *     PopWriteBsdPoInfo @ 0x14032B100 (PopWriteBsdPoInfo.c)
+ *     PopWriteBsdPoInfo @ 0x1403F7748 (PopWriteBsdPoInfo.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceBsdWriteTime(__int64 a1, int a2, int a3)
@@ -31,9 +31,9 @@ void __fastcall PopDiagTraceBsdWriteTime(__int64 a1, int a2, int a3)
   int v21; // [rsp+A8h] [rbp+3Fh]
   int v22; // [rsp+ACh] [rbp+43h]
 
-  if ( (a3 < 0 || a2) && (unsigned int)dword_140C03950 > 5 )
+  if ( (a3 < 0 || a2) && (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x200000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x200000000000LL) )
     {
       v13 = 0;
       v16 = 0;
@@ -52,8 +52,8 @@ void __fastcall PopDiagTraceBsdWriteTime(__int64 a1, int a2, int a3)
       v7 = v4;
       v9 = 0x1000000LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)byte_14002DD61,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)word_1400274B2,
         0LL,
         0LL,
         6u,

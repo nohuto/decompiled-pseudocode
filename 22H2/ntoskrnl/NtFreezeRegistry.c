@@ -1,43 +1,40 @@
 /*
- * XREFs of NtFreezeRegistry @ 0x140A0D8B0
+ * XREFs of NtFreezeRegistry @ 0x140868510
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     CmFreezeRegistry @ 0x140A133B0 (CmFreezeRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     CmFreezeRegistry @ 0x140872140 (CmFreezeRegistry.c)
  */
 
 __int64 __fastcall NtFreezeRegistry(unsigned int a1)
 {
   unsigned int v2; // ebx
-  __int128 v4; // [rsp+20h] [rbp-58h] BYREF
-  _OWORD v5[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  _DWORD *v5; // r9
+  _OWORD v7[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  v4 = 0LL;
-  memset(v5, 0, sizeof(v5));
-  CmpInitializeThreadInfo((__int64)&v4);
+  memset(v7, 0, sizeof(v7));
   if ( a1 <= 0x384 )
   {
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
     {
-      CmpAttachToRegistryProcess(v5);
+      CmpAttachToRegistryProcess((__int64)v7, v3, v4, v5);
       v2 = CmFreezeRegistry(a1);
-      CmpDetachFromRegistryProcess(v5);
+      CmpDetachFromRegistryProcess((__int64)v7);
     }
     else
     {
-      v2 = -1073741727;
+      return (unsigned int)-1073741727;
     }
   }
   else
   {
-    v2 = -1073741811;
+    return (unsigned int)-1073741811;
   }
-  CmCleanupThreadInfo((__int64 *)&v4);
   return v2;
 }

@@ -1,107 +1,81 @@
 /*
- * XREFs of HalDmaFreeCrashDumpRegistersEx @ 0x140501350
+ * XREFs of HalDmaFreeCrashDumpRegistersEx @ 0x1403A6970
  * Callers:
- *     DifHalDmaFreeCrashDumpRegistersExWrapper @ 0x1405DAB60 (DifHalDmaFreeCrashDumpRegistersExWrapper.c)
+ *     <none>
  * Callees:
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AE970 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaFreeMapRegisters @ 0x14045BE96 (HalpDmaFreeMapRegisters.c)
+ *     HalpDomainLaDelete @ 0x1404C4D34 (HalpDomainLaDelete.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C79F8 (HalpDmaFreeMapRegisters.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9274 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
-__int64 __fastcall HalDmaFreeCrashDumpRegistersEx(__int64 a1)
+__int64 __fastcall HalDmaFreeCrashDumpRegistersEx(__int64 a1, signed int a2)
 {
-  __int64 v1; // rbp
-  __int64 v2; // rax
-  signed int v3; // edx
-  __int64 v4; // rdi
-  __int64 v5; // rsi
-  int v6; // eax
-  int v8; // eax
-  __int64 v9; // rax
-  __int64 v10; // rbx
-  char v11; // al
-  _DWORD *v12; // rdx
-  __int64 v13; // r8
-  bool v14; // zf
-  char v15; // cl
-  _QWORD *v16; // rdi
-  __int64 v17; // rcx
-  _QWORD *v18; // rax
-  __int64 v19; // rdx
-  _QWORD *v20; // rcx
+  __int64 v3; // rbp
+  int v4; // eax
+  int v5; // eax
+  __int64 v7; // r14
+  char v8; // al
+  _DWORD *v9; // rdx
+  char v10; // cl
+  _QWORD *v12; // rsi
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rbx
+  __int64 v17; // rdi
 
-  v1 = a1;
-  if ( *(_DWORD *)(a1 + 16) != 1634550870 )
-    v1 = 0LL;
-  v2 = HalpDmaExtractFromVerifierShadowAdapter(a1);
-  v4 = v2;
-  if ( v2 && (unsigned int)v3 <= 1 )
+  if ( !a1 || (unsigned int)a2 > 1 )
+    return 3221225485LL;
+  v3 = a2;
+  v4 = *(_DWORD *)(a1 + 4LL * a2 + 272);
+  if ( !v4 )
+    return 3221225473LL;
+  v5 = v4 - 1;
+  *(_DWORD *)(a1 + 4LL * a2 + 272) = v5;
+  if ( !v5 )
   {
-    v5 = v3;
-    v6 = *(_DWORD *)(v2 + 4LL * v3 + 280);
-    if ( !v6 )
-      return 3221225473LL;
-    v8 = v6 - 1;
-    *(_DWORD *)(v4 + 4LL * v3 + 280) = v8;
-    if ( v8 )
-      return 0LL;
-    if ( *(_DWORD *)(v4 + 4LL * v3 + 272) )
+    v7 = 2LL;
+    if ( *(_DWORD *)(a1 + 4LL * a2 + 264) )
     {
-      v9 = *(_QWORD *)(v4 + 8LL * v3 + 256);
-      if ( v9 )
-        *(_QWORD *)(v9 + 56) = v9;
-      if ( *(_DWORD *)(v4 + 520) == 3 )
+      v15 = *(_QWORD *)(a1 + 8LL * a2 + 248);
+      if ( v15 )
+      {
+        *(_QWORD *)(v15 + 56) = v15;
+        v15 = *(_QWORD *)(a1 + 8 * v3 + 248);
+      }
+      if ( *(_DWORD *)(a1 + 512) == 2 )
       {
         _mm_lfence();
-        v10 = *(_QWORD *)(v4 + 8LL * v3 + 256);
-        (*(void (__fastcall **)(__int64))(HalpDmaIommuInterfaceFcnTable + 152))(v10 + 24);
-        (*(void (__fastcall **)(_QWORD))(HalpDmaIommuInterfaceFcnTable + 136))(*(_QWORD *)(v10 + 24));
+        v16 = *(_QWORD *)(a1 + 8 * v3 + 248);
+        v17 = *(_QWORD *)(a1 + 504);
+        HalpIommuDomainUnmapLogicalRange(*(_QWORD *)(v17 + 40), *(_QWORD *)(v16 + 24));
+        HalpDomainLaDelete(v17, *(_QWORD *)(v16 + 24));
+        v15 = *(_QWORD *)(a1 + 8 * v3 + 248);
       }
-      HalpDmaFreeMapRegisters(v4, *(_QWORD **)(v4 + 8 * v5 + 256), *(_DWORD *)(v4 + 4 * v5 + 272));
-      *(_QWORD *)(v4 + 8 * v5 + 256) = 0LL;
-      *(_DWORD *)(v4 + 4 * v5 + 272) = 0;
+      HalpDmaFreeMapRegisters(a1, v15, *(unsigned int *)(a1 + 4 * v3 + 264));
+      *(_QWORD *)(a1 + 8 * v3 + 248) = 0LL;
+      *(_DWORD *)(a1 + 4 * v3 + 264) = 0;
     }
-    v11 = 1;
-    v12 = (_DWORD *)(v4 + 280);
-    v13 = 2LL;
+    v8 = 1;
+    v9 = (_DWORD *)(a1 + 272);
     do
     {
-      v14 = *v12 == 0;
-      v15 = 0;
-      ++v12;
-      if ( v14 )
-        v15 = v11;
-      v11 = v15;
-      --v13;
+      v10 = 0;
+      if ( *v9++ == 0 )
+        v10 = v8;
+      v8 = v10;
+      --v7;
     }
-    while ( v13 );
-    if ( !v15 )
-      return 0LL;
-    v16 = (_QWORD *)(v4 + 288);
-    v17 = *v16;
-    if ( *(_QWORD **)(*v16 + 8LL) == v16 )
+    while ( v7 );
+    if ( v10 )
     {
-      v18 = (_QWORD *)v16[1];
-      if ( (_QWORD *)*v18 == v16 )
-      {
-        *v18 = v17;
-        *(_QWORD *)(v17 + 8) = v18;
-        if ( !v1 )
-          return 0LL;
-        v19 = *(_QWORD *)(v1 + 32);
-        if ( *(_QWORD *)(v19 + 8) == v1 + 32 )
-        {
-          v20 = *(_QWORD **)(v1 + 40);
-          if ( *v20 == v1 + 32 )
-          {
-            *v20 = v19;
-            *(_QWORD *)(v19 + 8) = v20;
-            return 0LL;
-          }
-        }
-      }
+      v12 = (_QWORD *)(a1 + 280);
+      v13 = *v12;
+      if ( *(_QWORD **)(*v12 + 8LL) != v12 || (v14 = (_QWORD *)v12[1], (_QWORD *)*v14 != v12) )
+        __fastfail(3u);
+      *v14 = v13;
+      *(_QWORD *)(v13 + 8) = v14;
     }
-    __fastfail(3u);
   }
-  return 3221225485LL;
+  return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegGrowStringPool @ 0x140907138
+ * XREFs of RtlpMuiRegGrowStringPool @ 0x140907118
  * Callers:
- *     RtlpMuiRegGetOrAddString @ 0x14073ECE4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14073ECC4 (RtlpMuiRegGetOrAddString.c)
  * Callees:
- *     RtlpMuiRegResizeStringPool @ 0x140907498 (RtlpMuiRegResizeStringPool.c)
+ *     RtlpMuiRegResizeStringPool @ 0x140907478 (RtlpMuiRegResizeStringPool.c)
  */
 
 unsigned __int16 *__fastcall RtlpMuiRegGrowStringPool(unsigned __int16 *P, __int64 a2, int a3, char a4)

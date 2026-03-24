@@ -1,38 +1,40 @@
 /*
- * XREFs of ?Free@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00D1E9C
+ * XREFs of ?Free@?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00C8FAC
  * Callers:
- *     ??$FreeIsolatedType@V?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C00D1708 (--$FreeIsolatedType@V-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C00C8838 (--$FreeIsolatedType@V-$CTypeIsolation@$0OAAAA@$0OAA@@NSInstrumentation@@@@YAXPEAX@Z.c)
  * Callees:
- *     RIMLockShared @ 0x1C0096B30 (RIMLockShared.c)
- *     GreLeaveCriticalRegionAndReleasePushLockShared @ 0x1C0096F70 (GreLeaveCriticalRegionAndReleasePushLockShared.c)
- *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00D1B34 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAA-AW4Alloc.c)
- *     ?Free@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00D1DE8 (-Free@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C016D770 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ *     ?AcquireShared@CPlatformReaderWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C007B700 (-AcquireShared@CPlatformReaderWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ *     GreLeaveCriticalRegionAndReleasePushLockShared @ 0x1C007CAF0 (GreLeaveCriticalRegionAndReleasePushLockShared.c)
+ *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00C8C20 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAA-AW4Alloc.c)
+ *     ?Free@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00C8EF8 (-Free@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C014D890 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
  */
 
-void __fastcall NSInstrumentation::CTypeIsolation<917504,3584>::Free(__int64 a1, void *a2)
+void __fastcall NSInstrumentation::CTypeIsolation<917504,3584>::Free(__int64 a1, struct _SLIST_ENTRY *a2)
 {
-  __int64 v4; // rbx
+  NSInstrumentation::CPlatformReaderWriterLock *v4; // rbx
   _QWORD *i; // r14
   _QWORD *v6; // rbp
   int v7; // eax
   int v8; // eax
   int v9; // eax
   __int64 v10; // rcx
+  __int64 v11; // rbx
 
   if ( a2 )
   {
     if ( !*(_BYTE *)(a1 + 36) )
     {
-      v4 = *(_QWORD *)(a1 + 16);
-      RIMLockShared(v4);
+      v4 = *(NSInstrumentation::CPlatformReaderWriterLock **)(a1 + 16);
+      NSInstrumentation::CPlatformReaderWriterLock::AcquireShared(v4);
       for ( i = *(_QWORD **)a1; ; i = (_QWORD *)*i )
       {
         if ( i == (_QWORD *)a1 )
         {
-          GreLeaveCriticalRegionAndReleasePushLockShared(v4);
-          NSInstrumentation::PlatformAbort(3LL, a2, 0LL);
+          GreLeaveCriticalRegionAndReleasePushLockShared((__int64)v4);
+          NSInstrumentation::PlatformAbort(3LL, a2);
           return;
         }
         v6 = (_QWORD *)i[4];
@@ -43,7 +45,7 @@ void __fastcall NSInstrumentation::CTypeIsolation<917504,3584>::Free(__int64 a1,
           if ( !v8 )
           {
             NSInstrumentation::CSectionBitmapAllocator<917504,3584>::Free((__int64)v6, a2);
-            GreLeaveCriticalRegionAndReleasePushLockShared(v4);
+            GreLeaveCriticalRegionAndReleasePushLockShared((__int64)v4);
             return;
           }
           v9 = v8 - 1;
@@ -57,11 +59,21 @@ void __fastcall NSInstrumentation::CTypeIsolation<917504,3584>::Free(__int64 a1,
           {
             v10 = 1LL;
           }
-          NSInstrumentation::PlatformAbort(v10, a2, 0LL);
+          NSInstrumentation::PlatformAbort(v10, a2);
         }
       }
     }
     memset(a2, 0, 0xE00uLL);
-    ExFreeToPagedLookasideList(*(PPAGED_LOOKASIDE_LIST *)(a1 + 24), a2);
+    v11 = *(_QWORD *)(a1 + 24);
+    ++*(_DWORD *)(v11 + 28);
+    if ( ExQueryDepthSList((PSLIST_HEADER)v11) < *(_WORD *)(v11 + 16) )
+    {
+      ExpInterlockedPushEntrySList((PSLIST_HEADER)v11, a2);
+    }
+    else
+    {
+      ++*(_DWORD *)(v11 + 32);
+      (*(void (__fastcall **)(struct _SLIST_ENTRY *))(v11 + 56))(a2);
+    }
   }
 }

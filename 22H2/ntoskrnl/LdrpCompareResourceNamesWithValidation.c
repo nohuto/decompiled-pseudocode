@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpCompareResourceNamesWithValidation @ 0x1403587F0
+ * XREFs of LdrpCompareResourceNamesWithValidation @ 0x1403F7C58
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x140756220 (LdrpSearchResourceSection_U.c)
- *     LdrEnumResources @ 0x1409B95D0 (LdrEnumResources.c)
+ *     LdrpSearchResourceSection_U @ 0x140672884 (LdrpSearchResourceSection_U.c)
+ *     LdrEnumResources @ 0x140910780 (LdrEnumResources.c)
  * Callees:
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
  */
 
 __int64 __fastcall LdrpCompareResourceNamesWithValidation(
@@ -37,10 +37,9 @@ __int64 __fastcall LdrpCompareResourceNamesWithValidation(
     while ( a3[v11] );
     if ( v11 == *v9 )
       return v10;
+    return 1LL;
   }
-  else if ( (int)v7 >= 0 )
-  {
-    return (unsigned int)((_DWORD)a3 - v7);
-  }
-  return 1LL;
+  if ( (int)v7 < 0 )
+    return 1LL;
+  return (unsigned int)((_DWORD)a3 - v7);
 }

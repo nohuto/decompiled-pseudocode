@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpFreeLoggerContext @ 0x1406C08C0
+ * XREFs of EtwpFreeLoggerContext @ 0x1406C08A0
  * Callers:
  *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpStopTrace @ 0x140658FB0 (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
  * Callees:
  *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14000E780 (ExWaitForRundownProtectionReleaseCacheAware.c)
  *     ExReInitializeRundownProtectionCacheAware @ 0x14000E830 (ExReInitializeRundownProtectionCacheAware.c)
@@ -11,22 +11,22 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F97F0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExDeleteTimer @ 0x1400F9870 (ExDeleteTimer.c)
- *     ExReleaseExtensionTable @ 0x14010DBCC (ExReleaseExtensionTable.c)
- *     KeGenericCallDpc @ 0x1401203D0 (KeGenericCallDpc.c)
- *     EtwpFreeCompression @ 0x140132918 (EtwpFreeCompression.c)
- *     EtwpCancelPendingStackwalkApcs @ 0x140132970 (EtwpCancelPendingStackwalkApcs.c)
- *     KeRemoveQueueDpc @ 0x1401329C0 (KeRemoveQueueDpc.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExDeleteTimer @ 0x1400F9890 (ExDeleteTimer.c)
+ *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
+ *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     EtwpFreeCompression @ 0x140132938 (EtwpFreeCompression.c)
+ *     EtwpCancelPendingStackwalkApcs @ 0x140132990 (EtwpCancelPendingStackwalkApcs.c)
+ *     KeRemoveQueueDpc @ 0x1401329E0 (KeRemoveQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     EtwpFreeTraceBufferPool @ 0x1406C0D44 (EtwpFreeTraceBufferPool.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x1406C0EE4 (EtwpRealtimeDisconnectAllConsumers.c)
- *     EtwpFreeStackCache @ 0x1408C38E0 (EtwpFreeStackCache.c)
- *     EtwpCancelMemoryPreservation @ 0x1408C9E2C (EtwpCancelMemoryPreservation.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406C0D24 (EtwpFreeTraceBufferPool.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x1406C0EC4 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     EtwpFreeStackCache @ 0x1408C38C0 (EtwpFreeStackCache.c)
+ *     EtwpCancelMemoryPreservation @ 0x1408C9E0C (EtwpCancelMemoryPreservation.c)
  */
 
 void __fastcall EtwpFreeLoggerContext(char *P)

@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiResetDeviceAlreadyProcessed @ 0x1C0052220
+ * XREFs of AcpiResetDeviceAlreadyProcessed @ 0x1C0052C88
  * Callers:
- *     AcpiDeviceResetCompleteResetWorker @ 0x1C0051C30 (AcpiDeviceResetCompleteResetWorker.c)
- *     AcpiDeviceResetInvokeReset @ 0x1C0051EC8 (AcpiDeviceResetInvokeReset.c)
- *     AcpiPlatformLevelDeviceReset @ 0x1C0052120 (AcpiPlatformLevelDeviceReset.c)
+ *     AcpiDeviceResetCompleteResetWorker @ 0x1C0052740 (AcpiDeviceResetCompleteResetWorker.c)
+ *     AcpiDeviceResetInvokeReset @ 0x1C00529C8 (AcpiDeviceResetInvokeReset.c)
+ *     AcpiPlatformLevelDeviceReset @ 0x1C0052B78 (AcpiPlatformLevelDeviceReset.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CDxHandleBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800D5568
+ * XREFs of ?GetPixelFormatInfo@CDxHandleBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800BF39C
  * Callers:
- *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1801223A0 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AUPixelFormatInfo@@XZ @ 0x1801223C0 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA?AUPixelFormatInfo@@XZ @ 0x180122AC0 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA?AUPixelFormatInfo@@XZ @ 0x180122D40 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F8370 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AUPixelFormatInfo@@XZ @ 0x1800F8380 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA?AUPixelFormatInfo@@XZ @ 0x1800F8640 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA?AUPixelFormatInfo@@XZ @ 0x1800F8800 (-GetPixelFormatInfo@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CDxHandleBitmapRealization::GetPixelFormatInfo(__int64 a1, _DWORD *a2)
@@ -25,10 +25,10 @@ _DWORD *__fastcall CDxHandleBitmapRealization::GetPixelFormatInfo(__int64 a1, _D
   {
     *a2 = 0;
     v7 = 3;
-    if ( *(_DWORD *)(a1 - 344) )
-      v7 = *(_DWORD *)(a1 - 344);
+    if ( *(_DWORD *)(a1 - 312) )
+      v7 = *(_DWORD *)(a1 - 312);
     a2[1] = v7;
-    a2[2] = *(_DWORD *)(a1 - 296);
+    a2[2] = *(_DWORD *)(a1 - 268);
   }
   return a2;
 }

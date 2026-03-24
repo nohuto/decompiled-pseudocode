@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIRootEvent @ 0x1C005F9E0
+ * XREFs of ACPIRootEvent @ 0x1C005EBC0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     ACPIInternalEvaluateOST @ 0x1C00573B4 (ACPIInternalEvaluateOST.c)
- *     ACPINotifyOsShutdown @ 0x1C005F800 (ACPINotifyOsShutdown.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     ACPINotifyOsShutdown @ 0x1C005E9EC (ACPINotifyOsShutdown.c)
  */
 
 _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
@@ -21,18 +21,18 @@ _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v4 = 0;
-  v5 = (const char *)&unk_1C006FB8B;
+  v5 = (const char *)&unk_1C00701BA;
   v6 = (_QWORD *)DeviceExtension;
-  v7 = (const char *)&unk_1C006FB8B;
+  v7 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v4 = DeviceExtension;
     v8 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v5 = (const char *)v6[76];
+      v5 = (const char *)v6[71];
       if ( (v8 & 0x400000000000LL) != 0 )
-        v7 = (const char *)v6[77];
+        v7 = (const char *)v6[72];
     }
   }
   result = &WPP_RECORDER_INITIALIZED;
@@ -42,7 +42,7 @@ _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
                             4u,
                             6u,
                             0x20u,
-                            (__int64)&WPP_15e34f0648cb3b62da1476f0e646a08b_Traceguids,
+                            (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
                             a2,
                             v4,
                             v5,

@@ -1,59 +1,53 @@
 /*
- * XREFs of RtlpCompareKnownObjectAces @ 0x1409BC708
+ * XREFs of RtlpCompareKnownObjectAces @ 0x140913E1C
  * Callers:
- *     RtlpIsDuplicateAce @ 0x1406C39C0 (RtlpIsDuplicateAce.c)
- *     RtlpGenerateInheritedAce @ 0x1406C3D10 (RtlpGenerateInheritedAce.c)
+ *     RtlpIsDuplicateAce @ 0x1406D3350 (RtlpIsDuplicateAce.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
  */
 
 bool __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2)
 {
-  __int64 v3; // rdx
-  unsigned int v5; // edi
+  __int64 v4; // rcx
+  unsigned int v5; // ebx
   _DWORD *v6; // r9
-  unsigned __int8 *v7; // r8
-  _DWORD *v8; // rcx
-  unsigned int v9; // ebx
+  int v7; // esi
+  unsigned __int8 *v8; // r8
+  unsigned int v9; // edi
   _DWORD *v10; // rdx
-  bool v12; // zf
+  unsigned __int8 *v11; // rcx
 
-  v3 = *a2;
-  if ( *((_BYTE *)&RtlBaseAceType + v3) != *((_BYTE *)&RtlBaseAceType + *a1)
-    || *((_BYTE *)RtlIsSystemAceType + v3) && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
+  v4 = *a2;
+  if ( *((_BYTE *)&RtlBaseAceType + v4) != *((_BYTE *)&RtlBaseAceType + *a1)
+    || *((_BYTE *)&RtlIsSystemAceType + v4) && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
   {
     return 0;
   }
   v5 = *((_DWORD *)a2 + 2) & 1;
   v6 = (_DWORD *)((unsigned __int64)(a2 + 12) & -(__int64)(v5 != 0));
-  if ( (*((_DWORD *)a2 + 2) & 2) != 0 )
-    v7 = &a2[16 * v5 + 12];
+  v7 = *((_DWORD *)a2 + 2) & 2;
+  if ( v7 )
+    v8 = &a2[16 * v5 + 12];
   else
-    v7 = 0LL;
-  v8 = a1 + 12;
+    v8 = 0LL;
   v9 = *((_DWORD *)a1 + 2) & 1;
   v10 = (_DWORD *)((unsigned __int64)(a1 + 12) & -(__int64)(v9 != 0));
   if ( (*((_DWORD *)a1 + 2) & 2) != 0 )
-  {
-    if ( v9 )
-      v8 = a1 + 28;
-  }
+    v11 = &a1[16 * v9 + 12];
   else
+    v11 = 0LL;
+  if ( v8 )
   {
-    v8 = 0LL;
-  }
-  if ( v7 )
-  {
-    if ( !v8
-      || *(_DWORD *)v7 != *v8
-      || *((_DWORD *)v7 + 1) != v8[1]
-      || *((_DWORD *)v7 + 2) != v8[2]
-      || *((_DWORD *)v7 + 3) != v8[3] )
+    if ( !v11
+      || *(_DWORD *)v8 != *(_DWORD *)v11
+      || *((_DWORD *)v8 + 1) != *((_DWORD *)v11 + 1)
+      || *((_DWORD *)v8 + 2) != *((_DWORD *)v11 + 2)
+      || *((_DWORD *)v8 + 3) != *((_DWORD *)v11 + 3) )
     {
       return 0;
     }
   }
-  else if ( v8 )
+  else if ( v11 )
   {
     return 0;
   }
@@ -62,18 +56,17 @@ bool __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
     if ( !v10
       || *v6 != *v10
       || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 4) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 4)
-      || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 8) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 8) )
+      || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 8) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 8)
+      || *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 0xC) != *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 0xC) )
     {
       return 0;
     }
-    v12 = *(_DWORD *)(((unsigned __int64)(a2 + 12) & -(__int64)((*((_DWORD *)a2 + 2) & 1) != 0)) + 0xC) == *(_DWORD *)(((unsigned __int64)(a1 + 12) & -(__int64)((*((_DWORD *)a1 + 2) & 1) != 0)) + 0xC);
   }
-  else
+  else if ( v10 )
   {
-    v12 = v10 == 0LL;
+    return 0;
   }
-  return v12
-      && RtlEqualSid(
-           &a2[16 * v5 + 12 + ((*((_DWORD *)a2 + 2) & 2) != 0 ? 0x10 : 0)],
-           &a1[16 * v9 + 12 + ((*((_DWORD *)a1 + 2) & 2) != 0 ? 0x10 : 0)]);
+  return RtlEqualSid(
+           &a2[16 * v5 + 12 + (v7 != 0 ? 0x10 : 0)],
+           &a1[16 * v9 + 12 + ((*((_DWORD *)a1 + 2) & 2) != 0 ? 0x10 : 0)]) != 0;
 }

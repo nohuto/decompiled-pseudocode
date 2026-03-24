@@ -1,26 +1,26 @@
 /*
- * XREFs of CleanupRemoteHandles @ 0x1C00C0420
+ * XREFs of CleanupRemoteHandles @ 0x1C00B4D10
  * Callers:
- *     xxxRemoteConnect @ 0x1C00115D0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*__fastcall CleanupRemoteHandles(_QWORD *a1))(void)
+__int64 __fastcall CleanupRemoteHandles(_QWORD *a1, __int64 a2)
 {
-  char *v2; // rdx
   __int64 v3; // rcx
-  __int64 (*result)(void); // rax
+  PVOID v4; // rcx
+  __int64 result; // rax
 
   a1[1] = 0LL;
   a1[2] = 0LL;
   a1[4] = 0LL;
   a1[3] = 0LL;
-  v2 = (char *)a1[7];
-  if ( v2 )
+  v3 = a1[7];
+  if ( v3 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v2);
+    Win32FreePool(v3);
     a1[7] = 0LL;
   }
   if ( gThinwireFileObject )
@@ -33,39 +33,28 @@ __int64 (*__fastcall CleanupRemoteHandles(_QWORD *a1))(void)
     ObfDereferenceObject(gVideoFileObject);
     gVideoFileObject = 0LL;
   }
+  v4 = gpRemoteBeepDevice;
   if ( gpRemoteBeepDevice )
   {
     ObfDereferenceObject(gpRemoteBeepDevice);
     gpRemoteBeepDevice = 0LL;
   }
-  if ( gRemoteMouseChannelHandlePair )
-    ZwClose(gRemoteMouseChannelHandlePair);
-  if ( *(&gRemoteMouseChannelHandlePair + 1) )
-    ZwClose(*(&gRemoteMouseChannelHandlePair + 1));
-  *(_OWORD *)&gRemoteMouseChannelHandlePair = 0LL;
-  if ( gRemoteKeyboardChannelHandlePair )
-    ZwClose(gRemoteKeyboardChannelHandlePair);
-  v3 = (__int64)*(&gRemoteKeyboardChannelHandlePair + 1);
-  if ( *(&gRemoteKeyboardChannelHandlePair + 1) )
-    ZwClose(*(&gRemoteKeyboardChannelHandlePair + 1));
-  result = (__int64 (*)(void))qword_1C02962C0;
-  *(_OWORD *)&gRemoteKeyboardChannelHandlePair = 0LL;
-  if ( qword_1C02962C0 )
+  ghRemoteMouseChannel = 0LL;
+  ghRemoteKeyboardChannel = 0LL;
+  result = (__int64)qword_1C0257050;
+  if ( qword_1C0257050 )
+    result = qword_1C0257050(v4, a2);
+  if ( (_DWORD)result )
   {
-    result = (__int64 (*)(void))qword_1C02962C0(v3);
-    if ( (_DWORD)result )
+    if ( qword_1C0255D80 )
+      result = qword_1C0255D80();
+    else
+      result = 3221225659LL;
+    if ( (int)result >= 0 )
     {
-      result = qword_1C0295208;
-      if ( qword_1C0295208 )
-      {
-        result = (__int64 (*)(void))qword_1C0295208();
-        if ( (int)result >= 0 )
-        {
-          result = qword_1C0295210;
-          if ( qword_1C0295210 )
-            return (__int64 (*)(void))qword_1C0295210();
-        }
-      }
+      result = (__int64)qword_1C0255D88;
+      if ( qword_1C0255D88 )
+        return qword_1C0255D88();
     }
   }
   return result;

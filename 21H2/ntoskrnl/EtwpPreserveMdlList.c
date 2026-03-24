@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPreserveMdlList @ 0x1409ECF0C
+ * XREFs of EtwpPreserveMdlList @ 0x140948A98
  * Callers:
- *     EtwpPreserveLogger @ 0x1409ECCCC (EtwpPreserveLogger.c)
+ *     EtwpPreserveLogger @ 0x14094885C (EtwpPreserveLogger.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpPreserveMdlList(_QWORD *a1, __int64 a2, int a3, __int64 a4)
@@ -12,10 +12,10 @@ __int64 __fastcall EtwpPreserveMdlList(_QWORD *a1, __int64 a2, int a3, __int64 a
   unsigned int v5; // ebx
   _QWORD *v8; // rsi
   _QWORD *v9; // rdi
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   void *v11; // rdi
   unsigned int v12; // ebx
-  __int64 v13; // r14
+  char *v13; // r14
   unsigned int v14; // ebp
   unsigned int v16; // [rsp+60h] [rbp+8h] BYREF
 
@@ -30,18 +30,18 @@ __int64 __fastcall EtwpPreserveMdlList(_QWORD *a1, __int64 a2, int a3, __int64 a
     v9 = (_QWORD *)*v9;
   }
   while ( v9 );
-  Pool2 = ExAllocatePool2(256LL, 8LL * v5, 1266119749LL);
-  v11 = (void *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 8LL * v5, 0x4B777445u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v13 = Pool2;
+    v13 = PoolWithTag;
     v14 = v5;
     while ( v8 )
     {
       KsrMdlToMemoryRuns(v8, v13, v14, &v16);
       v14 -= v16;
       v8 = (_QWORD *)*v8;
-      v13 += 8LL * v16;
+      v13 += 8 * v16;
     }
     v12 = KsrPersistMemoryWithMetadata(EtwpKsrGuid, v11, v5, a2, a3, a4);
     ExFreePoolWithTag(v11, 0);

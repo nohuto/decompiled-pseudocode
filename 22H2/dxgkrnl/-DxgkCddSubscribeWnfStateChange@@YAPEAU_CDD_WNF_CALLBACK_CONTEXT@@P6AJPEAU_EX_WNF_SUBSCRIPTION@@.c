@@ -1,11 +1,10 @@
 /*
- * XREFs of ?DxgkCddSubscribeWnfStateChange@@YAPEAU_CDD_WNF_CALLBACK_CONTEXT@@P6AJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_ID@@PEAX@ZPEAU_EPROCESS@@1K3@Z @ 0x1C01E9DC0
+ * XREFs of ?DxgkCddSubscribeWnfStateChange@@YAPEAU_CDD_WNF_CALLBACK_CONTEXT@@P6AJPEAU_EX_WNF_SUBSCRIPTION@@PEBU_WNF_STATE_NAME@@KKPEBU_WNF_TYPE_ID@@PEAX@ZPEAU_EPROCESS@@1K3@Z @ 0x1C016C100
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall DxgkCddSubscribeWnfStateChange(
@@ -16,36 +15,42 @@ struct _EX_RUNDOWN_REF *__fastcall DxgkCddSubscribeWnfStateChange(
         void *a5)
 {
   struct _EX_RUNDOWN_REF *v9; // rax
-  struct _EX_RUNDOWN_REF *v10; // rbx
-  int v11; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct _EX_RUNDOWN_REF *v14; // rbx
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rsi
+  __int64 v21; // rax
+  __int64 v22; // rax
 
-  v9 = (struct _EX_RUNDOWN_REF *)operator new[](0x28uLL, 0x4B677844u, 256LL);
-  v10 = v9;
+  v9 = (struct _EX_RUNDOWN_REF *)operator new[](0x28uLL, 0x4B677844u, PagedPool);
+  v14 = v9;
   if ( v9 )
   {
     v9[2].Count = (ULONG_PTR)a5;
     v9[3].Count = (ULONG_PTR)a2;
     v9[1].Count = (ULONG_PTR)a1;
     ExInitializeRundownProtection(v9 + 4);
-    v11 = ExSubscribeWnfStateChange(v10, a3, a4);
-    if ( v11 >= 0 )
-      return v10;
-    WdLogSingleEntry2(3LL, v11, a5);
-    operator delete(v10);
+    v15 = ExSubscribeWnfStateChange(v14, a3, a4);
+    v19 = v15;
+    if ( v15 >= 0 )
+      return v14;
+    v22 = WdLogNewEntry5_WdWarning(v17, v16, v18);
+    *(_QWORD *)(v22 + 24) = v19;
+    *(_QWORD *)(v22 + 32) = a5;
+    WdLogEvent5_WdWarning(v22);
+    operator delete(v14);
   }
   else
   {
-    WdLogSingleEntry1(6LL, a5);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocated CDD_WNF_CALLBACK_CONTEXT. CddPdev: 0x%I64x",
-      (__int64)a5,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v21 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+    *(_QWORD *)(v21 + 24) = a5;
+    WdLogEvent5_WdLowResource(v21);
   }
   return 0LL;
 }

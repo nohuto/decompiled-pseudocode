@@ -1,26 +1,26 @@
 /*
- * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x140132720
+ * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x140132740
  * Callers:
- *     IoAttachDeviceToDeviceStackSafe @ 0x140132700 (IoAttachDeviceToDeviceStackSafe.c)
- *     IoAttachDeviceToDeviceStack @ 0x14016CD30 (IoAttachDeviceToDeviceStack.c)
- *     IoAttachDeviceByPointer @ 0x140282E40 (IoAttachDeviceByPointer.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x140132720 (IoAttachDeviceToDeviceStackSafe.c)
+ *     IoAttachDeviceToDeviceStack @ 0x14016CD50 (IoAttachDeviceToDeviceStack.c)
+ *     IoAttachDeviceByPointer @ 0x140282F40 (IoAttachDeviceByPointer.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     IopGetDeviceAttachmentBase @ 0x140019D54 (IopGetDeviceAttachmentBase.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IoGetAttachedDevice @ 0x1400B9230 (IoGetAttachedDevice.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     PnpRequestDeviceAction @ 0x14015EFE4 (PnpRequestDeviceAction.c)
- *     IoGetDiskDeviceObject @ 0x140169A30 (IoGetDiskDeviceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x140283F34 (IopIsKnownGoodLegacyFsFilter.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IoGetAttachedDevice @ 0x1400B9250 (IoGetAttachedDevice.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
+ *     IoGetDiskDeviceObject @ 0x140169A50 (IoGetDiskDeviceObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x140284034 (IopIsKnownGoodLegacyFsFilter.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
  *     IovAttachDeviceToDeviceStack @ 0x140923ABC (IovAttachDeviceToDeviceStack.c)
  */
 

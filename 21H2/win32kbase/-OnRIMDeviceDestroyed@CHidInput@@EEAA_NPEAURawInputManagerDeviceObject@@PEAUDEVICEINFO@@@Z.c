@@ -1,14 +1,14 @@
 /*
- * XREFs of ?OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C01E2770
+ * XREFs of ?OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C00B8050
  * Callers:
  *     <none>
  * Callees:
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C002DC3C (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C004E6D0 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
- *     HMRemoveHandleForObject @ 0x1C0050440 (HMRemoveHandleForObject.c)
- *     ?RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01DF808 (-RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
- *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C01F8448 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0008348 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     HMRemoveHandleForObject @ 0x1C0008390 (HMRemoveHandleForObject.c)
+ *     HMUnlockObject @ 0x1C002D5A0 (HMUnlockObject.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     ?RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A7290 (-RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C01BDB98 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
  */
 
 char __fastcall CHidInput::OnRIMDeviceDestroyed(
@@ -17,26 +17,26 @@ char __fastcall CHidInput::OnRIMDeviceDestroyed(
         struct DEVICEINFO *a3)
 {
   char v3; // di
-  __int64 v4; // rbx
-  const struct tagDomLock *v5; // rcx
-  int *v6; // rcx
+  __int64 v5; // rbx
+  _DWORD *v6; // rcx
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 1;
   if ( (*((_DWORD *)a2 + 72) & 0x80u) != 0 )
   {
-    v4 = *((_QWORD *)a2 + 70);
+    v5 = *((_QWORD *)a2 + 71);
     CInputSystemMetrics::UpdatePointerDeviceSystemMetrics(this, a3, 0);
-    if ( *(_QWORD *)(v4 + 1056) )
-      CPTPProcessorFactory::RemoveProcessor((struct tagHID_POINTER_DEVICE_INFO *)v4);
-    HMUnlockObject(v4);
-    if ( *(_DWORD *)(v4 + 8) )
+    if ( *(_QWORD *)(v5 + 1000) )
+      CPTPProcessorFactory::RemoveProcessor((struct tagHID_POINTER_DEVICE_INFO *)v5);
+    HMUnlockObject(v5);
+    if ( *(_DWORD *)(v5 + 8) )
     {
       return 0;
     }
     else
     {
-      LockRefactorStagingAssertOwned(v5);
-      HMMarkObjectDestroyWorker((_DWORD *)v4);
+      CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v7);
+      HMMarkObjectDestroyWorker((_DWORD *)v5);
       HMRemoveHandleForObject(v6);
     }
   }

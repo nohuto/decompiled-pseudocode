@@ -1,13 +1,13 @@
 /*
- * XREFs of ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00BA8C0
+ * XREFs of ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00AB7F0
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00BA9E0 (-InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z.c)
- *     ApiSetEditionInitializeWppLogging @ 0x1C00BAAA4 (ApiSetEditionInitializeWppLogging.c)
- *     ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00C49C8 (-UninitializeBaseWppLog@@YAXXZ.c)
- *     WppInitKm @ 0x1C02C843C (WppInitKm.c)
- *     WppLoadTracingSupport @ 0x1C02C84F0 (WppLoadTracingSupport.c)
+ *     ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00AB910 (-InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z.c)
+ *     ApiSetEditionInitializeWppLogging @ 0x1C00AB9D4 (ApiSetEditionInitializeWppLogging.c)
+ *     ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00B5B70 (-UninitializeBaseWppLog@@YAXXZ.c)
+ *     WppInitKm @ 0x1C027F3E0 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C027F494 (WppLoadTracingSupport.c)
  */
 
 __int64 __fastcall InitializeWppLogging(struct _DRIVER_OBJECT *a1)
@@ -35,7 +35,7 @@ __int64 __fastcall InitializeWppLogging(struct _DRIVER_OBJECT *a1)
   WppInitKm(v1, &v6);
   v7 = 8LL;
   imp_WppRecorderConfigure(WPP_GLOBAL_Control, &v7);
-  v3 = InitializeWppRecorder((struct RECORDER_LOG__ **)&WPP_MAIN_CB.Queue, "win32kbase", v2);
+  v3 = InitializeWppRecorder(&gBaseLog, "win32kbase", v2);
   if ( v3 < 0
     || (v3 = InitializeWppRecorder(&gRimLog, "win32kbase_rim", v4), v3 < 0)
     || (v3 = ApiSetEditionInitializeWppLogging(v1, &v6), v3 < 0) )

@@ -3,9 +3,9 @@
  * Callers:
  *     BgkDestroy @ 0x140951A04 (BgkDestroy.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x1400BC820 (KeGetCurrentIrql.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
+ *     KeGetCurrentIrql @ 0x1400BC840 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
  *     BgpFwLibraryDestroy @ 0x140950E4C (BgpFwLibraryDestroy.c)
  */
 

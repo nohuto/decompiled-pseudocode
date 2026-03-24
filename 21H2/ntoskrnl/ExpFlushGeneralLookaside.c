@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpFlushGeneralLookaside @ 0x140245FE0
+ * XREFs of ExpFlushGeneralLookaside @ 0x1402BE810
  * Callers:
- *     ExDeleteNPagedLookasideList @ 0x140245F80 (ExDeleteNPagedLookasideList.c)
- *     ExDeletePagedLookasideList @ 0x140245FB0 (ExDeletePagedLookasideList.c)
+ *     ExDeletePagedLookasideList @ 0x1402BE7E0 (ExDeletePagedLookasideList.c)
+ *     ExDeleteNPagedLookasideList @ 0x14039AB20 (ExDeleteNPagedLookasideList.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExpFlushGeneralLookaside(__int64 a1)

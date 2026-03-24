@@ -1,120 +1,96 @@
 /*
- * XREFs of NtQueryOpenSubKeys @ 0x14090E9C0
+ * XREFs of NtQueryOpenSubKeys @ 0x1408686D0
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObReferenceObjectByNameEx @ 0x1406686C8 (ObReferenceObjectByNameEx.c)
- *     CmpCleanupParseContext @ 0x14067FE98 (CmpCleanupParseContext.c)
- *     CmpSearchForOpenSubKeys @ 0x14069E3E0 (CmpSearchForOpenSubKeys.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AB43C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
+ *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
+ *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpSearchForOpenSubKeys @ 0x1406BF360 (CmpSearchForOpenSubKeys.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
 {
   char v4; // si
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  char v12; // r14
-  int v13; // ebx
+  BOOLEAN v5; // r14
+  int v6; // ebx
   char PreviousMode; // dl
-  __int64 v15; // rcx
-  _QWORD *v16; // rdi
-  int v17; // ebx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  PVOID Object; // [rsp+48h] [rbp-1B0h] BYREF
-  int v27; // [rsp+50h] [rbp-1A8h]
-  __int128 v28; // [rsp+58h] [rbp-1A0h] BYREF
-  _OWORD v29[3]; // [rsp+68h] [rbp-190h] BYREF
-  _OWORD v30[19]; // [rsp+A0h] [rbp-158h] BYREF
+  __int64 v8; // rcx
+  PADAPTER_OBJECT v9; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  int v13; // ebx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-1A0h] BYREF
+  int v16; // [rsp+50h] [rbp-198h]
+  _OWORD v17[3]; // [rsp+58h] [rbp-190h] BYREF
+  _OWORD v18[19]; // [rsp+90h] [rbp-158h] BYREF
 
-  v28 = 0LL;
-  v27 = 0;
-  memset(v29, 0, sizeof(v29));
-  Object = 0LL;
-  memset(v30, 0, 0x128uLL);
-  LODWORD(v30[6]) = -1;
-  *((_QWORD *)&v30[9] + 1) = &v30[9];
-  *(_QWORD *)&v30[9] = &v30[9];
-  memset((char *)&v30[13] + 8, 0, 0x50uLL);
+  v16 = 0;
+  memset(v17, 0, sizeof(v17));
+  DmaAdapter = 0LL;
+  memset(v18, 0, 0x128uLL);
+  LODWORD(v18[6]) = -1;
+  *((_QWORD *)&v18[9] + 1) = &v18[9];
+  *(_QWORD *)&v18[9] = &v18[9];
+  memset((char *)&v18[13] + 8, 0, 0x50uLL);
   v4 = 0;
-  CmpInitializeThreadInfo((__int64)&v28);
-  v12 = CmpAcquireShutdownRundown(v6, v5, v7);
-  if ( v12 )
+  v5 = CmpAcquireShutdownRundown();
+  if ( v5 )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode == 1 )
     {
-      v15 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v15 = (__int64)a2;
-      *(_DWORD *)v15 = *(_DWORD *)v15;
+      v8 = (__int64)a2;
+      if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+        v8 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v8 = *(_DWORD *)v8;
     }
-    v13 = ObReferenceObjectByNameEx(
-            a1,
-            0LL,
-            0x20019u,
-            (__int64)CmKeyObjectType,
-            PreviousMode,
-            (__int64)v30,
-            (PADAPTER_OBJECT *)&Object);
-    if ( v13 >= 0 )
+    v6 = ObReferenceObjectByNameEx(a1, 0LL, 0x20019u, (__int64)CmKeyObjectType, PreviousMode, (__int64)v18, &DmaAdapter);
+    if ( v6 >= 0 )
     {
       CmpLockRegistryExclusive();
       v4 = 1;
-      v16 = Object;
-      v13 = CmpPerformKeyBodyDeletionCheck(Object, 0LL);
-      if ( v13 >= 0 )
+      v9 = DmaAdapter;
+      v6 = CmpPerformKeyBodyDeletionCheck((__int64)DmaAdapter, 0LL);
+      if ( v6 >= 0 )
       {
-        if ( (*(_DWORD *)(v16[1] + 184LL) & 0x40000) != 0 )
+        if ( ((__int64)v9->DmaOperations->MapTransferEx & 0x40000) != 0 )
         {
-          CmpAttachToRegistryProcess(v29);
-          v17 = CmpSearchForOpenSubKeys(v16[1], 0, 0LL);
-          CmpDetachFromRegistryProcess(v29);
-          CmpUnlockRegistry(v19, v18, v20, v21);
+          CmpAttachToRegistryProcess((__int64)v17, v10, v11, v12);
+          v13 = CmpSearchForOpenSubKeys((__int64)v9->DmaOperations, 0, 0LL);
+          CmpDetachFromRegistryProcess((__int64)v17);
+          CmpUnlockRegistry();
           v4 = 0;
-          *a2 = v17;
-          v13 = 0;
+          *a2 = v13;
+          v6 = 0;
         }
         else
         {
-          v13 = -1073741811;
+          v6 = -1073741811;
         }
       }
     }
   }
   else
   {
-    v13 = -1073741431;
+    v6 = -1073741431;
   }
   if ( v4 )
-    CmpUnlockRegistry(v9, v8, v10, v11);
-  CmpCleanupParseContext(v30, 0LL);
-  if ( v12 )
-    CmpReleaseShutdownRundown(v23, v22, v24);
-  if ( Object )
-    ObfDereferenceObject(Object);
-  CmCleanupThreadInfo((__int64 *)&v28);
-  return (unsigned int)v13;
+    CmpUnlockRegistry();
+  CmpCleanupParseContext((__int64)v18, 0);
+  if ( v5 )
+    CmpReleaseShutdownRundown();
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  return (unsigned int)v6;
 }

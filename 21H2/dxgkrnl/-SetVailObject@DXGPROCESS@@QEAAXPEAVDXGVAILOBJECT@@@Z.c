@@ -1,33 +1,33 @@
 /*
- * XREFs of ?SetVailObject@DXGPROCESS@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C033770C
+ * XREFs of ?SetVailObject@DXGPROCESS@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C02862E4
  * Callers:
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0186C8C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C018910C (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     NtDxgkRegisterVailProcess @ 0x1C0353BC0 (NtDxgkRegisterVailProcess.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C011665C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0117814 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     NtDxgkRegisterVailProcess @ 0x1C02B8680 (NtDxgkRegisterVailProcess.c)
  * Callees:
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C006C430 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
- *     ?SetHandleProcess@DXGVAILOBJECT@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C0351A20 (-SetHandleProcess@DXGVAILOBJECT@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C005E834 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
+ *     ?SetHandleProcess@DXGVAILOBJECT@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C02B5BF4 (-SetHandleProcess@DXGVAILOBJECT@@QEAAXPEAU_EPROCESS@@@Z.c)
  */
 
 void __fastcall DXGPROCESS::SetVailObject(DXGPROCESS *this, struct DXGVAILOBJECT *a2)
 {
   DXGVAILOBJECT *v4; // rcx
 
-  v4 = (DXGVAILOBJECT *)*((_QWORD *)this + 74);
+  v4 = (DXGVAILOBJECT *)*((_QWORD *)this + 60);
   if ( a2 != v4 )
   {
     if ( v4 )
     {
       DXGVAILOBJECT::SetHandleProcess(v4, 0LL);
-      DxgkCompositionObject::Release(*((DxgkCompositionObject **)this + 74));
-      *((_QWORD *)this + 74) = 0LL;
+      DxgkCompositionObject::Release(*((DxgkCompositionObject **)this + 60));
+      *((_QWORD *)this + 60) = 0LL;
     }
     if ( a2 )
     {
-      *((_QWORD *)this + 74) = a2;
+      *((_QWORD *)this + 60) = a2;
       DxgkCompositionObject::AddRef(a2);
-      DXGVAILOBJECT::SetHandleProcess(*((DXGVAILOBJECT **)this + 74), *((struct _EPROCESS **)this + 7));
+      DXGVAILOBJECT::SetHandleProcess(*((DXGVAILOBJECT **)this + 60), *((struct _EPROCESS **)this + 7));
     }
   }
 }

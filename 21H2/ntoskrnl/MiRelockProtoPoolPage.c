@@ -1,38 +1,41 @@
 /*
- * XREFs of MiRelockProtoPoolPage @ 0x14027FE9C
+ * XREFs of MiRelockProtoPoolPage @ 0x14031A078
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x14026F180 (MiCopyDataPageToImagePage.c)
- *     MiWaitForCollidedFaultComplete @ 0x14027FEF8 (MiWaitForCollidedFaultComplete.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
+ *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
  * Callees:
- *     MiLockOwnedProtoPage @ 0x140273EE0 (MiLockOwnedProtoPage.c)
- *     MiAddLockedPageCharge @ 0x140274508 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiLockOwnedProtoPage @ 0x14031A320 (MiLockOwnedProtoPage.c)
+ *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
  */
 
-__int64 __fastcall MiRelockProtoPoolPage(__int64 a1, unsigned __int8 *a2, __int64 a3)
+__int64 __fastcall MiRelockProtoPoolPage(__int64 a1, char *a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int8 v5; // si
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  char v6; // si
+  __int64 v7; // rdx
+  int v9; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a2 )
   {
-    v5 = MiLockPageInline(a1);
-    *a2 = v5;
+    v6 = MiLockPageInline(a1, (__int64)a2, a3, a4);
+    *a2 = v6;
   }
   else
   {
-    v7 = 0;
-    v5 = 17;
+    v9 = 0;
+    v6 = 17;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v7);
+        KeYieldProcessorEx(&v9, (__int64)a2, a3, (__int64)a4);
       while ( *(__int64 *)(a1 + 24) < 0 );
     }
   }
-  MiAddLockedPageCharge(a1, 1LL, a3);
-  MiLockOwnedProtoPage(a1, v5);
+  MiAddLockedPageCharge(a1, 1LL);
+  LOBYTE(v7) = v6;
+  MiLockOwnedProtoPage(a1, v7);
   return a1;
 }

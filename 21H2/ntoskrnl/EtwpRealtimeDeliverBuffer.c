@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRealtimeDeliverBuffer @ 0x140798E18
+ * XREFs of EtwpRealtimeDeliverBuffer @ 0x140645D0C
  * Callers:
- *     EtwpRealtimeSendEmptyMarker @ 0x1406EF9E0 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpFlushBufferToRealtime @ 0x140798DA8 (EtwpFlushBufferToRealtime.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x14079A870 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x14085E858 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpFlushBufferToRealtime @ 0x140645C38 (EtwpFlushBufferToRealtime.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1406E0C94 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1407D05D8 (EtwpRealtimeUpdateReferenceTime.c)
  * Callees:
- *     EtwpDisassociateConsumer @ 0x1406E9D2C (EtwpDisassociateConsumer.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x140798F44 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x140645E50 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpDisassociateConsumer @ 0x1406C2700 (EtwpDisassociateConsumer.c)
  */
 
 __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
@@ -21,12 +21,12 @@ __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
   int v10; // eax
   unsigned __int8 v11; // cl
   char v12; // dl
-  __int16 v14; // ax
-  bool v15; // zf
+  bool v14; // zf
+  __int16 v15; // ax
   char v16; // [rsp+60h] [rbp+8h]
   char v17; // [rsp+70h] [rbp+18h]
 
-  v2 = *(_DWORD *)(a1 + 448);
+  v2 = *(_DWORD *)(a1 + 464);
   v16 = 0;
   v17 = 0;
   v5 = 0LL;
@@ -34,21 +34,21 @@ __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
   {
     if ( v2 == 3 )
     {
-      v14 = 8;
+      v15 = 8;
     }
     else
     {
-      v15 = v2 == 2;
-      v14 = 4;
-      if ( !v15 )
-        v14 = 2;
+      v14 = v2 == 2;
+      v15 = 4;
+      if ( !v14 )
+        v15 = 2;
     }
-    *(_WORD *)(a2 + 52) |= v14;
+    *(_WORD *)(a2 + 52) |= v15;
     v17 = 1;
   }
-  v6 = (_QWORD *)(a1 + 328);
-  v7 = *(_QWORD **)(a1 + 328);
-  if ( v7 == (_QWORD *)(a1 + 328) )
+  v6 = (_QWORD *)(a1 + 344);
+  v7 = *(_QWORD **)(a1 + 344);
+  if ( v7 == (_QWORD *)(a1 + 344) )
     return 3221225473LL;
   do
   {
@@ -57,7 +57,7 @@ __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
     v7 = (_QWORD *)*v7;
     if ( (*((_BYTE *)v9 + 90) & 2) != 0 )
       *(_WORD *)(a2 + 52) = v8 | 4;
-    v10 = EtwpRealtimeInjectEtwBuffer(a1, v9, a2);
+    v10 = EtwpRealtimeInjectEtwBuffer(a1, v9, a2, 2LL);
     *(_WORD *)(a2 + 52) = v8;
     if ( v10 < 0 )
     {
@@ -68,8 +68,8 @@ __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
       }
       else
       {
-LABEL_18:
-        EtwpDisassociateConsumer(a1, v9);
+LABEL_17:
+        EtwpDisassociateConsumer(a1, v9, 0LL);
       }
       v12 = v16;
       continue;
@@ -84,15 +84,15 @@ LABEL_18:
     v12 = 1;
     v16 = 1;
     if ( (v11 & ((v8 & 1) != 0)) != 0 )
-      goto LABEL_18;
+      goto LABEL_17;
   }
   while ( v7 != v6 );
   if ( !v12 )
     return 3221225473LL;
   if ( v17 )
-    *(_DWORD *)(a1 + 448) = 0;
+    *(_DWORD *)(a1 + 464) = 0;
   if ( *(_WORD *)(a2 + 54) != 6 )
-    ++*(_DWORD *)(a1 + 256);
+    ++*(_DWORD *)(a1 + 272);
   while ( v5 )
   {
     *((_BYTE *)v5 + 90) |= 2u;

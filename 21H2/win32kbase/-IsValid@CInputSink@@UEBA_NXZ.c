@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CInputSink@@UEBA_NXZ @ 0x1C00CB500
+ * XREFs of ?IsValid@CInputSink@@UEBA_NXZ @ 0x1C00BC410
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CInputSink::IsValid(CInputSink *this)
 {
-  return *((_BYTE *)this + 24);
+  return *((_BYTE *)this + 32);
 }

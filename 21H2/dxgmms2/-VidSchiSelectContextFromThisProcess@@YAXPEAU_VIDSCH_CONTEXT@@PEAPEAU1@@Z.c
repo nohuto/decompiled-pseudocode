@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VidSchiSelectContextFromThisProcess@@YAXPEAU_VIDSCH_CONTEXT@@PEAPEAU1@@Z @ 0x1C0016600
+ * XREFs of ?VidSchiSelectContextFromThisProcess@@YAXPEAU_VIDSCH_CONTEXT@@PEAPEAU1@@Z @ 0x1C0014B88
  * Callers:
- *     VidSchiIsQuantumLeft @ 0x1C00164FC (VidSchiIsQuantumLeft.c)
+ *     VidSchiIsQuantumLeft @ 0x1C0014A98 (VidSchiIsQuantumLeft.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ void __fastcall VidSchiSelectContextFromThisProcess(struct _VIDSCH_CONTEXT *a1, 
   __int64 v8; // rax
   char v9; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = (_QWORD **)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 13) + 40LL) + 32LL)
+  v4 = (_QWORD **)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 13) + 40LL) + 24LL)
                              + 8LL * *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 12) + 24LL) + 4LL))
                  + 216LL);
   for ( i = 0; i < 2; ++i )

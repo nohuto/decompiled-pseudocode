@@ -1,44 +1,23 @@
 /*
- * XREFs of ExInterlockedPopEntryList @ 0x14060CB00
+ * XREFs of ExInterlockedPopEntryList @ 0x1405B6E00
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x140351A48 (ExpAcquireSpinLockDisabled.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockDisabled @ 0x1402F8744 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1402F8814 (ExpAcquireSpinLockDisabled.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPopEntryList(PSINGLE_LIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  bool v4; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rdi
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v8; // eax
-  signed __int32 v9; // ett
+  __int64 v2; // r8
+  __int64 v3; // r9
+  char v6; // al
+  struct _SINGLE_LIST_ENTRY *Next; // rbx
 
-  v4 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock);
+  v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock, (__int64)Lock, v2, v3);
   Next = ListHead->Next;
   if ( ListHead->Next )
     ListHead->Next = Next->Next;
-  _InterlockedAnd64((volatile signed __int64 *)Lock, 0LL);
-  if ( v4 )
-  {
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
-    {
-      _m_prefetchw(SchedulerAssist);
-      v8 = *SchedulerAssist;
-      do
-      {
-        v9 = v8;
-        v8 = _InterlockedCompareExchange(SchedulerAssist, v8 & 0xFFDFFFFF, v8);
-      }
-      while ( v9 != v8 );
-      if ( (v8 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-    }
-    _enable();
-  }
+  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v6);
   return Next;
 }

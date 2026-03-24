@@ -1,83 +1,83 @@
 /*
- * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1407869A0
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x140762740
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IoSetActivityIdThread @ 0x14031E490 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x14031E4B0 (IoClearActivityIdThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1405611A0 (McTemplateK0p_EtwWriteTransfer.c)
- *     PnpIsNullGuid @ 0x140786D44 (PnpIsNullGuid.c)
- *     PiDqQueryApplyObjectEvent @ 0x1407871A4 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryRelease @ 0x14078773C (PiDqQueryRelease.c)
- *     PiPnpRtlObjectEventRelease @ 0x140788E58 (PiPnpRtlObjectEventRelease.c)
- *     PiDqQueryFreeActiveData @ 0x1407E02C8 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryCompletePendedIrp @ 0x1407FC910 (PiDqQueryCompletePendedIrp.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IoSetActivityIdThread @ 0x14032D510 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x14032D530 (IoClearActivityIdThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x14050D7A0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     PnpIsNullGuid @ 0x140634DDC (PnpIsNullGuid.c)
+ *     PiDqQueryRelease @ 0x1406A747C (PiDqQueryRelease.c)
+ *     PiDqQueryFreeActiveData @ 0x1406A74F8 (PiDqQueryFreeActiveData.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1406ACE28 (PiPnpRtlObjectEventRelease.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140762AE4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryCompletePendedIrp @ 0x140763064 (PiDqQueryCompletePendedIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)
 {
-  struct _FAST_MUTEX *v1; // rbx
-  PERESOURCE v2; // rdi
+  struct _FAST_MUTEX *v1; // rdi
+  PERESOURCE v2; // rsi
   char v3; // r14
-  PERESOURCE v4; // r13
+  PERESOURCE v4; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int OwnerTable; // r12d
-  char v7; // cl
-  void *Pool2; // rax
-  __int64 v9; // rdx
-  volatile signed __int32 *j; // rcx
-  PVOID v11; // r15
-  __int64 v12; // rax
-  char *v13; // r13
-  __int64 v14; // rdi
-  struct _LIST_ENTRY *v15; // r12
-  __int64 v16; // rsi
+  PVOID *v6; // r13
+  __int64 v7; // r12
+  char v8; // cl
+  PVOID *PoolWithTag; // rax
+  __int64 v10; // rdx
+  volatile signed __int32 *i; // rcx
+  PVOID v12; // r15
+  __int64 v13; // rax
+  PVOID *v14; // rsi
+  struct _LIST_ENTRY *v15; // r13
+  char *v16; // rdi
   __int64 v17; // rcx
   struct _KTHREAD *v18; // rcx
   int v19; // ebx
   __int64 v20; // rcx
   struct _KTHREAD *v21; // rax
-  PVOID v22; // r15
-  PVOID *v23; // rbx
-  __int64 v24; // rsi
+  PVOID *v22; // rbx
+  __int64 v23; // rdi
   int OwnerTable_high; // eax
   _QWORD *result; // rax
-  PVOID *i; // rsi
-  struct _KTHREAD *v28; // rax
-  char v29; // [rsp+20h] [rbp-50h]
-  char v30; // [rsp+21h] [rbp-4Fh]
-  PVOID P[2]; // [rsp+28h] [rbp-48h] BYREF
-  unsigned int v32; // [rsp+38h] [rbp-38h]
-  PVOID v33; // [rsp+40h] [rbp-30h]
-  struct _LIST_ENTRY *v34; // [rsp+48h] [rbp-28h]
-  PERESOURCE v35; // [rsp+50h] [rbp-20h]
-  struct _LIST_ENTRY v36; // [rsp+58h] [rbp-18h] BYREF
+  __int64 j; // rdi
+  struct _KTHREAD *v27; // rax
+  char v28; // [rsp+20h] [rbp-60h]
+  char v29; // [rsp+21h] [rbp-5Fh]
+  PVOID P[2]; // [rsp+28h] [rbp-58h] BYREF
+  int v31; // [rsp+38h] [rbp-48h]
+  struct _LIST_ENTRY *v32; // [rsp+40h] [rbp-40h]
+  PVOID *v33; // [rsp+48h] [rbp-38h]
+  PERESOURCE v34; // [rsp+58h] [rbp-28h]
+  struct _LIST_ENTRY v35; // [rsp+60h] [rbp-20h] BYREF
 
-  v34 = 0LL;
+  v32 = 0LL;
   v1 = (struct _FAST_MUTEX *)&Resource[1];
-  v35 = Resource;
+  v34 = Resource;
   *(_OWORD *)P = 0LL;
   v2 = Resource;
-  v30 = 1;
-  v36 = 0LL;
+  v29 = 1;
+  v35 = 0LL;
   v3 = 1;
   v4 = Resource + 2;
   do
   {
     CurrentThread = KeGetCurrentThread();
-    OwnerTable = 0;
+    v6 = 0LL;
+    LODWORD(v7) = 0;
     v33 = 0LL;
-    v32 = 0;
+    v31 = 0;
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceExclusiveLite(v2, 1u);
     ExAcquireFastMutex(v1);
@@ -94,161 +94,158 @@ _QWORD *__fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)
       v4->SystemResourcesList.Blink = &v4->SystemResourcesList;
       v4->SystemResourcesList.Flink = &v4->SystemResourcesList;
     }
-    v7 = 0;
+    v8 = 0;
     if ( (HIDWORD(v2[2].OwnerTable) & 2) == 0 )
-      v7 = v3;
-    v3 = v7;
-    if ( v7 )
+      v8 = v3;
+    v3 = v8;
+    if ( v8 )
     {
-      OwnerTable = (unsigned int)v2[2].OwnerTable;
-      v32 = OwnerTable;
-      if ( OwnerTable )
+      LODWORD(v7) = v2[2].OwnerTable;
+      v31 = v7;
+      if ( (_DWORD)v7 )
       {
-        Pool2 = (void *)ExAllocatePool2(256LL, 8LL * OwnerTable, 1483763280LL);
-        v33 = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = (PVOID *)ExAllocatePoolWithTag(PagedPool, 8LL * (unsigned int)v7, 0x58706E50u);
+        v33 = PoolWithTag;
+        v6 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          v3 = 0;
-LABEL_51:
-          for ( i = (PVOID *)v2[1].Address; i != &v2[1].Address; i = (PVOID *)*i )
+          v10 = 0LL;
+          for ( i = (volatile signed __int32 *)v2[1].Address;
+                i != (volatile signed __int32 *)&v2[1].Address;
+                i = *(volatile signed __int32 **)i )
           {
-            v28 = KeGetCurrentThread();
-            --v28->KernelApcDisable;
-            ExAcquirePushLockExclusiveEx((ULONG_PTR)(i + 8), 0LL);
-            *((_DWORD *)i + 54) |= 1u;
-            PiDqQueryFreeActiveData(i);
-            PiDqQueryCompletePendedIrp(i);
-            ExReleasePushLockEx((__int64 *)i + 8, 0LL);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            if ( (unsigned int)v10 >= (unsigned int)v7 )
+              goto LABEL_49;
+            PoolWithTag[v10] = (PVOID)i;
+            v10 = (unsigned int)(v10 + 1);
+            _InterlockedIncrement(i + 53);
           }
-          HIDWORD(v2[2].OwnerTable) &= ~2u;
-          goto LABEL_14;
         }
-        v9 = 0LL;
-        for ( j = (volatile signed __int32 *)v2[1].Address;
-              j != (volatile signed __int32 *)&v2[1].Address;
-              j = *(volatile signed __int32 **)j )
+        else
         {
-          if ( (unsigned int)v9 >= OwnerTable )
-          {
-            v3 = 0;
-            goto LABEL_13;
-          }
-          *((_QWORD *)Pool2 + v9) = j;
-          v9 = (unsigned int)(v9 + 1);
-          _InterlockedIncrement(j + 53);
+LABEL_49:
+          v3 = 0;
         }
       }
     }
-    else
+    if ( !v3 )
     {
-LABEL_13:
-      if ( !v3 )
-        goto LABEL_51;
+      for ( j = (__int64)v2[1].Address; (PVOID *)j != &v2[1].Address; j = *(_QWORD *)j )
+      {
+        v27 = KeGetCurrentThread();
+        --v27->KernelApcDisable;
+        ExAcquirePushLockExclusiveEx(j + 64, 0LL);
+        *(_DWORD *)(j + 216) |= 1u;
+        PiDqQueryFreeActiveData(j);
+        PiDqQueryCompletePendedIrp(j);
+        ExReleasePushLockEx(j + 64, 0LL);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      }
+      HIDWORD(v2[2].OwnerTable) &= ~2u;
+      v1 = (struct _FAST_MUTEX *)&v2[1];
     }
-LABEL_14:
-    ExReleaseFastMutex((PFAST_MUTEX)&v2[1]);
+    KeReleaseGuardedMutex(v1);
     while ( 1 )
     {
-      v11 = P[0];
+      v12 = P[0];
       if ( P[0] == P )
         break;
-      if ( *((PVOID **)P[0] + 1) != P || (v12 = *(_QWORD *)P[0], *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0]) )
+      if ( *((PVOID **)P[0] + 1) != P || (v13 = *(_QWORD *)P[0], *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0]) )
         __fastfail(3u);
       P[0] = *(PVOID *)P[0];
-      *(_QWORD *)(v12 + 8) = P;
-      if ( v3 && OwnerTable )
+      *(_QWORD *)(v13 + 8) = P;
+      if ( v3 && (_DWORD)v7 )
       {
-        v13 = (char *)v33;
-        v14 = OwnerTable;
-        v15 = v34;
+        v14 = v6;
+        v15 = v32;
+        v7 = (unsigned int)v7;
         do
         {
-          v16 = *(_QWORD *)v13;
-          if ( *(_QWORD *)(*(_QWORD *)v13 + 224LL) <= *((_QWORD *)v11 + 3) )
+          v16 = (char *)*v14;
+          if ( *((_QWORD *)*v14 + 28) <= *((_QWORD *)v12 + 3) )
           {
-            v29 = 0;
-            if ( !(unsigned __int8)PnpIsNullGuid(*(void **)(v16 + 24)) )
+            v28 = 0;
+            if ( !PnpIsNullGuid(*((void **)v16 + 3)) )
             {
-              v36 = *(struct _LIST_ENTRY *)*(_QWORD *)(v16 + 24);
-              v15 = IoSetActivityIdThread(&v36);
-              v29 = 1;
+              v35 = *(struct _LIST_ENTRY *)*((_QWORD *)v16 + 3);
+              v15 = IoSetActivityIdThread(&v35);
+              v28 = 1;
             }
-            if ( byte_140C0E20A < 0 )
+            if ( byte_140C1327A < 0 )
               McTemplateK0p_EtwWriteTransfer(
                 v17,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_DevQuery_ProcessingStart,
-                *(const GUID **)(v16 + 24),
+                *((const GUID **)v16 + 3),
                 v16);
             v18 = KeGetCurrentThread();
             --v18->KernelApcDisable;
-            ExAcquirePushLockExclusiveEx(v16 + 64, 0LL);
-            v19 = *(_DWORD *)(v16 + 216);
-            ExReleasePushLockEx((__int64 *)(v16 + 64), 0LL);
+            ExAcquirePushLockExclusiveEx((ULONG_PTR)(v16 + 64), 0LL);
+            v19 = *((_DWORD *)v16 + 54);
+            ExReleasePushLockEx((ULONG_PTR)(v16 + 64), 0LL);
             KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             if ( (v19 & 9) == 0 )
             {
-              PiDqQueryApplyObjectEvent(v16, *((_QWORD *)v11 + 2));
+              PiDqQueryApplyObjectEvent(v16, *((_QWORD *)v12 + 2));
               v21 = KeGetCurrentThread();
               --v21->KernelApcDisable;
-              ExAcquirePushLockExclusiveEx(v16 + 64, 0LL);
-              if ( (*(_DWORD *)(v16 + 216) & 1) != 0 || *(_QWORD *)(v16 + 192) != v16 + 192 )
+              ExAcquirePushLockExclusiveEx((ULONG_PTR)(v16 + 64), 0LL);
+              if ( (*((_DWORD *)v16 + 54) & 1) != 0 || *((char **)v16 + 24) != v16 + 192 )
                 PiDqQueryCompletePendedIrp(v16);
-              ExReleasePushLockEx((__int64 *)(v16 + 64), 0LL);
+              ExReleasePushLockEx((ULONG_PTR)(v16 + 64), 0LL);
               KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             }
-            if ( byte_140C0E20A < 0 )
+            if ( byte_140C1327A < 0 )
               McTemplateK0p_EtwWriteTransfer(
                 v20,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_DevQuery_ProcessingStop,
-                *(const GUID **)(v16 + 24),
+                *((const GUID **)v16 + 3),
                 v16);
-            if ( v29 )
+            if ( v28 )
               IoClearActivityIdThread(v15);
           }
-          v13 += 8;
-          --v14;
+          ++v14;
+          --v7;
         }
-        while ( v14 );
-        v2 = v35;
-        v34 = v15;
-        OwnerTable = v32;
-        v4 = v35 + 2;
+        while ( v7 );
+        v2 = v34;
+        LODWORD(v7) = v31;
+        v32 = v15;
+        v6 = v33;
       }
-      PiPnpRtlObjectEventRelease(*((PVOID *)v11 + 2));
-      ExFreePoolWithTag(v11, 0x58706E50u);
+      PiPnpRtlObjectEventRelease(*((char **)v12 + 2));
+      ExFreePoolWithTag(v12, 0x58706E50u);
     }
-    v22 = v33;
-    if ( v33 )
+    if ( v6 )
     {
-      if ( OwnerTable )
+      if ( (_DWORD)v7 )
       {
-        v23 = (PVOID *)v33;
-        v24 = OwnerTable;
+        v22 = v6;
+        v23 = (unsigned int)v7;
         do
         {
-          PiDqQueryRelease(*v23++);
-          --v24;
+          PiDqQueryRelease(*v22++);
+          --v23;
         }
-        while ( v24 );
+        while ( v23 );
       }
-      ExFreePoolWithTag(v22, 0x58706E50u);
+      ExFreePoolWithTag(v6, 0x58706E50u);
     }
     v1 = (struct _FAST_MUTEX *)&v2[1];
     ExAcquireFastMutex((PFAST_MUTEX)&v2[1]);
+    v4 = v2 + 2;
     if ( (PERESOURCE)v4->SystemResourcesList.Flink == v4 )
     {
       OwnerTable_high = HIDWORD(v2[2].OwnerTable);
       if ( (OwnerTable_high & 2) == 0 )
       {
-        v30 = 0;
+        v29 = 0;
         HIDWORD(v2[2].OwnerTable) = OwnerTable_high & 0xFFFFFFFE;
       }
     }
-    ExReleaseFastMutex((PFAST_MUTEX)&v2[1]);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&v2[1]);
     ExReleaseResourceLite(v2);
     result = KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  while ( v30 );
+  while ( v29 );
   return result;
 }

@@ -1,29 +1,29 @@
 /*
- * XREFs of PsInitializeVsmEnclave @ 0x1409B4318
+ * XREFs of PsInitializeVsmEnclave @ 0x14090DF50
  * Callers:
- *     MiInitializeVsmEnclave @ 0x14097A228 (MiInitializeVsmEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x1408D3098 (MiInitializeVsmEnclave.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     VslInitializeEnclave @ 0x140932454 (VslInitializeEnclave.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     VslInitializeEnclave @ 0x14088FB9C (VslInitializeEnclave.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, __int64 a2, ULONG a3, __int64 a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *PoolWithQuotaTag; // r14
+  _QWORD *PoolWithQuotaTag; // rsi
   volatile signed __int64 *v11; // r15
   int v12; // ecx
-  int v13; // edi
-  __int64 v14; // rbp
-  _QWORD *v15; // rcx
-  _QWORD *v16; // rdx
-  __int64 v17; // r8
-  _QWORD *v18; // rcx
+  int v13; // ebp
+  __int64 v14; // r14
+  _QWORD *v16; // rcx
+  _QWORD *v17; // rdx
+  __int64 v18; // r8
+  _QWORD *v19; // rcx
 
   CurrentThread = KeGetCurrentThread();
   PoolWithQuotaTag = 0LL;
@@ -37,28 +37,12 @@ __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, __int64 a2, ULONG a3, __in
       v13 = -1073740528;
     else
       v13 = -1073740526;
+    goto LABEL_19;
   }
-  else
+  if ( *(_BYTE *)(a1 + 76) )
   {
-    if ( *(_BYTE *)(a1 + 76) )
-    {
-      LODWORD(v14) = 0;
-    }
-    else
-    {
-      if ( a3 != 8 || *(_DWORD *)a2 != 8 )
-      {
-        v13 = -1073741820;
-        goto LABEL_19;
-      }
-      v14 = *(unsigned int *)(a2 + 4);
-      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 40 * v14, 0x74457350u);
-      if ( !PoolWithQuotaTag )
-      {
-        v13 = -1073741670;
-        goto LABEL_19;
-      }
-    }
+    LODWORD(v14) = 0;
+LABEL_12:
     v13 = VslInitializeEnclave(*(_QWORD *)(a1 + 24), a1 + 80, (struct _MDL *)a2, a3, a4, a5, (_DWORD *)(a1 + 40));
     if ( v13 >= 0 )
     {
@@ -68,34 +52,42 @@ __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, __int64 a2, ULONG a3, __in
         *PoolWithQuotaTag = 0LL;
         if ( (unsigned int)v14 > 1 )
         {
-          v15 = PoolWithQuotaTag + 5;
-          v16 = PoolWithQuotaTag;
-          v17 = (unsigned int)(v14 - 1);
+          v16 = PoolWithQuotaTag + 5;
+          v17 = PoolWithQuotaTag;
+          v18 = (unsigned int)(v14 - 1);
           do
           {
-            *v15 = v16;
+            *v16 = v17;
+            v17 += 5;
             v16 += 5;
-            v15 += 5;
-            --v17;
+            --v18;
           }
-          while ( v17 );
+          while ( v18 );
         }
         *(_QWORD *)(a1 + 120) = PoolWithQuotaTag;
-        v18 = &PoolWithQuotaTag[5 * (unsigned int)(v14 - 1)];
+        v19 = &PoolWithQuotaTag[5 * (unsigned int)(v14 - 1)];
         PoolWithQuotaTag = 0LL;
-        *(_QWORD *)(a1 + 128) = v18;
+        *(_QWORD *)(a1 + 128) = v19;
       }
       *(_DWORD *)(a1 + 44) = 1;
       *(_QWORD *)(a1 + 64) = a1 + 56;
       v13 = 0;
       *(_QWORD *)(a1 + 56) = a1 + 56;
     }
+    goto LABEL_19;
   }
+  if ( a3 != 8 || *(_DWORD *)a2 != 8 )
+    return 3221225476LL;
+  v14 = *(unsigned int *)(a2 + 4);
+  PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 40 * v14, 0x74457350u);
+  if ( PoolWithQuotaTag )
+    goto LABEL_12;
+  v13 = -1073741670;
 LABEL_19:
   if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v11);
   KeAbPostRelease((ULONG_PTR)v11);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( PoolWithQuotaTag )
     ExFreePoolWithTag(PoolWithQuotaTag, 0);
   return (unsigned int)v13;

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxIdleDevicesFromSx @ 0x140397278
+ * XREFs of PopFxIdleDevicesFromSx @ 0x14038C234
  * Callers:
- *     PoBroadcastSystemState @ 0x140A4A768 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
  */
 
-char PopFxIdleDevicesFromSx()
+_QWORD *PopFxIdleDevicesFromSx()
 {
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR i; // rbx
@@ -31,5 +31,5 @@ char PopFxIdleDevicesFromSx()
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

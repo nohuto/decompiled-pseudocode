@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSchedulingGroupWeights @ 0x140200D84
+ * XREFs of KeSetSchedulingGroupWeights @ 0x1402DDB30
  * Callers:
- *     PsSetCpuQuotaInformation @ 0x1405A3A14 (PsSetCpuQuotaInformation.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     PsSetCpuQuotaInformation @ 0x140580F48 (PsSetCpuQuotaInformation.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
  * Callees:
- *     KiAssignSchedulingGroupWeights @ 0x140205544 (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateMinimumWeight @ 0x1402055F8 (KiUpdateMinimumWeight.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAssignSchedulingGroupWeights @ 0x1402DDCF0 (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateMinimumWeight @ 0x1402DDF60 (KiUpdateMinimumWeight.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetSchedulingGroupWeights(unsigned int a1, __int64 a2, __int64 a3)
@@ -26,11 +26,11 @@ __int64 __fastcall KeSetSchedulingGroupWeights(unsigned int a1, __int64 a2, __in
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v17; // zf
-  struct _KLOCK_QUEUE_HANDLE v18; // [rsp+20h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = a1;
-  memset(&v18, 0, sizeof(v18));
-  KeAcquireInStackQueuedSpinLock(&KiSchedulingGroupLock, &v18);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock(&KiSchedulingGroupLock, &LockHandle);
   if ( (_DWORD)v3 )
   {
     v7 = a2;
@@ -56,23 +56,24 @@ __int64 __fastcall KeSetSchedulingGroupWeights(unsigned int a1, __int64 a2, __in
   KiUpdateMinimumWeight(0LL, v6, *(_QWORD *)(*(_QWORD *)a2 + 96LL));
   LOBYTE(v12) = 1;
   KiAssignSchedulingGroupWeights(0LL, v12, *(_QWORD *)(*(_QWORD *)a2 + 96LL));
-  result = KxReleaseQueuedSpinLock(&v18);
-  OldIrql = v18.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v18.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v18.OldIrql + 1));
-      v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v17 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v17 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

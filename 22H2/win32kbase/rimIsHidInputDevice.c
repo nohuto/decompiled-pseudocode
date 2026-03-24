@@ -1,11 +1,11 @@
 /*
- * XREFs of rimIsHidInputDevice @ 0x1C00E0FD2
+ * XREFs of rimIsHidInputDevice @ 0x1C006BB38
  * Callers:
- *     RIMStartDeviceSpecificRead @ 0x1C00789D8 (RIMStartDeviceSpecificRead.c)
- *     RIMAllocateHidDesc @ 0x1C017F574 (RIMAllocateHidDesc.c)
- *     RIMVirtAllocateHidDesc @ 0x1C0183828 (RIMVirtAllocateHidDesc.c)
+ *     RIMAllocateHidDesc @ 0x1C0057F3C (RIMAllocateHidDesc.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C006AD98 (RIMStartDeviceSpecificRead.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162838 (RIMVirtAllocateHidDesc.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall rimIsHidInputDevice(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ __int64 __fastcall rimIsHidInputDevice(__int64 a1, __int64 a2)
 
   v2 = 0;
   if ( (unsigned __int8)(*(_BYTE *)(a1 + 48) - 2) > 1u )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2454);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1972LL);
   LOBYTE(v2) = *(_WORD *)(a2 + 44) != 0;
   return v2;
 }

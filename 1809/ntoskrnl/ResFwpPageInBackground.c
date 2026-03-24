@@ -3,11 +3,11 @@
  * Callers:
  *     ResFwBackgroundTransition @ 0x140950360 (ResFwBackgroundTransition.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 void ResFwpPageInBackground()

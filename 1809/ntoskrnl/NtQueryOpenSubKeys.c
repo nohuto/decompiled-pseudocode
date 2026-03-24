@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryOpenSubKeys @ 0x1407E95E0
+ * XREFs of NtQueryOpenSubKeys @ 0x1407E95C0
  * Callers:
  *     <none>
  * Callees:
@@ -7,18 +7,18 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
  *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpSearchForOpenSubKeys @ 0x140691DC0 (CmpSearchForOpenSubKeys.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpSearchForOpenSubKeys @ 0x140691DA0 (CmpSearchForOpenSubKeys.c)
  */
 
 NTSTATUS __stdcall NtQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)

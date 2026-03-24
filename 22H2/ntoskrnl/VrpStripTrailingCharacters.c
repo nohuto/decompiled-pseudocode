@@ -1,35 +1,35 @@
 /*
- * XREFs of VrpStripTrailingCharacters @ 0x14068E650
+ * XREFs of VrpStripTrailingCharacters @ 0x1405D53E4
  * Callers:
- *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpCreateNamespaceNode @ 0x14077BD28 (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x1405D34B4 (VrpCreateNamespaceNode.c)
+ *     VrpTranslatePath @ 0x1405D4E34 (VrpTranslatePath.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall VrpStripTrailingCharacters(unsigned __int16 *a1)
 {
-  unsigned __int16 v1; // dx
   __int64 result; // rax
-  __int64 v3; // r8
-  _WORD *v4; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rdx
+  _WORD *v4; // r8
 
-  v1 = *a1;
   result = *a1 >> 1;
   if ( (_DWORD)result )
   {
-    v3 = (unsigned int)result - 1LL;
-    v4 = (_WORD *)(*((_QWORD *)a1 + 1) + 2 * v3);
-    result = 2LL;
+    v2 = (unsigned int)result;
+    result = *((_QWORD *)a1 + 1);
+    v3 = v2 - 1;
+    v4 = (_WORD *)(result + 2 * v3);
     do
     {
       if ( *v4 != 92 )
         break;
-      v1 -= 2;
+      result = 65534LL;
       --v4;
+      *a1 -= 2;
       --v3;
-      *a1 = v1;
     }
     while ( v3 >= 0 );
   }

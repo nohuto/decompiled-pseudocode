@@ -1,225 +1,235 @@
 /*
- * XREFs of KiUnstackDetachProcess @ 0x1402D0930
+ * XREFs of KiUnstackDetachProcess @ 0x140207000
  * Callers:
- *     MmEnforceWorkingSetLimit @ 0x1402091B0 (MmEnforceWorkingSetLimit.c)
- *     MiDeleteFinalPageTables @ 0x140216EE8 (MiDeleteFinalPageTables.c)
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140237230 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     KeForceDetachProcess @ 0x140241980 (KeForceDetachProcess.c)
- *     PsQueryProcessCommandLine @ 0x140241D20 (PsQueryProcessCommandLine.c)
- *     PspIsProcessReadyForRemoteThread @ 0x14024E388 (PspIsProcessReadyForRemoteThread.c)
- *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14025E9D0 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     IoRemoveIoCompletion @ 0x1402B7BD0 (IoRemoveIoCompletion.c)
- *     NtUnlockVirtualMemory @ 0x1402CD9C0 (NtUnlockVirtualMemory.c)
- *     NtGetWriteWatch @ 0x1402CF630 (NtGetWriteWatch.c)
- *     NtLockVirtualMemory @ 0x1402E5D90 (NtLockVirtualMemory.c)
- *     MiGetWorkingSetInfoList @ 0x1402E67E8 (MiGetWorkingSetInfoList.c)
- *     KiUpdateProcessConcurrencyCount @ 0x140302650 (KiUpdateProcessConcurrencyCount.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiEmptyAccessLogs @ 0x140375ED0 (MiEmptyAccessLogs.c)
- *     MiFlushAllPages @ 0x14038A880 (MiFlushAllPages.c)
- *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x140394080 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     IoRaiseHardError @ 0x140557690 (IoRaiseHardError.c)
- *     KeSecureProcess @ 0x14056C6B8 (KeSecureProcess.c)
- *     KeCopyXfdMaskToTeb @ 0x14056FA60 (KeCopyXfdMaskToTeb.c)
- *     KiTpWriteMemory @ 0x140573408 (KiTpWriteMemory.c)
- *     MmSetCommitReleaseEligibility @ 0x14058196C (MmSetCommitReleaseEligibility.c)
- *     MmQueryBadAddresses @ 0x14058FE88 (MmQueryBadAddresses.c)
- *     MmUpdateOldWorkingSetPages @ 0x14059774C (MmUpdateOldWorkingSetPages.c)
- *     MiGetWorkingSetInfoEx @ 0x1405A6204 (MiGetWorkingSetInfoEx.c)
- *     MiLockDownWorkingSet @ 0x1405BB938 (MiLockDownWorkingSet.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x1405F7344 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
- *     ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x1405F774C (-SmStTrimWsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z.c)
- *     ExpSvmServicePageFault @ 0x140641840 (ExpSvmServicePageFault.c)
- *     PspSetupUserProcessAddressSpace @ 0x14067259C (PspSetupUserProcessAddressSpace.c)
- *     PspWritePebAffinityInfo @ 0x140672BD8 (PspWritePebAffinityInfo.c)
- *     PoEnergyContextStart @ 0x140673B4C (PoEnergyContextStart.c)
- *     PspWow64InitThread @ 0x1406747FC (PspWow64InitThread.c)
- *     MmAssignProcessToJob @ 0x140682D84 (MmAssignProcessToJob.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x140682EA4 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspRundownSingleProcess @ 0x140683990 (PspRundownSingleProcess.c)
- *     PspChangeProcessExecutionState @ 0x140687754 (PspChangeProcessExecutionState.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     PspQueryQuotaLimits @ 0x1406B48F0 (PspQueryQuotaLimits.c)
- *     PspWow64SetupUserStack @ 0x1406C9C7C (PspWow64SetupUserStack.c)
- *     PspSetupReservedUserMappings @ 0x1406D94F0 (PspSetupReservedUserMappings.c)
- *     EtwpTiQueryVad @ 0x1406D98F8 (EtwpTiQueryVad.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1406E5B58 (SmProcessStoreMemoryPriorityRequest.c)
- *     PspDeleteUserStack @ 0x1406E616C (PspDeleteUserStack.c)
- *     MmPrefetchVirtualMemory @ 0x1406EC048 (MmPrefetchVirtualMemory.c)
- *     MiMapImageInSystemSpace @ 0x1406F3884 (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1406F39F8 (MiUnmapImageInSystemSpace.c)
- *     AlpcpRestoreWriteAccess @ 0x1406F60E8 (AlpcpRestoreWriteAccess.c)
- *     AlpcViewDestroyProcedure @ 0x1406F6A30 (AlpcViewDestroyProcedure.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1406F71A0 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MiMapViewOfSection @ 0x1406FCA10 (MiMapViewOfSection.c)
- *     NtResetWriteWatch @ 0x140700F70 (NtResetWriteWatch.c)
- *     PspWriteTebIdealProcessor @ 0x1407028B8 (PspWriteTebIdealProcessor.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x1407049DC (PspWow64ReadOrWriteThreadCpuArea.c)
- *     MmProbeAndLockProcessPages @ 0x140708890 (MmProbeAndLockProcessPages.c)
- *     MmCreateTeb @ 0x1407096A4 (MmCreateTeb.c)
- *     MmInitializeProcessAddressSpace @ 0x14070A4FC (MmInitializeProcessAddressSpace.c)
- *     EtwpWriteProcessEvent @ 0x14070AE08 (EtwpWriteProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140711F48 (EtwQueryProcessTelemetryInfo.c)
- *     EtwTraceAppStateChange @ 0x140712868 (EtwTraceAppStateChange.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
- *     ObpCloseHandle @ 0x140734160 (ObpCloseHandle.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     NtSetInformationVirtualMemory @ 0x140753430 (NtSetInformationVirtualMemory.c)
- *     MmCreatePeb @ 0x140755B70 (MmCreatePeb.c)
- *     PsMapSystemDlls @ 0x140756164 (PsMapSystemDlls.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     ExpWnfWriteStateData @ 0x14079350C (ExpWnfWriteStateData.c)
- *     EtwpAddRegEntryToGroup @ 0x140794F30 (EtwpAddRegEntryToGroup.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x140798F44 (EtwpRealtimeInjectEtwBuffer.c)
- *     MmDeleteTeb @ 0x14079EE84 (MmDeleteTeb.c)
- *     ObSetHandleAttributes @ 0x1407A1B10 (ObSetHandleAttributes.c)
- *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
- *     ExSweepHandleTable @ 0x1407A2CB0 (ExSweepHandleTable.c)
- *     ObCloseHandleTableEntry @ 0x1407A2E10 (ObCloseHandleTableEntry.c)
- *     ObpDecrementHandleCount @ 0x1407A2FA0 (ObpDecrementHandleCount.c)
- *     PspAllocateThread @ 0x1407A34A0 (PspAllocateThread.c)
- *     AlpcpPrepareViewForDelivery @ 0x1407A4774 (AlpcpPrepareViewForDelivery.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1407A4A8C (MmSecureVirtualMemoryAgainstWrites.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x1407A4E8C (AlpcpExposeViewAttributeInSenderContext.c)
- *     PspWriteTebImpersonationInfo @ 0x1407AF4B0 (PspWriteTebImpersonationInfo.c)
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     MiCopyVirtualMemory @ 0x1407BB560 (MiCopyVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     NtProtectVirtualMemory @ 0x1407BEBF0 (NtProtectVirtualMemory.c)
- *     PfSnAsyncPrefetchWorker @ 0x1407DC0D0 (PfSnAsyncPrefetchWorker.c)
- *     PfSnPopulateReadList @ 0x1407DF200 (PfSnPopulateReadList.c)
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
- *     PspSetupUserStack @ 0x1407E4964 (PspSetupUserStack.c)
- *     MmFlushVirtualMemory @ 0x1407F0478 (MmFlushVirtualMemory.c)
- *     PspSetQuotaLimits @ 0x1407F2DBC (PspSetQuotaLimits.c)
- *     MmProcessWorkingSetControl @ 0x1407F5540 (MmProcessWorkingSetControl.c)
- *     MiCombineIdenticalPages @ 0x1407F8CF0 (MiCombineIdenticalPages.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14080B938 (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x14080CD20 (CmpStartCLFSLog.c)
- *     EtwpProcessEnumCallback @ 0x140814660 (EtwpProcessEnumCallback.c)
- *     MmCreateShadowMapping @ 0x14082A644 (MmCreateShadowMapping.c)
- *     PsStartSiloMonitor @ 0x140852D60 (PsStartSiloMonitor.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140860DAC (MmInitializeHandBuiltProcess2.c)
- *     PspIumGetPhysicalPage @ 0x1408824D0 (PspIumGetPhysicalPage.c)
- *     DbgkSendSystemDllMessages @ 0x140927394 (DbgkSendSystemDllMessages.c)
- *     DbgkpMarkProcessPeb @ 0x1409279CC (DbgkpMarkProcessPeb.c)
- *     DbgkpPostFakeProcessCreateMessages @ 0x140927C7C (DbgkpPostFakeProcessCreateMessages.c)
- *     DbgkpPostFakeThreadMessages @ 0x140927D44 (DbgkpPostFakeThreadMessages.c)
- *     DbgkQueueUserExceptionReport @ 0x14092972C (DbgkQueueUserExceptionReport.c)
- *     DbgkUserReportWorkRoutine @ 0x140929C60 (DbgkUserReportWorkRoutine.c)
- *     IopIsNotNativeDriverImage @ 0x1409348AC (IopIsNotNativeDriverImage.c)
- *     IopRaiseHardError @ 0x140934B80 (IopRaiseHardError.c)
- *     KiTpReadImageData @ 0x14096324C (KiTpReadImageData.c)
- *     AlpcpForceUnlinkSecureView @ 0x140967328 (AlpcpForceUnlinkSecureView.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140971848 (MiApplyHotPatchToLoadedDriver.c)
- *     MiHotPatchAllProcesses @ 0x140973630 (MiHotPatchAllProcesses.c)
- *     MiLogHotPatchRundown @ 0x140975748 (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x14097723C (MiQueryProcessActivePatches.c)
- *     MiUnapplyDriverHotPatch @ 0x1409779A4 (MiUnapplyDriverHotPatch.c)
- *     MmIsFileMapped @ 0x1409780D4 (MmIsFileMapped.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140978430 (MiQueryMemoryPhysicalContiguity.c)
- *     MmDeleteShadowMapping @ 0x140978B04 (MmDeleteShadowMapping.c)
- *     MiCopyPagesIntoEnclave @ 0x140979274 (MiCopyPagesIntoEnclave.c)
- *     MiLoadDataIntoVsmEnclave @ 0x14097A358 (MiLoadDataIntoVsmEnclave.c)
- *     MiMapImageForEnclaveUse @ 0x14097A9C4 (MiMapImageForEnclaveUse.c)
- *     MiUnmapImageForEnclaveUse @ 0x14097AC04 (MiUnmapImageForEnclaveUse.c)
- *     NtCreateEnclave @ 0x14097AD20 (NtCreateEnclave.c)
- *     NtInitializeEnclave @ 0x14097B220 (NtInitializeEnclave.c)
- *     NtLoadEnclaveData @ 0x14097B500 (NtLoadEnclaveData.c)
- *     MiAllocateUserPhysicalPages @ 0x14097BD88 (MiAllocateUserPhysicalPages.c)
- *     NtFreeUserPhysicalPages @ 0x14097D9E0 (NtFreeUserPhysicalPages.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x14097FF40 (MiInSwapSharedWorkingSetWorker.c)
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
- *     MiCloneProcessAddressSpace @ 0x1409806C8 (MiCloneProcessAddressSpace.c)
- *     MiDeleteInsertedCloneVads @ 0x140980A20 (MiDeleteInsertedCloneVads.c)
- *     MiInsertChildVads @ 0x140980DD8 (MiInsertChildVads.c)
- *     MiCopyLargeVad @ 0x140982B6C (MiCopyLargeVad.c)
- *     MiScrubProcesses @ 0x140983B80 (MiScrubProcesses.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
- *     PsQueryProcessExceptionFlags @ 0x1409AD320 (PsQueryProcessExceptionFlags.c)
- *     PspProcessDynamicEHContinuationTargets @ 0x1409ADDA4 (PspProcessDynamicEHContinuationTargets.c)
- *     PspProcessDynamicEnforcedAddressRanges @ 0x1409AE050 (PspProcessDynamicEnforcedAddressRanges.c)
- *     PspTrySetProcessPebThrottlingFlags @ 0x1409AEAA0 (PspTrySetProcessPebThrottlingFlags.c)
- *     PspCreateSecureThread @ 0x1409AF550 (PspCreateSecureThread.c)
- *     PspSetupUserShadowStack @ 0x1409AFB7C (PspSetupUserShadowStack.c)
- *     PspApplyWorkingSetLimits @ 0x1409AFE9C (PspApplyWorkingSetLimits.c)
- *     PsUnregisterSiloMonitor @ 0x1409B1B50 (PsUnregisterSiloMonitor.c)
- *     VmpPrefetchWorker @ 0x1409DA4D0 (VmpPrefetchWorker.c)
- *     EtwpUMGLEnabled @ 0x1409E47C4 (EtwpUMGLEnabled.c)
- *     EtwpUpdateProcessTracingCallback @ 0x1409E4A50 (EtwpUpdateProcessTracingCallback.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1409EB400 (EtwpPsProvProcessEnumCallback.c)
- *     EtwpCovSampEnumerateProcess @ 0x1409F1110 (EtwpCovSampEnumerateProcess.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409F5570 (EtwpTrackGuidEntryRegistrations.c)
- *     NtPssCaptureVaSpaceBulk @ 0x140A07780 (NtPssCaptureVaSpaceBulk.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140A6A570 (MiDeleteAllHardwareEnclaves.c)
- *     ExpDebuggerWorker @ 0x140A70F90 (ExpDebuggerWorker.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmSaveKeyToBuffer @ 0x140AB4770 (CmSaveKeyToBuffer.c)
- *     EmpCacheBiosDate @ 0x140B0D974 (EmpCacheBiosDate.c)
- *     EmpMapPhysicalAddress @ 0x140B0DAC4 (EmpMapPhysicalAddress.c)
- *     PspInitPhase3 @ 0x140B313B8 (PspInitPhase3.c)
+ *     IoRemoveIoCompletion @ 0x1402043D0 (IoRemoveIoCompletion.c)
+ *     MmEnforceWorkingSetLimit @ 0x1402521D8 (MmEnforceWorkingSetLimit.c)
+ *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
+ *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
+ *     PsQueryProcessCommandLine @ 0x1402BEE10 (PsQueryProcessCommandLine.c)
+ *     SepRmCallLsa @ 0x1402C19C0 (SepRmCallLsa.c)
+ *     PspIsProcessReadyForRemoteThread @ 0x1402C49E4 (PspIsProcessReadyForRemoteThread.c)
+ *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x1402E18B0 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035AA5C (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14035C1E8 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x14035D458 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     MiFlushAllPages @ 0x1403846E4 (MiFlushAllPages.c)
+ *     MiEmptyAccessLogs @ 0x1403A3430 (MiEmptyAccessLogs.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     IoRaiseHardError @ 0x140505C70 (IoRaiseHardError.c)
+ *     KeSecureProcess @ 0x140513A40 (KeSecureProcess.c)
+ *     KiTpWriteMemory @ 0x14051D4FC (KiTpWriteMemory.c)
+ *     MmSetCommitReleaseEligibility @ 0x14052CF2C (MmSetCommitReleaseEligibility.c)
+ *     MmUpdateOldWorkingSetPages @ 0x14053C9EC (MmUpdateOldWorkingSetPages.c)
+ *     MiGetWorkingSetInfoEx @ 0x140546DE0 (MiGetWorkingSetInfoEx.c)
+ *     MiLockDownWorkingSet @ 0x14055B2F8 (MiLockDownWorkingSet.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599604 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
+ *     ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x1405999C0 (-SmStTrimWsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z.c)
+ *     ExpSvmServicePageFault @ 0x1405B9460 (ExpSvmServicePageFault.c)
+ *     CmpDelayCloseWorker @ 0x1405EC390 (CmpDelayCloseWorker.c)
+ *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
+ *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
+ *     MiFindNextEnclaveBoundary @ 0x1405F7640 (MiFindNextEnclaveBoundary.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     EtwpWriteProcessEvent @ 0x140602B04 (EtwpWriteProcessEvent.c)
+ *     ExSweepHandleTable @ 0x1406045D0 (ExSweepHandleTable.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140605A6C (PspApplyWorkingSetLimitsToProcess.c)
+ *     MmAssignProcessToJob @ 0x140605C30 (MmAssignProcessToJob.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     ExpWnfWriteStateData @ 0x1406104B0 (ExpWnfWriteStateData.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140611214 (EtwQueryProcessTelemetryInfo.c)
+ *     PspSetupUserProcessAddressSpace @ 0x14061177C (PspSetupUserProcessAddressSpace.c)
+ *     MmCreatePeb @ 0x140611D98 (MmCreatePeb.c)
+ *     PspWritePebAffinityInfo @ 0x140612654 (PspWritePebAffinityInfo.c)
+ *     AlpcViewDestroyProcedure @ 0x14061DE30 (AlpcViewDestroyProcedure.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E590 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     AlpcpRestoreWriteAccess @ 0x14061F950 (AlpcpRestoreWriteAccess.c)
+ *     MmProbeAndLockProcessPages @ 0x14061FA10 (MmProbeAndLockProcessPages.c)
+ *     ObpDecrementHandleCount @ 0x14062CA04 (ObpDecrementHandleCount.c)
+ *     EtwpAddRegEntryToGroup @ 0x140643580 (EtwpAddRegEntryToGroup.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x140645E50 (EtwpRealtimeInjectEtwBuffer.c)
+ *     PspWriteTebIdealProcessor @ 0x1406476C8 (PspWriteTebIdealProcessor.c)
+ *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     MmCreateTeb @ 0x14064BE0C (MmCreateTeb.c)
+ *     PspSetupUserStack @ 0x14064C384 (PspSetupUserStack.c)
+ *     PspWriteTebImpersonationInfo @ 0x14065B280 (PspWriteTebImpersonationInfo.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140661B50 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpPrepareViewForDelivery @ 0x140661FB8 (AlpcpPrepareViewForDelivery.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x140665BF0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
+ *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
+ *     ObSetHandleAttributes @ 0x1406918A0 (ObSetHandleAttributes.c)
+ *     PspWow64InitThread @ 0x1406959A0 (PspWow64InitThread.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140696868 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     PoEnergyContextStart @ 0x140697F38 (PoEnergyContextStart.c)
+ *     NtQueryMultipleValueKey @ 0x1406A1E20 (NtQueryMultipleValueKey.c)
+ *     NtCommitRegistryTransaction @ 0x1406A2B80 (NtCommitRegistryTransaction.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1406A2E10 (CmpCleanupLightWeightTransaction.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     PspWow64SetupUserStack @ 0x1406AF8F8 (PspWow64SetupUserStack.c)
+ *     NtFlushKey @ 0x1406B3C40 (NtFlushKey.c)
+ *     PspSetupReservedUserMappings @ 0x1406B599C (PspSetupReservedUserMappings.c)
+ *     CmLoadKey @ 0x1406BA714 (CmLoadKey.c)
+ *     EtwpTiQueryVad @ 0x1406BAEFC (EtwpTiQueryVad.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1406BE5D4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     PspDeleteUserStack @ 0x1406BECD8 (PspDeleteUserStack.c)
+ *     CmRmFinalizeRecovery @ 0x1406BF8BC (CmRmFinalizeRecovery.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1406C62F0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnPopulateReadList @ 0x1406C8970 (PfSnPopulateReadList.c)
+ *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
+ *     MmNewProcessInitialized @ 0x1406D9630 (MmNewProcessInitialized.c)
+ *     MmDeleteTeb @ 0x1406E93D0 (MmDeleteTeb.c)
+ *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
+ *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
+ *     MiInSwapStoreWorker @ 0x1407104D0 (MiInSwapStoreWorker.c)
+ *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     PsMapSystemDlls @ 0x14071231C (PsMapSystemDlls.c)
+ *     MiUnmapImageInSystemSpace @ 0x1407155A4 (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140715730 (MiMapImageInSystemSpace.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140719A14 (CmpCleanUpKCBCacheTable.c)
+ *     MiCombineIdenticalPages @ 0x1407266AC (MiCombineIdenticalPages.c)
+ *     NtSaveKeyEx @ 0x140728950 (NtSaveKeyEx.c)
+ *     NtRollbackRegistryTransaction @ 0x140733730 (NtRollbackRegistryTransaction.c)
+ *     CmpCleanupTransactionState @ 0x140770484 (CmpCleanupTransactionState.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
+ *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     MmCreateShadowMapping @ 0x1407A00AC (MmCreateShadowMapping.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
+ *     PsStartSiloMonitor @ 0x1407C3C70 (PsStartSiloMonitor.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C8D38 (CmpHandlePageFileOpenNotification.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x1407D0EC4 (MmInitializeHandBuiltProcess2.c)
+ *     NtCompressKey @ 0x1408682E0 (NtCompressKey.c)
+ *     NtRenameKey @ 0x140868C30 (NtRenameKey.c)
+ *     NtRestoreKey @ 0x1408694D0 (NtRestoreKey.c)
+ *     NtSaveMergedKeys @ 0x1408697A0 (NtSaveMergedKeys.c)
+ *     NtThawRegistry @ 0x1408699E0 (NtThawRegistry.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869A70 (CmCallbackGetKeyObjectID.c)
+ *     CmEtwRunDown @ 0x14086A368 (CmEtwRunDown.c)
+ *     CmpEtwDumpKcb @ 0x14086A678 (CmpEtwDumpKcb.c)
+ *     CmpPublishEventForPcaResolver @ 0x14086AB2C (CmpPublishEventForPcaResolver.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x14086F1D4 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpFlushBackupHive @ 0x140870F40 (CmpFlushBackupHive.c)
+ *     CmReconcileAndValidateAllHives @ 0x1408725A0 (CmReconcileAndValidateAllHives.c)
+ *     CmpRmUnDoPhase @ 0x1408759F4 (CmpRmUnDoPhase.c)
+ *     CmpForceFlushWorker @ 0x140876CB0 (CmpForceFlushWorker.c)
+ *     DbgkSendSystemDllMessages @ 0x1408844DC (DbgkSendSystemDllMessages.c)
+ *     DbgkpMarkProcessPeb @ 0x140884B2C (DbgkpMarkProcessPeb.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x140884DCC (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886810 (DbgkQueueUserExceptionReport.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886D50 (DbgkUserReportWorkRoutine.c)
+ *     IopIsNotNativeDriverImage @ 0x140891924 (IopIsNotNativeDriverImage.c)
+ *     IopRaiseHardError @ 0x140891C00 (IopRaiseHardError.c)
+ *     KiTpReadImageData @ 0x1408BD28C (KiTpReadImageData.c)
+ *     AlpcpForceUnlinkSecureView @ 0x1408C3570 (AlpcpForceUnlinkSecureView.c)
+ *     MiHotPatchAllProcesses @ 0x1408CA278 (MiHotPatchAllProcesses.c)
+ *     MiLogHotPatchRundown @ 0x1408CBFBC (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x1408CDEE8 (MiQueryProcessActivePatches.c)
+ *     MmIsFileMapped @ 0x1408D1020 (MmIsFileMapped.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x1408D12A0 (MiQueryMemoryPhysicalContiguity.c)
+ *     MmDeleteShadowMapping @ 0x1408D1964 (MmDeleteShadowMapping.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D2188 (MiCopyPagesIntoEnclave.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x1408D31C4 (MiLoadDataIntoVsmEnclave.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D39BC (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x1408D3BFC (MiUnmapImageForEnclaveUse.c)
+ *     NtCreateEnclave @ 0x1408D3D20 (NtCreateEnclave.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D9060 (MiCloneProcessAddressSpace.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408D93B4 (MiDeleteInsertedCloneVads.c)
+ *     MiInsertChildVads @ 0x1408D9780 (MiInsertChildVads.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x1408D9B00 (MiInSwapSharedWorkingSetWorker.c)
+ *     MiCopyLargeVad @ 0x1408D9D20 (MiCopyLargeVad.c)
+ *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
+ *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
+ *     PsQueryProcessExceptionFlags @ 0x1409074C0 (PsQueryProcessExceptionFlags.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140907D04 (PspProcessDynamicEHContinuationTargets.c)
+ *     PspTrySetProcessPebThrottlingFlags @ 0x140908720 (PspTrySetProcessPebThrottlingFlags.c)
+ *     PspCreateSecureThread @ 0x140909F9C (PspCreateSecureThread.c)
+ *     PspSetupUserShadowStack @ 0x14090A5DC (PspSetupUserShadowStack.c)
+ *     PsUnregisterSiloMonitor @ 0x14090B4E0 (PsUnregisterSiloMonitor.c)
+ *     PspIumGetPhysicalPage @ 0x14090CB3C (PspIumGetPhysicalPage.c)
+ *     VmpPrefetchWorker @ 0x14092FA30 (VmpPrefetchWorker.c)
+ *     EtwpUMGLEnabled @ 0x1409342EC (EtwpUMGLEnabled.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x140934580 (EtwpUpdateProcessTracingCallback.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x14093EB60 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x1409412CC (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140944A80 (EtwpCovSampEnumerateProcess.c)
+ *     ExpDebuggerWorker @ 0x1409B5030 (ExpDebuggerWorker.c)
+ *     EmpCacheBiosDate @ 0x140A4768C (EmpCacheBiosDate.c)
+ *     EmpMapPhysicalAddress @ 0x140A477DC (EmpMapPhysicalAddress.c)
+ *     PspInitPhase3 @ 0x140A4B0C0 (PspInitPhase3.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     HalRequestSoftwareInterrupt @ 0x14022BAA0 (HalRequestSoftwareInterrupt.c)
- *     KiSwapProcess @ 0x1402D0BA0 (KiSwapProcess.c)
- *     KiMoveApcState @ 0x1402D0C60 (KiMoveApcState.c)
- *     KiDecrementProcessStackCount @ 0x1402D0CE0 (KiDecrementProcessStackCount.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiDetachProcess @ 0x1403470F0 (KiDetachProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
+ *     KiSwapProcess @ 0x140207230 (KiSwapProcess.c)
+ *     KiDetachProcess @ 0x140207600 (KiDetachProcess.c)
+ *     KiMoveApcState @ 0x140207A00 (KiMoveApcState.c)
+ *     KiDecrementProcessStackCount @ 0x140207A80 (KiDecrementProcessStackCount.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
  */
 
-__int64 __fastcall KiUnstackDetachProcess(__int64 a1, __int64 a2)
+__int64 __fastcall KiUnstackDetachProcess(__int64 a1, int a2)
 {
   __int64 result; // rax
   char v3; // bp
   struct _KTHREAD *CurrentThread; // rbx
-  _KPROCESS *Process; // r15
+  _KPROCESS *Process; // r14
   int v6; // esi
-  unsigned __int8 CurrentIrql; // r14
+  unsigned __int8 CurrentIrql; // r12
   struct _KPRCB *CurrentPrcb; // rdi
   _DWORD *v9; // rcx
-  $CEA84C04E3712D858E5667A507841A2A *v10; // rdi
-  _DWORD *SchedulerAssist; // r9
+  $C459BD0D405E8E46662177FB3D0A143F *v10; // rdi
+  __int64 v11; // rcx
   _DWORD *v12; // rcx
   _DWORD *v13; // rcx
-  int v14; // eax
+  _DWORD *SchedulerAssist; // r9
   int v15; // eax
   int v16; // eax
-  struct _KPRCB *v17; // r10
-  _DWORD *v18; // r9
-  bool v19; // zf
-  _DWORD *v20; // r9
-  struct _KPRCB *v21; // rdi
-  _DWORD *v22; // rcx
-  int v23; // eax
-  _DWORD *v24; // rcx
-  int v25; // eax
-  _DWORD *v26; // rcx
-  int v27; // eax
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r9
-  _DWORD *v30; // r8
-  int v31; // eax
-  int v32; // [rsp+60h] [rbp+8h] BYREF
-  int v33; // [rsp+68h] [rbp+10h]
-  int v34; // [rsp+70h] [rbp+18h] BYREF
+  int v17; // eax
+  struct _KPRCB *v18; // r10
+  _DWORD *v19; // r9
+  bool v20; // zf
+  _DWORD *v21; // r9
+  struct _KPRCB *v22; // rdi
+  _DWORD *v23; // rcx
+  int v24; // eax
+  _DWORD *v25; // rcx
+  int v26; // eax
+  _DWORD *v27; // rcx
+  int v28; // eax
+  unsigned __int8 v29; // al
+  struct _KPRCB *v30; // r9
+  _DWORD *v31; // r8
+  int v32; // eax
+  int v33; // [rsp+60h] [rbp+8h] BYREF
+  int v34; // [rsp+68h] [rbp+10h]
+  int v35; // [rsp+70h] [rbp+18h] BYREF
 
-  v33 = a2;
+  v34 = a2;
   result = *(_QWORD *)(a1 + 32);
   v3 = a2;
   if ( result != 1 )
   {
     if ( result )
     {
-      return KiDetachProcess(a1, a2);
+      return KiDetachProcess();
     }
     else
     {
@@ -240,16 +250,16 @@ __int64 __fastcall KiUnstackDetachProcess(__int64 a1, __int64 a2)
           SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
         }
         CurrentPrcb = KeGetCurrentPrcb();
-        v32 = 0;
+        v33 = 0;
         v9 = CurrentPrcb->SchedulerAssist;
         if ( v9 )
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v14 = v9[6];
-            v9[6] = v14 + 1;
-            if ( v14 == -1 )
-LABEL_32:
+            v15 = v9[6];
+            v9[6] = v15 + 1;
+            if ( v15 == -1 )
+LABEL_35:
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -260,24 +270,24 @@ LABEL_32:
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v15 = v12[6] - 1;
-              v12[6] = v15;
-              if ( !v15 )
+              v16 = v12[6] - 1;
+              v12[6] = v16;
+              if ( !v16 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
           do
-            KeYieldProcessorEx(&v32);
+            KeYieldProcessorEx(&v33);
           while ( CurrentThread->ThreadLock );
           v13 = CurrentPrcb->SchedulerAssist;
           if ( v13 )
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v16 = v13[6];
-              v13[6] = v16 + 1;
-              if ( v16 == -1 )
-                goto LABEL_32;
+              v17 = v13[6];
+              v13[6] = v17 + 1;
+              if ( v17 == -1 )
+                goto LABEL_35;
             }
           }
         }
@@ -286,19 +296,19 @@ LABEL_32:
       {
         do
         {
-          if ( CurrentThread->SpecialApcDisable || CurrentIrql )
+          if ( CurrentIrql || CurrentThread->SpecialApcDisable )
             break;
-          KiReleaseThreadLockSafe((__int64)CurrentThread);
+          KiReleaseThreadLockSafe(CurrentThread);
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
             {
-              v17 = KeGetCurrentPrcb();
-              v18 = v17->SchedulerAssist;
-              v19 = (v18[5] & 0xFFFF0001) == 0;
-              v18[5] &= 0xFFFF0001;
-              if ( v19 )
-                KiRemoveSystemWorkPriorityKick(v17);
+              v18 = KeGetCurrentPrcb();
+              v19 = v18->SchedulerAssist;
+              v20 = (v19[5] & 0xFFFF0001) == 0;
+              v19[5] &= 0xFFFF0001;
+              if ( v20 )
+                KiRemoveSystemWorkPriorityKick(v18);
             }
           }
           __writecr8(0LL);
@@ -306,58 +316,58 @@ LABEL_32:
           __writecr8(2uLL);
           if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
-            v20 = KeGetCurrentPrcb()->SchedulerAssist;
-            v20[5] |= (-1 << (CurrentIrql + 1)) & 4;
+            v21 = KeGetCurrentPrcb()->SchedulerAssist;
+            v21[5] |= (-1 << (CurrentIrql + 1)) & 4;
           }
-          v21 = KeGetCurrentPrcb();
-          v34 = 0;
-          v22 = v21->SchedulerAssist;
-          if ( v22 )
+          v22 = KeGetCurrentPrcb();
+          v35 = 0;
+          v23 = v22->SchedulerAssist;
+          if ( v23 )
           {
-            if ( v21->NestingLevel <= 1u )
+            if ( v22->NestingLevel <= 1u )
             {
-              v23 = v22[6];
-              v22[6] = v23 + 1;
-              if ( v23 == -1 )
-LABEL_53:
-                KiRemoveSystemWorkPriorityKick(v21);
+              v24 = v23[6];
+              v23[6] = v24 + 1;
+              if ( v24 == -1 )
+LABEL_55:
+                KiRemoveSystemWorkPriorityKick(v22);
             }
           }
           while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
           {
-            v24 = v21->SchedulerAssist;
-            if ( v24 )
+            v25 = v22->SchedulerAssist;
+            if ( v25 )
             {
-              if ( v21->NestingLevel <= 1u )
+              if ( v22->NestingLevel <= 1u )
               {
-                v25 = v24[6] - 1;
-                v24[6] = v25;
-                if ( !v25 )
-                  KiRemoveSystemWorkPriorityKick(v21);
+                v26 = v25[6] - 1;
+                v25[6] = v26;
+                if ( !v26 )
+                  KiRemoveSystemWorkPriorityKick(v22);
               }
             }
             do
-              KeYieldProcessorEx(&v34);
+              KeYieldProcessorEx(&v35);
             while ( CurrentThread->ThreadLock );
-            v26 = v21->SchedulerAssist;
-            if ( v26 )
+            v27 = v22->SchedulerAssist;
+            if ( v27 )
             {
-              if ( v21->NestingLevel <= 1u )
+              if ( v22->NestingLevel <= 1u )
               {
-                v27 = v26[6];
-                v26[6] = v27 + 1;
-                if ( v27 == -1 )
-                  goto LABEL_53;
+                v28 = v27[6];
+                v27[6] = v28 + 1;
+                if ( v28 == -1 )
+                  goto LABEL_55;
               }
             }
           }
         }
         while ( CurrentThread->ApcState.KernelApcPending );
-        v3 = v33;
+        v3 = v34;
       }
       if ( !CurrentThread->ApcStateIndex
         || (CurrentThread->ApcState.InProgressFlags & 1) != 0
-        || (v10 = &CurrentThread->152, ($CEA84C04E3712D858E5667A507841A2A *)v10->ApcState.ApcListHead[0].Flink != v10)
+        || (v10 = &CurrentThread->152, ($C459BD0D405E8E46662177FB3D0A143F *)v10->ApcState.ApcListHead[0].Flink != v10)
         || (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink != &CurrentThread->ApcStateFill[16] )
       {
         KeBugCheck(6u);
@@ -366,30 +376,27 @@ LABEL_53:
       KiMoveApcState(&CurrentThread->600, &CurrentThread->152);
       CurrentThread->SavedApcState.Process = 0LL;
       CurrentThread->ApcStateIndex = 0;
-      if ( v6 )
+      if ( !v6 )
+        KiReleaseThreadLockSafe(CurrentThread);
+      result = KiSwapProcess(CurrentThread->ApcState.Process, Process);
+      CurrentThread->MiscFlags &= ~0x800u;
+      if ( !v6 )
       {
-        result = KiSwapProcess(CurrentThread->ApcState.Process, Process);
-        CurrentThread->MiscFlags &= ~0x800u;
-      }
-      else
-      {
-        KiReleaseThreadLockSafe((__int64)CurrentThread);
-        KiSwapProcess(CurrentThread->ApcState.Process, Process);
-        CurrentThread->MiscFlags &= ~0x800u;
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v28 = KeGetCurrentIrql();
-            if ( v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+            v29 = KeGetCurrentIrql();
+            if ( v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
             {
-              v29 = KeGetCurrentPrcb();
-              v30 = v29->SchedulerAssist;
-              v31 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-              v19 = (v31 & v30[5]) == 0;
-              v30[5] &= v31;
-              if ( v19 )
-                KiRemoveSystemWorkPriorityKick(v29);
+              v30 = KeGetCurrentPrcb();
+              v11 = (unsigned int)CurrentIrql + 1;
+              v31 = v30->SchedulerAssist;
+              v32 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+              v20 = (v32 & v31[5]) == 0;
+              v31[5] &= v32;
+              if ( v20 )
+                KiRemoveSystemWorkPriorityKick(v30);
             }
           }
         }
@@ -398,10 +405,11 @@ LABEL_53:
       }
       if ( (v3 & 1) == 0 )
         result = KiDecrementProcessStackCount(Process);
-      if ( ($CEA84C04E3712D858E5667A507841A2A *)v10->ApcState.ApcListHead[0].Flink != v10 )
+      if ( ($C459BD0D405E8E46662177FB3D0A143F *)v10->ApcState.ApcListHead[0].Flink != v10 )
       {
+        LOBYTE(v11) = 1;
         CurrentThread->ApcState.KernelApcPending = 1;
-        return HalRequestSoftwareInterrupt(1);
+        return HalRequestSoftwareInterrupt(v11);
       }
     }
   }

@@ -1,122 +1,149 @@
 /*
- * XREFs of SfnINLPWINDOWPOS @ 0x1C00947B0
+ * XREFs of SfnINLPWINDOWPOS @ 0x1C0051F60
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     IS_USERCRIT_OWNED_SHAREDONLY @ 0x1C005227C (IS_USERCRIT_OWNED_SHAREDONLY.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall SfnINLPWINDOWPOS(__int64 *a1, __int64 a2, __int64 a3, __int128 *a4, __int64 a5, __int64 a6)
+__int64 __fastcall SfnINLPWINDOWPOS(__int64 *a1, int a2, __int64 a3, __int128 *a4, __int64 a5, __int64 a6)
 {
-  int v8; // r12d
-  PERESOURCE *v10; // rax
-  __int64 v11; // rdi
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v11; // rsi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  __int64 v19; // rcx
-  PERESOURCE *v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  char v25; // bl
-  int v26; // esi
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // rax
-  ULONG64 v34; // rcx
-  __int64 v36; // [rsp+58h] [rbp-E0h]
-  __int128 v37; // [rsp+80h] [rbp-B8h]
-  __int128 v38; // [rsp+90h] [rbp-A8h] BYREF
-  __int64 v39; // [rsp+A0h] [rbp-98h]
-  __int64 v40; // [rsp+B0h] [rbp-88h] BYREF
-  int v41; // [rsp+B8h] [rbp-80h]
-  __int64 v42; // [rsp+C0h] [rbp-78h]
-  __int128 v43; // [rsp+C8h] [rbp-70h]
-  __int128 v44; // [rsp+D8h] [rbp-60h]
-  __int64 v45; // [rsp+E8h] [rbp-50h]
-  __int64 v46; // [rsp+F0h] [rbp-48h]
-  __int64 v47; // [rsp+F8h] [rbp-40h]
-  int v48; // [rsp+140h] [rbp+8h] BYREF
-  int v49; // [rsp+148h] [rbp+10h]
-  unsigned __int64 v50; // [rsp+150h] [rbp+18h] BYREF
+  __int64 v16; // rcx
+  __int64 v17; // r14
+  struct _KTHREAD *v18; // r12
+  __int64 v19; // r15
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 *v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  int v28; // edi
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  __int64 *v31; // rcx
+  __int64 result; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v35; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v37; // rax
+  int v38; // ebx
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  __int64 v41; // [rsp+58h] [rbp-E0h]
+  _QWORD v42[4]; // [rsp+60h] [rbp-D8h] BYREF
+  __int64 v43; // [rsp+80h] [rbp-B8h] BYREF
+  int v44; // [rsp+88h] [rbp-B0h]
+  int v45; // [rsp+8Ch] [rbp-ACh]
+  __int64 v46; // [rsp+90h] [rbp-A8h]
+  __int128 v47; // [rsp+98h] [rbp-A0h]
+  __int128 v48; // [rsp+A8h] [rbp-90h]
+  __int64 v49; // [rsp+B8h] [rbp-80h]
+  __int64 v50; // [rsp+C0h] [rbp-78h]
+  __int64 v51; // [rsp+C8h] [rbp-70h]
+  __int64 v52; // [rsp+D0h] [rbp-68h]
+  __int128 v53; // [rsp+F0h] [rbp-48h]
+  bool v54; // [rsp+140h] [rbp+8h]
+  char v55; // [rsp+148h] [rbp+10h] BYREF
+  int v56; // [rsp+150h] [rbp+18h] BYREF
+  unsigned __int64 v57; // [rsp+158h] [rbp+20h] BYREF
 
-  v8 = a2;
-  v50 = 0LL;
-  v48 = 0;
-  v38 = 0LL;
-  v39 = 0LL;
-  v10 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(a1, a2, a3, a4);
-  if ( !ExIsResourceAcquiredSharedLite(*v10) )
-  {
-    v49 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  }
+  v45 = 0;
+  v57 = 0LL;
+  v56 = 0;
+  v42[2] = 0LL;
+  CurrentThread = KeGetCurrentThread();
   v11 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v11 = *ThreadWin32Thread;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v13, v12, v14),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v35),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v11 = *ThreadWin32Thread;
+  }
   if ( a1 )
-    v13 = a1[5] - *(_QWORD *)(v11 + 472);
+    v17 = a1[5] - *(_QWORD *)(v11 + 472);
   else
-    v13 = 0LL;
-  memset_0(&v40, 0, 0x50uLL);
-  v40 = v13;
-  v41 = v8;
-  v42 = a3;
+    v17 = 0LL;
+  v45 = 0;
+  v43 = v17;
+  v44 = a2;
+  v46 = a3;
   *((_DWORD *)a4 + 9) = 0;
-  v43 = *a4;
-  v44 = a4[1];
-  v45 = *((_QWORD *)a4 + 4);
-  v46 = a5;
-  v47 = a6;
-  ThreadLock(a1, &v38);
-  v17 = *(_QWORD *)(v11 + 480);
-  v37 = *(_OWORD *)(v17 + 64);
-  v36 = *(_QWORD *)(v17 + 80);
-  *(_QWORD *)(v17 + 72) = v13;
-  v18 = 0LL;
+  v47 = *a4;
+  v48 = a4[1];
+  v49 = *((_QWORD *)a4 + 4);
+  v50 = a5;
+  v51 = a6;
+  v18 = KeGetCurrentThread();
+  v19 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v16)
+    || (v37 = PsGetCurrentProcess(v21, v20, v22),
+        v38 = PsGetProcessSessionIdEx(v37),
+        v40 = PsGetCurrentThreadProcess(v39),
+        v38 == (unsigned int)PsGetProcessSessionIdEx(v40)) )
+  {
+    v23 = (__int64 *)PsGetThreadWin32Thread(v18);
+    if ( v23 )
+      v19 = *v23;
+  }
+  v42[0] = *(_QWORD *)(v19 + 416);
+  *(_QWORD *)(v19 + 416) = v42;
+  v42[1] = a1;
   if ( a1 )
-    v18 = *a1;
-  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 64LL) = v18;
+    HMLockObject(a1);
+  v24 = *(_QWORD *)(v11 + 480);
+  v53 = *(_OWORD *)(v24 + 64);
+  v41 = *(_QWORD *)(v24 + 80);
+  *(_QWORD *)(v24 + 72) = v17;
   if ( a1 )
-    v19 = *(_QWORD *)(a1[5] + 224);
+    v25 = *a1;
   else
-    v19 = 0LL;
-  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 80LL) = v19;
-  v20 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v19, v14, v15, v16);
-  v25 = 1;
-  if ( ExIsResourceAcquiredExclusiveLite(*v20) == 1 || !IS_USERCRIT_OWNED_AT_ALL() )
-    v25 = 0;
-  UserSessionSwitchLeaveCrit(v22, v21, v23, v24);
+    v25 = 0LL;
+  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 64LL) = v25;
+  if ( a1 )
+    v26 = *(_QWORD *)(a1[5] + 224);
+  else
+    v26 = 0LL;
+  *(_QWORD *)(*(_QWORD *)(v11 + 480) + 80LL) = v26;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v55);
+  v54 = (unsigned int)IS_USERCRIT_OWNED_SHAREDONLY() != 0;
+  UserSessionSwitchLeaveCrit(v27);
   EtwTraceBeginCallback(17LL);
-  v26 = KeUserModeCallback(17LL, &v40, 80LL, &v50, &v48);
+  v28 = KeUserModeCallback(17LL, &v43, 80LL, &v57, &v56);
   EtwTraceEndCallback(17LL);
-  if ( v25 )
-    EnterSharedCrit(v28, v27, v29);
+  if ( v54 )
+    EnterSharedCrit(0LL, 1LL);
   else
-    EnterCrit(0LL, 0LL);
-  ThreadUnlock1(v31, v30, v32);
-  v33 = *(_QWORD *)(v11 + 480);
-  *(_OWORD *)(v33 + 64) = v37;
-  *(_QWORD *)(v33 + 80) = v36;
-  if ( v26 < 0 || v48 != 24 )
+    EnterCrit(0LL, 1LL);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v55);
+  ThreadUnlock1(v29);
+  v30 = *(_QWORD *)(v11 + 480);
+  *(_OWORD *)(v30 + 64) = v53;
+  *(_QWORD *)(v30 + 80) = v41;
+  if ( v28 < 0 || v56 != 24 )
     return 0LL;
-  v34 = v50;
-  if ( v50 + 8 < v50 || v50 + 8 > MmUserProbeAddress )
-    v34 = MmUserProbeAddress;
-  return *(_QWORD *)v34;
+  v31 = (__int64 *)v57;
+  if ( v57 + 8 < v57 || v57 + 8 > MmUserProbeAddress )
+    v31 = (__int64 *)MmUserProbeAddress;
+  result = *v31;
+  v52 = *v31;
+  return result;
 }

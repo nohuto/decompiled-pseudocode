@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CRemoteRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00D45E0
+ * XREFs of ?SetIntegerProperty@CRemoteRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00C4DE0
  * Callers:
  *     <none>
  * Callees:
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CRemoteRenderTargetMarshaler::SetIntegerPr
     if ( v6 == 3 )
     {
       *((_DWORD *)this + 4) |= 0x80u;
-      *((_BYTE *)this + 112) = a4 != 0;
+      *((_BYTE *)this + 88) = a4 != 0;
       *a5 = 1;
     }
     else
@@ -31,10 +31,10 @@ __int64 __fastcall DirectComposition::CRemoteRenderTargetMarshaler::SetIntegerPr
       return (unsigned int)-1073741811;
     }
   }
-  else if ( *((_QWORD *)this + 9) != a4 )
+  else if ( *((_QWORD *)this + 8) != a4 )
   {
     *((_DWORD *)this + 4) |= 0x80u;
-    *((_QWORD *)this + 9) = a4;
+    *((_QWORD *)this + 8) = a4;
     *a5 = 1;
   }
   return v5;

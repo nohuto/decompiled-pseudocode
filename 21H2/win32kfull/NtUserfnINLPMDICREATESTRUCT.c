@@ -1,13 +1,12 @@
 /*
- * XREFs of NtUserfnINLPMDICREATESTRUCT @ 0x1C0201D00
+ * XREFs of NtUserfnINLPMDICREATESTRUCT @ 0x1C0205830
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     RtlInitLargeUnicodeString @ 0x1C00E89FC (RtlInitLargeUnicodeString.c)
- *     RtlInitLargeAnsiString @ 0x1C00E8A3C (RtlInitLargeAnsiString.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     RtlInitLargeUnicodeString @ 0x1C0033FBC (RtlInitLargeUnicodeString.c)
+ *     RtlInitLargeAnsiString @ 0x1C0034008 (RtlInitLargeAnsiString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtUserfnINLPMDICREATESTRUCT(
@@ -25,7 +24,6 @@ __int64 __fastcall NtUserfnINLPMDICREATESTRUCT(
   _OWORD v15[6]; // [rsp+40h] [rbp-68h] BYREF
 
   memset(v15, 0, 0x58uLL);
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( a4 >= MmUserProbeAddress )
     a4 = MmUserProbeAddress;
   v15[0] = *(_OWORD *)a4;

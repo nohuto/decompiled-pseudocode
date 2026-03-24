@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpReadMessageData @ 0x1407A7B20
+ * XREFs of AlpcpReadMessageData @ 0x1405E7800
  * Callers:
- *     AlpcpReceiveLegacyConnectionReply @ 0x1406640F0 (AlpcpReceiveLegacyConnectionReply.c)
- *     AlpcpProcessConnectionRequest @ 0x140667A4C (AlpcpProcessConnectionRequest.c)
- *     AlpcpReceiveLegacyMessage @ 0x1407A7850 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x1407AACC0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x1407AC930 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1407AD040 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1405DDB60 (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1405EA7A0 (AlpcpReceiveLegacyMessage.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     AlpcpAvailableBufferSize @ 0x1407A7C84 (AlpcpAvailableBufferSize.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
  */
 
 void *__fastcall AlpcpReadMessageData(__int64 a1, char *a2)
@@ -21,7 +21,7 @@ void *__fastcall AlpcpReadMessageData(__int64 a1, char *a2)
   size_t v8; // r14
   char *v9; // rcx
 
-  v4 = AlpcpAvailableBufferSize(a1, a2);
+  v4 = AlpcpAvailableBufferSize(a1);
   v6 = *(unsigned __int16 *)(v5 + 240);
   v7 = (const void *)(v5 + 280);
   v8 = v4;

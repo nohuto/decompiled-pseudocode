@@ -1,8 +1,8 @@
 /*
- * XREFs of DisassociateShellFrameAppThreads2 @ 0x1C01B311C
+ * XREFs of DisassociateShellFrameAppThreads2 @ 0x1C01D27D4
  * Callers:
- *     NtUserAttachThreadInput @ 0x1C0011FB0 (NtUserAttachThreadInput.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
+ *     NtUserAttachThreadInput @ 0x1C00114F0 (NtUserAttachThreadInput.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,8 @@
 void __fastcall DisassociateShellFrameAppThreads2(struct _LIST_ENTRY *a1, __int64 a2)
 {
   struct _LIST_ENTRY *i; // rcx
-  struct _LIST_ENTRY *Flink; // rdx
-  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *Blink; // rdx
 
   for ( i = gShellFrameAppThreadsAssociationList.Flink; i != &gShellFrameAppThreadsAssociationList; i = i->Flink )
   {
@@ -20,7 +20,7 @@ void __fastcall DisassociateShellFrameAppThreads2(struct _LIST_ENTRY *a1, __int6
   }
   i = 0LL;
 LABEL_7:
-  *(_DWORD *)(a2 + 1272) &= ~0x80000u;
+  *(_DWORD *)(a2 + 1232) &= ~0x80000u;
   if ( i )
   {
     Flink = i->Flink;

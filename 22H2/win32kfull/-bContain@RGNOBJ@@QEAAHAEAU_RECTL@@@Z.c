@@ -1,7 +1,8 @@
 /*
- * XREFs of ?bContain@RGNOBJ@@QEAAHAEAU_RECTL@@@Z @ 0x1C000DFCC
+ * XREFs of ?bContain@RGNOBJ@@QEAAHAEAU_RECTL@@@Z @ 0x1C010FA60
  * Callers:
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0101D80 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087CC8 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     ?vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z @ 0x1C01654C8 (-vSpAddAndCompactDirtyRect@@YAXPEAVSPRITE@@VERECTL@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +12,8 @@ _BOOL8 __fastcall RGNOBJ::bContain(RGNOBJ *this, struct _RECTL *a2)
   _DWORD *v2; // r8
 
   v2 = *(_DWORD **)this;
-  return *(_DWORD *)(*(_QWORD *)this + 56LL) <= a2->left
-      && v2[16] >= a2->right
-      && v2[15] <= a2->top
-      && v2[17] >= a2->bottom;
+  return *(_DWORD *)(*(_QWORD *)this + 96LL) <= a2->left
+      && v2[26] >= a2->right
+      && v2[25] <= a2->top
+      && v2[27] >= a2->bottom;
 }

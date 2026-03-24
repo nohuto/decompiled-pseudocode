@@ -1,14 +1,14 @@
 /*
- * XREFs of UnredirectDCEs @ 0x1C0020208
+ * XREFs of UnredirectDCEs @ 0x1C004C23C
  * Callers:
- *     ?xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z @ 0x1C005FA70 (-xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     UnsetRedirectedWindow @ 0x1C00B40A4 (UnsetRedirectedWindow.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z @ 0x1C007BF90 (-xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF7E8 (UnsetRedirectedWindow.c)
  * Callees:
- *     ChangeRedirectionParentInDCEs @ 0x1C001FCCC (ChangeRedirectionParentInDCEs.c)
- *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C0020580 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
- *     UpdateRedirectedDCE @ 0x1C00DC330 (UpdateRedirectedDCE.c)
+ *     ?WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z @ 0x1C004C5B0 (-WindowMatchesDCE@@YAHQEAUtagWND@@PEBUtagDCE@@@Z.c)
+ *     ChangeRedirectionParentInDCEs @ 0x1C004C6DC (ChangeRedirectionParentInDCEs.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
+ *     UpdateRedirectedDCE @ 0x1C00D52E0 (UpdateRedirectedDCE.c)
  */
 
 __int64 __fastcall UnredirectDCEs(struct tagWND *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall UnredirectDCEs(struct tagWND *a1)
   __int16 v3; // r11
 
   if ( GetStyleWindow(a1, 2848LL) )
-    return ChangeRedirectionParentInDCEs(a1, 0);
+    return ChangeRedirectionParentInDCEs(a1);
   GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
   for ( i = *(const struct tagDCE **)(gpDispInfo + 24LL); i; i = *(const struct tagDCE **)i )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AsyncCloseNtHandle@DXGSWAPCHAIN@@CAXPEAX@Z @ 0x1C034A0C0
+ * XREFs of ?AsyncCloseNtHandle@DXGSWAPCHAIN@@CAXPEAX@Z @ 0x1C02AA590
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 void __fastcall DXGSWAPCHAIN::AsyncCloseNtHandle(void *a1)

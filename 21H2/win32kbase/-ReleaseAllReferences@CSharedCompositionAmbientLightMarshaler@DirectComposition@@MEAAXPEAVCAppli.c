@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedCompositionAmbientLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BAC60
+ * XREFs of ?ReleaseAllReferences@CSharedCompositionAmbientLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A96E0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BAD70 (-ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel.c)
+ *     ?ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A97F0 (-ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel.c)
  */
 
 void __fastcall DirectComposition::CSharedCompositionAmbientLightMarshaler::ReleaseAllReferences(
@@ -13,10 +13,10 @@ void __fastcall DirectComposition::CSharedCompositionAmbientLightMarshaler::Rele
   __int64 v3; // rcx
 
   DirectComposition::CCompositionLightMarshaler::ReleaseAllReferences(this, a2);
-  v3 = *((_QWORD *)this + 16);
+  v3 = *((_QWORD *)this + 15);
   if ( v3 )
   {
     ObfDereferenceObject((PVOID)(v3 - 24));
-    *((_QWORD *)this + 16) = 0LL;
+    *((_QWORD *)this + 15) = 0LL;
   }
 }

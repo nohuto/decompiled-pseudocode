@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeImagePageOk @ 0x1402C44FC
+ * XREFs of MiMakeImagePageOk @ 0x1402C45FC
  * Callers:
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiHandleTransitionFault @ 0x14003B680 (MiHandleTransitionFault.c)
@@ -19,9 +19,9 @@
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiDereferenceControlAreaProbe @ 0x140094CEC (MiDereferenceControlAreaProbe.c)
- *     MiReturnPfnReferenceCount @ 0x14013B790 (MiReturnPfnReferenceCount.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     MiValidateImagePfn @ 0x1405A8854 (MiValidateImagePfn.c)
  */
 

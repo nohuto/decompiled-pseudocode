@@ -1,50 +1,59 @@
 /*
- * XREFs of ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C02703D4
+ * XREFs of ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C0272708
  * Callers:
- *     NtGdiGetEmbedFonts @ 0x1C02AD5E0 (NtGdiGetEmbedFonts.c)
+ *     NtGdiGetEmbedFonts @ 0x1C02AEEB0 (NtGdiGetEmbedFonts.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016AAC0 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
  */
 
 __int64 __fastcall PUBLIC_PFTOBJ::GetEmbedFonts(struct PFT **const *this)
 {
   unsigned int v1; // ebx
-  unsigned int v3; // esi
-  unsigned int CurrentThreadId; // ebp
-  __int64 v5; // r10
-  __int64 *v6; // r8
-  __int64 i; // rdx
+  unsigned int v4; // r14d
+  unsigned int CurrentThreadId; // r15d
+  __int64 v6; // rdi
+  __int64 v7; // rbp
+  struct PFF **v8; // rcx
+  struct PFF *i; // rcx
   __int64 j; // rcx
-  int v9; // r9d
-  unsigned int v10; // eax
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  int v11; // r8d
+  unsigned int v12; // eax
+  struct PFF *v13; // rax
+  struct PFF *v14; // rdx
+  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
   if ( *this != gpPFTPrivate )
     return 0LL;
-  v3 = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
+  v4 = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
   CurrentThreadId = (unsigned int)PsGetCurrentThreadId();
-  v12 = ghsemPublicPFT;
+  v15 = ghsemPublicPFT;
   GreAcquireSemaphore(ghsemPublicPFT);
-  v5 = 20LL;
-  v6 = (__int64 *)(*this + 5);
+  v6 = 5LL;
+  v7 = 20LL;
   do
   {
-    if ( v6 )
+    v8 = &(*this)[v6];
+    if ( v8 )
     {
-      for ( i = *v6; i; i = *(_QWORD *)(i + 8) )
+      for ( i = *v8; ; i = (struct PFF *)*((_QWORD *)v14 + 1) )
       {
-        for ( j = *(_QWORD *)(i + 144); j; j = *(_QWORD *)(j + 16) )
+        v13 = SkipInvalidPff(i);
+        v14 = v13;
+        if ( !v13 )
+          break;
+        for ( j = *((_QWORD *)v13 + 18); j; j = *(_QWORD *)(j + 16) )
         {
-          v9 = *(_DWORD *)(j + 12);
+          v11 = *(_DWORD *)(j + 12);
           if ( (*(_DWORD *)(j + 8) & 4) != 0 )
           {
-            v10 = v1 + 1;
-            if ( v9 != CurrentThreadId )
-              v10 = v1;
-            v1 = v10;
+            v12 = v1 + 1;
+            if ( v11 != CurrentThreadId )
+              v12 = v1;
+            v1 = v12;
           }
-          else if ( v9 == v3 )
+          else if ( v11 == v4 )
           {
             ++v1;
           }
@@ -52,9 +61,9 @@ __int64 __fastcall PUBLIC_PFTOBJ::GetEmbedFonts(struct PFT **const *this)
       }
     }
     ++v6;
-    --v5;
+    --v7;
   }
-  while ( v5 );
-  SEMOBJ::vUnlock((SEMOBJ *)&v12);
+  while ( v7 );
+  SEMOBJ::vUnlock((SEMOBJ *)&v15);
   return v1;
 }

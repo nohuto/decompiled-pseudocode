@@ -1,20 +1,21 @@
 /*
- * XREFs of NtAlpcOpenSenderProcess @ 0x1406657C0
+ * XREFs of NtAlpcOpenSenderProcess @ 0x1405DFFA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x140666BAC (AlpcpProbeAndCaptureMessageHeader.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x1407ABD80 (AlpcpLookupMessage.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     PsOpenProcess @ 0x14065A730 (PsOpenProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int128 *a3, unsigned int a4, int a5, __int128 *a6)
@@ -24,138 +25,132 @@ __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int128 *a3, u
   NTSTATUS v11; // ebx
   __int128 *v12; // r9
   __int64 v13; // rcx
-  PVOID v14; // rdi
+  struct _DMA_ADAPTER *v14; // rdi
   ULONG_PTR v15; // rbx
-  _QWORD *v16; // rsi
-  __int64 v17; // rax
-  _QWORD *v18; // rsi
-  __int64 v20; // rsi
-  signed __int64 *v21; // rbx
-  PVOID v22; // rcx
+  __int64 v16; // rsi
+  _QWORD *v17; // rsi
+  __int64 v19; // rsi
+  signed __int64 *v20; // rbx
+  struct _DMA_ADAPTER *v21; // rcx
   PVOID Object; // [rsp+30h] [rbp-98h] BYREF
-  ULONG_PTR v24; // [rsp+38h] [rbp-90h] BYREF
-  __int64 v25; // [rsp+40h] [rbp-88h] BYREF
-  __int128 v26; // [rsp+48h] [rbp-80h] BYREF
-  __int128 v27; // [rsp+58h] [rbp-70h]
-  __int64 v28; // [rsp+68h] [rbp-60h]
-  __int128 v29; // [rsp+70h] [rbp-58h] BYREF
-  __int128 v30; // [rsp+80h] [rbp-48h]
-  __int128 v31; // [rsp+90h] [rbp-38h]
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-90h] BYREF
+  __int64 v24; // [rsp+40h] [rbp-88h] BYREF
+  __int128 Source2; // [rsp+48h] [rbp-80h] BYREF
+  __int128 v26; // [rsp+58h] [rbp-70h]
+  __int64 v27; // [rsp+68h] [rbp-60h]
+  __int128 v28; // [rsp+70h] [rbp-58h] BYREF
+  __int128 v29; // [rsp+80h] [rbp-48h]
+  __int128 v30; // [rsp+90h] [rbp-38h]
 
+  Source2 = 0LL;
   v26 = 0LL;
   v27 = 0LL;
-  v28 = 0LL;
-  DWORD1(v29) = 0;
-  v25 = 0LL;
   v24 = 0LL;
+  BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
   v11 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v11 < 0 )
-    goto LABEL_17;
+    goto LABEL_15;
   if ( PreviousMode )
   {
     v13 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
       v13 = (__int64)a1;
     *(_QWORD *)v13 = *(_QWORD *)v13;
-    AlpcpProbeAndCaptureMessageHeader(a3, &v26, a4);
+    AlpcpProbeAndCaptureMessageHeader(a3, &Source2, a4);
     if ( a6 < v12 )
       v12 = a6;
-    v29 = *v12;
-    v30 = v12[1];
-    v31 = v12[2];
+    v28 = *v12;
+    v29 = v12[1];
+    v30 = v12[2];
   }
   else
   {
-    v26 = *a3;
-    v27 = a3[1];
-    v28 = *((_QWORD *)a3 + 4);
-    v29 = *a6;
-    v30 = a6[1];
-    v31 = a6[2];
+    Source2 = *a3;
+    v26 = a3[1];
+    v27 = *((_QWORD *)a3 + 4);
+    v28 = *a6;
+    v29 = a6[1];
+    v30 = a6[2];
   }
-  v14 = Object;
-  v11 = AlpcpLookupMessage((_DWORD)Object, DWORD2(v27), v28, (_DWORD)v12, (__int64)&v24);
+  v14 = (struct _DMA_ADAPTER *)Object;
+  v11 = AlpcpLookupMessage((_DWORD)Object, DWORD2(v26), v27, (_DWORD)v12, (__int64)&BugCheckParameter2);
   if ( v11 < 0 )
   {
-    ObfDereferenceObject(v14);
-    goto LABEL_17;
-  }
-  v15 = v24;
-  if ( (*(_DWORD *)(v24 + 40) & 0x80u) != 0 )
-  {
-    AlpcpUnlockMessage(v24);
-    ObfDereferenceObject(v14);
-    v11 = -1073740029;
-    goto LABEL_17;
-  }
-  v16 = *(_QWORD **)(v24 + 32);
-  if ( v16 )
-  {
-    v17 = v16[153] - *((_QWORD *)&v26 + 1);
-    if ( !v17 )
-      v17 = v16[154] - v27;
-    if ( v17 )
-    {
-      AlpcpUnlockMessage(v24);
-      ObfDereferenceObject(v14);
-      v11 = -1073741813;
-      goto LABEL_17;
-    }
-    v18 = (_QWORD *)v16[68];
-    ObfReferenceObjectWithTag(v18, 0x63706C41u);
+    HalPutDmaAdapter(v14);
     goto LABEL_15;
   }
-  v20 = *(_QWORD *)(v24 + 24);
-  if ( !v20 )
+  v15 = BugCheckParameter2;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) != 0 )
   {
-    AlpcpUnlockMessage(v24);
-    v22 = v14;
-    goto LABEL_30;
+    AlpcpUnlockMessage(BugCheckParameter2);
+    HalPutDmaAdapter(v14);
+    v11 = -1073740029;
+    goto LABEL_15;
   }
-  v21 = (signed __int64 *)(v20 + 352);
-  ExAcquirePushLockSharedEx(v20 + 352, 0LL);
-  if ( (*(_DWORD *)(v20 + 416) & 0x40) == 0 )
+  v16 = *(_QWORD *)(BugCheckParameter2 + 32);
+  if ( v16 )
   {
-    v18 = *(_QWORD **)(v20 + 24);
-    if ( v18[136] == *((_QWORD *)&v26 + 1) )
+    if ( RtlCompareMemory((const void *)(v16 + 1144), (char *)&Source2 + 8, 0x10uLL) != 16 )
     {
-      ObfReferenceObjectWithTag(v18, 0x63706C41u);
-      if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared(v21);
-      KeAbPostRelease((ULONG_PTR)v21);
-      v15 = v24;
-      v14 = Object;
-LABEL_15:
       AlpcpUnlockMessage(v15);
-      *(_QWORD *)&v27 = 0LL;
-      v11 = PsOpenProcess((unsigned int)&v25, a5, (unsigned int)&v29, (unsigned int)&v26 + 8, 0, PreviousMode);
-      ObfDereferenceObjectWithTag(v18, 0x63706C41u);
-      ObfDereferenceObject(v14);
-      if ( v11 >= 0 )
-        *a1 = v25;
-      goto LABEL_17;
+      HalPutDmaAdapter(v14);
+      v11 = -1073741813;
+      goto LABEL_15;
     }
-    if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v21);
-    KeAbPostRelease((ULONG_PTR)v21);
-    AlpcpUnlockMessage(v24);
-    v22 = Object;
-LABEL_30:
-    ObfDereferenceObject(v22);
-    v11 = -1073741790;
-    goto LABEL_17;
+    v17 = *(_QWORD **)(v16 + 544);
+    ObfReferenceObjectWithTag(v17, 0x63706C41u);
+    goto LABEL_13;
   }
-  if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(v20 + 352));
-  KeAbPostRelease(v20 + 352);
-  AlpcpUnlockMessage(v24);
-  ObfDereferenceObject(Object);
+  v19 = *(_QWORD *)(BugCheckParameter2 + 24);
+  if ( !v19 )
+  {
+    AlpcpUnlockMessage(BugCheckParameter2);
+    v21 = v14;
+    goto LABEL_28;
+  }
+  v20 = (signed __int64 *)(v19 + 352);
+  ExAcquirePushLockSharedEx(v19 + 352, 0LL);
+  if ( (*(_DWORD *)(v19 + 416) & 0x40) == 0 )
+  {
+    v17 = *(_QWORD **)(v19 + 24);
+    if ( v17[136] == *((_QWORD *)&Source2 + 1) )
+    {
+      ObfReferenceObjectWithTag(v17, 0x63706C41u);
+      if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v20);
+      KeAbPostRelease((ULONG_PTR)v20);
+      v15 = BugCheckParameter2;
+      v14 = (struct _DMA_ADAPTER *)Object;
+LABEL_13:
+      AlpcpUnlockMessage(v15);
+      v11 = PsOpenProcess((unsigned int)&v24, a5, (unsigned int)&v28, (unsigned int)&Source2 + 8, 0, PreviousMode);
+      ObfDereferenceObjectWithTag(v17, 0x63706C41u);
+      HalPutDmaAdapter(v14);
+      if ( v11 >= 0 )
+        *a1 = v24;
+      goto LABEL_15;
+    }
+    if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(v20);
+    KeAbPostRelease((ULONG_PTR)v20);
+    AlpcpUnlockMessage(BugCheckParameter2);
+    v21 = (struct _DMA_ADAPTER *)Object;
+LABEL_28:
+    HalPutDmaAdapter(v21);
+    v11 = -1073741790;
+    goto LABEL_15;
+  }
+  if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(v19 + 352));
+  KeAbPostRelease(v19 + 352);
+  AlpcpUnlockMessage(BugCheckParameter2);
+  HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   v11 = -1073741769;
-LABEL_17:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+LABEL_15:
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v11;
 }

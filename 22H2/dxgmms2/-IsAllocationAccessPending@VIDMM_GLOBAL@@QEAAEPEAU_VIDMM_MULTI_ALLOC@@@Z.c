@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsAllocationAccessPending@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00B4340
+ * XREFs of ?IsAllocationAccessPending@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C0087704
  * Callers:
- *     ?VidMmIsAllocationAccessPending@@YAEPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C0018110 (-VidMmIsAllocationAccessPending@@YAEPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z.c)
+ *     ?VidMmIsAllocationAccessPending@@YAEPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C0015870 (-VidMmIsAllocationAccessPending@@YAEPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z.c)
  * Callees:
- *     VidSchIsDeviceBusy @ 0x1C0018128 (VidSchIsDeviceBusy.c)
+ *     VidSchIsDeviceBusy @ 0x1C0015888 (VidSchIsDeviceBusy.c)
  */
 
 char __fastcall VIDMM_GLOBAL::IsAllocationAccessPending(VIDMM_GLOBAL *this, struct _VIDMM_MULTI_ALLOC *a2)
@@ -12,7 +12,7 @@ char __fastcall VIDMM_GLOBAL::IsAllocationAccessPending(VIDMM_GLOBAL *this, stru
 
   v2 = *(_QWORD *)(*((_QWORD *)a2 + 1) + 24LL);
   if ( v2 )
-    return VidSchIsDeviceBusy(*(_QWORD *)(v2 + 800));
+    return VidSchIsDeviceBusy(*(_QWORD *)(v2 + 768));
   else
     return 0;
 }

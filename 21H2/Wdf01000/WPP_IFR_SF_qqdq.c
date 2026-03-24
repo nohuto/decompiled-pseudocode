@@ -1,51 +1,38 @@
 /*
- * XREFs of WPP_IFR_SF_qqDq @ 0x1C0072B64
+ * XREFs of WPP_IFR_SF_qqdq @ 0x1C0079DD4
  * Callers:
- *     FxIoTargetFormatIo @ 0x1C00724F4 (FxIoTargetFormatIo.c)
+ *     ?_PnpQueryPnpDeviceState@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0079B10 (-_PnpQueryPnpDeviceState@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ *     ?HandleQueryPnpDeviceStateCompletion@FxPkgFdo@@AEAAXPEAVFxIrp@@@Z @ 0x1C008427C (-HandleQueryPnpDeviceStateCompletion@FxPkgFdo@@AEAAXPEAVFxIrp@@@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
-void __fastcall WPP_IFR_SF_qqDq(
+void __fastcall WPP_IFR_SF_qqdq(
         _FX_DRIVER_GLOBALS *globals,
-        unsigned __int8 _a1,
-        unsigned int _a2,
-        unsigned __int16 _a3,
-        const _GUID *_a4,
-        const void *globals_0,
-        const void *level,
-        unsigned int flags,
-        const void *id)
+        unsigned __int8 id,
+        unsigned int traceGuid,
+        unsigned __int16 _a1,
+        const _GUID *_a2,
+        const void *_a3,
+        const void *_a4,
+        int globals_0,
+        const void *level)
 {
-  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x2000) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 5u )
+  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x800) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 4u )
     FxWmiTraceMessage(
       (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
       43LL,
-      WPP_FxIoTargetAPI_cpp_Traceguids,
-      0x21u,
-      &globals_0,
+      _a2,
+      _a1,
+      &_a3,
       8LL,
+      &_a4,
+      8LL,
+      &globals_0,
+      4LL,
       &level,
       8LL,
-      &flags,
-      4LL,
-      &id,
-      8LL,
       0LL);
-  FxIFR(
-    globals,
-    5u,
-    0xEu,
-    WPP_FxIoTargetAPI_cpp_Traceguids,
-    0x21u,
-    &globals_0,
-    8LL,
-    &level,
-    8LL,
-    &flags,
-    4LL,
-    &id,
-    8LL,
-    0LL);
+  FxIFR(globals, 4u, 0xCu, _a2, _a1, &_a3, 8LL, &_a4, 8LL, &globals_0, 4LL, &level, 8LL, 0LL);
 }

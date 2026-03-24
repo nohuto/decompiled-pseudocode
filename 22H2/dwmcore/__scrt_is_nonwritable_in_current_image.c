@@ -1,7 +1,7 @@
 /*
- * XREFs of __scrt_is_nonwritable_in_current_image @ 0x18010F35C
+ * XREFs of __scrt_is_nonwritable_in_current_image @ 0x1800E6FC8
  * Callers:
- *     dllmain_crt_process_attach @ 0x18010F528 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7198 (dllmain_crt_process_attach.c)
  * Callees:
  *     <none>
  */
@@ -13,13 +13,13 @@ bool __fastcall _scrt_is_nonwritable_in_current_image(__int64 a1)
   _DWORD *v3; // r9
   unsigned __int64 v4; // rcx
 
-  if ( _ImageBase[0] != 23117
-    || *(_DWORD *)((char *)_ImageBase + (int)off_18000003C) != 17744
+  if ( LOWORD(_ImageBase.unused) != 23117
+    || *(int *)((char *)&_ImageBase.unused + (int)off_18000003C) != 17744
     || *(__int16 *)((char *)&word_180000018 + (int)off_18000003C) != 523 )
   {
     return 0;
   }
-  v1 = a1 - (_QWORD)_ImageBase;
+  v1 = a1 - (_QWORD)&_ImageBase;
   v2 = (_DWORD *)((char *)&word_180000018
                 + (int)off_18000003C
                 + *(unsigned __int16 *)((char *)&word_180000014 + (int)off_18000003C));

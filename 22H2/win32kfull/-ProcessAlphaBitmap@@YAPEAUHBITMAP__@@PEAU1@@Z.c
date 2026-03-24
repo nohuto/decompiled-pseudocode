@@ -1,139 +1,101 @@
 /*
- * XREFs of ?ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z @ 0x1C0030EF0
+ * XREFs of ?ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z @ 0x1C00A9B10
  * Callers:
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C002DBDC (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C0065454 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
  * Callees:
- *     ?GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK3K_KPEAPEAX@Z @ 0x1C002AB30 (-GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK.c)
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     ?GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C002F6C0 (-GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV-$umptr_w@E@@PEAUtagBITMAPINFO@@II.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     GreGetDIBitsInternal @ 0x1C0082984 (GreGetDIBitsInternal.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     GreDecBitmapExclusiveRefCnt @ 0x1C00A9DAC (GreDecBitmapExclusiveRefCnt.c)
+ *     GreCreateDIBitmapReal @ 0x1C00ABE5C (GreCreateDIBitmapReal.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ProcessAlphaBitmap(HSURF a1)
 {
-  HDC v2; // rcx
-  __int64 v3; // rdi
-  __int64 v4; // rcx
-  __int64 v5; // rdx
-  int DIBitsInternalImpl; // ebx
-  unsigned int v7; // ecx
-  __int64 v8; // r10
-  _BYTE *v9; // rax
-  __int64 v10; // rax
-  __int64 v12; // r11
-  __int64 v13; // rcx
-  unsigned int v14; // r8d
-  __int64 v15; // [rsp+60h] [rbp-A0h] BYREF
-  int v16[4]; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v17; // [rsp+78h] [rbp-88h]
-  __int64 v18[3]; // [rsp+88h] [rbp-78h] BYREF
-  __int16 v19; // [rsp+A0h] [rbp-60h]
-  __int64 v20[3]; // [rsp+A8h] [rbp-58h] BYREF
-  __int16 v21; // [rsp+C0h] [rbp-40h]
-  __int64 v22; // [rsp+D8h] [rbp-28h]
-  __int16 v23; // [rsp+E0h] [rbp-20h]
-  __int64 v24; // [rsp+F8h] [rbp-8h]
-  __int16 v25; // [rsp+100h] [rbp+0h]
-  unsigned int v26; // [rsp+108h] [rbp+8h] BYREF
-  int v27; // [rsp+10Ch] [rbp+Ch]
-  int v28; // [rsp+110h] [rbp+10h]
-  __int64 v29; // [rsp+114h] [rbp+14h]
-  __int128 v30; // [rsp+11Ch] [rbp+1Ch]
-  __int64 v31; // [rsp+12Ch] [rbp+2Ch]
+  __int64 DIBitmapReal; // rdi
+  int DIBitsInternal; // ebx
+  unsigned int v4; // edx
+  unsigned int v5; // ecx
+  __int64 v6; // r10
+  _BYTE *v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // r11
+  unsigned int v10; // r8d
+  __int64 v12; // [rsp+70h] [rbp-19h] BYREF
+  __int128 v13; // [rsp+78h] [rbp-11h] BYREF
+  __int128 v14; // [rsp+88h] [rbp-1h]
+  tagBITMAPINFO v15; // [rsp+98h] [rbp+Fh] BYREF
 
   if ( !a1 )
     return 0LL;
-  *(_OWORD *)v16 = 0LL;
-  v17 = 0LL;
-  if ( !(unsigned int)GreExtGetObjectW((HBRUSH)a1, 32LL, (__int64)v16) || (_DWORD)v17 != 2097153 )
+  v13 = 0LL;
+  v14 = 0LL;
+  if ( !(unsigned int)GreExtGetObjectW(a1, 32LL, (char *)&v13) || (_DWORD)v14 != 2097153 )
     return 0LL;
-  v27 = v16[1];
-  v28 = v16[2];
-  v30 = 0LL;
-  v26 = 40;
-  v29 = 2097153LL;
-  v31 = 0LL;
-  v15 = 0LL;
-  v2 = *(HDC *)(gpDispInfo + 56LL);
-  v22 = 0LL;
-  v23 = 0;
-  memset(v18, 0, sizeof(v18));
-  v19 = 0;
-  v3 = GreCreateDIBitmapReal(v2, 0, v18, &v26, 0, 0x2Cu, 0LL, 0, 0LL, 0, 0LL, &v15);
-  if ( v3 )
+  *(_QWORD *)&v15.bmiHeader.biWidth = *(_QWORD *)((char *)&v13 + 4);
+  memset(&v15.bmiHeader.biSizeImage, 0, 24);
+  v15.bmiHeader.biSize = 40;
+  *(_QWORD *)&v15.bmiHeader.biPlanes = 2097153LL;
+  v12 = 0LL;
+  DIBitmapReal = GreCreateDIBitmapReal(*(HDC *)(gpDispInfo + 56LL), 0, 44, 0, 0LL, 0, 0LL, 0, 0LL, (__int64)&v12);
+  if ( DIBitmapReal )
   {
-    v27 = v16[1];
-    v30 = 0LL;
-    v31 = 0LL;
-    v26 = 40;
-    v28 = v16[2];
-    v29 = 2097153LL;
-    v20[0] = v15;
-    v4 = *(_QWORD *)(gpDispInfo + 56LL);
-    v25 = 0;
-    v20[1] = v16[2] * (((32 * v16[1]) >> 3) & 0xFFFFFFFC);
-    v21 = 0;
-    v24 = 0LL;
-    v20[2] = 0LL;
-    DIBitsInternalImpl = GreGetDIBitsInternalImpl(
-                           v4,
-                           a1,
-                           0,
-                           v16[2],
-                           (__int64)v20,
-                           &v26,
-                           0,
-                           v16[2] * (((32 * v16[1]) >> 3) & 0xFFFFFFFC),
-                           0x28u);
-    if ( DIBitsInternalImpl )
+    *(_QWORD *)&v15.bmiHeader.biWidth = *(_QWORD *)((char *)&v13 + 4);
+    memset(&v15.bmiHeader.biSizeImage, 0, 24);
+    v15.bmiHeader.biSize = 40;
+    *(_QWORD *)&v15.bmiHeader.biPlanes = 2097153LL;
+    DIBitsInternal = GreGetDIBitsInternal(
+                       *(HDC *)(gpDispInfo + 56LL),
+                       a1,
+                       0,
+                       DWORD2(v13),
+                       v12,
+                       &v15,
+                       0,
+                       DWORD2(v13) * (((32 * DWORD1(v13)) >> 3) & 0xFFFFFFFC),
+                       0x28u);
+    if ( DIBitsInternal )
     {
-      v7 = 0;
-      v5 = (unsigned int)(v27 * v28);
-      if ( (_DWORD)v5 )
+      DIBitsInternal = 0;
+      v4 = v15.bmiHeader.biWidth * v15.bmiHeader.biHeight;
+      v5 = 0;
+      v6 = v12;
+      if ( v15.bmiHeader.biWidth * v15.bmiHeader.biHeight )
       {
-        v8 = v15;
-        v9 = (_BYTE *)(v15 + 3);
-        while ( !*v9 )
+        v7 = (_BYTE *)(v12 + 3);
+        while ( !*v7 )
         {
-          ++v7;
-          v9 += 4;
-          if ( v7 >= (unsigned int)v5 )
-            goto LABEL_10;
+          ++v5;
+          v7 += 4;
+          if ( v5 >= v4 )
+            goto LABEL_12;
         }
-        DIBitsInternalImpl = 1;
-        v12 = (unsigned int)v5;
-        v13 = 0LL;
+        DIBitsInternal = 1;
+      }
+LABEL_12:
+      if ( DIBitsInternal && v4 )
+      {
+        v8 = 0LL;
+        v9 = v4;
         while ( 1 )
         {
-          v14 = *(_DWORD *)(v13 + v8);
-          v13 += 4LL;
-          *(_BYTE *)(v13 + v8 - 2) = HIBYTE(v14) * BYTE2(v14) / 0xFFu;
-          *(_BYTE *)(v13 + v15 - 3) = HIBYTE(v14) * BYTE1(v14) / 0xFFu;
-          v5 = HIBYTE(v14) * (unsigned __int8)v14 / 0xFFu;
-          *(_BYTE *)(v13 + v15 - 4) = v5;
-          if ( !--v12 )
+          v10 = *(_DWORD *)(v8 + v6);
+          v8 += 4LL;
+          *(_BYTE *)(v8 + v6 - 2) = HIBYTE(v10) * BYTE2(v10) / 0xFFu;
+          *(_BYTE *)(v8 + v12 - 3) = HIBYTE(v10) * BYTE1(v10) / 0xFFu;
+          *(_BYTE *)(v8 + v12 - 4) = HIBYTE(v10) * (unsigned __int8)v10 / 0xFFu;
+          if ( !--v9 )
             break;
-          v8 = v15;
+          v6 = v12;
         }
       }
-      else
-      {
-LABEL_10:
-        DIBitsInternalImpl = 0;
-      }
     }
-    LOBYTE(v5) = 5;
-    v10 = HmgLock(v3, v5);
-    if ( v10 )
+    GreDecBitmapExclusiveRefCnt(DIBitmapReal);
+    if ( !DIBitsInternal )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(v10 + 12));
-      _InterlockedDecrement((volatile signed __int32 *)(v10 + 12));
-    }
-    if ( !DIBitsInternalImpl )
-    {
-      GreDeleteObject(v3);
+      GreDeleteObject(DIBitmapReal);
       return 0LL;
     }
   }
-  return v3;
+  return DIBitmapReal;
 }

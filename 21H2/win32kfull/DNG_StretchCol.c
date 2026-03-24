@@ -1,10 +1,10 @@
 /*
- * XREFs of DNG_StretchCol @ 0x1C00D7834
+ * XREFs of DNG_StretchCol @ 0x1C00C8E70
  * Callers:
- *     RenderNineGridInternal @ 0x1C00D8290 (RenderNineGridInternal.c)
+ *     RenderNineGridInternal @ 0x1C00C9840 (RenderNineGridInternal.c)
  * Callees:
- *     DNG_DrawRow @ 0x1C00D8FF0 (DNG_DrawRow.c)
- *     ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C00D936C (-DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z.c)
+ *     DNG_DrawRow @ 0x1C00CA560 (DNG_DrawRow.c)
+ *     ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C00CA8E0 (-DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z.c)
  */
 
 int __fastcall DNG_StretchCol(struct _DNGINTERNALDATA *a1, _DWORD *a2)

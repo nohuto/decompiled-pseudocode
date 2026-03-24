@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetOffsetZCommand@CTranslateTransform3DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02193EC
+ * XREFs of ?EmitSetOffsetZCommand@CTranslateTransform3DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D90F4
  * Callers:
- *     ?EmitUpdateCommands@CTranslateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C980 (-EmitUpdateCommands@CTranslateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTranslateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB9D0 (-EmitUpdateCommands@CTranslateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CTranslateTransform3DMarshaler::EmitSetOffsetZCommand(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CTranslateTransform3DMarshaler::EmitSetOffset
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 702;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 674;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
     *((_DWORD *)v3 + 3) = *((_DWORD *)this + 20);
     *((_DWORD *)this + 4) &= ~0x200u;
     return 1;

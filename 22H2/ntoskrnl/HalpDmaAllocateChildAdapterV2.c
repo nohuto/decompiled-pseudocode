@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x1408298B0
+ * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x1407640AC
  * Callers:
- *     HalGetAdapterV2 @ 0x140829610 (HalGetAdapterV2.c)
+ *     HalGetAdapterV2 @ 0x140763E30 (HalGetAdapterV2.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeInitializeDeviceQueue @ 0x1403647A0 (KeInitializeDeviceQueue.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140934000 (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x1409342E8 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     KeInitializeDeviceQueue @ 0x1403793B0 (KeInitializeDeviceQueue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864DE0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1408650C8 (HalpDmaAllocateLocalScatterPool.c)
  */
 
 char *__fastcall HalpDmaAllocateChildAdapterV2(
@@ -28,10 +28,10 @@ char *__fastcall HalpDmaAllocateChildAdapterV2(
   char *v12; // rbx
   __int64 v13; // rax
   _QWORD *v14; // rax
-  int v15; // ecx
   char *result; // rax
   int LocalScatterPool; // eax
-  __int64 v18; // [rsp+28h] [rbp-59h]
+  int v17; // ecx
+  char *v18; // [rsp+28h] [rbp-59h]
   PVOID Object; // [rsp+58h] [rbp-29h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-21h] BYREF
   _QWORD v21[4]; // [rsp+68h] [rbp-19h] BYREF
@@ -47,68 +47,68 @@ char *__fastcall HalpDmaAllocateChildAdapterV2(
     v11 = a2;
   v21[2] = 0LL;
   v22 = 0LL;
-  if ( (int)ObCreateObjectEx(0, HalpDmaAdapterObjectType, (__int64)v21, 0, v18, 648, 0, 0, &Object, 0LL) >= 0 )
+  if ( (int)ObCreateObjectEx(0, HalpDmaAdapterObjectType, (int)v21, 0, v18, 640, 0, 0, &Object, 0LL) < 0 )
+    return 0LL;
+  v12 = (char *)Object;
+  memset(Object, 0, 0x280uLL);
+  if ( ObReferenceObjectByPointer(v12, 0x20000u, HalpDmaAdapterObjectType, 0) < 0
+    || (int)ObInsertObjectEx((PADAPTER_OBJECT)v12, 0LL, 0x20000u, 0, 0, 0LL, (unsigned __int64 *)&Handle) < 0 )
   {
-    v12 = (char *)Object;
-    memset(Object, 0, 0x288uLL);
-    if ( ObReferenceObjectByPointer(v12, 0x20000u, HalpDmaAdapterObjectType, 0) >= 0
-      && (int)ObInsertObjectEx(v12, 0LL, 0x20000, 0, 0, 0LL, &Handle) >= 0 )
-    {
-      ZwClose(Handle);
-      *(_DWORD *)v12 = 42467329;
-      *((_QWORD *)v12 + 1) = &HalpDmaOperationsV2;
-      v12[153] = a6;
-      *((_QWORD *)v12 + 16) = 0LL;
-      *((_QWORD *)v12 + 17) = 0LL;
-      *((_DWORD *)v12 + 4) = 1634550856;
-      v12[152] = 0;
-      *((_QWORD *)v12 + 40) = 0LL;
-      v12[346] = 0;
-      KeInitializeDeviceQueue((PKDEVICE_QUEUE)(v12 + 184));
-      *((_DWORD *)v12 + 58) = a1;
-      v12[442] = a4;
-      v12[448] = v11;
-      v12[449] = a3;
-      v12[445] = a7;
-      *((_DWORD *)v12 + 95) = -1;
-      *((_DWORD *)v12 + 96) = -1;
-      *((_DWORD *)v12 + 39) = 2;
-      v12[441] = a5 != 0;
-      if ( a1 )
-        v13 = (1LL << (v11 != 0 ? 32 : 24)) - 1;
-      else
-        v13 = -1LL;
-      *((_QWORD *)v12 + 18) = v13;
-      v14 = &MasterAdapter24V2;
-      if ( v11 )
-        v14 = &MasterAdapterV2;
-      *((_QWORD *)v12 + 20) = v14;
-      if ( *((_QWORD *)v12 + 18) >= v14[18] )
-      {
-        if ( !a1 )
-        {
-          *((_DWORD *)v12 + 58) = 0;
-          v15 = 0;
-          v12[345] = 1;
-LABEL_13:
-          *a8 = v15;
-          result = v12;
-          *((_QWORD *)v12 + 64) = 0LL;
-          return result;
-        }
-        if ( a4 )
-          LocalScatterPool = HalpDmaAllocateLocalScatterPool(v12, a1);
-        else
-          LocalScatterPool = HalpDmaAllocateLocalContiguousPool(v12, a1);
-        if ( LocalScatterPool >= 0 )
-        {
-          v15 = *((_DWORD *)v12 + 58);
-          v12[345] = 0;
-          goto LABEL_13;
-        }
-      }
-      ObfDereferenceObject(v12);
-    }
+    return 0LL;
   }
-  return 0LL;
+  ZwClose(Handle);
+  *(_DWORD *)v12 = 41943041;
+  *((_QWORD *)v12 + 1) = &HalpDmaOperationsV2;
+  v12[145] = a6;
+  *((_QWORD *)v12 + 15) = 0LL;
+  *((_QWORD *)v12 + 16) = 0LL;
+  v12[144] = 0;
+  *((_QWORD *)v12 + 39) = 0LL;
+  v12[338] = 0;
+  KeInitializeDeviceQueue((PKDEVICE_QUEUE)(v12 + 176));
+  *((_DWORD *)v12 + 56) = a1;
+  v12[434] = a4;
+  v12[440] = v11;
+  v12[441] = a3;
+  v12[437] = a7;
+  *((_DWORD *)v12 + 93) = -1;
+  *((_DWORD *)v12 + 94) = -1;
+  *((_DWORD *)v12 + 37) = 2;
+  v12[433] = a5 != 0;
+  if ( a1 )
+    v13 = (1LL << (v11 != 0 ? 32 : 24)) - 1;
+  else
+    v13 = -1LL;
+  *((_QWORD *)v12 + 17) = v13;
+  v14 = &MasterAdapter24V2;
+  if ( v11 )
+    v14 = &MasterAdapterV2;
+  *((_QWORD *)v12 + 19) = v14;
+  if ( *((_QWORD *)v12 + 17) < v14[17] )
+  {
+LABEL_12:
+    HalPutDmaAdapter((PADAPTER_OBJECT)v12);
+    return 0LL;
+  }
+  if ( a1 )
+  {
+    if ( a4 )
+      LocalScatterPool = HalpDmaAllocateLocalScatterPool(v12, a1);
+    else
+      LocalScatterPool = HalpDmaAllocateLocalContiguousPool(v12, a1);
+    if ( LocalScatterPool < 0 )
+      goto LABEL_12;
+    v17 = *((_DWORD *)v12 + 56);
+    v12[337] = 0;
+  }
+  else
+  {
+    *((_DWORD *)v12 + 56) = 0;
+    v17 = 0;
+    v12[337] = 1;
+  }
+  *a8 = v17;
+  result = v12;
+  *((_QWORD *)v12 + 63) = 0LL;
+  return result;
 }

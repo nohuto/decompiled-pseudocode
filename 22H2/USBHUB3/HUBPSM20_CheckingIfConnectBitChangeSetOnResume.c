@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_CheckingIfConnectBitChangeSetOnResume @ 0x1C0012A00
+ * XREFs of HUBPSM20_CheckingIfConnectBitChangeSetOnResume @ 0x1C0011570
  * Callers:
  *     <none>
  * Callees:

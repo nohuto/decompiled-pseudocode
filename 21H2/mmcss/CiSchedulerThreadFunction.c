@@ -1,36 +1,38 @@
 /*
- * XREFs of CiSchedulerThreadFunction @ 0x1C0002F80
+ * XREFs of CiSchedulerThreadFunction @ 0x1C0002D50
  * Callers:
  *     <none>
  * Callees:
- *     CiSchedulerDeepSleep @ 0x1C0001190 (CiSchedulerDeepSleep.c)
- *     CiSchedulerWait @ 0x1C0001630 (CiSchedulerWait.c)
- *     CiSchedulerSetPriority @ 0x1C0002A60 (CiSchedulerSetPriority.c)
- *     CiSchedulerRemoveDeadline @ 0x1C0002E70 (CiSchedulerRemoveDeadline.c)
- *     CiLogSchedulerWakeup @ 0x1C0004080 (CiLogSchedulerWakeup.c)
- *     WPP_SF_ @ 0x1C00046A8 (WPP_SF_.c)
+ *     CiSchedulerWait @ 0x1C00021A0 (CiSchedulerWait.c)
+ *     CiSchedulerRemoveDeadline @ 0x1C0002C60 (CiSchedulerRemoveDeadline.c)
+ *     CiSchedulerDeepSleep @ 0x1C0002CC0 (CiSchedulerDeepSleep.c)
+ *     CiLogSchedulerEvent @ 0x1C0003C60 (CiLogSchedulerEvent.c)
+ *     CiLogSchedulerWakeup @ 0x1C0003DD0 (CiLogSchedulerWakeup.c)
+ *     WPP_SF_ @ 0x1C00043F8 (WPP_SF_.c)
  */
 
 void __fastcall CiSchedulerThreadFunction(struct _KEVENT *StartContext)
 {
-  PVOID *p_Reserved; // rbp
+  PVOID *p_Reserved; // r13
   struct _KTHREAD *CurrentThread; // rax
-  char v4; // si
-  int v5; // edi
-  _QWORD *v6; // rcx
-  struct _KTHREAD *v7; // rax
-  struct _DEVICE_OBJECT *SystemArgument1; // r15
-  unsigned int v9; // esi
-  struct _DEVICE_OBJECT *NextDevice; // rbx
-  __int64 i; // r14
-  _QWORD *v12; // rax
-  __int64 v13; // rdx
-  _QWORD *v14; // rdx
-  char v15; // bl
-  unsigned int v16; // [rsp+50h] [rbp+8h] BYREF
+  char v4; // di
+  int v5; // ebp
+  __int64 AttachedDevice_low; // rcx
+  unsigned int v7; // r14d
+  struct _DEVICE_OBJECT *SystemArgument1; // r12
+  struct _DEVICE_OBJECT *NextDevice; // rdi
+  __int64 i; // r15
+  __int64 v11; // rax
+  unsigned int v12; // esi
+  __int64 *v13; // rax
+  __int64 v14; // rdx
+  __int64 **v15; // rdx
+  char v16; // bl
+  unsigned __int8 AttachedDevice; // al
+  unsigned int v18; // [rsp+50h] [rbp+8h] BYREF
 
   p_Reserved = 0LL;
-  if ( byte_1C00073C0 )
+  if ( byte_1C0007370 )
     CiLogSchedulerWakeup(1LL);
   CurrentThread = KeGetCurrentThread();
   v4 = 1;
@@ -40,17 +42,16 @@ void __fastcall CiSchedulerThreadFunction(struct _KEVENT *StartContext)
   KeSetActualBasePriorityThread(CurrentThread, 27LL);
   KeSetEvent(StartContext, 0, 0);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-    WPP_SF_(WPP_GLOBAL_Control->AttachedDevice, 15LL, &WPP_aa99675662263b3850e759e243765244_Traceguids);
-  v16 = 0;
+    WPP_SF_(WPP_GLOBAL_Control->AttachedDevice, 15LL, &WPP_d6228770c66e391feed760a5a2fdfd5b_Traceguids);
+  v18 = 0;
   do
   {
     v5 = 0;
     KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
-    v7 = KeGetCurrentThread();
+    v7 = 0;
     SystemArgument1 = (struct _DEVICE_OBJECT *)WPP_MAIN_CB.Dpc.SystemArgument1;
-    CiThreadsMovedUp = v4;
-    v9 = 0;
-    for ( WPP_MAIN_CB.Queue.Wcb.CurrentIrp = v7;
+    WPP_MAIN_CB.Queue.Wcb.CurrentIrp = KeGetCurrentThread();
+    for ( CiThreadsMovedUp = v4;
           SystemArgument1 != (struct _DEVICE_OBJECT *)&WPP_MAIN_CB.Dpc.SystemArgument1;
           SystemArgument1 = *(struct _DEVICE_OBJECT **)&SystemArgument1->Type )
     {
@@ -60,31 +61,61 @@ void __fastcall CiSchedulerThreadFunction(struct _KEVENT *StartContext)
             NextDevice != (struct _DEVICE_OBJECT *)i;
             NextDevice = *(struct _DEVICE_OBJECT **)&NextDevice->Type )
       {
-        if ( CiSchedulerSetPriority((__int64)&NextDevice[-1].Dpc.DpcData) )
+        if ( (BYTE4(NextDevice->DeviceExtension) & 1) == 0 )
         {
+          if ( CiThreadsMovedUp )
+          {
+            v11 = *((_QWORD *)&NextDevice[-1].Reserved + 1);
+            if ( *(_QWORD *)(v11 + 120) || !*(_BYTE *)(v11 + 132) && *(_QWORD *)(v11 + 80) )
+            {
+              AttachedDevice_low = *((unsigned __int8 *)NextDevice[-1].Reserved + 40);
+              AttachedDevice = (unsigned __int8)NextDevice->AttachedDevice;
+              if ( (unsigned __int8)AttachedDevice_low > AttachedDevice )
+                AttachedDevice_low = AttachedDevice;
+            }
+            else
+            {
+              AttachedDevice_low = LOBYTE(NextDevice->AttachedDevice);
+            }
+          }
+          else
+          {
+            AttachedDevice_low = BYTE2(NextDevice->AttachedDevice);
+          }
+          v12 = (unsigned __int8)AttachedDevice_low;
+          if ( BYTE3(NextDevice->AttachedDevice) != (unsigned __int8)AttachedDevice_low )
+          {
+            BYTE3(NextDevice->AttachedDevice) = AttachedDevice_low;
+            if ( byte_1C0007370 )
+              CiLogSchedulerEvent(&NextDevice[-1].Dpc.DpcData, (unsigned __int8)AttachedDevice_low);
+            KeSetActualBasePriorityThread(NextDevice->NextDevice, v12);
+          }
           ++v5;
-          ++v9;
+          ++v7;
         }
       }
     }
-    if ( CiThreadsMovedUp && v9 > 1 )
+    if ( CiThreadsMovedUp && v7 > 1 )
     {
-      v12 = p_Reserved[4];
-      v6 = p_Reserved + 4;
-      if ( (PVOID *)v12[1] != p_Reserved + 4
-        || (v13 = *v12, *(_QWORD **)(*v12 + 8LL) != v12)
-        || (*v6 = v13, *(_QWORD *)(v13 + 8) = v6, v14 = p_Reserved[5], (_QWORD *)*v14 != v6) )
+      v13 = (__int64 *)p_Reserved[4];
+      AttachedDevice_low = (__int64)(p_Reserved + 4);
+      if ( (PVOID *)v13[1] != p_Reserved + 4
+        || (v14 = *v13, *(__int64 **)(*v13 + 8) != v13)
+        || (*(_QWORD *)AttachedDevice_low = v14,
+            *(_QWORD *)(v14 + 8) = AttachedDevice_low,
+            v15 = (__int64 **)p_Reserved[5],
+            *v15 != (__int64 *)AttachedDevice_low) )
       {
         __fastfail(3u);
       }
-      *v12 = v6;
-      v12[1] = v14;
-      *v14 = v12;
-      p_Reserved[5] = v12;
+      *v13 = AttachedDevice_low;
+      v13[1] = (__int64)v15;
+      *v15 = v13;
+      p_Reserved[5] = v13;
     }
     if ( v5 )
     {
-      v4 = CiSchedulerWait((__int64)v6, &v16);
+      v4 = CiSchedulerWait(AttachedDevice_low, &v18);
     }
     else
     {
@@ -94,14 +125,14 @@ void __fastcall CiSchedulerThreadFunction(struct _KEVENT *StartContext)
       CiSchedulerRemoveDeadline((__int64)&WPP_MAIN_CB.Reserved);
       WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
       KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject, 0);
-      CiSchedulerDeepSleep((__int32 *)&v16);
+      CiSchedulerDeepSleep((__int32 *)&v18);
     }
-    v15 = v16;
-    if ( byte_1C00073C0 )
-      CiLogSchedulerWakeup(v16);
+    v16 = v18;
+    if ( byte_1C0007370 )
+      CiLogSchedulerWakeup(v18);
   }
-  while ( (v15 & 8) == 0 );
+  while ( (v16 & 8) == 0 );
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-    WPP_SF_(WPP_GLOBAL_Control->AttachedDevice, 16LL, &WPP_aa99675662263b3850e759e243765244_Traceguids);
+    WPP_SF_(WPP_GLOBAL_Control->AttachedDevice, 16LL, &WPP_d6228770c66e391feed760a5a2fdfd5b_Traceguids);
   PsTerminateSystemThread(0);
 }

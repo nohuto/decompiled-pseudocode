@@ -1,13 +1,12 @@
 /*
- * XREFs of IoDetachDevice @ 0x140365990
+ * XREFs of IoDetachDevice @ 0x140360170
  * Callers:
- *     DifIoDetachDeviceWrapper @ 0x1405DEF80 (DifIoDetachDeviceWrapper.c)
- *     ViFilterDispatchPnp @ 0x140AE0600 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPnp @ 0x1409E5310 (ViFilterDispatchPnp.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     IovDetachDevice @ 0x140AC26AC (IovDetachDevice.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360440 (IopCompleteUnloadOrDelete.c)
+ *     IovDetachDevice @ 0x1409C51C0 (IovDetachDevice.c)
  */
 
 void __stdcall IoDetachDevice(PDEVICE_OBJECT TargetDevice)
@@ -25,5 +24,5 @@ void __stdcall IoDetachDevice(PDEVICE_OBJECT TargetDevice)
   if ( (DeviceObjectExtension->ExtensionFlags & 7) == 0 || TargetDevice->ReferenceCount )
     KeReleaseQueuedSpinLock(0xAuLL, v2);
   else
-    IopCompleteUnloadOrDelete((ULONG_PTR)TargetDevice, 0, v2);
+    IopCompleteUnloadOrDelete((ULONG_PTR)TargetDevice);
 }

@@ -1,143 +1,140 @@
 /*
- * XREFs of PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140698510
+ * XREFs of PiDqActionDataGetAllPropertiesInAllLanguages @ 0x1408A4250
  * Callers:
- *     PiDqActionDataCreate @ 0x140778100 (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x14069717C (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDqPnPGetObjectPropertyLocales @ 0x1406986FC (PiDqPnPGetObjectPropertyLocales.c)
- *     PiDqOpenObjectRegKey @ 0x14069984C (PiDqOpenObjectRegKey.c)
- *     PiDqGrowPropertyArray @ 0x14069A184 (PiDqGrowPropertyArray.c)
- *     PiDqPnPGetObjectProperty @ 0x14077D784 (PiDqPnPGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PiDqPnPGetObjectProperty @ 0x140637F94 (PiDqPnPGetObjectProperty.c)
+ *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
+ *     PiDqGrowPropertyArray @ 0x140771474 (PiDqGrowPropertyArray.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x1408A4918 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x1408A4A64 (PiDqPnPGetObjectPropertyLocales.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqActionDataGetAllPropertiesInAllLanguages(
         __int64 a1,
         int a2,
-        int a3,
+        unsigned int a3,
         __int64 a4,
-        _QWORD *a5,
-        _DWORD *a6,
+        const void **a5,
+        unsigned int *a6,
         unsigned int *a7)
 {
   int v7; // r13d
   int v8; // esi
-  int v9; // r12d
+  unsigned int v9; // r12d
   char *v10; // r14
   PVOID v11; // rdi
   int v12; // ebx
-  __int64 v13; // r9
+  int v13; // r9d
   unsigned int *v14; // r15
-  _DWORD *v15; // rsi
-  const wchar_t *v16; // r12
-  __int64 v17; // rdx
-  unsigned int v18; // r8d
-  __int64 v20; // rdx
-  _QWORD *v21; // rcx
-  __int64 v22; // rdx
-  _QWORD *v23; // rcx
-  __int64 v24; // rax
-  _QWORD *v25; // rcx
-  int v26; // [rsp+50h] [rbp-20h]
+  unsigned int *v15; // rsi
+  unsigned int v16; // r8d
+  unsigned int v17; // edx
+  const void **v18; // rcx
+  const wchar_t *pszSrc; // r12
+  unsigned int v20; // edx
+  const void **v21; // rcx
+  unsigned int v22; // r8d
+  __int64 v23; // rax
+  unsigned int v24; // edx
+  unsigned int v25; // r8d
+  const void **v26; // rcx
+  unsigned int v27; // r8d
+  unsigned int v29; // [rsp+50h] [rbp-20h]
   HANDLE Handle; // [rsp+58h] [rbp-18h] BYREF
   PVOID P; // [rsp+60h] [rbp-10h] BYREF
-  char *v29; // [rsp+68h] [rbp-8h] BYREF
-  unsigned int v31; // [rsp+C0h] [rbp+50h] BYREF
-  __int64 v32; // [rsp+C8h] [rbp+58h]
+  int v32[2]; // [rsp+68h] [rbp-8h] BYREF
+  unsigned int v34; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 v35; // [rsp+C8h] [rbp+58h]
 
-  v32 = a4;
+  v35 = a4;
   v7 = 0;
   Handle = 0LL;
   v8 = a4;
-  v29 = 0LL;
+  *(_QWORD *)v32 = 0LL;
   P = 0LL;
   v9 = 0;
   if ( a2 != 1 )
     v9 = a3;
-  v31 = 0;
-  v26 = v9;
+  v34 = 0;
+  v29 = v9;
   v10 = 0LL;
   v11 = 0LL;
-  v12 = PiDqOpenObjectRegKey(a2, a4, a3, 1, 0, a1, (__int64)&Handle);
+  v12 = PiDqOpenObjectRegKey(a2, a4, a3, 1, 0, a1, &Handle);
   if ( v12 >= 0 )
   {
-    v12 = PiDqPnPGetObjectPropertyKeys(v8, v9, (__int64)Handle, v13, (PVOID *)&v29, &v31);
-    if ( v12 >= 0 && v31 )
+    v12 = PiDqPnPGetObjectPropertyKeys(v8, v9, (_DWORD)Handle, v13, (__int64)v32, (__int64)&v34);
+    if ( v12 >= 0 && v34 )
     {
       v14 = a7;
       v15 = a6;
-      v10 = v29;
+      v10 = *(char **)v32;
       while ( 1 )
       {
-        v29 = &v10[20 * v7];
-        v12 = PiDqPnPGetObjectPropertyLocales(v32, v9, (_DWORD)Handle, (int)v10 + 20 * v7, (__int64)&P);
+        *(_QWORD *)v32 = &v10[20 * v7];
+        v12 = PiDqPnPGetObjectPropertyLocales(v35, v9, (_DWORD)Handle, (int)v10 + 20 * v7, (__int64)&P);
         if ( v12 < 0
-          || !*v14 && (v20 = (unsigned int)*v15, v21 = a5, *v14 = v31, v12 = PiDqGrowPropertyArray(v21, v20), v12 < 0) )
+          || !*v14 && (v16 = v34, v17 = *v15, v18 = a5, *v14 = v34, v12 = PiDqGrowPropertyArray(v18, v17, v16), v12 < 0) )
         {
           v11 = P;
-          goto LABEL_13;
+          goto LABEL_25;
         }
         v11 = P;
-        v16 = (const wchar_t *)P;
+        pszSrc = (const wchar_t *)P;
         if ( *(_WORD *)P )
           break;
-LABEL_10:
+LABEL_18:
         ExFreePoolWithTag(v11, 0x58706E50u);
-        v17 = (unsigned int)*v15;
-        v18 = *v14;
+        v24 = *v15;
+        v25 = *v14;
         v11 = 0LL;
         P = 0LL;
-        if ( (_DWORD)v17 != v18 || (v25 = a5, *v14 = 2 * v18, v12 = PiDqGrowPropertyArray(v25, v17), v12 >= 0) )
+        if ( v24 != v25 || (v26 = a5, v27 = 2 * v25, *v14 = v27, v12 = PiDqGrowPropertyArray(v26, v24, v27), v12 >= 0) )
         {
-          v9 = v26;
-          v12 = PiDqPnPGetObjectProperty(
-                  v32,
-                  v26,
-                  (_DWORD)Handle,
-                  (_DWORD)v29,
-                  a2,
-                  0LL,
-                  *a5 + 48LL * (unsigned int)*v15);
+          v9 = v29;
+          v12 = PiDqPnPGetObjectProperty(v35, v29, (__int64)Handle, *(__int64 *)v32, a2, 0LL, (_OWORD *)*a5 + 3 * *v15);
           if ( v12 >= 0 )
           {
             ++*v15;
-            if ( ++v7 < v31 )
+            if ( ++v7 < v34 )
               continue;
           }
         }
-        goto LABEL_13;
+        goto LABEL_25;
       }
-      v22 = (unsigned int)*v15;
+      v20 = *v15;
       while ( 1 )
       {
-        if ( (_DWORD)v22 == *v14 )
+        if ( v20 == *v14 )
         {
-          v23 = a5;
-          *v14 *= 2;
-          v12 = PiDqGrowPropertyArray(v23, v22);
+          v21 = a5;
+          v22 = 2 * *v14;
+          *v14 = v22;
+          v12 = PiDqGrowPropertyArray(v21, v20, v22);
           if ( v12 < 0 )
             break;
         }
-        v12 = PiDqPnPGetObjectProperty(v32, v26, (_DWORD)Handle, (_DWORD)v29, a2, v16, *a5 + 48LL * (unsigned int)*v15);
+        v12 = PiDqPnPGetObjectProperty(v35, v29, (__int64)Handle, *(__int64 *)v32, a2, pszSrc, (_OWORD *)*a5 + 3 * *v15);
         if ( v12 < 0 )
           break;
-        v22 = (unsigned int)++*v15;
-        v24 = -1LL;
+        v20 = ++*v15;
+        v23 = -1LL;
         do
-          ++v24;
-        while ( v16[v24] );
-        v16 += v24 + 1;
-        if ( !*v16 )
-          goto LABEL_10;
+          ++v23;
+        while ( pszSrc[v23] );
+        pszSrc += v23 + 1;
+        if ( !*pszSrc )
+          goto LABEL_18;
       }
     }
     else
     {
-      v10 = v29;
+      v10 = *(char **)v32;
     }
   }
-LABEL_13:
+LABEL_25:
   if ( Handle )
     ZwClose(Handle);
   if ( v10 )

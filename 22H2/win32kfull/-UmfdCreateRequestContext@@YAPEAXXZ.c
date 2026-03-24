@@ -1,8 +1,7 @@
 /*
- * XREFs of ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C0075D0C
+ * XREFs of ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C0135440
  * Callers:
- *     UmfdQueryFontData @ 0x1C0075AB0 (UmfdQueryFontData.c)
- *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077200 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7970 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
  *     <none>
  */

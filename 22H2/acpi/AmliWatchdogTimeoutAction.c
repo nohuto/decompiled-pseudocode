@@ -1,28 +1,29 @@
 /*
- * XREFs of AmliWatchdogTimeoutAction @ 0x1C0046FA4
+ * XREFs of AmliWatchdogTimeoutAction @ 0x1C0063064
  * Callers:
- *     AmliDisableWatchdog @ 0x1C0046D50 (AmliDisableWatchdog.c)
- *     AmliWatchdog @ 0x1C0046E90 (AmliWatchdog.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     AmliDisableWatchdog @ 0x1C0062EB8 (AmliDisableWatchdog.c)
+ *     AmliWatchdog @ 0x1C0062F50 (AmliWatchdog.c)
  * Callees:
- *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C00079E8 (AcpiDiagTraceAmliWatchdogTimeout.c)
- *     AcpiQueueRecordBlackboxInformation @ 0x1C0046AB0 (AcpiQueueRecordBlackboxInformation.c)
- *     AmliWatchdogInitiateBugcheck @ 0x1C0046EEC (AmliWatchdogInitiateBugcheck.c)
- *     AmliWatchdogInitiateLiveDump @ 0x1C0046F38 (AmliWatchdogInitiateLiveDump.c)
+ *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C004985C (AcpiDiagTraceAmliWatchdogTimeout.c)
+ *     AcpiQueueRecordBlackboxInformation @ 0x1C0062BF8 (AcpiQueueRecordBlackboxInformation.c)
+ *     AmliWatchdogInitiateBugcheck @ 0x1C0062FAC (AmliWatchdogInitiateBugcheck.c)
+ *     AmliWatchdogInitiateLiveDump @ 0x1C0062FF8 (AmliWatchdogInitiateLiveDump.c)
  */
 
-void __fastcall AmliWatchdogTimeoutAction(__int64 a1, __int64 a2)
+void __fastcall AmliWatchdogTimeoutAction(__int64 a1)
 {
+  int v2; // ecx
   int v3; // ecx
-  int v4; // ecx
 
-  AcpiDiagTraceAmliWatchdogTimeout((_QWORD *)a1, a2);
-  v3 = *(_DWORD *)(a1 + 16);
-  if ( v3 )
+  AcpiDiagTraceAmliWatchdogTimeout();
+  v2 = *(_DWORD *)(a1 + 16);
+  if ( v2 )
   {
-    v4 = v3 - 1;
-    if ( v4 )
+    v3 = v2 - 1;
+    if ( v3 )
     {
-      if ( v4 == 1 )
+      if ( v3 == 1 )
         AmliWatchdogInitiateBugcheck((ULONG_PTR *)a1);
       return;
     }

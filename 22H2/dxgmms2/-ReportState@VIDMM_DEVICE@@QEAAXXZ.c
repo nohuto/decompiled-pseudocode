@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00C3E12
+ * XREFs of ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00B6F14
  * Callers:
- *     VidMmReportVidMmDeviceState @ 0x1C002D2B0 (VidMmReportVidMmDeviceState.c)
- *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6F64 (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     VidMmReportVidMmDeviceState @ 0x1C0022F80 (VidMmReportVidMmDeviceState.c)
+ *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1C0C (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00017A4 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EDF4 (McTemplateK0pq_EtwWriteTransfer.c)
- *     ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00EC240 (-ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00010B8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0024930 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00B700C (-ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_DEVICE::ReportState(VIDMM_DEVICE *this)
@@ -32,23 +32,23 @@ void __fastcall VIDMM_DEVICE::ReportState(VIDMM_DEVICE *this)
     DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, (struct _KTHREAD **)(v1 + 360), 0);
     DXGPUSHLOCK::AcquireShared(v12);
     v13 = 1;
-    for ( i = (VIDMM_DEVICE *)*((_QWORD *)this + 20); i != (VIDMM_DEVICE *)((char *)this + 160); i = *(VIDMM_DEVICE **)i )
+    for ( i = (VIDMM_DEVICE *)*((_QWORD *)this + 19); i != (VIDMM_DEVICE *)((char *)this + 152); i = *(VIDMM_DEVICE **)i )
     {
-      if ( *((int *)i + 10) > 0 && (byte_1C0076981 & 0x10) != 0 )
+      if ( *((int *)i + 10) > 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
         McTemplateK0pq_EtwWriteTransfer(v3, &EventVidMmReportAllocationResidency, v4);
     }
     DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
   }
-  for ( j = 0; j < *((_DWORD *)this + 17); ++j )
+  for ( j = 0; j < *((_DWORD *)this + 15); ++j )
   {
-    v7 = *((_QWORD *)this + 10);
+    v7 = *((_QWORD *)this + 9);
     if ( v7 )
       VIDMM_DEVICE_PAGING_QUEUE::ReportState((VIDMM_DEVICE_PAGING_QUEUE *)(v7 + 176LL * j));
-    v8 = *((_QWORD *)this + 11);
+    v8 = *((_QWORD *)this + 10);
     v9 = 176LL * j;
     if ( v8 )
-      VIDMM_DEVICE_PAGING_QUEUE::ReportState((VIDMM_DEVICE_PAGING_QUEUE *)(v9 + v8));
-    v10 = *((_QWORD *)this + 12);
+      VIDMM_DEVICE_PAGING_QUEUE::ReportState((VIDMM_DEVICE_PAGING_QUEUE *)(v8 + v9));
+    v10 = *((_QWORD *)this + 11);
     if ( v10 )
       VIDMM_DEVICE_PAGING_QUEUE::ReportState((VIDMM_DEVICE_PAGING_QUEUE *)(v10 + v9));
   }

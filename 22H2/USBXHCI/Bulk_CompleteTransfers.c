@@ -1,16 +1,16 @@
 /*
- * XREFs of Bulk_CompleteTransfers @ 0x1C000E638
+ * XREFs of Bulk_CompleteTransfers @ 0x1C000C2F0
  * Callers:
- *     Bulk_ProcessTransferCompletion @ 0x1C000E3F8 (Bulk_ProcessTransferCompletion.c)
+ *     Bulk_ProcessTransferCompletion @ 0x1C000BA38 (Bulk_ProcessTransferCompletion.c)
  * Callees:
- *     Bulk_Transfer_Complete @ 0x1C000E908 (Bulk_Transfer_Complete.c)
- *     StageQueue_Release @ 0x1C0011870 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C00118AC (TR_ReleaseSegments.c)
- *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118F4 (Bulk_Stage_FreeScatterGatherList.c)
- *     TR_ReleaseDoubleBuffer @ 0x1C0011C64 (TR_ReleaseDoubleBuffer.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C0012F44 (StageQueue_ForwardScanGetNextStage.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDDqd @ 0x1C0047B80 (WPP_RECORDER_SF_DDDqd.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_Transfer_Complete @ 0x1C000C840 (Bulk_Transfer_Complete.c)
+ *     TR_ReleaseDoubleBuffer @ 0x1C000CA48 (TR_ReleaseDoubleBuffer.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8 (Bulk_Stage_FreeScatterGatherList.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDqd @ 0x1C0045208 (WPP_RECORDER_SF_DDDqd.c)
  */
 
 _QWORD **__fastcall Bulk_CompleteTransfers(__int64 a1, __int64 ****a2)
@@ -27,24 +27,24 @@ _QWORD **__fastcall Bulk_CompleteTransfers(__int64 a1, __int64 ****a2)
   __int64 *v13; // rax
   __int64 *v14; // rdx
   _QWORD **result; // rax
-  int v16; // eax
-  __int64 v17; // rdx
-  int v18; // r8d
-  __int64 **v19; // rcx
-  int v20; // eax
-  __int64 ****v21; // rax
-  _QWORD *v22; // rax
-  __int64 *v23; // rax
-  __int64 ***v24; // rbx
-  __int64 ****v25; // rax
-  int v26; // eax
-  __int64 **v27; // rdx
-  struct _MDL *v28; // rcx
-  __int64 **v29; // r8
-  char v30; // al
-  __int64 v31; // rdx
-  int v32; // r8d
-  int v33; // [rsp+20h] [rbp-60h]
+  __int64 v16; // rdx
+  int v17; // r8d
+  __int64 **v18; // rcx
+  int v19; // eax
+  __int64 ****v20; // rax
+  _QWORD *v21; // rax
+  __int64 *v22; // rax
+  __int64 ***v23; // rbx
+  __int64 ****v24; // rax
+  int v25; // eax
+  __int64 **v26; // rdx
+  struct _MDL *v27; // rcx
+  __int64 **v28; // rdx
+  unsigned __int16 v29; // ax
+  bool v30; // cc
+  struct _MDL *v31; // rax
+  __int64 v32; // rdx
+  int v33; // r8d
   _QWORD *v34; // [rsp+50h] [rbp-30h] BYREF
   __int64 ***v35; // [rsp+58h] [rbp-28h]
   __int64 *v36; // [rsp+60h] [rbp-20h] BYREF
@@ -66,10 +66,10 @@ _QWORD **__fastcall Bulk_CompleteTransfers(__int64 a1, __int64 ****a2)
     if ( *a2 == (__int64 ***)a2 )
       break;
     if ( v5[1] != (__int64 **)a2 )
-      goto LABEL_55;
+      goto LABEL_51;
     v6 = *v5;
     if ( (*v5)[1] != (__int64 *)v5 )
-      goto LABEL_55;
+      goto LABEL_51;
     *a2 = (__int64 ***)v6;
     v6[1] = (__int64 *)a2;
     *((_BYTE *)v5 + 133) = *((_BYTE *)v5 + 132);
@@ -102,71 +102,57 @@ _QWORD **__fastcall Bulk_CompleteTransfers(__int64 a1, __int64 ****a2)
     {
       v11 = v37;
       if ( *v37 != (__int64 *)&v36 )
-        goto LABEL_55;
+        goto LABEL_51;
       v5[1] = v37;
       *v5 = &v36;
       *v11 = v5;
       v37 = (__int64 **)v5;
     }
-    else
+    else if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 **))(WdfFunctions_01023 + 2048))(
+                WdfDriverGlobals,
+                v5[3]) >= 0 )
     {
-      v16 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 **))(WdfFunctions_01023 + 2048))(
-              WdfDriverGlobals,
-              v5[3]);
-      if ( v16 >= 0 )
+      v19 = *((_DWORD *)v5 + 17);
+      *((_DWORD *)v5 + 16) = 0;
+      if ( v19 == 1 || v19 == 28 )
       {
-        v20 = *((_DWORD *)v5 + 17);
-        *((_DWORD *)v5 + 16) = 0;
-        if ( v20 == 1 || v20 == 28 )
-        {
-          v22 = v39;
-          if ( *v39 != (__int64 *)&v38 )
-            goto LABEL_55;
-          v5[1] = v39;
-          *v5 = &v38;
-          *v22 = v5;
-          v39 = (__int64 **)v5;
-        }
-        else
-        {
-          v21 = (__int64 ****)v35;
-          if ( *v35 != &v34 )
-            goto LABEL_55;
-          v5[1] = (__int64 **)v35;
-          *v5 = &v34;
-          *v21 = v5;
-          v35 = v5;
-        }
+        v21 = v39;
+        if ( *v39 != (__int64 *)&v38 )
+          goto LABEL_51;
+        v5[1] = v39;
+        *v5 = &v38;
+        *v21 = v5;
+        v39 = (__int64 **)v5;
       }
       else
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v17 = *(_QWORD *)(a1 + 48);
-          v18 = *(unsigned __int8 *)(v17 + 135);
-          LOBYTE(v17) = 4;
-          WPP_RECORDER_SF_DDDqd(
-            *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-            v17,
-            v18,
-            14,
-            v33,
-            v18,
-            *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
-            *(_DWORD *)(a1 + 64),
-            (char)v5[3],
-            v16);
-        }
-        *((_DWORD *)v5 + 16) = 2;
-        v19 = *(__int64 ***)(a1 + 392);
-        if ( *v19 != (__int64 *)(a1 + 384) )
-LABEL_55:
-          __fastfail(3u);
-        *v5 = (__int64 **)(a1 + 384);
-        v5[1] = v19;
-        *v19 = (__int64 *)v5;
-        *(_QWORD *)(a1 + 392) = v5;
+        v20 = (__int64 ****)v35;
+        if ( *v35 != &v34 )
+          goto LABEL_51;
+        v5[1] = (__int64 **)v35;
+        *v5 = &v34;
+        *v20 = v5;
+        v35 = v5;
       }
+    }
+    else
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v16 = *(_QWORD *)(a1 + 48);
+        v17 = *(unsigned __int8 *)(v16 + 135);
+        LOBYTE(v16) = 4;
+        WPP_RECORDER_SF_DDDqd(*(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL), v16, v17, 14);
+      }
+      *((_DWORD *)v5 + 16) = 2;
+      v18 = *(__int64 ***)(a1 + 392);
+      if ( *v18 != (__int64 *)(a1 + 384) )
+LABEL_51:
+        __fastfail(3u);
+      *v5 = (__int64 **)(a1 + 384);
+      v5[1] = v18;
+      *v18 = (__int64 *)v5;
+      *(_QWORD *)(a1 + 392) = v5;
     }
   }
   KeReleaseSpinLock(v3, *(_BYTE *)(a1 + 104));
@@ -176,10 +162,10 @@ LABEL_55:
     if ( v36 == (__int64 *)&v36 )
       break;
     if ( (__int64 **)v36[1] != &v36 )
-      goto LABEL_55;
+      goto LABEL_51;
     v13 = (__int64 *)*v36;
     if ( *(__int64 **)(*v36 + 8) != v36 )
-      goto LABEL_55;
+      goto LABEL_51;
     v36 = (__int64 *)*v36;
     v13[1] = (__int64)&v36;
     v12[1] = (__int64)v12;
@@ -194,12 +180,12 @@ LABEL_55:
     if ( v38 == (__int64 *)&v38 )
       break;
     if ( (__int64 **)v38[1] != &v38 )
-      goto LABEL_55;
-    v23 = (__int64 *)*v38;
+      goto LABEL_51;
+    v22 = (__int64 *)*v38;
     if ( *(__int64 **)(*v38 + 8) != v38 )
-      goto LABEL_55;
+      goto LABEL_51;
     v38 = (__int64 *)*v38;
-    v23[1] = (__int64)&v38;
+    v22[1] = (__int64)&v38;
     v14[1] = (__int64)v14;
     *v14 = (__int64)v14;
     Bulk_Transfer_Complete(a1, v14, 0xFFFFFFFFLL);
@@ -209,62 +195,44 @@ LABEL_55:
     result = &v34;
     if ( v34 == &v34 )
       return result;
-    v24 = v35;
+    v23 = v35;
     if ( *v35 != &v34 )
-      goto LABEL_55;
-    v25 = (__int64 ****)v35[1];
-    if ( *v25 != v35 )
-      goto LABEL_55;
+      goto LABEL_51;
+    v24 = (__int64 ****)v35[1];
+    if ( *v24 != v35 )
+      goto LABEL_51;
     v35 = (__int64 ***)v35[1];
-    *v25 = (__int64 ***)&v34;
-    v26 = *((_DWORD *)v24 + 27);
-    v24[1] = (__int64 **)v24;
-    *v24 = (__int64 **)v24;
-    v27 = v24[12];
-    *((_DWORD *)v24 + 28) = v26;
-    if ( v27 )
+    *v24 = (__int64 ***)&v34;
+    v25 = *((_DWORD *)v23 + 27);
+    v23[1] = (__int64 **)v23;
+    *v23 = (__int64 **)v23;
+    v26 = v23[12];
+    *((_DWORD *)v23 + 28) = v25;
+    if ( v26 )
     {
       TR_ReleaseDoubleBuffer(a1);
-      v24[12] = 0LL;
+      v23[12] = 0LL;
     }
-    v28 = (struct _MDL *)v24[10];
-    if ( v28 )
+    v27 = (struct _MDL *)v23[10];
+    if ( v27 )
     {
-      if ( (v29 = v24[6], *((_WORD *)v29 + 1) != 8)
-        && *((_WORD *)v29 + 1) != 9
-        && *((_WORD *)v29 + 1) != 10
-        && *((_WORD *)v29 + 1) != 50
-        && *((_WORD *)v29 + 1) != 55
-        && *((_WORD *)v29 + 1) != 56
-        && (unsigned int)*((unsigned __int16 *)v29 + 1) - 57 < 2
-        || v28 != (struct _MDL *)v29[6] )
+      v28 = v23[6];
+      v29 = *((_WORD *)v28 + 1);
+      if ( v29 <= 0x38u || (v30 = v29 <= 0x3Au, v31 = 0LL, !v30) )
+        v31 = (struct _MDL *)v28[6];
+      if ( v27 != v31 && v27 != (struct _MDL *)v23[7][15] )
       {
-        if ( v28 != (struct _MDL *)v24[7][15] )
-        {
-          IoFreeMdl(v28);
-          v24[10] = 0LL;
-        }
+        IoFreeMdl(v27);
+        v23[10] = 0LL;
       }
     }
-    v30 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 **))(WdfFunctions_01023 + 2264))(
-            WdfDriverGlobals,
-            v24[3]);
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64 **))(WdfFunctions_01023 + 2264))(WdfDriverGlobals, v23[3]);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v31 = *(_QWORD *)(a1 + 48);
-      v32 = *(unsigned __int8 *)(v31 + 135);
-      LOBYTE(v31) = 4;
-      WPP_RECORDER_SF_DDDqd(
-        *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-        v31,
-        v32,
-        15,
-        v33,
-        v32,
-        *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
-        *(_DWORD *)(a1 + 64),
-        (char)v24[3],
-        v30);
+      v32 = *(_QWORD *)(a1 + 48);
+      v33 = *(unsigned __int8 *)(v32 + 135);
+      LOBYTE(v32) = 4;
+      WPP_RECORDER_SF_DDDqd(*(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL), v32, v33, 15);
     }
   }
 }

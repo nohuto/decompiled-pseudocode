@@ -1,42 +1,45 @@
 /*
- * XREFs of DxgkUpdateCddDevmodeExtraData @ 0x1C01E8930
+ * XREFs of DxgkUpdateCddDevmodeExtraData @ 0x1C016E070
  * Callers:
  *     <none>
  * Callees:
- *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C01BE360 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C011FCF0 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
  */
 
 __int64 __fastcall DxgkUpdateCddDevmodeExtraData(_DWORD *a1, __int64 a2)
 {
-  int v4; // eax
+  __int64 v4; // rbx
   int v5; // eax
   int v6; // eax
   int v7; // eax
   int v8; // eax
   int v9; // ecx
-  unsigned __int8 v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v11; // rax
+  unsigned __int8 v12; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (a1[18] & 0x40000) != 0 )
   {
-    v4 = a1[42];
-    if ( v4 )
+    v4 = (unsigned int)a1[42];
+    if ( (_DWORD)v4 )
     {
-      switch ( v4 )
+      switch ( (_DWORD)v4 )
       {
-        case 32:
+        case 0x20:
           v5 = 21;
           break;
         case 8:
           v5 = 41;
           break;
-        case 16:
+        case 0x10:
           v5 = 23;
           break;
-        case 24:
+        case 0x18:
           v5 = 20;
           break;
         default:
-          WdLogSingleEntry1(2LL, (unsigned int)a1[42]);
+          v11 = WdLogNewEntry5_WdError(a1, a2);
+          *(_QWORD *)(v11 + 24) = v4;
+          WdLogEvent5_WdError(v11);
           v5 = 0;
           break;
       }
@@ -47,13 +50,13 @@ __int64 __fastcall DxgkUpdateCddDevmodeExtraData(_DWORD *a1, __int64 a2)
   if ( (v6 & 0x400000) != 0 && (v6 & 0x200000) != 0 )
   {
     v7 = a1[45];
-    v11 = 0;
+    v12 = 0;
     v8 = DmmMapVSyncFromRationalToInteger(
            (const struct _D3DDDI_RATIONAL *)(a2 + 220),
-           (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)(((v7 & 2) != 0) + 1),
-           &v11);
+           (unsigned int)((v7 & 2) != 0) + 1,
+           &v12);
     v9 = a1[46];
-    if ( v8 != v9 && (v8 + 1 != v9 || !v11) )
+    if ( v8 != v9 && (v8 + 1 != v9 || !v12) )
     {
       *(_DWORD *)(a2 + 220) = v9;
       *(_DWORD *)(a2 + 224) = 1;

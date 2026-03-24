@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Dispose@FxUsbPipe@@MEAAEXZ @ 0x1C0079700
+ * XREFs of ?Dispose@FxUsbPipe@@MEAAEXZ @ 0x1C006CC10
  * Callers:
  *     <none>
  * Callees:
- *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C0034F20 (-Dispose@FxIoTarget@@MEAAEXZ.c)
- *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C0079560 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
+ *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C0064A70 (-Dispose@FxIoTarget@@MEAAEXZ.c)
+ *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C006C9D0 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
  */
 
 unsigned __int8 __fastcall FxUsbPipe::Dispose(FxUsbPipe *this)

@@ -1,38 +1,38 @@
 /*
- * XREFs of KiFastExitThreadWait @ 0x1402946B8
+ * XREFs of KiFastExitThreadWait @ 0x140278248
  * Callers:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KiWaitForAllObjects @ 0x1402175B8 (KiWaitForAllObjects.c)
- *     KeWaitForAlertByThreadId @ 0x140217B04 (KeWaitForAlertByThreadId.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeRemoveQueueEx @ 0x1402B7FA0 (KeRemoveQueueEx.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KeRemovePriQueue @ 0x14033D110 (KeRemovePriQueue.c)
+ *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
+ *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
+ *     KeWaitForAlertByThreadId @ 0x140257330 (KeWaitForAlertByThreadId.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     KiWaitForAllObjects @ 0x14029A090 (KiWaitForAllObjects.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiExitThreadWait @ 0x1402947A0 (KiExitThreadWait.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiExitThreadWait @ 0x140278330 (KiExitThreadWait.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiFastExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall KiFastExitThreadWait(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v3; // si
+  char v4; // si
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *SchedulerAssist; // rcx
-  _DWORD *v9; // rcx
-  int v10; // eax
+  _DWORD *v10; // rcx
   int v11; // eax
-  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
-  int v13; // [rsp+48h] [rbp+20h] BYREF
+  int v12; // eax
+  signed __int32 v13[10]; // [rsp+0h] [rbp-28h] BYREF
+  int v14; // [rsp+48h] [rbp+20h] BYREF
 
-  v3 = a3;
+  v4 = a3;
   *(_BYTE *)(a2 + 388) = 2;
-  _InterlockedOr(v12, 0);
+  _InterlockedOr(v13, 0);
   if ( *(_QWORD *)(a2 + 64) )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v13 = 0;
+    v14 = 0;
     while ( 1 )
     {
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -40,31 +40,31 @@ __int64 __fastcall KiFastExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v10 = SchedulerAssist[6];
-          SchedulerAssist[6] = v10 + 1;
-          if ( v10 == -1 )
+          v11 = SchedulerAssist[6];
+          SchedulerAssist[6] = v11 + 1;
+          if ( v11 == -1 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
       if ( !_interlockedbittestandset64((volatile signed __int32 *)(a2 + 64), 0LL) )
         break;
-      v9 = CurrentPrcb->SchedulerAssist;
-      if ( v9 )
+      v10 = CurrentPrcb->SchedulerAssist;
+      if ( v10 )
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v11 = v9[6] - 1;
-          v9[6] = v11;
-          if ( !v11 )
+          v12 = v10[6] - 1;
+          v10[6] = v12;
+          if ( !v12 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
       do
-        KeYieldProcessorEx(&v13);
+        KeYieldProcessorEx(&v14, a2, a3, a4);
       while ( *(_QWORD *)(a2 + 64) );
     }
     KiReleaseThreadLockSafe(a2);
   }
-  LOBYTE(a3) = v3;
+  LOBYTE(a3) = v4;
   return KiExitThreadWait(a1, a2, a3);
 }

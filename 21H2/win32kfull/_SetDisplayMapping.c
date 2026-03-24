@@ -1,11 +1,11 @@
 /*
- * XREFs of _SetDisplayMapping @ 0x1C01E99E8
+ * XREFs of _SetDisplayMapping @ 0x1C01EF564
  * Callers:
- *     NtUserSetDisplayMapping @ 0x1C01FD040 (NtUserSetDisplayMapping.c)
+ *     NtUserSetDisplayMapping @ 0x1C0201DC0 (NtUserSetDisplayMapping.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C002393C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0049A6C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall SetDisplayMapping(__int64 a1, __int64 a2)
@@ -22,13 +22,13 @@ __int64 __fastcall SetDisplayMapping(__int64 a1, __int64 a2)
   v5 = *(_QWORD *)(a1 + 16);
   DestinationString = 0LL;
   RIMEndAllActiveContacts(*(_QWORD *)(*(_QWORD *)(v5 + 32) + 424LL), a1, 0LL);
-  v6 = *(_QWORD *)(a2 + 88);
+  v6 = *(_QWORD *)(a2 + 240);
   v9[0] = 840;
   if ( (unsigned int)DrvGetHdevName(v6, SourceString) )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
     if ( (int)DrvEnumDisplayDevices(&DestinationString, 0LL, 0LL, v9, 1, 0) >= 0
-      && (int)RtlStringCchCopyW((char *)(v5 + 1356), 128LL, (char *)&v9[82]) >= 0 )
+      && (int)RtlStringCchCopyW((char *)(v5 + 1364), 128LL, (char *)&v9[82]) >= 0 )
     {
       RIMFindMonitorForDigitizer(v5, a1, 1LL, 0LL);
       return 1;

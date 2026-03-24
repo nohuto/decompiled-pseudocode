@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFwQueryPerformanceCounter @ 0x1403A7BD8
+ * XREFs of BgpFwQueryPerformanceCounter @ 0x14039BE80
  * Callers:
- *     AnFwpProgressAnimationManual @ 0x140AAB478 (AnFwpProgressAnimationManual.c)
- *     LogFwReport @ 0x140AABB9C (LogFwReport.c)
- *     AnFwpProgressIndicatorTimer @ 0x140AACEA0 (AnFwpProgressIndicatorTimer.c)
- *     LogFwStat @ 0x140AACFEC (LogFwStat.c)
+ *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
+ *     LogFwStat @ 0x1409F27D8 (LogFwStat.c)
+ *     AnFwpProgressIndicatorTimer @ 0x1409F44C0 (AnFwpProgressIndicatorTimer.c)
+ *     AnFwpProgressAnimationManual @ 0x1409F7288 (AnFwpProgressAnimationManual.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall BgpFwQueryPerformanceCounter(LARGE_INTEGER *a1)

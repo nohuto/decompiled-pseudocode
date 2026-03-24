@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z @ 0x1C02663A4
+ * XREFs of ?SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z @ 0x1C026DE2C
  * Callers:
- *     ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0079E0C (-StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z.c)
- *     ?StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z @ 0x1C00AD880 (-StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z.c)
+ *     ?StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z @ 0x1C0012998 (-StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z.c)
+ *     ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0016DB8 (-StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z.c)
  * Callees:
- *     ?bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z @ 0x1C007C9F4 (-bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z @ 0x1C0016760 (-bNeedRenderHint@@YAHAEAVPDEVOBJ@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SpNotifyLSurfaceTracking(_QWORD *a1, HLSURF a2, int a3)
@@ -24,13 +24,13 @@ __int64 __fastcall SpNotifyLSurfaceTracking(_QWORD *a1, HLSURF a2, int a3)
     v10 = 0;
     v8 = a2;
     v9 = a3;
-    v6 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, HLSURF *))a1[426])(a1[221], 65544LL, 16LL, &v8);
+    v6 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, HLSURF *))a1[429])(a1[225], 65544LL, 16LL, &v8);
   }
   else
   {
     v6 = -1073741822;
   }
-  EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()");
+  EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", a1[6]);
   GreReleaseSemaphoreInternal(a1[6]);
   return v6;
 }

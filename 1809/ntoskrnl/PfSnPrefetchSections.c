@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnPrefetchSections @ 0x140662F70
+ * XREFs of PfSnPrefetchSections @ 0x140662F50
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x140663A84 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x140663A64 (PfSnAsyncPrefetchStep.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KeQueryPriorityThread @ 0x1400E1740 (KeQueryPriorityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MmPrefetchPagesEx @ 0x140662458 (MmPrefetchPagesEx.c)
- *     PfSnPrefetchSectionsCleanup @ 0x14066321C (PfSnPrefetchSectionsCleanup.c)
- *     PfSnLogGetReadListsStop @ 0x140663990 (PfSnLogGetReadListsStop.c)
- *     PfSnLogGetReadListsStart @ 0x140663A08 (PfSnLogGetReadListsStart.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1400E1760 (KeQueryPriorityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MmPrefetchPagesEx @ 0x140662438 (MmPrefetchPagesEx.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x1406631FC (PfSnPrefetchSectionsCleanup.c)
+ *     PfSnLogGetReadListsStop @ 0x140663970 (PfSnLogGetReadListsStop.c)
+ *     PfSnLogGetReadListsStart @ 0x1406639E8 (PfSnLogGetReadListsStart.c)
  */
 
 __int64 __fastcall PfSnPrefetchSections(__int64 *a1, WORK_QUEUE_TYPE a2, int a3, __int64 a4, KSPIN_LOCK a5)

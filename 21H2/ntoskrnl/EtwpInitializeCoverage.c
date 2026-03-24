@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeCoverage @ 0x140864B00
+ * XREFs of EtwpInitializeCoverage @ 0x140798FCC
  * Callers:
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 EtwpInitializeCoverage()
@@ -11,7 +11,7 @@ __int64 EtwpInitializeCoverage()
   MEMORY[0xFFFFF7800000037C] = 1;
   EtwpCoverageLock = 0LL;
   return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
-           (char *)&dword_140C04418,
-           (__int64)EtwpCoverageProvEnableCallback,
+           (ULONGLONG *)&dword_140C02C28,
+           (unsigned __int16 *)EtwpCoverageProvEnableCallback,
            0LL);
 }

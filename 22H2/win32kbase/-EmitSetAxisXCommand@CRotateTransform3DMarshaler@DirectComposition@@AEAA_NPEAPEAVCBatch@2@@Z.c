@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetAxisXCommand@CRotateTransform3DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02166E8
+ * XREFs of ?EmitSetAxisXCommand@CRotateTransform3DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D6558
  * Callers:
- *     ?EmitUpdateCommands@CRotateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C060 (-EmitUpdateCommands@CRotateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CRotateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB230 (-EmitUpdateCommands@CRotateTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CRotateTransform3DMarshaler::EmitSetAxisXCommand(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CRotateTransform3DMarshaler::EmitSetAxisXComm
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 615;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 591;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
     *((_DWORD *)v3 + 3) = *((_DWORD *)this + 19);
     *((_DWORD *)this + 4) &= ~0x100u;
     return 1;

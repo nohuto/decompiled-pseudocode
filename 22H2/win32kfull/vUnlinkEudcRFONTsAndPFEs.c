@@ -1,60 +1,52 @@
 /*
- * XREFs of vUnlinkEudcRFONTsAndPFEs @ 0x1C02A09C0
+ * XREFs of vUnlinkEudcRFONTsAndPFEs @ 0x1C02984B0
  * Callers:
- *     bDeleteFlEntry @ 0x1C029F7D0 (bDeleteFlEntry.c)
+ *     bDeleteFlEntry @ 0x1C0298040 (bDeleteFlEntry.c)
  * Callees:
- *     ??0DEVICE_PFTOBJ@@QEAA@XZ @ 0x1C00A8438 (--0DEVICE_PFTOBJ@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02A0ADC (vUnlinkEudcRFONTsAndPFEsWorker.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?bValid@RFONTOBJ@@QEBAHXZ @ 0x1C0090784 (-bValid@RFONTOBJ@@QEBAHXZ.c)
+ *     ??0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z @ 0x1C016A238 (--0PUBLIC_PFTOBJ@@QEAA@PEAVPFT@@@Z.c)
+ *     vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02985C0 (vUnlinkEudcRFONTsAndPFEsWorker.c)
  */
 
-void __fastcall vUnlinkEudcRFONTsAndPFEs(Gre::Base *a1, __int64 a2)
+void __fastcall vUnlinkEudcRFONTsAndPFEs(__int64 a1, __int64 a2)
 {
-  struct Gre::Base::SESSION_GLOBALS *v4; // r14
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // rdi
-  __int64 i; // rbx
-  __int64 v10; // rbx
+  struct _FONTHASH **v4; // rbx
+  __int64 i; // rdi
+  struct PFT *v6; // rbx
   __int64 j; // rdi
-  _QWORD v12[5]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v14; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v8; // rbx
+  __int64 k; // rdi
+  _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+68h] [rbp+20h] BYREF
 
-  v4 = Gre::Base::Globals(a1);
-  v14 = *((_QWORD *)v4 + 6);
-  GreAcquireSemaphore(v14);
-  v13 = *((_QWORD *)v4 + 3);
-  GreAcquireSemaphore(v13);
-  v6 = 0LL;
-  v7 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v5) + 32) + 20272LL);
-  if ( *(_DWORD *)(v7 + 24) )
+  v10[0] = ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  v12 = ghsemRFONTList;
+  GreAcquireSemaphore(ghsemRFONTList);
+  v4 = gpPFTPublic;
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)v4 + 6); i = (unsigned int)(i + 1) )
   {
-    do
-    {
-      if ( *(_QWORD *)(v7 + 8 * v6 + 40) )
-        vUnlinkEudcRFONTsAndPFEsWorker(a1, a2);
-      v6 = (unsigned int)(v6 + 1);
-    }
-    while ( (unsigned int)v6 < *(_DWORD *)(v7 + 24) );
-  }
-  DEVICE_PFTOBJ::DEVICE_PFTOBJ((DEVICE_PFTOBJ *)v12);
-  v8 = v12[0];
-  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v8 + 24); i = (unsigned int)(i + 1) )
-  {
-    if ( *(_QWORD *)(v8 + 8 * i + 40) )
+    if ( v4[i + 5] )
       vUnlinkEudcRFONTsAndPFEsWorker(a1, a2);
   }
-  v10 = *((_QWORD *)v4 + 796);
-  if ( v10 )
+  v6 = gpPFTDevice;
+  for ( j = 0LL; (unsigned int)j < *((_DWORD *)v6 + 6); j = (unsigned int)(j + 1) )
   {
-    for ( j = 0LL; (unsigned int)j < *(_DWORD *)(v10 + 24); j = (unsigned int)(j + 1) )
+    if ( *((_QWORD *)v6 + j + 5) )
+      vUnlinkEudcRFONTsAndPFEsWorker(a1, a2);
+  }
+  PUBLIC_PFTOBJ::PUBLIC_PFTOBJ((PUBLIC_PFTOBJ *)&v11, (struct PFT *)gpPFTPrivate);
+  if ( RFONTOBJ::bValid((RFONTOBJ *)&v11) )
+  {
+    v8 = v11;
+    for ( k = 0LL; (unsigned int)k < *(_DWORD *)(v8 + 24); k = (unsigned int)(k + 1) )
     {
-      if ( *(_QWORD *)(v10 + 8 * j + 40) )
+      if ( *(_QWORD *)(v8 + 8 * k + 40) )
         vUnlinkEudcRFONTsAndPFEsWorker(a1, a2);
     }
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v13);
-  SEMOBJ::vUnlock((SEMOBJ *)&v14);
+  SEMOBJ::vUnlock((SEMOBJ *)&v12);
+  SEMOBJ::vUnlock((SEMOBJ *)v10);
 }

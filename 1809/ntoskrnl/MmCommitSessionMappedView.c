@@ -1,5 +1,5 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x14069D8E0
+ * XREFs of MmCommitSessionMappedView @ 0x14069D8C0
  * Callers:
  *     <none>
  * Callees:
@@ -9,8 +9,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiLocatePagefileSubsection @ 0x140119D28 (MiLocatePagefileSubsection.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
  */
 

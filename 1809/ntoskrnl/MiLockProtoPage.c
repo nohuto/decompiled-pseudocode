@@ -9,7 +9,7 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiMakeProtoAddressValid @ 0x1400959AC (MiMakeProtoAddressValid.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiLockProtoPage(unsigned __int64 a1, unsigned __int64 a2, unsigned __int8 a3)

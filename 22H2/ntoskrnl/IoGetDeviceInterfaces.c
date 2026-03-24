@@ -1,14 +1,14 @@
 /*
- * XREFs of IoGetDeviceInterfaces @ 0x1406878A0
+ * XREFs of IoGetDeviceInterfaces @ 0x14069C660
  * Callers:
- *     PnprIsMemoryDevice @ 0x1409663F0 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x1409664A8 (PnprIsProcessorDevice.c)
- *     VhdiMountVhdFile @ 0x140A7328C (VhdiMountVhdFile.c)
- *     IopFetchConfigurationInformation @ 0x140B3D434 (IopFetchConfigurationInformation.c)
+ *     PnprIsMemoryDevice @ 0x1408ADC70 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x1408ADD28 (PnprIsProcessorDevice.c)
+ *     IopFetchConfigurationInformation @ 0x140A61FB8 (IopFetchConfigurationInformation.c)
+ *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceInterfaces(
@@ -23,9 +23,11 @@ NTSTATUS __stdcall IoGetDeviceInterfaces(
   UNICODE_STRING *p_DriverName; // rcx
   char *v10; // rcx
   unsigned __int16 *v11; // rdi
-  _WORD *v12; // rcx
-  __int64 v13; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v13; // rcx
   __int64 v14; // rcx
+  _WORD *v15; // rcx
+  __int64 v16; // rcx
 
   v5 = 0;
   if ( PhysicalDeviceObject )
@@ -51,26 +53,32 @@ NTSTATUS __stdcall IoGetDeviceInterfaces(
       if ( v10 )
       {
         v11 = (unsigned __int16 *)(v10 + 40);
-        IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)0x388);
+        IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)0x310);
         if ( *v11 )
         {
           IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)2);
           IoAddTriageDumpDataBlock(*((_QWORD *)v11 + 1), (PVOID)*v11);
         }
-        v12 = (char *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 56;
-        if ( *v12 )
+        DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
+        v13 = (char *)DeviceObjectExtension->DeviceNode + 56;
+        if ( *v13 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
+          IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
           IoAddTriageDumpDataBlock(
             *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
             (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
+          DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
         }
-        v13 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-        if ( v13 && *(_WORD *)(v13 + 56) )
+        v14 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+        if ( v14 )
         {
-          IoAddTriageDumpDataBlock(v13 + 56, (PVOID)2);
-          v14 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v14 + 64), (PVOID)*(unsigned __int16 *)(v14 + 56));
+          v15 = (_WORD *)(v14 + 56);
+          if ( *v15 )
+          {
+            IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
+            v16 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v16 + 64), (PVOID)*(unsigned __int16 *)(v16 + 56));
+          }
         }
       }
       KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);

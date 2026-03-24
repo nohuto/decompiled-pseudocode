@@ -1,7 +1,7 @@
 /*
  * XREFs of ObDereferenceSecurityDescriptor @ 0x1405C9410
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1400DA8EC (IopCompleteUnloadOrDelete.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
  *     EtwpFreeGuidEntry @ 0x1405C0920 (EtwpFreeGuidEntry.c)
  *     EtwpDereferenceLoggerSecurityDescriptor @ 0x1405C1EEC (EtwpDereferenceLoggerSecurityDescriptor.c)
  *     EtwpReferenceLoggerSecurityDescriptor @ 0x1405C5324 (EtwpReferenceLoggerSecurityDescriptor.c)
@@ -13,12 +13,12 @@
  *     ObpReferenceSecurityDescriptor @ 0x1405C9750 (ObpReferenceSecurityDescriptor.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     ExpWnfCreateNameInstance @ 0x14060E058 (ExpWnfCreateNameInstance.c)
- *     IopGetSetSecurityObject @ 0x1406990F0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140699558 (IopSetDeviceSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x1406AACE0 (ObDeassignSecurity.c)
- *     ExpWnfDeleteNameInstance @ 0x1406AB6E8 (ExpWnfDeleteNameInstance.c)
- *     EtwpFreeLoggerContext @ 0x1406C08C0 (EtwpFreeLoggerContext.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3030 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140699538 (IopSetDeviceSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x1406AACC0 (ObDeassignSecurity.c)
+ *     ExpWnfDeleteNameInstance @ 0x1406AB6C8 (ExpWnfDeleteNameInstance.c)
+ *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3010 (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

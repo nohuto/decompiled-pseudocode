@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z @ 0x1C007917C
+ * XREFs of ??0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z @ 0x1C006C578
  * Callers:
- *     ?InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C007A47C (-InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
+ *     ?InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C006D8EC (-InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C001B274 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C002D650 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 void __fastcall FxUsbPipeContinuousReader::FxUsbPipeContinuousReader(

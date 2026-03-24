@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessResizeRequest @ 0x1409D42F8
+ * XREFs of SmProcessResizeRequest @ 0x140929F3C
  * Callers:
- *     SmSetStoreInformation @ 0x1406E5AA0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406BE524 (SmSetStoreInformation.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140376B48 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x14035BA24 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
  */
 
 __int64 __fastcall SmProcessResizeRequest(__int64 a1, __int64 a2, int a3, char a4)
@@ -24,7 +24,6 @@ __int64 __fastcall SmProcessResizeRequest(__int64 a1, __int64 a2, int a3, char a
   __int64 v17; // [rsp+74h] [rbp-Ch]
   int v18; // [rsp+7Ch] [rbp-4h]
 
-  memset(&Event, 0, sizeof(Event));
   *(_OWORD *)&v10[0].LowPart = 0LL;
   if ( a3 != 24 )
     return 3221225990LL;
@@ -47,7 +46,7 @@ __int64 __fastcall SmProcessResizeRequest(__int64 a1, __int64 a2, int a3, char a
   HIDWORD(v13) = v8;
   v16 = *(_DWORD *)(a2 + 8);
   v15 = *(_QWORD *)(a2 + 16);
-  SMKM_STORE_MGR<SM_TRAITS>::SmStoreRequest(a1, v9, (int)&v12, (int)&Event, (__int64)v10);
+  SMKM_STORE_MGR<SM_TRAITS>::SmStoreRequest(a1, v9, (__int64)&v12, (__int64)&Event, (__int64)v10);
   KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
   result = v10[0].LowPart;
   *(_DWORD *)(a2 + 8) = v16;

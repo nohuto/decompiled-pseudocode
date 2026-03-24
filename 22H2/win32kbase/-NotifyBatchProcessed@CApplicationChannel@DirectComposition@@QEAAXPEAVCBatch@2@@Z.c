@@ -1,8 +1,8 @@
 /*
- * XREFs of ?NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0066854
+ * XREFs of ?NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0057DF0
  * Callers:
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00667F8 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
- *     NtDCompositionConfirmFrame @ 0x1C0085100 (NtDCompositionConfirmFrame.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00578CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     NtDCompositionConfirmFrame @ 0x1C0057920 (NtDCompositionConfirmFrame.c)
  * Callees:
  *     <none>
  */

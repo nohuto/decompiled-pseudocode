@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CManipulationContext@@QEAA@PEAVCComposition@@@Z @ 0x1801A373C
+ * XREFs of ??0CManipulationContext@@QEAA@PEAVCComposition@@@Z @ 0x18023348C
  * Callers:
- *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x18019EF88 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
- *     ?ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019F664 (-ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
- *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1801A59E8 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
+ *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x180225620 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
+ *     ?ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180225CD4 (-ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1802354B4 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ CManipulationContext *__fastcall CManipulationContext::CManipulationContext(
   *((_QWORD *)this + 5) = a2;
   *((_DWORD *)this + 4) = 0;
   *(_QWORD *)this = &CManipulationContext::`vftable'{for `IManipulationContext'};
-  *((_QWORD *)this + 1) = &CManipulationContext::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 1) = &CManipulationContext::`vftable'{for `CMILRefCountBase'};
   result = this;
   *((_QWORD *)this + 6) = 0LL;
   *((_QWORD *)this + 7) = 0LL;

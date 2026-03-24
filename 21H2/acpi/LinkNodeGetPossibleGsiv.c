@@ -1,9 +1,9 @@
 /*
- * XREFs of LinkNodeGetPossibleGsiv @ 0x1C00B5F4C
+ * XREFs of LinkNodeGetPossibleGsiv @ 0x1C00B68E4
  * Callers:
- *     IrqArbAddAllocation @ 0x1C0099940 (IrqArbAddAllocation.c)
- *     IrqArbpUnreferenceArbitrationList @ 0x1C009A974 (IrqArbpUnreferenceArbitrationList.c)
- *     IrqArbpFindSuitableRangePci @ 0x1C009D25C (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
  * Callees:
  *     <none>
  */

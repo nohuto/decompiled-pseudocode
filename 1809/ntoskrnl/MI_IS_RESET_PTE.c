@@ -4,8 +4,8 @@
  *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
  *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
- *     MiWsleFlush @ 0x1400B32F0 (MiWsleFlush.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
+ *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
  * Callees:
  *     <none>
  */

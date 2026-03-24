@@ -1,23 +1,29 @@
 /*
- * XREFs of ?NotifyStatusChange@?$AUTO_STATUS_CHANGE_NOTIFY@$01$02@@AEAAXW4D3DKMT_STATE_NOTIFICATION_TYPE@@@Z @ 0x1C00BFF14
+ * XREFs of ?NotifyStatusChange@?$AUTO_STATUS_CHANGE_NOTIFY@$01$02@@AEAAXW4D3DKMT_STATE_NOTIFICATION_TYPE@@@Z @ 0x1C00ADCA8
  * Callers:
- *     DrvChangeDisplaySettings @ 0x1C00658C4 (DrvChangeDisplaySettings.c)
- *     DrvSetDisplayConfig @ 0x1C0065F30 (DrvSetDisplayConfig.c)
+ *     DrvChangeDisplaySettings @ 0x1C00189C0 (DrvChangeDisplaySettings.c)
+ *     DrvSetDisplayConfig @ 0x1C0019050 (DrvSetDisplayConfig.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AUTO_STATUS_CHANGE_NOTIFY<2,3>::NotifyStatusChange(__int64 *a1, int a2)
 {
   __int64 result; // rax
-  _DWORD v3[2]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v4; // [rsp+28h] [rbp-10h]
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  _DWORD v6[2]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+28h] [rbp-10h]
 
-  v3[0] = a2;
-  v3[1] = 0;
-  v4 = *a1;
-  result = ((__int64 (__fastcall *)(_DWORD *))qword_1C0296800)(v3);
+  v6[0] = a2;
+  v6[1] = 0;
+  v7 = *a1;
+  result = ((__int64 (__fastcall *)(_DWORD *))qword_1C0251A10)(v6);
   if ( (int)result < 0 )
-    return WdLogSingleEntry0(1LL);
+  {
+    v5 = WdLogNewEntry5_WdAssertion(v4, v3);
+    return WdLogEvent5_WdAssertion(v5);
+  }
   return result;
 }

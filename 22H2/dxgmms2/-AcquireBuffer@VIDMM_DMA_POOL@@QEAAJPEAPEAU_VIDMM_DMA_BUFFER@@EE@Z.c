@@ -1,90 +1,100 @@
 /*
- * XREFs of ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00B1628
+ * XREFs of ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C0080610
  * Callers:
- *     VidMmAcquireDmaBuffer @ 0x1C0017050 (VidMmAcquireDmaBuffer.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C1E08 (-InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     VidMmAcquireDmaBuffer @ 0x1C0011970 (VidMmAcquireDmaBuffer.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C0096934 (-InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ.c)
  * Callees:
- *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00B2CD4 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
- *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C00B2FC8 (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
- *     ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C00EF908 (-IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z.c)
- *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00F0238 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ *     ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C00807E8 (-IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z.c)
+ *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00808F8 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C008A300 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C008B81C (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_DMA_POOL::AcquireBuffer(VIDMM_DMA_POOL *this, struct _VIDMM_DMA_BUFFER **a2, char a3, char a4)
 {
-  struct _VIDMM_DMA_BUFFER **v8; // r14
-  struct _VIDMM_DMA_BUFFER *v9; // rbx
-  struct _VIDMM_DMA_BUFFER *v10; // rcx
-  struct _VIDMM_DMA_BUFFER **v11; // rax
-  struct _VIDMM_DMA_BUFFER ***v12; // rax
-  struct _ERESOURCE *v13; // rcx
-  __int64 v14; // rdx
-  signed __int64 v15; // rax
-  unsigned int v16; // esi
-  __int64 v18; // rcx
-  __int64 v19; // rcx
+  unsigned int v8; // ebp
+  struct _VIDMM_DMA_BUFFER **v9; // rdi
+  struct _VIDMM_DMA_BUFFER *v10; // rbx
+  struct _VIDMM_DMA_BUFFER *v11; // rcx
+  struct _VIDMM_DMA_BUFFER **v12; // rax
+  struct _VIDMM_DMA_BUFFER ***v13; // rax
+  struct _ERESOURCE *v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r15
+  signed __int64 v18; // rax
   __int64 v20; // rcx
-  __int64 v21; // rcx
-  unsigned __int8 v22; // [rsp+70h] [rbp+8h] BYREF
-  unsigned __int8 v23; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v21; // rdx
+  bool v22; // zf
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  __int64 v25; // rdi
+  _QWORD *v26; // rax
+  __int64 v27; // rax
+  unsigned __int8 v28; // [rsp+50h] [rbp+8h] BYREF
+  unsigned __int8 v29; // [rsp+58h] [rbp+10h] BYREF
 
   if ( g_IsInternalReleaseOrDbg )
     *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = this;
+  v8 = 0;
+  v9 = (struct _VIDMM_DMA_BUFFER **)((char *)this + 96);
   *a2 = 0LL;
-  v8 = (struct _VIDMM_DMA_BUFFER **)((char *)this + 96);
   while ( 1 )
   {
     while ( 1 )
     {
       while ( 1 )
       {
-        v9 = *v8;
-        if ( *((_BYTE *)*v8 + 24) )
+        v10 = *v9;
+        if ( *((_BYTE *)*v9 + 24) )
           break;
-        if ( *((_BYTE *)v9 + 25) != 1 )
+        if ( *((_BYTE *)v10 + 25) != 1 )
         {
           if ( g_IsInternalReleaseOrDbg )
-            *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = v9;
+            *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = v10;
           ExAcquireResourceSharedLite(VIDMM_DMA_POOL::_DmaPoolsAddRemoveLock, 1u);
-          v10 = *(struct _VIDMM_DMA_BUFFER **)v9;
-          if ( *(struct _VIDMM_DMA_BUFFER **)(*(_QWORD *)v9 + 8LL) != v9
-            || (v11 = (struct _VIDMM_DMA_BUFFER **)*((_QWORD *)v9 + 1), *v11 != v9)
-            || (*v11 = v10,
-                *((_QWORD *)v10 + 1) = v11,
-                v12 = (struct _VIDMM_DMA_BUFFER ***)*((_QWORD *)this + 13),
-                *v12 != v8) )
+          v11 = *(struct _VIDMM_DMA_BUFFER **)v10;
+          if ( *(struct _VIDMM_DMA_BUFFER **)(*(_QWORD *)v10 + 8LL) != v10
+            || (v12 = (struct _VIDMM_DMA_BUFFER **)*((_QWORD *)v10 + 1), *v12 != v10)
+            || (*v12 = v11,
+                *((_QWORD *)v11 + 1) = v12,
+                v13 = (struct _VIDMM_DMA_BUFFER ***)*((_QWORD *)this + 13),
+                *v13 != v9) )
           {
             __fastfail(3u);
           }
-          v13 = VIDMM_DMA_POOL::_DmaPoolsAddRemoveLock;
-          *(_QWORD *)v9 = v8;
-          *((_QWORD *)v9 + 1) = v12;
-          *v12 = (struct _VIDMM_DMA_BUFFER **)v9;
-          *((_QWORD *)this + 13) = v9;
-          ExReleaseResourceLite(v13);
-          v14 = *((_QWORD *)this + 7);
-          if ( v14 != *((_QWORD *)v9 + 5)
-            || *((_DWORD *)this + 18) != *((_DWORD *)v9 + 12)
-            || *((_DWORD *)this + 21) != *((_DWORD *)v9 + 13) )
+          v14 = VIDMM_DMA_POOL::_DmaPoolsAddRemoveLock;
+          *(_QWORD *)v10 = v9;
+          *((_QWORD *)v10 + 1) = v13;
+          *v13 = (struct _VIDMM_DMA_BUFFER **)v10;
+          *((_QWORD *)this + 13) = v10;
+          ExReleaseResourceLite(v14);
+          v17 = *((_QWORD *)this + 7);
+          if ( v17 != *((_QWORD *)v10 + 5)
+            || *((_DWORD *)this + 18) != *((_DWORD *)v10 + 12)
+            || *((_DWORD *)this + 21) != *((_DWORD *)v10 + 13) )
           {
-            v21 = *((unsigned int *)this + 18);
-            g_DxgMmsBugcheckExportIndex = 1;
-            WdLogSingleEntry5(0LL, 270LL, 22LL, v9, v14, v21);
+            v25 = *((unsigned int *)this + 18);
+            v26 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v16, v15);
+            v26[3] = 270LL;
+            v26[4] = 22LL;
+            v26[5] = v10;
+            v26[6] = v17;
+            v26[7] = v25;
+            WdLogEvent5_WdCriticalError(v26);
           }
           if ( (*((_BYTE *)this + 32) & 1) != 0 )
-            *((_QWORD *)v9 + 21) = 0LL;
-          *((_OWORD *)v9 + 1) = 0LL;
-          v15 = _InterlockedIncrement64(&VIDMM_DMA_POOL::_DmaBufferUniqueness);
-          *((_BYTE *)v9 + 24) = 1;
-          *((_DWORD *)v9 + 7) |= 1u;
-          v16 = 0;
-          *((_QWORD *)v9 + 20) = v15;
-          *a2 = v9;
-          return v16;
+            *((_QWORD *)v10 + 21) = 0LL;
+          *((_OWORD *)v10 + 1) = 0LL;
+          v18 = _InterlockedIncrement64(&VIDMM_DMA_POOL::_DmaBufferUniqueness);
+          *((_BYTE *)v10 + 24) = 1;
+          *((_DWORD *)v10 + 7) |= 1u;
+          *((_QWORD *)v10 + 20) = v18;
+          *a2 = v10;
+          return v8;
         }
-        VIDMM_DMA_POOL::RemoveDmaBufferFromPool(this, *v8);
+        VIDMM_DMA_POOL::RemoveDmaBufferFromPool(this, *v9);
       }
       if ( !(unsigned int)VIDMM_DMA_POOL::IsAllowedToGrow(
                             this,
@@ -94,8 +104,8 @@ __int64 __fastcall VIDMM_DMA_POOL::AcquireBuffer(VIDMM_DMA_POOL *this, struct _V
         break;
       if ( g_IsInternalReleaseOrDbg )
       {
-        WdLogNewEntry5_WdTrace(v18);
-        *(_QWORD *)(WdLogNewEntry5_WdTrace(v19) + 24) = *((unsigned int *)this + 23);
+        WdLogNewEntry5_WdTrace(v20);
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(v23) + 24) = *((unsigned int *)this + 23);
       }
       if ( (int)VIDMM_DMA_POOL::AddDmaBufferToPool(
                   this,
@@ -105,26 +115,29 @@ __int64 __fastcall VIDMM_DMA_POOL::AcquireBuffer(VIDMM_DMA_POOL *this, struct _V
       {
         if ( a3 )
           return 3223191810LL;
-        v22 = 0;
-        VIDMM_DMA_POOL::WaitDmaBufferNotBusy(this, v9, a4 == 0, &v22);
-        if ( v22 )
-        {
-LABEL_25:
-          WdLogSingleEntry1(4LL, v9);
-          return (unsigned int)-1073741130;
-        }
+        v28 = 0;
+        VIDMM_DMA_POOL::WaitDmaBufferNotBusy(this, v10, a4 == 0, &v28);
+        v22 = v28 == 0;
+        goto LABEL_23;
       }
     }
     if ( g_IsInternalReleaseOrDbg )
     {
-      WdLogNewEntry5_WdTrace(v18);
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v20) + 24) = v9;
+      WdLogNewEntry5_WdTrace(v20);
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v24) + 24) = v10;
     }
     if ( a3 )
       return 3223191810LL;
-    v23 = 0;
-    VIDMM_DMA_POOL::WaitDmaBufferNotBusy(this, v9, a4 == 0, &v23);
-    if ( v23 )
-      goto LABEL_25;
+    v29 = 0;
+    VIDMM_DMA_POOL::WaitDmaBufferNotBusy(this, v10, a4 == 0, &v29);
+    v22 = v29 == 0;
+LABEL_23:
+    if ( !v22 )
+    {
+      v27 = WdLogNewEntry5_WdEvent(this, v21);
+      *(_QWORD *)(v27 + 24) = v10;
+      WdLogEvent5_WdEvent(v27);
+      return (unsigned int)-1073741130;
+    }
   }
 }

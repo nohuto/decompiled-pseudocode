@@ -1,16 +1,16 @@
 /*
- * XREFs of ?IsEmpty@CMergedDirtyRect@@UEBA_NXZ @ 0x1800DD2A0
+ * XREFs of ?IsEmpty@CMergedDirtyRect@@UEBA_NXZ @ 0x1800C9F00
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x180092F80 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180090244 (-GetCurrentFrameId@@YA_KXZ.c)
  */
 
 bool __fastcall CMergedDirtyRect::IsEmpty(CMergedDirtyRect *this)
 {
-  struct CComposition *CurrentFrameId; // rax
-  __int64 v2; // rcx
+  unsigned __int64 CurrentFrameId; // rax
+  __int64 v2; // rdx
 
   CurrentFrameId = GetCurrentFrameId();
-  return *(struct CComposition **)(v2 + 88) != CurrentFrameId || *(_DWORD *)(v2 + 80) == 0;
+  return *(_QWORD *)(v2 + 88) != CurrentFrameId || *(_DWORD *)(v2 + 80) == 0;
 }

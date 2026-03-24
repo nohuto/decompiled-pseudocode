@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800FE540
+ * XREFs of ?HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E5300
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B33F0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E5360 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::HrFindInterface(CRemoteRenderTarget *this, const struct _GUID *a2, void **a3)
@@ -23,7 +23,7 @@ __int64 __fastcall CRemoteRenderTarget::HrFindInterface(CRemoteRenderTarget *thi
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 144) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 136) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

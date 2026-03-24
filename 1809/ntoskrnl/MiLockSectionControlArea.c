@@ -7,15 +7,15 @@
  *     MmDisableModifiedWriteOfSection @ 0x140021D70 (MmDisableModifiedWriteOfSection.c)
  *     MmGetImageFileSignatureInformation @ 0x140023A40 (MmGetImageFileSignatureInformation.c)
  *     MiFlushDataSection @ 0x1400930A8 (MiFlushDataSection.c)
- *     MmOnlySystemCacheViewsPresent @ 0x1400E787C (MmOnlySystemCacheViewsPresent.c)
- *     MmUpdateSectionIoAttribution @ 0x1401051F8 (MmUpdateSectionIoAttribution.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x1400E789C (MmOnlySystemCacheViewsPresent.c)
+ *     MmUpdateSectionIoAttribution @ 0x140105218 (MmUpdateSectionIoAttribution.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x1400BC680 (ExpAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C1D4 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2D4 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, unsigned __int8 *a3)

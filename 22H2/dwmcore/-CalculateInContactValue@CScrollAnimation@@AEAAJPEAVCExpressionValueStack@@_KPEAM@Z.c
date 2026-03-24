@@ -1,19 +1,19 @@
 /*
- * XREFs of ?CalculateInContactValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180264B28
+ * XREFs of ?CalculateInContactValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x1802034B0
  * Callers:
- *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180264BEC (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
- *     ?CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@Z @ 0x180264D60 (-CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@.c)
+ *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x18020356C (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@Z @ 0x1802036E0 (-CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CalculateInContactDelta@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x1802649AC (-CalculateInContactDelta@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
- *     ?StartInContact@CScrollAnimation@@AEAAXXZ @ 0x180265458 (-StartInContact@CScrollAnimation@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?CalculateInContactDelta@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x18020333C (-CalculateInContactDelta@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?StartInContact@CScrollAnimation@@AEAAXXZ @ 0x180203D38 (-StartInContact@CScrollAnimation@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CScrollAnimation::CalculateInContactValue(
         CScrollAnimation *this,
         struct CExpressionValueStack *a2,
-        __int64 a3,
+        wchar_t *a3,
         float *a4)
 {
   int v7; // eax
@@ -23,7 +23,7 @@ __int64 __fastcall CScrollAnimation::CalculateInContactValue(
   __int64 v11; // rcx
   float v13; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( *((_DWORD *)this + 84) != 1 )
+  if ( *((_DWORD *)this + 78) != 1 )
     CScrollAnimation::StartInContact(this);
   v7 = CScrollAnimation::CalculateInContactDelta(this, a2, a3, &v13);
   v9 = v7;
@@ -33,8 +33,7 @@ __int64 __fastcall CScrollAnimation::CalculateInContactValue(
   }
   else
   {
-    v10 = (*(__int64 (__fastcall **)(CScrollAnimation *, struct CExpressionValueStack *, __int64))(*(_QWORD *)this
-                                                                                                 + 360LL))(
+    v10 = (*(__int64 (__fastcall **)(CScrollAnimation *, struct CExpressionValueStack *, wchar_t *))(*(_QWORD *)this + 360LL))(
             this,
             a2,
             a3);

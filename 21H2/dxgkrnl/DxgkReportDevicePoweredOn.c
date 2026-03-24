@@ -1,8 +1,8 @@
 /*
- * XREFs of DxgkReportDevicePoweredOn @ 0x1C0024444
+ * XREFs of DxgkReportDevicePoweredOn @ 0x1C003C1C8
  * Callers:
- *     DpiRequestDevicePowerState @ 0x1C0023FC0 (DpiRequestDevicePowerState.c)
- *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0024370 (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
+ *     DpiRequestDevicePowerState @ 0x1C00517F4 (DpiRequestDevicePowerState.c)
+ *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0051C9C (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall DxgkReportDevicePoweredOn(__int64 a1)
 
   if ( a1 )
   {
-    v1 = *(_QWORD *)(a1 + 2904);
+    v1 = *(_QWORD *)(a1 + 2808);
     if ( v1 )
       return PoFxReportDevicePoweredOn(v1);
   }

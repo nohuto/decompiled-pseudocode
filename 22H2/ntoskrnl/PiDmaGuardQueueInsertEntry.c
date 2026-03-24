@@ -1,31 +1,29 @@
 /*
- * XREFs of PiDmaGuardQueueInsertEntry @ 0x14097206C
+ * XREFs of PiDmaGuardQueueInsertEntry @ 0x1408B9240
  * Callers:
- *     PiDmaGuardProcessPostRemove @ 0x14086A254 (PiDmaGuardProcessPostRemove.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x14096B324 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiDmaGuardProcessPostRemove @ 0x14074B554 (PiDmaGuardProcessPostRemove.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PipDgqInsertEntry @ 0x140972120 (PipDgqInsertEntry.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     PipDgqInsertEntry @ 0x1408B92E0 (PipDgqInsertEntry.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDmaGuardQueueInsertEntry(PVOID Object, int a2)
+__int64 __fastcall PiDmaGuardQueueInsertEntry(PVOID Object)
 {
-  unsigned int v4; // ebx
-  __int64 Pool2; // rdi
+  unsigned int v2; // ebx
+  _QWORD *PoolWithTag; // rdi
 
-  v4 = 0;
-  Pool2 = ExAllocatePool2(256LL, 32LL, 1685089872LL);
-  if ( Pool2 )
+  v2 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x64706E50u);
+  if ( PoolWithTag )
   {
     ObfReferenceObjectWithTag(Object, 0x64706E50u);
-    *(_QWORD *)(Pool2 + 16) = Object;
-    *(_DWORD *)(Pool2 + 24) = a2;
-    PipDgqInsertEntry(Pool2);
+    PoolWithTag[2] = Object;
+    PipDgqInsertEntry(PoolWithTag);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v4;
+  return v2;
 }

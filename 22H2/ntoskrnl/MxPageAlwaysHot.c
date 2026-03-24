@@ -1,18 +1,12 @@
 /*
- * XREFs of MxPageAlwaysHot @ 0x140B46D5C
+ * XREFs of MxPageAlwaysHot @ 0x140A443F0
  * Callers:
- *     MxInitializeFreeNodeDescriptors @ 0x140B46278 (MxInitializeFreeNodeDescriptors.c)
+ *     MxInitializeFreeNodeDescriptors @ 0x140A43930 (MxInitializeFreeNodeDescriptors.c)
  * Callees:
- *     MiSearchChannelTable @ 0x1406457C0 (MiSearchChannelTable.c)
+ *     MiSearchChannelTable @ 0x140547840 (MiSearchChannelTable.c)
  */
 
-__int64 __fastcall MxPageAlwaysHot(ULONG_PTR a1)
+_BOOL8 __fastcall MxPageAlwaysHot(ULONG_PTR a1)
 {
-  unsigned int v1; // ebx
-
-  v1 = 0;
-  if ( !qword_140C65BD0 )
-    return 0LL;
-  LOBYTE(v1) = *((_BYTE *)MiSearchChannelTable(a1) + 14) == 0;
-  return v1;
+  return qword_140C4DED0 && *((_BYTE *)MiSearchChannelTable(a1) + 14) != 1;
 }

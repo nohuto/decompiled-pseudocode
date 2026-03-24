@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIEcServiceDevice @ 0x1C0025C70
+ * XREFs of ACPIEcServiceDevice @ 0x1C0054390
  * Callers:
- *     AcpiEcCommonDpcHandler @ 0x1C0002C4E (AcpiEcCommonDpcHandler.c)
- *     ACPIEcQueueEcIrp @ 0x1C0024F44 (ACPIEcQueueEcIrp.c)
- *     ACPIEcWatchdogDpc @ 0x1C0025D90 (ACPIEcWatchdogDpc.c)
+ *     ACPIEcQueueEcIrp @ 0x1C00535D0 (ACPIEcQueueEcIrp.c)
+ *     AcpiEcCommonDpcHandler @ 0x1C0053754 (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0054AB0 (ACPIEcWatchdogDpc.c)
  * Callees:
- *     ACPIEcMaskInterrupt @ 0x1C0002CB0 (ACPIEcMaskInterrupt.c)
- *     ACPIEcUnmaskInterrupt @ 0x1C0002CF6 (ACPIEcUnmaskInterrupt.c)
- *     ACPIEcLogAction @ 0x1C0002D3C (ACPIEcLogAction.c)
- *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
- *     ACPIEcUnloadPending @ 0x1C0025B94 (ACPIEcUnloadPending.c)
+ *     ACPIEcMaskInterrupt @ 0x1C00537B8 (ACPIEcMaskInterrupt.c)
+ *     ACPIEcUnmaskInterrupt @ 0x1C0053800 (ACPIEcUnmaskInterrupt.c)
+ *     ACPIEcLogAction @ 0x1C0054134 (ACPIEcLogAction.c)
+ *     ACPIEcServiceIoLoop @ 0x1C00544A4 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcUnloadPending @ 0x1C00AF030 (ACPIEcUnloadPending.c)
  */
 
 void __fastcall ACPIEcServiceDevice(__int64 a1)
@@ -30,14 +30,14 @@ void __fastcall ACPIEcServiceDevice(__int64 a1)
     {
       v4 = *(_BYTE *)(a1 + 458) == 0;
       *(_BYTE *)(a1 + 456) = 1;
-      if ( !v4 )
-      {
-        *(_BYTE *)(a1 + 458) = 0;
-        ACPIEcLogAction(a1, 0x60u, 0);
-        ACPIEcMaskInterrupt(a1);
-      }
+      if ( v4 )
+        goto LABEL_5;
+      *(_BYTE *)(a1 + 458) = 0;
+      ACPIEcLogAction(a1, 0x60u, 0);
+      ACPIEcMaskInterrupt(a1);
       while ( *(_BYTE *)(a1 + 457) )
       {
+LABEL_5:
         *(_BYTE *)(a1 + 457) = 0;
         KeReleaseSpinLock(v2, v5);
         ACPIEcServiceIoLoop(a1);
@@ -46,7 +46,7 @@ void __fastcall ACPIEcServiceDevice(__int64 a1)
       v4 = *(_BYTE *)(a1 + 121) == 0;
       *(_BYTE *)(a1 + 456) = 0;
       if ( !v4 )
-        ACPIEcUnloadPending((_BYTE *)a1);
+        ACPIEcUnloadPending(a1);
       if ( !*(_BYTE *)(a1 + 458) )
       {
         *(_BYTE *)(a1 + 458) = 1;

@@ -3,7 +3,7 @@
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForAlertByThreadId @ 0x14008B060 (KeWaitForAlertByThreadId.c)
- *     KiWaitForAllObjects @ 0x1400FA408 (KiWaitForAllObjects.c)
+ *     KiWaitForAllObjects @ 0x1400FA428 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

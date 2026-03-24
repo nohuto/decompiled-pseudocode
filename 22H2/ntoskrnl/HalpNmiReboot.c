@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpNmiReboot @ 0x14051BE10
+ * XREFs of HalpNmiReboot @ 0x1404D2BC8
  * Callers:
- *     HalpInterruptResetAllProcessors @ 0x140504EAC (HalpInterruptResetAllProcessors.c)
+ *     HalpInterruptResetAllProcessors @ 0x1404D2B2C (HalpInterruptResetAllProcessors.c)
  * Callees:
- *     HalSendNMI @ 0x14020CF00 (HalSendNMI.c)
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     HalpIsHvPresent @ 0x1403785CC (HalpIsHvPresent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpInterruptRebootService @ 0x14051C330 (HalpInterruptRebootService.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     HalpIsHvPresent @ 0x1403A18D8 (HalpIsHvPresent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalSendNMI @ 0x1404BDCC0 (HalSendNMI.c)
+ *     HalpInterruptRebootService @ 0x1404D2590 (HalpInterruptRebootService.c)
  */
 
 __int64 HalpNmiReboot()
@@ -18,19 +18,17 @@ __int64 HalpNmiReboot()
   struct _KPRCB *CurrentPrcb; // rbx
   __int64 result; // rax
   int v2; // edi
-  _DWORD v3[68]; // [rsp+20h] [rbp-128h] BYREF
+  unsigned __int16 v3[88]; // [rsp+20h] [rbp-C8h] BYREF
 
-  memset(&v3[2], 0, 0x100uLL);
+  memset(v3, 0, 0xA8uLL);
   CurrentPrcb = KeGetCurrentPrcb();
   result = CurrentPrcb->CpuStep & 0xFF00;
   if ( ((unsigned int)result | ((unsigned __int8)CurrentPrcb->CpuType << 16)) > 0x50100 )
   {
     v2 = HalpInterruptProcessorsStarted;
-    v3[0] = 2097153;
     HalpInterruptNmiRebootInProgress = 1;
-    memset(&v3[1], 0, 0x104uLL);
-    KiCopyAffinityEx((__int64)v3, 0x20u, (unsigned __int16 *)KeActiveProcessors);
-    KeRemoveProcessorAffinityEx((unsigned __int16 *)v3, CurrentPrcb->Number);
+    KeCopyAffinityEx((__int64)v3, (unsigned __int16 *)KeActiveProcessors);
+    KeRemoveProcessorAffinityEx(v3, CurrentPrcb->Number);
     HalSendNMI((__int64)v3);
     KeStallExecutionProcessor(0x1F4u);
     if ( HalpIsHvPresent() )
@@ -40,7 +38,7 @@ __int64 HalpNmiReboot()
     }
     result = (unsigned int)HalpInterruptProcessorsStarted;
     if ( HalpInterruptProcessorsStarted != v2 )
-      HalpInterruptRebootService(0LL, 0LL);
+      HalpInterruptRebootService();
   }
   return result;
 }

@@ -2,7 +2,7 @@
  * XREFs of CmpIsThisSameFile @ 0x1405CF4CC
  * Callers:
  *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmpIsHiveAlreadyLoaded @ 0x1407F01E8 (CmpIsHiveAlreadyLoaded.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x1407F01C8 (CmpIsHiveAlreadyLoaded.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)

@@ -1,40 +1,44 @@
 /*
- * XREFs of HMRemoveHandleForObjectWorker @ 0x1C0050550
+ * XREFs of HMRemoveHandleForObjectWorker @ 0x1C0008458
  * Callers:
- *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00305C8 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     HMRemoveHandleForObject @ 0x1C0050440 (HMRemoveHandleForObject.c)
+ *     HMRemoveHandleForObject @ 0x1C0008390 (HMRemoveHandleForObject.c)
+ *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004264C (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
  * Callees:
- *     <none>
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall HMRemoveHandleForObjectWorker(__int64 a1)
 {
-  _QWORD *v2; // r8
-  __int64 v3; // rcx
-  __int16 v4; // ax
-  __int64 v5; // rdx
+  __int16 v2; // r8
+  __int64 v3; // rdx
+  _QWORD *v4; // rax
+  __int16 v5; // ax
+  __int64 v6; // rbx
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(v8);
   --giheCount;
-  v2 = gpKernelHandleTable;
-  v3 = 3LL * (unsigned int)((a1 - (__int64)qword_1C0294B68) >> 5);
-  v4 = (*(_WORD *)(a1 + 26) + 1) & 0x7FFF;
-  if ( v4 == 0x7FFF )
-    v4 = 1;
+  v2 = *(_WORD *)(a1 + 26) + 1;
+  v3 = 3LL * (unsigned int)((a1 - (__int64)qword_1C024FD58) >> 5);
+  v4 = gpKernelHandleTable;
   *(_OWORD *)a1 = 0LL;
   *(_OWORD *)(a1 + 16) = 0LL;
-  *(_OWORD *)&v2[v3] = 0LL;
-  v2[v3 + 2] = 0LL;
-  *(_WORD *)(a1 + 26) = v4;
-  v5 = (a1 - (__int64)qword_1C0294B68) >> 5;
-  if ( (v5 & 1) != 0 )
+  *(_OWORD *)&v4[v3] = 0LL;
+  v4[v3 + 2] = 0LL;
+  v5 = 1;
+  if ( v2 != -1 )
+    v5 = v2;
+  *(_WORD *)(a1 + 26) = v5;
+  v6 = (a1 - (__int64)qword_1C024FD58) >> 5;
+  if ( (v6 & 1) != 0 )
   {
-    *((_QWORD *)gpKernelHandleTable + 3 * v5) = qword_1C0294A90;
-    qword_1C0294A90 = v5;
+    *((_QWORD *)gpKernelHandleTable + 3 * v6) = qword_1C024FCE0;
+    qword_1C024FCE0 = v6;
   }
   else
   {
-    *((_QWORD *)gpKernelHandleTable + 3 * v5) = qword_1C0294A88;
-    qword_1C0294A88 = v5;
+    *((_QWORD *)gpKernelHandleTable + 3 * v6) = qword_1C024FCD8;
+    qword_1C024FCD8 = v6;
   }
   return 1LL;
 }

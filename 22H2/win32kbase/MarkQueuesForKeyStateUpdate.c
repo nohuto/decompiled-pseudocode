@@ -1,15 +1,15 @@
 /*
- * XREFs of MarkQueuesForKeyStateUpdate @ 0x1C01E86C0
+ * XREFs of MarkQueuesForKeyStateUpdate @ 0x1C01AEAC0
  * Callers:
- *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C0066298 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ *     ?SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActivationObject@@@Z @ 0x1C0127FDC (-SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActiv.c)
  * Callees:
- *     ?ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z @ 0x1C012E8BC (-ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z.c)
+ *     ?ForEachActivatableQueue@CActivationObjectManager@@QEAAXA6AXPEAUtagQ@@PEAX@Z1@Z @ 0x1C0127E3C (-ForEachActivatableQueue@CActivationObjectManager@@QEAAXA6AXPEAUtagQ@@PEAX@Z1@Z.c)
  */
 
-void __fastcall MarkQueuesForKeyStateUpdate(CActivationObjectManager *a1, void (*a2)(struct tagQ *, void *), char a3)
+void __fastcall MarkQueuesForKeyStateUpdate(CActivationObjectManager *a1, struct CInpPushLock *a2, char a3)
 {
   _DWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF
-  void (*v4)(struct tagQ *, void *); // [rsp+28h] [rbp-20h]
+  struct CInpPushLock *v4; // [rsp+28h] [rbp-20h]
   char v5; // [rsp+30h] [rbp-18h]
   int v6; // [rsp+31h] [rbp-17h]
   __int16 v7; // [rsp+35h] [rbp-13h]

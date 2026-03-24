@@ -1,49 +1,47 @@
 /*
- * XREFs of ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C02704E8
+ * XREFs of ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0277D20
  * Callers:
- *     SimBitBlt @ 0x1C0270640 (SimBitBlt.c)
+ *     SimBitBlt @ 0x1C0277E78 (SimBitBlt.c)
  * Callees:
- *     ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C009CAE0 (-bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C009CC20 (-bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026BCA8 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
- *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026BD00 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C0272F04 (-bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C0272FAC (-bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273044 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273140 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
  */
 
-void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this)
 {
-  int v4; // eax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  int v1; // eax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // rdx
+  __int64 v6; // r8
   __int64 ThreadWin32Thread; // rax
-  int v15; // eax
-  signed __int32 v16[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v8; // rdx
+  int v9; // eax
+  __int64 v10; // rdx
+  signed __int32 v11[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v4 = *((_DWORD *)this + 28);
-  if ( (v4 & 0x1000) != 0 )
+  v1 = *((_DWORD *)this + 28);
+  if ( (v1 & 0x1000) != 0 )
   {
     DEVLOCKBLTOBJ::vUnMap(this);
     DEVLOCKBLTOBJ::vFlushSpriteUpdates(this);
     if ( (*((_DWORD *)this + 28) & 0x8000) != 0 )
     {
       DEVLOCKBLTOBJ::bDisposeTrgDco(this);
-      _InterlockedOr(v16, 0);
-      DEVLOCKBLTOBJ::bDisposeSrcDco(this, v8, v9);
+      _InterlockedOr(v11, 0);
+      DEVLOCKBLTOBJ::bDisposeSrcDco(this, v5, v6);
       *((_DWORD *)this + 28) &= ~0x8000u;
     }
     else
     {
-      DEVLOCKBLTOBJ::bDisposeSrcDco(this, v6, v7);
-      _InterlockedOr(v16, 0);
+      DEVLOCKBLTOBJ::bDisposeSrcDco(this, v3, v4);
+      _InterlockedOr(v11, 0);
       DEVLOCKBLTOBJ::bDisposeTrgDco(this);
     }
-    GreDecLockCount(v11, v10, v12, v13);
+    GreDecLockCount();
     *((_DWORD *)this + 28) &= ~0x1000u;
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
     if ( ThreadWin32Thread )
@@ -52,31 +50,33 @@ void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this, __int64 a2, __int64 
       *(_QWORD *)(ThreadWin32Thread + 312) = 0LL;
     }
   }
-  else if ( (v4 & 0x800000) != 0 )
+  else if ( (v1 & 0x800000) != 0 )
   {
-    GreDecLockCount(this, a2, a3, a4);
+    GreDecLockCount();
     *((_DWORD *)this + 28) &= ~0x800000u;
   }
   if ( *(_QWORD *)this )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemTrg");
+    EtwTraceGreLockReleaseSemaphore(L"hsemTrg", *(_QWORD *)this);
     GreReleaseSemaphoreInternal(*(_QWORD *)this);
     *(_QWORD *)this = 0LL;
     *((_QWORD *)this + 3) = 0LL;
   }
-  if ( *((_QWORD *)this + 1) )
+  v8 = *((_QWORD *)this + 1);
+  if ( v8 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemSrc");
+    EtwTraceGreLockReleaseSemaphore(L"hsemSrc", v8);
     GreReleaseSemaphoreInternal(*((_QWORD *)this + 1));
     *((_QWORD *)this + 1) = 0LL;
     *((_QWORD *)this + 4) = 0LL;
   }
-  v15 = *((_DWORD *)this + 28);
-  if ( (v15 & 8) != 0 )
-    *((_DWORD *)this + 28) = v15 & 0xFFFFFFF7;
-  if ( *((_QWORD *)this + 2) )
+  v9 = *((_DWORD *)this + 28);
+  if ( (v9 & 8) != 0 )
+    *((_DWORD *)this + 28) = v9 & 0xFFFFFFF7;
+  v10 = *((_QWORD *)this + 2);
+  if ( v10 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemDMC");
+    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v10);
     GreReleaseSemaphoreInternal(*((_QWORD *)this + 2));
     *((_QWORD *)this + 2) = 0LL;
   }

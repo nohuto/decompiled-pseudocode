@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUpdateBackgroundCoolingStatus @ 0x1407638F8
+ * XREFs of PopUpdateBackgroundCoolingStatus @ 0x1407638D8
  * Callers:
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopUpdateBackgroundCoolingStatus(char a1)

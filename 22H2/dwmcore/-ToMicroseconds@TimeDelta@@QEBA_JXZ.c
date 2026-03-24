@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ToMicroseconds@TimeDelta@@QEBA_JXZ @ 0x1800E48F4
+ * XREFs of ?ToMicroseconds@TimeDelta@@QEBA_JXZ @ 0x1800ACFE0
  * Callers:
- *     ?ToMilliseconds@TimeDelta@@QEBAHXZ @ 0x1800E4894 (-ToMilliseconds@TimeDelta@@QEBAHXZ.c)
- *     ?ToSeconds@TimeDelta@@QEBAMXZ @ 0x18023E4AC (-ToSeconds@TimeDelta@@QEBAMXZ.c)
+ *     ?ToMilliseconds@TimeDelta@@QEBAHXZ @ 0x1800ACF80 (-ToMilliseconds@TimeDelta@@QEBAHXZ.c)
+ *     ?ToSeconds@TimeDelta@@QEBAMXZ @ 0x1801D9228 (-ToSeconds@TimeDelta@@QEBAMXZ.c)
  * Callees:
  *     <none>
  */

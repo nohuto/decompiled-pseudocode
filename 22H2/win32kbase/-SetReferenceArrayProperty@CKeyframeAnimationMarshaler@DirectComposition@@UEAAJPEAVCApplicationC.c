@@ -1,67 +1,73 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C0032DB0
+ * XREFs of ?SetReferenceArrayProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01EAFA0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     ?SetReferenceArrayProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C0224410 (-SetReferenceArrayProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChan.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?SetReferenceArrayProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01EACE0 (-SetReferenceArrayProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChan.c)
  */
 
 __int64 __fastcall DirectComposition::CKeyframeAnimationMarshaler::SetReferenceArrayProperty(
         DirectComposition::CKeyframeAnimationMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
-        unsigned int a3,
+        int a3,
         struct DirectComposition::CResourceMarshaler **a4,
         unsigned __int64 a5,
         bool *a6)
 {
   unsigned int v6; // ebx
-  struct DirectComposition::CResourceMarshaler **v7; // r10
-  unsigned __int64 v11; // r11
-  unsigned int i; // r9d
-  int v13; // r9d
-  unsigned int v14; // esi
+  unsigned int v10; // r13d
+  signed int v11; // edi
 
   v6 = 0;
-  v7 = a4;
   *a6 = 0;
-  if ( !a4 )
-    return (unsigned int)-1073741811;
-  v11 = a5;
-  for ( i = 0; i < v11; i = v13 + 1 )
+  v10 = 0;
+  v11 = a4 == 0LL ? 0xC000000D : 0;
+  if ( a4 )
   {
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(
-                             *((unsigned int *)v7[i] + 9),
-                             11LL) )
-      return (unsigned int)-1073741811;
-  }
-  if ( a3 != 15 )
-    return (unsigned int)DirectComposition::CBaseExpressionMarshaler::SetReferenceArrayProperty(
-                           this,
-                           a2,
-                           a3,
-                           v7,
-                           v11,
-                           a6);
-  if ( *((_QWORD *)this + 18) || *((_DWORD *)this + 59) )
-  {
-    return (unsigned int)-1073741811;
-  }
-  else
-  {
-    *((_DWORD *)this + 59) = v11;
-    *((_QWORD *)this + 18) = v7;
-    *a6 = 1;
-    v14 = 0;
-    *((_DWORD *)this + 4) &= ~0x800u;
-    if ( *((_DWORD *)this + 59) )
+    do
     {
-      do
-        DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 18)
-                                                                                                + 8LL * v14++));
-      while ( v14 < *((_DWORD *)this + 59) );
+      if ( v10 >= a5 )
+        break;
+      if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v10] + 96LL))(
+              a4[v10],
+              10LL) )
+        v11 = -1073741811;
+      ++v10;
+    }
+    while ( v11 >= 0 );
+    if ( v11 >= 0 )
+    {
+      if ( a3 == 15 )
+      {
+        if ( *((_QWORD *)this + 24) || *((_DWORD *)this + 50) )
+          v11 = -1073741811;
+        if ( v11 >= 0 )
+        {
+          *((_DWORD *)this + 50) = a5;
+          *((_QWORD *)this + 24) = a4;
+          *a6 = 1;
+          *((_DWORD *)this + 4) &= ~0x400u;
+          if ( *((_DWORD *)this + 50) )
+          {
+            do
+              DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 24) + 8LL * v6++));
+            while ( v6 < *((_DWORD *)this + 50) );
+          }
+        }
+      }
+      else
+      {
+        return (unsigned int)DirectComposition::CBaseExpressionMarshaler::SetReferenceArrayProperty(
+                               this,
+                               a2,
+                               a3,
+                               a4,
+                               a5,
+                               a6);
+      }
     }
   }
-  return v6;
+  return (unsigned int)v11;
 }

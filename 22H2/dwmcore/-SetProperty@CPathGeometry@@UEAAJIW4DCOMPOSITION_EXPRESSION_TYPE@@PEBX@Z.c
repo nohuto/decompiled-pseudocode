@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetProperty@CPathGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180247DF0
+ * XREFs of ?SetProperty@CPathGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E2A00
  * Callers:
  *     <none>
  * Callees:
- *     ?SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z @ 0x1800AC028 (-SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetProperty@CGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180212140 (-SetProperty@CGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetProperty@CGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801B5CF0 (-SetProperty@CGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z @ 0x1801E2984 (-SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z.c)
  */
 
-__int64 __fastcall CPathGeometry::SetProperty(CPathGeometry *a1, int a2, __int64 a3, const struct CPathData *a4)
+__int64 __fastcall CPathGeometry::SetProperty(CPathGeometry *a1, int a2, int a3, const struct CPathData *a4)
 {
   int v4; // eax
   __int64 v5; // rcx
@@ -16,13 +16,13 @@ __int64 __fastcall CPathGeometry::SetProperty(CPathGeometry *a1, int a2, __int64
 
   if ( a2 == 4 )
   {
-    if ( (_DWORD)a3 != 11 )
+    if ( a3 != 11 )
     {
       v6 = -2147024809;
       MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x68u, 0LL);
       return v6;
     }
-    CPathGeometry::SetPath(a1, a4, a3);
+    CPathGeometry::SetPath(a1, a4);
     return 0;
   }
   v4 = CGeometry::SetProperty((__int64)a1, a2, a3);

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaReturnPageToOwner @ 0x14045C236
+ * XREFs of HalpDmaReturnPageToOwner @ 0x1404C7E8C
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaFreeMapRegisters @ 0x14045BE96 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaAllocateNewTranslationBuffer @ 0x1405108A8 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x1404C6F18 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C79F8 (HalpDmaFreeMapRegisters.c)
  * Callees:
- *     HalpDmaReturnToContiguousPool @ 0x14045C2AC (HalpDmaReturnToContiguousPool.c)
- *     HalpDmaReturnToScatterPool @ 0x14045C3A8 (HalpDmaReturnToScatterPool.c)
+ *     HalpDmaReturnToContiguousPool @ 0x1404C7F54 (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaReturnToScatterPool @ 0x1404C804C (HalpDmaReturnToScatterPool.c)
  */
 
 __int64 __fastcall HalpDmaReturnPageToOwner(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall HalpDmaReturnPageToOwner(__int64 a1, __int64 a2, __int64 a3)
   {
     v5 = *(_QWORD *)(a3 + 48);
     v6 = v5 & 4;
-    if ( *(_BYTE *)(a1 + 442) )
+    if ( *(_BYTE *)(a1 + 434) )
     {
       if ( (v5 & 4) == 0 )
       {

@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbpBuildAllocationStack @ 0x1C00A2D90
+ * XREFs of ArbpBuildAllocationStack @ 0x1C0095670
  * Callers:
- *     ArbTestAllocation @ 0x1C00A2BF0 (ArbTestAllocation.c)
+ *     ArbTestAllocation @ 0x1C00959B0 (ArbTestAllocation.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ArbpBuildAlternative @ 0x1C00A2EFC (ArbpBuildAlternative.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ArbpBuildAlternative @ 0x1C00957A8 (ArbpBuildAlternative.c)
  */
 
 __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
@@ -16,13 +16,13 @@ __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
   int v8; // r8d
   int v9; // ecx
   unsigned int v10; // edi
-  __int64 Pool2; // rbp
-  __int64 result; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rdi
+  PVOID PoolWithTag; // rsi
+  __int64 v12; // rsi
+  __int64 v13; // rdi
   __int64 *i; // rbx
-  unsigned __int64 v16; // rbp
+  unsigned __int64 v15; // rbp
   unsigned __int64 j; // rax
+  __int64 result; // rax
 
   v3 = 0;
   v4 = (unsigned int)(a3 + 1);
@@ -46,40 +46,44 @@ __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
   v10 = 80 * v4 + v3;
   if ( *(_DWORD *)(a1 + 104) < v10 )
   {
-    Pool2 = ExAllocatePool2(256LL, v10, 1096970817LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v10, 0x41627241u);
+    if ( !PoolWithTag )
       return 3221225626LL;
     ExFreePoolWithTag(*(PVOID *)(a1 + 112), 0x41627241u);
-    *(_QWORD *)(a1 + 112) = Pool2;
+    *(_QWORD *)(a1 + 112) = PoolWithTag;
     *(_DWORD *)(a1 + 104) = v10;
   }
-  memset(*(void **)(a1 + 112), 0, v10);
-  v13 = *(_QWORD *)(a1 + 112);
-  if ( v5 )
-    v14 = v13 + 80 * v4;
   else
-    v14 = 0LL;
+  {
+    PoolWithTag = *(PVOID *)(a1 + 112);
+  }
+  memset(PoolWithTag, 0, v10);
+  v12 = *(_QWORD *)(a1 + 112);
+  if ( v5 )
+    v13 = v12 + 80 * v4;
+  else
+    v13 = 0LL;
   for ( i = (__int64 *)*v6; v6 != i; i = (__int64 *)*i )
   {
     if ( *((_DWORD *)i + 4) )
     {
-      *(_QWORD *)(v13 + 32) = i;
-      *(_DWORD *)(v13 + 48) = *((_DWORD *)i + 4);
-      *(_QWORD *)(v13 + 56) = v14;
-      *(_QWORD *)v13 = 1LL;
-      v16 = i[3];
-      for ( j = v16 + 32LL * *((unsigned int *)i + 4); v16 < j; j = i[3] + 32LL * *((unsigned int *)i + 4) )
+      *(_QWORD *)(v12 + 32) = i;
+      *(_DWORD *)(v12 + 48) = *((_DWORD *)i + 4);
+      *(_QWORD *)(v12 + 56) = v13;
+      *(_QWORD *)v12 = 1LL;
+      v15 = i[3];
+      for ( j = v15 + 32LL * *((unsigned int *)i + 4); v15 < j; j = i[3] + 32LL * *((unsigned int *)i + 4) )
       {
-        result = ArbpBuildAlternative(a1, v16, v14);
+        result = ArbpBuildAlternative(a1, v15, v13);
         if ( (int)result < 0 )
           return result;
-        *(_DWORD *)(v14 + 32) = 0;
-        v16 += 32LL;
-        v14 += 64LL;
+        *(_DWORD *)(v13 + 32) = 0;
+        v15 += 32LL;
+        v13 += 64LL;
       }
-      v13 += 80LL;
+      v12 += 80LL;
     }
   }
-  *(_QWORD *)(v13 + 32) = 0LL;
+  *(_QWORD *)(v12 + 32) = 0LL;
   return 0LL;
 }

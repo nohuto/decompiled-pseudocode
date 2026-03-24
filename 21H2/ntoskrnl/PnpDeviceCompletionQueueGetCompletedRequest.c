@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDeviceCompletionQueueGetCompletedRequest @ 0x14025BA80
+ * XREFs of PnpDeviceCompletionQueueGetCompletedRequest @ 0x14037FB98
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x140777B74 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x14074181C (PnpDeviceCompletionProcessCompletedRequests.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PnpDeviceCompletionQueueGetCompletedRequest()
@@ -21,16 +21,16 @@ __int64 PnpDeviceCompletionQueueGetCompletedRequest()
   int v8; // edx
   bool v9; // zf
 
-  KeWaitForSingleObject(&byte_140C45FE8, Executive, 0, 0, 0LL);
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C46008);
-  v1 = qword_140C45FD8;
+  KeWaitForSingleObject(&byte_140C44B88, Executive, 0, 0, 0LL);
+  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
+  v1 = qword_140C44B78;
   v2 = v0;
-  v3 = *(_QWORD *)qword_140C45FD8;
-  if ( *(__int64 **)(qword_140C45FD8 + 8) != &qword_140C45FD8 || *(_QWORD *)(v3 + 8) != qword_140C45FD8 )
+  v3 = *(_QWORD *)qword_140C44B78;
+  if ( *(__int64 **)(qword_140C44B78 + 8) != &qword_140C44B78 || *(_QWORD *)(v3 + 8) != qword_140C44B78 )
     __fastfail(3u);
-  qword_140C45FD8 = *(_QWORD *)qword_140C45FD8;
-  *(_QWORD *)(v3 + 8) = &qword_140C45FD8;
-  KxReleaseSpinLock(&qword_140C46008);
+  qword_140C44B78 = *(_QWORD *)qword_140C44B78;
+  *(_QWORD *)(v3 + 8) = &qword_140C44B78;
+  KxReleaseSpinLock(&qword_140C44BA8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

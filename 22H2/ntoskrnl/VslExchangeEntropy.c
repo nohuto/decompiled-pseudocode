@@ -1,17 +1,17 @@
 /*
- * XREFs of VslExchangeEntropy @ 0x1403C6740
+ * XREFs of VslExchangeEntropy @ 0x14039A450
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslExchangeEntropy(void *a1)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   _BYTE v4[112]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v4, 0, 0x68uLL);

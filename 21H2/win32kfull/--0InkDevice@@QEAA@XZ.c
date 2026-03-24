@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0InkDevice@@QEAA@XZ @ 0x1C02519A0
+ * XREFs of ??0InkDevice@@QEAA@XZ @ 0x1C0254B1C
  * Callers:
- *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024C7DC (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F2BC (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,9 @@ InkDevice *__fastcall InkDevice::InkDevice(InkDevice *this)
   InkDevice *result; // rax
 
   *(_QWORD *)this = &Rim::RimBackedDeviceBase::`vftable';
-  v1 = _InterlockedIncrement(&dword_1C033BCCC);
+  v1 = _InterlockedIncrement(&dword_1C03419B4);
   if ( !v1 )
-    v1 = _InterlockedIncrement(&dword_1C033BCCC);
+    v1 = _InterlockedIncrement(&dword_1C03419B4);
   *((_DWORD *)this + 2) = v1;
   *((_BYTE *)this + 12) = 0;
   *((_QWORD *)this + 2) = 0LL;

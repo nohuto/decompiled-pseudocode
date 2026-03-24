@@ -1,10 +1,11 @@
 /*
- * XREFs of ACPIBuildDelayedDependencyRequest @ 0x1C000BD28
+ * XREFs of ACPIBuildDelayedDependencyRequest @ 0x1C0030590
  * Callers:
- *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930 (ACPIBuildProcessDevicePhasePr3.c)
- *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00124A0 (ACPIBuildProcessThermalZoneCheckType.c)
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C00155F0 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00300B0 (ACPIBuildProcessThermalZoneCheckType.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIBuildDelayedDependencyRequest(__int64 a1, __int64 a2)
@@ -12,7 +13,7 @@ __int64 __fastcall ACPIBuildDelayedDependencyRequest(__int64 a1, __int64 a2)
   __int64 v2; // rbp
   PVOID v5; // rax
   __int64 v6; // rbx
-  __int64 *v8; // rax
+  __int64 *v7; // rax
 
   v2 = *(_QWORD *)(a1 + 40);
   v5 = ExAllocateFromNPagedLookasideList(&BuildRequestLookAsideList);
@@ -29,14 +30,14 @@ __int64 __fastcall ACPIBuildDelayedDependencyRequest(__int64 a1, __int64 a2)
   *(_DWORD *)(a1 + 20) |= 0x1000u;
   *(_QWORD *)(a1 + 128) = a2;
   *(_QWORD *)(v6 + 80) = a1;
-  v8 = (__int64 *)qword_1C006F4B8;
-  if ( *(__int64 **)qword_1C006F4B8 != &AcpiBuildQueueList )
+  v7 = (__int64 *)qword_1C0082418;
+  if ( *(__int64 **)qword_1C0082418 != &AcpiBuildQueueList )
     __fastfail(3u);
   AcpiBuildDpcFlags |= 2u;
   *(_QWORD *)v6 = &AcpiBuildQueueList;
-  *(_QWORD *)(v6 + 8) = v8;
-  *v8 = v6;
-  qword_1C006F4B8 = v6;
+  *(_QWORD *)(v6 + 8) = v7;
+  *v7 = v6;
+  qword_1C0082418 = v6;
   KeReleaseSpinLockFromDpcLevel(&AcpiBuildQueueLock);
   return 259LL;
 }

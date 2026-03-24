@@ -1,34 +1,34 @@
 /*
- * XREFs of ?UnregisterWinSqmProvider@@YAKXZ @ 0x1C00B7458
+ * XREFs of ?UnregisterWinSqmProvider@@YAKXZ @ 0x1C0078750
  * Callers:
- *     WinSqmEndSession @ 0x1C00B73BC (WinSqmEndSession.c)
+ *     WinSqmEndSession @ 0x1C00786AC (WinSqmEndSession.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall UnregisterWinSqmProvider(__int64 a1, __int64 a2, __int64 a3)
+__int64 UnregisterWinSqmProvider(void)
 {
-  signed __int64 v3; // rax
-  REGHANDLE v4; // rcx
-  unsigned int v5; // edx
-  int v7; // ebx
-  __int64 v8; // rax
-  union _LARGE_INTEGER Interval; // [rsp+30h] [rbp+8h] BYREF
+  signed __int64 v0; // rax
+  REGHANDLE v1; // rcx
+  unsigned int v2; // edx
+  int i; // ebx
+  __int64 v5; // rax
+  union _LARGE_INTEGER Interval; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = _InterlockedCompareExchange64(&qword_1C029A530, 170LL, 221LL);
-  switch ( v3 )
+  v0 = _InterlockedCompareExchange64(&qword_1C0255870, 170LL, 221LL);
+  switch ( v0 )
   {
     case 221LL:
-      v4 = RegHandle;
+      v1 = RegHandle;
       if ( !RegHandle )
       {
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(0LL, a2, a3);
-        v4 = RegHandle;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 677LL);
+        v1 = RegHandle;
       }
-      v5 = EtwUnregister(v4);
-      dword_1C029663C = 0;
+      v2 = EtwUnregister(v1);
+      dword_1C0251848 = 0;
       RegHandle = 0LL;
-      _InterlockedExchange64(&qword_1C029A530, v5 != 0 ? 238LL : 221LL);
+      _InterlockedExchange64(&qword_1C0255870, v2 != 0 ? 238LL : 221LL);
       break;
     case 153LL:
       return 0;
@@ -36,23 +36,18 @@ __int64 __fastcall UnregisterWinSqmProvider(__int64 a1, __int64 a2, __int64 a3)
       return 1359;
     case 170LL:
       Interval.QuadPart = -1000000LL;
-      v7 = 0;
-      while ( 1 )
+      for ( i = 0; i < 10; ++i )
       {
         KeDelayExecutionThread(1, 0, &Interval);
-        v8 = _InterlockedExchange64(&qword_1C029A530, qword_1C029A530);
-        if ( v8 != 170 )
+        v5 = _InterlockedExchange64(&qword_1C0255870, qword_1C0255870);
+        if ( v5 != 170 )
           break;
-        if ( ++v7 >= 10 )
-        {
-          if ( v7 == 10 )
-            v8 = _InterlockedCompareExchange64(&qword_1C029A530, 136LL, 170LL);
-          return v8 != 153 ? 0x5B4 : 0;
-        }
       }
-      return v8 != 153 ? 0x5B4 : 0;
+      if ( i == 10 )
+        v5 = _InterlockedCompareExchange64(&qword_1C0255870, 136LL, 170LL);
+      return v5 != 153 ? 0x5B4 : 0;
     default:
       return 1460;
   }
-  return v5;
+  return v2;
 }

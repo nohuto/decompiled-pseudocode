@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCancelWaitCompletionPacket @ 0x1401B93D0
+ * XREFs of ZwCancelWaitCompletionPacket @ 0x1401B93F0
  * Callers:
  *     <none>
  * Callees:

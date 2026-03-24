@@ -1,9 +1,9 @@
 /*
- * XREFs of IopPassiveInterruptDpc @ 0x140459F80
+ * XREFs of IopPassiveInterruptDpc @ 0x14050D590
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueue @ 0x1402624D0 (KeInsertQueue.c)
+ *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
  */
 
 void __fastcall IopPassiveInterruptDpc(

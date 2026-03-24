@@ -1,156 +1,142 @@
 /*
- * XREFs of ?VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z @ 0x1C001B5B8
+ * XREFs of ?VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z @ 0x1C002C210
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C000317C (VidSchiSetFlipDevice.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011D1C (VidSchiSetFlipDevice.c)
  * Callees:
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C0009A80 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     VidSchiExecuteMmIoFlip @ 0x1C000DBA0 (VidSchiExecuteMmIoFlip.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ @ 0x1C001B878 (-InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ.c)
- *     ??1CVidSchSubmitData@@QEAA@XZ @ 0x1C001B9AC (--1CVidSchSubmitData@@QEAA@XZ.c)
- *     ?ZeroFlipQueueEntry@_VIDSCH_FLIP_QUEUE_ENTRY@@QEAAXXZ @ 0x1C001BA0C (-ZeroFlipQueueEntry@_VIDSCH_FLIP_QUEUE_ENTRY@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C001D980 (memmove.c)
- *     VidSchIsVSyncEnabled @ 0x1C00A3970 (VidSchIsVSyncEnabled.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000AFA0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     VidSchiExecuteMmIoFlip @ 0x1C000EB20 (VidSchiExecuteMmIoFlip.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0018C00 (memmove.c)
+ *     ??1CVidSchSubmitData@@QEAA@XZ @ 0x1C0029DCC (--1CVidSchSubmitData@@QEAA@XZ.c)
+ *     ?InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ @ 0x1C002A100 (-InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ.c)
+ *     ?ZeroFlipQueueEntry@VIDSCH_FLIP_QUEUE_ENTRY@@QEAAXXZ @ 0x1C002CF18 (-ZeroFlipQueueEntry@VIDSCH_FLIP_QUEUE_ENTRY@@QEAAXXZ.c)
+ *     VidSchIsVSyncEnabled @ 0x1C007BBA0 (VidSchIsVSyncEnabled.c)
  */
 
 __int64 __fastcall VidSchiSubmitDisablePlanesFlip(struct _VIDSCH_DEVICE *a1, unsigned int a2)
 {
-  __int64 v2; // r14
-  unsigned int v3; // esi
-  __int64 v4; // rbx
-  __int64 v6; // r15
-  __int64 v7; // rdi
-  __int64 v8; // rax
-  unsigned int *v9; // r12
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  unsigned int v12; // r8d
-  bool v13; // zf
-  int v14; // eax
-  char v15; // cl
-  __int64 v16; // rdi
-  __int64 v17; // rbx
-  void *v18; // rcx
-  int v19; // eax
-  unsigned int v20; // r8d
-  void (__fastcall *v22)(_QWORD); // rax
-  __int64 v23; // [rsp+50h] [rbp-49h]
-  __int64 v24; // [rsp+58h] [rbp-41h]
-  _QWORD v25[2]; // [rsp+60h] [rbp-39h] BYREF
-  _QWORD v26[2]; // [rsp+70h] [rbp-29h] BYREF
-  char v27; // [rsp+80h] [rbp-19h]
-  _QWORD v28[4]; // [rsp+88h] [rbp-11h] BYREF
-  __int16 v29; // [rsp+A8h] [rbp+Fh]
-  char v30; // [rsp+100h] [rbp+67h] BYREF
-  unsigned int v31; // [rsp+108h] [rbp+6Fh]
-  int v32; // [rsp+110h] [rbp+77h]
-  int v33; // [rsp+118h] [rbp+7Fh]
+  __int64 v2; // rsi
+  unsigned int v3; // r14d
+  __int64 v5; // rdi
+  __int64 v6; // r13
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  struct _SLIST_ENTRY *v10; // r12
+  __int64 v11; // rax
+  void (__fastcall *v12)(_QWORD); // rax
+  __int64 v13; // rcx
+  unsigned int v14; // r8d
+  bool v15; // zf
+  int v16; // eax
+  char v17; // cl
+  __int64 v18; // rdi
+  __int64 v19; // rbx
+  void *v20; // rcx
+  unsigned int v21; // r8d
+  __int64 v23; // [rsp+30h] [rbp-49h]
+  struct _SLIST_ENTRY *v24[2]; // [rsp+38h] [rbp-41h] BYREF
+  _QWORD v25[2]; // [rsp+48h] [rbp-31h] BYREF
+  char v26; // [rsp+58h] [rbp-21h]
+  _QWORD v27[4]; // [rsp+60h] [rbp-19h] BYREF
+  __int16 v28; // [rsp+80h] [rbp+7h]
+  char v29; // [rsp+E0h] [rbp+67h] BYREF
+  unsigned int v30; // [rsp+E8h] [rbp+6Fh]
+  int v31; // [rsp+F0h] [rbp+77h]
+  int v32; // [rsp+F8h] [rbp+7Fh]
 
-  v31 = a2;
+  v30 = a2;
   v2 = *((_QWORD *)a1 + 4);
   v3 = 0;
-  v4 = a2;
-  v6 = a2;
-  v7 = *(_QWORD *)(v2 + 8LL * a2 + 3200);
-  v24 = v7;
-  if ( !v7 )
+  v5 = a2;
+  v6 = *(_QWORD *)(v2 + 8LL * a2 + 3104);
+  if ( !v6 )
     return 0LL;
-  v23 = *(_QWORD *)(v7 + 24);
+  v23 = *(_QWORD *)(v6 + 24);
   if ( !v23 )
     return 0LL;
-  v8 = *(_QWORD *)(v2 + 16);
-  v25[0] = 0LL;
-  v25[1] = *(_QWORD *)(v8 + 2800);
-  CVidSchSubmitData::InitializeSubmitData((CVidSchSubmitData *)v25);
-  if ( v25[0] )
+  v7 = *(_QWORD *)(v2 + 16);
+  v24[0] = 0LL;
+  v24[1] = *(struct _SLIST_ENTRY **)(v7 + 2704);
+  CVidSchSubmitData::InitializeSubmitData((CVidSchSubmitData *)v24);
+  if ( v24[0] )
   {
-    v9 = (unsigned int *)(v25[0] + 600LL);
-    if ( !*(_BYTE *)(v25[0] + 356LL) )
-      v9 = (unsigned int *)(v25[0] + 496LL);
-    *v9 ^= (*v9 ^ (((1 << *(_DWORD *)(v2 + 152)) - 1) << 10)) & 0xFFC00;
-    _InterlockedAdd((volatile signed __int32 *)(v2 + 736), 1u);
-    v10 = 740LL;
-    if ( *(_BYTE *)(v2 + 2212) )
-      v10 = 4 * v4 + 740;
-    _InterlockedAdd((volatile signed __int32 *)(v10 + v2), 1u);
+    v10 = v24[0] + 36;
+    if ( !*((_BYTE *)&v24[0][21].Next + 12) )
+      v10 = v24[0] + 30;
+    LODWORD(v10->Next) ^= (LODWORD(v10->Next) ^ (((1 << *(_DWORD *)(v2 + 144)) - 1) << 10)) & 0xFFC00;
+    _InterlockedAdd((volatile signed __int32 *)(v2 + 728), 1u);
+    v11 = 732LL;
+    if ( *(_BYTE *)(v2 + 2132) )
+      v11 = 4 * v5 + 732;
+    _InterlockedAdd((volatile signed __int32 *)(v11 + v2), 1u);
     _InterlockedAdd((volatile signed __int32 *)a1 + 393, 1u);
-    _InterlockedAdd((volatile signed __int32 *)a1 + v4 + 377, 1u);
-    VidSchIsVSyncEnabled((struct _VIDSCH_GLOBAL *)v2);
-    if ( *(_DWORD *)(*(_QWORD *)(v2 + 8 * v4 + 3200) + 44232LL) != -1 )
+    _InterlockedAdd((volatile signed __int32 *)a1 + v5 + 377, 1u);
+    VidSchIsVSyncEnabled(v2, v30);
+    if ( *(_DWORD *)(*(_QWORD *)(v2 + 8 * v5 + 3104) + 33288LL) != -1 )
     {
-      v22 = *(void (__fastcall **)(_QWORD))(v2 + 3056);
-      if ( v22 )
-        v22(*(_QWORD *)(v2 + 3120));
+      v12 = *(void (__fastcall **)(_QWORD))(v2 + 2960);
+      if ( v12 )
+        v12(*(_QWORD *)(v2 + 3024));
     }
-    v29 = 0;
-    v28[0] = v2 + 1728;
-    AcquireSpinLock::Acquire((Acquire *)v28);
-    v27 = 0;
-    v26[1] = v26;
-    v26[0] = v26;
-    _InterlockedAdd((volatile signed __int32 *)a1 + v6 + 361, 1u);
-    v11 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 32LL)
+    v28 = 0;
+    v27[0] = v2 + 1712;
+    AcquireSpinLock::Acquire((Acquire *)v27);
+    v26 = 0;
+    v25[1] = v25;
+    v25[0] = v25;
+    _InterlockedAdd((volatile signed __int32 *)a1 + v5 + 361, 1u);
+    v13 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 24LL)
                                 + 8LL * *(unsigned int *)(*((_QWORD *)a1 + 4) + 4LL))
-                    + 8 * v6
+                    + 8 * v5
                     + 88);
-    _InterlockedAdd((volatile signed __int32 *)(*(_QWORD *)(v2 + 8 * v6 + 6456) + 8LL), 1u);
-    _InterlockedAdd((volatile signed __int32 *)(v11 + 8), 1u);
-    ++*(_DWORD *)(v2 + 804);
+    _InterlockedAdd((volatile signed __int32 *)(*(_QWORD *)(v2 + 8 * v5 + 6352) + 8LL), 1u);
+    _InterlockedAdd((volatile signed __int32 *)(v13 + 8), 1u);
+    ++*(_DWORD *)(v2 + 796);
     ++*((_DWORD *)a1 + 394);
-    ++*(_DWORD *)(v7 + 2988);
-    v12 = ((unsigned __int16)*v9 | (unsigned __int16)(*v9 >> 10)) & 0x3FF;
-    v13 = !_BitScanForward((unsigned int *)&v14, v12);
-    v32 = v14;
+    ++*(_DWORD *)(v6 + 2340);
+    v14 = ((unsigned __int16)LODWORD(v10->Next) | (unsigned __int16)(LODWORD(v10->Next) >> 10)) & 0x3FF;
+    v15 = !_BitScanForward((unsigned int *)&v16, v14);
+    v31 = v16;
     while ( 1 )
     {
-      v15 = -1;
-      if ( !v13 )
-        v15 = v14;
-      if ( !v12 )
+      v17 = -1;
+      if ( !v15 )
+        v17 = v16;
+      if ( !v14 )
         break;
-      ++*(_DWORD *)(280LL * v15 + *(_QWORD *)(v2 + 8 * v6 + 3200) + 188);
-      v12 &= ~(1 << v15);
-      v13 = !_BitScanForward((unsigned int *)&v14, v12);
-      v33 = v14;
+      ++*(_DWORD *)(216LL * v17 + *(_QWORD *)(v2 + 8 * v5 + 3104) + 180);
+      v14 &= ~(1 << v17);
+      v15 = !_BitScanForward((unsigned int *)&v16, v14);
+      v32 = v16;
     }
-    v16 = *(unsigned int *)(v23 + 56);
-    v17 = v23 + 1376 * v16;
-    _VIDSCH_FLIP_QUEUE_ENTRY::ZeroFlipQueueEntry((_VIDSCH_FLIP_QUEUE_ENTRY *)(v17 + 120));
-    *(_DWORD *)(v17 + 1256) |= 0x10u;
-    v18 = *(void **)(v17 + 1296);
-    *(_QWORD *)(v17 + 1160) = a1;
-    v19 = *((_DWORD *)a1 + v6 + 127);
-    *(_DWORD *)(v17 + 1256) |= 0x180u;
-    *(_DWORD *)(v17 + 1176) = v19;
-    *(_DWORD *)(v17 + 1192) = 0;
-    memmove(v18, v9, v9[3]);
-    *(_DWORD *)(v23 + 56) = ((_BYTE)v16 + 1) & 0x3F;
-    _InterlockedIncrement((volatile signed __int32 *)(v2 + 808));
-    _InterlockedIncrement((volatile signed __int32 *)(v24 + 2992));
-    v20 = v31;
-    *(_DWORD *)(v17 + 1172) = 4;
-    v30 = 0;
-    VidSchiExecuteMmIoFlip((__int64)v26, v2, v20, v23, v16, &v30);
-    HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v26);
-    AcquireSpinLock::Release((AcquireSpinLock *)v28);
+    v18 = *(unsigned int *)(v23 + 32);
+    v19 = v23 + 1344 * v18;
+    VIDSCH_FLIP_QUEUE_ENTRY::ZeroFlipQueueEntry((VIDSCH_FLIP_QUEUE_ENTRY *)(v19 + 88));
+    *(_DWORD *)(v19 + 1224) |= 0x190u;
+    v20 = *(void **)(v19 + 1264);
+    *(_QWORD *)(v19 + 1128) = a1;
+    *(_DWORD *)(v19 + 1160) = 0;
+    memmove(v20, v10, *((unsigned int *)&v10->Next + 3));
+    *(_DWORD *)(v23 + 32) = ((_BYTE)v18 + 1) & 0x3F;
+    _InterlockedIncrement((volatile signed __int32 *)(v2 + 800));
+    _InterlockedIncrement((volatile signed __int32 *)(v6 + 2344));
+    v21 = v30;
+    *(_DWORD *)(v19 + 1140) = 4;
+    v29 = 0;
+    VidSchiExecuteMmIoFlip((struct HwQueueStagingList *)v25, v2, v21, v23, v18, &v29);
+    HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v25);
+    AcquireSpinLock::Release((AcquireSpinLock *)v27);
   }
   else
   {
-    WdLogSingleEntry1(6LL, 22068LL);
-    DxgCoreInterface[85](
-      0LL,
-      262145LL,
-      0xFFFFFFFFLL,
-      L"Failed to allocate VidSchSubmitData",
-      22068LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdLowResource(v8);
+    *(_QWORD *)(v9 + 24) = 20943LL;
+    WdLogEvent5_WdLowResource(v9);
     v3 = -1073741801;
   }
-  CVidSchSubmitData::~CVidSchSubmitData((CVidSchSubmitData *)v25);
+  CVidSchSubmitData::~CVidSchSubmitData(v24);
   return v3;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of IopOpenLinkOrRenameTarget @ 0x14068BA48
+ * XREFs of IopOpenLinkOrRenameTarget @ 0x14068BA28
  * Callers:
- *     NtSetInformationFile @ 0x140100E70 (NtSetInformationFile.c)
- *     IoSetInformation @ 0x1407012A0 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x140701280 (IoSetInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopGetFileObjectExtension @ 0x1400B7950 (IopGetFileObjectExtension.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IopGetFileObjectExtension @ 0x1400B7970 (IopGetFileObjectExtension.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     IoCreateFileEx @ 0x14060B870 (IoCreateFileEx.c)
- *     IopGetBasicInformationFile @ 0x14068BC90 (IopGetBasicInformationFile.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14081C020 (IoConvertFileHandleToKernelHandle.c)
+ *     IopGetBasicInformationFile @ 0x14068BC70 (IopGetBasicInformationFile.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14081C000 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall IopOpenLinkOrRenameTarget(_QWORD *a1, __int64 a2, __int64 a3, struct _FILE_OBJECT *a4)

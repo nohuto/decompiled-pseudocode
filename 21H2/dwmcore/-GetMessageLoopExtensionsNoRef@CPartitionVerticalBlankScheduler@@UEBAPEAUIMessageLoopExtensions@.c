@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMessageLoopExtensionsNoRef@CPartitionVerticalBlankScheduler@@UEBAPEAUIMessageLoopExtensions@@XZ @ 0x1800FA620
+ * XREFs of ?GetMessageLoopExtensionsNoRef@CPartitionVerticalBlankScheduler@@UEBAPEAUIMessageLoopExtensions@@XZ @ 0x1800E1C50
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 struct IMessageLoopExtensions *__fastcall CPartitionVerticalBlankScheduler::GetMessageLoopExtensionsNoRef(
         CPartitionVerticalBlankScheduler *this)
 {
-  return (struct IMessageLoopExtensions *)*((_QWORD *)this + 17);
+  return (struct IMessageLoopExtensions *)*((_QWORD *)this + 18);
 }

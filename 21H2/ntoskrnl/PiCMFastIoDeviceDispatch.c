@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCMFastIoDeviceDispatch @ 0x14077BC30
+ * XREFs of PiCMFastIoDeviceDispatch @ 0x1406347E0
  * Callers:
  *     <none>
  * Callees:
- *     IoIs32bitProcess @ 0x1402DF4A0 (IoIs32bitProcess.c)
- *     PiCMHandleIoctl @ 0x14077BCA0 (PiCMHandleIoctl.c)
+ *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
+ *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
  */
 
 char __fastcall PiCMFastIoDeviceDispatch(
@@ -13,7 +13,7 @@ char __fastcall PiCMFastIoDeviceDispatch(
         int a3,
         __int64 a4,
         __int64 a5,
-        __int64 a6,
+        int a6,
         int a7,
         _DWORD *a8)
 {

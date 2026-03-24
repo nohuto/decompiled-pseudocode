@@ -1,19 +1,19 @@
 /*
- * XREFs of AdtpBuildAccessReasonAuditString @ 0x140325AEC
+ * XREFs of AdtpBuildAccessReasonAuditString @ 0x140325BEC
  * Callers:
- *     AdtpPackageParameters @ 0x140188D7C (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140188D9C (AdtpPackageParameters.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     AdtpIsSDValidSelfRelative @ 0x1401B7A28 (AdtpIsSDValidSelfRelative.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326054 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140326A4C (AdtpBuildContextFromSecurityDescriptor.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x140326AD8 (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     AdtpIsSDValidSelfRelative @ 0x1401B7A48 (AdtpIsSDValidSelfRelative.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326154 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140326B4C (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x140326BD8 (AdtpBuildStagingReasonAuditStringInternal.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlLengthSecurityDescriptor @ 0x1405CA090 (RtlLengthSecurityDescriptor.c)
- *     AdtpEtwBuildDashString @ 0x1406D0B80 (AdtpEtwBuildDashString.c)
+ *     AdtpEtwBuildDashString @ 0x1406D0B60 (AdtpEtwBuildDashString.c)
  */
 
 __int64 __fastcall AdtpBuildAccessReasonAuditString(

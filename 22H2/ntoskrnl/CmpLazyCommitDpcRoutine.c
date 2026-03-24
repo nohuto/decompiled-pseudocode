@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLazyCommitDpcRoutine @ 0x140616500
+ * XREFs of CmpLazyCommitDpcRoutine @ 0x1404EC970
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void CmpLazyCommitDpcRoutine()

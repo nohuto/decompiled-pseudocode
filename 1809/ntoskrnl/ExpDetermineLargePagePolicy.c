@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpDetermineLargePagePolicy @ 0x14018D488
+ * XREFs of ExpDetermineLargePagePolicy @ 0x14018D4A8
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x14018D258 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x14018D278 (ExInitializePoolHeapManagement.c)
  * Callees:
  *     MmGetNumberOfPhysicalPages @ 0x1406259BC (MmGetNumberOfPhysicalPages.c)
  */

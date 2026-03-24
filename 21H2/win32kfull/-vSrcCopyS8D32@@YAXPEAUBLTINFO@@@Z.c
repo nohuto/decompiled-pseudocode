@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS8D32@@YAXPEAUBLTINFO@@@Z @ 0x1C00DE740
+ * XREFs of ?vSrcCopyS8D32@@YAXPEAUBLTINFO@@@Z @ 0x1C00F4E40
  * Callers:
  *     <none>
  * Callees:
@@ -8,33 +8,35 @@
 
 void __fastcall vSrcCopyS8D32(struct BLTINFO *a1)
 {
-  unsigned __int8 *v1; // r8
-  int v2; // esi
-  int v3; // edi
-  _DWORD *v4; // r9
-  __int64 v5; // r14
-  unsigned __int8 *v6; // r10
-  _DWORD *v7; // r11
-  int i; // ebx
-  __int64 v9; // rax
+  unsigned __int8 *v2; // r11
+  int v3; // ebp
+  int v4; // edi
+  __int64 v5; // rbx
+  __int64 v6; // r10
+  unsigned __int8 *v7; // r8
+  __int64 v8; // r9
+  int i; // eax
+  __int64 v10; // rcx
 
-  v1 = (unsigned __int8 *)(*((_QWORD *)a1 + 1) + *((int *)a1 + 12));
-  v2 = *((_DWORD *)a1 + 7);
-  v3 = *((_DWORD *)a1 + 8);
-  v4 = (_DWORD *)(*((_QWORD *)a1 + 2) + 4 * *((_DWORD *)a1 + 14));
-  v5 = *(_QWORD *)(*(_QWORD *)a1 + 16LL);
+  v2 = (unsigned __int8 *)(*((_QWORD *)a1 + 1) + *((int *)a1 + 12));
+  v3 = *((_DWORD *)a1 + 7);
+  v4 = *((_DWORD *)a1 + 8);
+  v5 = *((_QWORD *)a1 + 2) + 4 * *((_DWORD *)a1 + 14);
+  v6 = *(_QWORD *)(*(_QWORD *)a1 + 16LL);
   while ( 1 )
   {
-    v6 = v1;
-    v7 = v4;
-    for ( i = v2; i; --i )
+    v7 = v2;
+    v8 = v5;
+    for ( i = v3; i; --i )
     {
-      v9 = *v6++;
-      *v7++ = *(_DWORD *)(v5 + 4 * v9);
+      v10 = *v7;
+      v8 += 4LL;
+      ++v7;
+      *(_DWORD *)(v8 - 4) = *(_DWORD *)(v6 + 4 * v10);
     }
-    if ( !--v3 )
+    if ( !--v4 )
       break;
-    v1 += *((int *)a1 + 10);
-    v4 = (_DWORD *)((char *)v4 + *((int *)a1 + 11));
+    v2 += *((int *)a1 + 10);
+    v5 += *((int *)a1 + 11);
   }
 }

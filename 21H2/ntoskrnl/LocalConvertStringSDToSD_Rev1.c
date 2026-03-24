@@ -1,26 +1,26 @@
 /*
- * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x140743E60
+ * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x1407875B4
  * Callers:
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1402D0E30 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14039E610 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
  * Callees:
- *     LocalGetSidForString @ 0x140675CC0 (LocalGetSidForString.c)
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     LocalGetSDControlForString @ 0x1406769E0 (LocalGetSDControlForString.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
- *     RtlNtStatusToDosError @ 0x14069E070 (RtlNtStatusToDosError.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406CCBA0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140744160 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
+ *     LocalGetSidForString @ 0x140787E40 (LocalGetSidForString.c)
+ *     LocalGetSDControlForString @ 0x1407B85F8 (LocalGetSDControlForString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalConvertStringSDToSD_Rev1(__int64 a1, __int64 a2, __int64 a3, wchar_t *a4, PVOID *a5, ULONG *a6)
 {
   wchar_t *v6; // rax
-  unsigned int SDControlForString; // ebx
+  ULONG SDControlForString; // ebx
   void *v8; // r14
   void *v9; // rsi
   BOOLEAN v10; // r13
@@ -32,46 +32,50 @@ __int64 __fastcall LocalConvertStringSDToSD_Rev1(__int64 a1, __int64 a2, __int64
   int v16; // eax
   PVOID v17; // rax
   int v18; // eax
-  unsigned int SidForString; // eax
+  ULONG SidForString; // eax
   int v21; // eax
   int v22; // eax
   wchar_t *v23; // rax
   ULONG v24; // eax
   ULONG v25; // eax
   NTSTATUS v26; // eax
-  wchar_t *v27; // [rsp+48h] [rbp-59h] BYREF
-  __int16 v28[2]; // [rsp+50h] [rbp-51h] BYREF
+  __int64 v27; // [rsp+28h] [rbp-79h]
+  __int64 v28; // [rsp+30h] [rbp-71h]
+  __int64 v29; // [rsp+38h] [rbp-69h]
+  int v30; // [rsp+40h] [rbp-61h]
+  wchar_t *v31; // [rsp+48h] [rbp-59h] BYREF
+  __int16 v32; // [rsp+50h] [rbp-51h]
   ULONG BufferLength; // [rsp+54h] [rbp-4Dh] BYREF
-  PACL Dacl; // [rsp+58h] [rbp-49h] BYREF
-  PVOID P; // [rsp+60h] [rbp-41h] BYREF
-  void *v32; // [rsp+68h] [rbp-39h] BYREF
-  void *v33; // [rsp+70h] [rbp-31h] BYREF
+  PACL Dacl; // [rsp+58h] [rbp-49h]
+  PVOID P; // [rsp+60h] [rbp-41h]
+  void *v36; // [rsp+68h] [rbp-39h] BYREF
+  void *v37; // [rsp+70h] [rbp-31h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+78h] [rbp-29h] BYREF
-  __int64 v35; // [rsp+98h] [rbp-9h]
-  __int64 v36; // [rsp+F8h] [rbp+57h] BYREF
-  __int64 v37; // [rsp+100h] [rbp+5Fh] BYREF
-  char v38; // [rsp+108h] [rbp+67h]
-  __int16 v39; // [rsp+110h] [rbp+6Fh] BYREF
+  __int64 v39; // [rsp+98h] [rbp-9h]
+  __int64 v40; // [rsp+F8h] [rbp+57h] BYREF
+  __int64 v41; // [rsp+100h] [rbp+5Fh] BYREF
+  char v42; // [rsp+108h] [rbp+67h]
+  __int16 v43; // [rsp+110h] [rbp+6Fh]
 
-  v37 = a2;
-  v36 = a1;
-  v32 = 0LL;
-  v33 = 0LL;
+  v41 = a2;
+  v40 = a1;
+  v36 = 0LL;
+  v37 = 0LL;
   v6 = a4;
   Dacl = 0LL;
   SDControlForString = 0;
   P = 0LL;
   v8 = 0LL;
-  v35 = 0LL;
+  v39 = 0LL;
   v9 = 0LL;
-  v27 = 0LL;
+  v31 = 0LL;
   v10 = 0;
-  LOBYTE(v37) = 0;
-  LOBYTE(v36) = 0;
+  LOBYTE(v41) = 0;
+  LOBYTE(v40) = 0;
   BufferLength = 0;
-  v38 = 0;
-  v28[0] = 0;
-  v39 = 0;
+  v42 = 0;
+  v32 = 0;
+  v43 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   if ( !a4 )
     return 87LL;
@@ -96,35 +100,39 @@ __int64 __fastcall LocalConvertStringSDToSD_Rev1(__int64 a1, __int64 a2, __int64
             goto LABEL_60;
           if ( *v14 != 40 )
           {
-            SDControlForString = LocalGetSDControlForString(v14, 1, v28, &v27);
+            SDControlForString = LocalGetSDControlForString(v14);
             if ( SDControlForString )
               goto LABEL_29;
-            v14 = v27;
+            v14 = v31;
           }
-          SDControlForString = LocalGetAclForString(v14, 1, &Dacl, &v27);
+          LOBYTE(v30) = 0;
+          v29 = 0LL;
+          v28 = 0LL;
+          v27 = 0LL;
+          SDControlForString = LocalGetAclForString(v14);
           if ( SDControlForString )
             goto LABEL_29;
-          v6 = v27;
+          v6 = v31;
           v10 = 1;
           break;
         case 'G':
           SDControlForString = 87;
           if ( v6[1] != 58 || v9 )
             goto LABEL_29;
-          SidForString = LocalGetSidForString(v6 + 2, &v33, &v27, &v36);
-          v9 = v33;
+          SidForString = LocalGetSidForString(v6 + 2, &v37, &v31, &v40, v27, v28, v29, v30);
+          v9 = v37;
           goto LABEL_40;
         case 'O':
           SDControlForString = 87;
           if ( v6[1] != 58 || v8 )
             goto LABEL_29;
-          SidForString = LocalGetSidForString(v6 + 2, &v32, &v27, &v37);
-          v8 = v32;
+          SidForString = LocalGetSidForString(v6 + 2, &v36, &v31, &v41, v27, v28, v29, v30);
+          v8 = v36;
 LABEL_40:
           SDControlForString = SidForString;
           if ( SidForString )
             goto LABEL_29;
-          v6 = v27;
+          v6 = v31;
           break;
         case ' ':
           ++v6;
@@ -138,16 +146,20 @@ LABEL_60:
           }
           if ( *v23 != 40 )
           {
-            SDControlForString = LocalGetSDControlForString(v23, 2, &v39, &v27);
+            SDControlForString = LocalGetSDControlForString(v23);
             if ( SDControlForString )
               goto LABEL_29;
-            v23 = v27;
+            v23 = v31;
           }
-          SDControlForString = LocalGetAclForString(v23, 0, (PACL *)&P, &v27);
+          LOBYTE(v30) = 0;
+          v29 = 0LL;
+          v28 = 0LL;
+          v27 = 0LL;
+          SDControlForString = LocalGetAclForString(v23);
           if ( SDControlForString )
             goto LABEL_29;
-          v6 = v27;
-          v38 = 1;
+          v6 = v31;
+          v42 = 1;
           break;
       }
     }
@@ -159,7 +171,7 @@ LABEL_60:
   v15 = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   if ( v15 < 0 )
     SDControlForString = RtlNtStatusToDosError(v15);
-  WORD1(SecurityDescriptor[0]) |= v28[0] | v39;
+  WORD1(SecurityDescriptor[0]) |= v32 | v43;
   if ( !SDControlForString )
   {
     if ( !v8
@@ -174,8 +186,8 @@ LABEL_60:
           || (v16 = RtlSetDaclSecurityDescriptor(SecurityDescriptor, v10, Dacl, 0), v16 >= 0)
           || (SDControlForString = RtlNtStatusToDosError(v16)) == 0 )
         {
-          if ( !v38
-            || (v26 = RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, v38, (__int64)P, 0), v26 >= 0)
+          if ( !v42
+            || (v26 = RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, v42, (__int64)P, 0), v26 >= 0)
             || (SDControlForString = RtlNtStatusToDosError(v26)) == 0 )
           {
             if ( RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, *v11, &BufferLength) == -1073741789 )
@@ -183,40 +195,39 @@ LABEL_60:
               SDControlForString = 0;
               v17 = SddlpAlloc(BufferLength);
               *v11 = v17;
-              if ( v17 )
-              {
-                v18 = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v17, &BufferLength);
-                if ( v18 >= 0 )
-                  goto LABEL_27;
-                SDControlForString = RtlNtStatusToDosError(v18);
-                if ( *v11 )
-                  ExFreePoolWithTag(*v11, 0);
-                *v11 = 0LL;
-                if ( !SDControlForString )
-                {
-LABEL_27:
-                  if ( v12 )
-                    *v12 = BufferLength;
-                }
-              }
-              else
+              if ( !v17 )
               {
                 SDControlForString = 8;
+                goto LABEL_29;
               }
+              v18 = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v17, &BufferLength);
+              if ( v18 >= 0 )
+              {
+LABEL_27:
+                if ( v12 )
+                  *v12 = BufferLength;
+                goto LABEL_29;
+              }
+              SDControlForString = RtlNtStatusToDosError(v18);
+              if ( *v11 )
+                ExFreePoolWithTag(*v11, 0);
+              *v11 = 0LL;
             }
             else
             {
               SDControlForString = 122;
             }
+            if ( !SDControlForString )
+              goto LABEL_27;
           }
         }
       }
     }
   }
 LABEL_29:
-  if ( (_BYTE)v37 == 1 && v8 )
+  if ( (_BYTE)v41 == 1 && v8 )
     ExFreePoolWithTag(v8, 0);
-  if ( (_BYTE)v36 == 1 && v9 )
+  if ( (_BYTE)v40 == 1 && v9 )
     ExFreePoolWithTag(v9, 0);
   if ( Dacl )
     ExFreePoolWithTag(Dacl, 0);

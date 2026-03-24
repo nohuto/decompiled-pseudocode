@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLightWeightCommitSetUserFlagsUoW @ 0x140803DCC
+ * XREFs of CmpLightWeightCommitSetUserFlagsUoW @ 0x140803DAC
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpLightWeightCommitSetUserFlagsUoW(__int64 a1, _QWORD *a2)

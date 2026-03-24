@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPushBadPool @ 0x1402AC60C
+ * XREFs of MiPushBadPool @ 0x1402AC70C
  * Callers:
- *     MiScrubNonPagedPool @ 0x14084F0F8 (MiScrubNonPagedPool.c)
+ *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPushBadPool(__int64 a1, __int64 a2)

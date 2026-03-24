@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbpBuildAllocationStack @ 0x1C009BEC0
+ * XREFs of ArbpBuildAllocationStack @ 0x1C0095670
  * Callers:
- *     ArbTestAllocation @ 0x1C009C590 (ArbTestAllocation.c)
+ *     ArbTestAllocation @ 0x1C00959B0 (ArbTestAllocation.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
- *     ArbpBuildAlternative @ 0x1C009BFF8 (ArbpBuildAlternative.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ArbpBuildAlternative @ 0x1C00957A8 (ArbpBuildAlternative.c)
  */
 
 __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
@@ -13,10 +13,10 @@ __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
   __int64 v4; // r15
   int v5; // ebx
   __int64 *v6; // r14
-  int v8; // ecx
-  int v9; // r8d
+  int v8; // r8d
+  int v9; // ecx
   unsigned int v10; // edi
-  void *Pool2; // rsi
+  PVOID PoolWithTag; // rsi
   __int64 v12; // rsi
   __int64 v13; // rdi
   __int64 *i; // rbx
@@ -46,18 +46,18 @@ __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
   v10 = 80 * v4 + v3;
   if ( *(_DWORD *)(a1 + 104) < v10 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v10, 1096970817LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v10, 0x41627241u);
+    if ( !PoolWithTag )
       return 3221225626LL;
     ExFreePoolWithTag(*(PVOID *)(a1 + 112), 0x41627241u);
-    *(_QWORD *)(a1 + 112) = Pool2;
+    *(_QWORD *)(a1 + 112) = PoolWithTag;
     *(_DWORD *)(a1 + 104) = v10;
   }
   else
   {
-    Pool2 = *(void **)(a1 + 112);
+    PoolWithTag = *(PVOID *)(a1 + 112);
   }
-  memset(Pool2, 0, v10);
+  memset(PoolWithTag, 0, v10);
   v12 = *(_QWORD *)(a1 + 112);
   if ( v5 )
     v13 = v12 + 80 * v4;

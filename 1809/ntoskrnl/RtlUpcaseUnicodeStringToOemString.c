@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x1406CEEE0
+ * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x1406CEEC0
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BEB0 (RtlxUnicodeStringToOemSize.c)
- *     RtlpDidUnicodeToOemWork @ 0x14067C200 (RtlpDidUnicodeToOemWork.c)
- *     RtlUpcaseUnicodeToOemN @ 0x14067C280 (RtlUpcaseUnicodeToOemN.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
+ *     RtlpDidUnicodeToOemWork @ 0x14067C1E0 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x14067C260 (RtlUpcaseUnicodeToOemN.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeStringToOemString(

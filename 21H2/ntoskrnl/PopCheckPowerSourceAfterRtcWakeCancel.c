@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCheckPowerSourceAfterRtcWakeCancel @ 0x140399104
+ * XREFs of PopCheckPowerSourceAfterRtcWakeCancel @ 0x14038DB58
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeCancelTimer2 @ 0x1402D3FB0 (KeCancelTimer2.c)
+ *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
 LONG PopCheckPowerSourceAfterRtcWakeCancel()

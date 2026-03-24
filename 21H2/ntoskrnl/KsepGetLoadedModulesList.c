@@ -1,22 +1,22 @@
 /*
- * XREFs of KsepGetLoadedModulesList @ 0x140825DCC
+ * XREFs of KsepGetLoadedModulesList @ 0x1407BD794
  * Callers:
- *     KseRegisterShimEx @ 0x140825A70 (KseRegisterShimEx.c)
- *     KsepResolveApplicableShimsForDriver @ 0x1409646B4 (KsepResolveApplicableShimsForDriver.c)
+ *     KseRegisterShimEx @ 0x1407BD440 (KseRegisterShimEx.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408C0634 (KsepResolveApplicableShimsForDriver.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1402D8494 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
+ *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
  */
 
 __int64 __fastcall KsepGetLoadedModulesList(int **a1)
 {
-  unsigned int i; // edi
+  unsigned int i; // ebx
   int *Paged; // rax
-  int *v4; // rbx
+  int *v4; // rdi
   int SystemInformation; // eax
   int v6; // ebp
-  unsigned int v7; // edi
+  unsigned int v7; // ebx
 
   if ( !a1 )
     return 3221225485LL;
@@ -25,21 +25,19 @@ __int64 __fastcall KsepGetLoadedModulesList(int **a1)
     Paged = (int *)KsepPoolAllocatePaged(i);
     v4 = Paged;
     if ( !Paged )
-      break;
+      return (unsigned int)-1073741670;
     SystemInformation = ZwQuerySystemInformation(11LL, (__int64)Paged);
     v6 = *v4;
     v7 = SystemInformation;
     if ( SystemInformation >= 0 )
-    {
-      *a1 = v4;
-      return v7;
-    }
+      break;
     if ( SystemInformation != -1073741820 )
-    {
-      KsepPoolFreePaged(v4);
-      return v7;
-    }
+      goto LABEL_8;
     KsepPoolFreePaged(v4);
   }
-  return (unsigned int)-1073741670;
+  *a1 = v4;
+LABEL_8:
+  if ( SystemInformation < 0 )
+    KsepPoolFreePaged(v4);
+  return v7;
 }

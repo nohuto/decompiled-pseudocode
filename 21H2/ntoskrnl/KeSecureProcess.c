@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSecureProcess @ 0x14056C6B8
+ * XREFs of KeSecureProcess @ 0x140513A40
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     VslInitializeSecureProcess @ 0x14054E6A4 (VslInitializeSecureProcess.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     VslInitializeSecureProcess @ 0x1404FCA14 (VslInitializeSecureProcess.c)
  */
 
 __int64 __fastcall KeSecureProcess(
@@ -25,6 +25,6 @@ __int64 __fastcall KeSecureProcess(
   memset(v14, 0, sizeof(v14));
   KiStackAttachProcess(a1, 0LL, (__int64)v14, a4);
   v12 = VslInitializeSecureProcess(a2, a1->SecureState.SecureHandle, a3, (__int64)a4, a5, a6, a7, a8);
-  KiUnstackDetachProcess((__int64)v14, 0LL);
+  KiUnstackDetachProcess((__int64)v14, 0);
   return v12;
 }

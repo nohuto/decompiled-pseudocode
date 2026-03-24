@@ -1,34 +1,35 @@
 /*
- * XREFs of ACPIEcCreateEcData @ 0x1C0052F28
+ * XREFs of ACPIEcCreateEcData @ 0x1C0053848
  * Callers:
- *     ACPIEcInitOpRegionHandler @ 0x1C0020398 (ACPIEcInitOpRegionHandler.c)
- *     ACPIEcStartDevice @ 0x1C00530C0 (ACPIEcStartDevice.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcStartDevice @ 0x1C00539F0 (ACPIEcStartDevice.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 ACPIEcCreateEcData()
+PVOID ACPIEcCreateEcData()
 {
-  __int64 result; // rax
+  PVOID result; // rax
   __int64 v1; // rbx
   int v2; // eax
   bool v3; // zf
 
-  result = ExAllocatePool2(64LL, 904LL, 1164993345LL);
-  v1 = result;
+  result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x388uLL, 0x45706341u);
+  v1 = (__int64)result;
   if ( result )
   {
-    *(_QWORD *)(result + 8) = _InterlockedExchange64(&EcExtensionList, result);
-    *(_DWORD *)(result + 68) = 10;
-    v2 = *(_DWORD *)(result + 68);
+    memset(result, 0, 0x388uLL);
+    *(_QWORD *)(v1 + 8) = _InterlockedExchange64(&EcExtensionList, v1);
+    *(_DWORD *)(v1 + 68) = 10;
+    v2 = *(_DWORD *)(v1 + 68);
     *(_DWORD *)(v1 + 64) = 50;
     v3 = (AcpiOverrideAttributes & 0x1000000) == 0;
-    *(_WORD *)(v1 + 121) = 0;
+    *(_BYTE *)(v1 + 488) = 0;
     if ( !v3 )
       v2 = 50;
-    *(_BYTE *)(v1 + 488) = 0;
-    *(_DWORD *)(v1 + 68) = v2;
     *(_BYTE *)(v1 + 458) = 1;
+    *(_WORD *)(v1 + 121) = 0;
+    *(_DWORD *)(v1 + 68) = v2;
     *(_BYTE *)(v1 + 504) = 0;
     KeQueryPerformanceCounter((PLARGE_INTEGER)(v1 + 512));
     *(_QWORD *)(v1 + 472) = v1 + 464;
@@ -37,7 +38,7 @@ __int64 ACPIEcCreateEcData()
     KeInitializeSpinLock((PKSPIN_LOCK)(v1 + 88));
     KeInitializeTimer((PKTIMER)(v1 + 520));
     KeInitializeDpc((PRKDPC)(v1 + 584), ACPIEcWatchdogDpc, (PVOID)v1);
-    return v1;
+    return (PVOID)v1;
   }
   return result;
 }

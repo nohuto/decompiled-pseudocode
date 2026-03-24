@@ -1,10 +1,10 @@
 /*
- * XREFs of RaspAddCacheEntry @ 0x140AEEB20
+ * XREFs of RaspAddCacheEntry @ 0x1409F46A4
  * Callers:
- *     BgpRasPrintGlyph @ 0x140384924 (BgpRasPrintGlyph.c)
- *     RaspGetXExtent @ 0x140384EA4 (RaspGetXExtent.c)
+ *     BgpRasPrintGlyph @ 0x1403AC968 (BgpRasPrintGlyph.c)
+ *     RaspGetXExtent @ 0x1403ACF24 (RaspGetXExtent.c)
  * Callees:
- *     RaspDestroyCachedBitmap @ 0x140AEEAE0 (RaspDestroyCachedBitmap.c)
+ *     RaspDestroyCachedBitmap @ 0x1409F4708 (RaspDestroyCachedBitmap.c)
  */
 
 __int64 __fastcall RaspAddCacheEntry(__int64 a1, __int64 *a2)
@@ -38,5 +38,5 @@ LABEL_9:
     __fastfail(3u);
   *(_QWORD *)(a1 + 8) = v6;
   *v6 = a1;
-  return RaspDestroyCachedBitmap((__int64)v5);
+  return RaspDestroyCachedBitmap(v5);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGetAppContainerSidType @ 0x140654B80
+ * XREFs of RtlGetAppContainerSidType @ 0x140654B60
  * Callers:
- *     RtlIsParentOfChildAppContainer @ 0x140654C54 (RtlIsParentOfChildAppContainer.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
- *     SepValidateReferencedCachedHandles @ 0x14065D67C (SepValidateReferencedCachedHandles.c)
- *     RtlGetAppContainerParent @ 0x140893D80 (RtlGetAppContainerParent.c)
- *     RtlpGetTokenNamedObjectPath @ 0x140894DCC (RtlpGetTokenNamedObjectPath.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140654C34 (RtlIsParentOfChildAppContainer.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     SepValidateReferencedCachedHandles @ 0x14065D65C (SepValidateReferencedCachedHandles.c)
+ *     RtlGetAppContainerParent @ 0x140893D60 (RtlGetAppContainerParent.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140894DAC (RtlpGetTokenNamedObjectPath.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x1400DCAC0 (RtlSubAuthorityCountSid.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlSubAuthorityCountSid @ 0x1400DCAE0 (RtlSubAuthorityCountSid.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall RtlGetAppContainerSidType(char *Sid, _DWORD *a2)

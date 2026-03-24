@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpDiscardKcb @ 0x14067EB68
+ * XREFs of CmpDiscardKcb @ 0x14066C928
  * Callers:
- *     CmpRemoveHiveFromNamespace @ 0x1402089E0 (CmpRemoveHiveFromNamespace.c)
- *     CmDeleteLayeredKey @ 0x14053F5E8 (CmDeleteLayeredKey.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmpInvalidateSubtreeWorker @ 0x1406E8680 (CmpInvalidateSubtreeWorker.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmpRefreshWorkerRoutine @ 0x14090DEF0 (CmpRefreshWorkerRoutine.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmpCommitDiscardReplacePost @ 0x14091CBB0 (CmpCommitDiscardReplacePost.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x14091CE30 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x1409237B4 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x1409239EC (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpRemoveHiveFromNamespace @ 0x140361788 (CmpRemoveHiveFromNamespace.c)
+ *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140771FC0 (CmpInvalidateSubtreeWorker.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpCommitDiscardReplacePost @ 0x140876020 (CmpCommitDiscardReplacePost.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x1408762A0 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpRefreshWorkerRoutine @ 0x14087D840 (CmpRefreshWorkerRoutine.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ECD4 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EEC4 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpRemoveKeyHash @ 0x14067EAE0 (CmpRemoveKeyHash.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x14067EC64 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x14067ED34 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpRemoveKeyHash @ 0x14066C8A0 (CmpRemoveKeyHash.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x14066CA24 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x14066CAF4 (CmpLockDeletedHashEntryExclusiveByKcb.c)
  */
 
 __int64 __fastcall CmpDiscardKcb(ULONG_PTR BugCheckParameter4)
@@ -65,13 +65,13 @@ __int64 __fastcall CmpDiscardKcb(ULONG_PTR BugCheckParameter4)
   CmpRemoveKeyHash(v3, (_DWORD *)(BugCheckParameter4 + 16));
   CmpLockDeletedHashEntryExclusiveByKcb(BugCheckParameter4);
   v4 = *(_QWORD *)(BugCheckParameter4 + 32);
-  v5 = *(_QWORD *)(v4 + 1664);
+  v5 = *(_QWORD *)(v4 + 1656);
   v6 = 3
-     * ((unsigned int)(*(_DWORD *)(v4 + 1672) - 1) & ((unsigned int)(101027
+     * ((unsigned int)(*(_DWORD *)(v4 + 1664) - 1) & ((unsigned int)(101027
                                                                    * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9))) >> 9)));
   *(_QWORD *)(BugCheckParameter4 + 24) = *(_QWORD *)(v5
                                                    + 24
-                                                   * ((unsigned int)(*(_DWORD *)(v4 + 1672) - 1) & ((unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9))) >> 9)))
+                                                   * ((unsigned int)(*(_DWORD *)(v4 + 1664) - 1) & ((unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9))) >> 9)))
                                                    + 16);
   *(_QWORD *)(v5 + 8 * v6 + 16) = BugCheckParameter4 + 16;
   return CmpUnlockDeletedHashEntryByKcb(BugCheckParameter4);

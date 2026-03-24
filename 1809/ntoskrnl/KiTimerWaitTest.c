@@ -1,25 +1,25 @@
 /*
- * XREFs of KiTimerWaitTest @ 0x1400C7B50
+ * XREFs of KiTimerWaitTest @ 0x1400C7B70
  * Callers:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiProcessExpiredTimerList @ 0x1400C7800 (KiProcessExpiredTimerList.c)
- *     KiResumeThread @ 0x1400F1C40 (KiResumeThread.c)
- *     KiAdjustTimerDueTimes @ 0x14016FBCC (KiAdjustTimerDueTimes.c)
+ *     KiProcessExpiredTimerList @ 0x1400C7820 (KiProcessExpiredTimerList.c)
+ *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
  * Callees:
  *     KiInsertTimerTable @ 0x1400581E0 (KiInsertTimerTable.c)
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiWakeQueueWaiter @ 0x1400AC9F0 (KiWakeQueueWaiter.c)
- *     KiTryUnwaitThread @ 0x1400C4DB0 (KiTryUnwaitThread.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC40 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
- *     KeIsThreadRunning @ 0x14028DCA8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14030FC8C (EtwTraceEnqueueWork.c)
+ *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
+ *     KiTryUnwaitThread @ 0x1400C4DD0 (KiTryUnwaitThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
+ *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
  */
 
 ULONG_PTR __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, unsigned int *a3)

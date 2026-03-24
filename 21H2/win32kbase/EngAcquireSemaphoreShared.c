@@ -1,9 +1,9 @@
 /*
- * XREFs of EngAcquireSemaphoreShared @ 0x1C01770B0
+ * XREFs of EngAcquireSemaphoreShared @ 0x1C014AC60
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0089800 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C007F220 (EtwTraceGreLockAcquireSemaphoreShared.c)
  */
 
 void __stdcall EngAcquireSemaphoreShared(HSEMAPHORE hsem)

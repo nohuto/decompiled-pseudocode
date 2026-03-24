@@ -1,29 +1,29 @@
 /*
- * XREFs of ?ConvertDmmToDisplayConfigScaling@@YA?AW4DISPLAYCONFIG_SCALING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C017CAC4
+ * XREFs of ?ConvertDmmToDisplayConfigScaling@@YA?AW4DISPLAYCONFIG_SCALING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0146650
  * Callers:
- *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C016D2D0 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
- *     ?ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1AEAUQDC_CONTEXT@@@Z @ 0x1C017C618 (-ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1AEAUQDC_CONTEXT@@@Z.c)
+ *     ?ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1PEAU_QDC_CONTEXT@@@Z @ 0x1C01461EC (-ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1PEAU_QDC_CONTEXT@@@Z.c)
+ *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C014A144 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall ConvertDmmToDisplayConfigScaling(unsigned int a1)
+__int64 __fastcall ConvertDmmToDisplayConfigScaling(__int64 a1, __int64 a2)
 {
-  if ( a1 == 1 || a1 == 2 || a1 == 3 || a1 == 4 || a1 == 5 )
-    return a1;
-  if ( a1 == 253 )
+  __int64 v3; // rax
+
+  if ( (int)a1 <= 0 )
+    goto LABEL_5;
+  if ( (int)a1 <= 5 )
+    return (unsigned int)a1;
+  if ( (_DWORD)a1 != 255 )
   {
-    WdLogSingleEntry1(1LL, 946LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Scaling != D3DKMDT_VPPS_PREFERRED",
-      946LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+LABEL_5:
+    if ( (_DWORD)a1 == 253 )
+    {
+      v3 = WdLogNewEntry5_WdAssertion(a1, a2);
+      *(_QWORD *)(v3 + 24) = 950LL;
+      WdLogEvent5_WdAssertion(v3);
+    }
   }
   return 128LL;
 }

@@ -3,8 +3,8 @@
  * Callers:
  *     sub_140585520 @ 0x140585520 (sub_140585520.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     sub_1405855D0 @ 0x1405855D0 (sub_1405855D0.c)
  *     PiPnpFreePdoDeviceList @ 0x140585708 (PiPnpFreePdoDeviceList.c)

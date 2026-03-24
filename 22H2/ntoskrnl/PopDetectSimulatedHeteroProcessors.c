@@ -1,205 +1,165 @@
 /*
- * XREFs of PopDetectSimulatedHeteroProcessors @ 0x140B71AE0
+ * XREFs of PopDetectSimulatedHeteroProcessors @ 0x1407BBFC8
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BB3CC (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeIsMultiCoreClassesEnabled @ 0x140255E20 (KeIsMultiCoreClassesEnabled.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     PopReadSimulateProcessorClasses @ 0x140B71BF8 (PopReadSimulateProcessorClasses.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
  */
 
-void PopDetectSimulatedHeteroProcessors()
+char __fastcall PopDetectSimulatedHeteroProcessors(__int64 a1)
 {
-  unsigned __int8 v0; // bp
-  __int64 ActiveProcessorCount; // rdi
-  __int64 Pool2; // rbx
-  __int64 v3; // r15
-  void *v4; // r14
-  void *v5; // r13
-  __int64 v6; // rax
-  unsigned __int8 *v7; // r12
-  __int64 v8; // rcx
-  unsigned __int8 *v9; // rdx
-  __int64 v10; // r8
-  unsigned __int8 v11; // al
-  unsigned __int8 v12; // si
-  __int64 v13; // rdx
-  char v14; // r8
-  unsigned __int8 *v15; // rax
-  int v16; // eax
-  bool *v17; // rcx
-  unsigned int v18; // r10d
-  unsigned __int8 *v19; // r9
-  __int64 v20; // r11
-  __int64 v21; // rbp
-  unsigned int v22; // eax
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int64 i; // rdi
-  __int64 Prcb; // rax
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // rsi
-  char v30; // r8
+  char v1; // r14
+  ULONG v3; // esi
+  HANDLE v4; // rcx
+  NTSTATUS v5; // ebx
+  unsigned __int16 v6; // di
+  __int64 v7; // rcx
+  __int64 v8; // r15
+  ULONG ActiveProcessorCount; // eax
+  int *v10; // r9
+  _BYTE *v11; // r8
+  __int64 v12; // r10
+  unsigned int v13; // ecx
+  unsigned __int64 v14; // rax
+  __int64 v15; // rdx
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG Value; // [rsp+34h] [rbp-CCh] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v21; // [rsp+60h] [rbp-A0h]
+  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING ValueName; // [rsp+B0h] [rbp-50h] BYREF
+  __int128 KeyValueInformation; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 KeyInformation; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v27; // [rsp+E0h] [rbp-20h] BYREF
+  int v28; // [rsp+F0h] [rbp-10h]
+  _DWORD v29[43]; // [rsp+F4h] [rbp-Ch] BYREF
 
-  v0 = -1;
-  ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  if ( !PsIsCurrentThreadInServerSilo() )
+  Value = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  ResultLength = 0;
+  KeyHandle = 0LL;
+  v21 = a1;
+  KeyInformation = 0LL;
+  v27 = 0LL;
+  DestinationString = 0LL;
+  Handle = 0LL;
+  v28 = 1310721;
+  String = 0LL;
+  KeyValueInformation = 0LL;
+  ValueName = 0LL;
+  memset(v29, 0, 0xA4uLL);
+  RtlInitUnicodeString(
+    &DestinationString,
+    L"\\Registry\\MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KGroups");
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  v1 = 0;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( ZwOpenKey(&KeyHandle, 8u, &ObjectAttributes) < 0 )
+    return v1;
+  v3 = 0;
+  String.Buffer = (wchar_t *)&v27;
+  String.MaximumLength = 4;
+  RtlInitUnicodeString(&ValueName, L"SmallProcessorMask");
+  v4 = KeyHandle;
+  ObjectAttributes.RootDirectory = KeyHandle;
+  do
   {
-    Pool2 = ExAllocatePool2(256LL, 4 * (int)ActiveProcessorCount + 24, 0x704D5050u);
-    if ( Pool2 )
+    v5 = ZwEnumerateKey(v4, v3, KeyBasicInformation, &KeyInformation, 0x18u, &ResultLength);
+    if ( v5 < 0 )
+      goto LABEL_20;
+    ResultLength = HIDWORD(KeyInformation);
+    if ( HIDWORD(KeyInformation) <= 4 )
     {
-      v3 = (unsigned int)ActiveProcessorCount;
-      v4 = (void *)ExAllocatePool2(256LL, (unsigned int)ActiveProcessorCount, 0x704D5050u);
-      if ( !v4 )
-        goto LABEL_12;
-      v5 = (void *)ExAllocatePool2(256LL, 2uLL, 0x704D5050u);
-      if ( !v5 )
-        goto LABEL_10;
-      v6 = ExAllocatePool2(256LL, (unsigned int)ActiveProcessorCount, 0x704D5050u);
-      v7 = (unsigned __int8 *)v6;
-      if ( !v6 )
-        goto LABEL_8;
-      if ( (unsigned __int8)PopReadSimulateProcessorClasses((unsigned int)ActiveProcessorCount, v6) )
+      String.Length = WORD6(KeyInformation);
+      v5 = RtlUnicodeStringToInteger(&String, 0xAu, &Value);
+      if ( v5 >= 0 )
       {
-        if ( (_DWORD)ActiveProcessorCount )
+        v6 = Value;
+        if ( Value < HIWORD(v28) )
         {
-          v9 = v7;
-          v10 = ActiveProcessorCount;
-          do
+          DestinationString = String;
+          v5 = ZwOpenKey(&Handle, 1u, &ObjectAttributes);
+          if ( v5 < 0 )
           {
-            v8 = *v9;
-            v11 = v0;
-            if ( v0 >= (unsigned __int8)v8 )
-              v11 = *v9;
-            ++v9;
-            v0 = v11;
-            --v10;
+LABEL_20:
+            ++v3;
+            goto LABEL_21;
           }
-          while ( v10 );
-        }
-        v12 = 0;
-        v13 = (unsigned int)ActiveProcessorCount;
-        while ( 1 )
-        {
-          v14 = 0;
-          if ( (_DWORD)ActiveProcessorCount )
+          v5 = ZwQueryValueKey(
+                 Handle,
+                 &ValueName,
+                 KeyValuePartialInformationAlign64,
+                 &KeyValueInformation,
+                 0x10u,
+                 &ResultLength);
+          if ( v5 >= 0 && ((_DWORD)KeyValueInformation == 4 || (_DWORD)KeyValueInformation == 11) )
           {
-            v15 = v7;
-            v8 = ActiveProcessorCount;
-            do
+            v1 = 1;
+            if ( DWORD1(KeyValueInformation) == 4 )
             {
-              if ( *v15 == v0 )
-              {
-                v14 = 1;
-                *v15 = v12;
-                v13 = (unsigned int)(v13 - 1);
-              }
-              ++v15;
-              --v8;
+              v7 = DWORD2(KeyValueInformation);
+              *((_QWORD *)&KeyValueInformation + 1) = DWORD2(KeyValueInformation);
+LABEL_16:
+              if ( (unsigned __int16)v28 <= v6 )
+                LOWORD(v28) = v6 + 1;
+              *(_QWORD *)&v29[2 * v6 + 1] |= v7;
+              goto LABEL_19;
             }
-            while ( v8 );
-          }
-          if ( !(_DWORD)v13 )
-            break;
-          ++v0;
-          v8 = (unsigned __int8)(v12 + 1);
-          if ( !v14 )
-            v8 = v12;
-          v12 = v8;
-        }
-        v16 = PpmHeteroMultiCoreClassesRegValue;
-        if ( PpmHeteroMultiCoreClassesRegValue == -1 )
-          v16 = v12 >= 2u;
-        PpmHeteroMultiCoreClassesEnabled = v16;
-        if ( !KeIsMultiCoreClassesEnabled(v8, v13) )
-        {
-          v12 = v12 != 0;
-          if ( (_DWORD)ActiveProcessorCount )
-          {
-            v17 = (bool *)v7;
-            do
+            if ( DWORD1(KeyValueInformation) == 8 )
             {
-              *v17 = *v17;
-              ++v17;
-              --v3;
+              v7 = *((_QWORD *)&KeyValueInformation + 1);
+              goto LABEL_16;
             }
-            while ( v3 );
           }
+LABEL_19:
+          ZwClose(Handle);
+          goto LABEL_20;
         }
-        *(_QWORD *)(Pool2 + 8) = v4;
-        v18 = 0;
-        *(_QWORD *)(Pool2 + 16) = v5;
-        v4 = 0LL;
-        v5 = 0LL;
-        *(_DWORD *)Pool2 = ActiveProcessorCount;
-        *(_DWORD *)(Pool2 + 4) = 1;
-        if ( (_DWORD)ActiveProcessorCount )
-        {
-          v19 = v7;
-          v20 = 0LL;
-          do
-          {
-            v21 = 0LL;
-            *(_BYTE *)(v20 + *(_QWORD *)(Pool2 + 8)) = *v19;
-            v22 = *(_DWORD *)(Pool2 + 4);
-            if ( v22 )
-            {
-              do
-              {
-                v23 = *(_QWORD *)(Pool2 + 16);
-                v24 = v18 * v22 + (unsigned int)v21;
-                *(_BYTE *)(Pool2 + 4 * v24 + 25) = *v19;
-                *(_BYTE *)(Pool2 + 4 * v24 + 24) = v12 - *v19;
-                *(_BYTE *)(v23 + 2 * v21) = v12;
-                *(_BYTE *)(v23 + 2 * v21 + 1) = v12;
-                v21 = (unsigned int)(v21 + 1);
-                v22 = *(_DWORD *)(Pool2 + 4);
-              }
-              while ( (unsigned int)v21 < v22 );
-            }
-            ++v18;
-            ++v20;
-            ++v19;
-          }
-          while ( v18 < (unsigned int)ActiveProcessorCount );
-        }
-        PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-        for ( i = 0LL; (unsigned int)i < *(_DWORD *)Pool2; i = (unsigned int)(i + 1) )
-        {
-          Prcb = KeGetPrcb(i);
-          v28 = *(_QWORD *)(Pool2 + 8);
-          v29 = Prcb;
-          v30 = *(_BYTE *)(i + v28);
-          *(_BYTE *)(Prcb + 34059) = v30;
-          if ( v30 )
-          {
-            if ( !KeIsMultiCoreClassesEnabled(v28, v27) )
-              *(_BYTE *)(v29 + 34059) = 1;
-            if ( !PoDetectedHeteroSystem )
-              PoDetectedHeteroSystem = 1;
-          }
-        }
-        PpmReleaseLock(&PpmPerfPolicyLock);
-        PpmHeteroCapabilitySimulation = Pool2;
-        Pool2 = 0LL;
       }
-      ExFreePoolWithTag(v7, 0x704D5050u);
-      if ( v5 )
-LABEL_8:
-        ExFreePoolWithTag(v5, 0x704D5050u);
-      if ( v4 )
-LABEL_10:
-        ExFreePoolWithTag(v4, 0x704D5050u);
-      if ( Pool2 )
-LABEL_12:
-        ExFreePoolWithTag((PVOID)Pool2, 0x704D5050u);
     }
+LABEL_21:
+    v4 = KeyHandle;
   }
+  while ( v5 >= 0 );
+  ZwClose(KeyHandle);
+  v8 = v21;
+  if ( v1 )
+  {
+    ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+    v10 = KiProcessorIndexToNumberMappingTable;
+    v11 = (_BYTE *)(v8 + 8);
+    v12 = ActiveProcessorCount + 1;
+    do
+    {
+      v13 = *v10++;
+      v14 = v13;
+      LOBYTE(v13) = v13 & 0x3F;
+      v14 >>= 6;
+      v15 = (*(_QWORD *)&v29[2 * v14 + 1] >> v13) & 1LL;
+      LOBYTE(v13) = !((*(_QWORD *)&v29[2 * v14 + 1] >> v13) & 1);
+      *v11 = v13;
+      *(v11 - 1) = v15;
+      *(v11 - 2) = v13;
+      v11 += 3;
+      --v12;
+    }
+    while ( v12 );
+    *(_WORD *)(v8 + 4) = 257;
+  }
+  return v1;
 }

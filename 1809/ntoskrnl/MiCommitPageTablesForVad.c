@@ -4,17 +4,17 @@
  *     MiCommitExistingVad @ 0x140071470 (MiCommitExistingVad.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
- *     MiCommitPageTableRangesForVad @ 0x1402BA05C (MiCommitPageTableRangesForVad.c)
+ *     MiCommitPageTableRangesForVad @ 0x1402BA15C (MiCommitPageTableRangesForVad.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
  * Callees:
  *     RtlAreBitsClear @ 0x14000F1D0 (RtlAreBitsClear.c)
  *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
  *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
  *     MiIsVadLarge @ 0x140070D90 (MiIsVadLarge.c)
- *     MiCreateSystemWsles @ 0x1400F3184 (MiCreateSystemWsles.c)
- *     MiUpdateChargedWsles @ 0x1402CB58C (MiUpdateChargedWsles.c)
+ *     MiCreateSystemWsles @ 0x1400F31A4 (MiCreateSystemWsles.c)
+ *     MiUpdateChargedWsles @ 0x1402CB68C (MiUpdateChargedWsles.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiGetAweVadPageSize @ 0x14084FF24 (MiGetAweVadPageSize.c)
+ *     MiGetAweVadPageSize @ 0x14084FF04 (MiGetAweVadPageSize.c)
  */
 
 __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspFreeCurrentThreadUserShadowStack @ 0x14088B5E0
+ * XREFs of PspFreeCurrentThreadUserShadowStack @ 0x14088B5C0
  * Callers:
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1401B85D0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
  *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
  */
 

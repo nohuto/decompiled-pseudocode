@@ -1,40 +1,40 @@
 /*
- * XREFs of write_char_1 @ 0x1403E8ED8
+ * XREFs of write_char_1 @ 0x1403D9B00
  * Callers:
- *     _woutput_s @ 0x1403E85A8 (_woutput_s.c)
+ *     _woutput_s @ 0x1403D91D4 (_woutput_s.c)
+ *     write_string_2 @ 0x1403D9B54 (write_string_2.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall write_char_1(__int16 a1, __int64 a2, _DWORD *a3)
+_WORD *__fastcall write_char_1(__int16 a1, __int64 a2, _DWORD *a3)
 {
-  __int64 result; // rax
-  bool v4; // sf
+  _WORD *result; // rax
+  __int16 v4; // r9
+  bool v5; // sf
 
-  result = *(unsigned int *)(a2 + 24);
-  if ( (result & 0x40) != 0 && !*(_QWORD *)(a2 + 16) )
-    goto LABEL_5;
-  v4 = *(_DWORD *)(a2 + 8) - 2 < 0;
+  result = (_WORD *)*(unsigned int *)(a2 + 24);
+  v4 = a1;
+  if ( ((unsigned __int8)result & 0x40) != 0 && !*(_QWORD *)(a2 + 16) )
+    goto LABEL_9;
+  v5 = *(_DWORD *)(a2 + 8) - 2 < 0;
   *(_DWORD *)(a2 + 8) -= 2;
-  if ( v4 )
+  if ( v5 )
   {
-    *(_DWORD *)(a2 + 24) = result | 0x20;
+    result = (_WORD *)((unsigned int)result | 0x20);
+    v4 = -1;
+    *(_DWORD *)(a2 + 24) = (_DWORD)result;
   }
   else
   {
+    result = *(_WORD **)a2;
     **(_WORD **)a2 = a1;
-    result = 0xFFFFLL;
     *(_QWORD *)a2 += 2LL;
-    if ( a1 != -1 )
-    {
-LABEL_5:
-      ++*a3;
-      return result;
-    }
   }
-  result = *(unsigned int *)(a2 + 24);
-  if ( (result & 0x20) == 0 )
-    goto LABEL_5;
-  *a3 = -1;
+  if ( v4 == -1 && (result = (_WORD *)*(unsigned int *)(a2 + 24), ((unsigned __int8)result & 0x20) != 0) )
+    *a3 = -1;
+  else
+LABEL_9:
+    ++*a3;
   return result;
 }

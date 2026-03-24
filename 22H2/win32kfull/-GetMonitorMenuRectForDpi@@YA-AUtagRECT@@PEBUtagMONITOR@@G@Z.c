@@ -1,13 +1,12 @@
 /*
- * XREFs of ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C024BBAC
+ * XREFs of ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C025D1D4
  * Callers:
- *     GetMonitorMenuRect @ 0x1C024BC74 (GetMonitorMenuRect.c)
- *     GetMonitorMenuRectForWindow @ 0x1C024BCB8 (GetMonitorMenuRectForWindow.c)
+ *     ?GetMonitorMenuRectForDpiContext@@YA?AUtagRECT@@PEBUtagMONITOR@@K@Z @ 0x1C025D2A0 (-GetMonitorMenuRectForDpiContext@@YA-AUtagRECT@@PEBUtagMONITOR@@K@Z.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     GetMonitorRectForDpi @ 0x1C00CFCCC (GetMonitorRectForDpi.c)
- *     ExpandMonitorSpaceVertex @ 0x1C00D0BA8 (ExpandMonitorSpaceVertex.c)
- *     ScaleDPIRect @ 0x1C00D1E80 (ScaleDPIRect.c)
+ *     GetMonitorRectForDpi @ 0x1C0041F48 (GetMonitorRectForDpi.c)
+ *     ScaleDPIRect @ 0x1C00428C0 (ScaleDPIRect.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C00429AC (ExpandMonitorSpaceVertex.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
  */
 
 struct tagRECT *__fastcall GetMonitorMenuRectForDpi(
@@ -26,7 +25,7 @@ struct tagRECT *__fastcall GetMonitorMenuRectForDpi(
   __m128i v15; // [rsp+30h] [rbp-38h] BYREF
   __int128 v16; // [rsp+40h] [rbp-28h] BYREF
 
-  v4 = (struct tagRECT)*((_OWORD *)a2 + 7);
+  v4 = *(struct tagRECT *)((char *)a2 + 296);
   v15 = (__m128i)v4;
   if ( IsRectEmptyInl((const struct tagRECT *)&v15) )
   {
@@ -38,11 +37,11 @@ LABEL_6:
   if ( a3 )
   {
     v10 = *(_QWORD *)(v7 + 40);
-    v11 = *(_WORD *)(v10 + 62);
+    v11 = *(_WORD *)(v10 + 66);
     v16 = *(_OWORD *)(v10 + 28);
     v12 = v16;
     v13 = ExpandMonitorSpaceVertex(a3, v11, v16);
-    ScaleDPIRect(&v15, &v15, a3, *(_WORD *)(*((_QWORD *)a2 + 5) + 60LL), v13, v12);
+    ScaleDPIRect(&v15, &v15, a3, *(_WORD *)(*((_QWORD *)a2 + 5) + 64LL), v13, v12);
     v9 = (struct tagRECT)v15;
     goto LABEL_6;
   }

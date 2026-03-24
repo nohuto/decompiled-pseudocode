@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpSetCoverageSamplerInformation @ 0x1409F3C8C
+ * XREFs of EtwpSetCoverageSamplerInformation @ 0x14094798C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1F34 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409385B0 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     ExCheckFullProcessInformationAccess @ 0x1407E0FE8 (ExCheckFullProcessInformationAccess.c)
- *     EtwpCovSampApplyBounds @ 0x1409F08A0 (EtwpCovSampApplyBounds.c)
- *     EtwpCovSampSplitSegments @ 0x1409F2D28 (EtwpCovSampSplitSegments.c)
- *     EtwpCoverageSamplerInitialize @ 0x1409F31F4 (EtwpCoverageSamplerInitialize.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x1409F32BC (EtwpCoverageSamplerSetBloomFilter.c)
- *     EtwpCoverageSamplerStart @ 0x1409F3488 (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x1409F3774 (EtwpCoverageSamplerStop.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExCheckFullProcessInformationAccess @ 0x14069DFCC (ExCheckFullProcessInformationAccess.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ObInsertObject @ 0x140701A90 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1407023B0 (ObCreateObject.c)
+ *     EtwpCovSampApplyBounds @ 0x140941F34 (EtwpCovSampApplyBounds.c)
+ *     EtwpCovSampSplitSegments @ 0x140945CC8 (EtwpCovSampSplitSegments.c)
+ *     EtwpCoverageSamplerInitialize @ 0x1409463C4 (EtwpCoverageSamplerInitialize.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x140947034 (EtwpCoverageSamplerSetBloomFilter.c)
+ *     EtwpCoverageSamplerStart @ 0x1409471DC (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409474A8 (EtwpCoverageSamplerStop.c)
  */
 
 __int64 __fastcall EtwpSetCoverageSamplerInformation(_OWORD *Address, SIZE_T Length, KPROCESSOR_MODE AccessMode)
@@ -26,9 +26,9 @@ __int64 __fastcall EtwpSetCoverageSamplerInformation(_OWORD *Address, SIZE_T Len
   _OWORD *v5; // r14
   char *v6; // rsi
   int inserted; // edi
-  _OWORD *v8; // rax
-  _OWORD *v9; // rcx
-  __int64 v10; // r13
+  __int64 v8; // r13
+  _OWORD *v9; // rax
+  _OWORD *v10; // rcx
   __int64 v11; // rdx
   unsigned int v12; // r8d
   unsigned int v13; // r11d
@@ -51,59 +51,57 @@ __int64 __fastcall EtwpSetCoverageSamplerInformation(_OWORD *Address, SIZE_T Len
   unsigned int v30; // r8d
   unsigned int v31; // r9d
   unsigned int v32; // eax
-  unsigned int v33; // edi
-  unsigned int v34; // r9d
-  unsigned int v35; // r8d
-  unsigned int v36; // r9d
-  char v37; // r11
-  unsigned int v38; // r8d
+  unsigned int v33; // r9d
+  unsigned int v34; // r8d
+  unsigned int v35; // r9d
+  char v36; // r11
+  unsigned int v37; // r8d
   char i; // cl
-  unsigned int v40; // edx
-  _OWORD *v41; // rcx
-  char *v42; // rax
-  __int64 v43; // rdx
-  _OWORD *v44; // rax
-  PVOID *Object; // [rsp+20h] [rbp-558h]
-  char v47; // [rsp+50h] [rbp-528h]
-  PVOID v48; // [rsp+58h] [rbp-520h] BYREF
-  HANDLE v49; // [rsp+60h] [rbp-518h] BYREF
-  HANDLE Handle[2]; // [rsp+68h] [rbp-510h] BYREF
-  __int128 v51; // [rsp+78h] [rbp-500h] BYREF
-  __int128 v52; // [rsp+88h] [rbp-4F0h] BYREF
-  __int128 v53; // [rsp+98h] [rbp-4E0h]
-  _BYTE v54[8]; // [rsp+B0h] [rbp-4C8h] BYREF
-  HANDLE v55; // [rsp+B8h] [rbp-4C0h]
-  char v56; // [rsp+C0h] [rbp-4B8h] BYREF
-  unsigned int v57; // [rsp+C8h] [rbp-4B0h] BYREF
-  unsigned int v58; // [rsp+CCh] [rbp-4ACh] BYREF
-  unsigned int v59; // [rsp+D0h] [rbp-4A8h] BYREF
-  unsigned int v60; // [rsp+D4h] [rbp-4A4h] BYREF
-  unsigned int v61; // [rsp+D8h] [rbp-4A0h] BYREF
-  unsigned int v62; // [rsp+DCh] [rbp-49Ch] BYREF
-  unsigned int v63; // [rsp+E0h] [rbp-498h] BYREF
-  unsigned int v64; // [rsp+E4h] [rbp-494h] BYREF
-  unsigned int v65; // [rsp+E8h] [rbp-490h] BYREF
-  unsigned int v66; // [rsp+ECh] [rbp-48Ch] BYREF
-  unsigned int v67; // [rsp+F0h] [rbp-488h] BYREF
-  unsigned int v68; // [rsp+F4h] [rbp-484h] BYREF
-  unsigned int v69; // [rsp+F8h] [rbp-480h] BYREF
-  unsigned int v70; // [rsp+FCh] [rbp-47Ch] BYREF
-  unsigned int v71; // [rsp+100h] [rbp-478h] BYREF
-  unsigned int v72; // [rsp+104h] [rbp-474h] BYREF
-  unsigned int v73; // [rsp+108h] [rbp-470h] BYREF
-  unsigned int v74[129]; // [rsp+10Ch] [rbp-46Ch] BYREF
-  __int16 v75; // [rsp+312h] [rbp-266h]
-  __int16 v76; // [rsp+512h] [rbp-66h]
-  _QWORD v77[5]; // [rsp+518h] [rbp-60h] BYREF
+  unsigned int v39; // edx
+  _OWORD *v40; // rax
+  char *v41; // rcx
+  _OWORD *v42; // rax
+  __int64 v43; // rcx
+  char v45; // [rsp+50h] [rbp-318h]
+  PVOID Object; // [rsp+58h] [rbp-310h] BYREF
+  HANDLE v47; // [rsp+60h] [rbp-308h] BYREF
+  HANDLE Handle[2]; // [rsp+68h] [rbp-300h] BYREF
+  __int128 v49; // [rsp+78h] [rbp-2F0h] BYREF
+  __int128 v50; // [rsp+88h] [rbp-2E0h] BYREF
+  __int128 v51; // [rsp+98h] [rbp-2D0h]
+  _BYTE v52[8]; // [rsp+B0h] [rbp-2B8h] BYREF
+  HANDLE v53; // [rsp+B8h] [rbp-2B0h]
+  char v54; // [rsp+C0h] [rbp-2A8h] BYREF
+  unsigned int v55; // [rsp+C8h] [rbp-2A0h] BYREF
+  unsigned int v56; // [rsp+CCh] [rbp-29Ch] BYREF
+  unsigned int v57; // [rsp+D0h] [rbp-298h] BYREF
+  unsigned int v58; // [rsp+D4h] [rbp-294h] BYREF
+  unsigned int v59; // [rsp+D8h] [rbp-290h] BYREF
+  unsigned int v60; // [rsp+DCh] [rbp-28Ch] BYREF
+  unsigned int v61; // [rsp+E0h] [rbp-288h] BYREF
+  unsigned int v62; // [rsp+E4h] [rbp-284h] BYREF
+  unsigned int v63; // [rsp+E8h] [rbp-280h] BYREF
+  unsigned int v64; // [rsp+ECh] [rbp-27Ch] BYREF
+  unsigned int v65; // [rsp+F0h] [rbp-278h] BYREF
+  unsigned int v66; // [rsp+F4h] [rbp-274h] BYREF
+  unsigned int v67; // [rsp+F8h] [rbp-270h] BYREF
+  unsigned int v68; // [rsp+FCh] [rbp-26Ch] BYREF
+  unsigned int v69; // [rsp+100h] [rbp-268h] BYREF
+  unsigned int v70; // [rsp+104h] [rbp-264h] BYREF
+  unsigned int v71; // [rsp+108h] [rbp-260h] BYREF
+  unsigned int v72[64]; // [rsp+10Ch] [rbp-25Ch] BYREF
+  __int16 v73; // [rsp+20Eh] [rbp-15Ah]
+  __int16 v74; // [rsp+30Eh] [rbp-5Ah]
+  _QWORD v75[4]; // [rsp+310h] [rbp-58h] BYREF
 
   v4 = (unsigned int)Length;
   v5 = Address;
   v6 = 0LL;
-  v48 = 0LL;
-  v49 = 0LL;
-  DWORD1(v51) = 0;
-  HIDWORD(v52) = 0;
-  v47 = 0;
+  Object = 0LL;
+  v47 = 0LL;
+  DWORD1(v49) = 0;
+  HIDWORD(v50) = 0;
+  v45 = 0;
   if ( (unsigned int)Length < 0x10 )
     goto LABEL_2;
   *(_OWORD *)Handle = *Address;
@@ -127,15 +125,15 @@ LABEL_4:
       goto LABEL_51;
     if ( (_DWORD)v4 == 40 )
     {
-      v51 = *v5;
-      v52 = v5[1];
-      *(_QWORD *)&v53 = *((_QWORD *)v5 + 4);
-      v48 = 0LL;
-      inserted = ObReferenceObjectByHandle(Handle[1], 1u, qword_140C31C90, AccessMode, &v48, 0LL);
-      v6 = (char *)v48;
+      v49 = *v5;
+      v50 = v5[1];
+      *(_QWORD *)&v51 = *((_QWORD *)v5 + 4);
+      Object = 0LL;
+      inserted = ObReferenceObjectByHandle(Handle[1], 1u, qword_140C198B0, AccessMode, &Object, 0LL);
+      v6 = (char *)Object;
       if ( inserted >= 0 )
       {
-        inserted = EtwpCoverageSamplerSetBloomFilter((ULONG_PTR)v48, (__int64)&v52, AccessMode);
+        inserted = EtwpCoverageSamplerSetBloomFilter((ULONG_PTR)Object, (__int64)&v50, AccessMode);
         if ( inserted >= 0 )
         {
 LABEL_50:
@@ -154,37 +152,36 @@ LABEL_2:
   inserted = ExCheckFullProcessInformationAccess(AccessMode);
   if ( inserted < 0 )
     goto LABEL_51;
-  if ( (unsigned int)v4 < 0x488 )
+  if ( (unsigned int)v4 < 0x280 )
     goto LABEL_2;
+  v8 = 4LL;
   ProbeForWrite(v5, v4, 4u);
-  v8 = v5;
-  v9 = v54;
-  v10 = 9LL;
-  v11 = 9LL;
+  v9 = v5;
+  v10 = v52;
+  v11 = 5LL;
   do
   {
-    *v9 = *v8;
-    v9[1] = v8[1];
-    v9[2] = v8[2];
-    v9[3] = v8[3];
-    v9[4] = v8[4];
-    v9[5] = v8[5];
-    v9[6] = v8[6];
+    *v10 = *v9;
+    v10[1] = v9[1];
+    v10[2] = v9[2];
+    v10[3] = v9[3];
+    v10[4] = v9[4];
+    v10[5] = v9[5];
+    v10[6] = v9[6];
+    v10 += 8;
+    *(v10 - 1) = v9[7];
     v9 += 8;
-    *(v9 - 1) = v8[7];
-    v8 += 8;
     --v11;
   }
   while ( v11 );
-  *(_QWORD *)v9 = *(_QWORD *)v8;
-  EtwpCovSampApplyBounds(&v57, 0x400u, 0x10u, 0x4000u);
-  EtwpCovSampApplyBounds(&v73, 0x100u, v12, v13);
-  EtwpCovSampApplyBounds(v74, 0x800u, v14, 0x10000u);
-  v15 = v74[0];
-  if ( ((v74[0] - 1) & v74[0]) != 0 )
+  EtwpCovSampApplyBounds(&v55, 0x400u, 0x10u, 0x4000u);
+  EtwpCovSampApplyBounds(&v71, 0x100u, v12, v13);
+  EtwpCovSampApplyBounds(v72, 0x800u, v14, 0x10000u);
+  v15 = v72[0];
+  if ( ((v72[0] - 1) & v72[0]) != 0 )
   {
     v16 = -1;
-    if ( v74[0] )
+    if ( v72[0] )
     {
       do
       {
@@ -195,136 +192,133 @@ LABEL_2:
     }
     v15 = 1 << v16;
   }
-  if ( (v56 & 0x40) != 0 )
+  if ( (v54 & 0x40) != 0 )
     v15 = 0;
-  v74[0] = v15;
-  EtwpCovSampApplyBounds(&v65, 0x3E8u, 1u, 0x6B49D200u);
-  EtwpCovSampApplyBounds(&v67, 1u, v17, v18);
-  EtwpCovSampApplyBounds(&v69, 1u, v19, v20);
-  EtwpCovSampApplyBounds(&v71, 1u, v21, v22);
-  EtwpCovSampApplyBounds(&v66, 0, 0, v23);
-  EtwpCovSampApplyBounds(&v68, 0, v24, v25);
-  EtwpCovSampApplyBounds(&v70, 0, v26, v27);
-  EtwpCovSampApplyBounds(&v72, 0, v28, v29);
-  EtwpCovSampApplyBounds(&v60, 8u, 1u, 0x80u);
-  EtwpCovSampApplyBounds(&v61, 0x20000u, 0x4000u, 0x100000u);
-  EtwpCovSampApplyBounds(&v62, 4u, 2u, 0x100u);
-  v32 = v62;
-  if ( v56 < 0 )
+  v72[0] = v15;
+  EtwpCovSampApplyBounds(&v63, 0x3E8u, 1u, 0x6B49D200u);
+  EtwpCovSampApplyBounds(&v65, 1u, v17, v18);
+  EtwpCovSampApplyBounds(&v67, 1u, v19, v20);
+  EtwpCovSampApplyBounds(&v69, 1u, v21, v22);
+  EtwpCovSampApplyBounds(&v64, 0, 0, v23);
+  EtwpCovSampApplyBounds(&v66, 0, v24, v25);
+  EtwpCovSampApplyBounds(&v68, 0, v26, v27);
+  EtwpCovSampApplyBounds(&v70, 0, v28, v29);
+  EtwpCovSampApplyBounds(&v58, 8u, 1u, 0x80u);
+  EtwpCovSampApplyBounds(&v59, 0x20000u, 0x4000u, 0x100000u);
+  EtwpCovSampApplyBounds(&v60, 4u, 2u, 0x100u);
+  v32 = v60;
+  if ( v54 < 0 )
     v32 = 0;
-  v62 = v32;
-  v33 = v30 + 2;
-  EtwpCovSampApplyBounds(&v63, v30 + 2, v30, v31);
-  EtwpCovSampApplyBounds(&v64, 0x10u, v33, v34);
-  EtwpCovSampApplyBounds(&v58, 0x400u, 0x10u, 0x8000000u);
-  EtwpCovSampApplyBounds(&v59, 0x10000u, v35, v36);
-  v38 = 4 * v73;
-  if ( v58 >= 4 * v73 )
-    v38 = v58;
-  if ( ((v38 - 1) & v38) != 0 )
+  v60 = v32;
+  EtwpCovSampApplyBounds(&v61, 4u, v30, v31);
+  EtwpCovSampApplyBounds(&v62, 0x10u, 4u, v33);
+  EtwpCovSampApplyBounds(&v56, 0x400u, 0x10u, 0x8000000u);
+  EtwpCovSampApplyBounds(&v57, 0x10000u, v34, v35);
+  v37 = 4 * v71;
+  if ( v56 >= 4 * v71 )
+    v37 = v56;
+  if ( ((v37 - 1) & v37) != 0 )
   {
-    for ( i = v37; v38; v38 >>= 1 )
+    for ( i = v36; v37; v37 >>= 1 )
       ++i;
-    v38 = 1 << i;
+    v37 = 1 << i;
   }
-  v58 = v38;
-  v40 = v59;
-  if ( ((v59 - 1) & v59) != 0 )
+  v56 = v37;
+  v39 = v57;
+  if ( ((v57 - 1) & v57) != 0 )
   {
-    if ( v59 )
+    if ( v57 )
     {
       do
       {
-        ++v37;
-        v40 >>= 1;
+        ++v36;
+        v39 >>= 1;
       }
-      while ( v40 );
+      while ( v39 );
     }
-    v40 = 1 << v37;
+    v39 = 1 << v36;
   }
-  if ( v40 < v38 )
-    v40 = v38;
-  v59 = v40;
-  v76 = 0;
-  v75 = 0;
-  LODWORD(v51) = 48;
-  *((_QWORD *)&v51 + 1) = 0LL;
-  DWORD2(v52) = 0;
-  *(_QWORD *)&v52 = 0LL;
-  v53 = 0LL;
-  inserted = ObCreateObjectEx(0, qword_140C31C90, (__int64)&v51, AccessMode, (__int64)Object, 1736, 0, 0, &v48, 0LL);
-  v6 = (char *)v48;
+  if ( v39 < v37 )
+    v39 = v37;
+  v57 = v39;
+  v74 = 0;
+  v73 = 0;
+  LODWORD(v49) = 48;
+  *((_QWORD *)&v49 + 1) = 0LL;
+  DWORD2(v50) = 0;
+  *(_QWORD *)&v50 = 0LL;
+  v51 = 0LL;
+  inserted = ObCreateObject(0, qword_140C198B0, (int)&v49, AccessMode, 0, 1224, 0, 0, &Object);
+  v6 = (char *)Object;
   if ( inserted >= 0 )
   {
-    EtwpCoverageSamplerInitialize((__int64)v48);
-    v41 = v6 + 24;
-    v42 = &v56;
-    v43 = 8LL;
+    EtwpCoverageSamplerInitialize((__int64)Object);
+    v40 = v6 + 24;
+    v41 = &v54;
     do
     {
-      *v41 = *(_OWORD *)v42;
-      v41[1] = *((_OWORD *)v42 + 1);
-      v41[2] = *((_OWORD *)v42 + 2);
-      v41[3] = *((_OWORD *)v42 + 3);
-      v41[4] = *((_OWORD *)v42 + 4);
-      v41[5] = *((_OWORD *)v42 + 5);
-      v41[6] = *((_OWORD *)v42 + 6);
-      v41 += 8;
-      *(v41 - 1) = *((_OWORD *)v42 + 7);
-      v42 += 128;
-      --v43;
+      *v40 = *(_OWORD *)v41;
+      v40[1] = *((_OWORD *)v41 + 1);
+      v40[2] = *((_OWORD *)v41 + 2);
+      v40[3] = *((_OWORD *)v41 + 3);
+      v40[4] = *((_OWORD *)v41 + 4);
+      v40[5] = *((_OWORD *)v41 + 5);
+      v40[6] = *((_OWORD *)v41 + 6);
+      v40 += 8;
+      *(v40 - 1) = *((_OWORD *)v41 + 7);
+      v41 += 128;
+      --v8;
     }
-    while ( v43 );
-    *v41 = *(_OWORD *)v42;
-    v41[1] = *((_OWORD *)v42 + 1);
-    v41[2] = *((_OWORD *)v42 + 2);
-    v41[3] = *((_OWORD *)v42 + 3);
-    v41[4] = *((_OWORD *)v42 + 4);
-    *((_DWORD *)v41 + 20) = *((_DWORD *)v42 + 20);
-    *((_DWORD *)v6 + 411) = EtwpCovSampSplitSegments((wchar_t *)v6 + 310, (__int64)(v6 + 1480));
-    *((_DWORD *)v6 + 410) = EtwpCovSampSplitSegments((wchar_t *)v6 + 54, (__int64)(v6 + 1320));
-    if ( !v77[0]
-      || (inserted = EtwpCoverageSamplerSetBloomFilter((ULONG_PTR)v6, (__int64)v77, AccessMode), inserted >= 0) )
+    while ( v8 );
+    *v40 = *(_OWORD *)v41;
+    v40[1] = *((_OWORD *)v41 + 1);
+    v40[2] = *((_OWORD *)v41 + 2);
+    v40[3] = *((_OWORD *)v41 + 3);
+    v40[4] = *((_OWORD *)v41 + 4);
+    *((_DWORD *)v6 + 283) = EtwpCovSampSplitSegments((wchar_t *)v6 + 180, (__int64)(v6 + 968));
+    *((_DWORD *)v6 + 282) = EtwpCovSampSplitSegments((wchar_t *)v6 + 52, (__int64)(v6 + 808));
+    if ( !v75[0]
+      || (inserted = EtwpCoverageSamplerSetBloomFilter((ULONG_PTR)v6, (__int64)v75, AccessMode), inserted >= 0) )
     {
       Handle[0] = 0LL;
       inserted = ObReferenceObjectByHandle(
-                   (HANDLE)v77[3],
+                   (HANDLE)v75[3],
                    0x1F0003u,
                    (POBJECT_TYPE)ExEventObjectType,
                    AccessMode,
                    Handle,
                    0LL);
-      *((HANDLE *)v6 + 209) = Handle[0];
+      *((HANDLE *)v6 + 145) = Handle[0];
       if ( inserted >= 0 )
       {
-        v47 = 1;
+        v45 = 1;
         inserted = EtwpCoverageSamplerStart(v6);
         if ( inserted >= 0 )
         {
           ObfReferenceObject(v6);
-          inserted = ObInsertObjectEx(v6, 0LL, 1, 0, 0, 0LL, &v49);
+          inserted = ObInsertObject(v6, 0LL, 1u, 0, 0LL, &v47);
           if ( inserted >= 0 )
           {
-            v55 = v49;
-            v54[6] = 0;
-            v44 = v54;
+            v53 = v47;
+            v52[6] = 0;
+            v42 = v52;
+            v43 = 5LL;
             do
             {
-              *v5 = *v44;
-              v5[1] = v44[1];
-              v5[2] = v44[2];
-              v5[3] = v44[3];
-              v5[4] = v44[4];
-              v5[5] = v44[5];
-              v5[6] = v44[6];
+              *v5 = *v42;
+              v5[1] = v42[1];
+              v5[2] = v42[2];
+              v5[3] = v42[3];
+              v5[4] = v42[4];
+              v5[5] = v42[5];
+              v5[6] = v42[6];
               v5 += 8;
-              *(v5 - 1) = v44[7];
-              v44 += 8;
-              --v10;
+              *(v5 - 1) = v42[7];
+              v42 += 8;
+              --v43;
             }
-            while ( v10 );
-            *(_QWORD *)v5 = *(_QWORD *)v44;
-            v49 = 0LL;
+            while ( v43 );
+            v47 = 0LL;
             goto LABEL_50;
           }
         }
@@ -332,13 +326,13 @@ LABEL_2:
     }
   }
 LABEL_51:
-  if ( v49 )
-    NtClose(v49);
+  if ( v47 )
+    NtClose(v47);
   if ( v6 )
   {
-    if ( inserted < 0 && v47 )
+    if ( inserted < 0 && v45 )
       EtwpCoverageSamplerStop((__int64)v6);
-    ObfDereferenceObject(v6);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v6);
   }
   return (unsigned int)inserted;
 }

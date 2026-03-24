@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SwapExisting@?$CMergedRectBase@$03@@IEAAXII@Z @ 0x1800DE248
+ * XREFs of ?SwapExisting@?$CMergedRectBase@$03@@IEAAXII@Z @ 0x18006BBB4
  * Callers:
- *     ?GetRects@?$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x180081CC0 (-GetRects@-$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z.c)
- *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x180085884 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
+ *     ?GetRects@?$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x18006B180 (-GetRects@-$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z.c)
+ *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x18006B5B0 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
  * Callees:
  *     <none>
  */

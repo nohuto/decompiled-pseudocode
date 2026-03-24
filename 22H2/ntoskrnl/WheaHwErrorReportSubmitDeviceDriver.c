@@ -1,18 +1,17 @@
 /*
- * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x140611450
+ * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBEC0
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140611570 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x140611690 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BBFD0 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC0F0 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x140611830 (WheapErrDescIsDeviceDriver.c)
- *     WheapErrorHandleIsValid @ 0x140611848 (WheapErrorHandleIsValid.c)
- *     WheapFreeDriverPacketBuffer @ 0x140611864 (WheapFreeDriverPacketBuffer.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1405BBA0C (WheapGetErrorSource.c)
+ *     WheapErrorHandleIsValid @ 0x1405BC290 (WheapErrorHandleIsValid.c)
+ *     WheapFreeDriverPacketBuffer @ 0x1405BC2AC (WheapFreeDriverPacketBuffer.c)
  */
 
-__int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(char *P)
+__int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(ULONG_PTR BugCheckParameter2)
 {
   __int64 v2; // rcx
   unsigned int v3; // edi
@@ -23,16 +22,17 @@ __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(char *P)
 
   if ( (unsigned __int8)WheapErrorHandleIsValid() )
   {
-    *(_DWORD *)(*(_QWORD *)(v2 + 40) + 8LL) = *((_DWORD *)P + 2);
-    ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, *((_DWORD *)P + 3));
+    *(_DWORD *)(*(_QWORD *)(v2 + 40) + 8LL) = *(_DWORD *)(BugCheckParameter2 + 8);
+    ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, *(_DWORD *)(BugCheckParameter2 + 12));
     v5 = (unsigned __int64)(ErrorSource + 12) & -(__int64)(ErrorSource != 0LL);
-    if ( (unsigned __int8)WheapErrDescIsDeviceDriver(v5) )
+    if ( v5 )
     {
-      if ( (**((_DWORD **)P + 2) & 0x3FF0u) >= 0x10 )
+      if ( (**(_DWORD **)(BugCheckParameter2 + 16) & 0x3FF0u) >= 0x10 )
       {
-        v6 = *((_DWORD *)P + 25);
-        v7 = (*((_QWORD *)P + 3) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL;
-        if ( (unsigned int)(v6 + *((_DWORD *)P + 2)) <= *(_DWORD *)(v5 + 16) )
+        v6 = *(_DWORD *)(BugCheckParameter2 + 100);
+        v7 = (*(_QWORD *)(BugCheckParameter2 + 24) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL;
+        if ( (unsigned int)(v6 + *(_DWORD *)(BugCheckParameter2 + 8)) <= *(_DWORD *)(((unsigned __int64)(ErrorSource + 12) & -(__int64)(ErrorSource != 0LL))
+                                                                                   + 0x10) )
         {
           if ( (unsigned int)(v6 - 1) > 0x22 )
           {
@@ -40,15 +40,18 @@ __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(char *P)
           }
           else
           {
-            memmove((void *)((*((_QWORD *)P + 3) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL), P + 64, *((unsigned int *)P + 25));
-            *(_DWORD *)(v7 + 88) = *((_DWORD *)P + 25);
+            memmove(
+              (void *)((*(_QWORD *)(BugCheckParameter2 + 24) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL),
+              (const void *)(BugCheckParameter2 + 64),
+              *(unsigned int *)(BugCheckParameter2 + 100));
+            *(_DWORD *)(v7 + 88) = *(_DWORD *)(BugCheckParameter2 + 100);
             *(_WORD *)(v7 + 92) = *(_WORD *)(v5 + 60);
           }
           *(_QWORD *)(v7 + 72) = v5 + 44;
-          *(_QWORD *)(v7 + 80) = *((_QWORD *)P + 7);
-          PshedRetrieveErrorInfo(*((_QWORD *)P + 5), v5);
-          v3 = WheaReportHwError(*((_QWORD *)P + 5));
-          WheapFreeDriverPacketBuffer(P);
+          *(_QWORD *)(v7 + 80) = *(_QWORD *)(BugCheckParameter2 + 56);
+          PshedRetrieveErrorInfo(*(_QWORD *)(BugCheckParameter2 + 40), v5);
+          v3 = WheaReportHwError(*(_QWORD *)(BugCheckParameter2 + 40));
+          WheapFreeDriverPacketBuffer(BugCheckParameter2);
         }
         else
         {

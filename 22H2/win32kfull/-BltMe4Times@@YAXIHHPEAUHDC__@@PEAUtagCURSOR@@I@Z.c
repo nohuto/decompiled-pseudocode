@@ -1,19 +1,18 @@
 /*
- * XREFs of ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C022B810
+ * XREFs of ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C0246D18
  * Callers:
- *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C022B9A4 (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
+ *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C0246EAC (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
  * Callees:
- *     PrepareHDCBITSBitmap @ 0x1C0016A4C (PrepareHDCBITSBitmap.c)
- *     BltIcon @ 0x1C00274A8 (BltIcon.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     GetOemBitmapInfoForDpi @ 0x1C009A53C (GetOemBitmapInfoForDpi.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
+ *     BltIcon @ 0x1C00442EC (BltIcon.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010710C (GetOemBitmapInfoForDpi.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010721C (PrepareHDCBITSBitmap.c)
  */
 
-void __fastcall BltMe4Times(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4, struct tagCURSOR *a5, char a6)
+void __fastcall BltMe4Times(unsigned int a1, int a2, unsigned int a3, HDC a4, struct tagCURSOR *a5, char a6)
 {
   unsigned int v6; // r15d
-  int v8; // ebx
   int v9; // r14d
   HDC v10; // r13
   HBRUSH v11; // rsi
@@ -35,9 +34,8 @@ void __fastcall BltMe4Times(unsigned int a1, __int64 a2, unsigned int a3, __int6
 
   v25 = a1;
   v6 = a1;
-  v8 = a2;
   v9 = 1;
-  v10 = (HDC)PrepareHDCBITSBitmap(0LL, a2);
+  v10 = (HDC)PrepareHDCBITSBitmap(0LL);
   if ( v10 )
   {
     v28 = a6 & 0x10;
@@ -47,7 +45,7 @@ void __fastcall BltMe4Times(unsigned int a1, __int64 a2, unsigned int a3, __int6
       v11 = *(HBRUSH *)(gpsi + 4712LL);
     v12 = 2LL;
     v23 = 2LL;
-    v22 = (int)(v8 - a3) / 2;
+    v22 = (int)(a2 - a3) / 2;
     do
     {
       DpiForSystem = GetDpiForSystem(v12);

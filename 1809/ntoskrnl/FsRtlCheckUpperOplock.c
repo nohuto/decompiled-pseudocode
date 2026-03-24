@@ -7,10 +7,10 @@
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToII @ 0x140130710 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FECC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FFCC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
  *     FsRtlpOplockUpperLowerCompatible @ 0x1405DCC54 (FsRtlpOplockUpperLowerCompatible.c)
  */
 

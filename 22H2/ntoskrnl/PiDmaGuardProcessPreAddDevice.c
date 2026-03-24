@@ -1,24 +1,25 @@
 /*
- * XREFs of PiDmaGuardProcessPreAddDevice @ 0x1407E5D44
+ * XREFs of PiDmaGuardProcessPreAddDevice @ 0x14073AA40
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
  * Callees:
- *     PipDmgSaveDeviceDmarPolicy @ 0x140829430 (PipDmgSaveDeviceDmarPolicy.c)
- *     PipDmgGetDeviceDmarPolicy @ 0x1408454B8 (PipDmgGetDeviceDmarPolicy.c)
- *     PiIommuSaveDeviceAtsSettings @ 0x14084E64C (PiIommuSaveDeviceAtsSettings.c)
+ *     PipDmgGetDeviceDmarPolicy @ 0x14076DA00 (PipDmgGetDeviceDmarPolicy.c)
+ *     PipDmgSaveDeviceDmarPolicy @ 0x140771514 (PipDmgSaveDeviceDmarPolicy.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessPreAddDevice(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rbx
   __int64 result; // rax
+  __int64 v5; // r8
   unsigned int DeviceDmarPolicy; // eax
 
   v2 = *a1;
-  result = *(_QWORD *)(*a1 + 720);
-  if ( result )
+  result = 0LL;
+  v5 = *(_QWORD *)(*a1 + 720);
+  if ( v5 )
   {
-    if ( (*(_BYTE *)(result + 16) & 0x10) != 0 )
+    if ( (*(_BYTE *)(v5 + 16) & 0x10) != 0 )
     {
       DeviceDmarPolicy = 1;
     }
@@ -30,9 +31,7 @@ __int64 __fastcall PiDmaGuardProcessPreAddDevice(__int64 *a1, __int64 a2)
     {
       DeviceDmarPolicy = PipDmgGetDeviceDmarPolicy();
     }
-    result = PipDmgSaveDeviceDmarPolicy(v2, a2, DeviceDmarPolicy);
-    if ( (int)result >= 0 )
-      return PiIommuSaveDeviceAtsSettings(v2, a2);
+    return PipDmgSaveDeviceDmarPolicy(v2, a2, DeviceDmarPolicy);
   }
   return result;
 }

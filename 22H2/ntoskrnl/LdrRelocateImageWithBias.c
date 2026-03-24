@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrRelocateImageWithBias @ 0x1409C2054
+ * XREFs of LdrRelocateImageWithBias @ 0x1409193B4
  * Callers:
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     LdrProcessRelocationBlockLongLong @ 0x1409C1F98 (LdrProcessRelocationBlockLongLong.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x1409192F8 (LdrProcessRelocationBlockLongLong.c)
  */
 
 __int64 __fastcall LdrRelocateImageWithBias(unsigned __int64 a1)

@@ -1,22 +1,23 @@
 /*
- * XREFs of VerifierIoAllocateMdl @ 0x140A8A580
+ * XREFs of VerifierIoAllocateMdl @ 0x1409C9410
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall VerifierIoAllocateMdl(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)
+PMDL __fastcall VerifierIoAllocateMdl(void *a1, ULONG a2, BOOLEAN a3, BOOLEAN a4, PIRP Irp)
 {
-  char v5; // bl
-  char v6; // di
-  __int64 retaddr; // [rsp+48h] [rbp+0h]
-
-  v5 = a4;
-  v6 = a3;
-  if ( (VfRuleClasses & 0x40000) != 0 && ViFnAutoFailInject && (unsigned __int8)ViFnAutoFailInject("IoAllocateMdl") )
-    return 0LL;
-  LOBYTE(a4) = v5;
-  LOBYTE(a3) = v6;
-  return pXdvIoAllocateMdl(a1, a2, a3, a4, a5, retaddr, (__int64)IovAllocateMdl);
+  if ( (MmVerifierData & 0x400000) == 0
+    || (VfRuleClasses & 0x800000000LL) != 0
+    || (MmVerifierData & 1) != 0
+    || (MmVerifierData & 8) != 0 )
+  {
+    return (PMDL)((__int64 (__fastcall *)(void *))pXdvIoAllocateMdl)(a1);
+  }
+  else
+  {
+    return IoAllocateMdl(a1, a2, a3, a4, Irp);
+  }
 }

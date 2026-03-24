@@ -1,8 +1,8 @@
 /*
- * XREFs of MiHotPatchImage @ 0x140855350
+ * XREFs of MiHotPatchImage @ 0x140855330
  * Callers:
- *     MiHotPatchProcess @ 0x140855624 (MiHotPatchProcess.c)
- *     MiSetImageHotPatchAllowed @ 0x140857FE4 (MiSetImageHotPatchAllowed.c)
+ *     MiHotPatchProcess @ 0x140855604 (MiHotPatchProcess.c)
+ *     MiSetImageHotPatchAllowed @ 0x140857FC4 (MiSetImageHotPatchAllowed.c)
  * Callees:
  *     MiUnlockVadShared @ 0x14001AF48 (MiUnlockVadShared.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
@@ -13,15 +13,15 @@
  *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
  *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     MiDeleteHotPatchEntry @ 0x140854B58 (MiDeleteHotPatchEntry.c)
- *     MiDeleteImageHotPatchState @ 0x140854CFC (MiDeleteImageHotPatchState.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140854E38 (MiFindProcessImageHotPatchRecord.c)
- *     MiGetHotPatchEntry @ 0x140854FF8 (MiGetHotPatchEntry.c)
- *     MiGetProcessHotPatchContext @ 0x140855210 (MiGetProcessHotPatchContext.c)
- *     MiLogHotPatchOperation @ 0x1408563B8 (MiLogHotPatchOperation.c)
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
+ *     MiDeleteHotPatchEntry @ 0x140854B38 (MiDeleteHotPatchEntry.c)
+ *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140854E18 (MiFindProcessImageHotPatchRecord.c)
+ *     MiGetHotPatchEntry @ 0x140854FD8 (MiGetHotPatchEntry.c)
+ *     MiGetProcessHotPatchContext @ 0x1408551F0 (MiGetProcessHotPatchContext.c)
+ *     MiLogHotPatchOperation @ 0x140856398 (MiLogHotPatchOperation.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
  */
 
 __int64 __fastcall MiHotPatchImage(__int64 a1, int a2, __int64 a3, int a4, int a5, char a6, int a7)

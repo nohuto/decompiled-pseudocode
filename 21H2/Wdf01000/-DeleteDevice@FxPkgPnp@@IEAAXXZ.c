@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0088068
+ * XREFs of ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0080004
  * Callers:
- *     ?ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0083850 (-ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z.c)
- *     ?ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ @ 0x1C00888B0 (-ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ.c)
- *     ?ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0089A90 (-ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z.c)
+ *     ?ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C00796E0 (-ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z.c)
+ *     ?ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ @ 0x1C00821CC (-ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ.c)
+ *     ?ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0084700 (-ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z.c)
  * Callees:
- *     ?Destroy@FxDevice@@QEAAXXZ @ 0x1C00302A8 (-Destroy@FxDevice@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?Destroy@FxDevice@@QEAAXXZ @ 0x1C005067C (-Destroy@FxDevice@@QEAAXXZ.c)
  */
 
 void __fastcall FxPkgPnp::DeleteDevice(FxPkgPnp *this)

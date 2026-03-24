@@ -1,11 +1,11 @@
 /*
- * XREFs of AslRegWildcardFindClose @ 0x140A16BE4
+ * XREFs of AslRegWildcardFindClose @ 0x140969968
  * Callers:
- *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A11E1C (SdbpCheckMatchingWildcardRegistryEntry.c)
- *     AslRegWildcardFindFirst @ 0x140A16C68 (AslRegWildcardFindFirst.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x14096549C (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     AslRegWildcardFindFirst @ 0x1409699EC (AslRegWildcardFindFirst.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AslRegWildcardFindClose(PVOID *P)

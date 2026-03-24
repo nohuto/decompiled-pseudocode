@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0zjdd_EtwWriteTransfer @ 0x1405613C4
+ * XREFs of McTemplateK0zjdd_EtwWriteTransfer @ 0x14036D308
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall McTemplateK0zjdd_EtwWriteTransfer(
+__int64 __fastcall McTemplateK0zjdd_EtwWriteTransfer(
         __int64 a1,
-        const EVENT_DESCRIPTOR *a2,
+        __int64 a2,
         __int64 a3,
         const wchar_t *a4,
         __int64 a5,
@@ -18,7 +18,7 @@ NTSTATUS __fastcall McTemplateK0zjdd_EtwWriteTransfer(
 {
   __int64 v7; // rax
   int v8; // ecx
-  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+30h] [rbp-21h] BYREF
+  _BYTE v10[16]; // [rsp+30h] [rbp-21h] BYREF
   const wchar_t *v11; // [rsp+40h] [rbp-11h]
   int v12; // [rsp+48h] [rbp-9h]
   int v13; // [rsp+4Ch] [rbp-5h]
@@ -52,5 +52,5 @@ NTSTATUS __fastcall McTemplateK0zjdd_EtwWriteTransfer(
   v11 = a4;
   v17 = 4LL;
   v19 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(MS_KernelPnP_Provider_Context, a2, 0LL, 5u, &v10);
+  return McGenEventWrite_EtwWriteTransfer(&MS_KernelPnP_Provider_Context, a2, 0LL, 5LL, v10);
 }

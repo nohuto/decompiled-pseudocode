@@ -1,9 +1,9 @@
 /*
- * XREFs of InitializePointerPrediction @ 0x1C00BDD00
+ * XREFs of InitializePointerPrediction @ 0x1C0136F20
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 InitializePointerPrediction()

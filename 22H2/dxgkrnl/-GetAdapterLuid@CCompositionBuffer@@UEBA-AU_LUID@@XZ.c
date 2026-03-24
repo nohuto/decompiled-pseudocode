@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CCompositionBuffer@@UEBA?AU_LUID@@XZ @ 0x1C001A220
+ * XREFs of ?GetAdapterLuid@CCompositionBuffer@@UEBA?AU_LUID@@XZ @ 0x1C001BA30
  * Callers:
  *     <none>
  * Callees:

@@ -1,30 +1,30 @@
 /*
- * XREFs of PopRequestShutdownWait @ 0x14083B814
+ * XREFs of PopRequestShutdownWait @ 0x1407AD744
  * Callers:
- *     PoRequestShutdownEvent @ 0x14083B7D0 (PoRequestShutdownEvent.c)
+ *     PoRequestShutdownEvent @ 0x1407AD700 (PoRequestShutdownEvent.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeAcquireGuardedMutex @ 0x1402EF360 (KeAcquireGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopRequestShutdownWait(PVOID Object)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   unsigned int v3; // edi
   _QWORD *v4; // rbx
 
-  Pool2 = ExAllocatePool2(256LL, 16LL, 1280536400LL);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x4C536F50u);
   v3 = 0;
-  v4 = (_QWORD *)Pool2;
-  if ( !Pool2 )
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  *(_QWORD *)(Pool2 + 8) = Object;
+  PoolWithTag[1] = Object;
   ObfReferenceObjectWithTag(Object, 0x64536F50u);
-  ExAcquireFastMutex(&PopShutdownListMutex);
+  KeAcquireGuardedMutex(&PopShutdownListMutex);
   if ( PopShutdownListAvailable )
   {
     *v4 = PopShutdownThreadList;

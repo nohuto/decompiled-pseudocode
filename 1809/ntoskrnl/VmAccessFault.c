@@ -1,11 +1,11 @@
 /*
- * XREFs of VmAccessFault @ 0x1408AFE40
+ * XREFs of VmAccessFault @ 0x1408AFE20
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VmpAccessFaultBatch @ 0x14030B978 (VmpAccessFaultBatch.c)
- *     VmpPrefetchForVirtualFault @ 0x1408B09D0 (VmpPrefetchForVirtualFault.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VmpAccessFaultBatch @ 0x14030BA78 (VmpAccessFaultBatch.c)
+ *     VmpPrefetchForVirtualFault @ 0x1408B09B0 (VmpPrefetchForVirtualFault.c)
  */
 
 __int64 __fastcall VmAccessFault(

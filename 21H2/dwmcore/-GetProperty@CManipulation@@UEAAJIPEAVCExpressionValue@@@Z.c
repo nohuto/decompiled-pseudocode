@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801F3CC0
+ * XREFs of ?GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801D4240
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z @ 0x1801F5180 (-_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z @ 0x1801D56A0 (-_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z.c)
  */
 
 __int64 __fastcall CManipulation::GetProperty(CManipulation *this, int a2, struct CExpressionValue *a3)
@@ -27,8 +27,8 @@ __int64 __fastcall CManipulation::GetProperty(CManipulation *this, int a2, struc
   if ( !a2 )
   {
     *((_DWORD *)a3 + 18) = 52;
-    *(_QWORD *)a3 = *((_QWORD *)this + 33);
-    *((_DWORD *)a3 + 2) = *((_DWORD *)this + 68);
+    *(_QWORD *)a3 = *((_QWORD *)this + 32);
+    *((_DWORD *)a3 + 2) = *((_DWORD *)this + 66);
     goto LABEL_25;
   }
   v5 = a2 - 1;
@@ -36,21 +36,21 @@ __int64 __fastcall CManipulation::GetProperty(CManipulation *this, int a2, struc
   {
     *((_DWORD *)a3 + 18) = 52;
     v14 = 1;
-    *(_QWORD *)a3 = *(_QWORD *)((char *)this + 276);
-    *((_DWORD *)a3 + 2) = *((_DWORD *)this + 71);
+    *(_QWORD *)a3 = *(_QWORD *)((char *)this + 268);
+    *((_DWORD *)a3 + 2) = *((_DWORD *)this + 69);
     goto LABEL_23;
   }
   v6 = v5 - 1;
   if ( !v6 )
   {
-    v12 = *((_DWORD *)this + 72);
+    v12 = *((_DWORD *)this + 70);
     goto LABEL_15;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
     v14 = 3;
-    *(_DWORD *)a3 = *((_DWORD *)this + 75);
+    *(_DWORD *)a3 = *((_DWORD *)this + 73);
     *((_DWORD *)a3 + 18) = 18;
 LABEL_23:
     *((_BYTE *)a3 + 76) = 1;
@@ -61,26 +61,26 @@ LABEL_23:
   if ( !v8 )
   {
     *((_DWORD *)a3 + 18) = 52;
-    *(_QWORD *)a3 = *(_QWORD *)((char *)this + 316);
-    v13 = *((_DWORD *)this + 81);
+    *(_QWORD *)a3 = *(_QWORD *)((char *)this + 308);
+    v13 = *((_DWORD *)this + 79);
     goto LABEL_17;
   }
   v9 = v8 - 1;
   if ( !v9 )
   {
     *((_DWORD *)a3 + 18) = 265;
-    *(_OWORD *)a3 = *(_OWORD *)((char *)this + 328);
-    *((_OWORD *)a3 + 1) = *(_OWORD *)((char *)this + 344);
-    *((_OWORD *)a3 + 2) = *(_OWORD *)((char *)this + 360);
-    *((_OWORD *)a3 + 3) = *(_OWORD *)((char *)this + 376);
+    *(_OWORD *)a3 = *((_OWORD *)this + 20);
+    *((_OWORD *)a3 + 1) = *((_OWORD *)this + 21);
+    *((_OWORD *)a3 + 2) = *((_OWORD *)this + 22);
+    *((_OWORD *)a3 + 3) = *((_OWORD *)this + 23);
     goto LABEL_25;
   }
   v10 = v9 - 1;
   if ( !v10 )
   {
     *((_DWORD *)a3 + 18) = 52;
-    *(_QWORD *)a3 = *((_QWORD *)this + 49);
-    v13 = *((_DWORD *)this + 100);
+    *(_QWORD *)a3 = *((_QWORD *)this + 48);
+    v13 = *((_DWORD *)this + 98);
 LABEL_17:
     *((_DWORD *)a3 + 2) = v13;
     goto LABEL_25;
@@ -88,7 +88,7 @@ LABEL_17:
   v11 = v10 - 1;
   if ( !v11 )
   {
-    v12 = *((_DWORD *)this + 101);
+    v12 = *((_DWORD *)this + 99);
 LABEL_15:
     *(_DWORD *)a3 = v12;
     *((_DWORD *)a3 + 18) = 18;
@@ -103,6 +103,6 @@ LABEL_25:
     return v3;
   }
   v3 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0x1EEu);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x1F0u, 0LL);
   return v3;
 }

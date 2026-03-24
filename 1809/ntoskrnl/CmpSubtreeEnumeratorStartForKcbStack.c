@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSubtreeEnumeratorStartForKcbStack @ 0x1407FAA68
+ * XREFs of CmpSubtreeEnumeratorStartForKcbStack @ 0x1407FAA48
  * Callers:
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F4E34 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpPromoteSubtree @ 0x140805B5C (CmpPromoteSubtree.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F4E14 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpPromoteSubtree @ 0x140805B3C (CmpPromoteSubtree.c)
  * Callees:
- *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x1407FA758 (CmpSubtreeEnumeratorBeginForKcbStack.c)
- *     CmpSubtreeEnumeratorStart @ 0x1407FA954 (CmpSubtreeEnumeratorStart.c)
+ *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x1407FA738 (CmpSubtreeEnumeratorBeginForKcbStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x1407FA934 (CmpSubtreeEnumeratorStart.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorStartForKcbStack(__int64 a1, __int64 a2)

@@ -1,117 +1,118 @@
 /*
- * XREFs of UsbhException @ 0x1C004A0A8
+ * XREFs of UsbhException @ 0x1C004B478
  * Callers:
- *     UsbhPdoSetD0_Finish @ 0x1C0001A6C (UsbhPdoSetD0_Finish.c)
- *     UsbhCompletePdoWakeIrps @ 0x1C0001D80 (UsbhCompletePdoWakeIrps.c)
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhHubIsr @ 0x1C0004510 (UsbhHubIsr.c)
- *     UsbhPdoSetD0 @ 0x1C00055F0 (UsbhPdoSetD0.c)
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhFdoD0Worker_Action @ 0x1C00070B0 (UsbhFdoD0Worker_Action.c)
- *     UsbhHubProcessIsr @ 0x1C00083B0 (UsbhHubProcessIsr.c)
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     UsbhFdoSetD0Cold @ 0x1C0009FA0 (UsbhFdoSetD0Cold.c)
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhSshResumeUpstream @ 0x1C000D344 (UsbhSshResumeUpstream.c)
- *     UsbhSuspendPort @ 0x1C000D884 (UsbhSuspendPort.c)
- *     UsbhCheckHubPowerStatus @ 0x1C000D988 (UsbhCheckHubPowerStatus.c)
- *     UsbhSyncSuspendPdoPort @ 0x1C000EC40 (UsbhSyncSuspendPdoPort.c)
- *     UsbhHubRunPortChangeQueue @ 0x1C0015150 (UsbhHubRunPortChangeQueue.c)
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhSyncPowerOnPorts @ 0x1C001A270 (UsbhSyncPowerOnPorts.c)
- *     UsbhQueryChange @ 0x1C001A8AC (UsbhQueryChange.c)
- *     UsbhResumeSuspendedPort @ 0x1C001AA6C (UsbhResumeSuspendedPort.c)
- *     UsbhResetPort @ 0x1C001AB54 (UsbhResetPort.c)
- *     UsbhFdoColdStartPdo @ 0x1C001B954 (UsbhFdoColdStartPdo.c)
- *     UsbhCreateDevice @ 0x1C001BC70 (UsbhCreateDevice.c)
- *     UsbhInitializeDevice @ 0x1C001E90C (UsbhInitializeDevice.c)
- *     UsbhBusSuspend_Action @ 0x1C001ED64 (UsbhBusSuspend_Action.c)
- *     UsbhConfigureUsbHub @ 0x1C00293DC (UsbhConfigureUsbHub.c)
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
- *     UsbhFdoSelectConfigurationPdo @ 0x1C002A2CC (UsbhFdoSelectConfigurationPdo.c)
- *     UsbhGetDescriptor @ 0x1C002AFDC (UsbhGetDescriptor.c)
- *     UsbhGetHubClassDescriptor @ 0x1C002B6CC (UsbhGetHubClassDescriptor.c)
- *     UsbhGetHubConfigurationDescriptor @ 0x1C002B864 (UsbhGetHubConfigurationDescriptor.c)
- *     UsbhGetHubDeviceInformation @ 0x1C002BAD8 (UsbhGetHubDeviceInformation.c)
- *     UsbhGetStatus @ 0x1C002C278 (UsbhGetStatus.c)
- *     UsbhOutOfBandwidthTimerDpc @ 0x1C002CC20 (UsbhOutOfBandwidthTimerDpc.c)
- *     UsbhSetHubRemoteWake @ 0x1C002CF94 (UsbhSetHubRemoteWake.c)
- *     UsbhSetPortPower @ 0x1C002D208 (UsbhSetPortPower.c)
- *     UsbhSetPortIndicator @ 0x1C002EB18 (UsbhSetPortIndicator.c)
- *     UsbhFdoCyclePdoPort @ 0x1C002F9D0 (UsbhFdoCyclePdoPort.c)
- *     UsbhFdoRecordFailure @ 0x1C002FD78 (UsbhFdoRecordFailure.c)
- *     UsbhFdoResetPdoPort @ 0x1C002FF70 (UsbhFdoResetPdoPort.c)
- *     UsbhFdoSubmitPdoIdleNotification @ 0x1C0030998 (UsbhFdoSubmitPdoIdleNotification.c)
- *     UsbhParseDescriptors @ 0x1C00316BC (UsbhParseDescriptors.c)
- *     UsbhGetMSOS_Descriptor @ 0x1C003227C (UsbhGetMSOS_Descriptor.c)
- *     UsbhGetMsOsContainerID @ 0x1C0032674 (UsbhGetMsOsContainerID.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhClearTt @ 0x1C003664C (UsbhClearTt.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
- *     UsbhFinishStart @ 0x1C0036EB4 (UsbhFinishStart.c)
- *     UsbhGetBillboardInfo @ 0x1C003743C (UsbhGetBillboardInfo.c)
- *     UsbhGetDeviceInformation @ 0x1C0037880 (UsbhGetDeviceInformation.c)
- *     UsbhHubResetIrqPipeWorker @ 0x1C00380C0 (UsbhHubResetIrqPipeWorker.c)
- *     UsbhPortResumeTimeout @ 0x1C0038490 (UsbhPortResumeTimeout.c)
- *     UsbhQueryHubState @ 0x1C00386EC (UsbhQueryHubState.c)
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
- *     UsbhSyncResumePort @ 0x1C0039A30 (UsbhSyncResumePort.c)
- *     UsbhFdoPower_PowerFailureEntry @ 0x1C003B740 (UsbhFdoPower_PowerFailureEntry.c)
- *     UsbhFdoSetD0Warm @ 0x1C003B8A0 (UsbhFdoSetD0Warm.c)
- *     UsbhHardReset_Action @ 0x1C003C838 (UsbhHardReset_Action.c)
- *     UsbhIoctlCyclePort @ 0x1C003DB64 (UsbhIoctlCyclePort.c)
- *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003E348 (UsbhIoctlGetDescriptorFromNodeConnection.c)
- *     UsbhIoctlGetHubCaps @ 0x1C003E67C (UsbhIoctlGetHubCaps.c)
- *     UsbhIoctlGetHubCapsEx @ 0x1C003E8F4 (UsbhIoctlGetHubCapsEx.c)
- *     UsbhIoctlGetHubInformationEx @ 0x1C003EBB8 (UsbhIoctlGetHubInformationEx.c)
- *     UsbhIoctlGetNodeConnectionAttributes @ 0x1C003EE8C (UsbhIoctlGetNodeConnectionAttributes.c)
- *     UsbhIoctlGetNodeConnectionDriverKeyName @ 0x1C003F11C (UsbhIoctlGetNodeConnectionDriverKeyName.c)
- *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C003F5CC (UsbhIoctlGetNodeConnectionInfoExApi.c)
- *     UsbhIoctlGetNodeConnectionInfoExV2 @ 0x1C003F8F4 (UsbhIoctlGetNodeConnectionInfoExV2.c)
- *     UsbhIoctlGetNodeConnectionName @ 0x1C003FC08 (UsbhIoctlGetNodeConnectionName.c)
- *     UsbhIoctlGetNodeInformation @ 0x1C003FEF8 (UsbhIoctlGetNodeInformation.c)
- *     UsbhIoctlGetPortConnectorProperties @ 0x1C00401D8 (UsbhIoctlGetPortConnectorProperties.c)
- *     UsbhIoctlResetStuckHub @ 0x1C00404C8 (UsbhIoctlResetStuckHub.c)
- *     UsbhIoctlValidateParameters @ 0x1C0040958 (UsbhIoctlValidateParameters.c)
- *     UsbhFdoPnp_QueryPnpDeviceState @ 0x1C0042540 (UsbhFdoPnp_QueryPnpDeviceState.c)
- *     UsbhFdoPnp_StartDevice @ 0x1C0042970 (UsbhFdoPnp_StartDevice.c)
- *     UsbhResetNotificationIrpCompletion @ 0x1C0043690 (UsbhResetNotificationIrpCompletion.c)
- *     UsbhPdoQueryWmiRegInfo @ 0x1C00491A0 (UsbhPdoQueryWmiRegInfo.c)
- *     UsbhBusIfAddDevice @ 0x1C004B330 (UsbhBusIfAddDevice.c)
- *     UsbhGetBusInterface @ 0x1C004BB30 (UsbhGetBusInterface.c)
- *     UsbhHandleOvercurrent @ 0x1C004C3B4 (UsbhHandleOvercurrent.c)
- *     UsbhHardErrorInvalidData @ 0x1C004C5F0 (UsbhHardErrorInvalidData.c)
- *     UsbhHardErrorReset1BadEnable @ 0x1C004C6E0 (UsbhHardErrorReset1BadEnable.c)
- *     UsbhPortConnect @ 0x1C004C820 (UsbhPortConnect.c)
- *     UsbhPortResumeFailed @ 0x1C004D050 (UsbhPortResumeFailed.c)
- *     UsbhReset1DebounceError @ 0x1C004D4B0 (UsbhReset1DebounceError.c)
- *     UsbhReset1Timeout @ 0x1C004D800 (UsbhReset1Timeout.c)
- *     UsbhReset1TimeoutBadEnable @ 0x1C004DA10 (UsbhReset1TimeoutBadEnable.c)
- *     UsbhReset2TimeoutBadEnable @ 0x1C004DFD0 (UsbhReset2TimeoutBadEnable.c)
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
- *     UsbhGetLanguageIdString @ 0x1C004FB20 (UsbhGetLanguageIdString.c)
- *     UsbhGetProductIdString @ 0x1C004FF10 (UsbhGetProductIdString.c)
- *     UsbhGetSerialNumber @ 0x1C00500D4 (UsbhGetSerialNumber.c)
- *     UsbhCheckDeviceErrata @ 0x1C0050C04 (UsbhCheckDeviceErrata.c)
- *     UsbhCheckHubErrata @ 0x1C0050F60 (UsbhCheckHubErrata.c)
- *     UsbhValidateSerialNumberString @ 0x1C00526D8 (UsbhValidateSerialNumberString.c)
- *     UsbhPdoCreateSymbolicLink @ 0x1C0054170 (UsbhPdoCreateSymbolicLink.c)
- *     UsbhPdoPnp_EnablePdo @ 0x1C00548CC (UsbhPdoPnp_EnablePdo.c)
- *     UsbhPdoPnp_QueryDeviceText @ 0x1C0054C70 (UsbhPdoPnp_QueryDeviceText.c)
- *     UsbhPdoPnp_QueryInterface @ 0x1C00552A0 (UsbhPdoPnp_QueryInterface.c)
- *     UsbhPdoPnp_StartDevice @ 0x1C0055CA0 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhResetPort @ 0x1C00018E8 (UsbhResetPort.c)
+ *     UsbhCompletePdoWakeIrps @ 0x1C0001D70 (UsbhCompletePdoWakeIrps.c)
+ *     UsbhBusSuspend_Action @ 0x1C00022A0 (UsbhBusSuspend_Action.c)
+ *     UsbhHubRunPortChangeQueue @ 0x1C00071D0 (UsbhHubRunPortChangeQueue.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C000BBF0 (UsbhSyncPowerOnPorts.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000CF10 (UsbhFdoSetD0Cold.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000DC30 (UsbhFdoD0Worker_Action.c)
+ *     UsbhHubProcessIsr @ 0x1C000F090 (UsbhHubProcessIsr.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhSshResumeUpstream @ 0x1C0013558 (UsbhSshResumeUpstream.c)
+ *     UsbhSuspendPort @ 0x1C00138BC (UsbhSuspendPort.c)
+ *     UsbhCheckHubPowerStatus @ 0x1C00139C0 (UsbhCheckHubPowerStatus.c)
+ *     UsbhSyncSuspendPdoPort @ 0x1C0014C0C (UsbhSyncSuspendPdoPort.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhQueryChange @ 0x1C00167EC (UsbhQueryChange.c)
+ *     UsbhPdoSetD0 @ 0x1C00173C0 (UsbhPdoSetD0.c)
+ *     UsbhPdoSetD0_Finish @ 0x1C001820C (UsbhPdoSetD0_Finish.c)
+ *     UsbhCreateDevice @ 0x1C0019118 (UsbhCreateDevice.c)
+ *     UsbhHubIsr @ 0x1C0019BF0 (UsbhHubIsr.c)
+ *     UsbhResumeSuspendedPort @ 0x1C001BEB8 (UsbhResumeSuspendedPort.c)
+ *     UsbhInitializeDevice @ 0x1C001C46C (UsbhInitializeDevice.c)
+ *     UsbhFdoColdStartPdo @ 0x1C001C580 (UsbhFdoColdStartPdo.c)
+ *     UsbhConfigureUsbHub @ 0x1C002A738 (UsbhConfigureUsbHub.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoSelectConfigurationPdo @ 0x1C002B61C (UsbhFdoSelectConfigurationPdo.c)
+ *     UsbhGetDescriptor @ 0x1C002C3D0 (UsbhGetDescriptor.c)
+ *     UsbhGetHubClassDescriptor @ 0x1C002CAF8 (UsbhGetHubClassDescriptor.c)
+ *     UsbhGetHubConfigurationDescriptor @ 0x1C002CC90 (UsbhGetHubConfigurationDescriptor.c)
+ *     UsbhGetHubDeviceInformation @ 0x1C002CEE0 (UsbhGetHubDeviceInformation.c)
+ *     UsbhGetStatus @ 0x1C002D6A0 (UsbhGetStatus.c)
+ *     UsbhOutOfBandwidthTimerDpc @ 0x1C002E060 (UsbhOutOfBandwidthTimerDpc.c)
+ *     UsbhSetHubRemoteWake @ 0x1C002E394 (UsbhSetHubRemoteWake.c)
+ *     UsbhSetPortPower @ 0x1C002E61C (UsbhSetPortPower.c)
+ *     UsbhSetPortIndicator @ 0x1C002FEE8 (UsbhSetPortIndicator.c)
+ *     UsbhFdoCyclePdoPort @ 0x1C0030D70 (UsbhFdoCyclePdoPort.c)
+ *     UsbhFdoRecordFailure @ 0x1C0031110 (UsbhFdoRecordFailure.c)
+ *     UsbhFdoResetPdoPort @ 0x1C0031320 (UsbhFdoResetPdoPort.c)
+ *     UsbhFdoSubmitPdoIdleNotification @ 0x1C0031D40 (UsbhFdoSubmitPdoIdleNotification.c)
+ *     UsbhParseDescriptors @ 0x1C003294C (UsbhParseDescriptors.c)
+ *     UsbhGetMSOS_Descriptor @ 0x1C003356C (UsbhGetMSOS_Descriptor.c)
+ *     UsbhGetMsOsContainerID @ 0x1C0033994 (UsbhGetMsOsContainerID.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhClearTt @ 0x1C003796C (UsbhClearTt.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
+ *     UsbhFinishStart @ 0x1C0038168 (UsbhFinishStart.c)
+ *     UsbhGetBillboardInfo @ 0x1C00386F0 (UsbhGetBillboardInfo.c)
+ *     UsbhGetDeviceInformation @ 0x1C0038B48 (UsbhGetDeviceInformation.c)
+ *     UsbhHubResetIrqPipeWorker @ 0x1C0039390 (UsbhHubResetIrqPipeWorker.c)
+ *     UsbhPortResumeTimeout @ 0x1C0039760 (UsbhPortResumeTimeout.c)
+ *     UsbhQueryHubState @ 0x1C00399BC (UsbhQueryHubState.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
+ *     UsbhSyncResumePort @ 0x1C003AD40 (UsbhSyncResumePort.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003CA70 (UsbhFdoPower_PowerFailureEntry.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003CBD0 (UsbhFdoSetD0Warm.c)
+ *     UsbhHardReset_Action @ 0x1C003DA18 (UsbhHardReset_Action.c)
+ *     UsbhIoctlCyclePort @ 0x1C003ED54 (UsbhIoctlCyclePort.c)
+ *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003F534 (UsbhIoctlGetDescriptorFromNodeConnection.c)
+ *     UsbhIoctlGetHubCaps @ 0x1C003F868 (UsbhIoctlGetHubCaps.c)
+ *     UsbhIoctlGetHubCapsEx @ 0x1C003FAE0 (UsbhIoctlGetHubCapsEx.c)
+ *     UsbhIoctlGetHubInformationEx @ 0x1C003FDA4 (UsbhIoctlGetHubInformationEx.c)
+ *     UsbhIoctlGetNodeConnectionAttributes @ 0x1C0040078 (UsbhIoctlGetNodeConnectionAttributes.c)
+ *     UsbhIoctlGetNodeConnectionDriverKeyName @ 0x1C0040308 (UsbhIoctlGetNodeConnectionDriverKeyName.c)
+ *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C00407B8 (UsbhIoctlGetNodeConnectionInfoExApi.c)
+ *     UsbhIoctlGetNodeConnectionInfoExV2 @ 0x1C0040AF8 (UsbhIoctlGetNodeConnectionInfoExV2.c)
+ *     UsbhIoctlGetNodeConnectionName @ 0x1C0040E0C (UsbhIoctlGetNodeConnectionName.c)
+ *     UsbhIoctlGetNodeInformation @ 0x1C00410FC (UsbhIoctlGetNodeInformation.c)
+ *     UsbhIoctlGetPortConnectorProperties @ 0x1C00413E4 (UsbhIoctlGetPortConnectorProperties.c)
+ *     UsbhIoctlResetStuckHub @ 0x1C00416D4 (UsbhIoctlResetStuckHub.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041B64 (UsbhIoctlValidateParameters.c)
+ *     UsbhFdoPnp_QueryPnpDeviceState @ 0x1C00437F0 (UsbhFdoPnp_QueryPnpDeviceState.c)
+ *     UsbhFdoPnp_StartDevice @ 0x1C0043C20 (UsbhFdoPnp_StartDevice.c)
+ *     UsbhResetNotificationIrpCompletion @ 0x1C0044950 (UsbhResetNotificationIrpCompletion.c)
+ *     UsbhPdoQueryWmiRegInfo @ 0x1C004A530 (UsbhPdoQueryWmiRegInfo.c)
+ *     UsbhBusIfAddDevice @ 0x1C004C710 (UsbhBusIfAddDevice.c)
+ *     UsbhGetBusInterface @ 0x1C004CF30 (UsbhGetBusInterface.c)
+ *     UsbhHandleOvercurrent @ 0x1C004D7C4 (UsbhHandleOvercurrent.c)
+ *     UsbhHardErrorInvalidData @ 0x1C004DA00 (UsbhHardErrorInvalidData.c)
+ *     UsbhHardErrorReset1BadEnable @ 0x1C004DAF0 (UsbhHardErrorReset1BadEnable.c)
+ *     UsbhPortConnect @ 0x1C004DC30 (UsbhPortConnect.c)
+ *     UsbhPortResumeFailed @ 0x1C004E460 (UsbhPortResumeFailed.c)
+ *     UsbhReset1DebounceError @ 0x1C004E8C0 (UsbhReset1DebounceError.c)
+ *     UsbhReset1Timeout @ 0x1C004EC10 (UsbhReset1Timeout.c)
+ *     UsbhReset1TimeoutBadEnable @ 0x1C004EE20 (UsbhReset1TimeoutBadEnable.c)
+ *     UsbhReset2TimeoutBadEnable @ 0x1C004F3E0 (UsbhReset2TimeoutBadEnable.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
+ *     UsbhGetLanguageIdString @ 0x1C00510CC (UsbhGetLanguageIdString.c)
+ *     UsbhGetProductIdString @ 0x1C00514DC (UsbhGetProductIdString.c)
+ *     UsbhGetSerialNumber @ 0x1C00516AC (UsbhGetSerialNumber.c)
+ *     UsbhCheckDeviceErrata @ 0x1C0052254 (UsbhCheckDeviceErrata.c)
+ *     UsbhCheckHubErrata @ 0x1C00525B0 (UsbhCheckHubErrata.c)
+ *     UsbhValidateSerialNumberString @ 0x1C0053D28 (UsbhValidateSerialNumberString.c)
+ *     UsbhPdoCreateSymbolicLink @ 0x1C0055800 (UsbhPdoCreateSymbolicLink.c)
+ *     UsbhPdoPnp_EnablePdo @ 0x1C0055F5C (UsbhPdoPnp_EnablePdo.c)
+ *     UsbhPdoPnp_QueryDeviceText @ 0x1C00562F0 (UsbhPdoPnp_QueryDeviceText.c)
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0056940 (UsbhPdoPnp_QueryInterface.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0057340 (UsbhPdoPnp_StartDevice.c)
  * Callees:
- *     UsbhQueueWorkItemEx @ 0x1C0002868 (UsbhQueueWorkItemEx.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
- *     memmove @ 0x1C001F540 (memmove.c)
- *     UsbhExceptionTrace @ 0x1C004A388 (UsbhExceptionTrace.c)
- *     UsbhExceptionWorker @ 0x1C004A720 (UsbhExceptionWorker.c)
- *     UsbhGetExceptionDispatch @ 0x1C004A814 (UsbhGetExceptionDispatch.c)
- *     UsbhEtwLogHubException @ 0x1C005B04C (UsbhEtwLogHubException.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhQueueWorkItemEx @ 0x1C0017B0C (UsbhQueueWorkItemEx.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhExceptionTrace @ 0x1C004B76C (UsbhExceptionTrace.c)
+ *     UsbhExceptionWorker @ 0x1C004BB00 (UsbhExceptionWorker.c)
+ *     UsbhGetExceptionDispatch @ 0x1C004BBF4 (UsbhGetExceptionDispatch.c)
+ *     UsbhEtwLogHubException @ 0x1C005C6FC (UsbhEtwLogHubException.c)
  */
 
 void __fastcall UsbhException(
@@ -135,15 +136,15 @@ void __fastcall UsbhException(
   int v19; // eax
   unsigned __int16 v20; // si
   unsigned int v21; // r14d
-  unsigned int v22; // r13d
-  __int64 Pool2; // rax
-  _DWORD *v24; // rbx
-  char *v25; // rcx
-  unsigned int v26; // ecx
-  _OWORD *v27; // rdx
-  __int64 v28; // rax
-  _OWORD *v29; // rax
-  __int64 ExceptionDispatch; // [rsp+40h] [rbp-48h]
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v23; // rbx
+  char *v24; // rcx
+  unsigned int v25; // ecx
+  _OWORD *v26; // rdx
+  __int64 v27; // rax
+  _OWORD *v28; // rax
+  __int64 ExceptionDispatch; // [rsp+48h] [rbp-40h]
+  unsigned int v33; // [rsp+D8h] [rbp+50h]
 
   v11 = a2;
   v14 = FdoExt(a1);
@@ -173,60 +174,61 @@ void __fastcall UsbhException(
       ++v15;
     while ( a8[v15] );
     v21 = v15 + 1;
-    v22 = v21 + v20 + 600;
-    Pool2 = ExAllocatePool2(64LL, v22, 1112885333LL);
-    v24 = (_DWORD *)Pool2;
-    if ( Pool2 )
+    v33 = v21 + v20 + 600;
+    PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), v33, 0x42554855u);
+    v23 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 4) = v22;
-      if ( (int)UsbhReferenceListAdd(a1, Pool2, 1381516648) < 0 )
+      memset(PoolWithTag, 0, v21 + v20 + 600);
+      v23[1] = v33;
+      if ( (int)UsbhReferenceListAdd(a1, (__int64)v23, 1381516648) < 0 )
       {
 LABEL_23:
-        ExFreePoolWithTag(v24, 0);
+        ExFreePoolWithTag(v23, 0);
         return;
       }
-      *v24 = 1381516648;
-      *((_QWORD *)v24 + 1) = a1;
-      *((_WORD *)v24 + 16) = v20;
+      *v23 = 1381516648;
+      *((_QWORD *)v23 + 1) = a1;
+      *((_WORD *)v23 + 16) = v20;
       if ( v20 )
       {
-        *((_QWORD *)v24 + 5) = v24 + 150;
-        memmove(v24 + 150, a4, v20);
+        *((_QWORD *)v23 + 5) = v23 + 150;
+        memmove(v23 + 150, a4, v20);
       }
-      v25 = (char *)v24 + v20 + 600;
-      *((_QWORD *)v24 + 74) = v25;
-      memmove(v25, a8, v21);
-      v24[146] = a9;
-      v24[6] = a7;
-      v24[7] = a6;
-      v24[4] = a3;
-      *((_WORD *)v24 + 10) = a2;
-      *((_QWORD *)v24 + 8) = MEMORY[0xFFFFF78000000014];
+      v24 = (char *)v23 + v20 + 600;
+      *((_QWORD *)v23 + 74) = v24;
+      memmove(v24, a8, v21);
+      v23[146] = a9;
+      v23[6] = a7;
+      v23[7] = a6;
+      v23[4] = a3;
+      *((_WORD *)v23 + 10) = a2;
+      *((_QWORD *)v23 + 8) = MEMORY[0xFFFFF78000000014];
       if ( *((_QWORD *)v14 + 111) )
       {
-        v26 = v14[220];
-        v27 = v24 + 18;
+        v25 = v14[220];
+        v26 = v23 + 18;
         do
         {
-          v28 = v14[221] & v26;
-          v26 = v28 + 1;
-          v29 = (_OWORD *)(*((_QWORD *)v14 + 111) + 32 * v28);
-          *v27 = *v29;
-          v27 += 2;
-          *(v27 - 1) = v29[1];
+          v27 = v14[221] & v25;
+          v25 = v27 + 1;
+          v28 = (_OWORD *)(*((_QWORD *)v14 + 111) + 32 * v27);
+          *v26 = *v28;
+          v26 += 2;
+          *(v26 - 1) = v28[1];
           --v18;
         }
         while ( v18 );
       }
-      UsbhExceptionTrace(a1, v24, ExceptionDispatch);
+      UsbhExceptionTrace(a1, v23, ExceptionDispatch);
       if ( !KeGetCurrentIrql() && !*(_QWORD *)(ExceptionDispatch + 16) )
       {
-        UsbhExceptionWorker(a1, a2, v24);
+        UsbhExceptionWorker(a1, a2, v23);
         return;
       }
-      if ( (UsbhQueueWorkItemEx(a1, 1u, (int)UsbhExceptionWorker, (__int64)v24, a2, 1230469221, 0LL) & 0xC0000000) == 0xC0000000 )
+      if ( (UsbhQueueWorkItemEx(a1, 1u, (int)UsbhExceptionWorker, (__int64)v23, a2, 0x49577865u, 0LL) & 0xC0000000) == 0xC0000000 )
       {
-        UsbhReferenceListRemove(a1, (__int64)v24);
+        UsbhReferenceListRemove(a1, (__int64)v23);
         goto LABEL_23;
       }
     }

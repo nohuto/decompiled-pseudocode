@@ -1,15 +1,13 @@
 /*
- * XREFs of MiInitializeHugePfnDatabase @ 0x14058732C
+ * XREFs of MiInitializeHugePfnDatabase @ 0x1405333A0
  * Callers:
- *     MiInsertPartitionPages @ 0x1405BE81C (MiInsertPartitionPages.c)
- *     MiHotAddHugeRange @ 0x14096A988 (MiHotAddHugeRange.c)
- *     MiCreateHugeIoRanges @ 0x140AF6988 (MiCreateHugeIoRanges.c)
+ *     MiHotAddHugeRange @ 0x1408C69B8 (MiHotAddHugeRange.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeHugePfnDatabase()
@@ -40,8 +38,8 @@ __int64 MiInitializeHugePfnDatabase()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C52980, &LockHandle);
-  if ( qword_140C52968 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E680, &LockHandle);
+  if ( qword_140C4E670 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
@@ -72,7 +70,7 @@ LABEL_36:
     __writecr8(OldIrql);
     return result;
   }
-  Pool = MiAllocatePool(64, 0x80000uLL, 0x7048694Du);
+  Pool = MiAllocatePool(64, 0x8000uLL, 0x7048694Du);
   if ( !Pool )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -97,13 +95,12 @@ LABEL_36:
     result = 0LL;
     goto LABEL_36;
   }
-  v13 = MiAllocatePool(64, 0x2000000uLL, 0x7048694Du);
+  v13 = MiAllocatePool(64, 0x200000uLL, 0x7048694Du);
   if ( v13 )
   {
-    qword_140C52958 = 0x400000LL;
-    qword_140C52960 = (__int64)Pool;
-    qword_140C52968 = (__int64)v13;
-    qword_140C53140 = 0x100000LL;
+    qword_140C4E660 = 0x40000LL;
+    qword_140C4E668 = (__int64)Pool;
+    qword_140C4E670 = (__int64)v13;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( !KiIrqlFlags )

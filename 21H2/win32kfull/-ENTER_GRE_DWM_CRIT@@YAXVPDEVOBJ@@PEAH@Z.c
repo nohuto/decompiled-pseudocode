@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0086D14
+ * XREFs of ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0015774
  * Callers:
- *     GreSfmCloseCompositorRef @ 0x1C0089AE4 (GreSfmCloseCompositorRef.c)
- *     GreTransferDwmStateToSpriteState @ 0x1C0097BB8 (GreTransferDwmStateToSpriteState.c)
- *     GreDwmStartup @ 0x1C00D3840 (GreDwmStartup.c)
- *     GreTransferSpriteStateToDwmState @ 0x1C00ECC20 (GreTransferSpriteStateToDwmState.c)
- *     GreDesktopSwitch @ 0x1C0118A54 (GreDesktopSwitch.c)
- *     GreDwmShutdown @ 0x1C011FFD8 (GreDwmShutdown.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
+ *     GreSfmCloseCompositorRef @ 0x1C0015168 (GreSfmCloseCompositorRef.c)
+ *     GreDesktopSwitch @ 0x1C002AA68 (GreDesktopSwitch.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA5BC (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAF9C (GreTransferDwmStateToSpriteState.c)
+ *     GreDwmShutdown @ 0x1C0134404 (GreDwmShutdown.c)
  * Callees:
  *     <none>
  */
@@ -25,8 +25,8 @@ __int64 __fastcall ENTER_GRE_DWM_CRIT(__int64 a1, _DWORD *a2)
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
   GreAcquireSemaphore(ghsemDCVisRgn);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDCVisRgn", ghsemDCVisRgn, 3LL);
-  GreAcquireSemaphore(*(_QWORD *)(a1 + 56));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemPointer()", *(_QWORD *)(a1 + 56), 4LL);
+  GreAcquireSemaphore(*(_QWORD *)(a1 + 64));
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemPointer()", *(_QWORD *)(a1 + 64), 4LL);
   GreAcquireSemaphore(ghsemSprite);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
   GreAcquireSemaphore(ghsemDwmState);

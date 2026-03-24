@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x180009980
+ * XREFs of ?IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x18000C8D0
  * Callers:
- *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180008CA8 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A24 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
  * Callees:
  *     <none>
  */

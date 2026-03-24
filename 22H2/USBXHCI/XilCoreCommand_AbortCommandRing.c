@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommand_AbortCommandRing @ 0x1C0052980
+ * XREFs of XilCoreCommand_AbortCommandRing @ 0x1C004FC5C
  * Callers:
- *     Command_WdfEvtWatchdogTimerFunction @ 0x1C0030170 (Command_WdfEvtWatchdogTimerFunction.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E790 (Command_WdfEvtWatchdogTimerFunction.c)
  * Callees:
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     XilRegister_ReadUlong64 @ 0x1C003F238 (XilRegister_ReadUlong64.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     XilRegister_ReadUlong64 @ 0x1C003CFDC (XilRegister_ReadUlong64.c)
  */
 
 __int64 __fastcall XilCoreCommand_AbortCommandRing(__int64 *a1)

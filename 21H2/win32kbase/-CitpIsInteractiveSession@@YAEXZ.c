@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CitpIsInteractiveSession@@YAEXZ @ 0x1C00A3EDC
+ * XREFs of ?CitpIsInteractiveSession@@YAEXZ @ 0x1C008CAA4
  * Callers:
- *     ?CitpStart@@YAJXZ @ 0x1C00A3AFC (-CitpStart@@YAJXZ.c)
- *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00A3BB0 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ *     ?CitpStart@@YAJXZ @ 0x1C008BB2C (-CitpStart@@YAJXZ.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C008C790 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
  * Callees:
  *     <none>
  */

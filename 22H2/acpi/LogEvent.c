@@ -1,7 +1,8 @@
 /*
- * XREFs of LogEvent @ 0x1C004E2FC
+ * XREFs of LogEvent @ 0x1C002A21C
  * Callers:
- *     LogSchedEvent @ 0x1C004E3CC (LogSchedEvent.c)
+ *     InsertReadyQueue @ 0x1C00047A0 (InsertReadyQueue.c)
+ *     LogSchedEvent @ 0x1C002A1C0 (LogSchedEvent.c)
  * Callees:
  *     <none>
  */
@@ -13,19 +14,19 @@ PVOID __fastcall LogEvent(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5
 
   if ( (gDebugger & 0x8000) != 0 )
   {
-    if ( qword_1C006F910 )
+    if ( qword_1C00828E0 )
     {
-      v9 = 9LL * (_InterlockedExchangeAdd((_DWORD *)&qword_1C006F908 + 1, 1u) % (unsigned int)qword_1C006F908);
-      *((_QWORD *)qword_1C006F910 + v9 + 1) = MEMORY[0xFFFFF78000000008];
-      *((_DWORD *)qword_1C006F910 + 2 * v9) = a1;
-      *((_QWORD *)qword_1C006F910 + v9 + 2) = a2;
-      *((_QWORD *)qword_1C006F910 + v9 + 3) = a3;
-      *((_QWORD *)qword_1C006F910 + v9 + 4) = a4;
-      *((_QWORD *)qword_1C006F910 + v9 + 5) = a5;
-      *((_QWORD *)qword_1C006F910 + v9 + 6) = a6;
-      *((_QWORD *)qword_1C006F910 + v9 + 7) = a7;
-      result = qword_1C006F910;
-      *((_QWORD *)qword_1C006F910 + v9 + 8) = a8;
+      v9 = 9LL * (_InterlockedExchangeAdd((_DWORD *)&qword_1C00828D8 + 1, 1u) % (unsigned int)qword_1C00828D8);
+      *((_QWORD *)qword_1C00828E0 + v9 + 1) = MEMORY[0xFFFFF78000000008];
+      *((_DWORD *)qword_1C00828E0 + 2 * v9) = a1;
+      *((_QWORD *)qword_1C00828E0 + v9 + 2) = a2;
+      *((_QWORD *)qword_1C00828E0 + v9 + 3) = a3;
+      *((_QWORD *)qword_1C00828E0 + v9 + 4) = a4;
+      *((_QWORD *)qword_1C00828E0 + v9 + 5) = a5;
+      *((_QWORD *)qword_1C00828E0 + v9 + 6) = a6;
+      *((_QWORD *)qword_1C00828E0 + v9 + 7) = a7;
+      result = qword_1C00828E0;
+      *((_QWORD *)qword_1C00828E0 + v9 + 8) = a8;
     }
   }
   return result;

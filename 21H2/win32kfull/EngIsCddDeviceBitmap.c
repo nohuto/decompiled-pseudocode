@@ -1,5 +1,5 @@
 /*
- * XREFs of EngIsCddDeviceBitmap @ 0x1C02755F0
+ * XREFs of EngIsCddDeviceBitmap @ 0x1C0277E80
  * Callers:
  *     <none>
  * Callees:

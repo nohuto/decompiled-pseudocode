@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpInitializeNotification @ 0x140B2A970
+ * XREFs of PnpInitializeNotification @ 0x140A53618
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */
@@ -23,9 +23,9 @@ LIST_ENTRY *PnpInitializeNotification()
   }
   while ( v0 );
   PnpDeviceClassNotifyLock.Count = 1;
-  qword_140D3CEC0 = (__int64)&PnpProfileNotifyList;
+  qword_140D2EB58 = (__int64)&PnpProfileNotifyList;
   PnpProfileNotifyList = &PnpProfileNotifyList;
-  qword_140D3CE90 = (__int64)&PnpDeferredRegistrationList;
+  qword_140D2EB28 = (__int64)&PnpDeferredRegistrationList;
   PnpDeferredRegistrationList = &PnpDeferredRegistrationList;
   PnpDeviceClassNotifyLock.Event.Header.WaitListHead.Blink = &PnpDeviceClassNotifyLock.Event.Header.WaitListHead;
   PnpDeviceClassNotifyLock.Event.Header.WaitListHead.Flink = &PnpDeviceClassNotifyLock.Event.Header.WaitListHead;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdateCoordinatedDependencies @ 0x14099DF74
+ * XREFs of PpmIdleUpdateCoordinatedDependencies @ 0x1408F6790
  * Callers:
- *     PpmInstallCoordinatedIdleStates @ 0x14098A510 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x1408E1D00 (PpmInstallCoordinatedIdleStates.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +10,9 @@ __int64 __fastcall PpmIdleUpdateCoordinatedDependencies(_DWORD *a1)
 {
   unsigned int v1; // edx
   bool v3; // zf
-  unsigned int v4; // r10d
+  unsigned int v4; // r9d
   int v5; // r11d
-  __int64 v6; // r9
+  __int64 v6; // r10
   unsigned int i; // ebx
   __int64 v8; // rcx
   __int64 v9; // rcx
@@ -30,12 +30,12 @@ __int64 __fastcall PpmIdleUpdateCoordinatedDependencies(_DWORD *a1)
     {
       while ( 1 )
       {
-        v6 = 80LL * v4;
-        if ( !LOBYTE(a1[v6 + 88]) )
+        v6 = 56LL * v4;
+        if ( !LOBYTE(a1[v6 + 64]) )
           return (unsigned int)-1073741637;
-        for ( i = 0; i < a1[v6 + 87]; *(_BYTE *)(v9 + 3) = 1 )
+        for ( i = 0; i < a1[v6 + 63]; *(_BYTE *)(v9 + 3) = 1 )
         {
-          v8 = *(_QWORD *)&a1[v6 + 90] + 16LL * i;
+          v8 = *(_QWORD *)&a1[v6 + 66] + 16LL * i;
           if ( *(_DWORD *)v8 == -1 || !*(_DWORD *)(v8 + 4) )
             return (unsigned int)-1073741637;
           *(_DWORD *)(v8 + 4) = 1;

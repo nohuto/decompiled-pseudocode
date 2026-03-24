@@ -1,68 +1,69 @@
 /*
- * XREFs of NtUserSwitchDesktop @ 0x1C0113670
+ * XREFs of NtUserSwitchDesktop @ 0x1C0028450
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     xxxSwitchDesktopWithFade @ 0x1C01137BC (xxxSwitchDesktopWithFade.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
+ *     xxxSwitchDesktopWithFade @ 0x1C011DB50 (xxxSwitchDesktopWithFade.c)
  */
 
-_BOOL8 __fastcall NtUserSwitchDesktop(__int64 a1, int a2, int a3)
+_BOOL8 __fastcall NtUserSwitchDesktop(__int64 a1, int a2, unsigned int a3)
 {
-  BOOL v5; // ebx
+  BOOL v3; // ebx
   __int64 v7; // rdx
-  __int64 v8; // rcx
-  PVOID v9; // rcx
-  int v10; // r8d
-  __int64 v11; // rcx
-  int v12; // eax
-  int v13; // ebx
-  __int128 v15; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+40h] [rbp-18h]
+  int v8; // eax
+  __int64 v9; // rcx
+  PVOID v10; // rcx
+  int v11; // r8d
+  __int64 v12; // rcx
+  int v13; // eax
+  int v14; // ebx
+  __int128 v16; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v17; // [rsp+40h] [rbp-18h]
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
-  v15 = 0LL;
-  v5 = 0;
-  v16 = 0LL;
+  v3 = 0;
   Object = 0LL;
-  EnterCrit(0LL, 0LL);
+  v16 = 0LL;
+  v17 = 0LL;
+  EnterCrit(0LL, 1LL);
   v7 = gptiCurrent;
-  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20000000) != 0
-    && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 768LL) + 24LL) & 0x40) != 0 )
-  {
-    goto LABEL_14;
-  }
+  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20000000) != 0 )
+    v8 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 768LL) + 24LL) & 0x40;
+  else
+    v8 = 0;
+  if ( v8 )
+    goto LABEL_15;
   LOBYTE(v7) = 1;
-  if ( (int)ValidateHdesk(a1, v7, 256LL, &Object) >= 0 )
+  if ( (int)ValidateHdesk(a1, v7, 256LL, &Object) < 0 )
+    goto LABEL_11;
+  if ( (*(_DWORD *)(*((_QWORD *)Object + 5) + 64LL) & 4) != 0 )
   {
-    if ( (*(_DWORD *)(*((_QWORD *)Object + 5) + 64LL) & 4) != 0 )
-    {
-      ObfDereferenceObject(Object);
-LABEL_14:
-      UserSetLastError(5LL, v7);
-      goto LABEL_9;
-    }
-    PushW32ThreadLock((__int64)Object, &v15, UserDereferenceObject);
-    v9 = Object;
-    if ( Object )
-    {
-      ObfReferenceObject(Object);
-      v9 = Object;
-    }
-    ObfDereferenceObject(v9);
-    v11 = *((_QWORD *)Object + 5);
-    if ( a2 )
-      v12 = xxxSwitchDesktopWithFade(v11, (_DWORD)Object, v10, a2, a3);
-    else
-      v12 = xxxSwitchDesktop(v11, (__int64)Object, 0);
-    v13 = v12;
-    PopAndFreeW32ThreadLock((__int64)&v15);
-    v5 = v13 >= 0;
+    ObfDereferenceObject(Object);
+LABEL_15:
+    UserSetLastError(5LL);
+    goto LABEL_11;
   }
-LABEL_9:
-  UserSessionSwitchLeaveCrit(v8);
-  return v5;
+  PushW32ThreadLock(Object, &v16, UserDereferenceObject);
+  v10 = Object;
+  if ( Object )
+  {
+    ObfReferenceObject(Object);
+    v10 = Object;
+  }
+  ObfDereferenceObject(v10);
+  v12 = *((_QWORD *)Object + 5);
+  if ( a2 )
+    v13 = xxxSwitchDesktopWithFade(v12, (_DWORD)Object, v11, a2, a3);
+  else
+    v13 = xxxSwitchDesktop(v12, Object, 0LL, a3);
+  v14 = v13;
+  PopAndFreeW32ThreadLock(&v16);
+  v3 = v14 >= 0;
+LABEL_11:
+  UserSessionSwitchLeaveCrit(v9);
+  return v3;
 }

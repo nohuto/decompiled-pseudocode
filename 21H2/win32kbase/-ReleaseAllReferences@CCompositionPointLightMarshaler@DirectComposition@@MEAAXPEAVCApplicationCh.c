@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CCompositionPointLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0232A00
+ * XREFs of ?ReleaseAllReferences@CCompositionPointLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F2660
  * Callers:
- *     ?ReleaseAllReferences@CSharedCompositionPointLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C023B370 (-ReleaseAllReferences@CSharedCompositionPointLightMarshaler@DirectComposition@@MEAAXPEAVCApplica.c)
+ *     ?ReleaseAllReferences@CSharedCompositionPointLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F9B00 (-ReleaseAllReferences@CSharedCompositionPointLightMarshaler@DirectComposition@@MEAAXPEAVCApplica.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BAD70 (-ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A97F0 (-ReleaseAllReferences@CCompositionLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel.c)
  */
 
 void __fastcall DirectComposition::CCompositionPointLightMarshaler::ReleaseAllReferences(
@@ -13,11 +13,11 @@ void __fastcall DirectComposition::CCompositionPointLightMarshaler::ReleaseAllRe
 {
   struct DirectComposition::CResourceMarshaler *v4; // rdx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 17);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    *((_QWORD *)this + 17) = 0LL;
+    *((_QWORD *)this + 16) = 0LL;
   }
   DirectComposition::CCompositionLightMarshaler::ReleaseAllReferences(this, a2);
 }

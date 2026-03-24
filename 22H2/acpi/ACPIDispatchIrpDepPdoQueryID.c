@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIDispatchIrpDepPdoQueryID @ 0x1C0017830
+ * XREFs of ACPIDispatchIrpDepPdoQueryID @ 0x1C00107D0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
- *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
- *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C000E1CC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
- *     ACPIDevicePowerFlushQueue @ 0x1C001EADC (ACPIDevicePowerFlushQueue.c)
- *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00345E4 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
- *     AMLIIsNamedChildPresent @ 0x1C00487DC (AMLIIsNamedChildPresent.c)
- *     ACPIBuildFlushQueue @ 0x1C007D43C (ACPIBuildFlushQueue.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00114B0 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C00119AC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C00AD264 (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C00AD2D4 (AcpiArblibInitializeArbiter.c)
  */
 
 __int64 __fastcall ACPIDispatchIrpDepPdoQueryID(ULONG_PTR a1, __int64 a2)
@@ -20,13 +20,13 @@ __int64 __fastcall ACPIDispatchIrpDepPdoQueryID(ULONG_PTR a1, __int64 a2)
   KIRQL v5; // bl
   __int64 v6; // rdx
   KIRQL v7; // r12
-  __int64 v8; // rcx
-  _UNKNOWN **v9; // rax
+  _UNKNOWN **v8; // rax
+  __int64 v9; // rcx
   char *v10; // rax
-  unsigned int *v11; // rsi
-  __int64 v12; // rbx
-  int v13; // r14d
-  _BYTE **v14; // rdi
+  unsigned int *v12; // rsi
+  __int64 v13; // rbx
+  int v14; // r14d
+  PVOID *v15; // rdi
   const char *v16; // rax
   unsigned int v17; // esi
   __int64 v18; // rbx
@@ -39,33 +39,33 @@ __int64 __fastcall ACPIDispatchIrpDepPdoQueryID(ULONG_PTR a1, __int64 a2)
   ACPIBuildFlushQueue(DeviceExtension, v6);
   ACPIDevicePowerFlushQueue(DeviceExtension);
   v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  if ( !_bittest64((const signed __int64 *)(DeviceExtension + 8), 0x25u) )
+  if ( (*(_QWORD *)(DeviceExtension + 8) & 0x2000000000LL) == 0 )
   {
-LABEL_4:
-    v8 = *(_QWORD *)(DeviceExtension + 8);
-    v9 = &AcpiBusFilterIrpDispatch;
-    if ( (v8 & 0x40) == 0 )
-      v9 = &AcpiPdoIrpDispatch;
-    *(_QWORD *)(DeviceExtension + 24) = v9;
-    if ( (v8 & 0x1000000000LL) != 0 )
+LABEL_2:
+    v8 = &AcpiBusFilterIrpDispatch;
+    if ( (*(_BYTE *)(DeviceExtension + 8) & 0x40) == 0 )
+      v8 = &AcpiPdoIrpDispatch;
+    *(_QWORD *)(DeviceExtension + 24) = v8;
+    v9 = *(_QWORD *)(DeviceExtension + 8);
+    if ( (v9 & 0x1000000000LL) != 0 )
     {
       v10 = (char *)&AcpiProcessorIrpDispatch;
     }
-    else if ( (v8 & 0x8000000) != 0 )
+    else if ( (v9 & 0x8000000) != 0 )
     {
       v10 = (char *)&AcpiThermalZoneIrpDispatch;
     }
-    else if ( _bittest64((const signed __int64 *)(DeviceExtension + 1008), 0x28u) )
+    else if ( (*(_QWORD *)(DeviceExtension + 960) & 0x10000000000LL) != 0 )
     {
       v10 = (char *)&AcpiPepIrpDispatch;
     }
     else
     {
-      if ( (v8 & 0x200000000000LL) == 0
-        || !*(_QWORD *)(DeviceExtension + 608)
+      if ( (v9 & 0x200000000000LL) == 0
+        || !*(_QWORD *)(DeviceExtension + 568)
         || (v16 = AcpiInternalDeviceTable, v17 = 0, !AcpiInternalDeviceTable) )
       {
-LABEL_29:
+LABEL_7:
         if ( (*(_QWORD *)(DeviceExtension + 8) & 0x8000000040000LL) == 0x8000000040000LL )
           FixedButtonDeviceObject = a1;
         KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
@@ -76,46 +76,46 @@ LABEL_29:
                  a2);
       }
       v18 = 0LL;
-      while ( !strstr(*(const char **)(DeviceExtension + 608), v16) )
+      while ( !strstr(*(const char **)(DeviceExtension + 568), v16) )
       {
         v18 = ++v17;
         v16 = (&AcpiInternalDeviceTable)[2 * v17];
         if ( !v16 )
-          goto LABEL_29;
+          goto LABEL_7;
       }
       v10 = (&AcpiInternalDeviceTable)[2 * v18 + 1];
     }
     *(_QWORD *)(DeviceExtension + 24) = v10;
-    goto LABEL_29;
+    goto LABEL_7;
   }
-  if ( !(unsigned __int8)AMLIIsNamedChildPresent(*(_QWORD *)(DeviceExtension + 760), 1397900127LL) )
+  if ( !(unsigned __int8)AMLIIsNamedChildPresent(*(_QWORD *)(DeviceExtension + 720), 1397900127LL) )
   {
     *(_BYTE *)(DeviceExtension + 184) = 0;
-    goto LABEL_4;
+    goto LABEL_2;
   }
   *(_BYTE *)(DeviceExtension + 184) = 1;
-  v11 = (unsigned int *)&AcpiArbiterResourceTypes;
-  v12 = 0LL;
+  v12 = (unsigned int *)&AcpiArbiterResourceTypes;
+  v13 = 0LL;
   while ( 1 )
   {
-    v13 = AcpiArblibInitializeArbiter(DeviceExtension, *v11, (_QWORD *)(DeviceExtension + 192 + 8 * v12));
-    if ( v13 < 0 )
+    v14 = AcpiArblibInitializeArbiter(DeviceExtension, *v12, DeviceExtension + 192 + 8 * v13);
+    if ( v14 < 0 )
       break;
-    v12 = (unsigned int)(v12 + 1);
-    ++v11;
-    if ( (unsigned int)v12 >= 3 )
-      goto LABEL_4;
+    v13 = (unsigned int)(v13 + 1);
+    ++v12;
+    if ( (unsigned int)v13 >= 3 )
+      goto LABEL_2;
   }
-  if ( (_DWORD)v12 )
+  if ( (_DWORD)v13 )
   {
-    v14 = (_BYTE **)(DeviceExtension + 8 * v12 + 192);
+    v15 = (PVOID *)(DeviceExtension + 8 * v13 + 192);
     do
     {
-      AcpiArblibFreeArbiterInstance(*--v14);
-      LODWORD(v12) = v12 - 1;
+      AcpiArblibFreeArbiterInstance(*--v15);
+      LODWORD(v13) = v13 - 1;
     }
-    while ( (_DWORD)v12 );
+    while ( (_DWORD)v13 );
   }
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
-  return (unsigned int)v13;
+  return (unsigned int)v14;
 }

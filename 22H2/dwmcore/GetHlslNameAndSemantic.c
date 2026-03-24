@@ -1,7 +1,7 @@
 /*
- * XREFs of GetHlslNameAndSemantic @ 0x1800270AC
+ * XREFs of GetHlslNameAndSemantic @ 0x180046550
  * Callers:
- *     InitializeShaderLinkingInput @ 0x180026F1C (InitializeShaderLinkingInput.c)
+ *     InitializeShaderLinkingInput @ 0x1800463D8 (InitializeShaderLinkingInput.c)
  * Callees:
  *     <none>
  */

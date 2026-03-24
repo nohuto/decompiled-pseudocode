@@ -1,7 +1,7 @@
 /*
  * XREFs of NtQueryDirectoryFileEx @ 0x1405FA640
  * Callers:
- *     NtQueryDirectoryFile @ 0x1406B4E10 (NtQueryDirectoryFile.c)
+ *     NtQueryDirectoryFile @ 0x1406B4DF0 (NtQueryDirectoryFile.c)
  * Callees:
  *     BuildQueryDirectoryIrp @ 0x1405FA710 (BuildQueryDirectoryIrp.c)
  *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)

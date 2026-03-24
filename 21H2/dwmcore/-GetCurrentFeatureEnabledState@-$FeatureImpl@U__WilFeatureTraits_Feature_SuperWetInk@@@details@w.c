@@ -1,36 +1,41 @@
 /*
- * XREFs of ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1801A7A6C
+ * XREFs of ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x180195760
  * Callers:
- *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1801A7804 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wi.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1801954D0 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wi.c)
  * Callees:
- *     ?WilApi_GetFeatureEnabledState@details@wil@@YA?AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@@PEAH@Z @ 0x180029A7C (-WilApi_GetFeatureEnabledState@details@wil@@YA-AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_SuperWetInk>::GetCurrentFeatureEnabledState(
         __int64 a1,
-        _QWORD *a2,
-        __int64 a3,
-        int *a4)
+        _QWORD *a2)
 {
-  unsigned int FeatureEnabledState; // eax
-  int v6; // r10d
-  int v7; // r9d
-  unsigned int v8; // r9d
+  __int64 (__fastcall *v2)(__int64, _QWORD); // rax
+  int v3; // ebx
+  int v5; // edx
+  int v6; // r8d
+  int v7; // ecx
 
-  FeatureEnabledState = (unsigned int)wil::details::WilApi_GetFeatureEnabledState((wil::details *)0xAA1BAA, 0LL, a3, a4);
-  v6 = 0;
-  *a2 = 0LL;
-  v7 = (((FeatureEnabledState & 0x40) != 0 ? 0x200 : 0) | ((FeatureEnabledState & 0x80) != 0 ? 0x100 : 0)) ^ (32 * (FeatureEnabledState & 0x3F)) & 0x60;
-  if ( (FeatureEnabledState & 0xFFFFFF3F) != 0 )
+  v2 = (__int64 (__fastcall *)(__int64, _QWORD))g_wil_details_internalGetFeatureEnabledState;
+  v3 = 0;
+  if ( g_wil_details_internalGetFeatureEnabledState
+    || (v2 = (__int64 (__fastcall *)(__int64, _QWORD))g_wil_details_apiGetFeatureEnabledState) != 0LL )
   {
-    if ( (FeatureEnabledState & 0xFFFFFF3F) == 2 )
-      v6 = 16;
-    v8 = v7 & 0xFFFFFFEF | v6;
+    v5 = v2(11148202LL, 0LL);
   }
   else
   {
-    v8 = v7 | 0x10;
+    v5 = 0;
   }
-  *(_DWORD *)a2 = v8 ^ ((unsigned __int8)v8 ^ (unsigned __int8)(v8 >> 1)) & 8;
+  *a2 = 0LL;
+  v6 = 64;
+  if ( (v5 & 0xFFFFFF3F) != 0 )
+  {
+    if ( (v5 & 0xFFFFFF3F) == 2 )
+      v3 = 64;
+    v6 = v3;
+  }
+  v7 = 8 * (v5 & 0x80 | (4 * (v5 & 0x40 | (4 * (v5 & 3)))));
+  *(_DWORD *)a2 = v6 | v7 | ((v6 | (unsigned int)v7) >> 6) & 1;
   return a2;
 }

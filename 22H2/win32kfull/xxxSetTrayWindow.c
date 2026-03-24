@@ -1,14 +1,13 @@
 /*
- * XREFs of xxxSetTrayWindow @ 0x1C0096ECC
+ * XREFs of xxxSetTrayWindow @ 0x1C003CE78
  * Callers:
- *     ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C0066B58 (-xxxUpdateTray@@YAXPEAUtagWND@@@Z.c)
- *     xxxCheckFullScreen @ 0x1C009687C (xxxCheckFullScreen.c)
- *     xxxAddFullScreen @ 0x1C0096D10 (xxxAddFullScreen.c)
- *     xxxRemoveFullScreen @ 0x1C00EA564 (xxxRemoveFullScreen.c)
- *     xxxEndDeferWindowPosEx @ 0x1C0122FB0 (xxxEndDeferWindowPosEx.c)
+ *     ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C003A7E4 (-xxxUpdateTray@@YAXPEAUtagWND@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
+ *     xxxRemoveFullScreen @ 0x1C007C980 (xxxRemoveFullScreen.c)
+ *     xxxAddFullScreen @ 0x1C0122F74 (xxxAddFullScreen.c)
  * Callees:
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
+ *     PostShellHookMessages @ 0x1C0043540 (PostShellHookMessages.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
  */
 
 __int64 __fastcall xxxSetTrayWindow(__int64 a1, unsigned __int64 *a2)
@@ -35,10 +34,10 @@ __int64 __fastcall xxxSetTrayWindow(__int64 a1, unsigned __int64 *a2)
       v4 = *a2;
     v7[1] = a2;
     v7[0] = a1 + 96;
-    HMAssignmentLock(v7, 0LL);
+    HMAssignmentLock(v7);
   }
   if ( *(_QWORD *)(*(_QWORD *)(a1 + 8) + 192LL) )
-    PostShellHookMessagesEx(*(_WORD *)(gpDispInfo + 160LL) != 0 ? 32772 : 4, v4, 0LL);
+    PostShellHookMessages(*(_WORD *)(gpDispInfo + 160LL) != 0 ? 32772 : 4, v4);
   result = *(_QWORD *)(gptiCurrent + 464LL);
   if ( ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(*(_QWORD *)result + 16LL)) & 0x800) != 0 )
   {

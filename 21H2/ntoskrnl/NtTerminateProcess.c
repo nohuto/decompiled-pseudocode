@@ -1,37 +1,39 @@
 /*
- * XREFs of NtTerminateProcess @ 0x1407D7CA0
+ * XREFs of NtTerminateProcess @ 0x1406D9B60
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeForceResumeThread @ 0x1402EF5FC (KeForceResumeThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PspLogAuditTerminateRemoteProcessEvent @ 0x1406E3BE0 (PspLogAuditTerminateRemoteProcessEvent.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     PspTerminateThreadByPointer @ 0x14079F130 (PspTerminateThreadByPointer.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
- *     PspTerminateProcess @ 0x1407D7E94 (PspTerminateProcess.c)
- *     PspTerminateAllThreads @ 0x1407E6274 (PspTerminateAllThreads.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeForceResumeThread @ 0x14027980C (KeForceResumeThread.c)
+ *     PspUnlockProcessExclusive @ 0x1402CB978 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x1402E98B0 (PspLockProcessExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockProcessExclusiveUnsafe @ 0x140582840 (PspUnlockProcessExclusiveUnsafe.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     PspLogAuditTerminateRemoteProcessEvent @ 0x1406C0F58 (PspLogAuditTerminateRemoteProcessEvent.c)
+ *     PspTerminateProcess @ 0x1406D9D20 (PspTerminateProcess.c)
+ *     PspTerminateAllThreads @ 0x1406D9E50 (PspTerminateAllThreads.c)
+ *     PspTerminateThreadByPointer @ 0x1406DA1F0 (PspTerminateThreadByPointer.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
+NTSTATUS __fastcall NtTerminateProcess(void *a1, unsigned int a2)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  ULONG_PTR Process; // rbp
-  char PreviousMode; // r12
-  __int64 result; // rax
-  PVOID v7; // rdi
-  int v8; // eax
-  unsigned int v9; // ebx
-  volatile signed __int64 *v10; // rdi
-  signed __int32 v11; // eax
-  signed __int32 v12; // ett
-  int v13; // [rsp+80h] [rbp+8h]
-  PVOID Object; // [rsp+90h] [rbp+18h] BYREF
+  struct _KTHREAD *CurrentThread; // rdi
+  ULONG_PTR Process; // rbx
+  KPROCESSOR_MODE PreviousMode; // r12
+  NTSTATUS result; // eax
+  _DWORD *v7; // r14
+  int v8; // r13d
+  int v9; // ebp
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  signed __int32 v13; // eax
+  signed __int32 v14; // ett
+  __int64 v15; // r8
+  PVOID Object; // [rsp+70h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
@@ -39,70 +41,71 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
   PreviousMode = CurrentThread->PreviousMode;
   if ( a1 )
   {
-    result = ObpReferenceObjectByHandleWithTag(
+    result = ObReferenceObjectByHandleWithTag(
                a1,
-               1,
-               (__int64)PsProcessType,
+               1u,
+               (POBJECT_TYPE)PsProcessType,
                PreviousMode,
                0x65547350u,
                &Object,
-               0LL,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v7 = Object;
-    v8 = *((_DWORD *)Object + 272);
-    --CurrentThread->KernelApcDisable;
-    v13 = v8;
-    v9 = PspTerminateProcess((ULONG_PTR)v7);
-    ObfDereferenceObjectWithTag(v7, 0x65547350u);
-    if ( v7 == (PVOID)Process )
+  }
+  else
+  {
+    Object = CurrentThread->ApcState.Process;
+    v7 = (_DWORD *)Process;
+    if ( PreviousMode != 1 && (*(_BYTE *)(Process + 992) & 1) == 0 || (*(_DWORD *)(Process + 2172) & 1) != 0 )
+      return -1073741637;
+    if ( (CurrentThread->Header.Reserved1 & 0x40) == 0 )
     {
-      if ( PreviousMode == 1 || (*(_BYTE *)(Process + 992) & 1) != 0 )
+      PspLockProcessExclusive(Process, (__int64)CurrentThread);
+      _m_prefetchw((const void *)(Process + 1124));
+      v13 = *(_DWORD *)(Process + 1124);
+      do
       {
-        _InterlockedOr((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 1u);
-        KeForceResumeThread((__int64)CurrentThread);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
-        PspExitThread(a2);
-        __debugbreak();
+        v14 = v13;
+        v13 = _InterlockedCompareExchange((volatile signed __int32 *)(Process + 1124), v13 | 0x40000000, v13);
       }
+      while ( v14 != v13 );
+      if ( (v13 & 0x40000008) != 0 )
+      {
+        PspUnlockProcessExclusive(Process, (__int64)CurrentThread);
+        LOBYTE(v15) = 1;
+        PspTerminateThreadByPointer(CurrentThread, a2, v15);
+        return 0;
+      }
+      *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x40u;
+      if ( *(_DWORD *)(Process + 2004) == 259 )
+        *(_DWORD *)(Process + 2004) = a2;
+      PspUnlockProcessExclusiveUnsafe(Process);
+      v9 = PspTerminateAllThreads(Process);
+      goto LABEL_16;
     }
-    else
-    {
-      PspLogAuditTerminateRemoteProcessEvent(v13, v9);
-    }
-    goto LABEL_16;
+    ObfReferenceObjectWithTag((PVOID)Process, 0x65547350u);
   }
-  if ( PreviousMode != 1 && (*(_BYTE *)(Process + 992) & 1) == 0 || (*(_DWORD *)(Process + 2172) & 1) != 0 )
-    return 3221225659LL;
+  v8 = v7[272];
   --CurrentThread->KernelApcDisable;
-  v10 = (volatile signed __int64 *)(Process + 1080);
-  ExAcquirePushLockExclusiveEx(Process + 1080, 0LL);
-  _m_prefetchw((const void *)(Process + 1124));
-  v11 = *(_DWORD *)(Process + 1124);
-  do
+  v9 = PspTerminateProcess((ULONG_PTR)v7);
+  ObfDereferenceObjectWithTag(v7, 0x65547350u);
+  if ( v7 == (_DWORD *)Process )
   {
-    v12 = v11;
-    v11 = _InterlockedCompareExchange((volatile signed __int32 *)(Process + 1124), v11 | 0x40000000, v11);
+    if ( PreviousMode == 1 || (*(_BYTE *)(Process + 992) & 1) != 0 )
+    {
+      _InterlockedOr((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 1u);
+      KeForceResumeThread((__int64)CurrentThread, v10, v11, v12);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      PspExitThread(a2);
+      __debugbreak();
+    }
   }
-  while ( v12 != v11 );
-  if ( (v11 & 0x40000008) == 0 )
+  else
   {
-    *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x40u;
-    if ( *(_DWORD *)(Process + 2004) == 259 )
-      *(_DWORD *)(Process + 2004) = a2;
-    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(Process + 1080);
-    KeAbPostRelease(Process + 1080);
-    v9 = PspTerminateAllThreads(Process);
+    PspLogAuditTerminateRemoteProcessEvent(v8, v9);
+  }
 LABEL_16:
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-    return v9;
-  }
-  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(Process + 1080);
-  KeAbPostRelease(Process + 1080);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  PspTerminateThreadByPointer((__int64)CurrentThread, a2, 1);
-  return 0LL;
+  return v9;
 }

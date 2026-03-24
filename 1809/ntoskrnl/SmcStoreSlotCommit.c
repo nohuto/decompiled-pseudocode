@@ -1,7 +1,7 @@
 /*
- * XREFs of SmcStoreSlotCommit @ 0x1408AF94C
+ * XREFs of SmcStoreSlotCommit @ 0x1408AF92C
  * Callers:
- *     SmcStoreCreate @ 0x1408AF110 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x1408AF0F0 (SmcStoreCreate.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

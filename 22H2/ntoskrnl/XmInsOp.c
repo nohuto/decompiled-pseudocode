@@ -1,20 +1,20 @@
 /*
- * XREFs of XmInsOp @ 0x140533C00
+ * XREFs of XmInsOp @ 0x1404E6260
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x140398FFC (XmGetStringAddress.c)
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
- *     x86BiosReadIoSpace @ 0x1403C21B0 (x86BiosReadIoSpace.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
+ *     x86BiosReadIoSpace @ 0x140398FB0 (x86BiosReadIoSpace.c)
+ *     XmGetStringAddress @ 0x1403C0A5C (XmGetStringAddress.c)
  */
 
 _WORD *__fastcall XmInsOp(__int64 a1)
 {
   _WORD *result; // rax
   int v3; // edi
-  unsigned __int16 i; // si
-  __int64 StringAddress; // rax
-  __int64 v6; // rcx
+  __int16 i; // si
+  int *StringAddress; // rax
+  unsigned int v6; // ecx
   unsigned __int32 IoSpace; // eax
 
   result = 0LL;
@@ -35,7 +35,7 @@ _WORD *__fastcall XmInsOp(__int64 a1)
   for ( i = *(_WORD *)(a1 + 108); v3; --v3 )
   {
     StringAddress = XmGetStringAddress(a1, 0, 7u);
-    v6 = *(unsigned int *)(a1 + 120);
+    v6 = *(_DWORD *)(a1 + 120);
     *(_QWORD *)(a1 + 88) = StringAddress;
     IoSpace = x86BiosReadIoSpace(v6, i);
     result = XmStoreResult(a1, IoSpace);

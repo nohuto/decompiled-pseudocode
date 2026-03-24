@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlinkBadPages @ 0x1402A6F88
+ * XREFs of MiUnlinkBadPages @ 0x1402A7088
  * Callers:
- *     MmMarkPhysicalMemoryAsGood @ 0x1402A79B0 (MmMarkPhysicalMemoryAsGood.c)
+ *     MmMarkPhysicalMemoryAsGood @ 0x1402A7AB0 (MmMarkPhysicalMemoryAsGood.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReferencePagePartition @ 0x1402B4554 (MiReferencePagePartition.c)
- *     MiUnlinkPageFromBadList @ 0x1402BFD00 (MiUnlinkPageFromBadList.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePagePartition @ 0x1402B4654 (MiReferencePagePartition.c)
+ *     MiUnlinkPageFromBadList @ 0x1402BFE00 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 __fastcall MiUnlinkBadPages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

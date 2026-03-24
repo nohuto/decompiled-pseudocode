@@ -1,32 +1,33 @@
 /*
- * XREFs of NtOpenJobObject @ 0x1407EA570
+ * XREFs of NtOpenJobObject @ 0x1405D8F10
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
- *     EtwTraceJob @ 0x1409E53B8 (EtwTraceJob.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
+ *     EtwTraceJob @ 0x140935D98 (EtwTraceJob.c)
  */
 
-__int64 __fastcall NtOpenJobObject(_QWORD *a1, int a2, __int64 a3)
+__int64 __fastcall NtOpenJobObject(_QWORD *a1, int a2, int a3)
 {
-  char PreviousMode; // r8
-  __int64 v7; // rdx
-  int v8; // ebx
-  __int64 v10; // [rsp+78h] [rbp+20h] BYREF
+  int v3; // r10d
+  __int64 v6; // rdx
+  int v7; // ebx
+  __int64 v9; // [rsp+78h] [rbp+20h] BYREF
 
-  v10 = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  v3 = a3;
+  v9 = 0LL;
+  LOBYTE(a3) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)a3 )
   {
-    v7 = 0x7FFFFFFF0000LL;
+    v6 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
-    *(_QWORD *)v7 = *(_QWORD *)v7;
+      v6 = (__int64)a1;
+    *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  v8 = ObOpenObjectByName(a3, (__int64)PsJobType, PreviousMode, 0LL, a2, 0LL, (__int64)&v10);
-  if ( v8 >= 0 )
-    *a1 = v10;
-  if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
-    EtwTraceJob(0LL, 0LL, (unsigned int)v8, 1826LL);
-  return (unsigned int)v8;
+  v7 = ObOpenObjectByName(v3, (_DWORD)PsJobType, a3, 0, a2, 0LL, (__int64)&v9);
+  if ( v7 >= 0 )
+    *a1 = v9;
+  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
+    EtwTraceJob(0LL, 0LL, (unsigned int)v7, 1826LL);
+  return (unsigned int)v7;
 }

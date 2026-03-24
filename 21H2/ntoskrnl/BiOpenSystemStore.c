@@ -1,167 +1,171 @@
 /*
- * XREFs of BiOpenSystemStore @ 0x140813744
+ * XREFs of BiOpenSystemStore @ 0x14078381C
  * Callers:
- *     BcdOpenStore @ 0x1408125C4 (BcdOpenStore.c)
- *     SepSecureBootCorrectBcd @ 0x1409CDCC8 (SepSecureBootCorrectBcd.c)
+ *     BcdOpenStore @ 0x140782E48 (BcdOpenStore.c)
+ *     SepSecureBootCorrectBcd @ 0x1409241E8 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiSetFirmwareModified @ 0x1403A7718 (BiSetFirmwareModified.c)
- *     BiWasFirmwareModified @ 0x1403A7778 (BiWasFirmwareModified.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     wcstoul @ 0x1403E3880 (wcstoul.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     BiCloseStore @ 0x140811EB0 (BiCloseStore.c)
- *     BiCleanupLoadedStores @ 0x140811F10 (BiCleanupLoadedStores.c)
- *     BiLoadSystemStore @ 0x140811FE0 (BiLoadSystemStore.c)
- *     BiIsSystemStore @ 0x1408127B8 (BiIsSystemStore.c)
- *     BiEnumerateSubKeys @ 0x14081287C (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiOpenKeyNonBcd @ 0x140813D88 (BiOpenKeyNonBcd.c)
- *     BiGetFirmwareType @ 0x1408140B4 (BiGetFirmwareType.c)
- *     BiBindEfiNamespaceObjects @ 0x140A1E7F0 (BiBindEfiNamespaceObjects.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     BiSetFirmwareModified @ 0x14039B498 (BiSetFirmwareModified.c)
+ *     BiWasFirmwareModified @ 0x14039B4CC (BiWasFirmwareModified.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403D4500 (wcstoul.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     BiLoadSystemStore @ 0x140781BD4 (BiLoadSystemStore.c)
+ *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
+ *     BiCleanupLoadedStores @ 0x1407820A8 (BiCleanupLoadedStores.c)
+ *     BiIsSystemStore @ 0x1407833A8 (BiIsSystemStore.c)
+ *     BiEnumerateSubKeys @ 0x140783528 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
+ *     BiGetFirmwareType @ 0x1407849DC (BiGetFirmwareType.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x140785980 (BiOpenKeyNonBcd.c)
+ *     BiBindEfiNamespaceObjects @ 0x140970888 (BiBindEfiNamespaceObjects.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiOpenSystemStore(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rdi
-  int v4; // r12d
-  char v5; // r8
-  int v6; // ebx
-  int v7; // eax
-  const wchar_t **v8; // r14
-  __int64 v9; // rsi
-  bool v10; // zf
-  int v11; // eax
-  bool v12; // si
-  int v13; // eax
-  __int64 v15; // r9
-  int v16; // eax
-  int v17; // eax
-  HANDLE Handle; // [rsp+20h] [rbp-10h] BYREF
-  PVOID P; // [rsp+28h] [rbp-8h] BYREF
-  ULONG v21; // [rsp+78h] [rbp+48h] BYREF
-  __int64 v22; // [rsp+88h] [rbp+58h] BYREF
+  unsigned int v3; // r12d
+  char v4; // r8
+  int v5; // ebx
+  int v6; // eax
+  const wchar_t **v7; // r14
+  __int64 v8; // rsi
+  bool v9; // zf
+  int v10; // eax
+  bool v11; // si
+  int v12; // eax
+  int v14; // eax
+  int v15; // eax
+  __int64 v16; // [rsp+20h] [rbp-28h] BYREF
+  HANDLE Handle; // [rsp+28h] [rbp-20h] BYREF
+  PVOID P[3]; // [rsp+30h] [rbp-18h] BYREF
+  ULONG v21; // [rsp+90h] [rbp+48h] BYREF
+  int v22; // [rsp+98h] [rbp+50h]
 
   *a1 = 0LL;
   v2 = 0LL;
   v21 = 0;
   Handle = 0LL;
-  P = 0LL;
-  v22 = 0LL;
-  v4 = 0;
+  v3 = a2;
+  P[0] = 0LL;
+  v22 = 0;
+  v16 = 0LL;
   BiLogMessage(2LL, L"Opening system store. Flags: 0x%x", a2);
-  BiCleanupLoadedStores(16 * (v5 & 1));
-  v6 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &Handle);
+  BiCleanupLoadedStores(16 * (v4 & 1));
+  v5 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &Handle);
+  if ( v5 < 0 )
+    goto LABEL_21;
+  v6 = BiEnumerateSubKeys(Handle, P, &v21);
+  v7 = (const wchar_t **)P[0];
+  v5 = v6;
   if ( v6 < 0 )
     goto LABEL_19;
-  v7 = BiEnumerateSubKeys(Handle, &P, &v21);
-  v8 = (const wchar_t **)P;
-  v6 = v7;
-  if ( v7 < 0 )
-    goto LABEL_17;
-  v9 = 0LL;
-  v6 = -1073741275;
-  v10 = v21 == 0;
+  v8 = 0LL;
+  v5 = -1073741275;
+  v9 = v21 == 0;
   if ( !v21 )
     goto LABEL_7;
   while ( 1 )
   {
-    if ( wcsnicmp(v8[v9], L"BCD", 3uLL) )
+    if ( wcsnicmp(v7[v8], L"BCD", 3uLL) )
       goto LABEL_5;
-    if ( wcstoul(v8[v9] + 3, 0LL, 10) == -1 )
+    if ( wcstoul(v7[v8] + 3, 0LL, 10) == -1 )
       goto LABEL_5;
-    BiLogMessage(2LL, L"Found loaded store at key %s", v8[v9]);
-    v16 = BiOpenKey((__int64)Handle, v8[v9], 0x20019u, &v22);
-    v2 = v22;
-    v6 = v16;
-    if ( v16 < 0 )
+    BiLogMessage(2LL, L"Found loaded store at key %s", v7[v8]);
+    v14 = BiOpenKey(Handle, v7[v8], 131097LL, &v16);
+    v2 = v16;
+    v5 = v14;
+    if ( v14 < 0 )
       goto LABEL_5;
-    if ( BiIsSystemStore(v22) )
+    if ( BiIsSystemStore(v16) )
       break;
-    BiCloseKey((void *)v2);
+    BiCloseKey(v2);
 LABEL_5:
-    v9 = (unsigned int)(v9 + 1);
-    if ( (unsigned int)v9 >= v21 )
+    v8 = (unsigned int)(v8 + 1);
+    if ( (unsigned int)v8 >= v21 )
       goto LABEL_6;
   }
-  BiLogMessage(2LL, L"Store %s is the system store", v8[v9]);
-  v6 = 0;
-  v4 = 0;
+  BiLogMessage(2LL, L"Store %s is the system store", v7[v8]);
+  v5 = 0;
 LABEL_6:
-  v10 = (_DWORD)v9 == v21;
+  v3 = a2;
+  v9 = (_DWORD)v8 == v21;
 LABEL_7:
-  if ( !v10 )
+  if ( !v9 )
   {
 LABEL_11:
-    if ( (a2 & 2) != 0 )
+    if ( (v3 & 2) != 0 )
     {
       v2 |= 2uLL;
-      goto LABEL_16;
+LABEL_17:
+      *a1 = v2;
+      goto LABEL_18;
     }
     BiLogMessage(2LL, L"Synchronizing store with firmware");
-    v12 = BiWasFirmwareModified(v2);
-    v13 = BiGetFirmwareType() - 1;
-    if ( !v13 )
-      goto LABEL_13;
-    v17 = v13 - 1;
-    if ( v17 )
+    v11 = BiWasFirmwareModified(v2);
+    v12 = BiGetFirmwareType() - 1;
+    if ( v12 )
     {
-      if ( v17 == 1 )
+      v15 = v12 - 1;
+      if ( v15 )
       {
-LABEL_13:
-        v6 = 0;
-        goto LABEL_14;
+        if ( v15 == 1 )
+        {
+          v5 = 0;
+LABEL_15:
+          if ( !v11 )
+            BiSetFirmwareModified(v2, 0);
+          goto LABEL_17;
+        }
+        v5 = -1073741637;
       }
-      v6 = -1073741637;
-      v15 = 3221225659LL;
+      else
+      {
+        v5 = BiBindEfiNamespaceObjects(v2);
+      }
     }
     else
     {
-      v6 = BiBindEfiNamespaceObjects(v2);
-      v15 = (unsigned int)v6;
-      if ( v6 >= 0 )
-      {
-LABEL_14:
-        if ( !v12 )
-          BiSetFirmwareModified(v2, 0);
-LABEL_16:
-        *a1 = v2;
-        if ( v6 < 0 )
-          goto LABEL_34;
-        goto LABEL_17;
-      }
+      v5 = 0;
     }
-    BiLogMessage(4LL, L"Failed to bind with firmware. Flags: 0x%x Status: %x", a2, v15);
-    goto LABEL_34;
+    if ( v5 < 0 )
+    {
+      BiLogMessage(4LL, L"Failed to bind with firmware. Flags: 0x%x Status: %x", v3, (unsigned int)v5);
+LABEL_18:
+      if ( v5 < 0 )
+        goto LABEL_37;
+      goto LABEL_19;
+    }
+    goto LABEL_15;
   }
   BiLogMessage(2LL, L"The system store is not already loaded");
-  v22 = 0LL;
-  if ( (a2 & 4) != 0 )
+  v16 = 0LL;
+  if ( (v3 & 4) != 0 )
   {
     BiLogMessage(4LL, L"Specified flags prevent opening unloaded system store");
-    v6 = -1073741275;
+    v5 = -1073741275;
   }
   else
   {
-    v11 = BiLoadSystemStore(&v22);
-    v2 = v22;
-    v6 = v11;
-    if ( v11 >= 0 )
+    v10 = BiLoadSystemStore(&v16);
+    v2 = v16;
+    v5 = v10;
+    if ( v10 >= 0 )
     {
-      v4 = 1;
+      v22 = 1;
       goto LABEL_11;
     }
-LABEL_34:
+LABEL_37:
     if ( v2 )
-      BiCloseStore(v2, v4 != 0 ? 2 : 0);
+      BiCloseStore(v2, 2 * v22);
   }
-LABEL_17:
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0x4B444342u);
 LABEL_19:
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0x4B444342u);
+LABEL_21:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

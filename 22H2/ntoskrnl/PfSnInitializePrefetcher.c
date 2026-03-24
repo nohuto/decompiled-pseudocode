@@ -1,28 +1,27 @@
 /*
- * XREFs of PfSnInitializePrefetcher @ 0x140B65430
+ * XREFs of PfSnInitializePrefetcher @ 0x140A6AA00
  * Callers:
- *     PfInitializeSuperfetch @ 0x140B65330 (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     PfpCreateEvent @ 0x140848A44 (PfpCreateEvent.c)
- *     PfSnPrefetchCacheCtxInitialize @ 0x140848C68 (PfSnPrefetchCacheCtxInitialize.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PfSnPrefetchCacheCtxInitialize @ 0x1407C05D0 (PfSnPrefetchCacheCtxInitialize.c)
+ *     PfpCreateEvent @ 0x1407C0610 (PfpCreateEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PfSnInitializePrefetcher()
 {
-  __int64 Pool2; // rax
-  __int64 result; // rax
+  _QWORD *PoolWithTag; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
   FastMutex.Count = 1;
-  qword_140C6A710 = 0LL;
-  qword_140C6A708 = (__int64)&PfSnGlobals;
+  qword_140C50450 = 0LL;
+  qword_140C50448 = (__int64)&PfSnGlobals;
   PfSnGlobals = (__int64)&PfSnGlobals;
   FastMutex.Owner = 0LL;
-  qword_140C6A720 = &qword_140C6A718;
-  qword_140C6A718 = &qword_140C6A718;
+  qword_140C50460 = &qword_140C50458;
+  qword_140C50458 = &qword_140C50458;
   FastMutex.Event.Header.WaitListHead.Blink = &FastMutex.Event.Header.WaitListHead;
   FastMutex.Event.Header.WaitListHead.Flink = &FastMutex.Event.Header.WaitListHead;
   DestinationString = 0LL;
@@ -30,35 +29,30 @@ __int64 PfSnInitializePrefetcher()
   LOWORD(FastMutex.Event.Header.Lock) = 1;
   FastMutex.Event.Header.Size = 6;
   FastMutex.Event.Header.SignalState = 0;
-  dword_140C6A764 = 0;
+  dword_140C504A4 = 0;
   RtlInitUnicodeString(&DestinationString, L"\\KernelObjects\\PrefetchTracesReady");
-  PfpCreateEvent(&DestinationString, SynchronizationEvent, (PVOID *)&qword_140C6A768);
-  PfSnPrefetchCacheCtxInitialize((__int64)&unk_140C6A778);
-  qword_140C6A808 = 0LL;
-  Pool2 = ExAllocatePool2(64LL, 0xA0uLL, 0x66506343u);
-  if ( Pool2 )
+  PfpCreateEvent(&DestinationString, SynchronizationEvent, (PVOID *)&qword_140C504A8);
+  PfSnPrefetchCacheCtxInitialize((__int64)&unk_140C504B8);
+  RegHandle = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA0uLL, 0x66506343u);
+  if ( PoolWithTag )
   {
-    *(_QWORD *)Pool2 = 0LL;
-    *(_QWORD *)(Pool2 + 16) = Pool2 + 8;
-    *(_QWORD *)(Pool2 + 8) = Pool2 + 8;
-    *(_BYTE *)Pool2 = 8;
-    *(_QWORD *)(Pool2 + 24) = 0LL;
-    *(_DWORD *)(Pool2 + 60) = 0;
-    *(_WORD *)(Pool2 + 56) = 0;
-    *(_QWORD *)(Pool2 + 88) = PfSnTracingStateDpcRoutine;
-    *(_DWORD *)(Pool2 + 64) = 275;
-    *(_QWORD *)(Pool2 + 96) = Pool2;
-    *(_QWORD *)(Pool2 + 120) = 0LL;
-    *(_QWORD *)(Pool2 + 80) = 0LL;
-    *(_QWORD *)(Pool2 + 144) = PfSnTracingStateExWorkerRoutine;
-    *(_QWORD *)(Pool2 + 152) = Pool2;
-    *(_QWORD *)(Pool2 + 128) = 0LL;
-    KiSetTimerEx(Pool2, -6000000000LL, 0, 0, Pool2 + 64);
+    *PoolWithTag = 0LL;
+    PoolWithTag[2] = PoolWithTag + 1;
+    PoolWithTag[1] = PoolWithTag + 1;
+    *(_BYTE *)PoolWithTag = 8;
+    PoolWithTag[3] = 0LL;
+    *((_DWORD *)PoolWithTag + 15) = 0;
+    *((_WORD *)PoolWithTag + 28) = 0;
+    PoolWithTag[11] = PfSnTracingStateDpcRoutine;
+    *((_DWORD *)PoolWithTag + 16) = 275;
+    PoolWithTag[12] = PoolWithTag;
+    PoolWithTag[15] = 0LL;
+    PoolWithTag[10] = 0LL;
+    PoolWithTag[18] = PfSnTracingStateExWorkerRoutine;
+    PoolWithTag[19] = PoolWithTag;
+    PoolWithTag[16] = 0LL;
+    KiSetTimerEx((__int64)PoolWithTag, -6000000000LL, 0, 0, (__int64)(PoolWithTag + 8));
   }
-  qword_140C6A818 = 0LL;
-  xmmword_140C6A820 = 0LL;
-  result = 0LL;
-  qword_140C6A830 = 0LL;
-  qword_140C6A838 = 0LL;
-  return result;
+  return 0LL;
 }

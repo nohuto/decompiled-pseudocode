@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSetSystemState @ 0x140177794
+ * XREFs of PopSetSystemState @ 0x1401777B4
  * Callers:
- *     PoSetUserPresent @ 0x140177750 (PoSetUserPresent.c)
- *     PoSetSystemState @ 0x1402DBBA0 (PoSetSystemState.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
- *     PopAllowAwayModeSettingCallback @ 0x140763220 (PopAllowAwayModeSettingCallback.c)
+ *     PoSetUserPresent @ 0x140177770 (PoSetUserPresent.c)
+ *     PoSetSystemState @ 0x1402DBCA0 (PoSetSystemState.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopAllowAwayModeSettingCallback @ 0x140763200 (PopAllowAwayModeSettingCallback.c)
  * Callees:
- *     PopResetIdleTime @ 0x140138B80 (PopResetIdleTime.c)
- *     PopUserPresentSet @ 0x1401777D8 (PopUserPresentSet.c)
- *     PopDiagTraceSetSystemState @ 0x1401778A0 (PopDiagTraceSetSystemState.c)
+ *     PopResetIdleTime @ 0x140138BA0 (PopResetIdleTime.c)
+ *     PopUserPresentSet @ 0x1401777F8 (PopUserPresentSet.c)
+ *     PopDiagTraceSetSystemState @ 0x1401778C0 (PopDiagTraceSetSystemState.c)
  */
 
 __int64 __fastcall PopSetSystemState(int a1, unsigned int a2)

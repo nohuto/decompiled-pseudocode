@@ -1,10 +1,10 @@
 /*
- * XREFs of ?prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D6E70
+ * XREFs of ?prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D8420
  * Callers:
  *     <none>
  * Callees:
- *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C017095A (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
- *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D7624 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8D54 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D8F28 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
  */
 
 struct _PLGRUN *__fastcall prunPlgRead1(
@@ -79,10 +79,10 @@ struct _PLGRUN *__fastcall prunPlgRead1(
       v26 = a8 & 0x1F;
       while ( 1 )
       {
-        if ( (v25 & dword_1C02FA030[v26]) != 0 )
+        if ( (v25 & dword_1C02FC6F0[v26]) != 0 )
         {
           v27 = v15;
-          if ( (v13 & dword_1C02FA030[v17]) == 0 )
+          if ( (v13 & dword_1C02FC6F0[v17]) == 0 )
             v27 = v14;
           *(_DWORD *)v9 = v27;
           prunPumpDDA(a1, v9);
@@ -144,7 +144,7 @@ struct _PLGRUN *__fastcall prunPlgRead1(
     while ( 1 )
     {
       v18 = v15;
-      if ( (v13 & dword_1C02FA030[v17]) == 0 )
+      if ( (v13 & dword_1C02FC6F0[v17]) == 0 )
         v18 = v14;
       *(_DWORD *)v9 = v18;
       prunPumpDDA(a1, v9);

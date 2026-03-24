@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetBoolProperty@CManipulationMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@I_NPEA_N@Z @ 0x1C0213448
+ * XREFs of ?SetBoolProperty@CManipulationMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@I_NPEA_N@Z @ 0x1C01E43D8
  * Callers:
- *     ?SetIntegerProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0213630 (-SetIntegerProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ *     ?SetIntegerProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E45E0 (-SetIntegerProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
  * Callees:
  *     <none>
  */
@@ -16,53 +16,66 @@ __int64 __fastcall DirectComposition::CManipulationMarshaler::SetBoolProperty(
   unsigned int v5; // r10d
   int v7; // r8d
   int v8; // r8d
-  char v9; // cl
-  char v10; // al
-  char v11; // cl
+  char v9; // al
+  char v10; // cl
+  char v11; // al
   char v12; // cl
   char v13; // al
+  char v14; // al
+  char v15; // cl
+  char v16; // al
+  char v17; // r8
 
   v5 = 0;
   v7 = a3 - 4;
-  if ( v7 )
+  if ( !v7 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v16 = *((_BYTE *)this + 108);
+    v17 = v16 & 1;
+    if ( (v16 & 1) != a4 )
     {
-      if ( v8 != 1 )
-        return (unsigned int)-1073741811;
-      v9 = (*((_BYTE *)this + 108) & 4) != 0;
-      if ( v9 != a4 )
-      {
-        v9 = a4;
-        *a5 = 1;
-        *((_DWORD *)this + 4) |= 0x40u;
-      }
-      v10 = *((_BYTE *)this + 108) & 0xFB;
-      v11 = 4 * v9;
+      v17 = a4;
+      *a5 = 1;
+      *((_DWORD *)this + 4) |= 0x40u;
+      v16 = *((_BYTE *)this + 108);
     }
-    else
+    v13 = v17 | v16 & 0xFE;
+    goto LABEL_15;
+  }
+  v8 = v7 - 1;
+  if ( !v8 )
+  {
+    v14 = *((_BYTE *)this + 108);
+    v15 = (v14 & 2) != 0;
+    if ( v15 != a4 )
     {
-      v12 = (*((_BYTE *)this + 108) & 2) != 0;
-      if ( v12 != a4 )
-      {
-        v12 = a4;
-        *a5 = 1;
-        *((_DWORD *)this + 4) |= 0x40u;
-      }
-      v10 = *((_BYTE *)this + 108) & 0xFD;
-      v11 = 2 * v12;
+      v15 = a4;
+      *a5 = 1;
+      *((_DWORD *)this + 4) |= 0x40u;
+      v14 = *((_BYTE *)this + 108);
     }
-    *((_BYTE *)this + 108) = v11 | v10;
+    v11 = v14 & 0xFD;
+    v12 = 2 * v15;
+    goto LABEL_8;
+  }
+  if ( v8 == 1 )
+  {
+    v9 = *((_BYTE *)this + 108);
+    v10 = (v9 & 4) != 0;
+    if ( v10 != a4 )
+    {
+      v10 = a4;
+      *a5 = 1;
+      *((_DWORD *)this + 4) |= 0x40u;
+      v9 = *((_BYTE *)this + 108);
+    }
+    v11 = v9 & 0xFB;
+    v12 = 4 * v10;
+LABEL_8:
+    v13 = v12 | v11;
+LABEL_15:
+    *((_BYTE *)this + 108) = v13;
     return v5;
   }
-  v13 = *((_BYTE *)this + 108) & 1;
-  if ( v13 != a4 )
-  {
-    v13 = a4;
-    *a5 = 1;
-    *((_DWORD *)this + 4) |= 0x40u;
-  }
-  *((_BYTE *)this + 108) = v13 | *((_BYTE *)this + 108) & 0xFE;
-  return v5;
+  return (unsigned int)-1073741811;
 }

@@ -1,19 +1,27 @@
 /*
- * XREFs of ??1CD2DSharedBuffer@@MEAA@XZ @ 0x18000C734
+ * XREFs of ??1CD2DSharedBuffer@@MEAA@XZ @ 0x18009F430
  * Callers:
- *     ??_ECD2DSharedBuffer@@MEAAPEAXI@Z @ 0x18000C6F0 (--_ECD2DSharedBuffer@@MEAAPEAXI@Z.c)
+ *     ??_ECD2DSharedBuffer@@MEAAPEAXI@Z @ 0x18009F2F0 (--_ECD2DSharedBuffer@@MEAAPEAXI@Z.c)
  * Callees:
- *     <none>
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CD2DSharedBuffer::~CD2DSharedBuffer(CD2DSharedBuffer *this)
 {
-  bool v1; // zf
+  CRenderTargetBitmap *v2; // rcx
 
-  v1 = *((_QWORD *)this + 4) == 0LL;
-  *(_QWORD *)this = &CD2DSharedBuffer::`vftable';
-  if ( v1 )
-    DefaultHeap::Free(*((void **)this + 2));
+  *(_QWORD *)this = &CD2DSharedBuffer::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CD2DSharedBuffer::`vftable'{for `ID2D1PrivateCompositorBuffer'};
+  v2 = (CRenderTargetBitmap *)*((_QWORD *)this + 5);
+  if ( v2 )
+  {
+    CRenderTargetBitmap::Release(v2);
+    *((_QWORD *)this + 5) = 0LL;
+  }
   else
-    ReleaseInterface<CSharedSection>((char *)this + 32);
+  {
+    operator delete(*((void **)this + 3));
+  }
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

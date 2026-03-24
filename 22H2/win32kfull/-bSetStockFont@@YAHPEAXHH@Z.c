@@ -1,30 +1,30 @@
 /*
- * XREFs of ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C0085D30
+ * XREFs of ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00E49A0
  * Callers:
- *     FinishStockFontInit @ 0x1C00863A0 (FinishStockFontInit.c)
- *     FinishStockFontReinit @ 0x1C00885B0 (FinishStockFontReinit.c)
- *     bInitStockFontsInternal @ 0x1C03B31F8 (bInitStockFontsInternal.c)
- *     bInitOneStockFontInternal @ 0x1C03B35E0 (bInitOneStockFontInternal.c)
- *     bInitSystemFont @ 0x1C03B55BC (bInitSystemFont.c)
+ *     FinishStockFontInit @ 0x1C00E44C0 (FinishStockFontInit.c)
+ *     FinishStockFontReinit @ 0x1C00E4E10 (FinishStockFontReinit.c)
+ *     bInitStockFontsInternal @ 0x1C0392344 (bInitStockFontsInternal.c)
+ *     bInitOneStockFontInternal @ 0x1C0392720 (bInitOneStockFontInternal.c)
+ *     bInitSystemFont @ 0x1C039434C (bInitSystemFont.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall bSetStockFont(Gre::Base *a1, int a2, int a3)
+__int64 __fastcall bSetStockFont(void *a1, int a2, int a3)
 {
-  unsigned int v3; // ebx
-  __int64 v4; // rbp
-  struct Gre::Base::SESSION_GLOBALS *v7; // rax
+  unsigned int v3; // r9d
+  __int64 v4; // r11
+  void **v5; // rdx
 
   v3 = 0;
-  v4 = a2;
   if ( a1 )
   {
-    v7 = Gre::Base::Globals(a1);
+    v4 = a2;
     if ( a3 )
-      *(_QWORD *)(*((_QWORD *)v7 + 397) + 8 * v4) = a1;
+      v5 = gahStockObjects96;
     else
-      *(_QWORD *)(*((_QWORD *)v7 + 396) + 8 * v4) = a1;
+      v5 = gahStockObjects;
+    v5[v4] = a1;
   }
   LOBYTE(v3) = a1 != 0LL;
   return v3;

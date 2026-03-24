@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateDeviceInterfaceWorker @ 0x1407047BC
+ * XREFs of _CmCreateDeviceInterfaceWorker @ 0x14070479C
  * Callers:
- *     _CmCreateDeviceInterface @ 0x140704650 (_CmCreateDeviceInterface.c)
+ *     _CmCreateDeviceInterface @ 0x140704630 (_CmCreateDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _CmGetDeviceInterfaceClassGuidString @ 0x14059AE1C (_CmGetDeviceInterfaceClassGuidString.c)
  *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmRaiseCreateEvent @ 0x1406FD5C0 (_CmRaiseCreateEvent.c)
- *     _CmCreateInterfaceClass @ 0x1407048CC (_CmCreateInterfaceClass.c)
+ *     _CmRaiseCreateEvent @ 0x1406FD5A0 (_CmRaiseCreateEvent.c)
+ *     _CmCreateInterfaceClass @ 0x1407048AC (_CmCreateInterfaceClass.c)
  */
 
 __int64 __fastcall CmCreateDeviceInterfaceWorker(__int64 a1, __int64 a2, int a3, __int64 *a4, bool *a5, __int16 a6)

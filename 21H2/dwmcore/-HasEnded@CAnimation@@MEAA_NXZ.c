@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasEnded@CAnimation@@MEAA_NXZ @ 0x1800E5230
+ * XREFs of ?HasEnded@CAnimation@@MEAA_NXZ @ 0x1800CE9B0
  * Callers:
  *     <none>
  * Callees:
@@ -10,10 +10,10 @@ bool __fastcall CAnimation::HasEnded(CAnimation *this)
 {
   bool result; // al
 
-  if ( (*((_BYTE *)this + 120) & 2) != 0 )
+  if ( (*((_BYTE *)this + 112) & 2) != 0 )
     return 1;
   result = 0;
-  if ( !*((_QWORD *)this + 16) )
+  if ( !*((_QWORD *)this + 15) )
     return 1;
   return result;
 }

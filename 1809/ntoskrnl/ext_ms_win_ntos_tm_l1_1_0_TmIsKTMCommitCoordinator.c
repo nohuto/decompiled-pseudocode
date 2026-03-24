@@ -3,7 +3,7 @@
  * Callers:
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     RtlIsSandboxedToken @ 0x14064A350 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
  * Callees:
  *     <none>
  */

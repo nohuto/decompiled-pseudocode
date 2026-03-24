@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBUCX_CreateDefaultEndpointInUCX @ 0x1C0027120
+ * XREFs of HUBUCX_CreateDefaultEndpointInUCX @ 0x1C00245AC
  * Callers:
- *     HUBDSM_CreatingUCXDefaultEndpointFor30 @ 0x1C0020A40 (HUBDSM_CreatingUCXDefaultEndpointFor30.c)
+ *     HUBDSM_CreatingUCXDefaultEndpointFor30 @ 0x1C001E1A0 (HUBDSM_CreatingUCXDefaultEndpointFor30.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_CreateDefaultEndpointInUCX(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall HUBUCX_CreateDefaultEndpointInUCX(__int64 a1)
         2u,
         5u,
         0x24u,
-        (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
         v4);
     }
     *(_DWORD *)(a1 + 1564) = -1073737728;

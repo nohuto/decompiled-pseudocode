@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceCompleteInputDeviceRead @ 0x1C00C4C70
+ * XREFs of EtwTraceCompleteInputDeviceRead @ 0x1C00B7900
  * Callers:
- *     rimInputApc @ 0x1C00E21C0 (rimInputApc.c)
+ *     rimInputApc @ 0x1C01745D0 (rimInputApc.c)
  * Callees:
- *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00DF7E4 (McTemplateK0dq_EtwWriteTransfer.c)
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C01256BC (McTemplateK0dq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceCompleteInputDeviceRead(__int64 a1, int a2, __int64 a3)

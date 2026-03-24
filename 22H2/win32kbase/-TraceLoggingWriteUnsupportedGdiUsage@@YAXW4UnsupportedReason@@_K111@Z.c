@@ -1,15 +1,15 @@
 /*
- * XREFs of ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0159C64
+ * XREFs of ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C00CA024
  * Callers:
- *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C00350B8 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
- *     GreRestoreOwnedDC @ 0x1C0039180 (GreRestoreOwnedDC.c)
- *     GreSelectPalette @ 0x1C003A9E0 (GreSelectPalette.c)
- *     GreIntersectClipRect @ 0x1C003ADF0 (GreIntersectClipRect.c)
- *     EngAssociateSurface @ 0x1C00B09D0 (EngAssociateSurface.c)
+ *     GreIntersectClipRect @ 0x1C0072520 (GreIntersectClipRect.c)
+ *     EngAssociateSurface @ 0x1C00A3330 (EngAssociateSurface.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F84C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
+ *     GreSelectPalette @ 0x1C01497F0 (GreSelectPalette.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void __fastcall TraceLoggingWriteUnsupportedGdiUsage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -44,7 +44,7 @@ void __fastcall TraceLoggingWriteUnsupportedGdiUsage(__int64 a1, __int64 a2, __i
   int v32; // [rsp+D8h] [rbp+37h]
   int v33; // [rsp+DCh] [rbp+3Bh]
 
-  if ( (unsigned int)dword_1C02883D8 > 5 && tlgKeywordOn((__int64)&dword_1C02883D8, 0x400000000000LL) )
+  if ( (unsigned int)dword_1C0249250 > 5 && tlgKeywordOn((__int64)&dword_1C0249250, 0x400000000000LL) )
   {
     v33 = 0;
     v30 = 0;
@@ -70,6 +70,6 @@ void __fastcall TraceLoggingWriteUnsupportedGdiUsage(__int64 a1, __int64 a2, __i
     v14 = 0x2000000LL;
     v9 = v8;
     v17 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C02883D8, (unsigned __int8 *)dword_1C0256FC9, 0LL, 0LL, 8u, &v15);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0249250, (unsigned __int8 *)dword_1C02193CE, 0LL, 0LL, 8u, &v15);
   }
 }

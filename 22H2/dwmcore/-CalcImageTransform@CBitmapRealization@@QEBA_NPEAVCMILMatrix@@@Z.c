@@ -1,33 +1,39 @@
 /*
- * XREFs of ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x18000E188
+ * XREFs of ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x180014A5C
  * Callers:
- *     ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000DFF0 (-GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
- *     ?CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x18011B59C (-CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV-$TMi.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180014904 (-GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
  * Callees:
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B11AC (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800CD2AC (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
  */
 
-char __fastcall CBitmapRealization::CalcImageTransform(CBitmapRealization *this, struct CMILMatrix *a2)
+bool __fastcall CBitmapRealization::CalcImageTransform(CBitmapRealization *this, struct CMILMatrix *a2)
 {
-  CMILMatrix *v3; // rcx
-  __int64 v4; // r8
-  char v5; // bl
+  char v2; // di
 
-  CMILMatrix::SetToIdentity(a2);
-  v5 = 0;
-  if ( *(_BYTE *)(v4 + 313) )
+  v2 = 0;
+  *(_QWORD *)a2 = 1065353216LL;
+  *((_QWORD *)a2 + 1) = 0LL;
+  *((_DWORD *)a2 + 4) = 0;
+  *(_QWORD *)((char *)a2 + 20) = 1065353216LL;
+  *(_QWORD *)((char *)a2 + 28) = 0LL;
+  *((_DWORD *)a2 + 9) = 0;
+  *((_QWORD *)a2 + 5) = 1065353216LL;
+  *((_QWORD *)a2 + 6) = 0LL;
+  *((_DWORD *)a2 + 14) = 0;
+  *((_DWORD *)a2 + 15) = 1065353216;
+  *((_WORD *)a2 + 32) = 32085;
+  if ( *((_BYTE *)this + 281) )
   {
     CMILMatrix::Set2DAffineMatrix(
-      v3,
-      *(float *)(v4 + 168),
-      *(float *)(v4 + 172),
-      *(float *)(v4 + 176),
-      *(float *)(v4 + 180),
-      *(float *)(v4 + 184),
-      *(float *)(v4 + 188));
+      a2,
+      *((float *)this + 41),
+      *((float *)this + 42),
+      *((float *)this + 43),
+      *((float *)this + 44),
+      *((float *)this + 45),
+      *((float *)this + 46));
     return (unsigned __int8)CMILMatrix::IsIdentity<0>(a2) == 0;
   }
-  return v5;
+  return v2;
 }

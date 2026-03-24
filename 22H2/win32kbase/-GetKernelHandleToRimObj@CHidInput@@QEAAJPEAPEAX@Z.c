@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C00786D0
+ * XREFs of ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C000BA20
  * Callers:
- *     DestroyMonitor @ 0x1C00A04C0 (DestroyMonitor.c)
+ *     DestroyMonitor @ 0x1C0008F50 (DestroyMonitor.c)
  * Callees:
- *     RawInputManagerObjectCreateKernelHandle @ 0x1C0078710 (RawInputManagerObjectCreateKernelHandle.c)
+ *     RawInputManagerObjectCreateKernelHandle @ 0x1C000BA60 (RawInputManagerObjectCreateKernelHandle.c)
  */
 
 __int64 __fastcall CHidInput::GetKernelHandleToRimObj(CHidInput *this, void **a2)

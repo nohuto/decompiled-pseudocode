@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x14063D728
+ * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x1405B58FC
  * Callers:
- *     ExTryToAcquireResourceExclusiveLite @ 0x14063D340 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x1405B5520 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpTryAcquireResourceExclusive @ 0x1402AE310 (ExpTryAcquireResourceExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogExecutiveResourceAcquire @ 0x1406325F8 (PerfLogExecutiveResourceAcquire.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpTryAcquireResourceExclusive @ 0x14034D720 (ExpTryAcquireResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405AAD8C (PerfLogExecutiveResourceAcquire.c)
  */
 
 char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
@@ -34,7 +34,7 @@ char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
   v4 = 0;
   v5 = DWORD1(PerfGlobalGroupMask) & 0x20000;
   v6 = 65537;
-  __incgsdword(0x8AE0u);
+  __incgsdword(0x86E0u);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 96), &LockHandle);
   v7 = ExpTryAcquireResourceExclusive(a1);
   if ( v7 )
@@ -87,8 +87,8 @@ char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
   __writecr8(OldIrql);
   if ( v7 )
   {
-    __incgsdword(0x8AE4u);
-    __incgsdword(0x8A64u);
+    __incgsdword(0x86E4u);
+    __incgsdword(0x8664u);
   }
   if ( v5 )
     PerfLogExecutiveResourceAcquire(v6, a1, v2, v4);

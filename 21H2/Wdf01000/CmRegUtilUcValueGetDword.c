@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegUtilUcValueGetDword @ 0x1C00BF4D4
+ * XREFs of CmRegUtilUcValueGetDword @ 0x1C00BDD60
  * Callers:
- *     CmRegUtilWstrValueGetDword @ 0x1C00BF7B8 (CmRegUtilWstrValueGetDword.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C00BE044 (CmRegUtilWstrValueGetDword.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmRegUtilUcValueGetDword(

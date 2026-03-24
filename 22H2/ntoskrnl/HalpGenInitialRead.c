@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpGenInitialRead @ 0x140A8BB38
+ * XREFs of HalpGenInitialRead @ 0x1409A778C
  * Callers:
- *     HalpInitializeGenericErrorSource @ 0x140A8B6FC (HalpInitializeGenericErrorSource.c)
+ *     HalpInitializeGenericErrorSource @ 0x1409A7E74 (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     HalpCheckAndReportGhes @ 0x14033532C (HalpCheckAndReportGhes.c)
- *     HalpFindGhesEntry @ 0x140381078 (HalpFindGhesEntry.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalpCheckAndReportGhes @ 0x1404CF888 (HalpCheckAndReportGhes.c)
+ *     HalpFindGhesEntry @ 0x1404CF938 (HalpFindGhesEntry.c)
  */
 
 char __fastcall HalpGenInitialRead(__int64 a1)

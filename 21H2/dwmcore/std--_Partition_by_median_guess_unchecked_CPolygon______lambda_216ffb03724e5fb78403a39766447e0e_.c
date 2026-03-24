@@ -1,9 +1,9 @@
 /*
- * XREFs of std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x18024682C
+ * XREFs of std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801FA19C
  * Callers:
- *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180246B18 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801FA51C (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
  * Callees:
- *     std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1802467D0 (std--_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801FA140 (std--_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
  */
 
 __int64 **__fastcall std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(

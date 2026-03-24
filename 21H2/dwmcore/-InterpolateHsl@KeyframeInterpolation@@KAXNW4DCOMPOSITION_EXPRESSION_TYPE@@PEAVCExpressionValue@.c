@@ -1,15 +1,14 @@
 /*
- * XREFs of ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x1802575B8
+ * XREFs of ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180206E98
  * Callers:
- *     ?Interpolate@KeyframeInterpolation@@QEAAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x18001BC8C (-Interpolate@KeyframeInterpolation@@QEAAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@.c)
- *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180256B48 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
+ *     ?Interpolate@KeyframeInterpolation@@QEAAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x1800298E8 (-Interpolate@KeyframeInterpolation@@QEAAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@.c)
+ *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180206510 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
  * Callees:
- *     ?Color_HSLAfromRGBA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x18000426C (-Color_HSLAfromRGBA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z.c)
- *     ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x180004320 (-Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     _o_fmodf_0 @ 0x180101910 (_o_fmodf_0.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?Color_HSLAfromRGBA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x180004704 (-Color_HSLAfromRGBA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z.c)
+ *     ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x1800047B8 (-Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     fmodf_0 @ 0x1800F477B (fmodf_0.c)
  */
 
 __int64 __fastcall KeyframeInterpolation::InterpolateHsl(double a1, __int64 a2, float *a3, float *a4, __int64 a5)
@@ -18,43 +17,51 @@ __int64 __fastcall KeyframeInterpolation::InterpolateHsl(double a1, __int64 a2, 
   ColorSpaceHelpers *v8; // rcx
   ColorSpaceHelpers *v9; // rcx
   ColorSpaceHelpers *v10; // rcx
-  float v12; // [rsp+48h] [rbp-41h] BYREF
-  float v13; // [rsp+4Ch] [rbp-3Dh] BYREF
-  float v14; // [rsp+50h] [rbp-39h] BYREF
-  float v15; // [rsp+54h] [rbp-35h] BYREF
-  __int128 v16; // [rsp+58h] [rbp-31h] BYREF
-  _OWORD v17[4]; // [rsp+68h] [rbp-21h] BYREF
-  __int64 v18; // [rsp+A8h] [rbp+1Fh] BYREF
-  int v19; // [rsp+B0h] [rbp+27h]
-  char v20; // [rsp+B4h] [rbp+2Bh]
+  float v11; // xmm6_4
+  float v12; // xmm0_4
+  float v14; // [rsp+48h] [rbp-41h] BYREF
+  float v15; // [rsp+4Ch] [rbp-3Dh] BYREF
+  float v16; // [rsp+50h] [rbp-39h] BYREF
+  float v17; // [rsp+54h] [rbp-35h] BYREF
+  __int128 v18; // [rsp+58h] [rbp-31h] BYREF
+  _OWORD v19[4]; // [rsp+68h] [rbp-21h] BYREF
+  __int64 v20; // [rsp+A8h] [rbp+1Fh]
+  int v21; // [rsp+B0h] [rbp+27h]
+  char v22; // [rsp+B4h] [rbp+2Bh]
 
   v7 = a1;
-  memset_0(v17, 0, sizeof(v17));
-  v18 = 0LL;
-  ColorSpaceHelpers::Color_HSLAfromRGBA(v8, a3[1], a3[2], a3[3], &v12, &v13, &v14, &v15);
+  memset_0(v19, 0, sizeof(v19));
+  v20 = 0LL;
+  ColorSpaceHelpers::Color_HSLAfromRGBA(v8, a3[1], a3[2], a3[3], &v14, &v15, &v16, &v17);
   ColorSpaceHelpers::Color_HSLAfromRGBA(
     v9,
     a4[1],
     a4[2],
     a4[3],
-    (float *)&v16,
-    (float *)&v16 + 1,
-    (float *)&v16 + 2,
-    (float *)&v16 + 3);
-  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v12 - *(float *)&v16) & _xmm) >= 3.1415927 )
-    o_fmodf_0((__int64)v10);
+    (float *)&v18,
+    (float *)&v18 + 1,
+    (float *)&v18 + 2,
+    (float *)&v18 + 3);
+  v11 = 1.0 - v7;
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v14 - *(float *)&v18) & _xmm) >= 3.1415927 )
+  {
+    if ( v14 <= *(float *)&v18 )
+      v12 = (float)((float)(v14 + 6.2831855) * v11) + (float)(*(float *)&v18 * v7);
+    else
+      v12 = (float)((float)(*(float *)&v18 + 6.2831855) * v7) + (float)(v11 * v14);
+    fmodf_0(v12, 6.2831855);
+  }
   ColorSpaceHelpers::Color_RGBAfromHSLA(
     v10,
-    (float)((float)(1.0 - v7) * v13) + (float)(*((float *)&v16 + 1) * v7),
-    (float)((float)(1.0 - v7) * v14) + (float)(*((float *)&v16 + 2) * v7),
-    (float)((float)(1.0 - v7) * v15) + (float)(*((float *)&v16 + 3) * v7),
-    (float *)&v16,
-    (float *)&v16 + 1,
-    (float *)&v16 + 2,
-    (float *)&v16 + 3);
-  v19 = 70;
-  v17[0] = v16;
-  v20 = 1;
-  CExpressionValue::operator=(a5, (__int64)v17);
-  return Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v18);
+    (float)(v11 * v15) + (float)(*((float *)&v18 + 1) * v7),
+    (float)(v11 * v16) + (float)(*((float *)&v18 + 2) * v7),
+    (float)(v11 * v17) + (float)(*((float *)&v18 + 3) * v7),
+    (float *)&v18,
+    (float *)&v18 + 1,
+    (float *)&v18 + 2,
+    (float *)&v18 + 3);
+  v21 = 70;
+  v19[0] = v18;
+  v22 = 1;
+  return CExpressionValue::operator=(a5, (__int64)v19);
 }

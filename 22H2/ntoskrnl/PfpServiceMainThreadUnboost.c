@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpServiceMainThreadUnboost @ 0x140582FB0
+ * XREFs of PfpServiceMainThreadUnboost @ 0x140382BC0
  * Callers:
- *     PfPowerActionNotify @ 0x140A9FF34 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140991198 (PfPowerActionNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402C3BD0 (ObDereferenceObjectDeferDelete.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
 {
-  void *v2; // rbx
+  PVOID v2; // rbx
   unsigned __int64 v3; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -22,34 +22,37 @@ void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
   bool v8; // zf
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C65118);
-  if ( !P || dword_140C65120 == P[41] )
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C50348);
+  if ( !P || dword_140C50350 == P[41] )
   {
-    v2 = (void *)qword_140C65108;
-    if ( qword_140C65108 )
+    v2 = qword_140C50338;
+    if ( qword_140C50338 )
     {
-      qword_140C65108 = 0LL;
-      KeSetActualBasePriorityThread((ULONG_PTR)v2, dword_140C65110);
+      qword_140C50338 = 0LL;
+      KeSetActualBasePriorityThread((__int64)v2, dword_140C50340);
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C65118);
+  KxReleaseSpinLock(&qword_140C50348);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v8 = (v7 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v8 = (v7 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v7;
+        if ( v8 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);
   if ( v2 )
-    ObDereferenceObjectDeferDeleteWithTag(v2, 0x746C6644u);
+    ObDereferenceObjectDeferDelete(v2);
   if ( P )
     ExFreePoolWithTag(P, 0);
 }

@@ -1,31 +1,31 @@
 /*
- * XREFs of NtGdiHLSurfGetInformation @ 0x1C007E160
+ * XREFs of NtGdiHLSurfGetInformation @ 0x1C00BC5C0
  * Callers:
  *     <none>
  * Callees:
- *     GreDwmGetSurfaceData @ 0x1C007AA30 (GreDwmGetSurfaceData.c)
- *     GreSfmGetDirtyRgn @ 0x1C007E35C (GreSfmGetDirtyRgn.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GreDwmGetRedirectionStyle @ 0x1C0267774 (GreDwmGetRedirectionStyle.c)
+ *     GreDwmGetSurfaceData @ 0x1C00170D8 (GreDwmGetSurfaceData.c)
+ *     GreSfmGetDirtyRgn @ 0x1C00BC7C8 (GreSfmGetDirtyRgn.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     GreDwmGetRedirectionStyle @ 0x1C026EF94 (GreDwmGetRedirectionStyle.c)
  */
 
 __int64 __fastcall NtGdiHLSurfGetInformation(__int64 a1, int a2, void *a3, ULONG64 a4)
 {
-  _DWORD *v4; // r12
+  _DWORD *v4; // r13
   NTSTATUS v7; // ebx
   unsigned int *v8; // rax
   unsigned int v9; // r8d
-  size_t v10; // rsi
-  int v11; // edi
-  ULONG64 v12; // rax
-  int v13; // edx
+  unsigned int v10; // edi
+  size_t v11; // r14
+  int v12; // esi
+  ULONG64 v13; // rax
   int v14; // edx
+  int v15; // edx
   NTSTATUS SurfaceData; // eax
-  unsigned int v16; // edi
-  Gre::Base *HDEV; // rax
-  int v19; // edx
-  __int64 v20; // rcx
-  ULONG v21; // eax
+  __int64 HDEV; // rax
+  ULONG v19; // eax
+  int v20; // edx
+  __int64 v21; // rcx
   __int128 Src; // [rsp+58h] [rbp-50h] BYREF
   __int128 v23; // [rsp+68h] [rbp-40h] BYREF
   __int128 v24; // [rsp+78h] [rbp-30h] BYREF
@@ -38,7 +38,7 @@ __int64 __fastcall NtGdiHLSurfGetInformation(__int64 a1, int a2, void *a3, ULONG
   v24 = 0LL;
   v25 = 0LL;
   if ( a2 >= 11 )
-    goto LABEL_31;
+    goto LABEL_27;
   v8 = (unsigned int *)a4;
   if ( a4 >= MmUserProbeAddress )
     v8 = (unsigned int *)MmUserProbeAddress;
@@ -46,24 +46,26 @@ __int64 __fastcall NtGdiHLSurfGetInformation(__int64 a1, int a2, void *a3, ULONG
   switch ( a2 )
   {
     case 3:
+      v10 = 0;
       if ( !a3 )
         goto LABEL_28;
-      v10 = 48LL;
+      v11 = 48LL;
       if ( v9 >= 0x30 )
       {
-        v11 = 48;
+        v12 = 48;
         goto LABEL_11;
       }
       goto LABEL_35;
     case 4:
       goto LABEL_6;
     case 6:
+      v10 = 0;
       if ( !a3 )
         goto LABEL_28;
-      v11 = 32;
+      v12 = 32;
       if ( v9 >= 0x20 )
       {
-        v10 = 32LL;
+        v11 = 32LL;
         goto LABEL_11;
       }
 LABEL_35:
@@ -72,52 +74,55 @@ LABEL_35:
   }
   if ( a2 != 9 )
   {
-LABEL_31:
+LABEL_27:
     v7 = -1073741821;
+    v10 = 0;
     goto LABEL_28;
   }
 LABEL_6:
+  v10 = 0;
   if ( !a3 )
   {
 LABEL_28:
-    v16 = 0;
-    goto LABEL_21;
+    v19 = RtlNtStatusToDosError(v7);
+    EngSetLastError(v19);
+    return v10;
   }
-  v10 = 56LL;
+  v11 = 56LL;
   if ( v9 < 0x38 )
     goto LABEL_35;
-  v11 = 56;
-  v12 = (ULONG64)a3;
+  v12 = 56;
+  v13 = (ULONG64)a3;
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-    v12 = MmUserProbeAddress;
-  Src = *(_OWORD *)v12;
-  v23 = *(_OWORD *)(v12 + 16);
-  v24 = *(_OWORD *)(v12 + 32);
-  v25 = *(_QWORD *)(v12 + 48);
+    v13 = MmUserProbeAddress;
+  Src = *(_OWORD *)v13;
+  v23 = *(_OWORD *)(v13 + 16);
+  v24 = *(_OWORD *)(v13 + 32);
+  v25 = *(_QWORD *)(v13 + 48);
 LABEL_11:
-  v13 = a2 - 3;
-  if ( !v13 )
+  v14 = a2 - 3;
+  if ( !v14 )
   {
-    HDEV = (Gre::Base *)UserGetHDEV();
+    HDEV = UserGetHDEV();
     SurfaceData = GreDwmGetSurfaceData(HDEV, a1, (struct tagDWMSURFACEDATA *)&Src);
     goto LABEL_14;
   }
-  v14 = v13 - 1;
-  if ( !v14 )
+  v15 = v14 - 1;
+  if ( !v15 )
   {
     SurfaceData = GreSfmGetDirtyRgn(a1, Src, (char *)&Src + 8, &v23, 0LL, 0LL, 0LL, &v25, (char *)&v25 + 4);
 LABEL_14:
     v7 = SurfaceData;
     goto LABEL_15;
   }
-  v19 = v14 - 2;
-  if ( !v19 )
+  v20 = v15 - 2;
+  if ( !v20 )
   {
     UserGetHDEV();
-    SurfaceData = GreDwmGetRedirectionStyle(v20, a1, &Src);
+    SurfaceData = GreDwmGetRedirectionStyle(v21, a1, &Src);
     goto LABEL_14;
   }
-  if ( v19 == 3 )
+  if ( v20 == 3 )
   {
     SurfaceData = GreSfmGetDirtyRgn(
                     a1,
@@ -136,16 +141,9 @@ LABEL_15:
     goto LABEL_28;
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
     a3 = (void *)MmUserProbeAddress;
-  memmove(a3, &Src, v10);
+  memmove(a3, &Src, v11);
   if ( (unsigned __int64)v4 >= MmUserProbeAddress )
     v4 = (_DWORD *)MmUserProbeAddress;
-  *v4 = v11;
-  v16 = 1;
-LABEL_21:
-  if ( !v16 )
-  {
-    v21 = RtlNtStatusToDosError(v7);
-    EngSetLastError(v21);
-  }
-  return v16;
+  *v4 = v12;
+  return 1;
 }

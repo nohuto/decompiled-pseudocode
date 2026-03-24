@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTimLogBlockNonCetBinaries @ 0x1409E67F0
+ * XREFs of EtwTimLogBlockNonCetBinaries @ 0x1405D00D4
  * Callers:
- *     PsBlockNonCetBinaries @ 0x1409AD258 (PsBlockNonCetBinaries.c)
+ *     PsBlockNonCetBinaries @ 0x1405CF59C (PsBlockNonCetBinaries.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwpTiFillProcessIdentity @ 0x1402EDEB4 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x14070BB0C (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4, unsigned __int16 *a5, int a6)
@@ -115,7 +115,7 @@ void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4,
   v66 = v13;
   v68 = 0;
   v67 = v12;
-  EtwpQueryProcessCommandLine(a2, (__int64)&v39[1]);
+  EtwpQueryProcessCommandLine(a2, &v39[1]);
   v14 = LOWORD(v39[1]);
   v15 = (void *)v39[2];
   v70 = 2LL;
@@ -171,7 +171,7 @@ void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4,
   if ( v24 != 1 )
     v26 = &MITIGATION_ENFORCE_BLOCK_NON_CET_BINARIES;
   EtwWrite(v29, v26, 0LL, v20 + 5, &UserData);
-  if ( (unsigned int)dword_140C043E0 > 5 && tlgKeywordOn((__int64)&dword_140C043E0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
   {
     v33 = v24;
     v41 = &v33;
@@ -207,8 +207,8 @@ void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4,
     v39[0] = 0x1000000LL;
     v64 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C043E0,
-      (unsigned __int8 *)&dword_1400357FC,
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)&byte_14002D737,
       0LL,
       0LL,
       0xEu,

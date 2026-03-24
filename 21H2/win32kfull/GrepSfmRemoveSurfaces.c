@@ -1,13 +1,13 @@
 /*
- * XREFs of GrepSfmRemoveSurfaces @ 0x1C01208C0
+ * XREFs of GrepSfmRemoveSurfaces @ 0x1C0133770
  * Callers:
  *     <none>
  * Callees:
- *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C0020C74 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
- *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z @ 0x1C0020CA8 (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z.c)
- *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C0022038 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
- *     ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0089C48 (-StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C015D684 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
+ *     ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0016DB8 (-StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z.c)
+ *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C00BE198 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
+ *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z @ 0x1C00BE96C (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z.c)
+ *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C00BEDD4 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C016A6E4 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
  */
 
 struct SfmState *GrepSfmRemoveSurfaces()
@@ -18,7 +18,7 @@ struct SfmState *GrepSfmRemoveSurfaces()
   SFMLOGICALSURFACE *v3; // rdi
   HLSURF v4; // rbx
   int v5; // eax
-  __int64 *v6; // rcx
+  HLSURF *v6; // rcx
   _BYTE v7[32]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v8; // [rsp+40h] [rbp-18h]
   int v9; // [rsp+48h] [rbp-10h]
@@ -43,7 +43,7 @@ struct SfmState *GrepSfmRemoveSurfaces()
       else
         *((_DWORD *)v3 + 62) = 0;
       SFMLOGICALSURFACE::StopSfmStateTracking(v3, 0LL, gpSfmState);
-      v6 = (__int64 *)v8;
+      v6 = (HLSURF *)v8;
       if ( v8 )
         _InterlockedDecrement((volatile signed __int32 *)(v8 + 12));
       v8 = 0LL;

@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406CA034
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406B6A78
  * Callers:
- *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC724 (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A68458 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406B64C8 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x14072E720 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
  * Callees:
- *     _CmGetDeviceInterfaceClassGuid @ 0x1406C9F70 (_CmGetDeviceInterfaceClassGuid.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1407C5E58 (_CmGetDeviceInterfaceReferenceString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406B6CD4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x14072C2C8 (_CmGetDeviceInterfaceReferenceString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
         __int64 a1,
         __int64 a2,
-        int a3,
+        __int64 a3,
         __int64 a4,
         _DWORD *a5,
         __int64 a6,
@@ -23,14 +23,13 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
 {
   _DWORD *v8; // r12
   _DWORD *v9; // rsi
-  int v10; // r13d
   __int64 v11; // r14
   int DeviceInterfaceClassGuid; // ebx
   unsigned int v13; // edi
   unsigned int v14; // eax
   __int64 v15; // rax
   __int64 v17; // rax
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v19; // r15
   __int64 v20; // rax
   int ObjectProperty; // eax
@@ -39,13 +38,10 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
   unsigned __int64 v24; // rax
   unsigned int v25; // [rsp+60h] [rbp-10h] BYREF
   _DWORD v26[3]; // [rsp+64h] [rbp-Ch] BYREF
-  int v27; // [rsp+B0h] [rbp+40h]
   int v29; // [rsp+C8h] [rbp+58h] BYREF
 
-  v27 = a1;
   v8 = a5;
   v9 = a8;
-  v10 = a2;
   v11 = a6;
   DeviceInterfaceClassGuid = 0;
   v29 = 0;
@@ -80,7 +76,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
           ObjectProperty = PnpGetObjectProperty(
                              a1,
                              a2,
-                             3,
+                             3LL,
                              a3,
                              0LL,
                              (__int64)&DEVPKEY_DeviceInterface_FriendlyName,
@@ -105,7 +101,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
           if ( v13 < 0x10 )
             DeviceInterfaceClassGuid = -1073741789;
           else
-            DeviceInterfaceClassGuid = CmGetDeviceInterfaceClassGuid(a1, a2, (GUID *)v11);
+            DeviceInterfaceClassGuid = CmGetDeviceInterfaceClassGuid(a1, a2, v11);
         }
         break;
       case 5u:
@@ -141,19 +137,19 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
           v17 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
         if ( !v17 )
         {
-          Pool2 = ExAllocatePool2(256LL, 400LL, 1380994640LL);
-          v19 = (void *)Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x52504E50u);
+          v19 = PoolWithTag;
+          if ( PoolWithTag )
           {
             DeviceInterfaceClassGuid = PnpGetObjectProperty(
-                                         v27,
-                                         v10,
-                                         3,
+                                         a1,
+                                         a2,
+                                         3LL,
                                          a3,
                                          0LL,
                                          (__int64)&DEVPKEY_Device_InstanceId,
                                          (__int64)v26,
-                                         Pool2,
+                                         (__int64)PoolWithTag,
                                          400,
                                          (__int64)&v29,
                                          0);
@@ -161,10 +157,10 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
             {
               if ( v26[0] != 18
                 || (DeviceInterfaceClassGuid = PnpGetObjectProperty(
-                                                 v27,
-                                                 (_DWORD)v19,
-                                                 1,
-                                                 0,
+                                                 a1,
+                                                 (__int64)v19,
+                                                 1LL,
+                                                 0LL,
                                                  0LL,
                                                  (__int64)&DEVPKEY_Device_ContainerId,
                                                  (__int64)v8,

@@ -1,72 +1,45 @@
 /*
- * XREFs of ApiSetEditionPromotePointer @ 0x1C020AEBC
+ * XREFs of ApiSetEditionPromotePointer @ 0x1C01CD7D0
  * Callers:
- *     ?PromotePointerDataToMouse@CTouchProcessor@@QEAAH_KK@Z @ 0x1C01D2F20 (-PromotePointerDataToMouse@CTouchProcessor@@QEAAH_KK@Z.c)
+ *     ?PromotePointerDataToMouse@CTouchProcessor@@QEAAH_KK@Z @ 0x1C019A9E0 (-PromotePointerDataToMouse@CTouchProcessor@@QEAAH_KK@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ApiSetEditionPromotePointer(unsigned __int16 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ApiSetEditionPromotePointer(unsigned __int16 a1, unsigned int a2, unsigned int a3)
 {
-  unsigned int v3; // esi
-  unsigned int v4; // edi
-  unsigned int v5; // ebp
-  PDEVICE_OBJECT v7; // rcx
-  char v8; // bl
-  void *v9; // r9
-  void *v10; // r8
+  unsigned int v4; // ebx
+  unsigned int v5; // esi
+  int v7; // eax
 
-  v3 = a3;
   v4 = 0;
   v5 = a2;
-  v7 = WPP_GLOBAL_Control;
-  v8 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v9 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      10,
-      254,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  if ( qword_1C029D350 && (int)qword_1C029D350(v7, a2, a3, v9) >= 0 && qword_1C029D358 )
-    v4 = qword_1C029D358(a1, v5, v3);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v8 = 0;
-  if ( (_BYTE)a2 || v8 )
-  {
-    v10 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-    LOBYTE(v10) = v8;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
       a2,
-      (_DWORD)v10,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
       10,
-      255,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      242,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  if ( qword_1C02586E8 )
+    v7 = qword_1C02586E8();
+  else
+    v7 = -1073741637;
+  if ( v7 >= 0 && qword_1C02586F0 )
+    v4 = qword_1C02586F0(a1, v5, a3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      243,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
   return v4;
 }

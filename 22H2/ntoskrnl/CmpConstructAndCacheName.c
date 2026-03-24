@@ -1,40 +1,40 @@
 /*
- * XREFs of CmpConstructAndCacheName @ 0x1407E1FC0
+ * XREFs of CmpConstructAndCacheName @ 0x14069E394
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmCallbackGetKeyObjectID @ 0x1408ABBD0 (CmCallbackGetKeyObjectID.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869AC0 (CmCallbackGetKeyObjectID.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
  */
 
-__int64 __fastcall CmpConstructAndCacheName(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall CmpConstructAndCacheName(__int64 a1, _QWORD *a2)
 {
-  __int64 v4; // rax
-  int v6; // ebx
-  bool v8; // cf
-  signed __int64 v9; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v3; // rax
+  int v5; // ebx
+  bool v7; // cf
+  signed __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
-  v9 = 0LL;
-  v4 = *(_QWORD *)(a1 + 296);
-  if ( (v4 & 1) != 0 )
-    v4 &= ~1uLL;
-  if ( !v4 )
+  v8 = 0LL;
+  v3 = *(_QWORD *)(a1 + 296);
+  if ( (v3 & 1) != 0 )
+    v3 &= ~1uLL;
+  if ( !v3 )
   {
-    v6 = CmpConstructNameWithStatus(a1, &v9, a3);
-    if ( v6 < 0 )
+    v5 = CmpConstructNameWithStatus(a1, &v8);
+    if ( v5 < 0 )
       goto LABEL_7;
-    v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 296), v9, 0LL) != 0;
-    v4 = *(_QWORD *)(a1 + 296);
-    v9 &= -(__int64)v8;
-    if ( (v4 & 1) != 0 )
-      v4 &= ~1uLL;
+    v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 296), v8, 0LL) != 0;
+    v3 = *(_QWORD *)(a1 + 296);
+    v8 &= -(__int64)v7;
+    if ( (v3 & 1) != 0 )
+      v3 &= ~1uLL;
   }
   if ( a2 )
-    *a2 = v4;
-  v6 = 0;
+    *a2 = v3;
+  v5 = 0;
 LABEL_7:
-  if ( v9 )
-    CmpFreeTransientPoolWithTag((void *)v9, 0x624E4D43u);
-  return (unsigned int)v6;
+  if ( v8 )
+    CmpFreeTransientPoolWithTag((void *)v8, 0x624E4D43u);
+  return (unsigned int)v5;
 }

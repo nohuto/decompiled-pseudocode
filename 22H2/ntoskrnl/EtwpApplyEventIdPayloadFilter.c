@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpApplyEventIdPayloadFilter @ 0x140257600
+ * XREFs of EtwpApplyEventIdPayloadFilter @ 0x14025EBC0
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x1407E3468 (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x1406A4438 (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
  * Callees:
- *     EtwpPerfectHashFunctionSearch @ 0x140257730 (EtwpPerfectHashFunctionSearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpApplyPayloadFilterInternal @ 0x140604468 (EtwpApplyPayloadFilterInternal.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x14025ECAC (EtwpPerfectHashFunctionSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x1405B0CC8 (EtwpApplyPayloadFilterInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall EtwpApplyEventIdPayloadFilter(
@@ -22,27 +22,26 @@ char __fastcall EtwpApplyEventIdPayloadFilter(
         unsigned __int8 a9)
 {
   volatile signed __int32 *v9; // rdi
-  __int64 v12; // r10
+  __int64 v12; // r11
   unsigned __int8 CurrentIrql; // bl
-  __int64 v14; // r11
+  __int64 v14; // r10
   char v15; // al
   _BYTE *v16; // rdx
   _DWORD *SchedulerAssist; // r9
-  __int64 v19; // r11
-  unsigned __int8 v20; // cl
+  unsigned __int8 v19; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v22; // r9
-  int v23; // eax
-  bool v24; // zf
-  __int64 v25; // rdi
-  char v26; // al
-  _BYTE *v27; // rdx
-  int v28; // eax
-  char v29; // cl
-  char v30[24]; // [rsp+40h] [rbp-18h] BYREF
+  _DWORD *v21; // r9
+  int v22; // eax
+  bool v23; // zf
+  __int64 v24; // rdi
+  char v25; // al
+  _BYTE *v26; // rdx
+  int v27; // eax
+  char v28; // cl
+  char v29[24]; // [rsp+40h] [rbp-18h] BYREF
 
   v9 = 0LL;
-  v30[0] = 1;
+  v29[0] = 1;
   v12 = a1;
   if ( a9 < 2u )
   {
@@ -51,37 +50,36 @@ char __fastcall EtwpApplyEventIdPayloadFilter(
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 2 )
-        LODWORD(v19) = 4;
-      else
-        v19 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v19;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     v14 = 104LL * a2;
-    if ( *(_QWORD *)(v14 + *(_QWORD *)(a1 + 384) + 72) )
+    if ( *(_QWORD *)(*(_QWORD *)(a1 + 384) + v14 + 72) )
     {
       v15 = EtwpPerfectHashFunctionSearch(a5);
       if ( *v16 != v15 )
       {
-        v30[0] = 0;
+        v29[0] = 0;
         goto LABEL_6;
       }
     }
-    else if ( !v30[0] )
+    else if ( !v29[0] )
     {
 LABEL_6:
       if ( KiIrqlFlags )
       {
-        v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v22 = CurrentPrcb->SchedulerAssist;
-          v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v24 = (v23 & v22[5]) == 0;
-          v22[5] &= v23;
-          if ( v24 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v19 = KeGetCurrentIrql();
+          if ( v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v21 = CurrentPrcb->SchedulerAssist;
+            v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v23 = (v22 & v21[5]) == 0;
+            v21[5] &= v22;
+            if ( v23 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
@@ -92,27 +90,27 @@ LABEL_6:
       _InterlockedIncrement(v9);
     goto LABEL_6;
   }
-  v25 = 104LL * a2;
-  if ( *(_QWORD *)(v25 + *(_QWORD *)(a1 + 384) + 72) )
+  v24 = 104LL * a2;
+  if ( *(_QWORD *)(*(_QWORD *)(a1 + 384) + v24 + 72) )
   {
-    v26 = EtwpPerfectHashFunctionSearch(a5);
-    if ( *v27 != v26 )
+    v25 = EtwpPerfectHashFunctionSearch(a5);
+    if ( *v26 != v25 )
       return 0;
   }
-  v9 = *(volatile signed __int32 **)(v25 + *(_QWORD *)(v12 + 384) + 80);
+  v9 = *(volatile signed __int32 **)(*(_QWORD *)(v12 + 384) + v24 + 80);
 LABEL_8:
   if ( !v9 )
-    return v30[0];
-  v28 = EtwpApplyPayloadFilterInternal(a4, a6, a7, a8, a3 == 0, v9 + 2, v30);
-  v29 = v30[0];
-  if ( v28 < 0 )
-    v29 = 1;
-  v30[0] = v29;
+    return v29[0];
+  v27 = EtwpApplyPayloadFilterInternal(a4, a6, a7, a8, a3 == 0, v9 + 2, v29);
+  v28 = v29[0];
+  if ( v27 < 0 )
+    v28 = 1;
+  v29[0] = v28;
   if ( a9 < 2u )
   {
     if ( _InterlockedExchangeAdd(v9, 0xFFFFFFFF) == 1 )
       ExFreePoolWithTag((PVOID)v9, 0);
-    return v30[0];
+    return v29[0];
   }
-  return v29;
+  return v28;
 }

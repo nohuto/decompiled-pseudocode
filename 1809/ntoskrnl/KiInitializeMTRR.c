@@ -1,12 +1,12 @@
 /*
  * XREFs of KiInitializeMTRR @ 0x1409C56F4
  * Callers:
- *     KiInitMachineDependent @ 0x140181580 (KiInitMachineDependent.c)
+ *     KiInitMachineDependent @ 0x1401815A0 (KiInitMachineDependent.c)
  * Callees:
  *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     KiReadFixedMtrr @ 0x14056E88C (KiReadFixedMtrr.c)

@@ -1,287 +1,340 @@
 /*
- * XREFs of PopScanIdleList @ 0x1402D6330
+ * XREFs of PopScanIdleList @ 0x140280878
  * Callers:
- *     PopSystemIdleWorker @ 0x140752F30 (PopSystemIdleWorker.c)
+ *     PopPolicySystemIdle @ 0x140679AA0 (PopPolicySystemIdle.c)
+ *     PopIdleDetection @ 0x1408E4250 (PopIdleDetection.c)
  * Callees:
- *     PopGetPowerSettingValue @ 0x140255D5C (PopGetPowerSettingValue.c)
- *     PopDiagTraceEventNoPayload @ 0x140256CA0 (PopDiagTraceEventNoPayload.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSpinLock @ 0x1402B1CB0 (KeReleaseSpinLock.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PoRequestPowerIrp @ 0x1403A3C60 (PoRequestPowerIrp.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopCoalescingCheck @ 0x1405CFAF4 (PopCoalescingCheck.c)
- *     PopDiagTraceDiskIdleCheck @ 0x1405D1B90 (PopDiagTraceDiskIdleCheck.c)
- *     PopDiagTraceIoCoalescingDiskIdle @ 0x1405D3148 (PopDiagTraceIoCoalescingDiskIdle.c)
- *     PopSetPowerSettingValue @ 0x14075140C (PopSetPowerSettingValue.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407525EC (PopSetPowerSettingValueAcDc.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     PopGetPowerSettingValue @ 0x140281EC4 (PopGetPowerSettingValue.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCoalescingCheck @ 0x14056EB5C (PopCoalescingCheck.c)
+ *     PopDiagTraceDiskIdleCheck @ 0x140571730 (PopDiagTraceDiskIdleCheck.c)
+ *     PopDiagTraceIoCoalescingDiskIdle @ 0x140572D7C (PopDiagTraceIoCoalescingDiskIdle.c)
+ *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
  */
 
 __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
 {
-  int v2; // esi
-  int v3; // ebx
-  unsigned __int64 v4; // rdi
-  char v5; // r13
-  unsigned int v6; // r12d
-  KIRQL v7; // al
-  __int64 *v8; // r15
-  __int64 v9; // rdx
-  int v10; // r8d
-  __int64 *v12; // rbx
-  __int32 v13; // r14d
-  unsigned __int32 v14; // esi
-  unsigned int v15; // edi
-  int v16; // edx
-  unsigned int v17; // r8d
-  unsigned __int64 v18; // rcx
-  unsigned int v19; // eax
-  unsigned int v20; // edx
-  unsigned int v21; // ecx
-  int v22; // eax
-  unsigned int v23; // edx
-  int v24; // eax
+  int v2; // ebx
+  unsigned __int64 v3; // r14
+  int v4; // r12d
+  int v5; // esi
+  KIRQL v6; // al
+  unsigned __int64 v7; // r15
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r8
+  int v11; // eax
+  bool v12; // zf
+  __int64 *v13; // r13
+  unsigned int v14; // r15d
+  __int64 *v15; // rbx
+  __int32 v16; // r12d
+  unsigned __int32 v17; // r14d
+  unsigned int v18; // esi
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  unsigned int v21; // eax
+  unsigned int v22; // ecx
+  unsigned int v23; // eax
+  unsigned int v24; // ecx
+  int v25; // eax
+  int v26; // eax
   _QWORD *DeviceAttachmentBaseRefWithTag; // rax
-  __int64 v26; // rdx
-  char v27; // al
-  char v28; // al
-  int v29; // ecx
-  char v30; // [rsp+48h] [rbp-C0h] BYREF
-  char v31; // [rsp+49h] [rbp-BFh] BYREF
-  int Src; // [rsp+4Ch] [rbp-BCh] BYREF
-  KIRQL NewIrql[4]; // [rsp+50h] [rbp-B8h]
-  int v34; // [rsp+54h] [rbp-B4h] BYREF
-  int v35; // [rsp+58h] [rbp-B0h]
-  unsigned int v36; // [rsp+5Ch] [rbp-ACh] BYREF
-  int v37; // [rsp+60h] [rbp-A8h]
-  unsigned int v38; // [rsp+64h] [rbp-A4h]
-  unsigned int v39; // [rsp+68h] [rbp-A0h]
-  unsigned int v40; // [rsp+6Ch] [rbp-9Ch]
-  unsigned __int32 v41; // [rsp+70h] [rbp-98h] BYREF
-  __int32 v42; // [rsp+78h] [rbp-90h] BYREF
-  int v43; // [rsp+80h] [rbp-88h]
-  _QWORD *v44; // [rsp+88h] [rbp-80h] BYREF
-  unsigned __int64 v45; // [rsp+90h] [rbp-78h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD *v47; // [rsp+A8h] [rbp-60h]
-  __int64 v48; // [rsp+B0h] [rbp-58h]
-  int *v49; // [rsp+B8h] [rbp-50h]
-  __int64 v50; // [rsp+C0h] [rbp-48h]
-  __int64 v51; // [rsp+C8h] [rbp-40h]
-  int v52; // [rsp+D0h] [rbp-38h]
-  int v53; // [rsp+D4h] [rbp-34h]
-  __int64 *v54; // [rsp+D8h] [rbp-30h]
-  __int64 v55; // [rsp+E0h] [rbp-28h]
-  char *v56; // [rsp+E8h] [rbp-20h]
-  __int64 v57; // [rsp+F0h] [rbp-18h]
-  unsigned __int32 *v58; // [rsp+F8h] [rbp-10h]
-  __int64 v59; // [rsp+100h] [rbp-8h]
-  __int32 *v60; // [rsp+108h] [rbp+0h]
-  __int64 v61; // [rsp+110h] [rbp+8h]
-  char *v62; // [rsp+118h] [rbp+10h]
-  __int64 v63; // [rsp+120h] [rbp+18h]
-  char *v64; // [rsp+128h] [rbp+20h]
-  __int64 v65; // [rsp+130h] [rbp+28h]
-  char *v66; // [rsp+138h] [rbp+30h]
-  __int64 v67; // [rsp+140h] [rbp+38h]
+  __int64 v28; // rdx
+  char v29; // al
+  char v30; // al
+  int v31; // ecx
+  __int64 v32; // rdx
+  unsigned __int8 v33; // al
+  struct _KPRCB *v34; // r10
+  _DWORD *v35; // r8
+  int v36; // eax
+  int v37; // r8d
+  unsigned __int64 v38; // rcx
+  char v40; // [rsp+40h] [rbp-C0h] BYREF
+  char v41; // [rsp+41h] [rbp-BFh] BYREF
+  int Src; // [rsp+44h] [rbp-BCh] BYREF
+  KIRQL v43; // [rsp+48h] [rbp-B8h]
+  __int16 v44; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v45; // [rsp+50h] [rbp-B0h]
+  int v46; // [rsp+54h] [rbp-ACh]
+  int v47; // [rsp+58h] [rbp-A8h]
+  int v48; // [rsp+60h] [rbp-A0h]
+  unsigned int v49; // [rsp+64h] [rbp-9Ch]
+  unsigned int v50; // [rsp+68h] [rbp-98h]
+  unsigned int v51; // [rsp+6Ch] [rbp-94h]
+  unsigned __int32 v52; // [rsp+70h] [rbp-90h] BYREF
+  __int32 v53; // [rsp+78h] [rbp-88h] BYREF
+  int v54; // [rsp+80h] [rbp-80h]
+  _QWORD *v55; // [rsp+88h] [rbp-78h] BYREF
+  unsigned __int64 v56; // [rsp+90h] [rbp-70h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+A0h] [rbp-60h] BYREF
+  _QWORD *v58; // [rsp+B0h] [rbp-50h]
+  __int64 v59; // [rsp+B8h] [rbp-48h]
+  __int16 *v60; // [rsp+C0h] [rbp-40h]
+  __int64 v61; // [rsp+C8h] [rbp-38h]
+  __int64 v62; // [rsp+D0h] [rbp-30h]
+  int v63; // [rsp+D8h] [rbp-28h]
+  int v64; // [rsp+DCh] [rbp-24h]
+  __int64 *v65; // [rsp+E0h] [rbp-20h]
+  __int64 v66; // [rsp+E8h] [rbp-18h]
+  char *v67; // [rsp+F0h] [rbp-10h]
+  __int64 v68; // [rsp+F8h] [rbp-8h]
+  unsigned __int32 *v69; // [rsp+100h] [rbp+0h]
+  __int64 v70; // [rsp+108h] [rbp+8h]
+  __int32 *v71; // [rsp+110h] [rbp+10h]
+  __int64 v72; // [rsp+118h] [rbp+18h]
+  char *v73; // [rsp+120h] [rbp+20h]
+  __int64 v74; // [rsp+128h] [rbp+28h]
+  char *v75; // [rsp+130h] [rbp+30h]
+  __int64 v76; // [rsp+138h] [rbp+38h]
+  char *v77; // [rsp+140h] [rbp+40h]
+  __int64 v78; // [rsp+148h] [rbp+48h]
 
-  v37 = dword_140C232E8;
-  v2 = a1;
-  v3 = 0;
-  v40 = dword_140C232E4;
-  v4 = a2;
+  v48 = dword_140C23EA8;
+  v3 = a2;
+  v56 = a2;
+  v4 = a1;
+  LOBYTE(v2) = 0;
   v5 = 0;
-  v43 = a1;
-  v6 = 0;
-  v45 = a2;
+  v54 = a1;
   Src = 0;
-  v38 = *((_DWORD *)PopPolicy + 53);
-  v39 = PopCurrentCoalescingSpindownTimeout;
-  v36 = 0;
-  v35 = 0;
-  v7 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  NewIrql[0] = v7;
-  if ( byte_140C547FC )
+  v47 = 0;
+  v49 = *((_DWORD *)PopPolicy + 53);
+  v50 = PopCurrentCoalescingSpindownTimeout;
+  v45 = v2;
+  v46 = 0;
+  v51 = dword_140C23EA4;
+  v6 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
+  v7 = v6;
+  v43 = v6;
+  if ( byte_140C505B4 )
   {
-    KeReleaseSpinLock(&PopDopeGlobalLock, v7);
+    KxReleaseSpinLock(&PopDopeGlobalLock);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v7);
   }
   else
   {
     PopDiagTraceEventNoPayload(&POP_ETW_EVENT_DEVICE_IDLE_START);
-    v8 = (__int64 *)PopIdleDetectList;
+    v13 = (__int64 *)PopIdleDetectList;
     if ( (__int64 *)PopIdleDetectList != &PopIdleDetectList )
     {
+      v14 = 0;
       do
       {
-        v12 = v8 - 4;
-        v13 = _InterlockedExchange((volatile __int32 *)v8 - 7, 0);
-        *((_DWORD *)v8 - 5) += v13;
-        if ( v13 || *((_DWORD *)v12 + 2) )
-          *(_DWORD *)v12 = 0;
-        v14 = _InterlockedExchangeAdd((volatile signed __int32 *)v12, PopIdleScanInterval);
-        if ( !v14 )
-          *((_DWORD *)v12 + 14) = 1;
-        if ( v37 == 1 )
-          v15 = *((_DWORD *)v12 + 4);
+        v15 = v13 - 4;
+        v16 = _InterlockedExchange((volatile __int32 *)v13 - 7, 0);
+        *((_DWORD *)v13 - 5) += v16;
+        if ( v16 || *((_DWORD *)v15 + 2) )
+          *(_DWORD *)v15 = 0;
+        v17 = _InterlockedExchangeAdd((volatile signed __int32 *)v15, PopIdleScanInterval);
+        if ( !v17 )
+          *((_DWORD *)v15 + 14) = 1;
+        if ( v48 == 1 )
+          v18 = *((_DWORD *)v15 + 4);
         else
-          v15 = *((_DWORD *)v12 + 5);
-        v16 = *((_DWORD *)v12 + 12);
-        v17 = v14;
-        if ( v16 == 1 )
+          v18 = *((_DWORD *)v15 + 5);
+        v19 = *((unsigned int *)v15 + 12);
+        if ( (_DWORD)v19 == 1 )
         {
-          if ( v15 == -1 )
-            v15 = v38;
-          v19 = PopCoalescingCheck(v39, v15, v14);
-          v15 = v19;
-          if ( v19 )
-            ++v35;
-          v6 = v40;
-          if ( v40 > v19 )
-            v6 = v19;
-          v20 = *((_DWORD *)v12 + 23);
-          v17 = PopIdleScanInterval + *((_DWORD *)v12 + 22);
-          if ( v14 )
+          if ( v18 == -1 )
+            v18 = v49;
+          v21 = PopCoalescingCheck(v50, v18, v17);
+          v18 = v21;
+          if ( v21 )
+            ++v46;
+          v14 = v51;
+          if ( v51 > v21 )
+            v14 = v21;
+          v22 = *((_DWORD *)v15 + 23);
+          v20 = (unsigned int)(PopIdleScanInterval + *((_DWORD *)v15 + 22));
+          if ( v17 )
           {
-            if ( v20 <= PopIdleScanInterval )
-              v23 = 0;
+            if ( v22 <= PopIdleScanInterval )
+              v24 = 0;
             else
-              v23 = v20 - PopIdleScanInterval;
+              v24 = v22 - PopIdleScanInterval;
           }
           else
           {
-            v21 = v20 + PopIdleScanInterval;
-            v22 = v6;
-            v23 = v6;
-            if ( v21 <= v6 )
+            v23 = PopIdleScanInterval + v22;
+            v20 = v14;
+            v24 = v14;
+            if ( v23 <= v14 )
             {
-              v22 = PopIdleScanInterval + *((_DWORD *)v12 + 22);
-              v23 = v21;
+              v20 = (unsigned int)(PopIdleScanInterval + *((_DWORD *)v15 + 22));
+              v24 = v23;
             }
-            v17 = v22;
           }
-          *((_DWORD *)v12 + 23) = v23;
-          v16 = *((_DWORD *)v12 + 12);
-          *((_DWORD *)v12 + 22) = v17;
+          v19 = *((unsigned int *)v15 + 12);
+          *((_DWORD *)v15 + 22) = v20;
+          *((_DWORD *)v15 + 23) = v24;
         }
-        if ( v15 && v17 >= v15 && *((_DWORD *)v12 + 14) == 1 && (v14 || (PopSimulate & 0x2000000) != 0) )
+        else
         {
-          if ( v16 == 1 )
-            PopDiagTraceIoCoalescingDiskIdle(v12[3]);
-          if ( PoRequestPowerIrp(
-                 (PDEVICE_OBJECT)v12[3],
-                 2u,
-                 *(POWER_STATE *)((char *)v12 + 52),
-                 PopDeviceIdleCompletion,
-                 0LL,
-                 0LL) >= 0 )
+          v20 = v17;
+        }
+        if ( v18 && (unsigned int)v20 >= v18 && *((_DWORD *)v15 + 14) == 1 && (v17 || (PopSimulate & 0x2000000) != 0) )
+        {
+          if ( *((_DWORD *)v15 + 12) == 1 )
+            PopDiagTraceIoCoalescingDiskIdle(v15[3], v20, v19);
+          if ( (int)PopRequestPowerIrp(v15[3], 0LL, 0, 0LL) >= 0 )
           {
-            *((_DWORD *)v12 + 3) = 0;
-            v24 = *((_DWORD *)v12 + 13);
-            ++dword_140C547F8;
-            *((_DWORD *)v12 + 14) = v24;
+            v25 = *((_DWORD *)v15 + 13);
+            ++dword_140C505B0;
+            *((_DWORD *)v15 + 14) = v25;
+            *((_DWORD *)v15 + 3) = 0;
           }
         }
-        else if ( v16 == 1 && !v14 )
+        else if ( (_DWORD)v19 == 1 )
         {
-          v5 = 1;
+          v26 = (unsigned __int8)v45;
+          if ( !v17 )
+            v26 = 1;
+          v45 = v26;
         }
-        v42 = v13;
-        v41 = v14;
-        v31 = 0;
-        v30 = 0;
-        LOWORD(v34) = 0;
-        v44 = 0LL;
+        v53 = v16;
+        v52 = v17;
+        v41 = 0;
+        v40 = 0;
+        v44 = 0;
+        v55 = 0LL;
         if ( PopDiagHandleRegistered )
         {
           if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_IDLE_CHECK) )
           {
-            DeviceAttachmentBaseRefWithTag = (_QWORD *)IoGetDeviceAttachmentBaseRefWithTag(v12[3], 1732538192LL);
-            v44 = DeviceAttachmentBaseRefWithTag;
+            DeviceAttachmentBaseRefWithTag = (_QWORD *)IoGetDeviceAttachmentBaseRefWithTag(v15[3], 1732538192LL);
+            v55 = DeviceAttachmentBaseRefWithTag;
             if ( DeviceAttachmentBaseRefWithTag )
             {
-              v26 = *(_QWORD *)(DeviceAttachmentBaseRefWithTag[39] + 40LL);
-              if ( v26 )
+              v28 = *(_QWORD *)(DeviceAttachmentBaseRefWithTag[39] + 40LL);
+              if ( v28 )
               {
-                LOWORD(v34) = *(_WORD *)(v26 + 40) >> 1;
-                v27 = *((_BYTE *)v12 + 52) - 1;
-                UserData.Ptr = (ULONGLONG)(v12 + 3);
-                v30 = v27;
-                v28 = *((_BYTE *)v12 + 56) - 1;
+                v44 = *(_WORD *)(v28 + 40) >> 1;
+                v29 = *((_BYTE *)v15 + 52) - 1;
+                UserData.Ptr = (ULONGLONG)(v15 + 3);
+                v40 = v29;
+                v30 = *((_BYTE *)v15 + 56) - 1;
                 *(_QWORD *)&UserData.Size = 8LL;
-                v31 = v28;
-                v47 = &v44;
-                v49 = &v34;
-                v48 = 8LL;
-                v50 = 2LL;
-                v29 = *(unsigned __int16 *)(v26 + 40);
-                v51 = *(_QWORD *)(v26 + 48);
-                v54 = v12 + 2;
-                v56 = (char *)v12 + 20;
-                v58 = &v41;
-                v60 = &v42;
-                v62 = (char *)v12 + 12;
-                v64 = &v30;
-                v66 = &v31;
-                v52 = v29;
-                v65 = 1LL;
-                v67 = 1LL;
-                v53 = 0;
-                v55 = 4LL;
-                v57 = 4LL;
-                v59 = 4LL;
-                v61 = 4LL;
-                v63 = 4LL;
-                EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DEVICE_IDLE_CHECK, 0LL, 0, 0LL, 0LL, 0xBu, &UserData);
-                DeviceAttachmentBaseRefWithTag = v44;
+                v41 = v30;
+                v58 = &v55;
+                v60 = &v44;
+                v59 = 8LL;
+                v61 = 2LL;
+                v31 = *(unsigned __int16 *)(v28 + 40);
+                v62 = *(_QWORD *)(v28 + 48);
+                v65 = v15 + 2;
+                v67 = (char *)v15 + 20;
+                v69 = &v52;
+                v71 = &v53;
+                v73 = (char *)v15 + 12;
+                v75 = &v40;
+                v77 = &v41;
+                v63 = v31;
+                v64 = 0;
+                v66 = 4LL;
+                v68 = 4LL;
+                v70 = 4LL;
+                v72 = 4LL;
+                v74 = 4LL;
+                v76 = 1LL;
+                v78 = 1LL;
+                EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DEVICE_IDLE_CHECK, 0LL, 0xBu, &UserData);
+                DeviceAttachmentBaseRefWithTag = v55;
               }
               if ( DeviceAttachmentBaseRefWithTag )
                 ObfDereferenceObjectWithTag(DeviceAttachmentBaseRefWithTag, 0x67446F50u);
             }
           }
         }
-        if ( *((_DWORD *)v12 + 12) == 1 )
-          PopDiagTraceDiskIdleCheck(v8 - 4, v15, v6);
-        v8 = (__int64 *)*v8;
+        if ( *((_DWORD *)v15 + 12) == 1 )
+          PopDiagTraceDiskIdleCheck(v13 - 4, v18, v14);
+        v13 = (__int64 *)*v13;
       }
-      while ( v8 != &PopIdleDetectList );
-      v3 = v35;
-      v4 = v45;
-      v2 = v43;
+      while ( v13 != &PopIdleDetectList );
+      LOBYTE(v7) = v43;
+      LOBYTE(v2) = v45;
+      v5 = v46;
+      v3 = v56;
+      v4 = v54;
     }
     PopDiagTraceEventNoPayload(&POP_ETW_EVENT_DEVICE_IDLE_END);
-    KeReleaseSpinLock(&PopDopeGlobalLock, NewIrql[0]);
-    v10 = PopIdleBackgroundIgnoreCount;
+    KxReleaseSpinLock(&PopDopeGlobalLock);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v33 = KeGetCurrentIrql();
+        if ( v33 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v33 >= 2u )
+        {
+          v34 = KeGetCurrentPrcb();
+          v35 = v34->SchedulerAssist;
+          v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v12 = (v36 & v35[5]) == 0;
+          v32 = (unsigned int)v36 & v35[5];
+          v35[5] = v32;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick(v34);
+        }
+      }
+    }
+    __writecr8((unsigned __int8)v7);
+    v37 = PopIdleBackgroundIgnoreCount;
     if ( PopIdleBackgroundIgnoreCount )
-      v10 = --PopIdleBackgroundIgnoreCount;
+      v37 = --PopIdleBackgroundIgnoreCount;
     if ( PopBackgroundTaskIgnoreCount )
       --PopBackgroundTaskIgnoreCount;
-    if ( !v2
-      || (v9 = (PopIdleScanInterval + 179) % (unsigned int)PopIdleScanInterval,
-          v18 = (PopIdleScanInterval + 179) / (unsigned int)PopIdleScanInterval,
-          v4 == v18) )
+    if ( !v4
+      || (v32 = (PopIdleScanInterval + 179) % (unsigned int)PopIdleScanInterval,
+          v38 = (PopIdleScanInterval + 179) / (unsigned int)PopIdleScanInterval,
+          v3 == v38) )
     {
       PopBackgroundTaskAllowed = 1;
     }
-    else if ( v4 < v18 )
+    else if ( v3 < v38 )
     {
       PopBackgroundTaskAllowed = 0;
     }
-    if ( !v3 || v5 )
+    if ( !v5 || (_BYTE)v2 )
     {
-      if ( !v10 && !dword_140C232CC )
+      if ( !v37 && !dword_140C23E8C )
       {
-        PopGetPowerSettingValue((__int64)&GUID_IDLE_BACKGROUND_TASK, v9, 3, &Src, 4u, &v36);
+        PopGetPowerSettingValue(&GUID_IDLE_BACKGROUND_TASK, v32, 3LL, &Src);
         ++Src;
         PopSetPowerSettingValueAcDc(&GUID_IDLE_BACKGROUND_TASK);
-        v9 = (PopIdleScanInterval + 59) % (unsigned int)PopIdleScanInterval;
+        v32 = (PopIdleScanInterval + 59) % (unsigned int)PopIdleScanInterval;
         PopIdleBackgroundIgnoreCount = (PopIdleScanInterval + 59) / (unsigned int)PopIdleScanInterval;
       }
-      if ( !PopBackgroundTaskIgnoreCount && PopSIdle >= 50 && !dword_140C232CC && PopBackgroundTaskAllowed )
+      if ( !PopBackgroundTaskIgnoreCount && !dword_140C23E8C && PopSIdle >= 50 && PopBackgroundTaskAllowed )
       {
-        PopGetPowerSettingValue((__int64)&GUID_BACKGROUND_TASK_NOTIFICATION, v9, 0, &Src, 4u, &v36);
+        PopGetPowerSettingValue(&GUID_BACKGROUND_TASK_NOTIFICATION, v32, 0LL, &Src);
         ++Src;
         PopSetPowerSettingValue(&GUID_BACKGROUND_TASK_NOTIFICATION, &Src);
         PopBackgroundTaskAllowed = 0;

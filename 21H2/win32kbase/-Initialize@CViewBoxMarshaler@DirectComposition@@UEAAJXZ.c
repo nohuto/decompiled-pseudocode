@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CViewBoxMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021DCA0
+ * XREFs of ?Initialize@CViewBoxMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E7570
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
 
 __int64 __fastcall DirectComposition::CViewBoxMarshaler::Initialize(DirectComposition::CViewBoxMarshaler *this)
 {
-  *((_DWORD *)this + 22) = 2;
-  *((_DWORD *)this + 20) = 1056964608;
-  *((_DWORD *)this + 21) = 1056964608;
+  *((_DWORD *)this + 20) = 2;
+  *((_DWORD *)this + 18) = 1056964608;
+  *((_DWORD *)this + 19) = 1056964608;
   return 0LL;
 }

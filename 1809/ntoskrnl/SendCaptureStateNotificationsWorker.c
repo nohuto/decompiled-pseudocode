@@ -1,5 +1,5 @@
 /*
- * XREFs of SendCaptureStateNotificationsWorker @ 0x1408C0640
+ * XREFs of SendCaptureStateNotificationsWorker @ 0x1408C0620
  * Callers:
  *     <none>
  * Callees:
@@ -7,11 +7,11 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExSetTimer @ 0x1400FD010 (ExSetTimer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExSetTimer @ 0x1400FD030 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     EtwpSendDataBlock @ 0x1405C039C (EtwpSendDataBlock.c)
  *     EtwpUnreferenceDataBlock @ 0x1405C0D74 (EtwpUnreferenceDataBlock.c)
@@ -19,7 +19,7 @@
  *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpComputeRegEntryEnableInfo @ 0x1405C539C (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpBuildNotificationPacket @ 0x140658C68 (EtwpBuildNotificationPacket.c)
+ *     EtwpBuildNotificationPacket @ 0x140658C48 (EtwpBuildNotificationPacket.c)
  */
 
 void __fastcall SendCaptureStateNotificationsWorker(__int64 a1)

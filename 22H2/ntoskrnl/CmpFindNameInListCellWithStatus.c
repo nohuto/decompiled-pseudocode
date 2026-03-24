@@ -1,23 +1,18 @@
 /*
- * XREFs of CmpFindNameInListCellWithStatus @ 0x1406DF8E0
+ * XREFs of CmpFindNameInListCellWithStatus @ 0x1406DEE20
  * Callers:
- *     CmpFindNameInListWithStatus @ 0x1406D2824 (CmpFindNameInListWithStatus.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A25834 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     CmpFindNameInListWithStatus @ 0x1406DED6C (CmpFindNameInListWithStatus.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BB24 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     CmpCompareTwoCompressedNames @ 0x1407BFD60 (CmpCompareTwoCompressedNames.c)
- *     CmpCompareCompressedName @ 0x1407C4C74 (CmpCompareCompressedName.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875E78 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindNameInListCellWithStatus(
-        ULONG_PTR BugCheckParameter3,
+        __int64 a1,
         unsigned int *a2,
         unsigned int a3,
         const UNICODE_STRING *a4,
@@ -25,134 +20,112 @@ __int64 __fastcall CmpFindNameInListCellWithStatus(
         unsigned int *a6,
         _DWORD *a7)
 {
-  unsigned int v11; // r14d
-  unsigned int *v12; // r15
-  int v13; // ebx
-  __int64 CellFlat; // rax
-  bool v15; // zf
-  unsigned __int8 *v16; // r10
-  unsigned int v17; // edi
-  unsigned __int16 v18; // si
-  wchar_t *Buffer; // r9
-  unsigned __int16 v20; // r11
-  unsigned int v21; // ebx
-  int v22; // ebx
+  unsigned int v10; // ebp
+  unsigned int *v11; // r14
+  int v12; // edi
+  __int64 v13; // rax
+  __int64 v14; // r9
+  wchar_t *v15; // rbx
+  unsigned __int16 v16; // r10
+  unsigned __int16 *Buffer; // r11
+  unsigned __int16 v18; // di
+  unsigned int v19; // esi
+  int v20; // edi
   __int64 result; // rax
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v25; // r11
-  LONG v26; // eax
-  _QWORD *v27; // rax
-  __int64 v28; // [rsp+20h] [rbp-48h] BYREF
+  LONG v22; // eax
+  int v23; // [rsp+20h] [rbp-48h] BYREF
+  __int16 v24; // [rsp+24h] [rbp-44h]
+  __int16 v25; // [rsp+26h] [rbp-42h]
   UNICODE_STRING String2; // [rsp+28h] [rbp-40h] BYREF
-  int v31; // [rsp+90h] [rbp+28h]
+  int v28; // [rsp+90h] [rbp+28h]
 
-  v28 = 0LL;
-  String2 = 0LL;
-  HvpGetCellContextReinitialize(&v28);
+  v25 = 0;
+  v23 = -1;
+  v24 = 0;
+  *(_DWORD *)(&String2.MaximumLength + 1) = 0;
   if ( a3 )
   {
-    v11 = 0;
-    v12 = a2;
-    v13 = a5 & 0x10000;
-    v31 = a5 & 0x10000;
+    v10 = 0;
+    v11 = a2;
+    v12 = a5 & 0x10000;
+    v28 = a5 & 0x10000;
     while ( 1 )
     {
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(BugCheckParameter3, *v12);
-      else
-        CellFlat = HvpGetCellPaged(BugCheckParameter3);
-      v15 = (*(_BYTE *)(CellFlat + 16) & 1) == 0;
-      v16 = (unsigned __int8 *)(CellFlat + 20);
-      v17 = *(unsigned __int16 *)(CellFlat + 2);
-      String2.Buffer = (wchar_t *)(CellFlat + 20);
-      String2.Length = v17;
-      String2.MaximumLength = v17;
-      if ( v15 )
+      v13 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8))(a1, *v11, &v23);
+      v14 = *(unsigned __int16 *)(v13 + 2);
+      v15 = (wchar_t *)(v13 + 20);
+      LOBYTE(v13) = *(_BYTE *)(v13 + 16);
+      String2.Buffer = v15;
+      String2.Length = v14;
+      String2.MaximumLength = v14;
+      if ( (v13 & 1) != 0 )
       {
-        if ( !v13 )
+        if ( v12 )
         {
-          v26 = RtlCompareUnicodeString(a4, &String2, 1u);
-LABEL_35:
-          v22 = v26;
-          goto LABEL_15;
+          v22 = CmpCompareTwoCompressedNames(a4->Buffer, a4->Length, v15, v14);
+          goto LABEL_31;
         }
-        v22 = -(int)CmpCompareCompressedName(&String2, a4->Buffer, a4->Length, 0LL);
-      }
-      else
-      {
-        if ( v13 )
-        {
-          v26 = CmpCompareTwoCompressedNames(
-                  a4->Buffer,
-                  a4->Length,
-                  CellFlat + 20,
-                  v17,
-                  v28,
-                  *(_QWORD *)&String2.Length);
-          goto LABEL_35;
-        }
-        v18 = a4->Length >> 1;
+        v16 = a4->Length >> 1;
         Buffer = a4->Buffer;
-        if ( v18 )
+        if ( v16 )
         {
-          while ( (_WORD)v17 )
+          while ( (_WORD)v14 )
           {
-            v20 = *Buffer++;
-            v21 = *v16++;
-            if ( v20 != (_WORD)v21 )
+            v18 = *Buffer++;
+            v19 = *(unsigned __int8 *)v15;
+            v15 = (wchar_t *)((char *)v15 + 1);
+            if ( v18 != (_WORD)v19 )
             {
-              if ( v20 >= 0x61u )
+              if ( v18 >= 0x61u )
               {
-                if ( v20 > 0x7Au )
-                {
-                  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-                  v20 = NLS_UPCASE(CurrentServerSiloGlobals[154], v25);
-                }
+                if ( v18 > 0x7Au )
+                  v18 = NLS_UPCASE(v18);
                 else
-                {
-                  v20 -= 32;
-                }
+                  v18 -= 32;
               }
-              if ( v21 >= 0x61 )
+              if ( v19 >= 0x61 )
               {
-                if ( v21 > 0x7A )
-                {
-                  v27 = PsGetCurrentServerSiloGlobals();
-                  LOWORD(v21) = NLS_UPCASE(v27[154], v21);
-                }
+                if ( v19 > 0x7A )
+                  LOWORD(v19) = NLS_UPCASE(v19);
                 else
-                {
-                  LOWORD(v21) = v21 - 32;
-                }
+                  LOWORD(v19) = v19 - 32;
               }
-              v22 = v20 - (unsigned __int16)v21;
-              if ( v22 )
-                goto LABEL_15;
+              v20 = v18 - (unsigned __int16)v19;
+              if ( v20 )
+                goto LABEL_13;
             }
-            LOWORD(v17) = v17 - 1;
-            if ( !--v18 )
+            LOWORD(v14) = v14 - 1;
+            if ( !--v16 )
               break;
           }
         }
-        v22 = v18 - (unsigned __int16)v17;
+        v20 = v16 - (unsigned __int16)v14;
       }
-LABEL_15:
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(BugCheckParameter3, &v28);
       else
-        HvpReleaseCellPaged(BugCheckParameter3, &v28);
-      if ( !v22 )
+      {
+        if ( !v12 )
+        {
+          v22 = RtlCompareUnicodeString(a4, &String2, 1u);
+LABEL_31:
+          v20 = v22;
+          goto LABEL_13;
+        }
+        v20 = -(int)CmpCompareCompressedName((__int64)&String2, (unsigned __int8 *)a4->Buffer, a4->Length, 0);
+      }
+LABEL_13:
+      (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v23);
+      if ( !v20 )
       {
         result = 0LL;
-        *a7 = a2[v11];
+        *a7 = a2[v10];
         if ( a6 )
-          *a6 = v11;
+          *a6 = v10;
         return result;
       }
-      v13 = v31;
+      v12 = v28;
+      ++v10;
       ++v11;
-      ++v12;
-      if ( v11 >= a3 )
+      if ( v10 >= a3 )
       {
         *a7 = -1;
         if ( a6 )

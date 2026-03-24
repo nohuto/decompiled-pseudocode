@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlConfigurePerfStateCap @ 0x140276790
+ * XREFs of HvlConfigurePerfStateCap @ 0x140276890
  * Callers:
- *     PpmPerfRegisterHvCap @ 0x14087B4F0 (PpmPerfRegisterHvCap.c)
+ *     PpmPerfRegisterHvCap @ 0x14087B4D0 (PpmPerfRegisterHvCap.c)
  * Callees:
- *     HvlpSetLogicalProcessorProperty @ 0x140272C48 (HvlpSetLogicalProcessorProperty.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x140272D48 (HvlpSetLogicalProcessorProperty.c)
  */
 
 __int64 __fastcall HvlConfigurePerfStateCap(int a1, __int64 *a2)

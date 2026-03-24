@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00BECC0
+ * XREFs of ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00B5630
  * Callers:
  *     <none>
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Initialize@CInputManager@@IEAAJXZ @ 0x1C00BED60 (-Initialize@CInputManager@@IEAAJXZ.c)
- *     ??_GCInputManager@@IEAAPEAXI@Z @ 0x1C00C1C1C (--_GCInputManager@@IEAAPEAXI@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ?Initialize@CInputManager@@IEAAJXZ @ 0x1C00B56CC (-Initialize@CInputManager@@IEAAJXZ.c)
+ *     ??_GCInputManager@@IEAAPEAXI@Z @ 0x1C00B574C (--_GCInputManager@@IEAAPEAXI@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 CInputManager::CreateSessionGlobal(void)
@@ -16,7 +16,7 @@ __int64 CInputManager::CreateSessionGlobal(void)
   unsigned int v2; // edx
   int v3; // edi
 
-  v0 = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 260LL, 0x80uLL, 0x67734D49u);
+  v0 = Win32AllocPool(128LL, 0x67734D49u);
   v1 = (CInputManager *)v0;
   if ( v0 )
   {
@@ -28,6 +28,13 @@ __int64 CInputManager::CreateSessionGlobal(void)
     *(_DWORD *)(v0 + 112) = 0;
     *(_DWORD *)(v0 + 116) = 0;
     memset((void *)(v0 + 16), 0, 0x48uLL);
+  }
+  else
+  {
+    v1 = 0LL;
+  }
+  if ( v1 )
+  {
     v3 = CInputManager::Initialize(v1);
     if ( v3 < 0 )
       CInputManager::`scalar deleting destructor'(v1, v2);

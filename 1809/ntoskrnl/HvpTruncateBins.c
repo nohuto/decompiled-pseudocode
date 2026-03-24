@@ -3,8 +3,8 @@
  * Callers:
  *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
  * Callees:
- *     ExIsResourceAcquiredExclusiveLite @ 0x140107CA0 (ExIsResourceAcquiredExclusiveLite.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140107CC0 (ExIsResourceAcquiredExclusiveLite.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
  *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)

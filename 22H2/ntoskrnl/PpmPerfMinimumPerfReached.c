@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfMinimumPerfReached @ 0x14058D42C
+ * XREFs of PpmPerfMinimumPerfReached @ 0x140305B14
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x140356DE0 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1403059D0 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     <none>
  */
@@ -17,16 +17,16 @@ char PpmPerfMinimumPerfReached()
   v0 = PpmPerfDomainHead;
   for ( i = 1; (__int64 *)v0 != &PpmPerfDomainHead; v0 = *(_QWORD *)v0 )
   {
-    v2 = *(_DWORD *)(v0 + 296);
+    v2 = *(_DWORD *)(v0 + 200);
     if ( v2 )
     {
       v3 = v2;
-      v4 = (_DWORD *)(*(_QWORD *)(v0 + 312) + 56LL);
+      v4 = (_DWORD *)(*(_QWORD *)(v0 + 216) + 56LL);
       do
       {
-        if ( *(v4 - 10) != 2 && *v4 > *(_DWORD *)(v0 + 784) )
+        if ( *(v4 - 10) != 2 && *v4 > *(_DWORD *)(v0 + 568) )
           i = 0;
-        v4 += 36;
+        v4 += 34;
         --v3;
       }
       while ( v3 );

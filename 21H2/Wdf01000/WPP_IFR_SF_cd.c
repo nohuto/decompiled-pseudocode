@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_IFR_SF_cd @ 0x1C0062784
+ * XREFs of WPP_IFR_SF_cd @ 0x1C0046B2C
  * Callers:
- *     imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C0062E30 (imp_WdfDeviceConfigureWdmIrpDispatchCallback.c)
- *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C00811D0 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
+ *     imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C0047750 (imp_WdfDeviceConfigureWdmIrpDispatchCallback.c)
+ *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C0074A60 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_cd(

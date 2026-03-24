@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlDeriveCapabilitySidsFromName @ 0x1402E0B30
+ * XREFs of RtlDeriveCapabilitySidsFromName @ 0x1402ED600
  * Callers:
- *     RtlCapabilityCheck @ 0x140660AF0 (RtlCapabilityCheck.c)
- *     PopCreateNotificationName @ 0x1406E7694 (PopCreateNotificationName.c)
- *     PiUEventInitClientRegistrationContext @ 0x14078DAB0 (PiUEventInitClientRegistrationContext.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140834D0C (CmpHiveRootSecurityDescriptor.c)
- *     DbgkpCreateNotificationEvent @ 0x14084ED68 (DbgkpCreateNotificationEvent.c)
- *     SepVariableInitialization @ 0x140B1F3C0 (SepVariableInitialization.c)
+ *     PopCreateNotificationName @ 0x1406C1060 (PopCreateNotificationName.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1406E49AC (PiUEventInitClientRegistrationContext.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407A841C (CmpHiveRootSecurityDescriptor.c)
+ *     DbgkpCreateNotificationEvent @ 0x1407CA510 (DbgkpCreateNotificationEvent.c)
+ *     RtlCapabilityCheck @ 0x140913350 (RtlCapabilityCheck.c)
+ *     SepVariableInitialization @ 0x140A48B6C (SepVariableInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SymCryptSha256 @ 0x1403FB308 (SymCryptSha256.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     RtlUpcaseUnicodeString @ 0x1407E5410 (RtlUpcaseUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SymCryptSha256 @ 0x1403EC158 (SymCryptSha256.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
  */
 
 NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING SourceString, _OWORD *Sid, _OWORD *a3)
@@ -63,7 +63,7 @@ NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING SourceStrin
     *((_DWORD *)a3 + 2) = 3;
     *((_DWORD *)a3 + 3) = v9;
 LABEL_8:
-    RtlFreeUnicodeString(&DestinationString);
+    RtlFreeAnsiString(&DestinationString);
     if ( v8 == 12 )
     {
       RtlInitializeSid(a3, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 0xAu);

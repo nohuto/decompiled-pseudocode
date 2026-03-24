@@ -1,23 +1,21 @@
 /*
- * XREFs of ZwCreateEvent @ 0x14041AFA0
+ * XREFs of ZwCreateEvent @ 0x1403FA320
  * Callers:
- *     CmSiCreateEvent @ 0x1402088C4 (CmSiCreateEvent.c)
- *     DifZwCreateEventWrapper @ 0x1405EE550 (DifZwCreateEventWrapper.c)
- *     CmpCreateEvent @ 0x1406898C8 (CmpCreateEvent.c)
- *     NtCopyFileChunk @ 0x140749DA0 (NtCopyFileChunk.c)
- *     IoCreateNotificationEvent @ 0x1407E9670 (IoCreateNotificationEvent.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x140812B88 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     PiDrvDbCreateNode @ 0x14081425C (PiDrvDbCreateNode.c)
- *     MiCreateMemoryEvent @ 0x14081E444 (MiCreateMemoryEvent.c)
- *     SepInitializationPhase1 @ 0x140823D08 (SepInitializationPhase1.c)
- *     PfpCreateEvent @ 0x140848A44 (PfpCreateEvent.c)
- *     DbgkpCreateNotificationEvent @ 0x140858FD0 (DbgkpCreateNotificationEvent.c)
- *     SmCreateEvent @ 0x140861988 (SmCreateEvent.c)
- *     ExpGetSystemWriteConstraintInformation @ 0x140862544 (ExpGetSystemWriteConstraintInformation.c)
- *     IoCreateSynchronizationEvent @ 0x140864BB0 (IoCreateSynchronizationEvent.c)
- *     PspShutdownCsrProcess @ 0x1409AD358 (PspShutdownCsrProcess.c)
- *     CMFFlushHitsFile @ 0x140A0222C (CMFFlushHitsFile.c)
- *     CMFSystemThreadRoutine @ 0x140A02B70 (CMFSystemThreadRoutine.c)
+ *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
+ *     CmpCreateEvent @ 0x1406EAC60 (CmpCreateEvent.c)
+ *     IoCreateNotificationEvent @ 0x14078D4F0 (IoCreateNotificationEvent.c)
+ *     SepInitializationPhase1 @ 0x14079D7A8 (SepInitializationPhase1.c)
+ *     MiCreateMemoryEvent @ 0x1407A0C30 (MiCreateMemoryEvent.c)
+ *     PiDrvDbCreateNode @ 0x1407A3DFC (PiDrvDbCreateNode.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC634 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     PfpCreateEvent @ 0x1407C0610 (PfpCreateEvent.c)
+ *     DbgkpCreateNotificationEvent @ 0x1407CA430 (DbgkpCreateNotificationEvent.c)
+ *     SmCreateEvent @ 0x1407D1750 (SmCreateEvent.c)
+ *     ExpGetSystemWriteConstraintInformation @ 0x1407D22D8 (ExpGetSystemWriteConstraintInformation.c)
+ *     IoCreateSynchronizationEvent @ 0x140893A60 (IoCreateSynchronizationEvent.c)
+ *     PspShutdownCsrProcess @ 0x1409066A0 (PspShutdownCsrProcess.c)
+ *     CMFFlushHitsFile @ 0x140958B00 (CMFFlushHitsFile.c)
+ *     CMFSystemThreadRoutine @ 0x140959420 (CMFSystemThreadRoutine.c)
  * Callees:
  *     <none>
  */

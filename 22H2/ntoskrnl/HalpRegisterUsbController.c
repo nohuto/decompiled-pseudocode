@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRegisterUsbController @ 0x140521048
+ * XREFs of HalpRegisterUsbController @ 0x1404D71D8
  * Callers:
- *     HalpUsbLegacyDeviceHandoff @ 0x1403ACB24 (HalpUsbLegacyDeviceHandoff.c)
+ *     HalpUsbLegacyDeviceHandoff @ 0x1403C9EC4 (HalpUsbLegacyDeviceHandoff.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpRegisterUsbController(__int64 a1, int a2, char a3, char a4)
@@ -22,13 +22,13 @@ __int64 __fastcall HalpRegisterUsbController(__int64 a1, int a2, char a3, char a
     *(_DWORD *)(result + 20) = a2;
     *(_BYTE *)(result + 26) = a3;
     *(_BYTE *)(result + 25) = a4;
-    v9 = (__int64 *)qword_140C60268;
-    if ( *(__int64 **)qword_140C60268 != &HalpUsbControllerList )
+    v9 = (__int64 *)qword_140C48DE8;
+    if ( *(__int64 **)qword_140C48DE8 != &HalpUsbControllerList )
       __fastfail(3u);
     *(_QWORD *)result = &HalpUsbControllerList;
     *(_QWORD *)(result + 8) = v9;
     *v9 = result;
-    qword_140C60268 = result;
+    qword_140C48DE8 = result;
   }
   return result;
 }

@@ -1,35 +1,28 @@
 /*
- * XREFs of PiSwIrpStartCreate @ 0x140764EC8
+ * XREFs of PiSwIrpStartCreate @ 0x14074DAB8
  * Callers:
- *     PiSwDispatch @ 0x140764DB0 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x140555FAC (McTemplateK0_EtwWriteTransfer.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x1405636A4 (McTemplateK0d_EtwWriteTransfer.c)
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
+__int64 __fastcall PiSwIrpStartCreate(PIRP Irp)
 {
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
-  PIRP v5; // rdi
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  PIRP v3; // rdi
   struct _IRP *MasterIrp; // rcx
   int Worker; // ebx
-  __int64 v8; // rcx
   PVOID P; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
-  PIRP v12; // [rsp+68h] [rbp+20h]
+  __int64 v8; // [rsp+60h] [rbp+18h] BYREF
+  PIRP v9; // [rsp+68h] [rbp+20h]
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  v11 = 0LL;
+  v8 = 0LL;
   P = 0LL;
-  v5 = Irp;
-  v12 = Irp;
-  if ( (byte_140C0DD4C & 2) != 0 )
-    McTemplateK0_EtwWriteTransfer(
-      MS_KernelPnP_Provider_Context,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpCreate_Start);
+  v3 = Irp;
+  v9 = Irp;
   MasterIrp = Irp->AssociatedIrp.MasterIrp;
   if ( MasterIrp )
   {
@@ -39,12 +32,12 @@ __int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
     }
     else
     {
-      Worker = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v11);
+      Worker = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v8);
       if ( Worker >= 0 )
       {
-        NdrMesTypeDecode3(v11, "TP 3\a", &off_140A380F0, &off_140C02FC0, 0, &P);
+        NdrMesTypeDecode3(v8, "TP 3\a", &off_1409839E8, &off_140C01A60, 0, &P);
         Worker = PiSwIrpStartCreateWorker(P, Irp);
-        v5 = 0LL;
+        v3 = 0LL;
       }
     }
   }
@@ -52,18 +45,15 @@ __int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
   {
     Worker = -1073741811;
   }
-  if ( v5 )
+  if ( v3 )
   {
-    v5->IoStatus.Status = Worker;
-    v5->IoStatus.Information = 0LL;
-    IofCompleteRequest(v5, 0);
+    v3->IoStatus.Status = Worker;
+    v3->IoStatus.Information = 0LL;
+    IofCompleteRequest(v3, 0);
   }
   if ( P )
     ExFreePoolWithTag(P, 0x6370726Bu);
-  v8 = v11;
-  if ( v11 )
+  if ( v8 )
     MesHandleFree();
-  if ( (byte_140C0DD4C & 2) != 0 )
-    McTemplateK0d_EtwWriteTransfer(v8, (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpCreate_Stop, a3, Worker);
   return (unsigned int)Worker;
 }

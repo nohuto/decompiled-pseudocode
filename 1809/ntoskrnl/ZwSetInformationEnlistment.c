@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationEnlistment @ 0x1401BB350
+ * XREFs of ZwSetInformationEnlistment @ 0x1401BB370
  * Callers:
  *     <none>
  * Callees:

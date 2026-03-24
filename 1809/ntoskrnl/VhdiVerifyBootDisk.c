@@ -1,13 +1,13 @@
 /*
- * XREFs of VhdiVerifyBootDisk @ 0x140905BAC
+ * XREFs of VhdiVerifyBootDisk @ 0x140905B8C
  * Callers:
- *     IopCreateArcName @ 0x14070B428 (IopCreateArcName.c)
+ *     IopCreateArcName @ 0x14070B408 (IopCreateArcName.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC70 (IoBuildDeviceIoControlRequest.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

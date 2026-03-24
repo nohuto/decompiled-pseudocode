@@ -1,9 +1,9 @@
 /*
- * XREFs of ValidateHTSI @ 0x1C00939E0
+ * XREFs of ValidateHTSI @ 0x1C001B4C8
  * Callers:
- *     AAHalftoneBitmap @ 0x1C0093280 (AAHalftoneBitmap.c)
+ *     AAHalftoneBitmap @ 0x1C001AD68 (AAHalftoneBitmap.c)
  * Callees:
- *     ValidateRGBBitFields @ 0x1C0093C30 (ValidateRGBBitFields.c)
+ *     ValidateRGBBitFields @ 0x1C001B718 (ValidateRGBBitFields.c)
  */
 
 __int64 __fastcall ValidateHTSI(__int64 a1, int a2)

@@ -1,30 +1,31 @@
 /*
- * XREFs of ACPIInitRemovePowerNodes @ 0x1C0056E28
+ * XREFs of ACPIInitRemovePowerNodes @ 0x1C00567A8
  * Callers:
- *     ACPIBuildDevicePowerNodes @ 0x1C002A088 (ACPIBuildDevicePowerNodes.c)
- *     ACPIInitDeleteDeviceExtension @ 0x1C00569B4 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C0015E24 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
  */
 
-_QWORD *__fastcall ACPIInitRemovePowerNodes(__int64 a1)
+void __fastcall ACPIInitRemovePowerNodes(_QWORD *a1)
 {
   __int64 v2; // rax
   __int64 v3; // rcx
   _QWORD *v4; // rcx
   __int64 v5; // r8
   _QWORD *v6; // rdx
-  _QWORD *result; // rax
-  __int64 v8; // rdx
-  _QWORD *v9; // rcx
-  volatile signed __int32 **v10; // rdi
-  __int64 v11; // rsi
-  volatile signed __int32 *v12; // rcx
+  __int64 v7; // rax
+  _QWORD *v8; // rax
+  __int64 v9; // rdx
+  _QWORD *v10; // rcx
+  __int64 *v11; // rdi
+  __int64 v12; // rsi
+  __int64 v13; // rcx
 
   v2 = 0LL;
   do
   {
-    v3 = *(_QWORD *)(a1 + 8 * v2 + 408);
+    v3 = a1[v2 + 46];
     if ( v3 )
     {
       v4 = (_QWORD *)(v3 + 40);
@@ -36,41 +37,40 @@ _QWORD *__fastcall ACPIInitRemovePowerNodes(__int64 a1)
         goto LABEL_18;
       *v6 = v5;
       *(_QWORD *)(v5 + 8) = v6;
-      *(_QWORD *)(a1 + 8 * v2 + 408) = 0LL;
+      a1[v2 + 46] = 0LL;
     }
     v2 = (unsigned int)(v2 + 1);
   }
   while ( (unsigned int)v2 <= 4 );
-  result = *(_QWORD **)(a1 + 448);
-  if ( result )
+  v7 = a1[51];
+  if ( v7 )
   {
-    result += 5;
-    v8 = *result;
-    if ( *(_QWORD **)(*result + 8LL) != result || (v9 = (_QWORD *)result[1], (_QWORD *)*v9 != result) )
+    v8 = (_QWORD *)(v7 + 40);
+    v9 = *v8;
+    if ( *(_QWORD **)(*v8 + 8LL) != v8 || (v10 = (_QWORD *)v8[1], (_QWORD *)*v10 != v8) )
 LABEL_18:
       __fastfail(3u);
-    *v9 = v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    *(_QWORD *)(a1 + 448) = 0LL;
+    *v10 = v9;
+    *(_QWORD *)(v9 + 8) = v10;
+    a1[51] = 0LL;
   }
-  v10 = (volatile signed __int32 **)(a1 + 456);
-  v11 = 5LL;
+  v11 = a1 + 52;
+  v12 = 5LL;
   do
   {
-    if ( *v10 )
+    if ( *v11 )
     {
-      result = (_QWORD *)AMLIDereferenceHandleEx(*v10);
-      *v10 = 0LL;
+      AMLIDereferenceHandleEx(*v11);
+      *v11 = 0LL;
     }
-    ++v10;
-    --v11;
+    ++v11;
+    --v12;
   }
-  while ( v11 );
-  v12 = *(volatile signed __int32 **)(a1 + 496);
-  if ( v12 )
+  while ( v12 );
+  v13 = a1[57];
+  if ( v13 )
   {
-    result = (_QWORD *)AMLIDereferenceHandleEx(v12);
-    *(_QWORD *)(a1 + 496) = 0LL;
+    AMLIDereferenceHandleEx(v13);
+    a1[57] = 0LL;
   }
-  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of _InnerGetClassPtr @ 0x1C00714A8
+ * XREFs of _InnerGetClassPtr @ 0x1C007A650
  * Callers:
- *     InternalRegisterClassEx @ 0x1C005FF10 (InternalRegisterClassEx.c)
- *     GetClassPtr @ 0x1C0070980 (GetClassPtr.c)
- *     _UnregisterClass @ 0x1C0071084 (_UnregisterClass.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     InternalRegisterClassEx @ 0x1C0079DD0 (InternalRegisterClassEx.c)
+ *     GetClassPtr @ 0x1C00BF4B0 (GetClassPtr.c)
  * Callees:
  *     <none>
  */

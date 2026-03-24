@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromComposite @ 0x1406BD5D8
+ * XREFs of _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F1A0
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x1406BD3A8 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A2B950 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x14073EF70 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEA0 (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
- *     _CmGetInstallerClassCompoundFilters @ 0x1406BD83C (_CmGetInstallerClassCompoundFilters.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x14073F41C (_CmGetInstallerClassCompoundFilters.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
-        int a1,
-        int a2,
-        int a3,
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
         __int64 a4,
         _DWORD *a5,
         __int64 a6,
@@ -62,7 +62,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
       ObjectProperty = PnpGetObjectProperty(
                          a1,
                          a2,
-                         2,
+                         2LL,
                          a3,
                          0LL,
                          (__int64)&DEVPKEY_DeviceClass_Name,
@@ -75,14 +75,14 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
       switch ( ObjectProperty )
       {
         case 0u:
-          goto LABEL_40;
+          goto LABEL_30;
         case 0xC0000023:
-          goto LABEL_40;
+          goto LABEL_30;
         case 0xC0000225:
           v24 = PnpGetObjectProperty(
                   a1,
                   a2,
-                  2,
+                  2LL,
                   a3,
                   0LL,
                   (__int64)&DEVPKEY_DeviceClass_ClassName,
@@ -93,7 +93,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
                   0);
           v14 = v24;
           if ( !v24 || v24 == -1073741789 )
-            goto LABEL_40;
+            goto LABEL_30;
           break;
       }
     }
@@ -108,7 +108,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
         if ( *(_QWORD *)a4 == DEVPKEY_DeviceClass_CompoundUpperFilters )
           v19 = *(_QWORD *)(a4 + 8) - 0x4B88D2ECD9DBB9A9LL;
         if ( !v19 )
-          return (unsigned int)CmGetInstallerClassCompoundFilters(a1, a2, a3, a4, (__int64)v8, v11, v15, (__int64)v9);
+          return (unsigned int)CmGetInstallerClassCompoundFilters(a1, (__int64)v8, v11, v15, (__int64)v9);
       }
       if ( v16 == 21 )
       {
@@ -116,7 +116,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
         if ( *(_QWORD *)a4 == DEVPKEY_DeviceClass_CompoundLowerFilters )
           v17 = *(_QWORD *)(a4 + 8) - 0x4B88D2ECD9DBB9A9LL;
         if ( !v17 )
-          return (unsigned int)CmGetInstallerClassCompoundFilters(a1, a2, a3, a4, (__int64)v8, v11, v15, (__int64)v9);
+          return (unsigned int)CmGetInstallerClassCompoundFilters(a1, (__int64)v8, v11, v15, (__int64)v9);
       }
       return v14;
     }
@@ -128,7 +128,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
       v21 = PnpGetObjectProperty(
               a1,
               a2,
-              2,
+              2LL,
               a3,
               0LL,
               (__int64)DEVPKEY_DeviceClass_ConfigurableOverride,
@@ -145,7 +145,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
           v14 = PnpGetObjectProperty(
                   a1,
                   a2,
-                  2,
+                  2LL,
                   a3,
                   0LL,
                   (__int64)&DEVPKEY_DeviceClass_ClassInstaller,
@@ -158,7 +158,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
             v14 = PnpGetObjectProperty(
                     a1,
                     a2,
-                    2,
+                    2LL,
                     a3,
                     0LL,
                     (__int64)&DEVPKEY_DeviceClass_ClassCoInstallers,
@@ -184,7 +184,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
         }
         return v14;
       }
-LABEL_40:
+LABEL_30:
       *v9 = v26;
     }
   }

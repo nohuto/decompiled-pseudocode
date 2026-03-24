@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDeviceCompletionRequestDestroy @ 0x140159C60
+ * XREFs of PnpDeviceCompletionRequestDestroy @ 0x140159C80
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140159BA0 (PnpDeviceCompletionRoutine.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E44 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDeviceCompletionRoutine @ 0x140159BC0 (PnpDeviceCompletionRoutine.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E24 (PnpDeviceCompletionProcessCompletedRequest.c)
  * Callees:
- *     PnpDisableDeviceCompletionQueueWatchdog @ 0x140159CB0 (PnpDisableDeviceCompletionQueueWatchdog.c)
+ *     PnpDisableDeviceCompletionQueueWatchdog @ 0x140159CD0 (PnpDisableDeviceCompletionQueueWatchdog.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

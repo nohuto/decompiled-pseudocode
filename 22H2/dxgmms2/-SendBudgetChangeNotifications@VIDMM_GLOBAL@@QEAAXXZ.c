@@ -1,32 +1,37 @@
 /*
- * XREFs of ?SendBudgetChangeNotifications@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C0100F0C
+ * XREFs of ?SendBudgetChangeNotifications@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00C9CC4
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
  */
 
 void __fastcall VIDMM_GLOBAL::SendBudgetChangeNotifications(VIDMM_GLOBAL *this)
 {
   int updated; // eax
-  __int64 v2; // rcx
-  _BYTE v3[20]; // [rsp+50h] [rbp-58h] BYREF
-  __int128 v4; // [rsp+64h] [rbp-44h]
-  __int128 v5; // [rsp+74h] [rbp-34h]
-  __int64 v6; // [rsp+84h] [rbp-24h]
-  int v7; // [rsp+8Ch] [rbp-1Ch]
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  _BYTE v7[20]; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v8; // [rsp+54h] [rbp-44h]
+  __int128 v9; // [rsp+64h] [rbp-34h]
+  __int64 v10; // [rsp+74h] [rbp-24h]
+  int v11; // [rsp+7Ch] [rbp-1Ch]
 
-  *(_OWORD *)&v3[4] = 0LL;
-  v4 = 0LL;
-  v5 = 0LL;
-  v6 = 0LL;
-  v7 = 0;
-  *(_QWORD *)v3 = *(_QWORD *)(*((_QWORD *)this + 3) + 404LL);
-  updated = ZwUpdateWnfStateData(&WNF_DX_VIDMM_BUDGETCHANGE_NOTIFICATION, v3, 64LL);
+  *(_OWORD *)&v7[4] = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
+  v10 = 0LL;
+  v11 = 0;
+  *(_QWORD *)v7 = *(_QWORD *)(*((_QWORD *)this + 3) + 316LL);
+  updated = ZwUpdateWnfStateData(&WNF_DX_VIDMM_BUDGETCHANGE_NOTIFICATION, v7, 64LL);
+  v5 = updated;
   if ( updated < 0 )
   {
-    WdLogSingleEntry1(1LL, updated);
-    DxgkLogInternalTriageEvent(v2, 0x40000LL);
+    v6 = WdLogNewEntry5_WdAssertion(v3, v2, v4);
+    *(_QWORD *)(v6 + 24) = v5;
+    WdLogEvent5_WdAssertion(v6);
   }
 }

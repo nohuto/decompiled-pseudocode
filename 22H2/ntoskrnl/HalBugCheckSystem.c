@@ -1,70 +1,60 @@
 /*
- * XREFs of HalBugCheckSystem @ 0x140501DF0
+ * XREFs of HalBugCheckSystem @ 0x1404B90A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall __noreturn HalBugCheckSystem(PWHEA_ERROR_SOURCE_DESCRIPTOR ErrorSource, PWHEA_ERROR_RECORD ErrorRecord)
 {
-  ULONG_PTR v2; // r9
-  ULONG_PTR BugCheckParameter4; // rdi
-  ULONG_PTR Type; // rbx
-  _WHEA_ERROR_RECORD_SECTION_DESCRIPTOR *SectionDescriptor; // r8
-  int v7; // ebp
+  unsigned int SectionCount; // edi
+  ULONG_PTR v3; // r9
+  ULONG_PTR BugCheckParameter4; // r11
+  _WHEA_ERROR_RECORD_SECTION_DESCRIPTOR *SectionDescriptor; // rdx
+  unsigned int v7; // ebx
   _GUID *p_SectionType; // r10
   __int64 v9; // rax
-  __int64 SectionOffset; // rcx
-  ULONG_PTR v11; // r8
-  __int64 v12; // rax
-  unsigned __int64 v13; // r9
+  __int64 v10; // rax
+  unsigned __int64 v11; // r9
 
-  v2 = 0LL;
+  SectionCount = ErrorRecord->Header.SectionCount;
+  v3 = 0LL;
   BugCheckParameter4 = 0LL;
-  Type = 255LL;
-  if ( !ErrorRecord )
-    goto LABEL_15;
   SectionDescriptor = ErrorRecord->SectionDescriptor;
   v7 = 0;
-  if ( !ErrorRecord->Header.SectionCount )
-    goto LABEL_15;
-  p_SectionType = &ErrorRecord->SectionDescriptor[0].SectionType;
-  while ( 1 )
+  if ( SectionCount )
   {
-    v9 = *(_QWORD *)&p_SectionType->Data1 - *(_QWORD *)&NMI_SECTION_GUID.Data1;
-    if ( *(_QWORD *)&p_SectionType->Data1 == *(_QWORD *)&NMI_SECTION_GUID.Data1 )
-      v9 = *(_QWORD *)p_SectionType->Data4 - *(_QWORD *)NMI_SECTION_GUID.Data4;
-    if ( v9 )
+    p_SectionType = &SectionDescriptor->SectionType;
+    do
     {
-      v12 = *(_QWORD *)&p_SectionType->Data1 - *(_QWORD *)&XPF_MCA_SECTION_GUID.Data1;
-      if ( *(_QWORD *)&p_SectionType->Data1 == *(_QWORD *)&XPF_MCA_SECTION_GUID.Data1 )
-        v12 = *(_QWORD *)p_SectionType->Data4 - *(_QWORD *)XPF_MCA_SECTION_GUID.Data4;
-      if ( !v12 )
+      v9 = *(_QWORD *)&p_SectionType->Data1 - *(_QWORD *)&NMI_SECTION_GUID.Data1;
+      if ( *(_QWORD *)&p_SectionType->Data1 == *(_QWORD *)&NMI_SECTION_GUID.Data1 )
+        v9 = *(_QWORD *)p_SectionType->Data4 - *(_QWORD *)NMI_SECTION_GUID.Data4;
+      if ( v9 )
       {
-        v13 = *(_QWORD *)&ErrorRecord->Header.PlatformId.Data4[SectionDescriptor->SectionOffset];
-        BugCheckParameter4 = (unsigned int)v13;
-        v2 = HIDWORD(v13);
-LABEL_15:
-        if ( ErrorSource )
-          Type = ErrorSource->Type;
-        KeBugCheckEx(0x124u, Type, (ULONG_PTR)ErrorRecord, v2, BugCheckParameter4);
+        v10 = *(_QWORD *)&p_SectionType->Data1 - *(_QWORD *)&XPF_MCA_SECTION_GUID.Data1;
+        if ( *(_QWORD *)&p_SectionType->Data1 == *(_QWORD *)&XPF_MCA_SECTION_GUID.Data1 )
+          v10 = *(_QWORD *)p_SectionType->Data4 - *(_QWORD *)XPF_MCA_SECTION_GUID.Data4;
+        if ( !v10 )
+        {
+          v11 = *(_QWORD *)&ErrorRecord->Header.PlatformId.Data4[SectionDescriptor->SectionOffset];
+          BugCheckParameter4 = (unsigned int)v11;
+          v3 = HIDWORD(v11);
+          break;
+        }
       }
-    }
-    else
-    {
-      SectionOffset = SectionDescriptor->SectionOffset;
-      if ( (*((_BYTE *)&ErrorRecord->Header.SignatureEnd + SectionOffset + 2) & 1) == 0 )
+      else if ( (*((_BYTE *)&ErrorRecord->Header.SignatureEnd + SectionDescriptor->SectionOffset + 2) & 1) == 0 )
       {
-        v11 = *((unsigned __int8 *)&ErrorRecord->Header.Signature + SectionOffset);
         HalpDoingCrashDump = 1;
         HalpBugcheckInProgress = 1;
-        KeBugCheckEx(0x80u, 0x4F4454uLL, v11, 0LL, 0LL);
+        KeBugCheckEx(0x80u, 0x4F4454uLL, 0LL, 0LL, 0LL);
       }
+      ++SectionDescriptor;
+      p_SectionType = (_GUID *)((char *)p_SectionType + 72);
+      ++v7;
     }
-    ++SectionDescriptor;
-    p_SectionType = (_GUID *)((char *)p_SectionType + 72);
-    if ( ++v7 >= (unsigned int)ErrorRecord->Header.SectionCount )
-      goto LABEL_15;
+    while ( v7 < SectionCount );
   }
+  KeBugCheckEx(0x124u, ErrorSource->Type, (ULONG_PTR)ErrorRecord, v3, BugCheckParameter4);
 }

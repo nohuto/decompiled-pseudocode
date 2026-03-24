@@ -1,9 +1,9 @@
 /*
- * XREFs of vEnableSynchronize @ 0x1C011C670
+ * XREFs of vEnableSynchronize @ 0x1C012FA40
  * Callers:
  *     <none>
  * Callees:
- *     UserSetTimer @ 0x1C0243AE8 (UserSetTimer.c)
+ *     UserSetTimer @ 0x1C024825C (UserSetTimer.c)
  */
 
 void __fastcall vEnableSynchronize(__int64 a1)
@@ -12,7 +12,7 @@ void __fastcall vEnableSynchronize(__int64 a1)
   char v3; // si
   signed __int32 v4; // ett
 
-  v1 = *(_DWORD *)(a1 + 2096);
+  v1 = *(_DWORD *)(a1 + 2128);
   if ( (v1 & 0xC0) != 0 )
   {
     if ( (unsigned int)UserIsUserCritSecIn() )

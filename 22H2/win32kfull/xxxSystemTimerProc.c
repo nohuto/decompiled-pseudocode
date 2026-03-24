@@ -1,21 +1,20 @@
 /*
- * XREFs of xxxSystemTimerProc @ 0x1C0005B40
+ * XREFs of xxxSystemTimerProc @ 0x1C002AE80
  * Callers:
  *     <none>
  * Callees:
- *     InvalidateWEFCOMPOSITEDDCEs @ 0x1C0005BBC (InvalidateWEFCOMPOSITEDDCEs.c)
- *     xxxFlashWindow @ 0x1C0005C64 (xxxFlashWindow.c)
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     _PostTransformableMessage @ 0x1C004F59C (_PostTransformableMessage.c)
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     GetActiveTrackPwnd @ 0x1C01B68AC (GetActiveTrackPwnd.c)
- *     zzzAnimateFade @ 0x1C01BD378 (zzzAnimateFade.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     xxxFlashWindow @ 0x1C002AFD8 (xxxFlashWindow.c)
+ *     _PostTransformableMessage @ 0x1C003F8B8 (_PostTransformableMessage.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     GetActiveTrackPwnd @ 0x1C01E16AC (GetActiveTrackPwnd.c)
+ *     InvalidateWEFCOMPOSITEDDCEs @ 0x1C01E79E0 (InvalidateWEFCOMPOSITEDDCEs.c)
+ *     zzzAnimateFade @ 0x1C01E809C (zzzAnimateFade.c)
  */
 
 __int64 __fastcall xxxSystemTimerProc(_QWORD *a1, __int64 a2, unsigned __int64 a3)
 {
-  int v3; // esi
   __int64 result; // rax
   __int64 v6; // rbp
   __int64 v7; // rdi
@@ -27,9 +26,8 @@ __int64 __fastcall xxxSystemTimerProc(_QWORD *a1, __int64 a2, unsigned __int64 a
   __int64 v13; // rdi
   __int64 v14; // [rsp+60h] [rbp+18h]
 
-  v3 = a3;
   if ( a3 > 0xFFFA )
-    return FindTimer((_DWORD)a1, v3, 2, 1, 0LL);
+    return FindTimer((__int64)a1, a3, 2u, 1, 0LL);
   switch ( (_DWORD)a3 )
   {
     case 0xFFF5:
@@ -38,30 +36,30 @@ __int64 __fastcall xxxSystemTimerProc(_QWORD *a1, __int64 a2, unsigned __int64 a
       return zzzAnimateFade();
     case 0xFFF7:
       v13 = a1[2];
-      if ( *(_QWORD *)(*(_QWORD *)(v13 + 456) + 192LL) && a1 == (_QWORD *)GetActiveTrackPwnd() )
+      if ( *(_QWORD *)(*(_QWORD *)(v13 + 456) + 184LL) && a1 == (_QWORD *)GetActiveTrackPwnd() )
       {
-        *(_DWORD *)(*(_QWORD *)(v13 + 432) + 396LL) |= 0x200020u;
+        *(_DWORD *)(*(_QWORD *)(v13 + 432) + 388LL) |= 0x200020u;
         SetWakeBit(v13, 2LL);
       }
-      return FindTimer((_DWORD)a1, v3, 2, 1, 0LL);
+      return FindTimer((__int64)a1, a3, 2u, 1, 0LL);
     case 0xFFF8:
-      return xxxFlashWindow((ULONG_PTR)a1);
+      return xxxFlashWindow((_DWORD)a1);
   }
   if ( (_DWORD)a3 != 65530 )
-    return FindTimer((_DWORD)a1, v3, 2, 1, 0LL);
+    return FindTimer((__int64)a1, a3, 2u, 1, 0LL);
   v6 = a1[2];
   v7 = *(_QWORD *)(v6 + 456);
   result = *(unsigned int *)(v7 + 48);
   if ( (result & 0x40) != 0 )
   {
-    result = *(_QWORD *)(v7 + 192);
+    result = *(_QWORD *)(v7 + 184);
     if ( *a1 == *(_QWORD *)result )
     {
       v14 = LogicalCursorPosFromDpiAwarenessContext(*(unsigned int *)(a1[5] + 288LL));
-      result = PtInRect(v7 + 204, v14);
+      result = PtInRect(v7 + 196);
       if ( (_DWORD)result )
       {
-        v8 = *(_DWORD *)(v7 + 200);
+        v8 = *(_DWORD *)(v7 + 192);
         if ( v8 == 1 )
         {
           v9 = 673;
@@ -76,7 +74,7 @@ __int64 __fastcall xxxSystemTimerProc(_QWORD *a1, __int64 a2, unsigned __int64 a
         }
         else
         {
-          v12 = *(unsigned __int16 *)(v7 + 200);
+          v12 = *(unsigned __int16 *)(v7 + 192);
           v9 = 672;
           if ( (unsigned __int64)(v12 - 65) > 4 )
           {
@@ -90,7 +88,7 @@ __int64 __fastcall xxxSystemTimerProc(_QWORD *a1, __int64 a2, unsigned __int64 a
         }
         PostTransformableMessage((_DWORD)a1, v9, v12, (unsigned __int16)v14 | (WORD2(v14) << 16), 0);
         *(_DWORD *)(v7 + 48) &= ~0x40u;
-        return FindTimer((_DWORD)a1, v3, 2, 1, 0LL);
+        return FindTimer((__int64)a1, a3, 2u, 1, 0LL);
       }
     }
   }

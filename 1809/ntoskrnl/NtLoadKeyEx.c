@@ -1,7 +1,7 @@
 /*
  * XREFs of NtLoadKeyEx @ 0x1405B4D60
  * Callers:
- *     NtLoadKey @ 0x14070F770 (NtLoadKey.c)
+ *     NtLoadKey @ 0x14070F750 (NtLoadKey.c)
  * Callees:
  *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
  */

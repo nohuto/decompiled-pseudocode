@@ -1,24 +1,24 @@
 /*
- * XREFs of IoRegisterLastChanceShutdownNotification @ 0x140811030
+ * XREFs of IoRegisterLastChanceShutdownNotification @ 0x1407BE920
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     IopInterlockedInsertHeadList @ 0x140374ECC (IopInterlockedInsertHeadList.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x140811124 (IopLogAuditIoRegisterNotificationEvent.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IopInterlockedInsertHeadList @ 0x1403C4BB8 (IopInterlockedInsertHeadList.c)
+ *     IopLogAuditIoRegisterNotificationEvent @ 0x1407BEA14 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterLastChanceShutdownNotification(PDEVICE_OBJECT DeviceObject)
 {
-  _QWORD *Pool2; // rdi
+  _QWORD *PoolWithTag; // rdi
 
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 24LL, 1750298441LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x68536F49u);
+  if ( !PoolWithTag )
     return -1073741670;
   ObfReferenceObject(DeviceObject);
-  Pool2[2] = DeviceObject;
-  IopInterlockedInsertHeadList((__int64 *)&IopNotifyLastChanceShutdownQueueHead, Pool2);
+  PoolWithTag[2] = DeviceObject;
+  IopInterlockedInsertHeadList((__int64 *)&IopNotifyLastChanceShutdownQueueHead, PoolWithTag);
   DeviceObject->Flags |= 0x800u;
   IopLogAuditIoRegisterNotificationEvent(&KERNEL_AUDIT_API_IOREGISTERLASTCHANCESHUTDOWNNOTIFICATION);
   return 0;

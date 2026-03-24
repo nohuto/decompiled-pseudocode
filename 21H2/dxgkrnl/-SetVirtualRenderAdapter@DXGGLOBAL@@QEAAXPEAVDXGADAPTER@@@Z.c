@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C030CB8C
+ * XREFs of ?SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C026BB10
  * Callers:
- *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FD460 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02BA5BC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183448 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020BED8 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0019DE4 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?DisconnectFromDisplayAdapters@ADAPTER_RENDER@@QEAAXPEAVDXGADAPTER@@PEAPEAV2@@Z @ 0x1C02C3624 (-DisconnectFromDisplayAdapters@ADAPTER_RENDER@@QEAAXPEAVDXGADAPTER@@PEAPEAV2@@Z.c)
- *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C030D550 (DxgkRequestAsyncDisplaySwitchCallout.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D178 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DisconnectFromDisplayAdapters@ADAPTER_RENDER@@QEAAXPEAVDXGADAPTER@@PEAPEAV2@@Z @ 0x1C021581C (-DisconnectFromDisplayAdapters@ADAPTER_RENDER@@QEAAXPEAVDXGADAPTER@@PEAPEAV2@@Z.c)
+ *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C026C320 (DxgkRequestAsyncDisplaySwitchCallout.c)
  */
 
 void __fastcall DXGGLOBAL::SetVirtualRenderAdapter(DXGGLOBAL *this, struct DXGADAPTER *a2)
@@ -23,22 +23,22 @@ void __fastcall DXGGLOBAL::SetVirtualRenderAdapter(DXGGLOBAL *this, struct DXGAD
   _QWORD v10[10]; // [rsp+58h] [rbp-9h] BYREF
 
   v2 = g_VgpuReplaceWarp;
-  *((_QWORD *)this + 124) = a2;
+  *((_QWORD *)this + 104) = a2;
   if ( v2 )
   {
-    v4 = (struct DXGADAPTER **)((char *)this + 1000);
+    v4 = (struct DXGADAPTER **)((char *)this + 840);
     if ( a2 )
     {
       v7 = *v4;
-      if ( *v4 && (*((_DWORD *)v7 + 109) & 0x10) != 0 )
-        ADAPTER_RENDER::DisconnectFromDisplayAdapters(*((ADAPTER_RENDER **)v7 + 350), a2, v4);
+      if ( *v4 && (*((_DWORD *)v7 + 87) & 0x10) != 0 )
+        ADAPTER_RENDER::DisconnectFromDisplayAdapters(*((ADAPTER_RENDER **)v7 + 338), a2, v4);
       else
-        *((_QWORD *)this + 125) = a2;
+        *((_QWORD *)this + 105) = a2;
     }
     else
     {
       v5 = *v4;
-      *v4 = (struct DXGADAPTER *)*((_QWORD *)this + 123);
+      *v4 = (struct DXGADAPTER *)*((_QWORD *)this + 103);
       if ( *((_BYTE *)v5 + 209) )
       {
         memset(v10, 0, 0x48uLL);
@@ -55,6 +55,6 @@ void __fastcall DXGGLOBAL::SetVirtualRenderAdapter(DXGGLOBAL *this, struct DXGAD
       }
     }
     if ( *v4 )
-      *((_QWORD *)this + 126) = *(_QWORD *)((char *)*v4 + 404);
+      *((_QWORD *)this + 106) = *(_QWORD *)((char *)*v4 + 316);
   }
 }

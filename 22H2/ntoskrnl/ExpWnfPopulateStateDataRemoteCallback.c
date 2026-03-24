@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfPopulateStateDataRemoteCallback @ 0x140A07740
+ * XREFs of ExpWnfPopulateStateDataRemoteCallback @ 0x14095CEE0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateDataRemoteCallback(
@@ -16,7 +16,7 @@ __int64 __fastcall ExpWnfPopulateStateDataRemoteCallback(
         size_t Size)
 {
   int v8; // r14d
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v10; // rdi
 
   if ( a4 )
@@ -24,15 +24,15 @@ __int64 __fastcall ExpWnfPopulateStateDataRemoteCallback(
     if ( (_DWORD)Size )
     {
       v8 = *(_DWORD *)(a2 + 56);
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(v8 + 16), 543583831LL);
-      v10 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v8 + 16), 0x20666E57u);
+      v10 = PoolWithTag;
+      if ( !PoolWithTag )
         return 3221225626LL;
-      *Pool2 = 1050884;
-      Pool2[1] = v8;
-      Pool2[2] = Size;
-      Pool2[3] = a4;
-      memmove(Pool2 + 4, Src, (unsigned int)Size);
+      *PoolWithTag = 1050884;
+      PoolWithTag[1] = v8;
+      PoolWithTag[2] = Size;
+      PoolWithTag[3] = a4;
+      memmove(PoolWithTag + 4, Src, (unsigned int)Size);
       *(_DWORD *)(a2 + 96) = v10[3];
       *(_QWORD *)(a2 + 88) = v10;
     }

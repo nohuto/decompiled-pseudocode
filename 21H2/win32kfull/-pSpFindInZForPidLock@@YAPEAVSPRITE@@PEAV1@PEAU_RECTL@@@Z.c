@@ -1,9 +1,9 @@
 /*
- * XREFs of ?pSpFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C015757C
+ * XREFs of ?pSpFindInZForPidLock@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C0165B58
  * Callers:
- *     ?vSpPIDLockSpriteArea@@YA?AW4SurfaceMapStatus@SURFACE@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAX@Z @ 0x1C01574E4 (-vSpPIDLockSpriteArea@@YA-AW4SurfaceMapStatus@SURFACE@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAX@Z.c)
+ *     ?vSpPIDLockSpriteArea@@YA?AW4SurfaceMapStatus@SURFACE@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAX@Z @ 0x1C0165AC0 (-vSpPIDLockSpriteArea@@YA-AW4SurfaceMapStatus@SURFACE@@PEAU_SPRITESTATE@@PEAU_RECTL@@PEAX@Z.c)
  * Callees:
- *     ?bIsCursorSprite@@YAHPEAVSPRITE@@@Z @ 0x1C01576BC (-bIsCursorSprite@@YAHPEAVSPRITE@@@Z.c)
+ *     ?bIsCursorSprite@@YAHPEAVSPRITE@@@Z @ 0x1C010DEA8 (-bIsCursorSprite@@YAHPEAVSPRITE@@@Z.c)
  */
 
 struct SPRITE *__fastcall pSpFindInZForPidLock(struct SPRITE *a1, struct _RECTL *a2)

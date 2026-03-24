@@ -1,19 +1,18 @@
 /*
- * XREFs of MiSwapHardFaultPage @ 0x14066C9E8
+ * XREFs of MiSwapHardFaultPage @ 0x1405636B0
  * Callers:
- *     MiHardFaultPageRelease @ 0x140334C08 (MiHardFaultPageRelease.c)
- *     MiIdealClusterPage @ 0x14066A500 (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140239200 (MiFinishHardFault.c)
+ *     MiIdealClusterPage @ 0x140555D54 (MiIdealClusterPage.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiCopyPfnEntryEx @ 0x140219D80 (MiCopyPfnEntryEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiUpdateTransitionPteFrame @ 0x140330A1C (MiUpdateTransitionPteFrame.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MiRemoveLockedPageCharge @ 0x14023A820 (MiRemoveLockedPageCharge.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402A6480 (MiPfnReferenceCountIsZero.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
+ *     MiUpdateTransitionPteFrame @ 0x1403369F0 (MiUpdateTransitionPteFrame.c)
+ *     MiCopyPfnEntryEx @ 0x140336A40 (MiCopyPfnEntryEx.c)
  */
 
 __int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __int64 a2, __int64 a3)
@@ -21,21 +20,21 @@ __int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __int64 a2, __int64 a3)
   __int64 v6; // rax
   __int64 updated; // rbx
   int v8; // ebp
-  __int64 v9; // r8
+  __int64 v9; // rdx
   __int64 v10; // r8
-  __int64 v11; // rdx
+  __int64 v11; // r9
   __int64 v12; // rcx
   __int64 result; // rax
 
   v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
-  updated = MiUpdateTransitionPteFrame(v6, 0xAAAAAAAAAAAAAAABuLL * ((a3 + 0x220000000000LL) >> 4));
+  updated = MiUpdateTransitionPteFrame(v6, (a3 + 0x58000000000LL) / 48);
   v8 = 0;
   if ( MiPteInShadowRange((unsigned __int64)a1) )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
       v8 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_8;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
@@ -48,12 +47,11 @@ __int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __int64 a2, __int64 a3)
 LABEL_8:
   *a1 = updated;
   if ( v8 )
-    MiWritePteShadow((__int64)a1, updated, v9);
-  MiLockNestedPageAtDpcInline(a3);
-  MiCopyPfnEntryEx(a3, (__int128 *)a2);
-  v11 = 3LL;
+    MiWritePteShadow((__int64)a1, updated, v10);
+  MiLockNestedPageAtDpcInline(a3, v9, v10, v11);
+  MiCopyPfnEntryEx(a3, a2);
   if ( ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 3 )
-    MiSetPfnIdentity(a3, 3);
+    *(_QWORD *)(a3 + 40) = *(_QWORD *)(a3 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
   *(_QWORD *)(a3 + 24) &= 0xC000000000000000uLL;
   *(_QWORD *)(a2 + 24) |= 0x4000000000000000uLL;
   v12 = *(_QWORD *)(a2 + 16);
@@ -64,8 +62,8 @@ LABEL_8:
   }
   if ( (v12 & 2) != 0 )
     *(_QWORD *)(a2 + 16) = v12 & 0xFFFFFFFFFFFFFFFDuLL;
-  if ( (unsigned int)MiRemoveLockedPageCharge(a2, v11, v10) )
-    MiPfnReferenceCountIsZero(a2, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4));
+  if ( (unsigned int)MiRemoveLockedPageCharge(a2) )
+    MiPfnReferenceCountIsZero(a2, (a2 + 0x58000000000LL) / 48);
   else
     *(_WORD *)(a3 + 32) = 1;
   result = 0x7FFFFFFFFFFFFFFFLL;

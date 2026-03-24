@@ -1,23 +1,15 @@
 /*
- * XREFs of PopFanRemove @ 0x1409973C0
+ * XREFs of PopFanRemove @ 0x1408F1780
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
  */
 
 NTSTATUS __fastcall PopFanRemove(__int64 a1)
 {
-  NTSTATUS result; // eax
-
-  *(_BYTE *)(a1 + 440) = 1;
+  *(_BYTE *)(a1 + 152) = 1;
   IoCancelIrp(*(PIRP *)(a1 + 56));
-  result = KeWaitForSingleObject((PVOID)(a1 + 416), Executive, 0, 0, 0LL);
-  if ( *(_BYTE *)(a1 + 88) )
-  {
-    *(_BYTE *)(a1 + 88) = 0;
-    _InterlockedDecrement(&dword_140C3C9C8);
-  }
-  return result;
+  return KeWaitForSingleObject((PVOID)(a1 + 128), Executive, 0, 0, 0LL);
 }

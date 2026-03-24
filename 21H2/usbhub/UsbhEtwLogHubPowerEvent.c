@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhEtwLogHubPowerEvent @ 0x1C000C730
+ * XREFs of UsbhEtwLogHubPowerEvent @ 0x1C0012210
  * Callers:
- *     UsbhFdoDevicePowerState @ 0x1C0005910 (UsbhFdoDevicePowerState.c)
- *     UsbhFdoDxPoComplete_Action @ 0x1C0006150 (UsbhFdoDxPoComplete_Action.c)
- *     UsbhFdoSxIoComplete_Action @ 0x1C00066A0 (UsbhFdoSxIoComplete_Action.c)
- *     UsbhFdoS0IoComplete_Action @ 0x1C0006910 (UsbhFdoS0IoComplete_Action.c)
- *     UsbhFdoD0PoComplete_Action @ 0x1C0006D20 (UsbhFdoD0PoComplete_Action.c)
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
+ *     UsbhFdoDxPoComplete_Action @ 0x1C000CC80 (UsbhFdoDxPoComplete_Action.c)
+ *     UsbhFdoSxIoComplete_Action @ 0x1C000DFA0 (UsbhFdoSxIoComplete_Action.c)
+ *     UsbhFdoS0IoComplete_Action @ 0x1C000E210 (UsbhFdoS0IoComplete_Action.c)
+ *     UsbhFdoD0PoComplete_Action @ 0x1C000E620 (UsbhFdoD0PoComplete_Action.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhFdoDevicePowerState @ 0x1C00101B0 (UsbhFdoDevicePowerState.c)
  * Callees:
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 void __fastcall UsbhEtwLogHubPowerEvent(__int64 a1, __int64 a2, __int128 *a3, const EVENT_DESCRIPTOR *a4)
@@ -22,7 +22,7 @@ void __fastcall UsbhEtwLogHubPowerEvent(__int64 a1, __int64 a2, __int128 *a3, co
   __int128 v9; // [rsp+98h] [rbp+1Fh] BYREF
 
   v9 = 0LL;
-  if ( dword_1C006A690 )
+  if ( dword_1C006C5F0 )
   {
     if ( !a1 )
       UsbhTrapFatal_Dbg(0LL, 0LL);

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopBcdSetPendingResume @ 0x1406DF998
+ * XREFs of PopBcdSetPendingResume @ 0x1406DF978
  * Callers:
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     BcdQueryObject @ 0x140712724 (BcdQueryObject.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     PopBcdSetupResumeObject @ 0x140714F48 (PopBcdSetupResumeObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     BcdQueryObject @ 0x140712704 (BcdQueryObject.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     PopBcdSetupResumeObject @ 0x140714F28 (PopBcdSetupResumeObject.c)
  */
 
 __int64 __fastcall PopBcdSetPendingResume(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -46,7 +46,7 @@ __int64 __fastcall PopBcdSetPendingResume(__int64 a1, __int64 a2, __int64 a3, __
           Object = BcdSetElementDataWithFlags(v10, 637534213LL, v11, &v14, 2);
           if ( Object >= 0 )
           {
-            v14 = (unsigned __int8)byte_140417A60;
+            v14 = (unsigned __int8)byte_140417860;
             Object = BcdSetElementDataWithFlags(v10, 637534245LL, v12, &v14, 2);
             if ( Object >= 0 )
               Object = 0;

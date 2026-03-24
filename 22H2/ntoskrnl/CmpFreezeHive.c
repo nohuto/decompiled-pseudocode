@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreezeHive @ 0x1408755AC
+ * XREFs of CmpFreezeHive @ 0x14066C5D0
  * Callers:
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
  * Callees:
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D9378 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140769400 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpSearchForOpenSubKeys @ 0x140875624 (CmpSearchForOpenSubKeys.c)
- *     CmpRecordUnloadEventForHive @ 0x140875698 (CmpRecordUnloadEventForHive.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpSearchForOpenSubKeys @ 0x14066C648 (CmpSearchForOpenSubKeys.c)
+ *     CmpRecordUnloadEventForHive @ 0x14066D498 (CmpRecordUnloadEventForHive.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071CD1C (CmpDereferenceKeyControlBlockUnsafe.c)
  */
 
 __int64 __fastcall CmpFreezeHive(__int64 a1, __int64 a2)
@@ -18,15 +18,15 @@ __int64 __fastcall CmpFreezeHive(__int64 a1, __int64 a2)
   CmpReferenceKeyControlBlockUnsafe((volatile signed __int64 *)a1);
   if ( a2 && (v5 = CmpRecordUnloadEventForHive(v2, a2), v5 < 0) )
   {
-    CmpDereferenceKeyControlBlockUnsafe((volatile signed __int64 *)a1);
+    CmpDereferenceKeyControlBlockUnsafe(a1);
   }
   else
   {
     CmpSearchForOpenSubKeys(a1, 2LL);
     *(_WORD *)(a1 + 8) |= 0x20u;
     v5 = 0;
-    *(_BYTE *)(v2 + 2944) = 1;
-    *(_QWORD *)(v2 + 2936) = a1;
+    *(_BYTE *)(v2 + 2936) = 1;
+    *(_QWORD *)(v2 + 2928) = a1;
   }
   return (unsigned int)v5;
 }

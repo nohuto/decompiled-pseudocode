@@ -1,11 +1,11 @@
 /*
- * XREFs of SetProcessTimerDelay @ 0x1C01E5F20
+ * XREFs of SetProcessTimerDelay @ 0x1C01EB0F0
  * Callers:
  *     <none>
  * Callees:
- *     ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00FEB18 (--0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C01CEF78 (--1CAutoPushLockSh@@QEAA@XZ.c)
+ *     ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0111E24 (--0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C01D8654 (--1CAutoPushLockSh@@QEAA@XZ.c)
  */
 
 __int64 __fastcall SetProcessTimerDelay(__int64 a1, unsigned int a2, unsigned int a3)
@@ -63,7 +63,7 @@ LABEL_18:
     __fastfail(3u);
   }
 LABEL_11:
-  if ( !BYTE4(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink) )
+  if ( !gbTimersProcActive )
   {
     CAutoPushLockSh::CAutoPushLockSh(
       (CAutoPushLockSh *)&v11,
@@ -72,14 +72,14 @@ LABEL_11:
     {
       KeSetEvent(CRitTimerScanWakeSystem::ritTimerScanWakeEvent, 1, 0);
       CAutoPushLockSh::~CAutoPushLockSh((CAutoPushLockSh *)&v11);
-      BYTE5(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink) = 1;
+      gbRITAlerted = 1;
     }
     else
     {
       ExReleasePushLockSharedEx(v11, 0LL);
       KeLeaveCriticalRegion();
-      BYTE5(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink) = 0;
-      MicrosoftTelemetryAssertTriggeredNoArgsKM();
+      gbRITAlerted = 0;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2138);
     }
   }
   return 0LL;

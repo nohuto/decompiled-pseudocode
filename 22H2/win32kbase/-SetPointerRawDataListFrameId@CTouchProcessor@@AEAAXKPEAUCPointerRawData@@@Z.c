@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetPointerRawDataListFrameId@CTouchProcessor@@AEAAXKPEAUCPointerRawData@@@Z @ 0x1C01D6AD8
+ * XREFs of ?SetPointerRawDataListFrameId@CTouchProcessor@@AEAAXKPEAUCPointerRawData@@@Z @ 0x1C019E5B4
  * Callers:
- *     ?CommitInputFrame@CTouchProcessor@@IEAAXPEAUCPointerInputFrame@@@Z @ 0x1C00E3E00 (-CommitInputFrame@CTouchProcessor@@IEAAXPEAUCPointerInputFrame@@@Z.c)
+ *     ?CommitInputFrame@CTouchProcessor@@IEAAXPEAUCPointerInputFrame@@@Z @ 0x1C018B6A4 (-CommitInputFrame@CTouchProcessor@@IEAAXPEAUCPointerInputFrame@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CTouchProcessor::SetPointerRawDataListFrameId(
@@ -11,12 +11,12 @@ void __fastcall CTouchProcessor::SetPointerRawDataListFrameId(
         int a2,
         struct CPointerRawData *a3)
 {
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7810);
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7233);
   while ( a3 )
   {
     if ( *(_DWORD *)a3 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 7815);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7238);
     *(_DWORD *)a3 = a2;
     a3 = (struct CPointerRawData *)*((_QWORD *)a3 + 3);
   }

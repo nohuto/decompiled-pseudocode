@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Free@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C0228D80
+ * XREFs of ?Free@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C0243E94
  * Callers:
- *     ?Free@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0228E64 (-Free@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0243F78 (-Free@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Free(__int64 *a1, void *a2)
@@ -19,7 +19,7 @@ void __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Free(__in
     v5 = ((unsigned __int16)a2 & 0xFFFu) / 0x70
        + 36 * ((unsigned int)((_DWORD)a2 - (*((_DWORD *)a1 + 4) ^ *((_DWORD *)a1 + 2))) >> 12);
     RtlClearBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v5);
-    memset_0(a2, 0, 0x70uLL);
+    memset(a2, 0, 0x70uLL);
     *((_DWORD *)a1 + 8) = v5;
     ExReleasePushLockExclusiveEx(v2, 0LL);
     KeLeaveCriticalRegion();

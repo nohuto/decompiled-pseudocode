@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRequestGenericErrorRecovery @ 0x14051C5C0
+ * XREFs of HalpRequestGenericErrorRecovery @ 0x1404D0240
  * Callers:
  *     <none>
  * Callees:
- *     HalpGenericErrorSourceRecovery @ 0x14051C090 (HalpGenericErrorSourceRecovery.c)
+ *     HalpGenericErrorSourceRecovery @ 0x1404CFD18 (HalpGenericErrorSourceRecovery.c)
  */
 
 __int64 __fastcall HalpRequestGenericErrorRecovery(__int64 a1, _DWORD *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ViScatterGatherCallback @ 0x140ACAD90
+ * XREFs of ViScatterGatherCallback @ 0x1409CF6A0
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x1403519A0 (ExInterlockedInsertHeadList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ADD_MAP_REGISTERS @ 0x140AC5180 (ADD_MAP_REGISTERS.c)
+ *     ExInterlockedInsertHeadList @ 0x1402F8650 (ExInterlockedInsertHeadList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ADD_MAP_REGISTERS @ 0x1409C9BD0 (ADD_MAP_REGISTERS.c)
  */
 
 __int64 __fastcall ViScatterGatherCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall ViScatterGatherCallback(__int64 a1, __int64 a2, __int64 a3, _
   v4 = *(_QWORD *)(a4 + 56);
   ADD_MAP_REGISTERS(v4, *(_DWORD *)a3, 1);
   *(_QWORD *)(a4 + 64) = a3;
-  ExInterlockedInsertHeadList((PLIST_ENTRY)(v4 + 88), (PLIST_ENTRY)(a4 + 72), (PKSPIN_LOCK)(v4 + 104));
+  ExInterlockedInsertHeadList((PLIST_ENTRY)(v4 + 56), (PLIST_ENTRY)(a4 + 72), (PKSPIN_LOCK)(v4 + 72));
   v9 = *(_QWORD *)(a4 + 96);
   if ( v9 )
   {

@@ -1,22 +1,20 @@
 /*
- * XREFs of ??0FxPowerPolicyOwnerSettings@@QEAA@PEAVFxPkgPnp@@@Z @ 0x1C0021F8C
+ * XREFs of ??0FxPowerPolicyOwnerSettings@@QEAA@PEAVFxPkgPnp@@@Z @ 0x1C00860A4
  * Callers:
- *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C00225C0 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0080D30 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     ??0FxCREvent@@QEAA@E@Z @ 0x1C001AC84 (--0FxCREvent@@QEAA@E@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     ??0FxCREvent@@QEAA@E@Z @ 0x1C0017CE0 (--0FxCREvent@@QEAA@E@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall FxPowerPolicyOwnerSettings::FxPowerPolicyOwnerSettings(
         FxPowerPolicyOwnerSettings *this,
         FxPkgPnp *PkgPnp)
 {
-  int v4; // r9d
-  unsigned int v5; // r8d
-  unsigned int i; // ecx
-  int v7; // edx
-  int v8; // edx
-  int v9; // eax
+  int v4; // r8d
+  unsigned int v5; // ecx
+  int v6; // edx
+  unsigned int v7; // edx
 
   this->m_PowerIdleMachine.m_Lock.m_DbgFlagIsInitialized = 1;
   this->m_PowerIdleMachine.m_Lock.m_Lock = 0LL;
@@ -31,20 +29,20 @@ void __fastcall FxPowerPolicyOwnerSettings::FxPowerPolicyOwnerSettings(
   memset(this->m_PowerIdleMachine.m_EventHistory, 0, 0x40uLL);
   this->m_PowerIdleMachine.m_TagTracker = 0LL;
   this->m_PoxInterface.m_DevicePowerRequiredLock.m_Lock = 0LL;
+  this->m_DeviceArmWakeFromS0.__vftable = (FxPrePostCallback_vtbl *)FxPowerDeviceArmWakeFromS0::`vftable';
   this->m_PoxInterface.m_DevicePowerRequiredLock.m_DbgFlagIsInitialized = 1;
+  this->m_DeviceArmWakeFromSx.__vftable = (FxPrePostCallback_vtbl *)FxPowerDeviceArmWakeFromSx::`vftable';
   this->m_PoxInterface.m_PkgPnp = PkgPnp;
+  this->m_DeviceDisarmWakeFromS0.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
   this->m_PoxInterface.m_PoHandle = 0LL;
+  this->m_DeviceDisarmWakeFromSx.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
+  this->m_DeviceWakeFromS0Triggered.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
   this->m_PoxInterface.m_DevicePowerRequired = 1;
   this->m_PoxInterface.m_DevicePowerRequirementMachine = 0LL;
   this->m_PoxInterface.m_CurrentIdleTimeoutHint = 0;
   this->m_PoxInterface.m_NextIdleTimeoutHint = 0;
+  this->m_DeviceWakeFromSxTriggered.__vftable = (FxPrePostCallback_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
   this->m_PoxInterface.m_DirectedTransitionActive = 0;
-  this->m_DeviceArmWakeFromS0.__vftable = (FxPowerDeviceArmWakeFromS0_vtbl *)FxPowerDeviceArmWakeFromS0::`vftable';
-  this->m_DeviceArmWakeFromSx.__vftable = (FxPowerDeviceArmWakeFromSx_vtbl *)FxPowerDeviceArmWakeFromSx::`vftable';
-  this->m_DeviceDisarmWakeFromS0.__vftable = (FxPowerDeviceDisarmWakeFromS0_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
-  this->m_DeviceDisarmWakeFromSx.__vftable = (FxPowerDeviceDisarmWakeFromSx_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
-  this->m_DeviceWakeFromS0Triggered.__vftable = (FxPowerDeviceWakeFromS0Triggered_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
-  this->m_DeviceWakeFromSxTriggered.__vftable = (FxPowerDeviceWakeFromSxTriggered_vtbl *)FxPnpDeviceSurpriseRemoval::`vftable';
   this->m_DeviceArmWakeFromS0.m_Method = 0LL;
   this->m_DeviceArmWakeFromSx.m_Method = 0LL;
   this->m_DeviceArmWakeFromSx.m_MethodWithReason = 0LL;
@@ -61,9 +59,7 @@ void __fastcall FxPowerPolicyOwnerSettings::FxPowerPolicyOwnerSettings(
   *(_DWORD *)&this->m_IdleSettings.Enabled = 0;
   this->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus = 0;
   this->m_IdleSettings.m_TimeoutMgmt.m_PoxSettings = 0LL;
-  this->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported = 0;
-  this->m_IdleSettings.m_TimeoutMgmt.m_PoFxDeviceFlags = 0LL;
-  this->m_IdleSettings.m_TimeoutMgmt.m_UseWdfTimerForPofx = 0;
+  *(_WORD *)&this->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported = 0;
   *(_DWORD *)&this->m_IdleSettings.WakeFromS0Capable = 0;
   *(_WORD *)&this->m_IdleSettings.D3ColdCapabilityKnown = 0;
   this->m_DevicePowerIrpTracker.m_HistoryIndex = 0;
@@ -73,22 +69,23 @@ void __fastcall FxPowerPolicyOwnerSettings::FxPowerPolicyOwnerSettings(
   this->m_UsbIdle = 0LL;
   v5 = 0;
   this->m_PkgPnp = PkgPnp;
-  for ( i = 0; i < 0x1C; i += 4 )
+  this->m_SystemToDeviceStateMap = 0;
+  do
   {
-    v7 = 1;
+    v6 = 1;
     if ( v4 != 1 )
-      v7 = 4;
-    v8 = v7 << i;
-    v9 = v5 & ~(15 << i);
+      v6 = 4;
     ++v4;
-    v5 = v9 | v8;
+    v7 = this->m_SystemToDeviceStateMap & ~(15 << v5) | (v6 << v5);
+    v5 += 4;
+    this->m_SystemToDeviceStateMap = v7;
   }
+  while ( v5 < 0x1C );
   *(_QWORD *)&this->m_ChildrenPoweredOnCount = 0LL;
   this->m_SystemWakeSource = 0;
   this->m_WaitWakeCancelCompletionOwnership = 0;
   this->m_PowerCallbackObject = 0LL;
   this->m_PowerCallbackRegistration = 0LL;
-  this->m_SystemToDeviceStateMap = v5;
   *(_DWORD *)&this->m_IdealDxStateForSx = 4;
   *(_DWORD *)&this->m_WakeCompletionEventDropped = 0x10000;
   this->m_WaitWakeStatus = -1073741637;

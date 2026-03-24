@@ -1,63 +1,63 @@
 /*
- * XREFs of Command_ControllerResetPostResetSuccess @ 0x1C002F97C
+ * XREFs of Command_ControllerResetPostResetSuccess @ 0x1C002DFB4
  * Callers:
- *     Controller_InternalReset @ 0x1C0033C04 (Controller_InternalReset.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     DynamicLock_Acquire @ 0x1C000A948 (DynamicLock_Acquire.c)
- *     DynamicLock_Release @ 0x1C000A988 (DynamicLock_Release.c)
- *     Command_InternalSendCommand @ 0x1C000A9C8 (Command_InternalSendCommand.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     Command_InternalSendCommand @ 0x1C0006D80 (Command_InternalSendCommand.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
  */
 
-__int64 __fastcall Command_ControllerResetPostResetSuccess(__int64 a1)
+__int64 __fastcall Command_ControllerResetPostResetSuccess(__int64 a1, int a2, int a3, int a4)
 {
-  __int64 v2; // rcx
-  __int64 *v3; // r8
-  int v4; // r9d
-  __int64 **v5; // rcx
-  __int64 *v6; // rax
-  __int64 *v7; // rdx
-  __int64 *v8; // rdx
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  __int64 v12; // [rsp+20h] [rbp-10h] BYREF
-  __int64 *v13; // [rsp+28h] [rbp-8h]
+  __int64 v5; // rcx
+  __int64 *v6; // r8
+  int v7; // r9d
+  __int64 **v8; // rcx
+  __int64 *v9; // rax
+  __int64 *v10; // rdx
+  __int64 *v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  __int64 v15; // [rsp+20h] [rbp-10h] BYREF
+  __int64 *v16; // [rsp+28h] [rbp-8h]
 
-  v2 = *(_QWORD *)(a1 + 112);
-  v13 = &v12;
-  v12 = (__int64)&v12;
-  DynamicLock_Acquire(v2);
-  v5 = (__int64 **)(a1 + 96);
+  v5 = *(_QWORD *)(a1 + 112);
+  v16 = &v15;
+  v15 = (__int64)&v15;
+  DynamicLock_Acquire(v5, a2, a3, a4);
+  v8 = (__int64 **)(a1 + 96);
   *(_DWORD *)(a1 + 36) = 1;
   while ( 1 )
   {
-    v6 = *v5;
-    if ( *v5 == (__int64 *)v5 )
+    v9 = *v8;
+    if ( *v8 == (__int64 *)v8 )
       break;
-    if ( (__int64 **)v6[1] != v5
-      || (v7 = (__int64 *)*v6, *(__int64 **)(*v6 + 8) != v6)
-      || (*v5 = v7, v7[1] = (__int64)v5, v8 = v13, (__int64 *)*v13 != &v12) )
+    if ( (__int64 **)v9[1] != v8
+      || (v10 = (__int64 *)*v9, *(__int64 **)(*v9 + 8) != v9)
+      || (*v8 = v10, v10[1] = (__int64)v8, v11 = v16, (__int64 *)*v16 != &v15) )
     {
 LABEL_11:
       __fastfail(3u);
     }
-    v6[1] = (__int64)v13;
-    v3 = &v12;
-    *v6 = (__int64)&v12;
-    *v8 = (__int64)v6;
-    v13 = v6;
+    v9[1] = (__int64)v16;
+    v6 = &v15;
+    *v9 = (__int64)&v15;
+    *v11 = (__int64)v9;
+    v16 = v9;
   }
   while ( 1 )
   {
-    v9 = v12;
-    if ( (__int64 *)v12 == &v12 )
-      return DynamicLock_Release(*(_QWORD *)(a1 + 112));
-    if ( *(__int64 **)(v12 + 8) != &v12 )
+    v12 = v15;
+    if ( (__int64 *)v15 == &v15 )
+      return DynamicLock_Release(*(_QWORD *)(a1 + 112), v15, (int)v6, v7);
+    if ( *(__int64 **)(v15 + 8) != &v15 )
       goto LABEL_11;
-    v10 = *(_QWORD *)v12;
-    if ( *(_QWORD *)(*(_QWORD *)v12 + 8LL) != v12 )
+    v13 = *(_QWORD *)v15;
+    if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) != v15 )
       goto LABEL_11;
-    v12 = *(_QWORD *)v12;
-    *(_QWORD *)(v10 + 8) = &v12;
-    Command_InternalSendCommand(a1, v9, (int)v3, v4);
+    v15 = *(_QWORD *)v15;
+    *(_QWORD *)(v13 + 8) = &v15;
+    Command_InternalSendCommand(a1, v12, (int)v6, v7);
   }
 }

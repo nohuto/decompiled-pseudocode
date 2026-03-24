@@ -1,24 +1,24 @@
 /*
- * XREFs of ?ProcessBindData@CVirtualMonitorCaptureRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VIRTUALMONITORCAPTURERENDERTARGET_BINDDATA@@@Z @ 0x1801C5F2C
+ * XREFs of ?ProcessBindData@CVirtualMonitorCaptureRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VIRTUALMONITORCAPTURERENDERTARGET_BINDDATA@@@Z @ 0x180188AB4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x1801C522C (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
- *     ?CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z @ 0x1801C5BCC (-CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z.c)
- *     ?Create@CHolographicFrameProcessor@@SAJPEAVCComposition@@IPEAXW4DXGI_FORMAT@@IIPEAPEAV1@@Z @ 0x18029F5A4 (-Create@CHolographicFrameProcessor@@SAJPEAVCComposition@@IPEAXW4DXGI_FORMAT@@IIPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x180188088 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z @ 0x1801887A0 (-CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z.c)
+ *     ?Create@CHolographicFrameProcessor@@SAJPEAVCComposition@@IPEAXW4DXGI_FORMAT@@IIPEAPEAV1@@Z @ 0x18025C9CC (-Create@CHolographicFrameProcessor@@SAJPEAVCComposition@@IPEAXW4DXGI_FORMAT@@IIPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CVirtualMonitorCaptureRenderTarget::ProcessBindData(
         CVirtualMonitorCaptureRenderTarget *this,
         struct CResourceTable *a2,
-        const struct tagMILCMD_VIRTUALMONITORCAPTURERENDERTARGET_BINDDATA *a3,
-        enum DXGI_FORMAT a4)
+        const struct tagMILCMD_VIRTUALMONITORCAPTURERENDERTARGET_BINDDATA *a3)
 {
-  int v6; // ebx
-  char v7; // dl
-  int v8; // r8d
-  unsigned int v9; // ecx
+  int v3; // edi
+  char v6; // dl
+  unsigned int v7; // eax
+  enum DXGI_FORMAT v8; // r9d
+  void *v9; // r8
   unsigned int v10; // edx
   __int64 v11; // rcx
   int Textures; // eax
@@ -27,53 +27,47 @@ __int64 __fastcall CVirtualMonitorCaptureRenderTarget::ProcessBindData(
   struct CHolographicFrameProcessor *v16; // [rsp+58h] [rbp+10h] BYREF
 
   v16 = a2;
-  *((_QWORD *)this + 258) = *((_QWORD *)a3 + 1);
-  v6 = 0;
-  *(_OWORD *)((char *)this + 2072) = *((_OWORD *)a3 + 1);
-  v7 = *((_BYTE *)a3 + 32);
-  *((_BYTE *)this + 2088) = v7;
-  *((_DWORD *)this + 523) = *((_DWORD *)a3 + 12) - *((_DWORD *)a3 + 10);
-  *((_DWORD *)this + 524) = *((_DWORD *)a3 + 13) - *((_DWORD *)a3 + 11);
-  v8 = *((_DWORD *)a3 + 6) - *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 525) = v8;
-  v9 = *((_DWORD *)a3 + 7) - *((_DWORD *)a3 + 5);
-  *((_DWORD *)this + 526) = v9;
-  *((_DWORD *)this + 527) = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 528) = *((_DWORD *)a3 + 5);
-  if ( v7 )
+  v3 = 0;
+  *((_QWORD *)this + 261) = *((_QWORD *)a3 + 1);
+  *((_OWORD *)this + 131) = *((_OWORD *)a3 + 1);
+  v6 = *((_BYTE *)a3 + 32);
+  *((_BYTE *)this + 2112) = v6;
+  *((_DWORD *)this + 529) = *((_DWORD *)a3 + 12) - *((_DWORD *)a3 + 10);
+  *((_DWORD *)this + 530) = *((_DWORD *)a3 + 13) - *((_DWORD *)a3 + 11);
+  *((_DWORD *)this + 531) = *((_DWORD *)a3 + 6) - *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 532) = *((_DWORD *)a3 + 7) - *((_DWORD *)a3 + 5);
+  *((_DWORD *)this + 533) = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 534) = *((_DWORD *)a3 + 5);
+  if ( !v6 )
+    goto LABEL_13;
+  if ( *((_QWORD *)this + 268) )
+    goto LABEL_13;
+  *((_QWORD *)this + 268) = 0LL;
+  v7 = *((_DWORD *)this + 532);
+  v8 = *((_DWORD *)this + 531);
+  v9 = (void *)*((_QWORD *)this + 246);
+  v10 = *((_DWORD *)this + 522);
+  v16 = 0LL;
+  LODWORD(v15) = v8;
+  v3 = CHolographicFrameProcessor::Create(*((struct CComposition **)this + 2), v10, v9, v8, v15, v7, &v16);
+  *((_QWORD *)this + 268) = v16;
+  if ( v3 >= 0 )
   {
-    if ( !*((_QWORD *)this + 265) )
+LABEL_13:
+    if ( *((_BYTE *)this + 2112) )
     {
-      *((_QWORD *)this + 265) = 0LL;
-      v10 = *((_DWORD *)this + 516);
-      v16 = 0LL;
-      LODWORD(v15) = v8;
-      v6 = CHolographicFrameProcessor::Create(
-             *((struct CComposition **)this + 2),
-             v10,
-             *((void **)this + 244),
-             a4,
-             v15,
-             v9,
-             &v16);
-      *((_QWORD *)this + 265) = v16;
-      if ( v6 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v6, 0x6Fu);
-        goto LABEL_10;
-      }
+      Textures = CVirtualMonitorCaptureRenderTarget::CreateTextures(this, *((_DWORD *)a3 + 9));
+      v3 = Textures;
+      if ( Textures >= 0 )
+        return (unsigned int)v3;
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, Textures, 0x77u, 0LL);
     }
   }
-  if ( *((_BYTE *)this + 2088) )
+  else
   {
-    Textures = CVirtualMonitorCaptureRenderTarget::CreateTextures(this, *((_DWORD *)a3 + 9));
-    v6 = Textures;
-    if ( Textures < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, Textures, 0x74u);
-LABEL_10:
-      CCaptureRenderTarget::ReleaseRenderingResources(this);
-    }
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v3, 0x72u, 0LL);
   }
-  return (unsigned int)v6;
+  if ( v3 < 0 )
+    CCaptureRenderTarget::ReleaseRenderingResources(this);
+  return (unsigned int)v3;
 }

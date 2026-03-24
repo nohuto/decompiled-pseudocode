@@ -1,14 +1,14 @@
 /*
- * XREFs of ViSwap @ 0x140A896FC
+ * XREFs of ViSwap @ 0x1409CFA00
  * Callers:
- *     VfBuildScatterGatherList @ 0x140A84BC0 (VfBuildScatterGatherList.c)
- *     VfFlushAdapterBuffers @ 0x140A853A0 (VfFlushAdapterBuffers.c)
- *     VfGetScatterGatherList @ 0x140A85DA0 (VfGetScatterGatherList.c)
- *     VfMapTransfer @ 0x140A86510 (VfMapTransfer.c)
+ *     VfBuildScatterGatherList @ 0x1409CB000 (VfBuildScatterGatherList.c)
+ *     VfFlushAdapterBuffers @ 0x1409CB6F0 (VfFlushAdapterBuffers.c)
+ *     VfGetScatterGatherList @ 0x1409CC0F0 (VfGetScatterGatherList.c)
+ *     VfMapTransfer @ 0x1409CC870 (VfMapTransfer.c)
  * Callees:
- *     ViFindMappedRegisterInFile @ 0x140A87EC4 (ViFindMappedRegisterInFile.c)
- *     ViGetMapRegisterFile @ 0x140A885FC (ViGetMapRegisterFile.c)
- *     ViGetMdlBufferSa @ 0x140A88624 (ViGetMdlBufferSa.c)
+ *     ViFindMappedRegisterInFile @ 0x1409CE1D8 (ViFindMappedRegisterInFile.c)
+ *     ViGetMapRegisterFile @ 0x1409CE914 (ViGetMapRegisterFile.c)
+ *     ViGetMdlBufferSa @ 0x1409CE93C (ViGetMdlBufferSa.c)
  */
 
 __int64 __fastcall ViSwap(__int64 *a1, ULONG_PTR *a2, _QWORD *a3)

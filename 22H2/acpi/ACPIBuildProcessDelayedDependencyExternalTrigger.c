@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C000E1CC
+ * XREFs of ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C00119AC
  * Callers:
- *     ACPICleanDeviceDependenciesWithTreeLock @ 0x1C0014380 (ACPICleanDeviceDependenciesWithTreeLock.c)
- *     ACPIDispatchIrpDepPdoQueryID @ 0x1C0017830 (ACPIDispatchIrpDepPdoQueryID.c)
- *     ACPIDispatchIrpDepFilterQueryID @ 0x1C0028430 (ACPIDispatchIrpDepFilterQueryID.c)
- *     ACPITableNotifyFreeObject @ 0x1C003F560 (ACPITableNotifyFreeObject.c)
+ *     ACPICleanDeviceDependenciesWithTreeLock @ 0x1C00106D0 (ACPICleanDeviceDependenciesWithTreeLock.c)
+ *     ACPIDispatchIrpDepFilterQueryID @ 0x1C0010700 (ACPIDispatchIrpDepFilterQueryID.c)
+ *     ACPIDispatchIrpDepPdoQueryID @ 0x1C00107D0 (ACPIDispatchIrpDepPdoQueryID.c)
+ *     ACPITableNotifyFreeObject @ 0x1C005F7C0 (ACPITableNotifyFreeObject.c)
  * Callees:
- *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
  */
 
 void __fastcall ACPIBuildProcessDelayedDependencyExternalTrigger(__int64 a1)

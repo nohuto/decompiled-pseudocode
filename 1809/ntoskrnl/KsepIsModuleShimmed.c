@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepIsModuleShimmed @ 0x14067E248
+ * XREFs of KsepIsModuleShimmed @ 0x14067E228
  * Callers:
- *     KsepGetShimsForDriver @ 0x14067DBCC (KsepGetShimsForDriver.c)
- *     KsepGetShimCallbacksForDriver @ 0x140680898 (KsepGetShimCallbacksForDriver.c)
- *     KseDriverUnloadImage @ 0x14070F05C (KseDriverUnloadImage.c)
+ *     KsepGetShimsForDriver @ 0x14067DBAC (KsepGetShimsForDriver.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140680878 (KsepGetShimCallbacksForDriver.c)
+ *     KseDriverUnloadImage @ 0x14070F03C (KseDriverUnloadImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

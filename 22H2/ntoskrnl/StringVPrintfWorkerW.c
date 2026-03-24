@@ -1,9 +1,9 @@
 /*
- * XREFs of StringVPrintfWorkerW @ 0x140671458
+ * XREFs of StringVPrintfWorkerW @ 0x1405C38E8
  * Callers:
- *     StringCchPrintfExW @ 0x140671290 (StringCchPrintfExW.c)
+ *     StringCchPrintfExW @ 0x1405C3720 (StringCchPrintfExW.c)
  * Callees:
- *     _vsnwprintf @ 0x1403D8350 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1403D0970 (_vsnwprintf.c)
  */
 
 HRESULT __stdcall StringVPrintfWorkerW(

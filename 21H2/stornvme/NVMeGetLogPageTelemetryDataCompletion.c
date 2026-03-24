@@ -1,12 +1,12 @@
 /*
- * XREFs of NVMeGetLogPageTelemetryDataCompletion @ 0x1C001D540
+ * XREFs of NVMeGetLogPageTelemetryDataCompletion @ 0x1C0014C40
  * Callers:
  *     <none>
  * Callees:
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeFreeDmaBuffer @ 0x1C00053FC (NVMeFreeDmaBuffer.c)
- *     memmove @ 0x1C0010700 (memmove.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
  */
 
 char __fastcall NVMeGetLogPageTelemetryDataCompletion(__int64 a1, __int64 a2)
@@ -41,28 +41,17 @@ char __fastcall NVMeGetLogPageTelemetryDataCompletion(__int64 a1, __int64 a2)
     v8 = *(_QWORD *)(v4 + 24);
     v9 = 16LL;
   }
-  if ( *(_BYTE *)(v4 + 3) == 1 )
+  if ( *(_BYTE *)(v4 + 3) != 1 )
+    goto LABEL_16;
+  if ( !v6 )
   {
-    if ( v6 )
-    {
-      if ( v7 < 0x200 || *(_DWORD *)(v4 + v9) < v7 || *(_BYTE *)(a1 + 20) )
-        goto LABEL_21;
-      v18 = *(const void **)(SrbExtension + 4200);
-      v17 = *(unsigned int *)(SrbExtension + 4240);
-      v19 = (void *)v8;
-LABEL_20:
-      LOBYTE(v6) = (unsigned __int8)memmove(v19, v18, v17);
-LABEL_21:
-      *(_DWORD *)(a2 + v9) = v7;
-      goto LABEL_24;
-    }
-    if ( !*(_BYTE *)(a1 + 20) )
-      LOBYTE(v6) = (unsigned __int8)NVMeZeroMemory((void *)v8, *(_DWORD *)(v4 + v9));
+    if ( !*(_BYTE *)(a1 + 16) )
+      NVMeZeroMemory((void *)v8, *(_DWORD *)(a2 + v9));
     v10 = *(_QWORD *)(SrbExtension + 4200);
     if ( v7 >= 0x200 )
     {
       v11 = *(_BYTE *)(v10 + 5);
-      if ( *(_BYTE *)(a1 + 20) )
+      if ( *(_BYTE *)(a1 + 16) )
       {
         *(_BYTE *)(v10 + 5) = *(_BYTE *)(v10 + 7);
         v12 = *(_BYTE *)(v10 + 9);
@@ -90,10 +79,6 @@ LABEL_21:
         *(_BYTE *)(v8 + 10) = *(_BYTE *)(v10 + 11);
         *(_BYTE *)(v8 + 13) = *(_BYTE *)(v10 + 12);
         *(_BYTE *)(v8 + 12) = *(_BYTE *)(v10 + 13);
-        *(_BYTE *)(v8 + 17) = *(_BYTE *)(v10 + 16);
-        *(_BYTE *)(v8 + 16) = *(_BYTE *)(v10 + 17);
-        *(_BYTE *)(v8 + 15) = *(_BYTE *)(v10 + 18);
-        *(_BYTE *)(v8 + 14) = *(_BYTE *)(v10 + 19);
         *(_BYTE *)(v8 + 382) = *(_BYTE *)(v10 + 382);
         LOBYTE(v6) = *(_BYTE *)(v10 + 383);
         *(_BYTE *)(v8 + 383) = v6;
@@ -106,18 +91,28 @@ LABEL_21:
         *(_OWORD *)(v8 + 480) = *(_OWORD *)(v10 + 480);
         *(_OWORD *)(v8 + 496) = *(_OWORD *)(v10 + 496);
       }
-      if ( v7 <= 0x200 || *(_DWORD *)(a2 + v9) < v7 || *(_BYTE *)(a1 + 20) )
-        goto LABEL_21;
+      if ( v7 <= 0x200 || *(_DWORD *)(a2 + v9) < v7 || *(_BYTE *)(a1 + 16) )
+        goto LABEL_22;
       v17 = v7 - 512;
       v18 = (const void *)(v10 + 512);
       v19 = (void *)(v8 + 512);
-      goto LABEL_20;
+      goto LABEL_21;
     }
-  }
-  if ( *(_BYTE *)(a1 + 24) )
+LABEL_16:
     LOBYTE(v6) = StorPortExtendedFunction(86LL, a1, 0LL, 0LL);
-LABEL_24:
-  if ( !*(_BYTE *)(a1 + 20) )
+    goto LABEL_23;
+  }
+  if ( v7 < 0x200 || *(_DWORD *)(a2 + v9) < v7 || *(_BYTE *)(a1 + 16) )
+    goto LABEL_22;
+  v18 = *(const void **)(SrbExtension + 4200);
+  v17 = *(unsigned int *)(SrbExtension + 4240);
+  v19 = (void *)v8;
+LABEL_21:
+  LOBYTE(v6) = (unsigned __int8)memmove(v19, v18, v17);
+LABEL_22:
+  *(_DWORD *)(a2 + v9) = v7;
+LABEL_23:
+  if ( !*(_BYTE *)(a1 + 16) )
     LOBYTE(v6) = NVMeFreeDmaBuffer(
                    a1,
                    *(unsigned int *)(SrbExtension + 4240),

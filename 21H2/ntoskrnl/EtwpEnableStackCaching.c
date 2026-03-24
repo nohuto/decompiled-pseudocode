@@ -1,82 +1,89 @@
 /*
- * XREFs of EtwpEnableStackCaching @ 0x140883718
+ * XREFs of EtwpEnableStackCaching @ 0x140941C94
  * Callers:
- *     EtwpCheckForStackTracingExtension @ 0x1406EFB1C (EtwpCheckForStackTracingExtension.c)
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckForStackTracingExtension @ 0x1406DDEE0 (EtwpCheckForStackTracingExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     EtwpFreeStackCache @ 0x140883876 (EtwpFreeStackCache.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpFreeStackCache @ 0x140941DE8 (EtwpFreeStackCache.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned int a3, char a4)
+__int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  unsigned int v4; // ebx
-  unsigned int v7; // edi
-  unsigned int v8; // r15d
-  __int64 Pool2; // rax
-  union _SLIST_HEADER *v10; // r14
-  union _SLIST_HEADER *v11; // rax
-  __int64 v12; // rcx
-  int v13; // ebp
-  unsigned int v14; // edi
-  __int64 v15; // rax
-  signed __int32 v17[18]; // [rsp+0h] [rbp-48h] BYREF
+  unsigned int v3; // ebx
+  unsigned int v5; // esi
+  unsigned int v6; // r14d
+  char *PoolWithTag; // rax
+  union _SLIST_HEADER *v8; // rdi
+  union _SLIST_HEADER *v9; // rax
+  __int64 v10; // rcx
+  int v11; // r14d
+  unsigned int v12; // esi
+  struct _SLIST_ENTRY *v13; // rax
+  signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
 
-  v4 = 0;
-  if ( *(_QWORD *)(a1 + 1008) )
+  v3 = 0;
+  if ( *(_QWORD *)(a1 + 992) )
+  {
     return (unsigned int)-1073741053;
-  v7 = 3145728;
-  v8 = 256;
-  if ( a2 >= 0x300000 )
-    v7 = a2;
-  if ( v7 > 0x3200000 )
-    v7 = 52428800;
-  if ( a3 >= 0x100 )
-    v8 = a3;
-  if ( v8 > 0x1000 )
-    v8 = 4096;
-  Pool2 = ExAllocatePool2(64LL, 24 * v8 + 32, 1937208389LL);
-  v10 = (union _SLIST_HEADER *)Pool2;
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  *(_DWORD *)(Pool2 + 8) = v8;
-  *(_QWORD *)Pool2 = a1;
-  InitializeSListHead((PSLIST_HEADER)(Pool2 + 16));
-  v11 = v10 + 2;
-  v12 = v8;
-  do
-  {
-    v11[1].Alignment = 0LL;
-    v11->Region = (unsigned __int64)v11;
-    v11->Alignment = (unsigned __int64)v11;
-    v11 = (union _SLIST_HEADER *)((char *)v11 + 24);
-    --v12;
   }
-  while ( v12 );
-  v13 = 0;
-  v14 = v7 / 0x128;
-  if ( v14 )
+  else
   {
-    while ( 1 )
+    v5 = 3145728;
+    v6 = 256;
+    if ( a2 >= 0x300000 )
+      v5 = a2;
+    if ( v5 > 0x3200000 )
+      v5 = 52428800;
+    if ( a3 >= 0x100 )
+      v6 = a3;
+    if ( v6 > 0x1000 )
+      v6 = 4096;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 24 * v6 + 32, 0x73777445u);
+    v8 = (union _SLIST_HEADER *)PoolWithTag;
+    if ( PoolWithTag )
     {
-      v15 = ExAllocatePool2(64LL, 296LL, 2021094469LL);
-      if ( !v15 )
-        break;
-      *(_DWORD *)(v15 + 24) = 0;
-      RtlpInterlockedPushEntrySList(v10 + 1, (PSLIST_ENTRY)v15);
-      if ( ++v13 >= v14 )
-        goto LABEL_19;
+      *(_QWORD *)(PoolWithTag + 12) = 0LL;
+      *(_QWORD *)(PoolWithTag + 20) = 0LL;
+      *((_DWORD *)PoolWithTag + 7) = 0;
+      *((_DWORD *)PoolWithTag + 2) = v6;
+      *(_QWORD *)PoolWithTag = a1;
+      InitializeSListHead((PSLIST_HEADER)PoolWithTag + 1);
+      v9 = v8 + 2;
+      v10 = v6;
+      do
+      {
+        v9[1].Alignment = 0LL;
+        v9->Region = (unsigned __int64)v9;
+        v9->Alignment = (unsigned __int64)v9;
+        v9 = (union _SLIST_HEADER *)((char *)v9 + 24);
+        --v10;
+      }
+      while ( v10 );
+      v11 = 0;
+      v12 = v5 / 0x128;
+      if ( !v12 )
+      {
+LABEL_19:
+        *(_QWORD *)(a1 + 992) = v8;
+        _InterlockedOr(v15, 0);
+        _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x1000000u);
+        return v3;
+      }
+      while ( 1 )
+      {
+        v13 = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x128uLL, 0x78777445u);
+        if ( !v13 )
+          break;
+        *((_DWORD *)&v13[1].Next + 2) = 0;
+        RtlpInterlockedPushEntrySList(v8 + 1, v13);
+        if ( ++v11 >= v12 )
+          goto LABEL_19;
+      }
+      EtwpFreeStackCache(v8);
     }
-    EtwpFreeStackCache(v10);
     return (unsigned int)-1073741801;
   }
-LABEL_19:
-  *(_QWORD *)(a1 + 1008) = v10;
-  _InterlockedOr(v17, 0);
-  _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x1000000u);
-  if ( a4 )
-    _InterlockedOr((volatile signed __int32 *)(a1 + 820), 1u);
-  return v4;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgSystemAnsiCodePage @ 0x1C0123000
+ * XREFs of GetgSystemAnsiCodePage @ 0x1C01378C0
  * Callers:
  *     <none>
  * Callees:

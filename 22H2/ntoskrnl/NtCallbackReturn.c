@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCallbackReturn @ 0x140423120
+ * XREFs of NtCallbackReturn @ 0x140401E40
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall NtCallbackReturn(__int64 a1, int a2, unsigned int a3)
@@ -17,11 +17,8 @@ __int64 __fastcall NtCallbackReturn(__int64 a1, int a2, unsigned int a3)
   bool v9; // zf
   unsigned __int64 Dr1; // rdx
   unsigned __int64 Dr3; // rdx
-  void *v12; // rcx
-  void *KernelShadowStackInitial; // rdx
-  unsigned __int64 v14; // rcx
-  char *v18; // rcx
-  unsigned __int64 v19; // rcx
+  char *v12; // rcx
+  unsigned __int64 v13; // rcx
 
   CurrentThread = KeGetCurrentThread();
   InitialStack = CurrentThread->InitialStack;
@@ -53,35 +50,16 @@ __int64 __fastcall NtCallbackReturn(__int64 a1, int a2, unsigned int a3)
       *(_QWORD *)(v7 + 240) = Dr3;
       *(_QWORD *)(v7 + 256) = TrapFrame->Dr7;
     }
-    v12 = (void *)InitialStack[6];
-    if ( v12 )
-    {
-      CurrentThread->KernelShadowStackBase = v12;
-      CurrentThread->KernelShadowStackLimit.AllFields = InitialStack[7];
-      KernelShadowStackInitial = CurrentThread->KernelShadowStackInitial;
-      v14 = InitialStack[9];
-      CurrentThread->KernelShadowStackInitial = (void *)v14;
-      __writegsqword(0x95A8u, v14);
-      __asm { rdsspq  rcx }
-      _RDX = ((unsigned __int64)KernelShadowStackInitial + 8 - _RCX) >> 3;
-      __asm { incsspq rdx }
-      _RCX = InitialStack[8];
-      __asm
-      {
-        rstorssp qword ptr [rcx]
-        saveprevssp
-      }
-    }
-    v18 = (char *)InitialStack[2];
-    CurrentThread->StackBase = v18;
-    CurrentThread->StackLimit = &v18[-(unsigned int)KeKernelStackSize];
-    v19 = InitialStack[5];
-    CurrentThread->InitialStack = (void *)v19;
+    v12 = (char *)InitialStack[2];
+    CurrentThread->StackBase = v12;
+    CurrentThread->StackLimit = &v12[-(unsigned int)KeKernelStackSize];
+    v13 = InitialStack[5];
+    CurrentThread->InitialStack = (void *)v13;
     if ( (KiKvaShadow & 1) != 0 )
-      __writegsqword(0xA008u, v19);
+      __writegsqword(0x9008u, v13);
     else
-      *(_QWORD *)((char *)KeGetPcr()->NtTib.StackBase + 4) = v19;
-    __writegsqword(0x1A8u, v19);
+      *(_QWORD *)((char *)KeGetPcr()->NtTib.StackBase + 4) = v13;
+    __writegsqword(0x1A8u, v13);
     _enable();
   }
   return result;

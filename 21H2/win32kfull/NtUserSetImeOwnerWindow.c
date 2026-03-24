@@ -1,74 +1,80 @@
 /*
- * XREFs of NtUserSetImeOwnerWindow @ 0x1C0080DD0
+ * XREFs of NtUserSetImeOwnerWindow @ 0x1C00357D0
  * Callers:
  *     <none>
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?ImeCheckTopmost@@YAXPEAUtagWND@@@Z @ 0x1C0080F08 (-ImeCheckTopmost@@YAXPEAUtagWND@@@Z.c)
- *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0080F68 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C00F4EEC (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     zzzImeSetFutureOwner @ 0x1C0034044 (zzzImeSetFutureOwner.c)
+ *     ImeCheckTopmost @ 0x1C0035908 (ImeCheckTopmost.c)
+ *     zzzImeSetOwnerWindow @ 0x1C0035BC4 (zzzImeSetOwnerWindow.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetImeOwnerWindow(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // rbx
-  __int64 v8; // rdi
-  struct tagWND *v9; // rdx
-  __int64 v11; // r8
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rdi
+  __int64 v8; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rdx
   __int64 v12; // r9
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v4 = ValidateHwnd(a1);
-  v7 = 0LL;
-  v8 = v4;
+  v6 = 0LL;
+  v7 = v4;
   if ( v4 )
   {
     if ( (*gpsi & 4) == 0 )
     {
-      UserSetLastError(120LL, v5);
+      UserSetLastError(120LL);
       goto LABEL_10;
     }
-    v6 = *(_WORD *)(*(_QWORD *)(v4 + 40) + 42LL) & 0x2FFF;
-    if ( (_DWORD)v6 == 681 )
+    v5 = *(_WORD *)(*(_QWORD *)(v4 + 40) + 42LL) & 0x2FFF;
+    if ( (_DWORD)v5 == 681 )
     {
       if ( !a2 )
       {
-        v9 = 0LL;
+        v8 = 0LL;
         goto LABEL_6;
       }
-      v9 = (struct tagWND *)ValidateHwnd(a2);
-      if ( v9 )
+      v8 = ValidateHwnd(a2);
+      if ( v8 )
       {
 LABEL_6:
         ++gdwDeferWinEvent;
-        if ( v9 )
+        if ( v8 )
           goto LABEL_7;
-        v11 = *(_QWORD *)(v8 + 16);
-        v9 = *(struct tagWND **)(*(_QWORD *)(v11 + 432) + 120LL);
-        if ( !v9 )
+        v10 = *(_QWORD *)(v7 + 16);
+        v11 = *(_QWORD *)(*(_QWORD *)(v10 + 432) + 120LL);
+        if ( !v11 )
           goto LABEL_17;
-        if ( v9 == *(struct tagWND **)(v8 + 120) )
+        if ( v11 == *(_QWORD *)(v7 + 120) )
           goto LABEL_9;
-        v12 = *(_QWORD *)(*((_QWORD *)v9 + 17) + 8LL);
-        if ( *(_WORD *)v12 != *(_WORD *)(gpsi + 898LL) && (*(_BYTE *)(v12 + 10) & 1) == 0 && v11 == *((_QWORD *)v9 + 2) )
+        v12 = *(_QWORD *)(*(_QWORD *)(v11 + 136) + 8LL);
+        if ( *(_WORD *)v12 != *(_WORD *)(gpsi + 898LL)
+          && (*(_BYTE *)(v12 + 10) & 1) == 0
+          && v10 == *(_QWORD *)(v11 + 16) )
+        {
 LABEL_7:
-          zzzImeSetOwnerWindow((struct tagWND *)v8, v9);
+          zzzImeSetOwnerWindow((struct tagWND *)v7);
+        }
         else
+        {
 LABEL_17:
-          zzzImeSetFutureOwner((struct tagWND *)v8, *(struct tagWND **)(v8 + 120));
-        ImeCheckTopmost((struct tagWND *)v8);
+          zzzImeSetFutureOwner((struct tagWND *)v7, *(struct tagWND **)(v7 + 120));
+        }
+        ImeCheckTopmost(v7);
 LABEL_9:
         zzzEndDeferWinEventNotify();
-        v7 = 1LL;
+        v6 = 1LL;
       }
     }
   }
 LABEL_10:
-  UserSessionSwitchLeaveCrit(v6);
-  return v7;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

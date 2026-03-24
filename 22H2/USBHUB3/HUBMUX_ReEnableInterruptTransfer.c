@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBMUX_ReEnableInterruptTransfer @ 0x1C0010C2C
+ * XREFs of HUBMUX_ReEnableInterruptTransfer @ 0x1C000F800
  * Callers:
- *     HUBPSM20_EnablingInterruptsAndGettingPortEvent @ 0x1C0012850 (HUBPSM20_EnablingInterruptsAndGettingPortEvent.c)
- *     HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended @ 0x1C00128B0 (HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended.c)
- *     HUBPSM20_QueueingEnableInterruptTransferOnResume @ 0x1C00128E0 (HUBPSM20_QueueingEnableInterruptTransferOnResume.c)
- *     HUBPSM20_ReEnablingInterruptsOnErrorInSuspended @ 0x1C0012A50 (HUBPSM20_ReEnablingInterruptsOnErrorInSuspended.c)
- *     HUBPSM20_QueueingResumeToDSMFromSuspended @ 0x1C0012C40 (HUBPSM20_QueueingResumeToDSMFromSuspended.c)
- *     HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0013920 (HUBPSM30_EnablingInterruptsAndGettingPortEvent.c)
+ *     HUBPSM20_EnablingInterruptsAndGettingPortEvent @ 0x1C0011430 (HUBPSM20_EnablingInterruptsAndGettingPortEvent.c)
+ *     HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended @ 0x1C0011490 (HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended.c)
+ *     HUBPSM20_QueueingEnableInterruptTransferOnResume @ 0x1C00114C0 (HUBPSM20_QueueingEnableInterruptTransferOnResume.c)
+ *     HUBPSM20_ReEnablingInterruptsOnErrorInSuspended @ 0x1C00115C0 (HUBPSM20_ReEnablingInterruptsOnErrorInSuspended.c)
+ *     HUBPSM20_QueueingResumeToDSMFromSuspended @ 0x1C0011710 (HUBPSM20_QueueingResumeToDSMFromSuspended.c)
+ *     HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0012400 (HUBPSM30_EnablingInterruptsAndGettingPortEvent.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBMUX_ReEnableInterruptTransfer(volatile signed __int32 *a1)

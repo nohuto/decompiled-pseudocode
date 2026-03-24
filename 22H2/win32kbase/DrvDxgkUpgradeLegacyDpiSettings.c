@@ -1,129 +1,144 @@
 /*
- * XREFs of DrvDxgkUpgradeLegacyDpiSettings @ 0x1C0166FA0
+ * XREFs of DrvDxgkUpgradeLegacyDpiSettings @ 0x1C0147490
  * Callers:
  *     <none>
  * Callees:
- *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C001CAF0 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?SetScaleFactorOverride@@YAJAEAU_LUID@@IHPEAU_DPI_INFORMATION@@@Z @ 0x1C0165320 (-SetScaleFactorOverride@@YAJAEAU_LUID@@IHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0012160 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall DrvDxgkUpgradeLegacyDpiSettings(__int64 a1, _DWORD *a2)
 {
   __int64 v4; // rbx
-  __int64 v6; // r14
-  __int64 *i; // rdi
+  int v6; // r8d
+  struct PDEV *v7; // rdi
   int v8; // eax
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  int v13; // eax
-  int v14; // esi
+  __int64 v9; // rsi
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int v13; // esi
+  _DWORD *v14; // rax
   _DWORD *v15; // rax
-  _DWORD *v16; // rax
-  int v17; // ecx
-  signed int v18; // esi
-  __int32 v19; // eax
-  unsigned int v20; // ebx
-  struct _LUID *v21; // rax
-  int v22; // eax
-  struct _ERESOURCE *v23; // rcx
-  __int64 v24; // rcx
-  __int64 *v25; // [rsp+30h] [rbp-D0h] BYREF
-  __m128i v26[6]; // [rsp+40h] [rbp-C0h] BYREF
-  _DWORD v27[24]; // [rsp+A0h] [rbp-60h] BYREF
+  int v16; // ecx
+  __int32 v17; // esi
+  __int32 v18; // eax
+  unsigned int v19; // ebx
+  struct _LUID *v20; // rax
+  int v21; // eax
+  _QWORD *v22; // rax
+  __int64 v23; // rcx
+  struct PDEV *v24; // [rsp+30h] [rbp-D0h] BYREF
+  __m128i v25[6]; // [rsp+40h] [rbp-C0h] BYREF
+  _DWORD v26[24]; // [rsp+A0h] [rbp-60h] BYREF
 
   *a2 = 0;
   LODWORD(v4) = -1073741275;
   if ( *(_DWORD *)(a1 + 4) )
     return 0LL;
-  v6 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v6 + 8));
-  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v6 + 8), 16);
-  for ( i = *(__int64 **)(v6 + 6080); i; i = (__int64 *)*i )
+  EngAcquireSemaphore(ghsemDriverMgmt);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
+  v7 = gppdevList;
+  if ( gppdevList )
   {
-    v8 = i[5] & 0x401;
-    v25 = i;
-    if ( v8 == 1 )
+    while ( 1 )
     {
-      v9 = i[319];
-      if ( ((v9 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 && (*(_DWORD *)(v9 + 160) & 0x800000) != 0 )
+      v24 = v7;
+      if ( !v7 )
+        goto LABEL_26;
+      v8 = *((_DWORD *)v7 + 10);
+      if ( (v8 & 1) == 0 )
+        goto LABEL_26;
+      if ( (v8 & 0x400) != 0 )
+        goto LABEL_26;
+      v9 = *((_QWORD *)v7 + 322);
+      if ( ((v9 + 4) & 0xFFFFFFFFFFFFFFFBuLL) == 0 || (*(_DWORD *)(v9 + 160) & 0x800000) == 0 )
+        goto LABEL_26;
+      memset(v26, 0, sizeof(v26));
+      v10 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, _DWORD *))qword_1C0250B10)(
+              a1,
+              *(_QWORD *)(v9 + 240),
+              *(unsigned int *)(v9 + 256),
+              v26);
+      v4 = v10;
+      if ( v10 < 0 )
+        break;
+      memset(v25, 0, sizeof(v25));
+      v25[0] = *(__m128i *)((char *)v7 + 2456);
+      v25[1] = *(__m128i *)((char *)v7 + 2472);
+      v25[2] = *(__m128i *)((char *)v7 + 2488);
+      v25[3] = *(__m128i *)((char *)v7 + 2504);
+      v25[4] = *(__m128i *)((char *)v7 + 2520);
+      v25[5] = *(__m128i *)((char *)v7 + 2536);
+      if ( v26[2] != _mm_srli_si128(*v25, 8).m128i_i32[1] )
       {
-        memset(v27, 0, sizeof(v27));
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v11, v10);
-        v13 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _DWORD *))(DxgkWin32kInterface + 632))(
-                a1,
-                *(_QWORD *)(i[319] + 232),
-                *(unsigned int *)(i[319] + 248),
-                v27);
-        v4 = v13;
-        if ( v13 < 0 )
-          goto LABEL_23;
-        memset(v26, 0, sizeof(v26));
-        v26[0] = *(__m128i *)(i + 303);
-        v26[1] = *(__m128i *)(i + 305);
-        v26[2] = *(__m128i *)(i + 307);
-        v26[3] = *(__m128i *)(i + 309);
-        v26[4] = *(__m128i *)(i + 311);
-        v26[5] = *(__m128i *)(i + 313);
-        if ( v27[2] == _mm_srli_si128(*v26, 8).m128i_i32[1] )
-          continue;
-        v14 = 0;
-        v15 = &DesktopScaleFactorCutoffs;
+        v13 = 0;
+        v14 = &DesktopScaleFactorCutoffs;
         do
         {
-          if ( *v15 > v27[2] )
+          if ( *v14 > v26[2] )
             break;
+          ++v13;
           ++v14;
+        }
+        while ( (__int64)v14 < (__int64)&dword_1C0222F4C );
+        v15 = &DesktopScaleFactorCutoffs;
+        v16 = 0;
+        do
+        {
+          if ( *v15 > v25[0].m128i_i32[3] )
+            break;
+          ++v16;
           ++v15;
         }
-        while ( (__int64)v15 < (__int64)&dword_1C0262B64 );
-        v16 = &DesktopScaleFactorCutoffs;
-        v17 = 0;
-        do
+        while ( (__int64)v15 < (__int64)&dword_1C0222F4C );
+        v17 = v13 - v16;
+        v18 = v17;
+        if ( v25[5].m128i_i32[0] > v17 )
+          v18 = v25[5].m128i_i32[0];
+        if ( v18 >= v25[5].m128i_i32[2] )
         {
-          if ( *v16 > v26[0].m128i_i32[3] )
-            break;
-          ++v17;
-          ++v16;
+          v17 = v25[5].m128i_i32[2];
         }
-        while ( (__int64)v16 < (__int64)&dword_1C0262B64 );
-        v18 = v14 - v17;
-        v19 = v18;
-        if ( v26[5].m128i_i32[0] > v18 )
-          v19 = v26[5].m128i_i32[0];
-        if ( v19 >= v26[5].m128i_i32[2] )
+        else if ( v25[5].m128i_i32[0] > v17 )
         {
-          v18 = v26[5].m128i_i32[2];
+          v17 = v25[5].m128i_i32[0];
         }
-        else if ( v26[5].m128i_i32[0] > v18 )
-        {
-          v18 = v26[5].m128i_i32[0];
-        }
-        v20 = *(_DWORD *)(i[319] + 248);
-        v21 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v25);
-        v22 = SetScaleFactorOverride(v21, v20, v18, (struct _DPI_INFORMATION *)v26);
-        v4 = v22;
-        if ( v22 < 0 )
-LABEL_23:
-          WdLogSingleEntry3(2LL, v4, *(_QWORD *)(i[319] + 232), *(unsigned int *)(i[319] + 248));
-        else
-          *a2 = 1;
+        v19 = *(_DWORD *)(*((_QWORD *)v7 + 322) + 256LL);
+        v20 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v24);
+        v21 = ((__int64 (__fastcall *)(struct _LUID *, _QWORD, _QWORD, __m128i *))qword_1C0250AF8)(
+                v20,
+                v19,
+                (unsigned int)v17,
+                v25);
+        v4 = v21;
+        if ( v21 < 0 )
+          break;
+        *a2 = 1;
       }
+LABEL_26:
+      v7 = *(struct PDEV **)v7;
+      if ( !v7 )
+        goto LABEL_27;
     }
+    v22 = (_QWORD *)WdLogNewEntry5_WdError(v12, v11);
+    v22[3] = v4;
+    v22[4] = *(_QWORD *)(*((_QWORD *)v7 + 322) + 240LL);
+    v22[5] = *(unsigned int *)(*((_QWORD *)v7 + 322) + 256LL);
+    WdLogEvent5_WdError(v22);
+    goto LABEL_26;
   }
-  EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v6 + 8));
-  v23 = *(struct _ERESOURCE **)(v6 + 8);
-  if ( v23 )
+LABEL_27:
+  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v6);
+  if ( ghsemDriverMgmt )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v23);
-    PsLeavePriorityRegion(v24);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
+    PsLeavePriorityRegion(v23);
   }
   return (unsigned int)v4;
 }

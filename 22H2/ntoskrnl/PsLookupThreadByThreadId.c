@@ -1,71 +1,57 @@
 /*
- * XREFs of PsLookupThreadByThreadId @ 0x1406FAFC0
+ * XREFs of PsLookupThreadByThreadId @ 0x140625A50
  * Callers:
- *     PspThreadFromTicket @ 0x1406FABD8 (PspThreadFromTicket.c)
- *     NtAlertThreadByThreadId @ 0x14073E950 (NtAlertThreadByThreadId.c)
- *     PsOpenThread @ 0x1407BBD70 (PsOpenThread.c)
- *     PsLookupProcessThreadByCid @ 0x1407BC140 (PsLookupProcessThreadByCid.c)
- *     PfpServiceMainThreadBoostPrep @ 0x14097ED58 (PfpServiceMainThreadBoostPrep.c)
- *     PopInitSystemSleeperThread @ 0x14098B850 (PopInitSystemSleeperThread.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     NtAlertThreadByThreadId @ 0x140626080 (NtAlertThreadByThreadId.c)
+ *     PsOpenThread @ 0x140626120 (PsOpenThread.c)
+ *     PsLookupProcessThreadByCid @ 0x1406839D0 (PsLookupProcessThreadByCid.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x140779DF8 (PfpServiceMainThreadBoostPrep.c)
+ *     PspFindThreadForTeb @ 0x14090A150 (PspFindThreadForTeb.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14090EC1C (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
- *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x140289E60 (IoThreadToProcess.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x140289ECC (PsIsProcessInSilo.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PspReferenceCidTableEntry @ 0x1406FB260 (PspReferenceCidTableEntry.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x14025C298 (PsIsProcessInSilo.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14031C3B4 (ExfAcquireReleasePushLockExclusive.c)
+ *     PspReferenceCidTableEntry @ 0x140625E70 (PspReferenceCidTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
 {
-  struct _KTHREAD *CurrentThread; // rdi
-  PETHREAD *v3; // rsi
-  struct _KTHREAD *v4; // rax
-  struct _KTHREAD *v5; // rbx
-  __int64 CurrentServerSilo; // rax
-  NTSTATUS v7; // esi
-  bool v8; // zf
-  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
+  struct _KTHREAD *CurrentThread; // rsi
+  PETHREAD *v3; // r14
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 CurrentServerSilo; // rdi
+  signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = Thread;
-  LOBYTE(Thread) = 6;
   --CurrentThread->SpecialApcDisable;
-  v4 = (struct _KTHREAD *)PspReferenceCidTableEntry(ThreadId, Thread);
-  v5 = v4;
-  if ( v4 )
+  LOBYTE(Thread) = 6;
+  v6 = PspReferenceCidTableEntry(ThreadId, Thread);
+  if ( v6 )
   {
-    if ( IoThreadToProcess(v4) == PsIdleProcess )
-      goto LABEL_14;
-    if ( (*(_DWORD *)(&v5[1].SwapListEntry + 1) & 2) == 0 )
+    CurrentServerSilo = PsGetCurrentServerSilo(v5, v4);
+    if ( (*(_DWORD *)(v6 + 1296) & 2) == 0 )
     {
-      _InterlockedOr(v10, 0);
-      if ( ((__int64)v5[1].WaitBlockList & 1) != 0 )
-        ExfAcquireReleasePushLockExclusive((ULONG_PTR)&v5[1].WaitBlockList);
-      if ( (*(_DWORD *)(&v5[1].SwapListEntry + 1) & 2) == 0 )
-        goto LABEL_14;
+      _InterlockedOr(v9, 0);
+      if ( (*(_QWORD *)(v6 + 1280) & 1) != 0 )
+        ExfAcquireReleasePushLockExclusive((unsigned __int64 *)(v6 + 1280));
+      if ( (*(_DWORD *)(v6 + 1296) & 2) == 0 )
+        goto LABEL_7;
     }
-    CurrentServerSilo = PsGetCurrentServerSilo();
-    if ( PsIsProcessInSilo(v5->Process, CurrentServerSilo) )
+    if ( !PsIsProcessInSilo(*(struct _KPROCESS **)(v6 + 544), CurrentServerSilo) )
     {
-      *v3 = v5;
-      v7 = 0;
-    }
-    else
-    {
-LABEL_14:
-      v7 = -1073741813;
-      ObfDereferenceObject(v5);
+LABEL_7:
+      HalPutDmaAdapter((PADAPTER_OBJECT)v6);
+      v6 = 0LL;
     }
   }
-  else
-  {
-    v7 = -1073741813;
-  }
-  v8 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v8 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  return v7;
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( !v6 )
+    return -1073741813;
+  *v3 = (PETHREAD)v6;
+  return 0;
 }

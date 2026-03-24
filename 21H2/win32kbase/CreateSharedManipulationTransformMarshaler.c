@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedManipulationTransformMarshaler @ 0x1C00A8880
+ * XREFs of CreateSharedManipulationTransformMarshaler @ 0x1C0095450
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedManipulationTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A88C0 (-Create@CSharedManipulationTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@.c)
+ *     ?Create@CSharedManipulationTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0095490 (-Create@CSharedManipulationTransformMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@.c)
  */
 
 __int64 __fastcall CreateSharedManipulationTransformMarshaler(

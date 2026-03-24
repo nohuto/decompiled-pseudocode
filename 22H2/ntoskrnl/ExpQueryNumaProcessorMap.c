@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpQueryNumaProcessorMap @ 0x1407B43C0
+ * XREFs of ExpQueryNumaProcessorMap @ 0x1406FDCF0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140305880 (KeQueryNodeActiveAffinity.c)
- *     KeQueryHighestNodeNumber @ 0x14033CA40 (KeQueryHighestNodeNumber.c)
+ *     KeQueryHighestNodeNumber @ 0x1403544C0 (KeQueryHighestNodeNumber.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall ExpQueryNumaProcessorMap(_DWORD *a1, unsigned int a2, _DWORD *a3)
@@ -12,9 +12,7 @@ __int64 __fastcall ExpQueryNumaProcessorMap(_DWORD *a1, unsigned int a2, _DWORD 
   USHORT v6; // bx
   USHORT HighestNodeNumber; // ax
   unsigned int v8; // esi
-  unsigned int v9; // eax
-  int v10; // edx
-  int v11; // edi
+  unsigned int i; // edi
 
   v6 = 0;
   if ( a2 < 4 )
@@ -33,16 +31,8 @@ __int64 __fastcall ExpQueryNumaProcessorMap(_DWORD *a1, unsigned int a2, _DWORD 
     if ( a2 >= 8 && v8 )
     {
       *a3 = 16 * v8 + 8;
-      v9 = 0;
-      v10 = 0;
-      v11 = 0;
-      while ( v9 < v8 )
-      {
-        KeQueryNodeActiveAffinity(v6, (PGROUP_AFFINITY)&a1[4 * v10 + 2], 0LL);
-        v9 = v11 + 1;
-        v6 = v11 + 1;
-        v10 = ++v11;
-      }
+      for ( i = 0; i < v8; v6 = i )
+        KeQueryNodeActiveAffinity(v6, (PGROUP_AFFINITY)&a1[4 * i++ + 2], 0LL);
       return 0LL;
     }
     else

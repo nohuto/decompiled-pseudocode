@@ -1,19 +1,19 @@
 /*
- * XREFs of DpiCleanUpGlobalState @ 0x1C0387FFC
+ * XREFs of DpiCleanUpGlobalState @ 0x1C02C77AC
  * Callers:
- *     DxgkUnload @ 0x1C0301B10 (DxgkUnload.c)
+ *     DxgkUnload @ 0x1C0261750 (DxgkUnload.c)
  * Callees:
- *     DpiPdoPollingWorkItem @ 0x1C03978B0 (DpiPdoPollingWorkItem.c)
+ *     DpiPdoPollingWorkItem @ 0x1C02D92E0 (DpiPdoPollingWorkItem.c)
  */
 
 void DpiCleanUpGlobalState()
 {
-  KeCancelTimer(&stru_1C0130698);
+  KeCancelTimer(&stru_1C00B2D10);
   DpiPdoPollingWorkItem((PDEVICE_OBJECT)g_pDriverObject, (PVOID)1);
   KeFlushQueuedDpcs();
-  if ( qword_1C0130718 )
-    IoFreeWorkItem(qword_1C0130718);
-  ExDeleteNPagedLookasideList(&stru_1C0130580);
+  if ( qword_1C00B2D90 )
+    IoFreeWorkItem(qword_1C00B2D90);
+  ExDeleteNPagedLookasideList(&stru_1C00B2C00);
   if ( P )
   {
     ExFreePoolWithTag(P, 0);
@@ -25,9 +25,9 @@ void DpiCleanUpGlobalState()
     ExFreePoolWithTag(Mutex, 0);
     Mutex = 0LL;
   }
-  if ( qword_1C0130890 )
+  if ( qword_1C00B2F08 )
   {
-    IoUnregisterPlugPlayNotificationEx(qword_1C0130890);
-    qword_1C0130890 = 0LL;
+    IoUnregisterPlugPlayNotificationEx(qword_1C00B2F08);
+    qword_1C00B2F08 = 0LL;
   }
 }

@@ -1,16 +1,13 @@
 /*
- * XREFs of ?VmBusSendMapGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEBVDXGDEVICE@@IIPEAUD3DDDI_MAPGPUVIRTUALADDRESS@@@Z @ 0x1C038B168
+ * XREFs of ?VmBusSendMapGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEBVDXGDEVICE@@IIPEAUD3DDDI_MAPGPUVIRTUALADDRESS@@@Z @ 0x1C024A4A0
  * Callers:
- *     ?MapGpuVirtualAddressToAllocation@@YAJPEAVADAPTER_RENDER@@PEAVDXGALLOCATION@@@Z @ 0x1C016B6B8 (-MapGpuVirtualAddressToAllocation@@YAJPEAVADAPTER_RENDER@@PEAVDXGALLOCATION@@@Z.c)
- *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C01CD980 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
- *     DxgkMapGpuVirtualAddress @ 0x1C01D4460 (DxgkMapGpuVirtualAddress.c)
- *     ?OpenSharedSurfForDevice@DXGDXGIKEYEDMUTEX@@AEAAJPEAVDXGDEVICE@@@Z @ 0x1C032D4B8 (-OpenSharedSurfForDevice@DXGDXGIKEYEDMUTEX@@AEAAJPEAVDXGDEVICE@@@Z.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C00FD200 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     DxgkMapGpuVirtualAddress @ 0x1C01583C0 (DxgkMapGpuVirtualAddress.c)
+ *     ?MapGpuVirtualAddressToAllocation@@YAJPEAVADAPTER_RENDER@@PEAVDXGALLOCATION@@@Z @ 0x1C022E868 (-MapGpuVirtualAddressToAllocation@@YAJPEAVADAPTER_RENDER@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?OpenSharedSurfForDevice@DXGDXGIKEYEDMUTEX@@AEAAJPEAVDXGDEVICE@@@Z @ 0x1C029B910 (-OpenSharedSurfForDevice@DXGDXGIKEYEDMUTEX@@AEAAJPEAVDXGDEVICE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendMapGpuVirtualAddress(
@@ -21,58 +18,65 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendMapGpuVirtualAddress(
         unsigned int a5,
         struct D3DDDI_MAPGPUVIRTUALADDRESS *a6)
 {
-  __int64 v10; // rcx
-  int v11; // edi
-  int v12; // eax
-  unsigned int v14; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v15[3]; // [rsp+60h] [rbp-A8h] BYREF
-  int v16; // [rsp+78h] [rbp-90h]
-  _QWORD v17[2]; // [rsp+188h] [rbp+80h] BYREF
-  int v18; // [rsp+198h] [rbp+90h]
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // ebx
+  __int64 v15; // rax
+  struct _MDL *v17; // [rsp+28h] [rbp-91h]
+  unsigned int v18[4]; // [rsp+30h] [rbp-89h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-79h] BYREF
+  int v20; // [rsp+48h] [rbp-71h]
+  int v21; // [rsp+4Ch] [rbp-6Dh]
+  int v22; // [rsp+50h] [rbp-69h]
+  __int128 v23; // [rsp+58h] [rbp-61h]
+  __int128 v24; // [rsp+68h] [rbp-51h]
+  __int128 v25; // [rsp+78h] [rbp-41h]
+  __int128 v26; // [rsp+88h] [rbp-31h]
+  __int128 v27; // [rsp+98h] [rbp-21h]
+  __int128 v28; // [rsp+A8h] [rbp-11h]
+  UINT64 PagingFenceValue; // [rsp+B8h] [rbp-1h]
+  int v30; // [rsp+C0h] [rbp+7h]
+  _QWORD v31[2]; // [rsp+D0h] [rbp+17h] BYREF
+  int v32; // [rsp+E0h] [rbp+27h]
 
-  v16 = 0;
-  *(_OWORD *)&v15[1] = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v15[1], this, 0x88u, 0LL, 0LL, 0LL);
-  v10 = v15[1];
-  if ( v15[1] )
-  {
-    *(_QWORD *)v15[1] = 0LL;
-    *(_DWORD *)(v10 + 20) = 0;
-    *(_BYTE *)(v10 + 12) = 0;
-    *(_DWORD *)(v10 + 12) &= 0x1FFu;
-    *(_DWORD *)(v10 + 8) = a2;
-    *(_DWORD *)(v10 + 16) = 17;
-    *(struct D3DDDI_MAPGPUVIRTUALADDRESS *)(v10 + 24) = *a6;
-    *(_DWORD *)(v10 + 56) = a5;
-    *(_DWORD *)(v10 + 24) = a4;
-    if ( a3 )
-      v12 = *((_DWORD *)a3 + 118);
-    else
-      v12 = 0;
-    *(_DWORD *)(v10 + 128) = v12;
-    v14 = 24;
-    v11 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v15[1], v17, &v14);
-    if ( v11 < 0
-      || (v11 = -1073741823, v14 < 0x18)
-      || (v11 = v18, a6->VirtualAddress = v17[0], a6->PagingFenceValue = v17[1], v11 < 0) )
-    {
-      WdLogSingleEntry1(2LL, v11);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendMapGpuVirtualAddress failed: 0x%I64x",
-        v11,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-  }
+  v19 = 0LL;
+  v21 = 0;
+  v20 = a2;
+  v22 = 17;
+  v6 = *(_OWORD *)&a6->MinimumAddress;
+  v23 = *(_OWORD *)&a6->hPagingQueue;
+  LODWORD(v23) = a4;
+  v7 = *(_OWORD *)&a6->hAllocation;
+  v24 = v6;
+  v8 = *(_OWORD *)&a6->SizeInPages;
+  v25 = v7;
+  LODWORD(v25) = a5;
+  v9 = *(_OWORD *)&a6->DriverProtection;
+  v26 = v8;
+  v10 = *(_OWORD *)&a6->Reserved1;
+  v27 = v9;
+  PagingFenceValue = a6->PagingFenceValue;
+  v28 = v10;
+  if ( a3 )
+    v11 = *((_DWORD *)a3 + 110);
   else
+    v11 = 0;
+  v30 = v11;
+  v18[0] = 24;
+  v14 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v19, 0x88u, v31, v18, v17);
+  if ( v14 < 0
+    || (v14 = -1073741823, v18[0] < 0x18)
+    || (v14 = v32, a6->VirtualAddress = v31[0], a6->PagingFenceValue = v31[1], v14 < 0) )
   {
-    v11 = -1073741801;
+    v15 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v15 + 24) = v14;
+    WdLogEvent5_WdError(v15);
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v15[1]);
-  return (unsigned int)v11;
+  return (unsigned int)v14;
 }

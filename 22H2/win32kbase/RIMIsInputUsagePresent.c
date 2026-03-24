@@ -1,12 +1,12 @@
 /*
- * XREFs of RIMIsInputUsagePresent @ 0x1C018240C
+ * XREFs of RIMIsInputUsagePresent @ 0x1C0161B64
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C0182600 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0187070 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161CFC (RIMPopulatePointerDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     rimHidP_GetSpecificValueCaps @ 0x1C01852B0 (rimHidP_GetSpecificValueCaps.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C0163548 (rimHidP_GetSpecificValueCaps.c)
  */
 
 _BOOL8 __fastcall RIMIsInputUsagePresent(__int64 a1, __int64 a2, unsigned __int16 a3)

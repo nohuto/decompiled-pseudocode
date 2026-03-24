@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepUpdateDripsDeviceVetoMask @ 0x1402DDF10
+ * XREFs of PopPepUpdateDripsDeviceVetoMask @ 0x1402DE010
  * Callers:
- *     PopFxUpdateVetoMaskWork @ 0x14086A900 (PopFxUpdateVetoMaskWork.c)
+ *     PopFxUpdateVetoMaskWork @ 0x14086A8E0 (PopFxUpdateVetoMaskWork.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140172488 (PopPepUpdateIdleStateRefCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1402D3E1C (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepGetMinimumDevicePowerState @ 0x1402DCE54 (PopPepGetMinimumDevicePowerState.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1401724A8 (PopPepUpdateIdleStateRefCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1402D3F1C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x1402DCF54 (PopPepGetMinimumDevicePowerState.c)
  */
 
 __int64 __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)

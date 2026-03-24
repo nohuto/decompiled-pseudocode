@@ -1,32 +1,22 @@
 /*
- * XREFs of ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01EBE44
+ * XREFs of ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01AB4E8
  * Callers:
- *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EBD30 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EBEC0 (-NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EC120 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EC340 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EC520 (-NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EC630 (-NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB3D0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB550 (-NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB790 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB980 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABBF0 (-NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABD10 (-NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall NlsClearKeyStateToggle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall NlsClearKeyStateToggle(unsigned __int8 a1)
 {
-  __int64 v4; // rdx
-  char v5; // di
-  unsigned __int64 v6; // rbx
-  __int64 v7; // rax
+  unsigned __int64 v1; // rdx
 
-  v4 = gpqForeground;
-  v5 = a1;
-  v6 = (unsigned __int64)(unsigned __int8)a1 >> 2;
+  v1 = (unsigned __int64)a1 >> 2;
   if ( gpqForeground )
-  {
-    a1 = *(unsigned __int8 *)(v6 + gpqForeground + 236);
-    LODWORD(a1) = a1 & ~(1 << (2 * (v5 & 3) + 1));
-    *(_BYTE *)(v6 + gpqForeground + 236) = a1;
-  }
-  v7 = SGDGetUserSessionState(a1, v4, a3, a4);
-  *(_BYTE *)(v7 + v6 + 13992) &= ~(1 << (2 * (v5 & 3) + 1));
+    *(_BYTE *)(v1 + gpqForeground + 228) &= ~(1 << (2 * (a1 & 3) + 1));
+  *((_BYTE *)&gafAsyncKeyState + v1) &= ~(1 << (2 * (a1 & 3) + 1));
 }

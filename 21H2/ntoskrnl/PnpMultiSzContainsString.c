@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpMultiSzContainsString @ 0x14039F184
+ * XREFs of PnpMultiSzContainsString @ 0x140392E00
  * Callers:
- *     PiDevCfgFindDeviceDriver @ 0x1407449E0 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgResolveVariableExpression @ 0x140804350 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14080A890 (PiDevCfgResolveMultiSzValue.c)
- *     PiDevCfgAppendMultiSz @ 0x14094A7D4 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgFindDeviceDriver @ 0x14073BD08 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x14077B33C (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgAppendMultiSz @ 0x1408A4C8C (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 PCWSTR __fastcall PnpMultiSzContainsString(PCWSTR SourceString, const WCHAR *a2)

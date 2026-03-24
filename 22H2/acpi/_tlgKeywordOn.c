@@ -1,10 +1,11 @@
 /*
- * XREFs of _tlgKeywordOn @ 0x1C0009240
+ * XREFs of _tlgKeywordOn @ 0x1C000FB50
  * Callers:
- *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C00079E8 (AcpiDiagTraceAmliWatchdogTimeout.c)
- *     AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0008798 (AcpiDiagTraceRecordAmlEvaluationStatistics.c)
- *     AcpiDiagTraceTemperatureTelemetry @ 0x1C00089D4 (AcpiDiagTraceTemperatureTelemetry.c)
- *     IrqTraceAffinityPolicy @ 0x1C009FFD0 (IrqTraceAffinityPolicy.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     AcpiDiagTraceTemperatureTelemetry @ 0x1C0011D50 (AcpiDiagTraceTemperatureTelemetry.c)
+ *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C004985C (AcpiDiagTraceAmliWatchdogTimeout.c)
+ *     AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C004A034 (AcpiDiagTraceRecordAmlEvaluationStatistics.c)
+ *     IrqTraceAffinityPolicy @ 0x1C0096174 (IrqTraceAffinityPolicy.c)
  * Callees:
  *     <none>
  */

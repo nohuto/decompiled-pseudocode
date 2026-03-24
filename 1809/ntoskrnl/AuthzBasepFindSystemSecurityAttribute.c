@@ -3,7 +3,7 @@
  * Callers:
  *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1406257F4 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1400A5DC8 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1400A5DE8 (AuthzBasepEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepFindSystemSecurityAttribute(const UNICODE_STRING *a1)

@@ -1,24 +1,23 @@
 /*
- * XREFs of ?SetProperty@CPrimitiveColor@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180231AE0
+ * XREFs of ?SetProperty@CPrimitiveColor@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E2EE0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?OnColorChanged@CPrimitiveColor@@AEAAXXZ @ 0x1801E2D44 (-OnColorChanged@CPrimitiveColor@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CPrimitiveColor::SetProperty(float *a1, int a2, int a3, float *a4)
 {
-  float *v4; // r11
+  CPrimitiveColor *v4; // r10
   float v5; // xmm1_4
   int v6; // edx
   int v7; // edx
   int v8; // edx
   __int64 v9; // rax
-  __int64 v10; // rax
-  unsigned int v11; // ebx
+  unsigned int v10; // ebx
 
-  v4 = a1;
+  v4 = (CPrimitiveColor *)a1;
   if ( a3 != 18 )
     goto LABEL_14;
   v5 = *a4;
@@ -34,34 +33,33 @@ __int64 __fastcall CPrimitiveColor::SetProperty(float *a1, int a2, int a3, float
         if ( v8 != 1 )
         {
 LABEL_14:
-          v11 = -2147024809;
-          MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024809, 0x46u);
-          return v11;
+          v10 = -2147024809;
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x47u, 0LL);
+          return v10;
         }
-        v9 = 76LL;
+        v9 = 124LL;
       }
       else
       {
-        v9 = 72LL;
+        v9 = 120LL;
       }
     }
     else
     {
-      v9 = 68LL;
+      v9 = 116LL;
     }
   }
   else
   {
-    v9 = 64LL;
+    v9 = 112LL;
   }
   a1 = (float *)((char *)a1 + v9);
   if ( !a1 )
     goto LABEL_14;
   if ( *a1 != v5 )
   {
-    v10 = *(_QWORD *)v4;
     *a1 = v5;
-    (*(void (__fastcall **)(float *, _QWORD, _QWORD))(v10 + 72))(v4, 0LL, 0LL);
+    CPrimitiveColor::OnColorChanged(v4);
   }
   return 0;
 }

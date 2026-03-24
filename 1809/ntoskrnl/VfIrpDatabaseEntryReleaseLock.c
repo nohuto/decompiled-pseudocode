@@ -21,10 +21,10 @@
  *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x14030B4E8 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x14030B530 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x14030B5E8 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x14030B630 (ViIrpDatabaseReleaseLockExclusive.c)
  *     VfUtilAddressRangeRemoveCheckEmpty @ 0x14092606C (VfUtilAddressRangeRemoveCheckEmpty.c)
  */
 

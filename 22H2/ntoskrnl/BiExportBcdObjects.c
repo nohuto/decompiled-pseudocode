@@ -1,14 +1,14 @@
 /*
- * XREFs of BiExportBcdObjects @ 0x140A5E514
+ * XREFs of BiExportBcdObjects @ 0x140971AE8
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x140A5E9AC (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140971F80 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiIsPortableWorkspaceBoot @ 0x140A5D71C (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140A5D834 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x140A5DE50 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x140A5E380 (BiDeleteBootEntry.c)
- *     BiUpdateEfiEntry @ 0x140A5EF5C (BiUpdateEfiEntry.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiIsPortableWorkspaceBoot @ 0x14096F8F8 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140970200 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x140971320 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x140971854 (BiDeleteBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x1409731BC (BiUpdateEfiEntry.c)
  */
 
 __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
@@ -18,8 +18,11 @@ __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
   int v6; // ecx
   int v7; // eax
   int v8; // eax
-  int EfiEntry; // esi
-  bool IsPortableWorkspaceBoot; // bp
+  int v9; // esi
+  bool IsPortableWorkspaceBoot; // al
+  int v11; // ecx
+  bool v12; // bp
+  int EfiEntry; // eax
   int updated; // eax
 
   v2 = *a2;
@@ -31,43 +34,49 @@ __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
     v6 = *(_DWORD *)(v2 + 48);
     v7 = v6 & 5;
     if ( (v6 & 5) == 0 )
-      goto LABEL_23;
+      goto LABEL_24;
     if ( (v6 & 0x10) != 0 )
     {
       if ( (v6 & 1) == 0 )
-        goto LABEL_23;
+        goto LABEL_24;
       v8 = BiDeleteBootEntry(*(_DWORD *)(v2 + 32));
       if ( v8 >= 0 )
       {
         *(_DWORD *)(v2 + 48) &= ~1u;
-        goto LABEL_23;
+        goto LABEL_24;
       }
 LABEL_9:
       v3 = v8;
-      goto LABEL_23;
+      goto LABEL_24;
     }
     if ( v7 == 1 )
     {
       v8 = BiDeleteBootEntry(*(_DWORD *)(v2 + 32));
       if ( v8 >= 0 )
-        goto LABEL_23;
+        goto LABEL_24;
       goto LABEL_9;
     }
     if ( v7 == 4 )
     {
-      EfiEntry = 0;
+      v9 = 0;
       IsPortableWorkspaceBoot = BiIsPortableWorkspaceBoot();
-      if ( (*(_DWORD *)(v2 + 48) & 8) != 0 || !IsPortableWorkspaceBoot )
+      v11 = *(_DWORD *)(v2 + 48);
+      v12 = IsPortableWorkspaceBoot;
+      if ( (v11 & 8) != 0 || !IsPortableWorkspaceBoot )
+      {
         EfiEntry = BiCreateEfiEntry(a1, v2);
-      if ( (*(_DWORD *)(v2 + 48) & 8) != 0 || IsPortableWorkspaceBoot )
-      {
-        if ( EfiEntry < 0 )
-          v3 = -2143748095;
+        v11 = *(_DWORD *)(v2 + 48);
+        v9 = EfiEntry;
       }
-      else if ( EfiEntry >= 0 )
+      if ( (v11 & 8) == 0 && !v12 )
       {
-        BiAddBootEntryToEfiBootManagerDisplayOrder(a1, v2);
+        if ( v9 < 0 )
+          v9 = 0;
+        else
+          BiAddBootEntryToEfiBootManagerDisplayOrder(a1, v2);
       }
+      if ( v9 < 0 )
+        v3 = -2143748095;
     }
     else
     {
@@ -79,7 +88,7 @@ LABEL_9:
           v3 = -2143748093;
       }
     }
-LABEL_23:
+LABEL_24:
     v2 = *(_QWORD *)v2;
   }
   while ( (__int64 *)v2 != a2 );

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CWICBitmapRealization@@WGA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18010B450
+ * XREFs of ?QueryInterface@CWICBitmapRealization@@WGA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F88E0
  * Callers:
  *     <none>
  * Callees:

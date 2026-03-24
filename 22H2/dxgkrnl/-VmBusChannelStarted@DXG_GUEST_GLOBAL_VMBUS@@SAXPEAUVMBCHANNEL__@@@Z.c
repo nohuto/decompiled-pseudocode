@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VmBusChannelStarted@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z @ 0x1C03796F0
+ * XREFs of ?VmBusChannelStarted@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z @ 0x1C023DB60
  * Callers:
  *     <none>
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005B17C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C0040104 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
  */
 
 void __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusChannelStarted(struct VMBCHANNEL__ *a1)

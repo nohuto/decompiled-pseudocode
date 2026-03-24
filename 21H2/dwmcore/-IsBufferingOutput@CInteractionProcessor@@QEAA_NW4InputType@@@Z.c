@@ -1,12 +1,12 @@
 /*
- * XREFs of ?IsBufferingOutput@CInteractionProcessor@@QEAA_NW4InputType@@@Z @ 0x18018D75C
+ * XREFs of ?IsBufferingOutput@CInteractionProcessor@@QEAA_NW4InputType@@@Z @ 0x18022DEA8
  * Callers:
- *     ?IsBufferingOutput@CInteractionRoot@@UEAA_NW4InputType@@@Z @ 0x180183060 (-IsBufferingOutput@CInteractionRoot@@UEAA_NW4InputType@@@Z.c)
- *     ?IsBufferingOutput@CInteraction@@UEAA_NW4InputType@@@Z @ 0x1801F2620 (-IsBufferingOutput@CInteraction@@UEAA_NW4InputType@@@Z.c)
+ *     ?IsBufferingOutput@CInteraction@@UEAA_NW4InputType@@@Z @ 0x1801C6730 (-IsBufferingOutput@CInteraction@@UEAA_NW4InputType@@@Z.c)
+ *     ?IsBufferingOutput@CInteractionRoot@@UEAA_NW4InputType@@@Z @ 0x180234A90 (-IsBufferingOutput@CInteractionRoot@@UEAA_NW4InputType@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x18018D528 (-GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrappe.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x18022DBE4 (-GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrappe.c)
  */
 
 char __fastcall CInteractionProcessor::IsBufferingOutput(CInteractionProcessor *a1, int a2)

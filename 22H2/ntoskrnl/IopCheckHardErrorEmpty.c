@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckHardErrorEmpty @ 0x140554F80
+ * XREFs of IopCheckHardErrorEmpty @ 0x140500258
  * Callers:
- *     IopHardErrorThread @ 0x140944E40 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x1408916B0 (IopHardErrorThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char IopCheckHardErrorEmpty()
@@ -20,27 +20,30 @@ char IopCheckHardErrorEmpty()
   bool v7; // zf
 
   v0 = 1;
-  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140C5DEB0);
+  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140C46010);
   IopCurrentHardError = 0LL;
   v2 = v1;
-  if ( (__int64 *)qword_140C5DEA0 == &qword_140C5DEA0 )
+  if ( (__int64 *)qword_140C46000 == &qword_140C46000 )
   {
-    byte_140C5DED8 = 0;
+    byte_140C46038 = 0;
     v0 = 0;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5DEB0);
+  KxReleaseSpinLock(&qword_140C46010);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v7 = (v6 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v6;
-      if ( v7 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v7 = (v6 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v6;
+        if ( v7 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

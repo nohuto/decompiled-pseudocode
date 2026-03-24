@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpQueryChannelInformation @ 0x1409F68DC
+ * XREFs of ExpQueryChannelInformation @ 0x14077A930
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetProcessPartitionId @ 0x14026A0BC (MmGetProcessPartitionId.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MmGetChannelInformation @ 0x14082BB8C (MmGetChannelInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmGetProcessPartitionId @ 0x14027B5E0 (MmGetProcessPartitionId.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MmGetChannelInformation @ 0x14077DC94 (MmGetChannelInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryChannelInformation(unsigned int *a1, unsigned int a2, _DWORD *a3)
 {
   size_t v4; // rsi
-  int ChannelInformation; // ebx
   unsigned __int16 ProcessPartitionId; // ax
+  int ChannelInformation; // ebx
   size_t v8; // r8
   unsigned int v10; // [rsp+24h] [rbp-24h]
   size_t Size[4]; // [rsp+28h] [rbp-20h] BYREF
@@ -22,7 +22,11 @@ __int64 __fastcall ExpQueryChannelInformation(unsigned int *a1, unsigned int a2,
   v4 = a2;
   Size[0] = 0LL;
   Src = 0LL;
-  if ( a2 >= 4 )
+  if ( a2 < 4 )
+  {
+    ChannelInformation = -1073741306;
+  }
+  else
   {
     v10 = *a1;
     ProcessPartitionId = MmGetProcessPartitionId((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -31,27 +35,20 @@ __int64 __fastcall ExpQueryChannelInformation(unsigned int *a1, unsigned int a2,
     {
       v8 = Size[0];
       *a3 = Size[0];
-      if ( v8 <= 0xFFFFFFFF )
-      {
-        if ( v4 >= v8 )
-        {
-          memmove(a1, Src, v8);
-          ChannelInformation = 0;
-        }
-        else
-        {
-          ChannelInformation = -1073741789;
-        }
-      }
-      else
+      if ( v8 > 0xFFFFFFFF )
       {
         ChannelInformation = -1073741670;
       }
+      else if ( v4 < v8 )
+      {
+        ChannelInformation = -1073741789;
+      }
+      else
+      {
+        memmove(a1, Src, v8);
+        ChannelInformation = 0;
+      }
     }
-  }
-  else
-  {
-    ChannelInformation = -1073741306;
   }
   if ( Src )
     ExFreePoolWithTag(Src, 0);

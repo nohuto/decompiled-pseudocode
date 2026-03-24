@@ -1,7 +1,7 @@
 /*
- * XREFs of I_PlaySoundkPostMessage @ 0x1C009D69C
+ * XREFs of I_PlaySoundkPostMessage @ 0x1C01015B8
  * Callers:
- *     PlaySoundPostMessage @ 0x1C039957C (PlaySoundPostMessage.c)
+ *     PlaySoundPostMessage @ 0x1C037A4B0 (PlaySoundPostMessage.c)
  * Callees:
  *     <none>
  */
@@ -11,5 +11,5 @@ CLIENT_CALL_RETURN __fastcall I_PlaySoundkPostMessage(__int64 a1, __int64 a2, in
   int v7; // [rsp+38h] [rbp-20h]
 
   v7 = 0;
-  return Ndr64AsyncClientCall((MIDL_STUBLESS_PROXY_INFO *)&pProxyInfo, 0, 0LL, a1, a2, a3, a4, v7, &unk_1C035F3E8);
+  return Ndr64AsyncClientCall((MIDL_STUBLESS_PROXY_INFO *)&pProxyInfo, 0, 0LL, a1, a2, a3, a4, v7, &unk_1C033C2F0);
 }

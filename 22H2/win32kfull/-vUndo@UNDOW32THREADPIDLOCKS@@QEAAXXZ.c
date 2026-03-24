@@ -1,48 +1,44 @@
 /*
- * XREFs of ?vUndo@UNDOW32THREADPIDLOCKS@@QEAAXXZ @ 0x1C001B1B0
+ * XREFs of ?vUndo@UNDOW32THREADPIDLOCKS@@QEAAXXZ @ 0x1C00EED94
  * Callers:
- *     ?bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00190C0 (-bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEA.c)
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C001A564 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C027DAB0 (-bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C00968A0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00EE7A0 (-bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEA.c)
+ *     ?bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C027FF70 (-bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 void __fastcall UNDOW32THREADPIDLOCKS::vUndo(UNDOW32THREADPIDLOCKS *this)
 {
   __int64 ThreadWin32Thread; // rdi
-  Gre::Base *v3; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v4; // rax
-  __int64 *v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rax
+  __int64 *v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
 
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  v4 = Gre::Base::Globals(v3);
-  if ( ThreadWin32Thread && !(unsigned int)GreIsSemaphoreOwnedOrSharedByCurrentThread(*((_QWORD *)v4 + 14)) )
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( ThreadWin32Thread && !(unsigned int)GreIsSemaphoreOwnedOrSharedByCurrentThread(ghsemSprite) )
   {
-    v5 = *(__int64 **)(ThreadWin32Thread + 312);
-    *(_QWORD *)this = v5;
-    v6 = *(_QWORD *)(ThreadWin32Thread + 320);
+    v3 = *(__int64 **)(ThreadWin32Thread + 312);
+    *(_QWORD *)this = v3;
+    v4 = *(_QWORD *)(ThreadWin32Thread + 320);
     *((_DWORD *)this + 4) = 0;
     *((_DWORD *)this + 5) = 0;
-    *((_QWORD *)this + 1) = v6;
-    if ( v5 )
+    *((_QWORD *)this + 1) = v4;
+    if ( v3 )
     {
-      v7 = *v5;
-      if ( _bittest((const signed __int32 *)(v7 + 36), 0xEu) )
+      v5 = *v3;
+      if ( (*(_DWORD *)(v5 + 36) & 0x4000) != 0 )
       {
-        SURFACE::bUnMap(*(SURFACE **)(v7 + 496), 0LL, (struct DC *)v7);
+        SURFACE::bUnMap(*(SURFACE **)(v5 + 496), 0LL, (struct DC *)v5);
+        v4 = *((_QWORD *)this + 1);
         *((_DWORD *)this + 4) = 1;
       }
     }
-    v8 = *((_QWORD *)this + 1);
-    if ( v8 )
+    if ( v4 )
     {
-      if ( _bittest((const signed __int32 *)(*(_QWORD *)v8 + 36LL), 0xEu) )
+      if ( (*(_DWORD *)(*(_QWORD *)v4 + 36LL) & 0x4000) != 0 )
       {
-        SURFACE::bUnMap(*(SURFACE **)(*(_QWORD *)v8 + 496LL), 0LL, 0LL);
+        SURFACE::bUnMap(*(SURFACE **)(*(_QWORD *)v4 + 496LL), 0LL, 0LL);
         *((_DWORD *)this + 5) = 1;
       }
     }

@@ -1,18 +1,18 @@
 /*
- * XREFs of WheaRemoveErrorSource @ 0x140A08880
+ * XREFs of WheaRemoveErrorSource @ 0x14095CF40
  * Callers:
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140A08A50 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D110 (WheaRemoveErrorSourceDeviceDriver.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x1403D2BC0 (WheapIsNonHestErrorSource.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
- *     WheapCallErrorSourceUninitialize @ 0x1406456B8 (WheapCallErrorSourceUninitialize.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
+ *     WheapIsNonHestErrorSource @ 0x1403BB0A4 (WheapIsNonHestErrorSource.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
+ *     WheapCallErrorSourceUninitialize @ 0x1405BCCA0 (WheapCallErrorSourceUninitialize.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-char __fastcall WheaRemoveErrorSource(unsigned int a1)
+char __fastcall WheaRemoveErrorSource(int a1)
 {
   __int64 *ErrorSource; // rax
   __int64 v2; // rbx

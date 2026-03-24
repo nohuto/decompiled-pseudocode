@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vDestructorNULL@DEVLOCKOBJ@@QEAAXXZ @ 0x1C027A15C
+ * XREFs of ?vDestructorNULL@DEVLOCKOBJ@@QEAAXXZ @ 0x1C027C5EC
  * Callers:
- *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C02792DC (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
+ *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C027B734 (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
  * Callees:
- *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C003FCAC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
- *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z @ 0x1C0040528 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z @ 0x1C008E5D8 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C008E8EC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
  */
 
 void __fastcall DEVLOCKOBJ::vDestructorNULL(DEVLOCKOBJ *this)

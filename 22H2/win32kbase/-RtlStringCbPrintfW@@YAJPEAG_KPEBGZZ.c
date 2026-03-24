@@ -1,41 +1,44 @@
 /*
- * XREFs of ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00B1304
+ * XREFs of ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00750D8
  * Callers:
- *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00B11F8 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
- *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C00CA8D0 (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
+ *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0074FC8 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
+ *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C00C2C54 (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
  * Callees:
- *     _vsnwprintf @ 0x1C00CE184 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1C00C55C4 (_vsnwprintf.c)
  */
 
-__int64 RtlStringCbPrintfW(unsigned __int16 *a1, unsigned __int64 a2, const unsigned __int16 *a3, ...)
+__int64 RtlStringCbPrintfW(wchar_t *Dest, unsigned __int64 a2, const unsigned __int16 *a3, ...)
 {
   unsigned __int64 v3; // rdx
-  unsigned __int64 v5; // rsi
-  unsigned int v6; // edi
+  int v5; // esi
+  unsigned __int64 v6; // rbx
   int v7; // eax
   va_list Args; // [rsp+78h] [rbp+20h] BYREF
 
   va_start(Args, a3);
   v3 = a2 >> 1;
+  v5 = 0;
   if ( v3 - 1 > 0x7FFFFFFE )
+    v5 = -1073741811;
+  if ( v5 < 0 )
   {
-    v6 = -1073741811;
     if ( v3 )
-      *a1 = 0;
+      *Dest = 0;
   }
   else
   {
-    v5 = v3 - 1;
-    v6 = 0;
-    v7 = vsnwprintf(a1, v3 - 1, a3, Args);
-    if ( v7 < 0 || v7 > v5 )
+    v6 = v3 - 1;
+    v5 = 0;
+    v7 = vsnwprintf(Dest, v3 - 1, a3, Args);
+    if ( v7 < 0 || v7 > v6 )
     {
-      v6 = -2147483643;
-      goto LABEL_5;
+      Dest[v6] = 0;
+      return (unsigned int)-2147483643;
     }
-    if ( v7 == v5 )
-LABEL_5:
-      a1[v5] = 0;
+    else if ( v7 == v6 )
+    {
+      Dest[v6] = 0;
+    }
   }
-  return v6;
+  return (unsigned int)v5;
 }

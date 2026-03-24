@@ -1,79 +1,67 @@
 /*
- * XREFs of ComputeNameLength @ 0x1409BA934
+ * XREFs of ComputeNameLength @ 0x140911CA4
  * Callers:
- *     PfxFindPrefix @ 0x1409BAA10 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x1409BAB10 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x140911D30 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140911E30 (PfxInsertPrefix.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
+ *     <none>
  */
 
 __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)
 {
-  bool v2; // di
-  __int64 v3; // rsi
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned int v5; // ecx
-  unsigned int v6; // r8d
-  unsigned int v7; // edx
-  __int64 v8; // r9
-  int v9; // eax
-  unsigned int v10; // eax
-  _BYTE *v11; // rax
-  __int64 v12; // r9
-  unsigned int v13; // edx
-  signed __int32 v15[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned int v1; // edx
+  unsigned int v2; // r8d
+  unsigned int v3; // r9d
+  __int64 v4; // r10
+  __int64 v5; // rcx
+  int v6; // eax
+  unsigned int v7; // eax
+  _BYTE *v8; // rax
+  __int64 v9; // r9
+  unsigned int v10; // edx
 
-  v2 = 0;
-  v3 = 0LL;
-  if ( !RtlpIsUtf8Process() )
+  v1 = *a1 - 1;
+  v2 = 1;
+  if ( (_BYTE)NlsMbCodePageTag )
   {
-    _InterlockedOr(v15, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v3 = CurrentServerSiloGlobals[151];
-    v2 = *((_WORD *)CurrentServerSiloGlobals + 538) != 0;
-  }
-  v5 = *a1 - 1;
-  v6 = 1;
-  if ( v2 )
-  {
-    v7 = 0;
+    v3 = 0;
     if ( *a1 != 1 )
     {
+      v4 = *((_QWORD *)a1 + 1);
       do
       {
-        v8 = *(unsigned __int8 *)(v7 + *((_QWORD *)a1 + 1));
-        if ( *(_WORD *)(v3 + 2 * v8) )
+        v5 = *(unsigned __int8 *)(v3 + v4);
+        if ( NlsLeadByteInfoTable[v5] )
         {
-          v9 = 2;
+          v6 = 2;
         }
         else
         {
-          v10 = v6 + 1;
-          if ( (_BYTE)v8 != 92 )
-            v10 = v6;
-          v6 = v10;
-          v9 = 1;
+          v7 = v2 + 1;
+          if ( (_BYTE)v5 != 92 )
+            v7 = v2;
+          v2 = v7;
+          v6 = 1;
         }
-        v7 += v9;
+        v3 += v6;
       }
-      while ( v7 < v5 );
+      while ( v3 < v1 );
     }
   }
   else if ( *a1 != 1 )
   {
-    v11 = (_BYTE *)*((_QWORD *)a1 + 1);
-    v12 = v5;
+    v8 = (_BYTE *)*((_QWORD *)a1 + 1);
+    v9 = v1;
     do
     {
-      v13 = v6 + 1;
-      if ( *v11 != 92 )
-        v13 = v6;
-      ++v11;
-      v6 = v13;
-      --v12;
+      v10 = v2 + 1;
+      if ( *v8 != 92 )
+        v10 = v2;
+      ++v8;
+      v2 = v10;
+      --v9;
     }
-    while ( v12 );
+    while ( v9 );
   }
-  return v6;
+  return v2;
 }

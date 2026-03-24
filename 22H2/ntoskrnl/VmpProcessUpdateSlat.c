@@ -1,21 +1,21 @@
 /*
- * XREFs of VmpProcessUpdateSlat @ 0x1405FABEC
+ * XREFs of VmpProcessUpdateSlat @ 0x1405A498C
  * Callers:
- *     VmpAccessFaultBatch @ 0x140465EE6 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1405A2AAC (VmpAccessFaultBatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VmpFillSlat @ 0x1405F9128 (VmpFillSlat.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     VmpFillSlat @ 0x1405A33CC (VmpFillSlat.c)
  */
 
 __int64 __fastcall VmpProcessUpdateSlat(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
   __int64 v6; // rax
-  char *v7; // rdi
+  char *v7; // rbx
   int v8; // ebp
   __int64 v9; // r8
   unsigned int v10; // r10d
   unsigned __int64 *v11; // rsi
-  unsigned __int64 v12; // rbx
+  unsigned __int64 v12; // rdi
   unsigned __int64 v13; // r9
   int v14; // edx
   int v15; // ecx
@@ -38,7 +38,7 @@ __int64 __fastcall VmpProcessUpdateSlat(__int64 a1, unsigned __int64 a2, unsigne
   }
   v9 = 0LL;
   v10 = 0;
-  if ( a2 < 48 * v6 + a2 )
+  if ( a2 < a2 + 48 * v6 )
   {
     v11 = (unsigned __int64 *)(a2 + 32);
     v12 = (48 * v6 - 1) / 0x30uLL + 1;
@@ -50,10 +50,10 @@ __int64 __fastcall VmpProcessUpdateSlat(__int64 a1, unsigned __int64 a2, unsigne
         v14 = (v13 >> 51) & 2 | 0xD;
         if ( (v13 & 0x20000000000000LL) == 0 )
           v14 = (v13 >> 51) & 2 | 1;
-        v15 = v14 | 0x200000;
+        v15 = v14 | 0x4000;
         if ( (*v11 & 0x40000000000000LL) == 0 )
           v15 = v14;
-        v16 = v15 | 0x2000000;
+        v16 = v15 | 0x20000;
         if ( a5 )
           v16 = v15;
         if ( v10 != v16 || (_DWORD)v9 == v8 )

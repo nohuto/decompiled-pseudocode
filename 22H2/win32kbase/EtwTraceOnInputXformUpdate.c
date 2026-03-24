@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceOnInputXformUpdate @ 0x1C000D2B0
+ * XREFs of EtwTraceOnInputXformUpdate @ 0x1C00A9BC0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pxq_EtwWriteTransfer @ 0x1C013CF58 (McTemplateK0pxq_EtwWriteTransfer.c)
+ *     McTemplateK0pxq_EtwWriteTransfer @ 0x1C0126570 (McTemplateK0pxq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceOnInputXformUpdate(int a1, int a2, int a3)

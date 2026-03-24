@@ -1,15 +1,14 @@
 /*
- * XREFs of MiAweViewInserter @ 0x140A4132C
+ * XREFs of MiAweViewInserter @ 0x1408D572C
  * Callers:
- *     MiInsertVad @ 0x140287B70 (MiInsertVad.c)
- *     MiPostInsertVad @ 0x14030BA90 (MiPostInsertVad.c)
+ *     MiInsertVad @ 0x1402969B0 (MiInsertVad.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     MiLockAweVadsExclusive @ 0x14064B0A8 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14064BEF8 (MiUnlockAweVadsExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     MiLockAweVadsExclusive @ 0x14054CF40 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054DF38 (MiUnlockAweVadsExclusive.c)
  */
 
-char __fastcall MiAweViewInserter(__int64 a1, unsigned __int64 a2)
+char __fastcall MiAweViewInserter(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   __int64 v4; // rbx
@@ -23,9 +22,8 @@ char __fastcall MiAweViewInserter(__int64 a1, unsigned __int64 a2)
   v4 = *(_QWORD *)(a1 + 1680);
   MiLockAweVadsExclusive((__int64)CurrentThread);
   v5 = 0;
-  v6 = *(_QWORD **)(v4 + 384);
-  v7 = *(unsigned int *)(*(_QWORD *)(a2 + 24) + 24LL) | ((unsigned __int64)*(unsigned __int8 *)(*(_QWORD *)(a2 + 24)
-                                                                                              + 32LL) << 32);
+  v6 = *(_QWORD **)(v4 + 400);
+  v7 = *(unsigned int *)(a2[3] + 24LL) | ((unsigned __int64)*(unsigned __int8 *)(a2[3] + 32LL) << 32);
   if ( v6 )
   {
     while ( 1 )
@@ -50,6 +48,6 @@ char __fastcall MiAweViewInserter(__int64 a1, unsigned __int64 a2)
       v6 = v9;
     }
   }
-  RtlAvlInsertNodeEx((unsigned __int64 *)(v4 + 384), (unsigned __int64)v6, v5, a2);
+  RtlAvlInsertNodeEx((unsigned __int64 *)(v4 + 400), (unsigned __int64)v6, v5, a2);
   return MiUnlockAweVadsExclusive((__int64)CurrentThread);
 }

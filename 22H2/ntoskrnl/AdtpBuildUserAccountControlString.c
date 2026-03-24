@@ -1,14 +1,14 @@
 /*
- * XREFs of AdtpBuildUserAccountControlString @ 0x140A5C088
+ * XREFs of AdtpBuildUserAccountControlString @ 0x14096EA5C
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlIntegerToUnicodeString @ 0x1407CF660 (RtlIntegerToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlIntegerToUnicodeString @ 0x1406F6350 (RtlIntegerToUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildUserAccountControlString(
@@ -23,11 +23,11 @@ __int64 __fastcall AdtpBuildUserAccountControlString(
 {
   unsigned int v8; // ebx
   int v12; // edi
-  __int64 Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v14; // rax
   ULONG v15; // r12d
   ULONG v16; // r15d
-  int v17; // edx
+  int v17; // ecx
   int v18; // eax
   unsigned __int16 v19; // di
   wchar_t *v20; // rax
@@ -50,13 +50,13 @@ __int64 __fastcall AdtpBuildUserAccountControlString(
   v26 = a6;
   String.Buffer = (wchar_t *)&v28;
   *(_QWORD *)&String.Length = 1310720LL;
-  Pool2 = ExAllocatePool2(256LL, 22LL, 1799447891LL);
-  a3->Buffer = (wchar_t *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x16uLL, 0x6B416553u);
+  a3->Buffer = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741801;
   *a4 = 1;
   *(_DWORD *)&Destination->Length = 1441792;
-  v14 = (wchar_t *)ExAllocatePool2(256LL, 22LL, 1799447891LL);
+  v14 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x16uLL, 0x6B416553u);
   Destination->Buffer = v14;
   if ( !v14 )
     return (unsigned int)-1073741801;
@@ -86,7 +86,7 @@ __int64 __fastcall AdtpBuildUserAccountControlString(
   v19 = 32 * v12 + 2;
   DestinationString->Length = 0;
   DestinationString->MaximumLength = v19;
-  v20 = (wchar_t *)ExAllocatePool2(256LL, v19, 1799447891LL);
+  v20 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v19, 0x6B416553u);
   DestinationString->Buffer = v20;
   if ( v20 )
   {

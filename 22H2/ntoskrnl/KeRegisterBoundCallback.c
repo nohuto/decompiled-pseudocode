@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRegisterBoundCallback @ 0x14056CA90
+ * XREFs of KeRegisterBoundCallback @ 0x1405147E0
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x14039FB68 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEFD0 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExAllocateCallBack @ 0x140844F90 (ExAllocateCallBack.c)
- *     MmVerifyCallbackFunction @ 0x140A307D8 (MmVerifyCallbackFunction.c)
+ *     ExCompareExchangeCallBack @ 0x1403AEFFC (ExCompareExchangeCallBack.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14069ABC0 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExAllocateCallBack @ 0x140799C50 (ExAllocateCallBack.c)
+ *     MmVerifyCallbackFunction @ 0x1408C8324 (MmVerifyCallbackFunction.c)
  */
 
 __int64 __fastcall KeRegisterBoundCallback(__int64 a1)

@@ -1,111 +1,113 @@
 /*
- * XREFs of ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C016AB74
+ * XREFs of ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DBB4
  * Callers:
- *     ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0171DC0 (-DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0144D08 (-DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C001CA20 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C0021710 (HmgDecrementShareReferenceCountEx.c)
- *     HmgSafeNextObjt @ 0x1C0061900 (HmgSafeNextObjt.c)
- *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C0071D24 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
- *     ?vResetSurfacePalette@@YAXPEAUHDEV__@@@Z @ 0x1C00C40A4 (-vResetSurfacePalette@@YAXPEAUHDEV__@@@Z.c)
- *     ??0SURFREF@@QEAA@PEAVSURFACE@@@Z @ 0x1C00C9214 (--0SURFREF@@QEAA@PEAVSURFACE@@@Z.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00CBE2C (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?vDisableSurface@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@E@Z @ 0x1C00CE0D0 (-vDisableSurface@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@E@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C016AE70 (-bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z.c)
+ *     HmgSafeNextObjt @ 0x1C000DB10 (HmgSafeNextObjt.c)
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C00204CC (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00204F8 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002E210 (HmgDecrementShareReferenceCountEx.c)
+ *     ?vDisableSurface@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@E@Z @ 0x1C00A8750 (-vDisableSurface@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@E@Z.c)
+ *     ??0SURFREF@@QEAA@PEAVSURFACE@@@Z @ 0x1C00A889C (--0SURFREF@@QEAA@PEAVSURFACE@@@Z.c)
+ *     ?vResetSurfacePalette@@YAXPEAUHDEV__@@@Z @ 0x1C00B4B1C (-vResetSurfacePalette@@YAXPEAUHDEV__@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C8F1C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C013DEC0 (-bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z.c)
  */
 
 __int64 __fastcall PDEVOBJ::UpdateDisplayMode(PDEVOBJ *this, struct _devicemodeW *Src)
 {
-  __int64 v2; // rbx
-  unsigned int v3; // edi
+  __int64 v2; // rdi
+  unsigned int v3; // ebx
   unsigned int (__fastcall *v6)(_QWORD, _QWORD, struct _devicemodeW *, __int64, _DWORD *, HSURF *); // r14
-  struct SURFACE *v7; // r12
-  int v8; // eax
-  SURFACE *v9; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
+  struct SURFACE *v16; // r12
   WORD dmSize; // cx
-  __int64 v11; // r14
+  __int64 v18; // r14
   __int64 Objt; // rax
-  __int64 v13; // rbx
-  int v14; // edx
-  __int64 *v15; // rax
-  __int64 v16; // rcx
-  unsigned int v17; // edx
-  HSURF v19; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-B8h] BYREF
-  _BYTE v21[32]; // [rsp+50h] [rbp-B0h] BYREF
-  SURFACE *v22; // [rsp+70h] [rbp-90h]
-  _DWORD v23[80]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v20; // rdi
+  int v21; // edx
+  __int64 *v22; // rax
+  __int64 v23; // rcx
+  unsigned int v24; // edx
+  HSURF v26; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v27; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE v28[48]; // [rsp+50h] [rbp-B0h] BYREF
+  _DWORD v29[80]; // [rsp+80h] [rbp-80h] BYREF
 
   v2 = *(_QWORD *)this;
   v3 = 0;
-  v6 = *(unsigned int (__fastcall **)(_QWORD, _QWORD, struct _devicemodeW *, __int64, _DWORD *, HSURF *))(*(_QWORD *)this + 2656LL);
+  v6 = *(unsigned int (__fastcall **)(_QWORD, _QWORD, struct _devicemodeW *, __int64, _DWORD *, HSURF *))(*(_QWORD *)this + 2680LL);
   if ( v6 )
   {
-    if ( qword_1C029B188 )
+    if ( qword_1C0256408 )
     {
-      qword_1C029B188(*(_QWORD *)this, 1LL);
+      qword_1C0256408(v2, 1LL);
       v2 = *(_QWORD *)this;
     }
-    memset(v23, 0, sizeof(v23));
-    v19 = 0LL;
-    if ( v6(*(_QWORD *)(v2 + 1768), *(_QWORD *)(v2 + 2568), Src, v2 + 2104, v23, &v19) )
+    memset(v29, 0, sizeof(v29));
+    v26 = 0LL;
+    if ( v6(*(_QWORD *)(v2 + 1800), *(_QWORD *)(v2 + 2592), Src, v2 + 2136, v29, &v26) )
     {
-      *(_DWORD *)(*(_QWORD *)this + 2120LL) = v23[4];
-      *(_DWORD *)(*(_QWORD *)this + 2124LL) = v23[5];
-      *(_DWORD *)(*(_QWORD *)this + 2112LL) = v23[2];
-      *(_DWORD *)(*(_QWORD *)this + 2116LL) = v23[3];
-      *(_DWORD *)(*(_QWORD *)this + 2144LL) = v23[10];
-      *(_DWORD *)(*(_QWORD *)this + 2148LL) = v23[11];
-      *(_DWORD *)(*(_QWORD *)this + 2360LL) = v23[64];
-      *(_DWORD *)(*(_QWORD *)this + 2364LL) = v23[65];
-      *(_DWORD *)(*(_QWORD *)this + 2168LL) = v23[16];
-      *(_DWORD *)(*(_QWORD *)this + 2172LL) = v23[17];
-      *(_DWORD *)(*(_QWORD *)this + 2516LL) = (((Src->dmDisplayOrientation - 1) & 0xFFFFFFFD) == 0 ? 0x80 : 0) | *(_DWORD *)(*(_QWORD *)this + 2516LL) & 0xFFFFFF7F;
-      v7 = *(struct SURFACE **)(*(_QWORD *)this + 2528LL);
+      *(_DWORD *)(*(_QWORD *)this + 2152LL) = v29[4];
+      *(_DWORD *)(*(_QWORD *)this + 2156LL) = v29[5];
+      *(_DWORD *)(*(_QWORD *)this + 2144LL) = v29[2];
+      *(_DWORD *)(*(_QWORD *)this + 2148LL) = v29[3];
+      *(_DWORD *)(*(_QWORD *)this + 2176LL) = v29[10];
+      *(_DWORD *)(*(_QWORD *)this + 2180LL) = v29[11];
+      *(_DWORD *)(*(_QWORD *)this + 2392LL) = v29[64];
+      *(_DWORD *)(*(_QWORD *)this + 2396LL) = v29[65];
+      *(_DWORD *)(*(_QWORD *)this + 2200LL) = v29[16];
+      *(_DWORD *)(*(_QWORD *)this + 2204LL) = v29[17];
+      *(_DWORD *)(*(_QWORD *)this + 2548LL) = (((Src->dmDisplayOrientation - 1) & 0xFFFFFFFD) == 0 ? 0x80 : 0) | *(_DWORD *)(*(_QWORD *)this + 2548LL) & 0xFFFFFF7F;
+      v16 = *(struct SURFACE **)(*(_QWORD *)this + 2552LL);
       PDEVOBJ::vDisableSurface(this, 0, 0);
-      SURFREF::SURFREF((SURFREF *)v21, v7);
-      HmgDecrementShareReferenceCountEx((unsigned int *)v7, 0LL);
-      v8 = SURFACE::bDeleteSurface(v22, 0, 0);
-      v9 = v22;
-      if ( v8 )
-        v9 = 0LL;
-      v22 = v9;
-      SURFREF::~SURFREF((SURFREF *)v21);
-      PDEVOBJ::bMakeSurface(this, v19);
-      dmSize = *(_WORD *)(*(_QWORD *)(*(_QWORD *)this + 2568LL) + 68LL);
+      SURFREF::SURFREF((SURFREF *)v28, v16);
+      HmgDecrementShareReferenceCountEx((__int64)v16, 0LL);
+      SURFREF::bDeleteSurface((__int64)v28, 0);
+      SURFREF::~SURFREF((SURFREF *)v28);
+      PDEVOBJ::bMakeSurface(this, v26);
+      dmSize = *(_WORD *)(*(_QWORD *)(*(_QWORD *)this + 2592LL) + 68LL);
       if ( dmSize >= Src->dmSize )
         dmSize = Src->dmSize;
-      memmove(*(void **)(*(_QWORD *)this + 2568LL), Src, dmSize);
-      LODWORD(v11) = 0;
+      memmove(*(void **)(*(_QWORD *)this + 2592LL), Src, dmSize);
+      LODWORD(v18) = 0;
       while ( 1 )
       {
-        Objt = HmgSafeNextObjt(v11, 1);
-        v13 = Objt;
+        Objt = HmgSafeNextObjt(v18, 1);
+        v20 = Objt;
         if ( !Objt )
           break;
-        v14 = *(_DWORD *)(Objt + 36);
-        v11 = *(_QWORD *)Objt;
-        if ( (v14 & 0x2000) == 0 )
+        v21 = *(_DWORD *)(Objt + 36);
+        v18 = *(_QWORD *)Objt;
+        if ( (v21 & 0x2000) == 0 )
         {
-          if ( *(struct SURFACE **)(Objt + 496) == v7 )
+          if ( *(struct SURFACE **)(Objt + 496) == v16 )
           {
-            DC::pSurface((DC *)Objt, *(struct SURFACE **)(*(_QWORD *)this + 2528LL));
-            v15 = (__int64 *)PDEVOBJ::sizl(this, &v20);
-            v14 = *(_DWORD *)(v13 + 36);
-            v16 = *v15;
-            *(_DWORD *)(v13 + 316) |= 0xFu;
-            *(_QWORD *)(v13 + 512) = v16;
+            DC::pSurface((DC *)Objt, *(struct SURFACE **)(*(_QWORD *)this + 2552LL));
+            v22 = (__int64 *)PDEVOBJ::sizl(this, &v27);
+            v21 = *(_DWORD *)(v20 + 36);
+            v23 = *v22;
+            *(_DWORD *)(v20 + 316) |= 0xFu;
+            *(_QWORD *)(v20 + 512) = v23;
           }
-          if ( (v14 & 0x200) != 0 && _bittest((const signed __int32 *)(*(_QWORD *)(v13 + 496) + 112LL), 9u) )
-            v17 = v14 | 0x8000;
+          if ( (v21 & 0x200) != 0 && (*(_DWORD *)(*(_QWORD *)(v20 + 496) + 112LL) & 0x200) != 0 )
+            v24 = v21 | 0x8000;
           else
-            v17 = v14 & 0xFFFF7FFF;
-          *(_DWORD *)(v13 + 36) = v17;
+            v24 = v21 & 0xFFFF7FFF;
+          *(_DWORD *)(v20 + 36) = v24;
         }
       }
       vResetSurfacePalette(*(_QWORD **)this);
@@ -114,13 +116,18 @@ __int64 __fastcall PDEVOBJ::UpdateDisplayMode(PDEVOBJ *this, struct _devicemodeW
     }
     else
     {
-      WdLogSingleEntry1(3LL, 0LL);
-      WdLogSingleEntry0(3LL);
+      v11 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+      *(_QWORD *)(v11 + 24) = 0LL;
+      WdLogEvent5_WdWarning(v11);
+      v15 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+      WdLogEvent5_WdWarning(v15);
     }
   }
   else
   {
-    WdLogSingleEntry1(4LL, 0LL);
+    v7 = WdLogNewEntry5_WdEvent(this);
+    *(_QWORD *)(v7 + 24) = 0LL;
+    WdLogEvent5_WdEvent(v7);
   }
   return v3;
 }

@@ -1,69 +1,67 @@
 /*
- * XREFs of ?DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z @ 0x1C026E518
+ * XREFs of ?DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z @ 0x1C02756F4
  * Callers:
- *     NtGdiDdDDICreateDCFromMemory @ 0x1C0006FD0 (NtGdiDdDDICreateDCFromMemory.c)
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0017990 (NtGdiDdDDICreateDCFromMemory.c)
  * Callees:
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?apalColorSet@XEPALOBJ@@QEAAXPEAVPALETTE@@@Z @ 0x1C026F0D8 (-apalColorSet@XEPALOBJ@@QEAAXPEAVPALETTE@@@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?apalColorSet@XEPALOBJ@@QEAAXPEAVPALETTE@@@Z @ 0x1C0276260 (-apalColorSet@XEPALOBJ@@QEAAXPEAVPALETTE@@@Z.c)
  */
 
 __int64 __fastcall DxEngSyncPaletteTableWithDevice(HPALETTE a1, HDEV a2)
 {
   unsigned int v3; // esi
-  Gre::Base *v4; // rcx
+  __int64 v4; // rdx
   int v5; // eax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int128 v10; // [rsp+20h] [rbp-29h] BYREF
-  HDEV v11; // [rsp+30h] [rbp-19h]
-  int v12; // [rsp+38h] [rbp-11h]
-  _QWORD v13[2]; // [rsp+40h] [rbp-9h] BYREF
-  _BYTE v14[40]; // [rsp+50h] [rbp+7h] BYREF
-  __int64 v15; // [rsp+78h] [rbp+2Fh]
-  __int64 v16; // [rsp+80h] [rbp+37h]
-  __int64 v17; // [rsp+B8h] [rbp+6Fh] BYREF
-  __int64 v18; // [rsp+C0h] [rbp+77h] BYREF
-  __int64 v19; // [rsp+C8h] [rbp+7Fh] BYREF
+  __int128 v7; // [rsp+20h] [rbp-29h] BYREF
+  HDEV v8; // [rsp+30h] [rbp-19h]
+  int v9; // [rsp+38h] [rbp-11h]
+  _QWORD v10[2]; // [rsp+40h] [rbp-9h] BYREF
+  _BYTE v11[40]; // [rsp+50h] [rbp+7h] BYREF
+  __int64 v12; // [rsp+78h] [rbp+2Fh]
+  __int64 v13; // [rsp+80h] [rbp+37h]
+  __int64 v14; // [rsp+B8h] [rbp+6Fh] BYREF
+  __int64 v15; // [rsp+C0h] [rbp+77h] BYREF
+  __int64 v16; // [rsp+C8h] [rbp+7Fh] BYREF
 
   v3 = 0;
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v17, a1);
-  if ( a2 && v17 )
+  EPALOBJ::EPALOBJ((EPALOBJ *)&v14, a1);
+  if ( a2 )
   {
-    v19 = *((_QWORD *)a2 + 7);
-    GreAcquireSemaphore(v19);
-    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v13);
-    v16 = 0LL;
-    v15 = 0LL;
-    v13[0] = 0LL;
+    if ( !v14 )
+      return v3;
+    v16 = *((_QWORD *)a2 + 8);
+    GreAcquireSemaphore(v16);
+    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v10);
+    v13 = 0LL;
+    v12 = 0LL;
+    v10[0] = 0LL;
     v3 = 1;
     v5 = *((_DWORD *)a2 + 10);
-    v10 = 0LL;
-    v12 = 1;
+    v7 = 0LL;
+    v9 = 1;
     if ( (v5 & 1) != 0 )
     {
-      Gre::Base::Globals(v4);
-      *(_QWORD *)&v10 = *((_QWORD *)a2 + 6);
-      v11 = a2;
-      GreAcquireSemaphore(v10);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v10, 11LL);
+      *(_QWORD *)&v7 = *((_QWORD *)a2 + 6);
+      v8 = a2;
+      GreAcquireSemaphore(v7);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v7, 11LL);
     }
-    v18 = *((_QWORD *)Gre::Base::Globals(v4) + 5);
-    GreAcquireSemaphore(v18);
-    XEPALOBJ::apalColorSet((XEPALOBJ *)&v17, *((struct PALETTE **)a2 + 222));
-    SEMOBJ::vUnlock((SEMOBJ *)&v18);
-    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v10, v6, v7, v8);
-    if ( v13[0] )
-      DLODCOBJ::vUnlock((DLODCOBJ *)v13);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v14);
-    SEMOBJ::vUnlock((SEMOBJ *)&v19);
+    v15 = ghsemPalette;
+    GreAcquireSemaphore(ghsemPalette);
+    XEPALOBJ::apalColorSet((XEPALOBJ *)&v14, *((struct PALETTE **)a2 + 226));
+    SEMOBJ::vUnlock((SEMOBJ *)&v15);
+    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v7);
+    if ( v10[0] )
+      DLODCOBJ::vUnlock((DLODCOBJ *)v10);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v11);
+    SEMOBJ::vUnlock((SEMOBJ *)&v16);
   }
-  if ( v17 )
-    DEC_SHARE_REF_CNT(v17);
+  if ( v14 )
+    DEC_SHARE_REF_CNT(v14, v4);
   return v3;
 }

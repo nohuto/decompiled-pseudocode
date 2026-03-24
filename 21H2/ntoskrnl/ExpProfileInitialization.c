@@ -1,29 +1,30 @@
 /*
- * XREFs of ExpProfileInitialization @ 0x140B2FC64
+ * XREFs of ExpProfileInitialization @ 0x140A72CB4
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     KiInitializeMutant @ 0x140261ADC (KiInitializeMutant.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KiInitializeMutant @ 0x1402ED1DC (KiInitializeMutant.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
  */
 
-bool ExpProfileInitialization()
+bool __fastcall ExpProfileInitialization(__int64 a1, __int64 a2, __int64 a3)
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
-  _QWORD v2[16]; // [rsp+30h] [rbp-29h] BYREF
+  _QWORD v5[16]; // [rsp+30h] [rbp-29h] BYREF
 
+  LOBYTE(a3) = 1;
   DestinationString = 0LL;
-  KiInitializeMutant((__int64)&ExpProfileStateMutex, 0, 1, 0);
+  KiInitializeMutant((ULONG_PTR)&ExpProfileStateMutex, 0, a3, 0LL);
   RtlInitUnicodeString(&DestinationString, L"Profile");
-  memset(v2, 0, 0x78uLL);
-  LOWORD(v2[0]) = 120;
-  LODWORD(v2[1]) = 256;
-  HIDWORD(v2[4]) = 512;
-  HIDWORD(v2[5]) = 336;
-  HIDWORD(v2[3]) = 983041;
-  *(_OWORD *)((char *)&v2[1] + 4) = ExpProfileMapping;
-  v2[9] = ExpProfileDelete;
-  return (int)ObCreateObjectType(&DestinationString, (__int64)v2, 0LL, (__int64)&ExProfileObjectType) >= 0;
+  memset(v5, 0, 0x78uLL);
+  LOWORD(v5[0]) = 120;
+  LODWORD(v5[1]) = 256;
+  HIDWORD(v5[4]) = 512;
+  HIDWORD(v5[5]) = 240;
+  HIDWORD(v5[3]) = 983041;
+  *(_OWORD *)((char *)&v5[1] + 4) = ExpProfileMapping;
+  v5[9] = ExpProfileDelete;
+  return (int)ObCreateObjectType(&DestinationString, (__int64)v5, 0LL, (__int64)&ExProfileObjectType) >= 0;
 }

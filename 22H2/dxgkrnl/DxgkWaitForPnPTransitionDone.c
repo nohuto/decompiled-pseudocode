@@ -1,18 +1,24 @@
 /*
- * XREFs of DxgkWaitForPnPTransitionDone @ 0x1C0356CF4
+ * XREFs of DxgkWaitForPnPTransitionDone @ 0x1C013C5FC
  * Callers:
- *     DpiIndicateConnectorChangeWorkItem @ 0x1C01F54A0 (DpiIndicateConnectorChangeWorkItem.c)
- *     DxgkIddHandleSetDisplayConfig @ 0x1C02F4AB8 (DxgkIddHandleSetDisplayConfig.c)
- *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F5670 (DxgkIddHandleSetDisplayConfig2.c)
+ *     ?DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z @ 0x1C013C0D4 (-DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C025B8CC (DxgkIddHandleSetDisplayConfig.c)
+ *     DpiIndicateConnectorChangeWorkItem @ 0x1C02C6710 (DpiIndicateConnectorChangeWorkItem.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?WaitForPnPTransitionDone@DXGSESSIONMGR@@QEAAJW4_KWAIT_REASON@@DIW4_PNP_TRANSITION_WAITER@@@Z @ 0x1C017F698 (-WaitForPnPTransitionDone@DXGSESSIONMGR@@QEAAJW4_KWAIT_REASON@@DIW4_PNP_TRANSITION_WAITER@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?WaitForPnPTransitionDone@DXGSESSIONMGR@@QEAAJW4_KWAIT_REASON@@DIW4_PNP_TRANSITION_WAITER@@@Z @ 0x1C013C654 (-WaitForPnPTransitionDone@DXGSESSIONMGR@@QEAAJW4_KWAIT_REASON@@DIW4_PNP_TRANSITION_WAITER@@@Z.c)
  */
 
-__int64 __fastcall DxgkWaitForPnPTransitionDone(KWAIT_REASON a1, KPROCESSOR_MODE a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall DxgkWaitForPnPTransitionDone(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
+  char v6; // si
+  unsigned int v7; // ebp
   struct DXGGLOBAL *Global; // rax
+  __int64 v9; // r8
 
-  Global = DXGGLOBAL::GetGlobal();
-  return DXGSESSIONMGR::WaitForPnPTransitionDone(*((_QWORD *)Global + 118), a1, a2, a3, a4);
+  v6 = a2;
+  v7 = a1;
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  LOBYTE(v9) = v6;
+  return DXGSESSIONMGR::WaitForPnPTransitionDone(*((_QWORD *)Global + 102), v7, v9, a3, a4);
 }

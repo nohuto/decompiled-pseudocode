@@ -1,42 +1,41 @@
 /*
- * XREFs of xxxInternalEnumWindow @ 0x1C01A7E14
+ * XREFs of xxxInternalEnumWindow @ 0x1C01D1DD4
  * Callers:
- *     xxxTurnOffCompositing @ 0x1C01BD2F0 (xxxTurnOffCompositing.c)
- *     xxxSetClassIcon @ 0x1C0220650 (xxxSetClassIcon.c)
- *     xxxHelpLoop @ 0x1C0239514 (xxxHelpLoop.c)
+ *     xxxTurnOffCompositing @ 0x1C01E7FF0 (xxxTurnOffCompositing.c)
+ *     xxxSetClassIcon @ 0x1C023D738 (xxxSetClassIcon.c)
+ *     xxxHelpLoop @ 0x1C024FBDC (xxxHelpLoop.c)
  * Callees:
- *     BuildHwndList @ 0x1C00D2540 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00D2E50 (FreeHwndList.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     BuildHwndList @ 0x1C006CAC0 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DA20 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 struct tagBWL *__fastcall xxxInternalEnumWindow(
-        ShellWindowManagement *a1,
+        struct tagWND *a1,
         __int64 (__fastcall *a2)(__int64, __int64),
         __int64 a3,
-        unsigned int a4)
+        char a4)
 {
   struct tagBWL *result; // rax
-  struct tagBWL *v7; // rsi
-  _QWORD *v8; // rbx
-  unsigned int v9; // edi
-  __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rbp
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int128 v16; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v17; // [rsp+30h] [rbp-28h]
+  struct tagBWL *v7; // rdi
+  unsigned __int64 *v8; // rbx
+  unsigned int v9; // esi
+  unsigned __int64 v10; // rax
+  __int64 v11; // rbp
+  __int64 ThreadWin32Thread; // rax
+  __int64 v13; // rcx
+  __int128 v14; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-28h]
 
-  v16 = 0LL;
-  v17 = 0LL;
-  result = BuildHwndList(a1, (const struct tagWND *)a4, 0LL, 1LL);
+  v14 = 0LL;
+  v15 = 0LL;
+  result = BuildHwndList(a1, a4, 0LL);
   v7 = result;
   if ( result )
   {
-    v8 = (_QWORD *)((char *)result + 32);
+    v8 = (unsigned __int64 *)((char *)result + 32);
     v9 = 1;
     v10 = *((_QWORD *)result + 4);
     if ( v10 != 1 )
@@ -44,18 +43,21 @@ struct tagBWL *__fastcall xxxInternalEnumWindow(
       do
       {
         v11 = HMValidateHandleNoSecure(v10, 1);
-        v12 = v11;
         if ( v11 )
         {
-          ThreadLockAlways(v11, &v16);
-          v9 = a2(v12, a3);
-          ThreadUnlock1(v14, v13, v15);
+          ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+          *(_QWORD *)&v14 = *(_QWORD *)(ThreadWin32Thread + 416);
+          *(_QWORD *)(ThreadWin32Thread + 416) = &v14;
+          *((_QWORD *)&v14 + 1) = v11;
+          HMLockObject(v11);
+          v9 = a2(v11, a3);
+          ThreadUnlock1(v13);
           if ( !v9 )
             break;
         }
         v10 = *++v8;
       }
-      while ( *v8 != 1LL );
+      while ( *v8 != 1 );
     }
     FreeHwndList(v7);
     return (struct tagBWL *)v9;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CommonBuffer_AcquireBuffers @ 0x1C000B434
+ * XREFs of CommonBuffer_AcquireBuffers @ 0x1C0009A94
  * Callers:
- *     TR_EnsureSegments @ 0x1C000B270 (TR_EnsureSegments.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
  * Callees:
- *     CommonBuffer_QueueWorkItem @ 0x1C0008190 (CommonBuffer_QueueWorkItem.c)
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B4C0 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     CommonBuffer_QueueWorkItem @ 0x1C0019468 (CommonBuffer_QueueWorkItem.c)
  */
 
 __int64 __fastcall CommonBuffer_AcquireBuffers(
@@ -27,8 +27,8 @@ __int64 __fastcall CommonBuffer_AcquireBuffers(
   _QWORD **v17; // rsi
   KIRQL v18; // dl
   _QWORD *i; // rcx
-  __int64 v20; // rcx
-  _QWORD *v21; // rax
+  __int64 v20; // rax
+  _QWORD *v21; // rcx
   char v22; // [rsp+60h] [rbp+8h] BYREF
 
   v22 = 0;
@@ -43,14 +43,14 @@ __int64 __fastcall CommonBuffer_AcquireBuffers(
     v12 = KeAcquireSpinLockRaiseToDpc(Context + 6);
     v13 = (PVOID *)Context[8];
     if ( *v13 != Context + 7 )
-      goto LABEL_20;
+      goto LABEL_19;
     *v11 = Context + 7;
     v11[1] = v13;
     *v13 = v11;
     Context[8] = (KSPIN_LOCK)v11;
     KeReleaseSpinLock(Context + 6, v12);
   }
-  if ( CommonBuffer_QueueWorkItem((struct _KEVENT *)Context) || !v11 )
+  if ( (unsigned __int8)CommonBuffer_QueueWorkItem(Context) || !v11 )
     return v9;
   v14 = Context + 6;
   v15 = 0;
@@ -60,18 +60,18 @@ __int64 __fastcall CommonBuffer_AcquireBuffers(
   for ( i = *v17; ; i = (_QWORD *)*i )
   {
     if ( v17 == i )
-      goto LABEL_14;
+      goto LABEL_13;
     if ( i == v11 )
       break;
   }
   v20 = *v11;
   if ( *(_QWORD **)(*v11 + 8LL) != v11 || (v21 = (_QWORD *)v11[1], (_QWORD *)*v21 != v11) )
-LABEL_20:
+LABEL_19:
     __fastfail(3u);
   *v21 = v20;
   v15 = 1;
   *(_QWORD *)(v20 + 8) = v21;
-LABEL_14:
+LABEL_13:
   KeReleaseSpinLock(v14, v18);
   if ( v15 )
     return (unsigned int)-1073741670;

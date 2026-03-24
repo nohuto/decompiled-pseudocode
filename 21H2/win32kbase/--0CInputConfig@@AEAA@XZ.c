@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CInputConfig@@AEAA@XZ @ 0x1C00535F4
+ * XREFs of ??0CInputConfig@@AEAA@XZ @ 0x1C008ABC4
  * Callers:
- *     ?Initialize@CInputConfig@@SAJXZ @ 0x1C0053250 (-Initialize@CInputConfig@@SAJXZ.c)
+ *     ?Initialize@CInputConfig@@SAJXZ @ 0x1C008AA3C (-Initialize@CInputConfig@@SAJXZ.c)
  * Callees:
- *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C009F928 (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
+ *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C006DF88 (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
  */
 
 CInputConfig *__fastcall CInputConfig::CInputConfig(CInputConfig *this)
@@ -18,7 +18,7 @@ CInputConfig *__fastcall CInputConfig::CInputConfig(CInputConfig *this)
   v4 = 0;
   CInputSpace::CInputSpace((CInputConfig *)((char *)this + 32), (const struct INPUT_SPACE *)&v3, 0);
   result = this;
-  *((_WORD *)this + 752) = 1;
+  *((_BYTE *)this + 1472) = 1;
   *((_QWORD *)this + 1) = this;
   *(_QWORD *)this = this;
   return result;

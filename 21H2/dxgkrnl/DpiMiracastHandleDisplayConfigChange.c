@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiMiracastHandleDisplayConfigChange @ 0x1C00611D0
+ * XREFs of DpiMiracastHandleDisplayConfigChange @ 0x1C0053520
  * Callers:
- *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C01E3518 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
+ *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C016A298 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,6 @@ void __fastcall DpiMiracastHandleDisplayConfigChange(__int64 a1, int a2, int a3,
   if ( a1 )
   {
     v5 = *(_QWORD *)(a1 + 64);
-    memset(&LockHandle, 0, sizeof(LockHandle));
     if ( v5 )
     {
       if ( *(_DWORD *)(v5 + 16) == 1953656900 && *(_DWORD *)(v5 + 20) == 2 )

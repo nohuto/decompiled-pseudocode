@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsRawMouseSubscriber@CInputDest@@QEBA_NXZ @ 0x1C01B57D0
+ * XREFs of ?IsRawMouseSubscriber@CInputDest@@QEBA_NXZ @ 0x1C0182E70
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 bool __fastcall CInputDest::IsRawMouseSubscriber(CInputDest *this)
@@ -17,7 +17,7 @@ bool __fastcall CInputDest::IsRawMouseSubscriber(CInputDest *this)
   else
   {
     if ( *((_DWORD *)this + 23) == 2 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1088);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1087);
     LOBYTE(v1) = 0;
   }
   return v1;

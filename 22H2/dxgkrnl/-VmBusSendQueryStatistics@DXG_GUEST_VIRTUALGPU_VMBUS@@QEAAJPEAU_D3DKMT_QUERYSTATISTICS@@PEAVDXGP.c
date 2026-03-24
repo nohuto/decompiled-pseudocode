@@ -1,12 +1,10 @@
 /*
- * XREFs of ?VmBusSendQueryStatistics@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAU_D3DKMT_QUERYSTATISTICS@@PEAVDXGPROCESS@@@Z @ 0x1C038CF80
+ * XREFs of ?VmBusSendQueryStatistics@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAU_D3DKMT_QUERYSTATISTICS@@PEAVDXGPROCESS@@@Z @ 0x1C024B83C
  * Callers:
- *     DxgkQueryStatisticsInternal @ 0x1C02D4710 (DxgkQueryStatisticsInternal.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C0226088 (DxgkQueryStatisticsInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryStatistics(
@@ -14,107 +12,119 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryStatistics(
         struct _D3DKMT_QUERYSTATISTICS *a2,
         struct DXGPROCESS *a3)
 {
-  __int64 v6; // rcx
-  int v7; // ebx
-  int v8; // eax
-  _OWORD *v9; // rdx
-  __int64 v10; // rdi
-  __int64 v11; // r8
-  struct _D3DKMT_QUERYSTATISTICS *v12; // rax
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  _OWORD *v15; // rcx
-  char *v16; // rax
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  unsigned int v25[4]; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v26; // [rsp+40h] [rbp-C0h] BYREF
-  int v27; // [rsp+50h] [rbp-B0h]
-  int v28; // [rsp+160h] [rbp+60h] BYREF
-  char v29; // [rsp+168h] [rbp+68h] BYREF
+  int v3; // eax
+  __int64 v4; // rdi
+  char *v5; // r8
+  struct _D3DKMT_QUERYSTATISTICS *v8; // rax
+  __int64 v9; // rcx
+  __int128 v10; // xmm1
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int128 v18; // xmm1
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // ebx
+  __int64 v23; // r8
+  _OWORD *v24; // rcx
+  char *v25; // rax
+  __int128 v26; // xmm1
+  __int128 v27; // xmm0
+  __int128 v28; // xmm1
+  __int128 v29; // xmm0
+  __int128 v30; // xmm1
+  __int128 v31; // xmm0
+  __int128 v32; // xmm1
+  __int64 v33; // rax
+  struct _MDL *v35; // [rsp+28h] [rbp-D8h]
+  unsigned int v36[4]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v37; // [rsp+40h] [rbp-C0h] BYREF
+  int v38; // [rsp+48h] [rbp-B8h]
+  int v39; // [rsp+4Ch] [rbp-B4h]
+  int v40; // [rsp+50h] [rbp-B0h]
+  char v41; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v42; // [rsp+68h] [rbp-98h]
+  int v43; // [rsp+380h] [rbp+280h] BYREF
+  char v44; // [rsp+388h] [rbp+288h] BYREF
 
-  v27 = 0;
-  v26 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v26, this, 0x340u, 0LL, 0LL, 0LL);
-  v6 = v26;
-  if ( (_QWORD)v26 )
+  v3 = *((_DWORD *)a3 + 106);
+  v4 = 6LL;
+  v37 = 0LL;
+  v5 = &v41;
+  v39 = 0;
+  v38 = v3;
+  v40 = 48;
+  v8 = a2;
+  v9 = 6LL;
+  do
   {
-    v8 = *((_DWORD *)a3 + 126);
-    v9 = (_OWORD *)(v26 + 24);
-    *(_QWORD *)v26 = 0LL;
-    v10 = 6LL;
-    *(_BYTE *)(v6 + 12) = 0;
-    v11 = 6LL;
-    *(_DWORD *)(v6 + 12) &= 0x1FFu;
-    *(_DWORD *)(v6 + 20) = 0;
-    *(_DWORD *)(v6 + 8) = v8;
-    *(_DWORD *)(v6 + 16) = 48;
-    v12 = a2;
-    do
-    {
-      *v9 = *(_OWORD *)v12;
-      v9[1] = *((_OWORD *)v12 + 1);
-      v9[2] = *((_OWORD *)v12 + 2);
-      v9[3] = *((_OWORD *)v12 + 3);
-      v9[4] = *((_OWORD *)v12 + 4);
-      v9[5] = *((_OWORD *)v12 + 5);
-      v9[6] = *((_OWORD *)v12 + 6);
-      v9 += 8;
-      v13 = *((_OWORD *)v12 + 7);
-      v12 = (struct _D3DKMT_QUERYSTATISTICS *)((char *)v12 + 128);
-      *(v9 - 1) = v13;
-      --v11;
-    }
-    while ( v11 );
-    v14 = *(_OWORD *)v12;
-    v25[0] = 784;
-    *v9 = v14;
-    v9[1] = *((_OWORD *)v12 + 1);
-    *((_QWORD *)v9 + 4) = *((_QWORD *)v12 + 4);
-    *(_QWORD *)(v6 + 40) = 0LL;
-    v7 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v26, &v28, v25);
-    if ( v7 < 0 || (v7 = -1073741823, v25[0] < 0x310) || (v7 = v28, v28 < 0) )
-    {
-      WdLogSingleEntry1(3LL, v7);
-    }
-    else
-    {
-      v15 = (_OWORD *)((char *)a2 + 24);
-      v16 = &v29;
-      do
-      {
-        v17 = *((_OWORD *)v16 + 1);
-        *v15 = *(_OWORD *)v16;
-        v18 = *((_OWORD *)v16 + 2);
-        v15[1] = v17;
-        v19 = *((_OWORD *)v16 + 3);
-        v15[2] = v18;
-        v20 = *((_OWORD *)v16 + 4);
-        v15[3] = v19;
-        v21 = *((_OWORD *)v16 + 5);
-        v15[4] = v20;
-        v22 = *((_OWORD *)v16 + 6);
-        v15[5] = v21;
-        v23 = *((_OWORD *)v16 + 7);
-        v16 += 128;
-        v15[6] = v22;
-        v15 += 8;
-        *(v15 - 1) = v23;
-        --v10;
-      }
-      while ( v10 );
-      *(_QWORD *)v15 = *(_QWORD *)v16;
-    }
+    v10 = *((_OWORD *)v8 + 1);
+    *(_OWORD *)v5 = *(_OWORD *)v8;
+    v11 = *((_OWORD *)v8 + 2);
+    *((_OWORD *)v5 + 1) = v10;
+    v12 = *((_OWORD *)v8 + 3);
+    *((_OWORD *)v5 + 2) = v11;
+    v13 = *((_OWORD *)v8 + 4);
+    *((_OWORD *)v5 + 3) = v12;
+    v14 = *((_OWORD *)v8 + 5);
+    *((_OWORD *)v5 + 4) = v13;
+    v15 = *((_OWORD *)v8 + 6);
+    *((_OWORD *)v5 + 5) = v14;
+    v16 = *((_OWORD *)v8 + 7);
+    v8 = (struct _D3DKMT_QUERYSTATISTICS *)((char *)v8 + 128);
+    *((_OWORD *)v5 + 6) = v15;
+    v5 += 128;
+    *((_OWORD *)v5 - 1) = v16;
+    --v9;
+  }
+  while ( v9 );
+  v17 = *(_OWORD *)v8;
+  v36[0] = 784;
+  v18 = *((_OWORD *)v8 + 1);
+  v19 = *((_QWORD *)v8 + 4);
+  *(_OWORD *)v5 = v17;
+  *((_OWORD *)v5 + 1) = v18;
+  *((_QWORD *)v5 + 4) = v19;
+  v42 = 0LL;
+  v22 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v37, 0x340u, &v43, v36, v35);
+  if ( v22 < 0 || (v22 = -1073741823, v36[0] < 0x310) || (v22 = v43, v43 < 0) )
+  {
+    v33 = WdLogNewEntry5_WdWarning(v21, v20, v23);
+    *(_QWORD *)(v33 + 24) = v22;
+    WdLogEvent5_WdWarning(v33);
   }
   else
   {
-    v7 = -1073741801;
+    v24 = (_OWORD *)((char *)a2 + 24);
+    v25 = &v44;
+    do
+    {
+      v26 = *((_OWORD *)v25 + 1);
+      *v24 = *(_OWORD *)v25;
+      v27 = *((_OWORD *)v25 + 2);
+      v24[1] = v26;
+      v28 = *((_OWORD *)v25 + 3);
+      v24[2] = v27;
+      v29 = *((_OWORD *)v25 + 4);
+      v24[3] = v28;
+      v30 = *((_OWORD *)v25 + 5);
+      v24[4] = v29;
+      v31 = *((_OWORD *)v25 + 6);
+      v24[5] = v30;
+      v32 = *((_OWORD *)v25 + 7);
+      v25 += 128;
+      v24[6] = v31;
+      v24 += 8;
+      *(v24 - 1) = v32;
+      --v4;
+    }
+    while ( v4 );
+    *(_QWORD *)v24 = *(_QWORD *)v25;
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v26);
-  return (unsigned int)v7;
+  return (unsigned int)v22;
 }

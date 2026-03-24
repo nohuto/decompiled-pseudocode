@@ -1,46 +1,28 @@
 /*
- * XREFs of ?NotifyStatusChange@?$DXGK_AUTO_STATUS_CHANGE_NOTIFY@$08$09@@AEAAXW4D3DKMT_STATE_NOTIFICATION_TYPE@@@Z @ 0x1C00024BC
+ * XREFs of ?NotifyStatusChange@?$DXGK_AUTO_STATUS_CHANGE_NOTIFY@$08$09@@AEAAXW4D3DKMT_STATE_NOTIFICATION_TYPE@@@Z @ 0x1C0001EA8
  * Callers:
- *     DxgkGetPathsModality @ 0x1C01808E0 (DxgkGetPathsModality.c)
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E63DC (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     DxgkGetPathsModality @ 0x1C013E680 (DxgkGetPathsModality.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     DxgkStatusChangeNotify @ 0x1C01716F0 (DxgkStatusChangeNotify.c)
+ *     DxgkStatusChangeNotify @ 0x1C00E4A50 (DxgkStatusChangeNotify.c)
  */
 
-char __fastcall DXGK_AUTO_STATUS_CHANGE_NOTIFY<9,10>::NotifyStatusChange(__int64 *a1, int a2)
+__int64 __fastcall DXGK_AUTO_STATUS_CHANGE_NOTIFY<9,10>::NotifyStatusChange(__int64 *a1, int a2)
 {
-  int v2; // eax
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
-  _DWORD v7[2]; // [rsp+60h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+68h] [rbp-10h]
+  __int64 result; // rax
+  __int64 v3; // rax
+  _DWORD v4[2]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v5; // [rsp+28h] [rbp-10h]
 
-  v7[0] = a2;
-  v7[1] = 0;
-  v8 = *a1;
-  v2 = DxgkStatusChangeNotify(v7);
-  if ( v2 < 0 )
+  v4[0] = a2;
+  v4[1] = 0;
+  v5 = *a1;
+  result = DxgkStatusChangeNotify(v4);
+  if ( (int)result < 0 )
   {
-    LOBYTE(v2) = WdLogSingleEntry1(1LL, 1553LL);
-    if ( bTracingEnabled )
-    {
-      LOBYTE(v2) = BYTE3(Microsoft_Windows_DxgKrnlEnableBits);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        LOBYTE(v2) = McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                       v4,
-                       v3,
-                       v5,
-                       0,
-                       2,
-                       -1,
-                       (__int64)L"NT_SUCCESS(_Status)",
-                       17,
-                       0,
-                       0,
-                       0,
-                       0);
-    }
+    v3 = WdLogNewEntry5_WdAssertion();
+    *(_QWORD *)(v3 + 24) = 1509LL;
+    return WdLogEvent5_WdAssertion(v3);
   }
-  return v2;
+  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIncrementCombinedPte @ 0x1402CBEEC
+ * XREFs of MiIncrementCombinedPte @ 0x1402CBFEC
  * Callers:
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  * Callees:
- *     MiGetCrossPartitionCombineCharges @ 0x1402CBE14 (MiGetCrossPartitionCombineCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CBFF0 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiGetCrossPartitionCombineCharges @ 0x1402CBF14 (MiGetCrossPartitionCombineCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
  */
 
 __int64 __fastcall MiIncrementCombinedPte(__int64 a1, __int64 a2)

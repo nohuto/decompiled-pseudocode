@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetPropertyUpdate@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETPROPERTYUPDATE@@@Z @ 0x1801FD35C
+ * XREFs of ?ProcessSetPropertyUpdate@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETPROPERTYUPDATE@@@Z @ 0x1801B1508
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
  */
 
 __int64 __fastcall CAnimationLoggingManager::ProcessSetPropertyUpdate(
@@ -17,46 +17,42 @@ __int64 __fastcall CAnimationLoggingManager::ProcessSetPropertyUpdate(
   unsigned int v5; // r8d
   int v6; // ebx
   __int64 v7; // rcx
-  unsigned int v8; // edi
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // [rsp+30h] [rbp-18h] BYREF
-  int v15; // [rsp+38h] [rbp-10h]
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  int v10; // eax
+  __int64 v12; // [rsp+30h] [rbp-18h] BYREF
+  int v13; // [rsp+38h] [rbp-10h]
 
-  v3 = (char *)this + 64;
-  v14 = *(_QWORD *)((char *)a3 + 12);
-  v15 = *((_DWORD *)a3 + 2);
-  v4 = *((unsigned int *)this + 22);
+  v3 = (char *)this + 56;
+  v12 = *(_QWORD *)((char *)a3 + 12);
+  v13 = *((_DWORD *)a3 + 2);
+  v4 = *((unsigned int *)this + 20);
   v5 = v4 + 1;
-  if ( (int)v4 + 1 < (unsigned int)v4 )
+  if ( (int)v4 + 1 >= (unsigned int)v4 )
   {
-    v6 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024362, 0xB5u);
-    v8 = -2147024362;
-LABEL_9:
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x84u);
-    return v8;
-  }
-  if ( v5 > *((_DWORD *)this + 21) )
-  {
-    v12 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)this + 64, 0xCu, 1, &v14);
-    v6 = v12;
-    v8 = v12;
-    if ( v12 < 0 )
+    if ( v5 <= *((_DWORD *)this + 19) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0xC0u);
-      goto LABEL_9;
+      v8 = *(_QWORD *)v3;
+      v9 = 3 * v4;
+      *(_QWORD *)(v8 + 4 * v9) = v12;
+      *(_DWORD *)(v8 + 4 * v9 + 8) = v13;
+      *((_DWORD *)v3 + 6) = v5;
+      return 0;
     }
+    v10 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 56, 12, 1, &v12);
+    v6 = v10;
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v10, 0xC0u, 0LL);
   }
   else
   {
-    v9 = *(_QWORD *)v3;
-    v10 = 3 * v4;
-    *(_QWORD *)(v9 + 4 * v10) = v14;
-    *(_DWORD *)(v9 + 4 * v10 + 8) = v15;
-    *((_DWORD *)v3 + 6) = v5;
+    v6 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
+  }
+  if ( v6 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x95u, 0LL);
+    return (unsigned int)v6;
   }
   return 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializeBootProcessor @ 0x140544754
+ * XREFs of HvlpInitializeBootProcessor @ 0x1404F30EC
  * Callers:
- *     HvlPhase0Initialize @ 0x140824AA0 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x140796CFC (HvlPhase0Initialize.c)
  * Callees:
- *     HvlEnlightenProcessor @ 0x1403B6B58 (HvlEnlightenProcessor.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvlpMapStatisticsPage @ 0x1405448D4 (HvlpMapStatisticsPage.c)
+ *     HvlEnlightenProcessor @ 0x1403A7998 (HvlEnlightenProcessor.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvlpMapStatisticsPage @ 0x1404F326C (HvlpMapStatisticsPage.c)
  */
 
 __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
@@ -30,14 +30,14 @@ __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
     v9 = 0LL;
     if ( (HvlpFlags & 0x80000) != 0 && (HvlpFlags & 2) == 0 )
     {
-      v4 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, __int64))qword_140C01D68)(a1, 1LL, &v10, 4LL);
+      v4 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, __int64))qword_140C00718)(a1, 1LL, &v10, 4LL);
       if ( !v4 )
         return 3221225626LL;
       CurrentPrcb->VirtualApicAssist = (void *)v4;
     }
     if ( (HvlpFlags & 2) == 0 && (HvlpFlags & 0x8000) != 0 )
     {
-      v6 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *))qword_140C01D68)(a1, 1LL, &v11);
+      v6 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *))qword_140C00718)(a1, 1LL, &v11);
       if ( v6 )
         CurrentPrcb->SchedulerAssist = (void *)v6;
     }
@@ -45,7 +45,7 @@ __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
     {
       v8 = 0LL;
       if ( (int)HvlpMapStatisticsPage(2LL, &v8, &v9) >= 0 )
-        v1 = ((__int64 (__fastcall *)(__int64, __int64, __int64))qword_140C01D70)(v9, 1LL, 4LL);
+        v1 = ((__int64 (__fastcall *)(__int64, __int64, __int64))qword_140C00720)(v9, 1LL, 4LL);
       CurrentPrcb->StatisticsPage = (unsigned __int64 *)v1;
     }
     HvlEnlightenProcessor(0);

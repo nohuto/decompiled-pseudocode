@@ -1,5 +1,5 @@
 /*
- * XREFs of SaveCursorPosition @ 0x1C01E8A70
+ * XREFs of SaveCursorPosition @ 0x1C01AEDD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall SaveCursorPosition(__int64 a1)
 {
-  *(_QWORD *)((char *)&InputDelegation::CInputDelegationInfo::gInstance + 12) = a1;
+  *(&InputDelegation::CInputDelegationInfo::gInstance + 1) = a1;
 }

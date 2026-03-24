@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnSetPrefetcherInformation @ 0x140665EB8
+ * XREFs of PfSnSetPrefetcherInformation @ 0x140665E98
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PfSnBeginBootPhase @ 0x14056F13C (PfSnBeginBootPhase.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x140666140 (PfSnPrefetchCacheEntryUpdate.c)
- *     PfSnOperationProcess @ 0x1406CF884 (PfSnOperationProcess.c)
- *     PfpProcessScenarioPhase @ 0x14071BBDC (PfpProcessScenarioPhase.c)
- *     PfSnAppLaunchScenarioControl @ 0x14086570C (PfSnAppLaunchScenarioControl.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x140666120 (PfSnPrefetchCacheEntryUpdate.c)
+ *     PfSnOperationProcess @ 0x1406CF864 (PfSnOperationProcess.c)
+ *     PfpProcessScenarioPhase @ 0x14071BBBC (PfpProcessScenarioPhase.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1408656EC (PfSnAppLaunchScenarioControl.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfSnSetPrefetcherInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4)

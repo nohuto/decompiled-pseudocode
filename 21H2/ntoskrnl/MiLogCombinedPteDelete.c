@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLogCombinedPteDelete @ 0x1405B62A0
+ * XREFs of MiLogCombinedPteDelete @ 0x14055D0D4
  * Callers:
- *     MiDecrementCombinedPte @ 0x1402399A8 (MiDecrementCombinedPte.c)
- *     MiDemoteCombinedPte @ 0x1403336E0 (MiDemoteCombinedPte.c)
+ *     MiDecrementCombinedPte @ 0x140366EC4 (MiDecrementCombinedPte.c)
+ *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall MiLogCombinedPteDelete(__int64 a1)
+__int64 __fastcall MiLogCombinedPteDelete(__int64 a1)
 {
-  _QWORD v1[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v2; // [rsp+40h] [rbp-28h]
-  int v3; // [rsp+44h] [rbp-24h]
-  _QWORD *v4; // [rsp+48h] [rbp-20h] BYREF
-  int v5; // [rsp+50h] [rbp-18h]
-  int v6; // [rsp+54h] [rbp-14h]
+  _QWORD v2[2]; // [rsp+30h] [rbp-38h] BYREF
+  int v3; // [rsp+40h] [rbp-28h]
+  int v4; // [rsp+44h] [rbp-24h]
+  _QWORD *v5; // [rsp+48h] [rbp-20h] BYREF
+  int v6; // [rsp+50h] [rbp-18h]
+  int v7; // [rsp+54h] [rbp-14h]
 
-  v3 = 0;
-  v4 = v1;
-  v6 = 0;
-  v1[0] = a1;
-  v1[1] = a1;
-  v2 = -1;
-  v5 = 24;
-  EtwTraceKernelEvent((__int64)&v4, 1u, 0x28000001u, 0x24Fu, 0x11401B02u);
+  v4 = 0;
+  v5 = v2;
+  v7 = 0;
+  v2[0] = a1;
+  v2[1] = a1;
+  v3 = -1;
+  v6 = 24;
+  return EtwTraceKernelEvent((int)&v5, 1, 0x28000001u, 591, 289413890);
 }

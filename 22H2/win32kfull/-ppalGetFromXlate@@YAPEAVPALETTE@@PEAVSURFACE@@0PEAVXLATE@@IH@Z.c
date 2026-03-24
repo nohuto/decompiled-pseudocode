@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C02DEBD4
+ * XREFs of ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A954
  * Callers:
- *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C02DEBD4 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
- *     EngHTBlt @ 0x1C02DECB0 (EngHTBlt.c)
+ *     EngHTBlt @ 0x1C0019E98 (EngHTBlt.c)
+ *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A954 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
  * Callees:
- *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C02DEBD4 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
+ *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A954 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
  */
 
 struct PALETTE *__fastcall ppalGetFromXlate(struct SURFACE *a1, struct SURFACE *a2, struct XLATE *a3, int a4, int a5)
 {
   __int64 v5; // r10
-  __int64 v6; // rax
-  bool v7; // zf
+  __int64 v7; // rax
+  bool v8; // zf
 
   if ( a4 == 1 )
     v5 = *((_QWORD *)a1 + 16);
@@ -27,26 +27,26 @@ struct PALETTE *__fastcall ppalGetFromXlate(struct SURFACE *a1, struct SURFACE *
   }
   if ( a4 == 1 )
   {
-    v6 = *((_QWORD *)a1 + 6);
-    if ( v6 && (*(_DWORD *)(v6 + 2140) & 0x100) != 0 )
+    v7 = *((_QWORD *)a1 + 6);
+    if ( v7 && (*(_DWORD *)(v7 + 2172) & 0x100) != 0 )
     {
-      v7 = *((_DWORD *)a1 + 24) == *(_DWORD *)(v6 + 2076);
-LABEL_17:
-      if ( v7 )
-      {
-        v5 = *(_QWORD *)(v6 + 1776);
-        if ( v5 )
-          return (struct PALETTE *)v5;
-      }
+      v8 = *((_DWORD *)a1 + 24) == *(_DWORD *)(v7 + 2108);
+      goto LABEL_15;
     }
   }
   else
   {
-    v6 = *((_QWORD *)a2 + 6);
-    if ( v6 && (*(_DWORD *)(v6 + 2140) & 0x100) == 0 )
+    v7 = *((_QWORD *)a2 + 6);
+    if ( v7 && (*(_DWORD *)(v7 + 2172) & 0x100) == 0 )
     {
-      v7 = *((_DWORD *)a2 + 24) == *(_DWORD *)(v6 + 2076);
-      goto LABEL_17;
+      v8 = *((_DWORD *)a2 + 24) == *(_DWORD *)(v7 + 2108);
+LABEL_15:
+      if ( v8 )
+      {
+        v5 = *(_QWORD *)(v7 + 1808);
+        if ( v5 )
+          return (struct PALETTE *)v5;
+      }
     }
   }
   if ( !a3 || (*((_DWORD *)a3 + 1) & 1) != 0 )

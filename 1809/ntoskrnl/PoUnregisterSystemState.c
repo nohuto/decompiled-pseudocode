@@ -1,5 +1,5 @@
 /*
- * XREFs of PoUnregisterSystemState @ 0x1402DBBF0
+ * XREFs of PoUnregisterSystemState @ 0x1402DBCF0
  * Callers:
  *     <none>
  * Callees:

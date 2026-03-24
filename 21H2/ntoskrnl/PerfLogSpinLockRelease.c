@@ -1,23 +1,23 @@
 /*
- * XREFs of PerfLogSpinLockRelease @ 0x140632CBC
+ * XREFs of PerfLogSpinLockRelease @ 0x1405AB448
  * Callers:
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x140461CD0 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14056E6FC (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x14056E8CC (KiReleaseSpinLockInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14063D8B0 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14063D8E0 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5DBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x1405B5F14 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall PerfLogSpinLockRelease(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PerfLogSpinLockRelease(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct _KPRCB *CurrentPrcb; // rax
+  __int64 result; // rax
   __int64 v7; // rbx
   char v8; // si
   unsigned __int8 v9; // di
-  struct _KPRCB *v10; // r8
+  struct _KPRCB *CurrentPrcb; // r8
   __int64 v11; // r14
   unsigned int v12; // ecx
   unsigned __int8 NestingLevel; // dl
@@ -25,96 +25,106 @@ void __fastcall PerfLogSpinLockRelease(__int64 a1, __int64 a2, __int64 a3)
   char v15; // cl
   char v16; // cl
   unsigned __int8 v17; // si
-  __int64 v18; // rax
-  __int128 v19; // xmm1
-  __int128 v20; // [rsp+30h] [rbp-50h] BYREF
-  __int128 v21; // [rsp+40h] [rbp-40h]
-  __int128 v22; // [rsp+50h] [rbp-30h]
-  __int64 v23; // [rsp+60h] [rbp-20h]
-  __int128 *v24; // [rsp+68h] [rbp-18h] BYREF
-  int v25; // [rsp+70h] [rbp-10h]
-  int v26; // [rsp+74h] [rbp-Ch]
+  __int128 v18; // xmm1
+  __int128 v19; // [rsp+30h] [rbp-50h] BYREF
+  __int128 v20; // [rsp+40h] [rbp-40h]
+  __int128 v21; // [rsp+50h] [rbp-30h]
+  __int64 v22; // [rsp+60h] [rbp-20h]
+  __int128 *v23; // [rsp+68h] [rbp-18h] BYREF
+  int v24; // [rsp+70h] [rbp-10h]
+  int v25; // [rsp+74h] [rbp-Ch]
 
-  v20 = 0LL;
-  v23 = 0LL;
-  v21 = 0LL;
+  v19 = 0LL;
   v22 = 0LL;
-  CurrentPrcb = KeGetCurrentPrcb();
-  v7 = (__int64)CurrentPrcb->EtwSupport + 16;
-  v8 = *((_BYTE *)CurrentPrcb->EtwSupport + 272);
+  v20 = 0LL;
+  v21 = 0LL;
+  result = (__int64)KeGetCurrentPrcb();
+  v7 = *(_QWORD *)(result + 33576) + 16LL;
+  v8 = *(_BYTE *)(*(_QWORD *)(result + 33576) + 272LL);
   if ( v8 )
   {
-    v9 = *((_BYTE *)CurrentPrcb->EtwSupport + 272);
-    while ( *(_QWORD *)(32LL * --v9 + v7 + 8) != a1 )
+    v9 = *(_BYTE *)(*(_QWORD *)(result + 33576) + 272LL);
+    while ( 1 )
     {
+      result = 32LL * --v9;
+      if ( *(_QWORD *)(result + v7 + 8) == a1 )
+        break;
       if ( !v9 )
       {
-        ++*((_DWORD *)CurrentPrcb->EtwSupport + 70);
-        return;
+        ++*(_DWORD *)(v7 + 264);
+        return result;
       }
     }
-    v10 = KeGetCurrentPrcb();
+    CurrentPrcb = KeGetCurrentPrcb();
     v11 = 32LL * v9 + v7;
-    if ( *((_BYTE *)CurrentPrcb->EtwSupport + 273) )
+    if ( *(_BYTE *)(v7 + 257) )
       goto LABEL_20;
-    if ( !EtwpSpinLockHoldThreshold || (int)a3 - *(_DWORD *)v11 <= (unsigned int)EtwpSpinLockHoldThreshold )
+    if ( !EtwpSpinLockHoldThreshold
+      || (result = (unsigned int)(a3 - *(_DWORD *)v11), (unsigned int)result <= EtwpSpinLockHoldThreshold) )
     {
       v12 = *(_DWORD *)(v11 + 20);
-      if ( (v12 < EtwpSpinLockSpinThreshold
-         || v10->SynchCounters.SpinLockContentionCount % EtwpSpinLockContentionSampleRate)
-        && (v12
-         || (v10->SynchCounters.SpinLockAcquireCount - v10->SynchCounters.SpinLockContentionCount)
-          % EtwpSpinLockAcquireSampleRate) )
+      if ( v12 < EtwpSpinLockSpinThreshold
+        || (result = CurrentPrcb->SynchCounters.SpinLockContentionCount / EtwpSpinLockContentionSampleRate,
+            CurrentPrcb->SynchCounters.SpinLockContentionCount % EtwpSpinLockContentionSampleRate) )
       {
-        goto LABEL_20;
+        if ( v12 )
+          goto LABEL_20;
+        result = (CurrentPrcb->SynchCounters.SpinLockAcquireCount - CurrentPrcb->SynchCounters.SpinLockContentionCount)
+               / EtwpSpinLockAcquireSampleRate;
+        if ( (CurrentPrcb->SynchCounters.SpinLockAcquireCount - CurrentPrcb->SynchCounters.SpinLockContentionCount)
+           % EtwpSpinLockAcquireSampleRate )
+        {
+          goto LABEL_20;
+        }
       }
     }
-    NestingLevel = v10->NestingLevel;
-    *((_BYTE *)CurrentPrcb->EtwSupport + 273) = 1;
-    *(_QWORD *)&v20 = a1;
-    *((_QWORD *)&v20 + 1) = a2;
-    *((_QWORD *)&v21 + 1) = a3;
-    DWORD2(v22) = KeGetCurrentThread()[1].CurrentRunTime;
-    BYTE1(v23) = v8;
+    NestingLevel = CurrentPrcb->NestingLevel;
+    *(_BYTE *)(v7 + 257) = 1;
+    *(_QWORD *)&v19 = a1;
+    *((_QWORD *)&v19 + 1) = a2;
+    *((_QWORD *)&v20 + 1) = a3;
+    DWORD2(v21) = KeGetCurrentThread()[1].CurrentRunTime;
+    BYTE1(v22) = v8;
     CurrentIrql = KeGetCurrentIrql();
-    LOBYTE(v23) = CurrentIrql;
-    *(_QWORD *)&v21 = *(_QWORD *)v11;
-    *(_QWORD *)&v22 = *(_QWORD *)(v11 + 16);
-    HIDWORD(v22) = v10->InterruptCount - *(_DWORD *)(v11 + 24);
+    LOBYTE(v22) = CurrentIrql;
+    *(_QWORD *)&v20 = *(_QWORD *)v11;
+    *(_QWORD *)&v21 = *(_QWORD *)(v11 + 16);
+    HIDWORD(v21) = CurrentPrcb->InterruptCount - *(_DWORD *)(v11 + 24);
     v15 = *(_BYTE *)(v11 + 28);
-    BYTE2(v23) = v15;
+    BYTE2(v22) = v15;
     if ( NestingLevel == 1 )
     {
       if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
       {
         v16 = v15 | 0x40;
 LABEL_18:
-        BYTE2(v23) = v16;
+        BYTE2(v22) = v16;
         goto LABEL_19;
       }
     }
     else if ( !NestingLevel )
     {
 LABEL_19:
-      v26 = 0;
-      v24 = &v20;
-      v25 = 56;
-      EtwTraceKernelEvent((__int64)&v24, 1u, 0x20010000u, 0x529u, 0x602u);
+      v25 = 0;
+      v23 = &v19;
+      v24 = 56;
+      result = EtwTraceKernelEvent((int)&v23, 1, 0x20010000u, 1321, 1538);
       *(_BYTE *)(v7 + 257) = 0;
 LABEL_20:
       v17 = v8 - 1;
       while ( v9 < v17 )
       {
-        v18 = 32 * ++v9;
-        v19 = *(_OWORD *)(v18 + v7 + 16);
-        *(_OWORD *)v11 = *(_OWORD *)(v18 + v7);
-        *(_OWORD *)(v11 + 16) = v19;
+        result = 32 * ++v9;
+        v18 = *(_OWORD *)(result + v7 + 16);
+        *(_OWORD *)v11 = *(_OWORD *)(result + v7);
+        *(_OWORD *)(v11 + 16) = v18;
         v11 += 32LL;
       }
       --*(_BYTE *)(v7 + 256);
-      return;
+      return result;
     }
     v16 = v15 | 0x80;
     goto LABEL_18;
   }
+  return result;
 }

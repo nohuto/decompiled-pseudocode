@@ -1,12 +1,12 @@
 /*
- * XREFs of NtSaveKey @ 0x14065A1D0
+ * XREFs of NtSaveKey @ 0x140869780
  * Callers:
  *     <none>
  * Callees:
- *     NtSaveKeyEx @ 0x14065A1F0 (NtSaveKeyEx.c)
+ *     NtSaveKeyEx @ 0x140728950 (NtSaveKeyEx.c)
  */
 
-__int64 __fastcall NtSaveKey(__int64 a1, __int64 a2)
+__int64 __fastcall NtSaveKey(void *a1, void *a2)
 {
-  return NtSaveKeyEx(a1, a2, 1LL);
+  return NtSaveKeyEx(a1, a2, 1);
 }

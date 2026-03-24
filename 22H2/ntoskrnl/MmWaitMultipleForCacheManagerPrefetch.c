@@ -1,21 +1,21 @@
 /*
- * XREFs of MmWaitMultipleForCacheManagerPrefetch @ 0x14031038C
+ * XREFs of MmWaitMultipleForCacheManagerPrefetch @ 0x14027A000
  * Callers:
- *     CcAsyncReadWorker @ 0x1403BE4A0 (CcAsyncReadWorker.c)
+ *     CcAsyncReadWorker @ 0x1403B72F0 (CcAsyncReadWorker.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MmWaitForCacheManagerPrefetch @ 0x14031056C (MmWaitForCacheManagerPrefetch.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x14027BC08 (MmWaitForCacheManagerPrefetch.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmWaitMultipleForCacheManagerPrefetch(__int64 a1, unsigned int a2, void *a3)
 {
-  __int64 v3; // r15
+  __int64 v3; // rbp
   unsigned int v5; // esi
-  struct _KWAIT_BLOCK *WaitBlockArray; // r14
-  PVOID *v8; // rbx
+  PVOID *Pool; // rbx
+  struct _KWAIT_BLOCK *WaitBlockArray; // r15
   __int64 v9; // rdi
   PVOID *v10; // r8
   __int64 *v11; // rcx
@@ -25,40 +25,40 @@ __int64 __fastcall MmWaitMultipleForCacheManagerPrefetch(__int64 a1, unsigned in
   __int64 v15; // r10
   __int64 **v16; // r10
   _QWORD *v18; // rax
-  PVOID *Pool; // rax
   PVOID Object[2]; // [rsp+40h] [rbp-118h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-108h]
-  struct _KWAIT_BLOCK v22; // [rsp+60h] [rbp-F8h] BYREF
+  __int128 v20; // [rsp+50h] [rbp-108h]
+  struct _KWAIT_BLOCK v21; // [rsp+60h] [rbp-F8h] BYREF
 
   v3 = a2 + 1;
   if ( !a3 )
     v3 = a2;
   v5 = a2;
   *(_OWORD *)Object = 0LL;
-  v21 = 0LL;
-  if ( a2 <= 3 )
-    goto LABEL_4;
-  Pool = (PVOID *)MiAllocatePool(64, 56 * v3, 0x6157694Du);
-  v8 = Pool;
-  if ( !Pool )
+  v20 = 0LL;
+  if ( a2 > 3 )
+    Pool = (PVOID *)MiAllocatePool(64, 56LL * (unsigned int)v3, 0x6157694Du);
+  else
+    Pool = 0LL;
+  if ( Pool )
   {
-    v5 = 3;
-LABEL_4:
-    WaitBlockArray = &v22;
-    v8 = Object;
-    goto LABEL_5;
+    WaitBlockArray = (struct _KWAIT_BLOCK *)&Pool[v3];
   }
-  WaitBlockArray = (struct _KWAIT_BLOCK *)&Pool[v3];
+  else
+  {
+    Pool = Object;
+    WaitBlockArray = &v21;
+    if ( v5 > 3 )
+      v5 = 3;
+  }
   do
   {
-LABEL_5:
     v9 = 0LL;
     if ( v5 )
     {
-      v10 = v8;
+      v10 = Pool;
       while ( 2 )
       {
-        v11 = *(__int64 **)((char *)v10 + a1 - (_QWORD)v8);
+        v11 = *(__int64 **)((char *)v10 + a1 - (_QWORD)Pool);
         while ( 1 )
         {
           v12 = (__int64 *)*v11;
@@ -81,19 +81,19 @@ LABEL_5:
               *v16 = v14;
               v11[16] = (__int64)v14;
               if ( ++*((_DWORD *)v11 + 28) == *((_DWORD *)v11 + 27) )
-                goto LABEL_15;
+                goto LABEL_18;
             }
             v18 = v14 + 4;
             if ( v18 )
               break;
           }
-LABEL_15:
+LABEL_18:
           v11 = v12;
           if ( !v12 )
           {
             MmWaitForCacheManagerPrefetch(*(PVOID *)(a1 + 8 * v9));
-            if ( v8 != Object )
-              ExFreePoolWithTag(v8, 0);
+            if ( Pool != Object )
+              ExFreePoolWithTag(Pool, 0);
             return (unsigned int)v9;
           }
         }
@@ -107,12 +107,13 @@ LABEL_15:
     }
     if ( a3 )
     {
-      v8[v9] = a3;
+      Pool[v9] = a3;
       LODWORD(v9) = v9 + 1;
     }
   }
-  while ( KeWaitForMultipleObjects(v9, v8, WaitAny, WrVirtualMemory, 0, 0, 0LL, WaitBlockArray) != (_DWORD)v9 - 1 || !a3 );
-  if ( v8 != Object )
-    ExFreePoolWithTag(v8, 0);
+  while ( KeWaitForMultipleObjects(v9, Pool, WaitAny, WrVirtualMemory, 0, 0, 0LL, WaitBlockArray) != (_DWORD)v9 - 1
+       || !a3 );
+  if ( Pool != Object )
+    ExFreePoolWithTag(Pool, 0);
   return (unsigned int)(v3 - 1);
 }

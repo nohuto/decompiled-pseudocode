@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReturnProcessVads @ 0x14084C130
+ * XREFs of MiReturnProcessVads @ 0x14084C110
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
- *     MiAllocateProcessVads @ 0x14067A23C (MiAllocateProcessVads.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
+ *     MiAllocateProcessVads @ 0x14067A21C (MiAllocateProcessVads.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

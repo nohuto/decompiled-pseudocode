@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_FillPathsActiveFlagsFromTopology@CCD_TOPOLOGY@@AEAAJAEBV1@@Z @ 0x1C019EE40
+ * XREFs of ?_FillPathsActiveFlagsFromTopology@CCD_TOPOLOGY@@AEAAJAEBV1@@Z @ 0x1C013D58C
  * Callers:
- *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C017D4B8 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
- *     ?_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ @ 0x1C0184020 (-_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ.c)
- *     ?RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z @ 0x1C01E86A0 (-RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z.c)
+ *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C013A304 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
+ *     ?_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ @ 0x1C0168C70 (-_FillPathsActiveFlags@CCD_TOPOLOGY@@AEAAJXZ.c)
+ *     ?RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z @ 0x1C016BF30 (-RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z.c)
  * Callees:
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::_FillPathsActiveFlagsFromTopology(CCD_TOPOLOGY *this, const struct CCD_TOPOLOGY *a2)
@@ -15,11 +15,11 @@ __int64 __fastcall CCD_TOPOLOGY::_FillPathsActiveFlagsFromTopology(CCD_TOPOLOGY 
   unsigned __int16 v6; // r8
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rbx
   unsigned int j; // esi
-  __int64 v10; // rax
-  unsigned __int16 v11; // cx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v12; // rax
-  int v13; // ecx
-  int v14; // edx
+  __int64 v9; // rax
+  unsigned __int16 v10; // cx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v11; // rax
+  int v12; // ecx
+  int v13; // edx
 
   for ( i = 0; ; ++i )
   {
@@ -32,22 +32,22 @@ __int64 __fastcall CCD_TOPOLOGY::_FillPathsActiveFlagsFromTopology(CCD_TOPOLOGY 
     {
       for ( j = 0; ; ++j )
       {
-        v10 = *((_QWORD *)this + 8);
-        v11 = v10 ? *(_WORD *)(v10 + 20) : 0;
-        if ( j >= v11 )
+        v9 = *((_QWORD *)this + 8);
+        v10 = v9 ? *(_WORD *)(v9 + 20) : 0;
+        if ( j >= v10 )
           break;
-        v12 = CCD_TOPOLOGY::GetPathDescriptor(this, j);
-        if ( *((_DWORD *)PathDescriptor + 4) == *((_DWORD *)v12 + 4)
-          && *((_DWORD *)PathDescriptor + 5) == *((_DWORD *)v12 + 5) )
+        v11 = CCD_TOPOLOGY::GetPathDescriptor(this, j);
+        if ( *((_DWORD *)PathDescriptor + 4) == *((_DWORD *)v11 + 4)
+          && *((_DWORD *)PathDescriptor + 5) == *((_DWORD *)v11 + 5) )
         {
-          v13 = *((_DWORD *)v12 + 7);
-          if ( *((_DWORD *)PathDescriptor + 7) == v13 )
-            *(_QWORD *)v12 |= 0x2000000000000000uLL;
-          v14 = *((_DWORD *)v12 + 6);
-          if ( *((_DWORD *)PathDescriptor + 6) == v14 )
-            *(_QWORD *)v12 |= 0x4000000000000000uLL;
-          if ( *((_DWORD *)PathDescriptor + 7) == v13 && *((_DWORD *)PathDescriptor + 6) == v14 )
-            *(_QWORD *)v12 |= 0x8000000000000000uLL;
+          v12 = *((_DWORD *)v11 + 7);
+          if ( *((_DWORD *)PathDescriptor + 7) == v12 )
+            *(_QWORD *)v11 |= 0x2000000000000000uLL;
+          v13 = *((_DWORD *)v11 + 6);
+          if ( *((_DWORD *)PathDescriptor + 6) == v13 )
+            *(_QWORD *)v11 |= 0x4000000000000000uLL;
+          if ( *((_DWORD *)PathDescriptor + 7) == v12 && *((_DWORD *)PathDescriptor + 6) == v13 )
+            *(_QWORD *)v11 |= 0x8000000000000000uLL;
         }
       }
     }

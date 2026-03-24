@@ -1,7 +1,7 @@
 /*
- * XREFs of CopyDIB_CX @ 0x1C012DC70
+ * XREFs of CopyDIB_CX @ 0x1C013AA20
  * Callers:
- *     RepDIB_CY @ 0x1C0139D20 (RepDIB_CY.c)
+ *     RepDIB_CY @ 0x1C013AD20 (RepDIB_CY.c)
  * Callees:
  *     <none>
  */

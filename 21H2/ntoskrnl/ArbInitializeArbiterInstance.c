@@ -1,24 +1,24 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x14083A794
+ * XREFs of ArbInitializeArbiterInstance @ 0x1407A2260
  * Callers:
- *     IopPortInitialize @ 0x140838F24 (IopPortInitialize.c)
- *     IopMemInitialize @ 0x140838FBC (IopMemInitialize.c)
- *     IopDmaInitialize @ 0x1408390A0 (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x140839118 (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x140839180 (IopBusNumberInitialize.c)
+ *     IopPortInitialize @ 0x1407A1B9C (IopPortInitialize.c)
+ *     IopMemInitialize @ 0x1407A1C34 (IopMemInitialize.c)
+ *     IopDmaInitialize @ 0x1407A1D18 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x1407A1D90 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x1407A1DF8 (IopBusNumberInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ArbBuildAssignmentOrdering @ 0x14083AAB8 (ArbBuildAssignmentOrdering.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407A2578 (ArbBuildAssignmentOrdering.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  struct _KEVENT *Pool2; // rax
-  __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rax
+  struct _KEVENT *PoolWithTag; // rax
+  PVOID v10; // rax
+  PVOID v11; // rax
+  PVOID v12; // rax
   __int64 v13; // rax
   __int64 v14; // rax
   struct _KEVENT *v15; // rax
@@ -33,21 +33,21 @@ __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, 
 
   *(_DWORD *)a1 = 1935831617;
   *(_QWORD *)(a1 + 320) = 0LL;
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1298297409LL);
-  *(_QWORD *)(a1 + 8) = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x4D627241u);
+  *(_QWORD *)(a1 + 8) = PoolWithTag;
+  if ( !PoolWithTag )
     goto LABEL_44;
-  KeInitializeEvent(Pool2, SynchronizationEvent, 1u);
-  v10 = ExAllocatePool2(256LL, 4096LL, 1096970817LL);
+  KeInitializeEvent(PoolWithTag, SynchronizationEvent, 1u);
+  v10 = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x41627241u);
   *(_QWORD *)(a1 + 112) = v10;
   if ( !v10 )
     goto LABEL_44;
   *(_DWORD *)(a1 + 104) = 4096;
-  v11 = ExAllocatePool2(256LL, 32LL, 1382183489LL);
+  v11 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52627241u);
   *(_QWORD *)(a1 + 40) = v11;
   if ( !v11 )
     goto LABEL_44;
-  v12 = ExAllocatePool2(256LL, 32LL, 1382183489LL);
+  v12 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52627241u);
   *(_QWORD *)(a1 + 48) = v12;
   if ( !v12 )
     goto LABEL_44;
@@ -62,7 +62,7 @@ __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, 
   *(_QWORD *)(v14 + 16) = 0LL;
   *(_DWORD *)(v14 + 24) = 0;
   *(_BYTE *)(a1 + 296) = 0;
-  v15 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1298297409LL);
+  v15 = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x4D627241u);
   *(_QWORD *)(a1 + 304) = v15;
   if ( v15 )
   {

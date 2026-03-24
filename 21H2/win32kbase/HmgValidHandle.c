@@ -1,11 +1,11 @@
 /*
- * XREFs of HmgValidHandle @ 0x1C006EEE0
+ * XREFs of HmgValidHandle @ 0x1C006AD10
  * Callers:
- *     UserValidateCopyRgn @ 0x1C006EE60 (UserValidateCopyRgn.c)
- *     GreValidateServerHandle @ 0x1C006EEC0 (GreValidateServerHandle.c)
+ *     UserValidateCopyRgn @ 0x1C006AC90 (UserValidateCopyRgn.c)
+ *     GreValidateServerHandle @ 0x1C006ACF0 (GreValidateServerHandle.c)
  * Callees:
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0022610 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C002FDB0 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
 __int64 __fastcall HmgValidHandle(unsigned int a1, char a2)

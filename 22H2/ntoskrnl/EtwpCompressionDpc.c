@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCompressionDpc @ 0x140602670
+ * XREFs of EtwpCompressionDpc @ 0x1405ACC90
  * Callers:
- *     EtwpPrepareDirtyBuffer @ 0x140227BA8 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14032F3E4 (EtwpPrepareDirtyBuffer.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321C20 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14026D960 (ExAcquireRundownProtectionCacheAwareEx.c)
  */
 
-void __fastcall EtwpCompressionDpc(__int64 a1, unsigned int *a2)
+void __fastcall EtwpCompressionDpc(__int64 a1, struct _WORK_QUEUE_ITEM *a2)
 {
   ExAcquireRundownProtectionCacheAwareEx(
-    *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)a2 + 137) + 448LL) + 8LL * *a2),
+    *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*((_QWORD *)a2[33].Parameter + 56) + 8LL * LODWORD(a2->List.Flink)),
     1u);
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)(a2 + 276), DelayedWorkQueue);
+  ExQueueWorkItem(a2 + 34, DelayedWorkQueue);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpAcpiAoacCapable @ 0x1408663E0
+ * XREFs of HalpAcpiAoacCapable @ 0x1407D55B0
  * Callers:
  *     <none>
  * Callees:

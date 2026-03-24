@@ -1,23 +1,23 @@
 /*
- * XREFs of ?RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@J_KHPEAX@Z @ 0x1C00841E8
+ * XREFs of ?RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@J_KHPEAX@Z @ 0x1C0073ED0
  * Callers:
- *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0084018 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
+ *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0074048 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
  * Callees:
- *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C00313C8 (McTemplateK0pptpqqx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C0031488 (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C0031568 (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C003165C (McTemplateK0pptpqxq_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C003171C (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C00318C8 (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C00319E0 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C0031B2C (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
- *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C0031C20 (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
- *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C0031D00 (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
- *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C0031DE0 (McTemplateK0pptpxx_EtwWriteTransfer.c)
- *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C0031EA0 (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
- *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C0031F80 (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
- *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0032084 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
- *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0032218 (McTemplateK0pptqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C0026E8C (McTemplateK0pptpqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C0026F4C (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C002702C (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C0027120 (McTemplateK0pptpqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C00271E0 (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C002738C (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C00274A4 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C00275F0 (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C00276E4 (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C00277C4 (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C00278A4 (McTemplateK0pptpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C0027964 (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C0027A44 (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0027B48 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0027CDC (McTemplateK0pptqx_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
@@ -30,7 +30,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
         int a7,
         _DWORD *a8)
 {
-  __int64 v12; // rbp
+  __int64 v12; // rdi
   __int64 v13; // r10
   __int64 v14; // r9
   DXGK_BUILDPAGINGBUFFER_OPERATION Operation; // ecx
@@ -81,7 +81,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
               v27 = v26 - 2;
               if ( v27 )
               {
-                if ( v27 == 1 && (byte_1C006E941 & 8) != 0 )
+                if ( v27 == 1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
                   McTemplateK0pptpxx_EtwWriteTransfer(
                     (__int64)&DxgkControlGuid_Context,
                     (__int64)&EventPagingOpSignalMonitoredFence,
@@ -93,7 +93,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
                     a4->UpdateContextAllocation.ContextAllocation,
                     a4->Fill.FillSize);
               }
-              else if ( (byte_1C006E941 & 8) != 0 )
+              else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
               {
                 McTemplateK0pptpqxq_EtwWriteTransfer(
                   (__int64)&DxgkControlGuid_Context,
@@ -108,7 +108,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
                   a4->Transfer.Source.SegmentId);
               }
             }
-            else if ( (byte_1C006E941 & 8) != 0 )
+            else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
             {
               McTemplateK0pptpxxpq_EtwWriteTransfer(
                 (__int64)&DxgkControlGuid_Context,
@@ -124,7 +124,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
                 a4->Transfer.Source.SegmentId);
             }
           }
-          else if ( (byte_1C006E941 & 8) != 0 )
+          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
           {
             McTemplateK0pptpqxpxx_EtwWriteTransfer(
               (__int64)&DxgkControlGuid_Context,
@@ -158,7 +158,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
           {
             TransferSize = 0LL;
           }
-          if ( (byte_1C006E941 & 8) != 0 )
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
             McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer(
               (__int64)&DxgkControlGuid_Context,
               (__int64)&EventPagingOpUpdatePageTable,
@@ -182,7 +182,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
               a4->UpdatePageTable.FirstPteVirtualAddress);
         }
       }
-      else if ( (byte_1C006E941 & 8) != 0 )
+      else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
       {
         McTemplateK0pptpqxpx_EtwWriteTransfer(
           (__int64)&DxgkControlGuid_Context,
@@ -198,7 +198,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
           a4->Transfer.Source.SegmentAddress.QuadPart);
       }
     }
-    else if ( (byte_1C006E941 & 8) != 0 )
+    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
     {
       McTemplateK0pptpxxqqxx_EtwWriteTransfer(
         (__int64)&DxgkControlGuid_Context,
@@ -219,7 +219,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
   }
   if ( Operation == DXGK_OPERATION_VIRTUAL_TRANSFER )
   {
-    if ( (byte_1C006E941 & 8) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
       McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer(
         (__int64)&DxgkControlGuid_Context,
         (__int64)&EventPagingOpVirtualTransfer,
@@ -249,7 +249,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
       v25 = v24 - 1;
       if ( !v25 )
       {
-        if ( (byte_1C006E941 & 8) != 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
           McTemplateK0pptpqqx_EtwWriteTransfer(
             (__int64)&DxgkControlGuid_Context,
             (__int64)&EventPagingOpDiscard,
@@ -275,7 +275,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
             v31 = v30 - 1;
             if ( v31 )
             {
-              if ( v31 == 1 && (byte_1C006E941 & 8) != 0 )
+              if ( v31 == 1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
                 McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer(
                   (__int64)&DxgkControlGuid_Context,
                   (__int64)&EventPagingOpSpecialLockTransfer,
@@ -294,7 +294,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
                   a4->Transfer.MdlOffset,
                   a4->SpecialLockTransfer.SwizzlingRangeData);
             }
-            else if ( (byte_1C006E941 & 8) != 0 )
+            else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
             {
               McTemplateK0pptpqxxt_EtwWriteTransfer(
                 (__int64)&DxgkControlGuid_Context,
@@ -310,7 +310,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
                 a7);
             }
           }
-          else if ( (byte_1C006E941 & 8) != 0 )
+          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
           {
             McTemplateK0pptpqxxqt_EtwWriteTransfer(
               (__int64)&DxgkControlGuid_Context,
@@ -328,15 +328,15 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
           }
           goto LABEL_11;
         }
-        if ( (byte_1C006E941 & 8) == 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) == 0 )
           goto LABEL_11;
-        v32 = (const EVENT_DESCRIPTOR *)&EventPagingOpWritePhysical;
+        v32 = &EventPagingOpWritePhysical;
       }
       else
       {
-        if ( (byte_1C006E941 & 8) == 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) == 0 )
           goto LABEL_11;
-        v32 = (const EVENT_DESCRIPTOR *)&EventPagingOpReadPhysical;
+        v32 = &EventPagingOpReadPhysical;
       }
       McTemplateK0pptqx_EtwWriteTransfer(
         (__int64)&DxgkControlGuid_Context,
@@ -349,7 +349,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
         a4->Fill.FillSize);
       goto LABEL_11;
     }
-    if ( (byte_1C006E941 & 8) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
       McTemplateK0pptpxqqx_EtwWriteTransfer(
         (__int64)&DxgkControlGuid_Context,
         (__int64)&EventPagingOpFill,
@@ -363,7 +363,7 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
         a4->Transfer.Source.SegmentId,
         a4->Transfer.Source.SegmentAddress.QuadPart);
   }
-  else if ( (byte_1C006E941 & 8) != 0 )
+  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
   {
     McTemplateK0pptpqxqxqxq_EtwWriteTransfer(
       (__int64)&DxgkControlGuid_Context,
@@ -382,22 +382,22 @@ void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
       a4->Transfer.Flags.Value);
   }
 LABEL_11:
-  v22 = *((_QWORD *)this + 985);
+  v22 = *((_QWORD *)this + 984);
   if ( v22 )
   {
-    v33 = 360LL * *((unsigned int *)this + 1972);
+    v33 = 360LL * *((unsigned int *)this + 1970);
     if ( a3 )
     {
       *(_QWORD *)(v33 + v22 + 8) = a3;
-      *(_QWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 16) = *((_QWORD *)a3 + 5);
+      *(_QWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 16) = *((_QWORD *)a3 + 5);
     }
     else
     {
       *(_QWORD *)(v33 + v22 + 8) = 0LL;
-      *(_QWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 16) = 0LL;
+      *(_QWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 16) = 0LL;
     }
-    *(_DWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985)) = a2;
-    v34 = (_OWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 24LL);
+    *(_DWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984)) = a2;
+    v34 = (_OWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 24LL);
     do
     {
       *v34 = *(_OWORD *)&a4->pDmaBuffer;
@@ -418,12 +418,12 @@ LABEL_11:
     v34[1] = *(_OWORD *)&a4->pDmaBufferPrivateData;
     v34[2] = *(_OWORD *)&a4->MultipassOffset;
     v34[3] = *(_OWORD *)&a4->SpecialLockTransfer.TransferOffset;
-    *(_DWORD *)(360LL * *((unsigned int *)this + 1972) + *((_QWORD *)this + 985) + 344) = a5;
-    *(_QWORD *)(360LL * (unsigned int)(*((_DWORD *)this + 1972))++ + *((_QWORD *)this + 985) + 352) = a6;
-    if ( *((_DWORD *)this + 1972) >= *((_DWORD *)this + 1968) )
+    *(_DWORD *)(360LL * *((unsigned int *)this + 1970) + *((_QWORD *)this + 984) + 344) = a5;
+    *(_QWORD *)(360LL * (unsigned int)(*((_DWORD *)this + 1970))++ + *((_QWORD *)this + 984) + 352) = a6;
+    if ( *((_DWORD *)this + 1970) >= *((_DWORD *)this + 1966) )
     {
-      *((_DWORD *)this + 1972) = 0;
-      ++*((_DWORD *)this + 1973);
+      *((_DWORD *)this + 1970) = 0;
+      ++*((_DWORD *)this + 1971);
     }
   }
 }

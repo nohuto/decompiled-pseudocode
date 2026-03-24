@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004D308
+ * XREFs of McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004EC14
  * Callers:
- *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C0303528 (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
- *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C0303620 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02BFDCC (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02BFEC4 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqszq_EtwWriteTransfer(
@@ -19,12 +19,12 @@ NTSTATUS __fastcall McTemplateK0qqqszq_EtwWriteTransfer(
         const wchar_t *a8,
         char a9)
 {
-  const wchar_t *v9; // r8
-  const char *v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  int v14; // eax
-  int v15; // eax
+  const char *v9; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  int v13; // eax
+  const wchar_t *v14; // rax
+  int v15; // ecx
   struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+30h] [rbp-51h] BYREF
   int *v18; // [rsp+40h] [rbp-41h]
   __int64 v19; // [rsp+48h] [rbp-39h]
@@ -43,38 +43,38 @@ NTSTATUS __fastcall McTemplateK0qqqszq_EtwWriteTransfer(
   int v32; // [rsp+D8h] [rbp+57h] BYREF
 
   v32 = a4;
-  v9 = a8;
+  v9 = a7;
   v18 = &v32;
-  v11 = a7;
-  v20 = &a5;
-  v12 = -1LL;
   v19 = 4LL;
+  v20 = &a5;
+  v11 = -1LL;
   v21 = 4LL;
-  v22 = &a6;
   v23 = 4LL;
+  v22 = &a6;
   if ( a7 )
   {
-    v13 = -1LL;
+    v12 = -1LL;
     do
-      ++v13;
-    while ( a7[v13] );
-    v14 = v13 + 1;
+      ++v12;
+    while ( a7[v12] );
+    v13 = v12 + 1;
   }
   else
   {
-    v14 = 5;
+    v13 = 5;
   }
-  v25 = v14;
-  v26 = 0;
+  v25 = v13;
+  v14 = a8;
   if ( !a7 )
-    v11 = "NULL";
-  v24 = v11;
+    v9 = "NULL";
+  v26 = 0;
+  v24 = v9;
   if ( a8 )
   {
     do
-      ++v12;
-    while ( a8[v12] );
-    v15 = 2 * v12 + 2;
+      ++v11;
+    while ( a8[v11] );
+    v15 = 2 * v11 + 2;
   }
   else
   {
@@ -82,10 +82,10 @@ NTSTATUS __fastcall McTemplateK0qqqszq_EtwWriteTransfer(
   }
   v28 = v15;
   v29 = 0;
-  v30 = &a9;
-  v31 = 4LL;
   if ( !a8 )
-    v9 = L"NULL";
-  v27 = v9;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, a2, (__int64)v9, 7u, &v17);
+    v14 = L"NULL";
+  v31 = 4LL;
+  v27 = v14;
+  v30 = &a9;
+  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, a2, (__int64)a2, 7u, &v17);
 }

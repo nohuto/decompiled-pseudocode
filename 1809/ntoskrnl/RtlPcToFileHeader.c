@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlPcToFileHeader @ 0x14012F650
+ * XREFs of RtlPcToFileHeader @ 0x14012F670
  * Callers:
- *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0D0 (EtwpLocateDbgIdForRegEntry.c)
- *     KeSetTracepoint @ 0x140844E20 (KeSetTracepoint.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0 (EtwpLocateDbgIdForRegEntry.c)
+ *     KeSetTracepoint @ 0x140844E00 (KeSetTracepoint.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:
  *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of EngQueryPerformanceFrequency @ 0x1C0177690
+ * XREFs of EngQueryPerformanceFrequency @ 0x1C014B240
  * Callers:
  *     <none>
  * Callees:

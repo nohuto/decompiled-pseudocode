@@ -1,55 +1,55 @@
 /*
- * XREFs of ExpCreateOutputNT @ 0x14084057C
+ * XREFs of ExpCreateOutputNT @ 0x14094FCCC
  * Callers:
- *     ExpTranslateEfiPath @ 0x1408402B0 (ExpTranslateEfiPath.c)
- *     ExpConvertArcName @ 0x1409FBB48 (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x1409FBD0C (ExpConvertSignatureName.c)
+ *     ExpConvertArcName @ 0x14094F5EC (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x14094F7B0 (ExpConvertSignatureName.c)
+ *     ExpTranslateEfiPath @ 0x14095228C (ExpTranslateEfiPath.c)
  * Callees:
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
  */
 
 __int64 __fastcall ExpCreateOutputNT(__int64 a1, unsigned int *a2, const wchar_t **a3, const wchar_t *a4)
 {
   int v4; // edi
-  unsigned int v8; // eax
-  unsigned int v9; // edi
-  unsigned int v10; // eax
-  __int64 v11; // rbx
-  rsize_t v12; // r14
-  wchar_t *v13; // rcx
-  __int64 v15; // rax
+  __int64 v8; // rax
+  unsigned int v9; // eax
+  unsigned int v10; // edi
+  unsigned int v11; // eax
+  __int64 v12; // rbx
+  unsigned int v13; // r14d
+  wchar_t *v14; // rcx
 
   v4 = *(unsigned __int16 *)a3 + 2;
   if ( a4 )
   {
-    v15 = -1LL;
+    v8 = -1LL;
     do
-      ++v15;
-    while ( a4[v15] );
-    v4 += 2 * v15;
+      ++v8;
+    while ( a4[v8] );
+    v4 += 2 * v8;
   }
-  v8 = v4 + 2;
-  v9 = v4 + 14;
-  v10 = v8 >> 1;
-  if ( a1 && *a2 >= v9 )
+  v9 = v4 + 2;
+  v10 = v4 + 14;
+  v11 = v9 >> 1;
+  if ( a1 && *a2 >= v10 )
   {
     *(_DWORD *)a1 = 1;
-    v11 = a1 + 12;
-    *(_DWORD *)(a1 + 4) = v9;
+    v12 = a1 + 12;
+    *(_DWORD *)(a1 + 4) = v10;
     *(_DWORD *)(a1 + 8) = 3;
-    v12 = v10;
-    wcscpy_s((wchar_t *)(a1 + 12), v10, a3[1]);
-    v13 = (wchar_t *)(v11 + *(unsigned __int16 *)a3 + 2LL);
+    v13 = v11;
+    wcscpy_s((wchar_t *)(a1 + 12), v11, a3[1]);
+    v14 = (wchar_t *)(v12 + *(unsigned __int16 *)a3 + 2LL);
     if ( a4 )
-      wcscpy_s(v13, v12, a4);
+      wcscpy_s(v14, v13, a4);
     else
-      *v13 = 0;
-    *a2 = v9;
+      *v14 = 0;
+    *a2 = v10;
     return 0LL;
   }
   else
   {
-    *a2 = v9;
+    *a2 = v10;
     return 3221225507LL;
   }
 }

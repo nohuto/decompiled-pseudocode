@@ -1,11 +1,11 @@
 /*
- * XREFs of PspRemovePartitionFromGlobalList @ 0x1405E2D48
+ * XREFs of PspRemovePartitionFromGlobalList @ 0x14058431C
  * Callers:
- *     PspDeletePartition @ 0x1409B3450 (PspDeletePartition.c)
+ *     PspDeletePartition @ 0x14090D050 (PspDeletePartition.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspRemovePartitionFromGlobalList(__int64 a1)

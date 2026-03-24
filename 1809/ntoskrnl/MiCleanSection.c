@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCleanSection @ 0x14016971C
+ * XREFs of MiCleanSection @ 0x14016973C
  * Callers:
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiAttemptSectionDelete @ 0x140122150 (MiAttemptSectionDelete.c)
+ *     MiAttemptSectionDelete @ 0x140122170 (MiAttemptSectionDelete.c)
  * Callees:
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDestroySection @ 0x14016979C (MiDestroySection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRemoveWakeListEntry @ 0x1402A3110 (MiRemoveWakeListEntry.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDestroySection @ 0x1401697BC (MiDestroySection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRemoveWakeListEntry @ 0x1402A3210 (MiRemoveWakeListEntry.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedProperty @ 0x140785A3C
+ * XREFs of _CmGetDeviceInterfaceMappedProperty @ 0x14063D6E8
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x140785470 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x14063C280 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406CC2C8 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1407872FC (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14063DC98 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14070EA88 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        int a1,
+        int a2,
+        int a3,
         __int64 a4,
         __int64 a5,
-        _DWORD *a6,
+        __int64 a6,
         __int64 a7,
         int a8,
         _DWORD *a9)
@@ -31,7 +31,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
   *a9 = 0;
   if ( !a4 )
   {
-    v13 = &off_140A380C0;
+    v13 = &off_1409839B8;
     while ( 1 )
     {
       v14 = *v13;
@@ -56,11 +56,11 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
                                                   a6,
                                                   a7,
                                                   a8,
-                                                  a9);
+                                                  (__int64)a9);
     if ( DeviceInterfaceMappedPropertyFromRegValue != -1073741802 )
       return DeviceInterfaceMappedPropertyFromRegValue;
 LABEL_6:
-    v15 = &off_140A38850;
+    v15 = &off_140983EF0;
     v16 = 0;
     while ( 1 )
     {
@@ -78,15 +78,7 @@ LABEL_6:
       if ( v16 >= 4 )
         return DeviceInterfaceMappedPropertyFromRegValue;
     }
-    return (unsigned int)CmGetDeviceInterfaceMappedPropertyFromComposite(
-                           a1,
-                           a2,
-                           a3,
-                           a5,
-                           (__int64)a6,
-                           a7,
-                           a8,
-                           (__int64)a9);
+    return (unsigned int)CmGetDeviceInterfaceMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, (__int64)a9);
   }
   return DeviceInterfaceMappedPropertyFromRegValue;
 }

@@ -14,13 +14,13 @@
  *     PsReturnProcessQuota @ 0x140091888 (PsReturnProcessQuota.c)
  *     MiDeleteFinalPageTables @ 0x1400918B8 (MiDeleteFinalPageTables.c)
  *     MiUnlinkWorkingSet @ 0x140091C7C (MiUnlinkWorkingSet.c)
- *     MiDeletePxeSharedLocks @ 0x1401B57B4 (MiDeletePxeSharedLocks.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402BFF40 (MiReturnPartitionResidentAvailable.c)
+ *     MiDeletePxeSharedLocks @ 0x1401B57D4 (MiDeletePxeSharedLocks.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiReleaseProcessReferenceToSessionDataPage @ 0x14060751C (MiReleaseProcessReferenceToSessionDataPage.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x14068C750 (PspChangeJobMemoryUsageByProcess.c)
- *     MiDeleteAweInfo @ 0x14084FD10 (MiDeleteAweInfo.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14068C730 (PspChangeJobMemoryUsageByProcess.c)
+ *     MiDeleteAweInfo @ 0x14084FCF0 (MiDeleteAweInfo.c)
  */
 
 __int64 __fastcall MmDeleteProcessAddressSpace(ULONG_PTR BugCheckParameter1)

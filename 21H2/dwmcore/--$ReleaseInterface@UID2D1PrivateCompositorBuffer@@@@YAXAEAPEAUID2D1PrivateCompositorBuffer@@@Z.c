@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$ReleaseInterface@UID2D1PrivateCompositorBuffer@@@@YAXAEAPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x1800DF2D0
+ * XREFs of ??$ReleaseInterface@UID2D1PrivateCompositorBuffer@@@@YAXAEAPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x1800D5FE8
  * Callers:
- *     ?ReleaseHeatMap@CPrimitiveGroup@@AEAAXXZ @ 0x1800DF29C (-ReleaseHeatMap@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ReleaseHeatMap@CPrimitiveGroup@@AEAAXXZ @ 0x1800D5FB4 (-ReleaseHeatMap@CPrimitiveGroup@@AEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ReleaseInterface<ID2D1PrivateCompositorBuffer>(__int64 *a1)

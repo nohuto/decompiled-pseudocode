@@ -1,74 +1,74 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhaseDep @ 0x1C0009970
+ * XREFs of ACPIBuildProcessDevicePhaseDep @ 0x1C0015460
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteMustSucceed @ 0x1C000A4C0 (ACPIBuildCompleteMustSucceed.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
-__int64 __fastcall ACPIBuildProcessDevicePhaseDep(__int64 a1)
+__int64 __fastcall ACPIBuildProcessDevicePhaseDep(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v1; // rdi
-  unsigned int v2; // ebx
-  __int64 v4; // rcx
-  void *v5; // rax
-  void *v6; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  __int64 v10; // [rsp+40h] [rbp-18h]
+  __int64 v4; // rdi
+  unsigned int v5; // ebx
+  __int64 v7; // rcx
+  void *v8; // rax
+  void *v9; // rdx
+  __int64 v11; // rcx
+  __int64 *v12; // rax
+  __int64 v13; // [rsp+40h] [rbp-18h]
 
-  v1 = *(_QWORD *)(a1 + 40);
+  v4 = *(_QWORD *)(a1 + 40);
   *(_OWORD *)(a1 + 80) = 0LL;
-  v2 = 0;
+  v5 = 0;
   *(_OWORD *)(a1 + 96) = 0LL;
   *(_QWORD *)(a1 + 112) = 0LL;
   *(_DWORD *)(a1 + 32) = 5;
-  if ( (*(_BYTE *)(v1 + 1000) & 0x20) == 0 )
+  if ( (*(_BYTE *)(v4 + 960) & 0x20) == 0 )
   {
-    v8 = *(_QWORD *)(a1 + 56);
-    if ( v8 )
+    v11 = *(_QWORD *)(a1 + 56);
+    if ( v11 )
     {
-      AMLIDereferenceHandleEx(v8);
+      AMLIDereferenceHandleEx(v11);
       *(_QWORD *)(a1 + 56) = 0LL;
     }
-    v9 = AMLIGetNamedChild(*(_QWORD *)(v1 + 760), 1346716767LL);
-    *(_QWORD *)(a1 + 56) = v9;
-    if ( v9 )
-      v2 = AMLIAsyncEvalObject(v9, (int)a1 + 80, 0, 0, (__int64)ACPIBuildCompleteMustSucceed, a1);
+    v12 = (__int64 *)AMLIGetNamedChild(*(_QWORD *)(v4 + 720), 1346716767LL, a3, a4);
+    *(_QWORD *)(a1 + 56) = v12;
+    if ( v12 )
+      v5 = AMLIAsyncEvalObject(v12, a1 + 80, 0, 0LL, ACPIBuildCompleteMustSucceed, a1);
     else
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 1000), 0x20uLL);
+      _InterlockedOr64((volatile signed __int64 *)(v4 + 960), 0x20uLL);
   }
-  v4 = *(_QWORD *)(v1 + 8);
-  v5 = &unk_1C006FB8B;
-  v6 = &unk_1C006FB8B;
-  if ( (v4 & 0x200000000000LL) != 0 )
+  v7 = *(_QWORD *)(v4 + 8);
+  v8 = &unk_1C00701BA;
+  v9 = &unk_1C00701BA;
+  if ( (v7 & 0x200000000000LL) != 0 )
   {
-    v5 = *(void **)(v1 + 608);
-    if ( (v4 & 0x400000000000LL) != 0 )
-      v6 = *(void **)(v1 + 616);
+    v8 = *(void **)(v4 + 568);
+    if ( (v7 & 0x400000000000LL) != 0 )
+      v9 = *(void **)(v4 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v10 = (__int64)v6;
-    LOBYTE(v6) = 4;
+    v13 = (__int64)v9;
+    LOBYTE(v9) = 4;
     WPP_RECORDER_SF_Lqss(
       WPP_GLOBAL_Control->DeviceExtension,
-      (_DWORD)v6,
+      (_DWORD)v9,
       6,
       31,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
-      v2,
-      v1,
-      (__int64)v5,
-      v10);
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+      v5,
+      v4,
+      (__int64)v8,
+      v13);
   }
-  if ( v2 == 259 )
+  if ( v5 == 259 )
     return 0;
   else
     ACPIBuildCompleteMustSucceed(0LL);
-  return v2;
+  return v5;
 }

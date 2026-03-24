@@ -3,14 +3,14 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcstoul @ 0x140197CA0 (wcstoul.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1401B83D0 (ZwEnumerateValueKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcstoul @ 0x140197CC0 (wcstoul.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmRegisterHotPatch @ 0x1409F71C0 (MmRegisterHotPatch.c)
+ *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
  */
 
 __int64 IopLoadBootHotPatches()

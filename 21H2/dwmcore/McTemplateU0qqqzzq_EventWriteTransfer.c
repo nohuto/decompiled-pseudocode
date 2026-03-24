@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0qqqzzq_EventWriteTransfer @ 0x1801CB46C
+ * XREFs of McTemplateU0qqqzzq_EventWriteTransfer @ 0x1800B217C
  * Callers:
- *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800745D0 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
+ *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800B0708 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
-ULONG __fastcall McTemplateU0qqqzzq_EventWriteTransfer(
+__int64 __fastcall McTemplateU0qqqzzq_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         int a3,
@@ -24,7 +24,7 @@ ULONG __fastcall McTemplateU0qqqzzq_EventWriteTransfer(
   __int64 v12; // r8
   const wchar_t *v13; // rcx
   bool v14; // zf
-  struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+30h] [rbp-49h] BYREF
+  _BYTE v16[16]; // [rsp+30h] [rbp-49h] BYREF
   int *v17; // [rsp+40h] [rbp-39h]
   __int64 v18; // [rsp+48h] [rbp-31h]
   int *v19; // [rsp+50h] [rbp-29h]
@@ -88,9 +88,9 @@ ULONG __fastcall McTemplateU0qqqzzq_EventWriteTransfer(
   v28 = 0;
   v30 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           Microsoft_Windows_Dwm_Core_Provider_Context,
+           &Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT,
            v12,
-           7u,
-           &v16);
+           7LL,
+           v16);
 }

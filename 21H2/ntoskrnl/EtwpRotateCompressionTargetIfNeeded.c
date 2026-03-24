@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpRotateCompressionTargetIfNeeded @ 0x14063566C
+ * XREFs of EtwpRotateCompressionTargetIfNeeded @ 0x1405AD830
  * Callers:
- *     EtwpCompressBuffer @ 0x14063499C (EtwpCompressBuffer.c)
- *     EtwpCompressPendingBuffers @ 0x140634D24 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressBuffer @ 0x1405AC714 (EtwpCompressBuffer.c)
+ *     EtwpCompressPendingBuffers @ 0x1405ACA9C (EtwpCompressPendingBuffers.c)
  * Callees:
- *     EtwpRotateCompressionTarget @ 0x140635600 (EtwpRotateCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x1405AD7C4 (EtwpRotateCompressionTarget.c)
  */
 
 unsigned int *__fastcall EtwpRotateCompressionTargetIfNeeded(__int64 a1)
@@ -12,7 +12,7 @@ unsigned int *__fastcall EtwpRotateCompressionTargetIfNeeded(__int64 a1)
   __int64 v1; // rax
   unsigned int *result; // rax
 
-  v1 = *(_QWORD *)(a1 + 1152);
+  v1 = *(_QWORD *)(a1 + 1136);
   if ( !v1 )
     return EtwpRotateCompressionTarget(a1);
   result = (unsigned int *)*(unsigned int *)(v1 + 8);

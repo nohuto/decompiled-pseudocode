@@ -1,24 +1,22 @@
 /*
- * XREFs of NtUserRegisterErrorReportingDialog @ 0x1C01FB9C0
+ * XREFs of NtUserRegisterErrorReportingDialog @ 0x1C0200C80
  * Callers:
  *     <none>
  * Callees:
- *     _RegisterErrorReportingDialog @ 0x1C0211704 (_RegisterErrorReportingDialog.c)
+ *     _RegisterErrorReportingDialog @ 0x1C020A160 (_RegisterErrorReportingDialog.c)
  */
 
-__int64 __fastcall NtUserRegisterErrorReportingDialog(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserRegisterErrorReportingDialog(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // edi
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  int v7; // ebx
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  int v6; // ebx
 
-  v3 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v5 = ValidateHwnd(a1);
-  v7 = 0;
-  if ( v5 )
-    v7 = RegisterErrorReportingDialog(v5, v3);
-  UserSessionSwitchLeaveCrit(v6);
-  return v7;
+  EnterSharedCrit(0LL, 1LL);
+  v4 = ValidateHwnd(a1);
+  v6 = 0;
+  if ( v4 )
+    v6 = RegisterErrorReportingDialog(v4, a2);
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

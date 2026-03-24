@@ -1,16 +1,16 @@
 /*
- * XREFs of PostPlaySoundMessage @ 0x1C00B6720
+ * XREFs of PostPlaySoundMessage @ 0x1C00A9898
  * Callers:
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C009F448 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0078210 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 PostPlaySoundMessage()
 {
-  if ( qword_1C0295828 )
-    return qword_1C0295828();
+  if ( qword_1C0256408 )
+    return qword_1C0256408();
   else
     return 3221225659LL;
 }

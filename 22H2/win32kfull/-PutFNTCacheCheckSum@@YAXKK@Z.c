@@ -1,44 +1,39 @@
 /*
- * XREFs of ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C0289D28
+ * XREFs of ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C028858C
  * Callers:
- *     ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0022E54 (--0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTC.c)
+ *     ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0114FF8 (--0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTC.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     SearchFntCacheNewLink @ 0x1C0289F08 (SearchFntCacheNewLink.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     SearchFntCacheNewLink @ 0x1C0288710 (SearchFntCacheNewLink.c)
  */
 
-void __fastcall PutFNTCacheCheckSum(Gre::Base *a1, int a2)
+void __fastcall PutFNTCacheCheckSum(unsigned int a1, int a2)
 {
-  unsigned int v3; // edi
-  __int64 v4; // rcx
-  __int64 v5; // rbx
-  __int64 v6; // r8
-  __int64 v7; // rax
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v4; // rbx
+  __int64 v5; // rax
+  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
 
-  v3 = (unsigned int)a1;
-  v8 = *((_QWORD *)Gre::Base::Globals(a1) + 8);
-  GreAcquireSemaphore(v8);
-  v5 = *(_QWORD *)(SGDGetSessionState(v4) + 32);
-  v6 = *(_QWORD *)(v5 + 19392);
-  if ( v6 && v3 )
+  v6 = ghsemFntCache;
+  GreAcquireSemaphore(ghsemFntCache);
+  v4 = qword_1C0339BE8;
+  if ( qword_1C0339BE8 && a1 )
   {
-    if ( (*(_DWORD *)(v5 + 19384) & 2) != 0 )
+    if ( (dword_1C0339BE0 & 2) != 0 )
     {
-      v7 = SearchFntCacheNewLink(v3);
-      if ( v7 )
+      v5 = SearchFntCacheNewLink(a1);
+      if ( v5 )
       {
-        if ( *(_DWORD *)(v7 + 4) )
-          *(_DWORD *)(v7 + 24) |= 1u;
+        if ( *(_DWORD *)(v5 + 4) )
+          *(_DWORD *)(v5 + 24) |= 1u;
         else
-          *(_DWORD *)(v7 + 4) = a2;
-        *(_DWORD *)(*(_QWORD *)(v5 + 19392) + 20LL) = 1;
+          *(_DWORD *)(v5 + 4) = a2;
+        *(_DWORD *)(v4 + 20) = 1;
       }
     }
     else
     {
-      *(_DWORD *)(v6 + 16) |= 2u;
+      *(_DWORD *)(qword_1C0339BE8 + 16) |= 2u;
     }
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v8);
+  SEMOBJ::vUnlock((SEMOBJ *)&v6);
 }

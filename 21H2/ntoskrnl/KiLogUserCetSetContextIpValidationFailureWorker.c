@@ -1,15 +1,15 @@
 /*
- * XREFs of KiLogUserCetSetContextIpValidationFailureWorker @ 0x140960A90
+ * XREFs of KiLogUserCetSetContextIpValidationFailureWorker @ 0x1405CEFB0
  * Callers:
  *     <none>
  * Callees:
- *     KeStackAttachProcess @ 0x140203630 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1402037B0 (KeUnstackDetachProcess.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409E8614 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1405D1528 (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiLogUserCetSetContextIpValidationFailureWorker(_QWORD *P)
@@ -22,7 +22,7 @@ void __fastcall KiLogUserCetSetContextIpValidationFailureWorker(_QWORD *P)
   KeStackAttachProcess((PRKPROCESS)v1, &ApcState);
   EtwTimLogUserCetSetContextIpValidationFailure(*((_DWORD *)P + 8), v1, P[6], *((_DWORD *)P + 14), *((_DWORD *)P + 15));
   KeUnstackDetachProcess(&ApcState);
-  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v1 + 1112));
-  ObfDereferenceObject((PVOID)v1);
+  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v1 + 1112));
+  HalPutDmaAdapter((PADAPTER_OBJECT)v1);
   ExFreePoolWithTag(P, 0);
 }

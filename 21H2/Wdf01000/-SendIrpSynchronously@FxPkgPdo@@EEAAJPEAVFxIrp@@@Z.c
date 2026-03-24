@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SendIrpSynchronously@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C000BDD0
+ * XREFs of ?SendIrpSynchronously@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C000DD10
  * Callers:
  *     <none>
  * Callees:

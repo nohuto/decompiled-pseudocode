@@ -1,15 +1,15 @@
 /*
- * XREFs of KiConnectSecondaryInterrupt @ 0x140293354
+ * XREFs of KiConnectSecondaryInterrupt @ 0x140293454
  * Callers:
- *     KeConnectInterrupt @ 0x14016DB20 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14016DB40 (KeConnectInterrupt.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14029326C (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1402932C4 (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiInsertInterruptObjectOrdered @ 0x1402996E8 (KiInsertInterruptObjectOrdered.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14029336C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1402933C4 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1402997E8 (KiInsertInterruptObjectOrdered.c)
  */
 
 __int64 __fastcall KiConnectSecondaryInterrupt(__int64 a1)

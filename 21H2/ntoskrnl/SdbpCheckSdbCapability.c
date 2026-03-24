@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpCheckSdbCapability @ 0x140A122E0
+ * XREFs of SdbpCheckSdbCapability @ 0x1405D1DB0
  * Callers:
  *     <none>
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbGetStringTagPtr @ 0x140842A24 (SdbGetStringTagPtr.c)
- *     SdbpIsSdbCapabilityPresent @ 0x140A12B34 (SdbpIsSdbCapabilityPresent.c)
+ *     SdbpIsSdbCapabilityPresent @ 0x1405D1F50 (SdbpIsSdbCapabilityPresent.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpCheckSdbCapability(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
@@ -21,7 +21,7 @@ __int64 __fastcall SdbpCheckSdbCapability(_DWORD *a1, __int64 a2, __int64 a3, __
   v8 = 0;
   v13 = 0;
   v9 = 0;
-  FirstTag = SdbFindFirstTag(a3, a5, 24577);
+  FirstTag = SdbFindFirstTag(a3, a5, 24577LL);
   if ( FirstTag )
   {
     StringTagPtr = SdbGetStringTagPtr(a3, FirstTag);
@@ -33,7 +33,11 @@ __int64 __fastcall SdbpCheckSdbCapability(_DWORD *a1, __int64 a2, __int64 a3, __
     }
     else
     {
-      AslLogCallPrintf(1LL);
+      AslLogCallPrintf(
+        1,
+        (unsigned int)"SdbpCheckSdbCapability",
+        2634,
+        (unsigned int)"Failed to get the string from the database");
     }
   }
   result = v8;

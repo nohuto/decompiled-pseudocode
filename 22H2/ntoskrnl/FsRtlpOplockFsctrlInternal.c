@@ -1,72 +1,388 @@
 /*
- * XREFs of FsRtlpOplockFsctrlInternal @ 0x140766820
+ * XREFs of FsRtlpOplockFsctrlInternal @ 0x1405EA170
  * Callers:
- *     FsRtlOplockFsctrlEx @ 0x140766800 (FsRtlOplockFsctrlEx.c)
- *     FsRtlOplockFsctrl @ 0x140767020 (FsRtlOplockFsctrl.c)
- *     FsRtlUpperOplockFsctrl @ 0x14093E1D0 (FsRtlUpperOplockFsctrl.c)
+ *     FsRtlOplockFsctrl @ 0x14068C440 (FsRtlOplockFsctrl.c)
+ *     FsRtlOplockFsctrlEx @ 0x14068F3B0 (FsRtlOplockFsctrlEx.c)
+ *     FsRtlUpperOplockFsctrl @ 0x14088BD10 (FsRtlUpperOplockFsctrl.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     FsRtlpClearOwner @ 0x1402FD62C (FsRtlpClearOwner.c)
- *     FsRtlCheckOplockEx @ 0x1402FD900 (FsRtlCheckOplockEx.c)
- *     FsRtlpOplockDequeueRH @ 0x140301520 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpComputeShareableOplockState @ 0x140302370 (FsRtlpComputeShareableOplockState.c)
- *     IoIsOperationSynchronous @ 0x140302580 (IoIsOperationSynchronous.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpAttachOplockKey @ 0x14030287C (FsRtlpAttachOplockKey.c)
- *     FsRtlpCallerIsAtomicRequestor @ 0x140302984 (FsRtlpCallerIsAtomicRequestor.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403607E4 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BF5C4 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D2CD0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14053E018 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpAllocateOplock @ 0x1407C3D3C (FsRtlpAllocateOplock.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14093E3FC (FsRtlpOpBatchBreakClosePending.c)
- *     FsRtlpOplockBreakNotify @ 0x14093E538 (FsRtlpOplockBreakNotify.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140206110 (FsRtlpComputeShareableOplockState.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     FsRtlCheckOplockEx @ 0x1402D6540 (FsRtlCheckOplockEx.c)
+ *     FsRtlpOplockDequeueRH @ 0x1402D7250 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpAttachOplockKey @ 0x1402DA25C (FsRtlpAttachOplockKey.c)
+ *     IoIsOperationSynchronous @ 0x1402F4390 (IoIsOperationSynchronous.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140305248 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpCallerIsAtomicRequestor @ 0x140311600 (FsRtlpCallerIsAtomicRequestor.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403752B0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpClearOwner @ 0x140375A58 (FsRtlpClearOwner.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403929CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F0144 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpAllocateOplock @ 0x140688F58 (FsRtlpAllocateOplock.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14088BEAC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x14088BFE8 (FsRtlpOplockBreakNotify.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall FsRtlpOplockFsctrlInternal(__int64 *Oplock, PIRP Irp, int a3, int a4, unsigned int a5)
+__int64 __fastcall FsRtlpOplockFsctrlInternal(__int64 *Oplock, PIRP Irp, unsigned int a3, int a4, unsigned int a5)
 {
-  unsigned int v7; // ebx
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // r14
-  int v9; // r12d
-  struct _IRP *MasterIrp; // r13
+  unsigned int v8; // edi
+  PVOID v9; // r15
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
+  int v11; // edi
+  ULONG LowPart; // eax
+  struct _IRP *MasterIrp; // rdi
   int MdlAddress; // eax
-  int v12; // r12d
-  void *v13; // rax
-  int v14; // edx
+  int v15; // edi
+  int v16; // r8d
+  int v17; // r12d
+  int v18; // eax
+  int v19; // eax
+  int v20; // edx
+  __int16 v21; // r8
+  __int16 v22; // cx
+  __int16 v23; // ax
+  PVOID *v24; // rcx
+  int v25; // eax
   ULONG Options; // eax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  PFAST_MUTEX *v19; // rsi
-  bool v20; // cf
-  int v22; // r12d
-  int v23; // eax
-  void *Pool2; // rcx
-  unsigned int v25; // r12d
-  __int64 v26; // rbx
-  _QWORD *v27; // r14
-  __int64 v28; // rcx
-  _QWORD *v29; // rax
-  char v30; // r9
-  int v31; // [rsp+40h] [rbp-58h]
-  int v32; // [rsp+44h] [rbp-54h]
-  int v33; // [rsp+48h] [rbp-50h]
-  PVOID P; // [rsp+50h] [rbp-48h] BYREF
-  void *v35; // [rsp+58h] [rbp-40h]
-  PVOID v36; // [rsp+A8h] [rbp+10h] BYREF
-  int v37; // [rsp+B0h] [rbp+18h]
-  int v38; // [rsp+B8h] [rbp+20h]
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  PFAST_MUTEX *v30; // r15
+  int v31; // eax
+  int v32; // ecx
+  int v34; // ecx
+  int v35; // r8d
+  int v36; // r13d
+  int v37; // edx
+  int v38; // r12d
+  int v39; // ecx
+  int v40; // ecx
+  int v41; // eax
+  __int16 v42; // r8
+  __int16 v43; // dx
+  __int16 v44; // cx
+  int v45; // ecx
+  PVOID *v46; // rdx
+  unsigned int v47; // edi
+  char v48; // r9
+  __int64 v49; // rdi
+  __int64 v50; // rdx
+  __int64 v51; // r8
+  _QWORD *v52; // rbx
+  __int64 v53; // rcx
+  _QWORD *v54; // rax
+  int v55; // [rsp+40h] [rbp-58h]
+  int v56; // [rsp+44h] [rbp-54h]
+  struct _IRP *v57; // [rsp+48h] [rbp-50h]
+  char v58; // [rsp+48h] [rbp-50h]
+  PVOID P[8]; // [rsp+58h] [rbp-40h] BYREF
+  PVOID v60; // [rsp+A8h] [rbp+10h] BYREF
+  int v61; // [rsp+B8h] [rbp+20h]
 
-  v38 = a4;
-  v37 = a3;
-  v7 = 0;
-  v35 = 0LL;
-  P = 0LL;
+  v61 = a4;
+  v8 = 0;
+  v9 = 0LL;
+  P[0] = 0LL;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  if ( !CurrentStackLocation->MajorFunction )
+  if ( CurrentStackLocation->MajorFunction )
+  {
+    v11 = 2;
+    LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+    if ( LowPart == 590400 )
+    {
+      MasterIrp = Irp->AssociatedIrp.MasterIrp;
+      v57 = MasterIrp;
+      if ( CurrentStackLocation->Parameters.Create.Options < 0xC || CurrentStackLocation->Parameters.Read.Length < 0x18 )
+      {
+        v8 = -1073741789;
+      }
+      else
+      {
+        if ( MasterIrp->Type <= 1u )
+        {
+          MdlAddress = (int)MasterIrp->MdlAddress;
+          if ( (MdlAddress & 1) != 0 )
+          {
+            v15 = *(_DWORD *)(&MasterIrp->Size + 1);
+            LODWORD(v60) = v15 & 1;
+            if ( (v15 & 1) != 0 )
+              v16 = 4096;
+            else
+              v16 = 0;
+            v17 = 0x2000;
+            if ( (v15 & 2) != 0 )
+              v18 = 0x2000;
+            else
+              v18 = 0;
+            v19 = ((v15 & 4) != 0 ? 0x4000 : 0) | v16 | v18;
+            if ( v19 == 12288 )
+            {
+LABEL_12:
+              if ( !a3 && !IoIsOperationSynchronous(Irp) )
+              {
+                v20 = 0x4000;
+                if ( (CurrentStackLocation->FileObject->Flags & 0x4000) == 0 )
+                {
+                  if ( (_DWORD)v60 )
+                    v21 = 4096;
+                  else
+                    v21 = 0;
+                  if ( (v15 & 4) != 0 )
+                    v22 = 0x4000;
+                  else
+                    v22 = 0;
+                  if ( (v15 & 2) != 0 )
+                    v23 = 0x2000;
+                  else
+                    v23 = 0;
+                  if ( (((unsigned __int16)v21 | (unsigned __int16)(v22 | v23)) & 0x2000) != 0 )
+                  {
+                    P[0] = ExAllocatePoolWithTag((POOL_TYPE)17, 0x48uLL, 0x6F725346u);
+                    memset(P[0], 0, 0x48uLL);
+                    v15 = *(_DWORD *)(&v57->Size + 1);
+                    v9 = P[0];
+                    v20 = 0x4000;
+                  }
+                  if ( v9 )
+                    v24 = P;
+                  else
+                    v24 = 0LL;
+                  if ( (v15 & 1) != 0 )
+                    v25 = 4096;
+                  else
+                    v25 = 0;
+                  if ( (v15 & 4) == 0 )
+                    v20 = 0;
+                  if ( (v15 & 2) == 0 )
+                    v17 = 0;
+                  v8 = FsRtlpRequestShareableOplock(
+                         Oplock,
+                         (__int64)CurrentStackLocation,
+                         (__int64)Irp,
+                         v25 | v20 | (unsigned int)v17,
+                         v24,
+                         1,
+                         0,
+                         a5);
+LABEL_37:
+                  if ( P[0] )
+                  {
+                    FsRtlpClearOwner(*Oplock, (__int64)P[0]);
+                    ExFreePoolWithTag(P[0], 0);
+                  }
+                  return v8;
+                }
+              }
+              goto LABEL_102;
+            }
+            if ( v19 )
+            {
+              if ( v19 == 4096 )
+                goto LABEL_12;
+              if ( v19 != 28672 && v19 != 20480 )
+              {
+LABEL_124:
+                v8 = -1073741811;
+                Irp->IoStatus.Status = -1073741811;
+                goto LABEL_149;
+              }
+              if ( IoIsOperationSynchronous(Irp)
+                || (v31 = 0x4000, (CurrentStackLocation->FileObject->Flags & 0x4000) != 0) )
+              {
+LABEL_102:
+                v8 = -1073741598;
+                Irp->IoStatus.Status = -1073741598;
+LABEL_149:
+                IofCompleteRequest(Irp, 1);
+                return v8;
+              }
+              if ( (_DWORD)v60 )
+                v32 = 4160;
+              else
+                v32 = 64;
+              if ( (v15 & 4) == 0 )
+                v31 = 0;
+              if ( (v15 & 2) == 0 )
+                v17 = 0;
+              return (unsigned int)FsRtlpRequestExclusiveOplock(
+                                     Oplock,
+                                     (__int64)CurrentStackLocation,
+                                     (__int64)Irp,
+                                     a3,
+                                     v61,
+                                     v32 | v31 | (unsigned int)v17,
+                                     a5);
+            }
+            v49 = *Oplock;
+            if ( *Oplock )
+            {
+              v60 = 0LL;
+              if ( (*(_DWORD *)(v49 + 144) & 0x10000) != 0 )
+              {
+                if ( FsRtlpCallerIsAtomicRequestor(v49, (__int64)CurrentStackLocation->FileObject, &v60) )
+                {
+                  v52 = v60;
+                  FsRtlpOplockDequeueRH((__int64)v60, v50, v51);
+                  v53 = v52[7];
+                  v54 = (_QWORD *)v52[8];
+                  if ( *(_QWORD **)(v53 + 8) != v52 + 7 || (_QWORD *)*v54 != v52 + 7 )
+                    __fastfail(3u);
+                  *v54 = v53;
+                  *(_QWORD *)(v53 + 8) = v54;
+                  if ( *(_QWORD *)(v49 + 120) == v49 + 120 )
+                    *(_DWORD *)(v49 + 144) &= 0xFFFCFFFF;
+                  if ( v52[5] )
+                    FsRtlpClearOwner(v49, (__int64)v52);
+                  ExFreePoolWithTag(v52, 0);
+                  FsRtlpComputeShareableOplockState(v49);
+                  FsRtlpReleaseIrpsWaitingForRH(v49);
+                }
+              }
+            }
+LABEL_146:
+            Irp->IoStatus.Status = 0;
+            IofCompleteRequest(Irp, 1);
+            return 0;
+          }
+          if ( (MdlAddress & 2) != 0 )
+          {
+            v34 = *(_DWORD *)(&MasterIrp->Size + 1);
+            v58 = v34;
+            LODWORD(v60) = v34 & 1;
+            if ( (v34 & 1) != 0 )
+              v35 = 4096;
+            else
+              v35 = 0;
+            v56 = v34 & 4;
+            v36 = 0x4000;
+            if ( (v34 & 4) != 0 )
+              v37 = 0x4000;
+            else
+              v37 = 0;
+            v55 = v34 & 2;
+            v38 = 0x2000;
+            if ( (v34 & 2) != 0 )
+              v39 = 0x2000;
+            else
+              v39 = 0;
+            v40 = v35 | v37 | v39;
+            if ( v40 && v40 != 4096 && v40 != 12288 && v40 != 20480 && v40 != 28672 || IoIsOperationSynchronous(Irp) )
+              goto LABEL_124;
+            if ( (CurrentStackLocation->FileObject->Flags & 0x4000) == 0 )
+            {
+              v41 = 4096;
+              if ( (_DWORD)v60 )
+                v42 = 4096;
+              else
+                v42 = 0;
+              if ( v56 )
+                v43 = 0x4000;
+              else
+                v43 = 0;
+              if ( v55 )
+                v44 = 0x2000;
+              else
+                v44 = 0;
+              if ( (((unsigned __int16)v42 | (unsigned __int16)(v43 | v44)) & 0x2000) != 0 )
+              {
+                P[0] = ExAllocatePoolWithTag((POOL_TYPE)17, 0x48uLL, 0x6F725346u);
+                memset(P[0], 0, 0x48uLL);
+                v45 = *(_DWORD *)(&MasterIrp->Size + 1);
+                v9 = P[0];
+                v41 = 4096;
+              }
+              else
+              {
+                LOBYTE(v45) = v58;
+              }
+              if ( v9 )
+                v46 = P;
+              else
+                v46 = 0LL;
+              if ( (v45 & 1) == 0 )
+                v41 = 0;
+              if ( (v45 & 4) == 0 )
+                v36 = 0;
+              if ( (v45 & 2) == 0 )
+                v38 = 0;
+              v8 = FsRtlpAcknowledgeOplockBreakByCacheFlags(
+                     *Oplock,
+                     (__int64)CurrentStackLocation,
+                     (__int64)Irp,
+                     v41 | v36 | (unsigned int)v38,
+                     v46,
+                     a5);
+              goto LABEL_37;
+            }
+            *(_OWORD *)&MasterIrp->Type = 0LL;
+            *(_QWORD *)&MasterIrp->Flags = 0LL;
+            *(_DWORD *)&MasterIrp->Type = 1572865;
+            Irp->IoStatus.Information = 24LL;
+            goto LABEL_146;
+          }
+        }
+        v8 = -1073741811;
+      }
+      Irp->IoStatus.Status = v8;
+      goto LABEL_149;
+    }
+    switch ( LowPart )
+    {
+      case 0x90000u:
+        goto LABEL_97;
+      case 0x90004u:
+        if ( a3
+          || IoIsOperationSynchronous(Irp)
+          || (Irp->Flags & 0x40) != 0
+          || (CurrentStackLocation->FileObject->Flags & 0x4000) != 0 )
+        {
+          goto LABEL_102;
+        }
+        return (unsigned int)FsRtlpRequestShareableOplock(
+                               Oplock,
+                               (__int64)CurrentStackLocation,
+                               (__int64)Irp,
+                               0x10u,
+                               0LL,
+                               1,
+                               0,
+                               a5);
+      case 0x90008u:
+        goto LABEL_96;
+      case 0x9000Cu:
+        v48 = 1;
+        return (unsigned int)FsRtlpAcknowledgeOplockBreak(*Oplock, (__int64)CurrentStackLocation, (__int64)Irp, v48, a5);
+      case 0x90010u:
+        return (unsigned int)FsRtlpOpBatchBreakClosePending(*Oplock, CurrentStackLocation, Irp);
+      case 0x90014u:
+        return (unsigned int)FsRtlpOplockBreakNotify(*Oplock, 0x140000000uLL, Irp);
+      case 0x90050u:
+        v48 = 0;
+        return (unsigned int)FsRtlpAcknowledgeOplockBreak(*Oplock, (__int64)CurrentStackLocation, (__int64)Irp, v48, a5);
+      case 0x9005Cu:
+        v11 = 4;
+LABEL_96:
+        v11 *= 2;
+LABEL_97:
+        v47 = v11 | 0x40;
+        if ( a3 != 1
+          || IoIsOperationSynchronous(Irp)
+          || (Irp->Flags & 0x40) != 0
+          || (CurrentStackLocation->FileObject->Flags & 0x4000) != 0 )
+        {
+          goto LABEL_102;
+        }
+        v8 = FsRtlpRequestExclusiveOplock(Oplock, (__int64)CurrentStackLocation, (__int64)Irp, 1u, 0, v47, a5);
+        break;
+      default:
+        goto LABEL_124;
+    }
+  }
+  else
   {
     Options = CurrentStackLocation->Parameters.Create.Options;
     if ( (Options & 0x100000) != 0 )
@@ -77,259 +393,38 @@ __int64 __fastcall FsRtlpOplockFsctrlInternal(__int64 *Oplock, PIRP Irp, int a3,
       {
         return (unsigned int)-1073741598;
       }
-      v7 = FsRtlpAttachOplockKey(Irp);
-      if ( !v7 )
-        return (unsigned int)FsRtlpRequestExclusiveOplock(Oplock, (__int64)CurrentStackLocation, 0LL, 1, 0, 0xC8u, a5);
+      v8 = FsRtlpAttachOplockKey(Irp);
+      if ( !v8 )
+        return (unsigned int)FsRtlpRequestExclusiveOplock(Oplock, (__int64)CurrentStackLocation, 0LL, 1u, 0, 0xC8u, a5);
     }
     else if ( (Options & 0x10000) != 0 )
     {
-      v7 = FsRtlpAttachOplockKey(Irp);
-      if ( !v7 )
+      v8 = FsRtlpAttachOplockKey(Irp);
+      if ( !v8 )
       {
-        v19 = (PFAST_MUTEX *)*Oplock;
+        v30 = (PFAST_MUTEX *)*Oplock;
         if ( !*Oplock )
         {
-          v19 = (PFAST_MUTEX *)FsRtlpAllocateOplock(v18, v17);
-          *Oplock = (__int64)v19;
+          v30 = (PFAST_MUTEX *)FsRtlpAllocateOplock(v29, v28);
+          *Oplock = (__int64)v30;
         }
-        v36 = v19;
-        ExAcquireFastMutexUnsafe(v19[19]);
-        v7 = FsRtlCheckOplockEx((POPLOCK)Oplock, Irp, 0x30000000u, 0LL, 0LL, 0LL);
-        if ( !v7 )
+        v60 = v30;
+        ExAcquireFastMutexUnsafe(v30[19]);
+        v8 = FsRtlCheckOplockEx((POPLOCK)Oplock, Irp, 0x30000000u, 0LL, 0LL, 0LL);
+        if ( !v8 )
         {
-          P = (PVOID)ExAllocatePool2(288LL, 72LL, 1869763398LL);
-          v7 = FsRtlpRequestShareableOplock(Oplock, (__int64)CurrentStackLocation, 0LL, 0x10000u, (__int64)&P, 0, 0, a5);
+          P[0] = ExAllocatePoolWithTag((POOL_TYPE)17, 0x48uLL, 0x6F725346u);
+          memset(P[0], 0, 0x48uLL);
+          v8 = FsRtlpRequestShareableOplock(Oplock, (__int64)CurrentStackLocation, 0LL, 0x10000u, P, 0, 0, a5);
         }
-        if ( P )
+        if ( P[0] )
         {
-          FsRtlpClearOwner((__int64)v19, (__int64)P);
-          ExFreePoolWithTag(P, 0);
+          FsRtlpClearOwner((__int64)v30, (__int64)P[0]);
+          ExFreePoolWithTag(P[0], 0);
         }
-        ExReleaseFastMutexUnsafe(v19[19]);
-      }
-    }
-    return v7;
-  }
-  v9 = 2;
-  switch ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )
-  {
-    case 0x90000u:
-LABEL_51:
-      v25 = v9 | 0x40;
-      if ( a3 == 1
-        && !IoIsOperationSynchronous(Irp)
-        && (Irp->Flags & 0x40) == 0
-        && !_bittest((const signed __int32 *)&CurrentStackLocation->FileObject->Flags, 0xEu) )
-      {
-        return (unsigned int)FsRtlpRequestExclusiveOplock(
-                               Oplock,
-                               (__int64)CurrentStackLocation,
-                               (__int64)Irp,
-                               1,
-                               0,
-                               v25,
-                               a5);
-      }
-LABEL_57:
-      v7 = -1073741598;
-LABEL_72:
-      Irp->IoStatus.Status = v7;
-      goto LABEL_73;
-    case 0x90004u:
-      if ( !a3
-        && !IoIsOperationSynchronous(Irp)
-        && (Irp->Flags & 0x40) == 0
-        && !_bittest((const signed __int32 *)&CurrentStackLocation->FileObject->Flags, 0xEu) )
-      {
-        return (unsigned int)FsRtlpRequestShareableOplock(
-                               Oplock,
-                               (__int64)CurrentStackLocation,
-                               (__int64)Irp,
-                               0x10u,
-                               0LL,
-                               1,
-                               0,
-                               a5);
-      }
-      v7 = -1073741598;
-      Irp->IoStatus.Status = -1073741598;
-LABEL_73:
-      IofCompleteRequest(Irp, 1);
-      return v7;
-    case 0x90008u:
-LABEL_50:
-      v9 *= 2;
-      goto LABEL_51;
-    case 0x9000Cu:
-      v30 = 1;
-      return (unsigned int)FsRtlpAcknowledgeOplockBreak(*Oplock, (__int64)CurrentStackLocation, (__int64)Irp, v30, a5);
-    case 0x90010u:
-      return (unsigned int)FsRtlpOpBatchBreakClosePending(*Oplock, Irp->Tail.Overlay.CurrentStackLocation, Irp);
-    case 0x90014u:
-      return (unsigned int)FsRtlpOplockBreakNotify(*Oplock, Irp, Irp);
-    case 0x90050u:
-      v30 = 0;
-      return (unsigned int)FsRtlpAcknowledgeOplockBreak(*Oplock, (__int64)CurrentStackLocation, (__int64)Irp, v30, a5);
-    case 0x9005Cu:
-      v9 = 4;
-      goto LABEL_50;
-  }
-  if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart != 590400 )
-  {
-    v7 = -1073741811;
-LABEL_66:
-    Irp->IoStatus.Status = v7;
-    goto LABEL_73;
-  }
-  MasterIrp = Irp->AssociatedIrp.MasterIrp;
-  if ( CurrentStackLocation->Parameters.Create.Options < 0xC || CurrentStackLocation->Parameters.Read.Length < 0x18 )
-  {
-    v7 = -1073741789;
-    goto LABEL_66;
-  }
-  if ( MasterIrp->Type > 1u )
-    goto LABEL_68;
-  MdlAddress = (int)MasterIrp->MdlAddress;
-  if ( (MdlAddress & 1) == 0 )
-  {
-    if ( (MdlAddress & 2) != 0 )
-    {
-      LODWORD(v36) = *(_DWORD *)(&MasterIrp->Size + 1);
-      v22 = (((unsigned __int8)v36 & 1) << 12) | (((unsigned __int8)v36 & 6) << 12);
-      if ( !v22 || v22 == 4096 || v22 == 12288 || v22 == 20480 || v22 == 28672 )
-      {
-        if ( IoIsOperationSynchronous(Irp) )
-          goto LABEL_71;
-        if ( !_bittest((const signed __int32 *)&CurrentStackLocation->FileObject->Flags, 0xEu) )
-        {
-          if ( (v22 & 0x2000) != 0 )
-          {
-            Pool2 = (void *)ExAllocatePool2(288LL, 72LL, 1869763398LL);
-            P = Pool2;
-            v23 = *(_DWORD *)(&MasterIrp->Size + 1);
-          }
-          else
-          {
-            LOBYTE(v23) = (_BYTE)v36;
-            Pool2 = v35;
-          }
-          v7 = FsRtlpAcknowledgeOplockBreakByCacheFlags(
-                 (__int64 *)*Oplock,
-                 (__int64)CurrentStackLocation,
-                 (__int64)Irp,
-                 ((v23 & 1) << 12) | ((unsigned __int8)(v23 & 6) << 12),
-                 (__int64 *)((unsigned __int64)&P & -(__int64)(Pool2 != 0LL)),
-                 a5);
-          goto LABEL_24;
-        }
-        *(_OWORD *)&MasterIrp->Type = 0LL;
-        *(_QWORD *)&MasterIrp->Flags = 0LL;
-        *(_DWORD *)&MasterIrp->Type = 1572865;
-        Irp->IoStatus.Information = 24LL;
-        Irp->IoStatus.Status = 0;
-        goto LABEL_73;
-      }
-    }
-LABEL_68:
-    v7 = -1073741811;
-    Irp->IoStatus.Status = -1073741811;
-    goto LABEL_73;
-  }
-  v33 = *(_DWORD *)(&MasterIrp->Size + 1);
-  v31 = (v33 & 1) << 12;
-  LODWORD(v36) = v33 & 4;
-  v32 = (v33 & 2) << 12;
-  v12 = v31 | v32 | ((_DWORD)v36 != 0 ? 0x4000 : 0);
-  if ( v12 )
-  {
-    if ( v12 == 12288 )
-    {
-LABEL_17:
-      if ( !a3 && !IoIsOperationSynchronous(Irp) && (CurrentStackLocation->FileObject->Flags & 0x4000) == 0 )
-      {
-        if ( (v12 & 0x2000) != 0 )
-        {
-          v13 = (void *)ExAllocatePool2(288LL, 72LL, 1869763398LL);
-          P = v13;
-          v14 = *(_DWORD *)(&MasterIrp->Size + 1);
-        }
-        else
-        {
-          v13 = v35;
-          LOBYTE(v14) = v33;
-        }
-        v7 = FsRtlpRequestShareableOplock(
-               Oplock,
-               (__int64)CurrentStackLocation,
-               (__int64)Irp,
-               ((v14 & 1) << 12) | ((unsigned __int8)(v14 & 6) << 12),
-               (unsigned __int64)&P & -(__int64)(v13 != 0LL),
-               1,
-               0,
-               a5);
-LABEL_24:
-        if ( P )
-        {
-          FsRtlpClearOwner(*Oplock, (__int64)P);
-          ExFreePoolWithTag(P, 0);
-        }
-        return v7;
-      }
-      goto LABEL_57;
-    }
-    if ( v12 != 28672 )
-    {
-      if ( v12 == 4096 )
-        goto LABEL_17;
-      if ( v12 != 20480 )
-      {
-LABEL_71:
-        v7 = -1073741811;
-        goto LABEL_72;
-      }
-    }
-    if ( !IoIsOperationSynchronous(Irp) && (CurrentStackLocation->FileObject->Flags & 0x4000) == 0 )
-    {
-      v20 = (_DWORD)v36 != 0;
-      LODWORD(v36) = -(int)v36;
-      return (unsigned int)FsRtlpRequestExclusiveOplock(
-                             Oplock,
-                             (__int64)CurrentStackLocation,
-                             (__int64)Irp,
-                             v37,
-                             v38,
-                             v32 | v31 | (v20 ? 16448 : 64),
-                             a5);
-    }
-    goto LABEL_57;
-  }
-  v26 = *Oplock;
-  if ( *Oplock )
-  {
-    v36 = 0LL;
-    if ( _bittest((const signed __int32 *)(v26 + 144), 0x10u) )
-    {
-      if ( FsRtlpCallerIsAtomicRequestor(v26, (__int64)CurrentStackLocation->FileObject, &v36) )
-      {
-        v27 = v36;
-        FsRtlpOplockDequeueRH((__int64)v36);
-        v28 = v27[7];
-        v29 = (_QWORD *)v27[8];
-        if ( *(_QWORD **)(v28 + 8) != v27 + 7 || (_QWORD *)*v29 != v27 + 7 )
-          __fastfail(3u);
-        *v29 = v28;
-        *(_QWORD *)(v28 + 8) = v29;
-        if ( *(_QWORD *)(v26 + 120) == v26 + 120 )
-          *(_DWORD *)(v26 + 144) &= 0xFFFCFFFF;
-        if ( v27[5] )
-          FsRtlpClearOwner(v26, (__int64)v27);
-        ExFreePoolWithTag(v27, 0);
-        FsRtlpComputeShareableOplockState((_QWORD *)v26);
-        FsRtlpReleaseIrpsWaitingForRH(v26);
+        ExReleaseFastMutexUnsafe(v30[19]);
       }
     }
   }
-  Irp->IoStatus.Status = 0;
-  IofCompleteRequest(Irp, 1);
-  return 0;
+  return v8;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSetThreadPlaceholderCompatibilityMode @ 0x140897D00
+ * XREFs of RtlSetThreadPlaceholderCompatibilityMode @ 0x140897CE0
  * Callers:
  *     <none>
  * Callees:

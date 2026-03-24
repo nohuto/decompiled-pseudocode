@@ -1,78 +1,73 @@
 /*
- * XREFs of MiReplacePfnWithGapMapping @ 0x14038D978
+ * XREFs of MiReplacePfnWithGapMapping @ 0x1403B98EC
  * Callers:
- *     MiPfnRangeIsZero @ 0x14038D604 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1403B9588 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiInsertLargeTbFlushEntry @ 0x140211C4C (MiInsertLargeTbFlushEntry.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140367B48 (MiInsertRecursiveTbFlushEntries.c)
- *     MiReplicatePteChange @ 0x140367CB0 (MiReplicatePteChange.c)
- *     MiTransformValidPteInPlace @ 0x1403C2B1C (MiTransformValidPteInPlace.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1402EA5F8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1402EDDE0 (MiInsertLargeTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiTransformValidPteInPlace @ 0x140378AC8 (MiTransformValidPteInPlace.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void __fastcall MiReplacePfnWithGapMapping(unsigned __int64 *a1, int a2)
+void __fastcall MiReplacePfnWithGapMapping(volatile signed __int64 *a1, signed int a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 ValidPte; // rbx
-  char v5; // al
-  unsigned __int64 v6; // rbx
-  int v7; // esi
-  __int64 v8; // r8
-  bool v9; // zf
-  _QWORD v10[24]; // [rsp+20h] [rbp-D8h] BYREF
+  char v6; // al
+  unsigned __int64 v7; // rbx
+  int v8; // esi
+  _KPROCESS *v9; // rdx
+  __int64 v10; // r8
+  bool v11; // zf
+  unsigned __int64 ValidPte; // rax
+  _QWORD v13[24]; // [rsp+20h] [rbp-D8h] BYREF
 
-  if ( qword_140C69858 == (PVOID)qword_140C69860 )
+  if ( qword_140C4EDC8 != (PVOID)qword_140C4EDD0 )
   {
-    memset(v10, 0, 0xB8uLL);
-    v5 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
-    v10[3] = 0LL;
-    LODWORD(v10[1]) = 20;
-    if ( a2 && v5 < 0 )
-      MiInsertLargeTbFlushEntry((__int64)v10, a2, (__int64)a1);
+    ValidPte = MiMakeValidPte(
+                 (unsigned __int64)a1,
+                 (__int64)*(&qword_140C4EDC8 + a2),
+                 a2 != 0 ? -1476395004 : 536870913,
+                 a4);
+    MiTransformValidPteInPlace(a1, (__int64)a1, ValidPte, a2);
+    return;
+  }
+  memset(v13, 0, 0xB8uLL);
+  v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
+  v13[3] = 0LL;
+  LODWORD(v13[1]) = 20;
+  if ( a2 && v6 < 0 )
+    MiInsertLargeTbFlushEntry((__int64)v13, a2, (unsigned __int64)a1);
+  else
+    MiInsertRecursiveTbFlushEntries((__int64)v13, a2, (unsigned __int64)a1);
+  v7 = ZeroPte;
+  v8 = 0;
+  if ( MiPteInShadowRange((unsigned __int64)a1) )
+  {
+    if ( (unsigned int)MiPteHasShadow() )
+    {
+      v8 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_5;
+      v11 = (ZeroPte & 1) == 0;
+    }
     else
-      MiInsertRecursiveTbFlushEntries((__int64)v10, a2, (unsigned __int64)a1);
-    v6 = ZeroPte;
-    v7 = 0;
-    if ( !MiPteInShadowRange((unsigned __int64)a1) )
-      goto LABEL_16;
-    if ( MiPteHasShadow() )
     {
-      v7 = 1;
-      if ( !HIBYTE(word_140C66DFC) )
-      {
-        v9 = (ZeroPte & 1) == 0;
-        goto LABEL_14;
-      }
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
+        goto LABEL_5;
+      v11 = (ZeroPte & 1) == 0;
     }
-    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-    {
-      v9 = (ZeroPte & 1) == 0;
-LABEL_14:
-      if ( !v9 )
-        v6 = ZeroPte | 0x8000000000000000uLL;
-    }
-LABEL_16:
-    *a1 = v6;
-    if ( v7 )
-      MiWritePteShadow((__int64)a1, v6, v8);
-    goto LABEL_19;
+    if ( !v11 )
+      v7 = ZeroPte | 0x8000000000000000uLL;
   }
-  ValidPte = MiMakeValidPte((unsigned __int64)a1, (__int64)*(&qword_140C69858 + a2), a2 != 0 ? -1476395004 : 536870913);
-  MiTransformValidPteInPlace(a1, a1, ValidPte, (unsigned int)a2);
-  if ( a2 == 3 )
-  {
-    memset(v10, 0, 0xB8uLL);
-    v10[3] = 0LL;
-    LODWORD(v10[1]) = 20;
-    MiReplicatePteChange((unsigned __int64)a1, ValidPte, 0);
-    MiInsertRecursiveTbFlushEntries((__int64)v10, 3, (unsigned __int64)a1);
-LABEL_19:
-    MiFlushTbList((int *)v10);
-  }
+LABEL_5:
+  *a1 = v7;
+  if ( v8 )
+    MiWritePteShadow((__int64)a1, v7, v10);
+  MiFlushTbList((__int64)v13, v9);
 }

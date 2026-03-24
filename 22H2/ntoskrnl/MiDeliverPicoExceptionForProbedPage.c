@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeliverPicoExceptionForProbedPage @ 0x14061C7E8
+ * XREFs of MiDeliverPicoExceptionForProbedPage @ 0x1405309BC
  * Callers:
- *     MiFaultInProbeAddress @ 0x14034B2CC (MiFaultInProbeAddress.c)
+ *     MiFaultInProbeAddress @ 0x14030F0A8 (MiFaultInProbeAddress.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MiDeliverPicoExceptionForProbedPage(__int64 a1, int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiDeliverPicoExceptionForProbedPage(__int64 a1, int a2)
   v7[5] = a1;
   v7[4] = v4;
   v6 = 0;
-  return (unsigned __int8)((__int64 (__fastcall *)(_QWORD *, _QWORD, _QWORD, _QWORD, char))xmmword_140C38180)(
+  return (unsigned __int8)((__int64 (__fastcall *)(_QWORD *, _QWORD, _QWORD, _QWORD, char))xmmword_140C1E060)(
                             v7,
                             0LL,
                             0LL,

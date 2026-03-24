@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsCloseColorF@@YA_NAEBU_D3DCOLORVALUE@@0@Z @ 0x180248728
+ * XREFs of ?IsCloseColorF@@YA_NAEBU_D3DCOLORVALUE@@0@Z @ 0x1801E3424
  * Callers:
- *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800102D4 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
+ *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800BA658 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */

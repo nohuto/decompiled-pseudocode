@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpValidateEnableNotification @ 0x140656A30
+ * XREFs of EtwpValidateEnableNotification @ 0x140656A10
  * Callers:
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
  * Callees:
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpCheckNotificationAccess @ 0x140656CB8 (EtwpCheckNotificationAccess.c)
- *     EtwpValidateFilterDescriptors @ 0x1408C2674 (EtwpValidateFilterDescriptors.c)
+ *     EtwpCheckNotificationAccess @ 0x140656C98 (EtwpCheckNotificationAccess.c)
+ *     EtwpValidateFilterDescriptors @ 0x1408C2654 (EtwpValidateFilterDescriptors.c)
  */
 
 __int64 __fastcall EtwpValidateEnableNotification(

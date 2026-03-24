@@ -1,9 +1,9 @@
 /*
- * XREFs of Isoch_EP_ProcessExpectedEventTRBs @ 0x1C0042350
+ * XREFs of Isoch_EP_ProcessExpectedEventTRBs @ 0x1C0041450
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
 void __fastcall Isoch_EP_ProcessExpectedEventTRBs(__int64 a1)

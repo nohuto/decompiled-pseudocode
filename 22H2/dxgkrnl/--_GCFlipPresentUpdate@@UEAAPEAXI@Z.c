@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C00826B0
+ * XREFs of ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C006A9F0
  * Callers:
- *     ??_ECFlipPresentUpdate@@WBA@EAAPEAXI@Z @ 0x1C0028F30 (--_ECFlipPresentUpdate@@WBA@EAAPEAXI@Z.c)
+ *     ??_ECFlipPresentUpdate@@WBA@EAAPEAXI@Z @ 0x1C0029410 (--_ECFlipPresentUpdate@@WBA@EAAPEAXI@Z.c)
  * Callees:
- *     ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C00889F8 (--1CFlipPresentUpdate@@UEAA@XZ.c)
+ *     ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C006E9BC (--1CFlipPresentUpdate@@UEAA@XZ.c)
  */
 
 CFlipPresentUpdate *__fastcall CFlipPresentUpdate::`scalar deleting destructor'(CFlipPresentUpdate *P, char a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPruneStandbyPages @ 0x1402C0994
+ * XREFs of MiPruneStandbyPages @ 0x1402C0A94
  * Callers:
- *     MiRebalanceZeroFreeLists @ 0x1402C0D70 (MiRebalanceZeroFreeLists.c)
+ *     MiRebalanceZeroFreeLists @ 0x1402C0E70 (MiRebalanceZeroFreeLists.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2D4 (MiNodeFreeZeroPages.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSwapNumaStandbyPage @ 0x1402C0F10 (MiSwapNumaStandbyPage.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
  */
 
 unsigned __int64 __fastcall MiPruneStandbyPages(__int64 a1, unsigned int a2, unsigned int a3, unsigned __int64 a4)

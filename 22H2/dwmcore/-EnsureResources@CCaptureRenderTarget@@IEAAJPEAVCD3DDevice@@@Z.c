@@ -1,215 +1,185 @@
 /*
- * XREFs of ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801ECFA4
+ * XREFs of ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1800ED664
  * Callers:
- *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1801EC938 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
- *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EDC04 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1800ED5A4 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
+ *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EDB10 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?OpenSharedTexture@CD3DDevice@@QEAAJPEAUD3D11_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAX_NPEAPEAUID3D11Texture2D@@@Z @ 0x18003D7C8 (-OpenSharedTexture@CD3DDevice@@QEAAJPEAUD3D11_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAX_N.c)
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180073594 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A8E7C (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1801EA648 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
- *     ??$_Emplace_reallocate@AEBV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x1801EC288 (--$_Emplace_reallocate@AEBV-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@-$vect.c)
- *     ??$_Emplace_reallocate@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@?$vector@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@QEAAPEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAV23@$$QEAV23@@Z @ 0x1801EC380 (--$_Emplace_reallocate@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX.c)
- *     ??0?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAUIDXGIResource@@@Z @ 0x1801EC574 (--0-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAUIDXGIResource@@@Z.c)
- *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x1801EDA78 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
- *     ?clear@?$vector@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@QEAAXXZ @ 0x1801EE3C0 (-clear@-$vector@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-Cl.c)
- *     ?CreateFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@@Z @ 0x18028D118 (-CreateFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025A30 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800322E8 (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?OpenSharedTexture@CD3DDevice@@QEAAJPEAUD3D11_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAX_NPEAPEAUID3D11Texture2D@@@Z @ 0x18003A194 (-OpenSharedTexture@CD3DDevice@@QEAAJPEAUD3D11_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAX_N.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x18007A274 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??1?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x18014F110 (--1-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH.c)
+ *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x180185A74 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ??$_Emplace_reallocate@AEBV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x180186F60 (--$_Emplace_reallocate@AEBV-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@-$vect.c)
+ *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x180187CB8 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?ResetBuffers@CCaptureRenderTarget@@IEAAXXZ @ 0x180187F5C (-ResetBuffers@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?push_back@?$vector@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@QEAAX$$QEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@Z @ 0x1801882C0 (-push_back@-$vector@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$.c)
+ *     ?CreateFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@@Z @ 0x18023E4C0 (-CreateFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@@Z.c)
  */
 
-__int64 __fastcall CCaptureRenderTarget::EnsureResources(CCaptureRenderTarget *this, struct D3D11_SUBRESOURCE_DATA *a2)
+__int64 __fastcall CCaptureRenderTarget::EnsureResources(
+        CCaptureRenderTarget *this,
+        struct CD3DDevice *a2,
+        unsigned __int64 a3)
 {
-  int v2; // ebx
-  struct ID3D11Fence **v3; // r9
-  CD3DDevice *v4; // r8
+  int v3; // ebx
+  struct ID3D11Fence **v4; // r9
   int Fence; // eax
-  __int64 v7; // rcx
-  __int64 v8; // r15
-  __int64 v9; // r14
+  __int64 v8; // rcx
+  __int64 i; // r14
   __int64 v10; // r12
-  int v11; // eax
-  __int64 v12; // rcx
-  int v13; // edx
+  struct D3D11_SUBRESOURCE_DATA *v11; // r8
+  int v12; // eax
+  __int64 v13; // rcx
+  enum DXGI_FORMAT v14; // ecx
   int updated; // eax
-  __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rcx
-  int v18; // eax
-  __int64 v19; // rcx
-  int v20; // eax
-  __int64 v21; // rcx
-  char **v22; // rdx
-  char *v23; // rcx
-  unsigned int v25; // [rsp+30h] [rbp-79h] BYREF
-  struct ID3D11Texture2D *v26; // [rsp+38h] [rbp-71h] BYREF
-  __int64 v27; // [rsp+40h] [rbp-69h] BYREF
-  HANDLE hObject; // [rsp+48h] [rbp-61h] BYREF
-  struct D3D11_SUBRESOURCE_DATA *v29; // [rsp+50h] [rbp-59h]
-  char *v30; // [rsp+58h] [rbp-51h] BYREF
-  int v31; // [rsp+60h] [rbp-49h]
-  __int128 v32; // [rsp+68h] [rbp-41h] BYREF
-  enum DXGI_FORMAT v33[4]; // [rsp+78h] [rbp-31h]
-  __int64 v34; // [rsp+88h] [rbp-21h]
-  int v35; // [rsp+90h] [rbp-19h]
-  struct D3D11_TEXTURE2D_DESC v36; // [rsp+98h] [rbp-11h] BYREF
+  __int64 v16; // rcx
+  int v17; // eax
+  __int64 v18; // rcx
+  int v19; // eax
+  __int64 v20; // rcx
+  int v21; // eax
+  __int64 v22; // rcx
+  unsigned int v24; // [rsp+30h] [rbp-79h] BYREF
+  struct ID3D11Texture2D *v25; // [rsp+38h] [rbp-71h] BYREF
+  __int64 v26; // [rsp+40h] [rbp-69h] BYREF
+  const char *v27; // [rsp+48h] [rbp-61h] BYREF
+  const char *v28; // [rsp+50h] [rbp-59h] BYREF
+  int v29; // [rsp+58h] [rbp-51h]
+  __int128 v30; // [rsp+60h] [rbp-49h] BYREF
+  DXGI_FORMAT v31[4]; // [rsp+70h] [rbp-39h]
+  __int64 v32; // [rsp+80h] [rbp-29h]
+  int v33; // [rsp+88h] [rbp-21h]
+  struct D3D11_TEXTURE2D_DESC v34; // [rsp+90h] [rbp-19h] BYREF
 
-  v2 = 0;
-  v29 = a2;
-  v3 = (struct ID3D11Fence **)((char *)this + 1944);
-  v25 = 0;
-  v4 = (CD3DDevice *)a2;
-  if ( !*((_QWORD *)this + 243) )
+  v3 = 0;
+  v4 = (struct ID3D11Fence **)((char *)this + 1952);
+  v24 = 0;
+  if ( *((_QWORD *)this + 244) )
+    goto LABEL_4;
+  *v4 = 0LL;
+  v28 = "CaptureRenderFence";
+  v29 = 18;
+  Fence = CD3DDevice::CreateFence(a2, (const struct CResourceTag *)&v28, a3, v4);
+  v24 = Fence;
+  v3 = Fence;
+  if ( Fence >= 0 )
   {
-    *v3 = 0LL;
-    v30 = "CaptureRenderFence";
-    v31 = 18;
-    Fence = CD3DDevice::CreateFence((CD3DDevice *)a2, (const struct CResourceTag *)&v30, (unsigned __int64)a2, v3);
-    v25 = Fence;
-    v2 = Fence;
-    if ( Fence < 0 )
+    *((_QWORD *)this + 245) = 0LL;
+LABEL_4:
+    for ( i = (__int64)(*((_QWORD *)this + 252) - *((_QWORD *)this + 251)) >> 3; ; LODWORD(i) = i + 1 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, Fence, 0x179u, 0LL);
-      goto LABEL_34;
-    }
-    *((_QWORD *)this + 244) = 0LL;
-    v4 = (CD3DDevice *)v29;
-  }
-  v8 = *((_QWORD *)this + 252);
-  v9 = (__int64)(*((_QWORD *)this + 250) - *((_QWORD *)this + 249)) >> 3;
-  v10 = (unsigned int)v9;
-  if ( (unsigned int)v9 < (unsigned __int64)((*((_QWORD *)this + 253) - v8) >> 3) )
-  {
-    while ( 1 )
-    {
-      v26 = 0LL;
-      v11 = CD3DDevice::OpenSharedTexture(
-              v4,
-              &v36,
-              (struct D3D11_SUBRESOURCE_DATA *)v4,
-              *(void **)(v8 + 8 * v10),
-              1,
-              &v26);
-      v25 = v11;
-      v2 = v11;
-      if ( v11 < 0 )
-        break;
-      v34 = 0LL;
-      v32 = 0LL;
-      v35 = 0;
-      *(_OWORD *)v33 = 0LL;
-      ((void (__fastcall *)(struct ID3D11Texture2D *, __int128 *))v26->lpVtbl->GetDesc)(v26, &v32);
-      if ( !IsValidPixelFormat(v33[0]) )
+      v10 = *((_QWORD *)this + 254);
+      if ( (unsigned int)i >= (unsigned __int64)((*((_QWORD *)this + 255) - v10) >> 3) )
+        goto LABEL_28;
+      v25 = 0LL;
+      wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)&v25);
+      v12 = CD3DDevice::OpenSharedTexture(a2, &v34, v11, *(void **)(v10 + 8LL * (unsigned int)i), 1, &v25);
+      v24 = v12;
+      v3 = v12;
+      if ( v12 < 0 )
       {
-        std::vector<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>::clear((char *)this + 2016);
-        CCaptureRenderTarget::ReleaseRenderingResources(this);
-        goto LABEL_33;
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x13Du, 0LL);
+        goto LABEL_27;
       }
-      if ( ((*((_QWORD *)this + 250) - *((_QWORD *)this + 249)) & 0xFFFFFFFFFFFFFFF8uLL) == 0 )
+      v32 = 0LL;
+      v33 = 0;
+      v30 = 0LL;
+      *(_OWORD *)v31 = 0LL;
+      ((void (__fastcall *)(struct ID3D11Texture2D *, __int128 *))v25->lpVtbl->GetDesc)(v25, &v30);
+      if ( !IsValidPixelFormat(v31[0]) )
       {
-        updated = COffScreenRenderTarget::UpdatePixelFormatInfo(this, v13);
-        v25 = updated;
-        v2 = updated;
+        CCaptureRenderTarget::ResetBuffers(this);
+        goto LABEL_27;
+      }
+      if ( ((*((_QWORD *)this + 252) - *((_QWORD *)this + 251)) & 0xFFFFFFFFFFFFFFF8uLL) == 0 )
+      {
+        updated = COffScreenRenderTarget::UpdatePixelFormatInfo(this, v14);
+        v24 = updated;
+        v3 = updated;
         if ( updated < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, updated, 0x19Fu, 0LL);
-          goto LABEL_33;
+          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, updated, 0x14Fu, 0LL);
+          goto LABEL_27;
         }
-        if ( !*((_BYTE *)this + 1897) )
-          *((_QWORD *)this + 13) = v32;
-        *((_BYTE *)this + 1898) = HIDWORD(v32) > 1;
+        if ( !*((_BYTE *)this + 1913) )
+          *((_QWORD *)this + 10) = v30;
       }
-      v27 = 0LL;
-      v16 = ((__int64 (__fastcall *)(struct ID3D11Texture2D *, GUID *, __int64 *))v26->lpVtbl->QueryInterface)(
-              v26,
+      v26 = 0LL;
+      v17 = ((__int64 (__fastcall *)(struct ID3D11Texture2D *, GUID *, __int64 *))v25->lpVtbl->QueryInterface)(
+              v25,
               &GUID_035f3ab4_482e_4e50_b41f_8a7f8bd8960b,
-              &v27);
-      v25 = v16;
-      v2 = v16;
-      if ( v16 < 0 )
+              &v26);
+      v24 = v17;
+      v3 = v17;
+      if ( v17 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x1AFu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x15Cu, 0LL);
+LABEL_22:
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v26);
+LABEL_27:
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v25);
         goto LABEL_28;
       }
-      v18 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 246) + 48LL))(
-              *((_QWORD *)this + 246),
+      v19 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 247) + 48LL))(
+              *((_QWORD *)this + 247),
               0LL,
               0LL,
-              *(_QWORD *)(v8 + 8 * v10),
-              *((_QWORD *)this + 235));
-      v25 = v18;
-      v2 = v18;
-      if ( v18 < 0 )
+              *(_QWORD *)(v10 + 8LL * (unsigned int)i),
+              *((_QWORD *)this + 237));
+      v24 = v19;
+      v3 = v19;
+      if ( v19 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x1B5u, 0LL);
-        goto LABEL_28;
+        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x162u, 0LL);
+        goto LABEL_22;
       }
-      if ( *((_QWORD *)this + 250) == *((_QWORD *)this + 251) )
+      if ( *((_QWORD *)this + 253) == *((_QWORD *)this + 252) )
       {
         std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy> const &>(
-          (__int64 *)this + 249,
-          *((_QWORD *)this + 250),
-          &v27);
+          (char *)this + 2008,
+          *((_QWORD *)this + 252),
+          &v26);
       }
       else
       {
-        wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>::com_ptr_t<IDXGIResource,wil::err_returncode_policy>(
-          *((_QWORD **)this + 250),
-          v27);
-        *((_QWORD *)this + 250) += 8LL;
+        wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+          *((_QWORD **)this + 252),
+          v26);
+        *((_QWORD *)this + 252) += 8LL;
       }
-      v20 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, char **))(**((_QWORD **)this + 246) + 64LL))(
-              *((_QWORD *)this + 246),
-              *(_QWORD *)(v8 + 8 * v10),
-              &v30);
-      v25 = v20;
-      v2 = v20;
-      if ( v20 < 0 )
+      v21 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, const char **))(**((_QWORD **)this + 247) + 64LL))(
+              *((_QWORD *)this + 247),
+              *(_QWORD *)(v10 + 8LL * (unsigned int)i),
+              &v28);
+      v24 = v21;
+      v3 = v21;
+      if ( v21 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x1BCu, 0LL);
-LABEL_28:
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v27);
-        goto LABEL_33;
+        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x169u, 0LL);
+        goto LABEL_22;
       }
-      v22 = (char **)*((_QWORD *)this + 256);
-      hObject = v30;
-      if ( v22 == *((char ***)this + 257) )
-      {
-        std::vector<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>::_Emplace_reallocate<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>(
-          (__int64 *)this + 255,
-          (__int64)v22,
-          &hObject);
-        v23 = (char *)hObject;
-      }
-      else
-      {
-        v23 = 0LL;
-        *v22 = v30;
-        *((_QWORD *)this + 256) += 8LL;
-      }
-      if ( (unsigned __int64)(v23 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-        CloseHandle(v23);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v27);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v26);
-      LODWORD(v9) = v9 + 1;
-      v8 = *((_QWORD *)this + 252);
-      v10 = (unsigned int)v9;
-      if ( (unsigned int)v9 >= (unsigned __int64)((*((_QWORD *)this + 253) - v8) >> 3) )
-        goto LABEL_34;
-      v4 = (CD3DDevice *)v29;
+      v27 = v28;
+      std::vector<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>::push_back(
+        (char *)this + 2056,
+        &v27);
+      wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>::~unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>(&v27);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v26);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v25);
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x18Du, 0LL);
-LABEL_33:
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v26);
   }
-LABEL_34:
-  if ( v2 < 0 )
+  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, Fence, 0x129u, 0LL);
+LABEL_28:
+  if ( v3 < 0 )
   {
-    TranslateDXGIorD3DErrorInContext(v2, 0, &v25);
+    TranslateDXGIorD3DErrorInContext(v3, 0, &v24);
     CCaptureRenderTarget::ReleaseRenderingResources(this);
-    return v25;
+    return v24;
   }
-  return (unsigned int)v2;
+  return (unsigned int)v3;
 }

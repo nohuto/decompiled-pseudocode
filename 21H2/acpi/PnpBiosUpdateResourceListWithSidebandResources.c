@@ -1,27 +1,32 @@
 /*
- * XREFs of PnpBiosUpdateResourceListWithSidebandResources @ 0x1C00977CC
+ * XREFs of PnpBiosUpdateResourceListWithSidebandResources @ 0x1C009BEAC
  * Callers:
- *     ACPIFilterIrpFilterResourceRequirements @ 0x1C0090CB0 (ACPIFilterIrpFilterResourceRequirements.c)
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1C009BCA0 (ACPIFilterIrpFilterResourceRequirements.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     PnpBiosGetDeviceResourceList @ 0x1C0097DD0 (PnpBiosGetDeviceResourceList.c)
- *     PnpiAddSidebandResources @ 0x1C00B29B4 (PnpiAddSidebandResources.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C009C794 (PnpBiosGetDeviceResourceList.c)
+ *     PnpiAddSidebandResources @ 0x1C00B30D0 (PnpiAddSidebandResources.c)
  */
 
 __int64 __fastcall PnpBiosUpdateResourceListWithSidebandResources(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
 {
-  int v5; // r13d
+  int v5; // r14d
   void *v7; // rdi
   void *v8; // rsi
   int DeviceResourceList; // ebx
-  __int64 Pool2; // rax
+  int v11; // r14d
   unsigned int v12; // ebx
-  __int64 v13; // rax
-  __int64 v14; // [rsp+28h] [rbp-18h]
-  unsigned int v15; // [rsp+30h] [rbp-10h] BYREF
+  PVOID PoolWithTag; // rax
+  int v14; // r14d
+  PVOID v15; // rax
+  __int64 v16; // [rsp+28h] [rbp-18h]
+  SIZE_T v17; // [rsp+30h] [rbp-10h] BYREF
   PVOID P; // [rsp+38h] [rbp-8h] BYREF
-  unsigned int v17; // [rsp+80h] [rbp+40h] BYREF
+  int v19; // [rsp+78h] [rbp+38h]
+  SIZE_T NumberOfBytes; // [rsp+80h] [rbp+40h] BYREF
 
+  v19 = a2;
   *a3 = 0LL;
   P = 0LL;
   v5 = a2;
@@ -33,20 +38,28 @@ __int64 __fastcall PnpBiosUpdateResourceListWithSidebandResources(__int64 a1, __
   {
     if ( !P )
       return (unsigned int)-1073741772;
-    v15 = 0;
-    v17 = 0;
-    DeviceResourceList = PnpiAddSidebandResources(v5, (_DWORD)P, 0, (unsigned int)&v17, 0LL, (__int64)&v15);
-    if ( DeviceResourceList == -1073741789 )
+    LODWORD(v17) = 0;
+    LODWORD(NumberOfBytes) = 0;
+    v11 = PnpiAddSidebandResources(v5, (_DWORD)P, 0, (unsigned int)&NumberOfBytes, 0LL, (__int64)&v17);
+    if ( v11 == -1073741789 )
     {
-      Pool2 = ExAllocatePool2(256LL, v17, 1383097153LL);
-      v12 = v15;
-      v8 = (void *)Pool2;
-      v13 = ExAllocatePool2(256LL, v15, 1383097153LL);
-      v7 = (void *)v13;
-      if ( v8 && v13 )
+      v12 = NumberOfBytes;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x52706341u);
+      v14 = v17;
+      v8 = PoolWithTag;
+      v15 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v17, 0x52706341u);
+      v7 = v15;
+      if ( v8 && v15 )
       {
-        v15 = v12;
-        DeviceResourceList = PnpiAddSidebandResources(v5, (_DWORD)P, (_DWORD)v8, (unsigned int)&v17, v13, (__int64)&v15);
+        memset(v8, 0, v12);
+        LODWORD(v17) = v14;
+        DeviceResourceList = PnpiAddSidebandResources(
+                               v19,
+                               (_DWORD)P,
+                               (_DWORD)v8,
+                               (unsigned int)&NumberOfBytes,
+                               (__int64)v7,
+                               (__int64)&v17);
         if ( DeviceResourceList >= 0 )
         {
           *a3 = v8;
@@ -63,20 +76,21 @@ __int64 __fastcall PnpBiosUpdateResourceListWithSidebandResources(__int64 a1, __
         DeviceResourceList = -1073741670;
       }
     }
-    else if ( DeviceResourceList != -1073741772 )
+    else
     {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( v11 != -1073741772 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v14) = DeviceResourceList;
+        LODWORD(v16) = v11;
         WPP_RECORDER_SF_D(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           2u,
           0xDu,
           0x40u,
-          (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
-          v14);
+          (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
+          v16);
       }
-      if ( DeviceResourceList >= 0 )
+      DeviceResourceList = v11;
+      if ( v11 >= 0 )
         DeviceResourceList = -1073741823;
     }
   }

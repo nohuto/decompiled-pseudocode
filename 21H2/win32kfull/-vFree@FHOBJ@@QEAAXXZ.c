@@ -1,15 +1,15 @@
 /*
- * XREFs of ?vFree@FHOBJ@@QEAAXXZ @ 0x1C00EF6DC
+ * XREFs of ?vFree@FHOBJ@@QEAAXXZ @ 0x1C00E6834
  * Callers:
- *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C0012A20 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
- *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00EF698 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C00BA214 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00E67E8 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall FHOBJ::vFree(FHOBJ *this)
 {
-  __int64 v2; // rcx
+  _DWORD *v2; // rcx
   __int64 i; // rbp
   _QWORD *v4; // rsi
   _QWORD *v5; // rax
@@ -17,12 +17,12 @@ void __fastcall FHOBJ::vFree(FHOBJ *this)
   _QWORD *v7; // r14
   _QWORD *v8; // rbx
 
-  v2 = *((_QWORD *)this + 1);
+  v2 = (_DWORD *)*((_QWORD *)this + 1);
   if ( v2 )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v2 + 8); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < v2[2]; i = (unsigned int)(i + 1) )
     {
-      v4 = *(_QWORD **)(v2 + 8 * i + 40);
+      v4 = *(_QWORD **)&v2[2 * i + 10];
       if ( v4 )
       {
         do
@@ -43,7 +43,7 @@ void __fastcall FHOBJ::vFree(FHOBJ *this)
           v4 = v7;
         }
         while ( v7 );
-        v2 = *((_QWORD *)this + 1);
+        v2 = (_DWORD *)*((_QWORD *)this + 1);
       }
     }
     Win32FreePool(v2);

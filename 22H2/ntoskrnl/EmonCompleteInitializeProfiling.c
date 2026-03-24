@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonCompleteInitializeProfiling @ 0x140A91210
+ * XREFs of EmonCompleteInitializeProfiling @ 0x14099F8E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeAllocateProcessorProfileStructures @ 0x1403A9A80 (KeAllocateProcessorProfileStructures.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1403B5E70 (KeAllocateProcessorProfileStructures.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall EmonCompleteInitializeProfiling()
@@ -50,8 +50,7 @@ void __fastcall EmonCompleteInitializeProfiling()
       else
       {
         PebsBufferBase = v8->PebsDsSaveArea.As32Bit.PebsBufferBase;
-        v8->PebsDsSaveArea.As32Bit.PebsBufferBase = PebsBufferBase;
-        v2->PebsDsSaveArea.As32Bit.PebsIndex = PebsBufferBase;
+        v8->PebsDsSaveArea.As32Bit.PebsIndex = PebsBufferBase;
         v2->PebsDsSaveArea.As32Bit.PebsAbsoluteMaximum = PebsBufferBase + v1;
         v2->PebsDsSaveArea.As32Bit.PebsInterruptThreshold = PebsBufferBase;
         memset(&v2->PebsDsSaveArea.As64Bit.PebsBufferBase, 0, v3);

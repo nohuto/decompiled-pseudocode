@@ -1,12 +1,11 @@
 /*
- * XREFs of ?ProcessUpdateTransform@CDDisplayRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DDISPLAYRENDERTARGET_UPDATETRANSFORM@@@Z @ 0x1801E88A8
+ * XREFs of ?ProcessUpdateTransform@CDDisplayRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DDISPLAYRENDERTARGET_UPDATETRANSFORM@@@Z @ 0x18018C624
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@MW4DXGI_MODE_ROTATION@@PEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800CA7F8 (-Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?UpdateMPOCaps@CDDisplayRenderTarget@@UEAAJXZ @ 0x1801CA3F0 (-UpdateMPOCaps@CDDisplayRenderTarget@@UEAAJXZ.c)
- *     ?SetDisplayId@CDDisplaySwapChain@@QEAAXVDisplayId@@@Z @ 0x1801E9610 (-SetDisplayId@CDDisplaySwapChain@@QEAAXVDisplayId@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?UpdateTransform@CDDisplayRenderTarget@@IEAAXAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@@Z @ 0x18018D2F4 (-UpdateTransform@CDDisplayRenderTarget@@IEAAXAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
  */
 
 __int64 __fastcall CDDisplayRenderTarget::ProcessUpdateTransform(
@@ -14,37 +13,42 @@ __int64 __fastcall CDDisplayRenderTarget::ProcessUpdateTransform(
         struct CResourceTable *a2,
         const struct tagMILCMD_DDISPLAYRENDERTARGET_UPDATETRANSFORM *a3)
 {
-  int v3; // edx
-  __int128 v6; // xmm0
-  float v7; // xmm3_4
+  unsigned int v4; // edi
+  __int64 v5; // rcx
+  int v7; // edx
   __int64 v8; // rax
-  __int64 result; // rax
-  int v10; // [rsp+20h] [rbp-48h]
-  int v11[4]; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v12; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v9; // r8
+  __int64 v10; // rcx
 
-  v3 = *((_DWORD *)a3 + 2);
-  if ( *((_DWORD *)this + 4613) != v3 )
+  v4 = 0;
+  v5 = *((unsigned int *)a3 + 8);
+  if ( (int)v5 < 0 || *((int *)a3 + 9) < 0 )
   {
-    *((_DWORD *)this + 4613) = v3;
-    if ( *((_QWORD *)this + 23) )
-      CDDisplaySwapChain::SetDisplayId();
+    v4 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2003303421, 0x72u, 0LL);
   }
-  v6 = *((_OWORD *)a3 + 1);
-  v11[0] = *((_DWORD *)a3 + 9);
-  v7 = *((float *)a3 + 8);
-  v11[1] = *((_DWORD *)a3 + 10);
-  v11[2] = *((_DWORD *)a3 + 11);
-  v11[3] = *((_DWORD *)a3 + 12);
-  v10 = *((_DWORD *)a3 + 13);
-  v12 = v6;
-  CMonitorTransform::Initialize((__int64)this + 18160, (int *)this + 26, (struct MilRectF *)&v12, v7, v10, v11);
-  *((_BYTE *)this + 141) = 1;
-  CDDisplayRenderTarget::UpdateMPOCaps((CDirectFlipInfo **)this + 18);
-  v8 = *((_QWORD *)this + 22);
-  if ( v8 )
-    *(_BYTE *)(v8 + 4712) = 1;
-  result = 0LL;
-  *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 216LL) + 579LL) = 1;
-  return result;
+  else
+  {
+    CDDisplayRenderTarget::UpdateTransform(this);
+    v7 = *((_DWORD *)a3 + 2);
+    if ( *((_DWORD *)this + 4649) != v7 )
+    {
+      *((_DWORD *)this + 4649) = v7;
+      v8 = *((_QWORD *)this + 21);
+      if ( v8 )
+      {
+        if ( *(_DWORD *)(v8 + 260) != v7 )
+        {
+          *(_DWORD *)(v8 + 260) = v7;
+          v9 = *(_QWORD *)(v8 + 224);
+          if ( v9 )
+          {
+            v10 = v9 + 8 + *(int *)(*(_QWORD *)(v9 + 8) + 24LL);
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 32LL))(v10);
+          }
+        }
+      }
+    }
+  }
+  return v4;
 }

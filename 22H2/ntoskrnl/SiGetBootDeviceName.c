@@ -1,19 +1,19 @@
 /*
- * XREFs of SiGetBootDeviceName @ 0x1407C0094
+ * XREFs of SiGetBootDeviceName @ 0x140687A74
  * Callers:
- *     SiGetSystemPartition @ 0x1407BFF60 (SiGetSystemPartition.c)
- *     SiGetFirmwareSystemPartition @ 0x1407BFFB0 (SiGetFirmwareSystemPartition.c)
- *     SiGetSystemDisk @ 0x140880EF0 (SiGetSystemDisk.c)
+ *     SiGetSystemPartition @ 0x140687900 (SiGetSystemPartition.c)
+ *     SiGetFirmwareSystemPartition @ 0x140687950 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14077ACF0 (SiGetSystemDisk.c)
  * Callees:
- *     SiValidateSystemPartition @ 0x14034F078 (SiValidateSystemPartition.c)
- *     wcsstr @ 0x1403DB540 (wcsstr.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     _snwscanf_s @ 0x1403DE7A0 (_snwscanf_s.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x1407C02C0 (SiGetBootDeviceNameFromRegistry.c)
- *     SiTranslateSymbolicLink @ 0x1407C0548 (SiTranslateSymbolicLink.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SiValidateSystemPartition @ 0x140316B80 (SiValidateSystemPartition.c)
+ *     wcsstr @ 0x1403D3A90 (wcsstr.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     _snwscanf_s @ 0x1403D6BE0 (_snwscanf_s.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140687C28 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x140687FDC (SiTranslateSymbolicLink.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, char a5, _QWORD *a6)
@@ -27,12 +27,12 @@ __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, 
   __int64 v13; // r15
   __int64 v14; // rbx
   size_t v15; // rbx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   __int64 v17; // r8
   __int64 v18; // r9
-  wchar_t *v19; // rax
-  size_t v20; // r15
-  WCHAR *v21; // rax
+  wchar_t *v20; // rax
+  SIZE_T v21; // r15
+  WCHAR *v22; // rax
   int v23; // [rsp+40h] [rbp-20h] BYREF
   int v24; // [rsp+44h] [rbp-1Ch] BYREF
   int v25; // [rsp+48h] [rbp-18h] BYREF
@@ -53,7 +53,7 @@ __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, 
   v11 = Src;
   v12 = BootDeviceNameFromRegistry;
   if ( BootDeviceNameFromRegistry < 0 )
-    goto LABEL_22;
+    goto LABEL_17;
   v13 = -1LL;
   v14 = -1LL;
   do
@@ -62,78 +62,75 @@ __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, 
   if ( snwscanf_s(Src, v14 + 1, L"multi(%d)disk(%d)rdisk(%d)partition(%d)", &v23, &v24, &v26, &v25) != 4 )
   {
     v12 = -1073741823;
-    goto LABEL_22;
+    goto LABEL_17;
   }
-  if ( v23 || v24 )
+  if ( !v23 && !v24 )
   {
-    v12 = -1073741823;
-    goto LABEL_33;
-  }
-  v15 = v14 + 11;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2 * v15, 1263556947LL);
-  v7 = Pool2;
-  if ( !Pool2 )
-  {
-    v12 = -1073741670;
-    goto LABEL_22;
-  }
-  swprintf_s(Pool2, v15, L"%s%s", L"\\ArcName\\", v11);
-  v12 = SiTranslateSymbolicLink(v7);
-  if ( v12 < 0 )
-  {
-LABEL_27:
-    v8 = P;
-    goto LABEL_33;
-  }
-  v8 = P;
-  if ( a3 )
-  {
-    v12 = SiValidateSystemPartition((__int64)P, a4, v17, v18, a5);
-    if ( v12 < 0 )
+    v15 = v14 + 11;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * v15, 0x4B505953u);
+    v7 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-LABEL_33:
-      if ( v8 )
-        ExFreePoolWithTag(v8, 0);
-      if ( !v7 )
-        goto LABEL_20;
-      goto LABEL_19;
+      v12 = -1073741670;
+      goto LABEL_17;
     }
-  }
-  if ( !a1 )
-  {
-    v19 = wcsstr(v7, L"partition");
-    if ( v19 )
-      *v19 = 0;
-    do
-      ++v13;
-    while ( v7[v13] );
-    v20 = 2 * v13 + 2;
-    v21 = (WCHAR *)ExAllocatePool2(256LL, v20, 1263556947LL);
-    v6 = v21;
-    if ( v21 )
+    swprintf_s(PoolWithTag, v15, L"%s%s", L"\\ArcName\\", v11);
+    v12 = SiTranslateSymbolicLink(v7);
+    if ( v12 >= 0 )
     {
-      memmove(v21, v7, v20);
+      v8 = P;
+      if ( a3 )
+      {
+        v12 = SiValidateSystemPartition((__int64)P, a4, v17, v18, a5);
+        if ( v12 < 0 )
+        {
+LABEL_11:
+          if ( v8 )
+            ExFreePoolWithTag(v8, 0);
+          goto LABEL_13;
+        }
+      }
+      if ( a1 )
+        goto LABEL_21;
+      v20 = wcsstr(v7, L"partition");
+      if ( v20 )
+        *v20 = 0;
+      do
+        ++v13;
+      while ( v7[v13] );
+      v21 = 2 * v13 + 2;
+      v22 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v21, 0x4B505953u);
+      v6 = v22;
+      if ( !v22 )
+      {
+        v12 = -1073741670;
+        goto LABEL_11;
+      }
+      memmove(v22, v7, v21);
       ExFreePoolWithTag(v8, 0);
       P = 0LL;
       v12 = SiTranslateSymbolicLink(v6);
       if ( v12 >= 0 )
       {
         v8 = P;
-        goto LABEL_18;
+LABEL_21:
+        *a6 = v8;
+        goto LABEL_22;
       }
-      goto LABEL_27;
     }
-    v12 = -1073741670;
-    goto LABEL_33;
+    v8 = P;
+    goto LABEL_11;
   }
-LABEL_18:
-  *a6 = v8;
-LABEL_19:
-  ExFreePoolWithTag(v7, 0);
-LABEL_20:
+  v12 = -1073741823;
+LABEL_22:
+  if ( v12 < 0 )
+    goto LABEL_11;
+LABEL_13:
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
-LABEL_22:
+LABEL_17:
   if ( v11 )
     ExFreePoolWithTag(v11, 0);
   return (unsigned int)v12;

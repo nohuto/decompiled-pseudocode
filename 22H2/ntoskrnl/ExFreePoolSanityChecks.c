@@ -1,20 +1,22 @@
 /*
- * XREFs of ExFreePoolSanityChecks @ 0x140AE8DFC
+ * XREFs of ExFreePoolSanityChecks @ 0x1409ECF60
  * Callers:
- *     VerifierExFreePool @ 0x140AC1100 (VerifierExFreePool.c)
- *     VerifierExFreePoolWithTag @ 0x140AC1170 (VerifierExFreePoolWithTag.c)
+ *     VerifierExFreePool @ 0x1409D51A0 (VerifierExFreePool.c)
+ *     VerifierExFreePoolWithTag @ 0x1409D5230 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     ExIsSpecialPoolAddress @ 0x14060F0F8 (ExIsSpecialPoolAddress.c)
- *     MmDeterminePoolType @ 0x140641AA4 (MmDeterminePoolType.c)
- *     KevSkipVerification @ 0x140679C1C (KevSkipVerification.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     MmDeterminePoolType @ 0x14032BD2C (MmDeterminePoolType.c)
+ *     ExIsSpecialPoolAddress @ 0x1405BA000 (ExIsSpecialPoolAddress.c)
+ *     KevSkipVerification @ 0x1405CA20C (KevSkipVerification.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ExFreePoolSanityChecks(ULONG_PTR a1)
 {
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // di
-  ULONG_PTR v4; // rdx
+  unsigned int *v4; // rsi
+  char v5; // al
+  ULONG_PTR v6; // rdx
 
   result = KevSkipVerification();
   if ( !(_DWORD)result )
@@ -39,26 +41,31 @@ __int64 __fastcall ExFreePoolSanityChecks(ULONG_PTR a1)
         return result;
       }
       if ( (a1 & 0xF) != 0 )
-        VerifierBugCheckIfAppropriate(0xC4u, 0x16uLL, 0x1DE0uLL, a1, 0LL);
-      if ( (*(_BYTE *)(a1 - 13) & 3) == 0 )
-        VerifierBugCheckIfAppropriate(0xC4u, 0x13uLL, 0x1DEAuLL, a1 - 16, *(unsigned int *)(a1 - 16));
-      result = *(_BYTE *)(a1 - 13) & 3;
-      if ( (*(_BYTE *)(a1 - 13) & 1) != 0 )
+        VerifierBugCheckIfAppropriate(0xC4u, 0x16uLL, 0x15A9uLL, a1, 0LL);
+      v4 = (unsigned int *)(a1 - 16);
+      v5 = *(_BYTE *)(a1 - 16 + 3);
+      if ( (v5 & 3) == 0 )
+      {
+        VerifierBugCheckIfAppropriate(0xC4u, 0x13uLL, 0x15B3uLL, a1 - 16, *v4);
+        v5 = *((_BYTE *)v4 + 3);
+      }
+      result = v5 & 3;
+      if ( (result & 1) != 0 )
       {
         if ( CurrentIrql <= 1u )
           goto LABEL_22;
-        v4 = 17LL;
+        v6 = 17LL;
       }
       else
       {
         if ( CurrentIrql <= 2u )
           goto LABEL_22;
-        v4 = 18LL;
+        v6 = 18LL;
       }
-      result = VerifierBugCheckIfAppropriate(0xC4u, v4, CurrentIrql, *(_BYTE *)(a1 - 13) & 3, a1);
+      result = VerifierBugCheckIfAppropriate(0xC4u, v6, CurrentIrql, (unsigned int)result, a1);
 LABEL_22:
-      if ( (*(_BYTE *)(a1 - 13) & 2) == 0 )
-        return VerifierBugCheckIfAppropriate(0xC4u, 0x14uLL, 0x1E07uLL, a1 - 16, 0LL);
+      if ( (*((_BYTE *)v4 + 3) & 2) == 0 )
+        return VerifierBugCheckIfAppropriate(0xC4u, 0x14uLL, 0x15D0uLL, a1 - 16, 0LL);
     }
   }
   return result;

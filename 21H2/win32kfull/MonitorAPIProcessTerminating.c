@@ -1,11 +1,11 @@
 /*
- * XREFs of MonitorAPIProcessTerminating @ 0x1C00FAFB0
+ * XREFs of MonitorAPIProcessTerminating @ 0x1C010D350
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C026F888 (-DestroyHandleInternal@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysic.c)
- *     ?GetElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJKPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026F9AC (-GetElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJKPEAPEAVCPhysicalMonitorHandle@@@Z.c)
- *     ?GetNextElementIndex@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z @ 0x1C026FB84 (-GetNextElementIndex@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z.c)
+ *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C0271C68 (-DestroyHandleInternal@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysic.c)
+ *     ?GetElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJKPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C0271D8C (-GetElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJKPEAPEAVCPhysicalMonitorHandle@@@Z.c)
+ *     ?GetNextElementIndex@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z @ 0x1C0271F64 (-GetNextElementIndex@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z.c)
  */
 
 void __fastcall MonitorAPIProcessTerminating(void *a1)
@@ -17,8 +17,8 @@ void __fastcall MonitorAPIProcessTerminating(void *a1)
   OPM::CMonitorPDO *v6; // [rsp+50h] [rbp+18h] BYREF
   char v7; // [rsp+58h] [rbp+20h] BYREF
 
-  v1 = (char *)P;
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v7, (struct OPM::CMutex *)((char *)P + 32));
+  v1 = (char *)qword_1C033B068;
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v7, (struct OPM::CMutex *)((char *)qword_1C033B068 + 32));
   v3 = 0;
   v5 = 0;
   if ( *((_DWORD *)v1 + 4) )

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserUpdateDefaultDesktopThumbnail @ 0x1C01FFFF0
+ * XREFs of NtUserUpdateDefaultDesktopThumbnail @ 0x1C0204090
  * Callers:
  *     <none>
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
- *     DwmAsyncUpdateDefaultDesktopThumbnail @ 0x1C02730B4 (DwmAsyncUpdateDefaultDesktopThumbnail.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     DwmAsyncUpdateDefaultDesktopThumbnail @ 0x1C0275824 (DwmAsyncUpdateDefaultDesktopThumbnail.c)
  */
 
 __int64 __fastcall NtUserUpdateDefaultDesktopThumbnail(__int64 a1, __int64 a2, __int64 a3, char a4, int a5)
@@ -15,7 +15,7 @@ __int64 __fastcall NtUserUpdateDefaultDesktopThumbnail(__int64 a1, __int64 a2, _
   NTSTATUS updated; // eax
   void *v10; // rax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( a1 )
   {
     v8 = ValidateHwnd(a1);
@@ -26,12 +26,12 @@ __int64 __fastcall NtUserUpdateDefaultDesktopThumbnail(__int64 a1, __int64 a2, _
   {
     v8 = 0LL;
   }
-  if ( !v8 || IsTopLevelWindow(v8) && (unsigned int)IsWindowDesktopComposed(v8) )
+  if ( !v8 || (unsigned int)IsTopLevelWindow(v8) && (unsigned int)IsWindowDesktopComposed(v8) )
   {
     v7 = gptiCurrent;
     if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskIODefault && (!v8 || *(_QWORD *)(v8 + 24) == grpdeskIODefault) )
     {
-      v10 = (void *)ReferenceDwmApiPort(gptiCurrent);
+      v10 = (void *)ReferenceDwmApiPort(gptiCurrent, grpdeskIODefault);
       updated = DwmAsyncUpdateDefaultDesktopThumbnail(v10, a4, a5);
     }
     else

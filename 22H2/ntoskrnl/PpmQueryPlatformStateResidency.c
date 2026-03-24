@@ -1,41 +1,41 @@
 /*
- * XREFs of PpmQueryPlatformStateResidency @ 0x1403D6940
+ * XREFs of PpmQueryPlatformStateResidency @ 0x14056730C
  * Callers:
- *     PopCalculateIdleInformation @ 0x1403C76E0 (PopCalculateIdleInformation.c)
- *     PpmQueryDripsResidency @ 0x140585A80 (PpmQueryDripsResidency.c)
- *     PopQueryBootSessionStandbyActivationInfo @ 0x1405872B4 (PopQueryBootSessionStandbyActivationInfo.c)
+ *     PpmQueryDripsResidency @ 0x1405672F0 (PpmQueryDripsResidency.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x140568CB8 (PopQueryBootSessionStandbyActivationInfo.c)
+ *     PopCalculateIdleInformation @ 0x140570350 (PopCalculateIdleInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmQueryPlatformStateResidency(unsigned int a1)
 {
   __int64 v1; // rsi
-  __int64 v2; // rbx
-  unsigned int v4; // ebp
-  unsigned int *Pool2; // rax
-  unsigned int *v6; // rdi
+  unsigned int v3; // ebp
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
   _PPM_IDLE_STATES *IdleStates; // rcx
 
   v1 = -1LL;
-  v2 = a1;
   if ( PpmPlatformStates )
   {
     if ( *(_QWORD *)(PpmPlatformStates + 40) )
     {
-      v4 = *(_DWORD *)PpmPlatformStates;
-      if ( a1 != -1 && a1 < v4 )
+      v3 = *(_DWORD *)PpmPlatformStates;
+      if ( a1 != -1 && a1 < v3 )
       {
-        Pool2 = (unsigned int *)ExAllocatePool2(64LL, 16 * v4 + 8, 1766674512LL);
-        v6 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, 16 * v3 + 8, 0x694D5050u);
+        v5 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          *Pool2 = v4;
+          memset(PoolWithTag, 0, 16 * v3 + 8);
+          *v5 = v3;
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
           ExAcquirePushLockSharedEx((ULONG_PTR)&PpmIdlePolicyLock, 0LL);
@@ -43,12 +43,12 @@ __int64 __fastcall PpmQueryPlatformStateResidency(unsigned int a1)
           if ( IdleStates
             && (*(int (__fastcall **)(void *, unsigned int *))(PpmPlatformStates + 40))(
                  IdleStates->PrepareInfo.Context,
-                 v6) >= 0 )
+                 v5) >= 0 )
           {
-            v1 = *(_QWORD *)&v6[4 * v2 + 2];
+            v1 = *(_QWORD *)&v5[4 * a1 + 2];
           }
-          PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
-          ExFreePoolWithTag(v6, 0x694D5050u);
+          PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
+          ExFreePoolWithTag(v5, 0x694D5050u);
         }
       }
     }

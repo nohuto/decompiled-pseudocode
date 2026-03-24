@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeWaitChain @ 0x140211F88
+ * XREFs of KeInitializeWaitChain @ 0x1402D3EB0
  * Callers:
- *     VrpAllocateDiffHiveEntry @ 0x14069175C (VrpAllocateDiffHiveEntry.c)
+ *     VrpAllocateDiffHiveEntry @ 0x1405D69AC (VrpAllocateDiffHiveEntry.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@CGaussianBlurEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0215AD0
+ * XREFs of ?Initialize@CGaussianBlurEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DFCF0
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C0215C70 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C01DFE20 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CGaussianBlurEffectMarshaler::Initialize(
@@ -15,9 +15,9 @@ __int64 __fastcall DirectComposition::CGaussianBlurEffectMarshaler::Initialize(
   if ( (int)result >= 0 )
   {
     result = 0LL;
-    *((_DWORD *)this + 30) = 1077936128;
+    *((_DWORD *)this + 28) = 1077936128;
   }
-  *((_DWORD *)this + 32) = 0;
-  *((_DWORD *)this + 31) = 2;
+  *((_DWORD *)this + 30) = 0;
+  *((_DWORD *)this + 29) = 2;
   return result;
 }

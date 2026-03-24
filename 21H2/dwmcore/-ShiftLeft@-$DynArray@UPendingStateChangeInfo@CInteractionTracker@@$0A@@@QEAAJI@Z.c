@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ShiftLeft@?$DynArray@UPendingStateChangeInfo@CInteractionTracker@@$0A@@@QEAAJI@Z @ 0x18021DD4C
+ * XREFs of ?ShiftLeft@?$DynArray@UPendingStateChangeInfo@CInteractionTracker@@$0A@@@QEAAJI@Z @ 0x1801CCD40
  * Callers:
- *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x18011412C (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x1801CBA7C (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
 __int64 __fastcall DynArray<CInteractionTracker::PendingStateChangeInfo,0>::ShiftLeft(__int64 a1, unsigned int a2)
@@ -20,7 +20,7 @@ __int64 __fastcall DynArray<CInteractionTracker::PendingStateChangeInfo,0>::Shif
     if ( a2 > v4 )
     {
       v2 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, 0x23Du);
+      MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x23Du, 0LL);
     }
     else
     {

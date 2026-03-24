@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeBootProcess @ 0x140B0A508
+ * XREFs of MiInitializeBootProcess @ 0x140A57868
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSetPageTablePfnBuddy @ 0x14036C868 (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MmInitializeProcessAddressSpace @ 0x14070A4FC (MmInitializeProcessAddressSpace.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402E5B84 (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
  */
 
 __int64 MiInitializeBootProcess()
@@ -26,31 +26,31 @@ __int64 MiInitializeBootProcess()
   int v12; // [rsp+60h] [rbp+8h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( !qword_140D051F8 )
-    qword_140D051F8 = 0x100000LL;
-  if ( !qword_140D051F0 )
-    qword_140D051F0 = 0x2000LL;
-  if ( !qword_140D051E8 )
-    qword_140D051E8 = 0x10000LL;
-  if ( !qword_140D051E0 )
-    qword_140D051E0 = 4096LL;
+  if ( !qword_140CFB1B8 )
+    qword_140CFB1B8 = 0x100000LL;
+  if ( !qword_140CFB1B0 )
+    qword_140CFB1B0 = 0x2000LL;
+  if ( !qword_140CFB1A8 )
+    qword_140CFB1A8 = 0x10000LL;
+  if ( !qword_140CFB1A0 )
+    qword_140CFB1A0 = 4096LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  *(_QWORD *)&Process[1].ThreadSeed[26] = 50LL;
-  *(_QWORD *)&Process[1].ThreadSeed[30] = 450LL;
-  v1 = (_QWORD *)(48 * ((MEMORY[0xFFFFF6FB7DBEDF68] >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL);
+  *(_QWORD *)&Process[1].ThreadSeedPadding[6] = 50LL;
+  *(_QWORD *)&Process[1].IdealProcessor[14] = 450LL;
+  v1 = (_QWORD *)(48 * ((MEMORY[0xFFFFF6FB7DBEDF68] >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
   *v1 = 0LL;
-  MiSetPageTablePfnBuddy((__int64)v1, (__int64)Process, 0);
+  MiSetPageTablePfnBuddy((__int64)v1, (__int64)Process, 0LL);
   _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x40000u);
   _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x800u);
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v2 = (unsigned __int64 **)qword_140C50660;
+  v2 = (unsigned __int64 **)qword_140C4DE30;
   p_UserDirectoryTableBase = &Process[1].UserDirectoryTableBase;
-  if ( *(__int64 **)qword_140C50660 != &qword_140C50658 )
+  if ( *(__int64 **)qword_140C4DE30 != &qword_140C4DE28 )
     __fastfail(3u);
-  *(_QWORD *)&Process[1].AddressPolicy = qword_140C50660;
-  *p_UserDirectoryTableBase = (unsigned __int64)&qword_140C50658;
+  *(_QWORD *)&Process[1].AddressPolicy = qword_140C4DE30;
+  *p_UserDirectoryTableBase = (unsigned __int64)&qword_140C4DE28;
   *v2 = p_UserDirectoryTableBase;
-  qword_140C50660 = (__int64)&Process[1].UserDirectoryTableBase;
+  qword_140C4DE30 = (__int64)&Process[1].UserDirectoryTableBase;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )

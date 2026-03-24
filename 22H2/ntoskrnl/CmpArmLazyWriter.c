@@ -1,119 +1,120 @@
 /*
- * XREFs of CmpArmLazyWriter @ 0x1402E7294
+ * XREFs of CmpArmLazyWriter @ 0x1402D87F0
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     CmpEnableLazyFlush @ 0x1403B41C8 (CmpEnableLazyFlush.c)
- *     HvpMarkDirty @ 0x140747620 (HvpMarkDirty.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     HvMarkBaseBlockDirty @ 0x140874CFC (HvMarkBaseBlockDirty.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140361750 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpEnableLazyFlush @ 0x1403A6D08 (CmpEnableLazyFlush.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     HvpMarkDirty @ 0x140655BF0 (HvpMarkDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x14069FDFC (HvMarkBaseBlockDirty.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall CmpArmLazyWriter(__int64 a1, unsigned __int64 *a2, char a3)
+void __fastcall CmpArmLazyWriter(int a1, unsigned __int64 *a2, char a3)
 {
-  __int64 UnbiasedInterruptTime; // rax
-  __int64 v6; // r11
-  __int64 v7; // rbx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rbx
-  unsigned __int64 v10; // rbx
-  __int64 v11; // rdi
-  struct _KTIMER *v12; // r14
-  unsigned __int64 v13; // rbp
-  unsigned __int64 v14; // rcx
-  int v15; // ecx
-  int v16; // ecx
-  ULONG v17; // r9d
-  __int64 v18; // rdx
+  __int64 v4; // rbx
+  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rbx
+  __int64 v7; // r14
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // rcx
+  int v10; // ecx
+  unsigned __int64 v11; // rbx
+  ULONG v12; // r9d
+  __int64 v13; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  bool v23; // zf
+  int v17; // eax
+  bool v18; // zf
 
   if ( !CmpWorkerDataInitialized || CmpHoldLazyFlush )
     return;
-  LOBYTE(a1) = 1;
-  UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(a1);
-  v7 = UnbiasedInterruptTime;
+  v4 = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
   if ( a2 )
   {
-    v8 = *a2;
-    v9 = 10000000LL * *((unsigned int *)&CmpLazyWriterData + 48 * v6 + 45) + v7;
-    if ( *a2 >= v9 )
-      v8 = v9;
-    v10 = v8;
+    v5 = v4 + 10000000LL * *((unsigned int *)&CmpLazyWriterData + 48 * a1 + 45);
+    v6 = *a2;
+    if ( *a2 >= v5 )
+      v6 = v5;
   }
   else if ( a3 )
   {
-    v10 = UnbiasedInterruptTime + 20000000;
+    v6 = v4 + 20000000;
   }
   else
   {
-    v10 = 10000000LL * *((unsigned int *)&CmpLazyWriterData + 48 * v6 + 45) + UnbiasedInterruptTime;
+    v6 = 10000000LL * *((unsigned int *)&CmpLazyWriterData + 48 * a1 + 45) + v4;
   }
-  v11 = 192 * v6;
-  v12 = &CmpLazyWriterData + 3 * v6;
-  v13 = KeAcquireSpinLockRaiseToDpc(&v12[2].DueTime.QuadPart);
-  v14 = *(_QWORD *)((char *)&CmpLazyWriterData + v11 + 168) & 7LL;
-  if ( v14 <= 3 )
+  v7 = 192LL * a1;
+  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)((char *)&CmpLazyWriterData + v7 + 152));
+  v9 = *(_QWORD *)((char *)&CmpLazyWriterData + v7 + 168) & 7LL;
+  if ( v9 <= 3 )
   {
-    if ( !(_DWORD)v14 )
+    if ( (_DWORD)v9 == 1 )
     {
-      *(_QWORD *)((char *)&CmpLazyWriterData + v11 + 168) = 1LL;
-      if ( !a3 )
+      if ( a3 && KeCancelTimer((struct _KTIMER *)((char *)&CmpLazyWriterData + v7)) )
+        goto LABEL_24;
+    }
+    else
+    {
+      if ( !(_DWORD)v9 )
       {
-        v17 = *(_DWORD *)((char *)&CmpLazyWriterData + v11 + 184);
-        v18 = -10000000LL * *(int *)((char *)&CmpLazyWriterData + v11 + 180);
-LABEL_22:
-        KeSetCoalescableTimer(
-          (struct _KTIMER *)((char *)&CmpLazyWriterData + v11),
-          (LARGE_INTEGER)v18,
-          0,
-          v17,
-          (PKDPC)((char *)&CmpLazyWriterData + v11 + 64));
-        goto LABEL_11;
+LABEL_24:
+        v11 = 1LL;
+LABEL_17:
+        *(_QWORD *)((char *)&CmpLazyWriterData + v7 + 168) = v11;
+        if ( v11 == 1 )
+        {
+          if ( a3 )
+          {
+            v13 = -20000000LL;
+            v12 = 1000;
+          }
+          else
+          {
+            v12 = *(_DWORD *)((char *)&CmpLazyWriterData + v7 + 184);
+            v13 = -10000000LL * *(int *)((char *)&CmpLazyWriterData + v7 + 180);
+          }
+          KeSetCoalescableTimer(
+            (struct _KTIMER *)((char *)&CmpLazyWriterData + v7),
+            (LARGE_INTEGER)v13,
+            0,
+            v12,
+            (PKDPC)((char *)&CmpLazyWriterData + v7 + 64));
+        }
+        goto LABEL_9;
       }
-LABEL_25:
-      v18 = -20000000LL;
-      v17 = 1000;
-      goto LABEL_22;
-    }
-    v15 = v14 - 1;
-    if ( v15 )
-    {
-      v16 = v15 - 1;
-      if ( !v16 || v16 == 1 && v10 < (*(_QWORD *)((char *)&CmpLazyWriterData + v11 + 168) & 0xFFFFFFFFFFFFFFF8uLL) )
-        *(_QWORD *)((char *)&CmpLazyWriterData + v11 + 168) = v10 & 0xFFFFFFFFFFFFFFF8uLL | 3;
-      goto LABEL_11;
-    }
-    if ( a3 && KeCancelTimer((struct _KTIMER *)((char *)&CmpLazyWriterData + v11)) )
-    {
-      *(_QWORD *)((char *)&CmpLazyWriterData + v11 + 168) = 1LL;
-      goto LABEL_25;
+      v10 = v9 - 2;
+      if ( !v10 || v10 == 1 && v6 < (*(_QWORD *)((char *)&CmpLazyWriterData + v7 + 168) & 0xFFFFFFFFFFFFFFF8uLL) )
+      {
+        v11 = v6 & 0xFFFFFFFFFFFFFFF8uLL | 3;
+        goto LABEL_17;
+      }
     }
   }
-LABEL_11:
-  KxReleaseSpinLock((volatile signed __int64 *)&v12[2].DueTime);
+LABEL_9:
+  KxReleaseSpinLock((PKSPIN_LOCK)((char *)&CmpLazyWriterData + v7 + 152));
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-      v23 = (v22 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v22;
-      if ( v23 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+        v18 = (v17 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v17;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v13);
+  __writecr8(v8);
 }

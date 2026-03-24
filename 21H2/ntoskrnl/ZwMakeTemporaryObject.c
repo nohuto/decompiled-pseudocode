@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwMakeTemporaryObject @ 0x14041DA20
+ * XREFs of ZwMakeTemporaryObject @ 0x1403FC5A0
  * Callers:
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     IoDeleteSymbolicLink @ 0x140811120 (IoDeleteSymbolicLink.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     IoDeleteSymbolicLink @ 0x1407722B0 (IoDeleteSymbolicLink.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
  * Callees:
  *     <none>
  */

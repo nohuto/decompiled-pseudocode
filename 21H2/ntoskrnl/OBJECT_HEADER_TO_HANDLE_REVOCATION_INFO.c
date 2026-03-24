@@ -1,12 +1,9 @@
 /*
- * XREFs of OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140229AD4
+ * XREFs of OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14029C5BC
  * Callers:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1402D4530 (NtSetInformationWorkerFactory.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406A1000 (ObpProcessRemoveObjectQueue.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     ObHandleRevocationBlockAddObject @ 0x1409843A0 (ObHandleRevocationBlockAddObject.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ObHandleRevocationBlockAddObject @ 0x1408DC920 (ObHandleRevocationBlockAddObject.c)
  * Callees:
  *     <none>
  */

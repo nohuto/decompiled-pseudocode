@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x180123DC0
+ * XREFs of ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x1800F8D50
  * Callers:
  *     <none>
  * Callees:

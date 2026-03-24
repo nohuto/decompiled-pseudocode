@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EnableVSyncEventSignaling@BLTQUEUE@@QEAAXXZ @ 0x1C016015C
+ * XREFs of ?EnableVSyncEventSignaling@BLTQUEUE@@QEAAXXZ @ 0x1C00DF758
  * Callers:
- *     ?WaitForVSync@REMOTE_VSYNC@@QEAAJXZ @ 0x1C0160104 (-WaitForVSync@REMOTE_VSYNC@@QEAAJXZ.c)
- *     ?ControlVSyncAdapter@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C02BF51C (-ControlVSyncAdapter@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?WaitForVSync@REMOTE_VSYNC@@QEAAJXZ @ 0x1C00DF700 (-WaitForVSync@REMOTE_VSYNC@@QEAAJXZ.c)
+ *     ?ControlVSyncAdapter@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0210D78 (-ControlVSyncAdapter@ADAPTER_DISPLAY@@QEAAJI@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C006C734 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C005EAB0 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 void __fastcall BLTQUEUE::EnableVSyncEventSignaling(BLTQUEUE *this)
@@ -23,30 +23,30 @@ void __fastcall BLTQUEUE::EnableVSyncEventSignaling(BLTQUEUE *this)
   __int64 v11; // [rsp+50h] [rbp+18h] BYREF
 
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  *((_BYTE *)this + 571) = 1;
-  *((LARGE_INTEGER *)this + 105) = PerformanceCounter;
-  KeSetEvent((PRKEVENT)((char *)this + 520), 0, 0);
+  *((_BYTE *)this + 563) = 1;
+  *((LARGE_INTEGER *)this + 103) = PerformanceCounter;
+  KeSetEvent((PRKEVENT)((char *)this + 512), 0, 0);
   if ( *((_DWORD *)this + 34) == 3 )
   {
     Current = DXGPROCESS::GetCurrent();
     if ( Current )
     {
-      if ( !*((_BYTE *)Current + 601) )
+      if ( !*((_BYTE *)Current + 489) )
       {
-        *((_BYTE *)Current + 601) = 1;
-        if ( (unsigned int)dword_1C012F8A8 > 5 )
+        *((_BYTE *)Current + 489) = 1;
+        if ( (unsigned int)dword_1C00B19E8 > 5 )
         {
-          if ( tlgKeywordOn((__int64)&dword_1C012F8A8, 0x400000080000LL) )
+          if ( tlgKeywordOn((__int64)&dword_1C00B19E8, 0x400000080000LL) )
           {
             v8 = *(_QWORD *)(v7 + 64);
             if ( v8 )
-              v6 = *(const CHAR **)(v8 + 88);
+              v6 = *(const CHAR **)(v8 + 80);
             v9 = v6;
             v10 = 33556480LL;
             v11 = 1LL;
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapSz<char>>(
               v4,
-              byte_1C009B027,
+              byte_1C0081905,
               v5,
               (__int64)&v11,
               (__int64)&v10,

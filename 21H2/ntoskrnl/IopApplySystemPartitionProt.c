@@ -1,73 +1,75 @@
 /*
- * XREFs of IopApplySystemPartitionProt @ 0x140B4F514
+ * XREFs of IopApplySystemPartitionProt @ 0x140A8FEC0
  * Callers:
- *     IopProtectSystemPartition @ 0x140B2F684 (IopProtectSystemPartition.c)
+ *     IopProtectSystemPartition @ 0x140A72948 (IopProtectSystemPartition.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x1403C5514 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ZwSetSecurityObject @ 0x14041EDA0 (ZwSetSecurityObject.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x1403B856C (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
+ *     IopVerifierExAllocatePool_5 @ 0x14050AD38 (IopVerifierExAllocatePool_5.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
 {
   int v2; // edx
-  ULONG v3; // ebx
-  ACL *Pool2; // rax
-  ACL *v5; // rdi
+  __int64 v3; // rcx
+  ULONG v4; // ebx
+  ACL *Pool_5; // rax
+  ACL *v6; // rdi
   NTSTATUS Acl; // ebx
-  __int64 v8; // r9
+  __int64 v9; // r9
   HANDLE UnicodeString; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING UnicodeString_8; // [rsp+40h] [rbp-C8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+50h] [rbp-B8h] BYREF
-  STRING DestinationString_8; // [rsp+80h] [rbp-88h] BYREF
+  STRING DestinationString_8; // [rsp+50h] [rbp-B8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+60h] [rbp-A8h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v14; // [rsp+B0h] [rbp-58h]
+  __int64 v15; // [rsp+B0h] [rbp-58h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp-50h] BYREF
   char pszFormat[16]; // [rsp+C8h] [rbp-40h] BYREF
   char pszDest[256]; // [rsp+D8h] [rbp-30h] BYREF
 
   strcpy(pszFormat, "\\ArcName\\%s");
-  v14 = 0LL;
+  v15 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v2 = *((unsigned __int8 *)SeAliasAdminsSid + 1);
-  memset(&ObjectAttributes_8, 0, 44);
-  v3 = 4 * (*((unsigned __int8 *)SeLocalSystemSid + 1) + v2) + 56;
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v3, 0x20206F49u);
-  v5 = Pool2;
-  if ( !Pool2 )
+  memset(&ObjectAttributes_8, 0, sizeof(ObjectAttributes_8));
+  v3 = *((unsigned __int8 *)SeLocalSystemSid + 1);
+  v4 = 4 * (v3 + v2) + 56;
+  Pool_5 = (ACL *)IopVerifierExAllocatePool_5(v3, v4);
+  v6 = Pool_5;
+  if ( !Pool_5 )
     return 3221225626LL;
-  Acl = RtlCreateAcl(Pool2, v3, 2u);
+  Acl = RtlCreateAcl(Pool_5, v4, 2u);
   if ( Acl >= 0 )
   {
-    Acl = RtlAddAccessAllowedAce(v5, 2u, 0x10000000u, SeLocalSystemSid);
+    Acl = RtlAddAccessAllowedAce(v6, 2u, 0x10000000u, SeLocalSystemSid);
     if ( Acl >= 0 )
     {
-      Acl = RtlAddAccessAllowedAce(v5, 2u, 0xE0020000, SeAliasAdminsSid);
+      Acl = RtlAddAccessAllowedAce(v6, 2u, 0xE0020000, SeAliasAdminsSid);
       if ( Acl >= 0 )
       {
         Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
         if ( Acl >= 0 )
         {
-          Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0);
+          Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v6, 0);
           if ( Acl >= 0 )
           {
-            v8 = *(_QWORD *)(a1 + 192);
+            v9 = *(_QWORD *)(a1 + 192);
             UnicodeString = 0LL;
             DestinationString_8 = 0LL;
             UnicodeString_8 = 0LL;
             IoStatusBlock = 0LL;
-            RtlStringCchPrintfA(pszDest, 0x100uLL, pszFormat, v8);
+            RtlStringCchPrintfA(pszDest, 0x100uLL, pszFormat, v9);
             RtlInitAnsiString(&DestinationString_8, pszDest);
             Acl = RtlAnsiStringToUnicodeString(&UnicodeString_8, &DestinationString_8, 1u);
             if ( Acl >= 0 )
@@ -78,7 +80,7 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
               ObjectAttributes_8.Attributes = 576;
               *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
               Acl = ZwOpenFile(&UnicodeString, 0x40000u, &ObjectAttributes_8, &IoStatusBlock, 1u, 0);
-              RtlFreeUnicodeString(&UnicodeString_8);
+              RtlFreeAnsiString(&UnicodeString_8);
               if ( Acl >= 0 )
               {
                 Acl = ZwSetSecurityObject(UnicodeString, 4u, SecurityDescriptor);
@@ -90,6 +92,6 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
       }
     }
   }
-  ExFreePoolWithTag(v5, 0);
+  ExFreePoolWithTag(v6, 0);
   return (unsigned int)Acl;
 }

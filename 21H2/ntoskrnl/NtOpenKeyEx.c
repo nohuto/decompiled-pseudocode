@@ -1,24 +1,12 @@
 /*
- * XREFs of NtOpenKeyEx @ 0x1407CA940
+ * XREFs of NtOpenKeyEx @ 0x140655310
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     CmOpenKey @ 0x1407CABA0 (CmOpenKey.c)
+ *     CmOpenKey @ 0x140655330 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKeyEx(int a1)
+__int64 __fastcall NtOpenKeyEx(int a1, int a2, int a3, int a4)
 {
-  int v2; // r8d
-  int v3; // r9d
-  int v4; // r11d
-  unsigned int v5; // r8d
-  __int64 v7[3]; // [rsp+30h] [rbp-18h] BYREF
-
-  *(_OWORD *)v7 = 0LL;
-  CmpInitializeThreadInfo((__int64)v7);
-  CmOpenKey(a1, v4, v2, v3, 0LL, KeGetCurrentThread()->PreviousMode);
-  CmCleanupThreadInfo(v7);
-  return v5;
+  return CmOpenKey(a1, a2, a3, a4, 0LL);
 }

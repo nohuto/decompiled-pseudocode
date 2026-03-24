@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetProcessDeepFreezeStats @ 0x140711CD4
+ * XREFs of PsGetProcessDeepFreezeStats @ 0x1406CE8CC
  * Callers:
- *     PsSetProcessTelemetryAppState @ 0x14071147C (PsSetProcessTelemetryAppState.c)
- *     PfpPrivSourceEnum @ 0x140711614 (PfpPrivSourceEnum.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PsSetProcessTelemetryAppState @ 0x1406CDED4 (PsSetProcessTelemetryAppState.c)
+ *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PsGetProcessDeepFreezeStats(signed __int64 *a1, _QWORD *a2)

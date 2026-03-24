@@ -1,38 +1,25 @@
 /*
- * XREFs of ProcessorpRangeConflictCallback @ 0x1C009BD60
+ * XREFs of ProcessorpRangeConflictCallback @ 0x1C00B6ED0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-BOOLEAN __fastcall ProcessorpRangeConflictCallback(_DWORD *Context, struct _RTL_RANGE *Range)
+bool __fastcall ProcessorpRangeConflictCallback(__int64 a1, __int64 a2)
 {
-  _DWORD *UserData; // r8
-  unsigned int v3; // eax
-  unsigned int v4; // r8d
+  __int64 v2; // r9
+  unsigned int v3; // r8d
+  unsigned int v4; // eax
+  bool result; // al
 
-  UserData = Range->UserData;
-  if ( UserData )
-  {
-    if ( (Range->Flags & 1) != 0 )
-    {
-      if ( *((_BYTE *)Context + 14) )
-      {
-        if ( *(PVOID *)Context != Range->Owner )
-        {
-          v3 = Context[2];
-          v4 = UserData[4];
-          if ( v3 == v4 || v3 >= 0xFFF00000 && v4 >= 0xFFF00000 )
-          {
-            if ( (Context[3] & 1) == 0 )
-              return Range->Attributes & 1;
-            if ( (Range->Attributes & 2) != 0 )
-              return 1;
-          }
-        }
-      }
-    }
-  }
-  return 0;
+  v2 = *(_QWORD *)(a2 + 16);
+  result = v2
+        && (*(_BYTE *)(a2 + 33) & 1) != 0
+        && *(_BYTE *)(a1 + 14)
+        && *(_QWORD *)a1 != *(_QWORD *)(a2 + 24)
+        && ((v3 = *(_DWORD *)(a1 + 8), v4 = *(_DWORD *)(v2 + 16), v3 == v4) || v3 >= 0xFFF00000 && v4 >= 0xFFF00000)
+        && ((*(_WORD *)(a1 + 12) & 1) == 0 || (*(_BYTE *)(a2 + 32) & 2) != 0)
+        && ((*(_WORD *)(a1 + 12) & 1) != 0 || (*(_BYTE *)(a2 + 32) & 1) != 0);
+  return result;
 }

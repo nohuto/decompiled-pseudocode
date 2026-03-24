@@ -1,15 +1,15 @@
 /*
- * XREFs of RawReadWriteDeviceControl @ 0x140791E64
+ * XREFs of RawReadWriteDeviceControl @ 0x14062D9F8
  * Callers:
- *     RawDispatch @ 0x140791C40 (RawDispatch.c)
+ *     RawDispatch @ 0x14062D7F0 (RawDispatch.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     RawBeginOperation @ 0x140321BDC (RawBeginOperation.c)
- *     RawInitiateDeleteVolume @ 0x140321C68 (RawInitiateDeleteVolume.c)
- *     RawEndOperation @ 0x140321F9C (RawEndOperation.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     RawBeginOperation @ 0x14026D924 (RawBeginOperation.c)
+ *     RawInitiateDeleteVolume @ 0x14026D9DC (RawInitiateDeleteVolume.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     RawEndOperation @ 0x1402DEA38 (RawEndOperation.c)
  */
 
 NTSTATUS __fastcall RawReadWriteDeviceControl(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, char *a3)
@@ -46,10 +46,10 @@ NTSTATUS __fastcall RawReadWriteDeviceControl(PFSRTL_ADVANCED_FCB_HEADER Advance
   {
     if ( v7 == 27 )
     {
-      ExAcquireFastMutex((PFAST_MUTEX)&AdvancedHeader[2].Resource);
+      ExAcquireFastMutex((PFAST_MUTEX)&AdvancedHeader[2].PagingIoResource);
       --LODWORD(AdvancedHeader[1].Resource);
       if ( *(_DWORD *)&AdvancedHeader[1].Flags || !RawInitiateDeleteVolume(AdvancedHeader, 0, 0) )
-        ExReleaseFastMutex((PFAST_MUTEX)&AdvancedHeader[2].Resource);
+        KeReleaseGuardedMutex((PKGUARDED_MUTEX)&AdvancedHeader[2].PagingIoResource);
     }
     v8 = -1073741202;
   }

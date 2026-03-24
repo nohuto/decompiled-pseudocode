@@ -1,15 +1,15 @@
 /*
- * XREFs of AcpiConvertMethodArgumentsToObjData @ 0x1C0036CC4
+ * XREFs of AcpiConvertMethodArgumentsToObjData @ 0x1C005A9FC
  * Callers:
- *     AcpiConvertPackageArgumentToPackageObj @ 0x1C003711C (AcpiConvertPackageArgumentToPackageObj.c)
- *     AcpiNativeMethodEvalRequestHandler @ 0x1C0037600 (AcpiNativeMethodEvalRequestHandler.c)
+ *     AcpiConvertPackageArgumentToPackageObj @ 0x1C005AE58 (AcpiConvertPackageArgumentToPackageObj.c)
+ *     AcpiNativeMethodEvalRequestHandler @ 0x1C005B360 (AcpiNativeMethodEvalRequestHandler.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     AcpiCleanupObjDataArguments @ 0x1C0036C38 (AcpiCleanupObjDataArguments.c)
- *     AcpiConvertPackageArgumentToPackageObj @ 0x1C003711C (AcpiConvertPackageArgumentToPackageObj.c)
- *     WPP_RECORDER_SF_DDPP @ 0x1C0038264 (WPP_RECORDER_SF_DDPP.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C004CA24 (WPP_RECORDER_SF_DD.c)
+ *     AcpiCleanupObjDataArguments @ 0x1C005A968 (AcpiCleanupObjDataArguments.c)
+ *     AcpiConvertPackageArgumentToPackageObj @ 0x1C005AE58 (AcpiConvertPackageArgumentToPackageObj.c)
+ *     WPP_RECORDER_SF_DDPP @ 0x1C005BD68 (WPP_RECORDER_SF_DDPP.c)
  */
 
 __int64 __fastcall AcpiConvertMethodArgumentsToObjData(
@@ -18,108 +18,106 @@ __int64 __fastcall AcpiConvertMethodArgumentsToObjData(
         unsigned int a3,
         __int64 a4)
 {
-  __int64 v4; // r15
-  unsigned int v5; // r14d
-  unsigned __int64 v8; // r12
-  __int64 i; // rsi
-  __int64 v11; // r8
-  int v12; // ebx
-  __int16 v13; // cx
-  __int64 Pool2; // rax
-  int v15; // edx
-  size_t v16; // r8
-  void *v17; // rcx
-  int v18; // eax
-  __int64 v19; // rax
+  int v4; // ebx
+  __int64 v9; // r12
+  unsigned int v10; // r14d
+  __int64 v11; // rsi
+  __int64 v12; // rdx
+  unsigned __int16 v13; // ax
+  PVOID PoolWithTag; // rax
+  size_t v15; // r8
+  void *v16; // rcx
+  __int64 v17; // rax
 
-  v4 = 0LL;
-  v5 = 0;
-  v8 = a2;
+  v4 = 0;
+  v9 = 0LL;
+  v10 = 0;
   if ( !a3 )
-    return 0;
-  for ( i = a4 + 2; ; i += 40LL )
   {
-    v11 = a1[1];
-    if ( v11 + v4 > v8 )
+LABEL_20:
+    if ( v4 < 0 )
+      goto LABEL_21;
+    return (unsigned int)v4;
+  }
+  v11 = a4 + 2;
+  while ( 1 )
+  {
+    v12 = a1[1];
+    if ( v12 + v9 > a2 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_DDPP(WPP_GLOBAL_Control->DeviceExtension, a2, v11, 1);
-LABEL_28:
-      v12 = -1073741788;
-      goto LABEL_29;
+        WPP_RECORDER_SF_DDPP(WPP_GLOBAL_Control->DeviceExtension, v12, 2, 4);
+LABEL_29:
+      v4 = -1073741788;
+      goto LABEL_21;
     }
+    v13 = *a1;
     if ( !*a1 )
     {
-      if ( (unsigned int)v11 > 8 )
-        goto LABEL_28;
-      *(_WORD *)i = 1;
-      v17 = (void *)(i + 14);
-      v18 = a1[1];
-      *(_QWORD *)(i + 14) = 0LL;
-      *(_DWORD *)(i + 22) = v18;
-      v16 = a1[1];
-      goto LABEL_18;
+      if ( (unsigned int)v12 > 8 )
+        goto LABEL_29;
+      *(_WORD *)v11 = 1;
+      v16 = (void *)(v11 + 14);
+      *(_DWORD *)(v11 + 22) = a1[1];
+      *(_QWORD *)(v11 + 14) = 0LL;
+      v15 = a1[1];
+      goto LABEL_16;
     }
-    if ( *a1 == 1 || *a1 == 2 || (unsigned int)*a1 - 3 > 1 )
+    if ( v13 <= 2u || v13 > 4u )
       break;
-    *(_WORD *)i = 4;
-    v12 = AcpiConvertPackageArgumentToPackageObj(a1, i + 22, i + 30, 1LL);
-    if ( v12 < 0 )
+    *(_WORD *)v11 = 4;
+    v4 = AcpiConvertPackageArgumentToPackageObj(a1, v11 + 22, v11 + 30);
+    if ( v4 < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(a2) = 2;
         WPP_RECORDER_SF_qD(
-          WPP_GLOBAL_Control->DeviceExtension,
-          a2,
-          21,
-          25,
-          (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
-          (char)a1,
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          0x15u,
+          0x19u,
+          (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
+          a1,
           a1[1]);
-      }
-      goto LABEL_29;
+      goto LABEL_20;
     }
-LABEL_19:
-    v19 = a1[1];
-    v4 += v19;
-    if ( (unsigned __int16)v19 < 4u )
-      v19 = 4LL;
-    ++v5;
-    a1 = (unsigned __int16 *)((char *)a1 + v19 + 4);
-    if ( v5 >= a3 )
-      return 0;
+    v4 = 0;
+LABEL_17:
+    v17 = a1[1];
+    v9 += v17;
+    if ( (unsigned __int16)v17 < 4u )
+      v17 = 4LL;
+    ++v10;
+    a1 = (unsigned __int16 *)((char *)a1 + v17 + 4);
+    v11 += 40LL;
+    if ( v10 >= a3 )
+      goto LABEL_20;
   }
-  if ( *a1 == 1 )
-    v13 = 2;
+  if ( v13 == 1 )
+    *(_WORD *)v11 = 2;
   else
-    v13 = 3;
-  *(_WORD *)i = v13;
-  *(_DWORD *)(i + 22) = a1[1];
-  Pool2 = ExAllocatePool2(64LL, a1[1], 1315988289LL);
-  *(_QWORD *)(i + 30) = Pool2;
-  if ( Pool2 )
+    *(_WORD *)v11 = 3;
+  *(_DWORD *)(v11 + 22) = a1[1];
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, a1[1], 0x4E706341u);
+  *(_QWORD *)(v11 + 30) = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v16 = *(unsigned int *)(i + 22);
-    v17 = (void *)Pool2;
-LABEL_18:
-    memmove(v17, a1 + 2, v16);
-    goto LABEL_19;
+    v15 = *(unsigned int *)(v11 + 22);
+    v16 = PoolWithTag;
+LABEL_16:
+    memmove(v16, a1 + 2, v15);
+    goto LABEL_17;
   }
-  v12 = -1073741670;
+  v4 = -1073741670;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v15) = 2;
     WPP_RECORDER_SF_DD(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v15,
-      21,
-      26,
-      (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0x15u,
+      0x1Au,
+      (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
       a1[1],
-      154);
-  }
-LABEL_29:
+      -1073741670);
+LABEL_21:
   AcpiCleanupObjDataArguments(a4, a3);
-  return (unsigned int)v12;
+  return (unsigned int)v4;
 }

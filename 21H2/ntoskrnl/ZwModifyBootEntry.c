@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwModifyBootEntry @ 0x14041DAE0
+ * XREFs of ZwModifyBootEntry @ 0x1403FC660
  * Callers:
- *     DifZwModifyBootEntryWrapper @ 0x1406212A0 (DifZwModifyBootEntryWrapper.c)
- *     BiModifyBootEntry @ 0x140A20758 (BiModifyBootEntry.c)
+ *     BiModifyBootEntry @ 0x1409727F0 (BiModifyBootEntry.c)
  * Callees:
  *     <none>
  */

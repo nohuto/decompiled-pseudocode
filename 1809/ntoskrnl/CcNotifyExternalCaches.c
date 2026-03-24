@@ -1,15 +1,15 @@
 /*
- * XREFs of CcNotifyExternalCaches @ 0x140166E1C
+ * XREFs of CcNotifyExternalCaches @ 0x140166E3C
  * Callers:
- *     CcQueueLazyWriteScanThread @ 0x140183820 (CcQueueLazyWriteScanThread.c)
+ *     CcQueueLazyWriteScanThread @ 0x140183840 (CcQueueLazyWriteScanThread.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcCalculatePagesToWrite @ 0x1400D76D4 (CcCalculatePagesToWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcCalculatePagesToWrite @ 0x1400D76F4 (CcCalculatePagesToWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CcNotifyExternalCaches(unsigned int a1)

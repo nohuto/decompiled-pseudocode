@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEpfComplete @ 0x14029BBFC
+ * XREFs of KiEpfComplete @ 0x14029BCFC
  * Callers:
- *     KiEpfDrainCompletionQueue @ 0x14029BD54 (KiEpfDrainCompletionQueue.c)
+ *     KiEpfDrainCompletionQueue @ 0x14029BE54 (KiEpfDrainCompletionQueue.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
  */
 
 void __fastcall KiEpfComplete(unsigned __int64 a1)

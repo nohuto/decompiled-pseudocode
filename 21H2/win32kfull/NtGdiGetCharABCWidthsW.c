@@ -1,19 +1,20 @@
 /*
- * XREFs of NtGdiGetCharABCWidthsW @ 0x1C00EA7C0
+ * XREFs of NtGdiGetCharABCWidthsW @ 0x1C00FD420
  * Callers:
  *     <none>
  * Callees:
- *     GreGetCharABCWidthsW @ 0x1C00EA92C (GreGetCharABCWidthsW.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     GreGetCharABCWidthsW @ 0x1C00FD588 (GreGetCharABCWidthsW.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetCharABCWidthsW(HDC a1, __int64 a2, unsigned int a3, const void *a4, int a5, char *a6)
 {
-  __int64 v6; // rsi
+  __int64 v6; // r14
   unsigned int CharABCWidthsW; // r12d
   const void *v8; // rdi
   void *v9; // rbx
-  int v10; // r14d
+  int v10; // esi
   unsigned int v11; // r15d
   char *v12; // r9
   ULONG64 v14; // rcx
@@ -30,10 +31,7 @@ __int64 __fastcall NtGdiGetCharABCWidthsW(HDC a1, __int64 a2, unsigned int a3, c
   {
     v10 = 1;
     if ( a3 - 1 <= 0x1387FFF )
-    {
-      if ( 2 * a3 )
-        v9 = (void *)Win32AllocPool(2 * a3, 1886221383LL);
-    }
+      v9 = PALLOCMEM2(2 * a3, 1886221383LL, 0);
   }
   if ( !v10 || v9 )
   {

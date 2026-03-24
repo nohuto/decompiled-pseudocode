@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfWaitRequiredAfterSetAddress @ 0x1C0022080
+ * XREFs of HUBDSM_CheckingIfWaitRequiredAfterSetAddress @ 0x1C001FA80
  * Callers:
  *     <none>
  * Callees:

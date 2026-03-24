@@ -7,14 +7,14 @@
  * Callees:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiCompareTbFlushTimeStamp @ 0x14009831C (MiCompareTbFlushTimeStamp.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiCompressTbFlushList @ 0x140113A80 (MiCompressTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiCanMergeTbFlushEntryBackwards @ 0x140158C68 (MiCanMergeTbFlushEntryBackwards.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiCanMergeTbFlushEntryBackwards @ 0x140158C88 (MiCanMergeTbFlushEntryBackwards.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall MiFlushTbAsNeeded(__int64 BugCheckParameter2, __int64 a2, unsigned __int64 a3, __int64 a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C00AEDCC
+ * XREFs of ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C01086BC
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C00AE358 (_RegisterRawInputDevices.c)
- *     DestroyThreadHidObjects @ 0x1C01028F0 (DestroyThreadHidObjects.c)
+ *     DestroyThreadHidObjects @ 0x1C0107960 (DestroyThreadHidObjects.c)
+ *     _RegisterRawInputDevices @ 0x1C0108350 (_RegisterRawInputDevices.c)
  * Callees:
  *     <none>
  */
@@ -24,43 +24,48 @@ struct tagPROCESS_HID_REQUEST *__fastcall SearchProcessHidRequest(
         result = *(struct tagPROCESS_HID_REQUEST **)result )
   {
     if ( *((_WORD *)result + 8) == a2 && *((_WORD *)result + 9) == a3 )
+      goto LABEL_8;
+  }
+  result = 0LL;
+LABEL_8:
+  if ( result )
+  {
+    *a4 = 1;
+  }
+  else
+  {
+    if ( !a3 )
     {
+      for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 32);
+            result != (struct tagPROCESS_HID_REQUEST *)(v4 + 32);
+            result = *(struct tagPROCESS_HID_REQUEST **)result )
+      {
+        if ( *((_WORD *)result + 8) == a2 )
+          goto LABEL_19;
+      }
+      result = 0LL;
+LABEL_19:
       if ( result )
       {
-        *a4 = 1;
-        return result;
-      }
-      break;
-    }
-  }
-  if ( !a3 )
-  {
-    for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 32);
-          result != (struct tagPROCESS_HID_REQUEST *)(v4 + 32);
-          result = *(struct tagPROCESS_HID_REQUEST **)result )
-    {
-      if ( *((_WORD *)result + 8) == a2 )
-      {
-        if ( !result )
-          break;
         *a4 = 2;
         return result;
       }
     }
+    for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 48);
+          result != (struct tagPROCESS_HID_REQUEST *)(v4 + 48);
+          result = *(struct tagPROCESS_HID_REQUEST **)result )
+    {
+      if ( *((_WORD *)result + 8) == a2 && *((_WORD *)result + 9) == a3 )
+        goto LABEL_13;
+    }
+    result = 0LL;
+LABEL_13:
+    if ( !result )
+    {
+      *a4 = 0;
+      return 0LL;
+    }
+    *a4 = 3;
   }
-  for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 48); ; result = *(struct tagPROCESS_HID_REQUEST **)result )
-  {
-    if ( result == (struct tagPROCESS_HID_REQUEST *)(v4 + 48) )
-      goto LABEL_10;
-    if ( *((_WORD *)result + 8) == a2 && *((_WORD *)result + 9) == a3 )
-      break;
-  }
-  if ( !result )
-  {
-LABEL_10:
-    *a4 = 0;
-    return 0LL;
-  }
-  *a4 = 3;
   return result;
 }

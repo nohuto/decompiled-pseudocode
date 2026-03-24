@@ -1,23 +1,25 @@
 /*
- * XREFs of ?GotoParent@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z @ 0x1800D96E4
+ * XREFs of ?GotoParent@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z @ 0x18019AF64
  * Callers:
- *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x1800D9410 (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
+ *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x18019AD80 (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
+ *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x180260A1C (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
+ *     ??$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingContext@@@Z @ 0x180260B54 (--$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingCont.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall CGraphWalker<CVectorShape>::GotoParent(__int64 a1, _QWORD *a2)
+__int64 __fastcall CGraphWalker<CVectorShape>::GotoParent(__int64 a1, _QWORD *a2)
 {
-  int v2; // r10d
-  __int64 v3; // r8
-  int v6; // eax
-  __int64 v7; // rcx
-  int v8; // edx
+  __int64 result; // rax
+  __int64 v4; // rcx
+  int v6; // edx
+  __int64 v7; // r10
+  int v8; // r11d
   __int64 v9; // rcx
 
-  v2 = *(_DWORD *)(a1 + 4);
-  v3 = 0LL;
-  if ( v2 )
+  result = *(unsigned int *)(a1 + 4);
+  v4 = 0LL;
+  if ( (_DWORD)result )
   {
     v6 = *(_DWORD *)(a1 + 32);
     v7 = 0LL;
@@ -26,14 +28,17 @@ void __fastcall CGraphWalker<CVectorShape>::GotoParent(__int64 a1, _QWORD *a2)
     {
       v9 = (unsigned int)(v6 - 1);
       *(_DWORD *)(a1 + 32) = v9;
+      LODWORD(result) = *(_DWORD *)(a1 + 4);
       v8 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 16 * v9 + 8);
       v7 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 16 * v9);
     }
-    v3 = *(_QWORD *)(a1 + 16);
-    *(_QWORD *)(a1 + 8) = v3;
-    *(_DWORD *)(a1 + 4) = v2 - 1;
+    v4 = *(_QWORD *)(a1 + 16);
+    result = (unsigned int)(result - 1);
+    *(_QWORD *)(a1 + 8) = v4;
+    *(_DWORD *)(a1 + 4) = result;
     *(_QWORD *)(a1 + 16) = v7;
     *(_DWORD *)(a1 + 24) = v8;
   }
-  *a2 = v3;
+  *a2 = v4;
+  return result;
 }

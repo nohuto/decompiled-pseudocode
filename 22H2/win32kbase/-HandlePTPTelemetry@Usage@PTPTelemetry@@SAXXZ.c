@@ -1,26 +1,23 @@
 /*
- * XREFs of ?HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ @ 0x1C00CC8E0
+ * XREFs of ?HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ @ 0x1C00C53B0
  * Callers:
- *     ?OnEndSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01DF504 (-OnEndSession@Usage@PTPTelemetry@@SAX_J@Z.c)
- *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01DFD20 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ *     ?OnEndSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01A6140 (-OnEndSession@Usage@PTPTelemetry@@SAX_J@Z.c)
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01A6710 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?TraceLoggingPTPGestureUsageEvent@@YAXPEBUtagTPTELEMSTATE@@@Z @ 0x1C01E0A80 (-TraceLoggingPTPGestureUsageEvent@@YAXPEBUtagTPTELEMSTATE@@@Z.c)
- *     ?TraceLoggingPTPUsageDetailsEvent@@YAXPEBUtagTPTELEMSTATE@@_J@Z @ 0x1C01E0E88 (-TraceLoggingPTPUsageDetailsEvent@@YAXPEBUtagTPTELEMSTATE@@_J@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?TraceLoggingPTPGestureUsageEvent@@YAXPEBUtagTPTELEMSTATE@@@Z @ 0x1C01A76D0 (-TraceLoggingPTPGestureUsageEvent@@YAXPEBUtagTPTELEMSTATE@@@Z.c)
+ *     ?TraceLoggingPTPUsageDetailsEvent@@YAXPEBUtagTPTELEMSTATE@@_J@Z @ 0x1C01A7A54 (-TraceLoggingPTPUsageDetailsEvent@@YAXPEBUtagTPTELEMSTATE@@_J@Z.c)
  */
 
-void __fastcall PTPTelemetry::Usage::HandlePTPTelemetry(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void PTPTelemetry::Usage::HandlePTPTelemetry(void)
 {
-  __int64 v4; // rax
-  __int64 v5; // rbx
-
-  v4 = SGDGetUserSessionState(a1, a2, a3, a4);
-  v5 = v4 + 11824;
-  if ( *(_DWORD *)(v4 + 11916) )
+  if ( dword_1C0257C2C )
   {
-    TraceLoggingPTPGestureUsageEvent((const struct tagTPTELEMSTATE *)(v4 + 11824));
-    if ( *(__int64 *)(v5 + 96) > 0 || *(__int64 *)(v5 + 120) > 0 || *(_DWORD *)(v5 + 16) || *(_DWORD *)(v5 + 24) )
-      TraceLoggingPTPUsageDetailsEvent((const struct tagTPTELEMSTATE *)v5, gliQpcFreq.QuadPart);
-    memset((void *)v5, 0, 0x90uLL);
+    TraceLoggingPTPGestureUsageEvent((const struct tagTPTELEMSTATE *)&PTPTelemetry::Usage::gTPTelemState);
+    if ( qword_1C0257C30 > 0 || qword_1C0257C48 > 0 || dword_1C0257BE0 || dword_1C0257BE8 )
+      TraceLoggingPTPUsageDetailsEvent(
+        (const struct tagTPTELEMSTATE *)&PTPTelemetry::Usage::gTPTelemState,
+        gliQpcFreq.QuadPart);
+    memset(&PTPTelemetry::Usage::gTPTelemState, 0, 0x90uLL);
   }
 }

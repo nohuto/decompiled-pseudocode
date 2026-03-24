@@ -1,11 +1,11 @@
 /*
- * XREFs of NtDeleteAtom @ 0x1406AD220
+ * XREFs of NtDeleteAtom @ 0x1406AD200
  * Callers:
  *     <none>
  * Callees:
  *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
  *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1406AD270 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x1406AD250 (RtlDeleteAtomFromAtomTable.c)
  */
 
 NTSTATUS __stdcall NtDeleteAtom(RTL_ATOM Atom)

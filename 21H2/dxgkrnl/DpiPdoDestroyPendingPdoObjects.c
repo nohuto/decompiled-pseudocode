@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiPdoDestroyPendingPdoObjects @ 0x1C0397590
+ * XREFs of DpiPdoDestroyPendingPdoObjects @ 0x1C02D8F80
  * Callers:
- *     DpiFdoHandleRemoveDevice @ 0x1C0389720 (DpiFdoHandleRemoveDevice.c)
- *     DpiPdoRemovePdoObjects @ 0x1C0397E38 (DpiPdoRemovePdoObjects.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C02CA1F0 (DpiFdoHandleRemoveDevice.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C02D98D8 (DpiPdoRemovePdoObjects.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +13,10 @@ __int64 __fastcall DpiPdoDestroyPendingPdoObjects(__int64 a1)
   struct _IO_REMOVE_LOCK *v2; // rbx
   __int64 v3; // rax
   NTSTATUS v4; // eax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rsi
+  _QWORD *v8; // rax
 
   v1 = (struct _IO_REMOVE_LOCK **)(*(_QWORD *)(a1 + 64) + 3672LL);
   while ( 1 )
@@ -28,6 +32,7 @@ __int64 __fastcall DpiPdoDestroyPendingPdoObjects(__int64 a1)
     *v1 = (struct _IO_REMOVE_LOCK *)v3;
     *(_QWORD *)(v3 + 8) = v1;
     v4 = IoAcquireRemoveLockEx(v2 + 2, DpiPdoDestroyPendingPdoObjects, File, 1u, 0x20u);
+    v7 = v4;
     if ( v4 >= 0 )
     {
       IoReleaseRemoveLockAndWaitEx(v2 + 2, DpiPdoDestroyPendingPdoObjects, 0x20u);
@@ -39,7 +44,11 @@ __int64 __fastcall DpiPdoDestroyPendingPdoObjects(__int64 a1)
     }
     else
     {
-      WdLogSingleEntry3(0LL, 275LL, 21LL, v4);
+      v8 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v6, v5);
+      v8[3] = 275LL;
+      v8[4] = 21LL;
+      v8[5] = v7;
+      WdLogEvent5_WdCriticalError(v8);
     }
   }
   return 0LL;

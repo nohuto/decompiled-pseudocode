@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceFilters @ 0x14087D10C
+ * XREFs of PiDevCfgConfigureDeviceFilters @ 0x140766E60
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CF74 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140766C04 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceFilters(int a1, void *a2)
@@ -20,13 +20,14 @@ __int64 __fastcall PiDevCfgConfigureDeviceFilters(int a1, void *a2)
   HANDLE KeyHandle; // [rsp+98h] [rbp+18h] BYREF
 
   v8[1] = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = a2;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v9 = L"Filters";
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v8;
   v8[0] = 1048590;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   v3 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   v4 = v3;

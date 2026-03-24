@@ -1,179 +1,123 @@
 /*
- * XREFs of ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0019280
+ * XREFs of ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0017428
  * Callers:
- *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z @ 0x1C00BB2F0 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z.c)
- *     ?InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z @ 0x1C00C2F2C (-InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z.c)
+ *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@K@Z @ 0x1C0094AA8 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@K@Z.c)
+ *     ?InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z @ 0x1C00973AC (-InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1C000481C (RtlStringCbPrintfW.c)
- *     ?GetAdapterInfo@VIDMM_PARTITION@@QEAAPEAUVIDMM_PARTITION_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C0005F88 (-GetAdapterInfo@VIDMM_PARTITION@@QEAAPEAUVIDMM_PARTITION_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005FB8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C0019470 (-CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_AD.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PARTITION@@@Z @ 0x1C00B4628 (-GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PA.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     RtlStringCbPrintfW @ 0x1C0010130 (RtlStringCbPrintfW.c)
+ *     ?GetAdapterInfo@VIDMM_PARTITION@@QEAAPEAUVIDMM_PARTITION_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C001614C (-GetAdapterInfo@VIDMM_PARTITION@@QEAAPEAUVIDMM_PARTITION_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C00175C4 (-CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_AD.c)
+ *     ?AllocateElements@?$NonPagedPoolZeroedArray@UVIDMM_SEGMENT_GROUP_STATE@@$00$0GNENGJFG@@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@I@Z @ 0x1C00176A0 (-AllocateElements@-$NonPagedPoolZeroedArray@UVIDMM_SEGMENT_GROUP_STATE@@$00$0GNENGJFG@@@QEAAPEAU.c)
+ *     ?GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PARTITION@@@Z @ 0x1C0088C50 (-GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PA.c)
  */
 
 __int64 __fastcall VIDMM_PARTITION::EnsureAdapter(VIDMM_PARTITION *this, struct VIDMM_GLOBAL *a2)
 {
   struct VIDMM_PARTITION_ADAPTER_INFO *AdapterInfo; // rax
-  unsigned int v5; // ebx
-  struct VIDMM_PARTITION_ADAPTER_INFO *v6; // rdi
-  unsigned __int64 v7; // rbp
-  NTSTATUS v8; // edi
-  wchar_t *v9; // r15
-  unsigned int v10; // ebp
+  struct VIDMM_PARTITION_ADAPTER_INFO *v5; // rbx
+  NTSTATUS v6; // esi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  wchar_t *v10; // r12
+  unsigned int v11; // ebp
   struct VIDMM_SEGMENT_GROUP_STATE *SegmentGroupStateForPartition; // rax
-  __int64 v12; // rcx
-  PPCW_INSTANCE *v13; // r14
-  PPCW_DATA Data; // [rsp+20h] [rbp-88h]
-  __int64 v16; // [rsp+28h] [rbp-80h]
-  __int64 v17; // [rsp+30h] [rbp-78h]
-  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-58h] BYREF
-  struct _PCW_DATA v19; // [rsp+60h] [rbp-48h] BYREF
-  struct _PCW_DATA v20; // [rsp+70h] [rbp-38h] BYREF
+  __int64 v13; // rdx
+  PPCW_INSTANCE *v14; // r14
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  struct _PCW_REGISTRATION *v18; // rdx
+  struct _PCW_DATA *v19; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  PPCW_DATA Data; // [rsp+20h] [rbp-68h]
+  __int64 v25; // [rsp+28h] [rbp-60h]
+  __int64 v26; // [rsp+30h] [rbp-58h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-48h] BYREF
+  struct _PCW_DATA v28; // [rsp+50h] [rbp-38h] BYREF
+  PPCW_INSTANCE *v29; // [rsp+60h] [rbp-28h] BYREF
+  int v30; // [rsp+68h] [rbp-20h]
 
   AdapterInfo = VIDMM_PARTITION::GetAdapterInfo(this, a2);
-  v5 = 0;
-  v6 = AdapterInfo;
+  v5 = AdapterInfo;
   if ( *((_QWORD *)AdapterInfo + 1) )
     return 0LL;
-  v7 = *((unsigned int *)a2 + 1754);
-  if ( (unsigned int)v7 > 1 )
+  if ( !NonPagedPoolZeroedArray<VIDMM_SEGMENT_GROUP_STATE,1,1833789782>::AllocateElements(
+          (char *)AdapterInfo + 24,
+          *((unsigned int *)a2 + 1750)) )
   {
-    if ( 0xFFFFFFFFFFFFFFFFuLL / v7 < 0x158 )
-      goto LABEL_18;
-    *((_QWORD *)AdapterInfo + 3) = ExAllocatePool2(64LL, 344 * v7, 1833789782LL);
-  }
-  else
-  {
-    *((_QWORD *)AdapterInfo + 3) = (char *)AdapterInfo + 32;
-    if ( (_DWORD)v7 )
-      memset((char *)AdapterInfo + 32, 0, 344 * v7);
-  }
-  *((_DWORD *)v6 + 94) = v7;
-  if ( !*((_QWORD *)v6 + 3) )
-  {
-LABEL_18:
-    _InterlockedAdd(&dword_1C00768C0, 1u);
-    WdLogSingleEntry1(6LL, 453LL);
-    ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-      0LL,
-      262145LL,
-      0xFFFFFFFFLL,
-      L"Couldn't allocate memory for vidmmpartition.",
-      453LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    _InterlockedAdd(&dword_1C00507B0, 1u);
+    v21 = WdLogNewEntry5_WdLowResource();
+    *(_QWORD *)(v21 + 24) = 455LL;
+    WdLogEvent5_WdLowResource(v21);
     return 3221225495LL;
   }
-  *((_QWORD *)v6 + 1) = a2;
-  *(_QWORD *)v6 = this;
-  VIDMM_GLOBAL::CalculatePartitionAdapterBudgets(a2, this, v6);
-  v8 = 0;
-  v9 = (wchar_t *)operator new[](520LL, 0x4B677844u, 258LL);
-  if ( !v9 )
+  *((_QWORD *)v5 + 1) = a2;
+  *(_QWORD *)v5 = this;
+  VIDMM_GLOBAL::CalculatePartitionAdapterBudgets(a2, this, v5);
+  v6 = 0;
+  v10 = (wchar_t *)operator new[](0x208uLL, 0x4B677844u, PagedPool);
+  if ( !v10 )
   {
-    WdLogSingleEntry0(1LL);
-    ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Failed to create naming string for CreateGpuPerformanceCounterSetLocalAdapterMemory",
-      465LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v22 = WdLogNewEntry5_WdAssertion(v8, v7, v9);
+    WdLogEvent5_WdAssertion(v22);
     return 3221225495LL;
   }
-  v10 = 0;
-  if ( *((_DWORD *)a2 + 1754) )
+  v11 = 0;
+  if ( !*((_DWORD *)a2 + 1750) )
+    goto LABEL_10;
+  while ( 1 )
   {
-    while ( 1 )
+    SegmentGroupStateForPartition = VIDMM_GLOBAL::GetSegmentGroupStateForPartition(a2, v11, this);
+    v13 = *((_QWORD *)a2 + 3);
+    LODWORD(v26) = *((_DWORD *)this + 8);
+    v14 = (PPCW_INSTANCE *)SegmentGroupStateForPartition;
+    DestinationString = 0LL;
+    LODWORD(v25) = v11;
+    LODWORD(Data) = *(_DWORD *)(v13 + 316);
+    v6 = RtlStringCbPrintfW(
+           v10,
+           0x208uLL,
+           L"luid_0x%08X_0x%08X_phys_%u_part_%u",
+           *(unsigned int *)(v13 + 320),
+           Data,
+           v25,
+           v26);
+    if ( v6 < 0 )
+      break;
+    RtlInitUnicodeString(&DestinationString, v10);
+    if ( *(_DWORD *)v14 )
     {
-      SegmentGroupStateForPartition = VIDMM_GLOBAL::GetSegmentGroupStateForPartition(a2, v10, this);
-      v12 = *((_QWORD *)a2 + 3);
-      v13 = (PPCW_INSTANCE *)SegmentGroupStateForPartition;
-      LODWORD(v17) = *((_DWORD *)this + 8);
-      DestinationString = 0LL;
-      LODWORD(v16) = v10;
-      LODWORD(Data) = *(_DWORD *)(v12 + 404);
-      v8 = RtlStringCbPrintfW(
-             v9,
-             0x208uLL,
-             L"luid_0x%08X_0x%08X_phys_%u_part_%u",
-             *(unsigned int *)(v12 + 408),
-             Data,
-             v16,
-             v17);
-      if ( v8 < 0 )
-        break;
-      RtlInitUnicodeString(&DestinationString, v9);
-      if ( *(_DWORD *)v13 )
-      {
-        if ( *(_DWORD *)v13 == 1 )
-        {
-          v20.Data = v13;
-          v20.Size = 344;
-          v8 = PcwCreateInstance(v13 + 42, GpuPerformanceCounterSetNonLocalAdapterMemory, &DestinationString, 1u, &v20);
-          if ( v8 < 0 )
-          {
-            WdLogSingleEntry0(1LL);
-            ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-              0LL,
-              0x40000LL,
-              0xFFFFFFFFLL,
-              L"Failed to create CreateGpuPerformanceCounterSetNonLocalAdapterMemory",
-              503LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-            goto LABEL_12;
-          }
-        }
-      }
-      else
-      {
-        v19.Data = v13;
-        v19.Size = 344;
-        v8 = PcwCreateInstance(v13 + 42, GpuPerformanceCounterSetLocalAdapterMemory, &DestinationString, 1u, &v19);
-        if ( v8 < 0 )
-        {
-          WdLogSingleEntry0(1LL);
-          ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-            0LL,
-            0x40000LL,
-            0xFFFFFFFFLL,
-            L"Failed to create CreateGpuPerformanceCounterSetLocalAdapterMemory",
-            494LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          goto LABEL_12;
-        }
-      }
-      if ( ++v10 >= *((_DWORD *)a2 + 1754) )
-        goto LABEL_12;
+      if ( *(_DWORD *)v14 != 1 )
+        goto LABEL_9;
+      v18 = GpuPerformanceCounterSetNonLocalAdapterMemory;
+      v19 = (struct _PCW_DATA *)&v29;
+      v29 = v14;
+      v30 = 336;
     }
-    WdLogSingleEntry0(1LL);
-    ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Failed to create naming string for Adapter Memory partitions",
-      484LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    else
+    {
+      v18 = GpuPerformanceCounterSetLocalAdapterMemory;
+      v19 = &v28;
+      v28.Data = v14;
+      v28.Size = 336;
+    }
+    v6 = PcwCreateInstance(v14 + 41, v18, &DestinationString, 1u, v19);
+    if ( v6 < 0 )
+      break;
+LABEL_9:
+    if ( ++v11 >= *((_DWORD *)a2 + 1750) )
+      goto LABEL_10;
   }
-LABEL_12:
-  ExFreePoolWithTag(v9, 0);
-  if ( v8 < 0 )
-    return (unsigned int)v8;
-  return v5;
+  v23 = WdLogNewEntry5_WdAssertion(v16, v15, v17);
+  WdLogEvent5_WdAssertion(v23);
+LABEL_10:
+  ExFreePoolWithTag(v10, 0);
+  if ( v6 < 0 )
+    return (unsigned int)v6;
+  else
+    return 0LL;
 }

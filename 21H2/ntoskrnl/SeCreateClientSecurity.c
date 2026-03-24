@@ -1,19 +1,23 @@
 /*
- * XREFs of SeCreateClientSecurity @ 0x1407271D0
+ * XREFs of SeCreateClientSecurity @ 0x14065DD70
  * Callers:
- *     AlpcpCreateClientPort @ 0x140667114 (AlpcpCreateClientPort.c)
- *     NtImpersonateThread @ 0x1406BFD10 (NtImpersonateThread.c)
- *     EtwpUpdateTrace @ 0x1406ECE0C (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     AlpcpCreateSecurityContext @ 0x1407A74A4 (AlpcpCreateSecurityContext.c)
- *     AlpcpImpersonateMessage @ 0x1407B0C70 (AlpcpImpersonateMessage.c)
- *     EtwpFixBootLoggers @ 0x140854CB8 (EtwpFixBootLoggers.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     AlpcpImpersonateMessage @ 0x1405E9BE0 (AlpcpImpersonateMessage.c)
+ *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     NtImpersonateThread @ 0x1406E0D70 (NtImpersonateThread.c)
+ *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402F8EF0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateClientSecurityEx @ 0x140727350 (SepCreateClientSecurityEx.c)
- *     PsReferenceImpersonationTokenEx @ 0x14072A6B0 (PsReferenceImpersonationTokenEx.c)
+ *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x14027DE60 (SepReconcileTrustSidWithProcessProtection.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
+ *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurity(
@@ -22,11 +26,11 @@ NTSTATUS __stdcall SeCreateClientSecurity(
         BOOLEAN RemoteSession,
         PSECURITY_CLIENT_CONTEXT ClientContext)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  _KPROCESS *Process; // rsi
-  __int64 *v9; // rbx
-  int v10; // ebp
-  char v11; // r14
+  struct _KTHREAD *CurrentThread; // rsi
+  _KPROCESS *Process; // r15
+  ULONG_PTR v9; // rdi
+  int v10; // esi
+  char v11; // r12
   NTSTATUS result; // eax
   NTSTATUS v13; // esi
   char v14; // [rsp+60h] [rbp-38h] BYREF
@@ -36,17 +40,17 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   __int64 v18; // [rsp+68h] [rbp-30h] BYREF
   char v19; // [rsp+A0h] [rbp+8h] BYREF
 
+  CurrentThread = KeGetCurrentThread();
   v14 = 0;
   v17 = 0;
   v19 = 0;
   v15 = 0;
   v18 = 0LL;
-  CurrentThread = KeGetCurrentThread();
   if ( ClientThread == CurrentThread )
     Process = CurrentThread->ApcState.Process;
   else
     Process = ClientThread->Process;
-  v9 = (__int64 *)PsReferenceImpersonationTokenEx(ClientThread, 0LL, 1665361235LL, v16, &v14, &v17, &v19);
+  v9 = (ULONG_PTR)PsReferenceImpersonationTokenEx((__int64)ClientThread, 0, v16, (bool *)&v14, &v17, &v19);
   if ( v9 )
   {
     v11 = v14;
@@ -54,14 +58,24 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   }
   else
   {
-    v9 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+    v9 = ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
+    if ( !v9 )
+    {
+      --CurrentThread->KernelApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)&Process[1], 0LL);
+      v9 = ObFastReferenceObjectLocked(&Process[1].Affinity.Bitmap[5]);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Process[1].Header.Lock, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&Process[1].Header.Lock);
+      KeAbPostRelease((ULONG_PTR)&Process[1]);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    }
     v10 = 1;
-    v11 = 0;
     v19 = BYTE2(Process[2].Header.WaitListHead.Flink);
+    v11 = 0;
   }
-  SepReconcileTrustSidWithProcessProtection(v9[138], (__int64)&v19, &v15, &v18);
+  SepReconcileTrustSidWithProcessProtection(*(_QWORD *)(v9 + 1104), (__int64)&v19, &v15, &v18);
   result = SepCreateClientSecurityEx(
-             (_DWORD)v9,
+             v9,
              (_DWORD)ClientSecurityQos,
              RemoteSession,
              v10,
@@ -75,7 +89,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   v13 = result;
   if ( result < 0 || !ClientSecurityQos->ContextTrackingMode )
   {
-    ObfDereferenceObjectWithTag(v9, 0x63436553u);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v9);
     return v13;
   }
   return result;

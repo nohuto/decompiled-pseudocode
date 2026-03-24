@@ -1,15 +1,15 @@
 /*
- * XREFs of PopWakeSourceSize @ 0x14098F5E8
+ * XREFs of PopWakeSourceSize @ 0x1408E6EA0
  * Callers:
- *     PopGetWakeSource @ 0x140806788 (PopGetWakeSource.c)
- *     PopCopyWakeSource @ 0x14098F20C (PopCopyWakeSource.c)
+ *     PopGetWakeSource @ 0x1407787B8 (PopGetWakeSource.c)
+ *     PopCopyWakeSource @ 0x1408E69A0 (PopCopyWakeSource.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PopWakeSourceSize(__int64 a1)
 {
-  int v1; // edx
+  unsigned int v1; // edx
   __int64 result; // rax
   _QWORD *v3; // rdx
 
@@ -19,8 +19,6 @@ __int64 __fastcall PopWakeSourceSize(__int64 a1)
     return *(unsigned __int16 *)(a1 + 24) + 10LL;
   if ( v1 == 1 )
     return 12LL;
-  if ( v1 <= 1 )
-    return result;
   if ( v1 > 3 )
   {
     if ( v1 != 4 )

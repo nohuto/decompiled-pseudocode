@@ -1,13 +1,13 @@
 /*
- * XREFs of ??1CExpression@@UEAA@XZ @ 0x18006FB8C
+ * XREFs of ??1CExpression@@UEAA@XZ @ 0x180062960
  * Callers:
- *     ??_ECExpression@@UEAAPEAXI@Z @ 0x18006F9C0 (--_ECExpression@@UEAAPEAXI@Z.c)
+ *     ??_ECExpression@@UEAAPEAXI@Z @ 0x1800626F0 (--_ECExpression@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ??$ReleaseInterface@V?$CWeakReference@VCResource@@@@@@YAXAEAPEAV?$CWeakReference@VCResource@@@@@Z @ 0x18004A0BC (--$ReleaseInterface@V-$CWeakReference@VCResource@@@@@@YAXAEAPEAV-$CWeakReference@VCResource@@@@@.c)
- *     ??$ReleaseInterface@VCSharedSection@@@@YAXAEAPEAVCSharedSection@@@Z @ 0x18006FC24 (--$ReleaseInterface@VCSharedSection@@@@YAXAEAPEAVCSharedSection@@@Z.c)
- *     ?UnregisterSources@CExpression@@IEAAXXZ @ 0x18006FC4C (-UnregisterSources@CExpression@@IEAAXXZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180062734 (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ??$ReleaseInterface@VCD2DSharedBuffer@@@@YAXAEAPEAVCD2DSharedBuffer@@@Z @ 0x1800629F8 (--$ReleaseInterface@VCD2DSharedBuffer@@@@YAXAEAPEAVCD2DSharedBuffer@@@Z.c)
+ *     ??$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z @ 0x1800648B4 (--$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z.c)
+ *     ?UnregisterSources@CExpression@@IEAAXXZ @ 0x180065288 (-UnregisterSources@CExpression@@IEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CExpression::~CExpression(void **this)
@@ -15,13 +15,13 @@ void __fastcall CExpression::~CExpression(void **this)
   __int64 i; // rdi
 
   *this = &CExpression::`vftable';
-  ReleaseInterface<CSharedSection>(this + 42);
-  ReleaseInterface<CSharedSection>(this + 44);
+  ReleaseInterface<CD2DSharedBuffer>(this + 39);
+  ReleaseInterface<CD2DSharedBuffer>(this + 41);
   CExpression::UnregisterSources((CExpression *)this);
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 106); i = (unsigned int)(i + 1) )
-    ReleaseInterface<CWeakReference<CResource>>((__int64 *)this[52] + i);
-  DefaultHeap::Free(this[52]);
-  DefaultHeap::Free(this[54]);
-  DynArrayImpl<1>::~DynArrayImpl<1>(this + 48);
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 100); i = (unsigned int)(i + 1) )
+    ReleaseInterface<CHwLightCollectionBuffer>((char *)this[49] + 8 * i);
+  operator delete(this[49]);
+  operator delete(this[51]);
+  DynArrayImpl<1>::~DynArrayImpl<1>(this + 45);
   CBaseExpression::~CBaseExpression((CBaseExpression *)this);
 }

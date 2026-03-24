@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetNotificationResourceManager @ 0x1401943B0
+ * XREFs of NtGetNotificationResourceManager @ 0x1401943D0
  * Callers:
  *     <none>
  * Callees:

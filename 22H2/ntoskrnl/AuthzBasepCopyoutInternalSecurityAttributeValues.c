@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x1403707B8
+ * XREFs of AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x140251E10
  * Callers:
- *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x1407F483C (AuthzBasepCopyoutInternalSecurityAttributes.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x140606B48 (AuthzBasepCopyoutInternalSecurityAttributes.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     AuthzBasepProbeAndInsertTailList @ 0x140680E5C (AuthzBasepProbeAndInsertTailList.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AuthzBasepProbeAndInsertTailList @ 0x1405D2430 (AuthzBasepProbeAndInsertTailList.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutInternalSecurityAttributeValues(
@@ -15,108 +15,108 @@ __int64 __fastcall AuthzBasepCopyoutInternalSecurityAttributeValues(
         unsigned int a4,
         _DWORD *a5)
 {
-  int inserted; // r10d
+  int v5; // r15d
   unsigned __int64 v6; // rbp
-  int v7; // r15d
-  unsigned __int64 v8; // rsi
-  wchar_t *v9; // rbx
-  __int64 *v10; // r13
-  __int64 *v11; // rdi
-  unsigned __int64 v12; // r14
-  size_t v13; // rax
-  wchar_t *v14; // r12
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v20; // [rsp+70h] [rbp+8h]
+  int inserted; // r10d
+  _DWORD *v9; // rdx
+  unsigned __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 *v12; // rdi
+  wchar_t *v13; // rbx
+  unsigned __int64 v14; // rsi
+  unsigned __int16 v15; // ax
+  size_t v16; // rax
+  wchar_t *v17; // r14
+  __int64 v18; // r14
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
 
-  v20 = a1;
-  inserted = 0;
+  v5 = a3;
   v6 = a3 + a4;
-  v7 = a3;
+  inserted = 0;
   DestinationString = 0LL;
-  if ( v6 >= a3 )
+  if ( v6 < a3 )
+    return (unsigned int)-2147483643;
+  v9 = a5;
+  v10 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+  v11 = (unsigned int)(*(_DWORD *)(a1 + 60) << 6);
+  *a5 = 0;
+  if ( v10 + v11 > v6 )
+    return (unsigned int)-2147483643;
+  v12 = *(__int64 **)(a1 + 72);
+  v13 = (wchar_t *)(v11 + v10);
+  if ( v12 == (__int64 *)(a1 + 72) )
+    goto LABEL_27;
+  v14 = ((a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL) + 40;
+  while ( 1 )
   {
-    v8 = (a3 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    v9 = (wchar_t *)(v8 + (unsigned int)(*(_DWORD *)(a1 + 60) << 6));
-    *a5 = 0;
-    if ( (unsigned __int64)v9 <= v6 )
+    *(_DWORD *)(v14 - 8) = 0;
+    v15 = *(_WORD *)(a1 + 48);
+    if ( !v15 )
+      break;
+    if ( v15 <= 2u )
+      goto LABEL_20;
+    switch ( v15 )
     {
-      v10 = (__int64 *)(a1 + 72);
-      v11 = *(__int64 **)(a1 + 72);
-      if ( v11 == (__int64 *)(a1 + 72) )
-      {
-LABEL_25:
-        *a5 = (_DWORD)v9 - v7;
-        return (unsigned int)inserted;
-      }
-      v12 = v8 + 40;
-      while ( 1 )
-      {
-        *(_DWORD *)(v12 - 8) = 0;
-        if ( *(_WORD *)(a1 + 48) != 1 && *(_WORD *)(a1 + 48) != 2 )
-        {
-          switch ( *(_WORD *)(a1 + 48) )
-          {
-            case 3:
-              v17 = *((unsigned __int16 *)v11 + 20);
-              v14 = (wchar_t *)((char *)v9 + v17);
-              if ( (unsigned __int64)v9 + v17 > v6 )
-                return (unsigned int)-2147483643;
-              *(_QWORD *)&DestinationString.Length = 0LL;
-              DestinationString.MaximumLength = v17;
-              DestinationString.Buffer = v9;
-              RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)(v11 + 5));
-              *(UNICODE_STRING *)v12 = DestinationString;
-              goto LABEL_19;
-            case 4:
-              v15 = *((unsigned __int16 *)v11 + 24);
-              v14 = (wchar_t *)((char *)v9 + v15);
-              if ( (unsigned __int64)v9 + v15 > v6 )
-                return (unsigned int)-2147483643;
-              v16 = v11[5];
-              *(_QWORD *)&DestinationString.Length = 0LL;
-              DestinationString.MaximumLength = v15;
-              *(_QWORD *)v12 = v16;
-              DestinationString.Buffer = v9;
-              RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)v11 + 3);
-              *(UNICODE_STRING *)(v12 + 8) = DestinationString;
-              goto LABEL_19;
-            case 5:
-              goto LABEL_13;
-          }
-          if ( *(_WORD *)(a1 + 48) != 6 )
-          {
-            if ( *(_WORD *)(a1 + 48) != 16 )
-              return (unsigned int)-1073741811;
+      case 3u:
+        v18 = *((unsigned __int16 *)v12 + 20);
+        if ( (unsigned __int64)v13 + v18 > v6 )
+          return (unsigned int)-2147483643;
+        *(_QWORD *)&DestinationString.Length = 0LL;
+        DestinationString.MaximumLength = v18;
+        DestinationString.Buffer = v13;
+        RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)(v12 + 5));
+        *(UNICODE_STRING *)v14 = DestinationString;
+        break;
+      case 4u:
+        v18 = *((unsigned __int16 *)v12 + 24);
+        if ( (unsigned __int64)v13 + v18 > v6 )
+          return (unsigned int)-2147483643;
+        *(_QWORD *)v14 = v12[5];
+        *(_QWORD *)&DestinationString.Length = 0LL;
+        DestinationString.MaximumLength = v18;
+        DestinationString.Buffer = v13;
+        RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)v12 + 3);
+        *(UNICODE_STRING *)(v14 + 8) = DestinationString;
+        break;
+      case 5u:
+        goto LABEL_13;
+      case 6u:
+LABEL_20:
+        *(_QWORD *)v14 = v12[5];
+        goto LABEL_21;
+      case 0x10u:
 LABEL_13:
-            v13 = *((unsigned int *)v11 + 12);
-            v14 = (wchar_t *)((char *)v9 + v13);
-            if ( (unsigned __int64)v9 + v13 > v6 )
-              break;
-            *(_DWORD *)(v12 + 8) = v13;
-            *(_QWORD *)v12 = v9;
-            memmove(v9, (const void *)v11[5], v13);
-LABEL_19:
-            v9 = v14;
-            goto LABEL_21;
-          }
-        }
-        *(_QWORD *)v12 = v11[5];
-LABEL_21:
-        inserted = AuthzBasepProbeAndInsertTailList(a2 + 72, v8);
-        if ( inserted < 0 )
-          return (unsigned int)inserted;
-        v8 += 64LL;
-        v12 += 64LL;
-        ++*(_DWORD *)(a2 + 60);
-        v11 = (__int64 *)*v11;
-        if ( v11 == v10 )
-          goto LABEL_25;
-        a1 = v20;
-      }
+        v16 = *((unsigned int *)v12 + 12);
+        v17 = (wchar_t *)((char *)v13 + v16);
+        if ( (unsigned __int64)v13 + v16 > v6 )
+          return (unsigned int)-2147483643;
+        *(_DWORD *)(v14 + 8) = v16;
+        *(_QWORD *)v14 = v13;
+        memmove(v13, (const void *)v12[5], v16);
+        v13 = v17;
+        goto LABEL_21;
+      default:
+        goto LABEL_24;
     }
+    v13 = (wchar_t *)((char *)v13 + v18);
+LABEL_21:
+    inserted = AuthzBasepProbeAndInsertTailList(a2 + 72, v14 - 40);
+    if ( inserted < 0 )
+      return (unsigned int)inserted;
+    v14 += 64LL;
+    ++*(_DWORD *)(a2 + 60);
+    v12 = (__int64 *)*v12;
+    if ( v12 == (__int64 *)(a1 + 72) )
+      goto LABEL_25;
   }
-  return (unsigned int)-2147483643;
+LABEL_24:
+  inserted = -1073741811;
+LABEL_25:
+  if ( inserted >= 0 )
+  {
+    v9 = a5;
+LABEL_27:
+    *v9 = (_DWORD)v13 - v5;
+  }
+  return (unsigned int)inserted;
 }

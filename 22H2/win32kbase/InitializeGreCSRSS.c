@@ -1,83 +1,127 @@
 /*
- * XREFs of InitializeGreCSRSS @ 0x1C00A9010
+ * XREFs of InitializeGreCSRSS @ 0x1C007E308
  * Callers:
- *     Win32kBaseUserInitialize @ 0x1C013FAD0 (Win32kBaseUserInitialize.c)
+ *     Win32kBaseUserInitialize @ 0x1C0068620 (Win32kBaseUserInitialize.c)
  * Callees:
- *     DrvNotifySessionStateChange @ 0x1C00A92D0 (DrvNotifySessionStateChange.c)
- *     ?GetLanguageID@@YAGXZ @ 0x1C00A9368 (-GetLanguageID@@YAGXZ.c)
- *     ?vCheckIsSetupRunning@@YAXXZ @ 0x1C00A94C0 (-vCheckIsSetupRunning@@YAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?vCheckIsSetupRunning@@YAXXZ @ 0x1C007E5EC (-vCheckIsSetupRunning@@YAXXZ.c)
+ *     vConvertCodePageToCharSet @ 0x1C007E708 (vConvertCodePageToCharSet.c)
+ *     ?GetLanguageID@@YAGXZ @ 0x1C007E758 (-GetLanguageID@@YAGXZ.c)
+ *     DrvNotifySessionStateChange @ 0x1C007E8B0 (DrvNotifySessionStateChange.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 InitializeGreCSRSS()
+_BOOL8 InitializeGreCSRSS()
 {
-  unsigned int v0; // ebx
-  __int64 v1; // rcx
+  int v0; // ebx
+  int v1; // eax
+  _DWORD *v2; // rsi
   USHORT *v3; // rbp
   USHORT *v4; // rdi
-  int v5; // edx
-  _DWORD *v6; // rax
-  __int64 v7; // rcx
-  USHORT v8; // cx
-  BOOL v9; // eax
-  __int64 v10; // rsi
-  _DWORD *v11; // r14
+  USHORT v5; // r8
+  BOOL v6; // eax
+  int v7; // eax
+  int v8; // eax
+  int v9; // eax
+  int v10; // eax
+  int v11; // eax
+  int v12; // eax
+  int v13; // eax
+  int v14; // eax
+  int v15; // eax
+  int v16; // eax
+  int v17; // eax
 
-  v0 = 0;
-  if ( (int)DrvNotifySessionStateChange(0LL) < 0 || !qword_1C0296148 || (unsigned int)qword_1C0296148() )
+  DrvNotifySessionStateChange(0LL);
+  v0 = -1073741637;
+  if ( qword_1C0256E68 )
+    v1 = qword_1C0256E68();
+  else
+    v1 = -1073741637;
+  if ( v1 )
     return 0LL;
-  v10 = *(_QWORD *)(SGDGetSessionState(v1) + 24);
-  *(_WORD *)(v10 + 152) = GetLanguageID();
-  v11 = qword_1C0294958 ? (_DWORD *)qword_1C0294958() : 0LL;
-  v3 = qword_1C0294938 ? (USHORT *)qword_1C0294938() : 0LL;
-  v4 = qword_1C0294948 ? (USHORT *)qword_1C0294948() : 0LL;
+  gcTrueTypeFonts = 0;
+  gulFontInformation = 0;
+  gusLanguageID = GetLanguageID();
+  if ( qword_1C0255548 )
+    v2 = (_DWORD *)qword_1C0255548();
+  else
+    v2 = 0LL;
+  if ( qword_1C0255528 )
+    v3 = (USHORT *)qword_1C0255528();
+  else
+    v3 = 0LL;
+  if ( qword_1C0255538 )
+    v4 = (USHORT *)qword_1C0255538();
+  else
+    v4 = 0LL;
   RtlGetDefaultCodePage(v4, v3);
+  vConvertCodePageToCharSet(*v4);
   v5 = *v4;
-  v6 = &codepages;
-  *(_BYTE *)(v10 + 168) = 0;
-  *(_DWORD *)(v10 + 8080) = 1;
-  v7 = 0LL;
-  while ( *v6 != v5 )
+  if ( *v4 == 936 || v5 == 949 || v5 == 950 )
   {
-    v7 = (unsigned int)(v7 + 1);
-    ++v6;
-    if ( (unsigned int)v7 >= 0x11 )
-      goto LABEL_12;
+    *v2 = 3;
+    v5 = *v4;
   }
-  *(_DWORD *)(v10 + 8080) = *((_DWORD *)&fs + v7);
-  *(_BYTE *)(v10 + 168) = *((_BYTE *)&charsets + 4 * v7);
-LABEL_12:
-  if ( *v4 == 936 || (unsigned __int16)(*v4 - 949) <= 1u )
-    *v11 = 3;
-  v8 = *v4;
-  v9 = *v4 == 932 || v8 == 949 || v8 == 950 || v8 == 936;
-  *(_DWORD *)(v10 + 156) = v9;
-  if ( qword_1C0294960 && (int)qword_1C0294960() >= 0 && qword_1C0294968 )
-    qword_1C0294968();
+  v6 = v5 == 932 || v5 == 949 || v5 == 950 || v5 == 936;
+  gbDBCSCodePage = v6;
+  if ( qword_1C0255550 )
+    v7 = qword_1C0255550(949LL, 950LL);
+  else
+    v7 = -1073741637;
+  if ( v7 >= 0 && qword_1C0255558 )
+    qword_1C0255558();
   vCheckIsSetupRunning();
-  if ( qword_1C0294998 && (int)qword_1C0294998() >= 0 && qword_1C02949A0 )
-    qword_1C02949A0();
-  if ( !qword_1C0294A70
-    || (int)qword_1C0294A70() < 0
-    || qword_1C02949A8 && (int)qword_1C02949A8() >= 0 && (!qword_1C02949B0 || !(unsigned int)qword_1C02949B0())
-    || qword_1C02949B8 && (int)qword_1C02949B8() >= 0 && (!qword_1C02949C0 || !(unsigned int)qword_1C02949C0()) )
-  {
+  if ( qword_1C0255580 )
+    v8 = qword_1C0255580();
+  else
+    v8 = -1073741637;
+  if ( v8 >= 0 && qword_1C0255588 )
+    qword_1C0255588();
+  v9 = qword_1C0255658 ? qword_1C0255658() : -1073741637;
+  if ( v9 < 0 )
     return 0LL;
-  }
-  if ( qword_1C02949C8 && (int)qword_1C02949C8() >= 0 && qword_1C02949D0 )
-    qword_1C02949D0();
-  if ( qword_1C02949D8 && (int)qword_1C02949D8() >= 0 && qword_1C02949E0 )
-    qword_1C02949E0();
-  if ( qword_1C02949E8 && (int)qword_1C02949E8() >= 0 && qword_1C0294A00 )
-    qword_1C0294A00();
-  if ( qword_1C02949F0 && (int)qword_1C02949F0() >= 0 )
+  v10 = qword_1C0255590 ? qword_1C0255590() : -1073741637;
+  if ( v10 >= 0 )
   {
-    if ( qword_1C02949F8 )
-    {
-      LOBYTE(v0) = (unsigned int)qword_1C02949F8() != 0;
-      return v0;
-    }
-    return 0LL;
+    v11 = (int)qword_1C0255598;
+    if ( qword_1C0255598 )
+      v11 = qword_1C0255598();
+    if ( !v11 )
+      return 0LL;
   }
-  return 1LL;
+  v12 = qword_1C02555A0 ? qword_1C02555A0() : -1073741637;
+  if ( v12 >= 0 )
+  {
+    v13 = (int)qword_1C02555A8;
+    if ( qword_1C02555A8 )
+      v13 = qword_1C02555A8();
+    if ( !v13 )
+      return 0LL;
+  }
+  if ( qword_1C02555B0 )
+    v14 = qword_1C02555B0();
+  else
+    v14 = -1073741637;
+  if ( v14 >= 0 && qword_1C02555B8 )
+    qword_1C02555B8();
+  if ( qword_1C02555C0 )
+    v15 = qword_1C02555C0();
+  else
+    v15 = -1073741637;
+  if ( v15 >= 0 && qword_1C02555C8 )
+    qword_1C02555C8();
+  if ( qword_1C02555D0 )
+    v16 = qword_1C02555D0();
+  else
+    v16 = -1073741637;
+  if ( v16 >= 0 && qword_1C02555E8 )
+    qword_1C02555E8();
+  if ( qword_1C02555D8 )
+    v0 = qword_1C02555D8();
+  if ( v0 < 0 )
+    return 1LL;
+  v17 = (int)qword_1C02555E0;
+  if ( qword_1C02555E0 )
+    v17 = qword_1C02555E0();
+  return v17 != 0;
 }

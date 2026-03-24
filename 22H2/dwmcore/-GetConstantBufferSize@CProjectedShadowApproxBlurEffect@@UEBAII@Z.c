@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetConstantBufferSize@CProjectedShadowApproxBlurEffect@@UEBAII@Z @ 0x180109080
+ * XREFs of ?GetConstantBufferSize@CProjectedShadowApproxBlurEffect@@UEBAII@Z @ 0x1800E39D0
  * Callers:
  *     <none>
  * Callees:

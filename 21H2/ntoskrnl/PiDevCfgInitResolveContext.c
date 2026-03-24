@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgInitResolveContext @ 0x140698128
+ * XREFs of PiDevCfgInitResolveContext @ 0x140767D0C
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x14069760C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140697824 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14077C328 (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     PiDevCfgFreeResolveContext @ 0x1406979BC (PiDevCfgFreeResolveContext.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14095DAF0 (PiDrvDbResolveKeyFilePaths.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgFreeResolveContext @ 0x14076777C (PiDevCfgFreeResolveContext.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x1408B7824 (PiDrvDbResolveKeyFilePaths.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
@@ -17,7 +17,7 @@ __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
   NTSTATUS v5; // eax
   int v6; // ebx
   NTSTATUS v7; // eax
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v10; // rdx
   __int64 v11; // r8
   _QWORD *v12; // rcx
@@ -32,14 +32,15 @@ __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
   v15[1] = 0;
   *(_QWORD *)(a3 + 8) = 0LL;
   *(_QWORD *)(a3 + 24) = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   *(_QWORD *)a3 = a1;
   *(_QWORD *)(a3 + 16) = 0LL;
   v16 = L"Variables";
   ObjectAttributes.RootDirectory = a2;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v15;
   v15[0] = 1310738;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v5 = ZwOpenKey((PHANDLE)(a3 + 16), 0x20019u, &ObjectAttributes);
@@ -48,9 +49,9 @@ __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
   {
     if ( v5 < 0 )
       goto LABEL_4;
-    Pool2 = ExAllocatePool2(256LL, 2032LL, 1667526736LL);
-    *(_QWORD *)(a3 + 24) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x7F0uLL, 0x63647050u);
+    *(_QWORD *)(a3 + 24) = PoolWithTag;
+    if ( !PoolWithTag )
     {
       v6 = -1073741670;
       goto LABEL_4;
@@ -67,11 +68,12 @@ __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
     }
     while ( v11 );
   }
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   v16 = L"Setup\\ResolveFilePaths";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v15;
   v15[0] = 3014700;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v15;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = a2;
   ObjectAttributes.Attributes = 576;
   v7 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
@@ -91,7 +93,7 @@ LABEL_3:
     v14 = *(_QWORD *)(v13 + 8);
   else
     v14 = 0LL;
-  RegRtlDeleteTreeInternal(KeyHandle, 0LL, v14, 0LL);
+  RegRtlDeleteTreeInternal((char *)KeyHandle, 0LL, v14, 0);
 LABEL_4:
   if ( KeyHandle )
     ZwClose(KeyHandle);

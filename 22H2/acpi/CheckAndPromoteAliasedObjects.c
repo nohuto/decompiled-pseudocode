@@ -1,8 +1,8 @@
 /*
- * XREFs of CheckAndPromoteAliasedObjects @ 0x1C004AE54
+ * XREFs of CheckAndPromoteAliasedObjects @ 0x1C006512C
  * Callers:
- *     Concat @ 0x1C0055F80 (Concat.c)
- *     ConcatenateResTemplate @ 0x1C00562B0 (ConcatenateResTemplate.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C0068F10 (ConcatenateResTemplate.c)
  * Callees:
  *     <none>
  */

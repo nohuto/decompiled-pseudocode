@@ -1,31 +1,33 @@
 /*
- * XREFs of ExpSizeHeapPool @ 0x14060F510
+ * XREFs of ExpSizeHeapPool @ 0x1405BA270
  * Callers:
- *     ViPostPoolAllocation @ 0x140AD2608 (ViPostPoolAllocation.c)
+ *     ViPostPoolAllocation @ 0x1409D553C (ViPostPoolAllocation.c)
  * Callees:
- *     MiDeterminePoolType @ 0x1402123E0 (MiDeterminePoolType.c)
- *     ExpRemoveTagForBigPages @ 0x140323630 (ExpRemoveTagForBigPages.c)
+ *     MiDeterminePoolType @ 0x14027B41C (MiDeterminePoolType.c)
+ *     ExpRemoveTagForBigPages @ 0x1405B3B28 (ExpRemoveTagForBigPages.c)
  */
 
-__int64 __fastcall ExpSizeHeapPool(unsigned __int64 a1)
+__int64 __fastcall ExpSizeHeapPool(ULONG_PTR BugCheckParameter2)
 {
-  int v1; // eax
-  int v2; // r10d
-  ULONG_PTR v3; // r11
-  __int64 v5; // [rsp+50h] [rbp+8h] BYREF
-  int v6; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v7; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v8; // [rsp+68h] [rbp+20h] BYREF
+  int v1; // ebx
+  int v3; // eax
+  __int64 v5[5]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v8; // [rsp+80h] [rbp+18h] BYREF
+  int v9; // [rsp+88h] [rbp+20h] BYREF
 
-  v7 = 0LL;
-  v6 = 0;
-  LODWORD(v5) = 0;
-  v8 = 0LL;
-  if ( (a1 & 0xFFF) != 0 )
-    return 16LL * (unsigned __int8)*(_WORD *)(a1 - 14);
-  v1 = MiDeterminePoolType(a1);
-  if ( v1 != 32 )
-    v2 = v1;
-  ExpRemoveTagForBigPages(v3, v2, 0, &v6, (int *)&v5, &v7, (ULONG_PTR *)&v8);
-  return v7;
+  v1 = 0;
+  v5[0] = 0LL;
+  v9 = 0;
+  LODWORD(v8) = 0;
+  LOWORD(v7) = 0;
+  LOBYTE(v6) = 0;
+  if ( (BugCheckParameter2 & 0xFFF) != 0 )
+    return 16LL * (unsigned __int8)*(_WORD *)(BugCheckParameter2 - 14);
+  v3 = MiDeterminePoolType(BugCheckParameter2);
+  if ( v3 != 32 )
+    v1 = v3;
+  ExpRemoveTagForBigPages(BugCheckParameter2, v1, 0, &v9, (int *)&v8, v5, &v7, &v6);
+  return v5[0];
 }

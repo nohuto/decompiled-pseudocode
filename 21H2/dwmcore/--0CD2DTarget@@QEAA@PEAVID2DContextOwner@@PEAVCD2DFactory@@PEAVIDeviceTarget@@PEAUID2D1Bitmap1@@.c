@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CD2DTarget@@QEAA@PEAVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@PEAUID2D1PrivateDepthBuffer@@@Z @ 0x1800809A4
+ * XREFs of ??0CD2DTarget@@QEAA@PEAVID2DContextOwner@@PEAVCD2DFactory@@PEAVIDeviceTarget@@PEAUID2D1Bitmap1@@PEAUID2D1PrivateDepthBuffer@@@Z @ 0x1800CDCA0
  * Callers:
- *     ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x18007EE30 (-PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z.c)
+ *     ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x180076F60 (-PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 CD2DTarget *__fastcall CD2DTarget::CD2DTarget(
@@ -19,10 +19,11 @@ CD2DTarget *__fastcall CD2DTarget::CD2DTarget(
   *((_QWORD *)this + 2) = 0LL;
   *((_QWORD *)this + 4) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
-  *((_DWORD *)this + 12) = 0;
-  *((_DWORD *)this + 18) = 0;
+  *((_DWORD *)this + 13) = 0;
   *(_QWORD *)this = a2;
   *((_QWORD *)this + 1) = a3;
+  *((_BYTE *)this + 48) = 0;
+  *((_BYTE *)this + 56) = 0;
   *((_QWORD *)this + 3) = a4;
   if ( a4 )
   {

@@ -1,15 +1,15 @@
 /*
- * XREFs of WbInPlaceEncryptionUnloadModule @ 0x1406D5C1C
+ * XREFs of WbInPlaceEncryptionUnloadModule @ 0x1406A2768
  * Callers:
- *     WbProcessModuleUnload @ 0x1406D5B38 (WbProcessModuleUnload.c)
+ *     WbProcessModuleUnload @ 0x1406A2680 (WbProcessModuleUnload.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     sub_1407E1B0C @ 0x1407E1B0C (sub_1407E1B0C.c)
- *     sub_140A0F1D4 @ 0x140A0F1D4 (sub_140A0F1D4.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
+ *     sub_1406A2AFC @ 0x1406A2AFC (sub_1406A2AFC.c)
  */
 
 __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
@@ -21,31 +21,29 @@ __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
   __int64 v8; // rdi
   unsigned int i; // edi
   char v10; // si
-  struct _KTHREAD *v11; // rax
-  bool v12; // zf
-  __int64 v14; // rbp
+  __int64 v12; // rbp
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0;
   --CurrentThread->SpecialApcDisable;
   v6 = (unsigned __int64 *)(a1 + 176);
-  v7 = KeAbPreAcquire(a1 + 176, 0LL);
+  v7 = KeAbPreAcquire(a1 + 176, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
+    ExfAcquirePushLockExclusiveEx(v6, v7, (ULONG_PTR)v6);
   if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
+    *(_BYTE *)(v8 + 26) |= 1u;
   for ( i = 0; i < *(_DWORD *)(a1 + 140); ++i )
   {
-    v14 = *(_QWORD *)(i * *(_DWORD *)(a1 + 136) + *(_QWORD *)(a1 + 152));
-    if ( v14 )
+    v12 = *(_QWORD *)(i * *(_DWORD *)(a1 + 136) + *(_QWORD *)(a1 + 152));
+    if ( v12 )
     {
-      if ( *(_QWORD *)(v14 + 32) == a2 )
+      if ( *(_QWORD *)(v12 + 32) == a2 )
       {
-        v3 = sub_1407E1B0C((int)a1 + 136, 0, 0, i, 0LL);
+        v3 = sub_1406A2AFC((int)a1 + 136, 0, 0, i, 0LL);
         if ( v3 >= 0 )
         {
-          sub_140A0F1D4(v14);
+          sub_1405D72F4((volatile signed __int64 *)v12);
           --i;
         }
       }
@@ -55,9 +53,6 @@ __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
   if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
     ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  v11 = KeGetCurrentThread();
-  v12 = v11->SpecialApcDisable++ == -1;
-  if ( v12 && ($CEA84C04E3712D858E5667A507841A2A *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return (unsigned int)v3;
 }

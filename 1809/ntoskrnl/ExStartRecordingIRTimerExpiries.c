@@ -1,9 +1,9 @@
 /*
- * XREFs of ExStartRecordingIRTimerExpiries @ 0x1408CF7BC
+ * XREFs of ExStartRecordingIRTimerExpiries @ 0x1408CF79C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

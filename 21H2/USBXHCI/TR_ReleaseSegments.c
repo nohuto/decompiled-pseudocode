@@ -1,19 +1,19 @@
 /*
- * XREFs of TR_ReleaseSegments @ 0x1C000E380
+ * XREFs of TR_ReleaseSegments @ 0x1C000C5AC
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_MapStage @ 0x1C0008740 (Isoch_MapStage.c)
- *     Isoch_PrepareStage @ 0x1C0008870 (Isoch_PrepareStage.c)
- *     Isoch_Stage_MapIntoRing @ 0x1C00090A0 (Isoch_Stage_MapIntoRing.c)
- *     Bulk_CompleteTransfers @ 0x1C000BAB8 (Bulk_CompleteTransfers.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
- *     Bulk_MapStage @ 0x1C000F118 (Bulk_MapStage.c)
- *     Bulk_PrepareStage @ 0x1C000F538 (Bulk_PrepareStage.c)
- *     Isoch_CompleteStaleTransfers @ 0x1C0041D04 (Isoch_CompleteStaleTransfers.c)
- *     Isoch_CompleteTransfers @ 0x1C0041F9C (Isoch_CompleteTransfers.c)
- *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0044A5C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_CompleteTransfers @ 0x1C000C2F0 (Bulk_CompleteTransfers.c)
+ *     Bulk_MapStage @ 0x1C000D4EC (Bulk_MapStage.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0040E04 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C004109C (Isoch_CompleteTransfers.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 unsigned __int64 __fastcall TR_ReleaseSegments(__int64 a1, unsigned __int64 *a2, char a3)

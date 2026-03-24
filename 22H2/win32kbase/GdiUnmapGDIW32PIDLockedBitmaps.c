@@ -1,50 +1,56 @@
 /*
- * XREFs of GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C00A67F0
+ * XREFs of GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C0073F80
  * Callers:
- *     GdiProcessCallout @ 0x1C0037960 (GdiProcessCallout.c)
+ *     GdiProcessCallout @ 0x1C0073730 (GdiProcessCallout.c)
  * Callees:
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0040814 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004086C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0048150 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0039FC4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C003A048 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
-void __fastcall GdiUnmapGDIW32PIDLockedBitmaps(__int64 a1)
+__int64 __fastcall GdiUnmapGDIW32PIDLockedBitmaps(__int64 a1)
 {
-  __int64 v2; // rcx
-  _QWORD *v3; // rbx
-  _QWORD *v4; // rdx
-  _QWORD *v5; // r8
-  _QWORD *v6; // rax
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rax
+  __int64 **v2; // rbx
+  __int64 *v3; // rdx
+  __int64 result; // rax
+  __int64 *v5; // rax
+  __int64 *v6; // rcx
+  __int64 v7; // rax
+  __int64 **v8; // r8
   HSEMAPHORE v9; // [rsp+30h] [rbp+8h] BYREF
 
   DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v9);
-  v9 = *(HSEMAPHORE *)(*(_QWORD *)(SGDGetSessionState(v2) + 24) + 104LL);
-  EngAcquireSemaphore(v9);
-  v3 = (_QWORD *)(a1 + 224);
-  v4 = (_QWORD *)*v3;
-  if ( *v3 )
+  v9 = ghsemMapRot;
+  EngAcquireSemaphore(ghsemMapRot);
+  v2 = (__int64 **)(a1 + 224);
+  v3 = *v2;
+  if ( *v2 )
   {
-    while ( v4 != v3 )
+    while ( v3 != (__int64 *)v2 )
     {
-      v5 = (_QWORD *)*v4;
-      v6 = v4;
-      v7 = v4;
-      v4 = v5;
-      *(v6 - 33) = 0LL;
-      *(v6 - 34) = 0LL;
-      if ( (_QWORD *)v5[1] != v6 || (v8 = (_QWORD *)v6[1], (_QWORD *)*v8 != v7) )
+      v5 = v3;
+      v6 = v3;
+      v3 = (__int64 *)*v3;
+      *(v5 - 33) = 0LL;
+      *(v5 - 34) = 0LL;
+      v7 = *v5;
+      if ( *(__int64 **)(v7 + 8) != v6 || (v8 = (__int64 **)v6[1], *v8 != v6) )
         __fastfail(3u);
-      *v8 = v5;
-      v5[1] = v8;
-      v7[1] = v7;
-      *v7 = v7;
+      *v8 = (__int64 *)v7;
+      *(_QWORD *)(v7 + 8) = v8;
+      v6[1] = (__int64)v6;
+      *v6 = (__int64)v6;
     }
   }
-  v3[1] = v3;
-  *v3 = v3;
+  v2[1] = (__int64 *)v2;
+  *v2 = (__int64 *)v2;
   SEMOBJ::vUnlock((PERESOURCE *)&v9);
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v9);
+  result = EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  if ( ghsemDynamicModeChange )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+    return PsLeavePriorityRegion();
+  }
+  return result;
 }

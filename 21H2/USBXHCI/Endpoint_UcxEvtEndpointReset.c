@@ -1,21 +1,21 @@
 /*
- * XREFs of Endpoint_UcxEvtEndpointReset @ 0x1C003AAF0
+ * XREFs of Endpoint_UcxEvtEndpointReset @ 0x1C003A5C0
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     WPP_RECORDER_SF_ddqd @ 0x1C003BB20 (WPP_RECORDER_SF_ddqd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003B4AC (WPP_RECORDER_SF_ddqd.c)
  */
 
 void __fastcall Endpoint_UcxEvtEndpointReset(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rdx
+  int v4; // edx
   __int64 v5; // rbx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  int v6; // r8d
+  int v7; // r9d
   int v8; // edx
   int v9; // r8d
   __int64 v10; // r8
@@ -24,24 +24,15 @@ void __fastcall Endpoint_UcxEvtEndpointReset(__int64 a1, __int64 a2, __int64 a3)
   int v13; // r8d
   signed __int32 v14; // eax
   signed __int32 v15; // ett
-  __int64 v16; // [rsp+20h] [rbp-38h]
 
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C00611A8);
+         off_1C00601A8);
   if ( *(_DWORD *)(v5 + 1352) == 2 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        v4,
-        v6,
-        v7,
-        v16,
-        "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\endpoint.c",
-        106,
-        "Unexpected Reset Received on a Offloaded Endpoint");
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v4, v6, v7);
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -60,7 +51,7 @@ LABEL_15:
   v11 = (__int64 *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a3,
-                     off_1C0061090);
+                     off_1C0060090);
   memset(v11, 0, 0x70uLL);
   _m_prefetchw((const void *)(v5 + 32));
   v14 = *(_DWORD *)(v5 + 32);

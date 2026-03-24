@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCoverageFlushPending @ 0x140684830
+ * XREFs of EtwpCoverageFlushPending @ 0x140684810
  * Callers:
- *     EtwpCoverageFlushWorkItemCallback @ 0x140684760 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwpCoverageRecord @ 0x1406B41FC (EtwpCoverageRecord.c)
- *     EtwpFlushCoverage @ 0x1406DD370 (EtwpFlushCoverage.c)
- *     EtwpCoverageReset @ 0x1408B6A48 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1408B6C28 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140684740 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpCoverageRecord @ 0x1406B41DC (EtwpCoverageRecord.c)
+ *     EtwpFlushCoverage @ 0x1406DD350 (EtwpFlushCoverage.c)
+ *     EtwpCoverageReset @ 0x1408B6A28 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1408B6C08 (EtwpCoverageResetCP.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     KeCancelTimer2 @ 0x1400FAF50 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 int *__fastcall EtwpCoverageFlushPending(int **a1)
@@ -84,7 +84,7 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
         v25 = 4;
         v28 = 2;
         v30 = v6;
-        TlgWrite(&stru_140400340, &unk_140372C99, 0LL, 0LL, 8u, &pData);
+        TlgWrite(&stru_140400340, &unk_140372D35, 0LL, 0LL, 8u, &pData);
       }
     }
     *((_QWORD *)v3 + 4) = *((_QWORD *)v3 + 3);

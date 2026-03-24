@@ -1,12 +1,12 @@
 /*
- * XREFs of PfPrefetchRequestVerify @ 0x1406840C8
+ * XREFs of PfPrefetchRequestVerify @ 0x14070C1CC
  * Callers:
- *     PfpPrefetchRequest @ 0x140683EC8 (PfpPrefetchRequest.c)
+ *     PfpPrefetchRequest @ 0x14070ADA8 (PfpPrefetchRequest.c)
  * Callees:
- *     PfPrefetchRequestVerifyPath @ 0x14068431C (PfPrefetchRequestVerifyPath.c)
- *     PfRequestRangeCheck @ 0x1406843A8 (PfRequestRangeCheck.c)
- *     PfPrefetchRequestVerifyRanges @ 0x1406843E8 (PfPrefetchRequestVerifyRanges.c)
- *     PfPrefetchRequestPrepareForVerify @ 0x1406844CC (PfPrefetchRequestPrepareForVerify.c)
+ *     PfPrefetchRequestVerifyRanges @ 0x14070C0E8 (PfPrefetchRequestVerifyRanges.c)
+ *     PfPrefetchRequestVerifyPath @ 0x14070C44C (PfPrefetchRequestVerifyPath.c)
+ *     PfRequestRangeCheck @ 0x14070C4D8 (PfRequestRangeCheck.c)
+ *     PfPrefetchRequestPrepareForVerify @ 0x14070C518 (PfPrefetchRequestPrepareForVerify.c)
  */
 
 __int64 __fastcall PfPrefetchRequestVerify(unsigned __int64 a1, __int64 a2)
@@ -98,7 +98,7 @@ __int64 __fastcall PfPrefetchRequestVerify(unsigned __int64 a1, __int64 a2)
                 if ( (_DWORD)result )
                   return result;
               }
-              result = PfPrefetchRequestVerifyRanges(a1, &v18, v12 + 4, (*v12 & 1) != 0 ? 512 : 4096);
+              result = PfPrefetchRequestVerifyRanges(a1, (__int64)&v18, v12 + 4, (*v12 & 1) != 0 ? 512 : 4096);
               if ( (_DWORD)result )
                 return result;
               v10 = (unsigned int)(v10 + 1);
@@ -127,7 +127,11 @@ LABEL_22:
           {
             while ( 1 )
             {
-              result = PfPrefetchRequestVerifyRanges(a1, &v18, v15 + 8 * ((unsigned int)v16 + 3LL + 4 * v16), 4096LL);
+              result = PfPrefetchRequestVerifyRanges(
+                         a1,
+                         (__int64)&v18,
+                         (unsigned int *)(v15 + 8 * ((unsigned int)v16 + 3LL + 4 * v16)),
+                         4096);
               if ( (_DWORD)result )
                 break;
               v16 = (unsigned int)(v16 + 1);

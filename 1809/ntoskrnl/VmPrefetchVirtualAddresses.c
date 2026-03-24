@@ -1,12 +1,12 @@
 /*
- * XREFs of VmPrefetchVirtualAddresses @ 0x1408AFD6C
+ * XREFs of VmPrefetchVirtualAddresses @ 0x1408AFD4C
  * Callers:
- *     MmInSwapWorkingSet @ 0x1400E4E64 (MmInSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1400E4E84 (MmInSwapWorkingSet.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

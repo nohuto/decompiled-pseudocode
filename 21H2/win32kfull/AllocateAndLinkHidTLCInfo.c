@@ -1,10 +1,10 @@
 /*
- * XREFs of AllocateAndLinkHidTLCInfo @ 0x1C0103268
+ * XREFs of AllocateAndLinkHidTLCInfo @ 0x1C00057E8
  * Callers:
- *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C0102D4C (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C01088A0 (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
  * Callees:
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00AE584 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AE5B4 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0108C7C (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0108CAC (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -16,7 +16,7 @@ __int64 __fastcall AllocateAndLinkHidTLCInfo(__int16 a1, __int16 a2)
   __int64 *i; // rax
   char v9; // [rsp+40h] [rbp+18h] BYREF
 
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v9, (struct _KTHREAD **)gTLCInfoLock);
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v9, gTLCInfoLock);
   v4 = Win32AllocPoolZInit(48LL, 1416131413LL);
   v5 = 0LL;
   v6 = v4;

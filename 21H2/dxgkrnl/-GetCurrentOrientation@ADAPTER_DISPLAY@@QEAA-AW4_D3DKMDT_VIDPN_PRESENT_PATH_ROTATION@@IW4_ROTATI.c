@@ -1,94 +1,81 @@
 /*
- * XREFs of ?GetCurrentOrientation@ADAPTER_DISPLAY@@QEAA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@IW4_ROTATION_MODE_TYPE@@@Z @ 0x1C01A24CC
+ * XREFs of ?GetCurrentOrientation@ADAPTER_DISPLAY@@QEAA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@IW4_ROTATION_MODE_TYPE@@@Z @ 0x1C0121F28
  * Callers:
- *     ?IsIdenticalMode@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C0045804 (-IsIdenticalMode@ADAPTER_DISPLAY@@QEAAEI@Z.c)
- *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C0158B10 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
- *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1C0159A40 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
- *     ?DxgkCddUpdatePresentRects@@YAJPEAVADAPTER_DISPLAY@@IPEAPEBUtagRECT@@PEAI@Z @ 0x1C015A2D4 (-DxgkCddUpdatePresentRects@@YAJPEAVADAPTER_DISPLAY@@IPEAPEBUtagRECT@@PEAI@Z.c)
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C017D520 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C01A3640 (DxgkGetAdapterDeviceDesc.c)
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01A4940 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
- *     ?SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C01B633C (-SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPO.c)
- *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C02DD990 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     ?IsIdenticalMode@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C003AC64 (-IsIdenticalMode@ADAPTER_DISPLAY@@QEAAEI@Z.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C00DEAB0 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00FDFA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C0112950 (DxgkGetAdapterDeviceDesc.c)
+ *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N5@Z @ 0x1C01228E0 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0130704 (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1C015B24C (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ *     ?DxgkCddUpdatePresentRects@@YAJPEAVADAPTER_DISPLAY@@IPEAPEBUtagRECT@@PEAI@Z @ 0x1C015BB40 (-DxgkCddUpdatePresentRects@@YAJPEAVADAPTER_DISPLAY@@IPEAPEBUtagRECT@@PEAI@Z.c)
+ *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C0196514 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z @ 0x1C01A25AC (-AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z.c)
- *     ?DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z @ 0x1C01A30A0 (-DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z.c)
+ *     ?AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z @ 0x1C0121FF0 (-AddingMonitorOrientation@ADAPTER_DISPLAY@@QEAA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W42@I@Z.c)
+ *     ?DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z @ 0x1C0124B5C (-DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::GetCurrentOrientation(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall ADAPTER_DISPLAY::GetCurrentOrientation(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r14
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION v6; // edi
-  __int64 v7; // rax
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION v6; // ebx
+  __int64 v7; // rcx
   void *v8; // rcx
-  unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v10; // rax
+  __int64 v11; // rax
+  unsigned int v12; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = a2;
+  v3 = (unsigned int)a2;
   v6 = D3DKMDT_VPPR_ROTATE90;
   if ( a3 == 1 )
   {
-    if ( *(_BYTE *)(a1 + 289) )
+    if ( *(_BYTE *)(a1 + 249) )
       return 1LL;
   }
   else
   {
     if ( !a3 )
-    {
-      if ( *(_BYTE *)(a1 + 289) )
-        goto LABEL_4;
-      return 1LL;
-    }
+      goto LABEL_14;
     if ( a3 != 2 )
     {
-      WdLogSingleEntry1(1LL, 8146LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(Type == ROTATION_MODE_TYPE_HARDWARE) || (Type == ROTATION_MODE_TYPE_SOFTWARE) || (Type == ROTATION_MODE_TYPE_OVERALL)",
-        8146LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v10 = WdLogNewEntry5_WdAssertion(a1, a2);
+      *(_QWORD *)(v10 + 24) = 7982LL;
+      WdLogEvent5_WdAssertion(v10);
     }
   }
-LABEL_4:
-  v7 = *(_QWORD *)(a1 + 128);
-  if ( *(_DWORD *)(v7 + 4000 * v3 + 1036) != 1 )
+  if ( a3 )
+    goto LABEL_6;
+LABEL_14:
+  if ( !*(_BYTE *)(a1 + 249) )
+    return 1LL;
+LABEL_6:
+  v7 = *(_QWORD *)(a1 + 112);
+  if ( *(_DWORD *)(v7 + 3968 * v3 + 1040) != 1 )
   {
-    switch ( *(_DWORD *)(v7 + 4000 * v3 + 1036) )
+    switch ( *(_DWORD *)(v7 + 3968 * v3 + 1040) )
     {
       case 2:
-        goto LABEL_6;
+        goto LABEL_8;
       case 3:
         v6 = D3DKMDT_VPPR_ROTATE180;
-        goto LABEL_6;
+        goto LABEL_8;
       case 4:
         v6 = D3DKMDT_VPPR_ROTATE270;
-        goto LABEL_6;
+        goto LABEL_8;
     }
-    WdLogSingleEntry2(2LL, *(int *)(v7 + 4000 * v3 + 1036), *(_QWORD *)(a1 + 16));
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"m_DisplayModeInfo does not have a valid rotation mode (0x%I64x) on adapter 0x%I64x!",
-      *(int *)(*(_QWORD *)(a1 + 128) + 4000 * v3 + 1036),
-      *(_QWORD *)(a1 + 16),
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdError(v7, (unsigned int)(*(_DWORD *)(v7 + 3968 * v3 + 1040) - 3));
+    *(_QWORD *)(v11 + 24) = *(int *)(*(_QWORD *)(a1 + 112) + 3968 * v3 + 1040);
+    *(_QWORD *)(v11 + 32) = *(_QWORD *)(a1 + 16);
+    WdLogEvent5_WdError(v11);
   }
   v6 = D3DKMDT_VPPR_IDENTITY;
-LABEL_6:
+LABEL_8:
   if ( a3 != 1 )
   {
     v8 = *(void **)(a1 + 16);
-    v10 = 0;
-    if ( (int)DmmEnumClientVidPnPathTargetsFromSource(v8, v3, 0LL, &v10) >= 0 )
-      return (unsigned int)ADAPTER_DISPLAY::AddingMonitorOrientation((ADAPTER_DISPLAY *)a1, v6, v10);
+    v12 = 0;
+    if ( DmmEnumClientVidPnPathTargetsFromSource(v8, v3, 0LL, &v12) >= 0 )
+      return (unsigned int)ADAPTER_DISPLAY::AddingMonitorOrientation((ADAPTER_DISPLAY *)a1, v6, v12);
   }
   return (unsigned int)v6;
 }

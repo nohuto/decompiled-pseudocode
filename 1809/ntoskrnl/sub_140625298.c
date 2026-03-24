@@ -5,11 +5,11 @@
  *     sub_140624D6C @ 0x140624D6C (sub_140624D6C.c)
  *     WbGetWarbirdThread @ 0x14062502C (WbGetWarbirdThread.c)
  *     sub_140625234 @ 0x140625234 (sub_140625234.c)
- *     sub_14069176C @ 0x14069176C (sub_14069176C.c)
- *     sub_1406B0E5C @ 0x1406B0E5C (sub_1406B0E5C.c)
- *     WbFreeUserMemory @ 0x1406B1BBC (WbFreeUserMemory.c)
+ *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
+ *     sub_1406B0E3C @ 0x1406B0E3C (sub_1406B0E3C.c)
+ *     WbFreeUserMemory @ 0x1406B1B9C (WbFreeUserMemory.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall sub_140625298(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4, int *a5)

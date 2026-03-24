@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIThermalGetOverrideHandle @ 0x1C0096764
+ * XREFs of ACPIThermalGetOverrideHandle @ 0x1C0098A58
  * Callers:
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     OSOpenHandle @ 0x1C008EB74 (OSOpenHandle.c)
- *     OSOpenUnicodeHandle @ 0x1C008EC0C (OSOpenUnicodeHandle.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
  */
 
 void *__fastcall ACPIThermalGetOverrideHandle(__int64 a1)
@@ -19,7 +19,7 @@ void *__fastcall ACPIThermalGetOverrideHandle(__int64 a1)
   v2 = 0LL;
   if ( (AcpiOverrideAttributes & 0x10000) != 0 )
   {
-    if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), (__int64)&v2, 2) >= 0
+    if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&v2) >= 0
       && (int)OSOpenHandle(
                 "\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters\\ThermalOverride",
                 0LL,

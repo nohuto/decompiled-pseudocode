@@ -1,14 +1,13 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CRenderTargetBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800BB15C
+ * XREFs of ?GetPixelFormatInfo@CRenderTargetBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x180060E1C
  * Callers:
- *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800BAEE8 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCSc.c)
- *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18010BD50 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AUPixelFormatInfo@@XZ @ 0x18010C9F0 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA?AUPixelFormatInfo@@XZ @ 0x18010CED0 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AUPixelFormatInfo@@XZ @ 0x18010D230 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AUPixelFormatInfo@@XZ.c)
- *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x1802A6874 (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
+ *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x180060BC4 (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScrat.c)
+ *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F5F40 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AUPixelFormatInfo@@XZ @ 0x1800F93A0 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AUPixelFormatInfo@@XZ @ 0x1800F94E0 (-GetPixelFormatInfo@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18026695C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CRenderTargetBitmap::GetPixelFormatInfo(__int64 a1, _DWORD *a2)

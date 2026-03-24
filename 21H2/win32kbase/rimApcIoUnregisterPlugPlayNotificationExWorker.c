@@ -1,47 +1,41 @@
 /*
- * XREFs of rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C004949C
+ * XREFs of rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C0056124
  * Callers:
- *     rimNormalApcIoUnregisterPlugPlayNotificationEx @ 0x1C0049690 (rimNormalApcIoUnregisterPlugPlayNotificationEx.c)
- *     rimRundownApcIoUnregisterPlugPlayNotificationEx @ 0x1C01A1E80 (rimRundownApcIoUnregisterPlugPlayNotificationEx.c)
+ *     rimNormalApcIoUnregisterPlugPlayNotificationEx @ 0x1C0056310 (rimNormalApcIoUnregisterPlugPlayNotificationEx.c)
+ *     rimRundownApcIoUnregisterPlugPlayNotificationEx @ 0x1C016DF50 (rimRundownApcIoUnregisterPlugPlayNotificationEx.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C004763C (--1ApiSetEditionCrit@@QEAA@XZ.c)
- *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0047C7C (--0ApiSetEditionCrit@@QEAA@H@Z.c)
- *     rimHandlePnpWaitersOnOwnedDevices @ 0x1C0049594 (rimHandlePnpWaitersOnOwnedDevices.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0053D5C (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     ??0ApiSetEditionCrit@@QEAA@HH@Z @ 0x1C0054218 (--0ApiSetEditionCrit@@QEAA@HH@Z.c)
+ *     rimHandlePnpWaitersOnOwnedDevices @ 0x1C005620C (rimHandlePnpWaitersOnOwnedDevices.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-LONG_PTR __fastcall rimApcIoUnregisterPlugPlayNotificationExWorker(_QWORD *a1)
+LONG_PTR __fastcall rimApcIoUnregisterPlugPlayNotificationExWorker(__int64 a1)
 {
   __int64 v1; // rsi
   __int64 v3; // rdi
-  __int64 v4; // r8
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  char v9; // [rsp+30h] [rbp+8h] BYREF
+  char v5; // [rsp+48h] [rbp+10h] BYREF
 
-  v1 = a1[11];
-  v3 = *((unsigned int *)a1 + 24);
+  v1 = *(_QWORD *)(a1 + 88);
+  v3 = *(unsigned int *)(a1 + 96);
   RIMLockExclusive(v1 + 104);
   rimHandlePnpWaitersOnOwnedDevices(v1, (unsigned int)v3);
   *(_QWORD *)(v1 + 112) = 0LL;
   ExReleasePushLockExclusiveEx(v1 + 104, 0LL);
   KeLeaveCriticalRegion();
   IoUnregisterPlugPlayNotificationEx(*(PVOID *)(v1 + 8 * v3 + 224));
-  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v9, 1LL, v4);
+  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v5, 1, 0);
   if ( !*(_QWORD *)(v1 + 8 * v3 + 224) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1850LL);
   *(_QWORD *)(v1 + 8 * v3 + 224) = 0LL;
   *(_DWORD *)(v1 + 4 * v3 + 296) = 0;
   if ( *(_BYTE *)(v1 + 80) || *(_BYTE *)(v1 + 81) )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      a1);
+    Win32FreePool(a1);
     *(_QWORD *)(v1 + 8 * v3 + 312) = 0LL;
   }
-  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v9);
+  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v5);
   return ObfDereferenceObject((PVOID)v1);
 }

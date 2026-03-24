@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaGetPageFault @ 0x140532460
+ * XREFs of HsaGetPageFault @ 0x1404E37E0
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x140303560 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HsaDismissPageFault @ 0x1405316B0 (HsaDismissPageFault.c)
+ *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HsaDismissPageFault @ 0x1404E2A40 (HsaDismissPageFault.c)
  */
 
 __int64 __fastcall HsaGetPageFault(
@@ -14,18 +14,18 @@ __int64 __fastcall HsaGetPageFault(
         _DWORD *a3,
         _QWORD *a4,
         _WORD *a5,
-        __int64 a6,
+        _DWORD *a6,
         _QWORD *a7,
         __int64 *a8)
 {
   __int64 v8; // r8
-  _QWORD *v11; // rbp
+  _QWORD *v11; // rsi
   __int64 v12; // r13
   __int64 v13; // rcx
   unsigned __int64 v14; // rbx
   unsigned __int64 v15; // r15
-  __int64 v16; // rsi
-  _OWORD *v17; // rsi
+  __int64 v16; // rbp
+  _OWORD *v17; // rbp
   int v18; // edx
   int v19; // r14d
   int v20; // ecx
@@ -33,7 +33,7 @@ __int64 __fastcall HsaGetPageFault(
   __int64 v22; // rdx
   __int64 v23; // r8
   __int64 v24; // rcx
-  unsigned __int64 v26; // rax
+  unsigned __int64 v26; // rcx
   signed __int32 v27[8]; // [rsp+0h] [rbp-78h] BYREF
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-58h]
   __int64 v29; // [rsp+88h] [rbp+10h]
@@ -86,8 +86,7 @@ __int64 __fastcall HsaGetPageFault(
         {
           *a3 = *(unsigned __int16 *)(a2 + 2);
           *a5 = HIDWORD(*(_QWORD *)a2) & 0x1FF;
-          *(_OWORD *)a6 = 0LL;
-          *(_QWORD *)(a6 + 16) = 0LL;
+          *a6 = 0;
           *a7 = *(_QWORD *)(a2 + 8);
           *a4 = (unsigned __int16)*(_DWORD *)a2;
           v22 = (2 * ((*(_QWORD *)a2 >> 53) & 1LL)) | 1;
@@ -105,7 +104,7 @@ __int64 __fastcall HsaGetPageFault(
       }
       else
       {
-        BugCheckParameter4 = 0LL;
+        LODWORD(BugCheckParameter4) = 0;
         HsaDismissPageFault((__int64)a1, (unsigned __int16 *)a2, -1073741823);
         v8 = v29;
       }
@@ -123,8 +122,7 @@ __int64 __fastcall HsaGetPageFault(
       _InterlockedOr(v27, 0);
       *a3 = -1;
       *a5 = -1;
-      *(_OWORD *)a6 = 0LL;
-      *(_QWORD *)(a6 + 16) = 0LL;
+      *a6 = 0;
       *a7 = 0LL;
       *a8 = 64LL;
       *a4 = 0LL;

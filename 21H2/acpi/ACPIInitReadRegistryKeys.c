@@ -1,29 +1,30 @@
 /*
- * XREFs of ACPIInitReadRegistryKeys @ 0x1C00BD39C
+ * XREFs of ACPIInitReadRegistryKeys @ 0x1C00BD2FC
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     OSOpenHandle @ 0x1C008EB74 (OSOpenHandle.c)
- *     OSCloseHandle @ 0x1C00954DC (OSCloseHandle.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     OSCloseHandle @ 0x1C0096D0C (OSCloseHandle.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
 void ACPIInitReadRegistryKeys()
 {
-  void *v0; // rbx
-  void *v1; // rsi
+  _BYTE *v0; // rbx
+  _BYTE *v1; // rdi
   int v2; // eax
-  unsigned int v3; // edi
-  _BYTE *Pool2; // rax
+  unsigned int v3; // esi
+  _BYTE *PoolWithTag; // rax
   int v5; // eax
   char *v6; // rax
-  __int64 v7; // rdi
-  int v8; // edi
+  __int64 v7; // rsi
+  int v8; // esi
   unsigned int v9; // r14d
   _BYTE *v10; // rax
-  unsigned int v11; // edi
+  unsigned int v11; // esi
   char *v12; // rax
   char *v13; // r14
   unsigned int v14; // edx
@@ -53,7 +54,7 @@ void ACPIInitReadRegistryKeys()
         2u,
         0xBu,
         0x10u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
         v2);
   }
   else
@@ -63,13 +64,14 @@ void ACPIInitReadRegistryKeys()
     {
       if ( v0 )
         ExFreePoolWithTag(v0, 0);
-      Pool2 = (_BYTE *)ExAllocatePool2(256LL, v3, 1399874369LL);
-      v0 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x53706341u);
+      v0 = PoolWithTag;
+      if ( !PoolWithTag )
         break;
+      memset(PoolWithTag, 0, v3);
       v18 = v3;
       v3 += 10;
-      v5 = OSReadRegValue("Identifier", v21, Pool2, &v18);
+      v5 = OSReadRegValue("Identifier", v21, v0, &v18);
       if ( v5 != -2147483643 )
       {
         if ( v5 < 0 )
@@ -83,42 +85,43 @@ LABEL_40:
               2u,
               0xBu,
               v17,
-              (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+              (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
               v5);
           }
         }
         else
         {
-          v6 = strstr((const char *)v0, "Stepping");
+          v6 = strstr(v0, "Stepping");
           if ( v6 )
             *(v6 - 1) = 0;
           v7 = -1LL;
           do
             ++v7;
-          while ( *((_BYTE *)v0 + v7) );
+          while ( v0[v7] );
           v8 = v7 + 1;
           v9 = 10;
           while ( 1 )
           {
             if ( v1 )
               ExFreePoolWithTag(v1, 0);
-            v10 = (_BYTE *)ExAllocatePool2(256LL, v9, 1399874369LL);
+            v10 = ExAllocatePoolWithTag(PagedPool, v9, 0x53706341u);
             v1 = v10;
             if ( !v10 )
               break;
+            memset(v10, 0, v9);
             v18 = v9;
             v9 += 10;
-            v5 = OSReadRegValue("VendorIdentifier", v21, v10, &v18);
+            v5 = OSReadRegValue("VendorIdentifier", v21, v1, &v18);
             if ( v5 != -2147483643 )
             {
               if ( v5 >= 0 )
               {
                 v11 = v18 + 2 + v8;
-                v12 = (char *)ExAllocatePool2(64LL, v11, 1399874369LL);
+                v12 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x53706341u);
                 v13 = v12;
                 if ( v12 )
                 {
-                  RtlStringCchPrintfA(v12, v11, "%s - %s", (const char *)v1, (const char *)v0);
+                  RtlStringCchPrintfA(v12, v11, "%s - %s", v1, v0);
                   v14 = 0;
                   if ( v11 )
                   {

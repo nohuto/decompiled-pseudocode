@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpFinalizeTimerDeletion @ 0x140250B40
+ * XREFs of ExpFinalizeTimerDeletion @ 0x1402C8450
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall ExpFinalizeTimerDeletion(ULONG_PTR BugCheckParameter3)
+__int64 __fastcall ExpFinalizeTimerDeletion(ULONG_PTR BugCheckParameter2)
 {
   void (__fastcall *v2)(unsigned __int64); // rax
 
-  v2 = (void (__fastcall *)(unsigned __int64))(KiWaitAlways ^ _byteswap_uint64(BugCheckParameter3 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(BugCheckParameter3 + 136), KiWaitNever)));
+  v2 = (void (__fastcall *)(unsigned __int64))(KiWaitAlways ^ _byteswap_uint64(BugCheckParameter2 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(BugCheckParameter2 + 136), KiWaitNever)));
   if ( v2 )
-    v2(KiWaitAlways ^ _byteswap_uint64(BugCheckParameter3 ^ __ROL8__(
-                                                              KiWaitNever ^ *(_QWORD *)(BugCheckParameter3 + 144),
+    v2(KiWaitAlways ^ _byteswap_uint64(BugCheckParameter2 ^ __ROL8__(
+                                                              KiWaitNever ^ *(_QWORD *)(BugCheckParameter2 + 144),
                                                               KiWaitNever)));
-  *(_BYTE *)(BugCheckParameter3 + 152) = ~ExpTimerFreedCookie;
-  return ExFreeHeapPool(BugCheckParameter3);
+  *(_BYTE *)(BugCheckParameter2 + 152) = ~ExpTimerFreedCookie;
+  return ExFreeHeapPool(BugCheckParameter2);
 }

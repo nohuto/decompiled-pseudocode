@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800297D4
+ * XREFs of ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800AED68
  * Callers:
- *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180028570 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
- *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180178414 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x1800AEC10 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x18014E1C4 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
  * Callees:
- *     ?Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z @ 0x18002A4A0 (-Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z.c)
+ *     ?Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z @ 0x1800AFC88 (-Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z.c)
  */
 
 void __fastcall wil::details_abi::FeatureStateData::RetrieveUsageUnderLock(

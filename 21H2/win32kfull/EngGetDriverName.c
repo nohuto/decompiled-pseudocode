@@ -1,5 +1,5 @@
 /*
- * XREFs of EngGetDriverName @ 0x1C0287C00
+ * XREFs of EngGetDriverName @ 0x1C028ADA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 LPWSTR __stdcall EngGetDriverName(HDEV hdev)
 {
-  return *(LPWSTR *)(*(_QWORD *)(*((_QWORD *)hdev + 220) + 16LL) + 8LL);
+  return *(LPWSTR *)(*(_QWORD *)(*((_QWORD *)hdev + 224) + 16LL) + 8LL);
 }

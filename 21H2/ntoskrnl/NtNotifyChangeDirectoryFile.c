@@ -1,9 +1,9 @@
 /*
- * XREFs of NtNotifyChangeDirectoryFile @ 0x1406C6650
+ * XREFs of NtNotifyChangeDirectoryFile @ 0x1406AE680
  * Callers:
  *     <none>
  * Callees:
- *     NtNotifyChangeDirectoryFileEx @ 0x1406C66B0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1406AE6E0 (NtNotifyChangeDirectoryFileEx.c)
  */
 
 __int64 __fastcall NtNotifyChangeDirectoryFile(

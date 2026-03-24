@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwEnumerateSystemEnvironmentValuesEx @ 0x1401B9CB0
+ * XREFs of ZwEnumerateSystemEnvironmentValuesEx @ 0x1401B9CD0
  * Callers:
  *     <none>
  * Callees:

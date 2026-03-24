@@ -1,5 +1,5 @@
 /*
- * XREFs of PspGetFreezeState @ 0x1402E9B80
+ * XREFs of PspGetFreezeState @ 0x1402E9C80
  * Callers:
  *     <none>
  * Callees:

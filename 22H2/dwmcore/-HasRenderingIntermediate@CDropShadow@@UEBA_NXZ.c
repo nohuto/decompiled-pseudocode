@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasRenderingIntermediate@CDropShadow@@UEBA_NXZ @ 0x1801073D0
+ * XREFs of ?HasRenderingIntermediate@CDropShadow@@UEBA_NXZ @ 0x1800E2980
  * Callers:
  *     <none>
  * Callees:

@@ -1,25 +1,25 @@
 /*
- * XREFs of PiCMGenerateDeviceInstance @ 0x140969C6C
+ * XREFs of PiCMGenerateDeviceInstance @ 0x1408B05E0
  * Callers:
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     RtlStringCchCatExW @ 0x1403931F8 (RtlStringCchCatExW.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmValidateDeviceName @ 0x1406CE870 (_CmValidateDeviceName.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
- *     _CmGetDeviceStatus @ 0x14079AA78 (_CmGetDeviceStatus.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
- *     _CmCreateDevice @ 0x1407D7C24 (_CmCreateDevice.c)
- *     _CmDeleteDevice @ 0x140A61510 (_CmDeleteDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchCatExW @ 0x1403C3180 (RtlStringCchCatExW.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
+ *     _CmGetDeviceStatus @ 0x140684C00 (_CmGetDeviceStatus.c)
+ *     _CmValidateDeviceName @ 0x1406BB050 (_CmValidateDeviceName.c)
+ *     _CmDeleteDevice @ 0x14072C75C (_CmDeleteDevice.c)
+ *     _CmCreateDevice @ 0x140749068 (_CmCreateDevice.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGenerateDeviceInstance(NTSTRSAFE_PCWSTR pszSrc, char a2, wchar_t *a3, int a4)
@@ -31,8 +31,8 @@ __int64 __fastcall PiCMGenerateDeviceInstance(NTSTRSAFE_PCWSTR pszSrc, char a2, 
   NTSTRSAFE_PCWSTR v11; // rdx
   NTSTRSAFE_PWSTR *v12; // r9
   NTSTRSAFE_PWSTR *v13; // r9
-  wchar_t *Pool2; // rsi
-  int v15; // r15d
+  wchar_t *PoolWithTag; // rsi
+  int v15; // r14d
   struct _KTHREAD *CurrentThread; // rax
   __int64 v17; // rcx
   size_t *pcchRemaining; // [rsp+20h] [rbp-50h]
@@ -66,86 +66,93 @@ __int64 __fastcall PiCMGenerateDeviceInstance(NTSTRSAFE_PCWSTR pszSrc, char a2, 
     while ( v10 )
     {
       if ( (unsigned __int16)(v10 - 33) > 0x5Eu || v10 == 44 || v10 == 92 )
-        return (unsigned int)-1073741773;
+      {
+        inited = -1073741773;
+        break;
+      }
       v10 = *++v11;
     }
-    inited = RtlStringCchCopyExW(a3, 0xC8uLL, L"Root", 0LL, 0LL, 0x800u);
     if ( inited >= 0 )
     {
-      inited = RtlInitUnicodeStringEx(&DestinationString, a3);
+      inited = RtlStringCchCopyExW(a3, 0xC8uLL, L"Root", 0LL, 0LL, 0x800u);
       if ( inited >= 0 )
       {
-        inited = RtlUpcaseUnicodeString(&DestinationString, &DestinationString, 0);
+        inited = RtlInitUnicodeStringEx(&DestinationString, a3);
         if ( inited >= 0 )
         {
-          inited = RtlStringCchCatExW(a3, 0xC8uLL, L"\\", v12, pcchRemaining, dwFlags);
+          inited = RtlUpcaseUnicodeString(&DestinationString, &DestinationString, 0);
           if ( inited >= 0 )
           {
-            inited = RtlStringCchCatExW(a3, 0xC8uLL, pszSrc, v13, pcchRemaininga, dwFlagsa);
+            inited = RtlStringCchCatExW(a3, 0xC8uLL, L"\\", v12, pcchRemaining, dwFlags);
             if ( inited >= 0 )
             {
-              Pool2 = (wchar_t *)ExAllocatePool2(256LL, 400LL, 879783504LL);
-              if ( !Pool2 )
-                return (unsigned int)-1073741670;
-              v15 = 0;
-              while ( 1 )
+              inited = RtlStringCchCatExW(a3, 0xC8uLL, pszSrc, v13, pcchRemaininga, dwFlagsa);
+              if ( inited >= 0 )
               {
-                if ( v8 )
+                PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x34706E50u);
+                if ( !PoolWithTag )
+                  return (unsigned int)-1073741670;
+                v15 = 0;
+                while ( 1 )
                 {
-                  ZwClose(v8);
-                  v8 = 0LL;
-                  KeyHandle = 0LL;
-                }
-                inited = RtlStringCchPrintfExW(Pool2, 0xC8uLL, 0LL, 0LL, 0x800u, L"%s\\%04u");
-                if ( inited < 0 )
-                  break;
-                if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, Pool2, 0LL, &v25, &v24, &v23, (unsigned int)a3) < 0 )
-                {
-                  CurrentThread = KeGetCurrentThread();
-                  --CurrentThread->KernelApcDisable;
-                  ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-                  v4 = 1;
-                  LOBYTE(v30) = 0;
-                  inited = CmCreateDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)Pool2, 131078, &KeyHandle, &v30, 0);
-                  if ( inited < 0 )
-                    goto LABEL_34;
-                  if ( (_BYTE)v30 )
+                  if ( v8 )
                   {
-                    v8 = KeyHandle;
-                    inited = CmValidateDeviceName(v17, Pool2);
-                    if ( inited < 0 || (inited = RtlStringCchCopyExW(a3, 0xC8uLL, Pool2, 0LL, 0LL, 0x800u), inited < 0) )
+                    ZwClose(v8);
+                    v8 = 0LL;
+                    KeyHandle = 0LL;
+                  }
+                  inited = RtlStringCchPrintfExW(PoolWithTag, 0xC8uLL, 0LL, 0LL, 0x800u, L"%s\\%04u");
+                  if ( inited < 0 )
+                    break;
+                  if ( (int)CmGetDeviceStatus(PiPnpRtlCtx, PoolWithTag, 0, &v25, &v24, &v23, (unsigned int)a3) < 0 )
+                  {
+                    CurrentThread = KeGetCurrentThread();
+                    --CurrentThread->KernelApcDisable;
+                    ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
+                    v4 = 1;
+                    LOBYTE(v30) = 0;
+                    inited = CmCreateDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)PoolWithTag, 131078, &KeyHandle, &v30, 0);
+                    if ( inited < 0 )
+                      goto LABEL_36;
+                    if ( (_BYTE)v30 )
                     {
-                      CmDeleteDevice(*(_QWORD *)&PiPnpRtlCtx, Pool2, 0LL);
-                    }
-                    else if ( a2 )
-                    {
-                      v29 = 1;
-                      inited = RegRtlSetValue(v8, L"Phantom", 4u, &v29, 4u);
-                    }
-LABEL_33:
-                    if ( !v4 )
+                      v8 = KeyHandle;
+                      inited = CmValidateDeviceName(v17, PoolWithTag);
+                      if ( inited < 0
+                        || (inited = RtlStringCchCopyExW(a3, 0xC8uLL, PoolWithTag, 0LL, 0LL, 0x800u), inited < 0) )
+                      {
+                        CmDeleteDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)PoolWithTag, 0);
+                      }
+                      else if ( a2 )
+                      {
+                        v29 = 1;
+                        inited = RegRtlSetValue(v8, L"Phantom", 4u, &v29, 4u);
+                      }
+LABEL_35:
+                      if ( !v4 )
+                        break;
+LABEL_36:
+                      ExReleaseResourceLite(&PnpRegistryDeviceResource);
+                      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+                      v8 = KeyHandle;
                       break;
-LABEL_34:
+                    }
                     ExReleaseResourceLite(&PnpRegistryDeviceResource);
                     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
                     v8 = KeyHandle;
-                    break;
+                    v4 = 0;
                   }
-                  ExReleaseResourceLite(&PnpRegistryDeviceResource);
-                  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-                  v8 = KeyHandle;
+                  if ( (unsigned int)++v15 > 0x270F )
+                  {
+                    inited = -2147483622;
+                    goto LABEL_35;
+                  }
                   v4 = 0;
                 }
-                if ( (unsigned int)++v15 > 0x270F )
-                {
-                  inited = -2147483622;
-                  goto LABEL_33;
-                }
-                v4 = 0;
+                if ( v8 )
+                  ZwClose(v8);
+                ExFreePoolWithTag(PoolWithTag, 0x34706E50u);
               }
-              if ( v8 )
-                ZwClose(v8);
-              ExFreePoolWithTag(Pool2, 0x34706E50u);
             }
           }
         }

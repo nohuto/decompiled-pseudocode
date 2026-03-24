@@ -1,104 +1,113 @@
 /*
- * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x140588D84
+ * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1405695C4
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14099C0A0 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A125C (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x1408EEE28 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA6F0 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopFxAddRefDevice @ 0x1403122C4 (PopFxAddRefDevice.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopFxIsDripsBlockingDevice @ 0x14058AA7C (PopFxIsDripsBlockingDevice.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     IoGetDevicePropertyData @ 0x1407914F0 (IoGetDevicePropertyData.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140954CC0 (IoLockUnlockPnpDeviceTree.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140984C44 (PopFxDestroyDripsBlockingDeviceList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PopFxAddRefDevice @ 0x14025FFDC (PopFxAddRefDevice.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFxIsDripsBlockingDevice @ 0x14056B0BC (PopFxIsDripsBlockingDevice.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     IoGetDevicePropertyData @ 0x1406B2E60 (IoGetDevicePropertyData.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14089E46C (IoLockUnlockPnpDeviceTree.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E46D4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, _QWORD *a2)
 {
-  __int64 v2; // r15
-  NTSTATUS DevicePropertyData; // edi
+  NTSTATUS DevicePropertyData; // esi
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR *i; // rsi
-  _QWORD *v7; // r14
+  ULONG_PTR *i; // rbx
+  _QWORD *v7; // rdi
   _QWORD *v8; // rax
-  _QWORD *v9; // r13
-  __int64 *v10; // rsi
-  __int64 v11; // rax
-  __int64 *v12; // rax
-  unsigned int v13; // r14d
-  __int64 *v14; // rbx
-  __int64 *v15; // rax
-  __int64 *v16; // rax
-  unsigned __int64 v17; // rax
-  __int64 v18; // r8
-  __int64 *v19; // rcx
-  __int64 v20; // rbx
-  __int64 *v21; // rdx
-  signed __int32 v22; // eax
-  signed __int32 v23; // ett
-  __int64 *v24; // rax
-  int Data; // [rsp+40h] [rbp-C0h] BYREF
-  ULONG v27; // [rsp+44h] [rbp-BCh] BYREF
-  ULONG v28; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v29; // [rsp+4Ch] [rbp-B4h] BYREF
-  ULONG Type; // [rsp+50h] [rbp-B0h] BYREF
-  ULONG RequiredSize; // [rsp+54h] [rbp-ACh] BYREF
-  int v32; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v33; // [rsp+5Ch] [rbp-A4h] BYREF
-  int v34; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING String1; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING v36; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v37; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v38; // [rsp+90h] [rbp-70h] BYREF
-  __int64 Pool2; // [rsp+98h] [rbp-68h]
-  __int128 v40; // [rsp+A0h] [rbp-60h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v41; // [rsp+B0h] [rbp-50h] BYREF
-  int *v42; // [rsp+D0h] [rbp-30h]
-  int v43; // [rsp+D8h] [rbp-28h]
-  int v44; // [rsp+DCh] [rbp-24h]
-  unsigned int *v45; // [rsp+E0h] [rbp-20h]
-  int v46; // [rsp+E8h] [rbp-18h]
-  int v47; // [rsp+ECh] [rbp-14h]
-  __int64 *v48; // [rsp+F0h] [rbp-10h]
-  int v49; // [rsp+F8h] [rbp-8h]
-  int v50; // [rsp+FCh] [rbp-4h]
-  struct _EVENT_DATA_DESCRIPTOR v51; // [rsp+100h] [rbp+0h] BYREF
-  int *v52; // [rsp+120h] [rbp+20h]
-  int v53; // [rsp+128h] [rbp+28h]
-  int v54; // [rsp+12Ch] [rbp+2Ch]
-  unsigned int *v55; // [rsp+130h] [rbp+30h]
-  int v56; // [rsp+138h] [rbp+38h]
-  int v57; // [rsp+13Ch] [rbp+3Ch]
-  __int64 *v58; // [rsp+140h] [rbp+40h]
-  int v59; // [rsp+148h] [rbp+48h]
-  int v60; // [rsp+14Ch] [rbp+4Ch]
-  __int64 v61; // [rsp+150h] [rbp+50h] BYREF
-  wchar_t v62; // [rsp+158h] [rbp+58h]
-  __int64 v63; // [rsp+160h] [rbp+60h] BYREF
-  wchar_t v64; // [rsp+168h] [rbp+68h]
+  struct _KTHREAD *v9; // rbx
+  unsigned int SessionId; // r8d
+  unsigned __int8 v11; // r14
+  unsigned int v12; // edx
+  unsigned __int64 v13; // rdi
+  bool v14; // zf
+  __int64 v15; // rcx
+  int v16; // eax
+  unsigned int v17; // ecx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  _QWORD *v20; // r15
+  __int64 *v21; // rdi
+  __int64 v22; // rax
+  __int64 *v23; // rax
+  unsigned int v24; // r14d
+  __int64 *v25; // rbx
+  __int64 *v26; // rax
+  __int64 *v27; // rax
+  unsigned __int64 v28; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v30; // r12
+  volatile signed __int32 *v31; // rcx
+  unsigned int v32; // ebx
+  volatile signed __int32 *v33; // rdx
+  __int64 v34; // rax
+  volatile signed __int32 *v35; // rax
+  const GUID *v36; // r9
+  int v38; // [rsp+44h] [rbp-BCh] BYREF
+  int Data; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG v40; // [rsp+4Ch] [rbp-B4h] BYREF
+  ULONG v41; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG Type; // [rsp+54h] [rbp-ACh] BYREF
+  ULONG RequiredSize; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v44; // [rsp+5Ch] [rbp-A4h] BYREF
+  unsigned int v45; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v46; // [rsp+64h] [rbp-9Ch] BYREF
+  unsigned int v47; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING String1; // [rsp+70h] [rbp-90h] BYREF
+  UNICODE_STRING v49; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v50; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v51; // [rsp+98h] [rbp-68h] BYREF
+  __int128 v52; // [rsp+A0h] [rbp-60h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v53; // [rsp+B0h] [rbp-50h] BYREF
+  unsigned int *v54; // [rsp+D0h] [rbp-30h]
+  __int64 v55; // [rsp+D8h] [rbp-28h]
+  unsigned int *v56; // [rsp+E0h] [rbp-20h]
+  __int64 v57; // [rsp+E8h] [rbp-18h]
+  __int64 *v58; // [rsp+F0h] [rbp-10h]
+  __int64 v59; // [rsp+F8h] [rbp-8h]
+  struct _EVENT_DATA_DESCRIPTOR v60; // [rsp+100h] [rbp+0h] BYREF
+  unsigned int *v61; // [rsp+120h] [rbp+20h]
+  __int64 v62; // [rsp+128h] [rbp+28h]
+  unsigned int *v63; // [rsp+130h] [rbp+30h]
+  __int64 v64; // [rsp+138h] [rbp+38h]
+  __int64 *v65; // [rsp+140h] [rbp+40h]
+  __int64 v66; // [rsp+148h] [rbp+48h]
+  __int64 v67; // [rsp+150h] [rbp+50h] BYREF
+  wchar_t v68; // [rsp+158h] [rbp+58h]
+  __int64 v69; // [rsp+160h] [rbp+60h] BYREF
+  wchar_t v70; // [rsp+168h] [rbp+68h]
 
-  v62 = aPci[4];
-  v28 = 0;
-  v36.Buffer = (wchar_t *)&v61;
-  v2 = a1;
-  LOBYTE(a1) = 1;
-  v40 = 0LL;
-  v64 = aUsb_0[4];
-  v61 = *(_QWORD *)L"PCI\\";
+  v68 = aPci[4];
+  v41 = 0;
+  v49.Buffer = (wchar_t *)&v67;
+  v52 = 0LL;
+  v70 = aUsb_0[4];
+  v67 = *(_QWORD *)L"PCI\\";
   DevicePropertyData = 0;
-  String1.Buffer = (wchar_t *)&v63;
-  v27 = 0;
+  String1.Buffer = (wchar_t *)&v69;
+  v40 = 0;
   Type = 0;
-  *(_QWORD *)&v36.Length = 655368LL;
-  v63 = *(_QWORD *)L"USB\\";
+  *(_QWORD *)&v49.Length = 655368LL;
+  v69 = *(_QWORD *)L"USB\\";
   *(_QWORD *)&String1.Length = 655368LL;
-  IoLockUnlockPnpDeviceTree(a1);
+  IoLockUnlockPnpDeviceTree(1LL);
   RequiredSize = 0;
   Data = -1;
   CurrentThread = KeGetCurrentThread();
@@ -110,7 +119,7 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, _QWORD *a2)
   for ( i = (ULONG_PTR *)PopFxDeviceList; i != &PopFxDeviceList; i = (ULONG_PTR *)*i )
   {
     v7 = i + 109;
-    if ( i[6] && (unsigned __int8)PopFxIsDripsBlockingDevice(i, v2, i + 111) )
+    if ( i[6] && (unsigned __int8)PopFxIsDripsBlockingDevice(i, a1, i + 111) )
     {
       PopFxAddRefDevice((ULONG_PTR)i);
       v8 = (_QWORD *)a2[1];
@@ -124,15 +133,67 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, _QWORD *a2)
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PopFxDeviceListLock);
-  KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  v9 = (_QWORD *)*a2;
+  v9 = KeGetCurrentThread();
+  v38 = 0;
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&PopFxDeviceListLock) == 1 )
+    SessionId = MmGetSessionIdEx((__int64)v9->ApcState.Process);
+  else
+    SessionId = -1;
+  --v9->SpecialApcDisable;
+  v11 = ++v9->AbAllocationRegionCount;
+  v12 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
+  {
+    v14 = !_BitScanReverse((unsigned int *)&v15, v12);
+    if ( v14 )
+      goto LABEL_20;
+    v13 = (unsigned __int64)&v9->LockEntries[v15];
+    v12 &= ~(1 << v15);
+    if ( (*(_BYTE *)(v13 + 26) & 1) != 0
+      && (*(_DWORD *)(v13 + 32) & 1) == 0
+      && (*(_QWORD *)(v13 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&PopFxDeviceListLock & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v13 + 40) == SessionId )
+    {
+      *(_BYTE *)(v13 + 26) &= ~1u;
+      if ( *(_QWORD *)(v13 + 32) )
+        break;
+    }
+  }
+  if ( !v13 )
+  {
+LABEL_20:
+    if ( (*((_DWORD *)&v9->0 + 1) & 0x10000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)v9, (ULONG_PTR)&PopFxDeviceListLock, SessionId, 0LL);
+    goto LABEL_27;
+  }
+  *(_BYTE *)(v13 + 32) |= 2u;
+  if ( *(__int64 *)(v13 + 32) < 0 )
+    KiAbEntryRemoveFromTree(v13);
+  v16 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
+  v17 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
+  *(_BYTE *)(v13 + 25) &= ~1u;
+  v38 = v16;
+  *(_DWORD *)(v13 + 88) = v17;
+  *(_QWORD *)(v13 + 32) = 0LL;
+  v18 = (__int64)(v13 - (unsigned __int64)v9->LockEntries) / 96;
+  if ( v11 == 1 )
+    v9->AbEntrySummary |= 1 << v18;
+  else
+    _InterlockedOr8((volatile signed __int8 *)&v9->AbOrphanedEntrySummary, 1 << v18);
+LABEL_27:
+  --v9->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)v9, (__int64)&PopFxDeviceListLock, &v38);
+  v14 = v9->SpecialApcDisable++ == -1;
+  if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
+    KiCheckForKernelApcDelivery(v19);
+  v20 = (_QWORD *)*a2;
   if ( (_QWORD *)*a2 != a2 )
   {
     while ( 1 )
     {
-      v10 = (__int64 *)*(v9 - 103);
+      v21 = (__int64 *)*(v20 - 103);
       DevicePropertyData = IoGetDevicePropertyData(
-                             (PDEVICE_OBJECT)v10[4],
+                             (PDEVICE_OBJECT)v21[4],
                              &DEVPKEY_PciDevice_DeviceType,
                              0,
                              0,
@@ -143,202 +204,190 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, _QWORD *a2)
       if ( DevicePropertyData < 0 || Data != 8 )
       {
         DevicePropertyData = IoGetDevicePropertyData(
-                               (PDEVICE_OBJECT)v10[4],
+                               (PDEVICE_OBJECT)v21[4],
                                &DEVPKEY_Device_ClassGuid,
                                0,
                                0,
                                0x10u,
-                               &v40,
-                               &v28,
-                               &v27);
-        if ( DevicePropertyData < 0 || v27 != 13 || v28 != 16 )
-          goto LABEL_62;
-        v11 = *(_QWORD *)&GUID_DEVICE_CLASS_USB_CONTROLLER.Data1 - v40;
-        if ( *(_QWORD *)&GUID_DEVICE_CLASS_USB_CONTROLLER.Data1 == (_QWORD)v40 )
-          v11 = *(_QWORD *)GUID_DEVICE_CLASS_USB_CONTROLLER.Data4 - *((_QWORD *)&v40 + 1);
-        if ( v11 )
+                               &v52,
+                               &v41,
+                               &v40);
+        if ( DevicePropertyData < 0 || v40 != 13 || v41 != 16 )
+          goto LABEL_81;
+        v22 = *(_QWORD *)&GUID_DEVICE_CLASS_USB_CONTROLLER.Data1 - v52;
+        if ( *(_QWORD *)&GUID_DEVICE_CLASS_USB_CONTROLLER.Data1 == (_QWORD)v52 )
+          v22 = *(_QWORD *)GUID_DEVICE_CLASS_USB_CONTROLLER.Data4 - *((_QWORD *)&v52 + 1);
+        if ( v22 )
         {
-LABEL_62:
+LABEL_81:
           DevicePropertyData = 0;
-          goto LABEL_63;
+          goto LABEL_82;
         }
       }
-      v12 = (__int64 *)v10[1];
-      v13 = 0;
-      v14 = v10;
-      while ( v12 )
+      v23 = (__int64 *)v21[1];
+      v24 = 0;
+      v25 = v21;
+      while ( v23 )
       {
-        v14 = v12;
-        v12 = (__int64 *)v12[1];
+        v25 = v23;
+        v23 = (__int64 *)v23[1];
       }
-      if ( v14 != v10 )
+      if ( v25 != v21 )
         break;
-LABEL_63:
-      v9 = (_QWORD *)*v9;
-      if ( v9 == a2 )
-        return (unsigned int)DevicePropertyData;
+LABEL_82:
+      v20 = (_QWORD *)*v20;
+      if ( v20 == a2 )
+        goto LABEL_83;
     }
     do
     {
-      if ( *((_DWORD *)v14 + 39) == 1 )
+      if ( *((_DWORD *)v25 + 39) == 1 )
       {
-        _InterlockedAnd((volatile signed __int32 *)v14 + 74, 0xFFFFFFDF);
-        if ( RtlPrefixUnicodeString(&String1, (PCUNICODE_STRING)(v14 + 5), 0)
-          || RtlPrefixUnicodeString(&v36, (PCUNICODE_STRING)(v14 + 5), 0) )
+        _InterlockedAnd((volatile signed __int32 *)v25 + 74, 0xFFFFFFDF);
+        if ( RtlPrefixUnicodeString(&String1, (PCUNICODE_STRING)(v25 + 5), 0)
+          || RtlPrefixUnicodeString(&v49, (PCUNICODE_STRING)(v25 + 5), 0) )
         {
-          v15 = v14;
-          if ( v14 == v10 )
+          v27 = v25;
+          if ( v25 == v21 )
           {
-LABEL_29:
-            _InterlockedOr((volatile signed __int32 *)v14 + 74, 0x20u);
-            if ( v13 + 1 < v13 )
-              goto LABEL_68;
-            ++v13;
+LABEL_53:
+            _InterlockedOr((volatile signed __int32 *)v25 + 74, 0x20u);
+            if ( v24 + 1 < v24 )
+              goto LABEL_87;
+            ++v24;
             DevicePropertyData = 0;
           }
           else
           {
-            while ( *((_DWORD *)v15 + 39) == 1 )
+            while ( *((_DWORD *)v27 + 39) == 1 )
             {
-              v15 = (__int64 *)v15[2];
-              if ( v15 == v10 )
-                goto LABEL_29;
+              v27 = (__int64 *)v27[2];
+              if ( v27 == v21 )
+                goto LABEL_53;
             }
           }
         }
       }
-      v16 = (__int64 *)*v14;
-      if ( *v14 )
+      v26 = (__int64 *)*v25;
+      if ( *v25 )
       {
         do
         {
-          v14 = v16;
-          v16 = (__int64 *)v16[1];
+          v25 = v26;
+          v26 = (__int64 *)v26[1];
         }
-        while ( v16 );
+        while ( v26 );
       }
       else
       {
-        v14 = (__int64 *)v14[2];
+        v25 = (__int64 *)v25[2];
       }
     }
-    while ( v14 != v10 );
-    if ( !v13 )
-      goto LABEL_63;
-    v17 = 8LL * v13;
-    if ( v17 > 0xFFFFFFFF )
+    while ( v25 != v21 );
+    if ( !v24 )
+      goto LABEL_82;
+    v28 = 8LL * v24;
+    if ( v28 > 0xFFFFFFFF )
     {
-LABEL_68:
+LABEL_87:
       DevicePropertyData = -1073741675;
-      goto LABEL_65;
+      goto LABEL_84;
     }
     DevicePropertyData = 0;
-    Pool2 = ExAllocatePool2(256LL, (unsigned int)v17, 1297630800LL);
-    v18 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v28, 0x4D584650u);
+    v30 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v19 = (__int64 *)v10[1];
-      v20 = 0LL;
-      v21 = v10;
-      while ( v19 )
+      memset(PoolWithTag, 0, 8 * v24);
+      v31 = (volatile signed __int32 *)v21[1];
+      v32 = 0;
+      v33 = (volatile signed __int32 *)v21;
+      while ( v31 )
       {
-        v21 = v19;
-        v19 = (__int64 *)v19[1];
+        v33 = v31;
+        v31 = (volatile signed __int32 *)*((_QWORD *)v31 + 1);
       }
-      if ( v21 == v10 )
-        goto LABEL_58;
+      if ( v33 == (volatile signed __int32 *)v21 )
+        goto LABEL_76;
       while ( 1 )
       {
-        _m_prefetchw(v21 + 37);
-        v22 = *((_DWORD *)v21 + 74);
-        do
+        _m_prefetchw((const void *)(v33 + 74));
+        if ( (_InterlockedOr(v33 + 74, 0) & 0x20) != 0 )
         {
-          v23 = v22;
-          v22 = _InterlockedCompareExchange((volatile signed __int32 *)v21 + 74, v22, v22);
-        }
-        while ( v23 != v22 );
-        if ( (v22 & 0x20) != 0 )
-        {
-          if ( (unsigned int)v20 >= v13 )
+          if ( v32 >= v24 )
           {
-            if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+            if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
             {
-              v44 = 0;
-              v47 = 0;
-              v50 = 0;
-              v32 = v20 + 1;
-              v43 = 4;
-              v42 = &v32;
-              v33 = v13;
-              v45 = &v33;
-              v48 = &v37;
-              v46 = 4;
-              v37 = 0x1000000LL;
-              v49 = 8;
+              v55 = 4LL;
+              v44 = v32 + 1;
+              v45 = v24;
+              v54 = &v44;
+              v57 = 4LL;
+              v56 = &v45;
+              v50 = 0x1000000LL;
+              v58 = &v50;
+              v59 = 8LL;
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140C03950,
-                (unsigned __int8 *)&word_14002DB26,
+                (__int64)&dword_140C02228,
+                (unsigned __int8 *)byte_140026F5B,
+                0LL,
+                v36,
+                5u,
+                &v53);
+            }
+LABEL_76:
+            if ( v32 != v24
+              && (unsigned int)dword_140C02228 > 5
+              && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
+            {
+              v46 = v32;
+              v61 = &v46;
+              v62 = 4LL;
+              v63 = &v47;
+              v47 = v24;
+              v65 = &v51;
+              v64 = 4LL;
+              v51 = 0x1000000LL;
+              v66 = 8LL;
+              tlgWriteTransfer_EtwWriteTransfer(
+                (__int64)&dword_140C02228,
+                (unsigned __int8 *)&dword_140026EFC,
                 0LL,
                 0LL,
                 5u,
-                &v41);
+                &v60);
             }
-LABEL_57:
-            if ( (_DWORD)v20 != v13 )
-            {
-LABEL_58:
-              if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
-              {
-                v54 = 0;
-                v57 = 0;
-                v60 = 0;
-                v52 = &v34;
-                v34 = v20;
-                v55 = &v29;
-                v53 = 4;
-                v58 = &v38;
-                v29 = v13;
-                v56 = 4;
-                v38 = 0x1000000LL;
-                v59 = 8;
-                tlgWriteTransfer_EtwWriteTransfer(
-                  (__int64)&dword_140C03950,
-                  (unsigned __int8 *)&byte_14002DAC7,
-                  0LL,
-                  0LL,
-                  5u,
-                  &v51);
-              }
-            }
-            v9[3] = Pool2;
-            *((_DWORD *)v9 + 8) = v20;
-            goto LABEL_63;
+            v20[3] = v30;
+            *((_DWORD *)v20 + 8) = v32;
+            goto LABEL_82;
           }
-          _InterlockedAnd((volatile signed __int32 *)v21 + 74, 0xFFFFFFDF);
-          *(_QWORD *)(v18 + 8 * v20) = v21;
-          v20 = (unsigned int)(v20 + 1);
+          _InterlockedAnd(v33 + 74, 0xFFFFFFDF);
+          v34 = v32++;
+          v30[v34] = v33;
         }
-        v24 = (__int64 *)*v21;
-        if ( *v21 )
+        v35 = *(volatile signed __int32 **)v33;
+        if ( *(_QWORD *)v33 )
         {
           do
           {
-            v21 = v24;
-            v24 = (__int64 *)v24[1];
+            v33 = v35;
+            v35 = (volatile signed __int32 *)*((_QWORD *)v35 + 1);
           }
-          while ( v24 );
+          while ( v35 );
         }
         else
         {
-          v21 = (__int64 *)v21[2];
+          v33 = (volatile signed __int32 *)*((_QWORD *)v33 + 2);
         }
-        if ( v21 == v10 )
-          goto LABEL_57;
+        if ( v33 == (volatile signed __int32 *)v21 )
+          goto LABEL_76;
       }
     }
     DevicePropertyData = -1073741670;
-LABEL_65:
-    PopFxDestroyDripsBlockingDeviceList(a2);
+LABEL_83:
+    if ( DevicePropertyData < 0 )
+LABEL_84:
+      PopFxDestroyDripsBlockingDeviceList(a2);
   }
   return (unsigned int)DevicePropertyData;
 }

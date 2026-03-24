@@ -1,10 +1,10 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1800166D0
+ * XREFs of McGenControlCallbackV2 @ 0x1800D6430
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     DispatchDwmDiagnosticsControlMessage @ 0x1802632D8 (DispatchDwmDiagnosticsControlMessage.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     DispatchDwmDiagnosticsControlMessage @ 0x180212524 (DispatchDwmDiagnosticsControlMessage.c)
  */
 
 void __fastcall McGenControlCallbackV2(
@@ -16,13 +16,13 @@ void __fastcall McGenControlCallbackV2(
         PEVENT_FILTER_DESCRIPTOR FilterData,
         ULONGLONG *CallbackContext)
 {
-  unsigned int v8; // r9d
+  unsigned int v8; // r8d
   unsigned __int8 v9; // cl
   __int64 v10; // rcx
   bool v11; // r10
-  ULONGLONG v12; // rax
-  unsigned __int64 v13; // rdx
-  int v14; // r8d
+  int v12; // edx
+  int *v13; // rcx
+  int v14; // edx
   ULONG Size; // edx
 
   if ( CallbackContext )
@@ -31,10 +31,10 @@ void __fastcall McGenControlCallbackV2(
     {
       if ( IsEnabled == 1 )
       {
-        CallbackContext[2] = MatchAnyKeyword;
+        *((_BYTE *)CallbackContext + 40) = Level;
         v8 = 0;
         CallbackContext[3] = MatchAllKeyword;
-        *((_BYTE *)CallbackContext + 40) = Level;
+        CallbackContext[2] = MatchAnyKeyword;
         for ( *((_DWORD *)CallbackContext + 9) = 1; v8 < *((unsigned __int16 *)CallbackContext + 21); ++v8 )
         {
           v9 = *((_BYTE *)CallbackContext + 40);
@@ -45,13 +45,13 @@ void __fastcall McGenControlCallbackV2(
             if ( !v10 || (v10 & CallbackContext[2]) != 0 && (v10 & CallbackContext[3]) == CallbackContext[3] )
               v11 = 1;
           }
-          v12 = CallbackContext[6];
-          v13 = (unsigned __int64)v8 >> 5;
-          v14 = 1 << (v8 & 0x1F);
+          v12 = 1 << (v8 & 0x1F);
+          v13 = (int *)(CallbackContext[6] + 4 * ((unsigned __int64)v8 >> 5));
           if ( v11 )
-            *(_DWORD *)(v12 + 4 * v13) |= v14;
+            v14 = *v13 | v12;
           else
-            *(_DWORD *)(v12 + 4 * v13) &= ~v14;
+            v14 = *v13 & ~v12;
+          *v13 = v14;
         }
       }
     }
@@ -64,7 +64,7 @@ void __fastcall McGenControlCallbackV2(
       if ( *((_WORD *)CallbackContext + 21) )
         memset_0((void *)CallbackContext[6], 0, 4LL * ((*((unsigned __int16 *)CallbackContext + 21) - 1) / 32 + 1));
     }
-    if ( IsEnabled == 2 && CallbackContext == &Microsoft_Windows_Dwm_Core_Provider_Context )
+    if ( IsEnabled == 2 && CallbackContext == Microsoft_Windows_Dwm_Core_Provider_Context )
     {
       if ( FilterData )
       {

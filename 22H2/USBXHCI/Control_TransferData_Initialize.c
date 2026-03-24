@@ -1,12 +1,12 @@
 /*
- * XREFs of Control_TransferData_Initialize @ 0x1C00070DC
+ * XREFs of Control_TransferData_Initialize @ 0x1C00050E4
  * Callers:
- *     Control_WdfEvtIoDefault @ 0x1C0005C90 (Control_WdfEvtIoDefault.c)
- *     Control_WdfEvtIoCanceledOnQueue @ 0x1C0042E70 (Control_WdfEvtIoCanceledOnQueue.c)
+ *     Control_WdfEvtIoDefault @ 0x1C0003DB0 (Control_WdfEvtIoDefault.c)
+ *     Control_WdfEvtIoCanceledOnQueue @ 0x1C0040150 (Control_WdfEvtIoCanceledOnQueue.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022596 (McTemplateK0uqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0040708 (McTemplateK0uqqq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall Control_TransferData_Initialize(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -49,13 +49,13 @@ NTSTATUS __fastcall Control_TransferData_Initialize(__int64 a1, __int64 a2, __in
   }
   *(_OWORD *)(a4 + 21) = 0LL;
   *(_OWORD *)(a4 + 23) = 0LL;
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 0x200) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 2) != 0 )
   {
     v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2280))(WdfDriverGlobals, a2);
     result = IoGetActivityIdIrp(v9, a4 + 4);
     if ( result < 0 )
       result = EtwActivityIdControl(3u, (LPGUID)a4 + 2);
-    if ( (WPP_MAIN_CB.AlignmentRequirement & 0x200) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 2) != 0 )
     {
       v11 = *(_QWORD *)(a1 + 48);
       LOBYTE(v10) = *(_BYTE *)(v11 + 135);

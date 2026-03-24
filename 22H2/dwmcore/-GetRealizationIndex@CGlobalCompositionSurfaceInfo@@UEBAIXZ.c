@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealizationIndex@CGlobalCompositionSurfaceInfo@@UEBAIXZ @ 0x18025B590
+ * XREFs of ?GetRealizationIndex@CGlobalCompositionSurfaceInfo@@UEBAIXZ @ 0x1801F88A0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 __fastcall CGlobalCompositionSurfaceInfo::GetRealizationIndex(CGlobalCom
 {
   __int64 (__fastcall ***v1)(_QWORD); // rcx
 
-  v1 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 26);
+  v1 = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 23);
   if ( v1 )
     return (**v1)(v1);
   else

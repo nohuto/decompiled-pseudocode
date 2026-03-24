@@ -1,19 +1,19 @@
 /*
- * XREFs of ExReleaseResourceAndLeavePriorityRegion @ 0x14063D2C0
+ * XREFs of ExReleaseResourceAndLeavePriorityRegion @ 0x1405B5460
  * Callers:
- *     DifExReleaseResourceAndLeavePriorityRegionWrapper @ 0x140609510 (DifExReleaseResourceAndLeavePriorityRegionWrapper.c)
+ *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
  */
 
-char __fastcall ExReleaseResourceAndLeavePriorityRegion(struct _ERESOURCE *a1)
+_QWORD *__fastcall ExReleaseResourceAndLeavePriorityRegion(struct _ERESOURCE *a1)
 {
   struct _KTHREAD *CurrentThread; // rbx
 
   ExReleaseResourceLite(a1);
   CurrentThread = KeGetCurrentThread();
   PsBoostThreadIoEx((__int64)CurrentThread, 1, 0, 0LL);
-  return KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

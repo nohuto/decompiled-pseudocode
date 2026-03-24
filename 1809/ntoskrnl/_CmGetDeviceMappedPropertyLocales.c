@@ -1,5 +1,5 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyLocales @ 0x1408FDDE0
+ * XREFs of _CmGetDeviceMappedPropertyLocales @ 0x1408FDDC0
  * Callers:
  *     _PnpDispatchDevice @ 0x14059AFF0 (_PnpDispatchDevice.c)
  * Callees:
@@ -49,7 +49,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyLocales(
     if ( v9 >= 0x21 )
     {
       v12 = 0;
-      v13 = &off_140909320;
+      v13 = &off_140909300;
       while ( 1 )
       {
         v14 = *v13;
@@ -65,7 +65,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyLocales(
         v13 += 4;
         if ( v12 >= 2 )
         {
-          v16 = &off_14090B220;
+          v16 = &off_14090B200;
           v17 = 0;
           while ( 1 )
           {

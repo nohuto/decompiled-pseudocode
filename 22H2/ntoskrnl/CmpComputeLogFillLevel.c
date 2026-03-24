@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpComputeLogFillLevel @ 0x1407082BC
+ * XREFs of CmpComputeLogFillLevel @ 0x1407632B8
  * Callers:
- *     CmpTransWriteLog @ 0x140708120 (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x1407631B8 (CmpTransWriteLog.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpComputeLogFillLevel(
@@ -18,7 +18,7 @@ __int64 __fastcall CmpComputeLogFillLevel(
         _DWORD *a6)
 {
   NTSTATUS LogFileInformation; // ebx
-  CLFS_INFORMATION *Pool2; // rax
+  CLFS_INFORMATION *PoolWithTag; // rax
   CLFS_INFORMATION *v12; // rdi
   unsigned __int64 v13; // rax
   ULONG pcbInfoBuffer; // [rsp+30h] [rbp-99h] BYREF
@@ -32,11 +32,11 @@ __int64 __fastcall CmpComputeLogFillLevel(
   if ( !ClfsLsnInvalid(plsnStart) && !ClfsLsnInvalid(plsnFinish) && !ClfsLsnEqual(plsnStart, plsnFinish) )
     LogFileInformation = ClfsLsnDifference(plsnStart, plsnFinish, cbContainer, 0x1000u, &pcbDifference);
   pcbInfoBuffer = 120;
-  Pool2 = (CLFS_INFORMATION *)ExAllocatePool2(256LL, 120LL, 538987843LL);
-  v12 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
+  v12 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    ClfsGetLogFileInformation(plfoLog, Pool2, &pcbInfoBuffer);
+    ClfsGetLogFileInformation(plfoLog, PoolWithTag, &pcbInfoBuffer);
     ExFreePoolWithTag(v12, 0);
   }
   if ( LogFileInformation < 0 )

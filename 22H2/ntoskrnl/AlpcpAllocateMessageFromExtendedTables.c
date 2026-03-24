@@ -1,34 +1,34 @@
 /*
- * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x140978EDC
+ * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x1408C2E20
  * Callers:
- *     AlpcpAllocateMessageFunction @ 0x1407CBF40 (AlpcpAllocateMessageFunction.c)
+ *     AlpcpAllocateMessageFunction @ 0x140688500 (AlpcpAllocateMessageFunction.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
- *     ExpRemoveHandleTable @ 0x14068EB88 (ExpRemoveHandleTable.c)
- *     ExCreateHandleEx @ 0x140740974 (ExCreateHandleEx.c)
- *     ExCreateHandleTable @ 0x1407B0B78 (ExCreateHandleTable.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpRemoveHandleTable @ 0x140604524 (ExpRemoveHandleTable.c)
+ *     ExCreateHandleEx @ 0x140664860 (ExCreateHandleEx.c)
+ *     ExCreateHandleTable @ 0x1406A6B48 (ExCreateHandleTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(__int64 a1)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v3; // rbx
   unsigned int v4; // edi
   __int64 i; // rsi
   _QWORD *v6; // rbx
-  __int64 HandleTable; // rax
+  _QWORD *HandleTable; // rax
   __int64 Handle; // rax
 
   if ( !AlpcpSecondaryMessageTables )
   {
-    Pool2 = ExAllocatePool2(256LL, 256LL, 1632136257LL);
-    v3 = (_QWORD *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x61486C41u);
+    v3 = PoolWithTag;
+    if ( !PoolWithTag )
       return 0LL;
-    memset((void *)(Pool2 + 8), 0, 0xF8uLL);
+    memset(PoolWithTag + 1, 0, 0xF8uLL);
     *v3 = AlpcMessageTable;
     if ( _InterlockedCompareExchange64(&AlpcpSecondaryMessageTables, (signed __int64)v3, 0LL) )
       ExFreePoolWithTag(v3, 0x61486C41u);
@@ -39,16 +39,16 @@ unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(__int64 a1)
     v6 = *(_QWORD **)(i + AlpcpSecondaryMessageTables);
     if ( !v6 )
     {
-      HandleTable = ExCreateHandleTable(0LL, 0LL);
-      v6 = (_QWORD *)HandleTable;
+      HandleTable = ExCreateHandleTable(0LL, 0);
+      v6 = HandleTable;
       if ( !HandleTable )
         return 0LL;
       if ( _InterlockedCompareExchange64(
              (volatile signed __int64 *)(AlpcpSecondaryMessageTables + 8LL * v4),
-             HandleTable,
+             (signed __int64)HandleTable,
              0LL) )
       {
-        ExpRemoveHandleTable(HandleTable);
+        ExpRemoveHandleTable((__int64)HandleTable);
         ExpFreeHandleTable(v6);
         v6 = *(_QWORD **)(i + AlpcpSecondaryMessageTables);
       }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?CreateValidationProcessInCallerSession@DXGVALIDATION@@AEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C005AC28
+ * XREFs of ?CreateValidationProcessInCallerSession@DXGVALIDATION@@AEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C004D18C
  * Callers:
- *     ?InitializeForSession@DXGVALIDATION@@QEAAJPEAVDXGSESSIONDATA@@@Z @ 0x1C0017314 (-InitializeForSession@DXGVALIDATION@@QEAAJPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?InitializeForSession@DXGVALIDATION@@QEAAJPEAVDXGSESSIONDATA@@@Z @ 0x1C001B2FC (-InitializeForSession@DXGVALIDATION@@QEAAJPEAVDXGSESSIONDATA@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DXGVALIDATION::CreateValidationProcessInCallerSession(DXGVALIDATION *this, PVOID *a2)
 {
-  __int64 v3; // rax
-  void *v4; // rbx
+  char *v3; // rax
+  char *v4; // rbx
   unsigned int v5; // edi
   int v6; // eax
   NTSTATUS v7; // eax
@@ -41,16 +41,17 @@ __int64 __fastcall DXGVALIDATION::CreateValidationProcessInCallerSession(DXGVALI
   Handle = 0LL;
   *(_QWORD *)&SourceString.Length = 2883626LL;
   SourceString.Buffer = L"\\SystemRoot\\System32\\";
-  v3 = operator new[](0x474uLL, 0x4B677844u, 256LL);
-  v4 = (void *)v3;
+  v3 = (char *)operator new[](0x46CuLL, 0x4B677844u, PagedPool);
+  v4 = v3;
   if ( v3 )
   {
-    *(_DWORD *)(v3 + 4) = 1140;
-    *(_DWORD *)v3 = 1140;
-    *(_DWORD *)(v3 + 8) = 1;
-    *(_QWORD *)(v3 + 64) = v3 + 1096;
-    *(_WORD *)(v3 + 58) = SourceString.MaximumLength;
-    RtlCopyUnicodeString((PUNICODE_STRING)(v3 + 56), &SourceString);
+    memset(v3, 0, 0x46CuLL);
+    *((_DWORD *)v4 + 1) = 1132;
+    *((_QWORD *)v4 + 8) = v4 + 1088;
+    *(_DWORD *)v4 = 1132;
+    *((_DWORD *)v4 + 2) = 1;
+    *((_WORD *)v4 + 29) = SourceString.MaximumLength;
+    RtlCopyUnicodeString((PUNICODE_STRING)(v4 + 56), &SourceString);
     memset(v21, 0, sizeof(v21));
     v26 = 0LL;
     v15 = 0LL;

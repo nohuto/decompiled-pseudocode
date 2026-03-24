@@ -1,7 +1,7 @@
 /*
- * XREFs of XilRegister_GetOperationalRegisters @ 0x1C0001920
+ * XREFs of XilRegister_GetOperationalRegisters @ 0x1C00058C8
  * Callers:
- *     RootHub_PrepareHardware @ 0x1C006F968 (RootHub_PrepareHardware.c)
+ *     RootHub_PrepareHardware @ 0x1C006F400 (RootHub_PrepareHardware.c)
  * Callees:
  *     <none>
  */

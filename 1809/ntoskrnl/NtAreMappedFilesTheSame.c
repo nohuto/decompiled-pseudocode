@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAreMappedFilesTheSame @ 0x140704CC0
+ * XREFs of NtAreMappedFilesTheSame @ 0x140704CA0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@
  *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
  *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiDereferenceVad @ 0x1402CAFC4 (MiDereferenceVad.c)
+ *     MiDereferenceVad @ 0x1402CB0C4 (MiDereferenceVad.c)
  *     MiVadIsCfgBitmap @ 0x140604D30 (MiVadIsCfgBitmap.c)
  */
 

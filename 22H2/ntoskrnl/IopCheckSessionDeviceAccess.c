@@ -1,18 +1,19 @@
 /*
- * XREFs of IopCheckSessionDeviceAccess @ 0x1405576C8
+ * XREFs of IopCheckSessionDeviceAccess @ 0x1405063DC
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     IopGetSessionIdFromPDO @ 0x140791464 (IopGetSessionIdFromPDO.c)
+ *     PsGetThreadServerSilo @ 0x140206500 (PsGetThreadServerSilo.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
+ *     IopGetSessionIdFromPDO @ 0x14073A6FC (IopGetSessionIdFromPDO.c)
  */
 
 bool __fastcall IopCheckSessionDeviceAccess(__int64 a1)
 {
   int SessionId; // eax
   int v3; // ebx
-  __int64 CurrentServerSilo; // rax
+  __int64 ThreadServerSilo; // rax
   _DWORD **v5; // rax
   int SessionIdFromPDO; // eax
   bool result; // al
@@ -21,13 +22,21 @@ bool __fastcall IopCheckSessionDeviceAccess(__int64 a1)
   v3 = 0;
   if ( SessionId != -1 )
     v3 = SessionId;
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  if ( CurrentServerSilo )
-    v5 = *(_DWORD ***)(CurrentServerSilo + 1488);
-  else
+  if ( KeIsExecutingInArbitraryThreadContext()
+    || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
+  {
     v5 = (_DWORD **)&PspHostSiloGlobals;
-  result = v3 == *v5[165] && !IopSessionZeroAccessCheckEnabled
-        || (SessionIdFromPDO = IopGetSessionIdFromPDO(a1), SessionIdFromPDO == -1)
-        || v3 == SessionIdFromPDO;
+  }
+  else
+  {
+    v5 = *(_DWORD ***)(ThreadServerSilo + 1272);
+  }
+  result = 1;
+  if ( v3 != *v5[141] || IopSessionZeroAccessCheckEnabled )
+  {
+    SessionIdFromPDO = IopGetSessionIdFromPDO(a1);
+    if ( SessionIdFromPDO != -1 && v3 != SessionIdFromPDO )
+      return 0;
+  }
   return result;
 }

@@ -1,14 +1,13 @@
 /*
- * XREFs of ??1CRenderTargetBitmap@@MEAA@XZ @ 0x18003C1CC
+ * XREFs of ??1CRenderTargetBitmap@@MEAA@XZ @ 0x1800615F8
  * Callers:
- *     ??_GCDecodeBitmap@@UEAAPEAXI@Z @ 0x18001FAD0 (--_GCDecodeBitmap@@UEAAPEAXI@Z.c)
- *     ??_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z @ 0x18003C0B0 (--_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z.c)
- *     ??_ECRenderTargetBitmap@@MEAAPEAXI@Z @ 0x1800FCE00 (--_ECRenderTargetBitmap@@MEAAPEAXI@Z.c)
- *     ??_ECStereoRenderTargetBitmap@@UEAAPEAXI@Z @ 0x1802B5C80 (--_ECStereoRenderTargetBitmap@@UEAAPEAXI@Z.c)
+ *     ??_ECRenderTargetBitmap@@MEAAPEAXI@Z @ 0x1800D5B90 (--_ECRenderTargetBitmap@@MEAAPEAXI@Z.c)
+ *     ??_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z @ 0x1800DACE0 (--_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z.c)
+ *     ??_GCDecodeBitmap@@UEAAPEAXI@Z @ 0x180266630 (--_GCDecodeBitmap@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180034304 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CDeviceResource@@MEAA@XZ @ 0x18003C484 (--1CDeviceResource@@MEAA@XZ.c)
- *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18003C9E4 (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180056574 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18006158C (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18006194C (--1CDeviceResource@@MEAA@XZ.c)
  */
 
 void __fastcall CRenderTargetBitmap::~CRenderTargetBitmap(CRenderTargetBitmap *this)
@@ -19,7 +18,7 @@ void __fastcall CRenderTargetBitmap::~CRenderTargetBitmap(CRenderTargetBitmap *t
   __int64 v5; // rdx
   __int64 v6; // rdx
 
-  *(_QWORD *)this = &CRenderTargetBitmap::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CRenderTargetBitmap::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 10) = &CRenderTargetBitmap::`vftable';
   *((_QWORD *)this + 15) = &CScratchRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CRenderTargetBitmap::`vftable'{for `IDeviceResourceNotify'};

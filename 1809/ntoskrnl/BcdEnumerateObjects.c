@@ -1,19 +1,19 @@
 /*
- * XREFs of BcdEnumerateObjects @ 0x1408F08FC
+ * XREFs of BcdEnumerateObjects @ 0x1408F08DC
  * Callers:
- *     SepSecureBootCorrectBcd @ 0x1408A3114 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootCorrectBcd @ 0x1408A30F4 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     BiIsOfflineHandle @ 0x14016E59C (BiIsOfflineHandle.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     BiIsOfflineHandle @ 0x14016E5BC (BiIsOfflineHandle.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     BiGetObjectDescription @ 0x140711234 (BiGetObjectDescription.c)
- *     BiEnumerateSubKeys @ 0x140712944 (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x1407137A0 (BiOpenKey.c)
- *     BiCloseKey @ 0x140713910 (BiCloseKey.c)
- *     BiReleaseBcdSyncMutant @ 0x140713AF0 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x140713CA0 (BiAcquireBcdSyncMutant.c)
- *     BiIsEnumerateMatch @ 0x1408F0E54 (BiIsEnumerateMatch.c)
+ *     BiGetObjectDescription @ 0x140711214 (BiGetObjectDescription.c)
+ *     BiEnumerateSubKeys @ 0x140712924 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140713AD0 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140713C80 (BiAcquireBcdSyncMutant.c)
+ *     BiIsEnumerateMatch @ 0x1408F0E34 (BiIsEnumerateMatch.c)
  */
 
 NTSTATUS __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, __int64 a3, _DWORD *a4, unsigned int *a5)

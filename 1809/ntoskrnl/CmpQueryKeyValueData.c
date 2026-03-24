@@ -2,12 +2,12 @@
  * XREFs of CmpQueryKeyValueData @ 0x1405D1B30
  * Callers:
  *     CmEnumerateValueKey @ 0x1405D4080 (CmEnumerateValueKey.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407ED370 (CmEnumerateValueFromLayeredKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1407F1564 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1407ED350 (CmEnumerateValueFromLayeredKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1407F1544 (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
  *     CmpGetValueDataFromCache @ 0x1405CF438 (CmpGetValueDataFromCache.c)

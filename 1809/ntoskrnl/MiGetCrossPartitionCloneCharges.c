@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetCrossPartitionCloneCharges @ 0x1402C9FAC
+ * XREFs of MiGetCrossPartitionCloneCharges @ 0x1402CA0AC
  * Callers:
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1402CA018 (MiHandleForkTransitionPte.c)
- *     MiReferenceCloneProto @ 0x1402CA970 (MiReferenceCloneProto.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
+ *     MiReferenceCloneProto @ 0x1402CAA70 (MiReferenceCloneProto.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
- *     MiGetCrossPartitionCharges @ 0x1402D197C (MiGetCrossPartitionCharges.c)
+ *     MiGetCrossPartitionCharges @ 0x1402D1A7C (MiGetCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCloneCharges(__int64 a1)

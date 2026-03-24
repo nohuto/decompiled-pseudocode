@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringExHandleFillBehindNullW @ 0x1403B2F00
+ * XREFs of RtlStringExHandleFillBehindNullW @ 0x1403CF4FC
  * Callers:
- *     RtlStringCbPrintfExW @ 0x140226370 (RtlStringCbPrintfExW.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x14024F030 (RtlStringCbPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 NTSTATUS __stdcall RtlStringExHandleFillBehindNullW(NTSTRSAFE_PWSTR pszDestEnd, size_t cbRemaining, ULONG dwFlags)

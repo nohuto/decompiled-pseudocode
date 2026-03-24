@@ -1,10 +1,10 @@
 /*
- * XREFs of ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C0092A08
+ * XREFs of ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C00822B4
  * Callers:
- *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C00921C0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
- *     ?bClone@EPATHOBJ@@QEAAHAEAV1@@Z @ 0x1C00CD130 (-bClone@EPATHOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C0081A70 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ *     ?bClone@EPATHOBJ@@QEAAHAEAV1@@Z @ 0x1C00BE1A0 (-bClone@EPATHOBJ@@QEAAHAEAV1@@Z.c)
  * Callees:
- *     newpathalloc @ 0x1C00CCAC0 (newpathalloc.c)
+ *     newpathalloc @ 0x1C00BDC30 (newpathalloc.c)
  */
 
 __int64 __fastcall EPATHOBJ::newpathrec(EPATHOBJ *this, struct _PATHRECORD **a2, unsigned int *a3, unsigned int a4)

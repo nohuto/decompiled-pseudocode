@@ -1,17 +1,17 @@
 /*
- * XREFs of ?FaultAllDemotableAllocations@VIDMM_DEVICE@@QEAAXPEAV1@IW4_VIDMM_PLACEMENT_RESTRICTION@@IPEAIPEA_KPEA_N@Z @ 0x1C00DD6A4
+ * XREFs of ?FaultAllDemotableAllocations@VIDMM_DEVICE@@QEAAXPEAV1@IW4_VIDMM_PLACEMENT_RESTRICTION@@IPEAIPEA_KPEA_N@Z @ 0x1C00B7C6C
  * Callers:
- *     ?DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00DDFB0 (-DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM.c)
+ *     ?DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@PEA_N@Z @ 0x1C00B8974 (-DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_.c)
  * Callees:
- *     ?FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00A0970 (-FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00DDA2C (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C0074264 (-FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B82A4 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
  */
 
 __int64 __fastcall VIDMM_DEVICE::FaultAllDemotableAllocations(
         VIDMM_DEVICE *a1,
         __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        unsigned int a3,
+        int a4,
         unsigned int a5,
         unsigned int *a6,
         unsigned __int64 *a7,
@@ -32,11 +32,11 @@ __int64 __fastcall VIDMM_DEVICE::FaultAllDemotableAllocations(
   int v21; // [rsp+68h] [rbp+20h]
 
   v21 = a4;
-  v9 = (unsigned int)a3;
+  v9 = a3;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v10 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
-    LODWORD(a4) = v21;
+    v10 = WdLogNewEntry5_WdTrace(a1);
+    a4 = v21;
     *(_QWORD *)(v10 + 24) = a1;
   }
   result = *(_QWORD *)a1;
@@ -50,15 +50,15 @@ __int64 __fastcall VIDMM_DEVICE::FaultAllDemotableAllocations(
       v15 = (VIDMM_DEVICE **)(v14 - 7);
       v14 = (_QWORD *)*v14;
       v16 = *(_QWORD *)*v15;
-      result = *(unsigned int *)(v16 + 68);
+      result = *(unsigned int *)(v16 + 76);
       if ( (result & 0x40) != 0 )
       {
-        if ( (_DWORD)a4 != 7
+        if ( a4 != 7
           || (*(_BYTE *)(v13 + 82) & 1) == 0
-          || (v17 = *(_QWORD *)(v16 + 128), v18 = *(_QWORD *)(v13 + 384), v17 < v18)
+          || (v17 = *(_QWORD *)(v16 + 136), v18 = *(_QWORD *)(v13 + 384), v17 < v18)
           || *(_QWORD *)(v16 + 16) + v17 > *(_QWORD *)(v13 + 392) + v18 )
         {
-          v19 = *(_DWORD *)(v16 + 392);
+          v19 = *(_DWORD *)(v16 + 384);
           if ( v19 > a5 )
           {
             result = *a6;
@@ -75,7 +75,7 @@ __int64 __fastcall VIDMM_DEVICE::FaultAllDemotableAllocations(
           }
           else
           {
-            if ( (*((_DWORD *)a1 + 15) & 7) == 0 )
+            if ( (*((_DWORD *)a1 + 13) & 7) == 0 )
               VIDMM_DEVICE::PartiallySuspend(a1);
             VIDMM_GLOBAL::FaultOneAllocation(*(VIDMM_GLOBAL **)a1, v15);
             v20 = *(_QWORD *)(v16 + 16);
@@ -93,7 +93,7 @@ __int64 __fastcall VIDMM_DEVICE::FaultAllDemotableAllocations(
       }
       if ( v14 == v12 )
         return result;
-      LODWORD(a4) = v21;
+      a4 = v21;
     }
   }
   return result;

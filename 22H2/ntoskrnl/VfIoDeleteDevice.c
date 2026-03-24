@@ -1,42 +1,36 @@
 /*
- * XREFs of VfIoDeleteDevice @ 0x140AD3214
+ * XREFs of VfIoDeleteDevice @ 0x1409D6154
  * Callers:
- *     IovDeleteDevice @ 0x140AC2694 (IovDeleteDevice.c)
+ *     IovDeleteDevice @ 0x1409C51A8 (IovDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     RtlStringCbPrintfA @ 0x140383768 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     IovUtilMarkDeviceObject @ 0x1405CFD70 (IovUtilMarkDeviceObject.c)
- *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140AC58EC (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
- *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x140AC5AD8 (VF_MARK_FOR_DEFERRED_REMOVE.c)
- *     ViReleaseDmaAdapter @ 0x140ACAC1C (ViReleaseDmaAdapter.c)
- *     ViDevObjRemove @ 0x140AD34C0 (ViDevObjRemove.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x140AD3A64 (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD3B14 (IovUtilIsDeviceObjectMarked.c)
- *     ViErrorDisplayDescription @ 0x140AD46D0 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140AD4724 (ViErrorFinishReport.c)
- *     VfIrpLogDeleteDeviceLogs @ 0x140ADD750 (VfIrpLogDeleteDeviceLogs.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IovUtilMarkDeviceObject @ 0x1405A1CBC (IovUtilMarkDeviceObject.c)
+ *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x1409CA338 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
+ *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x1409CA51C (VF_MARK_FOR_DEFERRED_REMOVE.c)
+ *     ViReleaseDmaAdapter @ 0x1409CF530 (ViReleaseDmaAdapter.c)
+ *     ViDevObjRemove @ 0x1409D635C (ViDevObjRemove.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x1409D69AC (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A5C (IovUtilIsDeviceObjectMarked.c)
+ *     VfErrorReport9 @ 0x1409D8150 (VfErrorReport9.c)
+ *     VfIrpLogDeleteDeviceLogs @ 0x1409E3700 (VfIrpLogDeleteDeviceLogs.c)
  */
 
-LONG_PTR __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, const void *a2)
+__int64 __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, __int64 a2)
 {
   struct _LIST_ENTRY *v3; // rbx
   struct _LIST_ENTRY *Blink; // rax
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *v6; // rax
-  LONG_PTR result; // rax
+  __int64 result; // rax
   __int64 v8; // rcx
-  void *v9; // rsi
-  char pszDest[40]; // [rsp+20h] [rbp-68h] BYREF
-  char v11[40]; // [rsp+48h] [rbp-40h] BYREF
+  void *LowerDeviceObjectWithTag; // rdi
 
   v3 = BugCheckParameter2;
   if ( ViVerifyDma )
   {
     Blink = BugCheckParameter2[19].Blink;
     if ( !Blink )
-      goto LABEL_22;
+      goto LABEL_17;
     do
     {
       Flink = Blink[3].Flink;
@@ -48,7 +42,7 @@ LONG_PTR __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, con
     while ( Blink );
     if ( BugCheckParameter2 == v3 )
     {
-LABEL_22:
+LABEL_17:
       while ( 1 )
       {
         v6 = VF_FIND_DEVICE_INFORMATION_AND_REMOVE(v3);
@@ -67,25 +61,15 @@ LABEL_22:
   {
     ViDevObjRemove((ULONG_PTR)v3);
     if ( (unsigned int)IovUtilIsDeviceObjectMarked(v3, 0LL) )
-    {
-      ViErrorDisplayDescription(576LL);
-      if ( RtlStringCbPrintfA(pszDest, 0x26uLL, "CulpritAddress = %p.\n", a2) >= 0 )
-        VfUtilDbgPrint(pszDest);
-      ViErrorFinishReport(576LL, a2, 0LL, 0LL);
-    }
+      VfErrorReport9(576LL, a2);
     IovUtilMarkDeviceObject((__int64)v3, 0LL);
-    result = IovUtilGetLowerDeviceObjectWithTag(v8);
-    v9 = (void *)result;
-    if ( result )
+    LowerDeviceObjectWithTag = (void *)IovUtilGetLowerDeviceObjectWithTag(v8);
+    if ( LowerDeviceObjectWithTag )
     {
-      ViErrorDisplayDescription(513LL);
-      if ( RtlStringCbPrintfA(v11, 0x26uLL, "CulpritAddress = %p.\n", a2) >= 0 )
-        VfUtilDbgPrint(v11);
-      ViErrorFinishReport(513LL, a2, 0LL, 0LL);
-      result = ObfDereferenceObjectWithTag(v9, 0x49667256u);
+      VfErrorReport9(513LL, a2);
+      ObfDereferenceObjectWithTag(LowerDeviceObjectWithTag, 0x49667256u);
     }
-    if ( (MmVerifierData & 0x400) != 0 )
-      return VfIrpLogDeleteDeviceLogs(v3);
+    return VfIrpLogDeleteDeviceLogs(v3);
   }
   return result;
 }

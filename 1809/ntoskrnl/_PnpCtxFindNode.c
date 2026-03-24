@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCtxFindNode @ 0x1408F5CDC
+ * XREFs of _PnpCtxFindNode @ 0x1408F5CBC
  * Callers:
- *     _PnpCtxRegisterMachineNode @ 0x1408F5F3C (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408F5F1C (_PnpCtxRegisterMachineNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */
 

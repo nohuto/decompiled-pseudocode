@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIModuleGetSpareProperties @ 0x1C00AF9C0
+ * XREFs of ACPIModuleGetSpareProperties @ 0x1C00B0510
  * Callers:
  *     <none>
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     ACPIEvaluateSpareDsm @ 0x1C00AF7C8 (ACPIEvaluateSpareDsm.c)
- *     ACPIQuerySpareDsm @ 0x1C00AFB78 (ACPIQuerySpareDsm.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     ACPIEvaluateSpareDsm @ 0x1C00B0320 (ACPIEvaluateSpareDsm.c)
+ *     ACPIQuerySpareDsm @ 0x1C00B06C8 (ACPIQuerySpareDsm.c)
  */
 
 __int64 __fastcall ACPIModuleGetSpareProperties(__int64 a1, _DWORD *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall ACPIModuleGetSpareProperties(__int64 a1, _DWORD *a2)
 
   *a2 = 0;
   v11 = 0;
-  v4 = *(__int64 **)(a1 + 760);
+  v4 = *(__int64 **)(a1 + 720);
   v8 = 0LL;
   v10 = 0LL;
   v9 = 0LL;
@@ -31,8 +31,8 @@ __int64 __fastcall ACPIModuleGetSpareProperties(__int64 a1, _DWORD *a2)
   {
     if ( (int)ACPIQuerySpareDsm(a1, &v11) >= 0 && (v11 & 4) != 0 )
     {
-      v6 = ACPIEvaluateSpareDsm(v5, 2u, 0LL, (__int64)&v8);
-      AMLIDereferenceHandleEx((volatile signed __int32 *)v5);
+      v6 = ACPIEvaluateSpareDsm((unsigned __int64 *)v5, 2u, 0LL, (__int64)&v8);
+      AMLIDereferenceHandleEx((__int64)v5);
       if ( v6 >= 0 )
       {
         if ( WORD1(v8) == 1 )

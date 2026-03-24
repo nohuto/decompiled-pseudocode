@@ -1,19 +1,19 @@
 /*
- * XREFs of ?UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z @ 0x1C0255214
+ * XREFs of ?UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z @ 0x1C02584D4
  * Callers:
- *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0253FF8 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
- *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C02547C0 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0257288 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0257A90 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z @ 0x1C024EB3C (-ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z.c)
- *     ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C024EC34 (-ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z.c)
- *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C024FCA0 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z @ 0x1C0251B50 (-ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z.c)
+ *     ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C0251C44 (-ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z.c)
+ *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C0252CB4 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
  */
 
 struct tagWND *__fastcall InteractiveControlDevice::UpdateInputTarget(InteractiveControlDevice *this, int a2)
 {
+  __int64 v2; // rsi
   __int64 v3; // rbx
-  __int64 v4; // rcx
   __int64 v5; // rax
   struct InteractiveControlManager *v6; // rax
   InteractiveControlManager *v7; // rax
@@ -27,11 +27,11 @@ struct tagWND *__fastcall InteractiveControlDevice::UpdateInputTarget(Interactiv
   __int64 v15; // r8
   __int64 v16; // r9
 
+  v2 = *((_QWORD *)this + 6);
   v3 = 0LL;
-  v4 = *((_QWORD *)this + 6);
-  if ( v4 && (a2 & *((_DWORD *)this + 14)) != 0 )
+  if ( v2 && (a2 & *((_DWORD *)this + 14)) != 0 )
   {
-    v5 = *(_QWORD *)(v4 + 40);
+    v5 = *(_QWORD *)(v2 + 40);
     if ( *(char *)(v5 + 20) < 0 || *(char *)(v5 + 19) < 0 )
     {
       v7 = InteractiveControlManager::Instance();
@@ -40,7 +40,7 @@ struct tagWND *__fastcall InteractiveControlDevice::UpdateInputTarget(Interactiv
     else
     {
       v6 = InteractiveControlManager::Instance();
-      InteractiveControlManager::SetDeviceFocus((__int64)v6, 0, 0LL, *((_QWORD *)this + 6));
+      InteractiveControlManager::SetDeviceFocus((__int64)v6, 0, 0LL, v2);
     }
   }
   v11 = *((_QWORD *)this + 5);

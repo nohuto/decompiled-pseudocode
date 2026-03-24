@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRemoveTimerFromTimerList @ 0x1403DE184
+ * XREFs of IopRemoveTimerFromTimerList @ 0x1403CED08
  * Callers:
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopRemoveTimerFromTimerList(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of _guard_check_icall_nop @ 0x1C0004590
+ * XREFs of _guard_check_icall_nop @ 0x1C0007CC0
  * Callers:
  *     <none>
  * Callees:

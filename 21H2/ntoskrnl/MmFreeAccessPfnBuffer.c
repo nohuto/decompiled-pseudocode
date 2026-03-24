@@ -1,30 +1,31 @@
 /*
- * XREFs of MmFreeAccessPfnBuffer @ 0x14035FA80
+ * XREFs of MmFreeAccessPfnBuffer @ 0x1402D4628
  * Callers:
- *     PfpReturnAccessBuffer @ 0x1402009E4 (PfpReturnAccessBuffer.c)
- *     MiReturnCcAccessLog @ 0x140233A4C (MiReturnCcAccessLog.c)
- *     MiQueuePageAccessLog @ 0x140233AA0 (MiQueuePageAccessLog.c)
- *     PfpFlushBuffers @ 0x1407D9F00 (PfpFlushBuffers.c)
- *     PfTAccessTracingCleanup @ 0x140A483FC (PfTAccessTracingCleanup.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     MiQueuePageAccessLog @ 0x14025C02C (MiQueuePageAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1402C811C (MiReturnCcAccessLog.c)
+ *     PfpReturnAccessBuffer @ 0x1402D40D0 (PfpReturnAccessBuffer.c)
+ *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
+ *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmFreeAccessPfnBuffer(_QWORD *P, char a2)
 {
-  void *v3; // rcx
+  struct _DMA_ADAPTER *v3; // rcx
 
   if ( !*((_DWORD *)P + 2) )
   {
-    v3 = (void *)P[7];
+    v3 = (struct _DMA_ADAPTER *)P[7];
     if ( (unsigned __int64)v3 > 1 )
     {
       if ( a2 )
         ObDereferenceObjectDeferDelete(v3);
       else
-        ObfDereferenceObject(v3);
+        HalPutDmaAdapter(v3);
     }
   }
   ExFreePoolWithTag(P, 0);

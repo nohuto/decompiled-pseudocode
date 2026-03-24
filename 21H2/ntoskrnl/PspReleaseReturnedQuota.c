@@ -1,9 +1,9 @@
 /*
- * XREFs of PspReleaseReturnedQuota @ 0x1405E039C
+ * XREFs of PspReleaseReturnedQuota @ 0x1405812B8
  * Callers:
- *     PspExpandQuota @ 0x1402436C8 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1402BF1E8 (PspExpandQuota.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PspReleaseReturnedQuota(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PspReleaseReturnedQuota(__int64 a1, __int64 a2)
     do
     {
       v2 += _InterlockedExchange64(v3 - 1, 0LL);
-      if ( !LODWORD(v3[16 * (4LL - (int)a1) - 10]) )
+      if ( !*(_DWORD *)((char *)v3 + 432 - ((__int64)(int)a1 << 7)) )
         v2 += _InterlockedExchange64(v3 - 2, 0LL);
       v3 = (_QWORD *)*v3;
     }

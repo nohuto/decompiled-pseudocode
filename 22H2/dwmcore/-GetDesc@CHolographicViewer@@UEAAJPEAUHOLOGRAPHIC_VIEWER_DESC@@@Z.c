@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDesc@CHolographicViewer@@UEAAJPEAUHOLOGRAPHIC_VIEWER_DESC@@@Z @ 0x1801089E0
+ * XREFs of ?GetDesc@CHolographicViewer@@UEAAJPEAUHOLOGRAPHIC_VIEWER_DESC@@@Z @ 0x1800E3620
  * Callers:
  *     <none>
  * Callees:

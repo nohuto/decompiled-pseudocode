@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsIndependentFlipNotify@CGlobalCompositionSurfaceInfo@@UEBA_NXZ @ 0x1800FBB60
+ * XREFs of ?IsIndependentFlipNotify@CGlobalCompositionSurfaceInfo@@UEBA_NXZ @ 0x1800E30B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CGlobalCompositionSurfaceInfo::IsIndependentFlipNotify(CGlobalCompositionSurfaceInfo *this)
 {
-  return *((_BYTE *)this + 277);
+  return *((_BYTE *)this + 261);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of wcstombs @ 0x1403E35A0
+ * XREFs of wcstombs @ 0x1403D4200
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeToMultiByteN @ 0x1406A04A0 (RtlUnicodeToMultiByteN.c)
- *     RtlUnicodeToMultiByteSize @ 0x140759DB0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1405EDC80 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1405EDEA0 (RtlUnicodeToMultiByteN.c)
  */
 
 size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)
@@ -22,8 +22,8 @@ size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)
     v4 = RtlUnicodeToMultiByteN(Dest, MaxCount, (PULONG)&BytesInMultiByteString, Source, 2 * v3 + 2);
   else
     v4 = RtlUnicodeToMultiByteSize((PULONG)&BytesInMultiByteString, Source, 2 * v3 + 2);
-  if ( v4 < 0 )
-    return -1LL;
-  else
+  if ( v4 >= 0 )
     return BytesInMultiByteString - 1;
+  gbl_errno = 42;
+  return -1LL;
 }

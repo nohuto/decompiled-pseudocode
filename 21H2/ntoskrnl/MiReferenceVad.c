@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReferenceVad @ 0x14030EB64
+ * XREFs of MiReferenceVad @ 0x14025B390
  * Callers:
- *     MiMapLockedPagesInUserSpace @ 0x140693498 (MiMapLockedPagesInUserSpace.c)
- *     MiLockVadRange @ 0x1406F7D78 (MiLockVadRange.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x140709A08 (MiAllocateFromSubAllocatedRegion.c)
- *     MiCommitInitialVadMetadataBits @ 0x140755920 (MiCommitInitialVadMetadataBits.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     MiMapViewOfPhysicalSection @ 0x140852834 (MiMapViewOfPhysicalSection.c)
- *     MiCoalescePlaceholderAllocations @ 0x14096D8A8 (MiCoalescePlaceholderAllocations.c)
- *     MiHotPatchProcess @ 0x1409736EC (MiHotPatchProcess.c)
- *     MiAllocateEnclaveVad @ 0x140978F40 (MiAllocateEnclaveVad.c)
- *     MiPreparePlaceholderVadReplacement @ 0x14097F038 (MiPreparePlaceholderVadReplacement.c)
- *     MiDeleteInsertedCloneVads @ 0x140980A20 (MiDeleteInsertedCloneVads.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiLockVadRange @ 0x14061DC20 (MiLockVadRange.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x14064C180 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiCfgInitializeProcess @ 0x1407120DC (MiCfgInitializeProcess.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408C87A4 (MiCoalescePlaceholderAllocations.c)
+ *     MiHotPatchProcess @ 0x1408CA658 (MiHotPatchProcess.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x1408D84B0 (MiPreparePlaceholderVadReplacement.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408D93B4 (MiDeleteInsertedCloneVads.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,10 @@
 /*
- * XREFs of ReleaseGL @ 0x1C004CEC8
+ * XREFs of ReleaseGL @ 0x1C0065C3C
  * Callers:
- *     AccFieldUnit @ 0x1C0051650 (AccFieldUnit.c)
- *     ParseAcquire @ 0x1C005A110 (ParseAcquire.c)
- *     ParseRelease @ 0x1C005BF90 (ParseRelease.c)
+ *     ParseRelease @ 0x1C0003760 (ParseRelease.c)
+ *     ParseAcquire @ 0x1C000A6C0 (ParseAcquire.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ReleaseGL()
@@ -14,6 +13,6 @@ __int64 ReleaseGL()
 
   result = 0LL;
   if ( ghGlobalLock )
-    return ((__int64 (__fastcall *)(__int64, __int64, __int64))ghGlobalLock)(5LL, 1LL, qword_1C0070280);
+    return ((__int64 (__fastcall *)(__int64, __int64, __int64))ghGlobalLock)(5LL, 1LL, qword_1C00831A8);
   return result;
 }

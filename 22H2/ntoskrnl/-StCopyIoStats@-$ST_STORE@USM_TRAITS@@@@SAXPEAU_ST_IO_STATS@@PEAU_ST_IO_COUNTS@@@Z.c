@@ -1,17 +1,17 @@
 /*
- * XREFs of ?StCopyIoStats@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_IO_STATS@@PEAU_ST_IO_COUNTS@@@Z @ 0x1405C4014
+ * XREFs of ?StCopyIoStats@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_IO_STATS@@PEAU_ST_IO_COUNTS@@@Z @ 0x14059A4A8
  * Callers:
- *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14039B920 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     ?SmStEtwFillStoreStatsEvent@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x1405CD0AC (-SmStEtwFillStoreStatsEvent@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
+ *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x140325408 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     ?SmStEtwFillStoreStatsEvent@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x14059F5C8 (-SmStEtwFillStoreStatsEvent@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void *__fastcall ST_STORE<SM_TRAITS>::StCopyIoStats(unsigned int *a1, __int64 a2)
 {
   char *v2; // rsi
   unsigned int v3; // eax
-  unsigned int v5; // ecx
+  unsigned int v5; // eax
   __int64 v6; // rcx
   size_t v7; // rbx
 
@@ -25,8 +25,9 @@ void *__fastcall ST_STORE<SM_TRAITS>::StCopyIoStats(unsigned int *a1, __int64 a2
   {
     v6 = ((_BYTE)v5 + 1) & 0x3F;
     v7 = 20LL * (unsigned int)(64 - v6);
-    memmove(v2, (const void *)(a2 + 4 * ((unsigned int)v6 + 4 * v6 + 6)), v7);
+    memmove(v2, (const void *)(a2 + 4 * (v6 + 4 * v6 + 6)), v7);
+    v5 = *(_DWORD *)(a2 + 8);
     v2 += v7;
   }
-  return memmove(v2, (const void *)(a2 + 24), 20LL * (((unsigned __int8)*(_DWORD *)(a2 + 8) + 1) & 0x3F));
+  return memmove(v2, (const void *)(a2 + 24), 20LL * (((_BYTE)v5 + 1) & 0x3F));
 }

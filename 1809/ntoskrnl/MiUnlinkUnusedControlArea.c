@@ -2,9 +2,9 @@
  * XREFs of MiUnlinkUnusedControlArea @ 0x14007BAD0
  * Callers:
  *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
- *     MiDeleteCachedSegment @ 0x1402A1764 (MiDeleteCachedSegment.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A26C0 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x1402A2880 (MiProcessDeleteOnClose.c)
+ *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A27C0 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1402A2980 (MiProcessDeleteOnClose.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     MiComputePagedPoolSegmentBytes @ 0x14007B69C (MiComputePagedPoolSegmentBytes.c)

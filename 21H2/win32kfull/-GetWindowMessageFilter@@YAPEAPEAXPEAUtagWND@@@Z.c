@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00A767C
+ * XREFs of ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C003FA78
  * Callers:
- *     _ChangeWindowMessageFilterEx @ 0x1C00A70D8 (_ChangeWindowMessageFilterEx.c)
- *     ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C00A75A0 (-IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F428 (_ChangeWindowMessageFilterEx.c)
+ *     ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C003F99C (-IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z.c)
  * Callees:
- *     VWPLGetData @ 0x1C00A76BC (VWPLGetData.c)
+ *     VWPLGetData @ 0x1C003FAB8 (VWPLGetData.c)
  */
 
 void **__fastcall GetWindowMessageFilter(struct tagWND *a1)

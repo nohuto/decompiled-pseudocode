@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpGetDeviceInstanceRegistryValue @ 0x140957A30
+ * XREFs of PnpGetDeviceInstanceRegistryValue @ 0x1408A0EE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall PnpGetDeviceInstanceRegistryValue(__int64 a1, char a2, const WCHAR *a3, int a4, _QWORD *a5)

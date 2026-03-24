@@ -1,65 +1,60 @@
 /*
- * XREFs of wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C00340BC
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C002B108
  * Callers:
- *     wil_InitializeFeatureStaging @ 0x1C0034078 (wil_InitializeFeatureStaging.c)
+ *     wil_InitializeFeatureStaging @ 0x1C002B078 (wil_InitializeFeatureStaging.c)
  * Callees:
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C000FC9C (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C00320D4 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0007C8C (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0029008 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
  */
 
-__int64 wil_details_PopulateInitialConfiguredFeatureStates()
+_QWORD *wil_details_PopulateInitialConfiguredFeatureStates()
 {
-  unsigned int v0; // edi
-  _QWORD *i; // rcx
-  _QWORD *v2; // rbx
-  unsigned int v3; // eax
+  _QWORD *v0; // rcx
+  int v1; // eax
+  _QWORD *result; // rax
+  _QWORD *v3; // rbx
   __int64 v4; // rdx
-  unsigned int v6; // eax
-  __int64 v7; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-28h] BYREF
-  int v10; // [rsp+38h] [rbp-20h]
+  __int64 v5; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v6; // [rsp+28h] [rbp-28h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-20h] BYREF
+  int v8; // [rsp+38h] [rbp-18h]
 
-  v0 = 0;
-  for ( i = &wil_details_featureDescriptors_a; ; i = v2 + 6 )
+  v0 = wil_details_featureDescriptors_a;
+  while ( 1 )
   {
-    v2 = wil_details_FeatureDescriptors_SkipPadding(i);
-    if ( !v2 )
+    result = wil_details_FeatureDescriptors_SkipPadding(v0);
+    v3 = result;
+    if ( !result )
       break;
-    v8 = 0LL;
+    v6 = 0LL;
+    v5 = 0LL;
     v7 = 0LL;
-    v9 = 0LL;
-    v10 = 0;
-    if ( *((_BYTE *)v2 + 21) || *((_BYTE *)v2 + 22) )
-    {
-      v3 = -1073741275;
-    }
+    v8 = 0;
+    if ( *((_BYTE *)result + 29) || *((_BYTE *)result + 30) )
+      v1 = -1073741275;
     else
+      v1 = RtlQueryFeatureConfiguration(
+             *((unsigned int *)result + 6),
+             (unsigned __int8)(*((_BYTE *)result + 28) - 2) > 1u,
+             &v6,
+             &v7);
+    if ( v1 == -2147483614 )
     {
-      v3 = ((__int64 (__fastcall *)(_QWORD, bool, __int64 *, __int64 *, __int64))RtlQueryFeatureConfiguration)(
-             *((unsigned int *)v2 + 4),
-             (unsigned __int8)(*((_BYTE *)v2 + 20) - 2) > 1u,
-             &v8,
-             &v9,
-             v7);
-      if ( v3 == -2147483614 )
+      v5 = 518LL;
+      v4 = 518LL;
+      do
       {
-        v7 = 131LL;
-        v4 = 131LL;
-        do
-        {
-          *(_QWORD *)*v2 = v4;
-          v2 = wil_details_FeatureDescriptors_SkipPadding(v2 + 6);
-        }
-        while ( v2 );
-        return v0;
+        *(_QWORD *)*v3 = v4;
+        result = wil_details_FeatureDescriptors_SkipPadding(v3 + 5);
+        v3 = result;
       }
+      while ( result );
+      return result;
     }
-    v6 = wil_details_BuildFeatureStateCacheFromQueryResults(v3, (__int64)&v9, &v7);
-    if ( v6 )
-      v0 = v6;
-    *(_QWORD *)*v2 = v7;
+    wil_details_BuildFeatureStateCacheFromQueryResults(v1, (__int64)&v7, &v5);
+    v0 = v3 + 5;
+    *(_QWORD *)*v3 = v5;
   }
-  return v0;
+  return result;
 }

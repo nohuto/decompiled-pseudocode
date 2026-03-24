@@ -1,52 +1,70 @@
 /*
- * XREFs of NtDCompositionCreateChannel @ 0x1C0022ED0
+ * XREFs of NtDCompositionCreateChannel @ 0x1C005BB10
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00215A0 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
- *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C0023020 (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C005A4F8 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C005BDF0 (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
  */
 
-__int64 __fastcall NtDCompositionCreateChannel(unsigned int *a1, unsigned int *a2, _QWORD *a3)
+__int64 __fastcall NtDCompositionCreateChannel(unsigned int *a1, unsigned int *a2, void **a3)
 {
-  _QWORD *v3; // r14
-  int v6; // ebx
-  unsigned int *v7; // rcx
-  ULONG64 v8; // rdx
-  unsigned int v10; // [rsp+20h] [rbp-38h] BYREF
-  void *v11; // [rsp+28h] [rbp-30h] BYREF
-  unsigned int v12; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int *v5; // rsi
+  unsigned int **v6; // rdx
+  int v7; // ebx
+  unsigned int *v8; // rax
+  _QWORD *v9; // rdx
+  int v11; // [rsp+20h] [rbp-38h]
+  unsigned int v12; // [rsp+24h] [rbp-34h] BYREF
+  void *v13; // [rsp+28h] [rbp-30h] BYREF
+  unsigned int v14; // [rsp+78h] [rbp+20h] BYREF
 
-  v3 = a3;
-  v6 = 0;
-  v10 = 0;
+  v5 = a1;
   v12 = 0;
-  v11 = 0LL;
-  if ( a1 && a2 && a3 )
+  v14 = 0;
+  v13 = 0LL;
+  if ( a1 )
   {
-    v7 = a2;
-    v8 = (ULONG64)(a2 + 1);
-    if ( v8 < (unsigned __int64)v7 || v8 > MmUserProbeAddress )
-      v7 = (unsigned int *)MmUserProbeAddress;
-    v12 = *v7;
+    v6 = (unsigned int **)MmUserProbeAddress;
+    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+      a1 = (unsigned int *)MmUserProbeAddress;
+    *a1 = *a1;
+    v7 = 0;
+    v11 = 0;
   }
   else
   {
-    v6 = -1073741811;
+    v7 = -1073741811;
+    v11 = -1073741811;
+    v6 = (unsigned int **)MmUserProbeAddress;
   }
-  if ( v6 >= 0 )
+  if ( a2 )
   {
-    v6 = DirectComposition::CApplicationChannel::Create(&v10, &v12, &v11);
-    if ( v6 >= 0 )
+    v8 = a2;
+    if ( a2 + 1 < a2 || a2 + 1 > *v6 )
+      v8 = *v6;
+    v14 = *v8;
+    if ( v14 )
     {
-      *a2 = v12;
-      if ( a1 + 1 < a1 || (unsigned __int64)(a1 + 1) > MmUserProbeAddress )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      *a1 = v10;
-      if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-        v3 = (_QWORD *)MmUserProbeAddress;
-      *v3 = v11;
+      v9 = a3;
+      if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+        v9 = (_QWORD *)MmUserProbeAddress;
+      *v9 = *v9;
+      v7 = v11;
     }
   }
-  return (unsigned int)v6;
+  if ( v7 >= 0 )
+  {
+    v7 = DirectComposition::CApplicationChannel::Create(&v12, &v14, &v13);
+    if ( v7 >= 0 )
+    {
+      *v5 = v12;
+      if ( v14 )
+      {
+        *a2 = v14;
+        *a3 = v13;
+      }
+    }
+  }
+  return (unsigned int)v7;
 }

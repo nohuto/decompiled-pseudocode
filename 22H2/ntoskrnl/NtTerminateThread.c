@@ -1,18 +1,18 @@
 /*
- * XREFs of NtTerminateThread @ 0x14076DDC0
+ * XREFs of NtTerminateThread @ 0x140707A50
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PspTerminateThreadByPointer @ 0x14076DE90 (PspTerminateThreadByPointer.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspTerminateThreadByPointer @ 0x140707AC0 (PspTerminateThreadByPointer.c)
  */
 
-__int64 __fastcall NtTerminateThread(ULONG_PTR a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall NtTerminateThread(void *a1, unsigned int a2, __int64 a3)
 {
-  unsigned int v3; // ebx
+  NTSTATUS v3; // ebx
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PVOID Object; // [rsp+50h] [rbp+8h] BYREF
 
   Object = 0LL;
@@ -20,19 +20,18 @@ __int64 __fastcall NtTerminateThread(ULONG_PTR a1, unsigned int a2, __int64 a3)
   CurrentThread = KeGetCurrentThread();
   if ( a1 )
   {
-    if ( a1 == -2LL )
+    if ( a1 == (void *)-2LL )
       goto LABEL_3;
-    result = ObpReferenceObjectByHandleWithTag(
+    result = ObReferenceObjectByHandleWithTag(
                a1,
-               1,
-               (__int64)PsThreadType,
+               1u,
+               (POBJECT_TYPE)PsThreadType,
                CurrentThread->PreviousMode,
                0x65547350u,
                &Object,
-               0LL,
                0LL);
     v3 = result;
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       if ( Object != CurrentThread )
       {
@@ -49,9 +48,9 @@ LABEL_3:
   }
   else
   {
-    if ( LODWORD(CurrentThread->ApcState.Process[1].ActiveProcessors.StaticBitmap[8]) != 1 )
+    if ( LODWORD(CurrentThread->ApcState.Process[1].ActiveProcessors.Bitmap[8]) != 1 )
       goto LABEL_3;
-    return 3221225691LL;
+    return -1073741605;
   }
   return result;
 }

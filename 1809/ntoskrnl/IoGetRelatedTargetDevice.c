@@ -2,9 +2,9 @@
  * XREFs of IoGetRelatedTargetDevice @ 0x1405A2CA4
  * Callers:
  *     FsRtlNotifyVolumeEventEx @ 0x1405A2BD0 (FsRtlNotifyVolumeEventEx.c)
- *     NtSetVolumeInformationFile @ 0x1406FF290 (NtSetVolumeInformationFile.c)
- *     PiPagePathSetState @ 0x14075C1FC (PiPagePathSetState.c)
- *     NtGetDevicePowerState @ 0x14086F660 (NtGetDevicePowerState.c)
+ *     NtSetVolumeInformationFile @ 0x1406FF270 (NtSetVolumeInformationFile.c)
+ *     PiPagePathSetState @ 0x14075C1DC (PiPagePathSetState.c)
+ *     NtGetDevicePowerState @ 0x14086F640 (NtGetDevicePowerState.c)
  * Callees:
  *     PnpGetRelatedTargetDevice @ 0x14000E8D0 (PnpGetRelatedTargetDevice.c)
  */

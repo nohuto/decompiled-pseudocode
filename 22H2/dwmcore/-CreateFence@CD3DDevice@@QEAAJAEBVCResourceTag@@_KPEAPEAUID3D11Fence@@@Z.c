@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@@Z @ 0x18028D118
+ * XREFs of ?CreateFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@@Z @ 0x18023E4C0
  * Callers:
- *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801ECFA4 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
+ *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1800ED664 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateFence(
@@ -14,19 +14,19 @@ __int64 __fastcall CD3DDevice::CreateFence(
         __int64 a3,
         struct ID3D11Fence **a4)
 {
-  __int64 *v5; // r11
+  __int64 *v5; // r10
   __int64 v7; // r8
   __int64 v8; // rax
   int v9; // eax
   __int64 v10; // rcx
   unsigned int v11; // ebx
-  struct ID3D11Fence *v12; // rax
+  struct ID3D11Fence *v12; // rcx
   struct ID3D11Fence *v14; // [rsp+50h] [rbp+18h] BYREF
 
   v14 = (struct ID3D11Fence *)a3;
   *a4 = 0LL;
-  v5 = (__int64 *)*((_QWORD *)this + 69);
-  v7 = ~(unsigned __int8)*((_DWORD *)this + 226) & 8;
+  v5 = (__int64 *)*((_QWORD *)this + 74);
+  v7 = ~(unsigned __int8)*((_DWORD *)this + 236) & 8;
   v8 = *v5;
   v14 = 0LL;
   v9 = (*(__int64 (__fastcall **)(__int64 *, _QWORD, __int64, GUID *, struct ID3D11Fence **))(v8 + 544))(
@@ -38,7 +38,7 @@ __int64 __fastcall CD3DDevice::CreateFence(
   v11 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x738u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x8FDu, 0LL);
   }
   else
   {

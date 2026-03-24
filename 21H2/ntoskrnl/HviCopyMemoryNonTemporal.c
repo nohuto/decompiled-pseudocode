@@ -1,11 +1,11 @@
 /*
- * XREFs of HviCopyMemoryNonTemporal @ 0x1405F2BFC
+ * XREFs of HviCopyMemoryNonTemporal @ 0x140594658
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1402BD970 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
  * Callees:
- *     RtlCopyMemoryNonTemporal @ 0x14042A290 (RtlCopyMemoryNonTemporal.c)
- *     HviEnterKernelAperture @ 0x1405F2C80 (HviEnterKernelAperture.c)
- *     HviLeaveKernelAperture @ 0x1405F2CDC (HviLeaveKernelAperture.c)
+ *     RtlCopyMemoryNonTemporal @ 0x140408260 (RtlCopyMemoryNonTemporal.c)
+ *     HviEnterKernelAperture @ 0x1405946DC (HviEnterKernelAperture.c)
+ *     HviLeaveKernelAperture @ 0x140594738 (HviLeaveKernelAperture.c)
  */
 
 __int64 __fastcall HviCopyMemoryNonTemporal(__int64 a1, __int64 a2, unsigned int a3)

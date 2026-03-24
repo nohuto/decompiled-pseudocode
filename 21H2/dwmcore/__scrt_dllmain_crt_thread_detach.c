@@ -1,14 +1,14 @@
 /*
- * XREFs of __scrt_dllmain_crt_thread_detach @ 0x1801008D8
+ * XREFs of __scrt_dllmain_crt_thread_detach @ 0x1800E70A8
  * Callers:
- *     dllmain_crt_dispatch @ 0x180100C10 (dllmain_crt_dispatch.c)
+ *     dllmain_crt_dispatch @ 0x1800E7400 (dllmain_crt_dispatch.c)
  * Callees:
- *     __scrt_stub_for_acrt_thread_attach @ 0x180103374 (__scrt_stub_for_acrt_thread_attach.c)
+ *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1800E944C (__scrt_stub_for_acrt_uninitialize_critical.c)
  */
 
 char _scrt_dllmain_crt_thread_detach()
 {
-  _scrt_stub_for_acrt_thread_attach();
-  _scrt_stub_for_acrt_thread_attach();
+  _scrt_stub_for_acrt_uninitialize_critical();
+  _scrt_stub_for_acrt_uninitialize_critical();
   return 1;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepLogEtwMessage @ 0x1400F4D48
+ * XREFs of KsepLogEtwMessage @ 0x1400F4D68
  * Callers:
- *     KsepLogInfo @ 0x1400F4D18 (KsepLogInfo.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
+ *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     RtlStringCbVPrintfA @ 0x1400F4E3C (RtlStringCbVPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     RtlStringCbVPrintfA @ 0x1400F4E5C (RtlStringCbVPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)

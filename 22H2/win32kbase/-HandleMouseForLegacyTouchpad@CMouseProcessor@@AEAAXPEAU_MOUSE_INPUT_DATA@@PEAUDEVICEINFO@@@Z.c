@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HandleMouseForLegacyTouchpad@CMouseProcessor@@AEAAXPEAU_MOUSE_INPUT_DATA@@PEAUDEVICEINFO@@@Z @ 0x1C00E62E0
+ * XREFs of ?HandleMouseForLegacyTouchpad@CMouseProcessor@@AEAAXPEAU_MOUSE_INPUT_DATA@@PEAUDEVICEINFO@@@Z @ 0x1C01C0574
  * Callers:
- *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C00E6390 (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
+ *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01C118C (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
  * Callees:
- *     ApiSetEditionLegacyTouchPadMouseAllowTap @ 0x1C0206D58 (ApiSetEditionLegacyTouchPadMouseAllowTap.c)
+ *     ApiSetEditionLegacyTouchPadMouseAllowTap @ 0x1C01CC7EC (ApiSetEditionLegacyTouchPadMouseAllowTap.c)
  */
 
 void __fastcall CMouseProcessor::HandleMouseForLegacyTouchpad(
@@ -13,25 +13,25 @@ void __fastcall CMouseProcessor::HandleMouseForLegacyTouchpad(
 {
   USHORT ButtonFlags; // cx
 
-  if ( (*((_BYTE *)a3 + 880) & 1) != 0 )
+  if ( (*((_BYTE *)a3 + 888) & 1) != 0 )
   {
     if ( (a2->Buttons & 1) != 0 )
     {
       if ( (unsigned int)ApiSetEditionLegacyTouchPadMouseAllowTap(this) )
       {
-        *((_DWORD *)a3 + 227) &= ~1u;
+        *((_DWORD *)a3 + 229) &= ~1u;
       }
       else
       {
         a2->ButtonFlags &= ~1u;
-        *((_DWORD *)a3 + 227) |= 1u;
+        *((_DWORD *)a3 + 229) |= 1u;
       }
     }
     ButtonFlags = a2->ButtonFlags;
-    if ( (ButtonFlags & 2) != 0 && (*((_DWORD *)a3 + 227) & 1) != 0 )
+    if ( (ButtonFlags & 2) != 0 && (*((_DWORD *)a3 + 229) & 1) != 0 )
     {
       a2->ButtonFlags = ButtonFlags & 0xFFFD;
-      *((_DWORD *)a3 + 227) &= ~1u;
+      *((_DWORD *)a3 + 229) &= ~1u;
     }
   }
 }

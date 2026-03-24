@@ -1,36 +1,34 @@
 /*
- * XREFs of CreateSharedResourceObject @ 0x1C0092D24
+ * XREFs of CreateSharedResourceObject @ 0x1C004C418
  * Callers:
- *     CreateSharedSystemVisualBitmapObject @ 0x1C000F6E0 (CreateSharedSystemVisualBitmapObject.c)
- *     CreateSharedSystemVisualObject @ 0x1C0092630 (CreateSharedSystemVisualObject.c)
- *     ?CreateExternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJII@Z @ 0x1C00927E8 (-CreateExternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJII@Z.c)
- *     NtDCompositionCreateSharedResourceHandle @ 0x1C0092C30 (NtDCompositionCreateSharedResourceHandle.c)
+ *     NtDCompositionCreateSharedResourceHandle @ 0x1C004C050 (NtDCompositionCreateSharedResourceHandle.c)
+ *     ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C004C2C4 (-CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarsh.c)
  * Callees:
- *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C002CAF0 (UserAllocDefaultCompositionSecurityDescriptor.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0099744 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     ?Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEAXPEAPEAVICompositionObject@@@Z3PEAPEAX@Z @ 0x1C009DD88 (-Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEA.c)
+ *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C002B5B0 (UserAllocDefaultCompositionSecurityDescriptor.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0083A34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     ?Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEAXPEAPEAVICompositionObject@@@Z3PEAPEAX@Z @ 0x1C0092BB8 (-Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEA.c)
  */
 
 __int64 __fastcall CreateSharedResourceObject(__int64 a1, struct DirectComposition::ResourceObject **a2)
 {
   int v3; // ebx
-  char *v4; // rdi
+  struct _ACL *v4; // rdi
   _DWORD v6[2]; // [rsp+50h] [rbp-30h] BYREF
   __int64 v7; // [rsp+58h] [rbp-28h]
   __int64 v8; // [rsp+60h] [rbp-20h]
   int v9; // [rsp+68h] [rbp-18h]
   int v10; // [rsp+6Ch] [rbp-14h]
-  void *v11; // [rsp+70h] [rbp-10h]
+  struct _ACL *v11; // [rsp+70h] [rbp-10h]
   __int64 v12; // [rsp+78h] [rbp-8h]
   HANDLE Handle; // [rsp+B0h] [rbp+30h] BYREF
-  void *v14; // [rsp+B8h] [rbp+38h] BYREF
+  struct _ACL *v14; // [rsp+B8h] [rbp+38h] BYREF
 
   v14 = 0LL;
-  v3 = UserAllocDefaultCompositionSecurityDescriptor(0x80000000, (__int64 *)&v14);
+  v3 = UserAllocDefaultCompositionSecurityDescriptor(0x80000000, &v14);
   if ( v3 >= 0 )
   {
-    v4 = (char *)v14;
+    v4 = v14;
     v6[1] = 0;
     v10 = 0;
     Handle = 0LL;
@@ -46,8 +44,7 @@ __int64 __fastcall CreateSharedResourceObject(__int64 a1, struct DirectCompositi
       v3 = DirectComposition::ResourceObject::ResolveHandle(Handle, 3u, 0, a2);
       ObCloseHandle(Handle, 0);
     }
-    if ( v4 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
+    Win32FreePool((__int64)v4);
   }
   return (unsigned int)v3;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiAddThreadToReadyQueue @ 0x1405737B4
+ * XREFs of KiAddThreadToReadyQueue @ 0x14051EEF4
  * Callers:
- *     KiSelectNextThread @ 0x14035C3FC (KiSelectNextThread.c)
+ *     KiSelectNextThread @ 0x14025708C (KiSelectNextThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x1402103E0 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAddThreadToPrcbQueue @ 0x140210664 (KiAddThreadToPrcbQueue.c)
- *     KiAddThreadToScbQueue @ 0x140210988 (KiAddThreadToScbQueue.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiAddThreadToPrcbQueue @ 0x14029C210 (KiAddThreadToPrcbQueue.c)
+ *     KiAddThreadToScbQueue @ 0x1402EBCF4 (KiAddThreadToScbQueue.c)
  */
 
-__int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, int a5)
+__int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)
 {
-  char v5; // bl
-  __int64 v7; // rdi
+  char v5; // r10
+  __int64 v7; // rbx
   __int64 v9; // rax
   char v11; // [rsp+58h] [rbp+20h] BYREF
 
@@ -25,16 +25,16 @@ __int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, c
     if ( v7 )
       v7 += *(unsigned int *)(a1 + 216);
   }
-  v9 = *(_QWORD *)(a1 + 35000);
+  v9 = *(_QWORD *)(a1 + 33976);
   if ( v9 )
     *(_BYTE *)(v9 + 16) = 0;
   *(_BYTE *)(a3 + 388) = 1;
   v11 = 0;
   if ( v7 && (*(_DWORD *)(a3 + 120) & 0xC00) == 0 )
   {
-    if ( (unsigned int)KiGetThreadEffectiveRankNonZero(a3, v7, a3, 1, (bool *)&v11) )
+    if ( (unsigned int)KiGetThreadEffectiveRankNonZero(a3, v7, a3, 0, (bool *)&v11) )
       return KiAddThreadToScbQueue(a1, v7, a3, a5);
     v5 = v11;
   }
-  return KiAddThreadToPrcbQueue(a1, a3, *(char *)(a3 + 195), a5, v5);
+  return KiAddThreadToPrcbQueue(a1, a3, (unsigned int)*(char *)(a3 + 195), a5, v5);
 }

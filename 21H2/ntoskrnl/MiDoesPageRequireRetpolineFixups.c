@@ -1,8 +1,10 @@
 /*
- * XREFs of MiDoesPageRequireRetpolineFixups @ 0x1406F3860
+ * XREFs of MiDoesPageRequireRetpolineFixups @ 0x1405FC594
  * Callers:
- *     MiPageHasRelocations @ 0x1406F3800 (MiPageHasRelocations.c)
- *     MiCreateFileOnlyImageFixupList @ 0x14097023C (MiCreateFileOnlyImageFixupList.c)
+ *     MiRelocateImagePfn @ 0x1405FC260 (MiRelocateImagePfn.c)
+ *     MiInitializePrivateFixupBitmap @ 0x1405FC490 (MiInitializePrivateFixupBitmap.c)
+ *     MiPageHasRelocations @ 0x14069C02C (MiPageHasRelocations.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
  * Callees:
  *     <none>
  */
@@ -11,6 +13,6 @@ _BOOL8 __fastcall MiDoesPageRequireRetpolineFixups(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r8
 
-  v2 = *(_QWORD *)(a1 + 16);
+  v2 = *(_QWORD *)(a1 + 24);
   return v2 && *(_QWORD *)(v2 + 8LL * a2 + 56);
 }

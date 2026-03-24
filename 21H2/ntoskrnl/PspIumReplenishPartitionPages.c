@@ -1,14 +1,14 @@
 /*
- * XREFs of PspIumReplenishPartitionPages @ 0x1405E29C8
+ * XREFs of PspIumReplenishPartitionPages @ 0x140583F78
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     PspIumGetPhysicalPage @ 0x1408824D0 (PspIumGetPhysicalPage.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PspIumGetPhysicalPage @ 0x14090CB3C (PspIumGetPhysicalPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140356250 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MmAllocateNonChargedSecurePages @ 0x14058A110 (MmAllocateNonChargedSecurePages.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14053430C (MmAllocateNonChargedSecurePages.c)
  */
 
 bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
@@ -30,7 +30,7 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
   struct _KPRCB *v19; // r9
   _DWORD *v20; // r8
   int v21; // eax
-  int v22; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v22; // [rsp+50h] [rbp+8h] BYREF
 
   v3 = *(_QWORD *)(a1 + 160) + 48LL;
   CurrentIrql = KeGetCurrentIrql();
@@ -70,7 +70,7 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
   v22 = *(_DWORD *)(a1 + 152) - v13 - *(_DWORD *)(a1 + 4);
   if ( v22 )
   {
-    MmAllocateNonChargedSecurePages(*(ULONG_PTR ***)(a1 + 8), (__int64)&v22, (__int64 *)(v3 + 8 * v13));
+    MmAllocateNonChargedSecurePages(*(ULONG_PTR ***)(a1 + 8), &v22, (__int64 *)(v3 + 8 * v13));
     *(_DWORD *)(a1 + 156) += v22;
   }
   i = *(_DWORD *)(a1 + 4);

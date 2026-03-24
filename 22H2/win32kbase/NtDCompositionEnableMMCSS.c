@@ -1,70 +1,62 @@
 /*
- * XREFs of NtDCompositionEnableMMCSS @ 0x1C0209A70
+ * XREFs of NtDCompositionEnableMMCSS @ 0x1C01D2700
  * Callers:
  *     <none>
  * Callees:
- *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C0023138 (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C002602C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C0032288 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
- *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0087334 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
- *     ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C020A86C (-EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z.c)
+ *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C005BD7C (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005D370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C005D904 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C01D3300 (-EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z.c)
  */
 
-__int64 __fastcall NtDCompositionEnableMMCSS(int a1)
+__int64 __fastcall NtDCompositionEnableMMCSS(__int64 a1)
 {
-  int v2; // ebx
+  int v1; // r14d
+  unsigned int v2; // edi
   __int64 v3; // rcx
-  __int64 v4; // rcx
   DirectComposition::CConnection *DefaultConnection; // rsi
-  struct DirectComposition::CProcessData *v6; // rdi
+  struct DirectComposition::CProcessData *v5; // rbp
+  struct _ERESOURCE *v6; // rbx
   int v7; // eax
   bool v8; // cl
   int v9; // eax
   unsigned int v10; // edx
 
+  v1 = a1;
   v2 = 0;
-  KeEnterCriticalRegion();
-  DefaultConnection = DirectComposition::CConnection::GetDefaultConnection(v3);
-  if ( !DefaultConnection )
+  DefaultConnection = DirectComposition::CConnection::GetDefaultConnection(a1);
+  if ( DefaultConnection )
   {
-    v2 = -1073741790;
-    goto LABEL_14;
-  }
-  v6 = DirectComposition::CProcessData::Current(v4);
-  ExAcquirePushLockExclusiveEx((char *)v6 + 40, 0LL);
-  *((_BYTE *)v6 + 48) = 1;
-  v7 = *((_DWORD *)v6 + 16);
-  if ( a1 )
-  {
-    if ( v7 != -1 )
+    v5 = DirectComposition::CProcessData::Current(v3);
+    v6 = (struct _ERESOURCE *)*((_QWORD *)v5 + 1);
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite(v6, 1u);
+    v7 = *((_DWORD *)v5 + 10);
+    if ( v1 )
     {
-      v8 = v7 == 0;
-      v9 = v7 + 1;
-LABEL_7:
-      *((_DWORD *)v6 + 16) = v9;
-      if ( v8 )
+      if ( v7 != -1 )
       {
-        v2 = DirectComposition::CConnection::EnableMMCSS(DefaultConnection, a1);
-        if ( v2 < 0 )
-        {
-          if ( a1 )
-            --*((_DWORD *)v6 + 16);
-        }
+        v8 = v7 == 0;
+        v9 = v7 + 1;
+        goto LABEL_8;
       }
-      goto LABEL_12;
     }
+    else if ( v7 )
+    {
+      v9 = v7 - 1;
+      v8 = v9 == 0;
+LABEL_8:
+      *((_DWORD *)v5 + 10) = v9;
+      if ( v8 )
+        v2 = DirectComposition::CConnection::EnableMMCSS(DefaultConnection, v1);
+      goto LABEL_11;
+    }
+    v2 = -1073741823;
+LABEL_11:
+    ExReleaseResourceLite(*((PERESOURCE *)v5 + 1));
+    KeLeaveCriticalRegion();
+    DirectComposition::CConnection::Release(DefaultConnection, v10);
+    return v2;
   }
-  else if ( v7 )
-  {
-    v9 = v7 - 1;
-    v8 = v9 == 0;
-    goto LABEL_7;
-  }
-  v2 = -1073741823;
-LABEL_12:
-  DirectComposition::CPushLockCriticalSection::Release((struct DirectComposition::CProcessData *)((char *)v6 + 40));
-  DirectComposition::CConnection::Release(DefaultConnection, v10);
-LABEL_14:
-  KeLeaveCriticalRegion();
-  return (unsigned int)v2;
+  return (unsigned int)-1073741790;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcGpioDpcRoutine @ 0x1C0024ED0
+ * XREFs of ACPIEcGpioDpcRoutine @ 0x1C00534C0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiEcCommonDpcHandler @ 0x1C0002C4E (AcpiEcCommonDpcHandler.c)
- *     ACPIEcUnmaskInterrupt @ 0x1C0002CF6 (ACPIEcUnmaskInterrupt.c)
+ *     AcpiEcCommonDpcHandler @ 0x1C0053754 (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcUnmaskInterrupt @ 0x1C0053800 (ACPIEcUnmaskInterrupt.c)
  */
 
 void __fastcall ACPIEcGpioDpcRoutine(
@@ -13,7 +13,7 @@ void __fastcall ACPIEcGpioDpcRoutine(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  AcpiEcCommonDpcHandler((__int64)DeferredContext);
+  AcpiEcCommonDpcHandler(DeferredContext);
   if ( (DeferredContext[882] & 1) == 0 )
-    ACPIEcUnmaskInterrupt((__int64)DeferredContext);
+    ACPIEcUnmaskInterrupt(DeferredContext);
 }

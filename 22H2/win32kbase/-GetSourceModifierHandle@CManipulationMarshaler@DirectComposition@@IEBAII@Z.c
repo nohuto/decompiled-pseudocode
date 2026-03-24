@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetSourceModifierHandle@CManipulationMarshaler@DirectComposition@@IEBAII@Z @ 0x1C02132F0
+ * XREFs of ?GetSourceModifierHandle@CManipulationMarshaler@DirectComposition@@IEBAII@Z @ 0x1C01E4294
  * Callers:
- *     _lambda_e7288af00cdd6f7af065feb83fd33220_::operator() @ 0x1C0212D0C (_lambda_e7288af00cdd6f7af065feb83fd33220_--operator().c)
+ *     _lambda_e7288af00cdd6f7af065feb83fd33220_::operator() @ 0x1C01E3E0C (_lambda_e7288af00cdd6f7af065feb83fd33220_--operator().c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall DirectComposition::CManipulationMarshaler::GetSourceModifierH
   {
     v4 = *(_QWORD *)(v2 + 16);
     if ( v4 )
-      return *(unsigned int *)(v4 + 32);
+      return *(unsigned int *)(v4 + 24);
   }
   return result;
 }

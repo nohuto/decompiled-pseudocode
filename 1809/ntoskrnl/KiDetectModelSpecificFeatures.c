@@ -3,7 +3,7 @@
  * Callers:
  *     KiSetProcessorSignature @ 0x14056F7A8 (KiSetProcessorSignature.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 __int64 __fastcall KiDetectModelSpecificFeatures(__int64 a1)

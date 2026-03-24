@@ -1,8 +1,8 @@
 /*
- * XREFs of MarkNativeObjectsDefunct @ 0x1C004A0B4
+ * XREFs of MarkNativeObjectsDefunct @ 0x1C006468C
  * Callers:
- *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C6C (AMLIRemoveNativeObjectsFromNamespace.c)
- *     NotifyObjectDestruction @ 0x1C004C44C (NotifyObjectDestruction.c)
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C00645A0 (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     NotifyObjectDestruction @ 0x1C00655B8 (NotifyObjectDestruction.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall MarkNativeObjectsDefunct(__int64 a1, __int64 a2)
   __int16 v3; // ax
   __int64 *v4; // rdx
   __int64 *i; // rcx
-  __int64 j; // rcx
+  __int64 v6; // rcx
   __int64 v7; // rax
   __int64 result; // rax
   __int64 v9; // rcx
@@ -33,20 +33,22 @@ __int64 __fastcall MarkNativeObjectsDefunct(__int64 a1, __int64 a2)
     }
   }
   if ( a2 )
+    v6 = *(_QWORD *)(a2 + 24);
+  else
+    v6 = 0LL;
+  while ( v6 )
   {
-    for ( j = *(_QWORD *)(a2 + 24); j; j = *(_QWORD *)(j + 56) )
+    if ( (*(_BYTE *)(v6 + 64) & 4) != 0 )
     {
-      if ( (*(_BYTE *)(j + 64) & 4) != 0 )
+      v7 = *(_QWORD *)(v6 + 136);
+      if ( v7 )
       {
-        v7 = *(_QWORD *)(j + 136);
-        if ( v7 )
-        {
-          *(_WORD *)(v7 + 64) |= 4u;
-          *(_QWORD *)(j + 136) = 0LL;
-          *(_WORD *)(j + 64) &= ~0x400u;
-        }
+        *(_WORD *)(v7 + 64) |= 4u;
+        *(_QWORD *)(v6 + 136) = 0LL;
+        *(_WORD *)(v6 + 64) &= ~0x400u;
       }
     }
+    v6 = *(_QWORD *)(v6 + 56);
   }
   result = gpNativeNameSpaceOwner;
   v9 = *(_QWORD *)(gpNativeNameSpaceOwner + 24);
@@ -60,10 +62,10 @@ __int64 __fastcall MarkNativeObjectsDefunct(__int64 a1, __int64 a2)
       {
         v11 = *(_QWORD *)(v11 + 16);
         if ( !v11 )
-          goto LABEL_22;
+          goto LABEL_23;
       }
       *(_WORD *)(v9 + 64) |= 4u;
-LABEL_22:
+LABEL_23:
       v9 = v10;
     }
     while ( v10 );

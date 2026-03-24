@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscDiscover @ 0x1403A3E48
+ * XREFs of HalpTscDiscover @ 0x1403B1C20
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HalpTscGetAttributes @ 0x140378914 (HalpTscGetAttributes.c)
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HalpTscGetAttributes @ 0x1403A12B0 (HalpTscGetAttributes.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpTscDiscover()
@@ -71,6 +71,6 @@ LABEL_6:
   }
   v8[2] = v2;
   RtlInitUnicodeString(&DestinationString, L"VEN_vvvv&DEV_dddd&SUBVEN_ssss&SUBDEV_yyyy&REV_rrrr&INST_iiii&UID_uuuuuuuu");
-  HalpTimerRegister((__int64)v8, &DestinationString);
+  HalpTimerRegister(v8, &DestinationString);
   return 0LL;
 }

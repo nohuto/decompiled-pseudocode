@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIsTsaMitigationDesired @ 0x140410324
+ * XREFs of KiIsTsaMitigationDesired @ 0x1403F2B40
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x140381E90 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     KiIsKvaShadowNeededForTsa @ 0x140410184 (KiIsKvaShadowNeededForTsa.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C7210 (KeOptimizeSpecCtrlSettings.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1403F299C (KiIsKvaShadowNeededForTsa.c)
  * Callees:
  *     <none>
  */

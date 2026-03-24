@@ -1,72 +1,78 @@
 /*
- * XREFs of MiChargeForLockedPage @ 0x140337F60
+ * XREFs of MiChargeForLockedPage @ 0x140328AA0
  * Callers:
- *     MiAddLockedPageCharge @ 0x140274508 (MiAddLockedPageCharge.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiMakeFaultPfnActive @ 0x140339240 (MiMakeFaultPfnActive.c)
- *     MiFinishMdlForMappedFileFault @ 0x14033DC30 (MiFinishMdlForMappedFileFault.c)
+ *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
  * Callees:
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiChargePartitionResidentAvailable @ 0x14028DC40 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
- *     MiIsPfnCommitNotCharged @ 0x140337F0C (MiIsPfnCommitNotCharged.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402B0CC8 (MiChargePartitionResidentAvailable.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiIsPfnCommitNotCharged @ 0x1403272D0 (MiIsPfnCommitNotCharged.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
 __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2)
 {
-  __int64 v2; // r10
-  int v3; // edx
-  __int64 v4; // rbx
-  unsigned int v5; // r11d
-  char v6; // si
-  ULONG_PTR *v7; // rdi
+  __int64 v2; // rbx
+  __int64 v3; // rcx
+  unsigned int v4; // r10d
+  char v5; // di
+  int IsPfnCommitNotCharged; // eax
+  char v7; // r11
+  __int64 v8; // rcx
+  ULONG_PTR *v9; // rsi
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rdx
   signed __int32 CachedResidentAvailable; // eax
-  signed __int32 v10; // ett
-  unsigned int v11; // ebx
+  signed __int32 v13; // ett
+  unsigned int v14; // ebx
 
-  v2 = *(_QWORD *)(a1 + 40);
-  v3 = a2 & 1;
-  v4 = (unsigned int)-(v3 != 0);
-  v5 = 4 * (v3 ^ 1) + 4;
-  if ( v2 < 0 && (*(_DWORD *)(a1 + 16) & 0x400LL) != 0 || (unsigned int)MiIsPfnCommitNotCharged(a1) )
+  v2 = (unsigned int)-((a2 & 1) != 0);
+  if ( (unsigned int)MI_PFN_IS_PROTO(a1) && (*(_DWORD *)(v3 + 16) & 0x400LL) != 0 )
   {
-    v6 = 1;
-    v7 = *(ULONG_PTR **)(qword_140C51F48 + 8 * (((unsigned __int64)v2 >> 43) & 0x3FF));
-    if ( !(unsigned int)MiChargeCommit((__int64)v7, 1uLL, v5) )
-      return 0LL;
+    v5 = 1;
   }
   else
   {
-    v6 = 0;
-    v7 = *(ULONG_PTR **)(qword_140C51F48 + 8 * (((unsigned __int64)v2 >> 43) & 0x3FF));
+    IsPfnCommitNotCharged = MiIsPfnCommitNotCharged(v3);
+    v5 = v7;
+    if ( IsPfnCommitNotCharged )
+      v5 = 1;
   }
-  if ( v7 == &MiSystemPartition )
+  v8 = (*(_QWORD *)(v3 + 40) >> 39) & 0x3FFLL;
+  v9 = *(ULONG_PTR **)(qword_140C4E648 + 8 * v8);
+  if ( !v5 || (result = MiChargeCommit(*(_QWORD *)(qword_140C4E648 + 8 * v8), 1uLL, v4), (_DWORD)result) )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    CachedResidentAvailable = CurrentPrcb->CachedResidentAvailable;
-    if ( CachedResidentAvailable )
+    if ( v9 == &MiSystemPartition )
     {
-      while ( CachedResidentAvailable != -1 )
+      CurrentPrcb = KeGetCurrentPrcb();
+      CachedResidentAvailable = CurrentPrcb->CachedResidentAvailable;
+      if ( CachedResidentAvailable )
       {
-        v10 = CachedResidentAvailable;
-        CachedResidentAvailable = _InterlockedCompareExchange(
-                                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                    CachedResidentAvailable - 1,
-                                    CachedResidentAvailable);
-        if ( v10 == CachedResidentAvailable )
-          return 1;
-        if ( !CachedResidentAvailable )
-          break;
+        while ( CachedResidentAvailable != -1 )
+        {
+          v13 = CachedResidentAvailable;
+          CachedResidentAvailable = _InterlockedCompareExchange(
+                                      (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                      CachedResidentAvailable - 1,
+                                      CachedResidentAvailable);
+          if ( v13 == CachedResidentAvailable )
+            return 1;
+          if ( !CachedResidentAvailable )
+            break;
+        }
       }
     }
+    v14 = MiChargePartitionResidentAvailable((__int64)v9, 1uLL, v2);
+    if ( !v14 )
+    {
+      if ( v5 )
+        MiReturnCommit((__int64)v9, 1LL);
+    }
+    return v14;
   }
-  v11 = MiChargePartitionResidentAvailable((__int64)v7, 1uLL, v4);
-  if ( !v11 )
-  {
-    if ( v6 )
-      MiReturnCommit((__int64)v7, 1LL);
-  }
-  return v11;
+  return result;
 }

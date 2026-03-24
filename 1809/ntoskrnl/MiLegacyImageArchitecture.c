@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLegacyImageArchitecture @ 0x1400DA40C
+ * XREFs of MiLegacyImageArchitecture @ 0x1400DA42C
  * Callers:
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
  * Callees:
  *     <none>
  */

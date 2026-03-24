@@ -1,13 +1,13 @@
 /*
- * XREFs of wcstoxlX @ 0x1403E3610
+ * XREFs of wcstoxlX @ 0x1403D427C
  * Callers:
- *     wcstol @ 0x1403E3820 (wcstol.c)
- *     wcstolX @ 0x1403E3850 (wcstolX.c)
- *     wcstoul @ 0x1403E3880 (wcstoul.c)
+ *     wcstol @ 0x1403D4494 (wcstol.c)
+ *     wcstolX @ 0x1403D44C4 (wcstolX.c)
+ *     wcstoul @ 0x1403D4500 (wcstoul.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _iswctype_l @ 0x1403E3CB0 (_iswctype_l.c)
- *     _wchartodigit @ 0x1403E5624 (_wchartodigit.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     _iswctype_l @ 0x1403D493C (_iswctype_l.c)
+ *     _wchartodigit @ 0x1403D61C4 (_wchartodigit.c)
  */
 
 __int64 __fastcall wcstoxlX(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4, int a5, int a6)
@@ -48,11 +48,7 @@ __int64 __fastcall wcstoxlX(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4
   v8 = *v9++;
 LABEL_13:
   if ( v6 )
-  {
-    if ( v6 != 16 )
-      goto LABEL_23;
-    goto LABEL_20;
-  }
+    goto LABEL_19;
   if ( !(unsigned int)wchartodigit(v8) )
   {
     if ( ((*v9 - 88) & 0xFFDF) != 0 )
@@ -61,8 +57,8 @@ LABEL_13:
       goto LABEL_23;
     }
     v6 = 16;
-LABEL_20:
-    if ( !(unsigned int)wchartodigit(v8) && ((*v9 - 88) & 0xFFDF) == 0 )
+LABEL_19:
+    if ( v6 == 16 && !(unsigned int)wchartodigit(v8) && ((*v9 - 88) & 0xFFDF) == 0 )
     {
       v8 = v9[1];
       v9 += 2;
@@ -118,6 +114,7 @@ LABEL_30:
     }
     if ( !a6 )
     {
+      gbl_errno = 34;
       if ( (v11 & 1) != 0 )
         v10 = -1;
       else

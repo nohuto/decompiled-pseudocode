@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsWnfSubscriptionOverrideCallback @ 0x1409985F0
+ * XREFs of PopEsWnfSubscriptionOverrideCallback @ 0x1408F28D0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
- *     PopEsWorkItemSchedule @ 0x140870D10 (PopEsWorkItemSchedule.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
+ *     PopEsWorkItemSchedule @ 0x14077FEDC (PopEsWorkItemSchedule.c)
  */
 
 __int64 __fastcall PopEsWnfSubscriptionOverrideCallback(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PopEsWnfSubscriptionOverrideCallback(__int64 a1)
     {
       PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
       PopEsMode = v1;
-      PopReleaseRwLock(&PopEsLock);
+      PopReleaseRwLock((ULONG_PTR)&PopEsLock);
       PopEsWorkItemSchedule(2);
     }
   }

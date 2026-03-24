@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfDmaTransactionCancel @ 0x1C00540F0
+ * XREFs of imp_WdfDmaTransactionCancel @ 0x1C0030040
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ @ 0x1C0058F8C (-CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ @ 0x1C003631C (-CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall imp_WdfDmaTransactionCancel(
@@ -20,7 +20,7 @@ unsigned __int8 __fastcall imp_WdfDmaTransactionCancel(
 
   pDmaTrans = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)DmaTransaction,
     0x1401u,
     (void **)&pDmaTrans);

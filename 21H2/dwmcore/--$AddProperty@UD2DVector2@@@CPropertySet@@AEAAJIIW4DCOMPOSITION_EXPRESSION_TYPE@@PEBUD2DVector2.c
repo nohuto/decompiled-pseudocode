@@ -1,13 +1,13 @@
 /*
- * XREFs of ??$AddProperty@UD2DVector2@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@@Z @ 0x180019198
+ * XREFs of ??$AddProperty@UD2DVector2@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@@Z @ 0x18001E884
  * Callers:
- *     ??$AddOrUpdateProperty@UD2DVector2@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVALUE@@PEBUD2DVector2@@@Z @ 0x1800190C4 (--$AddOrUpdateProperty@UD2DVector2@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVAL.c)
+ *     ??$AddOrUpdateProperty@UD2DVector2@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVALUE@@PEBUD2DVector2@@@Z @ 0x18001E7A8 (--$AddOrUpdateProperty@UD2DVector2@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVAL.c)
  * Callees:
- *     ??$PropertyUpdated@UD2DVector2@@@CPropertySet@@AEAAJIIPEBUD2DVector2@@@Z @ 0x180019288 (--$PropertyUpdated@UD2DVector2@@@CPropertySet@@AEAAJIIPEBUD2DVector2@@@Z.c)
- *     ??$AddProperty@UD2DVector2@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@PEAI@Z @ 0x1800193DC (--$AddProperty@UD2DVector2@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsValidPropertyId@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_NI@Z @ 0x1801BCAB8 (-IsValidPropertyId@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_N.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??$PropertyUpdated@UD2DMatrix@@@CPropertySet@@AEAAJIIPEBUD2DMatrix@@@Z @ 0x180019B04 (--$PropertyUpdated@UD2DMatrix@@@CPropertySet@@AEAAJIIPEBUD2DMatrix@@@Z.c)
+ *     ??$AddProperty@UD2DVector2@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@PEAI@Z @ 0x18001E974 (--$AddProperty@UD2DVector2@@@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsValidPropertyId@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_NI@Z @ 0x180180A3C (-IsValidPropertyId@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_N.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CPropertySet::AddProperty<D2DVector2>(
@@ -28,33 +28,31 @@ __int64 __fastcall CPropertySet::AddProperty<D2DVector2>(
   int v16; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = a2;
-  v6 = (_QWORD *)((char *)this + 88);
+  v6 = (_QWORD *)((char *)this + 80);
   v9 = PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::AddProperty<D2DVector2>(
-         (char *)this + 88,
+         (char *)this + 80,
          a4,
          a5,
          &v16);
   v11 = v9;
   if ( v9 < 0 )
   {
-    v14 = 367;
+    v14 = 369;
     goto LABEL_10;
   }
-  if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(
-                           v6,
-                           (unsigned int)v5) )
+  if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
     ModuleFailFastForHRESULT(2147942487LL, retaddr);
   if ( v16 != (_DWORD)v5 || (*(_DWORD *)(*v6 + 8 * v5 + 4) & 0x1FFFFFFF) != a3 )
   {
     v11 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003303421, 0x176u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003303421, 0x178u, 0LL);
     return v11;
   }
-  v9 = CPropertySet::PropertyUpdated<D2DVector2>(this, v5);
+  v9 = CPropertySet::PropertyUpdated<D2DMatrix>(this, v5, 0, a5);
   v11 = v9;
   if ( v9 < 0 )
   {
-    v14 = 378;
+    v14 = 380;
 LABEL_10:
     MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, v14, 0LL);
     return v11;

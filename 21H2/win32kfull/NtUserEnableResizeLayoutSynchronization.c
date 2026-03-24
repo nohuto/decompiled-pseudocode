@@ -1,44 +1,43 @@
 /*
- * XREFs of NtUserEnableResizeLayoutSynchronization @ 0x1C010FD80
+ * XREFs of NtUserEnableResizeLayoutSynchronization @ 0x1C0125160
  * Callers:
  *     <none>
  * Callees:
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
  */
 
 __int64 __fastcall NtUserEnableResizeLayoutSynchronization(__int64 a1, int a2)
 {
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  struct tagWND *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-18h]
+  __int64 v4; // rdi
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rcx
+  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-18h]
 
-  v13 = 0LL;
-  v12 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v4 = ValidateHwnd(a1);
-  v6 = 0LL;
-  v7 = (struct tagWND *)v4;
-  if ( v4 )
+  v11 = 0LL;
+  v10 = 0LL;
+  v4 = 1LL;
+  EnterCrit(0LL, 1LL);
+  v5 = ValidateHwnd(a1);
+  v7 = v5;
+  if ( v5 && (v6 = (*(_WORD *)(*(_QWORD *)(v5 + 40) + 42LL) & 0x2FFFu) - 669, (v6 & 0xFFFFFFFD) != 0) )
   {
-    v5 = *(_QWORD *)(v4 + 40);
-    if ( (((*(_WORD *)(v5 + 42) & 0x2FFF) - 669) & 0xFFFFFFFD) != 0 )
-    {
-      *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v12;
-      *((_QWORD *)&v12 + 1) = v4;
-      HMLockObject(v4);
-      LOBYTE(v6) = a2 != 0;
-      SetOrClrWF(v6, v7, 0x980u, 0);
-      ThreadUnlock1(v9, v8, v10);
-      v6 = 1LL;
-    }
+    *(_QWORD *)&v10 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v10;
+    *((_QWORD *)&v10 + 1) = v5;
+    HMLockObject(v5);
+    if ( a2 )
+      *(_BYTE *)(*(_QWORD *)(v7 + 40) + 25LL) |= 0x80u;
+    else
+      SetOrClrWF(0, v7, 0x980u, 0);
+    ThreadUnlock1(v8);
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  else
+  {
+    v4 = 0LL;
+  }
+  UserSessionSwitchLeaveCrit(v6);
+  return v4;
 }

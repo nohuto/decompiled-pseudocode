@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeUltraMdlContext @ 0x1402CDE58
+ * XREFs of MiFreeUltraMdlContext @ 0x1402CDF58
  * Callers:
- *     MmMapMdl @ 0x1402AD760 (MmMapMdl.c)
+ *     MmMapMdl @ 0x1402AD860 (MmMapMdl.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiFreeUltraMdlContext(PSLIST_ENTRY ListEntry)

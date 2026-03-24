@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_DetachingDeviceFromPortOnOverCurrent @ 0x1C0011B00
+ * XREFs of HUBPSM30_DetachingDeviceFromPortOnOverCurrent @ 0x1C00106E0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_DetachDevice @ 0x1C0031060 (HUBMISC_DetachDevice.c)
+ *     HUBMISC_DetachDevice @ 0x1C002DE98 (HUBMISC_DetachDevice.c)
  */
 
 __int64 __fastcall HUBPSM30_DetachingDeviceFromPortOnOverCurrent(__int64 a1)

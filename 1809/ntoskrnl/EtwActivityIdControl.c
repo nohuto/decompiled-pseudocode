@@ -1,21 +1,21 @@
 /*
  * XREFs of EtwActivityIdControl @ 0x1400A3B50
  * Callers:
- *     IoReuseIrp @ 0x1400DF770 (IoReuseIrp.c)
- *     IoSetActivityIdIrp @ 0x1400DF940 (IoSetActivityIdIrp.c)
- *     IopInitActivityIdIrp @ 0x14027EEE4 (IopInitActivityIdIrp.c)
- *     VrpIoctlDeviceDispatch @ 0x140807CE0 (VrpIoctlDeviceDispatch.c)
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
- *     VrpPostEnumerateKey @ 0x14080A620 (VrpPostEnumerateKey.c)
- *     VrpPostOpenOrCreate @ 0x14080AE64 (VrpPostOpenOrCreate.c)
- *     VrpPostQueryKey @ 0x14080B260 (VrpPostQueryKey.c)
- *     VrpPostUnloadKey @ 0x14080B610 (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x14080B6B0 (VrpPreFlushKey.c)
- *     VrpPreLoadKey @ 0x14080B784 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x14080C300 (VrpPreOpenOrCreate.c)
- *     VrpPreQueryKeyName @ 0x14080C7C0 (VrpPreQueryKeyName.c)
- *     IoCaptureLiveDump @ 0x14081EFA4 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14081F588 (IoWriteDeferredLiveDumpData.c)
+ *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
+ *     IoSetActivityIdIrp @ 0x1400DF960 (IoSetActivityIdIrp.c)
+ *     IopInitActivityIdIrp @ 0x14027EFE4 (IopInitActivityIdIrp.c)
+ *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
+ *     VrpPostEnumerateKey @ 0x14080A600 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x14080AE44 (VrpPostOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x14080B240 (VrpPostQueryKey.c)
+ *     VrpPostUnloadKey @ 0x14080B5F0 (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x14080B690 (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
+ *     VrpPreQueryKeyName @ 0x14080C7A0 (VrpPreQueryKeyName.c)
+ *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x14081F568 (IoWriteDeferredLiveDumpData.c)
  * Callees:
  *     <none>
  */

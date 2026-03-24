@@ -8,7 +8,7 @@
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MiFreeToSubAllocatedRegion @ 0x1405DF71C (MiFreeToSubAllocatedRegion.c)
  */
 

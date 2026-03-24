@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MapSharedMemory@CSharedSectionBase@@KAPEAXPEAX_K@Z @ 0x1800F91BC
+ * XREFs of ?MapSharedMemory@CSharedSectionBase@@KAPEAXPEAX_K@Z @ 0x1800D929C
  * Callers:
- *     ?OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800F9170 (-OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800D9250 (-OnChanged@CSharedSectionBase@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInitializeIRTimer @ 0x14017DC84
+ * XREFs of PopInitializeIRTimer @ 0x14017DCA4
  * Callers:
  *     PopNetInitialize @ 0x1409B2AB4 (PopNetInitialize.c)
  * Callees:
- *     KeInitializeIRTimer @ 0x14013AF00 (KeInitializeIRTimer.c)
- *     PopInitializeWorkItem @ 0x140729864 (PopInitializeWorkItem.c)
+ *     KeInitializeIRTimer @ 0x14013AF20 (KeInitializeIRTimer.c)
+ *     PopInitializeWorkItem @ 0x140729844 (PopInitializeWorkItem.c)
  */
 
 __int64 __fastcall PopInitializeIRTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int16 a6, int a7)

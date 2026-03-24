@@ -1,21 +1,22 @@
 /*
- * XREFs of SmPageRead @ 0x1405C9B90
+ * XREFs of SmPageRead @ 0x1403070AC
  * Callers:
- *     MiIssueHardFaultIo @ 0x1402A1AC0 (MiIssueHardFaultIo.c)
- *     MiMakeOutswappedPageResident @ 0x1406185DC (MiMakeOutswappedPageResident.c)
- *     MiPfExecuteReadList @ 0x140724164 (MiPfExecuteReadList.c)
+ *     MiIssueHardFaultIo @ 0x140306F74 (MiIssueHardFaultIo.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BA00 (MiMakeOutswappedPageResident.c)
+ *     MiPfExecuteReadList @ 0x140636824 (MiPfExecuteReadList.c)
  * Callees:
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140464946 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
- *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CCBD8 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x14026886C (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1403128F0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
  */
 
-__int64 __fastcall SmPageRead(__int64 a1, union _MM_STORE_KEY *a2, unsigned __int64 a3, __int64 a4, _SLIST_ENTRY *a5)
+__int64 __fastcall SmPageRead(union _MM_STORE_KEY *a1, int a2)
 {
-  __int64 v6; // r10
-  _SLIST_ENTRY *v7; // r11
-  int v9; // [rsp+40h] [rbp+8h] BYREF
+  int v3; // ecx
+  __int64 v4; // r10
+  int v5; // r11d
+  _DWORD v7[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  v9 = 0;
-  SmKeyConvert(a2, (union _SM_PAGE_KEY *)&v9);
-  return SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(*(_QWORD *)(v6 + 24), &v9, a3, v7, a5);
+  v7[0] = 0;
+  SmKeyConvert(a1, (union _SM_PAGE_KEY *)v7);
+  return SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(v3, (unsigned int)v7, a2, v5, v4);
 }

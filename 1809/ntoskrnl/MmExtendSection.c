@@ -4,7 +4,7 @@
  *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
  *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
  *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     NtExtendSection @ 0x1406CEC70 (NtExtendSection.c)
+ *     NtExtendSection @ 0x1406CEC50 (NtExtendSection.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
@@ -17,12 +17,12 @@
  *     MiUnlockControlAreaSectionExtend @ 0x140092C28 (MiUnlockControlAreaSectionExtend.c)
  *     MiLockControlAreaSectionExtend @ 0x140092CE0 (MiLockControlAreaSectionExtend.c)
  *     MiFindLastSubsection @ 0x140092DF0 (MiFindLastSubsection.c)
- *     MiUpdateLastSubsectionSize @ 0x140134478 (MiUpdateLastSubsectionSize.c)
- *     MiSubsectionNeedsExtents @ 0x1402B4590 (MiSubsectionNeedsExtents.c)
- *     MiUpdateActiveSubsection @ 0x1402B4618 (MiUpdateActiveSubsection.c)
+ *     MiUpdateLastSubsectionSize @ 0x140134498 (MiUpdateLastSubsectionSize.c)
+ *     MiSubsectionNeedsExtents @ 0x1402B4690 (MiSubsectionNeedsExtents.c)
+ *     MiUpdateActiveSubsection @ 0x1402B4718 (MiUpdateActiveSubsection.c)
  *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
  *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
- *     FsRtlSetFileSize @ 0x1406CAA80 (FsRtlSetFileSize.c)
+ *     FsRtlSetFileSize @ 0x1406CAA60 (FsRtlSetFileSize.c)
  */
 
 __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)

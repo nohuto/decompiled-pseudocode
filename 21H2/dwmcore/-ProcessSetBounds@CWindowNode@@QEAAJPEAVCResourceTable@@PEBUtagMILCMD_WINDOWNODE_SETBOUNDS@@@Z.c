@@ -1,10 +1,9 @@
 /*
- * XREFs of ?ProcessSetBounds@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETBOUNDS@@@Z @ 0x1800DB52C
+ * XREFs of ?ProcessSetBounds@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETBOUNDS@@@Z @ 0x1800C8BAC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ??8@YA_NAEBUtagRECT@@0@Z @ 0x1800DB680 (--8@YA_NAEBUtagRECT@@0@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
  */
 
 __int64 __fastcall CWindowNode::ProcessSetBounds(
@@ -12,72 +11,90 @@ __int64 __fastcall CWindowNode::ProcessSetBounds(
         struct CResourceTable *a2,
         const struct tagMILCMD_WINDOWNODE_SETBOUNDS *a3)
 {
-  int v3; // r9d
-  char v5; // di
-  char v6; // si
-  unsigned int v8; // r8d
-  int v9; // ecx
-  unsigned int v10; // edx
-  _DWORD *v11; // r9
-  __int64 v12; // r10
-  int v13; // edx
-  int v14; // r8d
-  int v15; // ecx
-  int v16; // edx
-  int v17; // r8d
-  int v18; // r9d
-  __int128 v20; // [rsp+20h] [rbp-18h]
+  int v3; // eax
+  int v5; // r8d
+  char v6; // r11
+  int v8; // ecx
+  int v9; // eax
+  int v10; // ebx
+  int v11; // eax
+  int v12; // ecx
+  int v13; // eax
+  int v14; // edi
+  int v15; // eax
+  int v16; // ecx
+  int v17; // edx
+  int v18; // ecx
+  int v19; // edx
+  int v20; // r8d
+  int v21; // r8d
+  int v22; // ecx
+  int v23; // edx
+  int v24; // eax
+  int v25; // eax
 
-  v3 = *((_DWORD *)a3 + 11);
-  v5 = 0;
-  DWORD1(v20) = v3;
+  v3 = *((_DWORD *)this + 174);
+  v5 = *((_DWORD *)this + 172);
   v6 = 0;
-  v8 = v3;
-  v9 = *((_DWORD *)a3 + 10);
-  v10 = v9;
-  if ( v3 <= *((_DWORD *)a3 + 13) )
-    v8 = *((_DWORD *)a3 + 13);
-  LODWORD(v20) = *((_DWORD *)a3 + 10);
-  if ( v9 <= *((_DWORD *)a3 + 12) )
-    v10 = *((_DWORD *)a3 + 12);
-  *((_QWORD *)&v20 + 1) = __PAIR64__(v8, v10);
-  if ( *((_DWORD *)this + 198) - *((_DWORD *)this + 196) != v10 - v9
-    || *((_DWORD *)this + 199) - *((_DWORD *)this + 197) != v8 - v3 )
+  v8 = 0;
+  v9 = v3 - v5;
+  v10 = *((_DWORD *)a3 + 10);
+  if ( v9 >= 0 )
+    v8 = v9;
+  v11 = 0;
+  if ( *((_DWORD *)a3 + 12) - v10 >= 0 )
+    v11 = *((_DWORD *)a3 + 12) - v10;
+  if ( v8 != v11 )
+    goto LABEL_20;
+  v12 = 0;
+  if ( *((_DWORD *)a3 + 13) - *((_DWORD *)a3 + 11) >= 0 )
+    v12 = *((_DWORD *)a3 + 13) - *((_DWORD *)a3 + 11);
+  v13 = 0;
+  if ( *((_DWORD *)this + 175) - *((_DWORD *)this + 173) >= 0 )
+    v13 = *((_DWORD *)this + 175) - *((_DWORD *)this + 173);
+  if ( v13 != v12 )
+LABEL_20:
+    v6 = 1;
+  v14 = *((_DWORD *)a3 + 2);
+  if ( (v5 - *((_DWORD *)this + 160) != v10 - v14
+     || *((_DWORD *)this + 173) - *((_DWORD *)this + 161) != *((_DWORD *)a3 + 11) - *((_DWORD *)a3 + 3))
+    && *((_QWORD *)this + 97) )
   {
-    if ( *((_QWORD *)this + 102) )
-      v5 = 1;
-    else
-      v6 = 1;
+    v6 = 1;
   }
-  if ( !(unsigned __int8)operator==((char *)this + 752, (char *)a3 + 8) )
-  {
-    if ( *(_QWORD *)(v12 + 816) )
-      v6 = 1;
-    else
-      v5 = 1;
-  }
-  v13 = *((_DWORD *)a3 + 4);
-  v14 = *((_DWORD *)a3 + 5);
   v15 = *((_DWORD *)a3 + 3);
-  *v11 = *((_DWORD *)a3 + 2);
-  v11[1] = v15;
-  v11[2] = v13;
-  v11[3] = v14;
-  v16 = *((_DWORD *)a3 + 7);
-  v17 = *((_DWORD *)a3 + 8);
-  v18 = *((_DWORD *)a3 + 9);
-  *(_DWORD *)(v12 + 768) = *((_DWORD *)a3 + 6);
-  *(_DWORD *)(v12 + 772) = v16;
-  *(_DWORD *)(v12 + 776) = v17;
-  *(_DWORD *)(v12 + 780) = v18;
-  *(_OWORD *)(v12 + 784) = v20;
+  v16 = *((_DWORD *)a3 + 4);
+  v17 = *((_DWORD *)a3 + 5);
+  *((_DWORD *)this + 160) = v14;
+  *((_DWORD *)this + 161) = v15;
+  *((_DWORD *)this + 162) = v16;
+  *((_DWORD *)this + 163) = v17;
+  v18 = *((_DWORD *)a3 + 7);
+  v19 = *((_DWORD *)a3 + 8);
+  v20 = *((_DWORD *)a3 + 9);
+  *((_DWORD *)this + 168) = *((_DWORD *)a3 + 6);
+  *((_DWORD *)this + 169) = v18;
+  *((_DWORD *)this + 170) = v19;
+  *((_DWORD *)this + 171) = v20;
+  v21 = *((_DWORD *)a3 + 13);
+  v22 = *((_DWORD *)a3 + 11);
+  v23 = *((_DWORD *)a3 + 12);
+  *((_DWORD *)this + 172) = *((_DWORD *)a3 + 10);
+  *((_DWORD *)this + 173) = v22;
+  *((_DWORD *)this + 174) = v23;
+  *((_DWORD *)this + 175) = v21;
+  v24 = *((_DWORD *)this + 172);
+  if ( v24 <= *((_DWORD *)this + 174) )
+    v24 = *((_DWORD *)this + 174);
+  *((_DWORD *)this + 174) = v24;
+  v25 = *((_DWORD *)this + 173);
+  if ( v25 <= v21 )
+    v25 = v21;
+  *((_DWORD *)this + 175) = v25;
   if ( v6 )
   {
-    *(_BYTE *)(v12 + 912) = 0;
-    goto LABEL_14;
+    *((_BYTE *)this + 912) = 0;
+    CVisual::PropagateFlags((__int64)this, 5u);
   }
-  if ( v5 )
-LABEL_14:
-    CVisual::PropagateFlags(v12, 5u);
   return 0LL;
 }

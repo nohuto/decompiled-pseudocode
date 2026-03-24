@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140348E50 @ 0x140348E50
  * Callers:
- *     sub_1401A1720 @ 0x1401A1720 (sub_1401A1720.c)
+ *     sub_1401A1740 @ 0x1401A1740 (sub_1401A1740.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140332010 (FsRtlMdlReadCompleteDevEx.c)
  * Callees:
  *     KiAccessPage @ 0x14034A820 (KiAccessPage.c)

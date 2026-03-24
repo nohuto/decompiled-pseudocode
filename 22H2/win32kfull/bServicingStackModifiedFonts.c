@@ -1,18 +1,23 @@
 /*
- * XREFs of bServicingStackModifiedFonts @ 0x1C0088694
+ * XREFs of bServicingStackModifiedFonts @ 0x1C00E5940
  * Callers:
- *     InitFNTCache @ 0x1C00880A0 (InitFNTCache.c)
+ *     InitFNTCache @ 0x1C00E53A0 (InitFNTCache.c)
  * Callees:
- *     bSetFntCacheReg @ 0x1C0088514 (bSetFntCacheReg.c)
- *     bQueryFntCacheReg @ 0x1C0088820 (bQueryFntCacheReg.c)
+ *     bQueryFntCacheReg @ 0x1C00E5868 (bQueryFntCacheReg.c)
+ *     bSetFntCacheReg @ 0x1C00E5994 (bSetFntCacheReg.c)
  */
 
-__int64 __fastcall bServicingStackModifiedFonts(__int64 a1)
+_BOOL8 bServicingStackModifiedFonts()
 {
-  __int64 v1; // rax
+  BOOL v0; // ebx
+  __int64 v1; // r8
+  __int64 v2; // r9
+  int v4; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = SGDGetSessionState(a1);
-  bQueryFntCacheReg(*(HANDLE *)(*(_QWORD *)(v1 + 32) + 19408LL));
-  bSetFntCacheReg(2u, 2);
-  return 1LL;
+  v4 = 0;
+  v0 = 1;
+  if ( (unsigned int)bQueryFntCacheReg(ghkeyGreInitialize, L"ServicingStackModifiedFonts", &v4) )
+    v0 = v4 != 2;
+  bSetFntCacheReg(2LL, 2LL, v1, v2);
+  return v0;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x140869614
+ * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4
  * Callers:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D74D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDripsWatchdogDfxCallback @ 0x14086E2E0 (PopDripsWatchdogDfxCallback.c)
- *     PopDripsWatchdogPs4Callback @ 0x14086E650 (PopDripsWatchdogPs4Callback.c)
- *     PopDripsCallbackTakeAction @ 0x140879568 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408797A8 (PopDripsWatchdogTakeAction.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogDfxCallback @ 0x14086E2C0 (PopDripsWatchdogDfxCallback.c)
+ *     PopDripsWatchdogPs4Callback @ 0x14086E630 (PopDripsWatchdogPs4Callback.c)
+ *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PopFxReleaseDevice @ 0x1402D9204 (PopFxReleaseDevice.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopFxReleaseDevice @ 0x1402D9304 (PopFxReleaseDevice.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  */

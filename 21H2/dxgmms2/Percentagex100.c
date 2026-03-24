@@ -1,7 +1,7 @@
 /*
- * XREFs of Percentagex100 @ 0x1C00EB8F8
+ * XREFs of Percentagex100 @ 0x1C00C7D44
  * Callers:
- *     ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00EA340 (-CurateVPR@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C6774 (-CurateVPR@VIDMM_SEGMENT@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPrepareToHotPatchImage @ 0x140857368
+ * XREFs of MiPrepareToHotPatchImage @ 0x140857348
  * Callers:
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiCommitHotPatchTable @ 0x1402B92A0 (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1402B9894 (MiPrepareImagePagesForHotPatch.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiCommitHotPatchTable @ 0x1402B93A0 (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1402B9994 (MiPrepareImagePagesForHotPatch.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlpCheckFunctionPatchApplied @ 0x14057E480 (RtlpCheckFunctionPatchApplied.c)
  *     MiProcessHotPatchUndoTable @ 0x1405822E8 (MiProcessHotPatchUndoTable.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140856788 (MiMapHotPatchImageInSystemSpace.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140899A3C (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlEnumerateHotPatchPatches @ 0x140899C28 (RtlEnumerateHotPatchPatches.c)
- *     RtlFindHotPatchBase @ 0x140899CB0 (RtlFindHotPatchBase.c)
- *     RtlHotPatchSynchronizationRequired @ 0x140899E0C (RtlHotPatchSynchronizationRequired.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x140856768 (MiMapHotPatchImageInSystemSpace.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140899A1C (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x140899C08 (RtlEnumerateHotPatchPatches.c)
+ *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x140899DEC (RtlHotPatchSynchronizationRequired.c)
  */
 
 __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)

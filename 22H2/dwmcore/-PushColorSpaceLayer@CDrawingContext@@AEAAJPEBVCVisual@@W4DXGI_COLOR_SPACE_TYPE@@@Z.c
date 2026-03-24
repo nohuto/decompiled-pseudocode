@@ -1,13 +1,13 @@
 /*
- * XREFs of ?PushColorSpaceLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801D6534
+ * XREFs of ?PushColorSpaceLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180177BB4
  * Callers:
- *     ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x180060A78 (-PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UM.c)
+ *     ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x18007F3E0 (-PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UM.c)
  * Callees:
- *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x18007ED98 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??_ECColorSpaceLayer@@UEAAPEAXI@Z @ 0x1801D3100 (--_ECColorSpaceLayer@@UEAAPEAXI@Z.c)
- *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x1801D34FC (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
- *     ?Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@PEAPEAV1@@Z @ 0x1801F34CC (-Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@P.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800627D4 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
+ *     ??_ECColorSpaceLayer@@UEAAPEAXI@Z @ 0x1801744F0 (--_ECColorSpaceLayer@@UEAAPEAXI@Z.c)
+ *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x180174770 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
+ *     ?Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@PEAPEAV1@@Z @ 0x18018FC0C (-Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@P.c)
  */
 
 __int64 __fastcall CDrawingContext::PushColorSpaceLayer(
@@ -24,7 +24,7 @@ __int64 __fastcall CDrawingContext::PushColorSpaceLayer(
   int v12; // eax
   __int64 v13; // rcx
   _BYTE v15[40]; // [rsp+30h] [rbp-28h] BYREF
-  struct CLayer *v16; // [rsp+78h] [rbp+20h] BYREF
+  CColorSpaceLayer *v16; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = 0LL;
   v16 = 0LL;
@@ -32,7 +32,7 @@ __int64 __fastcall CDrawingContext::PushColorSpaceLayer(
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xE40u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xD6Cu, 0LL);
   }
   else
   {
@@ -40,7 +40,7 @@ __int64 __fastcall CDrawingContext::PushColorSpaceLayer(
     v9 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xE45u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xD71u, 0LL);
       v4 = v16;
     }
     else
@@ -48,10 +48,9 @@ __int64 __fastcall CDrawingContext::PushColorSpaceLayer(
       v4 = v16;
       v12 = CDrawingContext::PushLayer((CDrawingContext *)this, a2, v16, 1, 1);
       v9 = v12;
-      if ( v12 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xE4Bu, 0LL);
-      else
-        v4 = 0LL;
+      if ( v12 >= 0 )
+        return v9;
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xD77u, 0LL);
     }
   }
   if ( v4 )

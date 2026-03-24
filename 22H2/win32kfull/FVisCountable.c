@@ -1,27 +1,20 @@
 /*
- * XREFs of FVisCountable @ 0x1C00A1A50
+ * XREFs of FVisCountable @ 0x1C004BFD0
  * Callers:
- *     DecVisWindows @ 0x1C00A17FC (DecVisWindows.c)
- *     IncVisWindows @ 0x1C00A1908 (IncVisWindows.c)
- *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C00F1010 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036CF0 (zzzSetWindowCompositionCloak.c)
+ *     IncVisWindows @ 0x1C004BEB4 (IncVisWindows.c)
+ *     DecVisWindows @ 0x1C004C6EC (DecVisWindows.c)
  * Callees:
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
  */
 
-__int64 __fastcall FVisCountable(__int64 a1)
+_BOOL8 __fastcall FVisCountable(__int64 a1)
 {
-  __int64 v1; // r8
-  unsigned int v2; // eax
-  __int64 v3; // r8
+  __int64 v1; // r9
+  __int64 v2; // r9
 
   v1 = *(_QWORD *)(a1 + 40);
-  if ( *(char *)(v1 + 19) < 0 )
-    return 0LL;
-  if ( (*(_WORD *)(v1 + 42) & 0x2FFF) == 0x29D )
-    return 1LL;
-  v2 = IsTopLevelWindow(a1);
-  if ( !v2 )
-    return 0LL;
-  LOBYTE(v2) = ~*(_BYTE *)(v3 + 31);
-  return (v2 >> 5) & 1;
+  return *(char *)(v1 + 19) >= 0
+      && ((*(_WORD *)(v1 + 42) & 0x2FFF) == 0x29D
+       || (unsigned int)IsTopLevelWindow(a1) && (*(_BYTE *)(v2 + 31) & 0x20) == 0);
 }

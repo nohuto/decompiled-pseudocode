@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDevice@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBAPEAVCD3DDevice@@XZ @ 0x180123CE0
+ * XREFs of ?GetDevice@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBAPEAVCD3DDevice@@XZ @ 0x1800F8CE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Channel_EnableDebugCounter@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ENABLEDEBUGCOUNTER@@@Z @ 0x180193104
+ * XREFs of ?Channel_EnableDebugCounter@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ENABLEDEBUGCOUNTER@@@Z @ 0x1801557B8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UpdateDebugCounter@CComposition@@QEAAX_N@Z @ 0x180193898 (-UpdateDebugCounter@CComposition@@QEAAX_N@Z.c)
+ *     ?UpdateDebugCounter@CComposition@@QEAAX_N@Z @ 0x1801560A4 (-UpdateDebugCounter@CComposition@@QEAAX_N@Z.c)
  */
 
 __int64 __fastcall CComposition::Channel_EnableDebugCounter(
@@ -15,9 +15,9 @@ __int64 __fastcall CComposition::Channel_EnableDebugCounter(
   char v4; // al
 
   v4 = *((_BYTE *)a4 + 4) != 0;
-  if ( *((_BYTE *)a2 + 72) != v4 )
+  if ( *((_BYTE *)a2 + 64) != v4 )
   {
-    *((_BYTE *)a2 + 72) = v4;
+    *((_BYTE *)a2 + 64) = v4;
     CComposition::UpdateDebugCounter(this, *((_BYTE *)a4 + 4) != 0);
   }
   return 0LL;

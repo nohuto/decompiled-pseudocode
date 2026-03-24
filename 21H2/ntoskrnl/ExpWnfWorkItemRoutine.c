@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfWorkItemRoutine @ 0x1406D7D20
+ * XREFs of ExpWnfWorkItemRoutine @ 0x1406AB670
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpWnfDispatchKernelSubscription @ 0x1406D7D74 (ExpWnfDispatchKernelSubscription.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x1406AB6C4 (ExpWnfDispatchKernelSubscription.c)
  */
 
-char ExpWnfWorkItemRoutine()
+_QWORD *ExpWnfWorkItemRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax
 
@@ -19,5 +19,5 @@ char ExpWnfWorkItemRoutine()
     ExpWnfDispatchKernelSubscription();
   }
   while ( _InterlockedCompareExchange((volatile signed __int32 *)(ExpWnfDispatcher + 40), 0, 1) != 1 );
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

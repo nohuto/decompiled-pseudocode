@@ -1,63 +1,64 @@
 /*
- * XREFs of ExpAcquireFastMutexContended @ 0x1402FCD4C
+ * XREFs of ExpAcquireFastMutexContended @ 0x140273240
  * Callers:
- *     FsRtlAcquireHeaderMutex @ 0x140230240 (FsRtlAcquireHeaderMutex.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     CcUnpinFileDataEx @ 0x14025D6F0 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     CcSetDirtyInMask @ 0x1402C8FC0 (CcSetDirtyInMask.c)
- *     CcSetDirtyPinnedData @ 0x1402FC580 (CcSetDirtyPinnedData.c)
- *     KeAcquireGuardedMutex @ 0x1402FCC60 (KeAcquireGuardedMutex.c)
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlAcquireEofLock @ 0x140304790 (FsRtlAcquireEofLock.c)
- *     FsRtlReleaseEofLock @ 0x140328600 (FsRtlReleaseEofLock.c)
- *     CmpDeleteKeyObject @ 0x1406DB3F0 (CmpDeleteKeyObject.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7F40 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlReleaseEofLock @ 0x14026F300 (FsRtlReleaseEofLock.c)
+ *     KeAcquireGuardedMutex @ 0x14026F9E0 (KeAcquireGuardedMutex.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x140279990 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
+ *     CcSetDirtyInMask @ 0x1402B6B00 (CcSetDirtyInMask.c)
+ *     FsRtlAcquireHeaderMutex @ 0x1402C9760 (FsRtlAcquireHeaderMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402D44D0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlAcquireEofLock @ 0x1402EE090 (FsRtlAcquireEofLock.c)
+ *     ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x1402F63F0 (ExEnterCriticalRegionAndAcquireFastMutexUnsafe.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406405D0 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140648D30 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
+ *     KeAbPreWait @ 0x140273740 (KeAbPreWait.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall ExpAcquireFastMutexContended(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  int v3; // ebp
-  __int64 v4; // rdi
-  int v6; // esi
+  int v2; // ebp
+  int v5; // esi
   __int64 result; // rax
+  int v7; // ett
   int v8; // ett
-  int v9; // ett
 
-  ++*(_DWORD *)(a1 + 16);
-  v3 = 1;
-  v4 = a2;
-  v6 = 4;
+  ++*(_DWORD *)(BugCheckParameter2 + 16);
+  v2 = 1;
+  v5 = 4;
 LABEL_2:
-  LODWORD(result) = *(_DWORD *)a1;
+  LODWORD(result) = *(_DWORD *)BugCheckParameter2;
   do
   {
     while ( (result & 1) == 0 )
     {
-      v9 = result;
-      LODWORD(result) = _InterlockedCompareExchange((volatile signed __int32 *)a1, v6 + result, result);
-      if ( v9 == (_DWORD)result )
+      v8 = result;
+      LODWORD(result) = _InterlockedCompareExchange((volatile signed __int32 *)BugCheckParameter2, v5 + result, result);
+      if ( v8 == (_DWORD)result )
       {
-        if ( v4 )
-          KeAbPreWait(v4, a2, a3);
-        KeWaitForSingleObject((PVOID)(a1 + 24), WrFastMutex, 0, 0, 0LL);
-        _m_prefetchw((const void *)a1);
-        v3 = 3;
-        v6 = 2;
-        if ( v4 )
-          v4 = KeAbPreAcquire(a1, v4);
+        if ( a2 )
+          KeAbPreWait(a2);
+        KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 24), WrFastMutex, 0, 0, 0LL);
+        _m_prefetchw((const void *)BugCheckParameter2);
+        v2 = 3;
+        v5 = 2;
+        if ( a2 )
+          a2 = KeAbPreAcquire(BugCheckParameter2);
         goto LABEL_2;
       }
     }
-    v8 = result;
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)a1, v3 ^ result, result);
+    v7 = result;
+    result = (unsigned int)_InterlockedCompareExchange(
+                             (volatile signed __int32 *)BugCheckParameter2,
+                             v2 ^ result,
+                             result);
   }
-  while ( v8 != (_DWORD)result );
+  while ( v7 != (_DWORD)result );
   return result;
 }

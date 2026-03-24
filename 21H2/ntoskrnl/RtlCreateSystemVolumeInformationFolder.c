@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlCreateSystemVolumeInformationFolder @ 0x1407F7F00
+ * XREFs of RtlCreateSystemVolumeInformationFolder @ 0x140731C60
  * Callers:
- *     DifRtlCreateSystemVolumeInformationFolderWrapper @ 0x14061AF50 (DifRtlCreateSystemVolumeInformationFolderWrapper.c)
+ *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     NtCreateFile @ 0x1407E0BC0 (NtCreateFile.c)
- *     RtlpSysVolCreateSecurityDescriptor @ 0x1407F813C (RtlpSysVolCreateSecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BB4D8 (RtlpSysVolTakeOwnership.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     NtCreateFile @ 0x14060B430 (NtCreateFile.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x140731E9C (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140731FF8 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolTakeOwnership @ 0x140915E88 (RtlpSysVolTakeOwnership.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlCreateSystemVolumeInformationFolder(PCUNICODE_STRING VolumeRootPath)

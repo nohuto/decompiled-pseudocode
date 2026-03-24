@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEmUpdateDeviceConstraintCallback @ 0x1405D4980
+ * XREFs of PopEmUpdateDeviceConstraintCallback @ 0x140573EC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
  */
 
 __int64 __fastcall PopEmUpdateDeviceConstraintCallback(
@@ -51,7 +51,7 @@ __int64 __fastcall PopEmUpdateDeviceConstraintCallback(
                 v7[v9 + 6] = a5[1] + 1;
               }
             }
-            RtlFreeUnicodeString(&DestinationString);
+            RtlFreeAnsiString(&DestinationString);
           }
         }
       }

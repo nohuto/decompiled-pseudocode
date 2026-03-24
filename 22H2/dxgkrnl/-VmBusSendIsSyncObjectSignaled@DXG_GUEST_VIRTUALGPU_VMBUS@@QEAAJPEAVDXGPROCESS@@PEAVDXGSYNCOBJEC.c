@@ -1,63 +1,44 @@
 /*
- * XREFs of ?VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJECT@@IPEAE@Z @ 0x1C038A550
+ * XREFs of ?VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJECT@@IPEAE@Z @ 0x1C0249CD0
  * Callers:
- *     ?IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z @ 0x1C03501D0 (-IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z.c)
+ *     ?IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z @ 0x1C0291540 (-IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z @ 0x1C034FF4C (-GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
+ *     ?GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z @ 0x1C02912E8 (-GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendIsSyncObjectSignaled(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
         struct DXGPROCESS *a2,
         struct DXGSYNCOBJECT *a3,
-        int a4,
+        unsigned int a4,
         unsigned __int8 *a5)
 {
-  unsigned int v5; // ebx
-  struct DXGKVMB_COMMAND_BASE *v10; // rsi
-  int HostHandle; // edx
-  int v12; // eax
-  int v13; // eax
-  struct _MDL *v15; // [rsp+20h] [rbp-168h]
-  struct DXGKVMB_COMMAND_BASE *v16[2]; // [rsp+30h] [rbp-158h] BYREF
-  unsigned int v17; // [rsp+40h] [rbp-148h]
+  int v5; // ebx
+  struct _MDL *v7; // r9
+  __int64 result; // rax
+  __int64 v9; // [rsp+20h] [rbp-28h] BYREF
+  int v10; // [rsp+28h] [rbp-20h]
+  int v11; // [rsp+2Ch] [rbp-1Ch]
+  int v12; // [rsp+30h] [rbp-18h]
+  unsigned int HostHandle; // [rsp+38h] [rbp-10h]
 
-  v5 = 0;
-  v17 = 0;
-  *(_OWORD *)v16 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v16, this, 0x20u, 0LL, 0LL, 0LL);
-  v10 = v16[0];
-  if ( v16[0] )
+  v5 = *((_DWORD *)a2 + 106);
+  v9 = 0LL;
+  v11 = 0;
+  v10 = v5;
+  v12 = 46;
+  HostHandle = DXGSYNCOBJECT::GetHostHandle(a3, a4, (unsigned __int8)a3);
+  result = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v9, 0x20u, v7);
+  if ( (int)result < 0 )
   {
-    HostHandle = DXGSYNCOBJECT::GetHostHandle(a3, a4);
-    v12 = *((_DWORD *)a2 + 126);
-    *((_BYTE *)v10 + 12) = 0;
-    *((_DWORD *)v10 + 3) &= 0x1FFu;
-    *(_QWORD *)v10 = 0LL;
-    *((_DWORD *)v10 + 2) = v12;
-    *((_QWORD *)v10 + 2) = 46LL;
-    *((_DWORD *)v10 + 6) = HostHandle;
-    v13 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (unsigned __int8 *)v16[1], v16[0], v17, v15);
-    if ( v13 < 0 )
-    {
-      if ( v13 == -1071775484 )
-        *a5 = 0;
-      else
-        v5 = v13;
-    }
-    else
-    {
-      *a5 = 1;
-    }
+    if ( (_DWORD)result != -1071775484 )
+      return result;
+    *a5 = 0;
   }
   else
   {
-    v5 = -1073741801;
+    *a5 = 1;
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v16);
-  return v5;
+  return 0LL;
 }

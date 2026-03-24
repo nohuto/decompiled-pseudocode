@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpEnvRegisterFaultRange @ 0x140170538
+ * XREFs of RtlpEnvRegisterFaultRange @ 0x140170558
  * Callers:
- *     RtlCSparseBitmapCleanup @ 0x14015908C (RtlCSparseBitmapCleanup.c)
- *     RtlCSparseBitmapStart @ 0x1401703E8 (RtlCSparseBitmapStart.c)
+ *     RtlCSparseBitmapCleanup @ 0x1401590AC (RtlCSparseBitmapCleanup.c)
+ *     RtlCSparseBitmapStart @ 0x140170408 (RtlCSparseBitmapStart.c)
  * Callees:
- *     MmManageFaultRange @ 0x140170584 (MmManageFaultRange.c)
+ *     MmManageFaultRange @ 0x1401705A4 (MmManageFaultRange.c)
  */
 
 __int64 __fastcall RtlpEnvRegisterFaultRange(ULONG_PTR a1, ULONG_PTR a2)

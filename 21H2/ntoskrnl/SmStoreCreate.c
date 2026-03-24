@@ -1,11 +1,11 @@
 /*
- * XREFs of SmStoreCreate @ 0x1409D4754
+ * XREFs of SmStoreCreate @ 0x14092A384
  * Callers:
- *     SmcStoreCreate @ 0x1409D8074 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DB50 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwSetSystemInformation @ 0x14041EE00 (ZwSetSystemInformation.c)
- *     SmStorePhysicalRequestIssue @ 0x1409D48D8 (SmStorePhysicalRequestIssue.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwSetSystemInformation @ 0x1403FD920 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x14092A508 (SmStorePhysicalRequestIssue.c)
  */
 
 __int64 __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetBuffer@FxRequestBuffer@@QEAAJPEAPEAX@Z @ 0x1C0006AF8
+ * XREFs of ?GetBuffer@FxRequestBuffer@@QEAAJPEAPEAX@Z @ 0x1C000B1B4
  * Callers:
- *     ?FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject@@@Z @ 0x1C00066D0 (-FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject.c)
- *     ?FormatInternalIoctlOthersRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KPEAUFxRequestBuffer@@@Z @ 0x1C001AF84 (-FormatInternalIoctlOthersRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KPEAUFxRequestBuffer@@@Z.c)
- *     ?FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject@@@Z @ 0x1C0075364 (-FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject.c)
+ *     ?FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject@@@Z @ 0x1C000AD0C (-FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject.c)
+ *     ?FormatInternalIoctlOthersRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KPEAUFxRequestBuffer@@@Z @ 0x1C0064C18 (-FormatInternalIoctlOthersRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KPEAUFxRequestBuffer@@@Z.c)
+ *     ?FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject@@@Z @ 0x1C0067B60 (-FormatIoRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@EPEAUFxRequestBuffer@@PEA_JPEAVFxFileObject.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FxRequestBuffer::GetBuffer(FxRequestBuffer *this, IFxMemory **Buffer)
 {
   __int64 (*GetBuffer)(void); // rax
-  IFxMemory *v5; // rax
+  IFxMemory *v5; // rcx
   _MDL *Mdl; // rcx
   IFxMemory *MappedSystemVa; // rax
   _WDFMEMORY_OFFSET *Offsets; // rcx
@@ -29,7 +29,6 @@ __int64 __fastcall FxRequestBuffer::GetBuffer(FxRequestBuffer *this, IFxMemory *
         v5 = (IFxMemory *)(this->u.Memory.Offsets->BufferOffset + GetBuffer());
       else
         v5 = (IFxMemory *)GetBuffer();
-LABEL_5:
       *Buffer = v5;
       return 0LL;
     case FxRequestBufferMdl:
@@ -67,10 +66,9 @@ LABEL_5:
       if ( MappedSystemVa )
       {
         Offsets = this->u.Memory.Offsets;
-        if ( !Offsets )
-          return 0LL;
-        v5 = (IFxMemory *)((char *)MappedSystemVa + Offsets->BufferOffset);
-        goto LABEL_5;
+        if ( Offsets )
+          *Buffer = (IFxMemory *)((char *)MappedSystemVa + Offsets->BufferOffset);
+        return 0LL;
       }
       break;
     default:

@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerButtonWorkCallback @ 0x1402E46A0
+ * XREFs of PopPowerButtonWorkCallback @ 0x1402E47A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,20 +7,20 @@
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeDisableTimer2 @ 0x1400FB134 (KeDisableTimer2.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     KeInitializeIRTimer @ 0x14013AF00 (KeInitializeIRTimer.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopRecordPhysicalPowerButton @ 0x140866008 (PopRecordPhysicalPowerButton.c)
- *     PopDiagTracePowerButtonBugcheck @ 0x140873C00 (PopDiagTracePowerButtonBugcheck.c)
- *     PopPublishPowerButtonState @ 0x140877154 (PopPublishPowerButtonState.c)
- *     PopQueryPowerButtonBugcheckEnabled @ 0x1408771BC (PopQueryPowerButtonBugcheckEnabled.c)
- *     PopRecordPoBlackboxInformation @ 0x14087CFB4 (PopRecordPoBlackboxInformation.c)
+ *     KeDisableTimer2 @ 0x1400FB154 (KeDisableTimer2.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     KeInitializeIRTimer @ 0x14013AF20 (KeInitializeIRTimer.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopRecordPhysicalPowerButton @ 0x140865FE8 (PopRecordPhysicalPowerButton.c)
+ *     PopDiagTracePowerButtonBugcheck @ 0x140873BE0 (PopDiagTracePowerButtonBugcheck.c)
+ *     PopPublishPowerButtonState @ 0x140877134 (PopPublishPowerButtonState.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x14087719C (PopQueryPowerButtonBugcheckEnabled.c)
+ *     PopRecordPoBlackboxInformation @ 0x14087CF94 (PopRecordPoBlackboxInformation.c)
  */
 
 __int64 PopPowerButtonWorkCallback()

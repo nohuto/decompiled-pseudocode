@@ -1,45 +1,55 @@
 /*
- * XREFs of AslPathToNetworkPathNt @ 0x140A552D0
+ * XREFs of AslPathToNetworkPathNt @ 0x140753B0C
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140A517D0 (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x1407531CC (SdbpResolveMatchingFile.c)
  * Callees:
- *     wcscat_s @ 0x1403DF690 (wcscat_s.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     AslpDetermineDosPathNameType @ 0x140A564EC (AslpDetermineDosPathNameType.c)
+ *     wcscat_s @ 0x1403D7AD0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
  */
 
-__int64 __fastcall AslPathToNetworkPathNt(wchar_t **a1, __int64 a2)
+__int64 __fastcall AslPathToNetworkPathNt(wchar_t **a1, _WORD *a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // rcx
-  __int64 v6; // rdi
-  rsize_t v7; // rdi
-  wchar_t *v8; // rax
-  wchar_t *v9; // rbp
+  __int64 v4; // rdi
+  unsigned __int64 v5; // rax
+  __int16 v7; // ax
+  const wchar_t *v8; // r14
+  __int16 v9; // ax
+  __int16 v10; // ax
+  rsize_t v11; // rdi
+  wchar_t *v12; // rax
+  wchar_t *v13; // rsi
 
   v2 = 0;
+  v4 = -1LL;
   *a1 = 0LL;
-  if ( (unsigned int)AslpDetermineDosPathNameType(a2) == 1 )
+  v5 = -1LL;
+  do
+    ++v5;
+  while ( a2[v5] );
+  if ( v5 > 4
+    && (*a2 == 92 || *a2 == 47)
+    && ((v7 = a2[1], v7 == 92) || v7 == 47)
+    && ((v8 = a2 + 2, v9 = a2[2], v9 != 46) && v9 != 63 || (v10 = a2[3], v10 != 92) && v10 != 47 && v10) )
   {
-    v6 = -1LL;
     do
-      ++v6;
-    while ( *(_WORD *)(a2 + 2 * v6) );
-    v7 = v6 + 9;
-    v8 = (wchar_t *)AslAlloc(v5, 2 * v7);
-    v9 = v8;
-    if ( v8 )
+      ++v4;
+    while ( a2[v4] );
+    v11 = v4 + 9;
+    v12 = (wchar_t *)AslAlloc(a1, 2 * v11);
+    v13 = v12;
+    if ( v12 )
     {
-      wcscpy_s(v8, v7, L"\\??\\UNC\\");
-      wcscat_s(v9, v7, (const wchar_t *)(a2 + 4));
-      *a1 = v9;
+      wcscpy_s(v12, v11, L"\\??\\UNC\\");
+      wcscat_s(v13, v11, v8);
+      *a1 = v13;
     }
     else
     {
       v2 = -1073741801;
-      AslLogCallPrintf(1LL);
+      AslLogCallPrintf(1, (unsigned int)"AslPathToNetworkPathNt", 351, (unsigned int)"Out of memory");
     }
   }
   else

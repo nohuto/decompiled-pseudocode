@@ -1,85 +1,84 @@
 /*
- * XREFs of ?ProcessPointerPositionChange@OUTPUTDUPL_MGR@@QEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C01E3200
+ * XREFs of ?ProcessPointerPositionChange@OUTPUTDUPL_MGR@@QEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C0165B80
  * Callers:
- *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HHH@Z @ 0x1C01B6150 (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HHH@Z.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0130704 (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C02248C0 (-LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
- *     ?IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ @ 0x1C0321960 (-IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ.c)
- *     ?ProcessPointerPosition@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C032796C (-ProcessPointerPosition@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ @ 0x1C029A7F0 (-IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ.c)
+ *     ?LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C029ADEC (-LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
+ *     ?ProcessPointerPosition@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C02A1C54 (-ProcessPointerPosition@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
  */
 
 void __fastcall OUTPUTDUPL_MGR::ProcessPointerPositionChange(
         OUTPUTDUPL_MGR *this,
-        const struct _DXGKARG_SETPOINTERPOSITION *a2)
+        const struct _DXGKARG_SETPOINTERPOSITION *a2,
+        __int64 a3)
 {
-  __int64 VidPnSourceId; // rax
-  struct DXGFASTMUTEX *v5; // rbx
-  OUTPUTDUPL_CONTEXT **v6; // rbx
-  unsigned int v7; // ebp
-  int v8; // r14d
-  OUTPUTDUPL_CONTEXT *v9; // r8
-  OUTPUTDUPL_MGR *v10; // rcx
-  int v11; // eax
-  __int64 v12; // rbx
-  _BYTE v13[16]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v5; // rbx
+  __int64 v6; // rdx
+  OUTPUTDUPL_CONTEXT **v7; // rbx
+  unsigned int v8; // ebp
+  int v9; // r15d
+  OUTPUTDUPL_CONTEXT *v10; // r8
+  __int64 v11; // rax
+  OUTPUTDUPL_MGR *v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // r14
+  _QWORD *v16; // rax
+  _BYTE v17[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  VidPnSourceId = a2->VidPnSourceId;
-  if ( (unsigned int)VidPnSourceId >= *((_DWORD *)this + 19) )
+  if ( a2->VidPnSourceId >= *((_DWORD *)this + 13) )
   {
-    WdLogSingleEntry2(3LL, a2->VidPnSourceId, this);
+    v11 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v11 + 24) = a2->VidPnSourceId;
+    *(_QWORD *)(v11 + 32) = this;
+    WdLogEvent5_WdWarning(v11);
   }
   else
   {
-    v5 = (struct DXGFASTMUTEX *)(*((_QWORD *)this + 2) + 72 * VidPnSourceId);
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, v5, 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
-    v6 = (OUTPUTDUPL_CONTEXT **)*((_QWORD *)v5 + 6);
-    v7 = 0;
-    v8 = 1;
+    v5 = *((_QWORD *)this + 2) + 32LL * a2->VidPnSourceId;
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, *(struct DXGFASTMUTEX *const *)v5, 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+    v7 = *(OUTPUTDUPL_CONTEXT ***)(v5 + 8);
+    v8 = 0;
+    v9 = 1;
     if ( *((_DWORD *)this + 2) )
     {
       while ( 1 )
       {
-        v9 = *v6;
-        if ( *v6 && *((_DWORD *)v9 + 79) )
+        v10 = *v7;
+        if ( *v7 && *((_DWORD *)v10 + 79) )
         {
-          if ( v8 )
+          if ( v9 )
           {
             if ( (unsigned int)OUTPUTDUPL_MGR::IsHighFreqLoggingEnabled(this) )
             {
-              OUTPUTDUPL_MGR::LogPointerPositionChangeParams(v10, a2);
-              v9 = *v6;
+              OUTPUTDUPL_MGR::LogPointerPositionChangeParams(v12, a2);
+              v10 = *v7;
             }
-            v8 = 0;
+            v9 = 0;
           }
-          v11 = OUTPUTDUPL_CONTEXT::ProcessPointerPosition(v9, a2);
-          if ( v11 < 0 )
+          v13 = OUTPUTDUPL_CONTEXT::ProcessPointerPosition(v10, a2);
+          v15 = v13;
+          if ( v13 < 0 )
             break;
         }
+        ++v8;
         ++v7;
-        ++v6;
-        if ( v7 >= *((_DWORD *)this + 2) )
+        if ( v8 >= *((_DWORD *)this + 2) )
           goto LABEL_5;
       }
-      v12 = v11;
-      WdLogSingleEntry3(2LL, a2->VidPnSourceId, v7, v11);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Process pointer position failed in vidpn: 0x%I64x, idx: 0x%I64x, status: 0x%I64x",
-        a2->VidPnSourceId,
-        v7,
-        v12,
-        0LL,
-        0LL);
+      v16 = (_QWORD *)WdLogNewEntry5_WdError(v14, v6);
+      v16[3] = a2->VidPnSourceId;
+      v16[4] = v8;
+      v16[5] = v15;
+      WdLogEvent5_WdError(v16);
     }
 LABEL_5:
-    if ( v13[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13);
+    if ( v17[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v6);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?OnDeviceOpened@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C023F110
+ * XREFs of ?OnDeviceOpened@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C0243940
  * Callers:
- *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024CB60 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F638 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
  *     <none>
  */

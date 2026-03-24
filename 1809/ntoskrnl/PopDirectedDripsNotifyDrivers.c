@@ -1,21 +1,21 @@
 /*
- * XREFs of PopDirectedDripsNotifyDrivers @ 0x140868178
+ * XREFs of PopDirectedDripsNotifyDrivers @ 0x140868158
  * Callers:
- *     PopDirectedDripsEngageDfx @ 0x140867B54 (PopDirectedDripsEngageDfx.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x140867C18 (PopDirectedDripsHandleResiliencyNotification.c)
- *     PopDirectedDripsProcessWork @ 0x140868458 (PopDirectedDripsProcessWork.c)
- *     PopDirectedDripsRefreshDeviceState @ 0x1408685DC (PopDirectedDripsRefreshDeviceState.c)
- *     PopDirectedDripsRefreshDisengageState @ 0x140868640 (PopDirectedDripsRefreshDisengageState.c)
+ *     PopDirectedDripsEngageDfx @ 0x140867B34 (PopDirectedDripsEngageDfx.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140867BF8 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
+ *     PopDirectedDripsRefreshDeviceState @ 0x1408685BC (PopDirectedDripsRefreshDeviceState.c)
+ *     PopDirectedDripsRefreshDisengageState @ 0x140868620 (PopDirectedDripsRefreshDisengageState.c)
  * Callees:
- *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1402D77F4 (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1402D78F4 (PopFxClearDirectedDripsCandidateDeviceList.c)
  *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
- *     PoClearBroadcast @ 0x1406E0A68 (PoClearBroadcast.c)
- *     PoInitializeBroadcast @ 0x1406E0AC4 (PoInitializeBroadcast.c)
- *     PopAcquireTransitionLock @ 0x14071E6C8 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14071E724 (PopReleaseTransitionLock.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x140867E1C (PopDirectedDripsInitializeBroadcast.c)
- *     PopQueryCurrentBroadcastProperties @ 0x14086F584 (PopQueryCurrentBroadcastProperties.c)
- *     PopDiagTraceDirectedDripsNotifyDevices @ 0x14087213C (PopDiagTraceDirectedDripsNotifyDevices.c)
+ *     PoClearBroadcast @ 0x1406E0A48 (PoClearBroadcast.c)
+ *     PoInitializeBroadcast @ 0x1406E0AA4 (PoInitializeBroadcast.c)
+ *     PopAcquireTransitionLock @ 0x14071E6A8 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14071E704 (PopReleaseTransitionLock.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140867DFC (PopDirectedDripsInitializeBroadcast.c)
+ *     PopQueryCurrentBroadcastProperties @ 0x14086F564 (PopQueryCurrentBroadcastProperties.c)
+ *     PopDiagTraceDirectedDripsNotifyDevices @ 0x14087211C (PopDiagTraceDirectedDripsNotifyDevices.c)
  */
 
 void __fastcall PopDirectedDripsNotifyDrivers(signed __int32 *a1, __int64 a2, __int64 a3, __int64 a4)

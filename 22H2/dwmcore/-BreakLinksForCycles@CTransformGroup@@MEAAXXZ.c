@@ -1,10 +1,10 @@
 /*
- * XREFs of ?BreakLinksForCycles@CTransformGroup@@MEAAXXZ @ 0x18001B070
+ * XREFs of ?BreakLinksForCycles@CTransformGroup@@MEAAXXZ @ 0x1801B5E50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetRealizationWorker@CTransform3DGroup@@IEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18001B2BC (-GetRealizationWorker@CTransform3DGroup@@IEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
+ *     ?GetRealizationWorker@CTransform3DGroup@@IEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18000E64C (-GetRealizationWorker@CTransform3DGroup@@IEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
  */
 
 void __fastcall CTransformGroup::BreakLinksForCycles(CTransformGroup *this)
@@ -16,6 +16,6 @@ void __fastcall CTransformGroup::BreakLinksForCycles(CTransformGroup *this)
     *((_DWORD *)v2 + 16) = 0;
   *((_QWORD *)this + 3) = v2;
   if ( v2 )
-    CTransform3DGroup::GetRealizationWorker((CTransformGroup *)((char *)this - 184), 0LL, v2);
+    CTransform3DGroup::GetRealizationWorker((CTransformGroup *)((char *)this - 176), 0LL, v2);
   CCyclicResourceListEntry::BreakLinksForCycles(this);
 }

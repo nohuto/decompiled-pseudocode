@@ -1,74 +1,31 @@
 /*
- * XREFs of rimDoScheduledUserModeRimPnpRegistration @ 0x1C00D0660
+ * XREFs of rimDoScheduledUserModeRimPnpRegistration @ 0x1C0052530
  * Callers:
- *     RIMOnPnpNotification @ 0x1C0042B50 (RIMOnPnpNotification.c)
+ *     RIMOnPnpNotification @ 0x1C00539C0 (RIMOnPnpNotification.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMDiscoverDevicesOfInputType @ 0x1C0044B20 (RIMDiscoverDevicesOfInputType.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     RIMDiscoverDevicesOfInputType @ 0x1C0052D04 (RIMDiscoverDevicesOfInputType.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall rimDoScheduledUserModeRimPnpRegistration(unsigned int *Object, __int64 a2, __int64 a3)
+__int64 __fastcall rimDoScheduledUserModeRimPnpRegistration(_DWORD *Object)
 {
-  PDEVICE_OBJECT v4; // rcx
-  int v5; // edx
-  int v6; // ebx
-  int v7; // r8d
+  int v2; // ebx
 
-  v4 = WPP_GLOBAL_Control;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      64,
-      (__int64)&WPP_3100a0ce65ca3ababb0b99fd70935186_Traceguids);
-  if ( Object[272] )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, a2, a3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 64, (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids);
+  if ( Object[216] )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1965LL);
   if ( (Object[21] & 0x20) == 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, a2, a3);
-  v6 = RIMDiscoverDevicesOfInputType(Object);
-  if ( v6 < 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1966LL);
+  v2 = RIMDiscoverDevicesOfInputType(Object);
+  if ( v2 < 0 )
   {
-    LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v5,
-        v7,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        65,
-        (__int64)&WPP_3100a0ce65ca3ababb0b99fd70935186_Traceguids);
-    }
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return (unsigned int)v2;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 65, (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids);
   }
-  LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      v7,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      66,
-      (__int64)&WPP_3100a0ce65ca3ababb0b99fd70935186_Traceguids);
-  }
-  return (unsigned int)v6;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 66, (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids);
+  return (unsigned int)v2;
 }

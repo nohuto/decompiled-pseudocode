@@ -1,55 +1,51 @@
 /*
- * XREFs of NtUserTransformPoint @ 0x1C00E1820
+ * XREFs of NtUserTransformPoint @ 0x1C0111CA0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsValidKernelDpiAwarenessContext @ 0x1C00E1AF8 (IsValidKernelDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     IsValidKernelDpiAwarenessContext @ 0x1C0111DE0 (IsValidKernelDpiAwarenessContext.c)
  */
 
-__int64 __fastcall NtUserTransformPoint(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtUserTransformPoint(_QWORD *a1, unsigned int a2, unsigned int a3, __int64 a4)
 {
-  unsigned int v5; // edi
-  unsigned int v6; // r14d
-  __int64 v8; // rdx
-  _BYTE *v9; // rdx
-  __int64 v10; // rcx
-  int v11; // ebx
+  int v8; // ebx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _QWORD *v11; // rdx
   __int64 v12; // rcx
-  __int64 v14; // [rsp+38h] [rbp-30h] BYREF
-  _QWORD v15[4]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v13; // rcx
+  __int64 v15; // [rsp+38h] [rbp-30h] BYREF
+  _QWORD v16[4]; // [rsp+40h] [rbp-28h] BYREF
 
-  v5 = a3;
-  v6 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v14 = 0LL;
-  v15[0] = 0LL;
-  if ( (unsigned int)IsValidKernelDpiAwarenessContext(v6) && (unsigned int)IsValidKernelDpiAwarenessContext(v5) )
+  v8 = 1;
+  EnterCrit(0LL, 1LL);
+  v15 = 0LL;
+  v16[0] = 0LL;
+  if ( (unsigned int)IsValidKernelDpiAwarenessContext(a2) && (unsigned int)IsValidKernelDpiAwarenessContext(a3) )
   {
-    v9 = a1;
+    v11 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v9 = (_BYTE *)MmUserProbeAddress;
-    *v9 = *v9;
-    v9[7] = v9[7];
-    v10 = *a1;
-    v14 = *a1;
-    v11 = 1;
-    if ( a4 && (v6 & 0xF) == 2 )
+      v11 = (_QWORD *)MmUserProbeAddress;
+    *v11 = *v11;
+    v12 = *a1;
+    v15 = *a1;
+    if ( a4 && (a2 & 0xF) == 2 )
     {
-      v15[0] = ValidateHmonitor(a4, v9);
-      v10 = v14;
+      v16[0] = ValidateHmonitor(a4);
+      v12 = v15;
     }
-    if ( !v15[0] )
-      v15[0] = GuessMonitorOverrideForCoordinateConversions(v10, v5, 0LL);
-    LogicalToPhysicalDPIPoint(&v14, &v14, v5, v15);
-    PhysicalToLogicalDPIPoint(&v14, &v14, v6, v15);
-    *a1 = v14;
+    if ( !v16[0] )
+      v16[0] = GuessMonitorOverrideForCoordinateConversions(v12, a3, 0LL);
+    LogicalToPhysicalDPIPoint(&v15, &v15, a3, v16);
+    PhysicalToLogicalDPIPoint(&v15, &v15, a2, v16);
+    *a1 = v15;
   }
   else
   {
-    v11 = 0;
-    UserSetLastError(87LL, v8);
+    v8 = 0;
+    UserSetLastError(87LL, v9, v10);
   }
-  UserSessionSwitchLeaveCrit(v12);
-  return v11;
+  UserSessionSwitchLeaveCrit(v13);
+  return v8;
 }

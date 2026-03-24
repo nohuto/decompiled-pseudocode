@@ -1,19 +1,19 @@
 /*
- * XREFs of NtEnableLastKnownGood @ 0x140705C60
+ * XREFs of NtEnableLastKnownGood @ 0x140705C40
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwDeleteFile @ 0x1401B9B10 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x1401B9B30 (ZwDeleteKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwDeleteFile @ 0x1401B9B30 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x1401B9B50 (ZwDeleteKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x140705EF0 (IopFileUtilWalkDirectoryTreeBottomUp.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x140705ED0 (IopFileUtilWalkDirectoryTreeBottomUp.c)
  */
 
 __int64 NtEnableLastKnownGood()

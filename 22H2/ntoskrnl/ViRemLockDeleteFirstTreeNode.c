@@ -1,15 +1,15 @@
 /*
- * XREFs of ViRemLockDeleteFirstTreeNode @ 0x140AD38CC
+ * XREFs of ViRemLockDeleteFirstTreeNode @ 0x1409D6814
  * Callers:
- *     VfRemLockDeleteMemoryRange @ 0x140AC11C2 (VfRemLockDeleteMemoryRange.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x140AD3620 (VerifierIoInitializeRemoveLockEx.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x1409D64D0 (VerifierIoInitializeRemoveLockEx.c)
+ *     VfRemLockDeleteMemoryRange @ 0x1409D671C (VfRemLockDeleteMemoryRange.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlDeleteTreeNode @ 0x14020A740 (VfAvlDeleteTreeNode.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14020A930 (VfUtilFreePoolCheckIRQL.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14037E440 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14037E4A8 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
  */
 
 __int64 ViRemLockDeleteFirstTreeNode()
@@ -33,7 +33,7 @@ __int64 ViRemLockDeleteFirstTreeNode()
     return 0LL;
   if ( v0 )
   {
-    if ( dword_140D71A00 == 1 )
+    if ( dword_140D4B548 == 1 )
       ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v0);
     else
       VfUtilFreePoolCheckIRQL(v0);

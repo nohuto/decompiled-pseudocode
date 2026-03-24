@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_SettingResetOnLastResumeFlagForPDOAfterD3Cold @ 0x1C0023EE0
+ * XREFs of HUBDSM_SettingResetOnLastResumeFlagForPDOAfterD3Cold @ 0x1C0021700
  * Callers:
  *     <none>
  * Callees:

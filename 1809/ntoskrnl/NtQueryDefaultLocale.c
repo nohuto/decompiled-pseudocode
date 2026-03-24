@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryDefaultLocale @ 0x1406AE500
+ * XREFs of NtQueryDefaultLocale @ 0x1406AE4E0
  * Callers:
  *     <none>
  * Callees:

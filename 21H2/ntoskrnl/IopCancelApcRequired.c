@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCancelApcRequired @ 0x1403689A4
+ * XREFs of IopCancelApcRequired @ 0x140359D90
  * Callers:
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407E65A0 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     IopCancelSynchronousIrpsForThread @ 0x140933DDC (IopCancelSynchronousIrpsForThread.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14070A1F4 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x1408911E0 (IopCancelSynchronousIrpsForThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopCancelApcRequired(__int64 a1, __int64 a2, __int64 a3)
@@ -23,12 +23,12 @@ __int64 __fastcall IopCancelApcRequired(__int64 a1, __int64 a2, __int64 a3)
   int v16; // edx
   bool v17; // zf
 
-  v3 = (KSPIN_LOCK *)(a1 + 1496);
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1496));
-  v8 = (_QWORD *)(a1 + 1280);
+  v3 = (KSPIN_LOCK *)(a1 + 1416);
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1416));
+  v8 = (_QWORD *)(a1 + 1200);
   v9 = v7;
-  v10 = *(_QWORD **)(a1 + 1280);
-  if ( v10 == (_QWORD *)(a1 + 1280) )
+  v10 = *(_QWORD **)(a1 + 1200);
+  if ( v10 == (_QWORD *)(a1 + 1200) )
   {
 LABEL_2:
     v11 = 0;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?QueryInterface@?$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180287D70
+ * XREFs of ?QueryInterface@?$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802471F0
  * Callers:
- *     ?QueryInterface@?$ValueReference@I@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180108770 (-QueryInterface@-$ValueReference@I@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?QueryInterface@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@U?$IReference@I@Foundation@Windows@@VFtmBase@23@@Details@WRL@Microsoft@@WBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180108790 (-QueryInterface@-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@U-$IReferen.c)
+ *     ?QueryInterface@?$ValueReference@I@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F7210 (-QueryInterface@-$ValueReference@I@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@?$RuntimeClassImpl@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@U?$IReference@I@Foundation@Windows@@VFtmBase@23@@Details@WRL@Microsoft@@WBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F7220 (-QueryInterface@-$RuntimeClassImpl@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$00$00$0A@U-$IReferen.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CanCastTo@?$ImplementsHelper@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U?$IReference@I@Foundation@Windows@@UIWeakReferenceSource@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAXPEA_N@Z @ 0x180283728 (-CanCastTo@-$ImplementsHelper@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U-$IReference@I@Founda.c)
- *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x180286FBC (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?CanCastTo@?$ImplementsHelper@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U?$IReference@I@Foundation@Windows@@UIWeakReferenceSource@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAXPEA_N@Z @ 0x1802435C4 (-CanCastTo@-$ImplementsHelper@U-$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U-$IReference@I@Founda.c)
+ *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x18024637C (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
  */
 
 __int64 __fastcall ValueReference<unsigned int>::QueryInterface(__int64 a1, const struct _GUID *a2, _QWORD *a3)

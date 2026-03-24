@@ -1,14 +1,14 @@
 /*
- * XREFs of SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409CD41C
+ * XREFs of SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409237CC
  * Callers:
- *     SeShutdownServerSilo @ 0x1409C5B80 (SeShutdownServerSilo.c)
+ *     SeShutdownServerSilo @ 0x14091C1C4 (SeShutdownServerSilo.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepDeleteLogonSessionTrack @ 0x14069BDD0 (SepDeleteLogonSessionTrack.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A670 (SepDeleteLogonSessionTrack.c)
  */
 
 struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIST_ENTRY *a1)
@@ -45,7 +45,7 @@ struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIS
         {
           v13 = *(_QWORD *)(i + 8);
           ExReleaseResourceLite(v8);
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           SepDeleteLogonSessionTrack(&v13, 0);
           v11 = KeGetCurrentThread();
           --v11->KernelApcDisable;
@@ -55,7 +55,7 @@ struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIS
       }
     }
     ExReleaseResourceLite(v8);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     ++v2;
     v4 += 8LL;
     --v5;

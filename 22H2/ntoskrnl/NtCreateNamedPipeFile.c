@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCreateNamedPipeFile @ 0x1407D0AA0
+ * XREFs of NtCreateNamedPipeFile @ 0x140692E30
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IoCreateFile @ 0x1407D0C00 (IoCreateFile.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IoCreateFile @ 0x14060B630 (IoCreateFile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtCreateNamedPipeFile(
-        HANDLE *a1,
-        ACCESS_MASK a2,
+        PHANDLE FileHandle,
+        ACCESS_MASK DesiredAccess,
         OBJECT_ATTRIBUTES *a3,
         struct _IO_STATUS_BLOCK *a4,
         ULONG ShareAccess,
@@ -22,7 +22,7 @@ NTSTATUS __fastcall NtCreateNamedPipeFile(
         int a11,
         int a12,
         int a13,
-        __int64 *a14)
+        __int64 a14)
 {
   _DWORD InternalParameters[6]; // [rsp+70h] [rbp-38h] BYREF
   __int64 v16; // [rsp+88h] [rbp-20h]
@@ -40,13 +40,13 @@ NTSTATUS __fastcall NtCreateNamedPipeFile(
     v17 = 1;
     if ( KeGetCurrentThread()->PreviousMode )
     {
-      if ( ((unsigned __int8)a14 & 3) != 0 )
+      if ( (a14 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v16 = *a14;
+      v16 = *(_QWORD *)a14;
     }
     else
     {
-      v16 = *a14;
+      v16 = *(_QWORD *)a14;
     }
   }
   else
@@ -60,8 +60,8 @@ NTSTATUS __fastcall NtCreateNamedPipeFile(
   InternalParameters[4] = a12;
   InternalParameters[5] = a13;
   return IoCreateFile(
-           a1,
-           a2,
+           FileHandle,
+           DesiredAccess,
            a3,
            a4,
            0LL,

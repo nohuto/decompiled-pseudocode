@@ -1,16 +1,14 @@
 /*
- * XREFs of FsRtlpGrantAnyOplockFromExclusive @ 0x14053E670
+ * XREFs of FsRtlpGrantAnyOplockFromExclusive @ 0x1404F0520
  * Callers:
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D2CD0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403929CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpCancelExclusiveIrp @ 0x1403B1D20 (FsRtlpCancelExclusiveIrp.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14036C590 (FsRtlpCancelExclusiveIrp.c)
  */
 
 __int64 __fastcall FsRtlpGrantAnyOplockFromExclusive(
@@ -18,50 +16,36 @@ __int64 __fastcall FsRtlpGrantAnyOplockFromExclusive(
         __int64 a2,
         __int64 a3,
         unsigned int a4,
-        __int64 a5,
+        _QWORD *a5,
         char a6,
-        __int64 a7,
+        _QWORD **a7,
         _BYTE *a8,
         _BYTE *a9,
         unsigned int a10)
 {
-  __int64 v12; // rdx
+  __int64 v13; // rdx
   __int64 v14; // r8
-  unsigned int v15; // edx
-  _QWORD *v17; // rcx
-  _QWORD *v18; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  int v21; // eax
-  int v22; // ecx
-  int v23; // eax
-  unsigned int v24; // r14d
+  unsigned int v15; // ecx
+  char v17; // si
+  _QWORD **v18; // r8
+  _QWORD *v19; // rcx
+  _QWORD *v20; // rax
+  __int64 v21; // rdx
+  int v22; // r8d
+  unsigned int v23; // r14d
   struct _KTHREAD *CurrentThread; // rcx
-  KIRQL v26; // al
-  bool v27; // zf
-  __int64 v28; // [rsp+40h] [rbp-79h] BYREF
-  int v29; // [rsp+48h] [rbp-71h] BYREF
-  __int64 v30; // [rsp+50h] [rbp-69h] BYREF
-  __int64 v31; // [rsp+58h] [rbp-61h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v32; // [rsp+60h] [rbp-59h] BYREF
-  __int64 *v33; // [rsp+80h] [rbp-39h]
-  int v34; // [rsp+88h] [rbp-31h]
-  int v35; // [rsp+8Ch] [rbp-2Dh]
-  __int64 *v36; // [rsp+90h] [rbp-29h]
-  int v37; // [rsp+98h] [rbp-21h]
-  int v38; // [rsp+9Ch] [rbp-1Dh]
-  int *v39; // [rsp+A0h] [rbp-19h]
-  int v40; // [rsp+A8h] [rbp-11h]
-  int v41; // [rsp+ACh] [rbp-Dh]
+  KIRQL v25; // al
+  bool v26; // zf
+  __int64 v27; // [rsp+60h] [rbp+20h] BYREF
 
-  v12 = a1;
-  v28 = a1;
+  v27 = a1;
+  v13 = a1;
   if ( *(_BYTE *)(*(_QWORD *)(a3 + 48) + 73LL) && (a4 & 0x2000) != 0 )
   {
     v14 = *(_QWORD *)(a2 + 24);
     *(_OWORD *)v14 = 0LL;
     *(_QWORD *)(v14 + 16) = 0LL;
-    v15 = *(_DWORD *)(v28 + 144);
+    v15 = *(_DWORD *)(v27 + 144);
     *(_DWORD *)(v14 + 12) |= 1u;
     *(_DWORD *)(v14 + 8) = (a4 >> 12) & 5;
     *(_DWORD *)(v14 + 4) = (v15 >> 12) & 7;
@@ -70,109 +54,83 @@ __int64 __fastcall FsRtlpGrantAnyOplockFromExclusive(
     IofCompleteRequest((PIRP)a2, 1);
     return 2147483694LL;
   }
+  v17 = a6;
   if ( a6 )
   {
-    *(_QWORD *)(*(_QWORD *)a7 + 16LL) = *(_QWORD *)(a1 + 8);
-    v17 = *(_QWORD **)a7;
-    v18 = (_QWORD *)(v28 + 104);
-    v19 = *(_QWORD *)(v28 + 104);
-    if ( *(_QWORD *)(v19 + 8) != v28 + 104 )
+    v18 = a7;
+    (*a7)[2] = *(_QWORD *)(a1 + 8);
+    v19 = *v18;
+    v20 = (_QWORD *)(v27 + 104);
+    v21 = *(_QWORD *)(v27 + 104);
+    if ( *(_QWORD *)(v21 + 8) != v27 + 104 )
       __fastfail(3u);
-    *v17 = v19;
-    v17[1] = v18;
-    *(_QWORD *)(v19 + 8) = v17;
-    *v18 = v17;
-    if ( (unsigned int)dword_140C03768 > 5 )
-    {
-      v20 = *(_QWORD *)(*(_QWORD *)a7 + 16LL);
-      v35 = 0;
-      v38 = 0;
-      v33 = &v30;
-      v30 = v20;
-      v31 = v28;
-      v34 = 8;
-      v36 = &v31;
-      v37 = 8;
-      v21 = *(_DWORD *)(v28 + 144);
-      v41 = 0;
-      v29 = v21;
-      v39 = &v29;
-      v40 = 4;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03768,
-        (unsigned __int8 *)byte_14002B1A1,
-        0LL,
-        0LL,
-        5u,
-        &v32);
-    }
-    *(_QWORD *)a7 = 0LL;
-    *(_QWORD *)(v28 + 8) = 0LL;
-    v12 = v28;
+    *v19 = v21;
+    v19[1] = v20;
+    *(_QWORD *)(v21 + 8) = v19;
+    *v20 = v19;
+    *v18 = 0LL;
+    *(_QWORD *)(v27 + 8) = 0LL;
     v22 = a4 & 0x3010;
+    goto LABEL_13;
   }
-  else
+  *a8 = 1;
+  if ( !a4 )
   {
-    *a8 = 1;
-    if ( !a4 )
+    *a9 = 1;
+    goto LABEL_15;
+  }
+  v22 = a4 & 0x3010;
+  if ( (a4 & 0x3010) != 0 && (a4 & 0x4040) == 0 )
+  {
+    *(_QWORD *)(a1 + 8) = 0LL;
+LABEL_13:
+    v13 = v27;
+  }
+  if ( a4 )
+  {
+    if ( (a4 & 0x4040) == 0 && v22 != 0 )
     {
-      *a9 = 1;
-      goto LABEL_11;
+      v23 = FsRtlpRequestShareableOplock(&v27, a3, a2, a4, a5, v17, 1, a10);
     }
-    v23 = a4 & 0x3010;
-    v22 = v23;
-    if ( (a4 & 0x3010) != 0 && (a4 & 0x4040) == 0 )
+    else
     {
-      *(_QWORD *)(v12 + 8) = 0LL;
-      v12 = v28;
-LABEL_17:
-      if ( (a4 & 0x4040) == 0 && v23 != 0 )
+      *(_QWORD *)v13 = a2;
+      v23 = 259;
+      *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
+      *(_QWORD *)(a2 + 56) = v27;
+      *(_QWORD *)(v27 + 16) = KeGetCurrentThread()->ApcState.Process;
+      CurrentThread = KeGetCurrentThread();
+      *(_QWORD *)(v27 + 24) = CurrentThread;
+      ObfReferenceObjectWithTag(CurrentThread, 0x746C6644u);
+      *(_BYTE *)(v27 + 32) = 0;
+      if ( v17 )
       {
-        v24 = FsRtlpRequestShareableOplock(&v28, a3, a2, a4, a5, a6, 1, a10);
+        ObfReferenceObjectWithTag(*(PVOID *)(a3 + 48), 0x746C6644u);
+        *(_QWORD *)(v27 + 8) = *(_QWORD *)(a3 + 48);
+      }
+      *(_DWORD *)(v27 + 144) = a4 | *(_DWORD *)(v27 + 144) & 0x20 | 0x40;
+      v25 = KeAcquireQueuedSpinLock(7uLL);
+      v26 = *(_BYTE *)(a2 + 68) == 0;
+      *(_BYTE *)(a2 + 69) = v25;
+      if ( v26 )
+      {
+        _InterlockedExchange64((volatile __int64 *)(a2 + 104), (__int64)FsRtlpExclusiveIrpCancelRoutine);
+        KeReleaseQueuedSpinLock(7uLL, *(_BYTE *)(a2 + 69));
       }
       else
       {
-        *(_QWORD *)v12 = a2;
-        v24 = 259;
-        *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
-        *(_QWORD *)(a2 + 56) = v28;
-        *(_QWORD *)(v28 + 16) = KeGetCurrentThread()->ApcState.Process;
-        CurrentThread = KeGetCurrentThread();
-        *(_QWORD *)(v28 + 24) = CurrentThread;
-        ObfReferenceObjectWithTag(CurrentThread, 0x746C6644u);
-        *(_BYTE *)(v28 + 32) = 0;
-        if ( a6 )
-        {
-          ObfReferenceObjectWithTag(*(PVOID *)(a3 + 48), 0x746C6644u);
-          *(_QWORD *)(v28 + 8) = *(_QWORD *)(a3 + 48);
-        }
-        *(_DWORD *)(v28 + 144) = a4 | *(_DWORD *)(v28 + 144) & 0x20 | 0x40;
-        v26 = KeAcquireQueuedSpinLock(7uLL);
-        v27 = *(_BYTE *)(a2 + 68) == 0;
-        *(_BYTE *)(a2 + 69) = v26;
-        if ( v27 )
-        {
-          _InterlockedExchange64((volatile __int64 *)(a2 + 104), (__int64)FsRtlpExclusiveIrpCancelRoutine);
-          KeReleaseQueuedSpinLock(7uLL, *(_BYTE *)(a2 + 69));
-        }
-        else
-        {
-          FsRtlpCancelExclusiveIrp(a2, 1, a6 == 0);
-        }
+        FsRtlpCancelExclusiveIrp(a2, 1, v17 == 0);
       }
-      goto LABEL_24;
     }
+    goto LABEL_23;
   }
-  v23 = v22;
-  if ( a4 )
-    goto LABEL_17;
-LABEL_11:
-  v24 = 0;
-  *(_DWORD *)(v12 + 144) = *(_DWORD *)(v12 + 144) & 0x20 | 1;
+LABEL_15:
+  v23 = 0;
+  *(_DWORD *)(v13 + 144) = *(_DWORD *)(v13 + 144) & 0x20 | 1;
   *(_DWORD *)(a2 + 48) = 0;
   IofCompleteRequest((PIRP)a2, 1);
-LABEL_24:
-  if ( a6 )
-    *(_DWORD *)(v28 + 144) |= 0x1000000u;
-  return v24;
+LABEL_23:
+  if ( v17 )
+    *(_DWORD *)(v27 + 144) |= 0x1000000u;
+  return v23;
 }

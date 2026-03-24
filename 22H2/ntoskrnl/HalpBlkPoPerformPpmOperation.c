@@ -1,21 +1,19 @@
 /*
- * XREFs of HalpBlkPoPerformPpmOperation @ 0x140B16DC4
+ * XREFs of HalpBlkPoPerformPpmOperation @ 0x140A19DC4
  * Callers:
- *     HalpBlkHandleIpi @ 0x140B17190 (HalpBlkHandleIpi.c)
+ *     HalpBlkHandleIpi @ 0x140A1A190 (HalpBlkHandleIpi.c)
  * Callees:
- *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140B16E4C (HalpBlkPoPerformPpmOperationForIoPort.c)
- *     HalpBlkPoPerformPpmOperationForMsr @ 0x140B16EE4 (HalpBlkPoPerformPpmOperationForMsr.c)
+ *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140A19E50 (HalpBlkPoPerformPpmOperationForIoPort.c)
+ *     HalpBlkPoPerformPpmOperationForMsr @ 0x140A19EE0 (HalpBlkPoPerformPpmOperationForMsr.c)
  */
 
 char HalpBlkPoPerformPpmOperation()
 {
-  _EXCEPTION_REGISTRATION_RECORD *ExceptionList; // rbx
-  volatile __int32 *p_Handler; // r11
+  _EXCEPTION_REGISTRATION_RECORD *ExceptionList; // rdi
   int Handler; // eax
   char result; // al
 
   ExceptionList = KeGetPcr()->NtTib.ExceptionList;
-  p_Handler = (volatile __int32 *)&ExceptionList[138].Handler;
   if ( _InterlockedCompareExchange((volatile signed __int32 *)&ExceptionList[139], 2, 1) != 1 )
     return 0;
   if ( HIDWORD(ExceptionList[139].Next) == 3 )
@@ -40,6 +38,6 @@ char HalpBlkPoPerformPpmOperation()
   }
   _InterlockedIncrement64((volatile signed __int64 *)&ExceptionList[8]);
   result = 1;
-  _InterlockedExchange(p_Handler + 2, 0);
+  _InterlockedExchange((volatile __int32 *)&ExceptionList[139], 0);
   return result;
 }

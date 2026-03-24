@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DrvGetDevModeForLddmPath@@YAJPEAUtagGRAPHICS_DEVICE@@KPEAU_devicemodeW@@PEA_N@Z @ 0x1C00BCBC0
+ * XREFs of ?DrvGetDevModeForLddmPath@@YAJPEAUtagGRAPHICS_DEVICE@@KPEAU_devicemodeW@@PEA_N@Z @ 0x1C009A3E4
  * Callers:
- *     DrvEnumDisplaySettings @ 0x1C006F640 (DrvEnumDisplaySettings.c)
+ *     DrvEnumDisplaySettings @ 0x1C001F9E0 (DrvEnumDisplaySettings.c)
  * Callees:
- *     ?DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z @ 0x1C007A7E8 (-DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z.c)
- *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C00BCD1C (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
- *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C00BCDF4 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z @ 0x1C00177DC (-DrvGetDisplayDriverDpiSetting@@YAXPEAU_devicemodeW@@@Z.c)
+ *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C009A540 (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
+ *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C009A654 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall DrvGetDevModeForLddmPath(struct tagGRAPHICS_DEVICE *a1, int a2, struct _devicemodeW *a3, bool *a4)
@@ -18,10 +18,10 @@ __int64 __fastcall DrvGetDevModeForLddmPath(struct tagGRAPHICS_DEVICE *a1, int a
   unsigned int v10; // ecx
   bool v11; // bp
   _DWORD *v12; // rsi
-  _DWORD v14[4]; // [rsp+20h] [rbp-208h] BYREF
-  _BYTE v15[432]; // [rsp+30h] [rbp-1F8h] BYREF
-  unsigned int v16; // [rsp+1E0h] [rbp-48h]
-  __int64 v17; // [rsp+1E8h] [rbp-40h]
+  _DWORD v14[4]; // [rsp+20h] [rbp-1E8h] BYREF
+  _BYTE v15[400]; // [rsp+30h] [rbp-1D8h] BYREF
+  unsigned int v16; // [rsp+1C0h] [rbp-48h]
+  __int64 v17; // [rsp+1C8h] [rbp-40h]
 
   memset(v15, 0, sizeof(v15));
   v16 = 0;
@@ -50,7 +50,7 @@ __int64 __fastcall DrvGetDevModeForLddmPath(struct tagGRAPHICS_DEVICE *a1, int a
       v11 = 1;
       while ( 1 )
       {
-        v12 = (_DWORD *)(v17 + 216LL * v10);
+        v12 = (_DWORD *)(v17 + 200LL * v10);
         if ( *((_DWORD *)a1 + 64) == v12[6] && *((_DWORD *)a1 + 62) == v12[4] && *((_DWORD *)a1 + 63) == v12[5] )
           break;
         if ( ++v10 >= v16 )
@@ -58,12 +58,12 @@ __int64 __fastcall DrvGetDevModeForLddmPath(struct tagGRAPHICS_DEVICE *a1, int a
       }
       v9 = 0;
       if ( !a3
-        || (v9 = ((__int64 (__fastcall *)(__int64, struct _devicemodeW *))qword_1C0296910)(v17 + 216LL * v10, a3),
+        || (v9 = ((__int64 (__fastcall *)(__int64, struct _devicemodeW *))qword_1C0251B40)(v17 + 200LL * v10, a3),
             v9 >= 0) )
       {
         if ( a4 )
         {
-          if ( v12[49] != -2 || v12[50] != -2 )
+          if ( v12[12] != -2 || v12[13] != -2 )
             v11 = 0;
           *a4 = v11;
         }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?BRUSHOBJ_pvAllocRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@K@Z @ 0x1C026AD88
+ * XREFs of ?BRUSHOBJ_pvAllocRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@K@Z @ 0x1C026CFE8
  * Callers:
- *     NtGdiBRUSHOBJ_pvAllocRbrush @ 0x1C02B0C70 (NtGdiBRUSHOBJ_pvAllocRbrush.c)
+ *     NtGdiBRUSHOBJ_pvAllocRbrush @ 0x1C02B2250 (NtGdiBRUSHOBJ_pvAllocRbrush.c)
  * Callees:
  *     <none>
  */

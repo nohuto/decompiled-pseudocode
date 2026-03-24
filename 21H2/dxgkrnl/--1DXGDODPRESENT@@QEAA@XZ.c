@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1DXGDODPRESENT@@QEAA@XZ @ 0x1C03BB31C
+ * XREFs of ??1DXGDODPRESENT@@QEAA@XZ @ 0x1C02FC904
  * Callers:
- *     ??_GDXGDODPRESENT@@QEAAPEAXI@Z @ 0x1C00456B8 (--_GDXGDODPRESENT@@QEAAPEAXI@Z.c)
+ *     ??_GDXGDODPRESENT@@QEAAPEAXI@Z @ 0x1C003ABE4 (--_GDXGDODPRESENT@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??_GBLTQUEUE@@QEAAPEAXI@Z @ 0x1C00585B0 (--_GBLTQUEUE@@QEAAPEAXI@Z.c)
+ *     ??_GBLTQUEUE@@QEAAPEAXI@Z @ 0x1C0048E5C (--_GBLTQUEUE@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall DXGDODPRESENT::~DXGDODPRESENT(DXGDODPRESENT *this)
@@ -11,5 +11,5 @@ void __fastcall DXGDODPRESENT::~DXGDODPRESENT(DXGDODPRESENT *this)
   unsigned int i; // ebx
 
   for ( i = 0; i < *(_DWORD *)this; ++i )
-    BLTQUEUE::`scalar deleting destructor'((BLTQUEUE *)(*((_QWORD *)this + 1) + 2920LL * i), 0);
+    BLTQUEUE::`scalar deleting destructor'((BLTQUEUE *)(*((_QWORD *)this + 1) + 2904LL * i), 0);
 }

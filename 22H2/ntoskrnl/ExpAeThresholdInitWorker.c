@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpAeThresholdInitWorker @ 0x140393120
+ * XREFs of ExpAeThresholdInitWorker @ 0x1403BC960
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     ExpAeMeasureContention @ 0x1403931C4 (ExpAeMeasureContention.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     ExpAeMeasureContention @ 0x1403BCA04 (ExpAeMeasureContention.c)
  */
 
 __int64 __fastcall ExpAeThresholdInitWorker(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
-  unsigned __int64 v4; // rsi
+  unsigned __int64 v4; // rdi
   signed __int32 v8; // eax
-  unsigned int v9; // ebx
+  unsigned int v9; // ebp
   __int64 v10; // r9
   __int64 result; // rax
   __int64 v12; // r9
@@ -24,11 +24,11 @@ __int64 __fastcall ExpAeThresholdInitWorker(__int64 a1, __int64 a2, volatile sig
   {
     v13 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v9 )
-      KeYieldProcessorEx(&v13);
+      KeYieldProcessorEx(&v13, a2, (__int64)a3, a4);
   }
   else
   {
-    *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v9;
+    *(_DWORD *)a4 = v9 | *(_DWORD *)(a4 + 4);
   }
   v10 = 1024LL;
   do

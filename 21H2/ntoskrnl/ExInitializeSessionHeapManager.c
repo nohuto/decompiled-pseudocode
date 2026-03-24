@@ -1,63 +1,72 @@
 /*
- * XREFs of ExInitializeSessionHeapManager @ 0x14036EEAC
+ * XREFs of ExInitializeSessionHeapManager @ 0x14039D5C4
  * Callers:
- *     MiSessionCreate @ 0x1407F3718 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
  * Callees:
- *     ExCleanupSessionHeapManager @ 0x14036DBE4 (ExCleanupSessionHeapManager.c)
- *     RtlHpHeapManagerStart @ 0x14036EDD4 (RtlHpHeapManagerStart.c)
- *     ExCreateHeap @ 0x14036F5D4 (ExCreateHeap.c)
- *     RtlHpHeapManagerInitialize @ 0x14036FB38 (RtlHpHeapManagerInitialize.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiSessionPoolTrackTableSize @ 0x140864DB8 (MiSessionPoolTrackTableSize.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExCleanupSessionHeapManager @ 0x140389810 (ExCleanupSessionHeapManager.c)
+ *     ExCreateHeap @ 0x14039D748 (ExCreateHeap.c)
+ *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerInitialize @ 0x14039DD3C (RtlHpHeapManagerInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiSessionPoolTrackTable @ 0x1406C3F90 (MiSessionPoolTrackTable.c)
+ *     MiSessionPoolTrackTableSize @ 0x1407D4EE8 (MiSessionPoolTrackTableSize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExInitializeSessionHeapManager(union _RTL_RUN_ONCE a1, __int64 a2)
+__int64 __fastcall ExInitializeSessionHeapManager(int a1, int a2)
 {
-  union _RTL_RUN_ONCE *PoolWithTag; // rax
-  union _RTL_RUN_ONCE *v5; // rdi
-  __int128 v6; // xmm0
-  int v7; // ebx
-  union _RTL_RUN_ONCE v8; // rax
-  __int128 v10; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v11; // [rsp+70h] [rbp+30h] BYREF
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v5; // rbx
+  int v6; // edi
+  __int64 v7; // rax
+  __int128 v9; // [rsp+30h] [rbp-30h]
+  __int128 v10; // [rsp+40h] [rbp-20h] BYREF
+  __int128 v11; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v12; // [rsp+90h] [rbp+30h] BYREF
 
-  PoolWithTag = (union _RTL_RUN_ONCE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x3900uLL, 0x65537048u);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38F0uLL, 0x65537048u);
   v5 = PoolWithTag;
   if ( PoolWithTag )
   {
-    memset(PoolWithTag, 0, 0x3900uLL);
-    v11 = 0x500010200LL;
-    RtlHpHeapManagerInitialize(v5, &v11);
-    v10 = 0LL;
-    LOBYTE(v10) = 4;
-    v6 = v10;
-    *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25] + 608) = v5;
-    *(_OWORD *)&v5[1820].Ptr = v6;
-    v7 = RtlHpHeapManagerStart(v5, 2, 2LL, a1, a2 - a1.Value, 0);
-    if ( v7 < 0
-      || (v10 = *(_OWORD *)&v5[1820].Ptr, v7 = ExCreateHeap(&v10, 0LL, &v5[1822]), v7 < 0)
-      || (v10 = *(_OWORD *)&v5[1820].Ptr, v7 = ExCreateHeap(&v10, 0LL, &v5[1823]), v7 < 0) )
+    memset(PoolWithTag, 0, 0x38F0uLL);
+    v12 = 0x500010200LL;
+    RtlHpHeapManagerInitialize(v5, &v12);
+    v9 = 0LL;
+    LOBYTE(v9) = 4;
+    *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 672) = v5;
+    v5[909] = v9;
+    v6 = RtlHpHeapManagerStart((_DWORD)v5, 2, a1, a2 - a1, 0);
+    if ( v6 >= 0 )
     {
-      ExCleanupSessionHeapManager();
-    }
-    else
-    {
-      v8.Ptr = v5[1823].Ptr;
-      *(_DWORD *)(v8.Value + 880) |= 2u;
-      *(_BYTE *)(v8.Value + 333) |= 8u;
-      *(_BYTE *)(v8.Value + 525) |= 8u;
-      if ( !ExpSessionPoolTrackTableSize )
+      v10 = v5[909];
+      v6 = ExCreateHeap(&v10, 0LL, v5 + 910);
+      if ( v6 >= 0 )
       {
-        ExpSessionPoolTrackTableSize = MiSessionPoolTrackTableSize();
-        ExpSessionPoolTrackTableMask = ExpSessionPoolTrackTableSize - 1;
+        v11 = v5[909];
+        v6 = ExCreateHeap(&v11, 0LL, (char *)v5 + 14568);
+        if ( v6 >= 0 )
+        {
+          v7 = *((_QWORD *)v5 + 1821);
+          *(_DWORD *)(v7 + 816) |= 2u;
+          *(_BYTE *)(v7 + 269) |= 8u;
+          *(_BYTE *)(v7 + 461) |= 8u;
+          if ( !ExpSessionPoolTrackTable )
+          {
+            ExpSessionPoolTrackTable = MiSessionPoolTrackTable();
+            ExpSessionPoolTrackTableSize = MiSessionPoolTrackTableSize();
+            ExpSessionPoolTrackTableMask = ExpSessionPoolTrackTableSize - 1;
+          }
+          v5 = 0LL;
+          v6 = 0;
+        }
       }
-      return 0;
     }
+    if ( v5 )
+      ExCleanupSessionHeapManager();
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

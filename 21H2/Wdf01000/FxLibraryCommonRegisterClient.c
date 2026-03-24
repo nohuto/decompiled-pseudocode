@@ -1,15 +1,16 @@
 /*
- * XREFs of FxLibraryCommonRegisterClient @ 0x1C0028820
+ * XREFs of FxLibraryCommonRegisterClient @ 0x1C0041AE4
  * Callers:
- *     LibraryRegisterClient @ 0x1C0028570 (LibraryRegisterClient.c)
+ *     LibraryRegisterClient @ 0x1C002E160 (LibraryRegisterClient.c)
  * Callees:
- *     GetNameFromPath @ 0x1C00275B8 (GetNameFromPath.c)
- *     FxAllocateDriverGlobals @ 0x1C002861C (FxAllocateDriverGlobals.c)
- *     GetEnhancedVerifierOptions @ 0x1C0028C04 (GetEnhancedVerifierOptions.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C005FDF8 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
- *     McGenEventRegister_EtwRegister @ 0x1C00603C8 (McGenEventRegister_EtwRegister.c)
- *     LockVerifierSection @ 0x1C006C0F8 (LockVerifierSection.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ?IsClientInfoValid@@YAEPEAU_CLIENT_INFO@@@Z @ 0x1C0041634 (-IsClientInfoValid@@YAEPEAU_CLIENT_INFO@@@Z.c)
+ *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C0041664 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     GetEnhancedVerifierOptions @ 0x1C0041FA8 (GetEnhancedVerifierOptions.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C00423B8 (McGenEventRegister_EtwRegister.c)
+ *     FxAllocateDriverGlobals @ 0x1C0056C34 (FxAllocateDriverGlobals.c)
+ *     LockVerifierSection @ 0x1C0058820 (LockVerifierSection.c)
+ *     GetNameFromPath @ 0x1C0060C30 (GetNameFromPath.c)
  */
 
 __int64 __fastcall FxLibraryCommonRegisterClient(
@@ -17,33 +18,34 @@ __int64 __fastcall FxLibraryCommonRegisterClient(
         _WDF_DRIVER_GLOBALS **WdfDriverGlobals,
         _CLIENT_INFO *ClientInfo)
 {
-  unsigned int v6; // ebp
-  unsigned int FuncCount; // r9d
+  unsigned int v6; // r14d
+  unsigned int FuncCount; // ebx
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rcx
+  unsigned int v10; // r8d
+  unsigned __int8 v11; // r9
   _WDF_DRIVER_GLOBALS *DriverGlobals; // rax
-  _FX_DRIVER_GLOBALS *v9; // rsi
-  __int64 v10; // rax
+  _FX_DRIVER_GLOBALS *DriverName; // rsi
+  unsigned int *v14; // rbx
+  __int64 v15; // rax
   void (__fastcall **FuncTable)(); // rcx
-  _WDFFUNCTIONS *p_Functions; // rax
-  bool v14; // zf
-  _WDFFUNCTIONS *v15; // rdx
-  void (__fastcall *v16)(const _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, _EVENT_FILTER_DESCRIPTOR *, void *); // rdx
-  const _GUID *v17; // rcx
-  _UNICODE_STRING *RegistryPath; // rcx
-  unsigned int v19; // r8d
-  unsigned __int8 v20; // r9
+  _WDFFUNCTIONS *p_Functions; // rdx
+  _WDFFUNCTIONS *v18; // rax
+  void (__fastcall *v19)(const _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, _EVENT_FILTER_DESCRIPTOR *, void *); // rdx
+  const _GUID *v20; // rcx
   const char *v21; // r9
   _UNICODE_STRING serviceName; // [rsp+30h] [rbp-28h] BYREF
 
-  v6 = -1073741811;
   serviceName = 0LL;
-  if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+  v6 = -1073741811;
+  if ( WdfLdrDbgPrintOn )
   {
     DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
     DbgPrintEx(0x65u, 0, "LibraryRegisterClient: enter\n");
   }
   if ( !Info || !WdfDriverGlobals || !Info->FuncTable )
   {
-    if ( !LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+    if ( !WdfLdrDbgPrintOn )
       return v6;
     DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
     if ( Info )
@@ -64,7 +66,7 @@ __int64 __fastcall FxLibraryCommonRegisterClient(
       v21 = "PWDF_BIND_INFO";
     }
     DbgPrintEx(0x65u, 0, "LibraryRegisterClient: NULL parameter -- %s\n", v21);
-    goto LABEL_63;
+    goto $Done_18;
   }
   *WdfDriverGlobals = 0LL;
   FuncCount = Info->FuncCount;
@@ -76,114 +78,100 @@ __int64 __fastcall FxLibraryCommonRegisterClient(
       "LibraryRegisterClient: version mismatch detected in function table count: clienthas 0x%x,  library has 0x%x\n",
       FuncCount,
       WdfVersion.FuncCount);
-    goto LABEL_63;
+    goto $Done_18;
   }
-  if ( FuncCount > 0x1CA )
+  if ( FuncCount > 0x1C6 )
   {
-    if ( FxLibraryGlobals.AllowBindToPreReleaseVersion )
+    if ( !FxLibraryGlobals.AllowBindToPreReleaseVersion )
     {
-      if ( ClientInfo
-        && ClientInfo->Size == 24
-        && ClientInfo->DriverObject
-        && (RegistryPath = ClientInfo->RegistryPath) != 0LL
-        && RegistryPath->Length
-        && RegistryPath->Buffer )
+      DbgPrintEx(0x65u, 0, "LibraryRegisterClient: The driver was built for a pre-released WDF version.\n");
+      goto $Done_18;
+    }
+    if ( FuncCount != 458 )
+    {
+      if ( IsClientInfoValid(ClientInfo) )
       {
-        GetNameFromPath(RegistryPath, &serviceName);
+        GetNameFromPath(ClientInfo->RegistryPath, &serviceName);
       }
       else
       {
         RtlInitUnicodeString(&serviceName, L"Unknown");
+        FuncCount = Info->FuncCount;
       }
-      ReportDdiFunctionCountMismatch(&serviceName, Info->FuncCount, v19, v20);
+      ReportDdiFunctionCountMismatch(&serviceName, FuncCount, v10, v11);
+      goto $Done_18;
+    }
+  }
+  else
+  {
+    v8 = FuncCount - 383;
+    if ( (unsigned int)v8 > 0x3F || (v9 = 0xA082000000002019uLL, !_bittest64((const __int64 *)&v9, v8)) )
+    {
+      if ( FuncCount != 448 && FuncCount != 451 && FuncCount < 0x1C5 )
+      {
+        DbgPrintEx(
+          0x65u,
+          0,
+          "LibraryRegisterClient: Function table count 0x%x doesn't match any previously released framework version table size\n",
+          FuncCount);
+        goto $Done_18;
+      }
+    }
+  }
+  DriverGlobals = FxAllocateDriverGlobals();
+  *WdfDriverGlobals = DriverGlobals;
+  if ( DriverGlobals )
+  {
+    DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
+    v14 = (unsigned int *)&DriverGlobals[-1].DriverName[12];
+    GetEnhancedVerifierOptions(ClientInfo, v14);
+    if ( (unsigned __int16)*v14 || (*v14 & 0xF00000) != 0 )
+    {
+      if ( WdfLdrDbgPrintOn )
+      {
+        DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
+        DbgPrintEx(0x65u, 0, "LibraryRegisterClient: Enhanced Verification is ON \n");
+      }
+      LockVerifierSection(DriverName, ClientInfo->RegistryPath);
+      if ( !KMDF_PERF_PROVIDER_Context.RegistrationHandle )
+        McGenEventRegister_EtwRegister(
+          v20,
+          v19,
+          &KMDF_PERF_PROVIDER_Context,
+          &KMDF_PERF_PROVIDER_Context.RegistrationHandle);
+      v15 = Info->FuncCount;
+      FuncTable = Info->FuncTable;
+      if ( (unsigned int)v15 <= 0x1B6 )
+      {
+        p_Functions = &VfWdfVersion.Functions;
+        goto LABEL_34;
+      }
+      v18 = &VfWdfVersion.Functions;
     }
     else
     {
-      DbgPrintEx(0x65u, 0, "LibraryRegisterClient: The driver was built for a pre-released WDF version.\n");
+      v15 = Info->FuncCount;
+      FuncTable = Info->FuncTable;
+      if ( (unsigned int)v15 <= 0x1B6 )
+      {
+        p_Functions = &WdfVersion.Functions;
+LABEL_34:
+        memmove(FuncTable, p_Functions, 8 * v15);
+LABEL_37:
+        v6 = 0;
+        if ( !WdfLdrDbgPrintOn )
+          return v6;
+        DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
+        DbgPrintEx(0x65u, 0, "LibraryRegisterClient: WdfFunctions %p\n", Info->FuncTable);
+        goto $Done_18;
+      }
+      v18 = &WdfVersion.Functions;
     }
-    goto LABEL_63;
+    *FuncTable = (void (__fastcall *)())v18;
+    goto LABEL_37;
   }
-  if ( FuncCount <= 0x1BC )
-  {
-    if ( FuncCount == 444 || FuncCount == 383 )
-      goto LABEL_10;
-    if ( FuncCount > 0x181 )
-    {
-      if ( FuncCount <= 0x183 || FuncCount == 396 || FuncCount == 432 )
-        goto LABEL_10;
-      v14 = FuncCount == 438;
-      goto LABEL_30;
-    }
-LABEL_35:
-    DbgPrintEx(
-      0x65u,
-      0,
-      "LibraryRegisterClient: Function table count 0x%x doesn't match any previously released framework version table size\n",
-      FuncCount);
-    goto LABEL_63;
-  }
-  if ( FuncCount == 451 || FuncCount == 446 || FuncCount == 448 )
-    goto LABEL_10;
-  if ( FuncCount <= 0x1C4 )
-    goto LABEL_35;
-  if ( FuncCount <= 0x1C6 )
-    goto LABEL_10;
-  v14 = FuncCount == 458;
-LABEL_30:
-  if ( !v14 )
-    goto LABEL_35;
-LABEL_10:
-  DriverGlobals = FxAllocateDriverGlobals();
-  *WdfDriverGlobals = DriverGlobals;
-  if ( !DriverGlobals )
-    goto LABEL_63;
-  v9 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
-  *(_QWORD *)DriverGlobals[-7].DriverName = ClientInfo->DriverObject;
-  GetEnhancedVerifierOptions((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8]);
-  if ( (unsigned __int16)v9->FxEnhancedVerifierOptions || (v9->FxEnhancedVerifierOptions & 0xF00000) != 0 )
-  {
-    if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
-    {
-      DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
-      DbgPrintEx(0x65u, 0, "LibraryRegisterClient: Enhanced Verification is ON \n");
-    }
-    LockVerifierSection(v9, ClientInfo->RegistryPath);
-    if ( !KMDF_PERF_PROVIDER_Context.RegistrationHandle )
-      McGenEventRegister_EtwRegister(
-        v17,
-        v16,
-        &KMDF_PERF_PROVIDER_Context,
-        &KMDF_PERF_PROVIDER_Context.RegistrationHandle);
-    v10 = Info->FuncCount;
-    FuncTable = Info->FuncTable;
-    if ( (unsigned int)v10 > 0x1B6 )
-    {
-      p_Functions = &VfWdfVersion.Functions;
-      goto LABEL_15;
-    }
-    v15 = &VfWdfVersion.Functions;
-LABEL_33:
-    memmove(FuncTable, v15, 8 * v10);
-    goto LABEL_16;
-  }
-  v10 = Info->FuncCount;
-  FuncTable = Info->FuncTable;
-  if ( (unsigned int)v10 <= 0x1B6 )
-  {
-    v15 = &WdfVersion.Functions;
-    goto LABEL_33;
-  }
-  p_Functions = &WdfVersion.Functions;
-LABEL_15:
-  *FuncTable = (void (__fastcall *)())p_Functions;
-LABEL_16:
-  v6 = 0;
-  if ( !LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
-    return v6;
-  DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
-  DbgPrintEx(0x65u, 0, "LibraryRegisterClient: WdfFunctions %p\n", Info->FuncTable);
-LABEL_63:
-  if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+$Done_18:
+  if ( WdfLdrDbgPrintOn )
   {
     DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
     DbgPrintEx(0x65u, 0, "LibraryRegisterClient: exit: status %X\n", v6);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageTableLockBuffer @ 0x1403195F8
+ * XREFs of MiGetPageTableLockBuffer @ 0x1402DB688
  * Callers:
- *     MiLockPageTableInternal @ 0x1402376E0 (MiLockPageTableInternal.c)
- *     MiWalkPageTablesRecursively @ 0x14025C050 (MiWalkPageTablesRecursively.c)
- *     MiQueryAddressState @ 0x140271AE0 (MiQueryAddressState.c)
- *     MiPageTableLockIsContended @ 0x1402E6A30 (MiPageTableLockIsContended.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiIsPageTableLocked @ 0x14035DA4C (MiIsPageTableLocked.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BD60 (MiWalkPageTablesRecursively.c)
+ *     MiLockPageTableInternal @ 0x14020EAB0 (MiLockPageTableInternal.c)
+ *     MiPageTableLockIsContended @ 0x140288AE0 (MiPageTableLockIsContended.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiIsPageTableLocked @ 0x1403161D8 (MiIsPageTableLocked.c)
  * Callees:
  *     <none>
  */
@@ -22,9 +22,9 @@ char *__fastcall MiGetPageTableLockBuffer(__int64 a1, __int64 a2, int *a3)
   v3 = 2 * (unsigned int)((a2 + 0x90482413000LL) >> 3);
   v4 = (2 * (unsigned __int8)((a2 + 0x90482413000LL) >> 3)) & 0x1F;
   v5 = v3 >> 5;
-  v6 = (char *)&unk_140C670A4;
+  v6 = (char *)&unk_140C4E29C;
   if ( (*(_BYTE *)(a1 + 184) & 7u) < 2 )
-    v6 = (char *)(a1 + 424);
+    v6 = (char *)(a1 + 432);
   result = &v6[4 * v5];
   *a3 = v4;
   return result;

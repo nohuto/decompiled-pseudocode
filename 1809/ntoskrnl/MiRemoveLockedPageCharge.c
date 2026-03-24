@@ -6,13 +6,13 @@
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6520 (MiPurgeBadFileOnlyPages.c)
- *     MiDeleteDirectMapFixupPfn @ 0x1402C3BC0 (MiDeleteDirectMapFixupPfn.c)
- *     MiIdealClusterPage @ 0x1402C6B14 (MiIdealClusterPage.c)
- *     MiSwapHardFaultPage @ 0x1402CFE5C (MiSwapHardFaultPage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x1402C3CC0 (MiDeleteDirectMapFixupPfn.c)
+ *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
+ *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
  * Callees:
- *     MiSyncCommitSignals @ 0x140187FCC (MiSyncCommitSignals.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiSyncCommitSignals @ 0x140187FEC (MiSyncCommitSignals.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)

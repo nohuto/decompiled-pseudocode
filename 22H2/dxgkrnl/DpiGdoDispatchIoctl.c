@@ -1,14 +1,14 @@
 /*
- * XREFs of DpiGdoDispatchIoctl @ 0x1C03AA6F0
+ * XREFs of DpiGdoDispatchIoctl @ 0x1C02DA5F0
  * Callers:
  *     <none>
  * Callees:
- *     DpiGdoHandleVideoParameters @ 0x1C03AA758 (DpiGdoHandleVideoParameters.c)
+ *     DpiGdoHandleVideoParameters @ 0x1C02DA650 (DpiGdoHandleVideoParameters.c)
  */
 
 __int64 __fastcall DpiGdoDispatchIoctl(__int64 a1, IRP *a2)
 {
-  unsigned int v3; // esi
+  unsigned int v3; // edi
   ULONG_PTR Information; // rdx
   unsigned int v5; // eax
 

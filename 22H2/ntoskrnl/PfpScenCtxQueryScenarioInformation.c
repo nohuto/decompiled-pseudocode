@@ -1,18 +1,19 @@
 /*
- * XREFs of PfpScenCtxQueryScenarioInformation @ 0x140AA061C
+ * XREFs of PfpScenCtxQueryScenarioInformation @ 0x140998730
  * Callers:
- *     PfpQueryScenarioInformation @ 0x14097EC4C (PfpQueryScenarioInformation.c)
+ *     PfpQueryScenarioInformation @ 0x140778994 (PfpQueryScenarioInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
  */
 
 _QWORD *__fastcall PfpScenCtxQueryScenarioInformation(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
+  char v5; // di
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -22,7 +23,8 @@ _QWORD *__fastcall PfpScenCtxQueryScenarioInformation(ULONG_PTR BugCheckParamete
   if ( *(_DWORD *)(BugCheckParameter2 + 48) == 3 )
     *(_QWORD *)(a2 + 24) = *(_QWORD *)(BugCheckParameter2 + 56);
   KeResetEvent(*(PRKEVENT *)(BugCheckParameter2 + 64));
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v5 & 2) != 0 && (v5 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
   KeAbPostRelease(BugCheckParameter2);
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

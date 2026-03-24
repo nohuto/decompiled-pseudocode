@@ -1,17 +1,16 @@
 /*
- * XREFs of ??1CDeviceResource@@MEAA@XZ @ 0x180067C88
+ * XREFs of ??1CDeviceResource@@MEAA@XZ @ 0x18006143C
  * Callers:
- *     ??1CLegacySwapChain@@MEAA@XZ @ 0x18001C360 (--1CLegacySwapChain@@MEAA@XZ.c)
- *     ??1CDxHandleBitmapRealization@@MEAA@XZ @ 0x1800659A4 (--1CDxHandleBitmapRealization@@MEAA@XZ.c)
- *     ??1CRenderTargetBitmap@@MEAA@XZ @ 0x180066264 (--1CRenderTargetBitmap@@MEAA@XZ.c)
- *     ??1CLegacyRemotingSwapChain@@MEAA@XZ @ 0x1800FD9D0 (--1CLegacyRemotingSwapChain@@MEAA@XZ.c)
- *     ??1CDDisplaySwapChain@@MEAA@XZ @ 0x180282544 (--1CDDisplaySwapChain@@MEAA@XZ.c)
- *     ??_GCDeviceResource@@MEAAPEAXI@Z @ 0x180283280 (--_GCDeviceResource@@MEAAPEAXI@Z.c)
- *     ??1CDummyRemotingSwapChain@@MEAA@XZ @ 0x180289334 (--1CDummyRemotingSwapChain@@MEAA@XZ.c)
- *     ??1CCompSwapChain@@MEAA@XZ @ 0x18028E85C (--1CCompSwapChain@@MEAA@XZ.c)
- *     ??1CDxHandleYUVBitmapRealization@@MEAA@XZ @ 0x1802A50A8 (--1CDxHandleYUVBitmapRealization@@MEAA@XZ.c)
+ *     ??1CLegacySwapChain@@MEAA@XZ @ 0x180024E5C (--1CLegacySwapChain@@MEAA@XZ.c)
+ *     ??1CDxHandleBitmapRealization@@MEAA@XZ @ 0x18003878C (--1CDxHandleBitmapRealization@@MEAA@XZ.c)
+ *     ??1CRenderTargetBitmap@@MEAA@XZ @ 0x1800610E8 (--1CRenderTargetBitmap@@MEAA@XZ.c)
+ *     ??1CLegacyRemotingSwapChain@@MEAA@XZ @ 0x1800E487C (--1CLegacyRemotingSwapChain@@MEAA@XZ.c)
+ *     ??_GCDeviceResource@@MEAAPEAXI@Z @ 0x18019B730 (--_GCDeviceResource@@MEAAPEAXI@Z.c)
+ *     ??1CDDisplaySwapChain@@MEAA@XZ @ 0x1802426EC (--1CDDisplaySwapChain@@MEAA@XZ.c)
+ *     ??1CCompSwapChain@@MEAA@XZ @ 0x180250D84 (--1CCompSwapChain@@MEAA@XZ.c)
+ *     ??1CDxHandleYUVBitmapRealization@@MEAA@XZ @ 0x180265634 (--1CDxHandleYUVBitmapRealization@@MEAA@XZ.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 void __fastcall CDeviceResource::~CDeviceResource(CDeviceResource *this)

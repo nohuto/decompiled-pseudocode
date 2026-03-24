@@ -1,30 +1,24 @@
 /*
- * XREFs of ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C009A030
+ * XREFs of ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C00721CC
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00987B0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C009A6B0 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
- *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C009B1F8 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
- *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C009DA60 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
- *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C00F3828 (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C005F978 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C0060EF8 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
+ *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C006F9CC (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006FD20 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?UncommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K2@Z @ 0x1C0070C60 (-UncommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0004EE4 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
- *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0005224 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
- *     ?FlushGpuVaTlb@CVirtualAddressAllocator@@QEAAXI_K0@Z @ 0x1C0017918 (-FlushGpuVaTlb@CVirtualAddressAllocator@@QEAAXI_K0@Z.c)
- *     ?GetSegmentAddressMdl@VIDMM_PAGE_TABLE_BASE@@QEAAPEAU_MDL@@XZ @ 0x1C00191E0 (-GetSegmentAddressMdl@VIDMM_PAGE_TABLE_BASE@@QEAAPEAU_MDL@@XZ.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0033764 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0033848 (-UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0089B4C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z @ 0x1C0092644 (-GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z.c)
- *     ?VidMmiInitializeAdlForMdl@@YAXPEAU_DXGK_ADL@@PEAU_MDL@@_K@Z @ 0x1C00B41DC (-VidMmiInitializeAdlForMdl@@YAXPEAU_DXGK_ADL@@PEAU_MDL@@_K@Z.c)
- *     ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00E08C0 (-BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTU.c)
- *     ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C00E31F8 (-FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?MustFlushTlbOnValidTransition@VIDMM_GLOBAL@@QEAA_NI@Z @ 0x1C00E5F0C (-MustFlushTlbOnValidTransition@VIDMM_GLOBAL@@QEAA_NI@Z.c)
- *     ?MapScratchAreaVaRange@VIDMM_PAGING_PROCESS@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@I_KPEAU_VIDMM_GLOBAL_ALLOC@@0I0PEBU_DXGK_ADL@@PEAE0@Z @ 0x1C00F2A8C (-MapScratchAreaVaRange@VIDMM_PAGING_PROCESS@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@I_KPEAU_VIDMM_GLOBAL.c)
+ *     ?GetGpuMmuCaps@ADAPTER_RENDER@@QEBAPEBUDXGADAPTER_GPUMMUCAPS@@I@Z @ 0x1C0001C0C (-GetGpuMmuCaps@ADAPTER_RENDER@@QEBAPEBUDXGADAPTER_GPUMMUCAPS@@I@Z.c)
+ *     ?FlushGpuVaTlb@CVirtualAddressAllocator@@QEAAXI_K0@Z @ 0x1C0001C30 (-FlushGpuVaTlb@CVirtualAddressAllocator@@QEAAXI_K0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetSegmentAddressMdl@VIDMM_PAGE_TABLE_BASE@@QEAAPEAU_MDL@@XZ @ 0x1C0025FD0 (-GetSegmentAddressMdl@VIDMM_PAGE_TABLE_BASE@@QEAAPEAU_MDL@@XZ.c)
+ *     ?GetSegmentOffsetInPages@VIDMM_PAGE_TABLE_BASE@@QEBA_KXZ @ 0x1C0026008 (-GetSegmentOffsetInPages@VIDMM_PAGE_TABLE_BASE@@QEBA_KXZ.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0060630 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?MapScratchAreaVaRange@VIDMM_PAGING_PROCESS@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@I_KPEAU_VIDMM_GLOBAL_ALLOC@@0I0PEAU_MDL@@PEAE0@Z @ 0x1C0063EDC (-MapScratchAreaVaRange@VIDMM_PAGING_PROCESS@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@I_KPEAU_VIDMM_GLOBAL.c)
+ *     ?GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z @ 0x1C00722A4 (-GetCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAPEAXPEAVVIDMM_GLOBAL@@PEAPEAX@Z.c)
+ *     ?GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z @ 0x1C0086618 (-GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z.c)
+ *     ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C008A0EC (-FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_PAGE_TABLE_BASE::GetDriverUpdateAddress(
         VIDMM_PAGE_TABLE_BASE *this,
         struct CVirtualAddressAllocator *a2,
@@ -33,222 +27,152 @@ __int64 __fastcall VIDMM_PAGE_TABLE_BASE::GetDriverUpdateAddress(
         void **a5)
 {
   __int64 v5; // rbp
-  _QWORD *v6; // r10
-  PVOID v11; // rdi
-  __int64 v12; // rcx
-  unsigned int v13; // edx
-  int v14; // eax
-  int v15; // eax
-  unsigned __int64 v16; // r9
-  __int64 v18; // rax
-  __int64 GpuVirtualAddress; // rax
-  __int64 *v20; // r9
+  void *v6; // rdi
+  __int64 v8; // r9
+  __int64 v11; // rcx
+  unsigned int v12; // r8d
+  int v13; // eax
+  void *CpuVisibleAddress; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  char v20; // cl
   __int64 v21; // rax
-  unsigned int v22; // r12d
-  int v23; // r13d
-  struct _MDL *SegmentAddressMdl; // rax
-  __int64 v25; // rdx
-  struct _MDL *v26; // r15
-  unsigned __int64 LogicalAddress; // rax
-  unsigned int v28; // r8d
-  __int64 v29; // rax
-  struct _VIDMM_GLOBAL_ALLOC *v30; // r9
-  unsigned __int64 v31; // r8
-  unsigned int v32; // edx
-  struct VIDMM_MAPPED_VA_RANGE *v33; // r15
-  __int64 *v34; // rcx
-  __int64 v35; // rax
-  __int64 **v36; // rdx
-  unsigned __int64 v37; // rax
+  unsigned __int64 GpuVirtualAddress; // rax
+  __int64 v23; // r8
+  __int64 v24; // rax
+  unsigned int v25; // r13d
+  int v26; // r12d
+  unsigned __int64 *v27; // rbx
+  __int64 SegmentOffsetInPages; // rax
+  struct _MDL *v29; // r9
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  struct VIDMM_MAPPED_VA_RANGE *v32; // rbx
+  _QWORD *v33; // rax
+  unsigned int v34; // edx
+  __int64 *v35; // rcx
+  __int64 v36; // rax
+  __int64 **v37; // rdx
   __int64 v38; // rdx
-  _QWORD *v39; // r9
-  struct VIDMM_CPU_HOST_APERTURE *v40; // rbp
-  struct VIDMM_ALLOC *v41; // rdx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  _OWORD v43[4]; // [rsp+50h] [rbp-48h] BYREF
-  PVOID P; // [rsp+A0h] [rbp+8h] BYREF
-  CVirtualAddressAllocator *v45; // [rsp+A8h] [rbp+10h]
+  __int64 v39; // rax
+  void *v40; // [rsp+90h] [rbp+8h] BYREF
+  CVirtualAddressAllocator *v41; // [rsp+98h] [rbp+10h]
 
   v5 = *((_QWORD *)a2 + 11);
-  v6 = (_QWORD *)*((_QWORD *)this + 2);
-  v11 = 0LL;
-  v12 = v6[15];
-  if ( (*(_BYTE *)(v5 + 40936) & 0x40) == 0 )
+  v6 = 0LL;
+  v40 = 0LL;
+  v8 = *((_QWORD *)this + 2);
+  v11 = *(_QWORD *)(v8 + 128);
+  if ( (*(_BYTE *)(v5 + 40936) & 0x10) == 0 )
   {
-    v13 = *(_DWORD *)this;
-    v14 = (int)(*(_DWORD *)this << 16) >> 29;
-    if ( v14 )
+    v12 = *(_DWORD *)this;
+    v13 = (int)(*(_DWORD *)this << 16) >> 29;
+    if ( v13 )
     {
-      if ( v14 == 1 )
+      if ( v13 == 1 )
       {
+        v20 = *(_DWORD *)this;
         *a3 = 0;
         *a4 = 0LL;
-        v18 = (v13 >> 7) & 0x1F;
-        v45 = *(CVirtualAddressAllocator **)(v5 + 8 * v18 + 40416);
-        if ( v45 == a2 )
+        v21 = (v12 >> 7) & 0x1F;
+        v41 = *(CVirtualAddressAllocator **)(v5 + 8 * v21 + 40416);
+        if ( v41 == a2 )
         {
-          GpuVirtualAddress = VIDMM_ALLOC::GetGpuVirtualAddress(*((VIDMM_ALLOC **)this + 3), (v13 >> 7) & 0x1F);
-          *v20 = GpuVirtualAddress;
-          goto LABEL_7;
+          GpuVirtualAddress = VIDMM_ALLOC::GetGpuVirtualAddress(*((VIDMM_ALLOC **)this + 3), (v12 >> 7) & 0x1F);
         }
-        v21 = *((_QWORD *)a2 + 15) + 32 * v18;
-        if ( (v13 & 7) != 0 )
-          v22 = *(_DWORD *)(v21 + 24);
         else
-          v22 = *(_DWORD *)(v21 + 28);
-        v23 = 0;
-        while ( 1 )
         {
-          SegmentAddressMdl = VIDMM_PAGE_TABLE_BASE::GetSegmentAddressMdl(this);
-          v25 = *((_QWORD *)this + 2);
-          v26 = SegmentAddressMdl;
-          v43[0] = 0LL;
-          if ( SegmentAddressMdl )
-          {
-            LogicalAddress = SysMmGetLogicalAddress(*(void *const *)(v25 + 528));
-            VidMmiInitializeAdlForMdl((struct _DXGK_ADL *)v43, v26, LogicalAddress);
-          }
+          v23 = *((_QWORD *)a2 + 15);
+          v24 = 32 * v21;
+          if ( (v20 & 7) != 0 )
+            v25 = *(_DWORD *)(v24 + v23 + 24);
           else
+            v25 = *(_DWORD *)(v24 + v23 + 28);
+          v26 = 0;
+          while ( 1 )
           {
-            v28 = *(_DWORD *)(v25 + 16);
-            v29 = (*(_DWORD *)(*(_QWORD *)(v25 + 120) + 80LL) & 0x1000) != 0 ? 0LL : *(__int64 *)(v25 + 128) >> 12;
-            DWORD1(v43[0]) = 1;
-            *((_QWORD *)&v43[0] + 1) = v29 & 0xFFFFFFFFFFFFFLL;
-            LODWORD(v43[0]) = v28 >> 12;
-          }
-          v30 = (struct _VIDMM_GLOBAL_ALLOC *)*((_QWORD *)this + 2);
-          v31 = *((_QWORD *)v30 + 2);
-          v32 = (*(_DWORD *)this >> 7) & 0x1F;
-          LOBYTE(P) = 0;
-          v33 = VIDMM_PAGING_PROCESS::MapScratchAreaVaRange(
-                  (VIDMM_PAGING_PROCESS *)(v5 + 40384),
-                  v32,
-                  v31,
-                  v30,
-                  0LL,
-                  v22,
-                  0LL,
-                  (const struct _DXGK_ADL *)v43,
-                  (unsigned __int8 *)&P,
-                  0LL);
-          if ( v33 )
-            break;
-          if ( v23 )
-          {
-            if ( (unsigned int)++v23 >= 2 )
+            v27 = (unsigned __int64 *)*((_QWORD *)this + 2);
+            LOBYTE(v40) = 0;
+            VIDMM_PAGE_TABLE_BASE::GetSegmentAddressMdl(this);
+            SegmentOffsetInPages = VIDMM_PAGE_TABLE_BASE::GetSegmentOffsetInPages(this);
+            v32 = VIDMM_PAGING_PROCESS::MapScratchAreaVaRange(
+                    (VIDMM_PAGING_PROCESS *)(v5 + 40384),
+                    (*(_DWORD *)this >> 7) & 0x1F,
+                    v27[2],
+                    (struct _VIDMM_GLOBAL_ALLOC *)v27,
+                    0LL,
+                    v25,
+                    SegmentOffsetInPages << 12,
+                    v29,
+                    (unsigned __int8 *)&v40,
+                    0LL);
+            if ( v32 )
+              break;
+            if ( !v26 )
             {
-              g_DxgMmsBugcheckExportIndex = 1;
-              WdLogSingleEntry5(0LL, 270LL, 48LL, this, 1LL, 0LL);
+              VIDMM_GLOBAL::WaitForAllPagingEnginesIdle((VIDMM_GLOBAL *)v5, (*(_DWORD *)this >> 7) & 0x1F);
+              VIDMM_GLOBAL::FlushScratchGpuVaRanges((VIDMM_GLOBAL *)v5, (*(_DWORD *)this >> 7) & 0x1F);
+            }
+            if ( (unsigned int)++v26 >= 2 )
+            {
+              v33 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v31, v30);
+              v33[3] = 270LL;
+              v33[4] = 48LL;
+              v33[5] = this;
+              v33[6] = 1LL;
+              v33[7] = 0LL;
+              WdLogEvent5_WdCriticalError(v33);
               break;
             }
           }
-          else
-          {
-            VIDMM_GLOBAL::WaitForAllPagingEnginesIdle((VIDMM_GLOBAL *)v5, (*(_DWORD *)this >> 7) & 0x1F);
-            VIDMM_GLOBAL::FlushScratchGpuVaRanges((VIDMM_GLOBAL *)v5, (*(_DWORD *)this >> 7) & 0x1F);
-            v23 = 1;
-          }
+          if ( (*(_DWORD *)ADAPTER_RENDER::GetGpuMmuCaps(*(ADAPTER_RENDER **)(v5 + 16), (*(_DWORD *)this >> 7) & 0x1F) & 0x400) == 0 )
+            CVirtualAddressAllocator::FlushGpuVaTlb(v41, v34, *((_QWORD *)v32 + 12), *((_QWORD *)v32 + 13));
+          v35 = (__int64 *)((char *)v32 + 24);
+          v36 = *((_QWORD *)this + 3) + 128LL;
+          v37 = *(__int64 ***)(*((_QWORD *)this + 3) + 136LL);
+          if ( *v37 != (__int64 *)v36 )
+            __fastfail(3u);
+          *v35 = v36;
+          *((_QWORD *)v32 + 4) = v37;
+          *v37 = v35;
+          *(_QWORD *)(v36 + 8) = v35;
+          GpuVirtualAddress = *((_QWORD *)v32 + 12);
+          *a3 = v25;
         }
-        if ( VIDMM_GLOBAL::MustFlushTlbOnValidTransition((VIDMM_GLOBAL *)v5, (*(_DWORD *)this >> 7) & 0x1F) )
-          CVirtualAddressAllocator::FlushGpuVaTlb(
-            v45,
-            (*(_DWORD *)this >> 7) & 0x1F,
-            *((_QWORD *)v33 + 12),
-            *((_QWORD *)v33 + 13));
-        v34 = (__int64 *)((char *)v33 + 24);
-        v35 = *((_QWORD *)this + 3) + 128LL;
-        v36 = *(__int64 ***)(*((_QWORD *)this + 3) + 136LL);
-        if ( *v36 != (__int64 *)v35 )
-          __fastfail(3u);
-        *v34 = v35;
-        *((_QWORD *)v33 + 4) = v36;
-        *v36 = v34;
-        *(_QWORD *)(v35 + 8) = v34;
-        v37 = *((_QWORD *)v33 + 12);
-        *a3 = v22;
       }
       else
       {
-        if ( (*(_DWORD *)(v12 + 80) & 0x1000) == 0 )
+        if ( (*(_DWORD *)(v11 + 80) & 0x1000) == 0 )
         {
-          *a3 = VIDMM_SEGMENT::DriverId((VIDMM_SEGMENT *)v12);
-          *v39 = *(_QWORD *)(***((_QWORD ***)this + 3) + 128LL);
-          goto LABEL_7;
+          *a3 = *(_DWORD *)(v11 + 16) + 1;
+          *a4 = *(_QWORD *)(***((_QWORD ***)this + 3) + 136LL);
+LABEL_6:
+          *a5 = v6;
+          return 0LL;
         }
-        v38 = v6[11];
+        v38 = *(_QWORD *)(v8 + 96);
         *a3 = 0;
-        v37 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, struct CVirtualAddressAllocator *))(**(_QWORD **)(*(_QWORD *)(v38 + 8) + 24LL)
-                                                                                           + 104LL))(
-                *(_QWORD *)(*(_QWORD *)(v38 + 8) + 24LL),
-                *(_QWORD *)(v38 + 24),
-                a2);
+        GpuVirtualAddress = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v38 + 8) + 24LL)
+                                                                      + 104LL))(
+                              *(_QWORD *)(*(_QWORD *)(v38 + 8) + 24LL),
+                              *(_QWORD *)(v38 + 24));
       }
-      goto LABEL_31;
-    }
-  }
-  if ( !v12 )
-  {
-    *a4 = 0LL;
-    *a3 = 0;
-    goto LABEL_46;
-  }
-  v15 = *(_DWORD *)(v12 + 80);
-  if ( (v15 & 0x1001) == 0 )
-  {
-    if ( (v15 & 0x2000) == 0 )
-    {
-      if ( (v15 & 4) == 0 )
-      {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 48LL, this, 0LL, 0LL);
-        *a4 = 0LL;
-        *a3 = 0;
-        goto LABEL_46;
-      }
-      v16 = v6[16] + *(_QWORD *)(v12 + 32);
-      if ( (*(_DWORD *)(*(_QWORD *)(v5 + 24) + 436LL) & 8) == 0 )
-        v16 = MmMapIoSpaceEx(v16, v6[2], 1028LL);
+      *a4 = GpuVirtualAddress;
       goto LABEL_6;
     }
-    v40 = *(struct VIDMM_CPU_HOST_APERTURE **)(v12 + 504);
-    v41 = (struct VIDMM_ALLOC *)*((_QWORD *)this + 3);
-    P = 0LL;
-    if ( VIDMM_GLOBAL::BuildMdlForAllocInCpuHostAperture((VIDMM_GLOBAL *)v12, v41, v40, (struct _MDL **)&P) < 0 )
-    {
-      WdLogSingleEntry0(3LL);
-      *a4 = 0LL;
-      *a3 = 0;
-      goto LABEL_46;
-    }
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    v11 = P;
-    v37 = (*((__int64 (__fastcall **)(PVOID, _QWORD, __int64))VirtualMemoryInterface + 5))(P, 0LL, 2LL);
-    if ( !v37 )
-    {
-      VIDMM_CPU_HOST_APERTURE::UnmapRange(v40, *((struct _VIDMM_GLOBAL_ALLOC **)this + 2));
-      VIDMM_CPU_HOST_APERTURE::ReleaseRange(v40, *((struct _VIDMM_GLOBAL_ALLOC **)this + 2));
-      ExFreePoolWithTag(v11, 0);
-      WdLogSingleEntry0(3LL);
-      *a4 = 0LL;
-      *a3 = 0;
-      goto LABEL_46;
-    }
-    *a3 = 0;
-LABEL_31:
-    *a4 = v37;
-    goto LABEL_7;
   }
-  v16 = *(_QWORD *)(**((_QWORD **)this + 3) + 16LL);
-LABEL_6:
-  *a4 = v16;
+  CpuVisibleAddress = VIDMM_PAGE_TABLE_BASE::GetCpuVisibleAddress(this, (struct VIDMM_GLOBAL *)v5, &v40);
+  *a4 = (unsigned __int64)CpuVisibleAddress;
   *a3 = 0;
-  if ( v16 )
+  if ( CpuVisibleAddress )
   {
-LABEL_7:
-    *a5 = v11;
-    return 0LL;
+    v6 = v40;
+    goto LABEL_6;
   }
-LABEL_46:
-  WdLogSingleEntry1(2LL, this);
+  v39 = WdLogNewEntry5_WdError(v17, v16, v18, v19);
+  *(_QWORD *)(v39 + 24) = this;
+  WdLogEvent5_WdError(v39);
   return 3221225495LL;
 }

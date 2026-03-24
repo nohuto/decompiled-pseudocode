@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiSetD3ColdSupport @ 0x1C00227B0
+ * XREFs of AcpiSetD3ColdSupport @ 0x1C0031B90
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 __fastcall AcpiSetD3ColdSupport(__int64 a1, char a2)
 {
   __int64 result; // rax
 
-  result = *(unsigned int *)(a1 + 1008);
+  result = *(unsigned int *)(a1 + 960);
   if ( (result & 0x800) != 0 )
   {
     if ( a2 )

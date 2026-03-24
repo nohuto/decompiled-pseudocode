@@ -5,14 +5,14 @@
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
  *     MiMakeCombineCandidateClean @ 0x140082B8C (MiMakeCombineCandidateClean.c)
  *     MiCopyToUserVa @ 0x140084410 (MiCopyToUserVa.c)
- *     MiValidFault @ 0x1400B6DD0 (MiValidFault.c)
- *     MmSetPageProtection @ 0x140133560 (MmSetPageProtection.c)
+ *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
+ *     MmSetPageProtection @ 0x140133580 (MmSetPageProtection.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiLockPageAndSetDirty(__int64 a1, __int64 a2, __int64 a3)

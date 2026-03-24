@@ -1,14 +1,14 @@
 /*
- * XREFs of ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C7264
+ * XREFs of ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A408
  * Callers:
- *     ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x1801C6B08 (-Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z.c)
- *     ?Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C7118 (-Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE1F8 (-Render@CIndirectSwapchainRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x180189E08 (-Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800A7C48 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CreateRenderTargetForAcquiredBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C661C (-CreateRenderTargetForAcquiredBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x1801C7360 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180079DA4 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?CreateRenderTargetForAcquiredBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x180189954 (-CreateRenderTargetForAcquiredBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x18018A4F0 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CIndirectSwapchainRenderTarget::TryTargetNextBuffer(CIndirectSwapchainRenderTarget *this)
@@ -21,8 +21,8 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::TryTargetNextBuffer(CIndirect
   int v8; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
-  v3 = *((_QWORD *)this + 242);
-  if ( v3 && !*((_QWORD *)this + 243) )
+  v3 = *((_QWORD *)this + 244);
+  if ( v3 && !*((_QWORD *)this + 245) )
   {
     v4 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v3 + 56LL))(v3, 0LL);
     v8 = v4;
@@ -31,7 +31,7 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::TryTargetNextBuffer(CIndirect
       RenderTargetForAcquiredBuffer = CIndirectSwapchainRenderTarget::CreateRenderTargetForAcquiredBuffer(this);
       v2 = RenderTargetForAcquiredBuffer;
       if ( RenderTargetForAcquiredBuffer < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, RenderTargetForAcquiredBuffer, 0x167u);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, RenderTargetForAcquiredBuffer, 0x167u, 0LL);
     }
     else
     {
@@ -44,8 +44,8 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::TryTargetNextBuffer(CIndirect
       }
       if ( v8 == -2147483638 )
       {
-        (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL) + 120LL))(
-          *(_QWORD *)(*((_QWORD *)this + 2) + 656LL),
+        (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL) + 96LL))(
+          *(_QWORD *)(*((_QWORD *)this + 2) + 504LL),
           0LL,
           4096LL);
         v2 = 0;

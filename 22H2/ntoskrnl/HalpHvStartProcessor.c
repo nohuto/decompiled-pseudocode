@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpHvStartProcessor @ 0x14051B428
+ * XREFs of HalpHvStartProcessor @ 0x1404D1FCC
  * Callers:
- *     HalpInterruptStartProcessor @ 0x140A895A0 (HalpInterruptStartProcessor.c)
+ *     HalpInterruptStartProcessor @ 0x140999F64 (HalpInterruptStartProcessor.c)
  * Callees:
- *     HalpIsXboxNanovisorPresent @ 0x140378C6C (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpHvStartVirtualProcessor @ 0x14050BDB0 (HalpHvStartVirtualProcessor.c)
- *     HalpHvInitSegRegister @ 0x14051B358 (HalpHvInitSegRegister.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A1B40 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpHvStartVirtualProcessor @ 0x1404C2BC0 (HalpHvStartVirtualProcessor.c)
+ *     HalpHvInitSegRegister @ 0x1404D1EFC (HalpHvInitSegRegister.c)
  */
 
 __int64 __fastcall HalpHvStartProcessor(__int64 a1, __int64 a2, __int64 a3)
@@ -33,9 +33,9 @@ __int64 __fastcall HalpHvStartProcessor(__int64 a1, __int64 a2, __int64 a3)
   _QWORD v22[25]; // [rsp+48h] [rbp-B8h] BYREF
 
   v18[0] = 0;
-  if ( qword_140C62640 )
+  if ( qword_140C4A2C0 )
   {
-    v4 = qword_140C62640(a1, v18);
+    v4 = qword_140C4A2C0(a1, v18);
   }
   else if ( HalpIsXboxNanovisorPresent() )
   {

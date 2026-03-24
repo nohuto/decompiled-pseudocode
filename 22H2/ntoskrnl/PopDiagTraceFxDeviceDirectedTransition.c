@@ -1,44 +1,41 @@
 /*
- * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x140593650
+ * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x1405722A4
  * Callers:
- *     PopFxHandleDirectedPowerTransition @ 0x14058A530 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14056ABE8 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-BOOLEAN __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned __int8 a2)
+void __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned __int8 a2)
 {
   int v2; // edi
-  BOOLEAN result; // al
-  REGHANDLE v4; // rbx
-  int v5; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-40h] BYREF
+  REGHANDLE v3; // rbx
+  int v4; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v5; // [rsp+48h] [rbp-40h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-38h] BYREF
-  int *v8; // [rsp+60h] [rbp-28h]
-  int v9; // [rsp+68h] [rbp-20h]
-  int v10; // [rsp+6Ch] [rbp-1Ch]
+  int *v7; // [rsp+60h] [rbp-28h]
+  int v8; // [rsp+68h] [rbp-20h]
+  int v9; // [rsp+6Ch] [rbp-1Ch]
 
   v2 = a2;
-  v6 = a1;
-  result = (unsigned __int8)PopFxAddLogEntry(a1, 0, 25, a2);
+  v5 = a1;
+  PopFxAddLogEntry(a1, 0, 25, a2);
   if ( PopDiagHandleRegistered )
   {
-    v4 = PopDiagHandle;
-    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START);
-    if ( result )
+    v3 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START) )
     {
       UserData.Reserved = 0;
-      v10 = 0;
-      UserData.Ptr = (ULONGLONG)&v6;
-      v5 = v2;
-      v8 = &v5;
+      v9 = 0;
+      UserData.Ptr = (ULONGLONG)&v5;
+      v4 = v2;
+      v7 = &v4;
       UserData.Size = 8;
-      v9 = 4;
-      return EtwWriteEx(v4, &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START, 0LL, 0, 0LL, 0LL, 2u, &UserData);
+      v8 = 4;
+      EtwWriteEx(v3, &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
-  return result;
 }

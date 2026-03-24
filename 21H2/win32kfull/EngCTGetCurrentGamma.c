@@ -1,5 +1,5 @@
 /*
- * XREFs of EngCTGetCurrentGamma @ 0x1C0101110
+ * XREFs of EngCTGetCurrentGamma @ 0x1C0115D60
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ ULONG __stdcall EngCTGetCurrentGamma(HDEV hdev)
   result = gulGamma;
   if ( gulGamma == 1200 )
   {
-    result = *((_DWORD *)hdev + 604);
+    result = *((_DWORD *)hdev + 612);
     if ( !result )
       return 1200;
   }

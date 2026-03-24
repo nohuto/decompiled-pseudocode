@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpLogConnectFail @ 0x14097A390
+ * XREFs of AlpcpLogConnectFail @ 0x1408C3CA0
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x14097A28C (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x1408C3B9C (AlpcpInvokeLogCallbacks.c)
  */
 
-signed __int32 __fastcall AlpcpLogConnectFail(int a1, int a2)
+char __fastcall AlpcpLogConnectFail(int a1, int a2)
 {
   __int128 v2; // xmm0
   __int128 v4; // [rsp+20h] [rbp-38h] BYREF
@@ -17,7 +17,6 @@ signed __int32 __fastcall AlpcpLogConnectFail(int a1, int a2)
   int v7; // [rsp+38h] [rbp-20h]
   int v8; // [rsp+3Ch] [rbp-1Ch]
 
-  v4 = 0uLL;
   v6 = 0;
   v2 = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
   v7 = a1;

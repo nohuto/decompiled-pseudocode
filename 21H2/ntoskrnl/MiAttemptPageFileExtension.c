@@ -1,27 +1,27 @@
 /*
- * XREFs of MiAttemptPageFileExtension @ 0x14096EEE8
+ * XREFs of MiAttemptPageFileExtension @ 0x1408D0304
  * Callers:
- *     MiExtendPagingFiles @ 0x14096F2D4 (MiExtendPagingFiles.c)
+ *     MiExtendPagingFiles @ 0x1408D0630 (MiExtendPagingFiles.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiFinishPageFileExtension @ 0x14059C580 (MiFinishPageFileExtension.c)
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
- *     IoSetInformation @ 0x14080AE60 (IoSetInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiFinishPageFileExtension @ 0x1405435F0 (MiFinishPageFileExtension.c)
+ *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
+ *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
  */
 
 unsigned __int64 __fastcall MiAttemptPageFileExtension(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // r15
   __int64 v5; // rax
-  unsigned __int64 i; // rsi
-  unsigned __int64 v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // rbx
-  unsigned __int64 v14; // rbx
-  struct _FILE_OBJECT *v15; // rcx
-  int v16; // eax
+  unsigned __int64 i; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r14
+  unsigned __int64 v12; // rbx
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rax
+  int v15; // eax
+  struct _FILE_OBJECT *v16; // rcx
   __int64 v18; // [rsp+40h] [rbp-29h] BYREF
   __int64 v19[2]; // [rsp+48h] [rbp-21h] BYREF
   __int64 v20; // [rsp+58h] [rbp-11h]
@@ -35,44 +35,41 @@ unsigned __int64 __fastcall MiAttemptPageFileExtension(__int64 a1, __int64 a2, u
   v5 = *(_QWORD *)(a2 + 8);
   *(_OWORD *)v19 = 0LL;
   if ( *(_QWORD *)a2 != v5
-    && (int)IopQueryXxxInformation(*(struct _FILE_OBJECT **)(a2 + 56), 3, 0x18u, 0, (struct _IRP *)v19, &v18, 0) >= 0 )
+    && (int)IopQueryXxxInformation(*(PADAPTER_OBJECT *)(a2 + 56), 3, 0x18u, 0, (struct _IRP *)v19, &v18, 0) >= 0 )
   {
     for ( i = 0x4000LL; ; i = 4096LL )
     {
+      v9 = *(_QWORD *)(a2 + 8);
+      v10 = *(_QWORD *)a2;
+      v11 = i;
       if ( a3 >= i )
       {
-        v9 = a3;
-        i = 4096LL;
+        i = a3;
+        v11 = 4096LL;
       }
-      else
-      {
-        v9 = i;
-      }
-      v10 = *(_QWORD *)(a2 + 8);
-      v11 = *(_QWORD *)a2;
-      v12 = v10 - *(_QWORD *)a2;
-      if ( v9 <= v12 )
-        v12 = v9;
+      v12 = v9 - v10;
+      if ( i <= v9 - v10 )
+        v12 = i;
       v13 = v19[1] * (unsigned int)(v20 * HIDWORD(v20));
       if ( v13 <= 0x10000000 )
         break;
       v14 = (v13 - 0x10000000) >> 12;
-      if ( v14 > v12 )
-        v14 = v12;
-      if ( (*(_BYTE *)(a2 + 204) & 0x10) != 0 && v14 < a3 )
+      if ( v14 <= v12 )
+        v12 = v14;
+      if ( (*(_BYTE *)(a2 + 204) & 0x10) != 0 && v12 < a3 )
         break;
-      v15 = *(struct _FILE_OBJECT **)(a2 + 56);
-      FileInformation[0] = (v11 + v14) << 12;
-      v16 = ~*(_BYTE *)(a1 + 79) & 0x20;
-      FileInformation[1] = v11 << 12;
-      FileInformation[2] = v10 << 12;
-      v22 = (v16 | 8u) >> 3;
-      if ( !IoSetInformation(v15, FileEndOfFileInformation, 0x20u, FileInformation) )
+      FileInformation[0] = (v12 + v10) << 12;
+      v15 = ~*(_BYTE *)(a1 + 79) & 0x20;
+      FileInformation[2] = v9 << 12;
+      FileInformation[1] = v10 << 12;
+      v16 = *(struct _FILE_OBJECT **)(a2 + 56);
+      v22 = (v15 | 8u) >> 3;
+      if ( !IoSetInformation(v16, FileEndOfFileInformation, 0x20u, FileInformation) )
       {
-        MiFinishPageFileExtension(v3, a2, v14);
-        return v14;
+        MiFinishPageFileExtension(v3, a2, v12);
+        return v12;
       }
-      if ( i == 4096 )
+      if ( v11 == 4096 )
         return 0LL;
     }
   }

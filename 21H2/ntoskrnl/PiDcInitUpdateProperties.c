@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDcInitUpdateProperties @ 0x140826EF0
+ * XREFs of PiDcInitUpdateProperties @ 0x1407A3C28
  * Callers:
- *     PiDcInit @ 0x140B010DC (PiDcInit.c)
+ *     PiDcInit @ 0x140A53024 (PiDcInit.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041B9C0 (ZwEnumerateValueKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     RtlUnicodeStringToInteger @ 0x140698DE0 (RtlUnicodeStringToInteger.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     RtlUnicodeStringToInteger @ 0x140684670 (RtlUnicodeStringToInteger.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PiDcInitUpdateProperties()
 {
-  __int64 Pool2; // rdi
+  unsigned __int16 *PoolWithTag; // rdi
   NTSTATUS v1; // eax
   NTSTATUS v2; // ebx
-  ULONG v3; // r14d
+  ULONG v3; // r15d
   ULONG i; // edx
   NTSTATUS v5; // eax
-  _WORD *v6; // r15
+  _WORD *v6; // r14
   unsigned __int16 v7; // ax
   int v8; // esi
   ULONG j; // edx
@@ -47,16 +47,17 @@ __int64 PiDcInitUpdateProperties()
   DestinationString = 0LL;
   Guid = 0LL;
   Buffer = 0LL;
-  Pool2 = ExAllocatePool2(256LL, 536LL, 1198550608LL);
-  if ( Pool2 )
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, 0x218uLL, 0x47706E50u);
+  if ( PoolWithTag )
   {
     RtlInitUnicodeString(
       &DestinationString,
       L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\DeviceContainerPropertyUpdateEvents");
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     ObjectAttributes.RootDirectory = 0LL;
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
     ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     v1 = ZwOpenKey(&KeyHandle, 8u, &ObjectAttributes);
     v2 = v1;
@@ -67,22 +68,23 @@ __int64 PiDcInitUpdateProperties()
       v3 = 0;
       for ( i = 0; ; i = v3 )
       {
-        v5 = ZwEnumerateKey(KeyHandle, i, KeyBasicInformation, (PVOID)Pool2, 0x218u, &ResultLength);
+        v5 = ZwEnumerateKey(KeyHandle, i, KeyBasicInformation, PoolWithTag, 0x218u, &ResultLength);
         v2 = v5;
         if ( v5 == -2147483622 )
           break;
         if ( v5 < 0 )
           goto LABEL_24;
+        *(&ObjectAttributes.Length + 1) = 0;
+        v6 = PoolWithTag + 8;
         memset(&ObjectAttributes.Attributes + 1, 0, 20);
-        v6 = (_WORD *)(Pool2 + 16);
-        DestinationString.Buffer = (wchar_t *)(Pool2 + 16);
-        v7 = *(_WORD *)(Pool2 + 12);
+        DestinationString.Buffer = PoolWithTag + 8;
+        v7 = PoolWithTag[6];
         Handle = 0LL;
         DestinationString.Length = v7;
         DestinationString.MaximumLength = v7;
         ObjectAttributes.RootDirectory = KeyHandle;
-        *(_QWORD *)&ObjectAttributes.Length = 48LL;
         ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 576;
         v2 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
         if ( v2 < 0 )
@@ -90,7 +92,7 @@ __int64 PiDcInitUpdateProperties()
         v8 = 0;
         for ( j = 0; ; j = ++v8 )
         {
-          v10 = ZwEnumerateValueKey(Handle, j, KeyValueFullInformation, (PVOID)Pool2, 0x218u, &ResultLength);
+          v10 = ZwEnumerateValueKey(Handle, j, KeyValueFullInformation, PoolWithTag, 0x218u, &ResultLength);
           v2 = v10;
           if ( v10 == -2147483622 )
           {
@@ -104,18 +106,18 @@ __int64 PiDcInitUpdateProperties()
             if ( (unsigned int)(*(_DWORD *)v6 - 80) <= 0x12 )
             {
               *(_DWORD *)&DestinationString.Length = 4980812;
-              DestinationString.Buffer = (wchar_t *)(Pool2 + 20);
+              DestinationString.Buffer = PoolWithTag + 10;
               if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 )
               {
-                DestinationString.Buffer = (wchar_t *)(Pool2 + 98);
+                DestinationString.Buffer = PoolWithTag + 49;
                 DestinationString.Length = *v6 - 78;
                 DestinationString.MaximumLength = DestinationString.Length;
                 if ( RtlUnicodeStringToInteger(&DestinationString, 0xAu, &Value) >= 0 )
                 {
                   LODWORD(v20) = Value;
                   Buffer = Guid;
-                  if ( *(_DWORD *)(Pool2 + 4) == 4 && *(_DWORD *)(Pool2 + 12) == 4 )
-                    HIDWORD(v20) = *(_DWORD *)(*(unsigned int *)(Pool2 + 8) + Pool2);
+                  if ( *((_DWORD *)PoolWithTag + 1) == 4 && *((_DWORD *)PoolWithTag + 3) == 4 )
+                    HIDWORD(v20) = *(_DWORD *)((char *)PoolWithTag + *((unsigned int *)PoolWithTag + 2));
                   else
                     HIDWORD(v20) = 0;
                   if ( !RtlInsertElementGenericTableAvl(&PiDcUpdateProperties, &Buffer, 0x18u, 0LL) )
@@ -145,7 +147,7 @@ LABEL_24:
     ZwClose(KeyHandle);
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0x47706E50u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x47706E50u);
   return (unsigned int)v2;
 }

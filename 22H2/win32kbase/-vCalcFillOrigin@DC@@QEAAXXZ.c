@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C005BA14
+ * XREFs of ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C00228F0
  * Callers:
- *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0038DD8 (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
- *     GreSetDCOrg @ 0x1C005B960 (GreSetDCOrg.c)
+ *     GreSetDCOrg @ 0x1C0022940 (GreSetDCOrg.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
  * Callees:
  *     <none>
  */
@@ -18,10 +18,10 @@ void __fastcall DC::vCalcFillOrigin(DC *this)
     v3 = *((_DWORD *)this + 256);
   else
     v3 = *((_DWORD *)this + 254);
-  *((_DWORD *)this + 298) = *((_DWORD *)this + 31) + v3;
+  *((_DWORD *)this + 300) = *((_DWORD *)this + 31) + v3;
   if ( v2 )
     v4 = *((_DWORD *)this + 257);
   else
     v4 = *((_DWORD *)this + 255);
-  *((_DWORD *)this + 299) = *((_DWORD *)this + 32) + v4;
+  *((_DWORD *)this + 301) = *((_DWORD *)this + 32) + v4;
 }

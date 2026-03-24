@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1406F7500
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1406F74E0
  * Callers:
  *     <none>
  * Callees:
@@ -11,17 +11,17 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     McTemplateK0p @ 0x140288B30 (McTemplateK0p.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McTemplateK0p @ 0x140288C30 (McTemplateK0p.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDqQueryRelease @ 0x1405900AC (PiDqQueryRelease.c)
  *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
  *     PnpIsNullGuid @ 0x1405901B0 (PnpIsNullGuid.c)
  *     PiPnpRtlObjectEventRelease @ 0x140595DE0 (PiPnpRtlObjectEventRelease.c)
- *     PiDqQueryCompletePendedIrp @ 0x1406DB9B0 (PiDqQueryCompletePendedIrp.c)
- *     PiDqQueryApplyObjectEvent @ 0x1406F7898 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1406DB990 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406F7878 (PiDqQueryApplyObjectEvent.c)
  */
 
 _QWORD *__fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)

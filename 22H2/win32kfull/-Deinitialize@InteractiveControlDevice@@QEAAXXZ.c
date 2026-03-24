@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C02451D8
+ * XREFs of ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256814
  * Callers:
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0240F88 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C0241394 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
- *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02457A4 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0251FE8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C02523F4 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0256DD0 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0244E50 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
- *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C0244E90 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
- *     ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C024531C (-DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
- *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0246108 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C024660C (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
- *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C02468D0 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
- *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02483A0 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
- *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C024ABE8 (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0256470 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
+ *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C02564C8 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
+ *     ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0256958 (-DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0257748 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0257C38 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C0257EE4 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
+ *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02596A8 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
+ *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C025BE1C (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
  */
 
 void __fastcall InteractiveControlDevice::Deinitialize(InteractiveControlDevice *this)

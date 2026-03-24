@@ -4,9 +4,9 @@
  *     VfGetVerifierInformation @ 0x14094A8E4 (VfGetVerifierInformation.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
  *     VfTargetDriversGetZeroCounters @ 0x140934A38 (VfTargetDriversGetZeroCounters.c)
  *     VfAvlEnumerateNodes @ 0x14093E0D8 (VfAvlEnumerateNodes.c)

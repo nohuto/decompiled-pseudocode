@@ -1,13 +1,13 @@
 /*
- * XREFs of MiContractPagingFiles @ 0x140216C84
+ * XREFs of MiContractPagingFiles @ 0x140296C40
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140693C24 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MiOkToShrinkPageFiles @ 0x140216D20 (MiOkToShrinkPageFiles.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiQueuePageFileExtension @ 0x14059CE7C (MiQueuePageFileExtension.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiOkToShrinkPageFiles @ 0x140296CDC (MiOkToShrinkPageFiles.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiQueuePageFileExtension @ 0x140543DFC (MiQueuePageFileExtension.c)
  */
 
 __int64 __fastcall MiContractPagingFiles(__int64 a1)
@@ -24,15 +24,15 @@ __int64 __fastcall MiContractPagingFiles(__int64 a1)
   _DWORD *SchedulerAssist; // r8
   bool v12; // zf
 
-  result = MiOkToShrinkPageFiles(*(_QWORD *)(a1 + 17256), *(_QWORD *)(a1 + 17496));
+  result = MiOkToShrinkPageFiles(*(_QWORD *)(a1 + 7464), *(_QWORD *)(a1 + 7592));
   if ( (_DWORD)result )
   {
-    v3 = *(_DWORD *)(a1 + 16728);
+    v3 = *(_DWORD *)(a1 + 6936);
     v4 = 0;
     if ( v3 )
     {
-      v5 = a1 + 16736;
-      while ( 1 )
+      v5 = a1 + 6944;
+      do
       {
         v6 = *(_QWORD **)v5;
         result = *(unsigned __int16 *)(*(_QWORD *)v5 + 204LL);
@@ -44,49 +44,45 @@ __int64 __fastcall MiContractPagingFiles(__int64 a1)
         }
         ++v4;
         v5 += 8LL;
-        if ( v4 >= v3 )
-          goto LABEL_7;
       }
+      while ( v4 < v3 );
     }
-    else
+    if ( v4 != v3 )
     {
-LABEL_7:
-      if ( v4 == v3 )
-        return result;
-    }
-    v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1344));
-    v9 = v7;
-    if ( *(_QWORD *)(a1 + 584) == -1LL )
-    {
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
-      result = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1344));
+      v9 = v7;
+      if ( *(_QWORD *)(a1 + 560) == -1LL )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
+        result = (unsigned int)KiIrqlFlags;
+        if ( KiIrqlFlags )
         {
-          result = KeGetCurrentIrql();
-          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= result;
-            if ( v12 )
-              result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            result = KeGetCurrentIrql();
+            if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= result;
+              if ( v12 )
+                result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            }
           }
         }
+        __writecr8(v9);
       }
-      __writecr8(v9);
-    }
-    else
-    {
-      *(_QWORD *)(a1 + 552) = 0LL;
-      LOBYTE(v8) = v7;
-      *(_BYTE *)(a1 + 631) |= 0x10u;
-      *(_QWORD *)(a1 + 576) = a1;
-      *(_QWORD *)(a1 + 584) = -1LL;
-      return MiQueuePageFileExtension(a1 + 552, 0LL, v8);
+      else
+      {
+        *(_QWORD *)(a1 + 528) = 0LL;
+        LOBYTE(v8) = v7;
+        *(_BYTE *)(a1 + 607) |= 0x10u;
+        *(_QWORD *)(a1 + 552) = a1;
+        *(_QWORD *)(a1 + 560) = -1LL;
+        return MiQueuePageFileExtension(a1 + 528, 0LL, v8);
+      }
     }
   }
   return result;

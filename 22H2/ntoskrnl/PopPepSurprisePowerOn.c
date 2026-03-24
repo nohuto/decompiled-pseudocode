@@ -1,29 +1,28 @@
 /*
- * XREFs of PopPepSurprisePowerOn @ 0x14059FE50
+ * XREFs of PopPepSurprisePowerOn @ 0x14038B498
  * Callers:
- *     PoFxNotifySurprisePowerOn @ 0x140588040 (PoFxNotifySurprisePowerOn.c)
+ *     PoFxNotifySurprisePowerOn @ 0x14038B410 (PoFxNotifySurprisePowerOn.c)
  * Callees:
- *     PopPepRequestWork @ 0x1403138C0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313904 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313988 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313A80 (PopPepPromoteActivities.c)
- *     PopPepTriggerActivity @ 0x140313F1C (PopPepTriggerActivity.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     PopPepReleaseActivityLink @ 0x140261488 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x1402614FC (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140261688 (PopPepPromoteActivities.c)
+ *     PopPepTriggerActivity @ 0x140261A58 (PopPepTriggerActivity.c)
  */
 
-void __fastcall PopPepSurprisePowerOn(__int64 a1)
+__int64 __fastcall PopPepSurprisePowerOn(__int64 a1)
 {
-  char v2; // si
-  unsigned int v3; // ebx
-  KIRQL v4; // [rsp+40h] [rbp+8h] BYREF
+  KIRQL v2; // si
+  unsigned int v4; // ebx
 
-  v4 = 0;
-  v2 = PopPepLockActivityLink(a1, 0LL, 6u, 0, &v4);
+  v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 64));
+  *(_BYTE *)(a1 + 125) = 1;
   if ( !*(_DWORD *)(a1 + 140) && !*(_BYTE *)(a1 + 136) && !**(_DWORD **)(a1 + 72) )
   {
-    v3 = *(_DWORD *)(a1 + 120);
+    v4 = *(_DWORD *)(a1 + 120);
     PopPepTriggerActivity(a1, 0LL, 0, 0);
     PopPepPromoteActivities(a1, 0LL, 1);
-    PopPepRequestWork(a1, v3, *(_DWORD *)(a1 + 120));
+    PopPepRequestWork(v4, *(_DWORD *)(a1 + 120));
   }
-  PopPepReleaseActivityLink(a1, 0LL, v2, v4);
+  return PopPepReleaseActivityLink(a1, 0LL, 1, v2);
 }

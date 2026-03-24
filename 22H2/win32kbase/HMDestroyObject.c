@@ -1,36 +1,30 @@
 /*
- * XREFs of HMDestroyObject @ 0x1C0064C30
+ * XREFs of HMDestroyObject @ 0x1C0009350
  * Callers:
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00624B4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
- *     ?HMNullFnDestroy@@YAXPEAX@Z @ 0x1C012C770 (-HMNullFnDestroy@@YAXPEAX@Z.c)
- *     ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0134330 (-DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     DestroyBaseWindow @ 0x1C014F060 (DestroyBaseWindow.c)
+ *     ?HMNullFnDestroy@@YAXPEAX@Z @ 0x1C00092F0 (-HMNullFnDestroy@@YAXPEAX@Z.c)
+ *     ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C011BA30 (-DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     DestroyBaseWindow @ 0x1C0138FF0 (DestroyBaseWindow.c)
  * Callees:
- *     HMFreeObject @ 0x1C004F310 (HMFreeObject.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C0064C78 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0064D08 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     HMFreeObject @ 0x1C0009390 (HMFreeObject.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C00097C8 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0033100 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall HMDestroyObject(void *a1)
 {
-  __int64 v2; // rdx
-  unsigned int *v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 result; // rax
-  char v7; // [rsp+38h] [rbp+10h] BYREF
+  int v2; // eax
+  void *v3; // rcx
+  unsigned int v4; // edx
+  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v7, a1);
-  if ( (unsigned int)HMMarkObjectDestroyWorker(a1) )
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(v6);
+  v2 = HMMarkObjectDestroyWorker(a1);
+  v4 = 0;
+  if ( v2 )
   {
-    HMFreeObject(v3, v2, v4, v5);
-    result = 1LL;
+    HMFreeObject(v3);
+    return 1;
   }
-  else
-  {
-    result = 0LL;
-  }
-  if ( v7 )
-    gphePrimaryDestroyTarget = 0LL;
-  return result;
+  return v4;
 }

@@ -1,27 +1,29 @@
 /*
- * XREFs of LdrpQueryValueKey @ 0x140847830
+ * XREFs of LdrpQueryValueKey @ 0x14078F1EC
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x1403A0E04 (RtlpMuiRegAddAlternateCodePage.c)
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x1403A0F50 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     RtlpLoadInstallLanguageFallback @ 0x1408465DC (RtlpLoadInstallLanguageFallback.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x140A743A4 (RtlpLoadPolicyLanguageSpec.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x140A7570C (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A759B8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1403A7BB4 (RtlpMuiRegAddAlternateCodePage.c)
+ *     _IsMachineLanguageListInMutableLocation @ 0x1403A7D00 (_IsMachineLanguageListInMutableLocation.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1403A7D60 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140790254 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140980D50 (RtlpLoadPolicyLanguageSpec.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x1409820EC (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098238C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, _DWORD *a3, void *a4, ULONG *a5)
 {
-  ULONG *v5; // rbx
+  ULONG *v5; // rdi
   ULONG v10; // ebp
   ULONG Length; // ebp
-  _DWORD *Pool2; // rsi
-  NTSTATUS v13; // eax
-  unsigned int v14; // edi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v13; // rbx
+  NTSTATUS v14; // esi
   ULONG v16; // eax
   ULONG ResultLength; // [rsp+78h] [rbp+20h] BYREF
 
@@ -30,57 +32,60 @@ __int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName
   {
     if ( !a5 )
     {
-      ResultLength = 0;
-      Length = 12;
+      v10 = 0;
 LABEL_4:
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, Length, 1920232557LL);
-      if ( Pool2 )
+      ResultLength = 0;
+      Length = v10 + 12;
+      if ( Length )
       {
-        v13 = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Pool2, Length, &ResultLength);
-        v14 = v13;
-        if ( v13 >= 0 )
-        {
-          if ( a4 )
-          {
-            if ( !v5 )
-              goto LABEL_15;
-            v16 = Pool2[2];
-            if ( v16 > *v5 )
-            {
-              v14 = -2147483643;
-            }
-            else if ( v16 <= Length )
-            {
-              memmove(a4, Pool2 + 3, v16);
-            }
-            goto LABEL_14;
-          }
-        }
-        else if ( v13 != -2147483643 )
-        {
-LABEL_7:
-          ExFreePoolWithTag(Pool2, 0);
-          return v14;
-        }
-        if ( !v5 )
-        {
-LABEL_15:
-          if ( a3 )
-            *a3 = Pool2[1];
-          goto LABEL_7;
-        }
-LABEL_14:
-        *v5 = Pool2[2];
-        goto LABEL_15;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x72746C6Du);
+        v13 = PoolWithTag;
+        if ( PoolWithTag )
+          memset(PoolWithTag, 0, Length);
       }
-      return (unsigned int)-1073741670;
+      else
+      {
+        v13 = 0LL;
+      }
+      if ( !v13 )
+        return (unsigned int)-1073741670;
+      v14 = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, v13, Length, &ResultLength);
+      if ( v14 != -1073741772 )
+      {
+        if ( v14 < 0 )
+        {
+LABEL_10:
+          if ( v14 != -2147483643 )
+          {
+LABEL_11:
+            ExFreePoolWithTag(v13, 0);
+            return (unsigned int)v14;
+          }
+LABEL_21:
+          if ( v5 )
+            *v5 = v13[2];
+          if ( a3 )
+            *a3 = v13[1];
+          goto LABEL_11;
+        }
+        if ( a4 && v5 )
+        {
+          v16 = v13[2];
+          if ( v16 > *v5 )
+          {
+            v14 = -2147483643;
+            goto LABEL_21;
+          }
+          if ( v16 <= Length )
+            memmove(a4, v13 + 3, v16);
+        }
+      }
+      if ( v14 >= 0 )
+        goto LABEL_21;
+      goto LABEL_10;
     }
 LABEL_3:
     v10 = *a5;
-    ResultLength = 0;
-    Length = v10 + 12;
-    if ( !Length )
-      return (unsigned int)-1073741670;
     goto LABEL_4;
   }
   if ( a5 )

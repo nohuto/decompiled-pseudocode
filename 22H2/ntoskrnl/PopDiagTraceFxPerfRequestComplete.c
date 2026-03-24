@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxPerfRequestComplete @ 0x140593B88
+ * XREFs of PopDiagTraceFxPerfRequestComplete @ 0x1405727CC
  * Callers:
- *     PopFxCompleteComponentPerfState @ 0x140589628 (PopFxCompleteComponentPerfState.c)
+ *     PopFxCompleteComponentPerfState @ 0x14056A398 (PopFxCompleteComponentPerfState.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxPerfRequestComplete(__int64 *a1, unsigned __int8 a2)
@@ -14,14 +14,14 @@ void __fastcall PopDiagTraceFxPerfRequestComplete(__int64 *a1, unsigned __int8 a
   REGHANDLE v4; // rbx
   __int64 v5; // rcx
   __int64 v6; // rax
-  int v7; // [rsp+30h] [rbp-40h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+48h] [rbp-28h]
-  int v10; // [rsp+50h] [rbp-20h]
-  int v11; // [rsp+54h] [rbp-1Ch]
-  int *v12; // [rsp+58h] [rbp-18h]
-  int v13; // [rsp+60h] [rbp-10h]
-  int v14; // [rsp+64h] [rbp-Ch]
+  int v7; // [rsp+40h] [rbp-40h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v9; // [rsp+58h] [rbp-28h]
+  int v10; // [rsp+60h] [rbp-20h]
+  int v11; // [rsp+64h] [rbp-1Ch]
+  int *v12; // [rsp+68h] [rbp-18h]
+  int v13; // [rsp+70h] [rbp-10h]
+  int v14; // [rsp+74h] [rbp-Ch]
 
   v3 = a2;
   if ( PopDiagHandleRegistered )
@@ -41,7 +41,7 @@ void __fastcall PopDiagTraceFxPerfRequestComplete(__int64 *a1, unsigned __int8 a
       v13 = 4;
       UserData.Size = 8;
       v7 = v3;
-      EtwWrite(v4, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_COMPLETED, 0LL, 3u, &UserData);
+      EtwWriteEx(v4, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_COMPLETED, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

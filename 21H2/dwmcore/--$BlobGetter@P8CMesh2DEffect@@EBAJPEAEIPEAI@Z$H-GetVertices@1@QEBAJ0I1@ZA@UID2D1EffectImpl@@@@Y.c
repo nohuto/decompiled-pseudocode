@@ -1,5 +1,5 @@
 /*
- * XREFs of ??$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H?GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x1802B1D80
+ * XREFs of ??$BlobGetter@P8CMesh2DEffect@@EBAJPEAEIPEAI@Z$H?GetVertices@1@QEBAJ0I1@ZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C640
  * Callers:
  *     <none>
  * Callees:

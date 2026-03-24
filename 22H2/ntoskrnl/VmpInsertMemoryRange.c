@@ -1,47 +1,51 @@
 /*
- * XREFs of VmpInsertMemoryRange @ 0x1405F941C
+ * XREFs of VmpInsertMemoryRange @ 0x1405A38C0
  * Callers:
- *     VmCreateMemoryRange @ 0x1409DC590 (VmCreateMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x14092EE50 (VmCreateMemoryRange.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x1404666BE (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFreeMemoryRanges @ 0x1409DD25C (VmpFreeMemoryRanges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A489C (VmpProcessContextLockExclusive.c)
+ *     VmpFreeMemoryRanges @ 0x14092F6E8 (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __int64 a3)
 {
   __int64 *v3; // rdi
   void *v7; // r15
-  unsigned __int64 v8; // rbp
+  unsigned __int64 v8; // r14
   __int64 v9; // rax
   __int64 v10; // r8
   __int64 v11; // r12
-  unsigned __int64 *v12; // r10
+  unsigned __int64 *v12; // r11
   unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rax
-  unsigned int v15; // ebx
+  unsigned int v14; // ebx
+  unsigned __int64 v15; // rax
   unsigned __int64 *v16; // rbx
-  unsigned __int64 v17; // rcx
-  unsigned __int64 v18; // rax
-  __int64 *v19; // rdx
-  __int64 **v20; // rax
-  __int64 **v21; // rax
-  __int64 **i; // rcx
+  unsigned __int64 v17; // rax
+  unsigned __int64 v18; // r10
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // r8
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // rcx
   unsigned __int64 v23; // rdx
-  bool v24; // r8
-  unsigned __int64 v25; // r8
-  unsigned __int64 v26; // rax
-  unsigned __int64 v27; // rdx
+  __int64 *v24; // rdx
+  __int64 **v25; // rcx
+  __int64 ***v26; // rax
+  __int64 **i; // rcx
   bool v28; // r8
   unsigned __int64 v29; // r8
   unsigned __int64 v30; // rax
+  unsigned __int64 v31; // rdx
+  bool v32; // r8
+  unsigned __int64 v33; // r8
+  unsigned __int64 v34; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v34; // eax
-  bool v35; // zf
+  int v38; // eax
+  bool v39; // zf
 
   v3 = (__int64 *)a2[5];
   v7 = 0LL;
@@ -55,204 +59,204 @@ __int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __in
   }
   else if ( v10 != a3 )
   {
-    v15 = -1073740007;
-    goto LABEL_82;
+    v14 = -1073740007;
+    goto LABEL_81;
   }
   v12 = (unsigned __int64 *)(SpinLock + 2);
   v13 = *((_QWORD *)SpinLock + 1);
   if ( (SpinLock[4] & 1) != 0 && v13 )
     v13 ^= (unsigned __int64)v12;
-  if ( v13 )
+  while ( v13 )
   {
-    do
+    if ( (unsigned __int64)v3[7] < *(_QWORD *)(v13 + 24) )
     {
-      if ( (unsigned __int64)v3[7] >= *(_QWORD *)(v13 + 24) )
-      {
-        if ( (unsigned __int64)v3[6] <= *(_QWORD *)(v13 + 32) )
-          break;
-        v14 = *(_QWORD *)(v13 + 8);
-      }
-      else
-      {
-        v14 = *(_QWORD *)v13;
-      }
-      if ( (SpinLock[4] & 1) != 0 && v14 )
-        v13 ^= v14;
-      else
-        v13 = v14;
+      v15 = *(_QWORD *)v13;
     }
-    while ( v13 );
-    if ( v13 )
-      goto LABEL_19;
+    else
+    {
+      if ( (unsigned __int64)v3[6] <= *(_QWORD *)(v13 + 32) )
+        goto LABEL_21;
+      v15 = *(_QWORD *)(v13 + 8);
+    }
+    if ( (SpinLock[4] & 1) != 0 && v15 )
+      v13 ^= v15;
+    else
+      v13 = v15;
   }
   v16 = (unsigned __int64 *)(SpinLock + 6);
   v17 = *((_QWORD *)SpinLock + 3);
   if ( (SpinLock[8] & 1) != 0 && v17 )
     v17 ^= (unsigned __int64)v16;
-  if ( v17 )
+  if ( !v17 )
   {
-    do
-    {
-      if ( a2[4] >= *(_QWORD *)(v17 + 24) )
-      {
-        if ( a2[3] <= *(_QWORD *)(v17 + 32) )
-          break;
-        v18 = *(_QWORD *)(v17 + 8);
-      }
-      else
-      {
-        v18 = *(_QWORD *)v17;
-      }
-      if ( (SpinLock[8] & 1) != 0 && v18 )
-        v17 ^= v18;
-      else
-        v17 = v18;
-    }
-    while ( v17 );
-    if ( v17 )
-    {
-      v8 = v17;
-      if ( *(_QWORD *)(v17 + 24) != a2[3] || *(_QWORD *)(v17 + 32) != a2[4] )
-      {
-LABEL_19:
-        v15 = -1073741800;
-        goto LABEL_82;
-      }
-      v19 = (__int64 *)*v3;
-      v20 = (__int64 **)v3[1];
-      if ( *(__int64 **)(*v3 + 8) != v3 || *v20 != v3 )
-        __fastfail(3u);
-      *v20 = v19;
-      v19[1] = (__int64)v20;
-      v21 = (__int64 **)(v17 + 40);
-      v3[2] = v17;
-      for ( i = *(__int64 ***)(v17 + 40); i != v21; i = (__int64 **)*i )
-      {
-        if ( (unsigned __int64)i[6] > v3[6] )
-          break;
-      }
-      v7 = a2;
-      *i[1] = (__int64)v3;
-      v3[1] = (__int64)i[1];
-      i[1] = v3;
-      *v3 = (__int64)i;
-    }
-  }
-  v23 = *v12;
-  if ( (SpinLock[4] & 1) != 0 && v23 )
-    v23 ^= (unsigned __int64)v12;
-  v24 = 0;
-  if ( v23 )
-  {
-    v25 = v3[6];
-    while ( 1 )
-    {
-      if ( v25 > *(_QWORD *)(v23 + 32) || v25 >= *(_QWORD *)(v23 + 24) )
-      {
-        v26 = *(_QWORD *)(v23 + 8);
-        if ( (SpinLock[4] & 1) != 0 )
-        {
-          if ( !v26 )
-            goto LABEL_60;
-          v26 ^= v23;
-        }
-        if ( !v26 )
-        {
-LABEL_60:
-          v24 = 1;
-          break;
-        }
-      }
-      else
-      {
-        v26 = *(_QWORD *)v23;
-        if ( (SpinLock[4] & 1) != 0 )
-        {
-          if ( !v26 )
-            goto LABEL_53;
-          v26 ^= v23;
-        }
-        if ( !v26 )
-        {
-LABEL_53:
-          v24 = 0;
-          break;
-        }
-      }
-      v23 = v26;
-    }
-  }
-  RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 1, v23, v24, (unsigned __int64)(v3 + 3));
-  if ( !v8 )
-  {
-    v27 = *v16;
-    if ( (SpinLock[8] & 1) != 0 && v27 )
-      v27 ^= (unsigned __int64)v16;
+LABEL_33:
+    v23 = *v12;
+    if ( (SpinLock[4] & 1) != 0 && v23 )
+      v23 ^= (unsigned __int64)v12;
     v28 = 0;
-    if ( v27 )
+    if ( v23 )
     {
-      v29 = a2[3];
+      v29 = v3[6];
       while ( 1 )
       {
-        if ( v29 > *(_QWORD *)(v27 + 32) || v29 >= *(_QWORD *)(v27 + 24) )
+        if ( v29 > *(_QWORD *)(v23 + 32) || v29 >= *(_QWORD *)(v23 + 24) )
         {
-          v30 = *(_QWORD *)(v27 + 8);
-          if ( (SpinLock[8] & 1) != 0 )
+          v30 = *(_QWORD *)(v23 + 8);
+          if ( (SpinLock[4] & 1) != 0 )
           {
             if ( !v30 )
-              goto LABEL_79;
-            v30 ^= v27;
+              goto LABEL_59;
+            v30 ^= v23;
           }
           if ( !v30 )
           {
-LABEL_79:
+LABEL_59:
             v28 = 1;
             break;
           }
         }
         else
         {
-          v30 = *(_QWORD *)v27;
-          if ( (SpinLock[8] & 1) != 0 )
+          v30 = *(_QWORD *)v23;
+          if ( (SpinLock[4] & 1) != 0 )
           {
             if ( !v30 )
-              goto LABEL_73;
-            v30 ^= v27;
+              goto LABEL_53;
+            v30 ^= v23;
           }
           if ( !v30 )
           {
-LABEL_73:
+LABEL_53:
             v28 = 0;
             break;
           }
         }
-        v27 = v30;
+        v23 = v30;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 3, v27, v28, (unsigned __int64)a2);
+    RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 1, v23, v28, (unsigned __int64)(v3 + 3));
+    if ( !v8 )
+    {
+      v31 = *v16;
+      if ( (SpinLock[8] & 1) != 0 && v31 )
+        v31 ^= (unsigned __int64)v16;
+      v32 = 0;
+      if ( v31 )
+      {
+        v33 = a2[3];
+        while ( 1 )
+        {
+          if ( v33 > *(_QWORD *)(v31 + 32) || v33 >= *(_QWORD *)(v31 + 24) )
+          {
+            v34 = *(_QWORD *)(v31 + 8);
+            if ( (SpinLock[8] & 1) != 0 )
+            {
+              if ( !v34 )
+                goto LABEL_78;
+              v34 ^= v31;
+            }
+            if ( !v34 )
+            {
+LABEL_78:
+              v32 = 1;
+              break;
+            }
+          }
+          else
+          {
+            v34 = *(_QWORD *)v31;
+            if ( (SpinLock[8] & 1) != 0 )
+            {
+              if ( !v34 )
+                goto LABEL_72;
+              v34 ^= v31;
+            }
+            if ( !v34 )
+            {
+LABEL_72:
+              v32 = 0;
+              break;
+            }
+          }
+          v31 = v34;
+        }
+      }
+      RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 3, v31, v32, (unsigned __int64)a2);
+    }
+    v14 = 0;
+    goto LABEL_81;
   }
-  v15 = 0;
-LABEL_82:
+  v18 = a2[4];
+  while ( 1 )
+  {
+    v19 = *(_QWORD *)(v17 + 24);
+    if ( v18 >= v19 )
+      break;
+    v22 = *(_QWORD *)v17;
+LABEL_28:
+    if ( (SpinLock[8] & 1) != 0 && v22 )
+      v17 ^= v22;
+    else
+      v17 = v22;
+    if ( !v17 )
+      goto LABEL_33;
+  }
+  v20 = a2[3];
+  v21 = *(_QWORD *)(v17 + 32);
+  if ( v20 > v21 )
+  {
+    v22 = *(_QWORD *)(v17 + 8);
+    goto LABEL_28;
+  }
+  v8 = v17;
+  if ( v19 == v20 && v21 == v18 )
+  {
+    v24 = (__int64 *)*v3;
+    v25 = (__int64 **)v3[1];
+    if ( *(__int64 **)(*v3 + 8) != v3 || *v25 != v3 )
+      __fastfail(3u);
+    *v25 = v24;
+    v24[1] = (__int64)v25;
+    v3[2] = v17;
+    v26 = (__int64 ***)(v17 + 40);
+    for ( i = *v26; i != (__int64 **)v26; i = (__int64 **)*i )
+    {
+      if ( (unsigned __int64)i[6] > v3[6] )
+        break;
+    }
+    v7 = a2;
+    *i[1] = (__int64)v3;
+    v3[1] = (__int64)i[1];
+    i[1] = v3;
+    *v3 = (__int64)i;
+    goto LABEL_33;
+  }
+LABEL_21:
+  v14 = -1073741800;
+LABEL_81:
   if ( v11 != -1 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        v35 = (v34 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v34;
-        if ( v35 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+          v39 = (v38 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v38;
+          if ( v39 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8((unsigned __int8)v11);
   }
   if ( v7 )
     VmpFreeMemoryRanges(v7);
-  return v15;
+  return v14;
 }

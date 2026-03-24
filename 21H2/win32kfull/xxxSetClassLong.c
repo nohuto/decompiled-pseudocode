@@ -1,47 +1,48 @@
 /*
- * XREFs of xxxSetClassLong @ 0x1C01E3BEC
+ * XREFs of xxxSetClassLong @ 0x1C0161E4C
  * Callers:
- *     NtUserSetClassLong @ 0x1C01FCAE0 (NtUserSetClassLong.c)
+ *     NtUserSetClassLong @ 0x1C0161D60 (NtUserSetClassLong.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
  */
 
-unsigned __int64 __fastcall xxxSetClassLong(struct tagWND *a1, int a2, unsigned int a3, unsigned int a4)
+unsigned __int64 __fastcall xxxSetClassLong(__int64 a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned __int64 v5; // rdi
   __int64 v6; // rbx
   __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v11; // rax
-  unsigned int v12; // r9d
+  __int64 v9; // r8
+  __int64 v10; // rax
+  unsigned int v11; // r9d
   _QWORD *i; // rdx
+  __int64 v14; // rcx
 
   v5 = a3;
   v6 = a2;
-  if ( *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) != PsGetCurrentProcessWin32Process(a1) )
+  if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) != PsGetCurrentProcessWin32Process(a1) )
   {
-    v9 = 5LL;
-LABEL_14:
-    UserSetLastError(v9, v8);
-    return 0LL;
+    v14 = 5LL;
+    goto LABEL_10;
   }
   if ( (int)v6 < 0 )
   {
-    if ( (int)v6 >= -34 && byte_1C02E9D7A[v6] <= 4u )
-      return xxxSetClassData(a1, v6, v5, a4);
-    goto LABEL_13;
+    if ( (int)v6 >= -34 && byte_1C02ED31A[v6] <= 4u )
+      return xxxSetClassData((struct tagWND *)a1, v6, v5, a4);
+    goto LABEL_8;
   }
-  v8 = *(_QWORD *)(*((_QWORD *)a1 + 17) + 56LL);
-  if ( (int)v6 + 4 < (unsigned int)v6 || (v11 = *(_QWORD *)(v8 + 8), (unsigned int)(v6 + 4) > *(_DWORD *)(v11 + 12)) )
+  v8 = *(_QWORD *)(*(_QWORD *)(a1 + 136) + 56LL);
+  if ( (int)v6 + 4 < (unsigned int)v6 || (v10 = *(_QWORD *)(v8 + 8), (unsigned int)(v6 + 4) > *(_DWORD *)(v10 + 12)) )
   {
-LABEL_13:
-    v9 = 1413LL;
-    goto LABEL_14;
+LABEL_8:
+    v14 = 1413LL;
+LABEL_10:
+    UserSetLastError(v14, v8, v9);
+    return 0LL;
   }
-  v12 = *(_DWORD *)(v11 + v6 + 88);
-  *(_DWORD *)(v11 + v6 + 88) = v5;
+  v11 = *(_DWORD *)(v10 + v6 + 88);
+  *(_DWORD *)(v10 + v6 + 88) = v5;
   for ( i = *(_QWORD **)(v8 + 64); i; i = (_QWORD *)*i )
     *(_DWORD *)(i[1] + v6 + 88) = v5;
-  return v12;
+  return v11;
 }

@@ -1,120 +1,114 @@
 /*
- * XREFs of ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0170C3C
+ * XREFs of ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0143CA4
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
- *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C0021290 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     GreReleaseSemaphoreInternal @ 0x1C002E950 (GreReleaseSemaphoreInternal.c)
- *     ??0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0030400 (--0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C00616E4 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00717F0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
- *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C007FCA0 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     PALLOCMEM @ 0x1C0086980 (PALLOCMEM.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     ??1SPRITELOCK@@QEAA@XZ @ 0x1C0097170 (--1SPRITELOCK@@QEAA@XZ.c)
- *     vEnableSynchronize @ 0x1C00C3134 (vEnableSynchronize.c)
- *     bSpEnableSprites @ 0x1C00C4470 (bSpEnableSprites.c)
- *     ?Feature_3101493560__private_IsEnabled@@YAHXZ @ 0x1C00D8CC0 (-Feature_3101493560__private_IsEnabled@@YAHXZ.c)
- *     ??0?$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C00DAF28 (--0-$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
- *     ??1?$HmgShareLockResult@VBRUSH@@@@QEAA@XZ @ 0x1C00DAF80 (--1-$HmgShareLockResult@VBRUSH@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C016A304 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
- *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C016B0B8 (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
+ *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C000D904 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00218E0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     HmgShareLockCheck @ 0x1C002DBE0 (HmgShareLockCheck.c)
+ *     GreReleaseSemaphoreInternal @ 0x1C0038C70 (GreReleaseSemaphoreInternal.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     ??0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0039040 (--0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0066F20 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ??1SPRITELOCK@@QEAA@XZ @ 0x1C0082D50 (--1SPRITELOCK@@QEAA@XZ.c)
+ *     vEnableSynchronize @ 0x1C00B3D38 (vEnableSynchronize.c)
+ *     bSpEnableSprites @ 0x1C00B54EC (bSpEnableSprites.c)
+ *     ??0?$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C00CA7F8 (--0-$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
+ *     ??1?$HmgShareLockResult@VBRUSH@@@@QEAA@XZ @ 0x1C00CA83C (--1-$HmgShareLockResult@VBRUSH@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C013D1F0 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
+ *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C013E10C (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
  */
 
 struct PDEV *__fastcall DrvCreateCloneHDEV(struct PDEV *a1)
 {
-  struct PDEV *v2; // rdi
-  struct PDEV *v3; // rbx
-  __int64 v4; // rsi
-  __int64 v5; // rax
-  __int64 v6; // rax
-  __int64 v7; // rax
-  struct HOBJ__ **v8; // rdi
-  int v9; // r8d
-  int v10; // r8d
-  int v11; // r8d
-  __int64 v12; // rdx
+  __int64 v2; // rax
+  struct PDEV *v3; // r15
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct PDEV *v6; // rbx
+  _QWORD *v7; // rdi
+  int v8; // esi
+  int v9; // eax
+  unsigned int DeviceRoutine; // ecx
+  __int64 v11; // rax
+  __int64 v12; // rax
   int v13; // r8d
-  __int64 v15[6]; // [rsp+40h] [rbp-30h] BYREF
-  struct PDEV *v16; // [rsp+A0h] [rbp+30h] BYREF
-  struct PDEV *v17; // [rsp+B0h] [rbp+40h] BYREF
-  char v18; // [rsp+B8h] [rbp+48h] BYREF
+  int v14; // r8d
+  int v15; // r8d
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  int v18; // r8d
+  __int64 v20[6]; // [rsp+40h] [rbp-30h] BYREF
+  struct PDEV *v21; // [rsp+A0h] [rbp+30h] BYREF
+  struct PDEV *v22; // [rsp+B0h] [rbp+40h] BYREF
+  char v23; // [rsp+B8h] [rbp+48h] BYREF
 
-  WdLogSingleEntry2(4LL, a1, 1LL);
-  v17 = a1;
-  v2 = 0LL;
-  SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v18, (struct PDEVOBJ *)&v17);
-  PDEVOBJ::PDEVOBJ((PDEVOBJ *)&v16, (char *)a1);
-  v3 = v16;
-  if ( v16 )
+  v2 = WdLogNewEntry5_WdEvent(a1);
+  *(_QWORD *)(v2 + 24) = a1;
+  *(_QWORD *)(v2 + 32) = 1LL;
+  WdLogEvent5_WdEvent(v2);
+  v22 = a1;
+  v3 = 0LL;
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v23, (struct PDEVOBJ *)&v22);
+  PDEVOBJ::PDEVOBJ((PDEVOBJ *)&v21, (char *)a1);
+  v6 = v21;
+  if ( v21 )
   {
-    v4 = PALLOCMEM(0x860u, 1886221383);
-    if ( v4 && qword_1C029B130 && (int)qword_1C029B130() >= 0 && (unsigned int)bSpEnableSprites() )
+    v7 = PALLOCMEM2(0x868uLL, 1886221383LL, 1);
+    if ( v7
+      && ((v8 = -1073741637, !qword_1C02563B0) ? (v9 = -1073741637) : (v9 = qword_1C02563B0()),
+          v9 >= 0 && (unsigned int)bSpEnableSprites()) )
     {
-      if ( qword_1C029B140 && (int)qword_1C029B140() >= 0 )
+      if ( qword_1C02563C0 )
+        v8 = qword_1C02563C0();
+      if ( v8 >= 0 )
         vEnableSynchronize();
-      *(_QWORD *)(v4 + 976) = v4 + 544;
-      *(_DWORD *)(v4 + 728) = 0;
-      *(_DWORD *)(*(_QWORD *)(v4 + 976) + 176LL) = 0xFFFFFF;
-      v5 = *(_QWORD *)(v4 + 976);
-      *(_DWORD *)(v4 + 120) = 0;
-      *(_QWORD *)(v5 + 248) = 0LL;
-      if ( (unsigned int)Feature_3101493560__private_IsEnabled() )
-      {
-        v6 = HmgShareLockCheck(WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters, 16);
-        HmgShareLockResult<BRUSH>::HmgShareLockResult<BRUSH>((__int64)v15, v6);
-        *((_QWORD *)v3 + 196) = 0LL;
-        *((_QWORD *)v3 + 193) = 0LL;
-        *((_DWORD *)v3 + 388) = 0;
-        EBRUSHOBJ::vInitBrush(
-          (int *)v3 + 384,
-          v4,
-          v15[0],
-          (__int64)ppalDefault,
-          *(_QWORD *)(*((_QWORD *)v3 + 316) + 128LL),
-          *((_QWORD *)v3 + 316),
-          1u);
-        HmgShareLockResult<BRUSH>::~HmgShareLockResult<BRUSH>((__int64)v15);
-      }
-      else
-      {
-        v7 = HmgShareLockCheck(WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters, 16);
-        *((_QWORD *)v3 + 196) = 0LL;
-        v8 = (struct HOBJ__ **)v7;
-        *((_QWORD *)v3 + 193) = 0LL;
-        *((_DWORD *)v3 + 388) = 0;
-        EBRUSHOBJ::vInitBrush(
-          (int *)v3 + 384,
-          v4,
-          v7,
-          (__int64)ppalDefault,
-          *(_QWORD *)(*((_QWORD *)v3 + 316) + 128LL),
-          *((_QWORD *)v3 + 316),
-          1u);
-        DEC_SHARE_REF_CNT_LAZY0(v8);
-      }
+      DeviceRoutine = (unsigned int)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine;
+      v7[122] = v7 + 68;
+      *((_DWORD *)v7 + 182) = 0;
+      *(_DWORD *)(v7[122] + 176LL) = 0xFFFFFF;
+      v11 = v7[122];
+      *((_DWORD *)v7 + 30) = 0;
+      *(_QWORD *)(v11 + 248) = 0LL;
+      v12 = HmgShareLockCheck(DeviceRoutine, 16);
+      HmgShareLockResult<BRUSH>::HmgShareLockResult<BRUSH>((__int64)v20, v12);
+      *((_QWORD *)v6 + 197) = 0LL;
+      *((_QWORD *)v6 + 194) = 0LL;
+      *((_DWORD *)v6 + 390) = 0;
+      EBRUSHOBJ::vInitBrush(
+        (int *)v6 + 386,
+        (__int64)v7,
+        v20[0],
+        (__int64)ppalDefault,
+        *(_QWORD *)(*((_QWORD *)v6 + 319) + 128LL),
+        *((_QWORD *)v6 + 319),
+        1u);
+      HmgShareLockResult<BRUSH>::~HmgShareLockResult<BRUSH>((__int64)v20);
       EngAcquireSemaphore(ghsemDriverMgmt);
       EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
       --*((_DWORD *)a1 + 3);
-      PDEVOBJ::vUnreferencePdev(&v17, 0, v9);
-      EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v10);
+      PDEVOBJ::vUnreferencePdev(&v22, 0, v13);
+      EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v14);
       GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
-      PDEVOBJ::bDisabled((PDEVOBJ *)&v16, *((_DWORD *)a1 + 10) & 0x400);
-      v2 = v3;
-      goto LABEL_14;
+      PDEVOBJ::bDisabled((PDEVOBJ *)&v21, *((_DWORD *)a1 + 10) & 0x400);
+      v3 = v6;
     }
-    PDEVOBJ::vClearSurface((PDEVOBJ *)&v16);
-    PDEVOBJ::vUnreferencePdev(&v16, 0, v11);
-    if ( v4 )
-LABEL_14:
-      Win32FreePool((char *)v4);
+    else
+    {
+      PDEVOBJ::vClearSurface((PDEVOBJ *)&v21);
+      PDEVOBJ::vUnreferencePdev(&v21, 0, v15);
+    }
+    if ( v7 )
+      Win32FreePool((__int64)v7);
   }
-  WdLogSingleEntry1(5LL, v2);
-  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)&v18, v12, v13);
-  return v2;
+  v16 = WdLogNewEntry5_WdTrace(v5, v4);
+  *(_QWORD *)(v16 + 24) = v3;
+  WdLogEvent5_WdTrace(v16);
+  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)&v23, v17, v18);
+  return v3;
 }

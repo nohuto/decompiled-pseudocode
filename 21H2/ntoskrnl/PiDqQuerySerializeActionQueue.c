@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqQuerySerializeActionQueue @ 0x140777D40
+ * XREFs of PiDqQuerySerializeActionQueue @ 0x14062F5EC
  * Callers:
- *     PiDqIrpQueryGetResult @ 0x1407735A0 (PiDqIrpQueryGetResult.c)
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x14062E070 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PiDqQueryGetObjectManager @ 0x1407762A0 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407762E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1407780BC (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataCreate @ 0x140778100 (PiDqActionDataCreate.c)
- *     PiDqActionDataFree @ 0x140778370 (PiDqActionDataFree.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     PiDqQueryGetObjectManager @ 0x14062E834 (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x14062F968 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
+ *     PiDqActionDataFree @ 0x14062FB54 (PiDqActionDataFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqQuerySerializeActionQueue(KSPIN_LOCK a1, __int64 a2, int a3, int *a4, _DWORD *a5)
@@ -53,7 +53,7 @@ __int64 __fastcall PiDqQuerySerializeActionQueue(KSPIN_LOCK a1, __int64 a2, int 
   ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
   v10 = *(_DWORD *)(a1 + 216);
   ExReleasePushLockEx(v9, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( (v10 & 0x20) == 0 )
   {
     ObjectManager = PiDqQueryGetObjectManager(a1);
@@ -67,7 +67,7 @@ LABEL_30:
   }
   else
   {
-    v7 = MesEncodeIncrementalHandleCreate(&v20, PiDqSerializationAlloc, PiDqSerializationWrite, v19);
+    v7 = MesEncodeIncrementalHandleCreate(&v20, PiDqSerializationAlloc, &PiDqSerializationWrite, v19);
     if ( v7 >= 0 )
     {
       v7 = MesIncrementalHandleReset(v19[0], &v20, 0LL, 0LL, 0LL, *(_DWORD *)(a1 + 216) & 2);
@@ -81,12 +81,12 @@ LABEL_30:
         v25 = *(PVOID *)(a1 + 184);
         *(_QWORD *)(a1 + 184) = 0LL;
         ExReleasePushLockEx(v9, 0LL);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         do
         {
           if ( v25 )
           {
-            NdrMesTypeEncode3(v19[0], "TP 3\a", &off_1400023D8, &off_140C02FB0, 1, &v25);
+            NdrMesTypeEncode3(v19[0], "TP 3\a", &off_140001580, &off_140C01A50, 1, &v25);
             if ( BYTE5(v24) )
             {
               v7 = -1073741819;
@@ -100,7 +100,7 @@ LABEL_30:
               *(_QWORD *)(a1 + 184) = v25;
               v25 = 0LL;
               ExReleasePushLockEx(v9, 0LL);
-              KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
               *a5 = v24 + 16;
               break;
             }
@@ -116,7 +116,7 @@ LABEL_30:
           if ( v15 == (__int64 *)(a1 + 192) )
           {
             ExReleasePushLockEx(v9, 0LL);
-            KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             break;
           }
           v16 = *v15;
@@ -126,7 +126,7 @@ LABEL_30:
           *(_QWORD *)(v16 + 8) = v14;
           --*(_DWORD *)(a1 + 208);
           ExReleasePushLockEx(v9, 0LL);
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           v7 = PiDqActionDataCreate(*(_QWORD *)(a1 + 24), a1 + 32, v15, &v25);
           PiDqQueryActionQueueEntryFree(v15);
           if ( v7 == -1073741772 )

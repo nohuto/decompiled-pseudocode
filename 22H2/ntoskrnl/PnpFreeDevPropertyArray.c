@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpFreeDevPropertyArray @ 0x140789BA8
+ * XREFs of PnpFreeDevPropertyArray @ 0x1406AC460
  * Callers:
- *     PiDqQueryEvaluateFilter @ 0x140788864 (PiDqQueryEvaluateFilter.c)
- *     PiDqActionDataFree @ 0x1407FA1C4 (PiDqActionDataFree.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x14081BD64 (PiSwCompleteCreate.c)
- *     PiSwDeviceFree @ 0x140967290 (PiSwDeviceFree.c)
- *     PiSwInterfaceFree @ 0x140967590 (PiSwInterfaceFree.c)
- *     PiSwProcessRemove @ 0x140967780 (PiSwProcessRemove.c)
- *     PiSwQueuedCreateInfoFree @ 0x140967BC0 (PiSwQueuedCreateInfoFree.c)
+ *     PiDqActionDataFree @ 0x1406A8934 (PiDqActionDataFree.c)
+ *     PiDqQueryEvaluateFilter @ 0x1406AC504 (PiDqQueryEvaluateFilter.c)
+ *     PiSwProcessRemove @ 0x140732F28 (PiSwProcessRemove.c)
+ *     PiSwDeviceFree @ 0x1407342E0 (PiSwDeviceFree.c)
+ *     PiSwInterfaceFree @ 0x140734E74 (PiSwInterfaceFree.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x14074DC58 (PiSwCompleteCreate.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1408AEC98 (PiSwQueuedCreateInfoFree.c)
  * Callees:
- *     PnpFreeDevProperty @ 0x140789C08 (PnpFreeDevProperty.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PnpFreeDevProperty @ 0x1406AC4C0 (PnpFreeDevProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpFreeDevPropertyArray(unsigned int a1, char *a2, ULONG a3)

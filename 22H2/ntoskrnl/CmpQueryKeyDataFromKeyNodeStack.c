@@ -1,96 +1,83 @@
 /*
- * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x14061733C
+ * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x1404ED99C
  * Callers:
- *     CmQueryLayeredKey @ 0x14035D634 (CmQueryLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x140A164C4 (CmpEnumerateLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     CmpGetValueCountForKeyNodeStack @ 0x140616604 (CmpGetValueCountForKeyNodeStack.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     CmpPopulateKeyNodeInformation @ 0x1407074F8 (CmpPopulateKeyNodeInformation.c)
- *     CmpPopulateKeyFullInformation @ 0x1407D1C6C (CmpPopulateKeyFullInformation.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1FDA0 (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A23664 (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpPopulateKeyBasicInformation @ 0x140A2A144 (CmpPopulateKeyBasicInformation.c)
- *     CmpPopulateKeyCachedInformation @ 0x140A2A1F4 (CmpPopulateKeyCachedInformation.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECDC8 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpPopulateKeyNodeInformation @ 0x1406E3380 (CmpPopulateKeyNodeInformation.c)
+ *     CmpPopulateKeyFullInformation @ 0x1406E3F30 (CmpPopulateKeyFullInformation.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14072ADD0 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     HvpGetCellContextInitialize @ 0x140875D48 (HvpGetCellContextInitialize.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A75C (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPopulateKeyBasicInformation @ 0x140882694 (CmpPopulateKeyBasicInformation.c)
+ *     CmpPopulateKeyCachedInformation @ 0x140882748 (CmpPopulateKeyCachedInformation.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(__int16 *a1, int a2, __int64 a3, unsigned int a4, __int64 a5)
 {
-  ULONG_PTR v6; // r14
+  __int64 v5; // r14
+  __int16 *v6; // r11
   unsigned int v7; // r12d
-  ULONG_PTR v8; // rdx
-  ULONG_PTR v9; // r15
-  __int16 v10; // r9
-  __int16 v11; // r10
-  ULONG_PTR *EntryAtLayerHeight; // rax
-  __int64 v13; // rbx
-  unsigned int v14; // r13d
-  unsigned int v15; // esi
-  __int16 v16; // r9
-  _QWORD *v17; // rax
-  __int16 v18; // r9
-  __int16 v19; // r10
-  unsigned int v20; // r11d
-  __int16 v21; // ax
-  __int16 v22; // r9
-  __int64 v23; // rdx
-  ULONG_PTR v24; // rcx
-  unsigned int v25; // eax
-  unsigned int v26; // eax
-  unsigned int v27; // eax
-  unsigned int v28; // r8d
-  __int16 v29; // r9
-  __int16 v30; // r10
-  __int64 CellFlat; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r15
+  __int16 v10; // r8
+  __int64 *EntryAtLayerHeight; // rax
+  __int64 v12; // rbx
+  unsigned int v13; // r13d
+  unsigned int v14; // r15d
+  _QWORD *v15; // rax
+  __int16 v16; // r8
+  unsigned int v17; // r9d
+  unsigned int v18; // r10d
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  unsigned int v21; // eax
+  unsigned int v22; // eax
   int SubKeyCountForKeyNodeStack; // esi
-  unsigned int v33; // r9d
-  unsigned int v34; // ecx
-  unsigned int v35; // edx
-  unsigned __int16 v36; // cx
-  char v38; // [rsp+40h] [rbp-A8h]
-  unsigned int BugCheckParameter4; // [rsp+48h] [rbp-A0h]
-  ULONG_PTR BugCheckParameter4a; // [rsp+48h] [rbp-A0h]
-  unsigned int v41; // [rsp+50h] [rbp-98h]
-  unsigned int v42; // [rsp+54h] [rbp-94h]
-  unsigned int v43; // [rsp+58h] [rbp-90h]
-  unsigned int v44; // [rsp+68h] [rbp-80h] BYREF
-  unsigned int v45; // [rsp+6Ch] [rbp-7Ch] BYREF
-  __int64 v46; // [rsp+70h] [rbp-78h] BYREF
-  __int128 v47; // [rsp+78h] [rbp-70h] BYREF
-  __int128 v48; // [rsp+88h] [rbp-60h]
-  __int128 v49; // [rsp+98h] [rbp-50h]
-  ULONG_PTR v50; // [rsp+A8h] [rbp-40h]
+  unsigned int v24; // r9d
+  unsigned int v25; // eax
+  unsigned int v26; // ecx
+  unsigned __int16 v27; // cx
+  char v29; // [rsp+40h] [rbp-A8h]
+  unsigned int v30; // [rsp+48h] [rbp-A0h]
+  unsigned int v31; // [rsp+50h] [rbp-98h]
+  __int64 v32; // [rsp+50h] [rbp-98h]
+  unsigned int v33; // [rsp+58h] [rbp-90h]
+  unsigned int v34; // [rsp+5Ch] [rbp-8Ch]
+  unsigned int v35; // [rsp+68h] [rbp-80h] BYREF
+  unsigned int v36; // [rsp+6Ch] [rbp-7Ch] BYREF
+  __int64 v37; // [rsp+70h] [rbp-78h] BYREF
+  __int128 v38; // [rsp+78h] [rbp-70h] BYREF
+  __int128 v39; // [rsp+88h] [rbp-60h]
+  __int128 v40; // [rsp+98h] [rbp-50h]
+  __int64 v41; // [rsp+A8h] [rbp-40h]
 
-  v46 = 0LL;
-  v44 = 0;
-  v45 = 0;
-  v47 = 0LL;
-  v48 = 0LL;
-  v49 = 0LL;
-  v38 = 0;
-  v6 = 0LL;
-  BugCheckParameter4 = -1;
-  HvpGetCellContextReinitialize(&v46);
+  v37 = 0LL;
+  v35 = 0;
+  v36 = 0;
+  v38 = 0LL;
+  v39 = 0LL;
+  v40 = 0LL;
+  v29 = 0;
+  v5 = 0LL;
+  v31 = -1;
+  HvpGetCellContextInitialize(&v37);
   v7 = 0;
   v8 = 0LL;
   v9 = 0LL;
-  v50 = 0LL;
-  v10 = *a1;
-  v11 = -1;
-  if ( *a1 >= 0 )
+  v41 = 0LL;
+  v10 = *v6;
+  if ( *v6 >= 0 )
   {
     while ( 1 )
     {
-      EntryAtLayerHeight = (ULONG_PTR *)CmpKeyNodeStackGetEntryAtLayerHeight(a1, (unsigned __int16)v10);
+      EntryAtLayerHeight = (__int64 *)CmpKeyNodeStackGetEntryAtLayerHeight(v6);
       if ( EntryAtLayerHeight[2] )
         break;
-      v10 += v11;
-      if ( v10 < 0 )
+      if ( --v10 < 0 )
       {
         v8 = 0LL;
         goto LABEL_6;
@@ -98,142 +85,122 @@ __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(__int16 *a1, int a2, __int64 
     }
     v8 = *EntryAtLayerHeight;
     v9 = EntryAtLayerHeight[2];
-    v50 = v9;
+    v41 = v9;
   }
 LABEL_6:
-  v13 = *(_QWORD *)(v9 + 4);
-  v14 = (unsigned __int16)*(_DWORD *)(v9 + 52);
-  v41 = *(_DWORD *)(v9 + 56);
-  v42 = *(_DWORD *)(v9 + 60);
-  v15 = *(_DWORD *)(v9 + 64);
-  v43 = v15;
+  v12 = *(_QWORD *)(v9 + 4);
+  v13 = (unsigned __int16)*(_DWORD *)(v9 + 52);
+  v30 = *(_DWORD *)(v9 + 56);
+  v33 = *(_DWORD *)(v9 + 60);
+  v34 = *(_DWORD *)(v9 + 64);
   if ( *(char *)(v9 + 13) >= 0 )
   {
-    v38 = 1;
-    v6 = v8;
-    BugCheckParameter4 = *(_DWORD *)(v9 + 48);
+    v29 = 1;
+    v5 = v8;
+    v31 = *(_DWORD *)(v9 + 48);
     v7 = *(unsigned __int16 *)(v9 + 74);
   }
-  v16 = v11 + v10;
-  if ( v16 >= 0 )
+  if ( (__int16)(v10 - 1) >= 0 )
   {
-    while ( 1 )
+    v14 = *(_DWORD *)(v9 + 56);
+    do
     {
-      v17 = (_QWORD *)CmpKeyNodeStackGetEntryAtLayerHeight(a1, (unsigned __int16)v16);
-      if ( v17[2] )
+      v15 = (_QWORD *)CmpKeyNodeStackGetEntryAtLayerHeight(v6);
+      if ( v15[2] )
       {
-        if ( (unsigned int)CmpGetEffectiveKeyNodeSemantics(*v17) == 1 )
-          goto LABEL_26;
-        if ( v13 < *(_QWORD *)(v23 + 4) )
-          v13 = *(_QWORD *)(v23 + 4);
-        v25 = (unsigned __int16)*(_DWORD *)(v23 + 52);
-        if ( v14 >= v25 )
-          v25 = v14;
-        v14 = v25;
-        v26 = *(_DWORD *)(v23 + 56);
-        if ( v41 >= v26 )
-          v26 = v41;
-        v41 = v26;
-        v27 = *(_DWORD *)(v23 + 64);
-        if ( v15 >= v27 )
-          v27 = v15;
-        v15 = v27;
-        if ( !v38 && *(char *)(v23 + 13) >= 0 )
-        {
-          v38 = 1;
-          v6 = v24;
-          BugCheckParameter4 = *(_DWORD *)(v23 + 48);
-          v7 = *(unsigned __int16 *)(v23 + 74);
-        }
-        if ( (unsigned int)CmpGetEffectiveKeyNodeSemantics(v24) )
-        {
-LABEL_26:
-          v43 = v15;
-          v42 = v20;
-          v9 = v50;
+        if ( (unsigned int)CmpGetEffectiveKeyNodeSemantics(*v15) == 1 )
           break;
+        if ( v12 < *(_QWORD *)(v19 + 4) )
+          v12 = *(_QWORD *)(v19 + 4);
+        v21 = (unsigned __int16)*(_DWORD *)(v19 + 52);
+        if ( v13 >= v21 )
+          v21 = v13;
+        v13 = v21;
+        v22 = *(_DWORD *)(v19 + 56);
+        if ( v14 >= v22 )
+          v22 = v14;
+        v14 = v22;
+        if ( !v29 && *(char *)(v19 + 13) >= 0 )
+        {
+          v29 = 1;
+          v5 = v20;
+          v31 = *(_DWORD *)(v19 + 48);
+          v7 = *(unsigned __int16 *)(v19 + 74);
         }
-        v41 = v28;
-        v21 = v29;
-        v22 = v30;
+        if ( (unsigned int)CmpGetEffectiveKeyNodeSemantics(v20) )
+          break;
       }
-      else
-      {
-        v21 = v18;
-        v22 = v19;
-      }
-      v16 = v21 + v22;
-      if ( v16 < 0 )
-        goto LABEL_26;
     }
+    while ( (__int16)(v16 - 1) >= 0 );
+    v30 = v14;
+    v34 = v18;
+    v33 = v17;
+    v9 = v41;
   }
-  if ( v38 && v7 )
+  if ( v29 && v7 )
   {
-    if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(v6, BugCheckParameter4);
-    else
-      CellFlat = HvpGetCellPaged(v6);
-    BugCheckParameter4a = CellFlat;
+    v32 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(v5 + 8))(v5, v31, &v37);
+    v6 = a1;
   }
   else
   {
-    BugCheckParameter4a = 0LL;
+    v32 = 0LL;
     v7 = 0;
   }
   if ( a2 )
   {
     if ( a2 == 1 )
     {
-      *(_QWORD *)&v47 = v13;
-      SubKeyCountForKeyNodeStack = CmpPopulateKeyNodeInformation(&v47, v9, BugCheckParameter4a, v7, a3, a4, a5);
+      *(_QWORD *)&v38 = v12;
+      SubKeyCountForKeyNodeStack = CmpPopulateKeyNodeInformation(&v38, v9, v32, v7, a3, a4, a5);
     }
     else
     {
-      SubKeyCountForKeyNodeStack = CmpGetSubKeyCountForKeyNodeStack(a1, &v44);
+      SubKeyCountForKeyNodeStack = CmpGetSubKeyCountForKeyNodeStack(v6, &v35);
       if ( SubKeyCountForKeyNodeStack >= 0 )
       {
-        SubKeyCountForKeyNodeStack = CmpGetValueCountForKeyNodeStack(a1, &v45);
+        SubKeyCountForKeyNodeStack = CmpGetValueCountForKeyNodeStack(a1, &v36);
         if ( SubKeyCountForKeyNodeStack >= 0 )
         {
-          if ( v44 )
+          if ( v35 )
           {
-            v33 = v41;
+            v24 = v30;
           }
           else
           {
-            v14 = 0;
-            v33 = 0;
+            v13 = 0;
+            v24 = 0;
           }
-          if ( v45 )
+          if ( v36 )
           {
-            v34 = v42;
-            v35 = v43;
+            v25 = v33;
+            v26 = v34;
           }
           else
           {
-            v34 = 0;
-            v35 = 0;
+            v25 = 0;
+            v26 = 0;
           }
           if ( a2 == 4 )
           {
-            *(_QWORD *)&v47 = v13;
-            HIDWORD(v47) = v44;
-            *(_QWORD *)&v48 = __PAIR64__(v45, v14);
-            *((_QWORD *)&v48 + 1) = __PAIR64__(v35, v34);
-            v36 = 2 * *(_WORD *)(v9 + 72);
+            *(_QWORD *)&v38 = v12;
+            HIDWORD(v38) = v35;
+            *(_QWORD *)&v39 = __PAIR64__(v36, v13);
+            *((_QWORD *)&v39 + 1) = __PAIR64__(v26, v25);
+            v27 = 2 * *(_WORD *)(v9 + 72);
             if ( (*(_BYTE *)(v9 + 2) & 0x20) == 0 )
-              v36 = *(_WORD *)(v9 + 72);
-            LODWORD(v49) = v36;
-            SubKeyCountForKeyNodeStack = CmpPopulateKeyCachedInformation(&v47, a3, a4, a5);
+              v27 = *(_WORD *)(v9 + 72);
+            LODWORD(v40) = v27;
+            SubKeyCountForKeyNodeStack = CmpPopulateKeyCachedInformation(&v38, a3, a4, a5);
           }
           else if ( a2 == 2 )
           {
-            *(_QWORD *)&v47 = v13;
-            *(_QWORD *)((char *)&v48 + 4) = __PAIR64__(v14, v44);
-            HIDWORD(v48) = v33;
-            *(_QWORD *)&v49 = __PAIR64__(v34, v45);
-            DWORD2(v49) = v35;
-            SubKeyCountForKeyNodeStack = CmpPopulateKeyFullInformation(&v47, BugCheckParameter4a, v7, a3, a4, a5);
+            *(_QWORD *)&v38 = v12;
+            *(_QWORD *)((char *)&v39 + 4) = __PAIR64__(v13, v35);
+            HIDWORD(v39) = v24;
+            *(_QWORD *)&v40 = __PAIR64__(v25, v36);
+            DWORD2(v40) = v26;
+            SubKeyCountForKeyNodeStack = CmpPopulateKeyFullInformation(&v38, v32, v7, a3, a4, a5);
           }
           else
           {
@@ -245,15 +212,10 @@ LABEL_26:
   }
   else
   {
-    *(_QWORD *)&v47 = v13;
-    SubKeyCountForKeyNodeStack = CmpPopulateKeyBasicInformation((unsigned int)&v47, v9, a3, a4, a5);
+    *(_QWORD *)&v38 = v12;
+    SubKeyCountForKeyNodeStack = CmpPopulateKeyBasicInformation((unsigned int)&v38, v9, a3, a4, a5);
   }
-  if ( BugCheckParameter4a )
-  {
-    if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v6, &v46);
-    else
-      HvpReleaseCellPaged(v6, &v46);
-  }
+  if ( v32 )
+    (*(void (__fastcall **)(__int64, __int64 *))(v5 + 16))(v5, &v37);
   return (unsigned int)SubKeyCountForKeyNodeStack;
 }

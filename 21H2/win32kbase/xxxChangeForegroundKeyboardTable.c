@@ -1,109 +1,110 @@
 /*
- * XREFs of xxxChangeForegroundKeyboardTable @ 0x1C0051CD0
+ * XREFs of xxxChangeForegroundKeyboardTable @ 0x1C0007210
  * Callers:
- *     xxxInternalActivateKeyboardLayout @ 0x1C004FB30 (xxxInternalActivateKeyboardLayout.c)
- *     ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C0050088 (-xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z.c)
+ *     xxxInternalActivateKeyboardLayout @ 0x1C0009480 (xxxInternalActivateKeyboardLayout.c)
+ *     ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C000A1D0 (-xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z.c)
  * Callees:
- *     HMAssignmentLock @ 0x1C003A420 (HMAssignmentLock.c)
- *     UpdateKeyLights @ 0x1C0042A40 (UpdateKeyLights.c)
- *     SetGlobalKeyboardTableInfo @ 0x1C0050030 (SetGlobalKeyboardTableInfo.c)
- *     ApiSetEditionResetIMEConversionStatus @ 0x1C0051D50 (ApiSetEditionResetIMEConversionStatus.c)
- *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C01E4538 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
+ *     SetGlobalKeyboardTableInfo @ 0x1C00090B0 (SetGlobalKeyboardTableInfo.c)
+ *     ApiSetEditionResetIMEConversionStatus @ 0x1C000A6EC (ApiSetEditionResetIMEConversionStatus.c)
+ *     HMAssignmentLock @ 0x1C0030310 (HMAssignmentLock.c)
+ *     UpdateKeyLights @ 0x1C00B0860 (UpdateKeyLights.c)
+ *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C01AB088 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
  */
 
 void __fastcall xxxChangeForegroundKeyboardTable(struct tagKL *a1, struct tagKL *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int16 v6; // cx
-  bool v7; // zf
+  __int16 v4; // cx
+  bool v5; // zf
+  __int64 v6; // rax
+  __int16 v7; // ax
   __int64 v8; // rax
-  __int16 v9; // ax
-  __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 *v12[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v9; // rax
+  _QWORD v10[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( a2 == (struct tagKL *)qword_1C0296B70 )
+  if ( a2 == (struct tagKL *)qword_1C0251D98 )
     return;
-  v12[1] = (__int64 *)a2;
-  v12[0] = &gspklGlobalActive;
-  HMAssignmentLock(v12, 0LL);
+  v10[1] = a2;
+  v10[0] = &gspklGlobalActive;
+  HMAssignmentLock(v10);
   ApiSetEditionResetIMEConversionStatus(a1, a2);
-  v7 = qword_1C0296B70 == 0;
-  qword_1C0296B70 = (__int64)a2;
-  if ( v7 )
+  v5 = qword_1C0251D98 == 0;
+  qword_1C0251D98 = (__int64)a2;
+  if ( v5 )
   {
 LABEL_4:
-    SetGlobalKeyboardTableInfo((__int64)a2);
+    SetGlobalKeyboardTableInfo(a2);
     return;
   }
   if ( a1 != a2 && (!a1 || *((_QWORD *)a1 + 6) != *((_QWORD *)a2 + 6)) || !gpKL )
   {
     xxxManageKeyboardModifiers(a1, a2);
-    v6 = *((_WORD *)a2 + 20) & 0x3FF;
-    if ( v6 == 17 )
+    v4 = *((_WORD *)a2 + 20) & 0x3FF;
+    if ( v4 == 17 )
     {
-      if ( a1 )
-      {
-        if ( (*((_WORD *)a1 + 20) & 0x3FF) == 0x11 )
-          goto LABEL_27;
-        v7 = gfKanaToggle == 0;
-      }
-      else
+      if ( !a1 )
       {
         gfKanaToggle = (BYTE5(gafAsyncKeyState) & 8) != 0;
-        v7 = (BYTE5(gafAsyncKeyState) & 8) == 0;
+        v5 = (BYTE5(gafAsyncKeyState) & 8) == 0;
+        goto LABEL_14;
       }
-      if ( !v7 )
+      if ( (*((_WORD *)a1 + 20) & 0x3FF) != 0x11 )
       {
-        BYTE5(gafAsyncKeyState) |= 8u;
-        byte_1C0295765 |= 8u;
-        if ( gptiForeground )
+        v5 = gfKanaToggle == 0;
+LABEL_14:
+        if ( !v5 )
         {
-          v8 = *((_QWORD *)gptiForeground + 54);
-          if ( v8 )
-            *(_BYTE *)(v8 + 233) |= 8u;
+          BYTE5(gafAsyncKeyState) |= 8u;
+          byte_1C0250885 |= 8u;
+          if ( gptiForeground )
+          {
+            v6 = *((_QWORD *)gptiForeground + 54);
+            if ( v6 )
+              *(_BYTE *)(v6 + 233) |= 8u;
+          }
+LABEL_26:
+          UpdateKeyLights(1LL);
+          goto LABEL_27;
         }
-        goto LABEL_26;
+        goto LABEL_23;
       }
     }
     else
     {
       if ( !a1 )
         goto LABEL_4;
-      v9 = *((_WORD *)a1 + 20) & 0x3FF;
-      if ( v9 == 17 )
+      v7 = *((_WORD *)a1 + 20) & 0x3FF;
+      if ( v7 == 17 )
       {
         gfKanaToggle = (BYTE5(gafAsyncKeyState) & 8) != 0;
+        goto LABEL_23;
       }
-      else if ( v9 != 18 || v6 == 18 )
+      if ( v7 == 18 && v4 != 18 )
       {
-        goto LABEL_27;
+LABEL_23:
+        BYTE5(gafAsyncKeyState) &= ~8u;
+        byte_1C0250885 &= ~8u;
+        if ( gptiForeground )
+        {
+          v8 = *((_QWORD *)gptiForeground + 54);
+          if ( v8 )
+            *(_BYTE *)(v8 + 233) &= ~8u;
+        }
+        goto LABEL_26;
       }
     }
-    LOBYTE(v4) = -9;
-    BYTE5(gafAsyncKeyState) &= ~8u;
-    byte_1C0295765 &= ~8u;
-    if ( gptiForeground )
-    {
-      v10 = *((_QWORD *)gptiForeground + 54);
-      if ( v10 )
-        *(_BYTE *)(v10 + 233) &= ~8u;
-    }
-LABEL_26:
-    UpdateKeyLights(1LL, v4, v5);
-    if ( !a1 )
-      goto LABEL_4;
 LABEL_27:
-    if ( (*((_WORD *)a1 + 20) & 0x3FF) == 0x12 && (*((_WORD *)a2 + 20) & 0x3FF) != 0x12 )
+    if ( a1 )
     {
-      byte_1C0295765 &= ~4u;
-      BYTE5(gafAsyncKeyState) &= ~4u;
-      if ( gptiForeground )
+      if ( (*((_WORD *)a1 + 20) & 0x3FF) == 0x12 && (*((_WORD *)a2 + 20) & 0x3FF) != 0x12 )
       {
-        v11 = *((_QWORD *)gptiForeground + 54);
-        if ( v11 )
-          *(_BYTE *)(v11 + 233) &= ~4u;
+        byte_1C0250885 &= ~4u;
+        BYTE5(gafAsyncKeyState) &= ~4u;
+        if ( gptiForeground )
+        {
+          v9 = *((_QWORD *)gptiForeground + 54);
+          if ( v9 )
+            *(_BYTE *)(v9 + 233) &= ~4u;
+        }
       }
     }
     goto LABEL_4;

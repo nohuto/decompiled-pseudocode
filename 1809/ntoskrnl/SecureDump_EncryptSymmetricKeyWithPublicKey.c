@@ -1,17 +1,17 @@
 /*
- * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286338
+ * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286438
  * Callers:
- *     SecureDump_Init @ 0x140180D20 (SecureDump_Init.c)
+ *     SecureDump_Init @ 0x140180D40 (SecureDump_Init.c)
  * Callees:
- *     BCryptCloseAlgorithmProvider @ 0x140181D20 (BCryptCloseAlgorithmProvider.c)
- *     SecureDump_LogErrorEvent @ 0x140286850 (SecureDump_LogErrorEvent.c)
- *     BCryptDestroyKey @ 0x1402FE360 (BCryptDestroyKey.c)
- *     BCryptEncrypt @ 0x1402FE3B4 (BCryptEncrypt.c)
+ *     BCryptCloseAlgorithmProvider @ 0x140181D40 (BCryptCloseAlgorithmProvider.c)
+ *     SecureDump_LogErrorEvent @ 0x140286950 (SecureDump_LogErrorEvent.c)
+ *     BCryptDestroyKey @ 0x1402FE460 (BCryptDestroyKey.c)
+ *     BCryptEncrypt @ 0x1402FE4B4 (BCryptEncrypt.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BCryptGetProperty @ 0x140691284 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x14073C0A0 (BCryptOpenAlgorithmProvider.c)
- *     BCryptImportKeyPair @ 0x14089BA14 (BCryptImportKeyPair.c)
+ *     BCryptGetProperty @ 0x140691264 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14073C080 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptImportKeyPair @ 0x14089B9F4 (BCryptImportKeyPair.c)
  */
 
 __int64 SecureDump_EncryptSymmetricKeyWithPublicKey()

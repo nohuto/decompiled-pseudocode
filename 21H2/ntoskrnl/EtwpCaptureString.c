@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpCaptureString @ 0x1406EF170
+ * XREFs of EtwpCaptureString @ 0x1406DF044
  * Callers:
- *     EtwpFlushTrace @ 0x1406ECACC (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x1406ECE0C (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     EtwpAcquireLoggerContext @ 0x1406EF020 (EtwpAcquireLoggerContext.c)
- *     EtwpSetSoftRestartInformation @ 0x1409ED7D4 (EtwpSetSoftRestartInformation.c)
+ *     EtwpFlushTrace @ 0x1406DD6A4 (EtwpFlushTrace.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpAcquireLoggerContext @ 0x1406DEEF0 (EtwpAcquireLoggerContext.c)
+ *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
+ *     EtwpSetSoftRestartInformation @ 0x140949350 (EtwpSetSoftRestartInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCaptureString(unsigned __int16 *a1, UNICODE_STRING *a2)
 {
-  unsigned int v4; // esi
+  unsigned int v4; // edi
   char PreviousMode; // bl
   __int64 v6; // rax
   unsigned __int64 v7; // rcx
-  WCHAR *Pool2; // rax
+  WCHAR *PoolWithTag; // rax
   WCHAR *v9; // rbx
 
   v4 = 0;
@@ -39,10 +39,10 @@ __int64 __fastcall EtwpCaptureString(unsigned __int16 *a1, UNICODE_STRING *a2)
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
-  Pool2 = (WCHAR *)ExAllocatePool2(256LL, *a1 + 2LL, 1350005829LL);
-  v9 = Pool2;
-  if ( !Pool2
-    || (memmove(Pool2, *((const void **)a1 + 1), *a1),
+  PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, *a1 + 2LL, 0x50777445u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag
+    || (memmove(PoolWithTag, *((const void **)a1 + 1), *a1),
         v9[(unsigned __int64)*a1 >> 1] = 0,
         !RtlCreateUnicodeString(a2, v9)) )
   {

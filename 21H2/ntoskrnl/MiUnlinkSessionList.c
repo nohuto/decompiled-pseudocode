@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkSessionList @ 0x140599658
+ * XREFs of MiUnlinkSessionList @ 0x14053E120
  * Callers:
- *     MiReleaseProcessReferenceToSessionDataPage @ 0x140693EA8 (MiReleaseProcessReferenceToSessionDataPage.c)
+ *     MiReleaseProcessReferenceToSessionDataPage @ 0x140682FC4 (MiReleaseProcessReferenceToSessionDataPage.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlinkSessionList(_QWORD *a1)
@@ -23,16 +23,16 @@ __int64 __fastcall MiUnlinkSessionList(_QWORD *a1)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v2 = a1 + 15;
-  v3 = a1[15];
+  v2 = a1 + 16;
+  v3 = a1[16];
   if ( v3 )
   {
-    v4 = (_QWORD *)a1[16];
+    v4 = (_QWORD *)a1[17];
     if ( *(_QWORD **)(v3 + 8) != v2 || (_QWORD *)*v4 != v2 )
       __fastfail(3u);
     *v4 = v3;
     *(_QWORD *)(v3 + 8) = v4;
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C50638, a1 + 17);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4DDE8, a1 + 18);
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;

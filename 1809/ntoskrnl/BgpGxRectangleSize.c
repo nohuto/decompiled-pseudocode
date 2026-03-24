@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpGxRectangleSize @ 0x14016ECB4
+ * XREFs of BgpGxRectangleSize @ 0x14016ECD4
  * Callers:
  *     AnFwConfigureProgressResources @ 0x14094E6DC (AnFwConfigureProgressResources.c)
  *     BgpGxReservePoolRectangleSize @ 0x14094E7BC (BgpGxReservePoolRectangleSize.c)

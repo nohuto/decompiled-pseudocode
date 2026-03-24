@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x180299AC8
+ * XREFs of ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x180257BC0
  * Callers:
- *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x180295D68 (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
+ *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x1802538F0 (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??2CBrush@@KAPEAX_K@Z @ 0x18019DF04 (--2CBrush@@KAPEAX_K@Z.c)
- *     ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802997C4 (--0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ?Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z @ 0x180299E20 (-Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ??2CHolographicInteropTarget@@KAPEAX_K@Z @ 0x18016C1AC (--2CHolographicInteropTarget@@KAPEAX_K@Z.c)
+ *     ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802577E4 (--0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z @ 0x180257D30 (-Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z.c)
  */
 
 __int64 __fastcall CHolographicInteropTarget::Create(
@@ -18,32 +18,35 @@ __int64 __fastcall CHolographicInteropTarget::Create(
 {
   CHolographicInteropTarget *v6; // rax
   __int64 v7; // rcx
-  CHolographicInteropTarget *v8; // rax
-  CHolographicInteropTarget *v9; // rdi
+  CMILCOMBase *v8; // rbx
+  unsigned int v9; // edi
   int v10; // eax
   __int64 v11; // rcx
-  unsigned int v12; // ebx
 
-  v6 = (CHolographicInteropTarget *)CBrush::operator new();
-  if ( v6 && (v8 = CHolographicInteropTarget::CHolographicInteropTarget(v6, a1), (v9 = v8) != 0LL) )
+  v6 = (CHolographicInteropTarget *)CHolographicInteropTarget::operator new();
+  if ( v6 )
+    v8 = CHolographicInteropTarget::CHolographicInteropTarget(v6, a1);
+  else
+    v8 = 0LL;
+  if ( v8 )
   {
-    CMILRefCountImpl::AddReference((CHolographicInteropTarget *)((char *)v8 + 8));
-    v10 = CHolographicInteropTarget::Initialize(v9, *a2);
-    v12 = v10;
+    CMILCOMBase::InternalAddRef(v8);
+    v10 = CHolographicInteropTarget::Initialize(v8, *a2);
+    v9 = v10;
     if ( v10 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x19u);
-      CResource::InternalRelease(v9);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x19u, 0LL);
+      CRenderTargetBitmap::Release(v8);
     }
     else
     {
-      *a3 = v9;
+      *a3 = v8;
     }
   }
   else
   {
-    v12 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147024882, 0x15u);
+    v9 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x15u, 0LL);
   }
-  return v12;
+  return v9;
 }

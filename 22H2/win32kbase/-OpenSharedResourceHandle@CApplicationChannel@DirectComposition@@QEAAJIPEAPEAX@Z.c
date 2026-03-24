@@ -1,27 +1,31 @@
 /*
- * XREFs of ?OpenSharedResourceHandle@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAX@Z @ 0x1C00AA68C
+ * XREFs of ?OpenSharedResourceHandle@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAX@Z @ 0x1C009D134
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C00AA6F0 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-int __fastcall DirectComposition::CApplicationChannel::OpenSharedResourceHandle(
+__int64 __fastcall DirectComposition::CApplicationChannel::OpenSharedResourceHandle(
         DirectComposition::CApplicationChannel *this,
         int a2,
         void **a3)
 {
-  struct DirectComposition::CResourceMarshaler *v4; // rax
-  __int64 v5; // rax
+  unsigned __int64 v3; // r9
+  __int64 v4; // rcx
 
-  v4 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(this, a2);
-  if ( !v4 )
-    return -1073741790;
-  v5 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)v4 + 48LL))(v4);
-  if ( v5 )
-    return CompositionObject::CreateHandle((CompositionObject *)(v5 - 24), 3u, 0, 0, a3);
+  v3 = (unsigned int)(a2 - 1);
+  if ( a2 && v3 < *((_QWORD *)this + 10) )
+  {
+    _mm_lfence();
+    v4 = *(_QWORD *)(v3 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
   else
-    return -1073741637;
+  {
+    v4 = 0LL;
+  }
+  if ( v4 )
+    return (*(__int64 (__fastcall **)(__int64, void **))(*(_QWORD *)v4 + 16LL))(v4, a3);
+  else
+    return 3221225506LL;
 }

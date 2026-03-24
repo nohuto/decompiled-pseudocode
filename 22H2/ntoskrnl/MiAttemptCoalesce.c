@@ -1,77 +1,92 @@
 /*
- * XREFs of MiAttemptCoalesce @ 0x140345CF0
+ * XREFs of MiAttemptCoalesce @ 0x1402C95B0
  * Callers:
- *     MiAdjustPteBins @ 0x14021DD08 (MiAdjustPteBins.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiReplenishBitMap @ 0x1402DEAF0 (MiReplenishBitMap.c)
+ *     MiAdjustPteBins @ 0x14033B2E8 (MiAdjustPteBins.c)
+ *     MiDeleteSessionAddressSpace @ 0x140388EEC (MiDeleteSessionAddressSpace.c)
  * Callees:
- *     RtlInterlockedSetClearRunEx @ 0x14027EF50 (RtlInterlockedSetClearRunEx.c)
- *     MiReturnSystemPtes @ 0x140345E38 (MiReturnSystemPtes.c)
+ *     RtlInterlockedSetClearRunEx @ 0x140228C50 (RtlInterlockedSetClearRunEx.c)
+ *     MiReturnSystemPtes @ 0x14031B16C (MiReturnSystemPtes.c)
  */
 
 char __fastcall MiAttemptCoalesce(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rsi
+  unsigned __int64 v3; // rdi
   unsigned __int64 v5; // rbx
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // r12
-  unsigned __int64 v8; // r15
-  unsigned __int64 v9; // rdi
-  __int64 v10; // rcx
-  __int64 *v11; // r8
-  __int64 v12; // r9
-  __int64 *v13; // rdx
-  bool i; // zf
-  bool v15; // zf
+  unsigned __int64 v6; // r13
+  unsigned __int64 v7; // rax
+  __int64 v8; // r9
+  __int64 v9; // r15
+  unsigned __int64 v10; // rsi
+  unsigned __int64 v11; // r14
+  __int64 v12; // rcx
+  __int64 v13; // r9
+  _QWORD *v14; // r8
+  _QWORD *v15; // rdx
+  bool v16; // zf
+  _QWORD *v17; // r8
 
-  v4 = 0LL;
-  v5 = (-(__int64)((*(_DWORD *)(a1 + 24) & 1) != 0) & 0xFFFFFFFFFFFFFE20uLL) + 512;
-  LOBYTE(v6) = ((*(_DWORD *)(a1 + 24) & 1) != 0 ? 0x20 : 0) + a2;
-  v7 = a2 & ~((-(__int64)((*(_DWORD *)(a1 + 24) & 1) != 0) & 0xFFFFFFFFFFFFFE20uLL) + 511);
-  v8 = (~((-(__int64)((*(_DWORD *)(a1 + 24) & 1) != 0) & 0xFFFFFFFFFFFFFE20uLL) + 511) & (v5 + a2 + a3 - 1)) - v7;
-  if ( v8 )
+  v3 = 32LL;
+  if ( (*(_DWORD *)(a1 + 24) & 4) == 0 )
+    v3 = 512LL;
+  v5 = 0LL;
+  v6 = v3 - 1;
+  LOBYTE(v7) = v3 + a2;
+  v8 = ~(v3 - 1);
+  v9 = a2 & v8;
+  v10 = (v8 & (v3 + a2 + a3 - 1)) - (a2 & v8);
+  if ( v10 )
   {
     do
     {
-      v6 = *(_QWORD *)a1;
-      v9 = v7 + v4;
-      if ( v7 + v4 < *(_QWORD *)a1 )
+      v7 = *(_QWORD *)a1;
+      v11 = v9 + v5;
+      if ( v9 + v5 < *(_QWORD *)a1 )
       {
-        v6 -= v9;
-        if ( v6 >= v5 )
+        v7 -= v11;
+        if ( v7 >= v3 )
         {
-          v10 = *(_QWORD *)(a1 + 8);
-          v11 = (__int64 *)(v10 + 8 * (v9 >> 6));
-          v12 = *v11;
-          v13 = (__int64 *)(v10 + 8 * ((v9 + v5 - 1) >> 6));
-          if ( v11 == v13 )
+          v12 = *(_QWORD *)(a1 + 8);
+          v13 = *(_QWORD *)(v12 + 8 * (v11 >> 6));
+          v14 = (_QWORD *)(v12 + 8 * (v11 >> 6));
+          v15 = (_QWORD *)(v12 + 8 * ((v11 + v6) >> 6));
+          if ( v14 == v15 )
           {
-            v15 = (v12 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v5) << v9)) == 0;
-LABEL_10:
-            LOBYTE(v6) = v15;
-            if ( v15 )
+            v16 = (v13 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v3) << v11)) == 0;
+LABEL_5:
+            LOBYTE(v7) = v16;
+            if ( v16 )
             {
-              LODWORD(v6) = RtlInterlockedSetClearRunEx(a1, v7 + v4, v5);
-              if ( (_DWORD)v6 )
-                LOBYTE(v6) = MiReturnSystemPtes(a1, 0, (int)v7 + (int)v4, v5, 1);
+              LODWORD(v7) = RtlInterlockedSetClearRunEx(a1, v9 + v5, v3);
+              if ( (_DWORD)v7 == 1 )
+                LOBYTE(v7) = MiReturnSystemPtes(a1, v9 + v5, v3, 0LL);
             }
+            goto LABEL_6;
           }
-          else
+          v7 = -1LL << v11;
+          if ( (v13 & (-1LL << v11)) == 0 )
           {
-            v6 = -1LL << v9;
-            for ( i = (v12 & (-1LL << v9)) == 0; i; i = *v11 == 0 )
+            v17 = v14 + 1;
+            if ( v17 != v15 )
             {
-              if ( ++v11 == v13 )
+              while ( !*v17 )
               {
-                v15 = ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v9 + (unsigned __int8)v5 - 1)) & *v11) == 0;
-                goto LABEL_10;
+                if ( ++v17 == v15 )
+                  goto LABEL_18;
               }
+              goto LABEL_6;
             }
+LABEL_18:
+            v16 = ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v11 + (unsigned __int8)v6)) & *v17) == 0;
+            goto LABEL_5;
           }
         }
       }
-      v4 += v5;
+LABEL_6:
+      v5 += v3;
     }
-    while ( v4 < v8 );
+    while ( v5 < v10 );
   }
-  return v6;
+  return v7;
 }

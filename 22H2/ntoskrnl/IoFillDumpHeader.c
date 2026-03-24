@@ -1,23 +1,22 @@
 /*
- * XREFs of IoFillDumpHeader @ 0x14054FC68
+ * XREFs of IoFillDumpHeader @ 0x140501778
  * Callers:
- *     IoCapturePristineTriageDump @ 0x14054F808 (IoCapturePristineTriageDump.c)
- *     IopConstructInMemoryDumpHeader @ 0x1405524DC (IopConstructInMemoryDumpHeader.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x140553F38 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     KeInitializeCrashDumpHeader @ 0x140554960 (KeInitializeCrashDumpHeader.c)
- *     DbgkpTriageDumpFillHeaders @ 0x14093C120 (DbgkpTriageDumpFillHeaders.c)
- *     IopLiveDumpCollectPages @ 0x140A9ABC4 (IopLiveDumpCollectPages.c)
+ *     IopConstructInMemoryDumpHeader @ 0x140503880 (IopConstructInMemoryDumpHeader.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14050488C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     KeInitializeCrashDumpHeader @ 0x140505310 (KeInitializeCrashDumpHeader.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x140889A50 (DbgkpTriageDumpFillHeaders.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409AC020 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     MmGetPhysicalMemoryRanges @ 0x140835F40 (MmGetPhysicalMemoryRanges.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlGetNtProductType @ 0x14031B310 (RtlGetNtProductType.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1407CCD10 (MmGetPhysicalMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoFillDumpHeader(
-        char *a1,
+        _DWORD *a1,
         int a2,
         int a3,
         __int64 a4,
@@ -26,129 +25,113 @@ __int64 __fastcall IoFillDumpHeader(
         __int64 a7,
         __int64 a8)
 {
-  char *v11; // r11
+  void *v10; // r11
+  unsigned __int64 v11; // r10
   unsigned __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  unsigned __int64 v15; // rcx
-  size_t v16; // r8
+  size_t v13; // r8
   PPHYSICAL_MEMORY_RANGE PhysicalMemoryRanges; // rax
-  PPHYSICAL_MEMORY_RANGE v18; // r8
-  unsigned int v19; // edx
-  _LARGE_INTEGER *p_NumberOfBytes; // rdi
-  _LARGE_INTEGER NumberOfBytes; // rcx
-  __int64 v22; // r9
-  __int64 v23; // r9
-  signed __int64 v24; // rcx
+  PPHYSICAL_MEMORY_RANGE v15; // r8
+  __int64 v16; // rdi
+  LARGE_INTEGER *p_NumberOfBytes; // rdx
+  LARGE_INTEGER NumberOfBytes; // rcx
+  __int64 v19; // r9
+  signed __int64 v20; // rcx
   unsigned __int64 QuadPart; // rax
-  int v26; // eax
+  __int64 v22; // rdx
   __int64 result; // rax
 
-  v11 = a1;
+  v10 = a1;
+  v11 = 2048LL;
   if ( ((unsigned __int8)a1 & 4) != 0 )
   {
-    *(_DWORD *)a1 = 1162297680;
-    v11 = a1 + 4;
-    v12 = 1023LL;
-    v13 = 8184LL;
-    v14 = 1LL;
+    *a1 = 1162297680;
+    v10 = a1 + 1;
+    v11 = 2047LL;
   }
-  else
-  {
-    v12 = 1024LL;
-    v14 = 0LL;
-    v13 = 8188LL;
-  }
-  memset64(v11, 0x4547415045474150uLL, v12);
-  if ( v14 )
-    *(_DWORD *)&v11[v13] = 1162297680;
+  memset64(v10, 0x4547415045474150uLL, v11 >> 1);
+  if ( (v11 & 1) != 0 )
+    *((_DWORD *)v10 + v11 - 1) = 1162297680;
   *((_QWORD *)a1 + 9) = a5;
   *((_QWORD *)a1 + 10) = a6;
   *((_QWORD *)a1 + 11) = a7;
-  *((_DWORD *)a1 + 1) = 875976004;
-  *((_DWORD *)a1 + 14) = a3;
+  a1[1] = 875976004;
+  a1[14] = a3;
   *((_QWORD *)a1 + 8) = a4;
   if ( a8 )
-    v15 = *(_QWORD *)(*(_QWORD *)(a8 + 184) + 40LL);
+    v12 = *(_QWORD *)(*(_QWORD *)(a8 + 184) + 40LL);
   else
-    v15 = __readcr3();
-  *((_QWORD *)a1 + 2) = v15 & 0xFFFFFFFFFFFFF000uLL;
-  a1[4174] = 4;
-  *((_DWORD *)a1 + 12) = 34404;
-  *((_DWORD *)a1 + 998) = a2;
+    v12 = __readcr3();
+  *((_QWORD *)a1 + 2) = v12 & 0xFFFFFFFFFFFFF000uLL;
+  a1[12] = 34404;
+  a1[998] = a2;
   *((_QWORD *)a1 + 3) = MmPfnDatabase;
   *((_QWORD *)a1 + 4) = &PsLoadedModuleList;
   *((_QWORD *)a1 + 5) = &PsActiveProcessHead;
   *((_QWORD *)a1 + 16) = &KdDebuggerDataBlock;
-  *((_DWORD *)a1 + 13) = KeQueryActiveProcessorCountEx(0xFFFFu);
-  *((_DWORD *)a1 + 2) = (unsigned int)NtBuildNumber >> 28;
-  *((_DWORD *)a1 + 3) = (unsigned __int16)NtBuildNumber;
+  a1[13] = KeQueryActiveProcessorCountEx(0xFFFFu);
+  a1[2] = (unsigned int)NtBuildNumber >> 28;
+  a1[3] = (unsigned __int16)NtBuildNumber;
   if ( (unsigned int)(a2 - 5) <= 1 || !MmPhysicalMemoryBlock )
-    goto LABEL_25;
+    goto LABEL_24;
   if ( KeGetCurrentIrql() > 1u )
   {
-    v16 = 16 * ((unsigned int)(*(_DWORD *)MmPhysicalMemoryBlock - 1) + 2LL);
-    if ( v16 > 0x2BC )
-      v16 = 700LL;
-    memmove(a1 + 136, MmPhysicalMemoryBlock, v16);
-    goto LABEL_26;
+    v13 = 16 * ((unsigned int)(*(_DWORD *)MmPhysicalMemoryBlock - 1) + 2LL);
+    if ( v13 > 0x2BC )
+      v13 = 700LL;
+    memmove(a1 + 34, MmPhysicalMemoryBlock, v13);
+    goto LABEL_25;
   }
   PhysicalMemoryRanges = MmGetPhysicalMemoryRanges();
-  v18 = PhysicalMemoryRanges;
+  v15 = PhysicalMemoryRanges;
   if ( !PhysicalMemoryRanges )
   {
-LABEL_25:
-    memset(a1 + 136, 0, 0x2BCuLL);
-    goto LABEL_26;
+LABEL_24:
+    memset(a1 + 34, 0, 0x2BCuLL);
+    goto LABEL_25;
   }
-  v19 = 0;
+  v16 = 0LL;
   p_NumberOfBytes = &PhysicalMemoryRanges->NumberOfBytes;
   NumberOfBytes = PhysicalMemoryRanges->NumberOfBytes;
-  v22 = 0LL;
+  v19 = 0LL;
   while ( NumberOfBytes.QuadPart )
   {
-    ++v19;
-    v22 += (unsigned __int64)NumberOfBytes.QuadPart >> 12;
-    NumberOfBytes = PhysicalMemoryRanges[v19].NumberOfBytes;
+    v16 = (unsigned int)(v16 + 1);
+    v19 += (unsigned __int64)NumberOfBytes.QuadPart >> 12;
+    NumberOfBytes = PhysicalMemoryRanges[(unsigned int)v16].NumberOfBytes;
   }
-  *((_QWORD *)a1 + 18) = v22;
-  if ( 16 * ((unsigned __int64)(v19 - 1) + 2) > 0x2BC )
-    v19 = 42;
-  *((_DWORD *)a1 + 34) = v19;
-  if ( v19 )
+  *((_QWORD *)a1 + 18) = v19;
+  if ( 16 * ((unsigned __int64)(unsigned int)(v16 - 1) + 2) > 0x2BC )
+    v16 = 42LL;
+  a1[34] = v16;
+  if ( (_DWORD)v16 )
   {
-    v23 = v19;
-    v24 = a1 - (char *)PhysicalMemoryRanges;
+    v20 = (char *)a1 - (char *)PhysicalMemoryRanges;
     do
     {
-      *(LONGLONG *)((char *)&p_NumberOfBytes[18].QuadPart + v24) = (unsigned __int64)p_NumberOfBytes[-1].QuadPart >> 12;
+      *(LONGLONG *)((char *)&p_NumberOfBytes[18].QuadPart + v20) = (unsigned __int64)p_NumberOfBytes[-1].QuadPart >> 12;
       QuadPart = p_NumberOfBytes->QuadPart;
       p_NumberOfBytes += 2;
-      *(LONGLONG *)((char *)&p_NumberOfBytes[17].QuadPart + v24) = QuadPart >> 12;
-      --v23;
+      *(LONGLONG *)((char *)&p_NumberOfBytes[17].QuadPart + v20) = QuadPart >> 12;
+      --v16;
     }
-    while ( v23 );
+    while ( v16 );
   }
-  ExFreePoolWithTag(v18, 0);
-LABEL_26:
-  memset(a1 + 840, 0, 0xBB8uLL);
+  ExFreePoolWithTag(v15, 0);
+LABEL_25:
+  memset(a1 + 210, 0, 0xBB8uLL);
   *((_QWORD *)a1 + 481) = 0LL;
-  *((_DWORD *)a1 + 966) = 0;
+  a1[966] = 0;
   *((_QWORD *)a1 + 482) = 0LL;
-  *((_DWORD *)a1 + 960) = -2147483645;
-  *((_DWORD *)a1 + 961) = 1;
-  *((_DWORD *)a1 + 1002) = MEMORY[0xFFFFF78000000014];
-  *((_DWORD *)a1 + 1003) = MEMORY[0xFFFFF78000000018];
-  *((_DWORD *)a1 + 1036) = MEMORY[0xFFFFF78000000008];
-  *((_DWORD *)a1 + 1037) = MEMORY[0xFFFFF7800000000C];
-  RtlGetNtProductType((_DWORD *)a1 + 1040);
-  *((_DWORD *)a1 + 1041) = MEMORY[0xFFFFF780000002D0];
-  v26 = MEMORY[0xFFFFF780000002C4];
-  *((_DWORD *)a1 + 1044) = 0;
-  *((_DWORD *)a1 + 1045) = v26;
-  result = *((unsigned int *)a1 + 1044);
-  if ( VslVsmEnabled )
-    result = 2048LL;
-  *((_DWORD *)a1 + 1044) = result;
+  a1[960] = -2147483645;
+  a1[961] = 1;
+  a1[1002] = MEMORY[0xFFFFF78000000014];
+  a1[1003] = MEMORY[0xFFFFF78000000018];
+  a1[1036] = MEMORY[0xFFFFF78000000008];
+  a1[1037] = MEMORY[0xFFFFF7800000000C];
+  RtlGetNtProductType(a1 + 1040, v22);
+  a1[1041] = MEMORY[0xFFFFF780000002D0];
+  result = MEMORY[0xFFFFF780000002C4];
+  a1[1044] = 0;
+  a1[1045] = result;
   return result;
 }

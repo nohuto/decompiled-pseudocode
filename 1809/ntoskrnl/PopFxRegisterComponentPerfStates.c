@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxRegisterComponentPerfStates @ 0x14086A2A4
+ * XREFs of PopFxRegisterComponentPerfStates @ 0x14086A284
  * Callers:
- *     PoFxRegisterComponentPerfStates @ 0x140869160 (PoFxRegisterComponentPerfStates.c)
+ *     PoFxRegisterComponentPerfStates @ 0x140869140 (PoFxRegisterComponentPerfStates.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopPluginRegisterComponentPerfStates @ 0x1402DA7FC (PopPluginRegisterComponentPerfStates.c)
- *     PopPepRegisterComponentPerfStates @ 0x1402DDAFC (PopPepRegisterComponentPerfStates.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopPluginRegisterComponentPerfStates @ 0x1402DA8FC (PopPluginRegisterComponentPerfStates.c)
+ *     PopPepRegisterComponentPerfStates @ 0x1402DDBFC (PopPepRegisterComponentPerfStates.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PopFxPepPerfInfoFree @ 0x14086A010 (PopFxPepPerfInfoFree.c)
- *     PopFxPepPerfInfoQuery @ 0x14086A08C (PopFxPepPerfInfoQuery.c)
- *     PopFxTracePerfRegistration @ 0x140874D38 (PopFxTracePerfRegistration.c)
+ *     PopFxPepPerfInfoFree @ 0x140869FF0 (PopFxPepPerfInfoFree.c)
+ *     PopFxPepPerfInfoQuery @ 0x14086A06C (PopFxPepPerfInfoQuery.c)
+ *     PopFxTracePerfRegistration @ 0x140874D18 (PopFxTracePerfRegistration.c)
  */
 
 __int64 __fastcall PopFxRegisterComponentPerfStates(

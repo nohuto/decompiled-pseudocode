@@ -1,50 +1,35 @@
 /*
- * XREFs of ?AttachToProcess@CEnsureCurrentDxgProcess@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0046658
+ * XREFs of ?AttachToProcess@CEnsureCurrentDxgProcess@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C003BC30
  * Callers:
- *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00465B8 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?DxgkpDeferredDestructionWork@@YAXPEAX@Z @ 0x1C018BA90 (-DxgkpDeferredDestructionWork@@YAXPEAX@Z.c)
+ *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C003BB58 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?DxgkpDeferredDestructionWork@@YAXPEAX@Z @ 0x1C0103CE0 (-DxgkpDeferredDestructionWork@@YAXPEAX@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C017D000 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C00FBBF0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall CEnsureCurrentDxgProcess::AttachToProcess(CEnsureCurrentDxgProcess *this, struct DXGPROCESS *a2)
 {
   struct DXGTHREAD *Current; // rax
-  struct DXGTHREAD *v5; // r8
-  int v6; // edx
-  int v7; // r8d
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  struct DXGTHREAD *v7; // r8
+  __int64 v8; // rax
   __int64 result; // rax
 
   Current = DXGTHREAD::GetCurrent();
   *((_QWORD *)this + 1) = Current;
-  v5 = Current;
+  v7 = Current;
   if ( Current )
   {
-    *(_QWORD *)this = *((_QWORD *)Current + 3);
+    *(_QWORD *)this = *((_QWORD *)Current + 1);
     result = 0LL;
-    *((_QWORD *)v5 + 3) = a2;
+    *((_QWORD *)v7 + 1) = a2;
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741801LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          (unsigned int)L"Failed to create object: 0xI64x",
-          v6,
-          v7,
-          0,
-          0,
-          -1,
-          (__int64)L"Failed to create object: 0xI64x",
-          -1073741801LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v8 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v8 + 24) = -1073741801LL;
+    WdLogEvent5_WdError(v8);
     return 3221225495LL;
   }
   return result;

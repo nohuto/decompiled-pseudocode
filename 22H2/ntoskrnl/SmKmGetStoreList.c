@@ -1,9 +1,9 @@
 /*
- * XREFs of SmKmGetStoreList @ 0x1409D8D50
+ * XREFs of SmKmGetStoreList @ 0x14092B5E8
  * Callers:
- *     SmProcessListRequest @ 0x1409D6E5C (SmProcessListRequest.c)
+ *     SmProcessListRequest @ 0x140929BD4 (SmProcessListRequest.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmKmGetStoreList(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall SmKmGetStoreList(__int64 a1)
     v3 = SmKmStoreRefFromStoreIndex(a1, i);
     if ( v3 && *(_QWORD *)v3 )
     {
-      *(_DWORD *)(v6 + 4 * v5 + 16) = v4 | ((*(_WORD *)(v3 + 32) & 0x3F) << 10);
+      *(_DWORD *)(v6 + 4 * v5 + 4) = v4 | ((*(_WORD *)(v3 + 32) & 0x3F) << 10);
       LOBYTE(v5) = v5 + 1;
     }
   }

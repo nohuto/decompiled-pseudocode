@@ -1,5 +1,5 @@
 /*
- * XREFs of USBD_VerifierSettingsCallback @ 0x1C0041E90
+ * XREFs of USBD_VerifierSettingsCallback @ 0x1C003F9A0
  * Callers:
  *     <none>
  * Callees:

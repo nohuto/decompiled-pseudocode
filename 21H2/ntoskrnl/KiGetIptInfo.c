@@ -1,11 +1,11 @@
 /*
- * XREFs of KiGetIptInfo @ 0x1403BF914
+ * XREFs of KiGetIptInfo @ 0x1403AD944
  * Callers:
- *     KiInitializeXSave @ 0x140A56780 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x14099BC40 (KiInitializeXSave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HviGetIptFeatures @ 0x140647C4C (HviGetIptFeatures.c)
- *     KiGetCpuVendor @ 0x140A56B08 (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HviGetIptFeatures @ 0x1405BF0D8 (HviGetIptFeatures.c)
+ *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
  */
 
 __int64 __fastcall KiGetIptInfo(_DWORD *a1, _DWORD *a2)
@@ -13,21 +13,28 @@ __int64 __fastcall KiGetIptInfo(_DWORD *a1, _DWORD *a2)
   __int64 result; // rax
   char v24; // r8
   int v25; // r8d
-  __int128 v26; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v26; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v27; // [rsp+30h] [rbp-20h] BYREF
 
   *a1 = 0;
   *a2 = 0;
   v26 = 0LL;
-  result = KiGetCpuVendor();
+  v27 = 0LL;
+  result = KiGetCpuVendor(a1, a2);
   if ( (_DWORD)result == 2 )
   {
     _RAX = 0LL;
     __asm { cpuid }
+    *(_QWORD *)((char *)&v26 + 4) = __PAIR64__(_RCX, _RBX);
+    HIDWORD(v26) = _RDX;
     if ( (unsigned int)result >= 0x14 )
     {
       _RAX = 7LL;
       __asm { cpuid }
-      if ( (_RBX & 0x2000000) != 0 || (result = HviGetIptFeatures(&v26, _RDX), (v26 & 0xFFFFF000) != 0) )
+      *(_QWORD *)((char *)&v26 + 4) = __PAIR64__(_RCX, _RBX);
+      HIDWORD(v26) = _RDX;
+      if ( _bittest((const signed __int32 *)&v26 + 1, 0x19u)
+        || (result = HviGetIptFeatures(&v27), (v27 & 0xFFFFF000) != 0) )
       {
         *a1 = 16;
         *a2 |= 9u;

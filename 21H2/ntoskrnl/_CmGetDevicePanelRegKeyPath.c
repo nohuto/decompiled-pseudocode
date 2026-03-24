@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetDevicePanelRegKeyPath @ 0x140A28CA4
+ * XREFs of _CmGetDevicePanelRegKeyPath @ 0x1409785E0
  * Callers:
- *     PiDqGetRelativeObjectRegPath @ 0x140699B5C (PiDqGetRelativeObjectRegPath.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A281F8 (_CmDeleteDevicePanelRegKeyWorker.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x140A28FC4 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x1406A9B6C (PiDqGetRelativeObjectRegPath.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x140977EBC (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     _CmOpenDevicePanelRegKeyWorker @ 0x14097880C (_CmOpenDevicePanelRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     _CmValidateDevicePanelName @ 0x140A29BBC (_CmValidateDevicePanelName.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     _CmValidateDevicePanelName @ 0x1407AFC78 (_CmValidateDevicePanelName.c)
  */
 
 NTSTATUS __fastcall CmGetDevicePanelRegKeyPath(
         __int64 a1,
-        __int64 a2,
+        const wchar_t *a2,
         int a3,
         __int64 a4,
         int a5,
@@ -31,7 +31,7 @@ NTSTATUS __fastcall CmGetDevicePanelRegKeyPath(
     v10 = -1LL;
     do
       ++v10;
-    while ( *(_WORD *)(a2 + 2 * v10) );
+    while ( a2[v10] );
     v11 = v10 + 47;
     if ( v11 > 0xFFFFFFFF )
     {

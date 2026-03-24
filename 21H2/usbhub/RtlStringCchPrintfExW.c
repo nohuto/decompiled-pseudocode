@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchPrintfExW @ 0x1C004B010
+ * XREFs of RtlStringCchPrintfExW @ 0x1C004C3F0
  * Callers:
- *     UsbhBusIfLocationGetLocationStrings @ 0x1C004B6D0 (UsbhBusIfLocationGetLocationStrings.c)
+ *     UsbhBusIfLocationGetLocationStrings @ 0x1C004CAD0 (UsbhBusIfLocationGetLocationStrings.c)
  * Callees:
- *     memset @ 0x1C001F800 (memset.c)
- *     RtlStringExHandleOtherFlagsW @ 0x1C004B1E0 (RtlStringExHandleOtherFlagsW.c)
- *     RtlStringVPrintfWorkerW @ 0x1C004B2A0 (RtlStringVPrintfWorkerW.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C004C5C0 (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C004C680 (RtlStringVPrintfWorkerW.c)
  */
 
 NTSTATUS RtlStringCchPrintfExW(
@@ -51,7 +51,7 @@ NTSTATUS RtlStringCchPrintfExW(
     v11 = cchDest;
     if ( (dwFlags & 0x100) != 0 )
     {
-      v12 = (const wchar_t *)&unk_1C0063C88;
+      v12 = (const wchar_t *)&unk_1C00659D8;
       if ( pszFormat )
         v12 = pszFormat;
     }

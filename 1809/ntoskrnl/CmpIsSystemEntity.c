@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpIsSystemEntity @ 0x1406B1FF4
+ * XREFs of CmpIsSystemEntity @ 0x1406B1FD4
  * Callers:
- *     CmDoVirtualTest @ 0x1401294AC (CmDoVirtualTest.c)
- *     KCBNeedsVirtualImage @ 0x1401294EC (KCBNeedsVirtualImage.c)
- *     KCBNeedsVirtualImage_0 @ 0x14026C2BC (KCBNeedsVirtualImage_0.c)
+ *     CmDoVirtualTest @ 0x1401294CC (CmDoVirtualTest.c)
+ *     KCBNeedsVirtualImage @ 0x14012950C (KCBNeedsVirtualImage.c)
+ *     KCBNeedsVirtualImage_0 @ 0x14026C3BC (KCBNeedsVirtualImage_0.c)
  *     CmpVEPerformOpenAccessCheck @ 0x140596A64 (CmpVEPerformOpenAccessCheck.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmpVEExecuteOpenLogic @ 0x14063C020 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x14063C000 (CmpVEExecuteOpenLogic.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     CmpIsVirtEnabledForSubject @ 0x1406B20AC (CmpIsVirtEnabledForSubject.c)
+ *     CmpIsVirtEnabledForSubject @ 0x1406B208C (CmpIsVirtEnabledForSubject.c)
  */
 
 bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext, int *a3)

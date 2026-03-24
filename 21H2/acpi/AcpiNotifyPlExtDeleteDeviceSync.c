@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiNotifyPlExtDeleteDeviceSync @ 0x1C005C61C
+ * XREFs of AcpiNotifyPlExtDeleteDeviceSync @ 0x1C005B77C
  * Callers:
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C004A950 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
  * Callees:
- *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005C430 (AcpiNotifyPlExtDeleteDeviceAsync.c)
+ *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005B580 (AcpiNotifyPlExtDeleteDeviceAsync.c)
  */
 
 __int64 __fastcall AcpiNotifyPlExtDeleteDeviceSync(__int64 a1, __int64 a2)

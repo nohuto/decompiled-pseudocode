@@ -1,46 +1,41 @@
 /*
- * XREFs of GreGetTextExtentW @ 0x1C00C43FC
+ * XREFs of GreGetTextExtentW @ 0x1C00E36CC
  * Callers:
- *     xxxDrawCaptionTemp @ 0x1C00B97AC (xxxDrawCaptionTemp.c)
- *     GetCharDimensions @ 0x1C00C40F8 (GetCharDimensions.c)
- *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C021CC64 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
- *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C023E868 (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
- *     ?xxxDrawItemUnderline@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGJ@Z @ 0x1C0247410 (-xxxDrawItemUnderline@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGJ@Z.c)
- *     ?xxxMNRecalcTabStrings@@YAKPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@IIKK@Z @ 0x1C0249BAC (-xxxMNRecalcTabStrings@@YAKPEAUHDC__@@AEBV-$SmartObjStackRef@UtagMENU@@@@IIKK@Z.c)
- *     xxxPSMTextOut @ 0x1C0250058 (xxxPSMTextOut.c)
- *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025B2CC (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
- *     ?NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z @ 0x1C025B688 (-NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z.c)
- *     xxxPSMGetTextExtent @ 0x1C025D454 (xxxPSMGetTextExtent.c)
- *     NtGdiGetTextExtent @ 0x1C02AD990 (NtGdiGetTextExtent.c)
- *     GreGetCharacterPlacementW @ 0x1C02BAA8C (GreGetCharacterPlacementW.c)
+ *     GetCharDimensions @ 0x1C00E33C8 (GetCharDimensions.c)
+ *     xxxDrawCaptionTemp @ 0x1C01590D4 (xxxDrawCaptionTemp.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C0223290 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C0242D6C (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
+ *     ?xxxDrawItemUnderline@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGJ@Z @ 0x1C024BFE4 (-xxxDrawItemUnderline@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGJ@Z.c)
+ *     ?xxxMNRecalcTabStrings@@YAKPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@IIKK@Z @ 0x1C024E8C0 (-xxxMNRecalcTabStrings@@YAKPEAUHDC__@@AEBV-$SmartObjStackRef@UtagMENU@@@@IIKK@Z.c)
+ *     xxxPSMTextOut @ 0x1C025306C (xxxPSMTextOut.c)
+ *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E6C8 (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z @ 0x1C025EA6C (-NeedsEndEllipsis@@YAHPEAUHDC__@@PEBGPEAHPEAUDRAWTEXTDATA@@I3H@Z.c)
+ *     xxxPSMGetTextExtent @ 0x1C02607E4 (xxxPSMGetTextExtent.c)
+ *     NtGdiGetTextExtent @ 0x1C02AF250 (NtGdiGetTextExtent.c)
+ *     GreGetCharacterPlacementW @ 0x1C02BC4D0 (GreGetCharacterPlacementW.c)
  * Callees:
- *     ?bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z @ 0x1C0016024 (-bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z.c)
- *     ?vAbs@EFLOAT@@QEAAXXZ @ 0x1C00162A0 (-vAbs@EFLOAT@@QEAAXXZ.c)
- *     ?bUseMetaPtoD@DC@@QEBAHXZ @ 0x1C00162C4 (-bUseMetaPtoD@DC@@QEBAHXZ.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00359A0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1C00C4794 (-bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?vFixUpGlyphIndices@RFONTOBJ@@QEBAXPEAGI@Z @ 0x1C00EAC98 (-vFixUpGlyphIndices@RFONTOBJ@@QEBAXPEAGI@Z.c)
- *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C013067C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     ??1ESTROBJ@@QEAA@XZ @ 0x1C015E3BC (--1ESTROBJ@@QEAA@XZ.c)
- *     ?bTextExtent@ESTROBJ@@QEAAHAEAVRFONTOBJ@@JPEAUtagSIZE@@@Z @ 0x1C015FD6C (-bTextExtent@ESTROBJ@@QEAAHAEAVRFONTOBJ@@JPEAUtagSIZE@@@Z.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C0095270 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vAbs@EFLOAT@@QEAAXXZ @ 0x1C009E9A4 (-vAbs@EFLOAT@@QEAAXXZ.c)
+ *     ?bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z @ 0x1C00A0958 (-bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1C00E3A64 (-bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z.c)
+ *     ?vFixUpGlyphIndices@RFONTOBJ@@QEBAXPEAGI@Z @ 0x1C00FD8FC (-vFixUpGlyphIndices@RFONTOBJ@@QEBAXPEAGI@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?bUseMetaPtoD@DC@@QEBAHXZ @ 0x1C011F6A8 (-bUseMetaPtoD@DC@@QEBAHXZ.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C014047C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??1ESTROBJ@@QEAA@XZ @ 0x1C016BDB8 (--1ESTROBJ@@QEAA@XZ.c)
+ *     ?bTextExtent@ESTROBJ@@QEAAHAEAVRFONTOBJ@@JPEAUtagSIZE@@@Z @ 0x1C016E188 (-bTextExtent@ESTROBJ@@QEAAHAEAVRFONTOBJ@@JPEAUtagSIZE@@@Z.c)
  */
 
-__int64 __fastcall GreGetTextExtentW(
-        HDC a1,
-        unsigned __int16 *a2,
-        unsigned int a3,
-        struct tagSIZE *a4,
-        unsigned int a5)
+__int64 __fastcall GreGetTextExtentW(HDC a1, unsigned __int16 *a2, unsigned int a3, struct tagSIZE *a4, char a5)
 {
   unsigned int v8; // ebx
-  _DWORD *v9; // r10
+  _DWORD *v9; // r11
   int v10; // esi
   float cy; // xmm1_4
   __m128i v12; // xmm0
@@ -69,7 +64,7 @@ __int64 __fastcall GreGetTextExtentW(
       {
         if ( (*(_DWORD *)(v14 + 84) & 4) != 0 )
           RFONTOBJ::vFixUpGlyphIndices((RFONTOBJ *)&v14, a2, a3);
-        v10 = *((_DWORD *)v18[0] + 439);
+        v10 = *((_DWORD *)v18[0] + 441);
         if ( v10 == v9[98] || v9[52] == 1 && (v9[179] & 4) == 0 )
         {
           v8 = RFONTOBJ::bTextExtent(

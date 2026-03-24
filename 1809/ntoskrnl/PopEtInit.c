@@ -3,15 +3,15 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     PoEnergyContextStart @ 0x14069EB2C (PoEnergyContextStart.c)
- *     PoEnergyContextInitialize @ 0x1406C0388 (PoEnergyContextInitialize.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
- *     PopEtInitializeBuiltinAppId @ 0x14075BEE0 (PopEtInitializeBuiltinAppId.c)
- *     RtlInternTableInitialize @ 0x14075BF44 (RtlInternTableInitialize.c)
+ *     PoEnergyContextStart @ 0x14069EB0C (PoEnergyContextStart.c)
+ *     PoEnergyContextInitialize @ 0x1406C0368 (PoEnergyContextInitialize.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     PopEtInitializeBuiltinAppId @ 0x14075BEC0 (PopEtInitializeBuiltinAppId.c)
+ *     RtlInternTableInitialize @ 0x14075BF24 (RtlInternTableInitialize.c)
  */
 
 __int64 PopEtInit()

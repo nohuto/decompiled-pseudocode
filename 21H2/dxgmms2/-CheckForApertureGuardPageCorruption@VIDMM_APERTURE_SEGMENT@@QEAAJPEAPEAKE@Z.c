@@ -1,86 +1,75 @@
 /*
- * XREFs of ?CheckForApertureGuardPageCorruption@VIDMM_APERTURE_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C0032744
+ * XREFs of ?CheckForApertureGuardPageCorruption@VIDMM_APERTURE_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C00281D4
  * Callers:
- *     ?ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z @ 0x1C002D99C (-ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z.c)
- *     ?CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C0032BA4 (-CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z.c)
+ *     ?ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z @ 0x1C00236BC (-ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z.c)
+ *     ?CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C0028614 (-CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 __int64 __fastcall VIDMM_APERTURE_SEGMENT::CheckForApertureGuardPageCorruption(
         VIDMM_APERTURE_SEGMENT *this,
         unsigned int **a2,
-        char a3)
+        __int64 a3)
 {
   unsigned int *v3; // rax
-  unsigned int *v5; // rdi
-  __int64 v7; // rdx
-  char *v8; // r14
-  __int64 v9; // rcx
-  _DWORD *v10; // rdi
+  int v4; // ebx
+  unsigned int *v7; // rdi
+  __int64 v8; // rdx
+  char *v9; // rdi
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  _DWORD *v12; // rdi
   __int64 i; // rcx
-  int v12; // eax
   __int64 result; // rax
+  __int64 v15; // rax
 
-  v3 = (unsigned int *)*((_QWORD *)this + 64);
-  v5 = v3;
-  if ( !a3 || !dword_1C006E234 )
+  v3 = (unsigned int *)*((_QWORD *)this + 62);
+  v4 = 0;
+  v7 = v3;
+  if ( !(_BYTE)a3 || !dword_1C00501C4 )
   {
-    v12 = 0;
-    while ( *v5 == 1685217607 )
+    while ( *v7 == 1685217607 )
     {
-      ++v5;
-      if ( (unsigned int)++v12 >= 0x400 )
+      ++v7;
+      if ( (unsigned int)++v4 >= 0x400 )
         return 0LL;
     }
-    goto LABEL_19;
+    goto LABEL_18;
   }
-  if ( *v3 != 1685217607 || (v5 = v3 + 1023, v3[1023] != 1685217607) || (v5 = v3 + 512, v3[512] != 1685217607) )
+  if ( *v3 != 1685217607 || (v7 = v3 + 1023, v3[1023] != 1685217607) || (v7 = v3 + 512, v3[512] != 1685217607) )
   {
-LABEL_19:
-    WdLogSingleEntry2(1LL, v5, this);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Aperture guard page corruption found at 0x%p for segment 0x%p",
-      v5,
-      this,
-      0LL,
-      0LL,
-      0LL);
+LABEL_18:
+    v15 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v15 + 24) = v7;
+    *(_QWORD *)(v15 + 32) = this;
+    WdLogEvent5_WdAssertion(v15);
     result = 2147483653LL;
-    *a2 = v5;
+    *a2 = v7;
     return result;
   }
-  v7 = *((_QWORD *)this + 66);
-  v8 = (char *)v3 + v7;
-  v9 = *(_QWORD *)((char *)v3 + v7) - (_QWORD)ApertureCheckPattern;
-  if ( !v9 )
-    v9 = *((_QWORD *)v8 + 1) - qword_1C006E128;
-  if ( v9 )
+  v8 = *((_QWORD *)this + 64);
+  v9 = (char *)v3 + v8;
+  v10 = *(_QWORD *)((char *)v3 + v8) - (_QWORD)ApertureCheckPattern;
+  if ( !v10 )
+    v10 = *((_QWORD *)v9 + 1) - qword_1C00500E8;
+  if ( v10 )
   {
-    WdLogSingleEntry3(1LL, (char *)v3 + v7, v8 + 16, this);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Aperture guard page corruption found between 0x%p and 0x%p for segment 0x%p",
-      v8,
-      v8 + 16,
-      this,
-      0LL,
-      0LL);
-    dword_1C006E234 = 0;
-    v10 = (_DWORD *)*((_QWORD *)this + 64);
+    v11 = (_QWORD *)WdLogNewEntry5_WdAssertion(v10, v8, a3);
+    v11[4] = v9 + 16;
+    v11[3] = v9;
+    v11[5] = this;
+    WdLogEvent5_WdAssertion(v11);
+    dword_1C00501C4 = 0;
+    v12 = (_DWORD *)*((_QWORD *)this + 62);
     for ( i = 1024LL; i; --i )
-      *v10++ = 1685217607;
+      *v12++ = 1685217607;
   }
   else
   {
-    *((_QWORD *)this + 66) = v7 + 16;
-    if ( (unsigned __int64)(v7 + 16) >= 0x1000 )
-      *((_QWORD *)this + 66) = 0LL;
+    *((_QWORD *)this + 64) = v8 + 16;
+    if ( (unsigned __int64)(v8 + 16) >= 0x1000 )
+      *((_QWORD *)this + 64) = 0LL;
   }
   return 0LL;
 }

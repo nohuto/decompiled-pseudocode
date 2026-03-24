@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bInitPrivatePFT@@YAHXZ @ 0x1C0270730
+ * XREFs of ?bInitPrivatePFT@@YAHXZ @ 0x1C0272AA0
  * Callers:
- *     ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C001F018 (-ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z.c)
- *     GreAddFontResourceWInternal @ 0x1C00F9550 (GreAddFontResourceWInternal.c)
- *     GreAddFontMemResourceEx @ 0x1C0287318 (GreAddFontMemResourceEx.c)
+ *     GreAddFontResourceWInternal @ 0x1C010E924 (GreAddFontResourceWInternal.c)
+ *     ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C0115FE4 (-ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z.c)
+ *     GreAddFontMemResourceEx @ 0x1C028A458 (GreAddFontMemResourceEx.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z @ 0x1C01197F0 (--0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z.c)
- *     ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C01198BC (-pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z @ 0x1C012E25C (--0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z.c)
+ *     ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C012E318 (-pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

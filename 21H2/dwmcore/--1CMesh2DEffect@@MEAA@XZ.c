@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CMesh2DEffect@@MEAA@XZ @ 0x1802B203C
+ * XREFs of ??1CMesh2DEffect@@MEAA@XZ @ 0x18026C8EC
  * Callers:
- *     ??_GCMesh2DEffect@@MEAAPEAXI@Z @ 0x1802B20E8 (--_GCMesh2DEffect@@MEAAPEAXI@Z.c)
+ *     ??_GCMesh2DEffect@@MEAAPEAXI@Z @ 0x18026C978 (--_GCMesh2DEffect@@MEAAPEAXI@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CMesh2DEffect::~CMesh2DEffect(CMesh2DEffect *this)
@@ -14,7 +14,7 @@ void __fastcall CMesh2DEffect::~CMesh2DEffect(CMesh2DEffect *this)
 
   *(_QWORD *)this = &CMesh2DEffect::`vftable'{for `ID2D1EffectImpl'};
   *((_QWORD *)this + 1) = &CMesh2DEffect::`vftable'{for `ID2D1DrawTransform'};
-  *((_QWORD *)this + 2) = &CMesh2DEffect::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 2) = &CMesh2DEffect::`vftable'{for `CMILRefCountBase'};
   v2 = *((_QWORD *)this + 17);
   if ( v2 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
@@ -24,5 +24,5 @@ void __fastcall CMesh2DEffect::~CMesh2DEffect(CMesh2DEffect *this)
   v4 = *((_QWORD *)this + 22);
   if ( v4 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
-  DefaultHeap::Free(*((void **)this + 21));
+  operator delete(*((void **)this + 21));
 }

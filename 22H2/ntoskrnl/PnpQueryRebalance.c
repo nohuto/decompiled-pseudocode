@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpQueryRebalance @ 0x14096E694
+ * XREFs of PnpQueryRebalance @ 0x1408B8510
  * Callers:
- *     PnpFindRebalanceCandidates @ 0x14096E568 (PnpFindRebalanceCandidates.c)
- *     PnpQueryRebalance @ 0x14096E694 (PnpQueryRebalance.c)
+ *     PnpFindRebalanceCandidates @ 0x1408B83F8 (PnpFindRebalanceCandidates.c)
+ *     PnpQueryRebalance @ 0x1408B8510 (PnpQueryRebalance.c)
  * Callees:
- *     PnpQueryRebalance @ 0x14096E694 (PnpQueryRebalance.c)
- *     PnpQueryRebalanceWorker @ 0x14096E748 (PnpQueryRebalanceWorker.c)
+ *     PnpQueryRebalance @ 0x1408B8510 (PnpQueryRebalance.c)
+ *     PnpQueryRebalanceWorker @ 0x1408B85C8 (PnpQueryRebalanceWorker.c)
  */
 
-__int64 __fastcall PnpQueryRebalance(ULONG_PTR a1, int a2, int a3, int a4, __int64 a5, int a6)
+__int64 __fastcall PnpQueryRebalance(ULONG_PTR a1, int a2, int a3, int a4, __int64 a5, char a6)
 {
-  _QWORD *v6; // rsi
-  int v7; // edi
+  _QWORD *v6; // rdi
+  int v7; // ebx
   int Rebalance; // eax
 
   v6 = *(_QWORD **)(a1 + 8);

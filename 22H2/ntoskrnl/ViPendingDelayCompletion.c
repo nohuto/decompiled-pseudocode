@@ -1,35 +1,35 @@
 /*
- * XREFs of ViPendingDelayCompletion @ 0x140AD2D48
+ * XREFs of ViPendingDelayCompletion @ 0x1409D5C88
  * Callers:
- *     VfPendingMoreProcessingRequired @ 0x140AD2970 (VfPendingMoreProcessingRequired.c)
+ *     VfPendingMoreProcessingRequired @ 0x1409D58B0 (VfPendingMoreProcessingRequired.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ViPendingQueuePassiveLevelCompletion @ 0x140AD2EB0 (ViPendingQueuePassiveLevelCompletion.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViPendingQueuePassiveLevelCompletion @ 0x1409D5DF4 (ViPendingQueuePassiveLevelCompletion.c)
  */
 
 __int64 __fastcall ViPendingDelayCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  unsigned int v8; // esi
-  __int64 Pool2; // rax
+  unsigned int v9; // esi
+  char *PoolWithTag; // rax
   _DWORD *v11; // rdi
   struct _KTIMER *v12; // r14
   __int64 v13; // rbx
-  void *v14; // rbx
+  struct _DMA_ADAPTER *v14; // rbx
 
-  v8 = 1;
-  Pool2 = ExAllocatePool2(64LL, 0xB0uLL, 0x64707249u);
-  v11 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  v9 = 1;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x64707249u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v12 = (struct _KTIMER *)(Pool2 + 104);
-    KeInitializeTimerEx((PKTIMER)(Pool2 + 104), SynchronizationTimer);
+    v12 = (struct _KTIMER *)(PoolWithTag + 104);
+    KeInitializeTimerEx((PKTIMER)(PoolWithTag + 104), SynchronizationTimer);
     *(_DWORD *)(a2 + 56) |= 0x10u;
     *((_QWORD *)v11 + 4) = a5;
     *(_QWORD *)v11 = a2;
@@ -38,7 +38,7 @@ __int64 __fastcall ViPendingDelayCompletion(__int64 a1, __int64 a2, __int64 a3, 
     *((_QWORD *)v11 + 2) = a3;
     *((_BYTE *)v11 + 172) = *(_BYTE *)(a2 + 185);
     v13 = *(_QWORD *)(a2 + 216);
-    if ( v13 && (v14 = *(void **)(v13 + 40)) != 0LL )
+    if ( v13 && (v14 = *(struct _DMA_ADAPTER **)(v13 + 40)) != 0LL )
       ObfReferenceObject(v14);
     else
       v14 = 0LL;
@@ -52,14 +52,14 @@ __int64 __fastcall ViPendingDelayCompletion(__int64 a1, __int64 a2, __int64 a3, 
     {
       v11[42] = 1;
       KiSetTimerEx((__int64)v12, -3000LL, 0, 0, 0LL);
-      v8 = ViPendingQueuePassiveLevelCompletion(v11);
-      if ( !v8 )
+      v9 = ViPendingQueuePassiveLevelCompletion(v11);
+      if ( !v9 )
       {
         KeCancelTimer(v12);
         ExFreePoolWithTag(v11, 0);
         *(_DWORD *)(a2 + 56) &= ~0x10u;
         if ( v14 )
-          ObfDereferenceObject(v14);
+          HalPutDmaAdapter(v14);
       }
     }
   }
@@ -67,5 +67,5 @@ __int64 __fastcall ViPendingDelayCompletion(__int64 a1, __int64 a2, __int64 a3, 
   {
     return 0;
   }
-  return v8;
+  return v9;
 }

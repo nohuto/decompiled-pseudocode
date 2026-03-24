@@ -1,50 +1,29 @@
 /*
- * XREFs of _FreeGestureInfo @ 0x1C0204B90
+ * XREFs of _FreeGestureInfo @ 0x1C0227680
  * Callers:
- *     xxxInterSendMsgEx @ 0x1C004D920 (xxxInterSendMsgEx.c)
- *     UnlinkSendListSms @ 0x1C006C9DC (UnlinkSendListSms.c)
- *     ?CleanInputMessage@@YAXIPEAUtagQMSG@@@Z @ 0x1C00AE248 (-CleanInputMessage@@YAXIPEAUtagQMSG@@@Z.c)
- *     fnHkINLPMSG @ 0x1C0124E30 (fnHkINLPMSG.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     NtUserGetGestureExtArgs @ 0x1C01D15B0 (NtUserGetGestureExtArgs.c)
- *     NtUserGetGestureInfo @ 0x1C01D1710 (NtUserGetGestureInfo.c)
- *     NtUserInjectGesture @ 0x1C01D52A0 (NtUserInjectGesture.c)
- *     SendGestureMessage @ 0x1C0204854 (SendGestureMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxInterSendMsgEx @ 0x1C005A250 (xxxInterSendMsgEx.c)
+ *     fnHkINLPMSG @ 0x1C005D060 (fnHkINLPMSG.c)
+ *     UnlinkSendListSms @ 0x1C006A290 (UnlinkSendListSms.c)
+ *     ?CleanInputMessage@@YAXIPEAUtagQMSG@@@Z @ 0x1C0121C48 (-CleanInputMessage@@YAXIPEAUtagQMSG@@@Z.c)
+ *     NtUserGetGestureExtArgs @ 0x1C01F93D0 (NtUserGetGestureExtArgs.c)
+ *     NtUserGetGestureInfo @ 0x1C01F9530 (NtUserGetGestureInfo.c)
+ *     NtUserInjectGesture @ 0x1C01FD4D0 (NtUserInjectGesture.c)
+ *     SendGestureMessage @ 0x1C022732C (SendGestureMessage.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C0139AF4 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
- *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C01AEB84 (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall FreeGestureInfo(int a1)
+__int64 __fastcall FreeGestureInfo(unsigned __int64 a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // rbx
-  tagDomLock *v5; // [rsp+20h] [rbp-48h] BYREF
-  char v6; // [rsp+28h] [rbp-40h]
-  char v7; // [rsp+48h] [rbp-20h]
-  char v8; // [rsp+50h] [rbp-18h]
+  __int64 v1; // rax
+  __int64 v2; // rbx
 
-  SharedUserCritOnly::DomainShared<>::DomainExclusive<DLT_HANDLEMANAGER>::ObjectLock<>::ObjectLock<>((__int64)&v5);
-  v2 = HMValidateHandleNoSecure(a1, 21);
-  v3 = v2;
-  if ( v2 && *(_BYTE *)(_HMPheFromObject(v2) + 24) == 21 )
-  {
-    HMDestroyObject(v3);
-    if ( v8 && v7 && v5 )
-    {
-      if ( v6 )
-        tagDomLock::UnLockExclusive(v5);
-      else
-        tagDomLock::UnLockShared(v5);
-    }
-    return 1LL;
-  }
-  else
-  {
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<DLT_HANDLEMANAGER>::ObjectLock<>::~ObjectLock<>((__int64)&v5);
+  v1 = HMValidateHandleNoSecure(a1, 21);
+  v2 = v1;
+  if ( !v1 || *(_BYTE *)(_HMPheFromObject(v1) + 24) != 21 )
     return 0LL;
-  }
+  HMDestroyObject(v2);
+  return 1LL;
 }

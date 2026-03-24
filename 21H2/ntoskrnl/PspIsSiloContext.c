@@ -1,17 +1,17 @@
 /*
- * XREFs of PspIsSiloContext @ 0x140692C18
+ * XREFs of PspIsSiloContext @ 0x140715D14
  * Callers:
- *     PsInsertPermanentSiloContextEx @ 0x140692980 (PsInsertPermanentSiloContextEx.c)
- *     PsInsertSiloContext @ 0x140692A50 (PsInsertSiloContext.c)
- *     PsReplaceSiloContext @ 0x1409AB820 (PsReplaceSiloContext.c)
+ *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140715D5C (PsInsertPermanentSiloContextEx.c)
+ *     PsReplaceSiloContext @ 0x140905BA0 (PsReplaceSiloContext.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall PspIsSiloContext(__int64 a1)
 {
-  PVOID v1; // rax
+  struct _DMA_ADAPTER *v1; // rax
 
-  v1 = (PVOID)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
+  v1 = (struct _DMA_ADAPTER *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
   return v1 == PsSiloContextNonPagedType || v1 == PsSiloContextPagedType;
 }

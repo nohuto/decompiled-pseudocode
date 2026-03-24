@@ -1,52 +1,55 @@
 /*
- * XREFs of LeaveCrit @ 0x1C004CFE0
+ * XREFs of LeaveCrit @ 0x1C0036AA0
  * Callers:
  *     <none>
  * Callees:
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     W32GetCurrentThread @ 0x1C0046320 (W32GetCurrentThread.c)
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C004FAF0 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
- *     EtwTraceReleaseUserCrit @ 0x1C0053D40 (EtwTraceReleaseUserCrit.c)
- *     DestroyExclusiveUserCritDeferredUnlockList @ 0x1C0088180 (DestroyExclusiveUserCritDeferredUnlockList.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     EtwTraceReleaseUserCrit @ 0x1C0037134 (EtwTraceReleaseUserCrit.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall LeaveCrit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void LeaveCrit()
 {
-  unsigned int Count; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rax
+  __int64 CurrentThreadWin32Thread; // rax
+  __int64 v1; // r8
+  __int64 v2; // r9
+  __int64 v3; // rbx
+  int v4; // eax
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+38h] [rbp-30h] BYREF
 
-  if ( qword_1C0296058 )
-    qword_1C0296058();
-  if ( IS_USERCRIT_OWNED_EXCLUSIVE(a1, a2, a3, a4) )
+  if ( qword_1C0256C48 )
+    qword_1C0256C48();
+  if ( (_DWORD)gdwInAtomicOperation )
   {
-    if ( gcInHMDestroyUnlockedObjectWorker )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1170LL);
-    if ( gphePrimaryDestroyTarget )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1178LL);
-    if ( gcDeferredDestroyTargets > gcSecondaryDestroyTargets )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1184LL);
-    gcInHMDestroyUnlockedObjectWorker = 0;
-    gphePrimaryDestroyTarget = 0LL;
-    DestroyExclusiveUserCritDeferredUnlockList();
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1359LL);
+    if ( (_DWORD)gdwInAtomicOperation )
+    {
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, (unsigned int)gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
   }
-  Count = AtomicExecutionCheck::GetCount();
-  if ( Count )
-  {
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  }
-  if ( gptiCurrent && W32GetCurrentThread() )
-    *((_DWORD *)PtiCurrentShared() + 387) = 0;
   gptiCurrent = 0LL;
+  gbValidateHandleForIL = 0;
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
+  {
+    CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
+    v3 = CurrentThreadWin32Thread;
+    if ( CurrentThreadWin32Thread )
+    {
+      v4 = *(_DWORD *)(CurrentThreadWin32Thread + 24);
+      if ( (*(_DWORD *)(v3 + 44) || *(_DWORD *)(v3 + 48) || v4 > 0)
+        && (unsigned int)dword_1C024AA90 > 6
+        && (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v1, v2) )
+      {
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C0217F61, v3 + 28, 0, 2u, &v5);
+      }
+      *(_DWORD *)(v3 + 44) = 0;
+      *(_OWORD *)(v3 + 28) = 0LL;
+    }
+  }
   EtwTraceReleaseUserCrit();
-  v9 = SGDGetUserSessionState(v6, v5, v7, v8);
-  ExReleaseResourceAndLeaveCriticalRegion(*(PERESOURCE *)(v9 + 8));
+  ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
 }

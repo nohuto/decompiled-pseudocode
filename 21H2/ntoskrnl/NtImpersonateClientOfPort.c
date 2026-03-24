@@ -1,9 +1,9 @@
 /*
- * XREFs of NtImpersonateClientOfPort @ 0x140965FC0
+ * XREFs of NtImpersonateClientOfPort @ 0x1408C1FE0
  * Callers:
  *     <none>
  * Callees:
- *     NtAlpcImpersonateClientOfPort @ 0x1407B0A20 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
  */
 
 __int64 __fastcall NtImpersonateClientOfPort(void *a1, __int64 a2)

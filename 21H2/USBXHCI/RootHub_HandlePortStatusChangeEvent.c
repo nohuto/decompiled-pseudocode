@@ -1,17 +1,17 @@
 /*
- * XREFs of RootHub_HandlePortStatusChangeEvent @ 0x1C001171C
+ * XREFs of RootHub_HandlePortStatusChangeEvent @ 0x1C0011BE0
  * Callers:
- *     Interrupter_DeferredWorkProcessor @ 0x1C0002BB0 (Interrupter_DeferredWorkProcessor.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0011EE8 (RootHub_DetectAndAcknowledgePortResume.c)
- *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0011F9C (RootHub_ReleaseReadModifyWriteLock.c)
- *     RootHub_DumpPortData @ 0x1C00133B0 (RootHub_DumpPortData.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     RootHub_HideInvalidDebugPortStatusAndChange @ 0x1C00139F0 (RootHub_HideInvalidDebugPortStatusAndChange.c)
- *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013A48 (RootHub_AcquireReadModifyWriteLock.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0011E24 (RootHub_DetectAndAcknowledgePortResume.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0011EE0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_DumpPortData @ 0x1C0013A44 (RootHub_DumpPortData.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013DD0 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     RootHub_HideInvalidDebugPortStatusAndChange @ 0x1C0013F4C (RootHub_HideInvalidDebugPortStatusAndChange.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RootHub_HandlePortStatusChangeEvent(_QWORD *a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall RootHub_HandlePortStatusChangeEvent(_QWORD *a1, __int64 a2)
   {
     v15 = *(_BYTE *)(a2 + 3);
     LOBYTE(a2) = 4;
-    WPP_RECORDER_SF_d(*(_QWORD *)(v2 + 72), a2, 11, 208, (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids, v15);
+    WPP_RECORDER_SF_d(*(_QWORD *)(v2 + 72), a2, 11, 207, (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids, v15);
     v2 = a1[1];
   }
   v6 = v4 - 1;
@@ -52,8 +52,8 @@ __int64 __fastcall RootHub_HandlePortStatusChangeEvent(_QWORD *a1, __int64 a2)
         *(_QWORD *)(a1[1] + 72LL),
         v8,
         11,
-        209,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+        208,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         v4);
     }
     RootHub_AcquireReadModifyWriteLock(a1, v6);
@@ -67,8 +67,8 @@ __int64 __fastcall RootHub_HandlePortStatusChangeEvent(_QWORD *a1, __int64 a2)
         *(_QWORD *)(a1[1] + 72LL),
         v12,
         11,
-        210,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+        209,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         Ulong);
     }
     XilRegister_WriteUlong(v5, v10, v13 & 0xE00C200 | 0xFA0000u);
@@ -81,8 +81,8 @@ __int64 __fastcall RootHub_HandlePortStatusChangeEvent(_QWORD *a1, __int64 a2)
                *(_QWORD *)(a1[1] + 72LL),
                v14,
                11,
-               211,
-               (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+               210,
+               (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                result);
     }
   }
@@ -90,7 +90,7 @@ __int64 __fastcall RootHub_HandlePortStatusChangeEvent(_QWORD *a1, __int64 a2)
   {
     result = RootHub_DetectAndAcknowledgePortResume(a1, v4, 0LL);
     if ( !(_BYTE)result )
-      return ((__int64 (__fastcall *)(__int64, _QWORD))qword_1C00627D0)(UcxDriverGlobals, *a1);
+      return ((__int64 (__fastcall *)(__int64, _QWORD))qword_1C00617B0)(UcxDriverGlobals, *a1);
   }
   return result;
 }

@@ -1,34 +1,27 @@
 /*
- * XREFs of PspUnlockJobMemoryLimitsShared @ 0x140700158
+ * XREFs of PspUnlockJobMemoryLimitsShared @ 0x14061893C
  * Callers:
- *     PspApplyJobLimitsToProcess @ 0x140683890 (PspApplyJobLimitsToProcess.c)
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
- *     PsReportProcessMemoryLimitViolation @ 0x1409AFD2C (PsReportProcessMemoryLimitViolation.c)
+ *     PspApplyJobLimitsToProcess @ 0x14060596C (PspApplyJobLimitsToProcess.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
+ *     PsReportProcessMemoryLimitViolation @ 0x140908914 (PsReportProcessMemoryLimitViolation.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 char __fastcall PspUnlockJobMemoryLimitsShared(__int64 a1, __int64 a2)
 {
-  ULONG_PTR v2; // rdi
-  _QWORD *v4; // rax
+  ULONG_PTR v2; // rbx
+  char result; // al
 
-  v2 = a1 + 1224;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1224), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(a1 + 1224));
-  LOBYTE(v4) = KeAbPostRelease(v2);
+  v2 = a1 + 1032;
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1032), 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(a1 + 1032));
+  result = KeAbPostRelease(v2);
   if ( a2 )
-  {
-    if ( (*(_WORD *)(a2 + 486))++ == 0xFFFF )
-    {
-      v4 = (_QWORD *)(a2 + 152);
-      if ( (_QWORD *)*v4 != v4 )
-        LOBYTE(v4) = KiCheckForKernelApcDelivery();
-    }
-  }
-  return (char)v4;
+    return KiLeaveGuardedRegionUnsafe(a2);
+  return result;
 }

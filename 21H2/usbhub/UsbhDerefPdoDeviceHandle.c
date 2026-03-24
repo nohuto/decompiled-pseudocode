@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhDerefPdoDeviceHandle @ 0x1C0003470
+ * XREFs of UsbhDerefPdoDeviceHandle @ 0x1C0016670
  * Callers:
- *     UsbhSyncSendCommandToDevice @ 0x1C0002110 (UsbhSyncSendCommandToDevice.c)
- *     UsbhPdoAbortAllDevicePipes @ 0x1C00029DC (UsbhPdoAbortAllDevicePipes.c)
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhFdoHandleNotifyForwardProgress @ 0x1C002FC90 (UsbhFdoHandleNotifyForwardProgress.c)
- *     UsbhGetNodeConnectionInfoForPdo @ 0x1C003D878 (UsbhGetNodeConnectionInfoForPdo.c)
- *     UsbhIoctlGetDescriptorForPDO @ 0x1C003DE80 (UsbhIoctlGetDescriptorForPDO.c)
- *     UsbhGetHubNodeInfo @ 0x1C0048AC8 (UsbhGetHubNodeInfo.c)
- *     UsbhPdoQueryWmiDataBlock @ 0x1C0048EE0 (UsbhPdoQueryWmiDataBlock.c)
- *     UsbhPdoPnp_QueryInterface @ 0x1C00552A0 (UsbhPdoPnp_QueryInterface.c)
- *     UsbhPdoRemoveCleanup @ 0x1C0056374 (UsbhPdoRemoveCleanup.c)
- *     UsbhPdoSetDeviceData @ 0x1C0056490 (UsbhPdoSetDeviceData.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhPdoAbortAllDevicePipes @ 0x1C0016EC0 (UsbhPdoAbortAllDevicePipes.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
+ *     UsbhFdoHandleNotifyForwardProgress @ 0x1C0031028 (UsbhFdoHandleNotifyForwardProgress.c)
+ *     UsbhGetNodeConnectionInfoForPdo @ 0x1C003EA6C (UsbhGetNodeConnectionInfoForPdo.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003F070 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhGetHubNodeInfo @ 0x1C0049E58 (UsbhGetHubNodeInfo.c)
+ *     UsbhPdoQueryWmiDataBlock @ 0x1C004A270 (UsbhPdoQueryWmiDataBlock.c)
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0056940 (UsbhPdoPnp_QueryInterface.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0057A34 (UsbhPdoRemoveCleanup.c)
+ *     UsbhPdoSetDeviceData @ 0x1C0057B50 (UsbhPdoSetDeviceData.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 void __fastcall UsbhDerefPdoDeviceHandle(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

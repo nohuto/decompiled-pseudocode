@@ -1,17 +1,19 @@
 /*
- * XREFs of CmSiRWLockReleaseExclusive @ 0x14071F640
+ * XREFs of CmSiRWLockReleaseExclusive @ 0x1407D3524
  * Callers:
- *     HvUnlockHiveFlusherExclusive @ 0x140AB41E0 (HvUnlockHiveFlusherExclusive.c)
- *     CmpDumpKeyToBuffer @ 0x140AB48B4 (CmpDumpKeyToBuffer.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B156F8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
-__int64 __fastcall CmSiRWLockReleaseExclusive(volatile signed __int64 *BugCheckParameter2)
+char __fastcall CmSiRWLockReleaseExclusive(volatile signed __int64 *BugCheckParameter2)
 {
-  if ( (_InterlockedExchangeAdd64(BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  char v2; // al
+
+  v2 = _InterlockedExchangeAdd64(BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v2 & 2) != 0 && (v2 & 4) == 0 )
     ExfTryToWakePushLock(BugCheckParameter2);
   return KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
 }

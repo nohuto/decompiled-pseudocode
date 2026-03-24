@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSaInitialize @ 0x1403D9134
+ * XREFs of ExpSaInitialize @ 0x1403CA32C
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x140349710 (ExpAllocatePoolWithTagFromNode.c)
- *     ExpSaAllocatorInitialize @ 0x1403D92FC (ExpSaAllocatorInitialize.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExpSaAllocatorInitialize @ 0x1403CA4B0 (ExpSaAllocatorInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char ExpSaInitialize()
@@ -23,10 +23,10 @@ char ExpSaInitialize()
   unsigned int v7; // edi
   __int64 v8; // rsi
   struct _KPRCB *v9; // rax
-  void *PoolWithTagFromNode; // rcx
   __int64 Prcb; // rdx
+  PVOID v11; // rax
   PVOID v12; // rax
-  PVOID v13; // rax
+  void *PoolWithTagFromNode; // rcx
 
   v0 = 0;
   ExSaPageGroupDescriptorArray = 0LL;
@@ -58,8 +58,8 @@ char ExpSaInitialize()
           PoolWithTagFromNode = (void *)ExpAllocatePoolWithTagFromNode(
                                           NonPagedPoolNx,
                                           0x80uLL,
-                                          1632860229LL,
-                                          v9->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000,
+                                          0x61537845u,
+                                          v9->ParentNode->Affinity.Reserved[0] | 0x80000000,
                                           0);
           *(_QWORD *)(v8 + ExSaPageArrays) = PoolWithTagFromNode;
           if ( !PoolWithTagFromNode )
@@ -67,26 +67,26 @@ char ExpSaInitialize()
           memset(PoolWithTagFromNode, 0, 0x80uLL);
           Prcb = KeGetPrcb(v7);
           if ( Prcb )
-            *(_QWORD *)(Prcb + 34480) = *(_QWORD *)(v8 + ExSaPageArrays);
+            *(_QWORD *)(Prcb + 33584) = *(_QWORD *)(v8 + ExSaPageArrays);
           ++v7;
           v8 += 8LL;
           if ( v7 >= v4 )
-            goto LABEL_11;
+            goto LABEL_10;
         }
       }
       else
       {
-LABEL_11:
-        v12 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x61537845u);
-        ExSaNonPagedSlotAllocator = (__int64)v12;
-        if ( v12 )
+LABEL_10:
+        v11 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x61537845u);
+        ExSaNonPagedSlotAllocator = (__int64)v11;
+        if ( v11 )
         {
-          ExpSaAllocatorInitialize(v12, 0LL);
-          v13 = ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x61537845u);
-          ExSaPagedSlotAllocator = (ULONG_PTR)v13;
-          if ( v13 )
+          ExpSaAllocatorInitialize(v11, 0LL);
+          v12 = ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x61537845u);
+          ExSaPagedSlotAllocator = (ULONG_PTR)v12;
+          if ( v12 )
           {
-            ExpSaAllocatorInitialize(v13, 1LL);
+            ExpSaAllocatorInitialize(v12, 1LL);
             return 1;
           }
         }

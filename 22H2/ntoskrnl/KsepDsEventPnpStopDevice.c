@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventPnpStopDevice @ 0x140581F8C
+ * XREFs of KsepDsEventPnpStopDevice @ 0x1405282FC
  * Callers:
- *     KseDsCompletionHookForStopDevice @ 0x1405812F0 (KseDsCompletionHookForStopDevice.c)
+ *     KseDsCompletionHookForStopDevice @ 0x140527660 (KseDsCompletionHookForStopDevice.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventPnpStopDevice(__int64 a1, __int64 a2, __int64 a3, int a4)

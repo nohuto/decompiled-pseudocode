@@ -1,13 +1,13 @@
 /*
- * XREFs of VfPnpVerifyIrpStackDownward @ 0x140AE7FB0
+ * XREFs of VfPnpVerifyIrpStackDownward @ 0x1409E2BF0
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x1405CFEB4 (ViErrorReport1.c)
- *     VfGetPristineDriverInit @ 0x140ACE24C (VfGetPristineDriverInit.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD3B14 (IovUtilIsDeviceObjectMarked.c)
- *     IovUtilIsWdmStack @ 0x140AD3CB0 (IovUtilIsWdmStack.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE8430 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     VfGetPristineDriverInit @ 0x1409D0D2C (VfGetPristineDriverInit.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A5C (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsWdmStack @ 0x1409D6BF8 (IovUtilIsWdmStack.c)
+ *     VfErrorReport1 @ 0x1409D8018 (VfErrorReport1.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x1409E3050 (ViPnpVerifyMinorWasProcessedProperly.c)
  */
 
 __int64 __fastcall VfPnpVerifyIrpStackDownward(
@@ -20,12 +20,11 @@ __int64 __fastcall VfPnpVerifyIrpStackDownward(
         const void *a7)
 {
   __int64 result; // rax
-  __int64 v11; // r13
-  const void *v12; // rsi
-  int v13; // ebp
-  __int64 v14; // rcx
+  __int64 v12; // r13
+  const void *v13; // rsi
+  int v14; // edi
+  __int64 v15; // rcx
   PDRIVER_INITIALIZE PristineDriverInit; // rax
-  unsigned int v16; // ecx
   __int64 v17; // r8
   int IsDeviceObjectMarked; // eax
   int v19; // r9d
@@ -34,59 +33,55 @@ __int64 __fastcall VfPnpVerifyIrpStackDownward(
   result = IovUtilIsWdmStack(a2);
   if ( (_DWORD)result )
   {
-    v11 = a1[30];
-    v12 = (const void *)*a1;
-    v13 = *(_DWORD *)(*a1 + 48LL);
+    v12 = a1[30];
+    v13 = (const void *)*a1;
+    v14 = *(_DWORD *)(*a1 + 48LL);
     v20 = *(_DWORD *)(a5 + 96);
-    if ( *(_DWORD *)(v11 + 56) == 3 )
-      ViErrorReport1(0x211u, a7, v12);
-    v14 = a2[1];
+    if ( *(_DWORD *)(v12 + 56) == 3 )
+      VfErrorReport1(0x211u, a7, v13);
+    v15 = a2[1];
     result = (__int64)IopInvalidDeviceRequest;
-    if ( *(__int64 (__fastcall **)(__int64, IRP *))(v14 + 328) == IopInvalidDeviceRequest )
+    if ( *(__int64 (__fastcall **)(__int64, IRP *))(v15 + 328) == IopInvalidDeviceRequest )
     {
       *(_DWORD *)(a5 + 4) |= 0x1000000u;
-      PristineDriverInit = VfGetPristineDriverInit((struct _DRIVER_OBJECT *)v14);
-      ViErrorReport1(0x21Fu, PristineDriverInit, v12);
+      PristineDriverInit = VfGetPristineDriverInit((struct _DRIVER_OBJECT *)v15);
+      VfErrorReport1(0x21Fu, PristineDriverInit, v13);
       result = a6;
       *(_DWORD *)(a6 + 4) |= 0x80000000;
     }
     if ( a3 )
     {
-      if ( v13 >= 0 )
-        goto LABEL_15;
-      if ( v13 == -1073741637 )
+      if ( v14 < 0 )
       {
-        if ( v20 == -1073741637 || (*(_DWORD *)(a5 + 4) & 0x2000000) != 0 )
+        if ( v14 == -1073741637 )
         {
-LABEL_15:
-          if ( *(_QWORD *)(v11 + 48) )
+          if ( v20 != -1073741637 && (*(_DWORD *)(a5 + 4) & 0x2000000) == 0 )
           {
-            result = IovUtilIsDeviceObjectMarked(*(_QWORD *)(v11 + 48), 2);
-            if ( (_DWORD)result )
-            {
-              IsDeviceObjectMarked = IovUtilIsDeviceObjectMarked(v17, 3);
-              return ViPnpVerifyMinorWasProcessedProperly(
-                       (_DWORD)v12,
-                       a4,
-                       IsDeviceObjectMarked == 0 ? 4 : 0,
-                       v19,
-                       (__int64)a7,
-                       1);
-            }
+            result = VfErrorReport1(0x216u, a7, v13);
+            *(_DWORD *)(a5 + 4) |= 0x2000000u;
           }
-          return result;
         }
-        v16 = 534;
+        else if ( (*(_DWORD *)(a5 + 4) & 0x2000000) == 0 )
+        {
+          result = VfErrorReport1(0x215u, a7, v13);
+          *(_DWORD *)(a5 + 4) |= 0x2000000u;
+        }
       }
-      else
+      if ( *(_QWORD *)(v12 + 48) )
       {
-        if ( (*(_DWORD *)(a5 + 4) & 0x2000000) != 0 )
-          goto LABEL_15;
-        v16 = 533;
+        result = IovUtilIsDeviceObjectMarked(*(_QWORD *)(v12 + 48), 2);
+        if ( (_DWORD)result )
+        {
+          IsDeviceObjectMarked = IovUtilIsDeviceObjectMarked(v17, 3);
+          return ViPnpVerifyMinorWasProcessedProperly(
+                   (_DWORD)v13,
+                   a4,
+                   IsDeviceObjectMarked == 0 ? 4 : 0,
+                   v19,
+                   (__int64)a7,
+                   1);
+        }
       }
-      result = ViErrorReport1(v16, a7, v12);
-      *(_DWORD *)(a5 + 4) |= 0x2000000u;
-      goto LABEL_15;
     }
   }
   return result;

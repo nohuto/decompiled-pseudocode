@@ -3,11 +3,11 @@
  * Callers:
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmpCopySaclToVirtualKey @ 0x1407F4B70 (CmpCopySaclToVirtualKey.c)
- *     CmpSyncKeyValues @ 0x1407FE4FC (CmpSyncKeyValues.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407F4B50 (CmpCopySaclToVirtualKey.c)
+ *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x140137F38 (CmpRemoveSecurityCellList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmpRemoveSecurityCellList @ 0x140137F58 (CmpRemoveSecurityCellList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  */
 

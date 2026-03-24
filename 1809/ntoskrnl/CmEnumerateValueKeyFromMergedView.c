@@ -1,18 +1,18 @@
 /*
- * XREFs of CmEnumerateValueKeyFromMergedView @ 0x1407F1564
+ * XREFs of CmEnumerateValueKeyFromMergedView @ 0x1407F1544
  * Callers:
  *     NtEnumerateValueKey @ 0x1405D3890 (NtEnumerateValueKey.c)
  *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
  *     CmpQueryKeyValueData @ 0x1405D1B30 (CmpQueryKeyValueData.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E70 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpUnlockTwoKcbs @ 0x1406BC658 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1406BC6A4 (CmpLockTwoKcbsShared.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpUnlockTwoKcbs @ 0x1406BC638 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x1406BC684 (CmpLockTwoKcbsShared.c)
  */
 
 __int64 __fastcall CmEnumerateValueKeyFromMergedView(

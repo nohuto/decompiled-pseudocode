@@ -6,7 +6,7 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceConnectedPort @ 0x14068ED54 (AlpcpReferenceConnectedPort.c)
+ *     AlpcpReferenceConnectedPort @ 0x14068ED34 (AlpcpReferenceConnectedPort.c)
  */
 
 __int64 __fastcall AlpcpExposeHandleAttribute(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

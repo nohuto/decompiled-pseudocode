@@ -1,130 +1,123 @@
 /*
- * XREFs of ??0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z @ 0x1C01518D8
+ * XREFs of ??0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z @ 0x1C00C8314
  * Callers:
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C003CAD4 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     HmgAlloc @ 0x1C003DD30 (HmgAlloc.c)
- *     INC_SHARE_REF_CNT @ 0x1C00417D0 (INC_SHARE_REF_CNT.c)
- *     W32GetCurrentThread @ 0x1C0046320 (W32GetCurrentThread.c)
- *     HmgModifyHandleType @ 0x1C0060BA0 (HmgModifyHandleType.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C00ADF88 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     HmgModifyHandleType @ 0x1C00174D0 (HmgModifyHandleType.c)
+ *     INC_SHARE_REF_CNT @ 0x1C002E2E0 (INC_SHARE_REF_CNT.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00742F4 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C020005C (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
  */
 
 DCMEMOBJ *__fastcall DCMEMOBJ::DCMEMOBJ(DCMEMOBJ *this, HDEV a2, unsigned int a3, int a4)
 {
   struct HOBJ__ *v8; // rax
   struct HOBJ__ *v9; // rdi
-  struct _W32THREAD *CurrentThread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r10
-  __int64 v16; // r8
-  _OWORD *v17; // rax
-  _OWORD *v18; // rcx
+  struct _W32THREAD *ThreadWin32Thread; // rax
+  __int64 v11; // rdx
+  _OWORD *v12; // rax
+  PKDPC *p_BufferChainingDpc; // rcx
+  __int64 v14; // r9
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
+  HPALETTE *v17; // rcx
+  _OWORD *v18; // rax
   __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  _OWORD *v21; // rcx
-  _OWORD *v22; // rax
-  __int128 v23; // xmm1
-  __int64 v24; // rax
-  __int64 v25; // rax
+  __int64 v20; // rax
+  _QWORD *v21; // rax
 
   *((_QWORD *)this + 1) = 0LL;
   *(_QWORD *)this = 0LL;
   *((_DWORD *)this + 4) = 0;
   if ( a3 <= 2 )
   {
-    v8 = HmgAlloc(2184LL, 1u, 0x11u);
+    v8 = HmgAlloc(0x868uLL, 1u, 0x11u);
     *(_QWORD *)this = v8;
     v9 = v8;
     if ( v8 )
     {
       if ( *((_WORD *)v8 + 6) != 1 )
         MicrosoftTelemetryAssertTriggeredNoArgsKM();
-      CurrentThread = (struct _W32THREAD *)W32GetCurrentThread();
-      ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(CurrentThread);
-      v12 = *(_QWORD *)this;
-      *(_QWORD *)(*(_QWORD *)this + 2168LL) = ThreadCurrentObj;
-      *(_DWORD *)(*(_QWORD *)this + 2176LL) = 0xFFFF;
+      ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)(*(_QWORD *)this + 2136LL) = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+      *(_DWORD *)(*(_QWORD *)this + 2144LL) = 0xFFFF;
       if ( a4 )
         HmgModifyHandleType(*(_QWORD *)v9 | 0x210000LL);
-      v13 = SGDGetSessionState(v12);
+      v11 = 3LL;
+      v12 = (_OWORD *)((char *)v9 + 544);
+      p_BufferChainingDpc = &WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
       v14 = 3LL;
-      v15 = 3LL;
-      v16 = *(_QWORD *)(v13 + 24);
-      v17 = (_OWORD *)((char *)v9 + 544);
-      v18 = (_OWORD *)(v16 + 312);
       do
       {
-        *v17 = *v18;
-        v17[1] = v18[1];
-        v17[2] = v18[2];
-        v17[3] = v18[3];
-        v17[4] = v18[4];
-        v17[5] = v18[5];
-        v17[6] = v18[6];
-        v17 += 8;
-        v19 = v18[7];
-        v18 += 8;
-        *(v17 - 1) = v19;
-        --v15;
-      }
-      while ( v15 );
-      *v17 = *v18;
-      v17[1] = v18[1];
-      v20 = v18[2];
-      *((_QWORD *)v9 + 122) = (char *)v9 + 544;
-      v21 = (_OWORD *)(v16 + 752);
-      v17[2] = v20;
-      v22 = (_OWORD *)((char *)v9 + 80);
-      do
-      {
-        *v22 = *v21;
-        v22[1] = v21[1];
-        v22[2] = v21[2];
-        v22[3] = v21[3];
-        v22[4] = v21[4];
-        v22[5] = v21[5];
-        v22[6] = v21[6];
-        v22 += 8;
-        v23 = v21[7];
-        v21 += 8;
-        *(v22 - 1) = v23;
+        *v12 = *(_OWORD *)p_BufferChainingDpc;
+        v12[1] = *((_OWORD *)p_BufferChainingDpc + 1);
+        v12[2] = *((_OWORD *)p_BufferChainingDpc + 2);
+        v12[3] = *((_OWORD *)p_BufferChainingDpc + 3);
+        v12[4] = *((_OWORD *)p_BufferChainingDpc + 4);
+        v12[5] = *((_OWORD *)p_BufferChainingDpc + 5);
+        v12[6] = *((_OWORD *)p_BufferChainingDpc + 6);
+        v12 += 8;
+        v15 = *((_OWORD *)p_BufferChainingDpc + 7);
+        p_BufferChainingDpc += 16;
+        *(v12 - 1) = v15;
         --v14;
       }
       while ( v14 );
-      *v22 = *v21;
-      v22[1] = v21[1];
-      v22[2] = v21[2];
-      v22[3] = v21[3];
-      v22[4] = v21[4];
+      *v12 = *(_OWORD *)p_BufferChainingDpc;
+      v12[1] = *((_OWORD *)p_BufferChainingDpc + 1);
+      v16 = *((_OWORD *)p_BufferChainingDpc + 2);
+      *((_QWORD *)v9 + 122) = (char *)v9 + 544;
+      v17 = &dclevelDefault;
+      v12[2] = v16;
+      v18 = (_OWORD *)((char *)v9 + 80);
+      do
+      {
+        *v18 = *(_OWORD *)v17;
+        v18[1] = *((_OWORD *)v17 + 1);
+        v18[2] = *((_OWORD *)v17 + 2);
+        v18[3] = *((_OWORD *)v17 + 3);
+        v18[4] = *((_OWORD *)v17 + 4);
+        v18[5] = *((_OWORD *)v17 + 5);
+        v18[6] = *((_OWORD *)v17 + 6);
+        v18 += 8;
+        v19 = *((_OWORD *)v17 + 7);
+        v17 += 16;
+        *(v18 - 1) = v19;
+        --v11;
+      }
+      while ( v11 );
+      *v18 = *(_OWORD *)v17;
+      v18[1] = *((_OWORD *)v17 + 1);
+      v18[2] = *((_OWORD *)v17 + 2);
+      v18[3] = *((_OWORD *)v17 + 3);
+      v18[4] = *((_OWORD *)v17 + 4);
       INC_SHARE_REF_CNT(*(unsigned int **)(*(_QWORD *)this + 136LL));
       INC_SHARE_REF_CNT(*(unsigned int **)(*(_QWORD *)this + 144LL));
       INC_SHARE_REF_CNT(*(unsigned int **)(*(_QWORD *)this + 96LL));
       *((_DWORD *)v9 + 8) = a3;
       *(_QWORD *)((char *)v9 + 36) = 0LL;
       *((_DWORD *)v9 + 11) = 0;
-      *((_QWORD *)v9 + 149) = 0LL;
+      *((_QWORD *)v9 + 150) = 0LL;
       *(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 976LL) + 152LL) = 1179679;
-      v24 = *(_QWORD *)this + 176LL;
-      *((_QWORD *)v9 + 220) = 0LL;
-      *((_QWORD *)v9 + 157) = v24;
-      *((_QWORD *)v9 + 174) = v24;
-      *((_QWORD *)v9 + 191) = v24;
-      *((_QWORD *)v9 + 208) = v24;
-      *((_QWORD *)v9 + 218) = 0LL;
-      *((_DWORD *)v9 + 438) = 0;
-      *(_DWORD *)(*(_QWORD *)this + 2092LL) = -1;
-      *(_WORD *)(*(_QWORD *)this + 2088LL) = -1;
-      v25 = *(_QWORD *)this;
-      *(_QWORD *)(v25 + 1112) = 0LL;
-      *(_QWORD *)(v25 + 1120) = 0LL;
-      *((_QWORD *)v9 + 142) = 0LL;
-      *((_QWORD *)v9 + 259) = 0LL;
+      v20 = *(_QWORD *)this + 176LL;
+      *((_QWORD *)v9 + 221) = 0LL;
+      *((_QWORD *)v9 + 158) = v20;
+      *((_QWORD *)v9 + 175) = v20;
+      *((_QWORD *)v9 + 192) = v20;
+      *((_QWORD *)v9 + 209) = v20;
+      *((_QWORD *)v9 + 219) = 0LL;
+      *((_DWORD *)v9 + 440) = 0;
+      *(_DWORD *)(*(_QWORD *)this + 2100LL) = -1;
+      *(_WORD *)(*(_QWORD *)this + 2096LL) = -1;
+      v21 = *(_QWORD **)this;
+      v21[139] = &CPushLock::`vftable';
+      v21[140] = 0LL;
+      v21[141] = 0LL;
+      *((_QWORD *)v9 + 143) = 0LL;
       *((_QWORD *)v9 + 260) = 0LL;
+      *((_QWORD *)v9 + 261) = 0LL;
       *((_QWORD *)v9 + 6) = a2;
     }
   }

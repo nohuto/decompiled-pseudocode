@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ExecuteTimer@CAccessibilityTimer@@SAXW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C01E1320
+ * XREFs of ?ExecuteTimer@CAccessibilityTimer@@SAXW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C01A8380
  * Callers:
- *     NtMITAccessibilityTimerNotification @ 0x1C0140E90 (NtMITAccessibilityTimerNotification.c)
+ *     NtMITAccessibilityTimerNotification @ 0x1C01292A0 (NtMITAccessibilityTimerNotification.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int16 __fastcall CAccessibilityTimer::ExecuteTimer(int a1)
@@ -38,7 +38,7 @@ __int16 __fastcall CAccessibilityTimer::ExecuteTimer(int a1)
       case 8:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxAccessTimeOutTimer)(0LL, 0LL, 8LL, 0LL);
       default:
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 213);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 213);
         break;
     }
     return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))v3)(0LL, 0LL, v1, 0LL);

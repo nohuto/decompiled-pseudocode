@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vPlgWriteOR@@YAXPEAU_PLGRUN@@0PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C02D8D70
+ * XREFs of ?vPlgWriteOR@@YAXPEAU_PLGRUN@@0PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C02DA8A0
  * Callers:
  *     <none>
  * Callees:
- *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C0008F24 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
- *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C0008FA8 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00CEDF0 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
+ *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C00CEE74 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
  */
 
 void __fastcall vPlgWriteOR(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFACE *a3, struct _CLIPOBJ *a4)
@@ -90,7 +90,7 @@ void __fastcall vPlgWriteOR(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
             v27 = *(_DWORD *)a1 & 7;
             v36 = v25;
             v28 = (char *)(v22 + ((__int64)*(int *)a1 >> 3));
-            v29 = *((_BYTE *)&dword_1C02F9FE8 + v27);
+            v29 = *((_BYTE *)&dword_1C02FC7B0 + v27);
             v33 = v29;
             if ( v24 < 0
               || v24 >= *((_DWORD *)a3 + 14)
@@ -131,7 +131,7 @@ void __fastcall vPlgWriteOR(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
                   if ( v31 )
                     *v28 = v30;
                   ++v28;
-                  v29 = *((_BYTE *)&dword_1C02F9FE8 + (v24 & 7));
+                  v29 = *((_BYTE *)&dword_1C02FC7B0 + (v24 & 7));
                   v33 = v29;
                   if ( v24 < 0
                     || v24 >= *((_DWORD *)a3 + 14)
@@ -188,7 +188,7 @@ void __fastcall vPlgWriteOR(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
           v14 = *(_DWORD *)a1;
           v15 = *((_DWORD *)a1 + 1);
           v16 = (char *)(j + ((__int64)*(int *)a1 >> 3));
-          v17 = *((_BYTE *)&dword_1C02F9FE8 + (*(_DWORD *)a1 & 7));
+          v17 = *((_BYTE *)&dword_1C02FC7B0 + (*(_DWORD *)a1 & 7));
           if ( (unsigned __int64)v16 < v4 || (unsigned __int64)v16 > v9 )
             v18 = 0;
           else
@@ -210,7 +210,7 @@ void __fastcall vPlgWriteOR(struct _PLGRUN *a1, struct _PLGRUN *a2, struct SURFA
                   v18 = 0;
                 else
                   v18 = *v16;
-                v17 = *((_BYTE *)&dword_1C02F9FE8 + (v14 & 7));
+                v17 = *((_BYTE *)&dword_1C02FC7B0 + (v14 & 7));
               }
             }
             while ( v15 >= 0 );

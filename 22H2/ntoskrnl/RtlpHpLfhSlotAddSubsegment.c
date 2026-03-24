@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSlotAddSubsegment @ 0x14031694C
+ * XREFs of RtlpHpLfhSlotAddSubsegment @ 0x140308B50
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADC90 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402BD4D0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSetOwner @ 0x14031699C (RtlpHpLfhSubsegmentSetOwner.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x1403169C4 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhSubsegmentSetOwner @ 0x140308BA0 (RtlpHpLfhSubsegmentSetOwner.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x140308BC8 (RtlpHpLfhOwnerMoveSubsegment.c)
  */
 
 __int64 __fastcall RtlpHpLfhSlotAddSubsegment(__int64 a1, __int64 a2)

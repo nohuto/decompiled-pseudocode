@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipFreeTraceDeviceList @ 0x140753CBC
+ * XREFs of WmipFreeTraceDeviceList @ 0x140753C9C
  * Callers:
- *     WmipBuildTraceDeviceList @ 0x14018C4EC (WmipBuildTraceDeviceList.c)
- *     WmiTraceRundownNotify @ 0x140753C1C (WmiTraceRundownNotify.c)
- *     WmiSetNetworkNotify @ 0x1408B43AC (WmiSetNetworkNotify.c)
+ *     WmipBuildTraceDeviceList @ 0x14018C50C (WmipBuildTraceDeviceList.c)
+ *     WmiTraceRundownNotify @ 0x140753BFC (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x1408B438C (WmiSetNetworkNotify.c)
  * Callees:
  *     WmipUnreferenceRegEntry @ 0x14008DB30 (WmipUnreferenceRegEntry.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

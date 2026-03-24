@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1406F17E8
+ * XREFs of _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1406F17C8
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x1406F0B10 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408FE76C (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x1406F0AF0 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408FE74C (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
  */

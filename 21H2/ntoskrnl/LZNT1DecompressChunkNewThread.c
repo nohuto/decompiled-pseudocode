@@ -1,13 +1,13 @@
 /*
- * XREFs of LZNT1DecompressChunkNewThread @ 0x14035D158
+ * XREFs of LZNT1DecompressChunkNewThread @ 0x14029B998
  * Callers:
- *     RtlDecompressBufferLZNT1 @ 0x1407D6FA0 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x1407D80F0 (RtlDecompressFragmentLZNT1.c)
+ *     RtlDecompressBufferLZNT1 @ 0x140683F40 (RtlDecompressBufferLZNT1.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x1406840B0 (RtlDecompressFragmentLZNT1.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KeQueryPriorityThread @ 0x14035D5C0 (KeQueryPriorityThread.c)
- *     LZNT1DecompressChunk @ 0x14042ABE0 (LZNT1DecompressChunk.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1402DA450 (KeQueryPriorityThread.c)
+ *     LZNT1DecompressChunk @ 0x140408B50 (LZNT1DecompressChunk.c)
  */
 
 __int64 __fastcall LZNT1DecompressChunkNewThread(
@@ -37,7 +37,7 @@ __int64 __fastcall LZNT1DecompressChunkNewThread(
     return LZNT1DecompressChunk(a2, (_DWORD)a3, a4, a5, (__int64)&v15);
   v10->List.Flink = 0LL;
   v12 = a5;
-  v10->WorkerRoutine = LZNT1DecompressChunkWorkItem;
+  v10->WorkerRoutine = (void (__fastcall *)(void *))LZNT1DecompressChunkWorkItem;
   v10->Parameter = v10;
   v10[1].Parameter = (void *)v12;
   v10[2].List.Flink = (struct _LIST_ENTRY *)&v10[2].List.Blink;

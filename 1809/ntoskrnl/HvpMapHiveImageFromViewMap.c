@@ -2,7 +2,7 @@
  * XREFs of HvpMapHiveImageFromViewMap @ 0x1405F9C30
  * Callers:
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     CmpClaimGlobalQuota @ 0x1405A7334 (CmpClaimGlobalQuota.c)
  *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)

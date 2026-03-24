@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpInterlockedFunction @ 0x140832128
+ * XREFs of CmpInterlockedFunction @ 0x1407AAAB0
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwFlushKey @ 0x14041D540 (ZwFlushKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwFlushKey @ 0x1403FC0E0 (ZwFlushKey.c)
  */
 
 NTSTATUS CmpInterlockedFunction()
@@ -25,13 +25,14 @@ NTSTATUS CmpInterlockedFunction()
   _BYTE KeyValueInformation[12]; // [rsp+90h] [rbp+37h] BYREF
   unsigned __int8 v9; // [rsp+9Ch] [rbp+43h]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   Handle = 0LL;
   ResultLength = 0;
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSet;
   ObjectAttributes.Attributes = 576;
   result = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);

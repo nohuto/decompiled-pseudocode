@@ -1,27 +1,26 @@
 /*
- * XREFs of HalpTimerClockInterrupt @ 0x1402C4050
+ * XREFs of HalpTimerClockInterrupt @ 0x140229F00
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     KeClockInterruptNotify @ 0x1402C4670 (KeClockInterruptNotify.c)
- *     HalpMcaQueueDpc @ 0x140369318 (HalpMcaQueueDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpScanForProfilingCorruption @ 0x14045B264 (HalpScanForProfilingCorruption.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14050B890 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KeClockInterruptNotify @ 0x140221600 (KeClockInterruptNotify.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpMcaQueueDpc @ 0x140329BA8 (HalpMcaQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C26A0 (HalpTimerWatchdogTriggerSystemReset.c)
  */
 
 char __fastcall HalpTimerClockInterrupt(__int64 a1)
 {
-  __int64 v1; // rdi
+  __int64 v1; // rbx
   unsigned __int8 v2; // si
   __int64 InternalData; // rax
   __int64 v4; // rdx
-  char *v5; // rbx
-  char v6; // cl
-  char v7; // al
-  unsigned int v8; // eax
+  char *v5; // rdi
+  int v6; // eax
+  unsigned int v7; // eax
+  __int64 CurrentPrcb; // rax
   _QWORD *v9; // rbx
   char v11; // [rsp+30h] [rbp+8h] BYREF
 
@@ -33,26 +32,18 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
      + 24 * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
   *(_QWORD *)v5 = RtlGetInterruptTimePrecise(&v11);
   *((_DWORD *)v5 + 2) = KeGetPcr()->Prcb.Number;
-  *((_DWORD *)v5 + 3) = KiClockTimerOwner;
-  v5[16] = 0;
-  v6 = KeGetCurrentPrcb()->PendingTickFlags & 1;
-  v5[16] = v6;
-  v7 = v6 | KeGetCurrentPrcb()->PendingTickFlags & 2;
-  v5[16] = v7;
-  if ( BYTE2(KeGetPcr()->HalReserved[5]) )
-  {
-    v7 |= 4u;
-    v5[16] = v7;
-  }
-  if ( KeGetCurrentPrcb()->ClockOwner )
-    v5[16] = v7 | 8;
+  v5[12] = KeGetCurrentPrcb()->PendingTickFlags & 1;
+  v5[13] = BYTE2(KeGetPcr()->HalReserved[5]);
+  v6 = KiClockTimerOwner;
+  v5[14] = KeGetCurrentPrcb()->ClockOwner;
+  *((_DWORD *)v5 + 4) = v6;
   if ( BYTE2(KeGetPcr()->HalReserved[5]) )
   {
     BYTE2(KeGetPcr()->HalReserved[5]) = 0;
   }
   else if ( (KeGetCurrentPrcb()->PendingTickFlags & 1) != 0 )
   {
-    KeClockInterruptNotify(v1, v2, 0LL);
+    KeClockInterruptNotify(v1, v2);
     if ( KeGetCurrentPrcb()->ClockOwner )
     {
       if ( (unsigned int)(*(_DWORD *)(HalpClockTimer + 60) - MEMORY[0xFFFFF78000000008]) > 0x47868C00 )
@@ -60,30 +51,27 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
         BYTE1(HalpClockWorkUnion) = 1;
         *(_DWORD *)(HalpClockTimer + 60) = MEMORY[0xFFFFF78000000008] + 1200000000;
       }
-      v8 = HalpClockWorkUnion;
+      v7 = HalpClockWorkUnion;
       if ( HalpClockWorkUnion && (_WORD)HalpClockWorkUnion )
       {
         LOWORD(HalpClockWorkUnion) = 0;
-        HalpMcaQueueDpc((unsigned __int8)v8, v8 >> 8);
+        HalpMcaQueueDpc((unsigned __int8)v7, v7 >> 8);
       }
-      if ( KeGetCurrentPrcb()->ClockOwner && HalpWatchdogTimer )
+      CurrentPrcb = (__int64)KeGetCurrentPrcb();
+      if ( *(_BYTE *)(CurrentPrcb + 33) && HalpWatchdogTimer )
       {
+        CurrentPrcb = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
         if ( MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset > (unsigned __int64)HalpTimerWatchdogResetCount )
-          off_140C01CD0[0]();
+          CurrentPrcb = off_140C008C0[0]();
         if ( HalpTimerWatchdogResetCount == -1 )
-          HalpTimerWatchdogTriggerSystemReset(0LL);
+          CurrentPrcb = HalpTimerWatchdogTriggerSystemReset(0LL);
       }
-      if ( SLODWORD(KeGetCurrentPrcb()->HalReserved[2]) > 0 && (KeGetCurrentPrcb()->HalReserved[2] & 1) == 0 )
+      LODWORD(CurrentPrcb) = KeGetPcr()->Prcb.Number;
+      v9 = (_QWORD *)(HalpCounterSetInfo + 24 * CurrentPrcb);
+      if ( (_QWORD *)*v9 != v9 && MEMORY[0xFFFFF78000000008] - v9[2] >= 0x4C4B40uLL )
       {
-        LODWORD(v1) = KeGetPcr()->Prcb.Number;
-        v9 = (_QWORD *)(HalpCounterSetInfo + 24 * v1);
-        if ( MEMORY[0xFFFFF78000000008] - v9[2] >= 0x4C4B40uLL )
-        {
-          if ( (_QWORD *)*v9 != v9 )
-            ((void (__fastcall *)(_QWORD, _QWORD))off_140C01BE8[0])(0LL, 0LL);
-          HalpScanForProfilingCorruption((unsigned int)v1);
-          v9[2] = MEMORY[0xFFFFF78000000008];
-        }
+        ((void (__fastcall *)(_QWORD, _QWORD))off_140C007D8[0])(0LL, 0LL);
+        v9[2] = MEMORY[0xFFFFF78000000008];
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFlushNotifiesPostCallback @ 0x14091CD70
+ * XREFs of CmpFlushNotifiesPostCallback @ 0x1408761E0
  * Callers:
  *     <none>
  * Callees:
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14067EE40 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14066CC00 (CmpFlushNotifiesOnKeyBodyList.c)
  */
 
 __int64 __fastcall CmpFlushNotifiesPostCallback(__int64 a1, __int64 a2, unsigned int *a3)

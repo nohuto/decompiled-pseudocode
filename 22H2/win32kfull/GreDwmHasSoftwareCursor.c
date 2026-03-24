@@ -1,39 +1,33 @@
 /*
- * XREFs of GreDwmHasSoftwareCursor @ 0x1C005B2AC
+ * XREFs of GreDwmHasSoftwareCursor @ 0x1C002A6EC
  * Callers:
- *     zzzEnableDwmPointerSupport @ 0x1C005B13C (zzzEnableDwmPointerSupport.c)
- *     DwmDestroyDeviceSpecificResources @ 0x1C00BC9E0 (DwmDestroyDeviceSpecificResources.c)
+ *     DwmDestroyDeviceSpecificResources @ 0x1C0029120 (DwmDestroyDeviceSpecificResources.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C00296FC (zzzEnableDwmPointerSupport.c)
  * Callees:
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00CD064 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE140 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
  */
 
-__int64 __fastcall GreDwmHasSoftwareCursor(__int64 a1, int a2)
+__int64 __fastcall GreDwmHasSoftwareCursor(__int64 a1, struct PDEVOBJ *a2)
 {
+  int v3; // esi
   unsigned int v4; // ebx
-  struct Gre::Base::SESSION_GLOBALS *v5; // rdi
-  struct PDEVOBJ *v6; // rdx
-  __int64 v7; // rax
-  char v9; // [rsp+30h] [rbp+8h] BYREF
+  char v6; // [rsp+30h] [rbp+8h] BYREF
 
+  v3 = (int)a2;
   v4 = 0;
-  v5 = Gre::Base::Globals((Gre::Base *)a1);
-  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v9, v6, 0, 0);
-  GreAcquireSemaphore(*((_QWORD *)v5 + 9));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v5 + 9), 7LL);
-  if ( (unsigned int)IsDwmActive() )
+  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v6, a2, 0, 0);
+  GreAcquireSemaphore(ghsemDwmState);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+  if ( g_pDwmState
+    && (*((_DWORD *)g_pDwmState + 25) || v3)
+    && *((_DWORD *)g_pDwmState + 40)
+    && (*(_QWORD *)(a1 + 3528) != a1 + 3528 || (*(_DWORD *)(a1 + 40) & 0x20000) != 0) )
   {
-    v7 = *((_QWORD *)v5 + 38);
-    if ( (*(_DWORD *)(v7 + 100) || a2)
-      && *(_DWORD *)(v7 + 160)
-      && (*(_QWORD *)(a1 + 3504) != a1 + 3504 || (*(_DWORD *)(a1 + 40) & 0x20000) != 0) )
-    {
-      v4 = 1;
-    }
+    v4 = 1;
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v5 + 9));
-  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v9);
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+  GreReleaseSemaphoreInternal(ghsemDwmState);
+  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v6);
   return v4;
 }

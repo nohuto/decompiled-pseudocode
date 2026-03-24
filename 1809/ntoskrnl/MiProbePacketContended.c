@@ -6,7 +6,7 @@
  * Callees:
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
  */
 
 LOGICAL __fastcall MiProbePacketContended(__int64 a1)

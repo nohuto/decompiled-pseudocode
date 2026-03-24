@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C022A3C0
+ * XREFs of ?ReleaseAllReferences@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00CE670
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C022A070 (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00CE53C (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 void __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::ReleaseAllReferences(

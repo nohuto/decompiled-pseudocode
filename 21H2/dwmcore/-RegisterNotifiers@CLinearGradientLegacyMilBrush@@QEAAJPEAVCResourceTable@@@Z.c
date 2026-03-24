@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegisterNotifiers@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x180206F6C
+ * XREFs of ?RegisterNotifiers@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x1801B4608
  * Callers:
- *     ?ProcessUpdate@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LINEARGRADIENTLEGACYMILBRUSH@@PEBXI@Z @ 0x180206690 (-ProcessUpdate@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LINEARGRADI.c)
+ *     ?ProcessUpdate@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LINEARGRADIENTLEGACYMILBRUSH@@PEBXI@Z @ 0x1801B3DA4 (-ProcessUpdate@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LINEARGRADI.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
  */
 
 __int64 __fastcall CLinearGradientLegacyMilBrush::RegisterNotifiers(struct CResource **this, struct CResourceTable *a2)
@@ -17,26 +17,26 @@ __int64 __fastcall CLinearGradientLegacyMilBrush::RegisterNotifiers(struct CReso
   int v8; // eax
   __int64 v9; // rcx
 
-  v3 = CResource::RegisterNotifier((CResource *)this, this[12]);
+  v3 = CResource::RegisterNotifier((CResource *)this, this[11]);
   v5 = v3;
   if ( v3 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x3ECu);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x3ECu, 0LL);
   }
   else
   {
-    v6 = CResource::RegisterNotifier((CResource *)this, this[13]);
+    v6 = CResource::RegisterNotifier((CResource *)this, this[12]);
     v5 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x3EDu);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x3EDu, 0LL);
     }
     else
     {
-      v8 = CResource::RegisterNotifier((CResource *)this, this[11]);
+      v8 = CResource::RegisterNotifier((CResource *)this, this[10]);
       v5 = v8;
       if ( v8 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x3EEu);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x3EEu, 0LL);
     }
   }
   return v5;

@@ -1,62 +1,68 @@
 /*
- * XREFs of fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C0104010
+ * XREFs of fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C0118118
  * Callers:
- *     xxxHkCallHook @ 0x1C0053C4C (xxxHkCallHook.c)
- *     xxxCallCtfHook @ 0x1C0075F08 (xxxCallCtfHook.c)
+ *     xxxCallCtfHook @ 0x1C0052914 (xxxCallCtfHook.c)
+ *     xxxHkCallHook @ 0x1C005CAB0 (xxxHkCallHook.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
-__int64 __fastcall fnHkINLPMOUSEHOOKSTRUCTEX(int a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, int *a6)
+__int64 __fastcall fnHkINLPMOUSEHOOKSTRUCTEX(int a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, _DWORD *a6)
 {
-  int v6; // ebx
-  __int64 *v7; // rcx
-  __int64 v8; // r8
-  _DWORD *v9; // rcx
-  _BYTE v11[4]; // [rsp+30h] [rbp-98h] BYREF
-  int v12; // [rsp+34h] [rbp-94h] BYREF
-  _QWORD v13[5]; // [rsp+38h] [rbp-90h] BYREF
-  _DWORD v14[2]; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v15; // [rsp+68h] [rbp-60h]
-  __int64 v16; // [rsp+70h] [rbp-58h]
-  __int64 v17; // [rsp+78h] [rbp-50h]
-  int v18; // [rsp+80h] [rbp-48h]
-  int v19; // [rsp+84h] [rbp-44h]
-  __int128 v20; // [rsp+88h] [rbp-40h]
-  __int128 v21; // [rsp+98h] [rbp-30h]
-  __int64 v22; // [rsp+A8h] [rbp-20h]
+  _DWORD *v6; // rdi
+  int v7; // ebx
+  __int64 *v8; // rcx
+  __int64 v9; // r8
+  _DWORD *v10; // rcx
+  _DWORD v12[2]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v13; // [rsp+58h] [rbp-50h]
+  __int64 v14; // [rsp+60h] [rbp-48h]
+  __int64 v15; // [rsp+68h] [rbp-40h]
+  int v16; // [rsp+70h] [rbp-38h]
+  int v17; // [rsp+74h] [rbp-34h]
+  __int128 v18; // [rsp+78h] [rbp-30h]
+  __int128 v19; // [rsp+88h] [rbp-20h]
+  __int64 v20; // [rsp+98h] [rbp-10h]
+  char v21; // [rsp+B0h] [rbp+8h] BYREF
+  int v22; // [rsp+B8h] [rbp+10h] BYREF
+  unsigned __int64 v23; // [rsp+C0h] [rbp+18h] BYREF
 
-  v13[0] = 0LL;
-  v12 = 0;
-  v14[1] = 0;
-  v19 = 0;
-  v14[0] = a1;
-  v15 = a2;
+  v23 = 0LL;
+  v22 = 0;
+  v12[1] = 0;
+  v17 = 0;
+  v12[0] = a1;
+  v13 = a2;
   *((_DWORD *)a3 + 5) = 0;
   *((_DWORD *)a3 + 9) = 0;
-  v20 = *a3;
-  v21 = a3[1];
-  v22 = *((_QWORD *)a3 + 4);
-  v16 = a4;
-  v17 = a5;
-  v18 = *a6;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v11);
+  v18 = *a3;
+  v19 = a3[1];
+  v20 = *((_QWORD *)a3 + 4);
+  v14 = a4;
+  v15 = a5;
+  v6 = a6;
+  v16 = *a6;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v21);
   EtwTraceBeginCallback(44LL);
-  v6 = KeUserModeCallback(44LL, v14, 80LL, v13, &v12);
+  v7 = KeUserModeCallback(44LL, v12, 80LL, &v23, &v22);
   EtwTraceEndCallback(44LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v11);
-  if ( v6 < 0 || v12 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v21);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
+  if ( v7 < 0 || v22 != 24 )
     return 0LL;
-  v7 = (__int64 *)v13[0];
-  if ( (unsigned __int64)(v13[0] + 8LL) < v13[0] || v13[0] + 8LL > MmUserProbeAddress )
-    v7 = (__int64 *)MmUserProbeAddress;
-  v8 = *v7;
-  v13[1] = *v7;
-  v9 = *(_DWORD **)(v13[0] + 16LL);
-  if ( v9 + 1 < v9 || (unsigned __int64)(v9 + 1) > MmUserProbeAddress )
-    v9 = (_DWORD *)MmUserProbeAddress;
-  *a6 ^= ((unsigned __int8)*v9 ^ (unsigned __int8)*a6) & 0x10;
-  return v8;
+  v8 = (__int64 *)v23;
+  if ( v23 + 8 < v23 || v23 + 8 > MmUserProbeAddress )
+    v8 = (__int64 *)MmUserProbeAddress;
+  v9 = *v8;
+  v10 = *(_DWORD **)(v23 + 16);
+  if ( v10 + 1 < v10 || (unsigned __int64)(v10 + 1) > MmUserProbeAddress )
+    v10 = (_DWORD *)MmUserProbeAddress;
+  *v6 ^= ((unsigned __int8)*v10 ^ (unsigned __int8)*v6) & 0x10;
+  return v9;
 }

@@ -1,44 +1,43 @@
 /*
- * XREFs of xxxSwitchDesktopWithFade @ 0x1C01137BC
+ * XREFs of xxxSwitchDesktopWithFade @ 0x1C011DB50
  * Callers:
- *     NtUserSwitchDesktop @ 0x1C0113670 (NtUserSwitchDesktop.c)
+ *     NtUserSwitchDesktop @ 0x1C0028450 (NtUserSwitchDesktop.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     RestoreGammaRamp @ 0x1C0113940 (RestoreGammaRamp.c)
- *     PrepareGammaRampData @ 0x1C01139A0 (PrepareGammaRampData.c)
- *     FadeDesktop @ 0x1C01E3E90 (FadeDesktop.c)
+ *     FadeDesktop @ 0x1C0028660 (FadeDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     RestoreGammaRamp @ 0x1C011DD60 (RestoreGammaRamp.c)
+ *     PrepareGammaRampData @ 0x1C011DDF0 (PrepareGammaRampData.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxSwitchDesktopWithFade(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5)
 {
-  int v5; // r15d
-  unsigned int v6; // r14d
-  __int64 v7; // rdi
-  int v8; // r13d
-  unsigned int v11; // ebx
-  __int64 v12; // rcx
-  unsigned int v13; // esi
-  int v15; // eax
-  __int64 v16; // rcx
+  int v5; // esi
+  unsigned int *v6; // rbx
+  unsigned int v9; // r14d
+  int v10; // r13d
+  unsigned int v11; // edi
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // rcx
   __int64 ThreadWin32Thread; // rax
-  int v18; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v19; // [rsp+28h] [rbp-28h] BYREF
-  __int128 v20; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+40h] [rbp-10h]
-  unsigned int v23; // [rsp+90h] [rbp+40h] BYREF
+  int v17; // [rsp+30h] [rbp-30h] BYREF
+  unsigned int *v18; // [rsp+38h] [rbp-28h] BYREF
+  __int128 v19; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-10h]
+  unsigned int v22; // [rsp+A0h] [rbp+40h] BYREF
 
   v5 = 0;
-  v23 = 0;
-  v6 = 0;
-  v19 = 0LL;
-  v7 = 0LL;
-  v18 = 0;
-  v8 = 0;
-  v21 = 0LL;
+  v22 = 0;
+  v6 = 0LL;
+  v17 = 0;
+  v18 = 0LL;
   v20 = 0LL;
+  v9 = 0;
+  v10 = 0;
+  v19 = 0LL;
   if ( PsGetCurrentProcessId() != (HANDLE)gpidLogon )
     return 3221225506LL;
   if ( a2 == grpdeskRitInput )
@@ -51,39 +50,51 @@ __int64 __fastcall xxxSwitchDesktopWithFade(__int64 a1, __int64 a2, __int64 a3, 
     && !gfIsFadingInProgress )
   {
     gfIsFadingInProgress = 1;
-    v8 = 1;
-    v15 = PrepareGammaRampData(&v23, &v19, &v18);
-    v7 = v19;
-    if ( v15 >= 0 )
-      PushW32ThreadLock(v19, &v20, (__int64)RestoreGammaRamp);
-    if ( v18 )
+    v10 = 1;
+    v13 = PrepareGammaRampData(&v22, &v18, &v17);
+    v6 = v18;
+    if ( v13 >= 0 )
+      PushW32ThreadLock((__int64)v18, &v19, (__int64)RestoreGammaRamp);
+    if ( v17 )
     {
       v5 = 1;
-      UserSessionSwitchLeaveCrit(v16);
-      v6 = v23;
-      v11 = a4 >> 1;
-      FadeDesktop(v23, v7, v11, 0LL);
-      EnterCrit(1LL, 0LL);
-      goto LABEL_9;
+      if ( gdwInAtomicOperation )
+      {
+        v14 = gdwExtraInstrumentations;
+        if ( (gdwExtraInstrumentations & 1) != 0 )
+          KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+      }
+      UserSessionSwitchLeaveCrit(v14);
+      v9 = v22;
+      FadeDesktop(v22, v6, a4 >> 1, 0);
+      EnterCrit(0LL, 1LL);
     }
-    v6 = v23;
+    else
+    {
+      v9 = v22;
+    }
   }
-  v11 = a4 >> 1;
-LABEL_9:
-  v13 = xxxSwitchDesktop(a1, a2, 0);
+  v11 = xxxSwitchDesktop(a1, a2, 0);
   if ( v5 )
   {
-    UserSessionSwitchLeaveCrit(v12);
-    FadeDesktop(v6, v7, v11, 1LL);
-    EnterCrit(1LL, 0LL);
+    v15 = gdwInAtomicOperation;
+    if ( gdwInAtomicOperation )
+    {
+      v15 = gdwExtraInstrumentations;
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
+    UserSessionSwitchLeaveCrit(v15);
+    FadeDesktop(v9, v6, a4 >> 1, 1);
+    EnterCrit(0LL, 1LL);
   }
-  if ( v7 )
+  if ( v6 )
   {
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    *(_QWORD *)(ThreadWin32Thread + 16) = v20;
-    RestoreGammaRamp(v19);
+    *(_QWORD *)(ThreadWin32Thread + 16) = v19;
+    RestoreGammaRamp(v18);
   }
-  if ( v8 )
+  if ( v10 )
     gfIsFadingInProgress = 0;
-  return v13;
+  return v11;
 }

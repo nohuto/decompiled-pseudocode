@@ -1,17 +1,17 @@
 /*
- * XREFs of imp_WdfDmaTransactionInitialize @ 0x1C0054510
+ * XREFs of imp_WdfDmaTransactionInitialize @ 0x1C0030590
  * Callers:
- *     imp_WdfDmaTransactionInitializeUsingOffset @ 0x1C0037D30 (imp_WdfDmaTransactionInitializeUsingOffset.c)
+ *     imp_WdfDmaTransactionInitializeUsingOffset @ 0x1C00307B0 (imp_WdfDmaTransactionInitializeUsingOffset.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ @ 0x1C0037BD2 (-SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ.c)
- *     WPP_IFR_SF_qDd @ 0x1C0053924 (WPP_IFR_SF_qDd.c)
- *     WPP_IFR_SF_qiqd @ 0x1C0053BD0 (WPP_IFR_SF_qiqd.c)
- *     WPP_IFR_SF_qqdd @ 0x1C0053E0C (WPP_IFR_SF_qqdd.c)
- *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0059728 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ @ 0x1C002F4A0 (-SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ.c)
+ *     WPP_IFR_SF_qDd @ 0x1C002F728 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_qiqd @ 0x1C002F9D4 (WPP_IFR_SF_qiqd.c)
+ *     WPP_IFR_SF_qqDd @ 0x1C002FC10 (WPP_IFR_SF_qqDd.c)
+ *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0036AA0 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfDmaTransactionInitialize(
@@ -43,7 +43,7 @@ __int64 __fastcall imp_WdfDmaTransactionInitialize(
 
   pDmaTrans = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)DmaTransaction,
     0x1401u,
     (void **)&pDmaTrans);
@@ -77,7 +77,7 @@ __int64 __fastcall imp_WdfDmaTransactionInitialize(
   ByteCount = Mdl->ByteCount;
   if ( VirtualAddress < v14 || (v17 = &v14[ByteCount], VirtualAddress >= &v14[ByteCount]) )
   {
-    WPP_IFR_SF_qqdd(
+    WPP_IFR_SF_qqDd(
       m_Globals,
       2u,
       0xFu,

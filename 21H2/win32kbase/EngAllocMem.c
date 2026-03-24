@@ -1,139 +1,93 @@
 /*
- * XREFs of EngAllocMem @ 0x1C00887E0
+ * XREFs of EngAllocMem @ 0x1C007A3E0
  * Callers:
- *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0088140 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
- *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C016E490 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
- *     EngCreateClip @ 0x1C0177EF0 (EngCreateClip.c)
+ *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C007A1C0 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C01415E0 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     EngCreateClip @ 0x1C014BE40 (EngCreateClip.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005B490 (Win32AllocPoolNonPaged.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall EngAllocMem(ULONG fl, ULONG cjMemSize, ULONG ulTag)
 {
-  char v3; // si
-  __int64 v4; // rdx
-  size_t v5; // r14
-  PVOID v6; // rdi
+  char v4; // si
+  ULONG v5; // edi
+  int v6; // eax
   __int64 v7; // rax
-  __int64 v8; // rcx
-  int v9; // r8d
-  __int64 Pool2; // rbx
-  int v11; // esi
-  struct _ERESOURCE *v12; // rdi
-  __int64 *v13; // rax
-  __int64 v14; // rcx
-  __int64 v16; // rax
-  char v17; // bp
-  PVOID BackTrace[20]; // [rsp+30h] [rbp-A8h] BYREF
+  _QWORD *v8; // rbx
+  struct _ERESOURCE *v9; // rdi
+  _QWORD *v10; // rax
 
-  v3 = fl;
-  if ( cjMemSize - 1 > 0xFFFFFFDE )
-    return 0LL;
-  LODWORD(v4) = cjMemSize + 32;
-  if ( (unsigned int)v4 >= 0x2710000 )
-    return 0LL;
-  v5 = (unsigned int)v4;
-  if ( (fl & 2) != 0 )
+  v4 = fl;
+  if ( cjMemSize - 1 <= 0xFFFFFFDE )
   {
-    v7 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-           (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-           68LL,
-           (unsigned int)v4,
-           ulTag);
-  }
-  else
-  {
-    v6 = gpLeakTrackingAllocator;
-    v4 = (unsigned int)v4;
-    if ( (ulTag & *((_DWORD *)gpLeakTrackingAllocator + 10)) == ulTag )
+    v5 = cjMemSize + 32;
+    if ( cjMemSize + 32 < 0x2710000 )
     {
-      v16 = 0LL;
-      if ( *((_DWORD *)gpLeakTrackingAllocator + 11) )
+      if ( (fl & 2) != 0 )
       {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v16) != ulTag )
+        v7 = Win32AllocPoolNonPaged(v5, ulTag);
+      }
+      else
+      {
+        if ( qword_1C0257D10 )
+          v6 = qword_1C0257D10();
+        else
+          v6 = -1073741637;
+        if ( v6 < 0 || !qword_1C0257D18 )
         {
-          if ( ++v16 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_5;
-        }
-        v17 = 0;
-        if ( (unsigned int)v4 < 0x1000uLL || (v4 & 0xFFF) != 0 )
-        {
-          v17 = 1;
-          v4 = (unsigned int)v4 + 16LL;
-        }
-        Pool2 = ExAllocatePool2(262LL, v4);
-        if ( Pool2 )
-        {
-          memset(BackTrace, 0, sizeof(BackTrace));
-          RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-          if ( v17 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
+          v8 = 0LL;
+LABEL_10:
+          if ( (v4 & 1) != 0 )
           {
-            if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                    v6,
-                                    Pool2,
-                                    BackTrace) )
+            if ( !v8 )
+              return v8;
+            memset(v8, 0, v5);
+          }
+          if ( v8 )
+          {
+            *((_DWORD *)v8 + 4) = 0;
+            v9 = (struct _ERESOURCE *)MultiUserEngAllocListLock;
+            if ( MultiUserEngAllocListLock )
             {
-              Pool2 += 16LL;
-              goto LABEL_7;
+              PsEnterPriorityRegion(*(_QWORD *)&fl);
+              ExEnterCriticalRegionAndAcquireResourceExclusive(v9);
             }
+            v10 = (_QWORD *)qword_1C0255310;
+            if ( *(struct _LIST_ENTRY **)qword_1C0255310 != &MultiUserGreEngAllocList )
+              __fastfail(3u);
+            *v8 = &MultiUserGreEngAllocList;
+            v8[1] = v10;
+            *v10 = v8;
+            qword_1C0255310 = (__int64)v8;
+            if ( MultiUserEngAllocListLock )
+            {
+              if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
+                McTemplateK0pz_EtwWriteTransfer(
+                  (unsigned int)&MultiUserGreEngAllocList,
+                  (unsigned int)&LockRelease,
+                  ulTag,
+                  (_DWORD)MultiUserEngAllocListLock,
+                  (__int64)L"MultiUserEngAllocListLock");
+              if ( MultiUserEngAllocListLock )
+              {
+                ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)MultiUserEngAllocListLock);
+                PsLeavePriorityRegion();
+              }
+            }
+            v8 += 4;
           }
-          else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                       v6,
-                                       Pool2,
-                                       BackTrace) )
-          {
-            goto LABEL_7;
-          }
-          ExFreePoolWithTag((PVOID)Pool2, 0);
+          return v8;
         }
-        Pool2 = 0LL;
-        goto LABEL_7;
+        v7 = qword_1C0257D18(33LL, v5, ulTag);
       }
+      v8 = (_QWORD *)v7;
+      goto LABEL_10;
     }
-LABEL_5:
-    v7 = ExAllocatePool2(262LL, (unsigned int)v4);
   }
-  Pool2 = v7;
-LABEL_7:
-  v11 = v3 & 1;
-  if ( Pool2 )
-  {
-    if ( v11 )
-      memset((void *)Pool2, 0, v5);
-    *(_DWORD *)(Pool2 + 16) = 0;
-    v12 = (struct _ERESOURCE *)MultiUserEngAllocListLock;
-    if ( MultiUserEngAllocListLock )
-    {
-      PsEnterPriorityRegion(v8);
-      ExEnterCriticalRegionAndAcquireResourceExclusive(v12);
-    }
-    v13 = (__int64 *)qword_1C029A000;
-    if ( *(struct _LIST_ENTRY **)qword_1C029A000 != &MultiUserGreEngAllocList )
-      __fastfail(3u);
-    *(_QWORD *)Pool2 = &MultiUserGreEngAllocList;
-    *(_QWORD *)(Pool2 + 8) = v13;
-    *v13 = Pool2;
-    qword_1C029A000 = Pool2;
-    if ( MultiUserEngAllocListLock )
-    {
-      if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-        McTemplateK0pz_EtwWriteTransfer(
-          (unsigned int)&MultiUserGreEngAllocList,
-          (unsigned int)&LockRelease,
-          v9,
-          (_DWORD)MultiUserEngAllocListLock,
-          (__int64)L"MultiUserEngAllocListLock");
-      if ( MultiUserEngAllocListLock )
-      {
-        ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)MultiUserEngAllocListLock);
-        PsLeavePriorityRegion(v14);
-      }
-    }
-    Pool2 += 32LL;
-  }
-  return (PVOID)Pool2;
+  return 0LL;
 }

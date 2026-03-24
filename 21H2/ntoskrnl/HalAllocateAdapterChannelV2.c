@@ -1,15 +1,15 @@
 /*
- * XREFs of HalAllocateAdapterChannelV2 @ 0x140457ED8
+ * XREFs of HalAllocateAdapterChannelV2 @ 0x1404CC6E4
  * Callers:
- *     HalAllocateAdapterChannel @ 0x140456840 (HalAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
  * Callees:
- *     KeInsertDeviceQueue @ 0x140257A00 (KeInsertDeviceQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IoFreeAdapterChannel @ 0x140456A00 (IoFreeAdapterChannel.c)
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpQueueMapBufferWorker @ 0x14050905C (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x140513AD4 (HalpDmaQueueAdapter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC5E8 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7D94 (HalpDmaQueueAdapter.c)
+ *     KeInsertDeviceQueue @ 0x14051A980 (KeInsertDeviceQueue.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannelV2(
@@ -22,18 +22,20 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
   char v5; // r15
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v12; // al
+  __int64 v12; // r8
+  __int64 v13; // r9
+  unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v14; // r8
-  int v15; // eax
-  bool v16; // zf
+  _DWORD *v16; // r8
+  int v17; // eax
+  bool v18; // zf
   _DMA_OPERATIONS *MapRegisters; // rax
   _DMA_OPERATIONS *DmaOperations; // r8
-  int v20; // eax
-  unsigned __int8 v21; // al
-  struct _KPRCB *v22; // r9
-  _DWORD *v23; // r8
-  int v24; // eax
+  int v22; // eax
+  unsigned __int8 v23; // al
+  struct _KPRCB *v24; // r9
+  _DWORD *v25; // r8
+  int v26; // eax
 
   HIDWORD(DeviceQueueEntry->AllocateCommonBuffer) &= ~4u;
   v4 = 0;
@@ -68,15 +70,15 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
           {
             if ( (KiIrqlFlags & 1) != 0 )
             {
-              v12 = KeGetCurrentIrql();
-              if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+              v14 = KeGetCurrentIrql();
+              if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
-                v14 = CurrentPrcb->SchedulerAssist;
-                v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                v16 = (v15 & v14[5]) == 0;
-                v14[5] &= v15;
-                if ( v16 )
+                v16 = CurrentPrcb->SchedulerAssist;
+                v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                v18 = (v17 & v16[5]) == 0;
+                v16[5] &= v17;
+                if ( v18 )
                   KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
               }
             }
@@ -85,13 +87,13 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
         }
         return 3221225626LL;
       }
-      MapRegisters = (_DMA_OPERATIONS *)HalpDmaAllocateMapRegisters((__int64)DmaAdapter, a3);
+      MapRegisters = (_DMA_OPERATIONS *)HalpDmaAllocateMapRegisters((__int64)DmaAdapter, a3, v12, v13);
       DmaAdapter[14].DmaOperations = MapRegisters;
       if ( !MapRegisters )
       {
-        HalpDmaQueueAdapter(DmaAdapter);
+        HalpDmaQueueAdapter((__int64)DmaAdapter);
         v4 = 1;
-        HalpQueueMapBufferWorker(DmaAdapter, a3);
+        HalpQueueMapBufferWorker((__int64)DmaAdapter, a3);
       }
     }
     else
@@ -105,18 +107,18 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
     {
       DmaOperations = DmaAdapter[14].DmaOperations;
       DmaAdapter[21].DmaOperations = DeviceQueueEntry;
-      v20 = ((__int64 (__fastcall *)(void (__fastcall *)(_DMA_ADAPTER *), void (__fastcall *)(_DMA_ADAPTER *, void *, unsigned int), _DMA_OPERATIONS *, int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *)))a4)(
+      v22 = ((__int64 (__fastcall *)(void (__fastcall *)(_DMA_ADAPTER *), void (__fastcall *)(_DMA_ADAPTER *, void *, unsigned int), _DMA_OPERATIONS *, int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *)))a4)(
               DeviceQueueEntry->FreeAdapterChannel,
               DeviceQueueEntry->FreeMapRegisters,
               DmaOperations,
               DeviceQueueEntry->AllocateAdapterChannel);
-      if ( v20 == 2 )
+      if ( v22 == 2 )
       {
 LABEL_31:
         IoFreeAdapterChannel(DmaAdapter);
         goto LABEL_32;
       }
-      if ( v20 == 3 )
+      if ( v22 == 3 )
       {
         *(_DWORD *)&DmaAdapter[15].Version = 0;
         goto LABEL_31;
@@ -130,16 +132,16 @@ LABEL_32:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v21 = KeGetCurrentIrql();
-        if ( v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        v23 = KeGetCurrentIrql();
+        if ( v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
         {
-          v22 = KeGetCurrentPrcb();
-          v23 = v22->SchedulerAssist;
-          v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v16 = (v24 & v23[5]) == 0;
-          v23[5] &= v24;
-          if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)v22);
+          v24 = KeGetCurrentPrcb();
+          v25 = v24->SchedulerAssist;
+          v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v18 = (v26 & v25[5]) == 0;
+          v25[5] &= v26;
+          if ( v18 )
+            KiRemoveSystemWorkPriorityKick((__int64)v24);
         }
       }
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180254AB8
+ * XREFs of ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180204218
  * Callers:
- *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x180254B6C (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
+ *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x1802042CC (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
  * Callees:
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180264F84 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180214050 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
  */
 
 void __fastcall CScrollAnimation::UpdateChainingDirection(CScrollAnimation *this, float a2)
@@ -17,22 +17,22 @@ void __fastcall CScrollAnimation::UpdateChainingDirection(CScrollAnimation *this
   struct CChainingHelper *ActiveChainingHelper; // rax
   __int64 v10; // rdx
 
-  v2 = *((_BYTE *)this + 452);
+  v2 = *((_BYTE *)this + 428);
   if ( (v2 & 1) != 0 )
   {
-    *(float *)&v4 = a2 - *((float *)this + 110);
+    *(float *)&v4 = a2 - *((float *)this + 104);
     v5 = 0LL;
     v6 = (float)(int)((__PAIR64__(*(float *)&v4 > 0.0, v4) - COERCE_UNSIGNED_INT(0.0)) >> 32);
-    *((float *)this + 112) = v6;
+    *((float *)this + 106) = v6;
     v7 = (v6 == 0.0) | v2 & 0xFE;
-    *((_BYTE *)this + 452) = v7;
+    *((_BYTE *)this + 428) = v7;
     if ( (v7 & 1) == 0 )
     {
-      v8 = *((_QWORD *)this + 44);
+      v8 = *((_QWORD *)this + 41);
       if ( v8 )
         v5 = *(_QWORD *)(v8 + 16);
-      ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v5 + 200));
-      v10 = *((int *)this + 85);
+      ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v5 + 192));
+      v10 = *((int *)this + 79);
       *((_BYTE *)ActiveChainingHelper + 12 * v10) |= 4u;
       *((_DWORD *)ActiveChainingHelper + 3 * v10 + 2) = -805306369;
       *((_BYTE *)ActiveChainingHelper + 36) |= 2u;

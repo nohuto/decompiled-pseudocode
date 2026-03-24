@@ -12,10 +12,10 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiReferenceIoPages @ 0x1400E5F8C (MiReferenceIoPages.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x140109A20 (ExAcquireRundownProtectionCacheAware.c)
- *     MiLockNonPagedPoolPte @ 0x140162450 (MiLockNonPagedPoolPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x140109A40 (ExAcquireRundownProtectionCacheAware.c)
+ *     MiLockNonPagedPoolPte @ 0x140162470 (MiLockNonPagedPoolPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiProbeLockFrame(unsigned __int64 *a1)

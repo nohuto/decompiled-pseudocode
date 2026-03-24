@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14037A8BC
+ * XREFs of ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1402D77C0
  * Callers:
- *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14037A5F0 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D74F0 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     IoBuildPartialMdl @ 0x14021A4E0 (IoBuildPartialMdl.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402210C0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
- *     RtlCompressBuffer @ 0x140244760 (RtlCompressBuffer.c)
- *     MmBuildMdlForNonPagedPool @ 0x14027C410 (MmBuildMdlForNonPagedPool.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x14037C6BC (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     IoBuildPartialMdl @ 0x140290D90 (IoBuildPartialMdl.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402A7A34 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x1402D8524 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     RtlCompressBuffer @ 0x1402DAB30 (RtlCompressBuffer.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(
@@ -38,7 +38,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(
   p_MappedSystemVa = &v6[1].MappedSystemVa;
   v12 = (_WORD)v6 + 72;
   if ( RtlCompressBuffer(
-         (USHORT)v6[1].Process[1].UniqueProcessId,
+         (USHORT)v6[1].Process[1].WoW64Process,
          (PUCHAR)a4,
          0x1000u,
          (PUCHAR)&v6[1].MappedSystemVa,
@@ -66,8 +66,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(
   MetroHash64::Hash(
     (const unsigned __int8 *)p_MappedSystemVa,
     FinalCompressedSize[0],
-    (unsigned __int8 *const)&MemoryDescriptorList,
-    0LL);
+    (unsigned __int8 *const)&MemoryDescriptorList);
   *(_QWORD *)&v6[1].Size = MemoryDescriptorList;
   v6->Next = v9;
   *(_DWORD *)(StartVa + 8) |= 0x80000000;

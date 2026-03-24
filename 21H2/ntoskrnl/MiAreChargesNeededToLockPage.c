@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAreChargesNeededToLockPage @ 0x140337EA0
+ * XREFs of MiAreChargesNeededToLockPage @ 0x140323430
  * Callers:
- *     MiAddLockedPageCharge @ 0x140274508 (MiAddLockedPageCharge.c)
- *     MiReferenceDriverPage @ 0x1402DB710 (MiReferenceDriverPage.c)
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiCheckProtoPtePageState @ 0x140337B00 (MiCheckProtoPtePageState.c)
- *     MiMakeFaultPfnActive @ 0x140339240 (MiMakeFaultPfnActive.c)
- *     MiFinishMdlForMappedFileFault @ 0x14033DC30 (MiFinishMdlForMappedFileFault.c)
- *     MiCanBatchHardFaultPages @ 0x140595E34 (MiCanBatchHardFaultPages.c)
+ *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiReferenceDriverPage @ 0x140397B28 (MiReferenceDriverPage.c)
  * Callees:
  *     <none>
  */
@@ -17,16 +17,16 @@
 __int64 __fastcall MiAreChargesNeededToLockPage(__int64 a1)
 {
   __int64 v1; // rax
-  __int16 v2; // dx
-  __int64 v3; // r8
-  __int64 result; // rax
+  __int16 v2; // r8
+  __int64 v3; // rax
+  unsigned int v4; // edx
 
   v1 = *(_QWORD *)(a1 + 40);
-  if ( (v1 & 0x10000000000LL) != 0 || (v1 & 0x20000000000000LL) != 0 )
+  if ( (v1 & 0x1000000000LL) != 0 || (v1 & 0x2000000000000LL) != 0 )
     return 0LL;
   v2 = *(_WORD *)(a1 + 32);
   v3 = *(_QWORD *)(a1 + 24) & 0x3FFFFFFFFFFFFFFFLL;
-  result = 0LL;
+  v4 = 0;
   if ( !v2 )
     return 1LL;
   if ( v2 == 1 )
@@ -34,9 +34,9 @@ __int64 __fastcall MiAreChargesNeededToLockPage(__int64 a1)
     if ( v3 || (*(_BYTE *)(a1 + 34) & 8) != 0 )
       return 1LL;
   }
-  else if ( v2 == 2 && v3 && (*(_BYTE *)(a1 + 34) & 8) != 0 )
+  else if ( v2 == 2 && v3 )
   {
-    return 1LL;
+    return (*(_BYTE *)(a1 + 34) & 8) != 0;
   }
-  return result;
+  return v4;
 }

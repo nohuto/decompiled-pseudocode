@@ -1,2233 +1,2303 @@
 /*
- * XREFs of ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C001520C
+ * XREFs of ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4
  * Callers:
- *     ?SetTransformMatrixHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C0006DBC (-SetTransformMatrixHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEB.c)
- *     ?CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C0014E40 (-CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z.c)
- *     ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0015178 (-CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z.c)
- *     ?EnsureInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_NPEBGPEAPEAVCInteractionMarshaler@2@@Z @ 0x1C0083D68 (-EnsureInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_NPEBGPEAP.c)
- *     ?SetTransformParent@CVisualMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCResourceMarshaler@2@_NPEA_N@Z @ 0x1C00848A8 (-SetTransformParent@CVisualMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCReso.c)
- *     ?SetClipRectangleHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C0084C00 (-SetClipRectangleHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_.c)
- *     ?SetTransformMatrixHelper@CCaptureControllerMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C0236844 (-SetTransformMatrixHelper@CCaptureControllerMarshaler@DirectComposition@@QEAAJPEAVCApplicationCh.c)
+ *     ?SetTransformMatrixHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C0004768 (-SetTransformMatrixHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEB.c)
+ *     ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0028520 (-CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z.c)
+ *     ?SetTransformParent@CVisualMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCResourceMarshaler@2@_NPEA_N@Z @ 0x1C005A0B8 (-SetTransformParent@CVisualMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCReso.c)
+ *     ?CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C005C9EC (-CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z.c)
+ *     ?EnsureInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_NPEBGPEAPEAVCInteractionMarshaler@2@@Z @ 0x1C008322C (-EnsureInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_NPEBGPEAP.c)
+ *     ?SetClipRectangleHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C00A43CC (-SetClipRectangleHelper@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_.c)
+ *     ?SetTransformMatrixHelper@CCaptureControllerMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEBX_KPEA_N@Z @ 0x1C01F5F94 (-SetTransformMatrixHelper@CCaptureControllerMarshaler@DirectComposition@@QEAAJPEAVCApplicationCh.c)
  * Callees:
- *     ??0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00087D8 (--0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CSpriteVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0014F88 (--0CSpriteVisualMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z @ 0x1C0015F8C (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z.c)
- *     ??0CPropertySetMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0016194 (--0CPropertySetMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00161D4 (--0CVisualMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC04 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ??0CInteractionMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0086578 (--0CInteractionMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ?GeneratedCreateResource@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C00A6550 (-GeneratedCreateResource@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
- *     ?AddAnimationTimeListEntry@CApplicationChannel@DirectComposition@@QEAAXPEAVCAnimationTimeList@2@@Z @ 0x1C00AFCD8 (-AddAnimationTimeListEntry@CApplicationChannel@DirectComposition@@QEAAXPEAVCAnimationTimeList@2@.c)
- *     ??0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00B2E80 (--0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CLayerVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00B4B08 (--0CLayerVisualMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ?AcquireShellResourceAccess@CConnection@DirectComposition@@QEAAJXZ @ 0x1C00C2DA4 (-AcquireShellResourceAccess@CConnection@DirectComposition@@QEAAJXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     ??0CCaptureControllerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213B34 (--0CCaptureControllerMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CDropShadowMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213B68 (--0CDropShadowMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CFilterEffectMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0213BA8 (--0CFilterEffectMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z.c)
- *     ??0CGenericMarshaler@DirectComposition@@QEAA@W4ResTypeID@1@@Z @ 0x1C0213BE8 (--0CGenericMarshaler@DirectComposition@@QEAA@W4ResTypeID@1@@Z.c)
- *     ??0CGradientBrushMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0213C20 (--0CGradientBrushMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z.c)
- *     ??0CHolographicInteropTextureMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213C64 (--0CHolographicInteropTextureMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213C98 (--0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213CF0 (--0CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213D2C (--0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CRedirectVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213D94 (--0CRedirectVisualMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CRemoteAppRenderTargetMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213DF4 (--0CRemoteAppRenderTargetMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CScalarMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213E28 (--0CScalarMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CShapeVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213E60 (--0CShapeVisualMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CSpatialRemarshalerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0213EC4 (--0CSpatialRemarshalerMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ??0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C022EC5C (--0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00054D0 (--0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0021BF0 (--0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z.c)
+ *     ??0CVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0024A14 (--0CVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z @ 0x1C002948C (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0029550 (Win32AllocPoolWithQuotaZInit.c)
+ *     ??0CInteractionMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0083FEC (--0CInteractionMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ?AddAnimationTimeListEntry@CApplicationChannel@DirectComposition@@QEAAXPEAVCAnimationTimeList@2@@Z @ 0x1C009644C (-AddAnimationTimeListEntry@CApplicationChannel@DirectComposition@@QEAAXPEAVCAnimationTimeList@2@.c)
+ *     ??0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C009DD84 (--0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ?AcquireShellResourceAccess@CConnection@DirectComposition@@QEAAJXZ @ 0x1C00B4D60 (-AcquireShellResourceAccess@CConnection@DirectComposition@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ??0CCursorVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3DFC (--0CCursorVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3E2C (--0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3E80 (--0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3ED8 (--0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CSceneNodeMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3F18 (--0CSceneNodeMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CTextVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3F58 (--0CTextVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01EF25C (--0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::CreateInternalResource(
         DirectComposition::CApplicationChannel *this,
-        DirectComposition *a2,
+        unsigned int a2,
         struct DirectComposition::CResourceMarshaler **a3)
 {
-  __int64 Pool2; // rbx
-  __int64 v6; // r15
-  DirectComposition::CPropertySetMarshaler *v7; // rax
-  DirectComposition::CProjectedShadowSceneMarshaler *v8; // rax
-  int Resource; // r14d
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  struct DirectComposition::CResourceMarshaler *v12; // r8
-  NSInstrumentation::CLeakTrackingAllocator *v14; // rcx
-  DirectComposition::CSpriteVisualMarshaler *v15; // rax
-  DirectComposition::CVisualMarshaler *v16; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v17; // rcx
-  _DWORD *v18; // rax
-  void **v19; // rax
-  _DWORD *v20; // rax
-  _DWORD *v21; // rax
-  _DWORD *v22; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v23; // rcx
-  _DWORD *v24; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v25; // rcx
-  _DWORD *v26; // rax
-  _DWORD *v27; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v28; // rcx
-  _DWORD *v29; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v30; // rcx
-  _DWORD *v31; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v32; // rcx
-  _DWORD *v33; // rax
-  DirectComposition::CAnimationLoggingManagerMarshaler *v34; // rax
-  _DWORD *v35; // rax
-  DirectComposition::CLayerVisualMarshaler *v36; // rax
-  _DWORD *v37; // rax
-  _DWORD *v38; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v39; // rcx
-  DirectComposition::CInteractionMarshaler *v40; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v41; // rcx
-  void *v42; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v43; // rcx
-  PVOID v44; // rbx
-  _QWORD *v45; // rcx
-  _QWORD *v46; // rax
-  __int64 v47; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v48; // rcx
-  _DWORD *v49; // rax
-  _DWORD *v50; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v51; // rcx
-  _DWORD *v52; // rax
-  _DWORD *v53; // rax
-  _DWORD *v54; // rax
-  _DWORD *v55; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v56; // rcx
-  _DWORD *v57; // rax
-  _DWORD *v58; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v59; // rcx
-  _DWORD *v60; // rax
-  _DWORD *v61; // rax
-  _DWORD *v62; // rax
-  DirectComposition::CProjectedShadowSceneMarshaler *v63; // rax
-  _DWORD *v64; // rax
-  _DWORD *v65; // rax
-  _DWORD *v66; // rax
-  _DWORD *v67; // rax
-  _DWORD *v68; // rax
-  void *v69; // rax
-  void **v70; // rcx
-  __int64 v71; // rax
-  void *v72; // rax
-  void *v73; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v74; // rcx
-  _DWORD *v75; // rax
-  DirectComposition::CCaptureControllerMarshaler *v76; // rax
-  PVOID v77; // rdi
-  __int64 v78; // rax
-  _DWORD *v79; // rax
-  PVOID v80; // rdi
+  __int64 v5; // rsi
+  unsigned int v6; // edx
+  unsigned int v7; // edx
+  DirectComposition::CVisualMarshaler *v8; // rax
+  DirectComposition::CProjectedShadowSceneMarshaler *v9; // rax
+  _DWORD *v10; // rbx
+  unsigned int v11; // edx
+  unsigned int v12; // edx
+  unsigned int v13; // edx
+  unsigned int v14; // edx
+  unsigned int v15; // edx
+  unsigned int v16; // edx
+  __int64 v17; // rax
+  void **v18; // rax
+  unsigned int v19; // edx
+  unsigned int v20; // edx
+  unsigned int v21; // edx
+  unsigned int v22; // edx
+  unsigned int v23; // edx
+  unsigned int v24; // edx
+  __int64 v25; // rax
+  int inserted; // edi
+  __int64 v27; // rax
+  _DWORD *v28; // rcx
+  unsigned int v30; // edx
+  unsigned int v31; // edx
+  unsigned int v32; // edx
+  unsigned int v33; // edx
+  __int64 v34; // rax
+  unsigned int v35; // edx
+  unsigned int v36; // edx
+  unsigned int v37; // edx
+  unsigned int v38; // edx
+  unsigned int v39; // edx
+  unsigned int v40; // edx
+  unsigned int v41; // edx
+  __int64 v42; // rax
+  unsigned int v43; // edx
+  __int64 v44; // rax
+  __int64 v45; // rax
+  unsigned int v46; // edx
+  unsigned int v47; // edx
+  unsigned int v48; // edx
+  unsigned int v49; // edx
+  unsigned int v50; // edx
+  unsigned int v51; // edx
+  unsigned int v52; // edx
+  __int64 v53; // rax
+  unsigned int v54; // edx
+  __int64 v55; // rax
+  __int64 v56; // rax
+  __int64 v57; // rax
+  __int64 v58; // rax
+  unsigned int v59; // edx
+  unsigned int v60; // edx
+  unsigned int v61; // edx
+  DirectComposition::CAnimationLoggingManagerMarshaler *v62; // rax
+  unsigned int v63; // edx
+  unsigned int v64; // edx
+  unsigned int v65; // edx
+  __int64 v66; // rax
+  unsigned int v67; // edx
+  unsigned int v68; // edx
+  unsigned int v69; // edx
+  unsigned int v70; // edx
+  unsigned int v71; // edx
+  unsigned int v72; // edx
+  unsigned int v73; // edx
+  __int64 v74; // rax
+  unsigned int v75; // edx
+  unsigned int v76; // edx
+  unsigned int v77; // edx
+  unsigned int v78; // edx
+  unsigned int v79; // edx
+  unsigned int v80; // edx
   __int64 v81; // rax
-  _DWORD *v82; // rax
-  void *v83; // rax
-  _DWORD *v84; // rax
-  _DWORD *v85; // rax
-  _DWORD *v86; // rax
-  _DWORD *v87; // rax
-  _DWORD *v88; // rax
-  _DWORD *v89; // rax
-  _DWORD *v90; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v91; // rcx
-  _DWORD *v92; // rax
-  _DWORD *v93; // rax
-  _DWORD *v94; // rax
-  void *v95; // rax
-  _DWORD *v96; // rax
-  _DWORD *v97; // rax
-  DirectComposition::CDropShadowMarshaler *v98; // rax
-  PVOID v99; // rdi
+  __int64 v82; // rax
+  DirectComposition::CInteractionMarshaler *v83; // rax
+  __int64 v84; // rax
+  _QWORD *v85; // rcx
+  __int64 v86; // rdx
+  _QWORD *v87; // rax
+  __int64 v88; // rax
+  __int64 v89; // rax
+  unsigned int v90; // edx
+  unsigned int v91; // edx
+  unsigned int v92; // edx
+  unsigned int v93; // edx
+  __int64 v94; // rax
+  __int64 v95; // rax
+  unsigned int v96; // edx
+  unsigned int v97; // edx
+  __int64 v98; // rax
+  _DWORD *v99; // rax
   __int64 v100; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v101; // rcx
-  _DWORD *v102; // rax
-  _DWORD *v103; // rax
-  _DWORD *v104; // rax
-  _DWORD *v105; // rax
-  _DWORD *v106; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v107; // rcx
-  DirectComposition::CHolographicViewerMarshaler *v108; // rax
-  DirectComposition::CHolographicInteropTextureMarshaler *v109; // rax
-  _DWORD *v110; // rax
-  _DWORD *v111; // rax
-  _DWORD *v112; // rax
-  _DWORD *v113; // rax
-  _DWORD *v114; // rax
-  _DWORD *v115; // rax
-  DirectComposition::CInteractionTrackerMarshaler *v116; // rax
-  DirectComposition::CInteractionTrackerBindingManagerMarshaler *v117; // rax
-  _DWORD *v118; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v119; // rcx
-  void *v120; // rax
-  _DWORD *v121; // rax
-  void *v122; // rax
-  void *v123; // rax
-  _DWORD *v124; // rax
-  DirectComposition::CNaturalAnimationMarshaler *v125; // rax
-  _DWORD *v126; // rax
-  _DWORD *v127; // rax
-  void *v128; // rax
-  _DWORD *v129; // rax
-  DirectComposition::CRedirectVisualMarshaler *v130; // rax
-  DirectComposition::CScalarMarshaler *v131; // rax
-  __int64 v132; // rax
-  _DWORD *v133; // rax
-  DirectComposition::CRemoteAppRenderTargetMarshaler *v134; // rax
-  _DWORD *QuotaZInit; // rax
-  void *v136; // rax
-  DirectComposition::CShapeVisualMarshaler *v137; // rax
-  _DWORD *v138; // rax
-  _DWORD *v139; // rax
-  _DWORD *v140; // rax
-  _DWORD *v141; // rax
-  DirectComposition::CSpatialRemarshalerMarshaler *v142; // rax
-  void *v143; // rax
-  _DWORD *v144; // rax
-  _DWORD *v145; // rax
-  _DWORD *v146; // rax
-  _DWORD *v147; // rax
-  _DWORD *v148; // rax
-  _DWORD *v149; // rax
-  PVOID BackTrace[20]; // [rsp+28h] [rbp-69h] BYREF
-  struct DirectComposition::CResourceMarshaler *v151; // [rsp+110h] [rbp+7Fh] BYREF
+  unsigned int v101; // edx
+  unsigned int v102; // edx
+  __int64 v103; // rax
+  unsigned int v104; // edx
+  unsigned int v105; // edx
+  unsigned int v106; // edx
+  __int64 v107; // rax
+  __int64 v108; // rax
+  __int64 v109; // rax
+  unsigned int v110; // edx
+  unsigned int v111; // edx
+  unsigned int v112; // edx
+  unsigned int v113; // edx
+  unsigned int v114; // edx
+  unsigned int v115; // edx
+  unsigned int v116; // edx
+  __int64 v117; // rax
+  unsigned int v118; // edx
+  unsigned int v119; // edx
+  unsigned int v120; // edx
+  unsigned int v121; // edx
+  unsigned int v122; // edx
+  unsigned int v123; // edx
+  __int64 v124; // rax
+  __int64 v125; // rax
+  __int64 v126; // rax
+  unsigned int v127; // edx
+  unsigned int v128; // edx
+  unsigned int v129; // edx
+  unsigned int v130; // edx
+  unsigned int v131; // edx
+  unsigned int v132; // edx
+  unsigned int v133; // edx
+  __int64 v134; // rax
+  __int64 v135; // rax
+  __int64 v136; // rax
+  void **v137; // rax
+  __int64 v138; // rax
+  __int64 v139; // rax
+  unsigned int v140; // edx
+  __int64 v141; // rax
+  DirectComposition::CProjectedShadowSceneMarshaler *v142; // rax
+  __int64 v143; // rax
+  __int64 v144; // rax
+  __int64 v145; // rax
+  unsigned int v146; // edx
+  __int64 v147; // rax
+  __int64 v148; // rax
+  __int64 v149; // rax
+  __int64 v150; // rax
+  __int64 v151; // rax
+  __int64 v152; // rax
+  __int64 v153; // rax
+  __int64 v154; // rax
+  __int64 v155; // rax
+  __int64 v156; // rax
+  __int64 v157; // rax
+  __int64 v158; // rax
+  __int64 v159; // rax
+  __int64 v160; // rax
+  __int64 v161; // rax
+  __int64 v162; // rax
+  unsigned int v163; // edx
+  unsigned int v164; // edx
+  unsigned int v165; // edx
+  unsigned int v166; // edx
+  unsigned int v167; // edx
+  unsigned int v168; // edx
+  __int64 v169; // rax
+  DirectComposition::CCursorVisualMarshaler *v170; // rax
+  __int64 v171; // rax
+  _DWORD *v172; // rax
+  __int64 v173; // rax
+  __int64 v174; // rax
+  __int64 v175; // rax
+  __int64 v176; // rax
+  unsigned int v177; // edx
+  __int64 v178; // rax
+  __int64 v179; // rax
+  __int64 v180; // rax
+  __int64 v181; // rax
+  DirectComposition::CHolographicViewerMarshaler *v182; // rax
+  __int64 v183; // rax
+  void **v184; // rax
+  __int64 v185; // rax
+  __int64 v186; // rax
+  __int64 v187; // rax
+  __int64 v188; // rax
+  __int64 v189; // rax
+  __int64 v190; // rax
+  __int64 v191; // rax
+  DirectComposition::CInteractionTrackerMarshaler *v192; // rax
+  __int64 v193; // rax
+  __int64 v194; // rax
+  __int64 v195; // rax
+  unsigned int v196; // edx
+  unsigned int v197; // edx
+  unsigned int v198; // edx
+  unsigned int v199; // edx
+  unsigned int v200; // edx
+  __int64 v201; // rax
+  __int64 v202; // rax
+  __int64 v203; // rax
+  __int64 v204; // rax
+  __int64 v205; // rax
+  __int64 v206; // rax
+  unsigned int v207; // edx
+  unsigned int v208; // edx
+  __int64 v209; // rax
+  __int64 v210; // rax
+  __int64 v211; // rax
+  DirectComposition::CNaturalAnimationMarshaler *v212; // rax
+  DirectComposition::CParticleEmitterVisualMarshaler *v213; // rax
+  __int64 v214; // rax
+  __int64 v215; // rax
+  __int64 v216; // rax
+  __int64 v217; // rax
+  __int64 v218; // rax
+  __int64 v219; // rax
+  __int64 v220; // rax
+  __int64 v221; // rax
+  __int64 v222; // rax
+  void **v223; // rcx
+  __int64 v224; // rax
+  __int64 v225; // rax
+  __int64 v226; // rax
+  __int64 v227; // rcx
+  __int64 v228; // rax
+  __int64 v229; // rax
+  __int64 v230; // rax
+  __int64 v231; // rax
+  __int64 v232; // rax
+  unsigned int v233; // edx
+  unsigned int v234; // edx
+  unsigned int v235; // edx
+  unsigned int v236; // edx
+  unsigned int v237; // edx
+  unsigned int v238; // edx
+  unsigned int v239; // edx
+  __int64 v240; // rax
+  __int64 v241; // rax
+  __int64 v242; // rax
+  DirectComposition::CSceneNodeMarshaler *v243; // rax
+  __int64 v244; // rax
+  __int64 v245; // rax
+  __int64 v246; // rax
+  __int64 v247; // rax
+  __int64 v248; // rax
+  __int64 v249; // rax
+  __int64 v250; // rax
+  __int64 v251; // rax
+  __int64 v252; // rax
+  __int64 v253; // rax
+  _DWORD *v254; // rax
+  unsigned int v255; // edx
+  __int64 v256; // rax
+  __int64 v257; // rax
+  __int64 v258; // rax
+  DirectComposition::CTextVisualMarshaler *v259; // rax
+  __int64 v260; // rax
+  __int64 v261; // rax
+  __int64 v262; // rax
+  __int64 v263; // rax
+  __int64 v264; // rax
+  __int64 v265; // rax
+  __int64 v266; // rax
 
-  Pool2 = 0LL;
-  v151 = 0LL;
-  v6 = 0LL;
-  if ( (unsigned int)a2 <= 0x9D )
+  v5 = 0LL;
+  if ( a2 <= 0x68 )
   {
-    if ( (_DWORD)a2 == 157 )
+    if ( a2 == 104 )
     {
-      QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                     (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                     2uLL,
-                     0x60uLL,
-                     0x687A4344u);
-      Pool2 = (__int64)QuotaZInit;
-      if ( QuotaZInit )
-      {
-        QuotaZInit[8] = 0;
-        *((_QWORD *)QuotaZInit + 7) = 0LL;
-        *((_QWORD *)QuotaZInit + 3) = 1LL;
-        QuotaZInit[12] = 156;
-        v19 = &DirectComposition::CSceneMeshRendererComponentMarshaler::`vftable';
-        goto LABEL_54;
-      }
-      goto LABEL_200;
+      v89 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+      v10 = (_DWORD *)v89;
+      if ( !v89 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v89 + 20) = 1LL;
+      *(_QWORD *)(v89 + 48) = 0LL;
+      *(_DWORD *)(v89 + 40) = 103;
+      v18 = &DirectComposition::CManipulationTransformMarshaler::`vftable';
+      goto LABEL_36;
     }
-    if ( (unsigned int)a2 > 0x49 )
+    if ( a2 > 0x32 )
     {
-      if ( (unsigned int)a2 <= 0x67 )
+      if ( a2 > 0x50 )
       {
-        if ( (_DWORD)a2 == 103 )
+        if ( a2 > 0x5C )
         {
-          v124 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                   (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                   2uLL,
-                   0x128uLL,
-                   0x696D4344u);
-          Pool2 = (__int64)v124;
-          if ( v124 )
+          v140 = a2 - 94;
+          if ( !v140 )
           {
-            v124[8] = 0;
-            *((_BYTE *)v124 + 116) &= 0xF8u;
-            *((_QWORD *)v124 + 7) = 0LL;
-            *((_QWORD *)v124 + 3) = 1LL;
-            v124[12] = 102;
-            *(_QWORD *)v124 = &DirectComposition::CManipulationMarshaler::`vftable';
-            *((_QWORD *)v124 + 15) = 0LL;
-            v124[32] = 0;
-            *((_QWORD *)v124 + 17) = 0LL;
-            *((_QWORD *)v124 + 18) = 0LL;
-            goto LABEL_13;
+            v141 = Win32AllocPoolWithQuotaZInit(0x90uLL);
+            v10 = (_DWORD *)v141;
+            if ( !v141 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v141 + 20) = 1LL;
+            *(_QWORD *)(v141 + 48) = 0LL;
+            *(_DWORD *)(v141 + 40) = 205;
+            v18 = &DirectComposition::CLegacyRenderTargetMarshaler::`vftable';
+            goto LABEL_36;
           }
-          goto LABEL_200;
+          v196 = v140 - 1;
+          if ( !v196 )
+          {
+            v206 = Win32AllocPoolWithQuotaZInit(0x90uLL);
+            v10 = (_DWORD *)v206;
+            if ( !v206 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v206 + 20) = 1LL;
+            *(_QWORD *)(v206 + 48) = 0LL;
+            *(_DWORD *)(v206 + 40) = 205;
+            v18 = &DirectComposition::CLegacyStereoRenderTargetMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v197 = v196 - 2;
+          if ( !v197 )
+          {
+            v205 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+            v10 = (_DWORD *)v205;
+            if ( !v205 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v205 + 20) = 1LL;
+            *(_QWORD *)(v205 + 48) = 0LL;
+            *(_DWORD *)(v205 + 40) = 96;
+            *(_QWORD *)(v205 + 72) = 2LL;
+            *(_DWORD *)(v205 + 80) = 1;
+            *(_QWORD *)(v205 + 88) = 0LL;
+            *(_QWORD *)(v205 + 96) = 0LL;
+            *(_QWORD *)(v205 + 104) = 0LL;
+            v18 = &DirectComposition::CLinearGradientBrushMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v198 = v197 - 2;
+          if ( !v198 )
+          {
+            v204 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+            v10 = (_DWORD *)v204;
+            if ( !v204 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v204 + 20) = 1LL;
+            *(_QWORD *)(v204 + 48) = 0LL;
+            *(_DWORD *)(v204 + 40) = 98;
+            *(_DWORD *)(v204 + 72) = 0;
+            *(_QWORD *)(v204 + 80) = 0LL;
+            *(_QWORD *)(v204 + 88) = 0LL;
+            *(_QWORD *)(v204 + 96) = 0LL;
+            *(_DWORD *)(v204 + 104) = 0;
+            v18 = &DirectComposition::CLinearTransferEffectMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v199 = v198 - 1;
+          if ( !v199 )
+          {
+            v203 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+            v10 = (_DWORD *)v203;
+            if ( !v203 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v203 + 20) = 1LL;
+            *(_QWORD *)(v203 + 48) = 0LL;
+            *(_DWORD *)(v203 + 40) = 99;
+            v18 = &DirectComposition::CLineGeometryMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v200 = v199 - 1;
+          if ( v200 )
+          {
+            if ( v200 != 2 )
+              return (unsigned int)-1073741811;
+            v201 = Win32AllocPoolWithQuotaZInit(0x120uLL);
+            v10 = (_DWORD *)v201;
+            if ( !v201 )
+              return (unsigned int)-1073741801;
+            *(_BYTE *)(v201 + 108) &= 0xF8u;
+            *(_QWORD *)(v201 + 20) = 1LL;
+            *(_QWORD *)(v201 + 48) = 0LL;
+            *(_DWORD *)(v201 + 40) = 102;
+            *(_QWORD *)v201 = &DirectComposition::CManipulationMarshaler::`vftable';
+            *(_QWORD *)(v201 + 112) = 0LL;
+            *(_DWORD *)(v201 + 120) = 0;
+            *(_QWORD *)(v201 + 128) = 0LL;
+            *(_QWORD *)(v201 + 136) = 0LL;
+          }
+          else
+          {
+            v202 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+            v10 = (_DWORD *)v202;
+            if ( !v202 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v202 + 20) = 1LL;
+            *(_QWORD *)(v202 + 48) = 0LL;
+            *(_DWORD *)(v202 + 40) = 205;
+            *(_QWORD *)v202 = &DirectComposition::CGenericMarshaler::`vftable';
+            *(_DWORD *)(v202 + 56) = 101;
+            *(_QWORD *)(v202 + 64) = 0LL;
+            *(_QWORD *)(v202 + 72) = 0LL;
+            *(_QWORD *)(v202 + 80) = 0LL;
+          }
         }
-        if ( (unsigned int)a2 <= 0x58 )
+        else
         {
-          if ( (_DWORD)a2 == 88 )
+          if ( a2 == 92 )
           {
-            v116 = (DirectComposition::CInteractionTrackerMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                        (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                                                                        2uLL,
-                                                                        0x1D8uLL,
-                                                                        0x72694344u);
-            if ( !v116 )
-              goto LABEL_13;
-            v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CInteractionTrackerMarshaler::CInteractionTrackerMarshaler(v116);
-            goto LABEL_12;
+            v139 = Win32AllocPoolWithQuotaZInit(0x40uLL);
+            v10 = (_DWORD *)v139;
+            if ( !v139 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v139 + 20) = 1LL;
+            *(_QWORD *)(v139 + 48) = 0LL;
+            *(_DWORD *)(v139 + 40) = 91;
+            v18 = &DirectComposition::CLegacyAnimationTriggerMarshaler::`vftable';
+            goto LABEL_36;
           }
-          if ( (unsigned int)a2 <= 0x50 )
+          v46 = a2 - 81;
+          if ( !v46 )
           {
-            switch ( (_DWORD)a2 )
+            v195 = Win32AllocPoolWithQuotaZInit(0x40uLL);
+            v10 = (_DWORD *)v195;
+            if ( !v195 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v195 + 20) = 1LL;
+            *(_QWORD *)(v195 + 48) = 0LL;
+            *(_DWORD *)(v195 + 40) = 80;
+            v18 = &DirectComposition::CHwndBitmapMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v47 = v46 - 4;
+          if ( !v47 )
+          {
+            v194 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+            v10 = (_DWORD *)v194;
+            if ( !v194 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v194 + 20) = 1LL;
+            *(_QWORD *)(v194 + 48) = 0LL;
+            *(_DWORD *)(v194 + 40) = 84;
+            v18 = &DirectComposition::CInjectionAnimationMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v48 = v47 - 1;
+          if ( v48 )
+          {
+            v49 = v48 - 1;
+            if ( !v49 )
             {
-              case 'P':
-                v61 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                        (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                        2uLL,
-                        0x40uLL,
-                        0x70684344u);
-                Pool2 = (__int64)v61;
-                if ( v61 )
-                {
-                  v61[8] = 0;
-                  *((_QWORD *)v61 + 7) = 0LL;
-                  *((_QWORD *)v61 + 3) = 1LL;
-                  v61[12] = 79;
-                  v19 = &DirectComposition::CHoverPointerSourceMarshaler::`vftable';
-                  goto LABEL_54;
-                }
-                goto LABEL_200;
-              case 'J':
-                v112 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                         (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 74),
-                         2uLL,
-                         0x70uLL,
-                         0x64684344u);
-                Pool2 = (__int64)v112;
-                if ( v112 )
-                {
-                  v112[8] = 0;
-                  *((_QWORD *)v112 + 7) = 0LL;
-                  *((_QWORD *)v112 + 3) = 1LL;
-                  v112[12] = 73;
-                  v19 = &DirectComposition::CHolographicDisplayMarshaler::`vftable';
-                  goto LABEL_54;
-                }
-                goto LABEL_200;
-              case 'K':
-                v111 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                         (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 75),
-                         2uLL,
-                         0x50uLL,
-                         0x6D684344u);
-                Pool2 = (__int64)v111;
-                if ( v111 )
-                {
-                  v111[8] = 0;
-                  *((_QWORD *)v111 + 7) = 0LL;
-                  *((_QWORD *)v111 + 3) = 1LL;
-                  v111[12] = 74;
-                  v19 = &DirectComposition::CHolographicExclusiveModeMarshaler::`vftable';
-                  goto LABEL_54;
-                }
-                goto LABEL_200;
-              case 'L':
-                v110 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                         (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 76),
-                         2uLL,
-                         0x70uLL,
-                         0x65684344u);
-                Pool2 = (__int64)v110;
-                if ( v110 )
-                {
-                  v110[4] |= 0x20u;
-                  v110[8] = 0;
-                  *((_QWORD *)v110 + 7) = 0LL;
-                  *((_QWORD *)v110 + 3) = 1LL;
-                  v110[12] = 75;
-                  *(_QWORD *)v110 = &DirectComposition::CHolographicExclusiveViewMarshaler::`vftable';
-                  goto LABEL_13;
-                }
-                goto LABEL_200;
+              v83 = (DirectComposition::CInteractionMarshaler *)Win32AllocPoolWithQuotaZInit(0x150uLL);
+              if ( !v83 )
+                return (unsigned int)-1073741801;
+              v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CInteractionMarshaler::CInteractionMarshaler(v83);
+              goto LABEL_9;
             }
-            v107 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 78);
-            if ( (_DWORD)a2 == 78 )
+            v50 = v49 - 1;
+            if ( !v50 )
             {
-              v109 = (DirectComposition::CHolographicInteropTextureMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                                 v107,
-                                                                                 2uLL,
-                                                                                 0x68uLL,
-                                                                                 0x69684344u);
-              if ( !v109 )
-                goto LABEL_13;
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CHolographicInteropTextureMarshaler::CHolographicInteropTextureMarshaler(v109);
-              goto LABEL_12;
+              v192 = (DirectComposition::CInteractionTrackerMarshaler *)Win32AllocPoolWithQuotaZInit(0x1D0uLL);
+              if ( !v192 )
+                return (unsigned int)-1073741801;
+              v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CInteractionTrackerMarshaler::CInteractionTrackerMarshaler(v192);
+              goto LABEL_9;
             }
-            if ( (_DWORD)a2 == 79 )
+            v51 = v50 - 1;
+            if ( v51 )
             {
-              v108 = (DirectComposition::CHolographicViewerMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                         v107,
-                                                                         2uLL,
-                                                                         0x90uLL,
-                                                                         0x78684344u);
-              if ( !v108 )
-                goto LABEL_13;
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CHolographicViewerMarshaler::CHolographicViewerMarshaler(v108);
-              goto LABEL_12;
+              v52 = v51 - 1;
+              if ( v52 )
+              {
+                if ( v52 != 1 )
+                  return (unsigned int)-1073741811;
+                v82 = Win32AllocPoolWithQuotaZInit(0x188uLL);
+                v10 = (_DWORD *)v82;
+                if ( !v82 )
+                  return (unsigned int)-1073741801;
+                DirectComposition::CVisualMarshaler::CVisualMarshaler(v82, 90);
+                v10[97] = 0;
+                *(_QWORD *)v10 = &DirectComposition::CLayerVisualMarshaler::`vftable';
+              }
+              else
+              {
+                v53 = Win32AllocPoolWithQuotaZInit(0x140uLL);
+                v10 = (_DWORD *)v53;
+                if ( !v53 )
+                  return (unsigned int)-1073741801;
+                *(_QWORD *)(v53 + 20) = 1LL;
+                *(_QWORD *)(v53 + 48) = 0LL;
+                *(_DWORD *)(v53 + 40) = 89;
+                *(_QWORD *)v53 = &DirectComposition::CKeyframeAnimationMarshaler::`vftable';
+                *(_DWORD *)(v53 + 228) = 1065353216;
+                *(_DWORD *)(v53 + 312) = 1065353216;
+              }
+            }
+            else
+            {
+              v191 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+              v10 = (_DWORD *)v191;
+              if ( !v191 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v191 + 20) = 1LL;
+              *(_QWORD *)(v191 + 48) = 0LL;
+              *(_DWORD *)(v191 + 40) = 88;
+              *(_QWORD *)v191 = &DirectComposition::CInteractionTrackerBindingManagerMarshaler::`vftable';
+              *(_BYTE *)(v191 + 80) = 1;
+              *(_QWORD *)(v191 + 104) = 32LL;
             }
           }
           else
           {
-            if ( (_DWORD)a2 == 81 )
-            {
-              v115 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                       (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 81),
-                       2uLL,
-                       0x80uLL,
-                       0x65664344u);
-              Pool2 = (__int64)v115;
-              if ( v115 )
-              {
-                v115[8] = 0;
-                *((_QWORD *)v115 + 7) = 0LL;
-                *((_QWORD *)v115 + 3) = 1LL;
-                v115[12] = 80;
-                v115[20] = 0;
-                *((_QWORD *)v115 + 11) = 0LL;
-                *((_QWORD *)v115 + 12) = 0LL;
-                *((_QWORD *)v115 + 13) = 0LL;
-                v115[28] = 0;
-                v19 = &DirectComposition::CHueRotationEffectMarshaler::`vftable';
-                goto LABEL_54;
-              }
-              goto LABEL_200;
-            }
-            if ( (_DWORD)a2 == 85 )
-            {
-              v114 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                       (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 85),
-                       2uLL,
-                       0xA0uLL,
-                       0x61694344u);
-              Pool2 = (__int64)v114;
-              if ( v114 )
-              {
-                v114[8] = 0;
-                *((_QWORD *)v114 + 7) = 0LL;
-                *((_QWORD *)v114 + 3) = 1LL;
-                v114[12] = 84;
-                v19 = &DirectComposition::CInjectionAnimationMarshaler::`vftable';
-                goto LABEL_54;
-              }
-              goto LABEL_200;
-            }
-            v39 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 86);
-            if ( (_DWORD)a2 == 86 )
-            {
-              v113 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v39, 2uLL, 0xA8uLL, 0x6B694344u);
-              Pool2 = (__int64)v113;
-              if ( v113 )
-              {
-                v113[8] = 0;
-                *((_QWORD *)v113 + 7) = 0LL;
-                *((_QWORD *)v113 + 3) = 1LL;
-                v113[12] = 85;
-                *(_QWORD *)v113 = &DirectComposition::CInkMarshaler::`vftable';
-                *((_BYTE *)v113 + 128) = 1;
-                *((_QWORD *)v113 + 19) = 36LL;
-                goto LABEL_13;
-              }
-              goto LABEL_200;
-            }
-            if ( (_DWORD)a2 == 87 )
-            {
-              v40 = (DirectComposition::CInteractionMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                  v39,
-                                                                  2uLL,
-                                                                  0x158uLL,
-                                                                  0x6F694344u);
-              if ( !v40 )
-                goto LABEL_13;
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CInteractionMarshaler::CInteractionMarshaler(v40);
-              goto LABEL_12;
-            }
-          }
-        }
-        else if ( (unsigned int)a2 > 0x5F )
-        {
-          if ( (_DWORD)a2 == 97 )
-          {
-            v123 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                     (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 97),
-                     2uLL,
-                     0x88uLL,
-                     0x6C6A4344u);
-            Pool2 = (__int64)v123;
-            if ( !v123 )
-              goto LABEL_200;
-            DirectComposition::CGradientBrushMarshaler::CGradientBrushMarshaler(v123, 96LL);
-            v70 = &DirectComposition::CLinearGradientBrushMarshaler::`vftable';
-            goto LABEL_203;
-          }
-          if ( (_DWORD)a2 == 99 )
-          {
-            v122 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                     (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 99),
-                     2uLL,
-                     0xA0uLL,
-                     0x65664344u);
-            Pool2 = (__int64)v122;
-            if ( !v122 )
-              goto LABEL_200;
-            DirectComposition::CFilterEffectMarshaler::CFilterEffectMarshaler(v122, 98LL);
-            v70 = &DirectComposition::CLinearTransferEffectMarshaler::`vftable';
-            goto LABEL_203;
-          }
-          v119 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 100);
-          if ( (_DWORD)a2 == 100 )
-          {
-            v121 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v119, 2uLL, 0x78uLL, 0x676C4344u);
-            Pool2 = (__int64)v121;
-            if ( v121 )
-            {
-              v121[8] = 0;
-              *((_QWORD *)v121 + 7) = 0LL;
-              *((_QWORD *)v121 + 3) = 1LL;
-              v121[12] = 99;
-              v19 = &DirectComposition::CLineGeometryMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          if ( (_DWORD)a2 == 101 )
-          {
-            v120 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v119, 2uLL, 0x58uLL, 0x6D674344u);
-            if ( !v120 )
-              goto LABEL_13;
-            v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CGenericMarshaler::CGenericMarshaler(
-                                                                        v120,
-                                                                        100LL);
-            goto LABEL_12;
-          }
-        }
-        else
-        {
-          switch ( (_DWORD)a2 )
-          {
-            case '_':
-              v118 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                       (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                       2uLL,
-                       0xA0uLL,
-                       0x6A644344u);
-              Pool2 = (__int64)v118;
-              if ( v118 )
-              {
-                v118[8] = 0;
-                *((_QWORD *)v118 + 7) = 0LL;
-                *((_QWORD *)v118 + 3) = 1LL;
-                v118[12] = 206;
-                v19 = &DirectComposition::CLegacyStereoRenderTargetMarshaler::`vftable';
-                goto LABEL_54;
-              }
-              goto LABEL_200;
-            case 'Y':
-              v117 = (DirectComposition::CInteractionTrackerBindingManagerMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                                        (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 89),
-                                                                                        2uLL,
-                                                                                        0x78uLL,
-                                                                                        0x73694344u);
-              if ( !v117 )
-                goto LABEL_13;
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CInteractionTrackerBindingManagerMarshaler::CInteractionTrackerBindingManagerMarshaler(v117);
-              goto LABEL_12;
-            case 'Z':
-              v24 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                      (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 90),
-                      2uLL,
-                      0x140uLL,
-                      0x666B4344u);
-              Pool2 = (__int64)v24;
-              if ( v24 )
-              {
-                v24[8] = 0;
-                *((_QWORD *)v24 + 7) = 0LL;
-                *((_QWORD *)v24 + 3) = 1LL;
-                v24[12] = 89;
-                *(_QWORD *)v24 = &DirectComposition::CKeyframeAnimationMarshaler::`vftable';
-                v24[68] = 1065353216;
-                v24[69] = 1065353216;
-                goto LABEL_13;
-              }
-              goto LABEL_200;
-            case '[':
-              v36 = (DirectComposition::CLayerVisualMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                  (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 91),
-                                                                  2uLL,
-                                                                  0x198uLL,
-                                                                  0x766C4344u);
-              if ( !v36 )
-                goto LABEL_13;
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CLayerVisualMarshaler::CLayerVisualMarshaler(v36);
-              goto LABEL_12;
-          }
-          v59 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 92);
-          if ( (_DWORD)a2 == 92 )
-          {
-            v60 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v59, 2uLL, 0x48uLL, 0x74614344u);
-            Pool2 = (__int64)v60;
-            if ( v60 )
-            {
-              v60[8] = 0;
-              *((_QWORD *)v60 + 7) = 0LL;
-              *((_QWORD *)v60 + 3) = 1LL;
-              v60[12] = 91;
-              v19 = &DirectComposition::CLegacyAnimationTriggerMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          if ( (_DWORD)a2 == 94 )
-          {
-            v65 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v59, 2uLL, 0xA0uLL, 0x6B644344u);
-            Pool2 = (__int64)v65;
-            if ( v65 )
-            {
-              v65[8] = 0;
-              *((_QWORD *)v65 + 7) = 0LL;
-              *((_QWORD *)v65 + 3) = 1LL;
-              v65[12] = 206;
-              v19 = &DirectComposition::CLegacyRenderTargetMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-        }
-        goto LABEL_71;
-      }
-      if ( (unsigned int)a2 > 0x82 )
-      {
-        if ( (unsigned int)a2 <= 0x8C )
-        {
-          switch ( (_DWORD)a2 )
-          {
-            case 0x8C:
-              v130 = (DirectComposition::CRedirectVisualMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                      (NSInstrumentation::CLeakTrackingAllocator *)0x8C,
-                                                                      2uLL,
-                                                                      0x190uLL,
-                                                                      0x76724344u);
-              if ( !v130 )
-                goto LABEL_13;
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CRedirectVisualMarshaler::CRedirectVisualMarshaler(v130);
-              goto LABEL_12;
-            case 0x83:
-              v63 = (DirectComposition::CProjectedShadowSceneMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                           (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 131),
-                                                                           2uLL,
-                                                                           0x90uLL,
-                                                                           0x737A4344u);
-              if ( !v63 )
-                goto LABEL_13;
-              v8 = DirectComposition::CProjectedShadowSceneMarshaler::CProjectedShadowSceneMarshaler(v63);
-              goto LABEL_12;
-            case 0x85:
-              v7 = (DirectComposition::CPropertySetMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 133),
-                                                                 2uLL,
-                                                                 0x78uLL,
-                                                                 0x62704344u);
-              if ( !v7 )
-              {
-LABEL_13:
-                v151 = (struct DirectComposition::CResourceMarshaler *)Pool2;
-                goto LABEL_14;
-              }
-              v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CPropertySetMarshaler::CPropertySetMarshaler(v7);
-LABEL_12:
-              Pool2 = (__int64)v8;
-              goto LABEL_13;
-            case 0x86:
-              v129 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                       (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 134),
-                       2uLL,
-                       0x78uLL,
-                       0x787A4344u);
-              Pool2 = (__int64)v129;
-              if ( v129 )
-              {
-                v129[8] = 0;
-                *((_QWORD *)v129 + 7) = 0LL;
-                *((_QWORD *)v129 + 3) = 1LL;
-                v129[12] = 133;
-                v19 = &DirectComposition::CProxyGeometryClipMarshaler::`vftable';
-                goto LABEL_54;
-              }
-              goto LABEL_200;
-          }
-          v32 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 135);
-          if ( (_DWORD)a2 != 135 )
-          {
-            if ( (_DWORD)a2 == 137 )
-            {
-              v33 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v32, 2uLL, 0xA0uLL, 0x63724344u);
-              Pool2 = (__int64)v33;
-              if ( v33 )
-              {
-                v33[8] = 0;
-                *((_QWORD *)v33 + 7) = 0LL;
-                *((_QWORD *)v33 + 3) = 1LL;
-                v33[12] = 136;
-                v19 = &DirectComposition::CRectangleClipMarshaler::`vftable';
-                goto LABEL_54;
-              }
-LABEL_200:
-              Pool2 = 0LL;
-              goto LABEL_13;
-            }
-            goto LABEL_71;
-          }
-          v128 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v32, 2uLL, 0x90uLL, 0x6F6A4344u);
-          Pool2 = (__int64)v128;
-          if ( !v128 )
-            goto LABEL_200;
-          DirectComposition::CGradientBrushMarshaler::CGradientBrushMarshaler(v128, 134LL);
-          v70 = &DirectComposition::CRadialGradientBrushMarshaler::`vftable';
-LABEL_203:
-          *(_QWORD *)Pool2 = v70;
-          goto LABEL_13;
-        }
-        if ( (_DWORD)a2 == 142 )
-        {
-          v134 = (DirectComposition::CRemoteAppRenderTargetMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                         (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 142),
-                                                                         2uLL,
-                                                                         0x70uLL,
-                                                                         0x6D644344u);
-          if ( !v134 )
-            goto LABEL_13;
-          v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CRemoteAppRenderTargetMarshaler::CRemoteAppRenderTargetMarshaler(v134);
-          goto LABEL_12;
-        }
-        if ( (_DWORD)a2 == 143 )
-        {
-          v68 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                  (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 143),
-                  2uLL,
-                  0x80uLL,
-                  0x70644344u);
-          Pool2 = (__int64)v68;
-          if ( v68 )
-          {
-            v68[8] = 0;
-            *((_QWORD *)v68 + 7) = 0LL;
-            *((_QWORD *)v68 + 3) = 1LL;
-            v68[12] = 206;
-            v19 = &DirectComposition::CRemoteRenderTargetMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        v23 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 149);
-        if ( (_DWORD)a2 == 149 )
-        {
-          v133 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v23, 2uLL, 0x80uLL, 0x65664344u);
-          Pool2 = (__int64)v133;
-          if ( v133 )
-          {
-            v133[8] = 0;
-            *((_QWORD *)v133 + 7) = 0LL;
-            *((_QWORD *)v133 + 3) = 1LL;
-            v133[12] = 148;
-            v133[20] = 0;
-            *((_QWORD *)v133 + 11) = 0LL;
-            *((_QWORD *)v133 + 12) = 0LL;
-            *((_QWORD *)v133 + 13) = 0LL;
-            v133[28] = 0;
-            v19 = &DirectComposition::CSaturationEffectMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        if ( (_DWORD)a2 == 150 )
-        {
-          v131 = (DirectComposition::CScalarMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                          v23,
-                                                          2uLL,
-                                                          0x58uLL,
-                                                          0x6C734344u);
-          if ( !v131 )
-            return (unsigned int)-1073741801;
-          v132 = DirectComposition::CScalarMarshaler::CScalarMarshaler(v131);
-          if ( !v132 )
-            return (unsigned int)-1073741801;
-          Pool2 = v132 + 16;
-          goto LABEL_13;
-        }
-        goto LABEL_71;
-      }
-      if ( (_DWORD)a2 == 130 )
-      {
-        v67 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)0x82,
-                2uLL,
-                0x68uLL,
-                0x727A4344u);
-        Pool2 = (__int64)v67;
-        if ( v67 )
-        {
-          v67[8] = 0;
-          *((_QWORD *)v67 + 7) = 0LL;
-          *((_QWORD *)v67 + 3) = 1LL;
-          v67[12] = 129;
-          *(_QWORD *)v67 = &DirectComposition::CProjectedShadowReceiverMarshaler::`vftable';
-          v67[22] = 1;
-          goto LABEL_13;
-        }
-        goto LABEL_200;
-      }
-      if ( (unsigned int)a2 > 0x6F )
-      {
-        if ( (_DWORD)a2 == 124 )
-        {
-          v127 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                   (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 124),
-                   2uLL,
-                   0x78uLL,
-                   0x79704344u);
-          Pool2 = (__int64)v127;
-          if ( v127 )
-          {
-            v127[8] = 0;
-            *((_QWORD *)v127 + 7) = 0LL;
-            *((_QWORD *)v127 + 3) = 1LL;
-            v127[12] = 123;
-            v19 = &DirectComposition::CPathGeometryMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        if ( (_DWORD)a2 == 126 )
-        {
-          v126 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                   (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 126),
-                   2uLL,
-                   0x50uLL,
-                   0x63704344u);
-          Pool2 = (__int64)v126;
-          if ( v126 )
-          {
-            v126[8] = 0;
-            *((_QWORD *)v126 + 7) = 0LL;
-            *((_QWORD *)v126 + 3) = 1LL;
-            v126[12] = 125;
-            v19 = &DirectComposition::CPrimitiveColorMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        v25 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 127);
-        if ( (_DWORD)a2 != 127 )
-        {
-          if ( (_DWORD)a2 == 129 )
-          {
-            v62 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v25, 2uLL, 0x70uLL, 0x637A4344u);
-            Pool2 = (__int64)v62;
-            if ( v62 )
-            {
-              v62[8] = 0;
-              *((_QWORD *)v62 + 7) = 0LL;
-              *((_QWORD *)v62 + 3) = 1LL;
-              v62[12] = 128;
-              v19 = &DirectComposition::CProjectedShadowCasterMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          goto LABEL_71;
-        }
-        v26 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v25, 2uLL, 0xD0uLL, 0x67704344u);
-        Pool2 = (__int64)v26;
-        if ( !v26 )
-          goto LABEL_200;
-        v26[8] = 0;
-        *((_QWORD *)v26 + 7) = 0LL;
-        *((_QWORD *)v26 + 3) = 1LL;
-        v26[12] = 126;
-        v19 = &DirectComposition::CPrimitiveGroupMarshaler::`vftable';
-      }
-      else
-      {
-        if ( (_DWORD)a2 == 111 )
-        {
-          v35 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                  (NSInstrumentation::CLeakTrackingAllocator *)0x82,
-                  2uLL,
-                  0x80uLL,
-                  0x6E6A4344u);
-          Pool2 = (__int64)v35;
-          if ( v35 )
-          {
-            v35[8] = 0;
-            *((_QWORD *)v35 + 7) = 0LL;
-            *((_QWORD *)v35 + 3) = 1LL;
-            v35[12] = 110;
-            v19 = &DirectComposition::CNineGridBrushMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        if ( (_DWORD)a2 == 104 )
-        {
-          v38 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                  (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 104),
-                  2uLL,
-                  0x88uLL,
-                  0x616D4344u);
-          Pool2 = (__int64)v38;
-          if ( v38 )
-          {
-            v38[8] = 0;
-            *((_QWORD *)v38 + 7) = 0LL;
-            *((_QWORD *)v38 + 3) = 1LL;
-            v38[12] = 103;
-            v19 = &DirectComposition::CManipulationTransformMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        if ( (_DWORD)a2 != 105 )
-        {
-          if ( (_DWORD)a2 == 107 )
-          {
-            v58 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 107),
-                    2uLL,
-                    0x68uLL,
-                    0x746D4344u);
-            Pool2 = (__int64)v58;
-            if ( v58 )
-            {
-              v58[8] = 0;
-              *((_QWORD *)v58 + 7) = 0LL;
-              *((_QWORD *)v58 + 3) = 1LL;
-              v58[12] = 106;
-              v19 = &DirectComposition::CMatrixTransformMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          v51 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 108);
-          if ( (_DWORD)a2 == 108 )
-          {
-            v52 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v51, 2uLL, 0x90uLL, 0x336D4344u);
-            Pool2 = (__int64)v52;
-            if ( v52 )
-            {
-              v52[8] = 0;
-              *((_QWORD *)v52 + 7) = 0LL;
-              *((_QWORD *)v52 + 3) = 1LL;
-              v52[12] = 107;
-              v19 = &DirectComposition::CMatrixTransform3DMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          if ( (_DWORD)a2 == 110 )
-          {
-            v125 = (DirectComposition::CNaturalAnimationMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                      v51,
-                                                                      2uLL,
-                                                                      0xD8uLL,
-                                                                      0x616E4344u);
-            if ( !v125 )
-              goto LABEL_13;
-            v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CNaturalAnimationMarshaler::CNaturalAnimationMarshaler(v125);
-            goto LABEL_12;
-          }
-          goto LABEL_71;
-        }
-        v21 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 105),
-                2uLL,
-                0x60uLL,
-                0x6D6A4344u);
-        Pool2 = (__int64)v21;
-        if ( !v21 )
-          goto LABEL_200;
-        v21[8] = 0;
-        *((_QWORD *)v21 + 7) = 0LL;
-        *((_QWORD *)v21 + 3) = 1LL;
-        v21[12] = 104;
-        v19 = &DirectComposition::CMaskBrushMarshaler::`vftable';
-      }
-LABEL_54:
-      *(_QWORD *)Pool2 = v19;
-      goto LABEL_13;
-    }
-    if ( (_DWORD)a2 == 73 )
-    {
-      v106 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-               (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-               2uLL,
-               0x68uLL,
-               0x63684344u);
-      Pool2 = (__int64)v106;
-      if ( v106 )
-      {
-        v106[8] = 0;
-        *((_QWORD *)v106 + 7) = 0LL;
-        *((_QWORD *)v106 + 3) = 1LL;
-        v106[12] = 72;
-        v19 = &DirectComposition::CHolographicCompositionMarshaler::`vftable';
-        goto LABEL_54;
-      }
-      goto LABEL_200;
-    }
-    if ( (unsigned int)a2 > 0x23 )
-    {
-      if ( (unsigned int)a2 <= 0x33 )
-      {
-        if ( (_DWORD)a2 == 51 )
-        {
-          v64 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                  (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                  2uLL,
-                  0x50uLL,
-                  0x65644344u);
-          Pool2 = (__int64)v64;
-          if ( v64 )
-          {
-            v64[8] = 0;
-            *((_QWORD *)v64 + 7) = 0LL;
-            *((_QWORD *)v64 + 3) = 1LL;
-            v64[12] = 50;
-            v19 = &DirectComposition::CDesktopTreeMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        if ( (unsigned int)a2 > 0x2C )
-        {
-          if ( (_DWORD)a2 == 46 )
-          {
-            v95 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 46),
-                    2uLL,
-                    0x60uLL,
-                    0x66734344u);
-            Pool2 = (__int64)v95;
-            if ( v95 )
-            {
-              memset(v95, 0, 0x60uLL);
-              v19 = &DirectComposition::CCrossContainerGuestReadWriteSharedSectionMarshaler::`vftable';
-              *(_QWORD *)(Pool2 + 24) = 1LL;
-              *(_DWORD *)(Pool2 + 48) = 206;
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          if ( (_DWORD)a2 == 47 )
-          {
-            v94 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 47),
-                    2uLL,
-                    0x70uLL,
-                    0x67734344u);
-            Pool2 = (__int64)v94;
-            if ( v94 )
-            {
-              v94[8] = 0;
-              *((_QWORD *)v94 + 7) = 0LL;
-              *((_QWORD *)v94 + 3) = 1LL;
-              v94[12] = 206;
-              v19 = &DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          v91 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 49);
-          if ( (_DWORD)a2 == 49 )
-          {
-            v93 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v91, 2uLL, 0x50uLL, 0x72734344u);
-            Pool2 = (__int64)v93;
-            if ( v93 )
-            {
-              v93[8] = 0;
-              *((_QWORD *)v93 + 7) = 0LL;
-              *((_QWORD *)v93 + 3) = 1LL;
-              v93[12] = 48;
-              v19 = &DirectComposition::CDataSourceReaderMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          if ( (_DWORD)a2 == 50 )
-          {
-            v92 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v91, 2uLL, 0xB0uLL, 0x64644344u);
-            Pool2 = (__int64)v92;
-            if ( v92 )
-            {
-              v92[8] = 0;
-              *((_QWORD *)v92 + 7) = 0LL;
-              *((_QWORD *)v92 + 3) = 1LL;
-              v92[12] = 206;
-              v19 = &DirectComposition::CDDisplayRenderTargetMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          goto LABEL_71;
-        }
-        switch ( (_DWORD)a2 )
-        {
-          case ',':
-            v90 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                    2uLL,
-                    0x58uLL,
-                    0x636F4344u);
-            Pool2 = (__int64)v90;
-            if ( v90 )
-            {
-              v90[8] = 0;
-              *((_QWORD *)v90 + 7) = 0LL;
-              *((_QWORD *)v90 + 3) = 1LL;
-              v90[12] = 43;
-              v19 = &DirectComposition::CContainerShapeMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          case '$':
-            v89 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 36),
-                    2uLL,
-                    0xA8uLL,
-                    0x6F704344u);
-            Pool2 = (__int64)v89;
-            if ( v89 )
-            {
-              v89[8] = 0;
-              *((_QWORD *)v89 + 7) = 0LL;
-              *((_QWORD *)v89 + 3) = 1LL;
-              v89[12] = 35;
-              v19 = &DirectComposition::CCompositionPointLightMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          case '&':
-            v88 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 38),
-                    2uLL,
-                    0x78uLL,
-                    0x62734344u);
-            Pool2 = (__int64)v88;
-            if ( v88 )
-            {
-              v88[8] = 0;
-              *((_QWORD *)v88 + 7) = 0LL;
-              *((_QWORD *)v88 + 3) = 1LL;
-              v88[12] = 37;
-              v19 = &DirectComposition::CCompositionSkyBoxBrushMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          case '\'':
-            v55 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 39),
-                    2uLL,
-                    0xD0uLL,
-                    0x70734344u);
-            Pool2 = (__int64)v55;
-            if ( v55 )
-            {
-              v55[8] = 0;
-              *((_QWORD *)v55 + 7) = 0LL;
-              *((_QWORD *)v55 + 3) = 1LL;
-              v55[12] = 38;
-              v19 = &DirectComposition::CCompositionSpotLightMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-        }
-        v30 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 40);
-        if ( (_DWORD)a2 != 40 )
-        {
-          if ( (_DWORD)a2 == 43 )
-          {
-            v87 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v30, 2uLL, 0xA8uLL, 0x61634344u);
-            Pool2 = (__int64)v87;
-            if ( v87 )
-            {
-              v87[8] = 0;
-              *((_QWORD *)v87 + 7) = 0LL;
-              *((_QWORD *)v87 + 3) = 1LL;
-              v87[12] = 42;
-              v19 = &DirectComposition::CConditionalExpressionMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          goto LABEL_71;
-        }
-        v31 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v30, 2uLL, 0x50uLL, 0x62634344u);
-        Pool2 = (__int64)v31;
-        if ( !v31 )
-          goto LABEL_200;
-        v31[8] = 0;
-        *((_QWORD *)v31 + 7) = 0LL;
-        *((_QWORD *)v31 + 3) = 1LL;
-        v31[12] = 39;
-        v19 = &DirectComposition::CCompositionSurfaceBitmapMarshaler::`vftable';
-        goto LABEL_54;
-      }
-      if ( (unsigned int)a2 > 0x3E )
-      {
-        if ( (_DWORD)a2 == 64 )
-        {
-          v105 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                   (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 64),
-                   2uLL,
-                   0x100uLL,
-                   0x69674344u);
-          Pool2 = (__int64)v105;
-          if ( v105 )
-          {
-            v105[8] = 0;
-            *((_QWORD *)v105 + 7) = 0LL;
-            *((_QWORD *)v105 + 3) = 1LL;
-            v105[12] = 63;
-            *(_QWORD *)v105 = &DirectComposition::CGenericInkMarshaler::`vftable';
-            *((_BYTE *)v105 + 72) = 1;
-            *((_QWORD *)v105 + 12) = 1LL;
-            *((_BYTE *)v105 + 112) = 1;
-            *((_QWORD *)v105 + 17) = 1LL;
-            *((_BYTE *)v105 + 188) = 0;
-            v105[62] = 0;
-            goto LABEL_13;
-          }
-          goto LABEL_200;
-        }
-        if ( (_DWORD)a2 == 68 )
-        {
-          v104 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                   (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 68),
-                   2uLL,
-                   0x78uLL,
-                   0x67634344u);
-          Pool2 = (__int64)v104;
-          if ( v104 )
-          {
-            v104[8] = 0;
-            *((_QWORD *)v104 + 7) = 0LL;
-            *((_QWORD *)v104 + 3) = 1LL;
-            v104[12] = 67;
-            v19 = &DirectComposition::CClipGroupMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        v101 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 69);
-        if ( (_DWORD)a2 == 69 )
-        {
-          v103 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v101, 2uLL, 0x58uLL, 0x6D674344u);
-          Pool2 = (__int64)v103;
-          if ( v103 )
-          {
-            v103[8] = 0;
-            *((_QWORD *)v103 + 7) = 0LL;
-            *((_QWORD *)v103 + 3) = 1LL;
-            v103[12] = 68;
-            *(_QWORD *)v103 = &DirectComposition::CGenericMarshaler::`vftable';
-            *((_QWORD *)v103 + 8) = 0LL;
-            *((_QWORD *)v103 + 9) = 0LL;
-            *((_QWORD *)v103 + 10) = 0LL;
-            goto LABEL_13;
-          }
-          goto LABEL_200;
-        }
-        if ( (_DWORD)a2 == 70 )
-        {
-          v102 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v101, 2uLL, 0x58uLL, 0x76674344u);
-          Pool2 = (__int64)v102;
-          if ( v102 )
-          {
-            v102[8] = 0;
-            *((_QWORD *)v102 + 7) = 0LL;
-            *((_QWORD *)v102 + 3) = 1LL;
-            v102[12] = 69;
-            v19 = &DirectComposition::CGlobalDCompVisualMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        goto LABEL_71;
-      }
-      if ( (_DWORD)a2 != 62 )
-      {
-        switch ( (_DWORD)a2 )
-        {
-          case '5':
-            v98 = (DirectComposition::CDropShadowMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                               (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 53),
-                                                               2uLL,
-                                                               0x80uLL,
-                                                               0x73644344u);
-            if ( !v98 )
-              goto LABEL_13;
-            v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CDropShadowMarshaler::CDropShadowMarshaler(v98);
-            goto LABEL_12;
-          case '7':
-            v27 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 55),
-                    2uLL,
-                    0x70uLL,
-                    0x656A4344u);
-            Pool2 = (__int64)v27;
-            if ( !v27 )
-              goto LABEL_200;
-            v27[8] = 0;
-            *((_QWORD *)v27 + 7) = 0LL;
-            *((_QWORD *)v27 + 3) = 1LL;
-            v27[12] = 54;
-            v19 = &DirectComposition::CEffectBrushMarshaler::`vftable';
-            break;
-          case '9':
-            v97 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                    (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 57),
-                    2uLL,
-                    0x78uLL,
-                    0x79654344u);
-            Pool2 = (__int64)v97;
-            if ( v97 )
-            {
-              v97[8] = 0;
-              *((_QWORD *)v97 + 7) = 0LL;
-              *((_QWORD *)v97 + 3) = 1LL;
-              v97[12] = 56;
-              v19 = &DirectComposition::CEllipseGeometryMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          default:
-            v17 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 58);
-            if ( (_DWORD)a2 != 58 )
-            {
-              if ( (_DWORD)a2 == 61 )
-              {
-                v96 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v17, 2uLL, 0x88uLL, 0x65664344u);
-                Pool2 = (__int64)v96;
-                if ( v96 )
-                {
-                  v96[8] = 0;
-                  *((_QWORD *)v96 + 7) = 0LL;
-                  *((_QWORD *)v96 + 3) = 1LL;
-                  v96[12] = 60;
-                  v96[20] = 0;
-                  *((_QWORD *)v96 + 11) = 0LL;
-                  *((_QWORD *)v96 + 12) = 0LL;
-                  *((_QWORD *)v96 + 13) = 0LL;
-                  v96[28] = 0;
-                  v19 = &DirectComposition::CFloodEffectMarshaler::`vftable';
-                  goto LABEL_54;
-                }
-                goto LABEL_200;
-              }
-              goto LABEL_71;
-            }
-            v18 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v17, 2uLL, 0xE8uLL, 0x78654344u);
-            Pool2 = (__int64)v18;
-            if ( !v18 )
-              goto LABEL_200;
-            v18[8] = 0;
-            *((_QWORD *)v18 + 7) = 0LL;
-            *((_QWORD *)v18 + 3) = 1LL;
-            v18[12] = 57;
-            v19 = &DirectComposition::CExpressionMarshaler::`vftable';
-            break;
-        }
-        goto LABEL_54;
-      }
-      v99 = gpLeakTrackingAllocator;
-      if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x65664344) == 0x65664344
-        && (v100 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
-      {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v100) != 1701200708 )
-        {
-          if ( ++v100 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_298;
-        }
-        Pool2 = ExAllocatePool2(261LL, 152LL);
-        if ( !Pool2 )
-          goto LABEL_200;
-        memset(BackTrace, 0, sizeof(BackTrace));
-        RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-        if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-        {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                  v99,
-                                  Pool2,
-                                  BackTrace) )
-            goto LABEL_300;
-LABEL_238:
-          ExFreePoolWithTag((PVOID)Pool2, 0);
-          goto LABEL_200;
-        }
-        if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                 v99,
-                                 Pool2,
-                                 BackTrace) )
-          goto LABEL_238;
-        Pool2 += 16LL;
-      }
-      else
-      {
-LABEL_298:
-        Pool2 = ExAllocatePool2(261LL, 136LL);
-      }
-      if ( !Pool2 )
-        goto LABEL_200;
-LABEL_300:
-      *(_DWORD *)(Pool2 + 32) = 0;
-      v19 = &DirectComposition::CGaussianBlurEffectMarshaler::`vftable';
-      *(_QWORD *)(Pool2 + 56) = 0LL;
-      *(_QWORD *)(Pool2 + 24) = 1LL;
-      *(_DWORD *)(Pool2 + 48) = 61;
-      *(_DWORD *)(Pool2 + 80) = 0;
-      *(_QWORD *)(Pool2 + 88) = 0LL;
-      *(_QWORD *)(Pool2 + 96) = 0LL;
-      *(_QWORD *)(Pool2 + 104) = 0LL;
-      *(_DWORD *)(Pool2 + 112) = 0;
-      goto LABEL_54;
-    }
-    if ( (_DWORD)a2 == 35 )
-    {
-      v86 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-              (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-              2uLL,
-              0x68uLL,
-              0x6D6D4344u);
-      Pool2 = (__int64)v86;
-      if ( v86 )
-      {
-        v86[8] = 0;
-        *((_QWORD *)v86 + 7) = 0LL;
-        *((_QWORD *)v86 + 3) = 1LL;
-        v86[12] = 34;
-        v19 = &DirectComposition::CCompositionMipmapSurfaceMarshaler::`vftable';
-        goto LABEL_54;
-      }
-      goto LABEL_200;
-    }
-    if ( (unsigned int)a2 <= 0x14 )
-    {
-      if ( (_DWORD)a2 == 20 )
-      {
-        v22 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                2uLL,
-                0x60uLL,
-                0x636A4344u);
-        Pool2 = (__int64)v22;
-        if ( !v22 )
-          goto LABEL_200;
-        v22[8] = 0;
-        *((_QWORD *)v22 + 7) = 0LL;
-        *((_QWORD *)v22 + 3) = 1LL;
-        v22[12] = 19;
-        v19 = &DirectComposition::CColorBrushMarshaler::`vftable';
-        goto LABEL_54;
-      }
-      if ( (unsigned int)a2 <= 0xC )
-      {
-        if ( (_DWORD)a2 == 12 )
-        {
-          v73 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                  (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-                  2uLL,
-                  0x80uLL,
-                  0x65664344u);
-          Pool2 = (__int64)v73;
-          if ( !v73 )
-            goto LABEL_200;
-          DirectComposition::CFilterEffectMarshaler::CFilterEffectMarshaler(v73, 11LL);
-          v70 = &DirectComposition::CBlendEffectMarshaler::`vftable';
-          goto LABEL_203;
-        }
-        if ( (_DWORD)a2 == 1 )
-        {
-          v72 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                  (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 1),
-                  2uLL,
-                  0xA0uLL,
-                  0x65664344u);
-          Pool2 = (__int64)v72;
-          if ( !v72 )
-            goto LABEL_200;
-          DirectComposition::CFilterEffectMarshaler::CFilterEffectMarshaler(v72, 0LL);
-          v70 = &DirectComposition::CAffineTransform2DEffectMarshaler::`vftable';
-          goto LABEL_203;
-        }
-        if ( (_DWORD)a2 != 2 )
-        {
-          if ( (_DWORD)a2 == 3 )
-          {
-            v34 = (DirectComposition::CAnimationLoggingManagerMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                            (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 3),
-                                                                            2uLL,
-                                                                            0x110uLL,
-                                                                            0x6D6C4344u);
-            if ( !v34 )
-              goto LABEL_13;
-            v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CAnimationLoggingManagerMarshaler::CAnimationLoggingManagerMarshaler(v34);
-            goto LABEL_12;
-          }
-          v48 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 5);
-          if ( (_DWORD)a2 == 5 )
-          {
-            v69 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v48, 2uLL, 0x90uLL, 0x65664344u);
-            Pool2 = (__int64)v69;
-            if ( !v69 )
-              goto LABEL_200;
-            DirectComposition::CFilterEffectMarshaler::CFilterEffectMarshaler(v69, 4LL);
-            v70 = &DirectComposition::CArithmeticCompositeEffectMarshaler::`vftable';
-            goto LABEL_203;
-          }
-          if ( (_DWORD)a2 == 8 )
-          {
-            v49 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v48, 2uLL, 0x50uLL, 0x626A4344u);
-            Pool2 = (__int64)v49;
-            if ( v49 )
-            {
-              v49[8] = 0;
-              *((_QWORD *)v49 + 7) = 0LL;
-              *((_QWORD *)v49 + 3) = 1LL;
-              v49[12] = 7;
-              v19 = &DirectComposition::CBlurredWallpaperBackdropBrushMarshaler::`vftable';
-              goto LABEL_54;
-            }
-            goto LABEL_200;
-          }
-          goto LABEL_71;
-        }
-        v44 = gpLeakTrackingAllocator;
-        if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x6E614344) == 0x6E614344
-          && (v71 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
-        {
-          while ( *((_DWORD *)gpLeakTrackingAllocator + v71) != 1851867972 )
-          {
-            if ( ++v71 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-              goto LABEL_149;
-          }
-          v6 = ExAllocatePool2(261LL, 280LL);
-          if ( !v6 )
-            return (unsigned int)-1073741801;
-          memset(BackTrace, 0, sizeof(BackTrace));
-          RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-          if ( (unsigned __int64)(v6 & 0xFFF) + 16 >= 0x1000 )
-          {
-            if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v44,
-                                     v6,
-                                     BackTrace) )
-            {
-LABEL_211:
-              ExFreePoolWithTag((PVOID)v6, 0);
+            v193 = Win32AllocPoolWithQuotaZInit(0xA0uLL);
+            v10 = (_DWORD *)v193;
+            if ( !v193 )
               return (unsigned int)-1073741801;
-            }
-LABEL_151:
-            *(_DWORD *)(v6 + 48) = 0;
-            *(_QWORD *)(v6 + 72) = 0LL;
-            v45 = (_QWORD *)((char *)this + 336);
-            *(_QWORD *)(v6 + 40) = 1LL;
-            *(_DWORD *)(v6 + 64) = 1;
-            *(_QWORD *)v6 = &DirectComposition::CAnimationMarshaler::`vftable'{for `DirectComposition::CBaseAnimation'};
-            *(_QWORD *)(v6 + 16) = &DirectComposition::CAnimationMarshaler::`vftable'{for `DirectComposition::CResourceMarshaler'};
-            v46 = (_QWORD *)(v6 + 136);
-            v47 = *((_QWORD *)this + 42);
-            if ( *(DirectComposition::CApplicationChannel **)(v47 + 8) != (DirectComposition::CApplicationChannel *)((char *)this + 336) )
-              __fastfail(3u);
-            *v46 = v47;
-            Pool2 = v6 + 16;
-            *(_QWORD *)(v6 + 144) = v45;
-            *(_QWORD *)(v47 + 8) = v46;
-            *v45 = v46;
-            goto LABEL_13;
+            *(_QWORD *)(v193 + 20) = 1LL;
+            *(_QWORD *)(v193 + 48) = 0LL;
+            *(_DWORD *)(v193 + 40) = 85;
+            *(_QWORD *)v193 = &DirectComposition::CInkMarshaler::`vftable';
+            *(_BYTE *)(v193 + 120) = 1;
+            *(_QWORD *)(v193 + 144) = 36LL;
           }
-          if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                   v44,
-                                   v6,
-                                   BackTrace) )
-            goto LABEL_211;
-          v6 += 16LL;
         }
-        else
-        {
-LABEL_149:
-          v6 = ExAllocatePool2(261LL, 264LL);
-        }
-        if ( !v6 )
-          return (unsigned int)-1073741801;
-        goto LABEL_151;
-      }
-      if ( (_DWORD)a2 == 13 )
-      {
-        v79 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 13),
-                2uLL,
-                0x50uLL,
-                0x646A4344u);
-        Pool2 = (__int64)v79;
-        if ( v79 )
-        {
-          v79[8] = 0;
-          *((_QWORD *)v79 + 7) = 0LL;
-          *((_QWORD *)v79 + 3) = 1LL;
-          v79[12] = 12;
-          v19 = &DirectComposition::CBlurredWallpaperBackdropBrushMarshaler::`vftable';
-          goto LABEL_54;
-        }
-        goto LABEL_200;
-      }
-      if ( (_DWORD)a2 != 14 )
-      {
-        v74 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 17);
-        if ( (_DWORD)a2 == 17 )
-        {
-          v76 = (DirectComposition::CCaptureControllerMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                    v74,
-                                                                    2uLL,
-                                                                    0x60uLL,
-                                                                    0x71634344u);
-          if ( !v76 )
-            goto LABEL_13;
-          v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CCaptureControllerMarshaler::CCaptureControllerMarshaler(v76);
-          goto LABEL_12;
-        }
-        if ( (_DWORD)a2 == 18 )
-        {
-          v75 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v74, 2uLL, 0x88uLL, 0x72634344u);
-          Pool2 = (__int64)v75;
-          if ( v75 )
-          {
-            v75[8] = 0;
-            *((_QWORD *)v75 + 7) = 0LL;
-            *((_QWORD *)v75 + 3) = 1LL;
-            v75[12] = 17;
-            v19 = &DirectComposition::CCaptureRenderTargetMarshaler::`vftable';
-            goto LABEL_54;
-          }
-          goto LABEL_200;
-        }
-        goto LABEL_71;
-      }
-      v77 = gpLeakTrackingAllocator;
-      if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x65664344) == 0x65664344
-        && (v78 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
-      {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v78) != 1701200708 )
-        {
-          if ( ++v78 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_232;
-        }
-        Pool2 = ExAllocatePool2(261LL, 152LL);
-        if ( !Pool2 )
-          goto LABEL_200;
-        memset(BackTrace, 0, sizeof(BackTrace));
-        RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-        if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-        {
-          if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                   v77,
-                                   Pool2,
-                                   BackTrace) )
-            goto LABEL_238;
-LABEL_234:
-          *(_DWORD *)(Pool2 + 32) = 0;
-          v19 = &DirectComposition::CBrightnessEffectMarshaler::`vftable';
-          *(_QWORD *)(Pool2 + 56) = 0LL;
-          *(_QWORD *)(Pool2 + 24) = 1LL;
-          *(_DWORD *)(Pool2 + 48) = 13;
-          *(_DWORD *)(Pool2 + 80) = 0;
-          *(_QWORD *)(Pool2 + 88) = 0LL;
-          *(_QWORD *)(Pool2 + 96) = 0LL;
-          *(_QWORD *)(Pool2 + 104) = 0LL;
-          *(_DWORD *)(Pool2 + 112) = 0;
-          goto LABEL_54;
-        }
-        if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                 v77,
-                                 Pool2,
-                                 BackTrace) )
-          goto LABEL_238;
-        Pool2 += 16LL;
       }
       else
       {
-LABEL_232:
-        Pool2 = ExAllocatePool2(261LL, 136LL);
-      }
-      if ( !Pool2 )
-        goto LABEL_200;
-      goto LABEL_234;
-    }
-    if ( (unsigned int)a2 > 0x1D )
-    {
-      if ( (_DWORD)a2 == 30 )
-      {
-        v53 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 30),
-                2uLL,
-                0x80uLL,
-                0x6D614344u);
-        Pool2 = (__int64)v53;
-        if ( v53 )
+        if ( a2 == 80 )
         {
-          v53[8] = 0;
-          *((_QWORD *)v53 + 7) = 0LL;
-          *((_QWORD *)v53 + 3) = 1LL;
-          v53[12] = 29;
-          v19 = &DirectComposition::CCompositionAmbientLightMarshaler::`vftable';
-          goto LABEL_54;
+          v190 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+          v10 = (_DWORD *)v190;
+          if ( !v190 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v190 + 20) = 1LL;
+          *(_QWORD *)(v190 + 48) = 0LL;
+          *(_DWORD *)(v190 + 40) = 79;
+          *(_DWORD *)(v190 + 72) = 0;
+          *(_QWORD *)(v190 + 80) = 0LL;
+          *(_QWORD *)(v190 + 88) = 0LL;
+          *(_QWORD *)(v190 + 96) = 0LL;
+          *(_DWORD *)(v190 + 104) = 0;
+          v18 = &DirectComposition::CHueRotationEffectMarshaler::`vftable';
+          goto LABEL_36;
         }
-        goto LABEL_200;
-      }
-      if ( (_DWORD)a2 == 31 )
-      {
-        v85 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 31),
-                2uLL,
-                0x60uLL,
-                0x6D634344u);
-        Pool2 = (__int64)v85;
-        if ( v85 )
+        if ( a2 > 0x40 )
         {
-          v85[8] = 0;
-          *((_QWORD *)v85 + 7) = 0LL;
-          *((_QWORD *)v85 + 3) = 1LL;
-          v85[12] = 30;
-          v19 = &DirectComposition::CCompositionCubeMapMarshaler::`vftable';
-          goto LABEL_54;
+          v127 = a2 - 68;
+          if ( !v127 )
+          {
+            v189 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+            v10 = (_DWORD *)v189;
+            if ( !v189 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v189 + 20) = 1LL;
+            *(_QWORD *)(v189 + 48) = 0LL;
+            *(_DWORD *)(v189 + 40) = 67;
+            v18 = &DirectComposition::CClipGroupMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v128 = v127 - 3;
+          if ( !v128 )
+          {
+            v188 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+            v10 = (_DWORD *)v188;
+            if ( !v188 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v188 + 20) = 1LL;
+            *(_QWORD *)(v188 + 48) = 0LL;
+            *(_DWORD *)(v188 + 40) = 70;
+            v18 = &DirectComposition::CHolographicCompositionMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v129 = v128 - 1;
+          if ( !v129 )
+          {
+            v187 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+            v10 = (_DWORD *)v187;
+            if ( !v187 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v187 + 20) = 1LL;
+            *(_QWORD *)(v187 + 48) = 0LL;
+            *(_DWORD *)(v187 + 40) = 71;
+            v18 = &DirectComposition::CHolographicDisplayMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v130 = v129 - 1;
+          if ( !v130 )
+          {
+            v186 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+            v10 = (_DWORD *)v186;
+            if ( !v186 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v186 + 20) = 1LL;
+            *(_QWORD *)(v186 + 48) = 0LL;
+            *(_DWORD *)(v186 + 40) = 72;
+            v18 = &DirectComposition::CHolographicExclusiveModeMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v131 = v130 - 1;
+          if ( v131 )
+          {
+            v132 = v131 - 2;
+            if ( v132 )
+            {
+              v133 = v132 - 1;
+              if ( !v133 )
+              {
+                v182 = (DirectComposition::CHolographicViewerMarshaler *)Win32AllocPoolWithQuotaZInit(0x88uLL);
+                if ( !v182 )
+                  return (unsigned int)-1073741801;
+                v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CHolographicViewerMarshaler::CHolographicViewerMarshaler(v182);
+                goto LABEL_9;
+              }
+              if ( v133 == 2 )
+              {
+                v134 = Win32AllocPoolWithQuotaZInit(0x38uLL);
+                v10 = (_DWORD *)v134;
+                if ( !v134 )
+                  return (unsigned int)-1073741801;
+                *(_QWORD *)(v134 + 20) = 1LL;
+                *(_QWORD *)(v134 + 48) = 0LL;
+                *(_DWORD *)(v134 + 40) = 78;
+                v18 = &DirectComposition::CHoverPointerSourceMarshaler::`vftable';
+                goto LABEL_36;
+              }
+              return (unsigned int)-1073741811;
+            }
+            v183 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+            v10 = (_DWORD *)v183;
+            if ( !v183 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v183 + 20) = 1LL;
+            *(_QWORD *)(v183 + 48) = 0LL;
+            *(_DWORD *)(v183 + 40) = 75;
+            v184 = &DirectComposition::CHolographicInteropTextureMarshaler::`vftable';
+          }
+          else
+          {
+            v185 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+            v10 = (_DWORD *)v185;
+            if ( !v185 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v185 + 20) = 1LL;
+            *(_QWORD *)(v185 + 48) = 0LL;
+            *(_DWORD *)(v185 + 40) = 73;
+            v184 = &DirectComposition::CHolographicExclusiveViewMarshaler::`vftable';
+          }
+          *(_QWORD *)v10 = v184;
+          v10[4] |= 0x20u;
         }
-        goto LABEL_200;
-      }
-      v56 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 32);
-      if ( (_DWORD)a2 == 32 )
-      {
-        v57 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v56, 2uLL, 0x90uLL, 0x6C644344u);
-        Pool2 = (__int64)v57;
-        if ( v57 )
+        else if ( a2 == 64 )
         {
-          v57[8] = 0;
-          *((_QWORD *)v57 + 7) = 0LL;
-          *((_QWORD *)v57 + 3) = 1LL;
-          v57[12] = 31;
-          v19 = &DirectComposition::CCompositionDistantLightMarshaler::`vftable';
-          goto LABEL_54;
+          v181 = Win32AllocPoolWithQuotaZInit(0xF0uLL);
+          v10 = (_DWORD *)v181;
+          if ( !v181 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v181 + 20) = 1LL;
+          *(_QWORD *)(v181 + 48) = 0LL;
+          *(_DWORD *)(v181 + 40) = 63;
+          *(_QWORD *)v181 = &DirectComposition::CGenericInkMarshaler::`vftable';
+          *(_BYTE *)(v181 + 64) = 1;
+          *(_QWORD *)(v181 + 88) = 1LL;
+          *(_BYTE *)(v181 + 104) = 1;
+          *(_QWORD *)(v181 + 128) = 1LL;
+          *(_BYTE *)(v181 + 180) = 0;
         }
-        goto LABEL_200;
-      }
-      if ( (_DWORD)a2 == 34 )
-      {
-        v84 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v56, 2uLL, 0x68uLL, 0x6C634344u);
-        Pool2 = (__int64)v84;
-        if ( v84 )
+        else
         {
-          v84[8] = 0;
-          *((_QWORD *)v84 + 7) = 0LL;
-          *((_QWORD *)v84 + 3) = 1LL;
-          v84[12] = 33;
-          v19 = &DirectComposition::CCompositionLightMarshaler::`vftable';
-          goto LABEL_54;
+          v19 = a2 - 51;
+          if ( !v19 )
+          {
+            v138 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+            v10 = (_DWORD *)v138;
+            if ( !v138 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v138 + 20) = 1LL;
+            *(_QWORD *)(v138 + 48) = 0LL;
+            *(_DWORD *)(v138 + 40) = 50;
+            v18 = &DirectComposition::CDesktopTreeMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v20 = v19 - 2;
+          if ( v20 )
+          {
+            v21 = v20 - 2;
+            if ( !v21 )
+            {
+              v57 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+              v10 = (_DWORD *)v57;
+              if ( !v57 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v57 + 20) = 1LL;
+              *(_QWORD *)(v57 + 48) = 0LL;
+              *(_DWORD *)(v57 + 40) = 54;
+              v18 = &DirectComposition::CEffectBrushMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            v22 = v21 - 1;
+            if ( !v22 )
+            {
+              v100 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+              v10 = (_DWORD *)v100;
+              if ( !v100 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v100 + 20) = 1LL;
+              *(_QWORD *)(v100 + 48) = 0LL;
+              *(_DWORD *)(v100 + 40) = 55;
+              v18 = &DirectComposition::CEffectGroupMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            v23 = v22 - 1;
+            if ( !v23 )
+            {
+              v180 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+              v10 = (_DWORD *)v180;
+              if ( !v180 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v180 + 20) = 1LL;
+              *(_QWORD *)(v180 + 48) = 0LL;
+              *(_DWORD *)(v180 + 40) = 56;
+              v18 = &DirectComposition::CEllipseGeometryMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            v24 = v23 - 1;
+            if ( !v24 )
+            {
+              v25 = Win32AllocPoolWithQuotaZInit(0xE0uLL);
+              v10 = (_DWORD *)v25;
+              if ( !v25 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v25 + 20) = 1LL;
+              *(_QWORD *)(v25 + 48) = 0LL;
+              *(_DWORD *)(v25 + 40) = 57;
+              v18 = &DirectComposition::CExpressionMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            v177 = v24 - 3;
+            if ( !v177 )
+            {
+              v179 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+              v10 = (_DWORD *)v179;
+              if ( !v179 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v179 + 20) = 1LL;
+              *(_QWORD *)(v179 + 48) = 0LL;
+              *(_DWORD *)(v179 + 40) = 60;
+              *(_DWORD *)(v179 + 72) = 0;
+              *(_QWORD *)(v179 + 80) = 0LL;
+              *(_QWORD *)(v179 + 88) = 0LL;
+              *(_QWORD *)(v179 + 96) = 0LL;
+              *(_DWORD *)(v179 + 104) = 0;
+              v18 = &DirectComposition::CFloodEffectMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            if ( v177 == 1 )
+            {
+              v178 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+              v10 = (_DWORD *)v178;
+              if ( !v178 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v178 + 20) = 1LL;
+              *(_QWORD *)(v178 + 48) = 0LL;
+              *(_DWORD *)(v178 + 40) = 61;
+              *(_DWORD *)(v178 + 72) = 0;
+              *(_QWORD *)(v178 + 80) = 0LL;
+              *(_QWORD *)(v178 + 88) = 0LL;
+              *(_QWORD *)(v178 + 96) = 0LL;
+              *(_DWORD *)(v178 + 104) = 0;
+              v18 = &DirectComposition::CGaussianBlurEffectMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            return (unsigned int)-1073741811;
+          }
+          v109 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+          v10 = (_DWORD *)v109;
+          if ( !v109 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v109 + 20) = 1LL;
+          *(_QWORD *)(v109 + 48) = 0LL;
+          *(_DWORD *)(v109 + 40) = 52;
+          *(_QWORD *)v109 = &DirectComposition::CDropShadowMarshaler::`vftable';
+          *(_QWORD *)(v109 + 112) = 1065353216LL;
+          *(_DWORD *)(v109 + 92) = 1065353216;
+          *(_DWORD *)(v109 + 96) = 1091567616;
         }
-        goto LABEL_200;
       }
-      goto LABEL_71;
-    }
-    if ( (_DWORD)a2 == 29 )
-    {
-      v83 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-              (NSInstrumentation::CLeakTrackingAllocator *)0x9D,
-              2uLL,
-              0x80uLL,
-              0x65664344u);
-      Pool2 = (__int64)v83;
-      if ( !v83 )
-        goto LABEL_200;
-      DirectComposition::CFilterEffectMarshaler::CFilterEffectMarshaler(v83, 28LL);
-      v70 = &DirectComposition::CCompositeEffectMarshaler::`vftable';
-      goto LABEL_203;
-    }
-    if ( (_DWORD)a2 == 21 )
-    {
-      v82 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-              (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 21),
-              2uLL,
-              0x58uLL,
-              0x73674344u);
-      Pool2 = (__int64)v82;
-      if ( v82 )
-      {
-        v82[8] = 0;
-        *((_QWORD *)v82 + 7) = 0LL;
-        *((_QWORD *)v82 + 3) = 1LL;
-        v82[12] = 20;
-        v19 = &DirectComposition::CColorGradientStopMarshaler::`vftable';
-        goto LABEL_54;
-      }
-      goto LABEL_200;
-    }
-    if ( (_DWORD)a2 != 22 )
-    {
-      if ( (_DWORD)a2 == 26 )
-      {
-        v37 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 26),
-                2uLL,
-                0x70uLL,
-                0x74654344u);
-        Pool2 = (__int64)v37;
-        if ( v37 )
-        {
-          v37[8] = 0;
-          *((_QWORD *)v37 + 7) = 0LL;
-          *((_QWORD *)v37 + 3) = 1LL;
-          v37[12] = 25;
-          v19 = &DirectComposition::CCompiledEffectTemplateMarshaler::`vftable';
-          goto LABEL_54;
-        }
-        goto LABEL_200;
-      }
-      v28 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 27);
-      if ( (_DWORD)a2 == 27 )
-      {
-        v66 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v28, 2uLL, 0x90uLL, 0x32634344u);
-        Pool2 = (__int64)v66;
-        if ( v66 )
-        {
-          v66[8] = 0;
-          *((_QWORD *)v66 + 7) = 0LL;
-          *((_QWORD *)v66 + 3) = 1LL;
-          v66[12] = 26;
-          v19 = &DirectComposition::CComponentTransform2DMarshaler::`vftable';
-          goto LABEL_54;
-        }
-        goto LABEL_200;
-      }
-      if ( (_DWORD)a2 != 28 )
-        goto LABEL_71;
-      v29 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v28, 2uLL, 0xE0uLL, 0x6F634344u);
-      Pool2 = (__int64)v29;
-      if ( !v29 )
-        goto LABEL_200;
-      v29[8] = 0;
-      *((_QWORD *)v29 + 7) = 0LL;
-      *((_QWORD *)v29 + 3) = 1LL;
-      v29[12] = 27;
-      v19 = &DirectComposition::CComponentTransform3DMarshaler::`vftable';
-      goto LABEL_54;
-    }
-    v80 = gpLeakTrackingAllocator;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x65664344) == 0x65664344
-      && (v81 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
-    {
-      while ( *((_DWORD *)gpLeakTrackingAllocator + v81) != 1701200708 )
-      {
-        if ( ++v81 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-          goto LABEL_247;
-      }
-      Pool2 = ExAllocatePool2(261LL, 224LL);
-      if ( !Pool2 )
-        goto LABEL_200;
-      memset(BackTrace, 0, sizeof(BackTrace));
-      RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-      if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-      {
-        if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                 v80,
-                                 Pool2,
-                                 BackTrace) )
-          goto LABEL_238;
-LABEL_249:
-        *(_DWORD *)(Pool2 + 32) = 0;
-        v19 = &DirectComposition::CColorMatrixEffectMarshaler::`vftable';
-        *(_QWORD *)(Pool2 + 56) = 0LL;
-        *(_QWORD *)(Pool2 + 24) = 1LL;
-        *(_DWORD *)(Pool2 + 48) = 21;
-        *(_DWORD *)(Pool2 + 80) = 0;
-        *(_QWORD *)(Pool2 + 88) = 0LL;
-        *(_QWORD *)(Pool2 + 96) = 0LL;
-        *(_QWORD *)(Pool2 + 104) = 0LL;
-        *(_DWORD *)(Pool2 + 112) = 0;
-        goto LABEL_54;
-      }
-      if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                               v80,
-                               Pool2,
-                               BackTrace) )
-        goto LABEL_238;
-      Pool2 += 16LL;
     }
     else
     {
-LABEL_247:
-      Pool2 = ExAllocatePool2(261LL, 208LL);
-    }
-    if ( !Pool2 )
-      goto LABEL_200;
-    goto LABEL_249;
-  }
-  if ( (unsigned int)a2 > 0xB6 )
-  {
-    switch ( (_DWORD)a2 )
-    {
-      case 0xBF:
-        v149 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 191),
-                 2uLL,
-                 0xA0uLL,
-                 0x65664344u);
-        if ( v149 )
+      if ( a2 == 50 )
+      {
+        v176 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+        v10 = (_DWORD *)v176;
+        if ( !v176 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v176 + 20) = 1LL;
+        *(_QWORD *)(v176 + 48) = 0LL;
+        *(_DWORD *)(v176 + 40) = 205;
+        v18 = &DirectComposition::CDDisplayRenderTargetMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      if ( a2 > 0x1E )
+      {
+        if ( a2 > 0x28 )
         {
-          v149[8] = 0;
-          *((_QWORD *)v149 + 7) = 0LL;
-          Pool2 = (__int64)v149;
-          *((_QWORD *)v149 + 3) = 1LL;
-          v149[12] = 190;
-          v149[20] = 0;
-          *((_QWORD *)v149 + 11) = 0LL;
-          *((_QWORD *)v149 + 12) = 0LL;
-          *((_QWORD *)v149 + 13) = 0LL;
-          v149[28] = 0;
-          *(_QWORD *)v149 = &DirectComposition::CTurbulenceEffectMarshaler::`vftable';
-          v151 = (struct DirectComposition::CResourceMarshaler *)v149;
+          v163 = a2 - 41;
+          if ( !v163 )
+          {
+            v175 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+            v10 = (_DWORD *)v175;
+            if ( !v175 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v175 + 20) = 1LL;
+            *(_QWORD *)(v175 + 48) = 0LL;
+            *(_DWORD *)(v175 + 40) = 40;
+            v18 = &DirectComposition::CCompositionTextLineMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v164 = v163 - 2;
+          if ( !v164 )
+          {
+            v174 = Win32AllocPoolWithQuotaZInit(0xA0uLL);
+            v10 = (_DWORD *)v174;
+            if ( !v174 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v174 + 20) = 1LL;
+            *(_QWORD *)(v174 + 48) = 0LL;
+            *(_DWORD *)(v174 + 40) = 42;
+            v18 = &DirectComposition::CConditionalExpressionMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v165 = v164 - 1;
+          if ( !v165 )
+          {
+            v173 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+            v10 = (_DWORD *)v173;
+            if ( !v173 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v173 + 20) = 1LL;
+            *(_QWORD *)(v173 + 48) = 0LL;
+            *(_DWORD *)(v173 + 40) = 43;
+            v18 = &DirectComposition::CContainerShapeMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v166 = v165 - 2;
+          if ( !v166 )
+          {
+            v172 = (_DWORD *)Win32AllocPoolWithQuotaZInit(0x58uLL);
+            v10 = v172;
+            if ( !v172 )
+              return (unsigned int)-1073741801;
+            memset(v172, 0, 0x58uLL);
+            v18 = &DirectComposition::CCrossContainerGuestReadWriteSharedSectionMarshaler::`vftable';
+            v10[5] = 1;
+            v10[10] = 205;
+            goto LABEL_36;
+          }
+          v167 = v166 - 1;
+          if ( !v167 )
+          {
+            v171 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+            v10 = (_DWORD *)v171;
+            if ( !v171 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v171 + 20) = 1LL;
+            *(_QWORD *)(v171 + 48) = 0LL;
+            *(_DWORD *)(v171 + 40) = 205;
+            v18 = &DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v168 = v167 - 1;
+          if ( !v168 )
+          {
+            v170 = (DirectComposition::CCursorVisualMarshaler *)Win32AllocPoolWithQuotaZInit(0x190uLL);
+            if ( !v170 )
+              return (unsigned int)-1073741801;
+            v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CCursorVisualMarshaler::CCursorVisualMarshaler(v170);
+            goto LABEL_9;
+          }
+          if ( v168 == 1 )
+          {
+            v169 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+            v10 = (_DWORD *)v169;
+            if ( !v169 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v169 + 20) = 1LL;
+            *(_QWORD *)(v169 + 48) = 0LL;
+            *(_DWORD *)(v169 + 40) = 48;
+            v18 = &DirectComposition::CDataSourceReaderMarshaler::`vftable';
+            goto LABEL_36;
+          }
         }
-        goto LABEL_14;
-      case 0xC1:
-        v148 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 193),
-                 2uLL,
-                 0x60uLL,
-                 0x62764344u);
-        Pool2 = (__int64)v148;
-        if ( v148 )
+        else
         {
-          v148[8] = 0;
-          *((_QWORD *)v148 + 7) = 0LL;
-          *((_QWORD *)v148 + 3) = 1LL;
-          v148[12] = 192;
-          v19 = &DirectComposition::CViewBoxMarshaler::`vftable';
-          goto LABEL_54;
+          if ( a2 == 40 )
+          {
+            v58 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+            v10 = (_DWORD *)v58;
+            if ( !v58 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v58 + 20) = 1LL;
+            *(_QWORD *)(v58 + 48) = 0LL;
+            *(_DWORD *)(v58 + 40) = 39;
+            v18 = &DirectComposition::CCompositionSurfaceBitmapMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v110 = a2 - 31;
+          if ( !v110 )
+          {
+            v162 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+            v10 = (_DWORD *)v162;
+            if ( !v162 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v162 + 20) = 1LL;
+            *(_QWORD *)(v162 + 48) = 0LL;
+            *(_DWORD *)(v162 + 40) = 30;
+            v18 = &DirectComposition::CCompositionCubeMapMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v111 = v110 - 1;
+          if ( !v111 )
+          {
+            v125 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+            v10 = (_DWORD *)v125;
+            if ( !v125 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v125 + 20) = 1LL;
+            *(_QWORD *)(v125 + 48) = 0LL;
+            *(_DWORD *)(v125 + 40) = 31;
+            v18 = &DirectComposition::CCompositionDistantLightMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v112 = v111 - 1;
+          if ( !v112 )
+          {
+            v161 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+            v10 = (_DWORD *)v161;
+            if ( !v161 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v161 + 20) = 1LL;
+            *(_QWORD *)(v161 + 48) = 0LL;
+            *(_DWORD *)(v161 + 40) = 32;
+            v18 = &DirectComposition::CCompositionGlyphRunMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v113 = v112 - 1;
+          if ( !v113 )
+          {
+            v160 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+            v10 = (_DWORD *)v160;
+            if ( !v160 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v160 + 20) = 1LL;
+            *(_QWORD *)(v160 + 48) = 0LL;
+            *(_DWORD *)(v160 + 40) = 33;
+            v18 = &DirectComposition::CCompositionLightMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v114 = v113 - 1;
+          if ( !v114 )
+          {
+            v159 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+            v10 = (_DWORD *)v159;
+            if ( !v159 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v159 + 20) = 1LL;
+            *(_QWORD *)(v159 + 48) = 0LL;
+            *(_DWORD *)(v159 + 40) = 34;
+            v18 = &DirectComposition::CCompositionMipmapSurfaceMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v115 = v114 - 1;
+          if ( !v115 )
+          {
+            v158 = Win32AllocPoolWithQuotaZInit(0xA0uLL);
+            v10 = (_DWORD *)v158;
+            if ( !v158 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v158 + 20) = 1LL;
+            *(_QWORD *)(v158 + 48) = 0LL;
+            *(_DWORD *)(v158 + 40) = 35;
+            v18 = &DirectComposition::CCompositionPointLightMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          v116 = v115 - 2;
+          if ( !v116 )
+          {
+            v157 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+            v10 = (_DWORD *)v157;
+            if ( !v157 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v157 + 20) = 1LL;
+            *(_QWORD *)(v157 + 48) = 0LL;
+            *(_DWORD *)(v157 + 40) = 37;
+            v18 = &DirectComposition::CCompositionSkyBoxBrushMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          if ( v116 == 1 )
+          {
+            v117 = Win32AllocPoolWithQuotaZInit(0xC8uLL);
+            v10 = (_DWORD *)v117;
+            if ( !v117 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v117 + 20) = 1LL;
+            *(_QWORD *)(v117 + 48) = 0LL;
+            *(_DWORD *)(v117 + 40) = 38;
+            v18 = &DirectComposition::CCompositionSpotLightMarshaler::`vftable';
+            goto LABEL_36;
+          }
         }
-        goto LABEL_200;
-      case 0xC2:
-        v147 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 194),
-                 2uLL,
-                 0xD0uLL,
-                 0x6D764344u);
-        Pool2 = (__int64)v147;
-        if ( v147 )
+        return (unsigned int)-1073741811;
+      }
+      if ( a2 == 30 )
+      {
+        v108 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+        v10 = (_DWORD *)v108;
+        if ( !v108 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v108 + 20) = 1LL;
+        *(_QWORD *)(v108 + 48) = 0LL;
+        *(_DWORD *)(v108 + 40) = 29;
+        v18 = &DirectComposition::CCompositionAmbientLightMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      if ( a2 > 0x10 )
+      {
+        v11 = a2 - 17;
+        if ( !v11 )
         {
-          v147[8] = 0;
-          *((_QWORD *)v147 + 7) = 0LL;
-          *((_QWORD *)v147 + 3) = 1LL;
-          v147[12] = 193;
-          v19 = &DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::`vftable';
-          goto LABEL_54;
+          v156 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+          v10 = (_DWORD *)v156;
+          if ( !v156 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v156 + 20) = 1LL;
+          *(_QWORD *)(v156 + 48) = 0LL;
+          *(_DWORD *)(v156 + 40) = 16;
+          v18 = &DirectComposition::CCaptureRenderTargetMarshaler::`vftable';
+          goto LABEL_36;
         }
-        goto LABEL_200;
-      case 0xC3:
-        v16 = (DirectComposition::CVisualMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                       (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 195),
-                                                       2uLL,
-                                                       0x180uLL,
-                                                       0x69764344u);
+        v12 = v11 - 3;
+        if ( !v12 )
+        {
+          v56 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+          v10 = (_DWORD *)v56;
+          if ( !v56 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v56 + 20) = 1LL;
+          *(_QWORD *)(v56 + 48) = 0LL;
+          *(_DWORD *)(v56 + 40) = 19;
+          v18 = &DirectComposition::CColorBrushMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v13 = v12 - 1;
+        if ( !v13 )
+        {
+          v155 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v155;
+          if ( !v155 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v155 + 20) = 1LL;
+          *(_QWORD *)(v155 + 48) = 0LL;
+          *(_DWORD *)(v155 + 40) = 20;
+          v18 = &DirectComposition::CColorGradientStopMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v14 = v13 - 1;
+        if ( !v14 )
+        {
+          v154 = Win32AllocPoolWithQuotaZInit(0xC8uLL);
+          v10 = (_DWORD *)v154;
+          if ( !v154 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v154 + 20) = 1LL;
+          *(_QWORD *)(v154 + 48) = 0LL;
+          *(_DWORD *)(v154 + 40) = 21;
+          *(_DWORD *)(v154 + 72) = 0;
+          *(_QWORD *)(v154 + 80) = 0LL;
+          *(_QWORD *)(v154 + 88) = 0LL;
+          *(_QWORD *)(v154 + 96) = 0LL;
+          *(_DWORD *)(v154 + 104) = 0;
+          v18 = &DirectComposition::CColorMatrixEffectMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v15 = v14 - 4;
+        if ( !v15 )
+        {
+          v95 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+          v10 = (_DWORD *)v95;
+          if ( !v95 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v95 + 20) = 1LL;
+          *(_QWORD *)(v95 + 48) = 0LL;
+          *(_DWORD *)(v95 + 40) = 25;
+          v18 = &DirectComposition::CCompiledEffectTemplateMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v16 = v15 - 1;
         if ( !v16 )
-          goto LABEL_13;
-        v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CVisualMarshaler::CVisualMarshaler(v16);
-        goto LABEL_12;
-      case 0xC5:
-        v146 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 197),
-                 2uLL,
-                 0x78uLL,
-                 0x72764344u);
-        Pool2 = (__int64)v146;
-        if ( v146 )
         {
-          v146[8] = 0;
-          *((_QWORD *)v146 + 7) = 0LL;
-          *((_QWORD *)v146 + 3) = 1LL;
-          v146[12] = 196;
-          v19 = &DirectComposition::CVisualCaptureMarshaler::`vftable';
-          goto LABEL_54;
+          v17 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+          v10 = (_DWORD *)v17;
+          if ( !v17 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v17 + 20) = 1LL;
+          *(_QWORD *)(v17 + 48) = 0LL;
+          *(_DWORD *)(v17 + 40) = 26;
+          v18 = &DirectComposition::CComponentTransform2DMarshaler::`vftable';
+          goto LABEL_36;
         }
-        goto LABEL_200;
-      case 0xC8:
-        v50 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 200),
-                2uLL,
-                0x48uLL,
-                0x66724344u);
-        Pool2 = (__int64)v50;
-        if ( v50 )
+        v54 = v16 - 1;
+        if ( !v54 )
         {
-          v50[8] = 0;
-          *((_QWORD *)v50 + 7) = 0LL;
-          *((_QWORD *)v50 + 3) = 1LL;
-          v50[12] = 199;
-          v19 = &DirectComposition::CVisualReferenceControllerMarshaler::`vftable';
-          goto LABEL_54;
+          v55 = Win32AllocPoolWithQuotaZInit(0xD8uLL);
+          v10 = (_DWORD *)v55;
+          if ( !v55 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v55 + 20) = 1LL;
+          *(_QWORD *)(v55 + 48) = 0LL;
+          *(_DWORD *)(v55 + 40) = 27;
+          v18 = &DirectComposition::CComponentTransform3DMarshaler::`vftable';
+          goto LABEL_36;
         }
-        goto LABEL_200;
-      case 0xC9:
-        v145 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 201),
-                 2uLL,
-                 0x68uLL,
-                 0x736C4344u);
-        Pool2 = (__int64)v145;
-        if ( v145 )
+        if ( v54 == 1 )
         {
-          v145[8] = 0;
-          *((_QWORD *)v145 + 7) = 0LL;
-          *((_QWORD *)v145 + 3) = 1LL;
-          v145[12] = 200;
-          v19 = &DirectComposition::CVisualSurfaceMarshaler::`vftable';
-          goto LABEL_54;
+          v153 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+          v10 = (_DWORD *)v153;
+          if ( !v153 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v153 + 20) = 1LL;
+          *(_QWORD *)(v153 + 48) = 0LL;
+          *(_DWORD *)(v153 + 40) = 28;
+          *(_DWORD *)(v153 + 72) = 0;
+          *(_QWORD *)(v153 + 80) = 0LL;
+          *(_QWORD *)(v153 + 88) = 0LL;
+          *(_QWORD *)(v153 + 96) = 0LL;
+          *(_DWORD *)(v153 + 104) = 0;
+          v18 = &DirectComposition::CCompositeEffectMarshaler::`vftable';
+          goto LABEL_36;
         }
-        goto LABEL_200;
-    }
-    v43 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 203);
-    if ( (_DWORD)a2 == 203 )
-    {
-      v54 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v43, 2uLL, 0x50uLL, 0x776A4344u);
-      Pool2 = (__int64)v54;
-      if ( v54 )
-      {
-        v54[8] = 0;
-        *((_QWORD *)v54 + 7) = 0LL;
-        *((_QWORD *)v54 + 3) = 1LL;
-        v54[12] = 202;
-        v19 = &DirectComposition::CBlurredWallpaperBackdropBrushMarshaler::`vftable';
-        goto LABEL_54;
+        return (unsigned int)-1073741811;
       }
-      goto LABEL_200;
-    }
-    if ( (_DWORD)a2 == 206 )
-    {
-      v144 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v43, 2uLL, 0x58uLL, 0x73794344u);
-      Pool2 = (__int64)v144;
-      if ( v144 )
+      if ( a2 == 16 )
       {
-        v144[8] = 0;
-        *((_QWORD *)v144 + 7) = 0LL;
-        *((_QWORD *)v144 + 3) = 1LL;
-        v144[12] = 205;
-        v19 = &DirectComposition::CYCbCrSurfaceMarshaler::`vftable';
-        goto LABEL_54;
+        v152 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+        v10 = (_DWORD *)v152;
+        if ( !v152 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v152 + 20) = 1LL;
+        *(_QWORD *)(v152 + 48) = 0LL;
+        *(_DWORD *)(v152 + 40) = 15;
+        *(_QWORD *)v152 = &DirectComposition::CCaptureControllerMarshaler::`vftable';
+        *(_WORD *)(v152 + 72) = 257;
       }
-      goto LABEL_200;
-    }
-    goto LABEL_71;
-  }
-  if ( (_DWORD)a2 == 182 )
-  {
-    v143 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-             (NSInstrumentation::CLeakTrackingAllocator *)0xB6,
-             2uLL,
-             0xC0uLL,
-             0x65664344u);
-    Pool2 = (__int64)v143;
-    if ( !v143 )
-      goto LABEL_200;
-    DirectComposition::CFilterEffectMarshaler::CFilterEffectMarshaler(v143, 181LL);
-    v70 = &DirectComposition::CTableTransferEffectMarshaler::`vftable';
-    goto LABEL_203;
-  }
-  if ( (unsigned int)a2 <= 0xAD )
-  {
-    switch ( (_DWORD)a2 )
-    {
-      case 0xAD:
-        v140 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)0xAD,
-                 2uLL,
-                 0x98uLL,
-                 0x61734344u);
-        Pool2 = (__int64)v140;
-        if ( v140 )
-        {
-          v140[8] = 0;
-          *((_QWORD *)v140 + 7) = 0LL;
-          *((_QWORD *)v140 + 3) = 1LL;
-          v140[12] = 172;
-          v19 = &DirectComposition::CSnapshotMarshaler::`vftable';
-          goto LABEL_54;
-        }
-        goto LABEL_200;
-      case 0xA4:
-        v139 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 164),
-                 2uLL,
-                 0x68uLL,
-                 0x6E6D4344u);
-        Pool2 = (__int64)v139;
-        if ( v139 )
-        {
-          v139[8] = 0;
-          *((_QWORD *)v139 + 7) = 0LL;
-          *((_QWORD *)v139 + 3) = 1LL;
-          v139[12] = 163;
-          v19 = &DirectComposition::CSceneSurfaceMaterialInputMarshaler::`vftable';
-          goto LABEL_54;
-        }
-        goto LABEL_200;
-      case 0xA6:
-        v138 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                 (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 166),
-                 2uLL,
-                 0x90uLL,
-                 0x65664344u);
-        Pool2 = (__int64)v138;
-        if ( v138 )
-        {
-          v138[8] = 0;
-          *((_QWORD *)v138 + 7) = 0LL;
-          *((_QWORD *)v138 + 3) = 1LL;
-          v138[12] = 165;
-          v138[20] = 0;
-          *((_QWORD *)v138 + 11) = 0LL;
-          *((_QWORD *)v138 + 12) = 0LL;
-          *((_QWORD *)v138 + 13) = 0LL;
-          v138[28] = 0;
-          v19 = &DirectComposition::CShadowEffectMarshaler::`vftable';
-          goto LABEL_54;
-        }
-        goto LABEL_200;
-      case 0xA7:
-        v137 = (DirectComposition::CShapeVisualMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                             (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 167),
-                                                             2uLL,
-                                                             0x1A0uLL,
-                                                             0x68734344u);
-        if ( !v137 )
-          goto LABEL_13;
-        v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CShapeVisualMarshaler::CShapeVisualMarshaler(v137);
-        goto LABEL_12;
-    }
-    v41 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 168);
-    if ( (_DWORD)a2 == 168 )
-    {
-      v42 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v41, 2uLL, 0x50uLL, 0x73734344u);
-      Pool2 = (__int64)v42;
-      if ( v42 )
+      else
       {
-        memset(v42, 0, 0x50uLL);
-        v19 = &DirectComposition::CSharedSectionMarshaler::`vftable';
-        *(_QWORD *)(Pool2 + 24) = 1LL;
-        *(_DWORD *)(Pool2 + 48) = 206;
-        goto LABEL_54;
+        v59 = a2 - 1;
+        if ( !v59 )
+        {
+          v151 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+          v10 = (_DWORD *)v151;
+          if ( !v151 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v151 + 20) = 1LL;
+          *(_QWORD *)(v151 + 48) = 0LL;
+          *(_DWORD *)(v151 + 40) = 0;
+          *(_DWORD *)(v151 + 72) = 0;
+          *(_QWORD *)(v151 + 80) = 0LL;
+          *(_QWORD *)(v151 + 88) = 0LL;
+          *(_QWORD *)(v151 + 96) = 0LL;
+          *(_DWORD *)(v151 + 104) = 0;
+          v18 = &DirectComposition::CAffineTransform2DEffectMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v60 = v59 - 1;
+        if ( v60 )
+        {
+          v61 = v60 - 1;
+          if ( !v61 )
+          {
+            v62 = (DirectComposition::CAnimationLoggingManagerMarshaler *)Win32AllocPoolWithQuotaZInit(0x108uLL);
+            if ( !v62 )
+              return (unsigned int)-1073741801;
+            v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CAnimationLoggingManagerMarshaler::CAnimationLoggingManagerMarshaler(v62);
+            goto LABEL_9;
+          }
+          v104 = v61 - 1;
+          if ( v104 )
+          {
+            v105 = v104 - 1;
+            if ( !v105 )
+            {
+              v149 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+              v10 = (_DWORD *)v149;
+              if ( !v149 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v149 + 20) = 1LL;
+              *(_QWORD *)(v149 + 48) = 0LL;
+              *(_DWORD *)(v149 + 40) = 4;
+              *(_DWORD *)(v149 + 72) = 0;
+              *(_QWORD *)(v149 + 80) = 0LL;
+              *(_QWORD *)(v149 + 88) = 0LL;
+              *(_QWORD *)(v149 + 96) = 0LL;
+              *(_DWORD *)(v149 + 104) = 0;
+              v18 = &DirectComposition::CArithmeticCompositeEffectMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            v106 = v105 - 3;
+            if ( !v106 )
+            {
+              v107 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+              v10 = (_DWORD *)v107;
+              if ( !v107 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v107 + 20) = 1LL;
+              *(_QWORD *)(v107 + 48) = 0LL;
+              *(_DWORD *)(v107 + 40) = 7;
+              v18 = &DirectComposition::CBackdropBrushMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            v146 = v106 - 4;
+            if ( !v146 )
+            {
+              v148 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+              v10 = (_DWORD *)v148;
+              if ( !v148 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v148 + 20) = 1LL;
+              *(_QWORD *)(v148 + 48) = 0LL;
+              *(_DWORD *)(v148 + 40) = 11;
+              *(_DWORD *)(v148 + 72) = 0;
+              *(_QWORD *)(v148 + 80) = 0LL;
+              *(_QWORD *)(v148 + 88) = 0LL;
+              *(_QWORD *)(v148 + 96) = 0LL;
+              *(_DWORD *)(v148 + 104) = 0;
+              v18 = &DirectComposition::CBlendEffectMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            if ( v146 == 1 )
+            {
+              v147 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+              v10 = (_DWORD *)v147;
+              if ( !v147 )
+                return (unsigned int)-1073741801;
+              *(_QWORD *)(v147 + 20) = 1LL;
+              *(_QWORD *)(v147 + 48) = 0LL;
+              *(_DWORD *)(v147 + 40) = 12;
+              *(_DWORD *)(v147 + 72) = 0;
+              *(_QWORD *)(v147 + 80) = 0LL;
+              *(_QWORD *)(v147 + 88) = 0LL;
+              *(_QWORD *)(v147 + 96) = 0LL;
+              *(_DWORD *)(v147 + 104) = 0;
+              v18 = &DirectComposition::CBrightnessEffectMarshaler::`vftable';
+              goto LABEL_36;
+            }
+            return (unsigned int)-1073741811;
+          }
+          v150 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+          v10 = (_DWORD *)v150;
+          if ( !v150 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v150 + 20) = 1LL;
+          *(_QWORD *)(v150 + 48) = 0LL;
+          *(_DWORD *)(v150 + 40) = 3;
+          *(_QWORD *)v150 = &DirectComposition::CAnimationTriggerMarshaler::`vftable';
+          *(_QWORD *)(v150 + 80) = 0LL;
+          *(_QWORD *)(v150 + 88) = 0LL;
+          *(_DWORD *)(v150 + 96) = 0;
+        }
+        else
+        {
+          v84 = Win32AllocPoolWithQuotaZInit(0x100uLL);
+          v5 = v84;
+          if ( v84 )
+          {
+            *(_QWORD *)(v84 + 36) = 1LL;
+            *(_QWORD *)(v84 + 64) = 0LL;
+            *(_DWORD *)(v84 + 56) = 1;
+            *(_QWORD *)v84 = &DirectComposition::CAnimationMarshaler::`vftable'{for `DirectComposition::CBaseAnimation'};
+            *(_QWORD *)(v84 + 16) = &DirectComposition::CAnimationMarshaler::`vftable'{for `DirectComposition::CResourceMarshaler'};
+          }
+          else
+          {
+            v5 = 0LL;
+          }
+          if ( v5 )
+          {
+            v85 = (_QWORD *)((char *)this + 336);
+            v86 = *((_QWORD *)this + 42);
+            v87 = (_QWORD *)(v5 + 128);
+            if ( *(DirectComposition::CApplicationChannel **)(v86 + 8) != (DirectComposition::CApplicationChannel *)((char *)this + 336) )
+              __fastfail(3u);
+            *v87 = v86;
+            *(_QWORD *)(v5 + 136) = v85;
+            *(_QWORD *)(v86 + 8) = v87;
+            *v85 = v87;
+          }
+          v10 = (_DWORD *)((v5 + 16) & -(__int64)(v5 != 0));
+        }
       }
-      goto LABEL_200;
     }
-    if ( (_DWORD)a2 == 170 )
+    goto LABEL_37;
+  }
+  if ( a2 <= 0x99 )
+  {
+    if ( a2 == 153 )
     {
-      v136 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v41, 2uLL, 0x50uLL, 0x677A4344u);
-      Pool2 = (__int64)v136;
-      if ( v136 )
+      v232 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+      v10 = (_DWORD *)v232;
+      if ( !v232 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v232 + 20) = 1LL;
+      *(_QWORD *)(v232 + 48) = 0LL;
+      *(_DWORD *)(v232 + 40) = 152;
+      v18 = &DirectComposition::CScaleTransform3DMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    if ( a2 <= 0x80 )
+    {
+      if ( a2 == 128 )
       {
-        memset(v136, 0, 0x50uLL);
-        v19 = &DirectComposition::CSharedSectionWrapperMarshaler::`vftable';
-        *(_QWORD *)(Pool2 + 24) = 1LL;
-        *(_DWORD *)(Pool2 + 48) = 206;
-        goto LABEL_54;
+        v221 = Win32AllocPoolWithQuotaZInit(0xC8uLL);
+        v10 = (_DWORD *)v221;
+        if ( !v221 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v221 + 20) = 1LL;
+        *(_QWORD *)(v221 + 48) = 0LL;
+        *(_DWORD *)(v221 + 40) = 127;
+        v18 = &DirectComposition::CPrimitiveGroupLayerClipMarshaler::`vftable';
+        goto LABEL_36;
       }
-      goto LABEL_200;
+      if ( a2 > 0x76 )
+      {
+        v67 = a2 - 119;
+        if ( !v67 )
+        {
+          v220 = Win32AllocPoolWithQuotaZInit(0xD0uLL);
+          v10 = (_DWORD *)v220;
+          if ( !v220 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v220 + 20) = 1LL;
+          *(_QWORD *)(v220 + 48) = 0LL;
+          *(_DWORD *)(v220 + 40) = 118;
+          v18 = &DirectComposition::CParticleGeneratorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v68 = v67 - 1;
+        if ( !v68 )
+        {
+          v219 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v219;
+          if ( !v219 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v219 + 20) = 1LL;
+          *(_QWORD *)(v219 + 48) = 0LL;
+          *(_DWORD *)(v219 + 40) = 119;
+          v18 = &DirectComposition::CParticleVector4BehaviorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v69 = v68 - 1;
+        if ( !v69 )
+        {
+          v218 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v218;
+          if ( !v218 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v218 + 20) = 1LL;
+          *(_QWORD *)(v218 + 48) = 0LL;
+          *(_DWORD *)(v218 + 40) = 120;
+          v18 = &DirectComposition::CParticleVector4BehaviorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v70 = v69 - 1;
+        if ( !v70 )
+        {
+          v217 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v217;
+          if ( !v217 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v217 + 20) = 1LL;
+          *(_QWORD *)(v217 + 48) = 0LL;
+          *(_DWORD *)(v217 + 40) = 121;
+          v18 = &DirectComposition::CParticleVector4BehaviorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v71 = v70 - 1;
+        if ( !v71 )
+        {
+          v216 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v216;
+          if ( !v216 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v216 + 20) = 1LL;
+          *(_QWORD *)(v216 + 48) = 0LL;
+          *(_DWORD *)(v216 + 40) = 122;
+          v18 = &DirectComposition::CParticleVector4BehaviorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v72 = v71 - 1;
+        if ( !v72 )
+        {
+          v215 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+          v10 = (_DWORD *)v215;
+          if ( !v215 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v215 + 20) = 1LL;
+          *(_QWORD *)(v215 + 48) = 0LL;
+          *(_DWORD *)(v215 + 40) = 123;
+          v18 = &DirectComposition::CPathGeometryMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v73 = v72 - 2;
+        if ( !v73 )
+        {
+          v214 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+          v10 = (_DWORD *)v214;
+          if ( !v214 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v214 + 20) = 1LL;
+          *(_QWORD *)(v214 + 48) = 0LL;
+          *(_DWORD *)(v214 + 40) = 125;
+          v18 = &DirectComposition::CPrimitiveColorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        if ( v73 == 1 )
+        {
+          v74 = Win32AllocPoolWithQuotaZInit(0xC8uLL);
+          v10 = (_DWORD *)v74;
+          if ( !v74 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v74 + 20) = 1LL;
+          *(_QWORD *)(v74 + 48) = 0LL;
+          *(_DWORD *)(v74 + 40) = 126;
+          v18 = &DirectComposition::CPrimitiveGroupLayerClipMarshaler::`vftable';
+          goto LABEL_36;
+        }
+      }
+      else
+      {
+        if ( a2 == 118 )
+        {
+          v213 = (DirectComposition::CParticleEmitterVisualMarshaler *)Win32AllocPoolWithQuotaZInit(0x228uLL);
+          if ( !v213 )
+            return (unsigned int)-1073741801;
+          v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CParticleEmitterVisualMarshaler::CParticleEmitterVisualMarshaler(v213);
+          goto LABEL_9;
+        }
+        v43 = a2 - 105;
+        if ( !v43 )
+        {
+          v44 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+          v10 = (_DWORD *)v44;
+          if ( !v44 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v44 + 20) = 1LL;
+          *(_QWORD *)(v44 + 48) = 0LL;
+          *(_DWORD *)(v44 + 40) = 104;
+          v18 = &DirectComposition::CMaskBrushMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v90 = v43 - 2;
+        if ( !v90 )
+        {
+          v135 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+          v10 = (_DWORD *)v135;
+          if ( !v135 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v135 + 20) = 1LL;
+          *(_QWORD *)(v135 + 48) = 0LL;
+          *(_DWORD *)(v135 + 40) = 106;
+          v18 = &DirectComposition::CMatrixTransformMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v91 = v90 - 1;
+        if ( !v91 )
+        {
+          v126 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+          v10 = (_DWORD *)v126;
+          if ( !v126 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v126 + 20) = 1LL;
+          *(_QWORD *)(v126 + 48) = 0LL;
+          *(_DWORD *)(v126 + 40) = 107;
+          v18 = &DirectComposition::CMatrixTransform3DMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v92 = v91 - 2;
+        if ( !v92 )
+        {
+          v212 = (DirectComposition::CNaturalAnimationMarshaler *)Win32AllocPoolWithQuotaZInit(0xC8uLL);
+          if ( !v212 )
+            return (unsigned int)-1073741801;
+          v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CNaturalAnimationMarshaler::CNaturalAnimationMarshaler(v212);
+          goto LABEL_9;
+        }
+        v93 = v92 - 1;
+        if ( !v93 )
+        {
+          v94 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+          v10 = (_DWORD *)v94;
+          if ( !v94 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v94 + 20) = 1LL;
+          *(_QWORD *)(v94 + 48) = 0LL;
+          *(_DWORD *)(v94 + 40) = 110;
+          v18 = &DirectComposition::CNineGridBrushMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v207 = v93 - 2;
+        if ( !v207 )
+        {
+          v211 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v211;
+          if ( !v211 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v211 + 20) = 1LL;
+          *(_QWORD *)(v211 + 48) = 0LL;
+          *(_DWORD *)(v211 + 40) = 112;
+          v18 = &DirectComposition::CParticleAttractorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v208 = v207 - 2;
+        if ( !v208 )
+        {
+          v210 = Win32AllocPoolWithQuotaZInit(0x90uLL);
+          v10 = (_DWORD *)v210;
+          if ( !v210 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v210 + 20) = 1LL;
+          *(_QWORD *)(v210 + 48) = 0LL;
+          *(_DWORD *)(v210 + 40) = 114;
+          v18 = &DirectComposition::CParticleBehaviorsMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        if ( v208 == 1 )
+        {
+          v209 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v209;
+          if ( !v209 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v209 + 20) = 1LL;
+          *(_QWORD *)(v209 + 48) = 0LL;
+          *(_DWORD *)(v209 + 40) = 115;
+          v18 = &DirectComposition::CParticleVector4BehaviorMarshaler::`vftable';
+          goto LABEL_36;
+        }
+      }
+      return (unsigned int)-1073741811;
     }
-    goto LABEL_71;
-  }
-  if ( (_DWORD)a2 == 175 )
-  {
-    v142 = (DirectComposition::CSpatialRemarshalerMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                                (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 175),
-                                                                2uLL,
-                                                                0x180uLL,
-                                                                0x797A4344u);
-    if ( !v142 )
-      goto LABEL_13;
-    v8 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CSpatialRemarshalerMarshaler::CSpatialRemarshalerMarshaler(v142);
-    goto LABEL_12;
-  }
-  if ( (_DWORD)a2 == 176 )
-  {
-    v141 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-             (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 176),
-             2uLL,
-             0x90uLL,
-             0x736F4344u);
-    Pool2 = (__int64)v141;
-    if ( v141 )
+    if ( a2 > 0x8E )
     {
-      v141[8] = 0;
-      *((_QWORD *)v141 + 7) = 0LL;
-      *((_QWORD *)v141 + 3) = 1LL;
-      v141[12] = 175;
-      v19 = &DirectComposition::CSpriteShapeMarshaler::`vftable';
-      goto LABEL_54;
+      v75 = a2 - 143;
+      if ( v75 )
+      {
+        v76 = v75 - 1;
+        if ( !v76 )
+        {
+          v145 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+          v10 = (_DWORD *)v145;
+          if ( !v145 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v145 + 20) = 1LL;
+          *(_QWORD *)(v145 + 48) = 0LL;
+          *(_DWORD *)(v145 + 40) = 205;
+          v18 = &DirectComposition::CRemoteRenderTargetMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v77 = v76 - 4;
+        if ( !v77 )
+        {
+          v230 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+          v10 = (_DWORD *)v230;
+          if ( !v230 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v230 + 20) = 1LL;
+          *(_QWORD *)(v230 + 48) = 0LL;
+          *(_DWORD *)(v230 + 40) = 147;
+          v18 = &DirectComposition::CRotateTransformMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v78 = v77 - 1;
+        if ( !v78 )
+        {
+          v229 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+          v10 = (_DWORD *)v229;
+          if ( !v229 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v229 + 20) = 1LL;
+          *(_QWORD *)(v229 + 48) = 0LL;
+          *(_DWORD *)(v229 + 40) = 148;
+          v18 = &DirectComposition::CRotateTransform3DMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v79 = v78 - 1;
+        if ( !v79 )
+        {
+          v228 = Win32AllocPoolWithQuotaZInit(0x78uLL);
+          v10 = (_DWORD *)v228;
+          if ( !v228 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v228 + 20) = 1LL;
+          *(_QWORD *)(v228 + 48) = 0LL;
+          *(_DWORD *)(v228 + 40) = 149;
+          *(_DWORD *)(v228 + 72) = 0;
+          *(_QWORD *)(v228 + 80) = 0LL;
+          *(_QWORD *)(v228 + 88) = 0LL;
+          *(_QWORD *)(v228 + 96) = 0LL;
+          *(_DWORD *)(v228 + 104) = 0;
+          v18 = &DirectComposition::CSaturationEffectMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v80 = v79 - 1;
+        if ( v80 )
+        {
+          if ( v80 == 1 )
+          {
+            v81 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+            v10 = (_DWORD *)v81;
+            if ( !v81 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v81 + 20) = 1LL;
+            *(_QWORD *)(v81 + 48) = 0LL;
+            *(_DWORD *)(v81 + 40) = 151;
+            v18 = &DirectComposition::CScaleTransformMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          return (unsigned int)-1073741811;
+        }
+        v226 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+        v227 = v226;
+        if ( v226 )
+        {
+          *(_QWORD *)(v226 + 36) = 1LL;
+          *(_QWORD *)(v226 + 64) = 0LL;
+          *(_DWORD *)(v226 + 56) = 150;
+          *(_QWORD *)v226 = &DirectComposition::CScalarMarshaler::`vftable'{for `DirectComposition::CBaseAnimation'};
+          *(_QWORD *)(v226 + 16) = &DirectComposition::CScalarMarshaler::`vftable'{for `DirectComposition::CResourceMarshaler'};
+        }
+        else
+        {
+          v227 = 0LL;
+        }
+        v10 = (_DWORD *)((v227 + 16) & ((unsigned __int128)-(__int128)(unsigned __int64)v227 >> 64));
+      }
+      else
+      {
+        v231 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+        v10 = (_DWORD *)v231;
+        if ( !v231 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v231 + 20) = 1LL;
+        *(_QWORD *)(v231 + 48) = 0LL;
+        *(_DWORD *)(v231 + 40) = 142;
+        *(_QWORD *)v231 = &DirectComposition::CRemoteAppRenderTargetMarshaler::`vftable';
+        *(_DWORD *)(v231 + 56) = 3;
+      }
+      goto LABEL_37;
     }
-    goto LABEL_200;
+    if ( a2 == 142 )
+    {
+      v88 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+      v10 = (_DWORD *)v88;
+      if ( !v88 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v88 + 20) = 1LL;
+      *(_QWORD *)(v88 + 48) = 0LL;
+      *(_DWORD *)(v88 + 40) = 141;
+      v18 = &DirectComposition::CRegionGeometryMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v30 = a2 - 130;
+    if ( !v30 )
+    {
+      v143 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+      v10 = (_DWORD *)v143;
+      if ( !v143 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v143 + 20) = 1LL;
+      *(_QWORD *)(v143 + 48) = 0LL;
+      *(_DWORD *)(v143 + 40) = 129;
+      v18 = &DirectComposition::CProjectedShadowCasterMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v31 = v30 - 1;
+    if ( !v31 )
+    {
+      v144 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+      v10 = (_DWORD *)v144;
+      if ( !v144 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v144 + 20) = 1LL;
+      *(_QWORD *)(v144 + 48) = 0LL;
+      *(_DWORD *)(v144 + 40) = 130;
+      *(_QWORD *)v144 = &DirectComposition::CProjectedShadowReceiverMarshaler::`vftable';
+      *(_DWORD *)(v144 + 80) = 1;
+      goto LABEL_37;
+    }
+    v32 = v31 - 1;
+    if ( !v32 )
+    {
+      v142 = (DirectComposition::CProjectedShadowSceneMarshaler *)Win32AllocPoolWithQuotaZInit(0x88uLL);
+      if ( !v142 )
+        return (unsigned int)-1073741801;
+      v9 = DirectComposition::CProjectedShadowSceneMarshaler::CProjectedShadowSceneMarshaler(v142);
+      goto LABEL_9;
+    }
+    v33 = v32 - 2;
+    if ( !v33 )
+    {
+      v34 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+      v10 = (_DWORD *)v34;
+      if ( !v34 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v34 + 20) = 1LL;
+      *(_QWORD *)(v34 + 48) = 0LL;
+      *(_DWORD *)(v34 + 40) = 133;
+      *(_QWORD *)v34 = &DirectComposition::CPropertySetMarshaler::`vftable';
+      *(_QWORD *)(v34 + 72) = 0LL;
+      *(_QWORD *)(v34 + 80) = 0LL;
+      *(_QWORD *)(v34 + 88) = 0LL;
+      *(_QWORD *)(v34 + 96) = 0LL;
+      goto LABEL_37;
+    }
+    v63 = v33 - 1;
+    if ( !v63 )
+    {
+      v225 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+      v10 = (_DWORD *)v225;
+      if ( !v225 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v225 + 20) = 1LL;
+      *(_QWORD *)(v225 + 48) = 0LL;
+      *(_DWORD *)(v225 + 40) = 134;
+      v18 = &DirectComposition::CProxyGeometryClipMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v64 = v63 - 1;
+    if ( !v64 )
+    {
+      v224 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+      v10 = (_DWORD *)v224;
+      if ( !v224 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v224 + 20) = 1LL;
+      *(_QWORD *)(v224 + 48) = 0LL;
+      *(_DWORD *)(v224 + 40) = 135;
+      *(_QWORD *)(v224 + 72) = 2LL;
+      *(_DWORD *)(v224 + 80) = 1;
+      *(_QWORD *)(v224 + 88) = 0LL;
+      *(_QWORD *)(v224 + 96) = 0LL;
+      *(_QWORD *)(v224 + 104) = 0LL;
+      v18 = &DirectComposition::CRadialGradientBrushMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v65 = v64 - 2;
+    if ( !v65 )
+    {
+      v66 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+      v10 = (_DWORD *)v66;
+      if ( !v66 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v66 + 20) = 1LL;
+      *(_QWORD *)(v66 + 48) = 0LL;
+      *(_DWORD *)(v66 + 40) = 137;
+      v18 = &DirectComposition::CRectangleClipMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    if ( v65 != 3 )
+      return (unsigned int)-1073741811;
+    v222 = Win32AllocPoolWithQuotaZInit(0x180uLL);
+    v10 = (_DWORD *)v222;
+    if ( !v222 )
+      return (unsigned int)-1073741801;
+    DirectComposition::CVisualMarshaler::CVisualMarshaler(v222, 140);
+    v223 = &DirectComposition::CRedirectVisualMarshaler::`vftable';
+LABEL_376:
+    *(_QWORD *)v10 = v223;
+    goto LABEL_37;
   }
-  v14 = (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)((_DWORD)a2 - 177);
-  if ( (_DWORD)a2 == 177 )
+  if ( a2 <= 0xB4 )
   {
-    v15 = (DirectComposition::CSpriteVisualMarshaler *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                                         v14,
-                                                         2uLL,
-                                                         0x198uLL,
-                                                         0x76734344u);
-    if ( !v15 )
-      goto LABEL_13;
-    v8 = DirectComposition::CSpriteVisualMarshaler::CSpriteVisualMarshaler(v15);
-    goto LABEL_12;
+    if ( a2 == 180 )
+    {
+      v45 = Win32AllocPoolWithQuotaZInit(0x80uLL);
+      v10 = (_DWORD *)v45;
+      if ( !v45 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v45 + 20) = 1LL;
+      *(_QWORD *)(v45 + 48) = 0LL;
+      *(_DWORD *)(v45 + 40) = 179;
+      v18 = &DirectComposition::CSurfaceBrushMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    if ( a2 <= 0xA8 )
+    {
+      if ( a2 == 168 )
+      {
+        v248 = Win32AllocPoolWithQuotaZInit(0x190uLL);
+        v10 = (_DWORD *)v248;
+        if ( !v248 )
+          return (unsigned int)-1073741801;
+        DirectComposition::CVisualMarshaler::CVisualMarshaler(v248, 167);
+        v10[98] = 0;
+        *(_QWORD *)v10 = &DirectComposition::CShapeVisualMarshaler::`vftable';
+        goto LABEL_37;
+      }
+      v233 = a2 - 157;
+      if ( !v233 )
+      {
+        v247 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+        v10 = (_DWORD *)v247;
+        if ( !v247 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v247 + 20) = 1LL;
+        *(_QWORD *)(v247 + 48) = 0LL;
+        *(_DWORD *)(v247 + 40) = 156;
+        v18 = &DirectComposition::CSceneMeshMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v234 = v233 - 1;
+      if ( !v234 )
+      {
+        v246 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+        v10 = (_DWORD *)v246;
+        if ( !v246 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v246 + 20) = 1LL;
+        *(_QWORD *)(v246 + 48) = 0LL;
+        *(_DWORD *)(v246 + 40) = 157;
+        v18 = &DirectComposition::CSceneMeshRendererComponentMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v235 = v234 - 1;
+      if ( !v235 )
+      {
+        v245 = Win32AllocPoolWithQuotaZInit(0xA8uLL);
+        v10 = (_DWORD *)v245;
+        if ( !v245 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v245 + 20) = 1LL;
+        *(_QWORD *)(v245 + 48) = 0LL;
+        *(_DWORD *)(v245 + 40) = 158;
+        v18 = &DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v236 = v235 - 1;
+      if ( !v236 )
+      {
+        v244 = Win32AllocPoolWithQuotaZInit(0x40uLL);
+        v10 = (_DWORD *)v244;
+        if ( !v244 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v244 + 20) = 1LL;
+        *(_QWORD *)(v244 + 48) = 0LL;
+        *(_DWORD *)(v244 + 40) = 159;
+        v18 = &DirectComposition::CSceneModelTransformMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v237 = v236 - 1;
+      if ( !v237 )
+      {
+        v243 = (DirectComposition::CSceneNodeMarshaler *)Win32AllocPoolWithQuotaZInit(0x80uLL);
+        if ( !v243 )
+          return (unsigned int)-1073741801;
+        v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CSceneNodeMarshaler::CSceneNodeMarshaler(v243);
+        goto LABEL_9;
+      }
+      v238 = v237 - 4;
+      if ( !v238 )
+      {
+        v242 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+        v10 = (_DWORD *)v242;
+        if ( !v242 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v242 + 20) = 1LL;
+        *(_QWORD *)(v242 + 48) = 0LL;
+        *(_DWORD *)(v242 + 40) = 164;
+        v18 = &DirectComposition::CSceneSurfaceMaterialInputMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v239 = v238 - 1;
+      if ( v239 )
+      {
+        if ( v239 == 1 )
+        {
+          v240 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+          v10 = (_DWORD *)v240;
+          if ( !v240 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v240 + 20) = 1LL;
+          *(_QWORD *)(v240 + 48) = 0LL;
+          *(_DWORD *)(v240 + 40) = 166;
+          *(_DWORD *)(v240 + 72) = 0;
+          *(_QWORD *)(v240 + 80) = 0LL;
+          *(_QWORD *)(v240 + 88) = 0LL;
+          *(_QWORD *)(v240 + 96) = 0LL;
+          *(_DWORD *)(v240 + 104) = 0;
+          v18 = &DirectComposition::CShadowEffectMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        return (unsigned int)-1073741811;
+      }
+      v241 = Win32AllocPoolWithQuotaZInit(0x180uLL);
+      v10 = (_DWORD *)v241;
+      if ( !v241 )
+        return (unsigned int)-1073741801;
+      DirectComposition::CVisualMarshaler::CVisualMarshaler(v241, 165);
+      v223 = &DirectComposition::CSceneVisualMarshaler::`vftable';
+    }
+    else
+    {
+      v35 = a2 - 169;
+      if ( !v35 )
+      {
+        v99 = (_DWORD *)Win32AllocPoolWithQuotaZInit(0x48uLL);
+        v10 = v99;
+        if ( !v99 )
+          return (unsigned int)-1073741801;
+        memset(v99, 0, 0x48uLL);
+        v18 = &DirectComposition::CSharedSectionMarshaler::`vftable';
+        v10[5] = 1;
+        v10[10] = 205;
+        goto LABEL_36;
+      }
+      v36 = v35 - 2;
+      if ( !v36 )
+      {
+        v254 = (_DWORD *)Win32AllocPoolWithQuotaZInit(0x48uLL);
+        v10 = v254;
+        if ( !v254 )
+          return (unsigned int)-1073741801;
+        memset(v254, 0, 0x48uLL);
+        v18 = &DirectComposition::CSharedSectionWrapperMarshaler::`vftable';
+        v10[5] = 1;
+        v10[10] = 205;
+        goto LABEL_36;
+      }
+      v37 = v36 - 2;
+      if ( !v37 )
+      {
+        v253 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+        v10 = (_DWORD *)v253;
+        if ( !v253 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v253 + 20) = 1LL;
+        *(_QWORD *)(v253 + 48) = 0LL;
+        *(_DWORD *)(v253 + 40) = 172;
+        v18 = &DirectComposition::CSkewTransformMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v38 = v37 - 1;
+      if ( !v38 )
+      {
+        v252 = Win32AllocPoolWithQuotaZInit(0x90uLL);
+        v10 = (_DWORD *)v252;
+        if ( !v252 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v252 + 20) = 1LL;
+        *(_QWORD *)(v252 + 48) = 0LL;
+        *(_DWORD *)(v252 + 40) = 173;
+        v18 = &DirectComposition::CSnapshotMarshaler::`vftable';
+        goto LABEL_36;
+      }
+      v39 = v38 - 2;
+      if ( v39 )
+      {
+        v40 = v39 - 1;
+        if ( !v40 )
+        {
+          v250 = Win32AllocPoolWithQuotaZInit(0x88uLL);
+          v10 = (_DWORD *)v250;
+          if ( !v250 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v250 + 20) = 1LL;
+          *(_QWORD *)(v250 + 48) = 0LL;
+          *(_DWORD *)(v250 + 40) = 176;
+          v18 = &DirectComposition::CSpriteShapeMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v41 = v40 - 1;
+        if ( !v41 )
+        {
+          v42 = Win32AllocPoolWithQuotaZInit(0x188uLL);
+          v10 = (_DWORD *)v42;
+          if ( !v42 )
+            return (unsigned int)-1073741801;
+          DirectComposition::CVisualMarshaler::CVisualMarshaler(v42, 177);
+          v10[96] = 0;
+          *(_QWORD *)v10 = &DirectComposition::CSpriteVisualMarshaler::`vftable';
+          goto LABEL_37;
+        }
+        if ( v41 != 1 )
+          return (unsigned int)-1073741811;
+        v249 = Win32AllocPoolWithQuotaZInit(0x180uLL);
+        v10 = (_DWORD *)v249;
+        if ( !v249 )
+          return (unsigned int)-1073741801;
+        DirectComposition::CVisualMarshaler::CVisualMarshaler(v249, 178);
+        v223 = &DirectComposition::CSuperWetInkVisualMarshaler::`vftable';
+      }
+      else
+      {
+        v251 = Win32AllocPoolWithQuotaZInit(0x170uLL);
+        v10 = (_DWORD *)v251;
+        if ( !v251 )
+          return (unsigned int)-1073741801;
+        DirectComposition::CVisualMarshaler::CVisualMarshaler(v251, 175);
+        v223 = &DirectComposition::CVisualMarshaler::`vftable';
+      }
+    }
+    goto LABEL_376;
   }
-  if ( (_DWORD)a2 == 180 )
+  if ( a2 <= 0xC1 )
   {
-    v20 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v14, 2uLL, 0x88uLL, 0x736A4344u);
-    Pool2 = (__int64)v20;
-    if ( !v20 )
-      goto LABEL_200;
-    v20[8] = 0;
-    *((_QWORD *)v20 + 7) = 0LL;
-    *((_QWORD *)v20 + 3) = 1LL;
-    v20[12] = 179;
-    v19 = &DirectComposition::CSurfaceBrushMarshaler::`vftable';
-    goto LABEL_54;
+    if ( a2 == 193 )
+    {
+      v262 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+      v10 = (_DWORD *)v262;
+      if ( !v262 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v262 + 20) = 1LL;
+      *(_QWORD *)(v262 + 48) = 0LL;
+      *(_DWORD *)(v262 + 40) = 192;
+      v18 = &DirectComposition::CViewBoxMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v118 = a2 - 181;
+    if ( !v118 )
+    {
+      v261 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+      v10 = (_DWORD *)v261;
+      if ( !v261 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v261 + 20) = 1LL;
+      *(_QWORD *)(v261 + 48) = 0LL;
+      *(_DWORD *)(v261 + 40) = 180;
+      v18 = &DirectComposition::CSynchronousSuperWetInkMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v119 = v118 - 1;
+    if ( !v119 )
+    {
+      v260 = Win32AllocPoolWithQuotaZInit(0xB8uLL);
+      v10 = (_DWORD *)v260;
+      if ( !v260 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v260 + 20) = 1LL;
+      *(_QWORD *)(v260 + 48) = 0LL;
+      *(_DWORD *)(v260 + 40) = 181;
+      *(_DWORD *)(v260 + 72) = 0;
+      *(_QWORD *)(v260 + 80) = 0LL;
+      *(_QWORD *)(v260 + 88) = 0LL;
+      *(_QWORD *)(v260 + 96) = 0LL;
+      *(_DWORD *)(v260 + 104) = 0;
+      v18 = &DirectComposition::CTableTransferEffectMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v120 = v119 - 2;
+    if ( !v120 )
+    {
+      v259 = (DirectComposition::CTextVisualMarshaler *)Win32AllocPoolWithQuotaZInit(0x1D0uLL);
+      if ( !v259 )
+        return (unsigned int)-1073741801;
+      v9 = (DirectComposition::CProjectedShadowSceneMarshaler *)DirectComposition::CTextVisualMarshaler::CTextVisualMarshaler(v259);
+      goto LABEL_9;
+    }
+    v121 = v120 - 3;
+    if ( v121 )
+    {
+      v122 = v121 - 1;
+      if ( v122 )
+      {
+        v123 = v122 - 1;
+        if ( !v123 )
+        {
+          v124 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+          v10 = (_DWORD *)v124;
+          if ( !v124 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v124 + 20) = 1LL;
+          *(_QWORD *)(v124 + 48) = 0LL;
+          *(_DWORD *)(v124 + 40) = 188;
+          v18 = &DirectComposition::CTranslateTransformMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v255 = v123 - 1;
+        if ( !v255 )
+        {
+          v257 = Win32AllocPoolWithQuotaZInit(0x58uLL);
+          v10 = (_DWORD *)v257;
+          if ( !v257 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v257 + 20) = 1LL;
+          *(_QWORD *)(v257 + 48) = 0LL;
+          *(_DWORD *)(v257 + 40) = 189;
+          v18 = &DirectComposition::CTranslateTransform3DMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        if ( v255 == 1 )
+        {
+          v256 = Win32AllocPoolWithQuotaZInit(0x98uLL);
+          v10 = (_DWORD *)v256;
+          if ( !v256 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v256 + 20) = 1LL;
+          *(_QWORD *)(v256 + 48) = 0LL;
+          *(_DWORD *)(v256 + 40) = 190;
+          *(_DWORD *)(v256 + 72) = 0;
+          *(_QWORD *)(v256 + 80) = 0LL;
+          *(_QWORD *)(v256 + 88) = 0LL;
+          *(_QWORD *)(v256 + 96) = 0LL;
+          *(_DWORD *)(v256 + 104) = 0;
+          v18 = &DirectComposition::CTurbulenceEffectMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        return (unsigned int)-1073741811;
+      }
+      v136 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+      v10 = (_DWORD *)v136;
+      if ( !v136 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v136 + 20) = 1LL;
+      *(_QWORD *)(v136 + 48) = 0LL;
+      *(_DWORD *)(v136 + 40) = 187;
+      v137 = &DirectComposition::CTransformGroupMarshaler::`vftable';
+    }
+    else
+    {
+      v258 = Win32AllocPoolWithQuotaZInit(0x68uLL);
+      v10 = (_DWORD *)v258;
+      if ( !v258 )
+        return (unsigned int)-1073741801;
+      *(_QWORD *)(v258 + 20) = 1LL;
+      *(_QWORD *)(v258 + 48) = 0LL;
+      *(_DWORD *)(v258 + 40) = 186;
+      v137 = &DirectComposition::CTransform3DGroupMarshaler::`vftable';
+    }
+    *(_QWORD *)v10 = v137;
+    *((_QWORD *)v10 + 9) = 0LL;
+    *((_QWORD *)v10 + 10) = 0LL;
+    v10[22] = 0;
   }
-LABEL_71:
-  Resource = DirectComposition::GeneratedCreateResource((DirectComposition *)(unsigned int)a2, (unsigned int)&v151, a3);
-  if ( Resource < 0 )
-    return (unsigned int)Resource;
-  Pool2 = (__int64)v151;
-LABEL_14:
-  if ( !Pool2 )
+  else
+  {
+    v6 = a2 - 194;
+    if ( v6 )
+    {
+      v7 = v6 - 1;
+      if ( !v7 )
+      {
+        v8 = (DirectComposition::CVisualMarshaler *)Win32AllocPoolWithQuotaZInit(0x170uLL);
+        if ( v8 )
+        {
+          v9 = DirectComposition::CVisualMarshaler::CVisualMarshaler(v8);
+LABEL_9:
+          v10 = v9;
+          goto LABEL_37;
+        }
+        return (unsigned int)-1073741801;
+      }
+      v96 = v7 - 1;
+      if ( v96 )
+      {
+        v97 = v96 - 3;
+        if ( !v97 )
+        {
+          v98 = Win32AllocPoolWithQuotaZInit(0x40uLL);
+          v10 = (_DWORD *)v98;
+          if ( !v98 )
+            return (unsigned int)-1073741801;
+          *(_QWORD *)(v98 + 20) = 1LL;
+          *(_QWORD *)(v98 + 48) = 0LL;
+          *(_DWORD *)(v98 + 40) = 198;
+          v18 = &DirectComposition::CVisualReferenceControllerMarshaler::`vftable';
+          goto LABEL_36;
+        }
+        v101 = v97 - 1;
+        if ( v101 )
+        {
+          v102 = v101 - 2;
+          if ( !v102 )
+          {
+            v103 = Win32AllocPoolWithQuotaZInit(0x48uLL);
+            v10 = (_DWORD *)v103;
+            if ( !v103 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v103 + 20) = 1LL;
+            *(_QWORD *)(v103 + 48) = 0LL;
+            *(_DWORD *)(v103 + 40) = 201;
+            v18 = &DirectComposition::CBackdropBrushMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          if ( v102 == 3 )
+          {
+            v263 = Win32AllocPoolWithQuotaZInit(0x50uLL);
+            v10 = (_DWORD *)v263;
+            if ( !v263 )
+              return (unsigned int)-1073741801;
+            *(_QWORD *)(v263 + 20) = 1LL;
+            *(_QWORD *)(v263 + 48) = 0LL;
+            *(_DWORD *)(v263 + 40) = 204;
+            v18 = &DirectComposition::CYCbCrSurfaceMarshaler::`vftable';
+            goto LABEL_36;
+          }
+          return (unsigned int)-1073741811;
+        }
+        v264 = Win32AllocPoolWithQuotaZInit(0x60uLL);
+        v10 = (_DWORD *)v264;
+        if ( !v264 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v264 + 20) = 1LL;
+        *(_QWORD *)(v264 + 48) = 0LL;
+        *(_DWORD *)(v264 + 40) = 199;
+        v18 = &DirectComposition::CVisualSurfaceMarshaler::`vftable';
+      }
+      else
+      {
+        v265 = Win32AllocPoolWithQuotaZInit(0x70uLL);
+        v10 = (_DWORD *)v265;
+        if ( !v265 )
+          return (unsigned int)-1073741801;
+        *(_QWORD *)(v265 + 20) = 1LL;
+        *(_QWORD *)(v265 + 48) = 0LL;
+        *(_DWORD *)(v265 + 40) = 195;
+        v18 = &DirectComposition::CVisualCaptureMarshaler::`vftable';
+      }
+LABEL_36:
+      *(_QWORD *)v10 = v18;
+      goto LABEL_37;
+    }
+    v266 = Win32AllocPoolWithQuotaZInit(0xC8uLL);
+    v10 = (_DWORD *)v266;
+    if ( v266 )
+    {
+      *(_QWORD *)(v266 + 20) = 1LL;
+      *(_QWORD *)(v266 + 48) = 0LL;
+      *(_DWORD *)(v266 + 40) = 193;
+      v18 = &DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::`vftable';
+      goto LABEL_36;
+    }
+    v10 = 0LL;
+  }
+LABEL_37:
+  if ( !v10 )
     return (unsigned int)-1073741801;
-  Resource = 0;
-  if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)Pool2 + 32LL))(Pool2) )
-    Resource = DirectComposition::CConnection::AcquireShellResourceAccess(*((DirectComposition::CConnection **)this + 5));
-  v10 = *(_QWORD *)Pool2;
-  v11 = Pool2;
-  if ( Resource < 0 )
-    goto LABEL_414;
-  Resource = (*(__int64 (__fastcall **)(__int64))v10)(Pool2);
-  if ( Resource < 0
-    || (Resource = DirectComposition::CLinearObjectTableBase::InsertObject(
-                     (DirectComposition::CApplicationChannel *)((char *)this + 112),
-                     (void *)Pool2,
-                     (unsigned int *)(Pool2 + 32)),
-        Resource < 0) )
+  inserted = 0;
+  if ( (*(unsigned __int8 (__fastcall **)(_DWORD *))(*(_QWORD *)v10 + 32LL))(v10) )
+    inserted = DirectComposition::CConnection::AcquireShellResourceAccess(*((DirectComposition::CConnection **)this + 5));
+  v27 = *(_QWORD *)v10;
+  v28 = v10;
+  if ( inserted < 0 )
+    goto LABEL_463;
+  inserted = (*(__int64 (__fastcall **)(_DWORD *))v27)(v10);
+  if ( inserted < 0 )
+    goto LABEL_462;
+  inserted = DirectComposition::CLinearObjectTableBase::InsertObject(
+               (DirectComposition::CApplicationChannel *)((char *)this + 112),
+               v10,
+               v10 + 6);
+  if ( inserted >= 0 && *((int *)this + 6) <= 2 )
   {
-    v10 = *(_QWORD *)Pool2;
-    v11 = Pool2;
-LABEL_414:
-    (*(void (__fastcall **)(__int64, __int64))(v10 + 80))(v11, 1LL);
-    return (unsigned int)Resource;
+    *((_QWORD *)v10 + 1) = *((_QWORD *)this + 50);
+    *((_QWORD *)this + 50) = v10;
   }
-  v12 = v151;
-  if ( *((int *)this + 6) <= 2 )
+  if ( inserted < 0 )
   {
-    *((_QWORD *)v151 + 1) = *((_QWORD *)this + 50);
-    *((_QWORD *)this + 50) = v12;
+LABEL_462:
+    v27 = *(_QWORD *)v10;
+    v28 = v10;
+LABEL_463:
+    (*(void (__fastcall **)(_DWORD *, __int64))(v27 + 80))(v28, 1LL);
+    return (unsigned int)inserted;
   }
-  if ( v6 )
+  if ( v5 )
     DirectComposition::CApplicationChannel::AddAnimationTimeListEntry(
       this,
-      *(struct DirectComposition::CAnimationTimeList **)(v6 + 88));
-  *a3 = v12;
-  return (unsigned int)Resource;
+      *(struct DirectComposition::CAnimationTimeList **)(v5 + 80));
+  *a3 = (struct DirectComposition::CResourceMarshaler *)v10;
+  return (unsigned int)inserted;
 }

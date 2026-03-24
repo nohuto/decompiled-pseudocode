@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140591F74
+ * XREFs of PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140570EBC
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x1409A125C (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA6F0 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCsDripsWatchdogPerfTrack(
@@ -22,9 +22,11 @@ void __fastcall PopDiagTraceCsDripsWatchdogPerfTrack(
   __int64 v13; // r8
   union _EVENT_DATA_DESCRIPTOR::$535316677C6A15A6ECBA40D88E1D787B *p_Reserved; // rax
   _DWORD *v15; // rcx
-  _DWORD v16[4]; // [rsp+40h] [rbp-68h] BYREF
+  _DWORD v16[3]; // [rsp+40h] [rbp-68h] BYREF
+  int v17; // [rsp+4Ch] [rbp-5Ch]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-58h] BYREF
 
+  v17 = 0;
   if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_CS_DRIPS_WATCHDOG_PERFTRACK) )
   {
     v16[0] = a1;
@@ -39,7 +41,7 @@ void __fastcall PopDiagTraceCsDripsWatchdogPerfTrack(
     if ( a5 <= 0xFFFF )
       v12 = a5;
     p_Reserved = (union _EVENT_DATA_DESCRIPTOR::$535316677C6A15A6ECBA40D88E1D787B *)&UserData.Reserved;
-    v16[3] = v11 & 0x201 | (2 * (unsigned __int8)a7) & 0x3FF | (4 * (a7 & 0x100 | (v12 << 14)));
+    v17 = v11 & 0x201 | (2 * (unsigned __int8)a7) & 0x3FF | (4 * (a7 & 0x100 | (v12 << 14)));
     v15 = v16;
     do
     {

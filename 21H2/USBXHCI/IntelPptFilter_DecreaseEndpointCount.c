@@ -1,10 +1,10 @@
 /*
- * XREFs of IntelPptFilter_DecreaseEndpointCount @ 0x1C007A090
+ * XREFs of IntelPptFilter_DecreaseEndpointCount @ 0x1C0079090
  * Callers:
- *     IntelPptFilter_FilterCommandCompletion @ 0x1C007A220 (IntelPptFilter_FilterCommandCompletion.c)
- *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007A2E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ *     IntelPptFilter_FilterCommandCompletion @ 0x1C0079220 (IntelPptFilter_FilterCommandCompletion.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C00792E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
  */
 
 _UNKNOWN **__fastcall IntelPptFilter_DecreaseEndpointCount(__int64 a1, int a2)
@@ -21,7 +21,7 @@ _UNKNOWN **__fastcall IntelPptFilter_DecreaseEndpointCount(__int64 a1, int a2)
     v5 = *(_DWORD *)(a1 + 48);
     v6 = v5 - a2;
     LOBYTE(a2) = 4;
-    result = (_UNKNOWN **)WPP_RECORDER_SF_DD(
+    result = (_UNKNOWN **)WPP_RECORDER_SF_dd(
                             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
                             a2,
                             16,

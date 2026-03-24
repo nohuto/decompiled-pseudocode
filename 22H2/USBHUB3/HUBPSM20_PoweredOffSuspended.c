@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_PoweredOffSuspended @ 0x1C00121C0
+ * XREFs of HUBPSM20_PoweredOffSuspended @ 0x1C0010DA0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReleasePortPowerReference @ 0x1C0010A64 (HUBMUX_ReleasePortPowerReference.c)
+ *     HUBMUX_ReleasePortPowerReference @ 0x1C000F638 (HUBMUX_ReleasePortPowerReference.c)
  */
 
 __int64 __fastcall HUBPSM20_PoweredOffSuspended(__int64 a1)

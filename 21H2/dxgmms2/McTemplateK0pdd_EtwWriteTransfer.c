@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pdd_EtwWriteTransfer @ 0x1C0036658
+ * XREFs of McTemplateK0pdd_EtwWriteTransfer @ 0x1C002D1AC
  * Callers:
- *     VidSchiSetInProcessPriorityContext @ 0x1C0018C58 (VidSchiSetInProcessPriorityContext.c)
+ *     VidSchiSetInProcessPriorityContext @ 0x1C0015FAC (VidSchiSetInProcessPriorityContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pdd_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

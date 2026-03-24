@@ -1,29 +1,29 @@
 /*
- * XREFs of VerifierMmAllocateNonCachedMemory @ 0x140A9F900
+ * XREFs of VerifierMmAllocateNonCachedMemory @ 0x1409E6390
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetTrackContiguousMemory @ 0x140A8B450 (ViTargetTrackContiguousMemory.c)
- *     VfFaultsInjectResourceFailure @ 0x140A96B0C (VfFaultsInjectResourceFailure.c)
- *     VfFillAllocatedMemory @ 0x140A9A1DC (VfFillAllocatedMemory.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D76B0 (ViTargetTrackContiguousMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
+ *     VfFillAllocatedMemory @ 0x1409DFFF4 (VfFillAllocatedMemory.c)
  */
 
 _SLIST_ENTRY *__fastcall VerifierMmAllocateNonCachedMemory(size_t a1)
 {
-  _SLIST_ENTRY *v3; // rax
-  _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *v3; // rbx
   unsigned __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) )
     return 0LL;
   v3 = (_SLIST_ENTRY *)((__int64 (__fastcall *)(size_t))pXdvMmAllocateNonCachedMemory)(a1);
-  v4 = v3;
+  VfAllocPoolNotification();
   if ( v3 )
   {
     VfFillAllocatedMemory(v3, a1);
     if ( (MmVerifierData & 8) != 0 )
-      ViTargetTrackContiguousMemory(retaddr, v4, a1);
+      ViTargetTrackContiguousMemory(retaddr, v3, a1);
   }
-  return v4;
+  return v3;
 }

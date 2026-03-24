@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_TelemetryOkToGenerateReport @ 0x1C0076990
+ * XREFs of Controller_TelemetryOkToGenerateReport @ 0x1C0075468
  * Callers:
- *     Controller_TelemetryReport @ 0x1C0033110 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryReport @ 0x1C00330D0 (Controller_TelemetryReport.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall Controller_TelemetryOkToGenerateReport(_QWORD *a1, __int64 a2, int a3)
@@ -63,7 +63,7 @@ char __fastcall Controller_TelemetryOkToGenerateReport(_QWORD *a1, __int64 a2, i
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_4;
-        v12 = 221;
+        v12 = 220;
         goto LABEL_21;
       }
       RtlInitUnicodeString(&DestinationString, L"OutOfOrderCommandCompletion");
@@ -81,7 +81,7 @@ char __fastcall Controller_TelemetryOkToGenerateReport(_QWORD *a1, __int64 a2, i
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_4;
-        v12 = 222;
+        v12 = 221;
         goto LABEL_21;
       }
     }
@@ -99,7 +99,7 @@ char __fastcall Controller_TelemetryOkToGenerateReport(_QWORD *a1, __int64 a2, i
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_4;
-        v12 = 219;
+        v12 = 218;
         goto LABEL_21;
       }
       RtlInitUnicodeString(&DestinationString, L"OutdatedFirmwareVersion");
@@ -121,10 +121,10 @@ char __fastcall Controller_TelemetryOkToGenerateReport(_QWORD *a1, __int64 a2, i
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_4;
-        v12 = 220;
+        v12 = 219;
 LABEL_21:
         LOBYTE(v10) = 3;
-        WPP_RECORDER_SF_d(a1[9], v10, 4, v12, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v11);
+        WPP_RECORDER_SF_d(a1[9], v10, 4, v12, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v11);
         goto LABEL_4;
       }
     }
@@ -134,7 +134,7 @@ LABEL_21:
   if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     return v3;
   LOBYTE(a2) = 4;
-  WPP_RECORDER_SF_d(a1[9], a2, 4, 218, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, a3);
+  WPP_RECORDER_SF_d(a1[9], a2, 4, 217, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, a3);
 LABEL_4:
   if ( v18 )
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1848))(WdfDriverGlobals);

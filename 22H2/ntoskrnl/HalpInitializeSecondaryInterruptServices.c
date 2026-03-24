@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140B608B8
+ * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140A628CC
  * Callers:
- *     HalpPostPnpInitialize @ 0x140837440 (HalpPostPnpInitialize.c)
+ *     HalpPostPnpInitialize @ 0x1407AEA08 (HalpPostPnpInitialize.c)
  * Callees:
- *     HalpCheckSecondaryInterruptSupported @ 0x1407EB588 (HalpCheckSecondaryInterruptSupported.c)
- *     HalpQueryMaximumGsiv @ 0x1408374B0 (HalpQueryMaximumGsiv.c)
- *     HalpRecordSecondaryGsivRange @ 0x140837544 (HalpRecordSecondaryGsivRange.c)
+ *     HalpCheckSecondaryInterruptSupported @ 0x1406A6900 (HalpCheckSecondaryInterruptSupported.c)
+ *     HalpRecordSecondaryGsivRange @ 0x1407AEA78 (HalpRecordSecondaryGsivRange.c)
+ *     HalpQueryMaximumGsiv @ 0x1407AEC24 (HalpQueryMaximumGsiv.c)
  */
 
 __int64 HalpInitializeSecondaryInterruptServices()
@@ -15,18 +15,18 @@ __int64 HalpInitializeSecondaryInterruptServices()
   unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0;
-  qword_140C61138 = (__int64)&SecondaryIcList;
+  qword_140C49C28 = (__int64)&SecondaryIcList;
   SecondaryIcList = (__int64)&SecondaryIcList;
   SecondaryIcListSpinLock = 0LL;
   if ( HalpCheckSecondaryInterruptSupported() )
   {
     LODWORD(SecondarySignalDpc) = 275;
-    qword_140C61198 = (__int64)&SecondarySignalList;
+    qword_140C49C48 = (__int64)&SecondarySignalList;
     SecondarySignalList = (__int64)&SecondarySignalList;
-    qword_140C61158 = (__int64)HalpProcessSecondarySignalList;
-    qword_140C61160 = 0LL;
-    qword_140C61178 = 0LL;
-    qword_140C61150 = 0LL;
+    qword_140C49BF8 = (__int64)HalpProcessSecondarySignalList;
+    qword_140C49C00 = 0LL;
+    qword_140C49C18 = 0LL;
+    qword_140C49BF0 = 0LL;
     SecondarySignalListLock = 0LL;
     SecondarySignalDpcRunning = 0;
     v0 = HalpQueryMaximumGsiv(&v3);

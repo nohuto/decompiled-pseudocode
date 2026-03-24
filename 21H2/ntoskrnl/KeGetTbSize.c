@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetTbSize @ 0x140B09610
+ * XREFs of KeGetTbSize @ 0x140A5564C
  * Callers:
- *     MiInitializeTbFlushing @ 0x140B092F0 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x140A55330 (MiInitializeTbFlushing.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiGetTbLeafInfo @ 0x140B518C8 (KiGetTbLeafInfo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiGetTbLeafInfo @ 0x140A92018 (KiGetTbLeafInfo.c)
  */
 
 __int64 KeGetTbSize()
@@ -19,51 +19,50 @@ __int64 KeGetTbSize()
   unsigned int i; // ecx
   unsigned int v29; // ebx
   int *v30; // rdx
-  __int128 v31; // [rsp+20h] [rbp-19h] BYREF
-  char v32; // [rsp+30h] [rbp-9h]
-  __int64 v33; // [rsp+38h] [rbp-1h] BYREF
-  char v34; // [rsp+40h] [rbp+7h]
-  __int64 v35; // [rsp+48h] [rbp+Fh]
-  char v36; // [rsp+50h] [rbp+17h]
-  __int64 v37; // [rsp+58h] [rbp+1Fh]
-  char v38; // [rsp+60h] [rbp+27h]
-  __int64 v39; // [rsp+68h] [rbp+2Fh]
-  char v40; // [rsp+70h] [rbp+37h]
-  __int64 v41; // [rsp+78h] [rbp+3Fh]
+  __int128 v31; // [rsp+20h] [rbp-29h]
+  __int128 v32; // [rsp+30h] [rbp-19h] BYREF
+  char v33; // [rsp+40h] [rbp-9h]
+  __int64 v34; // [rsp+48h] [rbp-1h] BYREF
+  char v35; // [rsp+50h] [rbp+7h]
+  __int64 v36; // [rsp+58h] [rbp+Fh]
+  char v37; // [rsp+60h] [rbp+17h]
+  __int64 v38; // [rsp+68h] [rbp+1Fh]
+  char v39; // [rsp+70h] [rbp+27h]
+  __int64 v40; // [rsp+78h] [rbp+2Fh]
+  char v41; // [rsp+80h] [rbp+37h]
+  __int64 v42; // [rsp+88h] [rbp+3Fh]
 
-  v32 = -76;
-  v35 = 512LL;
-  v41 = 512LL;
-  v31 = 0LL;
-  v33 = 256LL;
-  v34 = 100;
+  v33 = -76;
+  v36 = 512LL;
+  v42 = 512LL;
+  v34 = 256LL;
+  v35 = 100;
   CpuVendor = KeGetCurrentPrcb()->CpuVendor;
-  v36 = -63;
-  v37 = 1024LL;
-  v38 = -61;
-  v39 = 1536LL;
-  v40 = -54;
+  v37 = -63;
+  v38 = 1024LL;
+  v39 = -61;
+  v40 = 1536LL;
+  v41 = -54;
   if ( CpuVendor != 1 )
   {
     if ( CpuVendor == 2 )
     {
       _RAX = 0LL;
       __asm { cpuid }
-      *(_QWORD *)((char *)&v31 + 4) = __PAIR64__(_RCX, _RBX);
       v6 = _RAX;
-      HIDWORD(v31) = _RDX;
       if ( (unsigned int)_RAX >= 2 )
       {
         _RAX = 2LL;
         __asm { cpuid }
         *(_QWORD *)&v31 = __PAIR64__(_RBX, _RAX);
         *((_QWORD *)&v31 + 1) = __PAIR64__(_RDX, _RCX);
+        v32 = v31;
         if ( v6 >= 0x18 )
         {
           for ( i = 0; i < 0x20; i += 8 )
           {
             v29 = 0;
-            v30 = (int *)&v31;
+            v30 = (int *)&v32;
             do
             {
               if ( *v30 >= 0 && (unsigned __int8)((unsigned int)*v30 >> i) == 0xFE )
@@ -75,14 +74,14 @@ __int64 KeGetTbSize()
           }
         }
         v12 = 0;
-        v13 = &v33;
+        v13 = &v34;
         do
         {
           v14 = 0;
           while ( 2 )
           {
             v15 = 0;
-            v16 = (int *)&v31;
+            v16 = (int *)&v32;
             do
             {
               if ( *v16 >= 0 && (unsigned __int8)((unsigned int)*v16 >> v14) == *((unsigned __int8 *)v13 - 8) )

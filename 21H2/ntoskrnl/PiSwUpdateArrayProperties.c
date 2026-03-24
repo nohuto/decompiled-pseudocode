@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwUpdateArrayProperties @ 0x140762E04
+ * XREFs of PiSwUpdateArrayProperties @ 0x14078A794
  * Callers:
- *     PiSwIrpPropertySet @ 0x140762C04 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x14076308C (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x14084F808 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpPropertySet @ 0x14078A5A4 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1407BD244 (PiSwIrpInterfacePropertySet.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwUpdateArrayProperties(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
@@ -28,7 +28,7 @@ __int64 __fastcall PiSwUpdateArrayProperties(__int64 a1, unsigned int a2, __int6
   const wchar_t *v18; // rdx
   unsigned int v19; // ecx
   void *v21; // rbp
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v5 = 0;
   v6 = a3;
@@ -94,7 +94,9 @@ LABEL_17:
   }
   v21 = *(void **)(v15 + a1 + 40);
   *(_QWORD *)(v15 + a1 + 40) = 0LL;
-  if ( !*i || (Pool2 = ExAllocatePool2(256LL, *i, 1466986064LL), (*(_QWORD *)(v15 + a1 + 40) = Pool2) != 0LL) )
+  if ( !*i
+    || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, *i, 0x57706E50u),
+        (*(_QWORD *)(v15 + a1 + 40) = PoolWithTag) != 0LL) )
   {
     if ( v21 )
       ExFreePoolWithTag(v21, 0x57706E50u);

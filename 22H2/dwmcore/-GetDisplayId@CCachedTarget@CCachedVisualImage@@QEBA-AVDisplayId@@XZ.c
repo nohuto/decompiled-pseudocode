@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetDisplayId@CCachedTarget@CCachedVisualImage@@QEBA?AVDisplayId@@XZ @ 0x180217948
+ * XREFs of ?GetDisplayId@CCachedTarget@CCachedVisualImage@@QEBA?AVDisplayId@@XZ @ 0x1801AB74C
  * Callers:
- *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x1800CE5A4 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
+ *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x180031194 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCachedVisualImage::CCachedTarget::GetDisplayId(__int64 a1, __int64 a2)

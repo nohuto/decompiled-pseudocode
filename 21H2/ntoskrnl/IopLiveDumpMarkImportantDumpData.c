@@ -1,19 +1,19 @@
 /*
- * XREFs of IopLiveDumpMarkImportantDumpData @ 0x140A66EB4
+ * XREFs of IopLiveDumpMarkImportantDumpData @ 0x1409ACA58
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14055A628 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceMarkImportantDumpDataDuration @ 0x14055B814 (IopLiveDumpTraceMarkImportantDumpDataDuration.c)
- *     MmAddPrivateDataToCrashDump @ 0x1405930C8 (MmAddPrivateDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140593218 (MmAddRangeToCrashDump.c)
- *     ExAddPrivateDataToCrashDump @ 0x14063A4B0 (ExAddPrivateDataToCrashDump.c)
- *     IopLiveDumpAddTriageDumpData @ 0x140A656A0 (IopLiveDumpAddTriageDumpData.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceMarkImportantDumpDataDuration @ 0x1405098F8 (IopLiveDumpTraceMarkImportantDumpDataDuration.c)
+ *     MmAddPrivateDataToCrashDump @ 0x140538490 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     ExAddPrivateDataToCrashDump @ 0x1405B3550 (ExAddPrivateDataToCrashDump.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x1409AB280 (IopLiveDumpAddTriageDumpData.c)
  */
 
-__int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, __int64))
+__int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastcall *a2)(_QWORD, __int64, __int64))
 {
   __int64 MillisecondCounter; // r14
   unsigned int v5; // ebx
@@ -27,7 +27,7 @@ __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastc
   __int128 v14; // [rsp+20h] [rbp-60h] BYREF
   __int128 v15; // [rsp+30h] [rbp-50h] BYREF
   __int64 v16; // [rsp+40h] [rbp-40h]
-  __int64 (__fastcall *v17[5])(_QWORD, _QWORD, __int64); // [rsp+48h] [rbp-38h] BYREF
+  __int64 (__fastcall *v17[5])(_QWORD, __int64, __int64); // [rsp+48h] [rbp-38h] BYREF
   __int64 v18; // [rsp+70h] [rbp-10h]
   unsigned int v19; // [rsp+B0h] [rbp+30h] BYREF
 
@@ -40,13 +40,13 @@ __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastc
   LODWORD(v18) = v18 | 1;
   v19 = 0;
   v16 = 0LL;
-  v17[2] = (__int64 (__fastcall *)(_QWORD, _QWORD, __int64))(a1 + 544);
+  v17[2] = (__int64 (__fastcall *)(_QWORD, __int64, __int64))(a1 + 544);
   v17[4] = a2;
   v5 = 0;
-  v17[0] = (__int64 (__fastcall *)(_QWORD, _QWORD, __int64))IoSetDumpRange;
+  v17[0] = (__int64 (__fastcall *)(_QWORD, __int64, __int64))IoSetDumpRange;
   v15 = 0LL;
   v14 = 0LL;
-  v6 = ExAddPrivateDataToCrashDump((__int64)v17);
+  v6 = ExAddPrivateDataToCrashDump(v17);
   if ( v6 < 0 )
   {
     if ( v6 == -1073741789 )
@@ -55,7 +55,7 @@ __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastc
   }
   for ( i = (__int64 *)PsActiveProcessHead; i != &PsActiveProcessHead; i = (__int64 *)*i )
   {
-    v8 = MmAddRangeToCrashDump((__int64)v17, (__int64)(i - 137), 2944LL);
+    v8 = MmAddRangeToCrashDump(v17, (unsigned __int64)(i - 137), 2624LL);
     if ( v8 < 0 )
     {
       if ( v8 == -1073741789 )
@@ -70,7 +70,7 @@ __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastc
       return 0LL;
     v5 = v9;
   }
-  IopLiveDumpAddTriageDumpData((int *)a1, (__int64)v17);
+  IopLiveDumpAddTriageDumpData((int *)a1, v17);
   v10 = MmAddPrivateDataToCrashDump(v17, 1);
   if ( v10 < 0 )
   {
@@ -84,13 +84,13 @@ __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 (__fastc
 LABEL_18:
   if ( IptInterface )
   {
-    *((_QWORD *)&v15 + 1) = qword_140D06E48[0];
+    *((_QWORD *)&v15 + 1) = qword_140CFC848[0];
     *(_QWORD *)&v15 = KeActiveProcessors;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v19, (unsigned __int16 **)&v15) )
     {
       if ( (*(int (__fastcall **)(_QWORD, __int128 *))(IptInterface + 16))(v19, &v14) >= 0 )
       {
-        v11 = MmAddRangeToCrashDump((__int64)v17, v14, *((__int64 *)&v14 + 1));
+        v11 = MmAddRangeToCrashDump(v17, v14, *((__int64 *)&v14 + 1));
         if ( v11 < 0 )
         {
           if ( v11 == -1073741789 )

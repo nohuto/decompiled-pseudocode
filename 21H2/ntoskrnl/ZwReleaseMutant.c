@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwReleaseMutant @ 0x14041BB60
+ * XREFs of ZwReleaseMutant @ 0x1403FA7A0
  * Callers:
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
  * Callees:
  *     <none>
  */

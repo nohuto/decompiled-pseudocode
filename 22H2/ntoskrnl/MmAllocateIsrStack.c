@@ -1,51 +1,43 @@
 /*
- * XREFs of MmAllocateIsrStack @ 0x14081FAFC
+ * XREFs of MmAllocateIsrStack @ 0x14079FD68
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x1403774BC (KiCompleteBootProcessorContextInitialization.c)
- *     KiAllocateProcessorStacks @ 0x140377610 (KiAllocateProcessorStacks.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     KasanTrackAddress @ 0x140355EF0 (KasanTrackAddress.c)
- *     MmSetPageProtection @ 0x1403C2610 (MmSetPageProtection.c)
- *     MiMarkBootGuardPage @ 0x14081FBC8 (MiMarkBootGuardPage.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
- *     MmFreeIndependentPages @ 0x140880080 (MmFreeIndependentPages.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MmSetPageProtection @ 0x1403796F0 (MmSetPageProtection.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
+ *     MiMarkBootGuardPage @ 0x14079FDEC (MiMarkBootGuardPage.c)
  */
 
-char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
+char __fastcall MmAllocateIsrStack(_QWORD *a1, int a2)
 {
-  int v2; // edi
-  int v3; // ebp
   __int64 IndependentPages; // rax
-  unsigned __int64 v6; // rbx
+  unsigned __int64 v4; // rbx
   __int64 PteAddress; // rax
-  unsigned __int64 v9; // rbx
+  unsigned __int64 v7; // rbx
 
-  v2 = 0;
-  v3 = a2;
   if ( *a1 )
   {
-    v9 = *a1 - 24576LL;
-    if ( !MmSetPageProtection(v9, 0x6000uLL, 4u) )
-      return 0;
-    v6 = v9 - 4096;
+    v7 = *a1 - 24576LL;
+    if ( MmSetPageProtection(v7, 0x6000uLL, 4u) )
+    {
+      v4 = v7 - 4096;
+      goto LABEL_4;
+    }
   }
   else
   {
-    IndependentPages = MmAllocateIndependentPagesEx(28672LL, a2, 0LL, 0LL);
-    v6 = IndependentPages;
-    if ( !IndependentPages )
-      return 0;
-    v2 = 1;
-    *a1 = IndependentPages + 28672;
+    IndependentPages = MmAllocateIndependentPagesEx(0x7000uLL, a2, 0LL, 0LL);
+    v4 = IndependentPages;
+    if ( IndependentPages )
+    {
+      *a1 = IndependentPages + 28672;
+LABEL_4:
+      PteAddress = MiGetPteAddress(v4);
+      MiMarkBootGuardPage(PteAddress);
+      return 1;
+    }
   }
-  if ( (int)KasanTrackAddress(v6 + 4096, 24576LL, v3 + 1) >= 0 )
-  {
-    PteAddress = MiGetPteAddress(v6);
-    MiMarkBootGuardPage(PteAddress);
-    return 1;
-  }
-  if ( v2 )
-    MmFreeIndependentPages(v6, 28672LL);
   return 0;
 }

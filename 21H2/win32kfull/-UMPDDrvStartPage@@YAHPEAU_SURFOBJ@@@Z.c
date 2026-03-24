@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z @ 0x1C0125E60
+ * XREFs of ?UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z @ 0x1C0158D20
  * Callers:
  *     <none>
  * Callees:
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C0129B98 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0129D50 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C012A154 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C012A484 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C012B224 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AB3A8 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001EE10 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F188 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F4C4 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A1750 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A19A4 (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02ACC48 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 __int64 __fastcall UMPDDrvStartPage(struct _SURFOBJ *a1)
@@ -52,8 +52,8 @@ __int64 __fastcall UMPDDrvStartPage(struct _SURFOBJ *a1)
       *(_QWORD *)&v15 = 0x2100000020LL;
       v16[0] = *(struct _SURFOBJ **)v4;
       v16[1] = a1;
-      if ( !(unsigned int)UMPDOBJ::pso(v4, (UMPDOBJ *)((char *)v4 + 64), &v16[1], v3)
-        || (LODWORD(Size) = 4, UMPDOBJ::Thunk(v4, &v15, 0x20u, &v9, Size) == -1)
+      if ( !(unsigned int)UMPDOBJ::pso(v4, (UMPDOBJ *)((char *)v4 + 64), &v16[1])
+        || (LODWORD(Size) = 4, (unsigned int)UMPDOBJ::Thunk(v4, &v15, 0x20u, &v9, Size) == -1)
         || (v5 = 1, !v9) )
       {
         v5 = 0;
@@ -68,6 +68,6 @@ __int64 __fastcall UMPDDrvStartPage(struct _SURFOBJ *a1)
     }
     v1 = v5;
   }
-  XUMPDOBJ::~XUMPDOBJ((XUMPDOBJ *)&v14);
+  XUMPDOBJ::~XUMPDOBJ(&v14);
   return v1;
 }

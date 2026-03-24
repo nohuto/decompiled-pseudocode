@@ -1,9 +1,9 @@
 /*
- * XREFs of PcisuppWriteIntLine @ 0x1C009A388
+ * XREFs of PcisuppWriteIntLine @ 0x1C0093D00
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PcisuppWriteIntLine(__int64 a1, char a2)

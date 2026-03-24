@@ -1,175 +1,170 @@
 /*
- * XREFs of ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C0079450
+ * XREFs of ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C0067D94
  * Callers:
- *     NtFlipObjectAddContent @ 0x1C007A2F0 (NtFlipObjectAddContent.c)
- *     NtFlipObjectAddPoolBuffer @ 0x1C007A440 (NtFlipObjectAddPoolBuffer.c)
- *     NtFlipObjectSetContent @ 0x1C007B7F0 (NtFlipObjectSetContent.c)
- *     ?FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenInitInfo@@@Z @ 0x1C007BBEC (-FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenI.c)
+ *     NtFlipObjectAddContent @ 0x1C0068BC0 (NtFlipObjectAddContent.c)
+ *     NtFlipObjectAddPoolBuffer @ 0x1C0068D10 (NtFlipObjectAddPoolBuffer.c)
+ *     NtFlipObjectSetContent @ 0x1C0069FA0 (NtFlipObjectSetContent.c)
+ *     ?FlipManagerCreateProducerTokenOperation@@YAJPEAX_N1_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenInitInfo@@@Z @ 0x1C006A518 (-FlipManagerCreateProducerTokenOperation@@YAJPEAX_N1_KIPEAUFlipPropertyItem@@PEAUFlipManagerToke.c)
  * Callees:
- *     ??0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C002C99C (--0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     ??0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C0028984 (--0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
 __int64 __fastcall CreateFlipPropertySetWorker<CFlipPropertySet>(
         unsigned int a1,
-        char *Src,
+        char *a2,
         __int64 a3,
         CFlipPropertySet **a4)
 {
+  unsigned int v5; // r12d
   signed int v6; // ebx
   unsigned int v7; // r13d
   char *v8; // r14
-  char *Pool2; // rsi
+  char *PoolWithQuotaTag; // rsi
   unsigned int v10; // edi
-  __int64 v11; // r9
-  unsigned __int64 v12; // rax
-  __int64 v13; // r13
-  unsigned int v14; // r8d
-  __int64 v15; // rax
-  int v16; // ecx
-  unsigned int v17; // edx
-  unsigned int v18; // ecx
-  int v19; // eax
-  char *v20; // r13
-  unsigned int i; // r15d
-  char *v22; // rbx
-  size_t v23; // r8
-  char *v24; // rdx
-  __int64 v25; // rdx
-  CFlipPropertySet *v26; // rax
-  CFlipPropertySet *v27; // rcx
+  unsigned __int64 v11; // rax
+  __int64 v12; // r12
+  unsigned int i; // r8d
+  __int64 v14; // rax
+  int v15; // ecx
+  unsigned int v16; // edx
+  unsigned int v17; // ecx
+  int v18; // eax
+  char *v19; // r13
+  unsigned int j; // r15d
+  char *v21; // rbx
+  size_t v22; // r8
+  char *v23; // rdx
+  __int64 v24; // rdx
+  CFlipPropertySet *v25; // rax
+  CFlipPropertySet *v26; // rcx
 
+  v5 = a1;
   v6 = 0;
   if ( a1 )
   {
     v7 = 0;
     v8 = 0LL;
-    Pool2 = 0LL;
+    PoolWithQuotaTag = 0LL;
     v10 = 0;
-    v11 = 0xFFFFFFFFLL;
-    if ( Src )
+    if ( a2 )
     {
-      v12 = 32LL * a1;
-      v13 = 0xFFFFFFFFLL;
-      if ( v12 <= 0xFFFFFFFF )
-        v13 = (unsigned int)v12;
-      v6 = v12 > 0xFFFFFFFF ? 0xC0000095 : 0;
-      if ( v12 <= 0xFFFFFFFF )
+      v11 = 32LL * a1;
+      v12 = 0xFFFFFFFFLL;
+      if ( v11 <= 0xFFFFFFFF )
+        v12 = (unsigned int)v11;
+      v6 = v11 > 0xFFFFFFFF ? 0xC0000095 : 0;
+      if ( v11 <= 0xFFFFFFFF )
       {
-        Pool2 = (char *)ExAllocatePool2(257LL, (unsigned int)v13, 1768964934LL, 0xFFFFFFFFLL);
-        if ( !Pool2 )
+        PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)v12, 0x69704346u);
+        if ( !PoolWithQuotaTag )
           v6 = -1073741801;
-        v11 = 0xFFFFFFFFLL;
       }
       if ( v6 < 0 )
       {
-        v7 = 0;
+        v5 = a1;
       }
       else
       {
-        if ( &Src[v13] < Src || (unsigned __int64)&Src[v13] > MmUserProbeAddress )
+        if ( &a2[v12] < a2 || (unsigned __int64)&a2[v12] > MmUserProbeAddress )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(Pool2, Src, (unsigned int)v13);
-        v7 = 0;
-        v11 = 0xFFFFFFFFLL;
+        memmove(PoolWithQuotaTag, a2, (unsigned int)v12);
+        v5 = a1;
       }
     }
     else
     {
       v6 = -1073741811;
     }
-    v14 = 0;
-    while ( v6 >= 0 )
+    for ( i = 0; v6 >= 0 && i < v5; ++i )
     {
-      if ( v14 >= a1 )
+      v14 = 32LL * i;
+      v15 = *(_DWORD *)&PoolWithQuotaTag[v14 + 16];
+      if ( v15 && *(_QWORD *)&PoolWithQuotaTag[v14 + 24] )
       {
-        v8 = (char *)ExAllocatePool2(257LL, v7, 1651524422LL, 0xFFFFFFFFLL);
-        if ( !v8 )
-          v6 = -1073741801;
-        if ( v6 >= 0 )
+        v16 = v7;
+        v17 = v7 + v15;
+        v18 = -1;
+        if ( v17 >= v7 )
+          v18 = v17;
+        v7 = v18;
+        v6 = v17 < v16 ? 0xC0000095 : 0;
+      }
+      else
+      {
+        v6 = -1073741811;
+      }
+    }
+    if ( v6 >= 0 )
+    {
+      v8 = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v7, 0x62704346u);
+      if ( !v8 )
+        v6 = -1073741801;
+      if ( v6 >= 0 )
+      {
+        v19 = v8;
+        for ( j = 0; v6 >= 0 && j < v5; ++j )
         {
-          v20 = v8;
-          for ( i = 0; v6 >= 0 && i < a1; ++i )
+          v21 = &PoolWithQuotaTag[32 * j];
+          v22 = *((unsigned int *)v21 + 4);
+          v23 = (char *)*((_QWORD *)v21 + 3);
+          if ( &v23[v22] < v23 || (unsigned __int64)&v23[v22] > MmUserProbeAddress )
+            *(_BYTE *)MmUserProbeAddress = 0;
+          memmove(v19, v23, v22);
+          *((_QWORD *)v21 + 3) = v19;
+          v24 = *((unsigned int *)v21 + 4);
+          v19 += v24;
+          if ( v10 + 16 < v10 )
           {
-            v22 = &Pool2[32 * i];
-            v23 = *((unsigned int *)v22 + 4);
-            v24 = (char *)*((_QWORD *)v22 + 3);
-            if ( &v24[v23] < v24 || (unsigned __int64)&v24[v23] > MmUserProbeAddress )
-              *(_BYTE *)MmUserProbeAddress = 0;
-            memmove(v20, v24, v23);
-            *((_QWORD *)v22 + 3) = v20;
-            v25 = *((unsigned int *)v22 + 4);
-            v20 += v25;
-            if ( v10 + 16 < v10 )
+            v10 = -1;
+            v6 = -1073741675;
+          }
+          else
+          {
+            v10 += 16;
+            v6 = 0;
+          }
+          if ( v6 >= 0 )
+          {
+            if ( v10 + 4 < v10 )
             {
               v10 = -1;
               v6 = -1073741675;
             }
             else
             {
-              v10 += 16;
+              v10 += 4;
               v6 = 0;
             }
             if ( v6 >= 0 )
             {
-              if ( v10 + 4 < v10 )
+              if ( (unsigned int)v24 + v10 < v10 )
               {
                 v10 = -1;
                 v6 = -1073741675;
               }
               else
               {
-                v10 += 4;
+                v10 += v24;
                 v6 = 0;
-              }
-              if ( v6 >= 0 )
-              {
-                if ( (unsigned int)v25 + v10 < v10 )
-                {
-                  v10 = -1;
-                  v6 = -1073741675;
-                }
-                else
-                {
-                  v10 += v25;
-                  v6 = 0;
-                }
               }
             }
           }
         }
-        break;
       }
-      v15 = 32LL * v14;
-      v16 = *(_DWORD *)&Pool2[v15 + 16];
-      if ( v16 && *(_QWORD *)&Pool2[v15 + 24] )
-      {
-        v17 = v7;
-        v18 = v7 + v16;
-        v19 = -1;
-        if ( v18 >= v7 )
-          v19 = v18;
-        v7 = v19;
-        v6 = v18 < v17 ? 0xC0000095 : 0;
-      }
-      else
-      {
-        v6 = -1073741811;
-      }
-      ++v14;
     }
     if ( v6 >= 0 )
     {
-      v26 = (CFlipPropertySet *)ExAllocatePool2(257LL, 40LL, 1936737094LL, v11);
-      if ( v26 )
-        v27 = CFlipPropertySet::CFlipPropertySet(v26, a1, (struct FlipPropertyItem *)Pool2, v8, v10);
+      v25 = (CFlipPropertySet *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x28uLL, 0x73704346u);
+      if ( v25 )
+        v26 = CFlipPropertySet::CFlipPropertySet(v25, a1, (struct FlipPropertyItem *)PoolWithQuotaTag, v8, v10);
       else
-        v27 = 0LL;
-      *a4 = v27;
-      if ( v27 )
+        v26 = 0LL;
+      *a4 = v26;
+      if ( v26 )
       {
         v8 = 0LL;
-        Pool2 = 0LL;
+        PoolWithQuotaTag = 0LL;
       }
       else
       {
@@ -178,8 +173,8 @@ __int64 __fastcall CreateFlipPropertySetWorker<CFlipPropertySet>(
     }
     if ( v8 )
       ExFreePoolWithTag(v8, 0);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithQuotaTag )
+      ExFreePoolWithTag(PoolWithQuotaTag, 0);
   }
   return (unsigned int)v6;
 }

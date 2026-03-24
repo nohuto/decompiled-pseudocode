@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDisconnectWakeInterrupt @ 0x1C0062528
+ * XREFs of ACPIDisconnectWakeInterrupt @ 0x1C00616D4
  * Callers:
- *     ACPIWakeEmulationDisable @ 0x1C0062BE8 (ACPIWakeEmulationDisable.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0061DEC (ACPIWakeEmulationDisable.c)
  * Callees:
- *     ACPIDereferenceWakeInterrupt @ 0x1C006248C (ACPIDereferenceWakeInterrupt.c)
- *     ACPIFindWakeInterruptForVector @ 0x1C00625DC (ACPIFindWakeInterruptForVector.c)
+ *     ACPIDereferenceWakeInterrupt @ 0x1C0061638 (ACPIDereferenceWakeInterrupt.c)
+ *     ACPIFindWakeInterruptForVector @ 0x1C0061788 (ACPIFindWakeInterruptForVector.c)
  */
 
 void __fastcall ACPIDisconnectWakeInterrupt(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDefaultDesktopTree@CHolographicManager@@QEBAJPEAPEAVCDesktopTree@@@Z @ 0x180295EB8
+ * XREFs of ?GetDefaultDesktopTree@CHolographicManager@@QEBAJPEAPEAVCDesktopTree@@@Z @ 0x180253A34
  * Callers:
- *     ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x180299B90 (-GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z.c)
+ *     ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x180257C80 (-GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
  */
 
 __int64 __fastcall CHolographicManager::GetDefaultDesktopTree(RTL_SRWLOCK *this, struct CDesktopTree **a2)
@@ -12,7 +12,7 @@ __int64 __fastcall CHolographicManager::GetDefaultDesktopTree(RTL_SRWLOCK *this,
   unsigned int v4; // edi
   __int64 v5; // rcx
   _QWORD *Ptr; // rax
-  __int64 v7; // rcx
+  struct CDesktopTree *v7; // rcx
 
   v4 = 0;
   AcquireSRWLockShared(this + 13);
@@ -21,21 +21,21 @@ __int64 __fastcall CHolographicManager::GetDefaultDesktopTree(RTL_SRWLOCK *this,
   {
     *a2 = 0LL;
     v4 = -2147023728;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, -2147023728, 0x2BEu);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147023728, 0x2BEu, 0LL);
   }
   else
   {
-    v7 = *(_QWORD *)(v5 + 96);
+    v7 = *(struct CDesktopTree **)(v5 + 88);
     if ( v7 )
     {
-      *a2 = (struct CDesktopTree *)v7;
-      CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v7 + 8));
+      *a2 = v7;
+      CMILCOMBase::InternalAddRef(v7);
     }
     else
     {
       *a2 = 0LL;
       v4 = -2003292412;
-      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0LL, -2003292412, 0x2B8u);
+      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2003292412, 0x2B8u, 0LL);
     }
   }
   ReleaseSRWLockShared(this + 13);

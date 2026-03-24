@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiSetSizeDevice @ 0x1C02D0C60
+ * XREFs of NtGdiSetSizeDevice @ 0x1C01196D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiSetSizeDevice(HDC a1, int a2, int a3)
@@ -23,10 +23,9 @@ __int64 __fastcall NtGdiSetSizeDevice(HDC a1, int a2, int a3)
       v3 = 1;
       *(_DWORD *)(*(_QWORD *)(v7[0] + 976LL) + 424LL) = a2;
       *(_DWORD *)(*(_QWORD *)(v7[0] + 976LL) + 428LL) = a3;
-      if ( v7[0] )
-        XDCOBJ::vUnlockFast((XDCOBJ *)v7);
     }
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v8);
+    MDCOBJ::~MDCOBJ((MDCOBJ *)v7);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v8);
   }
   return v3;
 }

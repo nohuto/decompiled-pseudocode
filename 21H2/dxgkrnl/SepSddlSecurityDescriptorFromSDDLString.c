@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSddlSecurityDescriptorFromSDDLString @ 0x1C038572C
+ * XREFs of SepSddlSecurityDescriptorFromSDDLString @ 0x1C02C4A40
  * Callers:
- *     SeSddlSecurityDescriptorFromSDDL @ 0x1C0384E94 (SeSddlSecurityDescriptorFromSDDL.c)
+ *     SeSddlSecurityDescriptorFromSDDL @ 0x1C02C4194 (SeSddlSecurityDescriptorFromSDDL.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     SepSddlDaclFromSDDLString @ 0x1C0385058 (SepSddlDaclFromSDDLString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     SepSddlDaclFromSDDLString @ 0x1C02C4358 (SepSddlDaclFromSDDLString.c)
  */
 
 __int64 __fastcall SepSddlSecurityDescriptorFromSDDLString(_WORD *a1, ULONG a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall SepSddlSecurityDescriptorFromSDDLString(_WORD *a1, ULONG a2, 
     *(_QWORD *)a3 = 0LL;
     memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
     v14 = 0LL;
-    v9 = SepSddlDaclFromSDDLString(a1, v6, &v16, (PVOID *)&Dacl);
+    v9 = SepSddlDaclFromSDDLString(a1, v6, &v16, &Dacl);
     if ( v9 >= 0 )
     {
       RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);

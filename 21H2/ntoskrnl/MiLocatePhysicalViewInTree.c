@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLocatePhysicalViewInTree @ 0x1405AB920
+ * XREFs of MiLocatePhysicalViewInTree @ 0x14054CF68
  * Callers:
- *     MiRemoveUserPhysicalPagesView @ 0x14097D5F0 (MiRemoveUserPhysicalPagesView.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x1408D644C (MiRemoveUserPhysicalPagesView.c)
  * Callees:
  *     <none>
  */
@@ -15,15 +15,15 @@ _QWORD *__fastcall MiLocatePhysicalViewInTree(unsigned __int64 a1, _QWORD *a2)
   while ( v2 )
   {
     v3 = v2[3];
-    if ( a1 <= (*(unsigned int *)(v3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 33) << 32)) )
+    if ( a1 > (*(unsigned int *)(v3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 33) << 32)) )
+    {
+      v2 = (_QWORD *)v2[1];
+    }
+    else
     {
       if ( a1 >= (*(unsigned int *)(v3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 32) << 32)) )
         return v2;
       v2 = (_QWORD *)*v2;
-    }
-    else
-    {
-      v2 = (_QWORD *)v2[1];
     }
   }
   return v2;

@@ -1,29 +1,28 @@
 /*
- * XREFs of ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800A7C48
+ * XREFs of ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180079DA4
  * Callers:
- *     ?GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z @ 0x18001E850 (-GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x1800219D0 (-CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z @ 0x18003D75C (-GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z.c)
- *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003DC80 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x18006014C (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
- *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180060964 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x18007F688 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x1800A70B0 (-AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV-$span@$$CBG$0-0@gsl@@PEAPEAX1@Z.c)
- *     ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x1800C77C0 (-ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURF.c)
- *     ?GetPresentStatisticsDWM@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x1800D3C3C (-GetPresentStatisticsDWM@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z.c)
- *     ?Create@CRedirectedGDISurface@@SAHPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@PEAVCLegacySurfaceManager@@PEAPEAV1@@Z @ 0x1800E59F0 (-Create@CRedirectedGDISurface@@SAHPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@PEAVCLegacySurfaceManager@.c)
- *     ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800FE2A8 (-EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ.c)
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x180194320 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
- *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801C427C (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
- *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801C47C4 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
- *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x1801C4D3C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
- *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C6FFC (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C7264 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ @ 0x1801C7888 (-EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ.c)
- *     ?GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z @ 0x18027F930 (-GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z @ 0x18027FD74 (-ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z.c)
- *     ?GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18028B4D0 (-GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
- *     ?GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18028EEB0 (-GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z @ 0x180025DA0 (-GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z.c)
+ *     ?CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18002E72C (-CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x180031048 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     ?GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z @ 0x180031104 (-GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z.c)
+ *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x180032FBC (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
+ *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180033988 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
+ *     ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x180036FC0 (-ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_COMPOSITIONSURF.c)
+ *     ?GetPresentStatisticsDWM@CLegacySwapChain@@UEBAJPEAUDXGI_FRAME_STATISTICS_DWM@@PEAU_UNSIGNED_RATIO@@@Z @ 0x1800771F4 (-GetPresentStatisticsDWM@CLegacySwapChain@@UEBAJPEAUDXGI_FRAME_STATISTICS_DWM@@PEAU_UNSIGNED_RAT.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077330 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078248 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x1800791C0 (-AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV-$span@$$CBG$0-0@gsl@@PEAPEAX1@Z.c)
+ *     ?GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x1800C4868 (-GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?Initialize@CRedirectedGDISurface@@IEAAJPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@@Z @ 0x1800D1CFC (-Initialize@CRedirectedGDISurface@@IEAAJPEAUHLSURF__@@PEAVCGdiSpriteBitmap@@@Z.c)
+ *     ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800E4050 (-EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ.c)
+ *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1800EDBCC (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
+ *     ?CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x180187884 (-CreateRenderTargetForFrameBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
+ *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x180187BDC (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A2B4 (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A408 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ @ 0x18018B484 (-EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018E210 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x180251290 (-GetPresentStatistics@CCompSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -51,14 +50,14 @@ char __fastcall TranslateDXGIorD3DErrorInContext(int a1, int a2, _DWORD *a3)
           v10 = a1 == -2147024890;
           goto LABEL_39;
         }
-        goto LABEL_90;
+        goto LABEL_40;
       case 9:
         if ( a1 != -2147024890 && a1 != -2147024809 && a1 != -2147023728 && a1 != -2147024895 )
         {
           v10 = a1 == -1071243253;
           goto LABEL_39;
         }
-        goto LABEL_90;
+        goto LABEL_40;
       case 11:
         if ( a1 != -1071243253 && a1 != -2147023728 && a1 != -2147024890 )
         {
@@ -67,7 +66,7 @@ LABEL_39:
           if ( !v10 )
             return v3;
         }
-LABEL_90:
+LABEL_40:
         *a3 = 0;
         return 1;
     }
@@ -89,7 +88,7 @@ LABEL_4:
           goto LABEL_8;
         }
       }
-LABEL_73:
+LABEL_70:
       *a3 = -2003304307;
       return 1;
     }
@@ -105,7 +104,7 @@ LABEL_73:
 LABEL_34:
     if ( !_bittest(&v9, v8) )
       return v3;
-    goto LABEL_73;
+    goto LABEL_70;
   }
   switch ( a2 )
   {
@@ -124,31 +123,31 @@ LABEL_34:
         v10 = a1 == -2003304290;
         goto LABEL_39;
       }
-      goto LABEL_90;
+      goto LABEL_40;
     case 0:
       goto LABEL_4;
     case 1:
       if ( a1 == 142213127 || a1 == -2005270491 || a1 == -2005270494 )
-        goto LABEL_66;
+        goto LABEL_63;
       if ( (unsigned int)(a1 + 2005270523) <= 2 || a1 == -2005532292 || a1 == -2147467259 )
-        goto LABEL_73;
+        goto LABEL_70;
       v7 = a1 == -2005270496;
 LABEL_25:
       if ( !v7 )
         return v3;
-      goto LABEL_73;
+      goto LABEL_70;
     case 2:
       v11 = (unsigned int)(a1 + 2005270524);
       if ( (unsigned int)v11 <= 0x21 )
       {
         v12 = 0x240000001LL;
         if ( _bittest64(&v12, v11) )
-          goto LABEL_66;
+          goto LABEL_63;
       }
       if ( a1 == 142213127 )
-        goto LABEL_66;
+        goto LABEL_63;
       if ( a1 == -2147467259 )
-        goto LABEL_73;
+        goto LABEL_70;
       v8 = a1 + 2005270526;
       if ( v8 > 0x1E )
         return v3;
@@ -156,7 +155,7 @@ LABEL_25:
       goto LABEL_34;
     case 3:
       if ( a1 == -805306246 || a1 == -805306355 || a1 == -805306282 || a1 == -805306367 )
-        goto LABEL_66;
+        goto LABEL_63;
       goto LABEL_32;
   }
   if ( a2 != 4 )
@@ -177,15 +176,15 @@ LABEL_32:
       v10 = a1 == -2003304307;
       goto LABEL_39;
     }
-    goto LABEL_90;
+    goto LABEL_40;
   }
   if ( a1 == -2147467263 || a1 == -2147024809 || a1 == -2005270526 || a1 == -2147024865 )
-    goto LABEL_66;
+    goto LABEL_63;
   v5 = a1 == -2003304291;
 LABEL_8:
   if ( v5 )
   {
-LABEL_66:
+LABEL_63:
     *a3 = -2003304442;
     return 1;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpInitializeBootDDB @ 0x140B2E474
+ * XREFs of PpInitializeBootDDB @ 0x140A53088
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     PpBootDDBHelper @ 0x14086172C (PpBootDDBHelper.c)
- *     PiInitializeDDBCache @ 0x140B2E514 (PiInitializeDDBCache.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     PpBootDDBHelper @ 0x1407A3F20 (PpBootDDBHelper.c)
+ *     PiInitializeDDBCache @ 0x140A53128 (PiInitializeDDBCache.c)
  */
 
 __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
@@ -28,13 +28,13 @@ __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
              *(void **)(*(_QWORD *)(a1 + 240) + 64LL),
              *(unsigned int *)(*(_QWORD *)(a1 + 240) + 72LL),
              &PpBootDDB,
-             &PpDDBHandle);
+             (__int64 *)&PpDDBHandle);
   if ( (int)result >= 0 )
   {
     v4 = *(_QWORD *)(a1 + 240);
     v5 = *(void **)(v4 + 80);
     if ( v5 )
-      PpBootDDBHelper(v5, *(unsigned int *)(v4 + 88), &PpBootDDBPatch, &PpDDBPatchHandle);
+      PpBootDDBHelper(v5, *(unsigned int *)(v4 + 88), &PpBootDDBPatch, (__int64 *)&PpDDBPatchHandle);
     PpBootDDBInitialized = 1;
     return 0LL;
   }

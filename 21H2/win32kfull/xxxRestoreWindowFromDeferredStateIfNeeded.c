@@ -1,50 +1,59 @@
 /*
- * XREFs of xxxRestoreWindowFromDeferredStateIfNeeded @ 0x1C0003D64
+ * XREFs of xxxRestoreWindowFromDeferredStateIfNeeded @ 0x1C002C048
  * Callers:
- *     NtUserRestoreWindowDpiChanges @ 0x1C0003C80 (NtUserRestoreWindowDpiChanges.c)
+ *     NtUserRestoreWindowDpiChanges @ 0x1C00076B0 (NtUserRestoreWindowDpiChanges.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
  * Callees:
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     xxxNotifyMonitorChanged @ 0x1C007563C (xxxNotifyMonitorChanged.c)
- *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C009C90C (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0013BBC (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     xxxNotifyMonitorChanged @ 0x1C006C654 (xxxNotifyMonitorChanged.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
  */
 
-__int64 __fastcall xxxRestoreWindowFromDeferredStateIfNeeded(ShellWindowManagement *this)
+__int64 __fastcall xxxRestoreWindowFromDeferredStateIfNeeded(struct tagWND *a1)
 {
-  __int16 v2; // si
+  struct tagRECT *v1; // rdi
+  __int16 v3; // si
   __int64 result; // rax
-  unsigned int v4; // ebp
+  int v5; // r9d
+  __int64 v6; // rcx
+  unsigned int v7; // ebp
   __int64 Prop; // rax
-  int v6; // ecx
+  int v9; // ecx
 
-  v2 = *(_WORD *)(*((_QWORD *)this + 5) + 286LL);
-  if ( !v2 )
+  v1 = 0LL;
+  v3 = *(_WORD *)(*((_QWORD *)a1 + 5) + 286LL);
+  if ( !v3 )
     return 0LL;
-  if ( !(unsigned int)IsTopLevelWindow() && *(_WORD *)(*(_QWORD *)(*((_QWORD *)this + 13) + 40LL) + 286LL) )
+  if ( (unsigned int)IsTopLevelWindow(a1) || !*(_WORD *)(*(_QWORD *)(*((_QWORD *)a1 + 13) + 40LL) + 286LL) )
   {
-    *((_DWORD *)this + 80) &= ~0x40u;
-    return 1LL;
-  }
-  else
-  {
-    result = SetDeferredDpiStateForWindowAndChildren(this);
-    v4 = result;
-    if ( v2 == *(_WORD *)(*((_QWORD *)this + 5) + 284LL) )
+    result = SetDeferredDpiStateForWindowAndChildren(a1, 0, v5);
+    v6 = *((_QWORD *)a1 + 5);
+    v7 = result;
+    if ( v3 == *(_WORD *)(v6 + 284) )
     {
-      *((_DWORD *)this + 80) &= ~0x40000u;
+      *(_DWORD *)(v6 + 232) &= ~0x4000000u;
     }
     else
     {
-      Prop = GetProp(this, LOWORD(WPP_MAIN_CB.Dpc.TargetInfoAsUlong), 1LL);
+      Prop = GetProp(a1, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL);
       if ( Prop )
       {
-        v6 = *(_DWORD *)(Prop + 48);
-        if ( (v6 & 0x80u) != 0 )
-          *(_DWORD *)(Prop + 48) = v6 & 0xFFFFFF7F;
+        v9 = *(_DWORD *)(Prop + 48);
+        if ( (v9 & 0x80u) != 0 )
+        {
+          v1 = (struct tagRECT *)(*((_QWORD *)a1 + 5) + 88LL);
+          *(_DWORD *)(Prop + 48) = v9 & 0xFFFFFF7F;
+        }
       }
-      xxxNotifyMonitorChanged(this);
-      return v4;
+      xxxNotifyMonitorChanged(a1, v1, 0LL);
+      return v7;
     }
+  }
+  else
+  {
+    *((_DWORD *)a1 + 76) &= ~1u;
+    return 1LL;
   }
   return result;
 }

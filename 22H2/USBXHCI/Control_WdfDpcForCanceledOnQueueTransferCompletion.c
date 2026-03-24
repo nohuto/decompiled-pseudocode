@@ -1,10 +1,10 @@
 /*
- * XREFs of Control_WdfDpcForCanceledOnQueueTransferCompletion @ 0x1C0042D30
+ * XREFs of Control_WdfDpcForCanceledOnQueueTransferCompletion @ 0x1C0040050
  * Callers:
  *     <none>
  * Callees:
- *     Control_Transfer_Complete @ 0x1C0005E94 (Control_Transfer_Complete.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     Control_Transfer_Complete @ 0x1C0004260 (Control_Transfer_Complete.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Control_WdfDpcForCanceledOnQueueTransferCompletion(__int64 a1)
@@ -23,7 +23,7 @@ void __fastcall Control_WdfDpcForCanceledOnQueueTransferCompletion(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          v1,
-         off_1C0063388);
+         off_1C0060388);
   v9[1] = v9;
   v9[0] = v9;
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 96));

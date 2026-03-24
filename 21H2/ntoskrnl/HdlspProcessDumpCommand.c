@@ -1,18 +1,18 @@
 /*
- * XREFs of HdlspProcessDumpCommand @ 0x140AA9C94
+ * XREFs of HdlspProcessDumpCommand @ 0x1409EFC18
  * Callers:
- *     HdlspBugCheckProcessing @ 0x140AA8D9C (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x140AA8ED0 (HdlspDispatch.c)
+ *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlTimeToTimeFields @ 0x1402D1A30 (RtlTimeToTimeFields.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     sprintf_s @ 0x1403E7020 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
- *     HdlspPutMore @ 0x140AAA09C (HdlspPutMore.c)
- *     HdlspPutString @ 0x140AAA178 (HdlspPutString.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlTimeToTimeFields @ 0x14036E9A0 (RtlTimeToTimeFields.c)
+ *     sprintf_s @ 0x1403D7BF0 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     HdlspPutMore @ 0x1409F0020 (HdlspPutMore.c)
+ *     HdlspPutString @ 0x1409F00C0 (HdlspPutString.c)
  */
 
 __int64 __fastcall HdlspProcessDumpCommand(char a1)

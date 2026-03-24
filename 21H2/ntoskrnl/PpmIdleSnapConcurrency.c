@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleSnapConcurrency @ 0x1402126A4
+ * XREFs of PpmIdleSnapConcurrency @ 0x14022AF70
  * Callers:
- *     PpmParkSnapNodeStatistics @ 0x140212614 (PpmParkSnapNodeStatistics.c)
+ *     PpmParkSnapNodeStatistics @ 0x14022B018 (PpmParkSnapNodeStatistics.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 void __fastcall PpmIdleSnapConcurrency(PKSPIN_LOCK SpinLock, __int64 a2)
@@ -29,12 +29,12 @@ void __fastcall PpmIdleSnapConcurrency(PKSPIN_LOCK SpinLock, __int64 a2)
     v6 = PerformanceCounter.QuadPart - v5;
     v7 = *((unsigned int *)SpinLock + 3);
     SpinLock[3] += v6;
-    SpinLock[v7 + 41] += v6;
+    SpinLock[v7 + 4] += v6;
   }
   v8 = *(void **)a2;
   v9 = 8LL * *(unsigned int *)(a2 + 40);
   *(_QWORD *)(a2 + 24) = SpinLock[3];
-  memmove(v8, SpinLock + 41, v9);
+  memmove(v8, SpinLock + 4, v9);
   KxReleaseSpinLock(SpinLock);
   if ( (v10 & 0x200) != 0 )
     _enable();

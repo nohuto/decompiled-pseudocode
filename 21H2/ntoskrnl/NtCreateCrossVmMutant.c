@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateCrossVmMutant @ 0x140A02BD0
+ * XREFs of NtCreateCrossVmMutant @ 0x140956EA0
  * Callers:
  *     <none>
  * Callees:
- *     ExpCreateCrossVmMutant @ 0x140A07D2C (ExpCreateCrossVmMutant.c)
+ *     ExpCreateCrossVmMutant @ 0x14095C4CC (ExpCreateCrossVmMutant.c)
  */
 
 __int64 __fastcall NtCreateCrossVmMutant(_QWORD *a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

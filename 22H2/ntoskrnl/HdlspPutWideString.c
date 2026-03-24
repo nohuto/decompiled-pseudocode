@@ -1,11 +1,11 @@
 /*
- * XREFs of HdlspPutWideString @ 0x140AEC30C
+ * XREFs of HdlspPutWideString @ 0x1409F01E8
  * Callers:
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x1404FE1FC (__report_rangecheckfailure.c)
- *     HdlspUTF8Encode @ 0x140606990 (HdlspUTF8Encode.c)
- *     HdlspSendStringAtBaud @ 0x140AEC474 (HdlspSendStringAtBaud.c)
+ *     __report_rangecheckfailure @ 0x1404B63BC (__report_rangecheckfailure.c)
+ *     HdlspUTF8Encode @ 0x1405B2884 (HdlspUTF8Encode.c)
+ *     HdlspSendStringAtBaud @ 0x1409F0350 (HdlspSendStringAtBaud.c)
  */
 
 __int64 __fastcall HdlspPutWideString(unsigned __int16 *a1)

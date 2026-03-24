@@ -2,11 +2,11 @@
  * XREFs of CmpLoadKeyCommon @ 0x140010994
  * Callers:
  *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmLoadKey @ 0x1406C8B98 (CmLoadKey.c)
+ *     CmLoadKey @ 0x1406C8B78 (CmLoadKey.c)
  * Callees:
  *     CmpRecheckHiveVolumePolicy @ 0x14000EDFC (CmpRecheckHiveVolumePolicy.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpJoinClassOfTrust @ 0x1401B3170 (CmpJoinClassOfTrust.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpJoinClassOfTrust @ 0x1401B3190 (CmpJoinClassOfTrust.c)
  *     CmpVEAddHiveToSIDMappingTable @ 0x1405807F0 (CmpVEAddHiveToSIDMappingTable.c)
  *     LockShutdownShared @ 0x1405AFFB0 (LockShutdownShared.c)
  *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
@@ -23,13 +23,13 @@
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpInitCmRM @ 0x14067F308 (CmpInitCmRM.c)
- *     CmpAddToHiveFileList @ 0x1406CCFA0 (CmpAddToHiveFileList.c)
- *     CmRmFinalizeRecovery @ 0x1406CDC48 (CmRmFinalizeRecovery.c)
- *     CmpSetGlobalQuotaAllowed @ 0x1406D0D88 (CmpSetGlobalQuotaAllowed.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     ObDrainDeferredObjectDeletion @ 0x14086132C (ObDrainDeferredObjectDeletion.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
+ *     CmpAddToHiveFileList @ 0x1406CCF80 (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x1406CDC28 (CmRmFinalizeRecovery.c)
+ *     CmpSetGlobalQuotaAllowed @ 0x1406D0D68 (CmpSetGlobalQuotaAllowed.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     ObDrainDeferredObjectDeletion @ 0x14086130C (ObDrainDeferredObjectDeletion.c)
  */
 
 __int64 __fastcall CmpLoadKeyCommon(

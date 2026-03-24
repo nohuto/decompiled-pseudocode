@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiProcessIsrPreemptedPacket @ 0x1C0017644
+ * XREFs of VidSchiProcessIsrPreemptedPacket @ 0x1C000FF30
  * Callers:
- *     VidSchDdiNotifyInterruptWorker @ 0x1C000EC20 (VidSchDdiNotifyInterruptWorker.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000DED0 (VidSchDdiNotifyInterruptWorker.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000F4F0 (VidSchiUpdateContextRunningTimeAtISR.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000E670 (VidSchiUpdateContextRunningTimeAtISR.c)
  */
 
 void __fastcall VidSchiProcessIsrPreemptedPacket(__int64 a1, int a2, int a3, __int64 a4)
@@ -31,14 +31,14 @@ void __fastcall VidSchiProcessIsrPreemptedPacket(__int64 a1, int a2, int a3, __i
     v8 = (a3 & 1) << 6;
     do
     {
-      v9 = *(unsigned int *)(a1 + 1412);
-      v10 = *(_QWORD *)(a1 + 8 * v9 + 1424);
-      _InterlockedExchange((volatile __int32 *)(a1 + 1412), ((_BYTE)v9 + 1) & 0xF);
-      v11 = *(unsigned int *)(a1 + 1556);
-      *(_DWORD *)(a1 + 500) = ((unsigned __int8)*(_DWORD *)(a1 + 500) + 1) & 0xF;
-      v12 = *(_QWORD *)(a1 + 8 * v11 + 1568);
+      v9 = *(unsigned int *)(a1 + 1404);
+      v10 = *(_QWORD *)(a1 + 8 * v9 + 1416);
+      _InterlockedExchange((volatile __int32 *)(a1 + 1404), ((_BYTE)v9 + 1) & 0xF);
+      v11 = *(unsigned int *)(a1 + 1548);
+      *(_DWORD *)(a1 + 492) = ((unsigned __int8)*(_DWORD *)(a1 + 492) + 1) & 0xF;
+      v12 = *(_QWORD *)(a1 + 8 * v11 + 1560);
       v21 = ((_BYTE)v11 + 1) & 0xF;
-      _InterlockedExchange((volatile __int32 *)(a1 + 1556), v21);
+      _InterlockedExchange((volatile __int32 *)(a1 + 1548), v21);
       v13 = *(_QWORD *)(v10 + 104);
       if ( *(_DWORD *)(v10 + 88) == 3 )
       {
@@ -47,13 +47,13 @@ void __fastcall VidSchiProcessIsrPreemptedPacket(__int64 a1, int a2, int a3, __i
         *(_QWORD *)(v10 + 80) = MEMORY[0xFFFFF78000000320];
         *(_DWORD *)(v10 + 72) = 10;
         *(_DWORD *)(v10 + 16) = 1;
-        _InterlockedDecrement((volatile signed __int32 *)(a1 + 2904));
+        _InterlockedDecrement((volatile signed __int32 *)(a1 + 2896));
       }
       else
       {
         *(_QWORD *)(a1 + 56) = v13;
         v17 = *(_QWORD *)(v10 + 104);
-        ++*(_DWORD *)(a1 + 2908);
+        ++*(_DWORD *)(a1 + 2900);
         *(_QWORD *)(a1 + 80) = v17;
         v18 = *(_QWORD *)(v10 + 56) == 0LL;
         *(_QWORD *)(v10 + 80) = MEMORY[0xFFFFF78000000320];
@@ -69,7 +69,7 @@ void __fastcall VidSchiProcessIsrPreemptedPacket(__int64 a1, int a2, int a3, __i
       if ( a3 )
       {
         ++*(_QWORD *)(a1 + 40);
-        ++v5[27].Alignment;
+        ++v5[26].Region;
       }
       v15 = *(_DWORD *)(v10 + 92);
       v19[0] = 0LL;
@@ -77,15 +77,15 @@ void __fastcall VidSchiProcessIsrPreemptedPacket(__int64 a1, int a2, int a3, __i
       *(_DWORD *)(v10 + 92) = v8 | v15 & 0xFFFFFFBF;
       v20 = 0LL;
       VidSchiUpdateContextRunningTimeAtISR(v19);
-      v16 = *(_QWORD *)(a1 + 8LL * v21 + 1568);
+      v16 = *(_QWORD *)(a1 + 8LL * v21 + 1560);
       if ( v16 )
       {
         if ( v16 != v12 )
           *(_QWORD *)(v16 + 464) = *(_QWORD *)(v12 + 464);
       }
-      _InterlockedDecrement((volatile signed __int32 *)(a1 + 2892));
+      _InterlockedDecrement((volatile signed __int32 *)(a1 + 2884));
       VidSchiProfilePerformanceTick(v14, (__int64)v5, a1, 0LL, 0LL, 0LL, v10, a4);
-      ExpInterlockedPushEntrySList(v5 + 111, (PSLIST_ENTRY)(v10 + 32));
+      ExpInterlockedPushEntrySList(v5 + 110, (PSLIST_ENTRY)(v10 + 32));
     }
     while ( *(_DWORD *)(a1 + 112) != a2 );
   }

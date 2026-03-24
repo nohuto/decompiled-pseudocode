@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PowerPolWokeFromS0@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0039960
+ * XREFs of ?PowerPolWokeFromS0@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00886B0
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C000C360 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
- *     ?RequestComponentActive@FxPoxInterface@@QEAAXXZ @ 0x1C0017C84 (-RequestComponentActive@FxPoxInterface@@QEAAXXZ.c)
+ *     ?RequestComponentActive@FxPoxInterface@@QEAAXXZ @ 0x1C000E6E4 (-RequestComponentActive@FxPoxInterface@@QEAAXXZ.c)
+ *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C001C9C0 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolWokeFromS0(FxPkgPnp *This)

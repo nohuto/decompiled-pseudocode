@@ -1,14 +1,14 @@
 /*
- * XREFs of BltIcon @ 0x1C00274A8
+ * XREFs of BltIcon @ 0x1C00442EC
  * Callers:
- *     _DrawIconEx @ 0x1C0028030 (_DrawIconEx.c)
- *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C022B810 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
+ *     _DrawIconEx @ 0x1C0043EF4 (_DrawIconEx.c)
+ *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C0246D18 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
  * Callees:
- *     GreSetStretchBltMode @ 0x1C00276B0 (GreSetStretchBltMode.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
+ *     GreSetStretchBltMode @ 0x1C00444FC (GreSetStretchBltMode.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
  */
 
 __int64 __fastcall BltIcon(
@@ -17,60 +17,51 @@ __int64 __fastcall BltIcon(
         unsigned int a3,
         unsigned int a4,
         int a5,
-        __int64 a6,
+        HDC a6,
         __int64 a7,
         int a8,
         int a9)
 {
   int v9; // esi
-  __int64 v14; // rbx
-  __int64 v15; // rdi
-  unsigned int v17; // [rsp+70h] [rbp-38h]
-  __int64 v18; // [rsp+78h] [rbp-30h]
-  int v19; // [rsp+E8h] [rbp+40h]
+  __int64 v14; // rdi
+  __int64 v16; // [rsp+78h] [rbp-30h]
+  int v17; // [rsp+E8h] [rbp+40h]
 
   v9 = 0;
   if ( a8 == 1 )
-  {
-    v14 = a7;
-LABEL_3:
-    v15 = *(_QWORD *)(v14 + 88);
-    goto LABEL_4;
-  }
+    goto LABEL_2;
   if ( a8 == 3 )
   {
-    v14 = a7;
-    v15 = *(_QWORD *)(a7 + 128);
+    v14 = *(_QWORD *)(a7 + 128);
   }
   else
   {
-    v14 = a7;
-    v15 = *(_QWORD *)(a7 + 96);
-    if ( !v15 )
+    v14 = *(_QWORD *)(a7 + 96);
+    if ( !v14 )
     {
       v9 = *(_DWORD *)(a7 + 144) >> 1;
-      goto LABEL_3;
+LABEL_2:
+      v14 = *(_QWORD *)(a7 + 88);
     }
   }
-LABEL_4:
   GreSetBkColor(a1);
-  v17 = GreSetTextColor(a1, 0LL);
+  GreSetTextColor(a1);
   GreSetStretchBltMode(a1);
-  v18 = GreSelectBitmap(a6, v15);
+  v16 = GreSelectBitmap(a6, v14);
   if ( a8 == 3 )
   {
-    LOBYTE(v19) = 0;
-    HIWORD(v19) = 511;
-    BYTE1(v19) = a9 < 0 ? 0 : 0x80;
-    NtGdiAlphaBlend(a1, a2, a3, a4, a5, a6, 0, v9, *(_DWORD *)(v14 + 140), *(_DWORD *)(v14 + 144) >> 1, v19, 0LL);
+    LOBYTE(v17) = 0;
+    HIWORD(v17) = 511;
+    BYTE1(v17) = a9 < 0 ? 0 : 0x80;
+    NtGdiAlphaBlend(a1, a2, a3, a4, a5, a6, 0, v9, *(_DWORD *)(a7 + 140), *(_DWORD *)(a7 + 144) >> 1, v17, 0LL);
   }
   else
   {
-    GreStretchBltInternal(a1, a5, a6, 0, v9, *(_DWORD *)(v14 + 140), *(_DWORD *)(v14 + 144) >> 1, a9, -1, 0);
+    GreStretchBltInternal(a1, a2, a5, a6, 0, v9, *(_DWORD *)(a7 + 140), *(_DWORD *)(a7 + 144) >> 1, a9, -1, 0);
   }
   GreSetStretchBltMode(a1);
-  GreSetTextColor(a1, v17);
+  GreSetTextColor(a1);
   GreSetBkColor(a1);
-  GreSelectBitmap(a6, v18);
+  GreSelectBitmap(a6, v16);
   return 1LL;
 }

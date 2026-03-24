@@ -1,21 +1,21 @@
 /*
- * XREFs of PipDmgGetDriverDmarCompatLevel @ 0x14084558C
+ * XREFs of PipDmgGetDriverDmarCompatLevel @ 0x14076DAD4
  * Callers:
- *     PipDmgGetDeviceDmarPolicy @ 0x1408454B8 (PipDmgGetDeviceDmarPolicy.c)
+ *     PipDmgGetDeviceDmarPolicy @ 0x14076DA00 (PipDmgGetDeviceDmarPolicy.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293860 (VfIsVerifierEnabled.c)
- *     PnpGetRegistryDword @ 0x1403A070C (PnpGetRegistryDword.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     VfTargetDriversIsEnabled @ 0x140ACC614 (VfTargetDriversIsEnabled.c)
+ *     VfIsVerifierEnabled @ 0x14032D0E0 (VfIsVerifierEnabled.c)
+ *     PnpGetRegistryDword @ 0x1403B6D2C (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D6F40 (VfTargetDriversIsEnabled.c)
  */
 
 __int64 __fastcall PipDmgGetDriverDmarCompatLevel(__int64 a1)
 {
   __int64 v2; // rcx
   unsigned int v3; // ebx
-  NTSTATUS v4; // eax
+  int v4; // eax
   HANDLE v5; // rdi
   __int128 v7; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
@@ -29,49 +29,45 @@ __int64 __fastcall PipDmgGetDriverDmarCompatLevel(__int64 a1)
   v7 = 0LL;
   v4 = PipOpenServiceEnumKeys((UNICODE_STRING *)(v2 + 24), 0x20019u, &Handle, 0LL, 0);
   v5 = Handle;
-  if ( v4 < 0 )
-    goto LABEL_4;
-  memset(&ObjectAttributes.Attributes + 1, 0, 20);
-  KeyHandle = 0LL;
-  *((_QWORD *)&v7 + 1) = L"Parameters";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v7;
-  LODWORD(v7) = 1441812;
-  ObjectAttributes.RootDirectory = Handle;
-  ObjectAttributes.Attributes = 576;
-  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
-    goto LABEL_4;
-  LODWORD(Handle) = 0;
-  if ( (int)PnpGetRegistryDword(KeyHandle, (__int64)L"DmaRemappingCompatible", &Handle) < 0 )
-    goto LABEL_4;
-  if ( !(_DWORD)Handle )
+  if ( v4 >= 0 )
   {
-    v3 = 1;
-    goto LABEL_4;
+    *(&ObjectAttributes.Length + 1) = 0;
+    memset(&ObjectAttributes.Attributes + 1, 0, 20);
+    KeyHandle = 0LL;
+    *((_QWORD *)&v7 + 1) = L"Parameters";
+    LODWORD(v7) = 1441812;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v7;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Attributes = 576;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
+    {
+      LODWORD(Handle) = 0;
+      if ( (int)PnpGetRegistryDword(KeyHandle, (__int64)L"DmaRemappingCompatible", &Handle) >= 0 )
+      {
+        if ( (_DWORD)Handle )
+        {
+          if ( (_DWORD)Handle == 1 )
+          {
+            v3 = 2;
+          }
+          else if ( (_DWORD)Handle == 2 )
+          {
+            v3 = 3;
+            if ( (unsigned int)VfIsVerifierEnabled() )
+            {
+              if ( (MmVerifierData & 0x80u) != 0 && (unsigned int)VfTargetDriversIsEnabled(*(_QWORD *)(a1 + 24)) )
+                v3 = 2;
+            }
+          }
+        }
+        else
+        {
+          v3 = 1;
+        }
+      }
+    }
   }
-  if ( (_DWORD)Handle == 1 )
-  {
-LABEL_14:
-    v3 = 2;
-    goto LABEL_4;
-  }
-  if ( (_DWORD)Handle != 2 )
-  {
-    if ( (_DWORD)Handle != 3 )
-      goto LABEL_4;
-    goto LABEL_14;
-  }
-  if ( !(unsigned int)VfIsVerifierEnabled() || (VfRuleClasses & 0x400000) != 0 || (MmVerifierData & 0x80u) == 0 )
-  {
-    v3 = 3;
-  }
-  else
-  {
-    v3 = 2;
-    if ( !(unsigned int)VfTargetDriversIsEnabled(*(_QWORD *)(a1 + 24)) )
-      v3 = 3;
-  }
-LABEL_4:
   if ( KeyHandle )
   {
     ZwClose(KeyHandle);

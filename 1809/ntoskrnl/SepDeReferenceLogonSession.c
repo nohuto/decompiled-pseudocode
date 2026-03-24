@@ -1,25 +1,25 @@
 /*
- * XREFs of SepDeReferenceLogonSession @ 0x1406B3600
+ * XREFs of SepDeReferenceLogonSession @ 0x1406B35E0
  * Callers:
  *     SepDeReferenceLogonSessionDirect @ 0x1400140A0 (SepDeReferenceLogonSessionDirect.c)
  *     SepTokenDeleteMethod @ 0x1405DEE70 (SepTokenDeleteMethod.c)
- *     SepDeReferenceLogonSession @ 0x1406B3600 (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     SepDeleteSessionLowboxEntries @ 0x14012A040 (SepDeleteSessionLowboxEntries.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     SepDeleteSessionLowboxEntries @ 0x14012A060 (SepDeleteSessionLowboxEntries.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObfDereferenceDeviceMap @ 0x1406719E0 (ObfDereferenceDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x1406B3600 (SepDeReferenceLogonSession.c)
- *     SepInformLsaOfDeletedLogon @ 0x1406B37D8 (SepInformLsaOfDeletedLogon.c)
- *     ObDestroyHandleRevocationBlock @ 0x1406B3860 (ObDestroyHandleRevocationBlock.c)
- *     SepDeleteLogonSessionClaims @ 0x1406B38C8 (SepDeleteLogonSessionClaims.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x1406B38EC (SepCleanupLUIDDeviceMapDirectory.c)
- *     SepInformFileSystemsOfDeletedLogon @ 0x1406B3BD0 (SepInformFileSystemsOfDeletedLogon.c)
- *     SepDeleteLogonSessionSidValues @ 0x1408A203C (SepDeleteLogonSessionSidValues.c)
+ *     ObfDereferenceDeviceMap @ 0x1406719C0 (ObfDereferenceDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
+ *     SepInformLsaOfDeletedLogon @ 0x1406B37B8 (SepInformLsaOfDeletedLogon.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1406B3840 (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteLogonSessionClaims @ 0x1406B38A8 (SepDeleteLogonSessionClaims.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406B38CC (SepCleanupLUIDDeviceMapDirectory.c)
+ *     SepInformFileSystemsOfDeletedLogon @ 0x1406B3BB0 (SepInformFileSystemsOfDeletedLogon.c)
+ *     SepDeleteLogonSessionSidValues @ 0x1408A201C (SepDeleteLogonSessionSidValues.c)
  */
 
 void __fastcall SepDeReferenceLogonSession(_DWORD *a1, __int64 a2)

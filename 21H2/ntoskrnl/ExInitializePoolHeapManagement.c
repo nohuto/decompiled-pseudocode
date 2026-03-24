@@ -1,13 +1,13 @@
 /*
- * XREFs of ExInitializePoolHeapManagement @ 0x1403C3FA0
+ * XREFs of ExInitializePoolHeapManagement @ 0x1403C3924
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     ExCreateHeap @ 0x14036F5D4 (ExCreateHeap.c)
- *     RtlpDynamicLookasideInitialize @ 0x1403C4368 (RtlpDynamicLookasideInitialize.c)
- *     ExpDetermineLargePagePolicy @ 0x1403C43E0 (ExpDetermineLargePagePolicy.c)
- *     RtlHpKInitializeHeapManager @ 0x1403C445C (RtlHpKInitializeHeapManager.c)
- *     ExInitializePoolTracker @ 0x140B0ABEC (ExInitializePoolTracker.c)
+ *     ExCreateHeap @ 0x14039D748 (ExCreateHeap.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1403C3CD0 (RtlpDynamicLookasideInitialize.c)
+ *     ExpDetermineLargePagePolicy @ 0x1403C3D48 (ExpDetermineLargePagePolicy.c)
+ *     RtlHpKInitializeHeapManager @ 0x1403C3DE8 (RtlHpKInitializeHeapManager.c)
+ *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
  */
 
 __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
@@ -41,7 +41,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
     RtlpHpLfhPerfFlags = 1279;
     ExpDetermineLargePagePolicy(&v18);
     v3 = 0;
-    if ( dword_140C5EA20 )
+    if ( dword_140C58090 )
     {
       v4 = v18;
       while ( 1 )
@@ -49,7 +49,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
         v5 = 0LL;
         v12 = 0LL;
         LOWORD(v12) = 259;
-        v6 = &qword_140C5EA40[1048 * v3];
+        v6 = &qword_140C580C0[1048 * v3];
         BYTE2(v12) = v3;
         v14 = v12;
         if ( *((_QWORD *)&v18 + 1) )
@@ -65,8 +65,8 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
           v9 = v19;
           *(_OWORD *)(v8 + 192) = v4;
           *(_QWORD *)(v8 + 208) = v9;
-          *(_BYTE *)(v8 + 333) = *(_BYTE *)(v8 + 333) & 0xF8 | 1;
-          *(_BYTE *)(v8 + 525) = *(_BYTE *)(v8 + 525) & 0xF8 | 1;
+          *(_BYTE *)(v8 + 269) = *(_BYTE *)(v8 + 269) & 0xF8 | 1;
+          *(_BYTE *)(v8 + 461) = *(_BYTE *)(v8 + 461) & 0xF8 | 1;
         }
         RtlpDynamicLookasideInitialize(v6 + 528);
         *(_QWORD *)(v8 + 40) = v6 + 528;
@@ -76,7 +76,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
           break;
         ++v3;
         *v6 = v20;
-        if ( v3 >= dword_140C5EA20 )
+        if ( v3 >= dword_140C58090 )
           goto LABEL_11;
       }
     }
@@ -92,27 +92,21 @@ LABEL_11:
       {
         v10 = v20;
         v17 = v13;
-        *(_DWORD *)(v20 + 880) |= 2u;
-        *(_BYTE *)(v10 + 333) |= 8u;
-        *(_BYTE *)(v10 + 525) |= 8u;
-        qword_140CE1A48 = v10;
+        *(_DWORD *)(v20 + 816) |= 2u;
+        *(_BYTE *)(v10 + 269) |= 8u;
+        *(_BYTE *)(v10 + 461) |= 8u;
+        qword_140CDB0C8 = v10;
         result = ExCreateHeap(&v17, 0x40000000LL, &v20);
         if ( (int)result >= 0 )
         {
           v11 = v20;
-          *(_DWORD *)(v20 + 880) |= 2u;
-          *(_BYTE *)(v11 + 333) |= 8u;
-          *(_BYTE *)(v11 + 525) |= 8u;
-          ExPoolLimitState = 0;
-          qword_140CE1E48 = 0LL;
-          dword_140CE1E44 = 0;
-          qword_140CE1A40[0] = v11;
+          *(_DWORD *)(v20 + 816) |= 2u;
+          *(_BYTE *)(v11 + 269) |= 8u;
+          *(_BYTE *)(v11 + 461) |= 8u;
+          qword_140CDB0C0[0] = v11;
           result = ExInitializePoolTracker();
           if ( (int)result >= 0 )
-          {
             _InterlockedOr(&ExpPoolFlags, a1);
-            return 0LL;
-          }
         }
       }
     }

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSearchForOpenSubKeys @ 0x140875624
+ * XREFs of CmpSearchForOpenSubKeys @ 0x14066C648
  * Callers:
- *     CmpFreezeHive @ 0x1408755AC (CmpFreezeHive.c)
- *     NtQueryOpenSubKeys @ 0x140A0DAD0 (NtQueryOpenSubKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x140A0DD10 (NtQueryOpenSubKeysEx.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28588 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpFreezeHive @ 0x14066C5D0 (CmpFreezeHive.c)
+ *     NtQueryOpenSubKeys @ 0x140868720 (NtQueryOpenSubKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x140868940 (NtQueryOpenSubKeysEx.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EF14 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpEnumerateAllOpenSubKeys @ 0x140699ABC (CmpEnumerateAllOpenSubKeys.c)
- *     CmpDumpKeyBodyList @ 0x140A17148 (CmpDumpKeyBodyList.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x14066D0E4 (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpDumpKeyBodyList @ 0x14086EC98 (CmpDumpKeyBodyList.c)
  */
 
 __int64 __fastcall CmpSearchForOpenSubKeys(__int64 a1, int a2, __int64 a3)
 {
   char v3; // bl
-  int v5; // edx
-  __int64 (__fastcall *v6)(__int64); // rdi
+  __int64 v5; // rdx
+  __int64 (__fastcall *v6)(); // rdi
   __int64 v8; // [rsp+20h] [rbp-28h] BYREF
   _QWORD v9[4]; // [rsp+28h] [rbp-20h] BYREF
 
@@ -25,24 +25,29 @@ __int64 __fastcall CmpSearchForOpenSubKeys(__int64 a1, int a2, __int64 a3)
   v9[1] = a3;
   if ( a2 )
   {
-    v5 = a2 - 1;
-    if ( v5 )
+    v5 = (unsigned int)(a2 - 1);
+    if ( (_DWORD)v5 )
     {
-      if ( v5 != 1 )
+      if ( (_DWORD)v5 != 1 )
         __fastfail(5u);
       v6 = CmpSearchAndTagNoDelayCloseWorker;
     }
     else
     {
-      v6 = (__int64 (__fastcall *)(__int64))CmpSearchAndRehashWorker;
+      v6 = CmpSearchAndRehashWorker;
     }
   }
   else
   {
     v3 = 1;
-    v6 = (__int64 (__fastcall *)(__int64))CmpSearchAndCountWorker;
+    v6 = CmpSearchAndCountWorker;
     CmpDumpKeyBodyList(a1, v9);
   }
-  CmpEnumerateAllOpenSubKeys(a1, v3, (__int64)v6, (__int64)&v8);
+  LOBYTE(v5) = v3;
+  ((void (__fastcall *)(__int64, __int64, __int64 (__fastcall *)(), __int64 *))CmpEnumerateAllOpenSubKeys)(
+    a1,
+    v5,
+    v6,
+    &v8);
   return LODWORD(v9[0]);
 }

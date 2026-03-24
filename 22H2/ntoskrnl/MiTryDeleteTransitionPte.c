@@ -1,25 +1,26 @@
 /*
- * XREFs of MiTryDeleteTransitionPte @ 0x1402F4108
+ * XREFs of MiTryDeleteTransitionPte @ 0x140363C98
  * Callers:
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiDeleteMergedPte @ 0x1402F408C (MiDeleteMergedPte.c)
+ *     MiDeletePteRun @ 0x1402365D0 (MiDeletePteRun.c)
+ *     MiRemoveMappedPtes @ 0x140288B80 (MiRemoveMappedPtes.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiDeleteMergedPte @ 0x140366798 (MiDeleteMergedPte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDeleteTransitionPte @ 0x1402DCE80 (MiDeleteTransitionPte.c)
- *     MiLockTransitionLeafPageEx @ 0x1403477B8 (MiLockTransitionLeafPageEx.c)
+ *     MiDeleteTransitionPte @ 0x1402381A0 (MiDeleteTransitionPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockTransitionLeafPage @ 0x140363DD4 (MiLockTransitionLeafPage.c)
  */
 
 __int64 __fastcall MiTryDeleteTransitionPte(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v2; // rax
+  __int64 v3; // r8
 
   if ( (MI_READ_PTE_LOCK_FREE(BugCheckParameter2) & 0x400) != 0 )
     return 1LL;
-  v2 = MiLockTransitionLeafPageEx(BugCheckParameter2);
+  v2 = MiLockTransitionLeafPage(BugCheckParameter2);
   if ( !v2 )
     return 1LL;
-  else
-    return MiDeleteTransitionPte(BugCheckParameter2, v2, 0x11u, 1);
+  LOBYTE(v3) = 17;
+  return MiDeleteTransitionPte(BugCheckParameter2, v2, v3, 1);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDereferenceVpbAndFree @ 0x14010C290
+ * XREFs of IopDereferenceVpbAndFree @ 0x14010C2B0
  * Callers:
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
- *     IoVerifyVolume @ 0x14081CBD0 (IoVerifyVolume.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IoVerifyVolume @ 0x14081CBB0 (IoVerifyVolume.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

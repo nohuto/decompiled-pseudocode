@@ -1,28 +1,28 @@
 /*
- * XREFs of _BmlGetPathModalityForAdapter @ 0x1C01BD268
+ * XREFs of _BmlGetPathModalityForAdapter @ 0x1C013DB84
  * Callers:
- *     ?BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DIAG_CCD_BML_ORIGIN@@IPEAPEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C01BD1A4 (-BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DI.c)
+ *     ?BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DIAG_CCD_BML_ORIGIN@@IPEAPEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C013DAC0 (-BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DI.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C000FBD8 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
- *     ?CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C01B0CF4 (-CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
- *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C01B1560 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
- *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C01BD518 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
- *     ?BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z @ 0x1C01BD718 (-BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z.c)
- *     FillDevmodeFromVidPn @ 0x1C01BDFE4 (FillDevmodeFromVidPn.c)
- *     ConvertDMMScalingToGdiScaling @ 0x1C01BE2E0 (ConvertDMMScalingToGdiScaling.c)
- *     ?BmlIsPrimaryClonePath@@YA_NPEBUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C01BE400 (-BmlIsPrimaryClonePath@@YA_NPEBUD3DKMT_GETPATHSMODALITY@@I@Z.c)
- *     ?BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01BE460 (-BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
- *     _BmlLogDiagnosticsPacket @ 0x1C01C0A6C (_BmlLogDiagnosticsPacket.c)
- *     ?IsFunctional@DMMVIDPN@@QEBAEI@Z @ 0x1C01DE414 (-IsFunctional@DMMVIDPN@@QEBAEI@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C00085F4 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
+ *     ?CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C0125A5C (-CreateClientVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
+ *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0138800 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C013DE38 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ *     ?BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z @ 0x1C013E374 (-BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z.c)
+ *     FillDevmodeFromVidPn @ 0x1C01496DC (FillDevmodeFromVidPn.c)
+ *     ConvertDMMScalingToGdiScaling @ 0x1C01499F8 (ConvertDMMScalingToGdiScaling.c)
+ *     ?BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01632C0 (-BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     _BmlLogDiagnosticsPacket @ 0x1C0163AC0 (_BmlLogDiagnosticsPacket.c)
+ *     ?BmlIsPrimaryClonePath@@YA_NPEBUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C016C3E0 (-BmlIsPrimaryClonePath@@YA_NPEBUD3DKMT_GETPATHSMODALITY@@I@Z.c)
+ *     ?IsFunctional@DMMVIDPN@@QEBAEI@Z @ 0x1C016D100 (-IsFunctional@DMMVIDPN@@QEBAEI@Z.c)
  */
 
 __int64 __fastcall BmlGetPathModalityForAdapter(
-        unsigned __int16 a1,
-        __int16 a2,
+        __int64 a1,
+        __int64 a2,
         __int64 a3,
         __int64 a4,
         char a5,
@@ -32,62 +32,93 @@ __int64 __fastcall BmlGetPathModalityForAdapter(
         struct BML_VIDPN_PATH_ORDER *a9)
 {
   struct BML_VIDPN_PATH_ORDER *v9; // rbx
+  __int16 v12; // si
   __int64 v13; // rax
   struct VIDPN_MGR *v14; // r12
   int ClientVidPn; // eax
   __int64 v16; // rdx
   __int64 v17; // rcx
-  int v18; // edi
-  unsigned int v19; // r15d
-  struct DMMVIDPN *v20; // rsi
-  unsigned int v21; // edx
-  __int64 v22; // rbx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  int v20; // edi
+  unsigned int v21; // r15d
+  struct DMMVIDPN *v22; // rsi
   unsigned int v23; // r12d
-  __int64 v24; // r15
-  __int64 v25; // r9
-  __int64 v26; // r13
-  __int64 v27; // rax
-  __int64 v28; // rcx
-  int v30; // eax
-  int v31; // eax
-  __int16 v32; // [rsp+20h] [rbp-30h]
-  __int64 v33; // [rsp+40h] [rbp-10h] BYREF
-  DMMVIDPN *v35; // [rsp+A0h] [rbp+50h] BYREF
+  __int64 v24; // rbx
+  __int64 v25; // r15
+  _DWORD *v26; // r13
+  _DWORD *v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  __int64 v32; // rcx
+  __int64 v33; // rdx
+  int v35; // eax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  int v41; // eax
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // r8
+  __int64 v45; // rbx
+  _QWORD *v46; // rax
+  _QWORD *v47; // rax
+  __int64 v48; // rax
+  __int16 v49; // [rsp+20h] [rbp-30h]
+  __int64 v50; // [rsp+40h] [rbp-10h] BYREF
+  __int16 v51; // [rsp+90h] [rbp+40h]
+  DMMVIDPN *v52; // [rsp+A0h] [rbp+50h] BYREF
   __int64 i; // [rsp+A8h] [rbp+58h]
 
+  v51 = a1;
   v9 = a9;
+  v12 = a2;
   *(_BYTE *)a9 = 0;
   if ( !*(_WORD *)(a3 + 20) )
-    WdLogSingleEntry0(1LL);
-  v13 = *(_QWORD *)(a4 + 2792);
+  {
+    v40 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v40);
+  }
+  v13 = *(_QWORD *)(a4 + 2696);
   a9 = 0LL;
-  v14 = *(struct VIDPN_MGR **)(v13 + 104);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v33, (__int64)v14);
-  v35 = 0LL;
-  ClientVidPn = VIDPN_MGR::CreateClientVidPn(v14, (__int64 *)&v35);
-  v18 = ClientVidPn;
+  v14 = *(struct VIDPN_MGR **)(v13 + 88);
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v50, (__int64)v14);
+  v52 = 0LL;
+  ClientVidPn = VIDPN_MGR::CreateClientVidPn(v14, (__int64 *)&v52);
+  v20 = ClientVidPn;
   if ( ClientVidPn < 0 )
   {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v17, v16) + 24) = ClientVidPn;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v17, v16, v18, v19) + 24) = ClientVidPn;
     goto LABEL_19;
   }
-  v19 = a6;
-  v32 = a2;
-  v20 = v35;
-  v18 = BmlPreparePathOrderAndVidPn((__int64 *)&a9, (__int64)v35, a3, a1, v32, a6, a7);
-  if ( v18 < 0 )
+  v21 = a6;
+  v49 = v12;
+  v22 = v52;
+  v20 = BmlPreparePathOrderAndVidPn((__int64 *)&a9, (__int64)v52, a3, v51, v49, a6, a7);
+  if ( v20 < 0 )
     goto LABEL_19;
-  v18 = BmlFunctionalizeVidPn(a9, v20);
-  if ( v18 < 0 || (v18 = BmlPickColorSpaceAndWireFormat(a9, v19, v20), v18 < 0) )
+  v20 = BmlFunctionalizeVidPn(a9, v22);
+  if ( v20 < 0 || (v20 = BmlPickColorSpaceAndWireFormat(a9, v21, v22), v20 < 0) )
   {
     *(_BYTE *)v9 = 1;
     if ( a5 )
     {
-      if ( v20 )
+      if ( v22 )
       {
-        v31 = BmlLogDiagnosticsPacket(v14, v19, v20, a9);
-        if ( v31 < 0 )
-          WdLogSingleEntry3(3LL, v20, a9, v31);
+        v41 = BmlLogDiagnosticsPacket(v14, v21, v22, a9);
+        v45 = v41;
+        if ( v41 < 0 )
+        {
+          v46 = (_QWORD *)WdLogNewEntry5_WdWarning(v43, v42, v44);
+          v46[3] = v22;
+          v46[4] = a9;
+          v46[5] = v45;
+          WdLogEvent5_WdWarning(v46);
+        }
       }
     }
   }
@@ -95,65 +126,73 @@ __int64 __fastcall BmlGetPathModalityForAdapter(
   {
     if ( a5 )
     {
-      if ( v20 )
+      if ( v22 )
       {
-        if ( DMMVIDPN::IsFunctional(v20, v21) )
+        if ( DMMVIDPN::IsFunctional(v22, 0) )
         {
-          v30 = BmlLogDiagnosticsPacket(v14, v19, v20, a9);
-          if ( v30 < 0 )
-            WdLogSingleEntry3(3LL, v20, a9, v30);
+          v35 = BmlLogDiagnosticsPacket(v14, v21, v22, a9);
+          v39 = v35;
+          if ( v35 < 0 )
+          {
+            v47 = (_QWORD *)WdLogNewEntry5_WdWarning(v37, v36, v38);
+            v47[3] = v22;
+            v47[4] = a9;
+            v47[5] = v39;
+            WdLogEvent5_WdWarning(v47);
+          }
         }
       }
     }
     if ( a8 )
     {
-      v35 = 0LL;
-      *a8 = (unsigned __int64)v20 & -(__int64)((struct DMMVIDPN *)((char *)v20 + 88) != 0LL);
+      v52 = 0LL;
+      *a8 = (unsigned __int64)v22 & -(__int64)((struct DMMVIDPN *)((char *)v22 + 88) != 0LL);
       goto LABEL_19;
     }
-    v18 = BmlFillPathModalityFromVidPn(v20, (struct D3DKMT_GETPATHSMODALITY *)a3);
-    if ( v18 >= 0 )
+    v20 = BmlFillPathModalityFromVidPn(v22, (struct D3DKMT_GETPATHSMODALITY *)a3);
+    if ( v20 >= 0 )
     {
-      v22 = *(_QWORD *)(a4 + 404);
       v23 = 0;
-      for ( i = v22; v23 < *(unsigned __int16 *)(a3 + 20); ++v23 )
+      v24 = *(_QWORD *)(a4 + 316);
+      for ( i = v24; v23 < *(unsigned __int16 *)(a3 + 20); ++v23 )
       {
-        v24 = 296LL * v23;
-        if ( __PAIR64__(HIDWORD(i), v22) == *(_QWORD *)(v24 + a3 + 72)
+        v25 = 272LL * v23;
+        if ( __PAIR64__(HIDWORD(i), v24) == *(_QWORD *)(v25 + a3 + 64)
           && BmlIsPrimaryClonePath((const struct D3DKMT_GETPATHSMODALITY *)a3, v23) )
         {
-          v26 = *(_QWORD *)(v24 + a3 + 304);
+          v26 = *(_DWORD **)(v25 + a3 + 272);
           if ( !v26 )
           {
-            v27 = operator new[](0xF4uLL, 0x63644356u, 256LL, v25);
-            *(_QWORD *)(v24 + a3 + 304) = v27;
+            v27 = operator new[](0xF4uLL, 0x63644356u, PagedPool);
+            *(_QWORD *)(v25 + a3 + 272) = v27;
             v26 = v27;
             if ( !v27 )
             {
-              WdLogSingleEntry0(6LL);
-              v18 = -1073741670;
+              v48 = WdLogNewEntry5_WdLowResource(v29, v28, v30, v31);
+              WdLogEvent5_WdLowResource(v48);
+              v20 = -1073741670;
               break;
             }
           }
-          v18 = FillDevmodeFromVidPn(v20, *(unsigned int *)(v24 + a3 + 80), v26);
-          if ( v18 < 0 )
+          v20 = FillDevmodeFromVidPn(v22, *(unsigned int *)(v25 + a3 + 72), v26);
+          if ( v20 < 0 )
             break;
-          v28 = *(unsigned int *)(v24 + a3 + 196);
-          *(_DWORD *)(v26 + 232) = v28;
-          ConvertDMMScalingToGdiScaling(v28, v26 + 236);
-          if ( (*(_DWORD *)(v24 + a3 + 56) & 0x20000) != 0 )
+          v32 = *(unsigned int *)(v25 + a3 + 188);
+          v26[58] = v32;
+          ConvertDMMScalingToGdiScaling(v32, v26 + 59);
+          if ( (*(_DWORD *)(v25 + a3 + 48) & 0x20000) != 0 )
           {
-            *(_DWORD *)(*(_QWORD *)(v24 + a3 + 304) + 172LL) = *(_DWORD *)(v24 + a3 + 208);
-            *(_DWORD *)(*(_QWORD *)(v24 + a3 + 304) + 176LL) = *(_DWORD *)(v24 + a3 + 212);
+            *(_DWORD *)(*(_QWORD *)(v25 + a3 + 272) + 172LL) = *(_DWORD *)(v25 + a3 + 200);
+            *(_DWORD *)(*(_QWORD *)(v25 + a3 + 272) + 176LL) = *(_DWORD *)(v25 + a3 + 204);
           }
         }
       }
     }
   }
 LABEL_19:
-  auto_rc<DMMVIDPN>::reset((__int64 *)&v35, 0LL);
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v33 + 40));
+  auto_rc<DMMVIDPN>::reset((__int64 *)&v52, 0LL);
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v50 + 40), v33);
   if ( a9 )
     operator delete[](a9);
-  return (unsigned int)v18;
+  return (unsigned int)v20;
 }

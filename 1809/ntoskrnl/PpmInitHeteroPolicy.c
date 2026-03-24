@@ -16,7 +16,7 @@ __int64 PpmInitHeteroPolicy()
   char v5; // cl
 
   PpmHeteroMinRelativePerformance = 0x10000;
-  v0 = (char *)&unk_14040F80D;
+  v0 = (char *)&unk_14040F82D;
   v1 = 0;
   do
   {
@@ -31,9 +31,9 @@ __int64 PpmInitHeteroPolicy()
     ++v0;
   }
   while ( v1 < 0x40 );
-  byte_14040E863 = 3;
-  byte_14040F30B = 3;
-  word_14040F265 = 12850;
-  word_14040FD0D = 12850;
+  byte_14040E883 = 3;
+  byte_14040F32B = 3;
+  word_14040F285 = 12850;
+  word_14040FD2D = 12850;
   return result;
 }

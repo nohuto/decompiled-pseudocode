@@ -1,19 +1,19 @@
 /*
- * XREFs of ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x180005C2C
+ * XREFs of ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x18000CDB4
  * Callers:
- *     ?ProcessSetLightSource@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETLIGHTSOURCE@@@Z @ 0x1800044F8 (-ProcessSetLightSource@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSH.c)
- *     ?SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z @ 0x180004640 (-SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x180004688 (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x1800046D4 (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180004714 (-SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180004778 (-SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_ADDCASTERS@@PEBXI@Z @ 0x180004B5C (-ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOW.c)
- *     ?ClearShadows@CProjectedShadowScene@@AEAAX_N@Z @ 0x180004D68 (-ClearShadows@CProjectedShadowScene@@AEAAX_N@Z.c)
- *     ?RequestRedraw@CProjectedShadowCaster@@QEAAXXZ @ 0x18000982C (-RequestRedraw@CProjectedShadowCaster@@QEAAXXZ.c)
- *     ?NotifyOnChanged@CProjectedShadowScene@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18024BE20 (-NotifyOnChanged@CProjectedShadowScene@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18024BF34 (-SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CB64 (-SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CBAC (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CBF8 (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CC34 (-SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CC98 (-SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?ClearShadows@CProjectedShadowScene@@AEAAX_N@Z @ 0x18000CD44 (-ClearShadows@CProjectedShadowScene@@AEAAX_N@Z.c)
+ *     ?NotifyOnChanged@CProjectedShadowScene@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18000CD90 (-NotifyOnChanged@CProjectedShadowScene@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?ProcessSetLightSource@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETLIGHTSOURCE@@@Z @ 0x18000CE2C (-ProcessSetLightSource@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSH.c)
+ *     ?ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_ADDCASTERS@@PEBXI@Z @ 0x18000D708 (-ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOW.c)
+ *     ?RequestRedraw@CProjectedShadowCaster@@QEAAXXZ @ 0x180011C8C (-RequestRedraw@CProjectedShadowCaster@@QEAAXXZ.c)
+ *     ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18001FB2C (-SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
  * Callees:
- *     ?RequestRedraw@CProjectedShadowReceiver@@QEAAXXZ @ 0x180005C6C (-RequestRedraw@CProjectedShadowReceiver@@QEAAXXZ.c)
+ *     ?RequestRedraw@CProjectedShadowReceiver@@QEAAXXZ @ 0x18000CDF4 (-RequestRedraw@CProjectedShadowReceiver@@QEAAXXZ.c)
  */
 
 void __fastcall CProjectedShadowScene::RequestRedrawAll(CProjectedShadowScene *this)
@@ -23,7 +23,7 @@ void __fastcall CProjectedShadowScene::RequestRedrawAll(CProjectedShadowScene *t
 
   if ( !CCommonRegistryData::DisableProjectedShadows )
   {
-    v1 = (__int64 ***)*((_QWORD *)this + 10);
+    v1 = (__int64 ***)*((_QWORD *)this + 9);
     for ( i = *v1; i != (__int64 **)v1; i = (__int64 **)*i )
       CProjectedShadowReceiver::RequestRedraw((CProjectedShadowReceiver *)i[2]);
   }

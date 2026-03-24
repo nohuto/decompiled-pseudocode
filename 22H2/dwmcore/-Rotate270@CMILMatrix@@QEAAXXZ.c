@@ -1,8 +1,10 @@
 /*
- * XREFs of ?Rotate270@CMILMatrix@@QEAAXXZ @ 0x180270714
+ * XREFs of ?Rotate270@CMILMatrix@@QEAAXXZ @ 0x180211210
  * Callers:
- *     ?Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@MW4DXGI_MODE_ROTATION@@PEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800CA7F8 (-Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
- *     ?SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z @ 0x180270A74 (-SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z.c)
+ *     ?CalculateMonitorTransform@CLegacyRenderTarget@@AEAAXXZ @ 0x18002EFF4 (-CalculateMonitorTransform@CLegacyRenderTarget@@AEAAXXZ.c)
+ *     ?CalculateMonitorTransform@CDDisplayRenderTarget@@IEAAXXZ @ 0x18018BCB4 (-CalculateMonitorTransform@CDDisplayRenderTarget@@IEAAXXZ.c)
+ *     ?UpdateTransform@CDDARenderTarget@@QEAAXAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@@Z @ 0x1801990B4 (-UpdateTransform@CDDARenderTarget@@QEAAXAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRect.c)
+ *     ?SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z @ 0x1802117EC (-SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -24,6 +26,6 @@ void __fastcall CMILMatrix::Rotate270(CMILMatrix *this)
     --v2;
   }
   while ( v2 );
-  *((_BYTE *)this + 64) &= 0xCu;
-  *((_BYTE *)this + 65) &= 0xFCu;
+  *((_BYTE *)this + 65) &= 0xC0u;
+  *((_BYTE *)this + 64) = 0;
 }

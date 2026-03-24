@@ -1,15 +1,15 @@
 /*
- * XREFs of ObSetSecurityObjectByPointer @ 0x140736BA0
+ * XREFs of ObSetSecurityObjectByPointer @ 0x1406D9220
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x1402B3710 (SepSetProcessTrustLabelAceForToken.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
- *     NtSetSecurityObject @ 0x1407BC2C0 (NtSetSecurityObject.c)
- *     IoCreateDeviceSecure @ 0x14083CDC0 (IoCreateDeviceSecure.c)
- *     PiSwGetChildPdo @ 0x1408495C0 (PiSwGetChildPdo.c)
- *     VRegSetup @ 0x140858970 (VRegSetup.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F82C4 (SepSetProcessTrustLabelAceForToken.c)
+ *     NtSetSecurityObject @ 0x14067B860 (NtSetSecurityObject.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D8200 (SepAppendAceToTokenObjectAcl.c)
+ *     IoCreateDeviceSecure @ 0x140738920 (IoCreateDeviceSecure.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14073AEAC (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PiSwGetChildPdo @ 0x1407705FC (PiSwGetChildPdo.c)
+ *     VRegSetup @ 0x1407CADE0 (VRegSetup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ObSetSecurityObjectByPointer(__int64 a1, int a2, __int64 a3)

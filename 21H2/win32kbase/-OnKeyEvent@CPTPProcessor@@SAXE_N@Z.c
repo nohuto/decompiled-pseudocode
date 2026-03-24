@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C01DE9BC
+ * XREFs of ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C01A665C
  * Callers:
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
  * Callees:
- *     ?IsOurKey@CPTPProcessor@@CA_NE_N@Z @ 0x1C00E8904 (-IsOurKey@CPTPProcessor@@CA_NE_N@Z.c)
- *     ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C00E8AB2 (-OnKeyPress@CPTPProcessor@@CAX_N@Z.c)
+ *     ?IsOurKey@CPTPProcessor@@CA_NE_N@Z @ 0x1C01A6054 (-IsOurKey@CPTPProcessor@@CA_NE_N@Z.c)
+ *     ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C01A671C (-OnKeyPress@CPTPProcessor@@CAX_N@Z.c)
  */
 
 void __fastcall CPTPProcessor::OnKeyEvent(char a1, char a2)
@@ -12,19 +12,19 @@ void __fastcall CPTPProcessor::OnKeyEvent(char a1, char a2)
   unsigned __int64 v4; // rcx
   int v5; // ebx
 
-  _InterlockedExchange64(&qword_1C029AC90, KeQueryPerformanceCounter(0LL).QuadPart);
+  _InterlockedExchange64(&qword_1C0255EE0, KeQueryPerformanceCounter(0LL).QuadPart);
   v5 = 1;
   if ( (BYTE4(gafAsyncKeyState) & 4) != 0
     || (BYTE4(gafAsyncKeyState) & 0x10) != 0
-    || (BYTE6(xmmword_1C0294E60) & 0x40) != 0
-    || (BYTE7(xmmword_1C0294E60) & 1) != 0 )
+    || (BYTE6(xmmword_1C02508F0) & 0x40) != 0
+    || (BYTE7(xmmword_1C02508F0) & 1) != 0 )
   {
-    if ( !dword_1C029AC9C )
+    if ( !dword_1C0255EEC )
     {
-      _InterlockedExchange64(&qword_1C029AC80, 0LL);
-      _InterlockedExchange64(&qword_1C029AC88, 0LL);
-      _InterlockedExchange64(&qword_1C029D9E0, 0LL);
-      _InterlockedExchange64(&qword_1C029D9E8, 0LL);
+      _InterlockedExchange64(&qword_1C0255ED0, 0LL);
+      _InterlockedExchange64(&qword_1C0255ED8, 0LL);
+      _InterlockedExchange64(&qword_1C0258E30, 0LL);
+      _InterlockedExchange64(&qword_1C0258E38, 0LL);
     }
   }
   else
@@ -34,5 +34,5 @@ void __fastcall CPTPProcessor::OnKeyEvent(char a1, char a2)
     if ( CPTPProcessor::IsOurKey(v4, a2) )
       CPTPProcessor::OnKeyPress(a2);
   }
-  dword_1C029AC9C = v5;
+  dword_1C0255EEC = v5;
 }

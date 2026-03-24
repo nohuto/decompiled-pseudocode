@@ -1,49 +1,49 @@
 /*
- * XREFs of RtlGetVersion @ 0x140759210
+ * XREFs of RtlGetVersion @ 0x14068F5D0
  * Callers:
- *     RtlVerifyVersionInfo @ 0x1403833D0 (RtlVerifyVersionInfo.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F2CE0 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     SdbpMatchOsVersion @ 0x140757794 (SdbpMatchOsVersion.c)
- *     _SysCtxOpenMachine @ 0x140855F00 (_SysCtxOpenMachine.c)
- *     Win7RtlGetVersion @ 0x140977FD0 (Win7RtlGetVersion.c)
- *     Win81RtlGetVersion @ 0x1409780B0 (Win81RtlGetVersion.c)
- *     Win8RtlGetVersion @ 0x140978190 (Win8RtlGetVersion.c)
- *     EtwpTraceSystemInitialization @ 0x140B381EC (EtwpTraceSystemInitialization.c)
- *     PopEtInit @ 0x140B6B730 (PopEtInit.c)
+ *     RtlVerifyVersionInfo @ 0x14037D230 (RtlVerifyVersionInfo.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EB92C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SdbpMatchOsVersion @ 0x140754308 (SdbpMatchOsVersion.c)
+ *     _SysCtxOpenMachine @ 0x1407A4D24 (_SysCtxOpenMachine.c)
+ *     Win7RtlGetVersion @ 0x1408C1920 (Win7RtlGetVersion.c)
+ *     Win81RtlGetVersion @ 0x1408C1A00 (Win81RtlGetVersion.c)
+ *     Win8RtlGetVersion @ 0x1408C1AE0 (Win8RtlGetVersion.c)
+ *     EtwpTraceSystemInitialization @ 0x140A41CF8 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x1407592D0 (RtlGetSuiteMask.c)
+ *     RtlGetNtProductType @ 0x14031B310 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x14068F690 (RtlGetSuiteMask.c)
  */
 
 NTSTATUS __stdcall RtlGetVersion(PRTL_OSVERSIONINFOW lpVersionInformation)
 {
-  ULONG v2; // eax
-  __int16 v3; // ax
-  bool v4; // zf
+  __int64 v1; // rdx
+  ULONG v3; // eax
+  __int16 v4; // ax
+  bool v5; // zf
   __int16 SuiteMask; // ax
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  int v8; // [rsp+30h] [rbp+8h] BYREF
 
   *(_QWORD *)&lpVersionInformation->dwMajorVersion = 10LL;
   lpVersionInformation->dwBuildNumber = (unsigned __int16)NtBuildNumber;
-  v2 = lpVersionInformation->dwOSVersionInfoSize - 284;
-  v7 = 0;
+  v3 = lpVersionInformation->dwOSVersionInfoSize - 284;
+  v8 = 0;
   lpVersionInformation->dwPlatformId = 2;
-  if ( (v2 & 0xFFFFFFF7) == 0 )
+  if ( (v3 & 0xFFFFFFF7) == 0 )
   {
     LOWORD(lpVersionInformation[1].dwOSVersionInfoSize) = BYTE1(CmNtCSDVersion);
-    v3 = (unsigned __int8)CmNtCSDVersion;
+    v4 = (unsigned __int8)CmNtCSDVersion;
     LOWORD(lpVersionInformation[1].dwMajorVersion) = 0;
-    v4 = (_DWORD)InitializationPhase == 0;
-    HIWORD(lpVersionInformation[1].dwOSVersionInfoSize) = v3;
+    v5 = (_DWORD)InitializationPhase == 0;
+    HIWORD(lpVersionInformation[1].dwOSVersionInfoSize) = v4;
     BYTE2(lpVersionInformation[1].dwMajorVersion) = 0;
-    if ( !v4 )
+    if ( !v5 )
     {
-      if ( RtlGetNtProductType(&v7) )
-        BYTE2(lpVersionInformation[1].dwMajorVersion) = v7;
+      if ( RtlGetNtProductType(&v8, v1) )
+        BYTE2(lpVersionInformation[1].dwMajorVersion) = v8;
       SuiteMask = RtlGetSuiteMask();
-      v4 = lpVersionInformation->dwOSVersionInfoSize == 292;
+      v5 = lpVersionInformation->dwOSVersionInfoSize == 292;
       LOWORD(lpVersionInformation[1].dwMajorVersion) = SuiteMask;
-      if ( v4 )
+      if ( v5 )
         lpVersionInformation[1].dwMinorVersion = RtlGetSuiteMask() & 0x1FFFF;
     }
     HIBYTE(lpVersionInformation[1].dwMajorVersion) = 0;

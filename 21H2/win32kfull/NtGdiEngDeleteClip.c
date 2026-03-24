@@ -1,37 +1,48 @@
 /*
- * XREFs of NtGdiEngDeleteClip @ 0x1C02B1420
+ * XREFs of NtGdiEngDeleteClip @ 0x1C02B2B60
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiEngDeleteClip(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
   unsigned int v4; // edi
-  struct UMPDOBJ *v5; // rbx
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v4 = 0;
-  v5 = ThreadCurrentObj;
-  if ( ThreadCurrentObj )
+  if ( !ThreadCurrentObj )
+    goto LABEL_5;
+  if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    if ( a1 && a1 == *((_QWORD *)ThreadCurrentObj + 17) )
+    if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
     {
-      EngDeleteClip(*((CLIPOBJ **)ThreadCurrentObj + 16));
-      *((_QWORD *)v5 + 16) = 0LL;
-      *((_QWORD *)v5 + 17) = 0LL;
+      ThreadCurrentObj = 0LL;
+LABEL_5:
+      v4 = -1073741811;
+      goto LABEL_6;
     }
-    --*((_DWORD *)v5 + 105);
   }
   else
   {
-    return (unsigned int)-1073741811;
+    ++*((_DWORD *)ThreadCurrentObj + 105);
   }
+  if ( a1 && a1 == *((_QWORD *)ThreadCurrentObj + 17) )
+  {
+    EngDeleteClip(*((CLIPOBJ **)ThreadCurrentObj + 16));
+    *((_QWORD *)ThreadCurrentObj + 16) = 0LL;
+    *((_QWORD *)ThreadCurrentObj + 17) = 0LL;
+  }
+  v4 = 0;
+LABEL_6:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
   return v4;
 }

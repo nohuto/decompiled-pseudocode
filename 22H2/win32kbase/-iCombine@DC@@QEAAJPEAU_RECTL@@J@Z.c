@@ -1,451 +1,356 @@
 /*
- * XREFs of ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C003CBC0
+ * XREFs of ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C0034F20
  * Callers:
- *     GreIntersectClipRect @ 0x1C003ADF0 (GreIntersectClipRect.c)
+ *     GreIntersectClipRect @ 0x1C0072520 (GreIntersectClipRect.c)
  * Callees:
- *     ?Allocate@?$CSectionBitmapAllocator@$0IAAA@$0IA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C0002D18 (-Allocate@-$CSectionBitmapAllocator@$0IAAA@$0IA@@NSInstrumentation@@QEAAPEAXXZ.c)
- *     ?Create@?$CSectionEntry@$0IAAA@$0IA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C000B8B0 (-Create@-$CSectionEntry@$0IAAA@$0IA@@NSInstrumentation@@SAPEAV12@XZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E0F4 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C003E160 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
- *     ?vInit@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E3F0 (-vInit@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C003ED80 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
- *     ?vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C003F180 (-vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0040814 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004086C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0044030 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0047CB0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C004C7D0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C005C18C (-bWrapped@ERECTL@@QEBAHXZ.c)
- *     ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C005FDB0 (-vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C007D990 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
- *     ?AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C008F2C4 (-AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C0091344 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C0098FE4 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C00219EC (-vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C002C630 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002CE60 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0033EC0 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0035D50 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C0039944 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C003A048 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00814E4 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C013E598 (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
  */
 
 __int64 __fastcall DC::iCombine(DC *this, struct _RECTL *a2, int a3)
 {
-  bool v4; // zf
-  unsigned int v5; // eax
-  __int64 v7; // r14
-  __int64 v8; // rbx
-  __int64 v9; // rsi
-  _QWORD *v10; // rax
-  __int64 *v11; // rsi
-  __int64 v12; // rdi
-  ULONG v13; // r8d
-  ULONG ClearBits; // eax
-  ULONG v15; // r13d
-  ULONG v16; // ecx
-  unsigned int v17; // eax
-  unsigned int v18; // ecx
-  __int64 v19; // rsi
-  char *v20; // rdi
-  __int64 v21; // rcx
-  char *v22; // rbx
-  __int64 v23; // rax
-  void *v24; // rax
-  char *v25; // rcx
-  __int64 v26; // rax
-  struct tagSIZE v27; // rcx
-  _DWORD *v28; // rdi
-  __int64 v29; // rcx
-  struct tagSIZE v30; // r14
-  unsigned int v31; // edi
-  __int64 v32; // rsi
-  unsigned int v33; // r15d
-  unsigned int v34; // r13d
-  __int64 v35; // r8
-  unsigned int v36; // eax
-  __int64 v37; // r14
-  __int64 v38; // rax
-  PVOID v39; // rax
-  char *v40; // rsi
-  void *v41; // rdi
-  unsigned int v42; // ebx
-  _DWORD *v43; // rcx
-  int v44; // r14d
+  int v3; // r12d
+  tagSIZE v4; // r13
+  __int64 v8; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rbx
+  __int64 v12; // r8
+  void *v13; // rsi
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // r8
+  int v19; // eax
+  unsigned int v20; // edi
+  unsigned int v21; // edi
+  __int64 v22; // r14
+  unsigned int v23; // edx
+  __int64 v24; // rcx
+  __int64 v25; // r9
+  unsigned int v26; // eax
+  unsigned int v27; // edx
+  __int64 v28; // rcx
+  int v29; // r14d
+  DC *v30; // rdx
+  unsigned int v31; // ebx
+  struct REGION *Region; // rax
+  REGION *v33; // rdi
+  __int64 v34; // rax
+  REGION *v35; // rcx
+  __int64 v37; // r8
+  REGION *v38; // rsi
   LONG cx; // ebx
-  int v46; // r15d
+  int v40; // r12d
   LONG cy; // r13d
-  _DWORD *v48; // rdi
-  _DWORD *v49; // rcx
-  LONG v50; // ebx
-  int v51; // eax
-  void *v52; // r8
-  __int64 v53; // rcx
-  void *v54; // r8
-  int v55; // eax
-  void *v56; // rax
-  _QWORD *v57; // rdi
-  __int64 v58; // rbx
-  _QWORD *v59; // rcx
-  PVOID Region; // [rsp+20h] [rbp-29h] BYREF
-  _BYTE v61[8]; // [rsp+28h] [rbp-21h] BYREF
-  struct tagSIZE v62; // [rsp+30h] [rbp-19h] BYREF
-  PVOID v63; // [rsp+38h] [rbp-11h] BYREF
-  __int64 v64; // [rsp+40h] [rbp-9h] BYREF
-  int v65; // [rsp+48h] [rbp-1h]
-  PVOID Entry; // [rsp+50h] [rbp+7h] BYREF
-  struct _RECTL v67; // [rsp+58h] [rbp+Fh] BYREF
+  _DWORD *v42; // rdi
+  __int64 v43; // rcx
+  int v44; // eax
+  LONG v45; // ebx
+  int v46; // eax
+  unsigned int v47; // r8d
+  REGION *v48; // rcx
+  REGION *v49; // rcx
+  REGION *v50; // [rsp+20h] [rbp-50h] BYREF
+  int v51; // [rsp+28h] [rbp-48h]
+  REGION *v52; // [rsp+30h] [rbp-40h] BYREF
+  int v53; // [rsp+38h] [rbp-38h]
+  REGION *v54; // [rsp+40h] [rbp-30h] BYREF
+  int v55; // [rsp+48h] [rbp-28h]
+  struct _RECTL v56; // [rsp+50h] [rbp-20h] BYREF
+  tagSIZE v57; // [rsp+A0h] [rbp+30h] BYREF
+  int v58; // [rsp+B0h] [rbp+40h]
 
-  *(_QWORD *)&v67.left = *((_QWORD *)this + 20);
-  v4 = (a2->left & 0xF8000000) == 0;
-  v5 = a2->left & 0xF8000000;
-  Entry = this;
-  v65 = a3;
-  if ( !v4 && v5 != -134217728
-    || (a2->bottom & 0xF8000000) != 0 && (a2->bottom & 0xF8000000) != -134217728
-    || (a2->right & 0xF8000000) != 0 && (a2->right & 0xF8000000) != -134217728
-    || (LOBYTE(this) = (a2->top & 0xF8000000) != 0, ((unsigned __int8)this & ((a2->top & 0xF8000000) != -134217728)) != 0) )
+  v58 = a3;
+  v3 = a3;
+  v4 = (tagSIZE)*((_QWORD *)this + 20);
+  if ( (a2->left & 0xF8000000) != 0 && (a2->left & 0xF8000000) != -134217728
+    || (a2->bottom & 0xF8000000) != -134217728 && (a2->bottom & 0xF8000000) != 0
+    || (a2->right & 0xF8000000) != -134217728 && (a2->right & 0xF8000000) != 0
+    || (a2->top & 0xF8000000) != -134217728 && (a2->top & 0xF8000000) != 0 )
   {
     EngSetLastError(0x57u);
     return 0LL;
   }
-  v7 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 24) + 6504LL) + 56LL);
-  if ( !v7 )
+  v8 = 0LL;
+  v55 = 0;
+  if ( !gpTypeIsolation[7] )
+    goto LABEL_65;
+  v11 = NSInstrumentation::CTypeIsolation<28672,112>::Allocate();
+  if ( v11 )
   {
-LABEL_80:
-    v25 = 0LL;
-    v63 = 0LL;
-    v22 = 0LL;
-    goto LABEL_66;
-  }
-  if ( *(_BYTE *)(v7 + 36) )
-  {
-    v20 = (char *)ExAllocateFromPagedLookasideList(*(PPAGED_LOOKASIDE_LIST *)(v7 + 24));
-    goto LABEL_18;
-  }
-  v8 = *(_QWORD *)(v7 + 16);
-  v9 = 0LL;
-  KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v8, 0LL);
-  v10 = *(_QWORD **)v7;
-  v63 = v10;
-  if ( v10 == (_QWORD *)v7 )
-    goto LABEL_71;
-  do
-  {
-    v11 = (__int64 *)v10[4];
-    v12 = *v11;
-    KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v12, 0LL);
-    v13 = 0;
-    if ( *((_DWORD *)v11 + 8) < 0x100u )
-      v13 = *((_DWORD *)v11 + 8);
-    ClearBits = RtlFindClearBits((PRTL_BITMAP)(v11[2] ^ v11[3]), 1u, v13);
-    v15 = ClearBits;
-    if ( ClearBits == -1 )
+    v13 = RGNMEMOBJ::s_pSCANLookAsideList;
+    if ( qword_1C0256D50 && (int)qword_1C0256D50(v10, v9, v12) >= 0 && qword_1C0256D58 )
     {
-LABEL_43:
-      ExReleasePushLockExclusiveEx(v12, 0LL);
-      KeLeaveCriticalRegion();
-      goto LABEL_44;
-    }
-    v16 = ClearBits;
-    v17 = *((_DWORD *)v11 + 9);
-    v18 = v16 >> 5;
-    if ( v17 >= 8 || v18 < v17 )
-    {
-      v62 = (struct tagSIZE)(v11 + 1);
-      LODWORD(v64) = v18 << 12;
+      v16 = qword_1C0256D58(v13, v14, v15);
+      v8 = 0LL;
     }
     else
     {
-      v53 = v18 << 12;
-      v54 = (void *)(v53 + (v11[1] ^ v11[2]));
-      v64 = v53;
-      v62 = (struct tagSIZE)(v11 + 1);
-      Region = v54;
-      v55 = MmCommitSessionMappedView(v54, 4096LL);
-      if ( v55 < 0 )
-        goto LABEL_43;
-      memset(Region, 0, 0x1000uLL);
-      ++*((_DWORD *)v11 + 9);
+      v8 = 0LL;
+      v16 = 0LL;
     }
-    RtlTestBit((PRTL_BITMAP)(v11[3] ^ v11[2]), v15);
-    RtlSetBit((PRTL_BITMAP)(v11[3] ^ v11[2]), v15);
-    if ( ++*((_DWORD *)v11 + 8) >= 0x100u )
-      *((_DWORD *)v11 + 8) = 0;
-    v19 = (unsigned int)v64 + (v11[2] ^ **(_QWORD **)&v62);
-    ExReleasePushLockExclusiveEx(v12, 0LL);
-    KeLeaveCriticalRegion();
-    v20 = (char *)(v19 + ((unsigned __int8)(v15 & 0x1F) << 7));
-    if ( v20 )
+    *(_QWORD *)(v11 + 88) = v16;
+    if ( !v16 )
     {
-      ExReleasePushLockSharedEx(v8, 0LL);
-      KeLeaveCriticalRegion();
-      goto LABEL_18;
-    }
-LABEL_44:
-    v10 = *(_QWORD **)v63;
-    v63 = v10;
-  }
-  while ( v10 != (_QWORD *)v7 );
-  v9 = 0LL;
-LABEL_71:
-  ExReleasePushLockSharedEx(v8, 0LL);
-  KeLeaveCriticalRegion();
-  v56 = NSInstrumentation::CSectionEntry<32768,128>::Create();
-  v57 = v56;
-  if ( v56 )
-  {
-    v9 = NSInstrumentation::CSectionBitmapAllocator<32768,128>::Allocate(*((__int64 **)v56 + 4));
-    if ( v9 )
-    {
-      v58 = *(_QWORD *)(v7 + 16);
-      KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx(v58, 0LL);
-      v59 = *(_QWORD **)(v7 + 8);
-      if ( *v59 != v7 )
-        __fastfail(3u);
-      v57[1] = v59;
-      *v57 = v7;
-      *v59 = v57;
-      *(_DWORD *)(v7 + 32) += 256;
-      *(_QWORD *)(v7 + 8) = v57;
-      ExReleasePushLockExclusiveEx(v58, 0LL);
-      KeLeaveCriticalRegion();
-    }
-    else
-    {
-      NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v57);
-      ExFreePoolWithTag(v57, 0);
+      REGION::vDeleteREGION((REGION *)v11);
+LABEL_65:
+      v11 = 0LL;
     }
   }
-  v20 = (char *)v9;
-LABEL_18:
-  v22 = v20;
-  if ( v20 )
-  {
-    v23 = SGDGetSessionState(v21);
-    v24 = NSInstrumentation::CLeakTrackingAllocator::AllocateFromPagedLookasideList(
-            *(NSInstrumentation::CLeakTrackingAllocator **)(v23 + 24),
-            *(void **)(*(_QWORD *)(v23 + 24) + 6376LL));
-    *((_QWORD *)v20 + 4) = v24;
-    if ( !v24 )
-    {
-      REGION::vDeleteREGION(v20);
-      goto LABEL_80;
-    }
-  }
-  v63 = v20;
-  v25 = v20;
-  if ( v20 )
-  {
-    v26 = *((_QWORD *)v20 + 4);
-    v27 = (struct tagSIZE)(v20 + 24);
-    *((_DWORD *)v20 + 12) = 16;
-    *((_DWORD *)v20 + 13) = 1;
-    *(_OWORD *)(v20 + 56) = 0LL;
-    *(_DWORD *)v26 = 0;
-    *(_DWORD *)(v26 + 4) = 0x80000000;
-    *(_QWORD *)(v26 + 8) = 0x7FFFFFFFLL;
-    *((_QWORD *)v20 + 5) = v26 + 16;
-    *((_DWORD *)v20 + 6) = 112;
-    *((_QWORD *)v20 + 9) = 0LL;
-    *((_DWORD *)v20 + 20) = 0;
-    *((_QWORD *)v20 + 12) = v20 + 88;
-    *((_QWORD *)v20 + 11) = v20 + 88;
-    goto LABEL_22;
-  }
-LABEL_66:
-  v27 = (struct tagSIZE)(v25 + 24);
-  if ( !v22 )
+  v54 = (REGION *)v11;
+  if ( !v11 )
     return 0;
-LABEL_22:
-  v62 = v27;
-  RGNCOREOBJ::vSet((RGNCOREOBJ *)&v62, a2);
-  v28 = Entry;
-  *((_DWORD *)Entry + 9) |= 0x10u;
-  v30 = *(struct tagSIZE *)(*(_QWORD *)(SGDGetSessionState(v29) + 24) + 8008LL);
-  v31 = (unsigned __int16)*v28 | (*v28 >> 8) & 0xFF0000;
-  v62 = v30;
-  if ( v31 >= 0x10000 )
+  v17 = *(_QWORD *)(v11 + 88);
+  *(_DWORD *)(v11 + 80) = 16;
+  *(_DWORD *)(v11 + 84) = 1;
+  *(_QWORD *)(v11 + 96) = 0LL;
+  *(_QWORD *)(v11 + 104) = 0LL;
+  *(_DWORD *)v17 = 0;
+  *(_DWORD *)(v17 + 4) = 0x80000000;
+  *(_QWORD *)(v17 + 8) = 0x7FFFFFFFLL;
+  *(_QWORD *)(v11 + 40) = v17 + 16;
+  *(_QWORD *)(v11 + 24) = 112LL;
+  *(_QWORD *)(v11 + 32) = 0LL;
+  *(_QWORD *)(v11 + 56) = v11 + 48;
+  *(_QWORD *)(v11 + 48) = v11 + 48;
+  RGNOBJ::vSet((RGNOBJ *)&v54, a2);
+  v19 = *(_DWORD *)this;
+  v20 = *(_DWORD *)this;
+  *((_DWORD *)this + 9) |= 0x10u;
+  v21 = (unsigned __int16)v19 | (v20 >> 8) & 0xFF0000;
+  if ( v21 >= 0x10000 )
   {
-    if ( *(_DWORD *)v30.cx > 0x10000u )
+    if ( *(_DWORD *)gpHandleManager > 0x10000u )
     {
       if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
-                                  *(GdiHandleEntryDirectory **)(*(_QWORD *)&v30 + 16LL),
-                                  (unsigned __int16)v31,
+                                  *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                  (unsigned __int16)v21,
                                   1)
-           + 13) == HIWORD(v31) )
-        v31 = (unsigned __int16)v31;
+           + 13) == HIWORD(v21) )
+        v21 = (unsigned __int16)v21;
     }
     else
     {
-      v31 = (unsigned __int16)v31;
+      v21 = (unsigned __int16)v21;
+    }
+    v8 = 0LL;
+  }
+  v22 = *((_QWORD *)gpHandleManager + 2);
+  v23 = *(_DWORD *)(v22 + 2056);
+  if ( v21 < v23 + ((*(unsigned __int16 *)(v22 + 2) + 0xFFFF) << 16) )
+  {
+    v24 = ((v21 - v23) >> 16) + 1;
+    if ( v21 < v23 )
+      v24 = 0LL;
+    v25 = *(_QWORD *)(v22 + 8 * v24 + 8);
+    if ( (_DWORD)v24 )
+      v26 = v21 + ((1 - (_DWORD)v24) << 16) - v23;
+    else
+      v26 = v21;
+    if ( v26 < *(_DWORD *)(v25 + 20) )
+    {
+      v18 = v26;
+      if ( *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v25 + 24) + 8 * ((unsigned __int64)v26 >> 8))
+                     + 16LL * (unsigned __int8)v26
+                     + 8) )
+        v8 = *(_QWORD *)v25 + 24LL * v26;
     }
   }
-  v32 = *(_QWORD *)(*(_QWORD *)&v30 + 16LL);
-  v33 = *(_DWORD *)(v32 + 2056);
-  v34 = v33 + ((*(unsigned __int16 *)(v32 + 2) + 0xFFFF) << 16);
-  if ( v31 >= v34 )
+  if ( v21 >= 0x10000 )
   {
-    v37 = 0LL;
+    if ( *(_DWORD *)gpHandleManager > 0x10000u )
+    {
+      if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
+                                  *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                  (unsigned __int16)v21,
+                                  1)
+           + 13) == HIWORD(v21) )
+        v21 = (unsigned __int16)v21;
+    }
+    else
+    {
+      v21 = (unsigned __int16)v21;
+    }
+    v3 = v58;
+  }
+  v27 = *(_DWORD *)(v22 + 2056);
+  if ( v21 >= v27 + ((*(unsigned __int16 *)(v22 + 2) + 0xFFFF) << 16) )
+    goto LABEL_75;
+  v28 = ((v21 - v27) >> 16) + 1;
+  if ( v21 < v27 )
+    v28 = 0LL;
+  v18 = *(_QWORD *)(v22 + 8 * v28 + 8);
+  if ( (_DWORD)v28 )
+    v21 += ((1 - (_DWORD)v28) << 16) - v27;
+  if ( v21 >= *(_DWORD *)(v18 + 20) )
+  {
+LABEL_75:
+    v29 = 0;
+    v30 = 0LL;
   }
   else
   {
-    if ( v31 >= v33 )
-    {
-      v35 = *(_QWORD *)(v32 + 8LL * (((v31 - v33) >> 16) + 1) + 8);
-      v36 = v31 + -65536 * ((v31 - v33) >> 16) - v33;
-    }
-    else
-    {
-      v35 = *(_QWORD *)(v32 + 8);
-      v36 = v31;
-    }
-    v37 = 0LL;
-    if ( v36 < *(_DWORD *)(v35 + 20)
-      && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v35 + 24) + 8 * ((unsigned __int64)v36 >> 8))
-                   + 16LL * (unsigned __int8)v36
-                   + 8) )
-    {
-      v37 = *(_QWORD *)v35 + 24LL * v36;
-    }
+    v29 = 0;
+    v30 = *(DC **)(*(_QWORD *)(**(_QWORD **)(v18 + 24) + 8 * ((unsigned __int64)v21 >> 8))
+                 + 16LL * (unsigned __int8)v21
+                 + 8);
   }
-  if ( v31 >= 0x10000 )
+  if ( v30 != this )
+    v8 = 0LL;
+  *(_BYTE *)(v8 + 15) |= 4u;
+  if ( v4 )
   {
-    LODWORD(Region) = (unsigned __int16)v31;
-    if ( *(_DWORD *)v62.cx > 0x10000u )
-    {
-      if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
-                                  (GdiHandleEntryDirectory *)v32,
-                                  (unsigned __int16)v31,
-                                  1)
-           + 13) == HIWORD(v31) )
-        v31 = (unsigned int)Region;
-    }
-    else
-    {
-      v31 = (unsigned __int16)v31;
-    }
-  }
-  if ( v31 >= v34
-    || (v31 >= v33
-      ? (v38 = *(_QWORD *)(v32 + 8LL * (((v31 - v33) >> 16) + 1) + 8), v31 += -65536 * ((v31 - v33) >> 16) - v33)
-      : (v38 = *(_QWORD *)(v32 + 8)),
-        v31 >= *(_DWORD *)(v38 + 20)) )
-  {
-    v39 = 0LL;
-  }
-  else
-  {
-    v39 = *(PVOID *)(*(_QWORD *)(**(_QWORD **)(v38 + 24) + 8 * ((unsigned __int64)v31 >> 8))
-                   + 16LL * (unsigned __int8)v31
-                   + 8);
-  }
-  v40 = (char *)Entry;
-  if ( v39 != Entry )
-    v37 = 0LL;
-  *(_BYTE *)(v37 + 15) |= 4u;
-  v41 = *(void **)&v67.left;
-  if ( !*(_QWORD *)&v67.left )
-  {
-    if ( v65 == 1 )
-    {
-      ++*((_DWORD *)v22 + 19);
-      *((_QWORD *)v40 + 20) = v22;
-      return 2;
-    }
-    Region = 0LL;
-    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&Region, 0x70u);
-    v64 = 0LL;
-    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v64, 0x70u);
-    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v64);
-    v62 = 0LL;
+    v56.right = 0;
+    Region = RGNMEMOBJ::AllocateRegion(0x70uLL);
+    *(_QWORD *)&v56.left = Region;
+    v33 = Region;
     if ( Region )
     {
-      if ( v64 )
+      *((_DWORD *)Region + 20) = 16;
+      *((_DWORD *)Region + 21) = 1;
+      *((_QWORD *)Region + 12) = 0LL;
+      *((_QWORD *)Region + 13) = 0LL;
+      v34 = *((_QWORD *)Region + 11);
+      v57 = v4;
+      *(_DWORD *)v34 = 0;
+      *(_DWORD *)(v34 + 4) = 0x80000000;
+      *(_QWORD *)(v34 + 8) = 0x7FFFFFFFLL;
+      *((_QWORD *)v33 + 5) = v34 + 16;
+      *((_QWORD *)v33 + 3) = 112LL;
+      *((_QWORD *)v33 + 4) = 0LL;
+      *((_QWORD *)v33 + 7) = (char *)v33 + 48;
+      *((_QWORD *)v33 + 6) = (char *)v33 + 48;
+      v31 = RGNOBJ::iCombine((RGNOBJ *)&v56, (struct RGNOBJ *)&v57, (struct RGNOBJ *)&v54, v3);
+      if ( v31 )
       {
-        DC::vGet_sizlWindow((DC *)v40, &v62);
-        v44 = 0;
-        cx = v62.cx;
-        v46 = 0;
-        cy = v62.cy;
-        v48 = (_DWORD *)*((_QWORD *)v40 + 6);
-        if ( *((_QWORD *)v40 + 62) )
-        {
-          DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v61);
-          if ( (v48[10] & 0x20000) != 0 && *(int *)(*((_QWORD *)v40 + 62) + 112LL) < 0 )
-          {
-            v44 = v48[640];
-            cx += v44;
-            v46 = v48[641];
-            cy += v46;
-          }
-          DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v61);
-        }
-        if ( (*((_DWORD *)v40 + 10) & 1) != 0 )
-          v49 = v40 + 1024;
-        else
-          v49 = v40 + 1016;
-        v50 = cx - *v49;
-        v67.left = v44 - *v49;
-        v51 = v49[1];
-        v67.top = v46 - v51;
-        v67.bottom = cy - v51;
-        v67.right = v50;
-        if ( !(unsigned int)ERECTL::bEmpty((ERECTL *)&v67) && (unsigned int)ERECTL::bWrapped((ERECTL *)&v67) )
-        {
-          v42 = 0;
-          REGION::vDeleteREGION(v52);
-          Region = 0LL;
-        }
-        else
-        {
-          RGNOBJ::vSet((RGNOBJ *)&v64, &v67);
-          v42 = RGNOBJ::iCombine((RGNOBJ *)&Region, (struct RGNOBJ *)&v64, (struct RGNOBJ *)&v63, v65);
-          if ( v42 )
-          {
-            ++*((_DWORD *)Region + 19);
-            *((_QWORD *)v40 + 20) = Region;
-          }
-          else
-          {
-            REGION::vDeleteREGION(Region);
-            Region = 0LL;
-          }
-        }
-        goto LABEL_65;
+        v33 = *(REGION **)&v56.left;
+        v35 = (REGION *)v57;
+        ++*(_DWORD *)(*(_QWORD *)&v56.left + 32LL);
+        *((_QWORD *)this + 20) = v33;
+        if ( (*((_DWORD *)v35 + 8))-- == 1 )
+          REGION::vDeleteREGION(v35);
       }
-      REGION::vDeleteREGION(Region);
-      Region = 0LL;
-    }
-    v42 = 0;
-LABEL_65:
-    REGION::vDeleteREGION(v63);
-    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v64);
-    return v42;
-  }
-  Region = RGNMEMOBJ::AllocateRegion(0x70u);
-  if ( Region && (RGNMEMOBJ::vInit((RGNMEMOBJ *)&Region, 0x70u), Region) )
-  {
-    Entry = v41;
-    v42 = RGNOBJ::iCombine((RGNOBJ *)&Region, (struct RGNOBJ *)&Entry, (struct RGNOBJ *)&v63, v65);
-    if ( v42 )
-    {
-      v43 = Entry;
-      ++*((_DWORD *)Region + 19);
-      *((_QWORD *)v40 + 20) = Region;
-      v4 = v43[19]-- == 1;
-      if ( v4 )
-        REGION::vDeleteREGION(v43);
+      else
+      {
+        REGION::vDeleteREGION(*(REGION **)&v56.left);
+        v33 = 0LL;
+      }
     }
     else
     {
-      REGION::vDeleteREGION(Region);
-      Region = 0LL;
+      v31 = 0;
     }
+    REGION::vDeleteREGION(v54);
+    if ( v56.right != 1 )
+      goto LABEL_45;
+    v48 = v33;
+    goto LABEL_79;
   }
-  else
+  if ( v3 != 1 )
   {
-    v42 = 0;
+    v52 = 0LL;
+    v53 = 0;
+    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v52, 112LL, v18);
+    v50 = 0LL;
+    v51 = 0;
+    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v50, 112LL, v37);
+    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v50);
+    v38 = v52;
+    v57 = 0LL;
+    if ( v52 )
+    {
+      if ( !v50 )
+      {
+        REGION::vDeleteREGION(v52);
+        v38 = 0LL;
+        v31 = 0;
+        goto LABEL_59;
+      }
+      DC::vGet_sizlWindow(this, &v57);
+      cx = v57.cx;
+      v40 = 0;
+      cy = v57.cy;
+      v42 = (_DWORD *)*((_QWORD *)this + 6);
+      if ( *((_QWORD *)this + 62) )
+      {
+        DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v57);
+        if ( (v42[10] & 0x20000) != 0 && *(int *)(*((_QWORD *)this + 62) + 112LL) < 0 )
+        {
+          v29 = v42[646];
+          cx += v29;
+          v40 = v42[647];
+          cy += v40;
+        }
+        EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+        if ( ghsemDynamicModeChange )
+        {
+          ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+          PsLeavePriorityRegion();
+        }
+      }
+      v43 = 1016LL;
+      if ( (*((_DWORD *)this + 10) & 1) != 0 )
+        v43 = 1024LL;
+      v44 = *(_DWORD *)((char *)this + v43);
+      v45 = cx - v44;
+      v56.left = v29 - v44;
+      v46 = *(_DWORD *)((char *)this + v43 + 4);
+      v56.top = v40 - v46;
+      v56.bottom = cy - v46;
+      v56.right = v45;
+      if ( !(unsigned int)ERECTL::bEmpty((ERECTL *)&v56) && (unsigned int)ERECTL::bWrapped((ERECTL *)&v56) )
+      {
+        v31 = v47;
+        v49 = v38;
+      }
+      else
+      {
+        RGNOBJ::vSet((RGNOBJ *)&v50, &v56);
+        v31 = RGNOBJ::iCombine((RGNOBJ *)&v52, (struct RGNOBJ *)&v50, (struct RGNOBJ *)&v54, v58);
+        if ( v31 )
+        {
+          v38 = v52;
+          ++*((_DWORD *)v52 + 8);
+          *((_QWORD *)this + 20) = v38;
+LABEL_59:
+          REGION::vDeleteREGION(v54);
+          RGNMEMOBJTMP::~RGNMEMOBJTMP(&v50);
+          if ( v53 != 1 )
+            goto LABEL_45;
+          v48 = v38;
+LABEL_79:
+          REGION::vDeleteREGION(v48);
+LABEL_45:
+          if ( v55 == 1 )
+            REGION::vDeleteREGION(0LL);
+          return v31;
+        }
+        v49 = v52;
+      }
+      REGION::vDeleteREGION(v49);
+      v38 = 0LL;
+      goto LABEL_59;
+    }
+    v31 = 0;
+    goto LABEL_59;
   }
-  REGION::vDeleteREGION(v63);
-  return v42;
+  ++*(_DWORD *)(v11 + 32);
+  *((_QWORD *)this + 20) = v11;
+  return 2;
 }

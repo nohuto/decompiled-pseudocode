@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpVerGetConditionMask @ 0x1401748E0
+ * XREFs of RtlpVerGetConditionMask @ 0x140174900
  * Callers:
- *     RtlVerifyVersionInfo @ 0x140174640 (RtlVerifyVersionInfo.c)
+ *     RtlVerifyVersionInfo @ 0x140174660 (RtlVerifyVersionInfo.c)
  * Callees:
  *     <none>
  */

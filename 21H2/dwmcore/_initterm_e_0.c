@@ -1,7 +1,7 @@
 /*
- * XREFs of _initterm_e_0 @ 0x1801017A2
+ * XREFs of _initterm_e_0 @ 0x1800E80A2
  * Callers:
- *     dllmain_crt_process_attach @ 0x180100C68 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7458 (dllmain_crt_process_attach.c)
  * Callees:
  *     <none>
  */

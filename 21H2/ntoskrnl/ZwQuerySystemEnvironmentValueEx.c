@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwQuerySystemEnvironmentValueEx @ 0x14041E460
+ * XREFs of ZwQuerySystemEnvironmentValueEx @ 0x1403FCFC0
  * Callers:
- *     SepRmVerifyLsaProtectionLevel @ 0x14083B728 (SepRmVerifyLsaProtectionLevel.c)
- *     BiDeleteEfiVariable @ 0x140A1F7E0 (BiDeleteEfiVariable.c)
+ *     SepRmVerifyLsaProtectionLevel @ 0x1407AD658 (SepRmVerifyLsaProtectionLevel.c)
+ *     BiDeleteEfiVariable @ 0x140971884 (BiDeleteEfiVariable.c)
  * Callees:
  *     <none>
  */

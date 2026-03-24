@@ -4,9 +4,9 @@
  *     EmpParseRuleExpression @ 0x1409BE5D4 (EmpParseRuleExpression.c)
  * Callees:
  *     EmpSearchRuleDatabase @ 0x140010720 (EmpSearchRuleDatabase.c)
- *     EmpSearchCallbackDatabase @ 0x14017FC94 (EmpSearchCallbackDatabase.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strchr @ 0x140196EA0 (strchr.c)
+ *     EmpSearchCallbackDatabase @ 0x14017FCB4 (EmpSearchCallbackDatabase.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strchr @ 0x140196EC0 (strchr.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EmpInfParseGetGuidFromName @ 0x1409BEF08 (EmpInfParseGetGuidFromName.c)

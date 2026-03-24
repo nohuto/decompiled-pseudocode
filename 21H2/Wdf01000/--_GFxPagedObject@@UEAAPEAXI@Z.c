@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GFxPagedObject@@UEAAPEAXI@Z @ 0x1C0070F60
+ * XREFs of ??_GFxPagedObject@@UEAAPEAXI@Z @ 0x1C005F6F0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxPagedObject@@UEAA@XZ @ 0x1C0015B50 (--1FxPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxPagedObject@@UEAA@XZ @ 0x1C005F6B4 (--1FxPagedObject@@UEAA@XZ.c)
  */
 
 FxPagedObject *__fastcall FxPagedObject::`scalar deleting destructor'(

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiInitializeEnclaveMetadataPage @ 0x1409F72A8
+ * XREFs of MiInitializeEnclaveMetadataPage @ 0x1409F72B8
  * Callers:
  *     MiCreateEnclaveRegions @ 0x1409BA34C (MiCreateEnclaveRegions.c)
  * Callees:
@@ -7,12 +7,12 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KeCreateEnclaveMetadataPage @ 0x14028FA54 (KeCreateEnclaveMetadataPage.c)
- *     MiGetEnclavePage @ 0x1402BDC48 (MiGetEnclavePage.c)
- *     MiReturnEnclavePage @ 0x1402BE7E0 (MiReturnEnclavePage.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KeCreateEnclaveMetadataPage @ 0x14028FB54 (KeCreateEnclaveMetadataPage.c)
+ *     MiGetEnclavePage @ 0x1402BDD48 (MiGetEnclavePage.c)
+ *     MiReturnEnclavePage @ 0x1402BE8E0 (MiReturnEnclavePage.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

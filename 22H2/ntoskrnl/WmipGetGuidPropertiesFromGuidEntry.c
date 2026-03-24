@@ -1,35 +1,39 @@
 /*
- * XREFs of WmipGetGuidPropertiesFromGuidEntry @ 0x1409E09A4
+ * XREFs of WmipGetGuidPropertiesFromGuidEntry @ 0x14093279C
  * Callers:
- *     WmipEnumerateGuids @ 0x1409E089C (WmipEnumerateGuids.c)
+ *     WmipEnumerateGuids @ 0x140932694 (WmipEnumerateGuids.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall WmipGetGuidPropertiesFromGuidEntry(__int64 a1, __int64 a2)
 {
-  __int64 *v2; // r9
-  __int64 *v4; // rdx
   __int64 result; // rax
+  int v3; // r8d
 
   *(_QWORD *)(a1 + 16) = 2LL;
-  v2 = (__int64 *)(a2 + 56);
   *(_BYTE *)(a1 + 32) = 0;
   *(_QWORD *)(a1 + 24) = 0LL;
-  v4 = *(__int64 **)(a2 + 56);
-  if ( v4 != v2 )
+  result = *(_QWORD *)(a2 + 56);
+  if ( result != a2 + 56 )
   {
     while ( 1 )
     {
-      if ( (v4[2] & 0x8000) != 0 )
+      v3 = *(_DWORD *)(result + 16);
+      if ( (v3 & 0x8000) != 0 )
+      {
         *(_DWORD *)(a1 + 16) = 3;
-      if ( (v4[2] & 0x6000) != 0 )
+        v3 = *(_DWORD *)(result + 16);
+      }
+      if ( (v3 & 0x6000) != 0 )
+      {
         *(_BYTE *)(a1 + 32) = 1;
-      result = v4[2] & 0x81000;
-      if ( (_DWORD)result == 528384 )
+        v3 = *(_DWORD *)(result + 16);
+      }
+      if ( (v3 & 0x81000) == 0x81000 )
         break;
-      v4 = (__int64 *)*v4;
-      if ( v4 == v2 )
+      result = *(_QWORD *)result;
+      if ( result == a2 + 56 )
         goto LABEL_10;
     }
     *(_DWORD *)(a1 + 16) = 0;

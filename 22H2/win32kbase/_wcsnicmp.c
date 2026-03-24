@@ -1,11 +1,11 @@
 /*
- * XREFs of _wcsnicmp @ 0x1C00CE408
+ * XREFs of _wcsnicmp @ 0x1C00C584C
  * Callers:
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00246E4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C00670F8 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
- *     MakeSystemRelativePath @ 0x1C00A6160 (MakeSystemRelativePath.c)
- *     MakeSystemDriversRelativePath @ 0x1C016D0A4 (MakeSystemDriversRelativePath.c)
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01907FC (rimFindMonitorForDigitizerWithQDCData.c)
+ *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C000A048 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
+ *     MakeSystemRelativePath @ 0x1C0016F80 (MakeSystemRelativePath.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C002AC30 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     MakeSystemDriversRelativePath @ 0x1C014D634 (MakeSystemDriversRelativePath.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165580 (rimFindMonitorForDigitizerWithQDCData.c)
  * Callees:
  *     <none>
  */

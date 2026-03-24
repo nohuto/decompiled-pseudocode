@@ -1,12 +1,14 @@
 /*
- * XREFs of McTemplateU0xxq_EventWriteTransfer @ 0x1801B96A8
+ * XREFs of McTemplateU0xxq_EventWriteTransfer @ 0x1801790AC
  * Callers:
- *     ?ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ @ 0x18006604C (-ForceUpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAAJXZ.c)
- *     ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x180081B1C (-ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z.c)
- *     ?SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z @ 0x1801E1A20 (-SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z.c)
+ *     ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18009C4EC (-ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z.c)
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E0B04 (--1CInteraction@@MEAA@XZ.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0C2C (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z @ 0x18019B090 (-SendResponse@MagnifierCaptureBitsResponse@@UEAAJJ@Z.c)
+ *     ?NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z @ 0x18022525C (-NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)

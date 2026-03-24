@@ -3,8 +3,8 @@
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x1409AF1B4 (KsepMatchInitMachineInfo.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     KsepStringAnsiToUnicode @ 0x1407283D4 (KsepStringAnsiToUnicode.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KsepStringAnsiToUnicode @ 0x1407283B4 (KsepStringAnsiToUnicode.c)
  */
 
 __int64 __fastcall KsepMatchInitAcpiOemInfo(__int64 a1)

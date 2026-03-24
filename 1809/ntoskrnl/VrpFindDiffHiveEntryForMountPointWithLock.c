@@ -1,8 +1,8 @@
 /*
- * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D578
+ * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D558
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14080D728 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
- *     VrpUnloadDifferencingHive @ 0x14080DCDC (VrpUnloadDifferencingHive.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14080D708 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpUnloadDifferencingHive @ 0x14080DCBC (VrpUnloadDifferencingHive.c)
  * Callees:
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)

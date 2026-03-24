@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AcknowledgeS0@FxPowerPolicyMachine@@QEAAXXZ @ 0x1C008A7D4
+ * XREFs of ?AcknowledgeS0@FxPowerPolicyMachine@@QEAAXXZ @ 0x1C001C7E4
  * Callers:
- *     ?PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C00161D8 (-PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z.c)
+ *     ?PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C0011B40 (-PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z.c)
  * Callees:
  *     <none>
  */

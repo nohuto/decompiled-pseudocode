@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetPartitionTableInfo @ 0x1409FCC0C
+ * XREFs of ExpGetPartitionTableInfo @ 0x140950888
  * Callers:
- *     ExpFindDiskSignature @ 0x1409FC5BC (ExpFindDiskSignature.c)
+ *     ExpFindDiskSignature @ 0x140950200 (ExpFindDiskSignature.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x14041B840 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)
@@ -23,14 +23,15 @@ NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+17h] BYREF
   HANDLE FileHandle; // [rsp+D0h] [rbp+77h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 3u, 0x60u);

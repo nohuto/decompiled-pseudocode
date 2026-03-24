@@ -1,12 +1,12 @@
 /*
- * XREFs of bPolyPolygon @ 0x1C016D3A0
+ * XREFs of bPolyPolygon @ 0x1C00BDB30
  * Callers:
- *     GreCreatePolyPolygonRgnInternal @ 0x1C016AE70 (GreCreatePolyPolygonRgnInternal.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C00BDA24 (GreCreatePolyPolygonRgnInternal.c)
  * Callees:
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0153770 (-bCloseFigure@EPATHOBJ@@QEAAHXZ.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0153828 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015394C (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C00817D0 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0086A30 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0087E80 (-bCloseFigure@EPATHOBJ@@QEAAHXZ.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
  */
 
 __int64 __fastcall bPolyPolygon(
@@ -18,28 +18,28 @@ __int64 __fastcall bPolyPolygon(
         int a6)
 {
   int *v6; // rbx
-  unsigned __int64 v12; // r12
-  __int64 v13; // rdi
+  unsigned __int64 v11; // r12
+  __int64 v12; // rdi
 
   v6 = a4;
   if ( !a5 )
     return 1LL;
-  v12 = (unsigned __int64)&a4[a5];
+  v11 = (unsigned __int64)&a4[a5];
   while ( 1 )
   {
-    v13 = *v6;
-    a6 -= v13;
-    if ( a6 < 0 || (int)v13 < 2 )
+    v12 = *v6;
+    a6 -= v12;
+    if ( a6 < 0 || (int)v12 < 2 )
       break;
     if ( !(unsigned int)EPATHOBJ::bMoveTo(this, a2, a3)
-      || !(unsigned int)EPATHOBJ::bPolyLineTo(this, a2, a3 + 1, (int)v13 - 1)
+      || !(unsigned int)EPATHOBJ::bPolyLineTo(this, a2, a3 + 1, (int)v12 - 1)
       || !(unsigned int)EPATHOBJ::bCloseFigure(this) )
     {
       return 0LL;
     }
     ++v6;
-    a3 += v13;
-    if ( (unsigned __int64)v6 >= v12 )
+    a3 += v12;
+    if ( (unsigned __int64)v6 >= v11 )
       return 1LL;
   }
   EngSetLastError(0x57u);

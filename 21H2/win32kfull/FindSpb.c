@@ -1,11 +1,11 @@
 /*
- * XREFs of FindSpb @ 0x1C0158F38
+ * XREFs of FindSpb @ 0x1C021A2B4
  * Callers:
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     OffsetWindow @ 0x1C0084A28 (OffsetWindow.c)
- *     RestoreSpb @ 0x1C0158DC0 (RestoreSpb.c)
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C020C464 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     OffsetWindow @ 0x1C004CB10 (OffsetWindow.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxDrawDragRectEx @ 0x1C0211504 (xxxDrawDragRectEx.c)
+ *     RestoreSpb @ 0x1C021A4F0 (RestoreSpb.c)
  * Callees:
  *     <none>
  */

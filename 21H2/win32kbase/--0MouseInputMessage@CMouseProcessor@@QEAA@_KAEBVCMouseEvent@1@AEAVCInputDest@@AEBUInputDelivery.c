@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F8E78
+ * XREFs of ??0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BE5E8
  * Callers:
- *     ??0ButtonInputMessage@CMouseProcessor@@QEAA@AEBVCButtonEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F8DCC (--0ButtonInputMessage@CMouseProcessor@@QEAA@AEBVCButtonEvent@1@_KAEAVCInputDest@@AEBUInputDelive.c)
- *     ??0MoveInputMessage@CMouseProcessor@@QEAA@AEBVCMoveEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F8FA4 (--0MoveInputMessage@CMouseProcessor@@QEAA@AEBVCMoveEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryCo.c)
- *     ??0WheelInputMessage@CMouseProcessor@@QEAA@AEBVCWheelEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F9020 (--0WheelInputMessage@CMouseProcessor@@QEAA@AEBVCWheelEvent@1@_KAEAVCInputDest@@AEBUInputDelivery.c)
+ *     ??0ButtonInputMessage@CMouseProcessor@@QEAA@AEBVCButtonEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BE53C (--0ButtonInputMessage@CMouseProcessor@@QEAA@AEBVCButtonEvent@1@_KAEAVCInputDest@@AEBUInputDelive.c)
+ *     ??0MoveInputMessage@CMouseProcessor@@QEAA@AEBVCMoveEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BE724 (--0MoveInputMessage@CMouseProcessor@@QEAA@AEBVCMoveEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryCo.c)
+ *     ??0WheelInputMessage@CMouseProcessor@@QEAA@AEBVCWheelEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BE7AC (--0WheelInputMessage@CMouseProcessor@@QEAA@AEBVCWheelEvent@1@_KAEAVCInputDest@@AEBUInputDelivery.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 CMouseProcessor::MouseInputMessage *__fastcall CMouseProcessor::MouseInputMessage::MouseInputMessage(
@@ -31,17 +31,18 @@ CMouseProcessor::MouseInputMessage *__fastcall CMouseProcessor::MouseInputMessag
   *((_OWORD *)this + 9) = *(_OWORD *)a5;
   *((_QWORD *)this + 20) = *((_QWORD *)a5 + 2);
   *((_DWORD *)this + 42) = *((_DWORD *)a3 + 4);
+  *((_QWORD *)this + 22) = *(_QWORD *)(*((_QWORD *)a3 + 1) + 8LL);
   v8 = *((_QWORD *)a3 + 1);
-  *((_OWORD *)this + 11) = *(_OWORD *)v8;
-  *((_OWORD *)this + 12) = *(_OWORD *)(v8 + 16);
-  *((_OWORD *)this + 13) = *(_OWORD *)(v8 + 32);
-  *((_OWORD *)this + 14) = *(_OWORD *)(v8 + 48);
-  *((_OWORD *)this + 15) = *(_OWORD *)(v8 + 64);
-  *((_OWORD *)this + 16) = *(_OWORD *)(v8 + 80);
-  *((_OWORD *)this + 17) = *(_OWORD *)(v8 + 96);
-  *((_OWORD *)this + 18) = *(_OWORD *)(v8 + 112);
-  *((_OWORD *)this + 19) = *(_OWORD *)(v8 + 128);
-  *((_OWORD *)this + 20) = *(_OWORD *)(v8 + 144);
-  *((_QWORD *)this + 42) = *(_QWORD *)(v8 + 160);
+  *(_OWORD *)((char *)this + 184) = *(_OWORD *)v8;
+  *(_OWORD *)((char *)this + 200) = *(_OWORD *)(v8 + 16);
+  *(_OWORD *)((char *)this + 216) = *(_OWORD *)(v8 + 32);
+  *(_OWORD *)((char *)this + 232) = *(_OWORD *)(v8 + 48);
+  *(_OWORD *)((char *)this + 248) = *(_OWORD *)(v8 + 64);
+  *(_OWORD *)((char *)this + 264) = *(_OWORD *)(v8 + 80);
+  *(_OWORD *)((char *)this + 280) = *(_OWORD *)(v8 + 96);
+  *(_OWORD *)((char *)this + 296) = *(_OWORD *)(v8 + 112);
+  *(_OWORD *)((char *)this + 312) = *(_OWORD *)(v8 + 128);
+  *(_OWORD *)((char *)this + 328) = *(_OWORD *)(v8 + 144);
+  *((_QWORD *)this + 43) = *(_QWORD *)(v8 + 160);
   return this;
 }

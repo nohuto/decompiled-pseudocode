@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxLogSocSubsystemMetadata @ 0x140869BFC
+ * XREFs of PopFxLogSocSubsystemMetadata @ 0x140869BDC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140869FE0 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x14086AE78 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140869FC0 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x14086AE58 (PopPluginQuerySocSubsystemMetadata.c)
  */
 
 __int64 __fastcall PopFxLogSocSubsystemMetadata(__int64 a1, unsigned int a2)

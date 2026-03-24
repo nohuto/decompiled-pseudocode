@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ipfdDevMaxGet@XDCOBJ@@QEAAJXZ @ 0x1C02BB108
+ * XREFs of ?ipfdDevMaxGet@XDCOBJ@@QEAAJXZ @ 0x1C02BCB58
  * Callers:
- *     ?ipfdDevMax@XDCOBJ@@QEAAHXZ @ 0x1C02BB0E0 (-ipfdDevMax@XDCOBJ@@QEAAHXZ.c)
+ *     ?ipfdDevMax@XDCOBJ@@QEAAHXZ @ 0x1C02BCB30 (-ipfdDevMax@XDCOBJ@@QEAAHXZ.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A4808 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A6DE0 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
  */
 
 __int64 __fastcall XDCOBJ::ipfdDevMaxGet(XDCOBJ *this)
@@ -53,14 +53,14 @@ __int64 __fastcall XDCOBJ::ipfdDevMaxGet(XDCOBJ *this)
     if ( DeviceHdev )
       v3 = DeviceHdev;
   }
-  v7 = *(__int64 (__fastcall **)(_QWORD, __int64, _QWORD))(v3 + 3104);
+  v7 = *(__int64 (__fastcall **)(_QWORD, __int64, _QWORD))(v3 + 3128);
   if ( v7 )
   {
-    v2 = v7(*(_QWORD *)(v3 + 1768), 1LL, 0LL);
+    v2 = v7(*(_QWORD *)(v3 + 1800), 1LL, 0LL);
     if ( v2 < 0 )
       v2 = 0;
   }
-  *(_WORD *)(*(_QWORD *)this + 2088LL) = v2;
+  *(_WORD *)(*(_QWORD *)this + 2096LL) = v2;
   DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v10);
   if ( v13[0] )
     DLODCOBJ::vUnlock((DLODCOBJ *)v13);

@@ -1,664 +1,533 @@
 /*
- * XREFs of ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800629A0
+ * XREFs of ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180080AA0
  * Callers:
- *     ?AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x18001D5F8 (-AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
- *     ?Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x18005C958 (-Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc.c)
- *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18005D0D0 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
- *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x180060C80 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180061790 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?PushCpuClipToScope@CScopedClipStack@@QEAAJPEBVCShape@@0PEBVCMILMatrix@@W4D2D1_ANTIALIAS_MODE@@_NPEAVCCpuClipAntialiasSink@@PEA_N@Z @ 0x180073C30 (-PushCpuClipToScope@CScopedClipStack@@QEAAJPEBVCShape@@0PEBVCMILMatrix@@W4D2D1_ANTIALIAS_MODE@@_.c)
- *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x18007A874 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
- *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180080750 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?FlattenToLineSegments@CRoundedRectangleShape@@UEBAJMPEAPEAVCShape@@@Z @ 0x1800D35F0 (-FlattenToLineSegments@CRoundedRectangleShape@@UEBAJMPEAPEAVCShape@@@Z.c)
- *     ?GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800F2358 (-GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?GetAccumShape@CGdiSpriteBitmap@@QEAA?AVCShapePtr@@_N@Z @ 0x1800F6A40 (-GetAccumShape@CGdiSpriteBitmap@@QEAA-AVCShapePtr@@_N@Z.c)
- *     ?FlattenToLineSegments@CRegionShape@@UEBAJMPEAPEAVCShape@@@Z @ 0x1801B1FD0 (-FlattenToLineSegments@CRegionShape@@UEBAJMPEAPEAVCShape@@@Z.c)
- *     ?AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z @ 0x1801FC0CC (-AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z.c)
- *     ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x1801FC1B0 (-ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ.c)
- *     ?ComputeBrushClamp@CBrushDrawListGenerator@@CAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@KAEBVMatrix3x3@@PEAPEAVCShape@@@Z @ 0x1801FC6B4 (-ComputeBrushClamp@CBrushDrawListGenerator@@CAJV-$span@PEBVCDrawListBrush@@$0-0@gsl@@KAEBVMatrix.c)
- *     ?GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18022EE50 (-GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x180018480 (-ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ.c)
+ *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180068150 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?CopyShape@CShapePtr@@QEBAJPEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x18006A410 (-CopyShape@CShapePtr@@QEBAJPEBVCMILMatrix@@PEAPEAVCShape@@@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?ComputeBrushClamp@CBrushDrawListGenerator@@CAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@KAEBVMatrix3x3@@PEAPEAVCShape@@@Z @ 0x180095B10 (-ComputeBrushClamp@CBrushDrawListGenerator@@CAJV-$span@PEBVCDrawListBrush@@$0-0@gsl@@KAEBVMatrix.c)
+ *     ?GetAccumShape@CGdiSpriteBitmap@@UEAAJPEAVCShapePtr@@_N@Z @ 0x1800D0980 (-GetAccumShape@CGdiSpriteBitmap@@UEAAJPEAVCShapePtr@@_N@Z.c)
+ *     ?GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800D52D0 (-GetShapeDataWorker@CGeometry@@AEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z @ 0x18019D908 (-AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z.c)
+ *     ?GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801C3C80 (-GetShapeDataCore@CGeometryGroup@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?AddNewContent@CComposeTop@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x1801F94B8 (-AddNewContent@CComposeTop@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
  * Callees:
- *     ?TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z @ 0x1800168FC (-TryAddRectangle@CRegion@@QEAAJAEBUtagRECT@@@Z.c)
- *     ??0CPolygonShape@@QEAA@AEBV0@@Z @ 0x180017B6C (--0CPolygonShape@@QEAA@AEBV0@@Z.c)
- *     ??0CPolygonShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x180033544 (--0CPolygonShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??_ECRegionShape@@UEAAPEAXI@Z @ 0x180046030 (--_ECRegionShape@@UEAAPEAXI@Z.c)
- *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047D50 (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ??$IsTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ @ 0x18005A56C (--$IsTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ.c)
- *     ??_GCRectanglesShape@@UEAAPEAXI@Z @ 0x1800620D0 (--_GCRectanglesShape@@UEAAPEAXI@Z.c)
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180078B70 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRoundedRectangleShape@@@Z @ 0x18007F680 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRoundedRectangleShape@@@Z.c)
- *     ?Transform_AxisAlignedPreserving@CRoundedRectangleGeometryData@@SAXAEBU1@AEBVCMILMatrix@@PEAU1@@Z @ 0x18007FA78 (-Transform_AxisAlignedPreserving@CRoundedRectangleGeometryData@@SAXAEBU1@AEBVCMILMatrix@@PEAU1@@.c)
- *     ?resize@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAX_KAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180081594 (-resize@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@Rect.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?Reset@CRectanglesShape@@IEAAXXZ @ 0x180092474 (-Reset@CRectanglesShape@@IEAAXXZ.c)
- *     ?Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ @ 0x1800B2900 (-Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x1800C5890 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ??0CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z @ 0x1800D3694 (--0CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ??$Is90Or270RotationWithTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ @ 0x1800DAA88 (--$Is90Or270RotationWithTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?CMilRectLFromMilRectF@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x1800E51A8 (-CMilRectLFromMilRectF@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_.c)
- *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x1800F9054 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
- *     ??0CThreadContext@@AEAA@XZ @ 0x1800FED20 (--0CThreadContext@@AEAA@XZ.c)
- *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x180105360 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?clear_region@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801B1EF4 (-clear_region@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ??0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x1801B2A8C (--0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?Is2DAxisAlignedIntegerPreserving@CMILMatrix@@QEBA_NXZ @ 0x180270268 (-Is2DAxisAlignedIntegerPreserving@CMILMatrix@@QEBA_NXZ.c)
+ *     ?CMilRectLFromMilRectF@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x1800084D8 (-CMilRectLFromMilRectF@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_.c)
+ *     ?Is2DAxisAlignedIntegerPreserving@CMILMatrix@@QEBA_N_N@Z @ 0x18001BB14 (-Is2DAxisAlignedIntegerPreserving@CMILMatrix@@QEBA_N_N@Z.c)
+ *     ??$TryAppendRects@V?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@CRegion@@QEAAJPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x18001D82C (--$TryAppendRects@V-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqu.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0A@@@QEAAJPEFBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x180059560 (-AddMultipleAndSet@-$DynArray@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Reset@CRectanglesShape@@IEAAXXZ @ 0x18005A49C (-Reset@CRectanglesShape@@IEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??_GCRectanglesShape@@UEAAPEAXI@Z @ 0x180081640 (--_GCRectanglesShape@@UEAAPEAXI@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x180086EA0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098D6C (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??_ECRegionShape@@UEAAPEAXI@Z @ 0x18009CC90 (--_ECRegionShape@@UEAAPEAXI@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ??$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z @ 0x1800C1EDC (--$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ *     ??0?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ @ 0x1800E1C40 (--0-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
+ *     ??0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x18025DB94 (--0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
+ *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x18025F440 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
  */
 
 __int64 __fastcall CShape::CopyShape(CShape *this, const struct CMILMatrix *a2, struct CShape **a3)
 {
-  struct CThreadContext *v3; // r14
-  CShape *v5; // r13
-  int v6; // r12d
-  float v7; // xmm2_4
-  char v8; // cl
-  char v9; // al
-  float v10; // xmm0_4
-  char v11; // al
-  float v12; // xmm0_4
-  char v13; // al
-  int v14; // eax
-  struct CRoundedRectangleShape *v15; // rcx
-  _DWORD *Value; // rsi
-  int v17; // ecx
-  char *v18; // rbx
-  __int64 v19; // r15
-  void *v20; // rcx
-  const void *v21; // r13
-  __int64 v22; // rcx
-  unsigned int v23; // eax
-  unsigned int v24; // r14d
-  unsigned int v25; // ecx
-  struct CObjectCache *ObjectCache; // rax
-  int v28; // edx
-  void (__fastcall ***v29)(_QWORD); // rdx
-  unsigned int i; // esi
-  __int64 v31; // rbx
-  int Current; // eax
-  struct CThreadContext *v33; // rcx
-  int v34; // edx
-  unsigned int v35; // r15d
-  LPVOID v36; // r12
-  __int64 v37; // rcx
-  int v38; // eax
-  unsigned int v39; // ecx
-  _BYTE *v40; // rbx
-  __int64 v41; // rax
-  int v42; // eax
-  char *v43; // rax
-  unsigned int v44; // ecx
-  __int64 v45; // rcx
-  int v46; // eax
-  int v47; // eax
-  CPolygonShape *v48; // rax
-  CPolygonShape *v49; // rax
-  char *v50; // rax
-  unsigned int v51; // ecx
-  char *v52; // rbx
-  int v53; // esi
-  int v54; // eax
-  unsigned int v55; // ecx
-  __int64 v56; // rcx
-  int v57; // eax
-  _BYTE *v58; // rcx
-  _BYTE *v59; // rcx
-  unsigned int v60; // ecx
+  CMILMatrix *v4; // r12
+  int v6; // esi
+  int v7; // eax
+  _DWORD *Value; // rbx
+  int v9; // ecx
+  char *v10; // rdi
+  __int64 v11; // r13
+  struct CThreadContext *v12; // rdx
+  void *v13; // rcx
+  __int64 v14; // rcx
+  unsigned int v15; // eax
+  unsigned int v16; // r12d
+  __int64 v17; // rcx
+  char *v18; // r13
+  __int64 v20; // rdi
+  SIZE_T v21; // rbx
   HANDLE ProcessHeap; // rax
-  _BYTE *v62; // rcx
-  char *v63; // rax
-  const struct CRoundedRectangleGeometryData *v64; // rcx
-  struct CRoundedRectangleShape *v65; // rcx
-  struct CObjectCache *v66; // rdx
-  CRoundedRectangleShape *v67; // rax
-  int v68; // r8d
-  CRoundedRectangleShape *v69; // rax
-  CPathSegmentsShape *v70; // rax
-  CPathSegmentsShape *v71; // rax
-  CThreadContext *v72; // rax
-  unsigned int v73; // ecx
-  CThreadContext *v74; // rax
-  int v75; // eax
-  int v76; // eax
-  unsigned int v77; // ecx
-  CPolygonShape *v78; // rax
-  CPolygonShape *v79; // rax
-  CComplexShape *v80; // rax
-  unsigned int v81; // [rsp+20h] [rbp-E0h]
-  unsigned int v82; // [rsp+30h] [rbp-D0h] BYREF
-  struct ID2D1Geometry *v83; // [rsp+38h] [rbp-C8h] BYREF
-  struct CThreadContext *v84; // [rsp+40h] [rbp-C0h] BYREF
-  struct tagRECT v85; // [rsp+48h] [rbp-B8h] BYREF
-  LPVOID lpMem; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE *v87; // [rsp+68h] [rbp-98h]
-  char *v88; // [rsp+70h] [rbp-90h]
-  _BYTE v89[160]; // [rsp+78h] [rbp-88h] BYREF
-  char v90; // [rsp+118h] [rbp+18h] BYREF
-  int *v91; // [rsp+120h] [rbp+20h] BYREF
-  _DWORD v92[18]; // [rsp+128h] [rbp+28h] BYREF
-  void *retaddr; // [rsp+1B8h] [rbp+B8h]
+  char *v23; // rax
+  __int64 v24; // rcx
+  char *v25; // rbx
+  unsigned int i; // edi
+  char *v27; // rbx
+  int Current; // eax
+  struct CThreadContext *v29; // rcx
+  int v30; // edx
+  unsigned int v31; // esi
+  __int64 v32; // rcx
+  int v33; // eax
+  __int64 v34; // rcx
+  HANDLE v35; // rax
+  char *v36; // rax
+  __int64 v37; // rcx
+  char *v38; // rbx
+  __int64 v39; // rcx
+  int v40; // eax
+  __int64 v41; // rcx
+  char *v42; // rax
+  __int64 v43; // rcx
+  char *v44; // rbx
+  _DWORD **v45; // rcx
+  int v46; // edi
+  int v47; // eax
+  __int64 v48; // rcx
+  __int64 v49; // rcx
+  int v50; // eax
+  __int64 v51; // rcx
+  char *v52; // rax
+  __int64 v53; // rcx
+  char *v54; // rbx
+  CPathSegmentsShape *v55; // rax
+  __int64 v56; // rcx
+  struct CShape *v57; // rax
+  struct CShape *v58; // rax
+  struct CShape *v59; // rcx
+  _QWORD *v60; // rax
+  __int64 v61; // rcx
+  DWORD v62; // ecx
+  int v63; // eax
+  int v64; // eax
+  __int64 v65; // rcx
+  CComplexShape *v66; // rax
+  __int64 v67; // rcx
+  struct CShape *v68; // rax
+  unsigned int v69; // [rsp+30h] [rbp-69h] BYREF
+  LPVOID lpMem; // [rsp+38h] [rbp-61h]
+  struct CThreadContext *v71; // [rsp+40h] [rbp-59h] BYREF
+  struct ID2D1Geometry *v72; // [rsp+48h] [rbp-51h] BYREF
+  __int128 v73; // [rsp+50h] [rbp-49h] BYREF
+  int *v74; // [rsp+60h] [rbp-39h] BYREF
+  int v75; // [rsp+68h] [rbp-31h] BYREF
+  void *retaddr; // [rsp+F8h] [rbp+5Fh]
 
-  v84 = (struct CThreadContext *)a3;
-  *(_QWORD *)&v85.left = this;
-  v3 = (struct CThreadContext *)a3;
-  v83 = 0LL;
+  *(_QWORD *)&v73 = a2;
+  v72 = 0LL;
+  lpMem = 0LL;
+  v4 = a2;
   *a3 = 0LL;
-  v5 = this;
   v6 = 0;
-  if ( !a2 )
+  if ( !a2 || (unsigned __int8)CMILMatrix::IsIdentity<0>(a2) )
   {
-LABEL_20:
-    v14 = (*(__int64 (__fastcall **)(CShape *))(*(_QWORD *)v5 + 8LL))(v5);
-    if ( v14 == 1 )
+    v7 = (*(__int64 (__fastcall **)(CShape *))(*(_QWORD *)this + 8LL))(this);
+    if ( v7 == 1 )
     {
       Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
       if ( !Value )
       {
-        v72 = (CThreadContext *)operator new(0x190uLL);
-        if ( !v72 || (v74 = CThreadContext::CThreadContext(v72), (Value = v74) == 0LL) )
+        v60 = operator new(0x118uLL);
+        Value = v60;
+        if ( !v60 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v73, 0LL, 0, -2147024882, 0x42u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v61, 0LL, 0, -2147024882, 0x42u, 0LL);
           ModuleFailFastForHRESULT(2147942414LL, retaddr);
         }
-        TlsSetValue(CThreadContext::s_dwTlsIndex, v74);
+        *v60 = 0LL;
+        v60[1] = 0LL;
+        v60[2] = 0LL;
+        v62 = CThreadContext::s_dwTlsIndex;
+        v60[3] = 0LL;
+        v60[4] = 0LL;
+        v60[5] = 0LL;
+        v60[6] = 0LL;
+        v60[7] = 0LL;
+        v60[8] = 0LL;
+        v60[9] = 0LL;
+        v60[10] = 0LL;
+        v60[11] = 0LL;
+        v60[12] = 0LL;
+        v60[13] = 0LL;
+        v60[14] = 0LL;
+        v60[15] = 0LL;
+        v60[16] = 0LL;
+        v60[17] = 0LL;
+        v60[18] = 0LL;
+        v60[19] = 0LL;
+        v60[20] = 0LL;
+        v60[21] = 0LL;
+        v60[22] = 0LL;
+        v60[23] = 0LL;
+        v60[24] = 0LL;
+        v60[25] = 0LL;
+        v60[26] = 0LL;
+        v60[27] = 0LL;
+        v60[28] = 0LL;
+        v60[29] = 0LL;
+        v60[30] = 0LL;
+        v60[31] = 0LL;
+        v60[32] = 0LL;
+        v60[33] = 0LL;
+        v60[34] = 0LL;
+        TlsSetValue(v62, v60);
       }
-      v17 = Value[9];
-      v18 = 0LL;
-      if ( v17 )
+      v9 = Value[3];
+      v10 = 0LL;
+      if ( v9 )
       {
-        v18 = (char *)*((_QWORD *)Value + 5);
-        *((_QWORD *)Value + 5) = *(_QWORD *)v18;
-        Value[9] = v17 - 1;
+        v10 = (char *)*((_QWORD *)Value + 2);
+        *((_QWORD *)Value + 2) = *(_QWORD *)v10;
+        Value[3] = v9 - 1;
       }
-      if ( !v18 )
+      if ( !v10 )
       {
-        v18 = (char *)DefaultHeap::Alloc(0x48uLL);
-        if ( !v18 )
+        v10 = (char *)DefaultHeap::Alloc(0x48uLL);
+        if ( !v10 )
         {
-          v81 = 219;
-          goto LABEL_155;
+          v6 = -2147024882;
+          MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0, -2147024882, 0xDFu, 0LL);
+          goto LABEL_22;
         }
       }
-      *((_QWORD *)v18 + 1) = 0LL;
-      *(_QWORD *)v18 = &CRectanglesShape::`vftable';
-      *((_QWORD *)v18 + 2) = v18 + 48;
-      *((_QWORD *)v18 + 3) = v18 + 48;
-      *((_DWORD *)v18 + 8) = 1;
-      *(_QWORD *)(v18 + 36) = 1LL;
-      TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v18 + 48);
-      *((_QWORD *)v18 + 8) = 0LL;
-      v19 = *((unsigned int *)v5 + 10);
-      if ( !(_DWORD)v19 )
+      *((_QWORD *)v10 + 1) = 0LL;
+      *(_QWORD *)v10 = &CRectanglesShape::`vftable';
+      *((_QWORD *)v10 + 2) = v10 + 48;
+      *((_QWORD *)v10 + 3) = v10 + 48;
+      *((_DWORD *)v10 + 8) = 1;
+      *(_QWORD *)(v10 + 36) = 1LL;
+      TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v10 + 48);
+      *((_QWORD *)v10 + 8) = 0LL;
+      v11 = *((unsigned int *)this + 10);
+      if ( (_DWORD)v11 )
       {
-        CRectanglesShape::Reset((CRectanglesShape *)v18);
-        goto LABEL_35;
-      }
-      v20 = (void *)*((_QWORD *)v18 + 2);
-      v21 = (const void *)*((_QWORD *)v5 + 2);
-      *((_DWORD *)v18 + 10) = 0;
-      if ( v20 != *((void **)v18 + 3) )
-      {
-        operator delete(v20);
-        *((_QWORD *)v18 + 2) = *((_QWORD *)v18 + 3);
-        *((_DWORD *)v18 + 9) = *((_DWORD *)v18 + 8);
-      }
-      v22 = *((_QWORD *)v18 + 8);
-      if ( v22 )
-      {
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 16LL))(v22);
-        *((_QWORD *)v18 + 8) = 0LL;
-      }
-      v23 = *((_DWORD *)v18 + 10);
-      v24 = v19 + v23;
-      if ( (unsigned int)v19 + v23 < v23 )
-      {
-        v6 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, -2147024362, 0xB5u, 0LL);
-      }
-      else if ( v24 > *((_DWORD *)v18 + 9) )
-      {
-        v75 = DynArrayImpl<0>::AddMultipleAndSet(v18 + 16, 16LL, (unsigned int)v19, v21);
-        v6 = v75;
-        if ( v75 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v75, 0xC0u, 0LL);
+        v12 = (struct CThreadContext *)*((_QWORD *)this + 2);
+        v13 = (void *)*((_QWORD *)v10 + 2);
+        v71 = v12;
+        *((_DWORD *)v10 + 10) = 0;
+        if ( v13 != *((void **)v10 + 3) )
+        {
+          operator delete(v13);
+          v12 = v71;
+          *((_QWORD *)v10 + 2) = *((_QWORD *)v10 + 3);
+          *((_DWORD *)v10 + 9) = *((_DWORD *)v10 + 8);
+        }
+        v14 = *((_QWORD *)v10 + 8);
+        if ( v14 )
+        {
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+          v12 = v71;
+          *((_QWORD *)v10 + 8) = 0LL;
+        }
+        v15 = *((_DWORD *)v10 + 10);
+        v16 = v15 + v11;
+        if ( v15 + (unsigned int)v11 < v15 )
+        {
+          v6 = -2147024362;
+          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024362, 0xB5u, 0LL);
+        }
+        else if ( v16 > *((_DWORD *)v10 + 9) )
+        {
+          v63 = DynArrayImpl<0>::AddMultipleAndSet(v10 + 16, 16LL, (unsigned int)v11, v12);
+          v6 = v63;
+          if ( v63 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v63, 0xC0u, 0LL);
+        }
+        else
+        {
+          memcpy_0((void *)(*((_QWORD *)v10 + 2) + 16LL * v15), v12, 16 * v11);
+          *((_DWORD *)v10 + 10) = v16;
+        }
+        v4 = (CMILMatrix *)v73;
       }
       else
       {
-        memcpy_0((void *)(*((_QWORD *)v18 + 2) + 16LL * v23), v21, 16 * v19);
-        *((_DWORD *)v18 + 10) = v24;
+        CRectanglesShape::Reset((CRectanglesShape *)v10);
       }
       if ( v6 >= 0 )
       {
-        v3 = v84;
-        v5 = *(CShape **)&v85.left;
-LABEL_35:
-        *(_QWORD *)v3 = v18;
-        goto LABEL_36;
+        v18 = (char *)lpMem;
+        *a3 = (struct CShape *)v10;
+        goto LABEL_19;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v6, 0xDDu, 0LL);
-LABEL_143:
-      CRectanglesShape::`scalar deleting destructor'((CRectanglesShape *)v18, 1);
-      goto LABEL_37;
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v6, 0xE1u, 0LL);
+      v18 = (char *)lpMem;
+      goto LABEL_103;
     }
-    if ( !v14 )
+    if ( v7 )
     {
-      ObjectCache = CThreadContext::GetObjectCache(v15);
-      v18 = 0LL;
-      v28 = *((_DWORD *)ObjectCache + 1);
-      if ( v28 )
+      if ( v7 == 2 )
       {
-        v18 = (char *)*((_QWORD *)ObjectCache + 1);
-        *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v18;
-        *((_DWORD *)ObjectCache + 1) = v28 - 1;
-      }
-      if ( !v18 )
-      {
-        v18 = (char *)DefaultHeap::Alloc(0x18uLL);
-        if ( !v18 )
+        v36 = (char *)DefaultHeap::Alloc(0x60uLL);
+        v38 = v36;
+        if ( !v36 )
         {
-          v81 = 210;
-          *(_QWORD *)v3 = 0LL;
-LABEL_155:
           v6 = -2147024882;
-          MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, -2147024882, v81, 0LL);
-          goto LABEL_37;
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024882, 0xEEu, 0LL);
+          goto LABEL_22;
         }
+        memset_0(v36 + 24, 0, 0x40uLL);
+        *((_QWORD *)v38 + 1) = 0LL;
+        *(_QWORD *)v38 = &CRegionShape::`vftable';
+        *((_QWORD *)v38 + 2) = v38 + 24;
+        *((_DWORD *)v38 + 6) = 0;
+        *((_QWORD *)v38 + 11) = 0LL;
+        **((_DWORD **)v38 + 2) = 0;
+        v39 = *((_QWORD *)v38 + 11);
+        *((_QWORD *)v38 + 11) = 0LL;
+        if ( v39 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v39 + 16LL))(v39);
+        v40 = FastRegion::CRegion::Copy((FastRegion::CRegion *)(v38 + 16), (CShape *)((char *)this + 16));
+        if ( v40 < 0 )
+          ModuleFailFastForHRESULT((unsigned int)v40, retaddr);
+        *a3 = (struct CShape *)v38;
       }
-      *((_QWORD *)v18 + 1) = 0LL;
-      *(_QWORD *)v18 = &CRoundedRectangleShape::`vftable';
-      v29 = (void (__fastcall ***)(_QWORD))*((_QWORD *)v5 + 2);
-      *((_QWORD *)v18 + 2) = v29;
-      if ( v29 )
-        (**v29)(v29);
-      goto LABEL_35;
-    }
-    v42 = v14 - 2;
-    if ( !v42 )
-    {
-      v43 = (char *)DefaultHeap::Alloc(0x60uLL);
-      v18 = v43;
-      if ( !v43 )
+      else if ( v7 == 4 )
       {
-        v81 = 234;
-        goto LABEL_155;
-      }
-      memset_0(v43 + 24, 0, 0x40uLL);
-      *((_QWORD *)v18 + 1) = 0LL;
-      *(_QWORD *)v18 = &CRegionShape::`vftable';
-      *((_QWORD *)v18 + 2) = v18 + 24;
-      *((_DWORD *)v18 + 6) = 0;
-      *((_QWORD *)v18 + 11) = 0LL;
-      **((_DWORD **)v18 + 2) = 0;
-      v45 = *((_QWORD *)v18 + 11);
-      *((_QWORD *)v18 + 11) = 0LL;
-      if ( v45 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v45 + 16LL))(v45);
-      v46 = FastRegion::CRegion::Copy((int **)v18 + 2, (int **)v5 + 2);
-      if ( v46 < 0 )
-        ModuleFailFastForHRESULT((unsigned int)v46, retaddr);
-      goto LABEL_35;
-    }
-    v47 = v42 - 1;
-    if ( v47 )
-    {
-      if ( v47 == 2 )
-      {
-        v70 = (CPathSegmentsShape *)DefaultHeap::Alloc(0x18uLL);
-        if ( !v70 || (v71 = CPathSegmentsShape::CPathSegmentsShape(v70, *((const struct CPathData **)v5 + 2))) == 0LL )
+        v55 = (CPathSegmentsShape *)DefaultHeap::Alloc(0x18uLL);
+        if ( !v55 || (v57 = CPathSegmentsShape::CPathSegmentsShape(v55, *((const struct CPathData **)this + 2))) == 0LL )
         {
-          v81 = 256;
-          goto LABEL_155;
+          v6 = -2147024882;
+          MilInstrumentationCheckHR_MaybeFailFast(v56, 0LL, 0, -2147024882, 0xFCu, 0LL);
+          goto LABEL_22;
         }
-        *(_QWORD *)v3 = v71;
+        *a3 = v57;
       }
     }
     else
     {
-      v48 = (CPolygonShape *)DefaultHeap::Alloc(0x18uLL);
-      if ( !v48 )
+      v58 = (struct CShape *)DefaultHeap::Alloc(0x50uLL);
+      v59 = v58;
+      if ( v58 )
       {
-        *(_QWORD *)v3 = 0LL;
-LABEL_133:
-        v81 = 247;
-        goto LABEL_155;
-      }
-      v49 = CPolygonShape::CPolygonShape(v48, v5);
-      *(_QWORD *)v3 = v49;
-      if ( !v49 )
-        goto LABEL_133;
-    }
-    goto LABEL_36;
-  }
-  v7 = (float)((float)(COERCE_FLOAT(*((_DWORD *)a2 + 7) & _xmm) * 61440.0)
-             + (float)(COERCE_FLOAT(*((_DWORD *)a2 + 3) & _xmm) * 61440.0))
-     + COERCE_FLOAT(*((_DWORD *)a2 + 15) & _xmm);
-  if ( v7 == 1.0 )
-  {
-    v8 = 1;
-    *((_BYTE *)a2 + 65) = *((_BYTE *)a2 + 65) & 0xCF | 0x10;
-  }
-  else
-  {
-    v8 = 0;
-  }
-  if ( ((unsigned __int8)v8 & ((float)(COERCE_FLOAT(*((_DWORD *)a2 + 11) & _xmm) * 61440.0) == 0.0)) != 0
-    && *((float *)a2 + 8) == 0.0
-    && *((float *)a2 + 9) == 0.0 )
-  {
-    *((_BYTE *)a2 + 65) = *((_BYTE *)a2 + 65) & 0xF3 | 4;
-    if ( v7 == 1.0 )
-    {
-      *((_BYTE *)a2 + 65) &= ~0x20u;
-      *((_BYTE *)a2 + 65) |= 0x10u;
-      if ( *((float *)a2 + 2) == 0.0 && *((float *)a2 + 6) == 0.0 )
-      {
-        v9 = *((_BYTE *)a2 + 64) & 0xF3 | 4;
-        *((_BYTE *)a2 + 64) = v9;
-        if ( v7 == 1.0 )
-        {
-          *((_BYTE *)a2 + 65) &= ~0x20u;
-          *((_BYTE *)a2 + 65) |= 0x10u;
-          if ( *((float *)a2 + 1) == 0.0 && *((float *)a2 + 4) == 0.0 )
-          {
-            v10 = *(float *)a2;
-            v11 = v9 & 0x3F | 0x40;
-            *((_BYTE *)a2 + 64) = v11;
-            if ( v10 == 1.0 && *((float *)a2 + 5) == 1.0 )
-            {
-              v12 = *((float *)a2 + 10);
-              v13 = v11 & 0xCF | 0x10;
-              *((_BYTE *)a2 + 64) = v13;
-              if ( v12 == 1.0 && *((float *)a2 + 12) == 0.0 && *((float *)a2 + 13) == 0.0 && *((float *)a2 + 14) == 0.0 )
-              {
-                *((_BYTE *)a2 + 64) = v13 & 0xFC | 1;
-                goto LABEL_20;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  if ( !(*(unsigned __int8 (__fastcall **)(CShape *, unsigned int *))(*(_QWORD *)v5 + 64LL))(v5, &v82) )
-  {
-    if ( !(*(unsigned int (__fastcall **)(CShape *))(*(_QWORD *)v5 + 8LL))(v5)
-      && CMILMatrix::Is2DAxisAlignedPreserving(a2) )
-    {
-      v64 = (const struct CRoundedRectangleGeometryData *)(*((_QWORD *)v5 + 2) + 16LL);
-      v92[10] = 0;
-      CRoundedRectangleGeometryData::Transform_AxisAlignedPreserving(
-        v64,
-        a2,
-        (struct CRoundedRectangleGeometryData *)&v91);
-      v66 = CThreadContext::GetObjectCache(v65);
-      v67 = 0LL;
-      v68 = *((_DWORD *)v66 + 1);
-      if ( v68 )
-      {
-        v67 = (CRoundedRectangleShape *)*((_QWORD *)v66 + 1);
-        *((_QWORD *)v66 + 1) = *(_QWORD *)v67;
-        *((_DWORD *)v66 + 1) = v68 - 1;
-      }
-      if ( v67 || (v67 = (CRoundedRectangleShape *)DefaultHeap::Alloc(0x18uLL)) != 0LL )
-      {
-        v69 = CRoundedRectangleShape::CRoundedRectangleShape(v67, (const struct CRoundedRectangleGeometryData *)&v91);
-        *(_QWORD *)v3 = v69;
-        if ( v69 )
-          goto LABEL_36;
+        *((_QWORD *)v58 + 1) = 0LL;
+        *(_QWORD *)v58 = &CRoundedRectangleShape::`vftable';
+        *((_OWORD *)v58 + 1) = *((_OWORD *)this + 1);
+        *((_OWORD *)v58 + 2) = *((_OWORD *)this + 2);
+        *((_OWORD *)v58 + 3) = *((_OWORD *)this + 3);
+        *((_DWORD *)v58 + 16) = *((_DWORD *)this + 16);
+        *((_QWORD *)v58 + 9) = 0LL;
       }
       else
       {
-        *(_QWORD *)v3 = 0LL;
+        v59 = 0LL;
       }
-      v81 = 333;
-      goto LABEL_155;
-    }
-LABEL_36:
-    if ( *(_QWORD *)v3 )
-      goto LABEL_37;
-    v76 = (*(__int64 (__fastcall **)(CShape *, const struct CMILMatrix *, struct ID2D1Geometry **))(*(_QWORD *)v5 + 24LL))(
-            v5,
-            a2,
-            &v83);
-    v6 = v76;
-    if ( v76 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v77, 0LL, 0, v76, 0x153u, 0LL);
-      goto LABEL_37;
-    }
-    if ( (*(unsigned __int8 (__fastcall **)(CShape *))(*(_QWORD *)v5 + 56LL))(v5) )
-    {
-      v78 = (CPolygonShape *)DefaultHeap::Alloc(0x18uLL);
-      if ( v78 )
+      *a3 = v59;
+      if ( !v59 )
       {
-        v79 = CPolygonShape::CPolygonShape(v78, v83);
-LABEL_152:
-        *(_QWORD *)v3 = v79;
-        if ( v79 )
-          goto LABEL_37;
-        v81 = 350;
-        goto LABEL_155;
+        v6 = -2147024882;
+        MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024882, 0xD5u, 0LL);
+        goto LABEL_22;
       }
+    }
+    goto LABEL_51;
+  }
+  if ( !(*(unsigned __int8 (__fastcall **)(CShape *, unsigned int *))(*(_QWORD *)this + 40LL))(this, &v69)
+    || !(unsigned __int8)CMILMatrix::Is2DAxisAlignedPreserving<1>(v4) )
+  {
+LABEL_51:
+    v18 = 0LL;
+    goto LABEL_19;
+  }
+  if ( !v69 )
+  {
+    v52 = (char *)DefaultHeap::Alloc(0x60uLL);
+    v54 = v52;
+    if ( v52 )
+    {
+      memset_0(v52 + 24, 0, 0x40uLL);
+      *((_QWORD *)v54 + 1) = 0LL;
+      *(_QWORD *)v54 = &CRegionShape::`vftable';
+      *((_QWORD *)v54 + 2) = v54 + 24;
+      *((_DWORD *)v54 + 6) = 0;
+      *((_QWORD *)v54 + 11) = 0LL;
     }
     else
     {
-      v80 = (CComplexShape *)DefaultHeap::Alloc(0x18uLL);
-      if ( v80 )
-      {
-        v79 = CComplexShape::CComplexShape(v80, v83);
-        goto LABEL_152;
-      }
+      v54 = 0LL;
     }
-    v79 = 0LL;
-    goto LABEL_152;
-  }
-  if ( !CMILMatrix::IsTranslateAndScaleIgnoreZ<1>((__int64)a2)
-    && !(unsigned __int8)CMILMatrix::Is90Or270RotationWithTranslateAndScaleIgnoreZ<1>(a2) )
-  {
-    goto LABEL_36;
-  }
-  if ( !v82 )
-  {
-    v63 = (char *)DefaultHeap::Alloc(0x60uLL);
-    v18 = v63;
-    if ( !v63 )
+    *a3 = (struct CShape *)v54;
+    if ( !v54 )
     {
-      v81 = 316;
-      *(_QWORD *)v3 = 0LL;
-      goto LABEL_155;
+      v6 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0, -2147024882, 0x136u, 0LL);
+      goto LABEL_22;
     }
-    memset_0(v63 + 24, 0, 0x40uLL);
-    *((_QWORD *)v18 + 1) = 0LL;
-    *(_QWORD *)v18 = &CRegionShape::`vftable';
-    *((_QWORD *)v18 + 2) = v18 + 24;
-    *((_DWORD *)v18 + 6) = 0;
-    *((_QWORD *)v18 + 11) = 0LL;
-    goto LABEL_35;
+    goto LABEL_51;
   }
-  lpMem = v89;
-  v87 = v89;
-  v88 = &v90;
-  v85 = 0LL;
-  detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::resize(
-    &lpMem,
-    v82,
-    &v85);
-  (*(void (__fastcall **)(CShape *, LPVOID, _QWORD))(*(_QWORD *)v5 + 80LL))(v5, lpMem, v82);
-  for ( i = 0; i < v82; *(struct tagRECT *)((char *)lpMem + v31) = v85 )
+  v20 = v69;
+  v21 = 16LL * v69;
+  if ( !is_mul_ok(v69, 0x10uLL) )
+    v21 = -1LL;
+  ProcessHeap = GetProcessHeap();
+  v23 = (char *)HeapAlloc(ProcessHeap, 0, v21);
+  v18 = v23;
+  if ( !v23 )
   {
-    v31 = 16LL * i;
-    v85 = 0LL;
-    CMILMatrix::Transform2DBoundsHelper<0>(a2, (struct MilRectF *)((char *)lpMem + v31));
+    v6 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, -2147024882, 0x108u, 0LL);
+    goto LABEL_22;
+  }
+  v25 = v23;
+  do
+  {
+    TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v25);
+    v25 += 16;
+    --v20;
+  }
+  while ( v20 );
+  (*(void (__fastcall **)(CShape *, char *, _QWORD))(*(_QWORD *)this + 48LL))(this, v18, v69);
+  for ( i = 0; i < v69; *(_OWORD *)v27 = v73 )
+  {
+    v27 = &v18[16 * i];
+    v73 = 0LL;
+    CMILMatrix::Transform2DBoundsHelper<0>(v4);
     ++i;
   }
-  if ( (*(unsigned int (__fastcall **)(CShape *))(*(_QWORD *)v5 + 8LL))(v5) != 2
-    || !CMILMatrix::Is2DAxisAlignedIntegerPreserving(a2) )
+  if ( (*(unsigned int (__fastcall **)(CShape *))(*(_QWORD *)this + 8LL))(this) != 2
+    || !CMILMatrix::Is2DAxisAlignedIntegerPreserving(v4) )
   {
-    Current = CThreadContext::GetCurrent(&v84);
+    Current = CThreadContext::GetCurrent(&v71);
     if ( Current < 0 )
       ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-    v33 = v84;
-    v18 = 0LL;
-    v34 = *((_DWORD *)v84 + 9);
-    if ( v34 )
+    v29 = v71;
+    v10 = 0LL;
+    v30 = *((_DWORD *)v71 + 3);
+    if ( v30 )
     {
-      v18 = (char *)*((_QWORD *)v84 + 5);
-      *((_QWORD *)v84 + 5) = *(_QWORD *)v18;
-      *((_DWORD *)v33 + 9) = v34 - 1;
+      v10 = (char *)*((_QWORD *)v71 + 2);
+      *((_QWORD *)v71 + 2) = *(_QWORD *)v10;
+      *((_DWORD *)v29 + 3) = v30 - 1;
     }
-    if ( v18 || (v18 = (char *)DefaultHeap::Alloc(0x48uLL)) != 0LL )
+    if ( !v10 )
     {
-      *((_QWORD *)v18 + 1) = 0LL;
-      *(_QWORD *)v18 = &CRectanglesShape::`vftable';
-      *((_QWORD *)v18 + 2) = v18 + 48;
-      *((_QWORD *)v18 + 3) = v18 + 48;
-      *((_DWORD *)v18 + 8) = 1;
-      *(_QWORD *)(v18 + 36) = 1LL;
-      TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v18 + 48);
-      *((_QWORD *)v18 + 8) = 0LL;
-      v35 = v82;
-      v36 = lpMem;
-      *((_DWORD *)v18 + 10) = 0;
-      DynArrayImpl<0>::ShrinkToSize(v18 + 16, 16LL);
-      v37 = *((_QWORD *)v18 + 8);
-      if ( v37 )
+      v10 = (char *)DefaultHeap::Alloc(0x48uLL);
+      if ( !v10 )
       {
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v37 + 16LL))(v37);
-        *((_QWORD *)v18 + 8) = 0LL;
+        v6 = -2147024882;
+        MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, -2147024882, 0x12Bu, 0LL);
+        goto LABEL_20;
       }
-      v38 = DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
-              v18 + 16,
-              v36,
-              v35);
-      v6 = v38;
-      if ( v38 < 0 )
+    }
+    *((_QWORD *)v10 + 1) = 0LL;
+    *(_QWORD *)v10 = &CRectanglesShape::`vftable';
+    *((_QWORD *)v10 + 2) = v10 + 48;
+    *((_QWORD *)v10 + 3) = v10 + 48;
+    *((_DWORD *)v10 + 8) = 1;
+    *(_QWORD *)(v10 + 36) = 1LL;
+    TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>(v10 + 48);
+    *((_QWORD *)v10 + 8) = 0LL;
+    v31 = v69;
+    *((_DWORD *)v10 + 10) = 0;
+    DynArrayImpl<0>::ShrinkToSize(v10 + 16, 16LL);
+    v32 = *((_QWORD *)v10 + 8);
+    if ( v32 )
+    {
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v32 + 16LL))(v32);
+      *((_QWORD *)v10 + 8) = 0LL;
+    }
+    v33 = DynArray<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,0>::AddMultipleAndSet(
+            (__int64)(v10 + 16),
+            v18,
+            v31);
+    v6 = v33;
+    if ( v33 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v33, 0x12Du, 0LL);
+LABEL_103:
+      CRectanglesShape::`scalar deleting destructor'((CRectanglesShape *)v10, 1u);
+      goto LABEL_20;
+    }
+    *a3 = (struct CShape *)v10;
+LABEL_19:
+    if ( !*a3 )
+    {
+      v64 = (*(__int64 (__fastcall **)(CShape *, CMILMatrix *, struct ID2D1Geometry **))(*(_QWORD *)this + 24LL))(
+              this,
+              v4,
+              &v72);
+      v6 = v64;
+      if ( v64 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, v38, 0x133u, 0LL);
-        v62 = lpMem;
-        if ( (v87 - (_BYTE *)lpMem) >> 4 )
+        MilInstrumentationCheckHR_MaybeFailFast(v65, 0LL, 0, v64, 0x13Cu, 0LL);
+      }
+      else
+      {
+        v66 = (CComplexShape *)operator new(0x18uLL);
+        if ( v66 && (v68 = CComplexShape::CComplexShape(v66, v72)) != 0LL )
         {
-          detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-            &lpMem,
-            0LL);
-          v62 = lpMem;
+          *a3 = v68;
         }
-        lpMem = 0LL;
-        if ( v62 == v89 )
-          v62 = 0LL;
-        operator delete(v62);
-        goto LABEL_143;
+        else
+        {
+          v6 = -2147024882;
+          MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, -2147024882, 0x13Fu, 0LL);
+        }
       }
-      *(_QWORD *)v3 = v18;
-      goto LABEL_60;
     }
-    v6 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v60, 0LL, 0, -2147024882, 0x131u, 0LL);
-    v59 = lpMem;
-    if ( (v87 - (_BYTE *)lpMem) >> 4 )
-    {
-      detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-        &lpMem,
-        0LL);
-      v59 = lpMem;
-    }
-    lpMem = 0LL;
-    if ( v59 == v89 )
-      v59 = 0LL;
-LABEL_101:
-    operator delete(v59);
-    goto LABEL_37;
+    goto LABEL_20;
   }
-  v50 = (char *)DefaultHeap::Alloc(0x60uLL);
-  v52 = v50;
-  if ( !v50 )
+  v42 = (char *)DefaultHeap::Alloc(0x60uLL);
+  v44 = v42;
+  if ( v42 )
   {
-    v6 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, -2147024882, 0x11Fu, 0LL);
-    v59 = lpMem;
-    if ( (v87 - (_BYTE *)lpMem) >> 4 )
+    memset_0(v42 + 24, 0, 0x40uLL);
+    *((_QWORD *)v44 + 1) = 0LL;
+    v45 = (_DWORD **)(v44 + 16);
+    *(_QWORD *)v44 = &CRegionShape::`vftable';
+    v46 = 0;
+    *((_QWORD *)v44 + 2) = v44 + 24;
+    *((_DWORD *)v44 + 6) = 0;
+    *((_QWORD *)v44 + 11) = 0LL;
+    v74 = &v75;
+    v75 = 0;
+    if ( v69 )
     {
-      detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-        &lpMem,
-        0LL);
-      v59 = lpMem;
+      while ( 1 )
+      {
+        CMilRectLFromMilRectF((int *)&v73, (__int64)&v18[16 * v46]);
+        v47 = CRegion::TryAppendRects<TMilRect_<int,tagRECT,MilPointAndSizeL,Mil3DRectL,RectUniqueness::_CMilRectL_>>(
+                (FastRegion::CRegion *)&v74,
+                (int *)&v73);
+        v6 = v47;
+        if ( v47 < 0 )
+          break;
+        if ( ++v46 >= v69 )
+        {
+          v45 = (_DWORD **)(v44 + 16);
+          goto LABEL_60;
+        }
+      }
+      MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v47, 0x11Fu, 0LL);
+      FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v74);
+      CRegionShape::`vector deleting destructor'((CRegionShape *)v44, 1u);
+      goto LABEL_20;
     }
-    lpMem = 0LL;
-    if ( v59 == v89 )
-      v59 = 0LL;
-    goto LABEL_101;
-  }
-  memset_0(v50 + 24, 0, 0x40uLL);
-  *((_QWORD *)v52 + 1) = 0LL;
-  *(_QWORD *)v52 = &CRegionShape::`vftable';
-  v53 = 0;
-  *((_QWORD *)v52 + 2) = v52 + 24;
-  *((_DWORD *)v52 + 6) = 0;
-  *((_QWORD *)v52 + 11) = 0LL;
-  v91 = v92;
-  v92[0] = 0;
-  if ( !v82 )
-  {
-LABEL_87:
-    **((_DWORD **)v52 + 2) = 0;
-    v56 = *((_QWORD *)v52 + 11);
-    *((_QWORD *)v52 + 11) = 0LL;
-    if ( v56 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v56 + 16LL))(v56);
-    v57 = FastRegion::CRegion::Copy((int **)v52 + 2, &v91);
-    if ( v57 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v57, retaddr);
-    *(_QWORD *)v3 = v52;
-    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v91);
 LABEL_60:
-    v40 = lpMem;
-    v41 = (v87 - (_BYTE *)lpMem) >> 4;
-    if ( v41 )
-      v87 -= 16 * v41;
-    lpMem = 0LL;
-    if ( v40 != v89 && v40 )
-    {
-      ProcessHeap = GetProcessHeap();
-      HeapFree(ProcessHeap, 0, v40);
-    }
-    goto LABEL_36;
+    **v45 = 0;
+    v49 = *((_QWORD *)v44 + 11);
+    *((_QWORD *)v44 + 11) = 0LL;
+    if ( v49 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v49 + 16LL))(v49);
+    v50 = FastRegion::CRegion::Copy((FastRegion::CRegion *)(v44 + 16), (const struct CRegion *)&v74);
+    if ( v50 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v50, retaddr);
+    *a3 = (struct CShape *)v44;
+    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v74);
+    goto LABEL_19;
   }
-  while ( 1 )
+  v6 = -2147024882;
+  MilInstrumentationCheckHR_MaybeFailFast(v43, 0LL, 0, -2147024882, 0x119u, 0LL);
+LABEL_20:
+  if ( v18 )
   {
-    CMilRectLFromMilRectF(&v85);
-    v54 = CRegion::TryAddRectangle((CRegion *)&v91, &v85);
-    v6 = v54;
-    if ( v54 < 0 )
-      break;
-    if ( ++v53 >= v82 )
-      goto LABEL_87;
+    v35 = GetProcessHeap();
+    HeapFree(v35, 0, v18);
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v55, 0LL, 0, v54, 0x125u, 0LL);
-  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v91);
-  v58 = lpMem;
-  if ( (v87 - (_BYTE *)lpMem) >> 4 )
-  {
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      &lpMem,
-      0LL);
-    v58 = lpMem;
-  }
-  lpMem = 0LL;
-  if ( v58 == v89 )
-    v58 = 0LL;
-  operator delete(v58);
-  CRegionShape::`vector deleting destructor'((CRegionShape *)v52, 1);
-LABEL_37:
-  if ( v83 )
-    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v83 + 16LL))(v83);
+LABEL_22:
+  if ( v72 )
+    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v72 + 16LL))(v72);
   return (unsigned int)v6;
 }

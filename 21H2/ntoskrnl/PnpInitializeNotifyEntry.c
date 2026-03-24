@@ -1,42 +1,47 @@
 /*
- * XREFs of PnpInitializeNotifyEntry @ 0x140768894
+ * XREFs of PnpInitializeNotifyEntry @ 0x1406C4D64
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140768390 (IoRegisterPlugPlayNotification.c)
- *     PiRegisterKernelSoftRestartNotification @ 0x1408648F8 (PiRegisterKernelSoftRestartNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1408B2DD4 (PiRegisterKernelSoftRestartNotification.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     MmIsSessionAddress @ 0x140359DE0 (MmIsSessionAddress.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     ZwOpenSession @ 0x14041DDC0 (ZwOpenSession.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     ZwOpenSession @ 0x1403FC940 (ZwOpenSession.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpInitializeNotifyEntry(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 __fastcall PnpInitializeNotifyEntry(
+        __int64 a1,
+        int a2,
+        unsigned __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6)
 {
   __int64 v7; // rsi
   unsigned int v11; // r14d
   int v12; // ebx
-  struct _ERESOURCE *Pool2; // rax
+  struct _ERESOURCE *PoolWithTag; // rax
   unsigned int SessionId; // eax
-  __int64 v16; // [rsp+28h] [rbp-E0h] BYREF
-  __int128 v17; // [rsp+30h] [rbp-D8h]
-  __int128 v18; // [rsp+40h] [rbp-C8h]
-  __int128 v19; // [rsp+50h] [rbp-B8h]
-  UNICODE_STRING DestinationString_8; // [rsp+60h] [rbp-A8h] BYREF
-  wchar_t Dst[256]; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v16; // [rsp+20h] [rbp-E0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-D8h] BYREF
+  __int128 v18; // [rsp+38h] [rbp-C8h]
+  __int128 v19; // [rsp+48h] [rbp-B8h]
+  __int128 v20; // [rsp+58h] [rbp-A8h]
+  wchar_t Dst[256]; // [rsp+70h] [rbp-90h] BYREF
 
-  *(_QWORD *)&v19 = 0LL;
   v7 = 0LL;
-  DWORD2(v19) = 0;
-  v16 = 0LL;
-  v17 = 0LL;
   v18 = 0LL;
+  v16 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
   v11 = 0;
-  DestinationString_8 = 0LL;
   v12 = 0;
+  DestinationString = 0LL;
   if ( !MmIsSessionAddress(a3) )
     goto LABEL_2;
   SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -44,12 +49,12 @@ __int64 __fastcall PnpInitializeNotifyEntry(__int64 a1, int a2, __int64 a3, __in
   if ( SessionId == -1 )
     return (unsigned int)-1073741811;
   swprintf_s(Dst, 0x100uLL, L"\\KernelObjects\\Session%d", SessionId);
-  RtlInitUnicodeString(&DestinationString_8, Dst);
-  *((_QWORD *)&v17 + 1) = 0LL;
-  *(_QWORD *)&v18 = &DestinationString_8;
-  LODWORD(v17) = 48;
-  DWORD2(v18) = 512;
-  v19 = 0LL;
+  RtlInitUnicodeString(&DestinationString, Dst);
+  *((_QWORD *)&v18 + 1) = 0LL;
+  *(_QWORD *)&v19 = &DestinationString;
+  LODWORD(v18) = 48;
+  DWORD2(v19) = 512;
+  v20 = 0LL;
   v12 = ZwOpenSession((__int64)&v16, 0LL);
   if ( v12 < 0 || (v7 = v16) == 0 )
   {
@@ -69,10 +74,10 @@ LABEL_2:
     *(_QWORD *)(a1 + 32) = a3;
     *(_QWORD *)(a1 + 40) = a4;
     *(_BYTE *)(a1 + 58) = 0;
-    Pool2 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1450208848LL);
-    *(_QWORD *)(a1 + 72) = Pool2;
-    if ( Pool2 )
-      ExInitializeResourceLite(Pool2);
+    PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x56706E50u);
+    *(_QWORD *)(a1 + 72) = PoolWithTag;
+    if ( PoolWithTag )
+      ExInitializeResourceLite(PoolWithTag);
     else
       return (unsigned int)-1073741670;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetPointerBarrelVisualization@CTouchProcessor@@QEAAXGH@Z @ 0x1C01D4650
+ * XREFs of ?SetPointerBarrelVisualization@CTouchProcessor@@QEAAXGH@Z @ 0x1C019C700
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C00E3E58 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C018E2A4 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
  */
 
 void __fastcall CTouchProcessor::SetPointerBarrelVisualization(struct _KTHREAD **this, unsigned __int16 a2, char a3)
@@ -15,10 +15,10 @@ void __fastcall CTouchProcessor::SetPointerBarrelVisualization(struct _KTHREAD *
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
     (CInpLockGuardExclusiveIfNeeded *)v7,
-    (struct CInpLockGuard *)(this + 4),
+    (struct CInpLockGuard *)(this + 5),
     0LL);
   NodeById = CTouchProcessor::FindNodeById(this, a2, 1, 0);
   if ( NodeById )
-    *((_DWORD *)NodeById + 75) = *((_DWORD *)NodeById + 75) & 0xFFFFFBFF | ((a3 & 1 | 2) << 10);
+    *((_DWORD *)NodeById + 70) = *((_DWORD *)NodeById + 70) & 0xFFFFFBFF | ((a3 & 1 | 2) << 10);
   CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v7);
 }

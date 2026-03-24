@@ -3,13 +3,13 @@
  * Callers:
  *     MiComputeDataFlushRange @ 0x140076E30 (MiComputeDataFlushRange.c)
  *     MiGetControlAreaPtes @ 0x140077D18 (MiGetControlAreaPtes.c)
- *     MiCanFileBeTruncatedInternal @ 0x1400E85F0 (MiCanFileBeTruncatedInternal.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1400E8610 (MiCanFileBeTruncatedInternal.c)
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
- *     MmFlushVirtualMemory @ 0x1406B6C3C (MmFlushVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFindLastSubsection(__int64 a1, int a2)

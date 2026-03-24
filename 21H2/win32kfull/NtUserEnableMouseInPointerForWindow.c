@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserEnableMouseInPointerForWindow @ 0x1C0112BF0
+ * XREFs of NtUserEnableMouseInPointerForWindow @ 0x1C0120D60
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserEnableMouseInPointerForWindow(__int64 a1, int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall NtUserEnableMouseInPointerForWindow(__int64 a1, int a2)
 
   v16 = 0LL;
   v17 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v4 = ValidateHwnd(a1);
   v6 = 0LL;
   v7 = v4;
@@ -38,16 +38,17 @@ __int64 __fastcall NtUserEnableMouseInPointerForWindow(__int64 a1, int a2)
     {
       if ( *(_QWORD *)(v7 + 16) == gptiCurrent )
       {
-        v11 = *(_DWORD *)(v7 + 320);
-        if ( a2 == ((v11 >> 3) & 1) || (v11 & 0x10) == 0 )
+        v11 = *(_DWORD *)(v7 + 324);
+        if ( a2 == ((v11 >> 4) & 1) || (v11 & 0x20) == 0 )
         {
+          if ( a2 )
+            v12 = v11 | 0x10;
+          else
+            v12 = v11 & 0xFFFFFFEF;
+          v13 = v12 | 0x20;
           v6 = 1LL;
-          v12 = v11 | 8;
-          if ( !a2 )
-            v12 = *(_DWORD *)(v7 + 320) & 0xFFFFFFF7;
-          v13 = v12 | 0x10;
-          *(_DWORD *)(v7 + 320) = v13;
-          *(_DWORD *)(gptiCurrent + 1256LL) |= 0x4000000u;
+          *(_DWORD *)(v7 + 324) = v13;
+          *(_DWORD *)(gptiCurrent + 1232LL) |= 0x4000000u;
           goto LABEL_10;
         }
       }
@@ -57,9 +58,9 @@ __int64 __fastcall NtUserEnableMouseInPointerForWindow(__int64 a1, int a2)
     {
       v15 = 87LL;
     }
-    UserSetLastError(v15, v8);
+    UserSetLastError(v15, v8, v10);
 LABEL_10:
-    ThreadUnlock1(v13, v8, v10);
+    ThreadUnlock1(v13);
   }
   UserSessionSwitchLeaveCrit(v5);
   return v6;

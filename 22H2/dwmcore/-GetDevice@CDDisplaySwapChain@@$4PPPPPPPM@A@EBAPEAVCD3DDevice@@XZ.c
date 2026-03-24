@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDevice@CDDisplaySwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x18011EC40
+ * XREFs of ?GetDevice@CDDisplaySwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F68D0
  * Callers:
  *     <none>
  * Callees:

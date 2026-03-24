@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TryBufferHasSameContent@UmfdAllocation@@CA_NPEAX0I@Z @ 0x1C00AE2D0
+ * XREFs of ?TryBufferHasSameContent@UmfdAllocation@@CA_NPEAX0I@Z @ 0x1C0127870
  * Callers:
  *     <none>
  * Callees:

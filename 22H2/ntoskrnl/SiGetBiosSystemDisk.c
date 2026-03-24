@@ -1,29 +1,30 @@
 /*
- * XREFs of SiGetBiosSystemDisk @ 0x140A60394
+ * XREFs of SiGetBiosSystemDisk @ 0x14077ADC0
  * Callers:
- *     SiGetSystemDisk @ 0x140880EF0 (SiGetSystemDisk.c)
- *     SiGetBiosSystemPartition @ 0x140A604C4 (SiGetBiosSystemPartition.c)
+ *     SiGetBiosSystemPartition @ 0x14077AAD4 (SiGetBiosSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14077ACF0 (SiGetSystemDisk.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041D3C0 (ZwQuerySymbolicLinkObject.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A60604 (SiIsWinPeHardDiskZeroUfdBoot.c)
- *     SiOpenArcNameObject @ 0x140A60744 (SiOpenArcNameObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1403FC600 (ZwQuerySymbolicLinkObject.c)
+ *     SiOpenArcNameObject @ 0x14077AEC8 (SiOpenArcNameObject.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077AF54 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)
 {
-  wchar_t *Pool2; // rdi
+  wchar_t *v1; // rdi
   NTSTATUS v3; // ebx
   NTSTATUS v4; // eax
+  wchar_t *PoolWithTag; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
   ULONG ReturnedLength; // [rsp+58h] [rbp+28h] BYREF
   HANDLE LinkHandle; // [rsp+60h] [rbp+30h]
 
   ReturnedLength = 0;
-  Pool2 = 0LL;
+  v1 = 0LL;
   DestinationString = 0LL;
   LinkHandle = 0LL;
   if ( !(unsigned __int8)SiIsWinPeHardDiskZeroUfdBoot()
@@ -38,16 +39,17 @@ __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)
     v3 = v4;
     if ( v4 == -1073741789 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, ReturnedLength + 2LL, 1263556947LL);
-      if ( Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, ReturnedLength + 2LL, 0x4B505953u);
+      v1 = PoolWithTag;
+      if ( PoolWithTag )
       {
+        DestinationString.Buffer = PoolWithTag;
         DestinationString.MaximumLength = ReturnedLength;
-        DestinationString.Buffer = Pool2;
         v3 = ZwQuerySymbolicLinkObject(LinkHandle, &DestinationString, 0LL);
         if ( v3 >= 0 )
         {
-          Pool2[(unsigned __int64)DestinationString.Length >> 1] = 0;
-          *a1 = Pool2;
+          v1[(unsigned __int64)DestinationString.Length >> 1] = 0;
+          *a1 = v1;
         }
       }
       else
@@ -62,7 +64,7 @@ __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)
   }
   if ( LinkHandle )
     ZwClose(LinkHandle);
-  if ( v3 < 0 && Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( v3 < 0 && v1 )
+    ExFreePoolWithTag(v1, 0);
   return (unsigned int)v3;
 }

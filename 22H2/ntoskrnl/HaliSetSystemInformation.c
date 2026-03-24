@@ -1,63 +1,53 @@
 /*
- * XREFs of HaliSetSystemInformation @ 0x14085EE78
+ * XREFs of HaliSetSystemInformation @ 0x140866474
  * Callers:
- *     HalpSetSystemInformation @ 0x14085EE10 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x140733730 (HalpSetSystemInformation.c)
  * Callees:
- *     HalpRegisterSecondaryIcInterface @ 0x1403AF6DC (HalpRegisterSecondaryIcInterface.c)
- *     HalpTimerSetClockTimerMinimumInterval @ 0x140508664 (HalpTimerSetClockTimerMinimumInterval.c)
- *     HalpCheckTestSigningEnabled @ 0x140935180 (HalpCheckTestSigningEnabled.c)
- *     HalpChannelPowerRequest @ 0x140935A0C (HalpChannelPowerRequest.c)
+ *     HalpRegisterSecondaryIcInterface @ 0x1404D1334 (HalpRegisterSecondaryIcInterface.c)
+ *     HalpChannelPowerRequest @ 0x140866978 (HalpChannelPowerRequest.c)
  */
 
-__int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, int *a3)
+__int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, _DWORD *a3)
 {
-  int v4; // ebx
+  int v3; // ecx
+  int v4; // ecx
   int v5; // ecx
   int v6; // ecx
-  unsigned int v8; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
+  unsigned int v7; // ecx
 
-  v4 = a2;
-  v5 = a1 - 11;
-  if ( !v5 )
+  v3 = a1 - 11;
+  if ( !v3 )
     return (unsigned int)-1073741637;
-  v6 = v5 - 2;
-  if ( v6 )
+  v4 = v3 - 2;
+  if ( !v4 )
   {
-    v10 = v6 - 1;
-    if ( !v10 )
-      return (unsigned int)HalpChannelPowerRequest(a3, a2, 0LL);
-    v11 = v10 - 2;
-    if ( v11 )
+    if ( (unsigned int)a2 < 0x58 )
+      return (unsigned int)-1073741820;
+    return (unsigned int)HalpRegisterSecondaryIcInterface();
+  }
+  v5 = v4 - 1;
+  if ( !v5 )
+    return (unsigned int)HalpChannelPowerRequest(a3, a2, 0LL);
+  v6 = v5 - 2;
+  if ( !v6 )
+  {
+    if ( (_DWORD)a2 == 4 )
     {
-      v12 = v11 - 2;
-      if ( v12 )
-      {
-        if ( v12 != 5 )
-          return (unsigned int)-1073741496;
-        if ( !(unsigned __int8)HalpCheckTestSigningEnabled() )
-          return (unsigned int)-1073741790;
-        if ( v4 == 4 )
-          return (unsigned int)HalpTimerSetClockTimerMinimumInterval(*a3);
-      }
-      else if ( (_DWORD)a2 == 4 )
-      {
-        v8 = 0;
-        HalpHvciEnabled = *a3 != 0;
-        return v8;
-      }
-    }
-    else if ( (_DWORD)a2 == 4 )
-    {
-      v8 = 0;
+      v7 = 0;
       HalpResetParkDisposition = *a3 != 0;
-      return v8;
+      return v7;
     }
     return (unsigned int)-1073741820;
   }
-  if ( (unsigned int)a2 < 0x58 )
+  if ( v6 == 2 )
+  {
+    if ( (_DWORD)a2 == 4 )
+    {
+      v7 = 0;
+      HalpHvciEnabled = *a3 != 0;
+      return v7;
+    }
     return (unsigned int)-1073741820;
-  return (unsigned int)HalpRegisterSecondaryIcInterface();
+  }
+  return (unsigned int)-1073741496;
 }

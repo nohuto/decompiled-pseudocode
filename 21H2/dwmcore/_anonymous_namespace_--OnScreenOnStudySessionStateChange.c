@@ -1,5 +1,5 @@
 /*
- * XREFs of _anonymous_namespace_::OnScreenOnStudySessionStateChange @ 0x1800F7E90
+ * XREFs of _anonymous_namespace_::OnScreenOnStudySessionStateChange @ 0x1800DFE80
  * Callers:
  *     <none>
  * Callees:
@@ -11,12 +11,12 @@ void __fastcall anonymous_namespace_::OnScreenOnStudySessionStateChange(__int128
   DWORD CurrentThreadId; // eax
   __int128 v3; // xmm0
 
-  AcquireSRWLockExclusive(&stru_1803D7408);
+  AcquireSRWLockExclusive(&stru_180347660);
   CurrentThreadId = GetCurrentThreadId();
-  byte_1803D3358 = 1;
-  dword_1803D7410 = CurrentThreadId;
+  byte_180347150 = 1;
+  dword_180347668 = CurrentThreadId;
   v3 = *a1;
-  dword_1803D7410 = 0;
-  xmmword_1803D3360 = v3;
-  ReleaseSRWLockExclusive(&stru_1803D7408);
+  dword_180347668 = 0;
+  xmmword_180347140 = v3;
+  ReleaseSRWLockExclusive(&stru_180347660);
 }

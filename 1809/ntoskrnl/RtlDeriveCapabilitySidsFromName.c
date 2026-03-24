@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlDeriveCapabilitySidsFromName @ 0x1400DCE00
+ * XREFs of RtlDeriveCapabilitySidsFromName @ 0x1400DCE20
  * Callers:
- *     PiUEventInitClientRegistrationContext @ 0x140655918 (PiUEventInitClientRegistrationContext.c)
- *     PopCreateNotificationName @ 0x1406CE5C0 (PopCreateNotificationName.c)
- *     DbgkpCreateNotificationEvent @ 0x140727AD8 (DbgkpCreateNotificationEvent.c)
- *     CmpHiveRootSecurityDescriptor @ 0x1407335A0 (CmpHiveRootSecurityDescriptor.c)
- *     RtlCapabilityCheck @ 0x1408938E0 (RtlCapabilityCheck.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1406558F8 (PiUEventInitClientRegistrationContext.c)
+ *     PopCreateNotificationName @ 0x1406CE5A0 (PopCreateNotificationName.c)
+ *     DbgkpCreateNotificationEvent @ 0x140727AB8 (DbgkpCreateNotificationEvent.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140733580 (CmpHiveRootSecurityDescriptor.c)
+ *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
  *     SepVariableInitialization @ 0x1409AB3EC (SepVariableInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     SymCryptSha256 @ 0x1401AF2F8 (SymCryptSha256.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     SymCryptSha256 @ 0x1401AF318 (SymCryptSha256.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     RtlUpcaseUnicodeString @ 0x14064B0C0 (RtlUpcaseUnicodeString.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlUpcaseUnicodeString @ 0x14064B0A0 (RtlUpcaseUnicodeString.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING SourceString, char *Sid, PSID a3)

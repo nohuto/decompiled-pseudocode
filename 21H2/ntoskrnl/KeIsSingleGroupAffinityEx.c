@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsSingleGroupAffinityEx @ 0x140209C40
+ * XREFs of KeIsSingleGroupAffinityEx @ 0x140253690
  * Callers:
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
  * Callees:
  *     <none>
  */
@@ -17,19 +17,19 @@ _BOOL8 __fastcall KeIsSingleGroupAffinityEx(unsigned __int16 *a1, unsigned __int
   if ( a2 )
     v2 = a2;
   v3 = 0;
-  *v2 = 32;
+  *v2 = 20;
   if ( !*a1 )
     return 0LL;
   do
   {
     if ( *(_QWORD *)&a1[4 * v3 + 4] )
     {
-      if ( *v2 != 32 )
+      if ( *v2 != 20 )
         return 0LL;
       *v2 = v3;
     }
     ++v3;
   }
   while ( v3 < *a1 );
-  return *v2 != 32;
+  return *v2 != 20;
 }

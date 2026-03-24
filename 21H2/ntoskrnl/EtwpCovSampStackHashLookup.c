@@ -1,38 +1,36 @@
 /*
- * XREFs of EtwpCovSampStackHashLookup @ 0x1409F24A8
+ * XREFs of EtwpCovSampStackHashLookup @ 0x140945F50
  * Callers:
- *     EtwpCovSampStackHashCheck @ 0x1409F226C (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampStackHashCheck @ 0x140945D14 (EtwpCovSampStackHashCheck.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall EtwpCovSampStackHashLookup(__int64 a1, int a2, _QWORD *a3)
 {
-  int v3; // r11d
+  unsigned int v3; // r9d
+  int v4; // r11d
   unsigned int i; // r10d
-  _DWORD *v5; // r9
-  __int64 result; // rax
+  _DWORD *v6; // rax
 
   v3 = 0;
-  for ( i = a2 & (*(_DWORD *)(a1 + 4) - 1); ; i = (*(_DWORD *)(a1 + 4) - 1) & (v3 + i) )
+  v4 = 0;
+  for ( i = a2 & (*(_DWORD *)(a1 + 4) - 1); ; i = (*(_DWORD *)(a1 + 4) - 1) & (v4 + i) )
   {
-    v5 = (_DWORD *)(a1 + 4 * (i + 2LL));
-    if ( *v5 == a2 )
-    {
-      result = 1LL;
-      goto LABEL_9;
-    }
-    if ( !*v5 )
+    v6 = (_DWORD *)(a1 + 4 * (i + 2LL));
+    if ( *v6 == a2 )
       break;
-    if ( !v3 )
+    if ( !*v6 )
+      goto LABEL_9;
+    if ( !v4 )
     {
-      v3 = -1640531535 * a2 + 1;
+      v4 = -1640531535 * a2 + 1;
       if ( ((-79 * (_BYTE)a2) & 1) != 0 )
-        v3 = -1640531535 * a2;
+        v4 = -1640531535 * a2;
     }
   }
-  result = 0LL;
+  v3 = 1;
 LABEL_9:
-  *a3 = v5;
-  return result;
+  *a3 = v6;
+  return v3;
 }

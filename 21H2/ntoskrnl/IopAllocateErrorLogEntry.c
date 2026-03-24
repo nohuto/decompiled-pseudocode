@@ -1,24 +1,25 @@
 /*
- * XREFs of IopAllocateErrorLogEntry @ 0x1403A711C
+ * XREFs of IopAllocateErrorLogEntry @ 0x1403805EC
  * Callers:
- *     IoAllocateErrorLogEntry @ 0x1403A70E0 (IoAllocateErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1405573A8 (IoAllocateGenericErrorLogEntry.c)
+ *     IoAllocateErrorLogEntry @ 0x1403805B0 (IoAllocateErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140505888 (IoAllocateGenericErrorLogEntry.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
+_WORD *__fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
 {
   unsigned int v5; // ebx
-  __int64 Pool2; // rdi
-  __int64 result; // rax
+  _WORD *PoolWithTag; // rdi
+  _WORD *result; // rax
 
   if ( (unsigned __int8)(a3 - 48) > 0xC0u )
     return 0LL;
   v5 = ((a3 + 7) & 0xF8) + 48;
   if ( (unsigned int)_InterlockedExchangeAdd(&IopErrorLogAllocation, v5) > 0x64000
-    || (Pool2 = ExAllocatePool2(64LL, v5, 1917153097LL)) == 0 )
+    || (PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x72456F49u)) == 0LL )
   {
     _InterlockedExchangeAdd(&IopErrorLogAllocation, -v5);
     return 0LL;
@@ -27,10 +28,11 @@ __int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
     ObfReferenceObjectWithTag(Object, 0x746C6644u);
   if ( a2 )
     ObfReferenceObjectWithTag(a2, 0x746C6644u);
-  *(_WORD *)(Pool2 + 2) = v5;
-  *(_WORD *)Pool2 = 11;
-  result = Pool2 + 48;
-  *(_QWORD *)(Pool2 + 24) = Object;
-  *(_QWORD *)(Pool2 + 32) = a2;
+  memset(PoolWithTag, 0, v5);
+  PoolWithTag[1] = v5;
+  *PoolWithTag = 11;
+  result = PoolWithTag + 24;
+  *((_QWORD *)PoolWithTag + 3) = Object;
+  *((_QWORD *)PoolWithTag + 4) = a2;
   return result;
 }

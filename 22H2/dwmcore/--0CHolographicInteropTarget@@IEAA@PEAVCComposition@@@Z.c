@@ -1,53 +1,46 @@
 /*
- * XREFs of ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802A8F84
+ * XREFs of ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802574F4
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x1802A92F0 (-Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x1802578D0 (-Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C85DC (--0CRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800263C8 (--0CRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CHolographicInteropTarget *__fastcall CHolographicInteropTarget::CHolographicInteropTarget(
         CHolographicInteropTarget *this,
         struct CComposition *a2)
 {
-  __int64 v2; // r10
+  CHolographicInteropTarget *v2; // r10
   __int64 v3; // rcx
   __int64 v4; // rcx
   __int64 v5; // rcx
 
-  *((_QWORD *)this + 10) = &CHolographicInteropTarget::`vbtable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 19) = &CHolographicInteropTarget::`vbtable'{for `IMonitorTarget'};
-  *((_QWORD *)this + 20) = &CHolographicInteropTarget::`vbtable'{for `ICapabilitiesContributorTarget'};
-  *((_QWORD *)this + 38) = &CInk::`vbtable'{for `IContent'};
-  *((_QWORD *)this + 41) = &CDDisplaySwapChain::`vbtable'{for `IDeviceResource'};
-  *((_QWORD *)this + 40) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 41) + 4LL) + 328) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
+  *((_QWORD *)this + 9) = &CHolographicInteropTarget::`vbtable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 18) = &CHolographicInteropTarget::`vbtable'{for `IMonitorTarget'};
+  *((_QWORD *)this + 31) = &CInk::`vbtable'{for `IContent'};
+  *((_QWORD *)this + 34) = &CLocalAppRenderTarget::`vbtable'{for `IRenderTarget'};
+  *((_QWORD *)this + 33) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 34) + 4LL) + 272) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   CRenderTarget::CRenderTarget(this, a2);
-  *(_QWORD *)(v2 + 144) = &IMonitorTarget::`vftable';
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 152) + 4LL) + v2 + 152) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 152) + 8LL) + v2 + 152) = &CProcessAttributionObserver::`vftable';
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 152) + 12LL) + v2 + 152) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 160) + 4LL) + v2 + 160) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 160) + 8LL) + v2 + 160) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
+  *((_QWORD *)v2 + 17) = &IMonitorTarget::`vftable';
+  *(_QWORD *)((char *)v2 + *(int *)(*((_QWORD *)v2 + 18) + 4LL) + 144) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)v2 + *(int *)(*((_QWORD *)v2 + 18) + 8LL) + 144) = &CProcessAttributionObserver::`vftable';
+  *(_QWORD *)((char *)v2 + *(int *)(*((_QWORD *)v2 + 18) + 12LL) + 144) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
   *(_QWORD *)v2 = &CHolographicInteropTarget::`vftable'{for `CRenderTarget'};
-  *(_QWORD *)(v2 + 72) = &CHolographicInteropTarget::`vftable'{for `IVisualTreeClient'};
-  *(_QWORD *)(v2 + 144) = &CHolographicInteropTarget::`vftable'{for `IMonitorTarget'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 80) + 4LL) + v2 + 80) = &CHolographicInteropTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 80) + 8LL) + v2 + 80) = &CHolographicInteropTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 80) + 12LL) + v2 + 80) = &CHolographicInteropTarget::`vftable'{for `IRenderTarget'};
-  v3 = *(int *)(*(_QWORD *)(v2 + 80) + 4LL);
-  *(_DWORD *)(v3 + v2 + 76) = v3 - 200;
-  v4 = *(int *)(*(_QWORD *)(v2 + 80) + 8LL);
-  *(_DWORD *)(v4 + v2 + 76) = v4 - 216;
-  v5 = *(int *)(*(_QWORD *)(v2 + 80) + 12LL);
-  *(_DWORD *)(v5 + v2 + 76) = v5 - 240;
-  *(_QWORD *)(v2 + 184) = 0LL;
-  *(_OWORD *)(v2 + 192) = 0LL;
-  *(_QWORD *)(v2 + 208) = 0LL;
-  *(_DWORD *)(v2 + 216) = 0;
-  *(_QWORD *)(v2 + 224) = 0LL;
-  *(_QWORD *)(v2 + 236) = 0LL;
-  *(_QWORD *)(v2 + 244) = 0LL;
-  return (CHolographicInteropTarget *)v2;
+  *((_QWORD *)v2 + 8) = &CIndirectSwapchainRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)v2 + 17) = &CHolographicInteropTarget::`vftable'{for `IMonitorTarget'};
+  *(_QWORD *)((char *)v2 + *(int *)(*((_QWORD *)v2 + 9) + 4LL) + 72) = &CRadialGradientBrush::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)v2 + *(int *)(*((_QWORD *)v2 + 9) + 8LL) + 72) = &CHolographicInteropTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)v2 + *(int *)(*((_QWORD *)v2 + 9) + 12LL) + 72) = &CHolographicInteropTarget::`vftable'{for `IRenderTarget'};
+  v3 = *(int *)(*((_QWORD *)v2 + 9) + 4LL);
+  *(_DWORD *)((char *)v2 + v3 + 68) = v3 - 152;
+  v4 = *(int *)(*((_QWORD *)v2 + 9) + 8LL);
+  *(_DWORD *)((char *)v2 + v4 + 68) = v4 - 168;
+  v5 = *(int *)(*((_QWORD *)v2 + 9) + 12LL);
+  *(_DWORD *)((char *)v2 + v5 + 68) = v5 - 192;
+  *((_QWORD *)v2 + 21) = 0LL;
+  *((_QWORD *)v2 + 23) = 0LL;
+  *((_QWORD *)v2 + 24) = 0LL;
+  return v2;
 }

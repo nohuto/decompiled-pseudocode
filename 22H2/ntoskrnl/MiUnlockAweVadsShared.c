@@ -1,28 +1,18 @@
 /*
- * XREFs of MiUnlockAweVadsShared @ 0x14064BEB8
+ * XREFs of MiUnlockAweVadsShared @ 0x14054DF0C
  * Callers:
- *     MiDeletePagablePteRange @ 0x14027A040 (MiDeletePagablePteRange.c)
- *     MiFreePhysicalPages @ 0x14064A5B0 (MiFreePhysicalPages.c)
- *     MiLockAweVadsShared @ 0x14064B0E0 (MiLockAweVadsShared.c)
- *     MiProtectAweRegion @ 0x14064B414 (MiProtectAweRegion.c)
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x140A428F0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140A42BA0 (NtMapUserPhysicalPagesScatter.c)
+ *     MiLockAweVadsShared @ 0x14054CF78 (MiLockAweVadsShared.c)
+ *     MiProtectAweRegion @ 0x14054D2A4 (MiProtectAweRegion.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x1408D6D30 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408D6FF0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     ExReleaseAutoExpandPushLockShared @ 0x140230AB0 (ExReleaseAutoExpandPushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x1402E70E0 (ExReleaseAutoExpandPushLockShared.c)
  */
 
 char __fastcall MiUnlockAweVadsShared(__int64 a1, ULONG_PTR a2)
 {
-  _QWORD *v3; // rax
-
-  LOBYTE(v3) = ExReleaseAutoExpandPushLockShared(a2, 0LL);
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
-  {
-    v3 = (_QWORD *)(a1 + 152);
-    if ( (_QWORD *)*v3 != v3 )
-      LOBYTE(v3) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v3;
+  ExReleaseAutoExpandPushLockShared(a2, 0LL);
+  return KiLeaveGuardedRegionUnsafe(a1);
 }

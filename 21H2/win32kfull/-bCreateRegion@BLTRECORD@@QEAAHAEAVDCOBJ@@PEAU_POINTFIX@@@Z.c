@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCreateRegion@BLTRECORD@@QEAAHAEAVDCOBJ@@PEAU_POINTFIX@@@Z @ 0x1C02893A0
+ * XREFs of ?bCreateRegion@BLTRECORD@@QEAAHAEAVDCOBJ@@PEAU_POINTFIX@@@Z @ 0x1C028B750
  * Callers:
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C02894C8 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B878 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z @ 0x1C028A214 (-vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z @ 0x1C028C56C (-vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z.c)
  */
 
 __int64 __fastcall BLTRECORD::bCreateRegion(BLTRECORD *this, struct DCOBJ *a2, struct _POINTFIX *a3)
@@ -38,7 +38,7 @@ __int64 __fastcall BLTRECORD::bCreateRegion(BLTRECORD *this, struct DCOBJ *a2, s
         (v7 = *((_QWORD *)this + 13)) != 0) )
   {
     *((_DWORD *)this + 55) |= 4u;
-    *(_QWORD *)(*(_QWORD *)a2 + 1128LL) = v7;
+    *(_QWORD *)(*(_QWORD *)a2 + 1136LL) = v7;
   }
   else
   {

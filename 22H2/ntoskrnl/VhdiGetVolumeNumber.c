@@ -1,14 +1,14 @@
 /*
- * XREFs of VhdiGetVolumeNumber @ 0x140B9BBAC
+ * XREFs of VhdiGetVolumeNumber @ 0x140A94818
  * Callers:
- *     VhdiInitializeBootDisk @ 0x140B9BD30 (VhdiInitializeBootDisk.c)
+ *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
  */
 
 __int64 __fastcall VhdiGetVolumeNumber(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
@@ -16,9 +16,9 @@ __int64 __fastcall VhdiGetVolumeNumber(__int64 a1, unsigned int a2, int a3, _DWO
   HANDLE v4; // rax
   NTSTATUS inited; // ebx
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-68h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
   __int128 OutputBuffer; // [rsp+A8h] [rbp-58h] BYREF
   int v13; // [rsp+B8h] [rbp-48h]
   wchar_t pszDest[56]; // [rsp+C0h] [rbp-40h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall VhdiGetVolumeNumber(__int64 a1, unsigned int a2, int a3, _DWO
   v13 = 0;
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   OutputBuffer = 0LL;
   DestinationString = 0LL;
   if ( a1 && a4 )

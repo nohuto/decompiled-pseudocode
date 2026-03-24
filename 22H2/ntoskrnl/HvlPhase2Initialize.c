@@ -1,136 +1,120 @@
 /*
- * XREFs of HvlPhase2Initialize @ 0x1403B4610
+ * XREFs of HvlPhase2Initialize @ 0x1403CE9B8
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     ExNotifyWithProcessing @ 0x14033BD60 (ExNotifyWithProcessing.c)
- *     ExRegisterCallback @ 0x140367250 (ExRegisterCallback.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x140542824 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlpRegisterPowerPolicyCallbacks @ 0x140547294 (HvlpRegisterPowerPolicyCallbacks.c)
- *     HvlpInitializeHvCrashdumpPhase2 @ 0x140548298 (HvlpInitializeHvCrashdumpPhase2.c)
- *     HvlpInitializeSvmIommuSupport @ 0x140548384 (HvlpInitializeSvmIommuSupport.c)
- *     HvlpCheckTscSync @ 0x140548500 (HvlpCheckTscSync.c)
- *     HvlpEtwRegister @ 0x140548644 (HvlpEtwRegister.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x14054868C (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogHypervisorLaunchError @ 0x140548924 (HvlpLogHypervisorLaunchError.c)
- *     HvlpLogHypervisorSchedulerType @ 0x14054899C (HvlpLogHypervisorSchedulerType.c)
- *     HvlpLogIommuInitStatus @ 0x1405489F8 (HvlpLogIommuInitStatus.c)
- *     HvlpLogProcessorStartupFailure @ 0x140548BE0 (HvlpLogProcessorStartupFailure.c)
- *     HvlpWriteEventLog @ 0x140548CA8 (HvlpWriteEventLog.c)
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
- *     IoCreateNotificationEvent @ 0x1407E9670 (IoCreateNotificationEvent.c)
- *     HvlpLogMicrocodeUpdateStatus @ 0x140941224 (HvlpLogMicrocodeUpdateStatus.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     HvlpDiscoverTopologyComplete @ 0x140B940B4 (HvlpDiscoverTopologyComplete.c)
+ *     ExNotifyWithProcessing @ 0x140307DA8 (ExNotifyWithProcessing.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037E950 (ExRegisterCallback.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x1403F04B0 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlpRegisterPowerPolicyCallbacks @ 0x1404F8304 (HvlpRegisterPowerPolicyCallbacks.c)
+ *     HvlpInitializeHvCrashdumpPhase2 @ 0x1404F9220 (HvlpInitializeHvCrashdumpPhase2.c)
+ *     HvlpInitializeSvmIommuSupport @ 0x1404F930C (HvlpInitializeSvmIommuSupport.c)
+ *     HvlpCheckTscSync @ 0x1404F9560 (HvlpCheckTscSync.c)
+ *     HvlpEtwRegister @ 0x1404F96A0 (HvlpEtwRegister.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1404F96E8 (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogHypervisorLaunchError @ 0x1404F995C (HvlpLogHypervisorLaunchError.c)
+ *     HvlpLogHypervisorSchedulerType @ 0x1404F99D4 (HvlpLogHypervisorSchedulerType.c)
+ *     HvlpLogIommuInitStatus @ 0x1404F9B38 (HvlpLogIommuInitStatus.c)
+ *     HvlpLogProcessorStartupFailure @ 0x1404F9CEC (HvlpLogProcessorStartupFailure.c)
+ *     HvlpWriteEventLog @ 0x1404F9DB4 (HvlpWriteEventLog.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14088E674 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpDiscoverTopologyComplete @ 0x140A8F044 (HvlpDiscoverTopologyComplete.c)
  */
 
-NTSTATUS __fastcall HvlPhase2Initialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall HvlPhase2Initialize(__int64 a1, __int64 a2)
 {
-  _QWORD *v4; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rdi
-  __int64 v7; // rsi
-  __int64 v8; // r14
-  __int64 v9; // r15
-  __int64 v10; // r12
+  _QWORD *v2; // rax
+  __int64 v3; // rbx
+  __int64 v4; // rdi
+  __int64 v5; // rsi
+  __int64 v6; // r14
+  __int64 v7; // r15
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  volatile CCHAR v10; // t0
   NTSTATUS result; // eax
   __int64 v12; // rdx
   __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
+  __int64 v14; // rdx
+  __int64 v15; // rcx
   __int64 v16; // rdx
   __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
+  __int64 v18; // rdx
+  __int64 v19; // rcx
   __int64 v20; // rdx
   __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  __int64 v36; // rdx
-  int *v37; // rcx
-  int *v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // rcx
-  unsigned int v41; // ecx
-  UNICODE_STRING EventName; // [rsp+28h] [rbp-49h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-39h] BYREF
-  _QWORD v44[6]; // [rsp+48h] [rbp-29h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+7h] BYREF
-  PCALLBACK_OBJECT CallbackObject; // [rsp+D8h] [rbp+67h] BYREF
+  __int64 v22; // rdx
+  int *v23; // rcx
+  __int64 v24; // rcx
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
+  _QWORD v26[6]; // [rsp+30h] [rbp-29h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
+  PCALLBACK_OBJECT CallbackObject; // [rsp+C0h] [rbp+67h] BYREF
 
-  *(_QWORD *)&EventName.Length = 4456514LL;
-  EventName.Buffer = L"\\KernelObjects\\HvlWithdrawAllowed";
-  v4 = *(_QWORD **)(a1 + 240);
-  DestinationString = 0LL;
-  v5 = a1;
+  v2 = *(_QWORD **)(a1 + 240);
   *(&ObjectAttributes.Length + 1) = 0;
+  DestinationString = 0LL;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v6 = v4[316];
-  v7 = v4[317];
-  v8 = v4[318];
-  v9 = v4[319];
-  v10 = v4[320];
-  if ( v6 )
+  v3 = v2[316];
+  v4 = v2[317];
+  v5 = v2[318];
+  v6 = v2[319];
+  v7 = v2[320];
+  if ( v3 )
   {
-    HvlpEtwRegister(a1, a2, a3, a4);
-    v44[0] = v6;
-    v44[1] = v7;
-    v44[2] = v8;
-    v44[3] = v9;
-    v44[4] = v10;
-    HvlpLogHypervisorLaunchError(v44);
+    HvlpEtwRegister(a1, a2);
+    v26[0] = v3;
+    v26[1] = v4;
+    v26[2] = v5;
+    v26[3] = v6;
+    v26[4] = v7;
+    HvlpLogHypervisorLaunchError(v26);
     EtwUnregister(HvlGlobalSystemEventsHandle);
     HvlGlobalSystemEventsHandle = 0LL;
   }
   if ( !HvlHypervisorConnected )
     return 0;
   if ( (HvlpFlags & 2) == 0 )
-    goto LABEL_12;
-  HvlpDiscoverTopologyComplete(a1, a2, a3, a4);
-  HvlpSchedulerType = HvlpQueryHypervisorSchedulerType(v13, v12, v14, v15);
+    goto LABEL_10;
+  HvlpDiscoverTopologyComplete(a1, a2);
+  HvlpSchedulerType = HvlpQueryHypervisorSchedulerType(v9, v8);
   if ( HvlpSchedulerType == 4 )
-    HvlpRootSchedulerEnabled = 1;
-  if ( !HvlpRootSchedulerEnabled
-    || (result = HvlpInitializeSvmIommuSupport(a1, a2, a3, a4), a2 = 0x80000000LL, a1 = result + 0x80000000, (int)a1 < 0)
+    KeNumberProcessorsGroup0[4] = 1;
+  v10 = KeNumberProcessorsGroup0[4];
+  if ( !v10
+    || (result = HvlpInitializeSvmIommuSupport(a1, a2), a2 = 0x80000000LL, a1 = result + 0x80000000, (int)a1 < 0)
     || result == -1073741637 )
   {
-LABEL_12:
-    HvlpInitializeHvCrashdumpPhase2(a1, a2, a3, a4);
+LABEL_10:
+    HvlpInitializeHvCrashdumpPhase2(a1, a2);
     if ( (HvlpRootFlags & 1) == 0 )
-      goto LABEL_21;
-    HvlpEtwRegister(v17, v16, v18, v19);
+    {
+LABEL_19:
+      v24 = ExCbEnlightenmentState;
+      if ( ExCbEnlightenmentState )
+        ExNotifyWithProcessing(ExCbEnlightenmentState, 0LL, 0LL, 0LL);
+      HvlpRegisterPowerPolicyCallbacks(v24, v12);
+      return 0;
+    }
+    HvlpEtwRegister(v13, v12);
     HvlpWriteEventLog(&HV_EVENTLOG_START_SUCCEEDED, 0, 0LL);
-    HvlpLogHypervisorSchedulerType(v21, v20, v22, v23);
-    HvlpCheckTscSync(v25, v24, v26, v27);
-    HvlpLogIommuInitStatus(v29, v28, v30, v31);
-    HvlpLogGuestStateScrubbingStatus(v33, v32, v34, v35);
+    HvlpLogHypervisorSchedulerType(v15, v14);
+    HvlpCheckTscSync(v17, v16);
+    HvlpLogIommuInitStatus(v19, v18);
+    HvlpLogGuestStateScrubbingStatus(v21, v20);
     if ( (unsigned int)HvlpLogicalProcessorCount < 0x400 )
     {
-      v37 = &HvlpLogicalProcessorRegions[30 * (unsigned int)HvlpLogicalProcessorCount];
-      if ( !*v37 )
+      v23 = &HvlpLogicalProcessorRegions[30 * (unsigned int)HvlpLogicalProcessorCount];
+      if ( !*v23 )
       {
-        v38 = v37 + 14;
-        if ( *((_WORD *)v37 + 28) )
-          HvlpLogProcessorStartupFailure((unsigned int)v37[2], *((unsigned __int16 *)v37 + 28));
+        if ( *((_WORD *)v23 + 28) )
+          HvlpLogProcessorStartupFailure((unsigned int)v23[2], *((unsigned __int16 *)v23 + 28));
       }
     }
-    HvlpLogMicrocodeUpdateStatus(v37, v36, v38, v39);
+    HvlpLogMicrocodeUpdateStatus(v23, v22);
     if ( HvlpMinrootConfigurationError )
       HvlpWriteEventLog(&HV_EVENTLOG_CORE_SCHEDULER_PROCESSOR_CONFIGURATION_WARNING, 0, 0LL);
     RtlInitUnicodeString(&DestinationString, L"\\Callback\\PowerState");
@@ -144,28 +128,7 @@ LABEL_12:
     if ( result >= 0 )
     {
       ExRegisterCallback(CallbackObject, HvlpPowerStateCallback, 0LL);
-LABEL_21:
-      v40 = ExCbEnlightenmentState;
-      if ( ExCbEnlightenmentState )
-        ExNotifyWithProcessing(ExCbEnlightenmentState, 0LL, 0LL, 0LL);
-      HvlpRegisterPowerPolicyCallbacks(v40, v16, v18, v19);
-      HvlpBootPagesInfo = 0LL;
-      qword_140C5F510 = IoCreateNotificationEvent(&EventName, &EventHandle);
-      if ( *(_DWORD *)(*(_QWORD *)(v5 + 240) + 2552LL) )
-      {
-        byte_140C5F508 = 1;
-        qword_140C5F520 = (PVOID)ExAllocatePool2(
-                                   256LL,
-                                   (unsigned int)(8 * *(_DWORD *)(*(_QWORD *)(v5 + 240) + 2552LL) + 8),
-                                   541873736LL);
-        if ( !qword_140C5F520 )
-          return -1073741670;
-        v41 = *(_DWORD *)(*(_QWORD *)(v5 + 240) + 2552LL);
-        *(_DWORD *)qword_140C5F520 = v41;
-        memmove((char *)qword_140C5F520 + 8, *(const void **)(*(_QWORD *)(v5 + 240) + 2544LL), 8LL * v41);
-        KeResetEvent(qword_140C5F510);
-      }
-      return 0;
+      goto LABEL_19;
     }
   }
   return result;

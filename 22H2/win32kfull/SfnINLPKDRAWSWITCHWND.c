@@ -1,184 +1,184 @@
 /*
- * XREFs of SfnINLPKDRAWSWITCHWND @ 0x1C0209330
+ * XREFs of SfnINLPKDRAWSWITCHWND @ 0x1C022B720
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0022D84 (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
- *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C0024328 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     _WindowFromDC @ 0x1C01BDF48 (_WindowFromDC.c)
+ *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C00219B8 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
+ *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0021A5C (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     _WindowFromDC @ 0x1C010059C (_WindowFromDC.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-unsigned __int8 *__fastcall SfnINLPKDRAWSWITCHWND(_QWORD *a1, int a2, __int64 *a3, __int64 a4, __int64 a5, __int64 a6)
+unsigned __int8 *__fastcall SfnINLPKDRAWSWITCHWND(__int64 *a1, int a2, HDC a3, __int64 a4, __int64 a5, __int64 a6)
 {
   unsigned __int8 *v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  struct tagTHREADINFO *v15; // rax
-  struct tagTHREADINFO *v16; // r14
-  __int64 v17; // rsi
-  unsigned int v18; // eax
-  unsigned __int64 v19; // rdx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v12; // r14
+  __int64 v13; // rsi
+  unsigned int v14; // eax
+  unsigned __int64 v15; // rdx
   unsigned __int8 *result; // rax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  const struct tagWND *v25; // rax
+  struct tagWND *v17; // rax
   HDC DC; // r12
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int128 v22; // xmm6
+  __int64 v23; // xmm7_8
+  __int64 v24; // rcx
+  __int64 v25; // rcx
+  int v26; // edi
   __int64 v27; // rcx
-  __int64 DPIServerInfo; // rax
-  __int64 v29; // rdx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rax
-  __int128 v33; // xmm6
-  __int64 v34; // xmm7_8
-  __int64 v35; // rcx
-  __int64 v36; // rcx
-  int v37; // edi
-  __int64 v38; // rdx
-  __int64 v39; // r8
-  __int64 v40; // rdx
-  __int64 v41; // rcx
-  __int64 v42; // r8
-  __int64 v43; // rcx
-  __int64 *v44; // rcx
-  __int64 v45; // rdi
-  _BYTE v46[4]; // [rsp+30h] [rbp-388h] BYREF
-  int v47; // [rsp+34h] [rbp-384h] BYREF
-  int v48; // [rsp+38h] [rbp-380h]
-  int v49; // [rsp+3Ch] [rbp-37Ch]
-  unsigned __int8 *v50; // [rsp+50h] [rbp-368h]
-  ULONG_PTR RegionSize; // [rsp+58h] [rbp-360h] BYREF
-  unsigned __int64 v52; // [rsp+60h] [rbp-358h] BYREF
-  __int128 v53; // [rsp+70h] [rbp-348h]
-  __int64 v54; // [rsp+80h] [rbp-338h]
-  __int128 v55; // [rsp+88h] [rbp-330h] BYREF
-  __int64 v56; // [rsp+98h] [rbp-320h]
-  __int64 v57; // [rsp+A0h] [rbp-318h]
-  __int128 v58; // [rsp+C0h] [rbp-2F8h] BYREF
-  __int64 v59; // [rsp+D0h] [rbp-2E8h]
-  unsigned __int8 v60[112]; // [rsp+E0h] [rbp-2D8h] BYREF
-  unsigned __int8 v61[512]; // [rsp+150h] [rbp-268h] BYREF
+  __int64 v28; // rcx
+  __int64 *v29; // rcx
+  __int64 v30; // rdi
+  char v31; // [rsp+30h] [rbp-398h] BYREF
+  _BYTE v32[3]; // [rsp+31h] [rbp-397h] BYREF
+  int v33; // [rsp+34h] [rbp-394h] BYREF
+  unsigned int v34; // [rsp+38h] [rbp-390h]
+  int v35; // [rsp+3Ch] [rbp-38Ch]
+  int v36; // [rsp+40h] [rbp-388h]
+  unsigned __int8 *v37; // [rsp+58h] [rbp-370h]
+  _QWORD v38[3]; // [rsp+60h] [rbp-368h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp-350h] BYREF
+  __int128 v40; // [rsp+80h] [rbp-348h] BYREF
+  __int64 v41; // [rsp+90h] [rbp-338h]
+  __int128 v42; // [rsp+98h] [rbp-330h]
+  __int64 v43; // [rsp+A8h] [rbp-320h]
+  __int128 v44; // [rsp+B0h] [rbp-318h] BYREF
+  __int64 v45; // [rsp+C0h] [rbp-308h]
+  __int64 v46; // [rsp+C8h] [rbp-300h]
+  unsigned __int8 v47[112]; // [rsp+F0h] [rbp-2D8h] BYREF
+  unsigned __int8 v48[512]; // [rsp+160h] [rbp-268h] BYREF
 
-  memset_0(v60, 0, 0x68uLL);
-  v10 = v60;
-  v52 = 0LL;
-  v47 = 0;
-  v58 = 0LL;
-  v59 = 0LL;
-  v53 = 0LL;
-  v54 = 0LL;
-  v15 = PtiCurrentShared(v12, v11, v13, v14);
-  v16 = v15;
+  memset(v47, 0, 0x68uLL);
+  v10 = v47;
+  v38[0] = 0LL;
+  v33 = 0;
+  v40 = 0LL;
+  v41 = 0LL;
+  v42 = 0LL;
+  v43 = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v12 = ThreadWin32Thread;
   if ( a1 )
-    v17 = a1[5] - *((_QWORD *)v15 + 59);
+    v13 = a1[5] - *(_QWORD *)(ThreadWin32Thread + 472);
   else
-    v17 = 0LL;
-  v18 = *(_DWORD *)(a4 + 16);
-  v19 = v18 + 2;
-  if ( (unsigned int)v19 < v18 )
-    goto LABEL_24;
+    v13 = 0LL;
+  v14 = *(_DWORD *)(a4 + 16);
+  v15 = v14 + 2;
+  if ( (unsigned int)v15 < v14 )
+    goto LABEL_30;
+  v34 = v14 + 2;
   if ( *(int *)(a4 + 20) < 0 )
   {
-    v19 *= 2LL;
-    if ( v19 > 0xFFFFFFFF )
-      goto LABEL_24;
+    v15 *= 2LL;
+    if ( v15 > 0xFFFFFFFF )
+      goto LABEL_30;
+    v34 = v15;
   }
-  result = AllocCallbackMessage(104, 1u, (unsigned int)v19, v61, 1, 0x200uLL);
+  result = AllocCallbackMessage(104, 1u, (unsigned int)v15, v48, 1, 0x200uLL);
   v10 = result;
-  v50 = result;
+  v37 = result;
   if ( !result )
     return result;
-  PtiCurrentShared(v22, v21, v23, v24);
-  v55 = 0LL;
-  v56 = 0LL;
-  if ( v10 != v60 && v10 != v61 )
-    PushW32ThreadLock((__int64)v10, &v55, (__int64)Win32FreePool);
+  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v44 = 0LL;
+  v45 = 0LL;
+  if ( v10 != v47 && v10 != v48 )
+    PushW32ThreadLock((__int64)v10, &v44, (__int64)Win32FreePool);
   if ( (int)CaptureCallbackData(
               (struct _CAPTUREBUF *)v10,
-              *(char **)(a4 + 24),
+              *(_QWORD *)(a4 + 24),
               *(_DWORD *)(a4 + 16) + 2,
-              (void **)v10 + 10) < 0 )
-    goto LABEL_24;
-  v25 = WindowFromDC(a3);
-  DC = (HDC)_GetDC(v25);
-  v49 = GreSetTextColor((__int64)DC, *(_DWORD *)(gpsi + 4640LL));
-  v48 = GreSetBkColor(DC, *(_DWORD *)(gpsi + 4628LL));
-  DPIServerInfo = GetDPIServerInfo(v27);
-  RegionSize = GreSelectFontInternal((__int64)DC, *(_QWORD *)(DPIServerInfo + 8), 1);
-  *((_QWORD *)v10 + 5) = v17;
-  *((_DWORD *)v10 + 12) = a2;
-  *((_QWORD *)v10 + 7) = DC;
-  *(_OWORD *)(v10 + 88) = *(_OWORD *)a4;
-  *((_QWORD *)v10 + 8) = a5;
-  *((_QWORD *)v10 + 9) = a6;
-  ThreadLock(a1, &v58);
-  v32 = *((_QWORD *)v16 + 60);
-  v33 = *(_OWORD *)(v32 + 64);
-  v53 = v33;
-  v34 = *(_QWORD *)(v32 + 80);
-  v54 = v34;
-  *(_QWORD *)(v32 + 72) = v17;
-  v35 = a1 ? *a1 : 0LL;
-  *(_QWORD *)(*((_QWORD *)v16 + 60) + 64LL) = v35;
-  v36 = a1 ? *(_QWORD *)(a1[5] + 224LL) : 0LL;
-  *(_QWORD *)(*((_QWORD *)v16 + 60) + 80LL) = v36;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition(
-    (LeaveEnterCritProperDisposition *)v46,
-    v29,
-    v30,
-    v31);
-  EtwTraceBeginCallback(97LL);
-  *((_QWORD *)v10 + 2) = 0LL;
-  v37 = KeUserModeCallback(97LL, v10, *(unsigned int *)v10, &v52, &v47);
-  EtwTraceEndCallback(97LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v46, v38, v39);
-  ThreadUnlock1(v41, v40, v42);
-  v43 = *((_QWORD *)v16 + 60);
-  *(_OWORD *)(v43 + 64) = v33;
-  *(_QWORD *)(v43 + 80) = v34;
-  GreSelectFontInternal((__int64)DC, RegionSize, 1);
-  GreSetBkColor(DC, v48);
-  GreSetTextColor((__int64)DC, v49);
-  _ReleaseDC(DC);
-  if ( v37 < 0 )
-    goto LABEL_24;
-  if ( v47 == 24 )
+              (void **)v10 + 10) >= 0 )
   {
-    v44 = (__int64 *)v52;
-    if ( v52 + 8 < v52 || v52 + 8 > MmUserProbeAddress )
-      v44 = (__int64 *)MmUserProbeAddress;
-    v45 = *v44;
-    v57 = *v44;
+    v17 = WindowFromDC(a3);
+    DC = (HDC)_GetDC(v17);
+    v36 = GreSetTextColor(DC, *(_DWORD *)(gpsi + 4640LL));
+    v35 = GreSetBkColor(DC, *(_DWORD *)(gpsi + 4628LL));
+    GetDPIServerInfo(v19);
+    v38[2] = GreSelectFont(DC);
+    *((_QWORD *)v10 + 5) = v13;
+    *((_DWORD *)v10 + 12) = a2;
+    *((_QWORD *)v10 + 7) = DC;
+    *(_OWORD *)(v10 + 88) = *(_OWORD *)a4;
+    *((_QWORD *)v10 + 8) = a5;
+    *((_QWORD *)v10 + 9) = a6;
+    v20 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    *(_QWORD *)&v40 = *(_QWORD *)(v20 + 416);
+    *(_QWORD *)(v20 + 416) = &v40;
+    *((_QWORD *)&v40 + 1) = a1;
+    if ( a1 )
+      HMLockObject(a1);
+    v21 = *(_QWORD *)(v12 + 480);
+    v22 = *(_OWORD *)(v21 + 64);
+    v42 = v22;
+    v23 = *(_QWORD *)(v21 + 80);
+    v43 = v23;
+    *(_QWORD *)(v21 + 72) = v13;
+    if ( a1 )
+      v24 = *a1;
+    else
+      v24 = 0LL;
+    *(_QWORD *)(*(_QWORD *)(v12 + 480) + 64LL) = v24;
+    if ( a1 )
+      v25 = *(_QWORD *)(a1[5] + 224);
+    else
+      v25 = 0LL;
+    *(_QWORD *)(*(_QWORD *)(v12 + 480) + 80LL) = v25;
+    if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v32);
+    LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v31);
+    EtwTraceBeginCallback(97LL);
+    *((_QWORD *)v10 + 2) = 0LL;
+    v26 = KeUserModeCallback(97LL, v10, *(unsigned int *)v10, v38, &v33);
+    EtwTraceEndCallback(97LL);
+    LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v31);
+    ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v32);
+    ThreadUnlock1(v27);
+    v28 = *(_QWORD *)(v12 + 480);
+    *(_OWORD *)(v28 + 64) = v22;
+    *(_QWORD *)(v28 + 80) = v23;
+    GreSelectFont(DC);
+    GreSetBkColor(DC, v35);
+    GreSetTextColor(DC, v36);
+    _ReleaseDC(DC);
+    if ( v26 >= 0 && v33 == 24 )
+    {
+      v29 = (__int64 *)v38[0];
+      if ( (unsigned __int64)(v38[0] + 8LL) < v38[0] || v38[0] + 8LL > MmUserProbeAddress )
+        v29 = (__int64 *)MmUserProbeAddress;
+      v30 = *v29;
+      v46 = *v29;
+      goto LABEL_31;
+    }
   }
-  else
-  {
-LABEL_24:
-    v45 = 0LL;
-  }
-  if ( v10 != v60 && v10 != v61 )
+LABEL_30:
+  v30 = 0LL;
+LABEL_31:
+  if ( v10 != v47 && v10 != v48 )
   {
     if ( *((_QWORD *)v10 + 4) )
     {
       RegionSize = 0LL;
       ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v10 + 4, &RegionSize, 0x8000u);
     }
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v55);
+    PopAndFreeAlwaysW32ThreadLock((__int64)&v44);
   }
-  return (unsigned __int8 *)v45;
+  return (unsigned __int8 *)v30;
 }

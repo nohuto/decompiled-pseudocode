@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C001369C
+ * XREFs of McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C0013198
  * Callers:
- *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001ACB0 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper.c)
- *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001ADFC (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup.c)
+ *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001A758 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper.c)
+ *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001A8A8 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqhhhq_EtwWriteTransfer(__int64 a1, __int64 a2, const GUID *a3, ...)

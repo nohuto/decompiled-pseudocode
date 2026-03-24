@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetUpdateCallback@CHolographicFrameProcessor@@UEAAJPEAUIHolographicWin32kInteropTextureCallback@@@Z @ 0x1800FC9F0
+ * XREFs of ?SetUpdateCallback@CHolographicFrameProcessor@@UEAAJPEAUIHolographicWin32kInteropTextureCallback@@@Z @ 0x1800E39E0
  * Callers:
  *     <none>
  * Callees:

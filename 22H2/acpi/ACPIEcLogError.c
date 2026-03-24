@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcLogError @ 0x1C0025BB8
+ * XREFs of ACPIEcLogError @ 0x1C00542D8
  * Callers:
- *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
- *     ACPIEcWatchdogDpc @ 0x1C0025D90 (ACPIEcWatchdogDpc.c)
+ *     ACPIEcServiceIoLoop @ 0x1C00544A4 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0054AB0 (ACPIEcWatchdogDpc.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 void __fastcall ACPIEcLogError(__int64 a1, int a2)

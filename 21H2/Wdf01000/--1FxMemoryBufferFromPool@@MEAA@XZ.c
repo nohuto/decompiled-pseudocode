@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1FxMemoryBufferFromPool@@MEAA@XZ @ 0x1C000FB80
+ * XREFs of ??1FxMemoryBufferFromPool@@MEAA@XZ @ 0x1C0055C40
  * Callers:
- *     ??_EFxMemoryBufferFromPool@@MEAAPEAXI@Z @ 0x1C000F310 (--_EFxMemoryBufferFromPool@@MEAAPEAXI@Z.c)
+ *     ??_EFxMemoryBufferFromPool@@MEAAPEAXI@Z @ 0x1C0055C90 (--_EFxMemoryBufferFromPool@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
  */
 
 void __fastcall FxMemoryBufferFromPool::~FxMemoryBufferFromPool(

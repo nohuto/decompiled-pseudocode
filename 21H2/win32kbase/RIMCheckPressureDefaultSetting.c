@@ -1,33 +1,26 @@
 /*
- * XREFs of RIMCheckPressureDefaultSetting @ 0x1C005EC04
+ * XREFs of RIMCheckPressureDefaultSetting @ 0x1C00AE9B4
  * Callers:
- *     RIMRegisterForInputWithCallbacks @ 0x1C005E080 (RIMRegisterForInputWithCallbacks.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C0088530 (RIMRegisterForInputWithCallbacks.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
  */
 
 int __fastcall RIMCheckPressureDefaultSetting(__int64 a1)
 {
   int result; // eax
-  PVOID v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rax
-  __int64 Pool2; // rbx
-  char v7; // si
-  struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-D0h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
-  PVOID BackTrace[20]; // [rsp+80h] [rbp-80h] BYREF
-  ULONG ResultLength; // [rsp+140h] [rbp+40h] BYREF
-  void *KeyHandle; // [rsp+148h] [rbp+48h] BYREF
+  __int64 v3; // rbx
+  struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-50h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  ULONG ResultLength; // [rsp+90h] [rbp+10h] BYREF
+  void *KeyHandle; // [rsp+98h] [rbp+18h] BYREF
 
   KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_BYTE *)(a1 + 1073) = 1;
+  *(_BYTE *)(a1 + 849) = 1;
   DestinationString = 0LL;
   RtlInitUnicodeString(
     &DestinationString,
@@ -43,78 +36,30 @@ int __fastcall RIMCheckPressureDefaultSetting(__int64 a1)
     ValueName = 0LL;
     RtlInitUnicodeString(&ValueName, L"Disable");
     ResultLength = 0;
-    if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength) == -1073741772
-      || !ResultLength )
+    if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength) != -1073741772 )
     {
-      return ZwClose(KeyHandle);
-    }
-    v3 = gpLeakTrackingAllocator;
-    v4 = ResultLength;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x63707352) == 0x63707352 )
-    {
-      v5 = 0LL;
-      if ( *((_DWORD *)gpLeakTrackingAllocator + 11) )
+      if ( ResultLength )
       {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v5) != 1668313938 )
+        v3 = Win32AllocPool(ResultLength, 0x63707352u);
+        if ( v3 )
         {
-          if ( ++v5 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_8;
-        }
-        v7 = 0;
-        if ( ResultLength < 0x1000uLL || (ResultLength & 0xFFF) != 0 )
-        {
-          v7 = 1;
-          v4 = ResultLength + 16LL;
-        }
-        Pool2 = ExAllocatePool2(260LL, v4);
-        if ( !Pool2 )
-          return ZwClose(KeyHandle);
-        memset(BackTrace, 0, sizeof(BackTrace));
-        RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-        if ( v7 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v3,
-                                  Pool2,
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-LABEL_9:
-            if ( Pool2 )
-              goto LABEL_10;
-            return ZwClose(KeyHandle);
-          }
-        }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v3,
-                                     Pool2,
-                                     BackTrace) )
-        {
-LABEL_10:
           if ( ZwQueryValueKey(
                  KeyHandle,
                  &ValueName,
                  KeyValuePartialInformation,
-                 (PVOID)Pool2,
+                 (PVOID)v3,
                  ResultLength,
                  &ResultLength) >= 0
-            && *(_DWORD *)(Pool2 + 4) == 4
-            && *(_BYTE *)(Pool2 + 12) == 1 )
+            && *(_DWORD *)(v3 + 4) == 4
+            && *(_BYTE *)(v3 + 12) == 1 )
           {
-            *(_BYTE *)(a1 + 1073) = 0;
+            *(_BYTE *)(a1 + 849) = 0;
           }
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            (void *)Pool2);
-          return ZwClose(KeyHandle);
+          Win32FreePool(v3);
         }
-        ExFreePoolWithTag((PVOID)Pool2, 0);
-        return ZwClose(KeyHandle);
       }
     }
-LABEL_8:
-    Pool2 = ExAllocatePool2(260LL, ResultLength);
-    goto LABEL_9;
+    return ZwClose(KeyHandle);
   }
   return result;
 }

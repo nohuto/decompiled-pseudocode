@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801075D0
+ * XREFs of ?Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6580
  * Callers:
  *     <none>
  * Callees:

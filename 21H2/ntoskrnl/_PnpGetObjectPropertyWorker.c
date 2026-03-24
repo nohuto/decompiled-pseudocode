@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpGetObjectPropertyWorker @ 0x14077DBE8
+ * XREFs of _PnpGetObjectPropertyWorker @ 0x140637D08
  * Callers:
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _PnpValidatePropertyData @ 0x140771CD0 (_PnpValidatePropertyData.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
- *     _PnpGetMappedPropertyDispatch @ 0x14077DD78 (_PnpGetMappedPropertyDispatch.c)
- *     _PnpGetGenericStoreProperty @ 0x14077DF24 (_PnpGetGenericStoreProperty.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetMappedPropertyDispatch @ 0x140637E9C (_PnpGetMappedPropertyDispatch.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406381DC (_PnpGetGenericStoreProperty.c)
+ *     _PnpValidatePropertyData @ 0x14063A2BC (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyWorker(
@@ -17,14 +17,14 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
         void *a4,
         __int64 a5,
         __int64 a6,
-        int *a7,
-        __int64 *a8,
+        _DWORD *a7,
+        unsigned __int64 a8,
         int a9,
         ULONG *a10,
         int a11)
 {
   HANDLE v12; // rbp
-  __int64 *v14; // rdi
+  void *v14; // rdi
   int v15; // esi
   int MappedPropertyDispatch; // ebx
   HANDLE Handle[2]; // [rsp+60h] [rbp-38h] BYREF
@@ -33,11 +33,11 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
   Handle[0] = 0LL;
   if ( (_WORD)a11 )
     return (unsigned int)-1073741811;
-  v14 = a8;
+  v14 = (void *)a8;
   if ( a8 )
   {
     v15 = a9;
-    v14 = (__int64 *)(-(__int64)(a9 != 0) & (unsigned __int64)a8);
+    v14 = (void *)(-(__int64)(a9 != 0) & a8);
   }
   else
   {
@@ -66,9 +66,9 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
         goto LABEL_5;
       v12 = Handle[0];
     }
-    MappedPropertyDispatch = PnpGetGenericStoreProperty(a1, v12, a5, a6, a7);
+    MappedPropertyDispatch = PnpGetGenericStoreProperty(a1, v12, a5, a6, a7, v14, v15, a10);
     if ( MappedPropertyDispatch >= 0 )
-      MappedPropertyDispatch = PnpValidatePropertyData(v14, *a10, *a7);
+      MappedPropertyDispatch = PnpValidatePropertyData(v14, *a10);
   }
 LABEL_5:
   if ( Handle[0] )

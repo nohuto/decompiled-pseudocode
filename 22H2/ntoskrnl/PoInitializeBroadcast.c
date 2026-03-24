@@ -1,58 +1,61 @@
 /*
- * XREFs of PoInitializeBroadcast @ 0x14098BC94
+ * XREFs of PoInitializeBroadcast @ 0x140778138
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140983798 (PopDirectedDripsInitializeBroadcast.c)
- *     PnprQuiesceDevices @ 0x140A9D3C4 (PnprQuiesceDevices.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E339C (PopDirectedDripsInitializeBroadcast.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     PnprQuiesceDevices @ 0x1409AE350 (PnprQuiesceDevices.c)
  * Callees:
- *     PpmBeginHighPerfRequest @ 0x14036E924 (PpmBeginHighPerfRequest.c)
- *     PopHaltDeviceIdle @ 0x140587550 (PopHaltDeviceIdle.c)
- *     PopBuildDeviceNotifyList @ 0x140AA71FC (PopBuildDeviceNotifyList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PopHaltDeviceIdle @ 0x1403886C8 (PopHaltDeviceIdle.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A72D0 (PpmBeginHighPerfRequest.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopBuildDeviceNotifyList @ 0x1409971A8 (PopBuildDeviceNotifyList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PoInitializeBroadcast()
 {
-  unsigned int v0; // edi
-  _QWORD *Pool2; // rsi
-  _QWORD *v2; // rcx
-  __int64 v3; // rdx
-  _QWORD *v4; // rax
+  _QWORD *PoolWithTag; // rax
+  unsigned int v1; // ebx
+  _QWORD *v2; // rdi
+  _QWORD *v3; // rcx
+  __int64 v4; // rdx
+  _QWORD *v5; // rax
 
-  v0 = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 472LL, 1936933968LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1D8uLL, 0x73734450u);
+  v1 = 0;
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v2 = Pool2 + 12;
-    Pool2[2] = KeGetCurrentThread();
-    v3 = 5LL;
-    Pool2[1] = 0LL;
-    Pool2[55] = Pool2 + 54;
-    Pool2[54] = Pool2 + 54;
+    memset(PoolWithTag, 0, 0x1D8uLL);
+    v3 = v2 + 12;
+    v2[2] = KeGetCurrentThread();
+    v4 = 5LL;
+    v2[55] = v2 + 54;
+    v2[54] = v2 + 54;
     do
     {
-      *(v2 - 2) = v2 - 3;
-      *(v2 - 3) = v2 - 3;
-      *v2 = v2 - 1;
-      *(v2 - 1) = v2 - 1;
-      v2[2] = v2 + 1;
-      v2[1] = v2 + 1;
-      v4 = v2 + 3;
-      v2[4] = v2 + 3;
-      v2 += 9;
-      *v4 = v4;
-      --v3;
+      *(v3 - 2) = v3 - 3;
+      *(v3 - 3) = v3 - 3;
+      *v3 = v3 - 1;
+      *(v3 - 1) = v3 - 1;
+      v3[2] = v3 + 1;
+      v3[1] = v3 + 1;
+      v5 = v3 + 3;
+      v3[4] = v3 + 3;
+      v3 += 9;
+      *v5 = v5;
+      --v4;
     }
-    while ( v3 );
+    while ( v4 );
     PpmBeginHighPerfRequest();
     PopCurrentBroadcast = 0uLL;
-    qword_140C3CDB0 = Pool2;
-    PopBuildDeviceNotifyList(Pool2 + 6);
+    qword_140C23A30 = v2;
+    PopBuildDeviceNotifyList(v2 + 6);
     PopHaltDeviceIdle();
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v0;
+  return v1;
 }

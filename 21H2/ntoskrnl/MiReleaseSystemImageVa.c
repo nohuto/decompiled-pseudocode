@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleaseSystemImageVa @ 0x140B52AA8
+ * XREFs of MiReleaseSystemImageVa @ 0x140A92C18
  * Callers:
- *     MiHandleBootImage @ 0x140B050A8 (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
  * Callees:
- *     MiReleasePrivilegedPtes @ 0x1406EBA70 (MiReleasePrivilegedPtes.c)
- *     MiReleaseDriverPtes @ 0x14076200C (MiReleaseDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x14075FCF0 (MiReleaseDriverPtes.c)
+ *     MiReleasePrivilegedPtes @ 0x140773A48 (MiReleasePrivilegedPtes.c)
  */
 
 void __fastcall MiReleaseSystemImageVa(unsigned __int64 a1, unsigned int a2)

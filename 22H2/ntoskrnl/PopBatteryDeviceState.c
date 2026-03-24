@@ -1,113 +1,119 @@
 /*
- * XREFs of PopBatteryDeviceState @ 0x14099517C
+ * XREFs of PopBatteryDeviceState @ 0x1408ECF68
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PopBatteryDeviceState(wchar_t *a1, __int64 a2)
 {
-  signed int v3; // ebx
-  __int64 v4; // r8
-  wchar_t *v5; // rax
+  wchar_t *Buffer; // rsi
+  signed int v4; // ebx
+  __int64 v5; // r8
+  wchar_t *v6; // rax
   unsigned __int16 Length; // di
+  unsigned __int16 MaximumLength; // r14
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v8; // rax
-  __int64 v9; // rdi
-  __m128i v10; // xmm0
-  __int64 v11; // rbx
-  __int128 v12; // xmm0
+  struct _KTHREAD *v10; // rax
+  __int64 v11; // rdi
+  __m128i v12; // xmm0
+  __int64 v13; // rbx
+  __int128 v14; // xmm0
   UNICODE_STRING String2; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING v15; // [rsp+30h] [rbp-10h] BYREF
+  UNICODE_STRING v17; // [rsp+30h] [rbp-10h] BYREF
 
-  v3 = 0;
+  Buffer = a1;
+  v4 = 0;
   String2 = 0LL;
   if ( !a1 )
     goto LABEL_7;
-  v4 = 0x7FFFLL;
-  v5 = a1;
+  v5 = 0x7FFFLL;
+  v6 = a1;
   do
   {
-    if ( !*v5 )
+    if ( !*v6 )
       break;
-    ++v5;
-    --v4;
+    ++v6;
+    --v5;
   }
-  while ( v4 );
-  v3 = v4 == 0 ? 0xC000000D : 0;
-  if ( v4 )
+  while ( v5 );
+  v4 = v5 == 0 ? 0xC000000D : 0;
+  if ( v5 )
   {
+    Length = 2 * (v5 != 0 ? 0x7FFF - v5 : 0);
     String2.Buffer = a1;
-    Length = 2 * (0x7FFF - v4);
     String2.Length = Length;
+    MaximumLength = Length + 2;
     String2.MaximumLength = Length + 2;
   }
   else
   {
 LABEL_7:
+    Buffer = String2.Buffer;
+    MaximumLength = String2.MaximumLength;
     Length = String2.Length;
   }
-  if ( v3 >= 0 )
+  if ( v4 >= 0 )
   {
     if ( Length > 8u
       && (RtlPrefixUnicodeString(&PopDevicePrefixNt, &String2, 0)
        || RtlPrefixUnicodeString(&PopDevicePrefixWin32, &String2, 0)) )
     {
       CurrentThread = KeGetCurrentThread();
-      String2.Buffer += 4;
-      String2.MaximumLength -= 8;
+      String2.Buffer = Buffer + 4;
       String2.Length = Length - 8;
       --CurrentThread->KernelApcDisable;
+      String2.MaximumLength = MaximumLength - 8;
       ExAcquirePushLockSharedEx((ULONG_PTR)&PopPolicyDeviceLock, 0LL);
-      v8 = KeGetCurrentThread();
-      --v8->KernelApcDisable;
+      v10 = KeGetCurrentThread();
+      --v10->KernelApcDisable;
       ExAcquirePushLockSharedEx((ULONG_PTR)&PopCB, 0LL);
-      v9 = qword_140C3D100;
-      if ( (__int64 *)qword_140C3D100 == &qword_140C3D100 )
+      v11 = qword_140C23C40;
+      if ( (__int64 *)qword_140C23C40 == &qword_140C23C40 )
         goto LABEL_20;
       do
       {
-        v10 = *(__m128i *)(v9 + 32);
-        v11 = v9;
-        *(_QWORD *)&v15.Length = *(_QWORD *)(v9 + 32);
-        v15.Length -= 8;
-        v15.MaximumLength -= 8;
-        v15.Buffer = (wchar_t *)(_mm_srli_si128(v10, 8).m128i_u64[0] + 8);
-        if ( RtlEqualUnicodeString(&String2, &v15, 1u) )
+        v12 = *(__m128i *)(v11 + 32);
+        v13 = v11;
+        *(_QWORD *)&v17.Length = *(_QWORD *)(v11 + 32);
+        v17.Length -= 8;
+        v17.MaximumLength -= 8;
+        v17.Buffer = (wchar_t *)(_mm_srli_si128(v12, 8).m128i_u64[0] + 8);
+        if ( RtlEqualUnicodeString(&String2, &v17, 1u) )
           break;
-        v9 = *(_QWORD *)v9;
-        v11 = 0LL;
+        v11 = *(_QWORD *)v11;
+        v13 = 0LL;
       }
-      while ( (__int64 *)v9 != &qword_140C3D100 );
-      if ( !v11 )
+      while ( (__int64 *)v11 != &qword_140C23C40 );
+      if ( !v13 )
       {
 LABEL_20:
-        v3 = -1073741772;
+        v4 = -1073741772;
       }
-      else if ( *(_DWORD *)(v11 + 104) == 3 )
+      else if ( *(_DWORD *)(v13 + 104) == 3 )
       {
-        *(_OWORD *)a2 = *(_OWORD *)(v11 + 112);
-        *(_OWORD *)(a2 + 16) = *(_OWORD *)(v11 + 128);
-        *(_DWORD *)(a2 + 32) = *(_DWORD *)(v11 + 144);
-        v12 = *(_OWORD *)(v11 + 148);
-        v3 = 0;
-        *(_OWORD *)(a2 + 36) = v12;
+        *(_OWORD *)a2 = *(_OWORD *)(v13 + 112);
+        *(_OWORD *)(a2 + 16) = *(_OWORD *)(v13 + 128);
+        *(_DWORD *)(a2 + 32) = *(_DWORD *)(v13 + 144);
+        v14 = *(_OWORD *)(v13 + 148);
+        v4 = 0;
+        *(_OWORD *)(a2 + 36) = v14;
       }
       else
       {
-        v3 = -1073741661;
+        v4 = -1073741661;
       }
-      PopReleaseRwLock((__int64 *)&PopCB);
-      PopReleaseRwLock((__int64 *)&PopPolicyDeviceLock);
+      PopReleaseRwLock((ULONG_PTR)&PopCB);
+      PopReleaseRwLock((ULONG_PTR)&PopPolicyDeviceLock);
     }
     else
     {
       return (unsigned int)-1073741773;
     }
   }
-  return (unsigned int)v3;
+  return (unsigned int)v4;
 }

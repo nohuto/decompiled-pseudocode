@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpVerifyWindowsOsOptions @ 0x1409FE880
+ * XREFs of ExpVerifyWindowsOsOptions @ 0x140952F74
  * Callers:
- *     NtEnumerateBootEntries @ 0x14083F840 (NtEnumerateBootEntries.c)
- *     ExpSetBootEntry @ 0x1409FD220 (ExpSetBootEntry.c)
+ *     ExpSetBootEntry @ 0x140951150 (ExpSetBootEntry.c)
+ *     NtEnumerateBootEntries @ 0x140953360 (NtEnumerateBootEntries.c)
  * Callees:
- *     ExpSafeWcslen @ 0x14083FE94 (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x1408401A0 (ExpVerifyFilePath.c)
+ *     ExpSafeWcslen @ 0x140951120 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x140952E18 (ExpVerifyFilePath.c)
  */
 
 __int64 __fastcall ExpVerifyWindowsOsOptions(__int64 a1, unsigned int a2)
@@ -16,7 +16,7 @@ __int64 __fastcall ExpVerifyWindowsOsOptions(__int64 a1, unsigned int a2)
   __int64 v5; // r10
   unsigned int v6; // eax
   __int64 v7; // rcx
-  _DWORD *v8; // rcx
+  unsigned __int64 v8; // rcx
 
   v5 = (unsigned int)ExpSafeWcslen((_WORD *)(a1 + 20), a1 + a2);
   v6 = v3[3];
@@ -33,8 +33,8 @@ __int64 __fastcall ExpVerifyWindowsOsOptions(__int64 a1, unsigned int a2)
     return 3221225485LL;
   if ( (_DWORD)v5 == -1 )
     return 3221225485LL;
-  v8 = (_DWORD *)((char *)v3 + v7);
-  if ( (_DWORD *)((char *)v3 + 2 * v5 + 22) > v8 )
+  v8 = (unsigned __int64)v3 + v7;
+  if ( (unsigned __int64)v3 + 2 * v5 + 22 > v8 )
     return 3221225485LL;
   else
     return ExpVerifyFilePath(v8, v2);

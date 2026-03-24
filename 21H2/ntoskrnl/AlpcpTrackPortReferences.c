@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpTrackPortReferences @ 0x1406DA0CC
+ * XREFs of AlpcpTrackPortReferences @ 0x1406B8108
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x1407AC6B0 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1405E79F0 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall AlpcpTrackPortReferences(__int64 a1)
+char __fastcall AlpcpTrackPortReferences(__int64 a1)
 {
   signed __int32 v2; // edi
   volatile signed __int64 *v3; // rbx
   struct _KEVENT *v4; // rcx
-  __int64 result; // rax
+  char result; // al
 
   v2 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 404));
   if ( *(_QWORD *)(a1 + 408) )

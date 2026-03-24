@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpFastFlushPasidAddressList @ 0x1405493A8
+ * XREFs of HvlpFastFlushPasidAddressList @ 0x1404F75DC
  * Callers:
- *     HvlSvmFlushPasid @ 0x140548BF0 (HvlSvmFlushPasid.c)
+ *     HvlSvmFlushPasid @ 0x1404F6ED0 (HvlSvmFlushPasid.c)
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, unsigned int a3, __int64 a4)
@@ -36,5 +36,5 @@ __int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, unsigned int a3
   }
   LODWORD(v8) = 65697;
   HIDWORD(v8) = a3 & 0xFFF;
-  return HvcallFastExtended(v8, (__int64)v9, 8 * a3 + 16, 0LL, 0);
+  return HvcallFastExtended(v8, (__int64)v9, 8 * a3 + 16, 0, 0);
 }

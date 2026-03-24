@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterPriorityCallback @ 0x140557E20
+ * XREFs of IoUnregisterPriorityCallback @ 0x140506610
  * Callers:
- *     IopDeleteDriver @ 0x14085D640 (IopDeleteDriver.c)
+ *     IopDeleteDriver @ 0x140772070 (IopDeleteDriver.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExWaitForCallBacks @ 0x1409FB4DC (ExWaitForCallBacks.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExCompareExchangeCallBack @ 0x1403A7E6C (ExCompareExchangeCallBack.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExWaitForCallBacks @ 0x14094F00C (ExWaitForCallBacks.c)
  */
 
 void __fastcall IoUnregisterPriorityCallback(__int64 a1)
@@ -45,7 +45,7 @@ void __fastcall IoUnregisterPriorityCallback(__int64 a1)
           if ( v10 == v9 )
             goto LABEL_15;
         }
-        ExReleaseRundownProtection(v6);
+        ExReleaseRundownProtection_0(v6);
         goto LABEL_15;
       }
       if ( ExCompareExchangeCallBack(&IopUpdatePriorityCallbackRoutine[v3], 0LL, (__int64)v5) )
@@ -55,7 +55,7 @@ LABEL_15:
     v3 = (unsigned int)(v3 + 1);
     if ( (unsigned int)v3 >= 8 )
     {
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
       return;
     }
   }
@@ -65,7 +65,7 @@ LABEL_15:
   if ( ((unsigned __int64)v6 ^ v7) >= 0xF )
   {
 LABEL_9:
-    ExReleaseRundownProtection(v6);
+    ExReleaseRundownProtection_0(v6);
   }
   else
   {
@@ -79,7 +79,7 @@ LABEL_9:
         goto LABEL_9;
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   ExWaitForCallBacks(v6);
   SC_ENV::Free(v6);
   *(_DWORD *)(a1 + 16) &= ~0x200u;

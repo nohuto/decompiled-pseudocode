@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x1403C3BE0
+ * XREFs of FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x14039A4F0
  * Callers:
- *     FsRtlGetVirtualDiskNestingLevel @ 0x1403C3A40 (FsRtlGetVirtualDiskNestingLevel.c)
+ *     FsRtlGetVirtualDiskNestingLevel @ 0x140325030 (FsRtlGetVirtualDiskNestingLevel.c)
  * Callees:
- *     FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403B1584 (FsRtlpGetMaxVirtualDiskNestingLevel.c)
+ *     FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403CCDAC (FsRtlpGetMaxVirtualDiskNestingLevel.c)
  */
 
 ULONG FsRtlQueryMaximumVirtualDiskNestingLevel(void)

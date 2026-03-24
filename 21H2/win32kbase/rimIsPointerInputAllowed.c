@@ -1,23 +1,23 @@
 /*
- * XREFs of rimIsPointerInputAllowed @ 0x1C017F788
+ * XREFs of rimIsPointerInputAllowed @ 0x1C0152A84
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall rimIsPointerInputAllowed(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall rimIsPointerInputAllowed(__int64 a1)
 {
-  unsigned int v3; // ebx
+  unsigned int v1; // ebx
 
-  v3 = 0;
-  if ( !*(_QWORD *)(a1 + 472) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+  v1 = 0;
+  if ( !*(_QWORD *)(a1 + 480) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 267);
   if ( !gbTestModeOn
     || (*(_DWORD *)(a1 + 184) & 0x2000) != 0
-    || (*(_DWORD *)(*(_QWORD *)(a1 + 472) + 360LL) & 0x4000) != 0 )
+    || (*(_DWORD *)(*(_QWORD *)(a1 + 480) + 312LL) & 0x4000) != 0 )
   {
     return 1;
   }
-  return v3;
+  return v1;
 }

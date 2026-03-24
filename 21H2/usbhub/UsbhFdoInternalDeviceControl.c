@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhFdoInternalDeviceControl @ 0x1C0002C70
+ * XREFs of UsbhFdoInternalDeviceControl @ 0x1C001C2D0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhInternalIoctlPropagateResume @ 0x1C0002D58 (UsbhInternalIoctlPropagateResume.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhFdoChainIrp @ 0x1C002996C (UsbhFdoChainIrp.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhInternalIoctlPropagateResume @ 0x1C001C31C (UsbhInternalIoctlPropagateResume.c)
+ *     UsbhFdoChainIrp @ 0x1C002ACBC (UsbhFdoChainIrp.c)
  */
 
 __int64 __fastcall UsbhFdoInternalDeviceControl(__int64 a1, IRP *a2)
@@ -20,11 +20,11 @@ __int64 __fastcall UsbhFdoInternalDeviceControl(__int64 a1, IRP *a2)
     case 0x220FA3u:
       return UsbhInternalIoctlPropagateResume();
     case 0x220FA7u:
-      *(_DWORD *)(FdoExt(a1) + 4216) = 2;
+      FdoExt(a1)[1054] = 2;
       a2->IoStatus.Status = 0;
       IofCompleteRequest(a2, 0);
       return 0LL;
     default:
-      return UsbhFdoChainIrp();
+      return UsbhFdoChainIrp(a1, a2);
   }
 }

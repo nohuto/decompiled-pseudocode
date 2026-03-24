@@ -1,9 +1,9 @@
 /*
- * XREFs of EmRemoveBadS3PagesCallback @ 0x14092CF10
+ * XREFs of EmRemoveBadS3PagesCallback @ 0x14088A4E0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall EmRemoveBadS3PagesCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int *a5, int a6)

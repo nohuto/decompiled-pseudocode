@@ -1,92 +1,97 @@
 /*
- * XREFs of DpiGetDevicePropertyDataString @ 0x1C0224AB8
+ * XREFs of DpiGetDevicePropertyDataString @ 0x1C018AD24
  * Callers:
- *     DpiMiracastInterfaceChange @ 0x1C0060160 (DpiMiracastInterfaceChange.c)
- *     DpiFdoInitializeFdo @ 0x1C020431C (DpiFdoInitializeFdo.c)
- *     ?FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C03757C0 (-FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z.c)
+ *     DpiMiracastInterfaceChange @ 0x1C0053650 (DpiMiracastInterfaceChange.c)
+ *     DpiFdoInitializeFdo @ 0x1C018DAEC (DpiFdoInitializeFdo.c)
+ *     ?FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C023AE4C (-FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DpiGetDevicePropertyDataString(
         PDEVICE_OBJECT Pdo,
         DEVPROPKEY *PropertyKey,
         __int64 a3,
-        __int64 a4,
+        POOL_TYPE a4,
         _QWORD *a5,
         _DWORD *a6)
 {
-  _QWORD *v9; // rsi
-  _DWORD *v10; // r14
-  NTSTATUS DevicePropertyData; // eax
-  unsigned int v12; // ebx
-  void *Pool2; // rax
   void *Data; // rdi
-  ULONG v15; // ebx
-  NTSTATUS v16; // eax
-  int v17; // eax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  ULONG Type; // [rsp+70h] [rbp+8h] BYREF
-  size_t Size; // [rsp+80h] [rbp+18h] BYREF
+  _QWORD *v10; // rsi
+  _DWORD *v11; // r14
+  NTSTATUS DevicePropertyData; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rbx
+  PVOID PoolWithTag; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  NTSTATUS v21; // eax
+  int v22; // eax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  ULONG Type; // [rsp+80h] [rbp+40h] BYREF
+  size_t RequiredSize; // [rsp+90h] [rbp+50h] BYREF
 
   Type = 0;
-  LODWORD(Size) = 0;
+  Data = 0LL;
+  LODWORD(RequiredSize) = 0;
   if ( Pdo )
   {
     if ( PropertyKey )
     {
-      v9 = a5;
+      v10 = a5;
       if ( a5 )
       {
-        v10 = a6;
+        v11 = a6;
         if ( a6 )
         {
-          DevicePropertyData = IoGetDevicePropertyData(Pdo, PropertyKey, 0, 0, 0, 0LL, (PULONG)&Size, &Type);
-          v12 = DevicePropertyData;
-          if ( DevicePropertyData == -1073741789 )
+          DevicePropertyData = IoGetDevicePropertyData(Pdo, PropertyKey, 0, 0, 0, 0LL, (PULONG)&RequiredSize, &Type);
+          v15 = DevicePropertyData;
+          if ( DevicePropertyData != -1073741789 )
+            goto LABEL_13;
+          if ( Type != 18 )
           {
-            if ( Type == 18 )
-            {
-              LODWORD(Size) = Size + 2;
-              Pool2 = (void *)ExAllocatePool2(a4, (unsigned int)Size, 1953656900LL);
-              Data = Pool2;
-              if ( Pool2 )
-              {
-                v15 = Size;
-                memset(Pool2, 0, (unsigned int)Size);
-                v16 = IoGetDevicePropertyData(Pdo, PropertyKey, 0, 0, v15, Data, (PULONG)&Size, &Type);
-                v12 = v16;
-                if ( v16 < 0 )
-                {
-                  WdLogSingleEntry1(2LL, v16);
-                  ExFreePoolWithTag(Data, 0);
-                  return v12;
-                }
-                goto LABEL_9;
-              }
-              v19 = -1073741670LL;
-              v12 = -1073741670;
-              v20 = 6LL;
-            }
-            else
-            {
-              v12 = -1073741811;
-              v19 = -1073741811LL;
-              v20 = 2LL;
-            }
-            WdLogSingleEntry1(v20, v19);
-            return v12;
+            LODWORD(v15) = -1073741811;
+            v24 = WdLogNewEntry5_WdError(v14, v13);
+            *(_QWORD *)(v24 + 24) = -1073741811LL;
+            WdLogEvent5_WdError(v24);
+            return (unsigned int)v15;
           }
-          WdLogSingleEntry1(2LL, DevicePropertyData);
-          Data = 0LL;
-          if ( (v12 & 0x80000000) != 0 )
-            return v12;
-LABEL_9:
-          v17 = Size;
-          *v9 = Data;
-          *v10 = v17;
-          return v12;
+          LODWORD(RequiredSize) = RequiredSize + 2;
+          PoolWithTag = ExAllocatePoolWithTag(a4, (unsigned int)RequiredSize, 0x74727044u);
+          Data = PoolWithTag;
+          if ( !PoolWithTag )
+          {
+            LODWORD(v15) = -1073741670;
+            v25 = WdLogNewEntry5_WdLowResource(v18, v17, v19, v20);
+            *(_QWORD *)(v25 + 24) = -1073741670LL;
+            WdLogEvent5_WdLowResource(v25);
+            return (unsigned int)v15;
+          }
+          memset(PoolWithTag, 0, (unsigned int)RequiredSize);
+          v21 = IoGetDevicePropertyData(Pdo, PropertyKey, 0, 0, RequiredSize, Data, (PULONG)&RequiredSize, &Type);
+          v15 = v21;
+          if ( v21 < 0 )
+          {
+LABEL_13:
+            v26 = WdLogNewEntry5_WdError(v14, v13);
+            *(_QWORD *)(v26 + 24) = v15;
+            WdLogEvent5_WdError(v26);
+            if ( (int)v15 < 0 )
+            {
+              if ( Data )
+                ExFreePoolWithTag(Data, 0);
+              return (unsigned int)v15;
+            }
+          }
+          v22 = RequiredSize;
+          *v10 = Data;
+          *v11 = v22;
+          return (unsigned int)v15;
         }
       }
     }

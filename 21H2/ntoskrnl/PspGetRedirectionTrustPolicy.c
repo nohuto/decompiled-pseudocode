@@ -1,25 +1,25 @@
 /*
- * XREFs of PspGetRedirectionTrustPolicy @ 0x1406DEAEC
+ * XREFs of PspGetRedirectionTrustPolicy @ 0x1405CF638
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     SeTokenGetRedirectionTrustPolicy @ 0x140255CD4 (SeTokenGetRedirectionTrustPolicy.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     SeTokenGetRedirectionTrustPolicy @ 0x1403F8F80 (SeTokenGetRedirectionTrustPolicy.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall PspGetRedirectionTrustPolicy(__int64 a1)
+__int64 __fastcall PspGetRedirectionTrustPolicy(struct _KPROCESS *a1)
 {
-  unsigned __int64 v2; // rbx
+  struct _DMA_ADAPTER *v2; // rbx
   bool v4; // [rsp+30h] [rbp+8h] BYREF
   char v5; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = 0;
   v5 = 0;
-  v2 = PsReferencePrimaryTokenWithTag(a1, 0x79517350u);
-  SeTokenGetRedirectionTrustPolicy(v2, &v4, &v5);
-  ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v2, 0x79517350u);
+  v2 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
+  SeTokenGetRedirectionTrustPolicy((__int64)v2, &v4, &v5);
+  ObFastDereferenceObject((signed __int64 *)&a1[1].Affinity.Bitmap[5], v2);
   if ( v4 )
     return 1LL;
   else

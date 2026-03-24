@@ -1,12 +1,12 @@
 /*
- * XREFs of ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C002C6F4
+ * XREFs of ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00B5A00
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
- *     GreGradientFill @ 0x1C0087BF0 (GreGradientFill.c)
- *     NtGdiTransparentBlt @ 0x1C0148400 (NtGdiTransparentBlt.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     GreGradientFill @ 0x1C00B63E4 (GreGradientFill.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
+ *     NtGdiTransparentBlt @ 0x1C0156210 (NtGdiTransparentBlt.c)
  * Callees:
- *     ??0?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D630 (--0-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A69C (--0-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 DEVLOCKBLTOBJ *__fastcall DEVLOCKBLTOBJ::DEVLOCKBLTOBJ(DEVLOCKBLTOBJ *this)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_CmResList_GetInterrupterCountAndType @ 0x1C006F814
+ * XREFs of Interrupter_CmResList_GetInterrupterCountAndType @ 0x1C006EAB4
  * Callers:
- *     Interrupter_PrepareHardware @ 0x1C006ED2C (Interrupter_PrepareHardware.c)
+ *     Interrupter_PrepareHardware @ 0x1C006DCA0 (Interrupter_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Interrupter_CmResList_GetInterrupterCountAndType(__int64 a1, __int64 a2, _DWORD *a3, int *a4)
@@ -35,12 +35,12 @@ __int64 __fastcall Interrupter_CmResList_GetInterrupterCountAndType(__int64 a1, 
       if ( (WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
          || (v12 = *(unsigned __int16 *)(v10 + 2),
              LOBYTE(v12) = 4,
-             WPP_RECORDER_SF_DD(
+             WPP_RECORDER_SF_dd(
                *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
                v12,
                9,
-               63,
-               (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+               62,
+               (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
                i,
                *(_WORD *)(v10 + 2)),
              *(_BYTE *)v11 == 2))
@@ -50,12 +50,12 @@ __int64 __fastcall Interrupter_CmResList_GetInterrupterCountAndType(__int64 a1, 
         {
           v13 = *(unsigned __int16 *)(v11 + 6);
           LOBYTE(v13) = 4;
-          WPP_RECORDER_SF_DD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
             v13,
             9,
-            64,
-            (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+            63,
+            (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
             *(_WORD *)(v11 + 6),
             *(_DWORD *)(v11 + 8));
         }

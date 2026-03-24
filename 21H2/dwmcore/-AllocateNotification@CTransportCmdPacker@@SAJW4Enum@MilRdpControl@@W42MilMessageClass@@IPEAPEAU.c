@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AllocateNotification@CTransportCmdPacker@@SAJW4Enum@MilRdpControl@@W42MilMessageClass@@IPEAPEAUUCE_RDP_HEADER@@PEAPEAUMIL_MESSAGE@@PEAPEAX@Z @ 0x1800E7D88
+ * XREFs of ?AllocateNotification@CTransportCmdPacker@@SAJW4Enum@MilRdpControl@@W42MilMessageClass@@IPEAPEAUUCE_RDP_HEADER@@PEAPEAUMIL_MESSAGE@@PEAPEAX@Z @ 0x1800CF818
  * Callers:
- *     ?PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z @ 0x1800E7CE0 (-PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z.c)
+ *     ?PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z @ 0x1800CF778 (-PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z.c)
  * Callees:
- *     ?HrAlloc@@YAJ_KPEAPEAX@Z @ 0x180044330 (-HrAlloc@@YAJ_KPEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?HrAlloc@@YAJ_KPEAPEAX@Z @ 0x1800374F8 (-HrAlloc@@YAJ_KPEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CTransportCmdPacker::AllocateNotification(
@@ -29,7 +29,7 @@ __int64 __fastcall CTransportCmdPacker::AllocateNotification(
   v11 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x3Eu);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x3Eu, 0LL);
     v6 = a6;
   }
   else
@@ -42,6 +42,6 @@ __int64 __fastcall CTransportCmdPacker::AllocateNotification(
     *a5 = v12 + 10;
     *a4 = v12;
   }
-  DefaultHeap::Free(v6);
+  operator delete(v6);
   return v11;
 }

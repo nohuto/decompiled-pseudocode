@@ -1,14 +1,14 @@
 /*
- * XREFs of SmGetRegistrationInfo @ 0x14085E9A0
+ * XREFs of SmGetRegistrationInfo @ 0x1407CF24C
  * Callers:
- *     SmProcessRegistrationRequest @ 0x14085E8F4 (SmProcessRegistrationRequest.c)
+ *     SmProcessRegistrationRequest @ 0x1407CF1A0 (SmProcessRegistrationRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SmRegistrationInfoFill @ 0x14085EA64 (SmRegistrationInfoFill.c)
- *     SmRegistrationCtxStart @ 0x140861560 (SmRegistrationCtxStart.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     SmRegistrationInfoFill @ 0x1407CF2F8 (SmRegistrationInfoFill.c)
+ *     SmRegistrationCtxStart @ 0x1407D17D8 (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmGetRegistrationInfo(char a1, __int64 a2)
@@ -19,25 +19,25 @@ __int64 __fastcall SmGetRegistrationInfo(char a1, __int64 a2)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140D321A0, 0LL);
-  if ( (dword_140D32180 & 8) != 0 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
+  if ( (dword_140D24140 & 8) != 0 )
   {
     v5 = 0;
   }
   else
   {
-    v5 = SmRegistrationCtxStart(&qword_140D32430);
+    v5 = SmRegistrationCtxStart(&qword_140D243F0);
     if ( v5 >= 0 )
-      dword_140D32180 |= 8u;
+      dword_140D24140 |= 8u;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140D321A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140D321A0);
-  KeAbPostRelease((ULONG_PTR)&qword_140D321A0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&BugCheckParameter2);
+  KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
   KeLeaveCriticalRegion();
   if ( v5 >= 0 )
   {
     LOBYTE(v6) = a1;
-    v5 = SmRegistrationInfoFill(&qword_140D32430, v6, a2 + 8);
+    v5 = SmRegistrationInfoFill(&qword_140D243F0, v6, a2 + 8);
     if ( v5 >= 0 )
       return 0;
   }

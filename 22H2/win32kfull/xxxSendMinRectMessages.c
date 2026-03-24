@@ -1,75 +1,86 @@
 /*
- * XREFs of xxxSendMinRectMessages @ 0x1C000E188
+ * XREFs of xxxSendMinRectMessages @ 0x1C0124928
  * Callers:
- *     NtUserGetWindowMinimizeRect @ 0x1C000E010 (NtUserGetWindowMinimizeRect.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C02160D4 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
- *     xxxMinimizeHungWindow @ 0x1C0224BB0 (xxxMinimizeHungWindow.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     NtUserGetWindowMinimizeRect @ 0x1C01247A0 (NtUserGetWindowMinimizeRect.c)
+ *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0235D70 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
+ *     xxxMinimizeHungWindow @ 0x1C023EBD0 (xxxMinimizeHungWindow.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     ?VWPLNextBase@@YAPEAUtagWND@@PEAUtagVWPL@@_KPEAU1@PEAKHPEA_K@Z @ 0x1C004F044 (-VWPLNextBase@@YAPEAUtagWND@@PEAUtagVWPL@@_KPEAU1@PEAKHPEA_K@Z.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
  */
 
-__int64 __fastcall xxxSendMinRectMessages(unsigned __int64 *a1, __int64 a2)
+__int64 __fastcall xxxSendMinRectMessages(unsigned __int64 *a1, struct _LARGE_STRING *a2)
 {
-  unsigned int v2; // edi
-  unsigned __int64 v3; // rbp
-  __int64 v4; // r14
-  void *v5; // rcx
-  unsigned int v6; // ebx
-  ULONG_PTR v7; // rsi
-  unsigned int *v8; // rcx
-  __int128 v10; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-48h]
-  __int128 v12; // [rsp+68h] [rbp-40h] BYREF
-  __int64 v13; // [rsp+78h] [rbp-30h]
-  __int64 v14; // [rsp+B0h] [rbp+8h] BYREF
+  unsigned int v2; // ebx
+  unsigned __int64 v4; // r14
+  struct tagVWPL **v5; // rsi
+  __int64 v6; // rdx
+  void *v7; // rcx
+  struct tagWND *i; // r8
+  __int64 ThreadWin32Thread; // rax
+  __int64 v10; // rcx
+  struct tagWND *v11; // rdi
+  _QWORD v13[3]; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v14; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+78h] [rbp-8h]
+  unsigned int v16; // [rsp+B0h] [rbp+30h] BYREF
+  unsigned __int64 LowLimit; // [rsp+C0h] [rbp+40h] BYREF
 
   v2 = 0;
   if ( a1 )
-    v3 = *a1;
+    v4 = *a1;
   else
-    v3 = 0LL;
-  v10 = 0LL;
-  v11 = 0LL;
-  if ( ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x800) != 0 )
+    v4 = 0LL;
+  v14 = 0LL;
+  v15 = 0LL;
+  v5 = *(struct tagVWPL ***)(gptiCurrent + 464LL);
+  if ( ((*(_DWORD *)(gptiCurrent + 680LL) | *((_DWORD *)*v5 + 4)) & 0x800) != 0 )
   {
-    xxxCallHook(5, v3, a2, 10);
+    xxxCallHook(5, v4, (__int64)a2, 10);
+    v5 = *(struct tagVWPL ***)(gptiCurrent + 464LL);
     v2 = 1;
   }
-  v4 = *(_QWORD *)(gptiCurrent + 464LL);
-  if ( *(_QWORD *)(v4 + 240) )
+  if ( v5[30] )
   {
-    PushW32ThreadLock(*(_QWORD *)(gptiCurrent + 456LL), &v10, UserDereferenceObject);
-    v5 = *(void **)(gptiCurrent + 456LL);
-    if ( v5 )
-      ObfReferenceObject(v5);
-    v6 = 0;
-    v7 = 0LL;
-    while ( 1 )
+    PushW32ThreadLock(*(_QWORD *)(gptiCurrent + 456LL), &v14, UserDereferenceObject);
+    v7 = *(void **)(gptiCurrent + 456LL);
+    if ( v7 )
+      ObfReferenceObject(v7);
+    v16 = 0;
+    for ( i = 0LL; ; i = v11 )
     {
-      v8 = *(unsigned int **)(v4 + 240);
-      if ( !v8 || v8[3] || v6 >= *v8 )
+      v11 = VWPLNextBase(v5[30], v6, i, &v16);
+      if ( !v11 )
         break;
-      if ( *(_QWORD *)&v8[4 * v6 + 6] == v7 )
-        ++v6;
-      if ( v6 >= *v8 )
-        break;
-      v7 = *(_QWORD *)&v8[4 * v6 + 6];
-      if ( !v7 )
-        break;
-      v14 = 0LL;
-      v13 = 0LL;
-      v12 = 0LL;
-      ThreadLock(v7, &v12);
-      if ( xxxSendTransformableMessageTimeout(v7, 0, 100, (__int64)&v14, 1, 0) )
+      v13[2] = 0LL;
+      LowLimit = 0LL;
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      v13[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = v13;
+      v13[1] = v11;
+      HMLockObject(v11);
+      if ( xxxSendTransformableMessageTimeout(
+             (unsigned __int64)v11,
+             0x8Bu,
+             v4,
+             a2,
+             0,
+             0x64u,
+             (__int64 *)&LowLimit,
+             1,
+             0) )
+      {
         v2 = 1;
-      ThreadUnlock1();
+      }
+      ThreadUnlock1(v10);
     }
-    PopAndFreeW32ThreadLock(&v10);
+    PopAndFreeW32ThreadLock((__int64)&v14);
   }
   return v2;
 }

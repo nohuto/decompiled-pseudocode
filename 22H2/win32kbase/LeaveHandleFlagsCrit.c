@@ -1,5 +1,5 @@
 /*
- * XREFs of LeaveHandleFlagsCrit @ 0x1C00966A0
+ * XREFs of LeaveHandleFlagsCrit @ 0x1C0096A40
  * Callers:
  *     <none>
  * Callees:

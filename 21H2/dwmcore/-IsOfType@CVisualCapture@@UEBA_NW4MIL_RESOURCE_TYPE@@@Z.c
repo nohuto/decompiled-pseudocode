@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CVisualCapture@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180243C70
+ * XREFs of ?IsOfType@CVisualCapture@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801F2100
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CVisualCapture::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 197 || a2 == 145 || a2 == 112;
+  return a2 == 196 || a2 == 146 || a2 == 112;
 }

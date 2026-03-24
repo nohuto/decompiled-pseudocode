@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpPreFlushKey @ 0x14080B6B0
+ * XREFs of VrpPreFlushKey @ 0x14080B690
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
@@ -20,13 +20,13 @@ __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
   if ( (*(_DWORD *)(a2 + 80) & 1) != 0 )
   {
     if ( stru_1403FFAD8.LevelPlus1 > 5 )
-      TlgWrite(&stru_1403FFAD8, &unk_14036C90A, &ActivityId, 0LL, 2u, &pData);
+      TlgWrite(&stru_1403FFAD8, &unk_14036CA1A, &ActivityId, 0LL, 2u, &pData);
     return 3221226755LL;
   }
   else
   {
     if ( stru_1403FFAD8.LevelPlus1 > 5 )
-      TlgWrite(&stru_1403FFAD8, &unk_14036CBA4, &ActivityId, 0LL, 2u, &v6);
+      TlgWrite(&stru_1403FFAD8, &unk_14036CCB4, &ActivityId, 0LL, 2u, &v6);
     return 0LL;
   }
 }

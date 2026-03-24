@@ -1,117 +1,104 @@
 /*
- * XREFs of NtGdiEngAlphaBlend @ 0x1C02C8580
+ * XREFs of NtGdiEngAlphaBlend @ 0x1C02B1E70
  * Callers:
  *     <none>
  * Callees:
- *     EngAlphaBlend @ 0x1C00D6070 (EngAlphaBlend.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C02C6D88 (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
- *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C02C6DC8 (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
- *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C02C6F80 (--1UMPDSURFOBJ@@QEAA@XZ.c)
- *     ?CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z @ 0x1C02C717C (-CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z.c)
- *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C02C71FC (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
- *     ?bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C02C7A74 (-bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
- *     ?bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C02C7CE8 (-bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z.c)
- *     ?bOrder@@YAHPEAU_RECTL@@@Z @ 0x1C02C7D4C (-bOrder@@YAHPEAU_RECTL@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     EngAlphaBlend @ 0x1C00ACA60 (EngAlphaBlend.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137A1C (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     ?CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z @ 0x1C013C0AC (-CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z.c)
+ *     ?bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C013CD1C (-bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
+ *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C013D3AC (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
+ *     ?bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C013D510 (-bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z.c)
+ *     ?bOrder@@YAHPEAU_RECTL@@@Z @ 0x1C013D568 (-bOrder@@YAHPEAU_RECTL@@@Z.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C013D588 (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C013D5F0 (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??$GetDDIOBJ@U_BLENDOBJ@@@UMPDOBJ@@QEAAPEAU_BLENDOBJ@@PEAU1@@Z @ 0x1C02B10D4 (--$GetDDIOBJ@U_BLENDOBJ@@@UMPDOBJ@@QEAAPEAU_BLENDOBJ@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall NtGdiEngAlphaBlend(
         struct _SURFOBJ *a1,
         struct _SURFOBJ *a2,
         __int64 a3,
-        CLIPOBJ *a4,
+        __int64 a4,
         RECTL *a5,
         RECTL *a6,
         __int64 a7)
 {
-  unsigned int v9; // esi
+  unsigned int v9; // edi
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  __int64 v12; // r14
-  _DWORD *v13; // r15
-  BLENDOBJ *pBlendObj; // rdi
+  __int64 v12; // rbx
+  CLIPOBJ *v14; // rax
+  BLENDOBJ *pBlendObj; // r14
   SURFOBJ *v16; // r13
-  SURFOBJ *v17; // r12
-  struct _CLIPOBJ *v18; // rdx
-  struct _XLATEOBJ *v19; // rsi
-  RECTL *prclSrc; // r14
-  int v21; // eax
-  RECTL *v22; // [rsp+40h] [rbp-148h] BYREF
-  RECTL *prclDest; // [rsp+48h] [rbp-140h] BYREF
-  BLENDOBJ *v24; // [rsp+50h] [rbp-138h]
-  CLIPOBJ *pco; // [rsp+58h] [rbp-130h]
-  XLATEOBJ *pxlo; // [rsp+60h] [rbp-128h]
-  CLIPOBJ *v27; // [rsp+68h] [rbp-120h]
-  __int64 v28; // [rsp+70h] [rbp-118h]
-  struct UMPDOBJ *v29; // [rsp+78h] [rbp-110h]
-  SURFOBJ *v30; // [rsp+80h] [rbp-108h]
-  SURFOBJ *v31; // [rsp+88h] [rbp-100h]
-  __int64 v32; // [rsp+90h] [rbp-F8h]
-  SURFOBJ *psoSrc[8]; // [rsp+A0h] [rbp-E8h] BYREF
-  SURFOBJ *psoDest[8]; // [rsp+E0h] [rbp-A8h] BYREF
-  struct _RECTL v35; // [rsp+120h] [rbp-68h] BYREF
-  struct _RECTL v36; // [rsp+130h] [rbp-58h] BYREF
+  SURFOBJ *v17; // rsi
+  RECTL *prclSrc; // r15
+  RECTL *prclDest; // r12
+  struct _CLIPOBJ *v20; // rdx
+  struct _XLATEOBJ *v21; // rdi
+  RECTL *v22; // [rsp+40h] [rbp-138h] BYREF
+  RECTL *v23; // [rsp+48h] [rbp-130h] BYREF
+  CLIPOBJ *pco; // [rsp+50h] [rbp-128h]
+  __int64 v25; // [rsp+58h] [rbp-120h]
+  __int64 v26; // [rsp+60h] [rbp-118h]
+  struct UMPDOBJ *v27; // [rsp+68h] [rbp-110h]
+  SURFOBJ *v28; // [rsp+70h] [rbp-108h]
+  SURFOBJ *v29; // [rsp+78h] [rbp-100h]
+  __int64 v30; // [rsp+80h] [rbp-F8h]
+  __int64 v31; // [rsp+88h] [rbp-F0h]
+  SURFOBJ *psoSrc[8]; // [rsp+90h] [rbp-E8h] BYREF
+  SURFOBJ *psoDest[8]; // [rsp+D0h] [rbp-A8h] BYREF
+  struct _RECTL v34; // [rsp+110h] [rbp-68h] BYREF
+  struct _RECTL v35; // [rsp+120h] [rbp-58h] BYREF
 
-  v27 = a4;
-  v28 = a3;
-  v32 = a3;
-  pco = a4;
-  prclDest = a5;
+  v25 = a4;
+  v26 = a3;
+  v30 = a3;
+  v31 = a4;
+  v23 = a5;
   v22 = a6;
   v9 = 1;
-  v36 = 0LL;
   v35 = 0LL;
+  v34 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v12 = (__int64)ThreadCurrentObj;
-  v29 = ThreadCurrentObj;
-  v13 = (_DWORD *)((char *)ThreadCurrentObj + 436);
-  if ( ThreadCurrentObj )
-    ++*v13;
-  pxlo = (XLATEOBJ *)((char *)ThreadCurrentObj + 436);
+  v27 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
     return 0LL;
+  ++*((_DWORD *)ThreadCurrentObj + 105);
   UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)psoDest, a1, (struct _SURFOBJ **)ThreadCurrentObj);
   UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)psoSrc, a2, (struct _SURFOBJ **)v12);
-  if ( a7 == *(_QWORD *)(v12 + 312) )
-    pBlendObj = *(BLENDOBJ **)(v12 + 304);
-  else
-    pBlendObj = 0LL;
-  v24 = pBlendObj;
-  if ( (*(_DWORD *)(v12 + 428) & 0x100) != 0 && pBlendObj )
-  {
-    if ( pBlendObj < MmSystemRangeStart )
-      pBlendObj = 0LL;
-    v24 = pBlendObj;
-  }
+  v14 = (CLIPOBJ *)UMPDOBJ::GetDDIOBJ<_BLENDOBJ>(v12, a7);
+  pBlendObj = (BLENDOBJ *)v14;
+  pco = v14;
   v16 = psoDest[0];
-  v30 = psoDest[0];
+  v28 = psoDest[0];
   v17 = psoSrc[0];
-  v31 = psoSrc[0];
-  if ( psoDest[0] && psoSrc[0] && pBlendObj && prclDest && v22 )
-  {
-    CaptureRECTL(&v22, &v35);
-    CaptureRECTL(&prclDest, &v36);
-    if ( bOrder(v22) && bOrder(prclDest) )
-    {
-      pco = UMPDOBJ::GetDDIOBJ((UMPDOBJ *)v12, v18, &v16->sizlBitmap);
-      v19 = (struct _XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>(v12, (__int64)v27);
-      pxlo = v19;
-      prclSrc = v22;
-      if ( !(unsigned int)bCheckSurfaceRect(v17, v22, 0LL) || (v21 = bCheckXlate(v17, v19), v9 = 1, !v21) )
-        v9 = 0;
-      if ( v9 )
-        v9 = EngAlphaBlend(v16, v17, pco, pxlo, prclDest, prclSrc, pBlendObj);
-    }
-  }
+  v29 = psoSrc[0];
+  if ( !psoDest[0] || !psoSrc[0] || !v14 || !v23 || !v22 )
+    goto LABEL_14;
+  CaptureRECTL(&v22, &v34);
+  CaptureRECTL(&v23, &v35);
+  prclSrc = v22;
+  if ( !bOrder(v22) )
+    goto LABEL_15;
+  prclDest = v23;
+  if ( !bOrder(v23) )
+    goto LABEL_15;
+  pco = UMPDOBJ::GetDDIOBJ((UMPDOBJ *)v12, v20, &v16->sizlBitmap);
+  v21 = (struct _XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>(v12, v25);
+  if ( (unsigned int)bCheckSurfaceRect(v17, prclSrc, 0LL) && (unsigned int)bCheckXlate(v17, v21) )
+    v9 = EngAlphaBlend(v16, v17, pco, v21, prclDest, prclSrc, pBlendObj);
   else
-  {
+LABEL_14:
     v9 = 0;
-  }
+LABEL_15:
   UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)psoSrc);
   UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)psoDest);
-  --*v13;
+  --*(_DWORD *)(v12 + 420);
   return v9;
 }

@@ -1,73 +1,79 @@
 /*
- * XREFs of wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x140810F54
+ * XREFs of wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x1405CC718
  * Callers:
- *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x140810F1C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1405CC6E0 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  * Callees:
- *     wil_atomic_uint32_compare_exchange_relaxed @ 0x14050E528 (wil_atomic_uint32_compare_exchange_relaxed.c)
- *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x140810F1C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1405CC6E0 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  */
 
 __int64 __fastcall wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState(
         volatile signed __int32 *a1,
-        unsigned int a2,
+        unsigned __int32 a2,
         __int64 a3)
 {
-  unsigned int v3; // ebx
+  signed __int32 v3; // ebx
   int v5; // edi
   __int64 *v6; // rsi
-  bool v7; // zf
-  __int64 v8; // rax
+  __int64 v7; // rax
   char CachedFeatureEnabledState; // al
-  unsigned int v10; // r8d
-  __int64 v12; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v13; // [rsp+58h] [rbp+20h]
+  bool v9; // zf
+  unsigned int v10; // edx
+  signed __int32 v11; // eax
+  __int64 v13; // [rsp+30h] [rbp+8h]
 
-  v12 = 0LL;
-  v13 = 0LL;
+  HIDWORD(v13) = 0;
   v3 = a2;
   v5 = (a2 >> 6) & 1;
   if ( v5 )
   {
     v6 = *(__int64 **)(a3 + 32);
-    v7 = v6 == 0LL;
-LABEL_3:
-    if ( !v7 )
+    if ( v6 )
     {
       while ( 1 )
       {
-        v8 = *v6;
+        v7 = *v6;
         if ( !*v6 )
-          break;
-        if ( !*(_BYTE *)(v8 + 30) && !*(_BYTE *)(v8 + 29) )
+          goto LABEL_14;
+        if ( *(_BYTE *)(v7 + 30) || *(_BYTE *)(v7 + 29) )
+        {
+          if ( !v5 )
+            goto LABEL_12;
+          v9 = *(_BYTE *)(v7 + 31) == 0;
+        }
+        else
         {
           CachedFeatureEnabledState = wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState(
-                                        *(unsigned int **)v8,
+                                        *(unsigned int **)v7,
                                         *v6);
-          v5 = v5 && (CachedFeatureEnabledState & 1) != 0;
-          ++v6;
-          v7 = v5 == 0;
-          goto LABEL_3;
+          if ( !v5 )
+            goto LABEL_12;
+          v9 = (CachedFeatureEnabledState & 1) == 0;
         }
-        if ( !v5 || !*(_BYTE *)(v8 + 31) )
+        if ( v9 )
         {
+LABEL_12:
           v5 = 0;
-          break;
+          goto LABEL_13;
         }
         v5 = 1;
+LABEL_13:
         ++v6;
+        if ( !v5 )
+          goto LABEL_14;
       }
     }
   }
-  LODWORD(v12) = v3;
   while ( 1 )
   {
+LABEL_14:
     v10 = v5 & 0xFFFFFFCF | v3 & 0xFFFFFFCE;
     if ( (v3 & 1) == v5 )
       v10 = v5 | v3 & 0xFFFFFFFE;
-    LODWORD(v13) = v10 & 0xFFFFFDFF;
-    if ( (unsigned int)wil_atomic_uint32_compare_exchange_relaxed(a1, (signed __int32 *)&v12, v10 & 0xFFFFFDFF) )
+    v11 = _InterlockedCompareExchange(a1, v10 & 0xFFFFFDFF, v3);
+    if ( v3 == v11 )
       break;
-    v3 = v12;
+    v3 = v11;
   }
+  LODWORD(v13) = v10 & 0xFFFFFDFF;
   return v13;
 }

@@ -1,134 +1,118 @@
 /*
- * XREFs of ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C018A070
+ * XREFs of ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C015C138
  * Callers:
- *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C018B330 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
- *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C02181B8 (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
- *     ?ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C0336F70 (-ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ.c)
+ *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C010CF18 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C011665C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C019B53C (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0014628 (-VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0019D38 (-VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DXGPROCESS::DeferredInitialize(DXGPROCESS *this, unsigned int a2)
+__int64 __fastcall DXGPROCESS::DeferredInitialize(DXGPROCESS *this, __int64 a2)
 {
-  VIDSCH_EXPORT *v2; // rbx
-  __int64 v3; // rbp
+  __int64 v2; // rsi
+  VIDSCH_EXPORT *v4; // rbx
   struct DXGGLOBAL *Global; // rax
   __int64 v6; // r14
   __int64 v7; // rax
-  struct DXGGLOBAL *v8; // rax
-  __int64 v9; // r14
-  __int64 v10; // rax
-  struct DXGGLOBAL *v11; // rax
-  const wchar_t *v13; // r9
-  struct DXGGLOBAL *v14; // rax
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  struct DXGGLOBAL *v12; // rax
+  __int64 v13; // r14
+  __int64 v14; // rax
+  struct DXGGLOBAL *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  struct DXGGLOBAL *v25; // rax
 
-  v2 = 0LL;
-  v3 = a2;
-  if ( a2 >= 2 )
+  v2 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= 2 )
   {
-    WdLogSingleEntry1(1LL, 1724LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGMMSVersion < MAX_DXGMMS_VERSION",
-      1724LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v20 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v20 + 24) = 1728LL;
+    WdLogEvent5_WdAssertion(v20);
   }
-  if ( *(_QWORD *)(*((_QWORD *)this + 8) + 8 * v3 + 16) )
+  v4 = 0LL;
+  if ( *(_QWORD *)(*((_QWORD *)this + 8) + 8 * v2 + 16) )
   {
-    WdLogSingleEntry1(1LL, 1729LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_pNonPagedData->m_pVidSchProcess[DXGMMSVersion] == NULL",
-      1729LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v21 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v21 + 24) = 1733LL;
+    WdLogEvent5_WdAssertion(v21);
   }
-  Global = DXGGLOBAL_GetGlobal();
-  if ( (unsigned int)v3 >= 2 )
+  Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+  if ( (unsigned int)v2 >= 2 )
   {
     v6 = 0LL;
   }
   else
   {
     _mm_lfence();
-    v6 = *((_QWORD *)Global + v3 + 34);
+    v6 = *((_QWORD *)Global + v2 + 29);
   }
   v7 = (*(__int64 (__fastcall **)(DXGPROCESS *))(*(_QWORD *)(v6 + 8) + 80LL))(this);
-  *(_QWORD *)(*((_QWORD *)this + 8) + 8LL * (unsigned int)(*(_DWORD *)v6 - 1) + 16) = v7;
+  v10 = *((_QWORD *)this + 8);
+  v11 = (unsigned int)(*(_DWORD *)v6 - 1);
+  *(_QWORD *)(v10 + 8 * v11 + 16) = v7;
   if ( !v7 )
+    goto LABEL_22;
+  if ( *(_QWORD *)(*((_QWORD *)this + 8) + 8 * v2) )
   {
-    WdLogSingleEntry1(6LL, this);
-    v13 = L"DXGPROCESS (0x%I64x) failed to allocate m_pVidSchProcess";
-LABEL_21:
-    DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)v13, (__int64)this, 0LL, 0LL, 0LL, 0LL);
-    return 3221225495LL;
+    v23 = WdLogNewEntry5_WdAssertion(v10, v11);
+    *(_QWORD *)(v23 + 24) = 1744LL;
+    WdLogEvent5_WdAssertion(v23);
   }
-  if ( *(_QWORD *)(*((_QWORD *)this + 8) + 8 * v3) )
+  v12 = DXGGLOBAL::GetGlobal(v10, v11);
+  if ( (unsigned int)v2 >= 2 )
   {
-    WdLogSingleEntry1(1LL, 1740LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_pNonPagedData->m_pVidMmProcess[DXGMMSVersion] == NULL",
-      1740LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  v8 = DXGGLOBAL_GetGlobal();
-  if ( (unsigned int)v3 >= 2 )
-  {
-    v9 = 0LL;
+    v13 = 0LL;
   }
   else
   {
     _mm_lfence();
-    v9 = *((_QWORD *)v8 + v3 + 32);
+    v13 = *((_QWORD *)v12 + v2 + 27);
   }
-  v10 = (*(__int64 (__fastcall **)(DXGPROCESS *))(*(_QWORD *)(v9 + 8) + 368LL))(this);
-  *(_QWORD *)(*((_QWORD *)this + 8) + 8LL * (unsigned int)(*(_DWORD *)v9 - 1)) = v10;
-  if ( !v10 )
+  v14 = (*(__int64 (__fastcall **)(DXGPROCESS *))(*(_QWORD *)(v13 + 8) + 360LL))(this);
+  v10 = *((_QWORD *)this + 8);
+  v11 = (unsigned int)(*(_DWORD *)v13 - 1);
+  *(_QWORD *)(v10 + 8 * v11) = v14;
+  if ( v14 )
   {
-    WdLogSingleEntry1(6LL, this);
-    v13 = L"DXGPROCESS (0x%I64x) failed to allocate m_pVidMmProcess";
-    goto LABEL_21;
+    v15 = DXGGLOBAL::GetGlobal(v10, v11);
+    if ( (unsigned int)v2 >= 2 )
+      v18 = 0LL;
+    else
+      v18 = *((_QWORD *)v15 + v2 + 29);
+    if ( !v18 )
+    {
+      v24 = WdLogNewEntry5_WdAssertion(v17, v16);
+      *(_QWORD *)(v24 + 24) = 1756LL;
+      WdLogEvent5_WdAssertion(v24);
+    }
+    if ( *((_BYTE *)this + 346) )
+    {
+      v25 = DXGGLOBAL::GetGlobal(v17, v16);
+      if ( (unsigned int)v2 < 2 )
+        v4 = (VIDSCH_EXPORT *)*((_QWORD *)v25 + v2 + 29);
+      VIDSCH_EXPORT::VidSchRegisterAsDwm(v4, this);
+    }
+    return 0LL;
   }
-  v11 = DXGGLOBAL_GetGlobal();
-  if ( (unsigned int)v3 >= 2 || !*((_QWORD *)v11 + v3 + 34) )
+  else
   {
-    WdLogSingleEntry1(1LL, 1752LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGGLOBAL::GetGlobal()->GetVidSchExport(DXGMMSVersion) != NULL",
-      1752LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+LABEL_22:
+    v22 = WdLogNewEntry5_WdLowResource(v10, v11, v8, v9);
+    *(_QWORD *)(v22 + 24) = this;
+    WdLogEvent5_WdLowResource(v22);
+    return 3221225495LL;
   }
-  if ( (*((_DWORD *)this + 106) & 4) != 0 )
-  {
-    *(_BYTE *)(*((_QWORD *)this + 8) + 130LL) = 1;
-    v14 = DXGGLOBAL_GetGlobal();
-    if ( (unsigned int)v3 < 2 )
-      v2 = (VIDSCH_EXPORT *)*((_QWORD *)v14 + v3 + 34);
-    VIDSCH_EXPORT::VidSchRegisterAsDwm(v2, this);
-  }
-  return 0LL;
 }

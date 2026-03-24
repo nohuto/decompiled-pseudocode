@@ -1,67 +1,73 @@
 /*
- * XREFs of PfpRpControlRequestUpdate @ 0x1407B5888
+ * XREFs of PfpRpControlRequestUpdate @ 0x14070A62C
  * Callers:
- *     PfpRpControlRequestPerform @ 0x1407B55E4 (PfpRpControlRequestPerform.c)
+ *     PfpRpControlRequestPerform @ 0x14070A38C (PfpRpControlRequestPerform.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
- *     PfpRpCHashAddEntries @ 0x1407B5A38 (PfpRpCHashAddEntries.c)
- *     PfpRpCHashDeleteEntries @ 0x1407B5CC0 (PfpRpCHashDeleteEntries.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x140625CA0 (PsLookupProcessByProcessId.c)
+ *     PfpRpCHashAddEntries @ 0x14070A7C4 (PfpRpCHashAddEntries.c)
+ *     PfpRpCHashDeleteEntries @ 0x14070AA3C (PfpRpCHashDeleteEntries.c)
  */
 
 __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
 {
-  __int64 v2; // r15
-  _DWORD *v4; // rcx
+  unsigned int *v3; // rdx
   unsigned int v5; // esi
-  _QWORD *v7; // r12
-  unsigned int *v8; // r14
-  unsigned __int64 v9; // r13
+  _QWORD *v6; // r15
+  unsigned int *v7; // r14
+  int v8; // ecx
+  __int64 v9; // r12
+  void *v10; // rcx
+  __int64 v11; // rbp
+  PEPROCESS v12; // rcx
   __int64 result; // rax
-  void *v11; // rcx
-  __int64 v12; // rbp
-  PEPROCESS v13; // rcx
   PEPROCESS Process; // [rsp+60h] [rbp+8h] BYREF
 
-  v2 = (unsigned int)(a2[2] + a2[1]);
   Process = 0LL;
-  v4 = a2 + 6;
+  v3 = a2 + 6;
   v5 = 0;
-  v7 = a2 + 6;
-  v8 = a2 + 6;
-  v9 = ((unsigned __int64)&a2[2 * v2 + 7] + 3) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( (_DWORD)v2 )
+  v6 = v3;
+  v7 = v3;
+  v8 = a2[1];
+  v9 = (unsigned int)(v8 + a2[2]);
+  if ( (_DWORD)v9 )
   {
     do
     {
-      v11 = (void *)v8[1];
-      v12 = *v8;
-      *v7++ = v12;
-      if ( (_DWORD)v11 && PsLookupProcessByProcessId(v11, &Process) >= 0 )
+      v10 = (void *)v7[1];
+      v11 = *v7;
+      *v6++ = v11;
+      if ( (_DWORD)v10 && PsLookupProcessByProcessId(v10, &Process) >= 0 )
       {
-        v13 = Process;
-        if ( HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]) == (_DWORD)v12 )
+        v12 = Process;
+        if ( HIDWORD(Process[1].ActiveProcessors.Bitmap[8]) == (_DWORD)v11 )
         {
-          if ( v5 >= a2[1] )
-            _InterlockedAnd((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0xFFFFBFFF);
-          else
+          if ( v5 < a2[1] )
             _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x4000u);
-          v13 = Process;
+          else
+            _InterlockedAnd((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0xFFFFBFFF);
+          v12 = Process;
         }
-        ObfDereferenceObjectWithTag(v13, 0x746C6644u);
+        ObfDereferenceObjectWithTag(v12, 0x746C6644u);
       }
       ++v5;
-      v8 += 2;
+      v7 += 2;
     }
-    while ( v5 < (unsigned int)v2 );
-    v4 = a2 + 6;
+    while ( v5 < (unsigned int)v9 );
+    v8 = a2[1];
+    v3 = a2 + 6;
   }
-  result = PfpRpCHashAddEntries(a1, a1 + 96, a1 + 120, v4, a2[1]);
+  result = PfpRpCHashAddEntries(a1, a1 + 96, a1 + 120, v3, v8);
   if ( (int)result >= 0 )
   {
     if ( !a2[2] || !*(_DWORD *)(a1 + 112) || (result = PfpRpCHashDeleteEntries(a1, a1 + 96, a1 + 120), (int)result >= 0) )
     {
-      PfpRpCHashAddEntries(a1, a1 + 56, a1 + 88, v9 + 8LL * (unsigned int)a2[3], a2[4]);
+      PfpRpCHashAddEntries(
+        a1,
+        a1 + 56,
+        a1 + 88,
+        (((unsigned __int64)&a2[2 * v9 + 7] + 3) & 0xFFFFFFFFFFFFFFF8uLL) + 8LL * (unsigned int)a2[3],
+        a2[4]);
       if ( a2[3] && *(_DWORD *)(a1 + 72) )
       {
         result = PfpRpCHashDeleteEntries(a1, a1 + 56, a1 + 88);

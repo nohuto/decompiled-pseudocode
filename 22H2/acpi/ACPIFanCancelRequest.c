@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFanCancelRequest @ 0x1C00265E0
+ * XREFs of ACPIFanCancelRequest @ 0x1C0055170
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
  */
 
 void __fastcall ACPIFanCancelRequest(ULONG_PTR a1, IRP *a2)
@@ -21,18 +21,18 @@ void __fastcall ACPIFanCancelRequest(ULONG_PTR a1, IRP *a2)
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   LOBYTE(v4) = 0;
-  v5 = (const char *)&unk_1C00622D0;
+  v5 = (const char *)&unk_1C00701BA;
   v6 = DeviceExtension;
-  v7 = (const char *)&unk_1C00622D0;
+  v7 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v4 = DeviceExtension;
     v8 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v5 = *(const char **)(v4 + 608);
+      v5 = *(const char **)(v4 + 568);
       if ( (v8 & 0x400000000000LL) != 0 )
-        v7 = *(const char **)(v4 + 616);
+        v7 = *(const char **)(v4 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -40,8 +40,8 @@ void __fastcall ACPIFanCancelRequest(ULONG_PTR a1, IRP *a2)
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       0x10u,
-      0x19u,
-      (__int64)&WPP_851d451e9c8635d57712462b586962d1_Traceguids,
+      0x15u,
+      (__int64)&WPP_3f41a75ade0b3c322354d339e206c4ba_Traceguids,
       (char)a2,
       v4,
       v5,

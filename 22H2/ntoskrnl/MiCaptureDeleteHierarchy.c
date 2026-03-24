@@ -1,128 +1,79 @@
 /*
- * XREFs of MiCaptureDeleteHierarchy @ 0x14028AB80
+ * XREFs of MiCaptureDeleteHierarchy @ 0x14027EA70
  * Callers:
- *     MiRemoveVad @ 0x14028A350 (MiRemoveVad.c)
- *     MiDeleteEmptyPageTableCommit @ 0x14033CD3C (MiDeleteEmptyPageTableCommit.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x1403F4194 (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     MiFastLockLeafPageTable @ 0x140237260 (MiFastLockLeafPageTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MiFillPteHierarchy @ 0x14028ADD0 (MiFillPteHierarchy.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-char __fastcall MiCaptureDeleteHierarchy(__int64 a1, __int64 a2, unsigned __int8 a3, __int64 a4)
+unsigned __int64 __fastcall MiCaptureDeleteHierarchy(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v5; // r13
-  unsigned __int8 v6; // si
-  __int64 v7; // r10
-  __int64 v8; // r11
-  unsigned int v9; // ebx
-  __int64 v10; // rdi
-  __int64 *v11; // r14
-  int v12; // r15d
-  ULONG_PTR v13; // rbp
-  int SystemAddressValid; // r12d
-  __int64 v15; // rsi
-  __int64 v16; // rax
-  int v17; // r13d
-  int v18; // ecx
-  __int64 v20; // [rsp+30h] [rbp-88h]
-  _OWORD v21[2]; // [rsp+40h] [rbp-78h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-58h] BYREF
-  unsigned __int64 v23; // [rsp+68h] [rbp-50h]
+  _BYTE *v5; // rsi
+  __int64 v6; // rbp
+  __int64 **v7; // rdi
+  unsigned int v8; // ebx
+  __int64 *v9; // r10
+  __int64 v10; // rcx
+  unsigned __int64 result; // rax
+  struct _LIST_ENTRY *Flink; // r8
+  __int64 v13; // rax
+  __int64 v14; // r8
+  __int64 v15; // [rsp+30h] [rbp-58h] BYREF
+  unsigned __int64 v16; // [rsp+38h] [rbp-50h]
+  unsigned __int64 v17; // [rsp+40h] [rbp-48h]
 
-  CurrentThread = KeGetCurrentThread();
-  *(_DWORD *)a4 = 0;
+  *a4 = 0;
   v5 = a4;
-  v6 = a3;
-  v20 = (__int64)&CurrentThread->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  MiFillPteHierarchy(a1, v21);
-  MiFillPteHierarchy(v7, &v22);
-  v9 = 0;
-LABEL_2:
-  v10 = 3LL;
-  v11 = (__int64 *)&v21[2 * v9];
-  v12 = 3;
-  while ( 1 )
+  v6 = 2LL;
+  do
   {
-    v13 = v11[v10];
-    if ( v10 == 3 && (unsigned int)MiFastLockLeafPageTable(v8, *v11 << 25 >> 16, 8) == 2 )
+    v17 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
+    v16 = ((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v7 = (__int64 **)&v15;
+    v15 = ((v16 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v8 = 0;
+    while ( 1 )
     {
-      v13 = v11[1];
-      v10 = 1LL;
-      v12 = 1;
-      SystemAddressValid = 0;
-    }
-    else
-    {
-      SystemAddressValid = MiMakeSystemAddressValid(v13, 0LL, 0, v6, 8);
-      if ( SystemAddressValid < 0 )
+      v9 = *v7;
+      v10 = **v7;
+      if ( (unsigned __int64)*v7 >= 0xFFFFF6FB7DBED000uLL
+        && (unsigned __int64)v9 <= 0xFFFFF6FB7DBED7F8uLL
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v10 & 1) != 0
+        && ((v10 & 0x20) == 0 || (v10 & 0x42) == 0) )
       {
-        v15 = 0LL;
-        goto LABEL_19;
-      }
-    }
-    v15 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v16 = MI_READ_PTE_LOCK_FREE(v13);
-    if ( v16 )
-    {
-      v17 = 0;
-      v18 = v12 - 1;
-      goto LABEL_8;
-    }
-LABEL_19:
-    v18 = v12 - 1;
-    LOBYTE(v16) = v9;
-    v12 = v18;
-    *(_BYTE *)(v9 + v5) = 1 << v18;
-    v17 = 1;
-    if ( !v9 && !v15 )
-      break;
-LABEL_8:
-    v12 = v18;
-    if ( !v9 )
-      goto LABEL_9;
-LABEL_13:
-    if ( v15 )
-      LOBYTE(v16) = MiUnlockPageTableInternal(v20, v15);
-    if ( !v17 )
-    {
-      v8 = v20;
-      --v10;
-      v5 = a4;
-      v6 = a3;
-      if ( v10 >= 1 )
-        continue;
-    }
-    if ( ++v9 >= 2 )
-      return v16;
-    v8 = v20;
-    v5 = a4;
-    v6 = a3;
-    goto LABEL_2;
-  }
-  v16 = *(&v22 + v10) ^ v13;
-  if ( (v16 & 0xFFFFFFFFFFFFF000uLL) != 0 )
-  {
-LABEL_9:
-    if ( v10 == 1 )
-    {
-      LOBYTE(v16) = v13 ^ v23;
-      if ( ((v13 ^ v23) & 0xFFFFFFFFFFFFF000uLL) == 0 )
-      {
-        v11 = &v22;
-        v9 = 1;
-        if ( SystemAddressValid < 0 || (v16 = MI_READ_PTE_LOCK_FREE(v23)) == 0 )
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
         {
-          LOBYTE(v16) = (_BYTE)v10 << v12;
-          *(_BYTE *)(a4 + 1) = (_BYTE)v10 << v12;
+          v13 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)v9 >> 3) & 0x1FF));
+          v14 = v10 | 0x20;
+          if ( (v13 & 0x20) == 0 )
+            v14 = **v7;
+          v10 = v14;
+          if ( (v13 & 0x42) != 0 )
+            v10 = v14 | 0x42;
         }
       }
+      if ( !v10 )
+        break;
+      if ( (v10 & 1) == 0 && v8 != 2 )
+        MiMakeSystemAddressValid((__int64)((_QWORD)v9 << 25) >> 16, 1);
+      ++v8;
+      ++v7;
+      if ( v8 >= 3 )
+        goto LABEL_7;
     }
-    goto LABEL_13;
+    *v5 = 1 << (2 - v8);
+LABEL_7:
+    ++v5;
+    result = 0xFFFFF6FB40000000uLL;
+    a1 = a2;
+    --v6;
   }
-  *(_BYTE *)(a4 + 1) = 1 << v18;
-  return v16;
+  while ( v6 );
+  return result;
 }

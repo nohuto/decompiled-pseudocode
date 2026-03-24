@@ -1,22 +1,22 @@
 /*
- * XREFs of VrpRegistryCallback @ 0x140808010
+ * XREFs of VrpRegistryCallback @ 0x140807FF0
  * Callers:
  *     <none>
  * Callees:
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VrpShouldOperateOnCall @ 0x14080825C (VrpShouldOperateOnCall.c)
- *     VrpDecommissionKeyContext @ 0x140808418 (VrpDecommissionKeyContext.c)
- *     VrpFreeKeyContext @ 0x1408084B0 (VrpFreeKeyContext.c)
- *     VrpPostEnumerateKey @ 0x14080A620 (VrpPostEnumerateKey.c)
- *     VrpPostOpenOrCreate @ 0x14080AE64 (VrpPostOpenOrCreate.c)
- *     VrpPostQueryKey @ 0x14080B260 (VrpPostQueryKey.c)
- *     VrpPostUnloadKey @ 0x14080B610 (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x14080B6B0 (VrpPreFlushKey.c)
- *     VrpPreLoadKey @ 0x14080B784 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x14080C300 (VrpPreOpenOrCreate.c)
- *     VrpPreQueryKeyName @ 0x14080C7C0 (VrpPreQueryKeyName.c)
- *     VrpPreUnloadKey @ 0x14080CAB0 (VrpPreUnloadKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VrpShouldOperateOnCall @ 0x14080823C (VrpShouldOperateOnCall.c)
+ *     VrpDecommissionKeyContext @ 0x1408083F8 (VrpDecommissionKeyContext.c)
+ *     VrpFreeKeyContext @ 0x140808490 (VrpFreeKeyContext.c)
+ *     VrpPostEnumerateKey @ 0x14080A600 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x14080AE44 (VrpPostOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x14080B240 (VrpPostQueryKey.c)
+ *     VrpPostUnloadKey @ 0x14080B5F0 (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x14080B690 (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
+ *     VrpPreQueryKeyName @ 0x14080C7A0 (VrpPreQueryKeyName.c)
+ *     VrpPreUnloadKey @ 0x14080CA90 (VrpPreUnloadKey.c)
  */
 
 __int64 __fastcall VrpRegistryCallback(__int64 a1, int a2, __int64 a3)

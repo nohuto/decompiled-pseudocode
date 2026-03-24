@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptPowerComponentActiveCallback @ 0x14051DFC0
+ * XREFs of HalpInterruptPowerComponentActiveCallback @ 0x1404D1A10
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptPowerChange @ 0x14051DF24 (HalpInterruptPowerChange.c)
+ *     HalpInterruptPowerChange @ 0x1404D1974 (HalpInterruptPowerChange.c)
  */
 
 __int64 __fastcall HalpInterruptPowerComponentActiveCallback(ULONG_PTR a1)

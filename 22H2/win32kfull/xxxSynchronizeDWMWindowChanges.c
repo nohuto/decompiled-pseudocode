@@ -1,23 +1,23 @@
 /*
- * XREFs of xxxSynchronizeDWMWindowChanges @ 0x1C01ACED8
+ * XREFs of xxxSynchronizeDWMWindowChanges @ 0x1C002E77C
  * Callers:
- *     xxxSendInput @ 0x1C000A4E4 (xxxSendInput.c)
+ *     xxxSendInput @ 0x1C00BFF08 (xxxSendInput.c)
  * Callees:
- *     DwmSyncFlushWindowChanges @ 0x1C026DFA0 (DwmSyncFlushWindowChanges.c)
+ *     DwmSyncFlushWindowChanges @ 0x1C002E7CC (DwmSyncFlushWindowChanges.c)
  */
 
-__int64 __fastcall xxxSynchronizeDWMWindowChanges(__int64 a1)
+__int64 __fastcall xxxSynchronizeDWMWindowChanges(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  void *v2; // rbx
+  __int64 v3; // rbx
 
-  result = ReferenceDwmApiPort(a1);
-  v2 = (void *)result;
+  result = ReferenceDwmApiPort(a1, a2);
+  v3 = result;
   if ( result )
   {
     LeaveCrit();
-    DwmSyncFlushWindowChanges(v2);
-    return EnterCrit(1LL, 0LL);
+    DwmSyncFlushWindowChanges(v3);
+    return EnterCrit(0LL, 1LL);
   }
   return result;
 }

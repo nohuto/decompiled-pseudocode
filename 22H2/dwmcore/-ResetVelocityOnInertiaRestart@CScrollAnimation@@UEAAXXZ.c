@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ResetVelocityOnInertiaRestart@CScrollAnimation@@UEAAXXZ @ 0x180107B40
+ * XREFs of ?ResetVelocityOnInertiaRestart@CScrollAnimation@@UEAAXXZ @ 0x1800E2E30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CScrollAnimation::ResetVelocityOnInertiaRestart(CScrollAnimation *this)
 {
-  *((_BYTE *)this + 344) |= 1u;
+  *((_BYTE *)this + 320) |= 1u;
 }

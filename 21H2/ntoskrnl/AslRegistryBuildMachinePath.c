@@ -1,13 +1,13 @@
 /*
- * XREFs of AslRegistryBuildMachinePath @ 0x140843AA4
+ * XREFs of AslRegistryBuildMachinePath @ 0x1407C1E60
  * Callers:
- *     AslRegistryGetKey @ 0x1408439C0 (AslRegistryGetKey.c)
+ *     AslRegistryGetKey @ 0x1407C1D7C (AslRegistryGetKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
  */
 
 __int64 __fastcall AslRegistryBuildMachinePath(PUNICODE_STRING Destination, PCWSTR Source)

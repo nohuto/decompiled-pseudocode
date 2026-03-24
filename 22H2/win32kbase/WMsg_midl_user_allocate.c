@@ -1,12 +1,12 @@
 /*
- * XREFs of WMsg_midl_user_allocate @ 0x1C00C57B0
+ * XREFs of WMsg_midl_user_allocate @ 0x1C0076470
  * Callers:
- *     WmsgpPostMessage @ 0x1C02BFD34 (WmsgpPostMessage.c)
+ *     WmsgpPostMessage @ 0x1C027E2F0 (WmsgpPostMessage.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall WMsg_midl_user_allocate(__int64 a1)
+PVOID __fastcall WMsg_midl_user_allocate(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(258LL, a1, 1399025746LL);
+  return ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x53637052u);
 }

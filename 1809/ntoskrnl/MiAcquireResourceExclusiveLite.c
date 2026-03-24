@@ -1,5 +1,5 @@
 /*
- * XREFs of MiAcquireResourceExclusiveLite @ 0x1402A6010
+ * XREFs of MiAcquireResourceExclusiveLite @ 0x1402A6110
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReplenishNonPagedSlists @ 0x140163E84
+ * XREFs of MiReplenishNonPagedSlists @ 0x140163EA4
  * Callers:
- *     MiScanLeafNonPagedPool @ 0x1401637D0 (MiScanLeafNonPagedPool.c)
+ *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
  * Callees:
  *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     MiAllocatingNonPagedPoolVa @ 0x140164040 (MiAllocatingNonPagedPoolVa.c)
- *     InterlockedPushListSList @ 0x1401C5460 (InterlockedPushListSList.c)
+ *     MiAllocatingNonPagedPoolVa @ 0x140164060 (MiAllocatingNonPagedPoolVa.c)
+ *     InterlockedPushListSList @ 0x1401C5480 (InterlockedPushListSList.c)
  */
 
 __int64 __fastcall MiReplenishNonPagedSlists(

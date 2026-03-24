@@ -1,14 +1,14 @@
 /*
- * XREFs of SddlAddScopedPolicyIDAce @ 0x1409CFCF8
+ * XREFs of SddlAddScopedPolicyIDAce @ 0x1409266A4
  * Callers:
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCopySid @ 0x14066A4E0 (RtlCopySid.c)
- *     RtlFirstFreeAce @ 0x140724CE0 (RtlFirstFreeAce.c)
- *     RtlValidSid @ 0x1407B4660 (RtlValidSid.c)
- *     RtlValidAcl @ 0x1407B4A50 (RtlValidAcl.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlFirstFreeAce @ 0x14065B880 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
+ *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
  */
 
 __int64 __fastcall SddlAddScopedPolicyIDAce(__int64 a1, __int64 a2, int a3, int a4, char *Sid)

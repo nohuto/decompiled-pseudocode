@@ -1,50 +1,17 @@
 /*
- * XREFs of HsaSetDevicePasidTable @ 0x140530C40
+ * XREFs of HsaSetDevicePasidTable @ 0x1404E4240
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     HsaUpdateDeviceTableEntry @ 0x140530DD0 (HsaUpdateDeviceTableEntry.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1404E4338 (HsaUpdateDeviceTableEntry.c)
  */
 
-__int64 __fastcall HsaSetDevicePasidTable(__int64 a1, int a2, __int64 a3, char a4)
+__int64 __fastcall HsaSetDevicePasidTable(int a1, int a2, int a3)
 {
-  _DWORD *v7; // rax
-  __int64 result; // rax
-  _DWORD v9[28]; // [rsp+58h] [rbp-19h] BYREF
-  int v10; // [rsp+D8h] [rbp+67h] BYREF
-  int v11; // [rsp+DCh] [rbp+6Bh]
+  int v4; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v5; // [rsp+54h] [rbp-14h]
 
-  v11 = 0;
-  v10 = a2;
-  memset(v9, 0, sizeof(v9));
-  if ( a4 )
-  {
-    v7 = 0LL;
-  }
-  else
-  {
-    if ( a3 )
-    {
-      v9[12] = *(_DWORD *)(a3 + 16);
-    }
-    else
-    {
-      result = *(unsigned int *)(a1 + 172);
-      v9[0] = 1;
-      if ( (_DWORD)result == 2 )
-      {
-        v9[1] = 1;
-      }
-      else
-      {
-        if ( (_DWORD)result != 1 )
-          return result;
-        v9[1] = 0;
-        v9[12] = 0;
-      }
-    }
-    v7 = v9;
-  }
-  return HsaUpdateDeviceTableEntry(a1, (unsigned int)&v10, a3, 0, (__int64)v7, 0, 0);
+  v4 = a2;
+  v5 = 1LL;
+  return HsaUpdateDeviceTableEntry(a1, (unsigned int)&v4, a3, 0, 0LL, 0, 0);
 }

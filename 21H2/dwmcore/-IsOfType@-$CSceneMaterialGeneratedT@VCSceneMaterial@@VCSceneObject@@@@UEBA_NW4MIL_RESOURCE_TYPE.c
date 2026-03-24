@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CSceneMaterialGeneratedT@VCSceneMaterial@@VCSceneObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A0EC0
+ * XREFs of ?IsOfType@?$CSceneMaterialGeneratedT@VCSceneMaterial@@VCSceneObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F3D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSceneMaterialGeneratedT<CSceneMaterial,CSceneObject>::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 154 || a2 == 161;
+  return a2 == 155 || a2 == 162;
 }

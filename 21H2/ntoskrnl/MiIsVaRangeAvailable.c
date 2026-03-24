@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsVaRangeAvailable @ 0x1406F8804
+ * XREFs of MiIsVaRangeAvailable @ 0x14061DBD8
  * Callers:
- *     MiMapLockedPagesInUserSpace @ 0x140693498 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MiMapViewOfPhysicalSection @ 0x140852834 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140978F40 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiCheckForConflictingVadExistence @ 0x1402819BC (MiCheckForConflictingVadExistence.c)
+ *     MiCheckForConflictingVadExistence @ 0x14025B04C (MiCheckForConflictingVadExistence.c)
  */
 
 _BOOL8 __fastcall MiIsVaRangeAvailable(

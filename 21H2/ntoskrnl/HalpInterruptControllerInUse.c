@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptControllerInUse @ 0x14051DE5C
+ * XREFs of HalpInterruptControllerInUse @ 0x1404D18AC
  * Callers:
- *     HalpInterruptReinitialize @ 0x140A505D4 (HalpInterruptReinitialize.c)
+ *     HalpInterruptReinitialize @ 0x140995D78 (HalpInterruptReinitialize.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ char __fastcall HalpInterruptControllerInUse(__int64 a1)
   int v5; // r10d
   unsigned int v6; // r10d
 
-  v1 = (__int64 *)(a1 + 248);
-  v2 = *(__int64 **)(a1 + 248);
+  v1 = (__int64 *)(a1 + 240);
+  v2 = *(__int64 **)(a1 + 240);
   do
   {
 LABEL_5:

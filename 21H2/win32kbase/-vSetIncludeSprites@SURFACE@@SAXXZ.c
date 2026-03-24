@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSetIncludeSprites@SURFACE@@SAXXZ @ 0x1C00C2E90
+ * XREFs of ?vSetIncludeSprites@SURFACE@@SAXXZ @ 0x1C00B3C50
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
  */
 
 void SURFACE::vSetIncludeSprites(void)

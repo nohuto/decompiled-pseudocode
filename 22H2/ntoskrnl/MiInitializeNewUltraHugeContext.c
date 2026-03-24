@@ -1,144 +1,105 @@
 /*
- * XREFs of MiInitializeNewUltraHugeContext @ 0x1403C5488
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x140399FC4
  * Callers:
- *     MiGetHugePageToZero @ 0x140350B60 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x14022F620 (MiGetHugePageToZero.c)
  * Callees:
- *     MiMakeProtectionPfnCompatible @ 0x140217E84 (MiMakeProtectionPfnCompatible.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiWriteLargePte @ 0x1402EC26C (MiWriteLargePte.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiStopPageAccessor @ 0x14036829C (MiStopPageAccessor.c)
- *     MiLockHugePfnInternal @ 0x1406214D8 (MiLockHugePfnInternal.c)
+ *     MiGetUltraMapping @ 0x140234070 (MiGetUltraMapping.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14023B32C (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-__int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
+__int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // r14
-  __int64 v3; // r15
-  __int64 v5; // rbx
-  ULONG_PTR v6; // rdi
-  int UltraThreadContext; // r13d
-  __int64 UltraMapping; // rax
-  _QWORD *v9; // rdx
-  unsigned __int64 v10; // r10
-  __int64 v11; // r8
-  _QWORD *v12; // rcx
-  __int64 v13; // r8
-  int ProtectionPfnCompatible; // eax
-  unsigned __int64 v15; // rax
-  __int64 v16; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rdx
+  int v8; // ecx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  _DWORD *v11; // rax
   __int64 result; // rax
-  __int64 v18; // r14
-  _OWORD v19[4]; // [rsp+20h] [rbp-48h] BYREF
-  int v21; // [rsp+78h] [rbp+10h] BYREF
+  unsigned __int64 UltraMapping; // rax
+  __int64 *v14; // r8
+  __int64 v15; // rcx
+  __int64 **v16; // rdx
+  unsigned __int64 *v17; // r14
+  int ProtectionPfnCompatible; // eax
+  __int64 v19; // r9
+  unsigned __int64 ValidPte; // rbx
+  int v21; // r15d
+  __int64 v22; // r8
+  __int64 v23; // rcx
+  int v24; // [rsp+58h] [rbp+10h] BYREF
 
-  v2 = *(_QWORD *)(a2 + 176);
-  v3 = a1;
-  v19[0] = 0LL;
-  if ( *(_BYTE *)(a2 + 68) )
+  *(_DWORD *)(a2 + 88) = 512;
+  *(_QWORD *)(a2 + 96) = a2 + 104;
+  v6 = (a3 + 0x58000000000LL) / 48;
+  v8 = *((_DWORD *)MiSearchNumaNodeTable(v6) + 2);
+  v11 = *(_DWORD **)(a2 + 96);
+  *(_DWORD *)(a2 + 184) = v8;
+  *(_QWORD *)(a2 + 168) = a3;
+  *(_DWORD *)(a2 + 188) = 1;
+  *v11 |= 1u;
+  v24 = 0;
+  while ( _interlockedbittestandset64((volatile signed __int32 *)(a3 + 24), 0x3FuLL) )
   {
-    v18 = v2 & 0x3FFFFF;
-    v5 = 0LL;
-    v6 = qword_140C67EF0 + 8 * v18;
-    v2 = v18 << 18;
+    do
+      KeYieldProcessorEx(&v24, v7, v9, v10);
+    while ( *(__int64 *)(a3 + 24) < 0 );
   }
-  else
+  if ( *(_BYTE *)(a2 + 69) == 1 )
   {
-    v5 = 48 * v2 - 0x220000000000LL;
-    v6 = 0LL;
+    _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    return 0LL;
   }
-  *(_DWORD *)(a2 + 96) = 512;
-  *(_QWORD *)(a2 + 104) = a2 + 112;
-  *(_DWORD *)(a2 + 324) = 1;
-  *(_BYTE *)(a2 + 112) |= 1u;
-  MiInitializePageColorBase(0LL, *(_DWORD *)(a2 + 320) + 1, (__int64)v19);
-  UltraThreadContext = MiCreateUltraThreadContext(a2 + 184, (__int64)v19, 1, 1u);
-  if ( v5 )
+  UltraMapping = MiGetUltraMapping((unsigned __int64 *)(a1 + 88), 0, 0x40000LL, 1);
+  v14 = (__int64 *)(a2 + 72);
+  v15 = *(_QWORD *)(a1 + 232) + 56LL;
+  v16 = *(__int64 ***)(*(_QWORD *)(a1 + 232) + 64LL);
+  if ( *v16 != (__int64 *)v15 )
+    __fastfail(3u);
+  *v14 = v15;
+  *(_QWORD *)(a2 + 80) = v16;
+  *v16 = v14;
+  *(_QWORD *)(v15 + 8) = v14;
+  *(_QWORD *)(a2 + 176) = UltraMapping;
+  *(_QWORD *)(a2 + 40) = UltraMapping;
+  v17 = (unsigned __int64 *)(((UltraMapping >> 27) & 0x1FFFF8) - 0x90482600000LL);
+  ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, a3);
+  ValidPte = MiMakeValidPte((unsigned __int64)v17, v6, ProtectionPfnCompatible | 0xA4000000, v19);
+  v21 = 0;
+  if ( MiPteInShadowRange((unsigned __int64)v17) )
   {
-    v21 = 0;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      do
+      v21 = 1;
+      if ( !HIBYTE(word_140C4E008) )
       {
-        do
-          KeYieldProcessorEx(&v21);
-        while ( *(__int64 *)(v5 + 24) < 0 );
+LABEL_13:
+        if ( (ValidPte & 1) != 0 )
+          ValidPte |= 0x8000000000000000uLL;
       }
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) );
-      v3 = a1;
     }
-  }
-  else
-  {
-    MiLockHugePfnInternal(v6, 0LL);
-  }
-  if ( *(_BYTE *)(a2 + 70) )
-  {
-    if ( v5 )
-      _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    else
-      _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140C67EF8 + 4 * ((((__int64)(v6 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((__int64)(v6 - qword_140C67EF0) >> 3) & 0x1F)));
-    if ( UltraThreadContext )
-      MiDeleteUltraThreadContext(a2 + 184);
-    return 1LL;
-  }
-  else if ( UltraThreadContext )
-  {
-    UltraMapping = MiGetUltraMapping((unsigned __int64 *)(a2 + 184), 0, 0x40000LL, 1);
-    v9 = (_QWORD *)(a2 + 80);
-    v10 = UltraMapping;
-    v11 = *(_QWORD *)(*(_QWORD *)(v3 + 88) + 168LL);
-    v12 = *(_QWORD **)(v11 + 40);
-    v13 = v11 + 32;
-    if ( *v12 != v13 )
-      __fastfail(3u);
-    *v9 = v13;
-    *(_QWORD *)(a2 + 88) = v12;
-    *v12 = v9;
-    *(_QWORD *)(v13 + 8) = v9;
-    *(_QWORD *)(a2 + 312) = UltraMapping;
-    *(_QWORD *)(a2 + 40) = UltraMapping;
-    if ( v5 )
-      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, v5);
-    else
-      ProtectionPfnCompatible = 4;
-    v15 = MiWriteLargePte(v10, v2, 0, ProtectionPfnCompatible | 0xA4000000);
-    v16 = *(_QWORD *)(a2 + 40) + 0x3FFFFFFFLL;
-    *(_DWORD *)(a2 + 64) = 0;
-    *(_QWORD *)(a2 + 48) = v16;
-    *(_QWORD *)(a2 + 32) = v15;
-    if ( v5 )
-      _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    else
-      _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140C67EF8 + 4 * ((((__int64)(v6 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((__int64)(v6 - qword_140C67EF0) >> 3) & 0x1F)));
-    *(_DWORD *)(v3 + 64) = 0;
-    result = 0LL;
-    *(_QWORD *)(v3 + 344) = a2;
-    *(_WORD *)(v3 + 336) = 0;
-  }
-  else
-  {
-    if ( v5 )
+    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     {
-      MiStopPageAccessor(v5, 0);
-      _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      goto LABEL_13;
     }
-    else
-    {
-      MiStopPageAccessor(v6, 1);
-      _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140C67EF8 + 4 * ((((__int64)(v6 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((__int64)(v6 - qword_140C67EF0) >> 3) & 0x1F)));
-    }
-    MiDeleteUltraThreadContext(a2 + 184);
-    return 2LL;
   }
+  *v17 = ValidPte;
+  if ( v21 )
+    MiWritePteShadow((__int64)v17, ValidPte, v22);
+  v23 = *(_QWORD *)(a2 + 40);
+  *(_DWORD *)(a2 + 64) = 0;
+  *(_QWORD *)(a2 + 48) = v23 + 0x3FFFFFFF;
+  *(_QWORD *)(a2 + 32) = v17;
+  _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  *(_DWORD *)(a1 + 64) = 0;
+  result = 1LL;
+  *(_QWORD *)(a1 + 224) = a2;
+  *(_WORD *)(a1 + 216) = 0;
   return result;
 }

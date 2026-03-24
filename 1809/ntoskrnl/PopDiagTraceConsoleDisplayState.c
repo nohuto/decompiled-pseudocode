@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceConsoleDisplayState @ 0x14071C54C
+ * XREFs of PopDiagTraceConsoleDisplayState @ 0x14071C52C
  * Callers:
- *     PopUpdateConsoleDisplayState @ 0x14071C278 (PopUpdateConsoleDisplayState.c)
+ *     PopUpdateConsoleDisplayState @ 0x14071C258 (PopUpdateConsoleDisplayState.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceConsoleDisplayState(int a1)

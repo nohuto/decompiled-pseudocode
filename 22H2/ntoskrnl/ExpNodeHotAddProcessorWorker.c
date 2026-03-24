@@ -1,24 +1,23 @@
 /*
- * XREFs of ExpNodeHotAddProcessorWorker @ 0x140A00880
+ * XREFs of ExpNodeHotAddProcessorWorker @ 0x140955DA0
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PsGetNextPartition @ 0x14036A720 (PsGetNextPartition.c)
- *     PsQuitNextPartition @ 0x1405A6630 (PsQuitNextPartition.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1407D620C (KeSynchronizeWithDynamicProcessors.c)
- *     ExpWorkQueueManagerStart @ 0x14084A6D0 (ExpWorkQueueManagerStart.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     PsGetNextPartition @ 0x140303EF8 (PsGetNextPartition.c)
+ *     PsQuitNextPartition @ 0x140584210 (PsQuitNextPartition.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x14068C184 (KeSynchronizeWithDynamicProcessors.c)
+ *     ExpWorkQueueManagerStart @ 0x1407C29A4 (ExpWorkQueueManagerStart.c)
  */
 
-void __fastcall ExpNodeHotAddProcessorWorker(unsigned __int16 *a1)
+void __fastcall ExpNodeHotAddProcessorWorker(__int64 a1)
 {
   _QWORD *v2; // rcx
   int v3; // eax
   _QWORD *NextPartition; // rax
-  __int64 v5; // r8
-  __int64 v6; // r9
-  _QWORD *v7; // rbx
+  int v5; // r8d
+  _QWORD *v6; // rbx
   LARGE_INTEGER Interval; // [rsp+30h] [rbp+8h] BYREF
 
   KeSynchronizeWithDynamicProcessors();
@@ -26,18 +25,21 @@ void __fastcall ExpNodeHotAddProcessorWorker(unsigned __int16 *a1)
   while ( 1 )
   {
     NextPartition = PsGetNextPartition(v2);
-    v7 = NextPartition;
+    v6 = NextPartition;
     if ( !NextPartition )
       break;
-    v3 = ExpWorkQueueManagerStart(*(_QWORD *)(*(_QWORD *)(NextPartition[2] + 16LL) + 8LL * *a1), *a1, v5, v6);
-    v2 = v7;
+    v3 = ExpWorkQueueManagerStart(
+           *(_QWORD *)(*(_QWORD *)(NextPartition[2] + 16LL) + 8LL * *(unsigned __int16 *)(a1 + 146)),
+           *(unsigned __int16 *)(a1 + 146),
+           v5);
+    v2 = v6;
     if ( v3 < 0 )
     {
-      PsQuitNextPartition(v7);
+      PsQuitNextPartition(v6);
       Interval.QuadPart = -500000LL;
       KeDelayExecutionThread(0, 0, &Interval);
-      *((_QWORD *)a1 + 38) = 0LL;
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 152), DelayedWorkQueue);
+      *(_QWORD *)(a1 + 384) = 0LL;
+      ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 384), DelayedWorkQueue);
       return;
     }
   }

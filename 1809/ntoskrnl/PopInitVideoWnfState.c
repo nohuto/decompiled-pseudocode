@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 __int64 PopInitVideoWnfState()

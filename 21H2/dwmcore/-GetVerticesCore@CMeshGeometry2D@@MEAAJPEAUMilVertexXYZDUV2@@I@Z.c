@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetVerticesCore@CMeshGeometry2D@@MEAAJPEAUMilVertexXYZDUV2@@I@Z @ 0x180225150
+ * XREFs of ?GetVerticesCore@CMeshGeometry2D@@MEAAJPEAUMilVertexXYZDUV2@@I@Z @ 0x1801D6C00
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x180114510 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D6BA0 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
  */
 
 __int64 __fastcall CMeshGeometry2D::GetVerticesCore(
@@ -39,19 +39,19 @@ __int64 __fastcall CMeshGeometry2D::GetVerticesCore(
       v13 = 0LL;
       do
       {
-        v14 = *((_QWORD *)this + 16);
+        v14 = *((_QWORD *)this + 15);
         v15 = *(_QWORD *)(v14 + v13);
         v13 += 12LL;
         *((_QWORD *)v12 - 2) = v15;
         *(v12 - 2) = *(float *)(v14 + v13 - 4);
-        v16 = *(_DWORD *)(v11 + *((_QWORD *)this + 20));
+        v16 = *(_DWORD *)(v11 + *((_QWORD *)this + 19));
         v11 += 4LL;
         *((_DWORD *)v12 - 1) = v16;
-        v17 = *(double *)(v9 + *((_QWORD *)this + 18));
+        v17 = *(double *)(v9 + *((_QWORD *)this + 17));
         v9 += 16LL;
         *v12 = v17;
         v12 += 8;
-        v18 = *(double *)(v9 + *((_QWORD *)this + 18) - 8);
+        v18 = *(double *)(v9 + *((_QWORD *)this + 17) - 8);
         *(v12 - 6) = 0.0;
         *(v12 - 5) = 0.0;
         *(v12 - 7) = v18;
@@ -63,7 +63,7 @@ __int64 __fastcall CMeshGeometry2D::GetVerticesCore(
   else
   {
     v6 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2147024809, 0x12Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024809, 0x12Du, 0LL);
   }
   return v6;
 }

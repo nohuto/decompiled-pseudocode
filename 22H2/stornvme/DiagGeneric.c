@@ -1,9 +1,9 @@
 /*
- * XREFs of DiagGeneric @ 0x1C001152C
+ * XREFs of DiagGeneric @ 0x1C00115BC
  * Callers:
- *     IoctlToNVMe @ 0x1C0014870 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     DiagAllDiagnosticData @ 0x1C0011164 (DiagAllDiagnosticData.c)
+ *     DiagAllDiagnosticData @ 0x1C0011230 (DiagAllDiagnosticData.c)
  */
 
 __int64 __fastcall DiagGeneric(__int64 a1, __int64 a2)

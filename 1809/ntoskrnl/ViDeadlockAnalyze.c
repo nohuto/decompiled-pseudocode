@@ -4,9 +4,9 @@
  *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
  *     ViDeadlockAnalyze @ 0x14093CAA8 (ViDeadlockAnalyze.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x1400CAB30 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x1401BC280 (KeGetCurrentStackPointer.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViDeadlockAddParticipant @ 0x14093C71C (ViDeadlockAddParticipant.c)
  *     ViDeadlockAnalyze @ 0x14093CAA8 (ViDeadlockAnalyze.c)
  *     ViDeadlockCertify @ 0x14093CD8C (ViDeadlockCertify.c)
@@ -117,13 +117,13 @@ LABEL_30:
     {
       *((_QWORD *)ViDeadlockGlobals + 4107) = a1;
       ViDeadlockPreprocessOptions(
-        byte_14040554C,
+        byte_140405544,
         "Type !deadlock in the debugger for more information.",
         4097LL,
         a1,
         a2,
         0LL);
-      VfReportIssueWithOptions(0xC4u, 0x1001uLL, a1, a2, 0LL, byte_14040554C);
+      VfReportIssueWithOptions(0xC4u, 0x1001uLL, a1, a2, 0LL, byte_140405544);
       return 0LL;
     }
     v8 = 0;

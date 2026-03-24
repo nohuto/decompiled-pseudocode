@@ -1,7 +1,7 @@
 /*
- * XREFs of ?HasSingleD2DBitmapOrPrimitiveGroupInternal@CVisual@@MEBA_NXZ @ 0x1800F31F0
+ * XREFs of ?HasSingleD2DBitmapOrPrimitiveGroupInternal@CVisual@@MEBA_NXZ @ 0x1800C9890
  * Callers:
- *     ?HasSingleD2DBitmapOrPrimitiveGroupInternal@CWindowNode@@MEBA_NXZ @ 0x1800C36A0 (-HasSingleD2DBitmapOrPrimitiveGroupInternal@CWindowNode@@MEBA_NXZ.c)
+ *     <none>
  * Callees:
  *     <none>
  */
@@ -10,9 +10,9 @@ bool __fastcall CVisual::HasSingleD2DBitmapOrPrimitiveGroupInternal(CVisual *thi
 {
   __int64 v1; // rcx
 
-  v1 = *((_QWORD *)this + 32);
+  v1 = *((_QWORD *)this + 31);
   if ( v1 )
-    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 208LL))(v1);
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v1 + 224LL))(v1);
   else
     return 0;
 }

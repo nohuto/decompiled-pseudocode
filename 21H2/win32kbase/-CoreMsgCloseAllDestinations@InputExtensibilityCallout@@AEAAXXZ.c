@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CoreMsgCloseAllDestinations@InputExtensibilityCallout@@AEAAXXZ @ 0x1C00C1160
+ * XREFs of ?CoreMsgCloseAllDestinations@InputExtensibilityCallout@@AEAAXXZ @ 0x1C00B1B38
  * Callers:
- *     UserDeactivateMITInputProcessing @ 0x1C01EBB48 (UserDeactivateMITInputProcessing.c)
+ *     UserDeactivateMITInputProcessing @ 0x1C01B1F48 (UserDeactivateMITInputProcessing.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
  */
 
 void __fastcall InputExtensibilityCallout::CoreMsgCloseAllDestinations(InputExtensibilityCallout *this)
@@ -15,7 +15,7 @@ void __fastcall InputExtensibilityCallout::CoreMsgCloseAllDestinations(InputExte
   v1 = (char *)this + 8;
   RIMLockExclusive((__int64)this + 8);
   v3 = (HANDLE *)((char *)this + 32);
-  v4 = (HANDLE *)((char *)this + 912);
+  v4 = (HANDLE *)((char *)this + 792);
   while ( v3 != v4 )
   {
     if ( *v3 )

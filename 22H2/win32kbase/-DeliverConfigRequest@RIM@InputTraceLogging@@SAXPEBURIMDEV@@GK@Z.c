@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DeliverConfigRequest@RIM@InputTraceLogging@@SAXPEBURIMDEV@@GK@Z @ 0x1C017EB98
+ * XREFs of ?DeliverConfigRequest@RIM@InputTraceLogging@@SAXPEBURIMDEV@@GK@Z @ 0x1C0160DF0
  * Callers:
- *     RIMDeliverConfigRequest @ 0x1C0180768 (RIMDeliverConfigRequest.c)
+ *     RIMDeliverConfigRequest @ 0x1C01613B4 (RIMDeliverConfigRequest.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::RIM::DeliverConfigRequest(const struct RIMDEV *a1)
@@ -24,7 +24,7 @@ void __fastcall InputTraceLogging::RIM::DeliverConfigRequest(const struct RIMDEV
   int *v12; // [rsp+80h] [rbp+37h]
   __int64 v13; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 256LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
   {
     v5 = v1;
     v12 = &v5;
@@ -35,6 +35,6 @@ void __fastcall InputTraceLogging::RIM::DeliverConfigRequest(const struct RIMDEV
     v13 = 4LL;
     v11 = 2LL;
     v9 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0289810, (unsigned __int8 *)dword_1C025849B, 0LL, 0LL, 5u, &v7);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024AA90, (unsigned __int8 *)dword_1C021A9B4, 0LL, 0LL, 5u, &v7);
   }
 }

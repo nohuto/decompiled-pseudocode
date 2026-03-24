@@ -1,47 +1,48 @@
 /*
- * XREFs of DxgkDispMgrReferenceObjectByHandle @ 0x1C02FE7A0
+ * XREFs of DxgkDispMgrReferenceObjectByHandle @ 0x1C02B2380
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1?$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ @ 0x1C0187A48 (--1-$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ.c)
+ *     ??1?$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ @ 0x1C00E58E4 (--1-$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DxgkDispMgrReferenceObjectByHandle(void *a1, ACCESS_MASK a2, _QWORD *a3)
 {
   NTSTATUS v4; // eax
-  unsigned int v5; // ebx
-  __int64 v6; // rdi
-  const wchar_t *v7; // r9
-  _QWORD *v8; // rax
-  _QWORD *v10; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  _QWORD *v9; // rax
+  __int64 v10; // rax
+  _QWORD *v12; // [rsp+68h] [rbp+20h] BYREF
 
-  v10 = 0LL;
-  v4 = ObReferenceObjectByHandleWithTag(a1, a2, g_pDxgkDisplayManagerObjectType, 1, 0x4B677844u, (PVOID *)&v10, 0LL);
-  v5 = v4;
+  v12 = 0LL;
+  v4 = ObReferenceObjectByHandleWithTag(a1, a2, g_pDxgkDisplayManagerObjectType, 1, 0x4B677844u, (PVOID *)&v12, 0LL);
+  v7 = v4;
   if ( v4 >= 0 )
   {
-    v8 = v10;
-    if ( *v10 )
+    v9 = v12;
+    if ( *v12 )
     {
-      v10 = 0LL;
-      v5 = 0;
-      *a3 = v8;
-      goto LABEL_7;
+      v12 = 0LL;
+      LODWORD(v7) = 0;
+      *a3 = v9;
     }
-    v6 = 1138LL;
-    WdLogSingleEntry1(2LL, 1138LL);
-    v7 = L"Opened DispMgr object, but it was not a valid target manager.";
-    v5 = -1073741811;
+    else
+    {
+      v10 = WdLogNewEntry5_WdError(v6, v5);
+      *(_QWORD *)(v10 + 24) = 1130LL;
+      WdLogEvent5_WdError(v10);
+      LODWORD(v7) = -1073741811;
+    }
   }
   else
   {
-    v6 = v4;
-    WdLogSingleEntry1(2LL, v4);
-    v7 = L"Failed to open DispMgr handle with status = 0x%I64x";
+    v8 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v8 + 24) = v7;
+    WdLogEvent5_WdError(v8);
   }
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v7, v6, 0LL, 0LL, 0LL, 0LL);
-LABEL_7:
-  NT_OBJECT_REFERENCE<DXGDISPLAYMANAGEROBJECT_CONTAINER *>::~NT_OBJECT_REFERENCE<DXGDISPLAYMANAGEROBJECT_CONTAINER *>((void **)&v10);
-  return v5;
+  NT_OBJECT_REFERENCE<DXGDISPLAYMANAGEROBJECT_CONTAINER *>::~NT_OBJECT_REFERENCE<DXGDISPLAYMANAGEROBJECT_CONTAINER *>((void **)&v12);
+  return (unsigned int)v7;
 }

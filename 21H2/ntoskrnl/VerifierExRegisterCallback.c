@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExRegisterCallback @ 0x140A8D8D0
+ * XREFs of VerifierExRegisterCallback @ 0x1409D1D50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExRegisterCallback()

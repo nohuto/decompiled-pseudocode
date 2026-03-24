@@ -1,33 +1,35 @@
 /*
- * XREFs of KiAbQueueAutoBoostDpc @ 0x140307C18
+ * XREFs of KiAbQueueAutoBoostDpc @ 0x1402DE7EC
  * Callers:
- *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1402078D4 (KeAbProcessBaseIoPriorityChangeInternal.c)
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x1402469D0 (KeYieldExecution.c)
- *     ExpApplyPriorityBoost @ 0x1402A8420 (ExpApplyPriorityBoost.c)
- *     KiSetPriorityThread @ 0x1402B05A0 (KiSetPriorityThread.c)
- *     KiComputeEffectivePriority @ 0x1402B2760 (KiComputeEffectivePriority.c)
- *     KeInsertPriQueue @ 0x1402B7EF0 (KeInsertPriQueue.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8400 (KiSetBasePriorityAndClearDecrement.c)
- *     KiRemoveBoostThread @ 0x1402BB220 (KiRemoveBoostThread.c)
- *     KiAbProcessThreadPriorityModification @ 0x1403077F0 (KiAbProcessThreadPriorityModification.c)
- *     KiUpdateThreadPriority @ 0x140307A60 (KiUpdateThreadPriority.c)
- *     KiAbThreadBoostIoPriority @ 0x140319118 (KiAbThreadBoostIoPriority.c)
- *     KeAbProcessEffectiveIoPriorityChange @ 0x14031AEEC (KeAbProcessEffectiveIoPriorityChange.c)
- *     KiApplyForegroundBoostThread @ 0x14034FED8 (KiApplyForegroundBoostThread.c)
+ *     ExpApplyPriorityBoost @ 0x14022E970 (ExpApplyPriorityBoost.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KiUpdateThreadPriority @ 0x1402307C0 (KiUpdateThreadPriority.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1402422D0 (KiTryUnwaitThreadWithPriority.c)
+ *     KiRemoveBoostThread @ 0x14024A840 (KiRemoveBoostThread.c)
+ *     KiDirectSwitchThread @ 0x14024C1B0 (KiDirectSwitchThread.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     KeSetBasePriorityThread @ 0x1402586C0 (KeSetBasePriorityThread.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x140277A2C (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x1402CD0C0 (ExpAcquireResourceExclusiveLite.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x1402DD27C (KeAbProcessEffectiveIoPriorityChange.c)
+ *     KiAbProcessThreadPriorityModification @ 0x1402DE6A0 (KiAbProcessThreadPriorityModification.c)
+ *     KiAbThreadBoostIoPriority @ 0x1402DE724 (KiAbThreadBoostIoPriority.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14035B22C (KiSetBasePriorityAndClearDecrement.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
  */
 
-__int64 __fastcall KiAbQueueAutoBoostDpc(__int64 a1)
+BOOLEAN __fastcall KiAbQueueAutoBoostDpc(struct _KDPC *SystemArgument1)
 {
-  __int64 result; // rax
+  BOOLEAN result; // al
 
-  if ( !*(_QWORD *)(a1 + 35744) )
+  if ( !SystemArgument1[542].DeferredContext )
   {
-    result = KiInsertQueueDpc(a1 + 35712, a1, 0LL, 0LL, 0);
-    *(_QWORD *)(a1 + 35744) = 1LL;
+    result = KeInsertQueueDpc(SystemArgument1 + 542, SystemArgument1, 0LL);
+    SystemArgument1[542].DeferredContext = (PVOID)1;
   }
   return result;
 }

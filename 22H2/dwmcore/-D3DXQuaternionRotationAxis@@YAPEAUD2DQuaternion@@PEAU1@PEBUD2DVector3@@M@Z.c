@@ -1,12 +1,12 @@
 /*
- * XREFs of ?D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18027E6D4
+ * XREFs of ?D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18021D98C
  * Callers:
- *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x18023C8D0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
- *     ?QuaternionFromAxisAngle@CExpressionValueStack@@QEAAJXZ @ 0x180261374 (-QuaternionFromAxisAngle@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801D7838 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?QuaternionFromAxisAngle@CExpressionValueStack@@QEAAJXZ @ 0x180200338 (-QuaternionFromAxisAngle@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x180023AFC (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
- *     cosf_0 @ 0x18011B8A8 (cosf_0.c)
- *     sinf_0 @ 0x18011B944 (sinf_0.c)
+ *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800C7848 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
+ *     cosf_0 @ 0x1800F3F93 (cosf_0.c)
+ *     sinf_0 @ 0x1800F3FCF (sinf_0.c)
  */
 
 struct D2DQuaternion *__fastcall D3DXQuaternionRotationAxis(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSharedReadBaseAnimationMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C0239F30
+ * XREFs of ?IsOfType@CSharedReadBaseAnimationMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C01F8EE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall DirectComposition::CSharedReadBaseAnimationMarshaler::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 9 || a2 == *(_DWORD *)(a1 + 72);
+  return a2 == 9 || a2 == *(_DWORD *)(a1 + 64);
 }

@@ -1,20 +1,18 @@
 /*
- * XREFs of ?bRedirHooked@XDCOBJ@@QEAAHXZ @ 0x1C02C06A4
+ * XREFs of ?bRedirHooked@XDCOBJ@@QEAAHXZ @ 0x1C0277CF4
  * Callers:
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     NtGdiTransparentBlt @ 0x1C0297970 (NtGdiTransparentBlt.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
+ *     NtGdiTransparentBlt @ 0x1C0155C50 (NtGdiTransparentBlt.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall XDCOBJ::bRedirHooked(XDCOBJ *this)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rdx
+  void *v1; // rcx
 
-  v2 = *(_QWORD *)(SGDGetSessionState(this) + 32);
-  v3 = *(_QWORD *)(*(_QWORD *)this + 48LL);
-  return v3 == *(_QWORD *)(v2 + 23376) || v3 == *(_QWORD *)(v2 + 8608);
+  v1 = *(void **)(*(_QWORD *)this + 48LL);
+  return v1 == gpRedirDev || v1 == gpBmpDev;
 }

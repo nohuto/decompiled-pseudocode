@@ -1,33 +1,33 @@
 /*
- * XREFs of ACPILoadProcessDSDT @ 0x1C00BF044
+ * XREFs of ACPILoadProcessDSDT @ 0x1C00BEC08
  * Callers:
- *     ACPILoadProcessFADT @ 0x1C00BEF88 (ACPILoadProcessFADT.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008E978 (ACPIRegReadAMLRegistryEntry.c)
- *     ACPILoadAddDynamicDataBlockTable @ 0x1C00BDCC8 (ACPILoadAddDynamicDataBlockTable.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPILoadAddDynamicDataBlockTable @ 0x1C00BEA74 (ACPILoadAddDynamicDataBlockTable.c)
  */
 
 __int64 ACPILoadProcessDSDT()
 {
   _OWORD *v0; // rbx
-  _OWORD *Pool2; // rax
+  _OWORD *PoolWithTag; // rax
   __int64 result; // rax
   PVOID P; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = (_OWORD *)(*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(PmHalDispatchTable + 88))(1413763908LL, 0LL, 0LL);
   if ( v0 )
   {
-    Pool2 = (_OWORD *)ExAllocatePool2(64LL, 36LL, 1953522497LL);
-    P = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x24uLL, 0x74706341u);
+    P = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = *v0;
-      Pool2[1] = v0[1];
-      *((_DWORD *)Pool2 + 8) = *((_DWORD *)v0 + 8);
-      *((_DWORD *)Pool2 + 1) = 36;
+      *PoolWithTag = *v0;
+      PoolWithTag[1] = v0[1];
+      *((_DWORD *)PoolWithTag + 8) = *((_DWORD *)v0 + 8);
+      *((_DWORD *)PoolWithTag + 1) = 36;
       if ( ACPIRegReadAMLRegistryEntry((__int64 *)&P) )
       {
         v0 = P;
@@ -37,7 +37,7 @@ __int64 ACPILoadProcessDSDT()
             4u,
             0x15u,
             0xCu,
-            (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+            (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
             P);
       }
       else
@@ -61,7 +61,7 @@ __int64 ACPILoadProcessDSDT()
         2u,
         0x16u,
         0xBu,
-        (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
     return 3222536217LL;
   }
   return result;

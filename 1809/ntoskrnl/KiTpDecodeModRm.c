@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTpDecodeModRm @ 0x14029E0C4
+ * XREFs of KiTpDecodeModRm @ 0x14029E1C4
  * Callers:
- *     KiTpEmulateGroup0Instruction @ 0x14029E310 (KiTpEmulateGroup0Instruction.c)
- *     KiTpEmulateGroup11Instruction @ 0x14029E56C (KiTpEmulateGroup11Instruction.c)
- *     KiTpEmulateGroup1Instruction @ 0x14029E61C (KiTpEmulateGroup1Instruction.c)
- *     KiTpEmulateInstruction @ 0x14029E7FC (KiTpEmulateInstruction.c)
- *     KiTpEmulateMovzx @ 0x14029EEF0 (KiTpEmulateMovzx.c)
+ *     KiTpEmulateGroup0Instruction @ 0x14029E410 (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup11Instruction @ 0x14029E66C (KiTpEmulateGroup11Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x14029E71C (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
+ *     KiTpEmulateMovzx @ 0x14029EFF0 (KiTpEmulateMovzx.c)
  * Callees:
- *     KiTpFetchInstructionBytes @ 0x14029F118 (KiTpFetchInstructionBytes.c)
+ *     KiTpFetchInstructionBytes @ 0x14029F218 (KiTpFetchInstructionBytes.c)
  */
 
 __int64 __fastcall KiTpDecodeModRm(__int64 a1, __int64 a2, int *a3)

@@ -1,33 +1,31 @@
 /*
- * XREFs of ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C003C494
+ * XREFs of ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C012DB0C
  * Callers:
- *     NtUserDoSoundConnect @ 0x1C00BC6D0 (NtUserDoSoundConnect.c)
+ *     NtUserDoSoundConnect @ 0x1C0135070 (NtUserDoSoundConnect.c)
  * Callees:
- *     PlaySoundConnect @ 0x1C03993D0 (PlaySoundConnect.c)
- *     PlaySoundDisconnect @ 0x1C039953C (PlaySoundDisconnect.c)
+ *     PlaySoundDisconnect @ 0x1C037A7C8 (PlaySoundDisconnect.c)
+ *     PlaySoundConnect @ 0x1C037A808 (PlaySoundConnect.c)
  */
 
 __int64 __fastcall CUserPlaySound::Connect(CUserPlaySound *this, void *a2)
 {
   RPC_BINDING_HANDLE *v2; // rsi
-  unsigned int *v4; // rax
-  int v5; // edi
-  RPC_BINDING_HANDLE v6; // rdx
+  int v3; // edi
+  RPC_BINDING_HANDLE v4; // rdx
   RPC_BINDING_HANDLE Binding; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = CUserPlaySound::s_pUserPlaySound;
   Binding = 0LL;
-  v4 = (unsigned int *)SGDGetUserSessionState(this);
-  v5 = PlaySoundConnect(*v4, a2, &Binding);
-  if ( v5 >= 0 )
+  v2 = CUserPlaySound::s_pUserPlaySound;
+  v3 = PlaySoundConnect((unsigned int)gSessionId, a2, &Binding);
+  if ( v3 >= 0 )
   {
     KeEnterCriticalRegion();
     ExAcquirePushLockExclusiveEx(v2 + 1, 0LL);
     if ( !*v2 )
     {
-      v6 = Binding;
+      v4 = Binding;
       Binding = 0LL;
-      *v2 = v6;
+      *v2 = v4;
     }
     if ( v2 != (RPC_BINDING_HANDLE *)-8LL )
     {
@@ -40,5 +38,5 @@ __int64 __fastcall CUserPlaySound::Connect(CUserPlaySound *this, void *a2)
     PlaySoundDisconnect(&Binding);
     return (unsigned int)-1073741823;
   }
-  return (unsigned int)v5;
+  return (unsigned int)v3;
 }

@@ -5,9 +5,9 @@
  *     PspCombineSecurityDomains @ 0x14061104C (PspCombineSecurityDomains.c)
  *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B6964 (PspOneDirectionSecurityDomainCombine.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x1406C9FD0 (CmpCheckKeySecurityDescriptorAccess.c)
- *     CmpDoAccessCheckOnKCB @ 0x1407F28D8 (CmpDoAccessCheckOnKCB.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x1406B6944 (PspOneDirectionSecurityDomainCombine.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x1406C9FB0 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpDoAccessCheckOnKCB @ 0x1407F28B8 (CmpDoAccessCheckOnKCB.c)
  * Callees:
  *     SepCreateAccessStateFromSubjectContext @ 0x14004D710 (SepCreateAccessStateFromSubjectContext.c)
  *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)

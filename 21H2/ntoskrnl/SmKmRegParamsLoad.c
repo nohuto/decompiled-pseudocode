@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmRegParamsLoad @ 0x1409D624C
+ * XREFs of SmKmRegParamsLoad @ 0x14092BD48
  * Callers:
- *     SmcStoreCreate @ 0x1409D8074 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DB50 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall SmKmRegParamsLoad(__int64 a1)
@@ -59,7 +59,7 @@ __int64 __fastcall SmKmRegParamsLoad(__int64 a1)
   v4 = 0;
   v3 = 0;
   result = RtlpQueryRegistryValues(
-             0,
+             0LL,
              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters",
              (__int64)&v5,
              0LL);

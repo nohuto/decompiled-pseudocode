@@ -1,9 +1,9 @@
 /*
- * XREFs of __tailMerge_api_ms_win_security_sddl_l1_1_0_dll @ 0x180101B9D
+ * XREFs of __tailMerge_api_ms_win_security_sddl_l1_1_0_dll @ 0x1800E8464
  * Callers:
- *     __imp_load_ConvertStringSecurityDescriptorToSecurityDescriptorW @ 0x180101B91 (__imp_load_ConvertStringSecurityDescriptorToSecurityDescriptorW.c)
+ *     __imp_load_ConvertStringSecurityDescriptorToSecurityDescriptorW @ 0x1800E8458 (__imp_load_ConvertStringSecurityDescriptorToSecurityDescriptorW.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_api_ms_win_security_sddl_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

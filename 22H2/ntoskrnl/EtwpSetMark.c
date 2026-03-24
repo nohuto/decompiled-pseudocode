@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpSetMark @ 0x1409E6960
+ * XREFs of EtwpSetMark @ 0x14093742C
  * Callers:
- *     NtTraceEvent @ 0x1402577C0 (NtTraceEvent.c)
- *     EtwpLogRefSetAutoMark @ 0x1409EF124 (EtwpLogRefSetAutoMark.c)
+ *     NtTraceEvent @ 0x14025C4C0 (NtTraceEvent.c)
+ *     EtwpLogRefSetAutoMark @ 0x14093DEA4 (EtwpLogRefSetAutoMark.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x14038C540 (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MmEmptyAllWorkingSets @ 0x1406356C0 (MmEmptyAllWorkingSets.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     MmIdentifyPhysicalMemory @ 0x140A2ED78 (MmIdentifyPhysicalMemory.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403A993C (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MmEmptyAllWorkingSets @ 0x14053C744 (MmEmptyAllWorkingSets.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C7108 (MmIdentifyPhysicalMemory.c)
  */
 
-__int64 __fastcall EtwpSetMark(unsigned int *a1, int *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
+__int64 __fastcall EtwpSetMark(__int64 a1, int *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
 {
   unsigned int v8; // ebx
   char v9; // r12
@@ -57,17 +57,17 @@ __int64 __fastcall EtwpSetMark(unsigned int *a1, int *a2, unsigned int a3, char 
       v16 = 2;
       v17 = 0;
       EtwpLogSystemEventUnsafe(
-        *((_QWORD *)a1 + 137),
+        *(_QWORD *)(a1 + 1080),
         (__int64)&v12,
         KeGetCurrentThread(),
-        *a1,
+        *(_DWORD *)a1,
         2u,
-        0xF22u,
+        3874,
         0x3100u,
         PreviousMode,
         v11);
       if ( v9 )
-        MmIdentifyPhysicalMemory(*((_QWORD *)a1 + 137), *a1, 629LL, 1LL);
+        MmIdentifyPhysicalMemory(*(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 629LL, (_DWORD *)1);
     }
     else
     {

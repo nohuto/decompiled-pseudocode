@@ -1,5 +1,5 @@
 /*
- * XREFs of GetWin8StyleDpiSettingFromRegistry @ 0x1C0005810
+ * XREFs of GetWin8StyleDpiSettingFromRegistry @ 0x1C00082D0
  * Callers:
  *     <none>
  * Callees:

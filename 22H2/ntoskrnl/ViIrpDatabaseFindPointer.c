@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrpDatabaseFindPointer @ 0x140AE2AC4
+ * XREFs of ViIrpDatabaseFindPointer @ 0x1409E0B4C
  * Callers:
- *     VfIrpDatabaseCheckExFreePool @ 0x140AC1876 (VfIrpDatabaseCheckExFreePool.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE2768 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x1409E071C (VfIrpDatabaseCheckExFreePool.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07B8 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x140AC33C4 (VfUtilAddressRangeFit.c)
+ *     VfUtilAddressRangeFit @ 0x1409C630C (VfUtilAddressRangeFit.c)
  */
 
 _QWORD *__fastcall ViIrpDatabaseFindPointer(unsigned __int64 a1)
@@ -18,7 +18,7 @@ _QWORD *__fastcall ViIrpDatabaseFindPointer(unsigned __int64 a1)
                        a1,
                        a1 + 208) )
   {
-    for ( i = *(_QWORD **)((char *)ViIrpDatabase + v1); i != (_QWORD *)((char *)ViIrpDatabase + v1); i = (_QWORD *)*i )
+    for ( i = *(_QWORD **)(v1 + ViIrpDatabase); i != (_QWORD *)(v1 + ViIrpDatabase); i = (_QWORD *)*i )
     {
       if ( *(i - 4) == v2 )
         return i - 4;

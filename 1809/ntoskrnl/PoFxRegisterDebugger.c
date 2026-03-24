@@ -4,15 +4,15 @@
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PoFxActivateComponent @ 0x1400FE070 (PoFxActivateComponent.c)
- *     PoFxStartDevicePowerManagement @ 0x14018BCB0 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PoFxActivateComponent @ 0x1400FE090 (PoFxActivateComponent.c)
+ *     PoFxStartDevicePowerManagement @ 0x14018BCD0 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PoFxRegisterCoreDevice @ 0x1407258D0 (PoFxRegisterCoreDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x1407258B0 (PoFxRegisterCoreDevice.c)
  */
 
 void PoFxRegisterDebugger()

@@ -1,13 +1,13 @@
 /*
- * XREFs of ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C00387A2
+ * XREFs of ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C005355C
  * Callers:
- *     ??1FxRequestBase@@MEAA@XZ @ 0x1C00070E0 (--1FxRequestBase@@MEAA@XZ.c)
- *     ?SelfDestruct@FxRequestFromLookaside@@MEAAXXZ @ 0x1C0008230 (-SelfDestruct@FxRequestFromLookaside@@MEAAXXZ.c)
- *     ?ClearFieldsForReuse@FxRequestBase@@QEAAXXZ @ 0x1C00387CE (-ClearFieldsForReuse@FxRequestBase@@QEAAXXZ.c)
- *     ?CreateTimer@FxRequestBase@@QEAAJXZ @ 0x1C00699AC (-CreateTimer@FxRequestBase@@QEAAJXZ.c)
+ *     ??1FxRequestBase@@MEAA@XZ @ 0x1C00058E4 (--1FxRequestBase@@MEAA@XZ.c)
+ *     ?SelfDestruct@FxRequestFromLookaside@@MEAAXXZ @ 0x1C0007860 (-SelfDestruct@FxRequestFromLookaside@@MEAAXXZ.c)
+ *     ?ClearFieldsForReuse@FxRequestBase@@QEAAXXZ @ 0x1C0053588 (-ClearFieldsForReuse@FxRequestBase@@QEAAXXZ.c)
+ *     ?CreateTimer@FxRequestBase@@QEAAJXZ @ 0x1C0053654 (-CreateTimer@FxRequestBase@@QEAAJXZ.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1MxTimer@@QEAA@XZ @ 0x1C0016E64 (--1MxTimer@@QEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1MxTimer@@QEAA@XZ @ 0x1C005351C (--1MxTimer@@QEAA@XZ.c)
  */
 
 FxRequestTimer *__fastcall FxRequestTimer::`scalar deleting destructor'(FxRequestTimer *this, __int64 a2)

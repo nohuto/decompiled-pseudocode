@@ -1,19 +1,19 @@
 /*
- * XREFs of PopUmpoInitializeMonitorChannel @ 0x140B2CD08
+ * XREFs of PopUmpoInitializeMonitorChannel @ 0x140A70AB0
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     ExRegisterCallback @ 0x14025A0B0 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14025DE40 (ExUnregisterCallback.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwAlpcCreatePort @ 0x14041C6C0 (ZwAlpcCreatePort.c)
- *     ZwAlpcSetInformation @ 0x14041C900 (ZwAlpcSetInformation.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
- *     PopMonitorProcessLoop @ 0x1408600E4 (PopMonitorProcessLoop.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140381970 (ExUnregisterCallback.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwAlpcCreatePort @ 0x1403FB300 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x1403FB540 (ZwAlpcSetInformation.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     PopMonitorProcessLoop @ 0x1407D0674 (PopMonitorProcessLoop.c)
  */
 
 __int64 PopUmpoInitializeMonitorChannel()
@@ -28,11 +28,11 @@ __int64 PopUmpoInitializeMonitorChannel()
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-21h] BYREF
   _QWORD v9[9]; // [rsp+88h] [rbp-9h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v0 = 0LL;
-  v1 = 0LL;
   PopAlpcMonitorServerPort = 0LL;
+  v1 = 0LL;
   PopAlpcMonitorClientPort = 0LL;
   v7 = 0LL;
   CallbackObject = 0LL;
@@ -43,6 +43,7 @@ __int64 PopUmpoInitializeMonitorChannel()
   ObjectAttributes.ObjectName = &DestinationString;
   LODWORD(v9[0]) = 0x100000;
   v9[2] = 256LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   Port = ZwAlpcCreatePort((__int64)&PopAlpcMonitorServerPort, (__int64)&ObjectAttributes);
   if ( Port >= 0 )
@@ -59,7 +60,7 @@ __int64 PopUmpoInitializeMonitorChannel()
     {
       v1 = ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopMonitorAlpcCallback, 0LL);
       if ( !v1 )
-        return (unsigned int)Port;
+        goto LABEL_6;
       *(_QWORD *)&v7 = v0;
       *((_QWORD *)&v7 + 1) = PopAlpcMonitorServerPort;
       Port = ZwAlpcSetInformation((__int64)PopAlpcMonitorServerPort, 9LL);
@@ -67,7 +68,10 @@ __int64 PopUmpoInitializeMonitorChannel()
       if ( Port >= 0 )
       {
         PopMonitorProcessLoop();
-        return 0;
+        Port = 0;
+LABEL_6:
+        if ( Port >= 0 )
+          return (unsigned int)Port;
       }
     }
   }

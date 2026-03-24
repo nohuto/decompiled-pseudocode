@@ -1,9 +1,9 @@
 /*
- * XREFs of CleanupPlaySound @ 0x1C00BE060
+ * XREFs of CleanupPlaySound @ 0x1C0136860
  * Callers:
  *     <none>
  * Callees:
- *     PlaySoundDisconnect @ 0x1C039953C (PlaySoundDisconnect.c)
+ *     PlaySoundDisconnect @ 0x1C037A7C8 (PlaySoundDisconnect.c)
  */
 
 __int64 CleanupPlaySound()

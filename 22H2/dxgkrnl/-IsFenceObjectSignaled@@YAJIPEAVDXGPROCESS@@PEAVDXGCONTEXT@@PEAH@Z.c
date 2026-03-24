@@ -1,131 +1,116 @@
 /*
- * XREFs of ?IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z @ 0x1C03501D0
+ * XREFs of ?IsFenceObjectSignaled@@YAJIPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAH@Z @ 0x1C0291540
  * Callers:
- *     ?HasConsumerGPUWorkFinished@DXGDXGIKEYEDMUTEX@@QEAAHPEAVDXGCONTEXT@@@Z @ 0x1C032C614 (-HasConsumerGPUWorkFinished@DXGDXGIKEYEDMUTEX@@QEAAHPEAVDXGCONTEXT@@@Z.c)
+ *     ?HasConsumerGPUWorkFinished@DXGDXGIKEYEDMUTEX@@QEAAHPEAVDXGCONTEXT@@@Z @ 0x1C029AA98 (-HasConsumerGPUWorkFinished@DXGDXGIKEYEDMUTEX@@QEAAHPEAVDXGCONTEXT@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C01A5A68 (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
- *     ?VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJECT@@IPEAE@Z @ 0x1C038A550 (-VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJEC.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C01252E8 (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
+ *     ?VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJECT@@IPEAE@Z @ 0x1C0249CD0 (-VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJEC.c)
  */
 
 __int64 __fastcall IsFenceObjectSignaled(unsigned int a1, struct DXGPROCESS *a2, struct DXGCONTEXT *a3, int *a4)
 {
-  __int64 v5; // rbp
-  unsigned int v8; // eax
-  __int64 v9; // r8
-  int v10; // edx
-  _DWORD *v11; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // rax
+  __int64 v5; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // r8
+  int v13; // edx
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  _DWORD *v16; // rbx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  struct ADAPTER_RENDER *v21; // rdx
+  DXG_GUEST_VIRTUALGPU_VMBUS *v22; // rcx
+  __int64 v23; // rdx
   int IsSyncObjectSignaled; // ebx
-  int v16; // eax
+  int v25; // eax
   struct _VIDSCH_SYNC_OBJECT *VidSchSyncObject; // rax
-  __int64 v18; // rdx
-  _BYTE v19[16]; // [rsp+50h] [rbp-38h] BYREF
-  unsigned __int8 v20; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v27; // r9
+  _BYTE v28[40]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned __int8 v29; // [rsp+60h] [rbp+8h] BYREF
 
   v5 = a1;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 983LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pContext->GetRenderCore()->IsCoreResourceSharedOwner()",
-      983LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v10 + 24) = 1001LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)a2 + 248));
-  v8 = ((unsigned int)v5 >> 6) & 0xFFFFFF;
-  if ( v8 >= *((_DWORD *)a2 + 74) )
+  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)a2 + 208));
+  v11 = ((unsigned int)v5 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v11 >= *((_DWORD *)a2 + 64) )
     goto LABEL_9;
-  v9 = *((_QWORD *)a2 + 35);
-  if ( (((unsigned int)v5 >> 25) & 0x60) != (*(_BYTE *)(v9 + 16LL * v8 + 8) & 0x60) )
-    goto LABEL_9;
-  if ( (*(_DWORD *)(v9 + 16LL * v8 + 8) & 0x2000) != 0 )
-    goto LABEL_9;
-  v10 = *(_DWORD *)(v9 + 16LL * v8 + 8) & 0x1F;
-  if ( !v10 )
-    goto LABEL_9;
-  if ( v10 != 8 )
+  v12 = *((_QWORD *)a2 + 30);
+  v13 = *(_DWORD *)(v12 + 16 * v11 + 8);
+  if ( (((unsigned int)v5 >> 25) & 0x60) != (*(_BYTE *)(v12 + 16 * v11 + 8) & 0x60)
+    || (v13 & 0x2000) != 0
+    || (v13 & 0x1F) == 0 )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+    goto LABEL_9;
+  }
+  v14 = v13 & 0x1F;
+  if ( (_BYTE)v14 != 8 )
+  {
+    v15 = WdLogNewEntry5_WdError(((unsigned int)v5 >> 25) & 0x60, v14);
+    *(_QWORD *)(v15 + 24) = 316LL;
+    WdLogEvent5_WdError(v15);
 LABEL_9:
-    v11 = 0LL;
+    v16 = 0LL;
     goto LABEL_10;
   }
-  v11 = *(_DWORD **)(v9 + 16LL * v8);
+  v16 = *(_DWORD **)(v12 + 16LL * (unsigned int)v11);
 LABEL_10:
-  _InterlockedDecrement((volatile signed __int32 *)a2 + 66);
-  ExReleasePushLockSharedEx((char *)a2 + 248, 0LL);
+  ExReleasePushLockSharedEx((char *)a2 + 208, 0LL);
   KeLeaveCriticalRegion();
-  if ( !v11 )
+  if ( !v16 )
   {
-    WdLogSingleEntry2(2LL, a2, v5);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid sync object, process 0x%I64x, handle 0x%I64x",
-      (__int64)a2,
-      v5,
-      0LL,
-      0LL,
-      0LL);
+    v19 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v19 + 24) = a2;
+    *(_QWORD *)(v19 + 32) = v5;
+LABEL_12:
+    WdLogEvent5_WdError(v19);
     return 3221225485LL;
   }
-  if ( v11[50] != 3 )
+  if ( v16[48] != 3 )
   {
-    WdLogSingleEntry1(2LL, 1000LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Call only valid for fence objects",
-      1000LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v19 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v19 + 24) = 1018LL;
+    goto LABEL_12;
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v19, (struct DXGFASTMUTEX *const)(v11 + 8), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
-  v13 = *((_QWORD *)a3 + 2);
-  if ( !*((_BYTE *)a3 + 442) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v28, (struct DXGFASTMUTEX *const)(v16 + 8), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v28);
+  v21 = *(struct ADAPTER_RENDER **)(*((_QWORD *)a3 + 2) + 16LL);
+  if ( !*((_BYTE *)a3 + 457) )
   {
-    VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject((DXGSYNCOBJECT *)v11, *(struct ADAPTER_RENDER **)(v13 + 16));
-    v16 = (*(unsigned __int8 (__fastcall **)(struct _VIDSCH_SYNC_OBJECT *))(*(_QWORD *)(*(_QWORD *)(v18 + 736) + 8LL)
-                                                                          + 872LL))(VidSchSyncObject);
+    VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject((DXGSYNCOBJECT *)v16, v21);
+    v25 = (*(unsigned __int8 (__fastcall **)(struct _VIDSCH_SYNC_OBJECT *))(*(_QWORD *)(v27 + 8) + 872LL))(VidSchSyncObject);
     goto LABEL_20;
   }
-  v14 = *(_QWORD *)(v13 + 16);
-  v20 = 0;
+  v22 = (DXG_GUEST_VIRTUALGPU_VMBUS *)(*((_QWORD *)v21 + 2) + 4240LL);
+  v29 = 0;
   IsSyncObjectSignaled = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendIsSyncObjectSignaled(
-                           (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(v14 + 16) + 4472LL),
+                           v22,
                            a2,
-                           (struct DXGSYNCOBJECT *)v11,
+                           (struct DXGSYNCOBJECT *)v16,
                            v5,
-                           &v20);
+                           &v29);
   if ( IsSyncObjectSignaled >= 0 )
   {
-    v16 = v20 == 1;
+    v25 = v29 == 1;
 LABEL_20:
-    *a4 = v16;
+    *a4 = v25;
     IsSyncObjectSignaled = 0;
   }
-  if ( v19[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19);
+  if ( v28[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v28, v23);
   return (unsigned int)IsSyncObjectSignaled;
 }

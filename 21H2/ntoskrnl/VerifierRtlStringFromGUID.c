@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlStringFromGUID @ 0x140A9EB10
+ * XREFs of VerifierRtlStringFromGUID @ 0x1409E5A30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierRtlStringFromGUID()

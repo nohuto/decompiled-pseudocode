@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsHelpParent@@YAHPEAUtagWND@@@Z @ 0x1C024EE0C
+ * XREFs of ?IsHelpParent@@YAHPEAUtagWND@@@Z @ 0x1C026017C
  * Callers:
- *     xxxHelpLoop @ 0x1C0239514 (xxxHelpLoop.c)
- *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C024EDC0 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
+ *     xxxHelpLoop @ 0x1C024FBDC (xxxHelpLoop.c)
+ *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C0260130 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
  * Callees:
  *     <none>
  */

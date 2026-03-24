@@ -1,3 +1,3 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001BB268EEE40>) 
- 
+[EXCEPTION] ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08: Hex-Rays returned no pseudocode for 0x1800C0A08
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800C0A08'), <traceback object at 0x00000182C9EAD980>)
+

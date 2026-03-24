@@ -1,71 +1,57 @@
 /*
- * XREFs of DrvSetMonitorsDimState @ 0x1C00BAE20
+ * XREFs of DrvSetMonitorsDimState @ 0x1C0079940
  * Callers:
- *     PowerDimUndimResend @ 0x1C001225C (PowerDimUndimResend.c)
- *     PowerUnDimMonitor @ 0x1C007A998 (PowerUnDimMonitor.c)
- *     ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00ACC98 (-DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
- *     PowerDimMonitor @ 0x1C0133920 (PowerDimMonitor.c)
+ *     PowerUnDimMonitor @ 0x1C0078FA0 (PowerUnDimMonitor.c)
+ *     PowerDimUndimResend @ 0x1C0079120 (PowerDimUndimResend.c)
+ *     PowerDimMonitor @ 0x1C011A2F0 (PowerDimMonitor.c)
  * Callees:
- *     ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C001E1C0 (-UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E270 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
- *     ?GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z @ 0x1C00227A0 (-GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UpdateMonitorDevices @ 0x1C001E2B0 (UpdateMonitorDevices.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001E47C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DrvSetMonitorsDimState(__int64 a1, __int128 *a2)
+void __fastcall DrvSetMonitorsDimState(char a1, __int128 *a2)
 {
-  char v3; // r15
-  __int64 i; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  struct _DEVICE_OBJECT *AttachedDeviceReference; // rbx
-  __int128 v9; // xmm0
+  wchar_t *i; // rdi
   unsigned int j; // esi
-  PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp-39h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-31h] BYREF
-  _BYTE v13[8]; // [rsp+60h] [rbp-29h] BYREF
-  unsigned int v14; // [rsp+68h] [rbp-21h]
-  PVOID P; // [rsp+70h] [rbp-19h]
-  unsigned int v16; // [rsp+78h] [rbp-11h] BYREF
-  __int128 v17; // [rsp+80h] [rbp-9h] BYREF
-  int v18; // [rsp+90h] [rbp+7h]
-  _BYTE InputBuffer[20]; // [rsp+98h] [rbp+Fh] BYREF
+  __int64 v6; // rcx
+  struct _DEVICE_OBJECT *AttachedDeviceReference; // rax
+  __int128 v8; // xmm0
+  struct _DEVICE_OBJECT *v9; // rbx
+  PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp-19h] BYREF
+  PVOID Object; // [rsp+58h] [rbp-11h] BYREF
+  unsigned int v12; // [rsp+60h] [rbp-9h] BYREF
+  char InputBuffer; // [rsp+68h] [rbp-1h] BYREF
+  __int16 v14; // [rsp+69h] [rbp+0h]
+  char v15; // [rsp+6Bh] [rbp+2h]
+  __int128 v16; // [rsp+6Ch] [rbp+3h]
 
-  v3 = a1;
-  for ( i = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 1264LL); i; i = *(_QWORD *)(i + 128) )
+  UpdateMonitorDevices();
+  for ( i = gpGraphicsDeviceList; i; i = (wchar_t *)*((_QWORD *)i + 16) )
   {
-    v14 = 0;
-    P = 0LL;
-    EnsureMonitorDevices::UpdateMonitorDevicesOnGraphicsDevice(
-      (EnsureMonitorDevices *)v13,
-      (struct tagGRAPHICS_DEVICE *)i);
-    for ( j = 0; j < v14; ++j )
+    for ( j = 0; j < *((_DWORD *)i + 54); ++j )
     {
-      v18 = 0;
-      v17 = 0LL;
-      EnsureMonitorDevices::GetMonitorDevice((EnsureMonitorDevices *)v13, j, (struct tagVIDEO_MONITOR_DEVICE *)&v17);
+      v6 = *((_QWORD *)i + 28);
       DeviceObject = 0LL;
       Object = 0LL;
-      DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v6, v5);
-      if ( (*(int (__fastcall **)(__int64, _QWORD, PVOID *, PDEVICE_OBJECT *))(DxgkWin32kInterface + 456))(
-             i + 240,
-             DWORD1(v17),
-             &Object,
-             &DeviceObject) >= 0 )
+      if ( (int)((__int64 (__fastcall *)(wchar_t *, _QWORD, PVOID *, PDEVICE_OBJECT *))qword_1C0250A58)(
+                  i + 124,
+                  *(unsigned int *)(v6 + 20LL * j + 4),
+                  &Object,
+                  &DeviceObject) >= 0 )
       {
         AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceObject);
-        *(_OWORD *)InputBuffer = 0LL;
-        v9 = *a2;
-        InputBuffer[0] = v3;
-        *(_OWORD *)&InputBuffer[4] = v9;
-        GreDeviceIoControlImpl(AttachedDeviceReference, 0x2324D7u, InputBuffer, 0x14u, 0LL, 0, &v16, 1u, 0);
-        ObfDereferenceObject(AttachedDeviceReference);
+        v8 = *a2;
+        v9 = AttachedDeviceReference;
+        v14 = 0;
+        v15 = 0;
+        InputBuffer = a1;
+        v16 = v8;
+        GreDeviceIoControlImpl(AttachedDeviceReference, 0x2324D7u, &InputBuffer, 0x14u, 0LL, 0, &v12, 1u, 0);
+        ObfDereferenceObject(v9);
         ObfDereferenceObject(Object);
       }
     }
-    if ( P )
-      ExFreePoolWithTag(P, 0);
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwTerminateEnclave @ 0x14041E060
+ * XREFs of ZwTerminateEnclave @ 0x1403FD220
  * Callers:
  *     <none>
  * Callees:

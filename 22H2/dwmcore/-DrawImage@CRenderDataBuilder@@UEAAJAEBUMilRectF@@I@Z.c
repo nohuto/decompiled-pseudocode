@@ -1,21 +1,21 @@
 /*
- * XREFs of ?DrawImage@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x18001C3F0
+ * XREFs of ?DrawImage@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800D8750
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawImage(CRenderDataBuilder *this, const struct MilRectF *a2, int a3)
 {
   int v6; // eax
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   unsigned int v8; // ebx
   __int64 v9; // rcx
   __int128 v10; // xmm0
 
-  v6 = DynArrayImpl<0>::Grow((int)this + 16, 1, 28, 0, 0LL);
+  v6 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 28, 0, 0LL);
   v8 = v6;
   if ( v6 < 0 )
   {
@@ -27,7 +27,7 @@ __int64 __fastcall CRenderDataBuilder::DrawImage(CRenderDataBuilder *this, const
     *(_DWORD *)v9 = 28;
     *(_OWORD *)(v9 + 4) = 0LL;
     *(_QWORD *)(v9 + 20) = 0LL;
-    *(_DWORD *)(v9 + 4) = 446;
+    *(_DWORD *)(v9 + 4) = 463;
     v10 = *(_OWORD *)a2;
     *(_DWORD *)(v9 + 8) = a3;
     *(_OWORD *)(v9 + 12) = v10;

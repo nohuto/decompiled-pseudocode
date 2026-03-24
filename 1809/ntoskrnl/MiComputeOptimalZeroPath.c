@@ -7,8 +7,8 @@
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiComputeOptimalZeroPath()

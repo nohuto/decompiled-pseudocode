@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCount@CSharedSectionAnimationPrimitiveBuffer@@UEAA_KXZ @ 0x1800DC060
+ * XREFs of ?GetCount@CSharedSectionAnimationPrimitiveBuffer@@UEAA_KXZ @ 0x1800C5440
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C0246070
+ * XREFs of ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C02576B0
  * Callers:
- *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0245E94 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C024660C (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C02574D0 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0257C38 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
  * Callees:
- *     ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C0244EC0 (-CleanQueue@InteractiveControlDevice@@QEAAXK@Z.c)
+ *     ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C02564F8 (-CleanQueue@InteractiveControlDevice@@QEAAXK@Z.c)
  */
 
 void __fastcall InteractiveControlDevice::QueueInput(

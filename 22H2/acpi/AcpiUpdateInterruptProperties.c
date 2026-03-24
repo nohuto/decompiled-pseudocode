@@ -1,14 +1,14 @@
 /*
- * XREFs of AcpiUpdateInterruptProperties @ 0x1C0084170
+ * XREFs of AcpiUpdateInterruptProperties @ 0x1C00AF560
  * Callers:
  *     <none>
  * Callees:
- *     IrqLibAcquireArbiterLock @ 0x1C005CCA8 (IrqLibAcquireArbiterLock.c)
- *     IrqLibReleaseArbiterLock @ 0x1C005CD48 (IrqLibReleaseArbiterLock.c)
- *     ProcessorUpdateInterruptProperties @ 0x1C009AFDC (ProcessorUpdateInterruptProperties.c)
- *     IrqArbUpdateInterruptProperties @ 0x1C009D9C4 (IrqArbUpdateInterruptProperties.c)
- *     IcIsInterruptTypeSecondary @ 0x1C009F46C (IcIsInterruptTypeSecondary.c)
- *     IcUpdateInterruptProperties @ 0x1C009F858 (IcUpdateInterruptProperties.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C000F364 (IrqLibReleaseArbiterLock.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C00934D8 (IcIsInterruptTypeSecondary.c)
+ *     ProcessorUpdateInterruptProperties @ 0x1C00B6D88 (ProcessorUpdateInterruptProperties.c)
+ *     IrqArbUpdateInterruptProperties @ 0x1C00B71B4 (IrqArbUpdateInterruptProperties.c)
+ *     IcUpdateInterruptProperties @ 0x1C00B76A4 (IcUpdateInterruptProperties.c)
  */
 
 __int64 __fastcall AcpiUpdateInterruptProperties(unsigned int a1, unsigned int a2, unsigned int a3)
@@ -16,7 +16,7 @@ __int64 __fastcall AcpiUpdateInterruptProperties(unsigned int a1, unsigned int a
   int updated; // ebx
 
   IrqLibAcquireArbiterLock(1);
-  if ( (unsigned __int8)IcIsInterruptTypeSecondary(a1) && a1 < 0xFFF00000 )
+  if ( IcIsInterruptTypeSecondary(a1) && a1 < 0xFFF00000 )
   {
     updated = ProcessorUpdateInterruptProperties(a1, a2);
     if ( updated >= 0 )

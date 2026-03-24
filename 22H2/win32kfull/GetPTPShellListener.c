@@ -1,8 +1,8 @@
 /*
- * XREFs of GetPTPShellListener @ 0x1C0155EC6
+ * XREFs of GetPTPShellListener @ 0x1C02135A8
  * Callers:
- *     ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01C5ACC (-IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z.c)
- *     GetPTPShellTarget @ 0x1C01F69F0 (GetPTPShellTarget.c)
+ *     ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01F0AAC (-IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z.c)
+ *     GetPTPShellTarget @ 0x1C02135E0 (GetPTPShellTarget.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqObjectManagerInit @ 0x140739D64
+ * XREFs of PiDqObjectManagerInit @ 0x140739D44
  * Callers:
  *     PiDqInit @ 0x1409C707C (PiDqInit.c)
  * Callees:
  *     KeInitializeGuardedMutex @ 0x1400063D0 (KeInitializeGuardedMutex.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 _QWORD *(__fastcall *__fastcall PiDqObjectManagerInit(PERESOURCE Resource, int a2))(PERESOURCE Resource)

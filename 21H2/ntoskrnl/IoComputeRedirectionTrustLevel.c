@@ -1,11 +1,11 @@
 /*
- * XREFs of IoComputeRedirectionTrustLevel @ 0x140201F40
+ * XREFs of IoComputeRedirectionTrustLevel @ 0x1403F1500
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenIsAdmin @ 0x140695DA0 (SeTokenIsAdmin.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
  */
 
 __int64 __fastcall IoComputeRedirectionTrustLevel(
@@ -21,15 +21,11 @@ __int64 __fastcall IoComputeRedirectionTrustLevel(
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   if ( a2 )
   {
-    if ( a3 )
-    {
-      p_SubjectContext = a3;
-    }
-    else
-    {
+    if ( !a3 )
       SeCaptureSubjectContext(&SubjectContext);
-      p_SubjectContext = &SubjectContext;
-    }
+    p_SubjectContext = &SubjectContext;
+    if ( a3 )
+      p_SubjectContext = a3;
     ClientToken = p_SubjectContext->ClientToken;
     if ( !p_SubjectContext->ClientToken )
       ClientToken = p_SubjectContext->PrimaryToken;

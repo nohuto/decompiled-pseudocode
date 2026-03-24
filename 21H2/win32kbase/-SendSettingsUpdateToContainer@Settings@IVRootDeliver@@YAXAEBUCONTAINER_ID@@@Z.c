@@ -1,99 +1,67 @@
 /*
- * XREFs of ?SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C01E8A48
+ * XREFs of ?SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C01AF7DC
  * Callers:
- *     BroadcastSettingsUpdateToAllContainers @ 0x1C00BE610 (BroadcastSettingsUpdateToAllContainers.c)
- *     ?ivOnChildPartitionConnected@@YAXPEBXUCONTAINER_ID@@@Z @ 0x1C01EF2E0 (-ivOnChildPartitionConnected@@YAXPEBXUCONTAINER_ID@@@Z.c)
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C000C1E0 (BroadcastSettingsUpdateToAllContainers.c)
+ *     ?ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z @ 0x1C01B96F0 (-ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     ?GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ @ 0x1C00B5160 (-GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ.c)
- *     ??0CIVGenericSerializer@@QEAA@W4IVPacketType@@@Z @ 0x1C01E89EC (--0CIVGenericSerializer@@QEAA@W4IVPacketType@@@Z.c)
- *     ?ivrIVBroadcast@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z @ 0x1C01EFF74 (-ivrIVBroadcast@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z.c)
- *     ?ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z @ 0x1C01F0028 (-ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z.c)
- *     ??1CIVSerializer@@UEAA@XZ @ 0x1C01FCFCC (--1CIVSerializer@@UEAA@XZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     ?GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ @ 0x1C00A3EA0 (-GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ.c)
+ *     ??0CIVSerializer@@QEAA@_K@Z @ 0x1C01B3CF4 (--0CIVSerializer@@QEAA@_K@Z.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3D5C (--1CIVSerializer@@QEAA@XZ.c)
+ *     ?ivrIVBroadcast@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z @ 0x1C01BA320 (-ivrIVBroadcast@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z.c)
+ *     ?ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z @ 0x1C01BA3D8 (-ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z.c)
  */
 
 void __fastcall IVRootDeliver::Settings::SendSettingsUpdateToContainer(
         IVRootDeliver::Settings *this,
         const struct CONTAINER_ID *a2)
 {
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  _DWORD *v5; // rdi
-  int v6; // eax
-  int v7; // edx
-  int v8; // r8d
-  _QWORD v9[2]; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v10; // [rsp+60h] [rbp-28h]
+  int v3; // edx
+  __int64 v4; // rdi
+  _DWORD *v5; // rcx
+  struct _ETHREAD *CurrentThread; // r8
+  int v7; // eax
+  int v8; // edx
+  struct CONTAINER_ID *v9; // [rsp+28h] [rbp-60h]
+  int (*v10)(struct _IVSRContext *); // [rsp+30h] [rbp-58h]
+  void *v11; // [rsp+40h] [rbp-48h] BYREF
+  unsigned int v12; // [rsp+48h] [rbp-40h]
+  __int64 v13; // [rsp+50h] [rbp-38h]
 
-  CIVGenericSerializer::CIVGenericSerializer(v9);
-  v5 = (_DWORD *)v10;
-  if ( v10 )
+  CIVSerializer::CIVSerializer((CIVSerializer *)&v11, 0x28uLL);
+  v4 = v13;
+  if ( v13 )
   {
-    *(_QWORD *)(v10 + 24) = gTouchPadParameters;
-    v5[8] = DWORD2(gTouchPadParameters);
-    v5[9] = qword_1C0294F10;
-    v5[10] = WORD6(gTouchPadParameters) & 0x7FF | ((*(_BYTE *)(&qword_1C0294F10 + 1) & 0x7F) << 11);
-    *v5 = *((_DWORD *)gpsi + 497);
-    v5[1] = CMouseAcceleration::MOUSE_SENSITIVITY_INFO::GetMouseSensitivity(
-              (CDeviceAcceleration *)((char *)qword_1C0288098 + 104),
-              v3,
-              v4);
-    v5[2] = *((_DWORD *)gpsi + 1247);
-    v5[3] = dword_1C028F880;
-    v5[4] = dword_1C028F850;
-    v5[5] = dword_1C028F890;
+    v5 = v11;
+    *(_DWORD *)v11 = v12 - 16;
+    v5[1] = 1;
+    *((_QWORD *)v5 + 1) = 8LL;
+    *(_QWORD *)(v4 + 20) = gTouchPadParameters;
+    *(_DWORD *)(v4 + 28) = DWORD2(gTouchPadParameters);
+    *(_DWORD *)(v4 + 32) = qword_1C024FFD0;
+    *(_DWORD *)(v4 + 36) = WORD6(gTouchPadParameters) & 0x7FF | ((*(_BYTE *)(&qword_1C024FFD0 + 1) & 0x7F) << 11);
+    *(_DWORD *)v4 = *((_DWORD *)gpsi + 497);
+    *(_DWORD *)(v4 + 4) = CMouseAcceleration::MOUSE_SENSITIVITY_INFO::GetMouseSensitivity((CDeviceAcceleration *)((char *)qword_1C0246098 + 104));
+    *(_DWORD *)(v4 + 8) = *((_DWORD *)gpsi + 1247);
+    *(_DWORD *)(v4 + 12) = dword_1C024C300;
+    *(_DWORD *)(v4 + 16) = dword_1C024C2D0;
+    CurrentThread = KeGetCurrentThread();
     if ( *(_WORD *)this || *((_WORD *)this + 1) )
-      v6 = ivrIVSend((const struct CIVSerializer *)v9, 3u, this);
+      v7 = ivrIVSend(v11, v12, CurrentThread, CurrentThread, 2u, this, v10);
     else
-      v6 = ivrIVBroadcast((const struct CIVSerializer *)v9, 3u, this);
-    v8 = v6;
-    if ( v6 < 0 )
+      v7 = ivrIVBroadcast(v11, v12, CurrentThread, CurrentThread, 2u, this, v10);
+    if ( v7 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-        || (LOBYTE(v7) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
-      {
-        LOBYTE(v7) = 0;
-      }
-      if ( (_BYTE)v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v8) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v7,
-          v8,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          2,
-          12,
-          17,
-          (__int64)&WPP_76daf91aede7319b3291ff1c1ef65419_Traceguids,
-          v6);
-      }
+      LODWORD(v9) = v7;
+      LOBYTE(v8) = 2;
+      WPP_RECORDER_SF_d((_DWORD)gBaseLog, v8, 12, 17, (__int64)&WPP_e18a3e3623fd345076d33ab3e1bf5af6_Traceguids, v9);
     }
   }
-  else
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) == 0
-      || (LOBYTE(v3) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
-    {
-      LOBYTE(v3) = 0;
-    }
-    if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v4) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v3,
-        v4,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        2,
-        12,
-        16,
-        (__int64)&WPP_76daf91aede7319b3291ff1c1ef65419_Traceguids);
-    }
+    LOBYTE(v3) = 2;
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, v3, 12, 16, (__int64)&WPP_e18a3e3623fd345076d33ab3e1bf5af6_Traceguids);
   }
-  v9[0] = &CIVGenericSerializer::`vftable';
-  CIVSerializer::~CIVSerializer((CIVSerializer *)v9);
+  CIVSerializer::~CIVSerializer((CIVSerializer *)&v11);
 }

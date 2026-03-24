@@ -1,7 +1,7 @@
 /*
- * XREFs of bIsCompatible @ 0x1C008FC90
+ * XREFs of bIsCompatible @ 0x1C0029710
  * Callers:
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,12 +19,12 @@ __int64 __fastcall bIsCompatible(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4,
   }
   else
   {
-    if ( a5 && *(_DWORD *)(a3 + 96) != *(_DWORD *)(a4 + 2076) )
+    if ( a5 && *(_DWORD *)(a3 + 96) != *(_DWORD *)(a4 + 2108) )
       return 0;
-    if ( (*(_DWORD *)(a4 + 2140) & 0x100) != 0 )
+    if ( (*(_DWORD *)(a4 + 2172) & 0x100) != 0 )
       *a1 = 0LL;
     else
-      *a1 = *(_QWORD *)(a4 + 1776);
+      *a1 = *(_QWORD *)(a4 + 1808);
   }
   return v5;
 }

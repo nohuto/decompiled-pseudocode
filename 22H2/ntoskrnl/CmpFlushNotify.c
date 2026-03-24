@@ -1,69 +1,58 @@
 /*
- * XREFs of CmpFlushNotify @ 0x140699940
+ * XREFs of CmpFlushNotify @ 0x1406E3C7C
  * Callers:
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpDeleteKeyObject @ 0x1406DB3F0 (CmpDeleteKeyObject.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14071092C (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
+ *     CmpDeleteKeyObject @ 0x1406E03B0 (CmpDeleteKeyObject.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1406E59F0 (CmpFlushNotifiesOnKeyBodyList.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     CmUnlockHive @ 0x1406DC84C (CmUnlockHive.c)
+ *     CmLockHive @ 0x1406DCB88 (CmLockHive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall CmpFlushNotify(__int64 a1, char a2, __int64 a3)
+void __fastcall CmpFlushNotify(__int64 a1, __int64 a2, __int128 *a3)
 {
-  __int64 v6; // r14
+  char *v3; // rbx
+  char v5; // si
   __int64 v7; // rax
-  __int64 v8; // rbx
-  __int64 v9; // rcx
-  char *v10; // rbx
+  __int64 v8; // rdi
 
-  if ( *(_QWORD *)(a1 + 16) )
+  v3 = *(char **)(a1 + 16);
+  v5 = a2;
+  if ( v3 )
   {
-    v6 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
-    if ( !a2 )
+    v7 = *(_QWORD *)(a1 + 8);
+    v8 = *(_QWORD *)(v7 + 32);
+    if ( !(_BYTE)a2 )
     {
-      v7 = KeAbPreAcquire(v6 + 1680, 0LL);
-      v8 = v7;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 1680), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 1680), v7, v6 + 1680);
-      if ( v8 )
-        *(_BYTE *)(v8 + 18) = 1;
+      CmLockHive(*(_QWORD *)(v7 + 32));
+      v3 = *(char **)(a1 + 16);
     }
-    v9 = *(_QWORD *)(a1 + 16);
-    if ( !v9 )
-      goto LABEL_19;
-    if ( *(_QWORD *)(v9 + 16) != v9 + 16 )
-      CmpPostNotify(v9, a2, a3, 267, 0, 0LL, a3);
-    v10 = *(char **)(a1 + 16);
-    if ( v10 )
+    if ( !v3 )
+      goto LABEL_14;
+    if ( *((char **)v3 + 2) != v3 + 16 )
     {
-      SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(v10 + 56));
-      **((_QWORD **)v10 + 1) = *(_QWORD *)v10;
-      if ( *(_QWORD *)v10 )
-        *(_QWORD *)(*(_QWORD *)v10 + 8LL) = *((_QWORD *)v10 + 1);
+      CmpPostNotify((__int64)v3, a2, (__int64)a3, 267LL, 0, 0LL, a3);
+      v3 = *(char **)(a1 + 16);
+    }
+    if ( v3 )
+    {
+      SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(v3 + 56));
+      **((_QWORD **)v3 + 1) = *(_QWORD *)v3;
+      if ( *(_QWORD *)v3 )
+        *(_QWORD *)(*(_QWORD *)v3 + 8LL) = *((_QWORD *)v3 + 1);
       *(_QWORD *)(a1 + 16) = 0LL;
-      if ( !a2 )
-      {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 1680), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 1680));
-        KeAbPostRelease(v6 + 1680);
-      }
-      ExFreePoolWithTag(v10, 0);
+      if ( !v5 )
+        CmUnlockHive(v8);
+      ExFreePoolWithTag(v3, 0);
     }
     else
     {
-LABEL_19:
-      if ( !a2 )
-      {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 1680), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 1680));
-        KeAbPostRelease(v6 + 1680);
-      }
+LABEL_14:
+      if ( !v5 )
+        CmUnlockHive(v8);
     }
   }
 }

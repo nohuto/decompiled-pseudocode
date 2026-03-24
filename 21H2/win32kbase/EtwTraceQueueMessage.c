@@ -1,107 +1,92 @@
 /*
- * XREFs of EtwTraceQueueMessage @ 0x1C008DDB0
+ * XREFs of EtwTraceQueueMessage @ 0x1C007F0D0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     EtwTraceQueueInputMessage @ 0x1C008DE94 (EtwTraceQueueInputMessage.c)
- *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C00E5516 (McTemplateK0cppppqq_EtwWriteTransfer.c)
- *     ?GetCallbackCount@@YACXZ @ 0x1C014C390 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0qqsp_EtwWriteTransfer @ 0x1C0151338 (McTemplateK0qqsp_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     EtwTraceQueueInputMessage @ 0x1C007F1B8 (EtwTraceQueueInputMessage.c)
+ *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C01248E4 (McTemplateK0cppppqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqsp_EtwWriteTransfer @ 0x1C0126D30 (McTemplateK0qqsp_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceQueueMessage(__int64 a1)
 {
-  __int64 v1; // rsi
   __int64 result; // rax
-  __int64 ThreadWin32Thread; // r14
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v9; // ebp
-  int v10; // r8d
-  __int64 CurrentProcess; // r15
-  char v12; // r12
-  void *v13; // rbx
-  void *v14; // rcx
-  __int64 v15; // rax
-  int v16; // ecx
-  int v17; // r15d
-  char v18; // bp
-  __int64 v19; // r14
-  __int64 v20; // rbx
-  int v21; // r9d
-  int v22; // ecx
-  int v23; // r8d
+  __int64 ThreadWin32Thread; // rsi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  int v6; // ebp
+  int v7; // edx
+  int v8; // r8d
+  __int64 CurrentProcess; // r14
+  char v10; // r15
+  void *v11; // rdi
+  void *v12; // rcx
+  __int64 v13; // rax
+  int v14; // ecx
+  __int64 v15; // rsi
+  char v16; // bp
+  __int64 v17; // rdi
+  int v18; // ecx
+  int v19; // r8d
+  int v20; // r9d
 
-  LOBYTE(v1) = 0;
   if ( !*(_DWORD *)(a1 + 24) )
   {
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    v9 = -1;
-    CurrentProcess = PsGetCurrentProcess(v6, v5, v7, v8);
-    v12 = ThreadWin32Thread ? (unsigned __int8)PsGetThreadId(*(PETHREAD *)ThreadWin32Thread) : -1;
-    v13 = &unk_1C0268818;
-    v14 = CurrentProcess ? (void *)PsGetProcessImageFileName(CurrentProcess) : &unk_1C0268818;
+    v6 = -1;
+    CurrentProcess = PsGetCurrentProcess(v5, v4);
+    v10 = ThreadWin32Thread ? (unsigned __int8)PsGetThreadId(*(PETHREAD *)ThreadWin32Thread) : -1;
+    v11 = &unk_1C0225490;
+    v12 = CurrentProcess ? (void *)PsGetProcessImageFileName(CurrentProcess) : &unk_1C0225490;
     if ( (Microsoft_Windows_Win32kEnableBits & 0x2000000000LL) != 0 )
     {
-      if ( v14 )
-        v13 = v14;
+      if ( v12 )
+        v11 = v12;
       if ( ThreadWin32Thread )
       {
-        v15 = *(_QWORD *)(ThreadWin32Thread + 424);
-        if ( v15 )
-          v9 = *(_DWORD *)(v15 + 56);
+        v13 = *(_QWORD *)(ThreadWin32Thread + 424);
+        if ( v13 )
+          v6 = *(_DWORD *)(v13 + 56);
       }
-      McTemplateK0qqsp_EtwWriteTransfer(
-        (_DWORD)v14,
-        *(_QWORD *)(a1 + 16),
-        v10,
-        v9,
-        v12,
-        (__int64)v13,
-        *(_QWORD *)(a1 + 16));
+      McTemplateK0qqsp_EtwWriteTransfer((_DWORD)v12, v7, v8, v6, v10, (__int64)v11, *(_QWORD *)(a1 + 16));
     }
   }
   result = *(unsigned int *)(a1 + 100);
   if ( (result & 4) != 0 )
   {
-    if ( (Microsoft_Windows_Win32kEnableBits & 0x800) == 0 )
-      return result;
-    v16 = *(_DWORD *)(a1 + 24);
-    v17 = *(_DWORD *)(a1 + 48);
-    if ( (unsigned int)(v16 - 581) <= 2 )
+    if ( (Microsoft_Windows_Win32kEnableBits & 0x800) != 0 )
     {
-      v18 = *(_DWORD *)(a1 + 24);
-      if ( v16 == 582 || v16 == 581 || v16 == 583 )
-      {
-        v19 = *(_QWORD *)(a1 + 40);
-        v1 = *(_QWORD *)(a1 + 32);
-        goto LABEL_28;
-      }
+      v14 = *(_DWORD *)(a1 + 24);
+      LOBYTE(v15) = 0;
+      v16 = v14;
+      if ( (unsigned int)(v14 - 581) <= 2 )
+        v15 = *(_QWORD *)(a1 + 40);
+      else
+        v16 = 0;
+      LOBYTE(v17) = 0;
+      if ( (unsigned int)(v14 - 581) <= 2 )
+        v17 = *(_QWORD *)(a1 + 32);
+      if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
+        LOBYTE(v20) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+      else
+        LOBYTE(v20) = -1;
+      return McTemplateK0cppppqq_EtwWriteTransfer(
+               v18,
+               (unsigned int)&QueuePostMessage,
+               v19,
+               v20,
+               a1,
+               *(_QWORD *)(a1 + 16),
+               v17,
+               v15,
+               v16,
+               *(_DWORD *)(a1 + 48));
     }
-    else
-    {
-      v18 = 0;
-    }
-    LOBYTE(v19) = 0;
-LABEL_28:
-    v20 = *(_QWORD *)(a1 + 16);
-    LOBYTE(v21) = GetCallbackCount();
-    return McTemplateK0cppppqq_EtwWriteTransfer(
-             v22,
-             (unsigned int)&QueuePostMessage,
-             v23,
-             v21,
-             a1,
-             v20,
-             v1,
-             v19,
-             v18,
-             v17);
   }
-  if ( (result & 8) != 0 )
+  else if ( (result & 8) != 0 )
+  {
     return EtwTraceQueueInputMessage(a1);
+  }
   return result;
 }

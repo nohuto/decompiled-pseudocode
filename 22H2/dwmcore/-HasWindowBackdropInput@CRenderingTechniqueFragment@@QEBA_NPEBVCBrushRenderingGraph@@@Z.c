@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z @ 0x18002D704
+ * XREFs of ?HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z @ 0x18004D6BC
  * Callers:
- *     ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18002B000 (-HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
+ *     ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004E204 (-HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
  * Callees:
- *     ?GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z @ 0x18002EDAC (-GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z @ 0x1800590EC (-GetNamedInput@CBrushRenderingGraph@@QEBAPEAVCBrush@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CRenderingTechniqueFragment::HasWindowBackdropInput(
@@ -33,7 +33,7 @@ char __fastcall CRenderingTechniqueFragment::HasWindowBackdropInput(
         {
           if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)NamedInput + 56LL))(
                  NamedInput,
-                 203LL) )
+                 202LL) )
           {
             break;
           }

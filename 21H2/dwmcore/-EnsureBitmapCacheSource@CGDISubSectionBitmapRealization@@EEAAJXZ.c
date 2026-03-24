@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x1802A2660
+ * XREFs of ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x180263080
  * Callers:
- *     ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x1802A24E0 (-Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeed.c)
+ *     ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x180262F10 (-Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeed.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MapSection@CSectionBitmapRealization@@IEAAJXZ @ 0x180020438 (-MapSection@CSectionBitmapRealization@@IEAAJXZ.c)
- *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x18005FD84 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800681EC (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z @ 0x18006E540 (-GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x180032238 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
+ *     ?GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z @ 0x18003BEA4 (-GetRequiredBufferSize@@YAIW4DXGI_FORMAT@@IPEBUWICRect@@@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MapSection@CSectionBitmapRealization@@IEAAJXZ @ 0x18004507C (-MapSection@CSectionBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800688C4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDISubSectionBitmapRealization *this)
@@ -39,21 +39,21 @@ __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDI
   struct IBitmapSource *v24; // [rsp+80h] [rbp+20h] BYREF
 
   v1 = 0;
-  v2 = (struct ID2DBitmapCacheSource **)((char *)this + 344);
-  if ( !*((_QWORD *)this + 43) )
+  v2 = (struct ID2DBitmapCacheSource **)((char *)this + 312);
+  if ( !*((_QWORD *)this + 39) )
   {
-    v4 = *((_DWORD *)this + 90);
+    v4 = *((_DWORD *)this + 82);
     if ( v4 )
     {
-      v5 = *((_DWORD *)this + 91);
+      v5 = *((_DWORD *)this + 83);
       if ( v5 )
       {
-        v6 = *((_DWORD *)this + 93);
+        v6 = *((_DWORD *)this + 85);
         v23.X = 0;
         v23.Y = 0;
         v23.Width = v4;
         v22[1] = *((_DWORD *)this + 24);
-        v7 = *((_DWORD *)this + 36);
+        v7 = *((_DWORD *)this + 35);
         v23.Height = v5;
         v22[2] = v7;
         v22[0] = v6;
@@ -61,28 +61,28 @@ __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDI
         v1 = v8;
         if ( v8 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x94u);
+          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x94u, 0LL);
         }
         else
         {
-          v10 = *((_DWORD *)this + 92);
+          v10 = *((_DWORD *)this + 84);
           GetPixelFormatSize(v6);
-          RequiredBufferSize = GetRequiredBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 93), v10, &v23);
-          v12 = *((_DWORD *)this + 91);
+          RequiredBufferSize = GetRequiredBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 85), v10, &v23);
+          v12 = *((_DWORD *)this + 83);
           v24 = 0LL;
           v14 = HrCreateBitmapFromMemoryEx(
-                  *((_DWORD *)this + 90),
+                  *((_DWORD *)this + 82),
                   v12,
                   (const struct PixelFormatInfo *)v22,
                   v10,
                   RequiredBufferSize,
-                  (unsigned __int8 *)(*((_QWORD *)this + 47) + v13),
+                  (unsigned __int8 *)(*((_QWORD *)this + 43) + v13),
                   0LL,
                   &v24);
           v1 = v14;
           if ( v14 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0xA6u);
+            MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0xA6u, 0LL);
           }
           else
           {
@@ -100,7 +100,7 @@ __int64 __fastcall CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(CGDI
                     v2);
             v1 = v19;
             if ( v19 < 0 )
-              MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0xA8u);
+              MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xA8u, 0LL);
             else
               CD2DBitmapCache::InitializeCache(this, *v2);
           }

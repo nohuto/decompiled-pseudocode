@@ -1,14 +1,14 @@
 /*
- * XREFs of KiDeregisterNmiSxCallback @ 0x14028F110
+ * XREFs of KiDeregisterNmiSxCallback @ 0x14028F210
  * Callers:
- *     KeDeregisterNmiCallback @ 0x14028EC30 (KeDeregisterNmiCallback.c)
+ *     KeDeregisterNmiCallback @ 0x14028ED30 (KeDeregisterNmiCallback.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1401816F0 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x140181710 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

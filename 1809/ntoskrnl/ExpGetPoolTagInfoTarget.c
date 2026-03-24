@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x140112790
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x1401127B0
  * Callers:
  *     <none>
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall ExpGetPoolTagInfoTarget(_QWORD *i, __int64 a2, __int64 a3, __int64 a4)
@@ -39,7 +39,7 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(_QWORD *i, __int64 a2, __int64 a3, __
   {
     *(_DWORD *)a4 = v9 | *(_DWORD *)(a4 + 4);
     memmove(*(void **)a2, ExPoolTagTables, 56LL * *(_QWORD *)(a2 + 8));
-    v14 = (__int64 *)&unk_140407128;
+    v14 = (__int64 *)&unk_1404070E8;
     v15 = 1279LL;
     a3 = *(_QWORD *)v6 + 56LL * *(_QWORD *)(v6 + 8);
     do

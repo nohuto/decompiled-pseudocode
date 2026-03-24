@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bIsPathInSystemFontsDir@@YAHPEBG@Z @ 0x1C010E344
+ * XREFs of ?bIsPathInSystemFontsDir@@YAHPEBG@Z @ 0x1C00A5148
  * Callers:
- *     UmfdLoadFontFileView @ 0x1C0010120 (UmfdLoadFontFileView.c)
+ *     UmfdLoadFontFileView @ 0x1C00A6BF0 (UmfdLoadFontFileView.c)
  * Callees:
  *     <none>
  */

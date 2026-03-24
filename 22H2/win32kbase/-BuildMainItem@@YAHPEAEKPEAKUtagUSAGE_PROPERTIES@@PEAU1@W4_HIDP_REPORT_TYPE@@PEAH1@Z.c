@@ -1,12 +1,12 @@
 /*
- * XREFs of ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C0197E54
+ * XREFs of ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C016A9B4
  * Callers:
- *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C019818C (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C016ACEC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z @ 0x1C0198BA8 (-OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z.c)
- *     ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C0198C3C (-SetCollectionLabel@@YAHPEAEKPEAK@Z.c)
- *     ?SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z @ 0x1C0198CAC (-SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z @ 0x1C016B238 (-OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z.c)
+ *     ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C016B2A4 (-SetCollectionLabel@@YAHPEAEKPEAK@Z.c)
+ *     ?SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z @ 0x1C016B314 (-SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z.c)
  */
 
 __int64 __fastcall BuildMainItem(

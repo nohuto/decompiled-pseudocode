@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgMigrateRootDevice @ 0x14095EC94
+ * XREFs of PiDevCfgMigrateRootDevice @ 0x1408A706C
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1403C655C (PnpValidateRegistryDword.c)
- *     PnpRegistryValueExists @ 0x1403CE234 (PnpRegistryValueExists.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PiDevCfgMigrateDevice @ 0x14087C44C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgOpenDeviceMigrationKey @ 0x14095ED88 (PiDevCfgOpenDeviceMigrationKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PnpRegistryValueExists @ 0x140394718 (PnpRegistryValueExists.c)
+ *     PnpValidateRegistryDword @ 0x14039A2C8 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PiDevCfgMigrateDevice @ 0x14076DED4 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgOpenDeviceMigrationKey @ 0x1408A7160 (PiDevCfgOpenDeviceMigrationKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgMigrateRootDevice(int a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall PiDevCfgMigrateRootDevice(__int64 a1, __int64 a2, _DWORD *a3)
 {
   const WCHAR *v5; // rcx
   int v7; // edi
@@ -28,11 +28,12 @@ __int64 __fastcall PiDevCfgMigrateRootDevice(int a1, __int64 a2, _DWORD *a3)
   v8 = PiDevCfgOpenDeviceMigrationKey(v5);
   if ( v8 >= 0 )
   {
-    if ( IopGetRegistryValue(0LL, L"ConfigFlags", 0, &v12) < 0 )
-      return (unsigned int)-1073741823;
-    if ( PnpValidateRegistryDword(v12) )
-      v7 = *(unsigned int *)((char *)v9 + v9[2]);
-    ExFreePoolWithTag(v9, 0);
+    if ( IopGetRegistryValue(0LL, L"ConfigFlags", 0, &v12) >= 0 )
+    {
+      if ( PnpValidateRegistryDword(v12) )
+        v7 = *(unsigned int *)((char *)v9 + v9[2]);
+      ExFreePoolWithTag(v9, 0);
+    }
     if ( (v7 & 1) == 0 )
       return (unsigned int)-1073741823;
     v11.Buffer = L"DriverInfName";

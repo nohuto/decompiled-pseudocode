@@ -1,9 +1,10 @@
 /*
- * XREFs of ?AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z @ 0x1800D8CD8
+ * XREFs of ?AddToResourceCount@@YAXAEAUProcessAttributionResourceCounters@@W4MIL_RESOURCE_TYPE@@H@Z @ 0x1800C6FDC
  * Callers:
- *     ?CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z @ 0x1800612AC (-CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x1800BDD78 (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
- *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800BDEB8 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
+ *     ?CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E780 (-CountResource@CResourceTable@@AEAAXW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x18005E9EC (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
+ *     ?Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_DELETERESOURCE@@@Z @ 0x1800A1CD4 (-Channel_DeleteResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCM.c)
+ *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800A1E44 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
  * Callees:
  *     <none>
  */
@@ -36,26 +37,26 @@ LABEL_9:
       a1[17] += a3;
       return;
     }
-    v5 = v4 - 85;
+    v5 = v4 - 86;
     if ( v5 )
     {
       v6 = v5 - 1;
       if ( v6 )
       {
-        v7 = v6 - 18;
+        v7 = v6 - 17;
         if ( v7 )
         {
-          if ( v7 != 9 )
+          if ( v7 != 8 )
             goto LABEL_8;
         }
       }
       goto LABEL_9;
     }
-    goto LABEL_19;
+    goto LABEL_20;
   }
   if ( a2 == 44 )
   {
-LABEL_19:
+LABEL_20:
     a1[15] += a3;
     return;
   }

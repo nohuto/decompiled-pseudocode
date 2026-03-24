@@ -1,25 +1,25 @@
 /*
- * XREFs of SepDeReferenceLogonSession @ 0x14069BBC0
+ * XREFs of SepDeReferenceLogonSession @ 0x1406A5640
  * Callers:
- *     SepDeReferenceLogonSessionDirect @ 0x1402D6A98 (SepDeReferenceLogonSessionDirect.c)
- *     SepDeReferenceLogonSession @ 0x14069BBC0 (SepDeReferenceLogonSession.c)
- *     SepTokenDeleteMethod @ 0x1406FE720 (SepTokenDeleteMethod.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
+ *     SepDeReferenceLogonSession @ 0x1406A5640 (SepDeReferenceLogonSession.c)
+ *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
  * Callees:
- *     SepDeleteSessionLowboxEntries @ 0x1402235F4 (SepDeleteSessionLowboxEntries.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     SepDeReferenceLogonSession @ 0x14069BBC0 (SepDeReferenceLogonSession.c)
- *     ObDestroyHandleRevocationBlock @ 0x14069BF4C (ObDestroyHandleRevocationBlock.c)
- *     SepDeleteLogonSessionClaims @ 0x14069BFB8 (SepDeleteLogonSessionClaims.c)
- *     SepInformLsaOfDeletedLogon @ 0x14069BFDC (SepInformLsaOfDeletedLogon.c)
- *     ObDereferenceDeviceMap @ 0x14069C9C0 (ObDereferenceDeviceMap.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     SepInformFileSystemsOfDeletedLogon @ 0x14069D1D8 (SepInformFileSystemsOfDeletedLogon.c)
- *     SepDeleteLogonSessionSidValues @ 0x1409CCB9C (SepDeleteLogonSessionSidValues.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     SepDeleteSessionLowboxEntries @ 0x1402BDDF4 (SepDeleteSessionLowboxEntries.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x1406A5640 (SepDeReferenceLogonSession.c)
+ *     SepInformLsaOfDeletedLogon @ 0x1406A57FC (SepInformLsaOfDeletedLogon.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1406A5884 (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteLogonSessionClaims @ 0x1406A58F0 (SepDeleteLogonSessionClaims.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     SepDeleteLogonSessionSidValues @ 0x140922FA8 (SepDeleteLogonSessionSidValues.c)
+ *     SepInformFileSystemsOfDeletedLogon @ 0x1409238F4 (SepInformFileSystemsOfDeletedLogon.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepDeReferenceLogonSession(_DWORD *a1, __int64 a2)
@@ -30,7 +30,7 @@ void __fastcall SepDeReferenceLogonSession(_DWORD *a1, __int64 a2)
   struct _ERESOURCE *v7; // rsi
   __int64 *i; // rbx
   __int64 v9; // rax
-  void *v10; // rcx
+  struct _DMA_ADAPTER *v10; // rcx
   void *v11; // rsi
   void *v12; // rcx
 
@@ -67,10 +67,10 @@ void __fastcall SepDeReferenceLogonSession(_DWORD *a1, __int64 a2)
     KeLeaveCriticalRegion();
     if ( (i[4] & 4) != 0 && (*((_DWORD *)i + 4) || *((_DWORD *)i + 5)) )
       SepDeReferenceLogonSession(i + 2, i[20]);
-    v10 = (void *)i[6];
+    v10 = (struct _DMA_ADAPTER *)i[6];
     if ( v10 )
     {
-      ObfDereferenceObject(v10);
+      HalPutDmaAdapter(v10);
       i[6] = 0LL;
     }
     v11 = (void *)i[5];
@@ -78,7 +78,7 @@ void __fastcall SepDeReferenceLogonSession(_DWORD *a1, __int64 a2)
     {
       i[5] = 0LL;
       SepCleanupLUIDDeviceMapDirectory(a1, a2);
-      ObDereferenceDeviceMap(v11);
+      ObfDereferenceDeviceMap(v11);
     }
     if ( (i[4] & 1) != 0 )
       SepInformFileSystemsOfDeletedLogon(a1, a2);

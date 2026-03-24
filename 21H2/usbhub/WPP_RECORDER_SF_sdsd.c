@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_sdsd @ 0x1C002E424
+ * XREFs of WPP_RECORDER_SF_sdsd @ 0x1C002F800
  * Callers:
- *     UsbhLogStartFailure @ 0x1C002CA90 (UsbhLogStartFailure.c)
+ *     UsbhLogStartFailure @ 0x1C002DEBC (UsbhLogStartFailure.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_sdsd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, const char *a6, ...)
@@ -63,7 +63,7 @@ __int64 WPP_RECORDER_SF_sdsd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
     v15 = a6;
     if ( !a6 )
       v15 = "NULL";
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, const char *, __int64, __int64 *, __int64, const char *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_17d2bee9f04934815023b5c023c5576c_Traceguids,

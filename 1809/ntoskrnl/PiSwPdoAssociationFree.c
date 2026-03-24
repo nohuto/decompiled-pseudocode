@@ -1,8 +1,8 @@
 /*
- * XREFs of PiSwPdoAssociationFree @ 0x1406D8E84
+ * XREFs of PiSwPdoAssociationFree @ 0x1406D8E64
  * Callers:
- *     PiSwDeviceFree @ 0x1406D8C28 (PiSwDeviceFree.c)
- *     PiSwRemovePdoAssociation @ 0x1406D8E14 (PiSwRemovePdoAssociation.c)
+ *     PiSwDeviceFree @ 0x1406D8C08 (PiSwDeviceFree.c)
+ *     PiSwRemovePdoAssociation @ 0x1406D8DF4 (PiSwRemovePdoAssociation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

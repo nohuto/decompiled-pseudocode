@@ -1,13 +1,13 @@
 /*
- * XREFs of ConvertToInteger @ 0x1C001C420
+ * XREFs of ConvertToInteger @ 0x1C000C190
  * Callers:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     ToInteger @ 0x1C001C4B0 (ToInteger.c)
- *     Concat @ 0x1C0027500 (Concat.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     ToInteger @ 0x1C000C110 (ToInteger.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
  * Callees:
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     _strtoui64_0 @ 0x1C002F1E9 (_strtoui64_0.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     _strtoui64_0 @ 0x1C0031D29 (_strtoui64_0.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ConvertToInteger(__int64 a1, __int64 a2)

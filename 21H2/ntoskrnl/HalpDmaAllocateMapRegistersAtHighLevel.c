@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaAllocateMapRegistersAtHighLevel @ 0x140512C04
+ * XREFs of HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6CEC
  * Callers:
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403B58F0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalAllocateCrashDumpRegisters @ 0x1405055F0 (HalAllocateCrashDumpRegisters.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalAllocateCrashDumpRegisters @ 0x1404B8D40 (HalAllocateCrashDumpRegisters.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     HalpDmaPrependTranslations @ 0x140457720 (HalpDmaPrependTranslations.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x140503808 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x140505534 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1405055B8 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
- *     HalpDmaForceAllocation @ 0x140513728 (HalpDmaForceAllocation.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1405188FC (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B70A8 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1404B8B48 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1404B8C24 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     HalpDmaForceAllocation @ 0x1404C7974 (HalpDmaForceAllocation.c)
+ *     HalpDmaPrependTranslations @ 0x1404C7D70 (HalpDmaPrependTranslations.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD320 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
  */
 
 __int64 __fastcall HalpDmaAllocateMapRegistersAtHighLevel(__int64 a1, int *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall HalpDmaAllocateMapRegistersAtHighLevel(__int64 a1, int *a2)
   __int64 v13; // rax
   __int64 v14; // rcx
   __int64 v15; // r8
-  __int64 ScatterPagesFromContiguousPoolAtHighLevelV3; // rax
+  __int64 v16; // rax
   __int64 v17; // rax
   int v18; // eax
   int v19; // ecx
@@ -37,7 +37,7 @@ __int64 __fastcall HalpDmaAllocateMapRegistersAtHighLevel(__int64 a1, int *a2)
   __int64 v23; // rax
   _QWORD *v24; // r8
   __int64 v25; // rax
-  int v26; // [rsp+70h] [rbp+40h] BYREF
+  unsigned int v26; // [rsp+70h] [rbp+40h] BYREF
   int v27; // [rsp+78h] [rbp+48h] BYREF
 
   v2 = *(_BYTE *)(a1 + 434);
@@ -93,20 +93,12 @@ __int64 __fastcall HalpDmaAllocateMapRegistersAtHighLevel(__int64 a1, int *a2)
       if ( v8 == v4 )
         return v9;
       if ( (unsigned int)HalpDmaGetAdapterVersion(a1) == 2 )
-        ScatterPagesFromContiguousPoolAtHighLevelV3 = HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2(
-                                                        v14,
-                                                        v6,
-                                                        v15,
-                                                        &v26);
+        v16 = HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2(v14, v6, v15, &v26);
       else
-        ScatterPagesFromContiguousPoolAtHighLevelV3 = HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3(
-                                                        v14,
-                                                        v6,
-                                                        v15,
-                                                        (unsigned int *)&v26);
-      if ( ScatterPagesFromContiguousPoolAtHighLevelV3 )
+        v16 = HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3(v14, v6, v15, &v26);
+      if ( v16 )
       {
-        v17 = HalpDmaPrependTranslations(ScatterPagesFromContiguousPoolAtHighLevelV3, v26, v9);
+        v17 = HalpDmaPrependTranslations(v16, v26, v9);
         v8 += v26;
         v9 = v17;
         v27 = v8;

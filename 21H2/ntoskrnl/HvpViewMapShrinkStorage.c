@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewMapShrinkStorage @ 0x14091A000
+ * XREFs of HvpViewMapShrinkStorage @ 0x140873628
  * Callers:
- *     HvFreeHivePartial @ 0x140689900 (HvFreeHivePartial.c)
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x14072153C (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmSiUnmapViewOfSection @ 0x140254F78 (CmSiUnmapViewOfSection.c)
- *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x14080C508 (HvpViewMapMakeViewRangeInvalid.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     CmSiUnmapViewOfSection @ 0x140363DD4 (CmSiUnmapViewOfSection.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140733D34 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
 struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
@@ -42,15 +42,15 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
         v8 ^= v7;
       while ( v8 )
       {
-        if ( v5 >= *(_QWORD *)(v8 + 40) )
+        if ( v5 < *(_QWORD *)(v8 + 40) )
+        {
+          v9 = *(_QWORD *)v8;
+        }
+        else
         {
           if ( v5 < *(_QWORD *)(v8 + 48) )
             break;
           v9 = *(_QWORD *)(v8 + 8);
-        }
-        else
-        {
-          v9 = *(_QWORD *)v8;
         }
         if ( (*(_BYTE *)(v7 + 8) & 1) != 0 && v9 )
           v8 ^= v9;

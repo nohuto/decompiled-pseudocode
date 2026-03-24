@@ -1,14 +1,13 @@
 /*
- * XREFs of ?AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z @ 0x1C01E7908
+ * XREFs of ?AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z @ 0x1C016489C
  * Callers:
- *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001B994 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     DxgkUseAdapterViewInCurrentSession @ 0x1C017ADDC (DxgkUseAdapterViewInCurrentSession.c)
+ *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001FFE8 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     DxgkUseAdapterViewInCurrentSession @ 0x1C016463C (DxgkUseAdapterViewInCurrentSession.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C001515C (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
- *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01AB278 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
- *     ?Initialize@SESSION_ADAPTER@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C01E7A2C (-Initialize@SESSION_ADAPTER@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C0019FFC (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
+ *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C012E0D0 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
+ *     ?Initialize@SESSION_ADAPTER@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C0164ADC (-Initialize@SESSION_ADAPTER@@QEAAJPEAVDXGADAPTER@@@Z.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::AddAdapterToSession(
@@ -18,14 +17,18 @@ __int64 __fastcall DXGSESSIONDATA::AddAdapterToSession(
         struct SESSION_ADAPTER **a4)
 {
   struct SESSION_ADAPTER *SessionAdapterFromLuid; // rax
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  struct _LUID v12; // rcx
-  SESSION_ADAPTER *v13; // rcx
-  _QWORD *v14; // rax
-  int v15; // r14d
-  DXGSESSIONDATA **v16; // rdx
-  DXGSESSIONDATA *v17; // rcx
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  _QWORD *v15; // rbx
+  struct _LUID v16; // rax
+  int v17; // r14d
+  DXGSESSIONDATA **v18; // rdx
+  DXGSESSIONDATA *v19; // rcx
+  _QWORD *v20; // rax
+  _QWORD *v21; // rax
 
   SessionAdapterFromLuid = DXGSESSIONDATA::GetSessionAdapterFromLuid((DXGSESSIONDATA *)this, a2);
   if ( SessionAdapterFromLuid )
@@ -35,59 +38,62 @@ __int64 __fastcall DXGSESSIONDATA::AddAdapterToSession(
       *a4 = SessionAdapterFromLuid;
     return 0LL;
   }
-  v10 = operator new[](0x80uLL, 0x4B677844u, 256LL);
-  v11 = v10;
+  v10 = operator new[](0x80uLL, 0x4B677844u, PagedPool);
+  v15 = v10;
   if ( v10 )
   {
-    *(_QWORD *)v10 = this;
-    v12 = *a2;
-    *(_QWORD *)(v10 + 16) = 0LL;
-    *(_DWORD *)(v10 + 48) = 0;
-    *(_DWORD *)(v10 + 52) = 0;
-    *(_QWORD *)(v10 + 56) = 0LL;
-    *(_QWORD *)(v10 + 64) = 0LL;
-    *(_DWORD *)(v10 + 104) = 0;
-    *(_DWORD *)(v10 + 108) = 0;
-    *(struct _LUID *)(v10 + 8) = v12;
-    v13 = (SESSION_ADAPTER *)v10;
-    *(_QWORD *)(v10 + 72) = 0LL;
-    *(_DWORD *)(v10 + 96) = 0;
-    v14 = (_QWORD *)(v10 + 112);
-    v14[1] = v14;
-    *v14 = v14;
-    v15 = SESSION_ADAPTER::Initialize(v13, a3);
-    if ( v15 >= 0 )
-    {
-      v16 = this[2323];
-      v17 = (DXGSESSIONDATA *)(v11 + 32);
-      if ( *v16 != (DXGSESSIONDATA *)(this + 2322) )
-        __fastfail(3u);
-      *(_QWORD *)v17 = this + 2322;
-      *(_QWORD *)(v11 + 40) = v16;
-      *v16 = v17;
-      this[2323] = (DXGSESSIONDATA **)v17;
-      ++*(_DWORD *)(v11 + 48);
-      if ( a4 )
-        *a4 = (struct SESSION_ADAPTER *)v11;
-      WdLogSingleEntry3(4LL, a2->HighPart, a2->LowPart, this);
-      return 0LL;
-    }
-    SESSION_ADAPTER::`scalar deleting destructor'((SESSION_ADAPTER *)v11);
-    return (unsigned int)v15;
+    *v10 = this;
+    v16 = *a2;
+    v15[2] = 0LL;
+    *((_DWORD *)v15 + 12) = 0;
+    *((_DWORD *)v15 + 13) = 0;
+    v15[7] = 0LL;
+    v15[8] = 0LL;
+    *((_DWORD *)v15 + 26) = 0;
+    v15[1] = v16;
+    v15[9] = 0LL;
+    *((_DWORD *)v15 + 24) = 0;
+    *((_DWORD *)v15 + 27) = 0;
+    v15[15] = v15 + 14;
+    v15[14] = v15 + 14;
   }
   else
   {
-    WdLogSingleEntry3(6LL, a2->HighPart, a2->LowPart, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate session adapter for adapter 0x%I64x%08I64x in session 0x%I64x.",
-      a2->HighPart,
-      a2->LowPart,
-      (__int64)this,
-      0LL,
-      0LL);
+    v15 = 0LL;
+  }
+  if ( v15 )
+  {
+    v17 = SESSION_ADAPTER::Initialize((SESSION_ADAPTER *)v15, a3);
+    if ( v17 >= 0 )
+    {
+      v18 = this[2321];
+      v19 = (DXGSESSIONDATA *)(v15 + 4);
+      if ( *v18 != (DXGSESSIONDATA *)(this + 2320) )
+        __fastfail(3u);
+      *(_QWORD *)v19 = this + 2320;
+      v15[5] = v18;
+      *v18 = v19;
+      this[2321] = (DXGSESSIONDATA **)v19;
+      ++*((_DWORD *)v15 + 12);
+      if ( a4 )
+        *a4 = (struct SESSION_ADAPTER *)v15;
+      v20 = (_QWORD *)WdLogNewEntry5_WdEvent(v19, v18);
+      v20[3] = a2->HighPart;
+      v20[4] = a2->LowPart;
+      v20[5] = this;
+      WdLogEvent5_WdEvent(v20);
+      return 0LL;
+    }
+    SESSION_ADAPTER::`scalar deleting destructor'((SESSION_ADAPTER *)v15);
+    return (unsigned int)v17;
+  }
+  else
+  {
+    v21 = (_QWORD *)WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+    v21[3] = a2->HighPart;
+    v21[4] = a2->LowPart;
+    v21[5] = this;
+    WdLogEvent5_WdLowResource(v21);
     return 3221225495LL;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDispatchPower @ 0x140A52150
+ * XREFs of HalpDispatchPower @ 0x1409981A0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     HalpDispatchSystemStateTransition @ 0x14039693C (HalpDispatchSystemStateTransition.c)
- *     HalpPassIrpFromFdoToPdo @ 0x1403B4174 (HalpPassIrpFromFdoToPdo.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     HalpDispatchSystemStateTransition @ 0x14038BBF0 (HalpDispatchSystemStateTransition.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1403A729C (HalpPassIrpFromFdoToPdo.c)
  */
 
 __int64 __fastcall HalpDispatchPower(__int64 a1, IRP *a2)

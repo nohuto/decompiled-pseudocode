@@ -1,17 +1,18 @@
 /*
- * XREFs of ?PowerPolSleepingNoWakePowerDown@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000C290
+ * XREFs of ?PowerPolSleepingNoWakePowerDown@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0016F70
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerPolicyPowerDownForSx@FxPkgPnp@@AEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@@Z @ 0x1C000C2E0 (-PowerPolicyPowerDownForSx@FxPkgPnp@@AEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@@Z.c)
+ *     ?PowerPolicyBlockChildrenPowerUp@FxPkgPnp@@AEAAXXZ @ 0x1C0016FD4 (-PowerPolicyBlockChildrenPowerUp@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C001C9C0 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolSleepingNoWakePowerDown(FxPkgPnp *This)
 {
   FxPowerPolicyOwnerSettings *m_Owner; // r8
-  _DEVICE_POWER_STATE m_IdealDxStateForSx; // r9d
-  int v3; // eax
-  unsigned int v4; // ecx
+  _DEVICE_POWER_STATE m_IdealDxStateForSx; // ebx
+  int v4; // eax
+  unsigned int v5; // ecx
 
   m_Owner = This->m_PowerPolicyMachine.m_Owner;
   m_IdealDxStateForSx = m_Owner->m_IdealDxStateForSx;
@@ -22,9 +23,10 @@ __int64 __fastcall FxPkgPnp::PowerPolSleepingNoWakePowerDown(FxPkgPnp *This)
     m_IdealDxStateForSx = (m_Owner->m_SystemToDeviceStateMap & (15 << (4
                                                                      * (BYTE1(This->m_PendingSystemPowerIrp->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length) & 0xF)))) >> (4 * (BYTE1(This->m_PendingSystemPowerIrp->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length) & 0xF));
   }
-  v3 = FxPkgPnp::PowerPolicyPowerDownForSx(This, m_IdealDxStateForSx, Retry);
-  v4 = 1472;
-  if ( v3 < 0 )
+  FxPkgPnp::PowerPolicyBlockChildrenPowerUp(This);
+  v4 = FxPkgPnp::PowerPolicySendDevicePowerRequest(This, m_IdealDxStateForSx, Retry, RequestDxForSx);
+  v5 = 1472;
+  if ( v4 < 0 )
     return 1321;
-  return v4;
+  return v5;
 }

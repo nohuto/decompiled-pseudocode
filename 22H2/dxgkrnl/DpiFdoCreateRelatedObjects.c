@@ -1,141 +1,164 @@
 /*
- * XREFs of DpiFdoCreateRelatedObjects @ 0x1C02110C8
+ * XREFs of DpiFdoCreateRelatedObjects @ 0x1C0188434
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C0197F10 (DxgkAcquireAdapterCoreSync.c)
- *     DxgkReleaseAdapterCoreSync @ 0x1C01984C8 (DxgkReleaseAdapterCoreSync.c)
- *     DpiFdoInvalidateChildRelations @ 0x1C01F5100 (DpiFdoInvalidateChildRelations.c)
- *     ?DmmInitializeAdapter@@YAJQEAX@Z @ 0x1C0211244 (-DmmInitializeAdapter@@YAJQEAX@Z.c)
- *     DpiGdoCreateGdiObjects @ 0x1C02118A0 (DpiGdoCreateGdiObjects.c)
- *     DpiFdoQueryAdapterInfoIntegratedDisplay @ 0x1C039C94C (DpiFdoQueryAdapterInfoIntegratedDisplay.c)
- *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C039CB6C (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
- *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C039DAFC (DpiFdoValidateIntegratedDisplayDescriptor.c)
- *     DpiPdoRemovePdoObjects @ 0x1C03A9F40 (DpiPdoRemovePdoObjects.c)
- *     DpiGdoDestroyGdiObjects @ 0x1C03AA45C (DpiGdoDestroyGdiObjects.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C012E1AC (DxgkReleaseAdapterCoreSync.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C012E510 (DxgkAcquireAdapterCoreSync.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C01780D0 (DpiFdoInvalidateChildRelations.c)
+ *     ?DmmInitializeAdapter@@YAJQEAX@Z @ 0x1C01862A8 (-DmmInitializeAdapter@@YAJQEAX@Z.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C0186564 (DpiGdoCreateGdiObjects.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay @ 0x1C02CBA80 (DpiFdoQueryAdapterInfoIntegratedDisplay.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C02CBCF0 (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
+ *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C02CD038 (DpiFdoValidateIntegratedDisplayDescriptor.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C02D9E68 (DpiPdoRemovePdoObjects.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C02DA350 (DpiGdoDestroyGdiObjects.c)
  */
 
 __int64 __fastcall DpiFdoCreateRelatedObjects(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rdi
-  __int64 v5; // rsi
+  __int64 v4; // rsi
+  __int64 v5; // rdi
   __int64 v6; // r14
   unsigned int v7; // r15d
-  int v9; // ebx
-  __int64 v10; // rbx
-  __int64 v11; // r8
+  __int64 v9; // rbx
+  __int64 v10; // r8
+  __int64 v11; // rdx
   __int64 v12; // r8
-  unsigned int v14; // r14d
-  unsigned int v15; // r12d
-  _QWORD *v16; // r15
-  _QWORD *v17; // rsi
-  __int64 v18; // rax
-  void *Pool2; // rax
-  __int64 v20; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  unsigned int v16; // r14d
+  _QWORD *v17; // r15
+  _QWORD *v18; // rdi
+  __int64 v19; // rax
+  PVOID PoolWithTag; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  __int64 v25; // rax
   int AdapterInfoIntegratedDisplay; // eax
-  int v22; // eax
-  __int64 v23; // rdx
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rdx
 
   v4 = *(_QWORD *)(a1 + 64);
   v5 = a4;
   v6 = a3;
   v7 = a2;
-  v9 = 0;
-  if ( (*(_BYTE *)(v4 + 3921) & 4) == 0 )
+  LODWORD(v9) = 0;
+  if ( (*(_BYTE *)(v4 + 3905) & 4) == 0 )
   {
 LABEL_2:
-    LODWORD(v10) = DpiFdoInvalidateChildRelations(a1, 6u, v5);
-    if ( (int)v10 >= 0 )
+    LODWORD(v9) = DpiFdoInvalidateChildRelations(a1, 6u, v5);
+    if ( (int)v9 < 0 )
+      goto LABEL_30;
+    if ( (*(_BYTE *)(v4 + 3904) & 1) != 0 )
     {
-      if ( (*(_BYTE *)(v4 + 3920) & 1) == 0 )
-        return (unsigned int)v10;
-      DxgkAcquireAdapterCoreSync(*(_QWORD *)(v4 + 3912), 2, v11);
-      v10 = (int)DmmInitializeAdapter(*(DXGADAPTER **)(v4 + 3912));
-      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v4 + 3912), 2u, v12);
-      if ( (int)v10 < 0 )
+      DxgkAcquireAdapterCoreSync(*(_QWORD *)(v4 + 3896), 2, v10);
+      v9 = (int)DmmInitializeAdapter(*(DXGADAPTER **)(v4 + 3896), v11);
+      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v4 + 3896), 2u, v12);
+      if ( (int)v9 < 0 )
       {
-        WdLogSingleEntry1(2LL, v10);
+        v36 = WdLogNewEntry5_WdError(v14, v13);
+        *(_QWORD *)(v36 + 24) = v9;
+        WdLogEvent5_WdError(v36);
       }
       else
       {
-        LODWORD(v10) = DpiGdoCreateGdiObjects(a1, v7, v6);
-        if ( (int)v10 >= 0 )
-          return (unsigned int)v10;
+        LODWORD(v9) = DpiGdoCreateGdiObjects(a1, v7, v6);
       }
     }
-    DpiGdoDestroyGdiObjects(a1);
-    LOBYTE(v23) = 1;
-    DpiPdoRemovePdoObjects(a1, v23, v5);
-    return (unsigned int)v10;
+    if ( (int)v9 < 0 )
+    {
+LABEL_30:
+      DpiGdoDestroyGdiObjects(a1);
+      LOBYTE(v37) = 1;
+      DpiPdoRemovePdoObjects(a1, v37, v5);
+    }
+    return (unsigned int)v9;
   }
-  v14 = 0;
+  v16 = 0;
   KeEnterCriticalRegion();
-  ExAcquireResourceSharedLite((PERESOURCE)(v4 + 3320), 1u);
-  v15 = -1073741811;
-  v16 = *(_QWORD **)(v4 + 3480);
-  if ( v16 == (_QWORD *)(v4 + 3480) )
-    goto LABEL_11;
+  ExAcquireResourceSharedLite((PERESOURCE)(v4 + 3304), 1u);
+  v17 = *(_QWORD **)(v4 + 3464);
+  if ( v17 == (_QWORD *)(v4 + 3464) )
+    goto LABEL_25;
   while ( 1 )
   {
-    v17 = v16 - 4;
-    v16 = (_QWORD *)*v16;
-    v18 = *((unsigned __int16 *)v17 + 46);
-    if ( !(_WORD)v18 )
-      goto LABEL_9;
-    Pool2 = (void *)ExAllocatePool2(256LL, v18 + 128, 1953656900LL);
-    v17[13] = Pool2;
-    if ( !Pool2 )
+    v18 = v17 - 4;
+    v17 = (_QWORD *)*v17;
+    v19 = *((unsigned __int16 *)v18 + 46);
+    if ( !(_WORD)v19 )
+      goto LABEL_18;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v19 + 128, 0x74727044u);
+    v18[13] = PoolWithTag;
+    if ( !PoolWithTag )
       break;
-    memset(Pool2, 0, *((unsigned __int16 *)v17 + 46) + 128LL);
-    v20 = v17[13] + 128LL;
-    v17[14] = v20;
-    v17[15] = v20;
-    if ( *(int *)(*(_QWORD *)(v4 + 3912) + 2820LL) < 2400 )
-      AdapterInfoIntegratedDisplay = DpiFdoQueryAdapterInfoIntegratedDisplay(a1, v17);
+    memset(PoolWithTag, 0, *((unsigned __int16 *)v18 + 46) + 128LL);
+    v25 = v18[13] + 128LL;
+    v18[14] = v25;
+    v18[15] = v25;
+    if ( *(int *)(*(_QWORD *)(v4 + 3896) + 2596LL) < 2400 )
+      AdapterInfoIntegratedDisplay = DpiFdoQueryAdapterInfoIntegratedDisplay(a1, v18);
     else
-      AdapterInfoIntegratedDisplay = DpiFdoQueryAdapterInfoIntegratedDisplay2(a1, v17);
+      AdapterInfoIntegratedDisplay = DpiFdoQueryAdapterInfoIntegratedDisplay2(a1, v18);
     v9 = AdapterInfoIntegratedDisplay;
     if ( AdapterInfoIntegratedDisplay < 0 )
     {
-      WdLogSingleEntry1(2LL, AdapterInfoIntegratedDisplay);
-      goto LABEL_10;
+      v31 = WdLogNewEntry5_WdError(v28, v27);
+      *(_QWORD *)(v31 + 24) = v9;
+LABEL_22:
+      WdLogEvent5_WdError(v31);
+      goto LABEL_24;
     }
-    v9 = DpiFdoValidateIntegratedDisplayDescriptor(v4, v17);
-    if ( v9 < 0 )
-      goto LABEL_10;
-    v22 = 1 << *(_BYTE *)(v17[13] + 122LL);
-    if ( (v22 & v14) != 0 )
+    LODWORD(v9) = DpiFdoValidateIntegratedDisplayDescriptor(v4, v18);
+    if ( (int)v9 < 0 )
+      goto LABEL_24;
+    LOBYTE(v30) = *(_BYTE *)(v18[13] + 122LL);
+    if ( ((1 << v30) & v16) != 0 )
     {
-      v9 = -1073741811;
-      WdLogSingleEntry2(2LL, *(unsigned __int8 *)(v17[13] + 122LL), *((unsigned int *)v17 + 6));
-      goto LABEL_10;
+      LODWORD(v9) = -1073741811;
+      v31 = WdLogNewEntry5_WdError(v30, v29);
+      *(_QWORD *)(v31 + 24) = *(unsigned __int8 *)(v18[13] + 122LL);
+      *(_QWORD *)(v31 + 32) = *((unsigned int *)v18 + 6);
+      goto LABEL_22;
     }
-    v14 |= v22;
-LABEL_9:
-    if ( v16 == (_QWORD *)(v4 + 3480) )
-      goto LABEL_10;
+    v16 |= 1 << v30;
+LABEL_18:
+    if ( v17 == (_QWORD *)(v4 + 3464) )
+      goto LABEL_24;
   }
-  WdLogSingleEntry1(6LL, v9);
-  v9 = -1073741670;
-LABEL_10:
+  v32 = WdLogNewEntry5_WdLowResource(v22, v21, v23, v24);
+  *(_QWORD *)(v32 + 24) = (int)v9;
+  WdLogEvent5_WdLowResource(v32);
+  LODWORD(v9) = -1073741670;
+LABEL_24:
   v5 = a4;
-LABEL_11:
-  ExReleaseResourceLite((PERESOURCE)(v4 + 3320));
+LABEL_25:
+  ExReleaseResourceLite((PERESOURCE)(v4 + 3304));
   KeLeaveCriticalRegion();
-  if ( ((v14 + 1) & v14) != 0 )
+  if ( ((v16 + 1) & v16) != 0 )
   {
-    WdLogSingleEntry1(2LL, v14);
+    LODWORD(v9) = -1073741811;
+    v35 = WdLogNewEntry5_WdError(v34, v33);
+    *(_QWORD *)(v35 + 24) = v16;
+    WdLogEvent5_WdError(v35);
   }
-  else
+  if ( (int)v9 >= 0 )
   {
-    v15 = v9;
-    if ( v9 >= 0 )
-    {
-      v6 = a3;
-      v7 = a2;
-      goto LABEL_2;
-    }
+    v6 = a3;
+    v7 = a2;
+    goto LABEL_2;
   }
-  return v15;
+  return (unsigned int)v9;
 }

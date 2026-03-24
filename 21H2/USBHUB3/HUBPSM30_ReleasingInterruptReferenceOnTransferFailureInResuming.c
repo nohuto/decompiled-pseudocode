@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming @ 0x1C0012460
+ * XREFs of HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming @ 0x1C0011F60
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReleaseInterruptReference @ 0x1C000FCB8 (HUBMUX_ReleaseInterruptReference.c)
+ *     HUBMUX_ReleaseInterruptReference @ 0x1C000F89C (HUBMUX_ReleaseInterruptReference.c)
  */
 
 __int64 __fastcall HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming(__int64 a1)

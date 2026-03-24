@@ -1,66 +1,64 @@
 /*
- * XREFs of MmLogQueryCombineStats @ 0x1406EA034
+ * XREFs of MmLogQueryCombineStats @ 0x1408D9C00
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14072ACC0 (PfQuerySuperfetchInformation.c)
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwTraceSiloDcEvent @ 0x14062E480 (EtwTraceSiloDcEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A8190 (EtwTraceSiloDcEvent.c)
  */
 
-void __fastcall MmLogQueryCombineStats(__int64 a1, unsigned int *a2, _DWORD *a3)
+void __fastcall MmLogQueryCombineStats(__int64 a1, unsigned int *a2, _OWORD *a3)
 {
   int v5; // eax
-  _OWORD *v6; // r10
-  int v7; // ecx
-  int v8; // eax
-  bool v9; // cc
-  unsigned int v10; // r9d
-  _OWORD *v11; // [rsp+30h] [rbp-50h] BYREF
-  int v12; // [rsp+38h] [rbp-48h]
-  int v13; // [rsp+3Ch] [rbp-44h]
-  _OWORD *v14; // [rsp+40h] [rbp-40h] BYREF
-  int v15; // [rsp+48h] [rbp-38h]
-  int v16; // [rsp+4Ch] [rbp-34h]
-  _OWORD v17[2]; // [rsp+50h] [rbp-30h] BYREF
+  int v6; // ecx
+  int v7; // eax
+  bool v8; // cc
+  unsigned int v9; // r9d
+  _OWORD *v10; // [rsp+30h] [rbp-40h] BYREF
+  int v11; // [rsp+38h] [rbp-38h]
+  int v12; // [rsp+3Ch] [rbp-34h]
+  _OWORD v13[2]; // [rsp+40h] [rbp-30h] BYREF
 
-  memset(v17, 0, sizeof(v17));
+  memset(v13, 0, sizeof(v13));
   if ( a3 )
-    v5 = *a3;
+  {
+    v5 = *(_DWORD *)a3;
+  }
   else
+  {
+    a3 = v13;
     v5 = 0;
-  v6 = v17;
-  if ( a3 )
-    v6 = a3;
-  *(_DWORD *)v6 = v5 & 0xFFFFFFC0 | 1;
-  *((_DWORD *)v6 + 1) = dword_140C59048;
-  *((_QWORD *)v6 + 1) = qword_140C59030 + qword_140C59038;
-  *((_QWORD *)v6 + 2) = qword_140C59040;
-  v7 = dword_140C5904C;
-  *((_DWORD *)v6 + 6) = dword_140C5904C;
-  v8 = dword_140C59050;
-  v9 = v7 <= dword_140C59050;
-  *((_DWORD *)v6 + 7) = dword_140C59050;
-  if ( !v9 )
-    v7 = v8;
-  *((_DWORD *)v6 + 6) = v7;
-  if ( v6 == v17 )
+  }
+  *(_DWORD *)a3 = v5 & 0xFFFFFFC0 | 1;
+  *((_DWORD *)a3 + 1) = dword_140C52830;
+  *((_QWORD *)a3 + 1) = qword_140C52818 + qword_140C52820;
+  *((_QWORD *)a3 + 2) = qword_140C52828;
+  v6 = dword_140C52834;
+  *((_DWORD *)a3 + 6) = dword_140C52834;
+  v7 = dword_140C52838;
+  v8 = v6 <= dword_140C52838;
+  *((_DWORD *)a3 + 7) = dword_140C52838;
+  if ( !v8 )
+    v6 = v7;
+  *((_DWORD *)a3 + 6) = v6;
+  if ( a3 == v13 )
   {
     if ( a1 && a2 )
     {
-      v13 = 0;
-      v10 = *a2;
-      v11 = v6;
-      v12 = 32;
-      EtwTraceSiloDcEvent((__int64)&v11, 1u, a1, v10, 0x27Cu, 0x401802u);
+      v12 = 0;
+      v10 = a3;
+      v9 = *a2;
+      v11 = 32;
+      EtwTraceSiloDcEvent((__int64)&v10, 1u, a1, v9, 0x27Cu, 0x401802u);
     }
     else
     {
-      v16 = 0;
-      v14 = v6;
-      v15 = 32;
-      EtwTraceKernelEvent((__int64)&v14, 1u, 0x20080000u, 0x27Cu, 0x401802u);
+      v12 = 0;
+      v10 = a3;
+      v11 = 32;
+      EtwTraceKernelEvent((int)&v10, 1, 0x20080000u, 636, 4200450);
     }
   }
 }

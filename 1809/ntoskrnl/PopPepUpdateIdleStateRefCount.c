@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPepUpdateIdleStateRefCount @ 0x140172488
+ * XREFs of PopPepUpdateIdleStateRefCount @ 0x1401724A8
  * Callers:
- *     PopPepDeviceDState @ 0x140171F64 (PopPepDeviceDState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140172340 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x140176970 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepInitializeVetoMasks @ 0x1402DD2F0 (PopPepInitializeVetoMasks.c)
- *     PopPepPlatformStateRegistered @ 0x1402DD8BC (PopPepPlatformStateRegistered.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x1402DDF10 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PopPepUnregisterDevice @ 0x14086DF3C (PopPepUnregisterDevice.c)
+ *     PopPepDeviceDState @ 0x140171F84 (PopPepDeviceDState.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140172360 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x140176990 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepInitializeVetoMasks @ 0x1402DD3F0 (PopPepInitializeVetoMasks.c)
+ *     PopPepPlatformStateRegistered @ 0x1402DD9BC (PopPepPlatformStateRegistered.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x1402DE010 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopPepUnregisterDevice @ 0x14086DF1C (PopPepUnregisterDevice.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
- *     PopFxPlatformStateAvailable @ 0x1402D8C04 (PopFxPlatformStateAvailable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     PopFxPlatformStateAvailable @ 0x1402D8D04 (PopFxPlatformStateAvailable.c)
  */
 
 void __fastcall PopPepUpdateIdleStateRefCount(__int64 a1, int a2, __int64 a3)

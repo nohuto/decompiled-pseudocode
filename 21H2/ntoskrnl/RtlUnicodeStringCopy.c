@@ -1,89 +1,79 @@
 /*
- * XREFs of RtlUnicodeStringCopy @ 0x140208AD8
+ * XREFs of RtlUnicodeStringCopy @ 0x140206CD0
  * Callers:
- *     SleepstudyHelperSetBlockerFriendlyName @ 0x14036C2F0 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SshpCopyDataEntry @ 0x1405DFAC4 (SshpCopyDataEntry.c)
- *     CmpLinkHiveToMaster @ 0x14067C9E8 (CmpLinkHiveToMaster.c)
- *     CmpDoWritethroughReparse @ 0x140680100 (CmpDoWritethroughReparse.c)
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140690378 (VrpHandleIoctlInitializeJobForVreg.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406E9124 (CmpLogTransactionAbortedWithChildName.c)
- *     PopUnicodeStringDeepCopy @ 0x1407F1F60 (PopUnicodeStringDeepCopy.c)
- *     SleepstudyHelper_GetPdoFriendlyName @ 0x140853DB0 (SleepstudyHelper_GetPdoFriendlyName.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140917708 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     MiConstructNonRetpolineImageLoadRecord @ 0x1409709F4 (MiConstructNonRetpolineImageLoadRecord.c)
- *     PopCloneUnicodeString @ 0x140989650 (PopCloneUnicodeString.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140A16F94 (AslpPathWildcardAllocMatchNode.c)
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x1402CC4E0 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     SshpCopyDataEntry @ 0x14057FBF0 (SshpCopyDataEntry.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
+ *     PopUnicodeStringDeepCopy @ 0x1406C1BA0 (PopUnicodeStringDeepCopy.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406C25F4 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpLinkHiveToMaster @ 0x14071E230 (CmpLinkHiveToMaster.c)
+ *     MiConstructNonRetpolineImageLoadRecord @ 0x1407D02FC (MiConstructNonRetpolineImageLoadRecord.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C28 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     PopCloneUnicodeString @ 0x1408E1148 (PopCloneUnicodeString.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969C60 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x140208BA0 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlUnicodeStringValidateWorker @ 0x140208BE0 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x140206D9C (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCopy(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
-  size_t *v2; // r9
-  __int16 v4; // bx
-  size_t v6; // rdx
-  NTSTATUS v7; // r8d
-  NTSTATUS v8; // eax
-  wchar_t *Buffer; // rdx
-  unsigned __int64 v10; // rcx
-  size_t v11; // r9
-  __int16 v12; // r10
-  char *v13; // r11
-  size_t v15; // [rsp+20h] [rbp-18h]
-  ULONG v16; // [rsp+28h] [rbp-10h]
-  size_t v17; // [rsp+50h] [rbp+18h] BYREF
-  wchar_t *v18; // [rsp+58h] [rbp+20h] BYREF
+  ULONG v2; // r8d
+  __int16 v3; // di
+  __int64 v5; // rsi
+  unsigned __int64 v6; // rbx
+  NTSTATUS result; // eax
+  size_t v9; // rdx
+  __int64 v10; // rcx
+  ULONG v11; // r8d
+  int v12; // ecx
+  wchar_t *Buffer; // r10
+  unsigned __int64 v14; // r11
+  __int64 v15; // rsi
 
-  v4 = 0;
-  v18 = 0LL;
-  v17 = 0LL;
-  v7 = RtlUnicodeStringValidateDestWorker(DestinationString, &v18, &v17, v2, v15, v16);
-  if ( v7 >= 0 )
+  v3 = 0;
+  v5 = 0LL;
+  v6 = 0LL;
+  result = RtlUnicodeStringValidateWorker_0(DestinationString, (const size_t)SourceString, v2);
+  if ( result >= 0 )
   {
-    v8 = RtlUnicodeStringValidateWorker(SourceString, v6, v7);
-    v7 = v8;
-    if ( v8 >= 0 && SourceString )
+    if ( v10 )
     {
-      Buffer = SourceString->Buffer;
-      v10 = (unsigned __int64)SourceString->Length >> 1;
+      v5 = *(_QWORD *)(v10 + 8);
+      v6 = (unsigned __int64)*(unsigned __int16 *)(v10 + 2) >> 1;
     }
-    else
+    v12 = RtlUnicodeStringValidateWorker_0(SourceString, v9, v11);
+    if ( v12 >= 0 )
     {
-      Buffer = 0LL;
-      v10 = 0LL;
-      if ( v8 < 0 )
+      if ( SourceString )
       {
-LABEL_12:
-        DestinationString->Length = 2 * v4;
-        return v7;
+        Buffer = SourceString->Buffer;
+        v14 = (unsigned __int64)SourceString->Length >> 1;
+      }
+      v12 = 0;
+      if ( v6 )
+      {
+        v15 = v5 - (_QWORD)Buffer;
+        while ( v14 )
+        {
+          --v14;
+          *(wchar_t *)((char *)Buffer + v15) = *Buffer;
+          ++v3;
+          ++Buffer;
+          if ( !--v6 )
+            goto LABEL_11;
+        }
+      }
+      else
+      {
+LABEL_11:
+        if ( v14 )
+          v12 = -2147483643;
       }
     }
-    v11 = v17;
-    v7 = 0;
-    v12 = 0;
-    if ( v17 )
-    {
-      v13 = (char *)((char *)v18 - (char *)Buffer);
-      while ( v10 )
-      {
-        --v10;
-        *(wchar_t *)((char *)Buffer + (_QWORD)v13) = *Buffer;
-        ++v12;
-        ++Buffer;
-        if ( !--v11 )
-          goto LABEL_9;
-      }
-    }
-    else
-    {
-LABEL_9:
-      if ( v10 )
-        v7 = -2147483643;
-    }
-    v4 = v12;
-    goto LABEL_12;
+    result = v12;
+    DestinationString->Length = 2 * v3;
   }
-  return v7;
+  return result;
 }

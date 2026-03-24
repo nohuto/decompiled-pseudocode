@@ -1,25 +1,25 @@
 /*
- * XREFs of DbgkRegisterErrorPort @ 0x1407024C0
+ * XREFs of DbgkRegisterErrorPort @ 0x1407024A0
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwAlpcConnectPort @ 0x1401B9050 (ZwAlpcConnectPort.c)
- *     ZwAlpcDisconnectPort @ 0x1401B91B0 (ZwAlpcDisconnectPort.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwAlpcConnectPort @ 0x1401B9070 (ZwAlpcConnectPort.c)
+ *     ZwAlpcDisconnectPort @ 0x1401B91D0 (ZwAlpcDisconnectPort.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     DbgkpDeleteErrorPort @ 0x140707104 (DbgkpDeleteErrorPort.c)
+ *     DbgkpDeleteErrorPort @ 0x1407070E4 (DbgkpDeleteErrorPort.c)
  */
 
 __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)

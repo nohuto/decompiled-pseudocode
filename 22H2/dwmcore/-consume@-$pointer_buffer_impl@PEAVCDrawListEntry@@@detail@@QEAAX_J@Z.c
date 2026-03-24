@@ -1,10 +1,11 @@
 /*
- * XREFs of ?consume@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEAAX_J@Z @ 0x1801FD880
+ * XREFs of ?consume@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEAAX_J@Z @ 0x18009357C
  * Callers:
- *     ?clear_region@?$vector_facade@PEAVCDrawListEntry@@V?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801FD7F0 (-clear_region@-$vector_facade@PEAVCDrawListEntry@@V-$pointer_buffer_impl@PEAVCDrawListEntry@@@de.c)
+ *     ?clear_region@?$vector_facade@PEAVCDrawListEntry@@V?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@@detail@@IEAAX_K0@Z @ 0x18009331C (-clear_region@-$vector_facade@PEAVCDrawListEntry@@V-$pointer_buffer_impl@PEAVCDrawListEntry@@@de.c)
+ *     ?ReleaseDrawListEntries@CDrawListCache@@AEAAXXZ @ 0x180093398 (-ReleaseDrawListEntries@CDrawListCache@@AEAAXXZ.c)
  * Callees:
- *     ?first@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ @ 0x18007BA64 (-first@-$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?first@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ @ 0x18009347C (-first@-$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall detail::pointer_buffer_impl<CDrawListEntry *>::consume(_QWORD *a1, __int64 a2)
@@ -15,7 +16,7 @@ void __fastcall detail::pointer_buffer_impl<CDrawListEntry *>::consume(_QWORD *a
   if ( a2 )
   {
     if ( (*(_DWORD *)a1 & 3) == 0 )
-      goto LABEL_8;
+      goto LABEL_6;
     if ( (*(_DWORD *)a1 & 3) == 1 )
     {
       v3 = detail::pointer_buffer_impl<CDrawListEntry *>::first(a1);
@@ -27,7 +28,7 @@ void __fastcall detail::pointer_buffer_impl<CDrawListEntry *>::consume(_QWORD *a
       if ( (*(_DWORD *)a1 & 3) != 3 )
         ModuleFailFastForHRESULT(2147549183LL, retaddr);
       if ( a2 != 1 )
-LABEL_8:
+LABEL_6:
         *a1 = 2LL;
     }
   }

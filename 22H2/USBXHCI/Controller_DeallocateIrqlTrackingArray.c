@@ -1,8 +1,8 @@
 /*
- * XREFs of Controller_DeallocateIrqlTrackingArray @ 0x1C0032C9C
+ * XREFs of Controller_DeallocateIrqlTrackingArray @ 0x1C0031120
  * Callers:
- *     Controller_WdfEvtCleanupCallback @ 0x1C0036520 (Controller_WdfEvtCleanupCallback.c)
- *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A70 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_WdfEvtCleanupCallback @ 0x1C00349C0 (Controller_WdfEvtCleanupCallback.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006D0A0 (Controller_WdfEvtDevicePrepareHardware.c)
  * Callees:
  *     <none>
  */
@@ -11,11 +11,11 @@ void __fastcall Controller_DeallocateIrqlTrackingArray(__int64 a1)
 {
   void *v2; // rcx
 
-  v2 = *(void **)(a1 + 864);
+  v2 = *(void **)(a1 + 808);
   if ( v2 )
   {
     ExFreePoolWithTag(v2, 0x49434858u);
-    *(_QWORD *)(a1 + 864) = 0LL;
-    *(_DWORD *)(a1 + 872) = 0;
+    *(_QWORD *)(a1 + 808) = 0LL;
+    *(_DWORD *)(a1 + 816) = 0;
   }
 }

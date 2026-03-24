@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIFilterIrpQueryDeviceRelations @ 0x1C008E6C0
+ * XREFs of ACPIFilterIrpQueryDeviceRelations @ 0x1C0090110
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIDetectFilterDevices @ 0x1C0006A34 (ACPIDetectFilterDevices.c)
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C000A564 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004BEC8 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
- *     ACPIRootIrpQueryBusRelations @ 0x1C0091924 (ACPIRootIrpQueryBusRelations.c)
- *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AC5AC (ACPIBusAndFilterIrpQueryEjectRelations.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIRootIrpQueryBusRelations @ 0x1C009DB7C (ACPIRootIrpQueryBusRelations.c)
+ *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AD9B0 (ACPIBusAndFilterIrpQueryEjectRelations.c)
  */
 
 __int64 __fastcall ACPIFilterIrpQueryDeviceRelations(ULONG_PTR a1, IRP *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall ACPIFilterIrpQueryDeviceRelations(ULONG_PTR a1, IRP *a2)
   __int64 v7; // rsi
   unsigned __int64 Information; // rax
   unsigned int Length; // ecx
-  __int64 v10; // rcx
+  unsigned int v10; // ecx
   NTSTATUS Status; // edi
   const char *v12; // r15
   char *IrpText; // rax
@@ -52,9 +52,9 @@ __int64 __fastcall ACPIFilterIrpQueryDeviceRelations(ULONG_PTR a1, IRP *a2)
   if ( Length )
   {
     v10 = Length - 1;
-    if ( (_DWORD)v10 )
+    if ( v10 )
     {
-      if ( (_DWORD)v10 != 2 )
+      if ( v10 != 2 )
       {
         Status = -1073741637;
         goto LABEL_7;
@@ -75,16 +75,16 @@ __int64 __fastcall ACPIFilterIrpQueryDeviceRelations(ULONG_PTR a1, IRP *a2)
   if ( RemovalRelations != -1073741637 )
     a2->IoStatus.Status = RemovalRelations;
 LABEL_7:
-  v12 = (const char *)&unk_1C006FB8B;
+  v12 = byte_1C00701BA;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(v10, CurrentStackLocation->MinorFunction);
+    IrpText = ACPIDebugGetIrpText(0x400000000000LL, CurrentStackLocation->MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0xDu,
-      (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       (char)a2,
       IrpText,
       Status,
@@ -111,7 +111,7 @@ LABEL_7:
   v18[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
   v18[-1].Context = &Event;
   v18[-1].Control = -32;
-  Status = IofCallDriver(*(PDEVICE_OBJECT *)(v7 + 776), a2);
+  Status = IofCallDriver(*(PDEVICE_OBJECT *)(v7 + 736), a2);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -128,7 +128,7 @@ LABEL_7:
     ACPIDetectFilterDevices(a1, (__int64)v21);
     v22 = *(_QWORD *)(v7 + 8);
     if ( (v22 & 0x200000000000LL) != 0 )
-      v12 = *(const char **)(v7 + 608);
+      v12 = *(const char **)(v7 + 568);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v23 = ACPIDebugGetIrpText(v22, CurrentStackLocation->MinorFunction);
@@ -137,7 +137,7 @@ LABEL_7:
         4u,
         5u,
         0xEu,
-        (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+        (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
         (char)a2,
         v23,
         v25,

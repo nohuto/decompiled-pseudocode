@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpValidateRegistryString @ 0x1403CDBD4
+ * XREFs of PnpValidateRegistryString @ 0x14036E3FC
  * Callers:
- *     PiDevCfgResolveVariableDeviceProperty @ 0x1408790C0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     PiDevCfgBuildIndirectString @ 0x14087BCA4 (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgResolveVariable @ 0x14087F0D0 (PiDevCfgResolveVariable.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14095F798 (PiDevCfgQueryPolicyStringList.c)
- *     PiDevCfgResolveVariableFormatString @ 0x140961490 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140961B9C (PiDevCfgResolveVariableKeyHandle.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x140962330 (PiDevCfgResolveVariableKeyValue.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x140962510 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgBuildIndirectString @ 0x14073964C (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgResolveVariable @ 0x14077B470 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x14077BD90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x1408A7B94 (PiDevCfgQueryPolicyStringList.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1408A93D0 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9ADC (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x1408AA2B0 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA490 (PiDevCfgResolveVariableSwitchCase.c)
  * Callees:
- *     PnpValidateStringData @ 0x1403CDC10 (PnpValidateStringData.c)
+ *     PnpValidateStringData @ 0x14036E438 (PnpValidateStringData.c)
  */
 
 char __fastcall PnpValidateRegistryString(_DWORD *a1)

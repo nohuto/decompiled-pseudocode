@@ -1,10 +1,10 @@
 /*
- * XREFs of Bulk_ValidateStagePointer @ 0x1C0012E80
+ * XREFs of Bulk_ValidateStagePointer @ 0x1C000C22C
  * Callers:
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011354 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
  * Callees:
- *     StageQueue_ForwardScanGetNextStage @ 0x1C0012F44 (StageQueue_ForwardScanGetNextStage.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
  */
 
 char __fastcall Bulk_ValidateStagePointer(__int64 a1, __int64 a2)
@@ -55,7 +55,7 @@ LABEL_8:
       v13,
       14,
       43,
-      (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+      (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
       *(_DWORD *)(a1 + 64));

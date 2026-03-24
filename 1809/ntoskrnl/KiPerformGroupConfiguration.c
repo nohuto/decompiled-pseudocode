@@ -3,17 +3,17 @@
  * Callers:
  *     KePerformGroupConfiguration @ 0x1409B5C1C (KePerformGroupConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strstr @ 0x140194EA0 (strstr.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     HviGetImplementationLimits @ 0x140322360 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     HviGetImplementationLimits @ 0x140322460 (HviGetImplementationLimits.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     KiAssignAllNodesToGroup0 @ 0x1409B685C (KiAssignAllNodesToGroup0.c)
- *     KiAssignAdjustableNodes @ 0x1409F6628 (KiAssignAdjustableNodes.c)
- *     KiAssignFixedNodes @ 0x1409F66D0 (KiAssignFixedNodes.c)
- *     KiShuffleAssignedNodes @ 0x1409F68C8 (KiShuffleAssignedNodes.c)
+ *     KiAssignAdjustableNodes @ 0x1409F6638 (KiAssignAdjustableNodes.c)
+ *     KiAssignFixedNodes @ 0x1409F66E0 (KiAssignFixedNodes.c)
+ *     KiShuffleAssignedNodes @ 0x1409F68D8 (KiShuffleAssignedNodes.c)
  */
 
 __int64 __fastcall KiPerformGroupConfiguration(__int64 a1)

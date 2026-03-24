@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpKeyEnumStackCreateResumeContext @ 0x140920D44
+ * XREFs of CmpKeyEnumStackCreateResumeContext @ 0x14087A7E4
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140914324 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14069F130 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14071BC64 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140699C08 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackCreateResumeContext(

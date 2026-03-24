@@ -1,256 +1,251 @@
 /*
- * XREFs of HalpInterruptEnableNmi @ 0x14037BC04
+ * XREFs of HalpInterruptEnableNmi @ 0x1403A306C
  * Callers:
- *     HalpInterruptInitSystem @ 0x140A8A2E0 (HalpInterruptInitSystem.c)
- *     HalpPostSleepMP @ 0x140A97068 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A976B4 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140995854 (HalpPostSleepMP.c)
+ *     HalpInterruptInitSystem @ 0x14099EA00 (HalpInterruptInitSystem.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A8618 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpInterruptDestinationToTarget @ 0x14031FA9C (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x14036779C (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14037CBF8 (HalpInterruptSetRemappedLineStateInternal.c)
- *     HalpInterruptSetLineState @ 0x14037CD5C (HalpInterruptSetLineState.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpHvMapIoApicDeviceInterrupt @ 0x140A87310 (HalpHvMapIoApicDeviceInterrupt.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
+ *     HalpInterruptDestinationToTarget @ 0x1403787A0 (HalpInterruptDestinationToTarget.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403A33F8 (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB0B4 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5574 (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpHvMapDeviceInterrupt @ 0x1409A72A8 (HalpHvMapDeviceInterrupt.c)
  */
 
 __int64 HalpInterruptEnableNmi()
 {
   unsigned __int8 v0; // al
   struct _KPRCB *CurrentPrcb; // r15
-  ULONG_PTR v2; // rsi
-  unsigned __int64 v3; // r12
-  __int64 v4; // r8
-  unsigned int v5; // ecx
-  __int64 i; // rdi
+  ULONG_PTR v2; // r14
+  unsigned int v3; // ecx
+  unsigned __int64 v4; // r12
+  __int64 v5; // r8
+  __int64 v6; // rsi
   char v7; // dl
   int v8; // eax
-  int v9; // eax
-  int v10; // ecx
-  int v11; // eax
+  unsigned int v9; // edi
+  int v10; // ebx
+  int v11; // ecx
   int v12; // ebx
-  int v13; // ebx
-  int v14; // ecx
-  int v15; // eax
   __int64 Number; // rcx
-  __int64 v17; // rax
+  __int64 v15; // rax
   _QWORD *Lines; // rax
-  __int64 v19; // rcx
-  ULONG_PTR *v20; // r14
-  int v21; // eax
-  int v22; // eax
-  int v23; // ebx
+  __int64 v17; // rcx
+  ULONG_PTR *v18; // rdi
+  int v19; // eax
+  __int64 v20; // rdx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v25; // r10
+  struct _KPRCB *v22; // r10
   _DWORD *SchedulerAssist; // r9
-  int v27; // eax
-  bool v28; // zf
-  __int64 v30; // [rsp+48h] [rbp-59h] BYREF
-  unsigned int v31; // [rsp+50h] [rbp-51h]
-  __int128 v32; // [rsp+58h] [rbp-49h] BYREF
-  __int128 v33; // [rsp+68h] [rbp-39h] BYREF
-  __int128 v34; // [rsp+78h] [rbp-29h]
-  __int64 v35; // [rsp+88h] [rbp-19h]
-  __int128 v36; // [rsp+90h] [rbp-11h] BYREF
-  __int128 *v37; // [rsp+A0h] [rbp-1h]
-  __int128 v38; // [rsp+A8h] [rbp+7h] BYREF
-  __int128 v39; // [rsp+B8h] [rbp+17h] BYREF
+  int v24; // eax
+  bool v25; // zf
+  __int64 v26; // [rsp+48h] [rbp-49h] BYREF
+  unsigned int v27; // [rsp+50h] [rbp-41h]
+  __int128 v28; // [rsp+58h] [rbp-39h] BYREF
+  __int128 v29; // [rsp+68h] [rbp-29h] BYREF
+  __int128 v30; // [rsp+78h] [rbp-19h]
+  __int64 v31; // [rsp+88h] [rbp-9h]
+  __int128 v32; // [rsp+90h] [rbp-1h] BYREF
+  __int128 *v33; // [rsp+A0h] [rbp+Fh]
+  __int128 v34; // [rsp+A8h] [rbp+17h] BYREF
+  __int128 v35; // [rsp+B8h] [rbp+27h] BYREF
 
-  v36 = 0LL;
-  LODWORD(v37) = 0;
-  v39 = 0LL;
-  v30 = 0LL;
+  v26 = 0LL;
+  v27 = 0;
   v32 = 0LL;
-  v35 = 0LL;
   v33 = 0LL;
-  v31 = 0;
+  v35 = 0LL;
+  v31 = 0LL;
+  v28 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
   v34 = 0LL;
-  v38 = 0LL;
   v0 = HalpAcquireHighLevelLock(&HalpInterruptLock);
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = 0LL;
-  v3 = v0;
-  v4 = (unsigned int)HalpInterruptProcessorCount;
-  v5 = 0;
+  v3 = 0;
+  v4 = v0;
+  v5 = (unsigned int)HalpInterruptProcessorCount;
   if ( (_DWORD)HalpInterruptProcessorCount )
   {
     while ( 1 )
     {
-      v2 = HalpInterruptProcessorState + ((unsigned __int64)v5 << 6);
+      v2 = HalpInterruptProcessorState + ((unsigned __int64)v3 << 6);
       if ( *(_WORD *)(v2 + 16) == CurrentPrcb->Group && *(_BYTE *)(v2 + 18) == CurrentPrcb->GroupIndex )
         break;
-      if ( ++v5 >= (unsigned int)HalpInterruptProcessorCount )
+      if ( ++v3 >= (unsigned int)HalpInterruptProcessorCount )
         goto LABEL_7;
     }
-    v4 = v5;
+    v5 = v3;
   }
 LABEL_7:
-  if ( (_DWORD)v4 == (_DWORD)HalpInterruptProcessorCount )
+  if ( (_DWORD)v5 == (_DWORD)HalpInterruptProcessorCount )
     KeBugCheckEx(
       0x5Cu,
       0x104uLL,
       CurrentPrcb->GroupIndex | ((unsigned __int64)CurrentPrcb->Group << 8),
       (unsigned int)HalpInterruptProcessorCount,
       0LL);
-  for ( i = HalpInterruptNmiSources; i; i = *(_QWORD *)i )
+  v6 = HalpInterruptNmiSources;
+  if ( !HalpInterruptNmiSources )
+  {
+LABEL_19:
+    v12 = 0;
+    goto LABEL_20;
+  }
+  while ( 1 )
   {
     v7 = 0;
-    if ( *(_BYTE *)(i + 8) )
-    {
-      if ( !*(_BYTE *)(v2 + 13) )
-        continue;
-      v8 = *(_DWORD *)(i + 12);
-      if ( v8 != -1 && v8 != *(_DWORD *)(v2 + 4) )
-        continue;
-      v7 = 1;
-    }
-    else if ( CurrentPrcb->Number )
-    {
-      continue;
-    }
-    v32 = 0LL;
-    v35 = 0LL;
-    v33 = 0LL;
-    v34 = 0LL;
-    v38 = 0LL;
-    v9 = *(_DWORD *)(i + 16);
-    v10 = v9 & 0xC;
-    if ( *(_BYTE *)(i + 8) )
-    {
-      v11 = DWORD2(v32);
-      v12 = 0;
-      if ( v10 != 12 )
-        v11 = 1;
-      DWORD2(v32) = v11;
-      LOBYTE(v12) = (*(_BYTE *)(i + 16) & 3) == 3;
-      v13 = v12 + 1;
-    }
-    else
-    {
-      if ( v10 == 4 || (v9 & 0xC) == 0 )
-        DWORD2(v32) = 1;
-      if ( (*(_DWORD *)(i + 16) & 3) == 0 || (v13 = 2, (*(_DWORD *)(i + 16) & 3) == 1) )
-        v13 = 1;
-    }
-    *(_QWORD *)&v33 = 0x2FFFFFFFFLL;
-    LODWORD(v32) = v13;
-    LODWORD(v38) = v38 & 0x80000000 | 0x40000002;
-    v37 = &v38;
-    v36 = 0uLL;
-    HIDWORD(v32) = 16;
-    if ( v7 )
-    {
-      LODWORD(v36) = 5;
-      v14 = *(_DWORD *)(HalpInterruptController + 256);
-      HIDWORD(v30) = *(_DWORD *)(i + 20);
-      LODWORD(v30) = v14;
-    }
-    else
-    {
-      v15 = HalpInterruptGsiToLine(*(unsigned int *)(i + 20), &v30);
-      if ( v15 < 0 )
-      {
-        HalpInterruptSetProblemEx(0, 18, v15, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1494);
-        continue;
-      }
-      if ( HalpInterruptPhysicalModeOnly )
-      {
-        LODWORD(v36) = 3;
-      }
-      else
-      {
-        v39 = 0LL;
-        Number = CurrentPrcb->Number;
-        LODWORD(v36) = 1;
-        v17 = 0LL;
-        _bittestandset64(&v17, KiProcessorIndexToNumberMappingTable[Number] & 0x3F);
-        *(_QWORD *)&v39 = v17;
-        *((_QWORD *)&v36 + 1) = &v39;
-      }
-      Lines = HalpInterruptFindLines((unsigned int *)&v30);
-      if ( !Lines )
-      {
-        HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1517);
-        goto LABEL_50;
-      }
-      if ( !*(_BYTE *)(Lines[6] + 16LL * v31 + 12) )
-      {
-        v20 = HalpInterruptLookupController(v30);
-        if ( !v20 )
-        {
-          HalpInterruptSetProblemEx(0, 17, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 1533);
-          goto LABEL_50;
-        }
-        v21 = HalpInterruptDestinationToTarget(v19, (__int64)&v36, (__int64)&v33 + 8);
-        if ( v21 < 0 )
-        {
-          HalpInterruptSetProblemEx(
-            (_DWORD)v20,
-            19,
-            v21,
-            (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
-            1554);
-LABEL_50:
-          v23 = -1073741275;
-          goto LABEL_52;
-        }
-        if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x100) != 0 && KeGetCurrentPrcb()->CpuVendor != 1 )
-        {
-          HalpIommuUpdateRemappingTableEntry(0, v38 & 0x3FFFFFFF, (__int64)&v32);
-          DWORD2(v33) = 7;
-          LODWORD(v34) = v38 & 0x3FFFFFFF;
-        }
-        if ( qword_140C625A8 )
-        {
-          v22 = HalpHvMapIoApicDeviceInterrupt(*((unsigned int *)v20 + 64), &v32, 0LL);
-          v23 = v22;
-          if ( v22 < 0 )
-          {
-            HalpInterruptSetProblemEx(
-              (_DWORD)v20,
-              31,
-              v22,
-              (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
-              1605);
-            goto LABEL_52;
-          }
-        }
-        HIDWORD(v32) &= ~0x10u;
-        v23 = HalpInterruptSetRemappedLineStateInternal(v20, &v30, &v32);
-        if ( v23 < 0 )
-          goto LABEL_52;
-        v13 = v32;
-      }
-    }
-    LOBYTE(v4) = 15;
-    v23 = HalpInterruptSetLineState(&v30, 0LL, v4, DWORD2(v32), v13, &v36, &v33);
-    if ( v23 < 0 )
-      goto LABEL_52;
+    if ( *(_BYTE *)(v6 + 8) )
+      break;
+    if ( !CurrentPrcb->Number )
+      goto LABEL_13;
+LABEL_18:
+    v6 = *(_QWORD *)v6;
+    if ( !v6 )
+      goto LABEL_19;
   }
-  v23 = 0;
-LABEL_52:
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
+  if ( !*(_BYTE *)(v2 + 13) )
+    goto LABEL_18;
+  v8 = *(_DWORD *)(v6 + 12);
+  if ( v8 != -1 && v8 != *(_DWORD *)(v2 + 4) )
+    goto LABEL_18;
+  v7 = 1;
+LABEL_13:
+  v28 = 0LL;
+  v31 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
+  v34 = 0LL;
+  if ( *(_BYTE *)(v6 + 8) )
+  {
+    v9 = (*(_DWORD *)(v6 + 16) & 0xC) != 12;
+    DWORD2(v28) = v9;
+    v10 = ((*(_BYTE *)(v6 + 16) & 3) == 3) + 1;
+  }
+  else
+  {
+    v9 = (*(_DWORD *)(v6 + 16) & 8) == 0;
+    DWORD2(v28) = v9;
+    v10 = 2 - ((*(_BYTE *)(v6 + 16) & 3u) < 2);
+  }
+  v32 = 0uLL;
+  *(_QWORD *)&v29 = 0x2FFFFFFFFLL;
+  LODWORD(v34) = v34 & 0x80000000 | 0x40000002;
+  v33 = &v34;
+  LODWORD(v28) = v10;
+  HIDWORD(v28) = 16;
+  if ( v7 )
+  {
+    LODWORD(v32) = 5;
+    v11 = *(_DWORD *)(HalpInterruptController + 232);
+    HIDWORD(v26) = *(_DWORD *)(v6 + 20);
+    LODWORD(v26) = v11;
+LABEL_17:
+    LOBYTE(v5) = 15;
+    v12 = HalpInterruptSetLineState(&v26, 0LL, v5, v9, v10, &v32, &v29);
+    if ( v12 < 0 )
+      goto LABEL_20;
+    goto LABEL_18;
+  }
+  if ( (int)HalpInterruptGsiToLine(*(unsigned int *)(v6 + 20), &v26) < 0 )
+  {
+    HalpInterruptLastProblem = 18;
+    goto LABEL_18;
+  }
+  if ( HalpInterruptPhysicalModeOnly )
+  {
+    LODWORD(v32) = 3;
+  }
+  else
+  {
+    v35 = 0LL;
+    Number = CurrentPrcb->Number;
+    LODWORD(v32) = 1;
+    v15 = 0LL;
+    _bittestandset64(&v15, KiProcessorIndexToNumberMappingTable[Number] & 0x3F);
+    *(_QWORD *)&v35 = v15;
+    *((_QWORD *)&v32 + 1) = &v35;
+  }
+  Lines = HalpInterruptFindLines((unsigned int *)&v26);
+  if ( Lines )
+  {
+    if ( !*(_BYTE *)(Lines[6] + 16LL * v27 + 12) )
+    {
+      v18 = HalpInterruptLookupController(v26);
+      if ( !v18 )
+      {
+        HalpInterruptLastProblem = 17;
+        goto LABEL_49;
+      }
+      v19 = HalpInterruptDestinationToTarget(v17, (__int64)&v32, (__int64)&v29 + 8);
+      if ( v19 < 0 )
+      {
+        *((_DWORD *)v18 + 74) = v19;
+        HalpInterruptLastProblem = 19;
+        v18[38] = (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c";
+        *((_DWORD *)v18 + 73) = 19;
+        *((_DWORD *)v18 + 78) = 1546;
+        goto LABEL_49;
+      }
+      if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x100) != 0 && KeGetCurrentPrcb()->CpuVendor != 1 )
+      {
+        HalpIommuUpdateRemappingTableEntry(0LL, v34 & 0x3FFFFFFF, &v28);
+        DWORD2(v29) = 7;
+        LODWORD(v30) = v34 & 0x3FFFFFFF;
+      }
+      if ( qword_140C4A228 )
+      {
+        v12 = HalpHvMapDeviceInterrupt(*((unsigned int *)v18 + 58), v20, &v28, 0LL);
+        if ( v12 < 0 )
+        {
+          *((_DWORD *)v18 + 74) = v12;
+          HalpInterruptLastProblem = 31;
+          *((_DWORD *)v18 + 73) = 31;
+          v18[38] = (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c";
+          *((_DWORD *)v18 + 78) = 1597;
+          goto LABEL_20;
+        }
+      }
+      HIDWORD(v28) &= ~0x10u;
+      v12 = HalpInterruptSetRemappedLineStateInternal(v18, &v26, &v28);
+      if ( v12 < 0 )
+        goto LABEL_20;
+      v9 = DWORD2(v28);
+      v10 = v28;
+    }
+    goto LABEL_17;
+  }
+  HalpInterruptLastProblem = 18;
+LABEL_49:
+  v12 = -1073741275;
+LABEL_20:
+  KxReleaseSpinLock(&HalpInterruptLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v25 = KeGetCurrentPrcb();
-      SchedulerAssist = v25->SchedulerAssist;
-      v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v28 = (v27 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v27;
-      if ( v28 )
-        KiRemoveSystemWorkPriorityKick(v25);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        v22 = KeGetCurrentPrcb();
+        SchedulerAssist = v22->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v25 = (v24 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v24;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(v22);
+      }
     }
   }
-  __writecr8(v3);
-  return (unsigned int)v23;
+  __writecr8(v4);
+  return (unsigned int)v12;
 }

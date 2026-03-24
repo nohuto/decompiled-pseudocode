@@ -1,10 +1,10 @@
 /*
- * XREFs of FD6DivL @ 0x1C0157CE0
+ * XREFs of FD6DivL @ 0x1C001F774
  * Callers:
- *     Log @ 0x1C0157D24 (Log.c)
- *     RaisePower @ 0x1C0157F8A (RaisePower.c)
- *     AntiLog @ 0x1C025286C (AntiLog.c)
- *     ComputeBGRMappingTable @ 0x1C0253890 (ComputeBGRMappingTable.c)
+ *     RaisePower @ 0x1C001F468 (RaisePower.c)
+ *     AntiLog @ 0x1C001F55C (AntiLog.c)
+ *     Log @ 0x1C001F69C (Log.c)
+ *     ComputeBGRMappingTable @ 0x1C0261348 (ComputeBGRMappingTable.c)
  * Callees:
  *     <none>
  */
@@ -16,16 +16,16 @@ __int64 __fastcall FD6DivL(int a1, int a2)
   __int64 result; // rax
 
   v2 = a2;
-  if ( a2 > 0 )
-  {
-    v3 = 0;
-  }
-  else
+  if ( a2 <= 0 )
   {
     v2 = -a2;
     v3 = 1;
     if ( !a2 )
       return (unsigned int)a1;
+  }
+  else
+  {
+    v3 = 0;
   }
   if ( a1 <= 0 )
   {

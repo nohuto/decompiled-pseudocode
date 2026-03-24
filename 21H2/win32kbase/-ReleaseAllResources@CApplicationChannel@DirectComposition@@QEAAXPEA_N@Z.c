@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C0014D9C
+ * XREFs of ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C005CF20
  * Callers:
- *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C0080410 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
- *     NtDCompositionReleaseAllResources @ 0x1C00B1700 (NtDCompositionReleaseAllResources.c)
+ *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C0059810 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
+ *     NtDCompositionReleaseAllResources @ 0x1C00A0090 (NtDCompositionReleaseAllResources.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAJI@Z @ 0x1C0014068 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAJI@Z.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C0098354 (-EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAJI@Z @ 0x1C005F93C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAJI@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C0085B98 (-EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::ReleaseAllResources(
@@ -24,7 +24,7 @@ void __fastcall DirectComposition::CApplicationChannel::ReleaseAllResources(
         (_QWORD *)*i != i;
         DirectComposition::CApplicationChannel::ReleaseResource(
           this,
-          (struct DirectComposition::CResourceMarshaler *)(*i - 392LL)) )
+          (struct DirectComposition::CResourceMarshaler *)(*i - 376LL)) )
   {
     ;
   }

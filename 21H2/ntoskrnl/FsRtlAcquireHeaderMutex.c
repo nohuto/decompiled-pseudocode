@@ -1,27 +1,27 @@
 /*
- * XREFs of FsRtlAcquireHeaderMutex @ 0x140347B70
+ * XREFs of FsRtlAcquireHeaderMutex @ 0x140349070
  * Callers:
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140290A2C (FsRtlpWaitForIoAtEof.c)
  * Callees:
- *     ExpAcquireFastMutexContended @ 0x14029EF4C (ExpAcquireFastMutexContended.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     ExpAcquireFastMutexContended @ 0x1402F2BC0 (ExpAcquireFastMutexContended.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
  */
 
 volatile signed __int32 *__fastcall FsRtlAcquireHeaderMutex(__int64 a1, volatile signed __int32 *a2)
 {
-  __int64 v2; // rbx
-  __int64 v3; // rdi
+  ULONG_PTR v2; // rdi
+  __int64 v3; // rbx
   unsigned __int8 CurrentIrql; // si
   volatile signed __int32 *result; // rax
 
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 48LL);
-  v3 = KeAbPreAcquire(v2, 0LL, 0LL);
+  v3 = KeAbPreAcquire(v2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)v2, 0) )
     ExpAcquireFastMutexContended(v2, v3);
   if ( v3 )
-    *(_BYTE *)(v3 + 18) = 1;
+    *(_BYTE *)(v3 + 26) |= 1u;
   *(_QWORD *)(v2 + 8) = KeGetCurrentThread();
   *(_DWORD *)(v2 + 48) = CurrentIrql;
   result = a2;

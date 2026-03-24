@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDrvDbOverlayCopyKeys @ 0x14083D808
+ * XREFs of PiDrvDbOverlayCopyKeys @ 0x14083D7E8
  * Callers:
- *     PiDrvDbOverlayCopyKeys @ 0x14083D808 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x14083DDAC (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x14083D7E8 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x14083DD8C (PiDrvDbOverlayNodeHive.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
- *     ZwQuerySecurityObject @ 0x1401BABF0 (ZwQuerySecurityObject.c)
- *     ZwSetSecurityObject @ 0x1401BB570 (ZwSetSecurityObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
+ *     ZwQuerySecurityObject @ 0x1401BAC10 (ZwQuerySecurityObject.c)
+ *     ZwSetSecurityObject @ 0x1401BB590 (ZwSetSecurityObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6484 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406F5604 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5654 (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x1406F97E8 (_RegRtlEnumKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
- *     PiDrvDbOverlayCopyKeys @ 0x14083D808 (PiDrvDbOverlayCopyKeys.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F55E4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x1406F97C8 (_RegRtlEnumKey.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x14083D7E8 (PiDrvDbOverlayCopyKeys.c)
  */
 
 __int64 __fastcall PiDrvDbOverlayCopyKeys(

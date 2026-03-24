@@ -1,208 +1,173 @@
 /*
- * XREFs of NtUserKillTimer @ 0x1C011B3E0
+ * XREFs of NtUserKillTimer @ 0x1C000B860
  * Callers:
  *     <none>
  * Callees:
- *     ?DecTimerCount@@YAXPEAUtagTIMER@@@Z @ 0x1C00E2B70 (-DecTimerCount@@YAXPEAUtagTIMER@@@Z.c)
- *     ??1IdentifyPrimaryDestroyTarget@@QEAA@XZ @ 0x1C011B3C4 (--1IdentifyPrimaryDestroyTarget@@QEAA@XZ.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C011B7D0 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     Feature_Servicing_win32k_timers_resilience__private_IsEnabledDeviceUsage @ 0x1C0139694 (Feature_Servicing_win32k_timers_resilience__private_IsEnabledDeviceUsage.c)
- *     ?DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z @ 0x1C013AE70 (-DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ??1AtomicExecutionCheck@@QEAA@XZ @ 0x1C01A5CC0 (--1AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z @ 0x1C0167F2C (-DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserKillTimer(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rbx
-  PERESOURCE *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 CurrentThreadWin32Thread; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // rbp
-  __int64 v19; // rax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  _QWORD **v25; // r14
-  _QWORD *i; // rdi
-  _QWORD *v27; // rsi
-  _QWORD *v28; // r15
-  int v29; // eax
+  int v5; // r15d
+  unsigned __int64 v6; // rbx
+  __int64 v7; // rbp
+  __int64 v8; // rbx
+  _QWORD *v9; // rsi
+  _QWORD *v10; // rdi
+  int v11; // eax
   __int64 CurrentProcessWin32Process; // rax
-  int IsEnabledDeviceUsage; // eax
-  _QWORD *v32; // rdx
-  __int64 v33; // rdx
-  _QWORD *v34; // rcx
-  __int64 v35; // rcx
-  _QWORD *v36; // rax
-  _QWORD *v37; // r14
-  _QWORD *v38; // r15
-  _QWORD *v39; // rcx
-  _QWORD *v40; // rax
-  _QWORD *v41; // r14
-  _QWORD *v42; // rcx
-  _QWORD *v43; // rax
-  int v44; // [rsp+A0h] [rbp+18h] BYREF
-  char v45; // [rsp+A8h] [rbp+20h] BYREF
+  int v13; // eax
+  int v14; // eax
+  __int64 v15; // rax
+  __int64 *v16; // rsi
+  __int64 **v17; // rcx
+  __int64 v18; // rax
+  _QWORD *v19; // rcx
+  int v21; // [rsp+50h] [rbp+8h]
+  char v22; // [rsp+60h] [rbp+18h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  v9 = 0LL;
-  if ( !*(_QWORD *)(SGDGetUserSessionState(v4) + 8)
-    || (v10 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v6, v5, v7, v8),
-        !ExIsResourceAcquiredSharedLite(*v10)) )
+  EnterCrit(0LL, 1LL);
+  if ( gpresUser && (unsigned int)UserIsUserCritSecInExclusive() && (++gdwInAtomicOperation, gpAtomickCheckStacks) )
   {
-    v44 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 226LL);
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x164u, 0x2AuLL, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 42LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
+    v4 = 0LL;
+    v5 = ++gdwAtomicCheckSerial;
+    if ( gdwAtomicCheckLogSize )
+    {
+      while ( *(_DWORD *)(((unsigned __int64)(unsigned int)v4 << 6) + gpAtomickCheckStacks) )
+      {
+        v4 = (unsigned int)(v4 + 1);
+        if ( (unsigned int)v4 >= gdwAtomicCheckLogSize )
+          goto LABEL_10;
+      }
+      v6 = (unsigned __int64)(unsigned int)v4 << 6;
+      *(_DWORD *)(v6 + gpAtomickCheckStacks) = gdwAtomicCheckSerial;
+      *(_DWORD *)(v6 + gpAtomickCheckStacks + 4) = (unsigned int)PsGetCurrentThreadId();
+      *(_DWORD *)(v6 + gpAtomickCheckStacks + 8) = (MEMORY[0xFFFFF78000000320]
+                                                  * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+      RtlWalkFrameChain((PVOID *)(v6 + gpAtomickCheckStacks + 16LL), 6u, 0x200u);
+    }
   }
-  CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread(v12, v11, v13);
-  ++*(_DWORD *)(CurrentThreadWin32Thread + 48);
-  if ( !a1 )
+  else
   {
-    v18 = 0LL;
-    goto LABEL_10;
+    v5 = v21;
   }
-  v18 = ValidateHwnd(a1);
-  if ( v18 )
-  {
 LABEL_10:
-    v25 = (_QWORD **)((char *)&gTimerHashTable + 16 * (((unsigned __int8)a2 + BYTE1(v18)) & 0x3F));
-    for ( i = *v25; ; i = (_QWORD *)*i )
+  if ( a1 )
+  {
+    v7 = ValidateHwnd(a1);
+    if ( !v7 )
     {
-      if ( i == v25 )
-        goto LABEL_8;
-      v27 = i - 14;
-      v28 = i - 3;
-      if ( *v28 == v18 && v27[12] == a2 )
-      {
-        v29 = *((_DWORD *)v27 + 12);
-        if ( (v29 & 0x1006) == 0 )
-        {
-          if ( (v29 & 0x40) != 0 )
-            break;
-          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v16);
-          v17 = CurrentProcessWin32Process;
-          if ( CurrentProcessWin32Process )
-          {
-            v16 = -*(_QWORD *)CurrentProcessWin32Process;
-            v15 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-            v17 = v15 & CurrentProcessWin32Process;
-          }
-          if ( v17 == *(_QWORD *)(v27[3] + 424LL) || !v18 && (v27[6] & 4) == 0 )
-            break;
-        }
-      }
+      v8 = 0LL;
+      goto LABEL_43;
     }
-    IsEnabledDeviceUsage = Feature_Servicing_win32k_timers_resilience__private_IsEnabledDeviceUsage();
-    v32 = i - 14;
-    if ( IsEnabledDeviceUsage )
-    {
-      IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v44, v32);
-      *((_DWORD *)v27 + 12) |= 0x1000u;
-      if ( (v27[6] & 1) != 0 )
-        DecTimerCountAndClearReadyFlag((struct tagTIMER *)(i - 14));
-      if ( !(unsigned int)HMMarkObjectDestroy(i - 14) )
-        goto LABEL_50;
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v45);
-      if ( !*v28 )
-        _bittestandreset(gTimerId, *((_DWORD *)v27 + 24) - 256);
-      EtwTraceKillTimer(i - 14);
-      HMAssignmentUnlock(i - 3);
-      v37 = v27 + 9;
-      v38 = v27 + 10;
-      if ( (_QWORD *)*v37 == v37 || (_QWORD *)*v38 == v37 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 5191LL);
-      v39 = (_QWORD *)*v37;
-      if ( *(_QWORD **)(*v37 + 8LL) == v37 )
-      {
-        v40 = (_QWORD *)*v38;
-        if ( *(_QWORD **)*v38 == v37 )
-        {
-          *v40 = v39;
-          v39[1] = v40;
-          *v38 = v37;
-          *v37 = v37;
-          v41 = i + 1;
-          if ( (_QWORD *)*i == i || (_QWORD *)*v41 == i )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 5191LL);
-          v42 = (_QWORD *)*i;
-          if ( *(_QWORD **)(*i + 8LL) == i )
-          {
-            v43 = (_QWORD *)*v41;
-            if ( *(_QWORD **)*v41 == i )
-            {
-              *v43 = v42;
-              v42[1] = v43;
-              *v41 = i;
-              *i = i;
-LABEL_49:
-              HMFreeObject(i - 14);
-              AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)&v45);
-              goto LABEL_50;
-            }
-          }
-        }
-      }
-    }
-    else
-    {
-      IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v44, v32);
-      if ( !(unsigned int)HMMarkObjectDestroy(i - 14) )
-      {
-LABEL_50:
-        IdentifyPrimaryDestroyTarget::~IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v44);
-        v9 = 1LL;
-        goto LABEL_8;
-      }
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v45);
-      if ( (v27[6] & 1) != 0 )
-        DecTimerCount((struct tagTIMER *)(i - 14));
-      v33 = v27[9];
-      if ( *(_QWORD **)(v33 + 8) == v27 + 9 )
-      {
-        v34 = (_QWORD *)v27[10];
-        if ( (_QWORD *)*v34 == v27 + 9 )
-        {
-          *v34 = v33;
-          *(_QWORD *)(v33 + 8) = v34;
-          v35 = *i;
-          if ( *(_QWORD **)(*i + 8LL) == i )
-          {
-            v36 = (_QWORD *)i[1];
-            if ( (_QWORD *)*v36 == i )
-            {
-              *v36 = v35;
-              *(_QWORD *)(v35 + 8) = v36;
-              if ( !*v28 )
-                _bittestandreset(gTimerId, *((_DWORD *)v27 + 24) - 256);
-              EtwTraceKillTimer(i - 14);
-              HMAssignmentUnlock(i - 3);
-              goto LABEL_49;
-            }
-          }
-        }
-      }
-    }
-    __fastfail(3u);
   }
-LABEL_8:
-  v19 = PsGetCurrentThreadWin32Thread(v16, v15, v17);
-  --*(_DWORD *)(v19 + 48);
-  UserSessionSwitchLeaveCrit(v21, v20, v22, v23);
-  return v9;
+  else
+  {
+    v7 = 0LL;
+  }
+  v8 = 0LL;
+  v9 = (_QWORD *)((char *)&gTimerHashTable + 16 * (((unsigned __int8)a2 + BYTE1(v7)) & 0x3F));
+  v10 = (_QWORD *)*v9;
+  if ( (_QWORD *)*v9 != v9 )
+  {
+    while ( 1 )
+    {
+      if ( *(v10 - 3) == v7 && *(v10 - 2) == a2 )
+      {
+        v11 = *((_DWORD *)v10 - 16);
+        if ( (v11 & 0x1006) == 0 )
+        {
+          if ( (v11 & 0x40) != 0 )
+            break;
+          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
+          v4 = *(v10 - 11);
+          if ( CurrentProcessWin32Process == *(_QWORD *)(v4 + 424) || !v7 && (*(_BYTE *)(v10 - 8) & 4) == 0 )
+            break;
+        }
+      }
+      v10 = (_QWORD *)*v10;
+      if ( v10 == v9 )
+        goto LABEL_43;
+    }
+    v13 = *((_DWORD *)v10 - 16);
+    if ( (v13 & 0x1000) != 0 )
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 224LL);
+      v13 = *((_DWORD *)v10 - 16);
+    }
+    v14 = v13 | 0x1000;
+    *((_DWORD *)v10 - 16) = v14;
+    if ( (v14 & 1) != 0 )
+      DecTimerCountAndClearReadyFlag((struct tagTIMER *)(v10 - 14));
+    if ( (unsigned int)HMMarkObjectDestroy(v10 - 14) )
+    {
+      UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v22);
+      if ( !*(v10 - 3) )
+        _bittestandreset(gTimerId, *((_DWORD *)v10 - 4) - 256);
+      EtwTraceKillTimer(v10 - 14);
+      HMAssignmentUnlock(v10 - 3);
+      v15 = *(v10 - 5);
+      v16 = v10 - 5;
+      if ( (_QWORD *)v15 == v10 - 5 || (__int64 *)*(v10 - 4) == v16 )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 5970LL);
+        v15 = *v16;
+      }
+      if ( *(__int64 **)(v15 + 8) != v16 )
+        goto LABEL_50;
+      v17 = (__int64 **)*(v10 - 4);
+      if ( *v17 != v16 )
+        goto LABEL_50;
+      *v17 = (__int64 *)v15;
+      *(_QWORD *)(v15 + 8) = v17;
+      *(v10 - 4) = v16;
+      *v16 = (__int64)v16;
+      v18 = *v10;
+      if ( (_QWORD *)*v10 == v10 || (_QWORD *)v10[1] == v10 )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 5970LL);
+        v18 = *v10;
+      }
+      if ( *(_QWORD **)(v18 + 8) != v10 || (v19 = (_QWORD *)v10[1], (_QWORD *)*v19 != v10) )
+LABEL_50:
+        __fastfail(3u);
+      *v19 = v18;
+      *(_QWORD *)(v18 + 8) = v19;
+      v10[1] = v10;
+      *v10 = v10;
+      HMFreeObject(v10 - 14);
+      UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v22);
+    }
+    v8 = 1LL;
+  }
+LABEL_43:
+  if ( gpresUser )
+  {
+    if ( (unsigned int)UserIsUserCritSecInExclusive() )
+    {
+      --gdwInAtomicOperation;
+      if ( gpAtomickCheckStacks )
+      {
+        v4 = 0LL;
+        if ( gdwAtomicCheckLogSize )
+        {
+          while ( *(_DWORD *)(((unsigned __int64)(unsigned int)v4 << 6) + gpAtomickCheckStacks) != v5 )
+          {
+            v4 = (unsigned int)(v4 + 1);
+            if ( (unsigned int)v4 >= gdwAtomicCheckLogSize )
+              goto LABEL_52;
+          }
+          *(_DWORD *)(((unsigned __int64)(unsigned int)v4 << 6) + gpAtomickCheckStacks) = 0;
+        }
+      }
+    }
+  }
+LABEL_52:
+  UserSessionSwitchLeaveCrit(v4);
+  return v8;
 }

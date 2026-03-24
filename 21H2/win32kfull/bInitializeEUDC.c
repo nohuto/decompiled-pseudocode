@@ -1,5 +1,5 @@
 /*
- * XREFs of bInitializeEUDC @ 0x1C0122450
+ * XREFs of bInitializeEUDC @ 0x1C0136D10
  * Callers:
  *     <none>
  * Callees:
@@ -21,7 +21,7 @@ __int64 bInitializeEUDC()
   if ( !ghsemEnableEUDC )
     return 0LL;
   result = 1LL;
-  qword_1C0335A58 = 0LL;
+  qword_1C033A8A8 = 0LL;
   gqlEUDC = 1;
   return result;
 }

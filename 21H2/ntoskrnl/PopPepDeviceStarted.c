@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPepDeviceStarted @ 0x1403B9B9C
+ * XREFs of PopPepDeviceStarted @ 0x1403BE99C
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x1403B9A30 (PoFxStartDevicePowerManagement.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BE830 (PoFxStartDevicePowerManagement.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopPepInitializeVetoMasks @ 0x1405D5704 (PopPepInitializeVetoMasks.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
  */
 
-char __fastcall PopPepDeviceStarted(__int64 a1)
+_QWORD *__fastcall PopPepDeviceStarted(__int64 a1)
 {
   unsigned __int64 v2; // rdi
   struct _KTHREAD *CurrentThread; // rax
@@ -52,5 +52,5 @@ char __fastcall PopPepDeviceStarted(__int64 a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPepDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopPepDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

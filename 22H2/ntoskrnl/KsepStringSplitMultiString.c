@@ -1,114 +1,118 @@
 /*
- * XREFs of KsepStringSplitMultiString @ 0x14085AEAC
+ * XREFs of KsepStringSplitMultiString @ 0x1408C0E74
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x1406945C4 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075AF3C (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140209EA8 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x140209ED0 (KsepPoolAllocatePaged.c)
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
- *     KsepStringDuplicate @ 0x1406942D4 (KsepStringDuplicate.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x140371F04 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x140371F2C (KsepPoolAllocatePaged.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14075AA64 (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepStringSplitMultiString(__int64 a1, unsigned __int64 a2, _QWORD *a3, _DWORD *a4)
 {
-  unsigned int v4; // r14d
   unsigned __int64 v5; // rbx
-  unsigned int v9; // edx
-  unsigned int v10; // r8d
-  __int64 v11; // rax
-  unsigned int v12; // ecx
-  unsigned int v13; // edi
-  __int64 v14; // rbp
-  void *Paged; // rdi
+  __int64 v6; // rsi
+  PVOID Paged; // rdi
+  unsigned int v10; // esi
+  unsigned int v11; // edx
+  __int64 v12; // rax
+  unsigned int v13; // ecx
+  __int64 v14; // rax
+  unsigned int v15; // ebx
   unsigned int v16; // ecx
-  unsigned int v17; // r15d
-  unsigned __int64 v18; // rbx
-  __int64 v19; // rax
-  unsigned int v20; // ebx
-  __int64 v22; // rax
-  __int64 v23; // rsi
-  __int64 v24; // rax
+  unsigned int v17; // ebp
+  unsigned int v18; // r15d
+  unsigned __int64 v19; // rbx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rbp
 
-  v4 = 0;
   v5 = a2 >> 1;
-  if ( !a1 || (a2 & 1) != 0 || !a3 || !a4 || v5 < 3 || *(_WORD *)(a1 + 2 * v5 - 2) || *(_WORD *)(a1 + 2 * v5 - 4) )
+  v6 = 0LL;
+  Paged = 0LL;
+  if ( !a1 || (a2 & 1) != 0 || !a3 || !a4 )
+  {
+    v15 = -1073741811;
+    goto LABEL_30;
+  }
+  if ( v5 < 3 || *(_WORD *)(a1 + 2 * v5 - 2) || *(_WORD *)(a1 + 2 * v5 - 4) )
     return (unsigned int)-1073741811;
-  v9 = 0;
   v10 = 0;
-  v11 = 0LL;
+  v11 = 0;
+  v12 = 0LL;
   do
   {
-    v12 = v9 + 1;
-    if ( *(_WORD *)(a1 + 2 * v11) )
-      v12 = v9;
-    v11 = ++v10;
-    v9 = v12;
+    v13 = v10 + 1;
+    if ( *(_WORD *)(a1 + 2 * v12) )
+      v13 = v10;
+    v12 = ++v11;
+    v10 = v13;
   }
-  while ( v10 < v5 );
-  v13 = v12;
-  if ( v12 < 2 )
+  while ( v11 < v5 );
+  if ( v13 < 2 )
   {
-    v22 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v22 + 1] = -1073740768;
-    KsepHistoryErrors[2 * v22] = 197557;
+    v14 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v14 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v14] = 197557;
     if ( (KsepDebugFlag & 4) != 0 )
-    {
       RtlAssert("NullCount >= 2", "minkernel\\ntos\\kshim\\ksemisc.c", 0x3B5u, 0LL);
-      v9 = v13;
-    }
   }
-  v14 = v9 - 1;
-  Paged = KsepPoolAllocatePaged(16 * v14);
+  v6 = v10 - 1;
+  Paged = KsepPoolAllocatePaged(16LL * (unsigned int)v6);
   if ( !Paged )
     return (unsigned int)-1073741801;
   v16 = 0;
   v17 = 0;
-  v18 = v5 - 1;
-  if ( !v18 )
+  v18 = 0;
+  v19 = v5 - 1;
+  if ( !v19 )
   {
-LABEL_19:
-    if ( v17 != (_DWORD)v14 )
+LABEL_23:
+    if ( v17 != (_DWORD)v6 )
     {
-      v24 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      KsepHistoryErrors[2 * v24 + 1] = -1073740768;
-      KsepHistoryErrors[2 * v24] = 197597;
+      v21 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+      KsepHistoryErrors[2 * v21 + 1] = -1073740768;
+      KsepHistoryErrors[2 * v21] = 197597;
       if ( (KsepDebugFlag & 4) != 0 )
         RtlAssert("Count == StringsVectorSize", "minkernel\\ntos\\kshim\\ksemisc.c", 0x3DDu, 0LL);
     }
     *a3 = Paged;
-    v20 = 0;
-    *a4 = v14;
-    return v20;
+    v15 = 0;
+    *a4 = v6;
+    return v15;
   }
-  v19 = 0LL;
-  while ( *(_WORD *)(a1 + 2 * v19) )
+  v20 = 0LL;
+  while ( *(_WORD *)(a1 + 2 * v20) )
   {
-    ++v4;
-LABEL_18:
-    v19 = v4;
-    if ( v4 >= v18 )
-      goto LABEL_19;
+LABEL_22:
+    v20 = ++v18;
+    if ( v18 >= v19 )
+      goto LABEL_23;
   }
   if ( (int)KsepStringDuplicate((__int64)Paged + 16 * v17, (_WORD *)(a1 + 2LL * v16)) >= 0 )
   {
-    v16 = v4 + 1;
+    v16 = v18 + 1;
     ++v17;
-    ++v4;
-    goto LABEL_18;
+    goto LABEL_22;
   }
-  v20 = -1073741801;
-  if ( (_DWORD)v14 )
+  v15 = -1073741801;
+LABEL_30:
+  if ( Paged )
   {
-    v23 = (__int64)Paged;
-    do
+    if ( (_DWORD)v6 )
     {
-      KsepStringFree(v23);
-      v23 += 16LL;
-      --v14;
+      v22 = (__int64)Paged;
+      do
+      {
+        KsepStringFree(v22);
+        v22 += 16LL;
+        --v6;
+      }
+      while ( v6 );
     }
-    while ( v14 );
+    KsepPoolFreePaged(Paged);
   }
-  KsepPoolFreePaged(Paged);
-  return v20;
+  return v15;
 }

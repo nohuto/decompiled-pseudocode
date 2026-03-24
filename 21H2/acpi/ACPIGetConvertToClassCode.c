@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIGetConvertToClassCode @ 0x1C005602C
+ * XREFs of ACPIGetConvertToClassCode @ 0x1C0055968
  * Callers:
- *     ACPIGetWorkerForInteger @ 0x1C00249F0 (ACPIGetWorkerForInteger.c)
+ *     ACPIGetWorkerForInteger @ 0x1C0026CF0 (ACPIGetWorkerForInteger.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ACPIGetConvertToClassCode(

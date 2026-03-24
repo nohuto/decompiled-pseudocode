@@ -1,18 +1,18 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x140742FF4
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x140742FD4
  * Callers:
- *     CmpRegisterTraceLoggingProvider @ 0x140737920 (CmpRegisterTraceLoggingProvider.c)
- *     TlgRegisterAggregateProvider @ 0x140742FD8 (TlgRegisterAggregateProvider.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x140737900 (CmpRegisterTraceLoggingProvider.c)
+ *     TlgRegisterAggregateProvider @ 0x140742FB8 (TlgRegisterAggregateProvider.c)
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
- *     ComputeFlushPeriod @ 0x140743124 (ComputeFlushPeriod.c)
- *     CreateTlgAggregateSession @ 0x1407431C8 (CreateTlgAggregateSession.c)
- *     DestroyAggregateSession @ 0x14090522C (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     ComputeFlushPeriod @ 0x140743104 (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x1407431A8 (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x14090520C (DestroyAggregateSession.c)
  */
 
 TLG_STATUS __fastcall TlgRegisterAggregateProviderEx(

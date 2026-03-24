@@ -1,10 +1,10 @@
 /*
- * XREFs of NtFlipObjectQueryBufferAvailableEvent @ 0x1C007B0D0
+ * XREFs of NtFlipObjectQueryBufferAvailableEvent @ 0x1C0069990
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z @ 0x1C0079FC4 (-QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C007C0E8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z @ 0x1C0068918 (-QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A888 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectQueryBufferAvailableEvent(void *a1, unsigned __int64 *a2, _QWORD *a3)

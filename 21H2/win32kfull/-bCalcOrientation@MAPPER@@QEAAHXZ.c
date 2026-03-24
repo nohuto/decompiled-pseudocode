@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C001F0A4
+ * XREFs of ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C0100300
  * Callers:
- *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C001D8F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
- *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C001EDA4 (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C00600F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C010007C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
  */
 
 __int64 __fastcall MAPPER::bCalcOrientation(__int64 **this)
@@ -14,28 +14,26 @@ __int64 __fastcall MAPPER::bCalcOrientation(__int64 **this)
   int v4; // r9d
   __int64 result; // rax
   __int64 v6; // r10
-  int v7; // ecx
-  float v8; // xmm0_4
-  bool v9; // dl
-  bool v10; // cf
-  bool v11; // zf
+  float v7; // xmm0_4
+  bool v8; // dl
+  bool v9; // cf
+  bool v10; // zf
+  float v11; // xmm0_4
   float v12; // xmm0_4
-  float v13; // xmm0_4
-  int v14; // r11d
-  BOOL v15; // r10d
-  float v16; // xmm0_4
-  int v17; // r10d
-  BOOL v18; // r9d
-  float v19; // xmm0_4
-  BOOL v20; // esi
-  int v21; // r8d
-  int v22; // ebp
-  int v23; // ecx
-  int v24; // esi
-  int v25; // r8d
-  unsigned int v26; // edx
-  int v27; // r10d
-  float *v28; // [rsp+20h] [rbp-18h] BYREF
+  int v13; // r11d
+  BOOL v14; // r10d
+  float v15; // xmm0_4
+  int v16; // r10d
+  BOOL v17; // r9d
+  float v18; // xmm0_4
+  BOOL v19; // esi
+  int v20; // r8d
+  int v21; // ebp
+  int v22; // esi
+  int v23; // r8d
+  unsigned int v24; // edx
+  int v25; // r10d
+  float *v26; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = *((_DWORD *)this + 63);
   if ( (v1 & 0x1000) != 0 )
@@ -46,16 +44,15 @@ __int64 __fastcall MAPPER::bCalcOrientation(__int64 **this)
     if ( v4 )
     {
       v6 = **this;
-      v7 = *(_DWORD *)(*(_QWORD *)(v6 + 976) + 340LL);
-      if ( (v7 & 2) != 0 && (v7 & 0x1000) == 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(v6 + 976) + 340LL) & 0x1002) == 2 )
       {
-        v8 = *(float *)(v6 + 332);
-        v9 = v8 > 0.0;
-        v10 = v8 > 0.0;
-        v11 = v8 == 0.0;
-        v12 = *(float *)(v6 + 320);
-        LOBYTE(v3) = v12 < 0.0;
-        if ( (v12 > 0.0) - v3 != v9 - (!v10 && !v11) )
+        v7 = *(float *)(v6 + 320);
+        v8 = v7 > 0.0;
+        v9 = v7 > 0.0;
+        v10 = v7 == 0.0;
+        v11 = *(float *)(v6 + 332);
+        LOBYTE(v3) = v11 < 0.0;
+        if ( v8 - (!v9 && !v10) != (v11 > 0.0) - v3 )
           *((_DWORD *)this + 44) = -v4;
       }
     }
@@ -69,45 +66,44 @@ LABEL_3:
     *((_DWORD *)this + 63) = v1 | 0x80000;
     return result;
   }
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v28, (struct XDCOBJ *)*this, 0x204u);
-  v13 = v28[1];
-  v15 = v13 > 0.0;
-  v10 = v13 > 0.0;
-  v11 = v13 == 0.0;
-  v16 = v28[2];
-  v17 = v15 - (!v10 && !v11);
-  v18 = v16 > 0.0;
-  v10 = v16 > 0.0;
-  v11 = v16 == 0.0;
-  v19 = v28[3];
-  v20 = !v10 && !v11;
-  v21 = v18 - v20;
-  v22 = (__PAIR64__(v19 < 0.0, 0.0) - LODWORD(v19)) >> 32;
-  v23 = *(_DWORD *)(*(_QWORD *)(**this + 976) + 340LL) & 0x40;
-  if ( !v23 )
-    v22 = (__PAIR64__(v19 > 0.0, LODWORD(v19)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
-  v24 = v20 - v18;
-  if ( (v23 & 0x40) == 0 )
-    v24 = v21;
-  v25 = *((_DWORD *)this[1] + 3);
-  if ( v25 != 900 * (v25 / 900) )
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v26, (struct XDCOBJ *)*this, 516);
+  v12 = v26[1];
+  v14 = v12 > 0.0;
+  v9 = v12 > 0.0;
+  v10 = v12 == 0.0;
+  v15 = v26[2];
+  v16 = v14 - (!v9 && !v10);
+  v17 = v15 > 0.0;
+  v9 = v15 > 0.0;
+  v10 = v15 == 0.0;
+  v18 = v26[3];
+  v19 = !v9 && !v10;
+  v20 = v17 - v19;
+  v21 = (__PAIR64__(v18 < 0.0, 0.0) - LODWORD(v18)) >> 32;
+  if ( (*(_DWORD *)(*(_QWORD *)(**this + 976) + 340LL) & 0x40) == 0 )
+    v21 = (__PAIR64__(v18 > 0.0, LODWORD(v18)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+  v22 = v19 - v17;
+  if ( (*(_DWORD *)(*(_QWORD *)(**this + 976) + 340LL) & 0x40) == 0 )
+    v22 = v20;
+  v23 = *((_DWORD *)this[1] + 3);
+  if ( v23 != 900 * (v23 / 900) )
     return 0;
-  v26 = 1;
-  v14 = (__PAIR64__(*v28 > 0.0, *v28) - COERCE_UNSIGNED_INT(0.0)) >> 32;
-  if ( (v24 + v17) | (v14 - v22) | (v14 ^ ~v17) & 1 )
+  v24 = 1;
+  v13 = (__PAIR64__(*v26 > 0.0, *v26) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+  if ( (v22 + v16) | (v13 - v21) | (v13 ^ ~v16) & 1 )
   {
     return 0;
   }
   else
   {
-    v27 = (v24 & 0xA8C)
-        + v25
-        + (((__PAIR64__(*v28 > 0.0, *v28) - COERCE_UNSIGNED_INT(0.0)) >> 32) & 0x708)
-        + (v17 & 0x384);
-    *((_DWORD *)this + 44) = v27;
-    if ( v27 >= 3600 )
-      *((_DWORD *)this + 44) = v27 - 3600;
+    v25 = (v22 & 0xA8C)
+        + v23
+        + (((__PAIR64__(*v26 > 0.0, *v26) - COERCE_UNSIGNED_INT(0.0)) >> 32) & 0x708)
+        + (v16 & 0x384);
+    *((_DWORD *)this + 44) = v25;
+    if ( v25 >= 3600 )
+      *((_DWORD *)this + 44) = v25 - 3600;
     *((_DWORD *)this + 63) |= 0x80000u;
   }
-  return v26;
+  return v24;
 }

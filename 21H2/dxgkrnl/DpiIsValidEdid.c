@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiIsValidEdid @ 0x1C0027070
+ * XREFs of DpiIsValidEdid @ 0x1C0020FFC
  * Callers:
- *     DpiPdoGetDeviceDescriptor @ 0x1C02067A4 (DpiPdoGetDeviceDescriptor.c)
- *     DpiPdoGetDeviceIdFromDescriptor @ 0x1C0206D64 (DpiPdoGetDeviceIdFromDescriptor.c)
- *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C038BC94 (DpiFdoValidateIntegratedDisplayDescriptor.c)
+ *     DpiPdoGetDeviceDescriptor @ 0x1C017A410 (DpiPdoGetDeviceDescriptor.c)
+ *     DpiPdoGetDeviceIdFromDescriptor @ 0x1C018E590 (DpiPdoGetDeviceIdFromDescriptor.c)
+ *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C02CCAA8 (DpiFdoValidateIntegratedDisplayDescriptor.c)
  * Callees:
- *     ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C00270A4 (-DpiEdidCheckSum@@YAEPEADK@Z.c)
+ *     ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C0021030 (-DpiEdidCheckSum@@YAEPEADK@Z.c)
  */
 
 unsigned __int8 __fastcall DpiIsValidEdid(__int64 a1)

@@ -1,57 +1,51 @@
 /*
- * XREFs of HalpQueryIdPdo @ 0x14082A41C
+ * XREFs of HalpQueryIdPdo @ 0x1407D08A0
  * Callers:
- *     HalpDispatchPnp @ 0x140829D70 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x1407645A0 (HalpDispatchPnp.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryIdPdo(__int64 a1, int a2, _QWORD *a3)
 {
-  __int64 v3; // r9
-  int v5; // edx
   __int64 result; // rax
-  const wchar_t *v7; // rdi
-  size_t v8; // rbx
-  _WORD *Pool2; // rax
-  _WORD *v10; // rsi
+  const wchar_t *v5; // rdi
+  size_t v6; // rbx
+  _WORD *PoolWithTag; // rax
+  _WORD *v8; // rsi
 
-  v3 = *(_QWORD *)(a1 + 64);
-  if ( a2 && (v5 = a2 - 1) != 0 )
+  if ( a2 < 0 )
+    return 3221225659LL;
+  if ( a2 <= 1 )
   {
-    if ( v5 != 2 )
-      return 3221225659LL;
-    v7 = L"0";
-    v8 = 4LL;
+    if ( *(_DWORD *)(*(_QWORD *)(a1 + 64) + 32LL) == 129 )
+    {
+      v5 = L"ACPI_HAL\\PNP0C08";
+      v6 = 52LL;
+    }
+    else
+    {
+      if ( *(_DWORD *)(*(_QWORD *)(a1 + 64) + 32LL) != 131 )
+        return 3221225659LL;
+      v5 = L"ACPI_HAL\\UEFI";
+      v6 = 28LL;
+    }
   }
   else
   {
-    switch ( *(_DWORD *)(v3 + 32) )
-    {
-      case 0x81:
-        v7 = L"ACPI_HAL\\PNP0C08";
-        v8 = 52LL;
-        break;
-      case 0x83:
-        v7 = L"ACPI_HAL\\UEFI";
-        v8 = 28LL;
-        break;
-      case 0x84:
-        v7 = L"ACPI_HAL\\PRM";
-        v8 = 26LL;
-        break;
-      default:
-        return 3221225659LL;
-    }
+    if ( a2 != 3 )
+      return 3221225659LL;
+    v5 = L"0";
+    v6 = 4LL;
   }
-  Pool2 = (_WORD *)ExAllocatePool2(256LL, v8 + 2, 1886150984LL);
-  v10 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6 + 2, 0x206C6148u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memmove(Pool2, v7, v8);
+  memmove(PoolWithTag, v5, v6);
   result = 0LL;
-  v10[v8 >> 1] = 0;
-  *a3 = v10;
+  v8[v6 >> 1] = 0;
+  *a3 = v8;
   return result;
 }

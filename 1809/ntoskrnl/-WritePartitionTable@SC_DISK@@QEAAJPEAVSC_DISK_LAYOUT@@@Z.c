@@ -1,14 +1,14 @@
 /*
- * XREFs of ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140329BF0
+ * XREFs of ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140329CF0
  * Callers:
- *     IoWritePartitionTable @ 0x140817320 (IoWritePartitionTable.c)
- *     IoWritePartitionTableEx @ 0x140817490 (IoWritePartitionTableEx.c)
+ *     IoWritePartitionTable @ 0x140817300 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x140817470 (IoWritePartitionTableEx.c)
  * Callees:
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1401688B4 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1403299D8 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14032A638 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
- *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x14032AD0C (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14032B1AC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1401688D4 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140329AD8 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14032A738 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
+ *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x14032AE0C (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14032B2AC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  */
 
 __int64 __fastcall SC_DISK::WritePartitionTable(SC_DISK *this, struct SC_DISK_LAYOUT *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x1800EAEE0
+ * XREFs of ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x1800D7EF4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x1800EAF14 (-SetTopLevelWindow@CVisual@@QEAAX_K@Z.c)
+ *     ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x1800D7F28 (-SetTopLevelWindow@CVisual@@QEAAX_K@Z.c)
  */
 
 __int64 __fastcall CVisual::ProcessTopLevelNode(
@@ -14,16 +14,16 @@ __int64 __fastcall CVisual::ProcessTopLevelNode(
   char v3; // al
   unsigned __int64 v4; // rdx
 
-  v3 = *((_BYTE *)this + 100);
+  v3 = *((_BYTE *)this + 93);
   v4 = 0LL;
   if ( *((_BYTE *)a3 + 16) )
   {
-    *((_BYTE *)this + 100) = v3 | 0x80;
+    *((_BYTE *)this + 93) = v3 | 1;
     v4 = *((_QWORD *)a3 + 1);
   }
   else
   {
-    *((_BYTE *)this + 100) = v3 & 0x7F;
+    *((_BYTE *)this + 93) = v3 & 0xFE;
   }
   CVisual::SetTopLevelWindow(this, v4);
   return 0LL;

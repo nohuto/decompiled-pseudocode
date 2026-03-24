@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierKfRaiseIrql @ 0x140A96540
+ * XREFs of VerifierKfRaiseIrql @ 0x1409DBAA0
  * Callers:
  *     <none>
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402ABBD0 (KeAreInterruptsEnabled.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140A8B2AC (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140A96894 (ViKeIrqlLogAndTrimMemory.c)
+ *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKfRaiseIrql(char a1)
@@ -21,13 +21,13 @@ __int64 __fastcall VerifierKfRaiseIrql(char a1)
   v1 = (__int64 (__fastcall *)(__int64))pXdvKfRaiseIrql;
   if ( KeAreInterruptsEnabled() )
   {
-    ++dword_140C29FC4;
+    ++dword_140C2A864;
     v3 = retaddr;
     if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetIncrementCounter(retaddr, 160LL);
+      ViTargetIncrementCounter(retaddr, 152LL);
   }
   LOBYTE(v3) = a1;
-  v4 = ViKeIrqlLogAndTrimMemory(v3);
+  v4 = ViKeRaiseIrqlSanityChecks(v3, 0LL);
   LOBYTE(v5) = a1;
   result = v1(v5);
   if ( v4 )

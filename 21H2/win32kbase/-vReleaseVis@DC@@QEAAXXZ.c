@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vReleaseVis@DC@@QEAAXXZ @ 0x1C016D964
+ * XREFs of ?vReleaseVis@DC@@QEAAXXZ @ 0x1C0140A50
  * Callers:
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C002C464 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
- *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C002F514 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003809C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C014D3F0 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     HmgPentryFromPobj @ 0x1C0021920 (HmgPentryFromPobj.c)
- *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0023E50 (-vDeleteREGION@REGION@@QEAAXXZ.c)
- *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00D9320 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
- *     ?ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ @ 0x1C00D961C (-ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002B9F0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     HmgPentryFromPobj @ 0x1C002E5D0 (HmgPentryFromPobj.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005CD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00C8228 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
  */
 
 void __fastcall DC::vReleaseVis(DC *this)
@@ -21,9 +21,9 @@ void __fastcall DC::vReleaseVis(DC *this)
   v2 = HmgPentryFromPobj(this);
   *(_BYTE *)(v2 + 15) |= 4u;
   DC::AcquireDcVisRgnExclusive(this, (__int64)&v4);
-  REGION::vDeleteREGION(*((PSLIST_ENTRY *)this + 142));
+  REGION::vDeleteREGION(*((REGION **)this + 143));
   v3 = v5 == 0;
-  *((_QWORD *)this + 142) = prgnDefault;
+  *((_QWORD *)this + 143) = prgnDefault;
   if ( !v3 )
-    GreInnermostPushLockMSRC85333::ReleaseLock((GreInnermostPushLockMSRC85333 *)(v4 + 1112));
+    CPushLock::ReleaseLock((CPushLock *)(v4 + 1112));
 }

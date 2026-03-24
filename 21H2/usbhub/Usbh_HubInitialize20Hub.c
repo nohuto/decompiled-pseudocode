@@ -1,10 +1,10 @@
 /*
- * XREFs of Usbh_HubInitialize20Hub @ 0x1C002D924
+ * XREFs of Usbh_HubInitialize20Hub @ 0x1C002ED00
  * Callers:
- *     UsbhInitializeTtHub @ 0x1C002C898 (UsbhInitializeTtHub.c)
+ *     UsbhInitializeTtHub @ 0x1C002DCB8 (UsbhInitializeTtHub.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubInitialize20Hub(__int64 a1, __int64 a2, unsigned int a3)

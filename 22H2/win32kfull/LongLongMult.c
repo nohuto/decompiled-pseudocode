@@ -1,7 +1,7 @@
 /*
- * XREFs of LongLongMult @ 0x1C02915A4
+ * XREFs of LongLongMult @ 0x1C016B088
  * Callers:
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028EBA0 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B248 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
  * Callees:
  *     <none>
  */

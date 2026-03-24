@@ -1,19 +1,19 @@
 /*
  * XREFs of PoIdle @ 0x14005D6B0
  * Callers:
- *     KiIdleLoop @ 0x1401C0500 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
  * Callees:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  *     PpmIdlePrepare @ 0x14005F3A0 (PpmIdlePrepare.c)
  *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PpmEventIdleStateChange @ 0x14011FC78 (PpmEventIdleStateChange.c)
- *     KeIdleSpecCtrl @ 0x14013E0D0 (KeIdleSpecCtrl.c)
- *     PpmIdleSelectStates @ 0x140180070 (PpmIdleSelectStates.c)
- *     PpmResetProcessorIdleAccounting @ 0x14018B8C4 (PpmResetProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeExecuteVerw @ 0x1401D1400 (KeExecuteVerw.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PpmSetPlatformIdleDurationHint @ 0x1402D5950 (PpmSetPlatformIdleDurationHint.c)
+ *     PpmEventIdleStateChange @ 0x14011FC98 (PpmEventIdleStateChange.c)
+ *     KeIdleSpecCtrl @ 0x14013E0F0 (KeIdleSpecCtrl.c)
+ *     PpmIdleSelectStates @ 0x140180090 (PpmIdleSelectStates.c)
+ *     PpmResetProcessorIdleAccounting @ 0x14018B8E4 (PpmResetProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeExecuteVerw @ 0x1401D1500 (KeExecuteVerw.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x1402D5A50 (PpmSetPlatformIdleDurationHint.c)
  */
 
 __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
@@ -64,8 +64,8 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   __int64 v46; // [rsp+78h] [rbp-90h] BYREF
   _DWORD v47[44]; // [rsp+88h] [rbp-80h] BYREF
 
-  result = dword_14041810C;
-  if ( BYTE1(PpmCurrentProfile[341 * dword_14041810C + 23]) )
+  result = dword_1404180CC;
+  if ( BYTE1(PpmCurrentProfile[341 * dword_1404180CC + 23]) )
     return result;
   v3 = 0;
   v4 = *(_QWORD *)(BugCheckParameter4 + 23808);

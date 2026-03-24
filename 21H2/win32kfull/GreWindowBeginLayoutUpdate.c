@@ -1,11 +1,11 @@
 /*
- * XREFs of GreWindowBeginLayoutUpdate @ 0x1C026DEE8
+ * XREFs of GreWindowBeginLayoutUpdate @ 0x1C00088D0
  * Callers:
- *     NtUserBeginLayoutUpdate @ 0x1C01175B0 (NtUserBeginLayoutUpdate.c)
+ *     NtUserBeginLayoutUpdate @ 0x1C01310B0 (NtUserBeginLayoutUpdate.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0022938 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE388 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreWindowBeginLayoutUpdate(HWND a1)
@@ -42,7 +42,7 @@ __int64 __fastcall GreWindowBeginLayoutUpdate(HWND a1)
         _InterlockedDecrement((volatile signed __int32 *)(v3 + 12));
     }
     v7 = 0LL;
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);
     EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
     GreReleaseSemaphoreInternal(ghsemDwmState);
   }

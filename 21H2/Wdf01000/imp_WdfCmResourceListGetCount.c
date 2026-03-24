@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfCmResourceListGetCount @ 0x1C0032D30
+ * XREFs of imp_WdfCmResourceListGetCount @ 0x1C005C520
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
  */
 
 __int64 __fastcall imp_WdfCmResourceListGetCount(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFCMRESLIST__ *List)
@@ -18,7 +18,11 @@ __int64 __fastcall imp_WdfCmResourceListGetCount(_WDF_DRIVER_GLOBALS *DriverGlob
   FxCmResList *pList; // [rsp+40h] [rbp+18h] BYREF
 
   pList = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)List, 0x1036u, (void **)&pList);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)List,
+    0x1036u,
+    (void **)&pList);
   v2 = pList;
   PreviousIrql = 0;
   FxNonPagedObject::Lock(pList, &PreviousIrql, v3);

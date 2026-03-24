@@ -1,12 +1,11 @@
 /*
- * XREFs of SetPrpFromBuffer @ 0x1C001B4CC
+ * XREFs of SetPrpFromBuffer @ 0x1C0002BA8
  * Callers:
- *     BuildGetLogPageCommand @ 0x1C0010E84 (BuildGetLogPageCommand.c)
- *     NVMeReservationReportStatus @ 0x1C0017598 (NVMeReservationReportStatus.c)
- *     NVMeDirectiveIdentifyReturnParameters @ 0x1C001CD30 (NVMeDirectiveIdentifyReturnParameters.c)
- *     NVMeDirectiveStreamsGetStatus @ 0x1C001CF54 (NVMeDirectiveStreamsGetStatus.c)
- *     NVMeDirectiveStreamsReturnParameters @ 0x1C001D1C0 (NVMeDirectiveStreamsReturnParameters.c)
- *     NVMeSyncHostTime @ 0x1C00242D8 (NVMeSyncHostTime.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     NVMeDirectiveIdentifyReturnParameters @ 0x1C0018714 (NVMeDirectiveIdentifyReturnParameters.c)
+ *     NVMeDirectiveStreamsGetStatus @ 0x1C0018998 (NVMeDirectiveStreamsGetStatus.c)
+ *     NVMeDirectiveStreamsReturnParameters @ 0x1C0018C68 (NVMeDirectiveStreamsReturnParameters.c)
+ *     NVMeSyncHostTime @ 0x1C001C0CC (NVMeSyncHostTime.c)
  * Callees:
  *     <none>
  */

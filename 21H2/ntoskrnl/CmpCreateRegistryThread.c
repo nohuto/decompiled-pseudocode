@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCreateRegistryThread @ 0x1408339FC
+ * XREFs of CmpCreateRegistryThread @ 0x14078F7D4
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
- *     CmpInitializeLazyWriters @ 0x1408334E4 (CmpInitializeLazyWriters.c)
- *     CmpInitializeSystemHivesLoad @ 0x1408337BC (CmpInitializeSystemHivesLoad.c)
+ *     CmpInitializeLazyWriters @ 0x14078F3E8 (CmpInitializeLazyWriters.c)
+ *     CmpInitializeSystemHivesLoad @ 0x14078F594 (CmpInitializeSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
  * Callees:
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
  */
 
-__int64 __fastcall CmpCreateRegistryThread(int a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmpCreateRegistryThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int128 v5; // [rsp+50h] [rbp-38h] BYREF
   __int64 v6; // [rsp+60h] [rbp-28h]

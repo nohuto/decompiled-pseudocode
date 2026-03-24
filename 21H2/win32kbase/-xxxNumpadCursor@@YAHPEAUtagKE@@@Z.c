@@ -1,54 +1,53 @@
 /*
- * XREFs of ?xxxNumpadCursor@@YAHPEAUtagKE@@@Z @ 0x1C00B1B20
+ * XREFs of ?xxxNumpadCursor@@YAHPEAUtagKE@@@Z @ 0x1C009F120
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
- *     ApiSetEditionIsSAS @ 0x1C0208F94 (ApiSetEditionIsSAS.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
+ *     ApiSetEditionIsSAS @ 0x1C00C07B4 (ApiSetEditionIsSAS.c)
  */
 
 __int64 __fastcall xxxNumpadCursor(struct tagKE *a1)
 {
-  struct tagKE *v1; // rbx
   unsigned __int16 *v2; // rdi
   __int16 v3; // ax
-  signed __int16 v5; // cx
-  void *v6; // r8
-  int v7; // eax
-  __int16 *v8; // rcx
-  __int64 v9; // rdx
-  void *v10; // [rsp+20h] [rbp-38h]
-  int v11; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v4; // rcx
+  signed __int16 v6; // cx
+  void *v7; // r8
+  int v8; // eax
+  __int16 *v9; // rcx
+  __int64 v10; // rdx
+  void *v11; // [rsp+20h] [rbp-38h]
+  int v12; // [rsp+68h] [rbp+10h] BYREF
 
-  v1 = a1;
-  if ( byte_1C029ACA4 )
+  if ( byte_1C0255EF4 )
   {
-    if ( byte_1C029ACA4 == *((_BYTE *)a1 + 2) )
+    if ( byte_1C0255EF4 == *((_BYTE *)a1 + 2) )
     {
-      v5 = *((_WORD *)a1 + 1);
-      if ( v5 < 0 )
+      v6 = *((_WORD *)a1 + 1);
+      if ( v6 < 0 )
       {
         xxxKeyEventEx(
-          v5,
-          *(unsigned __int8 *)v1,
-          *((_DWORD *)v1 + 1),
+          v6,
+          *(unsigned __int8 *)a1,
+          *((_DWORD *)a1 + 1),
           0LL,
-          *((void **)v1 + 1),
-          (unsigned __int16 *)v1 + 8,
+          *((void **)a1 + 1),
+          (unsigned __int16 *)a1 + 8,
           0,
           0,
           0LL,
           0LL);
-        *((_WORD *)v1 + 1) = word_1C02A0638;
-        *(_BYTE *)v1 = byte_1C02A063A;
-        byte_1C029ACA4 = 0;
+        *((_WORD *)a1 + 1) = word_1C02596A0;
+        *(_BYTE *)a1 = byte_1C02596A2;
+        byte_1C0255EF4 = 0;
       }
       return 1LL;
     }
     v2 = (unsigned __int16 *)((char *)a1 + 16);
     xxxKeyEventEx(
-      word_1C02A0638,
-      (unsigned __int8)byte_1C02A063A | 0x200,
+      word_1C02596A0,
+      (unsigned __int8)byte_1C02596A2 | 0x200,
       *((_DWORD *)a1 + 1),
       0LL,
       *((void **)a1 + 1),
@@ -57,57 +56,58 @@ __int64 __fastcall xxxNumpadCursor(struct tagKE *a1)
       0,
       0LL,
       0LL);
-    byte_1C029ACA4 = 0;
+    byte_1C0255EF4 = 0;
   }
   else
   {
     v2 = (unsigned __int16 *)((char *)a1 + 16);
   }
-  v3 = *((_WORD *)v1 + 1);
+  v3 = *((_WORD *)a1 + 1);
+  v4 = 2048LL;
   if ( (v3 & 0x800) != 0 )
   {
-    v11 = 0;
-    LOBYTE(a1) = v3;
-    if ( !(unsigned int)ApiSetEditionIsSAS(a1, &v11)
-      && ((byte_1C0295784 & 2) != 0 || gptiForeground && (*((_DWORD *)gptiForeground + 314) & 0x800000) != 0) )
+    v12 = 0;
+    LOBYTE(v4) = v3;
+    if ( !(unsigned int)ApiSetEditionIsSAS(v4, &v12)
+      && ((byte_1C02508A4 & 2) != 0 || gptiForeground && (*((_DWORD *)gptiForeground + 308) & 0x800000) != 0) )
     {
-      if ( (byte_1C0295764 & 1) != 0 )
+      if ( (byte_1C0250884 & 1) != 0 )
       {
-        v6 = (void *)*((_QWORD *)v1 + 1);
-        byte_1C029ACA4 = *((_BYTE *)v1 + 2);
-        v10 = v6;
-        LODWORD(v6) = *((_DWORD *)v1 + 1);
-        byte_1C02A063A = (byte_1C0295788 & 4) != 0 ? 54 : 42;
-        word_1C02A0638 = (byte_1C0295788 & 4) != 0 ? 417 : 160;
+        v7 = (void *)*((_QWORD *)a1 + 1);
+        byte_1C0255EF4 = *((_BYTE *)a1 + 2);
+        v11 = v7;
+        LODWORD(v7) = *((_DWORD *)a1 + 1);
+        byte_1C02596A2 = (byte_1C02508A8 & 4) != 0 ? 54 : 42;
+        word_1C02596A0 = (byte_1C02508A8 & 4) != 0 ? 417 : 160;
         xxxKeyEventEx(
-          word_1C02A0638 | 0x8000,
-          (unsigned __int8)byte_1C02A063A | 0x200,
-          (unsigned int)v6,
+          word_1C02596A0 | 0x8000,
+          (unsigned __int8)byte_1C02596A2 | 0x200,
+          (unsigned int)v7,
           0LL,
-          v10,
+          v11,
           v2,
           0,
           0,
           0LL,
           0LL);
       }
-      else if ( !_bittest16((const signed __int16 *)v1 + 1, 0xDu) )
+      else if ( (*((_WORD *)a1 + 1) & 0x2000) == 0 )
       {
-        v7 = 0;
+        v8 = 0;
         if ( ausNumPadCvt[0] )
         {
-          v8 = ausNumPadCvt;
-          v9 = 0LL;
-          while ( *(_BYTE *)v8 != *((_BYTE *)v1 + 2) )
+          v9 = ausNumPadCvt;
+          v10 = 0LL;
+          while ( *(_BYTE *)v9 != *((_BYTE *)a1 + 2) )
           {
-            ++v9;
-            ++v7;
-            v8 = &ausNumPadCvt[v9];
-            if ( !*v8 )
+            ++v10;
+            ++v8;
+            v9 = &ausNumPadCvt[v10];
+            if ( !*v9 )
               return 1LL;
           }
-          *((_BYTE *)v1 + 2) = 0;
-          *((_WORD *)v1 + 1) |= HIBYTE(ausNumPadCvt[v7]);
+          *((_BYTE *)a1 + 2) = 0;
+          *((_WORD *)a1 + 1) |= HIBYTE(ausNumPadCvt[v8]);
         }
       }
     }

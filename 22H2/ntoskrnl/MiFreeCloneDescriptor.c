@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeCloneDescriptor @ 0x140A49064
+ * XREFs of MiFreeCloneDescriptor @ 0x1408D9738
  * Callers:
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
- *     MiCloneProcessAddressSpace @ 0x140A489C4 (MiCloneProcessAddressSpace.c)
+ *     MiCloneVads @ 0x140559268 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D90B0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiUnlockPagedAddress @ 0x14035AC54 (MiUnlockPagedAddress.c)
- *     MiDecrementCloneHeaderCount @ 0x140663E7C (MiDecrementCloneHeaderCount.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiUnlockPagedAddress @ 0x140536930 (MiUnlockPagedAddress.c)
+ *     MiDecrementCloneHeaderCount @ 0x140559F00 (MiDecrementCloneHeaderCount.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeCloneDescriptor(struct _KPROCESS *a1, _QWORD *a2)

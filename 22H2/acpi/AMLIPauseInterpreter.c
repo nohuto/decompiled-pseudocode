@@ -1,12 +1,12 @@
 /*
- * XREFs of AMLIPauseInterpreter @ 0x1C0048988
+ * XREFs of AMLIPauseInterpreter @ 0x1C006355C
  * Callers:
- *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C0021110 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0021640 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
- *     AcpiPauseInterpreterForNamespaceUpdates @ 0x1C0037CFC (AcpiPauseInterpreterForNamespaceUpdates.c)
- *     Simulator_PauseInterpreter @ 0x1C004952C (Simulator_PauseInterpreter.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C00514D0 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0051A30 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
+ *     AcpiPauseInterpreterForNamespaceUpdates @ 0x1C005B800 (AcpiPauseInterpreterForNamespaceUpdates.c)
+ *     Simulator_PauseInterpreter @ 0x1C0063E5C (Simulator_PauseInterpreter.c)
  * Callees:
- *     LogSchedEvent @ 0x1C004E3CC (LogSchedEvent.c)
+ *     LogSchedEvent @ 0x1C002A1C0 (LogSchedEvent.c)
  */
 
 __int64 __fastcall AMLIPauseInterpreter(_QWORD *a1)
@@ -16,31 +16,31 @@ __int64 __fastcall AMLIPauseInterpreter(_QWORD *a1)
   _QWORD *v4; // rax
 
   v1 = 0;
-  dword_1C006F938 = 0;
+  dword_1C0082908 = 0;
   pszDest = 0;
   if ( a1[2] )
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
-    ++dword_1C0070078;
-    NewIrql = v3;
+    ++dword_1C00827D8;
+    byte_1C00827B0 = v3;
     if ( glistCtxtHead == (_UNKNOWN *)&glistCtxtHead )
     {
       gReadyQueue |= 8u;
     }
     else
     {
-      v4 = (_QWORD *)qword_1C0070088;
+      v4 = (_QWORD *)qword_1C00827E8;
       gReadyQueue |= 4u;
       v1 = 32772;
-      if ( *(__int64 **)qword_1C0070088 != &qword_1C0070080 )
+      if ( *(__int64 **)qword_1C00827E8 != &qword_1C00827E0 )
         __fastfail(3u);
-      *a1 = &qword_1C0070080;
+      *a1 = &qword_1C00827E0;
       a1[1] = v4;
       *v4 = a1;
-      qword_1C0070088 = (__int64)a1;
+      qword_1C00827E8 = (__int64)a1;
     }
-    KeReleaseSpinLock(&SpinLock, NewIrql);
-    LogSchedEvent(1346458963, 0, v1, 0, 0LL);
+    KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
+    LogSchedEvent(1346458963, 0LL, v1, 0LL, 0LL);
     if ( v1 == 32772 )
       return 259;
   }

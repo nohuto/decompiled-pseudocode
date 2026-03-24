@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetConvertToInstanceID @ 0x1C002A3BC
+ * XREFs of ACPIGetConvertToInstanceID @ 0x1C0028068
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C002B880 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIGetConvertToInstanceIDWide @ 0x1C002A424 (ACPIGetConvertToInstanceIDWide.c)
- *     ACPIWideStringToAnsiHelper @ 0x1C0043C78 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIGetConvertToInstanceIDWide @ 0x1C002866C (ACPIGetConvertToInstanceIDWide.c)
  */
 
 __int64 __fastcall ACPIGetConvertToInstanceID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)

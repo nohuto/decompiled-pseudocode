@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetInputs@CEffectBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A0D54
+ * XREFs of ?EmitSetInputs@CEffectBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C006715C
  * Callers:
- *     ?EmitUpdateCommands@CEffectBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A0C30 (-EmitUpdateCommands@CEffectBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CEffectBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0067350 (-EmitUpdateCommands@CEffectBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CEffectBrushMarshaler::EmitSetInputs(
@@ -23,11 +23,11 @@ bool __fastcall DirectComposition::CEffectBrushMarshaler::EmitSetInputs(
     v4 = (char *)v8;
     *(_DWORD *)v8 = 20;
     *(_OWORD *)(v4 + 4) = 0LL;
-    *((_DWORD *)v4 + 1) = 139;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v4 + 1) = 143;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
     *((_DWORD *)v4 + 3) = *((_DWORD *)this + 25);
     v5 = *(_QWORD *)(*((_QWORD *)this + 11) + 8LL * *((unsigned int *)this + 25));
-    v6 = v5 ? *(_DWORD *)(v5 + 32) : 0;
+    v6 = v5 ? *(_DWORD *)(v5 + 24) : 0;
     *((_DWORD *)v4 + 4) = v6;
   }
   return *((_DWORD *)this + 25) == *((_DWORD *)this + 24);

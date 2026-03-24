@@ -1,50 +1,50 @@
 /*
- * XREFs of HalGetAdapterV2 @ 0x140829610
+ * XREFs of HalGetAdapterV2 @ 0x140763E30
  * Callers:
- *     HalpGetAdapter @ 0x140829354 (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x140763D6C (HalpGetAdapter.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     HalpDmaFindAdapterByDeviceObject @ 0x14038EFB8 (HalpDmaFindAdapterByDeviceObject.c)
- *     HalpAddAdapterToList @ 0x14038F068 (HalpAddAdapterToList.c)
- *     HalpDmaIsAutomaticDomain @ 0x14038F240 (HalpDmaIsAutomaticDomain.c)
- *     HalpDmaGetAdapterVersion @ 0x1403B91D4 (HalpDmaGetAdapterVersion.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x1408298B0 (HalpDmaAllocateChildAdapterV2.c)
- *     HalpGetCacheCoherency @ 0x140829AF4 (HalpGetCacheCoherency.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     HalpDmaGetAdapterVersion @ 0x14030DA00 (HalpDmaGetAdapterVersion.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     HalpAddAdapterToList @ 0x14037932C (HalpAddAdapterToList.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x1403793DC (HalpDmaFindAdapterByDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4B90 (HalpDmaIsAutomaticDomain.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x1407640AC (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpGetCacheCoherency @ 0x14076431C (HalpGetCacheCoherency.c)
  */
 
 __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
 {
   bool v4; // cc
-  char v5; // r15
-  char v6; // al
-  unsigned int v7; // r13d
+  char v5; // si
+  char v6; // cl
+  unsigned int v7; // r15d
   int v8; // ebx
-  char v9; // bp
-  char v10; // r12
+  char v9; // r12
+  char v10; // r14
   char v11; // al
   unsigned int v12; // esi
-  unsigned int v13; // edx
-  __int64 v14; // rbp
-  __int64 v15; // r14
+  unsigned int v13; // ebp
+  __int64 v14; // r13
+  __int64 v15; // r12
   int v16; // edx
   int v17; // r8d
   int v18; // r9d
   __int64 *AdapterByDeviceObject; // rax
-  ULONG_PTR *v20; // rbp
-  int AdapterVersion; // ebx
-  bool IsAutomaticDomain; // r15
+  __int64 *v20; // rbp
   __int64 ChildAdapterV2; // rax
-  __int64 v24; // rbx
-  char v25; // al
-  unsigned int v27; // edx
-  unsigned int v28; // r8d
-  unsigned int v29; // ecx
-  unsigned int v30; // ecx
+  __int64 v22; // rbx
+  char v23; // al
+  unsigned int v25; // edx
+  unsigned int v26; // r8d
+  unsigned int v27; // ecx
+  unsigned int v28; // ecx
+  int AdapterVersion; // ebx
+  bool IsAutomaticDomain; // r13
   __int64 v31; // rax
   char v32; // [rsp+40h] [rbp-58h]
   PMDL Mdl; // [rsp+48h] [rbp-50h]
@@ -76,31 +76,32 @@ __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
   if ( v6 && *(_BYTE *)(a1 + 5) )
     *(_BYTE *)(a1 + 8) = 1;
   if ( *(_BYTE *)(a1 + 11) )
-    *(_BYTE *)(a1 + 8) = 1;
-  if ( *(_BYTE *)(a1 + 8) )
   {
-    v8 = 1;
+    *(_BYTE *)(a1 + 8) = 1;
   }
-  else
+  else if ( !*(_BYTE *)(a1 + 8) )
   {
     v8 = 0;
     v9 = 0;
     if ( !v6 )
-      goto LABEL_13;
+      goto LABEL_12;
+    goto LABEL_11;
   }
+  v8 = 1;
+LABEL_11:
   v9 = 1;
-LABEL_13:
+LABEL_12:
   v32 = v9;
   if ( v5 || !a2 )
   {
     v10 = 1;
-    goto LABEL_16;
+    goto LABEL_15;
   }
   HalpGetCacheCoherency(0LL, a2, &v37);
   v10 = v37;
   if ( !(_BYTE)v37 )
     return 0LL;
-LABEL_16:
+LABEL_15:
   v11 = *(_BYTE *)(a1 + 5);
   if ( v11 && v10 && ((unsigned __int64)HalpMaximumPhysicalMemoryAddress < 0x100000000LL || *(_BYTE *)(a1 + 11)) )
   {
@@ -112,35 +113,35 @@ LABEL_16:
   {
     if ( v8 )
     {
-      v27 = 64;
+      v25 = 64;
       if ( v11 )
-        v27 = v10 != 0 ? 512 : 64;
+        v25 = v10 != 0 ? 512 : 64;
     }
     else
     {
-      v27 = 16;
+      v25 = 16;
     }
     v12 = (v7 >> 12) + ((v7 & 0xFFF) != 0) + 1;
     v37 = v12;
-    v28 = v12;
-    if ( v12 > v27 )
+    v26 = v12;
+    if ( v12 > v25 )
     {
-      v12 = v27;
-      v37 = v27;
-      v28 = v27;
+      v12 = v25;
+      v37 = v25;
+      v26 = v25;
     }
-    v29 = dword_140C64180;
-    v13 = v28;
+    v27 = dword_140C4BCB8;
+    v13 = v26;
     if ( !v8 )
-      v29 = dword_140C640A0;
+      v27 = dword_140C4BBD8;
     if ( !v9 )
     {
-      v30 = v29 >> 13;
-      if ( v28 > v30 )
+      v28 = v27 >> 13;
+      if ( v26 > v28 )
       {
-        v12 = v30;
-        v37 = v30;
-        v13 = v30;
+        v12 = v28;
+        v37 = v28;
+        v13 = v28;
       }
     }
   }
@@ -152,95 +153,96 @@ LABEL_16:
   }
   v14 = *(unsigned int *)(a1 + 16);
   v15 = v14;
-  if ( v5 )
+  if ( v34 )
   {
-    v24 = *(_QWORD *)(HalpDmaAdapters + 8 * v14);
-    if ( v24 )
+    v22 = *(_QWORD *)(HalpDmaAdapters + 8 * v14);
+    if ( v22 )
     {
-      if ( v12 > *(_DWORD *)(v24 + 232) )
-        *(_DWORD *)(v24 + 232) = v12;
-      ObReferenceObjectByPointer((PVOID)v24, 0x20000u, HalpDmaAdapterObjectType, 0);
-      goto LABEL_35;
+      if ( v13 > *(_DWORD *)(v22 + 224) )
+        *(_DWORD *)(v22 + 224) = v12;
+      ObReferenceObjectByPointer((PVOID)v22, 0x20000u, HalpDmaAdapterObjectType, 0);
+      goto LABEL_31;
     }
   }
   KeWaitForSingleObject(&HalpNewAdapter, WrExecutive, 0, 0, 0LL);
-  if ( v5 )
+  if ( v34 )
   {
-    v24 = *(_QWORD *)(HalpDmaAdapters + 8 * v14);
-    if ( v24 )
+    v22 = *(_QWORD *)(HalpDmaAdapters + 8 * v14);
+    if ( v22 )
     {
-      if ( v12 > *(_DWORD *)(v24 + 232) )
-        *(_DWORD *)(v24 + 232) = v12;
-      ObReferenceObjectByPointer((PVOID)v24, 0x20000u, HalpDmaAdapterObjectType, 0);
-      goto LABEL_34;
+      if ( v13 > *(_DWORD *)(v22 + 224) )
+        *(_DWORD *)(v22 + 224) = v12;
+      ObReferenceObjectByPointer((PVOID)v22, 0x20000u, HalpDmaAdapterObjectType, 0);
+      goto LABEL_30;
     }
   }
   if ( v35 )
   {
     AdapterByDeviceObject = HalpDmaFindAdapterByDeviceObject(v35);
-    v20 = (ULONG_PTR *)AdapterByDeviceObject;
+    v20 = AdapterByDeviceObject;
     if ( AdapterByDeviceObject )
     {
       AdapterVersion = HalpDmaGetAdapterVersion((__int64)AdapterByDeviceObject);
-      IsAutomaticDomain = HalpDmaIsAutomaticDomain(v20[64]);
-      ObfDereferenceObject(v20);
+      IsAutomaticDomain = HalpDmaIsAutomaticDomain((__int64 *)v20[63]);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v20);
       if ( AdapterVersion != 2 && !IsAutomaticDomain )
-        goto LABEL_70;
-      v5 = v34;
+        goto LABEL_72;
+      LODWORD(v14) = v15;
     }
-    LODWORD(v14) = v15;
   }
   LOBYTE(v18) = *(_BYTE *)(a1 + 5);
   LOBYTE(v17) = *(_BYTE *)(a1 + 11);
   LOBYTE(v16) = *(_BYTE *)(a1 + 8);
   ChildAdapterV2 = HalpDmaAllocateChildAdapterV2(v12, v16, v17, v18, *(_BYTE *)(a1 + 4), v32, v10, (__int64)&v37);
-  v24 = ChildAdapterV2;
+  v22 = ChildAdapterV2;
   if ( !ChildAdapterV2 )
-    goto LABEL_70;
-  *(_BYTE *)(ChildAdapterV2 + 524) = 1;
-  if ( v5 )
+  {
+LABEL_72:
+    KeSetEvent(&HalpNewAdapter, 0, 0);
+    return 0LL;
+  }
+  *(_BYTE *)(ChildAdapterV2 + 516) = 1;
+  if ( v34 )
   {
     *(_QWORD *)(HalpDmaAdapters + 8 * v15) = ChildAdapterV2;
     v31 = (*(__int64 (__fastcall **)(__int64))(DmaDispatch + 24))(a1);
     if ( v31 )
     {
-      *(_QWORD *)(v24 + 432) = v31;
-      ObReferenceObjectByPointer((PVOID)v24, 0x20000u, HalpDmaAdapterObjectType, 0);
-      goto LABEL_31;
+      *(_QWORD *)(v22 + 424) = v31;
+      ObReferenceObjectByPointer((PVOID)v22, 0x20000u, HalpDmaAdapterObjectType, 0);
+      goto LABEL_27;
     }
-LABEL_70:
-    KeSetEvent(&HalpNewAdapter, 0, 0);
-    return 0LL;
+    goto LABEL_72;
   }
-LABEL_31:
+LABEL_27:
   if ( v37 )
   {
-    *(_DWORD *)(v24 + 232) = v37;
-    v25 = 1;
+    *(_DWORD *)(v22 + 224) = v37;
+    v23 = 1;
   }
   else
   {
-    *(_DWORD *)(v24 + 232) = (v7 >> 12) + ((v7 & 0xFFF) != 0) + 1;
-    v25 = 0;
+    *(_DWORD *)(v22 + 224) = (v7 >> 12) + ((v7 & 0xFFF) != 0) + 1;
+    v23 = 0;
   }
-  *(_BYTE *)(v24 + 440) = v25;
-  *(_QWORD *)(v24 + 312) = 0LL;
-LABEL_34:
+  *(_BYTE *)(v22 + 432) = v23;
+  *(_QWORD *)(v22 + 304) = 0LL;
+LABEL_30:
   KeSetEvent(&HalpNewAdapter, 0, 0);
-LABEL_35:
-  *(_BYTE *)(v24 + 444) = 0;
+LABEL_31:
+  *(_BYTE *)(v22 + 436) = 0;
   if ( *(_DWORD *)a1 )
-    *(_BYTE *)(v24 + 444) = *(_BYTE *)(a1 + 9);
-  *a3 = *(_DWORD *)(v24 + 232);
-  *(_QWORD *)(v24 + 304) = Mdl;
-  if ( v5 )
+    *(_BYTE *)(v22 + 436) = *(_BYTE *)(a1 + 9);
+  *a3 = *(_DWORD *)(v22 + 224);
+  *(_QWORD *)(v22 + 296) = Mdl;
+  if ( v34 )
   {
-    *(_DWORD *)(v24 + 380) = v14;
+    *(_DWORD *)(v22 + 372) = v14;
   }
   else
   {
-    *(_QWORD *)(v24 + 528) = v35;
-    HalpAddAdapterToList(v24);
+    *(_QWORD *)(v22 + 520) = v35;
+    HalpAddAdapterToList(v22);
   }
-  return v24;
+  return v22;
 }

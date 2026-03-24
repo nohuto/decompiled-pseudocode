@@ -1,1 +1,0 @@
-/*\n * XREFs of sub_1C00077C8 @ 0x1C00077C8\n * Callers:\n *     sub_1C0004E50 @ 0x1C0004E50 (sub_1C0004E50.c)\n *     sub_1C0011560 @ 0x1C0011560 (sub_1C0011560.c)\n * Callees:\n *     <none>\n */\n\nbool sub_1C00077C8()\n{\n  return (qword_1C000A020 & 0x400000000000LL) != 0 && (qword_1C000A028 & 0x400000000000LL) == qword_1C000A028;\n}\n

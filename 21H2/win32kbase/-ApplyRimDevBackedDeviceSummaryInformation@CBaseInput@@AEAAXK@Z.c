@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ApplyRimDevBackedDeviceSummaryInformation@CBaseInput@@AEAAXK@Z @ 0x1C004A36C
+ * XREFs of ?ApplyRimDevBackedDeviceSummaryInformation@CBaseInput@@AEAAXK@Z @ 0x1C00B859C
  * Callers:
- *     ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C004894C (-RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z.c)
+ *     ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C00520AC (-RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ApiSetApplyGatheredDeviceInfoSummaryInformation @ 0x1C004A4A8 (ApiSetApplyGatheredDeviceInfoSummaryInformation.c)
- *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z @ 0x1C004A5F0 (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ApiSetApplyGatheredDeviceInfoSummaryInformation @ 0x1C00B86DC (ApiSetApplyGatheredDeviceInfoSummaryInformation.c)
+ *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z @ 0x1C00B87C8 (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z.c)
  */
 
 void __fastcall CBaseInput::ApplyRimDevBackedDeviceSummaryInformation(CBaseInput *this, int a2)
@@ -50,26 +50,13 @@ void __fastcall CBaseInput::ApplyRimDevBackedDeviceSummaryInformation(CBaseInput
       {
         CBaseInput::GatherDeviceInfoSummaryInformation(v8, v9, &v15, &v17, &v18, &v12, &v13, &v14);
         v2 = v15;
+        goto LABEL_7;
       }
-      else
-      {
-        if ( a2 != 2 )
-        {
-          if ( a2 )
-            goto LABEL_4;
-          if ( (_BYTE)v10 != 2 )
-            goto LABEL_4;
-          v11 = *((_QWORD *)v9 + 59);
-          if ( !v11 || (unsigned int)(*(_DWORD *)(v11 + 24) - 1) > 6 )
-            goto LABEL_4;
-LABEL_15:
-          v15 = ++v2;
-          goto LABEL_4;
-        }
-        if ( !(_BYTE)v10 )
-          goto LABEL_15;
-      }
-LABEL_4:
+      if ( a2 != 2 )
+        break;
+      if ( !(_BYTE)v10 )
+        goto LABEL_5;
+LABEL_7:
       v9 = (struct DEVICEINFO *)*((_QWORD *)v9 + 7);
       if ( !v9 )
       {
@@ -77,11 +64,22 @@ LABEL_4:
         v4 = v18;
         v5 = v12;
         v6 = v13;
-        break;
+        goto LABEL_9;
       }
     }
+    if ( a2 )
+      goto LABEL_7;
+    if ( (_BYTE)v10 != 2 )
+      goto LABEL_7;
+    v11 = *((_QWORD *)v9 + 60);
+    if ( !v11 || (unsigned int)(*(_DWORD *)(v11 + 24) - 1) > 6 )
+      goto LABEL_7;
+LABEL_5:
+    v15 = ++v2;
+    goto LABEL_7;
   }
-  qword_1C029A1C8 = 0LL;
+LABEL_9:
+  qword_1C02554D8 = 0LL;
   ExReleasePushLockExclusiveEx(&CBaseInput::_sLock, 0LL);
   KeLeaveCriticalRegion();
   ApiSetApplyGatheredDeviceInfoSummaryInformation(a2, v2, v5, v3, v4, v6, v14);

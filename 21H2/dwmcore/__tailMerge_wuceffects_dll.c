@@ -1,10 +1,10 @@
 /*
- * XREFs of __tailMerge_wuceffects_dll @ 0x180102B2A
+ * XREFs of __tailMerge_wuceffects_dll @ 0x1800E8D3E
  * Callers:
- *     __imp_load_CompileEffectDescription @ 0x180102B1E (__imp_load_CompileEffectDescription.c)
- *     __imp_load_DeserializeEffectDescription @ 0x180102BA9 (__imp_load_DeserializeEffectDescription.c)
+ *     __imp_load_CompileEffectDescription @ 0x1800E8D32 (__imp_load_CompileEffectDescription.c)
+ *     __imp_load_DeserializeEffectDescription @ 0x1800E8DBD (__imp_load_DeserializeEffectDescription.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_wuceffects_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,21 +1,26 @@
 /*
- * XREFs of DxgkEngIsDwmComposing @ 0x1C00C0DA0
+ * XREFs of DxgkEngIsDwmComposing @ 0x1C00B4BD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkEngIsDwmComposing(_DWORD *a1)
 {
   unsigned int v1; // ebx
+  int v2; // eax
 
   v1 = 0;
   if ( a1 )
     *a1 = 0;
-  if ( !qword_1C0294460 || (int)qword_1C0294460() < 0 )
+  if ( qword_1C0255050 )
+    v2 = qword_1C0255050();
+  else
+    v2 = -1073741637;
+  if ( v2 < 0 )
     return 0LL;
-  if ( qword_1C0294468 )
-    return (unsigned int)qword_1C0294468();
+  if ( qword_1C0255058 )
+    return (unsigned int)qword_1C0255058();
   return v1;
 }

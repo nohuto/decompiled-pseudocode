@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxHandleDirectedPowerTransition @ 0x14058A530
+ * XREFs of PopFxHandleDirectedPowerTransition @ 0x14056ABE8
  * Callers:
- *     PopFxDirectedPowerTransitionWorker @ 0x14058A0E0 (PopFxDirectedPowerTransitionWorker.c)
+ *     PopFxDirectedPowerTransitionWorker @ 0x14056A8E0 (PopFxDirectedPowerTransitionWorker.c)
  * Callees:
- *     PopFxEnableWorkOrderWatchdog @ 0x140311B08 (PopFxEnableWorkOrderWatchdog.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopFxCompleteDirectedPowerTransition @ 0x14058972C (PopFxCompleteDirectedPowerTransition.c)
- *     PopDiagTraceFxDeviceDirectedTransition @ 0x140593650 (PopDiagTraceFxDeviceDirectedTransition.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x140262DB4 (PopFxEnableWorkOrderWatchdog.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x14056A49C (PopFxCompleteDirectedPowerTransition.c)
+ *     PopDiagTraceFxDeviceDirectedTransition @ 0x1405722A4 (PopDiagTraceFxDeviceDirectedTransition.c)
  */
 
-LONG __fastcall PopFxHandleDirectedPowerTransition(ULONG_PTR BugCheckParameter3)
+void __fastcall PopFxHandleDirectedPowerTransition(ULONG_PTR BugCheckParameter3)
 {
   unsigned __int32 v2; // eax
   __int64 v3; // rdx
@@ -41,7 +41,7 @@ LONG __fastcall PopFxHandleDirectedPowerTransition(ULONG_PTR BugCheckParameter3)
   else
     (*(void (__fastcall **)(__int64, _QWORD))(BugCheckParameter3 + 176))(v7, 0LL);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)(BugCheckParameter3 + 1160), 0xFFFFFFFF) == 1 )
-    return PopFxCompleteDirectedPowerTransition(BugCheckParameter3, v5 != 0);
+    PopFxCompleteDirectedPowerTransition(BugCheckParameter3, v5 != 0);
   else
-    return (unsigned int)PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter3 + 48), 0, 24, 0LL);
+    PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter3 + 48), 0, 24, 0LL);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GFxIoContext@@UEAAPEAXI@Z @ 0x1C0005230
+ * XREFs of ??_GFxIoContext@@UEAAPEAXI@Z @ 0x1C00052F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1FxIoContext@@UEAA@XZ @ 0x1C0005E18 (--1FxIoContext@@UEAA@XZ.c)
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxIoContext@@UEAA@XZ @ 0x1C000528C (--1FxIoContext@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 FxIoContext *__fastcall FxIoContext::`scalar deleting destructor'(FxIoContext *this, char a2)

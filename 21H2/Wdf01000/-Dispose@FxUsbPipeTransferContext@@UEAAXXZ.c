@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Dispose@FxUsbPipeTransferContext@@UEAAXXZ @ 0x1C00797A0
+ * XREFs of ?Dispose@FxUsbPipeTransferContext@@UEAAXXZ @ 0x1C006CCB0
  * Callers:
  *     <none>
  * Callees:
- *     USBD_UrbFree @ 0x1C0090EF0 (USBD_UrbFree.c)
+ *     USBD_UrbFree @ 0x1C00901E4 (USBD_UrbFree.c)
  */
 
 void __fastcall FxUsbPipeTransferContext::Dispose(FxUsbPipeTransferContext *this)

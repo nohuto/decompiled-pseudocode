@@ -1,62 +1,45 @@
 /*
- * XREFs of rimAbIsPointInGlobalPenDeadzone @ 0x1C017B7B0
+ * XREFs of rimAbIsPointInGlobalPenDeadzone @ 0x1C01589FC
  * Callers:
- *     rimAbIsPointerSuppressedByGlobalPenDeadzone @ 0x1C017BA84 (rimAbIsPointerSuppressedByGlobalPenDeadzone.c)
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C017CDA4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     rimAbIsPointerSuppressedByGlobalPenDeadzone @ 0x1C0158C30 (rimAbIsPointerSuppressedByGlobalPenDeadzone.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159C24 (rimAbUpdateDeadzonesAndResurrectContacts.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS@@@Z @ 0x1C019B790 (-IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS.c)
- *     ApiSetGetUserHandedness @ 0x1C0207DA4 (ApiSetGetUserHandedness.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHUtagRECT@@UtagPOINT@@1W4tagHANDEDNESS@@@Z @ 0x1C016E410 (-IsInDeadzone@RIMDeadzone@@QEAAHUtagRECT@@UtagPOINT@@1W4tagHANDEDNESS@@@Z.c)
+ *     ApiSetGetUserHandedness @ 0x1C01CF3D0 (ApiSetGetUserHandedness.c)
  */
 
-__int64 __fastcall rimAbIsPointInGlobalPenDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall rimAbIsPointInGlobalPenDeadzone(__int64 a1, __int128 *a2, __int64 a3)
 {
-  unsigned int v5; // ebx
-  __int64 v8; // rdx
+  unsigned int v6; // edi
+  int UserHandedness; // eax
+  __int64 v8; // r9
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  int UserHandedness; // ebx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  __int64 v26; // rax
-  __int64 v27; // rax
+  __int128 v11; // [rsp+30h] [rbp-28h] BYREF
 
-  v5 = 0;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 77);
+  v6 = 0;
+  if ( !gDeviceArbitrationType )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 77);
   if ( *(_DWORD *)(a1 + 492) )
   {
-    v12 = SGDGetUserSessionState(v9, v8, v10, v11);
-    RIMLockExclusive(v12 + 224);
-    if ( *(_DWORD *)(SGDGetUserSessionState(v14, v13, v15, v16) + 436) == 1 )
+    RIMLockExclusive((__int64)&gDeadzoneLock);
+    if ( gDeviceArbitrationType == 1 )
     {
-      v5 = 1;
+      v6 = 1;
     }
-    else if ( *(_QWORD *)(SGDGetUserSessionState(v18, v17, v19, v20) + 448) )
+    else if ( RIMDeadzone::s_pRimDeadzoneInstance )
     {
-      if ( *(_DWORD *)(*(_QWORD *)(SGDGetUserSessionState(v18, v17, v19, v20) + 448) + 8LL) != 1 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 90);
+      if ( *((_DWORD *)RIMDeadzone::s_pRimDeadzoneInstance + 2) != 1 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 90);
       UserHandedness = ApiSetGetUserHandedness();
-      v26 = SGDGetUserSessionState(v23, v22, v24, v25);
-      v5 = RIMDeadzone::IsInDeadzone(*(_QWORD *)(v26 + 448), a2, a3, a1 + 496, a1 + 608, UserHandedness);
+      v8 = *(_QWORD *)(a1 + 496);
+      v11 = *a2;
+      v6 = RIMDeadzone::IsInDeadzone(v9, &v11, a3, v8, UserHandedness);
     }
-    v27 = SGDGetUserSessionState(v18, v17, v19, v20);
-    *(_QWORD *)(v27 + 232) = 0LL;
-    ExReleasePushLockExclusiveEx(v27 + 224, 0LL);
+    qword_1C02544E8 = 0LL;
+    ExReleasePushLockExclusiveEx(&gDeadzoneLock, 0LL);
     KeLeaveCriticalRegion();
   }
-  return v5;
+  return v6;
 }

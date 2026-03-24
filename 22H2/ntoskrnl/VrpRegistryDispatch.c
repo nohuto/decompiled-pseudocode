@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpRegistryDispatch @ 0x1407EA640
+ * XREFs of VrpRegistryDispatch @ 0x1405D9250
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall VrpRegistryDispatch(__int64 a1, __int64 a2)

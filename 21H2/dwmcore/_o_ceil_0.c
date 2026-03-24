@@ -1,10 +1,10 @@
 /*
- * XREFs of _o_ceil_0 @ 0x1801018B0
+ * XREFs of _o_ceil_0 @ 0x1800E8180
  * Callers:
- *     ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801E76B0 (ApplyEdgeFlagsWorker_3_1_2_.c)
- *     ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801E7700 (ApplyEdgeFlagsWorker_768_256_512_.c)
- *     ApplyEdgeFlagsWorker_196608_65536_131072_ @ 0x1801E775C (ApplyEdgeFlagsWorker_196608_65536_131072_.c)
- *     ApplyEdgeFlagsWorker_50331648_16777216_33554432_ @ 0x1801E77B8 (ApplyEdgeFlagsWorker_50331648_16777216_33554432_.c)
+ *     ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801A1600 (ApplyEdgeFlagsWorker_3_1_2_.c)
+ *     ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801A1650 (ApplyEdgeFlagsWorker_768_256_512_.c)
+ *     ApplyEdgeFlagsWorker_196608_65536_131072_ @ 0x1801A16AC (ApplyEdgeFlagsWorker_196608_65536_131072_.c)
+ *     ApplyEdgeFlagsWorker_50331648_16777216_33554432_ @ 0x1801A1708 (ApplyEdgeFlagsWorker_50331648_16777216_33554432_.c)
  * Callees:
  *     <none>
  */

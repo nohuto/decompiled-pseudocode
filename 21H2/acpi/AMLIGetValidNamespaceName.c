@@ -1,9 +1,9 @@
 /*
- * XREFs of AMLIGetValidNamespaceName @ 0x1C0066210
+ * XREFs of AMLIGetValidNamespaceName @ 0x1C0064F8C
  * Callers:
- *     AMLICreateNativeNamespaceObject @ 0x1C00655C8 (AMLICreateNativeNamespaceObject.c)
- *     AMLIAddNextNamespaceOverride @ 0x1C0065AA0 (AMLIAddNextNamespaceOverride.c)
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C0065C08 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLICreateNativeNamespaceObject @ 0x1C0064348 (AMLICreateNativeNamespaceObject.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
  * Callees:
  *     <none>
  */

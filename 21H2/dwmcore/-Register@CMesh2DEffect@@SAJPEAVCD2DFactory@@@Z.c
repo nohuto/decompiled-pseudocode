@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z @ 0x18002606C
+ * XREFs of ?Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z @ 0x1800B3064
  * Callers:
- *     ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x180025F18 (-EnsureD2DFactory@CD2DFactory@@QEAAJXZ.c)
+ *     ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800B2F94 (-EnsureD2DFactory@CD2DFactory@@QEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMesh2DEffect::Register(struct CD2DFactory *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall CMesh2DEffect::Register(struct CD2DFactory *a1)
   v2[6] = L"vertices";
   v2[7] = BlobSetter<long (CMesh2DEffect::*)(unsigned char const *,unsigned int),{public: long CMesh2DEffect::SetVertices(unsigned char const *,unsigned int),0},ID2D1EffectImpl>;
   v2[8] = BlobGetter<long (CMesh2DEffect::*)(unsigned char *,unsigned int,unsigned int *)const,{public: long CMesh2DEffect::GetVertices(unsigned char *,unsigned int,unsigned int *)const,0},ID2D1EffectImpl>;
-  return (*(__int64 (__fastcall **)(_QWORD, GUID *, const wchar_t *, _QWORD *, int, __int64 (__fastcall *)(struct IUnknown **)))(*g_DeviceManager + 184LL))(
+  return (*(__int64 (__fastcall **)(void *, GUID *, const wchar_t *, _QWORD *, int, __int64 (__fastcall *)(struct IUnknown **)))(*(_QWORD *)g_DeviceManager + 184LL))(
            g_DeviceManager,
            &CLSID_Mesh2DEffect,
            L"<?xml version='1.0'?><Effect> <!-- System Properties --> <Property name='DisplayName' type='string' value='DW"

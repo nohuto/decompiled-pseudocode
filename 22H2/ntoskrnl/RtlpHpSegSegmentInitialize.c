@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpSegSegmentInitialize @ 0x140315688
+ * XREFs of RtlpHpSegSegmentInitialize @ 0x1402FDD3C
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCD0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x140397D78 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14028A070 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037ADF0 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlpHpQueryVA @ 0x140315738 (RtlpHpQueryVA.c)
+ *     RtlpHpQueryVA @ 0x1402FE5C0 (RtlpHpQueryVA.c)
  */
 
-__int64 __fastcall RtlpHpSegSegmentInitialize(_BYTE *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpHpSegSegmentInitialize(__int64 a1, __int64 a2, unsigned int a3)
 {
   char v3; // al
   unsigned int v7; // r8d
@@ -17,20 +17,22 @@ __int64 __fastcall RtlpHpSegSegmentInitialize(_BYTE *a1, __int64 a2, unsigned in
   __int64 result; // rax
   unsigned __int8 *v12; // rcx
   unsigned __int8 v13; // al
-  __int64 v14; // [rsp+30h] [rbp+8h] BYREF
+  __int128 v14; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = a1[13];
-  v14 = 0LL;
+  v3 = *(_BYTE *)(a1 + 13);
+  v15 = 0LL;
   if ( (v3 & 7) != 0 )
   {
-    RtlpHpQueryVA(a2 & 0xFFFFFFFFFFE00000uLL, a2, &v14, 0LL);
-    *(_QWORD *)(a2 + 24) = v14;
+    v14 = *(_OWORD *)(a1 + 40);
+    RtlpHpQueryVA(a2 & 0xFFFFFFFFFFE00000uLL, &v14, &v15, 0LL);
+    *(_QWORD *)(a2 + 24) = v15;
   }
   v7 = a3;
-  v8 = a2 + 32LL * (unsigned __int8)a1[10];
-  *(_BYTE *)(v8 + 31) = -a1[10];
+  v8 = a2 + 32LL * *(unsigned __int8 *)(a1 + 10);
+  *(_BYTE *)(v8 + 31) = -*(_BYTE *)(a1 + 10);
   *(_BYTE *)(v8 + 24) |= 2u;
-  v9 = 1 << a1[9];
+  v9 = 1 << *(_BYTE *)(a1 + 9);
   if ( a3 )
   {
     v12 = (unsigned __int8 *)(v8 + 25);

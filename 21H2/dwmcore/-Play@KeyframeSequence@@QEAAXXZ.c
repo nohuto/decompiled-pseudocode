@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Play@KeyframeSequence@@QEAAXXZ @ 0x18004F7F8
+ * XREFs of ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC518
  * Callers:
- *     ?Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z @ 0x18004F74C (-Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z.c)
- *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x180256AD8 (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800187CC (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z @ 0x1800AC46C (-Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x18004F554 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
- *     ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x18005052C (-SortKeyFrames@KeyframeSequence@@AEAAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800AC58C (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ *     ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800AC5F8 (-SortKeyFrames@KeyframeSequence@@AEAAXXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall KeyframeSequence::Play(KeyframeSequence *this)

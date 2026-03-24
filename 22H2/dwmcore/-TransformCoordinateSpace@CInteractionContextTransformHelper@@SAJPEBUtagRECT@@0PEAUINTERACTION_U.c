@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x1802BAB30
+ * XREFs of ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x18026AFDC
  * Callers:
- *     ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x1802BAA04 (-HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@P.c)
+ *     ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x18026AEB0 (-HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@P.c)
  * Callees:
- *     TransformPoint @ 0x1801B074C (TransformPoint.c)
+ *     TransformPoint @ 0x18022F3E0 (TransformPoint.c)
  */
 
 __int64 __fastcall CInteractionContextTransformHelper::TransformCoordinateSpace(
@@ -12,14 +12,26 @@ __int64 __fastcall CInteractionContextTransformHelper::TransformCoordinateSpace(
         struct INTERACTION_UPDATE *a3,
         struct INTERACTION_UPDATE *a4)
 {
-  float v4; // xmm2_4
-  unsigned int v5; // r11d
-  _DWORD *v6; // rdx
-  _DWORD *v7; // r10
-  __int64 v8; // r8
-  __int64 v9; // r9
+  LONG left; // esi
+  LONG right; // ebx
+  LONG v7; // edi
+  LONG v8; // ecx
+  float v9; // xmm2_4
+  unsigned int v10; // r11d
+  _DWORD *v11; // rdx
+  _DWORD *v12; // r10
+  __int64 v13; // r8
+  __int64 v14; // r9
 
-  if ( a1->left == a1->right || a1->top == a1->bottom || a2->left == a2->right || a2->top == a2->bottom )
+  left = a1->left;
+  right = a1->right;
+  if ( a1->left == right )
+    return (unsigned int)-2147024809;
+  if ( a1->top == a1->bottom )
+    return (unsigned int)-2147024809;
+  v7 = a2->left;
+  v8 = a2->right;
+  if ( a2->left == v8 || a2->top == a2->bottom )
   {
     return (unsigned int)-2147024809;
   }
@@ -29,14 +41,20 @@ __int64 __fastcall CInteractionContextTransformHelper::TransformCoordinateSpace(
     {
       *(_OWORD *)a4 = *(_OWORD *)a3;
       *((_OWORD *)a4 + 1) = *((_OWORD *)a3 + 1);
+      v8 = a2->right;
+      v7 = a2->left;
+      right = a1->right;
+      left = a1->left;
     }
-    v4 = *((float *)a3 + 1);
-    *(float *)a4 = (float)((float)(a2->right - a2->left) * *(float *)a3) / (float)(a1->right - a1->left);
-    *((float *)a4 + 1) = (float)((float)(a2->bottom - a2->top) * v4) / (float)(a1->bottom - a1->top);
+    v9 = *((float *)a3 + 1);
+    *(float *)a4 = (float)((float)(v8 - v7) * *(float *)a3) / (float)(right - left);
+    *((float *)a4 + 1) = (float)((float)(a2->bottom - a2->top) * v9) / (float)(a1->bottom - a1->top);
     TransformPoint(&a1->left, &a2->left, *((float *)a3 + 4), *((float *)a3 + 5), (float *)a4 + 4, (float *)a4 + 5);
-    *(float *)(v9 + 28) = (float)((float)((float)((float)(v6[2] - *v6) * *(float *)(v8 + 28)) / (float)(v7[2] - *v7))
-                                + (float)((float)((float)(v6[3] - v6[1]) * *(float *)(v8 + 28)) / (float)(v7[3] - v7[1])))
-                        * 0.5;
+    *(float *)(v14 + 28) = (float)((float)((float)((float)(v11[3] - v11[1]) * *(float *)(v13 + 28))
+                                         / (float)(v12[3] - v12[1]))
+                                 + (float)((float)((float)(v11[2] - *v11) * *(float *)(v13 + 28))
+                                         / (float)(v12[2] - *v12)))
+                         * 0.5;
   }
-  return v5;
+  return v10;
 }

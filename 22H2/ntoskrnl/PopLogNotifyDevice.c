@@ -1,66 +1,64 @@
 /*
- * XREFs of PopLogNotifyDevice @ 0x1404629CA
+ * XREFs of PopLogNotifyDevice @ 0x140576A0C
  * Callers:
- *     PopRequestPowerIrp @ 0x14028F110 (PopRequestPowerIrp.c)
- *     PopNotifyDevice @ 0x140AA738C (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x140370580 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x1409930F0 (PopNotifyDevice.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void *__fastcall PopLogNotifyDevice(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall PopLogNotifyDevice(__int64 a1, __int64 a2, __int64 a3)
 {
-  void *result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  int v11; // ebx
-  _QWORD v12[32]; // [rsp+30h] [rbp-D0h] BYREF
-  _QWORD *v13; // [rsp+130h] [rbp+30h] BYREF
-  int v14; // [rsp+138h] [rbp+38h]
-  int v15; // [rsp+13Ch] [rbp+3Ch]
+  __int64 v6; // rdx
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  int v10; // ebx
+  _QWORD v11[32]; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD *v12; // [rsp+130h] [rbp+30h] BYREF
+  int v13; // [rsp+138h] [rbp+38h]
+  int v14; // [rsp+13Ch] [rbp+3Ch]
 
-  result = memset(v12, 0, sizeof(v12));
-  if ( (xmmword_140D1EAD0 & 0x8000) != 0 )
+  memset(v11, 0, sizeof(v11));
+  if ( (xmmword_140CFC490 & 0x8000) != 0 )
   {
-    v7 = *(_QWORD *)(a3 + 184);
-    v8 = *(_QWORD *)(a1 + 8);
-    v12[0] = a3;
-    v12[1] = *(_QWORD *)(v8 + 24);
-    *(_WORD *)((char *)&v12[2] + 1) = *(_WORD *)(v7 - 72);
-    HIDWORD(v12[2]) = *(_DWORD *)(v7 - 56);
-    LODWORD(v12[3]) = *(_DWORD *)(v7 - 48);
+    v6 = *(_QWORD *)(a3 + 184);
+    v7 = *(_QWORD *)(a1 + 8);
+    v11[0] = a3;
+    v11[1] = *(_QWORD *)(v7 + 24);
+    *(_WORD *)((char *)&v11[2] + 1) = *(_WORD *)(v6 - 72);
+    HIDWORD(v11[2]) = *(_DWORD *)(v6 - 56);
+    LODWORD(v11[3]) = *(_DWORD *)(v6 - 48);
     if ( a2 )
     {
-      v9 = *(_QWORD *)(a2 + 72);
-      LOBYTE(v12[2]) = *(_BYTE *)(a2 + 56);
-      if ( v9 )
+      v8 = *(_QWORD *)(a2 + 72);
+      LOBYTE(v11[2]) = *(_BYTE *)(a2 + 56);
+      if ( v8 )
       {
-        v10 = -1LL;
+        v9 = -1LL;
         do
-          ++v10;
-        while ( *(_WORD *)(v9 + 2 * v10) );
-        v11 = v10;
-        if ( (unsigned int)v10 > 0x6C )
-          v11 = 108;
-        RtlStringCchCopyW((NTSTRSAFE_PWSTR)&v12[4], 0x6DuLL, (NTSTRSAFE_PCWSTR)(v9 + 2LL * (unsigned int)(v10 - v11)));
+          ++v9;
+        while ( *(_WORD *)(v8 + 2 * v9) );
+        v10 = v9;
+        if ( (unsigned int)v9 > 0x6C )
+          v10 = 108;
+        RtlStringCchCopyW((NTSTRSAFE_PWSTR)&v11[4], 0x6DuLL, (NTSTRSAFE_PCWSTR)(v8 + 2LL * (unsigned int)(v9 - v10)));
         goto LABEL_11;
       }
     }
     else
     {
-      LOBYTE(v12[2]) = 0;
+      LOBYTE(v11[2]) = 0;
     }
-    LOWORD(v12[4]) = 0;
-    v11 = 0;
+    LOWORD(v11[4]) = 0;
+    v10 = 0;
 LABEL_11:
-    v15 = 0;
-    v13 = v12;
-    v14 = 2 * v11 + 40;
-    return (void *)EtwTraceKernelEvent((int)&v13, 1, 0x80008000, 4646, 4200450);
+    v14 = 0;
+    v12 = v11;
+    v13 = 2 * v10 + 40;
+    EtwTraceKernelEvent((__int64)&v12, 1u, 0x80008000, 0x1226u, 0x401802u);
   }
-  return result;
 }

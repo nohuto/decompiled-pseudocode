@@ -1,13 +1,11 @@
 /*
- * XREFs of ?GetPropertyValue@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@IPEAVCExpressionValue@@@Z @ 0x1801E2F50
+ * XREFs of ?GetPropertyValue@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@IPEAVCExpressionValue@@@Z @ 0x180180514
  * Callers:
- *     ?GetPropertyValue@DataProviderManager@@QEAAJPEAVCDataSourceReader@@_K1IPEAVCExpressionValue@@@Z @ 0x1801B7BC0 (-GetPropertyValue@DataProviderManager@@QEAAJPEAVCDataSourceReader@@_K1IPEAVCExpressionValue@@@Z.c)
+ *     ?GetPropertyValue@DataProviderManager@@QEAAJPEAVCDataSourceReader@@_K1IPEAVCExpressionValue@@@Z @ 0x1801649A8 (-GetPropertyValue@DataProviderManager@@QEAAJPEAVCDataSourceReader@@_K1IPEAVCExpressionValue@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetEffectiveCompositionFrameId@CComposition@@QEBA_KXZ @ 0x1801B37BC (-GetEffectiveCompositionFrameId@CComposition@@QEBA_KXZ.c)
- *     ?DoesResourceHaveAccess@DataSourceProxy@@QEAA_NPEAVCResource@@@Z @ 0x1801E29F4 (-DoesResourceHaveAccess@DataSourceProxy@@QEAA_NPEAVCResource@@@Z.c)
- *     ?GetPropertyValue@DataSourcePropertySet@@QEAAJIPEAVCExpressionValue@@@Z @ 0x1801E2B00 (-GetPropertyValue@DataSourcePropertySet@@QEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?DoesReaderHaveAccess@DataSourceProxy@@AEAA_NPEAVCDataSourceReader@@@Z @ 0x180180018 (-DoesReaderHaveAccess@DataSourceProxy@@AEAA_NPEAVCDataSourceReader@@@Z.c)
+ *     ?GetPropertyValue@DataSourcePropertySet@@QEAAJIPEAVCExpressionValue@@@Z @ 0x18018006C (-GetPropertyValue@DataSourcePropertySet@@QEAAJIPEAVCExpressionValue@@@Z.c)
  */
 
 __int64 __fastcall DataSourceProxy::GetPropertyValue(
@@ -16,32 +14,14 @@ __int64 __fastcall DataSourceProxy::GetPropertyValue(
         int a3,
         struct CExpressionValue *a4)
 {
-  char v8; // al
-  CComposition *v9; // rcx
-  unsigned __int64 EffectiveCompositionFrameId; // rax
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( DataSourceProxy::DoesResourceHaveAccess(this, a2) )
-  {
-    v8 = *((_BYTE *)this + 224);
-    if ( (v8 & 1) == 0 )
-    {
-      v9 = g_pComposition;
-      *((_BYTE *)this + 224) = v8 | 1;
-      EffectiveCompositionFrameId = CComposition::GetEffectiveCompositionFrameId(v9);
-      (*(void (__fastcall **)(char *, unsigned __int64))(*((_QWORD *)this + 1) + 24LL))(
-        (char *)this + 8,
-        EffectiveCompositionFrameId);
-    }
+  if ( DataSourceProxy::DoesReaderHaveAccess(this, a2) )
     return DataSourcePropertySet::GetPropertyValue((DataSourceProxy *)((char *)this + 64), a3, a4);
-  }
-  else
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x177,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\datasourceproxy.cpp",
-      (const char *)0x80070005LL);
-    return 2147942405LL;
-  }
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x174,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\datasourceproxy.cpp",
+    (const char *)0x80004005LL);
+  return 2147500037LL;
 }

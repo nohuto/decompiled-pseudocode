@@ -1,79 +1,81 @@
 /*
- * XREFs of ?SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z @ 0x1C01DF1D4
+ * XREFs of ?SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z @ 0x1C016AB38
  * Callers:
- *     DxgkSetProcessSchedulingPriorityClass @ 0x1C01DEF90 (DxgkSetProcessSchedulingPriorityClass.c)
+ *     DxgkSetProcessSchedulingPriorityClass @ 0x1C016AA50 (DxgkSetProcessSchedulingPriorityClass.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0007F58 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     VidSchSetPriorityClassProcessX @ 0x1C01DF320 (VidSchSetPriorityClassProcessX.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0008E04 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     VidSchSetPriorityClassProcessX @ 0x1C016AC5C (VidSchSetPriorityClassProcessX.c)
  */
 
-__int64 __fastcall DXGPROCESS::SetProcessSchedulingPriorityClass(
-        struct _KTHREAD **this,
-        unsigned int a2,
-        unsigned __int8 a3)
+__int64 __fastcall DXGPROCESS::SetProcessSchedulingPriorityClass(DXGPROCESS *this, __int64 a2, unsigned __int8 a3)
 {
+  unsigned int v3; // ebx
   unsigned int v5; // r12d
+  __int64 v6; // rax
   __int64 result; // rax
-  struct _KTHREAD *v7; // rdi
+  _QWORD *v8; // rdi
   struct DXGDEVICE *Current; // rax
-  struct DXGDEVICE *v9; // r14
-  struct DXGADAPTER *v10; // rbx
-  __int64 v11; // r8
-  _QWORD v12[2]; // [rsp+50h] [rbp-B0h] BYREF
-  char *v13; // [rsp+60h] [rbp-A0h] BYREF
-  struct _KTHREAD *v14; // [rsp+68h] [rbp-98h]
-  _BYTE v15[144]; // [rsp+70h] [rbp-90h] BYREF
+  struct DXGDEVICE *v10; // r14
+  struct DXGADAPTER *v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _QWORD v14[2]; // [rsp+20h] [rbp-99h] BYREF
+  char *v15; // [rsp+30h] [rbp-89h] BYREF
+  _QWORD *v16; // [rsp+38h] [rbp-81h]
+  _BYTE v17[144]; // [rsp+40h] [rbp-79h] BYREF
 
+  v3 = a2;
   v5 = a3;
-  if ( this[16] != KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 13) + 16LL) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 3538LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsMutexOwner()", 3538LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 3390LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  result = VidSchSetPriorityClassProcessX(this, a2, v5);
+  result = VidSchSetPriorityClassProcessX(this, v3, v5);
   if ( (int)result >= 0 )
   {
-    *((_DWORD *)this + 78) = a2;
+    *((_DWORD *)this + 68) = v3;
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(this + 27, 0LL);
-    this[28] = KeGetCurrentThread();
-    v7 = this[40];
-    v13 = (char *)(this + 40);
+    ExAcquirePushLockExclusiveEx((char *)this + 176, 0LL);
+    *((_QWORD *)this + 23) = KeGetCurrentThread();
+    v8 = (_QWORD *)*((_QWORD *)this + 35);
+    v15 = (char *)this + 280;
     while ( 1 )
     {
-      v14 = v7;
-      Current = (struct DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(&v13);
-      v9 = Current;
+      v16 = v8;
+      Current = (struct DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(&v15);
+      v10 = Current;
       if ( !Current )
         break;
-      v10 = *(struct DXGADAPTER **)(*((_QWORD *)Current + 2) + 16LL);
-      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v12, Current);
-      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v15, v10, 0LL);
-      if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v15, 0LL) >= 0 && (*((_BYTE *)v9 + 1901) & 1) == 0 )
+      v11 = *(struct DXGADAPTER **)(*((_QWORD *)Current + 2) + 16LL);
+      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v14, Current);
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v17, v11, 0LL);
+      if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v17, 0LL) >= 0
+        && (*((_BYTE *)v10 + 1869) & 1) == 0 )
       {
-        LOBYTE(v11) = v5;
-        (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v9 + 2) + 736LL) + 8LL)
+        LOBYTE(v13) = v5;
+        (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v10 + 2) + 616LL) + 8LL)
                                                         + 160LL))(
-          *((_QWORD *)v9 + 100),
-          *((unsigned int *)this + 108),
-          v11);
-        v7 = v14;
+          *((_QWORD *)v10 + 96),
+          *((unsigned int *)this + 88),
+          v13);
+        v8 = v16;
       }
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v15);
-      if ( v12[0] )
-        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v12);
-      v7 = *(struct _KTHREAD **)v7;
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v17, v12);
+      if ( v14[0] )
+        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v14);
+      v8 = (_QWORD *)*v8;
     }
-    this[28] = 0LL;
-    ExReleasePushLockExclusiveEx(this + 27, 0LL);
+    *((_QWORD *)this + 23) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)this + 176, 0LL);
     KeLeaveCriticalRegion();
     return 0LL;
   }

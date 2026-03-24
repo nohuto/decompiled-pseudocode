@@ -1,10 +1,10 @@
 /*
- * XREFs of RootHub_UcxEvtSetHubFeature @ 0x1C0040270
+ * XREFs of RootHub_UcxEvtSetHubFeature @ 0x1C003E010
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RootHub_UcxEvtSetHubFeature(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800E8790
+ * XREFs of ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800DA058
  * Callers:
- *     ??1CVisualTree@@UEAA@XZ @ 0x180063EB4 (--1CVisualTree@@UEAA@XZ.c)
+ *     ??1CVisualTree@@UEAA@XZ @ 0x180044294 (--1CVisualTree@@UEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 void __fastcall CDirtyRegionAnnotationAllocationSet::ReleaseDirtyRegionAnnotationBuffers(
@@ -32,6 +32,6 @@ LABEL_6:
       goto LABEL_6;
     *(_QWORD *)this = v5;
     *((_QWORD *)v5 + 1) = this;
-    operator delete(v4, 0x610uLL);
+    operator delete(v4);
   }
 }

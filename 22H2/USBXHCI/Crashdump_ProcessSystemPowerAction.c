@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_ProcessSystemPowerAction @ 0x1C004CBC4
+ * XREFs of Crashdump_ProcessSystemPowerAction @ 0x1C004A0F4
  * Callers:
- *     Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000F0B0 (Controller_WdfEvtPreprocessSetPowerIrp.c)
+ *     Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000A3C0 (Controller_WdfEvtPreprocessSetPowerIrp.c)
  * Callees:
  *     <none>
  */

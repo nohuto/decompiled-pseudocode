@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x14084EBAC
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x14084EB8C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x14085BDA4 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14085BD84 (MiProcessKernelCfgImageLoadConfig.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 
@@ -62,7 +62,7 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
         v19 = 2;
         v24 = 4;
         v27 = 4;
-        TlgWriteEx(v6, &unk_14036DD4A, v5, (ULONG)v6, v12, v13, 7u, &pData);
+        TlgWriteEx(v6, &unk_14036DE5A, v5, (ULONG)v6, v12, v13, 7u, &pData);
       }
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CSynchronousSuperWetInkMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0228E30
+ * XREFs of ?SetRemarshalingFlags@CSynchronousSuperWetInkMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFA00
  * Callers:
  *     <none>
  * Callees:
@@ -9,29 +9,23 @@
 bool __fastcall DirectComposition::CSynchronousSuperWetInkMarshaler::SetRemarshalingFlags(
         DirectComposition::CSynchronousSuperWetInkMarshaler *this)
 {
-  if ( *((_QWORD *)this + 8) )
+  if ( *((_QWORD *)this + 7) )
     *((_DWORD *)this + 4) |= 0x20u;
-  if ( *((_QWORD *)this + 9) )
+  if ( *((_QWORD *)this + 8) )
     *((_DWORD *)this + 4) |= 0x40u;
-  if ( *((_DWORD *)this + 20) )
+  if ( *((_DWORD *)this + 18) )
     *((_DWORD *)this + 4) |= 0x80u;
-  if ( *((_DWORD *)this + 21) )
+  if ( *((_DWORD *)this + 19) )
     *((_DWORD *)this + 4) |= 0x100u;
-  if ( *((_DWORD *)this + 22) )
+  if ( *((_DWORD *)this + 20) )
     *((_DWORD *)this + 4) |= 0x200u;
-  if ( *((_QWORD *)this + 12) )
+  if ( *((_QWORD *)this + 11) )
     *((_DWORD *)this + 4) |= 0x400u;
-  if ( *((_DWORD *)this + 26) )
+  if ( *((_DWORD *)this + 24) )
     *((_DWORD *)this + 4) |= 0x800u;
-  if ( *((_DWORD *)this + 27) )
+  if ( *((_DWORD *)this + 25) )
     *((_DWORD *)this + 4) |= 0x1000u;
-  if ( *((_DWORD *)this + 28) )
+  if ( *((_DWORD *)this + 26) )
     *((_DWORD *)this + 4) |= 0x2000u;
-  if ( *((_BYTE *)this + 116) )
-    *((_DWORD *)this + 4) |= 0x4000u;
-  if ( *((_DWORD *)this + 30) )
-    *((_DWORD *)this + 4) |= 0x8000u;
-  if ( *((_DWORD *)this + 31) )
-    *((_DWORD *)this + 4) |= 0x10000u;
-  return (*((_DWORD *)this + 4) & 0x1FFE0) != 0;
+  return (*((_DWORD *)this + 4) & 0x3FE0) != 0;
 }

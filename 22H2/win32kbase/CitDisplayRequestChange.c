@@ -1,9 +1,9 @@
 /*
- * XREFs of CitDisplayRequestChange @ 0x1C0010BF4
+ * XREFs of CitDisplayRequestChange @ 0x1C00B2724
  * Callers:
- *     UserPowerInfoCallout @ 0x1C000FBD4 (UserPowerInfoCallout.c)
+ *     UserPowerInfoCallout @ 0x1C004FC50 (UserPowerInfoCallout.c)
  * Callees:
- *     ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C0010CA0 (-OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z.c)
+ *     ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C00B27D0 (-OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z.c)
  */
 
 char __fastcall CitDisplayRequestChange(unsigned int a1)
@@ -12,17 +12,17 @@ char __fastcall CitDisplayRequestChange(unsigned int a1)
   bool v3; // si
   char result; // al
 
-  v1 = xmmword_1C0293D30;
-  if ( xmmword_1C0293D30 )
+  v1 = xmmword_1C0254590;
+  if ( xmmword_1C0254590 )
   {
     v3 = a1 != 0;
-    result = *((_BYTE *)xmmword_1C0293D30 + 112) & 1;
+    result = *((_BYTE *)xmmword_1C0254590 + 112) & 1;
     if ( (a1 != 0) != result )
     {
       if ( a1 )
       {
-        if ( (unsigned int)dword_1C02884C4 < MEMORY[0xFFFFF7800000037C] )
-          EtwTelemetryCoverageReport(&off_1C02884B8);
+        if ( (unsigned int)dword_1C0249334 < MEMORY[0xFFFFF7800000037C] )
+          EtwTelemetryCoverageReport(&off_1C0249328);
       }
       CIT_USER_ACTIVE_TRACKER::OnDisplayRequiredChange(
         (struct _CIT_IMPACT_CONTEXT *)((char *)v1 + 228),

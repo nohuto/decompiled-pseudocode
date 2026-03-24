@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationResourceManager @ 0x14041EBE0
+ * XREFs of ZwSetInformationResourceManager @ 0x1403FD700
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,11 @@
 /*
- * XREFs of SessionIsInteractive @ 0x14036B8CC
+ * XREFs of SessionIsInteractive @ 0x140283248
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     NtSetThreadExecutionState @ 0x1407EDD60 (NtSetThreadExecutionState.c)
+ *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
+ *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
+ *     PopSetWin32kInputTimeout @ 0x1408F5308 (PopSetWin32kInputTimeout.c)
  * Callees:
- *     PsGetSiloBySessionId @ 0x14077D624 (PsGetSiloBySessionId.c)
+ *     PsGetSiloBySessionId @ 0x140634520 (PsGetSiloBySessionId.c)
  */
 
 char __fastcall SessionIsInteractive(__int64 a1)
@@ -12,7 +13,7 @@ char __fastcall SessionIsInteractive(__int64 a1)
   char v1; // bl
   int v2; // edi
   _DWORD **v3; // rax
-  int v4; // eax
+  int v5; // eax
   __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = 0;
@@ -22,11 +23,11 @@ char __fastcall SessionIsInteractive(__int64 a1)
     return 0;
   v3 = (_DWORD **)&PspHostSiloGlobals;
   if ( v6 )
-    v3 = *(_DWORD ***)(v6 + 1464);
-  if ( v2 != *v3[165] )
+    v3 = *(_DWORD ***)(v6 + 1272);
+  if ( v2 != *v3[141] )
     return 1;
-  v4 = v6 ? *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 1464) + 1320LL) + 4LL) : MEMORY[0xFFFFF780000002D8];
-  if ( v2 == v4 )
+  v5 = v6 ? *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 1272) + 1128LL) + 4LL) : MEMORY[0xFFFFF780000002D8];
+  if ( v2 == v5 )
     return 1;
   return v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of eFraction @ 0x1C0307EB4
+ * XREFs of eFraction @ 0x1C02DF87C
  * Callers:
- *     ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02C6290 (-vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z.c)
- *     ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02C6424 (-vCosSin@@YAXVEFLOAT@@PEAV1@1@Z.c)
- *     ?vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02C65A4 (-vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z.c)
+ *     ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02B06E4 (-vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z.c)
+ *     ?vCosSin@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02B0890 (-vCosSin@@YAXVEFLOAT@@PEAV1@1@Z.c)
+ *     ?vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02B0A28 (-vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z.c)
  * Callees:
  *     <none>
  */

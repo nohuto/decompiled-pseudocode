@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetClearCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02170E0
+ * XREFs of ?EmitSetClearCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7174
  * Callers:
- *     ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BC50 (-EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DAE80 (-EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetClearCommand(
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetClear
   char *v3; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 137) & 0x2000000) == 0 )
+  if ( (*((_DWORD *)this + 136) & 0x2000000) == 0 )
     return 1;
   v5 = 0LL;
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v5) )
@@ -22,11 +22,11 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetClear
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 590;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    v3[12] = *((_BYTE *)this + 544);
-    *((_DWORD *)this + 137) &= ~0x2000000u;
-    *((_BYTE *)this + 544) = 0;
+    *((_DWORD *)v3 + 1) = 566;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    v3[12] = *((_BYTE *)this + 540);
+    *((_DWORD *)this + 136) &= ~0x2000000u;
+    *((_BYTE *)this + 540) = 0;
     return 1;
   }
   return 0;

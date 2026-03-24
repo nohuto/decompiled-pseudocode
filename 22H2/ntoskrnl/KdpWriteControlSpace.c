@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpWriteControlSpace @ 0x140AB2DB8
+ * XREFs of KdpWriteControlSpace @ 0x1409B9254
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpSysWriteControlSpace @ 0x140AB2E44 (KdpSysWriteControlSpace.c)
+ *     KdpSysWriteControlSpace @ 0x1409BA008 (KdpSysWriteControlSpace.c)
  */
 
 __int64 __fastcall KdpWriteControlSpace(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
-  int v3; // r9d
+  __int64 v3; // r9
   __int64 v5; // r8
   __int64 v7; // rdx
   __int128 v9; // [rsp+30h] [rbp-18h] BYREF
@@ -22,7 +22,7 @@ __int64 __fastcall KdpWriteControlSpace(__int64 a1, unsigned __int16 *a2, __int6
   LOWORD(v9) = 56;
   v7 = *(_QWORD *)(a1 + 16);
   *((_QWORD *)&v9 + 1) = a1;
-  *(_DWORD *)(a1 + 8) = KdpSysWriteControlSpace(*(unsigned __int16 *)(a1 + 6), v7, v5, v3, (__int64)&v10);
+  *(_DWORD *)(a1 + 8) = KdpSysWriteControlSpace(*(unsigned __int16 *)(a1 + 6), v7, v5, v3, &v10);
   *(_DWORD *)(a1 + 28) = v10;
   return KdSendPacket(2LL, &v9, a2, &KdpContext);
 }

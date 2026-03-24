@@ -6,13 +6,13 @@
  *     MiSecureVad @ 0x1405F35BC (MiSecureVad.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiAllocateVad @ 0x14067A2E4 (MiAllocateVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiCloneNoChange @ 0x14084F3DC (MiCloneNoChange.c)
+ *     MiAllocateVad @ 0x14067A2C4 (MiAllocateVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiCloneNoChange @ 0x14084F3BC (MiCloneNoChange.c)
  * Callees:
  *     MiSetVadFlags @ 0x1400879E0 (MiSetVadFlags.c)
  *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x14012AD54 (MiLocateExclusiveSecure.c)
+ *     MiLocateExclusiveSecure @ 0x14012AD74 (MiLocateExclusiveSecure.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

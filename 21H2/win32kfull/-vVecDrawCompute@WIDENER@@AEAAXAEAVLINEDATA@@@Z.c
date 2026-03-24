@@ -1,18 +1,18 @@
 /*
- * XREFs of ?vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C0131938
+ * XREFs of ?vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C0141820
  * Callers:
- *     ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C01317CC (-vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
- *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C01706F8 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C017073E (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C01416A4 (-vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CFD84 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CFDCC (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
  * Callees:
- *     ?vDetermineDrawVertex@WIDEPENOBJ@@QEAAXAEAVEVECTORFX@@AEAVLINEDATA@@@Z @ 0x1C01319AC (-vDetermineDrawVertex@WIDEPENOBJ@@QEAAXAEAVEVECTORFX@@AEAVLINEDATA@@@Z.c)
+ *     ?vDetermineDrawVertex@WIDEPENOBJ@@QEAAXAEAVEVECTORFX@@AEAVLINEDATA@@@Z @ 0x1C0141898 (-vDetermineDrawVertex@WIDEPENOBJ@@QEAAXAEAVEVECTORFX@@AEAVLINEDATA@@@Z.c)
  */
 
 void __fastcall WIDENER::vVecDrawCompute(WIDENER *this, struct LINEDATA *a2)
 {
-  int *v3; // rax
+  int *v3; // rcx
   int v4; // edx
-  int v5; // ecx
+  int v5; // eax
   int v6; // eax
 
   WIDEPENOBJ::vDetermineDrawVertex((WIDENER *)((char *)this + 824), (struct LINEDATA *)((char *)a2 + 48), a2);
@@ -21,8 +21,7 @@ void __fastcall WIDENER::vVecDrawCompute(WIDENER *this, struct LINEDATA *a2)
   v5 = *v3;
   if ( (*(_DWORD *)a2 & 1) != 0 )
   {
-    v5 = -v5;
-    *((_DWORD *)a2 + 18) = v5;
+    *((_DWORD *)a2 + 18) = -v5;
     v6 = -v3[1];
   }
   else
@@ -32,6 +31,6 @@ void __fastcall WIDENER::vVecDrawCompute(WIDENER *this, struct LINEDATA *a2)
   }
   *((_DWORD *)a2 + 19) = v6;
   *(_DWORD *)a2 = v4 | 8;
-  *((_DWORD *)a2 + 18) = ((v5 >> 31) + 4 + v5) & 0xFFFFFFF8;
+  *((_DWORD *)a2 + 18) = ((*((int *)a2 + 18) >> 31) + *((_DWORD *)a2 + 18) + 4) & 0xFFFFFFF8;
   *((_DWORD *)a2 + 19) = ((*((int *)a2 + 19) >> 31) + *((_DWORD *)a2 + 19) + 4) & 0xFFFFFFF8;
 }

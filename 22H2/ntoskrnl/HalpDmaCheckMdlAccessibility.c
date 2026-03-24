@@ -1,56 +1,54 @@
 /*
- * XREFs of HalpDmaCheckMdlAccessibility @ 0x1404FF834
+ * XREFs of HalpDmaCheckMdlAccessibility @ 0x14039F2B8
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x1405144A0 (HalFlushAdapterBuffersEx.c)
- *     HalMapTransferEx @ 0x140514730 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x14039EFE0 (HalMapTransferEx.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2630 (HalFlushAdapterBuffersEx.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     IoBuildPartialMdl @ 0x140324960 (IoBuildPartialMdl.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B91AC (HalpDmaGetAdapterCacheAlignment.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     IoBuildPartialMdl @ 0x1402EE630 (IoBuildPartialMdl.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8BA0 (HalpDmaGetAdapterCacheAlignment.c)
  */
 
 char *__fastcall HalpDmaCheckMdlAccessibility(
         __int64 a1,
         _QWORD *a2,
-        unsigned int a3,
-        unsigned int a4,
+        unsigned __int64 a3,
+        ULONG a4,
         char *a5,
-        __int64 *a6)
+        PMDL *a6)
 {
   unsigned int v8; // r10d
   _QWORD *v9; // rbx
   char v11; // r15
-  __int64 v12; // r9
-  unsigned int v13; // edi
-  unsigned int v14; // r13d
-  int v15; // eax
-  __int64 Mdl; // rax
-  struct _MDL *v17; // r14
-  unsigned int v19; // ecx
-  struct _MDL *v20; // rcx
-  struct _MDL *Next; // rbx
   char *result; // rax
+  __int64 v13; // r9
+  ULONG v14; // edi
+  unsigned int v15; // r13d
+  int v16; // eax
+  PMDL Mdl; // rax
+  struct _MDL *v18; // r14
+  unsigned int v20; // ecx
+  ULONG v21; // eax
+  struct _MDL *Next; // rbx
   PVOID VirtualAddress; // [rsp+30h] [rbp-38h]
-  _QWORD *v24; // [rsp+98h] [rbp+30h]
+  _QWORD *p_Next; // [rsp+98h] [rbp+30h]
 
   v8 = a3;
   v9 = a2;
   *a6 = 0LL;
-  v24 = 0LL;
-  if ( KeGetCurrentIrql() > 2u || *(_BYTE *)(a1 + 445) )
+  p_Next = 0LL;
+  if ( KeGetCurrentIrql() > 2u || *(_BYTE *)(a1 + 437) )
   {
-LABEL_26:
-    v20 = (struct _MDL *)*a6;
+LABEL_3:
     if ( *a6 )
     {
       do
       {
-        Next = v20->Next;
-        IoFreeMdl(v20);
-        *a6 = (__int64)Next;
-        v20 = Next;
+        Next = (*a6)->Next;
+        IoFreeMdl(*a6);
+        *a6 = Next;
       }
       while ( Next );
     }
@@ -63,50 +61,52 @@ LABEL_26:
     {
       while ( a4 )
       {
-        v12 = *((unsigned int *)v9 + 11);
-        v13 = *((_DWORD *)v9 + 10) - v8;
-        if ( v13 >= a4 )
-          v13 = a4;
-        v14 = v12 + v8;
-        if ( !*(_BYTE *)(a1 + 445) )
+        v13 = *((unsigned int *)v9 + 11);
+        v14 = *((_DWORD *)v9 + 10) - v8;
+        if ( v14 >= a4 )
+          v14 = a4;
+        v15 = v13 + v8;
+        if ( !*(_BYTE *)(a1 + 437) )
         {
-          v15 = HalpDmaGetAdapterCacheAlignment(a1, (__int64)a2) - 1;
-          if ( (v15 & v14) != 0 || (v13 & v15) != 0 )
-            goto LABEL_26;
+          v16 = HalpDmaGetAdapterCacheAlignment(a1, a2, a3) - 1;
+          if ( (v16 & v15) != 0 || (v14 & v16) != 0 )
+            goto LABEL_3;
         }
-        VirtualAddress = (PVOID)(v8 + v12 + v9[4]);
-        Mdl = IopAllocateMdl((__int64)VirtualAddress, v13, 0, v12, 0LL, 0);
-        v17 = (struct _MDL *)Mdl;
+        VirtualAddress = (PVOID)(v8 + v13 + v9[4]);
+        Mdl = IoAllocateMdl(VirtualAddress, v14, 0, 0, 0LL);
+        v18 = Mdl;
         if ( !Mdl )
-          goto LABEL_26;
+          goto LABEL_3;
         if ( *a6 )
-          *v24 = Mdl;
+          *p_Next = Mdl;
         else
           *a6 = Mdl;
-        v24 = (_QWORD *)Mdl;
+        p_Next = &Mdl->Next;
         if ( !((*((_BYTE *)v9 + 10) & 5) != 0
              ? (PVOID)v9[3]
              : MmMapLockedPagesSpecifyCache((PMDL)v9, 0, MmCached, 0LL, 0, 0x40000020u)) )
-          goto LABEL_26;
-        IoBuildPartialMdl((PMDL)v9, v17, VirtualAddress, v13);
-        v19 = 4096 - (v14 & 0xFFF);
-        a2 = &v9[((unsigned __int64)v14 >> 12) + 6];
-        if ( v13 )
+          goto LABEL_3;
+        IoBuildPartialMdl((PMDL)v9, v18, VirtualAddress, v14);
+        v20 = 4096 - (v15 & 0xFFF);
+        a2 = &v9[((unsigned __int64)v15 >> 12) + 6];
+        if ( v14 )
         {
-          while ( *(_QWORD *)(a1 + 144) >= *a2 << 12 || *(_DWORD *)(a1 + 520) == 3 )
+          a3 = *(_QWORD *)(a1 + 136);
+          while ( a3 >= *a2 << 12 || *(_DWORD *)(a1 + 512) == 2 )
           {
             ++a2;
-            if ( v13 < v19 )
-              v19 = v13;
-            v13 -= v19;
-            a4 -= v19;
-            v19 = 4096;
-            if ( !v13 )
-              goto LABEL_24;
+            v21 = v14;
+            if ( v14 >= v20 )
+              v21 = v20;
+            v20 = 4096;
+            a4 -= v21;
+            v14 -= v21;
+            if ( !v14 )
+              goto LABEL_28;
           }
-          goto LABEL_26;
+          goto LABEL_3;
         }
-LABEL_24:
+LABEL_28:
         v9 = (_QWORD *)*v9;
         v8 = 0;
         if ( !v9 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmSiExtendSection @ 0x140139950
+ * XREFs of CmSiExtendSection @ 0x140139970
  * Callers:
- *     HvpViewMapExtendStorage @ 0x1406CC5C0 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapExtendStorage @ 0x1406CC5A0 (HvpViewMapExtendStorage.c)
  * Callees:
- *     ZwExtendSection @ 0x1401B9CF0 (ZwExtendSection.c)
+ *     ZwExtendSection @ 0x1401B9D10 (ZwExtendSection.c)
  */
 
 NTSTATUS __fastcall CmSiExtendSection(void *a1, LARGE_INTEGER a2)

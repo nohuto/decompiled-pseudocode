@@ -1,12 +1,15 @@
 /*
- * XREFs of MiGetNextDirectFixupProto @ 0x140A481F0
+ * XREFs of MiGetNextDirectFixupProto @ 0x1408D7CF4
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
  * Callees:
- *     <none>
+ *     MiGetLeafPfnBuddy @ 0x1403801FC (MiGetLeafPfnBuddy.c)
  */
 
-__int64 __fastcall MiGetNextDirectFixupProto(__int64 a1, unsigned int a2)
+unsigned __int64 __fastcall MiGetNextDirectFixupProto(__int64 a1, _QWORD *a2)
 {
-  return *(_QWORD *)(a1 + 8LL * a2);
+  if ( a2 )
+    return MiGetLeafPfnBuddy(a2);
+  else
+    return *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 32LL) + 104LL);
 }

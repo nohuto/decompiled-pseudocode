@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCheckShareAccessEx @ 0x1407070C0
+ * XREFs of IoCheckShareAccessEx @ 0x1407070A0
  * Callers:
  *     <none>
  * Callees:

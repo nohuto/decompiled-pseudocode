@@ -1,16 +1,16 @@
 /*
- * XREFs of PoStoreDiagnosticContext @ 0x14036AAF4
+ * XREFs of PoStoreDiagnosticContext @ 0x14038AC9C
  * Callers:
- *     PopTraceThermalRequestPassiveHistogram @ 0x14038AF44 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopTraceThermalRequestActiveActivity @ 0x1405D4150 (PopTraceThermalRequestActiveActivity.c)
- *     ExGetWakeTimerList @ 0x14063DABC (ExGetWakeTimerList.c)
- *     PopPowerRequestGetDiagnosticBuffer @ 0x1407F0268 (PopPowerRequestGetDiagnosticBuffer.c)
- *     PopDiagTraceThermalRequest @ 0x140860CFC (PopDiagTraceThermalRequest.c)
- *     PopGetPowerRequestListInfo @ 0x14098C7F4 (PopGetPowerRequestListInfo.c)
- *     ExGetNextWakeTime @ 0x140A6CA38 (ExGetNextWakeTime.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14038A888 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038AA74 (PopTraceThermalRequestActiveActivity.c)
+ *     ExGetWakeTimerList @ 0x1405B6148 (ExGetWakeTimerList.c)
+ *     PopDiagTraceThermalRequest @ 0x1406C1DA4 (PopDiagTraceThermalRequest.c)
+ *     PopGetPowerRequestDiagnosticBuffer @ 0x1408E18F0 (PopGetPowerRequestDiagnosticBuffer.c)
+ *     PopGetPowerRequestListInfo @ 0x1408E3E14 (PopGetPowerRequestListInfo.c)
+ *     ExGetNextWakeTime @ 0x1409B2DE8 (ExGetNextWakeTime.c)
  * Callees:
- *     PoStoreRequester @ 0x14036AC64 (PoStoreRequester.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     PoStoreRequester @ 0x140282E3C (PoStoreRequester.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
@@ -27,8 +27,8 @@ __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, un
 
   v3 = *a3;
   v14 = *a3;
-  result = PoStoreRequester(a1, a2, &v14, 0LL);
-  v8 = *(_QWORD *)(a1 + 24);
+  result = PoStoreRequester(a1, (__int64)a2, &v14, 0);
+  v8 = *(_QWORD *)(a1 + 48);
   v9 = v14;
   v10 = result;
   v11 = (int)result >= 0;
@@ -41,7 +41,7 @@ __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, un
     {
       a2[4] = v12 - (_BYTE *)a2;
       *a2 = v13;
-      memmove(v12, (const void *)((a1 + 39) & 0xFFFFFFFFFFFFFFF8uLL), *(_QWORD *)(a1 + 24));
+      memmove(v12, (const void *)((a1 + 63) & 0xFFFFFFFFFFFFFFF8uLL), *(_QWORD *)(a1 + 48));
       return v10;
     }
     else

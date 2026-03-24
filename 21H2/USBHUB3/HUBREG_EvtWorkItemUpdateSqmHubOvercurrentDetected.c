@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected @ 0x1C00809A0
+ * XREFs of HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected @ 0x1C007F430
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_WriteValueToHubHardwareKey @ 0x1C0080868 (HUBREG_WriteValueToHubHardwareKey.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_WriteValueToHubHardwareKey @ 0x1C007F2FC (HUBREG_WriteValueToHubHardwareKey.c)
  */
 
 __int64 __fastcall HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected(__int64 a1)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v2,
-         off_1C0067198);
+         off_1C0066170);
   HUBREG_WriteValueToHubHardwareKey(v3, (__int64)L"&(", (*(_DWORD *)(v3 + 40) >> 29) & 1);
   return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1664))(WdfDriverGlobals, a1);
 }

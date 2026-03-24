@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceSystemShutdown @ 0x1408B9024
+ * XREFs of EtwpTraceSystemShutdown @ 0x1408B9004
  * Callers:
- *     EtwShutdown @ 0x1406DD260 (EtwShutdown.c)
+ *     EtwShutdown @ 0x1406DD240 (EtwShutdown.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char EtwpTraceSystemShutdown()
@@ -39,7 +39,7 @@ char EtwpTraceSystemShutdown()
       v1 = 2;
       v7 = 4;
       v10 = 8;
-      result = TlgWrite(&stru_1404002D0, &unk_140372DCC, 0LL, 0LL, 4u, &pData);
+      result = TlgWrite(&stru_1404002D0, &unk_140372EDC, 0LL, 0LL, 4u, &pData);
     }
   }
   if ( EtwKernelProvRegHandle )

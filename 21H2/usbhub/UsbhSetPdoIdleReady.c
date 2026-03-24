@@ -1,51 +1,51 @@
 /*
- * XREFs of UsbhSetPdoIdleReady @ 0x1C0004C18
+ * XREFs of UsbhSetPdoIdleReady @ 0x1C0012EFC
  * Callers:
- *     UsbhPdoSetDx @ 0x1C0001178 (UsbhPdoSetDx.c)
- *     UsbhBusIf_SuspendChildHub @ 0x1C00014F0 (UsbhBusIf_SuspendChildHub.c)
- *     UsbhPdoDevicePowerState @ 0x1C0005200 (UsbhPdoDevicePowerState.c)
- *     UsbhIdleIrp_NoIrp @ 0x1C0057830 (UsbhIdleIrp_NoIrp.c)
+ *     UsbhPdoDevicePowerState @ 0x1C00109A0 (UsbhPdoDevicePowerState.c)
+ *     UsbhBusIf_SuspendChildHub @ 0x1C0018B00 (UsbhBusIf_SuspendChildHub.c)
+ *     UsbhPdoSetDx @ 0x1C0018BE0 (UsbhPdoSetDx.c)
+ *     UsbhIdleIrp_NoIrp @ 0x1C0058F00 (UsbhIdleIrp_NoIrp.c)
  * Callees:
- *     UsbhRefPdoDeviceHandle @ 0x1C00036C0 (UsbhRefPdoDeviceHandle.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0015C80 (UsbhRefPdoDeviceHandle.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UsbhSetPdoIdleReady(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v6; // rbp
+  _DWORD *v6; // rbp
   __int64 v7; // rax
   __int64 v8; // rbx
   int v9; // r9d
   unsigned int v10; // r14d
-  __int64 v11; // rax
+  _DWORD *v11; // rax
   KSPIN_LOCK *v12; // rbp
   KIRQL v13; // r14
-  int v14; // r9d
+  __int64 v14; // r9
   int v15; // r10d
-  __int64 v16; // rax
+  _DWORD *v16; // rax
 
   v6 = PdoExt(a2);
-  v7 = UsbhRefPdoDeviceHandle(a1, a2, a3, 0x49746573u);
+  v7 = UsbhRefPdoDeviceHandle(a1, a2, a3, 1232364915LL);
   v8 = v7;
   if ( v7 )
   {
-    Log(a1, 32, 1919306034, 0, v7);
+    Log(a1, 32, 1919306034, 0LL, v7);
     v10 = v9 + 1;
-    *(_DWORD *)(v6 + 1784) = v9 + 1;
+    v6[446] = v9 + 1;
     v11 = FdoExt(a1);
-    if ( *(_QWORD *)(v11 + 4480) )
-      (*(void (__fastcall **)(_QWORD, __int64, _QWORD))(v11 + 4480))(*(_QWORD *)(v11 + 4232), v8, v10);
-    v12 = (KSPIN_LOCK *)(FdoExt(a1) + 3720);
+    if ( *((_QWORD *)v11 + 560) )
+      (*((void (__fastcall **)(_QWORD, __int64, _QWORD))v11 + 560))(*((_QWORD *)v11 + 529), v8, v10);
+    v12 = (KSPIN_LOCK *)(FdoExt(a1) + 930);
     v13 = KeAcquireSpinLockRaiseToDpc(v12);
     Log(a1, 256, 1146498353, v8, a3);
     Log(a1, v15, 1146498354, v14, 1232364915LL);
     v16 = FdoExt(a1);
-    if ( *(_QWORD *)(v16 + 4472) )
-      (*(void (__fastcall **)(_QWORD, __int64, __int64, __int64))(v16 + 4472))(
-        *(_QWORD *)(v16 + 4232),
+    if ( *((_QWORD *)v16 + 559) )
+      (*((void (__fastcall **)(_QWORD, __int64, __int64, __int64))v16 + 559))(
+        *((_QWORD *)v16 + 529),
         v8,
         a3,
         1232364915LL);

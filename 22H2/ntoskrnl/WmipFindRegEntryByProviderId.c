@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipFindRegEntryByProviderId @ 0x14022AA14
+ * XREFs of WmipFindRegEntryByProviderId @ 0x14032E180
  * Callers:
- *     WmipForwardWmiIrp @ 0x1406C7530 (WmipForwardWmiIrp.c)
- *     IoWMISystemControl @ 0x1407E3064 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406A25F4 (IoWMISystemControl.c)
+ *     WmipForwardWmiIrp @ 0x1406B24CC (WmipForwardWmiIrp.c)
  * Callees:
- *     WmipDoFindRegEntryByProviderId @ 0x14022AAA0 (WmipDoFindRegEntryByProviderId.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x14032E210 (WmipDoFindRegEntryByProviderId.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
@@ -32,16 +32,19 @@ __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
   KxReleaseSpinLock(&WmipRegistrationSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v10 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

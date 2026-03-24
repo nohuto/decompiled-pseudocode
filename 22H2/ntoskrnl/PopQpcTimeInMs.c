@@ -1,13 +1,13 @@
 /*
- * XREFs of PopQpcTimeInMs @ 0x140A87B50
+ * XREFs of PopQpcTimeInMs @ 0x140990E18
  * Callers:
- *     PopWriteBsdPoInfo @ 0x14032B100 (PopWriteBsdPoInfo.c)
- *     PopPowerTransitionTimesInMs @ 0x140583550 (PopPowerTransitionTimesInMs.c)
- *     PopDiagTraceHiberStats @ 0x14098F8D8 (PopDiagTraceHiberStats.c)
- *     PopDiagTracePerfTrackData @ 0x140990218 (PopDiagTracePerfTrackData.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopPowerTransitionTimesInMs @ 0x140382A80 (PopPowerTransitionTimesInMs.c)
+ *     PopWriteBsdPoInfo @ 0x1403F7748 (PopWriteBsdPoInfo.c)
+ *     PopDiagTracePerfTrackData @ 0x140774D68 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceHiberStats @ 0x140774EA0 (PopDiagTraceHiberStats.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
  */
 
 __int64 __fastcall PopQpcTimeInMs(_QWORD *a1, __int64 *a2)

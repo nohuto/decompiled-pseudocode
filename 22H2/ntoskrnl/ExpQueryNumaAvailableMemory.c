@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryNumaAvailableMemory @ 0x1409F6F84
+ * XREFs of ExpQueryNumaAvailableMemory @ 0x14094AD5C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetAvailablePages @ 0x14021DC3C (MmGetAvailablePages.c)
- *     MmGetProcessPartitionId @ 0x14021E564 (MmGetProcessPartitionId.c)
- *     MmGetChannelInformation @ 0x140852EA0 (MmGetChannelInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmGetAvailablePages @ 0x140344570 (MmGetAvailablePages.c)
+ *     MmGetProcessPartitionId @ 0x1403445F0 (MmGetProcessPartitionId.c)
+ *     MmGetChannelInformation @ 0x14077DB94 (MmGetChannelInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryNumaAvailableMemory(__int64 a1)
@@ -15,10 +15,10 @@ __int64 __fastcall ExpQueryNumaAvailableMemory(__int64 a1)
   _DWORD *v3; // r8
   unsigned __int16 ProcessPartitionId; // r15
   __int64 result; // rax
-  unsigned int v6; // r9d
-  unsigned int v7; // edi
+  unsigned int v6; // ecx
+  unsigned int v7; // esi
   __int64 i; // rbx
-  __int64 v9; // rsi
+  __int64 v9; // rdi
   __int64 j; // r8
   size_t v11; // [rsp+30h] [rbp-58h] BYREF
   PVOID P; // [rsp+38h] [rbp-50h] BYREF
@@ -31,10 +31,10 @@ __int64 __fastcall ExpQueryNumaAvailableMemory(__int64 a1)
   if ( v2 >= 4 )
   {
     v6 = (unsigned __int16)KeNumberNodes;
+    v7 = (unsigned __int16)KeNumberNodes;
     *(_DWORD *)a1 = (unsigned __int16)KeNumberNodes - 1;
-    v7 = (v2 - 8) >> 3;
-    if ( v7 > v6 )
-      v7 = v6;
+    if ( (v2 - 8) >> 3 <= v6 )
+      v7 = (v2 - 8) >> 3;
     if ( v2 >= 8 && v7 )
     {
       *v3 = 8 * v7 + 8;

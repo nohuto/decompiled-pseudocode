@@ -1,9 +1,9 @@
 /*
- * XREFs of GetCurrentKbdTables @ 0x1C01E9BB0
+ * XREFs of GetCurrentKbdTables @ 0x1C01B0670
  * Callers:
- *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C01E9B0C (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C01B05D4 (-SendKeyUpDown@@YAXEE@Z.c)
  * Callees:
- *     PtiKbdFromQ @ 0x1C01EA3D8 (PtiKbdFromQ.c)
+ *     PtiKbdFromQ @ 0x1C01B11A8 (PtiKbdFromQ.c)
  */
 
 __int64 GetCurrentKbdTables()

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSynchronizeSecurityDomainTarget @ 0x14025CE00
+ * XREFs of KiSynchronizeSecurityDomainTarget @ 0x1402D3650
  * Callers:
- *     KeSynchronizeSecurityDomain @ 0x140255E2C (KeSynchronizeSecurityDomain.c)
+ *     KeSynchronizeSecurityDomain @ 0x1402BC338 (KeSynchronizeSecurityDomain.c)
  * Callees:
  *     <none>
  */

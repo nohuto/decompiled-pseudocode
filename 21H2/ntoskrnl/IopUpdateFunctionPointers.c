@@ -1,15 +1,14 @@
 /*
- * XREFs of IopUpdateFunctionPointers @ 0x14055712C
+ * XREFs of IopUpdateFunctionPointers @ 0x140501958
  * Callers:
- *     IopIrpExtensionControl @ 0x140556DE0 (IopIrpExtensionControl.c)
- *     IoPerfInit @ 0x1405594BC (IoPerfInit.c)
- *     IoPerfReset @ 0x1405595B8 (IoPerfReset.c)
- *     ViIovPluginUnload @ 0x140601C50 (ViIovPluginUnload.c)
- *     IoVerifierInit @ 0x140A7FDC0 (IoVerifierInit.c)
+ *     IopIrpExtensionControl @ 0x140500E98 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140507DE0 (IoPerfInit.c)
+ *     IoPerfReset @ 0x140507EDC (IoPerfReset.c)
+ *     IoVerifierInit @ 0x1409C476C (IoVerifierInit.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)

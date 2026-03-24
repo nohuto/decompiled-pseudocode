@@ -1,10 +1,10 @@
 /*
- * XREFs of DwmAsyncRegisterSharedThumbnailVisual @ 0x1C0003EE4
+ * XREFs of DwmAsyncRegisterSharedThumbnailVisual @ 0x1C0007D80
  * Callers:
- *     DwmAsyncRegisterSharedThumbnailVisualApiExt @ 0x1C0003EA0 (DwmAsyncRegisterSharedThumbnailVisualApiExt.c)
+ *     DwmAsyncRegisterSharedThumbnailVisualApiExt @ 0x1C0007D40 (DwmAsyncRegisterSharedThumbnailVisualApiExt.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncRegisterSharedThumbnailVisual(
@@ -36,7 +36,7 @@ __int64 __fastcall DwmAsyncRegisterSharedThumbnailVisual(
     *(_QWORD *)((char *)&v16[28] + 1) = a7;
     *(_QWORD *)&v13 = *((_QWORD *)a6 + 4);
     v16[0] = 8454233;
-    v16[10] = 1073741905;
+    v16[10] = 1073741903;
     *(_QWORD *)&v16[11] = a2;
     *(_QWORD *)&v16[13] = a3;
     v16[15] = a4;

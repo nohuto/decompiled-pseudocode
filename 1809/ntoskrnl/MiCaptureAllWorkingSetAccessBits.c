@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCaptureAllWorkingSetAccessBits @ 0x140175CB4
+ * XREFs of MiCaptureAllWorkingSetAccessBits @ 0x140175CD4
  * Callers:
  *     MmPerformMemoryListCommand @ 0x14056EA20 (MmPerformMemoryListCommand.c)
  * Callees:
- *     MiQueueWorkingSetRequest @ 0x140175CDC (MiQueueWorkingSetRequest.c)
+ *     MiQueueWorkingSetRequest @ 0x140175CFC (MiQueueWorkingSetRequest.c)
  */
 
 __int64 __fastcall MiCaptureAllWorkingSetAccessBits(__int64 a1, int a2)

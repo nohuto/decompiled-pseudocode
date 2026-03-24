@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpQueryHandleInformationMessage @ 0x140612E9C (AlpcpQueryHandleInformationMessage.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
  *     AlpcpCaptureIdMessage @ 0x140637AE0 (AlpcpCaptureIdMessage.c)
- *     AlpcpQuerySidMessage @ 0x1406B5728 (AlpcpQuerySidMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x140849E84 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpQuerySidMessage @ 0x1406B5708 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x140849E64 (AlpcpQueryTokenModifiedIdMessage.c)
  */
 
 __int64 __fastcall NtAlpcQueryInformationMessage(

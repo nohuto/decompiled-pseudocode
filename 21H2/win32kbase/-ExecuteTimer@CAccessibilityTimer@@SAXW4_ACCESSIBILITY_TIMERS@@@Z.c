@@ -1,47 +1,47 @@
 /*
- * XREFs of ?ExecuteTimer@CAccessibilityTimer@@SAXW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C01E0840
+ * XREFs of ?ExecuteTimer@CAccessibilityTimer@@SAXW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C01A8450
  * Callers:
- *     NtMITAccessibilityTimerNotification @ 0x1C0153D70 (NtMITAccessibilityTimerNotification.c)
+ *     NtMITAccessibilityTimerNotification @ 0x1C0128FD0 (NtMITAccessibilityTimerNotification.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int16 __fastcall CAccessibilityTimer::ExecuteTimer(unsigned int a1, __int64 a2, __int64 a3)
+__int16 __fastcall CAccessibilityTimer::ExecuteTimer(int a1)
 {
-  __int64 v3; // rdi
+  __int64 v1; // rdi
   __int16 result; // ax
-  void (__fastcall *v5)(struct tagWND *, __int64, __int64); // rbx
+  void (__fastcall *v3)(struct tagWND *, __int64, __int64); // rbx
 
-  v3 = (int)a1;
+  v1 = a1;
   result = 1 << a1;
   if ( ((unsigned __int16)(1 << a1) & CAccessibilityTimer::_timersState) != 0 )
   {
-    v5 = 0LL;
+    v3 = 0LL;
     switch ( a1 )
     {
-      case 1u:
-        v5 = FKActivationTimer;
+      case 1:
+        v3 = FKActivationTimer;
         break;
-      case 2u:
+      case 2:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxFKRepeatRateTimer)(0LL, 0LL, 2LL, 0LL);
-      case 3u:
+      case 3:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))FKBounceKeyTimer)(0LL, 0LL, 3LL, 0LL);
-      case 4u:
+      case 4:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxFKAcceptanceDelayTimer)(0LL, 0LL, 4LL, 0LL);
-      case 5u:
+      case 5:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxMKMoveAccelCursorTimer)(0LL, 0LL, 5LL, 0LL);
-      case 6u:
+      case 6:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxMKMoveConstCursorTimer)(0LL, 0LL, 6LL, 0LL);
-      case 7u:
+      case 7:
         return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxToggleKeysTimer)(0LL, 0LL, 7LL, 0LL);
-      case 8u:
-        return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))xxxAccessTimeOutTimer)(0LL, 0LL, (int)a1, 0LL);
+      case 8:
+        return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))xxxAccessTimeOutTimer)(0LL, 0LL, 8LL, 0LL);
       default:
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a1 - 7, a3);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 213);
         break;
     }
-    return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))v5)(0LL, 0LL, v3, 0LL);
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))v3)(0LL, 0LL, v1, 0LL);
   }
   return result;
 }

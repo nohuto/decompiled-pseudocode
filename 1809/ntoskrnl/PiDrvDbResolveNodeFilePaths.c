@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDrvDbResolveNodeFilePaths @ 0x14083ECF8
+ * XREFs of PiDrvDbResolveNodeFilePaths @ 0x14083ECD8
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x14083F118 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x14083F0F8 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x14015D6FC (RtlUnicodeStringPrintf.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x14083D6D8 (PiDrvDbGetNodeSystemRoot.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5DC (PiDrvDbResolveFilePathKeyValues.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x14083D6B8 (PiDrvDbGetNodeSystemRoot.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5BC (PiDrvDbResolveFilePathKeyValues.c)
  */
 
 __int64 __fastcall PiDrvDbResolveNodeFilePaths(__int64 a1, __int64 a2)

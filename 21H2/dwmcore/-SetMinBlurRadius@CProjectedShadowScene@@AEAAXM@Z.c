@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x1802374E8
+ * XREFs of ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18001FC6C
  * Callers:
- *     ?ProcessSetMinBlurRadius@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETMINBLURRADIUS@@@Z @ 0x180237350 (-ProcessSetMinBlurRadius@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTED.c)
- *     ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802375E0 (-SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetMinBlurRadius@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETMINBLURRADIUS@@@Z @ 0x1801E4D70 (-ProcessSetMinBlurRadius@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTED.c)
+ *     ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E4DD0 (-SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x1800485B4 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x1802373B0 (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
+ *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x18000CDD4 (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180065B20 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
  */
 
 void __fastcall CProjectedShadowScene::SetMinBlurRadius(CProjectedShadowScene *this, float a2)
@@ -13,10 +13,10 @@ void __fastcall CProjectedShadowScene::SetMinBlurRadius(CProjectedShadowScene *t
   float v3; // xmm0_4
 
   v3 = fmaxf(0.0, a2);
-  if ( *((float *)this + 29) != v3 )
+  if ( *((float *)this + 27) != v3 )
   {
-    *((float *)this + 29) = v3;
-    CResource::InvalidateAnimationSources(this, 5);
+    *((float *)this + 27) = v3;
+    CResource::InvalidateAnimationSources(this, 5u);
     CProjectedShadowScene::RequestRedrawAll(this);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiGetNativeMethodHandleFromAcpiObject @ 0x1C0043CB8
+ * XREFs of AcpiGetNativeMethodHandleFromAcpiObject @ 0x1C0060A14
  * Callers:
- *     AcpiSetupNativeMethodContext @ 0x1C0037EC0 (AcpiSetupNativeMethodContext.c)
+ *     AcpiSetupNativeMethodContext @ 0x1C005B9C0 (AcpiSetupNativeMethodContext.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall AcpiGetNativeMethodHandleFromAcpiObject(__int64 *a1, _QWORD *
   __int16 v9; // dx
   __int64 v10; // rax
   __int64 v11; // rax
-  __int64 **i; // rcx
+  __int64 **v12; // rcx
 
   v2 = *a1;
   v3 = 0;
@@ -27,11 +27,14 @@ __int64 __fastcall AcpiGetNativeMethodHandleFromAcpiObject(__int64 *a1, _QWORD *
     if ( *v7 == v2 )
     {
       v11 = 0LL;
-      for ( i = (__int64 **)&AcpiAmliPreDefinedRootAcpiObjects; *i != a1; ++i )
+      v12 = (__int64 **)&AcpiAmliPreDefinedRootAcpiObjects;
+      v6 = -1073741275;
+      while ( *v12 != a1 )
       {
         v11 = (unsigned int)(v11 + 1);
+        ++v12;
         if ( (unsigned int)v11 >= 5 )
-          return (unsigned int)-1073741275;
+          return v6;
       }
       v10 = AcpiAmliPreDefinedRootNativeHandles[v11];
       goto LABEL_15;
@@ -46,7 +49,7 @@ __int64 __fastcall AcpiGetNativeMethodHandleFromAcpiObject(__int64 *a1, _QWORD *
   v9 = *(_WORD *)(v2 + 66);
   if ( v9 == 6 || (unsigned __int16)(v9 - 12) <= 1u )
   {
-    v10 = *(_QWORD *)(v8 + 944);
+    v10 = *(_QWORD *)(v8 + 904);
   }
   else
   {

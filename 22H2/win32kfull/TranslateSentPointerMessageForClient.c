@@ -1,9 +1,9 @@
 /*
- * XREFs of TranslateSentPointerMessageForClient @ 0x1C01C444C
+ * XREFs of TranslateSentPointerMessageForClient @ 0x1C01EF654
  * Callers:
- *     _QuerySendMessage @ 0x1C01FBDEC (_QuerySendMessage.c)
+ *     _QuerySendMessage @ 0x1C021DE4C (_QuerySendMessage.c)
  * Callees:
- *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5B64 (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0B60 (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
  */
 
 _BOOL8 __fastcall TranslateSentPointerMessageForClient(unsigned int a1, unsigned __int64 *a2, __int64 *a3)

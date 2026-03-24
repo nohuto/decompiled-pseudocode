@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetupUserShadowStack @ 0x1409AFB7C
+ * XREFs of PspSetupUserShadowStack @ 0x14090A5DC
  * Callers:
- *     PspAllocateThread @ 0x1407A34A0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlLocateExtendedFeature @ 0x1405E7C30 (RtlLocateExtendedFeature.c)
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409AF8C4 (PspReserveAndCommitUserShadowStack.c)
- *     RtlCalculateUserShadowStackSizes @ 0x1409B5AEC (RtlCalculateUserShadowStackSizes.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlLocateExtendedFeature @ 0x14058F520 (RtlLocateExtendedFeature.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x14090A318 (PspReserveAndCommitUserShadowStack.c)
+ *     RtlCalculateUserShadowStackSizes @ 0x14090FF04 (RtlCalculateUserShadowStackSizes.c)
  */
 
 __int64 __fastcall PspSetupUserShadowStack(
@@ -25,7 +25,7 @@ __int64 __fastcall PspSetupUserShadowStack(
   char *ExtendedFeature; // rax
   __int64 v13; // rax
   unsigned __int64 v14; // [rsp+30h] [rbp-31h] BYREF
-  unsigned __int64 v15; // [rsp+38h] [rbp-29h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-29h] BYREF
   __int64 v16; // [rsp+40h] [rbp-21h] BYREF
   ULONG_PTR v17; // [rsp+48h] [rbp-19h] BYREF
   _OWORD v18[3]; // [rsp+50h] [rbp-11h] BYREF
@@ -64,9 +64,9 @@ __int64 __fastcall PspSetupUserShadowStack(
     {
       v15 = 0LL;
       v14 = v13;
-      MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, &v14, &v15, 0x8000u, 0, 0x40000000);
+      MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, &v14, &v15, 0x8000, 0, 0x40000000);
     }
-    KiUnstackDetachProcess((__int64)v18, 0LL);
+    KiUnstackDetachProcess((__int64)v18, 0);
     return (unsigned int)v11;
   }
   return result;

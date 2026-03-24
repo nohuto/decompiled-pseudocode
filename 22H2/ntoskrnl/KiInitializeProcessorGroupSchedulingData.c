@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeProcessorGroupSchedulingData @ 0x14057D55C
+ * XREFs of KiInitializeProcessorGroupSchedulingData @ 0x1405237A8
  * Callers:
- *     KiAddProcessorToGroupSchedulingDatabase @ 0x140A9FE9C (KiAddProcessorToGroupSchedulingDatabase.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x1409AFDD4 (KiAddProcessorToGroupSchedulingDatabase.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +10,10 @@ __int64 __fastcall KiInitializeProcessorGroupSchedulingData(__int64 a1)
 {
   __int64 result; // rax
 
-  *(_QWORD *)(a1 + 34192) = a1 + 34184;
-  *(_QWORD *)(a1 + 34184) = a1 + 34184;
+  *(_QWORD *)(a1 + 33296) = a1 + 33288;
+  *(_QWORD *)(a1 + 33288) = a1 + 33288;
   *(_DWORD *)(a1 + 216) = 424 * *(_DWORD *)(a1 + 36) + 128;
   result = KiGenerationEndTick;
-  *(_QWORD *)(a1 + 34520) = KiGenerationEndTick;
+  *(_QWORD *)(a1 + 33624) = KiGenerationEndTick;
   return result;
 }

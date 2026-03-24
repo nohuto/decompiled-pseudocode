@@ -1,119 +1,116 @@
 /*
- * XREFs of _anonymous_namespace_::xxxSendFocusMessages @ 0x1C00A7DFC
+ * XREFs of _anonymous_namespace_::xxxSendFocusMessages @ 0x1C0034774
  * Callers:
- *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C007DC84 (_anonymous_namespace_--xxxLocalActivateWindow.c)
- *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00A79AC (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0034410 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C0039F08 (_anonymous_namespace_--xxxLocalActivateWindow.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     LockW32Thread @ 0x1C007EAAC (LockW32Thread.c)
- *     ?xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z @ 0x1C00A80EC (-xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z.c)
- *     ?xxxApplyGlobalInputSettings@@YAXH@Z @ 0x1C00A81DC (-xxxApplyGlobalInputSettings@@YAXH@Z.c)
- *     ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C00A8268 (-xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
- *     zzzInputFocusReceivedWindowEvent @ 0x1C00A86E4 (zzzInputFocusReceivedWindowEvent.c)
- *     zzzInputFocusLostWindowEvent @ 0x1C00A8748 (zzzInputFocusLostWindowEvent.c)
- *     xxxSendNotifyMessage @ 0x1C00ACBA0 (xxxSendNotifyMessage.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     xxxFocusSetInputContext @ 0x1C0034A7C (xxxFocusSetInputContext.c)
+ *     xxxApplyGlobalInputSettings @ 0x1C0034B6C (xxxApplyGlobalInputSettings.c)
+ *     ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C0034BF4 (-xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
+ *     zzzInputFocusLostWindowEvent @ 0x1C003501C (zzzInputFocusLostWindowEvent.c)
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C003508C (zzzInputFocusReceivedWindowEvent.c)
+ *     LockW32Thread @ 0x1C003DA6C (LockW32Thread.c)
+ *     xxxSendNotifyMessage @ 0x1C0040370 (xxxSendNotifyMessage.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
  */
 
 __int64 __fastcall anonymous_namespace_::xxxSendFocusMessages(__int64 a1, struct tagWND *a2)
 {
   __int64 v4; // rcx
-  struct tagWND *v5; // rdi
-  __int64 v6; // r9
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  struct tagTHREADINFO *v10; // rcx
-  int v11; // ebp
-  __int64 v13; // rax
-  __int64 v14; // r8
-  _QWORD v15[3]; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v16; // [rsp+48h] [rbp-20h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-10h]
+  __int64 *v5; // rbx
+  __int64 v6; // rcx
+  struct tagTHREADINFO *v7; // rcx
+  int v8; // ebp
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v12; // rax
+  __int64 v13; // r8
+  __int128 v14; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-38h]
+  _QWORD v16[4]; // [rsp+50h] [rbp-28h] BYREF
 
-  v15[2] = 0LL;
+  v16[2] = 0LL;
   *(_DWORD *)(*(_QWORD *)(a1 + 432) + 388LL) &= ~0x800u;
   if ( !a2 )
   {
-    v13 = *(_QWORD *)(a1 + 432);
-    if ( *(_QWORD *)(v13 + 120) )
-      *(_DWORD *)(v13 + 388) |= 0x800u;
+    v12 = *(_QWORD *)(a1 + 432);
+    if ( *(_QWORD *)(v12 + 120) )
+      *(_DWORD *)(v12 + 388) |= 0x800u;
   }
   v4 = *(_QWORD *)(a1 + 432);
-  v5 = *(struct tagWND **)(v4 + 112);
-  v15[0] = *(_QWORD *)(a1 + 416);
-  *(_QWORD *)(a1 + 416) = v15;
-  v15[1] = v5;
+  v5 = *(__int64 **)(v4 + 112);
+  v16[0] = *(_QWORD *)(a1 + 416);
+  *(_QWORD *)(a1 + 416) = v16;
+  v16[1] = v5;
   if ( v5 )
   {
     HMLockObject(v5);
     v4 = *(_QWORD *)(a1 + 432);
   }
-  v6 = v4;
-  if ( a2 && v4 != *(_QWORD *)(*((_QWORD *)a2 + 2) + 432LL) && *(char *)(*((_QWORD *)a2 + 5) + 19LL) >= 0 )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v4);
-    v6 = *(_QWORD *)(a1 + 432);
-  }
-  tagQ::LockFocusWnd(v6, a2, 1LL);
+  *((_QWORD *)&v14 + 1) = a2;
+  *(_QWORD *)&v14 = v4 + 112;
+  HMAssignmentLock(&v14);
   if ( a2 )
   {
     if ( *(_QWORD *)(a1 + 432) == gpqForeground )
     {
-      v10 = (struct tagTHREADINFO *)*((_QWORD *)a2 + 2);
-      v17 = 0LL;
-      v11 = 0;
-      v16 = 0LL;
-      if ( v10 != (struct tagTHREADINFO *)gptiCurrent )
+      v7 = (struct tagTHREADINFO *)*((_QWORD *)a2 + 2);
+      v15 = 0LL;
+      v8 = 0;
+      v14 = 0LL;
+      if ( v7 != (struct tagTHREADINFO *)gptiCurrent )
       {
-        LockW32Thread((__int64)v10, (__int64)&v16);
-        v10 = (struct tagTHREADINFO *)*((_QWORD *)a2 + 2);
-        v11 = 1;
+        LockW32Thread(v7, &v14);
+        v7 = (struct tagTHREADINFO *)*((_QWORD *)a2 + 2);
+        v8 = 1;
       }
-      xxxSetForegroundThreadWithWindowHint(v10, a2);
-      if ( v11 )
-        PopAndFreeW32ThreadLock((__int64)&v16);
+      xxxSetForegroundThreadWithWindowHint(v7, a2);
+      if ( v8 )
+        PopAndFreeW32ThreadLock(&v14);
     }
-    v8 = *(_QWORD *)(a1 + 432);
-    v7 = v8;
-    if ( v8 == gpqForeground && a2 == *(struct tagWND **)(v8 + 112) )
+    v6 = *(_QWORD *)(a1 + 432);
+    v9 = v6;
+    if ( v6 == gpqForeground && a2 == *(struct tagWND **)(v6 + 112) )
     {
-      v8 = HIDWORD(gpdwCPUserPreferencesMask);
-      if ( (v8 & 0x80u) == 0LL )
+      v6 = HIDWORD(gpdwCPUserPreferencesMask);
+      if ( (v6 & 0x80u) == 0LL )
       {
-        xxxApplyGlobalInputSettings(v8);
-        v7 = *(_QWORD *)(a1 + 432);
+        xxxApplyGlobalInputSettings(v6, v9);
+        v9 = *(_QWORD *)(a1 + 432);
       }
     }
     if ( v5 )
     {
-      if ( v7 == gpqForeground )
+      if ( v9 == gpqForeground )
         zzzInputFocusLostWindowEvent(v5, 2LL);
-      xxxSendMessage((ULONG_PTR)v5);
-      v8 = gpsi;
+      xxxSendMessage(v5, 8LL, *(_QWORD *)a2, 0LL);
+      v6 = gpsi;
       if ( (*gpsi & 4) != 0 )
-        xxxFocusSetInputContext(v5, 0, 0);
+        xxxFocusSetInputContext(v5, 0LL, 0LL);
     }
     if ( a2 == *(struct tagWND **)(*(_QWORD *)(a1 + 432) + 112LL) )
     {
       if ( (*gpsi & 4) != 0 )
-        xxxFocusSetInputContext(a2, 1, 0);
-      xxxWindowEvent(0x8005u, a2, -4, 0, 0);
-      if ( (*(_DWORD *)(*((_QWORD *)a2 + 2) + 1256LL) & 0x40000) != 0 && (*(_DWORD *)(gptiCurrent + 488LL) & 1) != 0 )
+        xxxFocusSetInputContext(a2, 1LL, 0LL);
+      xxxWindowEvent(0x8005u, 0);
+      if ( (*(_DWORD *)(*((_QWORD *)a2 + 2) + 1232LL) & 0x40000) != 0 && (*(_DWORD *)(gptiCurrent + 488LL) & 1) != 0 )
       {
         if ( v5 )
-          v14 = *(_QWORD *)v5;
+          v13 = *v5;
         else
-          v14 = 0LL;
-        xxxSendNotifyMessage(a2, 7LL, v14, 0LL, 1);
+          v13 = 0LL;
+        xxxSendNotifyMessage(a2, 7LL, v13, 0LL, 1);
       }
       else
       {
-        xxxSendMessage((ULONG_PTR)a2);
+        if ( v5 )
+          v10 = *v5;
+        else
+          v10 = 0LL;
+        xxxSendMessage(a2, 7LL, v10, 0LL);
       }
-      v7 = gpqForeground;
       if ( gpqForeground && *(struct tagWND **)(gpqForeground + 112LL) == a2 )
         zzzInputFocusReceivedWindowEvent(2LL);
     }
@@ -122,11 +119,10 @@ __int64 __fastcall anonymous_namespace_::xxxSendFocusMessages(__int64 a1, struct
   {
     if ( *(_QWORD *)(a1 + 432) == gpqForeground )
       zzzInputFocusLostWindowEvent(v5, 3LL);
-    xxxWindowEvent(0x8005u, 0LL, -4, 0, 0);
-    xxxSendMessage((ULONG_PTR)v5);
-    v7 = gpsi;
+    xxxWindowEvent(0x8005u, 0);
+    xxxSendMessage(v5, 8LL, 0LL, 0LL);
     if ( (*gpsi & 4) != 0 )
-      xxxFocusSetInputContext(v5, 0, 0);
+      xxxFocusSetInputContext(v5, 0LL, 0LL);
   }
-  return ThreadUnlock1(v8, v7, v9);
+  return ThreadUnlock1(v6);
 }

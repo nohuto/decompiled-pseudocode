@@ -1,32 +1,33 @@
 /*
- * XREFs of GetDPIServerInfo @ 0x1C00BA3D4
+ * XREFs of GetDPIServerInfo @ 0x1C00E0E18
  * Callers:
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0063E00 (xxxInitSendValidateMinMaxInfoEx.c)
- *     GetWindowNCMetrics @ 0x1C006492C (GetWindowNCMetrics.c)
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     xxxDrawCaptionTemp @ 0x1C00B97AC (xxxDrawCaptionTemp.c)
- *     CreateCompatiblePublicDC @ 0x1C00BA240 (CreateCompatiblePublicDC.c)
- *     GetCharDimensions @ 0x1C00C40F8 (GetCharDimensions.c)
- *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C015A5CC (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
- *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01ED4B8 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
- *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01EE0D4 (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
- *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C021CC64 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
- *     SfnINLPKDRAWSWITCHWND @ 0x1C0225AF0 (SfnINLPKDRAWSWITCHWND.c)
- *     xxxDrawState @ 0x1C024DD1C (xxxDrawState.c)
- *     ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C025B488 (-DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z.c)
- *     IsSysFontAndDefaultMode @ 0x1C025BB6C (IsSysFontAndDefaultMode.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0064D40 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
+ *     GetWindowNCMetrics @ 0x1C00E0CB0 (GetWindowNCMetrics.c)
+ *     GetCharDimensions @ 0x1C00E33C8 (GetCharDimensions.c)
+ *     xxxDrawCaptionTemp @ 0x1C01590D4 (xxxDrawCaptionTemp.c)
+ *     CreateCompatiblePublicDC @ 0x1C0159B50 (CreateCompatiblePublicDC.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0169284 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2C38 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
+ *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01F38D4 (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C0223290 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     SfnINLPKDRAWSWITCHWND @ 0x1C022BCE0 (SfnINLPKDRAWSWITCHWND.c)
+ *     xxxDrawState @ 0x1C0250D44 (xxxDrawState.c)
+ *     ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C025E884 (-DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z.c)
+ *     IsSysFontAndDefaultMode @ 0x1C025EF48 (IsSysFontAndDefaultMode.c)
  * Callees:
- *     GetProcessDpiServerInfo @ 0x1C00BA408 (GetProcessDpiServerInfo.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     GetProcessDpiServerInfo @ 0x1C00E0E44 (GetProcessDpiServerInfo.c)
  */
 
-__int64 __fastcall GetDPIServerInfo(__int64 a1, __int64 a2)
+__int64 __fastcall GetDPIServerInfo(__int64 a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // r8
 
-  if ( (W32GetCurrentThreadDpiAwarenessContext(a1, a2) & 0xF) != 0 )
+  if ( (W32GetCurrentThreadDpiAwarenessContext(a1) & 0xF) != 0 )
     return GetProcessDpiServerInfo();
   else
-    return Get96DpiServerInfo(v3, v2, v4);
+    return Get96DpiServerInfo(v2, v1, v3);
 }

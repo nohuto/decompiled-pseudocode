@@ -1,12 +1,12 @@
 /*
- * XREFs of Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0075DCC
+ * XREFs of Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0074878
  * Callers:
- *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006C0FC (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006B2D8 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_LL @ 0x1C003588C (WPP_RECORDER_SF_LL.c)
- *     XilRegister_ReadUshort @ 0x1C003D5BC (XilRegister_ReadUshort.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C00355EC (WPP_RECORDER_SF_LL.c)
+ *     XilRegister_ReadUshort @ 0x1C003D04C (XilRegister_ReadUshort.c)
  */
 
 __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 a1, char a2)
@@ -16,13 +16,14 @@ __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 
   unsigned int Ulong; // eax
   unsigned int v6; // ecx
   char v7; // bl
-  unsigned __int16 v8; // r9
-  __int64 v9; // rcx
-  char v10; // [rsp+58h] [rbp+10h] BYREF
+  int v8; // edx
+  int v9; // r9d
+  __int64 v10; // rcx
+  char v11; // [rsp+58h] [rbp+10h] BYREF
 
-  v10 = a2;
+  v11 = a2;
   v2 = *(_QWORD *)(a1 + 88);
-  v10 = 0;
+  v11 = 0;
   result = XilRegister_ReadUshort(v2, (unsigned __int16 *)(*(_QWORD *)(v2 + 24) + 33824LL));
   if ( (result & 3) != 0 )
   {
@@ -35,35 +36,30 @@ __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 
     result = (*(__int64 (__fastcall **)(_QWORD, _QWORD, char *, __int64, int))(a1 + 296))(
                *(_QWORD *)(a1 + 280),
                0LL,
-               &v10,
+               &v11,
                162LL,
                1);
     if ( (_DWORD)result != 1 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return result;
-      v8 = 249;
-      return WPP_RECORDER_SF_LL(
-               *(_QWORD *)(a1 + 72),
-               2u,
-               4u,
-               v8,
-               (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-               1,
-               result);
+      v9 = 248;
+      goto LABEL_12;
     }
-    v9 = *(_QWORD *)(a1 + 280);
-    v10 = v7 | v10 & 0xFB;
-    result = (*(__int64 (__fastcall **)(__int64, _QWORD, char *, __int64, int))(a1 + 288))(v9, 0LL, &v10, 162LL, 1);
+    v10 = *(_QWORD *)(a1 + 280);
+    v11 = v7 | v11 & 0xFB;
+    result = (*(__int64 (__fastcall **)(__int64, _QWORD, char *, __int64, int))(a1 + 288))(v10, 0LL, &v11, 162LL, 1);
     if ( (_DWORD)result != 1 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v8 = 250;
+      v9 = 249;
+LABEL_12:
+      LOBYTE(v8) = 2;
       return WPP_RECORDER_SF_LL(
                *(_QWORD *)(a1 + 72),
-               2u,
-               4u,
                v8,
-               (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+               4,
+               v9,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                1,
                result);
     }

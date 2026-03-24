@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSIdleUpdateNotificationWorker @ 0x140874038
+ * XREFs of PopDiagTraceSIdleUpdateNotificationWorker @ 0x140874018
  * Callers:
- *     PopSIdleUpdateNotificationWorker @ 0x14013A860 (PopSIdleUpdateNotificationWorker.c)
+ *     PopSIdleUpdateNotificationWorker @ 0x14013A880 (PopSIdleUpdateNotificationWorker.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSIdleUpdateNotificationWorker(unsigned __int8 a1)

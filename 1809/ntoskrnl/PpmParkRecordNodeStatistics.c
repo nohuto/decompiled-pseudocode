@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x140102800
+ * XREFs of PpmParkRecordNodeStatistics @ 0x140102820
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x1401023E0 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140102400 (PpmCheckRecordAllUtility.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     PpmParkComputeSnapStatistics @ 0x140102980 (PpmParkComputeSnapStatistics.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x1402E5918 (PpmEventParkNodeClassRecordedStats.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     PpmParkComputeSnapStatistics @ 0x1401029A0 (PpmParkComputeSnapStatistics.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x1402E5A18 (PpmEventParkNodeClassRecordedStats.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
@@ -45,7 +45,7 @@ __int64 PpmParkRecordNodeStatistics()
   __int64 v30; // [rsp+D0h] [rbp+1Fh]
 
   v0 = PpmCheckMakeupCount;
-  v1 = 341LL * dword_14041810C;
+  v1 = 341LL * dword_1404180CC;
   result = 0LL;
   v3 = 0;
   v16 = 0;

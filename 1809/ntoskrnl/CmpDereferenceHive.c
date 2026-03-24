@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpDereferenceHive @ 0x1406E0D10
+ * XREFs of CmpDereferenceHive @ 0x1406E0CF0
  * Callers:
- *     CmpDoFlushAll @ 0x1401579E8 (CmpDoFlushAll.c)
+ *     CmpDoFlushAll @ 0x140157A08 (CmpDoFlushAll.c)
  * Callees:
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
  */

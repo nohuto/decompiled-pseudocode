@@ -1,30 +1,18 @@
 /*
- * XREFs of VerifierKeAcquireSpinLockRaiseToDpc @ 0x140AC1280
+ * XREFs of VerifierKeAcquireSpinLockRaiseToDpc @ 0x1409DAA10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD6DA8 (ViKeIrqlLogAndTrimMemory.c)
+ *     ViKeAcquireSpinLockRaiseToDpcCommon @ 0x1409DBFA0 (ViKeAcquireSpinLockRaiseToDpcCommon.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
  */
 
-__int64 __fastcall VerifierKeAcquireSpinLockRaiseToDpc(__int64 a1)
+char __fastcall VerifierKeAcquireSpinLockRaiseToDpc(int a1)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdi
-  __int64 result; // rax
+  char v2; // bl
+  __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  v1 = 0LL;
-  v2 = a1;
-  if ( (VfRuleClasses & 2) != 0 )
-  {
-    LOBYTE(a1) = 2;
-    v1 = ViKeIrqlLogAndTrimMemory(a1);
-  }
-  result = ((__int64 (__fastcall *)(__int64))pXdvKeAcquireSpinLockRaiseToDpc)(v2);
-  if ( (VfRuleClasses & 2) != 0 )
-  {
-    if ( v1 )
-      *(_WORD *)(v1 + 10) = KeGetPcr()->Prcb.Number;
-  }
-  return result;
+  v2 = ViKeAcquireSpinLockRaiseToDpcCommon();
+  VfDeadlockAcquireResource(a1, retaddr);
+  return v2;
 }

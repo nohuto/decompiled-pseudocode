@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpGetRegistryValue @ 0x140B9A2CC
+ * XREFs of CmpGetRegistryValue @ 0x140A59C2C
  * Callers:
- *     CmpSetSystemBiosInformation @ 0x140B9986C (CmpSetSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140A594A0 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
 {
   NTSTATUS result; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v7; // rbx
   NTSTATUS v8; // edi
   UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
@@ -24,11 +24,11 @@ NTSTATUS __fastcall CmpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWOR
   result = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength);
   if ( result >= 0 || result == -2147483643 || result == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, ResultLength, 0x49504341u);
-    v7 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, ResultLength, 0x49504341u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Pool2, ResultLength, &ResultLength);
+      v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, PoolWithTag, ResultLength, &ResultLength);
       if ( v8 >= 0 )
       {
         *a3 = v7;

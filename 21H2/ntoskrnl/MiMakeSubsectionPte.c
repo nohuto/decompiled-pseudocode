@@ -1,15 +1,16 @@
 /*
- * XREFs of MiMakeSubsectionPte @ 0x14026EA48
+ * XREFs of MiMakeSubsectionPte @ 0x1402F83DC
  * Callers:
- *     MiAllocatePerSessionProtos @ 0x1406DDC90 (MiAllocatePerSessionProtos.c)
- *     MiParseImageSectionHeaders @ 0x1406F4230 (MiParseImageSectionHeaders.c)
- *     MiInitializePrototypePtes @ 0x1406F4768 (MiInitializePrototypePtes.c)
- *     MiBuildImageControlArea @ 0x14070893C (MiBuildImageControlArea.c)
+ *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
+ *     MiBuildImageControlArea @ 0x1406D5038 (MiBuildImageControlArea.c)
+ *     MiInitializePrototypePtes @ 0x1406E82FC (MiInitializePrototypePtes.c)
+ *     MiParseImageSectionHeaders @ 0x1406E8410 (MiParseImageSectionHeaders.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
  */
 
-__int64 __fastcall MiMakeSubsectionPte(__int64 a1, __int64 a2)
+__int64 __fastcall MiMakeSubsectionPte(__int64 a1)
 {
-  return MiSwizzleInvalidPte(16 * ((a1 << 12) | *(_WORD *)(a1 + 32) & 0x3E | 0x40), a2);
+  return MiSwizzleInvalidPte(16 * ((a1 << 12) | *(_WORD *)(a1 + 32) & 0x3E | 0x40));
 }

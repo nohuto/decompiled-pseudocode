@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpNumaQueryProximityNode @ 0x1403DEA70
+ * XREFs of HalpNumaQueryProximityNode @ 0x1403CF7F0
  * Callers:
- *     HalpNumaAddRangeProximity @ 0x14051E390 (HalpNumaAddRangeProximity.c)
- *     HalpNumaParseHmat @ 0x140B4C634 (HalpNumaParseHmat.c)
+ *     HalpNumaAddRangeProximity @ 0x1404D1C60 (HalpNumaAddRangeProximity.c)
+ *     HalpNumaParseHmat @ 0x140A8D0E4 (HalpNumaParseHmat.c)
  * Callees:
  *     <none>
  */

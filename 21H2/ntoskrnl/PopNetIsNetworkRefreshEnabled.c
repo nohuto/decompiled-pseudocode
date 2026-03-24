@@ -1,8 +1,8 @@
 /*
- * XREFs of PopNetIsNetworkRefreshEnabled @ 0x140998778
+ * XREFs of PopNetIsNetworkRefreshEnabled @ 0x1408F1EE4
  * Callers:
- *     PopNetRefreshTimerWorkerCallback @ 0x140998800 (PopNetRefreshTimerWorkerCallback.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140998940 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x1408F1F70 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x1408F20B0 (PopNetWnfLowPowerEpochCallback.c)
  * Callees:
  *     <none>
  */

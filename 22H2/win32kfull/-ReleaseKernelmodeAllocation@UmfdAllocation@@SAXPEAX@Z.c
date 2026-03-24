@@ -1,49 +1,48 @@
 /*
- * XREFs of ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C00B8848
+ * XREFs of ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F51C
  * Callers:
- *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C008CE80 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
- *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C008CFCC (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
- *     UmfdDrvFree @ 0x1C00ABAB0 (UmfdDrvFree.c)
- *     UmfdTrueTypeFreeGlyphset @ 0x1C00B87C4 (UmfdTrueTypeFreeGlyphset.c)
- *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C03064A4 (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
- *     ??1?$AutoReleasePtr@U_FD_GLYPHSET@@$1?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z@@QEAA@XZ @ 0x1C0306600 (--1-$AutoReleasePtr@U_FD_GLYPHSET@@$1-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z@@QEA.c)
+ *     UmfdTrueTypeFreeGlyphset @ 0x1C009F498 (UmfdTrueTypeFreeGlyphset.c)
+ *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00D1820 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00D1C10 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00D1D9C (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
+ *     UmfdDrvFree @ 0x1C01220D0 (UmfdDrvFree.c)
+ *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DE53C (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
  * Callees:
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C00A32C0 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
+ *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C009F5D8 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
  */
 
 void __fastcall UmfdAllocation::ReleaseKernelmodeAllocation(char *a1)
 {
-  char *v1; // rdi
-  __int64 v2; // rsi
-  __int64 v3; // rbx
-  NSInstrumentation::CPointerHashTable *v5; // rcx
-  unsigned __int64 v6; // rdx
-  void *v7; // [rsp+30h] [rbp+8h] BYREF
+  PVOID v1; // rbx
+  char *v2; // rdi
+  const void *v4; // rdx
+  void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = a1 - 28;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 40);
-  v3 = *(_QWORD *)(v2 + 8);
+  v1 = UmfdAllocation::s_allocationLookupLock;
+  v2 = a1 - 28;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(v3, 0LL);
-  if ( (*(_DWORD *)v1)-- == 1 )
+  ExAcquirePushLockExclusiveEx(v1, 0LL);
+  if ( (*(_DWORD *)v2)-- == 1 )
   {
-    v5 = *(NSInstrumentation::CPointerHashTable **)v2;
-    if ( *(_QWORD *)v2 )
+    if ( UmfdAllocation::s_allocationLookup )
     {
-      v6 = *((_QWORD *)v1 + 2);
-      if ( v6 )
+      v4 = (const void *)*((_QWORD *)v2 + 2);
+      if ( v4 )
       {
-        v7 = 0LL;
-        NSInstrumentation::CPointerHashTable::Remove(v5, v6, &v7);
+        v5 = 0LL;
+        NSInstrumentation::CPointerHashTable::Remove(
+          (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup,
+          v4,
+          &v5);
       }
     }
-    ExReleasePushLockExclusiveEx(v3, 0LL);
+    ExReleasePushLockExclusiveEx(v1, 0LL);
     KeLeaveCriticalRegion();
-    EngFreeMem(v1);
+    EngFreeMem(v2);
   }
   else
   {
-    ExReleasePushLockExclusiveEx(v3, 0LL);
+    ExReleasePushLockExclusiveEx(v1, 0LL);
     KeLeaveCriticalRegion();
   }
 }

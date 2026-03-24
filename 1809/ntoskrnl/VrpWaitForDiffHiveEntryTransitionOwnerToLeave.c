@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEE8
+ * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEC8
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14080D918 (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14080D8F8 (VrpLoadDifferencingHive.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
@@ -10,10 +10,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     RtlInsertHeadCircularList @ 0x1401352B0 (RtlInsertHeadCircularList.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     RtlInsertHeadCircularList @ 0x1401352D0 (RtlInsertHeadCircularList.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)

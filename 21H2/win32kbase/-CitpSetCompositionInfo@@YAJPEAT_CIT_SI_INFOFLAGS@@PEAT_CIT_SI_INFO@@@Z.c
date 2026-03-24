@@ -1,70 +1,70 @@
 /*
- * XREFs of ?CitpSetCompositionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C00171BC
+ * XREFs of ?CitpSetCompositionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C0046170
  * Callers:
- *     CitSetInfo @ 0x1C009D150 (CitSetInfo.c)
+ *     CitSetInfo @ 0x1C0046F70 (CitSetInfo.c)
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C0014970 (UserIsCurrentProcessDwm.c)
- *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C0017404 (-CitpStatIncrement@@YAXPEAGG@Z.c)
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0017428 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0017574 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
- *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C023FD24 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C00463BC (-CitpStatIncrement@@YAXPEAGG@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C00464E8 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C01FE090 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
  */
 
-__int64 __fastcall CitpSetCompositionInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2, __int64 a3, __int64 a4)
+__int64 __fastcall CitpSetCompositionInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2)
 {
-  struct _CIT_IMPACT_CONTEXT *v6; // r12
-  const char *v7; // rdx
-  __int64 v8; // r14
-  __int64 v9; // r15
+  struct _CIT_IMPACT_CONTEXT *v4; // r12
+  const char *v5; // rdx
+  __int64 v6; // r15
+  __int64 v7; // rsi
   unsigned __int16 i; // di
   struct tagPROCESSINFO *ProcessWin32Process; // rax
-  struct tagPROCESSINFO *v12; // rbx
-  struct _CIT_INTERACTION_SUMMARY *v13; // rax
-  struct _CIT_INTERACTION_SUMMARY *v14; // r9
-  __int128 v16; // [rsp+28h] [rbp-40h]
-  __int64 v17; // [rsp+38h] [rbp-30h]
+  struct tagPROCESSINFO *v10; // rbx
+  struct _CIT_INTERACTION_SUMMARY *v11; // rax
+  struct _CIT_INTERACTION_SUMMARY *v12; // r9
+  __int128 v14; // [rsp+28h] [rbp-40h]
+  __int64 v15; // [rsp+38h] [rbp-30h]
   PEPROCESS Process; // [rsp+80h] [rbp+18h] BYREF
 
-  v6 = xmmword_1C029A230;
-  if ( !UserIsCurrentProcessDwm((__int64)a1, (__int64)a2, a3, a4) )
+  v4 = xmmword_1C0255560;
+  if ( !(unsigned int)UserIsCurrentProcessDwm() )
     return 3221225506LL;
-  v8 = *(_QWORD *)a2;
-  v9 = *((unsigned __int16 *)a1 + 1);
+  v6 = *(_QWORD *)a2;
+  v7 = *(_QWORD *)a1 >> 24;
   for ( i = 0; ; ++i )
   {
-    if ( i >= (unsigned __int16)v9 )
+    if ( i >= (unsigned __int16)v7 )
       return 0LL;
-    if ( (unsigned __int64)(24 * v9 - 1) > 0xFFFE )
+    if ( 24 * (unsigned __int64)(unsigned __int16)v7 - 1 > 0xFFFE )
       break;
-    if ( (v8 & 3) != 0 )
+    if ( (v6 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v16 = *(_OWORD *)(v8 + 24LL * i);
-    v17 = *(_QWORD *)(v8 + 24LL * i + 16);
-    if ( (_QWORD)v16 )
+    v14 = *(_OWORD *)(v6 + 24LL * i);
+    v15 = *(_QWORD *)(v6 + 24LL * i + 16);
+    if ( (_QWORD)v14 )
     {
       Process = 0LL;
-      if ( PsLookupProcessByProcessId((HANDLE)(int)v17, &Process) >= 0 )
+      if ( PsLookupProcessByProcessId((HANDLE)(int)v15, &Process) >= 0 )
       {
-        if ( PsGetProcessSequenceNumber(Process) == *((_QWORD *)&v16 + 1)
+        if ( PsGetProcessSequenceNumber(Process) == *((_QWORD *)&v14 + 1)
           && (unsigned int)PsGetProcessSessionId(Process) == gSessionId )
         {
           PsUpdateComponentPower(Process, 7LL);
           ProcessWin32Process = (struct tagPROCESSINFO *)PsGetProcessWin32Process(Process);
-          v12 = ProcessWin32Process;
+          v10 = ProcessWin32Process;
           if ( ProcessWin32Process )
           {
             if ( CitpProcessEnsureContext(ProcessWin32Process) )
             {
-              v13 = CitpInteractionSummaryEnsure(v6, *((struct _CIT_PROCESS **)v12 + 116), 4u);
-              v14 = v13;
-              if ( v13 )
+              v11 = CitpInteractionSummaryEnsure(v4, *((struct _CIT_PROCESS **)v10 + 116), 4u);
+              v12 = v11;
+              if ( v11 )
               {
-                if ( (_WORD)v16 )
-                  CitpStatIncrement((unsigned __int16 *)v13 + 54, 1u);
-                if ( WORD1(v16) )
-                  CitpStatIncrement((unsigned __int16 *)v14 + 55, 1u);
-                if ( WORD2(v16) )
-                  CitpStatIncrement((unsigned __int16 *)v14 + 56, 1u);
+                if ( (_WORD)v14 )
+                  CitpStatIncrement((unsigned __int16 *)v11 + 54, 1u);
+                if ( WORD1(v14) )
+                  CitpStatIncrement((unsigned __int16 *)v12 + 55, 1u);
+                if ( WORD2(v14) )
+                  CitpStatIncrement((unsigned __int16 *)v12 + 56, 1u);
               }
             }
           }
@@ -73,6 +73,6 @@ __int64 __fastcall CitpSetCompositionInfo(union _CIT_SI_INFOFLAGS *a1, union _CI
       }
     }
   }
-  CitpLogFailureWorker(-1073741823, v7, 0x1AE4u);
+  CitpLogFailureWorker(-1073741823, v5, 0x1A1Du);
   return 3221225473LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpResGetMappingSize @ 0x14075A518
+ * XREFs of LdrpResGetMappingSize @ 0x1406710B0
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1402F7FA8 (LdrpResSearchResourceMappedFile.c)
- *     LdrResSearchResource @ 0x14075A150 (LdrResSearchResource.c)
- *     LdrResGetRCConfig @ 0x1407E1E94 (LdrResGetRCConfig.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140300848 (LdrpResSearchResourceMappedFile.c)
+ *     LdrResSearchResource @ 0x140670CE0 (LdrResSearchResource.c)
+ *     LdrResGetRCConfig @ 0x14078BB7C (LdrResGetRCConfig.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     LdrpKrnGetDataTableEntry @ 0x1402F7214 (LdrpKrnGetDataTableEntry.c)
- *     ZwQueryVirtualMemory @ 0x14041AB00 (ZwQueryVirtualMemory.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1403018A0 (LdrpKrnGetDataTableEntry.c)
+ *     ZwQueryVirtualMemory @ 0x1403F9E80 (ZwQueryVirtualMemory.c)
  */
 
 int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
@@ -34,9 +34,8 @@ int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, 
   if ( (a3 & 0x80000) != 0 )
   {
     v6 = *a2;
-LABEL_5:
     result = 0;
-LABEL_29:
+LABEL_28:
     if ( v5 && v5 < v6 )
       return -1073741793;
     *a2 = v6;
@@ -64,37 +63,38 @@ LABEL_29:
     }
     if ( result >= 0 )
     {
-      if ( v8 && v10 )
+      if ( !v8 || !v10 )
       {
-        v6 = v10;
-        goto LABEL_5;
-      }
-      DataTableEntry = LdrpKrnGetDataTableEntry(a1);
-      if ( DataTableEntry )
-        v6 = *((unsigned int *)DataTableEntry + 16);
-      if ( v6 )
-      {
+        DataTableEntry = LdrpKrnGetDataTableEntry(a1);
+        if ( DataTableEntry )
+          v6 = *((unsigned int *)DataTableEntry + 16);
+        if ( v6 )
+        {
+          result = 0;
+        }
+        else
+        {
+          result = ZwQueryVirtualMemory(
+                     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                     (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL),
+                     (MEMORY_INFORMATION_CLASS)3,
+                     &MemoryInformation,
+                     0x30uLL,
+                     0LL);
+          if ( result >= 0 )
+            v6 = v13;
+        }
+        if ( v6 || !v10 )
+        {
+LABEL_27:
+          if ( result < 0 )
+            return result;
+          goto LABEL_28;
+        }
         result = 0;
       }
-      else
-      {
-        result = ZwQueryVirtualMemory(
-                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                   (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL),
-                   (MEMORY_INFORMATION_CLASS)3,
-                   &MemoryInformation,
-                   0x30uLL,
-                   0LL);
-        if ( result >= 0 )
-          v6 = v13;
-      }
-      if ( !v6 && v10 )
-      {
-        v6 = v10;
-        result = 0;
-      }
-      if ( result >= 0 )
-        goto LABEL_29;
+      v6 = v10;
+      goto LABEL_27;
     }
   }
   return result;

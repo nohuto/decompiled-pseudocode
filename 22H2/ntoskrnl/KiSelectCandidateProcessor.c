@@ -1,48 +1,82 @@
 /*
- * XREFs of KiSelectCandidateProcessor @ 0x140462554
+ * XREFs of KiSelectCandidateProcessor @ 0x140525AE4
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392C0 (KiChooseTargetProcessor.c)
- *     KiCanSelectSoftParkedProcessor @ 0x14037214C (KiCanSelectSoftParkedProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x1404612B6 (KiHeteroChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402C5470 (KiChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F440 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333260 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
+__int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3)
 {
-  _WORD *v5; // rsi
-  __int64 v7; // rdi
-  __int64 v9; // rax
-  __int64 v10; // rbx
-  __int64 v11; // r12
-  __int64 v12; // rsi
-  __int64 v13; // r8
-  char v14; // cl
-  unsigned __int64 v15; // rax
+  __int64 v3; // rbx
+  __int64 v4; // rbp
+  __int64 v6; // rdi
+  volatile LONG *v7; // r14
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  char v13; // cl
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  int v16; // eax
+  _DWORD *v17; // rcx
+  int v18; // eax
+  int v20; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = *(_WORD **)(a2 + 576);
-  v7 = *(_QWORD *)(a1 + 192);
-  v9 = *(unsigned __int8 *)(a1 + 208);
-  v10 = a1;
-  v11 = *(_QWORD *)(v7 + 128);
-  if ( (unsigned __int16)v9 >= *v5 )
-    v12 = 0LL;
-  else
-    v12 = *(_QWORD *)&v5[4 * v9 + 4];
-  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v7 + 112));
-  v13 = a3 & v11 & v12 & *(_QWORD *)(v7 + 80);
-  if ( v13 || (v11 & v12 & *(_QWORD *)(v7 + 80)) != 0 )
+  v3 = *(_QWORD *)(a1 + 192);
+  v4 = a1;
+  v6 = *(_QWORD *)(v3 + 136) & *(_QWORD *)(a2 + 576);
+  v7 = (volatile LONG *)(v3 + 104);
+  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v3 + 104));
+  v11 = *(_QWORD *)(v3 + 80) & v6;
+  v12 = a3 & v11;
+  if ( (a3 & v11) == 0 )
+    v12 = v11;
+  if ( v12 )
   {
-    v14 = *(_BYTE *)(v10 + 209);
-    if ( !v13 )
-      v13 = v11 & v12 & *(_QWORD *)(v7 + 80);
-    _BitScanForward64(&v15, __ROR8__(v13, v14));
-    v10 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[64 * *(unsigned __int8 *)(v10 + 208)
-                                                              + (((unsigned __int8)v15 + v14) & 0x3F)]];
+    v13 = *(_BYTE *)(v4 + 209);
+    _BitScanForward64((unsigned __int64 *)&v12, __ROR8__(v12, v13));
+    v8 = (((unsigned __int8)v12 + v13) & 0x3F) + (*(unsigned __int8 *)(v4 + 208) << 6);
+    v4 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[v8]];
   }
-  KiAcquirePrcbLocksForPreemptionAttempt(v10, a4, a5);
-  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v7 + 112));
-  return v10;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v20 = 0;
+  while ( 1 )
+  {
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v16 = SchedulerAssist[6];
+        SchedulerAssist[6] = v16 + 1;
+        if ( v16 == -1 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(v4 + 48), 0LL) )
+      break;
+    v17 = CurrentPrcb->SchedulerAssist;
+    if ( v17 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v18 = v17[6] - 1;
+        v17[6] = v18;
+        if ( !v18 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    do
+      KeYieldProcessorEx(&v20, v8, v9, v10);
+    while ( *(_QWORD *)(v4 + 48) );
+  }
+  ExReleaseSpinLockSharedFromDpcLevel(v7);
+  return v4;
 }

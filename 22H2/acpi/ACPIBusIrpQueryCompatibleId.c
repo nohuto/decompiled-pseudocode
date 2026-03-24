@@ -1,57 +1,60 @@
 /*
- * XREFs of ACPIBusIrpQueryCompatibleId @ 0x1C007EE94
+ * XREFs of ACPIBusIrpQueryCompatibleId @ 0x1C009670C
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0080340 (ACPIBusIrpQueryId.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     RtlStringCbPrintfExW @ 0x1C0017B4C (RtlStringCbPrintfExW.c)
- *     WPP_RECORDER_SF_qdLqss @ 0x1C0017F78 (WPP_RECORDER_SF_qdLqss.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     AMLIGetNSObjectType @ 0x1C00483C8 (AMLIGetNSObjectType.c)
- *     ACPIAllocateBuffer @ 0x1C0097C3C (ACPIAllocateBuffer.c)
- *     ACPIValidateStringVendorDeviceIdFormat @ 0x1C0098A3C (ACPIValidateStringVendorDeviceIdFormat.c)
+ *     RtlStringCbPrintfExW @ 0x1C0002788 (RtlStringCbPrintfExW.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     WPP_RECORDER_SF_qdLqss @ 0x1C004E4F4 (WPP_RECORDER_SF_qdLqss.c)
+ *     ACPIAllocateBuffer @ 0x1C008FA90 (ACPIAllocateBuffer.c)
+ *     ACPIValidateStringVendorDeviceIdFormat @ 0x1C008FB34 (ACPIValidateStringVendorDeviceIdFormat.c)
  */
 
-__int64 __fastcall ACPIBusIrpQueryCompatibleId(wchar_t **a1, size_t *a2, __int64 a3)
+__int64 __fastcall ACPIBusIrpQueryCompatibleId(wchar_t **a1, SIZE_T *a2, __int64 a3)
 {
   void *v6; // r15
   __int64 v7; // rdi
   wchar_t *v8; // rax
-  wchar_t *v9; // rsi
+  NTSTRSAFE_PWSTR v9; // rsi
   size_t v10; // rbx
   __int64 v11; // r9
   __int64 v12; // rcx
   __int64 v13; // rax
   __int64 v14; // rax
   size_t v15; // rdx
-  size_t v16; // r8
-  char *v17; // rdx
-  __int64 v18; // rdx
-  void *Pool2; // rax
-  unsigned __int64 v20; // rdi
-  __int64 v21; // rax
-  const char *v22; // rax
-  __int64 v23; // rdx
-  const char *v24; // rcx
-  __int64 v25; // r8
+  PVOID PoolWithTag; // rax
+  size_t v17; // r8
+  char *v18; // rdx
+  SIZE_T v19; // rdx
+  PVOID v20; // rax
+  unsigned __int64 v21; // rdi
+  __int64 v22; // rax
+  size_t v24; // rdx
+  int v25; // eax
+  const char *v26; // rax
+  __int64 v27; // r8
+  const char *v28; // rcx
+  __int64 v29; // rdx
   int dwFlags; // [rsp+20h] [rbp-58h]
   int pszFormat; // [rsp+28h] [rbp-50h]
-  int v29; // [rsp+30h] [rbp-48h]
-  size_t Size; // [rsp+60h] [rbp-18h] BYREF
-  void *Src[2]; // [rsp+68h] [rbp-10h] BYREF
+  int v32; // [rsp+30h] [rbp-48h]
+  size_t v33; // [rsp+60h] [rbp-18h] BYREF
+  PVOID P[2]; // [rsp+68h] [rbp-10h] BYREF
   size_t pcbRemaining; // [rsp+C0h] [rbp+48h] BYREF
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+C8h] [rbp+50h] BYREF
-  PVOID P; // [rsp+D0h] [rbp+58h] BYREF
-  size_t v35; // [rsp+D8h] [rbp+60h] BYREF
+  void *v37; // [rsp+D0h] [rbp+58h] BYREF
+  size_t Size; // [rsp+D8h] [rbp+60h] BYREF
 
-  v35 = 0LL;
-  P = 0LL;
-  Src[0] = 0LL;
   Size = 0LL;
+  v37 = 0LL;
+  P[0] = 0LL;
+  v33 = 0LL;
   v6 = 0LL;
   v7 = 0LL;
-  v8 = (wchar_t *)ACPIAllocateBuffer(a2, a3, 660LL);
+  v8 = (wchar_t *)ACPIAllocateBuffer(a2, a3, 0x294uLL);
   *a1 = v8;
   v9 = v8;
   v10 = *a2;
@@ -61,101 +64,168 @@ __int64 __fastcall ACPIBusIrpQueryCompatibleId(wchar_t **a1, size_t *a2, __int64
   if ( !v8 )
   {
     LODWORD(v7) = -1073741670;
-    goto LABEL_57;
+    goto LABEL_41;
   }
-  v12 = *(_QWORD *)(a3 + 760);
-  if ( !v12 || (unsigned int)AMLIGetNSObjectType(v12) != 12 )
+  v12 = *(_QWORD *)(a3 + 720);
+  if ( v12 && (unsigned int)AMLIGetNSObjectType(v12) == 12 )
   {
-    v13 = *(_QWORD *)(a3 + 8);
-    if ( (v13 & v11) != 0 && (v13 & 0x800000000000LL) == 0 )
+    LODWORD(v7) = ACPIGet((__int64 *)a3, 1145652063, 268960023, 0LL, 0, 0LL, 0LL, (__int64)P, (__int64)&v33);
+    if ( (int)v7 >= 0 )
     {
-      v14 = *(_QWORD *)(a3 + 608);
-      if ( !v14 )
+      if ( v10 >= v33 )
       {
-        LODWORD(v7) = ACPIGet(a3, 0x4449485Fu, 268959782, 0LL, 0, 0LL, 0LL, (__int64)&P, (__int64)&v35);
-        if ( (int)v7 >= 0 )
-          goto LABEL_63;
-        goto LABEL_55;
+        memmove(v9, P[0], v33);
+        v24 = v33;
+        if ( v10 < v33 )
+          goto LABEL_20;
+        goto LABEL_33;
       }
-      v15 = -1LL;
-      do
-        ++v15;
-      while ( *(_BYTE *)(v14 + v15) );
-      v35 = v15;
-      P = (PVOID)ExAllocatePool2(256LL, v15, 1114661697LL);
-      if ( !P )
-        goto LABEL_63;
-      v16 = v35;
-      v17 = *(char **)(a3 + 608);
-      if ( v35 >= 5 )
+LABEL_40:
+      LODWORD(v7) = -1073741670;
+      goto LABEL_41;
+    }
+    goto LABEL_21;
+  }
+  v13 = *(_QWORD *)(a3 + 8);
+  if ( (v13 & v11) == 0 || (v13 & 0x800000000000LL) != 0 )
+    goto LABEL_17;
+  v14 = *(_QWORD *)(a3 + 568);
+  if ( !v14 )
+  {
+    v25 = ACPIGet((__int64 *)a3, 1145653343, 268959782, 0LL, 0, 0LL, 0LL, (__int64)&v37, (__int64)&Size);
+    goto LABEL_34;
+  }
+  v15 = -1LL;
+  do
+    ++v15;
+  while ( *(_BYTE *)(v14 + v15) );
+  Size = v15;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v15, 0x42706341u);
+  v37 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, Size);
+    v17 = Size;
+    v18 = *(char **)(a3 + 568);
+    if ( Size >= 5 )
+    {
+      v17 = Size - 5;
+      Size -= 5LL;
+      v18 += 5;
+    }
+    memmove(v37, v18, v17);
+    if ( !ACPIValidateStringVendorDeviceIdFormat((__int64)v37, Size) && (*(_BYTE *)(a3 + 960) & 0x1C) == 0 )
+    {
+LABEL_18:
+      LODWORD(v7) = ACPIGet((__int64 *)a3, 1145652063, 268960023, 0LL, 0, 0LL, 0LL, (__int64)P, (__int64)&v33);
+      if ( (int)v7 < 0 && v10 == *a2 )
+        goto LABEL_20;
+      LODWORD(v7) = 0;
+      if ( v10 >= v33 )
       {
-        v16 = v35 - 5;
-        v35 -= 5LL;
-        v17 += 5;
+        memmove(v9, P[0], v33);
+        if ( !v9 )
+          goto LABEL_22;
+        v24 = v33;
+        if ( v10 < v33 )
+          goto LABEL_22;
+LABEL_33:
+        v25 = RtlStringCbPrintfExW(&v9[v24 >> 1], v10 - v24, &ppszDestEnd, &pcbRemaining, 0, &word_1C006F7EC);
+LABEL_34:
+        LODWORD(v7) = v25;
+        goto LABEL_20;
       }
-      memmove(P, v17, v16);
-      if ( !(unsigned __int8)ACPIValidateStringVendorDeviceIdFormat(P, v35) && (*(_BYTE *)(a3 + 1008) & 0x1C) == 0 )
-        goto LABEL_49;
-      Pool2 = (void *)ExAllocatePool2(256LL, v18, 1114661697LL);
-      v6 = Pool2;
-      if ( !Pool2 )
-        goto LABEL_63;
-      LOBYTE(v7) = v35 != 7;
-      v20 = v7 + 3;
-      memset(Pool2, 0, v35);
-      if ( v35 > v20 )
+      goto LABEL_40;
+    }
+    v20 = ExAllocatePoolWithTag(PagedPool, v19, 0x42706341u);
+    v6 = v20;
+    if ( !v20 )
+      goto LABEL_22;
+    memset(v20, 0, Size);
+    LOBYTE(v7) = Size != 7;
+    v21 = v7 + 3;
+    memset(v6, 0, Size);
+    if ( Size > v21 )
+    {
+      memmove(v6, (char *)v37 + v21, Size - v21);
+      *((_BYTE *)v37 + v21) = 0;
+    }
+    v22 = *(_QWORD *)(a3 + 960);
+    if ( (v22 & 0x10) != 0 )
+    {
+      if ( (v22 & 8) != 0 )
       {
-        memmove(v6, (char *)P + v20, v35 - v20);
-        *((_BYTE *)P + v20) = 0;
-      }
-      v21 = *(_QWORD *)(a3 + 1008);
-      if ( (v21 & 0x10) != 0 )
-      {
-        if ( (v21 & 8) != 0 )
-        {
-          v29 = (int)P;
-          LODWORD(v7) = RtlStringCbPrintfExW(v9, v10, &ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S&DEV_%S&REV_%04X");
-          if ( (int)v7 < 0 )
-            goto LABEL_56;
-          if ( !ppszDestEnd || pcbRemaining < 2 )
-            goto LABEL_63;
-          v9 = ppszDestEnd + 1;
-          v10 = pcbRemaining - 2;
-          ++ppszDestEnd;
-          pcbRemaining -= 2LL;
-        }
-        v29 = (int)P;
-        LODWORD(v7) = RtlStringCbPrintfExW(v9, v10, &ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S&DEV_%S");
+        v32 = (int)v37;
+        LODWORD(v7) = RtlStringCbPrintfExW(v9, v10, &ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S&DEV_%S&REV_%04X");
         if ( (int)v7 < 0 )
-        {
-LABEL_56:
-          if ( (_DWORD)v7 == -1073741772 )
-            goto LABEL_63;
-          goto LABEL_57;
-        }
+          goto LABEL_21;
         if ( !ppszDestEnd || pcbRemaining < 2 )
-          goto LABEL_63;
+          goto LABEL_20;
         v9 = ppszDestEnd + 1;
         v10 = pcbRemaining - 2;
         ++ppszDestEnd;
         pcbRemaining -= 2LL;
       }
-    }
-    if ( (*(_BYTE *)(a3 + 1008) & 4) != 0 )
-    {
-      v29 = (int)P;
-      LODWORD(v7) = RtlStringCbPrintfExW(
-                      v9,
-                      v10,
-                      &ppszDestEnd,
-                      &pcbRemaining,
-                      0,
-                      L"ACPI\\VEN_%S&CLS_%04I64X&SUBCLS_%04I64X&PI_%02I64X");
+      v32 = (int)v37;
+      LODWORD(v7) = RtlStringCbPrintfExW(v9, v10, &ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S&DEV_%S");
       if ( (int)v7 < 0 )
-        goto LABEL_56;
+      {
+LABEL_21:
+        if ( (_DWORD)v7 == -1073741772 )
+          goto LABEL_22;
+LABEL_41:
+        v26 = byte_1C00701BA;
+        v27 = 0LL;
+        v28 = byte_1C00701BA;
+        if ( a3 )
+        {
+          v29 = *(_QWORD *)(a3 + 8);
+          v27 = a3;
+          if ( (v29 & 0x200000000000LL) != 0 )
+          {
+            v26 = *(const char **)(a3 + 568);
+            if ( (v29 & 0x400000000000LL) != 0 )
+              v28 = *(const char **)(a3 + 576);
+          }
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qdLqss(
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            (__int64)&WPP_RECORDER_INITIALIZED,
+            v27,
+            0x26u,
+            dwFlags,
+            pszFormat,
+            v32,
+            v7,
+            v27,
+            v26,
+            v28);
+        goto LABEL_22;
+      }
       if ( !ppszDestEnd || pcbRemaining < 2 )
-        goto LABEL_63;
-      v29 = (int)P;
+        goto LABEL_20;
+      v9 = ppszDestEnd + 1;
+      v10 = pcbRemaining - 2;
+      ++ppszDestEnd;
+      pcbRemaining -= 2LL;
+    }
+LABEL_17:
+    if ( (*(_BYTE *)(a3 + 960) & 4) == 0 )
+      goto LABEL_18;
+    v32 = (int)v37;
+    LODWORD(v7) = RtlStringCbPrintfExW(
+                    v9,
+                    v10,
+                    &ppszDestEnd,
+                    &pcbRemaining,
+                    0,
+                    L"ACPI\\VEN_%S&CLS_%04I64X&SUBCLS_%04I64X&PI_%02I64X");
+    if ( (int)v7 >= 0 )
+    {
+      if ( !ppszDestEnd || pcbRemaining < 2 )
+        goto LABEL_20;
+      v32 = (int)v37;
       ++ppszDestEnd;
       pcbRemaining -= 2LL;
       LODWORD(v7) = RtlStringCbPrintfExW(
@@ -165,112 +235,75 @@ LABEL_56:
                       &pcbRemaining,
                       0,
                       L"ACPI\\VEN_%S&CLS_%04I64X&SUBCLS_%04I64X");
-      if ( (int)v7 < 0 )
-        goto LABEL_56;
-      if ( !ppszDestEnd || pcbRemaining < 2 )
-        goto LABEL_63;
-      v29 = (int)P;
-      ++ppszDestEnd;
-      pcbRemaining -= 2LL;
-      LODWORD(v7) = RtlStringCbPrintfExW(ppszDestEnd, pcbRemaining, &ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S");
-      if ( (int)v7 < 0 )
-        goto LABEL_56;
-      if ( !ppszDestEnd || pcbRemaining < 2 )
-        goto LABEL_63;
-      v29 = *(unsigned __int16 *)(a3 + 646);
-      ++ppszDestEnd;
-      pcbRemaining -= 2LL;
-      LODWORD(v7) = RtlStringCbPrintfExW(
-                      ppszDestEnd,
-                      pcbRemaining,
-                      &ppszDestEnd,
-                      &pcbRemaining,
-                      0,
-                      L"ACPI\\CLS_%04I64X&SUBCLS_%04I64X&PI_%02I64X");
-      if ( (int)v7 < 0 )
-        goto LABEL_56;
-      if ( !ppszDestEnd || pcbRemaining < 2 )
-        goto LABEL_63;
-      v29 = *(unsigned __int16 *)(a3 + 646);
-      ++ppszDestEnd;
-      pcbRemaining -= 2LL;
-      LODWORD(v7) = RtlStringCbPrintfExW(
-                      ppszDestEnd,
-                      pcbRemaining,
-                      &ppszDestEnd,
-                      &pcbRemaining,
-                      0,
-                      L"ACPI\\CLS_%04I64X&SUBCLS_%04I64X");
-      if ( (int)v7 < 0 )
-        goto LABEL_56;
-      if ( !ppszDestEnd || pcbRemaining < 2 )
-        goto LABEL_63;
-      v9 = ppszDestEnd + 1;
-      v10 = pcbRemaining - 2;
+      if ( (int)v7 >= 0 )
+      {
+        if ( !ppszDestEnd || pcbRemaining < 2 )
+          goto LABEL_20;
+        v32 = (int)v37;
+        ++ppszDestEnd;
+        pcbRemaining -= 2LL;
+        LODWORD(v7) = RtlStringCbPrintfExW(ppszDestEnd, pcbRemaining, &ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S");
+        if ( (int)v7 >= 0 )
+        {
+          if ( !ppszDestEnd || pcbRemaining < 2 )
+            goto LABEL_20;
+          v32 = *(unsigned __int16 *)(a3 + 606);
+          ++ppszDestEnd;
+          pcbRemaining -= 2LL;
+          LODWORD(v7) = RtlStringCbPrintfExW(
+                          ppszDestEnd,
+                          pcbRemaining,
+                          &ppszDestEnd,
+                          &pcbRemaining,
+                          0,
+                          L"ACPI\\CLS_%04I64X&SUBCLS_%04I64X&PI_%02I64X");
+          if ( (int)v7 >= 0 )
+          {
+            if ( !ppszDestEnd || pcbRemaining < 2 )
+              goto LABEL_20;
+            v32 = *(unsigned __int16 *)(a3 + 606);
+            ++ppszDestEnd;
+            pcbRemaining -= 2LL;
+            LODWORD(v7) = RtlStringCbPrintfExW(
+                            ppszDestEnd,
+                            pcbRemaining,
+                            &ppszDestEnd,
+                            &pcbRemaining,
+                            0,
+                            L"ACPI\\CLS_%04I64X&SUBCLS_%04I64X");
+            if ( (int)v7 >= 0 )
+            {
+              if ( ppszDestEnd && pcbRemaining >= 2 )
+              {
+                v9 = ppszDestEnd + 1;
+                v10 = pcbRemaining - 2;
+                goto LABEL_18;
+              }
+LABEL_20:
+              if ( (int)v7 < 0 )
+                goto LABEL_21;
+LABEL_22:
+              PoolWithTag = v37;
+              goto LABEL_23;
+            }
+          }
+        }
+      }
     }
-LABEL_49:
-    LODWORD(v7) = ACPIGet(a3, 0x4449435Fu, 268960023, 0LL, 0, 0LL, 0LL, (__int64)Src, (__int64)&Size);
-    if ( (int)v7 < 0 && v10 == *a2 )
-      goto LABEL_56;
-    LODWORD(v7) = 0;
-    if ( v10 < Size )
-      goto LABEL_7;
-    memmove(v9, Src[0], Size);
-    if ( !v9 )
-      goto LABEL_63;
-    goto LABEL_53;
+    goto LABEL_21;
   }
-  LODWORD(v7) = ACPIGet(a3, 0x4449435Fu, 268960023, 0LL, 0, 0LL, 0LL, (__int64)Src, (__int64)&Size);
-  if ( (int)v7 < 0 )
-    goto LABEL_56;
-  if ( v10 >= Size )
+LABEL_23:
+  if ( P[0] )
   {
-    memmove(v9, Src[0], Size);
-LABEL_53:
-    if ( v10 < Size )
-      goto LABEL_63;
-    LODWORD(v7) = RtlStringCbPrintfExW(&v9[Size >> 1], v10 - Size, &ppszDestEnd, &pcbRemaining, 0, &word_1C0063064);
-LABEL_55:
-    if ( (int)v7 >= 0 )
-      goto LABEL_63;
-    goto LABEL_56;
+    ExFreePoolWithTag(P[0], 0x53706341u);
+    PoolWithTag = v37;
   }
-LABEL_7:
-  LODWORD(v7) = -1073741670;
-LABEL_57:
-  v22 = byte_1C00622D0;
-  v23 = 0LL;
-  v24 = byte_1C00622D0;
-  if ( a3 )
-  {
-    v25 = *(_QWORD *)(a3 + 8);
-    v23 = a3;
-    if ( (v25 & 0x200000000000LL) != 0 )
-    {
-      v22 = *(const char **)(a3 + 608);
-      if ( (v25 & 0x400000000000LL) != 0 )
-        v24 = *(const char **)(a3 + 616);
-    }
-  }
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_qdLqss(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      v23,
-      (__int64)&WPP_RECORDER_INITIALIZED,
-      0x26u,
-      dwFlags,
-      pszFormat,
-      v29,
-      v7,
-      v23,
-      v22,
-      v24);
-LABEL_63:
-  if ( Src[0] )
-    ExFreePoolWithTag(Src[0], 0x53706341u);
   if ( v6 )
+  {
     ExFreePoolWithTag(v6, 0x53706341u);
-  if ( P )
-    ExFreePoolWithTag(P, 0x53706341u);
+    PoolWithTag = v37;
+  }
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x53706341u);
   return (unsigned int)v7;
 }

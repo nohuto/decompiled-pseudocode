@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpStartKeyNodeStackFromKcbStack @ 0x140A203FC
+ * XREFs of CmpStartKeyNodeStackFromKcbStack @ 0x1408766FC
  * Callers:
- *     CmQueryLayeredKey @ 0x14035D634 (CmQueryLayeredKey.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140A235C0 (CmpGetSubKeyCountForKcbStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140A2439C (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x140A2590C (CmpValueEnumStackStartFromKcbStack.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x140A25DB0 (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A269A0 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A26B3C (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x14087A6B8 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14087ACC8 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14087BBFC (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x14087FE94 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1408805CC (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140880768 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  * Callees:
- *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1FF4C (CmpPopulateKeyNodeStackFromKcbStack.c)
- *     CmpStartKeyNodeStack @ 0x140A20348 (CmpStartKeyNodeStack.c)
+ *     CmpStartKeyNodeStack @ 0x14072B0A8 (CmpStartKeyNodeStack.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x14072B180 (CmpPopulateKeyNodeStackFromKcbStack.c)
  */
 
-__int64 __fastcall CmpStartKeyNodeStackFromKcbStack(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CmpStartKeyNodeStackFromKcbStack(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
   __int64 result; // rax
 
-  result = CmpStartKeyNodeStack(a1, *(_WORD *)(a2 + 2));
+  result = CmpStartKeyNodeStack(a1, *(_WORD *)(a2 + 2), a3, a4);
   if ( (int)result >= 0 )
   {
     CmpPopulateKeyNodeStackFromKcbStack(a1, a2, a3);

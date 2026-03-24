@@ -1,15 +1,15 @@
 /*
- * XREFs of DpiRectContainsRectWithSubpixel @ 0x1C01B9860
+ * XREFs of DpiRectContainsRectWithSubpixel @ 0x1C01E4E84
  * Callers:
- *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0033750 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     ?CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0073B10 (-CalcVisRgnWorker@@YAHQEAUtagWND@@PEAPEAUHRGN__@@K@Z.c)
  * Callees:
- *     ?GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z @ 0x1C01B9118 (-GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z.c)
+ *     ?GetDpiRectWithSubpixel@@YAXPEAUtagRECT@@PEAMPEAUtagWND@@21111@Z @ 0x1C01E3AE4 (-GetDpiRectWithSubpixel@@YAXPEAUtagRECT@@PEAMPEAUtagWND@@21111@Z.c)
  */
 
 _BOOL8 __fastcall DpiRectContainsRectWithSubpixel(
         __m128i *a1,
-        const float *a2,
-        const struct tagWND *a3,
+        float *a2,
+        struct tagWND *a3,
         __m128i *a4,
         float *a5,
         struct tagWND *a6)

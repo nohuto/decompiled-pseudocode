@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_ConfiguringDeviceFromCachedInformationOnResumeWithSpecialFile @ 0x1C0008120
+ * XREFs of HUBDSM_ConfiguringDeviceFromCachedInformationOnResumeWithSpecialFile @ 0x1C0007E10
  * Callers:
  *     <none>
  * Callees:

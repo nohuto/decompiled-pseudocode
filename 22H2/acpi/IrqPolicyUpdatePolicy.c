@@ -1,11 +1,10 @@
 /*
- * XREFs of IrqPolicyUpdatePolicy @ 0x1C00AC5DC
+ * XREFs of IrqPolicyUpdatePolicy @ 0x1C00BD6C4
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA58 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
  * Callees:
- *     ProcessorPreferredCpuSetActive @ 0x1C009AF48 (ProcessorPreferredCpuSetActive.c)
- *     ProcessorQueryGroupInformation @ 0x1C009AF58 (ProcessorQueryGroupInformation.c)
- *     IrqPolicyQueryInterruptSteeringEnabled @ 0x1C009FDB4 (IrqPolicyQueryInterruptSteeringEnabled.c)
+ *     IrqPolicyQueryInterruptSteeringEnabled @ 0x1C0097A68 (IrqPolicyQueryInterruptSteeringEnabled.c)
+ *     ProcessorQueryGroupInformation @ 0x1C0097AFC (ProcessorQueryGroupInformation.c)
  */
 
 __int64 __fastcall IrqPolicyUpdatePolicy(__int64 a1)
@@ -22,7 +21,7 @@ __int64 __fastcall IrqPolicyUpdatePolicy(__int64 a1)
     IrqInterruptSteeringEnabled = IrqPolicyQueryInterruptSteeringEnabled(0LL);
     if ( IrqInterruptSteeringEnabled )
     {
-      if ( !ProcessorPreferredCpuSetActive() && (v3 == 1 || v3 == 3 && !v2) )
+      if ( v3 == 1 || v3 == 3 && !v2 )
         IrqMachinePolicy = 6;
     }
   }

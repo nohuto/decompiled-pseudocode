@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetPrototypePteRanges @ 0x140250D70
+ * XREFs of MiGetPrototypePteRanges @ 0x1402C9F88
  * Callers:
- *     MiReplacePageOfProtoPool @ 0x14026FB78 (MiReplacePageOfProtoPool.c)
+ *     MiReplacePageOfProtoPool @ 0x140268F5C (MiReplacePageOfProtoPool.c)
  * Callees:
- *     MiObtainProtoBaseFromNode @ 0x14026EBC4 (MiObtainProtoBaseFromNode.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     MiObtainProtoBaseFromNode @ 0x1402F8350 (MiObtainProtoBaseFromNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
   KIRQL v5; // al
   _QWORD *v6; // rdi
   unsigned __int64 v7; // r15
-  unsigned __int64 v8; // rcx
+  unsigned __int64 v8; // r10
   unsigned __int64 v9; // r11
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // rax
@@ -28,13 +28,13 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
   unsigned __int64 v16; // rcx
   unsigned __int64 v17; // rbx
   __int64 j; // rbx
-  _QWORD *v19; // rax
-  unsigned __int64 v20; // rax
-  __int64 v21; // rdi
-  __int64 v22; // rcx
-  __int64 v23; // rsi
-  unsigned __int64 v24; // rcx
   _QWORD *i; // rax
+  _QWORD *v20; // rax
+  unsigned __int64 v21; // rax
+  __int64 v22; // rdi
+  __int64 v23; // r10
+  __int64 v24; // rsi
+  unsigned __int64 v25; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -48,10 +48,10 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
   NumberToSet = 0LL;
   v2 = a1 + 4096;
   v4 = 1;
-  v5 = ExAcquireSpinLockShared(&dword_140C4F2F8);
-  v6 = (_QWORD *)qword_140C4F2F0;
+  v5 = ExAcquireSpinLockShared(&dword_140C4CB40);
+  v6 = (_QWORD *)qword_140C4CB38;
   v7 = v5;
-  if ( qword_140C4F2F0 )
+  if ( qword_140C4CB38 )
   {
     do
     {
@@ -80,16 +80,22 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
       v13 = v11;
       if ( v11 < a1 )
       {
-        if ( v11 + 8 * NumberToSet <= a1 )
-          goto LABEL_21;
-        v13 = a1;
-        v12 = NumberToSet - ((__int64)(a1 - v11) >> 3);
-        NumberToSet = v12;
+        if ( v11 + 8 * NumberToSet > a1 )
+        {
+          v13 = a1;
+          v12 = NumberToSet - ((__int64)(a1 - v11) >> 3);
+          NumberToSet = v12;
+        }
+        if ( v13 < a1 )
+          break;
       }
       if ( v13 >= v2 )
-        goto LABEL_21;
-      if ( (*(_BYTE *)(v10 + 24) & 7) == 4 )
         break;
+      if ( (*(_BYTE *)(v10 + 24) & 7) == 4 )
+      {
+        v4 = 0;
+        break;
+      }
       v14 = (__int64)(v13 - a1) >> 3;
       if ( v12 + (unsigned __int64)(unsigned int)v14 > 0x200 )
       {
@@ -124,10 +130,8 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
         if ( v10 )
           continue;
       }
-      goto LABEL_21;
+      break;
     }
-    v4 = 0;
-LABEL_21:
     v17 = v6[1];
     if ( v17 )
     {
@@ -146,49 +150,49 @@ LABEL_21:
     }
     while ( v17 )
     {
-      v20 = MiObtainProtoBaseFromNode(v17, &NumberToSet);
-      if ( v20 >= v2 || v20 < a1 )
+      v21 = MiObtainProtoBaseFromNode(v17, &NumberToSet);
+      if ( v21 >= v2 || v21 < a1 )
         break;
       if ( (*(_BYTE *)(v17 + 24) & 7) == 4 )
       {
         v4 = 0;
         break;
       }
-      v21 = NumberToSet;
-      v22 = (__int64)(v20 - a1) >> 3;
-      v23 = (unsigned int)v22;
-      if ( (unsigned __int64)(unsigned int)v22 + NumberToSet > 0x200 )
+      v22 = NumberToSet;
+      v23 = (__int64)(v21 - a1) >> 3;
+      v24 = (unsigned int)v23;
+      if ( (unsigned __int64)(unsigned int)v23 + NumberToSet > 0x200 )
       {
-        v21 = (unsigned int)(512 - v22);
-        NumberToSet = v21;
+        v22 = (unsigned int)(512 - v23);
+        NumberToSet = v22;
       }
-      RtlSetBits(BitMapHeader, v22, v21);
-      if ( v23 + v21 == 512 )
+      RtlSetBits(BitMapHeader, v23, v22);
+      if ( v24 + v22 == 512 )
         break;
-      v19 = *(_QWORD **)(v17 + 8);
-      v24 = v17;
-      if ( v19 )
+      v20 = *(_QWORD **)(v17 + 8);
+      v25 = v17;
+      if ( v20 )
       {
         do
         {
-          v17 = (unsigned __int64)v19;
-          v19 = (_QWORD *)*v19;
+          v17 = (unsigned __int64)v20;
+          v20 = (_QWORD *)*v20;
         }
-        while ( v19 );
+        while ( v20 );
       }
       else
       {
         while ( 1 )
         {
           v17 = *(_QWORD *)(v17 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !v17 || *(_QWORD *)v17 == v24 )
+          if ( !v17 || *(_QWORD *)v17 == v25 )
             break;
-          v24 = v17;
+          v25 = v17;
         }
       }
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4F2F8);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4CB40);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

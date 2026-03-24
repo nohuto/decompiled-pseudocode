@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDelayFaultingThread @ 0x140645E88
+ * XREFs of MiDelayFaultingThread @ 0x1405482C4
  * Callers:
- *     MiUserFault @ 0x140235870 (MiUserFault.c)
+ *     MiUserFault @ 0x14020D730 (MiUserFault.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     MiWaitForAvailablePages @ 0x14065395C (MiWaitForAvailablePages.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     MiWaitForAvailablePages @ 0x14055BFE4 (MiWaitForAvailablePages.c)
  */
 
 NTSTATUS __fastcall MiDelayFaultingThread(int a1)
@@ -16,15 +16,15 @@ NTSTATUS __fastcall MiDelayFaultingThread(int a1)
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( a1 == 1 )
   {
-    v2 = Process[1].IdealProcessor[25];
+    v2 = Process[1].IdealProcessorPadding[5];
     v3 = &MiHalfSecond;
-    return MiWaitForAvailablePages(*(_QWORD *)(qword_140C674C8 + 8 * v2), v3);
+    return MiWaitForAvailablePages(*(_QWORD *)(qword_140C4E648 + 8 * v2), v3);
   }
   if ( a1 == 2 )
   {
-    v2 = Process[1].IdealProcessor[25];
+    v2 = Process[1].IdealProcessorPadding[5];
     v3 = &Mi30Milliseconds;
-    return MiWaitForAvailablePages(*(_QWORD *)(qword_140C674C8 + 8 * v2), v3);
+    return MiWaitForAvailablePages(*(_QWORD *)(qword_140C4E648 + 8 * v2), v3);
   }
   return KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi10Milliseconds);
 }

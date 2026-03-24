@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InvokingEvtIsrInDxNotArmedForWake@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C008E410
+ * XREFs of ?InvokingEvtIsrInDxNotArmedForWake@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C008BA10
  * Callers:
  *     <none>
  * Callees:
- *     ?InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ @ 0x1C008D308 (-InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ.c)
+ *     ?InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ @ 0x1C0089B6C (-InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxWakeInterruptMachine::InvokingEvtIsrInDxNotArmedForWake(

@@ -1,140 +1,143 @@
 /*
- * XREFs of EtwpAddGuidEntry @ 0x140792A4C
+ * XREFs of EtwpAddGuidEntry @ 0x1406E3BB0
  * Callers:
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpAddGuidEntry @ 0x140792A4C (EtwpAddGuidEntry.c)
- *     EtwpFindOrCreateGuidEntry @ 0x140796798 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpAddRegEntryToGroup @ 0x140643580 (EtwpAddRegEntryToGroup.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpAddGuidEntry @ 0x1406E3BB0 (EtwpAddGuidEntry.c)
+ *     EtwpRegisterProvider @ 0x140762D20 (EtwpRegisterProvider.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EtwpFreeGuidEntry @ 0x1406D708C (EtwpFreeGuidEntry.c)
- *     EtwpAddGuidEntry @ 0x140792A4C (EtwpAddGuidEntry.c)
- *     EtwpAllocGuidEntry @ 0x140792BF0 (EtwpAllocGuidEntry.c)
- *     EtwpFindGuidEntryByGuid @ 0x1407968D0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReferenceGuidEntry @ 0x140796BF4 (EtwpReferenceGuidEntry.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1405EB9B0 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpFreeGuidEntry @ 0x1406B2ACC (EtwpFreeGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1406E3BB0 (EtwpAddGuidEntry.c)
+ *     EtwpAllocGuidEntry @ 0x1406E3E30 (EtwpAllocGuidEntry.c)
  */
 
 __int64 *__fastcall EtwpAddGuidEntry(__int64 a1, _DWORD *a2, int a3)
 {
-  __int64 v3; // rsi
-  _QWORD *GuidEntryByGuid; // rbp
+  __int64 v3; // rbp
+  __int64 *GuidEntryByGuid; // rsi
   __int64 v7; // rdi
-  __int64 v8; // r14
-  __int64 *v9; // r15
-  struct _KTHREAD *v10; // rax
-  volatile signed __int64 *v11; // r14
-  __int64 *i; // rsi
-  __int64 v13; // rcx
-  __int64 *v14; // rax
+  __int64 v9; // r14
+  __int64 *v10; // r15
+  __int64 **v11; // rcx
+  __int64 *v12; // rax
+  __int64 v13; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v17; // rcx
-  _QWORD *v18; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  _QWORD *v21; // rdx
+  volatile signed __int64 *v15; // rbp
+  __int64 *i; // r14
+  __int64 v17; // rcx
+  _QWORD *v18; // rdx
+  __int64 *v19; // rax
 
   v3 = a3;
   GuidEntryByGuid = 0LL;
   v7 = EtwpAllocGuidEntry();
   if ( !v7 )
     return 0LL;
-  if ( a1 == EtwpHostSiloState
-    || (GuidEntryByGuid = (_QWORD *)EtwpFindGuidEntryByGuid(EtwpHostSiloState, a2, (unsigned int)v3)) != 0LL
-    || (GuidEntryByGuid = (_QWORD *)EtwpAddGuidEntry(EtwpHostSiloState, a2, (unsigned int)v3)) != 0LL )
+  if ( a1 != EtwpHostSiloState )
   {
-    v8 = 56LL * (((unsigned __int8)*a2 ^ (unsigned __int8)(a2[1] ^ a2[2] ^ a2[3])) & 0x3F) + a1 + 464;
-    v9 = (__int64 *)(v8 + 16 * v3);
-    if ( GuidEntryByGuid )
+    GuidEntryByGuid = EtwpFindGuidEntryByGuid(EtwpHostSiloState, a2, v3);
+    if ( !GuidEntryByGuid )
     {
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
-      v17 = GuidEntryByGuid + 2;
-      GuidEntryByGuid[52] = KeGetCurrentThread();
-      v18 = (_QWORD *)(v7 + 16);
-      *(_QWORD *)(v7 + 400) = GuidEntryByGuid;
-      v19 = GuidEntryByGuid[2];
-      if ( *(_QWORD **)(v19 + 8) != GuidEntryByGuid + 2 )
-        goto LABEL_32;
-      *v18 = v19;
-      *(_QWORD *)(v7 + 24) = v17;
-      *(_QWORD *)(v19 + 8) = v18;
-      *v17 = v18;
-    }
-    v10 = KeGetCurrentThread();
-    --v10->KernelApcDisable;
-    v11 = (volatile signed __int64 *)(v8 + 48);
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v11, 0LL);
-    for ( i = (__int64 *)*v9; ; i = (__int64 *)*i )
-    {
-      if ( i == v9 )
-        goto LABEL_10;
-      v13 = *(_QWORD *)a2 - i[5];
-      if ( *(_QWORD *)a2 == i[5] )
-        v13 = *((_QWORD *)a2 + 1) - i[6];
-      if ( !v13 && (unsigned __int8)EtwpReferenceGuidEntry((ULONG_PTR)i) )
-        break;
-    }
-    if ( i )
-    {
-      if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v11);
-      KeAbPostRelease((ULONG_PTR)v11);
-      KeLeaveCriticalRegion();
+      GuidEntryByGuid = (__int64 *)EtwpAddGuidEntry(EtwpHostSiloState, a2, (unsigned int)v3);
       if ( !GuidEntryByGuid )
-        goto LABEL_20;
-      v20 = *(_QWORD *)(v7 + 16);
-      if ( *(_QWORD *)(v20 + 8) == v7 + 16 )
       {
-        v21 = *(_QWORD **)(v7 + 24);
-        if ( *v21 == v7 + 16 )
-        {
-          *v21 = v20;
-          *(_QWORD *)(v20 + 8) = v21;
-          *(_QWORD *)(v7 + 400) = 0LL;
-LABEL_30:
-          GuidEntryByGuid[52] = 0LL;
-          ExReleasePushLockEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
-          KeLeaveCriticalRegion();
-          if ( !v7 )
-            return i;
-          EtwpUnreferenceGuidEntry(GuidEntryByGuid);
-LABEL_20:
-          --*(_QWORD *)(v7 + 32);
-          EtwpFreeGuidEntry((char *)v7);
-          return i;
-        }
+        --*(_QWORD *)(v7 + 32);
+        EtwpFreeGuidEntry((char *)v7);
+        return 0LL;
       }
     }
-    else
+  }
+  v9 = 56LL * (((unsigned __int8)*a2 ^ (unsigned __int8)(a2[1] ^ a2[2] ^ a2[3])) & 0x3F) + a1 + 464;
+  v10 = (__int64 *)(v9 + 16 * v3);
+  if ( GuidEntryByGuid )
+  {
+    KeEnterCriticalRegion();
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
+    v11 = (__int64 **)(GuidEntryByGuid + 2);
+    GuidEntryByGuid[52] = (__int64)KeGetCurrentThread();
+    v12 = (__int64 *)(v7 + 16);
+    *(_QWORD *)(v7 + 400) = GuidEntryByGuid;
+    v13 = GuidEntryByGuid[2];
+    if ( *(__int64 **)(v13 + 8) != GuidEntryByGuid + 2 )
+      goto LABEL_33;
+    *v12 = v13;
+    *(_QWORD *)(v7 + 24) = v11;
+    *(_QWORD *)(v13 + 8) = v12;
+    *v11 = v12;
+  }
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v15 = (volatile signed __int64 *)(v9 + 48);
+  ExAcquirePushLockExclusiveEx(v9 + 48, 0LL);
+  for ( i = (__int64 *)*v10; ; i = (__int64 *)*i )
+  {
+    if ( i == v10 )
+      goto LABEL_23;
+    if ( *(_QWORD *)a2 == i[5] && *((_QWORD *)a2 + 1) == i[6] && EtwpReferenceGuidEntry((ULONG_PTR)i) )
+      break;
+  }
+  if ( i )
+  {
+    if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v15);
+    KeAbPostRelease((ULONG_PTR)v15);
+    KeLeaveCriticalRegion();
+    if ( !GuidEntryByGuid )
+      goto LABEL_30;
+    v17 = *(_QWORD *)(v7 + 16);
+    if ( *(_QWORD *)(v17 + 8) == v7 + 16 )
     {
-LABEL_10:
-      v14 = (__int64 *)*v9;
-      if ( *(__int64 **)(*v9 + 8) == v9 )
+      v18 = *(_QWORD **)(v7 + 24);
+      if ( *v18 == v7 + 16 )
       {
-        *(_QWORD *)v7 = v14;
-        i = (__int64 *)v7;
-        *(_QWORD *)(v7 + 8) = v9;
-        v14[1] = v7;
-        *v9 = v7;
-        if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v11);
-        KeAbPostRelease((ULONG_PTR)v11);
-        KeLeaveCriticalRegion();
-        v7 = 0LL;
-        if ( !GuidEntryByGuid )
-          return i;
-        goto LABEL_30;
+        *v18 = v17;
+        *(_QWORD *)(v17 + 8) = v18;
+        *(_QWORD *)(v7 + 400) = 0LL;
+        goto LABEL_27;
       }
     }
-LABEL_32:
+LABEL_33:
     __fastfail(3u);
   }
-  --*(_QWORD *)(v7 + 32);
-  EtwpFreeGuidEntry((char *)v7);
-  return 0LL;
+LABEL_23:
+  v19 = (__int64 *)*v10;
+  if ( *(__int64 **)(*v10 + 8) != v10 )
+    goto LABEL_33;
+  *(_QWORD *)v7 = v19;
+  i = (__int64 *)v7;
+  *(_QWORD *)(v7 + 8) = v10;
+  v19[1] = v7;
+  *v10 = v7;
+  v7 = 0LL;
+  if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v15);
+  KeAbPostRelease((ULONG_PTR)v15);
+  KeLeaveCriticalRegion();
+LABEL_27:
+  if ( !GuidEntryByGuid )
+    goto LABEL_30;
+  GuidEntryByGuid[52] = 0LL;
+  ExReleasePushLockEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
+  KeLeaveCriticalRegion();
+  if ( v7 )
+  {
+    EtwpUnreferenceGuidEntry(GuidEntryByGuid);
+LABEL_30:
+    if ( v7 )
+    {
+      --*(_QWORD *)(v7 + 32);
+      EtwpFreeGuidEntry((char *)v7);
+    }
+  }
+  return i;
 }

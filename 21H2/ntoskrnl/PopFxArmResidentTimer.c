@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxArmResidentTimer @ 0x14035800C
+ * XREFs of PopFxArmResidentTimer @ 0x140262ABC
  * Callers:
- *     PopFxResidentTimeoutDpcRoutine @ 0x1402519B0 (PopFxResidentTimeoutDpcRoutine.c)
- *     PopFxIdleComponent @ 0x140355830 (PopFxIdleComponent.c)
- *     PopFxResidentTimeoutRoutine @ 0x140357EE0 (PopFxResidentTimeoutRoutine.c)
+ *     PopFxIdleComponent @ 0x1402611F0 (PopFxIdleComponent.c)
+ *     PopFxResidentTimeoutRoutine @ 0x140262990 (PopFxResidentTimeoutRoutine.c)
+ *     PopFxResidentTimeoutDpcRoutine @ 0x1402C9380 (PopFxResidentTimeoutDpcRoutine.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x1402E2C60 (KeSetCoalescableTimer.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxArmResidentTimer(char a1)

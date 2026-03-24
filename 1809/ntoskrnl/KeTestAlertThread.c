@@ -4,11 +4,11 @@
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KiContinueEx @ 0x1400A2540 (KiContinueEx.c)
  *     NtTestAlert @ 0x1406237C0 (NtTestAlert.c)
- *     DbgkpSendErrorMessage @ 0x140810DEC (DbgkpSendErrorMessage.c)
+ *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int8 __fastcall KeTestAlertThread(char a1, __int64 a2, __int64 a3)

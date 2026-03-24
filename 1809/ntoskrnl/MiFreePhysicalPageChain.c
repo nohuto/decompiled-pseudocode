@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFreePhysicalPageChain @ 0x1402B04BC
+ * XREFs of MiFreePhysicalPageChain @ 0x1402B05BC
  * Callers:
  *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
- *     NtMapUserPhysicalPages @ 0x1408513E0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x1408516D0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x1408513C0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408516B0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140117B80 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x140118FC0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetAweInfoPartition @ 0x14084FEF0 (MiGetAweInfoPartition.c)
- *     MiReturnProcessPhysicalPages @ 0x14085BC20 (MiReturnProcessPhysicalPages.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140118FE0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
+ *     MiReturnProcessPhysicalPages @ 0x14085BC00 (MiReturnProcessPhysicalPages.c)
  */
 
 __int64 __fastcall MiFreePhysicalPageChain(unsigned int *a1, __int64 a2, int a3)

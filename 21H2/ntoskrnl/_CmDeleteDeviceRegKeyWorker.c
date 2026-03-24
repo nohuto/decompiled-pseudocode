@@ -1,256 +1,241 @@
 /*
- * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x140A24104
+ * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x14072D04C
  * Callers:
- *     _CmDeleteDeviceRegKey @ 0x140A23FCC (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x14072CF6C (_CmDeleteDeviceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _CmSetDeviceRegProp @ 0x14076FE20 (_CmSetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     _CmGetDeviceRegKeyPath @ 0x14077F934 (_CmGetDeviceRegKeyPath.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     _CmDeleteDeviceRegKey @ 0x140A23FCC (_CmDeleteDeviceRegKey.c)
- *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140A2A0E4 (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406420EC (_CmGetDeviceRegKeyPath.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x14072CF6C (_CmDeleteDeviceRegKey.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x14072DC38 (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
+ *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmDeleteDeviceRegKeyWorker(__int64 a1, __int64 a2, int a3, int a4, char a5)
+__int64 __fastcall CmDeleteDeviceRegKeyWorker(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5)
 {
-  int v5; // ebx
-  int v8; // r13d
-  wchar_t *Pool2; // rdi
-  unsigned int v10; // r15d
-  int DeviceRegKeyPath; // eax
-  int inited; // ebx
-  unsigned __int64 v13; // rax
+  __int64 v8; // rbx
+  int v9; // r12d
+  wchar_t *PoolWithTag; // r14
+  unsigned __int64 v11; // rsi
+  int DeviceRegKeyPath; // ebx
+  const wchar_t *v13; // rsi
+  __int64 v14; // rcx
   unsigned __int16 Length; // bx
-  const WCHAR *v15; // r15
-  HANDLE v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rsi
-  int *p_DestinationString; // rax
-  unsigned int v20; // r13d
-  int v21; // eax
+  HANDLE v17; // rax
+  unsigned int v18; // r13d
+  __int64 v19; // rax
+  __int64 v20; // r8
+  HANDLE v21; // r12
   int v22; // eax
-  __int64 v23; // rax
-  __int64 v24; // r8
-  char *v25; // r13
-  __int64 v26; // rax
-  __int64 v27; // r8
-  wchar_t *v28; // rax
-  wchar_t *v29; // rsi
+  wchar_t *v23; // rax
+  wchar_t *v24; // r15
+  __int64 v25; // rax
+  __int64 v26; // r8
+  int *p_DestinationString; // r13
+  unsigned int v28; // r12d
+  int v29; // eax
   __int64 v30; // rax
   __int64 v31; // r8
   __int64 v32; // rax
   __int64 v33; // r8
-  size_t v35; // [rsp+30h] [rbp-41h]
-  __int64 v37; // [rsp+48h] [rbp-29h] BYREF
-  UNICODE_STRING *v38; // [rsp+50h] [rbp-21h] BYREF
-  int v39[2]; // [rsp+58h] [rbp-19h]
-  HANDLE v40; // [rsp+60h] [rbp-11h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-1h] BYREF
+  size_t v34; // [rsp+30h] [rbp-50h]
+  unsigned int v35; // [rsp+40h] [rbp-40h] BYREF
+  HANDLE v36; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v37; // [rsp+50h] [rbp-30h]
+  HANDLE v38; // [rsp+58h] [rbp-28h] BYREF
+  HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-18h] BYREF
 
-  *(_QWORD *)v39 = a2;
-  v5 = a4;
-  LODWORD(v37) = 0;
+  v37 = a2;
+  v35 = 0;
+  v36 = 0LL;
   v38 = 0LL;
-  v40 = 0LL;
+  v8 = a2;
   Handle = 0LL;
-  v8 = 4;
-  Pool2 = 0LL;
+  v9 = 4;
+  PoolWithTag = 0LL;
   DestinationString = 0LL;
   if ( !a3 || (a3 & 0xFFFFFCE8) != 0 )
-    goto LABEL_73;
-  v10 = (a3 & 0x200) != 0 ? 360 : 240;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v10, 1380994640LL);
-  if ( !Pool2 )
+    goto LABEL_85;
+  LODWORD(v11) = (a3 & 0x200) != 0 ? 360 : 240;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v11, 0x52504E50u);
+  if ( PoolWithTag )
   {
-LABEL_72:
-    inited = -1073741801;
-    goto LABEL_74;
-  }
-  while ( 1 )
-  {
-    LODWORD(v35) = v10 >> 1;
-    DeviceRegKeyPath = CmGetDeviceRegKeyPath(a1, *(__int64 *)v39, a3, v5, 0, Pool2, v35, &v37);
-    inited = DeviceRegKeyPath;
-    if ( DeviceRegKeyPath != -1073741789 )
-      break;
-    ExFreePoolWithTag(Pool2, 0);
-    v13 = 2LL * (unsigned int)v37;
-    Pool2 = 0LL;
-    if ( v13 > 0xFFFFFFFF )
+    while ( 1 )
     {
-      inited = -1073741675;
-      goto LABEL_74;
+      LODWORD(v34) = (unsigned int)v11 >> 1;
+      DeviceRegKeyPath = CmGetDeviceRegKeyPath(a1, v8, a3, a4, 0, PoolWithTag, v34, (__int64)&v35);
+      if ( DeviceRegKeyPath != -1073741789 )
+        break;
+      ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = 0LL;
+      v11 = 2LL * v35;
+      if ( v11 > 0xFFFFFFFF )
+      {
+        DeviceRegKeyPath = -1073741675;
+        goto LABEL_10;
+      }
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v11, 0x52504E50u);
+      if ( !PoolWithTag )
+        goto LABEL_60;
+      v8 = v37;
     }
-    v10 = 2 * v37;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v13, 1380994640LL);
-    if ( !Pool2 )
-      goto LABEL_72;
-    v5 = a4;
   }
-  if ( DeviceRegKeyPath >= 0 )
+  else
   {
-    if ( (a3 & 0x100) != 0 )
-    {
-      v15 = Pool2;
-      v17 = 0LL;
-      if ( a1 )
-        v17 = *(_QWORD *)(a1 + 224);
-      inited = SysCtxRegOpenCurrentUserKey(v17, 0LL, 0x2000000LL, &v40);
-      if ( inited < 0 )
-        goto LABEL_74;
-      v16 = v40;
-      goto LABEL_25;
-    }
-    inited = RtlInitUnicodeStringEx(&DestinationString, Pool2);
-    if ( inited < 0 )
-      goto LABEL_74;
+LABEL_60:
+    DeviceRegKeyPath = -1073741801;
+  }
+  if ( DeviceRegKeyPath < 0 )
+    goto LABEL_10;
+  if ( (a3 & 0x100) == 0 )
+  {
+    DeviceRegKeyPath = RtlInitUnicodeStringEx(&DestinationString, PoolWithTag);
+    if ( DeviceRegKeyPath < 0 )
+      goto LABEL_10;
     Length = DestinationString.Length;
-    if ( DestinationString.Length < v10
+    if ( DestinationString.Length < (unsigned int)v11
       && DestinationString.Length > 0x32u
       && RtlPrefixUnicodeString(
            &`_CmDeleteDeviceContainerRegKeyWorker'::`2'::ObjectPathRootPrefix,
            &DestinationString,
            1u) )
     {
-      v15 = Pool2 + 25;
+      v13 = PoolWithTag + 25;
       DestinationString.MaximumLength -= 50;
-      DestinationString.Buffer = Pool2 + 25;
+      DestinationString.Buffer = PoolWithTag + 25;
       DestinationString.Length = Length - 50;
       if ( RtlPrefixUnicodeString(&`_CmDeleteDeviceRegKeyWorker'::`2'::EnumKeyPrefix, &DestinationString, 1u) )
       {
-        v8 = 5;
-        v15 = Pool2 + 30;
+        v9 = 5;
+        v13 = PoolWithTag + 30;
       }
       else if ( RtlPrefixUnicodeString(
                   &`_CmDeleteDeviceInterfaceRegKeyWorker'::`2'::HardwareProfilesKeyPrefix,
                   &DestinationString,
                   1u) )
       {
-        v8 = 14;
-        v15 = Pool2 + 43;
+        v9 = 14;
+        v13 = PoolWithTag + 43;
       }
-      inited = PnpCtxGetCachedContextBaseKey(a1, v8, (__int64)&v38);
-      if ( inited < 0 )
-        goto LABEL_74;
-      v16 = v38;
-LABEL_25:
-      v37 = (__int64)v16;
-      inited = CmOpenDeviceRegKey(a1, *(__int64 *)v39, 16, 0, 1, 0, (__int64)&Handle, 0LL);
-      if ( inited < 0 )
-        goto LABEL_74;
-      if ( (unsigned __int8)a3 == 18 && (a3 & 0xF00) == 0 )
-      {
-        v18 = *(_QWORD *)v39;
-        p_DestinationString = (int *)&DestinationString;
-        v38 = &DestinationString;
-        v20 = 0;
-        *(_DWORD *)&DestinationString.Length = 786;
-        *(_DWORD *)(&DestinationString.MaximumLength + 1) = 530;
-        LODWORD(DestinationString.Buffer) = 274;
-        while ( 1 )
-        {
-          v21 = CmDeleteDeviceRegKey(a1, v18, *p_DestinationString, 0);
-          if ( v21 )
-          {
-            if ( v21 != -1073741772 && v21 != -1073741811 && v21 != -1073741637 )
-              break;
-          }
-          ++v20;
-          p_DestinationString = (int *)(&v38->MaximumLength + 1);
-          v38 = (UNICODE_STRING *)((char *)v38 + 4);
-          if ( v20 >= 3 )
-            goto LABEL_36;
-        }
-        inited = v21;
-        if ( v21 < 0 )
-          goto LABEL_74;
-LABEL_36:
-        CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues(a1, v18);
-        v22 = CmSetDeviceRegProp(a1, v18, 0LL, 0xAu, 1u, 0LL, 0, 0);
-        if ( v22 )
-        {
-          if ( v22 != -1073741275 && v22 != -1073741810 )
-            goto LABEL_39;
-        }
-      }
-      if ( a5 )
-      {
-        if ( a1 && (v23 = *(_QWORD *)(a1 + 224)) != 0 )
-          v24 = *(_QWORD *)(v23 + 8);
-        else
-          v24 = 0LL;
-        v25 = (char *)v37;
-        v22 = RegRtlDeleteTreeInternal(v37, (__int64)v15, v24, 0);
-      }
-      else
-      {
-        if ( a1 && (v26 = *(_QWORD *)(a1 + 224)) != 0 )
-          v27 = *(_QWORD *)(v26 + 8);
-        else
-          v27 = 0LL;
-        v25 = (char *)v37;
-        v22 = RegRtlDeleteKeyTransacted((char *)v37, v15, v27);
-      }
-      if ( v22 != -1073741444 )
-      {
-        if ( v22 < 0 )
-        {
-LABEL_39:
-          inited = v22;
-          goto LABEL_74;
-        }
-        if ( (unsigned __int8)a3 != 18 && ((unsigned __int8)a3 != 17 || (a3 & 0xF00) != 0) )
-        {
-          v28 = wcsrchr(v15, 0x5Cu);
-          if ( v28 && (*v28 = 0, (v29 = wcsrchr(v15, 0x5Cu)) != 0LL) )
-          {
-            if ( a1 && (v30 = *(_QWORD *)(a1 + 224)) != 0 )
-              v31 = *(_QWORD *)(v30 + 8);
-            else
-              v31 = 0LL;
-            v22 = RegRtlDeleteKeyTransacted(v25, v15, v31);
-            if ( v22 != -1073741535 )
-            {
-              if ( v22 < 0 )
-                goto LABEL_39;
-              *v29 = 0;
-              if ( a1 && (v32 = *(_QWORD *)(a1 + 224)) != 0 )
-                v33 = *(_QWORD *)(v32 + 8);
-              else
-                v33 = 0LL;
-              v22 = RegRtlDeleteKeyTransacted(v25, v15, v33);
-              if ( (int)(v22 + 0x80000000) >= 0 && v22 != -1073741535 )
-                goto LABEL_39;
-            }
-          }
-          else
-          {
-            inited = -1073741595;
-          }
-        }
-      }
-      goto LABEL_74;
+      DeviceRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, v9, (__int64)&v36);
+      if ( DeviceRegKeyPath < 0 )
+        goto LABEL_10;
+      v17 = v36;
+      goto LABEL_26;
     }
-LABEL_73:
-    inited = -1073741811;
+LABEL_85:
+    DeviceRegKeyPath = -1073741811;
+    goto LABEL_10;
   }
-LABEL_74:
+  v13 = PoolWithTag;
+  v14 = 0LL;
+  if ( a1 )
+    v14 = *(_QWORD *)(a1 + 224);
+  DeviceRegKeyPath = SysCtxRegOpenCurrentUserKey(v14, 0LL, 0x2000000LL, &v38);
+  if ( DeviceRegKeyPath < 0 )
+    goto LABEL_10;
+  v17 = v38;
+LABEL_26:
+  v36 = v17;
+  DeviceRegKeyPath = CmOpenDeviceRegKey(a1, v37, 16, 0, 1, 0, (__int64)&Handle, 0LL);
+  if ( DeviceRegKeyPath < 0 )
+    goto LABEL_10;
+  v18 = (unsigned __int8)a3;
+  v35 = (unsigned __int8)a3;
+  if ( (unsigned __int8)a3 == 18 && (a3 & 0xF00) == 0 )
+  {
+    *(_DWORD *)&DestinationString.Length = 786;
+    p_DestinationString = (int *)&DestinationString;
+    *(_DWORD *)(&DestinationString.MaximumLength + 1) = 530;
+    v28 = 0;
+    LODWORD(DestinationString.Buffer) = 274;
+    while ( 1 )
+    {
+      v29 = CmDeleteDeviceRegKey(a1, v37, *p_DestinationString, 0);
+      if ( v29 )
+      {
+        if ( v29 != -1073741637 && v29 != -1073741772 && v29 != -1073741811 )
+          break;
+      }
+      ++v28;
+      ++p_DestinationString;
+      if ( v28 >= 3 )
+        goto LABEL_51;
+    }
+    DeviceRegKeyPath = v29;
+LABEL_51:
+    if ( DeviceRegKeyPath < 0 )
+      goto LABEL_10;
+    CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues(a1, v37);
+    v22 = CmSetDeviceRegProp(a1, v37, 0, 10, 1, 0LL, 0, 0);
+    if ( v22 && v22 != -1073741275 && v22 != -1073741810 )
+      goto LABEL_36;
+    v18 = v35;
+  }
+  if ( a5 )
+  {
+    if ( a1 && (v19 = *(_QWORD *)(a1 + 224)) != 0 )
+      v20 = *(_QWORD *)(v19 + 8);
+    else
+      v20 = 0LL;
+    v21 = v36;
+    v22 = RegRtlDeleteTreeInternal(v36, v13, v20, 0LL);
+  }
+  else
+  {
+    if ( a1 && (v30 = *(_QWORD *)(a1 + 224)) != 0 )
+      v31 = *(_QWORD *)(v30 + 8);
+    else
+      v31 = 0LL;
+    v21 = v36;
+    v22 = RegRtlDeleteKeyTransacted(v36, v13, v31);
+  }
+  if ( v22 != -1073741444 )
+  {
+    if ( v22 < 0 )
+      goto LABEL_36;
+    if ( v18 != 18 && (v18 != 17 || (a3 & 0xF00) != 0) )
+    {
+      v23 = wcsrchr(v13, 0x5Cu);
+      if ( !v23 || (*v23 = 0, (v24 = wcsrchr(v13, 0x5Cu)) == 0LL) )
+      {
+        DeviceRegKeyPath = -1073741595;
+        goto LABEL_10;
+      }
+      if ( a1 && (v25 = *(_QWORD *)(a1 + 224)) != 0 )
+        v26 = *(_QWORD *)(v25 + 8);
+      else
+        v26 = 0LL;
+      v22 = RegRtlDeleteKeyTransacted(v21, v13, v26);
+      if ( v22 != -1073741535 )
+      {
+        if ( v22 < 0
+          || ((*v24 = 0, !a1) || (v32 = *(_QWORD *)(a1 + 224)) == 0 ? (v33 = 0LL) : (v33 = *(_QWORD *)(v32 + 8)),
+              (v22 = RegRtlDeleteKeyTransacted(v21, v13, v33), (int)(v22 + 0x80000000) >= 0) && v22 != -1073741535) )
+        {
+LABEL_36:
+          DeviceRegKeyPath = v22;
+        }
+      }
+    }
+  }
+LABEL_10:
   if ( Handle )
     ZwClose(Handle);
-  if ( v40 )
-    ZwClose(v40);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)inited;
+  if ( v38 )
+    ZwClose(v38);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  return (unsigned int)DeviceRegKeyPath;
 }

@@ -1,38 +1,39 @@
 /*
- * XREFs of xxxSendPointerMessage @ 0x1C01C56C8
+ * XREFs of xxxSendPointerMessage @ 0x1C01F069C
  * Callers:
- *     NtUserfnPOINTERINPUT @ 0x1C01E2E20 (NtUserfnPOINTERINPUT.c)
+ *     NtUserfnPOINTERINPUT @ 0x1C0206390 (NtUserfnPOINTERINPUT.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxSendPointerMessageWorker @ 0x1C01C5744 (xxxSendPointerMessageWorker.c)
- *     ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5A6C (-GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxSendPointerMessageWorker @ 0x1C01F0718 (xxxSendPointerMessageWorker.c)
+ *     ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0A48 (-GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z.c)
  */
 
 __int64 __fastcall xxxSendPointerMessage(
         __int64 a1,
-        unsigned __int16 a2,
-        int a3,
+        __int64 a2,
+        __int64 ThreadPointerData,
         int a4,
         __int64 a5,
         __int64 a6,
         int a7)
 {
-  int v9; // ecx
-  unsigned __int64 ThreadPointerData; // rax
-  HWND *v12; // [rsp+20h] [rbp-18h]
+  int v8; // edi
+  __int64 v9; // rcx
+  HWND *v11; // [rsp+20h] [rbp-18h]
 
-  if ( *(_QWORD *)(a1 + 1152) )
+  v8 = ThreadPointerData;
+  if ( *(_QWORD *)(a1 + 1112) )
   {
-    v9 = 5;
+    v9 = 5LL;
 LABEL_3:
-    UserSetLastError(v9);
+    UserSetLastError(v9, a2, ThreadPointerData);
     return 0LL;
   }
-  ThreadPointerData = GetThreadPointerData((struct tagTHREADINPUTPOINTERLIST *)(a1 + 1128), a2, 0LL, 0LL, v12);
+  ThreadPointerData = GetThreadPointerData((struct tagTHREADINPUTPOINTERLIST *)(a1 + 1088), a2, 0LL, 0LL, v11);
   if ( !ThreadPointerData )
   {
-    v9 = 87;
+    v9 = 87LL;
     goto LABEL_3;
   }
-  return xxxSendPointerMessageWorker(a3, a4, ThreadPointerData, a5, a6, a7);
+  return xxxSendPointerMessageWorker(v8, a4, ThreadPointerData, a5, a6, a7);
 }

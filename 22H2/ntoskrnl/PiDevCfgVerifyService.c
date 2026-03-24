@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgVerifyService @ 0x140879D2C
+ * XREFs of PiDevCfgVerifyService @ 0x14077BB80
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140879844 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076B620 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryDword @ 0x1403C655C (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryDword @ 0x14039A2C8 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgVerifyService(PCWSTR SourceString, bool *a2, _DWORD *a3)
 {
   int v3; // r12d
   unsigned int v6; // r15d
-  NTSTATUS RegistryValue; // ebx
+  int RegistryValue; // ebx
   unsigned int *v8; // rcx
   unsigned int *v9; // rcx
   unsigned int *v11; // rcx

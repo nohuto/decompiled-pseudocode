@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIdnToUnicode @ 0x1409BF450
+ * XREFs of RtlIdnToUnicode @ 0x140916650
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIdnToUnicodeWorker @ 0x1405AFCE0 (RtlpIdnToUnicodeWorker.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IdnaMemAlloc @ 0x14058D0D0 (IdnaMemAlloc.c)
+ *     RtlpIdnToUnicodeWorker @ 0x14058D144 (RtlpIdnToUnicodeWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlIdnToUnicode(
@@ -15,12 +15,12 @@ NTSTATUS __stdcall RtlIdnToUnicode(
         PWSTR DestinationString,
         PLONG DestinationStringLength)
 {
-  WCHAR *Pool2; // rdi
+  WCHAR *v9; // rdi
   NTSTATUS v11; // ebx
   BOOLEAN v12; // [rsp+30h] [rbp-18h]
 
-  Pool2 = (WCHAR *)ExAllocatePool2(256LL, 1022LL, 1164862537LL);
-  if ( !Pool2 )
+  v9 = (WCHAR *)IdnaMemAlloc(0x3FEuLL);
+  if ( !v9 )
     return -1073741801;
   v11 = RtlpIdnToUnicodeWorker(
           Flags,
@@ -28,8 +28,8 @@ NTSTATUS __stdcall RtlIdnToUnicode(
           SourceStringLength,
           DestinationString,
           DestinationStringLength,
-          Pool2,
+          v9,
           v12);
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(v9, 0);
   return v11;
 }

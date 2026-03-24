@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PopDeferredTracker@ADAPTER_RENDER@@QEAAPEAVDXGTERMINATIONTRACKER@@XZ @ 0x1C01BA6CC
+ * XREFs of ?PopDeferredTracker@ADAPTER_RENDER@@QEAAPEAVDXGTERMINATIONTRACKER@@XZ @ 0x1C010DC78
  * Callers:
- *     ?DxgkpDeferredDestructionWork@@YAXPEAX@Z @ 0x1C01BA500 (-DxgkpDeferredDestructionWork@@YAXPEAX@Z.c)
+ *     ?DxgkpDeferredDestructionWork@@YAXPEAX@Z @ 0x1C010DAE0 (-DxgkpDeferredDestructionWork@@YAXPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,20 +12,20 @@ struct DXGTERMINATIONTRACKER *__fastcall ADAPTER_RENDER::PopDeferredTracker(ADAP
   _QWORD *v3; // rsi
   _QWORD *v4; // rcx
 
-  v2 = (char *)this + 1312;
+  v2 = (char *)this + 1144;
   v3 = 0LL;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v2, 0LL);
   *((_QWORD *)v2 + 1) = KeGetCurrentThread();
-  v4 = (_QWORD *)*((_QWORD *)this + 163);
+  v4 = (_QWORD *)*((_QWORD *)this + 142);
   if ( v4 )
   {
     v3 = v4 - 7;
-    *((_QWORD *)this + 163) = *v4;
+    *((_QWORD *)this + 142) = *v4;
   }
   else
   {
-    *((_BYTE *)this + 1368) = 0;
+    *((_BYTE *)this + 1200) = 0;
   }
   *((_QWORD *)v2 + 1) = 0LL;
   ExReleasePushLockExclusiveEx(v2, 0LL);

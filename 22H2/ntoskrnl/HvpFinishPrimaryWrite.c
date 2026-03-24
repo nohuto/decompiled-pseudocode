@@ -1,59 +1,54 @@
 /*
- * XREFs of HvpFinishPrimaryWrite @ 0x1407D9C94
+ * XREFs of HvpFinishPrimaryWrite @ 0x1407247B4
  * Callers:
- *     HvWriteHivePrimaryFile @ 0x1407D9A80 (HvWriteHivePrimaryFile.c)
+ *     HvWriteHivePrimaryFile @ 0x140724610 (HvWriteHivePrimaryFile.c)
  * Callees:
- *     CmpLogEvent @ 0x140A0FC84 (CmpLogEvent.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AF668C (HvUnlockHiveFlusherExclusive.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpLogEvent @ 0x14086B764 (CmpLogEvent.c)
  */
 
-__int64 __fastcall HvpFinishPrimaryWrite(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpFinishPrimaryWrite(__int64 a1, char a2, unsigned __int8 a3, char a4)
 {
-  _DWORD *v4; // rbx
-  char v5; // bp
-  int v6; // r14d
-  int v7; // esi
-  char v8; // r15
+  char v4; // bp
+  int v5; // esi
+  int v6; // edi
   __int64 result; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
 
-  v4 = (_DWORD *)(a1 + 4224);
-  v5 = 0;
-  v6 = (unsigned __int8)a3;
-  v7 = *(_DWORD *)(a1 + 160) & 0x100;
-  v8 = a2;
-  if ( ((_BYTE)a2 == (v7 != 0) || ((*v4 >> 1) & 1) != (unsigned __int8)a3) && !(_BYTE)a4 )
+  v4 = 0;
+  v5 = *(_DWORD *)(a1 + 160) & 0x100;
+  v6 = a3;
+  if ( (a2 == (v5 != 0) || ((*(_DWORD *)(a1 + 4264) >> 1) & 1) != a3) && !a4 )
   {
-    CmpLockRegistry(a1, a2, a3, a4);
-    HvLockHiveFlusherExclusive(a1);
-    v5 = 1;
+    CmpLockRegistry();
+    ExAcquirePushLockExclusiveEx(a1 + 72, 0LL);
+    v4 = 1;
   }
-  if ( v8 )
+  if ( a2 )
   {
-    if ( v7 )
+    if ( v5 )
       *(_DWORD *)(a1 + 160) &= ~0x100u;
   }
-  else if ( !v7 )
+  else if ( !v5 )
   {
     CmpLogEvent(&REG_EVENT_FLUSH_IO_FAIL);
     *(_DWORD *)(a1 + 160) |= 0x100u;
   }
-  result = (*v4 >> 1) & 1;
+  result = (*(_DWORD *)(a1 + 4264) >> 1) & 1;
   if ( (_DWORD)result != v6 )
   {
-    result = *v4 ^ ((unsigned __int8)*v4 ^ (unsigned __int8)(2 * v6)) & 2u;
-    *v4 = result;
+    result = *(_DWORD *)(a1 + 4264) ^ ((unsigned __int8)*(_DWORD *)(a1 + 4264) ^ (unsigned __int8)(2 * v6)) & 2u;
+    *(_DWORD *)(a1 + 4264) = result;
   }
-  if ( v5 )
+  if ( v4 )
   {
-    HvUnlockHiveFlusherExclusive(a1);
-    return CmpUnlockRegistry(v12, v11, v13, v14);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 72));
+    KeAbPostRelease(a1 + 72);
+    return CmpUnlockRegistry();
   }
   return result;
 }

@@ -1,31 +1,37 @@
 /*
- * XREFs of ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C00496AC
+ * XREFs of ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C012E960
  * Callers:
- *     xxxSetDeskWallpaper @ 0x1C0049544 (xxxSetDeskWallpaper.c)
+ *     xxxSetDeskWallpaper @ 0x1C012E7EC (xxxSetDeskWallpaper.c)
  * Callees:
- *     ?_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z @ 0x1C0049738 (-_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 __int64 xxxNotifyShellOfWallpaperChange(void)
 {
   unsigned int v0; // ebx
-  struct tagWND *ShellWindow; // rdi
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int128 v6; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-18h]
+  __int64 v1; // rax
+  __int64 v2; // rdi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v4; // rcx
+  _QWORD v6[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v0 = 0;
-  ShellWindow = _GetShellWindow(*(struct tagDESKTOP **)(gptiCurrent + 456LL));
-  if ( ShellWindow )
+  v1 = *(_QWORD *)(gptiCurrent + 456LL);
+  if ( v1 )
   {
-    v6 = 0LL;
-    v7 = 0LL;
-    ThreadLockAlways(ShellWindow, &v6);
-    v0 = xxxSendNotifyMessage(ShellWindow, 52LL, 4LL, 0LL, 1);
-    ThreadUnlock1(v3, v2, v4);
+    v2 = *(_QWORD *)(*(_QWORD *)(v1 + 8) + 168LL);
+    if ( v2 )
+    {
+      v6[2] = 0LL;
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      v6[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = v6;
+      v6[1] = v2;
+      HMLockObject(v2);
+      v0 = xxxSendNotifyMessage(v2, 0x34u, 4uLL, 0LL, 1);
+      ThreadUnlock1(v4);
+    }
   }
   return v0;
 }

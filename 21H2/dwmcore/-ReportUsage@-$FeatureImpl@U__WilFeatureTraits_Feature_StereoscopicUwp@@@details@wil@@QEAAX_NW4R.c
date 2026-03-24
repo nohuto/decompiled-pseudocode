@@ -1,49 +1,49 @@
 /*
- * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18007D878
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800A0404
  * Callers:
- *     ??1CVisual@@MEAA@XZ @ 0x18004A90C (--1CVisual@@MEAA@XZ.c)
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18007D2F8 (-PreRender@CComposition@@IEAAJXZ.c)
- *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x1801932D8 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
- *     ?ProcessSetStereoscopicContentMode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETSTEREOSCOPICCONTENTMODE@@@Z @ 0x1801F8018 (-ProcessSetStereoscopicContentMode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETSTE.c)
- *     ??0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z @ 0x18029A8E8 (--0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z.c)
- *     ?StereoscopicUwp_SetPoseData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@00@Z @ 0x18029C230 (-StereoscopicUwp_SetPoseData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@00@Z.c)
- *     ?StereoscopicUwp_SetSlateData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@AEBUXMFLOAT3@3@1@Z @ 0x18029C250 (-StereoscopicUwp_SetSlateData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@AEBUXMFLO.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A047C (--1CVisual@@MEAA@XZ.c)
+ *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x180155AC4 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
+ *     ?ProcessSetStereoscopicContentMode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETSTEREOSCOPICCONTENTMODE@@@Z @ 0x1801AEA64 (-ProcessSetStereoscopicContentMode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETSTE.c)
+ *     ??0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z @ 0x1802585AC (--0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?StereoscopicUwp_SetPoseData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@00@Z @ 0x180259C10 (-StereoscopicUwp_SetPoseData@CHolographicInteropTexture@@UEAAXAEBUXMFLOAT4X4@DirectX@@00@Z.c)
  * Callees:
- *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800F6774 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@detail.c)
- *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x180103518 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800AD744 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@detail.c)
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800EB470 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
  */
 
-__int64 __fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::ReportUsage(
+__int64 wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::ReportUsage(
         _DWORD *a1,
         unsigned __int8 a2,
         __int64 a3,
-        __int64 a4)
+        ...)
 {
-  __int64 v4; // r8
-  int v6; // edi
-  _BYTE v8[24]; // [rsp+40h] [rbp-18h] BYREF
-  int v9; // [rsp+60h] [rbp+8h] BYREF
-  char v10; // [rsp+64h] [rbp+Ch]
-  __int64 v11; // [rsp+78h] [rbp+20h]
+  __int64 v3; // r8
+  int v5; // edi
+  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+68h] [rbp+20h] BYREF
+  va_list va; // [rsp+68h] [rbp+20h]
+  va_list va1; // [rsp+70h] [rbp+28h] BYREF
 
-  v11 = a4;
-  LODWORD(v4) = *a1;
-  v6 = a2;
-  if ( (*a1 & 2) == 0 )
+  va_start(va1, a3);
+  va_start(va, a3);
+  v8 = va_arg(va1, _QWORD);
+  LODWORD(v3) = *a1;
+  v5 = a2;
+  if ( (*a1 & 4) == 0 )
   {
-    v4 = *(_QWORD *)wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::GetCachedFeatureEnabledState(
+    v3 = *(_QWORD *)wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::GetCachedFeatureEnabledState(
                       a1,
-                      v8);
-    v11 = v4;
+                      &v7);
+    v7 = v3;
   }
-  v9 = 0;
-  v10 = 0;
+  LODWORD(v8) = 0;
+  BYTE4(v8) = 0;
   return wil::details::ReportUsageToService(
            a1 + 2,
            13330426LL,
-           ((unsigned int)v4 >> 8) & 1,
-           ((unsigned int)v4 >> 9) & 1,
-           &v9,
-           v6,
+           ((unsigned int)v3 >> 10) & 1,
+           ((unsigned int)v3 >> 11) & 1,
+           (__int64 *)va,
+           v5,
            3);
 }

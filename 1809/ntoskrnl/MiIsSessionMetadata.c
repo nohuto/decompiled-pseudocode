@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsSessionMetadata @ 0x14013E770
+ * XREFs of MiIsSessionMetadata @ 0x14013E790
  * Callers:
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  */

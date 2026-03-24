@@ -1,21 +1,20 @@
 /*
- * XREFs of ZwDeleteKey @ 0x14041D280
+ * XREFs of ZwDeleteKey @ 0x1403FBE20
  * Callers:
- *     BiZwDeleteKey @ 0x140395610 (BiZwDeleteKey.c)
- *     DifZwDeleteKeyWrapper @ 0x14061F730 (DifZwDeleteKeyWrapper.c)
- *     ExpSetPendingUILanguage @ 0x1407F44F0 (ExpSetPendingUILanguage.c)
- *     VrpDestroyNamespaceNode @ 0x1407F6410 (VrpDestroyNamespaceNode.c)
- *     NtEnableLastKnownGood @ 0x14080B090 (NtEnableLastKnownGood.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     CmDeleteKeyRecursive @ 0x14091D7D0 (CmDeleteKeyRecursive.c)
- *     CmpMoveBiosAliasTable @ 0x14091E6AC (CmpMoveBiosAliasTable.c)
- *     CmpDoReDoRecord @ 0x140925BD8 (CmpDoReDoRecord.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E190C (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     PiLastGoodCopyKeyContents @ 0x140B2AEDC (PiLastGoodCopyKeyContents.c)
- *     MfgInitSystem @ 0x140B30BB0 (MfgInitSystem.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x140B4FF80 (PiLastGoodRevertLastKnownDirectory.c)
+ *     BiZwDeleteKey @ 0x14038D048 (BiZwDeleteKey.c)
+ *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     NtEnableLastKnownGood @ 0x14077C3F0 (NtEnableLastKnownGood.c)
+ *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     CmDeleteKeyRecursive @ 0x140876D90 (CmDeleteKeyRecursive.c)
+ *     CmpMoveBiosAliasTable @ 0x140877C18 (CmpMoveBiosAliasTable.c)
+ *     CmpDoReDoRecord @ 0x140881FB8 (CmpDoReDoRecord.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x14093ABA8 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     PiLastGoodCopyKeyContents @ 0x140A6F008 (PiLastGoodCopyKeyContents.c)
+ *     MfgInitSystem @ 0x140A73924 (MfgInitSystem.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140A908F0 (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
  *     <none>
  */

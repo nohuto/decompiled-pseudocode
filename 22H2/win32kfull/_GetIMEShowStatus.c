@@ -1,12 +1,12 @@
 /*
- * XREFs of _GetIMEShowStatus @ 0x1C00AB49C
+ * XREFs of _GetIMEShowStatus @ 0x1C011E860
  * Callers:
- *     NtUserGetIMEShowStatus @ 0x1C00AB460 (NtUserGetIMEShowStatus.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall GetIMEShowStatus(__int64 a1)
+_BOOL8 GetIMEShowStatus()
 {
-  return *(_DWORD *)(SGDGetUserSessionState(a1) + 13960) != 0;
+  return HIDWORD(WPP_MAIN_CB.Dpc.DpcListEntry.Next) != 0;
 }

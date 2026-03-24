@@ -1,20 +1,19 @@
 /*
- * XREFs of CmSiRWLockReleaseExclusive @ 0x140747848
+ * XREFs of CmSiRWLockReleaseExclusive @ 0x1407D3444
  * Callers:
- *     CmSiAcquireProcessLockedPagesCharge @ 0x140207D84 (CmSiAcquireProcessLockedPagesCharge.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9BBC (CmSiReleaseProcessLockedPagesCharge.c)
- *     CmSiSetProcessWorkingSetMaximum @ 0x14037483C (CmSiSetProcessWorkingSetMaximum.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AF668C (HvUnlockHiveFlusherExclusive.c)
- *     CmpDumpKeyToBuffer @ 0x140AF68F4 (CmpDumpKeyToBuffer.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B3B6E8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD54 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
  */
 
-signed __int32 __fastcall CmSiRWLockReleaseExclusive(volatile signed __int64 *BugCheckParameter2)
+char __fastcall CmSiRWLockReleaseExclusive(volatile signed __int64 *BugCheckParameter2)
 {
-  if ( (_InterlockedExchangeAdd64(BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  char v2; // al
+
+  v2 = _InterlockedExchangeAdd64(BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v2 & 2) != 0 && (v2 & 4) == 0 )
     ExfTryToWakePushLock(BugCheckParameter2);
   return KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
 }

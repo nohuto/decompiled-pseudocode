@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x140299568
+ * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x140299668
  * Callers:
- *     KeUpdatePendingQosRequest @ 0x140297EF4 (KeUpdatePendingQosRequest.c)
- *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x140299640 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
+ *     KeUpdatePendingQosRequest @ 0x140297FF4 (KeUpdatePendingQosRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x140299740 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
  * Callees:
- *     KiSendClockInterruptToClockOwner @ 0x1400FD148 (KiSendClockInterruptToClockOwner.c)
- *     KiSetClockInterval @ 0x14012EAD8 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x140190BCC (KiResetClockInterval.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1400FD168 (KiSendClockInterruptToClockOwner.c)
+ *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140190BEC (KiResetClockInterval.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)

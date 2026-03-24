@@ -1,38 +1,43 @@
 /*
- * XREFs of UnsetLayeredWindow @ 0x1C00C8C24
+ * XREFs of UnsetLayeredWindow @ 0x1C00EEE28
  * Callers:
- *     ComposeWindow @ 0x1C00C8A84 (ComposeWindow.c)
- *     CleanupWindowRedirection @ 0x1C00EAF48 (CleanupWindowRedirection.c)
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     DeleteFadeSprite @ 0x1C01BCCA0 (DeleteFadeSprite.c)
+ *     ComposeWindow @ 0x1C003531C (ComposeWindow.c)
+ *     xxxSetWindowStyle @ 0x1C005E140 (xxxSetWindowStyle.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     DeleteFadeSprite @ 0x1C01E77A0 (DeleteFadeSprite.c)
  * Callees:
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UnsetRedirectedWindow @ 0x1C00C881C (UnsetRedirectedWindow.c)
- *     DwmAsyncChildStyleChange @ 0x1C00C8EAC (DwmAsyncChildStyleChange.c)
- *     GreDeleteSprite @ 0x1C00C8F74 (GreDeleteSprite.c)
- *     RemoveVisRgnTracker @ 0x1C00C96FC (RemoveVisRgnTracker.c)
- *     RedirectDCEs @ 0x1C00D3618 (RedirectDCEs.c)
- *     _SetLayeredWindowAttributes @ 0x1C00D5980 (_SetLayeredWindowAttributes.c)
- *     UpdateSprite @ 0x1C00D5D64 (UpdateSprite.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     GetStyleWindow @ 0x1C0119070 (GetStyleWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     RedirectDCEs @ 0x1C004C470 (RedirectDCEs.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     DwmAsyncChildStyleChange @ 0x1C004E050 (DwmAsyncChildStyleChange.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     GetStyleWindow @ 0x1C00714C0 (GetStyleWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     _SetLayeredWindowAttributes @ 0x1C00BD1E8 (_SetLayeredWindowAttributes.c)
+ *     UpdateSprite @ 0x1C00BE6C4 (UpdateSprite.c)
+ *     RemoveVisRgnTracker @ 0x1C00EF09C (RemoveVisRgnTracker.c)
+ *     GreDeleteSprite @ 0x1C00EF0D8 (GreDeleteSprite.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF498 (UnsetRedirectedWindow.c)
  */
 
 __int64 __fastcall UnsetLayeredWindow(struct tagWND *a1, char a2)
 {
-  int v4; // ebp
+  int v4; // esi
   __int64 v5; // r8
-  int v6; // eax
-  int v7; // r14d
-  void *v8; // rax
+  __int64 v6; // rcx
+  int v7; // eax
+  int v8; // ebp
+  __int64 v9; // rcx
+  int v10; // ebx
+  __int64 v11; // rdx
+  void *v12; // rax
   struct tagWND *StyleWindow; // rax
-  __int64 v10; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  void *v14; // rax
-  char v15; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v14; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  int v18; // ebx
+  void *v19; // rax
+  char v20; // [rsp+80h] [rbp+18h] BYREF
 
   v4 = GreIsDynamicModeChangeLocked(*(_QWORD *)(gpDispInfo + 40LL));
   if ( v4 )
@@ -42,40 +47,51 @@ __int64 __fastcall UnsetLayeredWindow(struct tagWND *a1, char a2)
   if ( (a2 & 1) == 0
     && (unsigned int)IsWindowDesktopComposed(a1)
     && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x10) != 0
-    && (v7 = SetLayeredWindowAttributes(a1), v7 >= 0) )
+    && (v8 = SetLayeredWindowAttributes(a1, 0, 0xFFu, 18), v8 >= 0) )
   {
-    *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) |= 2u;
-    v14 = (void *)ReferenceDwmApiPort(*((_QWORD *)a1 + 5));
-    DwmAsyncChildStyleChange(v14);
+    *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) |= 0x20u;
+    v17 = *((_QWORD *)a1 + 5);
+    v18 = *(_DWORD *)(v17 + 232);
+    v19 = (void *)ReferenceDwmApiPort(v17, v16);
+    DwmAsyncChildStyleChange(v19, *(_QWORD *)a1, -268435456, v18);
   }
   else
   {
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x10) != 0 )
-      UpdateSprite(*(_QWORD *)(gpDispInfo + 40LL), a1, v5, 0LL, 0LL, 0LL, 0LL, 0LL, 0, 0LL, 0x80000000, 0LL);
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 27LL) & 0x20) != 0 )
-      UnsetRedirectedWindow(a1, 1);
-    *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) &= ~2u;
-    *((_DWORD *)a1 + 80) &= ~0x8000u;
-    v6 = IsWindowDesktopComposed(a1);
-    v7 = GreDeleteSprite(*(HDEV *)(gpDispInfo + 40LL), *(HWND *)a1, 0LL, v6);
-    SetOrClrWF(0LL, a1, 2568LL, 1LL);
+    v6 = *((_QWORD *)a1 + 5);
+    if ( (*(_BYTE *)(v6 + 31) & 0x10) != 0 )
+    {
+      UpdateSprite(*(HDEV *)(gpDispInfo + 40LL), a1, v5, 0LL, 0LL, 0LL, 0LL, 0LL, 0, 0LL, 0x80000000, 0LL);
+      v6 = *((_QWORD *)a1 + 5);
+    }
+    if ( (*(_BYTE *)(v6 + 27) & 0x20) != 0 )
+    {
+      UnsetRedirectedWindow(a1);
+      v6 = *((_QWORD *)a1 + 5);
+    }
+    *(_DWORD *)(v6 + 232) &= ~0x20u;
+    *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) &= ~0x40u;
+    v7 = IsWindowDesktopComposed(a1);
+    v8 = GreDeleteSprite(*(HDEV *)(gpDispInfo + 40LL), *(HWND *)a1, 0LL, v7);
+    SetOrClrWF(0, (__int64)a1, 0xA08u, 1);
     RemoveVisRgnTracker(a1, 1LL);
-    v8 = (void *)ReferenceDwmApiPort(*((_QWORD *)a1 + 5));
-    DwmAsyncChildStyleChange(v8);
-    StyleWindow = (struct tagWND *)GetStyleWindow(a1, 2848LL);
+    v9 = *((_QWORD *)a1 + 5);
+    v10 = *(_DWORD *)(v9 + 232);
+    v12 = (void *)ReferenceDwmApiPort(v9, v11);
+    DwmAsyncChildStyleChange(v12, *(_QWORD *)a1, -268435456, v10);
+    StyleWindow = (struct tagWND *)GetStyleWindow((__int64)a1, 2848);
     if ( StyleWindow && StyleWindow != a1 )
       RedirectDCEs(a1);
     if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x10) != 0 )
     {
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v15);
+      UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v20);
       zzzLockDisplayAreaAndInvalidateDCCache((__int64)a1, 17, 0LL);
-      AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v15, v12, v13);
+      UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v20);
     }
   }
-  v10 = *(_QWORD *)(gpDispInfo + 40LL);
+  v14 = *(_QWORD *)(gpDispInfo + 40LL);
   if ( v4 )
-    GreUnlockVisRgnWithDmcLockAcquiredEx(v10);
+    GreUnlockVisRgnWithDmcLockAcquiredEx(v14);
   else
-    GreUnlockVisRgn(v10);
-  return (unsigned int)v7;
+    GreUnlockVisRgn(v14);
+  return (unsigned int)v8;
 }

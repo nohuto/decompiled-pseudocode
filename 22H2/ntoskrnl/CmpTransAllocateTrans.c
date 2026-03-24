@@ -1,32 +1,34 @@
 /*
- * XREFs of CmpTransAllocateTrans @ 0x1407DB594
+ * XREFs of CmpTransAllocateTrans @ 0x14066E01C
  * Callers:
- *     CmpTransSearchAddTrans @ 0x140768A4C (CmpTransSearchAddTrans.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x140768DAC (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x14066DE54 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14076644C (CmpTransSearchAddTrans.c)
  * Callees:
- *     CmpBindHiveToTrans @ 0x140768F54 (CmpBindHiveToTrans.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpBindHiveToTrans @ 0x14066E10C (CmpBindHiveToTrans.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
+char *__fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
 {
-  __int64 Pool2; // rax
-  __int64 v9; // rdx
+  char *PoolWithTag; // rax
+  char *v9; // rbx
   int v10; // eax
   __int128 v11; // xmm0
 
-  Pool2 = ExAllocatePool2(256LL, 184LL, 1918127427LL);
-  v9 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0xB8uLL, 0x72544D43u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 56) = a1;
-    *(_DWORD *)(Pool2 + 48) = 8;
-    *(_QWORD *)(Pool2 + 104) = CLFS_LSN_INVALID_EXT;
-    *(_QWORD *)(Pool2 + 64) = a3;
-    v10 = *(_DWORD *)(Pool2 + 48);
+    memset(PoolWithTag, 0, 0xB8uLL);
+    *((_QWORD *)v9 + 7) = a1;
+    *((_QWORD *)v9 + 13) = CLFS_LSN_INVALID_EXT;
+    *((_DWORD *)v9 + 12) = 8;
+    v10 = *((_DWORD *)v9 + 12);
     if ( (a1 & 1) != 0 )
       v10 = 136;
-    *(_DWORD *)(v9 + 48) = v10;
+    *((_QWORD *)v9 + 8) = a3;
+    *((_DWORD *)v9 + 12) = v10;
     if ( a2 )
     {
       v11 = *a2;
@@ -36,12 +38,12 @@ __int64 __fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, _
       if ( (a1 & 1) != 0 )
       {
 LABEL_9:
-        *(_QWORD *)(v9 + 8) = v9;
-        *(_QWORD *)(v9 + 24) = v9 + 16;
-        *(_QWORD *)(v9 + 16) = v9 + 16;
-        *(_QWORD *)(v9 + 40) = v9 + 32;
-        *(_QWORD *)(v9 + 32) = v9 + 32;
+        *((_QWORD *)v9 + 1) = v9;
+        *((_QWORD *)v9 + 3) = v9 + 16;
+        *((_QWORD *)v9 + 2) = v9 + 16;
         *(_QWORD *)v9 = v9;
+        *((_QWORD *)v9 + 5) = v9 + 32;
+        *((_QWORD *)v9 + 4) = v9 + 32;
         CmpBindHiveToTrans(a4, v9);
         return v9;
       }

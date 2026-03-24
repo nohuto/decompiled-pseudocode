@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsClassAtomPinned@@YA_NG@Z @ 0x1C0060AD8
+ * XREFs of ?IsClassAtomPinned@@YA_NG@Z @ 0x1C0079288
  * Callers:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     ?ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z @ 0x1C0106C94 (-ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
+ *     ?ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z @ 0x1C0119A00 (-ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z.c)
  * Callees:
  *     <none>
  */

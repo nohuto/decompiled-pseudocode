@@ -1,15 +1,15 @@
 /*
- * XREFs of PsCreateSystemThread @ 0x14066AA90
+ * XREFs of PsCreateSystemThread @ 0x14066AA70
  * Callers:
- *     SmKmStoreHelperStart @ 0x1400E3A54 (SmKmStoreHelperStart.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1400E3AE0 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     MiZeroInParallel @ 0x14013C524 (MiZeroInParallel.c)
- *     PopCreatePowerThread @ 0x140176408 (PopCreatePowerThread.c)
- *     ?SmCompressCtxCreateThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x14017725C (-SmCompressCtxCreateThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@.c)
- *     DisplayBootBitmap @ 0x14018173C (DisplayBootBitmap.c)
- *     CcInitializePartition @ 0x14018A590 (CcInitializePartition.c)
- *     CcInitializeAsyncRead @ 0x14018AAF8 (CcInitializeAsyncRead.c)
- *     ExRegisterBootDevice @ 0x140319E90 (ExRegisterBootDevice.c)
+ *     SmKmStoreHelperStart @ 0x1400E3A74 (SmKmStoreHelperStart.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1400E3B00 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     MiZeroInParallel @ 0x14013C544 (MiZeroInParallel.c)
+ *     PopCreatePowerThread @ 0x140176428 (PopCreatePowerThread.c)
+ *     ?SmCompressCtxCreateThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x14017727C (-SmCompressCtxCreateThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@.c)
+ *     DisplayBootBitmap @ 0x14018175C (DisplayBootBitmap.c)
+ *     CcInitializePartition @ 0x14018A5B0 (CcInitializePartition.c)
+ *     CcInitializeAsyncRead @ 0x14018AB18 (CcInitializeAsyncRead.c)
+ *     ExRegisterBootDevice @ 0x140319F90 (ExRegisterBootDevice.c)
  *     PopFlushVolumes @ 0x14056D750 (PopFlushVolumes.c)
  *     VfPendingInitPhase1 @ 0x140933774 (VfPendingInitPhase1.c)
  *     VfPoolInitPhase1 @ 0x140938034 (VfPoolInitPhase1.c)
@@ -20,7 +20,7 @@
  *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
  *     ExpWorkerFactoryInitialization @ 0x1409DD794 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
  */
 
 NTSTATUS __stdcall PsCreateSystemThread(

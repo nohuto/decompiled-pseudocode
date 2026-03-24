@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetHiberFileMcb @ 0x14071EB70
+ * XREFs of PopSetHiberFileMcb @ 0x14071EB50
  * Callers:
- *     PopResizeHiberFile @ 0x1406DFD08 (PopResizeHiberFile.c)
- *     PopCreateHiberFile @ 0x140746730 (PopCreateHiberFile.c)
+ *     PopResizeHiberFile @ 0x1406DFCE8 (PopResizeHiberFile.c)
+ *     PopCreateHiberFile @ 0x140746710 (PopCreateHiberFile.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
@@ -17,12 +17,12 @@ __int64 __fastcall PopSetHiberFileMcb(PVOID P, SIZE_T NumberOfBytes)
   v2 = 0;
   if ( P )
   {
-    LODWORD(dword_140417A40) = NumberOfBytes;
+    LODWORD(dword_140417840) = NumberOfBytes;
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x72626968u);
-    qword_140417A38 = PoolWithTag;
+    qword_140417838 = PoolWithTag;
     if ( PoolWithTag )
     {
-      memmove(PoolWithTag, P, (unsigned int)dword_140417A40);
+      memmove(PoolWithTag, P, (unsigned int)dword_140417840);
       ExFreePoolWithTag(P, 0);
     }
     else

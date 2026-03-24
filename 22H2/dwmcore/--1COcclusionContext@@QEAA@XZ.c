@@ -1,51 +1,30 @@
 /*
- * XREFs of ??1COcclusionContext@@QEAA@XZ @ 0x18003C0EC
+ * XREFs of ??1COcclusionContext@@QEAA@XZ @ 0x18003EE18
  * Callers:
- *     ??1CaptureBitsResponse@@UEAA@XZ @ 0x180020384 (--1CaptureBitsResponse@@UEAA@XZ.c)
- *     ?DrawSubVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180021100 (-DrawSubVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRe.c)
- *     ??1CVisualTree@@UEAA@XZ @ 0x18003B4F4 (--1CVisualTree@@UEAA@XZ.c)
- *     ??1CCachedVisualImage@@MEAA@XZ @ 0x1800B5E34 (--1CCachedVisualImage@@MEAA@XZ.c)
- *     ??1COffScreenRenderTarget@@MEAA@XZ @ 0x1801E9A1C (--1COffScreenRenderTarget@@MEAA@XZ.c)
- *     ??1CDDARenderTarget@@UEAA@XZ @ 0x1801F9548 (--1CDDARenderTarget@@UEAA@XZ.c)
+ *     ??1CCachedVisualImage@@MEAA@XZ @ 0x18003248C (--1CCachedVisualImage@@MEAA@XZ.c)
+ *     ?DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z @ 0x18003EA80 (-DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z.c)
+ *     ??1CaptureBitsResponse@@UEAA@XZ @ 0x180043C10 (--1CaptureBitsResponse@@UEAA@XZ.c)
+ *     ??1CVisualTree@@UEAA@XZ @ 0x180044154 (--1CVisualTree@@UEAA@XZ.c)
+ *     ??1COffScreenRenderTarget@@MEAA@XZ @ 0x1801852C8 (--1COffScreenRenderTarget@@MEAA@XZ.c)
+ *     ??_ECDDARenderTarget@@UEAAPEAXI@Z @ 0x180198C80 (--_ECDDARenderTarget@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1CLightStack@@QEAA@XZ @ 0x18003C748 (--1CLightStack@@QEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?clear_region@?$vector_facade@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$buffer_impl@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801B1EF4 (-clear_region@-$vector_facade@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ??_GCVisualTreePath@@QEAAPEAXI@Z @ 0x1801B6498 (--_GCVisualTreePath@@QEAAPEAXI@Z.c)
+ *     ??1CLightStack@@QEAA@XZ @ 0x180062D90 (--1CLightStack@@QEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
  */
 
 void __fastcall COcclusionContext::~COcclusionContext(void **this)
 {
-  void **v2; // rdi
-  void *v3; // rcx
-  bool v4; // zf
-  unsigned int v5; // edx
-  CVisualTreePath *v6; // rcx
-
+  operator delete(this[194]);
   operator delete(this[190]);
   operator delete(this[186]);
-  operator delete(this[182]);
-  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)(this + 168));
-  v2 = this + 105;
-  if ( ((_BYTE *)this[106] - (_BYTE *)this[105]) >> 4 )
-    detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,10,1,detail::liberal_expansion_policy>>::clear_region(
-      v2,
-      0LL);
-  v3 = *v2;
-  v4 = this[105] == this + 108;
-  *v2 = 0LL;
-  if ( v4 )
-    v3 = 0LL;
-  operator delete(v3);
-  DynArrayImpl<0>::~DynArrayImpl<0>(this + 56);
-  CLightStack::~CLightStack((CLightStack *)(this + 26));
-  operator delete(this[24]);
-  operator delete(this[20]);
-  operator delete(this[14]);
-  operator delete(this[6]);
-  v6 = (CVisualTreePath *)this[2];
-  if ( v6 )
-    CVisualTreePath::`scalar deleting destructor'(v6, v5);
+  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)(this + 173));
+  DynArrayImpl<0>::~DynArrayImpl<0>(this + 104);
+  DynArrayImpl<0>::~DynArrayImpl<0>(this + 100);
+  DynArrayImpl<0>::~DynArrayImpl<0>(this + 51);
+  CLightStack::~CLightStack((CLightStack *)(this + 21));
+  operator delete(this[19]);
+  operator delete(this[13]);
+  operator delete(this[5]);
 }

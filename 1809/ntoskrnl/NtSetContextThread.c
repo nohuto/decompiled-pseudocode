@@ -1,12 +1,12 @@
 /*
- * XREFs of NtSetContextThread @ 0x14088B910
+ * XREFs of NtSetContextThread @ 0x14088B8F0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x1400ACF00 (IoThreadToProcess.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
  */

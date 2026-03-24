@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0236070
+ * XREFs of ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F57C0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02359F0 (-SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
+ *     ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F5130 (-SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
  */
 
 __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::SetBufferProperty(
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshale
     case 8:
       if ( a5 == 16 )
       {
-        *((_OWORD *)this + 9) = *(_OWORD *)a4;
+        *(_OWORD *)((char *)this + 136) = *(_OWORD *)a4;
         *a6 = 1;
         return result;
       }
@@ -31,7 +31,7 @@ __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshale
     case 10:
       if ( a5 == 16 )
       {
-        *((_OWORD *)this + 10) = *(_OWORD *)a4;
+        *(_OWORD *)((char *)this + 152) = *(_OWORD *)a4;
         *a6 = 1;
         *((_DWORD *)this + 4) |= 0x4000u;
         return result;
@@ -40,7 +40,7 @@ __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshale
     case 13:
       if ( a5 == 16 )
       {
-        *((_OWORD *)this + 11) = *(_OWORD *)a4;
+        *(_OWORD *)((char *)this + 168) = *(_OWORD *)a4;
         *a6 = 1;
         *((_DWORD *)this + 4) |= 0x2000u;
         return result;

@@ -1,21 +1,22 @@
 /*
- * XREFs of CmpUnlockTwoSecurityCaches @ 0x1406D404C
+ * XREFs of CmpUnlockTwoSecurityCaches @ 0x14076FAF8
  * Callers:
- *     CmpCopyKeyPartial @ 0x1406D3BF0 (CmpCopyKeyPartial.c)
- *     CmpDoBuildVirtualStack @ 0x140916918 (CmpDoBuildVirtualStack.c)
- *     CmpSyncKeyValues @ 0x1409207EC (CmpSyncKeyValues.c)
+ *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
+ *     CmpSyncKeyValues @ 0x140879E2C (CmpSyncKeyValues.c)
  * Callees:
- *     CmUnlockHiveSecurity @ 0x140AB4484 (CmUnlockHiveSecurity.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-__int64 __fastcall CmpUnlockTwoSecurityCaches(__int64 a1, __int64 a2)
+char __fastcall CmpUnlockTwoSecurityCaches(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbx
+  ULONG_PTR v2; // rax
 
-  v2 = a2;
-  if ( a1 == a2 )
-    v2 = a1;
-  else
-    CmUnlockHiveSecurity(a1);
-  return CmUnlockHiveSecurity(v2);
+  v2 = a1 + 1776;
+  if ( a1 != a2 )
+  {
+    ExReleasePushLockEx(a1 + 1776, 0LL);
+    v2 = a2 + 1776;
+  }
+  return ExReleasePushLockEx(v2, 0LL);
 }

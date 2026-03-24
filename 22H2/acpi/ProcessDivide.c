@@ -1,13 +1,13 @@
 /*
- * XREFs of ProcessDivide @ 0x1C00583E0
+ * XREFs of ProcessDivide @ 0x1C006A0A0
  * Callers:
  *     <none>
  * Callees:
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
  */
 
-__int64 __fastcall ProcessDivide(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall ProcessDivide(struct _SLIST_ENTRY *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // esi
   int v6; // eax
@@ -17,7 +17,7 @@ __int64 __fastcall ProcessDivide(__int64 a1, __int64 a2, unsigned int a3)
   unsigned __int64 v10; // rcx
   __int64 v11; // rax
   unsigned __int64 v12; // rcx
-  __int64 v13; // rcx
+  _SLIST_ENTRY *Next; // rcx
 
   v3 = a3;
   if ( a3 )
@@ -46,7 +46,7 @@ __int64 __fastcall ProcessDivide(__int64 a1, __int64 a2, unsigned int a3)
     else
       *(_QWORD *)(*(_QWORD *)(a2 + 48) + 16LL) = 0LL;
     v3 = WriteObject(a1, *(_QWORD *)(v7 + 80) + 80LL, *(_QWORD *)(a2 + 48));
-    if ( v3 == 32772 || a2 != *(_QWORD *)(a1 + 416) )
+    if ( v3 == 32772 || (_SLIST_ENTRY *)a2 != a1[26].Next )
       return v3;
   }
   ++*(_DWORD *)(a2 + 16);
@@ -58,12 +58,12 @@ __int64 __fastcall ProcessDivide(__int64 a1, __int64 a2, unsigned int a3)
   else
     *(_QWORD *)(*(_QWORD *)(a2 + 48) + 16LL) = 0LL;
   v3 = WriteObject(a1, *(_QWORD *)(v7 + 80) + 120LL, *(_QWORD *)(a2 + 48));
-  if ( v3 != 32772 && a2 == *(_QWORD *)(a1 + 416) )
+  if ( v3 != 32772 && (_SLIST_ENTRY *)a2 == a1[26].Next )
   {
 LABEL_18:
-    v13 = *(_QWORD *)(a1 + 416);
-    *(_QWORD *)(a1 + 416) = *(_QWORD *)(v13 + 8);
-    HeapFree(v13);
+    Next = a1[26].Next;
+    a1[26].Next = (_SLIST_ENTRY *)*((_QWORD *)&Next->Next + 1);
+    HeapFree(Next);
   }
   return v3;
 }

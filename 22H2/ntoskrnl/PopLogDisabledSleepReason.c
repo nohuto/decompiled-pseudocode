@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLogDisabledSleepReason @ 0x1407A8F30
+ * XREFs of PopLogDisabledSleepReason @ 0x1406F417C
  * Callers:
- *     PopFilterCapabilities @ 0x1407A8C44 (PopFilterCapabilities.c)
+ *     PopFilterCapabilities @ 0x1406F4274 (PopFilterCapabilities.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1407A8DEC (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x14087404C (PopLogSleepDisabled.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x1406F441C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14077EB0C (PopLogSleepDisabled.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopLogDisabledSleepReason()
@@ -17,8 +17,8 @@ __int64 PopLogDisabledSleepReason()
   unsigned int v1; // edi
   unsigned int v2; // esi
   __int64 v3; // rax
-  __int64 v5; // rbp
-  __int64 Pool2; // rax
+  SIZE_T v5; // rbp
+  PVOID PoolWithTag; // rax
   void *v7; // rsi
   __int64 v8; // rcx
   _DWORD *v9; // r8
@@ -27,7 +27,7 @@ __int64 PopLogDisabledSleepReason()
   v1 = 0;
   v2 = 0;
   ExAcquireFastMutex(&PopDisableSleepMutex);
-  PopRemoveReasonRecordByReasonCode();
+  PopRemoveReasonRecordByReasonCode(13LL);
   v3 = PopDisableSleepList;
   if ( (__int64 *)PopDisableSleepList != &PopDisableSleepList )
   {
@@ -41,12 +41,12 @@ __int64 PopLogDisabledSleepReason()
     if ( v1 )
     {
       v5 = 8LL * v2;
-      Pool2 = ExAllocatePool2(256LL, v5, 1718968931LL);
-      v7 = (void *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, 0x66756263u);
+      v7 = PoolWithTag;
+      if ( PoolWithTag )
       {
         v8 = PopDisableSleepList;
-        v9 = (_DWORD *)Pool2;
+        v9 = PoolWithTag;
         while ( (__int64 *)v8 != &PopDisableSleepList )
         {
           *v9 = *(_DWORD *)(v8 + 16);
@@ -54,7 +54,7 @@ __int64 PopLogDisabledSleepReason()
           *(v9 - 1) = *(_DWORD *)(v8 + 20);
           v8 = *(_QWORD *)v8;
         }
-        v0 = PopLogSleepDisabled(13LL, v1, Pool2, v5);
+        v0 = PopLogSleepDisabled(13LL, v1, PoolWithTag, v5);
         ExFreePoolWithTag(v7, 0x66756263u);
       }
       else
@@ -63,6 +63,6 @@ __int64 PopLogDisabledSleepReason()
       }
     }
   }
-  ExReleaseFastMutex(&PopDisableSleepMutex);
+  KeReleaseGuardedMutex(&PopDisableSleepMutex);
   return v0;
 }

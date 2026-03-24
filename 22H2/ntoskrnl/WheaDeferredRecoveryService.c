@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaDeferredRecoveryService @ 0x140612CD0
+ * XREFs of WheaDeferredRecoveryService @ 0x1405BCF90
  * Callers:
- *     HalpInterruptDeferredRecoveryService @ 0x14051C310 (HalpInterruptDeferredRecoveryService.c)
+ *     HalpInterruptDeferredRecoveryService @ 0x1404D2570 (HalpInterruptDeferredRecoveryService.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
  */
 
 __int64 WheaDeferredRecoveryService()

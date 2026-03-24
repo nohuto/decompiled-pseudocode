@@ -9,11 +9,11 @@
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
  *     ExGetCallBackBlockContext @ 0x140088F00 (ExGetCallBackBlockContext.c)
- *     ExReleaseExtensionTable @ 0x14010DBCC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PsReferenceProcessFilePointer @ 0x14061CB90 (PsReferenceProcessFilePointer.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
  */
 
 __int64 __fastcall PspCallProcessNotifyRoutines(_QWORD *a1, __int64 a2, char a3)

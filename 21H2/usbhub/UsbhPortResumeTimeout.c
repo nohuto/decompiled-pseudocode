@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhPortResumeTimeout @ 0x1C0038490
+ * XREFs of UsbhPortResumeTimeout @ 0x1C0039760
  * Callers:
- *     UsbhWaitForPortResume @ 0x1C0039CEC (UsbhWaitForPortResume.c)
+ *     UsbhWaitForPortResume @ 0x1C003AFFC (UsbhWaitForPortResume.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C001E2AC (UsbhSendSynchronousUsbIoctlRequest.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhGetPortStatusBits @ 0x1C0037C98 (UsbhGetPortStatusBits.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C001BCC4 (UsbhSendSynchronousUsbIoctlRequest.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhGetPortStatusBits @ 0x1C0038F70 (UsbhGetPortStatusBits.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhPortResumeTimeout(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3)
@@ -34,24 +34,27 @@ __int64 __fastcall UsbhPortResumeTimeout(PDEVICE_OBJECT DeviceObject, __int64 a2
   int v19; // ebp
   _DWORD *v20; // rax
   _DWORD *v21; // rax
-  int v22; // [rsp+90h] [rbp+18h] BYREF
-  int v23; // [rsp+98h] [rbp+20h] BYREF
+  int v22; // [rsp+48h] [rbp-30h]
+  int v23; // [rsp+48h] [rbp-30h]
+  int v24; // [rsp+90h] [rbp+18h] BYREF
+  int v25; // [rsp+98h] [rbp+20h] BYREF
 
   v3 = *(unsigned __int16 *)(a3 + 4);
   v4 = 0;
-  v22 = 0;
-  v23 = 0;
+  v24 = 0;
+  v25 = 0;
   FdoExt((__int64)DeviceObject);
-  v8 = UsbhQueryPortState((__int64)DeviceObject, *(_WORD *)(a3 + 4), (__int64)&v23, &v22);
+  v8 = UsbhQueryPortState((__int64)DeviceObject, *(_WORD *)(a3 + 4), (__int64)&v25, &v24);
   Log((__int64)DeviceObject, 16, 1920233265, v8, 0LL);
   if ( Usb_Disconnected(v9) )
     return v10;
-  UsbhException((int)DeviceObject, *(unsigned __int16 *)(a3 + 4), 124, 0, 0, v10, v22, usbfile_bus_c, 7419, 0);
+  LOBYTE(v22) = 0;
+  UsbhException((int)DeviceObject, *(unsigned __int16 *)(a3 + 4), 124, 0, 0, v10, v24, usbfile_bus_c, 7419, v22);
   v12 = (struct _DEVICE_OBJECT *)UsbhLatchPdo((__int64)DeviceObject, v3, 0LL, 0x7761726Du);
   Log((__int64)DeviceObject, 16, 1920233266, v3, (__int64)v12);
   if ( v12 )
   {
-    PortStatusBits = UsbhGetPortStatusBits(v14, v13, (__int16 *)&v23, (__int64)v12);
+    PortStatusBits = UsbhGetPortStatusBits(v14, v13, (__int16 *)&v25, (__int64)v12);
     Log((__int64)DeviceObject, 16, 1347899987, PortStatusBits, v3);
     if ( v17 == 25 )
     {
@@ -71,8 +74,9 @@ __int64 __fastcall UsbhPortResumeTimeout(PDEVICE_OBJECT DeviceObject, __int64 a2
         Log((__int64)DeviceObject, 16, 1920233269, 0LL, v18);
         UsbhQueueSoftConnectChange((__int64)DeviceObject, v3, a2, 1);
         v20 = PdoExt((__int64)v12);
+        LOBYTE(v23) = 0;
         v20[355] &= ~0x4000u;
-        UsbhException((int)DeviceObject, 0, 125, 0, 0, v19, 0, usbfile_bus_c, 7479, 0);
+        UsbhException((int)DeviceObject, 0, 125, 0, 0, v19, 0, usbfile_bus_c, 7479, v23);
       }
       else
       {

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x140373BAC
+ * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x14035A26C
  * Callers:
- *     MiFlushAllPages @ 0x14038A880 (MiFlushAllPages.c)
- *     MmProcessWorkingSetControl @ 0x1407F5540 (MmProcessWorkingSetControl.c)
+ *     MiFlushAllPages @ 0x1403846E4 (MiFlushAllPages.c)
+ *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
  * Callees:
- *     MiEmptyWorkingSetInitiate @ 0x140256548 (MiEmptyWorkingSetInitiate.c)
- *     MiUnlockVad @ 0x140281C44 (MiUnlockVad.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadMapsLargeImage @ 0x14030EC40 (MiVadMapsLargeImage.c)
- *     MiVadSupportsPrivateCommit @ 0x14032E910 (MiVadSupportsPrivateCommit.c)
+ *     MiVadSupportsPrivateCommit @ 0x14021B240 (MiVadSupportsPrivateCommit.c)
+ *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
+ *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     MiEmptyWorkingSetInitiate @ 0x14035A3D4 (MiEmptyWorkingSetInitiate.c)
  */
 
-__int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, char a2)
+__int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   __int64 Process; // rbp
@@ -21,8 +21,9 @@ __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, char a2)
   unsigned int v7; // edi
   unsigned __int64 v8; // rbx
   _QWORD *v9; // rcx
-  _QWORD *v10; // rax
-  unsigned __int64 v11; // rcx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  unsigned __int64 v12; // rcx
 
   CurrentThread = KeGetCurrentThread();
   Process = (__int64)CurrentThread->ApcState.Process;
@@ -48,20 +49,20 @@ __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, char a2)
       --CurrentThread->SpecialApcDisable;
       ExAcquirePushLockExclusiveEx(v8 + 40, 0LL);
       LOBYTE(CurrentThread[1].Queue) |= 0x80u;
-      if ( (*(_DWORD *)(v8 + 48) & 4) == 0 && MiVadSupportsPrivateCommit(v8) && !MiVadMapsLargeImage(v8) )
+      if ( (*(_DWORD *)(v8 + 48) & 4) == 0 && MiVadSupportsPrivateCommit(v8) && !MiVadMapsLargeImage(v10) )
         MiEmptyWorkingSetInitiate(
           a1,
-          a2 | 2,
+          a2 | 2u,
           (*(unsigned int *)(v8 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32)) << 12,
           ((*(unsigned int *)(v8 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 33) << 32)) << 12) | 0xFFF);
       MiUnlockVad((__int64)CurrentThread, v8);
-      v10 = *(_QWORD **)(v8 + 8);
-      v11 = v8;
-      if ( v10 )
+      v11 = *(_QWORD **)(v8 + 8);
+      v12 = v8;
+      if ( v11 )
       {
-        v9 = (_QWORD *)*v10;
+        v9 = (_QWORD *)*v11;
         v8 = *(_QWORD *)(v8 + 8);
-        if ( *v10 )
+        if ( *v11 )
         {
           do
           {
@@ -76,9 +77,9 @@ __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, char a2)
         while ( 1 )
         {
           v8 = *(_QWORD *)(v8 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !v8 || *(_QWORD *)v8 == v11 )
+          if ( !v8 || *(_QWORD *)v8 == v12 )
             break;
-          v11 = v8;
+          v12 = v8;
         }
       }
     }

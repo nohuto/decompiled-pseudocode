@@ -1,20 +1,20 @@
 /*
- * XREFs of MmStoreRegister @ 0x14074BD4C
+ * XREFs of MmStoreRegister @ 0x14074BD2C
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E68 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88 (-SmFirstTimeInit@@YAJKK@Z.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     MiInsertPageFileInList @ 0x14074C930 (MiInsertPageFileInList.c)
- *     MiCreatePagefile @ 0x14074CB40 (MiCreatePagefile.c)
- *     MmStoreCheckPagefiles @ 0x14074CF7C (MmStoreCheckPagefiles.c)
- *     MiDeletePagefile @ 0x140853110 (MiDeletePagefile.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
+ *     MiCreatePagefile @ 0x14074CB20 (MiCreatePagefile.c)
+ *     MmStoreCheckPagefiles @ 0x14074CF5C (MmStoreCheckPagefiles.c)
+ *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
  */
 
 __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)

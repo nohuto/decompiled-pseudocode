@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPartitionActive @ 0x14013DAD8
+ * XREFs of MiPartitionActive @ 0x14013DAF8
  * Callers:
  *     MiEnablePartitionMappedWrites @ 0x14061BE6C (MiEnablePartitionMappedWrites.c)
- *     MmCreateProcessAddressSpace @ 0x1406D18B8 (MmCreateProcessAddressSpace.c)
- *     MiInsertPageFileInList @ 0x14074C930 (MiInsertPageFileInList.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiSetSlabAllocatorPolicy @ 0x14017EE8C (MiSetSlabAllocatorPolicy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiSetSlabAllocatorPolicy @ 0x14017EEAC (MiSetSlabAllocatorPolicy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG_PTR *__fastcall MiPartitionActive(__int64 a1)

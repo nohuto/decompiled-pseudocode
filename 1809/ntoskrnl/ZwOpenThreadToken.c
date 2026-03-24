@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenThreadToken @ 0x1401B85F0
+ * XREFs of ZwOpenThreadToken @ 0x1401B8610
  * Callers:
  *     <none>
  * Callees:

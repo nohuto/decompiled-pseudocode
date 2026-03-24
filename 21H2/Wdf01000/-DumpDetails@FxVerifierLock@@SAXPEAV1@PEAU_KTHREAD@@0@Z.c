@@ -1,16 +1,19 @@
 /*
- * XREFs of ?DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z @ 0x1C006D668
+ * XREFs of ?DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z @ 0x1C005A6CC
  * Callers:
- *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
  * Callees:
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_qDd @ 0x1C0053924 (WPP_IFR_SF_qDd.c)
- *     WPP_IFR_SF_DqD @ 0x1C006DF8C (WPP_IFR_SF_DqD.c)
- *     WPP_IFR_SF_qqDD @ 0x1C006E078 (WPP_IFR_SF_qqDD.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qDd @ 0x1C002F728 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_DqD @ 0x1C005B044 (WPP_IFR_SF_DqD.c)
+ *     WPP_IFR_SF_qqDD @ 0x1C005B130 (WPP_IFR_SF_qqDD.c)
  */
 
-void __fastcall FxVerifierLock::DumpDetails(FxVerifierLock *Lock, _KTHREAD *curThread, FxVerifierLock *PerThreadList)
+void __fastcall FxVerifierLock::DumpDetails(
+        FxVerifierLock *Lock,
+        struct _KTHREAD *curThread,
+        FxVerifierLock *PerThreadList)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdi
   FxVerifierLock *v4; // rbx

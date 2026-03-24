@@ -1,16 +1,16 @@
 /*
- * XREFs of ConcatenateResTemplate @ 0x1C00277F0
+ * XREFs of ConcatenateResTemplate @ 0x1C0068F10
  * Callers:
  *     <none>
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     ValidateTarget @ 0x1C0018344 (ValidateTarget.c)
- *     CheckAndPromoteAliasedObjects @ 0x1C00279B4 (CheckAndPromoteAliasedObjects.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     CheckAndPromoteAliasedObjects @ 0x1C006512C (CheckAndPromoteAliasedObjects.c)
  */
 
 __int64 __fastcall ConcatenateResTemplate(struct _SLIST_ENTRY *a1, __int64 a2)
@@ -20,103 +20,106 @@ __int64 __fastcall ConcatenateResTemplate(struct _SLIST_ENTRY *a1, __int64 a2)
   unsigned int v6; // edi
   __int64 v7; // rdx
   __int64 v8; // rdx
-  __int64 v9; // rcx
+  __int16 *v9; // rcx
   unsigned int v10; // edi
   __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  unsigned __int64 v14; // r9
-  __int64 v15; // r10
-  unsigned __int64 v16; // r9
-  unsigned int v17; // ecx
-  _BYTE *v18; // rax
-  __int64 v19; // rdx
-  char v21; // al
-  char v22; // al
-  int v23; // ecx
+  int v12; // ecx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  unsigned __int64 v15; // r9
+  __int64 v16; // r10
+  char v17; // al
+  unsigned __int64 v18; // r9
+  char v19; // al
+  unsigned int v20; // ecx
+  _BYTE *v21; // rax
+  __int64 v22; // rdx
   __int64 v24; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = *(_QWORD *)(a2 + 80);
   v4 = 0;
   v24 = 0LL;
   v6 = ValidateArgTypes((__int64)a1, v3, 0, "BB");
-  if ( v6 )
-    return v6;
-  v7 = *(_QWORD *)(a2 + 80);
-  if ( *(_DWORD *)(v7 + 24) <= 1u || *(_DWORD *)(v7 + 64) <= 1u )
+  if ( !v6 )
   {
-    v6 = -1072431098;
-    LogError(3222536198LL);
-    AcpiDiagTraceAmlError(a1, 3222536198LL);
-    v23 = 28;
-    goto LABEL_20;
-  }
-  v6 = ValidateTarget((__int64)a1, v7 + 80, 0x87u, (__int64)&v24);
-  if ( v6 )
-    return v6;
-  v9 = *(_QWORD *)(a2 + 80);
-  if ( *(_WORD *)(v9 + 82) != 128 )
-    CheckAndPromoteAliasedObjects(v9, v8, v24);
-  *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 3;
-  v10 = *(_DWORD *)(*(_QWORD *)(a2 + 80) + 64LL) - 2 + *(_DWORD *)(*(_QWORD *)(a2 + 80) + 24LL);
-  *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = v10;
-  *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v10);
-  v11 = *(_QWORD *)(a2 + 88);
-  if ( !*(_QWORD *)(v11 + 32) )
-  {
-    v6 = -1073741670;
-    LogError(3221225626LL);
-    AcpiDiagTraceAmlError(a1, 3221225626LL);
-    v23 = 29;
-LABEL_20:
-    PrintDebugMessage(v23, 0, 0, 0, 0LL);
-    return v6;
-  }
-  v12 = *(_QWORD *)(a2 + 80);
-  v13 = 0LL;
-  v14 = 0LL;
-  v15 = v12;
-  if ( *(_DWORD *)(v12 + 24) != 2 )
-  {
-    do
+    v7 = *(_QWORD *)(a2 + 80);
+    if ( *(_DWORD *)(v7 + 24) <= 1u || *(_DWORD *)(v7 + 64) <= 1u )
     {
-      v22 = *(_BYTE *)(v14 + *(_QWORD *)(v12 + 32));
-      ++v14;
-      *(_BYTE *)(v13 + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = v22;
-      ++v13;
-      v12 = *(_QWORD *)(a2 + 80);
-      v15 = v12;
+      v6 = -1072431098;
+      LogError(-1072431098);
+      AcpiDiagTraceAmlError((__int64)a1, -1072431098);
+      v12 = 28;
+      goto LABEL_19;
     }
-    while ( v14 < (unsigned int)(*(_DWORD *)(v12 + 24) - 2) );
-    v11 = *(_QWORD *)(a2 + 88);
-  }
-  v16 = 0LL;
-  if ( *(_DWORD *)(v12 + 64) != 2 )
-  {
-    do
+    v6 = ValidateTarget((__int64)a1, v7 + 80, 0x87u, (__int64)&v24);
+    if ( !v6 )
     {
-      v21 = *(_BYTE *)(v16 + *(_QWORD *)(v15 + 72));
-      ++v16;
-      *(_BYTE *)(v13 + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = v21;
-      ++v13;
-      v15 = *(_QWORD *)(a2 + 80);
+      v9 = *(__int16 **)(a2 + 80);
+      if ( v9[41] != 128 )
+        CheckAndPromoteAliasedObjects(v9, v8, v24);
+      *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 3;
+      v10 = *(_DWORD *)(*(_QWORD *)(a2 + 80) + 64LL) - 2 + *(_DWORD *)(*(_QWORD *)(a2 + 80) + 24LL);
+      *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = v10;
+      *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v10);
+      v11 = *(_QWORD *)(a2 + 88);
+      if ( !*(_QWORD *)(v11 + 32) )
+      {
+        v6 = -1073741670;
+        LogError(-1073741670);
+        AcpiDiagTraceAmlError((__int64)a1, -1073741670);
+        v12 = 29;
+LABEL_19:
+        PrintDebugMessage(v12, 0LL, 0LL, 0LL, 0LL);
+        return v6;
+      }
+      v13 = *(_QWORD *)(a2 + 80);
+      v14 = 0LL;
+      v15 = 0LL;
+      v16 = v13;
+      if ( *(_DWORD *)(v13 + 24) != 2 )
+      {
+        do
+        {
+          v17 = *(_BYTE *)(v15 + *(_QWORD *)(v13 + 32));
+          ++v15;
+          *(_BYTE *)(v14 + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = v17;
+          ++v14;
+          v13 = *(_QWORD *)(a2 + 80);
+          v16 = v13;
+        }
+        while ( v15 < (unsigned int)(*(_DWORD *)(v13 + 24) - 2) );
+        v11 = *(_QWORD *)(a2 + 88);
+      }
+      v18 = 0LL;
+      if ( *(_DWORD *)(v13 + 64) != 2 )
+      {
+        do
+        {
+          v19 = *(_BYTE *)(v18 + *(_QWORD *)(v16 + 72));
+          ++v18;
+          *(_BYTE *)(v14 + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = v19;
+          ++v14;
+          v16 = *(_QWORD *)(a2 + 80);
+        }
+        while ( v18 < (unsigned int)(*(_DWORD *)(v16 + 64) - 2) );
+        v11 = *(_QWORD *)(a2 + 88);
+      }
+      v20 = v10 - 1;
+      *(_BYTE *)(v14 + *(_QWORD *)(v11 + 32)) = 121;
+      v21 = *(_BYTE **)(*(_QWORD *)(a2 + 88) + 32LL);
+      if ( v10 != 1 )
+      {
+        do
+        {
+          v4 += *v21++;
+          --v20;
+        }
+        while ( v20 );
+      }
+      v22 = v24;
+      *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + v14 + 1) = -v4;
+      return (unsigned int)WriteObject(a1, v22, *(_QWORD *)(a2 + 88));
     }
-    while ( v16 < (unsigned int)(*(_DWORD *)(v15 + 64) - 2) );
-    v11 = *(_QWORD *)(a2 + 88);
   }
-  v17 = v10 - 1;
-  *(_BYTE *)(v13 + *(_QWORD *)(v11 + 32)) = 121;
-  v18 = *(_BYTE **)(*(_QWORD *)(a2 + 88) + 32LL);
-  if ( v10 != 1 )
-  {
-    do
-    {
-      v4 += *v18++;
-      --v17;
-    }
-    while ( v17 );
-  }
-  v19 = v24;
-  *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + v13 + 1) = -v4;
-  return (unsigned int)WriteObject(a1, v19, *(_QWORD *)(a2 + 88));
+  return v6;
 }

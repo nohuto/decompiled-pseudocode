@@ -1,26 +1,26 @@
 /*
- * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x14095039C
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140899C24
  * Callers:
- *     NtQueryEnvironmentVariableInfoEx @ 0x1409FF610 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x140954990 (NtQueryEnvironmentVariableInfoEx.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x14068779C (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14089AABC (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
 {
   int v8; // ebx
-  PVOID Object; // [rsp+40h] [rbp-89h] BYREF
-  __int64 (__fastcall **v11)(int, int, int, int, __int64, __int64, __int64); // [rsp+48h] [rbp-81h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-89h] BYREF
+  __int64 v11; // [rsp+48h] [rbp-81h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+50h] [rbp-79h] BYREF
   __int64 v13; // [rsp+58h] [rbp-71h] BYREF
   __int64 v14; // [rsp+60h] [rbp-69h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+70h] [rbp-59h] BYREF
-  __int64 (__fastcall ***v16)(int, int, int, int, __int64, __int64, __int64); // [rsp+90h] [rbp-39h]
+  __int64 *v16; // [rsp+90h] [rbp-39h]
   int v17; // [rsp+98h] [rbp-31h]
   int v18; // [rsp+9Ch] [rbp-2Dh]
   PDEVICE_OBJECT *p_DeviceObject; // [rsp+A0h] [rbp-29h]
@@ -32,27 +32,27 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
   __int64 *v25; // [rsp+C0h] [rbp-9h]
   int v26; // [rsp+C8h] [rbp-1h]
   int v27; // [rsp+CCh] [rbp+3h]
-  PVOID *p_Object; // [rsp+D0h] [rbp+7h]
+  PADAPTER_OBJECT *p_DmaAdapter; // [rsp+D0h] [rbp+7h]
   int v29; // [rsp+D8h] [rbp+Fh]
   int v30; // [rsp+DCh] [rbp+13h]
 
   DeviceObject = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v11 = 0LL;
-  v8 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&Object, &DeviceObject, &v11);
+  v8 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&DmaAdapter, &DeviceObject);
   if ( v8 >= 0 )
   {
-    v8 = ((__int64 (__fastcall *)(PVOID, PDEVICE_OBJECT, _QWORD, PDEVICE_OBJECT *, __int64 *, __int64 *))v11[3])(
-           Object,
+    v8 = (*(__int64 (__fastcall **)(PADAPTER_OBJECT, PDEVICE_OBJECT, _QWORD, PDEVICE_OBJECT *, __int64 *, __int64 *))(v11 + 24))(
+           DmaAdapter,
            DeviceObject,
            a1,
            a2,
            a3,
            a4);
-    if ( Object )
-      ObfDereferenceObject(Object);
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
   }
-  if ( (unsigned int)dword_140C038A8 > 5 && tlgKeywordOn((__int64)&dword_140C038A8, 0x200000000000LL) )
+  if ( (unsigned int)dword_140C04510 > 5 && tlgKeywordOn((__int64)&dword_140C04510, 0x200000000000LL) )
   {
     v18 = 0;
     v21 = 0;
@@ -66,15 +66,15 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
     v22 = &v13;
     v14 = *a4;
     v25 = &v14;
-    p_Object = &Object;
+    p_DmaAdapter = &DmaAdapter;
     v17 = 4;
     v20 = 8;
     v23 = 8;
     v26 = 8;
     v29 = 4;
     LODWORD(v11) = a1;
-    LODWORD(Object) = v8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C038A8, (unsigned __int8 *)byte_14002C4E3, 0LL, 0LL, 7u, &v15);
+    LODWORD(DmaAdapter) = v8;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04510, (unsigned __int8 *)byte_140024EC5, 0LL, 0LL, 7u, &v15);
   }
   return (unsigned int)v8;
 }

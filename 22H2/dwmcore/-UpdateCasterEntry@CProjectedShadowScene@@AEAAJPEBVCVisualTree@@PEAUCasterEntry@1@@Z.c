@@ -1,22 +1,22 @@
 /*
- * XREFs of ?UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z @ 0x1800055F0
+ * XREFs of ?UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z @ 0x18000A150
  * Callers:
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004FF4 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A740 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
  * Callees:
- *     ?DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x180004DAC (-DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
- *     ?GetEffectiveAlpha@CProjectedShadowCaster@@QEBAMPEBVCVisualTree@@PEA_N@Z @ 0x1800055C8 (-GetEffectiveAlpha@CProjectedShadowCaster@@QEBAMPEBVCVisualTree@@PEA_N@Z.c)
- *     ??$_Find@PEBVCVisualTree@@@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@AEBAPEAU?$_Tree_node@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@PEAX@1@AEBQEBVCVisualTree@@@Z @ 0x180005868 (--$_Find@PEBVCVisualTree@@@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProject.c)
- *     ?at@?$map@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@@std@@QEBAAEBUVisualPropertyData@CProjectedShadowCaster@@AEBQEBVCVisualTree@@@Z @ 0x180005960 (-at@-$map@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$less@PEBVCVisualTree@@.c)
- *     ?IsValidVisual@CProjectedShadowScene@@CA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180005AE0 (-IsValidVisual@CProjectedShadowScene@@CA_NPEBVCVisualTree@@PEAVCVisual@@@Z.c)
- *     ?IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ @ 0x180005B60 (-IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ.c)
- *     ?CalcSrcToDestVisualTransform@CVisual@@SAJPEBVCVisualTree@@W4WalkReason@@PEAV1@2PEAVCMILMatrix@@@Z @ 0x180005CAC (-CalcSrcToDestVisualTransform@CVisual@@SAJPEBVCVisualTree@@W4WalkReason@@PEAV1@2PEAVCMILMatrix@@.c)
- *     ?Transform4DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_4F@@AEBU2@@Z @ 0x180006168 (-Transform4DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_4F@@AEBU2@@Z.c)
- *     ?GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Numerics@Foundation@Windows@@PEAVCMILMatrix@@@Z @ 0x18000771C (-GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Num.c)
- *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x180008440 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x180088B84 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Numerics@Foundation@Windows@@PEAVCMILMatrix@@@Z @ 0x18000973C (-GetLightToCameraMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEBVCCompositionLight@@AEBUfloat3@Num.c)
+ *     ?GetEffectiveAlpha@CProjectedShadowCaster@@QEBAMPEBVCVisualTree@@PEA_N@Z @ 0x18000A3D8 (-GetEffectiveAlpha@CProjectedShadowCaster@@QEBAMPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?at@?$map@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@@std@@QEBAAEBUVisualPropertyData@CProjectedShadowCaster@@AEBQEBVCVisualTree@@@Z @ 0x18000A400 (-at@-$map@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$less@PEBVCVisualTree@@.c)
+ *     ?find@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@QEBA?AV?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@std@@@std@@@2@AEBQEBVCVisualTree@@@Z @ 0x18000A434 (-find@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U-$le.c)
+ *     ?Transform4DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_4F@@AEBU2@@Z @ 0x18000BD20 (-Transform4DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_4F@@AEBU2@@Z.c)
+ *     ?CalcSrcToDestVisualTransform@CVisual@@SAJPEBVCVisualTree@@W4WalkReason@@PEAV1@2PEAVCMILMatrix@@@Z @ 0x18000BE14 (-CalcSrcToDestVisualTransform@CVisual@@SAJPEBVCVisualTree@@W4WalkReason@@PEAV1@2PEAVCMILMatrix@@.c)
+ *     ?IsValidVisual@CProjectedShadowScene@@CA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x18000BFF8 (-IsValidVisual@CProjectedShadowScene@@CA_NPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ *     ?IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ @ 0x18000C0C0 (-IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ.c)
+ *     ?DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x18000C950 (-DiscardCachesForCaster@CProjectedShadowScene@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x1800BA3C0 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
+ *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x1800BF5F8 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::UpdateCasterEntry(
@@ -28,105 +28,101 @@ __int64 __fastcall CProjectedShadowScene::UpdateCasterEntry(
   unsigned int v7; // edi
   CVisual *v8; // r12
   __int64 v9; // rax
-  __int64 v10; // r8
-  bool *v11; // r8
-  float *v12; // rax
-  __int64 v14; // rdx
-  int v15; // eax
-  unsigned int v16; // ecx
-  const struct CVisualTree *v17; // rdx
+  bool *v10; // r8
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  int v13; // eax
+  unsigned int v14; // ecx
+  const struct CVisualTree *v15; // rdx
   int LightToCameraMatrix; // eax
-  unsigned int v19; // ecx
-  int v20; // eax
+  unsigned int v17; // ecx
+  int v18; // eax
+  __int128 v19; // xmm1
+  __int128 v20; // xmm0
   __int128 v21; // xmm1
-  __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  struct CMILMatrix *v24; // [rsp+28h] [rbp-B9h]
-  struct D2D_VECTOR_4F v25; // [rsp+38h] [rbp-A9h] BYREF
-  struct D2D_VECTOR_4F v26; // [rsp+48h] [rbp-99h] BYREF
-  __int128 v27; // [rsp+58h] [rbp-89h] BYREF
-  __int128 v28; // [rsp+68h] [rbp-79h]
-  __int128 v29; // [rsp+78h] [rbp-69h]
-  __int128 v30; // [rsp+88h] [rbp-59h]
-  int v31; // [rsp+98h] [rbp-49h]
-  _OWORD v32[4]; // [rsp+A8h] [rbp-39h] BYREF
-  int v33; // [rsp+E8h] [rbp+7h]
-  const struct CVisualTree *v34; // [rsp+148h] [rbp+67h] BYREF
-  __int64 v35; // [rsp+158h] [rbp+77h]
+  struct D2D_VECTOR_4F v23; // [rsp+38h] [rbp-A9h] BYREF
+  struct D2D_VECTOR_4F v24; // [rsp+48h] [rbp-99h] BYREF
+  __int128 v25; // [rsp+58h] [rbp-89h] BYREF
+  __int128 v26; // [rsp+68h] [rbp-79h]
+  __int128 v27; // [rsp+78h] [rbp-69h]
+  __int128 v28; // [rsp+88h] [rbp-59h]
+  int v29; // [rsp+98h] [rbp-49h]
+  _OWORD v30[4]; // [rsp+A8h] [rbp-39h] BYREF
+  int v31; // [rsp+E8h] [rbp+7h]
+  const struct CVisualTree *v32; // [rsp+148h] [rbp+67h] BYREF
+  __int64 v33; // [rsp+158h] [rbp+77h]
+  char v34; // [rsp+160h] [rbp+7Fh] BYREF
 
   v3 = *(struct CProjectedShadowCaster **)a3;
   v7 = 0;
-  v8 = *(CVisual **)(*(_QWORD *)a3 + 64LL);
-  v9 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 12) + 200LL))(*((_QWORD *)this + 12));
+  v8 = *(CVisual **)(*(_QWORD *)a3 + 56LL);
+  v9 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 11) + 216LL))(*((_QWORD *)this + 11));
   *((_BYTE *)a3 + 152) = 1;
-  v35 = v9;
+  v33 = v9;
   if ( !CProjectedShadowCaster::IsEmptyMaskContent(v3)
     && CProjectedShadowScene::IsValidVisual(a2, v8)
-    && (v34 = a2,
-        *(_BYTE *)(std::map<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData>::at(
-                     (char *)v3 + 80,
-                     &v34,
-                     v10)
+    && (v32 = a2,
+        *(_BYTE *)(std::map<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData>::at((char *)v3 + 72, &v32)
                  + 17))
-    && COERCE_FLOAT(COERCE_UNSIGNED_INT(CProjectedShadowCaster::GetEffectiveAlpha(v3, a2, v11)) & _xmm) >= 0.0000011920929
-    && (v34 = a2,
-        v12 = (float *)std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::_Find<CVisualTree const *>(
-                         (char *)v3 + 80,
-                         &v34),
-        (float)(v12[17] - v12[15]) >= 0.5)
-    && (float)(v12[18] - v12[16]) >= 0.5 )
+    && COERCE_FLOAT(COERCE_UNSIGNED_INT(CProjectedShadowCaster::GetEffectiveAlpha(v3, a2, v10)) & _xmm) >= 0.0000011920929
+    && (v32 = a2,
+        v11 = std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::find(
+                (char *)v3 + 72,
+                &v34,
+                &v32),
+        (float)(*(float *)(*(_QWORD *)v11 + 68LL) - *(float *)(*(_QWORD *)v11 + 60LL)) >= 0.5)
+    && (float)(*(float *)(*(_QWORD *)v11 + 72LL) - *(float *)(*(_QWORD *)v11 + 64LL)) >= 0.5 )
   {
-    if ( *((_QWORD *)a3 + 1) < *((_QWORD *)this + 13)
-      || *((_QWORD *)a3 + 1) < *((_QWORD *)CVisual::FindTreeData(v8, a2) + 31) )
+    if ( *((_QWORD *)a3 + 1) < *((_QWORD *)this + 12)
+      || *((_QWORD *)a3 + 1) < *((_QWORD *)CVisual::FindTreeData(v8, a2) + 15) )
     {
-      CVisual::GetEffectiveSize(v8, (float *)&v34, (float *)&v34 + 1);
-      v33 = 0;
-      v25.y = *((float *)&v34 + 1) * 0.5;
-      v25.z = 0.0;
-      v25.x = *(float *)&v34 * 0.5;
-      LODWORD(v25.w) = (_DWORD)FLOAT_1_0;
-      v15 = CVisual::CalcSrcToDestVisualTransform(a2, v14, v8, v35, v32);
-      v7 = v15;
-      if ( v15 < 0 )
+      CVisual::GetEffectiveSize(v8, (float *)&v32, (float *)&v32 + 1);
+      v31 = 0;
+      v23.y = *((float *)&v32 + 1) * 0.5;
+      v23.z = 0.0;
+      v23.x = *(float *)&v32 * 0.5;
+      LODWORD(v23.w) = (_DWORD)FLOAT_1_0;
+      v13 = CVisual::CalcSrcToDestVisualTransform(a2, v12, v8, v33, v30);
+      v7 = v13;
+      if ( v13 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x2CDu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x2CDu, 0LL);
       }
       else
       {
-        CMILMatrix::Transform4DVector((CMILMatrix *)v32, &v26, &v25);
-        v17 = (const struct CVisualTree *)*((_QWORD *)this + 12);
-        v25.x = v26.x / v26.w;
-        v25.z = v26.z / v26.w;
-        v25.y = v26.y / v26.w;
+        CMILMatrix::Transform4DVector((CMILMatrix *)v30, &v24, &v23);
+        v15 = (const struct CVisualTree *)*((_QWORD *)this + 11);
+        v23.x = v24.x / v24.w;
+        v23.z = v24.z / v24.w;
+        v23.y = v24.y / v24.w;
         LightToCameraMatrix = ShadowHelpers::GetLightToCameraMatrix(
                                 a2,
-                                v17,
-                                (const struct CCompositionLight *)&v25,
-                                (struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 84),
-                                v24);
+                                v15,
+                                (const struct CCompositionLight *)&v23,
+                                (struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 84));
         v7 = LightToCameraMatrix;
         if ( LightToCameraMatrix < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, LightToCameraMatrix, 0x2D7u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, LightToCameraMatrix, 0x2D7u, 0LL);
         }
         else
         {
-          v27 = v32[0];
-          v31 = v33;
-          v28 = v32[1];
-          v29 = v32[2];
-          v30 = v32[3];
-          CMILMatrix::Multiply((CMILMatrix *)&v27, (struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 84));
-          v20 = v31;
+          v25 = v30[0];
+          v29 = v31;
+          v26 = v30[1];
+          v27 = v30[2];
+          v28 = v30[3];
+          CMILMatrix::Multiply((CMILMatrix *)&v25, (struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 84));
+          v18 = v29;
+          v19 = v26;
+          *((_OWORD *)a3 + 1) = v25;
+          v20 = v27;
+          *((_OWORD *)a3 + 2) = v19;
           v21 = v28;
-          *((_OWORD *)a3 + 1) = v27;
-          v22 = v29;
-          *((_OWORD *)a3 + 2) = v21;
-          v23 = v30;
-          *((_OWORD *)a3 + 3) = v22;
-          *((_OWORD *)a3 + 4) = v23;
-          *((_DWORD *)a3 + 20) = v20;
-          *((_QWORD *)a3 + 1) = *(_QWORD *)(*((_QWORD *)this + 2) + 496LL);
+          *((_OWORD *)a3 + 3) = v20;
+          *((_OWORD *)a3 + 4) = v21;
+          *((_DWORD *)a3 + 20) = v18;
+          *((_QWORD *)a3 + 1) = *(_QWORD *)(*((_QWORD *)this + 2) + 352LL);
         }
       }
     }

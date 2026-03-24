@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00400EC
+ * XREFs of ?VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0037B6C
  * Callers:
- *     ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001F0C2 (-VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037FE0 (-VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,6 +15,6 @@ bool __fastcall VidSchiHwQueueFull(struct VIDSCH_HW_QUEUE *a1)
   v3 = *(_QWORD *)(v2 + 32);
   return !*(_BYTE *)(v2 + 204)
       && !_InterlockedCompareExchange((volatile signed __int32 *)(v2 + 200), 0, 0)
-      && !*(_DWORD *)(v3 + 3012)
-      && *((_DWORD *)a1 + 38) >= *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL) + 1724LL);
+      && !*(_DWORD *)(v3 + 2916)
+      && *((_DWORD *)a1 + 38) >= *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL) + 1712LL);
 }

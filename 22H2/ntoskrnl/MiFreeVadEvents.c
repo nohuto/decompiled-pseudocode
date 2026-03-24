@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeVadEvents @ 0x140633DA0
+ * XREFs of MiFreeVadEvents @ 0x14053A6A4
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x140A48E9C (MiDeletePartialCloneVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9578 (MiDeletePartialCloneVads.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeVadEvents(__int64 a1)
@@ -12,7 +12,7 @@ void __fastcall MiFreeVadEvents(__int64 a1)
   _QWORD *v1; // rcx
   _QWORD *v2; // rbx
 
-  v1 = (_QWORD *)(*(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL);
+  v1 = *(_QWORD **)(a1 + 56);
   if ( v1 )
   {
     do

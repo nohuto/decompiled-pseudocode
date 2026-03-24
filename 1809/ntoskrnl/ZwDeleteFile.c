@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwDeleteFile @ 0x1401B9B10
+ * XREFs of ZwDeleteFile @ 0x1401B9B30
  * Callers:
- *     NtEnableLastKnownGood @ 0x140705C60 (NtEnableLastKnownGood.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x1409F583C (PiLastGoodRevertLastKnownDirectory.c)
+ *     NtEnableLastKnownGood @ 0x140705C40 (NtEnableLastKnownGood.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x1409F584C (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
  *     <none>
  */

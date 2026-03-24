@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalculateViewboxToViewportMapping@CCachedVisualImage@@KAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0W4Enum@MilStretch@@W43MilHorizontalAlignment@@W43MilVerticalAlignment@@PEAVCMILMatrix@@@Z @ 0x18003B3AC
+ * XREFs of ?CalculateViewboxToViewportMapping@CCachedVisualImage@@KAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0W4Enum@MilStretch@@W43MilHorizontalAlignment@@W43MilVerticalAlignment@@PEAVCMILMatrix@@@Z @ 0x1800D45C0
  * Callers:
- *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x18003AD00 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x180060630 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
  * Callees:
  *     <none>
  */
@@ -25,26 +25,23 @@ __int64 __fastcall CCachedVisualImage::CalculateViewboxToViewportMapping(
   v6 = a2[1];
   v7 = (float)(a1[2] - *a1) / (float)(a2[2] - *a2);
   v8 = (float)(a1[3] - a1[1]) / (float)(a2[3] - v6);
-  if ( a3 )
-  {
-    v9 = a3 - 2;
-    if ( v9 )
-    {
-      if ( v9 != 1 )
-        goto LABEL_5;
-      v7 = fmaxf(v7, v8);
-    }
-    else
-    {
-      v7 = fminf(v7, v8);
-    }
-  }
-  else
+  if ( !a3 )
   {
     v7 = *(float *)&FLOAT_1_0;
+    goto LABEL_8;
   }
-  v8 = v7;
-LABEL_5:
+  v9 = a3 - 2;
+  if ( !v9 )
+  {
+    v7 = fminf(v7, v8);
+    goto LABEL_8;
+  }
+  if ( v9 == 1 )
+  {
+    v7 = fmaxf(v7, v8);
+LABEL_8:
+    v8 = v7;
+  }
   result = a6;
   v11 = (float)(v7 * COERCE_FLOAT(*(_DWORD *)a2 ^ _xmm)) + *a1;
   v12 = (float)(v8 * COERCE_FLOAT(LODWORD(v6) ^ _xmm)) + a1[1];

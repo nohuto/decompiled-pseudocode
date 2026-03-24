@@ -1,14 +1,14 @@
 /*
- * XREFs of SepInternalSetSecurityAttributesToken @ 0x1402FE4F4
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x1402FE5F4
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x140300230 (SeSetSecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesToken @ 0x14089BE40 (SeSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140300330 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x14089BE20 (SeSetSecurityAttributesToken.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A74 (AuthzBasepSetSecurityAttributesToken.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
  *     SepShouldSetDelinkFlags @ 0x1405BEEF0 (SepShouldSetDelinkFlags.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */

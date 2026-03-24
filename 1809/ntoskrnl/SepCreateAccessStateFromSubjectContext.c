@@ -6,12 +6,12 @@
  *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
  *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     PsOpenProcess @ 0x1406467E0 (PsOpenProcess.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
+ *     PsOpenProcess @ 0x1406467C0 (PsOpenProcess.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall SepCreateAccessStateFromSubjectContext(

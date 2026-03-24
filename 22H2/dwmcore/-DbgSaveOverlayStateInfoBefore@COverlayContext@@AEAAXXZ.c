@@ -1,73 +1,70 @@
 /*
- * XREFs of ?DbgSaveOverlayStateInfoBefore@COverlayContext@@AEAAXXZ @ 0x1800CA160
+ * XREFs of ?DbgSaveOverlayStateInfoBefore@COverlayContext@@AEAAXXZ @ 0x18017B620
  * Callers:
- *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@PEAI@Z @ 0x1800C9D60 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
+ *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EBD50 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall COverlayContext::DbgSaveOverlayStateInfoBefore(COverlayContext *this)
 {
   unsigned int v2; // r8d
   _QWORD *v3; // rsi
-  __int64 v4; // rax
   unsigned int i; // ebp
-  __int64 v6; // r9
-  __int64 v7; // xmm1_8
-  __int64 v8; // rbx
-  __int64 v9; // r8
-  _OWORD *v10; // rdx
-  __int128 v11; // xmm1
-  __int64 v12; // rcx
+  __int64 v5; // r9
+  __int64 v6; // rbx
+  __int64 v7; // r8
+  _OWORD *v8; // rdx
+  __int128 v9; // xmm1
+  __int64 v10; // rcx
+  __int64 v11; // xmm1_8
 
-  v2 = (*((_DWORD *)this + 4490) + 1) % 6u;
-  *((_DWORD *)this + 4490) = v2;
-  v3 = (_QWORD *)((char *)this + 1104 * (int)v2 + 11336);
+  v2 = (*((_DWORD *)this + 4520) + 1) % 6u;
+  *((_DWORD *)this + 4520) = v2;
+  v3 = (_QWORD *)((char *)this + 1104 * (int)v2 + 11456);
   memset_0(v3, 0, 0x450uLL);
-  v4 = 0LL;
-  if ( g_pComposition )
-    v4 = *((_QWORD *)g_pComposition + 62);
-  *v3 = v4;
+  *v3 = GetCurrentFrameId();
   for ( i = 0; ; ++i )
   {
-    v6 = *((_QWORD *)this + 913);
-    if ( i >= -1227133513 * (unsigned int)((*((_QWORD *)this + 914) - v6) >> 5) || i >= 2 )
+    v5 = *((_QWORD *)this + 914);
+    if ( i >= (unsigned int)((*((_QWORD *)this + 915) - v5) / 224) || i >= 2 )
       break;
-    v8 = 60LL * i;
-    v9 = 224LL * i;
-    v10 = &v3[v8 + 1];
-    *v10 = *(_OWORD *)(v9 + v6);
-    v10[1] = *(_OWORD *)(v9 + v6 + 16);
-    v10[2] = *(_OWORD *)(v9 + v6 + 32);
-    v10[3] = *(_OWORD *)(v9 + v6 + 48);
-    v10[4] = *(_OWORD *)(v9 + v6 + 64);
-    v10[5] = *(_OWORD *)(v9 + v6 + 80);
-    v10[6] = *(_OWORD *)(v9 + v6 + 96);
-    v10[7] = *(_OWORD *)(v9 + v6 + 112);
-    v10[8] = *(_OWORD *)(v9 + v6 + 128);
-    v10[9] = *(_OWORD *)(v9 + v6 + 144);
-    v10[10] = *(_OWORD *)(v9 + v6 + 160);
-    v10[11] = *(_OWORD *)(v9 + v6 + 176);
-    v10[12] = *(_OWORD *)(v9 + v6 + 192);
-    v11 = *(_OWORD *)(v9 + v6 + 208);
-    v3[v8 + 57] = v10;
-    v10[13] = v11;
-    v12 = *(_QWORD *)(*((_QWORD *)this + 913) + v9 + 16);
-    LODWORD(v3[v8 + 59]) = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 336LL))(v12);
+    v6 = 60LL * i;
+    v7 = 224LL * i;
+    v8 = &v3[v6 + 1];
+    *v8 = *(_OWORD *)(v7 + v5);
+    v8[1] = *(_OWORD *)(v7 + v5 + 16);
+    v8[2] = *(_OWORD *)(v7 + v5 + 32);
+    v8[3] = *(_OWORD *)(v7 + v5 + 48);
+    v8[4] = *(_OWORD *)(v7 + v5 + 64);
+    v8[5] = *(_OWORD *)(v7 + v5 + 80);
+    v8[6] = *(_OWORD *)(v7 + v5 + 96);
+    v8[7] = *(_OWORD *)(v7 + v5 + 112);
+    v8[8] = *(_OWORD *)(v7 + v5 + 128);
+    v8[9] = *(_OWORD *)(v7 + v5 + 144);
+    v8[10] = *(_OWORD *)(v7 + v5 + 160);
+    v8[11] = *(_OWORD *)(v7 + v5 + 176);
+    v8[12] = *(_OWORD *)(v7 + v5 + 192);
+    v9 = *(_OWORD *)(v7 + v5 + 208);
+    v3[v6 + 57] = v8;
+    v8[13] = v9;
+    v10 = *(_QWORD *)(v7 + *((_QWORD *)this + 914) + 16);
+    LODWORD(v3[v6 + 59]) = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 264LL))(v10);
     ++*((_DWORD *)v3 + 242);
   }
-  if ( *((_BYTE *)this + 11024) )
+  if ( *((_BYTE *)this + 11032) )
   {
-    *((_OWORD *)v3 + 61) = *((_OWORD *)this + 682);
-    *((_OWORD *)v3 + 62) = *((_OWORD *)this + 683);
-    *((_OWORD *)v3 + 63) = *((_OWORD *)this + 684);
-    *((_OWORD *)v3 + 64) = *((_OWORD *)this + 685);
-    *((_OWORD *)v3 + 65) = *((_OWORD *)this + 686);
-    *((_OWORD *)v3 + 66) = *((_OWORD *)this + 687);
-    *((_OWORD *)v3 + 67) = *((_OWORD *)this + 688);
-    v7 = *((_QWORD *)this + 1378);
+    *((_OWORD *)v3 + 61) = *(_OWORD *)((char *)this + 10920);
+    *((_OWORD *)v3 + 62) = *(_OWORD *)((char *)this + 10936);
+    *((_OWORD *)v3 + 63) = *(_OWORD *)((char *)this + 10952);
+    *((_OWORD *)v3 + 64) = *(_OWORD *)((char *)this + 10968);
+    *((_OWORD *)v3 + 65) = *(_OWORD *)((char *)this + 10984);
+    *((_OWORD *)v3 + 66) = *(_OWORD *)((char *)this + 11000);
+    *((_OWORD *)v3 + 67) = *(_OWORD *)((char *)this + 11016);
+    v11 = *((_QWORD *)this + 1379);
     ++*((_DWORD *)v3 + 274);
-    v3[136] = v7;
+    v3[136] = v11;
   }
 }

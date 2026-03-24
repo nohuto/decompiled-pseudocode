@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsPointerQueuedMessageCoalescable@@YAHPEAUtagQ@@PEAUtagQMSG@@KK_KK@Z @ 0x1C020910C
+ * XREFs of ?IsPointerQueuedMessageCoalescable@@YAHPEAUtagQ@@PEAUtagQMSG@@KK_KK@Z @ 0x1C0208DB4
  * Callers:
- *     EditionIsPointerQueuedMessageCoalescable @ 0x1C016D720 (EditionIsPointerQueuedMessageCoalescable.c)
+ *     EditionIsPointerQueuedMessageCoalescable @ 0x1C0208EA0 (EditionIsPointerQueuedMessageCoalescable.c)
  * Callees:
- *     IsPointerInputMessageWithState @ 0x1C00AC37C (IsPointerInputMessageWithState.c)
+ *     IsPointerInputMessageWithState @ 0x1C006B350 (IsPointerInputMessageWithState.c)
  */
 
 __int64 __fastcall IsPointerQueuedMessageCoalescable(

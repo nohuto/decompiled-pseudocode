@@ -1,505 +1,474 @@
 /*
- * XREFs of HUBHTX_Get30PortChangeEvent @ 0x1C000569C
+ * XREFs of HUBHTX_Get30PortChangeEvent @ 0x1C0004FF8
  * Callers:
- *     HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0013920 (HUBPSM30_EnablingInterruptsAndGettingPortEvent.c)
- *     HUBPSM30_EnablingInterruptsAndGettingPortEventInNoChange @ 0x1C0013960 (HUBPSM30_EnablingInterruptsAndGettingPortEventInNoChange.c)
- *     HUBPSM30_AcquiringPortReferenceAndGettingPortEvent @ 0x1C0013980 (HUBPSM30_AcquiringPortReferenceAndGettingPortEvent.c)
+ *     HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0012400 (HUBPSM30_EnablingInterruptsAndGettingPortEvent.c)
+ *     HUBPSM30_EnablingInterruptsAndGettingPortEventInNoChange @ 0x1C0012440 (HUBPSM30_EnablingInterruptsAndGettingPortEventInNoChange.c)
+ *     HUBPSM30_AcquiringPortReferenceAndGettingPortEvent @ 0x1C0012460 (HUBPSM30_AcquiringPortReferenceAndGettingPortEvent.c)
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C00024BC (McTemplateK0qhhhqhhh_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     WPP_RECORDER_SF_dDDD @ 0x1C0002FBC (WPP_RECORDER_SF_dDDD.c)
- *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0032EBC (HUBMISC_VerifierDbgBreak.c)
- *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C00349F0 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C0001E7C (McTemplateK0qhhhqhhh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_dDDD @ 0x1C0002984 (WPP_RECORDER_SF_dDDD.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0002BC4 (WPP_RECORDER_SF_qd.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0031834 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHTX_Get30PortChangeEvent(__int64 a1, __int64 a2, __int64 a3)
 {
-  _QWORD *v3; // r14
-  _WORD *v4; // rax
-  unsigned int v5; // ebp
-  unsigned int v6; // ebx
-  int v7; // edi
-  int v8; // esi
-  __int16 v9; // r15
-  __int16 v10; // r13
+  unsigned __int16 v3; // r15
+  _QWORD *v4; // r14
+  unsigned __int16 *v5; // rax
+  unsigned int v6; // ebp
+  unsigned int v7; // ebx
+  int v8; // edi
+  int v9; // esi
+  unsigned __int16 v10; // r13
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // rax
-  __int64 v14; // rdx
-  unsigned __int16 v15; // r9
-  __int64 v16; // rdx
+  unsigned __int16 v14; // r9
+  __int64 v15; // rdx
+  unsigned __int16 v16; // r8
   unsigned __int16 v17; // r9
   __int64 v18; // rax
-  int v19; // eax
-  __int64 v20; // rcx
-  __int64 v21; // rdx
+  __int64 v19; // rdx
+  unsigned __int16 v20; // r9
+  __int64 v21; // rcx
   unsigned __int16 v22; // r9
-  unsigned int v23; // ecx
-  unsigned __int16 v25; // r9
-  int v26; // eax
-  unsigned __int8 v27; // dl
-  unsigned int v28; // r8d
-  __int64 v29; // rcx
-  __int64 v30; // [rsp+20h] [rbp-98h]
-  __int64 v31; // [rsp+28h] [rbp-90h]
-  __int64 v32; // [rsp+30h] [rbp-88h]
-  __int64 v33; // [rsp+38h] [rbp-80h]
-  __int64 v34; // [rsp+40h] [rbp-78h]
-  __int16 v35; // [rsp+C0h] [rbp+8h]
-  char v36; // [rsp+C8h] [rbp+10h]
-  char v37; // [rsp+D0h] [rbp+18h]
+  int v23; // eax
+  unsigned __int8 v24; // dl
+  __int64 v25; // rcx
+  __int64 v27; // [rsp+20h] [rbp-78h]
+  __int64 v28; // [rsp+28h] [rbp-70h]
+  __int64 v29; // [rsp+30h] [rbp-68h]
+  __int64 v30; // [rsp+38h] [rbp-60h]
+  __int64 v31; // [rsp+40h] [rbp-58h]
+  unsigned __int16 v32; // [rsp+A0h] [rbp+8h]
+  char v33; // [rsp+B0h] [rbp+18h]
 
-  v3 = (_QWORD *)a1;
-  _InterlockedAnd((volatile signed __int32 *)(a1 + 1336), 0xFFFFFF7F);
+  LOBYTE(v3) = 0;
+  v4 = (_QWORD *)a1;
   if ( *(_BYTE *)(a1 + 1457) )
   {
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD, __int64, const char *))(WdfFunctions_01015 + 3512))(
       WdfDriverGlobals,
       *(_QWORD *)(*(_QWORD *)a1 + 16LL),
       0LL,
-      3893LL,
+      3887LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubxfer.c");
-    *((_BYTE *)v3 + 1457) = 0;
+    *((_BYTE *)v4 + 1457) = 0;
   }
-  v4 = (_WORD *)v3[166];
-  v5 = 3061;
-  v6 = *((unsigned __int16 *)v3 + 92);
-  v7 = *((unsigned __int16 *)v3 + 96);
-  v8 = *((unsigned __int16 *)v3 + 97);
-  *((_WORD *)v3 + 96) = v6;
-  if ( v4 )
+  v5 = (unsigned __int16 *)v4[166];
+  v6 = 3061;
+  v7 = *((unsigned __int16 *)v4 + 92);
+  v8 = *((unsigned __int16 *)v4 + 96);
+  v9 = *((unsigned __int16 *)v4 + 97);
+  *((_WORD *)v4 + 96) = v7;
+  if ( v5 )
   {
-    v9 = v4[998];
-    v10 = v4[999];
-    v35 = v4[1000];
-    v37 = v9;
-    v36 = v10;
+    a1 = v5[998];
+    v32 = v5[998];
   }
   else
   {
-    LOBYTE(v9) = 0;
-    v37 = 0;
-    LOBYTE(v10) = 0;
-    v36 = 0;
-    LOBYTE(v35) = 0;
+    LOBYTE(v32) = 0;
   }
-  if ( (v6 & 8) != 0 )
+  if ( v5 )
   {
-    HUBREG_UpdateSqmHubOvercurrentDetected(*v3, a2, a3);
-    v13 = *v3;
-    *((_DWORD *)v3 + 356) = 4;
-    v5 = 3065;
-    if ( _bittest((const signed __int32 *)(v13 + 2592), 9u) )
-      HUBMISC_VerifierDbgBreak("HubHwVerifierPortOverCurrent", v3 + 34);
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x10000) != 0 )
+    v10 = v5[999];
+    v33 = v10;
+  }
+  else
+  {
+    LOBYTE(v10) = 0;
+    v33 = 0;
+  }
+  if ( v5 )
+    v3 = v5[1000];
+  if ( (v7 & 8) != 0 )
+  {
+    HUBREG_UpdateSqmHubOvercurrentDetected(*v4, a2, a3);
+    v13 = *v4;
+    *((_DWORD *)v4 + 356) = 4;
+    v6 = 3065;
+    if ( (*(_DWORD *)(v13 + 2592) & 0x200) != 0 )
+      HUBMISC_VerifierDbgBreak("HubHwVerifierPortOverCurrent", v4 + 34);
+    if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
       McTemplateK0qhhhqhhh_EtwWriteTransfer(
         v12,
         v11,
-        (const GUID *)(*v3 + 2412LL),
-        *((unsigned __int16 *)v3 + 100),
-        v7,
-        v6,
+        (const GUID *)(*v4 + 2412LL),
+        *((unsigned __int16 *)v4 + 100),
         v8,
-        249,
+        v7,
         v9,
+        249,
+        v32,
         v10,
-        v35);
-    goto LABEL_85;
+        v3);
+    goto LABEL_141;
   }
-  if ( (v8 & 8) != 0 )
+  if ( (v9 & 8) != 0 )
   {
-    HUBREG_UpdateSqmHubOvercurrentDetected(*v3, a2, a3);
-    v14 = *v3;
-    a1 = 1LL;
-    if ( (*(_DWORD *)(*v3 + 44LL) & 0x40) != 0 && (v6 & 0x200) != 0 )
+    HUBREG_UpdateSqmHubOvercurrentDetected(*v4, a2, a3);
+    if ( (v8 & 8) == 0 )
     {
-      *((_DWORD *)v3 + 356) = 1;
-      v5 = 3017;
+      *((_DWORD *)v4 + 356) = 4;
+      v6 = 3065;
     }
-    else if ( (v7 & 8) == 0 )
-    {
-      *((_DWORD *)v3 + 356) = 4;
-      v5 = 3065;
-    }
-    if ( _bittest((const signed __int32 *)(v14 + 2592), 9u) )
-    {
-      HUBMISC_VerifierDbgBreak("HubHwVerifierPortOverCurrent", v3 + 34);
-      a1 = 1LL;
-    }
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x10000) != 0 )
+    if ( (*(_DWORD *)(*v4 + 2592LL) & 0x200) != 0 )
+      HUBMISC_VerifierDbgBreak("HubHwVerifierPortOverCurrent", v4 + 34);
+    if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
       McTemplateK0qhhhqhhh_EtwWriteTransfer(
+        a1,
         1LL,
-        v14,
-        (const GUID *)(*v3 + 2412LL),
-        *((unsigned __int16 *)v3 + 100),
-        v7,
-        v6,
+        (const GUID *)(*v4 + 2412LL),
+        *((unsigned __int16 *)v4 + 100),
         v8,
-        v5,
-        v37,
-        v36,
-        v35);
-LABEL_121:
-    if ( v5 != 3017 )
-      goto LABEL_84;
-    v16 = 1LL;
-LABEL_77:
-    if ( (v6 & 1) == 0 )
-      goto LABEL_78;
-LABEL_85:
-    *((_DWORD *)v3 + 2) = v5;
-    return v5;
+        v7,
+        v9,
+        v6,
+        v32,
+        v33,
+        v3);
+    goto LABEL_132;
   }
-  if ( (v6 & 0x200) == 0 )
+  if ( (v7 & 0x200) == 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v15 = 86;
-LABEL_134:
-      WPP_RECORDER_SF_(v3[179], 2u, 4u, v15, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
-      goto LABEL_135;
+      v14 = 86;
+LABEL_121:
+      WPP_RECORDER_SF_(v4[179], 2u, 4u, v14, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
+      goto LABEL_122;
     }
-    goto LABEL_135;
+    goto LABEL_122;
   }
-  if ( (v6 & 0x10) == 0 )
+  if ( (v7 & 0x10) != 0 )
   {
-    v16 = 1LL;
-    if ( (v6 & 1) == 0 )
+    if ( (v7 & 2) != 0 )
     {
-      if ( (v6 & 0x1E0) == 0xA0 )
+      if ( (*(_DWORD *)(*v4 + 40LL) & 0x1000000) == 0 )
       {
-        if ( (v7 & 0x200) != 0 && (v7 & 0x1E0) != 0xA0 )
-          goto LABEL_35;
-      }
-      else
-      {
-        a1 = 224LL;
-        if ( (v6 & 0x1E0) == 0xE0 && (v7 & 0x200) != 0 && (v7 & 0x1E0) != 0xE0 )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_(v3[179], 2u, 4u, 0x59u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
-          goto LABEL_35;
-        }
-      }
-    }
-    a1 = (unsigned __int16)v6;
-    LOWORD(a1) = v6 & 0x1E0;
-    if ( (v6 & 0x1E0) == 0x160 )
-    {
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_135;
-      v17 = 90;
-      goto LABEL_43;
-    }
-    switch ( (_WORD)a1 )
-    {
-      case 0x80:
-        if ( (v7 & 0x1E0) != 0x80 )
-        {
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_135;
-          v17 = 91;
-          goto LABEL_43;
-        }
-LABEL_101:
-        if ( (v8 & 1) == 0 && (v6 & 1) == (v7 & 1) )
-        {
-          if ( (v6 & 1) == 0 )
-          {
-            if ( (v6 & 2) != 0 )
-            {
-              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                v15 = 101;
-                goto LABEL_134;
-              }
-              goto LABEL_135;
-            }
-            if ( (unsigned __int16)a1 > 0x60u )
-              return v5;
-            if ( (*(_DWORD *)(*v3 + 40LL) & 0x100000) == 0 )
-            {
-              if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                goto LABEL_135;
-              v17 = 103;
-              goto LABEL_43;
-            }
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              return v5;
-            v25 = 102;
-            v26 = (v6 >> 5) & 0xF;
-            v27 = 2;
-LABEL_92:
-            LODWORD(v31) = v26;
-            WPP_RECORDER_SF_d(v3[179], v27, 4u, v25, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids, v31);
-            return v5;
-          }
-          if ( (_WORD)a1 != 160 )
-          {
-            if ( (v6 & 2) == 0 )
-            {
-              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                v15 = 105;
-                goto LABEL_134;
-              }
-              goto LABEL_135;
-            }
-            if ( (unsigned __int16)a1 <= 0x60u || (_WORD)a1 == 256 )
-            {
-              if ( (v8 & 0x10) == 0 )
-              {
-                if ( (v7 & 0x1E0) == 0x60 && (_WORD)a1 != 96 )
-                {
-                  v5 = 3085;
-                  goto LABEL_85;
-                }
-                return v5;
-              }
-              if ( (_WORD)a1 != 96 )
-              {
-                v5 = 3073;
-                goto LABEL_85;
-              }
-              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                v15 = 107;
-                goto LABEL_134;
-              }
-              goto LABEL_135;
-            }
-            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              goto LABEL_135;
-            v17 = 106;
-LABEL_43:
-            WPP_RECORDER_SF_d(
-              v3[179],
-              2u,
-              4u,
-              v17,
-              (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
-              (v6 >> 5) & 0xF);
-            goto LABEL_135;
-          }
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_(v3[179], 2u, 4u, 0x68u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
-          goto LABEL_116;
-        }
-LABEL_76:
-        v5 = 3017;
-        goto LABEL_77;
-      case 0x140:
-        v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 1632))(
-                WdfDriverGlobals,
-                *v3);
-        v19 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3104))(
-                WdfDriverGlobals,
-                v18);
-        v21 = 0LL;
-        if ( !v19 || *(_BYTE *)(*v3 + 240LL) )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_dD(
-              v3[179],
-              2u,
-              4u,
-              0x5Cu,
-              (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
-              (v6 >> 5) & 0xF,
-              v6 & 1);
-          if ( _bittest((const signed __int32 *)(*v3 + 2592LL), 8u) )
-            HUBMISC_VerifierDbgBreak("HubHwVerifierPortLinkStateCompliance", v3 + 34);
-          if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x10000) != 0 )
-            McTemplateK0qhhhqhhh_EtwWriteTransfer(
-              v20,
-              v21,
-              (const GUID *)(*v3 + 2412LL),
-              *((unsigned __int16 *)v3 + 100),
-              v7,
-              v6,
-              v8,
-              245,
-              v37,
-              v36,
-              v35);
-          goto LABEL_116;
-        }
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-LABEL_116:
-          v5 = 3053;
-          v28 = *((_DWORD *)v3 + 361) + 1;
-          *((_DWORD *)v3 + 361) = v28;
-          if ( v28 != 100 * (v28 / 0x64) )
-            goto LABEL_85;
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LODWORD(v32) = v28;
-            WPP_RECORDER_SF_qd(
-              v3[179],
-              2u,
-              4u,
-              0x6Cu,
-              (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
-              v3,
-              v32);
-          }
-          if ( (*(_DWORD *)(*v3 + 2592LL) & 0x800) == 0 )
-            goto LABEL_85;
-          HUBMISC_VerifierDbgBreak("HubHwVerifierPortLinkStateErrorResetWatchdog", v3 + 34);
+          v14 = 88;
           goto LABEL_121;
         }
-        v22 = 93;
-        v23 = v6 >> 5;
-        break;
-      case 0xC0:
+LABEL_122:
+        v25 = *v4;
+        v6 = 3077;
+        if ( (*(_DWORD *)(*v4 + 2592LL) & 0x10) != 0 )
+        {
+          HUBMISC_VerifierDbgBreak("HubHwVerifierInvalidPortStatus", v4 + 34);
+          v25 = *v4;
+        }
+        *(_DWORD *)(v25 + 2596) = 1073872896;
+        if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 0x40) != 0 )
+        {
+          LODWORD(v27) = *((unsigned __int16 *)v4 + 100);
+          McTemplateK0pq_EtwWriteTransfer(
+            v25,
+            &USBHUB3_ETW_EVENT_HUB_RESET_DUE_TO_PORT_ERROR,
+            0LL,
+            *(_QWORD *)(*v4 + 248LL),
+            v27);
+        }
+        *(_WORD *)(*v4 + 74LL) = v9;
+        *(_WORD *)(*v4 + 72LL) = v7;
+        goto LABEL_141;
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_(v4[179], 2u, 4u, 0x57u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
+    }
+    if ( (v7 & 1) != 0 )
+    {
+      v6 = 3081;
+      goto LABEL_141;
+    }
+    if ( (v9 & 1) == 0 && (v8 & 1) == 0 )
+      return v6;
+    goto LABEL_37;
+  }
+  v15 = 1LL;
+  if ( (v7 & 1) != 0 )
+    goto LABEL_47;
+  a1 = (unsigned __int16)v7;
+  LOWORD(a1) = v7 & 0x1E0;
+  if ( (v7 & 0x1E0) != 0xA0 || (v8 & 0x200) == 0 || (v8 & 0x1E0) == 0xA0 )
+  {
+    if ( (_WORD)a1 == 224 && (v8 & 0x200) != 0 && (v8 & 0x1E0) != 0xE0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_(v4[179], 2u, 4u, 0x59u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
+      goto LABEL_37;
+    }
+LABEL_47:
+    v16 = v7 & 0x1E0;
+    if ( (v7 & 0x1E0) == 0x160 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_122;
+      v17 = 90;
+      goto LABEL_50;
+    }
+    a1 = 128LL;
+    if ( v16 == 128 && (v8 & 0x1E0) != 0x80 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_122;
+      v17 = 91;
+      goto LABEL_50;
+    }
+    if ( v16 == 320 )
+    {
+      v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, *v4);
+      if ( !(*(unsigned int (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3104))(
+              WdfDriverGlobals,
+              v18)
+        || *(_BYTE *)(*v4 + 240LL) )
+      {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_dD(
-            v3[179],
+            v4[179],
             2u,
             4u,
-            0x5Eu,
-            (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
-            (v6 >> 5) & 0xF,
-            v6 & 1);
-        a1 = *(unsigned int *)(*v3 + 2592LL);
-        if ( (a1 & 0x20) != 0 )
-          HUBMISC_VerifierDbgBreak("HubHwVerifierPortLinkStateSSInactive", v3 + 34);
-        if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x10000) != 0 )
+            0x5Cu,
+            (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+            (v7 >> 5) & 0xF,
+            v7 & 1);
+        v21 = *(unsigned int *)(*v4 + 2592LL);
+        if ( (v21 & 0x100) != 0 )
+          HUBMISC_VerifierDbgBreak("HubHwVerifierPortLinkStateCompliance", v4 + 34);
+        if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
           McTemplateK0qhhhqhhh_EtwWriteTransfer(
-            a1,
-            1LL,
-            (const GUID *)(*v3 + 2412LL),
-            *((unsigned __int16 *)v3 + 100),
-            v7,
-            v6,
+            v21,
+            v19,
+            (const GUID *)(*v4 + 2412LL),
+            *((unsigned __int16 *)v4 + 100),
             v8,
+            v7,
+            v9,
             245,
-            v37,
-            v36,
-            v35);
-        if ( (v8 & 0x80u) != 0 )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_(v3[179], 2u, 4u, 0x5Fu, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
-          v16 = 1LL;
-          goto LABEL_76;
-        }
-        _InterlockedOr((volatile signed __int32 *)v3 + 334, 0x80u);
+            v32,
+            v33,
+            v3);
+        goto LABEL_105;
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v20 = 93;
+LABEL_60:
+        LODWORD(v29) = v7 & 1;
+        LODWORD(v28) = (v7 >> 5) & 0xF;
+        WPP_RECORDER_SF_dD(v4[179], 2u, 4u, v20, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids, v28, v29);
+        goto LABEL_105;
+      }
+      goto LABEL_105;
+    }
+    if ( v16 == 192 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_dD(
+          v4[179],
+          2u,
+          4u,
+          0x5Eu,
+          (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+          (v7 >> 5) & 0xF,
+          v7 & 1);
+      a1 = *(unsigned int *)(*v4 + 2592LL);
+      if ( (a1 & 0x20) != 0 )
+        HUBMISC_VerifierDbgBreak("HubHwVerifierPortLinkStateSSInactive", v4 + 34);
+      if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
+        McTemplateK0qhhhqhhh_EtwWriteTransfer(
+          a1,
+          v15,
+          (const GUID *)(*v4 + 2412LL),
+          *((unsigned __int16 *)v4 + 100),
+          v8,
+          v7,
+          v9,
+          245,
+          v32,
+          v33,
+          v3);
+      if ( (v9 & 0x80u) != 0 )
+      {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_(v4[179], 2u, 4u, 0x5Fu, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
+        v6 = 3017;
+        goto LABEL_133;
+      }
+      if ( *((_DWORD *)v4 + 2) != 3053 )
+      {
+        if ( (v7 & 2) != 0 )
         {
-          LODWORD(v31) = (v6 >> 5) & 0xF;
-          WPP_RECORDER_SF_d(v3[179], 2u, 4u, 0x60u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids, v31);
-        }
-        if ( *((_DWORD *)v3 + 2) == 3053 )
-        {
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            return v5;
-          v25 = 97;
-          v26 = v6 & 1;
-          v27 = 3;
-          goto LABEL_92;
-        }
-        if ( (v6 & 2) != 0 )
-        {
-          if ( (*(_DWORD *)(*v3 + 40LL) & 0x200000) == 0 )
+          if ( (*(_DWORD *)(*v4 + 40LL) & 0x200000) == 0 )
           {
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
-              v15 = 99;
-              goto LABEL_134;
+              v14 = 98;
+              goto LABEL_121;
             }
-            goto LABEL_135;
+            goto LABEL_122;
           }
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            goto LABEL_116;
-          WPP_RECORDER_SF_(v3[179], 2u, 4u, 0x62u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
+            goto LABEL_105;
+          WPP_RECORDER_SF_(v4[179], 2u, 4u, 0x61u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
         }
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_116;
-        LOBYTE(v23) = v6 >> 5;
-        v22 = 100;
-        break;
-      default:
-        goto LABEL_101;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v20 = 99;
+          goto LABEL_60;
+        }
+LABEL_105:
+        ++*((_DWORD *)v4 + 361);
+        v6 = 3053;
+        if ( *((_DWORD *)v4 + 361) != 100 * (*((_DWORD *)v4 + 361) / 0x64u) )
+          goto LABEL_141;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LODWORD(v29) = *((_DWORD *)v4 + 361);
+          WPP_RECORDER_SF_qd(v4[179], 2u, 4u, 0x6Bu, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids, v4, v29);
+        }
+        if ( (*(_DWORD *)(*v4 + 2592LL) & 0x800) == 0 )
+          goto LABEL_141;
+        HUBMISC_VerifierDbgBreak("HubHwVerifierPortLinkStateErrorResetWatchdog", v4 + 34);
+LABEL_132:
+        if ( v6 != 3017 )
+          goto LABEL_140;
+        goto LABEL_133;
+      }
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return v6;
+      v22 = 96;
+      v23 = v7 & 1;
+      v24 = 3;
     }
-    LODWORD(v32) = v6 & 1;
-    LODWORD(v31) = v23 & 0xF;
-    WPP_RECORDER_SF_dD(v3[179], 2u, 4u, v22, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids, v31, v32);
-    goto LABEL_116;
-  }
-  if ( (v6 & 2) != 0 )
-  {
-    if ( (*(_DWORD *)(*v3 + 40LL) & 0x1000000) == 0 )
+    else
     {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( (v9 & 1) != 0 || (v7 & 1) != (v8 & 1) )
       {
-        v15 = 88;
-        goto LABEL_134;
+        v6 = 3017;
+        goto LABEL_132;
       }
-LABEL_135:
-      v5 = 3077;
-      v29 = *(unsigned int *)(*v3 + 2592LL);
-      if ( (v29 & 0x10) != 0 )
-        HUBMISC_VerifierDbgBreak("HubHwVerifierInvalidPortStatus", v3 + 34);
-      *(_DWORD *)(*v3 + 2596LL) = 1073872896;
-      if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x4000) != 0 )
+      if ( (v7 & 1) != 0 )
       {
-        LODWORD(v30) = *((unsigned __int16 *)v3 + 100);
-        McTemplateK0pq_EtwWriteTransfer(
-          v29,
-          &USBHUB3_ETW_EVENT_HUB_RESET_DUE_TO_PORT_ERROR,
-          0LL,
-          *(_QWORD *)(*v3 + 248LL),
-          v30);
+        if ( v16 != 160 )
+        {
+          if ( (v7 & 2) == 0 )
+          {
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              v14 = 104;
+              goto LABEL_121;
+            }
+            goto LABEL_122;
+          }
+          if ( v16 <= 0x60u || v16 == 256 )
+          {
+            if ( (v9 & 0x10) != 0 )
+            {
+              if ( v16 == 96 )
+              {
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  v14 = 106;
+                  goto LABEL_121;
+                }
+                goto LABEL_122;
+              }
+              v6 = 3073;
+            }
+            else
+            {
+              if ( (v8 & 0x1E0) != 0x60 || v16 == 96 )
+                return v6;
+              v6 = 3085;
+            }
+LABEL_141:
+            *((_DWORD *)v4 + 2) = v6;
+            return v6;
+          }
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            goto LABEL_122;
+          v17 = 105;
+LABEL_50:
+          WPP_RECORDER_SF_d(
+            v4[179],
+            2u,
+            4u,
+            v17,
+            (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+            (v7 >> 5) & 0xF);
+          goto LABEL_122;
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_(v4[179], 2u, 4u, 0x67u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
+        goto LABEL_105;
       }
-      *(_WORD *)(*v3 + 74LL) = v8;
-      *(_WORD *)(*v3 + 72LL) = v6;
-      goto LABEL_85;
+      if ( (v7 & 2) != 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v14 = 100;
+          goto LABEL_121;
+        }
+        goto LABEL_122;
+      }
+      if ( v16 > 0x60u )
+        return v6;
+      if ( (*(_DWORD *)(*v4 + 40LL) & 0x100000) == 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_122;
+        v17 = 102;
+        goto LABEL_50;
+      }
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return v6;
+      v22 = 101;
+      v23 = (v7 >> 5) & 0xF;
+      v24 = 2;
     }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(v3[179], 2u, 4u, 0x57u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
+    LODWORD(v28) = v23;
+    WPP_RECORDER_SF_d(v4[179], v24, 4u, v22, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids, v28);
+    return v6;
   }
-  v16 = 1LL;
-  if ( (v6 & 1) != 0 )
-  {
-    v5 = 3081;
-    goto LABEL_85;
-  }
-  if ( (v8 & 1) == 0 && (v7 & 1) == 0 )
-    return v5;
-LABEL_35:
-  v5 = 3017;
-LABEL_78:
+LABEL_37:
+  v6 = 3017;
+LABEL_133:
+  if ( (v7 & 1) != 0 )
+    goto LABEL_141;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LODWORD(v34) = v8;
-    LODWORD(v33) = v6;
-    LODWORD(v32) = v7;
-    LODWORD(v31) = *((unsigned __int16 *)v3 + 100);
+    LODWORD(v31) = v9;
+    LODWORD(v30) = v7;
+    LODWORD(v29) = v8;
+    LODWORD(v28) = *((unsigned __int16 *)v4 + 100);
     WPP_RECORDER_SF_dDDD(
-      v3[179],
-      v16,
+      v4[179],
+      1LL,
       4u,
-      0x6Du,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
-      v31,
-      v32,
-      v33,
-      v34);
+      0x6Cu,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+      v28,
+      v29,
+      v30,
+      v31);
   }
-  if ( (*(_DWORD *)(*v3 + 2592LL) & 0x400) != 0 )
-    HUBMISC_VerifierDbgBreak("HubHwVerifierPortDeviceDisconnected", v3 + 34);
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x10000) == 0 )
-    goto LABEL_85;
-  McTemplateK0qhhhqhhh_EtwWriteTransfer(a1, 1LL, 0LL, *((unsigned __int16 *)v3 + 100), v7, v6, v8, 201, v37, v36, v35);
-LABEL_84:
-  if ( v5 != 3061 )
-    goto LABEL_85;
-  return v5;
+  if ( (*(_DWORD *)(*v4 + 2592LL) & 0x400) != 0 )
+    HUBMISC_VerifierDbgBreak("HubHwVerifierPortDeviceDisconnected", v4 + 34);
+  if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) == 0 )
+    goto LABEL_141;
+  McTemplateK0qhhhqhhh_EtwWriteTransfer(a1, 1LL, 0LL, *((unsigned __int16 *)v4 + 100), v8, v7, v9, 201, v32, v33, v3);
+LABEL_140:
+  if ( v6 != 3061 )
+    goto LABEL_141;
+  return v6;
 }

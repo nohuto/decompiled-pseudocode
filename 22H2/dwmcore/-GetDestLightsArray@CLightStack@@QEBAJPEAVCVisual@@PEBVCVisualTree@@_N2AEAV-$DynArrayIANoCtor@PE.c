@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetDestLightsArray@CLightStack@@QEBAJPEAVCVisual@@PEBVCVisualTree@@_N2AEAV?$DynArrayIANoCtor@PEAVCCompositionLight@@$02$0A@@@PEA_N@Z @ 0x1800121E8
+ * XREFs of ?GetDestLightsArray@CLightStack@@QEBAJPEAVCVisual@@PEBVCVisualTree@@_N2AEAV?$DynArrayIANoCtor@PEAVCCompositionLight@@$02$0A@@@PEA_N@Z @ 0x18000FB84
  * Callers:
- *     ?RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix@@PEAPEAVCHwLightCollectionBuffer@@@Z @ 0x18003136C (-RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix.c)
- *     ?GetActiveLightCount@CLightStack@@QEBAIPEAVCVisual@@PEBVCVisualTree@@_N@Z @ 0x18012E1CC (-GetActiveLightCount@CLightStack@@QEBAIPEAVCVisual@@PEBVCVisualTree@@_N@Z.c)
+ *     ?RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix@@PEAPEAVCHwLightCollectionBuffer@@@Z @ 0x18000F8F0 (-RetrieveCurrentLightBufferForContextNoRef@CLightStack@@QEAAJPEAVCDrawingContext@@PEBVCMILMatrix.c)
+ *     ?GetActiveLightCount@CLightStack@@QEBAIPEAVCVisual@@PEBVCVisualTree@@_N@Z @ 0x180182EA4 (-GetActiveLightCount@CLightStack@@QEBAIPEAVCVisual@@PEBVCVisualTree@@_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLightStack::GetDestLightsArray(
@@ -19,106 +19,114 @@ __int64 __fastcall CLightStack::GetDestLightsArray(
         _BYTE *a7)
 {
   _BYTE *v7; // rdi
-  __int64 v11; // rsi
+  unsigned int v11; // r8d
   unsigned int v12; // ebp
-  __int64 v13; // r8
-  char v14; // r11
+  __int64 v13; // rsi
+  unsigned int v14; // eax
   __int64 v15; // rdx
-  __int64 v16; // rcx
+  char v16; // r10
+  __int64 v17; // rcx
   unsigned int i; // ecx
-  __int64 v18; // rcx
-  unsigned int v19; // edi
-  unsigned int v21; // ecx
-  unsigned int v22; // eax
-  unsigned int v23; // r8d
-  unsigned int v24; // ecx
-  int v25; // ebx
-  unsigned int v26; // ecx
+  __int64 v19; // rcx
+  unsigned int v20; // ecx
+  unsigned int v21; // eax
+  unsigned int v22; // r8d
+  int v23; // ebx
+  unsigned int v25; // ecx
+  int v26; // eax
   __int64 v27; // [rsp+60h] [rbp+8h] BYREF
 
   v7 = a7;
   if ( a7 )
     *a7 = 1;
-  v11 = a6;
+  v11 = *((_DWORD *)a1 + 6);
   v12 = 0;
-  if ( !*((_DWORD *)a1 + 6) )
+  v13 = a6;
+  if ( v11 )
   {
-LABEL_16:
-    if ( *(_DWORD *)(v11 + 24) && v7 )
-      *v7 = 1;
-    return 0;
-  }
-  while ( 1 )
-  {
-    v13 = *a1;
-    v14 = 1;
-    v15 = 2LL * v12;
-    if ( *(_DWORD *)(*a1 + 16LL * v12 + 8) == 1 )
+    v14 = *((_DWORD *)a1 + 6);
+    while ( 1 )
     {
-      ++v12;
-      goto LABEL_15;
+      v15 = *a1;
+      v16 = 1;
+      if ( *(_DWORD *)(*a1 + 16LL * v12 + 8) != 1 )
+        break;
+LABEL_17:
+      if ( ++v12 >= v14 )
+        goto LABEL_18;
     }
-    v16 = 0LL;
-    if ( *(_DWORD *)(v11 + 24) )
+    v17 = 0LL;
+    if ( *(_DWORD *)(v13 + 24) )
     {
-      while ( *(_QWORD *)(*(_QWORD *)v11 + 8 * v16) != *(_QWORD *)(v13 + 16LL * v12) )
+      while ( *(_QWORD *)(*(_QWORD *)v13 + 8 * v17) != *(_QWORD *)(v15 + 16LL * v12) )
       {
-        v16 = (unsigned int)(v16 + 1);
-        if ( (unsigned int)v16 >= *(_DWORD *)(v11 + 24) )
-          goto LABEL_8;
+        v17 = (unsigned int)(v17 + 1);
+        if ( (unsigned int)v17 >= *(_DWORD *)(v13 + 24) )
+          goto LABEL_7;
       }
-      v14 = 0;
+      v16 = 0;
     }
-LABEL_8:
-    for ( i = ++v12; i < *((_DWORD *)a1 + 6); ++i )
+LABEL_7:
+    for ( i = v12 + 1; i < v11; ++i )
     {
-      if ( *(_DWORD *)(v13 + 16LL * i + 8) == 1 && *(_QWORD *)(v13 + 8 * v15) == *(_QWORD *)(v13 + 16LL * i) )
-        goto LABEL_15;
+      if ( *(_DWORD *)(v15 + 16LL * i + 8) == 1 && *(_QWORD *)(v15 + 16LL * v12) == *(_QWORD *)(v15 + 16LL * i) )
+      {
+        v16 = 0;
+        break;
+      }
     }
-    if ( !v14 )
-      goto LABEL_15;
-    v18 = *(_QWORD *)(v13 + 8 * v15);
-    v27 = v18;
+    if ( !v16 )
+    {
+LABEL_16:
+      v11 = *((_DWORD *)a1 + 6);
+      v14 = v11;
+      goto LABEL_17;
+    }
+    v19 = *(_QWORD *)(v15 + 16LL * v12);
+    v27 = v19;
     if ( !a5 )
     {
-      if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v18 + 56LL))(v18, 32LL) )
-        goto LABEL_13;
-      v18 = v27;
+      if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v19 + 56LL))(v19, 30LL) )
+        goto LABEL_25;
+      v19 = v27;
     }
-    if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v18 + 256LL))(v18)
-      || !(*(unsigned __int8 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v27 + 248LL))(v27, a3, a2) )
+    if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v19 + 272LL))(v19)
+      && (*(unsigned __int8 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v27 + 264LL))(v27, a3, a2) )
     {
-LABEL_13:
-      if ( v7 )
-        *v7 = 0;
-      goto LABEL_15;
-    }
-    v22 = *(_DWORD *)(v11 + 24);
-    v23 = v22 + 1;
-    if ( v22 + 1 < v22 )
-      break;
-    if ( v23 > *(_DWORD *)(v11 + 20) )
-    {
-      v25 = DynArrayImpl<0>::AddMultipleAndSet(v11, 8LL, 1LL, &v27);
-      if ( v25 < 0 )
+      v21 = *(_DWORD *)(v13 + 24);
+      v22 = v21 + 1;
+      if ( v21 + 1 < v21 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v25, 0xC0u, 0LL);
-        goto LABEL_36;
+        v23 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147024362, 0xB5u, 0LL);
       }
-    }
-    else
-    {
-      *(_QWORD *)(*(_QWORD *)v11 + 8LL * v22) = v27;
-      *(_DWORD *)(v11 + 24) = v23;
-    }
-LABEL_15:
-    if ( v12 >= *((_DWORD *)a1 + 6) )
+      else
+      {
+        if ( v22 <= *(_DWORD *)(v13 + 20) )
+        {
+          *(_QWORD *)(*(_QWORD *)v13 + 8LL * v21) = v27;
+          *(_DWORD *)(v13 + 24) = v22;
+          goto LABEL_16;
+        }
+        v26 = DynArrayImpl<0>::AddMultipleAndSet(v13, 8LL, 1LL, &v27);
+        v23 = v26;
+        if ( v26 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v26, 0xC0u, 0LL);
+      }
+      if ( v23 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v23, 0x11Au, 0LL);
+        return (unsigned int)v23;
+      }
       goto LABEL_16;
+    }
+LABEL_25:
+    if ( v7 )
+      *v7 = 0;
+    goto LABEL_16;
   }
-  v25 = -2147024362;
-  MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, -2147024362, 0xB5u, 0LL);
-LABEL_36:
-  v19 = v25;
-  MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x11Au, 0LL);
-  return v19;
+LABEL_18:
+  if ( *(_DWORD *)(v13 + 24) && v7 )
+    *v7 = 1;
+  return 0;
 }

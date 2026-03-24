@@ -1,30 +1,29 @@
 /*
- * XREFs of WPUpdateCheckPointSettings @ 0x1C01F2D48
+ * XREFs of WPUpdateCheckPointSettings @ 0x1C011A5F4
  * Callers:
- *     ?xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z @ 0x1C00159E4 (-xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z.c)
- *     xxxSetWindowPlacement @ 0x1C00C4790 (xxxSetWindowPlacement.c)
+ *     xxxSetWindowPlacement @ 0x1C011A0A8 (xxxSetWindowPlacement.c)
+ *     ?xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z @ 0x1C0135604 (-xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z.c)
  * Callees:
- *     UpdateCheckpoint @ 0x1C00C79F4 (UpdateCheckpoint.c)
+ *     UpdateCheckpoint @ 0x1C0041198 (UpdateCheckpoint.c)
  */
 
-__int64 __fastcall WPUpdateCheckPointSettings(struct tagWND *a1, char a2)
+__int64 __fastcall WPUpdateCheckPointSettings(__int64 a1, char a2)
 {
   __int64 result; // rax
-  int *v4; // rcx
-  int v5; // eax
+  int v4; // ecx
+  unsigned int v5; // ecx
 
   result = UpdateCheckpoint(a1);
   if ( result )
   {
-    v4 = (int *)(result + 48);
+    v4 = *(_DWORD *)(result + 48);
     if ( (a2 & 1) != 0 )
-      *v4 |= 1u;
-    v5 = *v4;
+      v4 |= 1u;
     if ( (a2 & 2) != 0 )
-      result = v5 | 2u;
+      v5 = v4 | 2;
     else
-      result = v5 & 0xFFFFFFFD;
-    *v4 = result;
+      v5 = v4 & 0xFFFFFFFD;
+    *(_DWORD *)(result + 48) = v5;
   }
   return result;
 }

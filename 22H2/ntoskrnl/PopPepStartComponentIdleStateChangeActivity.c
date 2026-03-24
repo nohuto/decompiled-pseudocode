@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPepStartComponentIdleStateChangeActivity @ 0x14035BF10
+ * XREFs of PopPepStartComponentIdleStateChangeActivity @ 0x1403A41B0
  * Callers:
  *     <none>
  * Callees:
- *     PopPlNotifyDeviceFState @ 0x14035BFE0 (PopPlNotifyDeviceFState.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x14035D8E0 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPepUpdateIdleStateRefCount @ 0x14035D95C (PopPepUpdateIdleStateRefCount.c)
- *     PopPluginNotifyIdleState @ 0x14046276E (PopPluginNotifyIdleState.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1403A00E4 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A0164 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPlNotifyDeviceFState @ 0x1403A4378 (PopPlNotifyDeviceFState.c)
+ *     PopPluginNotifyIdleState @ 0x14056D910 (PopPluginNotifyIdleState.c)
  */
 
 char __fastcall PopPepStartComponentIdleStateChangeActivity(__int64 a1, __int64 a2, __int64 a3)
@@ -23,40 +23,42 @@ char __fastcall PopPepStartComponentIdleStateChangeActivity(__int64 a1, __int64 
     return v3;
   v7 = *(_QWORD *)(a2 + 64);
   v8 = *(_DWORD *)(v7 + 12);
-  if ( v8 )
-  {
-    if ( v8 != 1 )
-      goto LABEL_6;
-  }
-  else
+  if ( !v8 )
   {
     v9 = *(_DWORD *)(a2 + 176);
     *(_DWORD *)(a2 + 180) = v9;
     v10 = *(_DWORD *)(v7 + 8);
     *(_DWORD *)(a2 + 176) = v10;
-    if ( !*(_BYTE *)(a1 + 124) )
+    if ( *(_BYTE *)(a1 + 124) )
     {
-      PopPlNotifyDeviceFState(*(_QWORD *)(a1 + 32), *(_DWORD *)(a2 + 8), v9, v10, 0);
-LABEL_5:
-      *(_DWORD *)(v7 + 12) = 2;
+      *(_DWORD *)(v7 + 12) = 1;
+LABEL_10:
+      PopPlNotifyDeviceFState(
+        *(_QWORD *)(a1 + 32),
+        *(_DWORD *)(a2 + 8),
+        *(_DWORD *)(a2 + 180),
+        *(_DWORD *)(a2 + 176),
+        0);
+      v12 = *(unsigned int *)(a2 + 176);
+      PopPepUpdateIdleStateRefCount(
+        *(_DWORD *)(*(_QWORD *)(a2 + 192) + 24LL * *(unsigned int *)(a2 + 180) + 16),
+        *(_DWORD *)(*(_QWORD *)(a2 + 192) + 24 * v12 + 16),
+        1);
+      PopFxUpdateComponentAccountingEnhanced(*(_QWORD *)(a1 + 32), *(_DWORD *)(a2 + 8), v12, 0);
+      if ( (unsigned __int8)PopPluginNotifyIdleState(
+                              *(_QWORD *)(a1 + 32),
+                              *(unsigned int *)(a2 + 8),
+                              *(unsigned int *)(a2 + 176),
+                              0LL) == 1 )
+        *(_DWORD *)(v7 + 12) = 2;
       goto LABEL_6;
     }
-    *(_DWORD *)(v7 + 12) = 1;
+    PopPlNotifyDeviceFState(*(_QWORD *)(a1 + 32), *(_DWORD *)(a2 + 8), v9, v10, 0);
+    v8 = 2;
+    *(_DWORD *)(v7 + 12) = 2;
   }
-  PopPlNotifyDeviceFState(*(_QWORD *)(a1 + 32), *(_DWORD *)(a2 + 8), *(_DWORD *)(a2 + 180), *(_DWORD *)(a2 + 176), 0);
-  v12 = *(unsigned int *)(a2 + 176);
-  PopPepUpdateIdleStateRefCount(
-    *(unsigned int *)(*(_QWORD *)(a2 + 200) + 24LL * *(unsigned int *)(a2 + 180) + 16),
-    *(unsigned int *)(*(_QWORD *)(a2 + 200) + 24 * v12 + 16),
-    1LL,
-    a2 + 192);
-  PopFxUpdateComponentAccountingEnhanced(*(_QWORD *)(a1 + 32), *(unsigned int *)(a2 + 8), (unsigned int)v12, 0LL);
-  if ( (unsigned __int8)PopPluginNotifyIdleState(
-                          *(_QWORD *)(a1 + 32),
-                          *(unsigned int *)(a2 + 8),
-                          *(unsigned int *)(a2 + 176),
-                          0LL) == 1 )
-    goto LABEL_5;
+  if ( v8 == 1 )
+    goto LABEL_10;
 LABEL_6:
   if ( *(_DWORD *)(v7 + 12) == 2 )
   {

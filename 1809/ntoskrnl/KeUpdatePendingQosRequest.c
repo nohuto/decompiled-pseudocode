@@ -1,12 +1,12 @@
 /*
- * XREFs of KeUpdatePendingQosRequest @ 0x140297EF4
+ * XREFs of KeUpdatePendingQosRequest @ 0x140297FF4
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KeCheckAndApplyBamQos @ 0x140297B90 (KeCheckAndApplyBamQos.c)
+ *     KeCheckAndApplyBamQos @ 0x140297C90 (KeCheckAndApplyBamQos.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140299568 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x140299668 (KiSetVirtualHeteroClockIntervalRequest.c)
  */
 
 __int64 __fastcall KeUpdatePendingQosRequest(__int64 a1)

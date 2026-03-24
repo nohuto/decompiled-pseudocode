@@ -1,11 +1,11 @@
 /*
- * XREFs of PspIumWorker @ 0x1402EBB60
+ * XREFs of PspIumWorker @ 0x1402EBC60
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 NTSTATUS PspIumWorker()

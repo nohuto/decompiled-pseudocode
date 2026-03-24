@@ -1,68 +1,58 @@
 /*
- * XREFs of CmpCreateTombstone @ 0x140616EBC
+ * XREFs of CmpCreateTombstone @ 0x1404ED49C
  * Callers:
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvUnlockHiveFlusherShared @ 0x140689290 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x1406892C8 (HvLockHiveFlusherShared.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x1406D23CC (CmpUpdateKeyNodeAccessBits.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvAllocateCell @ 0x14070A478 (HvAllocateCell.c)
- *     CmpFreeKeyByCell @ 0x14070B2C4 (CmpFreeKeyByCell.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14076ADCC (CmpRebuildKcbCacheFromNode.c)
- *     CmpCleanUpSubKeyInfo @ 0x14076AED4 (CmpCleanUpSubKeyInfo.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpAssignSecurityDescriptor @ 0x1408ABE32 (CmpAssignSecurityDescriptor.c)
- *     CmpAddSubKey @ 0x1408AC1BE (CmpAddSubKey.c)
- *     HvMarkCellDirty @ 0x1408AC1D6 (HvMarkCellDirty.c)
- *     CmpGetPhaseAccessBit @ 0x140A16944 (CmpGetPhaseAccessBit.c)
- *     CmpIncrementKcbSequenceNumber @ 0x140A17520 (CmpIncrementKcbSequenceNumber.c)
- *     CmpGetSecurityDescriptorForKcbStack @ 0x140A1BAB8 (CmpGetSecurityDescriptorForKcbStack.c)
- *     CmLockHiveSecurityExclusive @ 0x140A1F52C (CmLockHiveSecurityExclusive.c)
- *     CmUnlockHiveSecurity @ 0x140AF6100 (CmUnlockHiveSecurity.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     HvAllocateCell @ 0x140656A94 (HvAllocateCell.c)
+ *     HvUnlockHiveFlusherShared @ 0x1406DF07C (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1406DF0B4 (HvLockHiveFlusherShared.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x1406DF0D0 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1406E2D94 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1406E2E9C (CmpCleanUpSubKeyInfo.c)
+ *     CmUnlockHiveSecurity @ 0x1406E2FD4 (CmUnlockHiveSecurity.c)
+ *     CmLockHiveSecurityExclusive @ 0x1406E2FF4 (CmLockHiveSecurityExclusive.c)
+ *     CmpFreeKeyByCell @ 0x1406E4070 (CmpFreeKeyByCell.c)
+ *     CmpGetPhaseAccessBit @ 0x14086E61C (CmpGetPhaseAccessBit.c)
+ *     CmpIncrementKcbSequenceNumber @ 0x14086F06C (CmpIncrementKcbSequenceNumber.c)
+ *     CmpAssignSecurityDescriptor @ 0x140871700 (CmpAssignSecurityDescriptor.c)
+ *     CmpGetSecurityDescriptorForKcbStack @ 0x140871DCC (CmpGetSecurityDescriptorForKcbStack.c)
+ *     HvpGetCellContextInitialize @ 0x140875D48 (HvpGetCellContextInitialize.c)
+ *     CmpAddSubKey @ 0x14087A3E8 (CmpAddSubKey.c)
+ *     HvMarkCellDirty @ 0x14087BD38 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCreateTombstone(__int64 a1, __int64 a2)
 {
-  __int64 KcbAtLayerHeight; // r14
-  __int64 v4; // rdi
+  __int64 KcbAtLayerHeight; // rsi
+  __int64 v4; // rbp
   __int64 v5; // rax
   __int16 v6; // dx
   int v7; // ebx
   unsigned int v8; // r12d
-  int Cell; // eax
-  char *v10; // rsi
-  int v11; // ebx
-  unsigned int v12; // ecx
+  unsigned int Cell; // eax
+  char *v10; // rdi
+  unsigned int v11; // r14d
+  int v12; // ebx
+  unsigned int v13; // ecx
   __int64 SecurityDescriptorForKcbStack; // rbx
-  unsigned int v14; // r15d
   ULONG_PTR v15; // rcx
-  ULONG_PTR v16; // rcx
-  __int64 CellFlat; // rax
-  __int64 v18; // rbx
-  unsigned __int16 v19; // dx
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  unsigned int BugCheckParameter4; // [rsp+80h] [rbp+48h] BYREF
-  int BugCheckParameter4_4; // [rsp+84h] [rbp+4Ch]
-  __int64 v26; // [rsp+88h] [rbp+50h] BYREF
-  __int64 v27; // [rsp+90h] [rbp+58h] BYREF
-  void *v28; // [rsp+98h] [rbp+60h] BYREF
+  __int64 v16; // rbx
+  unsigned __int16 v17; // dx
+  __int64 v18; // rcx
+  __int64 v19; // rdx
+  __int64 v21; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v22; // [rsp+78h] [rbp+10h] BYREF
+  void *v23; // [rsp+80h] [rbp+18h] BYREF
 
-  BugCheckParameter4_4 = HIDWORD(a1);
-  v27 = 0LL;
-  v26 = 0LL;
-  BugCheckParameter4 = -1;
-  v28 = 0LL;
-  HvpGetCellContextReinitialize(&v27);
-  HvpGetCellContextReinitialize(&v26);
+  v22 = 0LL;
+  v21 = 0LL;
+  v23 = 0LL;
+  HvpGetCellContextInitialize(&v22);
+  HvpGetCellContextInitialize(&v21);
   KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a2);
   v4 = *(_QWORD *)(KcbAtLayerHeight + 72);
   v5 = 0LL;
@@ -77,22 +67,16 @@ __int64 __fastcall CmpCreateTombstone(__int64 a1, __int64 a2)
     v7 = 1;
   HvLockHiveFlusherShared(*(_QWORD *)(KcbAtLayerHeight + 32));
   v8 = *(unsigned __int16 *)(*(_QWORD *)(KcbAtLayerHeight + 80) + 24LL) + 76;
-  Cell = HvAllocateCell(
-           *(_QWORD *)(KcbAtLayerHeight + 32),
-           v8,
-           v7,
-           (unsigned int)&BugCheckParameter4,
-           (__int64)&v28,
-           (__int64)&v27);
-  v10 = (char *)v28;
+  Cell = HvAllocateCell(*(_QWORD *)(KcbAtLayerHeight + 32), v8, v7, (unsigned int)&v23, (__int64)&v22);
+  v10 = (char *)v23;
   v11 = Cell;
-  if ( Cell < 0 )
+  if ( Cell == -1 )
   {
-    v14 = BugCheckParameter4;
+    v12 = -1073741670;
   }
   else
   {
-    memset(v28, 0, v8);
+    memset(v23, 0, v8);
     *(_DWORD *)v10 = 27502;
     v10[12] = CmpGetPhaseAccessBit();
     v10[13] = v10[13] & 0xFC | 1;
@@ -109,66 +93,58 @@ __int64 __fastcall CmpCreateTombstone(__int64 a1, __int64 a2)
     *((_DWORD *)v10 + 13) &= 0xFFF0FFFF;
     v10[55] = 0;
     *((_DWORD *)v10 + 13) &= 0xFF0FFFFF;
-    v12 = *(unsigned __int16 *)(*(_QWORD *)(KcbAtLayerHeight + 80) + 24LL);
-    *((_WORD *)v10 + 36) = v12;
-    memmove(v10 + 76, (const void *)(*(_QWORD *)(KcbAtLayerHeight + 80) + 26LL), v12);
+    v13 = *(unsigned __int16 *)(*(_QWORD *)(KcbAtLayerHeight + 80) + 24LL);
+    *((_WORD *)v10 + 36) = v13;
+    memmove(v10 + 76, (const void *)(*(_QWORD *)(KcbAtLayerHeight + 80) + 26LL), v13);
     SecurityDescriptorForKcbStack = CmpGetSecurityDescriptorForKcbStack(a2, 0LL);
     CmLockHiveSecurityExclusive(*(_QWORD *)(KcbAtLayerHeight + 32));
-    v14 = BugCheckParameter4;
-    v11 = CmpAssignSecurityDescriptor(
-            *(_QWORD *)(KcbAtLayerHeight + 32),
-            BugCheckParameter4,
-            v10,
-            SecurityDescriptorForKcbStack);
+    v12 = CmpAssignSecurityDescriptor(*(_QWORD *)(KcbAtLayerHeight + 32), v11, v10, SecurityDescriptorForKcbStack);
     CmUnlockHiveSecurity(*(_QWORD *)(KcbAtLayerHeight + 32));
-    if ( v11 >= 0 )
+    if ( v12 >= 0 )
     {
-      v11 = HvMarkCellDirty(*(_QWORD *)(v4 + 32), *(unsigned int *)(v4 + 40), 0LL);
-      if ( v11 >= 0 )
+      if ( (unsigned __int8)HvMarkCellDirty(*(_QWORD *)(v4 + 32), *(unsigned int *)(v4 + 40), 0LL) )
       {
-        v11 = CmpAddSubKey(*(_QWORD *)(v4 + 32), *(unsigned int *)(v4 + 40), v14);
-        if ( v11 >= 0 )
+        if ( (unsigned __int8)CmpAddSubKey(*(_QWORD *)(v4 + 32), *(unsigned int *)(v4 + 40), v11) )
         {
           CmpIncrementKcbSequenceNumber(KcbAtLayerHeight);
-          *(_DWORD *)(KcbAtLayerHeight + 40) = v14;
-          v14 = -1;
+          *(_DWORD *)(KcbAtLayerHeight + 40) = v11;
+          v11 = -1;
           CmpRebuildKcbCacheFromNode(v15);
-          v16 = *(_QWORD *)(v4 + 32);
-          if ( (*(_BYTE *)(v16 + 140) & 1) != 0 )
-            CellFlat = HvpGetCellFlat(v16, *(unsigned int *)(v4 + 40));
-          else
-            CellFlat = HvpGetCellPaged(v16);
-          v18 = CellFlat;
-          CmpUpdateKeyNodeAccessBits(*(_QWORD *)(v4 + 32), CellFlat, *(unsigned int *)(v4 + 40));
-          v19 = *((_WORD *)v10 + 36);
-          if ( (v10[2] & 0x20) != 0 )
-            v19 *= 2;
-          if ( (unsigned __int16)*(_DWORD *)(v18 + 52) < (unsigned int)v19 )
-            *(_WORD *)(v18 + 52) = v19;
+          v16 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64 *))(*(_QWORD *)(v4 + 32) + 8LL))(
+                  *(_QWORD *)(v4 + 32),
+                  *(unsigned int *)(v4 + 40),
+                  &v21);
+          CmpUpdateKeyNodeAccessBits(*(_QWORD *)(v4 + 32), v16, *(unsigned int *)(v4 + 40));
+          v17 = 2 * *((_WORD *)v10 + 36);
+          if ( (v10[2] & 0x20) == 0 )
+            v17 = *((_WORD *)v10 + 36);
+          if ( (unsigned __int16)*(_DWORD *)(v16 + 52) < (unsigned int)v17 )
+            *(_WORD *)(v16 + 52) = v17;
           CmpIncrementKcbSequenceNumber(v4);
-          v20 = *(_QWORD *)(v4 + 32);
-          *(_WORD *)(v4 + 176) = *(_WORD *)(v18 + 52);
-          if ( (*(_BYTE *)(v20 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(v20, &v26);
-          else
-            HvpReleaseCellPaged(v20, &v26);
-          LOBYTE(v21) = 1;
-          CmpCleanUpSubKeyInfo(v4, v21);
-          v11 = 0;
+          v18 = *(_QWORD *)(v4 + 32);
+          *(_WORD *)(v4 + 176) = *(_WORD *)(v16 + 52);
+          (*(void (__fastcall **)(__int64, __int64 *))(v18 + 16))(v18, &v21);
+          LOBYTE(v19) = 1;
+          CmpCleanUpSubKeyInfo(v4, v19);
+          v12 = 0;
         }
+        else
+        {
+          v12 = -1073741670;
+        }
+      }
+      else
+      {
+        v12 = -1073741443;
       }
     }
   }
   if ( v10 )
-  {
-    v22 = *(_QWORD *)(KcbAtLayerHeight + 32);
-    if ( (*(_BYTE *)(v22 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v22, &v27);
-    else
-      HvpReleaseCellPaged(v22, &v27);
-  }
-  if ( v14 != -1 )
-    CmpFreeKeyByCell(*(_QWORD *)(KcbAtLayerHeight + 32), v14);
+    (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(KcbAtLayerHeight + 32) + 16LL))(
+      *(_QWORD *)(KcbAtLayerHeight + 32),
+      &v22);
+  if ( v11 != -1 )
+    CmpFreeKeyByCell(*(_QWORD *)(KcbAtLayerHeight + 32), v11);
   HvUnlockHiveFlusherShared(*(_QWORD *)(KcbAtLayerHeight + 32));
-  return (unsigned int)v11;
+  return (unsigned int)v12;
 }

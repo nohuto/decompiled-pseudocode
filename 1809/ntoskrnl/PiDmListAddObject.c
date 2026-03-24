@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmListAddObject @ 0x1407028AC
+ * XREFs of PiDmListAddObject @ 0x14070288C
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
- *     PiDmListInitEnumCallback @ 0x14072C770 (PiDmListInitEnumCallback.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
+ *     PiDmListInitEnumCallback @ 0x14072C750 (PiDmListInitEnumCallback.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListAddObjectWorker @ 0x140702978 (PiDmListAddObjectWorker.c)
+ *     PiDmListAddObjectWorker @ 0x140702958 (PiDmListAddObjectWorker.c)
  */
 
 _QWORD *__fastcall PiDmListAddObject(unsigned int a1, ULONG_PTR a2, ULONG_PTR a3, __int64 a4)

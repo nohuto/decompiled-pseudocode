@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpApplyEventNameFilter @ 0x140461038
+ * XREFs of EtwpApplyEventNameFilter @ 0x1405ABB34
  * Callers:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpEventNameFilterSearch @ 0x1404615A6 (EtwpEventNameFilterSearch.c)
- *     EtwpGetEventNameFromEventMetadata @ 0x1404617FE (EtwpGetEventNameFromEventMetadata.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpEventNameFilterSearch @ 0x1405AC1EC (EtwpEventNameFilterSearch.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x1405AC448 (EtwpGetEventNameFromEventMetadata.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall EtwpApplyEventNameFilter(
@@ -26,139 +26,128 @@ char __fastcall EtwpApplyEventNameFilter(
         __int64 a8,
         char a9)
 {
-  __int64 v10; // r12
-  void **v12; // rsi
+  __int64 v9; // r12
+  void **v11; // rsi
   unsigned __int8 CurrentIrql; // r15
-  __int64 v14; // rax
-  unsigned __int64 v15; // rcx
-  __int64 SchedulerAssist; // r9
-  unsigned int v17; // ecx
+  __int64 v13; // rax
+  unsigned int v14; // ecx
+  unsigned __int64 v15; // rdx
+  unsigned int v16; // ecx
+  char *v17; // r8
   unsigned __int64 v18; // rdx
-  unsigned int v19; // ecx
-  char *v20; // r8
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // rdx
-  void *v23; // rsp
-  void *v24; // rsp
-  __int64 v25; // r14
-  __int64 v26; // rdx
-  _BYTE *v27; // r14
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  unsigned __int8 v30; // al
+  unsigned __int64 v19; // rdx
+  void *v20; // rsp
+  void *v21; // rsp
+  struct _KPRCB *CurrentPrcb; // rax
+  __int64 v23; // r14
+  __int64 v24; // rdx
+  _BYTE *v25; // r14
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  unsigned __int8 v28; // al
   __int64 EventNameFromEventMetadata; // rax
-  unsigned __int8 v32; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v34; // r8
-  int v35; // eax
-  bool v36; // zf
-  unsigned __int8 v37; // al
-  struct _KPRCB *v38; // r9
-  _DWORD *v39; // r8
-  int v40; // eax
-  char v42; // [rsp+20h] [rbp+0h] BYREF
-  char v43; // [rsp+21h] [rbp+1h]
-  unsigned __int16 v44; // [rsp+24h] [rbp+4h] BYREF
+  unsigned __int8 v30; // al
+  struct _KPRCB *v31; // r9
+  _DWORD *SchedulerAssist; // r8
+  int v33; // eax
+  bool v34; // zf
+  unsigned __int8 v35; // al
+  struct _KPRCB *v36; // r9
+  _DWORD *v37; // r8
+  int v38; // eax
+  char v40; // [rsp+20h] [rbp+0h] BYREF
+  char v41; // [rsp+21h] [rbp+1h]
+  unsigned __int16 v42; // [rsp+24h] [rbp+4h] BYREF
   PVOID P; // [rsp+28h] [rbp+8h]
-  int v46; // [rsp+30h] [rbp+10h]
-  void **v47; // [rsp+38h] [rbp+18h]
+  int v44; // [rsp+30h] [rbp+10h]
+  void **v45; // [rsp+38h] [rbp+18h]
   void *Src[2]; // [rsp+40h] [rbp+20h] BYREF
 
-  v10 = a2;
-  v44 = 0;
+  v9 = a2;
+  v42 = 0;
   P = 0LL;
   *(_OWORD *)Src = 0LL;
-  v12 = 0LL;
-  v47 = 0LL;
+  v11 = 0LL;
+  v45 = 0LL;
   CurrentIrql = 0;
-  v43 = 0;
-  v42 = 1;
+  v41 = 0;
+  v40 = 1;
   if ( a5 )
   {
-    v14 = 16LL * a3;
-    if ( v14 )
+    v13 = 16LL * a3;
+    if ( v13 )
     {
       if ( (a4 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v15 = v14 + a4;
-      SchedulerAssist = 0x7FFFFFFF0000LL;
-      if ( v15 > 0x7FFFFFFF0000LL || v15 < a4 )
+      if ( v13 + a4 > 0x7FFFFFFF0000LL || v13 + a4 < a4 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    else
-    {
-      SchedulerAssist = 0x7FFFFFFF0000LL;
-    }
   }
-  else
+  v14 = 0;
+  v44 = 0;
+  while ( v14 < a3 )
   {
-    SchedulerAssist = 0x7FFFFFFF0000LL;
-  }
-  v17 = 0;
-  v46 = 0;
-  while ( v17 < a3 )
-  {
-    v18 = a4 + 16LL * v17;
-    if ( *(_BYTE *)(v18 + 12) == 1 )
+    v15 = a4 + 16LL * v14;
+    if ( *(_BYTE *)(v15 + 12) == 1 )
     {
       if ( a6 >= 2u )
       {
-        v12 = (void **)(a4 + 16LL * v17);
-        v47 = v12;
-        P = *(PVOID *)v18;
+        v11 = (void **)(a4 + 16LL * v14);
+        v45 = v11;
+        P = *(PVOID *)v15;
       }
       else
       {
-        *(_OWORD *)Src = *(_OWORD *)v18;
-        v12 = Src;
-        v47 = Src;
-        v19 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)Src, 8));
-        if ( v19 >= 0xFFFF )
+        *(_OWORD *)Src = *(_OWORD *)v15;
+        v11 = Src;
+        v45 = Src;
+        v16 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)Src, 8));
+        if ( v16 >= 0xFFFF )
         {
-          v42 = 0;
-          goto LABEL_81;
+          v40 = 0;
+          goto LABEL_78;
         }
         if ( a5 )
         {
-          if ( v19 )
+          if ( v16 )
           {
-            v20 = (char *)Src[0] + v19;
-            if ( (unsigned __int64)v20 > 0x7FFFFFFF0000LL || v20 < Src[0] )
+            v17 = (char *)Src[0] + v16;
+            if ( (unsigned __int64)v17 > 0x7FFFFFFF0000LL || v17 < Src[0] )
             {
               MEMORY[0x7FFFFFFF0000] = 0;
-              v19 = (unsigned int)Src[1];
+              v16 = (unsigned int)Src[1];
             }
           }
         }
-        if ( v19 <= 0x100 )
+        if ( v16 <= 0x100 )
         {
-          v21 = v19 + 15LL;
-          if ( v21 <= v19 )
-            v21 = 0xFFFFFFFFFFFFFF0LL;
-          v22 = v21 & 0xFFFFFFFFFFFFFFF0uLL;
-          v23 = alloca(v22);
-          v24 = alloca(v22);
-          P = &v42;
+          v18 = v16 + 15LL;
+          if ( v18 <= v16 )
+            v18 = 0xFFFFFFFFFFFFFF0LL;
+          v19 = v18 & 0xFFFFFFFFFFFFFFF0uLL;
+          v20 = alloca(v19);
+          v21 = alloca(v19);
+          P = &v40;
         }
         else
         {
-          P = (PVOID)ExAllocatePool2(66LL, v19, 1953985605LL);
+          P = ExAllocatePoolWithTag(NonPagedPoolNx, v16, 0x74777445u);
           if ( !P )
           {
-            v42 = 1;
-            goto LABEL_81;
+            v40 = 1;
+            goto LABEL_78;
           }
-          v43 = 1;
-          v19 = (unsigned int)Src[1];
+          v41 = 1;
+          v16 = (unsigned int)Src[1];
         }
-        memmove(P, Src[0], v19);
+        memmove(P, Src[0], v16);
       }
       break;
     }
-    v46 = ++v17;
+    v44 = ++v14;
   }
-  if ( !v12 || !P )
-    goto LABEL_67;
+  if ( !v11 || !P )
+    goto LABEL_64;
   if ( a6 < 2u )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -167,44 +156,38 @@ char __fastcall EtwpApplyEventNameFilter(
     {
       if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
-        SchedulerAssist = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
-        *(_DWORD *)(SchedulerAssist + 20) |= (-1 << (CurrentIrql + 1)) & 4;
+        CurrentPrcb = KeGetCurrentPrcb();
+        *((_DWORD *)CurrentPrcb->SchedulerAssist + 5) |= (-1 << (CurrentIrql + 1)) & 4;
       }
     }
   }
-  v25 = *(_QWORD *)(a1 + 384);
-  if ( v25 )
+  v23 = *(_QWORD *)(a1 + 384);
+  if ( v23 )
   {
-    v26 = 104 * v10;
-    LOBYTE(SchedulerAssist) = a9;
-    v27 = a9 ? *(_BYTE **)(v25 + v26 + 56) : *(_BYTE **)(v25 + v26 + 96);
-    if ( v27 )
+    v24 = 104 * v9;
+    v25 = a9 ? *(_BYTE **)(v23 + v24 + 56) : *(_BYTE **)(v23 + v24 + 96);
+    if ( v25 )
     {
-      v28 = 0LL;
-      v29 = *(_QWORD *)(a1 + 384);
-      if ( v29 )
+      v26 = 0LL;
+      v27 = *(_QWORD *)(a1 + 384);
+      if ( v27 )
       {
         if ( a9 )
         {
-          SchedulerAssist = 2147491840LL;
-          if ( (*(_DWORD *)(v29 + 104 * v10) & 0x80002000) == 0x80002000 )
-            v28 = *(_QWORD *)(v29 + v26 + 56);
+          if ( (*(_DWORD *)(v27 + 104 * v9) & 0x80002000) == 0x80002000 )
+            v26 = *(_QWORD *)(v27 + v24 + 56);
         }
-        else if ( (*(_DWORD *)(v29 + 104 * v10) & 0x80000400) == 0x80000400 )
+        else if ( (*(_DWORD *)(v27 + 104 * v9) & 0x80000400) == 0x80000400 )
         {
-          v28 = *(_QWORD *)(v29 + v26 + 96);
+          v26 = *(_QWORD *)(v27 + v24 + 96);
         }
-        if ( v28 )
+        if ( v26 )
         {
-          v30 = *(_BYTE *)(v28 + 1);
-          if ( (a7 <= v30 || !v30)
-            && (!a8 || (a8 & *(_QWORD *)(v28 + 8)) != 0 && (a8 & *(_QWORD *)(v28 + 16)) == *(_QWORD *)(v28 + 16)) )
+          v28 = *(_BYTE *)(v26 + 1);
+          if ( (a7 <= v28 || !v28)
+            && (!a8 || (a8 & *(_QWORD *)(v26 + 8)) != 0 && (a8 & *(_QWORD *)(v26 + 16)) == *(_QWORD *)(v26 + 16)) )
           {
-            EventNameFromEventMetadata = EtwpGetEventNameFromEventMetadata(
-                                           P,
-                                           *((unsigned int *)v47 + 2),
-                                           &v44,
-                                           SchedulerAssist);
+            EventNameFromEventMetadata = EtwpGetEventNameFromEventMetadata(P, *((unsigned int *)v45 + 2), &v42);
             if ( !EventNameFromEventMetadata )
             {
               if ( a6 < 2u )
@@ -213,30 +196,30 @@ char __fastcall EtwpApplyEventNameFilter(
                 {
                   if ( (KiIrqlFlags & 1) != 0 )
                   {
-                    v32 = KeGetCurrentIrql();
-                    if ( v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
+                    v30 = KeGetCurrentIrql();
+                    if ( v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
                     {
-                      CurrentPrcb = KeGetCurrentPrcb();
-                      v34 = CurrentPrcb->SchedulerAssist;
-                      v35 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                      v36 = (v35 & v34[5]) == 0;
-                      v34[5] &= v35;
-                      if ( v36 )
-                        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                      v31 = KeGetCurrentPrcb();
+                      SchedulerAssist = v31->SchedulerAssist;
+                      v33 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                      v34 = (v33 & SchedulerAssist[5]) == 0;
+                      SchedulerAssist[5] &= v33;
+                      if ( v34 )
+                        KiRemoveSystemWorkPriorityKick((__int64)v31);
                     }
                   }
                 }
                 __writecr8(CurrentIrql);
               }
-LABEL_67:
-              v42 = 1;
-              goto LABEL_81;
+LABEL_64:
+              v40 = 1;
+              goto LABEL_78;
             }
-            if ( v44 )
-              v36 = *v27 == (unsigned __int8)EtwpEventNameFilterSearch(EventNameFromEventMetadata, v44, v27);
+            if ( v42 )
+              v34 = *v25 == (unsigned __int8)EtwpEventNameFilterSearch(EventNameFromEventMetadata, v42, v25);
             else
-              v36 = *v27 == 0;
-            v42 = v36;
+              v34 = *v25 == 0;
+            v40 = v34;
           }
         }
       }
@@ -248,23 +231,23 @@ LABEL_67:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v37 = KeGetCurrentIrql();
-        if ( v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+        v35 = KeGetCurrentIrql();
+        if ( v35 <= 0xFu && CurrentIrql <= 0xFu && v35 >= 2u )
         {
-          v38 = KeGetCurrentPrcb();
-          v39 = v38->SchedulerAssist;
-          v40 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v36 = (v40 & v39[5]) == 0;
-          v39[5] &= v40;
-          if ( v36 )
-            KiRemoveSystemWorkPriorityKick((__int64)v38);
+          v36 = KeGetCurrentPrcb();
+          v37 = v36->SchedulerAssist;
+          v38 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v34 = (v38 & v37[5]) == 0;
+          v37[5] &= v38;
+          if ( v34 )
+            KiRemoveSystemWorkPriorityKick((__int64)v36);
         }
       }
     }
     __writecr8(CurrentIrql);
   }
-LABEL_81:
-  if ( v43 )
+LABEL_78:
+  if ( v41 )
     ExFreePoolWithTag(P, 0);
-  return v42;
+  return v40;
 }

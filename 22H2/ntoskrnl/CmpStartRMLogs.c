@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpStartRMLogs @ 0x14069870C
+ * XREFs of CmpStartRMLogs @ 0x140766984
  * Callers:
- *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
+ *     CmpTransInitializeTransaction @ 0x1407666DC (CmpTransInitializeTransaction.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     CmpLockRegistryFreezeAware @ 0x140753CF8 (CmpLockRegistryFreezeAware.c)
- *     CmpStartRMLog @ 0x140873068 (CmpStartRMLog.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406EB4E0 (CmpLockRegistryFreezeAware.c)
+ *     CmpUuidCreate @ 0x14070D95C (CmpUuidCreate.c)
+ *     CmpStartRMLog @ 0x14077D3E4 (CmpStartRMLog.c)
  */
 
 __int64 __fastcall CmpStartRMLogs(__int64 a1)
@@ -17,10 +17,6 @@ __int64 __fastcall CmpStartRMLogs(__int64 a1)
   bool v5; // bp
   __int64 v6; // rsi
   int started; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
   UUID Uuid; // [rsp+20h] [rbp-38h] BYREF
 
   v1 = *(_DWORD *)(a1 + 104);
@@ -34,7 +30,7 @@ __int64 __fastcall CmpStartRMLogs(__int64 a1)
   {
     v5 = CmpUuidCreate(&Uuid) >= 0;
     v6 = (*(_DWORD *)(a1 + 104) & 2) != 0 ? 4 : 0;
-    CmpLockRegistryFreezeAware(0LL);
+    CmpLockRegistryFreezeAware(0);
     started = CmpStartRMLog(a1, 0LL);
     v3 = started;
     if ( started < 0 && started != -1073741697 && started != -1073741757 && started != -1073741670 && v5 )
@@ -42,7 +38,7 @@ __int64 __fastcall CmpStartRMLogs(__int64 a1)
       *(_DWORD *)(a1 + 104) &= ~2u;
       v3 = CmpStartRMLog(a1, &Uuid);
     }
-    CmpUnlockRegistry(v9, v8, v10, v11, *(_QWORD *)&Uuid.Data1, *(_QWORD *)Uuid.Data4);
+    CmpUnlockRegistry();
     *(_DWORD *)(v6 + a1 + 108) = v3;
   }
   return v3;

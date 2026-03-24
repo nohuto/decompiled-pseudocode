@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeSystemCache @ 0x14072A6BC
+ * XREFs of MiInitializeSystemCache @ 0x14072A69C
  * Callers:
- *     MiObtainSystemCacheView @ 0x1400AD200 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
  * Callees:
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiQuerySystemBase @ 0x14013BA9C (MiQuerySystemBase.c)
- *     InitializeListHeadPte @ 0x14017004C (InitializeListHeadPte.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B68 (MiInitializeSystemWorkingSetList.c)
+ *     MiQuerySystemBase @ 0x14013BABC (MiQuerySystemBase.c)
+ *     InitializeListHeadPte @ 0x14017006C (InitializeListHeadPte.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
  *     MiInitializeDynamicRegion @ 0x1409B6DDC (MiInitializeDynamicRegion.c)
  */
 

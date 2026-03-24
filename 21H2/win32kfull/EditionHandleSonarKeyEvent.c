@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionHandleSonarKeyEvent @ 0x1C01081E0
+ * XREFs of EditionHandleSonarKeyEvent @ 0x1C011AEF0
  * Callers:
  *     <none>
  * Callees:
- *     StopFade @ 0x1C01E26E0 (StopFade.c)
- *     zzzStartSonar @ 0x1C01E2F90 (zzzStartSonar.c)
+ *     StopFade @ 0x1C01E8050 (StopFade.c)
+ *     zzzStartSonar @ 0x1C01E88C8 (zzzStartSonar.c)
  */
 
 __int64 __fastcall EditionHandleSonarKeyEvent(__int64 a1, char a2)
@@ -17,7 +17,7 @@ __int64 __fastcall EditionHandleSonarKeyEvent(__int64 a1, char a2)
     if ( (result & 0x8000u) == 0LL )
     {
       result = (__int64)gpdwCPUserPreferencesMask;
-      if ( _bittest((const signed __int32 *)gpdwCPUserPreferencesMask, 0xEu) )
+      if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
       {
         result = gfade[0];
         if ( (LODWORD(gfade[6]) & 0x80u) != 0 )
@@ -26,22 +26,18 @@ __int64 __fastcall EditionHandleSonarKeyEvent(__int64 a1, char a2)
           giSonarRadius = -1;
         }
       }
-      if ( BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) != a2 )
-        BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = a2;
+      if ( gbLastVkForSonar != a2 )
+        gbLastVkForSonar = a2;
     }
     else
     {
-      if ( a2 == 17
-        && BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) == 17
-        && _bittest((const signed __int32 *)gpdwCPUserPreferencesMask, 0xEu) )
-      {
+      if ( a2 == 17 && gbLastVkForSonar == 17 && ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
         zzzStartSonar();
-      }
       result = (__int64)gpdwCPUserPreferencesMask;
-      if ( _bittest((const signed __int32 *)gpdwCPUserPreferencesMask, 0xEu) )
+      if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
       {
-        if ( BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) )
-          BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = 0;
+        if ( gbLastVkForSonar )
+          gbLastVkForSonar = 0;
       }
     }
   }

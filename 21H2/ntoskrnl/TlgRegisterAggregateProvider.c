@@ -1,12 +1,12 @@
 /*
- * XREFs of TlgRegisterAggregateProvider @ 0x140827FE8
+ * XREFs of TlgRegisterAggregateProvider @ 0x1407A4BD0
  * Callers:
- *     FsRtlInitSystem2 @ 0x1404173C8 (FsRtlInitSystem2.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     CmFcInitSystem3 @ 0x140B0183C (CmFcInitSystem3.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     FsRtlInitSystem2 @ 0x1403F08EC (FsRtlInitSystem2.c)
+ *     CmFcInitSystem3 @ 0x140A38454 (CmFcInitSystem3.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     PnpTraceInitialize @ 0x140A532C8 (PnpTraceInitialize.c)
  * Callees:
- *     TlgRegisterAggregateProviderEx @ 0x140828004 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407A4BEC (TlgRegisterAggregateProviderEx.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProvider(void *a1)

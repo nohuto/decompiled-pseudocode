@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C012CA98
+ * XREFs of ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C013A9A8
  * Callers:
- *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C012C564 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
- *     NtGdiStartPage @ 0x1C012C8A0 (NtGdiStartPage.c)
- *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C012CA70 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
- *     ?GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z @ 0x1C012CC5C (-GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z.c)
- *     NtGdiEndPage @ 0x1C027ACD0 (NtGdiEndPage.c)
+ *     ??1RESTORESAVEDCATTRS@@QEAA@XZ @ 0x1C0137098 (--1RESTORESAVEDCATTRS@@QEAA@XZ.c)
+ *     ?GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z @ 0x1C013A480 (-GreStartDocInternal@@YAHPEAUHDC__@@PEAU_DOCINFOW@@PEAHH@Z.c)
+ *     NtGdiStartPage @ 0x1C013A7B0 (NtGdiStartPage.c)
+ *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C013A980 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
+ *     NtGdiEndPage @ 0x1C027D170 (NtGdiEndPage.c)
  * Callees:
- *     ?SaveAttributesHelper@XDCOBJ@@AEAAHXZ @ 0x1C012CAC0 (-SaveAttributesHelper@XDCOBJ@@AEAAHXZ.c)
+ *     ?SaveAttributesHelper@XDCOBJ@@AEAAHXZ @ 0x1C013A9D0 (-SaveAttributesHelper@XDCOBJ@@AEAAHXZ.c)
  */
 
 void __fastcall XDCOBJ::vSaveAttributesAlways(XDCOBJ *this)

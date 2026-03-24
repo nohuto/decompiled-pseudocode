@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeDisableThrottling @ 0x1C000ED24
+ * XREFs of NVMeDisableThrottling @ 0x1C000E930
  * Callers:
- *     NVMeControllerRemove @ 0x1C000E23C (NVMeControllerRemove.c)
- *     NVMeControllerStop @ 0x1C000EC50 (NVMeControllerStop.c)
+ *     NVMeControllerRemove @ 0x1C000E434 (NVMeControllerRemove.c)
+ *     NVMeControllerStop @ 0x1C000E85C (NVMeControllerStop.c)
  * Callees:
- *     NVMeDeRegisterThrottling @ 0x1C0015030 (NVMeDeRegisterThrottling.c)
+ *     NVMeDeRegisterThrottling @ 0x1C00142E4 (NVMeDeRegisterThrottling.c)
  */
 
 __int64 __fastcall NVMeDisableThrottling(__int64 a1)

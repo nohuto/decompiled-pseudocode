@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDripsWatchdogCallbackWorker @ 0x14086E010
+ * XREFs of PopDripsWatchdogCallbackWorker @ 0x14086DFF0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140867AE8 (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsSetDisengageReason @ 0x1408686D8 (PopDirectedDripsSetDisengageReason.c)
- *     PopDripsWatchdogResetCallbackState @ 0x14086E734 (PopDripsWatchdogResetCallbackState.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14086E7E0 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogSelectCallback @ 0x14086E854 (PopDripsWatchdogSelectCallback.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x140867AC8 (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x1408686B8 (PopDirectedDripsSetDisengageReason.c)
+ *     PopDripsWatchdogResetCallbackState @ 0x14086E714 (PopDripsWatchdogResetCallbackState.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x14086E7C0 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogSelectCallback @ 0x14086E834 (PopDripsWatchdogSelectCallback.c)
  */
 
 _QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
@@ -91,7 +91,7 @@ _QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
         }
         while ( v9 != v8 );
         if ( (v8 & 1) != 0 && !PopDirectedDripsEnableV2 )
-          _InterlockedExchange(&dword_140419184, dword_140419180);
+          _InterlockedExchange(&dword_140419164, dword_140419160);
       }
       v10 = KeGetCurrentThread();
       --v10->KernelApcDisable;

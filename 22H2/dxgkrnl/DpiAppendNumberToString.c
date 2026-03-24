@@ -1,19 +1,29 @@
 /*
- * XREFs of DpiAppendNumberToString @ 0x1C0211B9C
+ * XREFs of DpiAppendNumberToString @ 0x1C0186874
  * Callers:
- *     DpiPdoHandleQueryId @ 0x1C02116B0 (DpiPdoHandleQueryId.c)
- *     DpiGdoCreateGdiObjects @ 0x1C02118A0 (DpiGdoCreateGdiObjects.c)
- *     DpiGdoDestroyGdiObjects @ 0x1C03AA45C (DpiGdoDestroyGdiObjects.c)
+ *     DpiPdoHandleQueryId @ 0x1C0186380 (DpiPdoHandleQueryId.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C0186564 (DpiGdoCreateGdiObjects.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C02DA350 (DpiGdoDestroyGdiObjects.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DpiAppendNumberToString(PCWSTR SourceString, ULONG Value, PUNICODE_STRING Destination)
 {
-  wchar_t *Pool2; // rax
-  NTSTATUS v6; // ebx
-  __int64 v7; // rdx
-  wchar_t *v8; // rax
+  wchar_t *PoolWithTag; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  NTSTATUS v10; // edi
+  SIZE_T v11; // rdx
+  wchar_t *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v18; // rax
+  __int64 v19; // rax
   struct _UNICODE_STRING String; // [rsp+20h] [rbp-20h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
 
@@ -21,37 +31,41 @@ __int64 __fastcall DpiAppendNumberToString(PCWSTR SourceString, ULONG Value, PUN
   *(_DWORD *)(&String.MaximumLength + 1) = 0;
   RtlInitUnicodeString(&DestinationString, SourceString);
   *(_DWORD *)&String.Length = 1441792;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 22LL, 1953656900LL);
-  String.Buffer = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x16uLL, 0x74727044u);
+  String.Buffer = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, String.MaximumLength);
-    v6 = RtlIntegerToUnicodeString(Value, 0xAu, &String);
-    if ( v6 >= 0 )
+    memset(PoolWithTag, 0, String.MaximumLength);
+    v10 = RtlIntegerToUnicodeString(Value, 0xAu, &String);
+    if ( v10 >= 0 )
     {
-      v7 = (unsigned __int16)(String.MaximumLength + DestinationString.MaximumLength);
-      Destination->MaximumLength = v7;
+      v11 = (unsigned __int16)(String.MaximumLength + DestinationString.MaximumLength);
+      Destination->MaximumLength = v11;
       Destination->Length = 0;
-      v8 = (wchar_t *)ExAllocatePool2(256LL, v7, 1953656900LL);
-      Destination->Buffer = v8;
-      if ( v8 )
+      v12 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v11, 0x74727044u);
+      Destination->Buffer = v12;
+      if ( v12 )
       {
-        memset(v8, 0, Destination->MaximumLength);
+        memset(v12, 0, Destination->MaximumLength);
         RtlCopyUnicodeString(Destination, &DestinationString);
         RtlAppendUnicodeStringToString(Destination, &String);
       }
       else
       {
-        v6 = -1073741801;
-        WdLogSingleEntry1(6LL, -1073741801LL);
+        v10 = -1073741801;
+        v19 = WdLogNewEntry5_WdLowResource(v14, v13, v15, v16);
+        *(_QWORD *)(v19 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v19);
       }
     }
     ExFreePoolWithTag(String.Buffer, 0x74727044u);
   }
   else
   {
-    v6 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
+    v10 = -1073741801;
+    v18 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+    *(_QWORD *)(v18 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v18);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v10;
 }

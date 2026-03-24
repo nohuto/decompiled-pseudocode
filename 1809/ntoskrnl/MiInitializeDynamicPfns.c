@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeDynamicPfns @ 0x1402A6604
+ * XREFs of MiInitializeDynamicPfns @ 0x1402A6704
  * Callers:
- *     MiMapNewPfns @ 0x14084D3C0 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x14084D3A0 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiReferenceControlAreaPfn @ 0x14002CA8C (MiReferenceControlAreaPfn.c)
@@ -11,14 +11,14 @@
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeGenericCallDpc @ 0x1401203D0 (KeGenericCallDpc.c)
- *     MiInitializeUnusablePfns @ 0x14017F02C (MiInitializeUnusablePfns.c)
- *     MiRestrictRangeToNode @ 0x14017F28C (MiRestrictRangeToNode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     MiInitializeUnusablePfns @ 0x14017F04C (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int8 __fastcall MiInitializeDynamicPfns(

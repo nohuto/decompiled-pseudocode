@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGetSMBiosEventlog @ 0x1409DC58C
+ * XREFs of WmipGetSMBiosEventlog @ 0x140931A34
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x1406932C0 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x140682580 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     WmipFindSMBiosStructure @ 0x1409DC350 (WmipFindSMBiosStructure.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     WmipFindSMBiosStructure @ 0x1409317F8 (WmipFindSMBiosStructure.c)
  */
 
 __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
@@ -57,7 +57,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
       if ( BaseAddress )
         MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
       ExReleaseResourceLite(&WmipSMBiosLock);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return 3221225473LL;
     }
   }
@@ -67,7 +67,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
     if ( BaseAddress )
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
     ExReleaseResourceLite(&WmipSMBiosLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     result = 3221225507LL;
   }
   else
@@ -90,7 +90,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
     if ( BaseAddress )
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
     ExReleaseResourceLite(&WmipSMBiosLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v9 == 3
       && (NumberOfBytes = v10, v16 = (const void *)MmMapIoSpaceEx(v10, v8, 4u), v17 = (void *)v16, v14)
       && v16 )

@@ -1,62 +1,50 @@
 /*
- * XREFs of ?VmBusSendGetInternalAdapterInfo19h1@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1@@@Z @ 0x1C0378354
+ * XREFs of ?VmBusSendGetInternalAdapterInfo19h1@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1@@@Z @ 0x1C0248A30
  * Callers:
- *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02BBED4 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
+ *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C020D86C (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005CCCC (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0364EA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C037E5E0 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024CF2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetInternalAdapterInfo19h1(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
         struct DXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1 *a2)
 {
-  unsigned int v2; // edi
-  __int64 v5; // rax
-  int v6; // esi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  int v5; // ebx
+  __int64 result; // rax
   __int64 v7; // xmm1_8
-  unsigned int v9[4]; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v10; // [rsp+60h] [rbp-A0h] BYREF
-  int v11; // [rsp+70h] [rbp-90h]
-  __int128 v12; // [rsp+180h] [rbp+80h] BYREF
-  __int64 v13; // [rsp+190h] [rbp+90h]
+  __int64 v8; // rax
+  struct _MDL *v9; // [rsp+28h] [rbp-50h]
+  unsigned int v10; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-40h] BYREF
+  int v12; // [rsp+40h] [rbp-38h]
+  int v13; // [rsp+44h] [rbp-34h]
+  int v14; // [rsp+48h] [rbp-30h]
+  __int128 v15; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v16; // [rsp+60h] [rbp-18h]
 
-  v2 = 0;
-  v11 = 0;
-  v10 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v10, this, 0x18u, 0LL, 0LL, 0LL);
-  v5 = v10;
-  v9[0] = 24;
-  *(_BYTE *)(v10 + 12) = 0;
-  *(_DWORD *)(v5 + 12) &= 0x1FFu;
-  *(_QWORD *)v5 = 0LL;
-  *(_DWORD *)(v5 + 8) = 0;
-  *(_QWORD *)(v5 + 16) = 36LL;
-  v6 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v10, &v12, v9);
-  if ( v6 < 0 || (v6 = -1073741823, v9[0] < 0x18) )
+  v11 = 0LL;
+  v12 = 0;
+  v13 = 0;
+  v14 = 36;
+  v10 = 24;
+  v5 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v11, 0x18u, &v15, &v10, v9);
+  if ( v5 < 0 || (v5 = -1073741823, v10 < 0x18) )
   {
-    WdLogSingleEntry1(2LL, v6);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmBusSendGetInternalAdapterInfo failed: 0x%I64x",
-      v6,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v2 = v6;
+    v8 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v8 + 24) = v5;
+    WdLogEvent5_WdError(v8);
+    return (unsigned int)v5;
   }
   else
   {
-    v7 = v13;
-    *(_OWORD *)a2 = v12;
+    result = 0LL;
+    v7 = v16;
+    *(_OWORD *)a2 = v15;
     *((_QWORD *)a2 + 2) = v7;
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v10);
-  return v2;
+  return result;
 }

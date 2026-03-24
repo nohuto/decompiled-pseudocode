@@ -1,9 +1,10 @@
 /*
- * XREFs of RtlSidHashLookup @ 0x1402FD710
+ * XREFs of RtlSidHashLookup @ 0x14027E660
  * Callers:
- *     SepSidInTokenSidHash @ 0x1402FD65C (SepSidInTokenSidHash.c)
+ *     SepTokenIsOwner @ 0x14027E590 (SepTokenIsOwner.c)
+ *     SepSidInTokenSidHash @ 0x14027E844 (SepSidInTokenSidHash.c)
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int16 *a2)

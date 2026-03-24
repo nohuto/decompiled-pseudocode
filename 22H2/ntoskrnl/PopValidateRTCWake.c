@@ -1,108 +1,106 @@
 /*
- * XREFs of PopValidateRTCWake @ 0x140AA1594
+ * XREFs of PopValidateRTCWake @ 0x1409985EC
  * Callers:
- *     PopHandleWakeSources @ 0x140AA0F1C (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140998400 (PopHandleWakeSources.c)
  * Callees:
- *     PopDiagTraceRtcWakeInfo @ 0x14059464C (PopDiagTraceRtcWakeInfo.c)
- *     PopCurrentPowerStatePrecise @ 0x140873C98 (PopCurrentPowerStatePrecise.c)
- *     PopCalculateWakeTimeAdjustment @ 0x140987218 (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x14038B668 (PopDiagTraceRtcWakeInfo.c)
+ *     PopCurrentPowerStatePrecise @ 0x14078E344 (PopCurrentPowerStatePrecise.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x1408E698C (PopCalculateWakeTimeAdjustment.c)
  */
 
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
 {
-  int v1; // edi
-  unsigned __int64 v2; // r14
-  unsigned __int8 v3; // r15
-  unsigned __int8 v4; // r12
-  int v5; // edx
-  bool v6; // zf
-  int v8; // ebx
-  int v9; // ecx
-  unsigned __int64 v10; // rbp
-  __int64 v11; // r14
-  __int128 v13; // [rsp+40h] [rbp-38h] BYREF
+  unsigned __int64 v1; // rbp
+  int v2; // eax
+  int v3; // r14d
+  unsigned __int8 v4; // r15
+  unsigned __int8 v5; // r12
+  int v7; // ebx
+  int v8; // ecx
+  unsigned __int64 v9; // rsi
+  __int64 v11; // rbp
+  __int128 v12; // [rsp+40h] [rbp-38h] BYREF
 
-  v1 = 0;
-  v2 = 0LL;
+  v1 = 0LL;
+  v2 = PopFixedWakeSourceMask & 0x18;
+  *a1 = 0;
   v3 = 0;
   v4 = 0;
-  v5 = PopFixedWakeSourceMask & 0x18;
-  v6 = (PopSimulate & 0x100000) == 0;
-  v8 = 1;
-  *a1 = 1;
-  if ( !v6 )
+  v5 = 0;
+  v7 = 1;
+  if ( v2 == 16 )
   {
-    v1 = 4;
-LABEL_22:
+    v8 = 1;
+    dword_140C23AA0 = 1;
+    goto LABEL_6;
+  }
+  if ( v2 == 8 )
+  {
     v8 = 0;
-    goto LABEL_23;
+    v4 = 1;
+    dword_140C23AA0 = 0;
+    goto LABEL_6;
   }
-  if ( v5 == 16 )
+  if ( v2 )
   {
-    v9 = 1;
-    dword_140C3CE80 = 1;
-    *a1 = 0;
-    goto LABEL_10;
+    PopCurrentPowerStatePrecise(&v12, 0LL);
+    dword_140C23AA0 = dword_140C2334C;
   }
-  if ( v5 == 8 )
+  v8 = dword_140C23AA0;
+  if ( dword_140C23AA0 >= 0 )
   {
-    v9 = 0;
-    v3 = 1;
-    dword_140C3CE80 = 0;
-    *a1 = 0;
-    goto LABEL_10;
+LABEL_6:
+    if ( (unsigned __int64)v8 < 3 )
+      goto LABEL_11;
   }
-  if ( v5 )
+  if ( (PopFixedWakeSourceMask & 4) == 0 )
+    *a1 = 1;
+  if ( qword_140C23AC8 && qword_140C23AB0[0] > (unsigned __int64)qword_140C23AC8 )
   {
-    PopCurrentPowerStatePrecise(&v13, 0LL);
-    dword_140C3CE80 = dword_140C3D90C;
-  }
-  v9 = dword_140C3CE80;
-  if ( dword_140C3CE80 >= 0 )
-  {
-LABEL_10:
-    if ( (unsigned __int64)v9 < 3 )
-      goto LABEL_15;
-  }
-  if ( qword_140C3CEA8 && qword_140C3CE90[0] > (unsigned __int64)qword_140C3CEA8 )
-  {
-    v9 = 1;
-    dword_140C3CE80 = 1;
+    v8 = 1;
+    dword_140C23AA0 = 1;
   }
   else
   {
-    v9 = 0;
-    v3 = 1;
-    dword_140C3CE80 = 0;
+    v8 = 0;
+    *a1 = 0;
+    dword_140C23AA0 = 0;
+    v4 = 1;
   }
-LABEL_15:
-  v10 = qword_140C3CE90[3 * v9];
-  if ( v10 )
+LABEL_11:
+  v9 = qword_140C23AB0[3 * v8];
+  if ( v9 )
   {
-    v11 = qword_140C3CE68;
-    v2 = v11 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
-    if ( v10 < v2 + 100000000 )
+    v11 = qword_140C23A88;
+    v1 = v11 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
+    if ( v9 - 100000000 < v1 )
     {
-      if ( v2 <= v10
-        || v2 - v10 < (-(__int64)(PopPendingUserPresenceDuringSystemSleep != 0) & 0xFFFFFFFFBE6F5500uLL) + 1200000000 )
+      if ( v1 <= v9
+        || v1 - v9 < (-(__int64)(PopPendingUserPresenceDuringSystemSleep != 0) & 0xFFFFFFFFBE6F5500uLL) + 1200000000 )
       {
-        v4 = 1;
-        v8 = 0;
-        goto LABEL_25;
+        v5 = 1;
       }
-      v1 = 3;
+      else
+      {
+        dword_140C23AA0 = 3;
+        v3 = 3;
+        *a1 = 0;
+      }
     }
     else
     {
-      v1 = 2;
+      dword_140C23AA0 = 3;
+      v3 = 2;
+      *a1 = 0;
     }
-    goto LABEL_22;
+    v7 = 0;
   }
-  v1 = 1;
-LABEL_23:
-  dword_140C3CE80 = 3;
-  *a1 = 0;
-LABEL_25:
-  PopDiagTraceRtcWakeInfo(v3, v4, v1, (unsigned __int8)*a1, v8, v3, v2);
-  return v4;
+  else
+  {
+    dword_140C23AA0 = 3;
+    v3 = 1;
+    *a1 = 0;
+  }
+  PopDiagTraceRtcWakeInfo(v4, v5, v3, (unsigned __int8)*a1, v7, v4, v1);
+  return v5;
 }

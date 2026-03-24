@@ -1,11 +1,11 @@
 /*
- * XREFs of _OpenWindowStation @ 0x1C0068374
+ * XREFs of _OpenWindowStation @ 0x1C0010164
  * Callers:
- *     xxxResolveDesktop @ 0x1C0067670 (xxxResolveDesktop.c)
- *     NtUserOpenWindowStation @ 0x1C00B9C30 (NtUserOpenWindowStation.c)
- *     xxxResolveDesktopForWOW @ 0x1C01BEC58 (xxxResolveDesktopForWOW.c)
+ *     NtUserOpenWindowStation @ 0x1C000EF10 (NtUserOpenWindowStation.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01E96A4 (xxxResolveDesktopForWOW.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall OpenWindowStation(__int64 a1, int a2, __int64 a3)

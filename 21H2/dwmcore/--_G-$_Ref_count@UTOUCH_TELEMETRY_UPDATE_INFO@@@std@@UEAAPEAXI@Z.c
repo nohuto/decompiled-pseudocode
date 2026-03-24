@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_G?$_Ref_count@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@UEAAPEAXI@Z @ 0x180240D70
+ * XREFs of ??_G?$_Ref_count@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@UEAAPEAXI@Z @ 0x1801DEB30
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 void *__fastcall std::_Ref_count<TOUCH_TELEMETRY_UPDATE_INFO>::`scalar deleting destructor'(void *a1, char a2)

@@ -7,7 +7,7 @@
  *     VfZwReadFile @ 0x140949790 (VfZwReadFile.c)
  *     VfZwWriteFile @ 0x14094A530 (VfZwWriteFile.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x1400CAA70 (KeAreAllApcsDisabled.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

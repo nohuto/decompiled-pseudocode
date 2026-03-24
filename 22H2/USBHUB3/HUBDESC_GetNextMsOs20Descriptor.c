@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDESC_GetNextMsOs20Descriptor @ 0x1C003D590
+ * XREFs of HUBDESC_GetNextMsOs20Descriptor @ 0x1C003A670
  * Callers:
- *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C0032B04 (HUBMISC_InstallMsOs20RegistryProperties.c)
- *     HUBDESC_ValidateMsOs20ConfigurationSubset @ 0x1C003D720 (HUBDESC_ValidateMsOs20ConfigurationSubset.c)
- *     HUBDESC_ValidateMsOs20FunctionSubset @ 0x1C003D9E0 (HUBDESC_ValidateMsOs20FunctionSubset.c)
- *     HUBDESC_ValidateMsOs20DescriptorSet @ 0x1C003E68C (HUBDESC_ValidateMsOs20DescriptorSet.c)
+ *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C002F91C (HUBMISC_InstallMsOs20RegistryProperties.c)
+ *     HUBDESC_ValidateMsOs20ConfigurationSubset @ 0x1C003A7F0 (HUBDESC_ValidateMsOs20ConfigurationSubset.c)
+ *     HUBDESC_ValidateMsOs20FunctionSubset @ 0x1C003AAC0 (HUBDESC_ValidateMsOs20FunctionSubset.c)
+ *     HUBDESC_ValidateMsOs20DescriptorSet @ 0x1C003B7D0 (HUBDESC_ValidateMsOs20DescriptorSet.c)
  * Callees:
  *     <none>
  */

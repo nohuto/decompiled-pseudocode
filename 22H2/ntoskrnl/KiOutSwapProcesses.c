@@ -1,156 +1,156 @@
 /*
- * XREFs of KiOutSwapProcesses @ 0x14034C780
+ * XREFs of KiOutSwapProcesses @ 0x140249C20
  * Callers:
- *     KeSwapProcessOrStack @ 0x140393930 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1403B3A30 (KeSwapProcessOrStack.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     MmOutSwapProcess @ 0x14034C9F8 (MmOutSwapProcess.c)
- *     KiReadyOutSwappedThreads @ 0x14034CBF4 (KiReadyOutSwappedThreads.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReadyOutSwappedThreads @ 0x140247DD0 (KiReadyOutSwappedThreads.c)
+ *     MmOutSwapProcess @ 0x140249E04 (MmOutSwapProcess.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiOutSwapProcesses(signed __int64 *a1)
+char __fastcall KiOutSwapProcesses(_QWORD *a1)
 {
-  signed __int64 *v2; // r12
-  struct _EPROCESS *v3; // rbx
-  unsigned __int8 CurrentIrql; // si
-  _LIST_ENTRY *p_ReadyListHead; // rdi
-  struct _LIST_ENTRY *Flink; // rcx
-  int v7; // eax
-  bool v8; // bp
-  unsigned __int8 v9; // cl
-  unsigned int v10; // eax
-  __int64 result; // rax
+  _QWORD *v2; // rbx
+  unsigned __int8 CurrentIrql; // bp
+  _QWORD *v4; // rsi
+  _QWORD *v5; // r8
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rax
+  int v8; // eax
+  char v9; // r15
+  unsigned __int8 v10; // cl
+  unsigned int v11; // eax
+  signed __int64 *v12; // rdx
+  signed __int64 v13; // rax
+  signed __int64 v14; // rcx
   _DWORD *SchedulerAssist; // r9
-  __int64 v13; // rdx
-  _DWORD *v14; // r9
-  __int64 v15; // rdx
-  struct _LIST_ENTRY *v16; // rdx
-  struct _LIST_ENTRY *Blink; // rax
-  signed __int64 v18; // rax
-  signed __int64 v19; // rcx
-  bool v20; // zf
-  unsigned __int8 v21; // al
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *v18; // r9
+  int v19; // eax
+  bool v20; // zf
+  _DWORD *v21; // r9
+  struct _KPRCB *v22; // r10
   _DWORD *v23; // r9
-  int v24; // eax
-  unsigned __int8 v25; // cl
-  struct _KPRCB *v26; // r10
-  _DWORD *v27; // r9
+  int v25; // [rsp+50h] [rbp+8h] BYREF
 
   do
   {
-    v2 = a1;
-    v3 = (struct _EPROCESS *)(a1 - 45);
-    a1 = (signed __int64 *)*a1;
+    v2 = a1 - 45;
+    a1 = (_QWORD *)*a1;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 2 )
-        LODWORD(v13) = 4;
-      else
-        v13 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v13;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    KiAcquireKobjectLockSafe(&v3->Pcb.Header.Lock);
-    p_ReadyListHead = &v3->Pcb.ReadyListHead;
-    Flink = v3->Pcb.ReadyListHead.Flink;
-    v7 = v3->Pcb.StackCount.Value & 7;
-    if ( Flink == &v3->Pcb.ReadyListHead || v7 == 6 )
+    v25 = 0;
+    while ( _interlockedbittestandset((volatile signed __int32 *)v2, 7u) )
     {
-      _InterlockedXor(&v3->Pcb.StackCount.Value, v7 ^ 5);
-      _InterlockedAnd(&v3->Pcb.Header.Lock, 0xFFFFFF7F);
+      do
+        KeYieldProcessorEx(&v25);
+      while ( (*(_DWORD *)v2 & 0x80u) != 0 );
+    }
+    v4 = v2 + 43;
+    v5 = (_QWORD *)v2[43];
+    if ( v5 == v2 + 43 || (v2[105] & 7) == 6 )
+    {
+      _InterlockedXor((volatile signed __int32 *)v2 + 210, v2[105] & 7 ^ 5);
+      _InterlockedAnd((volatile signed __int32 *)v2, 0xFFFFFF7F);
       if ( KiIrqlFlags )
       {
-        v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v23 = CurrentPrcb->SchedulerAssist;
-          v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v20 = (v24 & v23[5]) == 0;
-          v23[5] &= v24;
-          if ( v20 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v16 = KeGetCurrentIrql();
+          if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v18 = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v20 = (v19 & v18[5]) == 0;
+            v18[5] &= v19;
+            if ( v20 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
-      MmOutSwapProcess(v3);
-      v8 = 0;
-      v9 = KeGetCurrentIrql();
+      MmOutSwapProcess(v2);
+      v9 = 0;
+      v10 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
       {
-        v14 = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( v9 == 2 )
-          LODWORD(v15) = 4;
-        else
-          v15 = (-1LL << (v9 + 1)) & 4;
-        v14[5] |= v15;
+        v21 = KeGetCurrentPrcb()->SchedulerAssist;
+        v21[5] |= (-1 << (v10 + 1)) & 4;
       }
-      KiAcquireKobjectLockSafe(&v3->Pcb.Header.Lock);
-      if ( p_ReadyListHead->Flink == p_ReadyListHead )
+      KiAcquireKobjectLockSafe(v2);
+      if ( (_QWORD *)*v4 == v4 )
       {
-        v10 = 4;
+        v11 = 4;
       }
       else
       {
+        v12 = v2 + 45;
         _m_prefetchw(&KiProcessInSwapListHead);
-        v18 = KiProcessInSwapListHead;
+        v13 = KiProcessInSwapListHead;
         do
         {
-          *v2 = v18;
-          v19 = v18;
-          v18 = _InterlockedCompareExchange64(&KiProcessInSwapListHead, (signed __int64)v2, v18);
+          *v12 = v13;
+          v14 = v13;
+          v13 = _InterlockedCompareExchange64(&KiProcessInSwapListHead, (signed __int64)v12, v13);
         }
-        while ( v18 != v19 );
-        v20 = v18 == 0;
-        v10 = 7;
-        v8 = v20;
+        while ( v13 != v14 );
+        if ( !v13 )
+          v9 = 1;
+        v11 = 7;
       }
-      _InterlockedXor(&v3->Pcb.StackCount.Value, v10);
-      _InterlockedAnd(&v3->Pcb.Header.Lock, 0xFFFFFF7F);
-      if ( v8 )
+      _InterlockedXor((volatile signed __int32 *)v2 + 210, v11);
+      _InterlockedAnd((volatile signed __int32 *)v2, 0xFFFFFF7F);
+      if ( v9 )
       {
-        KiAcquireKobjectLockSafe(&KiSwapEvent.Header.Lock);
+        KiAcquireKobjectLockSafe(&KiSwapEvent);
         KiSwapEvent.Header.SignalState = 1;
         _InterlockedAnd((volatile signed __int32 *)&KiSwapEvent, 0xFFFFFF7F);
       }
-      result = (unsigned int)KiIrqlFlags;
+      LOBYTE(v8) = KiIrqlFlags;
       if ( KiIrqlFlags )
       {
-        v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v26 = KeGetCurrentPrcb();
-          v27 = v26->SchedulerAssist;
-          result = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v20 = ((unsigned int)result & v27[5]) == 0;
-          v27[5] &= result;
-          if ( v20 )
-            result = KiRemoveSystemWorkPriorityKick(v26);
+          LOBYTE(v8) = KeGetCurrentIrql();
+          if ( (unsigned __int8)v8 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v8 >= 2u )
+          {
+            v22 = KeGetCurrentPrcb();
+            v23 = v22->SchedulerAssist;
+            v8 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v20 = (v8 & v23[5]) == 0;
+            v23[5] &= v8;
+            if ( v20 )
+              LOBYTE(v8) = KiRemoveSystemWorkPriorityKick(v22);
+          }
         }
       }
       __writecr8(CurrentIrql);
     }
     else
     {
-      v16 = p_ReadyListHead->Flink;
-      Blink = v3->Pcb.ReadyListHead.Blink;
-      if ( p_ReadyListHead->Flink->Blink != p_ReadyListHead || Blink->Flink != p_ReadyListHead )
+      v6 = (_QWORD *)*v4;
+      v7 = (_QWORD *)v2[44];
+      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (_QWORD *)*v7 != v4 )
         __fastfail(3u);
-      Blink->Flink = v16;
-      v16->Blink = Blink;
-      v3->Pcb.ReadyListHead.Blink = &v3->Pcb.ReadyListHead;
-      p_ReadyListHead->Flink = p_ReadyListHead;
-      _InterlockedXor(&v3->Pcb.StackCount.Value, 3u);
-      _InterlockedAnd(&v3->Pcb.Header.Lock, 0xFFFFFF7F);
-      LOBYTE(v16) = CurrentIrql;
-      result = KiReadyOutSwappedThreads(Flink, v16);
+      *v7 = v6;
+      v6[1] = v7;
+      v2[44] = v2 + 43;
+      *v4 = v4;
+      _InterlockedXor((volatile signed __int32 *)v2 + 210, 3u);
+      _InterlockedAnd((volatile signed __int32 *)v2, 0xFFFFFF7F);
+      LOBYTE(v8) = KiReadyOutSwappedThreads(v5, CurrentIrql);
     }
   }
   while ( a1 );
-  return result;
+  return v8;
 }

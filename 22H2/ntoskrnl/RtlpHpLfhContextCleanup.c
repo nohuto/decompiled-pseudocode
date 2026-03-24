@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhContextCleanup @ 0x1405B6CE8
+ * XREFs of RtlpHpLfhContextCleanup @ 0x1403894D0
  * Callers:
- *     RtlpHpHeapDestroy @ 0x1405B66C0 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1403891BC (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpLfhOwnerCleanup @ 0x1405B6D78 (RtlpHpLfhOwnerCleanup.c)
+ *     RtlpHpLfhOwnerCleanup @ 0x140389560 (RtlpHpLfhOwnerCleanup.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextCleanup(__int64 a1)

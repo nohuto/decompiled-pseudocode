@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetStandardHandleList @ 0x1406CD210
+ * XREFs of PspGetStandardHandleList @ 0x1406CD1F0
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x140677F8C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x140677F6C (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspGetStandardHandleList(__int64 a1, __int64 a2)

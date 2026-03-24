@@ -1,89 +1,83 @@
 /*
- * XREFs of EtwGetKernelTraceTimestampSilo @ 0x1402A2E90
+ * XREFs of EtwGetKernelTraceTimestampSilo @ 0x1403058EC
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402444A0 (KiExecuteAllDpcs.c)
- *     KiExpireTimer2 @ 0x140251960 (KiExpireTimer2.c)
- *     KiIpiSendRequest @ 0x140253F00 (KiIpiSendRequest.c)
- *     PfHardFaultRecord @ 0x1402A2DF4 (PfHardFaultRecord.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2E70 (EtwGetKernelTraceTimestamp.c)
- *     KiIpiProcessRequests @ 0x140334850 (KiIpiProcessRequests.c)
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     HvlSendSyntheticClusterIpi @ 0x1403CBC40 (HvlSendSyntheticClusterIpi.c)
+ *     PfHardFaultRecord @ 0x140305864 (PfHardFaultRecord.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E30 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlGetSystemTimePrecise @ 0x140341F30 (RtlGetSystemTimePrecise.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
+__int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // r10
-  int v5; // ebx
-  _QWORD *v6; // r9
-  __int64 v7; // r9
-  unsigned int v8; // eax
-  bool i; // zf
-  __int64 v10; // rdx
-  __int64 v11; // r8
+  int v4; // ebx
+  unsigned __int64 v5; // r11
+  LARGE_INTEGER *v6; // rdi
+  _QWORD *v7; // r8
+  __int64 v8; // r8
+  __int64 v10; // r10
+  __int64 v11; // rcx
   LARGE_INTEGER PerformanceCounter; // rax
   __int64 result; // rax
-  __int64 v14; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v14; // [rsp+48h] [rbp+20h] BYREF
 
-  v3 = a2;
-  LODWORD(v14) = 0;
-  v5 = 0;
+  v4 = 0;
+  v5 = (unsigned int)a2;
+  v6 = a1;
   if ( a3 )
-    v6 = *(_QWORD **)(a3 + 1488);
+    v7 = *(_QWORD **)(a3 + 1272);
   else
-    v6 = &PspHostSiloGlobals;
-  v7 = v6[108];
-  if ( v7 )
+    v7 = &PspHostSiloGlobals;
+  v8 = v7[108];
+  if ( v8 )
   {
-    v8 = *(_DWORD *)(v7 + 4248);
-    for ( i = !_BitScanForward((unsigned int *)&v10, v8); !i; i = !_BitScanForward((unsigned int *)&v10, v8) )
+    a4 = *(unsigned int *)(v8 + 4224);
+    while ( _BitScanForward((unsigned int *)&a1, a4) )
     {
-      v8 &= v8 - 1;
-      v11 = 32 * v10 + v7 + 4284;
-      if ( v11 && ((unsigned int)v3 & *(_DWORD *)(v11 + 4 * (v3 >> 29)) & 0x1FFFFFFF) != 0 )
-        v5 |= 1 << *(_BYTE *)(v7 + 2LL * (unsigned int)v10 + 4233);
-    }
-    if ( (v5 & 2) == 0 )
-    {
-      PerformanceCounter.QuadPart = 0LL;
-      goto LABEL_11;
+      v10 = (unsigned int)a1;
+      a4 = ((_DWORD)a4 - 1) & (unsigned int)a4;
+      v11 = 32LL * (unsigned int)a1 + v8 + 4260;
+      if ( v11 )
+      {
+        a2 = (unsigned int)v5 & *(_DWORD *)(v11 + 4 * (v5 >> 29));
+        if ( (a2 & 0x1FFFFFFF) != 0 )
+          v4 |= 1 << *(_BYTE *)(v8 + 2 * v10 + 4209);
+      }
     }
   }
   else
   {
-    LOBYTE(v5) = 30;
+    LOBYTE(v4) = 30;
   }
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-LABEL_11:
-  *a1 = PerformanceCounter;
-  if ( (v5 & 4) != 0 )
-    result = RtlGetSystemTimePrecise();
+  if ( (v4 & 2) != 0 )
+    PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  else
+    PerformanceCounter.QuadPart = 0LL;
+  *v6 = PerformanceCounter;
+  if ( (v4 & 4) != 0 )
+    result = RtlGetSystemTimePrecise(a1, a2, v8, a4);
   else
     result = 0LL;
-  a1[1].QuadPart = result;
-  if ( (v5 & 8) != 0 )
+  v6[1].QuadPart = result;
+  if ( (v4 & 8) != 0 )
   {
     result = __rdtsc();
-    a1[2].QuadPart = result;
+    v6[2].QuadPart = result;
   }
   else
   {
-    a1[2].QuadPart = 0LL;
+    v6[2].QuadPart = 0LL;
   }
-  if ( (v5 & 0x10) != 0 )
+  if ( (v4 & 0x10) != 0 )
   {
     v14 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_140C01DF0[0])(&v14);
+    ((void (__fastcall *)(__int64 *))off_140C009E0[0])(&v14);
     result = v14;
-    a1[3].QuadPart = v14;
+    v6[3].QuadPart = v14;
   }
   else
   {
-    a1[3].QuadPart = 0LL;
+    v6[3].QuadPart = 0LL;
   }
   return result;
 }

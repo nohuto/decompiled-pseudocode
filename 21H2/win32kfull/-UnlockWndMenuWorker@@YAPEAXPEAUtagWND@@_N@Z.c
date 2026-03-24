@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C010E9D4
+ * XREFs of ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C0124890
  * Callers:
- *     xxxSetWindowData @ 0x1C004F920 (xxxSetWindowData.c)
- *     xxxSetWindowStyle @ 0x1C0050020 (xxxSetWindowStyle.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     xxxGetSystemMenu @ 0x1C00BC098 (xxxGetSystemMenu.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxSetWindowData @ 0x1C008A238 (xxxSetWindowData.c)
+ *     xxxGetSystemMenu @ 0x1C00DC8C4 (xxxGetSystemMenu.c)
+ *     VerifyChildMenu @ 0x1C0169ED4 (VerifyChildMenu.c)
  * Callees:
  *     <none>
  */

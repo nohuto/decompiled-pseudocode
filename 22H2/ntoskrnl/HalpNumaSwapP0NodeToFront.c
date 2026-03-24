@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpNumaSwapP0NodeToFront @ 0x1403A4C58
+ * XREFs of HalpNumaSwapP0NodeToFront @ 0x1403BB674
  * Callers:
- *     HalpAcpiInitSystem @ 0x140A90C00 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x1409A0060 (HalpAcpiInitSystem.c)
  * Callees:
- *     HalpInterruptGetIdentifiers @ 0x14037D2B0 (HalpInterruptGetIdentifiers.c)
- *     HalpGetNumaProcMemoryCount @ 0x140B921A0 (HalpGetNumaProcMemoryCount.c)
+ *     HalpInterruptGetIdentifiers @ 0x1403C9950 (HalpInterruptGetIdentifiers.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140A8CEAC (HalpGetNumaProcMemoryCount.c)
  */
 
 void HalpNumaSwapP0NodeToFront()
@@ -12,12 +12,12 @@ void HalpNumaSwapP0NodeToFront()
   __int64 v0; // rbx
   unsigned int v1; // ecx
   unsigned int v2; // eax
-  __int64 v3; // rdi
+  __int64 v3; // rbx
   int v4; // r11d
   int v5; // r8d
   unsigned int v6; // eax
   _DWORD *v7; // rcx
-  unsigned int v8; // ebx
+  unsigned int v8; // edi
   __int64 v9; // r8
   _DWORD *v10; // rcx
   int v11; // edx
@@ -49,7 +49,7 @@ void HalpNumaSwapP0NodeToFront()
     if ( HalpNumaConfig )
     {
       if ( (unsigned __int8)HalpGetNumaProcMemoryCount(&v28, &v27, &v26, &v25)
-        && (v25 = 0, (int)HalpInterruptGetIdentifiers(0, &v25, 0LL) >= 0) )
+        && (v25 = 0, (int)HalpInterruptGetIdentifiers(0LL, &v25, 0LL) >= 0) )
       {
         v1 = *(_DWORD *)(v0 + 60);
         v2 = 0;
@@ -91,14 +91,14 @@ void HalpNumaSwapP0NodeToFront()
                 {
                   v14 = HalpNumaConfig;
                   v15 = *(_QWORD *)(HalpNumaConfig + 48);
-                  v16 = *(_WORD *)(v15 + 2LL * (v8 + *(_DWORD *)(HalpNumaConfig + 64) * v4));
-                  *(_WORD *)(v15 + 2LL * (v8 + *(_DWORD *)(HalpNumaConfig + 64) * v4)) = *(_WORD *)(v15 + 2LL * v8);
+                  v16 = *(_WORD *)(v15 + 2LL * (v8 + v4 * *(_DWORD *)(HalpNumaConfig + 64)));
+                  *(_WORD *)(v15 + 2LL * (v8 + v4 * *(_DWORD *)(HalpNumaConfig + 64))) = *(_WORD *)(v15 + 2LL * v8);
                   *(_WORD *)(*(_QWORD *)(v14 + 48) + 2LL * v8) = v16;
                   v17 = *(_QWORD *)(v14 + 48);
-                  v18 = *(_DWORD *)(v14 + 64) * v8;
+                  v18 = v8 * *(_DWORD *)(v14 + 64);
                   LOWORD(v15) = *(_WORD *)(v17 + 2LL * (unsigned int)(v4 + v18));
                   *(_WORD *)(v17 + 2LL * (unsigned int)(v4 + v18)) = *(_WORD *)(v17 + 2 * v18);
-                  *(_WORD *)(*(_QWORD *)(v14 + 48) + 2LL * *(_DWORD *)(v14 + 64) * v8) = v15;
+                  *(_WORD *)(*(_QWORD *)(v14 + 48) + 2LL * v8 * *(_DWORD *)(v14 + 64)) = v15;
                 }
               }
               if ( v26 )

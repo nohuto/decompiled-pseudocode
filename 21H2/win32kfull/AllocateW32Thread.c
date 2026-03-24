@@ -1,38 +1,39 @@
 /*
- * XREFs of AllocateW32Thread @ 0x1C00C53CC
+ * XREFs of AllocateW32Thread @ 0x1C00E427C
  * Callers:
- *     W32pThreadCallout @ 0x1C00C5260 (W32pThreadCallout.c)
+ *     W32pThreadCallout @ 0x1C00E4020 (W32pThreadCallout.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall AllocateW32Thread(__int64 a1)
 {
-  int v2; // edi
-  __int64 *Pool2; // rsi
-  __int64 v4; // rbx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v3; // rbx
+  void *v4; // rax
+  void *v5; // rdi
 
-  v2 = -1073741801;
-  Pool2 = (__int64 *)ExAllocatePool2(64LL, 56LL, 1853125461LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x6E747355u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v4 = Win32AllocPoolWithQuotaZInit(W32ThreadSize, 1769239381LL);
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    *((_OWORD *)PoolWithTag + 2) = 0LL;
+    PoolWithTag[6] = 0LL;
+    v4 = (void *)Win32AllocPoolWithQuota(W32ThreadSize, 1769239381LL);
+    v5 = v4;
     if ( v4 )
     {
-      v2 = AddW32TlsData();
-      if ( v2 >= 0 )
-      {
-        *(_QWORD *)v4 = a1;
-        *Pool2 = v4;
-        PsSetThreadWin32Thread(a1, Pool2, 0LL);
-        ObfReferenceObject(*(PVOID *)v4);
-        _InterlockedIncrement((volatile signed __int32 *)(v4 + 8));
-        return 0LL;
-      }
+      memset(v4, 0, W32ThreadSize);
+      *(_QWORD *)v5 = a1;
+      *v3 = v5;
+      PsSetThreadWin32Thread(a1, v3, 0LL);
+      ObfReferenceObject(*(PVOID *)v5);
+      _InterlockedIncrement((volatile signed __int32 *)v5 + 2);
+      return 0LL;
     }
-    ExFreePoolWithTag(Pool2, 0);
-    if ( v4 )
-      ExFreePoolWithTag((PVOID)v4, 0);
+    ExFreePoolWithTag(v3, 0);
   }
-  return (unsigned int)v2;
+  return 3221225495LL;
 }

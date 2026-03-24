@@ -3,11 +3,11 @@
  * Callers:
  *     EtwpAddRegEntryToGroup @ 0x1405C2750 (EtwpAddRegEntryToGroup.c)
  *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
- *     EtwpUpdateRegEntryEnableMask @ 0x140657C08 (EtwpUpdateRegEntryEnableMask.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x140657BE8 (EtwpUpdateRegEntryEnableMask.c)
  * Callees:
  *     EtwpApplyContainerFilter @ 0x140583694 (EtwpApplyContainerFilter.c)
- *     EtwpApplyExeFilter @ 0x1408C1B60 (EtwpApplyExeFilter.c)
- *     EtwpApplyPackageIdFilter @ 0x1408C1CDC (EtwpApplyPackageIdFilter.c)
+ *     EtwpApplyExeFilter @ 0x1408C1B40 (EtwpApplyExeFilter.c)
+ *     EtwpApplyPackageIdFilter @ 0x1408C1CBC (EtwpApplyPackageIdFilter.c)
  */
 
 void __fastcall EtwpApplyScopeFilters(__int64 a1, char a2, char a3, char a4, _BYTE *a5)

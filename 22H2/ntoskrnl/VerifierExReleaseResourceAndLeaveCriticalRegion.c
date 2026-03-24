@@ -1,12 +1,15 @@
 /*
- * XREFs of VerifierExReleaseResourceAndLeaveCriticalRegion @ 0x140AE5330
+ * XREFs of VerifierExReleaseResourceAndLeaveCriticalRegion @ 0x1409E2390
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViResourceReleaseSanityChecks @ 0x1409E26A8 (ViResourceReleaseSanityChecks.c)
  */
 
-__int64 VerifierExReleaseResourceAndLeaveCriticalRegion()
+__int64 __fastcall VerifierExReleaseResourceAndLeaveCriticalRegion(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExReleaseResourceAndLeaveCriticalRegion)();
+  if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 0x800) != 0 )
+    ViResourceReleaseSanityChecks(a1);
+  return ((__int64 (__fastcall *)(ULONG_PTR))pXdvExReleaseResourceAndLeaveCriticalRegion)(a1);
 }

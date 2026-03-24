@@ -1,247 +1,158 @@
 /*
- * XREFs of ?CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@I@Z @ 0x18003E0D0
+ * XREFs of ?CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_REALIZATION_INFO@@@Z @ 0x1800389F8
  * Callers:
- *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x1800F2C40 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
+ *     ?Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z @ 0x180038804 (-Initialize@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_K@Z.c)
  * Callees:
- *     ??0CDecodeBitmap@@QEAA@XZ @ 0x18001BDD4 (--0CDecodeBitmap@@QEAA@XZ.c)
- *     ?EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ @ 0x18001ED54 (-EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x18003DEF8 (-CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@A.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?AddRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAVISwapChainRealization@@@Z @ 0x1800B8184 (-AddRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAVISwapChainRealization@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$_Resize@U_Value_init_tag@std@@@?$vector@UCSM_REALIZATION_INFO@@V?$allocator@UCSM_REALIZATION_INFO@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1800EB8FC (--$_Resize@U_Value_init_tag@std@@@-$vector@UCSM_REALIZATION_INFO@@V-$allocator@UCSM_REALIZATION_.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0x_EventWriteTransfer @ 0x18012DF9E (McTemplateU0x_EventWriteTransfer.c)
- *     ??1?$vector@V?$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA@XZ @ 0x18013439C (--1-$vector@V-$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@.c)
- *     ??1?$com_ptr_t@VCDecodeBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801FB838 (--1-$com_ptr_t@VCDecodeBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$vector@UCSM_REALIZATION_INFO@@V?$allocator@UCSM_REALIZATION_INFO@@@std@@@std@@QEAA@XZ @ 0x18025AB24 (--1-$vector@UCSM_REALIZATION_INFO@@V-$allocator@UCSM_REALIZATION_INFO@@@std@@@std@@QEAA@XZ.c)
+ *     ??0CDecodeBitmap@@QEAA@XZ @ 0x18001DFA4 (--0CDecodeBitmap@@QEAA@XZ.c)
+ *     ?EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ @ 0x18001FB84 (-EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?AddRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAVISwapChainRealization@@@Z @ 0x180038BF4 (-AddRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAVISwapChainRealization@@@Z.c)
+ *     ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x180038D0C (-CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@A.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::CreateAndAddSwapChainBuffers(
         CGlobalCompositionSurfaceInfo::CBindInfo *this,
         const struct CSM_BUFFER_ATTRIBUTES *a2,
-        unsigned int a3)
+        const struct CSM_SWAPCHAIN_REALIZATION_INFO *a3)
 {
-  int v4; // ebx
-  __int64 *v5; // rcx
-  __int64 v6; // r13
-  __int64 v7; // r14
-  __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rsi
-  __int64 v11; // rcx
-  int v12; // eax
-  unsigned int v13; // ecx
-  CDecodeBitmap *v14; // rax
-  unsigned int v15; // ecx
-  CDecodeBitmap *v16; // rsi
-  CDecodeBitmap *v17; // rax
-  CDecodeBitmap *v18; // rsi
-  unsigned int v19; // ecx
-  unsigned int v20; // ecx
-  unsigned int v21; // r12d
-  unsigned __int64 v22; // rax
-  __int64 v23; // r15
-  struct ISwapChainRealization *v24; // rsi
-  unsigned __int64 v25; // r14
-  struct ISwapChainRealization *v26; // r13
-  __int64 v27; // rcx
-  int v28; // eax
-  unsigned int v29; // ecx
-  unsigned int v30; // edi
-  __int64 v31; // rsi
-  void *v32; // rcx
-  struct ISwapChainRealization *v34; // [rsp+30h] [rbp-39h] BYREF
-  __int64 v35; // [rsp+38h] [rbp-31h]
-  struct ISwapChainRealization *v36; // [rsp+40h] [rbp-29h] BYREF
-  __int64 v37; // [rsp+48h] [rbp-21h]
-  __int128 v38; // [rsp+50h] [rbp-19h] BYREF
-  __int64 v39; // [rsp+60h] [rbp-9h]
-  __int128 v40; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v41; // [rsp+78h] [rbp+Fh]
-  char v42; // [rsp+D0h] [rbp+67h]
-  unsigned int v44; // [rsp+E0h] [rbp+77h] BYREF
-  unsigned __int64 v45; // [rsp+E8h] [rbp+7Fh]
+  int v6; // ebx
+  unsigned int v7; // ecx
+  bool v8; // r12
+  int v9; // eax
+  unsigned int v10; // ecx
+  unsigned int v11; // eax
+  unsigned int v12; // esi
+  int v13; // eax
+  __int64 v14; // xmm1_8
+  HANDLE v15; // rax
+  int v16; // eax
+  unsigned int v17; // ecx
+  struct ISwapChainRealization *v18; // rdx
+  unsigned int v19; // edx
+  unsigned int i; // edi
+  HANDLE v21; // rcx
+  CDecodeBitmap *v23; // rax
+  unsigned int v24; // ecx
+  CDecodeBitmap *v25; // rsi
+  CMILCOMBase *v26; // rsi
+  unsigned int v27; // ecx
+  _DWORD v28[2]; // [rsp+38h] [rbp-D0h] BYREF
+  HANDLE v29; // [rsp+40h] [rbp-C8h]
+  __int64 v30; // [rsp+48h] [rbp-C0h]
+  __int64 v31; // [rsp+50h] [rbp-B8h]
+  HANDLE v32[32]; // [rsp+58h] [rbp-B0h] BYREF
+  struct ISwapChainRealization *v33; // [rsp+198h] [rbp+90h] BYREF
 
-  v44 = a3;
-  v42 = 1;
-  v41 = 0LL;
-  v4 = 0;
-  v40 = 0LL;
-  std::vector<CSM_REALIZATION_INFO>::_Resize<std::_Value_init_tag>(&v40, a3);
-  v5 = (__int64 *)((char *)this + 72);
-  v39 = 0LL;
-  v38 = 0LL;
-  if ( &v38 == (__int128 *)((char *)this + 72) )
+  v6 = 0;
+  memset_0(v32, 0, sizeof(v32));
+  v8 = 1;
+  if ( (unsigned int)(*((_DWORD *)a3 + 1) - 1) > 0x1E )
   {
-    v7 = *((_QWORD *)&v38 + 1);
-    v6 = v38;
+    v6 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_1802DC140, 4u, -2147024809, 0x405u, 0LL);
+    return (unsigned int)v6;
   }
-  else
+  v9 = NtOpenCompositionSurfaceSwapChainHandleInfo(*(_QWORD *)(*(_QWORD *)this + 32LL), (char *)this + 24, v32);
+  if ( v9 < 0 )
   {
-    v6 = *v5;
-    v7 = *((_QWORD *)this + 10);
-    v8 = *((_QWORD *)this + 11);
-    *(_QWORD *)&v38 = *v5;
-    *((_QWORD *)&v38 + 1) = v7;
-    v39 = v8;
-    *v5 = 0LL;
-    *((_QWORD *)this + 10) = 0LL;
-    *((_QWORD *)this + 11) = 0LL;
+    v6 = v9 | 0x10000000;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_1802DC140, 4u, v9 | 0x10000000, 0x40Cu, 0LL);
+    return (unsigned int)v6;
   }
-  v9 = *(_QWORD *)this;
-  v10 = v40;
-  *((_BYTE *)this + 96) = 0;
-  v35 = v6;
-  v11 = *(_QWORD *)(v9 + 32);
-  v37 = v7;
-  v45 = 0LL;
-  v12 = NtOpenCompositionSurfaceRealizationInfo(v11, (char *)this + 24, &v44, v10);
-  if ( v12 < 0 )
+  if ( *((_DWORD *)a3 + 1) <= 1u && *((_DWORD *)this + 8) != 3 )
   {
-    v4 = v12 | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, &dword_180357848, 4u, v12 | 0x10000000, 0x514u, 0LL);
-    goto LABEL_42;
+    v8 = 0;
+    goto LABEL_6;
   }
-  if ( v44 <= 1 && *((_DWORD *)this + 8) != 3 )
+  if ( !*((_QWORD *)this + 1) )
   {
-    v42 = 0;
-    goto LABEL_18;
-  }
-  if ( *((_QWORD *)this + 1) )
-  {
-LABEL_18:
-    v21 = 0;
-    if ( v44 )
+    *((_QWORD *)this + 1) = 0LL;
+    v23 = (CDecodeBitmap *)operator new(0x108uLL);
+    v25 = v23;
+    if ( v23 )
     {
-      while ( 1 )
-      {
-        v22 = v45;
-        v23 = v10 + 40LL * v21;
-        v24 = 0LL;
-        v34 = 0LL;
-        if ( *(_QWORD *)(v23 + 24) )
-        {
-          v25 = (v7 - v6) >> 3;
-          while ( v22 < v25 )
-          {
-            v26 = *(struct ISwapChainRealization **)(v6 + 8 * v22);
-            v36 = v26;
-            *(_QWORD *)(v35 + 8 * v22) = 0LL;
-            v45 = v22 + 1;
-            if ( (*(__int64 (__fastcall **)(struct ISwapChainRealization *))(*(_QWORD *)v26 + 176LL))(v26) == *(_QWORD *)(v23 + 24) )
-            {
-              if ( (*(unsigned __int8 (__fastcall **)(struct ISwapChainRealization *, __int64))(*(_QWORD *)v26 + 8LL))(
-                     v26,
-                     v23) )
-              {
-                v36 = 0LL;
-                v24 = v26;
-                v34 = v26;
-                if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10000000) != 0 )
-                  McTemplateU0x_EventWriteTransfer(v27, &CompSurfInfo_ReuseRealization, *(_QWORD *)(v23 + 24));
-              }
-              else if ( *(_DWORD *)(*(_QWORD *)this + 416LL) )
-              {
-                *(_BYTE *)(*(_QWORD *)this + 420LL) = 1;
-              }
-              wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v36);
-              if ( !v24 )
-              {
-                v22 = v45;
-                break;
-              }
-              goto LABEL_34;
-            }
-            wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v36);
-            v22 = v45;
-            v6 = v35;
-          }
-        }
-        v34 = 0LL;
-        v45 = v22;
-        v28 = CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealization(
-                (struct _LUID **)this,
-                a2,
-                (const struct CSM_REALIZATION_INFO *)v23,
-                v42,
-                &v34);
-        v4 = v28;
-        if ( v28 < 0 )
-          break;
-        *(_QWORD *)(v23 + 8) = 0LL;
-        v24 = v34;
-LABEL_34:
-        CGlobalCompositionSurfaceInfo::CBindInfo::AddRealization(this, v24);
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v34);
-        v6 = v35;
-        ++v21;
-        v7 = v37;
-        v10 = v40;
-        if ( v21 >= v44 )
-          goto LABEL_35;
-      }
-      MilInstrumentationCheckHR_MaybeFailFast(v29, &dword_180357848, 4u, v28, 0x563u, 0LL);
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v34);
+      memset_0(v23, 0, 0x108uLL);
+      v26 = CDecodeBitmap::CDecodeBitmap(v25);
     }
     else
     {
-LABEL_35:
-      if ( v44 > 1 )
-        CGlobalCompositionSurfaceInfo::CBindInfo::EnsureHDRMetaData(this);
+      v26 = 0LL;
     }
-    goto LABEL_37;
-  }
-  *((_QWORD *)this + 1) = 0LL;
-  v14 = (CDecodeBitmap *)operator new(0x108uLL);
-  v16 = v14;
-  if ( v14 )
-  {
-    memset_0(v14, 0, 0x108uLL);
-    v17 = CDecodeBitmap::CDecodeBitmap(v16);
-    v18 = v17;
-    if ( v17 )
+    if ( v26 )
     {
-      CMILRefCountImpl::AddReference((CDecodeBitmap *)((char *)v17 + 8));
-      goto LABEL_15;
+      CMILCOMBase::InternalAddRef(v26);
     }
-  }
-  else
-  {
-    v18 = 0LL;
-  }
-  v4 = -2147024882;
-  MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024882, 0x13u, 0LL);
-LABEL_15:
-  v36 = 0LL;
-  *((_QWORD *)this + 1) = v18;
-  wil::com_ptr_t<CDecodeBitmap,wil::err_returncode_policy>::~com_ptr_t<CDecodeBitmap,wil::err_returncode_policy>(&v36);
-  if ( v4 >= 0 )
-  {
-    v10 = v40;
-    goto LABEL_18;
-  }
-  MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v4, 0x634u, 0LL);
-  MilInstrumentationCheckHR_MaybeFailFast(v20, &dword_180357848, 4u, v4, 0x51Bu, 0LL);
-LABEL_37:
-  v30 = 0;
-  if ( v44 )
-  {
-    v31 = v40;
-    do
+    else
     {
-      v32 = *(void **)(v31 + 40LL * v30 + 8);
-      if ( v32 )
-        CloseHandle(v32);
-      ++v30;
+      v6 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, -2147024882, 0x13u, 0LL);
     }
-    while ( v30 < v44 );
+    *((_QWORD *)this + 1) = v26;
+    if ( v6 >= 0 )
+    {
+LABEL_6:
+      v11 = *((_DWORD *)a3 + 1);
+      v12 = 0;
+      if ( v11 )
+      {
+        while ( 1 )
+        {
+          v13 = *(_DWORD *)a3;
+          v33 = 0LL;
+          v28[0] = v13;
+          v28[1] = v12;
+          v14 = *((_QWORD *)a3 + 3 * v12 + 3);
+          v15 = v32[v12 + 1];
+          v30 = *((_QWORD *)a3 + 3 * v12 + 2);
+          v29 = v15;
+          v31 = v14;
+          v16 = CGlobalCompositionSurfaceInfo::CBindInfo::CreateNewRealization(
+                  this,
+                  a2,
+                  (const struct CSM_REALIZATION_INFO *)v28,
+                  v8,
+                  &v33);
+          v6 = v16;
+          if ( v16 < 0 )
+            break;
+          v18 = v33;
+          v32[v12 + 1] = 0LL;
+          CGlobalCompositionSurfaceInfo::CBindInfo::AddRealization(this, v18);
+          wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v33);
+          v11 = *((_DWORD *)a3 + 1);
+          if ( ++v12 >= v11 )
+            goto LABEL_9;
+        }
+        MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_1802DC140, 4u, v16, 0x42Du, 0LL);
+        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v33);
+      }
+      else
+      {
+LABEL_9:
+        if ( v11 > 1 )
+          CGlobalCompositionSurfaceInfo::CBindInfo::EnsureHDRMetaData(this);
+      }
+      goto LABEL_11;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v6, 0x4F9u, 0LL);
   }
-LABEL_42:
-  std::vector<wil::com_ptr_t<ISwapChainRealization,wil::err_returncode_policy>>::~vector<wil::com_ptr_t<ISwapChainRealization,wil::err_returncode_policy>>(&v38);
-  std::vector<CSM_REALIZATION_INFO>::~vector<CSM_REALIZATION_INFO>(&v40);
-  return (unsigned int)v4;
+  if ( v6 >= 0 )
+    goto LABEL_6;
+  MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_1802DC140, 4u, v6, 0x415u, 0LL);
+LABEL_11:
+  v19 = (unsigned int)v32[0];
+  for ( i = 0; i < v19; ++i )
+  {
+    v21 = v32[i + 1];
+    if ( v21 )
+    {
+      CloseHandle(v21);
+      v19 = (unsigned int)v32[0];
+    }
+  }
+  return (unsigned int)v6;
 }

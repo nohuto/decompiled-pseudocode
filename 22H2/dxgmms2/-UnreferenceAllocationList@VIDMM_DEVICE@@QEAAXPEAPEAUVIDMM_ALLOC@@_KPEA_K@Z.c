@@ -1,66 +1,80 @@
 /*
- * XREFs of ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C00B1AC4
+ * XREFs of ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C0085EE4
  * Callers:
- *     ?Evict@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z @ 0x1C00B196C (-Evict@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z.c)
+ *     ?Evict@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z @ 0x1C0085D90 (-Evict@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAPEAU_VIDMM_MULTI_ALLOC@@IKPEA_K@Z.c)
  * Callees:
- *     VidSchMarkDeviceAsError @ 0x1C00019F0 (VidSchMarkDeviceAsError.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?BeginMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ @ 0x1C009A0CC (-BeginMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ.c)
- *     ?CommitMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ @ 0x1C009A130 (-CommitMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ.c)
- *     ?GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z @ 0x1C009A1D0 (-GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z.c)
- *     ?NotifyAllocationEvicted@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B1BD4 (-NotifyAllocationEvicted@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     VidSchMarkDeviceAsError @ 0x1C0015D30 (VidSchMarkDeviceAsError.c)
+ *     ?NotifyAllocationEvicted@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C0073F00 (-NotifyAllocationEvicted@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?CommitMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ @ 0x1C0085FF4 (-CommitMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ.c)
+ *     ?GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z @ 0x1C0086088 (-GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z.c)
+ *     ?BeginMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ @ 0x1C00861F4 (-BeginMemoryUsageChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_DEVICE::UnreferenceAllocationList(
         VIDMM_DEVICE *this,
-        struct VIDMM_ALLOC **a2,
+        __int64 ***a2,
         __int64 a3,
         unsigned __int64 *a4)
 {
   VIDMM_PROCESS_ADAPTER_INFO *v8; // rcx
-  struct VIDMM_ALLOC **v9; // r14
-  __int64 v10; // rdi
-  __int64 v11; // rdx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // rcx
-  _BYTE v15[8]; // [rsp+50h] [rbp-38h] BYREF
-  DXGPUSHLOCK *v16; // [rsp+58h] [rbp-30h]
-  int v17; // [rsp+60h] [rbp-28h]
+  __int64 v9; // r8
+  struct VIDMM_ALLOC **v10; // r14
+  __int64 **v11; // rbx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rbp
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  _BYTE v18[8]; // [rsp+20h] [rbp-38h] BYREF
+  DXGPUSHLOCK *v19; // [rsp+28h] [rbp-30h]
+  int v20; // [rsp+30h] [rbp-28h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, (struct _KTHREAD **)(*((_QWORD *)this + 2) + 360LL), 0);
-  DXGPUSHLOCK::AcquireExclusive(v16);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v18, (struct _KTHREAD **)(*((_QWORD *)this + 2) + 360LL), 0);
+  DXGPUSHLOCK::AcquireExclusive(v19);
   v8 = (VIDMM_PROCESS_ADAPTER_INFO *)*((_QWORD *)this + 2);
-  v17 = 2;
+  v20 = 2;
   VIDMM_PROCESS_ADAPTER_INFO::BeginMemoryUsageChange(v8);
-  v9 = &a2[a3];
-  while ( a2 != v9 )
+  v10 = (struct VIDMM_ALLOC **)&a2[a3];
+  while ( a2 != (__int64 ***)v10 )
   {
-    v10 = (__int64)*a2;
-    if ( *((_DWORD *)*a2 + 38) == ((*(_DWORD *)(**(_QWORD **)*a2 + 72LL) >> 5) & 1) )
+    v11 = *a2;
+    v12 = ***a2;
+    v13 = (*(_DWORD *)(v12 + 80) >> 5) & 1;
+    if ( *((_DWORD *)*a2 + 38) == (_DWORD)v13 )
     {
-      WdLogSingleEntry2(1LL, *a2, (*(_DWORD *)(**(_QWORD **)v10 + 72LL) >> 5) & 1);
-      DxgkLogInternalTriageEvent(**(_QWORD **)v10, 0x40000LL);
+      v15 = WdLogNewEntry5_WdAssertion(v12, v13, v9);
+      *(_QWORD *)(v15 + 24) = v11;
+      *(_QWORD *)(v15 + 32) = (*(_DWORD *)(**v11 + 80) >> 5) & 1;
+      WdLogEvent5_WdAssertion(v15);
     }
     else
     {
-      --*(_DWORD *)(v10 + 152);
-      v11 = *(int *)(v10 + 156);
-      if ( !*(_DWORD *)(v10 + 152) && (_DWORD)v11 && !*(_BYTE *)(**(_QWORD **)v10 + 81LL) )
+      --*((_DWORD *)v11 + 38);
+      v14 = *((int *)v11 + 39);
+      if ( !*((_DWORD *)v11 + 38) )
       {
-        WdLogSingleEntry1(1LL, v11);
-        DxgkLogInternalTriageEvent(v14, 0x40000LL);
-        VidSchMarkDeviceAsError(*(_QWORD *)(*(_QWORD *)(v10 + 8) + 32LL), 15, 0LL);
+        if ( (_DWORD)v14 )
+        {
+          v16 = **v11;
+          if ( !*(_BYTE *)(v16 + 88) )
+          {
+            v17 = WdLogNewEntry5_WdAssertion(v16, v13, v9);
+            *(_QWORD *)(v17 + 24) = v14;
+            WdLogEvent5_WdAssertion(v17);
+            VidSchMarkDeviceAsError(v11[1][4]);
+          }
+        }
       }
-      if ( !(*(_BYTE *)(v10 + 25) & 1 | *(_DWORD *)(v10 + 152)) )
-        VIDMM_DEVICE::NotifyAllocationEvicted(this, (struct VIDMM_ALLOC *)v10);
+      if ( !(*((_BYTE *)v11 + 25) & 1 | *((_DWORD *)v11 + 38)) )
+        VIDMM_DEVICE::NotifyAllocationEvicted((VIDMM_DEVICE ***)this, v11);
     }
     ++a2;
   }
-  VIDMM_PROCESS_ADAPTER_INFO::GetNumBytesToTrim(*((VIDMM_PROCESS_ADAPTER_INFO **)this + 2), a4, 0, 1u);
-  VIDMM_PROCESS_ADAPTER_INFO::CommitMemoryUsageChange(*((VIDMM_PROCESS_ADAPTER_INFO **)this + 2), v12, v13);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
+  VIDMM_PROCESS_ADAPTER_INFO::GetNumBytesToTrim(*((VIDMM_PROCESS_ADAPTER_INFO **)this + 2), a4, 0, 1);
+  VIDMM_PROCESS_ADAPTER_INFO::CommitMemoryUsageChange(*((VIDMM_PROCESS_ADAPTER_INFO **)this + 2));
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v18);
 }

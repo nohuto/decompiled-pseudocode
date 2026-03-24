@@ -1,62 +1,67 @@
 /*
- * XREFs of DestroyMonitorDCs @ 0x1C00122F0
+ * XREFs of DestroyMonitorDCs @ 0x1C00C34E0
  * Callers:
- *     xxxResetDisplayDevice @ 0x1C00138D0 (xxxResetDisplayDevice.c)
+ *     xxxResetDisplayDevice @ 0x1C0077600 (xxxResetDisplayDevice.c)
  * Callees:
- *     HdevFromMonitor @ 0x1C0011FC0 (HdevFromMonitor.c)
- *     GreLockVisRgn @ 0x1C0051080 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C0051170 (GreUnlockVisRgn.c)
- *     DestroyCacheDC @ 0x1C005D380 (DestroyCacheDC.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     DestroyCacheDC @ 0x1C0008970 (DestroyCacheDC.c)
+ *     GreUnlockVisRgn @ 0x1C0039F20 (GreUnlockVisRgn.c)
+ *     GreLockVisRgn @ 0x1C003A140 (GreLockVisRgn.c)
+ *     HdevFromMonitor @ 0x1C00AE440 (HdevFromMonitor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 DestroyMonitorDCs()
+__int64 __fastcall DestroyMonitorDCs(__int64 a1, int a2, int a3)
 {
-  __int64 **v0; // rdi
-  __int64 *v1; // rbx
-  __int64 v2; // rcx
-  __int64 *v3; // rax
-  int v5; // eax
-  int v6; // eax
+  __int64 v3; // rdx
+  int v4; // r8d
+  __int64 *v5; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  int v10; // ecx
+  int v11; // ecx
 
-  GreLockVisRgn(*((_QWORD *)gpDispInfo + 5));
-  v0 = (__int64 **)((char *)gpDispInfo + 24);
-  v1 = (__int64 *)*((_QWORD *)gpDispInfo + 3);
-  if ( v1 )
+  GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40), a2, a3);
+  v5 = (__int64 *)(gpDispInfo + 24);
+  v6 = *(_QWORD *)(gpDispInfo + 24);
+  if ( v6 )
   {
     do
     {
-      v2 = v1[11];
-      if ( v2 && (unsigned int)HdevFromMonitor(v2) == -1 )
+      v7 = *(_QWORD *)(v6 + 88);
+      if ( v7 && (unsigned int)HdevFromMonitor(v7) == -1 )
       {
-        v5 = *((_DWORD *)v1 + 16);
-        if ( v5 >= 0 )
+        v10 = *(_DWORD *)(v6 + 64);
+        if ( v10 >= 0 )
         {
-          DestroyCacheDC(v0, v1[1]);
+          DestroyCacheDC(v5, *(_QWORD *)(v6 + 8));
         }
         else
         {
-          v1[11] = 0LL;
-          v6 = v5 | 0x4000000;
-          *((_DWORD *)v1 + 16) = v6;
-          if ( (v6 & 0x4000) != 0 )
+          *(_QWORD *)(v6 + 88) = 0LL;
+          v11 = v10 | 0x4000000;
+          *(_DWORD *)(v6 + 64) = v11;
+          if ( (v11 & 0x4000) != 0 )
           {
-            if ( qword_1C0294EA0 )
-              qword_1C0294EA0(v1[1], 0LL);
-            *((_DWORD *)v1 + 16) &= ~0x4000u;
-            v1[4] = 0LL;
+            if ( qword_1C0255AA8 )
+            {
+              qword_1C0255AA8(*(_QWORD *)(v6 + 8), 0LL);
+              v11 = *(_DWORD *)(v6 + 64);
+            }
+            *(_QWORD *)(v6 + 32) = 0LL;
+            *(_DWORD *)(v6 + 64) = v11 & 0xFFFFBFFF;
           }
         }
       }
-      v3 = *v0;
-      if ( v1 == *v0 )
+      v8 = *v5;
+      if ( v6 == *v5 )
       {
-        v3 = (__int64 *)*v1;
-        v0 = (__int64 **)v1;
+        v8 = *(_QWORD *)v6;
+        v5 = (__int64 *)v6;
       }
-      v1 = v3;
+      v6 = v8;
     }
-    while ( v3 );
+    while ( v8 );
   }
-  return GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5));
+  return GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40), v3, v4);
 }

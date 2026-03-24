@@ -1,15 +1,16 @@
 /*
- * XREFs of _RegisterPointerInputTarget @ 0x1C01ED194
+ * XREFs of _RegisterPointerInputTarget @ 0x1C01F2924
  * Callers:
- *     NtUserRegisterPointerInputTarget @ 0x1C01FBA20 (NtUserRegisterPointerInputTarget.c)
+ *     NtUserRegisterPointerInputTarget @ 0x1C0200CF0 (NtUserRegisterPointerInputTarget.c)
  * Callees:
- *     UpdatePointerRedirIsAlive @ 0x1C005FD1C (UpdatePointerRedirIsAlive.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     UpdatePointerRedirIsAlive @ 0x1C007C23C (UpdatePointerRedirIsAlive.c)
  */
 
-__int64 __fastcall RegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, int a4)
+__int64 __fastcall RegisterPointerInputTarget(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rax
+  int v6; // esi
   __int64 v8; // rcx
   __int64 *v9; // rcx
   __int64 v10; // rax
@@ -17,6 +18,7 @@ __int64 __fastcall RegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, in
   _QWORD v13[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = *(_QWORD *)(a1 + 24);
+  v6 = a3;
   if ( !v4 || (v8 = *(_QWORD *)(v4 + 8)) == 0 )
   {
     v11 = 87LL;
@@ -24,7 +26,7 @@ __int64 __fastcall RegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, in
   }
   UpdatePointerRedirIsAlive(v8);
   a2 = 216LL;
-  if ( a3 != 2 )
+  if ( v6 != 2 )
     a2 = 224LL;
   v9 = (__int64 *)(a2 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL));
   v10 = *v9;
@@ -38,13 +40,13 @@ __int64 __fastcall RegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, in
   {
     v13[0] = a2 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL);
     v13[1] = a1;
-    HMAssignmentLock(v13, 0LL);
+    HMAssignmentLock(v13);
     return 1LL;
   }
   if ( v10 == a1 )
     return 1LL;
   v11 = 5LL;
 LABEL_14:
-  UserSetLastError(v11, a2);
+  UserSetLastError(v11, a2, a3);
   return 0LL;
 }

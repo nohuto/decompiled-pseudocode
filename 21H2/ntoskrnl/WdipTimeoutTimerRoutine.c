@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipTimeoutTimerRoutine @ 0x14025CB00
+ * XREFs of WdipTimeoutTimerRoutine @ 0x1402D2D40
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void WdipTimeoutTimerRoutine()

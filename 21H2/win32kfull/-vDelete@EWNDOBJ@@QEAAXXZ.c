@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vDelete@EWNDOBJ@@QEAAXXZ @ 0x1C0283780
+ * XREFs of ?vDelete@EWNDOBJ@@QEAAXXZ @ 0x1C0286BD4
  * Callers:
- *     GreDeleteWnd @ 0x1C02844B0 (GreDeleteWnd.c)
+ *     GreDeleteWnd @ 0x1C02878F0 (GreDeleteWnd.c)
  * Callees:
  *     <none>
  */

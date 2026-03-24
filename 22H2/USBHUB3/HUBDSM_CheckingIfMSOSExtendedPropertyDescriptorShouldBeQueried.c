@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried @ 0x1C0024740
+ * XREFs of HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried @ 0x1C0021F60
  * Callers:
  *     <none>
  * Callees:
- *     HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey @ 0x1C0084F98 (HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey.c)
+ *     HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey @ 0x1C007F4C8 (HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried(__int64 a1)

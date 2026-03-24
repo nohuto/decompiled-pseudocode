@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceKeys @ 0x14087CF74
+ * XREFs of PiDevCfgConfigureDeviceKeys @ 0x140766C04
  * Callers:
- *     PpDevCfgProcessDeviceOperations @ 0x1407D94D0 (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14087C388 (PiDevCfgConfigureDeviceDriverConfiguration.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x14087C9C8 (PiDevCfgConfigureDeviceLocation.c)
- *     PpDevCfgProcessDeviceClass @ 0x1409629AC (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceClass @ 0x140730310 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x140736760 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x140766B40 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x1407709CC (PiDevCfgConfigureDeviceLocation.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1403C655C (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     PiDevCfgQueryResolveValue @ 0x140562368 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgConfigureDeviceFilters @ 0x14087D10C (PiDevCfgConfigureDeviceFilters.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x14087D1C4 (PiDevCfgConfigureSoftwareDevices.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x14087D270 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiDevCfgInitResolveContext @ 0x14087D384 (PiDevCfgInitResolveContext.c)
- *     PiDevCfgEnumDeviceKeys @ 0x14087D4F4 (PiDevCfgEnumDeviceKeys.c)
- *     PiDevCfgFreeResolveContext @ 0x14087D72C (PiDevCfgFreeResolveContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryDword @ 0x14039A2C8 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E3E4 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgFreeResolveContext @ 0x140766D9C (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgConfigureDeviceFilters @ 0x140766E60 (PiDevCfgConfigureDeviceFilters.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140766F18 (PiDevCfgConfigureSoftwareDevices.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140766FC4 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x1407670D8 (PiDevCfgEnumDeviceKeys.c)
+ *     PiDevCfgInitResolveContext @ 0x14076732C (PiDevCfgInitResolveContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceKeys(__int64 a1, __int64 a2, void *a3, int a4, _DWORD *a5, _DWORD *a6)
@@ -61,11 +61,12 @@ __int64 __fastcall PiDevCfgConfigureDeviceKeys(__int64 a1, __int64 a2, void *a3,
         {
           if ( (a4 & 0x20) == 0 || (inited = PiDevCfgConfigureDeviceFilters(*(_QWORD *)(a2 + 16), a3), inited >= 0) )
           {
+            *(&ObjectAttributes.Length + 1) = 0;
             memset(&ObjectAttributes.Attributes + 1, 0, 20);
             *((_QWORD *)&v17 + 1) = L"Status";
-            *(_QWORD *)&ObjectAttributes.Length = 48LL;
-            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
             LODWORD(v17) = 917516;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
+            ObjectAttributes.Length = 48;
             ObjectAttributes.RootDirectory = a3;
             ObjectAttributes.Attributes = 576;
             if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )

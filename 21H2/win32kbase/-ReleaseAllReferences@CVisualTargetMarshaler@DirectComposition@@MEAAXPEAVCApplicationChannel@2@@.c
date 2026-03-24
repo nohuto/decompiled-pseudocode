@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CVisualTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0238B10
+ * XREFs of ?ReleaseAllReferences@CVisualTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F8260
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CSharedReadMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0058570 (-ReleaseAllReferences@CSharedReadMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
- *     ?UpdateRootVisual@CVisualTargetMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@PEA_N@Z @ 0x1C00A8DCC (-UpdateRootVisual@CVisualTargetMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVC.c)
+ *     ?ReleaseAllReferences@CSharedReadMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C004A780 (-ReleaseAllReferences@CSharedReadMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?UpdateRootVisual@CVisualTargetMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@PEA_N@Z @ 0x1C009620C (-UpdateRootVisual@CVisualTargetMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVC.c)
  */
 
 void __fastcall DirectComposition::CVisualTargetMarshaler::ReleaseAllReferences(
@@ -16,7 +16,7 @@ void __fastcall DirectComposition::CVisualTargetMarshaler::ReleaseAllReferences(
 
   v5 = 0;
   DirectComposition::CVisualTargetMarshaler::UpdateRootVisual(this, a2, 0LL, &v5);
-  v4 = *((_QWORD *)this + 8);
+  v4 = *((_QWORD *)this + 7);
   if ( v4 )
     *(_DWORD *)(v4 + 28) = 0;
   DirectComposition::CSharedReadMarshaler::ReleaseAllReferences(this, a2);

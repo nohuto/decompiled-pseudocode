@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C0003190
+ * XREFs of HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C0002FC0
  * Callers:
- *     HUBHSM_GettingHubDescriptor @ 0x1C0009360 (HUBHSM_GettingHubDescriptor.c)
+ *     HUBHSM_GettingHubDescriptor @ 0x1C0009060 (HUBHSM_GettingHubDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBHTX_GetDescriptor @ 0x1C0003060 (HUBHTX_GetDescriptor.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBHTX_GetDescriptor @ 0x1C0002E90 (HUBHTX_GetDescriptor.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBHTX_GetHubDescriptorUsingControlTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -23,31 +23,33 @@ __int64 __fastcall HUBHTX_GetHubDescriptorUsingControlTransfer(__int64 a1, __int
     {
       LOBYTE(a4) = 41;
       v6 = 71LL;
-LABEL_6:
-      result = HUBHTX_GetDescriptor(a1, a1 + 1180, v6, a4, v8, 1);
-      if ( (int)result >= 0 )
-        return result;
-      goto LABEL_9;
+      goto LABEL_6;
     }
     if ( v4 == 3 )
     {
       LOBYTE(a4) = 42;
       v6 = 12LL;
-      goto LABEL_6;
+LABEL_6:
+      result = HUBHTX_GetDescriptor(a1, a1 + 1180, v6, a4, v8, 1);
+      goto LABEL_8;
     }
   }
-  LODWORD(result) = -1073741823;
-LABEL_9:
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  result = 3221225473LL;
+LABEL_8:
+  if ( (int)result < 0 )
   {
-    LODWORD(v9) = result;
-    WPP_RECORDER_SF_d(
-      *(_QWORD *)(a1 + 2520),
-      2u,
-      3u,
-      0x10u,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
-      v9);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(v9) = result;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(a1 + 2520),
+        2u,
+        3u,
+        0x10u,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+        v9);
+    }
+    return HUBSM_AddEvent(a1 + 1264, 2004LL);
   }
-  return HUBSM_AddEvent(a1 + 1264, 2004LL);
+  return result;
 }

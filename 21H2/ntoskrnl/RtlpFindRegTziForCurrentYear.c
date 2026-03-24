@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFindRegTziForCurrentYear @ 0x1403C7B58
+ * XREFs of RtlpFindRegTziForCurrentYear @ 0x1403B7EC4
  * Callers:
- *     RtlpUpdateDynamicTimeZones @ 0x140836228 (RtlpUpdateDynamicTimeZones.c)
- *     RtlpCheckDynamicTimeZoneInformation @ 0x1408365F8 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1407AA15C (RtlpUpdateDynamicTimeZones.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x1407AA49C (RtlpCheckDynamicTimeZoneInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _itow_s @ 0x1403E60E0 (_itow_s.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406DEF50 (RtlQueryRegistryValuesEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _itow_s @ 0x1403D6CB0 (_itow_s.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406BBF50 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, __int64 a2, __int16 a3)
@@ -32,14 +32,14 @@ __int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, __int64 a2, __int16 
     v11[2] = L"FirstEntry";
     LODWORD(v11[1]) = 292;
     LODWORD(v11[4]) = 0x4000000;
-    v11[3] = &v10;
+    v11[3] = &v9;
     LODWORD(v11[11]) = 0x4000000;
     v11[9] = L"LastEntry";
-    v10 = -4;
-    v11[10] = &v9;
+    v9 = -4;
+    v11[10] = &v10;
     LODWORD(v11[8]) = 292;
     v11[16] = DstBuf;
-    v9 = -4;
+    v10 = -4;
     LODWORD(v11[15]) = 288;
     v11[17] = a1;
     LODWORD(v11[18]) = 50331648;
@@ -47,23 +47,24 @@ __int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, __int64 a2, __int16 
     RegistryValues = RtlQueryRegistryValuesEx(0x40000000LL, a2, v11, 0LL, 0LL);
     if ( RegistryValues >= 0 )
     {
-      if ( v9 == -4 )
-        return (unsigned int)-1073741762;
-      v7 = v10;
-      if ( v10 == -4 )
-        return (unsigned int)-1073741762;
-      if ( v3 > v9 || v3 < v10 )
+      v7 = v9;
+      if ( v10 == -4 || v9 == -4 )
+        RegistryValues = -1073741762;
+      if ( RegistryValues >= 0 && (v3 > v10 || v3 < v9) )
       {
-        if ( v3 > v9 )
-          v7 = v9;
-        if ( !itow_s(v7, DstBuf, 5uLL, 10) )
+        if ( v3 > v10 )
+          v7 = v10;
+        if ( itow_s(v7, DstBuf, 5uLL, 10) )
+        {
+          return (unsigned int)-1073741762;
+        }
+        else
         {
           LODWORD(v11[15]) = 292;
           LODWORD(v11[18]) = 50331648;
           *(_DWORD *)a1 = -44;
           return (unsigned int)RtlQueryRegistryValuesEx(0x40000000LL, a2, &v11[14], 0LL, 0LL);
         }
-        return (unsigned int)-1073741762;
       }
     }
   }

@@ -1,62 +1,70 @@
 /*
- * XREFs of WmipFindGEByGuid @ 0x1406C64B4
+ * XREFs of WmipFindGEByGuid @ 0x1406B7FB0
  * Callers:
- *     WmipOpenBlock @ 0x1406C55DC (WmipOpenBlock.c)
- *     WmipDetermineInstanceBaseIndex @ 0x14086AD1C (WmipDetermineInstanceBaseIndex.c)
- *     WmipLinkDataSourceToList @ 0x14086ADE4 (WmipLinkDataSourceToList.c)
- *     WmipEnableCollectionForNewGuid @ 0x14086B0BC (WmipEnableCollectionForNewGuid.c)
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
- *     WmipMangleInstanceName @ 0x14086B424 (WmipMangleInstanceName.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x1408838E4 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipIncludeStaticNames @ 0x1409E0A34 (WmipIncludeStaticNames.c)
+ *     WmipOpenBlock @ 0x1406B8098 (WmipOpenBlock.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x140756868 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipEnableCollectionForNewGuid @ 0x1407572BC (WmipEnableCollectionForNewGuid.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
+ *     WmipLinkDataSourceToList @ 0x1407576E0 (WmipLinkDataSourceToList.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140757904 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipMangleInstanceName @ 0x140757A58 (WmipMangleInstanceName.c)
+ *     WmipIncludeStaticNames @ 0x14093282C (WmipIncludeStaticNames.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
  */
 
 _QWORD *__fastcall WmipFindGEByGuid(_QWORD *a1, char a2)
 {
-  _QWORD *i; // rbx
-  __int64 v5; // rcx
+  _QWORD *v4; // rbx
+  __int64 v5; // rax
   _QWORD *v7; // rax
   _QWORD *v8; // rcx
   _QWORD *v9; // rax
   __int64 v10; // rcx
 
   KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-  for ( i = *(_QWORD **)WmipGEHeadPtr; ; i = (_QWORD *)*i )
+  v4 = *(_QWORD **)WmipGEHeadPtr;
+  if ( *(_QWORD *)WmipGEHeadPtr == WmipGEHeadPtr )
   {
-    if ( i == (_QWORD *)WmipGEHeadPtr )
-    {
-      KeReleaseMutex(&WmipSMMutex, 0);
-      return 0LL;
-    }
-    v5 = *a1 - i[9];
-    if ( *a1 == i[9] )
-      v5 = a1[1] - i[10];
-    if ( !v5 )
-      break;
+LABEL_6:
+    KeReleaseMutex(&WmipSMMutex, 0);
+    return 0LL;
   }
-  WmipReferenceEntry((ULONG_PTR)i);
-  if ( a2 )
+  else
   {
-    v7 = (_QWORD *)*i;
-    if ( *(_QWORD **)(*i + 8LL) != i
-      || (v8 = (_QWORD *)i[1], (_QWORD *)*v8 != i)
-      || (*v8 = v7,
-          v7[1] = v8,
-          v9 = (_QWORD *)WmipGEHeadPtr,
-          v10 = *(_QWORD *)WmipGEHeadPtr,
-          *(_QWORD *)(*(_QWORD *)WmipGEHeadPtr + 8LL) != WmipGEHeadPtr) )
+    while ( 1 )
     {
-      __fastfail(3u);
+      v5 = *a1 - v4[9];
+      if ( *a1 == v4[9] )
+        v5 = a1[1] - v4[10];
+      if ( !v5 )
+        break;
+      v4 = (_QWORD *)*v4;
+      if ( v4 == (_QWORD *)WmipGEHeadPtr )
+        goto LABEL_6;
     }
-    *i = v10;
-    i[1] = v9;
-    *(_QWORD *)(v10 + 8) = i;
-    *v9 = i;
+    WmipReferenceEntry((ULONG_PTR)v4);
+    if ( a2 )
+    {
+      v7 = (_QWORD *)*v4;
+      if ( *(_QWORD **)(*v4 + 8LL) != v4
+        || (v8 = (_QWORD *)v4[1], (_QWORD *)*v8 != v4)
+        || (*v8 = v7,
+            v7[1] = v8,
+            v9 = (_QWORD *)WmipGEHeadPtr,
+            v10 = *(_QWORD *)WmipGEHeadPtr,
+            *(_QWORD *)(*(_QWORD *)WmipGEHeadPtr + 8LL) != WmipGEHeadPtr) )
+      {
+        __fastfail(3u);
+      }
+      *v4 = v10;
+      v4[1] = v9;
+      *(_QWORD *)(v10 + 8) = v4;
+      *v9 = v4;
+    }
+    KeReleaseMutex(&WmipSMMutex, 0);
+    return v4;
   }
-  KeReleaseMutex(&WmipSMMutex, 0);
-  return i;
 }

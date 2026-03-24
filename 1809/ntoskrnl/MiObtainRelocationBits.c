@@ -1,7 +1,7 @@
 /*
- * XREFs of MiObtainRelocationBits @ 0x14064FAFC
+ * XREFs of MiObtainRelocationBits @ 0x14064FADC
  * Callers:
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -9,8 +9,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     MiSelectRelocationStartHint @ 0x14064FBE4 (MiSelectRelocationStartHint.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     MiSelectRelocationStartHint @ 0x14064FBC4 (MiSelectRelocationStartHint.c)
  */
 
 __int64 __fastcall MiObtainRelocationBits(PRTL_BITMAP *a1, unsigned __int16 a2, ULONG a3, int a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of IopLiveDumpGetNtMergePages @ 0x14082031C
+ * XREFs of IopLiveDumpGetNtMergePages @ 0x1408202FC
  * Callers:
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x140820918 (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1408208F8 (IopLiveDumpWriteDumpFileWithHvPages.c)
  * Callees:
  *     IopLiveDumpGetCapturePagesNoLock @ 0x140578C58 (IopLiveDumpGetCapturePagesNoLock.c)
  */

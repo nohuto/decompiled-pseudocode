@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInformationTransactionManager @ 0x14041D1A0
+ * XREFs of ZwQueryInformationTransactionManager @ 0x1403FC400
  * Callers:
- *     DifZwQueryInformationTransactionManagerWrapper @ 0x1405F4DE0 (DifZwQueryInformationTransactionManagerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDisksRegisteredForIdle @ 0x14036A9DC
+ * XREFs of PopDisksRegisteredForIdle @ 0x14032A384
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char PopDisksRegisteredForIdle()
@@ -31,19 +31,22 @@ char PopDisksRegisteredForIdle()
       break;
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
+  KxReleaseSpinLock(&PopDopeGlobalLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-      v8 = (v7 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+        v8 = (v7 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v7;
+        if ( v8 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v1);

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x140887888
+ * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x140887868
  * Callers:
- *     PspSiloInitializeSuiteMask @ 0x14088796C (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSuiteMask @ 0x14088794C (PspSiloInitializeSuiteMask.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  */
 

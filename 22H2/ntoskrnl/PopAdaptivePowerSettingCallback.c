@@ -1,108 +1,75 @@
 /*
- * XREFs of PopAdaptivePowerSettingCallback @ 0x140825BB0
+ * XREFs of PopAdaptivePowerSettingCallback @ 0x14079B1C0
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x140387E90 (PopVideoPowerSettingCallback.c)
+ *     PopVideoPowerSettingCallback @ 0x1403AF3C0 (PopVideoPowerSettingCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopSendSessionInfo @ 0x1406831FC (PopSendSessionInfo.c)
- *     PopAcquireAdaptiveLock @ 0x1407EC41C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EC4C8 (PopReleaseAdaptiveLock.c)
- *     PopDiagTracePolicyChange @ 0x140825DE4 (PopDiagTracePolicyChange.c)
- *     PopBroadcastSessionInfo @ 0x140825E74 (PopBroadcastSessionInfo.c)
+ *     PopReleaseAdaptiveLock @ 0x1407251C4 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1407252B4 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTracePolicyChange @ 0x14079B2C0 (PopDiagTracePolicyChange.c)
+ *     PopCheckConsoleTimeouts @ 0x1408F5014 (PopCheckConsoleTimeouts.c)
+ *     PopInputDisabled @ 0x1408F515C (PopInputDisabled.c)
  */
 
-__int64 __fastcall PopAdaptivePowerSettingCallback(_QWORD *a1, int *a2, int a3)
+__int64 __fastcall PopAdaptivePowerSettingCallback(__int64 *a1, int *a2, int a3)
 {
-  char v5; // r14
-  char v6; // bp
-  unsigned int v7; // esi
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  GUID v11; // [rsp+30h] [rbp-28h] BYREF
-  int v12; // [rsp+40h] [rbp-18h]
+  unsigned int v5; // ebx
+  bool v6; // bp
+  __int64 v7; // r8
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  int v12; // eax
 
-  if ( a3 != 4 || !a2 )
+  if ( a3 != 4 )
     return (unsigned int)-1073741811;
   v5 = 0;
-  v6 = 0;
-  v7 = 0;
-  PopAcquireAdaptiveLock(1);
-  if ( *(_QWORD *)&GUID_NON_ADAPTIVE_INPUT_TIMEOUT.Data1 == *a1
-    && *(_QWORD *)GUID_NON_ADAPTIVE_INPUT_TIMEOUT.Data4 == a1[1] )
+  if ( !a2 )
+    return (unsigned int)-1073741811;
+  v6 = PopConsoleSession != 0;
+  PopAcquireAdaptiveLock(PopConsoleSession == 0);
+  v8 = *a1;
+  v9 = *(_QWORD *)&GUID_NON_ADAPTIVE_INPUT_TIMEOUT.Data1 - *a1;
+  if ( *(_QWORD *)&GUID_NON_ADAPTIVE_INPUT_TIMEOUT.Data1 == *a1 )
+    v9 = *(_QWORD *)GUID_NON_ADAPTIVE_INPUT_TIMEOUT.Data4 - a1[1];
+  if ( !v9 )
   {
-    if ( *a2 != PopInputTimeout )
+    v12 = *a2;
+    PopInputTimeout = *a2;
+    if ( v6 )
     {
-      PopInputTimeout = *a2;
-LABEL_32:
-      v5 = 1;
-      goto LABEL_33;
+      BYTE3(qword_140C205D0) = 1;
+      DWORD2(PopLazyContext) = v12;
+      if ( !v12 )
+      {
+        LOBYTE(v7) = 1;
+        PopInputDisabled((unsigned int)PopConsoleContext, 0LL, v7);
+      }
     }
-    goto LABEL_33;
+    goto LABEL_14;
   }
-  if ( *(_QWORD *)&GUID_VIDEO_POWERDOWN_TIMEOUT.Data1 == *a1 && *(_QWORD *)GUID_VIDEO_POWERDOWN_TIMEOUT.Data4 == a1[1] )
+  v10 = *(_QWORD *)&GUID_VIDEO_POWERDOWN_TIMEOUT.Data1 - v8;
+  if ( *(_QWORD *)&GUID_VIDEO_POWERDOWN_TIMEOUT.Data1 == v8 )
+    v10 = *(_QWORD *)GUID_VIDEO_POWERDOWN_TIMEOUT.Data4 - a1[1];
+  if ( !v10 )
   {
-    if ( *a2 == PopDisplayTimeout )
-      goto LABEL_33;
     PopDisplayTimeout = *a2;
-LABEL_11:
-    v6 = 1;
-    goto LABEL_33;
-  }
-  if ( *(_QWORD *)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT.Data1 == *a1
-    && *(_QWORD *)GUID_VIDEO_CONSOLE_LOCK_TIMEOUT.Data4 == a1[1] )
-  {
-    if ( *a2 == PopAdaptiveLockConsoleTimeout )
-      goto LABEL_33;
-    PopAdaptiveLockConsoleTimeout = *a2;
-    goto LABEL_11;
-  }
-  if ( *(_QWORD *)&GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT.Data1 == *a1
-    && *(_QWORD *)GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT.Data4 == a1[1] )
-  {
-    PopAdaptiveSensorAwayDisplayTimeout = *a2;
-    goto LABEL_33;
-  }
-  if ( *(_QWORD *)&GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT.Data1 == *a1
-    && *(_QWORD *)GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT.Data4 == a1[1] )
-  {
-    PopAdaptiveSensorAwayDimTimeout = *a2;
-    goto LABEL_33;
-  }
-  if ( *(_QWORD *)&GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT.Data1 == *a1
-    && *(_QWORD *)GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT.Data4 == a1[1] )
-  {
-    PopAdaptiveSensorInattentiveDisplayTimeout = *a2;
-    goto LABEL_33;
-  }
-  if ( *(_QWORD *)&GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT.Data1 == *a1
-    && *(_QWORD *)GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT.Data4 == a1[1] )
-  {
-    PopAdaptiveSensorInattentiveDimTimeout = *a2;
-    goto LABEL_33;
-  }
-  if ( *(_QWORD *)&GUID_VIDEO_DIM_TIMEOUT.Data1 == *a1 && *(_QWORD *)GUID_VIDEO_DIM_TIMEOUT.Data4 == a1[1] )
-  {
-    if ( *a2 != PopAdaptiveDimTimeout )
-    {
-      PopAdaptiveDimTimeout = *a2;
-      goto LABEL_32;
-    }
-LABEL_33:
+LABEL_14:
     PopDiagTracePolicyChange();
-    goto LABEL_35;
+    if ( v6 )
+      PopCheckConsoleTimeouts();
+    goto LABEL_16;
   }
-  v7 = -1073741811;
-LABEL_35:
+  v11 = *(_QWORD *)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT.Data1 - v8;
+  if ( *(_QWORD *)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT.Data1 == v8 )
+    v11 = *(_QWORD *)GUID_VIDEO_CONSOLE_LOCK_TIMEOUT.Data4 - a1[1];
+  if ( !v11 )
+  {
+    PopAdaptiveLockConsoleTimeout = *a2;
+    goto LABEL_14;
+  }
+  v5 = -1073741811;
+LABEL_16:
   PopReleaseAdaptiveLock();
-  v12 = 0;
-  v11 = GUID_ADAPTIVE_SESSION_STATE_CHANGED;
-  if ( v5 )
-  {
-    PopBroadcastSessionInfo(0LL, 20LL, &v11);
-  }
-  else if ( v6 && PopConsoleSession )
-  {
-    PopSendSessionInfo(dword_140C39CD8, v8, v9, (__int64)&v11);
-  }
-  return v7;
+  return v5;
 }

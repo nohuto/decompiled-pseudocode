@@ -1,24 +1,24 @@
 /*
- * XREFs of Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003AA28
+ * XREFs of Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003BD38
  * Callers:
- *     UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C0056200 (UsbhPdoPnp_SurpriseRemoveDevice.c)
+ *     UsbhPdoPnp_SurpriseRemoveDevice @ 0x1C00578C0 (UsbhPdoPnp_SurpriseRemoveDevice.c)
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     UsbhAcquireFdoPwrLock @ 0x1C00019E0 (UsbhAcquireFdoPwrLock.c)
- *     UsbhPdoAbortAllDevicePipes @ 0x1C00029DC (UsbhPdoAbortAllDevicePipes.c)
- *     UsbhSetPdoPowerState @ 0x1C0002CC0 (UsbhSetPdoPowerState.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhReleaseFdoPwrLock @ 0x1C00313A8 (UsbhReleaseFdoPwrLock.c)
- *     UsbhPCE_SoftDisconnect @ 0x1C00342D0 (UsbhPCE_SoftDisconnect.c)
- *     SET_PDO_HWPNPSTATE @ 0x1C0035D18 (SET_PDO_HWPNPSTATE.c)
- *     UsbhFindListPdo @ 0x1C0036E40 (UsbhFindListPdo.c)
- *     UsbhSyncResumeDeviceInternal @ 0x1C00398B8 (UsbhSyncResumeDeviceInternal.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhPdoAbortAllDevicePipes @ 0x1C0016EC0 (UsbhPdoAbortAllDevicePipes.c)
+ *     UsbhSetPdoPowerState @ 0x1C0017660 (UsbhSetPdoPowerState.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     UsbhPCE_SoftDisconnect @ 0x1C0035634 (UsbhPCE_SoftDisconnect.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036FD4 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhFindListPdo @ 0x1C00380F4 (UsbhFindListPdo.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003ABC8 (UsbhSyncResumeDeviceInternal.c)
  */
 
 void __fastcall Usbh_PdoSurpriseRemove_PdoEvent(__int64 a1, struct _DEVICE_OBJECT *a2, __int64 a3)
@@ -79,9 +79,9 @@ void __fastcall Usbh_PdoSurpriseRemove_PdoEvent(__int64 a1, struct _DEVICE_OBJEC
         *((_QWORD *)v7 + 606) = v15;
 LABEL_4:
         *(_DWORD *)(a3 + 136) = 0;
-        WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+        qword_1C006C500 = 0LL;
         *(_DWORD *)(a3 + 88) = 1734964085;
-        KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a3 + 132));
+        KeReleaseSpinLock(&HubG, *(_BYTE *)(a3 + 132));
         return;
       }
 LABEL_17:
@@ -102,9 +102,9 @@ LABEL_17:
 LABEL_16:
         SET_PDO_HWPNPSTATE((__int64)a2, v23, v24);
         *(_DWORD *)(a3 + 136) = 0;
-        WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+        qword_1C006C500 = 0LL;
         *(_DWORD *)(a3 + 88) = 1734964085;
-        KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a3 + 132));
+        KeReleaseSpinLock(&HubG, *(_BYTE *)(a3 + 132));
         UsbhUnlinkPdoDeviceHandle(a1, (__int64)a2, 2017740850, v9);
         Log(a1, 4, 1682457650, (__int64)a2, 0LL);
         return;
@@ -126,9 +126,9 @@ LABEL_16:
     goto LABEL_16;
   }
   *(_DWORD *)(a3 + 136) = 0;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+  qword_1C006C500 = 0LL;
   *(_DWORD *)(a3 + 88) = 1734964085;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a3 + 132));
+  KeReleaseSpinLock(&HubG, *(_BYTE *)(a3 + 132));
   if ( PdoExt((__int64)a2)[197] != v9 )
   {
     v28 = (_QWORD *)UsbhIncHubBusy(a1, a3, (__int64)a2, 1381200755, v9);

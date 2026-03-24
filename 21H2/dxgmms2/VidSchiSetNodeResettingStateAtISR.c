@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchiSetNodeResettingStateAtISR @ 0x1C003A5C0
+ * XREFs of VidSchiSetNodeResettingStateAtISR @ 0x1C0031850
  * Callers:
  *     <none>
  * Callees:
@@ -17,8 +17,8 @@ char __fastcall VidSchiSetNodeResettingStateAtISR(LARGE_INTEGER *a1)
   a1[3] = QuadPart[9];
   v2 = a1->QuadPart;
   a1[4] = *(LARGE_INTEGER *)(a1->QuadPart + 152);
-  a1[6].HighPart = *(_DWORD *)(v2 + 1408);
-  a1[6].LowPart = *(_DWORD *)(a1->QuadPart + 1412);
+  a1[6].HighPart = *(_DWORD *)(v2 + 1400);
+  a1[6].LowPart = *(_DWORD *)(a1->QuadPart + 1404);
   a1[1] = KeQueryPerformanceCounter(0LL);
   return 1;
 }

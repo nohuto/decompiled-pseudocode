@@ -1,124 +1,94 @@
 /*
- * XREFs of ?ProcessSysMemAttributes@@YAJPEAXIPEAU_DXGK_ALLOCATIONINFO@@@Z @ 0x1C02D6948
+ * XREFs of ?ProcessSysMemAttributes@@YAJPEAXIPEAU_DXGK_ALLOCATIONINFO@@@Z @ 0x1C0228354
  * Callers:
- *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C0191710 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
- *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C01950A0 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C00F2BE0 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C0153650 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall ProcessSysMemAttributes(PVOID BaseAddress, unsigned int a2, struct _DXGK_ALLOCATIONINFO *a3)
 {
-  unsigned __int64 v3; // rbp
-  unsigned int v4; // esi
-  unsigned __int64 v7; // rax
-  _DWORD *v8; // rax
-  _DWORD *v9; // rdi
-  __int64 v10; // rsi
-  NTSTATUS v11; // eax
-  UINT v12; // edx
+  unsigned __int64 v3; // r14
+  unsigned int v4; // ebx
+  SIZE_T v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  PVOID v10; // rsi
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rax
+  __int64 v14; // rdi
+  NTSTATUS v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  UINT v19; // edx
   UINT Alignment; // eax
-  ULONG_PTR ReturnLength; // [rsp+80h] [rbp+8h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a2;
   ReturnLength = 0LL;
+  v3 = a2;
   v4 = a2 >> 12;
   v7 = 48LL * (a2 >> 12);
   if ( !is_mul_ok(a2 >> 12, 0x30uLL) )
     v7 = -1LL;
-  v8 = (_DWORD *)operator new[](v7, 0x4B677844u, 256LL, a2 >> 12);
-  v9 = v8;
-  if ( v8 )
+  v10 = operator new[](v7, 0x4B677844u, PagedPool);
+  if ( !v10 )
   {
-    v11 = ZwQueryVirtualMemory(
-            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-            BaseAddress,
-            MemoryBasicInformation,
-            v8,
-            48 * v4,
-            &ReturnLength);
-    v10 = v11;
-    if ( v11 >= 0 )
-    {
-      if ( *((_QWORD *)v9 + 3) >= v3 )
-      {
-        if ( (v9[10] & 0x800000) != 0 )
-        {
-          LODWORD(v10) = -1073741811;
-          WdLogSingleEntry2(2LL, -1073741811LL, 3887LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"ExistingSysMem pointer points to a MEM_ROTATE allocation, returning 0x%I64x",
-            -1073741811LL,
-            3887LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        else
-        {
-          v12 = a3->Flags.Value | 4;
-          if ( (v9[9] & 0x600) != 0 )
-            v12 = a3->Flags.Value & 0xFFFFFFFB;
-          a3->Flags.Value = v12;
-          if ( (v9[10] & 0x20400000) != 0 )
-          {
-            Alignment = a3->Alignment;
-            if ( !Alignment || (_WORD)Alignment )
-              a3->Alignment = 0x10000;
-          }
-        }
-      }
-      else
-      {
-        LODWORD(v10) = -1073741811;
-        WdLogSingleEntry2(2LL, -1073741811LL, 3875LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"ExistingSysMem with different page attributes not supported. Returning 0x%I64x",
-          -1073741811LL,
-          3875LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-    }
-    else
-    {
-      WdLogSingleEntry2(2LL, v11, 3868LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"QueryVirtualMemory failed. Returning 0x%I64x",
-        v10,
-        3868LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v13 = WdLogNewEntry5_WdLowResource(v9, v8, v11, v12);
+    *(_QWORD *)(v13 + 24) = 3792LL;
+    WdLogEvent5_WdLowResource(v13);
+    LODWORD(v14) = -1073741801;
+    goto LABEL_18;
   }
-  else
+  memset(v10, 0, 48 * v4);
+  v15 = ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryBasicInformation,
+          v10,
+          48 * v4,
+          &ReturnLength);
+  v14 = v15;
+  if ( v15 < 0 )
   {
-    WdLogSingleEntry1(6LL, 3852LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Couldn't allocate MEMORY_BASIC_INFORMATION.",
-      3852LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    LODWORD(v10) = -1073741801;
+    v18 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v18 + 24) = v14;
+    *(_QWORD *)(v18 + 32) = 3809LL;
+LABEL_7:
+    WdLogEvent5_WdError(v18);
+    goto LABEL_18;
   }
-  operator delete[](v9);
-  return (unsigned int)v10;
+  if ( *((_QWORD *)v10 + 3) < v3 )
+  {
+    LODWORD(v14) = -1073741811;
+    v18 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v18 + 24) = -1073741811LL;
+    *(_QWORD *)(v18 + 32) = 3816LL;
+    goto LABEL_7;
+  }
+  if ( (*((_DWORD *)v10 + 10) & 0x800000) != 0 )
+  {
+    LODWORD(v14) = -1073741811;
+    v18 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v18 + 24) = -1073741811LL;
+    *(_QWORD *)(v18 + 32) = 3828LL;
+    goto LABEL_7;
+  }
+  v19 = a3->Flags.Value | 4;
+  if ( (*((_DWORD *)v10 + 9) & 0x600) != 0 )
+    v19 = a3->Flags.Value & 0xFFFFFFFB;
+  a3->Flags.Value = v19;
+  if ( (*((_DWORD *)v10 + 10) & 0x20400000) != 0 )
+  {
+    Alignment = a3->Alignment;
+    if ( !Alignment || (_WORD)Alignment )
+      a3->Alignment = 0x10000;
+  }
+LABEL_18:
+  operator delete[](v10);
+  return (unsigned int)v14;
 }

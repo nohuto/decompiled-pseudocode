@@ -1,9 +1,9 @@
 /*
- * XREFs of ProcgrpSetSystemGroupAffinityThread @ 0x1C0091F20
+ * XREFs of ProcgrpSetSystemGroupAffinityThread @ 0x1C0092040
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ProcgrpSetSystemGroupAffinityThread(_GROUP_AFFINITY *NewAffinity, _GROUP_AFFINITY *PreviousAffinity)
@@ -14,7 +14,7 @@ void __fastcall ProcgrpSetSystemGroupAffinityThread(_GROUP_AFFINITY *NewAffinity
   Mask = 0LL;
   if ( !NewAffinity->Group && !NewAffinity->Reserved[0] && !NewAffinity->Reserved[1] && !NewAffinity->Reserved[2] )
     Mask = NewAffinity->Mask;
-  v4 = PfnKeSetSystemAffinityThreadEx(Mask);
+  v4 = ((__int64 (__fastcall *)(unsigned __int64))WPP_GLOBAL_WDF_Control.DeviceLock.Header.WaitListHead.Flink)(Mask);
   if ( PreviousAffinity )
   {
     *(_QWORD *)&PreviousAffinity->Group = 0LL;

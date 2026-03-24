@@ -1,12 +1,13 @@
 /*
- * XREFs of MiUpdatePfnProtection @ 0x1405A6A34
+ * XREFs of MiUpdatePfnProtection @ 0x14030E2D0
  * Callers:
- *     MiMakeVaRangeNoAccess @ 0x14024D7F4 (MiMakeVaRangeNoAccess.c)
- *     MiSetReadOnlyOnSectionView @ 0x14033A030 (MiSetReadOnlyOnSectionView.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140240B90 (MiSetReadOnlyOnSectionView.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402C8854 (MiMakeVaRangeNoAccess.c)
+ *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiSanitizePfnProtection @ 0x14032E680 (MiSanitizePfnProtection.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiSanitizePfnProtection @ 0x140334290 (MiSanitizePfnProtection.c)
  */
 
 __int64 __fastcall MiUpdatePfnProtection(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -25,7 +26,7 @@ __int64 __fastcall MiUpdatePfnProtection(__int64 a1, __int64 a2, __int64 a3, __i
       KeYieldProcessorEx(&v11, a2, a3, a4);
     while ( *(__int64 *)(a2 + 24) < 0 );
   }
-  v8 = MiSanitizePfnProtection(a1, (*(_QWORD *)(a2 + 16) >> 5) & 0x1F, v4);
+  v8 = MiSanitizePfnProtection(a1, (*(_QWORD *)(a2 + 16) >> 5) & 0x1FLL, v4);
   v9 = 32LL * (v8 & 0x1F);
   if ( v7 )
     *(_QWORD *)(a2 + 16) = v9 | v7 & 0xFFFFFFFFFFFFFC1FuLL;

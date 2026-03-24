@@ -1,9 +1,9 @@
 /*
- * XREFs of write_string @ 0x1C00363C8
+ * XREFs of write_string @ 0x1C001B014
  * Callers:
- *     _woutput_l @ 0x1C00359CC (_woutput_l.c)
+ *     _woutput_l @ 0x1C001A67C (_woutput_l.c)
  * Callees:
- *     write_char @ 0x1C003631C (write_char.c)
+ *     write_char @ 0x1C001AF68 (write_char.c)
  */
 
 void __fastcall write_string(wchar_t *string, int len, _iobuf *f, int *pnumwritten)
@@ -19,8 +19,14 @@ void __fastcall write_string(wchar_t *string, int len, _iobuf *f, int *pnumwritt
       {
         --v6;
         write_char(*string++, f, pnumwritten);
+        if ( *pnumwritten == -1 )
+        {
+          if ( gbl_errno != 42 )
+            return;
+          write_char(0x3Fu, f, pnumwritten);
+        }
       }
-      while ( *pnumwritten != -1 && v6 > 0 );
+      while ( v6 > 0 );
     }
   }
   else

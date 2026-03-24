@@ -1,65 +1,63 @@
 /*
- * XREFs of KsepMatchInitMachineInfo @ 0x140B64EEC
+ * XREFs of KsepMatchInitMachineInfo @ 0x140A6A0D0
  * Callers:
- *     KseInitialize @ 0x140B4CCCC (KseInitialize.c)
+ *     KsepMatchInitialize @ 0x140A9224C (KsepMatchInitialize.c)
  * Callees:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     KsepMatchInitCpuInfo @ 0x140B64FBC (KsepMatchInitCpuInfo.c)
- *     KsepMatchInitAcpiOemInfo @ 0x140B6504C (KsepMatchInitAcpiOemInfo.c)
- *     KsepMatchInitBiosInfo @ 0x140B6519C (KsepMatchInitBiosInfo.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     KsepMatchInitBiosInfo @ 0x140A6A22C (KsepMatchInitBiosInfo.c)
+ *     KsepMatchInitCpuInfo @ 0x140A6A58C (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140A6A61C (KsepMatchInitAcpiOemInfo.c)
  */
 
 __int64 KsepMatchInitMachineInfo()
 {
   int matched; // ebx
   int v1; // ebx
-  int v2; // eax
-  int v3; // ebx
-  __int64 v4; // rcx
-  char v5; // al
-  char v7; // al
-  __int64 v8; // rcx
-  char v9; // al
-  __int64 v10; // rcx
+  int v2; // ebx
+  char v4; // al
+  __int64 v5; // rcx
+  char v6; // al
+  __int64 v7; // rcx
+  char v8; // al
+  __int64 v9; // rcx
 
   matched = KsepMatchInitAcpiOemInfo();
   if ( matched < 0 )
   {
-    v7 = KsepDebugFlag;
-    v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v8 + 1] = matched;
-    KsepHistoryErrors[2 * v8] = 655516;
-    if ( (v7 & 2) != 0 )
+    v4 = KsepDebugFlag;
+    v5 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v5 + 1] = matched;
+    KsepHistoryErrors[2 * v5] = 655516;
+    if ( (v4 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", matched);
-    KsepLogError(0LL, (__int64)"KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", matched);
+    KsepLogError(0, "KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", matched);
   }
   v1 = KsepMatchInitCpuInfo();
   if ( v1 < 0 )
   {
-    v9 = KsepDebugFlag;
-    v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v10 + 1] = v1;
-    KsepHistoryErrors[2 * v10] = 655522;
-    if ( (v9 & 2) != 0 )
+    v6 = KsepDebugFlag;
+    v7 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v7 + 1] = v1;
+    KsepHistoryErrors[2 * v7] = 655522;
+    if ( (v6 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v1);
-    KsepLogError(0LL, (__int64)"KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v1);
+    KsepLogError(0, "KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v1);
   }
   v2 = KsepMatchInitBiosInfo();
-  v3 = v2;
   if ( v2 < 0 )
   {
-    v4 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v4 + 1] = v2;
-    v5 = KsepDebugFlag;
-    KsepHistoryErrors[2 * v4] = 655528;
-    if ( (v5 & 2) != 0 )
-      KsepDebugPrint(0LL, "KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v3);
-    KsepLogError(0LL, (__int64)"KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v3);
+    v8 = KsepDebugFlag;
+    v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v9 + 1] = v2;
+    KsepHistoryErrors[2 * v9] = 655528;
+    if ( (v8 & 2) != 0 )
+      KsepDebugPrint(0LL, "KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v2);
+    KsepLogError(0, "KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v2);
   }
-  KsepMatchMachineInfo = (__int64)&xmmword_140C70D28;
-  qword_140C40D08 = (__int64)&xmmword_140C70D60;
-  qword_140C40D10 = (__int64)&xmmword_140C70D98;
-  qword_140C40D18 = (__int64)&xmmword_140C70DD0;
+  KsepMatchMachineInfo = (__int64)&xmmword_140C53FB8;
+  qword_140C2AFC8 = (__int64)&xmmword_140C541F8;
+  qword_140C2AFD0 = (__int64)&xmmword_140C54230;
+  qword_140C2AFD8 = (__int64)&xmmword_140C54268;
   return 0LL;
 }

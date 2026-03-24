@@ -1,69 +1,70 @@
 /*
- * XREFs of MiQueueWorkingSetRequest @ 0x14035E878
+ * XREFs of MiQueueWorkingSetRequest @ 0x1403A5454
  * Callers:
- *     MiCaptureAllWorkingSetAccessBits @ 0x14035E858 (MiCaptureAllWorkingSetAccessBits.c)
- *     MiEmptyAllWorkingSets @ 0x140634748 (MiEmptyAllWorkingSets.c)
- *     MiTrimNoStealPagesFromWorkingSets @ 0x1406354D0 (MiTrimNoStealPagesFromWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x14063570C (MmTrimFilePagesFromWorkingSets.c)
+ *     MiFindContiguousPages @ 0x140281D60 (MiFindContiguousPages.c)
+ *     MiCaptureAllWorkingSetAccessBits @ 0x1403A542C (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiEmptyAllWorkingSets @ 0x14053B138 (MiEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x14053C8EC (MmTrimFilePagesFromWorkingSets.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiQueueWorkingSetRequest(__int64 a1, int a2)
+NTSTATUS __fastcall MiQueueWorkingSetRequest(__int64 a1, int a2)
 {
-  __int64 v3; // rbx
-  int v4; // esi
-  unsigned __int64 OldIrql; // rbp
+  NTSTATUS result; // eax
+  __int64 v4; // rbx
+  int v5; // eax
+  unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
-  struct _KLOCK_QUEUE_HANDLE v12; // [rsp+30h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(&v12, 0, sizeof(v12));
-  if ( (*(_DWORD *)(a1 + 4) & 0x10) != 0 )
-    return 0LL;
-  v3 = *(_QWORD *)(a1 + 16920);
-  if ( !v3 )
-    return 0LL;
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &v12);
-  if ( !*(_DWORD *)(v3 + 40) )
-    KeResetEvent((PRKEVENT)v3);
-  if ( (a2 & *(_DWORD *)(v3 + 40)) == a2 )
+  result = *(_DWORD *)(a1 + 4);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( (result & 0x20) == 0 )
   {
-    v4 = 0;
-  }
-  else
-  {
-    v4 = 1;
-    *(_DWORD *)(v3 + 40) |= a2;
-  }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
-  OldIrql = v12.OldIrql;
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    v4 = *(_QWORD *)(a1 + 6848);
+    if ( v4 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << (v12.OldIrql + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+      v5 = *(_DWORD *)(v4 + 40);
+      if ( !v5 )
+      {
+        KeResetEvent((PRKEVENT)v4);
+        v5 = *(_DWORD *)(v4 + 40);
+      }
+      *(_DWORD *)(v4 + 40) = a2 | v5;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v11 = (v10 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v10;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(OldIrql);
+      KeSetEvent((PRKEVENT)(v4 + 96), 0, 0);
+      return KeWaitForSingleObject((PVOID)v4, WrVirtualMemory, 0, 0, 0LL);
     }
   }
-  __writecr8(OldIrql);
-  if ( v4 )
-    KeSetEvent((PRKEVENT)(v3 + 96), 0, 0);
-  if ( a2 != 1024 )
-    KeWaitForSingleObject((PVOID)v3, WrVirtualMemory, 0, 0, 0LL);
-  return 1LL;
+  return result;
 }

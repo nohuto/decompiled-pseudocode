@@ -1,30 +1,27 @@
 /*
- * XREFs of NtUserHungWindowFromGhostWindow @ 0x1C00B65E0
+ * XREFs of NtUserHungWindowFromGhostWindow @ 0x1C0128B30
  * Callers:
  *     <none>
  * Callees:
- *     ?_HungWindowFromGhostWindow@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C00CFB70 (-_HungWindowFromGhostWindow@@YAPEAUtagWND@@PEBU1@@Z.c)
+ *     _HungWindowFromGhostWindow @ 0x1C0041468 (_HungWindowFromGhostWindow.c)
  */
 
-__int64 __fastcall NtUserHungWindowFromGhostWindow(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserHungWindowFromGhostWindow(__int64 a1)
 {
-  const struct tagWND *v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rbx
-  struct tagWND *v10; // rax
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 *v5; // rax
 
-  EnterSharedCrit(a1, a2, a3);
-  v4 = (const struct tagWND *)ValidateHwnd(a1);
-  v9 = 0LL;
-  if ( v4 )
+  EnterSharedCrit(0LL, 1LL);
+  v2 = ValidateHwnd(a1);
+  v4 = 0LL;
+  if ( v2 )
   {
-    v10 = _HungWindowFromGhostWindow(v4);
-    if ( v10 )
-      v9 = *(_QWORD *)v10;
+    v5 = (__int64 *)HungWindowFromGhostWindow(v2);
+    if ( v5 )
+      v4 = *v5;
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

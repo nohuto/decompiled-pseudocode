@@ -1,5 +1,5 @@
 /*
- * XREFs of MiConvertStandbyToProto @ 0x14013EA30
+ * XREFs of MiConvertStandbyToProto @ 0x14013EA50
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  * Callees:
@@ -17,15 +17,15 @@
  *     MiTryLockLeafPage @ 0x140082A0C (MiTryLockLeafPage.c)
  *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     MiFillCombinePage @ 0x140121764 (MiFillCombinePage.c)
- *     MiUnlockNestedProtoPoolPage @ 0x14013489C (MiUnlockNestedProtoPoolPage.c)
- *     MiRecheckCombineVm @ 0x14013EED4 (MiRecheckCombineVm.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
- *     MiGetCrossPartitionCombineCharges @ 0x1402CBE14 (MiGetCrossPartitionCombineCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CBFF0 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x1401348BC (MiUnlockNestedProtoPoolPage.c)
+ *     MiRecheckCombineVm @ 0x14013EEF4 (MiRecheckCombineVm.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     MiGetCrossPartitionCombineCharges @ 0x1402CBF14 (MiGetCrossPartitionCombineCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
  */
 
 __int64 __fastcall MiConvertStandbyToProto(

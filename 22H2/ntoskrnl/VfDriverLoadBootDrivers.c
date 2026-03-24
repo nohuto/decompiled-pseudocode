@@ -1,21 +1,19 @@
 /*
- * XREFs of VfDriverLoadBootDrivers @ 0x140B5AB2C
+ * XREFs of VfDriverLoadBootDrivers @ 0x140A4EE74
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140B5A754 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLoadImage @ 0x140ABDE04 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x1409C20A0 (VfDriverLoadImage.c)
  */
 
 void __fastcall VfDriverLoadBootDrivers(_QWORD ***a1)
 {
-  __int64 v2; // rdx
-  _QWORD *v3; // rbx
-  __int64 v4; // rax
+  _QWORD *v2; // rbx
+  __int64 v3; // rax
 
-  v2 = (__int64)(*a1)[6];
-  v3 = **a1;
-  v4 = v2 + *((unsigned int *)*a1 + 16);
-  ViDriverKernelBase = v2;
-  for ( ViDriverKernelEnd = v4; v3 != a1; v3 = (_QWORD *)*v3 )
-    VfDriverLoadImage((__int64)v3, v2, 0);
+  v2 = **a1;
+  v3 = (__int64)(*a1)[6] + *((unsigned int *)*a1 + 16);
+  ViDriverKernelBase = (__int64)(*a1)[6];
+  for ( ViDriverKernelEnd = v3; v2 != a1; v2 = (_QWORD *)*v2 )
+    VfDriverLoadImage((__int64)v2, 0, 0, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C4FA0
+ * XREFs of ?IsOfType@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016EDE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CParticleAttractorGeneratedT<CParticleAttractor,CResource>::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 115;
+  return a2 == 113;
 }

@@ -1,62 +1,64 @@
 /*
- * XREFs of HalFlushAdapterBuffersEx @ 0x1405144A0
+ * XREFs of HalFlushAdapterBuffersEx @ 0x1403A2630
  * Callers:
- *     HalPutScatterGatherListV3 @ 0x14050F348 (HalPutScatterGatherListV3.c)
+ *     HalPutScatterGatherListV3 @ 0x1403A2520 (HalPutScatterGatherListV3.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B91AC (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaCheckMdlAccessibility @ 0x1404FF834 (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1404FFB34 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushDriverMdl @ 0x1404FFC44 (HalpDmaFlushDriverMdl.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404FFC84 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaFreeLa @ 0x1404FFE44 (HalpDmaFreeLa.c)
- *     HalpDmaControllerFlushChannel @ 0x1405166B4 (HalpDmaControllerFlushChannel.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14039F2B8 (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404B753C (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushDriverMdl @ 0x1404B764C (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404B768C (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaFreeLa @ 0x1404B7848 (HalpDmaFreeLa.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8BA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaControllerFlushChannel @ 0x1404CE550 (HalpDmaControllerFlushChannel.c)
  */
 
 __int64 __fastcall HalFlushAdapterBuffersEx(
         __int64 a1,
-        __int64 a2,
+        __int64 *a2,
         __int64 a3,
         unsigned __int64 a4,
-        unsigned int a5,
+        ULONG a5,
         char a6)
 {
   bool v7; // zf
-  __int64 v8; // rbp
-  __int64 v9; // rbx
-  struct _MDL *v11; // rsi
-  struct _MDL *Next; // r14
-  unsigned int v13; // esi
-  unsigned __int64 v14; // rax
-  unsigned __int64 v16; // r12
-  __int64 v17; // r14
-  unsigned int v18; // r9d
-  int v19; // r13d
+  __int64 v8; // r14
+  __int64 *v9; // rsi
+  struct _MDL *v11; // rbx
+  ULONG v12; // ebp
+  unsigned __int64 v13; // rax
+  __int64 v15; // rdx
+  struct _MDL *Next; // rbp
+  ULONG v17; // r9d
+  int v18; // ebx
   int AdapterCacheAlignment; // eax
-  __int64 v21; // r10
-  unsigned __int64 v22; // r11
-  __int64 v23; // r9
-  __int64 v24; // r8
-  char v25; // r13
-  PMDL v26; // r15
-  struct _MDL *v27; // rbx
-  unsigned int v28; // edx
-  unsigned int v29; // ecx
-  __int64 v30; // r9
-  PMDL Mdl[9]; // [rsp+40h] [rbp-48h] BYREF
-  char v32; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v33; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v20; // r10
+  unsigned __int64 v21; // r11
+  char v22; // r8
+  char v23; // r13
+  PMDL v24; // r12
+  struct _MDL *v25; // rbx
+  ULONG v26; // edx
+  ULONG v27; // ecx
+  unsigned __int64 v28; // r9
+  PMDL Mdl; // [rsp+40h] [rbp-48h] BYREF
+  char v30; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v31; // [rsp+A0h] [rbp+18h] BYREF
 
-  v7 = *(_DWORD *)(a1 + 520) == 3;
+  v7 = *(_DWORD *)(a1 + 512) == 2;
   v8 = a3;
   v9 = a2;
-  v32 = 0;
-  Mdl[0] = 0LL;
-  v33 = 0LL;
+  v30 = 0;
+  Mdl = 0LL;
+  v31 = 0LL;
   if ( v7 )
-    HalpDmaFreeLa(a1, (__int64 *)(a3 + 24));
-  v11 = *(struct _MDL **)(a1 + 552);
+  {
+    v15 = *(_QWORD *)(a3 + 24);
+    *(_QWORD *)(a3 + 40) = v15;
+    HalpDmaFreeLa(a1, v15, a3 + 32);
+  }
+  v11 = *(struct _MDL **)(a1 + 544);
   if ( v11 )
   {
     do
@@ -69,99 +71,99 @@ __int64 __fastcall HalFlushAdapterBuffersEx(
     }
     while ( Next );
   }
-  v13 = a5;
-  *(_QWORD *)(a1 + 552) = 0LL;
-  if ( v13 )
+  v12 = a5;
+  *(_QWORD *)(a1 + 544) = 0LL;
+  if ( !v12 )
   {
-    while ( 1 )
+    if ( !*(_BYTE *)(a1 + 433) )
+      HalpDmaControllerFlushChannel(*(_QWORD *)(a1 + 360), *(unsigned int *)(a1 + 372));
+    return 0LL;
+  }
+  if ( !v9 )
+    return 3221225485LL;
+  do
+  {
+    v13 = *((unsigned int *)v9 + 10);
+    if ( a4 < v13 )
+      break;
+    v9 = (__int64 *)*v9;
+    a4 -= v13;
+  }
+  while ( v9 );
+  if ( !v9 )
+    return 3221225485LL;
+  if ( !*(_BYTE *)(a1 + 433) )
+    HalpDmaControllerFlushChannel(*(_QWORD *)(a1 + 360), *(unsigned int *)(a1 + 372));
+  if ( !*(_BYTE *)(a1 + 432) )
+    return 0LL;
+  if ( v8 )
+  {
+    v17 = *(_DWORD *)(v8 + 16);
+    if ( *v9
+      || (v18 = *((_DWORD *)v9 + 11),
+          AdapterCacheAlignment = HalpDmaGetAdapterCacheAlignment(a1, a2, a3),
+          ((AdapterCacheAlignment - 1) & (unsigned int)v20) != 0)
+      && v21 >= (v20 & 0xFFFFFFFFFFFFF000uLL) )
     {
-      if ( !v9 )
-        return 3221225485LL;
-      v14 = *(unsigned int *)(v9 + 40);
-      if ( a4 < v14 )
-        break;
-      v9 = *(_QWORD *)v9;
-      a4 -= v14;
+      v12 = v17;
     }
-    if ( !*(_BYTE *)(a1 + 441) )
-      HalpDmaControllerFlushChannel(*(_QWORD *)(a1 + 368), *(unsigned int *)(a1 + 380));
-    if ( !*(_BYTE *)(a1 + 440) )
+    else
+    {
+      v12 = (-AdapterCacheAlignment & (v21 + AdapterCacheAlignment - 1)) - v18 - a4;
+      if ( v12 > v17 )
+        v12 = v17;
+    }
+  }
+  HalpDmaCheckMdlAccessibility(a1, v9, (unsigned int)a4, v12, &v30, &Mdl);
+  v22 = v30;
+  v23 = a6;
+  if ( v30 )
+  {
+    v24 = Mdl;
+    if ( !a6 )
+      HalpDmaFlushDriverMdl((ULONG_PTR)Mdl);
+    if ( v24 )
+    {
+      do
+      {
+        v25 = v24->Next;
+        IoFreeMdl(v24);
+        v24 = v25;
+      }
+      while ( v25 );
+    }
+    if ( !v8 )
       return 0LL;
-    v16 = a4;
-    v17 = v9;
-    if ( v8 )
-    {
-      v18 = *(_DWORD *)(v8 + 16);
-      if ( *(_QWORD *)v9
-        || (v19 = *(_DWORD *)(v9 + 44),
-            AdapterCacheAlignment = HalpDmaGetAdapterCacheAlignment(a1, a2),
-            ((AdapterCacheAlignment - 1) & (unsigned int)v21) != 0)
-        && v22 >= (v21 & 0xFFFFFFFFFFFFF000uLL) )
-      {
-        v13 = v18;
-      }
-      else
-      {
-        v13 = (~(AdapterCacheAlignment - 1) & (v22 + AdapterCacheAlignment - 1)) - v19 - a4;
-        if ( v13 > v18 )
-          v13 = v18;
-      }
-    }
-    HalpDmaCheckMdlAccessibility(a1, (_QWORD *)v9, a4, v13, &v32, (__int64 *)Mdl);
-    LOBYTE(v24) = v32;
-    v25 = a6;
-    if ( v32 )
-    {
-      v26 = Mdl[0];
-      if ( !a6 )
-        HalpDmaFlushDriverMdl(&Mdl[0]->Next, 1, v24, v23);
-      if ( v26 )
-      {
-        do
-        {
-          v27 = v26->Next;
-          IoFreeMdl(v26);
-          v26 = v27;
-        }
-        while ( v27 );
-      }
-      if ( !v8 )
-        return 0LL;
-      LOBYTE(v24) = v32;
-    }
-    else if ( !v8 )
-    {
-      return 3221225473LL;
-    }
+    v22 = v30;
+LABEL_35:
     *(_QWORD *)(v8 + 56) = v8;
-    while ( v13 )
+    while ( v12 )
     {
-      v28 = v13;
-      if ( !v17 )
+      v26 = v12;
+      if ( !v9 )
         break;
-      v29 = v13;
-      if ( *(_DWORD *)(v17 + 40) - (int)v16 <= v13 )
-        v29 = *(_DWORD *)(v17 + 40) - v16;
-      v30 = v16 + *(_QWORD *)(v17 + 32) + *(unsigned int *)(v17 + 44);
-      v13 -= v29;
-      if ( v13 && !*(_QWORD *)v17 )
+      v27 = v12;
+      if ( *((_DWORD *)v9 + 10) - (int)a4 <= v12 )
+        v27 = *((_DWORD *)v9 + 10) - a4;
+      v28 = a4 + v9[4] + *((unsigned int *)v9 + 11);
+      v12 -= v27;
+      if ( v12 && !*v9 )
       {
-        v29 = v28;
-        v13 = 0;
+        v27 = v26;
+        v12 = 0;
       }
-      if ( *(_BYTE *)(a1 + 442) )
-        HalpDmaFlushScatterTransferV3(a1, v17, v8, v30, v29, v25, v24, &v33);
+      if ( *(_BYTE *)(a1 + 434) )
+        HalpDmaFlushScatterTransferV3(a1, (_DWORD)v9, v8, v28, v27, v23, v22, (__int64)&v31);
       else
-        HalpDmaFlushContiguousTransferV3(a1, v17, v8, v30, v29, v25, v24, &v33);
-      v8 = v33;
-      v16 = 0LL;
-      v17 = *(_QWORD *)v17;
-      LOBYTE(v24) = v32;
+        HalpDmaFlushContiguousTransferV3(a1, (_DWORD)v9, v8, v28, v27, v23, v22, (__int64)&v31);
+      LODWORD(v8) = v31;
+      a4 = 0LL;
+      v9 = (__int64 *)*v9;
+      v22 = v30;
     }
+    return 0LL;
   }
-  else if ( !*(_BYTE *)(a1 + 441) )
-  {
-    HalpDmaControllerFlushChannel(*(_QWORD *)(a1 + 368), *(unsigned int *)(a1 + 380));
-  }
-  return 0LL;
+  if ( v8 )
+    goto LABEL_35;
+  return 3221225473LL;
 }

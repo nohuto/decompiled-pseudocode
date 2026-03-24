@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiMaskBlt @ 0x1C001C940
+ * XREFs of NtGdiMaskBlt @ 0x1C01093A0
  * Callers:
  *     <none>
  * Callees:
- *     GreMaskBlt @ 0x1C001C9BC (GreMaskBlt.c)
+ *     GreMaskBlt @ 0x1C010941C (GreMaskBlt.c)
  */
 
 __int64 __fastcall NtGdiMaskBlt(
@@ -12,7 +12,7 @@ __int64 __fastcall NtGdiMaskBlt(
         __int64 a3,
         __int64 a4,
         int a5,
-        __int64 a6,
+        HDC a6,
         int a7,
         int a8,
         HSURF a9,

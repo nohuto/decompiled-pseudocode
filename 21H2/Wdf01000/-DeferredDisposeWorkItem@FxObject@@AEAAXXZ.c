@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DeferredDisposeWorkItem@FxObject@@AEAAXXZ @ 0x1C006E300
+ * XREFs of ?DeferredDisposeWorkItem@FxObject@@AEAAXXZ @ 0x1C005B3B8
  * Callers:
- *     ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C006AB4C (-DrainListLocked@FxDisposeList@@AEAAXPEAE@Z.c)
+ *     ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C00551AC (-DrainListLocked@FxDisposeList@@AEAAXPEAE@Z.c)
  * Callees:
- *     ?DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z @ 0x1C0008CE0 (-DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z.c)
- *     ?PerformDisposingDisposeChildrenLocked@FxObject@@AEAAEEE@Z @ 0x1C000A9BC (-PerformDisposingDisposeChildrenLocked@FxObject@@AEAAEEE@Z.c)
- *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C000AA34 (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
- *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C000AB04 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
- *     ?ProcessDestroy@FxObject@@AEAAXXZ @ 0x1C000ACD0 (-ProcessDestroy@FxObject@@AEAAXXZ.c)
+ *     ?PerformDisposingDisposeChildrenLocked@FxObject@@AEAAEEE@Z @ 0x1C0004174 (-PerformDisposingDisposeChildrenLocked@FxObject@@AEAAEEE@Z.c)
+ *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C00041EC (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
+ *     ?ProcessDestroy@FxObject@@AEAAXXZ @ 0x1C0005034 (-ProcessDestroy@FxObject@@AEAAXXZ.c)
+ *     ?DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z @ 0x1C00082F0 (-DisposeChildrenWorker@FxObject@@AEAAEW4FxObjectState@@EE@Z.c)
+ *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C00155E4 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
  */
 
 void __fastcall FxObject::DeferredDisposeWorkItem(FxObject *this)
@@ -26,7 +26,7 @@ void __fastcall FxObject::DeferredDisposeWorkItem(FxObject *this)
   else if ( this->m_ObjectState == 6 )
   {
     FxObject::SetObjectStateLocked(this, 9u);
-    FxObject::DisposeChildrenWorker(this, FxObjectStateDeferedDeleting, v3, 0);
+    FxObject::DisposeChildrenWorker(this, 6u, v3, 0);
     FxObject::DeletedAndDisposedWorkerLocked(this, v3, 0);
   }
   else

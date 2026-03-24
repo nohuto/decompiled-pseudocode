@@ -1,59 +1,66 @@
 /*
- * XREFs of RtlDelete @ 0x14021EBA0
+ * XREFs of RtlDelete @ 0x140359960
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x14021D754 (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14021E048 (FsRtlFastUnlockSingleShared.c)
- *     RtlDeleteElementGenericTable @ 0x14021E9A0 (RtlDeleteElementGenericTable.c)
- *     RtlRemoveUnicodePrefix @ 0x140694580 (RtlRemoveUnicodePrefix.c)
- *     PfxRemovePrefix @ 0x1409B7B20 (PfxRemovePrefix.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14029FA64 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14029FE0C (FsRtlRemoveNodeFromTunnel.c)
+ *     RtlDeleteElementGenericTable @ 0x1402B8D50 (RtlDeleteElementGenericTable.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x140358CEC (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140359208 (FsRtlFastUnlockSingleShared.c)
+ *     RtlRemoveUnicodePrefix @ 0x1406BA500 (RtlRemoveUnicodePrefix.c)
+ *     PfxRemovePrefix @ 0x140911F00 (PfxRemovePrefix.c)
  * Callees:
- *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     SwapSplayLinks @ 0x14021EFFC (SwapSplayLinks.c)
- *     RtlSubtreePredecessor @ 0x14021F170 (RtlSubtreePredecessor.c)
+ *     SwapSplayLinks @ 0x1402A0094 (SwapSplayLinks.c)
+ *     RtlSubtreePredecessor @ 0x1402A0200 (RtlSubtreePredecessor.c)
+ *     RtlSplay @ 0x140359770 (RtlSplay.c)
  */
 
 PRTL_SPLAY_LINKS __stdcall RtlDelete(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax
-  _RTL_SPLAY_LINKS *v3; // rcx
-  __int64 v4; // rdx
-  PRTL_SPLAY_LINKS v5; // rax
   _RTL_SPLAY_LINKS *Parent; // rcx
+  _RTL_SPLAY_LINKS *v4; // rcx
+  __int64 v5; // rdx
+  PRTL_SPLAY_LINKS v6; // rax
   __int64 v7; // rdx
 
   result = Links->LeftChild;
-  if ( result
-    && (!Links->RightChild
-     || (v5 = RtlSubtreePredecessor(Links), SwapSplayLinks(v5, Links), (result = Links->LeftChild) != 0LL))
-    || (result = Links->RightChild) != 0LL )
+  if ( result )
   {
-    Parent = Links->Parent;
-    if ( Links->Parent != Links )
+    if ( Links->RightChild )
     {
-      v7 = 8LL;
-      if ( Parent->LeftChild != Links )
-        v7 = 16LL;
-      *(_RTL_SPLAY_LINKS **)((char *)&Parent->Parent + v7) = result;
-      v3 = Links->Parent;
-      result->Parent = Links->Parent;
-      return RtlSplay(v3);
+      v6 = RtlSubtreePredecessor(Links);
+      SwapSplayLinks(v6, Links);
+      result = Links->LeftChild;
     }
-    result->Parent = result;
+    if ( result )
+      goto LABEL_3;
+  }
+  result = Links->RightChild;
+  if ( result )
+  {
+LABEL_3:
+    Parent = Links->Parent;
+    if ( Links->Parent == Links )
+    {
+      result->Parent = result;
+      return result;
+    }
+    v7 = 8LL;
+    if ( Parent->LeftChild != Links )
+      v7 = 16LL;
+    *(_RTL_SPLAY_LINKS **)((char *)&Parent->Parent + v7) = result;
+    v4 = Links->Parent;
+    result->Parent = Links->Parent;
   }
   else
   {
-    v3 = Links->Parent;
-    if ( Links->Parent != Links )
-    {
-      v4 = 8LL;
-      if ( v3->LeftChild != Links )
-        v4 = 16LL;
-      *(_RTL_SPLAY_LINKS **)((char *)&v3->Parent + v4) = 0LL;
-      return RtlSplay(v3);
-    }
-    return 0LL;
+    v4 = Links->Parent;
+    if ( Links->Parent == Links )
+      return 0LL;
+    v5 = 8LL;
+    if ( v4->LeftChild != Links )
+      v5 = 16LL;
+    *(_RTL_SPLAY_LINKS **)((char *)&v4->Parent + v5) = 0LL;
   }
-  return result;
+  return RtlSplay(v4);
 }

@@ -1,23 +1,20 @@
 /*
- * XREFs of _anonymous_namespace_::GetKeyboardProcessor @ 0x1C006B304
+ * XREFs of _anonymous_namespace_::GetKeyboardProcessor @ 0x1C004DC74
  * Callers:
- *     GetKeyboardInputRoutingPolicy @ 0x1C006A7B0 (GetKeyboardInputRoutingPolicy.c)
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
- *     ApplyGatheredKeyboardDeviceCount @ 0x1C006C690 (ApplyGatheredKeyboardDeviceCount.c)
- *     SetKeyboardInputRoutingPolicy @ 0x1C006C724 (SetKeyboardInputRoutingPolicy.c)
- *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH11@Z @ 0x1C0077020 (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH11@Z.c)
- *     NtMITSetKeyboardOverriderState @ 0x1C0142120 (NtMITSetKeyboardOverriderState.c)
+ *     GetKeyboardInputRoutingPolicy @ 0x1C004CFB0 (GetKeyboardInputRoutingPolicy.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
+ *     SetKeyboardInputRoutingPolicy @ 0x1C00B6390 (SetKeyboardInputRoutingPolicy.c)
+ *     ApplyGatheredKeyboardDeviceCount @ 0x1C00B8270 (ApplyGatheredKeyboardDeviceCount.c)
+ *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z @ 0x1C00B8AC8 (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z.c)
+ *     NtMITSetKeyboardOverriderState @ 0x1C012B990 (NtMITSetKeyboardOverriderState.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall anonymous_namespace_::GetKeyboardProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 anonymous_namespace_::GetKeyboardProcessor()
 {
-  __int64 v4; // rcx
-
-  v4 = *(_QWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 3352);
-  if ( v4 )
-    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+  if ( qword_1C0245048 )
+    return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)qword_1C0245048 + 8LL))(qword_1C0245048);
   else
     return 0LL;
 }

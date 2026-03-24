@@ -1,5 +1,5 @@
 /*
- * XREFs of InitializeFeedbackData @ 0x1C00BE660
+ * XREFs of InitializeFeedbackData @ 0x1C0137220
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ struct _KEVENT *InitializeFeedbackData()
 {
   struct _KEVENT *result; // rax
 
-  result = (struct _KEVENT *)CreateKernelEvent(1LL, 0LL);
+  result = (struct _KEVENT *)CreateKernelEvent(1LL);
   Feedback::gpevtPointerCursorOperation = result;
   return result;
 }

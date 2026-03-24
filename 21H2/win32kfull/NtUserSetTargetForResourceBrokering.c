@@ -1,65 +1,61 @@
 /*
- * XREFs of NtUserSetTargetForResourceBrokering @ 0x1C01FE1F0
+ * XREFs of NtUserSetTargetForResourceBrokering @ 0x1C0007B60
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z @ 0x1C01CF9F0 (-_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z.c)
+ *     ?_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z @ 0x1C0007C7C (-_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserSetTargetForResourceBrokering(int a1, unsigned int a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rdi
-  struct tagTHREADINFO *v6; // rsi
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  __int64 v10; // rcx
+  __int64 v4; // rdi
+  __int64 v5; // rsi
+  __int64 v6; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
+  v4 = 0LL;
   v5 = 0LL;
-  v6 = 0LL;
   if ( a1 )
-    goto LABEL_2;
-  if ( (*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 820LL) & 0x30) != 0x10 )
-  {
-LABEL_5:
-    v7 = 5LL;
-    goto LABEL_3;
-  }
-  if ( !a2 )
-  {
-LABEL_13:
-    _SetTargetForCursorApiBrokering(gptiCurrent, v6);
-    v5 = 1LL;
     goto LABEL_14;
-  }
-  v9 = PtiFromThreadId(a2);
-  v6 = (struct tagTHREADINFO *)v9;
-  if ( v9 )
+  if ( (*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 820LL) & 0x30) == 0x10 )
   {
-    if ( v9 == gptiCurrent )
+    if ( !a2 )
+      goto LABEL_12;
+    v8 = PtiFromThreadId(a2);
+    v5 = v8;
+    if ( v8 )
     {
-      v6 = 0LL;
-    }
-    else
-    {
-      v10 = *(_QWORD *)(v9 + 424);
-      if ( (*(_DWORD *)(v10 + 820) & 0x30) != 0x10
-        || !(unsigned __int8)PsIsWin32KFilterEnabledForProcess(*(_QWORD *)v10)
-        && !(unsigned __int8)PsIsWin32KFilterAuditEnabledForProcess(**((_QWORD **)v6 + 53)) )
+      if ( v8 == gptiCurrent )
       {
-        goto LABEL_5;
+        v5 = 0LL;
       }
+      else
+      {
+        v9 = *(_QWORD *)(v8 + 424);
+        if ( (*(_DWORD *)(v9 + 820) & 0x30) != 0x10
+          || !(unsigned __int8)PsIsWin32KFilterEnabledForProcess(*(_QWORD *)v9)
+          && !(unsigned __int8)PsIsWin32KFilterAuditEnabledForProcess(**(_QWORD **)(v5 + 424)) )
+        {
+          goto LABEL_3;
+        }
+      }
+LABEL_12:
+      _SetTargetForCursorApiBrokering(gptiCurrent, (struct tagTHREADINFO *)v5);
+      v4 = 1LL;
+      goto LABEL_5;
     }
-    goto LABEL_13;
-  }
-LABEL_2:
-  v7 = 87LL;
-LABEL_3:
-  UserSetLastError(v7, v4);
 LABEL_14:
-  UserSessionSwitchLeaveCrit(v8);
-  return v5;
+    v6 = 87LL;
+    goto LABEL_4;
+  }
+LABEL_3:
+  v6 = 5LL;
+LABEL_4:
+  UserSetLastError(v6);
+LABEL_5:
+  UserSessionSwitchLeaveCrit();
+  return v4;
 }

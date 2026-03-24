@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CLinearGradientBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021D460
+ * XREFs of ?Initialize@CLinearGradientBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E6D00
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 __int64 __fastcall DirectComposition::CLinearGradientBrushMarshaler::Initialize(
         DirectComposition::CLinearGradientBrushMarshaler *this)
 {
-  *((_DWORD *)this + 32) = 1065353216;
+  *((_DWORD *)this + 30) = 1065353216;
   return 0LL;
 }

@@ -1,54 +1,46 @@
 /*
- * XREFs of AlpcpCreateView @ 0x1407A66CC
+ * XREFs of AlpcpCreateView @ 0x140660B40
  * Callers:
- *     AlpcpCreateSectionView @ 0x14066C5B0 (AlpcpCreateSectionView.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x1407A4E8C (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140661B50 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpCreateSectionView @ 0x1406D2558 (AlpcpCreateSectionView.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiMapViewInSystemSpace @ 0x1406F3FDC (MiMapViewInSystemSpace.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     MmMapSecureViewOfSection @ 0x1407A6574 (MmMapSecureViewOfSection.c)
- *     AlpcpInsertResourcePort @ 0x1407A6950 (AlpcpInsertResourcePort.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x1407A73B0 (AlpcpAllocateBlob.c)
- *     AlpcpReferenceBlob @ 0x1407A7F84 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1407B0F40 (AlpcpUnlockBlob.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
+ *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
+ *     AlpcpInsertResourcePort @ 0x140660DCC (AlpcpInsertResourcePort.c)
+ *     MmMapSecureViewOfSection @ 0x140660E50 (MmMapSecureViewOfSection.c)
+ *     MiMapViewInSystemSpace @ 0x1406E887C (MiMapViewInSystemSpace.c)
  */
 
 __int64 __fastcall AlpcpCreateView(ULONG_PTR BugCheckParameter2, _QWORD *Object, ULONG_PTR *a3)
 {
   ULONG_PTR v3; // r14
-  int v4; // r12d
   unsigned int v7; // ebx
   unsigned __int64 v8; // rax
   __int64 v9; // r13
-  void *Blob; // rax
+  _OWORD *Blob; // rax
   ULONG_PTR v11; // rsi
-  __int64 v12; // r9
+  int v12; // r9d
   bool v13; // zf
   int v14; // eax
   __int64 v15; // rax
-  int v17; // [rsp+20h] [rbp-48h]
-  int v18; // [rsp+38h] [rbp-30h]
-  int v19; // [rsp+40h] [rbp-28h]
-  int v20; // [rsp+48h] [rbp-20h]
-  int v21; // [rsp+50h] [rbp-18h]
-  __int64 v22; // [rsp+B0h] [rbp+48h] BYREF
-  __int64 v23; // [rsp+B8h] [rbp+50h] BYREF
-  ULONG_PTR *v24; // [rsp+C0h] [rbp+58h]
-  __int64 v25; // [rsp+C8h] [rbp+60h] BYREF
+  int v17; // [rsp+B0h] [rbp+48h]
+  __int64 v18; // [rsp+B8h] [rbp+50h] BYREF
+  __int64 v19; // [rsp+C0h] [rbp+58h] BYREF
+  __int64 v20; // [rsp+C8h] [rbp+60h] BYREF
 
-  v24 = a3;
   v3 = *(_QWORD *)(BugCheckParameter2 + 16);
-  v4 = 0;
-  v23 = 0LL;
-  v22 = 0LL;
+  v19 = 0LL;
+  v18 = 0LL;
   *a3 = 0LL;
   AlpcpLockForCachedReferenceBlob(v3);
   if ( (Object[52] & 0x20) != 0 )
@@ -70,55 +62,51 @@ __int64 __fastcall AlpcpCreateView(ULONG_PTR BugCheckParameter2, _QWORD *Object,
     }
     else
     {
-      Blob = (void *)AlpcpAllocateBlob(AlpcViewType, 96LL, 0LL);
+      Blob = AlpcpAllocateBlob((__int64)AlpcViewType, 96LL, 0);
       v11 = (ULONG_PTR)Blob;
       if ( Blob )
       {
         memset(Blob, 0, 0x60uLL);
         v13 = (Object[32] & 0x100000) == 0;
-        v22 = *(_QWORD *)(BugCheckParameter2 + 24);
-        v25 = *(_QWORD *)(BugCheckParameter2 + 40);
+        v18 = *(_QWORD *)(BugCheckParameter2 + 24);
+        v20 = *(_QWORD *)(BugCheckParameter2 + 40);
         if ( v13 )
         {
           if ( (*(_DWORD *)(v3 + 48) & 2) != 0 )
-            v14 = MmMapSecureViewOfSection(
-                    *(_QWORD *)v3,
-                    v9,
-                    &v23,
-                    v12,
-                    v17,
-                    (unsigned int *)&v22,
-                    &v25,
-                    v18,
-                    v19,
-                    v20,
-                    v21,
-                    v11 + 56);
+            v14 = MmMapSecureViewOfSection(*(_QWORD *)v3, v9, (unsigned int)&v19, v12);
           else
             v14 = MmMapViewOfSection(
                     **(_QWORD **)(BugCheckParameter2 + 16),
                     v9,
-                    &v23,
+                    &v19,
                     0LL,
-                    0LL,
-                    (unsigned int *)&v22,
-                    &v25,
+                    0,
+                    (__int64)&v18,
+                    &v20,
                     2,
                     0,
                     4);
+          v17 = 0;
         }
         else
         {
-          v14 = MiMapViewInSystemSpace(*(_QWORD *)v3, &v23, (unsigned __int64 *)&v25, &v22, 0LL, 0LL);
-          v4 = 8;
+          v14 = MiMapViewInSystemSpace(
+                  *(_QWORD *)v3,
+                  (unsigned int)&unk_140C4CD68,
+                  (unsigned int)&v19,
+                  (unsigned int)&v20,
+                  (__int64)&v18,
+                  0LL,
+                  0LL);
+          v17 = 8;
         }
         v7 = v14;
         if ( v14 >= 0 )
         {
           AlpcpReferenceBlob(v11);
-          *(_QWORD *)(v11 + 40) = v23;
-          *(_QWORD *)(v11 + 48) = v25;
-          *(_DWORD *)(v11 + 72) = v4 | *(_DWORD *)(v11 + 72) & 0xFFFFFFF7 | 1;
+          *(_QWORD *)(v11 + 40) = v19;
+          *(_QWORD *)(v11 + 48) = v20;
+          *(_DWORD *)(v11 + 72) = v17 | *(_DWORD *)(v11 + 72) & 0xFFFFFFF7 | 1;
           ObfReferenceObjectWithTag((PVOID)v9, 0x63706C41u);
           *(_QWORD *)(v11 + 32) = v9;
           ObfReferenceObject(Object);
@@ -142,8 +130,8 @@ __int64 __fastcall AlpcpCreateView(ULONG_PTR BugCheckParameter2, _QWORD *Object,
           KeAbPostRelease(v9 + 2048);
           if ( (*(_DWORD *)(BugCheckParameter2 + 48) & 1) != 0 )
             *(_QWORD *)(BugCheckParameter2 + 80) = v11;
+          *a3 = v11;
           v7 = 0;
-          *v24 = v11;
         }
         else
         {

@@ -1,13 +1,12 @@
 /*
- * XREFs of ?xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01CE1CC
+ * XREFs of ?xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01D1E38
  * Callers:
- *     ?RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01CD8B0 (-RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?xxxSetAutoRotationState@CLegacyRotationMgr@@UEAAJH@Z @ 0x1C01CE000 (-xxxSetAutoRotationState@CLegacyRotationMgr@@UEAAJH@Z.c)
+ *     ?RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01D14E0 (-RotationLockTogglePressed@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?xxxSetAutoRotationState@CLegacyRotationMgr@@UEAAJH@Z @ 0x1C01D1C50 (-xxxSetAutoRotationState@CLegacyRotationMgr@@UEAAJH@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C00D12FC (-UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C0126D08 (-UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall CLegacyRotationMgr::xxxSetSlateAutoRotationState(CLegacyRotationMgr *this, int a2)
@@ -27,23 +26,16 @@ __int64 __fastcall CLegacyRotationMgr::xxxSetSlateAutoRotationState(CLegacyRotat
               L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AutoRotation");
   if ( updated >= 0 )
   {
-    dword_1C0331998 = a2;
-    if ( (unsigned int)dword_1C03263F8 > 5 )
+    dword_1C0336638 = a2;
+    if ( (unsigned int)dword_1C032B3D8 > 5
+      && (qword_1C032B3E8 & 0x200000000001LL) != 0
+      && (qword_1C032B3F0 & 0x200000000001LL) == qword_1C032B3F0 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C03263F8, 0x200000000001LL) )
-      {
-        v9 = 0;
-        v7 = &v5;
-        v5 = a2;
-        v8 = 4;
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_1C03263F8,
-          (unsigned __int8 *)dword_1C02EDB49,
-          0LL,
-          0LL,
-          3u,
-          &v6);
-      }
+      v9 = 0;
+      v7 = &v5;
+      v5 = a2;
+      v8 = 4;
+      tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032B3D8, (int)&dword_1C02F1119, 0, 0, 3u, &v6);
     }
   }
   return (unsigned int)updated;

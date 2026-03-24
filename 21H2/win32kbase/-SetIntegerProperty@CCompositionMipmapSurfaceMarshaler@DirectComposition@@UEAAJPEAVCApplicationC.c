@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02376D0
+ * XREFs of ?SetIntegerProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F7320
  * Callers:
  *     <none>
  * Callees:
@@ -17,7 +17,7 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetInt
   result = 0LL;
   if ( a3 )
     return 3221225485LL;
-  if ( *((_DWORD *)this + 18) != a4 )
-    *((_DWORD *)this + 18) = a4;
+  if ( *((_DWORD *)this + 16) != a4 )
+    *((_DWORD *)this + 16) = a4;
   return result;
 }

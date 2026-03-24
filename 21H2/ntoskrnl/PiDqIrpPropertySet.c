@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDqIrpPropertySet @ 0x14076DD0C
+ * XREFs of PiDqIrpPropertySet @ 0x14072E3E4
  * Callers:
- *     PiDqDispatch @ 0x140776650 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PiDqOpenObjectRegKey @ 0x14069984C (PiDqOpenObjectRegKey.c)
- *     PiPnpRtlSetObjectProperty @ 0x140771524 (PiPnpRtlSetObjectProperty.c)
- *     _PnpSetGenericStoreProperty @ 0x140771FFC (_PnpSetGenericStoreProperty.c)
- *     PiDqGetPnpObjectType @ 0x140777298 (PiDqGetPnpObjectType.c)
- *     PiPnpRtlObjectEventWorker @ 0x140778830 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     PiAuDoesClientHaveAccess @ 0x14078A600 (PiAuDoesClientHaveAccess.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PiDqGetPnpObjectType @ 0x1406386A0 (PiDqGetPnpObjectType.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
+ *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x140746798 (_PnpSetGenericStoreProperty.c)
+ *     PiPnpRtlObjectEventWorker @ 0x14074A010 (PiPnpRtlObjectEventWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
@@ -23,7 +23,7 @@ __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
   char v4; // si
   struct _IRP *MasterIrp; // rcx
   NTSTATUS v6; // edi
-  int v7; // r10d
+  __int64 v7; // r10
   unsigned int PnpObjectType; // r12d
   unsigned int v9; // eax
   _DWORD *v10; // rcx
@@ -54,12 +54,12 @@ __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
   v6 = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v20);
   if ( v6 < 0 )
     goto LABEL_27;
-  NdrMesTypeDecode3(v20, "TP 3\a", &off_1400023D8, &off_140C02FB0, 2, &P);
+  NdrMesTypeDecode3(v20, "TP 3\a", &off_140001580, &off_140C01A50, 2, &P);
   if ( !P
     || !*((_QWORD *)P + 1)
     || !*((_QWORD *)P + 3)
     || !*((_DWORD *)P + 4)
-    || (PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)P)) == 0 )
+    || (PnpObjectType = PiDqGetPnpObjectType(*(_DWORD *)P)) == 0 )
   {
 LABEL_44:
     v6 = -1073741811;
@@ -84,11 +84,11 @@ LABEL_44:
     }
     while ( v11 );
   }
-  if ( v3 && !(unsigned __int8)PiAuDoesClientHaveAccess(2LL) )
+  if ( v3 && !PiAuDoesClientHaveAccess(2u) )
     goto LABEL_38;
   if ( v4 )
   {
-    if ( (unsigned __int8)PiAuDoesClientHaveAccess(256LL) )
+    if ( PiAuDoesClientHaveAccess(0x100u) )
     {
       v6 = PiDqOpenObjectRegKey(1, *((_QWORD *)P + 1), PnpObjectType, 7, 1, 0LL, &v19);
       if ( v6 < 0 )
@@ -150,7 +150,7 @@ LABEL_27:
   if ( v20 )
     MesHandleFree();
   if ( v21 )
-    PiPnpRtlEndOperation(v21);
+    PiPnpRtlEndOperation((PVOID **)v21);
   Irp->IoStatus.Status = v6;
   IofCompleteRequest(Irp, 0);
   return (unsigned int)v6;

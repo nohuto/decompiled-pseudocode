@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDiagTracePassiveCooling @ 0x14098FFB0
+ * XREFs of PopDiagTracePassiveCooling @ 0x1408EABD8
  * Callers:
- *     PopThermalWorker @ 0x140801D90 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x1407C0A30 (PopThermalWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ExSystemTimeToLocalTime @ 0x14033B0F0 (ExSystemTimeToLocalTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExSystemTimeToLocalTime @ 0x14032C4F0 (ExSystemTimeToLocalTime.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int a4, unsigned int a5)
 {
   _UNKNOWN **DeviceAttachmentBaseRefWithTag; // rax
   bool v9; // cc
-  void *v10; // rdi
-  __int64 v11; // rax
+  void *v10; // rbx
+  __int64 v11; // rdx
   unsigned int v12; // kr00_4
   unsigned int v13; // kr04_4
   const EVENT_DESCRIPTOR *v14; // rdx
@@ -78,47 +78,48 @@ char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int 
         DeviceAttachmentBaseRefWithTag = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(a2, 0x67446F50u);
         v10 = DeviceAttachmentBaseRefWithTag;
         if ( DeviceAttachmentBaseRefWithTag )
-        {
           v11 = *((_QWORD *)DeviceAttachmentBaseRefWithTag[39] + 5);
-          if ( v11 )
-          {
-            LOWORD(v16) = *(_WORD *)(v11 + 128) >> 1;
-            UserData.Ptr = (ULONGLONG)&v16;
-            *(_QWORD *)&UserData.Size = 2LL;
-            v22 = *(_QWORD *)(v11 + 136);
-            v23 = 2 * (unsigned int)(unsigned __int16)v16;
-            SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
-            ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
-            v25 = 8LL;
-            p_LocalTime = &LocalTime;
-            v28 = &v18;
-            v27 = 2LL;
-            v29 = 4LL;
-            v31 = 4LL;
-            LOWORD(v17) = a3 != 0;
-            v26 = &v17;
-            v12 = *(_DWORD *)(a1 + 20);
-            v33 = 4LL;
-            LODWORD(v18) = v12 / 0xA;
-            v13 = *(_DWORD *)(a1 + 16);
-            v35 = 4LL;
-            v30 = (char *)&v18 + 4;
-            v32 = a1 + 4;
-            v34 = a1 + 8;
-            v36 = a1 + 12;
-            v38 = &v43;
-            v40 = a1 + 80;
-            HIDWORD(v18) = v13 / 0xA;
-            v14 = &POP_ETW_EVENT_PASSIVE_COOLING_DIAGNOSTIC;
-            v37 = 4LL;
-            v39 = 4LL;
-            v41 = 4LL;
-            if ( a5 )
-              v14 = &POP_ETW_EVENT_PASSIVE_COOLING_OPERATIONAL;
-            EtwWrite(PopDiagHandle, v14, 0LL, 0xBu, &UserData);
-          }
-          LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v10, 0x67446F50u);
+        else
+          v11 = 0LL;
+        if ( v11 )
+        {
+          LOWORD(v16) = *(_WORD *)(v11 + 128) >> 1;
+          UserData.Ptr = (ULONGLONG)&v16;
+          *(_QWORD *)&UserData.Size = 2LL;
+          v22 = *(_QWORD *)(v11 + 136);
+          v23 = 2 * (unsigned int)(unsigned __int16)v16;
+          SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
+          ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
+          v25 = 8LL;
+          p_LocalTime = &LocalTime;
+          v28 = &v18;
+          v27 = 2LL;
+          v29 = 4LL;
+          v31 = 4LL;
+          LOWORD(v17) = a3 != 0;
+          v26 = &v17;
+          v12 = *(_DWORD *)(a1 + 20);
+          v33 = 4LL;
+          LODWORD(v18) = v12 / 0xA;
+          v13 = *(_DWORD *)(a1 + 16);
+          v35 = 4LL;
+          v30 = (char *)&v18 + 4;
+          v32 = a1 + 4;
+          v34 = a1 + 8;
+          v36 = a1 + 12;
+          v38 = &v43;
+          v40 = a1 + 80;
+          HIDWORD(v18) = v13 / 0xA;
+          v14 = &POP_ETW_EVENT_PASSIVE_COOLING_DIAGNOSTIC;
+          v37 = 4LL;
+          v39 = 4LL;
+          v41 = 4LL;
+          if ( a5 )
+            v14 = &POP_ETW_EVENT_PASSIVE_COOLING_OPERATIONAL;
+          LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwWrite(PopDiagHandle, v14, 0LL, 0xBu, &UserData);
         }
+        if ( v10 )
+          LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v10, 0x67446F50u);
       }
     }
   }

@@ -1,16 +1,15 @@
 /*
- * XREFs of ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00438D8
+ * XREFs of ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AC35C
  * Callers:
- *     RIMDeviceIoControl @ 0x1C0043640 (RIMDeviceIoControl.c)
- *     RawInputManagerObjectDelete @ 0x1C004926C (RawInputManagerObjectDelete.c)
- *     RIMRemoveFromActiveDevices @ 0x1C0194D44 (RIMRemoveFromActiveDevices.c)
- *     RIMTransformCoordinatesFromDigitizer @ 0x1C0198DA0 (RIMTransformCoordinatesFromDigitizer.c)
- *     RIMTransformDimensionFromDigitizer @ 0x1C0198E70 (RIMTransformDimensionFromDigitizer.c)
- *     RIMAllocateAndLinkHidTLCInfo @ 0x1C0199C38 (RIMAllocateAndLinkHidTLCInfo.c)
- *     RIMFreeHidTLCInfo @ 0x1C0199EA0 (RIMFreeHidTLCInfo.c)
- *     RIMSearchHidTLCInfo @ 0x1C019A000 (RIMSearchHidTLCInfo.c)
+ *     RawInputManagerObjectDelete @ 0x1C005187C (RawInputManagerObjectDelete.c)
+ *     RIMDeviceIoControl @ 0x1C0051E70 (RIMDeviceIoControl.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C00AC134 (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMFreeHidTLCInfo @ 0x1C00AC210 (RIMFreeHidTLCInfo.c)
+ *     RIMSearchHidTLCInfo @ 0x1C00AC2AC (RIMSearchHidTLCInfo.c)
+ *     RIMTransformCoordinatesFromDigitizer @ 0x1C0165250 (RIMTransformCoordinatesFromDigitizer.c)
+ *     RIMTransformDimensionFromDigitizer @ 0x1C0165340 (RIMTransformDimensionFromDigitizer.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
  */
 
 RIMLOCKExclusiveIfNeeded *__fastcall RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded(

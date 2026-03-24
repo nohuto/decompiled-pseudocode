@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenMutant @ 0x14068A010
+ * XREFs of NtOpenMutant @ 0x1406851F0
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, int a3)

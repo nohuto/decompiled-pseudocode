@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpYDIB_ExpCX @ 0x1C025EC14
+ * XREFs of ExpYDIB_ExpCX @ 0x1C02673B0
  * Callers:
- *     ExpandDIB_CY_ExpCX @ 0x1C025FB80 (ExpandDIB_CY_ExpCX.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C0268310 (ExpandDIB_CY_ExpCX.c)
  * Callees:
  *     <none>
  */

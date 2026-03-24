@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TryToAcquireLock@FxInterrupt@@QEAAEXZ @ 0x1C008D414
+ * XREFs of ?TryToAcquireLock@FxInterrupt@@QEAAEXZ @ 0x1C0089C78
  * Callers:
- *     imp_WdfInterruptTryToAcquireLock @ 0x1C0083170 (imp_WdfInterruptTryToAcquireLock.c)
+ *     imp_WdfInterruptTryToAcquireLock @ 0x1C0078AC0 (imp_WdfInterruptTryToAcquireLock.c)
  * Callees:
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
  */
 
 bool __fastcall FxInterrupt::TryToAcquireLock(FxInterrupt *this, _FX_DRIVER_GLOBALS *a2)

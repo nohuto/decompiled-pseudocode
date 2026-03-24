@@ -1,62 +1,85 @@
 /*
- * XREFs of KiCheckAndRearmForceIdle @ 0x14036E024
+ * XREFs of KiCheckAndRearmForceIdle @ 0x140328AEC
  * Callers:
- *     KiTimer2Expiration @ 0x1402514C0 (KiTimer2Expiration.c)
- *     KiCallInterruptServiceRoutine @ 0x140324770 (KiCallInterruptServiceRoutine.c)
+ *     KiTimer2Expiration @ 0x140248150 (KiTimer2Expiration.c)
+ *     KiCallInterruptServiceRoutine @ 0x1403439C0 (KiCallInterruptServiceRoutine.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KeRemoveQueueDpcEx @ 0x14031EEF0 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057D324 (KiSetForceIdleState.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeRemoveQueueDpcEx @ 0x1403214A0 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x1405236E0 (KiSetForceIdleState.c)
  */
 
-void KiCheckAndRearmForceIdle()
+void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v2; // eax
-  signed __int32 v3; // ett
-  int v4; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v5; // [rsp+38h] [rbp+10h] BYREF
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  struct _KPRCB *v6; // rcx
+  _DWORD *v7; // rdx
+  int v8; // eax
+  _DWORD *v9; // rcx
+  int v10; // eax
+  int v11; // eax
+  int v12; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v13; // [rsp+38h] [rbp+10h] BYREF
 
-  v5.QuadPart = 0LL;
+  v13.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
-  v4 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+  CurrentPrcb = KeGetCurrentPrcb();
+  v12 = 0;
+  while ( 1 )
   {
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v8 = SchedulerAssist[6];
+        SchedulerAssist[6] = v8 + 1;
+        if ( v8 == -1 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+      break;
+    v9 = CurrentPrcb->SchedulerAssist;
+    if ( v9 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v10 = v9[6] - 1;
+        v9[6] = v10;
+        if ( !v10 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v4);
+      KeYieldProcessorEx(&v12, a2, a3, a4);
     while ( KiForceIdleLock );
   }
   if ( KiForceIdleState == 1 )
   {
     KeRemoveQueueDpcEx((__int64)&KiForceIdleStartDpc, 0);
     KiSetForceIdleState(2LL);
-LABEL_9:
-    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v5);
-    goto LABEL_10;
   }
-  if ( KiForceIdleState == 2 )
-    goto LABEL_9;
-LABEL_10:
-  _InterlockedAnd64(&KiForceIdleLock, 0LL);
-  CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
+  else if ( KiForceIdleState != 2 )
   {
-    _m_prefetchw(SchedulerAssist);
-    v2 = *SchedulerAssist;
-    do
-    {
-      v3 = v2;
-      v2 = _InterlockedCompareExchange(SchedulerAssist, v2 & 0xFFDFFFFF, v2);
-    }
-    while ( v3 != v2 );
-    if ( (v2 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    goto LABEL_7;
+  }
+  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v13);
+LABEL_7:
+  _InterlockedAnd64(&KiForceIdleLock, 0LL);
+  v6 = KeGetCurrentPrcb();
+  v7 = v6->SchedulerAssist;
+  if ( v7 && v6->NestingLevel <= 1u )
+  {
+    v11 = v7[6] - 1;
+    v7[6] = v11;
+    if ( !v11 )
+      KiRemoveSystemWorkPriorityKick(v6);
   }
   _enable();
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpHiveRootSecurityDescriptor @ 0x1407335A0
+ * XREFs of CmpHiveRootSecurityDescriptor @ 0x140733580
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407325A0 (CmpFinishSystemHivesLoad.c)
- *     CmpSetVersionData @ 0x140733098 (CmpSetVersionData.c)
+ *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
+ *     CmpSetVersionData @ 0x140733078 (CmpSetVersionData.c)
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  *     CmpInitializePreloadedHives @ 0x1409C3A28 (CmpInitializePreloadedHives.c)
  *     CmpCreateRegistryRoot @ 0x1409C3FAC (CmpCreateRegistryRoot.c)
  * Callees:
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE00 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE20 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 ACL *CmpHiveRootSecurityDescriptor()

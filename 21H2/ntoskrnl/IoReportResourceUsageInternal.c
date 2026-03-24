@@ -1,14 +1,14 @@
 /*
- * XREFs of IoReportResourceUsageInternal @ 0x140945128
+ * XREFs of IoReportResourceUsageInternal @ 0x1408A02B8
  * Callers:
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     IoReportResourceForDetection @ 0x140944D50 (IoReportResourceForDetection.c)
- *     IoReportResourceUsage @ 0x140944F40 (IoReportResourceUsage.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     IoReportResourceForDetection @ 0x14089FEE0 (IoReportResourceForDetection.c)
+ *     IoReportResourceUsage @ 0x1408A00D0 (IoReportResourceUsage.c)
  * Callees:
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
- *     PnpCmResourcesToIoResources @ 0x140821D18 (PnpCmResourcesToIoResources.c)
- *     IopChangeInterfaceType @ 0x14094524C (IopChangeInterfaceType.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
+ *     IopChangeInterfaceType @ 0x1408A03DC (IopChangeInterfaceType.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoReportResourceUsageInternal(
@@ -26,7 +26,7 @@ __int64 __fastcall IoReportResourceUsageInternal(
   _DWORD *v10; // rdi
   unsigned int v11; // ebx
   int v13; // r13d
-  _DWORD *v14; // rsi
+  char *v14; // rsi
   _BYTE *v16; // r15
   unsigned int v17; // ebp
   char v18; // r14
@@ -38,22 +38,21 @@ __int64 __fastcall IoReportResourceUsageInternal(
   v11 = 0;
   v13 = a1;
   if ( !a7 )
-  {
-    if ( !a4 )
-    {
-LABEL_8:
-      v14 = 0LL;
-      v10 = 0LL;
-      goto LABEL_9;
-    }
     v10 = a4;
+  v14 = 0LL;
+  if ( v10 )
+  {
+    if ( *v10 && v10[4] )
+    {
+      v14 = PnpCmResourcesToIoResources(a1, v10, 12288);
+      if ( !v14 )
+        return 3221225473LL;
+    }
+    else
+    {
+      v10 = 0LL;
+    }
   }
-  if ( !*v10 || !v10[4] )
-    goto LABEL_8;
-  v14 = PnpCmResourcesToIoResources(a1, v10, 12288);
-  if ( !v14 )
-    return 3221225473LL;
-LABEL_9:
   v16 = a10;
   v17 = 0;
   P = v10;

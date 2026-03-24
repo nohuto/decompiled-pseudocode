@@ -1,63 +1,37 @@
 /*
- * XREFs of NtUserInitializeTouchInjection @ 0x1C01D5170
+ * XREFs of NtUserInitializeTouchInjection @ 0x1C01FD410
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AED34 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
- *     _InitializeTouchInjectionWorker @ 0x1C01B0640 (_InitializeTouchInjectionWorker.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01DAF04 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
+ *     _InitializeTouchInjectionWorker @ 0x1C01DC5D0 (_InitializeTouchInjectionWorker.c)
+ *     ?TraceLoggingTouchInjection@@YAXHHHK@Z @ 0x1C0225358 (-TraceLoggingTouchInjection@@YAXHHHK@Z.c)
  */
 
 __int64 __fastcall NtUserInitializeTouchInjection(unsigned int a1, unsigned int a2)
 {
-  int v3; // ebx
-  int v5; // edx
-  int v6; // r8d
-  __int64 v7; // rbp
-  int v8; // ecx
-  char v10; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v4; // rbx
+  int v5; // ebx
+  __int64 v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // r8
 
-  v3 = 0;
-  v10 = 0;
-  EnterLeaveCritMitRitHandOffHazard::Enter((EnterLeaveCritMitRitHandOffHazard *)&v10);
+  EnterCrit(0LL, 1LL);
   InputExtensibilityCalloutGuard();
-  v6 = gptiCurrent;
-  v7 = *(_QWORD *)(gptiCurrent + 424LL);
-  if ( v10 )
-  {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-      || (LOBYTE(v5) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
-    {
-      LOBYTE(v5) = 0;
-    }
-    if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v5,
-        v6,
-        19,
-        2,
-        20,
-        19,
-        (__int64)&WPP_154c990b78bb386e6b2cbfec85a60616_Traceguids);
-    }
-    v8 = 5;
-    goto LABEL_14;
-  }
+  v4 = *(_QWORD *)(gptiCurrent + 424LL);
   if ( a1 - 1 > 0xFF || a2 - 1 > 2 )
   {
-    v8 = 87;
-LABEL_14:
-    UserSetLastError(v8);
-    goto LABEL_15;
+    TraceLoggingTouchInjection(0, 0, a1, a2);
+    v5 = 0;
+    UserSetLastError(87LL, v7, v8);
   }
-  CheckCurrentInjectionConfiguration();
-  v3 = InitializeTouchInjectionWorker(a1, a2, v7);
-LABEL_15:
-  LeaveCrit();
-  return v3;
+  else
+  {
+    CheckCurrentInjectionConfiguration();
+    v5 = InitializeTouchInjectionWorker(a1, a2, v4);
+    TraceLoggingTouchInjection(0, 1, a1, a2);
+  }
+  UserSessionSwitchLeaveCrit(v6);
+  return v5;
 }

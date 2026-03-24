@@ -1,10 +1,11 @@
 /*
- * XREFs of ?DisplayID_GetUserFriendlyName@@YAJPEBUDisplayIDObj@@PEAGEPEAE@Z @ 0x1C0072D0C
+ * XREFs of ?DisplayID_GetUserFriendlyName@@YAJPEBUDisplayIDObj@@PEAGEPEAE@Z @ 0x1C005FF24
  * Callers:
- *     ?AppendFriendlyName@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1C03D01A0 (-AppendFriendlyName@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z.c)
+ *     ?_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C014D6FC (-_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
+ *     ?_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0166938 (-_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
  * Callees:
- *     ?DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEBU_DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK@@@Z @ 0x1C0072DF0 (-DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEBU_DISPLAYID_PRODUCT_IDEN.c)
- *     ?IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ @ 0x1C00731F4 (-IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ.c)
+ *     ?DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEAU_DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK@@@Z @ 0x1C0060008 (-DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK@@YAJPEBUDisplayIDObj@@AEAPEAU_DISPLAYID_PRODUCT_IDEN.c)
+ *     ?IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ @ 0x1C0060264 (-IsValidBlock@DisplayID_ProductId_Parser@@QEBA_NXZ.c)
  */
 
 __int64 __fastcall DisplayID_GetUserFriendlyName(
@@ -15,49 +16,51 @@ __int64 __fastcall DisplayID_GetUserFriendlyName(
 {
   __int64 result; // rax
   __int64 v7; // rdx
-  unsigned __int8 v8; // bl
-  unsigned __int8 v9; // al
-  unsigned __int16 *v10; // rsi
-  __int64 v11; // rbp
+  unsigned __int8 v8; // al
+  UCHAR *v9; // rdx
+  unsigned __int8 v10; // bl
+  unsigned __int16 *v11; // rsi
+  __int64 v12; // rbp
   PUCHAR SourceCharacter; // [rsp+20h] [rbp-28h] BYREF
-  const struct _DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK *v13; // [rsp+58h] [rbp+10h] BYREF
+  struct _DISPLAYID_PRODUCT_IDENTIFICATION_BLOCK *v14; // [rsp+58h] [rbp+10h] BYREF
 
-  if ( a2 && a4 )
+  if ( !a2 || !a4 )
+    return 3221225485LL;
+  *a4 = 0;
+  v14 = 0LL;
+  result = DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK(a1, &v14);
+  if ( (int)result >= 0 )
   {
-    *a4 = 0;
-    v13 = 0LL;
-    result = DisplayID_Get_PRODUCT_IDENTIFICATION_BLOCK(a1, &v13);
-    if ( (int)result < 0 )
-      return result;
-    if ( !DisplayID_ProductId_Parser::IsValidBlock((DisplayID_ProductId_Parser *)&v13) )
-      return 3221225659LL;
-    v8 = *(_BYTE *)(v7 + 14);
-    SourceCharacter = (PUCHAR)((v7 + 15) & -(__int64)(v8 != 0));
-    if ( v8 <= 0xDu )
+    if ( DisplayID_ProductId_Parser::IsValidBlock((DisplayID_ProductId_Parser *)&v14) )
     {
-      v9 = v8;
-      if ( !v8 )
+      v8 = *(_BYTE *)(v7 + 14);
+      if ( v8 )
+        v9 = (UCHAR *)(v7 + 15);
+      else
+        v9 = 0LL;
+      SourceCharacter = v9;
+      v10 = v8;
+      if ( v8 > 0xDu )
+        v10 = 13;
+      if ( v10 )
       {
-LABEL_11:
-        *a4 = v8;
-        a2[v8] = 0;
-        return 0LL;
+        v11 = a2;
+        v12 = v10;
+        do
+        {
+          *v11++ = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+          --v12;
+        }
+        while ( v12 );
       }
+      *a4 = v10;
+      a2[v10] = 0;
+      return 0LL;
     }
     else
     {
-      v8 = 13;
-      v9 = 13;
+      return 3221225659LL;
     }
-    v10 = a2;
-    v11 = v9;
-    do
-    {
-      *v10++ = RtlAnsiCharToUnicodeChar(&SourceCharacter);
-      --v11;
-    }
-    while ( v11 );
-    goto LABEL_11;
   }
-  return 3221225485LL;
+  return result;
 }

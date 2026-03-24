@@ -1,24 +1,28 @@
 /*
- * XREFs of ?DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001B304
+ * XREFs of ?DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C00512F0
  * Callers:
- *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x1C000B350 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
- *     DpiRequestDevicePowerState @ 0x1C001AE94 (DpiRequestDevicePowerState.c)
+ *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x1C0005430 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
+ *     DpiRequestDevicePowerState @ 0x1C0051844 (DpiRequestDevicePowerState.c)
  * Callees:
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0040F6C (McTemplateK0pt_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A380 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 void __fastcall DpiScheduleDelayedDevicePowerRequired(struct _FDO_CONTEXT *a1)
 {
-  __int64 v2; // r8
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  int v5; // [rsp+20h] [rbp-18h]
 
-  WdLogSingleEntry3(9LL, a1, 0LL, 0LL);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-    McTemplateK0pt_EtwWriteTransfer(
-      &DxgkControlGuid_Context,
-      &Dxgk_DevicePowerRequiredTimer,
-      v2,
-      *((_QWORD *)a1 + 489),
-      1);
-  if ( !*((_DWORD *)a1 + 1026) )
-    KeSetTimer((PKTIMER)((char *)a1 + 4176), DueTime, (PKDPC)((char *)a1 + 4240));
+  v2 = WdLogNewEntry5_WdPower();
+  *(_QWORD *)(v2 + 24) = a1;
+  *(_OWORD *)(v2 + 32) = 0LL;
+  WdLogEvent5_WdPower(v2);
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+  {
+    v5 = 1;
+    McTemplateK0pq_EtwWriteTransfer(v3, &Dxgk_DevicePowerRequiredTimer, v4, *((_QWORD *)a1 + 487), v5);
+  }
+  if ( !*((_DWORD *)a1 + 1020) )
+    KeSetTimer((PKTIMER)((char *)a1 + 4152), DueTime, (PKDPC)((char *)a1 + 4216));
 }

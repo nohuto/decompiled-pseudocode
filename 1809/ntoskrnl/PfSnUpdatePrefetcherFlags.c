@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnUpdatePrefetcherFlags @ 0x14013B3EC
+ * XREFs of PfSnUpdatePrefetcherFlags @ 0x14013B40C
  * Callers:
- *     PfSnEnablePrefetcherTimerRoutine @ 0x14013B3C0 (PfSnEnablePrefetcherTimerRoutine.c)
+ *     PfSnEnablePrefetcherTimerRoutine @ 0x14013B3E0 (PfSnEnablePrefetcherTimerRoutine.c)
  *     PfSnBeginBootPhase @ 0x14056F13C (PfSnBeginBootPhase.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnUpdatePrefetcherFlags(int a1, int a2)

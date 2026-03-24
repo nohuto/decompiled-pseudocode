@@ -1,16 +1,16 @@
 /*
- * XREFs of SeAccessCheckFromStateEx @ 0x1402287B0
+ * XREFs of SeAccessCheckFromStateEx @ 0x14032F550
  * Callers:
- *     SeAccessCheckFromState @ 0x1402286B0 (SeAccessCheckFromState.c)
+ *     SeAccessCheckFromState @ 0x14032F440 (SeAccessCheckFromState.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckWithHint @ 0x1402CE400 (SeAccessCheckWithHint.c)
  */
 
 __int64 __fastcall SeAccessCheckFromStateEx(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        int a4,
+        __int64 a4,
         int a5,
         __int64 a6,
         __int64 a7,
@@ -18,5 +18,22 @@ __int64 __fastcall SeAccessCheckFromStateEx(
         __int64 a9,
         __int64 a10)
 {
-  return SeAccessCheckWithHint(a1, a4, a5, a6, a7, a8, a9, a10);
+  int v11; // [rsp+20h] [rbp-68h]
+  __int64 v12; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+68h] [rbp-20h]
+  __int64 v14; // [rsp+70h] [rbp-18h]
+  __int64 v15; // [rsp+78h] [rbp-10h]
+
+  v14 = a2;
+  v12 = 0LL;
+  v13 = 0LL;
+  v15 = 0LL;
+  if ( a3 )
+  {
+    LODWORD(v13) = *(_DWORD *)(a3 + 196);
+    v12 = a3;
+  }
+  v11 = a4;
+  LOBYTE(a4) = 1;
+  return SeAccessCheckWithHint(a1, 0LL, (__int64)&v12, a4, v11, a5, a6, a7, a8, a9, a10);
 }

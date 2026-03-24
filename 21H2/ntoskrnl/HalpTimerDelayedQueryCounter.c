@@ -1,34 +1,34 @@
 /*
- * XREFs of HalpTimerDelayedQueryCounter @ 0x14050C5B0
+ * XREFs of HalpTimerDelayedQueryCounter @ 0x1404BFAF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     HalpTimerScaleCounter @ 0x1403A572C (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerDelayedQueryCounter(__int64 a1)
 {
   __int64 (__fastcall *v1)(__int64); // rbp
-  unsigned __int64 v3; // r15
-  __int64 v4; // rsi
-  unsigned __int64 v5; // rdi
-  __int64 v6; // r14
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  unsigned __int64 v9; // r10
-  signed __int64 v10; // rax
-  int v11; // r9d
-  unsigned __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // rcx
-  unsigned __int64 v15; // r8
-  signed __int64 v16; // rdx
-  __int64 v17; // rdx
+  unsigned __int64 v3; // r14
+  __int64 v4; // rdi
+  __int64 v5; // rsi
+  __int64 v6; // rbx
+  __int64 v7; // rax
+  unsigned __int64 v8; // r10
+  signed __int64 v9; // rax
+  int v10; // r9d
+  unsigned __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  unsigned __int64 v14; // r8
+  signed __int64 v15; // rdx
+  __int64 v16; // rdx
   __int64 InternalData; // rax
-  __int64 v19; // rax
-  signed __int32 v21[18]; // [rsp+0h] [rbp-48h] BYREF
+  __int64 v18; // rax
+  signed __int32 v20[18]; // [rsp+0h] [rbp-48h] BYREF
+  unsigned __int64 v21; // [rsp+58h] [rbp+10h]
 
   v1 = (__int64 (__fastcall *)(__int64))HalpTimerDelayedQueryHardwareCount;
   ++HalpTimerHeavilyPenalizedQpcCalls;
@@ -40,58 +40,58 @@ __int64 __fastcall HalpTimerDelayedQueryCounter(__int64 a1)
     do
     {
       v4 = HalpPerformanceCounter;
-      v5 = *(_QWORD *)(HalpPerformanceCounter + 192);
+      v21 = *(_QWORD *)(HalpPerformanceCounter + 192);
       if ( *(_DWORD *)(HalpPerformanceCounter + 220) == 64 )
       {
         InternalData = HalpTimerGetInternalData(HalpPerformanceCounter);
-        v19 = (*(__int64 (__fastcall **)(__int64))(v4 + 112))(InternalData);
-        v6 = *(_QWORD *)(v4 + 208);
-        v16 = v19;
+        v18 = (*(__int64 (__fastcall **)(__int64))(v4 + 112))(InternalData);
+        v5 = *(_QWORD *)(v4 + 208);
+        v15 = v18;
       }
       else
       {
         do
         {
-          v6 = *(_QWORD *)(v4 + 208);
+          v5 = *(_QWORD *)(v4 + 208);
           do
           {
-            v7 = *(_QWORD *)(v4 + 200);
-            v8 = HalpTimerGetInternalData(v4);
-            v9 = (*(__int64 (__fastcall **)(__int64))(v4 + 112))(v8);
-            _InterlockedOr(v21, 0);
-            v10 = *(_QWORD *)(v4 + 200);
+            v6 = *(_QWORD *)(v4 + 200);
+            v7 = HalpTimerGetInternalData(v4);
+            v8 = (*(__int64 (__fastcall **)(__int64))(v4 + 112))(v7);
+            _InterlockedOr(v20, 0);
+            v9 = *(_QWORD *)(v4 + 200);
           }
-          while ( v7 != v10 );
+          while ( v6 != v9 );
         }
-        while ( v6 != *(_QWORD *)(v4 + 208) );
-        v11 = *(_DWORD *)(v4 + 220);
-        v12 = v7 ^ v9;
-        if ( _bittest64((const __int64 *)&v12, (unsigned __int8)(v11 - 1)) )
+        while ( v5 != *(_QWORD *)(v4 + 208) );
+        v10 = *(_DWORD *)(v4 + 220);
+        v11 = v6 ^ v8;
+        if ( _bittest64((const __int64 *)&v11, (unsigned __int8)(v10 - 1)) )
         {
-          if ( v11 == 64 )
-            v13 = -1LL;
+          if ( v10 == 64 )
+            v12 = -1LL;
           else
-            v13 = (1LL << v11) - 1;
-          v14 = 1LL;
-          if ( v11 != 64 )
-            v14 = 1LL << v11;
-          v15 = v7 & v13;
-          v16 = v9 | v7 ^ v15;
-          if ( v9 < v15 )
-            v16 += v14;
-          _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 200), v16, v10);
+            v12 = (1LL << v10) - 1;
+          v13 = 1LL;
+          if ( v10 != 64 )
+            v13 = 1LL << v10;
+          v14 = v6 & v12;
+          v15 = v8 | v6 ^ v14;
+          if ( v8 < v14 )
+            v15 += v13;
+          _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 200), v15, v9);
         }
         else
         {
-          if ( v11 == 64 )
-            v17 = -1LL;
+          if ( v10 == 64 )
+            v16 = -1LL;
           else
-            v17 = (1LL << v11) - 1;
-          v16 = v9 | v7 & ~v17;
+            v16 = (1LL << v10) - 1;
+          v15 = v8 | v6 & ~v16;
         }
       }
     }
-    while ( HalpTimerScaleCounter(v6 + v16, v5, *(_QWORD *)(HalpTimerSavedPerformanceCounter + 192)) < v3 );
+    while ( HalpTimerScaleCounter(v5 + v15, v21, *(_QWORD *)(HalpTimerSavedPerformanceCounter + 192)) < v3 );
   }
   return v1(a1);
 }

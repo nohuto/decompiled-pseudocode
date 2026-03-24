@@ -1,132 +1,93 @@
 /*
- * XREFs of MiSelectUserAddress @ 0x14071FD30
+ * XREFs of MiSelectUserAddress @ 0x1405FA9A0
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748A84 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CD0F4 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30D50 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140A3CCF8 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140683A58 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076ACC0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C33C8 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1EA8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiInitializeVadCellBitMap @ 0x1406B2D54 (MiInitializeVadCellBitMap.c)
- *     MiFindEmptyAddressRange @ 0x14071FF10 (MiFindEmptyAddressRange.c)
- *     MiFindEmptyAddressRangeDown @ 0x1407B6B00 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRange @ 0x1405FAB40 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRangeDown @ 0x14066FE34 (MiFindEmptyAddressRangeDown.c)
  */
 
 __int64 __fastcall MiSelectUserAddress(
         int a1,
-        unsigned __int64 a2,
+        __int64 a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         __int64 a5,
         __int64 a6,
         int a7,
-        int a8,
-        _QWORD *a9,
+        unsigned int a8,
+        __int64 *a9,
         _QWORD *a10)
 {
-  unsigned __int64 v11; // r11
+  __int64 *v11; // r14
+  __int64 v13; // r8
+  int v14; // r10d
   struct _KTHREAD *CurrentThread; // rax
-  int v15; // r15d
-  _KPROCESS *Process; // rcx
-  unsigned __int64 v17; // rdx
-  _QWORD *v18; // rdi
-  unsigned __int64 v19; // rcx
-  __int64 v20; // rax
-  unsigned __int64 v21; // rdx
-  _QWORD *v22; // rdi
-  __int64 v23; // rbx
+  unsigned int v16; // ecx
+  _KPROCESS *Process; // rsi
+  unsigned __int64 v18; // rdx
+  __int64 v19; // rdi
+  __int64 v20; // rbp
+  int v21; // r15d
+  int v22; // ebx
+  int v23; // r12d
+  __int64 v24; // r14
   __int64 result; // rax
-  __int64 v25; // rdx
-  int v26; // eax
-  _DWORD v27[18]; // [rsp+50h] [rbp-48h] BYREF
-  int v28; // [rsp+A0h] [rbp+8h]
+  int v26; // [rsp+A0h] [rbp+8h]
+  int v28; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned __int64 v29; // [rsp+B8h] [rbp+20h]
 
+  v29 = a4;
+  v11 = a9;
+  v26 = 0;
   v28 = 0;
-  v11 = a4;
-  v27[0] = 0;
+  v13 = a2;
   *a10 = 0LL;
+  v14 = a4;
   CurrentThread = KeGetCurrentThread();
-  v15 = 0;
-  *a9 = 0LL;
+  *v11 = 0LL;
+  v16 = a8 >> 31;
   Process = CurrentThread->ApcState.Process;
-  if ( (a1 & 0x100000) != 0 || (Process[1].DirectoryTableBase & 0x20000000000000LL) != 0 )
-    v15 = 1;
-  v17 = Process[1].ActiveProcessors.StaticBitmap[5];
-  v18 = (_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 48);
-  v19 = v17 - 1;
-  if ( v17 <= 0x100000000LL && a3 > v19 )
+  v18 = Process[1].ActiveProcessors.Bitmap[5];
+  if ( a3 > v18 - 1 && v18 <= 0x100000000LL )
+    v16 = 2;
+  v19 = Process[1].ActiveProcessorsPadding[8] + 8 * (9LL * v16 + 6);
+  if ( (a1 & 0x20400000) != 541065216 && (a1 & 0x20000000) != 0 && a4 >= 0x40000000 )
   {
-    v20 = 2LL;
-    goto LABEL_12;
-  }
-  if ( a8 < 0 )
-  {
-    v20 = 1LL;
-  }
-  else
-  {
-    v20 = 0LL;
-    if ( !v15 && a3 < v19 && v17 > 0x100000000LL )
-    {
-      if ( v18[18] )
-      {
-        if ( a2 < v18[25] )
-          goto LABEL_12;
-        v25 = 0LL;
-        if ( a3 >> 16 <= v18[23] )
-          v25 = 2LL;
-LABEL_32:
-        v20 = v25;
-        goto LABEL_12;
-      }
-      v21 = a2 >> 16;
-      if ( a2 >> 16 && a3 - a2 + 1 >= 0x40000000 )
-      {
-        v18[26] = v21;
-        v18[23] = a3 >> 16;
-        v18[25] = v21 << 16;
-        v18[24] = a3 + 1;
-        v26 = MiInitializeVadCellBitMap(v18 + 18, 1);
-        v11 = a4;
-        v25 = 0LL;
-        if ( v26 >= 0 )
-          v25 = 2LL;
-        goto LABEL_32;
-      }
-    }
-  }
-LABEL_12:
-  v22 = &v18[9 * v20];
-  if ( (a1 & 0x20400000) != 541065216 && (a1 & 0x20000000) != 0 && v11 >= 0x40000000 )
-  {
-    v23 = a5;
+    v20 = a5;
     if ( a5 == 0x200000 )
     {
-      v23 = 0x40000000LL;
-      v28 = 1;
+      v20 = 0x40000000LL;
+      v26 = 1;
     }
   }
   else
   {
-    v23 = a5;
+    v20 = a5;
   }
+  v21 = a7;
+  v22 = a1 & 0x100000;
+  v23 = a6;
+  v24 = (__int64)a10;
   while ( 1 )
   {
-    result = v15
-           ? MiFindEmptyAddressRangeDown((_DWORD)v22, v11, v23, a6, a2, a3, a7, (__int64)a10)
-           : MiFindEmptyAddressRange((_DWORD)v22, v11, v23, a6, a2, a3, a7, (__int64)a10, (__int64)v27);
-    if ( (int)result >= 0 || !v28 )
+    result = v22 || (Process[1].DirectoryTableBase & 0x20000000000000LL) != 0
+           ? MiFindEmptyAddressRangeDown(v19, v14, v20, v23, v13, a3, v21, v24)
+           : MiFindEmptyAddressRange(v19, v14, v20, v23, v13, a3, v21, v24, (__int64)&v28);
+    if ( (int)result >= 0 || v26 != 1 )
       break;
-    LODWORD(v11) = a4;
-    v23 = 0x200000LL;
-    v28 = 0;
+    v14 = v29;
+    v20 = 0x200000LL;
+    v13 = a2;
+    v26 = 0;
   }
-  if ( v23 == 0x10000 )
-  {
-    if ( v27[0] )
-      *a9 = v22;
-  }
+  if ( v20 == 0x10000 && v28 == 1 )
+    *a9 = v19;
   return result;
 }

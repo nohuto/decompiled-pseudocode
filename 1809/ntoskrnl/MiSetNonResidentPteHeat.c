@@ -8,9 +8,9 @@
  *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
  *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
  *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14011AACC (MiRewriteTrimPteAsDemandZero.c)
- *     MmSetPfnListInfo @ 0x14013FC70 (MmSetPfnListInfo.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEB14 (MiMakeTransitionHeatBatch.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x14011AAEC (MiRewriteTrimPteAsDemandZero.c)
+ *     MmSetPfnListInfo @ 0x14013FC90 (MmSetPfnListInfo.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */

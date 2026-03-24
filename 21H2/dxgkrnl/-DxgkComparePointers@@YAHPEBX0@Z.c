@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgkComparePointers@@YAHPEBX0@Z @ 0x1C001CCA0
+ * XREFs of ?DxgkComparePointers@@YAHPEBX0@Z @ 0x1C001C1B0
  * Callers:
  *     <none>
  * Callees:

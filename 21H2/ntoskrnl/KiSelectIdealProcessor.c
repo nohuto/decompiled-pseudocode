@@ -1,57 +1,63 @@
 /*
- * XREFs of KiSelectIdealProcessor @ 0x1402944C4
+ * XREFs of KiSelectIdealProcessor @ 0x140278068
  * Callers:
- *     KeSelectIdealProcessor @ 0x140293268 (KeSelectIdealProcessor.c)
+ *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KiSelectIdealProcessor(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall KiSelectIdealProcessor(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
-  char v5; // r10
-  __int64 v6; // rbx
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // r8
+  int v3; // r9d
+  int v5; // eax
+  __int64 v7; // rsi
+  int v8; // r11d
+  __int64 v9; // r8
+  __int64 v10; // r10
+  __int64 v11; // rdx
+  __int64 v12; // r9
   __int64 i; // rcx
   __int64 j; // rcx
-  __int64 result; // rax
-  __int64 v14; // r8
-  __int64 v15; // rcx
-  bool v16; // zf
-  __int64 v17; // r8
-  __int64 v18; // rax
+  unsigned __int64 v15; // rax
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  unsigned __int64 v21; // rcx
 
-  v5 = a4 & 0x3F;
-  v6 = a1;
-  LOBYTE(a1) = a4 & 0x3F;
-  v8 = 1LL << v5;
-  if ( ((1LL << v5) & a2) == 0 )
+  v3 = *(unsigned __int16 *)(a1 + 172);
+  v5 = *(unsigned __int16 *)(a1 + 176);
+  if ( (_WORD)v3 == (_WORD)v5 )
+    return (unsigned __int16)v3;
+  v7 = *(_QWORD *)(a1 + 136);
+  v8 = KiProcessorIndexToNumberMappingTable[(unsigned __int16)(v3 + (a2 - v3) % (v5 - v3 + 1))];
+  v9 = 1LL << (v8 & 0x3F);
+  if ( (v7 & v9) == 0 )
   {
-    _BitScanForward64((unsigned __int64 *)&a1, __ROR8__(a2, a1));
-    v8 = 1LL << ((v5 + a1) & 0x3F);
+    _BitScanForward64(&v21, __ROR8__(v7, v8 & 0x3F));
+    v9 = 1LL << (((v8 & 0x3F) + v21) & 0x3F);
   }
-  v9 = a3;
-  v10 = ~a2;
-  for ( i = a3 & a2; (v8 & i) == 0; i = v9 & ~v10 )
+  v10 = *(_QWORD *)(a1 + 160);
+  v11 = v10;
+  v12 = ~v7;
+  for ( i = v10 & v7; (v9 & i) == 0; i = v11 & ~v12 )
   {
-    v10 |= v9;
-    v9 *= 2LL;
+    v12 |= v11;
+    v11 *= 2LL;
   }
-  for ( j = ~(v8 | (v8 - 1)) & i; (j & v6) == 0; j = v9 & ~v10 )
+  for ( j = ~(v9 | (v9 - 1)) & i; (j & a3) == 0; j = v11 & ~v12 )
   {
-    v14 = v9 | v10;
-    v9 *= 2LL;
-    v15 = v14;
-    v17 = a2 & ~v14;
-    v16 = v17 == 0;
-    v18 = v17;
-    v10 = ~a2;
-    if ( v16 )
-      v9 = a3;
-    if ( v18 )
-      v10 = v15;
+    v17 = v11 | v12;
+    v18 = ~(v11 | v12);
+    v12 = ~v7;
+    v19 = v7 & v18;
+    if ( v19 )
+      v12 = v17;
+    v20 = 2 * v11;
+    v11 = v10;
+    if ( v19 )
+      v11 = v20;
   }
-  _BitScanForward64((unsigned __int64 *)&result, v6 & j);
-  return result;
+  _BitScanForward64(&v15, a3 & j);
+  return LOWORD(KiProcessorNumberToIndexMappingTable[(unsigned int)v15 + (v8 & 0xFFFFFFC0)]);
 }

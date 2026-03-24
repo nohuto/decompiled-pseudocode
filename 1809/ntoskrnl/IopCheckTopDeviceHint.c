@@ -1,11 +1,11 @@
 /*
  * XREFs of IopCheckTopDeviceHint @ 0x1405DCC9C
  * Callers:
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     IopVerifyDeviceObjectOnStack @ 0x140019C74 (IopVerifyDeviceObjectOnStack.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
  *     FsRtlFindExtraCreateParameter @ 0x140639830 (FsRtlFindExtraCreateParameter.c)
  */
 

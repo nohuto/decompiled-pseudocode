@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaAllocateReservedMappingArray @ 0x140B4BE3C
+ * XREFs of HalpDmaAllocateReservedMappingArray @ 0x140A8C8F4
  * Callers:
- *     HalpDmaAllocateMappingResources @ 0x140B1DD34 (HalpDmaAllocateMappingResources.c)
+ *     HalpDmaAllocateMappingResources @ 0x140A65DA8 (HalpDmaAllocateMappingResources.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     HalpDmaAllocateReservedMapping @ 0x140B1DE58 (HalpDmaAllocateReservedMapping.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140A65ECC (HalpDmaAllocateReservedMapping.c)
  */
 
 __int64 __fastcall HalpDmaAllocateReservedMappingArray(__int64 a1, unsigned int a2)
@@ -19,13 +19,13 @@ __int64 __fastcall HalpDmaAllocateReservedMappingArray(__int64 a1, unsigned int 
   struct _SLIST_ENTRY *ReservedMapping; // rax
   __int64 v8; // rax
 
-  if ( ((unsigned __int8)&stru_140D01AD0 & 0xF) != 0 )
-    RtlRaiseStatus(-2147483646);
-  qword_140D01AE0 = 0LL;
-  stru_140D01AD0 = 0LL;
-  qword_140C5A868 = HalpMmAllocCtxAlloc(a1, 8LL * (unsigned int)a1);
-  v4 = qword_140C5A868;
-  if ( qword_140C5A868 )
+  if ( ((unsigned __int8)&stru_140CF68A0 & 0xF) != 0 )
+    RtlRaiseStatus(0x80000002);
+  qword_140CF68B0 = 0LL;
+  stru_140CF68A0 = 0LL;
+  qword_140C53F28 = HalpMmAllocCtxAlloc(a1, 8LL * (unsigned int)a1);
+  v4 = qword_140C53F28;
+  if ( qword_140C53F28 )
   {
     v5 = 0;
     if ( a2 )
@@ -34,21 +34,21 @@ __int64 __fastcall HalpDmaAllocateReservedMappingArray(__int64 a1, unsigned int 
       do
       {
         ReservedMapping = (struct _SLIST_ENTRY *)HalpDmaAllocateReservedMapping(v3);
-        v4 = qword_140C5A868;
-        *(_QWORD *)(v6 + qword_140C5A868) = ReservedMapping;
+        v4 = qword_140C53F28;
+        *(_QWORD *)(v6 + qword_140C53F28) = ReservedMapping;
         if ( !ReservedMapping )
           break;
-        RtlpInterlockedPushEntrySList(&stru_140D01AD0, ReservedMapping);
-        v4 = qword_140C5A868;
+        RtlpInterlockedPushEntrySList(&stru_140CF68A0, ReservedMapping);
+        v4 = qword_140C53F28;
         ++v5;
-        v8 = *(_QWORD *)(v6 + qword_140C5A868);
+        v8 = *(_QWORD *)(v6 + qword_140C53F28);
         v6 += 8LL;
         *(_DWORD *)(v8 + 28) = 1;
       }
       while ( v5 < a2 );
       if ( v5 )
       {
-        dword_140D01AE8 = v5;
+        dword_140CF68B8 = v5;
         return 0LL;
       }
     }

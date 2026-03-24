@@ -1,19 +1,19 @@
 /*
- * XREFs of ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802AF0D0
+ * XREFs of ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802190D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18006D9D0 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802AF51C (-CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z.c)
- *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x1802AFE70 (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
- *     ?ReleaseDecoderCopyBuffers@@YA_NPEAUIUnknown@@@Z @ 0x1802B3D9C (-ReleaseDecoderCopyBuffers@@YA_NPEAUIUnknown@@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18003D568 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802194D0 (-CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z.c)
+ *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x180219DBC (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
+ *     ?ReleaseDecoderCopyBuffers@@YA_NPEAUIUnknown@@@Z @ 0x18026C05C (-ReleaseDecoderCopyBuffers@@YA_NPEAUIUnknown@@@Z.c)
  */
 
 __int64 __fastcall CFormatConverter::CopyPixels(
@@ -44,27 +44,27 @@ __int64 __fastcall CFormatConverter::CopyPixels(
   INT v27; // esi
   __int64 v28; // rdx
   struct IUnknown *v29; // rcx
-  unsigned int v31; // [rsp+60h] [rbp-51h] BYREF
-  unsigned int v32[2]; // [rsp+68h] [rbp-49h] BYREF
-  _QWORD *v33; // [rsp+70h] [rbp-41h] BYREF
-  unsigned int v34; // [rsp+78h] [rbp-39h] BYREF
-  int X; // [rsp+7Ch] [rbp-35h]
-  unsigned int v36; // [rsp+80h] [rbp-31h] BYREF
-  struct _RTL_CRITICAL_SECTION *v37; // [rsp+88h] [rbp-29h] BYREF
-  unsigned __int8 *v38[2]; // [rsp+90h] [rbp-21h] BYREF
-  __int64 v39; // [rsp+A0h] [rbp-11h] BYREF
-  int v40; // [rsp+A8h] [rbp-9h]
-  int v41; // [rsp+ACh] [rbp-5h]
-  wil::details::in1diag3 *retaddr; // [rsp+108h] [rbp+57h]
+  unsigned int v31; // [rsp+60h] [rbp-41h] BYREF
+  unsigned int v32[2]; // [rsp+68h] [rbp-39h] BYREF
+  _QWORD *v33; // [rsp+70h] [rbp-31h] BYREF
+  unsigned int v34; // [rsp+78h] [rbp-29h] BYREF
+  int X; // [rsp+7Ch] [rbp-25h]
+  unsigned int v36; // [rsp+80h] [rbp-21h] BYREF
+  struct _RTL_CRITICAL_SECTION *v37; // [rsp+88h] [rbp-19h] BYREF
+  unsigned __int8 *v38[2]; // [rsp+90h] [rbp-11h] BYREF
+  __int64 v39; // [rsp+A0h] [rbp-1h] BYREF
+  int v40; // [rsp+A8h] [rbp+7h]
+  int v41; // [rsp+ACh] [rbp+Bh]
+  wil::details::in1diag3 *retaddr; // [rsp+F8h] [rbp+57h]
 
   v5 = a5;
   v31 = a3;
-  v37 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 24);
+  v37 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 16);
   v33 = 0LL;
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 16));
   if ( a5 )
   {
-    if ( !*((_QWORD *)this + 8) )
+    if ( !*((_QWORD *)this + 7) )
     {
       v10 = -2003292404;
       v11 = 222LL;
@@ -74,11 +74,11 @@ __int64 __fastcall CFormatConverter::CopyPixels(
     if ( !a2 )
     {
       a2 = (const struct WICRect *)&v39;
-      v40 = *((_DWORD *)this + 24);
-      v41 = *((_DWORD *)this + 25);
+      v40 = *((_DWORD *)this + 22);
+      v41 = *((_DWORD *)this + 23);
       v39 = 0LL;
     }
-    v13 = HrCheckBufferSize(*((_DWORD *)this + 21), a3, a2, a4);
+    v13 = HrCheckBufferSize(*((_DWORD *)this + 19), a3, a2, a4);
     v10 = v13;
     if ( v13 < 0 )
     {
@@ -87,15 +87,15 @@ LABEL_44:
       v12 = (unsigned int)v13;
       goto LABEL_45;
     }
-    v14 = *((_QWORD *)this + 8);
+    v14 = *((_QWORD *)this + 7);
     Y = a2->Y;
     X = a2->X;
     if ( (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v14 + 32LL))(v14) - 2 <= 1 )
     {
       *(_QWORD *)v32 = 0LL;
-      v16 = (void (__fastcall ***)(_QWORD, GUID *, unsigned int *))(*((_QWORD *)this + 8)
+      v16 = (void (__fastcall ***)(_QWORD, GUID *, unsigned int *))(*((_QWORD *)this + 7)
                                                                   + 8LL
-                                                                  + *(int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 8LL)
+                                                                  + *(int *)(*(_QWORD *)(*((_QWORD *)this + 7) + 8LL)
                                                                            + 4LL));
       (**v16)(v16, &GUID_14d094dc_1246_4784_b811_74305a3ecec8, v32);
       v17 = *(_QWORD *)v32;
@@ -137,7 +137,18 @@ LABEL_44:
         v11 = 283LL;
         goto LABEL_44;
       }
-      v13 = CFormatConverter::CopyPixelsHelper(this, X, Y, v31, v32[0], v36, v34, v38[0], a3, a4, a5);
+      v13 = CFormatConverter::CopyPixelsHelper(
+              (CFormatConverter *)((char *)this - 16),
+              X,
+              Y,
+              v31,
+              v32[0],
+              v36,
+              v34,
+              v38[0],
+              a3,
+              a4,
+              a5);
       v10 = v13;
       if ( v13 < 0 )
       {
@@ -147,20 +158,20 @@ LABEL_44:
     }
     else
     {
-      if ( !*((_QWORD *)this + 97) )
+      if ( !*((_QWORD *)this + 96) )
       {
-        PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 18));
-        if ( PixelFormatSize && *((_DWORD *)this + 24) <= 0x7FFFFFF8u / PixelFormatSize )
+        PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 16));
+        if ( PixelFormatSize && *((_DWORD *)this + 22) <= 0x7FFFFFF8u / PixelFormatSize )
         {
           v10 = 0;
-          v21 = (((*((_DWORD *)this + 24) * (unsigned int)PixelFormatSize + 7) >> 3) + 3) & 0xFFFFFFFC;
+          v21 = (((*((_DWORD *)this + 22) * (unsigned int)PixelFormatSize + 7) >> 3) + 3) & 0xFFFFFFFC;
         }
         else
         {
           v10 = -2147024362;
           v21 = 0LL;
         }
-        *((_DWORD *)this + 196) = v21;
+        *((_DWORD *)this + 194) = v21;
         if ( v10 < 0 )
         {
           v12 = (unsigned int)v10;
@@ -168,7 +179,7 @@ LABEL_44:
           goto LABEL_45;
         }
         v22 = DefaultHeap::Alloc(v21);
-        *((_QWORD *)this + 97) = v22;
+        *((_QWORD *)this + 96) = v22;
         if ( !v22 )
         {
           v10 = -2147024882;
@@ -183,32 +194,32 @@ LABEL_44:
       Width = a2->Width;
       *(struct WICRect *)v38 = *a2;
       HIDWORD(v38[1]) = 1;
-      if ( v25 && !a2->Y && Width == *((_DWORD *)this + 24) )
-        v24 = Height == *((_DWORD *)this + 25);
+      if ( v25 && !a2->Y && Width == *((_DWORD *)this + 22) )
+        v24 = Height == *((_DWORD *)this + 23);
       v27 = Height + Y;
       while ( Y < v27 )
       {
-        v13 = (*(__int64 (__fastcall **)(_QWORD, unsigned __int8 **, _QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 8)
+        v13 = (*(__int64 (__fastcall **)(_QWORD, unsigned __int8 **, _QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 7)
                                                                                             + 24LL))(
-                *((_QWORD *)this + 8),
+                *((_QWORD *)this + 7),
                 v38,
-                *((unsigned int *)this + 196),
-                *((unsigned int *)this + 196),
-                *((_QWORD *)this + 97));
+                *((unsigned int *)this + 194),
+                *((unsigned int *)this + 194),
+                *((_QWORD *)this + 96));
         v10 = v13;
         if ( v13 < 0 )
         {
           v11 = 362LL;
           goto LABEL_44;
         }
-        CScanPipeline::Run((CFormatConverter *)((char *)this + 112), v5, *((const void **)this + 97), Width, X, Y);
+        CScanPipeline::Run((CFormatConverter *)((char *)this + 104), v5, *((const void **)this + 96), Width, X, Y);
         v5 += v31;
         ++HIDWORD(v38[0]);
         ++Y;
       }
       if ( v24 )
       {
-        v28 = *((_QWORD *)this + 8);
+        v28 = *((_QWORD *)this + 7);
         if ( v28 )
           v29 = (struct IUnknown *)(v28 + *(int *)(*(_QWORD *)(v28 + 8) + 4LL) + 8LL);
         else
@@ -226,7 +237,7 @@ LABEL_45:
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v11,
-    (int)"onecoreuap\\windows\\dwm\\common\\formatconverter\\formatconverter.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\common\\formatconverter\\formatconverter.cpp",
     (const char *)v12);
 LABEL_49:
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v37);

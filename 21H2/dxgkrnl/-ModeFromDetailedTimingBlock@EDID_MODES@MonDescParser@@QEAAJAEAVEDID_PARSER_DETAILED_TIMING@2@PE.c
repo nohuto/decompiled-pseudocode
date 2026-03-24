@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ModeFromDetailedTimingBlock@EDID_MODES@MonDescParser@@QEAAJAEAVEDID_PARSER_DETAILED_TIMING@2@PEAU_VideoModeDescriptor@@@Z @ 0x1C0021DF4
+ * XREFs of ?ModeFromDetailedTimingBlock@EDID_MODES@MonDescParser@@QEAAJAEAVEDID_PARSER_DETAILED_TIMING@2@PEAU_VideoModeDescriptor@@@Z @ 0x1C001EB80
  * Callers:
- *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C00221E8 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001EF74 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,25 +11,25 @@ __int64 __fastcall MonDescParser::EDID_MODES::ModeFromDetailedTimingBlock(
         struct MonDescParser::EDID_PARSER_DETAILED_TIMING *a2,
         struct _VideoModeDescriptor *a3)
 {
-  signed int v4; // ebx
-  USHORT v5; // r11
-  USHORT v6; // di
-  USHORT v7; // bp
-  USHORT v8; // si
+  signed int v4; // edi
+  USHORT v5; // bx
+  USHORT v6; // r11
+  USHORT v7; // si
+  USHORT v8; // bp
   unsigned __int8 v9; // al
   UCHAR v10; // al
-  unsigned __int16 v11; // r11
-  unsigned __int16 v12; // si
-  signed int v13; // ebp
+  unsigned __int16 v11; // bx
+  unsigned __int16 v12; // r11
+  signed int v13; // esi
   signed int v14; // r8d
   int v15; // r11d
   int v16; // ecx
-  unsigned int v17; // edi
+  unsigned int v17; // ebx
   int v18; // eax
   signed int v19; // r11d
   ULONG v20; // eax
-  signed int v21; // ecx
-  unsigned int v22; // r8d
+  unsigned int v21; // r8d
+  signed int v22; // ecx
   UCHAR SyncSignalType; // al
 
   a3->VideoStandardType = 0;
@@ -62,7 +62,7 @@ __int64 __fastcall MonDescParser::EDID_MODES::ModeFromDetailedTimingBlock(
     v10 = v9 >= 2u ? v9 - 1 : 0;
     a3->StereoModeType = v10;
     v11 = v7 + v5;
-    v12 = v6 + v8;
+    v12 = v8 + v6;
     a3->SyncSignalType = (*(_BYTE *)(*(_QWORD *)a2 + 17LL) >> 3) & 3;
     if ( v11 )
     {
@@ -71,9 +71,9 @@ __int64 __fastcall MonDescParser::EDID_MODES::ModeFromDetailedTimingBlock(
         v13 = v11;
         v14 = v4;
         v15 = v11 * v12;
-        v16 = v15;
         if ( v15 )
         {
+          v16 = v15;
           while ( 1 )
           {
             v14 %= v16;
@@ -81,12 +81,12 @@ __int64 __fastcall MonDescParser::EDID_MODES::ModeFromDetailedTimingBlock(
               break;
             v16 %= v14;
             if ( !v16 )
-              goto LABEL_19;
+              goto LABEL_21;
           }
         }
         else
         {
-LABEL_19:
+LABEL_21:
           v16 = v14;
         }
         v17 = v4 / v16;
@@ -94,25 +94,25 @@ LABEL_19:
         v18 = v15;
         v19 = v4;
         v20 = v18 / v16;
-        v21 = v13;
         a3->VerticalRefreshRateDenominator = v20;
-        v22 = v20;
+        v21 = v20;
+        v22 = v13;
         while ( 1 )
         {
-          v19 %= v21;
+          v19 %= v22;
           if ( !v19 )
             break;
-          v21 %= v19;
-          if ( !v21 )
+          v22 %= v19;
+          if ( !v22 )
           {
-            v21 = v19;
+            v22 = v19;
             break;
           }
         }
         *(_DWORD *)&a3->IsSerrationRequired = 33686018;
         a3->HorizontalPolarityType = 2;
-        a3->HorizontalRefreshRateNumerator = v4 / v21;
-        a3->HorizontalRefreshRateDenominator = v13 / v21;
+        a3->HorizontalRefreshRateNumerator = v4 / v22;
+        a3->HorizontalRefreshRateDenominator = v13 / v22;
         SyncSignalType = a3->SyncSignalType;
         if ( SyncSignalType <= 1u )
         {
@@ -136,16 +136,16 @@ LABEL_19:
         if ( !a3->IsInterlaced )
           return 0LL;
         a3->VerticalActivePixels = 1080;
-        if ( v17 / v22 != 30 )
+        if ( v17 / v21 != 30 )
           return 0LL;
         if ( v17 <= 0x7FFFFFFF )
         {
           a3->VerticalRefreshRateNumerator = 2 * v17;
           return 0LL;
         }
-        if ( v22 >= 2 )
+        if ( v21 >= 2 )
         {
-          a3->VerticalRefreshRateDenominator = v22 >> 1;
+          a3->VerticalRefreshRateDenominator = v21 >> 1;
           return 0LL;
         }
       }

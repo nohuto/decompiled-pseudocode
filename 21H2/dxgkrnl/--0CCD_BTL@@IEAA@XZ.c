@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CCD_BTL@@IEAA@XZ @ 0x1C01F49B8
+ * XREFs of ??0CCD_BTL@@IEAA@XZ @ 0x1C019EB18
  * Callers:
- *     ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C01F4944 (-CreateGlobal@CCD_BTL@@SAJXZ.c)
+ *     ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C019EA98 (-CreateGlobal@CCD_BTL@@SAJXZ.c)
  * Callees:
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C01ADE34 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0135980 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
  */
 
 CCD_BTL *__fastcall CCD_BTL::CCD_BTL(CCD_BTL *this)
@@ -30,12 +30,12 @@ CCD_BTL *__fastcall CCD_BTL::CCD_BTL(CCD_BTL *this)
   v5 = 288;
   v16 = 0;
   v17 = 0;
-  *((_OWORD *)this + 7) = 0LL;
-  *((_DWORD *)this + 32) = 0;
+  *(_OWORD *)((char *)this + 104) = 0LL;
+  *((_DWORD *)this + 30) = 0;
   v4 = 0LL;
-  *((_QWORD *)this + 18) = (char *)this + 136;
-  *((_QWORD *)this + 17) = (char *)this + 136;
-  *((_BYTE *)this + 152) = 0;
+  *((_QWORD *)this + 17) = (char *)this + 128;
+  *((_QWORD *)this + 16) = (char *)this + 128;
+  *((_BYTE *)this + 144) = 0;
   v6 = L"UnsupportedMonitorModesAllowed";
   v8 = 67108868;
   v7 = &v16;
@@ -48,6 +48,6 @@ CCD_BTL *__fastcall CCD_BTL::CCD_BTL(CCD_BTL *this)
   v14 = 0LL;
   if ( (int)RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers", &v4, 0LL, 0LL) >= 0 )
     v2 = v16 != 0;
-  *((_BYTE *)this + 152) = v2;
+  *((_BYTE *)this + 144) = v2;
   return this;
 }

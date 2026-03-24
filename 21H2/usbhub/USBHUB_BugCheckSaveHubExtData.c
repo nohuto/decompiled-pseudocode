@@ -1,9 +1,9 @@
 /*
- * XREFs of USBHUB_BugCheckSaveHubExtData @ 0x1C0041240
+ * XREFs of USBHUB_BugCheckSaveHubExtData @ 0x1C00424E0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 void __fastcall USBHUB_BugCheckSaveHubExtData(
@@ -13,12 +13,12 @@ void __fastcall USBHUB_BugCheckSaveHubExtData(
         ULONG ReasonSpecificDataLength)
 {
   _DWORD *v5; // rax
-  unsigned int v6; // ecx
+  int v6; // ecx
 
   if ( ReasonSpecificDataLength >= 0x30 && WPP_MAIN_CB.Queue.ListEntry.Flink )
   {
     v5 = FdoExt((__int64)WPP_MAIN_CB.Queue.ListEntry.Flink);
-    v6 = (WPP_MAIN_CB.Dpc.TargetInfoAsUlong << 12) + 5280;
+    v6 = (dword_1C006C4E8 << 12) + 5280;
     if ( *((_DWORD *)ReasonSpecificData + 2) )
     {
       ReasonSpecificData[4] = v5;

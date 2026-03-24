@@ -1,134 +1,130 @@
 /*
- * XREFs of ?ProcessInteractions@CGestureTargetingManager@@SAXPEAUIManipulationContext@@W4InputType@@@Z @ 0x180186E5C
+ * XREFs of ?ProcessInteractions@CGestureTargetingManager@@SAXPEAUIManipulationContext@@W4InputType@@@Z @ 0x1802380E4
  * Callers:
- *     ?CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017C078 (-CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180224830 (-CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800DF980 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAUIInteractionResource@@@Z @ 0x18017BD38 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAUIInteractionResource@@@Z.c)
- *     _anonymous_namespace_::BypassGestureTargeting @ 0x180186058 (_anonymous_namespace_--BypassGestureTargeting.c)
- *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x180186AAC (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z @ 0x1801D73A0 (--4-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z.c)
+ *     _anonymous_namespace_::BypassGestureTargeting @ 0x18023751C (_anonymous_namespace_--BypassGestureTargeting.c)
+ *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x180237D94 (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
  */
 
 __int64 __fastcall CGestureTargetingManager::ProcessInteractions(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rax
-  int v3; // esi
-  __int64 (__fastcall ***v6)(_QWORD); // rbx
-  __int64 v7; // rax
-  __int64 (__fastcall ***v8)(_QWORD); // rax
-  int v9; // eax
-  __int64 (__fastcall ***v10)(_QWORD); // rax
-  __int64 v11; // rax
-  void (__fastcall *v12)(__int64 *, int *); // rbx
-  int v14; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 (__fastcall ***v15)(_QWORD); // [rsp+58h] [rbp-A8h] BYREF
-  int v16; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 (__fastcall ***v17)(_QWORD); // [rsp+68h] [rbp-98h] BYREF
-  __int64 (__fastcall ***v18)(_QWORD); // [rsp+70h] [rbp-90h] BYREF
-  __int64 (__fastcall ***v19)(_QWORD); // [rsp+78h] [rbp-88h] BYREF
-  __int16 v20; // [rsp+80h] [rbp-80h] BYREF
-  char v21; // [rsp+82h] [rbp-7Eh]
-  __int128 v22; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v23; // [rsp+98h] [rbp-68h]
-  int v24; // [rsp+A0h] [rbp-60h]
-  __int16 v25; // [rsp+A8h] [rbp-58h] BYREF
-  char v26; // [rsp+AAh] [rbp-56h]
-  __int128 v27; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v28; // [rsp+C0h] [rbp-40h]
-  int v29; // [rsp+C8h] [rbp-38h]
-  __int128 v30; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v31; // [rsp+E0h] [rbp-20h]
-  int v32; // [rsp+E8h] [rbp-18h]
-  __int128 v33; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 (__fastcall ***v5)(_QWORD); // rbx
+  __int64 v6; // rax
+  __int64 (__fastcall ***v7)(_QWORD); // rax
+  int v8; // eax
+  __int64 (__fastcall ***v9)(_QWORD); // rbx
+  __int64 v10; // rax
+  void (__fastcall *v11)(__int64 *, BOOL *); // rbx
+  int v13; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 (__fastcall ***v14)(_QWORD); // [rsp+58h] [rbp-A8h] BYREF
+  BOOL v15; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 (__fastcall ***v16)(_QWORD); // [rsp+68h] [rbp-98h] BYREF
+  __int64 (__fastcall ***v17)(_QWORD); // [rsp+70h] [rbp-90h] BYREF
+  __int64 (__fastcall ***v18)(_QWORD); // [rsp+78h] [rbp-88h] BYREF
+  __int64 (__fastcall **v19)(_QWORD); // [rsp+80h] [rbp-80h] BYREF
+  __int128 v20; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v21; // [rsp+98h] [rbp-68h]
+  int v22; // [rsp+A0h] [rbp-60h]
+  __int16 v23; // [rsp+A8h] [rbp-58h] BYREF
+  char v24; // [rsp+AAh] [rbp-56h]
+  __int128 v25; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v26; // [rsp+C0h] [rbp-40h]
+  int v27; // [rsp+C8h] [rbp-38h]
+  __int128 v28; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v29; // [rsp+E0h] [rbp-20h]
+  int v30; // [rsp+E8h] [rbp-18h]
+  __int128 v31; // [rsp+F0h] [rbp-10h] BYREF
 
   v2 = *a1;
-  v3 = 0;
-  v15 = 0LL;
-  v18 = 0LL;
-  v19 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64 *))(v2 + 112))(a1);
-  v6 = v19;
-  Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v19);
-  *(_QWORD *)((char *)&v33 + 4) = 0LL;
-  HIDWORD(v33) = 0;
-  v27 = 0LL;
-  LOWORD(v33) = 0;
-  v22 = 0LL;
+  v14 = 0LL;
+  v17 = 0LL;
+  v18 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64 *))(v2 + 112))(a1);
+  v5 = v18;
+  Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v18);
+  *(_QWORD *)((char *)&v31 + 4) = 0LL;
+  HIDWORD(v31) = 0;
+  v25 = 0LL;
+  LOWORD(v31) = 0;
+  v20 = 0LL;
+  v26 = 0LL;
   v28 = 0LL;
-  v30 = 0LL;
-  v29 = 0;
-  v25 = 0;
-  v26 = 0;
-  v23 = 0LL;
+  v27 = 0;
+  v23 = 0;
   v24 = 0;
-  v20 = 0;
-  v21 = 0;
-  v31 = 0LL;
-  v32 = 0;
-  v14 = 3;
+  v21 = 0LL;
+  v22 = 0;
+  LOWORD(v19) = 0;
+  BYTE2(v19) = 0;
+  v29 = 0LL;
+  v30 = 0;
+  v13 = 3;
   if ( anonymous_namespace_::BypassGestureTargeting(a1, a2) )
   {
-    v7 = *a1;
-    v14 = 2;
-    v8 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64 *))(v7 + 16))(a1);
-    Microsoft::WRL::ComPtr<IInteractionResource>::operator=(&v15, v8);
+    v6 = *a1;
+    v13 = 2;
+    v7 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64 *))(v6 + 16))(a1);
+    Microsoft::WRL::ComPtr<CManipulationContext>::operator=(&v14, v7);
   }
-  v9 = v14;
-  if ( v14 != 3 )
+  v8 = v13;
+  if ( v13 != 3 )
     goto LABEL_6;
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v18);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v15);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v17);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v14);
   if ( (int)CGestureTargetingManager::ProcessInteractionTree(
               (__int64)a1,
-              v6,
+              v5,
               a2,
-              (__int64)&v25,
-              (__int64)&v20,
-              (__int64 (__fastcall ***)(_QWORD))&v30,
-              &v33,
+              (__int64)&v23,
+              &v19,
+              (__int64)&v28,
+              &v31,
+              &v13,
               &v14,
-              &v15,
-              &v18) >= 0 )
+              &v17) >= 0 )
   {
-    v9 = v14;
-    if ( v14 == 3 )
+    v8 = v13;
+    if ( v13 == 3 )
     {
 LABEL_11:
-      v11 = *a1;
-      v16 = 1;
-      v17 = v18;
-      v12 = *(void (__fastcall **)(__int64 *, int *))(v11 + 104);
-      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v17);
-      v12(a1, &v16);
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v17);
+      v10 = *a1;
+      v15 = 1;
+      v16 = v17;
+      v11 = *(void (__fastcall **)(__int64 *, BOOL *))(v10 + 104);
+      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v16);
+      v11(a1, &v15);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v16);
       goto LABEL_12;
     }
 LABEL_6:
-    if ( v9 != 4 )
+    if ( v8 != 4 )
     {
-      LOBYTE(v3) = v9 != 1;
-      v17 = v15;
-      v16 = v3;
-      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v17);
-      if ( v14 == 2 )
+      v16 = v14;
+      v15 = v8 != 1;
+      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v16);
+      if ( v13 == 2 )
       {
-        v10 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64 *))(*a1 + 112))(a1);
-        if ( v15 == v10 )
-          Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v17);
+        v9 = v14;
+        if ( v9 == (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64 *))(*a1 + 112))(a1) )
+          Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v16);
       }
-      (*(void (__fastcall **)(__int64 *, int *))(*a1 + 88))(a1, &v16);
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v17);
+      (*(void (__fastcall **)(__int64 *, BOOL *))(*a1 + 88))(a1, &v15);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v16);
     }
     goto LABEL_11;
   }
 LABEL_12:
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v30);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v22);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v27);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v19);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v18);
-  return Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v15);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v28);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v20);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v25);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v18);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v17);
+  return Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v14);
 }

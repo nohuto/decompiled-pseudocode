@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_IsUrbUsingChainedMdl @ 0x1C000EF68
+ * XREFs of TR_IsUrbUsingChainedMdl @ 0x1C000D330
  * Callers:
- *     Control_MapTransfer @ 0x1C000605C (Control_MapTransfer.c)
- *     Bulk_TransferData_DetermineTransferMechanism @ 0x1C000EE44 (Bulk_TransferData_DetermineTransferMechanism.c)
- *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000F6D4 (Bulk_Stage_EstimateRequiredTrbs.c)
+ *     Control_MapTransfer @ 0x1C0003FBC (Control_MapTransfer.c)
+ *     Bulk_TransferData_DetermineTransferMechanism @ 0x1C000D20C (Bulk_TransferData_DetermineTransferMechanism.c)
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000DB28 (Bulk_Stage_EstimateRequiredTrbs.c)
  * Callees:
  *     <none>
  */

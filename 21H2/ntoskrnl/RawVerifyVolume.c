@@ -1,14 +1,14 @@
 /*
- * XREFs of RawVerifyVolume @ 0x1405E364C
+ * XREFs of RawVerifyVolume @ 0x140584E44
  * Callers:
- *     RawFileSystemControl @ 0x14074C1F8 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x14071B378 (RawFileSystemControl.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RawInitiateDeleteVolume @ 0x1402D2BD8 (RawInitiateDeleteVolume.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1402D3100 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1403613A0 (ExWaitForRundownProtectionReleaseCacheAware.c)
  */
 
 __int64 __fastcall RawVerifyVolume(__int64 a1, __int64 a2)
@@ -32,23 +32,23 @@ __int64 __fastcall RawVerifyVolume(__int64 a1, __int64 a2)
   KeReleaseQueuedSpinLock(9uLL, v6);
   if ( v4 )
   {
-    ExAcquireFastMutex((PFAST_MUTEX)(a2 + 232));
-    v8 = *(_DWORD *)(a2 + 112);
+    ExAcquireFastMutex((PFAST_MUTEX)(a2 + 224));
+    v8 = *(_DWORD *)(a2 + 104);
     if ( (v8 & 2) == 0 )
     {
       v5 = 1;
-      *(_DWORD *)(a2 + 112) = v8 | 2;
+      *(_DWORD *)(a2 + 104) = v8 | 2;
     }
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a2 + 232));
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a2 + 224));
     if ( v5 )
-      ExWaitForRundownProtectionReleaseCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a2 + 224));
-    ExAcquireFastMutex((PFAST_MUTEX)(a2 + 232));
+      ExWaitForRundownProtectionReleaseCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(a2 + 216));
+    ExAcquireFastMutex((PFAST_MUTEX)(a2 + 224));
     v9 = KeAcquireQueuedSpinLock(9uLL);
     --*(_DWORD *)(v7 + 28);
     KeReleaseQueuedSpinLock(9uLL, v9);
-    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 192) + 16LL) + 48LL) &= ~2u;
+    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 184) + 16LL) + 48LL) &= ~2u;
     if ( !RawInitiateDeleteVolume((PFSRTL_ADVANCED_FCB_HEADER)a2, 1, 0) )
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a2 + 232));
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a2 + 224));
   }
   return 3221225490LL;
 }

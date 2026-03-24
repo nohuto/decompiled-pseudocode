@@ -1,30 +1,31 @@
 /*
- * XREFs of CmpGetSubKeyCountForKcbStack @ 0x140920CA0
+ * XREFs of CmpGetSubKeyCountForKcbStack @ 0x14087A668
  * Callers:
- *     CmDeleteLayeredKey @ 0x14053F5E8 (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x14069EDC0 (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x14069EE0C (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpCleanupKeyNodeStack @ 0x14069F150 (CmpCleanupKeyNodeStack.c)
- *     CmpInitializeKeyNodeStack @ 0x14069F2B4 (CmpInitializeKeyNodeStack.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpCleanupKeyNodeStack @ 0x140699C28 (CmpCleanupKeyNodeStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x140699D70 (CmpInitializeKeyNodeStack.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766AC (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A70C (CmpGetSubKeyCountForKeyNodeStack.c)
  */
 
-__int64 __fastcall CmpGetSubKeyCountForKcbStack(__int64 a1, __int64 a2, int *a3)
+__int64 __fastcall CmpGetSubKeyCountForKcbStack(__int64 a1, __int64 a2, __int64 a3)
 {
+  struct _LOOKASIDE_LIST_EX *v5; // r9
   int started; // ebx
-  __int16 v7[40]; // [rsp+20h] [rbp-68h] BYREF
+  char v8[80]; // [rsp+20h] [rbp-68h] BYREF
 
-  memset(v7, 0, 0x4AuLL);
-  CmpInitializeKeyNodeStack((char *)v7);
-  started = CmpStartKeyNodeStackFromKcbStack((__int64)v7, a1, 0LL);
+  memset(v8, 0, sizeof(v8));
+  CmpInitializeKeyNodeStack(v8);
+  started = CmpStartKeyNodeStackFromKcbStack((__int64)v8, a1, 0LL, v5);
   if ( started >= 0 )
   {
-    started = CmpGetSubKeyCountForKeyNodeStack(v7, a3);
+    started = CmpGetSubKeyCountForKeyNodeStack(v8, a3);
     if ( started >= 0 )
       started = 0;
   }
-  CmpCleanupKeyNodeStack((__int64)v7);
+  CmpCleanupKeyNodeStack((__int64)v8);
   return (unsigned int)started;
 }

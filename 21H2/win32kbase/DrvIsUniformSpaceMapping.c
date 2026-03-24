@@ -1,9 +1,10 @@
 /*
- * XREFs of DrvIsUniformSpaceMapping @ 0x1C00B1D90
+ * XREFs of DrvIsUniformSpaceMapping @ 0x1C000FCA0
  * Callers:
- *     NtUserGetUniformSpaceMapping @ 0x1C00B1C60 (NtUserGetUniformSpaceMapping.c)
- *     ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C00B1D2C (-TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z.c)
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00C7F94 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     NtUserGetUniformSpaceMapping @ 0x1C000D540 (NtUserGetUniformSpaceMapping.c)
+ *     ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C000FC40 (-TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z.c)
+ *     IsValidKernelDpiAwarenessContext @ 0x1C00941A4 (IsValidKernelDpiAwarenessContext.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E658 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ConfigureBusMasterAdapters@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@PEAU_WDF_DMA_ENABLER_CONFIG@@@Z @ 0x1C002DA18
+ * XREFs of ?ConfigureBusMasterAdapters@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@PEAU_WDF_DMA_ENABLER_CONFIG@@@Z @ 0x1C0031910
  * Callers:
- *     ?Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z @ 0x1C002D7CC (-Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z.c)
+ *     ?Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z @ 0x1C0031E10 (-Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z.c)
  * Callees:
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     ?ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DB68 (-ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0031AA4 (-ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z.c)
  */
 
 __int64 __fastcall FxDmaEnabler::ConfigureBusMasterAdapters(
@@ -23,8 +23,8 @@ __int64 __fastcall FxDmaEnabler::ConfigureBusMasterAdapters(
   __int64 v13; // r9
   unsigned int v14; // ecx
   unsigned __int64 Size; // rdx
-  unsigned int v17; // eax
-  unsigned int v18; // edx
+  unsigned int v16; // eax
+  unsigned int v17; // edx
   unsigned int AlignmentRequirement; // ecx
 
   v3 = (*((_BYTE *)this + 380) & 0x10) == 0;
@@ -50,12 +50,12 @@ __int64 __fastcall FxDmaEnabler::ConfigureBusMasterAdapters(
       GetDmaAlignment = (__int64 (*)(void))this->m_SimplexAdapterInfo.AdapterObject->DmaOperations->GetDmaAlignment;
       if ( v3 )
       {
-        v17 = GetDmaAlignment();
-        if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(this->m_Globals, v17, 0xBu) && v18 )
-          --v18;
+        v16 = GetDmaAlignment();
+        if ( _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(this->m_Globals, v16, 0xBu) && v17 )
+          --v17;
         AlignmentRequirement = this->m_FDO->AlignmentRequirement;
-        if ( AlignmentRequirement <= v18 )
-          AlignmentRequirement = v18;
+        if ( AlignmentRequirement <= v17 )
+          AlignmentRequirement = v17;
         this->m_CommonBufferAlignment = AlignmentRequirement;
         Size = this->m_SimplexAdapterInfo.PreallocatedSGListSize;
       }

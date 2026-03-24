@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140A96070
+ * XREFs of VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1409DB140
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDeadlockReleaseResource @ 0x140A985B4 (VfDeadlockReleaseResource.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon @ 0x1409DB180 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
  */
 
-__int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel(__int64 a1)
+__int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel(ULONG_PTR BugCheckParameter3)
 {
-  VfDeadlockReleaseResource(*(_DWORD *)(a1 + 8) & 0xFFFFFFFC);
-  return ((__int64 (__fastcall *)(__int64))pXdvKeReleaseInStackQueuedSpinLockFromDpcLevel)(a1);
+  VfDeadlockReleaseResource(*(_DWORD *)(BugCheckParameter3 + 8) & 0xFFFFFFFC);
+  return VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon(BugCheckParameter3);
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PspLockJobExclusive @ 0x1406A3DF8
+ * XREFs of PspLockJobExclusive @ 0x140618BD4
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspJobNotificationWorker @ 0x1406821C0 (PspJobNotificationWorker.c)
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x1406A07B4 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspGetNextJobProcess @ 0x1406A0D90 (PspGetNextJobProcess.c)
- *     PspLockRootJobFromProcess @ 0x1406A109C (PspLockRootJobFromProcess.c)
- *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
- *     PspCallJobHierarchyCallbacks @ 0x1406A3CD4 (PspCallJobHierarchyCallbacks.c)
- *     PspJobClose @ 0x1407DD7D0 (PspJobClose.c)
- *     PspCreateSilo @ 0x1407E6988 (PspCreateSilo.c)
- *     PspNotificationPacketCallback @ 0x1407E7120 (PspNotificationPacketCallback.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACC94 (PspConvertSiloToServerSilo.c)
- *     PspQuitNextJobProcess @ 0x1409B288C (PspQuitNextJobProcess.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140604FA0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspLockRootJobFromProcess @ 0x140616734 (PspLockRootJobFromProcess.c)
+ *     NtQueryInformationJobObject @ 0x140616CE0 (NtQueryInformationJobObject.c)
+ *     PspCallJobHierarchyCallbacks @ 0x140618654 (PspCallJobHierarchyCallbacks.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618780 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobNotificationWorker @ 0x14065F1B0 (PspJobNotificationWorker.c)
+ *     PspGetNextJobProcess @ 0x14068EDB0 (PspGetNextJobProcess.c)
+ *     PspNotificationPacketCallback @ 0x1406977B0 (PspNotificationPacketCallback.c)
+ *     PspJobClose @ 0x1406989C0 (PspJobClose.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
+ *     PspConvertSiloToServerSilo @ 0x1409060A4 (PspConvertSiloToServerSilo.c)
+ *     PspQuitNextJobProcess @ 0x14090924C (PspQuitNextJobProcess.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobExclusive(__int64 a1, __int64 a2)

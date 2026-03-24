@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C01E33A4
+ * XREFs of ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C01E8CF8
  * Callers:
- *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DBF8C (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
+ *     ?UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z @ 0x1C02DF17C (-UpdateKernelmodeAllocation@UmfdAllocation@@SA_NPEAX0@Z.c)
  * Callees:
  *     <none>
  */

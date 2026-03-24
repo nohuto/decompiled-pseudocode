@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeReenumerateNameSpaceCompare @ 0x1C00219EC
+ * XREFs of NVMeReenumerateNameSpaceCompare @ 0x1C0006AFC
  * Callers:
- *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021D10 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0006C40 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
  * Callees:
- *     NVMeIsLunActive @ 0x1C00169CC (NVMeIsLunActive.c)
+ *     NVMeIsLunActive @ 0x1C0015204 (NVMeIsLunActive.c)
  */
 
 __int64 __fastcall NVMeReenumerateNameSpaceCompare(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
@@ -12,10 +12,10 @@ __int64 __fastcall NVMeReenumerateNameSpaceCompare(__int64 a1, __int64 a2, unsig
   __int64 v6; // rsi
   unsigned int v10; // r9d
   __int64 v11; // rbp
-  bool IsLunActive; // al
+  char IsLunActive; // al
   __int64 v13; // rcx
   __int64 v14; // r8
-  int v15; // r9d
+  __int64 v15; // r9
 
   v4 = 0;
   v6 = 0LL;
@@ -28,7 +28,7 @@ __int64 __fastcall NVMeReenumerateNameSpaceCompare(__int64 a1, __int64 a2, unsig
     {
       _mm_lfence();
       v11 = v10 - 1;
-      IsLunActive = NVMeIsLunActive(*(_QWORD *)(a1 + 8 * v11 + 1952));
+      IsLunActive = NVMeIsLunActive(*(_QWORD *)(a1 + 8 * v11 + 1736), a2, *(_QWORD *)(a2 + 8 * v11 + 8));
       if ( v14 )
       {
         if ( !IsLunActive )
@@ -56,7 +56,7 @@ LABEL_20:
             *a4 = v15;
           goto LABEL_22;
         }
-        StorPortExtendedFunction(1LL, a1, v14);
+        StorPortExtendedFunction(1LL, a1, v14, v15);
         *(_QWORD *)(a2 + 8 * v11 + 8) = 0LL;
       }
       else if ( IsLunActive )

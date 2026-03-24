@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z @ 0x1C0302BC4
+ * XREFs of ?DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z @ 0x1C026257C
  * Callers:
- *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0301F98 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0261B50 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
  * Callees:
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C001A56C (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000B1D8 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall DxgkpCreateFile(
+__int64 __fastcall DxgkpCreateFile(
         size_t *a1,
         ACCESS_MASK DesiredAccess,
         ULONG FileAttributes,
@@ -16,8 +16,12 @@ NTSTATUS __fastcall DxgkpCreateFile(
         void **a6)
 {
   __int64 v8; // rbx
-  NTSTATUS result; // eax
-  NTSTATUS v11; // edi
+  __int64 result; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  NTSTATUS v13; // edi
+  __int64 v14; // r8
+  __int64 v15; // rax
   void *FileHandle; // [rsp+60h] [rbp-A0h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
@@ -31,7 +35,7 @@ NTSTATUS __fastcall DxgkpCreateFile(
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   result = RtlStringCbCopyW(SourceString, 0x208uLL, a1);
-  if ( result >= 0 )
+  if ( (int)result >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
     ObjectAttributes.RootDirectory = 0LL;
@@ -40,7 +44,7 @@ NTSTATUS __fastcall DxgkpCreateFile(
     ObjectAttributes.Attributes = 64;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     FileHandle = (void *)-1LL;
-    v11 = ZwCreateFile(
+    v13 = ZwCreateFile(
             &FileHandle,
             DesiredAccess,
             &ObjectAttributes,
@@ -52,12 +56,18 @@ NTSTATUS __fastcall DxgkpCreateFile(
             CreateOptions,
             0LL,
             0);
-    if ( v11 >= 0 )
+    if ( v13 >= 0 )
+    {
       v8 = (__int64)FileHandle;
+    }
     else
-      WdLogSingleEntry1(3LL, 78LL);
+    {
+      v15 = WdLogNewEntry5_WdWarning(v12, v11, v14);
+      *(_QWORD *)(v15 + 24) = 78LL;
+      WdLogEvent5_WdWarning(v15);
+    }
     *a6 = (void *)v8;
-    return v11;
+    return (unsigned int)v13;
   }
   return result;
 }

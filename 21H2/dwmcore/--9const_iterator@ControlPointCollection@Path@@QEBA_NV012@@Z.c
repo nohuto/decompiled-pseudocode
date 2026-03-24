@@ -1,8 +1,8 @@
 /*
- * XREFs of ??9const_iterator@ControlPointCollection@Path@@QEBA_NV012@@Z @ 0x1800CA75C
+ * XREFs of ??9const_iterator@ControlPointCollection@Path@@QEBA_NV012@@Z @ 0x180220828
  * Callers:
- *     ?IsEmpty@CPathSegmentsShape@@UEBA_NXZ @ 0x1800CA6C0 (-IsEmpty@CPathSegmentsShape@@UEBA_NXZ.c)
- *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x1802A038C (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
+ *     ?GetControlPointCount@CPathData@@QEBAIXZ @ 0x180220D84 (-GetControlPointCount@CPathData@@QEBAIXZ.c)
+ *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x18025E910 (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
  * Callees:
  *     <none>
  */

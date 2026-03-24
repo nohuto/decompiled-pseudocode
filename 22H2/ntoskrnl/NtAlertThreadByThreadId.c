@@ -1,11 +1,11 @@
 /*
- * XREFs of NtAlertThreadByThreadId @ 0x14073E950
+ * XREFs of NtAlertThreadByThreadId @ 0x140626080
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeAlertThreadByThreadId @ 0x1402B97B0 (KeAlertThreadByThreadId.c)
- *     PsLookupThreadByThreadId @ 0x1406FAFC0 (PsLookupThreadByThreadId.c)
+ *     KeAlertThreadByThreadId @ 0x14025C2F0 (KeAlertThreadByThreadId.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsLookupThreadByThreadId @ 0x140625A50 (PsLookupThreadByThreadId.c)
  */
 
 NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
@@ -13,8 +13,11 @@ NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
   struct _KTHREAD *CurrentThread; // rbx
   int v2; // edi
   NTSTATUS result; // eax
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  _DWORD *v6; // r9
   _KPROCESS *Process; // rax
-  PETHREAD v5; // rbx
+  struct _DMA_ADAPTER *v8; // rbx
   PETHREAD Thread; // [rsp+38h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -24,12 +27,12 @@ NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
   if ( result >= 0 )
   {
     Process = CurrentThread->Process;
-    v5 = Thread;
+    v8 = (struct _DMA_ADAPTER *)Thread;
     if ( Thread->Process == Process )
-      KeAlertThreadByThreadId((__int64)Thread);
+      KeAlertThreadByThreadId((__int64)Thread, v4, v5, v6);
     else
       v2 = -1073741790;
-    ObfDereferenceObject(v5);
+    HalPutDmaAdapter(v8);
     return v2;
   }
   return result;

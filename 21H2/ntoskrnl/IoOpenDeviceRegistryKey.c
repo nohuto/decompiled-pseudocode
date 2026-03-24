@@ -1,13 +1,13 @@
 /*
- * XREFs of IoOpenDeviceRegistryKey @ 0x1406C54A0
+ * XREFs of IoOpenDeviceRegistryKey @ 0x1406A50A0
  * Callers:
- *     DifIoOpenDeviceRegistryKeyWrapper @ 0x14060FEF0 (DifIoOpenDeviceRegistryKeyWrapper.c)
+ *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1406C55CC (IopApplyMutableTagToRegistryKey.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x1406A51CC (IopApplyMutableTagToRegistryKey.c)
  */
 
 NTSTATUS __stdcall IoOpenDeviceRegistryKey(
@@ -40,12 +40,12 @@ NTSTATUS __stdcall IoOpenDeviceRegistryKey(
 LABEL_7:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
+  ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
   v11 = v9 | 0x200;
   if ( (v6 & 4) == 0 )
     v11 = v9;
   v12 = CmOpenDeviceRegKey(
-          PiPnpRtlCtx,
+          *(__int64 *)&PiPnpRtlCtx,
           *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 6),
           v11,
           0,
@@ -59,6 +59,6 @@ LABEL_7:
       IopApplyMutableTagToRegistryKey(*DeviceRegKey);
   }
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v12;
 }

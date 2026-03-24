@@ -1,10 +1,10 @@
 /*
- * XREFs of PlugPlayGetDeviceProperty @ 0x1407D34A0
+ * XREFs of PlugPlayGetDeviceProperty @ 0x14069EBF0
  * Callers:
- *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x1407D3460 (PiPnpRtlGetDeviceNtPropertyRoutine.c)
+ *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x14069EBB0 (PiPnpRtlGetDeviceNtPropertyRoutine.c)
  * Callees:
- *     ZwPlugPlayControl @ 0x14041CE00 (ZwPlugPlayControl.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ZwPlugPlayControl @ 0x1403FC080 (ZwPlugPlayControl.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall PlugPlayGetDeviceProperty(
@@ -18,12 +18,12 @@ __int64 __fastcall PlugPlayGetDeviceProperty(
   __int128 v8; // xmm0
   int v9; // esi
   unsigned int v10; // ecx
-  __int128 v12; // [rsp+20h] [rbp-30h] BYREF
-  int v13; // [rsp+30h] [rbp-20h]
-  int v14; // [rsp+34h] [rbp-1Ch]
-  __int64 v15; // [rsp+38h] [rbp-18h]
-  unsigned int v16; // [rsp+40h] [rbp-10h]
-  int v17; // [rsp+44h] [rbp-Ch]
+  __int128 v12; // [rsp+20h] [rbp-38h] BYREF
+  int v13; // [rsp+30h] [rbp-28h]
+  int v14; // [rsp+34h] [rbp-24h]
+  __int64 v15; // [rsp+38h] [rbp-20h]
+  unsigned int v16; // [rsp+40h] [rbp-18h]
+  int v17; // [rsp+44h] [rbp-14h]
 
   if ( a1 && a5 && !a6 )
   {

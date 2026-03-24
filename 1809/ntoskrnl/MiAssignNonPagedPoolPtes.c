@@ -11,10 +11,10 @@
  *     MiFlushTbAsNeeded @ 0x140097FD0 (MiFlushTbAsNeeded.c)
  *     MiIsPoolPteInUse @ 0x14009A0D8 (MiIsPoolPteInUse.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiAssignNonPagedPoolPtes(unsigned __int64 a1, __int64 a2, _QWORD *a3)

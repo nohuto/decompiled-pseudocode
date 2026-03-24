@@ -1,85 +1,85 @@
 /*
- * XREFs of PopDiagTraceIrpFinish @ 0x1403A5020
+ * XREFs of PopDiagTraceIrpFinish @ 0x14037AB74
  * Callers:
- *     PopRequestCompletion @ 0x1403A4B90 (PopRequestCompletion.c)
- *     PopDequeueQuerySetIrp @ 0x1403A4EC4 (PopDequeueQuerySetIrp.c)
+ *     PopRequestCompletion @ 0x14037A900 (PopRequestCompletion.c)
+ *     PopDequeueQuerySetIrp @ 0x14039814C (PopDequeueQuerySetIrp.c)
  * Callees:
- *     IoFindDeviceThatFailedIrp @ 0x140259568 (IoFindDeviceThatFailedIrp.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     PopDiagGetDriverName @ 0x140395628 (PopDiagGetDriverName.c)
- *     PopDiagTraceIrpFinishTelemetry @ 0x1403A51D0 (PopDiagTraceIrpFinishTelemetry.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x14037AD2C (PopDiagTraceIrpFinishTelemetry.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14037ADF4 (IoFindDeviceThatFailedIrp.c)
+ *     PopDiagGetDriverName @ 0x140388F7C (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceIrpFinish(__int64 a1)
 {
   BOOLEAN result; // al
-  __int64 v2; // r8
-  __int64 v3; // rdx
-  int v4; // eax
-  wchar_t *v5; // r11
-  __int64 v6; // rax
+  const size_t *v2; // rbx
+  __int64 v3; // rdi
+  int v4; // edx
+  char v5; // r14
+  int v6; // esi
   __int64 v7; // rax
-  __int64 v8; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rcx
   __int64 DeviceThatFailedIrp; // rax
-  int v10; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-B8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-B0h] BYREF
-  int *v13; // [rsp+60h] [rbp-A0h]
-  __int64 v14; // [rsp+68h] [rbp-98h]
-  wchar_t *v15; // [rsp+70h] [rbp-90h]
-  int v16; // [rsp+78h] [rbp-88h]
-  int v17; // [rsp+7Ch] [rbp-84h]
-  wchar_t v18[64]; // [rsp+80h] [rbp-80h] BYREF
+  int DriverName; // eax
+  const size_t *v12; // rcx
+  __int64 v13; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-B8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 *v16; // [rsp+68h] [rbp-A0h]
+  __int64 v17; // [rsp+70h] [rbp-98h]
+  const size_t *v18; // [rsp+78h] [rbp-90h]
+  int v19; // [rsp+80h] [rbp-88h]
+  int v20; // [rsp+84h] [rbp-84h]
+  _BYTE v21[128]; // [rsp+88h] [rbp-80h] BYREF
 
-  v11 = a1;
+  v14 = a1;
   result = PopDiagTraceIrpFinishTelemetry();
   if ( PopDiagHandleRegistered )
   {
     result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRPFINISH);
     if ( result )
     {
-      v2 = *(_QWORD *)(v11 + 72LL * *(char *)(v11 + 66) + 200);
-      v3 = *(int *)(v11 + 48);
-      v10 = v3;
-      v4 = *(_DWORD *)(v2 + 188);
-      if ( (int)v3 >= 0 || v4 )
+      v2 = &cchOriginalDestLength;
+      v3 = *(_QWORD *)(v14 + 72LL * *(char *)(v14 + 66) + 200);
+      v4 = *(_DWORD *)(v14 + 48);
+      LODWORD(v13) = v4;
+      v5 = *(_BYTE *)(v3 + 184);
+      v6 = *(_DWORD *)(v3 + 188);
+      if ( v4 < 0 && !v6 )
       {
-        v5 = (wchar_t *)&cchOriginalDestLength;
-        if ( v4 == 1 )
-        {
-          v5 = (wchar_t *)&cchOriginalDestLength;
-          if ( *(_BYTE *)(v2 + 184) == 2 )
-          {
-            v7 = *(_QWORD *)(v2 + 24);
-            if ( v7 )
-              v8 = *(_QWORD *)(*(_QWORD *)(v7 + 312) + 40LL);
-            else
-              v8 = 0LL;
-            PopFxAddLogEntry(v8, 0, 23, v3);
-            v5 = (wchar_t *)&cchOriginalDestLength;
-          }
-        }
+        DeviceThatFailedIrp = IoFindDeviceThatFailedIrp(v14);
+        DriverName = PopDiagGetDriverName(DeviceThatFailedIrp, v21);
+        v4 = v13;
+        v12 = (const size_t *)v21;
+        if ( DriverName < 0 )
+          v12 = &cchOriginalDestLength;
+        v2 = v12;
       }
-      else
+      if ( v6 == 1 && v5 == 2 )
       {
-        DeviceThatFailedIrp = IoFindDeviceThatFailedIrp(v11);
-        if ( PopDiagGetDriverName(DeviceThatFailedIrp, v18) >= 0 )
-          v5 = v18;
+        v8 = *(_QWORD *)(v3 + 24);
+        if ( v8 )
+          v9 = *(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL);
+        else
+          v9 = 0LL;
+        PopFxAddLogEntry(v9, 0, 23, v4);
       }
       *(_QWORD *)&UserData.Size = 8LL;
-      UserData.Ptr = (ULONGLONG)&v11;
-      v13 = &v10;
-      v6 = -1LL;
-      v14 = 4LL;
-      v15 = v5;
+      UserData.Ptr = (ULONGLONG)&v14;
+      v16 = &v13;
+      v7 = -1LL;
+      v17 = 4LL;
+      v18 = v2;
       do
-        ++v6;
-      while ( v5[v6] );
-      v16 = 2 * v6 + 2;
-      v17 = 0;
+        ++v7;
+      while ( *((_WORD *)v2 + v7) );
+      v19 = 2 * v7 + 2;
+      v20 = 0;
       return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRPFINISH, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }

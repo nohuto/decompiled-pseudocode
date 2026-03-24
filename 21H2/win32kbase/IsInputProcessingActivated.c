@@ -1,22 +1,21 @@
 /*
- * XREFs of IsInputProcessingActivated @ 0x1C00C5730
+ * XREFs of IsInputProcessingActivated @ 0x1C00440A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char IsInputProcessingActivated()
+bool IsInputProcessingActivated()
 {
-  CInputThreadBase *v0; // rdi
-  char *v1; // rbx
+  CInputThread *v0; // rdi
+  bool v1; // bl
 
   v0 = gpInputThread;
-  v1 = (char *)gpInputThread + 8;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v1, 0LL);
-  LOBYTE(v0) = *((_DWORD *)v0 + 6) == 2;
-  ExReleasePushLockSharedEx(v1, 0LL);
+  ExAcquirePushLockSharedEx(v0, 0LL);
+  v1 = *((_DWORD *)v0 + 4) == 2;
+  ExReleasePushLockSharedEx(v0, 0LL);
   KeLeaveCriticalRegion();
-  return (char)v0;
+  return v1;
 }

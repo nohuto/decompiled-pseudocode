@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessProtectContent@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_PROTECTCONTENT@@@Z @ 0x180211364
+ * XREFs of ?ProcessProtectContent@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_PROTECTCONTENT@@@Z @ 0x1801AE280
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
  */
 
 __int64 __fastcall CVisual::ProcessProtectContent(
@@ -14,9 +14,9 @@ __int64 __fastcall CVisual::ProcessProtectContent(
   char v3; // r9
 
   v3 = *((_BYTE *)a3 + 8);
-  if ( ((*((unsigned __int8 *)this + 103) >> 1) & 1) != (v3 != 0) )
+  if ( ((*((unsigned __int8 *)this + 95) >> 2) & 1) != (v3 != 0) )
   {
-    *((_BYTE *)this + 103) = *((_BYTE *)this + 103) & 0xFD | (v3 != 0 ? 2 : 0);
+    *((_BYTE *)this + 95) = *((_BYTE *)this + 95) & 0xFB | (v3 != 0 ? 4 : 0);
     CVisual::PropagateFlags((__int64)this, 5u);
   }
   return 0LL;

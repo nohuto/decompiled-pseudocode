@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SignalPresentLimitSemaphore@CFlipExBuffer@@UEBAXXZ @ 0x1C007EAB0
+ * XREFs of ?SignalPresentLimitSemaphore@CFlipExBuffer@@UEBAXXZ @ 0x1C00139B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z @ 0x1C007F190 (-SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z.c)
+ *     ?SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z @ 0x1C00139E8 (-SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z.c)
  */
 
 void __fastcall CFlipExBuffer::SignalPresentLimitSemaphore(struct _KSEMAPHORE **this)
 {
-  if ( *((int *)this + 84) > 0 )
+  if ( *((int *)this + 76) > 0 )
   {
-    SignalPresentLimitSemaphore(this[41], 1);
-    --*((_DWORD *)this + 84);
+    SignalPresentLimitSemaphore(this[37], 1);
+    --*((_DWORD *)this + 76);
   }
 }

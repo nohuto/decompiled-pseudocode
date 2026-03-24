@@ -1,141 +1,152 @@
 /*
- * XREFs of AlpcpDisconnectPort @ 0x140718F30
+ * XREFs of AlpcpDisconnectPort @ 0x1405E26FC
  * Callers:
- *     AlpcpDoPortCleanup @ 0x140718D90 (AlpcpDoPortCleanup.c)
- *     NtAlpcDisconnectPort @ 0x1407D7110 (NtAlpcDisconnectPort.c)
+ *     AlpcpDoPortCleanup @ 0x1405E20E8 (AlpcpDoPortCleanup.c)
+ *     NtAlpcDisconnectPort @ 0x14068F3D0 (NtAlpcDisconnectPort.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectSafe @ 0x140337570 (ObReferenceObjectSafe.c)
- *     AlpcpCancelMessagesByRequestor @ 0x140719264 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x140779DA0 (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpSignalPortAndUnlock @ 0x14077A1C0 (AlpcpSignalPortAndUnlock.c)
- *     AlpcpWalkConnectionList @ 0x1407E01DC (AlpcpWalkConnectionList.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectSafe @ 0x1402F1E80 (ObReferenceObjectSafe.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1405E2A50 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpSignalPortAndUnlock @ 0x14067758C (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpWalkConnectionList @ 0x14069D534 (AlpcpWalkConnectionList.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1406A0D7C (AlpcpInsertMessageCanceledQueue.c)
  */
 
-__int64 __fastcall AlpcpDisconnectPort(__int64 a1, char a2)
+__int64 __fastcall AlpcpDisconnectPort(__int64 DmaAdapter, char a2)
 {
-  __int64 *v2; // r15
+  __int64 *v2; // r12
   volatile signed __int64 *v5; // rdi
-  _DWORD *v6; // rsi
-  __int64 v7; // r14
-  signed __int64 *v8; // rsi
-  int v9; // edi
-  int v10; // edi
+  int v6; // eax
+  unsigned int v7; // ecx
+  int v8; // ecx
+  __int64 v9; // r15
+  __int64 v10; // r14
   int v11; // edi
-  __int64 v12; // rdi
-  ULONG_PTR v14; // rdi
-  __int128 v15; // [rsp+30h] [rbp-10h] BYREF
-  signed __int64 *v16; // [rsp+80h] [rbp+40h]
+  int v12; // edi
+  int v13; // edi
+  __int64 v14; // rdi
+  ULONG_PTR v16; // rdi
+  __int128 v17; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v18; // [rsp+70h] [rbp+30h]
 
-  v2 = *(__int64 **)(a1 + 16);
-  v15 = 0LL;
+  v2 = *(__int64 **)(DmaAdapter + 16);
+  v17 = 0LL;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(v2 - 2), 0LL);
-  v5 = (volatile signed __int64 *)(a1 + 352);
-  ExAcquirePushLockExclusiveEx(a1 + 352, 0LL);
-  v6 = (_DWORD *)(a1 + 416);
+  v5 = (volatile signed __int64 *)(DmaAdapter + 352);
+  ExAcquirePushLockExclusiveEx(DmaAdapter + 352, 0LL);
   if ( (a2 & 1) != 0 )
-    *v6 |= 0x80u;
-  if ( (*v6 & 0x20) == 0 )
+    *(_DWORD *)(DmaAdapter + 416) |= 0x80u;
+  v6 = *(_DWORD *)(DmaAdapter + 416);
+  if ( (v6 & 0x20) != 0 )
   {
-    *v6 |= 0x20u;
     if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 352));
-    KeAbPostRelease(a1 + 352);
-    if ( (*v6 & 6) == 2 )
-      AlpcpWalkConnectionList(a1);
-    if ( ((*v6 >> 1) & 3) == 1 )
-    {
-      v7 = 0LL;
-    }
-    else
-    {
-      if ( ((*v6 >> 1) & 3) == 2 )
-      {
-        v7 = *v2;
-        v8 = (signed __int64 *)a1;
-      }
-      else
-      {
-        v7 = v2[2];
-        v8 = (signed __int64 *)*v2;
-      }
-      v16 = v8;
-      if ( v7 )
-        v7 &= -(__int64)(ObReferenceObjectSafe(v7) != 0);
-      if ( !v8 || ObReferenceObjectSafe((__int64)v8) )
-        goto LABEL_15;
-    }
-    v16 = 0LL;
-    v8 = 0LL;
-LABEL_15:
+      ExfTryToWakePushLock((volatile signed __int64 *)(DmaAdapter + 352));
+    KeAbPostRelease(DmaAdapter + 352);
     if ( (_InterlockedExchangeAdd64(v2 - 2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v2 - 2);
     KeAbPostRelease((ULONG_PTR)(v2 - 2));
-    if ( v7 )
+    return 3221225527LL;
+  }
+  else
+  {
+    *(_DWORD *)(DmaAdapter + 416) = v6 | 0x20;
+    if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(DmaAdapter + 352));
+    KeAbPostRelease(DmaAdapter + 352);
+    v7 = *(_DWORD *)(DmaAdapter + 416);
+    if ( (v7 & 6) == 2 )
     {
-      *((_QWORD *)&v15 + 1) = &v15;
-      *(_QWORD *)&v15 = &v15;
+      AlpcpWalkConnectionList(DmaAdapter);
+      v7 = *(_DWORD *)(DmaAdapter + 416);
+    }
+    v8 = ((v7 >> 1) & 3) - 1;
+    if ( v8 )
+    {
+      if ( v8 == 1 )
+      {
+        v9 = *v2;
+        v10 = DmaAdapter;
+      }
+      else
+      {
+        v9 = v2[2];
+        v10 = *v2;
+      }
+    }
+    else
+    {
+      v9 = 0LL;
+      v10 = 0LL;
+    }
+    v18 = v10;
+    if ( v9 )
+      v9 &= -(__int64)(ObReferenceObjectSafe(v9) != 0);
+    if ( v10 )
+    {
+      v10 &= -(__int64)(ObReferenceObjectSafe(v10) != 0);
+      v18 = v10;
+    }
+    if ( (_InterlockedExchangeAdd64(v2 - 2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v2 - 2);
+    KeAbPostRelease((ULONG_PTR)(v2 - 2));
+    if ( v9 )
+    {
+      *((_QWORD *)&v17 + 1) = &v17;
+      *(_QWORD *)&v17 = &v17;
       do
       {
-        v9 = AlpcpCancelMessagesByRequestor(a1, v7, (int)v7 + 144, 1, (__int64)&v15);
-        v10 = AlpcpCancelMessagesByRequestor(a1, v7, (int)v7 + 160, 2, (__int64)&v15) | v9;
-        v11 = AlpcpCancelMessagesByRequestor(a1, v7, (int)v7 + 184, 3, (__int64)&v15) | v10;
+        v11 = AlpcpCancelMessagesByRequestor(DmaAdapter, v9, (int)v9 + 144, 1, (__int64)&v17);
+        v12 = AlpcpCancelMessagesByRequestor(DmaAdapter, v9, (int)v9 + 160, 2, (__int64)&v17) | v11;
+        v13 = AlpcpCancelMessagesByRequestor(DmaAdapter, v9, (int)v9 + 184, 3, (__int64)&v17) | v12;
       }
-      while ( v11 | (unsigned int)AlpcpCancelMessagesByRequestor(a1, v7, (int)v7 + 208, 4, (__int64)&v15) );
-      ObfDereferenceObject((PVOID)v7);
-      v8 = v16;
+      while ( v13 | (unsigned int)AlpcpCancelMessagesByRequestor(DmaAdapter, v9, (int)v9 + 208, 4, (__int64)&v17) );
+      HalPutDmaAdapter((PADAPTER_OBJECT)v9);
+      v10 = v18;
       while ( 1 )
       {
-        v12 = v15;
-        if ( (__int128 *)v15 == &v15 )
+        v14 = v17;
+        if ( (__int128 *)v17 == &v17 )
           break;
-        *(_QWORD *)&v15 = *(_QWORD *)v15;
-        v14 = v12 - 80;
-        *(_QWORD *)(v15 + 8) = &v15;
-        AlpcpLockForCachedReferenceBlob(v14);
-        if ( v16 )
+        *(_QWORD *)&v17 = *(_QWORD *)v17;
+        v16 = v14 - 80;
+        *(_QWORD *)(v17 + 8) = &v17;
+        AlpcpLockForCachedReferenceBlob(v16);
+        if ( v18 )
         {
-          ExAcquirePushLockSharedEx((ULONG_PTR)(v16 + 44), 0LL);
-          if ( (v16[52] & 0x40) != 0 )
+          ExAcquirePushLockSharedEx(v18 + 352, 0LL);
+          if ( (*(_DWORD *)(v18 + 416) & 0x40) != 0 )
           {
-            --*(_WORD *)(v14 - 30);
-            if ( _InterlockedCompareExchange64(v16 + 44, 0LL, 17LL) != 17 )
-              ExfReleasePushLockShared(v16 + 44);
-            KeAbPostRelease((ULONG_PTR)(v16 + 44));
+            --*(_WORD *)(v16 - 30);
+            if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v18 + 352), 0LL, 17LL) != 17 )
+              ExfReleasePushLockShared((signed __int64 *)(v18 + 352));
+            KeAbPostRelease(v18 + 352);
           }
           else
           {
-            *(_DWORD *)(v14 + 72) = _InterlockedIncrement((volatile signed __int32 *)(a1 + 400));
-            *(_QWORD *)(v14 + 128) = *(_QWORD *)(a1 + 56);
-            *(_QWORD *)(v14 + 56) = a1;
-            *(_QWORD *)(v14 + 64) = v16;
-            AlpcpInsertMessageCanceledQueue(v16, v14);
-            AlpcpSignalPortAndUnlock(v16);
+            *(_DWORD *)(v16 + 72) = _InterlockedIncrement((volatile signed __int32 *)(DmaAdapter + 400));
+            *(_QWORD *)(v16 + 128) = *(_QWORD *)(DmaAdapter + 56);
+            *(_QWORD *)(v16 + 56) = DmaAdapter;
+            *(_QWORD *)(v16 + 64) = v18;
+            AlpcpInsertMessageCanceledQueue(v18, v16);
+            AlpcpSignalPortAndUnlock(v18);
           }
         }
         else
         {
-          --*(_WORD *)(v14 - 30);
+          --*(_WORD *)(v16 - 30);
         }
-        AlpcpUnlockMessage(v14);
+        AlpcpUnlockMessage(v16);
       }
     }
-    if ( v8 )
-      ObfDereferenceObject(v8);
+    if ( v10 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)v10);
     return 0LL;
   }
-  if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 352));
-  KeAbPostRelease(a1 + 352);
-  if ( (_InterlockedExchangeAdd64(v2 - 2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v2 - 2);
-  KeAbPostRelease((ULONG_PTR)(v2 - 2));
-  return 3221225527LL;
 }

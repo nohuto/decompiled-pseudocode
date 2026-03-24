@@ -1,17 +1,14 @@
 /*
- * XREFs of ?OnOuterTransformChanged@CVisual@@AEAAXXZ @ 0x180098E5C
+ * XREFs of ?OnOuterTransformChanged@CVisual@@AEAAXXZ @ 0x180066484
  * Callers:
- *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x18001B380 (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
- *     ?SetRelativeSize@CVisual@@QEAAXMM@Z @ 0x180039E30 (-SetRelativeSize@CVisual@@QEAAXMM@Z.c)
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x180066690 (-CleanTrees@CComposition@@IEAAJXZ.c)
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?UpdateTransformChildBounds@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z @ 0x180088DF0 (-UpdateTransformChildBounds@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z.c)
- *     ?CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z @ 0x180089840 (-CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z.c)
- *     ?SetSize@CVisual@@QEAAXMM@Z @ 0x180097BF4 (-SetSize@CVisual@@QEAAXMM@Z.c)
- *     ?SetOffset@CVisual@@QEAAXMMM@Z @ 0x180098CB0 (-SetOffset@CVisual@@QEAAXMMM@Z.c)
- *     ?ProcessSetTransform@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORM@@@Z @ 0x1800EA868 (-ProcessSetTransform@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORM@@@Z.c)
- *     ?ProcessSetTransformParent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORMPARENT@@@Z @ 0x1800F7190 (-ProcessSetTransformParent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORMPA.c)
+ *     ?ProcessSetTransform@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORM@@@Z @ 0x180062DC8 (-ProcessSetTransform@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORM@@@Z.c)
+ *     ?SetOffset@CVisual@@QEAAXMMM@Z @ 0x180065DF0 (-SetOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?SetSize@CVisual@@QEAAXMM@Z @ 0x180065F98 (-SetSize@CVisual@@QEAAXMM@Z.c)
+ *     ?SetRelativeSize@CVisual@@QEAAXMM@Z @ 0x180067944 (-SetRelativeSize@CVisual@@QEAAXMM@Z.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A510 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800D1FBC (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?ProcessSetTransformParent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORMPARENT@@@Z @ 0x1800D5940 (-ProcessSetTransformParent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORMPA.c)
  * Callees:
  *     <none>
  */
@@ -33,8 +30,8 @@ void __fastcall CVisual::OnOuterTransformChanged(CVisual *this)
   _QWORD **v14; // rcx
   _QWORD *m; // rax
 
-  *((_QWORD *)this + 73) = 0LL;
-  v2 = *((_QWORD *)this + 29);
+  *((_QWORD *)this + 55) = 0LL;
+  v2 = *((_QWORD *)this + 28);
   if ( *(int *)v2 < 0 )
   {
     v4 = *(unsigned int *)(v2 + 4);
@@ -53,11 +50,11 @@ void __fastcall CVisual::OnOuterTransformChanged(CVisual *this)
     if ( v8 )
     {
       for ( j = *v8; j != v8; j = (_QWORD *)*j )
-        *(j - 14) = 0LL;
+        *(j - 21) = 0LL;
     }
   }
-  *((_BYTE *)this + 497) = 1;
-  v3 = *((_QWORD *)this + 29);
+  *((_QWORD *)this + 70) = 0LL;
+  v3 = *((_QWORD *)this + 28);
   if ( *(int *)v3 < 0 )
   {
     v10 = *(unsigned int *)(v3 + 4);
@@ -76,7 +73,7 @@ void __fastcall CVisual::OnOuterTransformChanged(CVisual *this)
     if ( v14 )
     {
       for ( m = *v14; m != v14; m = (_QWORD *)*m )
-        *((_BYTE *)m - 199) = 1;
+        *(m - 6) = 0LL;
     }
   }
 }

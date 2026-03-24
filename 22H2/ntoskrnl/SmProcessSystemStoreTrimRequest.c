@@ -1,97 +1,39 @@
 /*
- * XREFs of SmProcessSystemStoreTrimRequest @ 0x1409D773C
+ * XREFs of SmProcessSystemStoreTrimRequest @ 0x14092A318
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1405C2D4C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x14059A000 (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SmProcessSystemStoreTrimRequest(void *Src, size_t Size, char a3)
+__int64 __fastcall SmProcessSystemStoreTrimRequest(unsigned __int64 a1, int a2, char a3)
 {
-  size_t v4; // rbx
-  int v6; // ebx
+  __int64 v5; // rcx
+  _DWORD **v6; // rax
   __int64 v7; // rcx
-  __int64 ProcessPartition; // rax
-  _DWORD **v9; // rax
-  __int64 v10; // rcx
-  __int128 v12; // [rsp+30h] [rbp-28h] BYREF
-  ULONG_PTR v13; // [rsp+40h] [rbp-18h]
-  __int64 v14; // [rsp+78h] [rbp+20h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-18h]
 
-  v4 = (unsigned int)Size;
-  v14 = 0LL;
-  v12 = 0LL;
-  v13 = 0LL;
-  if ( (((_DWORD)Size - 16) & 0xFFFFFFF7) != 0 )
-  {
-LABEL_2:
-    v6 = -1073741306;
-    goto LABEL_28;
-  }
+  if ( a2 != 16 )
+    return 3221225990LL;
   if ( a3 )
   {
-    if ( (unsigned __int64)(unsigned int)Size - 1 > 0xFFE )
-    {
-      ProbeForWrite(Src, (unsigned int)Size, 8u);
-    }
-    else
-    {
-      if ( ((unsigned __int8)Src & 7) != 0 )
-        ExRaiseDatatypeMisalignment();
-      v7 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)Src < 0x7FFFFFFF0000LL )
-        v7 = (__int64)Src;
-      *(_BYTE *)v7 = *(_BYTE *)v7;
-      *(_BYTE *)(v7 + (unsigned int)Size - 1) = *(_BYTE *)(v7 + (unsigned int)Size - 1);
-    }
+    if ( (a1 & 7) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v5 = 0x7FFFFFFF0000LL;
+    if ( a1 < 0x7FFFFFFF0000LL )
+      v5 = a1;
+    *(_BYTE *)v5 = *(_BYTE *)v5;
+    *(_BYTE *)(v5 + 15) = *(_BYTE *)(v5 + 15);
   }
-  memmove(&v12, Src, v4);
-  if ( (unsigned int)(unsigned __int8)v12 - 1 > 1 )
-  {
-    v6 = -1073741735;
-    goto LABEL_28;
-  }
-  if ( (unsigned __int8)v12 == 2 && (_DWORD)v4 != 24 || (unsigned __int8)v12 == 1 && (_DWORD)v4 != 16 )
-    goto LABEL_2;
-  if ( (v12 & 0xFFFFFF00) != 0 || !*((_QWORD *)&v12 + 1) )
-  {
-    v6 = -1073741811;
-    goto LABEL_28;
-  }
-  if ( v13 )
-  {
-    v6 = PsReferencePartitionByHandle(v13, 2, a3, 0x52546D53u, &v14);
-    if ( v6 < 0 )
-      goto LABEL_28;
-    ProcessPartition = *(_QWORD *)(v14 + 24);
-    if ( !ProcessPartition )
-    {
-      v6 = -1073741399;
-      goto LABEL_28;
-    }
-  }
-  else
-  {
-    ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-  }
-  if ( *(_DWORD *)(ProcessPartition + 2112) == -1 )
-  {
-    v6 = -1073741275;
-  }
-  else
-  {
-    v9 = (_DWORD **)SmKmStoreRefFromStoreIndex(ProcessPartition, *(_DWORD *)(ProcessPartition + 2112) & 0x3FF);
-    v6 = SMKM_STORE_MGR<SM_TRAITS>::SmTrimWsStore(v10, *v9, *((_QWORD **)&v12 + 1));
-  }
-LABEL_28:
-  if ( v14 )
-    PsDereferencePartition(v14);
-  return (unsigned int)v6;
+  v8 = *(_OWORD *)a1;
+  if ( (unsigned __int8)*(_OWORD *)a1 != 1 )
+    return 3221225561LL;
+  if ( (v8 & 0xFFFFFF00) != 0 || !*((_QWORD *)&v8 + 1) )
+    return 3221225485LL;
+  if ( dword_140D241B0 == -1 )
+    return 3221226021LL;
+  v6 = (_DWORD **)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, dword_140D241B0 & 0x3FF);
+  return SMKM_STORE_MGR<SM_TRAITS>::SmTrimWsStore(v7, *v6, *((__int64 *)&v8 + 1));
 }

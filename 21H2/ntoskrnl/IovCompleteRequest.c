@@ -1,14 +1,14 @@
 /*
- * XREFs of IovCompleteRequest @ 0x140A805EC
+ * XREFs of IovCompleteRequest @ 0x1409C4FA0
  * Callers:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
  * Callees:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopPerfCompleteRequest @ 0x140559770 (IopPerfCompleteRequest.c)
- *     IovpLogStackTrace @ 0x140A80FC8 (IovpLogStackTrace.c)
- *     IovpCompleteRequest1 @ 0x140A8C08C (IovpCompleteRequest1.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopPerfCompleteRequest @ 0x140508094 (IopPerfCompleteRequest.c)
+ *     IovpLogStackTrace @ 0x1409C5978 (IovpLogStackTrace.c)
+ *     IovpCompleteRequest1 @ 0x1409D04C0 (IovpCompleteRequest1.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
@@ -41,7 +41,7 @@ void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
     if ( BugCheckParameter1->CurrentLocation > (char)(BugCheckParameter1->StackCount + 1)
       || BugCheckParameter1->Type != 6 )
     {
-      VerifierBugCheckIfAppropriate(0x44u, (ULONG_PTR)BugCheckParameter1, 0x489uLL, 0LL, 0LL);
+      VerifierBugCheckIfAppropriate(0x44u, (ULONG_PTR)BugCheckParameter1, 0x486uLL, 0LL, 0LL);
     }
     CancelRoutine = (ULONG_PTR)BugCheckParameter1->CancelRoutine;
     if ( CancelRoutine )

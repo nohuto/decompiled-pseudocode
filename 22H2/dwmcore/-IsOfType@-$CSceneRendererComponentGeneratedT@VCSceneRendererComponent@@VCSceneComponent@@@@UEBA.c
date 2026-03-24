@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsOfType@?$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18024F688
+ * XREFs of ?IsOfType@?$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E9868
  * Callers:
- *     ?IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18024F6B0 (-IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E9890 (-IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  * Callees:
  *     <none>
  */

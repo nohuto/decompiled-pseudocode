@@ -1,18 +1,18 @@
 /*
- * XREFs of ??1MagnifierCaptureBitsResponse@@UEAA@XZ @ 0x1801F9DE0
+ * XREFs of ??1MagnifierCaptureBitsResponse@@UEAA@XZ @ 0x18019ABCC
  * Callers:
- *     ??_EMagnifierCaptureBitsResponse@@UEAAPEAXI@Z @ 0x1801F9E20 (--_EMagnifierCaptureBitsResponse@@UEAAPEAXI@Z.c)
+ *     ??_EMagnifierCaptureBitsResponse@@UEAAPEAXI@Z @ 0x18019AC10 (--_EMagnifierCaptureBitsResponse@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
  */
 
 void __fastcall MagnifierCaptureBitsResponse::~MagnifierCaptureBitsResponse(MagnifierCaptureBitsResponse *this)
 {
-  CResource *v2; // rcx
+  CRenderTargetBitmap *v2; // rcx
 
   *(_QWORD *)this = &MagnifierCaptureBitsResponse::`vftable';
-  v2 = (CResource *)*((_QWORD *)this + 211);
+  v2 = (CRenderTargetBitmap *)*((_QWORD *)this + 215);
   if ( v2 )
-    CResource::InternalRelease(v2);
+    CRenderTargetBitmap::Release(v2);
   CaptureBitsResponse::~CaptureBitsResponse(this);
 }

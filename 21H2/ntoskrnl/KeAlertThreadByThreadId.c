@@ -1,21 +1,21 @@
 /*
- * XREFs of KeAlertThreadByThreadId @ 0x1402F5FD0
+ * XREFs of KeAlertThreadByThreadId @ 0x14025CA90
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     RtlRunOnceComplete @ 0x14075BF10 (RtlRunOnceComplete.c)
- *     NtAlertThreadByThreadId @ 0x1407A7D20 (NtAlertThreadByThreadId.c)
- *     VslCallEnclave @ 0x14088151A (VslCallEnclave.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadId @ 0x140625C60 (NtAlertThreadByThreadId.c)
+ *     RtlRunOnceComplete @ 0x14068AB40 (RtlRunOnceComplete.c)
+ *     VslCallEnclave @ 0x14088EBF4 (VslCallEnclave.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x1402F6ED0 (KiSignalThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSignalThread @ 0x1402464A0 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int8 CurrentIrql; // si
+  char CurrentIrql; // si
   struct _KPRCB *CurrentPrcb; // rbp
   _DWORD *v7; // rcx
   char v8; // di
@@ -27,7 +27,7 @@ char __fastcall KeAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3, _DWO
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     a2 = (-1LL << (CurrentIrql + 1)) & 4;
@@ -76,12 +76,12 @@ char __fastcall KeAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3, _DWO
     if ( *(_BYTE *)(a1 + 388) != 5
       || (unsigned __int8)((*(_BYTE *)(a1 + 112) & 7) - 3) <= 1u
       || *(_BYTE *)(a1 + 643) != 37
-      || (v9 = KiSignalThread(CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v9) )
+      || (v9 = KiSignalThread((__int64)CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v9) )
     {
       _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), 4u);
     }
   }
   KiReleaseThreadLockSafe(a1);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, 1, 1, CurrentIrql);
+  KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 1, CurrentIrql);
   return v8;
 }

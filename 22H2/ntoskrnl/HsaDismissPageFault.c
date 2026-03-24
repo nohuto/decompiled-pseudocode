@@ -1,30 +1,24 @@
 /*
- * XREFs of HsaDismissPageFault @ 0x14052F6B0
+ * XREFs of HsaDismissPageFault @ 0x1404E2980
  * Callers:
- *     <none>
+ *     HsaGetPageFault @ 0x1404E3720 (HsaGetPageFault.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HsaIommuSendCommand @ 0x140530678 (HsaIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HsaIommuSendCommand @ 0x1404E3C48 (HsaIommuSendCommand.c)
  */
 
-__int64 __fastcall HsaDismissPageFault(__int64 a1, unsigned int a2, __int16 a3, unsigned __int16 a4, int a5)
+__int64 __fastcall HsaDismissPageFault(__int64 a1, unsigned __int16 *a2, int a3)
 {
-  __int64 v6; // r8
-  unsigned __int64 v7; // rcx
-  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v3; // r9
+  __int64 v4; // r9
+  __int64 v6; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int64 v7; // [rsp+28h] [rbp-20h]
 
-  v9 = 0LL;
-  LOWORD(v9) = a3;
-  v6 = 0LL;
-  v7 = v9;
-  if ( a2 != -1 )
-  {
-    v6 = 4LL;
-    v7 = (v9 ^ ((unsigned __int64)a2 << 32)) & 0xFFFFF00000000LL ^ v9;
-  }
-  *(_QWORD *)&v9 = v7 & 0xFFFFFFFFFFFFFFFLL | 0x7000000000000000LL;
-  *((_QWORD *)&v9 + 1) = v6 ^ (v6 ^ ((unsigned __int64)a4 << 32)) & 0x1FF00000000LL;
-  if ( a5 < 0 )
-    *((_QWORD *)&v9 + 1) = (v6 ^ (v6 ^ ((unsigned __int64)a4 << 32)) & 0x1FF00000000LL) & 0xFFFF0FFFFFFFFFFFuLL | 0x100000000000LL;
-  return HsaIommuSendCommand(a1, &v9, 0LL);
+  v3 = *(_QWORD *)a2;
+  v6 = *a2 | ((*(_QWORD *)a2 & 0xFFFF0000LL | 0x700000000000LL) << 16);
+  v4 = v3 & 0x1FF00000000LL;
+  v7 = v4;
+  if ( a3 < 0 )
+    v7 = v4 & 0xFFFF0FFFFFFFFFFFuLL | 0x100000000000LL;
+  return HsaIommuSendCommand(a1, &v6, 0LL);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiAllocateDmaPacket @ 0x1C009AA58
+ * XREFs of VidSchiAllocateDmaPacket @ 0x1C0089BEC
  * Callers:
- *     VidSchiSwitchNodeFromContext @ 0x1C009A7E0 (VidSchiSwitchNodeFromContext.c)
- *     VidSchiSubmitPreemptionCommand @ 0x1C009A910 (VidSchiSubmitPreemptionCommand.c)
- *     VidSchiSubmitRenderCommand @ 0x1C00F38D0 (VidSchiSubmitRenderCommand.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C0089ABC (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C008D8B0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00D062C (VidSchiSubmitRenderCommand.c)
  * Callees:
- *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0005BF0 (VidSchiInterlockedRemoveHeadListIfExist.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     VidSchWaitForCompletionEvent @ 0x1C00937C4 (VidSchWaitForCompletionEvent.c)
+ *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007B40 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0082620 (VidSchWaitForCompletionEvent.c)
  */
 
 _QWORD *__fastcall VidSchiAllocateDmaPacket(__int64 a1)
@@ -18,11 +18,11 @@ _QWORD *__fastcall VidSchiAllocateDmaPacket(__int64 a1)
   int v6; // eax
   _DWORD v7[40]; // [rsp+20h] [rbp-B8h] BYREF
 
-  for ( i = *(_QWORD *)(a1 + 24); ; VidSchWaitForCompletionEvent((struct _VIDSCH_GLOBAL *)i, (__int64)v7, 20LL) )
+  for ( i = *(_QWORD *)(a1 + 24); ; VidSchWaitForCompletionEvent(i, (__int64)v7, 20LL) )
   {
-    *(_QWORD *)(i + 1456) = MEMORY[0xFFFFF78000000320];
-    KeResetEvent((PRKEVENT)(i + 1416));
-    v3 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(i + 1736), (_QWORD **)(a1 + 11248), 0LL);
+    *(_QWORD *)(i + 1440) = MEMORY[0xFFFFF78000000320];
+    KeResetEvent((PRKEVENT)(i + 1400));
+    v3 = VidSchiInterlockedRemoveHeadListIfExist((KSPIN_LOCK *)(i + 1720), (_QWORD **)(a1 + 11232), 0LL);
     if ( v3 )
       break;
     memset(v7, 0, sizeof(v7));

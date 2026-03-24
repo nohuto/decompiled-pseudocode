@@ -3,7 +3,7 @@
  * Callers:
  *     PopGetStopWatchByRequestType @ 0x1405888A4 (PopGetStopWatchByRequestType.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PoInitializeStopWatch(__int64 **a1, __int64 *a2)

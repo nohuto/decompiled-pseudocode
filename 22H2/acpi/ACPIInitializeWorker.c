@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIInitializeWorker @ 0x1C00AA930
+ * XREFs of ACPIInitializeWorker @ 0x1C00BB764
  * Callers:
- *     DriverEntry @ 0x1C00A7310 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
  *     <none>
  */
@@ -18,11 +18,11 @@ NTSTATUS ACPIInitializeWorker()
   ACPIWorkItem.Parameter = 0LL;
   ACPIWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ACPIDeviceWorkerThread;
   ACPIWorkItem.List.Flink = 0LL;
-  qword_1C006E948 = (__int64)&ACPIDeviceWorkQueue;
+  qword_1C00818A8 = (__int64)&ACPIDeviceWorkQueue;
   ACPIDeviceWorkQueue = (__int64)&ACPIDeviceWorkQueue;
   KeInitializeEvent(&ACPIProcessWorkQueueEvent, NotificationEvent, 0);
   KeInitializeEvent(&ACPITerminateEvent, NotificationEvent, 0);
-  qword_1C006E938 = (__int64)&ACPIWorkQueue;
+  qword_1C0081898 = (__int64)&ACPIWorkQueue;
   ACPIWorkQueue = (__int64)&ACPIWorkQueue;
   ObjectAttributes.Length = 48;
   if ( PsCreateSystemThread(

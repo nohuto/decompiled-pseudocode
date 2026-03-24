@@ -1,52 +1,47 @@
 /*
- * XREFs of ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C0354968
+ * XREFs of ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C029EAC4
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ??_GDXGSESSIONDATA@@QEAAPEAXI@Z @ 0x1C001627C (--_GDXGSESSIONDATA@@QEAAPEAXI@Z.c)
- *     ??1CSERIALIZEDWORKQUEUE@@QEAA@XZ @ 0x1C0051A70 (--1CSERIALIZEDWORKQUEUE@@QEAA@XZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0008718 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??_GDXGSESSIONDATA@@QEAAPEAXI@Z @ 0x1C0019AD4 (--_GDXGSESSIONDATA@@QEAAPEAXI@Z.c)
+ *     ??1CSERIALIZEDWORKQUEUE@@QEAA@XZ @ 0x1C00463B4 (--1CSERIALIZEDWORKQUEUE@@QEAA@XZ.c)
  */
 
-void __fastcall DXGSESSIONMGR::~DXGSESSIONMGR(DXGSESSIONMGR *this)
+void __fastcall DXGSESSIONMGR::~DXGSESSIONMGR(DXGSESSIONMGR *this, __int64 a2)
 {
   __int64 i; // rdi
-  DXGSESSIONDATA *v3; // rcx
-  char *v4; // rcx
+  DXGSESSIONDATA *v4; // rcx
+  char *v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rdx
 
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 20); i = (unsigned int)(i + 1) )
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 18); i = (unsigned int)(i + 1) )
   {
-    v3 = *(DXGSESSIONDATA **)(*((_QWORD *)this + 6) + 8 * i);
-    if ( v3 )
+    v4 = *(DXGSESSIONDATA **)(*((_QWORD *)this + 5) + 8 * i);
+    if ( v4 )
     {
-      DXGSESSIONDATA::`scalar deleting destructor'(v3);
-      *(_QWORD *)(*((_QWORD *)this + 6) + 8 * i) = 0LL;
+      DXGSESSIONDATA::`scalar deleting destructor'(v4);
+      *(_QWORD *)(*((_QWORD *)this + 5) + 8 * i) = 0LL;
     }
   }
-  v4 = (char *)*((_QWORD *)this + 6);
-  if ( v4 != (char *)this + 56 )
+  v5 = (char *)*((_QWORD *)this + 5);
+  if ( v5 != (char *)this + 48 )
   {
-    operator delete(v4);
-    *((_QWORD *)this + 6) = 0LL;
+    operator delete[](v5);
+    *((_QWORD *)this + 5) = 0LL;
   }
   if ( *((DXGSESSIONMGR **)this + 40) != (DXGSESSIONMGR *)((char *)this + 320) )
   {
-    WdLogSingleEntry1(1LL, 4954LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"IsListEmpty(&m_PnPTransitionTokenList)",
-      4954LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, a2);
+    *(_QWORD *)(v6 + 24) = 4772LL;
+    WdLogEvent5_WdAssertion(v6);
   }
   ExDeletePagedLookasideList((PPAGED_LOOKASIDE_LIST)((char *)this + 192));
-  CSERIALIZEDWORKQUEUE::~CSERIALIZEDWORKQUEUE((DXGSESSIONMGR *)((char *)this + 376));
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGSESSIONMGR *)((char *)this + 88));
-  DXGFASTMUTEX::~DXGFASTMUTEX(this);
+  CSERIALIZEDWORKQUEUE::~CSERIALIZEDWORKQUEUE((DXGSESSIONMGR *)((char *)this + 376), v7);
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGSESSIONMGR *)((char *)this + 80), v8);
+  DXGFASTMUTEX::~DXGFASTMUTEX(this, v9);
 }

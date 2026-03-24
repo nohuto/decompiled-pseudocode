@@ -3,8 +3,8 @@
  * Callers:
  *     KiOpDecode @ 0x1400A3648 (KiOpDecode.c)
  *     KiOpLocateDecodeEntry @ 0x1400A3870 (KiOpLocateDecodeEntry.c)
- *     KiOpDecodeModRM @ 0x140193290 (KiOpDecodeModRM.c)
- *     KiOpFetchBytes @ 0x14029C4A0 (KiOpFetchBytes.c)
+ *     KiOpDecodeModRM @ 0x1401932B0 (KiOpDecodeModRM.c)
+ *     KiOpFetchBytes @ 0x14029C5A0 (KiOpFetchBytes.c)
  * Callees:
  *     <none>
  */

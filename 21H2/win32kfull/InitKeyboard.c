@@ -1,10 +1,10 @@
 /*
- * XREFs of InitKeyboard @ 0x1C011F950
+ * XREFs of InitKeyboard @ 0x1C0008FC0
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
  * Callees:
- *     ?GetBiosNumLockStatus@@YAXXZ @ 0x1C011F9CC (-GetBiosNumLockStatus@@YAXXZ.c)
+ *     ?GetBiosNumLockStatus@@YAXXZ @ 0x1C000903C (-GetBiosNumLockStatus@@YAXXZ.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

@@ -1,33 +1,26 @@
 /*
- * XREFs of LockProcessByClientId @ 0x1C00AB508
+ * XREFs of LockProcessByClientId @ 0x1C008A1D0
  * Callers:
- *     NtUserSetProcessLaunchForegroundPolicy @ 0x1C0009C90 (NtUserSetProcessLaunchForegroundPolicy.c)
- *     ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C00AB2E4 (-GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ.c)
- *     ProcessInfoFromPID @ 0x1C00AB4A4 (ProcessInfoFromPID.c)
- *     PpiFromProcessId @ 0x1C012D4D0 (PpiFromProcessId.c)
+ *     ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C008A13C (-GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ.c)
+ *     GetContainerIdFromProcessId @ 0x1C00CDAD8 (GetContainerIdFromProcessId.c)
+ *     NtMITPostWindowEventMessage @ 0x1C012B750 (NtMITPostWindowEventMessage.c)
+ *     UserFindBaseWindowHandle @ 0x1C0139564 (UserFindBaseWindowHandle.c)
  * Callees:
- *     LockProcessByClientIdEx @ 0x1C00AB55C (LockProcessByClientIdEx.c)
+ *     LockProcessByClientIdEx @ 0x1C008A47C (LockProcessByClientIdEx.c)
  */
 
 __int64 __fastcall LockProcessByClientId(__int64 a1, PVOID *a2)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  int v5; // edi
-  __int64 v6; // r8
-  __int64 v7; // r9
-  _DWORD *v8; // rax
-  int v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 result; // rax
+  int v4; // [rsp+40h] [rbp+18h] BYREF
 
-  *a2 = 0LL;
-  v10 = -1;
-  v5 = LockProcessByClientIdEx(a1, a2, &v10);
-  if ( v5 < 0 )
-    return (unsigned int)v5;
-  v8 = (_DWORD *)SGDGetUserSessionState(v4, v3, v6, v7);
-  if ( v10 == *v8 )
-    return (unsigned int)v5;
-  ObfDereferenceObject(*a2);
-  *a2 = 0LL;
-  return 3221225473LL;
+  v4 = -1;
+  result = LockProcessByClientIdEx(a1, a2, &v4);
+  if ( (int)result >= 0 && v4 != gSessionId )
+  {
+    ObfDereferenceObject(*a2);
+    *a2 = 0LL;
+    return 3221225473LL;
+  }
+  return result;
 }

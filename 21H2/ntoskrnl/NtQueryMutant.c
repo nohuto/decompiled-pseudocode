@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryMutant @ 0x140A02C80
+ * XREFs of NtQueryMutant @ 0x140956F50
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeQueryOwnerMutant @ 0x140570BD0 (KeQueryOwnerMutant.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeQueryOwnerMutant @ 0x14051AE60 (KeQueryOwnerMutant.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtQueryMutant(HANDLE Handle, int a2, CLIENT_ID *a3, unsigned int a4, unsigned __int64 a5)
@@ -92,7 +92,7 @@ LABEL_7:
           *v10 = 8;
       }
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
   return (unsigned int)v12;
 }

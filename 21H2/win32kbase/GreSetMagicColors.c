@@ -1,24 +1,25 @@
 /*
- * XREFs of GreSetMagicColors @ 0x1C0175868
+ * XREFs of GreSetMagicColors @ 0x1C0149538
  * Callers:
- *     SetSysColor @ 0x1C0062BAC (SetSysColor.c)
- *     NtGdiSetMagicColors @ 0x1C0175B20 (NtGdiSetMagicColors.c)
+ *     SetSysColor @ 0x1C001F3E0 (SetSysColor.c)
+ *     NtGdiSetMagicColors @ 0x1C01497E0 (NtGdiSetMagicColors.c)
  * Callees:
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C001BAA4 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C001DADC (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1DLODCOBJ@@QEAA@XZ @ 0x1C001DB44 (--1DLODCOBJ@@QEAA@XZ.c)
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C002E7BC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C002E800 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002E8B8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00628E0 (-vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0080180 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C0099D40 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
- *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00A6910 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C0175688 (-bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C000FBA0 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0038B54 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0038BA4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0038BD8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C003B054 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003B0DC (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003B478 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003B4D8 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0067400 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
+ *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C0084B20 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
+ *     ?vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00BE6F4 (-vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C013E1B4 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C0149354 (-bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z.c)
  */
 
 __int64 __fastcall GreSetMagicColors(HDC a1, unsigned int a2, unsigned int a3)
@@ -26,86 +27,90 @@ __int64 __fastcall GreSetMagicColors(HDC a1, unsigned int a2, unsigned int a3)
   unsigned int v5; // r14d
   unsigned int v6; // r15d
   int v7; // r12d
-  int v8; // r8d
+  DYNAMICMODECHANGESHARELOCK *v8; // rcx
   __int64 v9; // rbx
-  __int64 v10; // rdx
-  int v11; // r8d
-  __int64 v12; // rax
-  _QWORD *v13; // rcx
-  unsigned int v14; // eax
-  unsigned int v15; // ecx
-  unsigned int v16; // r9d
-  unsigned int v17; // eax
-  __int64 v18; // rdx
-  int v19; // r8d
-  __int64 v20; // rcx
-  __int64 v22; // [rsp+30h] [rbp-99h] BYREF
-  struct PALETTE *v23; // [rsp+38h] [rbp-91h] BYREF
-  HSEMAPHORE v24; // [rsp+40h] [rbp-89h] BYREF
-  HSEMAPHORE v25; // [rsp+48h] [rbp-81h] BYREF
-  HSEMAPHORE v26; // [rsp+50h] [rbp-79h] BYREF
-  PERESOURCE v27; // [rsp+58h] [rbp-71h] BYREF
-  _QWORD v28[6]; // [rsp+60h] [rbp-69h] BYREF
-  _BYTE v29[32]; // [rsp+90h] [rbp-39h] BYREF
-  _BYTE v30[80]; // [rsp+B0h] [rbp-19h] BYREF
-  __int64 v31; // [rsp+148h] [rbp+7Fh] BYREF
+  __int64 v10; // rax
+  _QWORD *v11; // rcx
+  int v12; // edx
+  unsigned int v13; // eax
+  unsigned int v14; // ecx
+  unsigned int v15; // r9d
+  unsigned int v16; // eax
+  __int64 v17; // rdx
+  int v18; // r8d
+  __int64 v20; // [rsp+30h] [rbp-99h] BYREF
+  struct PALETTE *v21; // [rsp+38h] [rbp-91h] BYREF
+  HSEMAPHORE v22; // [rsp+40h] [rbp-89h] BYREF
+  HSEMAPHORE v23; // [rsp+48h] [rbp-81h] BYREF
+  HSEMAPHORE v24; // [rsp+50h] [rbp-79h] BYREF
+  PERESOURCE v25; // [rsp+58h] [rbp-71h] BYREF
+  _QWORD v26[6]; // [rsp+60h] [rbp-69h] BYREF
+  _BYTE v27[32]; // [rsp+90h] [rbp-39h] BYREF
+  _QWORD v28[2]; // [rsp+B0h] [rbp-19h] BYREF
+  __int64 v29[8]; // [rsp+C0h] [rbp-9h] BYREF
+  __int64 v30; // [rsp+148h] [rbp+7Fh] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v28, a1);
+  DCOBJ::DCOBJ((DCOBJ *)v26, a1);
   v5 = 0;
   v6 = 0;
   v7 = 0;
-  if ( !v28[0] || a3 - 8 > 1 && a3 - 246 > 1 )
-    goto LABEL_38;
-  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v31);
-  if ( (a2 & 0xFD000000) == 0 )
+  if ( v26[0] && (a3 - 8 <= 1 || a3 - 246 <= 1) )
   {
-    v31 = *(_QWORD *)(v28[0] + 48LL);
-    v9 = v31;
-    NEEDGRELOCK::vLock((NEEDGRELOCK *)&v27, (struct PDEVOBJ *)&v31);
-    v26 = *(HSEMAPHORE *)(v9 + 56);
-    EngAcquireSemaphore(v26);
-    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v30);
-    DEVLOCKOBJ::vLock((DEVLOCKOBJ *)v29, (struct PDEVOBJ *)&v31);
-    if ( !_bittest((const signed __int32 *)(v9 + 2140), 8u) )
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v30);
+    if ( (a2 & 0xFD000000) != 0 )
+    {
+LABEL_38:
+      DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v8);
+      goto LABEL_39;
+    }
+    v30 = *(_QWORD *)(v26[0] + 48LL);
+    v9 = v30;
+    NEEDGRELOCK::vLock((NEEDGRELOCK *)&v25, (struct PDEVOBJ *)&v30);
+    v24 = *(HSEMAPHORE *)(v9 + 64);
+    EngAcquireSemaphore(v24);
+    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v28);
+    DEVLOCKOBJ::vLock((DEVLOCKOBJ *)v27, (struct PDEVOBJ *)&v30);
+    if ( (*(_DWORD *)(v9 + 2172) & 0x100) == 0 )
     {
       if ( (*(_DWORD *)(v9 + 40) & 0x20000) == 0 )
       {
 LABEL_35:
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v29, v10, v11);
-        DLODCOBJ::~DLODCOBJ((DLODCOBJ *)v30);
-        SEMOBJ::vUnlock((PERESOURCE *)&v26);
-        NEEDGRELOCK::vUnlock(&v27, v18, v19);
-        goto LABEL_36;
+        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v27);
+        if ( v28[0] )
+          DLODCOBJ::vUnlock((DLODCOBJ *)v28);
+        PopThreadGuardedObject(v29);
+        SEMOBJ::vUnlock((PERESOURCE *)&v24);
+        NEEDGRELOCK::vUnlock(&v25, v17, v18);
+        goto LABEL_38;
       }
-      v12 = *(_QWORD *)(v9 + 1768);
-      v13 = *(_QWORD **)v12;
-      LODWORD(v10) = *(_DWORD *)(v12 + 16);
+      v10 = *(_QWORD *)(v9 + 1800);
+      v11 = *(_QWORD **)v10;
+      v12 = *(_DWORD *)(v10 + 16);
       while ( 1 )
       {
-        v9 = v13[6];
-        v31 = v9;
-        if ( _bittest((const signed __int32 *)(v9 + 2140), 8u) )
+        v9 = v11[6];
+        v30 = v9;
+        if ( (*(_DWORD *)(v9 + 2172) & 0x100) != 0 )
           break;
-        v13 = (_QWORD *)*v13;
-        v10 = (unsigned int)(v10 - 1);
-        if ( !(_DWORD)v10 )
+        v11 = (_QWORD *)*v11;
+        if ( !--v12 )
           goto LABEL_35;
       }
       v7 = 1;
     }
-    v22 = *(_QWORD *)(v9 + 1776);
-    v25 = ghsemHT;
+    v20 = *(_QWORD *)(v9 + 1808);
+    v23 = ghsemHT;
     EngAcquireSemaphore(ghsemHT);
-    v24 = ghsemPalette;
+    v22 = ghsemPalette;
     EngAcquireSemaphore(ghsemPalette);
-    v23 = ppalDefault;
-    v14 = XEPALOBJ::ulDispatchGFPEFunction(&v23, *((_DWORD *)ppalDefault + 25), a2);
-    v15 = v14;
-    if ( v14 != -1 )
+    v21 = ppalDefault;
+    v13 = XEPALOBJ::ulDispatchGFPEFunction(&v21, *((_DWORD *)ppalDefault + 25), a2);
+    v14 = v13;
+    if ( v13 != -1 )
     {
-      if ( v14 >= 0xA )
-        v15 = v14 + 236;
-      if ( v15 == a3 )
+      if ( v13 >= 0xA )
+        v14 = v13 + 236;
+      if ( v14 == a3 )
       {
         if ( !v7 )
         {
@@ -113,55 +118,48 @@ LABEL_35:
           goto LABEL_29;
         }
       }
-      else if ( v15 - 8 > 1 && v15 - 246 > 1 )
+      else if ( v14 - 8 > 1 && v14 - 246 > 1 )
       {
         if ( a3 == 8 )
         {
-          v16 = 12639424;
+          v15 = 12639424;
         }
         else if ( a3 == 9 )
         {
-          v16 = 15780518;
+          v15 = 15780518;
         }
         else
         {
-          v16 = 10789024;
+          v15 = 10789024;
           if ( a3 == 246 )
-            v16 = 15793151;
+            v15 = 15793151;
         }
-        v17 = bSetMagicColor((__int64)&v31, v22, a3, v16);
+        v16 = bSetMagicColor((__int64)&v30, v20, a3, v15);
         goto LABEL_28;
       }
     }
-    v17 = bSetMagicColor((__int64)&v31, v22, a3, a2);
-    v5 = v17;
+    v16 = bSetMagicColor((__int64)&v30, v20, a3, a2);
+    v5 = v16;
 LABEL_28:
-    v6 = v17;
+    v6 = v16;
 LABEL_29:
-    SEMOBJ::vUnlock((PERESOURCE *)&v24);
+    SEMOBJ::vUnlock((PERESOURCE *)&v22);
     if ( v6 && (*(_DWORD *)(v9 + 40) & 0x400) == 0 )
     {
-      if ( *(_QWORD *)(v9 + 1736) )
-        (*(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))(v9 + 1736))(
-          *(_QWORD *)(*(_QWORD *)(v9 + 24) + 1768LL),
-          &v22,
+      if ( *(_QWORD *)(v9 + 1768) )
+        (*(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))(v9 + 1768))(
+          *(_QWORD *)(*(_QWORD *)(v9 + 24) + 1800LL),
+          &v20,
           0LL,
           0LL,
-          *(_DWORD *)(v22 + 28));
+          *(_DWORD *)(v20 + 28));
       else
         v5 = 0;
     }
-    SEMOBJ::vUnlock((PERESOURCE *)&v25);
+    SEMOBJ::vUnlock((PERESOURCE *)&v23);
     goto LABEL_35;
   }
-LABEL_36:
-  EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, v8);
-  if ( ghsemDynamicModeChange )
-  {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-    PsLeavePriorityRegion(v20);
-  }
-LABEL_38:
-  DCOBJ::~DCOBJ((DCOBJ *)v28);
+LABEL_39:
+  DCOBJ::~DCOBJ((DCOBJ *)v26);
   return v5;
 }

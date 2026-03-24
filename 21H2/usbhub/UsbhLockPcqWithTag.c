@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhLockPcqWithTag @ 0x1C001D1A0
+ * XREFs of UsbhLockPcqWithTag @ 0x1C001AE80
  * Callers:
- *     Usbh_PCE_Suspend_Action @ 0x1C0008CC0 (Usbh_PCE_Suspend_Action.c)
- *     Usbh_PCE_QueueDriverReset_Action @ 0x1C000CF9C (Usbh_PCE_QueueDriverReset_Action.c)
- *     Usbh_PCE_HardwareWake_Action @ 0x1C000D224 (Usbh_PCE_HardwareWake_Action.c)
- *     Usbh_PCE_psSUSPEND_Action @ 0x1C001D514 (Usbh_PCE_psSUSPEND_Action.c)
- *     Usbh_PCE_BusDisconnect_Action @ 0x1C0034AE8 (Usbh_PCE_BusDisconnect_Action.c)
- *     Usbh_PCE_Check_Action @ 0x1C0034CD8 (Usbh_PCE_Check_Action.c)
- *     Usbh_PCE_Close_Action @ 0x1C0034E08 (Usbh_PCE_Close_Action.c)
- *     Usbh_PCE_HW_Stop_Action @ 0x1C003502C (Usbh_PCE_HW_Stop_Action.c)
- *     Usbh_PCE_ResumeDone_Action @ 0x1C00352A0 (Usbh_PCE_ResumeDone_Action.c)
- *     Usbh_PCE_ResumeTimeout_Action @ 0x1C00353CC (Usbh_PCE_ResumeTimeout_Action.c)
- *     Usbh_PCE_SD_Resume_Action @ 0x1C00355C8 (Usbh_PCE_SD_Resume_Action.c)
- *     Usbh_PCE_SoftDisconnect_Action @ 0x1C0035734 (Usbh_PCE_SoftDisconnect_Action.c)
- *     Usbh_PCE_wChangeERROR_Action @ 0x1C00359FC (Usbh_PCE_wChangeERROR_Action.c)
+ *     Usbh_PCE_psSUSPEND_Action @ 0x1C0002478 (Usbh_PCE_psSUSPEND_Action.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F4B0 (Usbh_PCE_Suspend_Action.c)
+ *     Usbh_PCE_QueueDriverReset_Action @ 0x1C00131B0 (Usbh_PCE_QueueDriverReset_Action.c)
+ *     Usbh_PCE_HardwareWake_Action @ 0x1C0013438 (Usbh_PCE_HardwareWake_Action.c)
+ *     Usbh_PCE_BusDisconnect_Action @ 0x1C0035DA4 (Usbh_PCE_BusDisconnect_Action.c)
+ *     Usbh_PCE_Check_Action @ 0x1C0035F94 (Usbh_PCE_Check_Action.c)
+ *     Usbh_PCE_Close_Action @ 0x1C00360C4 (Usbh_PCE_Close_Action.c)
+ *     Usbh_PCE_HW_Stop_Action @ 0x1C00362E8 (Usbh_PCE_HW_Stop_Action.c)
+ *     Usbh_PCE_ResumeDone_Action @ 0x1C003655C (Usbh_PCE_ResumeDone_Action.c)
+ *     Usbh_PCE_ResumeTimeout_Action @ 0x1C0036688 (Usbh_PCE_ResumeTimeout_Action.c)
+ *     Usbh_PCE_SD_Resume_Action @ 0x1C0036884 (Usbh_PCE_SD_Resume_Action.c)
+ *     Usbh_PCE_SoftDisconnect_Action @ 0x1C00369F0 (Usbh_PCE_SoftDisconnect_Action.c)
+ *     Usbh_PCE_wChangeERROR_Action @ 0x1C0036CB8 (Usbh_PCE_wChangeERROR_Action.c)
  * Callees:
  *     <none>
  */

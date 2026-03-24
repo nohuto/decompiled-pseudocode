@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpGetComponentOffsets @ 0x140672B80
+ * XREFs of BcpGetComponentOffsets @ 0x1405C508C
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x140673134 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5644 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BcpDisplayProgress @ 0x140672970 (BcpDisplayProgress.c)
+ *     BcpDisplayProgress @ 0x1405C4E80 (BcpDisplayProgress.c)
  */
 
 __int64 __fastcall BcpGetComponentOffsets(__int64 *a1, _DWORD *a2, int *a3, int a4, int a5, char a6)
@@ -11,57 +11,57 @@ __int64 __fastcall BcpGetComponentOffsets(__int64 *a1, _DWORD *a2, int *a3, int 
   int *v6; // r13
   int v8; // edi
   __int64 v9; // r11
-  int *v11; // r9
+  int v11; // r9d
   int v12; // r10d
-  __int64 v13; // r8
-  __int64 v14; // rbx
-  int v15; // ecx
-  int v16; // r12d
-  unsigned int v17; // esi
-  unsigned int v18; // ebp
-  int v19; // edx
-  int v20; // ecx
-  __int64 v22; // [rsp+20h] [rbp-48h]
+  __int64 v13; // rbx
+  int v14; // ecx
+  int v15; // r12d
+  unsigned int v16; // esi
+  unsigned int v17; // ebp
+  int v18; // edx
+  int v19; // ecx
+  __int64 v21; // [rsp+20h] [rbp-48h]
+  int *v22; // [rsp+80h] [rbp+18h]
 
+  v22 = a3;
   v6 = (int *)(a1 + 1);
   *a1 = BcpCursor;
   v8 = 0;
   v9 = a4;
-  v11 = a3;
+  v11 = dword_140C4C5E0;
   v12 = 0;
-  v13 = (unsigned int)dword_140C64B30;
-  *((_DWORD *)a1 + 2) = dword_140C64B30;
-  v14 = 9 * v9;
-  *(_DWORD *)a1 = dword_140C0B5A0[18 * v9 + 4] + dword_140C0B5A0[18 * v9 + 8];
-  v15 = v13 + dword_140C0B5A0[18 * v9 + 11];
-  *((_DWORD *)a1 + 1) = v15;
-  *v6 = dword_140C0B5A0[18 * v9 + 11] + v15;
-  v16 = *((_DWORD *)a1 + 2);
-  v22 = *a1;
+  *((_DWORD *)a1 + 2) = dword_140C4C5E0;
+  v13 = 9 * v9;
+  *(_DWORD *)a1 = dword_140C10F00[18 * v9 + 4] + dword_140C10F00[18 * v9 + 8];
+  v14 = v11 + dword_140C10F00[18 * v9 + 11];
+  *((_DWORD *)a1 + 1) = v14;
+  *v6 = dword_140C10F00[18 * v9 + 11] + v14;
+  v15 = *((_DWORD *)a1 + 2);
+  v21 = *a1;
   if ( a6 )
   {
-    dword_140C0E4B0 |= 0x1000000u;
-    v17 = 0;
-    v18 = HIDWORD(v22);
+    dword_140C134F0 |= 0x1000000u;
+    v16 = 0;
+    v17 = HIDWORD(v21);
     while ( 1 )
     {
-      v12 = BcpDisplayProgress(v17, v9, v13);
+      v12 = BcpDisplayProgress(v16, v9, (__int64)a3);
       if ( v12 < 0 )
         break;
-      if ( __PAIR64__(v18, v22) < BcpProgressEnd )
+      if ( __PAIR64__(v17, v21) < BcpProgressEnd )
       {
-        v16 = dword_140C0E408;
-        LODWORD(v22) = BcpProgressEnd;
-        v18 = HIDWORD(BcpProgressEnd);
+        v15 = dword_140C13438;
+        LODWORD(v21) = BcpProgressEnd;
+        v17 = HIDWORD(BcpProgressEnd);
       }
       BcpCursor = *a1;
       if ( v6 )
-        dword_140C64B30 = *v6;
+        dword_140C4C5E0 = *v6;
       LODWORD(v9) = a4;
-      if ( ++v17 > 0x64 )
+      if ( ++v16 > 0x64 )
       {
-        dword_140C0E4B0 &= ~0x1000000u;
-        v11 = a3;
+        dword_140C134F0 &= ~0x1000000u;
+        a3 = v22;
         goto LABEL_10;
       }
     }
@@ -69,15 +69,15 @@ __int64 __fastcall BcpGetComponentOffsets(__int64 *a1, _DWORD *a2, int *a3, int 
   else
   {
 LABEL_10:
-    v19 = dword_140C0B5A0[2 * v14 + 8] + dword_140C0B5A0[2 * v14 + 4];
-    *v11 = v19;
-    v11[1] = v16 + dword_140C0B5A0[2 * v14 + 13];
+    v18 = dword_140C10F00[2 * v13 + 4] + dword_140C10F00[2 * v13 + 8];
+    *a3 = v18;
+    a3[1] = v15 + dword_140C10F00[2 * v13 + 13];
     if ( a5 )
-      v8 = a5 + dword_140C0B5A0[2 * v14 + 14];
-    *a2 = v19 + v8;
-    v20 = v16 + dword_140C0B5A0[2 * v14 + 15];
-    a2[1] = v20;
-    a2[2] = dword_140C0B5A0[2 * v14 + 11] + v20;
+      v8 = a5 + dword_140C10F00[2 * v13 + 14];
+    *a2 = v18 + v8;
+    v19 = v15 + dword_140C10F00[2 * v13 + 15];
+    a2[1] = v19;
+    a2[2] = dword_140C10F00[2 * v13 + 11] + v19;
   }
   return (unsigned int)v12;
 }

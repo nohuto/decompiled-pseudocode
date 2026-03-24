@@ -1,11 +1,11 @@
 /*
- * XREFs of NtRemoveIoCompletion @ 0x140696FE0
+ * XREFs of NtRemoveIoCompletion @ 0x1405E3F70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IoRemoveIoCompletion @ 0x1402B7BD0 (IoRemoveIoCompletion.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     IoRemoveIoCompletion @ 0x1402043D0 (IoRemoveIoCompletion.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, _OWORD *a4, unsigned __int64 a5)
@@ -68,7 +68,7 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   if ( result >= 0 )
   {
     v16 = IoRemoveIoCompletion((struct _KQUEUE *)Object, (__int64)&v21, &v23, 1u, &v17, PreviousMode, v14, 0);
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( !v16 )
     {
       *a2 = v21;

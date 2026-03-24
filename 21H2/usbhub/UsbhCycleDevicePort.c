@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhCycleDevicePort @ 0x1C003681C
+ * XREFs of UsbhCycleDevicePort @ 0x1C0037B3C
  * Callers:
- *     UsbhFdoCyclePdoPort @ 0x1C002F9D0 (UsbhFdoCyclePdoPort.c)
- *     UsbhIoctlCyclePort @ 0x1C003DB64 (UsbhIoctlCyclePort.c)
+ *     UsbhFdoCyclePdoPort @ 0x1C0030D70 (UsbhFdoCyclePdoPort.c)
+ *     UsbhIoctlCyclePort @ 0x1C003ED54 (UsbhIoctlCyclePort.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhSyncResumePort @ 0x1C0039A30 (UsbhSyncResumePort.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhSyncResumePort @ 0x1C003AD40 (UsbhSyncResumePort.c)
  */
 
 __int64 __fastcall UsbhCycleDevicePort(__int64 a1, __int64 a2, _DWORD *a3)
@@ -68,12 +68,12 @@ LABEL_8:
     UsbhAcquirePdoStateLock(v13, (__int64)v9, 14);
     v14 = PdoExt(a2)[281] == 3;
     v9[34] = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     v9[22] = 1734964085;
     v15 = *((_BYTE *)v9 + 132);
     if ( v14 )
     {
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v15);
+      KeReleaseSpinLock(&HubG, v15);
       Log(a1, 8, 1668899655, *((unsigned __int16 *)v7 + 714), *((unsigned __int16 *)v7 + 714));
       _InterlockedIncrement((volatile signed __int32 *)(PortData + 412));
       v16 = UsbhSyncResumePort(a1);
@@ -84,7 +84,7 @@ LABEL_8:
     else
     {
       v6 = -1073741810;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v15);
+      KeReleaseSpinLock(&HubG, v15);
     }
   }
   UsbhUnlatchPdo(a1, v12, 0LL, 0x6C435943u);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmptyDrawing@CRenderData@@UEBA_NXZ @ 0x1800FB720
+ * XREFs of ?IsEmptyDrawing@CRenderData@@UEBA_NXZ @ 0x1800E2EF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CRenderData::IsEmptyDrawing(CRenderData *this)
 {
-  return *((_BYTE *)this + 298);
+  return *((_BYTE *)this + 266);
 }

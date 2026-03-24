@@ -1,16 +1,15 @@
 /*
- * XREFs of MiInsertSecureImageActivePatch @ 0x140A37E54
+ * XREFs of MiInsertSecureImageActivePatch @ 0x1408CAB44
  * Callers:
- *     MiLoadHotPatch @ 0x140A37FD0 (MiLoadHotPatch.c)
- *     MmRegisterHotPatches @ 0x140B74A30 (MmRegisterHotPatches.c)
+ *     MiLoadHotPatch @ 0x1408CAC20 (MiLoadHotPatch.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     MiCompareHotPatchNodes @ 0x140A36674 (MiCompareHotPatchNodes.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     MiCompareHotPatchNodes @ 0x1408C9880 (MiCompareHotPatchNodes.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiInsertSecureImageActivePatch(unsigned __int64 a1)
+void __fastcall MiInsertSecureImageActivePatch(_QWORD *a1)
 {
   unsigned __int64 *v1; // rdi
   bool v3; // si
@@ -21,18 +20,18 @@ void __fastcall MiInsertSecureImageActivePatch(unsigned __int64 a1)
   v1 = 0LL;
   v3 = 0;
 LABEL_2:
-  v4 = (unsigned __int64 *)qword_140C69940;
-  if ( qword_140C69940 )
+  v4 = (unsigned __int64 *)MiSecureImageActivePatches;
+  if ( MiSecureImageActivePatches )
   {
     while ( 1 )
     {
-      v5 = MiCompareHotPatchNodes(a1, (__int64)v4);
+      v5 = MiCompareHotPatchNodes((__int64)a1, (__int64)v4);
       if ( v5 <= 0 )
       {
         if ( v5 >= 0 )
         {
           v1 = v4;
-          RtlAvlRemoveNode((unsigned __int64 *)&qword_140C69940, v4);
+          RtlAvlRemoveNode((unsigned __int64 *)&MiSecureImageActivePatches, v4);
           goto LABEL_2;
         }
         v6 = *v4;
@@ -51,7 +50,7 @@ LABEL_2:
       v4 = (unsigned __int64 *)v6;
     }
   }
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C69940, (unsigned __int64)v4, v3, a1);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&MiSecureImageActivePatches, (unsigned __int64)v4, v3, a1);
   if ( v1 )
     ExFreePoolWithTag(v1, 0);
 }

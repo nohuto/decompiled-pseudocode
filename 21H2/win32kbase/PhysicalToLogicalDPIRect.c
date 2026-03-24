@@ -1,78 +1,66 @@
 /*
- * XREFs of PhysicalToLogicalDPIRect @ 0x1C006E120
+ * XREFs of PhysicalToLogicalDPIRect @ 0x1C0070860
  * Callers:
- *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C006D8A0 (TransformRectBetweenCoordinateSpacesPerMonitor.c)
- *     NtUserGetClipCursor @ 0x1C0159140 (NtUserGetClipCursor.c)
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C007053C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     NtUserGetClipCursor @ 0x1C012E8E0 (NtUserGetClipCursor.c)
  * Callees:
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002EA80 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     EngMulDiv @ 0x1C006E450 (EngMulDiv.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002AA84 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ScaleDPIRect @ 0x1C0070BE8 (ScaleDPIRect.c)
+ *     GetMonitorRectForDpiContext @ 0x1C0070CC8 (GetMonitorRectForDpiContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall PhysicalToLogicalDPIRect(__m128i *a1, __m128i *a2, unsigned int a3, __int64 *a4)
+__int64 __fastcall PhysicalToLogicalDPIRect(_OWORD *a1, _OWORD *a2, unsigned int a3, __int64 *a4)
 {
-  unsigned int CurrentThreadDpiAwarenessContext; // ebx
-  __int64 v8; // rax
-  __int64 v9; // rax
-  unsigned __int16 v10; // bx
-  INT v11; // r14d
-  __m128i v12; // xmm0
-  INT v13; // edi
-  INT v14; // esi
-  INT v15; // edi
-  INT v16; // r13d
-  INT v17; // eax
-  INT v18; // r8d
-  int v19; // r14d
-  __m128i v20; // xmm6
-  __int64 v21; // rbp
-  int v22; // esi
-  int v23; // edi
+  unsigned int CurrentThreadDpiAwarenessContext; // esi
+  int v8; // ebp
+  int v9; // eax
+  __int64 v10; // rdi
+  __int64 v11; // r14
+  unsigned __int16 v12; // bp
+  __int64 v13; // rbx
+  __int64 *MonitorRectForDpiContext; // rax
   __int64 result; // rax
-  int v25; // [rsp+24h] [rbp-54h]
+  _BYTE v16[40]; // [rsp+30h] [rbp-28h] BYREF
 
   CurrentThreadDpiAwarenessContext = a3;
   if ( !a3 )
     CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
-  if ( (CurrentThreadDpiAwarenessContext & 0xF) == 2 || !qword_1C029C978 || (int)qword_1C029C978() < 0 )
+  v8 = CurrentThreadDpiAwarenessContext & 0xF;
+  if ( v8 == 2 && (CurrentThreadDpiAwarenessContext & 0x20000000) == 0
+    || (!qword_1C0257C38 ? (v9 = -1073741637) : (v9 = qword_1C0257C38()), v9 < 0) )
   {
     result = 0LL;
     *a1 = *a2;
   }
   else
   {
-    if ( a4 && (v8 = *a4) != 0 || (!qword_1C029C980 ? (v8 = 0LL) : (v8 = qword_1C029C980(a2, 2LL, 18LL)), a4) )
-      *a4 = v8;
-    v9 = *(_QWORD *)(v8 + 40);
-    v10 = (CurrentThreadDpiAwarenessContext >> 8) & 0x1FF;
-    v11 = *(unsigned __int16 *)(v9 + 60);
-    v12 = *(__m128i *)(v9 + 28);
-    v25 = v12.m128i_i32[1];
-    if ( v10 )
+    if ( a4 )
+      v10 = *a4;
+    else
+      v10 = 0LL;
+    if ( !v10 )
     {
-      v13 = *(unsigned __int16 *)(v9 + 62);
-      v14 = EngMulDiv(_mm_cvtsi128_si32(v12), v10, v13);
-      v15 = EngMulDiv(v12.m128i_i32[1], v10, v13);
-      v16 = v11;
-      v17 = EngMulDiv(0, v10, v11);
-      v18 = v11;
-      v19 = v14 + v17;
-      v25 = v15 + EngMulDiv(0, v10, v18);
+      if ( qword_1C0257C40 )
+        v10 = qword_1C0257C40(a2, 2LL, 18LL);
+      else
+        v10 = 0LL;
+    }
+    if ( a4 )
+      *a4 = v10;
+    if ( v8 == 2 && (CurrentThreadDpiAwarenessContext & 0x20000000) != 0 )
+    {
+      v11 = *(_QWORD *)(v10 + 40);
+      v12 = *(_WORD *)(v11 + 68);
     }
     else
     {
-      v16 = *(unsigned __int16 *)(v9 + 60);
-      v19 = v12.m128i_i32[0];
+      v11 = *(_QWORD *)(v10 + 40);
+      v12 = (CurrentThreadDpiAwarenessContext >> 8) & 0x1FF;
     }
-    v20 = *a2;
-    v21 = a2->m128i_i64[0];
-    v22 = EngMulDiv(v21 - v12.m128i_i32[0], v10, v16) + v19;
-    a1->m128i_i32[0] = v22;
-    v20.m128i_i64[0] = _mm_srli_si128(v20, 8).m128i_u64[0];
-    v23 = EngMulDiv(HIDWORD(v21) - v12.m128i_i32[1], v10, v16) + v25;
-    a1->m128i_i32[1] = v23;
-    a1->m128i_i32[2] = v22 + EngMulDiv(v20.m128i_i32[0] - v21, v10, v16);
-    a1->m128i_i32[3] = v23 + EngMulDiv(v20.m128i_i32[1] - HIDWORD(v21), v10, v16);
+    v13 = *(_QWORD *)GetMonitorRectForDpiContext(v16, v10, 18LL);
+    MonitorRectForDpiContext = (__int64 *)GetMonitorRectForDpiContext(v16, v10, CurrentThreadDpiAwarenessContext);
+    ScaleDPIRect((_DWORD)a1, (_DWORD)a2, v12, *(unsigned __int16 *)(v11 + 64), *MonitorRectForDpiContext, v13);
     return 1LL;
   }
   return result;

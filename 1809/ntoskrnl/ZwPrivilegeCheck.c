@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegeCheck @ 0x1401BA790
+ * XREFs of ZwPrivilegeCheck @ 0x1401BA7B0
  * Callers:
  *     <none>
  * Callees:

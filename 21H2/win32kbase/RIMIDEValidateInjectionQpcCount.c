@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMIDEValidateInjectionQpcCount @ 0x1C019E5C8
+ * XREFs of RIMIDEValidateInjectionQpcCount @ 0x1C0169E90
  * Callers:
- *     RIMIDEGetTimeStampDelta @ 0x1C019CB10 (RIMIDEGetTimeStampDelta.c)
+ *     RIMIDEGetTimeStampDelta @ 0x1C016877C (RIMIDEGetTimeStampDelta.c)
  * Callees:
  *     <none>
  */

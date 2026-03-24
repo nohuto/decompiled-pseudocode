@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CRectangleClipMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00ABE20
+ * XREFs of ?Initialize@CRectangleClipMarshaler@DirectComposition@@UEAAJXZ @ 0x1C009FFF0
  * Callers:
  *     <none>
  * Callees:

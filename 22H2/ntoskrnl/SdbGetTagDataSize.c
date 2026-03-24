@@ -1,84 +1,59 @@
 /*
- * XREFs of SdbGetTagDataSize @ 0x1407580A0
+ * XREFs of SdbGetTagDataSize @ 0x140759B30
  * Callers:
- *     SdbpGetIndex @ 0x140757728 (SdbpGetIndex.c)
- *     SdbpReadTagData @ 0x1407579AC (SdbpReadTagData.c)
- *     SdbpGetNextTagId @ 0x140757FA0 (SdbpGetNextTagId.c)
- *     SdbpGetFirstIndexedRecord @ 0x1407CBAE8 (SdbpGetFirstIndexedRecord.c)
- *     SdbpGetNextIndexedRecord @ 0x14084B234 (SdbpGetNextIndexedRecord.c)
- *     KsepDbReadKData @ 0x140976F88 (KsepDbReadKData.c)
- *     SdbQueryDataExTagID @ 0x140A4EFF8 (SdbQueryDataExTagID.c)
- *     SdbpGetMatchingTextAttributes @ 0x140A50ED8 (SdbpGetMatchingTextAttributes.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140A51104 (SdbpGetRegistryMatchingAttributes.c)
- *     SdbMergeIsEntryUpdated @ 0x140A5374C (SdbMergeIsEntryUpdated.c)
- *     SdbpMergeAreTagValuesEqual @ 0x140A53B34 (SdbpMergeAreTagValuesEqual.c)
+ *     SdbpGetIndex @ 0x140759384 (SdbpGetIndex.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14075949C (SdbpGetFirstIndexedRecord.c)
+ *     SdbpReadTagData @ 0x140759730 (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x140759AA8 (SdbpGetNextTagId.c)
+ *     SdbpGetNextIndexedRecord @ 0x1407C15CC (SdbpGetNextIndexedRecord.c)
+ *     SdbQueryDataExTagID @ 0x1407C1F28 (SdbQueryDataExTagID.c)
+ *     KsepDbReadKData @ 0x1408BFCA0 (KsepDbReadKData.c)
+ *     SdbpGetMatchingTextAttributes @ 0x1409659F8 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140965C24 (SdbpGetRegistryMatchingAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
+ *     SdbpReadMappedData @ 0x140759C1C (SdbpReadMappedData.c)
  */
 
-__int64 __fastcall SdbGetTagDataSize(__int64 a1, unsigned int a2)
+__int64 __fastcall SdbGetTagDataSize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v3; // ebx
-  __int64 v5; // rbp
-  __int16 v6; // dx
-  unsigned int v7; // eax
+  int v4; // ebx
+  int v6; // eax
+  __int64 result; // rax
+  unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 2;
-  v5 = a2 + 2;
-  if ( (unsigned int)v5 < 2 || *(_DWORD *)(a1 + 20) < (unsigned int)v5 )
+  v4 = a2;
+  v6 = SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000;
+  switch ( v6 )
+  {
+    case 12288:
+      result = 2LL;
+      break;
+    case 24576:
+    case 16384:
+      result = 4LL;
+      break;
+    case 20480:
+      result = 8LL;
+      break;
+    case 4096:
+      result = 0LL;
+      break;
+    case 8192:
+      result = 1LL;
+      break;
+    default:
+      v8 = 0;
+      if ( !(unsigned int)SdbpReadMappedData(a1, (unsigned int)(v4 + 2), &v8, 4LL) )
+        AslLogCallPrintf(1LL);
+      result = v8;
+      break;
+  }
+  if ( (int)result + v4 < (unsigned int)result || (unsigned int)(result + v4) > *(_DWORD *)(a1 + 20) )
   {
     AslLogCallPrintf(1LL);
-    AslLogCallPrintf(1LL);
-    v6 = 0;
+    return 0xFFFFFFFFLL;
   }
-  else
-  {
-    v6 = *(_WORD *)(a2 + *(_QWORD *)(a1 + 8));
-  }
-  v7 = v6 & 0xF000;
-  if ( v7 > 0x6000 )
-    goto LABEL_5;
-  if ( v7 > 0x4000 )
-  {
-    if ( v7 == 20480 )
-    {
-      v3 = 8;
-      goto LABEL_8;
-    }
-    if ( v7 == 24576 )
-      goto LABEL_14;
-    goto LABEL_5;
-  }
-  switch ( v7 )
-  {
-    case 0x4000u:
-LABEL_14:
-      v3 = 4;
-      goto LABEL_8;
-    case 0x1000u:
-      v3 = 0;
-      goto LABEL_8;
-    case 0x2000u:
-      v3 = 1;
-      goto LABEL_8;
-  }
-  if ( v7 != 12288 )
-  {
-LABEL_5:
-    v3 = 0;
-    if ( (unsigned int)v5 >= 0xFFFFFFFC || *(_DWORD *)(a1 + 20) < (unsigned int)(v5 + 4) )
-    {
-      AslLogCallPrintf(1LL);
-      AslLogCallPrintf(1LL);
-    }
-    else
-    {
-      v3 = *(_DWORD *)(v5 + *(_QWORD *)(a1 + 8));
-    }
-  }
-LABEL_8:
-  if ( v3 + a2 >= v3 && v3 + a2 <= *(_DWORD *)(a1 + 20) )
-    return v3;
-  AslLogCallPrintf(1LL);
-  return 0xFFFFFFFFLL;
+  return result;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of CmRegisterCallbackEx @ 0x14090FD10
+ * XREFs of CmRegisterCallbackEx @ 0x140869BC0
  * Callers:
- *     DifCmRegisterCallbackExWrapper @ 0x140605DB0 (DifCmRegisterCallbackExWrapper.c)
- *     EtwpRegTraceEnableCallback @ 0x1409E62D0 (EtwpRegTraceEnableCallback.c)
+ *     EtwpRegTraceEnableCallback @ 0x14093BA00 (EtwpRegTraceEnableCallback.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x140690198 (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x14069D488 (CmpRegisterCallbackInternal.c)
  */
 
 NTSTATUS __stdcall CmRegisterCallbackEx(

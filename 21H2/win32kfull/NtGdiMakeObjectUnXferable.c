@@ -1,23 +1,21 @@
 /*
- * XREFs of NtGdiMakeObjectUnXferable @ 0x1C0146B70
+ * XREFs of NtGdiMakeObjectUnXferable @ 0x1C011C8D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ?bValid@XDCOBJ@@QEBAHXZ @ 0x1C00404FC (-bValid@XDCOBJ@@QEBAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?Feature_3190902075__private_IsEnabled@@YAHXZ @ 0x1C015D760 (-Feature_3190902075__private_IsEnabled@@YAHXZ.c)
- *     ??1MLOCKFAST@@QEAA@XZ @ 0x1C026B51C (--1MLOCKFAST@@QEAA@XZ.c)
+ *     ?bValid@RFONTOBJ@@QEBAHXZ @ 0x1C0090814 (-bValid@RFONTOBJ@@QEBAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1MLOCKFAST@@QEAA@XZ @ 0x1C026D7A0 (--1MLOCKFAST@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiMakeObjectUnXferable(HDC a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v6; // bl
-  unsigned int v7; // ebx
-  int IsEnabled; // eax
-  __int64 v9; // rdx
+  unsigned __int8 v6; // bl
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
   _QWORD v10[7]; // [rsp+20h] [rbp-38h] BYREF
-  char v11; // [rsp+60h] [rbp+8h] BYREF
 
   if ( ((unsigned int)a1 & 0x800000) != 0 )
     return 1LL;
@@ -25,29 +23,23 @@ __int64 __fastcall NtGdiMakeObjectUnXferable(HDC a1, __int64 a2, __int64 a3, __i
   GreAcquireHmgrSemaphore(a1, a2, a3, a4);
   if ( v6 == 1 )
   {
-    IsEnabled = Feature_3190902075__private_IsEnabled();
-    v7 = 0;
-    LOBYTE(v9) = 1;
-    if ( IsEnabled )
+    LOBYTE(v7) = 1;
+    v9 = 0;
+    if ( (unsigned int)HmgMarkUnXferable(a1, v7) )
     {
-      if ( (unsigned int)HmgMarkUnXferable(a1, v9) )
-      {
-        DCOBJ::DCOBJ((DCOBJ *)v10, a1);
-        if ( XDCOBJ::bValid((XDCOBJ *)v10) )
-          *(_DWORD *)(v10[0] + 2112LL) = 0;
-        DCOBJ::~DCOBJ((DCOBJ *)v10);
-        v7 = 1;
-      }
-    }
-    else
-    {
-      v7 = HmgMarkUnXferable(a1, v9);
+      DCOBJ::DCOBJ((DCOBJ *)v10, a1);
+      if ( RFONTOBJ::bValid((RFONTOBJ *)v10) )
+        *(_DWORD *)(v10[0] + 2120LL) = 0;
+      DCOBJ::~DCOBJ((DCOBJ *)v10);
+      v9 = 1;
     }
   }
   else
   {
-    v7 = 0;
+    if ( v6 <= 0x10u )
+      v8 = 66864LL;
+    v9 = 0;
   }
-  MLOCKFAST::~MLOCKFAST((MLOCKFAST *)&v11);
-  return v7;
+  MLOCKFAST::~MLOCKFAST((MLOCKFAST *)v8);
+  return v9;
 }

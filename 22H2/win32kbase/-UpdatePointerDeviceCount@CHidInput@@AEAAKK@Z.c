@@ -1,35 +1,35 @@
 /*
- * XREFs of ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C01E31E8
+ * XREFs of ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C01AAA78
  * Callers:
- *     ?OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C01E2AB0 (-OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
- *     ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C01E2CC0 (-OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
+ *     ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C00B4C30 (-OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
+ *     ?OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C00B4C80 (-OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CHidInput::UpdatePointerDeviceCount(CHidInput *this, int a2)
 {
   int v4; // edi
+  int v5; // eax
+  __int64 result; // rax
 
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 157) + 8LL) != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 719);
+  if ( (struct _KTHREAD *)qword_1C0254508 != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 661);
   v4 = a2 - 1;
-  if ( v4 )
+  if ( !v4 )
+    return (unsigned int)++*((_DWORD *)this + 320);
+  if ( v4 != 1 )
   {
-    if ( v4 == 1 )
-    {
-      if ( !*((_DWORD *)this + 336) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 727);
-      --*((_DWORD *)this + 336);
-    }
-    else
-    {
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 731);
-    }
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 673);
+    return *((unsigned int *)this + 320);
   }
-  else
+  v5 = *((_DWORD *)this + 320);
+  if ( !v5 )
   {
-    ++*((_DWORD *)this + 336);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 669);
+    v5 = *((_DWORD *)this + 320);
   }
-  return *((unsigned int *)this + 336);
+  result = (unsigned int)(v5 - 1);
+  *((_DWORD *)this + 320) = result;
+  return result;
 }

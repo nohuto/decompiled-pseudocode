@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C01E84C8
+ * XREFs of ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C0207EDC
  * Callers:
- *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C01E78EC (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C02072B8 (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GetInertiaRegionInVirtualizedScreen @ 0x1C01F7894 (GetInertiaRegionInVirtualizedScreen.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     GetInertiaRegionInVirtualizedScreen @ 0x1C0217E4C (GetInertiaRegionInVirtualizedScreen.c)
  */
 
 __int64 __fastcall Edgy::_InertiaRegionIntersectsTopEdge(

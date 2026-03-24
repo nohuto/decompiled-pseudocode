@@ -1,234 +1,244 @@
 /*
- * XREFs of xxxTrackMouseMove @ 0x1C00188F0
+ * XREFs of xxxTrackMouseMove @ 0x1C002D520
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C0006474 (_SetSystemTimer.c)
- *     ?IsIndependentInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C0010D74 (-IsIndependentInputWindow@@YAHPEBUtagWND@@@Z.c)
- *     xxxResetTooltip @ 0x1C0016C80 (xxxResetTooltip.c)
- *     ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C0017A50 (-IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z.c)
- *     xxxHotTrack @ 0x1C0017B20 (xxxHotTrack.c)
- *     ?HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z @ 0x1C0018DD4 (-HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z.c)
- *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C001C188 (safe_cast_fnid_to_PTOOLTIPWND.c)
- *     SetRITTimer @ 0x1C003CE70 (SetRITTimer.c)
- *     ThreadLockExchangeAlways @ 0x1C00419D0 (ThreadLockExchangeAlways.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     xxxCancelMouseMoveTracking @ 0x1C00B6B88 (xxxCancelMouseMoveTracking.c)
- *     Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage @ 0x1C0139CA0 (Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage.c)
- *     ?GetTooltipShowDelay@@YAIXZ @ 0x1C013D300 (-GetTooltipShowDelay@@YAIXZ.c)
- *     ?IsTooltipHittest2@@YA_NPEAUtagWND@@I@Z @ 0x1C013D328 (-IsTooltipHittest2@@YA_NPEAUtagWND@@I@Z.c)
- *     ?ResetTooltipTimer@@YAXPEAUtagDESKTOP@@@Z @ 0x1C013D3A4 (-ResetTooltipTimer@@YAXPEAUtagDESKTOP@@@Z.c)
- *     ?xxxCreateTooltip2@@YAXPEAUtagDESKTOP@@PEAUtagWND@@H@Z @ 0x1C013D4B0 (-xxxCreateTooltip2@@YAXPEAUtagDESKTOP@@PEAUtagWND@@H@Z.c)
- *     ?xxxTooltipDestroyCallback@@YAXXZ @ 0x1C013D708 (-xxxTooltipDestroyCallback@@YAXXZ.c)
- *     ?GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C0157404 (-GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z.c)
- *     ?PostEventMessageWindow@@YA_NPEAUtagWND@@K_K_J@Z @ 0x1C01B56B0 (-PostEventMessageWindow@@YA_NPEAUtagWND@@K_K_J@Z.c)
- *     GetActiveTrackPwnd @ 0x1C01B68AC (GetActiveTrackPwnd.c)
- *     ?xxxCreateTooltip@@YAHPEAUtagTOOLTIPWND@@PEAG@Z @ 0x1C022578C (-xxxCreateTooltip@@YAHPEAUtagTOOLTIPWND@@PEAG@Z.c)
+ *     ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C00290C8 (-SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z.c)
+ *     xxxResetTooltip @ 0x1C002B35C (xxxResetTooltip.c)
+ *     xxxHotTrack @ 0x1C002B3E4 (xxxHotTrack.c)
+ *     _SetSystemTimer @ 0x1C002CA18 (_SetSystemTimer.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C002D95C (xxxCancelMouseMoveTracking.c)
+ *     ?WindowBorderExitIfEntered@NotifyShell@@YAXPEAUtagWND@@@Z @ 0x1C002DA84 (-WindowBorderExitIfEntered@NotifyShell@@YAXPEAUtagWND@@@Z.c)
+ *     ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C0030620 (-IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z.c)
+ *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C00309E8 (safe_cast_fnid_to_PTOOLTIPWND.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C004B590 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     ?IsIndependentInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C00C0778 (-IsIndependentInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     ThreadLockExchangeAlways @ 0x1C00C0FFC (ThreadLockExchangeAlways.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     ?GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C01D1F08 (-GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z.c)
+ *     GetActiveTrackPwnd @ 0x1C01E16AC (GetActiveTrackPwnd.c)
+ *     ?WindowBorderEnter@NotifyShell@@YAXPEAUtagWND@@H@Z @ 0x1C023D14C (-WindowBorderEnter@NotifyShell@@YAXPEAUtagWND@@H@Z.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C024267C (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
  */
 
 __int64 __fastcall xxxTrackMouseMove(struct tagWND *a1, unsigned int a2, int a3)
 {
-  const struct tagWND *v3; // rdi
-  unsigned int v6; // esi
-  char v7; // r15
-  __int64 v8; // rbx
+  int v4; // ebx
+  unsigned int v6; // r15d
+  __int64 v7; // rdi
+  __int64 ThreadWin32Thread; // rax
+  unsigned int v9; // edx
+  NotifyShell **v10; // r12
+  __int64 v11; // r13
+  unsigned int v12; // r8d
+  struct tagWND *v13; // rdx
+  unsigned int v14; // r8d
+  __int64 v15; // rcx
+  __int64 v17; // r10
+  struct tagQ *v18; // r11
+  NotifyShell *v19; // rbx
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  NotifyShell *v22; // rcx
+  _QWORD *v23; // rax
+  _QWORD *v24; // rbx
+  __int64 v25; // r15
+  unsigned __int16 *v26; // rax
+  struct _KTHREAD *CurrentThread; // rcx
+  unsigned __int16 *v28; // r12
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  __int64 v32; // rcx
+  int v33; // eax
   struct tagWND *CompositionInputWindowUIOwner; // rax
-  struct tagWND **v10; // r13
-  int v11; // r9d
-  int IsEnabledDeviceUsage; // eax
-  struct tagTHREADINFO *v13; // r10
-  struct tagQ *v14; // rdx
-  unsigned int v15; // ecx
-  _DWORD *v16; // r15
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  unsigned int TooltipShowDelay; // eax
-  int v21; // eax
-  struct tagTOOLTIPWND *v22; // rax
-  unsigned int v23; // r8d
-  struct tagTOOLTIPWND *v24; // rsi
-  __int64 v25; // r10
-  unsigned __int16 *v26; // r15
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 ActiveTrackPwnd; // rdi
-  int *v31; // rax
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  _QWORD v36[2]; // [rsp+48h] [rbp-29h] BYREF
-  __int128 v37; // [rsp+58h] [rbp-19h] BYREF
-  __int64 v38; // [rsp+68h] [rbp-9h]
-  __int128 v39; // [rsp+70h] [rbp-1h] BYREF
-  __int64 v40; // [rsp+80h] [rbp+Fh]
-  __int128 v41; // [rsp+88h] [rbp+17h] BYREF
-  __int64 v42; // [rsp+98h] [rbp+27h]
-  const struct tagWND *v43; // [rsp+D8h] [rbp+67h]
+  int v37; // r8d
+  __int64 ActiveTrackPwnd; // rbx
+  int *v39; // rax
+  _QWORD v40[2]; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v41; // [rsp+58h] [rbp-19h] BYREF
+  __int64 v42; // [rsp+68h] [rbp-9h]
+  __int128 v43; // [rsp+70h] [rbp-1h] BYREF
+  __int64 v44; // [rsp+80h] [rbp+Fh]
+  _QWORD v45[4]; // [rsp+88h] [rbp+17h] BYREF
 
-  v3 = a1;
-  v40 = 0LL;
-  v38 = 0LL;
+  v45[2] = 0LL;
   v42 = 0LL;
-  v39 = 0LL;
-  v6 = 0;
-  v37 = 0LL;
-  v7 = 0;
+  v44 = 0LL;
+  v4 = a3;
   v41 = 0LL;
-  v8 = *(_QWORD *)(gptiCurrent + 456LL);
-  ThreadLockAlways(a1, &v41);
-  if ( a3 == 512 && ((unsigned __int8)gpdwCPUserPreferencesMask & 1) != 0 )
+  v6 = 0;
+  v43 = 0LL;
+  v7 = *(_QWORD *)(gptiCurrent + 456LL);
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v45[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v45;
+  v45[1] = a1;
+  HMLockObject(a1);
+  if ( v4 == 512 && ((unsigned __int8)gpdwCPUserPreferencesMask & 1) != 0 )
   {
-    if ( (unsigned int)IsIndependentInputWindow(v3) )
+    if ( (unsigned int)IsIndependentInputWindow(a1) )
     {
-      CompositionInputWindowUIOwner = GetCompositionInputWindowUIOwner(v3);
+      CompositionInputWindowUIOwner = GetCompositionInputWindowUIOwner(a1);
       if ( CompositionInputWindowUIOwner )
       {
-        v3 = CompositionInputWindowUIOwner;
-        ThreadLockExchangeAlways(CompositionInputWindowUIOwner, &v41);
+        a1 = CompositionInputWindowUIOwner;
+        ThreadLockExchangeAlways(CompositionInputWindowUIOwner, v45);
       }
     }
   }
-  v10 = (struct tagWND **)(v8 + 192);
-  v43 = *(const struct tagWND **)(v8 + 192);
-  if ( (*(_DWORD *)(v8 + 48) & 0xDC0) != 0 && *(_QWORD *)(v8 + 192) )
+  v9 = *(_DWORD *)(v7 + 48);
+  v10 = (NotifyShell **)(v7 + 184);
+  v11 = *(_QWORD *)(v7 + 184);
+  if ( (v9 & 0x5C0) != 0 && v11 )
   {
-    IsEnabledDeviceUsage = Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage();
-    v13 = (struct tagTHREADINFO *)*((_QWORD *)*v10 + 2);
-    if ( IsEnabledDeviceUsage )
+    v17 = *(_QWORD *)(v11 + 16);
+    v18 = *(struct tagQ **)(v17 + 432);
+    if ( *(struct tagQ **)(gptiCurrent + 432LL) == v18 )
     {
-      if ( *(_QWORD *)(gptiCurrent + 432LL) == *((_QWORD *)v13 + 54) )
-      {
-        v6 = 1024;
-        if ( v13 != (struct tagTHREADINFO *)gptiCurrent && (*(_DWORD *)(v8 + 48) & 0x800) != 0 )
-        {
-          PostEventMessageWindow(*v10, 0x1Au, *(int *)(v8 + 200), 1LL);
-          *(_DWORD *)(v8 + 48) &= ~0x800u;
-          v7 = 1;
-        }
-      }
+      v6 = 1024;
     }
-    else
+    else if ( (v9 & 0x500) != 0 )
     {
-      v14 = (struct tagQ *)*((_QWORD *)v13 + 54);
-      if ( *(struct tagQ **)(gptiCurrent + 432LL) == v14 )
-      {
-        v6 = 1024;
-      }
-      else
-      {
-        v15 = *(_DWORD *)(v8 + 48);
-        if ( (v15 & 0x500) != 0 )
-        {
-          PostEventMessageEx(v13, v14, 0xBu, *v10, v15, *(int *)(v8 + 200), 1024LL, 0LL);
-          *(_DWORD *)(v8 + 48) &= 0xFFFFFAFF;
-        }
-      }
+      PostEventMessageEx(
+        (struct tagTHREADINFO *)v17,
+        v18,
+        0xBu,
+        (struct tagWND *)v11,
+        v9,
+        *(int *)(v7 + 192),
+        1024LL,
+        0LL);
+      *(_DWORD *)(v7 + 48) &= 0xFFFFFAFF;
     }
-    if ( (unsigned int)Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage() )
-    {
-      if ( !v7 && (a2 == 1 || a3 != 512) )
-        v6 |= 0x800u;
-    }
-    else if ( a2 == 1 || a3 != 512 )
-    {
-      v6 |= (unsigned int)Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage() != 0 ? 2048 : 256;
-    }
-    v16 = (_DWORD *)(v8 + 200);
-    if ( v43 != v3 || (a2 == 1) != (*v16 == 1) )
+    if ( a2 == 1 || v4 != 512 )
+      v6 |= 0x100u;
+    if ( (struct tagWND *)v11 != a1 || (a2 == 1) != (*(_DWORD *)(v7 + 192) == 1) )
       v6 |= 0xC0u;
-    PushW32ThreadLock(v8, &v37, UserDereferenceObject);
-    ObfReferenceObject((PVOID)v8);
-    ThreadLockAlways(*v10, &v39);
-    xxxCancelMouseMoveTracking(*(unsigned int *)(v8 + 48), *v10, (unsigned int)*v16, v6);
-    ThreadUnlock1(v18, v17, v19);
-    *(_DWORD *)(v8 + 48) &= ~v6;
+    PushW32ThreadLock(v7, &v43, UserDereferenceObject);
+    ObfReferenceObject((PVOID)v7);
+    v19 = *v10;
+    v20 = W32GetThreadWin32Thread(KeGetCurrentThread());
+    *(_QWORD *)&v41 = *(_QWORD *)(v20 + 416);
+    *(_QWORD *)(v20 + 416) = &v41;
+    *((_QWORD *)&v41 + 1) = v19;
+    HMLockObject(v19);
+    xxxCancelMouseMoveTracking(*(unsigned int *)(v7 + 48), *v10, *(unsigned int *)(v7 + 192), v6);
+    ThreadUnlock1(v21);
+    v4 = a3;
+    *(_DWORD *)(v7 + 48) &= ~v6;
   }
   else
   {
-    PushW32ThreadLock(v8, &v37, UserDereferenceObject);
-    ObfReferenceObject((PVOID)v8);
+    PushW32ThreadLock(v7, &v43, UserDereferenceObject);
+    ObfReferenceObject((PVOID)v7);
   }
-  if ( a2 != 1 && a3 == 512 && ((unsigned int)gpdwCPUserPreferencesMask & 0x80000080) == 0x80000080 )
+  if ( a2 != 1 && v4 == 512 && ((unsigned int)gpdwCPUserPreferencesMask & 0x80000080) == 0x80000080 )
   {
-    if ( (unsigned int)xxxHotTrack(v3, a2, 1) )
-      *(_DWORD *)(v8 + 48) |= 0x400u;
-    if ( (unsigned int)Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage() )
+    if ( (unsigned int)xxxHotTrack(a1, a2, 1) )
+      *(_DWORD *)(v7 + 48) |= 0x400u;
+    v23 = (_QWORD *)safe_cast_fnid_to_PTOOLTIPWND(*(_QWORD *)(v7 + 112));
+    v24 = v23;
+    if ( v23 )
     {
-      if ( IsTooltipHittest2(v3, (unsigned __int16)a2) )
+      v25 = *v23;
+      if ( *v23 )
       {
-        if ( (*(_DWORD *)(v8 + 48) & 0x800) != 0 )
+        v26 = IsTooltipHittest(a1, (unsigned __int16)a2);
+        CurrentThread = KeGetCurrentThread();
+        v28 = v26;
+        if ( v26 )
         {
-          xxxTooltipDestroyCallback();
-          xxxCreateTooltip2((struct tagDESKTOP *)v8, v3, a2);
+          v31 = W32GetThreadWin32Thread(CurrentThread);
+          *(_QWORD *)&v41 = *(_QWORD *)(v31 + 416);
+          *(_QWORD *)(v31 + 416) = &v41;
+          *((_QWORD *)&v41 + 1) = v25;
+          HMLockObject(v25);
+          v32 = *v24;
+          v24[6] = v28;
+          if ( (*(_BYTE *)(*(_QWORD *)(v32 + 40) + 31LL) & 0x10) != 0 )
+          {
+            xxxSetWindowPos((struct tagWND *)v32, 0, 0, 1175);
+            v33 = xxxShowTooltip((struct tagTOOLTIPWND *)v24);
+          }
+          else
+          {
+            SetTooltipTimer((struct tagTOOLTIPWND *)v24, 1, *((_DWORD *)v24 + 2));
+            v33 = 1;
+          }
+          if ( v33 )
+            *(_DWORD *)(v7 + 48) |= 0x300u;
         }
         else
         {
-          TooltipShowDelay = GetTooltipShowDelay();
-          *(_QWORD *)(v8 + 120) = SetRITTimer(*(_QWORD *)(v8 + 120), TooltipShowDelay, TooltipRitShowTimerCallback, 1LL);
+          v29 = W32GetThreadWin32Thread(CurrentThread);
+          *(_QWORD *)&v41 = *(_QWORD *)(v29 + 416);
+          *(_QWORD *)(v29 + 416) = &v41;
+          *((_QWORD *)&v41 + 1) = v25;
+          HMLockObject(v25);
+          xxxResetTooltip((struct tagTOOLTIPWND *)v24);
         }
+        ThreadUnlock1(v30);
+        v10 = (NotifyShell **)(v7 + 184);
       }
-      else
-      {
-        if ( *(_QWORD *)(v8 + 120) )
-          ResetTooltipTimer((struct tagDESKTOP *)v8);
-        v21 = *(_DWORD *)(v8 + 48);
-        if ( (v21 & 0x800) != 0 )
-        {
-          *(_DWORD *)(v8 + 48) = v21 & 0xFFFFF7FF;
-          xxxTooltipDestroyCallback();
-        }
-      }
+    }
+  }
+  if ( ShellWindowManagement::BehaviorEnabled((ShellWindowManagement *)v7, (const struct tagDESKTOP *)0x40, v12) )
+  {
+    if ( (struct tagWND *)v11 == a1 )
+    {
+      if ( *(_DWORD *)(v7 + 192) == a2 )
+        goto LABEL_8;
+      v22 = a1;
     }
     else
     {
-      v22 = (struct tagTOOLTIPWND *)safe_cast_fnid_to_PTOOLTIPWND(*(_QWORD *)(v8 + 112));
-      v24 = v22;
-      if ( v22 && *(_QWORD *)v22 )
+      v22 = *v10;
+      if ( !*v10 )
       {
-        v26 = IsTooltipHittest(v3, (unsigned __int16)a2, v23);
-        if ( v26 )
+LABEL_25:
+        if ( a2 - 10 <= 1
+          && !ShellWindowManagement::BehaviorEnabled(
+                *((ShellWindowManagement **)a1 + 3),
+                (const struct tagDESKTOP *)8,
+                v14) )
         {
-          ThreadLockAlways(v25, &v39);
-          if ( (unsigned int)xxxCreateTooltip(v24, v26) )
-            *(_DWORD *)(v8 + 48) |= 0x300u;
+          NotifyShell::WindowBorderEnter(a1, (struct tagWND *)a2, v37);
         }
-        else
-        {
-          ThreadLockAlways(v25, &v39);
-          xxxResetTooltip(v24);
-        }
-        ThreadUnlock1(v28, v27, v29);
+        goto LABEL_8;
       }
     }
+    NotifyShell::WindowBorderExitIfEntered(v22, v13);
+    goto LABEL_25;
   }
-  NotifyShell::HitTestPartUpdate((NotifyShell *)v8, v3, (struct tagWND *)a2, v11);
-  if ( v43 != v3 )
+LABEL_8:
+  if ( (struct tagWND *)v11 != a1 )
   {
-    v36[0] = v8 + 192;
-    v36[1] = v3;
-    HMAssignmentLock(v36, 1LL);
+    v40[0] = v10;
+    v40[1] = a1;
+    HMAssignmentLock(v40);
     if ( a3 == 512 && ((unsigned __int8)gpdwCPUserPreferencesMask & 1) != 0 )
     {
       if ( *(_DWORD *)UPDWORDPointer(8194LL) )
       {
-        ActiveTrackPwnd = GetActiveTrackPwnd(v3);
+        ActiveTrackPwnd = GetActiveTrackPwnd(a1);
         if ( ActiveTrackPwnd )
         {
-          v31 = (int *)UPDWORDPointer(8194LL);
-          SetSystemTimer(ActiveTrackPwnd, 65527, *v31, (int)xxxSystemTimerProc, 1);
+          v39 = (int *)UPDWORDPointer(8194LL);
+          SetSystemTimer(ActiveTrackPwnd, 65527, *v39, (int)xxxSystemTimerProc, 1);
         }
       }
       else
       {
-        *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 396LL) |= 0x200000u;
+        *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 388LL) |= 0x200000u;
       }
     }
   }
-  *(_DWORD *)(v8 + 200) = a2;
-  PopAndFreeW32ThreadLock(&v37);
-  return ThreadUnlock1(v33, v32, v34);
+  *(_DWORD *)(v7 + 192) = a2;
+  PopAndFreeW32ThreadLock(&v43);
+  return ThreadUnlock1(v15);
 }

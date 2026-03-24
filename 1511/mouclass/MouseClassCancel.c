@@ -1,1 +1,29 @@
-/*\n * XREFs of MouseClassCancel @ 0x1C0001C30\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nvoid __fastcall MouseClassCancel(__int64 a1, IRP *a2)\n{\n  __int64 v2; // rdi\n  KIRQL v4; // al\n  struct _LIST_ENTRY *Flink; // r9\n  struct _LIST_ENTRY *Blink; // rdx\n\n  v2 = *(_QWORD *)(a1 + 64);\n  IoReleaseCancelSpinLock(a2->CancelIrql);\n  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 144));\n  Flink = a2->Tail.Overlay.ListEntry.Flink;\n  Blink = a2->Tail.Overlay.ListEntry.Blink;\n  if ( (PVOID *)Flink->Blink != &a2->Tail.CompletionKey + 6 || (PVOID *)Blink->Flink != &a2->Tail.CompletionKey + 6 )\n    __fastfail(3u);\n  Blink->Flink = Flink;\n  Flink->Blink = Blink;\n  KeReleaseSpinLock((PKSPIN_LOCK)(v2 + 144), v4);\n  a2->IoStatus.Status = -1073741536;\n  IofCompleteRequest(a2, 0);\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 32), a2, 0x20u);\n}\n
+/*
+ * XREFs of MouseClassCancel @ 0x1C0001C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall MouseClassCancel(__int64 a1, IRP *a2)
+{
+  __int64 v2; // rdi
+  KIRQL v4; // al
+  struct _LIST_ENTRY *Flink; // r9
+  struct _LIST_ENTRY *Blink; // rdx
+
+  v2 = *(_QWORD *)(a1 + 64);
+  IoReleaseCancelSpinLock(a2->CancelIrql);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 144));
+  Flink = a2->Tail.Overlay.ListEntry.Flink;
+  Blink = a2->Tail.Overlay.ListEntry.Blink;
+  if ( (PVOID *)Flink->Blink != &a2->Tail.CompletionKey + 6 || (PVOID *)Blink->Flink != &a2->Tail.CompletionKey + 6 )
+    __fastfail(3u);
+  Blink->Flink = Flink;
+  Flink->Blink = Blink;
+  KeReleaseSpinLock((PKSPIN_LOCK)(v2 + 144), v4);
+  a2->IoStatus.Status = -1073741536;
+  IofCompleteRequest(a2, 0);
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 32), a2, 0x20u);
+}

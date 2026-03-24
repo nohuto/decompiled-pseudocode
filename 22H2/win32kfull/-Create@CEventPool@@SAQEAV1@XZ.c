@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Create@CEventPool@@SAQEAV1@XZ @ 0x1C00A5630
+ * XREFs of ?Create@CEventPool@@SAQEAV1@XZ @ 0x1C00F3D0C
  * Callers:
- *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00A552C (-UmfdCallSessionInitialize@@YAJXZ.c)
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00F3C04 (-UmfdCallSessionInitialize@@YAJXZ.c)
  * Callees:
  *     <none>
  */

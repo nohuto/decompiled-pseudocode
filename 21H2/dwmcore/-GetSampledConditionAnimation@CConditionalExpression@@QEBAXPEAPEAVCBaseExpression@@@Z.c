@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetSampledConditionAnimation@CConditionalExpression@@QEBAXPEAPEAVCBaseExpression@@@Z @ 0x180210FE0
+ * XREFs of ?GetSampledConditionAnimation@CConditionalExpression@@QEBAXPEAPEAVCBaseExpression@@@Z @ 0x1801BDC04
  * Callers:
- *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x18021C784 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
+ *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x1801CB230 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??4?$ComPtr@VCBaseExpression@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180210844 (--4-$ComPtr@VCBaseExpression@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??4?$ComPtr@VCBaseExpression@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x1801BD4BC (--4-$ComPtr@VCBaseExpression@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
  */
 
 void __fastcall CConditionalExpression::GetSampledConditionAnimation(
@@ -17,16 +17,16 @@ void __fastcall CConditionalExpression::GetSampledConditionAnimation(
   struct CBaseExpression *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v6 = 0LL;
-  v3 = *((int *)this + 95);
+  v3 = *((int *)this + 89);
   if ( (int)v3 >= 0 )
   {
-    v4 = (__int64 *)(16 * v3 + *((_QWORD *)this + 43) + 8LL);
+    v4 = (__int64 *)(16 * v3 + *((_QWORD *)this + 40) + 8LL);
 LABEL_4:
     Microsoft::WRL::ComPtr<CBaseExpression>::operator=((__int64 *)&v6, v4);
     goto LABEL_5;
   }
-  v4 = (__int64 *)((char *)this + 368);
-  if ( *((_QWORD *)this + 46) )
+  v4 = (__int64 *)((char *)this + 344);
+  if ( *((_QWORD *)this + 43) )
     goto LABEL_4;
 LABEL_5:
   v5 = v6;

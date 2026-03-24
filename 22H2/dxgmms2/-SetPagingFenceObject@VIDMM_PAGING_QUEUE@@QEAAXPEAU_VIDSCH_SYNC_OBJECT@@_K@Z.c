@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetPagingFenceObject@VIDMM_PAGING_QUEUE@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00F116C
+ * XREFs of ?SetPagingFenceObject@VIDMM_PAGING_QUEUE@@QEAAXPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00BA7F4
  * Callers:
- *     VidMmSetPagingFenceObject @ 0x1C0018B30 (VidMmSetPagingFenceObject.c)
+ *     VidMmSetPagingFenceObject @ 0x1C0016360 (VidMmSetPagingFenceObject.c)
  * Callees:
  *     <none>
  */

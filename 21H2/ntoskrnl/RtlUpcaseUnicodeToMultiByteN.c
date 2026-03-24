@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x140759990
+ * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40
  * Callers:
- *     toupper @ 0x1403E30E0 (toupper.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1409B58B0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     toupper @ 0x1403D3D30 (toupper.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x14090FCE0 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
- *     UpcaseUnicodeToSingleByteNHelper @ 0x1402D7D00 (UpcaseUnicodeToSingleByteNHelper.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x14045EDD4 (UpcaseUnicodeToMultiByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1405E4598 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x140206A40 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x1405859C4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140585AB8 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToMultiByteN(
@@ -19,8 +18,6 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToMultiByteN(
         ULONG BytesInUnicodeString)
 {
   ULONG v6; // ebx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  signed __int32 v12[8]; // [rsp+0h] [rbp-48h] BYREF
 
   v6 = BytesInUnicodeString >> 1;
   if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
@@ -30,22 +27,19 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToMultiByteN(
              BytesInMultiByteString,
              (__int64)UnicodeString,
              v6);
-  _InterlockedOr(v12, 0);
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  if ( *((_WORD *)CurrentServerSiloGlobals + 538) )
+  if ( (_BYTE)NlsMbCodePageTag )
     return UpcaseUnicodeToMultiByteNHelper(
-             MultiByteString,
+             (int)MultiByteString,
              MaxBytesInMultiByteString,
              BytesInMultiByteString,
              (unsigned __int16 *)UnicodeString,
              v6);
-  else
-    return UpcaseUnicodeToSingleByteNHelper(
-             (__int64)MultiByteString,
-             MaxBytesInMultiByteString,
-             BytesInMultiByteString,
-             (unsigned __int16 *)UnicodeString,
-             v6,
-             CurrentServerSiloGlobals[138],
-             CurrentServerSiloGlobals[137]);
+  return UpcaseUnicodeToSingleByteNHelper(
+           (__int64)MultiByteString,
+           MaxBytesInMultiByteString,
+           BytesInMultiByteString,
+           (unsigned __int16 *)UnicodeString,
+           v6,
+           NlsUnicodeToAnsiData,
+           NlsAnsiToUnicodeData);
 }

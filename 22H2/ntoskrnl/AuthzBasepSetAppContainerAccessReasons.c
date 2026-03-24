@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepSetAppContainerAccessReasons @ 0x14066F14C
+ * XREFs of AuthzBasepSetAppContainerAccessReasons @ 0x1405C164C
  * Callers:
- *     AuthzBasepAddAccessTypeList @ 0x140228C04 (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepAddAccessTypeList @ 0x1402FAD8C (AuthzBasepAddAccessTypeList.c)
  * Callees:
  *     <none>
  */

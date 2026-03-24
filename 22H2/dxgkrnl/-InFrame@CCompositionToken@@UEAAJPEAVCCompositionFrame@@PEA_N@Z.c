@@ -1,152 +1,141 @@
 /*
- * XREFs of ?InFrame@CCompositionToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0011770
+ * XREFs of ?InFrame@CCompositionToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0016E80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z @ 0x1C007D490 (-AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z @ 0x1C00667F0 (-AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z.c)
  */
 
 __int64 __fastcall CCompositionToken::InFrame(CCompositionToken *this, struct CCompositionFrame *a2, bool *a3)
 {
-  bool *v3; // r13
-  __int64 v6; // rbx
-  unsigned int (__fastcall *v7)(__int64, __int64); // rdi
+  unsigned int v3; // edi
+  bool *v4; // r15
+  unsigned int (__fastcall *v7)(__int64, _QWORD); // rbx
   __int64 v8; // rax
-  unsigned int v9; // ebp
-  int v10; // r15d
+  int v9; // r14d
+  unsigned int v10; // r12d
   _QWORD *v11; // rax
-  __int64 v12; // r12
-  __int64 v13; // rbx
-  __int64 v14; // r13
-  __int64 v15; // r14
-  _QWORD *v16; // rax
-  _QWORD *v17; // rbx
-  _QWORD *v18; // rdi
-  int v19; // r13d
-  _QWORD *v20; // rbx
-  __int64 result; // rax
-  int v22; // edx
-  int v23; // ecx
-  int v24; // r8d
+  __int64 v12; // r13
+  __int64 v13; // rbp
+  int v14; // ebx
+  _QWORD *v15; // r15
+  _QWORD *i; // rax
+  _QWORD *v17; // rbp
+  __int64 v18; // rcx
+  __int64 v20; // rax
+  __int64 v21; // [rsp+60h] [rbp+8h]
 
-  v3 = a3;
+  v3 = 0;
+  v4 = a3;
   if ( *((_DWORD *)this + 6) != 2 )
-    return 0LL;
-  if ( !*(_QWORD *)&DXGGLOBAL::m_pGlobal )
+    return v3;
+  if ( !DXGGLOBAL::m_pGlobal )
   {
-    WdLogSingleEntry1(1LL, 2407LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v23,
-          v22,
-          v24,
-          0,
-          2,
-          -1,
-          (__int64)L"m_pGlobal != NULL",
-          2407LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v20 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v20 + 24) = 2238LL;
+    WdLogEvent5_WdAssertion(v20);
   }
-  v6 = *((_QWORD *)this + 8);
-  v7 = *(unsigned int (__fastcall **)(__int64, __int64))(*(_QWORD *)(*(_QWORD *)&DXGGLOBAL::m_pGlobal + 304552LL) + 64LL);
+  v7 = *(unsigned int (__fastcall **)(__int64, _QWORD))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 48LL);
   v8 = (*(__int64 (__fastcall **)(struct CCompositionFrame *))(*(_QWORD *)a2 + 72LL))(a2);
-  if ( v7(v8, v6) )
+  if ( v7(v8, *((_QWORD *)this + 10)) )
   {
     ++*((_DWORD *)this + 7);
-    result = 0LL;
-    *v3 = 0;
+    *v4 = 0;
+    return v3;
   }
-  else
+  *((_DWORD *)this + 6) = 3;
+  v9 = 0;
+  v10 = 0;
+  if ( !*((_DWORD *)this + 18) )
+    goto LABEL_33;
+  do
   {
-    v9 = 0;
-    v10 = 0;
-    *((_DWORD *)this + 6) = 3;
-    if ( *((_DWORD *)this + 14) )
+    v11 = (_QWORD *)(*((_QWORD *)this + 8) + 32LL * v10);
+    v12 = v11[1];
+    v21 = v11[3];
+    if ( !v21 )
+      goto LABEL_31;
+    v13 = v11[2];
+    v14 = 0;
+    if ( !(**(unsigned __int8 (__fastcall ***)(__int64))(v12 + 48))(v12 + 48) )
+      goto LABEL_37;
+    KeEnterCriticalRegion();
+    ExAcquirePushLockExclusiveEx(v12 + 56, 0LL);
+    *(_QWORD *)(v12 + 64) = KeGetCurrentThread();
+    if ( !(**(unsigned __int8 (__fastcall ***)(__int64))(v12 + 48))(v12 + 48) )
     {
-      do
-      {
-        v11 = (_QWORD *)(*((_QWORD *)this + 6) + 32LL * v9);
-        v12 = v11[3];
-        v13 = v11[1];
-        if ( v12 )
-        {
-          v14 = v11[2];
-          v15 = v13 + 48;
-          KeEnterCriticalRegion();
-          ExAcquirePushLockExclusiveEx(v13 + 48, 0LL);
-          *(_QWORD *)(v13 + 56) = KeGetCurrentThread();
-          if ( !*(_DWORD *)(v13 + 128) || (v16 = *(_QWORD **)(v13 + 112), v17 = (_QWORD *)(v13 + 112), v16 == v17) )
-          {
-LABEL_32:
-            v19 = -1073741275;
-          }
-          else
-          {
-            while ( 1 )
-            {
-              v18 = v16 - 3;
-              if ( *(v16 - 1) == v14 )
-                break;
-              v16 = (_QWORD *)*v16;
-              if ( v16 == v17 )
-                goto LABEL_32;
-            }
-            v19 = 0;
-            if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v18 + 88LL))(v16 - 3) )
-            {
-              v20 = 0LL;
-              if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v18 + 88LL))(v18) )
-                v20 = v18;
-              if ( *((_DWORD *)v20 + 95) == -1 )
-                *((_DWORD *)v20 + 95) = 0;
-              *((_DWORD *)v20 + 12) = 1;
-              if ( *((_DWORD *)v20 + 72) )
-              {
-                CCompositionBuffer::AddScrollAsDirty(
-                  (CCompositionBuffer *)v20,
-                  (const struct ScrollOptimization *)(v20 + 36));
-                *((_DWORD *)v20 + 72) = 0;
-                *((_BYTE *)v20 + 43) = 1;
-              }
-              if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12) )
-              {
-                (*(void (__fastcall **)(_QWORD, __int64, __int64))(*(_QWORD *)v20[35] + 48LL))(v20[35], v12, 2LL);
-                *((_BYTE *)v20 + 43) = 1;
-              }
-            }
-            else
-            {
-              v19 = -1073741811;
-            }
-          }
-          if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v15 + 8) )
-          {
-            *(_QWORD *)(v15 + 8) = 0LL;
-            ExReleasePushLockExclusiveEx(v15, 0LL);
-          }
-          else
-          {
-            ExReleasePushLockSharedEx(v15, 0LL);
-          }
-          KeLeaveCriticalRegion();
-          if ( v10 >= 0 && v19 < 0 )
-            v10 = v19;
-        }
-        ++v9;
-      }
-      while ( v9 < *((_DWORD *)this + 14) );
-      v3 = a3;
+      CPushLock::ReleaseLock((CPushLock *)(v12 + 48));
+LABEL_37:
+      v14 = -1073741816;
     }
-    result = (unsigned int)v10;
-    *v3 = 1;
+    if ( v14 >= 0 )
+    {
+      v14 = -1073741275;
+      v15 = 0LL;
+      if ( *(_DWORD *)(v12 + 120) )
+      {
+        for ( i = *(_QWORD **)(v12 + 104); i != (_QWORD *)(v12 + 104); i = (_QWORD *)*i )
+        {
+          if ( *(i - 1) == v13 )
+          {
+            v15 = i - 3;
+            v14 = 0;
+            break;
+          }
+        }
+      }
+      if ( v14 >= 0 )
+      {
+        if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v15 + 80LL))(v15) )
+        {
+          v17 = 0LL;
+          if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v15 + 80LL))(v15) )
+            v17 = v15;
+          if ( *((_DWORD *)v17 + 87) == -1 )
+            *((_DWORD *)v17 + 87) = 0;
+          *((_DWORD *)v17 + 12) = 1;
+          if ( *((_DWORD *)v17 + 64) )
+          {
+            CCompositionBuffer::AddScrollAsDirty(
+              (CCompositionBuffer *)v17,
+              (const struct ScrollOptimization *)(v17 + 32));
+            *((_DWORD *)v17 + 64) = 0;
+            *((_BYTE *)v17 + 42) = 1;
+          }
+          if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v21 + 8LL))(v21) )
+          {
+            (*(void (__fastcall **)(_QWORD, __int64, __int64))(*(_QWORD *)v17[31] + 48LL))(v17[31], v21, 2LL);
+            *((_BYTE *)v17 + 42) = 1;
+          }
+        }
+        else
+        {
+          v14 = -1073741811;
+        }
+      }
+      v18 = v12 + 56;
+      if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v12 + 64) )
+      {
+        *(_QWORD *)(v12 + 64) = 0LL;
+        ExReleasePushLockExclusiveEx(v18, 0LL);
+      }
+      else
+      {
+        ExReleasePushLockSharedEx(v18, 0LL);
+      }
+      KeLeaveCriticalRegion();
+    }
+    if ( v9 >= 0 && v14 < 0 )
+      v9 = v14;
+LABEL_31:
+    ++v10;
   }
-  return result;
+  while ( v10 < *((_DWORD *)this + 18) );
+  v4 = a3;
+LABEL_33:
+  v3 = v9;
+  *v4 = 1;
+  return v3;
 }

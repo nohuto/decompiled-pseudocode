@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C0002A14
+ * XREFs of ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C001239C
  * Callers:
- *     ?DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ @ 0x1C00029A0 (-DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ.c)
- *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C00088A0 (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
- *     ?Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C00177E0 (-Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C00121DC (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
+ *     ?DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ @ 0x1C00123D0 (-DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ.c)
+ *     ?Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C0015370 (-Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@@Z.c)
  * Callees:
- *     ?Reset@CLegacyTokenBuffer@@IEAAXXZ @ 0x1C0008958 (-Reset@CLegacyTokenBuffer@@IEAAXXZ.c)
+ *     ?Reset@CLegacyTokenBuffer@@IEAAXXZ @ 0x1C0012298 (-Reset@CLegacyTokenBuffer@@IEAAXXZ.c)
  */
 
 CLegacyTokenBuffer *__fastcall CLegacyTokenBuffer::`scalar deleting destructor'(CLegacyTokenBuffer *P)

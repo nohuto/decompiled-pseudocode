@@ -1,21 +1,21 @@
 /*
- * XREFs of IoTryQueueWorkItem @ 0x140255440
+ * XREFs of IoTryQueueWorkItem @ 0x14037C9B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExpTryQueueWorkItem @ 0x1402EEE7C (ExpTryQueueWorkItem.c)
- *     IopQueueWorkItemProlog @ 0x1403467F0 (IopQueueWorkItemProlog.c)
+ *     IopQueueWorkItemProlog @ 0x140206670 (IopQueueWorkItemProlog.c)
+ *     ExpTryQueueWorkItem @ 0x14023BDCC (ExpTryQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 char __fastcall IoTryQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  __int64 v6; // rax
+  ULONG_PTR v6; // rax
   char v7; // bl
   void *v9; // rcx
 
   v6 = IopQueueWorkItemProlog(a1, a2, a4);
-  v7 = ExpTryQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), v6, a3, 1LL);
+  v7 = ExpTryQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), v6, a3, 1u);
   if ( !v7 )
   {
     ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 40), 0x746C6644u);

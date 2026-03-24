@@ -1,10 +1,11 @@
 /*
- * XREFs of ACPIDeviceDiscoverDependencies @ 0x1C001CD24
+ * XREFs of ACPIDeviceDiscoverDependencies @ 0x1C0029674
  * Callers:
- *     ACPIDeviceRecordDependencies @ 0x1C0021C68 (ACPIDeviceRecordDependencies.c)
+ *     ACPIDeviceRecordDependencies @ 0x1C002953C (ACPIDeviceRecordDependencies.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
  */
 
 _UNKNOWN **__fastcall ACPIDeviceDiscoverDependencies(_QWORD *a1, _QWORD *a2)
@@ -15,25 +16,22 @@ _UNKNOWN **__fastcall ACPIDeviceDiscoverDependencies(_QWORD *a1, _QWORD *a2)
   __int64 v7; // rdi
   _QWORD *v8; // rsi
   __int64 v9; // rdx
-  int v10; // edx
-  int v11; // edx
-  _QWORD *v12; // r8
+  _QWORD *v10; // r8
+  _QWORD *v11; // rdx
+  _QWORD *v12; // rcx
   _QWORD *v13; // rdx
-  _QWORD *v14; // rcx
+  _QWORD *v14; // r8
   _QWORD *v15; // rdx
-  int v16; // r9d
-  int v17; // edx
-  _QWORD *v18; // r8
-  _QWORD *v19; // rdx
+  __int64 v16; // [rsp+28h] [rbp-30h]
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
-  int v21; // [rsp+60h] [rbp+8h] BYREF
-  int v22; // [rsp+70h] [rbp+18h] BYREF
+  int v18; // [rsp+60h] [rbp+8h] BYREF
+  int v19; // [rsp+70h] [rbp+18h] BYREF
 
   result = &retaddr;
   v3 = a1[5];
-  v22 = 0;
-  v21 = 0;
-  if ( *(_QWORD *)(v3 + 784) )
+  v19 = 0;
+  v18 = 0;
+  if ( *(_QWORD *)(v3 + 744) )
   {
     v6 = (_QWORD *)*a2;
     while ( v6 != a2 )
@@ -45,106 +43,103 @@ _UNKNOWN **__fastcall ACPIDeviceDiscoverDependencies(_QWORD *a1, _QWORD *a2)
         continue;
       if ( (v8[7] & 0x4000000) != 0 )
         continue;
-      v9 = *(_QWORD *)(v7 + 784);
+      v9 = *(_QWORD *)(v7 + 744);
       if ( !v9 )
         continue;
-      if ( (*(_BYTE *)(v3 + 1008) & 0x40) != 0 )
+      if ( (*(_BYTE *)(v3 + 960) & 0x40) != 0 )
       {
-        result = (_UNKNOWN **)IoTestDependency(*(_QWORD *)(v3 + 784), v9, &v22, &v21);
+        result = (_UNKNOWN **)IoTestDependency(*(_QWORD *)(v3 + 744), v9, &v19, &v18);
         if ( (int)result < 0 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v10) = 2;
-            result = (_UNKNOWN **)WPP_RECORDER_SF_d(
-                                    WPP_GLOBAL_Control->DeviceExtension,
-                                    v10,
-                                    21,
-                                    20,
-                                    (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
-                                    (char)result);
+            LODWORD(v16) = (_DWORD)result;
+            result = (_UNKNOWN **)WPP_RECORDER_SF_L(
+                                    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                    2u,
+                                    0x15u,
+                                    0x14u,
+                                    (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
+                                    v16);
           }
         }
-        else if ( (v21 & 1) != 0 )
+        else if ( (v18 & 1) != 0 )
         {
           result = (_UNKNOWN **)ExAllocateFromNPagedLookasideList(&RequestDependencyLookAsideList);
-          if ( result )
+          if ( !result )
           {
-            v12 = (_QWORD *)a1[9];
-            v13 = result + 2;
-            if ( (_QWORD *)*v12 != a1 + 8 )
-              goto LABEL_31;
-            *v13 = a1 + 8;
-            result[3] = v12;
-            *v12 = v13;
-            a1[9] = v13;
-            v14 = v8 + 10;
-LABEL_12:
-            v15 = (_QWORD *)v14[1];
-            if ( (_QWORD *)*v15 != v14 )
-              goto LABEL_31;
-            *result = v14;
-            result[1] = v15;
-            *v15 = result;
-            v14[1] = result;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                                      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                      2u,
+                                      0x15u,
+                                      0x13u,
+                                      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids);
             continue;
           }
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v16 = 19;
-LABEL_26:
-            LOBYTE(v11) = 2;
-            result = (_UNKNOWN **)WPP_RECORDER_SF_(
-                                    WPP_GLOBAL_Control->DeviceExtension,
-                                    v11,
-                                    21,
-                                    v16,
-                                    (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids);
-            continue;
-          }
+          v10 = (_QWORD *)a1[9];
+          v11 = result + 2;
+          if ( (_QWORD *)*v10 != a1 + 8 )
+            goto LABEL_28;
+          *v11 = a1 + 8;
+          result[3] = v10;
+          *v10 = v11;
+          a1[9] = v11;
+          v12 = v8 + 10;
+LABEL_18:
+          v13 = (_QWORD *)v12[1];
+          if ( (_QWORD *)*v13 != v12 )
+            goto LABEL_28;
+          *result = v12;
+          result[1] = v13;
+          *v13 = result;
+          v12[1] = result;
           continue;
         }
       }
-      if ( (*(_BYTE *)(v7 + 1008) & 0x40) != 0 )
+      if ( (*(_BYTE *)(v7 + 960) & 0x40) != 0 )
       {
-        result = (_UNKNOWN **)IoTestDependency(*(_QWORD *)(v7 + 784), *(_QWORD *)(v3 + 784), &v22, &v21);
+        result = (_UNKNOWN **)IoTestDependency(*(_QWORD *)(v7 + 744), *(_QWORD *)(v3 + 744), &v19, &v18);
         if ( (int)result < 0 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v17) = 2;
-            result = (_UNKNOWN **)WPP_RECORDER_SF_d(
-                                    WPP_GLOBAL_Control->DeviceExtension,
-                                    v17,
-                                    21,
-                                    22,
-                                    (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
-                                    (char)result);
+            LODWORD(v16) = (_DWORD)result;
+            result = (_UNKNOWN **)WPP_RECORDER_SF_L(
+                                    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                    2u,
+                                    0x15u,
+                                    0x16u,
+                                    (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
+                                    v16);
           }
           continue;
         }
-        if ( (v21 & 1) != 0 )
+        if ( (v18 & 1) != 0 )
         {
           result = (_UNKNOWN **)ExAllocateFromNPagedLookasideList(&RequestDependencyLookAsideList);
-          if ( result )
+          if ( !result )
           {
-            v18 = (_QWORD *)v8[9];
-            v19 = result + 2;
-            if ( (_QWORD *)*v18 != v8 + 8 )
-LABEL_31:
-              __fastfail(3u);
-            *v19 = v8 + 8;
-            result[3] = v18;
-            *v18 = v19;
-            v8[9] = v19;
-            v14 = a1 + 10;
-            goto LABEL_12;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                                      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                                      2u,
+                                      0x15u,
+                                      0x15u,
+                                      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids);
+            continue;
           }
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v16 = 21;
-            goto LABEL_26;
-          }
+          v14 = (_QWORD *)v8[9];
+          v15 = result + 2;
+          if ( (_QWORD *)*v14 != v8 + 8 )
+LABEL_28:
+            __fastfail(3u);
+          *v15 = v8 + 8;
+          result[3] = v14;
+          *v14 = v15;
+          v8[9] = v15;
+          v12 = a1 + 10;
+          goto LABEL_18;
         }
       }
     }

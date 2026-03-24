@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetOplockKeyContext @ 0x1402830E0
+ * XREFs of IoGetOplockKeyContext @ 0x1402831E0
  * Callers:
  *     <none>
  * Callees:
- *     IopGetFileObjectExtension @ 0x1400B7950 (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x1400B7970 (IopGetFileObjectExtension.c)
  */
 
 POPLOCK_KEY_ECP_CONTEXT __stdcall IoGetOplockKeyContext(PFILE_OBJECT FileObject)

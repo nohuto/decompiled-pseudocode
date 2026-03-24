@@ -3,7 +3,7 @@
  * Callers:
  *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
  *     KdpDeleteBreakpoint @ 0x140918D78 (KdpDeleteBreakpoint.c)
  */

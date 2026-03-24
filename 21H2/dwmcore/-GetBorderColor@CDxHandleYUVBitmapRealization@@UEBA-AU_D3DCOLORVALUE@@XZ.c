@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetBorderColor@CDxHandleYUVBitmapRealization@@UEBA?AU_D3DCOLORVALUE@@XZ @ 0x1800FCBBC
+ * XREFs of ?GetBorderColor@CDxHandleYUVBitmapRealization@@UEBA?AU_D3DCOLORVALUE@@XZ @ 0x1800E3B1C
  * Callers:
- *     ?GetBorderColor@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_D3DCOLORVALUE@@XZ @ 0x18010C470 (-GetBorderColor@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AU_D3DCOLORVALUE@@XZ.c)
+ *     ?GetBorderColor@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_D3DCOLORVALUE@@XZ @ 0x1800F9130 (-GetBorderColor@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AU_D3DCOLORVALUE@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +13,6 @@ struct _D3DCOLORVALUE *__fastcall CDxHandleYUVBitmapRealization::GetBorderColor(
   struct _D3DCOLORVALUE *result; // rax
 
   result = retstr;
-  *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)((char *)this - 396);
+  *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)((char *)this - 364);
   return result;
 }

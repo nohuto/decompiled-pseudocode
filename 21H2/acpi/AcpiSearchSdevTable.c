@@ -1,8 +1,7 @@
 /*
- * XREFs of AcpiSearchSdevTable @ 0x1C00B4D68
+ * XREFs of AcpiSearchSdevTable @ 0x1C00B5690
  * Callers:
- *     PnpBiosGetDeviceResourceList @ 0x1C0097DD0 (PnpBiosGetDeviceResourceList.c)
- *     AcpiIsDeviceSecure @ 0x1C00A0614 (AcpiIsDeviceSecure.c)
+ *     AcpiIsDeviceSecure @ 0x1C00A264C (AcpiIsDeviceSecure.c)
  * Callees:
  *     <none>
  */

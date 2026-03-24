@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetTransform @ 0x1C00E1E10
+ * XREFs of NtGdiGetTransform @ 0x1C00FAE80
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GreGetTransform @ 0x1C015F924 (GreGetTransform.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     GreGetTransform @ 0x1C016DA9C (GreGetTransform.c)
  */
 
 __int64 __fastcall NtGdiGetTransform(HDC a1, __int64 a2, ULONG64 a3)

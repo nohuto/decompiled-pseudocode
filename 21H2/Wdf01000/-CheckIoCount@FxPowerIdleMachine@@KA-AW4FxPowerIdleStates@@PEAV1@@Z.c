@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckIoCount@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C00127C0
+ * XREFs of ?CheckIoCount@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C001A200
  * Callers:
  *     <none>
  * Callees:

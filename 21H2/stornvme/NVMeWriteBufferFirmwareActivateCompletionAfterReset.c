@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeWriteBufferFirmwareActivateCompletionAfterReset @ 0x1C001F680
+ * XREFs of NVMeWriteBufferFirmwareActivateCompletionAfterReset @ 0x1C0015C10
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeRequestComplete @ 0x1C0019DF8 (NVMeRequestComplete.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeRequestComplete @ 0x1C0010AB0 (NVMeRequestComplete.c)
  */
 
 __int64 __fastcall NVMeWriteBufferFirmwareActivateCompletionAfterReset(__int64 a1, __int64 a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall NVMeWriteBufferFirmwareActivateCompletionAfterReset(__int64 a
   __int64 v6; // rdx
 
   SrbExtension = GetSrbExtension(a3);
-  *(_DWORD *)(v4 + 32) &= ~0x800u;
+  *(_DWORD *)(v4 + 24) &= ~0x800u;
   *(_BYTE *)(SrbExtension + 4253) |= 8u;
   *(_BYTE *)(v5 + 3) = 1;
   return NVMeRequestComplete(v4, v6, 0);

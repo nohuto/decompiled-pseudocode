@@ -1,75 +1,77 @@
 /*
- * XREFs of GreGetCharSet @ 0x1C0076CB8
+ * XREFs of GreGetCharSet @ 0x1C009B6E0
  * Callers:
- *     ?GrepGetTextCharsetInfo@@YAHPEAUHDC__@@PEAUtagFONTSIGNATURE@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0076B44 (-GrepGetTextCharsetInfo@@YAHPEAUHDC__@@PEAUtagFONTSIGNATURE@@KW4EntryPoint@RFONTOBJ@@@Z.c)
- *     NtGdiGetCharSet @ 0x1C0076CA0 (NtGdiGetCharSet.c)
+ *     GreGetTextCharsetInfo @ 0x1C009B5B4 (GreGetTextCharsetInfo.c)
+ *     NtGdiGetCharSet @ 0x1C009BF90 (NtGdiGetCharSet.c)
  * Callees:
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0076E28 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C00BDC38 (-bGetDeviceFonts@PDEVOBJ@@QEAAHXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z @ 0x1C010F190 (-ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z.c)
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C01110BC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z @ 0x1C0097A10 (-ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B854 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B920 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C013008C (-bGetDeviceFonts@PDEVOBJ@@QEAAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C0169DAC (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?bGotFonts@PDEVOBJ@@QEBAHXZ @ 0x1C016A2D0 (-bGotFonts@PDEVOBJ@@QEBAHXZ.c)
  */
 
 __int64 __fastcall GreGetCharSet(HDC a1)
 {
-  __int64 v1; // rdx
+  __int64 v2; // rdx
   struct LFONT *v3; // rbx
-  Gre::Base *v4; // rcx
-  unsigned int v5; // ebx
+  unsigned int v4; // ebx
   struct LFONT *v6; // [rsp+30h] [rbp-50h] BYREF
   struct _POINTL v7; // [rsp+38h] [rbp-48h] BYREF
   __int64 v8; // [rsp+40h] [rbp-40h] BYREF
-  _QWORD v9[2]; // [rsp+48h] [rbp-38h] BYREF
-  _BYTE v10[40]; // [rsp+58h] [rbp-28h] BYREF
-  unsigned int v11; // [rsp+98h] [rbp+18h] BYREF
-  unsigned int v12; // [rsp+A0h] [rbp+20h] BYREF
-  __int64 v13; // [rsp+A8h] [rbp+28h] BYREF
+  __int64 v9; // [rsp+48h] [rbp-38h] BYREF
+  int v10; // [rsp+50h] [rbp-30h]
+  int v11; // [rsp+54h] [rbp-2Ch]
+  _BYTE v12[40]; // [rsp+58h] [rbp-28h] BYREF
+  unsigned int v13; // [rsp+98h] [rbp+18h] BYREF
+  unsigned int v14; // [rsp+A0h] [rbp+20h] BYREF
+  __int64 v15; // [rsp+A8h] [rbp+28h] BYREF
 
-  v12 = 0;
+  v14 = 0;
   v7 = 0LL;
+  v13 = 0;
+  v9 = 0LL;
+  v10 = 0;
   v11 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v9, a1);
-  v1 = v9[0];
-  if ( !v9[0] )
+  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v12);
+  XDCOBJ::vLock((XDCOBJ *)&v9, a1);
+  v2 = v9;
+  if ( !v9 )
   {
     EngSetLastError(6u);
-LABEL_3:
-    DCOBJ::~DCOBJ((DCOBJ *)v9);
-    return 0x10000LL;
+LABEL_12:
+    v4 = 0x10000;
+    goto LABEL_10;
   }
-  if ( (*(_DWORD *)(*(_QWORD *)(v9[0] + 976LL) + 152LL) & 0x10) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(v9 + 976) + 152LL) & 0x10) != 0 )
   {
-    v13 = *(_QWORD *)(v9[0] + 48LL);
-    if ( (*(_DWORD *)(v13 + 40) & 0x40) == 0 )
-      PDEVOBJ::bGetDeviceFonts((PDEVOBJ *)&v13);
-    LFONTOBJ::LFONTOBJ(
-      (LFONTOBJ *)&v6,
-      *(struct HLFONT__ **)(*(_QWORD *)(v9[0] + 976LL) + 296LL),
-      (struct PDEVOBJ *)&v13);
+    v15 = *(_QWORD *)(v9 + 48);
+    if ( !(unsigned int)PDEVOBJ::bGotFonts((PDEVOBJ *)&v15) )
+      PDEVOBJ::bGetDeviceFonts((PDEVOBJ *)&v15);
+    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v6, *(struct HLFONT__ **)(*(_QWORD *)(v9 + 976) + 296LL), (struct PDEVOBJ *)&v15);
     v3 = v6;
     if ( !v6 )
-      goto LABEL_3;
+      goto LABEL_12;
     if ( (int)UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() < 0 )
     {
-      if ( v3 )
-        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v3);
-      goto LABEL_3;
-    }
-    v8 = *((_QWORD *)Gre::Base::Globals(v4) + 6);
-    GreAcquireSemaphore(v8);
-    LFONTOBJ::ppfeMapFont((LFONTOBJ *)&v6, (struct XDCOBJ *)v9, &v12, &v7, &v11, 0);
-    SEMOBJ::vUnlock((SEMOBJ *)&v8);
-    if ( v3 )
       DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v3);
-    v1 = v9[0];
+      goto LABEL_12;
+    }
+    v8 = ghsemPublicPFT;
+    GreAcquireSemaphore(ghsemPublicPFT);
+    LFONTOBJ::ppfeMapFont((LFONTOBJ *)&v6, (struct XDCOBJ *)&v9, &v14, &v7, &v13, 0);
+    SEMOBJ::vUnlock((SEMOBJ *)&v8);
+    DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v3);
+    v2 = v9;
   }
-  v5 = *(_DWORD *)(*(_QWORD *)(v1 + 976) + 4LL);
-  XDCOBJ::vUnlockFast((XDCOBJ *)v9);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v10);
-  return v5;
+  v4 = *(_DWORD *)(*(_QWORD *)(v2 + 976) + 4LL);
+LABEL_10:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)&v9);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v12);
+  return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C009CF30
+ * XREFs of ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C0093710
  * Callers:
  *     <none>
  * Callees:
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0022E08 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00302E8 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
  */
 
 bool __fastcall CRegion::IsEmpty(CRegion *this)

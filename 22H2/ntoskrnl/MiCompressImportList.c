@@ -1,63 +1,87 @@
 /*
- * XREFs of MiCompressImportList @ 0x1407D934C
+ * XREFs of MiCompressImportList @ 0x14075D140
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
- *     MiAddEntryToImportList @ 0x140A2B00C (MiAddEntryToImportList.c)
- *     MiRemoveEntryFromImportList @ 0x140A2B0EC (MiRemoveEntryFromImportList.c)
+ *     MiAddEntryToImportList @ 0x140545488 (MiAddEntryToImportList.c)
+ *     MiResolveImageReferences @ 0x14075C9FC (MiResolveImageReferences.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     MiAllocateImportList @ 0x1407D9464 (MiAllocateImportList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocateImportList @ 0x14075D254 (MiAllocateImportList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-_QWORD *__fastcall MiCompressImportList(_QWORD *P, int a2)
+unsigned __int64 *__fastcall MiCompressImportList(unsigned __int64 *P)
 {
-  __int64 v3; // rbx
-  __int64 v4; // rcx
-  unsigned int v5; // r8d
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rsi
-  __int64 ImportList; // rax
+  unsigned __int64 v1; // r8
+  __int64 ImportList; // rdi
+  unsigned int v3; // eax
+  unsigned int v4; // r9d
+  __int64 v6; // rcx
+  unsigned __int64 v7; // rcx
+  unsigned int v8; // edx
+  __int64 v9; // rax
+  unsigned __int64 v10; // r8
+  __int64 v11; // rdx
+  unsigned int v12; // ecx
+  __int64 v13; // rax
+  unsigned __int64 v14; // r9
 
-  v3 = 0LL;
-  v4 = 0LL;
-  v5 = 0;
+  v1 = *P;
+  ImportList = 0LL;
+  v3 = 0;
+  v4 = 0;
   if ( !*P )
-    goto LABEL_14;
-  v7 = 0LL;
+    goto LABEL_18;
+  v6 = 0LL;
   do
   {
-    v8 = P[v7 + 1];
-    if ( v8 )
-    {
-      P[v4 + 1] = v8;
-      v3 = v8 | 1;
-      v4 = (unsigned int)(v4 + 1);
-    }
-    v7 = ++v5;
+    v7 = P[v6 + 1];
+    v8 = v3;
+    v9 = v7 | 1;
+    if ( !v7 )
+      v9 = ImportList;
+    ImportList = v9;
+    v3 = v8 + 1;
+    if ( !v7 )
+      v3 = v8;
+    v6 = ++v4;
   }
-  while ( (unsigned __int64)v5 < *P );
-  if ( (_DWORD)v4 )
+  while ( v4 < v1 );
+  if ( !v3 )
   {
-    if ( (_DWORD)v4 != 1 )
-    {
-      v9 = (unsigned int)v4;
-      if ( (unsigned int)v4 == *P )
-        return P;
-      ImportList = MiAllocateImportList((unsigned int)v4);
-      v3 = ImportList;
-      if ( !ImportList )
-        return P;
-      memmove((void *)(ImportList + 8), P + 1, 8 * v9);
-    }
+LABEL_18:
+    ImportList = -2LL;
+    goto LABEL_17;
   }
-  else
+  if ( v3 == 1 )
   {
-LABEL_14:
-    v3 = -2LL;
-  }
-  if ( a2 )
+LABEL_17:
     ExFreePoolWithTag(P, 0);
-  return (_QWORD *)v3;
+    return (unsigned __int64 *)ImportList;
+  }
+  if ( v3 != v1 )
+  {
+    ImportList = MiAllocateImportList(v3);
+    if ( ImportList )
+    {
+      v10 = *P;
+      v11 = 0LL;
+      v12 = 0;
+      if ( *P )
+      {
+        v13 = 0LL;
+        do
+        {
+          v14 = P[v13 + 1];
+          if ( v14 )
+          {
+            *(_QWORD *)(ImportList + 8 * v11 + 8) = v14;
+            v11 = (unsigned int)(v11 + 1);
+          }
+          v13 = ++v12;
+        }
+        while ( v12 < v10 );
+      }
+      goto LABEL_17;
+    }
+  }
+  return P;
 }

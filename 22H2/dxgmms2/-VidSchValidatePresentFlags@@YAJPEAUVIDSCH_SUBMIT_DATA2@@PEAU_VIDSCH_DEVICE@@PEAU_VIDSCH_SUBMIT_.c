@@ -1,13 +1,12 @@
 /*
- * XREFs of ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0006834
+ * XREFs of ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0005734
  * Callers:
- *     VidSchSubmitCommandContextless @ 0x1C0040960 (VidSchSubmitCommandContextless.c)
- *     VidSchSubmitCommandToHwQueue @ 0x1C00443B0 (VidSchSubmitCommandToHwQueue.c)
- *     VidSchSubmitCommand @ 0x1C00AD620 (VidSchSubmitCommand.c)
+ *     VidSchSubmitCommandContextless @ 0x1C00357F0 (VidSchSubmitCommandContextless.c)
+ *     VidSchSubmitCommandToHwQueue @ 0x1C0039FC0 (VidSchSubmitCommandToHwQueue.c)
+ *     VidSchSubmitCommand @ 0x1C007E2B0 (VidSchSubmitCommand.c)
  * Callees:
- *     VidSchiUpdatePresentParameters @ 0x1C0006020 (VidSchiUpdatePresentParameters.c)
- *     VidSchiSetFlipDevice @ 0x1C0006310 (VidSchiSetFlipDevice.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     VidSchiUpdatePresentParameters @ 0x1C0003B80 (VidSchiUpdatePresentParameters.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011C0C (VidSchiSetFlipDevice.c)
  */
 
 __int64 __fastcall VidSchValidatePresentFlags(
@@ -16,88 +15,80 @@ __int64 __fastcall VidSchValidatePresentFlags(
         struct _VIDSCH_SUBMIT_FLAGS *a3)
 {
   int v3; // eax
-  struct _VIDSCH_GLOBAL *v5; // r15
-  __int64 v7; // rcx
-  unsigned int *v9; // r14
-  int v10; // eax
+  struct _VIDSCH_GLOBAL *v5; // r14
+  int v7; // ecx
+  int v9; // eax
   int v11; // ebx
-  __int64 v13; // rdx
-  unsigned int v14; // eax
-  int v15; // ecx
+  int v12; // edx
+  unsigned int v13; // eax
+  int v14; // ecx
+  _QWORD *v15; // rax
+  _QWORD *v16; // rax
+  __int64 v17; // rax
 
   v3 = *(_DWORD *)a3;
   v5 = (struct _VIDSCH_GLOBAL *)*((_QWORD *)a2 + 4);
-  v7 = *((unsigned int *)a2 + 126);
-  v9 = (unsigned int *)((char *)a1 + 116);
+  v7 = *((_DWORD *)a2 + 126);
   if ( (*(_DWORD *)a3 & 0x40) == 0 )
   {
-    if ( (_DWORD)v7 == -1 )
+    if ( v7 == -1 )
     {
-      v10 = v3 | 0x7000;
+      v9 = v3 | 0x7000;
     }
     else
     {
-      if ( (_DWORD)v7 != *v9 )
+      if ( v7 != *((_DWORD *)a1 + 29) )
       {
-        WdLogSingleEntry4(1LL, v5, a2, *v9, v7);
-        ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, struct _VIDSCH_GLOBAL *, struct _VIDSCH_DEVICE *, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-          0LL,
-          0x40000LL,
-          0xFFFFFFFFLL,
-          L"Invalid VidPnSourceId (Check 3)",
-          v5,
-          a2,
-          *v9,
-          *((unsigned int *)a2 + 126),
-          0LL);
-        v10 = *(_DWORD *)a3;
+        v16 = (_QWORD *)WdLogNewEntry5_WdAssertion();
+        v16[3] = v5;
+        v16[4] = a2;
+        v16[5] = *((unsigned int *)a1 + 29);
+        v16[6] = *((unsigned int *)a2 + 126);
+        WdLogEvent5_WdAssertion(v16);
+        v9 = *(_DWORD *)a3;
         goto LABEL_5;
       }
-      v10 = v3 | 0x4000;
+      v9 = v3 | 0x4000;
     }
-    *(_DWORD *)a3 = v10;
+    *(_DWORD *)a3 = v9;
 LABEL_5:
     *((_DWORD *)a2 + 126) = -1;
     goto LABEL_6;
   }
-  v13 = *v9;
-  v14 = v3 & 0xFFFFFF7F;
-  *(_DWORD *)a3 = v14;
-  if ( (_DWORD)v7 == -1 )
+  v12 = *((_DWORD *)a1 + 29);
+  v13 = v3 & 0xFFFFFF7F;
+  *(_DWORD *)a3 = v13;
+  if ( v7 == -1 )
   {
-    *((_DWORD *)a2 + 126) = v13;
-    v15 = 4096;
+    *((_DWORD *)a2 + 126) = v12;
+    v14 = 4096;
   }
   else
   {
-    if ( (_DWORD)v7 != (_DWORD)v13 )
+    if ( v7 != v12 )
     {
-      WdLogSingleEntry4(1LL, v5, a2, v13, v7);
-      ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, struct _VIDSCH_GLOBAL *, struct _VIDSCH_DEVICE *, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-        0LL,
-        0x40000LL,
-        0xFFFFFFFFLL,
-        L"Invalid VidPnSourceId (Check 2)",
-        v5,
-        a2,
-        *v9,
-        *((unsigned int *)a2 + 126),
-        0LL);
+      v15 = (_QWORD *)WdLogNewEntry5_WdAssertion();
+      v15[3] = v5;
+      v15[4] = a2;
+      v15[5] = *((unsigned int *)a1 + 29);
+      v15[6] = *((unsigned int *)a2 + 126);
+      WdLogEvent5_WdAssertion(v15);
       return 3221225485LL;
     }
-    v15 = 0x2000;
+    v14 = 0x2000;
   }
-  v10 = v15 | v14;
-  *(_DWORD *)a3 = v10;
+  v9 = v14 | v13;
+  *(_DWORD *)a3 = v9;
 LABEL_6:
-  if ( (v10 & 4) == 0 )
+  if ( (v9 & 4) == 0 )
     return 0LL;
-  v11 = VidSchiSetFlipDevice(v5, *v9, (__int64)a2, *((_DWORD *)a1 + 30), 9u, (*(_DWORD *)a1 & 0x20000000) != 0, 0);
+  v11 = VidSchiSetFlipDevice(v5, 9, (*(_DWORD *)a1 & 0x20000000) != 0, 0);
   if ( v11 >= 0 )
   {
     VidSchiUpdatePresentParameters(v5, (__int64)a1);
     return 0LL;
   }
-  WdLogSingleEntry0(3LL);
+  v17 = WdLogNewEntry5_WdWarning();
+  WdLogEvent5_WdWarning(v17);
   return (unsigned int)v11;
 }

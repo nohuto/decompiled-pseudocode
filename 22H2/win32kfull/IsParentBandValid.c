@@ -1,29 +1,29 @@
 /*
- * XREFs of IsParentBandValid @ 0x1C00CEF24
+ * XREFs of IsParentBandValid @ 0x1C010F3A0
  * Callers:
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
- *     ValidateNewParent @ 0x1C00CEFDC (ValidateNewParent.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
  * Callees:
- *     IsTopLevelParent @ 0x1C00CEF88 (IsTopLevelParent.c)
+ *     IsTopLevelParent @ 0x1C010F3F8 (IsTopLevelParent.c)
  */
 
-__int64 __fastcall IsParentBandValid(__int64 a1, __int64 a2)
+_BOOL8 __fastcall IsParentBandValid(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rcx
-  __int64 v3; // r9
+  __int64 v2; // rdx
+  __int64 v3; // r8
   __int64 v4; // rdx
   __int64 v5; // rcx
-  unsigned int v6; // eax
+  _BOOL8 result; // rax
 
-  if ( (unsigned int)IsTopLevelParent(a2, a2, a2, a1) )
-    return 1LL;
-  v4 = *(_QWORD *)(v2 + 40);
-  if ( (*(_BYTE *)(v4 + 233) & 8) != 0 )
-    return 1LL;
-  v5 = *(_QWORD *)(v3 + 40);
-  v6 = *(_DWORD *)(v5 + 236);
-  if ( *(_DWORD *)(v4 + 236) != v6 )
-    return 0LL;
-  LOBYTE(v6) = ~*(_BYTE *)(v5 + 232);
-  return ((*(unsigned __int8 *)(v4 + 232) ^ v6) >> 6) & 1;
+  result = 1;
+  if ( !(unsigned int)IsTopLevelParent(a2) )
+  {
+    v4 = *(_QWORD *)(v2 + 40);
+    if ( *(char *)(v4 + 235) >= 0 )
+    {
+      v5 = *(_QWORD *)(v3 + 40);
+      if ( *(_DWORD *)(v4 + 236) != *(_DWORD *)(v5 + 236) || ((*(_BYTE *)(v4 + 234) ^ *(_BYTE *)(v5 + 234)) & 0x20) != 0 )
+        return 0;
+    }
+  }
+  return result;
 }

@@ -3,9 +3,9 @@
  * Callers:
  *     RtlInsertElementGenericTable @ 0x14008EE50 (RtlInsertElementGenericTable.c)
  *     RtlDeleteElementGenericTable @ 0x14008F550 (RtlDeleteElementGenericTable.c)
- *     RtlLookupElementGenericTableFull @ 0x1402F2F10 (RtlLookupElementGenericTableFull.c)
+ *     RtlLookupElementGenericTableFull @ 0x1402F3010 (RtlLookupElementGenericTableFull.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FindNodeOrParent_0(__int64 *a1, __int64 a2, _QWORD *a3)

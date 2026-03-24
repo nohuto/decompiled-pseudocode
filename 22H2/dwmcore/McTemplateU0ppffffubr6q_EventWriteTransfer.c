@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x18012F0B8
+ * XREFs of McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x1801788D8
  * Callers:
- *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x18000D5F0 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
+ *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x1800BA594 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0ppffffubr6q_EventWriteTransfer(
+ULONG McTemplateU0ppffffubr6q_EventWriteTransfer(
         _DWORD a1,
         _DWORD a2,
         __int64 a3,
@@ -18,7 +18,7 @@ __int64 McTemplateU0ppffffubr6q_EventWriteTransfer(
         ...)
 {
   char v8; // [rsp+30h] [rbp-A1h] BYREF
-  _BYTE v9[16]; // [rsp+40h] [rbp-91h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+40h] [rbp-91h] BYREF
   __int64 *v10; // [rsp+50h] [rbp-81h]
   __int64 v11; // [rsp+58h] [rbp-79h]
   __int64 *v12; // [rsp+60h] [rbp-71h]
@@ -72,9 +72,9 @@ __int64 McTemplateU0ppffffubr6q_EventWriteTransfer(
   v25 = 68LL;
   v27 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_DRAWING_CONTEXT_STATE,
            a3,
-           10LL,
-           v9);
+           0xAu,
+           &v9);
 }

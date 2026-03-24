@@ -1,21 +1,21 @@
 /*
- * XREFs of IoReportHalResourceUsage @ 0x140B44DB0
+ * XREFs of IoReportHalResourceUsage @ 0x140A39C40
  * Callers:
- *     HalpReportResourceUsage @ 0x140B4423C (HalpReportResourceUsage.c)
+ *     HalpReportResourceUsage @ 0x140A391C0 (HalpReportResourceUsage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     IopWriteResourceList @ 0x14081AEF8 (IopWriteResourceList.c)
- *     HeadlessTerminalAddResources @ 0x14081DBA8 (HeadlessTerminalAddResources.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x140751D5C (IopWriteResourceList.c)
+ *     HeadlessTerminalAddResources @ 0x140790520 (HeadlessTerminalAddResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD *a3, unsigned int a4)
 {
-  ULONG_PTR v4; // rsi
+  SIZE_T v4; // rsi
   int v8; // ebx
   int v9; // eax
   PVOID v10; // rdi
@@ -23,7 +23,7 @@ __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD
   _DWORD *v12; // rax
   PVOID v13; // r14
   ULONG v14; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v17; // [rsp+30h] [rbp-40h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-38h] BYREF
   PVOID v19; // [rsp+40h] [rbp-30h] BYREF
@@ -86,10 +86,10 @@ __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD
     }
     else
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, v4, 0x20207050u);
-      IopInitHalResources = Pool2;
-      if ( Pool2 )
-        memmove(Pool2, a2, v4);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4, 0x20207050u);
+      IopInitHalResources = PoolWithTag;
+      if ( PoolWithTag )
+        memmove(PoolWithTag, a2, v4);
       else
         return (unsigned int)-1073741670;
     }

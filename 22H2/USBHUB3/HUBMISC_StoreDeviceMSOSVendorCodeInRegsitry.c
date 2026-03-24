@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry @ 0x1C00820FC
+ * XREFs of HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry @ 0x1C007C67C
  * Callers:
- *     HUBDSM_MarkDeviceAsSupportingMSOSDescriptor @ 0x1C0021BA0 (HUBDSM_MarkDeviceAsSupportingMSOSDescriptor.c)
+ *     HUBDSM_MarkDeviceAsSupportingMSOSDescriptor @ 0x1C001F300 (HUBDSM_MarkDeviceAsSupportingMSOSDescriptor.c)
  * Callees:
- *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C0083330 (HUBREG_AssignUsbflagsValueForDevice.c)
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007D8C8 (HUBREG_AssignUsbflagsValueForDevice.c)
  */
 
 __int64 __fastcall HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry(__int64 a1)

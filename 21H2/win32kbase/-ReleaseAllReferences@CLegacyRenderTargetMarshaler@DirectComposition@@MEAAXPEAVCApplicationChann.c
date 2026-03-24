@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CLegacyRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00C5BE0
+ * XREFs of ?ReleaseAllReferences@CLegacyRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B7FC0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CLegacyRenderTargetMarshaler::ReleaseAllReferences(
@@ -12,10 +12,10 @@ void __fastcall DirectComposition::CLegacyRenderTargetMarshaler::ReleaseAllRefer
 {
   struct DirectComposition::CResourceMarshaler *v4; // rdx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 19);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 17);
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    *((_QWORD *)this + 19) = 0LL;
+    *((_QWORD *)this + 17) = 0LL;
   }
 }

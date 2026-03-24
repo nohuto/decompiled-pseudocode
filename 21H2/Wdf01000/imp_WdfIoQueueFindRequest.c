@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfIoQueueFindRequest @ 0x1C0005330
+ * XREFs of imp_WdfIoQueueFindRequest @ 0x1C000C1F0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPEAV2@@Z @ 0x1C00056A4 (-PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPE.c)
- *     WPP_IFR_SF_dd @ 0x1C0053078 (WPP_IFR_SF_dd.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPEAV2@@Z @ 0x1C000C2CC (-PeekRequest@FxIoQueue@@QEAAJPEAVFxRequest@@PEAU_FILE_OBJECT@@PEAU_WDF_REQUEST_PARAMETERS@@PEAPE.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfIoQueueFindRequest(
@@ -36,16 +36,20 @@ __int64 __fastcall imp_WdfIoQueueFindRequest(
   pOutputRequest = 0LL;
   pFO = 0LL;
   m_FileObject = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], Queue, 0x1003u, (void **)&pQueue);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Queue,
+    0x1003u,
+    (void **)&pQueue);
   v10 = OutRequest;
   m_Globals = pQueue->m_Globals;
   if ( !OutRequest )
     FxVerifierNullBugCheck(m_Globals, retaddr);
   if ( TagRequest )
-    FxObjectHandleGetPtr(pQueue->m_Globals, TagRequest, 0x1008u, (void **)&pTagRequest);
+    FxObjectHandleGetPtr(pQueue->m_Globals, (unsigned __int64)TagRequest, 0x1008u, (void **)&pTagRequest);
   if ( FileObject )
   {
-    FxObjectHandleGetPtr(m_Globals, FileObject, 0x1018u, (void **)&pFO);
+    FxObjectHandleGetPtr(m_Globals, (unsigned __int64)FileObject, 0x1018u, (void **)&pFO);
     m_FileObject = pFO->m_FileObject.m_FileObject;
   }
   if ( Parameters && (_a1 = Parameters->Size, _a1 < 0x28) )

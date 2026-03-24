@@ -1,50 +1,49 @@
 /*
- * XREFs of ACPIProcessorGetInitialApicId @ 0x1C008C758
+ * XREFs of ACPIProcessorGetInitialApicId @ 0x1C00910B8
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C003A1E0 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     AMLIGetNSObjectType @ 0x1C00483C8 (AMLIGetNSObjectType.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
  */
 
-__int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, _DWORD *a2)
+__int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, int *a2)
 {
-  unsigned int v2; // ebx
-  int v4; // r15d
-  char v6; // r14
+  int v2; // r15d
+  unsigned int v3; // ebx
+  char v6; // si
   __int64 v7; // rcx
   char *v8; // r8
-  __int64 v10; // rcx
-  const char *v11; // rax
-  const char *v12; // rdx
-  char *v13; // r12
-  unsigned __int64 v14; // rbp
+  __int64 v9; // rcx
+  const char *v10; // rax
+  const char *v11; // rdx
+  char *v12; // r12
+  unsigned __int64 v13; // r11
   char i; // r10
-  char *v16; // rdx
-  __int64 v17; // rcx
-  char *v18; // r11
-  char v19; // al
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r9
-  int v23; // eax
+  char *v15; // rdx
+  __int64 v16; // rcx
+  char *v17; // rbp
+  char v18; // al
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  int v21; // eax
+  int v22; // ecx
   __int64 v24; // rdx
-  __int64 v25; // r9
-  __int64 v26; // rcx
-  unsigned int v27; // r9d
-  unsigned int v28; // [rsp+90h] [rbp+8h] BYREF
-  char *v29; // [rsp+98h] [rbp+10h] BYREF
+  __int64 v25; // rcx
+  unsigned int v26; // r9d
+  unsigned int v27; // [rsp+90h] [rbp+8h] BYREF
+  char *v28; // [rsp+98h] [rbp+10h] BYREF
 
-  v2 = 0;
-  v29 = 0LL;
   *a2 = -1;
-  v4 = *(_DWORD *)(a1 + 196);
+  v2 = *(_DWORD *)(a1 + 196);
+  v3 = 0;
+  v28 = 0LL;
+  v27 = 0;
   v6 = 1;
-  v28 = 0;
-  if ( (int)ACPIGet(a1, 0x54414D5Fu, 268501000, 0LL, 0, 0LL, 0LL, (__int64)&v29, (__int64)&v28) >= 0 )
+  if ( (int)ACPIGet((__int64 *)a1, 1413565791, 268501000, 0LL, 0, 0LL, 0LL, (__int64)&v28, (__int64)&v27) >= 0 )
   {
-    v8 = v29;
+    v8 = v28;
   }
   else
   {
@@ -53,104 +52,110 @@ __int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, _DWORD *a2)
       return 3221225473LL;
     v8 = (char *)(v7 + 44);
     v6 = 0;
-    v29 = (char *)(v7 + 44);
-    v28 = *(_DWORD *)(*((_QWORD *)AcpiInformation + 4) + 4LL) - 44;
+    v28 = (char *)(v7 + 44);
+    v27 = *(_DWORD *)(*((_QWORD *)AcpiInformation + 4) + 4LL) - 44;
   }
   if ( !v8 )
     return 3221225473LL;
-  v10 = *(_QWORD *)(a1 + 8);
-  v11 = byte_1C00622D0;
-  v12 = byte_1C00622D0;
-  if ( (v10 & 0x200000000000LL) != 0 )
+  v9 = *(_QWORD *)(a1 + 8);
+  v10 = byte_1C00701BA;
+  v11 = byte_1C00701BA;
+  if ( (v9 & 0x200000000000LL) != 0 )
   {
-    v11 = *(const char **)(a1 + 608);
-    if ( (v10 & 0x400000000000LL) != 0 )
-      v12 = *(const char **)(a1 + 616);
+    v10 = *(const char **)(a1 + 568);
+    if ( (v9 & 0x400000000000LL) != 0 )
+      v11 = *(const char **)(a1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_dqss(
+    WPP_RECORDER_SF_Dqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       1u,
       0xCu,
       (__int64)&WPP_dae7fe894c7e323433b1d18b69ca790c_Traceguids,
-      v4,
+      v2,
       a1,
-      v11,
-      v12);
-    v8 = v29;
+      v10,
+      v11);
+    v8 = v28;
   }
-  v13 = v8 + 2;
-  v14 = (unsigned __int64)&v8[v28];
+  v12 = v8 + 2;
+  v13 = (unsigned __int64)&v8[v27];
   for ( i = 0; ; i = 1 )
   {
-    v16 = v8;
-    if ( (unsigned __int64)v13 <= v14 )
+    v15 = v8;
+    if ( (unsigned __int64)v12 <= v13 )
     {
       do
       {
-        v17 = (unsigned __int8)v16[1];
-        if ( (unsigned __int8)v17 < 2u )
+        v16 = (unsigned __int8)v15[1];
+        if ( (unsigned __int8)v16 < 2u )
           break;
-        v18 = &v16[v17];
-        if ( (unsigned __int64)&v16[v17] > v14 )
+        v17 = &v15[v16];
+        if ( (unsigned __int64)&v15[v16] > v13 )
           break;
-        v19 = *v16;
-        if ( *v16 )
+        v18 = *v15;
+        if ( *v15 )
         {
-          if ( v19 == 9 )
+          if ( v18 == 9 )
           {
-            if ( (unsigned __int8)v17 >= 0x10u
-              && ((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 760)) == 6
-               && (v25 & *(_QWORD *)(a1 + 8)) != 0
-               && *(_DWORD *)(v24 + 12) == v4
+            if ( (unsigned __int8)v16 >= 0x10u
+              && ((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 720)) == 6
+               && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0
+               && *(_DWORD *)(v24 + 12) == v2
                || v6 && i) )
             {
-              goto LABEL_32;
+              goto LABEL_43;
             }
           }
-          else if ( v19 == 11
-                 && (unsigned __int8)v17 >= 0x28u
-                 && ((unsigned int)IrqLibGicVersion < 3 || (unsigned __int8)v17 >= 0x4Cu)
-                 && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 760)) == 6
-                   && _bittest64((const signed __int64 *)(a1 + 8), 0x24u)
-                   || (unsigned int)AMLIGetNSObjectType(v26) == 12)
-                  && *(_DWORD *)(v24 + 8) == v4
+          else if ( v18 == 11
+                 && (unsigned __int8)v16 >= 0x28u
+                 && ((unsigned int)IrqLibGicVersion < 3 || (unsigned __int8)v16 >= 0x4Cu)
+                 && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 720)) == 6
+                   && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0
+                   || (unsigned int)AMLIGetNSObjectType(v25) == 12)
+                  && *(_DWORD *)(v24 + 8) == v2
                   || v6 && i) )
           {
-            if ( v27 < 3 )
-LABEL_32:
-              v23 = *(_DWORD *)(v24 + 4);
+            if ( v26 < 3 )
+LABEL_43:
+              v21 = *(_DWORD *)(v24 + 4);
             else
-              v23 = (*(_QWORD *)(v24 + 68) >> 8) & 0xFF000000 | *(_DWORD *)(v24 + 68) & 0xFFFFFF;
-LABEL_33:
-            *a2 = v23;
+              v21 = (*(_QWORD *)(v24 + 68) >> 8) & 0xFF000000 | *(_DWORD *)(v24 + 68) & 0xFFFFFF;
+LABEL_22:
+            *a2 = v21;
             break;
           }
         }
-        else if ( (unsigned __int8)v17 >= 8u
-               && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 760)) == 12
-                 || (unsigned int)AMLIGetNSObjectType(v21) == 6 && (v22 & *(_QWORD *)(a1 + 8)) != 0)
-                && *(unsigned __int8 *)(v20 + 2) == v4
+        else if ( (unsigned __int8)v16 >= 8u
+               && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 720)) == 12
+                 || (unsigned int)AMLIGetNSObjectType(v20) == 6 && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0)
+                && *(unsigned __int8 *)(v19 + 2) == v2
                 || v6 && i) )
         {
-          v23 = *(unsigned __int8 *)(v20 + 3);
-          goto LABEL_33;
+          v21 = *(unsigned __int8 *)(v19 + 3);
+          goto LABEL_22;
         }
-        v16 = v18;
+        v15 = v17;
       }
-      while ( (unsigned __int64)(v18 + 2) <= v14 );
+      while ( (unsigned __int64)(v17 + 2) <= v13 );
     }
+    v22 = *a2;
+    if ( *a2 != -1 )
+      break;
     if ( !v6 )
+      goto LABEL_26;
+    if ( i )
       break;
-    if ( *a2 != -1 || i )
-    {
-      ExFreePoolWithTag(v8, 0);
-      break;
-    }
   }
-  if ( *a2 == -1 )
+  if ( v6 )
+  {
+    ExFreePoolWithTag(v8, 0);
+    v22 = *a2;
+  }
+LABEL_26:
+  if ( v22 == -1 )
     return (unsigned int)-1073741823;
-  return v2;
+  return v3;
 }

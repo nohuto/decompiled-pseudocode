@@ -1,13 +1,13 @@
 /*
- * XREFs of PoSetProcessorQoS @ 0x1402DAF68
+ * XREFs of PoSetProcessorQoS @ 0x1402DB068
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KeCheckAndApplyBamQos @ 0x140297B90 (KeCheckAndApplyBamQos.c)
+ *     KeCheckAndApplyBamQos @ 0x140297C90 (KeCheckAndApplyBamQos.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x1401754C0 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmHvSetVirtualProcessorQos @ 0x1402E7160 (PpmHvSetVirtualProcessorQos.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1401754E0 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x1402E7260 (PpmHvSetVirtualProcessorQos.c)
  */
 
 char __fastcall PoSetProcessorQoS(__int64 a1, signed int a2, __int64 a3, __int64 a4)

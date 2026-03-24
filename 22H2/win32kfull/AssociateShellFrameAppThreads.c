@@ -1,7 +1,7 @@
 /*
- * XREFs of AssociateShellFrameAppThreads @ 0x1C01B3028
+ * XREFs of AssociateShellFrameAppThreads @ 0x1C01D2734
  * Callers:
- *     TryDetachShellFrame @ 0x1C01B6D5C (TryDetachShellFrame.c)
+ *     TryDetachShellFrame @ 0x1C01E1CA4 (TryDetachShellFrame.c)
  * Callees:
  *     <none>
  */

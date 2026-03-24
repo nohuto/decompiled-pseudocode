@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogRelocationRva @ 0x14064B1AC
+ * XREFs of MiLogRelocationRva @ 0x14064B18C
  * Callers:
- *     MiLogRelocationFaults @ 0x140650824 (MiLogRelocationFaults.c)
- *     MiParseImageLoadConfig @ 0x1406508FC (MiParseImageLoadConfig.c)
- *     MiCaptureImageCfgContext @ 0x140652250 (MiCaptureImageCfgContext.c)
- *     MiParseComImage @ 0x1406C06DC (MiParseComImage.c)
+ *     MiLogRelocationFaults @ 0x140650804 (MiLogRelocationFaults.c)
+ *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
+ *     MiCaptureImageCfgContext @ 0x140652230 (MiCaptureImageCfgContext.c)
+ *     MiParseComImage @ 0x1406C06BC (MiParseComImage.c)
  * Callees:
- *     MiOffsetToProtos @ 0x1400AF810 (MiOffsetToProtos.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     PfSnLogPageFault @ 0x1400D7490 (PfSnLogPageFault.c)
- *     PfLogFileDataAccess @ 0x1402D3078 (PfLogFileDataAccess.c)
+ *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
+ *     PfLogFileDataAccess @ 0x1402D3178 (PfLogFileDataAccess.c)
  */
 
 void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)

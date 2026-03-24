@@ -1,88 +1,90 @@
 /*
- * XREFs of HvlpLogIommuInitStatus @ 0x1405489F8
+ * XREFs of HvlpLogIommuInitStatus @ 0x1404F9B38
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
- *     HvlpWriteEventLog @ 0x140548CA8 (HvlpWriteEventLog.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpWriteEventLog @ 0x1404F9DB4 (HvlpWriteEventLog.c)
  */
 
 __int64 HvlpLogIommuInitStatus()
 {
-  PHYSICAL_ADDRESS *v0; // rbx
-  PHYSICAL_ADDRESS *v1; // rdi
+  _QWORD *v0; // rbx
+  __int128 *v1; // rax
+  __int64 v2; // r8
+  __int64 v3; // rdx
+  __int128 *v4; // rdi
+  __int64 v5; // r9
   __int64 result; // rax
-  __m256i v3; // [rsp+28h] [rbp-E0h] BYREF
-  __m256i v4; // [rsp+48h] [rbp-C0h] BYREF
-  int v5; // [rsp+68h] [rbp-A0h]
-  __int128 v6; // [rsp+70h] [rbp-98h] BYREF
-  __int128 v7; // [rsp+80h] [rbp-88h] BYREF
-  __int128 v8; // [rsp+90h] [rbp-78h] BYREF
+  int v7; // [rsp+28h] [rbp-E0h] BYREF
+  int v8; // [rsp+2Ch] [rbp-DCh] BYREF
+  __int128 v9; // [rsp+30h] [rbp-D8h] BYREF
+  __int128 v10; // [rsp+40h] [rbp-C8h]
+  __int128 v11; // [rsp+50h] [rbp-B8h] BYREF
+  __int128 v12; // [rsp+60h] [rbp-A8h]
+  __int128 v13; // [rsp+70h] [rbp-98h] BYREF
+  __int128 v14; // [rsp+80h] [rbp-88h] BYREF
+  __int128 v15; // [rsp+90h] [rbp-78h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+A8h] [rbp-60h] BYREF
-  __int8 *v10; // [rsp+B8h] [rbp-50h]
-  __int64 v11; // [rsp+C0h] [rbp-48h]
-  char *v12; // [rsp+C8h] [rbp-40h]
-  __int64 v13; // [rsp+D0h] [rbp-38h]
-  __int128 *v14; // [rsp+D8h] [rbp-30h]
-  __int64 v15; // [rsp+E0h] [rbp-28h]
-  char *v16; // [rsp+E8h] [rbp-20h]
-  __int64 v17; // [rsp+F0h] [rbp-18h]
-  __int128 *v18; // [rsp+F8h] [rbp-10h]
-  __int64 v19; // [rsp+100h] [rbp-8h]
-  char *v20; // [rsp+108h] [rbp+0h]
-  __int64 v21; // [rsp+110h] [rbp+8h]
-  _BYTE v22[16]; // [rsp+118h] [rbp+10h] BYREF
-  _BYTE v23[2064]; // [rsp+128h] [rbp+20h] BYREF
+  int *v17; // [rsp+B8h] [rbp-50h]
+  __int64 v18; // [rsp+C0h] [rbp-48h]
+  char *v19; // [rsp+C8h] [rbp-40h]
+  __int64 v20; // [rsp+D0h] [rbp-38h]
+  __int128 *v21; // [rsp+D8h] [rbp-30h]
+  __int64 v22; // [rsp+E0h] [rbp-28h]
+  char *v23; // [rsp+E8h] [rbp-20h]
+  __int64 v24; // [rsp+F0h] [rbp-18h]
+  __int128 *v25; // [rsp+F8h] [rbp-10h]
+  __int64 v26; // [rsp+100h] [rbp-8h]
+  char *v27; // [rsp+108h] [rbp+0h]
+  __int64 v28; // [rsp+110h] [rbp+8h]
+  _BYTE v29[16]; // [rsp+118h] [rbp+10h] BYREF
+  _BYTE v30[2064]; // [rsp+128h] [rbp+20h] BYREF
 
-  v5 = 0;
-  memset(&v4.m256i_u64[1], 0, 24);
-  v4.m256i_i32[0] = 0;
-  memset(&v3.m256i_u64[1], 0, 24);
-  v6 = 0LL;
-  v7 = 0LL;
-  v8 = 0LL;
-  v0 = HvlpAcquireHypercallPage((__int64)&v4.m256i_i64[1], 1, (__int64)v22, 8LL);
-  v1 = HvlpAcquireHypercallPage((__int64)&v3.m256i_i64[1], 2, (__int64)v23, 1032LL);
-  v0->LowPart = 5;
-  if ( !(unsigned __int16)HvcallInitiateHypercall(123) )
+  v11 = 0LL;
+  v12 = 0LL;
+  v9 = 0LL;
+  v10 = 0LL;
+  v13 = 0LL;
+  v14 = 0LL;
+  v15 = 0LL;
+  v0 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v11, 1, (__int64)v29, 8LL);
+  v1 = (__int128 *)HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v9, 2, (__int64)v30, 1032LL);
+  v2 = *((_QWORD *)&v10 + 1);
+  v3 = *((_QWORD *)&v12 + 1);
+  v4 = v1;
+  *(_DWORD *)v0 = 5;
+  if ( !(unsigned __int16)HvcallInitiateHypercall(123, v3, v2, v5) )
   {
-    v6 = *(_OWORD *)&v1->LowPart;
-    v7 = *(_OWORD *)&v1[2].LowPart;
-    v8 = *(_OWORD *)&v1[4].LowPart;
+    v13 = *v4;
+    v14 = v4[1];
+    v15 = v4[2];
   }
-  HvlpReleaseHypercallPage((__int64)&v3.m256i_i64[1]);
-  HvlpReleaseHypercallPage((__int64)&v4.m256i_i64[1]);
-  v3.m256i_i32[0] = (unsigned __int8)v6;
+  HvlpReleaseHypercallPage((__int64)&v9);
+  HvlpReleaseHypercallPage((__int64)&v11);
+  v7 = (unsigned __int8)v13;
   *(_QWORD *)&UserData.Size = 4LL;
-  UserData.Ptr = (ULONGLONG)&v3;
-  v3.m256i_i32[1] = BYTE1(v6);
-  v10 = &v3.m256i_i8[4];
-  v12 = (char *)&v6 + 8;
-  v14 = &v7;
-  v16 = (char *)&v7 + 8;
-  v18 = &v8;
-  v20 = (char *)&v8 + 8;
-  v11 = 4LL;
-  v13 = 8LL;
-  v15 = 8LL;
-  v17 = 8LL;
-  v19 = 8LL;
-  v21 = 8LL;
-  HvlpWriteEventLog(&HV_EVENTLOG_IOMMU_INIT, 7u, &UserData);
-  result = v8;
-  if ( (_DWORD)v8 )
+  UserData.Ptr = (ULONGLONG)&v7;
+  v8 = BYTE1(v13);
+  v17 = &v8;
+  v19 = (char *)&v13 + 8;
+  v21 = &v14;
+  v23 = (char *)&v14 + 8;
+  v25 = &v15;
+  v27 = (char *)&v15 + 8;
+  v18 = 4LL;
+  v20 = 8LL;
+  v22 = 8LL;
+  v24 = 8LL;
+  v26 = 8LL;
+  v28 = 8LL;
+  result = HvlpWriteEventLog(&HV_EVENTLOG_IOMMU_INIT, 7u, &UserData);
+  if ( BYTE1(v13) && *((_QWORD *)&v13 + 1) == 1LL )
   {
-    *(_QWORD *)&UserData.Size = 8LL;
-    UserData.Ptr = (ULONGLONG)&v8;
-    HvlpWriteEventLog(&HV_EVENTLOG_IOMMU_INIT_ERROR, 1u, &UserData);
-    result = v8;
-  }
-  if ( BYTE1(v6) && *((_QWORD *)&v6 + 1) == 1LL )
-  {
-    if ( result )
+    if ( (_QWORD)v15 )
       return HvlpWriteEventLog(&HV_EVENTLOG_IOMMU_INIT_POLICY_ENABLE, 0, 0LL);
   }
   return result;

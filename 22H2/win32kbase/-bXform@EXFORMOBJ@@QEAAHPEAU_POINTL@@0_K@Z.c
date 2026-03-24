@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z @ 0x1C0007E60
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z @ 0x1C00838B0
  * Callers:
  *     <none>
  * Callees:
- *     bCvtPts1 @ 0x1C0007EC4 (bCvtPts1.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     bCvtPts1 @ 0x1C003E640 (bCvtPts1.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall EXFORMOBJ::bXform(EXFORMOBJ *this, struct _POINTL *a2, struct _POINTL *a3, __int64 a4)

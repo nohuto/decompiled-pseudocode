@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CScalar@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C5810
+ * XREFs of ?IsOfType@CScalar@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F700
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CScalar::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 151 || a2 == 10;
+  return a2 == 151 || a2 == 9;
 }

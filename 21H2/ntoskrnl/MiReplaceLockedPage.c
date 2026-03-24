@@ -1,68 +1,67 @@
 /*
- * XREFs of MiReplaceLockedPage @ 0x1403D0BD4
+ * XREFs of MiReplaceLockedPage @ 0x14053D76C
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140268408 (MiReleaseFreshPage.c)
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MiIsPfnFromSlabAllocation @ 0x140277C50 (MiIsPfnFromSlabAllocation.c)
- *     MiCanPageMove @ 0x140277C9C (MiCanPageMove.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402E8990 (MiGetPfnChannel.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402E89B0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiTradeActivePage @ 0x1402EA95C (MiTradeActivePage.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiTbFlushType @ 0x140333AA0 (MiTbFlushType.c)
- *     MiUnlockProtoPoolPage @ 0x140334790 (MiUnlockProtoPoolPage.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
+ *     MiCanPageMove @ 0x14026B990 (MiCanPageMove.c)
+ *     MiTradeActivePage @ 0x1402B65F0 (MiTradeActivePage.c)
+ *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
+ *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
  */
 
-__int64 __fastcall MiReplaceLockedPage(__int64 a1, __m128i *a2, unsigned __int64 a3, unsigned int a4, unsigned int a5)
+__int64 __fastcall MiReplaceLockedPage(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned int a4, unsigned int a5)
 {
   int v9; // edi
   int PfnChannel; // eax
   __int64 Page; // rax
-  __m128i *v12; // rbx
-  __int64 v13; // rdi
-  __int64 v14; // rdx
+  __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rdi
   __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned int v17; // eax
-  char v19; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v16; // eax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  int v20; // [rsp+28h] [rbp-30h]
+  unsigned __int8 v21; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( (a2[1].m128i_i64[1] & 0x3FFFFFFFFFFFFFFFLL) == 1 && a2[2].m128i_i16[0] == 1 && MiCanPageMove((__int64)a2) )
+  if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
+    return 0LL;
+  if ( *(_WORD *)(a2 + 32) != 1 )
+    return 0LL;
+  if ( !MiCanPageMove(a2) )
+    return 0LL;
+  v21 = 17;
+  v9 = *((_DWORD *)MiSearchNumaNodeTable((__int64)(a2 + 0x58000000000LL) / 48) + 2);
+  PfnChannel = MiGetPfnChannel(a2);
+  Page = MiGetPage(
+           *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a2 + 40) >> 39) & 0x3FFLL)),
+           (PfnChannel << byte_140C4DE8D) | (v9 << byte_140C4DE8C) | (unsigned int)((__int64)(a2 + 0x58000000000LL) / 48) & dword_140C4DEF8,
+           a4);
+  if ( Page == -1 )
+    return 0LL;
+  v12 = 48 * Page - 0x58000000000LL;
+  v14 = MiLockProtoPoolPage(*(_QWORD *)(a2 + 8) | 0x8000000000000000uLL, (__int64)&v21);
+  if ( !v14 )
   {
-    v19 = 17;
-    v9 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)a2[0x22000000000LL].m128i_i64 >> 4)) + 2);
-    PfnChannel = MiGetPfnChannel((__int64)a2);
-    Page = MiGetPage(
-             *(_QWORD *)(qword_140C51F48 + 8 * (((unsigned __int64)a2[2].m128i_i64[1] >> 43) & 0x3FF)),
-             (PfnChannel << byte_140C506CD) | (v9 << byte_140C506CC) | (-1431655765
-                                                                      * ((__int64)a2[0x22000000000LL].m128i_i64 >> 4)) & dword_140C50738,
-             a4);
-    if ( Page != -1 )
-    {
-      v12 = (__m128i *)(48 * Page - 0x220000000000LL);
-      v13 = MiLockProtoPoolPage(a2->m128i_i64[1] | 0x8000000000000000uLL, (__int64)&v19);
-      if ( v13 )
-      {
-        if ( !MiIsPfnFromSlabAllocation((__int64)a2) )
-        {
-          v17 = MiTbFlushType(a1);
-          if ( (unsigned int)MiTradeActivePage(a2, v12, a3, v17, a5, 0) )
-          {
-            LOBYTE(v14) = v19;
-            MiUnlockProtoPoolPage(v13, v14, v15, v16);
-            a2[1].m128i_i64[0] = ZeroPte;
-            MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)&a2[1]);
-            MiReleaseFreshPage((__int64)a2);
-            return 1LL;
-          }
-        }
-        LOBYTE(v14) = v19;
-        MiUnlockProtoPoolPage(v13, v14, v15, v16);
-      }
-      MiReleaseFreshPage((__int64)v12);
-    }
+LABEL_8:
+    MiReleaseFreshPage(v12, v13, v15);
+    return 0LL;
   }
-  return 0LL;
+  v16 = MiTbFlushType(a1);
+  if ( !(unsigned int)MiTradeActivePage(a2, v12, a3, v16, a5, v20) )
+  {
+    MiUnlockProtoPoolPage(v14, v21);
+    goto LABEL_8;
+  }
+  MiUnlockProtoPoolPage(v14, v21);
+  *(_QWORD *)(a2 + 16) = ZeroPte;
+  MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a2 + 16));
+  MiReleaseFreshPage(a2, v18, v19);
+  return 1LL;
 }

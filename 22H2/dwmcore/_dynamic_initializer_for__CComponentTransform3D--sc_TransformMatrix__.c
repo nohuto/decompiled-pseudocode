@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_TransformMatrix__ @ 0x180001C50
+ * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_TransformMatrix__ @ 0x180001910
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform3D::sc_TransformMatrix__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E34E8 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803E34F8 = v1;
+  xmmword_180344018 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_180344028 = v1;
   return result;
 }

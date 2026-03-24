@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringToInt64 @ 0x1408957B0
+ * XREFs of RtlUnicodeStringToInt64 @ 0x140895790
  * Callers:
- *     GetFlags @ 0x1408A774C (GetFlags.c)
+ *     GetFlags @ 0x1408A772C (GetFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcstoxq @ 0x140198128 (wcstoxq.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     __report_rangecheckfailure @ 0x140268CCC (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcstoxq @ 0x140198148 (wcstoxq.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, PLONG64 Number, PWSTR *EndPointer)

@@ -1,221 +1,246 @@
 /*
- * XREFs of ?PushRenderOptionsInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBUMilRenderOptions@@_N@Z @ 0x1800C3D80
+ * XREFs of ?PushRenderOptionsInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBUMilRenderOptions@@_N@Z @ 0x18003F080
  * Callers:
- *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x18003AD00 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResource@@PEBVCShape@@_NH@Z @ 0x18007AA90 (-RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResourc.c)
- *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_NPEAVCVisual@@@Z @ 0x180087B2C (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
- *     ?RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801EDDB0 (-RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
- *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x1801F1F3C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
- *     ?RenderLayer@CColorTransformLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801F38C0 (-RenderLayer@CColorTransformLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
- *     ?ApplyState@CLinearInterpolationLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1801F4760 (-ApplyState@CLinearInterpolationLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
- *     ?RenderContent@CCursorVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x180228C80 (-RenderContent@CCursorVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
- *     ?RenderWorker@CComposeTop@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBVCShape@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18025A7F4 (-RenderWorker@CComposeTop@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBVCShape@@PEAV-$TMilRect_.c)
+ *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x180060630 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x180068A9C (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
+ *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_N@Z @ 0x1800754F0 (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007BE10 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResource@@PEBVCShape@@PEAU_MARGINS@@H@Z @ 0x1800F0030 (-RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResourc.c)
+ *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x180161C3C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?RenderLayer@CColorTransformLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x18018FFE0 (-RenderLayer@CColorTransformLayer@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?ApplyState@CLinearInterpolationLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180191070 (-ApplyState@CLinearInterpolationLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderWorker@CComposeTop@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBVCShape@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F9970 (-RenderWorker@CComposeTop@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBVCShape@@PEAV-$TMilRect_.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180048AEC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Pop@?$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAA_NPEAUStackStateEntry@CDrawingContext@@@Z @ 0x1800E35BC (-Pop@-$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAA_NPEAUStackStateEntry@.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?Pop@?$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAA_NPEAUStackStateEntry@CDrawingContext@@@Z @ 0x180040998 (-Pop@-$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAA_NPEAUStackStateEntry@.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800421E0 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 __int64 __fastcall CDrawingContext::PushRenderOptionsInternal(
-        __int64 this,
+        CDrawingContext *this,
         const struct CVisual *a2,
         const struct MilRenderOptions *a3,
         char a4)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rax
-  void *v8; // rdi
-  int v9; // ebp
-  unsigned int v10; // eax
-  void *v11; // rdi
-  __int64 v12; // rax
-  __int64 v13; // xmm1_8
-  int v14; // eax
-  __int64 v15; // rdx
-  unsigned int v16; // eax
-  __int64 v17; // rcx
-  int v19; // ecx
-  unsigned int v20; // r15d
-  int v21; // eax
-  __int64 v22; // rcx
-  unsigned __int64 v23; // rcx
-  void *v24; // rdi
-  unsigned int v25; // r15d
-  int v26; // eax
-  __int64 v27; // rcx
-  unsigned __int64 v28; // rax
-  void *v29; // rdi
+  unsigned int v7; // ebp
+  unsigned int v8; // eax
+  __int64 v9; // rcx
+  int v10; // edi
+  unsigned int v11; // eax
+  unsigned int v12; // ecx
+  unsigned int v13; // r15d
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  int v16; // edi
+  __int64 v17; // xmm1_8
+  __int64 v18; // rdx
+  int v19; // eax
+  __int64 v20; // rdx
+  unsigned int v21; // eax
+  unsigned int v22; // ecx
+  int v23; // ecx
+  int v25; // edx
+  unsigned int v26; // r15d
+  int v27; // eax
+  unsigned int v28; // ecx
+  unsigned __int64 v29; // rcx
+  void *v30; // rdi
+  unsigned int v31; // r15d
+  int v32; // eax
+  unsigned int v33; // ecx
+  unsigned __int64 v34; // rax
+  void *v35; // rdi
+  void *v36; // r15
+  HANDLE v37; // rax
+  void *v38; // rbp
   HANDLE ProcessHeap; // rax
-  HANDLE v31; // rax
-  __int64 v32; // r8
-  void *v33; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v34; // [rsp+38h] [rbp-50h]
-  __int64 v35; // [rsp+48h] [rbp-40h]
-  int v36; // [rsp+50h] [rbp-38h]
+  __int64 v40; // r8
+  void *lpMem; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v42; // [rsp+38h] [rbp-50h]
+  __int64 v43; // [rsp+48h] [rbp-40h]
+  int v44; // [rsp+50h] [rbp-38h]
 
-  v6 = this;
+  v7 = -2147024362;
   if ( !a4 )
-    goto LABEL_9;
-  v7 = *(unsigned int *)(this + 372);
-  v8 = 0LL;
-  v9 = 0;
-  LODWORD(v34) = 9;
-  *((_QWORD *)&v34 + 1) = a2;
-  v33 = 0LL;
-  if ( *(_DWORD *)(this + 368) == (_DWORD)v7 )
   {
-    v25 = 2 * v7;
-    if ( (unsigned __int64)(2 * v7) > 0xFFFFFFFF )
+LABEL_7:
+    v14 = *((unsigned int *)this + 227);
+    LOBYTE(v44) = *((_BYTE *)this + 292);
+    *(_QWORD *)&v42 = *((_QWORD *)this + 34);
+    DWORD2(v42) = *((_DWORD *)this + 75);
+    HIDWORD(v42) = *((_DWORD *)this + 70);
+    v43 = *(_QWORD *)((char *)this + 284);
+    v15 = *((unsigned int *)this + 226);
+    lpMem = 0LL;
+    if ( (_DWORD)v15 != (_DWORD)v14 )
     {
-      v9 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, -2147024362, 0x64u, 0LL);
-      goto LABEL_6;
+LABEL_8:
+      v16 = 0;
+      v17 = v43;
+      v18 = 28 * v15;
+      v19 = v44;
+      v20 = *((_QWORD *)this + 115) + v18;
+      *(_OWORD *)v20 = v42;
+      *(_QWORD *)(v20 + 16) = v17;
+      *(_DWORD *)(v20 + 24) = v19;
+      v21 = *((_DWORD *)this + 232);
+      v22 = ++*((_DWORD *)this + 226);
+      if ( v21 <= v22 )
+        v21 = *((_DWORD *)this + 226);
+      *((_DWORD *)this + 232) = v21;
+      goto LABEL_11;
     }
-    if ( v25 <= 0x40 )
-      v25 = 64;
-    v26 = HrMalloc(0x10uLL, v25, &v33);
-    v9 = v26;
-    if ( v26 < 0 )
+    v26 = 2 * v14;
+    if ( (unsigned __int64)(2 * v14) > 0xFFFFFFFF )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x6Bu, 0LL);
-      v8 = v33;
-      goto LABEL_6;
+      v16 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024362, 0x4Cu, 0LL);
+LABEL_54:
+      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v16, 0x10F9u, 0LL);
+      if ( a4 )
+      {
+        CWatermarkStack<CDrawingContext::StackStateEntry,64,2,10>::Pop((char *)this + 376, 0LL, v40);
+        return v7;
+      }
+LABEL_12:
+      if ( (*(_BYTE *)a3 & 1) != 0 )
+        *((_BYTE *)this + 292) = *((_DWORD *)a3 + 4) != 1;
+      v23 = *(_DWORD *)a3;
+      if ( (*(_DWORD *)a3 & 2) == 0 )
+        goto LABEL_14;
+      v25 = *((_DWORD *)a3 + 1);
+      if ( (v25 & 0xFF000000) == 0xFF000000 )
+      {
+        v25 &= 0xFFFFFFu;
+      }
+      else if ( *((_BYTE *)this + 5922) )
+      {
+LABEL_14:
+        if ( (v23 & 8) != 0 )
+        {
+          *((_DWORD *)this + 69) = *((_DWORD *)a3 + 2);
+          v23 = *(_DWORD *)a3;
+        }
+        if ( (v23 & 0x10) != 0 )
+        {
+          *((_DWORD *)this + 70) = *((_DWORD *)a3 + 5);
+          v23 = *(_DWORD *)a3;
+        }
+        if ( (v23 & 0x20) != 0 )
+        {
+          *((_DWORD *)this + 71) = *((_DWORD *)a3 + 6);
+          v23 = *(_DWORD *)a3;
+        }
+        if ( (v23 & 0x40) != 0 )
+        {
+          *((_DWORD *)this + 72) = *((_DWORD *)a3 + 7);
+          v23 = *(_DWORD *)a3;
+        }
+        if ( (v23 & 4) != 0 )
+          *((_DWORD *)this + 75) = *((_DWORD *)a3 + 3);
+        return v7;
+      }
+      *((_DWORD *)this + 68) = v25;
+      v23 = *(_DWORD *)a3;
+      goto LABEL_14;
     }
-    v28 = 16LL * *(unsigned int *)(v6 + 368);
-    if ( v28 > 0xFFFFFFFF )
+    if ( v26 <= 0x40 )
+      v26 = 64;
+    v27 = HrMalloc(0x1CuLL, v26, &lpMem);
+    v16 = v27;
+    if ( v27 < 0 )
     {
-      v9 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, -2147024362, 0x6Du, 0LL);
-      v8 = v33;
-      goto LABEL_6;
-    }
-    v29 = v33;
-    v9 = 0;
-    memcpy_0(v33, *(const void **)(v6 + 384), (unsigned int)v28);
-    operator delete(*(void **)(v6 + 384));
-    *(_QWORD *)(v6 + 384) = v29;
-    v8 = 0LL;
-    *(_DWORD *)(v6 + 372) = v25;
-  }
-  *(_OWORD *)(*(_QWORD *)(v6 + 384) + 16LL * *(unsigned int *)(v6 + 368)) = v34;
-  v10 = *(_DWORD *)(v6 + 392);
-  this = (unsigned int)++*(_DWORD *)(v6 + 368);
-  if ( v10 <= (unsigned int)this )
-    v10 = *(_DWORD *)(v6 + 368);
-  *(_DWORD *)(v6 + 392) = v10;
-LABEL_6:
-  if ( v8 )
-  {
-    ProcessHeap = GetProcessHeap();
-    HeapFree(ProcessHeap, 0, v8);
-  }
-  if ( v9 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, v9, 0x11F6u, 0LL);
-    return (unsigned int)v9;
-  }
-LABEL_9:
-  v11 = 0LL;
-  LOBYTE(v36) = *(_BYTE *)(v6 + 352);
-  v9 = 0;
-  *(_QWORD *)&v34 = *(_QWORD *)(v6 + 332);
-  DWORD2(v34) = *(_DWORD *)(v6 + 360);
-  HIDWORD(v34) = *(_DWORD *)(v6 + 340);
-  v35 = *(_QWORD *)(v6 + 344);
-  v12 = *(unsigned int *)(v6 + 868);
-  v33 = 0LL;
-  if ( *(_DWORD *)(v6 + 864) != (_DWORD)v12 )
-  {
-LABEL_10:
-    v13 = v35;
-    v14 = v36;
-    v15 = *(_QWORD *)(v6 + 880) + 28LL * *(unsigned int *)(v6 + 864);
-    *(_OWORD *)v15 = v34;
-    *(_QWORD *)(v15 + 16) = v13;
-    *(_DWORD *)(v15 + 24) = v14;
-    v16 = *(_DWORD *)(v6 + 888);
-    v17 = (unsigned int)++*(_DWORD *)(v6 + 864);
-    if ( v16 <= (unsigned int)v17 )
-      v16 = *(_DWORD *)(v6 + 864);
-    *(_DWORD *)(v6 + 888) = v16;
-    goto LABEL_13;
-  }
-  v20 = 2 * v12;
-  if ( (unsigned __int64)(2 * v12) > 0xFFFFFFFF )
-  {
-    v9 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, -2147024362, 0x64u, 0LL);
-  }
-  else
-  {
-    if ( v20 <= 0x40 )
-      v20 = 64;
-    v21 = HrMalloc(0x1CuLL, v20, &v33);
-    v9 = v21;
-    if ( v21 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x6Bu, 0LL);
-      v11 = v33;
+      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x53u, 0LL);
     }
     else
     {
-      v23 = 28LL * *(unsigned int *)(v6 + 864);
-      if ( v23 <= 0xFFFFFFFF )
+      v29 = 28LL * *((unsigned int *)this + 226);
+      if ( v29 <= 0xFFFFFFFF )
       {
-        v24 = v33;
-        v9 = 0;
-        memcpy_0(v33, *(const void **)(v6 + 880), (unsigned int)v23);
-        operator delete(*(void **)(v6 + 880));
-        *(_QWORD *)(v6 + 880) = v24;
-        v11 = 0LL;
-        *(_DWORD *)(v6 + 868) = v20;
-        goto LABEL_10;
+        v30 = lpMem;
+        memcpy_0(lpMem, *((const void **)this + 115), (unsigned int)v29);
+        operator delete(*((void **)this + 115));
+        v15 = *((unsigned int *)this + 226);
+        *((_QWORD *)this + 115) = v30;
+        *((_DWORD *)this + 227) = v26;
+        goto LABEL_8;
       }
-      v9 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, -2147024362, 0x6Du, 0LL);
-      v11 = v33;
+      v16 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, -2147024362, 0x55u, 0LL);
     }
+    v38 = lpMem;
+    if ( lpMem )
+    {
+      ProcessHeap = GetProcessHeap();
+      HeapFree(ProcessHeap, 0, v38);
+    }
+LABEL_11:
+    v7 = v16;
+    if ( v16 >= 0 )
+      goto LABEL_12;
+    goto LABEL_54;
   }
-LABEL_13:
-  if ( v11 )
+  v8 = *((_DWORD *)this + 94);
+  v9 = *((unsigned int *)this + 95);
+  LODWORD(v42) = 9;
+  *((_QWORD *)&v42 + 1) = a2;
+  lpMem = 0LL;
+  if ( v8 != (_DWORD)v9 )
+    goto LABEL_3;
+  v31 = 2 * v9;
+  if ( (unsigned __int64)(2 * v9) > 0xFFFFFFFF )
   {
-    v31 = GetProcessHeap();
-    HeapFree(v31, 0, v11);
+    v10 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024362, 0x4Cu, 0LL);
+    v13 = -2147024362;
+    goto LABEL_48;
   }
-  if ( v9 < 0 && (MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v9, 0x1206u, 0LL), a4) )
+  if ( v31 <= 0x40 )
+    v31 = 64;
+  v32 = HrMalloc(0x10uLL, v31, &lpMem);
+  v10 = v32;
+  if ( v32 < 0 )
   {
-    CWatermarkStack<CDrawingContext::StackStateEntry,64,2,10>::Pop(v6 + 368, 0LL, v32);
+    MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0x53u, 0LL);
   }
   else
   {
-    if ( (*(_BYTE *)a3 & 1) != 0 )
-      *(_BYTE *)(v6 + 352) = *((_DWORD *)a3 + 4) != 1;
-    if ( (*(_BYTE *)a3 & 2) != 0 )
+    v34 = 16LL * *((unsigned int *)this + 94);
+    if ( v34 <= 0xFFFFFFFF )
     {
-      v19 = *((_DWORD *)a3 + 1);
-      if ( (v19 & 0xFF000000) == 0xFF000000 )
-      {
-        *(_DWORD *)(v6 + 332) = v19 & 0xFFFFFF;
-      }
-      else if ( !*(_BYTE *)(v6 + 8050) )
-      {
-        *(_DWORD *)(v6 + 332) = v19;
-      }
+      v35 = lpMem;
+      memcpy_0(lpMem, *((const void **)this + 49), (unsigned int)v34);
+      operator delete(*((void **)this + 49));
+      v8 = *((_DWORD *)this + 94);
+      *((_QWORD *)this + 49) = v35;
+      *((_DWORD *)this + 95) = v31;
+LABEL_3:
+      v10 = 0;
+      *(_OWORD *)(*((_QWORD *)this + 49) + 16LL * v8) = v42;
+      v11 = *((_DWORD *)this + 100);
+      v12 = ++*((_DWORD *)this + 94);
+      if ( v11 <= v12 )
+        v11 = *((_DWORD *)this + 94);
+      *((_DWORD *)this + 100) = v11;
+      goto LABEL_6;
     }
-    if ( (*(_BYTE *)a3 & 8) != 0 )
-      *(_DWORD *)(v6 + 336) = *((_DWORD *)a3 + 2);
-    if ( (*(_BYTE *)a3 & 0x10) != 0 )
-      *(_DWORD *)(v6 + 340) = *((_DWORD *)a3 + 5);
-    if ( (*(_BYTE *)a3 & 0x20) != 0 )
-      *(_DWORD *)(v6 + 344) = *((_DWORD *)a3 + 6);
-    if ( (*(_BYTE *)a3 & 0x40) != 0 )
-      *(_DWORD *)(v6 + 348) = *((_DWORD *)a3 + 7);
-    if ( (*(_BYTE *)a3 & 4) != 0 )
-      *(_DWORD *)(v6 + 360) = *((_DWORD *)a3 + 3);
+    v10 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, -2147024362, 0x55u, 0LL);
   }
-  return (unsigned int)v9;
+  v36 = lpMem;
+  if ( lpMem )
+  {
+    v37 = GetProcessHeap();
+    HeapFree(v37, 0, v36);
+  }
+LABEL_6:
+  v13 = v10;
+  if ( v10 >= 0 )
+    goto LABEL_7;
+LABEL_48:
+  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v10, 0x10E9u, 0LL);
+  return v13;
 }

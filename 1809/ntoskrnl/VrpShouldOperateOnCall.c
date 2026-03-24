@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpShouldOperateOnCall @ 0x14080825C
+ * XREFs of VrpShouldOperateOnCall @ 0x14080823C
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
- *     CmRetrieveExtraParameter @ 0x1407EC588 (CmRetrieveExtraParameter.c)
- *     VrpGetContextsForNotifyInfo @ 0x140807ABC (VrpGetContextsForNotifyInfo.c)
- *     VRegEnabledInJob @ 0x14080831C (VRegEnabledInJob.c)
+ *     CmRetrieveExtraParameter @ 0x1407EC568 (CmRetrieveExtraParameter.c)
+ *     VrpGetContextsForNotifyInfo @ 0x140807A9C (VrpGetContextsForNotifyInfo.c)
+ *     VRegEnabledInJob @ 0x1408082FC (VRegEnabledInJob.c)
  */
 
 __int64 __fastcall VrpShouldOperateOnCall(int a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)

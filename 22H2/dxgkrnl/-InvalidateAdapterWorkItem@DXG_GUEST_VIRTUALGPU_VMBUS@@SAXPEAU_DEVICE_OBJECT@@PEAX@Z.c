@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InvalidateAdapterWorkItem@DXG_GUEST_VIRTUALGPU_VMBUS@@SAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0375E10
+ * XREFs of ?InvalidateAdapterWorkItem@DXG_GUEST_VIRTUALGPU_VMBUS@@SAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C023B050
  * Callers:
  *     <none>
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005B17C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     DxgkInvalidateDeviceState @ 0x1C005EFC0 (DxgkInvalidateDeviceState.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C0040104 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     DxgkInvalidateDeviceState @ 0x1C0052818 (DxgkInvalidateDeviceState.c)
  */
 
 void __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::InvalidateAdapterWorkItem(

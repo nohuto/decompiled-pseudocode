@@ -1,20 +1,20 @@
 /*
- * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x1407EF848
+ * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x14067C238
  * Callers:
- *     PfpPrivSourceEnum @ 0x140711614 (PfpPrivSourceEnum.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x1407EF750 (PopPowerRequestActionInfo.c)
+ *     IopDoFullTraverseCheck @ 0x140353B40 (IopDoFullTraverseCheck.c)
+ *     IopIsSecurityContextAppContainer @ 0x140507ACC (IopIsSecurityContextAppContainer.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x14067C148 (PopPowerRequestActionInfo.c)
+ *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
  * Callees:
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONTEXT SubjectContext, _BYTE *a2)
 {
-  char v2; // si
-  PSECURITY_SUBJECT_CONTEXT p_SubjectContexta; // rdi
+  PSECURITY_SUBJECT_CONTEXT p_SubjectContexta; // rsi
   unsigned int v5; // ebx
   struct _SECURITY_SUBJECT_CONTEXT SubjectContexta; // [rsp+50h] [rbp-28h] BYREF
   NTSTATUS AccessStatus; // [rsp+80h] [rbp+8h] BYREF
@@ -22,16 +22,13 @@ __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONT
 
   AccessStatus = 0;
   GrantedAccess = 0;
-  v2 = 0;
   *a2 = 1;
-  p_SubjectContexta = SubjectContext;
   memset(&SubjectContexta, 0, sizeof(SubjectContexta));
   if ( !SubjectContext )
-  {
     SeCaptureSubjectContext(&SubjectContexta);
-    p_SubjectContexta = &SubjectContexta;
-    v2 = 1;
-  }
+  p_SubjectContexta = &SubjectContexta;
+  if ( SubjectContext )
+    p_SubjectContexta = SubjectContext;
   if ( SeAccessCheck(
          SeNullDaclSd,
          p_SubjectContexta,
@@ -49,7 +46,7 @@ __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONT
   v5 = 0;
   if ( AccessStatus != -1073741790 )
     v5 = AccessStatus;
-  if ( v2 )
+  if ( !SubjectContext )
     SeReleaseSubjectContext(p_SubjectContexta);
   return v5;
 }

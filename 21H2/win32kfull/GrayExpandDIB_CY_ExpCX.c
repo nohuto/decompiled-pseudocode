@@ -1,16 +1,16 @@
 /*
- * XREFs of GrayExpandDIB_CY_ExpCX @ 0x1C0267E80
+ * XREFs of GrayExpandDIB_CY_ExpCX @ 0x1C026A8F0
  * Callers:
  *     <none>
  * Callees:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     AlphaBlendBGRF @ 0x1C02640B0 (AlphaBlendBGRF.c)
- *     GrayExpYDIB_ExpCX @ 0x1C0267384 (GrayExpYDIB_ExpCX.c)
- *     GraySharpenInput @ 0x1C0268880 (GraySharpenInput.c)
- *     MappingBGRF @ 0x1C0269064 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266B00 (AlphaBlendBGRF.c)
+ *     GrayExpYDIB_ExpCX @ 0x1C0269DE4 (GrayExpYDIB_ExpCX.c)
+ *     GraySharpenInput @ 0x1C026B300 (GraySharpenInput.c)
+ *     MappingBGRF @ 0x1C026BC84 (MappingBGRF.c)
  */
 
 __int64 __fastcall GrayExpandDIB_CY_ExpCX(__int64 a1)
@@ -232,9 +232,9 @@ __int64 __fastcall GrayExpandDIB_CY_ExpCX(__int64 a1)
     while ( v32 )
     {
       v77 = v32 - 1;
+      v33 = *v31;
       v69 = *v31;
       v81 = v31 + 1;
-      v33 = *v31;
       if ( (v33 & 0x8000u) != 0 )
       {
         v34 = (int)v72;

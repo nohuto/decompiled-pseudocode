@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhFdoPower_SetPower @ 0x1C0004020
+ * XREFs of UsbhFdoPower_SetPower @ 0x1C001AA90
  * Callers:
  *     <none>
  * Callees:
- *     UsbhFdoDevicePowerState @ 0x1C0005910 (UsbhFdoDevicePowerState.c)
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003BE4C (UsbhPoStartNextPowerIrp_Fdo.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbhFdoDevicePowerState @ 0x1C00101B0 (UsbhFdoDevicePowerState.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003D17C (UsbhPoStartNextPowerIrp_Fdo.c)
  */
 
 NTSTATUS __fastcall UsbhFdoPower_SetPower(PDEVICE_OBJECT DeviceObject, PIRP Irp)

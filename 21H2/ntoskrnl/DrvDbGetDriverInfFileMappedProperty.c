@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDriverInfFileMappedProperty @ 0x140789970
+ * XREFs of DrvDbGetDriverInfFileMappedProperty @ 0x14063B05C
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x140789110 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x14063B730 (DrvDbDispatchDriverInfFile.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     DrvDbGetRegValueMappedProperty @ 0x140788D90 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x140789AA4 (DrvDbOpenDriverInfFileRegKey.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140A2EE50 (DrvDbGetObjectDatabaseNodeName.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x14063B014 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x14063B5DC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097DE60 (DrvDbGetObjectDatabaseNodeName.c)
  */
 
 __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
@@ -15,7 +15,7 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
         HANDLE a3,
         __int64 a4,
         _DWORD *a5,
-        _WORD *a6,
+        __int64 a6,
         unsigned int a7,
         _DWORD *a8)
 {
@@ -32,7 +32,7 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
   __int64 (**v19)[3]; // rsi
   int RegValueMappedProperty; // ebx
   __int64 v22; // rax
-  _WORD *v23; // r9
+  __int64 v23; // r9
   unsigned int v24; // [rsp+20h] [rbp-38h]
   HANDLE Handle; // [rsp+78h] [rbp+20h] BYREF
 
@@ -53,7 +53,7 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedProperty(
   {
 LABEL_2:
     v14 = 0LL;
-    for ( i = &off_140002D80; ; i += 5 )
+    for ( i = &off_1400019E0; ; i += 5 )
     {
       v16 = (__int64 *)*i;
       if ( LODWORD((**i)[2]) == v13 )
@@ -69,7 +69,7 @@ LABEL_2:
         return (unsigned int)-1073741802;
     }
     v18 = 5 * v14;
-    v19 = &off_140002D80 + 5 * v14;
+    v19 = &off_1400019E0 + 5 * v14;
     if ( !v19 )
       return (unsigned int)-1073741802;
     if ( !a3 )
@@ -79,7 +79,7 @@ LABEL_2:
         goto LABEL_12;
       a3 = Handle;
     }
-    RegValueMappedProperty = DrvDbGetRegValueMappedProperty(v18, a3, (__int64)v19, v8, a6, a7, v10);
+    RegValueMappedProperty = DrvDbGetRegValueMappedProperty(v18, a3, v19, v8, a6, a7, v10);
   }
   else
   {

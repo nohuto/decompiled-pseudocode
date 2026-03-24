@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpUnblockPushLock @ 0x140111B60
+ * XREFs of ExpUnblockPushLock @ 0x140111B80
  * Callers:
  *     RtlpCSparseBitmapPageDecommit @ 0x140008938 (RtlpCSparseBitmapPageDecommit.c)
  *     CmpTryToRundownHive @ 0x14000FCAC (CmpTryToRundownHive.c)
  *     ExSweepSingleHandle @ 0x14008D88C (ExSweepSingleHandle.c)
  *     MiUnlockImageSection @ 0x140097F18 (MiUnlockImageSection.c)
- *     ExBlockOnAddressPushLock @ 0x1401119F0 (ExBlockOnAddressPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140111AC0 (ExTimedWaitForUnblockPushLock.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x14013763C (CmpDecrementAppHiveUnloadCount.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     IopCheckHandleForRevocation @ 0x1402849A0 (IopCheckHandleForRevocation.c)
- *     PspHandleTableWalker @ 0x1402E9EE0 (PspHandleTableWalker.c)
- *     ExUnblockOnAddressPushLockEx @ 0x14031AE90 (ExUnblockOnAddressPushLockEx.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140111AE0 (ExTimedWaitForUnblockPushLock.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x14013765C (CmpDecrementAppHiveUnloadCount.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     IopCheckHandleForRevocation @ 0x140284AA0 (IopCheckHandleForRevocation.c)
+ *     PspHandleTableWalker @ 0x1402E9FE0 (PspHandleTableWalker.c)
+ *     ExUnblockOnAddressPushLockEx @ 0x14031AF90 (ExUnblockOnAddressPushLockEx.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140111AC0 (ExTimedWaitForUnblockPushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140111AE0 (ExTimedWaitForUnblockPushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)

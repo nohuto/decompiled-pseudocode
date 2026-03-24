@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GMaterialProperty@@QEAAPEAXI@Z @ 0x1C0057A18
+ * XREFs of ??_GMaterialProperty@@QEAAPEAXI@Z @ 0x1C00AB32C
  * Callers:
- *     FindOrCreateMaterialProperty @ 0x1C0057BB8 (FindOrCreateMaterialProperty.c)
- *     DCompositionSessionUninitialize @ 0x1C0059A70 (DCompositionSessionUninitialize.c)
+ *     FindOrCreateMaterialProperty @ 0x1C009D478 (FindOrCreateMaterialProperty.c)
+ *     DCompositionSessionUninitialize @ 0x1C00AB0BC (DCompositionSessionUninitialize.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 MaterialProperty *__fastcall MaterialProperty::`scalar deleting destructor'(MaterialProperty *this)
@@ -14,8 +14,6 @@ MaterialProperty *__fastcall MaterialProperty::`scalar deleting destructor'(Mate
   v2 = (void *)*((_QWORD *)this + 2);
   if ( v2 )
     ObfDereferenceObject(v2);
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    this);
+  Win32FreePool((__int64)this);
   return this;
 }

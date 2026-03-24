@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAlpcCreateResourceReserve @ 0x1407D02E0
+ * XREFs of NtAlpcCreateResourceReserve @ 0x140693DE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpCreateReserve @ 0x1407D03D4 (AlpcpCreateReserve.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpCreateReserve @ 0x140693ED4 (AlpcpCreateReserve.c)
  */
 
 __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3, _DWORD *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3
   KPROCESSOR_MODE PreviousMode; // r9
   __int64 v8; // rcx
   NTSTATUS Reserve; // ebx
-  PVOID v10; // rdi
+  struct _DMA_ADAPTER *v10; // rdi
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
   __int64 v13; // [rsp+38h] [rbp-10h]
 
@@ -40,11 +40,11 @@ __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3
     Reserve = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( Reserve >= 0 )
     {
-      v10 = Object;
+      v10 = (struct _DMA_ADAPTER *)Object;
       Reserve = AlpcpCreateReserve(Object);
       if ( Reserve >= 0 )
         *a4 = v13 | 0x80000000;
-      ObfDereferenceObject(v10);
+      HalPutDmaAdapter(v10);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

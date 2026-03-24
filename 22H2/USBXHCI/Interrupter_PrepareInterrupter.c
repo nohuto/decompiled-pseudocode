@@ -1,32 +1,32 @@
 /*
- * XREFs of Interrupter_PrepareInterrupter @ 0x1C007279C
+ * XREFs of Interrupter_PrepareInterrupter @ 0x1C006EC08
  * Callers:
- *     Interrupter_PrepareHardware @ 0x1C0072C68 (Interrupter_PrepareHardware.c)
+ *     Interrupter_PrepareHardware @ 0x1C006DCA0 (Interrupter_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     Debug_FreAssertMsg @ 0x1C000883C (Debug_FreAssertMsg.c)
- *     RtlStringCchPrintfA @ 0x1C000C2C4 (RtlStringCchPrintfA.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BB4C (XilCommonBuffer_AcquireBufferEx.c)
- *     WPP_RECORDER_SF_qDD @ 0x1C001BDE4 (WPP_RECORDER_SF_qDD.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     XilCommonBuffer_ReleaseBuffer @ 0x1C001E9F8 (XilCommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Interrupter_DetermineSegmentSizeAndCount @ 0x1C0073788 (Interrupter_DetermineSegmentSizeAndCount.c)
+ *     Debug_FreAssertMsg @ 0x1C0007C5C (Debug_FreAssertMsg.c)
+ *     RtlStringCchPrintfA @ 0x1C00093AC (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C0015C18 (WPP_RECORDER_SF_qdd.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C00165F0 (XilCommonBuffer_AcquireBufferEx.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001A008 (XilCommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_DetermineSegmentSizeAndCount @ 0x1C006E2E4 (Interrupter_DetermineSegmentSizeAndCount.c)
  */
 
 __int64 __fastcall Interrupter_PrepareInterrupter(__int64 a1, unsigned __int8 a2)
 {
   _QWORD *v2; // rdi
-  int v3; // r8d
-  __int64 v5; // rcx
-  int v6; // edx
-  __int64 v7; // r13
-  struct _KEVENT *v8; // r14
-  int v9; // r15d
+  __int64 v4; // rax
+  __int64 v5; // r13
+  void *v6; // r14
+  int v7; // eax
+  int v8; // esi
+  __int64 v9; // rcx
   __int64 v10; // rax
   int v11; // edx
-  unsigned int v12; // esi
+  unsigned int v12; // r15d
   _QWORD *v13; // rax
   _QWORD *v14; // rcx
   __int64 v15; // rcx
@@ -48,63 +48,60 @@ __int64 __fastcall Interrupter_PrepareInterrupter(__int64 a1, unsigned __int8 a2
   __int128 v32; // [rsp+40h] [rbp-40h] BYREF
   __int128 v33; // [rsp+50h] [rbp-30h]
   char pszDest[16]; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v35; // [rsp+70h] [rbp-10h]
 
   v2 = (_QWORD *)(a1 + 160);
-  v3 = a2;
   *(_QWORD *)(a1 + 168) = a1 + 160;
   *(_QWORD *)(a1 + 160) = a1 + 160;
+  v4 = *(_QWORD *)(a1 + 8);
   v32 = 0LL;
-  v35 = 0LL;
-  v5 = *(_QWORD *)(a1 + 8);
   v33 = 0LL;
   *(_OWORD *)pszDest = 0LL;
-  v6 = *(_DWORD *)(v5 + 604);
-  v7 = *(_QWORD *)(v5 + 88);
-  v8 = *(struct _KEVENT **)(v5 + 120);
-  if ( v6 )
+  v5 = *(_QWORD *)(v4 + 88);
+  v6 = *(void **)(v4 + 120);
+  v7 = *(_DWORD *)(v4 + 556);
+  if ( v7 )
   {
-    if ( (unsigned int)(v6 - 1) >= 2 )
+    if ( (unsigned int)(v7 - 1) > 1 )
     {
       Debug_FreAssertMsg(
         (__int64)"Unexpected DMA Mode",
         0,
         (int)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\interrupter.c",
-        777);
+        745);
       return (unsigned int)-1073741630;
     }
-    v9 = 3;
+    v8 = 3;
   }
   else
   {
-    v9 = 1;
+    v8 = 1;
   }
-  *(_DWORD *)(a1 + 96) ^= (*(_DWORD *)(a1 + 96) ^ v3) & 1;
+  *(_DWORD *)(a1 + 96) ^= (*(_DWORD *)(a1 + 96) ^ a2) & 1;
   Interrupter_DetermineSegmentSizeAndCount(a1);
-  v10 = XilCommonBuffer_AcquireBufferEx(v8, 16 * *(_DWORD *)(a1 + 108), a1, 0x31746E49u, v9);
+  v10 = XilCommonBuffer_AcquireBufferEx(v6, 16 * *(_DWORD *)(v9 + 108), a1, 0x31746E49u, v8);
   *(_QWORD *)(a1 + 152) = v10;
   if ( !v10 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_29;
-    v27 = 28;
+    v27 = 27;
     goto LABEL_28;
   }
   v12 = 0;
   if ( !*(_DWORD *)(a1 + 108) )
   {
 LABEL_8:
-    v15 = *(_QWORD *)(v7 + 40) + 32 * (*(unsigned int *)(a1 + 32) + 1LL);
+    v15 = *(_QWORD *)(v5 + 40) + 32 * (*(unsigned int *)(a1 + 32) + 1LL);
     *(_QWORD *)(a1 + 24) = v15;
     v16 = (_DWORD *)(v15 + 8);
-    if ( *(_BYTE *)(v7 + 137) )
+    if ( *(_BYTE *)(v5 + 137) )
     {
       *v16 = 0;
       _InterlockedOr(v31, 0);
     }
     else
     {
-      XilRegister_WriteUlong(v7, v16, 0);
+      XilRegister_WriteUlong(v5, v16, 0);
     }
     v17 = 0LL;
     v18 = (_QWORD *)*v2;
@@ -134,11 +131,10 @@ LABEL_8:
     v22 = *(_QWORD *)(a1 + 8);
     *(_QWORD *)&v33 = 0LL;
     v23 = *(_DWORD *)(a1 + 32);
-    *(_QWORD *)&v32 = 56LL;
+    *(_QWORD *)&v32 = 48LL;
     pszDest[0] = 0;
     HIDWORD(v33) = 16;
     BYTE8(v33) = 0;
-    v35 = 0x200000002LL;
     *((_QWORD *)&v32 + 1) = 0xC800000400LL;
     RtlStringCchPrintfA(pszDest, 0x10uLL, "%02d INT%02d", *(_DWORD *)(v22 + 176), v23);
     if ( (int)imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v32, a1 + 16) < 0 )
@@ -146,12 +142,12 @@ LABEL_8:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v24) = 4;
-      WPP_RECORDER_SF_qDD(
+      WPP_RECORDER_SF_qdd(
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
         v24,
         9,
-        30,
-        (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+        29,
+        (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
         *(_QWORD *)(a1 + 24),
         *(_DWORD *)(a1 + 104),
         *(_DWORD *)(a1 + 108));
@@ -161,7 +157,7 @@ LABEL_8:
   }
   while ( 1 )
   {
-    v13 = (_QWORD *)XilCommonBuffer_AcquireBufferEx(v8, *(_DWORD *)(a1 + 104), a1, 0x31746E49u, v9);
+    v13 = (_QWORD *)XilCommonBuffer_AcquireBufferEx(v6, *(_DWORD *)(a1 + 104), a1, 0x31746E49u, v8);
     if ( !v13 )
       break;
     v14 = (_QWORD *)v2[1];
@@ -178,7 +174,7 @@ LABEL_36:
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v27 = 29;
+    v27 = 28;
 LABEL_28:
     LOBYTE(v11) = 2;
     WPP_RECORDER_SF_(
@@ -186,16 +182,16 @@ LABEL_28:
       v11,
       9,
       v27,
-      (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids);
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids);
   }
 LABEL_29:
   v25 = -1073741670;
-  if ( v8 )
+  if ( v6 )
   {
     v28 = *(_QWORD *)(a1 + 152);
     if ( v28 )
     {
-      XilCommonBuffer_ReleaseBuffer((__int64)v8, v28);
+      XilCommonBuffer_ReleaseBuffer((__int64)v6, v28);
       *(_QWORD *)(a1 + 152) = 0LL;
     }
     while ( 1 )
@@ -210,7 +206,7 @@ LABEL_29:
         goto LABEL_36;
       *v2 = v30;
       *(_QWORD *)(v30 + 8) = v2;
-      XilCommonBuffer_ReleaseBuffer((__int64)v8, (__int64)v29);
+      XilCommonBuffer_ReleaseBuffer((__int64)v6, (__int64)v29);
     }
   }
   return v25;

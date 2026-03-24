@@ -1,22 +1,16 @@
 /*
- * XREFs of ?bSkipCHSFontSegUISymFallback@RFONTOBJ@@QEAAHGPEAVPFF@@0@Z @ 0x1C015C570
+ * XREFs of ?bSkipCHSFontSegUISymFallback@RFONTOBJ@@QEAAHGPEAVPFF@@0@Z @ 0x1C00E77DC
  * Callers:
- *     ?GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RFONTOBJ@@@Z @ 0x1C00745D4 (-GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RF.c)
- *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C02B3E3C (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C154 (GreGetGlyphOutlineInternal.c)
+ *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7408 (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RFONTOBJ::bSkipCHSFontSegUISymFallback(RFONTOBJ *this, __int16 a2, struct PFF *a3, struct PFF *a4)
+_BOOL8 __fastcall RFONTOBJ::bSkipCHSFontSegUISymFallback(RFONTOBJ *this, __int16 a2, struct PFF *a3, struct PFF *a4)
 {
-  if ( *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 32) + 13964LL)
-    || (unsigned __int16)(a2 + 0x2000) > 0x18FFu
-    || (*((_DWORD *)a4 + 13) & 0x4000) == 0 )
-  {
-    return 0LL;
-  }
-  else
-  {
-    return (*((_DWORD *)a3 + 13) >> 15) & 1;
-  }
+  return !gbAllowSCPUAFontFallback
+      && (unsigned __int16)(a2 + 0x2000) <= 0x18FFu
+      && (*((_DWORD *)a4 + 13) & 0x4000) != 0
+      && (*((_DWORD *)a3 + 13) & 0x8000) != 0;
 }

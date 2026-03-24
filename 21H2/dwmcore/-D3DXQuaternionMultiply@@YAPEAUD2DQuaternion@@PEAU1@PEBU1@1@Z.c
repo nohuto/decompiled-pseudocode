@@ -1,9 +1,9 @@
 /*
- * XREFs of ?D3DXQuaternionMultiply@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1@Z @ 0x18026DF3C
+ * XREFs of ?D3DXQuaternionMultiply@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1@Z @ 0x18021DB48
  * Callers:
- *     ?Multiply@CExpressionValueStack@@QEAAJXZ @ 0x180071DEC (-Multiply@CExpressionValueStack@@QEAAJXZ.c)
- *     ?Divide@CExpressionValueStack@@QEAAJXZ @ 0x1800724B4 (-Divide@CExpressionValueStack@@QEAAJXZ.c)
- *     ?Concatenate@CExpressionValueStack@@QEAAJXZ @ 0x18024A7F4 (-Concatenate@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Multiply@CExpressionValueStack@@QEAAJXZ @ 0x18005C4A4 (-Multiply@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Divide@CExpressionValueStack@@QEAAJXZ @ 0x18005C860 (-Divide@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Concatenate@CExpressionValueStack@@QEAAJXZ @ 0x1801FBED4 (-Concatenate@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

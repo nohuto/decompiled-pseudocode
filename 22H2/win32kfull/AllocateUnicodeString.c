@@ -1,40 +1,39 @@
 /*
- * XREFs of AllocateUnicodeString @ 0x1C00B1008
+ * XREFs of AllocateUnicodeString @ 0x1C01243E4
  * Callers:
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C002DBDC (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
- *     xxxSetClassData @ 0x1C00ADD68 (xxxSetClassData.c)
- *     InternalRegisterClassEx @ 0x1C00CB7A0 (InternalRegisterClassEx.c)
- *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0248870 (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C0065454 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     InternalRegisterClassEx @ 0x1C0079D30 (InternalRegisterClassEx.c)
+ *     xxxSetClassData @ 0x1C00FBF4C (xxxSetClassData.c)
+ *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0259A1C (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     UShortAdd @ 0x1C00B10D0 (UShortAdd.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall AllocateUnicodeString(struct _UNICODE_STRING *a1, const void **a2)
+__int64 __fastcall AllocateUnicodeString(struct _UNICODE_STRING *a1, unsigned __int16 *a2)
 {
-  USHORT v4; // si
-  WCHAR *v5; // rax
-  unsigned int v6; // eax
-  USHORT v8; // [rsp+58h] [rbp+10h] BYREF
+  unsigned __int16 v4; // ax
+  USHORT v5; // di
+  WCHAR *v6; // rax
+  unsigned int v7; // eax
 
-  v8 = 0;
   if ( !a2 )
   {
     RtlInitUnicodeString(a1, 0LL);
     return 1LL;
   }
-  if ( UShortAdd(*(_WORD *)a2, 2u, &v8) >= 0 )
+  v4 = *a2;
+  v5 = *a2 + 2;
+  if ( (unsigned __int16)(v4 + 2) >= v4 )
   {
-    v4 = v8;
-    v5 = (WCHAR *)Win32AllocPoolWithQuotaZInit(v8, 2020897621LL);
-    a1->Buffer = v5;
-    if ( v5 )
+    v6 = (WCHAR *)Win32AllocPoolWithQuota((unsigned __int16)(v4 + 2), 2020897621LL);
+    a1->Buffer = v6;
+    if ( v6 )
     {
-      memmove(v5, a2[1], *(unsigned __int16 *)a2);
-      a1->MaximumLength = v4;
-      v6 = *(unsigned __int16 *)a2;
-      a1->Length = v6;
-      a1->Buffer[(unsigned __int64)v6 >> 1] = 0;
+      memmove(v6, *((const void **)a2 + 1), *a2);
+      a1->MaximumLength = v5;
+      v7 = *a2;
+      a1->Length = v7;
+      a1->Buffer[(unsigned __int64)v7 >> 1] = 0;
       return 1LL;
     }
   }

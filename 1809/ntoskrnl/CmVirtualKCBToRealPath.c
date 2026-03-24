@@ -1,15 +1,15 @@
 /*
- * XREFs of CmVirtualKCBToRealPath @ 0x1407F21C0
+ * XREFs of CmVirtualKCBToRealPath @ 0x1407F21A0
  * Callers:
  *     CmpDoQueryKeyName @ 0x140016840 (CmpDoQueryKeyName.c)
  *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
- *     CmpVEExecuteOpenLogic @ 0x14063C020 (CmpVEExecuteOpenLogic.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDD0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BD0 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1407F5500 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpVEExecuteOpenLogic @ 0x14063C000 (CmpVEExecuteOpenLogic.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x1407F54E0 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)

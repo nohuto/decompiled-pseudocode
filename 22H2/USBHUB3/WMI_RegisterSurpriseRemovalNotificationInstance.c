@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_RegisterSurpriseRemovalNotificationInstance @ 0x1C008B304
+ * XREFs of WMI_RegisterSurpriseRemovalNotificationInstance @ 0x1C0084DA4
  * Callers:
- *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001C970 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A100 (HUBPDO_EvtDeviceUsageNotificationEx.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall WMI_RegisterSurpriseRemovalNotificationInstance(__int64 a1)
@@ -22,11 +22,11 @@ __int64 __fastcall WMI_RegisterSurpriseRemovalNotificationInstance(__int64 a1)
   int v10; // [rsp+84h] [rbp-24h]
   __int128 v11; // [rsp+88h] [rbp-20h]
 
-  HIDWORD(v7[0]) = 0;
+  v11 = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   v8 = 40;
   v10 = 1;
   v11 = 0LL;
@@ -39,7 +39,7 @@ __int64 __fastcall WMI_RegisterSurpriseRemovalNotificationInstance(__int64 a1)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *, _QWORD, __int64))(WdfFunctions_01015 + 2984))(
              WdfDriverGlobals,
              a1,
@@ -54,7 +54,7 @@ __int64 __fastcall WMI_RegisterSurpriseRemovalNotificationInstance(__int64 a1)
              2u,
              5u,
              0x12u,
-             (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids,
+             (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids,
              v6);
   }
   return result;

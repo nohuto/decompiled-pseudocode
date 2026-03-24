@@ -1,46 +1,53 @@
 /*
- * XREFs of ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C001F45C
+ * XREFs of ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C00BD7F0
  * Callers:
- *     TrackLayeredZorder @ 0x1C001F3C8 (TrackLayeredZorder.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
+ *     TrackLayeredZorder @ 0x1C00BD768 (TrackLayeredZorder.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
  * Callees:
- *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00203AC (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     GreZorderSprite @ 0x1C0021834 (GreZorderSprite.c)
+ *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004C3DC (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     GreZorderSprite @ 0x1C00BE214 (GreZorderSprite.c)
  */
 
 void __fastcall ReorderChildrenSpriteList(struct tagWND *a1, HWND *a2)
 {
-  struct tagWND *v2; // rax
+  __int64 v2; // rax
   struct tagWND *v4; // rbx
-  HWND v5; // r8
   struct tagWND *NextLayeredWindow; // rax
+  HWND v6; // rsi
 
-  v2 = (struct tagWND *)*((_QWORD *)a1 + 14);
+  v2 = *((_QWORD *)a1 + 14);
   if ( v2 )
   {
     do
     {
-      v4 = v2;
-      v2 = (struct tagWND *)*((_QWORD *)v2 + 14);
+      v4 = (struct tagWND *)v2;
+      v2 = *(_QWORD *)(v2 + 112);
     }
     while ( v2 );
     if ( v4 != a1 )
     {
-      if ( (*(_BYTE *)(*((_QWORD *)v4 + 5) + 26LL) & 8) == 0 )
-        goto LABEL_9;
-      do
+      if ( (*(_BYTE *)(*((_QWORD *)v4 + 5) + 26LL) & 8) != 0 )
       {
-        IsWindowDesktopComposed(v4);
-        if ( a2 )
-          v5 = *a2;
-        else
-          v5 = 0LL;
-        GreZorderSprite(*(HDEV *)(gpDispInfo + 40LL), *(HWND *)v4, v5);
-LABEL_9:
+        if ( !a2 )
+          goto LABEL_13;
+        v6 = *a2;
+        goto LABEL_10;
+      }
+      while ( 1 )
+      {
         NextLayeredWindow = GetNextLayeredWindow(v4);
         v4 = NextLayeredWindow;
+        if ( !NextLayeredWindow || NextLayeredWindow == (struct tagWND *)a2 )
+          break;
+        if ( a2 )
+          v6 = *a2;
+        else
+LABEL_13:
+          v6 = 0LL;
+LABEL_10:
+        IsWindowDesktopComposed(v4);
+        GreZorderSprite(*(HDEV *)(gpDispInfo + 40LL), *(HWND *)v4, v6);
       }
-      while ( NextLayeredWindow && NextLayeredWindow != (struct tagWND *)a2 );
     }
   }
 }

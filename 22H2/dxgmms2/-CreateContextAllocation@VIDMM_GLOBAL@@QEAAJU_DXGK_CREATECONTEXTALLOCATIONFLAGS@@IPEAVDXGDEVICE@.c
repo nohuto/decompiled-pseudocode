@@ -1,25 +1,24 @@
 /*
- * XREFs of ?CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C00B1DA4
+ * XREFs of ?CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C008A578
  * Callers:
- *     ?VidMmCreateContextAllocation@@YAJPEAVVIDMM_GLOBAL@@IU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@PEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C00171C0 (-VidMmCreateContextAllocation@@YAJPEAVVIDMM_GLOBAL@@IU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@PEAVDX.c)
+ *     ?VidMmCreateContextAllocation@@YAJPEAVVIDMM_GLOBAL@@IU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@PEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAU_VIDMM_CONTEXT_ALLOC@@@Z @ 0x1C0016840 (-VidMmCreateContextAllocation@@YAJPEAVVIDMM_GLOBAL@@IU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@PEAVDX.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C008E868 (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
- *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0096B10 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
- *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C009C5B0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
- *     ?OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALLOCATION@@PEAPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C00A6AF0 (-OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALL.c)
- *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1C00A7740 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
- *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A7EB0 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
- *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AB050 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
- *     VidSchInsertContextAllocation @ 0x1C00B1FBC (VidSchInsertContextAllocation.c)
- *     VidSchRemoveContextAllocation @ 0x1C00B29D0 (VidSchRemoveContextAllocation.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6EPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C005D110 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
+ *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1C005EDB4 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0069DC0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A8D0 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
+ *     ?GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z @ 0x1C006F08C (-GetVirtualAddressAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@KI@Z.c)
+ *     ?QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_NPEA_K@Z @ 0x1C0073674 (-QueueDeferredCommand@VIDMM_GLOBAL@@QEAAJAEAVVIDMM_PAGING_QUEUE@@PEAU_VIDMM_DEFERRED_COMMAND@@_N.c)
+ *     ?OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALLOCATION@@PEAPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C00765B0 (-OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALL.c)
+ *     VidSchInsertContextAllocation @ 0x1C008A834 (VidSchInsertContextAllocation.c)
+ *     VidSchRemoveContextAllocation @ 0x1C008B2F8 (VidSchRemoveContextAllocation.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::CreateContextAllocation(
         VIDMM_GLOBAL *this,
-        struct _DXGK_CREATECONTEXTALLOCATIONFLAGS a2,
-        unsigned int a3,
+        __int64 a2,
+        __int64 a3,
         struct DXGDEVICE *a4,
         struct DXGCONTEXT *a5,
         void *a6,
@@ -32,188 +31,206 @@ __int64 __fastcall VIDMM_GLOBAL::CreateContextAllocation(
         struct _DXGK_ALLOCATIONINFOFLAGS a13,
         struct _VIDMM_CONTEXT_ALLOC **a14)
 {
-  int v14; // r13d
+  int v14; // r15d
   unsigned int v15; // r10d
+  int v16; // edi
   void *v18; // r14
-  struct VIDMM_DEVICE *v19; // r15
+  struct VIDMM_DEVICE *v19; // r12
   int v20; // r14d
-  unsigned __int8 v21; // r8
-  int inserted; // esi
-  __int64 v24; // rcx
-  char v25; // dl
-  bool v26; // zf
-  int v27; // ecx
-  __int64 v28; // rcx
-  struct _KTHREAD **VirtualAddressAllocator; // rax
+  __int64 v21; // r8
+  char v22; // dl
+  bool v23; // zf
+  int v24; // ecx
+  int OneAllocation; // esi
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  struct CVirtualAddressAllocator *VirtualAddressAllocator; // rax
   unsigned int v30; // r8d
   __int64 v31; // r10
-  __int64 v32; // rcx
+  __int64 v32; // rdx
   __int64 v33; // rcx
-  struct VIDMM_ALLOC *v34; // [rsp+A0h] [rbp-80h] BYREF
-  struct _VIDMM_GLOBAL_ALLOC *v35; // [rsp+A8h] [rbp-78h] BYREF
-  _QWORD v36[18]; // [rsp+B0h] [rbp-70h] BYREF
-  unsigned int v37; // [rsp+160h] [rbp+40h]
-  void *v38; // [rsp+168h] [rbp+48h] BYREF
+  __int64 v34; // r8
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rax
+  struct VIDMM_ALLOC *v43; // [rsp+A8h] [rbp-59h] BYREF
+  struct _VIDMM_GLOBAL_ALLOC *v44; // [rsp+B0h] [rbp-51h] BYREF
+  _QWORD v45[10]; // [rsp+B8h] [rbp-49h] BYREF
+  unsigned int v46; // [rsp+148h] [rbp+47h]
+  void *v47; // [rsp+150h] [rbp+4Fh] BYREF
 
-  v37 = a3;
+  v46 = a3;
   v14 = (int)a4;
-  v35 = 0LL;
+  v44 = 0LL;
   v15 = a3;
-  v34 = 0LL;
-  v38 = 0LL;
+  v43 = 0LL;
+  v16 = a2;
+  v47 = 0LL;
   v18 = 0LL;
-  if ( !a4 )
-  {
+  if ( a4 )
+    v19 = (struct VIDMM_DEVICE *)*((_QWORD *)a4 + 95);
+  else
     v19 = 0LL;
-    goto LABEL_32;
-  }
-  v19 = (struct VIDMM_DEVICE *)*((_QWORD *)a4 + 99);
-  if ( (*(_DWORD *)(*((_QWORD *)a4 + 5) + 424LL) & 2) != 0 )
+  if ( !a4 || *(_BYTE *)(*((_QWORD *)a4 + 5) + 345LL) )
   {
-LABEL_32:
-    WdLogSingleEntry1(1LL, 2213LL);
-    DxgkLogInternalTriageEvent(v33, 0x40000LL);
-    inserted = -1073741811;
-LABEL_33:
+    v42 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v42 + 24) = 2086LL;
+    WdLogEvent5_WdAssertion(v42);
+    OneAllocation = -1073741811;
+LABEL_30:
     if ( v18 )
       VidSchRemoveContextAllocation(v18);
-    goto LABEL_16;
+    goto LABEL_32;
   }
   v20 = (int)a5;
-  v21 = *(_BYTE *)&a2.0 & 1;
-  if ( (*(_BYTE *)&a2.0 & 1) != 0 )
+  v21 = a2 & 1;
+  if ( (a2 & 1) != 0 )
   {
     if ( !a5 )
-      goto LABEL_5;
-    WdLogSingleEntry1(1LL, 2227LL);
-LABEL_15:
-    DxgkLogInternalTriageEvent(v24, 0x40000LL);
-    inserted = -1073741811;
-    goto LABEL_16;
+      goto LABEL_10;
+    v39 = WdLogNewEntry5_WdAssertion(this, a2, v21);
+    *(_QWORD *)(v39 + 24) = 2100LL;
+LABEL_20:
+    WdLogEvent5_WdAssertion(v39);
+    OneAllocation = -1073741811;
+    goto LABEL_32;
   }
   if ( !a5 )
   {
-    WdLogSingleEntry1(1LL, 2220LL);
-    goto LABEL_15;
+    v39 = WdLogNewEntry5_WdAssertion(this, a2, v21);
+    *(_QWORD *)(v39 + 24) = 2093LL;
+    goto LABEL_20;
   }
-  v25 = -1;
-  v26 = !_BitScanForward((unsigned int *)&v27, *((_DWORD *)a5 + 99));
+  v22 = -1;
+  v23 = !_BitScanForward((unsigned int *)&v24, *((_DWORD *)a5 + 103));
   a4 = a5;
   a12.0 = 0;
-  if ( !v26 )
-    v25 = v27;
-  v15 = v25;
-  v37 = v25;
-LABEL_5:
-  inserted = VIDMM_GLOBAL::CreateOneAllocation(
-               (__int64)this,
-               v19,
-               v15,
-               a7,
-               a7,
-               a8,
-               a9,
-               a10,
-               a11.Value,
-               (struct _DXGK_ALLOCATIONINFOFLAGS_WDDM2_0::$5068715F5D8591D41DA1228877FDA04B::$63766B29C143116E9EC685C38896947D)a13.0,
-               0,
-               0LL,
-               0LL,
-               (__int64)a6,
-               -1610612736,
-               v21,
-               (__int64)a4,
-               0LL,
-               0LL,
-               &v35);
-  if ( inserted >= 0 )
+  if ( !v23 )
+    v22 = v24;
+  v15 = v22;
+  v46 = v22;
+LABEL_10:
+  OneAllocation = VIDMM_GLOBAL::CreateOneAllocation(
+                    this,
+                    (__int64)v19,
+                    v15,
+                    a7,
+                    a7,
+                    a8,
+                    a9,
+                    a10,
+                    a11,
+                    (struct _DXGK_ALLOCATIONINFOFLAGS_WDDM2_0::$5068715F5D8591D41DA1228877FDA04B::$63766B29C143116E9EC685C38896947D)a13.0,
+                    0,
+                    0LL,
+                    0LL,
+                    (__int64)a6,
+                    0xA0000000,
+                    v21,
+                    (__int64)a4,
+                    0,
+                    0LL,
+                    (_D3DDDI_SEGMENTPREFERENCE **)&v44);
+  if ( OneAllocation >= 0 )
   {
     *(_BYTE *)&a12.0 = 0;
-    inserted = VIDMM_GLOBAL::OpenOneAllocation(this, v19, v35, 0LL, 0, 0LL, &v34, (unsigned __int8 *)&a12);
-    if ( inserted >= 0 )
+    OneAllocation = VIDMM_GLOBAL::OpenOneAllocation(
+                      (DXGADAPTER **)this,
+                      v19,
+                      v44,
+                      0LL,
+                      0,
+                      0LL,
+                      &v43,
+                      (unsigned __int8 *)&a12);
+    if ( OneAllocation >= 0 )
     {
-      inserted = VidSchInsertContextAllocation(
-                   *(_QWORD *)(*((_QWORD *)this + 2) + 744LL),
-                   v14,
-                   v20,
-                   (_DWORD)v34,
-                   (__int64)&v38);
-      if ( inserted < 0 )
+      OneAllocation = VidSchInsertContextAllocation(
+                        *(_QWORD *)(*((_QWORD *)this + 2) + 624LL),
+                        v14,
+                        v20,
+                        (_DWORD)v43,
+                        (__int64)&v47);
+      if ( OneAllocation < 0 )
       {
-        v18 = v38;
-        WdLogSingleEntry1(1LL, v38);
+        v40 = WdLogNewEntry5_WdAssertion(v27, v26, v28);
+      }
+      else if ( (v16 & 2) != 0
+             && (VirtualAddressAllocator = VIDMM_PROCESS::GetVirtualAddressAllocator(
+                                             *(VIDMM_PROCESS **)(*(_QWORD *)v43 + 8LL),
+                                             *(_DWORD *)(*((_QWORD *)this + 3) + 232LL),
+                                             v46),
+                 !CVirtualAddressAllocator::MapVirtualAddressRange(
+                    VirtualAddressAllocator,
+                    v31,
+                    0LL,
+                    1u,
+                    *((_QWORD *)v44 + 2),
+                    0LL,
+                    0LL,
+                    0LL,
+                    *((_DWORD *)v44 + 8),
+                    (_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE)17LL,
+                    0LL,
+                    v30,
+                    0LL,
+                    0)) )
+      {
+        v40 = WdLogNewEntry5_WdAssertion(v33, v32, v34);
+        *(_QWORD *)(v40 + 32) = 2199LL;
       }
       else
       {
-        if ( (*(_BYTE *)&a2.0 & 2) != 0 )
+        memset(v45, 0, sizeof(v45));
+        v45[2] = v43;
+        LODWORD(v45[0]) = 209;
+        LODWORD(v45[4]) = v16;
+        OneAllocation = VIDMM_GLOBAL::QueueDeferredCommand(
+                          this,
+                          (struct VIDMM_PAGING_QUEUE *)(*(_QWORD *)(*((_QWORD *)v43 + 1) + 72LL)
+                                                      + 176LL * (*((_DWORD *)v44 + 19) & 0x3F)),
+                          (struct _VIDMM_DEFERRED_COMMAND *)v45,
+                          1,
+                          0LL);
+        if ( OneAllocation >= 0 )
         {
-          VirtualAddressAllocator = (struct _KTHREAD **)VIDMM_PROCESS::GetVirtualAddressAllocator(
-                                                          *(VIDMM_PROCESS **)(*(_QWORD *)v34 + 8LL),
-                                                          *(_DWORD *)(*((_QWORD *)this + 3) + 240LL),
-                                                          v37);
-          if ( !CVirtualAddressAllocator::MapVirtualAddressRange(
-                  VirtualAddressAllocator,
-                  v31,
-                  0LL,
-                  1,
-                  *((_QWORD *)v35 + 2),
-                  0LL,
-                  0LL,
-                  0LL,
-                  *((_DWORD *)v35 + 8),
-                  17LL,
-                  0LL,
-                  v30,
-                  0LL,
-                  0) )
-          {
-            v18 = v38;
-            WdLogSingleEntry2(1LL, v38, 2326LL);
-            DxgkLogInternalTriageEvent(v32, 0x40000LL);
-            inserted = -1073741801;
-            goto LABEL_33;
-          }
+          *a14 = (struct _VIDMM_CONTEXT_ALLOC *)v47;
+          return (unsigned int)OneAllocation;
         }
-        memset(v36, 0, 0x58uLL);
-        v36[2] = v34;
-        LODWORD(v36[0]) = 209;
-        LODWORD(v36[4]) = a2;
-        inserted = VIDMM_GLOBAL::QueueDeferredCommand(
-                     this,
-                     (struct VIDMM_PAGING_QUEUE *)(*(_QWORD *)(*((_QWORD *)v34 + 1) + 80LL)
-                                                 + 176LL * (*((_DWORD *)v35 + 17) & 0x3F)),
-                     (struct _VIDMM_DEFERRED_COMMAND *)v36,
-                     1,
-                     0LL);
-        if ( inserted >= 0 )
+        if ( OneAllocation == -1071775232 )
         {
-          *a14 = (struct _VIDMM_CONTEXT_ALLOC *)v38;
-          return (unsigned int)inserted;
+          v41 = WdLogNewEntry5_WdWarning(v36, v35);
+          v18 = v47;
+          *(_QWORD *)(v41 + 24) = v47;
+          *(_QWORD *)(v41 + 32) = 2214LL;
+          WdLogEvent5_WdWarning(v41);
+          goto LABEL_30;
         }
-        if ( inserted == -1071775232 )
-        {
-          v18 = v38;
-          WdLogSingleEntry2(3LL, v38, 2342LL);
-          goto LABEL_33;
-        }
-        v18 = v38;
-        WdLogSingleEntry2(1LL, v38, 2346LL);
+        v40 = WdLogNewEntry5_WdAssertion(v36, v35, v37);
+        *(_QWORD *)(v40 + 32) = 2218LL;
       }
-      DxgkLogInternalTriageEvent(v28, 0x40000LL);
-      goto LABEL_33;
+      v18 = v47;
+      *(_QWORD *)(v40 + 24) = v47;
+      WdLogEvent5_WdAssertion(v40);
+      goto LABEL_30;
     }
   }
-LABEL_16:
-  if ( v34 )
+LABEL_32:
+  if ( v43 )
     VIDMM_GLOBAL::CloseOneAllocation(
       this,
-      (struct _KEVENT *)v34,
+      (struct _KEVENT *)v43,
       0LL,
       0,
       (struct _D3DDDICB_DESTROYALLOCATION2FLAGS)1,
       0LL);
-  if ( v35 )
-    VIDMM_GLOBAL::DestroyOneAllocation((struct _KTHREAD **)this, v19, v35, 1);
+  if ( v44 )
+    VIDMM_GLOBAL::DestroyOneAllocation(this, v19, v44, 1);
   *a14 = 0LL;
-  return (unsigned int)inserted;
+  return (unsigned int)OneAllocation;
 }

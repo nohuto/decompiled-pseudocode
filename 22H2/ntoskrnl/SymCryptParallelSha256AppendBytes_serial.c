@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptParallelSha256AppendBytes_serial @ 0x1403F5458
+ * XREFs of SymCryptParallelSha256AppendBytes_serial @ 0x1403EE91C
  * Callers:
- *     SymCryptParallelSha256Append @ 0x1403F49B0 (SymCryptParallelSha256Append.c)
+ *     SymCryptParallelSha256Append @ 0x1403ED420 (SymCryptParallelSha256Append.c)
  * Callees:
- *     SymCryptSha256AppendBlocks @ 0x1403F2F70 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256AppendBlocks @ 0x1403EBBB0 (SymCryptSha256AppendBlocks.c)
  */
 
 __int64 __fastcall SymCryptParallelSha256AppendBytes_serial(__int64 a1, unsigned __int64 a2, __int64 a3)

@@ -1,10 +1,11 @@
 /*
- * XREFs of ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z @ 0x1C0033A0C
+ * XREFs of ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z @ 0x1C00298EC
  * Callers:
- *     ?RegisterExternalResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IIW4RegistrationReason@12@@Z @ 0x1C00929E0 (-RegisterExternalResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@I.c)
+ *     ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0029990 (-CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z.c)
+ *     ?OpenSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAXI_N@Z @ 0x1C004BE9C (-OpenSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAXI_N@Z.c)
  * Callees:
- *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C003175C (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C002AAB4 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CLinearObjectTableBase::InsertObject(
@@ -12,11 +13,11 @@ __int64 __fastcall DirectComposition::CLinearObjectTableBase::InsertObject(
         void *a2,
         unsigned int a3)
 {
-  int v3; // ebx
+  int v3; // edi
   unsigned __int64 v6; // rax
-  unsigned int v7; // esi
+  unsigned int v7; // ebx
   size_t v8; // r8
-  void *Src; // [rsp+58h] [rbp+20h] BYREF
+  void *Src; // [rsp+48h] [rbp+20h] BYREF
 
   v3 = 0;
   if ( !a3 )
@@ -25,14 +26,17 @@ __int64 __fastcall DirectComposition::CLinearObjectTableBase::InsertObject(
   v7 = a3 - 1;
   if ( a3 <= v6 )
   {
-    if ( *(_QWORD *)(*((_QWORD *)this + 4) * v7 + *(_QWORD *)this) )
-      return (unsigned int)-1073741790;
-    goto LABEL_4;
+    if ( !*(_QWORD *)(v7 * *((_QWORD *)this + 4) + *(_QWORD *)this) )
+      goto LABEL_5;
+    v3 = -1073741790;
   }
-  v3 = DirectComposition::CDCompDynamicArrayBase::Grow(this, a3 - v6, 0x746C4344u);
+  else
+  {
+    v3 = DirectComposition::CDCompDynamicArrayBase::Grow(this, a3 - v6, 0x746C4344u);
+  }
   if ( v3 >= 0 )
   {
-LABEL_4:
+LABEL_5:
     v8 = *((_QWORD *)this + 4);
     Src = a2;
     memmove((void *)(*(_QWORD *)this + v8 * v7), &Src, v8);

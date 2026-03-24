@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditFipsCryptoSelftests @ 0x1409CA680
+ * XREFs of SeAuditFipsCryptoSelftests @ 0x14091D950
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeAuditFipsCryptoSelftests(char a1, unsigned int a2)
@@ -21,6 +21,8 @@ void __fastcall SeAuditFipsCryptoSelftests(char a1, unsigned int a2)
   _KPROCESS *CurrentThreadProcess; // rax
   struct _LIST_ENTRY *Flink; // r14
   int AllocatedFullProcessImageName; // ebx
+  int v8; // ecx
+  PVOID P; // [rsp+28h] [rbp-E0h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-D8h] BYREF
   _QWORD Src[132]; // [rsp+58h] [rbp-B0h] BYREF
 
@@ -29,6 +31,7 @@ void __fastcall SeAuditFipsCryptoSelftests(char a1, unsigned int a2)
   SubjectContext.ImpersonationLevel = 0x80000000;
   memset(&SubjectContext.ImpersonationLevel + 1, 0, 20);
   memset(Src, 0, 0x418uLL);
+  P = 0LL;
   LODWORD(Src[0]) = 1;
   LOWORD(Src[2]) = 102;
   SeCaptureSubjectContext(&SubjectContext);
@@ -42,14 +45,15 @@ void __fastcall SeAuditFipsCryptoSelftests(char a1, unsigned int a2)
   Src[10] = &SeSubsystemName;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
   if ( AllocatedFullProcessImageName >= 0 )
   {
     Src[11] = 0x80000000BLL;
     Src[12] = Flink;
+    v8 = *(unsigned __int16 *)P + 16;
     LODWORD(Src[15]) = 2;
-    HIDWORD(Src[15]) = MEMORY[0] + 16;
-    Src[18] = 0LL;
+    HIDWORD(Src[15]) = v8;
+    Src[18] = P;
     LODWORD(Src[1]) = 4;
     if ( a1 )
     {
@@ -67,6 +71,8 @@ void __fastcall SeAuditFipsCryptoSelftests(char a1, unsigned int a2)
     SepAdtLogAuditRecord(Src);
   }
   SeReleaseSubjectContext(&SubjectContext);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
   if ( AllocatedFullProcessImageName < 0 )
     SepAuditFailed((unsigned int)AllocatedFullProcessImageName);
 }

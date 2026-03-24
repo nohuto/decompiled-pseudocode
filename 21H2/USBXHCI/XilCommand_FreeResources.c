@@ -1,11 +1,11 @@
 /*
- * XREFs of XilCommand_FreeResources @ 0x1C002FD28
+ * XREFs of XilCommand_FreeResources @ 0x1C002FA3C
  * Callers:
- *     Command_PrepareHardware @ 0x1C006EBBC (Command_PrepareHardware.c)
- *     Command_ReleaseHardware @ 0x1C0075B98 (Command_ReleaseHardware.c)
+ *     Command_PrepareHardware @ 0x1C006DB18 (Command_PrepareHardware.c)
+ *     Command_ReleaseHardware @ 0x1C0074624 (Command_ReleaseHardware.c)
  * Callees:
- *     XilCommand_FreeSecureResources @ 0x1C002FD54 (XilCommand_FreeSecureResources.c)
- *     XilCoreCommand_FreeResources @ 0x1C00508AC (XilCoreCommand_FreeResources.c)
+ *     XilCommand_FreeSecureResources @ 0x1C002FA68 (XilCommand_FreeSecureResources.c)
+ *     XilCoreCommand_FreeResources @ 0x1C004FCA8 (XilCoreCommand_FreeResources.c)
  */
 
 __int64 __fastcall XilCommand_FreeResources(__int64 a1)

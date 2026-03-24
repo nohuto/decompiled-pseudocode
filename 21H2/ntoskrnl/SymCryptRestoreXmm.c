@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptRestoreXmm @ 0x14056AF50
+ * XREFs of SymCryptRestoreXmm @ 0x140514F40
  * Callers:
- *     SymCryptParallelSha256Process @ 0x1403FD830 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x1403EF0D4 (SymCryptParallelSha256Process.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 void SymCryptRestoreXmm()

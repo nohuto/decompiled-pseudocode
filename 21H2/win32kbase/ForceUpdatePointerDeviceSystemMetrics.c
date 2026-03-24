@@ -1,15 +1,15 @@
 /*
- * XREFs of ForceUpdatePointerDeviceSystemMetrics @ 0x1C0053830
+ * XREFs of ForceUpdatePointerDeviceSystemMetrics @ 0x1C008B410
  * Callers:
  *     <none>
  * Callees:
- *     ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C0053658 (-WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z.c)
- *     ?WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z @ 0x1C0053874 (-WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z.c)
+ *     ?WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z @ 0x1C008B454 (-WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z.c)
+ *     ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C008B5A4 (-WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z.c)
  */
 
 void __fastcall ForceUpdatePointerDeviceSystemMetrics(__int64 a1)
 {
-  _DWORD *v1; // rdi
+  struct CInputSystemMetrics *v1; // rdi
   unsigned int v2; // ebx
   __int64 v3; // rcx
   CInputSystemMetrics *v4; // rcx
@@ -18,5 +18,5 @@ void __fastcall ForceUpdatePointerDeviceSystemMetrics(__int64 a1)
   v2 = *(_DWORD *)gpInputSystemMetrics;
   CInputSystemMetrics::WriteSystemMetricsKey(a1, *(unsigned int *)gpInputSystemMetrics, 0LL);
   CInputSystemMetrics::WriteSystemMetricsKey(v3, v2, 1LL);
-  CInputSystemMetrics::WritePointerDevicePresenceKey(v4, v1[1]);
+  CInputSystemMetrics::WritePointerDevicePresenceKey(v4, *((_DWORD *)v1 + 1));
 }

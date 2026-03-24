@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCapturePageFileInfoInline @ 0x140119DB0
+ * XREFs of MiCapturePageFileInfoInline @ 0x140119DD0
  * Callers:
  *     MiWriteCompletePfn @ 0x14001E770 (MiWriteCompletePfn.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
@@ -19,13 +19,13 @@
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
  *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiWsleFree @ 0x1400B2C50 (MiWsleFree.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MiReleaseWsSwapReservationPfn @ 0x14013D890 (MiReleaseWsSwapReservationPfn.c)
- *     MiStoreWriteModifiedPages @ 0x14014CB80 (MiStoreWriteModifiedPages.c)
- *     MiStoreMarkLockedPagesModified @ 0x140153EB0 (MiStoreMarkLockedPagesModified.c)
- *     MiPurgeImageSection @ 0x140176600 (MiPurgeImageSection.c)
- *     MiSetPagesModified @ 0x1402AA6EC (MiSetPagesModified.c)
+ *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x14013D8B0 (MiReleaseWsSwapReservationPfn.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
+ *     MiStoreMarkLockedPagesModified @ 0x140153ED0 (MiStoreMarkLockedPagesModified.c)
+ *     MiPurgeImageSection @ 0x140176620 (MiPurgeImageSection.c)
+ *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

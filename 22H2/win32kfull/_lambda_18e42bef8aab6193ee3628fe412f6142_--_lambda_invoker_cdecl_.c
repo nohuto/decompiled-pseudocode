@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_ @ 0x1C00160D0
+ * XREFs of _lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_ @ 0x1C00278E0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C0095198 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C0028248 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
  */
 
 bool __fastcall lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_(__int64 a1, _OWORD *a2)
@@ -15,7 +15,7 @@ bool __fastcall lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_
     && IsWindowActivateable(*(const struct tagWND **)(a1 + 120)) )
   {
     *(_QWORD *)&v5 = *(_QWORD *)(a1 + 120);
-    *((_QWORD *)&v5 + 1) = 2LL;
+    DWORD2(v5) = 2;
     *a2 = v5;
   }
   return *(_QWORD *)a2 != 0LL;

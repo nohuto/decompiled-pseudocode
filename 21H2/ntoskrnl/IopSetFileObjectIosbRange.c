@@ -1,34 +1,34 @@
 /*
- * XREFs of IopSetFileObjectIosbRange @ 0x140935790
+ * XREFs of IopSetFileObjectIosbRange @ 0x140892814
  * Callers:
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     IopAllocateFileObjectExtension @ 0x1402A3A60 (IopAllocateFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x1402A3F70 (IopSetTypeSpecificFoExtension.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402DECF0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     IopSetTypeSpecificFoExtension @ 0x1402B7F84 (IopSetTypeSpecificFoExtension.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileObjectIosbRange(__int64 a1, __int64 a2)
 {
   _KPROCESS *i; // rdi
-  _QWORD *v3; // r15
-  int FileObjectExtension; // r14d
+  _QWORD *v3; // r14
+  int FileObjectExtension; // r15d
   _KPROCESS *Process; // rsi
   __int64 v6; // r12
   __int64 v7; // r13
@@ -36,14 +36,14 @@ __int64 __fastcall IopSetFileObjectIosbRange(__int64 a1, __int64 a2)
   _KPROCESS **inserted; // rax
   PMDL Mdl; // rsi
   char v12; // r12
-  __int16 v13; // ax
-  char v14; // al
+  unsigned __int64 v13; // rax
+  __int16 v14; // cx
   struct _LIST_ENTRY *MappedSystemVa; // rax
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   int v17; // r9d
   __int64 v18; // rax
-  __int64 v19; // rcx
-  _QWORD *v20; // rdx
+  __int64 v19; // rdx
+  _QWORD *v20; // rcx
   signed __int64 v21; // rax
   signed __int64 v22; // rax
   PMDL MemoryDescriptorList; // [rsp+38h] [rbp-A0h]
@@ -83,7 +83,7 @@ __int64 __fastcall IopSetFileObjectIosbRange(__int64 a1, __int64 a2)
     FileObjectExtension = -1073741670;
     Mdl = 0LL;
     v12 = 0;
-LABEL_60:
+LABEL_57:
     if ( Mdl )
     {
       if ( BaseAddress )
@@ -100,7 +100,7 @@ LABEL_60:
       RtlDeleteElementGenericTableAvl(&IoStatusBlockRangeTable, Buffer);
     if ( v12 == 1 )
       ExFreePoolWithTag(i, 0);
-    goto LABEL_70;
+    goto LABEL_67;
   }
   if ( !NewElement )
   {
@@ -119,18 +119,18 @@ LABEL_60:
   }
   else
   {
-    i = (_KPROCESS *)ExAllocatePool2(256LL, 48LL, 1700032329LL);
+    i = (_KPROCESS *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x65546F49u);
     v27[1] = (__int64)i;
     if ( !i )
     {
       FileObjectExtension = -1073741670;
       Mdl = 0LL;
       v12 = 0;
-      goto LABEL_60;
+      goto LABEL_57;
     }
     v31 = 1;
-    if ( Process[1].Affinity.StaticBitmap[30]
-      && ((v13 = WORD2(Process[2].Affinity.StaticBitmap[20]), v13 == 332) || v13 == 452 ? (v14 = 1) : (v14 = 0), v14) )
+    v13 = Process[1].AffinityPadding[10];
+    if ( v13 && ((v14 = *(_WORD *)(v13 + 8), v14 == 332) || v14 == 452) )
     {
       if ( (v9 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
@@ -144,7 +144,7 @@ LABEL_60:
     Mdl = IoAllocateMdl((PVOID)v9, v7, 0, 1u, 0LL);
     MemoryDescriptorList = Mdl;
     if ( !Mdl )
-      RtlRaiseStatus(-1073741670);
+      RtlRaiseStatus(0xC000009A);
     MmProbeAndLockPages(Mdl, *(_BYTE *)(a2 + 64), IoWriteAccess);
     if ( (Mdl->MdlFlags & 5) != 0 )
       MappedSystemVa = (struct _LIST_ENTRY *)Mdl->MappedSystemVa;
@@ -166,26 +166,30 @@ LABEL_60:
     }
   }
   if ( FileObjectExtension < 0 )
-    goto LABEL_58;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 48LL, 1700032329LL);
-  v3 = Pool2;
-  if ( !Pool2 )
+    goto LABEL_55;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x65546F49u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     FileObjectExtension = -1073741670;
     v12 = v31;
-    goto LABEL_60;
+    goto LABEL_57;
   }
-  *Pool2 = v9;
-  Pool2[1] = v9 + (unsigned int)v7;
-  Pool2[3] = v9 + (char *)i->ProfileListHead.Blink - (char *)i->Header.WaitListHead.Flink;
-  Pool2[2] = i->ProfileListHead.Flink;
-  Pool2[5] = 0LL;
+  PoolWithTag[2] = 0LL;
+  PoolWithTag[3] = 0LL;
+  PoolWithTag[4] = 0LL;
+  PoolWithTag[5] = 0LL;
+  *PoolWithTag = v9;
+  PoolWithTag[1] = v9 + (unsigned int)v7;
+  PoolWithTag[3] = v9 + (char *)i->ProfileListHead.Blink - (char *)i->Header.WaitListHead.Flink;
+  PoolWithTag[2] = i->ProfileListHead.Flink;
+  PoolWithTag[5] = 0LL;
   ObfReferenceObjectWithTag(Object, 0x70436F49u);
   v3[4] = Object;
   FileObjectExtension = IopAllocateFileObjectExtension(a1, v27);
   if ( FileObjectExtension < 0 )
   {
-LABEL_58:
+LABEL_55:
     v12 = v31;
   }
   else
@@ -204,14 +208,14 @@ LABEL_58:
           {
             v20 = (_QWORD *)v20[5];
             if ( !v20 )
-              goto LABEL_46;
+              goto LABEL_43;
           }
           ObfDereferenceObjectWithTag(Object, 0x70436F49u);
           ExFreePoolWithTag(v3, 0);
           FileObjectExtension = 0;
-          goto LABEL_70;
+          goto LABEL_67;
         }
-LABEL_46:
+LABEL_43:
         v21 = *(_QWORD *)(v18 + 40);
         v3[5] = v21;
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v19 + 40), (signed __int64)v3, v21) != v3[5] )
@@ -230,7 +234,7 @@ LABEL_46:
     }
     v12 = v31;
     if ( FileObjectExtension < 0 )
-      goto LABEL_60;
+      goto LABEL_57;
     if ( v31 == 1 )
     {
       if ( NewElement == 1 )
@@ -245,8 +249,8 @@ LABEL_46:
     }
   }
   if ( FileObjectExtension < 0 )
-    goto LABEL_60;
-LABEL_70:
+    goto LABEL_57;
+LABEL_67:
   KeReleaseGuardedMutex(&IoStatusBlockRangeTableLock);
   return (unsigned int)FileObjectExtension;
 }

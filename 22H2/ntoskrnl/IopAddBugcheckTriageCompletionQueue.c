@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAddBugcheckTriageCompletionQueue @ 0x14055BDBC
+ * XREFs of IopAddBugcheckTriageCompletionQueue @ 0x14050AF8C
  * Callers:
- *     IopAddBugcheckPnpTriageData @ 0x14055BAF8 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14055BB60 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14050ACE0 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050AD48 (IopAddBugcheckPnpWatchdogTriageData.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403A7C94 (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14055BF80 (IopAddBugcheckTriageDeviceNode.c)
+ *     KiIsAddressRangeValid @ 0x1403C9B9C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14050B150 (IopAddBugcheckTriageDeviceNode.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageCompletionQueue(_QWORD **MaxDataSize)

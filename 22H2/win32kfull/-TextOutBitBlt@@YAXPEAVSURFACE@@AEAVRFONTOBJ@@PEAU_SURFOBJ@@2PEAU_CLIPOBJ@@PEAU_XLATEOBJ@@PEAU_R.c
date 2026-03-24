@@ -1,19 +1,18 @@
 /*
- * XREFs of ?TextOutBitBlt@@YAXPEAVSURFACE@@AEAVRFONTOBJ@@PEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C02BFB00
+ * XREFs of ?TextOutBitBlt@@YAXPEAVSURFACE@@AEAVRFONTOBJ@@PEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C0100050
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C010BA70 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
- *     ?EngTextOutBitBlt@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@KPEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C0293950 (-EngTextOutBitBlt@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@KPEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PE.c)
- *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C029FAB8 (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
+ *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C0005FCC (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092300 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     ?EngTextOutBitBlt@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@KPEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@6PEAU_BRUSHOBJ@@6K@Z @ 0x1C028F9AC (-EngTextOutBitBlt@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@KPEAU_SURFOBJ@@2PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PE.c)
  * Callees:
- *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C00B265C (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C02BFC6C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C02BFF40 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013C6B4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013C88C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall TextOutBitBlt(
-        struct SURFACE *this,
+        struct SURFACE *a1,
         struct RFONTOBJ *a2,
         struct _SURFOBJ *a3,
         struct _SURFOBJ *a4,
@@ -26,58 +25,70 @@ void __fastcall TextOutBitBlt(
         struct _POINTL *a11)
 {
   int *v11; // rbx
-  unsigned int v13; // esi
-  unsigned int v14; // r14d
-  int v15; // r12d
-  __int64 v17; // rax
-  int v18; // eax
-  int (*v19)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int); // rax
-  unsigned int v20; // [rsp+60h] [rbp-59h] BYREF
-  unsigned int v21; // [rsp+64h] [rbp-55h] BYREF
-  int *v22; // [rsp+68h] [rbp-51h] BYREF
-  struct _POINTL *v23; // [rsp+70h] [rbp-49h]
-  struct _BRUSHOBJ *v24; // [rsp+78h] [rbp-41h]
-  struct _RECTL *v25; // [rsp+80h] [rbp-39h]
-  int v26[10]; // [rsp+88h] [rbp-31h] BYREF
+  struct _RECTL *v12; // r8
+  struct _BRUSHOBJ *v14; // r9
+  unsigned int v15; // r14d
+  struct _POINTL *v16; // r11
+  unsigned int v17; // r15d
+  int v18; // r12d
+  int v19; // ecx
+  BOOL (__stdcall *v21)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rax
+  int v22; // eax
+  unsigned int v23; // [rsp+60h] [rbp-59h] BYREF
+  unsigned int v24; // [rsp+64h] [rbp-55h] BYREF
+  int *v25; // [rsp+68h] [rbp-51h] BYREF
+  struct _RECTL *v26; // [rsp+70h] [rbp-49h]
+  struct _BRUSHOBJ *v27; // [rsp+78h] [rbp-41h]
+  struct _POINTL *v28; // [rsp+80h] [rbp-39h]
+  int v29[10]; // [rsp+88h] [rbp-31h] BYREF
 
-  v11 = v26;
-  v25 = a7;
-  v13 = 0;
-  v14 = 0;
-  v24 = a10;
+  v11 = v29;
+  v12 = a7;
+  v14 = a10;
   v15 = 0;
-  v23 = a11;
-  v17 = *((_QWORD *)this + 6);
-  v20 = 0;
-  v21 = 0;
-  v22 = v26;
-  if ( (*(_DWORD *)(v17 + 40) & 0x8080) == 0x8080 && *(_QWORD *)a2 )
+  v16 = a11;
+  v17 = 0;
+  v18 = 0;
+  v19 = *(_DWORD *)(*((_QWORD *)a1 + 6) + 40LL) & 0x8080;
+  v26 = a7;
+  v27 = a10;
+  v28 = a11;
+  v23 = 0;
+  v24 = 0;
+  v25 = v29;
+  if ( v19 == 32896 && *(_QWORD *)a2 )
   {
-    v18 = UMPDReleaseRFONTSem(a2, 0LL, &v20, &v21, &v22);
-    v13 = v20;
-    v15 = v18;
-    v14 = v21;
-    v11 = v22;
+    v22 = UMPDReleaseRFONTSem(a2, 0LL, &v23, &v24, &v25);
+    v12 = v26;
+    v18 = v22;
+    v14 = v27;
+    v16 = v28;
+    v15 = v23;
+    v17 = v24;
+    v11 = v25;
   }
-  v19 = SURFACE::pfnBitBlt(this);
-  ((void (__fastcall *)(unsigned __int64, _QWORD, _QWORD, struct _CLIPOBJ *, _QWORD, struct _RECTL *, _QWORD, _QWORD, struct _BRUSHOBJ *, struct _POINTL *, int))v19)(
-    ((unsigned __int64)this + 24) & -(__int64)(this != 0LL),
+  if ( (*((_DWORD *)a1 + 28) & 1) != 0 )
+    v21 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*((_QWORD *)a1 + 6) + 2832LL);
+  else
+    v21 = EngBitBlt;
+  ((void (__fastcall *)(unsigned __int64, _QWORD, _QWORD, struct _CLIPOBJ *, _QWORD, struct _RECTL *, _QWORD, _QWORD, struct _BRUSHOBJ *, struct _POINTL *, int))v21)(
+    ((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL),
     0LL,
     0LL,
     a5,
     0LL,
-    v25,
+    v12,
     0LL,
     0LL,
-    v24,
-    v23,
+    v14,
+    v16,
     61680);
-  if ( v15 )
+  if ( v18 )
   {
-    UMPDAcquireRFONTSem(a2, 0LL, v13, v14, v11);
+    UMPDAcquireRFONTSem(a2, 0LL, v15, v17, v11);
     if ( v11 )
     {
-      if ( v11 != v26 )
+      if ( v11 != v29 )
         Win32FreePool(v11);
     }
   }

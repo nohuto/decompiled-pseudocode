@@ -1,75 +1,107 @@
 /*
- * XREFs of MiDereferenceSessionFinal @ 0x140681B80
+ * XREFs of MiDereferenceSessionFinal @ 0x140778220
  * Callers:
- *     MiDereferenceSession @ 0x1407E1140 (MiDereferenceSession.c)
+ *     MiDereferenceSession @ 0x140697868 (MiDereferenceSession.c)
  * Callees:
- *     MiUnlinkSessionWorkingSet @ 0x140200794 (MiUnlinkSessionWorkingSet.c)
- *     MiMarkSessionDeletePending @ 0x1402007FC (MiMarkSessionDeletePending.c)
- *     MiSessionUnlinkProcess @ 0x14020086C (MiSessionUnlinkProcess.c)
- *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
- *     MiPartitionIdToPointer @ 0x14020B9E4 (MiPartitionIdToPointer.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiReturnResident @ 0x140292CF0 (MiReturnResident.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiDetachProcessFromSession @ 0x14033EE48 (MiDetachProcessFromSession.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MiSessionUnloadAllImages @ 0x140681CD8 (MiSessionUnloadAllImages.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     ExpWnfDeleteScopeById @ 0x1407CCDEC (ExpWnfDeleteScopeById.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     MiReturnResident @ 0x1402E9FEC (MiReturnResident.c)
+ *     MiDetachProcessFromSession @ 0x140310F88 (MiDetachProcessFromSession.c)
+ *     MiPartitionIdToPointer @ 0x1403253D8 (MiPartitionIdToPointer.c)
+ *     MiDeleteSessionAddressSpace @ 0x140388EEC (MiDeleteSessionAddressSpace.c)
+ *     MiSessionUnlinkProcess @ 0x140389010 (MiSessionUnlinkProcess.c)
+ *     ExCleanupSessionHeapManager @ 0x140389110 (ExCleanupSessionHeapManager.c)
+ *     MiFreeSessionSpaceMap @ 0x140389610 (MiFreeSessionSpaceMap.c)
+ *     MiUnlinkSessionWorkingSet @ 0x140389648 (MiUnlinkSessionWorkingSet.c)
+ *     MiMarkSessionDeletePending @ 0x1403896B0 (MiMarkSessionDeletePending.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpWnfDeleteScopeById @ 0x140613A18 (ExpWnfDeleteScopeById.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     MiCheckSessionPoolAllocations @ 0x1407783F0 (MiCheckSessionPoolAllocations.c)
+ *     MiSessionUnloadAllImages @ 0x1407784DC (MiSessionUnloadAllImages.c)
  */
 
 unsigned __int64 MiDereferenceSessionFinal()
 {
-  _KPROCESS *Process; // rdi
-  __int64 v1; // rbx
-  __int64 v2; // rsi
-  void (__fastcall *v3)(_QWORD); // rax
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v5; // rcx
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 Process; // rsi
+  unsigned __int64 v2; // rdi
+  __int64 v3; // r14
+  void (__fastcall *v4)(_QWORD); // rax
+  struct _KTHREAD *v5; // rax
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rcx
   unsigned __int64 result; // rax
-  void *v7; // rcx
-  _OWORD v8[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v9; // [rsp+40h] [rbp-28h]
-  __int64 v10; // [rsp+50h] [rbp-18h]
-  int v11; // [rsp+70h] [rbp+8h] BYREF
+  void *v13; // rcx
+  __int128 v14; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v15; // [rsp+30h] [rbp-38h]
+  __int128 v16; // [rsp+40h] [rbp-28h]
+  int v17; // [rsp+70h] [rbp+8h] BYREF
 
-  memset(v8, 0, sizeof(v8));
-  v10 = 0LL;
-  v9 = 0LL;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  v1 = Process[1].Affinity.StaticBitmap[25];
-  v2 = MiPartitionIdToPointer(*(_WORD *)(v1 + 366));
-  MiMarkSessionDeletePending(v1);
-  if ( *(_QWORD *)(v1 + 56) )
-  {
-    KeSetEvent(*(PRKEVENT *)(v1 + 48), 1, 0);
-    ObCloseHandle(*(HANDLE *)(v1 + 56), 0);
-  }
-  v3 = *(void (__fastcall **)(_QWORD))(v1 + 608);
-  if ( (unsigned __int64)v3 > 1 )
-    v3(0LL);
-  MiSessionUnloadAllImages();
-  MiUnlinkSessionWorkingSet(v1);
-  v11 = *(_DWORD *)(v1 + 8);
+  v14 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExpWnfDeleteScopeById(1LL, &v11);
-  KeLeaveCriticalRegion();
-  if ( Process[1].Affinity.StaticBitmap[2] )
+  Process = (__int64)CurrentThread->ApcState.Process;
+  v2 = *(_QWORD *)(Process + 1368);
+  v3 = MiPartitionIdToPointer(*(_WORD *)(v2 + 430));
+  MiMarkSessionDeletePending(v2);
+  if ( *(_QWORD *)(v2 + 80) )
   {
-    MiSessionUnlinkProcess(v5, (__int64)Process);
-    Process[1].Affinity.StaticBitmap[2] = 0LL;
+    KeSetEvent(*(PRKEVENT *)(v2 + 72), 1, 0);
+    ObCloseHandle(*(HANDLE *)(v2 + 80), 0);
   }
-  MiDeleteSessionAddressSpace(v1, (__int64)v8);
-  MiDetachProcessFromSession(0LL);
-  MiReturnCommit(v2, v9 - *((_QWORD *)&v8[0] + 1));
-  MiReturnResident(v2, *(unsigned __int64 *)&v8[0]);
-  result = MiReturnResident(v2, *(_QWORD *)(v1 + 304));
-  v7 = *(void **)(v1 + 784);
-  if ( v7 )
-    result = ObfDereferenceObjectWithTag(v7, 0x73536D4Du);
-  *(_QWORD *)(v1 + 784) = 0LL;
+  v4 = *(void (__fastcall **)(_QWORD))(v2 + 680);
+  if ( (unsigned __int64)v4 > 1 )
+    v4(0LL);
+  MiSessionUnloadAllImages();
+  MiUnlinkSessionWorkingSet(v2);
+  v17 = *(_DWORD *)(v2 + 8);
+  v5 = KeGetCurrentThread();
+  --v5->KernelApcDisable;
+  ExpWnfDeleteScopeById(1LL, &v17, 4u);
+  KeLeaveCriticalRegion();
+  MiFreeSessionSpaceMap();
+  v6 = *(_DWORD *)(v2 + 4);
+  if ( (v6 & 1) != 0 )
+  {
+    ExCleanupSessionHeapManager();
+    *(_DWORD *)(v2 + 4) |= 0x100u;
+    MiCheckSessionPoolAllocations(v8, v7, v9, v10, v14, *((_QWORD *)&v14 + 1));
+    v6 = *(_DWORD *)(v2 + 4);
+  }
+  if ( (v6 & 0x180) == 0x80 )
+    ExCleanupSessionHeapManager();
+  --CurrentThread->SpecialApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4DDC8, 0LL);
+  *(_DWORD *)(v2 + 4) |= 0x20u;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4DDC8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4DDC8);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4DDC8);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( *(_QWORD *)(Process + 1184) )
+  {
+    MiSessionUnlinkProcess(v11, Process);
+    *(_QWORD *)(Process + 1184) = 0LL;
+  }
+  MiDeleteSessionAddressSpace(v2, &v14);
+  MiDetachProcessFromSession(0);
+  MiReturnCommit(v3, *((_QWORD *)&v15 + 1) - *((_QWORD *)&v14 + 1));
+  MiReturnResident(v3, v14);
+  result = MiReturnResident(v3, *(_QWORD *)(v2 + 368));
+  v13 = *(void **)(v2 + 1048);
+  if ( v13 )
+    result = ObfDereferenceObjectWithTag(v13, 0x73536D4Du);
+  *(_QWORD *)(v2 + 1048) = 0LL;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F823C
+ * XREFs of ?MapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00C2158
  * Callers:
- *     ?BeginTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F7B30 (-BeginTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@.c)
+ *     ?BeginTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00C1530 (-BeginTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall VIDMM_APERTURE_SEGMENT::MapTemporaryResource(
@@ -24,32 +24,32 @@ void __fastcall VIDMM_APERTURE_SEGMENT::MapTemporaryResource(
     v9[4] = a3;
     v9[5] = a4;
   }
-  (*(void (__fastcall **)(VIDMM_APERTURE_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, unsigned __int64, unsigned __int64, _QWORD, struct _MDL *, int, bool))(*(_QWORD *)this + 200LL))(
+  (*(void (__fastcall **)(VIDMM_APERTURE_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, unsigned __int64, unsigned __int64, _QWORD, struct _MDL *, int, bool))(*(_QWORD *)this + 224LL))(
     this,
     a2,
     a4 >> 12,
-    (*((_QWORD *)a2 + 29) + a3) >> 12,
-    *((_QWORD *)a2 + 29) >> 12,
+    (*((_QWORD *)a2 + 31) + a3) >> 12,
+    *((_QWORD *)a2 + 31) >> 12,
     a5,
     1,
-    (**((_DWORD **)a2 + 67) & 0x800004) == 4);
+    (**((_DWORD **)a2 + 62) & 0x800004) == 4);
   for ( i = 0LL; i < a3; i += 4096LL )
-    (*(void (__fastcall **)(VIDMM_APERTURE_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, __int64, unsigned __int64, _QWORD, _QWORD, int, _DWORD))(*(_QWORD *)this + 200LL))(
+    (*(void (__fastcall **)(VIDMM_APERTURE_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, __int64, unsigned __int64, _QWORD, _QWORD, int, _DWORD))(*(_QWORD *)this + 224LL))(
       this,
       a2,
       1LL,
-      (*((_QWORD *)a2 + 29) + i) >> 12,
-      *((_QWORD *)a2 + 29) >> 12,
+      (*((_QWORD *)a2 + 31) + i) >> 12,
+      *((_QWORD *)a2 + 31) >> 12,
       *((_QWORD *)this + 34),
       1,
       0);
   for ( j = a4 + i; j < *((_QWORD *)a2 + 1); j += 4096LL )
-    (*(void (__fastcall **)(VIDMM_APERTURE_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, __int64, unsigned __int64, _QWORD, _QWORD, int, _DWORD))(*(_QWORD *)this + 200LL))(
+    (*(void (__fastcall **)(VIDMM_APERTURE_SEGMENT *, struct _VIDMM_GLOBAL_ALLOC *, __int64, unsigned __int64, _QWORD, _QWORD, int, _DWORD))(*(_QWORD *)this + 224LL))(
       this,
       a2,
       1LL,
-      (*((_QWORD *)a2 + 29) + j) >> 12,
-      *((_QWORD *)a2 + 29) >> 12,
+      (*((_QWORD *)a2 + 31) + j) >> 12,
+      *((_QWORD *)a2 + 31) >> 12,
       *((_QWORD *)this + 34),
       1,
       0);

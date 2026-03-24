@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppb16_EtwWriteTransfer @ 0x1C004AD44
+ * XREFs of McTemplateK0ppb16_EtwWriteTransfer @ 0x1C004878C
  * Callers:
- *     Command_InternalSendCommand @ 0x1C000A9C8 (Command_InternalSendCommand.c)
+ *     Command_InternalSendCommand @ 0x1C0006D80 (Command_InternalSendCommand.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppb16_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

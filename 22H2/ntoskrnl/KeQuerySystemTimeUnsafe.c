@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQuerySystemTimeUnsafe @ 0x1402BF7EC
+ * XREFs of KeQuerySystemTimeUnsafe @ 0x140341ED8
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspAllocateThread @ 0x140740EE0 (PspAllocateThread.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,15 @@
 /*
- * XREFs of ACPIGetConvertToCompatibleIDWide @ 0x1C00298C4
+ * XREFs of ACPIGetConvertToCompatibleIDWide @ 0x1C0027D58
  * Callers:
- *     ACPIGetConvertToCompatibleID @ 0x1C002985C (ACPIGetConvertToCompatibleID.c)
- *     ACPIGetWorkerForString @ 0x1C002B880 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
+ *     ACPIGetConvertToCompatibleID @ 0x1C0027CF0 (ACPIGetConvertToCompatibleID.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
- *     ACPIGetConvertToPnpIDWide @ 0x1C002A670 (ACPIGetConvertToPnpIDWide.c)
- *     ACPIGetConvertToStringWideWithPrepend @ 0x1C002AA84 (ACPIGetConvertToStringWideWithPrepend.c)
- *     ACPIAnsiStringToWideHelper @ 0x1C004390C (ACPIAnsiStringToWideHelper.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C000C9C4 (ACPIAnsiStringToWideHelper.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C00281E0 (ACPIGetConvertToPnpIDWide.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIGetConvertToStringWideWithPrepend @ 0x1C0055D3C (ACPIGetConvertToStringWideWithPrepend.c)
  */
 
 __int64 __fastcall ACPIGetConvertToCompatibleIDWide(
@@ -16,219 +17,243 @@ __int64 __fastcall ACPIGetConvertToCompatibleIDWide(
         int a2,
         __int64 a3,
         int a4,
-        _QWORD *a5,
+        char **a5,
         unsigned int *a6)
 {
-  unsigned int v6; // r12d
-  int v10; // ebp
-  __int64 v11; // rax
-  const char *v12; // rdi
-  __int64 v13; // rbx
-  unsigned int v14; // ebx
-  char *Pool2; // rax
-  char *v16; // rsi
-  __int64 v18; // rdi
-  void *v19; // r14
-  __int64 v20; // rax
-  unsigned int *v21; // r15
-  __int64 v22; // rbp
-  unsigned int *v23; // r8
-  int v24; // eax
-  unsigned int v25; // ebx
-  int v26; // eax
-  int v27; // eax
-  unsigned int v28; // r12d
-  __int64 v29; // rax
-  char *v30; // r13
-  unsigned int *v31; // rsi
-  const void **v32; // rbp
-  unsigned __int64 v33; // rax
-  bool v34; // zf
-  PVOID *v35; // rsi
-  unsigned int *v36; // [rsp+30h] [rbp-38h]
-  unsigned int *v37; // [rsp+30h] [rbp-38h]
-  __int64 v38; // [rsp+30h] [rbp-38h]
-  int *v39; // [rsp+38h] [rbp-30h]
-  __int64 v40; // [rsp+38h] [rbp-30h]
-  int v41; // [rsp+70h] [rbp+8h]
+  int v9; // ebx
+  __int64 v10; // rax
+  unsigned __int16 v11; // ax
+  __int64 v12; // rdi
+  PVOID *PoolWithTag; // rax
+  PVOID *v14; // r14
+  int *v15; // rax
+  int *v16; // r15
+  int v17; // eax
+  unsigned int v18; // ebp
+  char *v19; // rax
+  char *v20; // r13
+  unsigned int *v21; // rsi
+  const void **v22; // r12
+  char *v23; // r15
+  unsigned __int64 v24; // rax
+  bool v25; // zf
+  PVOID *v26; // rsi
+  const char *v28; // rdi
+  __int64 v29; // rbx
+  unsigned int v30; // ebx
+  unsigned int v31; // ebp
+  char *v32; // rax
+  char *v33; // rsi
+  __int64 v34; // r12
+  unsigned int *v35; // r13
+  int v36; // eax
+  int v37; // eax
+  unsigned int *v38; // [rsp+30h] [rbp-58h]
+  size_t Size; // [rsp+38h] [rbp-50h]
+  int *Sizea; // [rsp+38h] [rbp-50h]
+  int *v41; // [rsp+40h] [rbp-48h]
+  int v42; // [rsp+90h] [rbp+8h]
+  unsigned int v43; // [rsp+98h] [rbp+10h]
 
-  v41 = a1;
-  v36 = 0LL;
-  v6 = 0;
-  v10 = a1;
-  if ( (a4 & 0x4000000) == 0 )
+  v42 = a1;
+  v38 = 0LL;
+  v43 = 0;
+  v9 = a2;
+  if ( (a4 & 0x4000000) != 0 || (v10 = *(_QWORD *)(a1 + 8), (v10 & 0x1000000000LL) == 0) )
   {
-    v11 = *(_QWORD *)(a1 + 8);
-    if ( (v11 & 0x1000000000LL) != 0 )
+    if ( a2 < 0 )
+      return (unsigned int)a2;
+    v11 = *(_WORD *)(a3 + 2);
+    if ( v11 )
     {
-      if ( v11 >= 0 )
-        v12 = (const char *)&AcpiProcessorCompatId;
-      else
-        v12 = *(const char **)(a1 + 184);
-      v13 = -1LL;
-      do
-        ++v13;
-      while ( v12[v13] );
-      v14 = v13 + 2;
-      Pool2 = (char *)ExAllocatePool2(
-                        (-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                        2 * v14,
-                        1399874369LL);
-      v16 = Pool2;
-      if ( Pool2 )
+      if ( v11 <= 2u )
       {
-        RtlStringCchPrintfA(Pool2, v14, "%s", v12);
-        ACPIAnsiStringToWideHelper(v16, 2 * v14);
-        *a5 = v16;
-        if ( a6 )
-          *a6 = 2 * v14;
-        return 0LL;
+        v12 = 1LL;
+        goto LABEL_7;
       }
-      return 3221225626LL;
-    }
-  }
-  if ( a2 < 0 )
-    return (unsigned int)a2;
-  if ( *(_WORD *)(a3 + 2) == 1 || *(_WORD *)(a3 + 2) == 2 )
-  {
-    v18 = 1LL;
-  }
-  else
-  {
-    if ( *(_WORD *)(a3 + 2) != 4 )
-      return 3222536207LL;
-    v36 = *(unsigned int **)(a3 + 32);
-    v18 = *v36;
-    if ( *(unsigned int *)(a3 + 24) < (unsigned __int64)(40 * v18 + 8) )
-      return 3222536207LL;
-    v10 = a1;
-  }
-  v19 = (void *)ExAllocatePool2(64LL, 8 * v18, 1299211073LL);
-  if ( !v19 )
-    return 3221225626LL;
-  v20 = ExAllocatePool2(64LL, 4 * v18, 1299211073LL);
-  v21 = (unsigned int *)v20;
-  if ( !v20 )
-  {
-    ExFreePoolWithTag(v19, 0);
-    return 3221225626LL;
-  }
-  if ( *(_WORD *)(a3 + 2) == 1 )
-  {
-    v27 = ACPIGetConvertToPnpIDWide(v10, a2, a3, a4, (__int64)v19, v20);
-  }
-  else
-  {
-    if ( *(_WORD *)(a3 + 2) != 2 )
-    {
-      if ( *(_WORD *)(a3 + 2) == 4 )
+      if ( v11 == 4 )
       {
-        v22 = 0LL;
-        if ( (_DWORD)v18 )
+        v38 = *(unsigned int **)(a3 + 32);
+        v12 = *v38;
+        if ( *(unsigned int *)(a3 + 24) >= (unsigned __int64)(40 * v12 + 8) )
         {
-          v23 = v36 + 2;
-          v39 = (int *)v20;
-          v37 = v36 + 2;
-          while ( 1 )
+LABEL_7:
+          PoolWithTag = (PVOID *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)v12, 0x4D706341u);
+          v14 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            if ( *((_WORD *)v23 + 1) == 1 )
+            memset(PoolWithTag, 0, 8LL * (unsigned int)v12);
+            v15 = (int *)ExAllocatePoolWithTag(NonPagedPoolNx, 4LL * (unsigned int)v12, 0x4D706341u);
+            v41 = v15;
+            v16 = v15;
+            if ( v15 )
             {
-              v24 = ACPIGetConvertToPnpIDWide(v41, a2, (_DWORD)v23, a4, (__int64)v19 + 8 * v22, (__int64)&v21[v22]);
+              memset(v15, 0, 4LL * (unsigned int)v12);
+              if ( *(_WORD *)(a3 + 2) == 1 )
+              {
+                v17 = ACPIGetConvertToPnpIDWide(v42, a2, a3, a4, (__int64)v14, (__int64)v16);
+              }
+              else
+              {
+                if ( *(_WORD *)(a3 + 2) != 2 )
+                {
+                  if ( *(_WORD *)(a3 + 2) == 4 )
+                  {
+                    v34 = 0LL;
+                    if ( (_DWORD)v12 )
+                    {
+                      v35 = v38 + 2;
+                      Sizea = v16;
+                      while ( 1 )
+                      {
+                        if ( *((_WORD *)v35 + 1) == 1 )
+                        {
+                          v36 = ACPIGetConvertToPnpIDWide(
+                                  v42,
+                                  a2,
+                                  (_DWORD)v35,
+                                  a4,
+                                  (__int64)&v14[v34],
+                                  (__int64)&v16[v34]);
+                        }
+                        else
+                        {
+                          if ( *((_WORD *)v35 + 1) != 2 )
+                            KeBugCheckEx(0xA3u, 1uLL, 0x6039DuLL, 0LL, 0LL);
+                          v36 = ACPIGetConvertToStringWideWithPrepend(
+                                  (int)v16 + 4 * (int)v34,
+                                  a2,
+                                  (_DWORD)v35,
+                                  a4,
+                                  (__int64)&v14[v34],
+                                  (__int64)&v16[v34]);
+                        }
+                        v9 = v36;
+                        if ( v36 < 0 )
+                          break;
+                        v37 = *Sizea;
+                        if ( *Sizea == 1 )
+                        {
+                          v37 = 0;
+                          *Sizea = 0;
+                        }
+                        v43 += v37;
+                        v34 = (unsigned int)(v34 + 1);
+                        ++Sizea;
+                        v35 += 10;
+                        if ( (unsigned int)v34 >= (unsigned int)v12 )
+                          goto LABEL_56;
+                      }
+                    }
+                    else
+                    {
+LABEL_56:
+                      if ( v9 >= 0 )
+                        goto LABEL_13;
+                    }
+                    v12 = (unsigned int)v34;
+                  }
+LABEL_12:
+                  if ( v9 < 0 )
+                  {
+LABEL_23:
+                    if ( (_DWORD)v12 )
+                    {
+                      v26 = v14;
+                      do
+                      {
+                        if ( *v26 )
+                          ExFreePoolWithTag(*v26, 0);
+                        ++v26;
+                        --v12;
+                      }
+                      while ( v12 );
+                    }
+                    ExFreePoolWithTag(v16, 0);
+                    ExFreePoolWithTag(v14, 0);
+                    return (unsigned int)v9;
+                  }
+LABEL_13:
+                  if ( v43 <= 2 )
+                  {
+                    v9 = -1072431089;
+                  }
+                  else
+                  {
+                    v18 = v43 + 2;
+                    v19 = (char *)ExAllocatePoolWithTag(
+                                    (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                                    v43 + 2,
+                                    0x53706341u);
+                    v20 = v19;
+                    if ( v19 )
+                    {
+                      memset(v19, 0, v18);
+                      if ( (_DWORD)v12 )
+                      {
+                        v21 = (unsigned int *)v16;
+                        Size = (unsigned int)v12;
+                        v22 = (const void **)v14;
+                        v23 = v20;
+                        do
+                        {
+                          if ( *v22 )
+                            memmove(v23, *v22, *v21);
+                          ++v22;
+                          v24 = (unsigned __int64)*v21++ >> 1;
+                          v25 = Size-- == 1;
+                          v23 += 2 * v24;
+                        }
+                        while ( !v25 );
+                        v16 = v41;
+                      }
+                      *a5 = v20;
+                      if ( a6 )
+                        *a6 = v18;
+                    }
+                    else
+                    {
+                      v9 = -1073741670;
+                    }
+                  }
+                  goto LABEL_23;
+                }
+                v17 = ACPIGetConvertToStringWideWithPrepend(0, a2, a3, a4, (__int64)v14, (__int64)v16);
+              }
+              v9 = v17;
+              v43 = *v16;
+              goto LABEL_12;
             }
-            else
-            {
-              if ( *((_WORD *)v23 + 1) != 2 )
-                KeBugCheckEx(0xA3u, 1uLL, 0x60396uLL, 0LL, 0LL);
-              v24 = ACPIGetConvertToStringWideWithPrepend(
-                      (int)v21 + 4 * (int)v22,
-                      a2,
-                      (_DWORD)v23,
-                      a4,
-                      (__int64)v19 + 8 * v22,
-                      (__int64)&v21[v22]);
-            }
-            v25 = v24;
-            if ( v24 < 0 )
-              break;
-            v26 = *v39;
-            if ( *v39 == 1 )
-            {
-              v26 = 0;
-              *v39 = 0;
-            }
-            v23 = v37 + 10;
-            ++v39;
-            v6 += v26;
-            v37 += 10;
-            v22 = (unsigned int)(v22 + 1);
-            if ( (unsigned int)v22 >= (unsigned int)v18 )
-              goto LABEL_44;
+            ExFreePoolWithTag(v14, 0);
           }
-          v18 = (unsigned int)v22;
-          goto LABEL_55;
+          return 3221225626LL;
         }
       }
-LABEL_45:
-      v25 = -1072431089;
-      goto LABEL_55;
     }
-    v27 = ACPIGetConvertToStringWideWithPrepend(0, a2, a3, a4, (__int64)v19, v20);
+    return 3222536207LL;
   }
-  v25 = v27;
-  v6 = *v21;
-  if ( v27 >= 0 )
-  {
-LABEL_44:
-    if ( v6 > 2 )
-    {
-      v28 = v6 + 2;
-      v29 = ExAllocatePool2((-(__int64)((a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256, v28, 1399874369LL);
-      v38 = v29;
-      if ( v29 )
-      {
-        v30 = (char *)v29;
-        if ( (_DWORD)v18 )
-        {
-          v31 = v21;
-          v40 = (unsigned int)v18;
-          v32 = (const void **)v19;
-          do
-          {
-            if ( *v32 )
-              memmove(v30, *v32, *v31);
-            ++v32;
-            v33 = (unsigned __int64)*v31++ >> 1;
-            v34 = v40-- == 1;
-            v30 += 2 * v33;
-          }
-          while ( !v34 );
-        }
-        *a5 = v38;
-        if ( a6 )
-          *a6 = v28;
-      }
-      else
-      {
-        v25 = -1073741670;
-      }
-      goto LABEL_55;
-    }
-    goto LABEL_45;
-  }
-LABEL_55:
-  if ( (_DWORD)v18 )
-  {
-    v35 = (PVOID *)v19;
-    do
-    {
-      if ( *v35 )
-        ExFreePoolWithTag(*v35, 0);
-      ++v35;
-      --v18;
-    }
-    while ( v18 );
-  }
-  ExFreePoolWithTag(v21, 0);
-  ExFreePoolWithTag(v19, 0);
-  return v25;
+  if ( v10 >= 0 )
+    v28 = (const char *)&AcpiProcessorCompatId;
+  else
+    v28 = *(const char **)(a1 + 184);
+  v29 = -1LL;
+  do
+    ++v29;
+  while ( v28[v29] );
+  v30 = v29 + 2;
+  v31 = 2 * v30;
+  v32 = (char *)ExAllocatePoolWithTag(
+                  (POOL_TYPE)((a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                  2 * v30,
+                  0x53706341u);
+  v33 = v32;
+  if ( !v32 )
+    return 3221225626LL;
+  memset(v32, 0, v31);
+  RtlStringCchPrintfA(v33, v30, "%s", v28);
+  ACPIAnsiStringToWideHelper(v33, v31);
+  *a5 = v33;
+  if ( a6 )
+    *a6 = 2 * v30;
+  return 0LL;
 }

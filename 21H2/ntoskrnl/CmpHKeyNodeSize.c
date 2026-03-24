@@ -1,9 +1,10 @@
 /*
- * XREFs of CmpHKeyNodeSize @ 0x14053E93C
+ * XREFs of CmpHKeyNodeSize @ 0x1404EC7B4
  * Callers:
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
  * Callees:
- *     CmpNameSize @ 0x1406AD650 (CmpNameSize.c)
+ *     CmpNameSize @ 0x14069306C (CmpNameSize.c)
  */
 
 __int64 CmpHKeyNodeSize()

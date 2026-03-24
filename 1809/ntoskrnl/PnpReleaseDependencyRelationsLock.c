@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpReleaseDependencyRelationsLock @ 0x140739DE4
+ * XREFs of PnpReleaseDependencyRelationsLock @ 0x140739DC4
  * Callers:
- *     IoResolveDependency @ 0x140181BB0 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
  *     PiDeviceDependencyInit @ 0x1409C7100 (PiDeviceDependencyInit.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

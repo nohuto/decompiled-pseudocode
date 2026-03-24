@@ -3,7 +3,7 @@
  * Callers:
  *     KdpRestoreAllBreakpoints @ 0x1409190C4 (KdpRestoreAllBreakpoints.c)
  * Callees:
- *     KdpIsBreakpoint @ 0x14028CF18 (KdpIsBreakpoint.c)
+ *     KdpIsBreakpoint @ 0x14028D018 (KdpIsBreakpoint.c)
  *     KdpCopyCodeStream @ 0x1409188A8 (KdpCopyCodeStream.c)
  *     KdpInsertBreakpoint @ 0x140918E64 (KdpInsertBreakpoint.c)
  */

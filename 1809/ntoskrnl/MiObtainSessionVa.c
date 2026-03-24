@@ -1,9 +1,9 @@
 /*
- * XREFs of MiObtainSessionVa @ 0x1400F7284
+ * XREFs of MiObtainSessionVa @ 0x1400F72A4
  * Callers:
  *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiExpandPtes @ 0x1400F63F4 (MiExpandPtes.c)
- *     MiExpandSpecialPool @ 0x1402AC35C (MiExpandSpecialPool.c)
+ *     MiExpandPtes @ 0x1400F6414 (MiExpandPtes.c)
+ *     MiExpandSpecialPool @ 0x1402AC45C (MiExpandSpecialPool.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,7 +14,7 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiObtainSessionVa(unsigned int a1)

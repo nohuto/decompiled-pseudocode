@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreatePartitionNamespace @ 0x14072BE28
+ * XREFs of MiCreatePartitionNamespace @ 0x14072BE08
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14072B9BC (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x14072B99C (MiInitializeMemoryEvents.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwCreateDirectoryObjectEx @ 0x1401B95B0 (ZwCreateDirectoryObjectEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ObCleanupSecurityDescriptor @ 0x14072BF3C (ObCleanupSecurityDescriptor.c)
- *     ObCreateKernelObjectsSD @ 0x14072BF7C (ObCreateKernelObjectsSD.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1401B95D0 (ZwCreateDirectoryObjectEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ObCleanupSecurityDescriptor @ 0x14072BF1C (ObCleanupSecurityDescriptor.c)
+ *     ObCreateKernelObjectsSD @ 0x14072BF5C (ObCreateKernelObjectsSD.c)
  */
 
 __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)

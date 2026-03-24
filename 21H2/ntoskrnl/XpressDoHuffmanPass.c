@@ -1,16 +1,16 @@
 /*
- * XREFs of XpressDoHuffmanPass @ 0x140377DA0
+ * XREFs of XpressDoHuffmanPass @ 0x1403669D0
  * Callers:
- *     RtlCompressBufferXpressHuffStandard @ 0x140377590 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1405F0724 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x140365E00 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x140591144 (RtlCompressBufferXpressHuffMax.c)
  * Callees:
  *     <none>
  */
 
 char *__fastcall XpressDoHuffmanPass(__int64 a1, unsigned __int8 *a2, unsigned __int64 a3, char *a4, int a5)
 {
-  __int128 *v7; // rdx
-  __int64 v9; // rcx
+  __int128 *v7; // rcx
+  __int64 v8; // rdx
   char *v11; // rax
   __int128 v12; // xmm0
   char *v13; // r12
@@ -39,11 +39,11 @@ char *__fastcall XpressDoHuffmanPass(__int64 a1, unsigned __int8 *a2, unsigned _
   unsigned __int16 v36; // dx
   char v37; // cl
   unsigned __int64 v38; // rcx
-  unsigned __int16 v39; // r10
-  __int16 v40; // dx
+  unsigned __int16 v39; // dx
+  __int16 v40; // r10
 
   v7 = (__int128 *)(a1 + 31264);
-  v9 = 2LL;
+  v8 = 2LL;
   v11 = a4;
   do
   {
@@ -58,9 +58,9 @@ char *__fastcall XpressDoHuffmanPass(__int64 a1, unsigned __int8 *a2, unsigned _
     *((_OWORD *)v11 - 3) = *(v7 - 3);
     *((_OWORD *)v11 - 2) = *(v7 - 2);
     *((_OWORD *)v11 - 1) = *(v7 - 1);
-    --v9;
+    --v8;
   }
-  while ( v9 );
+  while ( v8 );
   v13 = a4 + 256;
   v14 = a4 + 258;
   v15 = 16LL;
@@ -169,7 +169,12 @@ LABEL_7:
     v38 = *(unsigned __int16 *)(a1 + 1024);
     v39 = *(_WORD *)(a1 + 1026);
     v40 = *(_WORD *)(a1 + 1024);
-    if ( v15 < v38 )
+    if ( v15 >= v38 )
+    {
+      LOBYTE(v15) = v15 - v40;
+      v16 = v39 | (v16 << v38);
+    }
+    else
     {
       *(_WORD *)v13 = (v16 << v15) | (v39 >> (v38 - v15));
       v13 = v14;
@@ -177,11 +182,6 @@ LABEL_7:
       v14 = v17;
       v17 += 2;
       LOBYTE(v15) = 16 - v40 + v15;
-    }
-    else
-    {
-      LOBYTE(v15) = v15 - v38;
-      v16 = v39 | (v16 << v38);
     }
   }
   *(_WORD *)v13 = v16 << v15;

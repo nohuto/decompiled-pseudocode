@@ -1,7 +1,7 @@
 /*
- * XREFs of ViHasBufferBeenTouched @ 0x140ACA4A8
+ * XREFs of ViHasBufferBeenTouched @ 0x1409CEE24
  * Callers:
- *     ViCheckPadding @ 0x140AC9364 (ViCheckPadding.c)
+ *     ViCheckPadding @ 0x1409CDCB0 (ViCheckPadding.c)
  * Callees:
  *     <none>
  */
@@ -10,13 +10,13 @@ _BYTE *__fastcall ViHasBufferBeenTouched(_BYTE *a1, unsigned __int64 a2)
 {
   __int64 v2; // r10
   unsigned int i; // r9d
-  __int64 v5; // rax
+  char v5; // cl
 
   v2 = 15LL;
   for ( i = 1; i < 8; i *= 2 )
   {
-    v5 = v2 << (8 * (unsigned __int8)i);
-    v2 |= v5;
+    v5 = 8 * i;
+    v2 |= v2 << v5;
   }
   while ( ((unsigned __int8)a1 & 7) != 0 && a2 )
   {

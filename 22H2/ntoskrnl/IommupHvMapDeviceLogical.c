@@ -1,45 +1,28 @@
 /*
- * XREFs of IommupHvMapDeviceLogical @ 0x140525324
+ * XREFs of IommupHvMapDeviceLogical @ 0x1404DA170
  * Callers:
- *     HalpIommuDomainMapLogical @ 0x140517DEC (HalpIommuDomainMapLogical.c)
+ *     HalpIommuDomainMapLogical @ 0x1404C91B0 (HalpIommuDomainMapLogical.c)
+ *     IommuMapLogicalRange @ 0x1404DA8D0 (IommuMapLogicalRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IommupHvMapDeviceLogical(
-        ULONG_PTR BugCheckParameter3,
-        __int64 a2,
-        __int64 a3,
-        _QWORD *a4,
-        ULONG_PTR a5)
+__int64 __fastcall IommupHvMapDeviceLogical(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  ULONG_PTR BugCheckParameter4; // rsi
-  int v9; // ebp
-  int v10; // eax
-  char v11; // [rsp+28h] [rbp-20h]
-  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  char v6; // [rsp+28h] [rbp-20h]
+  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
 
-  v12 = 0LL;
-  if ( *(_BYTE *)(BugCheckParameter3 + 52) )
+  v7 = 0LL;
+  if ( *(_BYTE *)(a1 + 40) )
     return 3221225485LL;
-  BugCheckParameter4 = a5;
-  LODWORD(v12) = *(_DWORD *)(BugCheckParameter3 + 48);
-  v11 = 0;
-  BYTE4(v12) = 0;
-  v9 = ((__int64 (__fastcall *)(__int64 *, __int64, ULONG_PTR, __int64, _QWORD *, char))qword_140C62728)(
-         &v12,
-         a2,
-         a5,
-         a3,
-         a4,
-         v11);
-  if ( v9 < 0 )
-  {
-    v10 = ((__int64 (__fastcall *)(__int64 *, ULONG_PTR, _QWORD *))qword_140C62730)(&v12, BugCheckParameter4, a4);
-    if ( v10 < 0 )
-      KeBugCheckEx(0x1D9u, 1uLL, v10, BugCheckParameter3, BugCheckParameter4);
-    *a4 = 0LL;
-  }
-  return (unsigned int)v9;
+  v6 = 0;
+  LODWORD(v7) = *(_DWORD *)(a1 + 32);
+  BYTE4(v7) = 0;
+  return ((__int64 (__fastcall *)(__int64 *, __int64, __int64, __int64, __int64, char))qword_140C4A390)(
+           &v7,
+           a2,
+           a5,
+           a3,
+           a4,
+           v6);
 }

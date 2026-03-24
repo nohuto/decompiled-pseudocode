@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpRpControlRequestUpdate @ 0x1406ADBC8
+ * XREFs of PfpRpControlRequestUpdate @ 0x1406DCD5C
  * Callers:
- *     PfpRpControlRequestPerform @ 0x1406ADB5C (PfpRpControlRequestPerform.c)
+ *     PfpRpControlRequestPerform @ 0x1406DCABC (PfpRpControlRequestPerform.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PfpRpCHashDeleteEntries @ 0x1406AF880 (PfpRpCHashDeleteEntries.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
- *     PfpRpCHashAddEntries @ 0x1407D9124 (PfpRpCHashAddEntries.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
+ *     PfpRpCHashAddEntries @ 0x1406DCEF4 (PfpRpCHashAddEntries.c)
+ *     PfpRpCHashDeleteEntries @ 0x1406DD16C (PfpRpCHashDeleteEntries.c)
  */
 
 __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
@@ -19,8 +19,8 @@ __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
   __int64 v9; // r12
   void *v10; // rcx
   __int64 v11; // rbp
+  PEPROCESS v12; // rcx
   __int64 result; // rax
-  PEPROCESS v13; // rcx
   PEPROCESS Process; // [rsp+60h] [rbp+8h] BYREF
 
   Process = 0LL;
@@ -39,16 +39,16 @@ __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
       *v6++ = v11;
       if ( (_DWORD)v10 && PsLookupProcessByProcessId(v10, &Process) >= 0 )
       {
-        v13 = Process;
-        if ( HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]) == (_DWORD)v11 )
+        v12 = Process;
+        if ( HIDWORD(Process[1].ActiveProcessors.Bitmap[8]) == (_DWORD)v11 )
         {
-          if ( v5 >= a2[1] )
-            _InterlockedAnd((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0xFFFFBFFF);
-          else
+          if ( v5 < a2[1] )
             _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x4000u);
-          v13 = Process;
+          else
+            _InterlockedAnd((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0xFFFFBFFF);
+          v12 = Process;
         }
-        ObfDereferenceObjectWithTag(v13, 0x746C6644u);
+        ObfDereferenceObjectWithTag(v12, 0x746C6644u);
       }
       ++v5;
       v7 += 2;

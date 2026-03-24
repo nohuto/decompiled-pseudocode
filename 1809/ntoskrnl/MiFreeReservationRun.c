@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreeReservationRun @ 0x1406B8EB4
+ * XREFs of MiFreeReservationRun @ 0x1406B8E94
  * Callers:
- *     MiFreeWorkingSetSwapContext @ 0x1406B8E04 (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x1406B8E6C (MiFreeReservationRuns.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406B8DE4 (MiFreeWorkingSetSwapContext.c)
+ *     MiFreeReservationRuns @ 0x1406B8E4C (MiFreeReservationRuns.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiGetPageFileHigh @ 0x1400396F0 (MiGetPageFileHigh.c)

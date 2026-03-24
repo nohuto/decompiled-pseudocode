@@ -1,9 +1,9 @@
 /*
- * XREFs of MmVerifyCallbackFunction @ 0x14096C8B0
+ * XREFs of MmVerifyCallbackFunction @ 0x1408C82D4
  * Callers:
- *     KeRegisterBoundCallback @ 0x14056A800 (KeRegisterBoundCallback.c)
+ *     KeRegisterBoundCallback @ 0x1405148A0 (KeRegisterBoundCallback.c)
  * Callees:
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1403C773C (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403A7F30 (MmVerifyCallbackFunctionCheckFlags.c)
  */
 
 __int64 __fastcall MmVerifyCallbackFunction(unsigned __int64 a1)

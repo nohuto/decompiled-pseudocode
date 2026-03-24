@@ -1,218 +1,214 @@
 /*
- * XREFs of ObpAllocateObject @ 0x14072FBB0
+ * XREFs of ObpAllocateObject @ 0x14064C950
  * Callers:
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     IopAllocRealFileObject @ 0x14072F370 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072F7D0 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObCreateObjectTypeEx @ 0x140821770 (ObCreateObjectTypeEx.c)
+ *     CmpCreateKeyBody @ 0x140649DB0 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x140650820 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObCreateObjectTypeEx @ 0x140790780 (ObCreateObjectTypeEx.c)
  * Callees:
- *     SeAuditHeaderRequired @ 0x1402AF890 (SeAuditHeaderRequired.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     SeAuditHeaderRequired @ 0x1402D2980 (SeAuditHeaderRequired.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ObpAllocateObject(_DWORD *a1, char a2, __int64 a3, _WORD *a4, int a5, _QWORD *a6, _BYTE *a7)
+__int64 __fastcall ObpAllocateObject(int *a1, char a2, __int64 a3, __int128 *a4, int a5, char **a6, _BYTE *a7)
 {
-  int v8; // ebp
-  char v11; // r8
-  int v12; // r10d
-  int v13; // r9d
-  int v14; // r12d
-  int v15; // r11d
+  char v9; // dl
+  _WORD *v10; // r10
+  int v11; // r9d
+  char v12; // r8
+  int v13; // edx
+  char v14; // r15
+  char v15; // cl
   char v16; // r14
-  char v17; // cl
-  char v18; // si
-  unsigned __int8 v19; // r13
-  char v20; // r14
-  char v21; // al
-  int v22; // ecx
-  int v23; // r15d
-  int v24; // r15d
-  unsigned int v25; // ecx
+  char v18; // bl
+  char v19; // al
+  int v20; // ecx
+  unsigned __int8 v21; // r13
+  char v22; // r15
+  int v23; // r12d
+  int v24; // ebp
+  unsigned int v25; // ebp
+  unsigned int v26; // ecx
   char *PoolWithTag; // rax
-  char v27; // r9
   char *v28; // r8
-  __int64 v29; // rdx
-  char v30; // r8
-  unsigned __int32 v31; // edx
-  __int128 v33; // xmm0
-  unsigned __int8 v34; // dl
-  int v35; // [rsp+20h] [rbp-58h]
-  int v36; // [rsp+24h] [rbp-54h]
-  char v37; // [rsp+80h] [rbp+8h]
-  int v39; // [rsp+90h] [rbp+18h]
+  unsigned __int8 v29; // cl
+  char *v30; // rdx
+  __int64 v31; // rcx
+  __int128 v32; // xmm0
+  char v33; // cl
+  int v34; // eax
+  unsigned __int32 v35; // edx
+  int v36; // [rsp+20h] [rbp-58h]
+  int v37; // [rsp+28h] [rbp-50h]
+  bool v38; // [rsp+80h] [rbp+8h]
+  int v40; // [rsp+90h] [rbp+18h]
 
-  v8 = *a1 & 0x20;
-  v39 = 16;
-  if ( SeAuditHeaderRequired((POBJECT_TYPE *)a3) )
-  {
-    v13 = 16;
-    v11 |= 0x20u;
-  }
-  else
-  {
-    v13 = 0;
-  }
-  v14 = 32;
-  v35 = v13;
+  v37 = *a1 & 0x20;
+  v38 = SeAuditHeaderRequired((POBJECT_TYPE *)a3);
+  v11 = 32;
+  v12 = v9 | 0x20;
+  v36 = 32;
+  if ( !v38 )
+    v12 = v9;
   if ( KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess
     || KeGetCurrentThread()->ApcState.Process == PsIdleProcess
     || !PsInitialSystemProcess )
   {
-    v15 = 0;
+    v13 = 0;
   }
   else
   {
-    v15 = 32;
-    v11 |= 8u;
+    v13 = 32;
+    v12 |= 8u;
   }
-  v16 = *(_BYTE *)(a3 + 66);
-  v36 = v15;
-  v17 = v11 | 4;
-  v18 = v16 & 0x10;
-  if ( (v16 & 0x10) == 0 )
-    v17 = v11;
-  if ( *a4 )
+  v14 = *(_BYTE *)(a3 + 66);
+  v40 = v13;
+  v15 = v12 | 4;
+  v16 = v14 & 0x10;
+  if ( (v14 & 0x10) == 0 )
+    v15 = v12;
+  if ( *v10 )
   {
-    if ( (v16 & 2) != 0 )
+    if ( (v14 & 2) != 0 )
       return 3221225523LL;
-    v17 |= 2u;
+    v15 |= 2u;
   }
   else
   {
-    v14 = 0;
+    v11 = 0;
+    v36 = 0;
   }
-  v19 = (v16 >> 7) & 0x30;
-  v20 = v16 & 0x20;
-  v21 = v17 | 1;
-  if ( !v20 )
-    v21 = v17;
-  v37 = v21;
-  if ( !a7 )
+  v18 = v15 | 1;
+  v19 = v15;
+  v20 = 48;
+  v21 = (v14 >> 7) & 0x30;
+  v22 = v14 & 0x20;
+  if ( !v22 )
+    v18 = v19;
+  if ( a7 && (*a7 || a7[1]) )
   {
-    v37 = v21;
-LABEL_47:
-    v22 = 0;
-    v39 = 0;
-    goto LABEL_16;
+    v18 |= 0x40u;
+    v23 = 16;
   }
-  if ( !*a7 && !a7[1] )
-    goto LABEL_47;
-  v22 = 48;
-  v37 = v21 | 0x40;
-LABEL_16:
-  v23 = 80;
-  if ( !v20 )
-    v23 = 48;
-  v24 = v39 + v14 + v15 + v13 + v12 + (v18 != 0 ? 0x10 : 0) + v23;
-  v25 = v24 + v19 + v22;
-  if ( v25 + a5 < v25 )
+  else
+  {
+    v23 = 0;
+    v20 = 0;
+  }
+  v24 = 64;
+  if ( !v38 )
+    v24 = 48;
+  v25 = v23 + v11 + v13 + (v16 != 0 ? 0x10 : 0) + (v22 != 0 ? 0x20 : 0) + (v37 != 0 ? 0x10 : 0) + v24;
+  v26 = v25 + v21 + v20;
+  if ( v26 + a5 < v26 )
     return 3221225485LL;
   PoolWithTag = (char *)ExAllocatePoolWithTag(
                           (POOL_TYPE)(*(_DWORD *)(a3 + 100) | 0x400),
-                          v25 + a5,
+                          v26 + a5,
                           *(_DWORD *)(a3 + 192));
+  v28 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
-  v27 = v37;
-  if ( v19 )
+  if ( v21 )
   {
-    v34 = -(char)(v24 + (_BYTE)PoolWithTag) & 0x3F;
-    if ( v34 )
+    v29 = -(char)((_BYTE)PoolWithTag + v25) & 0x3F;
+    if ( v29 )
     {
-      PoolWithTag += v34;
-      v27 = v37 | 0x80;
-      *((_DWORD *)PoolWithTag - 1) = v34;
+      v28 = &PoolWithTag[v29];
+      v18 |= 0x80u;
+      *((_DWORD *)v28 - 1) = v29;
     }
   }
-  if ( v39 )
+  if ( v23 )
   {
-    v28 = &PoolWithTag[v24 + a5];
-    *(_QWORD *)PoolWithTag = v28;
-    *(_OWORD *)v28 = 0LL;
-    *((_OWORD *)v28 + 1) = 0LL;
-    *((_OWORD *)v28 + 2) = 0LL;
-    v29 = *(_QWORD *)PoolWithTag;
-    PoolWithTag += 16;
-    *(_BYTE *)(v29 + 24) = *a7;
+    v30 = &v28[v25 + a5];
+    *(_QWORD *)v28 = v30;
+    *(_OWORD *)v30 = 0LL;
+    *((_OWORD *)v30 + 1) = 0LL;
+    *((_OWORD *)v30 + 2) = 0LL;
+    v31 = *(_QWORD *)v28;
+    v28 += 16;
+    *(_BYTE *)(v31 + 24) = *a7;
   }
-  if ( v35 )
+  if ( v38 )
   {
-    *(_QWORD *)PoolWithTag = 0LL;
-    *((_QWORD *)PoolWithTag + 1) = 0LL;
-    PoolWithTag += 16;
+    *(_QWORD *)v28 = 0LL;
+    *((_QWORD *)v28 + 1) = 0LL;
+    v28 += 16;
   }
-  if ( v8 )
+  if ( v37 )
   {
-    *(_QWORD *)PoolWithTag = 0LL;
-    PoolWithTag += 16;
+    *(_QWORD *)v28 = 0LL;
+    v28 += 16;
+  }
+  if ( v40 )
+  {
+    *(_DWORD *)v28 = a1[5];
+    *((_DWORD *)v28 + 1) = a1[6];
+    *((_DWORD *)v28 + 2) = a1[7];
+    *((_QWORD *)v28 + 2) = 0LL;
+    v28 += 32;
+  }
+  if ( v16 )
+  {
+    *((_DWORD *)v28 + 2) &= 0xFF000000;
+    v28[11] = 0;
+    *(_QWORD *)v28 = 0LL;
+    v28 += 16;
   }
   if ( v36 )
   {
-    *(_DWORD *)PoolWithTag = a1[5];
-    *((_DWORD *)PoolWithTag + 1) = a1[6];
-    *((_DWORD *)PoolWithTag + 2) = a1[7];
-    *((_QWORD *)PoolWithTag + 2) = 0LL;
-    PoolWithTag += 32;
+    v32 = *a4;
+    *(_QWORD *)v28 = 0LL;
+    *((_DWORD *)v28 + 6) = 0;
+    *(_OWORD *)(v28 + 8) = v32;
+    v28 += 32;
   }
-  if ( v18 )
+  if ( v22 )
   {
-    *((_DWORD *)PoolWithTag + 2) &= 0xFF000000;
-    PoolWithTag[11] = 0;
-    *(_QWORD *)PoolWithTag = 0LL;
-    PoolWithTag += 16;
+    *((_WORD *)v28 + 12) = 0;
+    *((_QWORD *)v28 + 2) = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
+    *((_QWORD *)v28 + 1) = v28;
+    *(_QWORD *)v28 = v28;
+    v28 += 32;
   }
-  if ( v14 )
+  v28[26] = v18;
+  v33 = 1;
+  v28[25] = 0;
+  v28[27] = 1;
+  if ( v16 )
   {
-    v33 = *(_OWORD *)a4;
-    *(_QWORD *)PoolWithTag = 0LL;
-    *((_DWORD *)PoolWithTag + 6) = 0;
-    *(_OWORD *)(PoolWithTag + 8) = v33;
-    PoolWithTag += 32;
+    v28[27] = 65;
+    v33 = 65;
   }
-  if ( v20 )
-  {
-    *((_WORD *)PoolWithTag + 12) = 0;
-    *((_QWORD *)PoolWithTag + 2) = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-    *((_QWORD *)PoolWithTag + 1) = PoolWithTag;
-    *(_QWORD *)PoolWithTag = PoolWithTag;
-    PoolWithTag += 32;
-  }
-  PoolWithTag[26] = v27;
-  v30 = 1;
-  PoolWithTag[25] = 0;
-  PoolWithTag[27] = 1;
-  if ( v18 )
-  {
-    PoolWithTag[27] = 65;
-    v30 = 65;
-  }
-  *((_QWORD *)PoolWithTag + 1) = 0LL;
-  *(_QWORD *)PoolWithTag = 1LL;
-  *((_QWORD *)PoolWithTag + 2) = 0LL;
-  PoolWithTag[24] = ObHeaderCookie ^ *(_BYTE *)(a3 + 40) ^ BYTE1(PoolWithTag);
+  *((_QWORD *)v28 + 1) = 0LL;
+  *(_QWORD *)v28 = 1LL;
+  *((_QWORD *)v28 + 2) = 0LL;
+  v28[24] = ObHeaderCookie ^ *(_BYTE *)(a3 + 40) ^ BYTE1(v28);
   if ( !a2 )
   {
-    v30 |= 2u;
-    PoolWithTag[27] = v30;
+    v33 |= 2u;
+    v28[27] = v33;
     if ( (*a1 & 0x10000) != 0 )
     {
-      v30 |= 4u;
-      PoolWithTag[27] = v30;
+      v33 |= 4u;
+      v28[27] = v33;
     }
   }
+  v34 = *a1;
   if ( (*a1 & 0x10) != 0 )
   {
-    v30 |= 0x10u;
-    PoolWithTag[27] = v30;
+    v33 |= 0x10u;
+    v28[27] = v33;
+    v34 = *a1;
   }
-  if ( (*a1 & 0x20) != 0 )
-    PoolWithTag[27] = v30 | 8;
-  *((_QWORD *)PoolWithTag + 4) = a1;
-  *((_QWORD *)PoolWithTag + 5) = 0LL;
-  v31 = _InterlockedIncrement((volatile signed __int32 *)(a3 + 44));
-  if ( v31 > *(_DWORD *)(a3 + 52) )
-    *(_DWORD *)(a3 + 52) = v31;
-  *a6 = PoolWithTag;
+  if ( (v34 & 0x20) != 0 )
+    v28[27] = v33 | 8;
+  *((_QWORD *)v28 + 4) = a1;
+  *((_QWORD *)v28 + 5) = 0LL;
+  v35 = _InterlockedIncrement((volatile signed __int32 *)(a3 + 44));
+  if ( v35 > *(_DWORD *)(a3 + 52) )
+    *(_DWORD *)(a3 + 52) = v35;
+  *a6 = v28;
   return 0LL;
 }

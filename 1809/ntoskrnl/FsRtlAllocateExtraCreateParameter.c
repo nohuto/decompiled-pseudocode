@@ -3,9 +3,9 @@
  * Callers:
  *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1405DC500 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
  *     PspCreateUserProcessEcp @ 0x14060D368 (PspCreateUserProcessEcp.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x140762900 (IopSymlinkEnforceEnabledTypes.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x1407628E0 (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,28 +1,27 @@
 /*
- * XREFs of ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C02F38DC
+ * XREFs of ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C014B1F8
  * Callers:
- *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C02D9334 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
+ *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C014B068 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
  * Callees:
- *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C015E830 (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
- *     ?vUpdateStyleState@XCLIPOBJ@@QEAAXXZ @ 0x1C02F46D0 (-vUpdateStyleState@XCLIPOBJ@@QEAAXXZ.c)
- *     ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C0305BB0 (-bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z.c)
+ *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C014B2DC (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
+ *     ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C014B350 (-bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z.c)
+ *     ?vUpdateStyleState@XCLIPOBJ@@QEAAXXZ @ 0x1C02CF27C (-vUpdateStyleState@XCLIPOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall XCLIPOBJ::bEnumStartLine(XCLIPOBJ *this, int a2)
 {
-  __int64 result; // rax
+  int v3; // eax
   _DWORD *v4; // rcx
-  __int64 v5; // rcx
-  _DWORD *v6; // rdx
+  __int64 v5; // rdx
   __int64 v7; // rdx
 
   *(_DWORD *)(*((_QWORD *)this + 18) + 24LL) = a2 | *(_DWORD *)(*((_QWORD *)this + 18) + 24LL) & 0x200000;
-  result = DDA_CLIPLINE::bInit(
-             (DDA_CLIPLINE *)(*((_QWORD *)this + 18) + 64LL),
-             (struct _POINTFIX *)(*((_QWORD *)this + 18) + 4LL),
-             *(struct _POINTFIX **)(*((_QWORD *)this + 18) + 16LL));
+  v3 = DDA_CLIPLINE::bInit(
+         (DDA_CLIPLINE *)(*((_QWORD *)this + 18) + 64LL),
+         (struct _POINTFIX *)(*((_QWORD *)this + 18) + 4LL),
+         *(struct _POINTFIX **)(*((_QWORD *)this + 18) + 16LL));
   v4 = (_DWORD *)*((_QWORD *)this + 18);
-  if ( (_DWORD)result )
+  if ( v3 )
   {
     v4[28] = v4[24];
     *(_DWORD *)(*((_QWORD *)this + 18) + 116LL) = *(_DWORD *)(*((_QWORD *)this + 18) + 100LL);
@@ -38,11 +37,13 @@ __int64 __fastcall XCLIPOBJ::bEnumStartLine(XCLIPOBJ *this, int a2)
       (int *)(*((_QWORD *)this + 18) + 124LL));
     v5 = *((_QWORD *)this + 18);
     if ( (*(_DWORD *)(v5 + 24) & 1) != 0 )
-      *(_QWORD *)(v5 + 204) = *(_QWORD *)(v5 + 4);
-    v6 = (_DWORD *)*((_QWORD *)this + 18);
-    if ( (int)v6[45] > 0 )
     {
-      v6[43] = v6[44];
+      *(_QWORD *)(v5 + 204) = *(_QWORD *)(v5 + 4);
+      v5 = *((_QWORD *)this + 18);
+    }
+    if ( *(int *)(v5 + 180) > 0 )
+    {
+      *(_DWORD *)(v5 + 172) = *(_DWORD *)(v5 + 176);
       v7 = *((_QWORD *)this + 18);
       if ( (*(_DWORD *)(v7 + 24) & 4) != 0 )
         *(_DWORD *)(v7 + 172) = 0;
@@ -53,6 +54,6 @@ __int64 __fastcall XCLIPOBJ::bEnumStartLine(XCLIPOBJ *this, int a2)
   else
   {
     v4[6] |= 0x10000u;
+    return 0LL;
   }
-  return result;
 }

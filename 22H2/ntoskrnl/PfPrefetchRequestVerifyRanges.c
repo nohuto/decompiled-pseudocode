@@ -1,9 +1,9 @@
 /*
- * XREFs of PfPrefetchRequestVerifyRanges @ 0x1406843E8
+ * XREFs of PfPrefetchRequestVerifyRanges @ 0x14070C0E8
  * Callers:
- *     PfPrefetchRequestVerify @ 0x1406840C8 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerify @ 0x14070C1CC (PfPrefetchRequestVerify.c)
  * Callees:
- *     PfRequestRangeCheck @ 0x1406843A8 (PfRequestRangeCheck.c)
+ *     PfRequestRangeCheck @ 0x14070C4D8 (PfRequestRangeCheck.c)
  */
 
 __int64 __fastcall PfPrefetchRequestVerifyRanges(__int64 a1, __int64 a2, unsigned int *a3, int a4)
@@ -32,7 +32,7 @@ __int64 __fastcall PfPrefetchRequestVerifyRanges(__int64 a1, __int64 a2, unsigne
     return 21000LL;
   if ( v6 > *(_DWORD *)(a2 + 32) )
     return 22000LL;
-  if ( !PfRequestRangeCheck((unsigned int *)(a2 + 24), v9, 16 * v6, 8, 0) )
+  if ( !(unsigned __int8)PfRequestRangeCheck((int)a2 + 24, v9, 16 * v6, 8, 0) )
     return 23000LL;
   v11 = v10[2];
   v12 = 0;

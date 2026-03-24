@@ -1,10 +1,10 @@
 /*
- * XREFs of CcUpdateReadHistory @ 0x1402BDCF8
+ * XREFs of CcUpdateReadHistory @ 0x14027A400
  * Callers:
- *     CcAsyncReadPrefetch @ 0x1402BDACC (CcAsyncReadPrefetch.c)
- *     CcMdlRead @ 0x14073EEB0 (CcMdlRead.c)
+ *     CcAsyncReadPrefetch @ 0x14027A1F4 (CcAsyncReadPrefetch.c)
+ *     CcMdlRead @ 0x140701480 (CcMdlRead.c)
  * Callees:
- *     CcUpdateSharedCacheMapFlag @ 0x14034BD34 (CcUpdateSharedCacheMapFlag.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x14031195C (CcUpdateSharedCacheMapFlag.c)
  */
 
 __int64 __fastcall CcUpdateReadHistory(__int64 a1, __int64 *a2, unsigned int a3)
@@ -21,8 +21,8 @@ __int64 __fastcall CcUpdateReadHistory(__int64 a1, __int64 *a2, unsigned int a3)
   result = _InterlockedExchange64((volatile __int64 *)(v3 + 40), *a2 + a3);
   if ( (*(_DWORD *)(v4 + 152) & 0x200000) != 0 )
   {
-    result = (unsigned int)((*(_DWORD *)(v3 + 32) >> 12) - (*(_DWORD *)(v3 + 24) >> 12));
-    if ( (unsigned int)result > 1 )
+    result = *(_DWORD *)(v3 + 24) >> 12;
+    if ( (unsigned int)((*(_DWORD *)(v3 + 32) >> 12) - result) > 1 )
       return CcUpdateSharedCacheMapFlag(v4, 0x200000LL, 0LL);
   }
   return result;

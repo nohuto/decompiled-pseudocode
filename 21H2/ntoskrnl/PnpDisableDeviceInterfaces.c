@@ -1,90 +1,84 @@
 /*
- * XREFs of PnpDisableDeviceInterfaces @ 0x140810788
+ * XREFs of PnpDisableDeviceInterfaces @ 0x14073601C
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1402DDAE4 (PnpRemoveLockedDeviceNode.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14036E5C8 (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     IoSetDeviceInterfaceState @ 0x140769100 (IoSetDeviceInterfaceState.c)
- *     PnpUnicodeStringToWstr @ 0x140779CA0 (PnpUnicodeStringToWstr.c)
- *     PnpUnicodeStringToWstrFree @ 0x14077BAB8 (PnpUnicodeStringToWstrFree.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140787F7C (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406B1B50 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     IoSetDeviceInterfaceState @ 0x140749060 (IoSetDeviceInterfaceState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDisableDeviceInterfaces(unsigned __int16 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  void *Pool2; // rbx
-  int inited; // edi
-  unsigned int v5; // r14d
-  const WCHAR *v6; // rsi
-  int MatchingFilteredDeviceInterfaceList; // eax
+  PVOID PoolWithTag; // rbx
+  int MatchingFilteredDeviceInterfaceList; // edi
+  unsigned int v5; // esi
+  const WCHAR *i; // rsi
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
-  unsigned int v10; // [rsp+98h] [rbp+38h] BYREF
-  __int16 *v11; // [rsp+A0h] [rbp+40h] BYREF
+  unsigned int v9; // [rsp+98h] [rbp+38h] BYREF
+  __int16 *v10; // [rsp+A0h] [rbp+40h] BYREF
 
-  v10 = 0;
+  v9 = 0;
   CurrentThread = KeGetCurrentThread();
-  Pool2 = 0LL;
-  v11 = 0LL;
+  PoolWithTag = 0LL;
+  v10 = 0LL;
   DestinationString = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-  inited = PnpUnicodeStringToWstr(&v11, 0LL, a1);
-  if ( inited >= 0 )
+  MatchingFilteredDeviceInterfaceList = PnpUnicodeStringToWstr(&v10, 0LL, a1);
+  if ( MatchingFilteredDeviceInterfaceList >= 0 )
   {
-    v10 = 4096;
-    inited = -1073741789;
+    v9 = 4096;
+    MatchingFilteredDeviceInterfaceList = -1073741789;
     v5 = 0;
     while ( v5 < 5 )
     {
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(256LL, 2LL * v10, 538996816LL);
-      v6 = (const WCHAR *)Pool2;
-      if ( !Pool2 )
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v9, 0x20207050u);
+      if ( !PoolWithTag )
       {
-        inited = -1073741670;
+        MatchingFilteredDeviceInterfaceList = -1073741670;
         break;
       }
+      ++v5;
       MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(
                                               *(__int64 *)&PiPnpRtlCtx,
                                               0LL,
-                                              (__int64)v11,
+                                              (__int64)v10,
                                               1,
                                               0LL,
                                               0LL,
-                                              (__int64)Pool2,
-                                              v10,
-                                              (__int64)&v10,
+                                              (__int64)PoolWithTag,
+                                              v9,
+                                              (__int64)&v9,
                                               0);
-      ++v5;
-      inited = MatchingFilteredDeviceInterfaceList;
       if ( MatchingFilteredDeviceInterfaceList != -1073741789 )
-      {
-        if ( MatchingFilteredDeviceInterfaceList >= 0 )
-        {
-          while ( *v6 )
-          {
-            inited = RtlInitUnicodeStringEx(&DestinationString, v6);
-            if ( inited >= 0 )
-              IoSetDeviceInterfaceState(&DestinationString, 0);
-            v6 += ((unsigned __int64)DestinationString.Length + 2) >> 1;
-          }
-        }
         break;
+    }
+    if ( MatchingFilteredDeviceInterfaceList >= 0 )
+    {
+      for ( i = (const WCHAR *)PoolWithTag; *i; i += ((unsigned __int64)DestinationString.Length + 2) >> 1 )
+      {
+        MatchingFilteredDeviceInterfaceList = RtlInitUnicodeStringEx(&DestinationString, i);
+        if ( MatchingFilteredDeviceInterfaceList >= 0 )
+          IoSetDeviceInterfaceState(&DestinationString, 0);
       }
     }
   }
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  PnpUnicodeStringToWstrFree(v11, (__int64)a1);
-  return (unsigned int)inited;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  PnpUnicodeStringToWstrFree(v10, (__int64)a1);
+  return (unsigned int)MatchingFilteredDeviceInterfaceList;
 }

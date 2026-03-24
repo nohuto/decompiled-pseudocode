@@ -1,70 +1,63 @@
 /*
- * XREFs of EtwpCreateNtFileName @ 0x1407F71EC
+ * XREFs of EtwpCreateNtFileName @ 0x140713BB0
  * Callers:
- *     EtwpDelayCreate @ 0x1407F70C4 (EtwpDelayCreate.c)
+ *     EtwpDelayCreate @ 0x140713990 (EtwpDelayCreate.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall EtwpCreateNtFileName(_WORD *a1, wchar_t **a2, _BYTE *a3)
+NTSTATUS __fastcall EtwpCreateNtFileName(_WORD *a1, wchar_t **a2, int *a3)
 {
-  __int64 v4; // rax
+  __int64 v3; // rax
   _WORD *v5; // rbx
   int v6; // eax
   unsigned int v7; // eax
-  const wchar_t *v8; // rsi
-  int v9; // ecx
-  __int64 v10; // rbp
-  wchar_t *Pool2; // rax
-  wchar_t *v12; // rdi
+  int v8; // ecx
+  SIZE_T v9; // rbp
+  wchar_t *PoolWithTag; // rdi
+  const wchar_t *v11; // r9
+  _WORD *v12; // rax
   NTSTATUS result; // eax
 
-  *a3 = 0;
-  v4 = -1LL;
+  v3 = -1LL;
   v5 = a1;
   do
-    ++v4;
-  while ( a1[v4] );
-  v6 = 2 * v4;
+    ++v3;
+  while ( a1[v3] );
+  v6 = 2 * v3;
   if ( !v6 )
     return -1073741773;
   v7 = v6 + 2;
-  if ( v7 > 0xA )
+  if ( v7 > 0xA && *a1 == 92 && a1[1] == 92 && a1[2] == 63 && a1[3] == 92 )
   {
-    if ( *a1 != 92 )
-      goto LABEL_6;
-    if ( a1[1] == 92 && a1[2] == 63 && a1[3] == 92 )
+    v7 -= 8;
+    v5 = a1 + 4;
+  }
+  if ( *v5 != 92 || (v8 = 14, v5[1] != 92) )
+    v8 = 24;
+  *a3 = v8;
+  v9 = v8 + v7;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x50777445u);
+  if ( PoolWithTag )
+  {
+    if ( *v5 == 92 && (v12 = v5 + 1, v5[1] == 92) )
     {
-      v7 -= 8;
-      v5 = a1 + 4;
+      v11 = L"\\??\\UNC";
     }
-  }
-  if ( *v5 == 92 && v5[1] == 92 )
-  {
-    v8 = L"\\??\\UNC\\";
-    *a3 = 1;
-    v5 += 2;
-    v9 = 12;
-    goto LABEL_7;
-  }
-LABEL_6:
-  v8 = L"\\DosDevices\\";
-  v9 = 24;
-LABEL_7:
-  v10 = v9 + v7;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v10, 1350005829LL);
-  v12 = Pool2;
-  if ( Pool2 )
-  {
-    result = RtlStringCbPrintfW(Pool2, (unsigned int)v10, L"%ws%ws", v8, v5);
+    else
+    {
+      v11 = L"\\DosDevices\\";
+      v12 = v5;
+    }
+    result = RtlStringCbPrintfW(PoolWithTag, v9, L"%ws%ws", v11, v12);
     if ( !result )
     {
-      *a2 = v12;
+      *a2 = PoolWithTag;
       return result;
     }
-    ExFreePoolWithTag(v12, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     result = -1073741811;
   }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampProfileInterrupt @ 0x140317180
+ * XREFs of EtwpCovSampProfileInterrupt @ 0x140317280
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCovSampCaptureSample @ 0x140316DC4 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x140316EC4 (EtwpCovSampCaptureSample.c)
  */
 
 char __fastcall EtwpCovSampProfileInterrupt(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of NtFindAtom @ 0x140717D10
+ * XREFs of NtFindAtom @ 0x14061B130
  * Callers:
  *     <none>
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140214EC0 (MmSessionGetWin32Callouts.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExCallCallBack @ 0x1406AF8E4 (ExCallCallBack.c)
- *     RtlLookupAtomInAtomTable @ 0x140717E80 (RtlLookupAtomInAtomTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     MmSessionGetWin32Callouts @ 0x14025A170 (MmSessionGetWin32Callouts.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExCallCallBack @ 0x14061B29C (ExCallCallBack.c)
+ *     RtlLookupAtomInAtomTable @ 0x14061B9E0 (RtlLookupAtomInAtomTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtFindAtom(char *Src, size_t Size, _WORD *a3)
@@ -30,7 +30,7 @@ __int64 __fastcall NtFindAtom(char *Src, size_t Size, _WORD *a3)
   v11 = 0;
   v14 = 0;
   Win32Callouts = MmSessionGetWin32Callouts();
-  ExCallCallBack((signed __int64 *)Win32Callouts, 2LL, (__int64)&v12);
+  ExCallCallBack(Win32Callouts, 2LL, &v12);
   if ( !v12 )
     return 3221225506LL;
   if ( (unsigned int)v4 > 0x1FE )
@@ -42,9 +42,9 @@ __int64 __fastcall NtFindAtom(char *Src, size_t Size, _WORD *a3)
   {
     if ( a3 )
     {
-      v9 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v9 = (__int64)a3;
+      v9 = (__int64)a3;
+      if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+        v9 = 0x7FFFFFFF0000LL;
       *(_WORD *)v9 = *(_WORD *)v9;
       v8 = v13;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of FindCachedSMP @ 0x1C013D27C
+ * XREFs of FindCachedSMP @ 0x1C00198D8
  * Callers:
- *     GetCachedSMP @ 0x1C013D0AC (GetCachedSMP.c)
+ *     GetCachedSMP @ 0x1C0019708 (GetCachedSMP.c)
  * Callees:
- *     CreateStandardMonoPattern @ 0x1C013C9D8 (CreateStandardMonoPattern.c)
+ *     CreateStandardMonoPattern @ 0x1C01535F4 (CreateStandardMonoPattern.c)
  */
 
 __int64 **__fastcall FindCachedSMP(__int64 a1, int a2)
@@ -25,11 +25,16 @@ __int64 **__fastcall FindCachedSMP(__int64 a1, int a2)
   _QWORD *j; // rax
   _QWORD *v19; // rdi
   void *v20; // rcx
-  __m128i v21; // [rsp+20h] [rbp-20h] BYREF
-  char *v22; // [rsp+30h] [rbp-10h]
+  __int16 v21; // [rsp+20h] [rbp-20h] BYREF
+  char v22; // [rsp+22h] [rbp-1Eh]
+  char v23; // [rsp+23h] [rbp-1Dh]
+  __int16 v24; // [rsp+24h] [rbp-1Ch]
+  __int64 v25; // [rsp+26h] [rbp-1Ah]
+  __int16 v26; // [rsp+2Eh] [rbp-12h]
+  char *v27; // [rsp+30h] [rbp-10h]
 
   v2 = *(_DWORD *)(a1 + 28);
-  EngAcquireSemaphore(qword_1C0336420);
+  EngAcquireSemaphore(hsem);
   v5 = pv;
   if ( pv )
   {
@@ -57,7 +62,7 @@ __int64 **__fastcall FindCachedSMP(__int64 a1, int a2)
   else
   {
 LABEL_11:
-    if ( (unsigned __int16)word_1C0336456 >= 0xAu )
+    if ( (unsigned __int16)word_1C033AFB6 >= 0xAu )
     {
       v16 = pv;
       v17 = 0LL;
@@ -77,25 +82,25 @@ LABEL_11:
       }
       EngFreeMem(v16);
       v17[1] = 0LL;
-      --word_1C0336456;
+      --word_1C033AFB6;
     }
     v10 = EngAllocMem(0, 0x18u, 0x32305448u);
     if ( !v10 )
       goto LABEL_26;
     v7 = v10 + 2;
-    ++word_1C0336456;
+    ++word_1C033AFB6;
     v10[1] = pv;
     v10[2] = 0LL;
     *(_DWORD *)v10 = v2;
     pv = v10;
   }
-  *(__int64 *)((char *)v21.m128i_i64 + 6) = 0LL;
-  v21.m128i_i16[7] = 0;
-  v21.m128i_i16[0] = 1;
-  v21.m128i_i8[2] = 1;
-  v21.m128i_i8[3] = a2;
-  v21.m128i_i16[2] = 3848;
-  v22 = 0LL;
+  v25 = 0LL;
+  v26 = 0;
+  v21 = 1;
+  v22 = 1;
+  v23 = a2;
+  v24 = 3848;
+  v27 = 0LL;
   v11 = CreateStandardMonoPattern(a1, &v21);
   if ( v11 + 16 >= v11 )
   {
@@ -103,12 +108,12 @@ LABEL_11:
     v13 = v12;
     if ( v12 )
     {
-      v22 = v12 + 16;
+      v27 = v12 + 16;
       CreateStandardMonoPattern(a1, &v21);
-      v14 = v21.m128i_i16[3];
+      v14 = v25;
       *(_QWORD *)v13 = *v7;
-      *((_WORD *)v13 + 5) = v21.m128i_i16[4];
-      v15 = v21.m128i_i16[5];
+      *((_WORD *)v13 + 5) = WORD1(v25);
+      v15 = WORD2(v25);
       *((_WORD *)v13 + 7) = v14;
       result = (__int64 **)v13;
       *((_WORD *)v13 + 6) = v15;
@@ -118,6 +123,6 @@ LABEL_11:
     }
   }
 LABEL_26:
-  EngReleaseSemaphore(qword_1C0336420);
+  EngReleaseSemaphore(hsem);
   return 0LL;
 }

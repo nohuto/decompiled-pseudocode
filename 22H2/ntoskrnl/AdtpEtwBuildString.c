@@ -1,65 +1,64 @@
 /*
- * XREFs of AdtpEtwBuildString @ 0x14083EED0
+ * XREFs of AdtpEtwBuildString @ 0x1407B924C
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpEtwBuildString(__int64 a1, unsigned __int16 *a2, __int64 a3, _DWORD *a4, _BYTE *a5)
 {
-  unsigned int v7; // ecx
-  unsigned __int16 v8; // dx
-  __int64 v9; // rbp
-  unsigned int v10; // edi
-  bool v11; // zf
-  _WORD *Pool2; // rbx
-  __int64 v13; // rax
+  unsigned int v6; // edx
+  unsigned __int16 v8; // r11
+  unsigned int v9; // edi
+  bool v10; // zf
+  _WORD *PoolWithTag; // rbx
+  __int64 v12; // rax
   __int64 result; // rax
 
-  v7 = *a2;
+  v6 = *a2;
   v8 = a2[1];
-  v9 = v7 >> 1;
-  v10 = v9 + 1;
-  v11 = v8 == (unsigned __int16)v7;
-  if ( v8 > (unsigned __int16)v7 )
+  v9 = (v6 >> 1) + 1;
+  v10 = v8 == (unsigned __int16)v6;
+  if ( v8 > (unsigned __int16)v6 )
   {
-    Pool2 = (_WORD *)*((_QWORD *)a2 + 1);
-    if ( !Pool2[v9] )
+    PoolWithTag = (_WORD *)*((_QWORD *)a2 + 1);
+    if ( !PoolWithTag[v6 >> 1] )
     {
 LABEL_8:
-      *(_QWORD *)a1 = Pool2;
-      *(_DWORD *)(a1 + 8) = 2 * v10;
+      *(_QWORD *)a1 = PoolWithTag;
+      *(_DWORD *)(a1 + 8) = 2 * v9;
       result = 0LL;
       *(_DWORD *)(a1 + 12) = 0;
       return result;
     }
-    v11 = v8 == (unsigned __int16)v7;
+    v10 = v8 == (unsigned __int16)v6;
   }
-  if ( v11 && v10 > 1 )
+  if ( v10 && v9 > 1 )
   {
-    Pool2 = (_WORD *)*((_QWORD *)a2 + 1);
-    if ( !Pool2[(unsigned int)(v9 - 1)] )
+    PoolWithTag = (_WORD *)*((_QWORD *)a2 + 1);
+    if ( !PoolWithTag[(v6 >> 1) - 1] )
     {
-      v10 = v7 >> 1;
+      v9 = v6 >> 1;
       goto LABEL_8;
     }
   }
-  v13 = (unsigned int)*a4;
-  if ( (unsigned int)v13 + v10 < 0x400 )
+  v12 = (unsigned int)*a4;
+  if ( (unsigned int)v12 + v9 < 0x400 )
   {
-    Pool2 = (_WORD *)(a3 + 2 * v13);
-    *a4 = v13 + v10;
+    PoolWithTag = (_WORD *)(a3 + 2 * v12);
+    *a4 = v12 + v9;
 LABEL_7:
-    memmove(Pool2, *((const void **)a2 + 1), *a2);
-    Pool2[v9] = 0;
+    memmove(PoolWithTag, *((const void **)a2 + 1), (unsigned __int16)v6);
+    PoolWithTag[v9 - 1] = 0;
     goto LABEL_8;
   }
-  Pool2 = (_WORD *)ExAllocatePool2(256LL, 2LL * v10, 1799447891LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v9, 0x6B416553u);
+  if ( PoolWithTag )
   {
     *a5 = 1;
+    LOWORD(v6) = *a2;
     goto LABEL_7;
   }
   return 3221225495LL;

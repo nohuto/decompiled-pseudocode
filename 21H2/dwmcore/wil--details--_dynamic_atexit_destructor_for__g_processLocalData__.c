@@ -1,12 +1,13 @@
 /*
- * XREFs of wil::details::_dynamic_atexit_destructor_for__g_processLocalData__ @ 0x18010D700
+ * XREFs of wil::details::_dynamic_atexit_destructor_for__g_processLocalData__ @ 0x1800F96F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 wil::details::_dynamic_atexit_destructor_for__g_processLocalData__()
+// attributes: thunk
+__int64 __fastcall wil::details::_dynamic_atexit_destructor_for__g_processLocalData__()
 {
-  return wil::details_abi::ProcessLocalStorage<wil::details_abi::ProcessLocalData>::~ProcessLocalStorage<wil::details_abi::ProcessLocalData>((__int64)&wil::details::g_processLocalData);
+  return wil::details_abi::ProcessLocalStorage<wil::details_abi::ProcessLocalData>::~ProcessLocalStorage<wil::details_abi::ProcessLocalData>();
 }

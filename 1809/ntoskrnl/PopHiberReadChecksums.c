@@ -3,11 +3,11 @@
  * Callers:
  *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  *     PopGetIoLocation @ 0x14056A930 (PopGetIoLocation.c)
  */
 

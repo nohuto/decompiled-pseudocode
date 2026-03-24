@@ -1,53 +1,52 @@
 /*
- * XREFs of MiCreatePagingFile @ 0x14084AA8C
+ * XREFs of MiCreatePagingFile @ 0x1407B661C
  * Callers:
- *     NtManagePartition @ 0x1407DE5F0 (NtManagePartition.c)
- *     NtCreatePagingFile @ 0x14084AA50 (NtCreatePagingFile.c)
+ *     NtManagePartition @ 0x140691E80 (NtManagePartition.c)
+ *     NtCreatePagingFile @ 0x1407B65E0 (NtCreatePagingFile.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     MiIncreaseCommitLimits @ 0x1403CF51C (MiIncreaseCommitLimits.c)
- *     MiReservePageHash @ 0x1403CF824 (MiReservePageHash.c)
- *     MiCheckPageFileMapping @ 0x1403CF8BC (MiCheckPageFileMapping.c)
- *     KeLeaveGuardedRegionThread @ 0x1403CF934 (KeLeaveGuardedRegionThread.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     ZwSetSecurityObject @ 0x14041EDA0 (ZwSetSecurityObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MiCheckAndUpdatePagingFileMinimum @ 0x14059BEE8 (MiCheckAndUpdatePagingFileMinimum.c)
- *     MiExtendPagingFileMaximum @ 0x14059BFB0 (MiExtendPagingFileMaximum.c)
- *     MiIssuePageExtendRequest @ 0x14059C99C (MiIssuePageExtendRequest.c)
- *     MiReduceCommitLimits @ 0x1405B3268 (MiReduceCommitLimits.c)
- *     IoCreateFile @ 0x1406CAD00 (IoCreateFile.c)
- *     IoQueryVolumeInformation @ 0x1406E8DF0 (IoQueryVolumeInformation.c)
- *     MiEnablePartitionMappedWrites @ 0x1406F9808 (MiEnablePartitionMappedWrites.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14081C234 (FsRtlIssueFileNotificationFsctl.c)
- *     MiInsertPageFileInList @ 0x14084B418 (MiInsertPageFileInList.c)
- *     MiCreatePagefile @ 0x14084B698 (MiCreatePagefile.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x14084BA14 (MiCreatePageFileSpaceBitmaps.c)
- *     MiZeroPageFileFirstPage @ 0x14084BA88 (MiZeroPageFileFirstPage.c)
- *     PpPagePathAssign @ 0x14084BB80 (PpPagePathAssign.c)
- *     IoInitializeCrashDump @ 0x14084BDD8 (IoInitializeCrashDump.c)
- *     SmpSystemStoreCreate @ 0x14085E448 (SmpSystemStoreCreate.c)
- *     PpPagePathRelease @ 0x140945F80 (PpPagePathRelease.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x14096E2E0 (MiCreateSpecialPurposeMemoryPageFile.c)
- *     MiDeletePagefile @ 0x14096F074 (MiDeletePagefile.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF7AC (MiIncreaseCommitLimits.c)
+ *     MiReservePageHash @ 0x1403BFCFC (MiReservePageHash.c)
+ *     MiCheckPageFileMapping @ 0x1403BFD8C (MiCheckPageFileMapping.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MiCheckAndUpdatePagingFileMinimum @ 0x140542FC8 (MiCheckAndUpdatePagingFileMinimum.c)
+ *     MiExtendPagingFileMaximum @ 0x140543090 (MiExtendPagingFileMaximum.c)
+ *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
+ *     MiReduceCommitLimits @ 0x14055063C (MiReduceCommitLimits.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     IoCreateFile @ 0x14060B1D0 (IoCreateFile.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     IoQueryVolumeInformation @ 0x1406C5D20 (IoQueryVolumeInformation.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406D3284 (MiEnablePartitionMappedWrites.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14078D6B4 (FsRtlIssueFileNotificationFsctl.c)
+ *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
+ *     MiCreatePagefile @ 0x1407B7250 (MiCreatePagefile.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x1407B7594 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiZeroPageFileFirstPage @ 0x1407B7608 (MiZeroPageFileFirstPage.c)
+ *     IoInitializeCrashDump @ 0x1407B7754 (IoInitializeCrashDump.c)
+ *     SmpSystemStoreCreate @ 0x1407CEAC0 (SmpSystemStoreCreate.c)
+ *     PpPagePathAssign @ 0x1408A0FA0 (PpPagePathAssign.c)
+ *     PpPagePathRelease @ 0x1408A0FB8 (PpPagePathRelease.c)
+ *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePagingFile(
@@ -56,62 +55,67 @@ __int64 __fastcall MiCreatePagingFile(
         unsigned __int64 *a3,
         KPROCESSOR_MODE a4,
         int a5,
-        PVOID Object)
+        __int64 a6)
 {
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   __int64 QuadPart; // rax
-  unsigned __int64 v11; // rbx
+  unsigned __int64 v13; // rbx
   PVOID Pool; // rax
-  PVOID v13; // r13
-  __int64 v14; // r14
-  unsigned __int16 v15; // cx
-  int Status; // r15d
-  ULONG v17; // edi
-  ULONG v18; // edi
-  ACL *v19; // rax
-  unsigned int v20; // edi
-  ULONG_PTR *v21; // r14
-  struct _FILE_OBJECT *v22; // r13
+  PVOID v15; // r12
+  unsigned __int16 v16; // cx
+  ACL *v17; // rdi
+  int Acl; // r15d
+  ULONG v19; // edi
+  ULONG v20; // edi
+  ACL *v21; // rax
+  ULONG v22; // edx
+  unsigned int v23; // esi
+  struct _FILE_OBJECT *v24; // rdi
   unsigned __int64 DeviceType; // rcx
-  __int64 v24; // rax
-  __int64 v25; // rdx
+  __int64 v26; // rax
+  __int64 v27; // rdx
   __int64 Pagefile; // rax
-  __int64 v27; // rbx
+  __int64 v29; // rbx
   int inserted; // edi
-  __int64 v30; // r12
-  unsigned int v31; // r9d
-  unsigned int v32; // ebx
-  __int64 v33; // rdx
-  __int16 v34; // r8
-  unsigned __int64 v35; // rbx
-  unsigned __int64 v36; // r14
-  unsigned __int64 v37; // rdx
+  __int64 v32; // r12
+  __int64 v33; // r8
+  __int64 v34; // rcx
+  unsigned __int64 v35; // r9
+  unsigned int v36; // r13d
+  __int64 v37; // rdx
   unsigned __int64 v38; // rbx
-  ULONG_PTR v39; // rdi
+  unsigned __int64 v39; // r14
+  unsigned __int64 v40; // rdx
+  unsigned __int64 v41; // rbx
+  __int64 v42; // r14
+  ULONG_PTR v43; // rsi
+  ULONG_PTR v44; // r13
   __int64 PageFileSpaceBitmaps; // rax
-  int v41; // eax
+  int v46; // eax
   HANDLE FileHandle; // [rsp+70h] [rbp-118h] BYREF
-  LARGE_INTEGER AllocationSize; // [rsp+78h] [rbp-110h] BYREF
-  __int64 v44; // [rsp+80h] [rbp-108h]
-  void *Src[2]; // [rsp+88h] [rbp-100h] BYREF
-  unsigned int v46; // [rsp+98h] [rbp-F0h]
-  PVOID P; // [rsp+A0h] [rbp-E8h]
-  PACL Acl; // [rsp+A8h] [rbp-E0h]
-  ULONG ReturnedLength; // [rsp+B0h] [rbp-D8h] BYREF
-  PVOID v50; // [rsp+B8h] [rbp-D0h] BYREF
+  unsigned int v48; // [rsp+78h] [rbp-110h]
+  __int64 v49; // [rsp+80h] [rbp-108h]
+  ACL *v50; // [rsp+88h] [rbp-100h]
+  LARGE_INTEGER AllocationSize; // [rsp+90h] [rbp-F8h] BYREF
+  void *Src[2]; // [rsp+98h] [rbp-F0h] BYREF
+  ULONG ReturnedLength; // [rsp+A8h] [rbp-E0h] BYREF
+  PVOID v54; // [rsp+B0h] [rbp-D8h] BYREF
+  PVOID P; // [rsp+B8h] [rbp-D0h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C0h] [rbp-C8h] BYREF
   unsigned __int64 FileInformation; // [rsp+D0h] [rbp-B8h] BYREF
-  __int64 FsInformation; // [rsp+D8h] [rbp-B0h] BYREF
-  unsigned __int64 v54; // [rsp+E0h] [rbp-A8h]
-  ULONG_PTR v55; // [rsp+E8h] [rbp-A0h]
-  unsigned __int64 v56; // [rsp+F0h] [rbp-98h]
-  ULONG_PTR BugCheckParameter2; // [rsp+F8h] [rbp-90h]
+  PVOID Object; // [rsp+D8h] [rbp-B0h] BYREF
+  __int64 FsInformation; // [rsp+E0h] [rbp-A8h] BYREF
+  unsigned __int64 v60; // [rsp+E8h] [rbp-A0h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+F0h] [rbp-98h]
+  unsigned __int64 v62; // [rsp+F8h] [rbp-90h]
   struct _KTHREAD *CurrentThread; // [rsp+100h] [rbp-88h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+108h] [rbp-80h] BYREF
   _BYTE SecurityDescriptor[32]; // [rsp+138h] [rbp-50h] BYREF
-  __int64 v61; // [rsp+158h] [rbp-30h]
-  __int128 v62; // [rsp+160h] [rbp-28h] BYREF
+  __int64 v66; // [rsp+158h] [rbp-30h]
+  __int128 v67; // [rsp+160h] [rbp-28h]
 
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IoStatusBlock = 0LL;
   *(_OWORD *)Src = 0LL;
   AllocationSize.QuadPart = 0LL;
@@ -119,9 +123,8 @@ __int64 __fastcall MiCreatePagingFile(
   FsInformation = 0LL;
   ReturnedLength = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v61 = 0LL;
-  Acl = 0LL;
-  if ( Object != &MiSystemPartition && a5
+  v66 = 0LL;
+  if ( (ULONG_PTR *)a6 != &MiSystemPartition && a5
     || (a5 & 0x7FFFFF) != 0
     || a5 < 0 && (a5 & 0x42000000) != 0
     || (a5 & 0xFF7FFFFF) != 0 && (a5 & 0x800000) != 0 )
@@ -130,7 +133,7 @@ __int64 __fastcall MiCreatePagingFile(
   }
   if ( a4 )
   {
-    if ( !SeSinglePrivilegeCheck(SeCreatePagefilePrivilege, a4) || PsIsCurrentThreadInServerSilo() )
+    if ( !SeSinglePrivilegeCheck(SeCreatePagefilePrivilege, a4) || PsIsCurrentThreadInServerSilo(v11, v10) )
       return 3221225569LL;
     if ( ((unsigned __int8)a1 & 3) != 0 || ((unsigned __int8)a3 & 3) != 0 || ((unsigned __int8)a2 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
@@ -144,76 +147,78 @@ __int64 __fastcall MiCreatePagingFile(
   }
   if ( (unsigned __int64)QuadPart > 0xFFFFFFFE000LL || QuadPart < 0x100000 )
     return 3221225712LL;
-  v54 = *a3;
-  v11 = v54;
-  if ( v54 > 0xFFFFFFFE000LL || QuadPart > (__int64)v54 )
+  v60 = *a3;
+  v13 = v60;
+  if ( v60 > 0xFFFFFFFE000LL || QuadPart > (__int64)v60 )
     return 3221225713LL;
   *(_OWORD *)Src = *a1;
   WORD1(Src[0]) = Src[0];
   if ( (unsigned __int16)(LOWORD(Src[0]) - 1) > 0xFFu )
     return 3221225523LL;
   Pool = MiAllocatePool(256, LOWORD(Src[0]), 0x20206D4Du);
-  v13 = Pool;
+  v15 = Pool;
   P = Pool;
-  v14 = 0LL;
   if ( !Pool )
     return 3221225626LL;
   if ( a4 )
   {
-    v15 = (unsigned __int16)Src[0];
+    v16 = (unsigned __int16)Src[0];
     if ( LOWORD(Src[0])
       && ((char *)Src[1] + LOWORD(Src[0]) > (void *)0x7FFFFFFF0000LL || (char *)Src[1] + LOWORD(Src[0]) < Src[1]) )
     {
       MEMORY[0x7FFFFFFF0000] = 0;
-      v15 = (unsigned __int16)Src[0];
+      v16 = (unsigned __int16)Src[0];
     }
-    memmove(Pool, Src[1], v15);
+    memmove(Pool, Src[1], v16);
   }
   else
   {
     memmove(Pool, Src[1], LOWORD(Src[0]));
   }
-  Src[1] = v13;
+  Src[1] = v15;
   if ( (a5 & 0x800000) != 0 )
-    return MiCreateSpecialPurposeMemoryPageFile(
-             Object,
-             (unsigned __int64)AllocationSize.QuadPart >> 12,
-             (unsigned int)(v54 >> 12),
-             Src);
-  v44 = 0LL;
-  FileHandle = 0LL;
-  Status = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-  if ( Status < 0 )
-    goto LABEL_85;
-  v17 = RtlLengthSid(SeAliasAdminsSid);
-  v18 = RtlLengthSid(SeLocalSystemSid) + 32 + v17;
-  v19 = (ACL *)MiAllocatePool(256, v18, 0x6C636144u);
-  Acl = v19;
-  if ( !v19 )
   {
-    Status = -1073741670;
-    goto LABEL_85;
+    ExFreePoolWithTag(v15, 0);
+    return 3221225659LL;
   }
-  Status = RtlCreateAcl(v19, v18, 2u);
-  if ( Status < 0
-    || (Status = RtlAddAccessAllowedAce(Acl, 2u, 0x1F01FFu, SeAliasAdminsSid), Status < 0)
-    || (Status = RtlAddAccessAllowedAce(Acl, 2u, 0x1F01FFu, SeLocalSystemSid), Status < 0)
-    || (Status = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, Acl, 0), Status < 0) )
+  v17 = 0LL;
+  v49 = 0LL;
+  FileHandle = 0LL;
+  Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+  if ( Acl < 0 )
+    goto LABEL_86;
+  v19 = RtlLengthSid(SeAliasAdminsSid);
+  v20 = RtlLengthSid(SeLocalSystemSid) + 32 + v19;
+  v21 = (ACL *)MiAllocatePool(256, v20, 0x6C636144u);
+  v50 = v21;
+  if ( !v21 )
   {
-LABEL_85:
+    Acl = -1073741670;
+    v17 = 0LL;
+    goto LABEL_86;
+  }
+  v22 = v20;
+  v17 = v21;
+  Acl = RtlCreateAcl(v21, v22, 2u);
+  if ( Acl < 0
+    || (Acl = RtlAddAccessAllowedAce(v17, 2u, 0x1F01FFu, SeAliasAdminsSid), Acl < 0)
+    || (Acl = RtlAddAccessAllowedAce(v17, 2u, 0x1F01FFu, SeLocalSystemSid), Acl < 0)
+    || (Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v17, 0), Acl < 0) )
+  {
+LABEL_86:
     if ( FileHandle )
       ObCloseHandle(FileHandle, 0);
-    goto LABEL_87;
+    goto LABEL_88;
   }
   if ( a5 < 0 )
   {
-    v20 = 3;
+    v23 = 3;
   }
   else
   {
-    v20 = 0;
+    v23 = 0;
     if ( (a5 & 0x2000000) != 0 )
-      v20 = 2;
+      v23 = 2;
   }
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -238,246 +243,254 @@ LABEL_85:
          0LL,
          0x112u) >= 0 )
   {
-    v21 = (ULONG_PTR *)Object;
-    Status = MiEnablePartitionMappedWrites(Object);
-    if ( Status >= 0 )
+    Acl = MiEnablePartitionMappedWrites((_QWORD *)a6);
+    if ( Acl >= 0 )
     {
-      if ( IoStatusBlock.Status < 0 || (Status = ZwSetSecurityObject(FileHandle, 4u, SecurityDescriptor), Status >= 0) )
+      if ( IoStatusBlock.Status < 0 || (Acl = ZwSetSecurityObject(FileHandle, 4u, SecurityDescriptor), Acl >= 0) )
       {
-        ExFreePoolWithTag(Acl, 0);
-        Acl = 0LL;
-        Status = IoStatusBlock.Status;
+        ExFreePoolWithTag(v17, 0);
+        v17 = 0LL;
+        v50 = 0LL;
+        Acl = IoStatusBlock.Status;
         if ( IoStatusBlock.Status >= 0 )
         {
-          Status = ZwSetInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 8u, FileEndOfFileInformation);
-          if ( Status >= 0 )
+          Acl = ZwSetInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 8u, FileEndOfFileInformation);
+          if ( Acl >= 0 )
           {
-            Status = IoStatusBlock.Status;
+            Acl = IoStatusBlock.Status;
             if ( IoStatusBlock.Status >= 0 )
             {
               Object = 0LL;
-              Status = ObReferenceObjectByHandle(FileHandle, 3u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
-              v22 = (struct _FILE_OBJECT *)Object;
-              if ( Status >= 0 )
+              Acl = ObReferenceObjectByHandle(FileHandle, 3u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
+              v24 = (struct _FILE_OBJECT *)Object;
+              DmaAdapter = (PADAPTER_OBJECT)Object;
+              if ( Acl < 0 )
+              {
+                v17 = 0LL;
+              }
+              else
               {
                 DeviceType = IoGetRelatedDeviceObject((PFILE_OBJECT)Object)->DeviceType;
-                if ( (unsigned int)DeviceType <= 0x36 && (v24 = 0x60000000100100LL, _bittest64(&v24, DeviceType)) )
+                if ( (unsigned int)DeviceType > 0x36 || (v26 = 0x60000000100100LL, !_bittest64(&v26, DeviceType)) )
                 {
-                  Status = MiCheckPageFileMapping((__int64)v22);
-                  if ( Status >= 0 )
+                  Acl = -1073741489;
+                  goto LABEL_83;
+                }
+                Acl = MiCheckPageFileMapping((__int64)v24);
+                if ( Acl >= 0 )
+                {
+                  Acl = IoQueryVolumeInformation(v24, FileFsDeviceInformation, 8u, &FsInformation, &ReturnedLength);
+                  if ( Acl >= 0 )
                   {
-                    Status = IoQueryVolumeInformation(v22, FileFsDeviceInformation, 8u, &FsInformation, &ReturnedLength);
-                    if ( Status >= 0 )
+                    if ( (FsInformation & 0x400000000LL) != 0 )
                     {
-                      if ( (FsInformation & 0x400000000LL) != 0 )
+                      Acl = -1073741468;
+                      goto LABEL_83;
+                    }
+                    Acl = PpPagePathAssign(v24);
+                    if ( Acl < 0 )
+                      goto LABEL_83;
+                    FsRtlIssueFileNotificationFsctl(v24, v27, (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE);
+                    if ( (ULONG_PTR *)a6 == &MiSystemPartition )
+                    {
+                      Acl = MiZeroPageFileFirstPage(v24);
+                      if ( Acl < 0 )
                       {
-                        Status = -1073741468;
+                        PpPagePathRelease(v24);
+                        goto LABEL_83;
+                      }
+                    }
+                    Pagefile = MiCreatePagefile(
+                                 a6,
+                                 (_DWORD)v24,
+                                 (_DWORD)FileHandle,
+                                 (unsigned __int64)AllocationSize.QuadPart >> 12,
+                                 v13 >> 12,
+                                 (__int64)Src,
+                                 a5,
+                                 1);
+                    v29 = Pagefile;
+                    if ( Pagefile )
+                    {
+                      inserted = MiInsertPageFileInList(Pagefile);
+                      if ( inserted < 0 )
+                      {
+                        MiDeletePagefile((PVOID)v29);
+                        return (unsigned int)inserted;
                       }
                       else
                       {
-                        Status = PpPagePathAssign(v22);
-                        if ( Status >= 0 )
+                        if ( (ULONG_PTR *)a6 == &MiSystemPartition )
                         {
-                          FsRtlIssueFileNotificationFsctl(v22, v25, (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE);
-                          if ( v21 != &MiSystemPartition || (Status = MiZeroPageFileFirstPage(v22), Status >= 0) )
+                          if ( (*(_BYTE *)(v29 + 204) & 0xF) == 0 && (dword_140D24180 & 3) != 0 )
+                            SmpSystemStoreCreate();
+                          if ( !byte_140C4E6C0 && (*(_BYTE *)(v29 + 204) & 0x10) == 0 )
                           {
-                            Pagefile = MiCreatePagefile(
-                                         (_DWORD)v21,
-                                         (_DWORD)v22,
-                                         (_DWORD)FileHandle,
-                                         (unsigned __int64)AllocationSize.QuadPart >> 12,
-                                         v11 >> 12,
-                                         (__int64)Src,
-                                         a5,
-                                         1);
-                            v27 = Pagefile;
-                            if ( Pagefile )
-                            {
-                              inserted = MiInsertPageFileInList(Pagefile);
-                              if ( inserted < 0 )
-                              {
-                                MiDeletePagefile((PVOID)v27);
-                                return (unsigned int)inserted;
-                              }
-                              else
-                              {
-                                if ( v21 == &MiSystemPartition )
-                                {
-                                  if ( (*(_BYTE *)(v27 + 204) & 0xF) == 0 && (dword_140D321C0 & 3) != 0 )
-                                    SmpSystemStoreCreate();
-                                  if ( !byte_140C529C0 && (*(_BYTE *)(v27 + 204) & 0x10) == 0 )
-                                  {
-                                    v62 = *(_OWORD *)(v27 + 96);
-                                    byte_140C529C0 = IoInitializeCrashDump(FileHandle, &v62);
-                                  }
-                                }
-                                return 0LL;
-                              }
-                            }
-                            return 3221225626LL;
+                            v67 = *(_OWORD *)(v29 + 96);
+                            byte_140C4E6C0 = IoInitializeCrashDump(FileHandle);
                           }
-                          PpPagePathRelease(v22);
                         }
+                        return 0LL;
                       }
                     }
+                    return 3221225626LL;
                   }
+                }
+LABEL_83:
+                if ( DmaAdapter )
+                  HalPutDmaAdapter(DmaAdapter);
+                v17 = v50;
+              }
+            }
+          }
+        }
+      }
+    }
+    goto LABEL_86;
+  }
+  Acl = IoCreateFile(
+          &FileHandle,
+          0x100002u,
+          &ObjectAttributes,
+          &IoStatusBlock,
+          &AllocationSize,
+          6u,
+          3u,
+          1u,
+          0x8008u,
+          0LL,
+          0,
+          CreateFileTypeNone,
+          0LL,
+          0x112u);
+  if ( Acl >= 0 )
+  {
+    v54 = 0LL;
+    Acl = ObReferenceObjectByHandle(FileHandle, 3u, (POBJECT_TYPE)IoFileObjectType, 0, &v54, 0LL);
+    DmaAdapter = (PADAPTER_OBJECT)v54;
+    if ( Acl >= 0 )
+    {
+      v32 = 0LL;
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockExclusiveEx(a6 + 1040, 0LL);
+      v34 = a6;
+      v35 = *(unsigned int *)(a6 + 6936);
+      v36 = 0;
+      v48 = 0;
+      if ( !(_DWORD)v35 )
+        goto LABEL_70;
+      while ( 1 )
+      {
+        v37 = *(_QWORD *)(v34 + 8LL * v36 + 6944);
+        v33 = *(unsigned __int16 *)(v37 + 204);
+        if ( (v33 & 0x840) == 0 )
+        {
+          if ( *(_QWORD *)(*(_QWORD *)(v37 + 56) + 40LL) == *((_QWORD *)v54 + 5) )
+          {
+            if ( ((~(_WORD)v33 & 0x10) != 0) == ((v23 & 1) == 0) )
+            {
+              v32 = *(_QWORD *)(v34 + 8LL * v36 + 6944);
+LABEL_70:
+              if ( v32 )
+              {
+                v38 = v60 >> 12;
+                v39 = (unsigned __int64)AllocationSize.QuadPart >> 12;
+                v62 = (unsigned int)((unsigned __int64)AllocationSize.QuadPart >> 12);
+                if ( *(_QWORD *)(v32 + 16) > v62 )
+                {
+                  Acl = -1073741584;
                 }
                 else
                 {
-                  Status = -1073741489;
-                }
-                goto LABEL_82;
-              }
-LABEL_84:
-              v13 = P;
-              goto LABEL_85;
-            }
-          }
-        }
-      }
-    }
-    goto LABEL_85;
-  }
-  Status = IoCreateFile(
-             &FileHandle,
-             0x100002u,
-             &ObjectAttributes,
-             &IoStatusBlock,
-             &AllocationSize,
-             6u,
-             3u,
-             1u,
-             0x8008u,
-             0LL,
-             0,
-             CreateFileTypeNone,
-             0LL,
-             0x112u);
-  if ( Status >= 0 )
-  {
-    v50 = 0LL;
-    Status = ObReferenceObjectByHandle(FileHandle, 3u, (POBJECT_TYPE)IoFileObjectType, 0, &v50, 0LL);
-    v22 = (struct _FILE_OBJECT *)v50;
-    if ( Status < 0 )
-      goto LABEL_84;
-    v30 = 0LL;
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->SpecialApcDisable;
-    BugCheckParameter2 = (ULONG_PTR)Object + 1064;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)Object + 1064, 0LL);
-    v31 = *((_DWORD *)Object + 4182);
-    v32 = 0;
-    v46 = 0;
-    if ( v31 )
-    {
-      while ( 1 )
-      {
-        v33 = *((_QWORD *)Object + v32 + 2092);
-        v34 = *(_WORD *)(v33 + 204);
-        if ( (v34 & 0x840) == 0 && *(_QWORD *)(*(_QWORD *)(v33 + 56) + 40LL) == *((_QWORD *)v50 + 5) )
-          break;
-        v46 = ++v32;
-        if ( v32 >= v31 )
-          goto LABEL_70;
-      }
-      if ( ((~v34 & 0x10) != 0) != ((v20 & 1) == 0) )
-      {
-        Status = -1073741811;
-        goto LABEL_78;
-      }
-      v30 = *((_QWORD *)Object + v32 + 2092);
-    }
-LABEL_70:
-    if ( !v30 )
-    {
-      Status = -1073741275;
-      goto LABEL_78;
-    }
-    v35 = v54 >> 12;
-    v36 = (unsigned __int64)AllocationSize.QuadPart >> 12;
-    v56 = (unsigned int)((unsigned __int64)AllocationSize.QuadPart >> 12);
-    if ( *(_QWORD *)(v30 + 16) > v56 )
-    {
-      Status = -1073741584;
-    }
-    else
-    {
-      v37 = *(_QWORD *)(v30 + 8);
-      if ( v37 > (unsigned int)v35 )
-      {
-        Status = -1073741583;
-      }
-      else
-      {
-        if ( v37 >= (unsigned int)v35 )
-        {
+                  v40 = *(_QWORD *)(v32 + 8);
+                  if ( v40 <= (unsigned int)v38 )
+                  {
+                    if ( v40 >= (unsigned int)v38 )
+                      goto LABEL_74;
+                    if ( (*(_BYTE *)(v32 + 204) & 0x10) != 0
+                      || (v49 = (unsigned int)v38 - v40, (unsigned int)MiIncreaseCommitLimits(a6, 0LL, v49, 0, 0LL)) )
+                    {
+                      v44 = 0LL;
+                      if ( (!*(_QWORD *)(v32 + 216) || (v44 = MiReservePageHash(v38, v40, v33, v35)) != 0)
+                        && (PageFileSpaceBitmaps = MiCreatePageFileSpaceBitmaps((unsigned int)v38)) != 0 )
+                      {
+                        MiExtendPagingFileMaximum(v32, PageFileSpaceBitmaps, v44);
+                        if ( (unsigned __int64)(*(_QWORD *)(a6 + 7464) + 100LL) > *(_QWORD *)(a6 + 7592)
+                          && (unsigned int)MiChargeCommit(a6, 0xC8uLL, 0) == 1 )
+                        {
+                          MiReturnCommit(a6, 200LL);
+                        }
+                        v36 = v48;
 LABEL_74:
-          v38 = v56;
-          if ( v56 > *(_QWORD *)(v30 + 16) )
-          {
-            while ( v38 <= *(_QWORD *)v30 )
-            {
-              if ( (unsigned int)MiCheckAndUpdatePagingFileMinimum(v30, v36) )
-                goto LABEL_75;
-            }
-            MiIssuePageExtendRequest((__int64)Object, v38 - *(_QWORD *)v30, 1, v46);
-            v41 = Status;
-            if ( *(_QWORD *)(v30 + 16) < v38 )
-              v41 = -1073741670;
-            Status = v41;
-          }
+                        v41 = v62;
+                        if ( v62 > *(_QWORD *)(v32 + 16) )
+                        {
+                          while ( v41 <= *(_QWORD *)v32 )
+                          {
+                            if ( (unsigned int)MiCheckAndUpdatePagingFileMinimum(v32, v39) == 1 )
+                              goto LABEL_75;
+                          }
+                          MiIssuePageExtendRequest(a6, v41 - *(_QWORD *)v32, 1, v36);
+                          v46 = Acl;
+                          if ( *(_QWORD *)(v32 + 16) < v41 )
+                            v46 = -1073741670;
+                          Acl = v46;
+                        }
 LABEL_75:
-          if ( v20 >= 2 )
-            *(_WORD *)(v30 + 204) |= 0x80u;
-          goto LABEL_77;
-        }
-        if ( (*(_BYTE *)(v30 + 204) & 0x10) == 0 )
-        {
-          v44 = (unsigned int)v35 - v37;
-          if ( !(unsigned int)MiIncreaseCommitLimits((__int64)Object, 0LL, v44, 0, 0LL) )
-          {
-            v14 = 0LL;
-            Status = -1073741583;
+                        if ( v23 >= 2 )
+                          *(_WORD *)(v32 + 204) |= 0x80u;
+                      }
+                      else
+                      {
+                        Acl = -1073741670;
+                      }
+                      v42 = v49;
+                    }
+                    else
+                    {
+                      v42 = 0LL;
+                      Acl = -1073741583;
+                    }
+LABEL_78:
+                    v43 = a6 + 1040;
+                    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a6 + 1040), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+                      ExfTryToWakePushLock(v43);
+                    KeAbPostRelease(v43);
+                    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+                    if ( v42 )
+                      MiReduceCommitLimits((_QWORD *)a6, 0LL, v42);
+                    v15 = P;
+                    goto LABEL_83;
+                  }
+                  Acl = -1073741583;
+                }
+              }
+              else
+              {
+                Acl = -1073741275;
+              }
+            }
+            else
+            {
+              Acl = -1073741811;
+            }
+            v42 = 0LL;
             goto LABEL_78;
           }
+          v34 = a6;
         }
-        v55 = 0LL;
-        if ( !*(_QWORD *)(v30 + 216) || (v55 = MiReservePageHash(v35)) != 0 )
-        {
-          PageFileSpaceBitmaps = MiCreatePageFileSpaceBitmaps((unsigned int)v35);
-          if ( PageFileSpaceBitmaps )
-          {
-            MiExtendPagingFileMaximum(v30, PageFileSpaceBitmaps, v55);
-            if ( (unsigned __int64)(*((_QWORD *)Object + 2157) + 100LL) > *((_QWORD *)Object + 2187)
-              && (unsigned int)MiChargeCommit((__int64)Object, 0xC8uLL, 0) )
-            {
-              MiReturnCommit((__int64)Object, 200LL);
-            }
-            goto LABEL_74;
-          }
-        }
-        Status = -1073741670;
+        v48 = ++v36;
+        if ( v36 >= (unsigned int)v35 )
+          goto LABEL_70;
       }
     }
-LABEL_77:
-    v14 = v44;
-LABEL_78:
-    v39 = BugCheckParameter2;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v39);
-    KeAbPostRelease(v39);
-    KeLeaveGuardedRegionThread((__int64)CurrentThread);
-    if ( v14 )
-      MiReduceCommitLimits(Object, 0LL, v14);
-LABEL_82:
-    if ( v22 )
-      ObfDereferenceObject(v22);
-    goto LABEL_84;
+    goto LABEL_86;
   }
   FileHandle = 0LL;
-LABEL_87:
-  if ( Acl )
-    ExFreePoolWithTag(Acl, 0);
-  ExFreePoolWithTag(v13, 0);
-  return (unsigned int)Status;
+LABEL_88:
+  if ( v17 )
+    ExFreePoolWithTag(v17, 0);
+  ExFreePoolWithTag(v15, 0);
+  return (unsigned int)Acl;
 }

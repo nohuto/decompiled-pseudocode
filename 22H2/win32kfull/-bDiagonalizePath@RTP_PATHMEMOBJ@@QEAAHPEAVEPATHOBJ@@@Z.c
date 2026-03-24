@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02DFD94
+ * XREFs of ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02C0850
  * Callers:
- *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C0265308 (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
+ *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C026CE5C (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
  * Callees:
- *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02DFE30 (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C08EC (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
  */
 
 __int64 __fastcall RTP_PATHMEMOBJ::bDiagonalizePath(struct _PATHDATA *this, POINTFIX *a2)

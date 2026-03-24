@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeNonVolatileFlush @ 0x1403DE6E0
+ * XREFs of RtlpInitializeNonVolatileFlush @ 0x1403B46A0
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B020A4 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
  */
 
 __int64 RtlpInitializeNonVolatileFlush()

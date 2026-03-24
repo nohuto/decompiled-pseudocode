@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CBaseExpression@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C5420
+ * XREFs of ?IsOfType@CBaseExpression@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C0A40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CBaseExpression::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 11 || a2 == 114;
+  return a2 == 10 || a2 == 112;
 }

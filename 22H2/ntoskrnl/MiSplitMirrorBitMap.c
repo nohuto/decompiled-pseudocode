@@ -1,27 +1,26 @@
 /*
- * XREFs of MiSplitMirrorBitMap @ 0x140A2F104
+ * XREFs of MiSplitMirrorBitMap @ 0x140774760
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B738 (MiAddPhysicalMemory.c)
- *     MiActOnMirrorBitmap @ 0x140A2F068 (MiActOnMirrorBitmap.c)
+ *     MiActOnMirrorBitmap @ 0x1407746C4 (MiActOnMirrorBitmap.c)
+ *     MiAddPhysicalMemory @ 0x1408C4EE0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x14020B208 (MiSplitBitmapPages.c)
+ *     MiSplitBitmapPages @ 0x14030B840 (MiSplitBitmapPages.c)
  */
 
 __int64 __fastcall MiSplitMirrorBitMap(unsigned __int64 *a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rax
   unsigned __int64 v5; // rdi
-  __int64 result; // rax
 
   v3 = a1[1];
-  if ( v3 )
+  if ( !v3 )
+    return 1LL;
+  v5 = a2 + a3;
+  if ( (unsigned int)MiSplitBitmapPages(9, v3 + (a2 >> 3), 8 * (((a2 + a3 + 7) >> 3) - (a2 >> 3))) )
   {
-    v5 = a2 + a3;
-    result = MiSplitBitmapPages(9, v3 + (a2 >> 3), 8 * (((a2 + a3 + 7) >> 3) - (a2 >> 3)));
-    if ( !(_DWORD)result )
-      return result;
     if ( v5 > *a1 )
       *a1 = v5;
+    return 1LL;
   }
-  return 1LL;
+  return 0LL;
 }

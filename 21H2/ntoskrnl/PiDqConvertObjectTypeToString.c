@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDqConvertObjectTypeToString @ 0x14094A194
+ * XREFs of PiDqConvertObjectTypeToString @ 0x1408A4640
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
  * Callees:
  *     <none>
  */

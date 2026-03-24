@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetCopyInformationExtension @ 0x140558DE0
+ * XREFs of IoGetCopyInformationExtension @ 0x1403F0BA0
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290158 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x1402E6690 (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoGetCopyInformationExtension(__int64 a1)
 {
   __int64 v1; // rcx
-  _OWORD *v2; // r9
+  _OWORD *v2; // r8
   __int64 result; // rax
 
   if ( !IopIrpHasExtensionType(a1, 9u) )

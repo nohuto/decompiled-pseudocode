@@ -1,50 +1,51 @@
 /*
- * XREFs of IovpCallDriverWithStackBuffer @ 0x140AC29B4
+ * XREFs of IovpCallDriverWithStackBuffer @ 0x1409C5504
  * Callers:
- *     IovCallDriver @ 0x140AC21D0 (IovCallDriver.c)
+ *     IovCallDriver @ 0x1409C4CC4 (IovCallDriver.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopfCallDriver @ 0x14028CEA4 (IopfCallDriver.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopPerfCallDriver @ 0x14045F22A (IopPerfCallDriver.c)
- *     VfBugCheckNoStackUsage @ 0x1405CF910 (VfBugCheckNoStackUsage.c)
- *     IovpValidateDeviceObject @ 0x140AC2FC4 (IovpValidateDeviceObject.c)
- *     VfAfterCallDriver @ 0x140ACE3D8 (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x140ACE5AC (VfBeforeCallDriver.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopfCallDriver @ 0x140370BE4 (IopfCallDriver.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopPerfCallDriver @ 0x140507C40 (IopPerfCallDriver.c)
+ *     VfBugCheckNoStackUsage @ 0x1405A18E8 (VfBugCheckNoStackUsage.c)
+ *     IovpValidateDeviceObject @ 0x1409C5B34 (IovpValidateDeviceObject.c)
+ *     VfAfterCallDriver @ 0x1409D0E94 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409D1088 (VfBeforeCallDriver.c)
  */
 
-__int64 __fastcall IovpCallDriverWithStackBuffer(PVOID Object, ULONG_PTR a2, __int64 a3)
+__int64 __fastcall IovpCallDriverWithStackBuffer(PADAPTER_OBJECT DmaAdapter, ULONG_PTR a2, __int64 a3)
 {
   bool v6; // zf
-  KIRQL v7; // al
+  int v7; // edx
   __int64 v8; // rbx
   __int64 v9; // rax
-  unsigned int v10; // eax
-  unsigned int v12; // [rsp+20h] [rbp-89h] BYREF
-  _QWORD v13[24]; // [rsp+28h] [rbp-81h] BYREF
+  unsigned int v10; // ebx
+  unsigned int v11; // eax
+  unsigned int v13; // [rsp+20h] [rbp-89h] BYREF
+  _QWORD v14[24]; // [rsp+28h] [rbp-81h] BYREF
 
-  memset(v13, 0, sizeof(v13));
+  memset(v14, 0, sizeof(v14));
   v6 = *(_WORD *)a2 == 6;
-  v13[20] = Object;
-  v13[21] = a2;
-  v13[22] = a3;
-  if ( !v6 && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
+  v14[20] = DmaAdapter;
+  v14[21] = a2;
+  v14[22] = a3;
+  if ( !v6 && (MmVerifierData & 0x400000) == 0 )
   {
-    v7 = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-    BugCheckParameter1 = 3LL;
-    qword_140D70500 = a2;
-    goto LABEL_7;
-  }
-  if ( !(unsigned __int8)IovpValidateDeviceObject(Object) && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
-  {
-    v7 = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-    BugCheckParameter1 = 4LL;
-    qword_140D70500 = (ULONG_PTR)Object;
-LABEL_7:
+    BYTE5(v14[19]) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
+    *(_OWORD *)&xmmword_140D4A040 = 0LL;
     *(_QWORD *)&VfBugcheckTmpData = 201LL;
-    *(_OWORD *)&xmmword_140D70508 = 0LL;
-    BYTE5(v13[19]) = v7;
+    BugCheckParameter1 = 3LL;
+    qword_140D4A038 = a2;
+    VfBugCheckNoStackUsage();
+  }
+  if ( !(unsigned __int8)IovpValidateDeviceObject(DmaAdapter) && (v7 & MmVerifierData) == 0 )
+  {
+    BYTE5(v14[19]) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
+    *(_OWORD *)&xmmword_140D4A040 = 0LL;
+    *(_QWORD *)&VfBugcheckTmpData = 201LL;
+    BugCheckParameter1 = 4LL;
+    qword_140D4A038 = (ULONG_PTR)DmaAdapter;
     VfBugCheckNoStackUsage();
   }
   v8 = *(_QWORD *)(a2 + 184);
@@ -53,24 +54,24 @@ LABEL_7:
     v9 = *(_QWORD *)(v8 - 24);
     if ( v9 )
     {
-      if ( (*(_DWORD *)(v9 + 80) & 0x204000) == 0x204000 && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
+      if ( (*(_DWORD *)(v9 + 80) & 0x204000) == 0x204000 && (v7 & MmVerifierData) == 0 )
       {
-        BYTE5(v13[19]) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-        *(&xmmword_140D70508 + 1) = *(_QWORD *)(v8 - 24);
+        BYTE5(v14[19]) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
+        *(&xmmword_140D4A040 + 1) = *(_QWORD *)(v8 - 24);
         *(_QWORD *)&VfBugcheckTmpData = 201LL;
         BugCheckParameter1 = 15LL;
-        qword_140D70500 = (ULONG_PTR)Object;
-        xmmword_140D70508 = a2;
+        qword_140D4A038 = (ULONG_PTR)DmaAdapter;
+        xmmword_140D4A040 = a2;
         VfBugCheckNoStackUsage();
       }
     }
   }
-  VfBeforeCallDriver(Object, a2, v13);
+  v10 = VfBeforeCallDriver(DmaAdapter, a2, v14);
   if ( (IopFunctionPointerMask & 2) != 0 )
-    v10 = IopPerfCallDriver(Object, a2);
+    v11 = IopPerfCallDriver(DmaAdapter, a2);
   else
-    v10 = IopfCallDriver((__int64)Object, a2);
-  v12 = v10;
-  VfAfterCallDriver(v13, &v12);
-  return v12;
+    v11 = IopfCallDriver((__int64)DmaAdapter, a2);
+  v13 = v11;
+  VfAfterCallDriver(v14, &v13, v10);
+  return v13;
 }

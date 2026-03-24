@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIGetPnpLocationString @ 0x1C0087680
+ * XREFs of ACPIGetPnpLocationString @ 0x1C00A0750
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     RtlStringCchPrintfExW @ 0x1C000B730 (RtlStringCchPrintfExW.c)
- *     AMLIGetNSObjectNameSegment @ 0x1C00483A4 (AMLIGetNSObjectNameSegment.c)
+ *     AMLIGetNSObjectNameSegment @ 0x1C000236C (AMLIGetNSObjectNameSegment.c)
+ *     RtlStringCchPrintfExW @ 0x1C0028C9C (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIGetPnpLocationString(__int64 *a1, wchar_t **a2)
@@ -25,12 +25,12 @@ __int64 __fastcall ACPIGetPnpLocationString(__int64 *a1, wchar_t **a2)
   __int64 v14; // rdx
   __int64 v15; // rdx
   unsigned int v16; // edx
-  unsigned int v17; // ebx
-  unsigned int v18; // eax
-  wchar_t *Pool2; // rax
-  wchar_t *v20; // rdi
-  wchar_t *v21; // rbx
-  NTSTATUS v22; // eax
+  unsigned int v17; // eax
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v19; // rdi
+  wchar_t *v20; // rbx
+  NTSTATUS v21; // eax
+  unsigned int v22; // ebx
   void *Src; // [rsp+40h] [rbp-40h] BYREF
   int v25; // [rsp+48h] [rbp-38h] BYREF
   PUCHAR SourceCharacter; // [rsp+50h] [rbp-30h] BYREF
@@ -41,7 +41,7 @@ __int64 __fastcall ACPIGetPnpLocationString(__int64 *a1, wchar_t **a2)
   v4 = *a1;
   v25 = 0;
   SourceCharacter = 0LL;
-  v5 = *(_QWORD *)(v4 + 760);
+  v5 = *(_QWORD *)(v4 + 720);
   if ( v5 )
   {
     v25 = AMLIGetNSObjectNameSegment(v5);
@@ -101,50 +101,50 @@ __int64 __fastcall ACPIGetPnpLocationString(__int64 *a1, wchar_t **a2)
     v16 = v10 + 12;
   if ( v16 )
   {
-    v18 = v16 + 1;
+    v17 = v16 + 1;
     if ( !v11 )
-      v18 = v16;
+      v17 = v16;
     if ( v28[0] )
-      ++v18;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2LL * v18, 1399874369LL);
+      ++v17;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v17, 0x53706341u);
     v9 = Src;
-    v20 = Pool2;
-    if ( Pool2 )
+    v19 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v21 = Pool2;
+      v20 = PoolWithTag;
       if ( Src )
       {
         if ( v11 )
         {
-          v21 = Pool2 + 1;
-          *Pool2 = 64;
+          v20 = PoolWithTag + 1;
+          *PoolWithTag = 64;
           v9 = Src;
         }
-        memmove(v21, v9, 2LL * v10);
+        memmove(v20, v9, 2LL * v10);
         v9 = Src;
-        v21 += v10 - 1;
+        v20 += v10 - 1;
       }
       if ( !v28[0]
-        || (*v21 = 33,
-            v22 = RtlStringCchPrintfExW(v21 + 1, 0xCuLL, 0LL, &pcchRemaining, 0x200u, L"ACPI(%ws)", v28),
+        || (*v20 = 33,
+            v21 = RtlStringCchPrintfExW(v20 + 1, 0xCuLL, 0LL, &pcchRemaining, 0x200u, L"ACPI(%ws)", v28),
             v9 = Src,
-            v17 = v22,
-            v22 >= 0) )
+            v22 = v21,
+            v21 >= 0) )
       {
-        *a2 = v20;
-        v17 = *(_QWORD *)(v4 + 792) == 0LL ? 0x120 : 0;
+        *a2 = v19;
+        v22 = *(_QWORD *)(v4 + 752) == 0LL ? 0x120 : 0;
       }
     }
     else
     {
-      v17 = -1073741670;
+      v22 = -1073741670;
     }
   }
   else
   {
-    v17 = -1073741637;
+    v22 = -1073741637;
   }
   if ( v9 )
     ExFreePoolWithTag(v9, 0);
-  return v17;
+  return v22;
 }

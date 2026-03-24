@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsPassiveCallbacks@FxObject@@QEAAEE@Z @ 0x1C006D040
+ * XREFs of ?IsPassiveCallbacks@FxObject@@QEAAEE@Z @ 0x1C005A0AC
  * Callers:
- *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C0019730 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
+ *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C0013ED8 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,32 +1,32 @@
 /*
- * XREFs of ObCreateObjectTypeEx @ 0x140824B30
+ * XREFs of ObCreateObjectTypeEx @ 0x1407958F0
  * Callers:
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
- *     VRegSetup @ 0x14085B100 (VRegSetup.c)
- *     AlpcpInitSystem @ 0x14085C5A8 (AlpcpInitSystem.c)
- *     CmpInitializeLightWeightTransactionType @ 0x140862F14 (CmpInitializeLightWeightTransactionType.c)
- *     TtmInit @ 0x1408633F0 (TtmInit.c)
- *     EtwpInitializePrivateSessionDemuxObject @ 0x1408636E8 (EtwpInitializePrivateSessionDemuxObject.c)
- *     IoCreateObjectTypes @ 0x140AFD20C (IoCreateObjectTypes.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     CmpInitializeLightWeightTransactionType @ 0x1407A5634 (CmpInitializeLightWeightTransactionType.c)
+ *     VRegSetup @ 0x1407CAEC0 (VRegSetup.c)
+ *     AlpcpInitSystem @ 0x1407CE04C (AlpcpInitSystem.c)
+ *     TtmInit @ 0x1407D29D8 (TtmInit.c)
+ *     EtwpInitializePrivateSessionDemuxObject @ 0x1407D379C (EtwpInitializePrivateSessionDemuxObject.c)
+ *     IoCreateObjectTypes @ 0x140A3D6D8 (IoCreateObjectTypes.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObpUnlockDirectory @ 0x14066960C (ObpUnlockDirectory.c)
- *     ObpLookupDirectoryEntry @ 0x1406A9B40 (ObpLookupDirectoryEntry.c)
- *     ObpInsertDirectoryEntry @ 0x1406B9100 (ObpInsertDirectoryEntry.c)
- *     ObpLockDirectoryExclusive @ 0x1406B96B0 (ObpLockDirectoryExclusive.c)
- *     ObpAllocateObject @ 0x14072E5D0 (ObpAllocateObject.c)
- *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
- *     ObpInitObjectTypeSD @ 0x140825158 (ObpInitObjectTypeSD.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
+ *     ObpLockDirectoryExclusive @ 0x1402AB5F0 (ObpLockDirectoryExclusive.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
+ *     ObpInsertDirectoryEntry @ 0x14069AEF4 (ObpInsertDirectoryEntry.c)
+ *     ObpAllocateObject @ 0x1406FF230 (ObpAllocateObject.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075DB90 (RtlxUnicodeStringToAnsiSize.c)
+ *     ObpInitObjectTypeSD @ 0x140795EFC (ObpInitObjectTypeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObCreateObjectTypeEx(
@@ -34,7 +34,7 @@ __int64 __fastcall ObCreateObjectTypeEx(
         __int128 *a2,
         __int64 a3,
         __int16 *a4,
-        _QWORD *a5)
+        __int64 *a5)
 {
   __int16 *v8; // r13
   unsigned int Length; // ecx
@@ -43,58 +43,58 @@ __int64 __fastcall ObCreateObjectTypeEx(
   unsigned int v12; // ecx
   wchar_t *Buffer; // rdx
   wchar_t v14; // ax
-  _OWORD *v15; // rbx
+  PADAPTER_OBJECT v15; // r8
   UNICODE_STRING v16; // xmm6
-  int inited; // esi
+  int Object; // esi
   size_t v18; // rax
-  _QWORD *v19; // rbx
+  __int64 v19; // rbx
   bool v20; // zf
   char v21; // r13
   unsigned __int16 v22; // r15
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   PVOID v24; // r15
   _DWORD *v25; // r8
   unsigned int v26; // ecx
-  int v27; // edx
-  int v28; // ecx
+  int v27; // ecx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v30; // rax
-  _QWORD *v31; // rcx
-  PVOID *v32; // rdx
-  unsigned int v33; // edi
-  PVOID v34; // rdx
-  unsigned int v35; // eax
-  struct _KTHREAD *v36; // rcx
-  int v37; // ecx
-  __int64 v38; // rdx
-  unsigned int v40; // r9d
-  _BYTE *v41; // rdx
+  _DMA_OPERATIONS *v29; // rax
+  PADAPTER_OBJECT v30; // rcx
+  _DMA_OPERATIONS *DmaOperations; // rdx
+  unsigned int v32; // edi
+  PADAPTER_OBJECT v33; // rdx
+  unsigned int DmaOperations_high; // eax
+  int v35; // ecx
+  __int64 v36; // rdx
+  unsigned int v38; // r9d
+  _BYTE *v39; // rdx
+  __int128 v40; // xmm0
+  __int128 v41; // xmm1
   __int128 v42; // xmm0
   __int128 v43; // xmm1
   __int128 v44; // xmm0
   __int128 v45; // xmm1
   __int128 v46; // xmm0
-  __int128 v47; // xmm1
-  __int128 v48; // xmm0
-  __m256i v49; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v50; // [rsp+60h] [rbp-A8h]
-  __int16 *v51; // [rsp+68h] [rbp-A0h]
-  size_t Size[2]; // [rsp+70h] [rbp-98h] BYREF
-  _DWORD *v53; // [rsp+80h] [rbp-88h]
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
-  PVOID P; // [rsp+98h] [rbp-70h]
-  _QWORD *v56; // [rsp+A0h] [rbp-68h]
-  _OWORD v57[4]; // [rsp+A8h] [rbp-60h] BYREF
-  _OWORD v58[14]; // [rsp+E8h] [rbp-20h] BYREF
+  int v47; // [rsp+48h] [rbp-C0h]
+  size_t Size[2]; // [rsp+58h] [rbp-B0h] BYREF
+  _DWORD *DestinationString; // [rsp+68h] [rbp-A0h]
+  UNICODE_STRING DestinationString_8; // [rsp+70h] [rbp-98h] BYREF
+  PVOID P; // [rsp+80h] [rbp-88h]
+  __int64 v53[2]; // [rsp+88h] [rbp-80h] BYREF
+  __int128 v54; // [rsp+98h] [rbp-70h]
+  __int64 v55; // [rsp+A8h] [rbp-60h]
+  __int64 *v56; // [rsp+B0h] [rbp-58h]
+  int v57[16]; // [rsp+B8h] [rbp-50h] BYREF
+  _OWORD v58[14]; // [rsp+F8h] [rbp-10h] BYREF
 
   v56 = a5;
-  v51 = a4;
   v8 = a4;
   memset(v58, 0, 0xD8uLL);
+  v55 = 0LL;
+  *(_OWORD *)v53 = 0LL;
   Size[0] = 0LL;
-  memset(&v49.m256i_u64[1], 0, 24);
-  memset(v57, 0, 60);
-  DestinationString = 0LL;
+  v54 = 0LL;
+  memset(v57, 0, sizeof(v57));
+  DestinationString_8 = 0LL;
   if ( !SourceString
     || (Length = SourceString->Length, !(_WORD)Length)
     || (Length & 1) != 0
@@ -110,233 +110,223 @@ __int64 __fastcall ObCreateObjectTypeEx(
   }
   v12 = Length >> 1;
   Buffer = SourceString->Buffer;
-  LODWORD(v50) = *((_DWORD *)a2 + 9);
+  v47 = *((_DWORD *)a2 + 9);
   if ( !v12 )
   {
 LABEL_13:
-    if ( ObpTypeDirectoryObject )
+    LODWORD(v55) = -60876;
+    if ( ObpTypeDirectoryObject
+      && (ObpLockDirectoryExclusive((__int64)v53, ObpTypeDirectoryObject),
+          ObpLookupDirectoryEntryEx(ObpTypeDirectoryObject, &SourceString->Length, 64, 0LL, 0, (__int64)v53)) )
     {
-      ObpLockDirectoryExclusive((__int64)&v49.m256i_i64[1], (__int64)ObpTypeDirectoryObject);
-      if ( ObpLookupDirectoryEntry(&SourceString->Length, 0x40u, &v49.m256i_i64[1]) )
-      {
-        if ( v49.m256i_i64[1] )
-          ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-        return 3221225525LL;
-      }
-    }
-    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(256LL, SourceString->MaximumLength, 1833853519LL);
-    if ( !DestinationString.Buffer )
-    {
-      if ( v49.m256i_i64[1] )
-        ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-      return 3221225626LL;
-    }
-    DestinationString.MaximumLength = SourceString->MaximumLength;
-    RtlCopyUnicodeString(&DestinationString, SourceString);
-    v15 = ObpTypeObjectType;
-    v16 = DestinationString;
-    if ( !ObpTypeObjectType )
-    {
-      v42 = *a2;
-      BYTE8(v58[2]) = 2;
-      v15 = v58;
-      v43 = a2[1];
-      LODWORD(v58[12]) = 1416258127;
-      v58[4] = v42;
-      v44 = a2[2];
-      v58[5] = v43;
-      v45 = a2[3];
-      v58[6] = v44;
-      v46 = a2[4];
-      v58[7] = v45;
-      v47 = a2[5];
-      v58[8] = v46;
-      v48 = a2[6];
-      v58[9] = v47;
-      *(_QWORD *)&v47 = *((_QWORD *)a2 + 14);
-      v58[10] = v48;
-      *(_QWORD *)&v58[11] = v47;
-      v58[1] = DestinationString;
-    }
-    memset(v57, 0, sizeof(v57));
-    LODWORD(v57[0]) = 16;
-    *(_QWORD *)((char *)&v57[1] + 4) = *((_QWORD *)v15 + 13);
-    HIDWORD(v57[1]) = 2048;
-    inited = ObpAllocateObject((int *)v57, 0, (__int64)v15, &DestinationString, 216, Size, 0LL);
-    if ( inited < 0 )
-    {
-      if ( v49.m256i_i64[1] )
-        ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-      ExFreePoolWithTag(DestinationString.Buffer, 0);
+      v32 = -1073741771;
     }
     else
     {
-      v18 = Size[0];
-      *(_QWORD *)(Size[0] + 32) = 0LL;
-      v19 = (_QWORD *)(v18 + 48);
-      v20 = (_DWORD)InitializationPhase == 0;
-      *(UNICODE_STRING *)(v18 + 64) = v16;
-      if ( v20 || (inited = ObpInitObjectTypeSD(v18 + 48, a3), inited >= 0) )
+      DestinationString_8.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, SourceString->MaximumLength, 0x6D4E624Fu);
+      if ( DestinationString_8.Buffer )
       {
-        *(_OWORD *)((char *)v19 + 44) = 0LL;
-        *((_DWORD *)v19 + 15) = 0;
-        if ( ObpTypeObjectType )
+        DestinationString_8.MaximumLength = SourceString->MaximumLength;
+        RtlCopyUnicodeString(&DestinationString_8, SourceString);
+        v15 = ObpTypeObjectType;
+        v16 = DestinationString_8;
+        if ( !ObpTypeObjectType )
         {
-          v21 = 1;
-          v22 = ((RtlxUnicodeStringToOemSize(SourceString) + 2) & 0xFFFC) + 1;
-          Size[1] = v22;
-          Pool2 = (void *)ExAllocatePool2(256LL, v22, 1851023951LL);
-          P = Pool2;
-          if ( !Pool2 )
-            goto LABEL_84;
-          memset(Pool2, 0, Size[1]);
-          Size[1] = 0LL;
-          WORD1(Size[1]) = v22;
-          v24 = P;
-          v53 = P;
-          if ( RtlUnicodeStringToAnsiString((PANSI_STRING)&Size[1], SourceString, 0) >= 0 )
+          v40 = *a2;
+          BYTE8(v58[2]) = 2;
+          v15 = (PADAPTER_OBJECT)v58;
+          v41 = a2[1];
+          LODWORD(v58[12]) = 1416258127;
+          v58[4] = v40;
+          v42 = a2[2];
+          v58[5] = v41;
+          v43 = a2[3];
+          v58[6] = v42;
+          v44 = a2[4];
+          v58[7] = v43;
+          v45 = a2[5];
+          v58[8] = v44;
+          v46 = a2[6];
+          v58[9] = v45;
+          *(_QWORD *)&v45 = *((_QWORD *)a2 + 14);
+          v58[10] = v46;
+          *(_QWORD *)&v58[11] = v45;
+          v58[1] = DestinationString_8;
+        }
+        v57[0] = 16;
+        v57[5] = (int)v15[6].DmaOperations;
+        v57[6] = HIDWORD(v15[6].DmaOperations);
+        v57[7] = 2048;
+        Object = ObpAllocateObject(v57, 0, (__int64)v15, (__int128 *)&DestinationString_8, 216, (char **)Size, 0LL);
+        if ( Object < 0 )
+        {
+          ObpReleaseLookupContext((__int64)v53);
+          ExFreePoolWithTag(DestinationString_8.Buffer, 0);
+        }
+        else
+        {
+          v18 = Size[0];
+          *(_QWORD *)(Size[0] + 32) = 0LL;
+          v19 = v18 + 48;
+          v20 = (_DWORD)InitializationPhase == 0;
+          *(UNICODE_STRING *)(v18 + 64) = v16;
+          if ( v20 || (Object = ObpInitObjectTypeSD(v18 + 48, a3), Object >= 0) )
           {
-            v25 = v53;
-            v26 = SourceString->Length >> 1;
-            if ( v26 < 4 )
+            *(_OWORD *)(v19 + 44) = 0LL;
+            *(_DWORD *)(v19 + 60) = 0;
+            if ( ObpTypeObjectType )
             {
-              v40 = WORD1(Size[1]);
-              v41 = (char *)v53 + v26;
-              do
+              v21 = 1;
+              v22 = ((RtlxUnicodeStringToAnsiSize(SourceString) + 2) & 0xFFFC) + 1;
+              Size[1] = v22;
+              PoolWithTag = ExAllocatePoolWithTag(PagedPool, v22, 0x6E54624Fu);
+              P = PoolWithTag;
+              if ( !PoolWithTag )
+                goto LABEL_75;
+              memset(PoolWithTag, 0, Size[1]);
+              Size[1] = 0LL;
+              WORD1(Size[1]) = v22;
+              v24 = P;
+              DestinationString = P;
+              if ( RtlUnicodeStringToAnsiString((PANSI_STRING)&Size[1], SourceString, 0) >= 0 )
               {
-                if ( v26 < v40 )
-                  *v41 = 32;
-                ++v26;
-                ++v41;
+                v25 = DestinationString;
+                v26 = SourceString->Length >> 1;
+                if ( v26 < 4 )
+                {
+                  v38 = WORD1(Size[1]);
+                  v39 = (char *)DestinationString + v26;
+                  do
+                  {
+                    if ( v26 < v38 )
+                      *v39 = 32;
+                    ++v26;
+                    ++v39;
+                  }
+                  while ( v26 < 4 );
+                }
+                v21 = 0;
+                *(_DWORD *)(v19 + 192) = *v25;
               }
-              while ( v26 < 4 );
+              ExFreePoolWithTag(v24, 0);
+              if ( v21 )
+              {
+LABEL_75:
+                v8 = a4;
+                if ( SourceString->Length < 4u )
+                  *(_DWORD *)(v19 + 192) = 1063936591;
+                else
+                  *(_DWORD *)(v19 + 192) = *(_DWORD *)SourceString->Buffer;
+              }
+              else
+              {
+                v8 = a4;
+              }
             }
-            v21 = 0;
-            *((_DWORD *)v19 + 48) = *v25;
-          }
-          ExFreePoolWithTag(v24, 0);
-          if ( v21 )
-          {
-LABEL_84:
-            v8 = v51;
-            if ( SourceString->Length < 4u )
-              *((_DWORD *)v19 + 48) = 1063936591;
             else
-              *((_DWORD *)v19 + 48) = *(_DWORD *)SourceString->Buffer;
-          }
-          else
-          {
-            v8 = v51;
-          }
-        }
-        else
-        {
-          ObpTypeObjectType = v19;
-          *((_DWORD *)v19 + 11) = 1;
-          *((_DWORD *)v19 + 48) = 1416258127;
-        }
-        v27 = v50;
-        *((_OWORD *)v19 + 4) = *a2;
-        *((_OWORD *)v19 + 5) = a2[1];
-        *((_OWORD *)v19 + 6) = a2[2];
-        *((_OWORD *)v19 + 7) = a2[3];
-        *((_OWORD *)v19 + 8) = a2[4];
-        *((_OWORD *)v19 + 9) = a2[5];
-        *((_OWORD *)v19 + 10) = a2[6];
-        v19[22] = *((_QWORD *)a2 + 14);
-        *((_DWORD *)v19 + 25) = v27;
-        if ( (NtGlobalFlag & 0x4000) != 0 )
-          *((_BYTE *)v19 + 66) |= 0x20u;
-        v28 = (*((_BYTE *)a2 + 2) & 0x10) != 0 ? 104 : 88;
-        if ( (v27 & 1) != 0 )
-          *((_DWORD *)v19 + 26) += v28;
-        else
-          *((_DWORD *)v19 + 27) += v28;
-        if ( !*((_QWORD *)a2 + 11) )
-          v19[19] = SeDefaultObjectMethod;
-        v19[23] = 0LL;
-        v19[1] = v19;
-        *v19 = v19;
-        v19[26] = v19 + 25;
-        v19[25] = v19 + 25;
-        if ( (*((_BYTE *)v19 + 66) & 4) != 0 )
-        {
-          *((_DWORD *)v19 + 23) |= 0x100000u;
-          v8 = &ObpDefaultObject;
-        }
-        v19[4] = v8;
-        CurrentThread = KeGetCurrentThread();
-        --CurrentThread->SpecialApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)ObpTypeObjectType + 184, 0LL);
-        if ( (*(_BYTE *)(Size[0] + 26) & 1) != 0 )
-          v30 = (_QWORD *)(Size[0] - 32);
-        else
-          v30 = 0LL;
-        v31 = ObpTypeObjectType;
-        v32 = (PVOID *)*((_QWORD *)ObpTypeObjectType + 1);
-        if ( *v32 != ObpTypeObjectType )
-          __fastfail(3u);
-        *v30 = ObpTypeObjectType;
-        v30[1] = v32;
-        *v32 = v30;
-        v33 = -1073741670;
-        v31[1] = v30;
-        v34 = ObpTypeObjectType;
-        v35 = *((_DWORD *)ObpTypeObjectType + 11);
-        if ( v35 >= 0x100 )
-          inited = -1073741670;
-        else
-          ObpObjectTypes[v35 - 1] = (__int64)v19;
-        ExReleasePushLockEx((ULONG_PTR)v34 + 184, 0LL);
-        v36 = KeGetCurrentThread();
-        v20 = v36->SpecialApcDisable++ == -1;
-        if ( v20 && ($CEA84C04E3712D858E5667A507841A2A *)v36->ApcState.ApcListHead[0].Flink != &v36->152 )
-          KiCheckForKernelApcDelivery();
-        if ( v19 != ObpTypeObjectType )
-        {
-          if ( inited < 0 )
-          {
-LABEL_90:
-            if ( v49.m256i_i64[1] )
-              ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-            v33 = inited;
-            goto LABEL_93;
-          }
-          v37 = 3;
-          v38 = 3LL;
-          while ( _InterlockedCompareExchange64(&ObTypeIndexTable[v38], 1LL, 0LL) )
-          {
-            v38 = ++v37;
-            if ( (unsigned __int64)v37 >= 0x100 )
             {
-              inited = -1073741823;
-              goto LABEL_90;
+              ObpTypeObjectType = (PADAPTER_OBJECT)v19;
+              *(_DWORD *)(v19 + 44) = 1;
+              *(_DWORD *)(v19 + 192) = 1416258127;
             }
+            *(_OWORD *)(v19 + 64) = *a2;
+            *(_OWORD *)(v19 + 80) = a2[1];
+            *(_OWORD *)(v19 + 96) = a2[2];
+            *(_OWORD *)(v19 + 112) = a2[3];
+            *(_OWORD *)(v19 + 128) = a2[4];
+            *(_OWORD *)(v19 + 144) = a2[5];
+            *(_OWORD *)(v19 + 160) = a2[6];
+            *(_QWORD *)(v19 + 176) = *((_QWORD *)a2 + 14);
+            *(_DWORD *)(v19 + 100) = v47;
+            if ( (NtGlobalFlag & 0x4000) != 0 )
+              *(_BYTE *)(v19 + 66) |= 0x20u;
+            v27 = (*((_BYTE *)a2 + 2) & 0x10) != 0 ? 104 : 88;
+            if ( (v47 & 1) != 0 )
+              *(_DWORD *)(v19 + 104) += v27;
+            else
+              *(_DWORD *)(v19 + 108) += v27;
+            if ( !*((_QWORD *)a2 + 11) )
+              *(_QWORD *)(v19 + 152) = SeDefaultObjectMethod;
+            *(_QWORD *)(v19 + 184) = 0LL;
+            *(_QWORD *)(v19 + 8) = v19;
+            *(_QWORD *)v19 = v19;
+            *(_QWORD *)(v19 + 208) = v19 + 200;
+            *(_QWORD *)(v19 + 200) = v19 + 200;
+            if ( (*(_BYTE *)(v19 + 66) & 4) != 0 )
+            {
+              *(_DWORD *)(v19 + 92) |= 0x100000u;
+              v8 = &ObpDefaultObject;
+            }
+            *(_QWORD *)(v19 + 32) = v8;
+            CurrentThread = KeGetCurrentThread();
+            --CurrentThread->SpecialApcDisable;
+            ExAcquirePushLockExclusiveEx((ULONG_PTR)&ObpTypeObjectType[11].DmaOperations, 0LL);
+            if ( (*(_BYTE *)(Size[0] + 26) & 1) != 0 )
+              v29 = (_DMA_OPERATIONS *)(Size[0] - 32);
+            else
+              v29 = 0LL;
+            v30 = ObpTypeObjectType;
+            DmaOperations = ObpTypeObjectType->DmaOperations;
+            if ( *(PADAPTER_OBJECT *)&DmaOperations->Size != ObpTypeObjectType )
+              __fastfail(3u);
+            *(_QWORD *)&v29->Size = ObpTypeObjectType;
+            v29->PutDmaAdapter = (void (__fastcall *)(_DMA_ADAPTER *))DmaOperations;
+            *(_QWORD *)&DmaOperations->Size = v29;
+            v32 = -1073741670;
+            v30->DmaOperations = v29;
+            v33 = ObpTypeObjectType;
+            DmaOperations_high = HIDWORD(ObpTypeObjectType[2].DmaOperations);
+            if ( DmaOperations_high >= 0x100 )
+              Object = -1073741670;
+            else
+              ObpObjectTypes[DmaOperations_high - 1] = v19;
+            ExReleasePushLockEx((ULONG_PTR)&v33[11].DmaOperations, 0LL);
+            KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+            if ( (PADAPTER_OBJECT)v19 != ObpTypeObjectType )
+            {
+              if ( Object < 0 )
+              {
+LABEL_69:
+                v32 = Object;
+LABEL_70:
+                ObpReleaseLookupContext((__int64)v53);
+                HalPutDmaAdapter((PADAPTER_OBJECT)v19);
+                return v32;
+              }
+              v35 = 3;
+              v36 = 3LL;
+              while ( _InterlockedCompareExchange64(&ObTypeIndexTable[v36], 1LL, 0LL) )
+              {
+                v36 = ++v35;
+                if ( (unsigned __int64)v35 >= 0x100 )
+                {
+                  Object = -1073741823;
+                  goto LABEL_69;
+                }
+              }
+              v10 = v35;
+            }
+            ObTypeIndexTable[v10] = v19;
+            *(_BYTE *)(v19 + 40) = v10;
+            if ( !ObpTypeDirectoryObject
+              || ObpInsertDirectoryEntry((char *)ObpTypeDirectoryObject, (char *)v19, (__int64)v53) )
+            {
+              ObpReleaseLookupContext((__int64)v53);
+              *v56 = v19;
+              return 0LL;
+            }
+            ObTypeIndexTable[v10] = 0LL;
+            goto LABEL_70;
           }
-          v10 = v37;
+          ObpReleaseLookupContext((__int64)v53);
+          HalPutDmaAdapter((PADAPTER_OBJECT)v19);
         }
-        ObTypeIndexTable[v10] = (__int64)v19;
-        *((_BYTE *)v19 + 40) = v10;
-        if ( !ObpTypeDirectoryObject
-          || ObpInsertDirectoryEntry((char *)ObpTypeDirectoryObject, (char *)v19, (__int64)&v49.m256i_i64[1]) )
-        {
-          if ( v49.m256i_i64[1] )
-            ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-          *v56 = v19;
-          return 0LL;
-        }
-        ObTypeIndexTable[v10] = 0LL;
-        if ( v49.m256i_i64[1] )
-          ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-LABEL_93:
-        ObfDereferenceObject(v19);
-        return v33;
+        return (unsigned int)Object;
       }
-      if ( v49.m256i_i64[1] )
-        ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-      ObfDereferenceObject(v19);
+      v32 = -1073741670;
     }
-    return (unsigned int)inited;
+    ObpReleaseLookupContext((__int64)v53);
+    return v32;
   }
   while ( 1 )
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CVisualSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AAE20
+ * XREFs of ?SetBufferProperty@CVisualSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EA420
  * Callers:
  *     <none>
  * Callees:
@@ -32,28 +32,28 @@ __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::SetBufferProperty
       v12 = *((_DWORD *)this + 4);
       *((_QWORD *)this + 8) = *a4;
       v10 = v12 | 0x40;
-      goto LABEL_6;
+      goto LABEL_13;
     }
     return 3221225485LL;
   }
   v8 = v7 - 1;
-  if ( v8 )
+  if ( !v8 )
   {
-    if ( v8 == 1 && a4 && a5 == 8 )
+    if ( a4 && a5 == 8 )
     {
       v11 = *((_DWORD *)this + 4);
-      *((_QWORD *)this + 10) = *a4;
-      v10 = v11 | 0x100;
-      goto LABEL_6;
+      *((_QWORD *)this + 9) = *a4;
+      v10 = v11 | 0x80;
+      goto LABEL_13;
     }
     return 3221225485LL;
   }
-  if ( !a4 || a5 != 8 )
+  if ( v8 != 1 || !a4 || a5 != 8 )
     return 3221225485LL;
   v9 = *((_DWORD *)this + 4);
-  *((_QWORD *)this + 9) = *a4;
-  v10 = v9 | 0x80;
-LABEL_6:
+  *((_QWORD *)this + 10) = *a4;
+  v10 = v9 | 0x100;
+LABEL_13:
   *((_DWORD *)this + 4) = v10;
   if ( *((_QWORD *)this + 7) )
   {

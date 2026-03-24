@@ -1,40 +1,47 @@
 /*
- * XREFs of vAlphaConstOnly @ 0x1C00AF7B0
+ * XREFs of vAlphaConstOnly @ 0x1C00FA660
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall vAlphaConstOnly(__int64 a1, _DWORD *a2, int a3, unsigned int a4)
+unsigned __int64 __fastcall vAlphaConstOnly(_DWORD *a1, unsigned __int64 a2, int a3, unsigned int a4)
 {
-  __int64 result; // rax
-  _DWORD *v5; // r10
-  unsigned int v6; // r9d
+  __int64 v4; // rdi
+  unsigned int v5; // r9d
+  unsigned __int64 v6; // r10
   _DWORD *v7; // rbx
-  __int64 v8; // r11
-  unsigned int v9; // r8d
-  unsigned int v10; // edx
+  unsigned __int64 result; // rax
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r11
+  unsigned int v11; // r8d
+  unsigned int v12; // edx
 
-  result = a3;
-  v5 = a2;
-  v6 = HIWORD(a4);
-  v7 = &a2[a3];
-  if ( a2 != v7 )
+  v4 = 0LL;
+  v5 = HIWORD(a4);
+  v6 = 4LL * a3;
+  v7 = a1;
+  result = v6 + a2;
+  v9 = v6 >> 2;
+  if ( a2 > result )
+    v9 = 0LL;
+  if ( v9 )
   {
-    v8 = a1 - (_QWORD)a2;
+    v10 = a2 - (_QWORD)a1;
     do
     {
-      v9 = (unsigned __int8)v6 * ((*v5 & 0xFF00FF) - (*(_DWORD *)((char *)v5 + v8) & 0xFF00FF))
-         + 8388736
-         + 255 * (*(_DWORD *)((char *)v5 + v8) & 0xFF00FF);
-      v10 = 255 * ((*(_DWORD *)((char *)v5 + v8) >> 8) & 0xFF00FF)
+      ++v4;
+      v11 = (unsigned __int8)v5 * ((*(_DWORD *)((char *)v7 + v10) & 0xFF00FF) - (*v7 & 0xFF00FF))
           + 8388736
-          + (unsigned __int8)v6 * (((*v5 >> 8) & 0xFF00FF) - ((*(_DWORD *)((char *)v5 + v8) >> 8) & 0xFF00FF));
-      result = v10 + ((v10 >> 8) & 0xFFFF00FF);
-      *(_DWORD *)((char *)v5++ + v8) = (v10 + ((v10 >> 8) & 0xFF00FF)) ^ (result ^ ((v9 + ((v9 >> 8) & 0xFF00FF)) >> 8)) & 0xFF00FF;
+          + 255 * (*v7 & 0xFF00FF);
+      v12 = 255 * ((*v7 >> 8) & 0xFF00FF)
+          + (unsigned __int8)v5 * (((*(_DWORD *)((char *)v7 + v10) >> 8) & 0xFF00FF) - ((*v7 >> 8) & 0xFF00FF))
+          + 8388736;
+      result = v12 + ((v12 >> 8) & 0xFFFF00FF);
+      *v7++ = (v12 + ((v12 >> 8) & 0xFF00FF)) ^ (result ^ ((v11 + ((v11 >> 8) & 0xFF00FF)) >> 8)) & 0xFF00FF;
     }
-    while ( v5 != v7 );
+    while ( v4 != v9 );
   }
   return result;
 }

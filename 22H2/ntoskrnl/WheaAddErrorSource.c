@@ -1,32 +1,32 @@
 /*
- * XREFs of WheaAddErrorSource @ 0x1408210A0
+ * XREFs of WheaAddErrorSource @ 0x1407AF700
  * Callers:
- *     WheaRegisterErrorSourceOverride @ 0x140613540 (WheaRegisterErrorSourceOverride.c)
- *     WheaAddErrorSourceDeviceDriver @ 0x140820ED0 (WheaAddErrorSourceDeviceDriver.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x1407AF530 (WheaAddErrorSourceDeviceDriver.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403810A0 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x1403811E0 (WheapIsNonHestErrorSource.c)
- *     WheapCallErrorSourceInitialize @ 0x1403812F4 (WheapCallErrorSourceInitialize.c)
- *     WheapAddErrorSource @ 0x14038140C (WheapAddErrorSource.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     WheapInitializeErrorSource @ 0x140821304 (WheapInitializeErrorSource.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     WheaLogInternalEvent @ 0x1403BA6F0 (WheaLogInternalEvent.c)
+ *     WheapCallErrorSourceInitialize @ 0x1403BA7F0 (WheapCallErrorSourceInitialize.c)
+ *     WheapAddErrorSource @ 0x1403BA9C4 (WheapAddErrorSource.c)
+ *     WheapIsNonHestErrorSource @ 0x1403BAA44 (WheapIsNonHestErrorSource.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WheapInitializeErrorSource @ 0x1407AFB84 (WheapInitializeErrorSource.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
+__int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
 {
+  __int128 *v2; // rbx
   __int64 v4; // r14
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v6; // rdi
   __int64 v7; // rcx
-  __int64 v8; // r8
+  __int128 *v8; // r8
   __int64 v9; // rax
   __int128 v10; // xmm1
   __int64 v11; // rcx
   int v12; // esi
-  _BYTE *v13; // rcx
+  char *v13; // rcx
   __int128 v14; // xmm0
   __int128 v15; // xmm1
   __int128 v16; // xmm0
@@ -40,43 +40,44 @@ __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
   __int128 v24; // xmm0
   __int128 v25; // xmm1
   _DWORD Src[8]; // [rsp+28h] [rbp-E0h] BYREF
-  _BYTE v28[972]; // [rsp+48h] [rbp-C0h] BYREF
+  char v28; // [rsp+48h] [rbp-C0h] BYREF
   int v29; // [rsp+414h] [rbp+30Ch]
   char v30; // [rsp+418h] [rbp+310h]
 
-  memset(v28, 0, sizeof(v28));
+  v2 = a1;
   v4 = 7LL;
-  if ( WheapIsNonHestErrorSource(a1) )
+  if ( WheapIsNonHestErrorSource(*((_DWORD *)a1 + 2)) )
   {
-    Pool2 = ExAllocatePool2(64LL, 1072LL, 1634035799LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x430uLL, 0x61656857u);
+    v6 = (__int64)PoolWithTag;
+    if ( PoolWithTag )
     {
-      v7 = Pool2 + 96;
-      v8 = a1;
+      memset(PoolWithTag, 0, 0x430uLL);
+      v7 = v6 + 96;
+      v8 = v2;
       v9 = 7LL;
       do
       {
-        *(_OWORD *)v7 = *(_OWORD *)v8;
-        *(_OWORD *)(v7 + 16) = *(_OWORD *)(v8 + 16);
-        *(_OWORD *)(v7 + 32) = *(_OWORD *)(v8 + 32);
-        *(_OWORD *)(v7 + 48) = *(_OWORD *)(v8 + 48);
-        *(_OWORD *)(v7 + 64) = *(_OWORD *)(v8 + 64);
-        *(_OWORD *)(v7 + 80) = *(_OWORD *)(v8 + 80);
-        *(_OWORD *)(v7 + 96) = *(_OWORD *)(v8 + 96);
+        *(_OWORD *)v7 = *v8;
+        *(_OWORD *)(v7 + 16) = v8[1];
+        *(_OWORD *)(v7 + 32) = v8[2];
+        *(_OWORD *)(v7 + 48) = v8[3];
+        *(_OWORD *)(v7 + 64) = v8[4];
+        *(_OWORD *)(v7 + 80) = v8[5];
+        *(_OWORD *)(v7 + 96) = v8[6];
         v7 += 128LL;
-        v10 = *(_OWORD *)(v8 + 112);
-        v8 += 128LL;
+        v10 = v8[7];
+        v8 += 8;
         *(_OWORD *)(v7 - 16) = v10;
         --v9;
       }
       while ( v9 );
-      *(_OWORD *)v7 = *(_OWORD *)v8;
-      *(_OWORD *)(v7 + 16) = *(_OWORD *)(v8 + 16);
-      *(_OWORD *)(v7 + 32) = *(_OWORD *)(v8 + 32);
-      *(_OWORD *)(v7 + 48) = *(_OWORD *)(v8 + 48);
-      *(_QWORD *)(v7 + 64) = *(_QWORD *)(v8 + 64);
-      *(_DWORD *)(v7 + 72) = *(_DWORD *)(v8 + 72);
+      *(_OWORD *)v7 = *v8;
+      *(_OWORD *)(v7 + 16) = v8[1];
+      *(_OWORD *)(v7 + 32) = v8[2];
+      *(_OWORD *)(v7 + 48) = v8[3];
+      *(_QWORD *)(v7 + 64) = *((_QWORD *)v8 + 8);
+      *(_DWORD *)(v7 + 72) = *((_DWORD *)v8 + 18);
       v12 = WheapInitializeErrorSource(v6);
       if ( v12 )
       {
@@ -87,10 +88,12 @@ __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
         *(_QWORD *)(v6 + 56) = a2;
         WheapAddErrorSource(v11, v6);
         if ( WheapInitializationComplete )
+        {
           *(_DWORD *)(v6 + 108) = 2;
-        v12 = WheapCallErrorSourceInitialize(v6, 1u);
-        if ( v12 < 0 )
-          *(_DWORD *)(v6 + 108) = 1;
+          v12 = WheapCallErrorSourceInitialize(v6, 1u);
+          if ( v12 < 0 )
+            *(_DWORD *)(v6 + 108) = 1;
+        }
       }
     }
     else
@@ -103,7 +106,7 @@ __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
     v12 = -1073741637;
   }
   Src[3] = 0;
-  v13 = v28;
+  v13 = &v28;
   Src[0] = 1733060695;
   Src[1] = 1;
   Src[2] = 1009;
@@ -113,37 +116,37 @@ __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
   Src[7] = 977;
   do
   {
-    v14 = *(_OWORD *)a1;
-    v15 = *(_OWORD *)(a1 + 16);
-    a1 += 128LL;
+    v14 = *v2;
+    v15 = v2[1];
+    v2 += 8;
     *(_OWORD *)v13 = v14;
-    v16 = *(_OWORD *)(a1 - 96);
+    v16 = *(v2 - 6);
     *((_OWORD *)v13 + 1) = v15;
-    v17 = *(_OWORD *)(a1 - 80);
+    v17 = *(v2 - 5);
     *((_OWORD *)v13 + 2) = v16;
-    v18 = *(_OWORD *)(a1 - 64);
+    v18 = *(v2 - 4);
     *((_OWORD *)v13 + 3) = v17;
-    v19 = *(_OWORD *)(a1 - 48);
+    v19 = *(v2 - 3);
     *((_OWORD *)v13 + 4) = v18;
-    v20 = *(_OWORD *)(a1 - 32);
+    v20 = *(v2 - 2);
     *((_OWORD *)v13 + 5) = v19;
-    v21 = *(_OWORD *)(a1 - 16);
+    v21 = *(v2 - 1);
     *((_OWORD *)v13 + 6) = v20;
     v13 += 128;
     *((_OWORD *)v13 - 1) = v21;
     --v4;
   }
   while ( v4 );
-  v22 = *(_QWORD *)(a1 + 64);
-  v23 = *(_OWORD *)(a1 + 16);
-  *(_OWORD *)v13 = *(_OWORD *)a1;
-  v24 = *(_OWORD *)(a1 + 32);
+  v22 = *((_QWORD *)v2 + 8);
+  v23 = v2[1];
+  *(_OWORD *)v13 = *v2;
+  v24 = v2[2];
   *((_OWORD *)v13 + 1) = v23;
-  v25 = *(_OWORD *)(a1 + 48);
+  v25 = v2[3];
   *((_OWORD *)v13 + 2) = v24;
   *((_OWORD *)v13 + 3) = v25;
   *((_QWORD *)v13 + 8) = v22;
-  *((_DWORD *)v13 + 18) = *(_DWORD *)(a1 + 72);
+  *((_DWORD *)v13 + 18) = *((_DWORD *)v2 + 18);
   v29 = v12;
   v30 = 0;
   WheaLogInternalEvent(Src);

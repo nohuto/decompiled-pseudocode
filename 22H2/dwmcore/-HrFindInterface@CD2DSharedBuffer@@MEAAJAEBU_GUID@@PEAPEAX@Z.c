@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrFindInterface@CD2DSharedBuffer@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029C970
+ * XREFs of ?HrFindInterface@CD2DSharedBuffer@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18024B620
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,10 @@
 
 __int64 __fastcall CD2DSharedBuffer::HrFindInterface(CD2DSharedBuffer *this, const struct _GUID *a2, void **a3)
 {
-  __int64 result; // rax
-  __int64 v4; // r9
+  unsigned int v3; // r9d
+  __int64 v4; // rax
 
-  result = 0LL;
+  v3 = 0;
   if ( a3 )
   {
     v4 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_1f3047e9_192e_4d40_b9c8_ccd90958ace5.Data1;
@@ -20,12 +20,12 @@ __int64 __fastcall CD2DSharedBuffer::HrFindInterface(CD2DSharedBuffer *this, con
     if ( v4 )
     {
       *a3 = 0LL;
-      return 2147500034LL;
+      return (unsigned int)-2147467262;
     }
     else
     {
-      *a3 = this;
+      *a3 = (void *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
     }
   }
-  return result;
+  return v3;
 }

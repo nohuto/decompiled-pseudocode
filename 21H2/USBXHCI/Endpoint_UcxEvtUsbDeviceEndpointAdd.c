@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006B450
+ * XREFs of Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006A420
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Endpoint_Create @ 0x1C006B6C8 (Endpoint_Create.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  */
 
 __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
@@ -19,24 +19,25 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
   __int64 v9; // rdx
   int v10; // esi
   unsigned int v12; // edi
-  __int64 v13; // rbx
+  char v13; // bl
   __int64 v14; // rax
-  __int64 v15; // [rsp+30h] [rbp-41h]
-  _QWORD v16[10]; // [rsp+48h] [rbp-29h] BYREF
-  __int128 v17; // [rsp+98h] [rbp+27h]
+  int v15; // edx
+  int v16; // r10d
+  _QWORD v17[10]; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v18; // [rsp+98h] [rbp+27h]
 
-  v16[0] = 96LL;
-  v16[1] = Endpoint_UcxEvtEndpointPurge;
-  v16[2] = Endpoint_UcxEvtEndpointStart;
-  v16[3] = Endpoint_UcxEvtEndpointAbort;
-  v16[4] = Endpoint_UcxEvtEndpointReset;
-  v16[5] = Endpoint_UcxEvtEndpointOkToCancelTransfers;
-  v16[6] = Endpoint_UcxEvtEndpointStaticStreamsAdd;
-  v16[7] = Endpoint_UcxEvtEndpointStaticStreamsEnable;
-  v16[8] = Endpoint_UcxEvtEndpointStaticStreamsDisable;
-  v16[9] = Endpoint_UcxEvtEndpointEnableForwardProgress;
-  v17 = 0LL;
-  ((void (__fastcall *)(__int64, __int64, _QWORD *))qword_1C0062808)(UcxDriverGlobals, a6, v16);
+  v17[0] = 96LL;
+  v17[1] = Endpoint_UcxEvtEndpointPurge;
+  v17[2] = Endpoint_UcxEvtEndpointStart;
+  v17[3] = Endpoint_UcxEvtEndpointAbort;
+  v17[4] = Endpoint_UcxEvtEndpointReset;
+  v17[5] = Endpoint_UcxEvtEndpointOkToCancelTransfers;
+  v17[6] = Endpoint_UcxEvtEndpointStaticStreamsAdd;
+  v17[7] = Endpoint_UcxEvtEndpointStaticStreamsEnable;
+  v17[8] = Endpoint_UcxEvtEndpointStaticStreamsDisable;
+  v17[9] = Endpoint_UcxEvtEndpointEnableForwardProgress;
+  v18 = 0LL;
+  ((void (__fastcall *)(__int64, __int64, _QWORD *))qword_1C00617E8)(UcxDriverGlobals, a6, v17);
   v9 = 0LL;
   if ( a5 && (*(_BYTE *)(a3 + 3) & 3) == 1 && (a5[3] & 0x80u) != 0 )
     v9 = (__int64)&a5[*a5];
@@ -44,23 +45,26 @@ __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
   if ( v10 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v12 = *(unsigned __int8 *)(a3 + 2);
-    v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-            WdfDriverGlobals,
-            a2,
-            off_1C00612C0);
+    v13 = *(_BYTE *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                       WdfDriverGlobals,
+                       a2,
+                       off_1C00602C0)
+                   + 135);
     v14 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             a1,
-            off_1C0061428);
-    LODWORD(v15) = *(unsigned __int8 *)(v13 + 135);
+            off_1C0060428);
+    v15 = *(_BYTE *)(a3 + 2) & 0x7F;
+    v16 = (v12 >> 7) + 2 * v15;
+    LOBYTE(v15) = 2;
     WPP_RECORDER_SF_ddd(
       *(_QWORD *)(v14 + 72),
-      2u,
-      0xDu,
-      0xDu,
-      (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
       v15,
-      (v12 >> 7) + 2 * (*(_BYTE *)(a3 + 2) & 0x7F),
+      13,
+      13,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      v13,
+      v16,
       v10);
   }
   return (unsigned int)v10;

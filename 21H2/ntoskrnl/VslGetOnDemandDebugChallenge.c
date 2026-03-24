@@ -1,20 +1,20 @@
 /*
- * XREFs of VslGetOnDemandDebugChallenge @ 0x14093212C
+ * XREFs of VslGetOnDemandDebugChallenge @ 0x14088F874
  * Callers:
- *     PsIumGetOnDemandDebugChallenge @ 0x1409B314C (PsIumGetOnDemandDebugChallenge.c)
+ *     PsIumGetOnDemandDebugChallenge @ 0x14090CA18 (PsIumGetOnDemandDebugChallenge.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslGetOnDemandDebugChallenge(__int64 a1, void *a2, unsigned int a3, _DWORD *a4)
 {
   __int64 result; // rax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned int v10; // eax
   __int64 *v11[10]; // [rsp+40h] [rbp-10E8h] BYREF
   _QWORD v12[14]; // [rsp+90h] [rbp-1098h] BYREF

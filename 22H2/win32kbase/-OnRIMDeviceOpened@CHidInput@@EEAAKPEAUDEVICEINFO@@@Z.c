@@ -1,34 +1,26 @@
 /*
- * XREFs of ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C01E2CC0
+ * XREFs of ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C00B4C30
  * Callers:
  *     <none>
  * Callees:
- *     ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01CDA78 (-OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z.c)
- *     ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C01E31E8 (-UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z.c)
- *     IsPublicPointerDevice @ 0x1C01E8660 (IsPublicPointerDevice.c)
+ *     IsPublicPointerDevice @ 0x1C00B4CF8 (IsPublicPointerDevice.c)
+ *     ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01976C0 (-OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z.c)
+ *     ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C01AAA78 (-UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z.c)
  */
 
-__int64 __fastcall CHidInput::OnRIMDeviceOpened(CHidInput *this, struct DEVICEINFO *a2, __int64 a3, __int64 a4)
+__int64 __fastcall CHidInput::OnRIMDeviceOpened(CHidInput *this, struct DEVICEINFO *a2)
 {
-  unsigned int v4; // ebx
-  void *v7; // rsi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  CTouchProcessor *v12; // rcx
+  unsigned int v2; // ebx
+  void *v6; // rdx
 
-  v4 = 0;
+  v2 = 0;
   if ( (*((_DWORD *)a2 + 50) & 0x80u) != 0 )
   {
-    v7 = *(void **)a2;
-    if ( *(_QWORD *)(SGDGetUserSessionState(this, a2, a3, a4) + 3424) )
-    {
-      SGDGetUserSessionState(v9, v8, v10, v11);
-      CTouchProcessor::OnRimDeviceOpened(v12, v7);
-    }
+    v6 = *(void **)a2;
+    if ( gpTouchProcessor )
+      CTouchProcessor::OnRimDeviceOpened(this, v6);
   }
   if ( (unsigned int)IsPublicPointerDevice(a2) )
     return CHidInput::UpdatePointerDeviceCount(this, 1u);
-  return v4;
+  return v2;
 }

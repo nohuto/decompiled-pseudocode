@@ -3,10 +3,10 @@
  * Callers:
  *     SeSetLearningModeObjectInformation @ 0x14004E020 (SeSetLearningModeObjectInformation.c)
  *     WmipInsertStaticNames @ 0x14059D964 (WmipInsertStaticNames.c)
- *     PnpConcatPWSTR @ 0x1406FCAA8 (PnpConcatPWSTR.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407351F0 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     PerfDiagpRestartCKCL @ 0x140741AD0 (PerfDiagpRestartCKCL.c)
- *     WmipIncludeStaticNames @ 0x1408B3758 (WmipIncludeStaticNames.c)
+ *     PnpConcatPWSTR @ 0x1406FCA88 (PnpConcatPWSTR.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407351D0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     PerfDiagpRestartCKCL @ 0x140741AB0 (PerfDiagpRestartCKCL.c)
+ *     WmipIncludeStaticNames @ 0x1408B3738 (WmipIncludeStaticNames.c)
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     <none>

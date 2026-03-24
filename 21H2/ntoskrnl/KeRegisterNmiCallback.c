@@ -1,11 +1,10 @@
 /*
- * XREFs of KeRegisterNmiCallback @ 0x14056A870
+ * XREFs of KeRegisterNmiCallback @ 0x140514910
  * Callers:
- *     HvlpInitializeHvCrashdump @ 0x14054B14C (HvlpInitializeHvCrashdump.c)
- *     DifKeRegisterNmiCallbackWrapper @ 0x140614220 (DifKeRegisterNmiCallbackWrapper.c)
+ *     HvlpInitializeHvCrashdump @ 0x1404F939C (HvlpInitializeHvCrashdump.c)
  * Callees:
- *     KiRegisterNmiSxCallback @ 0x14056ACB8 (KiRegisterNmiSxCallback.c)
- *     KiTraceLogNmiCallback @ 0x140961170 (KiTraceLogNmiCallback.c)
+ *     KiRegisterNmiSxCallback @ 0x140514CA4 (KiRegisterNmiSxCallback.c)
+ *     KiTraceLogNmiCallback @ 0x1408BB27C (KiTraceLogNmiCallback.c)
  */
 
 PVOID __stdcall KeRegisterNmiCallback(PNMI_CALLBACK CallbackRoutine, PVOID Context)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiIsHVCIEnabled @ 0x1407639B0
+ * XREFs of PiIsHVCIEnabled @ 0x140763990
  * Callers:
- *     PiIsDriverBlocked @ 0x14067EB10 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
  */
 
 bool PiIsHVCIEnabled()

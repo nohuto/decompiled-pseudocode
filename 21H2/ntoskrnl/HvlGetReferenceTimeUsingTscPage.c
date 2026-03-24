@@ -1,20 +1,18 @@
 /*
- * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x14039AF70
+ * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x14038DFE0
  * Callers:
- *     HvlGetReferenceTime @ 0x14039AF3C (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTime @ 0x14038DFAC (HvlGetReferenceTime.c)
  * Callees:
- *     HvlpGetRegister64 @ 0x14054BFF0 (HvlpGetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1404FA210 (HvlpGetRegister64.c)
  */
 
 __int64 __fastcall HvlGetReferenceTimeUsingTscPage(_DWORD *a1, __int64 a2)
 {
-  _DWORD *v2; // rdi
   unsigned __int64 v3; // rax
   int v4; // ebx
   __int64 result; // rax
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = a1;
   v6 = 0LL;
   while ( 1 )
   {
@@ -25,7 +23,6 @@ __int64 __fastcall HvlGetReferenceTimeUsingTscPage(_DWORD *a1, __int64 a2)
     if ( MEMORY[0xFFFFF78000000294] )
     {
       __asm { rdtscp }
-      LODWORD(v6) = (_DWORD)a1;
     }
     else
     {
@@ -45,14 +42,13 @@ __int64 __fastcall HvlGetReferenceTimeUsingTscPage(_DWORD *a1, __int64 a2)
     a2 = *((_QWORD *)HvlpReferenceTscPage + 2)
        + (((v3 | (a2 << 32)) * (unsigned __int128)*((unsigned __int64 *)HvlpReferenceTscPage + 1)) >> 64);
     v6 = a2;
-    LODWORD(a1) = *(_DWORD *)HvlpReferenceTscPage;
     if ( *(_DWORD *)HvlpReferenceTscPage == v4 )
       goto LABEL_13;
   }
   HvlpGetRegister64(589828LL, &v6);
 LABEL_13:
   result = v6;
-  if ( v2 )
-    *v2 = v4;
+  if ( a1 )
+    *a1 = v4;
   return result;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiGroupSchedulingGenerationEnd @ 0x1400D308C
+ * XREFs of KiGroupSchedulingGenerationEnd @ 0x1400D30AC
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KeTransitionProcessorParkState @ 0x14029CC9C (KeTransitionProcessorParkState.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
  * Callees:
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiStartThreadCycleAccumulation @ 0x1400D1E50 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1F80 (KiEndThreadCycleAccumulation.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1400D3260 (KiTransitionSchedulingGroupGeneration.c)
- *     KiSetProcessorIdle @ 0x1400D7324 (KiSetProcessorIdle.c)
- *     KiAddThreadToPrcbQueue @ 0x14011754C (KiAddThreadToPrcbQueue.c)
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiStartThreadCycleAccumulation @ 0x1400D1E70 (KiStartThreadCycleAccumulation.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1400D3280 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
+ *     KiAddThreadToPrcbQueue @ 0x14011756C (KiAddThreadToPrcbQueue.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
  */
 
 __int64 __fastcall KiGroupSchedulingGenerationEnd(struct _KPRCB *a1, __int64 a2, __int64 a3)

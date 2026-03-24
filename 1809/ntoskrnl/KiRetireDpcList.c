@@ -1,21 +1,21 @@
 /*
- * XREFs of KiRetireDpcList @ 0x1400C64A0
+ * XREFs of KiRetireDpcList @ 0x1400C64C0
  * Callers:
- *     KiIdleLoop @ 0x1401C0500 (KiIdleLoop.c)
- *     KyRetireDpcList @ 0x1401C4280 (KyRetireDpcList.c)
+ *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
+ *     KyRetireDpcList @ 0x1401C42A0 (KyRetireDpcList.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExecuteAllDpcs @ 0x1400C6D20 (KiExecuteAllDpcs.c)
- *     KiProcessExpiredTimerList @ 0x1400C7800 (KiProcessExpiredTimerList.c)
- *     PpmPerfGetCurrentFrequency @ 0x1400C8340 (PpmPerfGetCurrentFrequency.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     KiTimer2Expiration @ 0x1400FB3D0 (KiTimer2Expiration.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KiBeginCounterAccumulation @ 0x140295D0C (KiBeginCounterAccumulation.c)
- *     KiSetVpThreadSystemWork @ 0x140299660 (KiSetVpThreadSystemWork.c)
+ *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
+ *     KiProcessExpiredTimerList @ 0x1400C7820 (KiProcessExpiredTimerList.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1400C8360 (PpmPerfGetCurrentFrequency.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiBeginCounterAccumulation @ 0x140295E0C (KiBeginCounterAccumulation.c)
+ *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
  */
 
 signed __int16 __fastcall KiRetireDpcList(__int64 a1)

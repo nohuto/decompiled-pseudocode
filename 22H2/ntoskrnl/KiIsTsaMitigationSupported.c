@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsTsaMitigationSupported @ 0x140410340
+ * XREFs of KiIsTsaMitigationSupported @ 0x1403F2B5C
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x140381E90 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     KiIsKvaShadowNeededForTsa @ 0x140410184 (KiIsKvaShadowNeededForTsa.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C7210 (KeOptimizeSpecCtrlSettings.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1403F299C (KiIsKvaShadowNeededForTsa.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     KiIsHyperVCr3RspErrataPresent @ 0x140579318 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1403F2DE0 (KiIsHyperVCr3RspErrataPresent.c)
  */
 
 _BOOL8 __fastcall KiIsTsaMitigationSupported(__int64 a1)
@@ -16,7 +16,7 @@ _BOOL8 __fastcall KiIsTsaMitigationSupported(__int64 a1)
   v2 = 0;
   if ( (unsigned int)KiIsHyperVCr3RspErrataPresent() )
     return 0LL;
-  if ( _bittest64((const signed __int64 *)&KeFeatureBits2, 0x2Cu) )
+  if ( (KeFeatureBits2 & 0x100000000000LL) != 0 )
     return 1LL;
   if ( HviIsAnyHypervisorPresent() )
     return 0LL;
@@ -25,5 +25,5 @@ _BOOL8 __fastcall KiIsTsaMitigationSupported(__int64 a1)
     if ( (unsigned int)++v2 >= 0xF )
       return 1LL;
   }
-  return *(_QWORD *)(a1 + 35240) >= i[1];
+  return *(_QWORD *)(a1 + 34216) >= i[1];
 }

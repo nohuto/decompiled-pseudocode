@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfIoTargetFormatRequestForIoctl @ 0x1C0034F80
+ * XREFs of imp_WdfIoTargetFormatRequestForIoctl @ 0x1C00634D0
  * Callers:
  *     <none>
  * Callees:
- *     FxIoTargetFormatIoctl @ 0x1C0005420 (FxIoTargetFormatIoctl.c)
+ *     FxIoTargetFormatIoctl @ 0x1C000BCC0 (FxIoTargetFormatIoctl.c)
  */
 
 __int64 __fastcall imp_WdfIoTargetFormatRequestForIoctl(
@@ -17,9 +17,9 @@ __int64 __fastcall imp_WdfIoTargetFormatRequestForIoctl(
         _WDFMEMORY_OFFSET *OutputBufferOffsets)
 {
   return FxIoTargetFormatIoctl(
-           (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+           (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
            IoTarget,
-           (unsigned __int64)Request,
+           (__int64)Request,
            Ioctl,
            0,
            InputBuffer,

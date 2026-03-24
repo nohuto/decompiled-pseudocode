@@ -4,8 +4,8 @@
  *     VfBeforeCallDriver @ 0x1409300A4 (VfBeforeCallDriver.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MdlInvariantPreProcessing1 @ 0x14030A740 (MdlInvariantPreProcessing1.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
+ *     MdlInvariantPreProcessing1 @ 0x14030A840 (MdlInvariantPreProcessing1.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
  *     IovpAdvanceStackDownwards @ 0x14092EB1C (IovpAdvanceStackDownwards.c)
  *     IovpExamineDevObjForwarding @ 0x14092FAF8 (IovpExamineDevObjForwarding.c)
  *     IovpExamineIrpStackForwarding @ 0x14092FB98 (IovpExamineIrpStackForwarding.c)

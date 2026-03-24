@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037FC84
+ * XREFs of ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA900
  * Callers:
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037FA00 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA510 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14037FDA0 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     SmMapPage @ 0x1403818D0 (SmMapPage.c)
- *     StIoCountsMovePeriod @ 0x1405FAF14 (StIoCountsMovePeriod.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1402D70CC (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     SmMapPage @ 0x1402DBF90 (SmMapPage.c)
+ *     StIoCountsMovePeriod @ 0x14059D4E0 (StIoCountsMovePeriod.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageAdd(__int64 a1, __int64 a2)
@@ -27,6 +27,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageAdd(__int64 a1, __int64 a2)
   __m128i v18; // [rsp+20h] [rbp-20h] BYREF
   __int64 v19; // [rsp+30h] [rbp-10h]
   unsigned int v20; // [rsp+68h] [rbp+28h] BYREF
+  unsigned int v21; // [rsp+70h] [rbp+30h] BYREF
 
   v2 = *(__m128i *)(a2 + 8);
   v20 = 0;
@@ -50,10 +51,10 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageAdd(__int64 a1, __int64 a2)
     for ( v18.m128i_i64[1] = v6; ; v18.m128i_i64[1] += 4096LL )
     {
       v10 = v7 >= 0 ? 1 : (v8 + *(_DWORD *)(a1 + 824) + 15) >> 4;
-      v20 = v10;
+      v21 = v10;
       do
       {
-        v11 = ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(a1, &v18, a2, &v20);
+        v11 = ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(a1, (__int64)&v18, a2, (int *)&v21);
         v12 = v11;
       }
       while ( v11 == -1073741267 );

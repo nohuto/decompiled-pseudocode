@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CBitmapResource@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E375C
+ * XREFs of ?GetPixelFormatInfo@CBitmapResource@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800C9594
  * Callers:
- *     ?GetPixelFormatInfo@CBitmapResource@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18011C580 (-GetPixelFormatInfo@CBitmapResource@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CBitmapResource@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F4770 (-GetPixelFormatInfo@CBitmapResource@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBitmapResource::GetPixelFormatInfo(__int64 a1, __int64 a2)

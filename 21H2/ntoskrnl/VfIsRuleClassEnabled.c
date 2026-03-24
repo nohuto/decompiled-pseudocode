@@ -1,18 +1,20 @@
 /*
- * XREFs of VfIsRuleClassEnabled @ 0x140A7C590
+ * XREFs of VfIsRuleClassEnabled @ 0x1409C6020
  * Callers:
- *     ViDifCheckCallbackInterception @ 0x1402D8764 (ViDifCheckCallbackInterception.c)
- *     ViInitSystemPhase1 @ 0x140B27E30 (ViInitSystemPhase1.c)
+ *     ViDifCheckCallbackInterception @ 0x14037DF98 (ViDifCheckCallbackInterception.c)
+ *     ViXdvDriverLoadImage @ 0x1409C8E2C (ViXdvDriverLoadImage.c)
+ *     IovpCancelRoutine @ 0x1409D03D0 (IovpCancelRoutine.c)
+ *     ViThunkReplaceSharedExports @ 0x1409D96B8 (ViThunkReplaceSharedExports.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int8 __fastcall VfIsRuleClassEnabled(unsigned int a1)
 {
-  int v1; // eax
+  int v2; // eax
 
   if ( a1 >= 0x40 )
     return 0;
-  v1 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)a1 >> 5));
-  return _bittest(&v1, a1 & 0x1F);
+  v2 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)a1 >> 5));
+  return _bittest(&v2, a1 & 0x1F);
 }

@@ -1,7 +1,9 @@
 /*
- * XREFs of RtlStringCopyWorkerW @ 0x14024AB88
+ * XREFs of RtlStringCopyWorkerW @ 0x14026556C
  * Callers:
- *     RtlStringCbCopyNExW @ 0x14024AB14 (RtlStringCbCopyNExW.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlStringCbCopyExW @ 0x1402C2960 (RtlStringCbCopyExW.c)
+ *     RtlStringCchCatExW @ 0x1403C3520 (RtlStringCchCatExW.c)
  * Callees:
  *     <none>
  */
@@ -15,6 +17,7 @@ NTSTATUS __stdcall RtlStringCopyWorkerW(
 {
   NTSTRSAFE_PWSTR v5; // r10
   size_t v6; // r11
+  __int64 v7; // rax
   signed __int64 v8; // r9
   wchar_t v9; // cx
   NTSTRSAFE_PWSTR v10; // rcx
@@ -25,16 +28,17 @@ NTSTATUS __stdcall RtlStringCopyWorkerW(
   v6 = 0LL;
   if ( cchDest )
   {
+    v7 = 2147483646LL;
     v8 = (char *)pszSrc - (char *)pszDest;
     do
     {
-      if ( !cchToCopy )
+      if ( !v7 )
         break;
       v9 = *(NTSTRSAFE_PWSTR)((char *)v5 + v8);
       if ( !v9 )
         break;
       *v5 = v9;
-      --cchToCopy;
+      --v7;
       ++v5;
       ++v6;
       --cchDest;

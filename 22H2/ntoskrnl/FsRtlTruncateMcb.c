@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlTruncateMcb @ 0x14053CFB0
+ * XREFs of FsRtlTruncateMcb @ 0x1404EF540
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlTruncateLargeMcb @ 0x140339DD0 (FsRtlTruncateLargeMcb.c)
+ *     FsRtlTruncateLargeMcb @ 0x1402F53F0 (FsRtlTruncateLargeMcb.c)
  */
 
 void __stdcall FsRtlTruncateMcb(PMCB Mcb, VBN Vbn)

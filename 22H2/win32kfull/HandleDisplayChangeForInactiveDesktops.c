@@ -1,9 +1,9 @@
 /*
- * XREFs of HandleDisplayChangeForInactiveDesktops @ 0x1C00BBFF0
+ * XREFs of HandleDisplayChangeForInactiveDesktops @ 0x1C002B300
  * Callers:
- *     xxxBroadcastModernAppRedraw @ 0x1C01F5E20 (xxxBroadcastModernAppRedraw.c)
+ *     xxxBroadcastModernAppRedraw @ 0x1C021E0C0 (xxxBroadcastModernAppRedraw.c)
  * Callees:
- *     PostIAMShellHookMessageEx @ 0x1C00D3520 (PostIAMShellHookMessageEx.c)
+ *     PostIAMShellHookMessageEx @ 0x1C002DAB0 (PostIAMShellHookMessageEx.c)
  */
 
 __int64 __fastcall HandleDisplayChangeForInactiveDesktops(__int64 a1, int a2)
@@ -17,7 +17,7 @@ __int64 __fastcall HandleDisplayChangeForInactiveDesktops(__int64 a1, int a2)
     if ( i != a1 )
     {
       if ( a2 )
-        result = PostIAMShellHookMessageEx(i, 35LL);
+        result = PostIAMShellHookMessageEx(i, 35LL, 0LL);
       *(_DWORD *)(i + 48) |= 0x20u;
     }
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ViSettingsIoCheckForChanges @ 0x140A9B158
+ * XREFs of ViSettingsIoCheckForChanges @ 0x1409E0600
  * Callers:
- *     VfInitVerifierComponents @ 0x140A82480 (VfInitVerifierComponents.c)
- *     VfSettingsCheckForChanges @ 0x140A9AFDC (VfSettingsCheckForChanges.c)
+ *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x1409E047C (VfSettingsCheckForChanges.c)
  * Callees:
- *     IoVerifierCheckForSettingsChange @ 0x140A7FD04 (IoVerifierCheckForSettingsChange.c)
- *     VfWdCheckForSettingsChange @ 0x140A9CF88 (VfWdCheckForSettingsChange.c)
+ *     IoVerifierCheckForSettingsChange @ 0x1409C46D4 (IoVerifierCheckForSettingsChange.c)
+ *     VfWdCheckForSettingsChange @ 0x1409E0BA4 (VfWdCheckForSettingsChange.c)
  */
 
-void __fastcall ViSettingsIoCheckForChanges(unsigned int a1)
+__int64 __fastcall ViSettingsIoCheckForChanges(unsigned int a1)
 {
   unsigned int v1; // ebx
   int v2; // ecx
@@ -28,6 +28,5 @@ void __fastcall ViSettingsIoCheckForChanges(unsigned int a1)
   }
   VfIoDisabled = v2;
   IoVerifierCheckForSettingsChange(v1);
-  if ( (VfRuleClasses & 0x400000) == 0 )
-    VfWdCheckForSettingsChange(v1);
+  return VfWdCheckForSettingsChange(v1);
 }

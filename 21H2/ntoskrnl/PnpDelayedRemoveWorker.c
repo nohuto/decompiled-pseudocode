@@ -1,20 +1,16 @@
 /*
- * XREFs of PnpDelayedRemoveWorker @ 0x14080EBD0
+ * XREFs of PnpDelayedRemoveWorker @ 0x140735EC0
  * Callers:
- *     PnpChainDereferenceComplete @ 0x14080EA40 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x140736488 (PnpChainDereferenceComplete.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PnpFreeWatchdog @ 0x1402D3C18 (PnpFreeWatchdog.c)
- *     ExDeleteTimer @ 0x1402D3D40 (ExDeleteTimer.c)
- *     PnpEnableWatchdog @ 0x14074ECA8 (PnpEnableWatchdog.c)
- *     PnpRecordBlackbox @ 0x14074ED04 (PnpRecordBlackbox.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14077572C (PpDevNodeLockTree.c)
- *     PipRemoveDevicesInRelationList @ 0x14080ED34 (PipRemoveDevicesInRelationList.c)
- *     PnpWatchdogEtwWrite @ 0x140950084 (PnpWatchdogEtwWrite.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
+ *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
+ *     PipRemoveDevicesInRelationList @ 0x140735D08 (PipRemoveDevicesInRelationList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
@@ -27,11 +23,9 @@ void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
   __int64 v7; // rax
   __int64 v8; // rax
   __int64 v9; // rcx
-  __int64 v10; // rdi
-  __int64 v11; // rsi
-  int v12; // edx
-  PVOID Pa; // [rsp+30h] [rbp-10h] BYREF
-  PVOID *p_Pa; // [rsp+38h] [rbp-8h]
+  __int64 v10; // rcx
+  PVOID Pa; // [rsp+20h] [rbp-10h] BYREF
+  PVOID *p_Pa; // [rsp+28h] [rbp-8h]
 
   p_Pa = &Pa;
   Pa = &Pa;
@@ -97,18 +91,7 @@ LABEL_19:
       v10 = P[3];
       if ( v10 )
       {
-        v11 = *(_QWORD *)(v10 + 8);
-        ExDeleteTimer(*(_QWORD *)(v11 + 56), 1, 1, 0LL);
-        *(_QWORD *)(v11 + 56) = 0LL;
-        if ( *(int *)(v11 + 96) > 0 )
-          KeWaitForSingleObject((PVOID)(v11 + 104), Executive, 0, 0, 0LL);
-        ExFreePoolWithTag((PVOID)v11, 0x54645750u);
-        v12 = *(_DWORD *)(v10 + 16);
-        *(_QWORD *)(v10 + 8) = 0LL;
-        PnpRecordBlackbox(0LL, v12);
-        if ( *(_BYTE *)(v10 + 32) )
-          PnpWatchdogEtwWrite(v10, 0LL);
-        PnpFreeWatchdog((void *)v10);
+        PnpDisableWatchdog(v10);
         P[3] = 0LL;
       }
     }

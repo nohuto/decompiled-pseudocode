@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetCenterYCommand@CScaleTransform3DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0220BDC
+ * XREFs of ?EmitSetCenterYCommand@CScaleTransform3DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D6DE0
  * Callers:
- *     ?EmitUpdateCommands@CScaleTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0224F60 (-EmitUpdateCommands@CScaleTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CScaleTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB420 (-EmitUpdateCommands@CScaleTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CScaleTransform3DMarshaler::EmitSetCenterYCommand(
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CScaleTransform3DMarshaler::EmitSetCenterYCom
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 610;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 24);
+    *((_DWORD *)v3 + 1) = 605;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 22);
     *((_DWORD *)this + 4) &= ~0x800u;
     return 1;
   }

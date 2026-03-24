@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C00CA3D4
+ * XREFs of ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C003015C
  * Callers:
- *     NtUserCountClipboardFormats @ 0x1C00CA370 (NtUserCountClipboardFormats.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C014664C (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     NtUserGetUpdatedClipboardFormats @ 0x1C01F6C70 (NtUserGetUpdatedClipboardFormats.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D4B0 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     NtUserCountClipboardFormats @ 0x1C00300F0 (NtUserCountClipboardFormats.c)
+ *     NtUserGetUpdatedClipboardFormats @ 0x1C01FC350 (NtUserGetUpdatedClipboardFormats.c)
  * Callees:
- *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C0140C58 (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
- *     ?IsFmtBlocked@@YAHI@Z @ 0x1C0219760 (-IsFmtBlocked@@YAHI@Z.c)
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C00301DC (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ *     ?IsFmtBlocked@@YAHI@Z @ 0x1C021EDA8 (-IsFmtBlocked@@YAHI@Z.c)
  */
 
 __int64 __fastcall CountNumClipFormatForIL(__int64 a1, __int64 a2)

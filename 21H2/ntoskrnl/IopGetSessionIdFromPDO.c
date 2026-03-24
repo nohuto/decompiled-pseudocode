@@ -1,15 +1,15 @@
 /*
- * XREFs of IopGetSessionIdFromPDO @ 0x140749588
+ * XREFs of IopGetSessionIdFromPDO @ 0x14073E25C
  * Callers:
- *     IopCheckSessionDeviceAccess @ 0x140557F6C (IopCheckSessionDeviceAccess.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140748F48 (IopGetSessionIdFromSymbolicName.c)
- *     PnpStartDeviceNode @ 0x140749C4C (PnpStartDeviceNode.c)
- *     PnpInitializeSessionId @ 0x14076B24C (PnpInitializeSessionId.c)
- *     PnpNotifyTargetDeviceChange @ 0x14078B7C4 (PnpNotifyTargetDeviceChange.c)
- *     IoRegisterContainerNotification @ 0x140937220 (IoRegisterContainerNotification.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x140944ADC (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     IopCheckSessionDeviceAccess @ 0x14050675C (IopCheckSessionDeviceAccess.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1405CEDD8 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1406E6FA0 (PnpNotifyTargetDeviceChange.c)
+ *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14073E0E4 (IopGetSessionIdFromSymbolicName.c)
+ *     PnpInitializeSessionId @ 0x14076EAB4 (PnpInitializeSessionId.c)
+ *     IoRegisterContainerNotification @ 0x140894A40 (IoRegisterContainerNotification.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x140749610 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x14063A080 (IoGetDevicePropertyData.c)
  */
 
 __int64 __fastcall IopGetSessionIdFromPDO(struct _DEVICE_OBJECT *a1)

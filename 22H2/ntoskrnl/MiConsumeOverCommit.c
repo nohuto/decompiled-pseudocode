@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConsumeOverCommit @ 0x1406563EC
+ * XREFs of MiConsumeOverCommit @ 0x14055039C
  * Callers:
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiConsumeOverCommit(KSPIN_LOCK *a1, __int64 a2, __int64 a3)
@@ -15,36 +15,39 @@ __int64 __fastcall MiConsumeOverCommit(KSPIN_LOCK *a1, __int64 a2, __int64 a3)
   KSPIN_LOCK v8; // r8
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // rax
+  struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v13; // edx
   bool v14; // zf
-  struct _KLOCK_QUEUE_HANDLE v16; // [rsp+20h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v16, 0, sizeof(v16));
+  memset(&LockHandle, 0, sizeof(LockHandle));
   v6 = 0;
-  KeAcquireInStackQueuedSpinLock(a1 + 2053, &v16);
-  v7 = a1[2197];
+  KeAcquireInStackQueuedSpinLock(a1 + 781, &LockHandle);
+  v7 = a1[933];
   v8 = v7 + a2;
-  if ( v7 + a2 <= v7 || v8 + a3 < v8 || v8 + a3 > a1[2227] )
+  if ( v7 + a2 <= v7 || v8 + a3 < v8 || v8 + a3 > a1[949] )
   {
-    a1[2055] += a2;
+    a1[783] += a2;
     v6 = 1;
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
-  OldIrql = v16.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (v16.OldIrql + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

@@ -1,8 +1,8 @@
 /*
- * XREFs of SetGrayColorTable @ 0x1C025B6C0
+ * XREFs of SetGrayColorTable @ 0x1C00086E0
  * Callers:
- *     AAHalftoneBitmap @ 0x1C0250914 (AAHalftoneBitmap.c)
- *     GetDstBFInfo @ 0x1C0251200 (GetDstBFInfo.c)
+ *     AAHalftoneBitmap @ 0x1C001ACC8 (AAHalftoneBitmap.c)
+ *     GetDstBFInfo @ 0x1C0260FF8 (GetDstBFInfo.c)
  * Callees:
  *     <none>
  */

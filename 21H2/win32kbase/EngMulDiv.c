@@ -1,23 +1,21 @@
 /*
- * XREFs of EngMulDiv @ 0x1C006E450
+ * XREFs of EngMulDiv @ 0x1C0070E10
  * Callers:
- *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C002E448 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
- *     NtUserGetDpiForMonitor @ 0x1C002FE40 (NtUserGetDpiForMonitor.c)
- *     ExpandMonitorSpaceVertex @ 0x1C006C4C8 (ExpandMonitorSpaceVertex.c)
- *     InitLoadResources @ 0x1C006C520 (InitLoadResources.c)
- *     ScaleDPIPt @ 0x1C006DFB0 (ScaleDPIPt.c)
- *     ScaleDPIRect @ 0x1C006E034 (ScaleDPIRect.c)
- *     PhysicalToLogicalDPIRect @ 0x1C006E120 (PhysicalToLogicalDPIRect.c)
- *     CalculateLogicalMonitorRect @ 0x1C006E324 (CalculateLogicalMonitorRect.c)
- *     ?OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z @ 0x1C00A0A60 (-OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z.c)
- *     RIMUpdatePointerDeviceScalingInfo @ 0x1C00A23DC (RIMUpdatePointerDeviceScalingInfo.c)
- *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C016F338 (-vMakeIso@DC@@QEAAXXZ.c)
- *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01979CC (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
- *     RIMTransformCoordinates @ 0x1C0198AA4 (RIMTransformCoordinates.c)
- *     ?BuildEnvironment@CPTPProcessor@@AEAAXQEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01DD650 (-BuildEnvironment@CPTPProcessor@@AEAAXQEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
- *     ?TransformTPScreenToHimetric@CPTPProcessor@@CA?AUtagPOINT@@PEAUtagHID_POINTER_DEVICE_INFO@@U2@@Z @ 0x1C01E01CC (-TransformTPScreenToHimetric@CPTPProcessor@@CA-AUtagPOINT@@PEAUtagHID_POINTER_DEVICE_INFO@@U2@@Z.c)
- *     ?ConvertDipsToScreenSpaceUnits@CPalmRejectZoneInfo@@AEAAJUtagPOINT@@J@Z @ 0x1C01E5A08 (-ConvertDipsToScreenSpaceUnits@CPalmRejectZoneInfo@@AEAAJUtagPOINT@@J@Z.c)
- *     GetNormalizedMouseSensitivityFactor @ 0x1C01E7BA4 (GetNormalizedMouseSensitivityFactor.c)
+ *     NtUserGetDpiForMonitor @ 0x1C000F770 (NtUserGetDpiForMonitor.c)
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C006EA58 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     InitLoadResources @ 0x1C006F680 (InitLoadResources.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C006FA78 (ExpandMonitorSpaceVertex.c)
+ *     PhysicalToLogicalDPIPoint @ 0x1C0070A80 (PhysicalToLogicalDPIPoint.c)
+ *     ScaleDPIRect @ 0x1C0070BE8 (ScaleDPIRect.c)
+ *     GetMonitorRectForDpiContext @ 0x1C0070CC8 (GetMonitorRectForDpiContext.c)
+ *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CA2A8 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
+ *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C0142510 (-vMakeIso@DC@@QEAAXXZ.c)
+ *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0163ED8 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
+ *     RIMTransformCoordinates @ 0x1C0164F3C (RIMTransformCoordinates.c)
+ *     ?BuildEnvironment@CPTPProcessor@@AEAAXQEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A532C (-BuildEnvironment@CPTPProcessor@@AEAAXQEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?TransformTPScreenToHimetric@CPTPProcessor@@CA?AUtagPOINT@@PEAUtagHID_POINTER_DEVICE_INFO@@U2@@Z @ 0x1C01A7C60 (-TransformTPScreenToHimetric@CPTPProcessor@@CA-AUtagPOINT@@PEAUtagHID_POINTER_DEVICE_INFO@@U2@@Z.c)
+ *     ?ConvertDipsToScreenSpaceUnits@CPalmRejectZoneInfo@@AEAAJUtagPOINT@@J@Z @ 0x1C01ACB40 (-ConvertDipsToScreenSpaceUnits@CPalmRejectZoneInfo@@AEAAJUtagPOINT@@J@Z.c)
+ *     GetNormalizedMouseSensitivityFactor @ 0x1C01AE904 (GetNormalizedMouseSensitivityFactor.c)
  * Callees:
  *     <none>
  */

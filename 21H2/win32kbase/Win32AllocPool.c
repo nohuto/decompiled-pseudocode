@@ -1,61 +1,135 @@
 /*
- * XREFs of Win32AllocPool @ 0x1C0027D30
+ * XREFs of Win32AllocPool @ 0x1C002AE60
  * Callers:
- *     <none>
+ *     PostUpdateKeyStateEvent @ 0x1C0006990 (PostUpdateKeyStateEvent.c)
+ *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C0008BC8 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
+ *     GetWindowsDirectoryDevicePath @ 0x1C0008E40 (GetWindowsDirectoryDevicePath.c)
+ *     ?GetSymbolicLink@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0008F84 (-GetSymbolicLink@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z @ 0x1C000A2B0 (-GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z.c)
+ *     CMouseAcceleration_CreateInstance @ 0x1C000ADC0 (CMouseAcceleration_CreateInstance.c)
+ *     ReadPointerDeviceCfgDWORDSetting @ 0x1C000B180 (ReadPointerDeviceCfgDWORDSetting.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?Grow@?$CDynamicArray@UPropertyInfo@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C0025B10 (-Grow@-$CDynamicArray@UPropertyInfo@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetK.c)
+ *     DrvEnumDisplayDevices @ 0x1C0027520 (DrvEnumDisplayDevices.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0029644 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C002BB50 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C00488D0 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
+ *     RIMCreateDev @ 0x1C0054530 (RIMCreateDev.c)
+ *     RIMOnDisplayStateChange @ 0x1C0055ECC (RIMOnDisplayStateChange.c)
+ *     ?Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4CompositionInputFlags@@PEAPEAV1@@Z @ 0x1C0058944 (-Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4Compositi.c)
+ *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C0069B24 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
+ *     ?LoadFileContent@@YAJPEAXIIPEAPEAXPEAI@Z @ 0x1C006A194 (-LoadFileContent@@YAJPEAXIIPEAPEAXPEAI@Z.c)
+ *     CreateCacheDC @ 0x1C006AE00 (CreateCacheDC.c)
+ *     HmgCreate @ 0x1C006B24C (HmgCreate.c)
+ *     ?Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z @ 0x1C006B958 (-Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z.c)
+ *     ?Create@GdiHandleEntryDirectory@@SAPEAV1@PEAU_ENTRY@@I@Z @ 0x1C006B9EC (-Create@GdiHandleEntryDirectory@@SAPEAV1@PEAU_ENTRY@@I@Z.c)
+ *     ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C006BA80 (-_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z.c)
+ *     ?Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z @ 0x1C006BB18 (-Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z.c)
+ *     rimLoadImage @ 0x1C006C9A0 (rimLoadImage.c)
+ *     RIMGetDeviceParent @ 0x1C006CE50 (RIMGetDeviceParent.c)
+ *     EtwTraceLifetimeAccum @ 0x1C007F3B0 (EtwTraceLifetimeAccum.c)
+ *     ?Grow@?$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C0083D18 (-Grow@-$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposi.c)
+ *     ?CreateRegion@@YAJPEAPEAUIRegion@@@Z @ 0x1C0084BE0 (-CreateRegion@@YAJPEAPEAUIRegion@@@Z.c)
+ *     ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C0087870 (-PostInitialize@CMouseSensor@@EEAAJXZ.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C0088530 (RIMRegisterForInputWithCallbacks.c)
+ *     ?Initialize@CInputThread@@SAJXZ @ 0x1C008A618 (-Initialize@CInputThread@@SAJXZ.c)
+ *     ?Initialize@CDeviceIdentity@@SAJXZ @ 0x1C008A9E4 (-Initialize@CDeviceIdentity@@SAJXZ.c)
+ *     CHidInput_CreateInstance @ 0x1C008AC30 (CHidInput_CreateInstance.c)
+ *     CKeyboardSensor_CreateInstance @ 0x1C008ACA0 (CKeyboardSensor_CreateInstance.c)
+ *     CMouseSensor_CreateInstance @ 0x1C008AD30 (CMouseSensor_CreateInstance.c)
+ *     _anonymous_namespace_::CFrameIdGenerator::Initialize @ 0x1C008B35C (_anonymous_namespace_--CFrameIdGenerator--Initialize.c)
+ *     InitializeInputComponents @ 0x1C008B6CC (InitializeInputComponents.c)
+ *     ?CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z @ 0x1C008B7DC (-CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z.c)
+ *     ?CitpStart@@YAJXZ @ 0x1C008BB2C (-CitpStart@@YAJXZ.c)
+ *     ?CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008BBDC (-CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpEnsureKey@@YAJPEAPEAXPEBG_N@Z @ 0x1C008C57C (-CitpEnsureKey@@YAJPEAPEAXPEBG_N@Z.c)
+ *     ?CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z @ 0x1C008F794 (-CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpStringDuplicate@@YAJPEAPEAGPEBG_K@Z @ 0x1C008FC70 (-CitpStringDuplicate@@YAJPEAPEAGPEBG_K@Z.c)
+ *     ?CitpRegistryGetValue@@YAJPEAXPEBGPEAPEAU_KEY_VALUE_PARTIAL_INFORMATION@@@Z @ 0x1C008FD04 (-CitpRegistryGetValue@@YAJPEAXPEBGPEAPEAU_KEY_VALUE_PARTIAL_INFORMATION@@@Z.c)
+ *     ?Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z @ 0x1C0091D80 (-Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z.c)
+ *     ?AllocateTableEntry@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@CAPEAXPEAU_RTL_GENERIC_TABLE@@K@Z @ 0x1C0095CD0 (-AllocateTableEntry@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectCompositi.c)
+ *     UserReAllocPool @ 0x1C0098E10 (UserReAllocPool.c)
+ *     EtwTraceDWMGetDirtyRegion @ 0x1C009CD20 (EtwTraceDWMGetDirtyRegion.c)
+ *     ?CitAllocZero@@YAPEAX_K@Z @ 0x1C00A1FF0 (-CitAllocZero@@YAPEAX_K@Z.c)
+ *     RIMSyncWalkRimObjList @ 0x1C00A40BC (RIMSyncWalkRimObjList.c)
+ *     SnapshotMonitorRects @ 0x1C00AE000 (SnapshotMonitorRects.c)
+ *     RIMCheckPressureDefaultSetting @ 0x1C00AE9B4 (RIMCheckPressureDefaultSetting.c)
+ *     ?Initialize@LegacyInputDispatcher@@QEAAJD_NIIPEAULegacyDispatcherObject@@@Z @ 0x1C00B0320 (-Initialize@LegacyInputDispatcher@@QEAAJD_NIIPEAULegacyDispatcherObject@@@Z.c)
+ *     WinSqmStartSession @ 0x1C00B12C0 (WinSqmStartSession.c)
+ *     ?AllocateTableEntry@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@CAPEAXPEAU_RTL_GENERIC_TABLE@@K@Z @ 0x1C00B1CE0 (-AllocateTableEntry@-$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@Dir.c)
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C00B358C (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ *     ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00B52F0 (-CreateSessionGlobal@CInputManager@@SAJXZ.c)
+ *     ?CreateActivationGroupWithId@CActivationObjectManager@@AEAAJAEBUACTIVATION_GROUP_ID@@@Z @ 0x1C00B5578 (-CreateActivationGroupWithId@CActivationObjectManager@@AEAAJAEBUACTIVATION_GROUP_ID@@@Z.c)
+ *     ?Create@LegacyInputDispatcher@@SAJPEAPEAV1@@Z @ 0x1C00B5B00 (-Create@LegacyInputDispatcher@@SAJPEAPEAV1@@Z.c)
+ *     CTouchpadAcceleration_CreateInstance @ 0x1C00B6860 (CTouchpadAcceleration_CreateInstance.c)
+ *     ?PostInitialize@CKeyboardSensor@@EEAAJXZ @ 0x1C00B7D20 (-PostInitialize@CKeyboardSensor@@EEAAJXZ.c)
+ *     ?HashTableAllocator@@YAPEAX_KPEAX@Z @ 0x1C00B7FA0 (-HashTableAllocator@@YAPEAX_KPEAX@Z.c)
+ *     GreMultiUserInitSession @ 0x1C00C4210 (GreMultiUserInitSession.c)
+ *     ?DisplayDiagRecordActiveTopology@@YAXPEAUUSER_DETECTED_BLACK_SCREEN_REPORT@@@Z @ 0x1C011E5C0 (-DisplayDiagRecordActiveTopology@@YAXPEAUUSER_DETECTED_BLACK_SCREEN_REPORT@@@Z.c)
+ *     UserRtlAllocMem @ 0x1C0139A70 (UserRtlAllocMem.c)
+ *     WinSqmAddToStreamEx @ 0x1C013A2A0 (WinSqmAddToStreamEx.c)
+ *     ?Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z @ 0x1C013ECC0 (-Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z.c)
+ *     EtwTraceMoveRegion @ 0x1C014C450 (EtwTraceMoveRegion.c)
+ *     RIMVirtCreateDev @ 0x1C014FD68 (RIMVirtCreateDev.c)
+ *     NtRIMQueryDevicePath @ 0x1C0153E90 (NtRIMQueryDevicePath.c)
+ *     RIMAddInjectionDeviceOfType @ 0x1C01548A0 (RIMAddInjectionDeviceOfType.c)
+ *     RIMAddNonPnpDeviceOfType @ 0x1C0154F10 (RIMAddNonPnpDeviceOfType.c)
+ *     RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle @ 0x1C0155280 (RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle.c)
+ *     RIMAllocKernelMem @ 0x1C015AC20 (RIMAllocKernelMem.c)
+ *     rimUserMemAllocNodeAlloc @ 0x1C015AEA0 (rimUserMemAllocNodeAlloc.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMGetDeviceButtons @ 0x1C015D9D0 (RIMGetDeviceButtons.c)
+ *     RIMGetProductString @ 0x1C015E6A4 (RIMGetProductString.c)
+ *     RIMGetPropertyCount @ 0x1C015E8F4 (RIMGetPropertyCount.c)
+ *     RIMIsDeviceExcluded @ 0x1C015EDAC (RIMIsDeviceExcluded.c)
+ *     RIMRetrieveLinkCollection @ 0x1C015F930 (RIMRetrieveLinkCollection.c)
+ *     RIMVirtGetDeviceButtons @ 0x1C0160AB4 (RIMVirtGetDeviceButtons.c)
+ *     RIMVirtGetProductString @ 0x1C0160C78 (RIMVirtGetProductString.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161DCC (RIMPopulatePointerDevice.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01674DC (RIMIDECreateHIDDesc.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
+ *     rimStoreRawDataBlock @ 0x1C0172F18 (rimStoreRawDataBlock.c)
+ *     rimProcessInput @ 0x1C0175A18 (rimProcessInput.c)
+ *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C0189704 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
+ *     ?CopyRawDataList@CTouchProcessor@@IEAAPEAUCPointerRawData@@PEBUCPointerInputFrame@@@Z @ 0x1C018C2D4 (-CopyRawDataList@CTouchProcessor@@IEAAPEAUCPointerRawData@@PEBUCPointerInputFrame@@@Z.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CB20 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z @ 0x1C01AAC20 (-PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z.c)
+ *     ?DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z @ 0x1C01B4038 (-DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z.c)
+ *     ?CreateInputMessage@CButtonEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AEBUInputDeliveryContext@2@@Z @ 0x1C01BF360 (-CreateInputMessage@CButtonEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@.c)
+ *     ?CreateInputMessage@CMoveEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AEBUInputDeliveryContext@2@@Z @ 0x1C01BF3D0 (-CreateInputMessage@CMoveEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AE.c)
+ *     ?CreateInputMessage@CWheelEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AEBUInputDeliveryContext@2@@Z @ 0x1C01BF440 (-CreateInputMessage@CWheelEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@A.c)
+ *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C01D1990 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
+ *     ?Grow@?$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C01E4388 (-Grow@-$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@IEAAJI@Z.c)
+ *     ??$AddProperty@M@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBMPEAI@Z @ 0x1C01EB850 (--$AddProperty@M@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@.c)
+ *     ??$AddProperty@UD2DMatrix@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DMatrix@@PEAI@Z @ 0x1C01EB968 (--$AddProperty@UD2DMatrix@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelMod.c)
+ *     ??$AddProperty@UD2DQuaternion@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DQuaternion@@PEAI@Z @ 0x1C01EBAA4 (--$AddProperty@UD2DQuaternion@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKerne.c)
+ *     ??$AddProperty@UD2DVector2@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector2@@PEAI@Z @ 0x1C01EBBBC (--$AddProperty@UD2DVector2@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelMo.c)
+ *     ??$AddProperty@UD2DVector3@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector3@@PEAI@Z @ 0x1C01EBCD8 (--$AddProperty@UD2DVector3@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelMo.c)
+ *     ??$AddProperty@UD2D_MATRIX_3X2_F@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2D_MATRIX_3X2_F@@PEAI@Z @ 0x1C01EBDFC (--$AddProperty@UD2D_MATRIX_3X2_F@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKe.c)
+ *     ??$AddProperty@_N@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEB_NPEAI@Z @ 0x1C01EBF20 (--$AddProperty@_N@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ?Grow@?$CDynamicArray@I$0HHHAHDFF@@@IEAAJI@Z @ 0x1C01EC608 (-Grow@-$CDynamicArray@I$0HHHAHDFF@@@IEAAJI@Z.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall Win32AllocPool(unsigned __int64 a1, int a2)
+__int64 __fastcall Win32AllocPool(__int64 a1, unsigned int a2)
 {
-  PVOID v2; // rsi
-  __int64 v3; // rbx
-  __int64 v5; // rax
-  char v6; // bp
-  __int64 Pool2; // rdi
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-A8h] BYREF
+  __int64 v2; // rbx
+  int v5; // eax
 
-  v2 = gpLeakTrackingAllocator;
-  if ( (a2 & *((_DWORD *)gpLeakTrackingAllocator + 10)) != a2 )
-    return ExAllocatePool2(262LL, a1);
-  v3 = 0LL;
-  v5 = 0LL;
-  if ( !*((_DWORD *)gpLeakTrackingAllocator + 11) )
-    return ExAllocatePool2(262LL, a1);
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v5) != a2 )
-  {
-    if ( ++v5 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      return ExAllocatePool2(262LL, a1);
-  }
-  v6 = 0;
-  if ( a1 < 0x1000 || (a1 & 0xFFF) != 0 )
-  {
-    v6 = 1;
-    a1 += 16LL;
-  }
-  Pool2 = ExAllocatePool2(262LL, a1);
-  if ( Pool2 )
-  {
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( v6 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-    {
-      if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                              v2,
-                              Pool2,
-                              BackTrace) )
-        return Pool2 + 16;
-    }
-    else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                 v2,
-                                 Pool2,
-                                 BackTrace) )
-    {
-      return Pool2;
-    }
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-  }
-  return v3;
+  v2 = 0LL;
+  if ( qword_1C0257D10 )
+    v5 = qword_1C0257D10();
+  else
+    v5 = -1073741637;
+  if ( v5 < 0 )
+    return 0LL;
+  if ( qword_1C0257D18 )
+    return qword_1C0257D18(33LL, a1, a2);
+  return v2;
 }

@@ -1,44 +1,47 @@
 /*
- * XREFs of PiDqSerializationAlloc @ 0x1407DB4F0
+ * XREFs of PiDqSerializationAlloc @ 0x14069CA90
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqSerializationAlloc(__int64 a1, _QWORD *a2, unsigned int *a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v3; // eax
+  unsigned int v5; // ebx
   __int64 result; // rax
-  void *v8; // rcx
-  unsigned int v9; // eax
-  void *Pool2; // rax
+  void *v9; // rcx
+  PVOID PoolWithTag; // rax
 
-  v3 = *(_DWORD *)(a1 + 24);
-  if ( *a3 > v3 )
+  v3 = *a3;
+  v5 = *(_DWORD *)(a1 + 24);
+  if ( *a3 > v5 )
   {
-    v8 = *(void **)(a1 + 16);
-    v3 = 0;
-    if ( v8 )
-      ExFreePoolWithTag(v8, 0x58706E50u);
-    v9 = *a3;
-    if ( *a3 < 0x1000 )
+    v9 = *(void **)(a1 + 16);
+    v5 = 0;
+    if ( v9 )
     {
-      *a3 = 4096;
-      v9 = 4096;
-    }
-    Pool2 = (void *)ExAllocatePool2(256LL, v9, 1483763280LL);
-    *(_QWORD *)(a1 + 16) = Pool2;
-    if ( Pool2 )
-    {
-      memset(Pool2, 0, *a3);
+      ExFreePoolWithTag(v9, 0x58706E50u);
       v3 = *a3;
     }
-    *(_DWORD *)(a1 + 24) = v3;
+    if ( v3 < 0x1000 )
+    {
+      *a3 = 4096;
+      v3 = 4096;
+    }
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x58706E50u);
+    *(_QWORD *)(a1 + 16) = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, *a3);
+      v5 = *a3;
+    }
+    *(_DWORD *)(a1 + 24) = v5;
   }
-  *a3 = v3;
+  *a3 = v5;
   result = *(_QWORD *)(a1 + 16);
   *a2 = result;
   return result;

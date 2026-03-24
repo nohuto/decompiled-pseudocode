@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0FxUsbDeviceControlContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C0039464
+ * XREFs of ??0FxUsbDeviceControlContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C006F41C
  * Callers:
- *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C0078E40 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
- *     ?FormatControlRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@PEAUFxRequestBuffer@@@Z @ 0x1C007F23C (-FormatControlRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@PE.c)
+ *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C006BA90 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
+ *     ?FormatControlRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@PEAUFxRequestBuffer@@@Z @ 0x1C0072A70 (-FormatControlRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAT_WDF_USB_CONTROL_SETUP_PACKET@@PE.c)
  * Callees:
- *     ??0FxUsbRequestContext@@QEAA@E@Z @ 0x1C003903A (--0FxUsbRequestContext@@QEAA@E@Z.c)
+ *     ??0FxUsbRequestContext@@QEAA@E@Z @ 0x1C006C6D4 (--0FxUsbRequestContext@@QEAA@E@Z.c)
  */
 
 void __fastcall FxUsbDeviceControlContext::FxUsbDeviceControlContext(

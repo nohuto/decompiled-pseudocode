@@ -3,15 +3,15 @@
  * Callers:
  *     CmpSetValueKeyNew @ 0x1405ACBBC (CmpSetValueKeyNew.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140695104 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4 (CmpLightWeightPrepareSetValueKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     CmpCopyName @ 0x1405ACDB0 (CmpCopyName.c)
  *     CmpSetValueDataNew @ 0x1405ACE10 (CmpSetValueDataNew.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpNameSize @ 0x1406A54B4 (CmpNameSize.c)
+ *     CmpNameSize @ 0x1406A5494 (CmpNameSize.c)
  */
 
 __int64 __fastcall CmpAddValueKeyNew(

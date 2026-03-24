@@ -1,72 +1,74 @@
 /*
- * XREFs of PipRestoreDevNodeState @ 0x1403B6928
+ * XREFs of PipRestoreDevNodeState @ 0x140371258
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B6A4C (PnpRemoveLockedDeviceNode.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140869470 (PnpRequestDeviceRemovalWorker.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882FB8 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpCancelRemoveLockedDeviceNode @ 0x140958FEC (PnpCancelRemoveLockedDeviceNode.c)
- *     PnpCancelStopDeviceNode @ 0x14096E4A4 (PnpCancelStopDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140370078 (PnpRemoveLockedDeviceNode.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x14074A8A0 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpDeleteLockedDeviceNode @ 0x14074B3F8 (PnpDeleteLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14074C7F0 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpCancelStopDeviceNode @ 0x1408B8334 (PnpCancelStopDeviceNode.c)
  * Callees:
- *     PipAreDriversLoadedWorker @ 0x14022B12C (PipAreDriversLoadedWorker.c)
- *     PipIsDevNodeDNStarted @ 0x14022B1A0 (PipIsDevNodeDNStarted.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797720 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PipIsDevNodeDNStarted @ 0x14032E358 (PipIsDevNodeDNStarted.c)
+ *     PipAreDriversLoadedWorker @ 0x14032E3A8 (PipAreDriversLoadedWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1407424E0 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipRestoreDevNodeState(__int64 a1)
 {
   unsigned __int64 v2; // rdi
-  int v3; // ebp
-  int IsDevNodeDNStarted; // esi
-  int v5; // r9d
-  __int64 v6; // rcx
-  int v7; // r10d
+  BOOL v3; // ebp
+  BOOL IsDevNodeDNStarted; // eax
+  __int64 v5; // rcx
+  int v6; // esi
+  int v7; // r8d
+  int v8; // r9d
   __int64 result; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r9
-  __int64 v11; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // r9
+  __int64 v12; // rcx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
+  bool v15; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
   v3 = PipAreDriversLoadedWorker(*(_DWORD *)(a1 + 300), *(_DWORD *)(a1 + 304));
   IsDevNodeDNStarted = PipIsDevNodeDNStarted(a1);
-  *(_DWORD *)(a1 + 300) = v5;
-  v6 = *(unsigned int *)(a1 + 388);
-  *(_QWORD *)(a1 + 888) = MEMORY[0xFFFFF78000000014];
-  *(_DWORD *)(a1 + 4 * v6 + 308) = v7;
+  v5 = *(unsigned int *)(a1 + 388);
+  v6 = IsDevNodeDNStarted;
+  *(_DWORD *)(a1 + 300) = v7;
+  *(_DWORD *)(a1 + 4 * v5 + 308) = v8;
   *(_DWORD *)(a1 + 388) = (*(_DWORD *)(a1 + 388) + 1) % 0x14u;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+  KxReleaseSpinLock(&PnpSpinLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v14 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v15 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);
   if ( *(_QWORD *)(a1 + 48) )
   {
-    if ( (unsigned int)PipAreDriversLoadedWorker(*(_DWORD *)(a1 + 300), *(_DWORD *)(a1 + 304)) != v3
-      || (result = PipIsDevNodeDNStarted(a1), (_DWORD)result != IsDevNodeDNStarted) )
+    if ( PipAreDriversLoadedWorker(*(_DWORD *)(a1 + 300), *(_DWORD *)(a1 + 304)) != v3
+      || (result = PipIsDevNodeDNStarted(a1), (_DWORD)result != v6) )
     {
-      PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v9, v10, 11LL);
+      PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, v11, 11LL);
       result = PipIsDevNodeDNStarted(a1);
-      if ( (_DWORD)result != IsDevNodeDNStarted )
-        return PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v11, *(_QWORD *)(a1 + 48), 26LL);
+      if ( (_DWORD)result != v6 )
+        return PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v12, *(_QWORD *)(a1 + 48), 26LL);
     }
   }
   return result;

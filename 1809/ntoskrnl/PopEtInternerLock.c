@@ -1,5 +1,5 @@
 /*
- * XREFs of PopEtInternerLock @ 0x1406BCEC0
+ * XREFs of PopEtInternerLock @ 0x1406BCEA0
  * Callers:
  *     <none>
  * Callees:

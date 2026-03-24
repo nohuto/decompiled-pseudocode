@@ -1,58 +1,55 @@
 /*
- * XREFs of ?DelegateCaptureInt@CTouchProcessor@@AEAA?AUtagINPUTDEST@@PEAUCPointerCaptureData@@H@Z @ 0x1C01C4158
+ * XREFs of ?DelegateCaptureInt@CTouchProcessor@@AEAA?AUtagINPUTDEST@@PEAUCPointerCaptureData@@H@Z @ 0x1C018CC54
  * Callers:
- *     ?DelegateCapture@CTouchProcessor@@AEAA?AUtagINPUTDEST@@_KHPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01C3E28 (-DelegateCapture@CTouchProcessor@@AEAA-AUtagINPUTDEST@@_KHPEAUtagDELEGATEPOINTERMAP@@@Z.c)
- *     ?DelegateCapture@CTouchProcessor@@QEAA?AUtagINPUTDEST@@GKH@Z @ 0x1C01C4010 (-DelegateCapture@CTouchProcessor@@QEAA-AUtagINPUTDEST@@GKH@Z.c)
+ *     ?DelegateCapture@CTouchProcessor@@AEAA?AUtagINPUTDEST@@_KHPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C018C8B4 (-DelegateCapture@CTouchProcessor@@AEAA-AUtagINPUTDEST@@_KHPEAUtagDELEGATEPOINTERMAP@@@Z.c)
+ *     ?DelegateCapture@CTouchProcessor@@QEAA?AUtagINPUTDEST@@GKH@Z @ 0x1C018CAE0 (-DelegateCapture@CTouchProcessor@@QEAA-AUtagINPUTDEST@@GKH@Z.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?SetDelegateActionInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@W4tagDCPACTION@@@Z @ 0x1C01D447C (-SetDelegateActionInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@W4tagDCPACTION@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?SetDelegateActionInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@W4tagDCPACTION@@@Z @ 0x1C019BAE8 (-SetDelegateActionInt@CTouchProcessor@@AEAAXPEAUCPointerCaptureData@@W4tagDCPACTION@@@Z.c)
  */
 
 _OWORD *__fastcall CTouchProcessor::DelegateCaptureInt(__int64 a1, _OWORD *a2, __int64 a3, int a4)
 {
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  int v11; // eax
-  __int64 v12; // r8
-  unsigned __int64 v13; // rcx
-  __int128 v14; // xmm1
-  __int128 v15; // xmm0
-  __int128 v16; // xmm1
-  __int128 v17; // xmm0
-  __int128 v18; // xmm1
-  __int128 v19; // xmm0
+  int v8; // eax
+  __int64 v9; // r8
+  unsigned __int64 v10; // rcx
+  __int128 v11; // xmm1
+  __int128 v12; // xmm0
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
 
   memset(a2, 0, 0x70uLL);
-  if ( *(struct _KTHREAD **)(a1 + 40) != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v8, v10);
-  v11 = *(_DWORD *)(a3 + 304);
-  v12 = 4LL;
-  if ( (v11 & 4) != 0 || (v11 & 8) != 0 )
+  if ( *(struct _KTHREAD **)(a1 + 48) != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10376);
+  v8 = *(_DWORD *)(a3 + 304);
+  v9 = 4LL;
+  if ( (v8 & 4) != 0 || (v8 & 8) != 0 )
   {
     if ( a4 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v8, 4LL);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10385);
   }
   else
   {
-    v13 = (-(__int64)(*(_DWORD *)(a3 + 40) != 0) & 0xFFFFFFFFFFFFFF78uLL) + 176;
-    v14 = *(_OWORD *)(v13 + a3 + 16);
-    *a2 = *(_OWORD *)(v13 + a3);
-    v15 = *(_OWORD *)(v13 + a3 + 32);
-    a2[1] = v14;
-    v16 = *(_OWORD *)(v13 + a3 + 48);
-    a2[2] = v15;
-    v17 = *(_OWORD *)(v13 + a3 + 64);
-    a2[3] = v16;
-    v18 = *(_OWORD *)(v13 + a3 + 80);
-    a2[4] = v17;
-    v19 = *(_OWORD *)(v13 + a3 + 96);
-    a2[5] = v18;
-    a2[6] = v19;
+    v10 = (-(__int64)(*(_DWORD *)(a3 + 40) != 0) & 0xFFFFFFFFFFFFFF78uLL) + 176;
+    v11 = *(_OWORD *)(v10 + a3 + 16);
+    *a2 = *(_OWORD *)(v10 + a3);
+    v12 = *(_OWORD *)(v10 + a3 + 32);
+    a2[1] = v11;
+    v13 = *(_OWORD *)(v10 + a3 + 48);
+    a2[2] = v12;
+    v14 = *(_OWORD *)(v10 + a3 + 64);
+    a2[3] = v13;
+    v15 = *(_OWORD *)(v10 + a3 + 80);
+    a2[4] = v14;
+    v16 = *(_OWORD *)(v10 + a3 + 96);
+    a2[5] = v15;
+    a2[6] = v16;
     if ( !a4 )
-      v12 = 3LL;
-    CTouchProcessor::SetDelegateActionInt(v13, a3, v12);
+      v9 = 3LL;
+    CTouchProcessor::SetDelegateActionInt(v10, a3, v9);
   }
   return a2;
 }

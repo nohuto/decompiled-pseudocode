@@ -3,10 +3,10 @@
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
- *     EtwUnregister @ 0x140707390 (EtwUnregister.c)
- *     EtwWriteStartScenario @ 0x140716670 (EtwWriteStartScenario.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
+ *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
+ *     EtwWriteStartScenario @ 0x140716650 (EtwWriteStartScenario.c)
  */
 
 int PerfDiagInitialize()
@@ -15,8 +15,8 @@ int PerfDiagInitialize()
   ULONGLONG RegHandle; // [rsp+30h] [rbp-20h] BYREF
   GUID ActivityId; // [rsp+38h] [rbp-18h] BYREF
 
-  qword_14040A780 = 0LL;
-  dword_14040A788 = 0;
+  qword_14040A760 = 0LL;
+  dword_14040A768 = 0;
   EtwRegister(
     &MS_Kernel_BootDiagnostics_SystemProxy_Provider,
     (PETWENABLECALLBACK)PerfDiagpBootSystemProxyCallback,
@@ -26,17 +26,17 @@ int PerfDiagInitialize()
     &MS_Kernel_BootDiagnostics_UserProxy_Provider,
     (PETWENABLECALLBACK)PerfDiagpBootUserProxyCallback,
     0LL,
-    &qword_14040A768);
+    &qword_14040A748);
   EtwRegister(
     &MS_Kernel_SecondaryLogonDiagnostics_Proxy_Provider,
     (PETWENABLECALLBACK)PerfDiagpSecondaryLogonProxyCallback,
     0LL,
-    &qword_14040A770);
+    &qword_14040A750);
   EtwRegister(
     &MS_Kernel_ShutdownDiagnostics_Proxy_Provider,
     (PETWENABLECALLBACK)PerfDiagpShutdownProxyCallback,
     0LL,
-    &qword_14040A778);
+    &qword_14040A758);
   result = EtwRegister(&MS_Kernel_BootDiagnostics_Provider, 0LL, 0LL, &RegHandle);
   if ( result >= 0 )
   {

@@ -1,10 +1,9 @@
 /*
- * XREFs of KiAbProcessThreadPriorityModification @ 0x140229CA0
+ * XREFs of KiAbProcessThreadPriorityModification @ 0x1402888B0
  * Callers:
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
+ *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x140229D30 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
  */
 
 void __fastcall KiAbProcessThreadPriorityModification(__int64 a1, char a2, int a3)
@@ -24,8 +23,16 @@ void __fastcall KiAbProcessThreadPriorityModification(__int64 a1, char a2, int a
         v4 = (_QWORD *)(a1 + 808);
         if ( *(_QWORD *)(a1 + 808) == 1LL )
         {
-          v5 = 35704LL;
-          goto LABEL_8;
+          v5 = 34680LL;
+LABEL_7:
+          v6 = (_QWORD *)((char *)&CurrentPrcb->MxCsr + v5);
+          if ( (struct _KPRCB *)((char *)CurrentPrcb + v5) )
+          {
+            *v4 = *v6;
+            *v6 = v4;
+            _InterlockedIncrement16((volatile signed __int16 *)(a1 + 868));
+            KiAbQueueAutoBoostDpc(CurrentPrcb);
+          }
         }
       }
     }
@@ -37,16 +44,8 @@ void __fastcall KiAbProcessThreadPriorityModification(__int64 a1, char a2, int a
       v4 = (_QWORD *)(a1 + 816);
       if ( *(_QWORD *)(a1 + 816) == 1LL )
       {
-        v5 = 35696LL;
-LABEL_8:
-        v6 = (_QWORD *)((char *)&CurrentPrcb->MxCsr + v5);
-        if ( (struct _KPRCB *)((char *)CurrentPrcb + v5) )
-        {
-          *v4 = *v6;
-          *v6 = v4;
-          _InterlockedIncrement16((volatile signed __int16 *)(a1 + 868));
-          KiAbQueueAutoBoostDpc(CurrentPrcb);
-        }
+        v5 = 34672LL;
+        goto LABEL_7;
       }
     }
   }

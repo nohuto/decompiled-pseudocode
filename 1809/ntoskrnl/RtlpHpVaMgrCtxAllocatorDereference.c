@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorDereference @ 0x1401591FC
+ * XREFs of RtlpHpVaMgrCtxAllocatorDereference @ 0x14015921C
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x140141340 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpRegisterEnvironment @ 0x140141360 (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x1400BC480 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2)

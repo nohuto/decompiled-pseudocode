@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringVPrintfWorkerW @ 0x1C0005BA8
+ * XREFs of RtlStringVPrintfWorkerW @ 0x1C00097DC
  * Callers:
- *     RtlStringCchPrintfW @ 0x1C0005B6C (RtlStringCchPrintfW.c)
- *     RtlStringCbPrintfW @ 0x1C00157F8 (RtlStringCbPrintfW.c)
+ *     RtlStringCchPrintfW @ 0x1C0009784 (RtlStringCchPrintfW.c)
+ *     RtlStringCbPrintfW @ 0x1C00156DC (RtlStringCbPrintfW.c)
  * Callees:
  *     <none>
  */

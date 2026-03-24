@@ -1,9 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker @ 0x140208BE0
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x140206C80
  * Callers:
- *     RtlUnicodeStringCopy @ 0x140208AD8 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x140208BA0 (RtlUnicodeStringValidateDestWorker.c)
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
+ *     RtlUnicodeStringCat @ 0x140206B60 (RtlUnicodeStringCat.c)
  * Callees:
  *     <none>
  */

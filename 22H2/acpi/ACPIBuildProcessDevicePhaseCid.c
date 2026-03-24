@@ -1,97 +1,109 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhaseCid @ 0x1C000ED30
+ * XREFs of ACPIBuildProcessDevicePhaseCid @ 0x1C0014DE0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
- *     ACPIConvertStringDelimitation @ 0x1C0043984 (ACPIConvertStringDelimitation.c)
+ *     ACPIConvertStringDelimitation @ 0x1C00164D4 (ACPIConvertStringDelimitation.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDevicePhaseCid(__int64 a1)
 {
-  char *v1; // rdi
+  signed __int64 v1; // rdi
   __int64 v3; // rbx
-  const char *v4; // rdx
-  unsigned int v5; // ebp
-  __int64 v6; // rsi
-  __int64 v7; // rsi
-  int v8; // ebp
-  __int64 v9; // rsi
-  const char *v10; // rax
+  const char *v4; // rax
+  unsigned int v5; // r14d
+  __int64 v6; // rbp
+  __int64 v7; // rax
+  const char *v8; // rdx
+  int v9; // ebp
+  __int64 v10; // r14
   __int64 v11; // rdx
-  const char *v12; // rcx
+  void *v12; // rax
+  void *v13; // rcx
+  __int64 v14; // r8
+  __int64 v16; // rbp
 
-  v1 = *(char **)(a1 + 128);
+  v1 = *(_QWORD *)(a1 + 128);
   v3 = *(_QWORD *)(a1 + 40);
   ACPIConvertStringDelimitation(v1);
-  v4 = AcpiInternalDeviceFlagTable;
   if ( v1 )
   {
+    v4 = AcpiInternalDeviceFlagTable;
     v5 = 0;
     if ( AcpiInternalDeviceFlagTable )
     {
       v6 = 0LL;
-      while ( !strstr(v1, v4) )
+      while ( !strstr((const char *)v1, v4) )
       {
         v6 = ++v5;
         v4 = (&AcpiInternalDeviceFlagTable)[4 * v5];
         if ( !v4 )
-          goto LABEL_8;
+          goto LABEL_6;
       }
-      v7 = 4 * v6;
-      _InterlockedOr64((volatile signed __int64 *)(v3 + 8), (unsigned __int64)(&AcpiInternalDeviceFlagTable)[v7 + 1]);
-      _InterlockedOr64((volatile signed __int64 *)(v3 + 1008), (unsigned __int64)(&AcpiInternalDeviceFlagTable)[v7 + 2]);
-LABEL_8:
-      v4 = AcpiInternalDeviceFlagTable;
+      v16 = 4 * v6;
+      _InterlockedOr64((volatile signed __int64 *)(v3 + 8), (unsigned __int64)(&AcpiInternalDeviceFlagTable)[v16 + 1]);
+      _InterlockedOr64((volatile signed __int64 *)(v3 + 960), (unsigned __int64)(&AcpiInternalDeviceFlagTable)[v16 + 2]);
     }
   }
-  if ( _bittest64((const signed __int64 *)(v3 + 8), 0x2Du) )
+LABEL_6:
+  v7 = *(_QWORD *)(v3 + 8);
+  if ( (v7 & 0x200000000000LL) != 0 )
   {
-    if ( *(_QWORD *)(v3 + 608) )
+    if ( *(_QWORD *)(v3 + 568) )
     {
-      v8 = 0;
-      if ( v4 )
+      v8 = AcpiInternalDeviceFlagTable;
+      v9 = 0;
+      if ( AcpiInternalDeviceFlagTable )
       {
-        v9 = 0LL;
+        v10 = 0LL;
         do
         {
-          if ( strstr(*(const char **)(v3 + 608), v4) )
-            _InterlockedAnd64((volatile signed __int64 *)(v3 + 8), ~(__int64)(&AcpiInternalDeviceFlagTable)[v9 + 3]);
-          v9 = 4LL * (unsigned int)++v8;
-          v4 = (&AcpiInternalDeviceFlagTable)[v9];
+          if ( strstr(*(const char **)(v3 + 568), v8) )
+            _InterlockedAnd64((volatile signed __int64 *)(v3 + 8), ~(__int64)(&AcpiInternalDeviceFlagTable)[v10 + 3]);
+          v10 = 4LL * (unsigned int)++v9;
+          v8 = (&AcpiInternalDeviceFlagTable)[v10];
         }
-        while ( v4 );
+        while ( v8 );
+        v7 = *(_QWORD *)(v3 + 8);
       }
     }
   }
-  if ( ((*(_DWORD *)(v3 + 8) & 0x2000000) == 0
-     || _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 200), (signed __int64)v1, 0LL))
-    && v1 )
-  {
-    ExFreePoolWithTag(v1, 0);
-  }
+  if ( (v7 & 0x2000000) != 0 )
+    v1 &= (unsigned __int128)-(__int128)(unsigned __int64)_InterlockedCompareExchange64(
+                                                            (volatile signed __int64 *)(v3 + 200),
+                                                            v1,
+                                                            0LL) >> 64;
+  if ( v1 )
+    ExFreePoolWithTag((PVOID)v1, 0);
+  v11 = 10LL;
+  v12 = &unk_1C00701BA;
   *(_DWORD *)(a1 + 32) = 10;
-  v10 = (const char *)&unk_1C00622D0;
-  v11 = *(_QWORD *)(v3 + 8);
-  v12 = (const char *)&unk_1C00622D0;
-  if ( (v11 & 0x200000000000LL) != 0 )
+  v13 = &unk_1C00701BA;
+  v14 = *(_QWORD *)(v3 + 8);
+  if ( (v14 & 0x200000000000LL) != 0 )
   {
-    v10 = *(const char **)(v3 + 608);
-    if ( (v11 & 0x400000000000LL) != 0 )
-      v12 = *(const char **)(v3 + 616);
+    v12 = *(void **)(v3 + 568);
+    if ( (v14 & 0x400000000000LL) != 0 )
+      v13 = *(void **)(v3 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      4u,
-      6u,
-      0x22u,
-      (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+  {
+    LOBYTE(v11) = 4;
+    WPP_RECORDER_SF_Lqss(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v11,
+      6,
+      34,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v3,
-      v10,
-      v12);
-  ACPIBuildCompleteMustSucceed(0LL, 0, 0LL, a1);
+      (__int64)v12,
+      (__int64)v13);
+    v11 = *(unsigned int *)(a1 + 32);
+  }
+  *(_DWORD *)(a1 + 32) = 2;
+  ACPIBuildCompleteCommon(a1 + 24, v11);
   return 0LL;
 }

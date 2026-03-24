@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDqGetRelativeObjectRegPath @ 0x1407FAF84
+ * XREFs of PiDqGetRelativeObjectRegPath @ 0x14068CB1C
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1407FAB88 (PiDqOpenUserObjectRegKey.c)
- *     PiDqDeleteUserObject @ 0x14095C2EC (PiDqDeleteUserObject.c)
+ *     PiDqOpenUserObjectRegKey @ 0x14068C868 (PiDqOpenUserObjectRegKey.c)
+ *     PiDqDeleteUserObject @ 0x14072E608 (PiDqDeleteUserObject.c)
  * Callees:
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1406CDF14 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _CmGetDeviceRegKeyPath @ 0x1406CE6EC (_CmGetDeviceRegKeyPath.c)
- *     _CmGetCommonClassRegKeyPath @ 0x1407881B4 (_CmGetCommonClassRegKeyPath.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x14079B4C0 (_CmGetDeviceContainerRegKeyPath.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x140A66770 (_CmGetDevicePanelRegKeyPath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x14068D41C (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406BAECC (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1406BDACC (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1406BDDC0 (_CmGetCommonClassRegKeyPath.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x140978630 (_CmGetDevicePanelRegKeyPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqGetRelativeObjectRegPath(const WCHAR *a1, int a2, PVOID *a3)
+__int64 __fastcall PiDqGetRelativeObjectRegPath(int a1, int a2, PVOID *a3)
 {
   wchar_t *pszDest; // rax
-  __int64 v7; // rcx
-  __int64 v8; // r9
+  int v7; // ecx
+  int v8; // r9d
   int v9; // ebx
   int DeviceRegKeyPath; // eax
   unsigned int v11; // ebx
@@ -25,65 +25,65 @@ __int64 __fastcall PiDqGetRelativeObjectRegPath(const WCHAR *a1, int a2, PVOID *
   int v14; // ebx
   int v15; // ebx
   int v16; // ebx
-  __int16 v17; // r8
+  int v17; // r8d
   int v18; // [rsp+20h] [rbp-28h]
   size_t cchDest; // [rsp+30h] [rbp-18h]
 
-  pszDest = (wchar_t *)ExAllocatePool2(256LL, 2048LL, 1483763280LL);
+  pszDest = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x800uLL, 0x58706E50u);
   *a3 = pszDest;
   if ( !pszDest )
   {
     v11 = -1073741670;
-    goto LABEL_12;
+    goto LABEL_13;
   }
   v9 = a2 - 1;
   if ( !v9 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDeviceRegKeyPath(*(__int64 *)&PiPnpRtlCtx, (__int64)a1, 16LL, 0, 0, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDeviceRegKeyPath(PiPnpRtlCtx, a1, 16, 0, 0, pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   v13 = v9 - 1;
   if ( !v13 )
   {
     v17 = 32;
-    goto LABEL_19;
+    goto LABEL_20;
   }
   v14 = v13 - 1;
   if ( !v14 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDeviceInterfaceRegKeyPath(v7, (__int64)a1, 48, 0, v18, pszDest, cchDest, 0LL);
-LABEL_4:
-    v11 = DeviceRegKeyPath;
-    if ( DeviceRegKeyPath >= 0 )
-      return v11;
-    goto LABEL_12;
+    DeviceRegKeyPath = CmGetDeviceInterfaceRegKeyPath(v7, a1, 48, 0, v18, (__int64)pszDest, cchDest, 0LL);
+    goto LABEL_4;
   }
   v15 = v14 - 1;
   if ( !v15 )
   {
     v17 = 64;
-LABEL_19:
+LABEL_20:
     LODWORD(cchDest) = 1024;
     DeviceRegKeyPath = CmGetCommonClassRegKeyPath(v7, a1, v17, 0, v18, pszDest, cchDest, 0LL);
-    goto LABEL_4;
+LABEL_4:
+    v11 = DeviceRegKeyPath;
+    if ( DeviceRegKeyPath >= 0 )
+      return v11;
+    goto LABEL_13;
   }
   v16 = v15 - 1;
   if ( !v16 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDeviceContainerRegKeyPath(v7, (__int64)a1, 80LL, v8, v18, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDeviceContainerRegKeyPath(v7, a1, 80, v8, v18, pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   if ( v16 == 1 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDevicePanelRegKeyPath(v7, (int)a1, 96, v8, v18, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDevicePanelRegKeyPath(v7, a1, 96, v8, v18, pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   v11 = -1073741811;
-LABEL_12:
+LABEL_13:
   if ( *a3 )
   {
     ExFreePoolWithTag(*a3, 0x58706E50u);

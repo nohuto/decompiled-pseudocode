@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpSectInfoHandleFullBuffer @ 0x1407DD360
+ * XREFs of PfpSectInfoHandleFullBuffer @ 0x14062E800
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     PfTTraceListAdd @ 0x14075F1E8 (PfTTraceListAdd.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfTTraceListAdd @ 0x14062FFAC (PfTTraceListAdd.c)
  */
 
 __int64 __fastcall PfpSectInfoHandleFullBuffer(_DWORD *a1)
@@ -24,11 +24,11 @@ __int64 __fastcall PfpSectInfoHandleFullBuffer(_DWORD *a1)
   a1[6] = v5 - 16;
   a1[5] = 1128485697;
   a1[7] = 1;
-  a1[9] = HIDWORD(xmmword_140C65550);
-  a1[10] = dword_140C65564;
+  a1[9] = HIDWORD(xmmword_140C4FED0);
+  a1[10] = dword_140C4FEE4;
   a1[12] = v4;
   a1[13] = v3;
   a1[11] = 32;
   a1[14] = v2;
-  return PfTTraceListAdd((__int64)a1);
+  return PfTTraceListAdd(a1);
 }

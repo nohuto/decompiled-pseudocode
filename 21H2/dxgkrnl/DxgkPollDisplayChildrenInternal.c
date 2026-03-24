@@ -1,19 +1,18 @@
 /*
- * XREFs of DxgkPollDisplayChildrenInternal @ 0x1C02D31C0
+ * XREFs of DxgkPollDisplayChildrenInternal @ 0x1C0224D30
  * Callers:
- *     DxgkPollDisplayChildren @ 0x1C02D31A0 (DxgkPollDisplayChildren.c)
+ *     DxgkPollDisplayChildren @ 0x1C0224D10 (DxgkPollDisplayChildren.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02CF750 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
- *     ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C02F07A8 (-DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION.c)
- *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C030B034 (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0221AB8 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
+ *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C026A4BC (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
+ *     ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C0295B68 (-DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION.c)
  */
 
 __int64 __fastcall DxgkPollDisplayChildrenInternal(_D3DKMT_POLLDISPLAYCHILDREN *a1, char a2)
@@ -22,87 +21,86 @@ __int64 __fastcall DxgkPollDisplayChildrenInternal(_D3DKMT_POLLDISPLAYCHILDREN *
   __int64 v5; // r8
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // r9
-  _D3DKMT_POLLDISPLAYCHILDREN v11; // rax
-  unsigned __int64 v12; // rax
-  unsigned int v13; // ebx
+  _D3DKMT_POLLDISPLAYCHILDREN v8; // rax
+  unsigned __int64 v9; // rax
+  __int64 v10; // rdx
+  unsigned int v11; // ebx
   DXGGLOBAL *Global; // rax
-  int v15; // eax
-  int v16; // ebx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  _D3DKMT_POLLDISPLAYCHILDREN v20; // [rsp+50h] [rbp-128h] BYREF
-  int v21; // [rsp+58h] [rbp-120h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-118h]
-  char v23; // [rsp+68h] [rbp-110h]
-  struct DXGPROCESS *Current; // [rsp+70h] [rbp-108h]
-  _QWORD v25[28]; // [rsp+80h] [rbp-F8h] BYREF
+  int v13; // eax
+  int v14; // ebx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  _D3DKMT_POLLDISPLAYCHILDREN v18; // [rsp+30h] [rbp-108h] BYREF
+  int v19; // [rsp+38h] [rbp-100h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-F8h]
+  char v21; // [rsp+48h] [rbp-F0h]
+  struct DXGPROCESS *Current; // [rsp+50h] [rbp-E8h]
+  _QWORD v23[24]; // [rsp+60h] [rbp-D8h] BYREF
 
-  memset(v25, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v25[1]);
-  v25[8] = MEMORY[0xFFFFF78000000014];
-  LODWORD(v25[3]) = 43;
-  LOBYTE(v25[6]) = -1;
-  v21 = -1;
-  v22 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  memset(v23, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v23[1]);
+  v23[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v23[3]) = 43;
+  LOBYTE(v23[6]) = -1;
+  v19 = -1;
+  v20 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v23 = 1;
-    v21 = 2036;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v21 = 1;
+    v19 = 2036;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(v4, &EventProfilerEnter, v5, 2036);
   }
   else
   {
-    v23 = 0;
+    v21 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v21, 2036);
-  Current = DXGPROCESS::GetCurrent(v7, v6, v8, v9);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 2036LL);
+  Current = DXGPROCESS::GetCurrent(v7, v6);
   if ( a2 == 1 )
   {
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
       a1 = (_D3DKMT_POLLDISPLAYCHILDREN *)MmUserProbeAddress;
-    v11 = *a1;
-    v20 = *a1;
+    v8 = *a1;
+    v18 = *a1;
   }
   else
   {
-    v11 = *a1;
-    v20 = *a1;
+    v8 = *a1;
+    v18 = *a1;
   }
-  v12 = HIDWORD(*(unsigned __int64 *)&v11);
-  if ( (unsigned int)v12 >= 0x20 )
-    *((_DWORD *)&v20 + 1) = v12 & 1;
-  v13 = ((*((_BYTE *)&v20 + 4) & 1) != 0 ? 1 : 4) | 2;
-  if ( (*((_BYTE *)&v20 + 4) & 0x10) == 0 )
-    v13 = (*((_BYTE *)&v20 + 4) & 1) != 0 ? 1 : 4;
-  if ( (*((_BYTE *)&v20 + 4) & 8) == 0 )
+  v9 = HIDWORD(*(unsigned __int64 *)&v8);
+  if ( (unsigned int)v9 >= 0x20 )
+    *((_DWORD *)&v18 + 1) = v9 & 1;
+  v10 = *((unsigned int *)&v18 + 1);
+  v11 = ((*((_BYTE *)&v18 + 4) & 1) != 0 ? 1 : 4) | 2;
+  if ( (*((_BYTE *)&v18 + 4) & 0x10) == 0 )
+    v11 = (*((_BYTE *)&v18 + 4) & 1) != 0 ? 1 : 4;
+  if ( (*((_BYTE *)&v18 + 4) & 8) == 0 )
   {
-    v15 = PollDisplayChildrenForAdapter(&v20, v13, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v25, v10);
+    v13 = PollDisplayChildrenForAdapter(&v18, v11, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v23);
     goto LABEL_19;
   }
-  if ( !v20.hAdapter )
+  if ( !v18.hAdapter )
   {
-    Global = DXGGLOBAL_GetGlobal();
-    v15 = DXGGLOBAL::PollDisplayChildrenAll(Global, &v20, v13, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v25);
+    Global = DXGGLOBAL::GetGlobal((*((_BYTE *)&v18 + 4) & 1) != 0 ? 1 : 4, *((unsigned int *)&v18 + 1));
+    v13 = DXGGLOBAL::PollDisplayChildrenAll(Global, &v18, v11, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v23);
 LABEL_19:
-    v16 = v15;
+    v14 = v13;
     goto LABEL_20;
   }
-  v16 = -1073741811;
+  v14 = -1073741811;
 LABEL_20:
-  if ( v16 >= 0 && (*((_BYTE *)&v20 + 4) & 4) != 0 )
+  if ( v14 >= 0 && (*((_BYTE *)&v18 + 4) & 4) != 0 )
   {
-    v20 = (_D3DKMT_POLLDISPLAYCHILDREN)-1LL;
-    memset(&v25[10], 0, 0x90uLL);
-    v16 = DxgkHandleMonitorEvent(-1LL, 0xFFFFFFFFLL, 5LL);
-    if ( v16 == -1071774941 )
-      v16 = 0;
+    v18 = (_D3DKMT_POLLDISPLAYCHILDREN)-1LL;
+    memset(&v23[10], 0, 0x68uLL);
+    v14 = DxgkHandleMonitorEvent(-1LL, 0xFFFFFFFFLL, 5LL);
+    if ( v14 == -1071774941 )
+      v14 = 0;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v21);
-  if ( v23 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v21);
-  return (unsigned int)v16;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19, v10);
+  if ( v21 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v19);
+  return (unsigned int)v14;
 }

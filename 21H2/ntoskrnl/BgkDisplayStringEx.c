@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkDisplayStringEx @ 0x140551414
+ * XREFs of BgkDisplayStringEx @ 0x1404FF7A4
  * Callers:
- *     BgkDisplayString @ 0x140551360 (BgkDisplayString.c)
- *     NtDisplayString @ 0x1409F8B30 (NtDisplayString.c)
+ *     BgkDisplayString @ 0x1404FF6F0 (BgkDisplayString.c)
+ *     NtDisplayString @ 0x14094C480 (NtDisplayString.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     HeadlessDispatch @ 0x1403C2310 (HeadlessDispatch.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x1405515F8 (BgkpAcquireConsole.c)
- *     BgDisplayFade @ 0x140AAB76C (BgDisplayFade.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     HeadlessDispatch @ 0x1403AF760 (HeadlessDispatch.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x1404FF988 (BgkpAcquireConsole.c)
+ *     BgDisplayFade @ 0x1409F161C (BgDisplayFade.c)
  */
 
 char __fastcall BgkDisplayStringEx(_WORD *a1)
@@ -27,13 +27,13 @@ char __fastcall BgkDisplayStringEx(_WORD *a1)
     ++v3;
   while ( a1[v3] );
   HeadlessDispatch(23LL, (__int64)a1, 2 * v3 + 2, 0LL, 0LL);
-  if ( byte_140C54905 || byte_140C54904 )
+  if ( byte_140C50745 || byte_140C50744 )
   {
-    byte_140C54905 = 0;
-    byte_140C54904 = 0;
+    byte_140C50745 = 0;
+    byte_140C50744 = 0;
     BgDisplayFade();
   }
-  v4 = (*(int (__fastcall **)(_WORD *))(qword_140C54D30 + 24))(a1) >= 0;
-  ExReleaseRundownProtection(&stru_140C0B8C8);
+  v4 = (*(int (__fastcall **)(_WORD *))(qword_140C50B80 + 24))(a1) >= 0;
+  ExReleaseRundownProtection_0(&stru_140C113C8);
   return v4;
 }

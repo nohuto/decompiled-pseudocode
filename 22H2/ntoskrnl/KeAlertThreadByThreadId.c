@@ -1,63 +1,87 @@
 /*
- * XREFs of KeAlertThreadByThreadId @ 0x1402B97B0
+ * XREFs of KeAlertThreadByThreadId @ 0x14025C2F0
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     NtAlertThreadByThreadId @ 0x14073E950 (NtAlertThreadByThreadId.c)
- *     RtlRunOnceComplete @ 0x1407D97B0 (RtlRunOnceComplete.c)
- *     VslCallEnclave @ 0x1408A4F78 (VslCallEnclave.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadId @ 0x140626080 (NtAlertThreadByThreadId.c)
+ *     RtlRunOnceComplete @ 0x14066F6E0 (RtlRunOnceComplete.c)
+ *     VslCallEnclave @ 0x14088EC44 (VslCallEnclave.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD50 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x1402B85A0 (KiSignalThread.c)
+ *     KiSignalThread @ 0x140245E10 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x1402C4150 (KiExitDispatcher.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KeAlertThreadByThreadId(__int64 a1)
+char __fastcall KeAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int8 CurrentIrql; // si
+  char CurrentIrql; // si
   struct _KPRCB *CurrentPrcb; // rbp
-  char v4; // di
-  char v5; // al
-  char v6; // al
-  _DWORD *SchedulerAssist; // r9
-  __int64 v9; // rdx
-  int v10; // [rsp+40h] [rbp+8h] BYREF
+  _DWORD *v7; // rcx
+  char v8; // di
+  char v9; // al
+  _DWORD *v11; // rcx
+  int v12; // eax
+  int v13; // eax
+  int v14; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v9) = 4;
-    else
-      v9 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v9;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v10 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+  v14 = 0;
+  while ( 1 )
   {
+    v7 = CurrentPrcb->SchedulerAssist;
+    if ( v7 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v12 = v7[6];
+        v7[6] = v12 + 1;
+        if ( v12 == -1 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+      break;
+    v11 = CurrentPrcb->SchedulerAssist;
+    if ( v11 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v13 = v11[6] - 1;
+        v11[6] = v13;
+        if ( !v13 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v10);
+      KeYieldProcessorEx(&v14, a2, a3, (__int64)SchedulerAssist);
     while ( *(_QWORD *)(a1 + 64) );
   }
   if ( (*(_DWORD *)(a1 + 120) & 0x10) != 0 )
   {
-    v4 = 0;
+    v8 = 0;
   }
   else
   {
-    v4 = 1;
+    v8 = 1;
     if ( *(_BYTE *)(a1 + 388) != 5
-      || (v5 = *(_BYTE *)(a1 + 112) & 7, v5 == 4)
-      || v5 == 3
+      || (unsigned __int8)((*(_BYTE *)(a1 + 112) & 7) - 3) <= 1u
       || *(_BYTE *)(a1 + 643) != 37
-      || (v6 = KiSignalThread((__int64)CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v6) )
+      || (v9 = KiSignalThread((__int64)CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v9) )
     {
       _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), 4u);
     }
   }
-  *(_QWORD *)(a1 + 64) = 0LL;
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 1u, CurrentIrql);
-  return v4;
+  KiReleaseThreadLockSafe(a1);
+  KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 1, CurrentIrql);
+  return v8;
 }

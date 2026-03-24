@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepStartActivity @ 0x14031365C
+ * XREFs of PopPepStartActivity @ 0x140261288
  * Callers:
- *     PopPepTryPowerDownDevice @ 0x140310AF0 (PopPepTryPowerDownDevice.c)
- *     PopPepWork @ 0x140311C7C (PopPepWork.c)
- *     PopPepComponentGetWork @ 0x140313BBC (PopPepComponentGetWork.c)
+ *     PopPepTryPowerDownDevice @ 0x140260C70 (PopPepTryPowerDownDevice.c)
+ *     PopPepWork @ 0x140260D5C (PopPepWork.c)
+ *     PopPepComponentGetWork @ 0x140261528 (PopPepComponentGetWork.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopPepStartActivity(
@@ -21,7 +21,7 @@ __int64 __fastcall PopPepStartActivity(
 
   v7 = a4;
   _InterlockedDecrement(a5);
-  result = ((__int64 (__fastcall *)(__int64, __int64, __int64))off_140001B68[17 * a4])(a1, a2, a6);
+  result = ((__int64 (__fastcall *)(__int64, __int64, __int64))off_140001208[17 * a4])(a1, a2, a6);
   **(_DWORD **)(a3 + 8 * v7) &= ~2u;
   **(_DWORD **)(a3 + 8 * v7) &= ~8u;
   **(_DWORD **)(a3 + 8 * v7) |= 4u;

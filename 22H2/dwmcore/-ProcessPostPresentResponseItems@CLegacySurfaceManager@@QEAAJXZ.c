@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ @ 0x1801DFB5C
+ * XREFs of ?ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ @ 0x180178B00
  * Callers:
- *     ??1CLegacySurfaceManager@@UEAA@XZ @ 0x1801B72A4 (--1CLegacySurfaceManager@@UEAA@XZ.c)
+ *     ??1CLegacySurfaceManager@@UEAA@XZ @ 0x180163FA8 (--1CLegacySurfaceManager@@UEAA@XZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLegacySurfaceManager::ProcessPostPresentResponseItems(CLegacySurfaceManager *this)
@@ -20,10 +20,10 @@ __int64 __fastcall CLegacySurfaceManager::ProcessPostPresentResponseItems(CLegac
   for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 42); i = (unsigned int)(i + 1) )
   {
     v4 = *(_QWORD *)(*((_QWORD *)this + 18) + 8 * i);
-    v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 48LL))(v4);
+    v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 40LL))(v4);
     v7 = v5;
     if ( v5 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x17Eu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x178u, 0LL);
     if ( !v1 || v1 >= 0 && v7 < 0 )
       v1 = v7;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);

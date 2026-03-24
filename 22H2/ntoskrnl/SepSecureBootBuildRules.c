@@ -1,7 +1,7 @@
 /*
- * XREFs of SepSecureBootBuildRules @ 0x140B97C2C
+ * XREFs of SepSecureBootBuildRules @ 0x140A9372C
  * Callers:
- *     SeSecureBootRegisterPolicy @ 0x140B6D9C8 (SeSecureBootRegisterPolicy.c)
+ *     SeSecureBootRegisterPolicy @ 0x140A7084C (SeSecureBootRegisterPolicy.c)
  * Callees:
  *     <none>
  */
@@ -15,14 +15,14 @@ __int64 SepSecureBootBuildRules()
   int v4; // edx
   char v5; // al
 
-  v0 = *((unsigned __int16 *)qword_140D17F28 + 18);
+  v0 = *((unsigned __int16 *)qword_140CF5110 + 18);
   if ( (_WORD)v0 )
   {
-    v1 = (char *)qword_140D17F28 + *((unsigned int *)qword_140D17F28 + 10) + 60;
-    qword_140D1BF80 = (__int64)v1;
+    v1 = (char *)qword_140CF5110 + *((unsigned int *)qword_140CF5110 + 10) + 60;
+    qword_140CFA3A0 = (__int64)v1;
     v2 = v0;
     v3 = v1 + 4;
-    v4 = dword_140D1BF88;
+    v4 = dword_140CFA3A8;
     do
     {
       v5 = v3[3];
@@ -31,9 +31,9 @@ __int64 SepSecureBootBuildRules()
       --v2;
     }
     while ( v2 );
-    dword_140D1BF88 = v4;
+    dword_140CFA3A8 = v4;
   }
-  if ( *((_WORD *)qword_140D17F28 + 19) )
-    qword_140D1BF98 = (__int64)qword_140D17F28 + *((unsigned int *)qword_140D17F28 + 11) + 60;
+  if ( *((_WORD *)qword_140CF5110 + 19) )
+    qword_140CFA398 = (__int64)qword_140CF5110 + *((unsigned int *)qword_140CF5110 + 11) + 60;
   return 0LL;
 }

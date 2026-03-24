@@ -1,45 +1,30 @@
 /*
- * XREFs of ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800AE2E0
+ * XREFs of ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800B3668
  * Callers:
- *     ?MilCompositionEngine_GetComposedEventId@@YAJPEAI@Z @ 0x1800AE290 (-MilCompositionEngine_GetComposedEventId@@YAJPEAI@Z.c)
+ *     ?MilCompositionEngine_GetComposedEventId@@YAJPEAUHMIL_CONNECTION__@@PEAI@Z @ 0x1800B3720 (-MilCompositionEngine_GetComposedEventId@@YAJPEAUHMIL_CONNECTION__@@PEAI@Z.c)
  * Callees:
- *     ?OpenComposedEvent@@YAJIKPEAPEAX@Z @ 0x1800AE3A8 (-OpenComposedEvent@@YAJIKPEAPEAX@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$CWriteGuard@VCReadWriteLock@@@@QEAA@XZ @ 0x18019D9B8 (--1-$CWriteGuard@VCReadWriteLock@@@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?OpenComposedEvent@@YAJIKPEAPEAX@Z @ 0x1800B35C0 (-OpenComposedEvent@@YAJIKPEAPEAX@Z.c)
  */
 
 __int64 __fastcall CInternalMilCmdConnection::GetComposedEventId(CInternalMilCmdConnection *this, unsigned int *a2)
 {
-  RTL_SRWLOCK *v4; // rdi
-  unsigned int CompositionId; // esi
-  unsigned int v6; // edx
+  unsigned int v4; // edi
+  int CompositionId; // esi
+  __int64 v6; // rdx
   int v7; // eax
-  unsigned int v8; // ebx
-  int v10; // [rsp+20h] [rbp-8h]
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
-  RTL_SRWLOCK *v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v8; // rcx
+  struct _RTL_CRITICAL_SECTION *v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = (RTL_SRWLOCK *)((char *)this + 136);
+  v4 = 0;
   CompositionId = DwmQueryCompositionId();
-  v12 = v4;
-  AcquireSRWLockExclusive(v4);
-  *((_DWORD *)this + 36) = GetCurrentThreadId();
-  if ( *((_QWORD *)this + 2) || (v7 = OpenComposedEvent(CompositionId, v6, (void **)this + 2), v8 = v7, v7 >= 0) )
-  {
+  v10 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 144);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 144));
+  if ( *((_QWORD *)this + 6) || (v7 = OpenComposedEvent(CompositionId, v6, (void **)this + 6), v4 = v7, v7 >= 0) )
     *a2 = CompositionId;
-    LODWORD(v4[1].Ptr) = 0;
-    ReleaseSRWLockExclusive(v4);
-    return 0LL;
-  }
   else
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x71,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\internalmilcmdconnection.cpp",
-      (const char *)(unsigned int)v7,
-      v10);
-    CWriteGuard<CReadWriteLock>::~CWriteGuard<CReadWriteLock>(&v12);
-    return v8;
-  }
+    MilInstrumentationCheckHR_MaybeFailFast(v8, &dword_1802CF708, 2u, v7, 0x1EAu, 0LL);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v10);
+  return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of GetIndividualScales @ 0x1802ADD80
+ * XREFs of GetIndividualScales @ 0x18026AFF0
  * Callers:
- *     ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x1802AEA84 (-UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z.c)
+ *     ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x18026BCF4 (-UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 __int64 __fastcall GetIndividualScales(__int64 a1, float *a2, float *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall GetIndividualScales(__int64 a1, float *a2, float *a3)
   *(_DWORD *)(a1 + 20) = 0;
   v6 = *(float *)a1;
   v7 = *(float *)(a1 + 8);
-  v8 = o_sqrtf_0((float)(v6 * v6) + (float)(v7 * v7));
+  v8 = sqrtf_0((float)(v6 * v6) + (float)(v7 * v7));
   *a2 = v8;
   if ( v8 == 0.0 )
     return 2147942487LL;
@@ -31,7 +31,7 @@ __int64 __fastcall GetIndividualScales(__int64 a1, float *a2, float *a3)
   v12 = v7 / v8;
   *(float *)a1 = v11;
   *(float *)(a1 + 8) = v12;
-  v13 = o_sqrtf_0(
+  v13 = sqrtf_0(
           (float)((float)(v9 - (float)(v12 * (float)((float)(v11 * v10) + (float)(v12 * v9))))
                 * (float)(v9 - (float)(v12 * (float)((float)(v11 * v10) + (float)(v12 * v9)))))
         + (float)((float)(v10 - (float)(v11 * (float)((float)(v11 * v10) + (float)(v12 * v9))))

@@ -1,36 +1,36 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C015FB90
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C0251AB8
  * Callers:
- *     DxgkCheckMultiPlaneOverlaySupport3 @ 0x1C015D690 (DxgkCheckMultiPlaneOverlaySupport3.c)
- *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C015E960 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
+ *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02526D4 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
+ *     DxgkCheckMultiPlaneOverlaySupport3 @ 0x1C0258450 (DxgkCheckMultiPlaneOverlaySupport3.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,3>::AllocateElements(
-        __int64 *a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+PVOID __fastcall PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,3>::AllocateElements(
+        _DWORD *a1,
+        unsigned int a2)
 {
-  __int64 result; // rax
-  void *v7; // rcx
+  __int64 v4; // rbx
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 3 )
   {
-    v7 = a1 + 1;
-    *a1 = (__int64)v7;
-    if ( a2 )
-      memset(v7, 0, 32LL * a2);
-    goto LABEL_4;
+    result = a1 + 2;
   }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / a2 >= 0x20 )
+  else
   {
-    *a1 = ExAllocatePool2(256LL, 32LL * a2, 1265072196LL, a4);
-LABEL_4:
-    result = *a1;
-    *((_DWORD *)a1 + 26) = a2;
-    return result;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 0x20 )
+      return 0LL;
+    result = ExAllocatePoolWithTag(PagedPool, 32LL * a2, 0x4B677844u);
   }
-  return 0LL;
+  *(_QWORD *)a1 = result;
+  a1[26] = a2;
+  if ( result )
+  {
+    memset(result, 0, 32 * v4);
+    return *(PVOID *)a1;
+  }
+  return result;
 }

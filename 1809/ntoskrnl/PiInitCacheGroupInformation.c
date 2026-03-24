@@ -3,10 +3,10 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
  *     PnpRegMultiSzToUnicodeStrings @ 0x1409CA4C8 (PnpRegMultiSzToUnicodeStrings.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of IrqTranslatorEjectInterface @ 0x1C00A1A70
+ * XREFs of IrqTranslatorEjectInterface @ 0x1C00988E4
  * Callers:
- *     ACPIRootIrpQueryInterface @ 0x1C0091E90 (ACPIRootIrpQueryInterface.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C0098F50 (ACPIRootIrpQueryInterface.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall IrqTranslatorEjectInterface(__int64 a1, __int64 a2, __int64 a3)

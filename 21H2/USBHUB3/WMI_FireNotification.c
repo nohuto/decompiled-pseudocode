@@ -1,18 +1,18 @@
 /*
- * XREFs of WMI_FireNotification @ 0x1C0086B48
+ * XREFs of WMI_FireNotification @ 0x1C0084F0C
  * Callers:
- *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0015808 (HUBPDO_ValidateSelectConfigUrb.c)
- *     HUBPDO_EvtDeviceD0Exit @ 0x1C00188D0 (HUBPDO_EvtDeviceD0Exit.c)
- *     HUBPDO_EvtOutOfBandwidthTimer @ 0x1C001A910 (HUBPDO_EvtOutOfBandwidthTimer.c)
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0079110 (HUBPDO_EvtDevicePrepareHardware.c)
- *     HUBPDO_CreatePdoInternal @ 0x1C007ABD4 (HUBPDO_CreatePdoInternal.c)
- *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007E0A8 (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
+ *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0015334 (HUBPDO_ValidateSelectConfigUrb.c)
+ *     HUBPDO_EvtDeviceD0Exit @ 0x1C00183B0 (HUBPDO_EvtDeviceD0Exit.c)
+ *     HUBPDO_EvtOutOfBandwidthTimer @ 0x1C001A3C0 (HUBPDO_EvtOutOfBandwidthTimer.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
+ *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007CACC (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0030B3C (HUBMISC_StripSymbolicNamePrefix.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C003049C (HUBMISC_StripSymbolicNamePrefix.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _UNKNOWN **__fastcall WMI_FireNotification(__int64 a1, unsigned __int16 a2, int a3)
@@ -42,8 +42,8 @@ _UNKNOWN **__fastcall WMI_FireNotification(__int64 a1, unsigned __int16 a2, int 
          1LL) )
   {
     HUBMISC_StripSymbolicNamePrefix((unsigned __int16 *)(a1 + 2544), &v11);
-    v8 = *(_QWORD *)(a1 + 2536);
     v15 = v11 + 6;
+    v8 = *(_QWORD *)(a1 + 2536);
     v12[1] = v5;
     v12[0] = a3;
     result = (_UNKNOWN **)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, _DWORD *))(WdfFunctions_01015 + 3024))(
@@ -63,7 +63,7 @@ _UNKNOWN **__fastcall WMI_FireNotification(__int64 a1, unsigned __int16 a2, int 
                               2u,
                               3u,
                               0x14u,
-                              (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids,
+                              (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids,
                               v10);
       }
     }
@@ -77,7 +77,7 @@ _UNKNOWN **__fastcall WMI_FireNotification(__int64 a1, unsigned __int16 a2, int 
                             2u,
                             3u,
                             0x13u,
-                            (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids);
+                            (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids);
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SeUnregisterLogonSessionTerminatedRoutine @ 0x1409CD170
+ * XREFs of SeUnregisterLogonSessionTerminatedRoutine @ 0x140923520
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_TERMINATED_ROUTINE CallbackRoutine)
@@ -14,7 +14,7 @@ NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_T
   NTSTATUS v1; // edi
   struct _KTHREAD *CurrentThread; // rax
   PSE_LOGON_SESSION_TERMINATED_ROUTINE v5; // rbx
-  PVOID *v6; // rcx
+  PVOID *v6; // rdx
 
   v1 = 0;
   if ( !CallbackRoutine )
@@ -24,22 +24,29 @@ NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_T
   ExAcquireFastMutexUnsafe(&SepRmNotifyMutex);
   v5 = (PSE_LOGON_SESSION_TERMINATED_ROUTINE)SeFileSystemNotifyRoutinesHead;
   v6 = &SeFileSystemNotifyRoutinesHead;
-  while ( 1 )
+  if ( !SeFileSystemNotifyRoutinesHead )
+    goto LABEL_8;
+  do
   {
-    if ( !v5 )
-    {
-      ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      return -1073741275;
-    }
     if ( *((PSE_LOGON_SESSION_TERMINATED_ROUTINE *)v5 + 1) == CallbackRoutine )
       break;
     v6 = (PVOID *)v5;
     v5 = *(PSE_LOGON_SESSION_TERMINATED_ROUTINE *)v5;
   }
-  *v6 = *(PVOID *)v5;
-  ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  ExFreePoolWithTag(v5, 0);
+  while ( v5 );
+  if ( v5 )
+  {
+    *v6 = *(PVOID *)v5;
+    ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExFreePoolWithTag(v5, 0);
+  }
+  else
+  {
+LABEL_8:
+    ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return -1073741275;
+  }
   return v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CiSchedulerTerminate @ 0x1C000C934
+ * XREFs of CiSchedulerTerminate @ 0x1C000CCF0
  * Callers:
- *     CsTerminate @ 0x1C000C514 (CsTerminate.c)
+ *     CsTerminate @ 0x1C000C7D8 (CsTerminate.c)
  * Callees:
- *     CiSchedulerPoke @ 0x1C0002890 (CiSchedulerPoke.c)
+ *     CiSchedulerPoke @ 0x1C0001800 (CiSchedulerPoke.c)
  */
 
 LONG_PTR __fastcall CiSchedulerTerminate(__int64 a1, __int64 a2)

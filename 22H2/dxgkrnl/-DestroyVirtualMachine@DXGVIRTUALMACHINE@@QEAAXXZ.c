@@ -1,20 +1,18 @@
 /*
- * XREFs of ?DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C03438A8
+ * XREFs of ?DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0284C68
  * Callers:
- *     ?OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0056898 (-OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ *     ?OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0048B74 (-OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ.c)
  * Callees:
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C00073B4 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C00075BC (--1COREACCESS@@QEAA@XZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@COREACCESS@@QEAAXPEAD@Z @ 0x1C000A958 (-AcquireShared@COREACCESS@@QEAAXPEAD@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ??_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z @ 0x1C0056594 (--_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z.c)
- *     McTemplateK0pppj_EtwWriteTransfer @ 0x1C005699C (McTemplateK0pppj_EtwWriteTransfer.c)
- *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C0345B20 (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C0004E50 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@COREACCESS@@QEAAXPEAD@Z @ 0x1C0005530 (-AcquireShared@COREACCESS@@QEAAXPEAD@Z.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0008E28 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ??_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z @ 0x1C0048A84 (--_GDXGVIRTUALMACHINE@@QEAAPEAXI@Z.c)
+ *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C028626C (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
  */
 
 void __fastcall DXGVIRTUALMACHINE::DestroyVirtualMachine(char *P)
@@ -23,23 +21,19 @@ void __fastcall DXGVIRTUALMACHINE::DestroyVirtualMachine(char *P)
   char *v3; // rdi
   __int64 v4; // rax
   char *v5; // rdi
-  struct DXGADAPTER *v6; // rdx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  char v13[8]; // [rsp+40h] [rbp-59h] BYREF
-  DXGPUSHLOCK *v14; // [rsp+48h] [rbp-51h]
-  int v15; // [rsp+50h] [rbp-49h]
-  char v16[8]; // [rsp+58h] [rbp-41h] BYREF
-  DXGPUSHLOCK *v17; // [rsp+60h] [rbp-39h]
-  int v18; // [rsp+68h] [rbp-31h]
-  char v19[8]; // [rsp+70h] [rbp-29h] BYREF
-  DXGPUSHLOCK *v20; // [rsp+78h] [rbp-21h]
-  int v21; // [rsp+80h] [rbp-19h]
-  _BYTE v22[64]; // [rsp+90h] [rbp-9h] BYREF
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  char v9[8]; // [rsp+20h] [rbp-59h] BYREF
+  DXGPUSHLOCK *v10; // [rsp+28h] [rbp-51h]
+  int v11; // [rsp+30h] [rbp-49h]
+  char v12[8]; // [rsp+38h] [rbp-41h] BYREF
+  DXGPUSHLOCK *v13; // [rsp+40h] [rbp-39h]
+  int v14; // [rsp+48h] [rbp-31h]
+  char v15[8]; // [rsp+50h] [rbp-29h] BYREF
+  DXGPUSHLOCK *v16; // [rsp+58h] [rbp-21h]
+  int v17; // [rsp+60h] [rbp-19h]
+  _BYTE v18[64]; // [rsp+70h] [rbp-9h] BYREF
 
   v2 = P + 40;
   while ( 1 )
@@ -58,48 +52,30 @@ void __fastcall DXGVIRTUALMACHINE::DestroyVirtualMachine(char *P)
     *(_QWORD *)v3 = 0LL;
     *((_QWORD *)v3 + 1) = 0LL;
     v5 = v3 - 136;
-    if ( *((_BYTE *)DXGGLOBAL::GetGlobal() + 305188) )
-    {
-      (*(void (__fastcall **)(char *))(*(_QWORD *)v5 + 176LL))(v5);
-    }
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, (struct _KTHREAD **)P + 8, 0);
+    DXGPUSHLOCK::AcquireExclusive(v16);
+    v17 = 2;
+    COREACCESS::COREACCESS((COREACCESS *)v18, *((struct DXGADAPTER *const *)v5 + 2));
+    COREACCESS::AcquireShared((COREACCESS *)v18, 0LL);
+    v6 = *((_QWORD *)v5 + 1);
+    if ( v5[152] )
+      v7 = *(_QWORD *)(v6 + 1640);
     else
-    {
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v19, (struct _KTHREAD **)P + 8, 0);
-      DXGPUSHLOCK::AcquireExclusive(v20);
-      v6 = (struct DXGADAPTER *)*((_QWORD *)v5 + 2);
-      v21 = 2;
-      COREACCESS::COREACCESS((COREACCESS *)v22, v6);
-      COREACCESS::AcquireShared((COREACCESS *)v22, 0LL);
-      v7 = *((_QWORD *)v5 + 1);
-      if ( v5[152] )
-        v8 = *(_QWORD *)(v7 + 1872);
-      else
-        v8 = *(_QWORD *)(v7 + 1864);
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16, (struct _KTHREAD **)(v8 + 40), 0);
-      DXGPUSHLOCK::AcquireExclusive(v17);
-      v18 = 2;
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, (struct _KTHREAD **)v5 + 7, 0);
-      DXGPUSHLOCK::AcquireExclusive(v14);
-      v9 = *(_QWORD *)v5;
-      LOBYTE(v10) = 1;
-      v15 = 2;
-      (*(void (__fastcall **)(char *, _QWORD, __int64))(v9 + 16))(v5, 0LL, v10);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v16);
-      COREACCESS::~COREACCESS((COREACCESS *)v22);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
-    }
+      v7 = *(_QWORD *)(v6 + 1632);
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, (struct _KTHREAD **)(v7 + 40), 0);
+    DXGPUSHLOCK::AcquireExclusive(v13);
+    v14 = 2;
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v9, (struct _KTHREAD **)v5 + 7, 0);
+    DXGPUSHLOCK::AcquireExclusive(v10);
+    v11 = 2;
+    LOBYTE(v8) = 1;
+    (*(void (__fastcall **)(char *, _QWORD, __int64))(*(_QWORD *)v5 + 16LL))(v5, 0LL, v8);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v9);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v12);
+    COREACCESS::~COREACCESS((COREACCESS *)v18);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
   }
   DXGVIRTUALMACHINE::ResetVirtualMachine((DXGVIRTUALMACHINE *)P, 1u);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-    McTemplateK0pppj_EtwWriteTransfer(
-      v11,
-      &EventDestroyVirtualMachine,
-      v12,
-      P,
-      *((_QWORD *)P + 7),
-      *((_QWORD *)P + 34),
-      P + 288);
   if ( P )
     DXGVIRTUALMACHINE::`scalar deleting destructor'((DXGVIRTUALMACHINE *)P);
 }

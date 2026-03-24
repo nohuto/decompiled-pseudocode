@@ -1,40 +1,40 @@
 /*
- * XREFs of KiRestoreSetContextState @ 0x1401BCD40
+ * XREFs of KiRestoreSetContextState @ 0x1401BCD60
  * Callers:
- *     NtContinue @ 0x1401BC2D0 (NtContinue.c)
- *     NtRaiseException @ 0x1401BC6F0 (NtRaiseException.c)
- *     KiChainedDispatch @ 0x1401BD1E0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x1401BDB50 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x1401BDF30 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x1401BE310 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x1401BE6F0 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x1401BEAD0 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x1401BF710 (KxIsrLinkage.c)
- *     KiApcInterrupt @ 0x1401C0A50 (KiApcInterrupt.c)
- *     KiHvInterruptDispatch @ 0x1401C1FF0 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x1401C23E0 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x1401C2A80 (KiSwInterrupt.c)
- *     KiDpcInterrupt @ 0x1401C31A0 (KiDpcInterrupt.c)
- *     KiIpiInterrupt @ 0x1401C37E0 (KiIpiInterrupt.c)
- *     KxStartUserThread @ 0x1401C4C90 (KxStartUserThread.c)
- *     NtCallEnclave @ 0x1401C5F80 (NtCallEnclave.c)
- *     KiBoundFault @ 0x1401C9140 (KiBoundFault.c)
- *     KiInvalidOpcodeFault @ 0x1401C97C0 (KiInvalidOpcodeFault.c)
- *     KiPageFault @ 0x1401CB400 (KiPageFault.c)
- *     KxMcheckAlternateReturn @ 0x1401CC900 (KxMcheckAlternateReturn.c)
- *     KiVirtualizationException @ 0x1401CD300 (KiVirtualizationException.c)
- *     KiControlProtectionFault @ 0x1401CD940 (KiControlProtectionFault.c)
- *     KiSystemCall64 @ 0x1401CF000 (KiSystemCall64.c)
- *     KiExceptionDispatch @ 0x1401CFD80 (KiExceptionDispatch.c)
- *     KiFastFailDispatch @ 0x1401D01C0 (KiFastFailDispatch.c)
- *     KiUmsFastReturnToUser @ 0x1401D0600 (KiUmsFastReturnToUser.c)
+ *     NtContinue @ 0x1401BC2F0 (NtContinue.c)
+ *     NtRaiseException @ 0x1401BC710 (NtRaiseException.c)
+ *     KiChainedDispatch @ 0x1401BD200 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x1401BDB70 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x1401BDF50 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x1401BE330 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x1401BE710 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1401BEAF0 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x1401BF730 (KxIsrLinkage.c)
+ *     KiApcInterrupt @ 0x1401C0A70 (KiApcInterrupt.c)
+ *     KiHvInterruptDispatch @ 0x1401C2010 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1401C2400 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x1401C2AA0 (KiSwInterrupt.c)
+ *     KiDpcInterrupt @ 0x1401C31C0 (KiDpcInterrupt.c)
+ *     KiIpiInterrupt @ 0x1401C3800 (KiIpiInterrupt.c)
+ *     KxStartUserThread @ 0x1401C4CB0 (KxStartUserThread.c)
+ *     NtCallEnclave @ 0x1401C5FA0 (NtCallEnclave.c)
+ *     KiBoundFault @ 0x1401C9240 (KiBoundFault.c)
+ *     KiInvalidOpcodeFault @ 0x1401C98C0 (KiInvalidOpcodeFault.c)
+ *     KiPageFault @ 0x1401CB500 (KiPageFault.c)
+ *     KxMcheckAlternateReturn @ 0x1401CCA00 (KxMcheckAlternateReturn.c)
+ *     KiVirtualizationException @ 0x1401CD400 (KiVirtualizationException.c)
+ *     KiControlProtectionFault @ 0x1401CDA40 (KiControlProtectionFault.c)
+ *     KiSystemCall64 @ 0x1401CF100 (KiSystemCall64.c)
+ *     KiExceptionDispatch @ 0x1401CFE80 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x1401D02C0 (KiFastFailDispatch.c)
+ *     KiUmsFastReturnToUser @ 0x1401D0700 (KiUmsFastReturnToUser.c)
  * Callees:
- *     KiUpdateStibpPairing @ 0x1400F8BD0 (KiUpdateStibpPairing.c)
- *     KeContextToKframes @ 0x1401BBCD0 (KeContextToKframes.c)
- *     KiRestoreDebugRegisterState @ 0x1401BC070 (KiRestoreDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x1401BCD40 (KiRestoreSetContextState.c)
- *     KiUmsExit @ 0x1401D0F00 (KiUmsExit.c)
- *     KiCopyCounters @ 0x140295DC0 (KiCopyCounters.c)
+ *     KiUpdateStibpPairing @ 0x1400F8BF0 (KiUpdateStibpPairing.c)
+ *     KeContextToKframes @ 0x1401BBCF0 (KeContextToKframes.c)
+ *     KiRestoreDebugRegisterState @ 0x1401BC090 (KiRestoreDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x1401BCD60 (KiRestoreSetContextState.c)
+ *     KiUmsExit @ 0x1401D1000 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x140295EC0 (KiCopyCounters.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
@@ -95,38 +95,38 @@ __int64 __fastcall KiRestoreSetContextState(__int64 a1, __int64 a2, __int64 a3, 
   v11 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
   if ( v11 )
   {
-    v15[21] = 0x1401BCF35LL;
-    v15[52] = 0x1401BD04CLL;
-    v15[51] = 0x1401BD043LL;
-    v15[50] = 0x1401BD03ALL;
-    v15[49] = 0x1401BD031LL;
-    v15[48] = 0x1401BD028LL;
-    v15[47] = 0x1401BD01FLL;
-    v15[46] = 0x1401BD016LL;
-    v15[45] = 0x1401BD00DLL;
-    v15[44] = 0x1401BD004LL;
-    v15[43] = 0x1401BCFFBLL;
-    v15[42] = 0x1401BCFF2LL;
-    v15[41] = 0x1401BCFE9LL;
-    v15[40] = 0x1401BCFE0LL;
-    v15[39] = 0x1401BCFD7LL;
-    v15[38] = 0x1401BCFCELL;
-    v15[37] = 0x1401BCFC5LL;
-    v15[36] = 0x1401BCFBCLL;
-    v15[35] = 0x1401BCFB3LL;
-    v15[34] = 0x1401BCFAALL;
-    v15[33] = 0x1401BCFA1LL;
-    v15[32] = 0x1401BCF98LL;
-    v15[31] = 0x1401BCF8FLL;
-    v15[30] = 0x1401BCF86LL;
-    v15[29] = 0x1401BCF7DLL;
-    v15[28] = 0x1401BCF74LL;
-    v15[27] = 0x1401BCF6BLL;
-    v15[26] = 0x1401BCF62LL;
-    v15[25] = 0x1401BCF59LL;
-    v15[24] = 0x1401BCF50LL;
-    v15[23] = 0x1401BCF47LL;
-    v15[22] = 0x1401BCF3ELL;
+    v15[21] = 0x1401BCF55LL;
+    v15[52] = 0x1401BD06CLL;
+    v15[51] = 0x1401BD063LL;
+    v15[50] = 0x1401BD05ALL;
+    v15[49] = 0x1401BD051LL;
+    v15[48] = 0x1401BD048LL;
+    v15[47] = 0x1401BD03FLL;
+    v15[46] = 0x1401BD036LL;
+    v15[45] = 0x1401BD02DLL;
+    v15[44] = 0x1401BD024LL;
+    v15[43] = 0x1401BD01BLL;
+    v15[42] = 0x1401BD012LL;
+    v15[41] = 0x1401BD009LL;
+    v15[40] = 0x1401BD000LL;
+    v15[39] = 0x1401BCFF7LL;
+    v15[38] = 0x1401BCFEELL;
+    v15[37] = 0x1401BCFE5LL;
+    v15[36] = 0x1401BCFDCLL;
+    v15[35] = 0x1401BCFD3LL;
+    v15[34] = 0x1401BCFCALL;
+    v15[33] = 0x1401BCFC1LL;
+    v15[32] = 0x1401BCFB8LL;
+    v15[31] = 0x1401BCFAFLL;
+    v15[30] = 0x1401BCFA6LL;
+    v15[29] = 0x1401BCF9DLL;
+    v15[28] = 0x1401BCF94LL;
+    v15[27] = 0x1401BCF8BLL;
+    v15[26] = 0x1401BCF82LL;
+    v15[25] = 0x1401BCF79LL;
+    v15[24] = 0x1401BCF70LL;
+    v15[23] = 0x1401BCF67LL;
+    v15[22] = 0x1401BCF5ELL;
   }
   if ( (KiKvaShadow & 1) == 0 )
   {

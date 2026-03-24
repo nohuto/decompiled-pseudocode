@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessMessage@DXGCHANNELENDPOINTPROXY@@QEAAJPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C035633C
+ * XREFs of ?ProcessMessage@DXGCHANNELENDPOINTPROXY@@QEAAJPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C02B3868
  * Callers:
- *     ?ProcessPacket@DXGVMBUSCHANNEL@@QEAAJIPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C03563BC (-ProcessPacket@DXGVMBUSCHANNEL@@QEAAJIPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?ProcessPacket@DXGVMBUSCHANNEL@@QEAAJIPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C02B38E8 (-ProcessPacket@DXGVMBUSCHANNEL@@QEAAJIPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGCHANNELENDPOINTPROXY::ProcessMessage(
@@ -14,12 +14,12 @@ __int64 __fastcall DXGCHANNELENDPOINTPROXY::ProcessMessage(
 {
   int v6; // edi
 
-  *((_QWORD *)this + 18) = a2;
-  v6 = (***((__int64 (__fastcall ****)(_QWORD, void *, _QWORD))this + 17))(*((_QWORD *)this + 17), a3, a4);
-  if ( v6 >= 0 && *((_QWORD *)this + 18) )
+  *((_QWORD *)this + 17) = a2;
+  v6 = (***((__int64 (__fastcall ****)(_QWORD, void *, _QWORD))this + 16))(*((_QWORD *)this + 16), a3, a4);
+  if ( v6 >= 0 && *((_QWORD *)this + 17) )
   {
-    ((void (__fastcall *)(struct VMBPACKETCOMPLETION__ *, _QWORD, _QWORD))qword_1C0131C28)(a2, 0LL, 0LL);
-    *((_QWORD *)this + 18) = 0LL;
+    ((void (__fastcall *)(struct VMBPACKETCOMPLETION__ *, _QWORD, _QWORD))qword_1C00B4318)(a2, 0LL, 0LL);
+    *((_QWORD *)this + 17) = 0LL;
   }
   return (unsigned int)v6;
 }

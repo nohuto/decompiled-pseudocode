@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateUserProcess @ 0x14041C080
+ * XREFs of ZwCreateUserProcess @ 0x1403FB340
  * Callers:
- *     RtlpCreateUserProcess @ 0x140B69E18 (RtlpCreateUserProcess.c)
+ *     RtlpCreateUserProcess @ 0x140A4BDD4 (RtlpCreateUserProcess.c)
  * Callees:
  *     <none>
  */

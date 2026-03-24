@@ -2,7 +2,7 @@
  * XREFs of MiGetChannelInformation @ 0x1406086FC
  * Callers:
  *     MmManagePartitionMemoryInformation @ 0x140608464 (MmManagePartitionMemoryInformation.c)
- *     MmGetChannelInformation @ 0x14085F278 (MmGetChannelInformation.c)
+ *     MmGetChannelInformation @ 0x14085F258 (MmGetChannelInformation.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetMaxPosition@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F704
+ * XREFs of ?EmitSetMaxPosition@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFCD8
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022FE00 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F03D0 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetMaxPosition(
@@ -23,10 +23,10 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetMaxPosit
       v4 = (char *)v6;
       *(_DWORD *)v6 = 20;
       *(_OWORD *)(v4 + 4) = 0LL;
-      *((_DWORD *)v4 + 1) = 209;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 30);
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 31);
+      *((_DWORD *)v4 + 1) = 219;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 28);
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 29);
       *((_DWORD *)this + 4) |= 0x4000u;
     }
     else

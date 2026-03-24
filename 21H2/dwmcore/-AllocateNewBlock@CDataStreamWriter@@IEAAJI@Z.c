@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180070B48
+ * XREFs of ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180059E38
  * Callers:
- *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180070928 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
- *     ?EnsureSize@CDataStreamWriter@@IEAAJI@Z @ 0x1800BD6D0 (-EnsureSize@CDataStreamWriter@@IEAAJI@Z.c)
+ *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180059580 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
+ *     ?EnsureSize@CDataStreamWriter@@IEAAJI@Z @ 0x18005DD58 (-EnsureSize@CDataStreamWriter@@IEAAJI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CDataStreamWriter::AllocateNewBlock(CDataStreamWriter *this, unsigned int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall CDataStreamWriter::AllocateNewBlock(CDataStreamWriter *this, 
   if ( v2 + a2 < v2 )
   {
     v6 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024362, 0x221u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024362, 0x20Cu, 0LL);
   }
   else
   {
@@ -35,6 +35,13 @@ __int64 __fastcall CDataStreamWriter::AllocateNewBlock(CDataStreamWriter *this, 
       *(_QWORD *)v7 = 0LL;
       *((_QWORD *)v7 + 1) = 0LL;
       v7[4] = a2;
+    }
+    else
+    {
+      v7 = 0LL;
+    }
+    if ( v7 )
+    {
       v9 = (CDataStreamWriter *)*((_QWORD *)this + 4);
       if ( v9 )
       {
@@ -52,7 +59,7 @@ __int64 __fastcall CDataStreamWriter::AllocateNewBlock(CDataStreamWriter *this, 
     else
     {
       v6 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x225u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x210u, 0LL);
     }
   }
   return v6;

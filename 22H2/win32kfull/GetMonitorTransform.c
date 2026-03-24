@@ -1,79 +1,66 @@
 /*
- * XREFs of GetMonitorTransform @ 0x1C00F388C
+ * XREFs of GetMonitorTransform @ 0x1C00426E4
  * Callers:
- *     UpdateTopLevelWindowDPITransform @ 0x1C00D1B64 (UpdateTopLevelWindowDPITransform.c)
- *     GetNewMonitor @ 0x1C010B39C (GetNewMonitor.c)
- *     TransformVectorWithInputTargetPrecedence @ 0x1C0150FD8 (TransformVectorWithInputTargetPrecedence.c)
+ *     UpdateTopLevelWindowDPITransform @ 0x1C0042670 (UpdateTopLevelWindowDPITransform.c)
+ *     GetNewMonitor @ 0x1C006BEBC (GetNewMonitor.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C00F2968 (TransformVectorWithInputTargetPrecedence.c)
  * Callees:
- *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00F403C (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
+ *     GetMonitorRectForDpiContext @ 0x1C0042810 (GetMonitorRectForDpiContext.c)
+ *     IsChildWindowDpiBoundary @ 0x1C007061C (IsChildWindowDpiBoundary.c)
  */
 
-__int64 __fastcall GetMonitorTransform(__int64 a1, const struct tagWND *a2, __int64 a3)
+__int64 __fastcall GetMonitorTransform(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int16 v6; // bp
-  __int64 v7; // rax
+  __int64 v6; // r8
+  unsigned __int16 v7; // di
   __int64 v8; // rax
-  __m128i v9; // xmm6
-  INT v10; // ebx
-  INT v11; // esi
-  INT v12; // edi
-  INT v13; // ebx
-  int v14; // r12d
-  bool v15; // al
-  int v16; // edx
-  __int64 v17; // rax
+  __int128 v9; // xmm0
+  __int64 v10; // rax
+  int v11; // r14d
   __int64 result; // rax
-  int v19; // ecx
-  float v20; // xmm0_4
-  INT v21; // [rsp+24h] [rbp-54h]
-  int v22; // [rsp+80h] [rbp+8h]
+  float v13; // xmm4_4
+  int v14; // ecx
+  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = (*(_DWORD *)(*((_QWORD *)a2 + 5) + 288LL) >> 8) & 0x1FF;
+  v6 = *(unsigned int *)(*(_QWORD *)(a2 + 40) + 288LL);
+  v7 = (*(_DWORD *)(*(_QWORD *)(a2 + 40) + 288LL) >> 8) & 0x1FF;
+  if ( (*(_DWORD *)(*(_QWORD *)(a2 + 40) + 288LL) & 0xF) == 2 && (v6 & 0x20000000) != 0 )
+  {
+    if ( !a1 )
+      return 0LL;
+    v7 = *(_WORD *)(*(_QWORD *)(a1 + 40) + 68LL);
+  }
   if ( !a1 )
     return 0LL;
-  if ( !v6 )
+  if ( !v7 )
     return 0LL;
-  v7 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 456LL);
-  if ( !v7 || (*(_DWORD *)(**(_QWORD **)(v7 + 8) + 64LL) & 1) == 0 )
+  v8 = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 456LL);
+  if ( !v8 )
     return 0LL;
-  v8 = *(_QWORD *)(a1 + 40);
-  v9 = *(__m128i *)(v8 + 28);
-  v10 = *(unsigned __int16 *)(v8 + 62);
-  v11 = *(unsigned __int16 *)(v8 + 60);
-  v12 = EngMulDiv(_mm_cvtsi128_si32(v9), (*(_DWORD *)(*((_QWORD *)a2 + 5) + 288LL) >> 8) & 0x1FF, v10);
-  v21 = _mm_cvtsi128_si32(_mm_srli_si128(v9, 4));
-  v13 = EngMulDiv(v21, v6, v10);
-  v14 = v12 + EngMulDiv(0, v6, v11);
-  v22 = v13 + EngMulDiv(0, v6, v11);
-  EngMulDiv(_mm_cvtsi128_si32(_mm_srli_si128(v9, 8)) - _mm_cvtsi128_si32(v9), v6, v11);
-  EngMulDiv(_mm_cvtsi128_si32(_mm_srli_si128(v9, 12)) - v21, v6, v11);
-  if ( *(_WORD *)(*(_QWORD *)(a1 + 40) + 60LL) == v6 )
+  if ( (*(_DWORD *)(**(_QWORD **)(v8 + 8) + 64LL) & 1) == 0 )
+    return 0LL;
+  v9 = *(_OWORD *)GetMonitorRectForDpiContext(&v15, a1, v6);
+  v10 = *(_QWORD *)(a1 + 40);
+  v15 = v9;
+  v11 = v9;
+  if ( *(_WORD *)(v10 + 64) == v7
+    && !(unsigned int)IsChildWindowDpiBoundary((struct tagWND *)a2)
+    && *(_QWORD *)(*(_QWORD *)(a1 + 40) + 28LL) == (_QWORD)v9 )
   {
-    v15 = IsChildWindowDpiBoundary(a2);
-    v16 = v22;
-    if ( !v15 )
-    {
-      v17 = *(_QWORD *)(a1 + 40);
-      if ( *(_DWORD *)(v17 + 28) == v14 && *(_DWORD *)(v17 + 32) == v22 )
-        return 0LL;
-    }
+    return 0LL;
   }
-  else
-  {
-    v16 = v22;
-  }
-  v19 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 60LL);
+  v13 = (float)v7;
+  v14 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 64LL);
   *(_DWORD *)(a3 + 40) = 1065353216;
   *(_DWORD *)(a3 + 60) = 1065353216;
-  v20 = (float)v19 / (float)v6;
-  *(float *)a3 = v20;
-  *(float *)(a3 + 20) = v20;
+  *(float *)&v9 = (float)v14 / v13;
+  *(_DWORD *)a3 = v9;
+  *(_DWORD *)(a3 + 20) = v9;
   result = 1LL;
   *(float *)(a3 + 48) = (float)*(int *)(*(_QWORD *)(a1 + 40) + 28LL)
-                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 60LL) * (float)v14)
-                              / (float)v6);
+                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 64LL) * (float)v11) / v13);
   *(float *)(a3 + 52) = (float)*(int *)(*(_QWORD *)(a1 + 40) + 32LL)
-                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 60LL) * (float)v16)
-                              / (float)v6);
+                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 64LL) * (float)SDWORD1(v9))
+                              / v13);
   return result;
 }

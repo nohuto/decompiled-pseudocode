@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDDCCISetVCPFeature @ 0x1C026FFD0
+ * XREFs of NtGdiDDCCISetVCPFeature @ 0x1C02723D0
  * Callers:
  *     <none>
  * Callees:
- *     ?DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z @ 0x1C026F6E0 (-DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z.c)
+ *     ?DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z @ 0x1C0271AC4 (-DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z.c)
  */
 
 __int64 __fastcall NtGdiDDCCISetVCPFeature(CMonitorAPI *a1, unsigned int a2, unsigned int a3)

@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AAEE0
+ * XREFs of ?CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A770
  * Callers:
- *     VidMmCloseAllocation @ 0x1C0017280 (VidMmCloseAllocation.c)
- *     VidMmTryCloseAllocation @ 0x1C0017A70 (VidMmTryCloseAllocation.c)
+ *     VidMmCloseAllocation @ 0x1C0001640 (VidMmCloseAllocation.c)
+ *     VidMmTryCloseAllocation @ 0x1C0015A40 (VidMmTryCloseAllocation.c)
  * Callees:
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0005F38 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??1DXGPROCESSVIDMMLOCK@@QEAA@XZ @ 0x1C002D6FC (--1DXGPROCESSVIDMMLOCK@@QEAA@XZ.c)
- *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C00AB050 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C00016E0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A8D0 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::CloseAllocation(
@@ -21,51 +20,48 @@ __int64 __fastcall VIDMM_GLOBAL::CloseAllocation(
   struct DXGPROCESS *v10; // rbx
   __int64 v11; // rcx
   __int64 v12; // r8
-  int v14; // r9d
-  struct DXGPROCESS *Current; // [rsp+58h] [rbp+10h] BYREF
+  int v13; // eax
+  unsigned int v14; // edi
+  int v16; // r9d
+  struct DXGPROCESS *Current; // [rsp+58h] [rbp+10h]
 
   ExWaitForRundownProtectionRelease(a2 + 29);
   Current = DXGPROCESS::GetCurrent();
   v10 = Current;
   if ( Current )
   {
-    if ( *((struct _KTHREAD **)Current + 24) == KeGetCurrentThread() )
+    if ( *((struct _KTHREAD **)Current + 19) == KeGetCurrentThread() )
     {
       v10 = 0LL;
-      Current = 0LL;
     }
     else
     {
       KeEnterCriticalRegion();
-      if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)v10 + 184, 0LL) )
+      if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)Current + 144, 0LL) )
       {
         if ( bTracingEnabled )
         {
-          v14 = *((_DWORD *)v10 + 52);
-          if ( v14 != -1 && (byte_1C0076981 & 1) != 0 )
-            McTemplateK0q_EtwWriteTransfer(v11, (__int64)&EventBlockThread, v12, v14);
+          v16 = *((_DWORD *)Current + 42);
+          if ( v16 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+            McTemplateK0q_EtwWriteTransfer(v11, (const EVENT_DESCRIPTOR *)"g", v12, v16);
         }
-        ExAcquirePushLockExclusiveEx((char *)v10 + 184, 0LL);
+        ExAcquirePushLockExclusiveEx((char *)Current + 144, 0LL);
       }
-      *((_QWORD *)v10 + 24) = KeGetCurrentThread();
+      *((_QWORD *)Current + 19) = KeGetCurrentThread();
       v10 = Current;
     }
   }
   if ( a4 )
     *a4 = 0LL;
-  if ( (int)VIDMM_GLOBAL::CloseOneAllocation(this, (struct VIDMM_ALLOC *)a2, a4, a3, a5, a6) < 0 )
+  v13 = VIDMM_GLOBAL::CloseOneAllocation(this, (struct VIDMM_ALLOC *)a2, a4, a3, a5, a6);
+  v14 = 0;
+  if ( v13 < 0 )
+    v14 = -1071775486;
+  if ( v10 )
   {
-    DXGPROCESSVIDMMLOCK::~DXGPROCESSVIDMMLOCK((DXGPROCESSVIDMMLOCK *)&Current);
-    return 3223191810LL;
+    *((_QWORD *)v10 + 19) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)v10 + 144, 0LL);
+    KeLeaveCriticalRegion();
   }
-  else
-  {
-    if ( v10 )
-    {
-      *((_QWORD *)v10 + 24) = 0LL;
-      ExReleasePushLockExclusiveEx((char *)v10 + 184, 0LL);
-      KeLeaveCriticalRegion();
-    }
-    return 0LL;
-  }
+  return v14;
 }

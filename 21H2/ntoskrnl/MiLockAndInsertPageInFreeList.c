@@ -1,29 +1,33 @@
 /*
- * XREFs of MiLockAndInsertPageInFreeList @ 0x1403CC0F0
+ * XREFs of MiLockAndInsertPageInFreeList @ 0x1403B750C
  * Callers:
- *     MiTradePage @ 0x140277580 (MiTradePage.c)
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
- *     MiFreeBootPageTable @ 0x140B1AFD8 (MiFreeBootPageTable.c)
- *     MiFreeEmptyBootPageTable @ 0x140B51A8C (MiFreeEmptyBootPageTable.c)
+ *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiFreeBootPageTable @ 0x140A577A4 (MiFreeBootPageTable.c)
+ *     MiFreeEmptyBootPageTable @ 0x140A92F24 (MiFreeEmptyBootPageTable.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiLockAndInsertPageInFreeList(__int64 a1)
+__int64 __fastcall MiLockAndInsertPageInFreeList(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  ULONG_PTR v2; // rbx
-  unsigned __int64 v3; // rsi
+  ULONG_PTR v5; // rbx
+  unsigned __int64 v6; // rsi
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v7; // zf
+  bool v10; // zf
 
-  v2 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-  v3 = (unsigned __int8)MiLockPageInline(a1);
-  MiInsertPageInFreeOrZeroedList(v2, 2);
+  v5 = (a1 + 0x58000000000LL) / 48;
+  v6 = (unsigned __int8)MiLockPageInline(
+                          a1,
+                          (unsigned __int128)((a1 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
+                          a3,
+                          a4);
+  MiInsertPageInFreeOrZeroedList(v5, 2);
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
@@ -31,18 +35,18 @@ __int64 __fastcall MiLockAndInsertPageInFreeList(__int64 a1)
     if ( (KiIrqlFlags & 1) != 0 )
     {
       result = KeGetCurrentIrql();
-      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v3 <= 0xFu && (unsigned __int8)result >= 2u )
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v7 )
+        if ( v10 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v3);
+  __writecr8(v6);
   return result;
 }

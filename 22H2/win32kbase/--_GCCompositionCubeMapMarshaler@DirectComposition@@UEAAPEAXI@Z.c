@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCCompositionCubeMapMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020BBA0
+ * XREFs of ??_GCCompositionCubeMapMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D4010
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CCompositionCubeMapMarshaler@DirectComposition@@UEAA@XZ @ 0x1C022CE74 (--1CCompositionCubeMapMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ??1CCompositionCubeMapMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01F3F44 (--1CCompositionCubeMapMarshaler@DirectComposition@@UEAA@XZ.c)
  */
 
 DirectComposition::CCompositionCubeMapMarshaler *__fastcall DirectComposition::CCompositionCubeMapMarshaler::`scalar deleting destructor'(
@@ -12,7 +12,7 @@ DirectComposition::CCompositionCubeMapMarshaler *__fastcall DirectComposition::C
         char a2)
 {
   DirectComposition::CCompositionCubeMapMarshaler::~CCompositionCubeMapMarshaler(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

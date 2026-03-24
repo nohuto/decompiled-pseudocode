@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessorQueryGroupInformation @ 0x1C009D740
+ * XREFs of ProcessorQueryGroupInformation @ 0x1C0097AFC
  * Callers:
- *     IrqPolicyUpdatePolicy @ 0x1C00BDE10 (IrqPolicyUpdatePolicy.c)
+ *     IrqPolicyUpdatePolicy @ 0x1C00BD6C4 (IrqPolicyUpdatePolicy.c)
  * Callees:
  *     <none>
  */

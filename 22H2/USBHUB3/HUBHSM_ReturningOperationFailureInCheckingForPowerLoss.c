@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_ReturningOperationFailureInCheckingForPowerLoss @ 0x1C0009D10
+ * XREFs of HUBHSM_ReturningOperationFailureInCheckingForPowerLoss @ 0x1C0009550
  * Callers:
  *     <none>
  * Callees:

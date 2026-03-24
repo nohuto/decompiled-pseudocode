@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessInsertChildAt@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_INSERTCHILDAT@@@Z @ 0x180048754
+ * XREFs of ?ProcessInsertChildAt@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_INSERTCHILDAT@@@Z @ 0x1800A1548
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z @ 0x1800487B4 (-InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z @ 0x1800A15F0 (-InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::ProcessInsertChildAt(
@@ -13,24 +13,41 @@ __int64 __fastcall CVisual::ProcessInsertChildAt(
         const struct CResourceTable *a2,
         const struct tagMILCMD_VISUAL_INSERTCHILDAT *a3)
 {
-  struct CVisual *Resource; // rax
-  unsigned int v6; // ecx
+  unsigned int v3; // r9d
+  CVisual *v5; // rbp
+  __int64 v6; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rbx
+  struct CVisual *v9; // rdx
   int inserted; // eax
-  unsigned int v8; // ecx
-  unsigned int v9; // ebx
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
 
-  Resource = (struct CVisual *)CResourceTable::GetResource(a2, *((unsigned int *)a3 + 2), 195LL);
-  if ( Resource )
+  v3 = *((_DWORD *)a3 + 2);
+  v5 = this;
+  if ( v3
+    && v3 < *((_DWORD *)a2 + 7)
+    && (v6 = *((_QWORD *)a2 + 5), v7 = v3 * *((_DWORD *)a2 + 6), v8 = v7, *(_DWORD *)(v7 + v6))
+    && (this = *(CVisual **)(v7 + v6 + 8)) != 0LL
+    && (*(unsigned __int8 (__fastcall **)(CVisual *, __int64))(*(_QWORD *)this + 56LL))(this, 195LL) )
   {
-    inserted = CVisual::InsertChildAt(this, Resource, *((_DWORD *)a3 + 3), 0);
-    v9 = inserted;
-    if ( inserted < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, inserted, 0xC42u, 0LL);
+    v9 = *(struct CVisual **)(v8 + v6 + 8);
   }
   else
   {
-    v9 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003303421, 0xC3Fu, 0LL);
+    v9 = 0LL;
   }
-  return v9;
+  if ( v9 )
+  {
+    inserted = CVisual::InsertChildAt(v5, v9, *((_DWORD *)a3 + 3), 0);
+    v12 = inserted;
+    if ( inserted < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, inserted, 0xCC0u, 0LL);
+  }
+  else
+  {
+    v12 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0xCBDu, 0LL);
+  }
+  return v12;
 }

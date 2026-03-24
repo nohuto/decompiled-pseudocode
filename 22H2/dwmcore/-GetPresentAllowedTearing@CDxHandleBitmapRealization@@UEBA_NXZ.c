@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentAllowedTearing@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x1802B1210
+ * XREFs of ?GetPresentAllowedTearing@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x180263140
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDxHandleBitmapRealization::GetPresentAllowedTearing(CDxHandleBitmapRealization *this)
 {
-  return (*((_DWORD *)this - 32) & 0x1000) != 0;
+  return (*((_DWORD *)this - 29) & 0x1000) != 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of GreCreateSemaphore @ 0x1C0077EC0
+ * XREFs of GreCreateSemaphore @ 0x1C005C270
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateSemaphoreInternal @ 0x1C0077FFC (GreCreateSemaphoreInternal.c)
+ *     GreCreateSemaphoreInternal @ 0x1C005C364 (GreCreateSemaphoreInternal.c)
  */
 
 void __noreturn GreCreateSemaphore()

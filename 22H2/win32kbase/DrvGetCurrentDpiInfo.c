@@ -1,48 +1,145 @@
 /*
- * XREFs of DrvGetCurrentDpiInfo @ 0x1C005DDB8
+ * XREFs of DrvGetCurrentDpiInfo @ 0x1C0010864
  * Callers:
- *     NtGdiGetCurrentDpiInfo @ 0x1C005DD20 (NtGdiGetCurrentDpiInfo.c)
+ *     NtGdiGetCurrentDpiInfo @ 0x1C00107D0 (NtGdiGetCurrentDpiInfo.c)
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     EtwTraceAcquiredSharedUserCrit @ 0x1C0053C40 (EtwTraceAcquiredSharedUserCrit.c)
- *     IsEtwUserCritEnabled @ 0x1C0053DF0 (IsEtwUserCritEnabled.c)
- *     DrvGetCurrentDpiInfoFromHDev @ 0x1C005E15C (DrvGetCurrentDpiInfoFromHDev.c)
- *     ValidateHmonitor @ 0x1C0096E80 (ValidateHmonitor.c)
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C0010A40 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     UserGetHDevFromMonitor @ 0x1C0010AA4 (UserGetHDevFromMonitor.c)
+ *     ??1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ @ 0x1C0037480 (--1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C00374D0 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     ?getInstance@UserCritTelemetry@@SAAEAV1@XZ @ 0x1C00376C0 (-getInstance@UserCritTelemetry@@SAAEAV1@XZ.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0127794 (McTemplateK0xqx_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DrvGetCurrentDpiInfo(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
   LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
-  __int64 v9; // rax
+  struct tagTHREADINFO *v5; // rbx
+  struct tagTHREADINFO **v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  PVOID CurrentProcess; // rax
   __int64 v10; // rdx
   __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
+  __int64 v12; // rsi
+  LARGE_INTEGER PerformanceCounter; // rdi
+  LONGLONG v14; // rbx
+  struct UserCritTelemetry *Instance; // rax
+  int v16; // ecx
+  int v17; // r8d
+  __int64 HDevFromMonitor; // rax
+  __int64 v19; // rcx
   unsigned int CurrentDpiInfoFromHDev; // ebx
+  __int64 v22; // rax
+  __int64 v23; // r8
+  __int64 v24; // r9
+  int v25; // [rsp+30h] [rbp-29h] BYREF
+  __int64 v26; // [rsp+38h] [rbp-21h] BYREF
+  unsigned __int8 v27; // [rsp+40h] [rbp-19h]
+  GUID ActivityId; // [rsp+44h] [rbp-15h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v29; // [rsp+58h] [rbp-1h] BYREF
+  int *v30; // [rsp+78h] [rbp+1Fh]
+  int v31; // [rsp+80h] [rbp+27h]
+  int v32; // [rsp+84h] [rbp+2Bh]
 
-  if ( IsEtwUserCritEnabled() )
+  CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread();
+  if ( CurrentThreadWin32Thread )
+    CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+  ActivityId = 0LL;
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
   {
-    CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread();
-    if ( CurrentThreadWin32Thread )
-      CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+    v27 = 0;
+    v22 = PsGetCurrentThreadWin32Thread();
+    v26 = v22;
+    if ( v22 && (*(int *)(v22 + 24) > 0 || *(_DWORD *)(v26 + 48)) )
+    {
+      EtwActivityIdControl(3u, &ActivityId);
+      if ( (unsigned int)dword_1C024AA90 > 6 )
+      {
+        if ( (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v23, v24) )
+        {
+          v32 = 0;
+          v25 = v27;
+          v31 = 4;
+          v30 = &v25;
+          tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C0217FD7, (int)&ActivityId, 0, 3u, &v29);
+        }
+      }
+    }
   }
-  v9 = SGDGetUserSessionState(v5, v4, v6, v7);
-  ExEnterCriticalRegionAndAcquireResourceShared(*(PERESOURCE *)(v9 + 8));
-  EtwTraceAcquiredSharedUserCrit(v11, v10, v12, v13);
-  v14 = ValidateHmonitor(a1);
-  if ( v14 && (v16 = *(_QWORD *)(v14 + 80)) != 0 )
-    CurrentDpiInfoFromHDev = DrvGetCurrentDpiInfoFromHDev(v16, a2);
+  else
+  {
+    v26 = 0LL;
+  }
+  v5 = 0LL;
+  while ( 1 )
+  {
+    v6 = (struct tagTHREADINFO **)ExEnterCriticalRegionAndAcquireResourceShared(gpresUser);
+    if ( v6 )
+      v5 = *v6;
+    CurrentProcess = (PVOID)PsGetCurrentProcess(v8, v7);
+    if ( CurrentProcess )
+    {
+      if ( CurrentProcess == g_pepDwm )
+        break;
+    }
+    if ( (PVOID)PsGetCurrentProcess(v11, v10) == gpepCSRSS && v5 != (struct tagTHREADINFO *)gptiTSRequest
+      || gbDITInHitTest != 1
+      || v5 == gptiRit )
+    {
+      break;
+    }
+    _InterlockedIncrement(&gcDITHitTestWaiters);
+    ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+    KeWaitForSingleObject(gpsemDITHitTestWaiters, UserRequest, 0, 0, 0LL);
+  }
+  InputTraceLogging::Perf::CritAcquire::~CritAcquire((InputTraceLogging::Perf::CritAcquire *)&v26);
+  v12 = PsGetCurrentThreadWin32Thread();
+  if ( v12 )
+  {
+    PerformanceCounter = KeQueryPerformanceCounter(0LL);
+    v14 = PerformanceCounter.QuadPart - *(_QWORD *)(v12 + 8);
+    Instance = UserCritTelemetry::getInstance();
+    UserCritTelemetry::UpdateUserCritInfo(Instance, v14, 1LL);
+    *(LARGE_INTEGER *)(v12 + 8) = PerformanceCounter;
+    if ( (W32kEtwEnabledKeyword & 0x200000010000000LL) != 0
+      && (unsigned __int8)(byte_1C0249748 - 1) > 2u
+      && (qword_1C0249730 & 0x200000010000000LL) != 0
+      && (qword_1C0249738 & 0x200000010000000LL) == qword_1C0249738
+      && (Microsoft_Windows_Win32kEnableBits & 0x800000) != 0 )
+    {
+      McTemplateK0xqx_EtwWriteTransfer(
+        v16,
+        (unsigned int)&AcquiredSharedUserCritEvent,
+        v17,
+        v14,
+        0,
+        (char)gullUserCritAcquireToken);
+    }
+    if ( v14 >= W32kEtwUserCritAcquireDelayTimeoutQPC
+      && PerformanceCounter.QuadPart - W32KEtwUserCritAcquireDelayShLastTelemetryQPC >= W32KEtwUserCritTelemetryThrottleQPC )
+    {
+      if ( (Microsoft_Windows_Win32kEnableBits & 0x1000000000LL) != 0 )
+        McTemplateK0xqx_EtwWriteTransfer(
+          (_DWORD)gullUserCritAcquireToken,
+          (unsigned int)&AcquiredSharedUserCritTelemetryEvent,
+          v17,
+          v14,
+          1000000 * v14 / gliQpcFreq.QuadPart,
+          (char)gullUserCritAcquireToken);
+      _InterlockedExchange64(&W32KEtwUserCritAcquireDelayShLastTelemetryQPC, PerformanceCounter.QuadPart);
+    }
+    *(_QWORD *)(v12 + 16) = _InterlockedIncrement64((volatile signed __int64 *)&gullUserCritAcquireToken);
+  }
+  HDevFromMonitor = UserGetHDevFromMonitor(a1);
+  if ( HDevFromMonitor )
+    CurrentDpiInfoFromHDev = DrvGetCurrentDpiInfoFromHDev(HDevFromMonitor, a2);
   else
     CurrentDpiInfoFromHDev = -1073741811;
-  UserSessionSwitchLeaveCrit(v16, v15, v17, v18);
+  UserSessionSwitchLeaveCrit(v19);
   return CurrentDpiInfoFromHDev;
 }

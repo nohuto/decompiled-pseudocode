@@ -1,13 +1,12 @@
 /*
- * XREFs of ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C0062ED0
+ * XREFs of ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C0070840
  * Callers:
- *     NtUserLockCursor @ 0x1C005E230 (NtUserLockCursor.c)
- *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C0066298 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
- *     NtUserClipCursor @ 0x1C0143210 (NtUserClipCursor.c)
+ *     NtUserLockCursor @ 0x1C009D550 (NtUserLockCursor.c)
+ *     NtUserClipCursor @ 0x1C00BEE10 (NtUserClipCursor.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C00629A4 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005B5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C006E418 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
  */
 
 void __fastcall CCursorClip::ClearClip(CCursorClip *this)

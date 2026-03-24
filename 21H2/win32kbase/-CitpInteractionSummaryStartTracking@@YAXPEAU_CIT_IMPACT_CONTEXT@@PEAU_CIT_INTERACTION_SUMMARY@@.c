@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CitpInteractionSummaryStartTracking@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C00B4DB0
+ * XREFs of ?CitpInteractionSummaryStartTracking@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C009ECC0
  * Callers:
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0017574 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
- *     ?CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z @ 0x1C004BAB4 (-CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C00464E8 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     ?CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z @ 0x1C008E2EC (-CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 void __fastcall CitpInteractionSummaryStartTracking(
@@ -20,7 +20,7 @@ void __fastcall CitpInteractionSummaryStartTracking(
     *((_OWORD *)a2 + 2) = 0LL;
     *((_OWORD *)a2 + 3) = 0LL;
     *((_QWORD *)a2 + 8) = 0LL;
-    *((_DWORD *)a2 + 18) = 0;
+    *((_WORD *)a2 + 36) = 0;
     *((_QWORD *)a2 + 2) = 0LL;
     *(_QWORD *)((char *)a2 + 132) = 0LL;
     *(_QWORD *)((char *)a2 + 140) = 0LL;

@@ -1,41 +1,45 @@
 /*
- * XREFs of DrvDbSuspendDatabase @ 0x140813A9C
+ * XREFs of DrvDbSuspendDatabase @ 0x1407A3C0C
  * Callers:
- *     PiDrvDbSuspendNodes @ 0x140813A3C (PiDrvDbSuspendNodes.c)
+ *     PiDrvDbSuspendNodes @ 0x1407A3BAC (PiDrvDbSuspendNodes.c)
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
  */
 
-__int64 __fastcall DrvDbSuspendDatabase(__int64 a1, const wchar_t *a2, char a3)
+__int64 __fastcall DrvDbSuspendDatabase(__int64 a1, const WCHAR *a2, char a3)
 {
   __int64 v3; // rsi
   int DatabaseNode; // edi
-  __int64 *i; // rcx
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 *i; // rax
+  int v9; // ecx
+  unsigned int v10; // ecx
+  const UNICODE_STRING *v11; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = PiDrvDbCtx;
   DatabaseNode = 0;
-  v9 = 0LL;
+  v11 = 0LL;
   if ( a2 && wcsicmp(a2, L"*") )
   {
-    DatabaseNode = DrvDbFindDatabaseNode(v3, a2, &v9);
+    DatabaseNode = DrvDbFindDatabaseNode(v3, a2, &v11);
     if ( DatabaseNode >= 0 )
     {
       if ( a3 )
-        *(_DWORD *)(v9 + 64) |= 4u;
+        LODWORD(v11[3].Buffer) |= 4u;
       else
-        *(_DWORD *)(v9 + 64) &= ~4u;
+        LODWORD(v11[3].Buffer) &= ~4u;
     }
   }
   else
   {
     for ( i = *(__int64 **)(v3 + 16); i != (__int64 *)(v3 + 16); i = (__int64 *)*i )
     {
+      v9 = *((_DWORD *)i + 14);
       if ( a3 )
-        *((_DWORD *)i + 16) |= 4u;
+        v10 = v9 | 4;
       else
-        *((_DWORD *)i + 16) &= ~4u;
+        v10 = v9 & 0xFFFFFFFB;
+      *((_DWORD *)i + 14) = v10;
     }
   }
   return (unsigned int)DatabaseNode;

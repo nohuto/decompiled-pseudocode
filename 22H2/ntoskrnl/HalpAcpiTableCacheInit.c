@@ -1,33 +1,33 @@
 /*
- * XREFs of HalpAcpiTableCacheInit @ 0x140B4C428
+ * XREFs of HalpAcpiTableCacheInit @ 0x140A64690
  * Callers:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     HalpAcpiGetCachedTable @ 0x140336FF0 (HalpAcpiGetCachedTable.c)
- *     HalpAcpiCopyBiosTable @ 0x14037E498 (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiAllocateMemory @ 0x14037E520 (HalpAcpiAllocateMemory.c)
- *     HalpAcpiCacheTable @ 0x14037E5F0 (HalpAcpiCacheTable.c)
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpAcpiFindRsdp @ 0x140B707BC (HalpAcpiFindRsdp.c)
- *     HalpAcpiCacheOverrideTables @ 0x140B91F18 (HalpAcpiCacheOverrideTables.c)
- *     HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140B91FB8 (HalpAcpiCalculateCacheSizeForOverrideTables.c)
+ *     HalpAcpiGetCachedTable @ 0x1402E7964 (HalpAcpiGetCachedTable.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     HalpAcpiCacheTable @ 0x1403BB060 (HalpAcpiCacheTable.c)
+ *     HalpAcpiCopyBiosTable @ 0x1403BB0C8 (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x1403BB1A8 (HalpAcpiAllocateMemory.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpAcpiFindRsdp @ 0x140A64290 (HalpAcpiFindRsdp.c)
+ *     HalpAcpiCacheOverrideTables @ 0x140A8C800 (HalpAcpiCacheOverrideTables.c)
+ *     HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140A8C8A0 (HalpAcpiCalculateCacheSizeForOverrideTables.c)
  */
 
 __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
 {
   unsigned int Rsdp; // esi
-  char v3; // bp
+  char v2; // bp
   __int64 v5; // rax
   __int64 v6; // rdi
   __int64 v7; // rbx
   unsigned __int64 v8; // rax
   __int64 v9; // rdi
-  __int64 v10; // r15
+  __int64 v10; // r12
   unsigned int *v11; // rax
   unsigned __int64 v12; // rdi
   char *v13; // rbx
@@ -38,22 +38,22 @@ __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
   void *v18; // r12
   __int64 *v19; // [rsp+68h] [rbp+10h] BYREF
 
-  Rsdp = 0;
   v19 = 0LL;
-  v3 = 0;
+  Rsdp = 0;
+  v2 = 0;
   if ( HalpAcpiTableCacheList )
     return Rsdp;
-  HalpAcpiTableCacheLock.Count = 1;
-  HalpAcpiTableCacheLock.Event.Header.WaitListHead.Blink = &HalpAcpiTableCacheLock.Event.Header.WaitListHead;
-  HalpAcpiTableCacheLock.Event.Header.WaitListHead.Flink = &HalpAcpiTableCacheLock.Event.Header.WaitListHead;
-  qword_140CF85D8 = (__int64)&HalpAcpiTableCacheList;
-  HalpAcpiTableCacheList = (__int64)&HalpAcpiTableCacheList;
   HalpAcpiTableCacheLock.Owner = 0LL;
   HalpAcpiTableCacheLock.Contention = 0;
+  HalpAcpiTableCacheLock.Event.Header.SignalState = 0;
+  HalpAcpiTableCacheLock.Event.Header.WaitListHead.Blink = &HalpAcpiTableCacheLock.Event.Header.WaitListHead;
+  HalpAcpiTableCacheLock.Event.Header.WaitListHead.Flink = &HalpAcpiTableCacheLock.Event.Header.WaitListHead;
+  qword_140CDB708 = (__int64)&HalpAcpiTableCacheList;
+  HalpAcpiTableCacheList = (__int64)&HalpAcpiTableCacheList;
+  HalpAcpiTableCacheLock.Count = 1;
   LOWORD(HalpAcpiTableCacheLock.Event.Header.Lock) = 1;
   HalpAcpiTableCacheLock.Event.Header.Size = 6;
-  HalpAcpiTableCacheLock.Event.Header.SignalState = 0;
-  Rsdp = HalpAcpiFindRsdp(a1, &v19);
+  Rsdp = HalpAcpiFindRsdp(a1, (__int64 *)&v19);
   if ( (Rsdp & 0x80000000) != 0 )
     return Rsdp;
   v5 = *(_QWORD *)(a1 + 240);
@@ -78,18 +78,18 @@ __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
     }
   }
   if ( HalpAcpiGetCachedTable(1413763922, 0LL, 0LL) || HalpAcpiGetCachedTable(1413763928, 0LL, 0LL) )
-    v3 = 1;
+    v2 = 1;
   v7 = *v19;
   if ( *v19 == -1 || (v8 = HalpMap(*v19, ((*v19 & 0xFFFuLL) + 4131) >> 12, 1u, 0LL, 4u)) == 0 )
   {
-    if ( v3 )
+    if ( v2 )
       return Rsdp;
     DbgPrint("**** HalpAcpiTableCacheInit: Unable to map RSDT\n");
     return (unsigned int)-1073741670;
   }
   if ( *(_DWORD *)v8 != 1413763928 && *(_DWORD *)v8 != 1413763922 )
   {
-    if ( !v3 )
+    if ( !v2 )
     {
       DbgPrint("**** HalpAcpiTableCacheInit: The RSDT pointer is invalid.\n");
       KeBugCheckEx(0xA5u, 0x1000AuLL, 0LL, 0LL, 0LL);
@@ -103,7 +103,7 @@ __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
   v12 = (unsigned __int64)v11;
   if ( !v11 )
   {
-    if ( v3 )
+    if ( v2 )
       return Rsdp;
     DbgPrint("**** HalpAcpiTableCacheInit: Unable to remap RSDT.\n");
     return (unsigned int)-1073741670;
@@ -116,7 +116,7 @@ __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
   }
   else
   {
-    if ( !v3 )
+    if ( !v2 )
     {
       DbgPrint("**** HalpAcpiTableCacheInit: Unable to cache RSDT.\n");
       Rsdp = -1073741670;

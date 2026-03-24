@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkMapViewOfSection @ 0x1407A42CC
+ * XREFs of DbgkMapViewOfSection @ 0x1406FCFD4
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     NtMapViewOfSection @ 0x140720EC0 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1407A3A00 (MiMapViewOfSectionExCommon.c)
- *     NtLoadEnclaveData @ 0x140A3F2E0 (NtLoadEnclaveData.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     NtMapViewOfSection @ 0x140638420 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1406FCBD8 (MiMapViewOfSectionExCommon.c)
+ *     NtLoadEnclaveData @ 0x1408D44A0 (NtLoadEnclaveData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     DbgkpSectionToFileHandle @ 0x140939478 (DbgkpSectionToFileHandle.c)
- *     DbgkpSuppressDbgMsg @ 0x14093952C (DbgkpSuppressDbgMsg.c)
- *     DbgkpSendApiMessage @ 0x14093A100 (DbgkpSendApiMessage.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     DbgkpSendApiMessage @ 0x1408871A4 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140887BE4 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSuppressDbgMsg @ 0x140887C98 (DbgkpSuppressDbgMsg.c)
  */
 
 int __fastcall DbgkMapViewOfSection(
-        _KPROCESS *Object,
+        _KPROCESS *BugCheckParameter1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -39,14 +39,14 @@ int __fastcall DbgkMapViewOfSection(
     LODWORD(CurrentThread) = *((_DWORD *)&v11[1].SwapListEntry + 2);
     if ( ((unsigned __int8)CurrentThread & 4) == 0 )
     {
-      if ( Object[1].Affinity.StaticBitmap[29] )
+      if ( BugCheckParameter1[1].AffinityPadding[9] )
       {
         v12 = KeGetCurrentThread();
         if ( (v12->MiscFlags & 0x400) != 0 || v12->ApcStateIndex == 1 )
           Teb = 0LL;
         else
           Teb = (char *)v12->Teb;
-        if ( Teb && Object == v11->Process )
+        if ( Teb && BugCheckParameter1 == v11->Process )
         {
           LODWORD(CurrentThread) = DbgkpSuppressDbgMsg(Teb);
           if ( (_DWORD)CurrentThread )
@@ -67,7 +67,7 @@ int __fastcall DbgkMapViewOfSection(
           v16[8] = *(_QWORD *)(v14 + 12);
         v16[0] = 0x800500028LL;
         LODWORD(v16[5]) = 5;
-        LODWORD(CurrentThread) = DbgkpSendApiMessage(Object);
+        LODWORD(CurrentThread) = DbgkpSendApiMessage((ULONG_PTR)BugCheckParameter1);
         if ( v16[6] )
           LODWORD(CurrentThread) = ObCloseHandle((HANDLE)v16[6], 0);
       }

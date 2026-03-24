@@ -1,9 +1,9 @@
 /*
- * XREFs of _tlgEnableCallback @ 0x1C0377B20
+ * XREFs of _tlgEnableCallback @ 0x1C037BDC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall tlgEnableCallback(

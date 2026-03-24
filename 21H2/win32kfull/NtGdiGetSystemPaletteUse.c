@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetSystemPaletteUse @ 0x1C0152280
+ * XREFs of NtGdiGetSystemPaletteUse @ 0x1C012DD20
  * Callers:
  *     <none>
  * Callees:
- *     GreGetSystemPaletteUse @ 0x1C0119758 (GreGetSystemPaletteUse.c)
+ *     GreGetSystemPaletteUse @ 0x1C012DD38 (GreGetSystemPaletteUse.c)
  */
 
 __int64 __fastcall NtGdiGetSystemPaletteUse(HDC a1)

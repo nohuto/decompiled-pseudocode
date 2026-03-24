@@ -1,46 +1,37 @@
 /*
- * XREFs of PiSwBusRelationRemove @ 0x1409670B8
+ * XREFs of PiSwBusRelationRemove @ 0x140732FE4
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwCloseDevice @ 0x140967170 (PiSwCloseDevice.c)
- *     PiSwProcessRemove @ 0x140967780 (PiSwProcessRemove.c)
+ *     PiSwProcessRemove @ 0x140732F28 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x140734D40 (PiSwCloseDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x14031E7F0 (RtlDeleteElementGenericTableAvl.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563D00 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     PiSwDeviceDereference @ 0x14081CB44 (PiSwDeviceDereference.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14032DA20 (RtlDeleteElementGenericTableAvl.c)
+ *     PiSwDeviceDereference @ 0x140773A00 (PiSwDeviceDereference.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiSwBusRelationRemove(const wchar_t **P, __int64 a2, __int64 a3)
+__int64 __fastcall PiSwBusRelationRemove(char *P)
 {
-  char *v3; // rbx
-  const wchar_t ***v5; // rdx
-  PVOID *v6; // rcx
-  _QWORD *v7; // rdx
-  void *v8; // rsi
+  char *v1; // rax
+  __int64 v3; // rdx
+  char **v4; // rcx
+  _QWORD *v5; // rdx
+  void *v7; // rdi
 
-  v3 = (char *)(P + 14);
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zzz_EtwWriteTransfer(
-      (__int64)P,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RelationRemove,
-      a3,
-      P[1],
-      P[2],
-      *(const wchar_t **)(*(_QWORD *)v3 + 8LL));
-  v5 = (const wchar_t ***)P[12];
-  if ( v5[1] != P + 12 || (v6 = (PVOID *)P[13], *v6 != P + 12) )
+  v1 = P + 96;
+  v3 = *((_QWORD *)P + 12);
+  if ( *(char **)(v3 + 8) != P + 96 || (v4 = (char **)*((_QWORD *)P + 13), *v4 != v1) )
     __fastfail(3u);
-  *v6 = v5;
-  v5[1] = (const wchar_t **)v6;
-  v7 = *(_QWORD **)v3;
-  if ( *(_QWORD *)(*(_QWORD *)v3 + 16LL) == *(_QWORD *)v3 + 16LL )
+  *v4 = (char *)v3;
+  *(_QWORD *)(v3 + 8) = v4;
+  v5 = (_QWORD *)*((_QWORD *)P + 14);
+  if ( (_QWORD *)v5[2] == v5 + 2 )
   {
-    v8 = (void *)v7[1];
-    RtlDeleteElementGenericTableAvl(&PiSwBusRelationsTable, v7);
-    if ( v8 )
-      ExFreePoolWithTag(v8, 0x57706E50u);
+    v7 = (void *)v5[1];
+    RtlDeleteElementGenericTableAvl(&PiSwBusRelationsTable, v5);
+    if ( v7 )
+      ExFreePoolWithTag(v7, 0x57706E50u);
   }
-  *(_QWORD *)v3 = 0LL;
-  PiSwDeviceDereference(P);
+  *((_QWORD *)P + 14) = 0LL;
+  return PiSwDeviceDereference(P);
 }

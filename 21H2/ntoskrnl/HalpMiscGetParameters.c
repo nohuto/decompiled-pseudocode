@@ -1,82 +1,90 @@
 /*
- * XREFs of HalpMiscGetParameters @ 0x140B27364
+ * XREFs of HalpMiscGetParameters @ 0x140A6CF88
  * Callers:
- *     HalpMiscInitSystem @ 0x140A5B550 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x1409A1520 (HalpMiscInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x14036FA84 (HalpInterruptModel.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403B37B0 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsHvPresent @ 0x1403B37F0 (HalpIsHvPresent.c)
- *     HalpIsXboxNanovisorPresent @ 0x1403B3A6C (HalpIsXboxNanovisorPresent.c)
- *     HalpIsPartitionCpuManager @ 0x1403BAEA4 (HalpIsPartitionCpuManager.c)
- *     strstr @ 0x1403E0C40 (strstr.c)
- *     atoi @ 0x1403E0CC0 (atoi.c)
- *     HalpInterruptSetMsiOverride @ 0x140509464 (HalpInterruptSetMsiOverride.c)
- *     HalpIsHvUsedForReboot @ 0x14050E854 (HalpIsHvUsedForReboot.c)
+ *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A2240 (HalpIsXboxNanovisorPresent.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
+ *     strstr @ 0x1403D1880 (strstr.c)
+ *     atoi @ 0x1403D1900 (atoi.c)
+ *     HalpInterruptSetMsiOverride @ 0x1404BC8B0 (HalpInterruptSetMsiOverride.c)
+ *     HalpIsHvUsedForReboot @ 0x1404C2404 (HalpIsHvUsedForReboot.c)
  */
 
 char __fastcall HalpMiscGetParameters(__int64 a1)
 {
   char *v2; // rax
-  const char *v3; // rcx
-  const char *v4; // rbx
-  char *v5; // rax
-  char v6; // cl
-  int v7; // eax
+  __int64 v3; // rcx
+  bool v4; // di
+  const char *v5; // rcx
+  __int64 v6; // rcx
+  const char *v7; // rbx
   char *v8; // rax
   char v9; // cl
   int v10; // eax
-  char v11; // cl
-  char IsHvUsedForReboot; // al
-  char *v13; // rax
+  char *v11; // rax
+  char v12; // cl
+  int v13; // eax
   char v14; // cl
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  char IsHvUsedForReboot; // al
+  __int64 v18; // rcx
+  char *v19; // rax
+  char v20; // cl
+  int v21; // eax
 
   LODWORD(v2) = HalpInterruptModel();
   if ( (_DWORD)v2 == 1 )
     HalpMiscDiscardLowMemory = 1;
-  if ( a1
-    && ((v2 = *(char **)(a1 + 240), (*((_DWORD *)v2 + 873) & 0x2000) != 0)
-     && (LOBYTE(v2) = HalpIsPartitionCpuManager(), !(_BYTE)v2)
-     || (v3 = *(const char **)(a1 + 216)) != 0LL
-     && (v2 = strstr(v3, "SMT=BLOCKED")) != 0LL
-     && (LOBYTE(v2) = HalpIsPartitionCpuManager(), !(_BYTE)v2)) )
+  v4 = 0;
+  if ( !a1 )
   {
-    HalpInterruptBlockHyperthreading = 1;
-    v2 = *(char **)(a1 + 240);
-    if ( (*((_DWORD *)v2 + 33) & 0x200) == 0 )
-      HalpInterruptStartHyperthreadSiblings = 1;
+LABEL_10:
+    HalpInterruptBlockHyperthreading = v4;
+    if ( !v4 )
+      goto LABEL_14;
+    goto LABEL_11;
   }
-  else
+  v2 = *(char **)(a1 + 240);
+  if ( (*((_DWORD *)v2 + 865) & 0x2000) == 0 || (LOBYTE(v2) = HalpIsPartitionCpuManager(v3), (_BYTE)v2) )
   {
-    HalpInterruptBlockHyperthreading = 0;
-    if ( !a1 )
-      return (char)v2;
-  }
-  v4 = *(const char **)(a1 + 216);
-  if ( !v4 )
-    return (char)v2;
-  strstr(*(const char **)(a1 + 216), "SAFEBOOT:");
-  if ( strstr(v4, "ONECPU") )
-    HalpInterruptProcessorCap = 1;
-  if ( strstr(v4, "USEPHYSICALAPIC") )
-    HalpInterruptPhysicalModeOnly = 1;
-  if ( strstr(v4, "BREAK") )
-    HalpMiscDebugBreakRequested = 1;
-  v5 = strstr(v4, "MAXPROCSPERCLUSTER");
-  if ( v5 )
-  {
-    while ( 1 )
+    v5 = *(const char **)(a1 + 216);
+    if ( v5 )
     {
-      v6 = *v5;
-      if ( !*v5 || v6 == 32 || (unsigned __int8)(v6 - 48) <= 9u )
-        break;
-      ++v5;
+      v2 = strstr(v5, "SMT=BLOCKED");
+      if ( v2 )
+      {
+        LOBYTE(v2) = HalpIsPartitionCpuManager(v6);
+        v4 = (_BYTE)v2 == 0;
+      }
     }
-    v7 = atoi(v5);
-    HalpInterruptClusterModeForced = 1;
-    if ( v7 )
-      HalpInterruptMaxClusterSize = v7;
+    goto LABEL_10;
   }
-  v8 = strstr(v4, "MAXAPICCLUSTER");
+  HalpInterruptBlockHyperthreading = 1;
+LABEL_11:
+  if ( !a1 )
+    return (char)v2;
+  v2 = *(char **)(a1 + 240);
+  if ( (*((_DWORD *)v2 + 33) & 0x200) == 0 )
+    HalpInterruptStartHyperthreadSiblings = 1;
+LABEL_14:
+  if ( !a1 )
+    return (char)v2;
+  v7 = *(const char **)(a1 + 216);
+  if ( !v7 )
+    return (char)v2;
+  strstr(v7, "SAFEBOOT:");
+  if ( strstr(v7, "ONECPU") )
+    HalpInterruptProcessorCap = 1;
+  if ( strstr(v7, "USEPHYSICALAPIC") )
+    HalpInterruptPhysicalModeOnly = 1;
+  if ( strstr(v7, "BREAK") )
+    HalpMiscDebugBreakRequested = 1;
+  v8 = strstr(v7, "MAXPROCSPERCLUSTER");
   if ( v8 )
   {
     while ( 1 )
@@ -87,44 +95,63 @@ char __fastcall HalpMiscGetParameters(__int64 a1)
       ++v8;
     }
     v10 = atoi(v8);
+    HalpInterruptClusterModeForced = 1;
     if ( v10 )
-      LODWORD(HalpInterruptMaxCluster) = v10;
+      HalpInterruptMaxClusterSize = v10;
   }
-  if ( strstr(v4, "X2APICPOLICY=ENABLE") )
+  v11 = strstr(v7, "MAXAPICCLUSTER");
+  if ( v11 )
+  {
+    while ( 1 )
+    {
+      v12 = *v11;
+      if ( !*v11 || v12 == 32 || (unsigned __int8)(v12 - 48) <= 9u )
+        break;
+      ++v11;
+    }
+    v13 = atoi(v11);
+    if ( v13 )
+      LODWORD(HalpInterruptMaxCluster) = v13;
+  }
+  if ( strstr(v7, "X2APICPOLICY=ENABLE") )
     HalpInterruptX2ApicPolicy = 1;
-  if ( strstr(v4, "X2APICPOLICY=DISABLE") )
+  if ( strstr(v7, "X2APICPOLICY=DISABLE") )
     HalpInterruptX2ApicPolicy = 0;
-  if ( strstr(v4, "USELEGACYAPICMODE") )
+  if ( strstr(v7, "USELEGACYAPICMODE") )
     HalpInterruptX2ApicPolicy = 0;
-  if ( strstr(v4, "SYSTEMWATCHDOGPOLICY=DISABLED") )
+  if ( strstr(v7, "TSCSYNCPOLICY=LEGACY") )
+    HalpTscSyncPolicy = 1;
+  if ( strstr(v7, "TSCSYNCPOLICY=ENHANCED") )
+    HalpTscSyncPolicy = 2;
+  if ( strstr(v7, "SYSTEMWATCHDOGPOLICY=DISABLED") )
   {
     HalpTimerWatchdogDisable = 1;
   }
-  else if ( strstr(v4, "SYSTEMWATCHDOGPOLICY=PHYSICALONLY") )
+  else if ( strstr(v7, "SYSTEMWATCHDOGPOLICY=PHYSICALONLY") )
   {
     HalpTimerWatchdogPhysicalOnly = 1;
   }
-  if ( strstr(v4, "CONFIGACCESSPOLICY=DISALLOWMMCONFIG") )
+  if ( strstr(v7, "CONFIGACCESSPOLICY=DISALLOWMMCONFIG") )
     HalpAvoidMmConfigAccessMethod = 1;
-  if ( strstr(v4, "MSIPOLICY=FORCEDISABLE") )
+  if ( strstr(v7, "MSIPOLICY=FORCEDISABLE") )
   {
-    v11 = 0;
-LABEL_51:
-    HalpInterruptSetMsiOverride(v11);
-    goto LABEL_52;
+    v14 = 0;
+LABEL_58:
+    HalpInterruptSetMsiOverride(v14);
+    goto LABEL_59;
   }
-  if ( strstr(v4, "FORCEMSI") )
+  if ( strstr(v7, "FORCEMSI") )
   {
-    v11 = 1;
-    goto LABEL_51;
+    v14 = 1;
+    goto LABEL_58;
   }
-LABEL_52:
+LABEL_59:
   if ( HalpIsHvPresent() )
   {
     HalpHvPresent = 1;
-    if ( HalpIsPartitionCpuManager() )
+    if ( HalpIsPartitionCpuManager(v15) )
       HalpHvCpuManager = 1;
-    IsHvUsedForReboot = HalpIsHvUsedForReboot();
+    IsHvUsedForReboot = HalpIsHvUsedForReboot(v16);
   }
   else
   {
@@ -132,29 +159,29 @@ LABEL_52:
   }
   if ( IsHvUsedForReboot )
     HalpHvUsedForReboot = 1;
-  if ( strstr(v4, "FIRSTMEGABYTEPOLICY=USEALL") || HalpIsMicrosoftCompatibleHvLoaded() && !HalpHvCpuManager )
+  if ( strstr(v7, "FIRSTMEGABYTEPOLICY=USEALL") || HalpIsMicrosoftCompatibleHvLoaded(v18) && !HalpHvCpuManager )
     HalpMiscDiscardLowMemory = 0;
-  if ( strstr(v4, "USEPLATFORMCLOCK") )
+  if ( strstr(v7, "USEPLATFORMCLOCK") )
     HalpTimerPlatformSourceForced = 1;
-  if ( strstr(v4, "USEPLATFORMTICK") )
+  if ( strstr(v7, "USEPLATFORMTICK") )
     HalpTimerPlatformClockSourceForced = 1;
-  v13 = strstr(v4, "GROUPSIZE");
-  if ( v13 )
+  v19 = strstr(v7, "GROUPSIZE");
+  if ( v19 )
   {
     while ( 1 )
     {
-      v14 = *v13;
-      if ( !*v13 || v14 == 32 || (unsigned __int8)(v14 - 48) <= 9u )
+      v20 = *v19;
+      if ( !*v19 || v20 == 32 || (unsigned __int8)(v20 - 48) <= 9u )
         break;
-      ++v13;
+      ++v19;
     }
-    HalpMaximumGroupSize = atoi(v13);
-    if ( (unsigned int)(HalpMaximumGroupSize - 1) > 0x3F )
+    v21 = atoi(v19);
+    HalpMaximumGroupSize = v21;
+    if ( (unsigned int)(v21 - 1) > 0x3F || ((v21 - 1) & v21) != 0 )
       HalpMaximumGroupSize = 64;
   }
-  HalpSplitLargeNumaNodes = (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x20000) != 0;
-  strstr(v4, "HALTPROFILINGPOLICY=BLOCKED");
-  strstr(v4, "HALTPROFILINGPOLICY=RELAXED");
-  LOBYTE(v2) = (unsigned __int8)strstr(v4, "HALTPROFILINGPOLICY=RESTRICTED");
+  strstr(v7, "HALTPROFILINGPOLICY=BLOCKED");
+  strstr(v7, "HALTPROFILINGPOLICY=RELAXED");
+  LOBYTE(v2) = (unsigned __int8)strstr(v7, "HALTPROFILINGPOLICY=RESTRICTED");
   return (char)v2;
 }

@@ -1,8 +1,8 @@
 /*
  * XREFs of KdpQuickMoveMemory @ 0x140918B04
  * Callers:
- *     KdpGetContextEx @ 0x14028C39C (KdpGetContextEx.c)
- *     KdpSetContextEx @ 0x14028C57C (KdpSetContextEx.c)
+ *     KdpGetContextEx @ 0x14028C49C (KdpGetContextEx.c)
+ *     KdpSetContextEx @ 0x14028C67C (KdpSetContextEx.c)
  *     KdpReportExceptionStateChange @ 0x140916954 (KdpReportExceptionStateChange.c)
  *     KdpSearchMemory @ 0x140916C40 (KdpSearchMemory.c)
  *     KdpPrint @ 0x140918224 (KdpPrint.c)

@@ -1,34 +1,37 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@PEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C02E6A6C
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@PEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C0252468
  * Callers:
- *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E7664 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
- *     ?CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@IPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@_NPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E7DE0 (-CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@.c)
- *     DxgkCheckMultiPlaneOverlaySupport3 @ 0x1C02EFC50 (DxgkCheckMultiPlaneOverlaySupport3.c)
+ *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0253194 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
+ *     ?CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@IPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@_NPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0253958 (-CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@.c)
+ *     DxgkCheckMultiPlaneOverlaySupport3 @ 0x1C0258BD0 (DxgkCheckMultiPlaneOverlaySupport3.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
-        __int64 *a1,
+PVOID __fastcall PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
+        _DWORD *a1,
         unsigned int a2)
 {
-  __int64 result; // rax
-  void *v5; // rcx
+  __int64 v4; // rdi
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 3 )
   {
-    v5 = a1 + 1;
-    *a1 = (__int64)v5;
-    if ( a2 )
-      memset(v5, 0, 8LL * a2);
+    result = a1 + 2;
   }
   else
   {
     if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
       return 0LL;
-    *a1 = ExAllocatePool2(256LL, 8LL * a2, 1265072196LL);
+    result = ExAllocatePoolWithTag(PagedPool, 8LL * a2, 0x4B677844u);
   }
-  result = *a1;
-  *((_DWORD *)a1 + 8) = a2;
+  *(_QWORD *)a1 = result;
+  a1[8] = a2;
+  if ( result )
+  {
+    memset(result, 0, 8 * v4);
+    return *(PVOID *)a1;
+  }
   return result;
 }

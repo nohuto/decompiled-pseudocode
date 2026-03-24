@@ -1,35 +1,34 @@
 /*
- * XREFs of UsbhPdoWaitForD3Reconnect @ 0x1C003C2B4
+ * XREFs of UsbhPdoWaitForD3Reconnect @ 0x1C003D494
  * Callers:
- *     UsbhPdoSetD0 @ 0x1C00055F0 (UsbhPdoSetD0.c)
+ *     UsbhPdoSetD0 @ 0x1C00173C0 (UsbhPdoSetD0.c)
  * Callees:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSet_Pdo_Dx @ 0x1C000AFE0 (UsbhSet_Pdo_Dx.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhWaitEventWithTimeoutEx @ 0x1C0011440 (UsbhWaitEventWithTimeoutEx.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhSyncResumeDeviceInternal @ 0x1C00398B8 (UsbhSyncResumeDeviceInternal.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00038F0 (UsbhWaitEventWithTimeoutEx.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0010D74 (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003ABC8 (UsbhSyncResumeDeviceInternal.c)
  */
 
 LONG __fastcall UsbhPdoWaitForD3Reconnect(PDEVICE_OBJECT DeviceObject, struct _DEVICE_OBJECT *a2)
 {
-  char v4; // r14
-  int v5; // r15d
+  char v4; // r15
+  int v5; // edi
   _DWORD *v6; // rax
-  _DWORD *v7; // rsi
-  _DWORD *v8; // rax
-  int v9; // eax
-  int v10; // r10d
+  _DWORD *v7; // rbp
+  int v8; // eax
+  int v9; // r10d
+  _DWORD *v10; // rax
   _DWORD *v11; // rax
-  int v12; // eax
-  _DWORD *v13; // rax
-  int v15; // [rsp+70h] [rbp+18h] BYREF
-  int v16; // [rsp+78h] [rbp+20h] BYREF
+  _DWORD *v12; // rax
+  int v14; // [rsp+70h] [rbp+18h] BYREF
+  int v15; // [rsp+78h] [rbp+20h] BYREF
 
-  v15 = 0;
+  v14 = 0;
   v4 = 0;
   v5 = 0;
   v6 = PdoExt((__int64)a2);
@@ -43,43 +42,50 @@ LONG __fastcall UsbhPdoWaitForD3Reconnect(PDEVICE_OBJECT DeviceObject, struct _D
   v7[355] &= ~0x4000000u;
   KeSetEvent((PRKEVENT)(v7 + 736), 0, 0);
   Log((__int64)DeviceObject, 16, 1144210290, v5, *((unsigned __int16 *)v7 + 714));
-  if ( v4 )
+  if ( !v4 )
   {
-    if ( v5 >= 0 )
-      goto LABEL_11;
-LABEL_16:
-    v13 = PdoExt((__int64)a2);
-    UsbhQueueSoftConnectChange((__int64)DeviceObject, *((_WORD *)v7 + 714), (__int64)(v13 + 236), 0);
-    return UsbhSet_Pdo_Dx(a2, (POWER_STATE)1);
-  }
-  if ( (int)UsbhQueryPortState((__int64)DeviceObject, *((_WORD *)v7 + 714), (__int64)&v15, &v16) < 0 )
-    goto LABEL_16;
-  if ( (v15 & 3) != 1 )
-  {
-    if ( (v15 & 1) != 0 )
+    v5 = UsbhQueryPortState((__int64)DeviceObject, *((_WORD *)v7 + 714), (__int64)&v14, &v15);
+    if ( v5 < 0 )
     {
-      v8 = PdoExt((__int64)a2);
-      UsbhSyncResumeDeviceInternal((__int64)DeviceObject, (__int64)(v8 + 236), a2);
+LABEL_17:
+      v12 = PdoExt((__int64)a2);
+      UsbhQueueSoftConnectChange((__int64)DeviceObject, *((_WORD *)v7 + 714), (__int64)(v12 + 236), 0);
       return UsbhSet_Pdo_Dx(a2, (POWER_STATE)1);
     }
-    Log((__int64)DeviceObject, 16, 1144210279, (unsigned __int16)v15, *((unsigned __int16 *)v7 + 714));
-    goto LABEL_16;
+    if ( (v14 & 3) == 1 )
+    {
+      Log((__int64)DeviceObject, 16, 1144210284, (unsigned __int16)v14, *((unsigned __int16 *)v7 + 714));
+      v4 = 1;
+    }
+    else if ( (v14 & 1) == 0 )
+    {
+      Log((__int64)DeviceObject, 16, 1144210279, (unsigned __int16)v14, *((unsigned __int16 *)v7 + 714));
+      v5 = -1073741823;
+    }
   }
-  Log((__int64)DeviceObject, 16, 1144210284, (unsigned __int16)v15, *((unsigned __int16 *)v7 + 714));
-LABEL_11:
-  UsbhWait((__int64)DeviceObject, 0x64u);
-  v9 = UsbhQueryPortState((__int64)DeviceObject, *((_WORD *)v7 + 714), (__int64)&v15, &v16);
-  Log((__int64)DeviceObject, 16, 1144210291, v9, (unsigned __int16)v15);
-  if ( v10 >= 0 && (v15 & 1) != 0 )
+  if ( v5 < 0 )
+    goto LABEL_17;
+  if ( v4 == 1 )
   {
-    v11 = PdoExt((__int64)a2);
-    v12 = UsbhSyncResetDeviceInternal(DeviceObject, (__int64)(v11 + 236), (__int64)a2);
+    UsbhWait((__int64)DeviceObject, 0x64u);
+    v8 = UsbhQueryPortState((__int64)DeviceObject, *((_WORD *)v7 + 714), (__int64)&v14, &v15);
+    Log((__int64)DeviceObject, 16, 1144210291, v8, (unsigned __int16)v14);
+    if ( v9 >= 0 && (v14 & 1) != 0 )
+    {
+      v10 = PdoExt((__int64)a2);
+      v5 = UsbhSyncResetDeviceInternal(DeviceObject, (__int64)(v10 + 236), (__int64)a2);
+    }
+    else
+    {
+      v5 = -1073741823;
+    }
   }
   else
   {
-    v12 = -1073741823;
+    v11 = PdoExt((__int64)a2);
+    UsbhSyncResumeDeviceInternal((__int64)DeviceObject, (__int64)(v11 + 236), a2);
   }
-  if ( v12 < 0 )
-    goto LABEL_16;
+  if ( v5 < 0 )
+    goto LABEL_17;
   return UsbhSet_Pdo_Dx(a2, (POWER_STATE)1);
 }

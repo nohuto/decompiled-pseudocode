@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_GettingAlternateModeStringDescriptor @ 0x1C0022580
+ * XREFs of HUBDSM_GettingAlternateModeStringDescriptor @ 0x1C001FF80
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBDTX_GetDescriptor @ 0x1C002A488 (HUBDTX_GetDescriptor.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C0027800 (HUBDTX_GetDescriptor.c)
  */
 
 __int64 __fastcall HUBDSM_GettingAlternateModeStringDescriptor(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HUBDSM_GettingAlternateModeStringDescriptor(__int64 a1)
   __int64 v5; // [rsp+28h] [rbp-20h]
 
   v1 = *(_QWORD *)(a1 + 960);
-  v2 = *(_QWORD *)(v1 + 2648);
+  v2 = *(_QWORD *)(v1 + 2640);
   Descriptor = HUBDTX_GetDescriptor(
                  v1,
                  (int)v1 + 1732,
@@ -35,7 +35,7 @@ __int64 __fastcall HUBDSM_GettingAlternateModeStringDescriptor(__int64 a1)
         2u,
         5u,
         0x2Eu,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v5);
     }
     HUBSM_AddEvent(v1 + 504, 4004);

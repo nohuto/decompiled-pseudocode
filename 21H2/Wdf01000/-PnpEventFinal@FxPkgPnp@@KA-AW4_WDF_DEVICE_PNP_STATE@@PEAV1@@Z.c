@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PnpEventFinal@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0083F60
+ * XREFs of ?PnpEventFinal@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A650
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z @ 0x1C001E240 (-PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z.c)
- *     ?SetDelayedDeletion@FxEventQueue@@QEAAXXZ @ 0x1C008DD84 (-SetDelayedDeletion@FxEventQueue@@QEAAXXZ.c)
+ *     ?PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z @ 0x1C007BC58 (-PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z.c)
+ *     ?SetDelayedDeletion@FxEventQueue@@QEAAXXZ @ 0x1C008AEDC (-SetDelayedDeletion@FxEventQueue@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventFinal(FxPkgPnp *This, __int64 a2, unsigned __int8 a3)

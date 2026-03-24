@@ -1,42 +1,42 @@
 /*
- * XREFs of ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C001B854
+ * XREFs of ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C00EE268
  * Callers:
- *     vSpDynamicModeChange @ 0x1C001B8E0 (vSpDynamicModeChange.c)
+ *     vSpDynamicModeChange @ 0x1C00EDCB0 (vSpDynamicModeChange.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall vSpCorrectHdevReferences(struct _SPRITESTATE *a1, HDEV a2)
 {
-  _QWORD *v4; // rbx
-  __int64 v5; // rbp
-  __int64 v6; // rcx
-  __int64 i; // rbx
-  __int64 v8; // rcx
-  __int64 v9; // rcx
+  char *v3; // rax
+  __int64 v4; // r9
+  __int64 v5; // rax
+  __int64 i; // rcx
+  __int64 v7; // r9
+  __int64 v8; // rax
 
   *(_QWORD *)a1 = a2;
-  v4 = (_QWORD *)((char *)a1 + 152);
-  v5 = 64LL;
+  v3 = (char *)a1 + 152;
+  v4 = 64LL;
   do
   {
-    if ( *v4 )
-      SURFACE::hdev((SURFACE *)(*v4 - 24LL), a2);
-    ++v4;
-    --v5;
+    if ( *(_QWORD *)v3 )
+      *(_QWORD *)(*(_QWORD *)v3 + 24LL) = a2;
+    v3 += 8;
+    --v4;
   }
-  while ( v5 );
-  v6 = *((_QWORD *)a1 + 128);
-  if ( v6 )
-    SURFACE::hdev((SURFACE *)(v6 - 24), a2);
+  while ( v4 );
+  v5 = *((_QWORD *)a1 + 128);
+  if ( v5 )
+    *(_QWORD *)(v5 + 24) = a2;
   for ( i = *((_QWORD *)a1 + 1); i; i = *(_QWORD *)(i + 24) )
   {
-    v8 = *(_QWORD *)(i + 128);
+    v7 = *(_QWORD *)(i + 128);
     *(_QWORD *)(i + 16) = a1;
-    if ( v8 && (*(_DWORD *)i & 0x40) == 0 )
-      SURFACE::hdev((SURFACE *)(v8 - 24), a2);
-    v9 = *(_QWORD *)(i + 160);
-    if ( v9 )
-      SURFACE::hdev((SURFACE *)(v9 - 24), a2);
+    if ( v7 && (*(_DWORD *)i & 0x40) == 0 )
+      *(_QWORD *)(v7 + 24) = a2;
+    v8 = *(_QWORD *)(i + 160);
+    if ( v8 )
+      *(_QWORD *)(v8 + 24) = a2;
   }
 }

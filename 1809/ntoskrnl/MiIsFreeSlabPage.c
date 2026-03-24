@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsFreeSlabPage @ 0x1401B5920
+ * XREFs of MiIsFreeSlabPage @ 0x1401B5940
  * Callers:
- *     MiIsPageSecured @ 0x1400EA7C0 (MiIsPageSecured.c)
+ *     MiIsPageSecured @ 0x1400EA7E0 (MiIsPageSecured.c)
  * Callees:
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  */

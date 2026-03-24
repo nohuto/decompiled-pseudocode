@@ -1,17 +1,17 @@
 /*
- * XREFs of CcUnmapInactiveViews @ 0x140538328
+ * XREFs of CcUnmapInactiveViews @ 0x1404EB320
  * Callers:
- *     CcGetVacbMiss @ 0x14029EFF0 (CcGetVacbMiss.c)
- *     MiObtainSystemCacheView @ 0x14029FD70 (MiObtainSystemCacheView.c)
- *     MiDereferenceSegmentThread @ 0x1403A7500 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x140625B94 (MiRemoveUnusedSegments.c)
+ *     CcGetVacbMiss @ 0x140291040 (CcGetVacbMiss.c)
+ *     MiObtainSystemCacheView @ 0x140292B80 (MiObtainSystemCacheView.c)
+ *     MiDereferenceSegmentThread @ 0x1403BCDD0 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x14052A63C (MiRemoveUnusedSegments.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x14029C310 (CcDereferencePartition.c)
- *     PsGetNextPartitionUnsafe @ 0x140310D10 (PsGetNextPartitionUnsafe.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     CcDereferencePartition @ 0x1402773AC (CcDereferencePartition.c)
+ *     PsGetNextPartitionUnsafe @ 0x140279388 (PsGetNextPartitionUnsafe.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  */
 
 __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
@@ -46,28 +46,31 @@ __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
     v2 = KeAcquireSpinLockRaiseToDpc(&CcGlobalPartitionLock);
     v3 = (__int64)NextPartitionUnsafe[1];
     v4 = v2;
-    if ( v3 && *(_BYTE *)(v3 + 1294) < 2u )
+    if ( v3 && *(_BYTE *)(v3 + 966) < 2u )
     {
-      if ( _InterlockedIncrement64((volatile signed __int64 *)(v3 + 1296)) <= 1 )
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(v3 + 968)) <= 1 )
         __fastfail(0xEu);
     }
     else
     {
       v3 = 0LL;
     }
-    KxReleaseSpinLock((volatile signed __int64 *)&CcGlobalPartitionLock);
+    KxReleaseSpinLock(&CcGlobalPartitionLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v9 = (v8 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v8;
-        if ( v9 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v9 = (v8 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v4);

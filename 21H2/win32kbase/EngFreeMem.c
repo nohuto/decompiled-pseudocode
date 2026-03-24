@@ -1,15 +1,15 @@
 /*
- * XREFs of EngFreeMem @ 0x1C00486B0
+ * XREFs of EngFreeMem @ 0x1C007CAF0
  * Callers:
- *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C00485E0 (-MultiUserGreCleanupEngResources@@YAXXZ.c)
- *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0088140 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
- *     ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C00B07D0 (-StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
- *     ?MulDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C016E310 (-MulDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
- *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C016E490 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
- *     EngDeleteClip @ 0x1C0177FB0 (EngDeleteClip.c)
+ *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C007A1C0 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
+ *     ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C007C9F0 (-StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C007CA1C (-MultiUserGreCleanupEngResources@@YAXXZ.c)
+ *     ?MulDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C0141450 (-MulDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C01415E0 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     EngDeleteClip @ 0x1C014BF10 (EngDeleteClip.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 void __stdcall EngFreeMem(PVOID pv)
@@ -19,6 +19,7 @@ void __stdcall EngFreeMem(PVOID pv)
   _QWORD *v3; // rbx
   __int64 v4; // rax
   _QWORD *v5; // rcx
+  int v6; // eax
 
   if ( pv )
   {
@@ -49,8 +50,14 @@ void __stdcall EngFreeMem(PVOID pv)
         PsLeavePriorityRegion();
       }
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v3);
+    if ( qword_1C0257D00 )
+      v6 = qword_1C0257D00();
+    else
+      v6 = -1073741637;
+    if ( v6 >= 0 )
+    {
+      if ( qword_1C0257D08 )
+        qword_1C0257D08(v3);
+    }
   }
 }

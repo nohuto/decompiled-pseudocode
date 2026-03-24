@@ -1,18 +1,18 @@
 /*
- * XREFs of VfIrpLogRetrieveWmiData @ 0x140A9BAD4
+ * XREFs of VfIrpLogRetrieveWmiData @ 0x1409E3AE8
  * Callers:
- *     ViDdiDispatchWmiQueryAllData @ 0x140A83264 (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x1409C807C (ViDdiDispatchWmiQueryAllData.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ObQueryNameString @ 0x14070F640 (ObQueryNameString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3, _DWORD *a4, ULONG *a5, ULONG *a6)
 {
   __int64 v6; // rbx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rsi
+  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rsi
   int v10; // ecx
   _QWORD *v11; // r12
   _QWORD *v12; // rdi
@@ -56,8 +56,8 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
   *a5 = 0;
   *a6 = 0;
   *(_QWORD *)Length = 16LL;
-  Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 0x10uLL, 0x74496656u);
-  if ( !Pool2 )
+  PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x74496656u);
+  if ( !PoolWithTag )
     return 3221225626LL;
   v44 = 3 * v6;
   v10 = 0;
@@ -81,12 +81,12 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
   v17 = 0;
   while ( v12 != v11 )
   {
-    v17 = ObQueryNameString((PVOID)*(v12 - 1), Pool2, Length[0], &ReturnLength);
+    v17 = ObQueryNameString((PVOID)*(v12 - 1), PoolWithTag, Length[0], &ReturnLength);
     if ( v17 == -1073741820 )
     {
-      ExFreePoolWithTag(Pool2, 0);
-      v18 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 0x74496656u);
-      Pool2 = v18;
+      ExFreePoolWithTag(PoolWithTag, 0);
+      v18 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x74496656u);
+      PoolWithTag = v18;
       if ( !v18 )
         return (unsigned int)-1073741670;
       v19 = (void *)*(v12 - 1);
@@ -95,13 +95,13 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
     }
     if ( v17 < 0 )
       break;
-    v20 = Pool2->Name.Length;
-    if ( Pool2->Name.Length )
+    v20 = PoolWithTag->Name.Length;
+    if ( PoolWithTag->Name.Length )
     {
       if ( a2 )
       {
         *v15 = v14;
-        v20 = Pool2->Name.Length;
+        v20 = PoolWithTag->Name.Length;
       }
       v21 = v20 + 18;
       v43 = v15 + 1;
@@ -113,7 +113,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
       if ( a2 )
       {
         *v23 = *(_OWORD *)L"VERIFIER";
-        memmove(v23 + 1, Pool2->Name.Buffer, Pool2->Name.Length);
+        memmove(v23 + 1, PoolWithTag->Name.Buffer, PoolWithTag->Name.Length);
         *((_WORD *)v23 + (unsigned int)(v22 - 1)) = 0;
       }
       v16 = (_WORD *)v23 + v22;
@@ -127,7 +127,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
     v42 = (_QWORD *)*v42;
     v12 = (_QWORD *)*v42;
   }
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   if ( v17 < 0 )
     return (unsigned int)v17;
   v25 = (v14 + 7) & 0xFFFFFFF8;

@@ -1,46 +1,40 @@
 /*
- * XREFs of PerformMutexDriverCallbacks @ 0x1C002AEB8
+ * XREFs of PerformMutexDriverCallbacks @ 0x1C0010328
  * Callers:
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseAcquire @ 0x1C0017EA0 (ParseAcquire.c)
- *     FreeObjData @ 0x1C0018AA0 (FreeObjData.c)
- *     ParseRelease @ 0x1C0024F10 (ParseRelease.c)
- *     Mutex @ 0x1C002AE10 (Mutex.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     ParseRelease @ 0x1C0003760 (ParseRelease.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseAcquire @ 0x1C000A6C0 (ParseAcquire.c)
+ *     Mutex @ 0x1C0010280 (Mutex.c)
  * Callees:
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     ConvertNtStatusToAMLIStatus @ 0x1C002AF80 (ConvertNtStatusToAMLIStatus.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     ConvertNtStatusToAMLIStatus @ 0x1C00103E0 (ConvertNtStatusToAMLIStatus.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall PerformMutexDriverCallbacks(
-        unsigned int a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        __int16 a5)
+__int64 __fastcall PerformMutexDriverCallbacks(int a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int16 a5)
 {
   unsigned __int64 v5; // rdi
   int v10; // ebx
   KIRQL i; // al
-  unsigned int v13; // ebx
-  unsigned int v14; // ebx
-  unsigned int v15; // ebx
+  int v13; // ebx
+  int v14; // ebx
+  int v15; // ebx
   __int128 v16; // [rsp+30h] [rbp-30h] BYREF
   __int128 v17; // [rsp+40h] [rbp-20h]
   __int128 v18; // [rsp+50h] [rbp-10h]
 
   v5 = 0LL;
-  *(_QWORD *)&v18 = 0LL;
-  DWORD2(v18) = 0;
   v16 = 0LL;
   v17 = 0LL;
+  v18 = 0LL;
   if ( !gDeviceLockMutexSupported || !ghMutexObject )
   {
     v10 = 0;
-    return ConvertNtStatusToAMLIStatus((unsigned int)v10);
+    goto LABEL_6;
   }
   if ( a4 )
   {
@@ -56,10 +50,8 @@ __int64 __fastcall PerformMutexDriverCallbacks(
       goto LABEL_6;
     }
   }
-  *(_QWORD *)&v16 = a1;
+  LODWORD(v16) = a1;
   *((_QWORD *)&v16 + 1) = a2 + 80;
-  v17 = 0LL;
-  v18 = 0LL;
   if ( a1 )
   {
     v13 = a1 - 1;

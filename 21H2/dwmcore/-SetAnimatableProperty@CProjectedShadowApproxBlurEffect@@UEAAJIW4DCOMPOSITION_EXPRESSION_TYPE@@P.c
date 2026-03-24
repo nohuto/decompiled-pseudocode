@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetAnimatableProperty@CProjectedShadowApproxBlurEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBXPEA_NPEAI@Z @ 0x180116440
+ * XREFs of ?SetAnimatableProperty@CProjectedShadowApproxBlurEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBXPEA_NPEAI@Z @ 0x18001BEB0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CProjectedShadowApproxBlurEffect::SetAnimatableProperty(
@@ -23,15 +23,15 @@ __int64 __fastcall CProjectedShadowApproxBlurEffect::SetAnimatableProperty(
     if ( a2 != 1 )
     {
       v6 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, 0x50u);
+      MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x55u, 0LL);
       return v6;
     }
-    *(_DWORD *)(a1 + 92) = *a4;
+    *(_DWORD *)(a1 + 84) = *a4;
   }
   else
   {
-    *(_OWORD *)(a1 + 76) = *(_OWORD *)a4;
+    *(_OWORD *)(a1 + 68) = *(_OWORD *)a4;
   }
-  ++*(_DWORD *)(a1 + 96);
+  ++*(_DWORD *)(a1 + 88);
   return 0;
 }

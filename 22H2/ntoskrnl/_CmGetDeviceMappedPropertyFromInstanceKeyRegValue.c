@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14080C9B4
+ * XREFs of _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140752610
  * Callers:
- *     _CmGetDeviceMappedProperty @ 0x1406CD2C0 (_CmGetDeviceMappedProperty.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14080C738 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceMappedProperty @ 0x1406B538C (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14072E88C (_CmGetDeviceMappedPropertyKeys.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
@@ -23,13 +23,13 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
   int v9; // ebx
   _DWORD *v10; // rax
   HANDLE v11; // r10
-  unsigned __int64 v13; // r15
-  int v15; // esi
+  unsigned __int64 v13; // r14
+  int v15; // edi
   int v16; // r11d
   DEVPROPKEY **v17; // rdx
   unsigned int i; // r9d
   DEVPROPKEY *v19; // r8
-  DEVPROPKEY **v20; // rdi
+  DEVPROPKEY **v20; // r15
   __int64 v21; // rcx
   const WCHAR *v22; // rdx
   __int64 v23; // rax
@@ -57,7 +57,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
     v15 = 0;
   }
   v16 = *(_DWORD *)(a4 + 16);
-  v17 = &off_140A783B0;
+  v17 = &off_140983E10;
   for ( i = 0; i < 2; ++i )
   {
     v19 = *v17;
@@ -111,7 +111,7 @@ LABEL_21:
         *(_BYTE *)v13 = -1;
         goto LABEL_22;
       }
-LABEL_46:
+LABEL_44:
       v9 = -1073741789;
       goto LABEL_22;
     }
@@ -127,15 +127,10 @@ LABEL_46:
     v9 = v26;
     goto LABEL_22;
   }
-  if ( v27 != *((_DWORD *)v20 + 6) )
-  {
-    v9 = -1073741811;
-    goto LABEL_22;
-  }
   *a8 = a5;
   *v8 = *((_DWORD *)v20 + 2);
   if ( v26 || !v15 )
-    goto LABEL_46;
+    goto LABEL_44;
 LABEL_22:
   if ( Handle )
     ZwClose(Handle);

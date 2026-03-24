@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpResourceTimeoutCaptureLiveDump @ 0x14031F140
+ * XREFs of ExpResourceTimeoutCaptureLiveDump @ 0x14031F240
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140812510 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 void __fastcall ExpResourceTimeoutCaptureLiveDump(unsigned int *P)

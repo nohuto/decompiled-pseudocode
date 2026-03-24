@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_GettingMSOSExtendedDescriptorHeader @ 0x1C0021A80
+ * XREFs of HUBDSM_GettingMSOSExtendedDescriptorHeader @ 0x1C001F1E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C002A3FC (HUBDTX_GetMsOsFeatureDescriptor.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C0027774 (HUBDTX_GetMsOsFeatureDescriptor.c)
  */
 
 __int64 __fastcall HUBDSM_GettingMSOSExtendedDescriptorHeader(__int64 a1, __int64 a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall HUBDSM_GettingMSOSExtendedDescriptorHeader(__int64 a1, __int6
         2u,
         5u,
         0x3Eu,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v7);
     }
     HUBSM_AddEvent(v3 + 504, 4004);

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateReservedMapping @ 0x140B64660
+ * XREFs of HalpDmaAllocateReservedMapping @ 0x140A65ECC
  * Callers:
- *     HalpDmaAllocateMappingResources @ 0x140B6453C (HalpDmaAllocateMappingResources.c)
- *     HalpDmaAllocateReservedMappingArray @ 0x140B92018 (HalpDmaAllocateReservedMappingArray.c)
+ *     HalpDmaAllocateMappingResources @ 0x140A65DA8 (HalpDmaAllocateMappingResources.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140A8C8F4 (HalpDmaAllocateReservedMappingArray.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     MmAllocateMappingAddress @ 0x14086C930 (MmAllocateMappingAddress.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     MmAllocateMappingAddress @ 0x140691430 (MmAllocateMappingAddress.c)
  */
 
 __int64 __fastcall HalpDmaAllocateReservedMapping(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpDmaAllocateReservedMapping(__int64 a1)
   v1 = HalpMmAllocCtxAlloc(a1, 48LL);
   if ( v1 )
   {
-    MappingAddress = MmAllocateMappingAddress(0x200000uLL, 0x446C6148u);
+    MappingAddress = MmAllocateMappingAddress(0x200000uLL, 0x206C6148u);
     *(_QWORD *)(v1 + 16) = MappingAddress;
     if ( MappingAddress )
     {

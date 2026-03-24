@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelper_AcquireComponentLock @ 0x1405A35A0
+ * XREFs of SleepstudyHelper_AcquireComponentLock @ 0x140580640
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall SleepstudyHelper_AcquireComponentLock(KSPIN_LOCK *a1, KIRQL *a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Create@CSurfaceShaderComposer@@SAJPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x180023250
+ * XREFs of ?Create@CSurfaceShaderComposer@@SAJPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18002DB5C
  * Callers:
- *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x18003A800 (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
+ *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180045B6C (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
  * Callees:
- *     ??0CSurfaceShaderComposer@@IEAA@PEAUID3D11VertexShader@@PEAUID3D11InputLayout@@PEAUID3D11Buffer@@PEAUID3DDeviceContextState@@PEAVCD3DDevice@@@Z @ 0x18002369C (--0CSurfaceShaderComposer@@IEAA@PEAUID3D11VertexShader@@PEAUID3D11InputLayout@@PEAUID3D11Buffer@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x180111C2C (McTemplateU0q_EventWriteTransfer.c)
+ *     ??0CSurfaceShaderComposer@@IEAA@PEAUID3D11VertexShader@@PEAUID3D11InputLayout@@PEAUID3D11Buffer@@PEAUID3DDeviceContextState@@PEAVCD3DDevice@@@Z @ 0x18002DF38 (--0CSurfaceShaderComposer@@IEAA@PEAUID3D11VertexShader@@PEAUID3D11InputLayout@@PEAUID3D11Buffer@.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C930C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152A24 (McTemplateU0q_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CSurfaceShaderComposer::Create(struct CD3DDevice *a1, struct CSurfaceShaderComposer **a2)
 {
   __int64 v2; // rsi
-  __int64 v3; // r12
+  __int64 v3; // r15
   __int64 (__fastcall *v6)(__int64, void *, __int64, _QWORD, struct ID3D11VertexShader **); // rbx
   int v7; // eax
   __int64 v8; // rcx
@@ -54,8 +54,8 @@ __int64 __fastcall CSurfaceShaderComposer::Create(struct CD3DDevice *a1, struct 
   int v41; // [rsp+104h] [rbp+4h]
   __int64 v42; // [rsp+108h] [rbp+8h]
 
-  v2 = *((_QWORD *)a1 + 69);
-  v3 = *((_QWORD *)a1 + 70);
+  v2 = *((_QWORD *)a1 + 74);
+  v3 = *((_QWORD *)a1 + 75);
   v28 = "POSITION";
   v22 = 0LL;
   v33 = "TEXCOORD";
@@ -81,39 +81,39 @@ __int64 __fastcall CSurfaceShaderComposer::Create(struct CD3DDevice *a1, struct 
   v26 = 0LL;
   v27 = 0LL;
   v25 = 0LL;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McTemplateU0q_EventWriteTransfer(0xFFFFFFFFLL, &EVTDESC_D3DSHADER_CREATE_Start, 0LL);
   v6 = *(__int64 (__fastcall **)(__int64, void *, __int64, _QWORD, struct ID3D11VertexShader **))(*(_QWORD *)v2 + 96LL);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v22);
-  v7 = v6(v2, &unk_18032A820, 832LL, 0LL, &v22);
+  v7 = v6(v2, &unk_1802CD9D0, 832LL, 0LL, &v22);
   v9 = v7;
   if ( v7 < 0 )
   {
     v18 = 152;
-    goto LABEL_18;
+    goto LABEL_19;
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McTemplateU0q_EventWriteTransfer(v8, &EVTDESC_D3DSHADER_CREATE_Stop, 0LL);
   v10 = *(__int64 (__fastcall **)(__int64, const char **, __int64, void *, __int64, struct ID3D11InputLayout **))(*(_QWORD *)v2 + 88LL);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v21);
-  v7 = v10(v2, &v28, 3LL, &unk_18032A820, 832LL, &v21);
+  v7 = v10(v2, &v28, 3LL, &unk_1802CD9D0, 832LL, &v21);
   v9 = v7;
   if ( v7 < 0 )
   {
     v18 = 161;
-    goto LABEL_18;
+    goto LABEL_19;
   }
   *(_QWORD *)&v26 = 0x200000090LL;
-  *(_QWORD *)&v25 = &unk_18032AB90;
+  *(_QWORD *)&v25 = &unk_1802CDD40;
   *((_QWORD *)&v26 + 1) = 0x1000000000001LL;
   v11 = *(__int64 (__fastcall **)(__int64, __int128 *, __int128 *, struct ID3D11Buffer **))(*(_QWORD *)v2 + 24LL);
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v20);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v20);
   v7 = v11(v2, &v26, &v25, &v20);
   v9 = v7;
   if ( v7 < 0 )
   {
     v18 = 174;
-    goto LABEL_18;
+    goto LABEL_19;
   }
   v12 = *(__int64 (__fastcall **)(__int64, __int64, _DWORD *))(*(_QWORD *)v2 + 376LL);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v19);
@@ -122,9 +122,9 @@ __int64 __fastcall CSurfaceShaderComposer::Create(struct CD3DDevice *a1, struct 
   if ( v7 < 0 )
   {
     v18 = 184;
-LABEL_18:
+LABEL_19:
     MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, v18, 0LL);
-    goto LABEL_11;
+    goto LABEL_13;
   }
   v13 = *(void (__fastcall **)(__int64, struct ID3DDeviceContextState *, __int64 *))(*(_QWORD *)v3 + 1048LL);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v23);
@@ -135,35 +135,32 @@ LABEL_18:
     0LL,
     1LL,
     &v20,
-    &unk_18032AB6C,
-    &`CVisual::SetWorldRenderingScaleOverride'::`2'::sc_defaultValue);
+    &unk_1802CDD1C,
+    &`CVisual::SetResampleMode'::`2'::sc_defaultValue);
   (*(void (__fastcall **)(__int64, struct ID3D11VertexShader *, _QWORD, _QWORD))(*(_QWORD *)v3 + 88LL))(
     v3,
     v22,
     0LL,
     0LL);
-  (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v3 + 344LL))(v3, *((_QWORD *)a1 + 283));
-  (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v3 + 288LL))(v3, *((_QWORD *)a1 + 284), 0LL);
+  (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v3 + 344LL))(v3, *((_QWORD *)a1 + 274));
+  (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v3 + 288LL))(v3, *((_QWORD *)a1 + 275), 0LL);
   (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v3 + 192LL))(v3, 4LL);
   (*(void (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v3 + 1048LL))(v3, v23, 0LL);
   v14 = (CSurfaceShaderComposer *)DefaultHeap::Alloc(0x80uLL);
-  if ( !v14 )
-  {
-    *a2 = 0LL;
-    goto LABEL_13;
-  }
-  v16 = CSurfaceShaderComposer::CSurfaceShaderComposer(v14, v22, v21, v20, v19, a1);
+  if ( v14 )
+    v16 = CSurfaceShaderComposer::CSurfaceShaderComposer(v14, v22, v21, v20, v19, a1);
+  else
+    v16 = 0LL;
   *a2 = v16;
   if ( !v16 )
   {
-LABEL_13:
     v9 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024882, 0xE1u, 0LL);
   }
-LABEL_11:
+LABEL_13:
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v23);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v19);
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v20);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v20);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v21);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v22);
   return v9;

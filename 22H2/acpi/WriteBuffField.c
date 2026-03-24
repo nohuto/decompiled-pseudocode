@@ -1,12 +1,12 @@
 /*
- * XREFs of WriteBuffField @ 0x1C0052FDC
+ * XREFs of WriteBuffField @ 0x1C0024994
  * Callers:
- *     AccessFieldData @ 0x1C0051AF8 (AccessFieldData.c)
+ *     AccessFieldData @ 0x1C0031E7C (AccessFieldData.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     WriteSystemMem @ 0x1C0053444 (WriteSystemMem.c)
+ *     WriteSystemMem @ 0x1C0024A34 (WriteSystemMem.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall WriteBuffField(__int64 a1, __int64 a2, unsigned int *a3)
@@ -22,9 +22,9 @@ __int64 __fastcall WriteBuffField(__int64 a1, __int64 a2, unsigned int *a3)
     v8 = 1 << v6;
   if ( *a3 + v8 > *(_DWORD *)(a2 + 8) )
   {
-    LogError(-1072431100);
-    AcpiDiagTraceAmlError(a1, -1072431100);
-    PrintDebugMessage(211, (const void *)*a3, (const void *)*(unsigned int *)(a2 + 8), (const void *)v8, 0LL);
+    LogError(3222536196LL);
+    AcpiDiagTraceAmlError(a1, 3222536196LL);
+    PrintDebugMessage(211, *a3, *(_DWORD *)(a2 + 8), v8, 0LL);
     return (unsigned int)-1072431100;
   }
   else

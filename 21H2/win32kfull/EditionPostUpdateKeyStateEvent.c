@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPostUpdateKeyStateEvent @ 0x1C0116DD0
+ * XREFs of EditionPostUpdateKeyStateEvent @ 0x1C012A770
  * Callers:
  *     <none>
  * Callees:
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
  */
 
 __int64 __fastcall EditionPostUpdateKeyStateEvent(struct tagTHREADINFO **a1, unsigned __int64 a2)

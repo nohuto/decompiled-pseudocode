@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RoundUpToAlignDWORD@@YAJPEAI@Z @ 0x180073490
+ * XREFs of ?RoundUpToAlignDWORD@@YAJPEAI@Z @ 0x180059638
  * Callers:
- *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180070928 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
+ *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180059580 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */

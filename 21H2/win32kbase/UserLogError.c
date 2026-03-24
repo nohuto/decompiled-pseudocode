@@ -1,8 +1,8 @@
 /*
- * XREFs of UserLogError @ 0x1C0166FA0
+ * XREFs of UserLogError @ 0x1C0139970
  * Callers:
- *     UserPowerInfoCallout @ 0x1C007AEB8 (UserPowerInfoCallout.c)
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01990C8 (rimFindMonitorForDigitizerWithQDCData.c)
+ *     UserPowerInfoCallout @ 0x1C004EC50 (UserPowerInfoCallout.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165650 (rimFindMonitorForDigitizerWithQDCData.c)
  * Callees:
  *     <none>
  */

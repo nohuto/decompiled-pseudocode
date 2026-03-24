@@ -1,24 +1,24 @@
 /*
- * XREFs of IoMakeAssociatedIrpPriv @ 0x14020BA48
+ * XREFs of IoMakeAssociatedIrpPriv @ 0x1402ED8C8
  * Callers:
- *     IoMakeAssociatedIrpEx @ 0x14020BA30 (IoMakeAssociatedIrpEx.c)
- *     IoMakeAssociatedIrp @ 0x140557670 (IoMakeAssociatedIrp.c)
+ *     IoMakeAssociatedIrpEx @ 0x1402ED8B0 (IoMakeAssociatedIrpEx.c)
+ *     IoMakeAssociatedIrp @ 0x140505C50 (IoMakeAssociatedIrp.c)
  * Callees:
- *     IopIrpHasExtensionType @ 0x14020C0F0 (IopIrpHasExtensionType.c)
- *     IoSetActivityIdIrp @ 0x14020C120 (IoSetActivityIdIrp.c)
- *     IopSetDiskIoAttributionExtension @ 0x14020C178 (IopSetDiskIoAttributionExtension.c)
- *     IopSetDriverFlagsExtension @ 0x14020C21C (IopSetDriverFlagsExtension.c)
- *     IopIsActivityTracingEnabled @ 0x14020C4B8 (IopIsActivityTracingEnabled.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopIrpHasExtensionType @ 0x1402EDEC0 (IopIrpHasExtensionType.c)
+ *     IopIsActivityTracingEnabled @ 0x1402EDEF0 (IopIsActivityTracingEnabled.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402EDF0C (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDriverFlagsExtension @ 0x1402EDF88 (IopSetDriverFlagsExtension.c)
+ *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
+struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
 {
   char IsActivityTracingEnabled; // al
-  __int64 v6; // r9
+  unsigned int v6; // r9d
   __int64 v7; // rcx
   __int64 v8; // r8
   struct _KPRCB *CurrentPrcb; // r13
@@ -33,15 +33,15 @@ __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
   _SLIST_ENTRY **v18; // rdx
   __int16 Number; // ax
   __int64 v20; // rcx
-  __int64 result; // rax
+  struct _SLIST_ENTRY *result; // rax
   char v22; // [rsp+80h] [rbp+18h]
   char v23; // [rsp+88h] [rbp+20h]
 
   v23 = 0;
   IsActivityTracingEnabled = IopIsActivityTracingEnabled(a1, a2, a2);
-  LODWORD(v6) = 6;
+  v6 = 6;
   if ( IsActivityTracingEnabled && (unsigned __int8)IopIrpHasExtensionType(a1, 0LL)
-    || (unsigned __int8)IopIrpHasExtensionType(a1, (unsigned int)v6)
+    || (unsigned __int8)IopIrpHasExtensionType(a1, v6)
     || (unsigned __int8)IopIrpHasExtensionType(v7, 8LL)
     || v8 && (*(_DWORD *)(v8 + 48) & 0x8000000) != 0 )
   {
@@ -87,27 +87,28 @@ __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
     if ( !v15 )
       ++L->AllocateMisses;
   }
-  if ( (IopIrpStackProfilerFlags & 3) == 0 )
+  if ( (IopIrpStackProfilerFlags & 3) != 0 )
   {
-    if ( v15 )
+    if ( !v15 )
+      goto LABEL_29;
+    if ( *((_QWORD *)&v15[3].Next + 1) >= (unsigned __int64)(unsigned __int16)(72 * a3 + 208) )
+    {
+      v10 = *((_WORD *)&v15[3].Next + 4);
       goto LABEL_17;
-LABEL_29:
-    result = ExAllocatePool2(64LL, v10, 544240201LL, v6);
-    v15 = (PSLIST_ENTRY)result;
-    if ( !result )
-      return result;
-    goto LABEL_17;
-  }
-  if ( !v15 )
-    goto LABEL_29;
-  if ( *((_QWORD *)&v15[3].Next + 1) < (unsigned __int64)(unsigned __int16)(72 * a3 + 208) )
-  {
+    }
     ++L->TotalFrees;
     ExFreePoolWithTag(v15, 0);
-    goto LABEL_29;
+LABEL_29:
+    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x20707249u);
+    v15 = result;
+    if ( !result )
+      return result;
+    goto LABEL_18;
   }
-  v10 = *((_WORD *)&v15[3].Next + 4);
 LABEL_17:
+  if ( !v15 )
+    goto LABEL_29;
+LABEL_18:
   memset(v15, 0, v10);
   BYTE2(v15[4].Next) = a3;
   LOWORD(v15->Next) = 6;
@@ -140,5 +141,5 @@ LABEL_17:
     IopSetDiskIoAttributionExtension(v15, *(_QWORD *)(*(_QWORD *)(a1 + 200) + 16LL), *((_QWORD *)&v15[9].Next + 1), 1LL);
   if ( (unsigned __int8)IopIrpHasExtensionType(a1, 8LL) )
     IopSetDriverFlagsExtension(v15, *(_QWORD *)(*(_QWORD *)(a1 + 200) + 56LL));
-  return (__int64)v15;
+  return v15;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of _PnpCtxRegCreateTree @ 0x140772AA0
+ * XREFs of _PnpCtxRegCreateTree @ 0x14063E278
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1403C5610 (PipUpdateDeviceProducts.c)
- *     PiDqOpenUserObjectRegKey @ 0x1406998CC (PiDqOpenUserObjectRegKey.c)
- *     DrvDbLoadDatabaseNode @ 0x1406C1D24 (DrvDbLoadDatabaseNode.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x14076D4A4 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x14077F420 (_CmOpenDeviceRegKeyWorker.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x140781268 (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x140781A70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     DrvDbOpenObjectRegKey @ 0x1407827F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1407829F8 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14095CDBC (PiDrvDbQuerySyncNodesUpdated.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x140A28FC4 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     PipUpdateDeviceProducts @ 0x1403C7360 (PipUpdateDeviceProducts.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063D95C (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     DrvDbLoadDatabaseNode @ 0x14063E754 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140640698 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x140641CB0 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140645118 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406A98B8 (PiDqOpenUserObjectRegKey.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x1406AA244 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x1408B6AF4 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     _CmOpenDevicePanelRegKeyWorker @ 0x14097880C (_CmOpenDevicePanelRegKeyWorker.c)
  * Callees:
- *     _SysCtxRegCreateTree @ 0x140772AF8 (_SysCtxRegCreateTree.c)
+ *     _SysCtxRegCreateTree @ 0x14063E2D0 (_SysCtxRegCreateTree.c)
  */
 
 __int64 __fastcall PnpCtxRegCreateTree(__int64 a1)

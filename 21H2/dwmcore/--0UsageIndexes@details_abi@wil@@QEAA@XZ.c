@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180028B68
+ * XREFs of ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AEDB8
  * Callers:
- *     ??0?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x180027F74 (--0-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV-$u.c)
- *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180028570 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
- *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180178414 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ??0?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x1800ADF4C (--0-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV-$u.c)
+ *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x1800AEC10 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x18014E1C4 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
  * Callees:
- *     ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x180029630 (--0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z.c)
+ *     ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x1800AF740 (--0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z.c)
  */
 
 __int64 __fastcall wil::details_abi::UsageIndexes::UsageIndexes(

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x140911EA8
+ * XREFs of CmpRecordShutdownStopTime @ 0x14086BF90
  * Callers:
- *     CmShutdownSystem1 @ 0x14053EBD8 (CmShutdownSystem1.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
- *     CmpReadBuildLab @ 0x140911D28 (CmpReadBuildLab.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
+ *     CmpReadBuildLab @ 0x14086BE14 (CmpReadBuildLab.c)
  */
 
 __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
@@ -33,8 +33,8 @@ __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3,
   v4 = 0LL;
   PerformanceFrequency.QuadPart = 0LL;
   DataSize = 0;
-  memset(&ObjectAttributes, 0, 44);
   v14 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   TransientPoolWithTag = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u, a4);
   v6 = TransientPoolWithTag;
@@ -75,7 +75,7 @@ __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3,
             }
             else
             {
-              RtlInitUnicodeString(&DestinationString, L"ShutdownStopTimePerfCounterBuildLabEx");
+              RtlInitUnicodeString(&DestinationString, L"ShutdownStopTimePerfCounterBuildLab");
               v4 = (struct _PRIVILEGE_SET *)v14;
               PersistedStateLocation = ZwSetValueKey(KeyHandle, &DestinationString, 0, 1u, v14, DataSize);
             }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmMapViewInSessionSpaceEx @ 0x1406BB5D0
+ * XREFs of MmMapViewInSessionSpaceEx @ 0x1406BB5B0
  * Callers:
- *     MmMapViewInSessionSpace @ 0x1406BB5A0 (MmMapViewInSessionSpace.c)
+ *     MmMapViewInSessionSpace @ 0x1406BB580 (MmMapViewInSessionSpace.c)
  * Callees:
  *     MiMapViewInSystemSpace @ 0x1405DF3F4 (MiMapViewInSystemSpace.c)
  */

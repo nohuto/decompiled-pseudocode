@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerWatchdogLogReset @ 0x140866018
+ * XREFs of HalpTimerWatchdogLogReset @ 0x1407D5034
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     HalpTimerWatchdogGeneratedLastReset @ 0x140866040 (HalpTimerWatchdogGeneratedLastReset.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     HalpTimerWatchdogGeneratedLastReset @ 0x1407D5060 (HalpTimerWatchdogGeneratedLastReset.c)
  */
 
 ULONG HalpTimerWatchdogLogReset()

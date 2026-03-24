@@ -1,15 +1,18 @@
 /*
- * XREFs of MiSessionPoolTrackTableSize @ 0x140864DB8
+ * XREFs of MiSessionPoolTrackTableSize @ 0x1407D4EE8
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14036EEAC (ExInitializeSessionHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
  * Callees:
  *     <none>
  */
 
 __int64 MiSessionPoolTrackTableSize()
 {
-  unsigned __int64 v0; // rcx
+  __int64 result; // rax
+  __int64 v2; // rcx
 
-  _BitScanReverse64(&v0, 0xCCuLL);
-  return 1LL << v0;
+  result = 292LL;
+  if ( _BitScanReverse64((unsigned __int64 *)&v2, 0x124uLL) )
+    return 1LL << v2;
+  return result;
 }

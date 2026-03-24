@@ -1,18 +1,17 @@
 /*
- * XREFs of ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C03BB550
+ * XREFs of ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C02FCB18
  * Callers:
- *     ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C03BC3BC (-IndirectBlt@BLTENTRY@@QEAAJXZ.c)
- *     ?PreparePresentIndirect@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@PEAVBLTENTRY@@@Z @ 0x1C03BC67C (-PreparePresentIndirect@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT.c)
+ *     ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C02FD7C0 (-IndirectBlt@BLTENTRY@@QEAAJXZ.c)
+ *     ?PreparePresentIndirect@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@PEAVBLTENTRY@@@Z @ 0x1C02FDAF0 (-PreparePresentIndirect@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?QueueWork@DXGWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C002F03C (-QueueWork@DXGWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
- *     McTemplateK0xqdid_EtwWriteTransfer @ 0x1C006D3C0 (McTemplateK0xqdid_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z @ 0x1C034CC34 (-SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?QueueWork@DXGWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C004B474 (-QueueWork@DXGWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
+ *     McTemplateK0did_EtwWriteTransfer @ 0x1C005F440 (McTemplateK0did_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z @ 0x1C02AC9F8 (-SwapChainGetSetMetaDataInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@ID@Z.c)
  */
 
 __int64 __fastcall BLTQUEUE::CompletePresentIndirectInternal(
@@ -21,9 +20,9 @@ __int64 __fastcall BLTQUEUE::CompletePresentIndirectInternal(
         union _LARGE_INTEGER *a3)
 {
   struct DXGSWAPCHAIN **v3; // rax
-  __int64 v7; // rdi
+  __int64 v7; // rbx
   struct DXGSWAPCHAIN *v8; // rcx
-  int SetMetaDataInternal; // edi
+  int SetMetaDataInternal; // ebx
   __int64 v10; // rcx
   __int64 v11; // r8
   __int64 v12; // rdx
@@ -34,130 +33,113 @@ __int64 __fastcall BLTQUEUE::CompletePresentIndirectInternal(
   __int64 v17; // rdx
   __int64 v18; // rcx
   __int64 v19; // r8
-  __int64 v20; // r9
+  __int64 v20; // rbx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
   struct DXGPROCESS *Current; // rax
-  __int64 v22; // r9
-  int v23; // eax
-  int v25; // [rsp+38h] [rbp-61h]
-  _D3DKMT_GETSETSWAPCHAINMETADATA v26; // [rsp+50h] [rbp-49h] BYREF
-  LONGLONG v27; // [rsp+78h] [rbp-21h] BYREF
-  _BYTE v28[8]; // [rsp+80h] [rbp-19h] BYREF
-  DXGPUSHLOCK *v29; // [rsp+88h] [rbp-11h]
-  int v30; // [rsp+90h] [rbp-9h]
-  _OWORD v31[3]; // [rsp+98h] [rbp-1h] BYREF
+  int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  LONGLONG v31; // [rsp+30h] [rbp-39h] BYREF
+  _D3DKMT_GETSETSWAPCHAINMETADATA v32; // [rsp+38h] [rbp-31h] BYREF
+  _BYTE v33[8]; // [rsp+60h] [rbp-9h] BYREF
+  DXGPUSHLOCK *v34; // [rsp+68h] [rbp-1h]
+  int v35; // [rsp+70h] [rbp+7h]
+  __int128 v36; // [rsp+78h] [rbp+Fh] BYREF
+  __int64 v37; // [rsp+88h] [rbp+1Fh]
+  int v38; // [rsp+90h] [rbp+27h]
 
-  v3 = (struct DXGSWAPCHAIN **)*((_QWORD *)this + 339);
+  v3 = (struct DXGSWAPCHAIN **)*((_QWORD *)this + 337);
   LODWORD(v7) = 0;
-  if ( !v3 )
+  if ( v3 )
   {
-    WdLogSingleEntry1(2LL, 1587LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Present to Indirect display does not have a shared swapchain to present to",
-      1587LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    LODWORD(v7) = -1073741823;
-    return (unsigned int)v7;
-  }
-  v8 = *v3;
-  if ( !*((_DWORD *)*v3 + 58) )
-  {
-    v26.hNtSwapChain = 0LL;
-    *(_QWORD *)&v26.DataCopied = 0LL;
-    v26.pBuffer = v31;
-    *(_QWORD *)&v26.bProducer = 1LL;
-    v26.bSetMetaData = 0;
-    memset(v31, 0, sizeof(v31));
-    v26.BufferSize = 48;
-    SetMetaDataInternal = SwapChainGetSetMetaDataInternal(v8, &v26, 0, 0);
-    if ( SetMetaDataInternal == -2147483643 )
-      SetMetaDataInternal = 0;
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v28, (struct _KTHREAD **)this + 51, 0);
-    DXGPUSHLOCK::AcquireShared(v29);
-    v12 = DWORD2(v31[0]);
-    v30 = 1;
-    if ( SetMetaDataInternal >= 0 && (v31[0] & 2) != 0 && (v10 = *((_QWORD *)this + 56), DWORD2(v31[0]) > v10) )
+    v8 = *v3;
+    if ( !*((_DWORD *)*v3 + 56) )
     {
-      QuadPart = *((_QWORD *)this + 57) + *((_QWORD *)this + 58) * (DWORD2(v31[0]) - v10);
-      v27 = QuadPart;
-    }
-    else
-    {
-      if ( a3 )
+      v32.hNtSwapChain = 0LL;
+      v37 = 0LL;
+      v38 = 0;
+      *(_QWORD *)&v32.DataCopied = 0LL;
+      v32.pBuffer = &v36;
+      *(_QWORD *)&v32.bProducer = 1LL;
+      v36 = 0LL;
+      v32.bSetMetaData = 0;
+      v32.BufferSize = 28;
+      SetMetaDataInternal = SwapChainGetSetMetaDataInternal(v8, &v32, 0, 0);
+      if ( SetMetaDataInternal == -2147483643 )
+        SetMetaDataInternal = 0;
+      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v33, (struct _KTHREAD **)this + 50, 0);
+      DXGPUSHLOCK::AcquireShared(v34);
+      v12 = DWORD1(v36);
+      v35 = 1;
+      if ( SetMetaDataInternal >= 0 && (v36 & 2) != 0 && (v10 = *((_QWORD *)this + 55), DWORD1(v36) > v10) )
+      {
+        QuadPart = *((_QWORD *)this + 56) + *((_QWORD *)this + 57) * (DWORD1(v36) - v10);
+      }
+      else if ( a3 )
       {
         QuadPart = a3->QuadPart;
       }
       else
       {
         QuadPart = KeQueryPerformanceCounter(0LL).QuadPart;
-        v12 = DWORD2(v31[0]);
+        v12 = DWORD1(v36);
       }
-      v27 = QuadPart;
+      v31 = QuadPart;
       if ( SetMetaDataInternal < 0 )
       {
-        if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-          goto LABEL_20;
-        v25 = 0;
-        goto LABEL_19;
+        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0did_EtwWriteTransfer(v10, v12, v11, SDWORD2(v36), QuadPart, 0);
       }
+      else if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      {
+        McTemplateK0did_EtwWriteTransfer(v10, v12, v11, SDWORD2(v36), QuadPart, v12);
+      }
+      v35 = 0;
+      ExReleasePushLockSharedEx(v34, 0LL);
+      KeLeaveCriticalRegion();
+      *((_DWORD *)a2 + 17) = DWORD1(v36);
+      v14 = (struct DXGSWAPCHAIN **)*((_QWORD *)this + 337);
+      v32.hNtSwapChain = 0LL;
+      *(_QWORD *)&v32.bProducer = 1LL;
+      *(_QWORD *)&v32.DataCopied = 0LL;
+      v15 = *v14;
+      v32.bSetMetaData = 1;
+      v32.pBuffer = &v31;
+      v32.BufferSize = 8;
+      v16 = SwapChainGetSetMetaDataInternal(v15, &v32, 0x14u, 0);
+      v20 = v16;
+      if ( v16 < 0 )
+      {
+        v21 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+        *(_QWORD *)(v21 + 24) = v20;
+        WdLogEvent5_WdWarning(v21);
+      }
+      ObfReferenceObject(*((PVOID *)this + 337));
+      Current = DXGPROCESS::GetCurrent(v23, v22);
+      v25 = DXGWORKQUEUE::QueueWork(
+              (PLIST_ENTRY)(*((_QWORD *)Current + 8) + 88LL),
+              (struct _LIST_ENTRY *)lambda_8e631c23aebb5c5c759a7e2e825fab1c_::_lambda_invoker_cdecl_,
+              *((struct _LIST_ENTRY **)this + 337));
+      v7 = v25;
+      if ( v25 < 0 )
+      {
+        v28 = WdLogNewEntry5_WdError(v27, v26);
+        *(_QWORD *)(v28 + 24) = v7;
+        WdLogEvent5_WdError(v28);
+      }
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v33);
     }
-    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-      goto LABEL_20;
-    v25 = v12;
-LABEL_19:
-    McTemplateK0xqdid_EtwWriteTransfer(
-      v10,
-      v12,
-      v11,
-      *((_QWORD *)this + 31),
-      *((_DWORD *)this + 65),
-      HIDWORD(v31[0]),
-      QuadPart,
-      v25);
-LABEL_20:
-    v30 = 0;
-    ExReleasePushLockSharedEx(v29, 0LL);
-    KeLeaveCriticalRegion();
-    *((_DWORD *)a2 + 17) = DWORD2(v31[0]);
-    v14 = (struct DXGSWAPCHAIN **)*((_QWORD *)this + 339);
-    v26.hNtSwapChain = 0LL;
-    *(_QWORD *)&v26.bProducer = 1LL;
-    *(_QWORD *)&v26.DataCopied = 0LL;
-    v15 = *v14;
-    v26.bSetMetaData = 1;
-    v26.pBuffer = &v27;
-    v26.BufferSize = 8;
-    v16 = SwapChainGetSetMetaDataInternal(v15, &v26, 0x18u, 0);
-    if ( v16 < 0 )
-      WdLogSingleEntry1(3LL, v16);
-    ObfReferenceObject(*((PVOID *)this + 339));
-    Current = DXGPROCESS::GetCurrent(v18, v17, v19, v20);
-    v23 = DXGWORKQUEUE::QueueWork(
-            (PLIST_ENTRY)(*((_QWORD *)Current + 8) + 96LL),
-            (void (*)(void *))lambda_33b60cbf84f600ce0ec08d15fd307f89_::_lambda_invoker_cdecl_,
-            *((void **)this + 339),
-            v22);
-    v7 = v23;
-    if ( v23 < 0 )
-    {
-      WdLogSingleEntry1(2LL, v23);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Indirect display present failed to queue the buffer release: 0x%I64x",
-        v7,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
+  }
+  else
+  {
+    v29 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v29 + 24) = 1568LL;
+    WdLogEvent5_WdError(v29);
+    LODWORD(v7) = -1073741823;
   }
   return (unsigned int)v7;
 }

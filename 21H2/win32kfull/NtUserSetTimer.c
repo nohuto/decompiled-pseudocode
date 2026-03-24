@@ -1,88 +1,125 @@
 /*
- * XREFs of NtUserSetTimer @ 0x1C0074F50
+ * XREFs of NtUserSetTimer @ 0x1C0080680
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     InternalSetTimer @ 0x1C0075120 (InternalSetTimer.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     InternalSetTimer @ 0x1C0080820 (InternalSetTimer.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetTimer(__int64 a1, int a2, unsigned int a3, int a4, unsigned int a5)
 {
-  char v9; // bl
+  __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  _DWORD *Data; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // rbp
+  __int64 v11; // r8
+  int v12; // r15d
+  __int64 v13; // rsi
+  unsigned int v14; // ebx
+  unsigned int v15; // edi
+  __int64 v16; // rdx
   __int64 v17; // r8
-  __int64 v18; // rdi
-  unsigned int v19; // edi
-  unsigned int v20; // esi
-  __int64 v21; // rdx
-  _DWORD *v22; // rax
+  __int64 v18; // rbx
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v21; // rsi
+  unsigned int v22; // r8d
+  int v23; // [rsp+50h] [rbp+8h]
 
-  EnterCrit(0LL, 0LL);
-  v9 = 0;
-  v10 = gpresUser;
-  if ( !gpresUser || !ExIsResourceAcquiredSharedLite(gpresUser) )
+  EnterCrit(0LL, 1LL);
+  if ( gpresUser
+    && (unsigned int)UserIsUserCritSecInExclusive(v10)
+    && (v10 = gpAtomickCheckStacks, ++gdwInAtomicOperation, gpAtomickCheckStacks) )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v10);
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x164u, 0x2AuLL, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 42LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  }
-  Data = (_DWORD *)GetData(v10, v11, v12);
-  if ( Data )
-  {
-    ++*Data;
-    v9 = 1;
-  }
-  if ( a1 )
-  {
-    v16 = ValidateHwnd(a1);
-    if ( !v16 )
+    v9 = 0LL;
+    v12 = ++gdwAtomicCheckSerial;
+    v11 = gdwAtomicCheckLogSize;
+    if ( gdwAtomicCheckLogSize )
     {
-LABEL_10:
-      v18 = 0LL;
-      goto LABEL_26;
+      while ( *(_DWORD *)(((unsigned __int64)(unsigned int)v9 << 6) + gpAtomickCheckStacks) )
+      {
+        v9 = (unsigned int)(v9 + 1);
+        if ( (unsigned int)v9 >= gdwAtomicCheckLogSize )
+          goto LABEL_5;
+      }
+      v21 = (unsigned __int64)(unsigned int)v9 << 6;
+      *(_DWORD *)(v21 + gpAtomickCheckStacks) = gdwAtomicCheckSerial;
+      *(_DWORD *)(v21 + gpAtomickCheckStacks + 4) = (unsigned int)PsGetCurrentThreadId();
+      *(_DWORD *)(v21 + gpAtomickCheckStacks + 8) = (MEMORY[0xFFFFF78000000320]
+                                                   * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+      RtlWalkFrameChain((PVOID *)(v21 + gpAtomickCheckStacks + 16LL), 6u, 0x200u);
     }
   }
   else
   {
-    v16 = 0LL;
+    v12 = v23;
   }
-  v19 = 10;
+LABEL_5:
+  if ( a1 )
+  {
+    v13 = ValidateHwnd(a1);
+    if ( !v13 )
+    {
+      v18 = 0LL;
+      goto LABEL_18;
+    }
+  }
+  else
+  {
+    v13 = 0LL;
+  }
+  v14 = 10;
   if ( a3 >= 0xA )
-    v19 = a3;
-  v20 = a5;
-  if ( v19 > 0x7FFFFFFF )
-    v19 = 0x7FFFFFFF;
+    v14 = a3;
+  if ( v14 > 0x7FFFFFFF )
+    v14 = 0x7FFFFFFF;
+  v15 = a5;
   if ( a5 == 2147483637 )
   {
-    v20 = 0x7FFFFFFF - v19;
+    v15 = 0x7FFFFFFF - v14;
   }
-  else if ( a5 != -1 && (v19 + a5 < v19 || v19 + a5 > 0x7FFFFFFF) )
+  else if ( a5 != -1 && (v14 + a5 < v14 || v14 + a5 > 0x7FFFFFFF) )
   {
     v18 = 0LL;
-    UserSetLastError(87LL, v14);
-    goto LABEL_26;
+    UserSetLastError(87LL, v9, v11);
+    goto LABEL_18;
   }
-  if ( v16 && PsGetCurrentProcessWin32Process(0x7FFFFFFFLL) != *(_QWORD *)(*(_QWORD *)(v16 + 16) + 424LL) )
+  if ( v13 && PsGetCurrentProcessWin32Process(v10) != *(_QWORD *)(*(_QWORD *)(v13 + 16) + 424LL) )
   {
-    UserSetLastError(5LL, v21);
-    goto LABEL_10;
+    UserSetLastError(5LL, v16, v17);
+    v18 = 0LL;
   }
-  v18 = InternalSetTimer(v16, a2, v19, a4, v20, 0);
-LABEL_26:
-  if ( v9 )
+  else
   {
-    v22 = (_DWORD *)GetData(v15, v14, v17);
-    --*v22;
+    v18 = InternalSetTimer(v13, a2, v14, a4, v15, 0);
   }
-  UserSessionSwitchLeaveCrit(v15);
+LABEL_18:
+  v19 = gpresUser;
+  if ( gpresUser )
+  {
+    if ( (unsigned int)UserIsUserCritSecInExclusive(gpresUser) )
+    {
+      --gdwInAtomicOperation;
+      v19 = gpAtomickCheckStacks;
+      if ( gpAtomickCheckStacks )
+      {
+        v22 = 0;
+        if ( gdwAtomicCheckLogSize )
+        {
+          while ( 1 )
+          {
+            v19 = v22;
+            if ( *(_DWORD *)(((unsigned __int64)v22 << 6) + gpAtomickCheckStacks) == v12 )
+              break;
+            if ( ++v22 >= gdwAtomicCheckLogSize )
+              goto LABEL_21;
+          }
+          v19 = (unsigned __int64)v22 << 6;
+          *(_DWORD *)(v19 + gpAtomickCheckStacks) = 0;
+        }
+      }
+    }
+  }
+LABEL_21:
+  UserSessionSwitchLeaveCrit(v19);
   return v18;
 }

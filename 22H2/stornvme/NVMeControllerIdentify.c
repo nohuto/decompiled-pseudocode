@@ -1,40 +1,45 @@
 /*
- * XREFs of NVMeControllerIdentify @ 0x1C001C5D4
+ * XREFs of NVMeControllerIdentify @ 0x1C0018128
  * Callers:
- *     NVMeControllerInitPart1 @ 0x1C000D858 (NVMeControllerInitPart1.c)
- *     NVMeControllerIdentifyWorkItem @ 0x1C0014F10 (NVMeControllerIdentifyWorkItem.c)
+ *     NVMeControllerInitPart1 @ 0x1C000DC0C (NVMeControllerInitPart1.c)
+ *     NVMeControllerIdentifyWorkItem @ 0x1C00141E0 (NVMeControllerIdentifyWorkItem.c)
  * Callees:
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     memset @ 0x1C0004B80 (memset.c)
- *     IsIntelChatham @ 0x1C0007CD8 (IsIntelChatham.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     IsIntelChatham @ 0x1C000A684 (IsIntelChatham.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
-char __fastcall NVMeControllerIdentify(_QWORD *a1)
+char __fastcall NVMeControllerIdentify(__int64 a1)
 {
-  int i; // ecx
+  int v2; // edx
   __int64 v3; // rcx
   __int64 v4; // rax
   char result; // al
   _DWORD *v6; // rbx
 
-  LocalCommandReuse((__int64)a1, (__int64)(a1 + 118));
-  for ( i = 0; i < 2; *(_BYTE *)(a1[130] + 4253LL) |= i )
-    ++i;
-  *(_WORD *)(a1[130] + 4244LL) = 0;
-  v3 = a1[130];
-  v4 = a1[231];
+  *(_BYTE *)(a1 + 851) = 0;
+  memset(*(void **)(a1 + 936), 0, 0x10A0uLL);
+  v2 = 0;
+  *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4232LL) = 0LL;
+  *(_QWORD *)(a1 + 904) = *(_QWORD *)(a1 + 936);
+  *(_DWORD *)(a1 + 840) = 1;
+  do
+    *(_BYTE *)(*(_QWORD *)(a1 + 936) + 4253LL) |= ++v2;
+  while ( v2 < 2 );
+  *(_WORD *)(*(_QWORD *)(a1 + 936) + 4244LL) = 0;
+  v3 = *(_QWORD *)(a1 + 936);
+  v4 = *(_QWORD *)(a1 + 1632);
   *(_BYTE *)(v3 + 4096) = 6;
   *(_DWORD *)(v3 + 4100) = 0;
   *(_QWORD *)(v3 + 4120) = v4;
   *(_BYTE *)(v3 + 4136) = 1;
-  ProcessCommand((__int64)a1, (__int64)(a1 + 119));
-  WaitForCommandCompleteWithCustomTimeout((int)a1);
-  result = IsIntelChatham((__int64)a1);
+  ProcessCommand(a1, a1 + 848);
+  WaitForCommandCompleteWithCustomTimeout(a1);
+  result = IsIntelChatham(a1);
   if ( result )
   {
-    v6 = (_DWORD *)a1[230];
+    v6 = *(_DWORD **)(a1 + 1624);
     if ( *(_WORD *)v6 != 0x8086 )
     {
       memset(v6, 0, 0x1000uLL);

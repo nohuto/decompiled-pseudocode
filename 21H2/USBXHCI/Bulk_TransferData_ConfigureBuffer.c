@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_TransferData_ConfigureBuffer @ 0x1C000EDD4
+ * XREFs of Bulk_TransferData_ConfigureBuffer @ 0x1C000D19C
  * Callers:
- *     Bulk_RetrieveNextStage @ 0x1C000E980 (Bulk_RetrieveNextStage.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 __int64 __fastcall Bulk_TransferData_ConfigureBuffer(__int64 a1)
@@ -63,7 +63,7 @@ __int64 __fastcall Bulk_TransferData_ConfigureBuffer(__int64 a1)
               Priority = *(_BYTE *)(*(_QWORD *)(v6 + 48) + 135LL);
 LABEL_28:
               LOBYTE(v11) = 2;
-              WPP_RECORDER_SF_ddd(
+              WPP_RECORDER_SF_ddL(
                 *(_QWORD *)(v17 + 80),
                 v11,
                 14,
@@ -80,7 +80,7 @@ LABEL_28:
           {
             v13 = *(unsigned __int8 *)(*(_QWORD *)(v6 + 48) + 135LL);
             LOBYTE(v13) = 5;
-            WPP_RECORDER_SF_ddd(
+            WPP_RECORDER_SF_ddL(
               *(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL),
               v13,
               14,
@@ -114,13 +114,7 @@ LABEL_28:
       if ( (*(_BYTE *)(v18 + 10) & 5) != 0 )
         v19 = *(PVOID *)(v18 + 24);
       else
-        v19 = MmMapLockedPagesSpecifyCache(
-                (PMDL)v18,
-                0,
-                MmCached,
-                0LL,
-                0,
-                LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) | 0x10u);
+        v19 = MmMapLockedPagesSpecifyCache((PMDL)v18, 0, MmCached, 0LL, 0, WPP_MAIN_CB.DeviceLock.Header.LockNV | 0x10u);
       *(_QWORD *)(a1 + 88) = v19;
       if ( !v19 )
       {

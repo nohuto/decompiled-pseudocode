@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetPowerFrameworkSettings@FxPoxInterface@@AEAAPEAU_POX_SETTINGS@@XZ @ 0x1C001CD74
+ * XREFs of ?GetPowerFrameworkSettings@FxPoxInterface@@AEAAPEAU_POX_SETTINGS@@XZ @ 0x1C008CA4C
  * Callers:
- *     ?ComponentActiveCallback@FxPoxInterface@@CAXPEAXK@Z @ 0x1C001CC40 (-ComponentActiveCallback@FxPoxInterface@@CAXPEAXK@Z.c)
- *     ?ComponentIdleCallback@FxPoxInterface@@CAXPEAXK@Z @ 0x1C001CCD0 (-ComponentIdleCallback@FxPoxInterface@@CAXPEAXK@Z.c)
- *     ?StateCallback@FxPoxInterface@@CAXPEAXKK@Z @ 0x1C001D040 (-StateCallback@FxPoxInterface@@CAXPEAXKK@Z.c)
- *     ?InitializeComponents@FxPoxInterface@@QEAAJXZ @ 0x1C0020104 (-InitializeComponents@FxPoxInterface@@QEAAJXZ.c)
- *     ?PoxRegisterDevice@FxPoxInterface@@AEAAJXZ @ 0x1C00201F0 (-PoxRegisterDevice@FxPoxInterface@@AEAAJXZ.c)
- *     ?PowerPolStoppedRemoving@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008B4D0 (-PowerPolStoppedRemoving@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
- *     ?PowerControlCallback@FxPoxInterface@@CAJPEAXPEBU_GUID@@0_K02PEA_K@Z @ 0x1C008EF30 (-PowerControlCallback@FxPoxInterface@@CAJPEAXPEBU_GUID@@0_K02PEA_K@Z.c)
+ *     ?PowerPolStoppedRemoving@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00874A0 (-PowerPolStoppedRemoving@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ *     ?InitializeComponents@FxPoxInterface@@QEAAJXZ @ 0x1C008CA84 (-InitializeComponents@FxPoxInterface@@QEAAJXZ.c)
+ *     ?ComponentActiveCallback@FxPoxInterface@@CAXPEAXK@Z @ 0x1C008CC70 (-ComponentActiveCallback@FxPoxInterface@@CAXPEAXK@Z.c)
+ *     ?ComponentIdleCallback@FxPoxInterface@@CAXPEAXK@Z @ 0x1C008CD70 (-ComponentIdleCallback@FxPoxInterface@@CAXPEAXK@Z.c)
+ *     ?PowerControlCallback@FxPoxInterface@@CAJPEAXPEBU_GUID@@0_K02PEA_K@Z @ 0x1C008CF60 (-PowerControlCallback@FxPoxInterface@@CAJPEAXPEBU_GUID@@0_K02PEA_K@Z.c)
+ *     ?PoxRegisterDevice@FxPoxInterface@@AEAAJXZ @ 0x1C008D0D8 (-PoxRegisterDevice@FxPoxInterface@@AEAAJXZ.c)
+ *     ?StateCallback@FxPoxInterface@@CAXPEAXKK@Z @ 0x1C008D2D0 (-StateCallback@FxPoxInterface@@CAXPEAXKK@Z.c)
  * Callees:
  *     <none>
  */

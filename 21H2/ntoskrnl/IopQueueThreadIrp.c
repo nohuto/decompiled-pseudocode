@@ -1,31 +1,32 @@
 /*
- * XREFs of IopQueueThreadIrp @ 0x1402AE1B0
+ * XREFs of IopQueueThreadIrp @ 0x14034B290
  * Callers:
- *     IoAsynchronousPageWrite @ 0x14020C810 (IoAsynchronousPageWrite.c)
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IoSynchronousPageWriteEx @ 0x140340130 (IoSynchronousPageWriteEx.c)
- *     IoQueueThreadIrp @ 0x140389E20 (IoQueueThreadIrp.c)
- *     IopBuildSynchronousFsdRequest @ 0x140705F30 (IopBuildSynchronousFsdRequest.c)
- *     IopGetFileInformation @ 0x14070FC40 (IopGetFileInformation.c)
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
- *     IopGetSetSecurityObject @ 0x14071E8F0 (IopGetSetSecurityObject.c)
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopCloseFile @ 0x14072E9E0 (IopCloseFile.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     IopFilterResourceRequirementsCall @ 0x140748D6C (IopFilterResourceRequirementsCall.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
- *     IoSetInformation @ 0x14080AE60 (IoSetInformation.c)
- *     IoCancelFileOpen @ 0x140935F60 (IoCancelFileOpen.c)
- *     IoEnqueueIrp @ 0x1409363B0 (IoEnqueueIrp.c)
- *     IoVerifyVolume @ 0x1409367E0 (IoVerifyVolume.c)
- *     IopFreeBandwidthContract @ 0x14093FC6C (IopFreeBandwidthContract.c)
+ *     IoAsynchronousPageWrite @ 0x1402CB1EC (IoAsynchronousPageWrite.c)
+ *     IoSynchronousPageWriteEx @ 0x14031BE0C (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     IoQueueThreadIrp @ 0x140381910 (IoQueueThreadIrp.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     IopGetFileInformation @ 0x140620A14 (IopGetFileInformation.c)
+ *     IopGetSetSecurityObject @ 0x14064F760 (IopGetSetSecurityObject.c)
+ *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1406D1900 (IopBuildSynchronousFsdRequest.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     IopFilterResourceRequirementsCall @ 0x140750A80 (IopFilterResourceRequirementsCall.c)
+ *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
+ *     IoCancelFileOpen @ 0x140893620 (IoCancelFileOpen.c)
+ *     IoEnqueueIrp @ 0x140893B60 (IoEnqueueIrp.c)
+ *     IoVerifyVolume @ 0x140893EE0 (IoVerifyVolume.c)
+ *     IopFreeBandwidthContract @ 0x14089B0C4 (IopFreeBandwidthContract.c)
  * Callees:
- *     KxWaitForSpinLockAndAcquire @ 0x140211E70 (KxWaitForSpinLockAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSpinLockInstrumented @ 0x14045A310 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x14056E8CC (KiReleaseSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopQueueThreadIrp(__int64 a1)
@@ -34,15 +35,15 @@ __int64 __fastcall IopQueueThreadIrp(__int64 a1)
   _QWORD *v2; // rsi
   __int64 *v3; // rdi
   volatile signed __int32 *v4; // rbx
-  unsigned __int8 CurrentIrql; // bp
-  struct _KPRCB *CurrentPrcb; // r14
+  unsigned __int8 CurrentIrql; // r14
+  struct _KPRCB *CurrentPrcb; // rbp
   _DWORD *v7; // rcx
   __int64 v8; // rax
   struct _KPRCB *v9; // rcx
   _DWORD *v10; // rdx
   __int64 result; // rax
+  _DWORD *v12; // rcx
   _DWORD *SchedulerAssist; // r9
-  _DWORD *v13; // rcx
   int v14; // eax
   int v15; // eax
   int v16; // eax
@@ -55,8 +56,8 @@ __int64 __fastcall IopQueueThreadIrp(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 152);
   v2 = (_QWORD *)(a1 + 32);
-  v3 = (__int64 *)(v1 + 1280);
-  v4 = (volatile signed __int32 *)(v1 + 1496);
+  v3 = (__int64 *)(v1 + 1200);
+  v4 = (volatile signed __int32 *)(v1 + 1416);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -84,13 +85,13 @@ __int64 __fastcall IopQueueThreadIrp(__int64 a1)
     }
     if ( _interlockedbittestandset64(v4, 0LL) )
     {
-      v13 = CurrentPrcb->SchedulerAssist;
-      if ( v13 )
+      v12 = CurrentPrcb->SchedulerAssist;
+      if ( v12 )
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v15 = v13[6] - 1;
-          v13[6] = v15;
+          v15 = v12[6] - 1;
+          v12[6] = v15;
           if ( !v15 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopCheckConsoleTimeouts @ 0x140878CB4
+ * XREFs of PopCheckConsoleTimeouts @ 0x140878C94
  * Callers:
- *     PopAdaptivePowerSettingCallback @ 0x140745E10 (PopAdaptivePowerSettingCallback.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140745DF0 (PopAdaptivePowerSettingCallback.c)
  * Callees:
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
- *     PopGetDisplayTimeout @ 0x1406DC4F0 (PopGetDisplayTimeout.c)
- *     PopDiagTraceInputTimeout @ 0x1406DC91C (PopDiagTraceInputTimeout.c)
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
- *     PopDiagTraceDisplayTimeout @ 0x1406DCC1C (PopDiagTraceDisplayTimeout.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
+ *     PopGetDisplayTimeout @ 0x1406DC4D0 (PopGetDisplayTimeout.c)
+ *     PopDiagTraceInputTimeout @ 0x1406DC8FC (PopDiagTraceInputTimeout.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
+ *     PopDiagTraceDisplayTimeout @ 0x1406DCBFC (PopDiagTraceDisplayTimeout.c)
  */
 
 char PopCheckConsoleTimeouts()

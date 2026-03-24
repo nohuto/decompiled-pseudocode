@@ -1,180 +1,248 @@
 /*
- * XREFs of NtGdiEngStretchBlt @ 0x1C0128AE0
+ * XREFs of NtGdiEngStretchBlt @ 0x1C013D2A0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     EngStretchBlt @ 0x1C002FB50 (EngStretchBlt.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0123F3C (--1UMPDSURFOBJ@@QEAA@XZ.c)
- *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C0128EA0 (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
- *     ?CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z @ 0x1C0129004 (-CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z.c)
- *     ?CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z @ 0x1C0129030 (-CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z.c)
- *     ?bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C01290D4 (-bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z.c)
- *     ?bOrder@@YAHPEAU_RECTL@@@Z @ 0x1C012912C (-bOrder@@YAHPEAU_RECTL@@@Z.c)
- *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C012914C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
- *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C01291B4 (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
- *     ?bCheckDestSurfaceOverlap@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0129220 (-bCheckDestSurfaceOverlap@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C012ADE8 (-bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
- *     ?bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z @ 0x1C012B0C0 (-bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z.c)
- *     ?pRect@@YAPEAU_RECTL@@PEAU_POINTL@@PEAU1@KK@Z @ 0x1C012B268 (-pRect@@YAPEAU_RECTL@@PEAU_POINTL@@PEAU1@KK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     EngStretchBlt @ 0x1C00B1650 (EngStretchBlt.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137DCC (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     ?bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C013D1EC (-bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
+ *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C013D890 (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
+ *     ?bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C013D9F4 (-bCheckXlate@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@@Z.c)
+ *     ?bOrder@@YAHPEAU_RECTL@@@Z @ 0x1C013DA4C (-bOrder@@YAHPEAU_RECTL@@@Z.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C013DA6C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C013DAD4 (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
+ *     ?bCheckDestSurfaceOverlap@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C013DB40 (-bCheckDestSurfaceOverlap@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z @ 0x1C013DC70 (-bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z.c)
+ *     ?pRect@@YAPEAU_RECTL@@PEAU_POINTL@@PEAU1@KK@Z @ 0x1C013DDE0 (-pRect@@YAPEAU_RECTL@@PEAU_POINTL@@PEAU1@KK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ??0ECLIPOBJTMPBOUNDED@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C016A1E8 (--0ECLIPOBJTMPBOUNDED@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ??1ECLIPOBJTMPBOUNDED@@QEAA@XZ @ 0x1C016D78C (--1ECLIPOBJTMPBOUNDED@@QEAA@XZ.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?bValid@ECLIPOBJTMPBOUNDED@@QEBA_NXZ @ 0x1C016D8EC (-bValid@ECLIPOBJTMPBOUNDED@@QEBA_NXZ.c)
+ *     Feature_2932140344__private_IsEnabledDeviceUsage @ 0x1C016D960 (Feature_2932140344__private_IsEnabledDeviceUsage.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiEngStretchBlt(
         struct _SURFOBJ *a1,
         struct _SURFOBJ *a2,
         struct _SURFOBJ *a3,
-        struct _CLIPOBJ *a4,
-        __int64 a5,
+        CLIPOBJ *a4,
+        XLATEOBJ *a5,
         COLORADJUSTMENT *a6,
         POINTL *a7,
-        RECTL *a8,
+        ULONG64 a8,
         RECTL *a9,
         POINTL *a10,
         ULONG iMode)
 {
-  unsigned int v13; // ebx
+  unsigned int v14; // ebx
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v16; // rsi
-  SURFOBJ *v17; // r13
-  SURFOBJ *v18; // r12
-  __int128 *v19; // r14
-  struct _XLATEOBJ *v20; // rdx
-  struct _RECTL *v21; // r10
-  unsigned int v22; // edi
-  __int64 result; // rax
-  struct _RECTL *v24; // rdx
-  int pca; // [rsp+28h] [rbp-1F0h]
-  SURFOBJ *psoMaska; // [rsp+60h] [rbp-1B8h]
-  unsigned int v28[2]; // [rsp+68h] [rbp-1B0h] BYREF
-  struct _CLIPOBJ *v29; // [rsp+70h] [rbp-1A8h] BYREF
-  RECTL *prclSrc; // [rsp+78h] [rbp-1A0h] BYREF
-  RECTL *prclDest; // [rsp+80h] [rbp-198h] BYREF
-  COLORADJUSTMENT *v32; // [rsp+88h] [rbp-190h]
-  POINTL *pptlMask; // [rsp+90h] [rbp-188h] BYREF
-  CLIPOBJ *pco; // [rsp+98h] [rbp-180h]
-  XLATEOBJ *pxlo; // [rsp+A0h] [rbp-178h]
-  POINTL *pptlHTOrg; // [rsp+A8h] [rbp-170h] BYREF
-  struct _POINTL v37; // [rsp+B0h] [rbp-168h] BYREF
-  struct _POINTL v38; // [rsp+B8h] [rbp-160h] BYREF
-  struct UMPDOBJ *v39; // [rsp+C0h] [rbp-158h]
-  _QWORD v40[8]; // [rsp+D0h] [rbp-148h] BYREF
-  SURFOBJ *psoSrc[8]; // [rsp+110h] [rbp-108h] BYREF
-  SURFOBJ *psoDest[8]; // [rsp+150h] [rbp-C8h] BYREF
-  struct _RECTL v43; // [rsp+190h] [rbp-88h] BYREF
-  __int128 v44; // [rsp+1A0h] [rbp-78h] BYREF
-  __int64 v45; // [rsp+1B0h] [rbp-68h]
-  struct _RECTL v46; // [rsp+1B8h] [rbp-60h] BYREF
-  struct _RECTL v47; // [rsp+1C8h] [rbp-50h] BYREF
+  struct UMPDOBJ *ThreadCurrentObj; // rsi
+  POINTL *pptlHTOrg; // r12
+  RECTL *v19; // rdx
+  __int128 *p_left; // r8
+  struct _POINTL *pptlMask; // r14
+  __int128 *v22; // r15
+  struct _RECTL *v23; // rdx
+  __int64 v24; // rcx
+  struct _SURFOBJ *v25; // r10
+  struct _RECTL *v26; // r11
+  unsigned int v27; // edi
+  struct _RECTL *p_prclDest; // r9
+  SURFOBJ *v29; // rdi
+  BOOL v30; // eax
+  int pca; // [rsp+28h] [rbp-2D0h]
+  unsigned int v32; // [rsp+68h] [rbp-290h] BYREF
+  RECTL *prclSrc; // [rsp+70h] [rbp-288h]
+  SURFOBJ *psoMask; // [rsp+78h] [rbp-280h]
+  CLIPOBJ *DDIOBJ; // [rsp+80h] [rbp-278h]
+  XLATEOBJ *pxlo; // [rsp+88h] [rbp-270h]
+  unsigned int v37[2]; // [rsp+90h] [rbp-268h] BYREF
+  SURFOBJ *psoSrc; // [rsp+98h] [rbp-260h]
+  SURFOBJ *psoDest; // [rsp+A0h] [rbp-258h]
+  COLORADJUSTMENT *v40; // [rsp+A8h] [rbp-250h]
+  POINTL *v41; // [rsp+B0h] [rbp-248h]
+  POINTL *v42; // [rsp+B8h] [rbp-240h]
+  struct _POINTL v43; // [rsp+C0h] [rbp-238h] BYREF
+  _QWORD v44[3]; // [rsp+C8h] [rbp-230h] BYREF
+  _QWORD v45[8]; // [rsp+E0h] [rbp-218h] BYREF
+  _QWORD v46[8]; // [rsp+120h] [rbp-1D8h] BYREF
+  struct _SURFOBJ *v47[8]; // [rsp+160h] [rbp-198h] BYREF
+  __int128 v48; // [rsp+1A0h] [rbp-158h] BYREF
+  __int64 v49; // [rsp+1B0h] [rbp-148h]
+  RECTL prclDest; // [rsp+1B8h] [rbp-140h] BYREF
+  __int128 v51; // [rsp+1C8h] [rbp-130h] BYREF
+  struct _RECTL v52; // [rsp+1D8h] [rbp-120h] BYREF
+  _BYTE v53[168]; // [rsp+1F0h] [rbp-108h] BYREF
+  CLIPOBJ *pco; // [rsp+298h] [rbp-60h]
 
-  v29 = a4;
-  pxlo = (XLATEOBJ *)a4;
-  *(_QWORD *)v28 = a5;
-  v32 = a6;
-  pptlHTOrg = a7;
-  prclDest = a8;
+  DDIOBJ = a4;
+  v44[1] = a4;
+  pxlo = a5;
+  v40 = a6;
+  v41 = a7;
   prclSrc = a9;
-  pptlMask = a10;
-  v46 = 0LL;
-  v47 = 0LL;
-  v13 = 0;
-  v37 = 0LL;
-  v38 = 0LL;
-  v44 = 0LL;
-  v45 = 0LL;
+  v42 = a10;
+  prclDest = 0LL;
+  v51 = 0LL;
+  v14 = 0;
+  v43 = 0LL;
+  v44[0] = 0LL;
+  v48 = 0LL;
+  v49 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v16 = ThreadCurrentObj;
-  v39 = ThreadCurrentObj;
+  *(_QWORD *)v37 = ThreadCurrentObj;
   if ( ThreadCurrentObj )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)psoDest, a1, ThreadCurrentObj);
-    UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)psoSrc, a2, v16);
-    UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)v40, a3, v16);
-    v17 = psoDest[0];
-    *(SURFOBJ **)&v43.left = psoDest[0];
-    v18 = psoSrc[0];
-    pco = (CLIPOBJ *)psoSrc[0];
-    psoMaska = (SURFOBJ *)v40[0];
-    if ( a7 || iMode != 4 )
+    if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
     {
-      if ( !psoDest[0] || !psoSrc[0] || !prclDest || !prclSrc )
-      {
-        v22 = 0;
-LABEL_17:
-        UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v40);
-        UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)psoSrc);
-        UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)psoDest);
-        result = v22;
-LABEL_18:
-        --*((_DWORD *)v16 + 105);
-        return result;
-      }
-      CaptureRECTL(&prclDest, &v46);
-      CapturePOINTL(&pptlMask, &v37);
-      CaptureRECTL(&prclSrc, &v47);
-      v19 = (__int128 *)v32;
-      if ( v32 )
-      {
-        if ( (unsigned __int64)v32 >= MmUserProbeAddress )
-          v19 = (__int128 *)MmUserProbeAddress;
-        v44 = *v19;
-        v45 = *((_QWORD *)v19 + 2);
-        v19 = &v44;
-        v32 = (COLORADJUSTMENT *)&v44;
-      }
-      CapturePOINTL(&pptlHTOrg, &v38);
-      if ( (unsigned int)bCheckDestSurfaceOverlap(v17, prclDest) )
-      {
-        pco = UMPDOBJ::GetDDIOBJ(v16, v29, &v17->sizlBitmap);
-        pxlo = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>(v16, *(_QWORD *)v28);
-        if ( (unsigned int)bOrder(prclSrc) && (unsigned int)bCheckXlate(v18, v20) )
-        {
-          v22 = 1;
-          if ( psoMaska )
-          {
-            v43 = 0LL;
-            LODWORD(v29) = 0;
-            v28[0] = 0;
-            v22 = bCheckSurfaceRectSize(v18, v21, 0LL, (unsigned int *)&v29, v28, pca);
-            if ( v22 )
-            {
-              v24 = pRect(pptlMask, &v43, (unsigned int)v29, v28[0]);
-              v22 = psoMaska->iBitmapFormat == 1;
-              if ( psoMaska->iBitmapFormat == 1 )
-                v22 = bCheckSurfaceRect(psoMaska, v24, 0LL);
-            }
-          }
-        }
-        else
-        {
-          v22 = 0;
-        }
-        if ( v22 )
-          v22 = EngStretchBlt(
-                  v17,
-                  v18,
-                  psoMaska,
-                  pco,
-                  pxlo,
-                  (COLORADJUSTMENT *)v19,
-                  pptlHTOrg,
-                  prclDest,
-                  prclSrc,
-                  pptlMask,
-                  iMode);
-        goto LABEL_17;
-      }
-      v13 = 1;
+      if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
+        return 0LL;
     }
-    UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v40);
-    UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)psoSrc);
-    UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)psoDest);
-    result = v13;
-    goto LABEL_18;
+    else
+    {
+      ++*((_DWORD *)ThreadCurrentObj + 105);
+    }
   }
-  return 0LL;
+  if ( !ThreadCurrentObj )
+    return 0LL;
+  UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)v47, a1, ThreadCurrentObj);
+  UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)v46, a2, ThreadCurrentObj);
+  UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)v45, a3, ThreadCurrentObj);
+  psoDest = v47[0];
+  psoSrc = (SURFOBJ *)v46[0];
+  psoMask = (SURFOBJ *)v45[0];
+  pptlHTOrg = v41;
+  if ( !v41 && iMode == 4 )
+    goto LABEL_32;
+  if ( v47[0] && v46[0] && (v19 = (RECTL *)a8) != 0LL && (p_left = (__int128 *)&prclSrc->left) != 0LL )
+  {
+    if ( a8 >= MmUserProbeAddress )
+      v19 = (RECTL *)MmUserProbeAddress;
+    prclDest = *v19;
+    pptlMask = v42;
+    if ( v42 )
+    {
+      if ( (unsigned __int64)v42 >= MmUserProbeAddress )
+        pptlMask = (struct _POINTL *)MmUserProbeAddress;
+      v43 = *pptlMask;
+      pptlMask = &v43;
+      v42 = &v43;
+    }
+    if ( (unsigned __int64)prclSrc >= MmUserProbeAddress )
+      p_left = (__int128 *)MmUserProbeAddress;
+    v51 = *p_left;
+    prclSrc = (RECTL *)&v51;
+    v22 = (__int128 *)v40;
+    if ( v40 )
+    {
+      if ( (unsigned __int64)v40 >= MmUserProbeAddress )
+        v22 = (__int128 *)MmUserProbeAddress;
+      v48 = *v22;
+      v49 = *((_QWORD *)v22 + 2);
+      v22 = &v48;
+      v40 = (COLORADJUSTMENT *)&v48;
+    }
+    if ( v41 )
+    {
+      if ( (unsigned __int64)v41 >= MmUserProbeAddress )
+        pptlHTOrg = (POINTL *)MmUserProbeAddress;
+      v44[0] = *pptlHTOrg;
+      pptlHTOrg = (POINTL *)v44;
+      v41 = (POINTL *)v44;
+    }
+    if ( !(unsigned int)bCheckDestSurfaceOverlap(v47[0], &prclDest) )
+    {
+      v14 = 1;
+LABEL_32:
+      UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v45);
+      UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v46);
+      UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v47);
+      UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+      return v14;
+    }
+    DDIOBJ = UMPDOBJ::GetDDIOBJ(ThreadCurrentObj, DDIOBJ, &psoDest->sizlBitmap);
+    pxlo = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>(ThreadCurrentObj, pxlo);
+    if ( (unsigned int)bOrder(prclSrc) && (unsigned int)bCheckXlate(psoSrc, (struct _XLATEOBJ *)v23) )
+    {
+      v27 = 1;
+      if ( psoMask )
+      {
+        v52 = 0LL;
+        v37[0] = 0;
+        v32 = 0;
+        v27 = bCheckSurfaceRectSize(v25, v26, 0LL, v37, &v32, pca);
+        if ( v27 )
+        {
+          v23 = pRect(pptlMask, &v52, v37[0], v32);
+          v27 = psoMask->iBitmapFormat == 1;
+          if ( psoMask->iBitmapFormat == 1 )
+            v27 = bCheckSurfaceRect(psoMask, v23, 0LL);
+        }
+      }
+    }
+    else
+    {
+      v27 = 0;
+    }
+    if ( v27 )
+    {
+      if ( (unsigned int)Feature_2932140344__private_IsEnabledDeviceUsage(v24, v23) )
+      {
+        p_prclDest = 0LL;
+        if ( iMode == 4 )
+          p_prclDest = &prclDest;
+        v29 = psoDest;
+        ECLIPOBJTMPBOUNDED::ECLIPOBJTMPBOUNDED((ECLIPOBJTMPBOUNDED *)v53, psoDest, DDIOBJ, p_prclDest);
+        if ( !ECLIPOBJTMPBOUNDED::bValid((ECLIPOBJTMPBOUNDED *)v53)
+          || (v30 = EngStretchBlt(
+                      v29,
+                      psoSrc,
+                      psoMask,
+                      pco,
+                      pxlo,
+                      (COLORADJUSTMENT *)v22,
+                      pptlHTOrg,
+                      &prclDest,
+                      prclSrc,
+                      pptlMask,
+                      iMode),
+              v27 = 1,
+              !v30) )
+        {
+          v27 = 0;
+        }
+        ECLIPOBJTMPBOUNDED::~ECLIPOBJTMPBOUNDED((ECLIPOBJTMPBOUNDED *)v53);
+      }
+      else
+      {
+        v27 = EngStretchBlt(
+                psoDest,
+                psoSrc,
+                psoMask,
+                DDIOBJ,
+                pxlo,
+                (COLORADJUSTMENT *)v22,
+                pptlHTOrg,
+                &prclDest,
+                prclSrc,
+                pptlMask,
+                iMode);
+      }
+    }
+  }
+  else
+  {
+    v27 = 0;
+  }
+  UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v45);
+  UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v46);
+  UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v47);
+  UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+  return v27;
 }

@@ -1,168 +1,177 @@
 /*
- * XREFs of xxxSetLayeredWindow @ 0x1C00CEB30
+ * XREFs of xxxSetLayeredWindow @ 0x1C0035D20
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ComposeWindow @ 0x1C00C8A84 (ComposeWindow.c)
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BBFB0 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     ComposeWindow @ 0x1C003531C (ComposeWindow.c)
+ *     xxxSetWindowStyle @ 0x1C005E140 (xxxSetWindowStyle.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01E6B48 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
  * Callees:
- *     GreGetSprite @ 0x1C0013DE0 (GreGetSprite.c)
- *     xxxRedrawWindow @ 0x1C0031604 (xxxRedrawWindow.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     SendDwmIconChange @ 0x1C00625D0 (SendDwmIconChange.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C0077D38 (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
- *     GreUpdateSpriteClipRgn @ 0x1C0077DA8 (GreUpdateSpriteClipRgn.c)
- *     DwmAsyncTextChange @ 0x1C0095860 (DwmAsyncTextChange.c)
- *     ?IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z @ 0x1C00A7840 (-IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z.c)
- *     DwmAsyncChildStyleChange @ 0x1C00C8EAC (DwmAsyncChildStyleChange.c)
- *     CreateVisRgnTracker @ 0x1C00CD0F8 (CreateVisRgnTracker.c)
- *     CreateSprite @ 0x1C00CD224 (CreateSprite.c)
- *     IsWindowBeingDestroyed @ 0x1C00CF084 (IsWindowBeingDestroyed.c)
- *     _GetTopLevelWindow @ 0x1C00CFFB0 (_GetTopLevelWindow.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     TrackLayeredZorder @ 0x1C00D3BE0 (TrackLayeredZorder.c)
- *     IsDesktopWindow @ 0x1C00D3DF0 (IsDesktopWindow.c)
- *     UpdateWindowSpriteMonitor @ 0x1C00D3F28 (UpdateWindowSpriteMonitor.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00F403C (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
- *     UserGetRedirectedWindowOrigin @ 0x1C0118F90 (UserGetRedirectedWindowOrigin.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
- *     xxxUpdateWindows @ 0x1C02151D0 (xxxUpdateWindows.c)
+ *     GreGetSprite @ 0x1C00075B4 (GreGetSprite.c)
+ *     CreateVisRgnTracker @ 0x1C0035F74 (CreateVisRgnTracker.c)
+ *     CreateSprite @ 0x1C0038614 (CreateSprite.c)
+ *     IsWindowBeingDestroyed @ 0x1C003883C (IsWindowBeingDestroyed.c)
+ *     SendDwmIconChange @ 0x1C0038960 (SendDwmIconChange.c)
+ *     DwmAsyncTextChange @ 0x1C00471A0 (DwmAsyncTextChange.c)
+ *     UserGetRedirectedWindowOrigin @ 0x1C004C3B0 (UserGetRedirectedWindowOrigin.c)
+ *     IsDesktopWindow @ 0x1C004C550 (IsDesktopWindow.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     DwmAsyncChildStyleChange @ 0x1C004E050 (DwmAsyncChildStyleChange.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     _GetTopLevelWindow @ 0x1C006FC20 (_GetTopLevelWindow.c)
+ *     IsChildWindowDpiBoundary @ 0x1C007061C (IsChildWindowDpiBoundary.c)
+ *     xxxRedrawWindow @ 0x1C00722B4 (xxxRedrawWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GreUpdateSpriteClipRgn @ 0x1C00BA178 (GreUpdateSpriteClipRgn.c)
+ *     TrackLayeredZorder @ 0x1C00BD408 (TrackLayeredZorder.c)
+ *     UpdateWindowSpriteDPI @ 0x1C00BD5D8 (UpdateWindowSpriteDPI.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1C94 (zzzUpdateLayeredWindow.c)
+ *     IsChildWindowDpiIsolationEnabled @ 0x1C0111B98 (IsChildWindowDpiIsolationEnabled.c)
+ *     xxxUpdateThreadsWindows @ 0x1C0212ABC (xxxUpdateThreadsWindows.c)
  */
 
-__int64 __fastcall xxxSetLayeredWindow(struct tagWND **a1, int a2, __int64 *a3)
+__int64 __fastcall xxxSetLayeredWindow(struct tagWND *a1, int a2, __int64 *a3)
 {
-  int v3; // esi
+  int v3; // ebx
   struct tagWND *TopLevelWindow; // rax
-  Gre::Base *v8; // rcx
+  __int64 v8; // rcx
   __int64 v9; // r8
   __int64 result; // rax
-  unsigned int updated; // esi
-  tagWND *v12; // rcx
-  HRGN ExplicitClipRgn; // rax
-  Gre::Base *v14; // rcx
+  unsigned int updated; // r14d
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // r8
   __int64 v15; // rax
-  __int64 v16; // rbx
+  __int64 v16; // rdx
   __int64 v17; // rcx
   void *v18; // rax
-  __int64 v19; // rdx
-  __int64 v20; // r8
   __int64 Sprite; // rax
-  struct tagWND *v22; // rcx
-  struct tagWND *v23; // rax
-  __int64 v24; // rdi
-  int v25; // ebx
-  void *v26; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  void *v22; // rax
   __int64 DCEx; // rax
-  __int64 v28; // rbx
-  struct tagWND *v29; // rcx
+  __int64 v24; // rbx
+  __int64 v25; // rcx
   __int64 RectRgnIndirect; // rax
-  struct tagWND *v31; // rbx
-  HRGN v32; // r14
-  __int64 v33; // rdx
-  __int64 v34; // rcx
-  __int64 v35; // r8
-  __int128 v36; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v37; // [rsp+70h] [rbp-10h]
-  __int64 v38; // [rsp+C0h] [rbp+40h] BYREF
-  int v39; // [rsp+C8h] [rbp+48h] BYREF
-  int v40; // [rsp+CCh] [rbp+4Ch]
+  __int64 v27; // rbx
+  __int64 v28; // rsi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v30; // rcx
+  _BYTE v31[8]; // [rsp+60h] [rbp-20h] BYREF
+  __int128 v32; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v33; // [rsp+78h] [rbp-8h]
+  __int64 v34; // [rsp+C0h] [rbp+40h] BYREF
+  int v35; // [rsp+C8h] [rbp+48h] BYREF
+  int v36; // [rsp+CCh] [rbp+4Ch]
 
   v3 = 0;
   if ( a3 )
     *a3 = 0LL;
   TopLevelWindow = (struct tagWND *)GetTopLevelWindow(a1);
   if ( TopLevelWindow
-    && (TopLevelWindow == (struct tagWND *)a1
+    && (TopLevelWindow == a1
      || *((_WORD *)a1 + 128) >= 0x602u
-     || IsChildWindowDpiIsolationEnabled((struct tagWND *)a1, a1[13])
-     && IsChildWindowDpiBoundary((const struct tagWND *)a1)) )
+     || (unsigned int)IsChildWindowDpiIsolationEnabled(a1, *((_QWORD *)a1 + 13))
+     && (unsigned int)IsChildWindowDpiBoundary(a1)) )
   {
     v3 = 1;
   }
-  if ( (!(unsigned int)IsDesktopWindow(a1) || !(unsigned int)IsWindowDesktopComposed(v8)) && !v3 )
+  if ( (unsigned int)IsDesktopWindow(a1) && (unsigned int)IsWindowDesktopComposed(v8) )
+    v3 = 1;
+  if ( !v3 )
     return 2151546883LL;
-  if ( (*((_DWORD *)a1[5] + 58) & 2) == 0 )
+  if ( (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x20) == 0 )
   {
     if ( !(unsigned int)IsWindowBeingDestroyed(a1) )
     {
-      result = CreateSprite(*(HDEV *)(gpDispInfo + 40LL), (__int64)a1, (struct tagRECT *)(v9 + 88), a3);
+      result = CreateSprite(*(_QWORD *)(gpDispInfo + 40LL), a1, v9 + 88, a3);
       updated = result;
-      if ( (int)result >= 0 )
+      if ( (int)result < 0 )
+        return result;
+      SetOrClrWF(1LL, a1, 2568LL, 1LL);
+      CreateVisRgnTracker(a1);
+      TrackLayeredZorder(a1);
+      if ( (unsigned int)IsTopLevelWindow(a1) )
       {
-        SetOrClrWF(1LL, a1, 2568LL, 1LL);
-        CreateVisRgnTracker((struct tagWND *)a1, 1);
-        TrackLayeredZorder((struct tagWND *)a1);
-        if ( (unsigned int)IsTopLevelWindow(a1) )
+        v13 = *((_QWORD *)a1 + 5);
+        v14 = *(_QWORD *)(v13 + 168);
+        if ( v14 )
         {
-          ExplicitClipRgn = tagWND::GetExplicitClipRgn(v12);
-          if ( ExplicitClipRgn )
-            GreUpdateSpriteClipRgn(v14, (HWND)*a1, ExplicitClipRgn, 0);
+          if ( (*(_BYTE *)(v13 + 21) & 8) == 0 )
+            GreUpdateSpriteClipRgn(v12, *(_QWORD *)a1, v14, 0LL);
         }
-        v15 = ValidateHmonitorNoRip(*((_QWORD *)a1[5] + 32));
-        UpdateWindowSpriteMonitor(a1, v15);
-        if ( (unsigned int)IsToplevelWindowDesktopComposed(a1) )
-        {
-          SendDwmIconChange((ULONG_PTR)a1);
-          v16 = (__int64)*a1;
-          v18 = (void *)ReferenceDwmApiPort(v17);
-          DwmAsyncTextChange(v18, v16);
-        }
-        AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v38);
-        zzzLockDisplayAreaAndInvalidateDCCache((__int64)a1, 17, 0LL);
-        AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v38, v19, v20);
-        if ( (*((_BYTE *)a1[5] + 31) & 0x10) != 0 && a2 )
-        {
-          DCEx = _GetDCEx(a1[13], 0LL, 3LL);
-          v28 = DCEx;
-          if ( DCEx )
-          {
-            v38 = 0LL;
-            UserGetRedirectedWindowOrigin(DCEx, &v38);
-            v29 = a1[5];
-            v39 = *((_DWORD *)v29 + 22) - v38;
-            v40 = *((_DWORD *)v29 + 23) - HIDWORD(v38);
-            updated = zzzUpdateLayeredWindow((struct tagWND *)a1, v28, (__int64)&v39, 0, 0LL, 12, 0LL);
-            _ReleaseDC(v28);
-          }
-          RectRgnIndirect = GreCreateRectRgnIndirect((char *)a1[5] + 88);
-          v31 = a1[13];
-          v32 = (HRGN)RectRgnIndirect;
-          v37 = 0LL;
-          v36 = 0LL;
-          if ( v31 )
-          {
-            ThreadLock(v31, &v36);
-            GreOffsetRgn(
-              v32,
-              (unsigned int)-*(_DWORD *)(*((_QWORD *)v31 + 5) + 104LL),
-              (unsigned int)-*(_DWORD *)(*((_QWORD *)v31 + 5) + 108LL));
-          }
-          xxxRedrawWindow(v31, 0LL, (__int64)v32, 1157);
-          if ( v31 )
-            ThreadUnlock1(v34, v33, v35);
-          xxxUpdateWindows((struct tagWND *)a1, v32);
-          GreDeleteObject(v32);
-        }
-        return updated;
       }
-      return result;
+      v15 = ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
+      UpdateWindowSpriteDPI(a1, v15);
+      if ( (unsigned int)IsToplevelWindowDesktopComposed(a1) )
+      {
+        SendDwmIconChange(a1);
+        v18 = (void *)ReferenceDwmApiPort(v17, v16);
+        DwmAsyncTextChange(v18);
+      }
+      UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v31);
+      zzzLockDisplayAreaAndInvalidateDCCache(a1, 17LL, 0LL);
+      UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v31);
+      if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0x10) != 0 )
+      {
+        if ( !a2 )
+          return updated;
+        DCEx = _GetDCEx(*((_QWORD *)a1 + 13), 0LL, 3LL);
+        v24 = DCEx;
+        if ( DCEx )
+        {
+          v34 = 0LL;
+          UserGetRedirectedWindowOrigin(DCEx, &v34);
+          v25 = *((_QWORD *)a1 + 5);
+          v35 = *(_DWORD *)(v25 + 88) - v34;
+          v36 = *(_DWORD *)(v25 + 92) - HIDWORD(v34);
+          updated = zzzUpdateLayeredWindow(a1, v24, (__int64)&v35, 0, 0LL, 12, 0LL);
+          _ReleaseDC(v24);
+        }
+      }
+      else
+      {
+        a2 = 0;
+      }
+      if ( a2 )
+      {
+        RectRgnIndirect = GreCreateRectRgnIndirect(*((_QWORD *)a1 + 5) + 88LL);
+        v27 = *((_QWORD *)a1 + 13);
+        v28 = RectRgnIndirect;
+        v33 = 0LL;
+        v32 = 0LL;
+        if ( v27 )
+        {
+          ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+          *(_QWORD *)&v32 = *(_QWORD *)(ThreadWin32Thread + 416);
+          *(_QWORD *)(ThreadWin32Thread + 416) = &v32;
+          *((_QWORD *)&v32 + 1) = v27;
+          HMLockObject(v27);
+          GreOffsetRgn(
+            v28,
+            (unsigned int)-*(_DWORD *)(*(_QWORD *)(v27 + 40) + 104LL),
+            (unsigned int)-*(_DWORD *)(*(_QWORD *)(v27 + 40) + 108LL));
+        }
+        xxxRedrawWindow((struct tagWND *)v27);
+        if ( v27 )
+          ThreadUnlock1(v30);
+        xxxUpdateThreadsWindows(gptiCurrent, a1, v28);
+        GreDeleteObject(v28);
+      }
+      return updated;
     }
     return 2151546883LL;
   }
-  Sprite = GreGetSprite(v8, (HWND)*a1);
-  v22 = a1[5];
-  *((_DWORD *)v22 + 58) &= ~2u;
-  *((_DWORD *)a1 + 80) |= 0x8000u;
+  Sprite = GreGetSprite(v8, *(struct PDEVOBJ **)a1);
+  *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) &= ~0x20u;
+  v21 = *((_QWORD *)a1 + 5);
+  *(_DWORD *)(v21 + 232) |= 0x40u;
   if ( a3 )
     *a3 = Sprite;
-  v23 = a1[5];
-  v24 = (__int64)*a1;
-  v25 = *((_DWORD *)v23 + 58);
-  v26 = (void *)ReferenceDwmApiPort(v22);
-  DwmAsyncChildStyleChange(v26, v24, -268435456, v25);
+  v22 = (void *)ReferenceDwmApiPort(v21, v20);
+  DwmAsyncChildStyleChange(v22);
   return 0LL;
 }

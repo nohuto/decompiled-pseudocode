@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsWin32KFilterEnabledForProcess @ 0x140240E30
+ * XREFs of PsIsWin32KFilterEnabledForProcess @ 0x1402B9710
  * Callers:
  *     <none>
  * Callees:

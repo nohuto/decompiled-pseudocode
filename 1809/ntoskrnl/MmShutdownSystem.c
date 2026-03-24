@@ -5,7 +5,7 @@
  *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MmTrimAllSystemPagableMemory @ 0x1402B4220 (MmTrimAllSystemPagableMemory.c)
+ *     MmTrimAllSystemPagableMemory @ 0x1402B4320 (MmTrimAllSystemPagableMemory.c)
  *     MiShutdownSystem @ 0x14057BBF4 (MiShutdownSystem.c)
  */
 

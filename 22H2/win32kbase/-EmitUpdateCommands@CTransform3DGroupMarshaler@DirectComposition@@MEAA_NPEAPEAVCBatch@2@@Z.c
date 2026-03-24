@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CTransform3DGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C910
+ * XREFs of ?EmitUpdateCommands@CTransform3DGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB980
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00293EC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C009BD78 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetChildrenCommand@CTransform3DGroupMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D7020 (-EmitSetChildrenCommand@CTransform3DGroupMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CTransform3DGroupMarshaler::EmitUpdateCommands(
@@ -18,14 +18,7 @@ char __fastcall DirectComposition::CTransform3DGroupMarshaler::EmitUpdateCommand
          this,
          (struct DirectComposition::CBatch **)a2) )
   {
-    return DirectComposition::CResourceMarshalerArrayBase::Marshal(
-             (_QWORD *)this + 9,
-             a2,
-             *((_DWORD *)this + 8),
-             (_DWORD *)this + 4,
-             128,
-             694,
-             695);
+    return DirectComposition::CTransform3DGroupMarshaler::EmitSetChildrenCommand(this, a2);
   }
   return v4;
 }

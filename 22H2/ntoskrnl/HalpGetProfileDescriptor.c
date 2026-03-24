@@ -1,21 +1,22 @@
 /*
- * XREFs of HalpGetProfileDescriptor @ 0x14037BB90
+ * XREFs of HalpGetProfileDescriptor @ 0x140377DE8
  * Callers:
- *     EmonSetInterval @ 0x14037BA00 (EmonSetInterval.c)
- *     HalpQueryProfileSource @ 0x140507C1C (HalpQueryProfileSource.c)
- *     HalpRemoveProfileSourceFromList @ 0x140507F60 (HalpRemoveProfileSourceFromList.c)
- *     EmonEnableMonitoring @ 0x14051D300 (EmonEnableMonitoring.c)
- *     Amd64EnableMonitoring @ 0x140529210 (Amd64EnableMonitoring.c)
- *     Amd64SetInterval @ 0x14052A160 (Amd64SetInterval.c)
+ *     EmonQueryInformation @ 0x140376660 (EmonQueryInformation.c)
+ *     EmonSetInterval @ 0x140377C80 (EmonSetInterval.c)
+ *     HalpRemoveProfileSourceFromList @ 0x1404BF06C (HalpRemoveProfileSourceFromList.c)
+ *     EmonEnableMonitoring @ 0x1404D3430 (EmonEnableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x1404DD860 (Amd64EnableMonitoring.c)
+ *     Amd64QueryInformation @ 0x1404DDCE0 (Amd64QueryInformation.c)
+ *     Amd64SetInterval @ 0x1404DE140 (Amd64SetInterval.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall HalpGetProfileDescriptor(int a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall HalpGetProfileDescriptor(int a1, _QWORD **a2, _QWORD *a3)
 {
-  __int64 *i; // rax
+  _QWORD *i; // rax
 
-  for ( i = (__int64 *)HalpProfileSourceDescriptorListHead; i != &HalpProfileSourceDescriptorListHead; i = (__int64 *)*i )
+  for ( i = *a2; i != a2; i = (_QWORD *)*i )
   {
     if ( *((_DWORD *)i - 2) == a1 )
     {

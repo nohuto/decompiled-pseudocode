@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserSetClassWord @ 0x1C01FCBE0
+ * XREFs of NtUserSetClassWord @ 0x1C0201A80
  * Callers:
  *     <none>
  * Callees:
- *     _SetClassWord @ 0x1C01E39F8 (_SetClassWord.c)
+ *     _SetClassWord @ 0x1C01E9404 (_SetClassWord.c)
  */
 
 __int64 __fastcall NtUserSetClassWord(__int64 a1, int a2, __int16 a3)
@@ -12,7 +12,7 @@ __int64 __fastcall NtUserSetClassWord(__int64 a1, int a2, __int16 a3)
   __int64 v7; // rcx
   unsigned __int16 v8; // bx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   v8 = 0;
   if ( v6 )

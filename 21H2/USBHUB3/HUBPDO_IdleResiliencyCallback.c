@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_IdleResiliencyCallback @ 0x1C001B480
+ * XREFs of HUBPDO_IdleResiliencyCallback @ 0x1C001AEE0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF__guid_dd @ 0x1C0013A30 (WPP_RECORDER_SF__guid_dd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF__guid_dd @ 0x1C0013468 (WPP_RECORDER_SF__guid_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_IdleResiliencyCallback(
@@ -33,7 +33,7 @@ __int64 __fastcall HUBPDO_IdleResiliencyCallback(
         WdfDriverGlobals,
         v8,
         "DRIPS IO Tag",
-        11451LL,
+        11416LL,
         "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
     }
     else

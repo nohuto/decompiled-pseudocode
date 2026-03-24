@@ -1,16 +1,16 @@
 /*
- * XREFs of ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000FA50
+ * XREFs of ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000F270
  * Callers:
  *     <none>
  * Callees:
- *     TR_ReclaimTransfers @ 0x1C000E970 (TR_ReclaimTransfers.c)
+ *     TR_ReclaimTransfers @ 0x1C000BC5C (TR_ReclaimTransfers.c)
  */
 
 __int64 __fastcall ESM_ReclaimingTransfersAfterEndpointStop(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v3; // rsi
-  unsigned int v4; // edi
+  __int64 v3; // rdi
+  unsigned int v4; // esi
 
   v1 = *(_QWORD *)(a1 + 960);
   if ( *(_BYTE *)(v1 + 37) )

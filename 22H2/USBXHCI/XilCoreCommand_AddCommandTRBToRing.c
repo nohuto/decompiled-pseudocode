@@ -1,9 +1,9 @@
 /*
- * XREFs of XilCoreCommand_AddCommandTRBToRing @ 0x1C000AC58
+ * XREFs of XilCoreCommand_AddCommandTRBToRing @ 0x1C00071DC
  * Callers:
- *     XilCommand_AddCommandCRBToRing @ 0x1C000ABCC (XilCommand_AddCommandCRBToRing.c)
+ *     XilCommand_AddCommandCRBToRing @ 0x1C000714C (XilCommand_AddCommandCRBToRing.c)
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
  */
 
 char __fastcall XilCoreCommand_AddCommandTRBToRing(__int64 *a1, __int64 a2)

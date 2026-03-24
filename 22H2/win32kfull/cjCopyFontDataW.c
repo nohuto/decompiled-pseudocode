@@ -1,201 +1,274 @@
 /*
- * XREFs of cjCopyFontDataW @ 0x1C0004930
+ * XREFs of cjCopyFontDataW @ 0x1C005EF80
  * Callers:
- *     ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C00047A0 (-WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z.c)
+ *     ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C00627F4 (-WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z.c)
  * Callees:
- *     ?bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z @ 0x1C0004BC8 (-bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z.c)
- *     ?bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z @ 0x1C0004CBC (-bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z.c)
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0076E28 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C00821B8 (-dpNtmi@PFEOBJ@@QEAAKXZ.c)
- *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0082214 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
- *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C0085EA4 (-vLookupScript@@YAXKPEAGK@Z.c)
- *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0113D6C (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0113DB0 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ?bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z @ 0x1C0061E10 (-bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z.c)
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0062348 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     ?bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z @ 0x1C0062388 (-bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0099DF4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0099E30 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B920 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     InitializeScripts @ 0x1C03921F0 (InitializeScripts.c)
  */
 
-__int64 __fastcall cjCopyFontDataW(__int64 a1, __int64 a2, PFEOBJ *a3, int a4, wchar_t *Src, unsigned int a6, int a7)
+__int64 __fastcall cjCopyFontDataW(__int64 a1, __int64 a2, __int64 a3, int a4, wchar_t *Src, int a6, int a7)
 {
-  __int64 v9; // rax
+  unsigned int v8; // esi
+  __int64 v10; // r13
   __int64 v11; // rbx
-  struct _IFIMETRICS *v12; // rsi
-  unsigned int v13; // r12d
-  __int64 v14; // r15
-  ULONG flInfo; // ecx
-  int v16; // ebp
-  __m128i v17; // xmm1
-  __m128i v18; // xmm6
-  __int64 v19; // r13
-  unsigned int v20; // eax
-  unsigned int v21; // r9d
-  __int64 v22; // r14
-  int v23; // eax
-  _DWORD *v24; // rcx
-  unsigned int v25; // r8d
-  const wchar_t *v26; // r8
-  int v27; // eax
-  struct HLFONT__ *v29; // rdx
-  signed int v30; // eax
-  __m128i v31; // xmm1
-  __m128i v32; // xmm0
-  __m128 v33; // xmm1
-  unsigned int *v34; // rdx
-  int v35; // ebp
-  int v36; // edx
-  struct LFONT *v37; // [rsp+48h] [rbp-50h] BYREF
-  unsigned int x; // [rsp+D8h] [rbp+40h]
+  int v12; // r8d
+  __int64 v13; // rcx
+  int v14; // edi
+  char CurrentThreadDpiAwarenessContext; // al
+  __m128i v16; // xmm1
+  __m128i v17; // xmm6
+  __int64 v18; // rdi
+  unsigned int v19; // eax
+  _DWORD *v20; // r8
+  int v21; // eax
+  __int64 v22; // rdi
+  __int64 v23; // rax
+  unsigned int v24; // eax
+  _DWORD *v25; // rcx
+  _WORD *v26; // rdi
+  unsigned int v27; // ecx
+  _DWORD *v28; // rax
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int16 v31; // ax
+  const wchar_t *v32; // r8
+  int v33; // edx
+  int v34; // eax
+  int v35; // ecx
+  unsigned int v37; // edx
+  int v38; // ecx
+  _DWORD *v39; // rdx
+  struct HLFONT__ *v40; // rdx
+  signed int v41; // eax
+  __m128i v42; // xmm1
+  __m128i v43; // xmm0
+  __m128 v44; // xmm1
+  __int64 v45; // rdx
+  int v46; // ecx
+  __int64 v47; // [rsp+40h] [rbp-58h] BYREF
+  struct LFONT *v48; // [rsp+48h] [rbp-50h] BYREF
+  unsigned int v50; // [rsp+B0h] [rbp+18h]
+  unsigned int v53; // [rsp+D8h] [rbp+40h]
 
-  v9 = *(_QWORD *)a3;
+  v8 = 0;
+  v10 = *(_QWORD *)(*(_QWORD *)a3 + 32LL);
   v11 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
-  v37 = (struct LFONT *)v11;
-  v12 = *(struct _IFIMETRICS **)(v9 + 32);
-  v13 = *(_DWORD *)(v9 + 12) & 1;
-  LODWORD(v14) = 0;
-  x = v12->ptlAspect.x;
-  if ( !v11 || v12->fwdWinAscender + v12->fwdWinDescender == 0 || v12->fwdUnitsPerEm == 0 )
+  v12 = *(_DWORD *)(*(_QWORD *)a3 + 12LL) & 1;
+  v47 = v11;
+  v53 = v12;
+  if ( !v11 || !(*(__int16 *)(v10 + 60) + *(__int16 *)(v10 + 62)) || !*(_WORD *)(v10 + 56) )
     return 0LL;
-  if ( v13 && (v12->flInfo & 0x3000010) == 0 )
+  if ( v12 && (*(_DWORD *)(v10 + 48) & 0x3000010) == 0 )
   {
-    PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&v37);
-    x = PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v37);
+    PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&v47);
+    PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v47);
+    v12 = v53;
   }
-  flInfo = v12->flInfo;
-  v16 = 4;
-  if ( (flInfo & 0x3000010) == 0 )
+  v13 = *(unsigned int *)(v10 + 48);
+  if ( (v13 & 0x3000010) == 0 )
   {
-    v18 = (__m128i)x;
-    goto LABEL_9;
+    v17 = (__m128i)v53;
+    goto LABEL_12;
   }
-  if ( (flInfo & 1) != 0 || (flInfo & 2) == 0 && (flInfo & 4) == 0 && (flInfo & 8) != 0 )
+  v14 = 96;
+  if ( (v13 & 1) != 0 || (v13 & 2) == 0 && (v13 & 4) == 0 && (v13 & 8) != 0 )
   {
-    PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v37);
-    PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&v37);
+    W32GetCurrentThreadDpiAwarenessContext(v13);
+    W32GetCurrentThreadDpiAwarenessContext(*(unsigned int *)(v11 + 40));
+    v13 = *(unsigned int *)(v11 + 40);
+    v12 = v53;
   }
-  if ( v13 )
+  if ( v12 )
   {
-    v29 = *(struct HLFONT__ **)(v11 + 1424);
-    if ( v29 )
+    v40 = *(struct HLFONT__ **)(v11 + 1432);
+    if ( v40 )
     {
-      LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v37, v29, 0LL);
-      if ( v37 )
+      LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v48, v40, 0LL);
+      if ( v48 )
       {
-        v30 = *((_DWORD *)v37 + 69);
-        if ( v30 >= 0 )
+        v41 = *((_DWORD *)v48 + 69);
+        if ( v41 >= 0 )
         {
-          v31 = _mm_cvtsi32_si128(v30);
-          v32 = _mm_cvtsi32_si128(v12->fwdWinDescender + v12->fwdWinAscender);
+          v42 = _mm_cvtsi32_si128(v41);
+          v43 = _mm_cvtsi32_si128(*(__int16 *)(v10 + 60) + *(__int16 *)(v10 + 62));
         }
         else
         {
-          v31 = _mm_cvtsi32_si128(-v30);
-          v32 = _mm_cvtsi32_si128(v12->fwdUnitsPerEm);
+          v42 = _mm_cvtsi32_si128(-v41);
+          v43 = _mm_cvtsi32_si128(*(__int16 *)(v10 + 56));
         }
-        v33 = _mm_cvtepi32_ps(v31);
-        v33.m128_f32[0] = v33.m128_f32[0] / _mm_cvtepi32_ps(v32).m128_f32[0];
-        v18 = (__m128i)v33;
-        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v37);
-        goto LABEL_9;
+        v44 = _mm_cvtepi32_ps(v42);
+        v44.m128_f32[0] = v44.m128_f32[0] / _mm_cvtepi32_ps(v43).m128_f32[0];
+        v17 = (__m128i)v44;
+        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v48);
+        goto LABEL_12;
       }
     }
     return 0LL;
   }
-  v17 = (__m128i)COERCE_UNSIGNED_INT((float)(int)PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v37));
-  *(float *)v17.m128i_i32 = (float)(*(float *)v17.m128i_i32 * 0.33333334) / (float)v12->fwdUnitsPerEm;
-  v18 = v17;
-LABEL_9:
-  if ( !(unsigned int)bIFIMetricsToLogFontW2(a1, a2 + 12, v12, (unsigned int)_mm_cvtsi128_si32(v18)) )
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v13);
+  if ( (*(_DWORD *)(v11 + 40) & 1) == 0 || (CurrentThreadDpiAwarenessContext & 0xFu) - 1 <= 1 )
+    v14 = *(_DWORD *)(v11 + 2180);
+  v16 = (__m128i)COERCE_UNSIGNED_INT((float)v14);
+  *(float *)v16.m128i_i32 = (float)(*(float *)v16.m128i_i32 * 0.33333334) / (float)*(__int16 *)(v10 + 56);
+  v17 = v16;
+LABEL_12:
+  if ( !(unsigned int)bIFIMetricsToLogFontW2(a1, a2 + 12, v10, (unsigned int)_mm_cvtsi128_si32(v17)) )
     return 0LL;
-  if ( ((v19 = *(unsigned int *)(*(_QWORD *)a3 + 128LL),
-         *(_DWORD *)a2 = v19,
-         v20 = PFEOBJ::dpNtmi(a3),
-         v21 = 16,
-         v22 = a2 + v20,
-         *(_DWORD *)(a2 + 4) = v20,
-         (v12->flInfo & 0x4000) != 0)
-     || IsVariableFont(v12))
-    && v12->cjIfiExtra > 0xC )
+  v18 = 368LL;
+  v19 = *(_DWORD *)(*(_QWORD *)a3 + 128LL);
+  *(_DWORD *)a2 = v19;
+  v50 = v19;
+  v20 = *(_DWORD **)(*(_QWORD *)a3 + 32LL);
+  if ( (v20[12] & 0x4000) != 0 || IsVariableFont(*(struct _IFIMETRICS **)(*(_QWORD *)a3 + 32LL)) )
   {
-    v34 = (ULONG *)((char *)&v12->cjThis + v12[1].dpwszStyleName);
-    v14 = v34[1];
-    if ( (unsigned int)v14 > v21 )
-      v14 = v21;
-    memmove((void *)(a2 + 360), v34, 4 * v14 + 8);
-    v23 = v14;
-    v21 = 16;
+    v37 = v20[1];
+    if ( v37 <= 0xC )
+      DbgPrint("Test it %d %llu \n", v37, 12LL);
+    else
+      v18 = (unsigned int)(4 * *(_DWORD *)((char *)v20 + v20[51] + 4) + 368);
+  }
+  if ( ((*(_DWORD *)(a2 + 4) = v18, v21 = *(_DWORD *)(v10 + 48), v22 = a2 + v18, (v21 & 0x4000) != 0)
+     || (v21 & 0x4000001) != 0
+     && *(_DWORD *)(v10 + 4) > 0xCu
+     && (v23 = *(unsigned int *)(v10 + 204), (_DWORD)v23)
+     && *(_DWORD *)(v23 + v10 + 4)
+     && ((v38 = *(_DWORD *)(v23 + v10), v38 == 134248052) || v38 == 134248035))
+    && *(_DWORD *)(v10 + 4) > 0xCu )
+  {
+    v39 = (_DWORD *)(v10 + *(int *)(v10 + 204));
+    v8 = v39[1];
+    if ( v8 > 0x10 )
+      v8 = 16;
+    memmove((void *)(a2 + 360), v39, 4LL * v8 + 8);
+    v24 = v8;
   }
   else
   {
-    v23 = 0;
+    v24 = 0;
     *(_DWORD *)(a2 + 360) = 134248036;
   }
-  *(_DWORD *)(a2 + 364) = v23;
-  v24 = (_DWORD *)(v22 + 108);
-  if ( (v12->flInfo & 0x4000) != 0 && v12->cjIfiExtra > v21 )
+  *(_DWORD *)(a2 + 364) = v24;
+  v25 = (_DWORD *)(v22 + 108);
+  if ( (*(_DWORD *)(v10 + 48) & 0x4000) != 0 && *(_DWORD *)(v10 + 4) > 0x10u )
   {
-    memmove(v24, (char *)v12 + v12[1].dpwszFaceName, 40LL * (unsigned int)v14 + 8);
+    memmove(v25, (const void *)(v10 + *(int *)(v10 + 208)), 40LL * v8 + 8);
   }
   else
   {
     *(_DWORD *)(v22 + 112) = 0;
-    *v24 = 134245473;
+    *v25 = 134245473;
   }
-  if ( !(unsigned int)bIFIMetricsToTextMetricW2(a1, v22, a3, v13) )
+  if ( !(unsigned int)bIFIMetricsToTextMetricW2(a1, v22, a3, v53) )
     return 0LL;
   if ( a7 )
   {
     *(_BYTE *)(a2 + 35) = a6;
     *(_BYTE *)(v22 + 64) = a6;
-    vLookupScript(a6, (unsigned __int16 *)(a2 + 296), v25);
+  }
+  v26 = (_WORD *)(a2 + 296);
+  if ( a7 )
+  {
+    if ( (unsigned int)InitializeScripts() )
+    {
+      v27 = 0;
+      v28 = &aScripts;
+      while ( *v28 != a6 + 1000 )
+      {
+        ++v27;
+        v28 += 4;
+        if ( v27 >= 0x13 )
+        {
+          v45 = qword_1C03399F8;
+          goto LABEL_33;
+        }
+      }
+      _mm_lfence();
+      v11 = v47;
+      v45 = *((_QWORD *)&aScripts + 2 * v27 + 1);
+LABEL_33:
+      v29 = 32LL;
+      v30 = v45 - (_QWORD)v26;
+      while ( v29 != -2147483614 )
+      {
+        v31 = *(_WORD *)((char *)v26 + v30);
+        if ( !v31 )
+          break;
+        *v26++ = v31;
+        if ( !--v29 )
+        {
+          --v26;
+          break;
+        }
+      }
+      *v26 = 0;
+    }
   }
   else
   {
-    *(_WORD *)(a2 + 296) = 0;
+    *v26 = 0;
   }
-  v26 = Src;
+  v32 = Src;
   if ( Src )
-    goto LABEL_47;
+    goto LABEL_67;
   if ( a4 == 5 )
   {
-    v26 = (const wchar_t *)(a2 + 104);
-LABEL_47:
-    wcsncpy_s((wchar_t *)(a2 + 40), 0x20uLL, v26, 0x1FuLL);
+    v32 = (const wchar_t *)(a2 + 104);
+LABEL_67:
+    wcsncpy_s((wchar_t *)(a2 + 40), 0x20uLL, v32, 0x1FuLL);
     *(_WORD *)(a2 + 102) = 0;
   }
   *(_DWORD *)(a2 + 8) = 0;
-  v27 = v12->flInfo;
-  if ( (v27 & 1) != 0 )
+  v33 = 2;
+  v34 = *(_DWORD *)(v10 + 48);
+  if ( (v34 & 1) != 0 )
   {
-    if ( (*(_DWORD *)(v11 + 40) & 1) == 0
-      && (*(_DWORD *)(v11 + 2152) & 0x2000) == 0
-      && *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 208LL) == 1 )
+    if ( (*(_DWORD *)(v11 + 40) & 1) != 0
+      || (*(_DWORD *)(v11 + 2184) & 0x2000) != 0
+      || *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 208LL) != 1 )
     {
-      v16 = 6;
+      v35 = 4;
     }
-    *(_DWORD *)(a2 + 8) = v16;
+    else
+    {
+      v35 = 6;
+    }
+    *(_DWORD *)(a2 + 8) = v35;
   }
-  else if ( (v27 & 2) != 0 )
+  else if ( (v34 & 2) != 0 )
   {
+    v35 = 1;
     *(_DWORD *)(a2 + 8) = 1;
-    v16 = 1;
   }
   else
   {
-    v16 = 0;
-    if ( v27 < 0 )
+    v35 = 0;
+    if ( v34 < 0 )
     {
       *(_DWORD *)(a2 + 8) = 2;
-      v16 = 2;
+      v35 = 2;
     }
   }
-  if ( v13 )
+  if ( v53 )
   {
-    v35 = v16 | 2;
-    v36 = 2;
-    if ( (v12->flInfo & 0x3000010) == 0 )
-      v36 = v35;
-    *(_DWORD *)(a2 + 8) = v36;
-    if ( *(_DWORD *)(v11 + 2108) == 2 && (v12->flInfo & 0x3000010) != 0 && (*(_DWORD *)(v11 + 2152) & 0x100) == 0 )
-      *(_DWORD *)(a2 + 8) = v36 | 0x80000000;
+    v46 = v35 | 2;
+    if ( (*(_DWORD *)(v10 + 48) & 0x3000010) == 0 )
+      v33 = v46;
+    *(_DWORD *)(a2 + 8) = v33;
+    if ( *(_DWORD *)(v11 + 2140) == 2
+      && (*(_DWORD *)(v10 + 48) & 0x3000010) != 0
+      && (*(_DWORD *)(v11 + 2184) & 0x100) == 0 )
+    {
+      *(_DWORD *)(a2 + 8) = v33 | 0x80000000;
+    }
   }
-  return v19;
+  return v50;
 }

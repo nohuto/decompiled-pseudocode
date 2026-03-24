@@ -1,9 +1,9 @@
 /*
- * XREFs of ?BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00B5040
+ * XREFs of ?BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00A3D80
  * Callers:
  *     <none>
  * Callees:
- *     ?_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z @ 0x1C00B507C (-_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z.c)
+ *     ?_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z @ 0x1C00A3DBC (-_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z.c)
  */
 
 void __fastcall CTouchpadAcceleration::BuildAccelerationCurve(
@@ -15,11 +15,11 @@ void __fastcall CTouchpadAcceleration::BuildAccelerationCurve(
 
   if ( *((_BYTE *)this + 8) )
   {
-    v3 = qword_1C0294F10;
-    if ( !qword_1C0294F10 )
+    v3 = qword_1C024FFD0;
+    if ( !qword_1C024FFD0 )
     {
       v3 = *((_DWORD *)this + 24);
-      qword_1C0294F10 = v3;
+      qword_1C024FFD0 = v3;
     }
     CDeviceAcceleration::_BuildAccelerationCurve(
       this,

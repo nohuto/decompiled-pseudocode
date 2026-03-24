@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetCurrentUmsTeb @ 0x14029F8E8
+ * XREFs of KeGetCurrentUmsTeb @ 0x14029F9E8
  * Callers:
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDF0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
  *     <none>
  */

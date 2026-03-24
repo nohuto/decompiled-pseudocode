@@ -1,135 +1,134 @@
 /*
- * XREFs of MiInitializeSharedUserData @ 0x140B6CD50
+ * XREFs of MiInitializeSharedUserData @ 0x140A579E0
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     KasanTrackAddress @ 0x140355EF0 (KasanTrackAddress.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     HvlGetSharedPageVa @ 0x140364604 (HvlGetSharedPageVa.c)
- *     KasanMarkAddressRedZone @ 0x1403AC020 (KasanMarkAddressRedZone.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     HvlGetSharedPageVa @ 0x14035FBB0 (HvlGetSharedPageVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiInitializeSharedUserData()
 {
-  unsigned __int64 v0; // rsi
+  unsigned __int64 v0; // rbp
   unsigned __int64 SharedPageVa; // rax
-  unsigned __int64 v2; // rax
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  char *Pool; // r13
-  unsigned __int64 i; // rbp
+  unsigned int v2; // eax
+  __int64 v3; // rcx
+  __int64 result; // rax
+  __int64 v5; // r13
+  __int64 v6; // rsi
   unsigned __int64 v7; // rbx
   unsigned __int64 v8; // r12
-  __int64 *v9; // r14
-  char v10; // di
-  int v11; // r15d
-  __int64 v12; // rbx
-  __int64 v13; // r8
-  __int64 v14; // rbx
-  unsigned __int64 v15; // rdi
-  ULONG_PTR v16; // rsi
-  bool v18; // zf
+  __int64 v9; // r9
+  __int64 *v10; // r14
+  char v11; // di
+  int v12; // r15d
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  bool v17; // zf
+  __int64 v18; // rbx
+  unsigned __int64 v19; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  _QWORD v23[7]; // [rsp+20h] [rbp-38h]
+  int v23; // eax
+  _QWORD v24[7]; // [rsp+20h] [rbp-38h]
   unsigned __int64 ValidPte; // [rsp+60h] [rbp+8h] BYREF
 
-  v23[0] = 0xFFFFF78000000000uLL;
+  v24[0] = 0xFFFFF78000000000uLL;
   v0 = 1LL;
   SharedPageVa = (unsigned __int64)HvlGetSharedPageVa();
-  v23[1] = SharedPageVa;
+  v24[1] = SharedPageVa;
   if ( SharedPageVa )
   {
     ValidPte = MI_READ_PTE_LOCK_FREE(((SharedPageVa >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    if ( (ValidPte & 1) != 0 )
+    if ( (ValidPte & 1) != 0
+      && (*(_QWORD *)(48
+                    * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&ValidPte) >> 12) & 0xFFFFFFFFFLL)
+                    - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0 )
     {
-      v2 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&ValidPte) >> 12) & 0xFFFFFFFFFFLL;
-      if ( v2 <= qword_140C65CA0 )
+      v0 = 2LL;
+      v2 = ExGenRandom(1) & 0xF;
+      v3 = 15LL;
+      if ( v2 )
+        v3 = v2;
+      qword_140C4DE48 = (v3 + 524256) << 12;
+    }
+  }
+  result = (__int64)MiAllocatePool(274, 8 * v0, 0x74536D4Du);
+  v5 = result;
+  if ( result )
+  {
+    v6 = 0LL;
+    while ( 1 )
+    {
+      v7 = ((v24[v6] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      v8 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(v7) >> 12) & 0xFFFFFFFFFLL;
+      ValidPte = MiMakeValidPte(v7, v8, 536870913LL, v9);
+      v10 = (__int64 *)(v5 + 8 * v6);
+      v11 = ValidPte;
+      v12 = 0;
+      v13 = ValidPte;
+      if ( MiPteInShadowRange((unsigned __int64)v10) )
       {
-        if ( _bittest64((const signed __int64 *)(48 * v2 - 0x21FFFFFFFFD8LL), 0x36u) )
+        if ( (unsigned int)MiPteHasShadow() )
         {
-          v0 = 2LL;
-          v3 = ExGenRandom(1) & 0xF;
-          v4 = 15LL;
-          if ( v3 )
-            v4 = (unsigned int)v3;
-          qword_140C65B38 = (v4 + 524256) << 12;
+          v12 = 1;
+          if ( !HIBYTE(word_140C4E008) )
+          {
+            v17 = (v11 & 1) == 0;
+            goto LABEL_15;
+          }
+        }
+        else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+        {
+          v17 = (v11 & 1) == 0;
+LABEL_15:
+          if ( !v17 )
+            v13 |= 0x8000000000000000uLL;
         }
       }
-    }
-  }
-  Pool = (char *)MiAllocatePool(274, 8 * v0, 0x74536D4Du);
-  if ( !Pool )
-    return 0LL;
-  for ( i = 0LL; i < v0; ++i )
-  {
-    v7 = ((v23[i] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v8 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(v7) >> 12) & 0xFFFFFFFFFFLL;
-    ValidPte = MiMakeValidPte(v7, v8, 536870913LL);
-    v9 = (__int64 *)&Pool[8 * i];
-    v10 = ValidPte;
-    v11 = 0;
-    v12 = ValidPte;
-    if ( !MiPteInShadowRange((unsigned __int64)v9) )
-      goto LABEL_11;
-    if ( MiPteHasShadow() )
-    {
-      v11 = 1;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_11;
-      v18 = (v10 & 1) == 0;
-    }
-    else
-    {
-      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-        goto LABEL_11;
-      v18 = (v10 & 1) == 0;
-    }
-    if ( !v18 )
-      v12 |= 0x8000000000000000uLL;
-LABEL_11:
-    *v9 = v12;
-    if ( v11 )
-      MiWritePteShadow((__int64)&Pool[8 * i], v12, v13);
-    qword_140C65B28[i] = (__int64)v9;
-    v14 = 48 * v8 - 0x220000000000LL;
-    v15 = (unsigned __int8)MiLockPageInline(v14);
-    *(_QWORD *)(v14 + 16) = MiSwizzleInvalidPte(128LL);
-    *(_QWORD *)(v14 + 40) |= 0x8000000000000000uLL;
-    *(_QWORD *)(v14 + 8) = v9;
-    _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
-    {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+      *v10 = v13;
+      if ( v12 )
+        MiWritePteShadow(v5 + 8 * v6, v13, v15);
+      qword_140C4DE38[v6] = (__int64)v10;
+      v18 = 48 * v8 - 0x58000000000LL;
+      v19 = (unsigned __int8)MiLockPageInline(v18, v14, v15, v16);
+      *(_QWORD *)(v18 + 16) = MiSwizzleInvalidPte(128LL);
+      *(_QWORD *)(v18 + 40) |= 0x8000000000000000uLL;
+      *(_QWORD *)(v18 + 8) = v10;
+      _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
-        v18 = (v22 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v22;
-        if ( v18 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
+            v17 = (v23 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v23;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
+        }
       }
+      __writecr8(v19);
+      if ( ++v6 >= v0 )
+        return 1LL;
     }
-    __writecr8(v15);
   }
-  v16 = v0 << 12;
-  if ( (int)KasanTrackAddress(0xFFFFF78000000000uLL, v16, 0) >= 0 )
-  {
-    KasanMarkAddressRedZone(0xFFFFF78000000000uLL, 0x738uLL, v16, 0x85u);
-    return 1LL;
-  }
-  return 0LL;
+  return result;
 }

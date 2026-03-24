@@ -1,7 +1,8 @@
 /*
- * XREFs of ?vClearTypeLookupTableLoop@@YAXKPEAVSURFACE@@PEAU_BLENDINFO@@KK@Z @ 0x1C00D6390
+ * XREFs of ?vClearTypeLookupTableLoop@@YAXKPEAVSURFACE@@PEAU_BLENDINFO@@KK@Z @ 0x1C00C8320
  * Callers:
- *     ?pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z @ 0x1C00D60B4 (-pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z.c)
+ *     vSrcOpaqCopyS8D32 @ 0x1C00C7B50 (vSrcOpaqCopyS8D32.c)
+ *     ?pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z @ 0x1C00C8048 (-pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -47,10 +48,10 @@ void __fastcall vClearTypeLookupTableLoop(int a1, void **a2, struct _BLENDINFO *
   v18 = v11 - v17;
   v19 = *(unsigned __int8 *)((unsigned __int8)((unsigned __int64)((a5 & *((_DWORD *)a3 + 8)) << *((_DWORD *)a3 + 4)) >> *((_BYTE *)a3 + 20))
                            + v9);
-  v20 = (unsigned int *)&unk_1C03374F4;
+  v20 = (unsigned int *)&unk_1C033CE64;
   v21 = v12 - v19;
   v25 = v19;
-  v22 = (unsigned __int8 *)off_1C03260D0 + 4;
+  v22 = (unsigned __int8 *)off_1C032B0D0 + 4;
   do
   {
     v23 = *((_QWORD *)a3 + 7);
@@ -71,11 +72,11 @@ void __fastcall vClearTypeLookupTableLoop(int a1, void **a2, struct _BLENDINFO *
   if ( a1 == 2 )
   {
     LOWORD(aulCacheCT) = a5;
-    word_1C03375D4 = a4;
+    word_1C033CF44 = a4;
   }
   else
   {
     LODWORD(aulCacheCT) = a5;
-    dword_1C03376B8 = a4;
+    dword_1C033D028 = a4;
   }
 }

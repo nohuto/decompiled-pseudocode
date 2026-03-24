@@ -1,73 +1,80 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x14071C8B8
+ * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x1406D9604
  * Callers:
- *     AlpcpCaptureSecurityAttribute @ 0x14071C7E8 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpCaptureSecurityAttribute32 @ 0x1407CD874 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x140680810 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x1406D952C (AlpcpCaptureSecurityAttribute.c)
  * Callees:
- *     AlpcpDeleteBlob @ 0x14071C18C (AlpcpDeleteBlob.c)
- *     AlpcpCreateSecurityContext @ 0x14071CA38 (AlpcpCreateSecurityContext.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DC68 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     AlpcpCreateSecurityContext @ 0x1406D93AC (AlpcpCreateSecurityContext.c)
+ *     AlpcReferenceBlobByHandle @ 0x1406D9700 (AlpcReferenceBlobByHandle.c)
  */
 
-__int64 __fastcall AlpcpCaptureSecurityAttributeInternal(PVOID Object, int a2, __int64 a3, _QWORD *a4, __int64 a5)
+__int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
+        volatile signed __int64 *Object,
+        int a2,
+        struct _SECURITY_QUALITY_OF_SERVICE *a3,
+        _QWORD *a4,
+        __int64 a5)
 {
-  char v8; // di
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  ULONG_PTR v10; // rbx
   __int64 result; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  ULONG_PTR v13; // rbx
-  __int64 v14[3]; // [rsp+30h] [rbp-18h] BYREF
+  char v12; // di
+  __int64 v13; // rdx
+  ULONG_PTR v14[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v14[0] = 0LL;
   if ( (a2 & 0xFFFCFFFF) != 0 || (a2 & 0x30000) == 0x30000 )
     return 3221225485LL;
-  if ( *a4 == -2LL )
+  if ( *a4 != -2LL )
   {
-    if ( (a2 & 0x20000) != 0 )
+    v8 = *((_QWORD *)Object + 2);
+    if ( v8 )
     {
-      v8 = 1;
-LABEL_7:
-      result = AlpcpCreateSecurityContext(Object, KeGetCurrentThread(), (__int64)v14);
-      if ( (int)result >= 0 )
+      v9 = AlpcReferenceBlobByHandle(v8 + 40, *a4, AlpcSecurityType);
+      v10 = v9;
+      if ( v9 )
       {
-        v10 = v14[0];
-        *(_QWORD *)(a5 + 32) = v14[0];
-        if ( v8 )
-          *a4 = *(_QWORD *)(v10 + 8);
+        if ( Object == *(volatile signed __int64 **)(v9 + 24) )
+        {
+          if ( (a2 & 0x10000) != 0 )
+          {
+            if ( AlpcpDeleteBlob(v9) )
+              AlpcpDereferenceBlobEx(v10, 1);
+            AlpcpDereferenceBlobEx(v10, 1);
+            v10 = 0LL;
+          }
+          *(_QWORD *)(a5 + 32) = v10;
+          return 0LL;
+        }
+        else
+        {
+          AlpcpDereferenceBlobEx(v9, 1);
+          return 3221225506LL;
+        }
       }
-      return result;
-    }
-    if ( (a2 & 0x10000) == 0 )
-    {
-      v8 = 0;
-      goto LABEL_7;
     }
     return 3221225480LL;
   }
-  v11 = *((_QWORD *)Object + 2);
-  if ( !v11 )
-    return 3221225480LL;
-  v12 = AlpcReferenceBlobByHandle(v11 + 40, *a4, AlpcSecurityType);
-  v13 = v12;
-  if ( !v12 )
-    return 3221225480LL;
-  if ( Object == *(PVOID *)(v12 + 24) )
+  if ( (a2 & 0x20000) != 0 )
   {
-    if ( (a2 & 0x10000) != 0 )
-    {
-      if ( AlpcpDeleteBlob(v12) )
-        AlpcpDereferenceBlobEx(v13);
-      AlpcpDereferenceBlobEx(v13);
-      v13 = 0LL;
-    }
-    *(_QWORD *)(a5 + 32) = v13;
-    return 0LL;
+    v12 = 1;
   }
   else
   {
-    AlpcpDereferenceBlobEx(v12);
-    return 3221225506LL;
+    if ( (a2 & 0x10000) != 0 )
+      return 3221225480LL;
+    v12 = 0;
   }
+  result = AlpcpCreateSecurityContext(Object, KeGetCurrentThread(), v12, a3, v14);
+  if ( (int)result >= 0 )
+  {
+    v13 = v14[0];
+    *(_QWORD *)(a5 + 32) = v14[0];
+    if ( v12 )
+      *a4 = *(_QWORD *)(v13 + 8);
+  }
+  return result;
 }

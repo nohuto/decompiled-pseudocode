@@ -1,13 +1,13 @@
 /*
- * XREFs of UnmapChildMmioSpace @ 0x1C0383FB0
+ * XREFs of UnmapChildMmioSpace @ 0x1C02513C0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UnmapChildMmioSpace(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -15,7 +15,7 @@ void __fastcall UnmapChildMmioSpace(__int64 a1, __int64 a2, __int64 a3, char a4)
   volatile signed __int32 *v5; // rax
   unsigned __int64 v6; // rdx
   volatile signed __int64 *v7; // rax
-  int v8; // eax
+  char v8; // al
   __int64 v9; // rbx
   __int64 v10; // rbx
   struct _KPROCESS *v11; // rcx
@@ -33,25 +33,25 @@ void __fastcall UnmapChildMmioSpace(__int64 a1, __int64 a2, __int64 a3, char a4)
   if ( !a4 )
     v7 = &g_VgpuSizeHpaToGpaMappings;
   _InterlockedExchangeAdd64(v7, v6);
-  v8 = *(_DWORD *)(a1 + 424);
-  if ( (v8 & 0x100) != 0 )
+  v8 = *(_BYTE *)(a1 + 347);
+  if ( (v8 & 0x20) != 0 )
   {
-    v9 = *(_QWORD *)(*(_QWORD *)(a1 + 608) + 608LL);
+    v9 = *(_QWORD *)(*(_QWORD *)(a1 + 496) + 496LL);
 LABEL_7:
-    v10 = v9 + 160;
+    v10 = v9 + 128;
     goto LABEL_11;
   }
-  if ( (v8 & 0x80u) != 0 )
+  if ( (v8 & 0x10) != 0 )
   {
-    v9 = *(_QWORD *)(a1 + 608);
+    v9 = *(_QWORD *)(a1 + 496);
     goto LABEL_7;
   }
   v10 = 0LL;
 LABEL_11:
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, (struct _KTHREAD **)(v10 + 16), 0);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, (struct _KTHREAD **)(v10 + 8), 0);
   DXGPUSHLOCK::AcquireShared(v13);
   v14 = 1;
-  ((void (__fastcall *)(_QWORD, __int64))qword_1C0131E70)(*(_QWORD *)v10, a3);
+  ((void (__fastcall *)(_QWORD, __int64))qword_1C00B4560)(*(_QWORD *)v10, a3);
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v12);
   if ( *(_QWORD *)(a3 + 16) )
   {

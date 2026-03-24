@@ -1,12 +1,12 @@
 /*
- * XREFs of VfSuspectDriversRemove @ 0x140A9AC40
+ * XREFs of VfSuspectDriversRemove @ 0x1409D9F30
  * Callers:
- *     VfRemoveVerifierEntry @ 0x140A9C7F8 (VfRemoveVerifierEntry.c)
+ *     VfRemoveVerifierEntry @ 0x1409ECBC4 (VfRemoveVerifierEntry.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     ViSuspectDriversLookupEntry @ 0x140A9AF40 (ViSuspectDriversLookupEntry.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C2574 (ViSuspectDriversLookupEntry.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
  */
 
 __int64 __fastcall VfSuspectDriversRemove(PCUNICODE_STRING String2)
@@ -23,7 +23,7 @@ __int64 __fastcall VfSuspectDriversRemove(PCUNICODE_STRING String2)
   v4 = (_QWORD *)v3;
   if ( v3 )
   {
-    if ( VfDifRunningWithoutReboot || (VfOptionFlags & 0x800) != 0 || *(_DWORD *)(v3 + 16) == *(_DWORD *)(v3 + 20) )
+    if ( *(_DWORD *)(v3 + 16) == *(_DWORD *)(v3 + 20) )
     {
       v6 = *(_QWORD *)v3;
       if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v7 = (_QWORD *)v4[1], (_QWORD *)*v7 != v4) )

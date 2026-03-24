@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprQueryReplaceFeatures @ 0x140563148
+ * XREFs of PnprQueryReplaceFeatures @ 0x14050F578
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964BA0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC2C0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
  */
 
-__int64 __fastcall PnprQueryReplaceFeatures(__int64 a1, PVOID *a2)
+__int64 __fastcall PnprQueryReplaceFeatures(__int64 a1, PDEVICE_OBJECT *a2)
 {
   int v2; // r8d
   unsigned int v3; // ebx

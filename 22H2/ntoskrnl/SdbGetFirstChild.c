@@ -1,33 +1,35 @@
 /*
- * XREFs of SdbGetFirstChild @ 0x140757E54
+ * XREFs of SdbGetFirstChild @ 0x140759C60
  * Callers:
- *     InitOnceScanIndexes @ 0x140757010 (InitOnceScanIndexes.c)
- *     SdbpMatchList @ 0x140757A2C (SdbpMatchList.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A51BB0 (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpMatchList @ 0x140754098 (SdbpMatchList.c)
+ *     InitOnceScanIndexes @ 0x1407597B0 (InitOnceScanIndexes.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbFindFirstNamedTag @ 0x1407C214C (SdbFindFirstNamedTag.c)
  * Callees:
- *     SdbpGetNextTagId @ 0x140757FA0 (SdbpGetNextTagId.c)
- *     SdbGetTagFromTagID @ 0x140758190 (SdbGetTagFromTagID.c)
+ *     SdbpGetNextTagId @ 0x140759AA8 (SdbpGetNextTagId.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbGetFirstChild(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall SdbGetFirstChild(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
+  __int64 v4; // r8
+  __int64 v5; // r9
   unsigned int NextTagId; // eax
-  unsigned int v6; // ecx
+  unsigned int v7; // ecx
 
-  v3 = a2;
+  v2 = a2;
   if ( !(_DWORD)a2 )
   {
     NextTagId = *(_DWORD *)(a1 + 20);
-    v6 = 12;
-    return v6 < NextTagId ? v6 : 0;
+    v7 = 12;
+    return v7 < NextTagId ? v7 : 0;
   }
-  if ( (SdbGetTagFromTagID(a1, a2, a3) & 0xF000) == 0x7000 )
+  if ( (SdbGetTagFromTagID(a1, a2) & 0xF000) == 0x7000 )
   {
-    NextTagId = SdbpGetNextTagId(a1, v3);
-    v6 = v3 + 6;
-    return v6 < NextTagId ? v6 : 0;
+    NextTagId = SdbpGetNextTagId(a1, v2, v4, v5);
+    v7 = v2 + 6;
+    return v7 < NextTagId ? v7 : 0;
   }
   return 0LL;
 }

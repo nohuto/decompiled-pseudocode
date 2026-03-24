@@ -1,10 +1,10 @@
 /*
- * XREFs of GlobalLockEventHandler @ 0x1C0023960
+ * XREFs of GlobalLockEventHandler @ 0x1C000F460
  * Callers:
  *     <none>
  * Callees:
- *     ACPIReleaseGlobalLock @ 0x1C00239A4 (ACPIReleaseGlobalLock.c)
- *     ACPIAsyncAcquireGlobalLock @ 0x1C0023A70 (ACPIAsyncAcquireGlobalLock.c)
+ *     ACPIReleaseGlobalLock @ 0x1C000F4A4 (ACPIReleaseGlobalLock.c)
+ *     ACPIAsyncAcquireGlobalLock @ 0x1C000F580 (ACPIAsyncAcquireGlobalLock.c)
  */
 
 __int64 __fastcall GlobalLockEventHandler(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,31 +1,36 @@
 /*
- * XREFs of MiDeleteSparseRange @ 0x140A4318C
+ * XREFs of MiDeleteSparseRange @ 0x1408D87A0
  * Callers:
- *     MiDeletePfnBitMaps @ 0x140A43018 (MiDeletePfnBitMaps.c)
+ *     MiDeletePfnBitMaps @ 0x1408D869C (MiDeletePfnBitMaps.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiReturnPfnList @ 0x1403769D4 (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x140376A9C (MiReturnSplitPageCharges.c)
- *     MiCaptureSparsePages @ 0x140A42F44 (MiCaptureSparsePages.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiReturnPfnList @ 0x1403BA340 (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x1403CE694 (MiReturnSplitPageCharges.c)
+ *     MiCaptureSparsePages @ 0x1408D85B4 (MiCaptureSparsePages.c)
  */
 
 void __fastcall MiDeleteSparseRange(unsigned __int64 a1, unsigned int a2)
 {
-  __int64 *PteAddress; // rbx
+  _QWORD *PteAddress; // rbx
   __int64 v4; // rdx
-  __int64 v5; // rsi
-  unsigned __int64 v6; // rax
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  unsigned __int64 v11; // rax
 
   if ( a1 )
   {
-    PteAddress = (__int64 *)MiGetPteAddress(a1);
-    v5 = MiCaptureSparsePages((unsigned __int64)PteAddress, v4);
-    MiReleasePtes((__int64)&qword_140C69A40, PteAddress, a2);
-    if ( v5 )
+    PteAddress = (_QWORD *)MiGetPteAddress(a1);
+    v7 = MiCaptureSparsePages((unsigned __int64)PteAddress, v4, v5, v6);
+    MiReleasePtes((__int64)&qword_140C4EF40, PteAddress, a2);
+    if ( v7 )
     {
-      v6 = MiReturnPfnList(v5);
-      MiReturnSplitPageCharges((__int64)MiSystemPartition, v6, 9);
+      v11 = MiReturnPfnList(v7, v8, v9, v10);
+      MiReturnSplitPageCharges((__int64)&MiSystemPartition, v11, 9);
     }
   }
 }

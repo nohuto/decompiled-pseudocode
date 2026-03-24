@@ -1,11 +1,11 @@
 /*
- * XREFs of ?prunPlgRead32@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C01707E0
+ * XREFs of ?prunPlgRead32@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D8800
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C00D5950 (XLATEOBJ_iXlate.c)
- *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C017095A (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
- *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D7624 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C8500 (XLATEOBJ_iXlate.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8D54 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D8F28 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
  */
 
 struct _PLGRUN *__fastcall prunPlgRead32(
@@ -58,7 +58,7 @@ struct _PLGRUN *__fastcall prunPlgRead32(
         if ( v17 < 32 )
           v21 = v15;
         v15 = v21;
-        if ( (dword_1C02FA030[v19] & v16) != 0 )
+        if ( (dword_1C02FC6F0[v19] & v16) != 0 )
         {
           v22 = *v10;
           if ( pxlo )

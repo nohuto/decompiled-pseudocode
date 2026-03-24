@@ -1,30 +1,39 @@
 /*
- * XREFs of RtlInitCodePageTable @ 0x14085AAD0
+ * XREFs of RtlInitCodePageTable @ 0x1407CC880
  * Callers:
- *     RtlpInitCodePageTables @ 0x14085A964 (RtlpInitCodePageTables.c)
+ *     RtlInitNlsTables @ 0x1407CC814 (RtlInitNlsTables.c)
  * Callees:
  *     <none>
  */
 
 void __stdcall RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTable)
 {
-  wchar_t *v2; // r10
-  __int64 v4; // rax
-  unsigned __int16 v5; // r11
-  USHORT *v6; // rax
-  USHORT *v7; // rcx
-  __int64 v8; // r8
-  unsigned __int16 v9; // ax
+  USHORT *v2; // r9
+  USHORT v4; // cx
+  __int64 v5; // rax
+  USHORT v6; // r11
+  unsigned __int16 v7; // r11
+  USHORT *v8; // rax
+  USHORT *v9; // r8
+  USHORT v10; // ax
 
   v2 = 0LL;
-  if ( !TableBase || TableBase[1] == 0xFDE9 )
+  if ( !TableBase || (v4 = TableBase[1], v4 == 0xFDE9) )
   {
-    *CodePageTable = Utf8TableInfo;
+    *(_DWORD *)&CodePageTable->CodePage = 327145;
+    *(_DWORD *)&CodePageTable->DefaultChar = -196545;
+    *(_DWORD *)&CodePageTable->TransDefaultChar = 4128831;
+    CodePageTable->DBCSCodePage = 0;
+    CodePageTable->MultiByteTable = 0LL;
+    CodePageTable->DBCSRanges = 0LL;
+    CodePageTable->DBCSOffsets = 0LL;
   }
   else
   {
-    v4 = *TableBase;
-    v5 = v4 + TableBase[v4];
+    v5 = *TableBase;
+    v6 = TableBase[v5];
+    CodePageTable->CodePage = v4;
+    v7 = v5 + v6;
     CodePageTable->MaximumCharacterSize = TableBase[2];
     CodePageTable->DefaultChar = TableBase[3];
     CodePageTable->UniDefaultChar = TableBase[4];
@@ -32,22 +41,22 @@ void __stdcall RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTabl
     CodePageTable->TransUniDefaultChar = TableBase[6];
     *(_QWORD *)CodePageTable->LeadByte = *(_QWORD *)(TableBase + 7);
     *(_DWORD *)&CodePageTable->LeadByte[8] = *(_DWORD *)(TableBase + 11);
-    v6 = &TableBase[v4 + 1];
-    v7 = v6 + 256;
-    CodePageTable->MultiByteTable = v6;
-    v8 = v6[256] != 0 ? 0x200 : 0;
-    if ( *(USHORT *)((char *)v6 + v8 + 514) )
+    v8 = &TableBase[v5 + 1];
+    CodePageTable->MultiByteTable = v8;
+    v9 = (USHORT *)((char *)v8 + (v8[256] != 0 ? 514LL : 2LL) + 512);
+    CodePageTable->DBCSRanges = v9;
+    if ( *v9 )
     {
-      v9 = 1;
-      v2 = (USHORT *)((char *)v7 + v8 + 4);
+      v10 = 1;
+      v2 = v9 + 1;
     }
     else
     {
-      v9 = 0;
+      v10 = 0;
     }
     CodePageTable->DBCSOffsets = v2;
-    CodePageTable->DBCSCodePage = v9;
-    CodePageTable->WideCharTable = &TableBase[v5 + 1];
-    CodePageTable->CodePage = TableBase[1];
+    CodePageTable->DBCSCodePage = v10;
+    v2 = &TableBase[v7 + 1];
   }
+  CodePageTable->WideCharTable = v2;
 }

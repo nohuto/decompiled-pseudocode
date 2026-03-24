@@ -1,55 +1,54 @@
 /*
- * XREFs of NtGdiRectangle @ 0x1C02AD690
+ * XREFs of NtGdiRectangle @ 0x1C0143A10
  * Callers:
- *     NtGdiRoundRect @ 0x1C02AD7B0 (NtGdiRoundRect.c)
+ *     NtGdiRoundRect @ 0x1C0142270 (NtGdiRoundRect.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C0266BF4 (-vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ.c)
- *     ?bDWMDesktop@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C029A5D4 (-bDWMDesktop@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
- *     ?bInPathBracket@DWMSCREENREADMODIFYWRITEASSIST@@QEBAHXZ @ 0x1C02A8958 (-bInPathBracket@DWMSCREENREADMODIFYWRITEASSIST@@QEBAHXZ.c)
- *     ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C02A8980 (-bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
- *     ?vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C02A8A60 (-vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ.c)
- *     GreRectangle @ 0x1C02ACBA0 (GreRectangle.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreRectangle @ 0x1C0143B30 (GreRectangle.c)
+ *     ?bDWMDesktop@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C0145710 (-bDWMDesktop@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?bInPathBracket@DWMSCREENREADMODIFYWRITEASSIST@@QEBAHXZ @ 0x1C029EC74 (-bInPathBracket@DWMSCREENREADMODIFYWRITEASSIST@@QEBAHXZ.c)
+ *     ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C029EC9C (-bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ.c)
+ *     ?vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029ED60 (-vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ.c)
+ *     ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029EE7C (-vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ.c)
  */
 
-__int64 __fastcall NtGdiRectangle(Gre::Base *a1, LONG a2, LONG a3, LONG a4, LONG a5)
+__int64 __fastcall NtGdiRectangle(HDC a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  int v9; // edi
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  __int64 v12; // rax
-  _QWORD v14[2]; // [rsp+30h] [rbp-71h] BYREF
-  _BYTE v15[32]; // [rsp+40h] [rbp-61h] BYREF
-  _BYTE v16[24]; // [rsp+60h] [rbp-41h] BYREF
-  _QWORD *v17; // [rsp+78h] [rbp-29h]
+  int v6; // edi
+  __int64 v7; // rcx
+  unsigned int v8; // ebx
+  __int64 v9; // rax
+  _QWORD v11[2]; // [rsp+30h] [rbp-C8h] BYREF
+  _BYTE v12[32]; // [rsp+40h] [rbp-B8h] BYREF
+  _BYTE v13[24]; // [rsp+60h] [rbp-98h] BYREF
+  _QWORD *v14; // [rsp+78h] [rbp-80h]
 
-  v9 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v14, (HDC)a1);
-  if ( v14[0] )
+  v6 = 0;
+  DCOBJ::DCOBJ((DCOBJ *)v11, a1);
+  if ( v11[0] )
   {
-    v17 = v14;
-    if ( (unsigned int)DWMSCREENREADMODIFYWRITEASSIST::bDWMDesktop((DWMSCREENREADMODIFYWRITEASSIST *)v16) )
+    v14 = v11;
+    if ( (unsigned int)DWMSCREENREADMODIFYWRITEASSIST::bDWMDesktop((DWMSCREENREADMODIFYWRITEASSIST *)v13) )
     {
-      if ( !(unsigned int)DWMSCREENREADMODIFYWRITEASSIST::bInPathBracket((DWMSCREENREADMODIFYWRITEASSIST *)v16) )
+      if ( !(unsigned int)DWMSCREENREADMODIFYWRITEASSIST::bInPathBracket((DWMSCREENREADMODIFYWRITEASSIST *)v13) )
       {
-        DWMSCREENREADMODIFYWRITEASSIST::vSaveAccumBoundsAndDisableSpriteUpdates((DWMSCREENREADMODIFYWRITEASSIST *)v16);
-        if ( (unsigned int)GreRectangle(a1, a2, a3, a4, a5) )
-          v9 = DWMSCREENREADMODIFYWRITEASSIST::bReadFromAccumulatedBounds((DWMSCREENREADMODIFYWRITEASSIST *)v16);
-        DWMSCREENREADMODIFYWRITEASSIST::vRestoreAccumBoundsAndEnableSpriteUpdates((DWMSCREENREADMODIFYWRITEASSIST *)v16);
+        DWMSCREENREADMODIFYWRITEASSIST::vSaveAccumBoundsAndDisableSpriteUpdates((DWMSCREENREADMODIFYWRITEASSIST *)v13);
+        if ( (unsigned int)GreRectangle(a1, a5) )
+          v6 = DWMSCREENREADMODIFYWRITEASSIST::bReadFromAccumulatedBounds((DWMSCREENREADMODIFYWRITEASSIST *)v13);
+        DWMSCREENREADMODIFYWRITEASSIST::vRestoreAccumBoundsAndEnableSpriteUpdates((DWMSCREENREADMODIFYWRITEASSIST *)v13);
       }
     }
   }
-  v11 = GreRectangle(a1, a2, a3, a4, a5);
-  if ( v9 )
+  v8 = GreRectangle(a1, a5);
+  if ( v6 )
   {
-    v12 = UserReferenceDwmApiPort(v10);
-    DwmSyncFlushAndWaitForBatch(v12);
+    v9 = UserReferenceDwmApiPort(v7);
+    DwmSyncFlushAndWaitForBatch(v9);
   }
-  if ( v14[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v14);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v15);
-  return v11;
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v11);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v12);
+  return v8;
 }

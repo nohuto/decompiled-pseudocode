@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8
+ * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88
  * Callers:
  *     CmpLightWeightCommitRecreateKeyUoW @ 0x140581804 (CmpLightWeightCommitRecreateKeyUoW.c)
  *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
  *     CmpCleanupDiscardReplaceContext @ 0x1405AA51C (CmpCleanupDiscardReplaceContext.c)
- *     CmpSaveBootControlSet @ 0x1407E88F0 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407F9A2C (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x1407F9E50 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     CmpInvalidateAllHigherLayerKcbs @ 0x1407F9FA4 (CmpInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407FA1BC (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1407FA2C8 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140803798 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140804618 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407F9A0C (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x1407F9E30 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x1407F9F84 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407FA19C (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1407FA2A8 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140803778 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408045F8 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpDereferenceKeyControlBlockWithLock @ 0x1405A942C (CmpDereferenceKeyControlBlockWithLock.c)
  *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x140692A5C (CmpReferenceKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
  */
 
 PVOID __fastcall CmpEnumerateAllHigherLayerKcbs(

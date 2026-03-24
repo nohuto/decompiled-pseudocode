@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetManipulations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBXI@Z @ 0x180233CD8
+ * XREFs of ?ProcessSetManipulations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBXI@Z @ 0x1801CA880
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall CInteractionTracker::ProcessSetManipulations(
         unsigned int a5)
 {
   if ( 8LL * *((unsigned int *)a3 + 2) == a5 )
-    return InteractionSourceManager::ProcessSetManipulations((CInteractionTracker *)((char *)this + 200), a2, a3, a4);
+    return InteractionSourceManager::ProcessSetManipulations((CInteractionTracker *)((char *)this + 192), a2, a3, a4);
   else
     return 2291663875LL;
 }

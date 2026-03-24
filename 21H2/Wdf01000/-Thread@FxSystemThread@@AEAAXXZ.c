@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Thread@FxSystemThread@@AEAAXXZ @ 0x1C002FB68
+ * XREFs of ?Thread@FxSystemThread@@AEAAXXZ @ 0x1C0091118
  * Callers:
- *     ?StaticThreadThunk@FxSystemThread@@CAXPEAX@Z @ 0x1C002FB50 (-StaticThreadThunk@FxSystemThread@@CAXPEAX@Z.c)
+ *     ?StaticThreadThunk@FxSystemThread@@CAXPEAX@Z @ 0x1C0091100 (-StaticThreadThunk@FxSystemThread@@CAXPEAX@Z.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxSystemThread::Thread(FxSystemThread *this)
@@ -23,7 +23,7 @@ void __fastcall FxSystemThread::Thread(FxSystemThread *this)
 
   head.Blink = &head;
   head.Flink = &head;
-  this->m_PEThread = (_ETHREAD *)KeGetCurrentThread();
+  this->m_PEThread = KeGetCurrentThread();
   KeSetEvent(&this->m_InitEvent.m_Event, 0, 0);
   p_m_WorkList = &this->m_WorkList;
   while ( 1 )

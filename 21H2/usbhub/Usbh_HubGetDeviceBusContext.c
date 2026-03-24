@@ -1,10 +1,10 @@
 /*
- * XREFs of Usbh_HubGetDeviceBusContext @ 0x1C002D8C4
+ * XREFs of Usbh_HubGetDeviceBusContext @ 0x1C002ECA0
  * Callers:
- *     UsbhGetDeviceBusInfo @ 0x1C002B0CC (UsbhGetDeviceBusInfo.c)
+ *     UsbhGetDeviceBusInfo @ 0x1C002C4C0 (UsbhGetDeviceBusInfo.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubGetDeviceBusContext(__int64 a1, __int64 a2, _QWORD *a3)

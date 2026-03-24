@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDESC_InternalValidateLastEndpoint @ 0x1C00338A8
+ * XREFs of HUBDESC_InternalValidateLastEndpoint @ 0x1C0033038
  * Callers:
- *     HUBDESC_InternalValidateLastInterface @ 0x1C00339C4 (HUBDESC_InternalValidateLastInterface.c)
- *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C0033B10 (HUBDESC_InternalValidateEndpointDescriptor.c)
+ *     HUBDESC_InternalValidateLastInterface @ 0x1C0033158 (HUBDESC_InternalValidateLastInterface.c)
+ *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C00332A4 (HUBDESC_InternalValidateEndpointDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall HUBDESC_InternalValidateLastEndpoint(__int64 a1, int *a2, __int64 a3)
@@ -36,16 +36,16 @@ bool __fastcall HUBDESC_InternalValidateLastEndpoint(__int64 a1, int *a2, __int6
       {
         *v4 = 2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_(a3, 2u, 5u, 0x19u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+          WPP_RECORDER_SF_(a3, 2u, 5u, 0x19u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
         (*(void (__fastcall **)(_QWORD, __int64))(a1 + 24))(*(_QWORD *)(a1 + 40), 59LL);
         v7 = *(_DWORD *)(a1 + 256);
       }
       v6 = v7;
       if ( (v7 & 8) != 0 && (v7 & 0x20) == 0 )
       {
-        *v4 = 0;
+        *v4 = 2;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Au, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+          WPP_RECORDER_SF_(a3, 2u, 5u, 0x1Au, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
         (*(void (__fastcall **)(_QWORD, __int64))(a1 + 24))(*(_QWORD *)(a1 + 40), 212LL);
         v6 = *(_DWORD *)(a1 + 256);
       }

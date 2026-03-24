@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgAppendMultiSz @ 0x14095C6E4
+ * XREFs of PiDevCfgAppendMultiSz @ 0x1408A4CDC
  * Callers:
- *     PiDrvDbResolveFilePathKeyValues @ 0x140815520 (PiDrvDbResolveFilePathKeyValues.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140879CB4 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14095FAB8 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140962D24 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076BA48 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1408A7EBC (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA93C (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B7208 (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1403CD820 (PnpDuplicateUnicodeString.c)
- *     PnpMultiSzContainsString @ 0x1403CDF30 (PnpMultiSzContainsString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
+ *     PnpDuplicateUnicodeString @ 0x14036E360 (PnpDuplicateUnicodeString.c)
+ *     PnpMultiSzContainsString @ 0x140392700 (PnpMultiSzContainsString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const void **a2, const void **a3, char a4)
@@ -19,17 +19,18 @@ __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const vo
   unsigned int v4; // ebx
   unsigned int v9; // eax
   wchar_t *StringRoutine; // rax
-  unsigned __int16 v11; // cx
+  wchar_t *v11; // rcx
+  unsigned __int16 v12; // ax
   unsigned __int16 Length; // dx
-  int v13; // ecx
-  __int64 v14; // rcx
-  wchar_t *Buffer; // r13
-  unsigned __int16 v16; // si
-  unsigned __int64 v17; // rax
+  int v14; // ecx
+  SIZE_T v15; // rcx
+  wchar_t *Buffer; // r12
+  unsigned __int16 v17; // si
+  unsigned __int64 v18; // rax
   _WORD *i; // r14
-  __int64 v19; // rax
-  __int16 v20; // r15
-  unsigned __int64 v21; // rbp
+  __int64 v20; // rax
+  __int16 v21; // r13
+  unsigned __int64 v22; // r15
   UNICODE_STRING UnicodeStringa; // [rsp+20h] [rbp-38h] BYREF
 
   v4 = 0;
@@ -38,75 +39,75 @@ __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const vo
   if ( UnicodeString->Buffer )
   {
     Length = UnicodeString->Length;
-    v13 = UnicodeString->Length;
+    v14 = UnicodeString->Length;
     if ( Length <= 2u )
-      v13 = 2;
+      v14 = 2;
     if ( a2 )
     {
-      v14 = (unsigned int)*(unsigned __int16 *)a2 + 2 + v13;
+      v15 = (unsigned int)*(unsigned __int16 *)a2 + 2 + v14;
     }
     else
     {
       if ( !a3 )
         goto LABEL_40;
-      v14 = (unsigned int)*(unsigned __int16 *)a3 + v13;
+      v15 = (unsigned int)*(unsigned __int16 *)a3 + v14;
       if ( Length )
-        v14 = (unsigned int)(v14 - 2);
+        v15 = (unsigned int)(v15 - 2);
     }
-    if ( (unsigned int)v14 > 0xFFFE )
+    if ( (unsigned int)v15 > 0xFFFE )
       goto LABEL_4;
-    UnicodeStringa.Buffer = (wchar_t *)ExpAllocateStringRoutine(v14);
+    UnicodeStringa.Buffer = (wchar_t *)ExpAllocateStringRoutine(v15);
     Buffer = UnicodeStringa.Buffer;
     if ( !UnicodeStringa.Buffer )
       goto LABEL_6;
     if ( UnicodeString->Length <= 2u )
     {
-      v16 = 0;
+      v17 = 0;
     }
     else
     {
       memmove(UnicodeStringa.Buffer, UnicodeString->Buffer, UnicodeString->Length);
-      v16 = UnicodeString->Length - 2;
+      v17 = UnicodeString->Length - 2;
     }
     if ( a2 )
     {
       if ( a4 || !PnpMultiSzContainsString(UnicodeString->Buffer, (const WCHAR *)a2[1]) )
       {
-        memmove((char *)UnicodeStringa.Buffer + v16, a2[1], *(unsigned __int16 *)a2);
-        v17 = (unsigned __int64)(unsigned __int16)(*(_WORD *)a2 + v16) >> 1;
-        v16 += *(_WORD *)a2 + 2;
-        UnicodeStringa.Buffer[v17] = 0;
+        memmove((char *)UnicodeStringa.Buffer + v17, a2[1], *(unsigned __int16 *)a2);
+        v18 = (unsigned __int64)(unsigned __int16)(v17 + *(_WORD *)a2) >> 1;
+        v17 += *(_WORD *)a2 + 2;
+        UnicodeStringa.Buffer[v18] = 0;
       }
     }
     else if ( a3 )
     {
       if ( a4 )
       {
-        memmove((char *)UnicodeStringa.Buffer + v16, a3[1], *(unsigned __int16 *)a3);
-        v16 += *(_WORD *)a3 - 2;
+        memmove((char *)UnicodeStringa.Buffer + v17, a3[1], *(unsigned __int16 *)a3);
+        v17 += *(_WORD *)a3 - 2;
       }
       else
       {
-        for ( i = a3[1]; *i; i += v21 >> 1 )
+        for ( i = a3[1]; *i; i += v22 >> 1 )
         {
-          v19 = -1LL;
+          v20 = -1LL;
           do
-            ++v19;
-          while ( i[v19] );
-          v20 = 2 * v19 + 2;
-          v21 = (unsigned int)(2 * v19 + 2);
+            ++v20;
+          while ( i[v20] );
+          v21 = 2 * v20 + 2;
+          v22 = (unsigned int)(2 * v20 + 2);
           if ( !PnpMultiSzContainsString(UnicodeString->Buffer, i) )
           {
-            memmove((char *)UnicodeStringa.Buffer + v16, i, (unsigned int)v21);
-            v16 += v20;
+            memmove((char *)UnicodeStringa.Buffer + v17, i, (unsigned int)v22);
+            v17 += v21;
           }
         }
       }
     }
-    UnicodeStringa.Length = v16 + 2;
-    UnicodeStringa.MaximumLength = v16 + 2;
-    Buffer[(unsigned __int64)v16 >> 1] = 0;
-    RtlFreeUnicodeString(UnicodeString);
+    UnicodeStringa.Length = v17 + 2;
+    UnicodeStringa.MaximumLength = v17 + 2;
+    Buffer[(unsigned __int64)v17 >> 1] = 0;
+    RtlFreeAnsiString(UnicodeString);
     *UnicodeString = UnicodeStringa;
     UnicodeStringa = 0LL;
     goto LABEL_41;
@@ -132,25 +133,27 @@ LABEL_4:
   }
   StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v9);
   UnicodeString->Buffer = StringRoutine;
+  v11 = StringRoutine;
   if ( !StringRoutine )
   {
 LABEL_6:
     v4 = -1073741670;
     goto LABEL_41;
   }
-  v11 = *(_WORD *)a2;
+  v12 = *(_WORD *)a2;
   UnicodeString->Length = *(_WORD *)a2;
   if ( *(_WORD *)a2 )
   {
-    memmove(StringRoutine, a2[1], *(unsigned __int16 *)a2);
+    memmove(v11, a2[1], *(unsigned __int16 *)a2);
     UnicodeString->Buffer[(unsigned __int64)UnicodeString->Length >> 1] = 0;
     UnicodeString->Length += 2;
-    v11 = UnicodeString->Length;
+    v12 = UnicodeString->Length;
+    v11 = UnicodeString->Buffer;
   }
-  UnicodeString->Buffer[(unsigned __int64)v11 >> 1] = 0;
+  v11[(unsigned __int64)v12 >> 1] = 0;
   UnicodeString->Length += 2;
   UnicodeString->MaximumLength = UnicodeString->Length;
 LABEL_41:
-  RtlFreeUnicodeString(&UnicodeStringa);
+  RtlFreeAnsiString(&UnicodeStringa);
   return v4;
 }

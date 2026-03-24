@@ -1,5 +1,5 @@
 /*
- * XREFs of VfPowerIsSystemRestrictedIrp @ 0x140AE8740
+ * XREFs of VfPowerIsSystemRestrictedIrp @ 0x1409E32E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 __fastcall VfPowerIsSystemRestrictedIrp(__int64 a1)
 {
-  return !*(_BYTE *)(a1 + 1) || *(_BYTE *)(a1 + 1) != 1;
+  return *(_BYTE *)(a1 + 1) != 1;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetQuaternionValue@DataSourceProxy@@MEAAJIMMMM@Z @ 0x1801BD0C0
+ * XREFs of ?SetQuaternionValue@DataSourceProxy@@MEAAJIMMMM@Z @ 0x180180F70
  * Callers:
  *     <none>
  * Callees:
- *     ??$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801BB6B0 (--$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_E.c)
- *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801BC46C (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
- *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801BCA3C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ *     ??$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017F5B4 (--$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_E.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801803BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x180180988 (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
  */
 
 __int64 __fastcall DataSourceProxy::SetQuaternionValue(

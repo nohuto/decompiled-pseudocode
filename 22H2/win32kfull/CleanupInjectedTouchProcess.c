@@ -1,7 +1,7 @@
 /*
- * XREFs of CleanupInjectedTouchProcess @ 0x1C01B00C0
+ * XREFs of CleanupInjectedTouchProcess @ 0x1C01DBFB0
  * Callers:
- *     _InitializeTouchInjectionWorker @ 0x1C01B0640 (_InitializeTouchInjectionWorker.c)
+ *     _InitializeTouchInjectionWorker @ 0x1C01DC5D0 (_InitializeTouchInjectionWorker.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall CleanupInjectedTouchProcess(__int64 a1)
   __int64 *v6; // rdx
   __int64 v7; // rax
 
-  v1 = *(_QWORD *)(a1 + 904);
+  v1 = *(_QWORD *)(a1 + 896);
   v3 = *(void **)(v1 + 88);
   if ( v3 )
   {
@@ -31,7 +31,7 @@ __int64 __fastcall CleanupInjectedTouchProcess(__int64 a1)
   Win32FreePool((void *)v1);
   v5 = (__int64 *)gpTouchInjectorProcesses;
   v6 = 0LL;
-  *(_QWORD *)(a1 + 904) = 0LL;
+  *(_QWORD *)(a1 + 896) = 0LL;
   if ( v5 )
   {
     while ( 1 )

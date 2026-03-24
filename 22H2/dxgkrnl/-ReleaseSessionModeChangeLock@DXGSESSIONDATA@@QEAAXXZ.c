@@ -1,7 +1,8 @@
 /*
- * XREFs of ?ReleaseSessionModeChangeLock@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0008288
+ * XREFs of ?ReleaseSessionModeChangeLock@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0019BD8
  * Callers:
- *     ?ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C01A7AE0 (-ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C0161C04 (-DestroySession@DXGSESSIONMGR@@QEAAXXZ.c)
+ *     ?ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C01703CC (-ReleaseConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAXPEAVDXGSESSIONDATA@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +13,9 @@ void __fastcall DXGSESSIONDATA::ReleaseSessionModeChangeLock(DXGSESSIONDATA *thi
   bool v2; // zf
   char *v3; // rcx
 
-  v1 = (char *)this + 18544;
-  v2 = *((_QWORD *)this + 2319) == (_QWORD)KeGetCurrentThread();
-  v3 = (char *)this + 18544;
+  v1 = (char *)this + 18528;
+  v2 = *((_QWORD *)this + 2317) == (_QWORD)KeGetCurrentThread();
+  v3 = (char *)this + 18528;
   if ( v2 )
   {
     *((_QWORD *)v1 + 1) = 0LL;
@@ -22,7 +23,6 @@ void __fastcall DXGSESSIONDATA::ReleaseSessionModeChangeLock(DXGSESSIONDATA *thi
   }
   else
   {
-    _InterlockedDecrement((volatile signed __int32 *)v1 + 4);
     ExReleasePushLockSharedEx(v3, 0LL);
   }
   KeLeaveCriticalRegion();

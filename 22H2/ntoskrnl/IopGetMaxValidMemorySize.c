@@ -1,14 +1,14 @@
 /*
- * XREFs of IopGetMaxValidMemorySize @ 0x140553320
+ * XREFs of IopGetMaxValidMemorySize @ 0x140503DCC
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14054FF70 (IoFillTriageDumpBuffer.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x140552268 (IopAddRunTimeTriageDataBlocks.c)
- *     IopUpdateMinidumpContext @ 0x140553B84 (IopUpdateMinidumpContext.c)
- *     IopAddBugcheckTriageThread @ 0x14055C1EC (IopAddBugcheckTriageThread.c)
- *     IopCalculateStackInformation @ 0x14055CE30 (IopCalculateStackInformation.c)
- *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055D83C (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     IoFillTriageDumpBuffer @ 0x140501A40 (IoFillTriageDumpBuffer.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x1405037A4 (IopAddRunTimeTriageDataBlocks.c)
+ *     IopUpdateMinidumpContext @ 0x140504464 (IopUpdateMinidumpContext.c)
+ *     IopAddBugcheckTriageThread @ 0x14050B39C (IopAddBugcheckTriageThread.c)
+ *     IopCalculateStackInformation @ 0x14050BC0C (IopCalculateStackInformation.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14050C040 (IopMarkPagesForRunTimeTriageDataBlocks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x14028CB70 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall IopGetMaxValidMemorySize(__int64 a1, unsigned int a2)

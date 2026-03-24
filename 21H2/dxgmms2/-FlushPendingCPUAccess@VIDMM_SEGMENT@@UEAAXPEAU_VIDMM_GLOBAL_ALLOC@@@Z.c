@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FlushPendingCPUAccess@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A53C0
+ * XREFs of ?FlushPendingCPUAccess@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0089AA0
  * Callers:
  *     <none>
  * Callees:
- *     ?FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z @ 0x1C00D6E44 (-FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z.c)
+ *     ?FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z @ 0x1C00AFB4C (-FlushAllocationFromProcessorCache@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@HE@Z.c)
  */
 
 void __fastcall VIDMM_SEGMENT::FlushPendingCPUAccess(
@@ -16,7 +16,7 @@ void __fastcall VIDMM_SEGMENT::FlushPendingCPUAccess(
 
   if ( ((_DWORD)this[10] & 0x10) == 0 )
   {
-    v4 = **((_DWORD **)a2 + 66);
+    v4 = **((_DWORD **)a2 + 64);
     if ( (v4 & 4) != 0 )
       VIDMM_GLOBAL::FlushAllocationFromProcessorCache(this[1], a2, v4, a4);
   }

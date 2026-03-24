@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionIsCompositionInputWindow @ 0x1C010C8B0
+ * XREFs of EditionIsCompositionInputWindow @ 0x1C0122480
  * Callers:
  *     <none>
  * Callees:
- *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C006D640 (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C006B91C (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
  */
 
 __int64 __fastcall EditionIsCompositionInputWindow(const struct tagWND *a1)

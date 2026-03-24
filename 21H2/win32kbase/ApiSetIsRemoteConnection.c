@@ -1,70 +1,41 @@
 /*
- * XREFs of ApiSetIsRemoteConnection @ 0x1C0047B78
+ * XREFs of ApiSetIsRemoteConnection @ 0x1C00540CC
  * Callers:
- *     RIMDiscoverDevicesOfInputType @ 0x1C0044B20 (RIMDiscoverDevicesOfInputType.c)
- *     RIMDeviceClassNotifyUsingAsyncPnpWorkNotification @ 0x1C00456F8 (RIMDeviceClassNotifyUsingAsyncPnpWorkNotification.c)
- *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C00475F0 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
- *     RIMDirectStartStopDeviceRead @ 0x1C0047820 (RIMDirectStartStopDeviceRead.c)
- *     RIMOpenDev @ 0x1C004AC3C (RIMOpenDev.c)
- *     RIMOnAsyncPnpWorkNotification @ 0x1C0185330 (RIMOnAsyncPnpWorkNotification.c)
+ *     RIMDiscoverDevicesOfInputType @ 0x1C0052D04 (RIMDiscoverDevicesOfInputType.c)
+ *     RIMDeviceClassNotify @ 0x1C0052EC0 (RIMDeviceClassNotify.c)
+ *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C0053D10 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
+ *     RIMDirectStartStopDeviceRead @ 0x1C0053E80 (RIMDirectStartStopDeviceRead.c)
+ *     RIMOpenDev @ 0x1C00AD020 (RIMOpenDev.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ApiSetIsRemoteConnection()
 {
-  char v0; // bl
-  char v1; // dl
-  char v2; // r8
-  unsigned int v3; // edi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  char v7; // dl
+  unsigned int v0; // ebx
+  int v1; // eax
 
-  v0 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (v1 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    v1 = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (v2 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    v2 = 0;
-  }
-  if ( v1 || v2 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v1,
-      v2,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
       5,
       10,
       94,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  v3 = 0;
-  if ( qword_1C029CC68 && (int)qword_1C029CC68() >= 0 && qword_1C029CC70 )
-    v3 = qword_1C029CC70(v5, v4, v6);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (v7 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    v7 = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v0 = 0;
-  if ( v7 || v0 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v7,
-      v0,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  v0 = 0;
+  if ( qword_1C0258048 )
+    v1 = qword_1C0258048();
+  else
+    v1 = -1073741637;
+  if ( v1 >= 0 && qword_1C0258050 )
+    v0 = qword_1C0258050();
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
       5,
       10,
       95,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  return v3;
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  return v0;
 }

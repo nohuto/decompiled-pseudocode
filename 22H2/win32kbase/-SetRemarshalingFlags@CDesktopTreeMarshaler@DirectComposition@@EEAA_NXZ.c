@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CDesktopTreeMarshaler@DirectComposition@@EEAA_NXZ @ 0x1C02258E0
+ * XREFs of ?SetRemarshalingFlags@CDesktopTreeMarshaler@DirectComposition@@EEAA_NXZ @ 0x1C01EC680
  * Callers:
  *     <none>
  * Callees:
@@ -9,9 +9,15 @@
 bool __fastcall DirectComposition::CDesktopTreeMarshaler::SetRemarshalingFlags(
         DirectComposition::CDesktopTreeMarshaler *this)
 {
+  int v1; // eax
+
   if ( *((_DWORD *)this + 14) || *((_DWORD *)this + 15) )
     *((_DWORD *)this + 4) |= 0x20u;
+  v1 = *((_DWORD *)this + 4);
   if ( *((_QWORD *)this + 8) )
-    *((_DWORD *)this + 4) |= 0x40u;
-  return (*((_DWORD *)this + 4) & 0x40) != 0;
+  {
+    v1 |= 0x40u;
+    *((_DWORD *)this + 4) = v1;
+  }
+  return (v1 & 0x40) != 0;
 }

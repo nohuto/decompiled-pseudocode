@@ -1,5 +1,5 @@
 /*
- * XREFs of Control_GetCurrentActivityId @ 0x1C000AE00
+ * XREFs of Control_GetCurrentActivityId @ 0x1C000A210
  * Callers:
  *     <none>
  * Callees:

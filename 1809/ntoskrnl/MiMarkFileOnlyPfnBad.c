@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMarkFileOnlyPfnBad @ 0x1402B6288
+ * XREFs of MiMarkFileOnlyPfnBad @ 0x1402B6388
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7310 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiTrimSharedPage @ 0x1400E9750 (MiTrimSharedPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPersistPage @ 0x1402B64D0 (MiPersistPage.c)
+ *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPersistPage @ 0x1402B65D0 (MiPersistPage.c)
  */
 
 __int64 __fastcall MiMarkFileOnlyPfnBad(ULONG_PTR BugCheckParameter2, unsigned int a2)

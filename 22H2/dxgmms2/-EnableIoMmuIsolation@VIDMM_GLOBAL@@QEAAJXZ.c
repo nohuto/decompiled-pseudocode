@@ -1,94 +1,110 @@
 /*
- * XREFs of ?EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00E1A08
+ * XREFs of ?EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00ADB8C
  * Callers:
- *     ?VidMmEnableIoMmuIsolation@@YAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C002C9F0 (-VidMmEnableIoMmuIsolation@@YAJPEAVVIDMM_GLOBAL@@@Z.c)
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C008ACF0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?VidMmEnableIoMmuIsolation@@YAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00226E0 (-VidMmEnableIoMmuIsolation@@YAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0067150 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0001DD0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0005224 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
- *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017C04 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0089B4C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0091AD8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
- *     ?EvictAllTemporaryAllocationsInList@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00E25C4 (-EvictAllTemporaryAllocationsInList@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?MapToIommu@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00FD9AC (-MapToIommu@VIDMM_SEGMENT@@QEAAJXZ.c)
+ *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0012C10 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0060630 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0088380 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?FlushAllTemporaryAllocation@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00AE4D0 (-FlushAllTemporaryAllocation@VIDMM_GLOBAL@@IEAAXI@Z.c)
+ *     ?MapAllocationsToIoMmu@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00C5FD0 (-MapAllocationsToIoMmu@VIDMM_SEGMENT@@QEAAJXZ.c)
  */
 
-int __fastcall VIDMM_GLOBAL::EnableIoMmuIsolation(VIDMM_GLOBAL *this)
+__int64 __fastcall VIDMM_GLOBAL::EnableIoMmuIsolation(VIDMM_GLOBAL **this)
 {
-  __int64 v3; // rsi
-  int v4; // eax
-  __int64 v5; // rbx
-  __int64 **i; // rsi
-  struct _MDL *v7; // rbx
-  unsigned __int64 LogicalAddress; // rax
-  int v9; // eax
-  __int64 **j; // rsi
-  struct _MDL *v11; // rbx
-  unsigned __int64 v12; // rax
+  __int64 i; // rsi
+  __int64 v4; // r9
+  int v5; // eax
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdi
+  unsigned int j; // edi
+  VIDMM_GLOBAL *k; // rsi
+  __int64 v12; // rax
   int v13; // eax
-  _BYTE v14[16]; // [rsp+20h] [rbp-78h] BYREF
-  _DWORD v15[24]; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  bool v16; // zf
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  __int64 v20; // [rsp+30h] [rbp-78h] BYREF
+  char v21; // [rsp+38h] [rbp-70h]
+  _DWORD v22[24]; // [rsp+40h] [rbp-68h] BYREF
 
-  if ( (*((_BYTE *)this + 40936) & 8) != 0 )
-    return 0;
-  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(*(_QWORD *)this + 8LL) )
+  if ( KeGetCurrentThread() != *((struct _KTHREAD **)*this + 1) )
   {
-    v3 = 0LL;
-    if ( !*((_DWORD *)this + 926) )
-    {
-LABEL_7:
-      VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(this, 0xFFFFFFFF);
-      VIDMM_GLOBAL::EvictAllTemporaryAllocationsInList(this, (struct _LIST_ENTRY *)((char *)this + 3768));
-      VIDMM_GLOBAL::EvictAllTemporaryAllocationsInList(this, (struct _LIST_ENTRY *)((char *)this + 3784));
-      DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-        (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v14,
-        (VIDMM_GLOBAL *)((char *)this + 3832));
-      for ( i = (__int64 **)*((_QWORD *)this + 475); i != (__int64 **)((char *)this + 3800); i = (__int64 **)*i )
-      {
-        v7 = (struct _MDL *)i[5];
-        LogicalAddress = SysMmGetLogicalAddress(i[6]);
-        v9 = SysMmMapIommuRange(*(struct SYSMM_ADAPTER **)(*((_QWORD *)this + 3) + 224LL), LogicalAddress, v7, 0);
-        v5 = v9;
-        if ( v9 < 0 )
-        {
-LABEL_17:
-          WdLogSingleEntry1(3LL, v5);
-          DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v14);
-          return v5;
-        }
-      }
-      for ( j = (__int64 **)*((_QWORD *)this + 477); j != (__int64 **)((char *)this + 3816); j = (__int64 **)*j )
-      {
-        v11 = (struct _MDL *)j[8];
-        v12 = SysMmGetLogicalAddress(j[9]);
-        v13 = SysMmMapIommuRange(*(struct SYSMM_ADAPTER **)(*((_QWORD *)this + 3) + 224LL), v12, v11, 0);
-        v5 = v13;
-        if ( v13 < 0 )
-          goto LABEL_17;
-      }
-      *((_BYTE *)this + 40181) = 1;
-      DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v14);
-      *((_BYTE *)this + 40179) = 1;
-      return 0;
-    }
-    while ( 1 )
-    {
-      v4 = VIDMM_SEGMENT::MapToIommu(*(VIDMM_SEGMENT **)(*((_QWORD *)this + 464) + 8 * v3));
-      LODWORD(v5) = v4;
-      if ( v4 < 0 )
-        break;
-      v3 = (unsigned int)(v3 + 1);
-      if ( (unsigned int)v3 >= *((_DWORD *)this + 926) )
-        goto LABEL_7;
-    }
-    WdLogSingleEntry1(3LL, v4);
-    return v5;
+    memset(&v22[1], 0, 0x54uLL);
+    v22[0] = 130;
+    return VIDMM_GLOBAL::QueueSystemCommandAndWait((VIDMM_GLOBAL *)this, (struct _VIDMM_SYSTEM_COMMAND *)v22, 1);
   }
-  else
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 926); i = (unsigned int)(i + 1) )
   {
-    memset(&v15[1], 0, 0x54uLL);
-    v15[0] = 130;
-    return VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v15, 1);
+    v4 = *((_QWORD *)this[464] + i);
+    v5 = *(_DWORD *)(v4 + 80);
+    if ( (v5 & 0x1001) != 0 )
+    {
+      v6 = VIDMM_SEGMENT::MapAllocationsToIoMmu(*((VIDMM_SEGMENT **)this[464] + i));
+    }
+    else
+    {
+      if ( (v5 & 0x40) == 0 )
+        continue;
+      v6 = DpiMapIommuContiguous(
+             *((_QWORD *)this[3] + 27),
+             *(_QWORD *)(v4 + 32) / 4096LL,
+             *(_QWORD *)(v4 + 64),
+             5LL,
+             *((_QWORD *)this[464] + i));
+    }
+    v9 = v6;
+    if ( v6 < 0 )
+    {
+      v12 = WdLogNewEntry5_WdWarning(v8, v7);
+      *(_QWORD *)(v12 + 24) = v9;
+      WdLogEvent5_WdWarning(v12);
+      return (unsigned int)v9;
+    }
   }
+  VIDMM_GLOBAL::WaitForAllPagingEnginesIdle((VIDMM_GLOBAL *)this, 0xFFFFFFFF);
+  for ( j = 0; j < *((_DWORD *)this + 1750); ++j )
+    VIDMM_GLOBAL::FlushAllTemporaryAllocation((VIDMM_GLOBAL *)this, j);
+  DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
+    (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)&v20,
+    (struct DXGPUSHLOCKFAST *)(this + 477));
+  for ( k = this[475]; ; k = *(VIDMM_GLOBAL **)k )
+  {
+    if ( k == (VIDMM_GLOBAL *)(this + 475) )
+    {
+      v16 = v21 == 0;
+      *((_BYTE *)this + 40172) = 1;
+      if ( !v16 )
+      {
+        v17 = v20;
+        *(_QWORD *)(v20 + 8) = 0LL;
+        ExReleasePushLockExclusiveEx(v17, 0LL);
+        KeLeaveCriticalRegion();
+      }
+      *((_BYTE *)this + 40171) = 1;
+      return 0LL;
+    }
+    v13 = DpiMapIommuIdentityRange(*((_QWORD *)this[3] + 27), *((_QWORD *)k + 5), 0LL, 3LL, (char *)k - 16);
+    v9 = v13;
+    if ( v13 < 0 )
+      break;
+  }
+  v18 = WdLogNewEntry5_WdWarning(v15, v14);
+  *(_QWORD *)(v18 + 24) = v9;
+  WdLogEvent5_WdWarning(v18);
+  if ( v21 )
+  {
+    v19 = v20;
+    *(_QWORD *)(v20 + 8) = 0LL;
+    ExReleasePushLockExclusiveEx(v19, 0LL);
+    KeLeaveCriticalRegion();
+  }
+  return (unsigned int)v9;
 }

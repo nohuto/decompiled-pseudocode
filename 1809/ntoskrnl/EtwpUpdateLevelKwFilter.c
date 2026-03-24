@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpUpdateLevelKwFilter @ 0x1408C2438
+ * XREFs of EtwpUpdateLevelKwFilter @ 0x1408C2418
  * Callers:
- *     EtwpUpdateFilterData @ 0x140657034 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x140657014 (EtwpUpdateFilterData.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */

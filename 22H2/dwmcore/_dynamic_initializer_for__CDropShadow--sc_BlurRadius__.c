@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CDropShadow::sc_BlurRadius__ @ 0x180002580
+ * XREFs of _dynamic_initializer_for__CDropShadow::sc_BlurRadius__ @ 0x180002070
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CDropShadow::sc_BlurRadius__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4858 = (unsigned __int64)CDropShadow::SetBlurRadius;
-  qword_1803E4868 = v1;
+  xmmword_180346088 = (unsigned __int64)CDropShadow::SetBlurRadius;
+  qword_180346098 = v1;
   return result;
 }

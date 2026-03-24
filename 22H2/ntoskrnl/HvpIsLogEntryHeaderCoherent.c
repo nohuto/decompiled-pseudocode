@@ -1,28 +1,43 @@
 /*
- * XREFs of HvpIsLogEntryHeaderCoherent @ 0x1407FE8B4
+ * XREFs of HvpIsLogEntryHeaderCoherent @ 0x1408818B8
  * Callers:
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407FE728 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     HvpApplyIncrementalLogFile @ 0x140881368 (HvpApplyIncrementalLogFile.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x1408817C8 (HvpDetermineIncrementalLogFileMaximums.c)
  * Callees:
- *     HvpLogEntryCheckHeaderChecksum @ 0x1407FE924 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x140872588 (HvpLogEntryCheckHeaderChecksum.c)
  */
 
-bool __fastcall HvpIsLogEntryHeaderCoherent(_DWORD *a1, unsigned int a2)
+bool __fastcall HvpIsLogEntryHeaderCoherent(_DWORD *a1, unsigned int a2, unsigned int a3)
 {
-  unsigned int v2; // eax
-  unsigned __int64 v3; // r8
-  int v4; // edx
-  __int64 v5; // rax
-  unsigned __int64 v6; // rax
+  unsigned int v3; // eax
+  unsigned __int64 v4; // r9
+  unsigned int v5; // edx
+  __int64 v6; // rax
+  unsigned __int64 v7; // rax
   bool result; // al
 
-  result = *a1 == 1162638920
-        && (v2 = a1[1], v2 > 0x28)
-        && (v3 = v2, v2 + (unsigned __int64)a2 <= 0xFFFFFFFF)
-        && (v4 = a1[4], (unsigned int)(v4 - 1) <= 0x7FFFDFFF)
-        && (v4 & 0xFFF) == 0
-        && (v5 = (unsigned int)a1[5], (_DWORD)v5)
-        && (v6 = 8 * v5 + 40, v6 <= 0xFFFFFFFF)
-        && v3 >= v6
-        && (unsigned int)HvpLogEntryCheckHeaderChecksum() != 0;
+  result = 0;
+  if ( *a1 == 1162638920 )
+  {
+    v3 = a1[1];
+    if ( v3 > 0x28 )
+    {
+      v4 = v3;
+      if ( v3 + (unsigned __int64)a2 <= 0xFFFFFFFF )
+      {
+        v5 = a1[4];
+        if ( v5 - 1 <= 0x7FFFDFFF && (v5 & 0xFFF) == 0 && (!a3 || v5 <= a3) )
+        {
+          v6 = (unsigned int)a1[5];
+          if ( (_DWORD)v6 )
+          {
+            v7 = 8 * v6 + 40;
+            if ( v7 <= 0xFFFFFFFF && v4 >= v7 && HvpLogEntryCheckHeaderChecksum((__int64)a1) )
+              return 1;
+          }
+        }
+      }
+    }
+  }
   return result;
 }

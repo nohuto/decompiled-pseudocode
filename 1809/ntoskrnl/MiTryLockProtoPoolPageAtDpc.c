@@ -1,8 +1,8 @@
 /*
- * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14011B860
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14011B880
  * Callers:
  *     MiGetPageProtection @ 0x14003FFE0 (MiGetPageProtection.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B804 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
  * Callees:
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)

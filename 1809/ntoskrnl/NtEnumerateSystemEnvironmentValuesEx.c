@@ -1,16 +1,16 @@
 /*
- * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x1408D43F0
+ * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x1408D43D0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1408211CC (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x1408211AC (IoEnumerateEnvironmentVariablesEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -28,7 +28,7 @@ NTSTATUS __stdcall NtEnumerateSystemEnvironmentValuesEx(ULONG InformationClass, 
   PVOID P; // [rsp+40h] [rbp-28h] BYREF
 
   v3 = *(_DWORD **)&BufferLength;
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )

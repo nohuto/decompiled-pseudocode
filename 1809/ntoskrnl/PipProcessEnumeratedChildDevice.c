@@ -1,16 +1,16 @@
 /*
- * XREFs of PipProcessEnumeratedChildDevice @ 0x1406E503C
+ * XREFs of PipProcessEnumeratedChildDevice @ 0x1406E501C
  * Callers:
- *     PipEnumerateCompleted @ 0x1406E4E30 (PipEnumerateCompleted.c)
+ *     PipEnumerateCompleted @ 0x1406E4E10 (PipEnumerateCompleted.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PpDevNodeInsertIntoTree @ 0x140160284 (PpDevNodeInsertIntoTree.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     PipSetDevNodeFlags @ 0x1406E50FC (PipSetDevNodeFlags.c)
- *     PipSetDevNodeProblem @ 0x1406EF580 (PipSetDevNodeProblem.c)
- *     PipAllocateDeviceNode @ 0x1406FEAFC (PipAllocateDeviceNode.c)
- *     PpProfileCancelTransitioningDock @ 0x14083286C (PpProfileCancelTransitioningDock.c)
+ *     PpDevNodeInsertIntoTree @ 0x1401602A4 (PpDevNodeInsertIntoTree.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x1406EF560 (PipSetDevNodeProblem.c)
+ *     PipAllocateDeviceNode @ 0x1406FEADC (PipAllocateDeviceNode.c)
+ *     PpProfileCancelTransitioningDock @ 0x14083284C (PpProfileCancelTransitioningDock.c)
  */
 
 __int64 __fastcall PipProcessEnumeratedChildDevice(__int64 a1, ULONG_PTR a2)

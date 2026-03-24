@@ -9,7 +9,7 @@
  *     ObpGetObjectSecurity @ 0x1405C9580 (ObpGetObjectSecurity.c)
  *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
  *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
- *     SeAppendPrivileges @ 0x140699A40 (SeAppendPrivileges.c)
+ *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
  */
 
 char __fastcall ObCheckCreateObjectAccess(

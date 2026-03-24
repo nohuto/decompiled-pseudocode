@@ -1,14 +1,15 @@
 /*
- * XREFs of ?bExpand@STACKOBJ@@QEAAHK@Z @ 0x1C02B79D4
+ * XREFs of ?bExpand@STACKOBJ@@QEAAHK@Z @ 0x1C02B96F4
  * Callers:
- *     ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02B80C0 (-bPushMergeScrScan@STACKOBJ@@QEAAHXZ.c)
+ *     ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02B9DE0 (-bPushMergeScrScan@STACKOBJ@@QEAAHXZ.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall STACKOBJ::bExpand(STACKOBJ *this, unsigned int a2)
 {
-  const void *v2; // rsi
+  void *v2; // rsi
   unsigned int v3; // edi
   void *v5; // rax
   __int64 v6; // rcx
@@ -18,16 +19,11 @@ __int64 __fastcall STACKOBJ::bExpand(STACKOBJ *this, unsigned int a2)
   __int64 v10; // rax
   __int64 v11; // rax
 
-  v2 = (const void *)*((_QWORD *)this + 4);
+  v2 = (void *)*((_QWORD *)this + 4);
   v3 = a2 + 400;
   if ( a2 + 400 < a2 )
     return 0LL;
-  if ( a2 == -400 )
-  {
-    *((_QWORD *)this + 4) = 0LL;
-    return 0LL;
-  }
-  v5 = (void *)Win32AllocPool(v3, 1684817479LL);
+  v5 = PALLOCMEM2(v3, 1684817479LL, 0);
   *((_QWORD *)this + 4) = v5;
   if ( !v5 )
     return 0LL;

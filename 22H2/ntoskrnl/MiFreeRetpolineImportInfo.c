@@ -1,64 +1,53 @@
 /*
- * XREFs of MiFreeRetpolineImportInfo @ 0x14085EBF4
+ * XREFs of MiFreeRetpolineImportInfo @ 0x1407CDE74
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     VslFreeSecureImageIat @ 0x14054DE98 (VslFreeSecureImageIat.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     VslFreeSecureImageIat @ 0x1404FE468 (VslFreeSecureImageIat.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
 {
-  unsigned __int64 v1; // rax
-  struct _KTHREAD *CurrentThread; // rsi
-  ULONG_PTR v3; // rbp
-  __int64 v4; // r14
-  __int64 v5; // rax
-  __int64 v6; // rdi
+  struct _KTHREAD *CurrentThread; // rbp
+  ULONG_PTR v2; // r14
+  __int64 v3; // rdi
+  volatile signed __int64 *v4; // rsi
+  __int64 v5; // rcx
+  void *v6; // rdi
   __int64 v7; // rax
-  void *v8; // rdi
-  bool v9; // zf
-  __int64 v10; // rax
 
+  CurrentThread = KeGetCurrentThread();
   if ( *(_QWORD *)(a1 + 112) )
   {
-    v1 = MiSectionControlArea(*(_QWORD *)(a1 + 112));
-    CurrentThread = KeGetCurrentThread();
-    v3 = v1;
-    v4 = *(_QWORD *)(*(_QWORD *)(v1 + 96) + 32LL);
+    v2 = MiSectionControlArea(*(_QWORD *)(a1 + 112));
+    v3 = *(_QWORD *)(*(_QWORD *)(v2 + 96) + 32LL);
     --CurrentThread->SpecialApcDisable;
-    v5 = KeAbPreAcquire(v4 + 24, 0LL);
-    v6 = v5;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v4 + 24), v5, v4 + 24);
-    if ( v6 )
-      *(_BYTE *)(v6 + 18) = 1;
-    v7 = *(_QWORD *)(v4 + 88);
-    v8 = *(void **)(v7 + 16);
-    *(_QWORD *)(v7 + 16) = 0LL;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 24), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v4 + 24));
-    KeAbPostRelease(v4 + 24);
-    v9 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v9 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    if ( (MiFlags & 0x8000) != 0 )
-      VslFreeSecureImageIat(*(_QWORD *)(*(_QWORD *)(v3 + 96) + 56LL));
-    MiWalkEntireImage(v3, qword_140C65968, 0x10u, 0xFFFFFFFF);
+    v4 = (volatile signed __int64 *)(v3 + 24);
+    ExAcquirePushLockExclusiveEx(v3 + 24, 0LL);
+    v5 = *(_QWORD *)(v3 + 96);
+    v6 = *(void **)(v5 + 16);
+    *(_QWORD *)(v5 + 16) = 0LL;
+    if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v4);
+    KeAbPostRelease((ULONG_PTR)v4);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    if ( (MiFlags & 0x10000) != 0 )
+      VslFreeSecureImageIat(*(_QWORD *)(*(_QWORD *)(v2 + 96) + 56LL));
+    MiWalkEntireImage(v2, qword_140C4CC70, 16, 0xFFFFFFFF);
   }
   else
   {
-    v10 = *(_QWORD *)(a1 + 320);
-    v8 = *(void **)(v10 + 16);
-    *(_QWORD *)(v10 + 16) = 0LL;
+    v7 = *(_QWORD *)(a1 + 296);
+    v6 = *(void **)(v7 + 16);
+    *(_QWORD *)(v7 + 16) = 0LL;
   }
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
 }

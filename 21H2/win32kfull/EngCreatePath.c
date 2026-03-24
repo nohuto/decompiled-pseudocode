@@ -1,10 +1,11 @@
 /*
- * XREFs of EngCreatePath @ 0x1C0283600
+ * XREFs of EngCreatePath @ 0x1C0286A10
  * Callers:
- *     EngLineTo @ 0x1C01338B0 (EngLineTo.c)
- *     VerifierEngCreatePath @ 0x1C029CE30 (VerifierEngCreatePath.c)
+ *     EngLineTo @ 0x1C01497F0 (EngLineTo.c)
+ *     VerifierEngCreatePath @ 0x1C029E550 (VerifierEngCreatePath.c)
  * Callees:
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0138854 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0145D54 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
  */
 
 PATHOBJ *EngCreatePath(void)
@@ -14,7 +15,7 @@ PATHOBJ *EngCreatePath(void)
   __int64 v3; // [rsp+28h] [rbp-80h]
 
   PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v2);
-  if ( v3 && (v0 = (EPATHOBJ *)Win32AllocPoolZInit(80LL, 1952542791LL)) != 0LL )
+  if ( v3 && (v0 = (EPATHOBJ *)PALLOCMEM2(0x50uLL, 1952542791LL, 1)) != 0LL )
   {
     *(_QWORD *)(v3 + 312) = v0;
     EPATHOBJ::vLock(v0, *(struct HPATH__ **)v3);

@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIQueryPhysicalDeviceLocation @ 0x1C00939F8
+ * XREFs of ACPIQueryPhysicalDeviceLocation @ 0x1C0099B3C
  * Callers:
- *     ACPIBusIrpDeviceEnumerated @ 0x1C00937D0 (ACPIBusIrpDeviceEnumerated.c)
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C0099770 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0094310 (ACPIProcessPhysicalDeviceLocation.c)
- *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C00A1730 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C009A1C8 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  */
 
 __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
     if ( v12[2] )
     {
       v2 = IoSetDevicePropertyData(
-             *(PDEVICE_OBJECT *)(a1 + 784),
+             *(PDEVICE_OBJECT *)(a1 + 744),
              &DEVPKEY_Device_PhysicalDeviceLocation,
              0,
              0,
@@ -43,7 +43,7 @@ __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
              (PVOID)(v12[2] + 16LL));
       if ( v2 >= 0 )
       {
-        v5 = *(struct _DEVICE_OBJECT **)(a1 + 784);
+        v5 = *(struct _DEVICE_OBJECT **)(a1 + 744);
         Data = (_BYTE *)(v4 + 52);
         if ( (*Data & 0x1F) != 0 )
           IoSetDevicePropertyData(v5, &DEVPKEY_Device_PhysicalDeviceLocationSpatial, 0, 0, 0x1003u, 0x10u, Data);
@@ -54,7 +54,7 @@ __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
     for ( i = (const GUID *)v12[5]; i != (const GUID *)&v12[5]; i = *(const GUID **)&i->Data1 )
     {
       v2 = IoRegisterDeviceInterface(
-             *(PDEVICE_OBJECT *)(a1 + 784),
+             *(PDEVICE_OBJECT *)(a1 + 744),
              i + 1,
              (PUNICODE_STRING)((unsigned __int64)&i[2] & -(__int64)(*(_QWORD *)i[2].Data4 != 0LL)),
              &SymbolicLinkName);
@@ -99,13 +99,13 @@ __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
     v13.fmtid = (DEVPROPGUID)DEVPKEY_Device_PhysicalDeviceLocationJoint;
     while ( 1 )
     {
-      v9 = *(struct _DEVICE_OBJECT **)(a1 + 784);
+      v9 = *(struct _DEVICE_OBJECT **)(a1 + 744);
       if ( v8 == &v12[3] )
         break;
       v2 = IoSetDevicePropertyData(v9, &PropertyKey, 0, 0, 0x1003u, 0x14u, v8 - 7);
       if ( v2 >= 0 )
       {
-        v10 = *(struct _DEVICE_OBJECT **)(a1 + 784);
+        v10 = *(struct _DEVICE_OBJECT **)(a1 + 744);
         if ( (*((_BYTE *)v8 - 36) & 0x1F) != 0 )
           IoSetDevicePropertyData(v10, &v13, 0, 0, 0x1003u, 0x10u, (char *)v8 - 36);
         else
@@ -117,10 +117,10 @@ __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
     }
     while ( !IoSetDevicePropertyData(v9, &PropertyKey, 0, 0, 0, 0, 0LL) )
     {
-      IoSetDevicePropertyData(*(PDEVICE_OBJECT *)(a1 + 784), &v13, 0, 0, 0, 0, 0LL);
+      IoSetDevicePropertyData(*(PDEVICE_OBJECT *)(a1 + 744), &v13, 0, 0, 0, 0, 0LL);
       ++PropertyKey.pid;
       ++v13.pid;
-      v9 = *(struct _DEVICE_OBJECT **)(a1 + 784);
+      v9 = *(struct _DEVICE_OBJECT **)(a1 + 744);
     }
     ACPIFreePhysicalDeviceLocationDescriptors(v12);
   }

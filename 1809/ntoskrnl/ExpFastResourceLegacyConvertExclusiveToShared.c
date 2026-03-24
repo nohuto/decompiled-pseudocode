@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164940
+ * XREFs of ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164960
  * Callers:
- *     ExConvertExclusiveToSharedLite @ 0x140120F30 (ExConvertExclusiveToSharedLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140120F50 (ExConvertExclusiveToSharedLite.c)
  * Callees:
- *     ExpConvertFastResourceExclusiveToShared @ 0x1401649F8 (ExpConvertFastResourceExclusiveToShared.c)
- *     ExpFindFastOwnerEntryForThread @ 0x140166064 (ExpFindFastOwnerEntryForThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x140164A18 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(

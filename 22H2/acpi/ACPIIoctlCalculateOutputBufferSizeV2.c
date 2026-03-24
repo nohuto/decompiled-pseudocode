@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0003FB0
+ * XREFs of ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0057610
  * Callers:
- *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0003FB0 (ACPIIoctlCalculateOutputBufferSizeV2.c)
- *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C00040B2 (ACPIIoctlCalculateOutputBufferV2.c)
- *     ACPIIoctlEvalPostProcessingV2 @ 0x1C000449A (ACPIIoctlEvalPostProcessingV2.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0057610 (ACPIIoctlCalculateOutputBufferSizeV2.c)
+ *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C0057714 (ACPIIoctlCalculateOutputBufferV2.c)
+ *     ACPIIoctlEvalPostProcessingV2 @ 0x1C005789C (ACPIIoctlEvalPostProcessingV2.c)
  * Callees:
- *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0003FB0 (ACPIIoctlCalculateOutputBufferSizeV2.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0057610 (ACPIIoctlCalculateOutputBufferSizeV2.c)
  */
 
 __int64 __fastcall ACPIIoctlCalculateOutputBufferSizeV2(__int64 a1, _DWORD *a2, int *a3, char a4, char a5)

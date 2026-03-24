@@ -1,9 +1,9 @@
 /*
- * XREFs of PfFbBufferListCleanup @ 0x140865C20
+ * XREFs of PfFbBufferListCleanup @ 0x140865C00
  * Callers:
- *     PfTCleanup @ 0x1408651FC (PfTCleanup.c)
+ *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

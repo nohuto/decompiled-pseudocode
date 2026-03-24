@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPSM30_CancellingResetOnSurpriseRemove @ 0x1C00119C0
+ * XREFs of HUBPSM30_CancellingResetOnSurpriseRemove @ 0x1C00105A0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_CancelControlTransfer @ 0x1C0004464 (HUBHTX_CancelControlTransfer.c)
- *     HUBMUX_ReleaseInterruptReference @ 0x1C0010CC8 (HUBMUX_ReleaseInterruptReference.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBHTX_CancelControlTransfer @ 0x1C0003E34 (HUBHTX_CancelControlTransfer.c)
+ *     HUBMUX_ReleaseInterruptReference @ 0x1C000F89C (HUBMUX_ReleaseInterruptReference.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_CancellingResetOnSurpriseRemove(__int64 a1)

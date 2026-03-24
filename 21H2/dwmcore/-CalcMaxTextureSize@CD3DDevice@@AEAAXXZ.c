@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CalcMaxTextureSize@CD3DDevice@@AEAAXXZ @ 0x180022C74
+ * XREFs of ?CalcMaxTextureSize@CD3DDevice@@AEAAXXZ @ 0x18002D548
  * Callers:
- *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x180021B54 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
+ *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x18002AD78 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD3DDevice::CalcMaxTextureSize(CD3DDevice *this)
@@ -20,16 +20,16 @@ void __fastcall CD3DDevice::CalcMaxTextureSize(CD3DDevice *this)
   __int64 v8; // [rsp+30h] [rbp-40h] BYREF
   _DWORD v9[12]; // [rsp+38h] [rbp-38h] BYREF
 
-  if ( *((_QWORD *)this + 71) )
+  if ( *((_QWORD *)this + 76) )
   {
-    *((_DWORD *)this + 232) = 0x800000;
+    *((_DWORD *)this + 242) = 0x800000;
   }
   else
   {
-    v2 = *((_DWORD *)this + 146);
+    v2 = *((_DWORD *)this + 156);
     if ( v2 <= 37376 )
     {
-      v4 = *((_QWORD *)this + 69);
+      v4 = *((_QWORD *)this + 74);
       v8 = 0LL;
       v9[6] = 0;
       v9[7] = 0;
@@ -48,19 +48,19 @@ void __fastcall CD3DDevice::CalcMaxTextureSize(CD3DDevice *this)
       v7 = 2048;
       if ( v6 >= 0 )
         v7 = 4096;
-      *((_DWORD *)this + 232) = v7;
+      *((_DWORD *)this + 242) = v7;
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v8);
     }
     else if ( v2 == 37632 )
     {
-      *((_DWORD *)this + 232) = 4096;
+      *((_DWORD *)this + 242) = 4096;
     }
     else
     {
       v3 = 0x4000;
       if ( v2 <= 41216 )
         v3 = 0x2000;
-      *((_DWORD *)this + 232) = v3;
+      *((_DWORD *)this + 242) = v3;
     }
   }
 }

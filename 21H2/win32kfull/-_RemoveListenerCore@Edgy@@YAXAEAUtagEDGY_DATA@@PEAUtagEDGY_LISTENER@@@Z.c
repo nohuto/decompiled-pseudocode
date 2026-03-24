@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208D68
+ * XREFs of ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208958
  * Callers:
- *     ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C0207D08 (-OnDeviceRemoval@Edgy@@YAXPEAX@Z.c)
- *     EdgyUnregisterListener @ 0x1C0208FB0 (EdgyUnregisterListener.c)
+ *     ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C02077E8 (-OnDeviceRemoval@Edgy@@YAXPEAX@Z.c)
+ *     EdgyUnregisterListener @ 0x1C0208BA0 (EdgyUnregisterListener.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall Edgy::_RemoveListenerCore(Edgy *this, struct tagEDGY_DATA *a2, struct tagEDGY_LISTENER *a3)

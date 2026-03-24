@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcStopRemoveDeviceCommon @ 0x1C00534F0
+ * XREFs of ACPIEcStopRemoveDeviceCommon @ 0x1C0053E40
  * Callers:
- *     ACPIEcRemoveDevice @ 0x1C0053030 (ACPIEcRemoveDevice.c)
- *     ACPIEcStopDevice @ 0x1C00534A0 (ACPIEcStopDevice.c)
+ *     ACPIEcRemoveDevice @ 0x1C0053960 (ACPIEcRemoveDevice.c)
+ *     ACPIEcStopDevice @ 0x1C0053DF0 (ACPIEcStopDevice.c)
  * Callees:
- *     ACPIEcDisconnectInterrupt @ 0x1C00AD644 (ACPIEcDisconnectInterrupt.c)
- *     ACPIEcRemoveOpRegionHandler @ 0x1C00AD814 (ACPIEcRemoveOpRegionHandler.c)
+ *     ACPIEcDisconnectInterrupt @ 0x1C00AE9BC (ACPIEcDisconnectInterrupt.c)
+ *     ACPIEcRemoveOpRegionHandler @ 0x1C00AEB8C (ACPIEcRemoveOpRegionHandler.c)
  */
 
 __int64 __fastcall ACPIEcStopRemoveDeviceCommon(__int64 a1)

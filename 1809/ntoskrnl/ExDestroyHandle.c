@@ -5,12 +5,12 @@
  *     PspThreadDelete @ 0x1405FB0B0 (PspThreadDelete.c)
  *     AlpcpFreeMessageFunction @ 0x1405FC2E0 (AlpcpFreeMessageFunction.c)
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     RtlpFreeHandleForAtom @ 0x1406AD4C0 (RtlpFreeHandleForAtom.c)
- *     RtlpInsertStringAtom @ 0x1406B741C (RtlpInsertStringAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x1406AD4A0 (RtlpFreeHandleForAtom.c)
+ *     RtlpInsertStringAtom @ 0x1406B73FC (RtlpInsertStringAtom.c)
  * Callees:
  *     ExSweepSingleHandle @ 0x14008D88C (ExSweepSingleHandle.c)
  *     ExpFreeHandleTableEntry @ 0x1405FB378 (ExpFreeHandleTableEntry.c)
- *     ExpUpdateDebugInfo @ 0x1408CE408 (ExpUpdateDebugInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExDestroyHandle(__int64 a1, __int64 a2, _QWORD *a3)

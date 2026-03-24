@@ -1,10 +1,9 @@
 /*
- * XREFs of zzzWakeInputIdle @ 0x1C00534E4
+ * XREFs of zzzWakeInputIdle @ 0x1C00DA374
  * Callers:
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0052EC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
- *     xxxDesktopThreadWaiter @ 0x1C00A4844 (xxxDesktopThreadWaiter.c)
+ *     xxxDesktopThreadWaiter @ 0x1C00D9FF4 (xxxDesktopThreadWaiter.c)
  * Callees:
- *     zzzCalcStartCursorHide @ 0x1C0073330 (zzzCalcStartCursorHide.c)
+ *     zzzCalcStartCursorHide @ 0x1C007FC90 (zzzCalcStartCursorHide.c)
  */
 
 __int64 __fastcall zzzWakeInputIdle(__int64 a1)
@@ -54,18 +53,14 @@ __int64 __fastcall zzzWakeInputIdle(__int64 a1)
     {
       EtwTraceWakeInputIdle(0LL, a1);
       v5 = *(struct _KEVENT **)(v3 + 16);
-      if ( !v5 )
+      if ( v5 )
       {
-LABEL_6:
-        *(_QWORD *)(v3 + 16) = -1LL;
-        goto LABEL_7;
-      }
-      if ( v5 != (struct _KEVENT *)-1LL )
-      {
+        if ( v5 == (struct _KEVENT *)-1LL )
+          goto LABEL_7;
         KeSetEvent(v5, 1, 0);
         ObfDereferenceObject(*(PVOID *)(v3 + 16));
-        goto LABEL_6;
       }
+      *(_QWORD *)(v3 + 16) = -1LL;
     }
   }
 LABEL_7:

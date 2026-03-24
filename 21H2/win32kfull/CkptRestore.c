@@ -1,54 +1,53 @@
 /*
- * XREFs of CkptRestore @ 0x1C007C97C
+ * XREFs of CkptRestore @ 0x1C0041290
  * Callers:
- *     UpdateCheckpoint @ 0x1C007C924 (UpdateCheckpoint.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00CA7B4 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C014501C (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?_CopyWindowCheckpoint@@YAHPEAUtagWND@@0@Z @ 0x1C01454C0 (-_CopyWindowCheckpoint@@YAHPEAUtagWND@@0@Z.c)
- *     ?xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOptions@1@K@Z @ 0x1C015B0AC (-xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOption.c)
- *     ?GetOrUpdateCheckPointIfNotPresent@@YAPEAUtagCHECKPOINT@@PEAUMOVESIZEDATA@@@Z @ 0x1C016D756 (-GetOrUpdateCheckPointIfNotPresent@@YAPEAUtagCHECKPOINT@@PEAUMOVESIZEDATA@@@Z.c)
- *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z @ 0x1C020BFC8 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z.c)
- *     ?xxxHandleNoDockTargetToDockTargetMove@@YAHPEAUMOVESIZEDATA@@W4THRESHOLD_MARGIN_DIRECTION@@PEAUtagMONITOR@@KAEBUtagRECT@@PEAK@Z @ 0x1C020D59C (-xxxHandleNoDockTargetToDockTargetMove@@YAHPEAUMOVESIZEDATA@@W4THRESHOLD_MARGIN_DIRECTION@@PEAUt.c)
- *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C020E1A8 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
- *     ?xxxSetWindowShowState@@YA_NPEAUtagWND@@EPEAUtagRECT@@@Z @ 0x1C023DD00 (-xxxSetWindowShowState@@YA_NPEAUtagWND@@EPEAUtagRECT@@@Z.c)
- *     ?MigrateCheckpoint@AdvancedWindowPos@@YAXPEAUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C024AC80 (-MigrateCheckpoint@AdvancedWindowPos@@YAXPEAUtagWND@@PEAUtagMONITOR@@@Z.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003FD4 (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?_CopyWindowCheckpoint@@YAHPEAUtagWND@@0@Z @ 0x1C0004888 (-_CopyWindowCheckpoint@@YAHPEAUtagWND@@0@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
+ *     UpdateCheckpoint @ 0x1C0041238 (UpdateCheckpoint.c)
+ *     ?xxxCloneWindowPosAndArrangement@@YAXPEAUtagWND@@AEBUWINDOWPOSANDCHECKPOINT@@@Z @ 0x1C01D051C (-xxxCloneWindowPosAndArrangement@@YAXPEAUtagWND@@AEBUWINDOWPOSANDCHECKPOINT@@@Z.c)
+ *     ?GetOrUpdateCheckPointIfNotPresent@@YAPEAUtagCHECKPOINT@@PEAU_MOVESIZEDATA@@@Z @ 0x1C020AE98 (-GetOrUpdateCheckPointIfNotPresent@@YAPEAUtagCHECKPOINT@@PEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAU_MOVESIZEDATA@@@Z @ 0x1C020D830 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020EF28 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxSizeOrMoveRect@@YAHPEAU_MOVESIZEDATA@@KPEAKPEAUtagRECT@@PEAPEAUtagCHECKPOINT@@@Z @ 0x1C020FCC4 (-xxxSizeOrMoveRect@@YAHPEAU_MOVESIZEDATA@@KPEAKPEAUtagRECT@@PEAPEAUtagCHECKPOINT@@@Z.c)
+ *     ?xxxSetWindowShowState@@YA_NPEAUtagWND@@EPEAUtagRECT@@@Z @ 0x1C024243C (-xxxSetWindowShowState@@YA_NPEAUtagWND@@EPEAUtagRECT@@@Z.c)
  * Callees:
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     CkptUpdate @ 0x1C007CA54 (CkptUpdate.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
- *     DesktopAlloc @ 0x1C00C2D40 (DesktopAlloc.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
+ *     CkptUpdate @ 0x1C0041368 (CkptUpdate.c)
+ *     DesktopAlloc @ 0x1C004B2A0 (DesktopAlloc.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
  */
 
-struct tagRECT *__fastcall CkptRestore(struct tagWND *a1, struct tagRECT *a2)
+_DWORD *__fastcall CkptRestore(__int64 a1, _OWORD *a2)
 {
-  struct tagRECT *Prop; // rbx
+  _DWORD *Prop; // rbx
   __int64 v6; // rax
 
   if ( (*(_BYTE *)(_HMPheFromObject(a1) + 25) & 1) == 0 )
   {
-    Prop = (struct tagRECT *)GetProp((__int64)a1, LOWORD(WPP_MAIN_CB.Dpc.TargetInfoAsUlong), 1u);
+    Prop = (_DWORD *)GetProp(a1, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL);
     if ( Prop )
     {
 LABEL_3:
-      CkptUpdate(a1, a2);
+      CkptUpdate(a1, a2, Prop);
       return Prop;
     }
-    v6 = DesktopAlloc(*((_QWORD *)a1 + 3), 52LL, 1952674645LL);
-    Prop = (struct tagRECT *)v6;
+    v6 = DesktopAlloc(*(_QWORD *)(a1 + 24), 52LL, 1952674645LL);
+    Prop = (_DWORD *)v6;
     if ( v6 )
     {
-      if ( (unsigned int)InternalSetProp(a1, LOWORD(WPP_MAIN_CB.Dpc.TargetInfoAsUlong), v6, 9LL) )
+      if ( (unsigned int)InternalSetProp(a1, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, v6, 9u) )
       {
-        Prop[3].left &= 0xFFFFFF80;
-        Prop[2].left = -1;
-        Prop[2].top = -1;
-        Prop[2].right = -1;
-        Prop[2].bottom = -1;
-        *Prop = *a2;
-        Prop[1] = *a2;
+        Prop[12] &= 0xFFFFFF80;
+        Prop[8] = -1;
+        Prop[9] = -1;
+        Prop[10] = -1;
+        Prop[11] = -1;
+        *(_OWORD *)Prop = *a2;
+        *((_OWORD *)Prop + 1) = *a2;
         goto LABEL_3;
       }
-      RtlFreeHeap(*(PVOID *)(*((_QWORD *)a1 + 3) + 128LL), 0, Prop);
+      RtlFreeHeap(*(PVOID *)(*(_QWORD *)(a1 + 24) + 128LL), 0, Prop);
     }
   }
   return 0LL;

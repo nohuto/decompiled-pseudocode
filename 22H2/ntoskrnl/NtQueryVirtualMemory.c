@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryVirtualMemory @ 0x1406F83C0
+ * XREFs of NtQueryVirtualMemory @ 0x14061ED10
  * Callers:
- *     <none>
+ *     NtPssCaptureVaSpaceBulk @ 0x14095BF90 (NtPssCaptureVaSpaceBulk.c)
  * Callees:
- *     MmQueryVirtualMemory @ 0x1406F8400 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061ED50 (MmQueryVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtQueryVirtualMemory(
@@ -14,5 +14,5 @@ NTSTATUS __stdcall NtQueryVirtualMemory(
         SIZE_T MemoryInformationLength,
         PSIZE_T ReturnLength)
 {
-  return MmQueryVirtualMemory((ULONG_PTR)ProcessHandle, MemoryInformationLength, (__int64)ReturnLength, 2);
+  return MmQueryVirtualMemory(ProcessHandle, MemoryInformationLength, (__int64)ReturnLength, 2);
 }

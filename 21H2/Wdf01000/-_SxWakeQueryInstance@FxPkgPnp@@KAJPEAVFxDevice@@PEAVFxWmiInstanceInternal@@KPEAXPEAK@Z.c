@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_SxWakeQueryInstance@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KPEAXPEAK@Z @ 0x1C000BE50
+ * XREFs of ?_SxWakeQueryInstance@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KPEAXPEAK@Z @ 0x1C000DD90
  * Callers:
  *     <none>
  * Callees:

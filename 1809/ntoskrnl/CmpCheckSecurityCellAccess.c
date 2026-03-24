@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCheckSecurityCellAccess @ 0x1406C9F4C
+ * XREFs of CmpCheckSecurityCellAccess @ 0x1406C9F2C
  * Callers:
  *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckKeyAccess @ 0x1407F4844 (CmpCheckKeyAccess.c)
+ *     CmpCheckKeyAccess @ 0x1407F4824 (CmpCheckKeyAccess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x1406C9FD0 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x1406C9FB0 (CmpCheckKeySecurityDescriptorAccess.c)
  */
 
 __int64 __fastcall CmpCheckSecurityCellAccess(__int64 a1, __int64 a2)

@@ -1,52 +1,47 @@
 /*
- * XREFs of NtUserGetOwnerTransformedMonitorRect @ 0x1C01D2B50
+ * XREFs of NtUserGetOwnerTransformedMonitorRect @ 0x1C0161320
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?_GetOwnerTransformedMonitorRect@@YAXPEAUtagWND@@PEAUtagMONITOR@@HPEAUtagRECT@@@Z @ 0x1C021F778 (-_GetOwnerTransformedMonitorRect@@YAXPEAUtagWND@@PEAUtagMONITOR@@HPEAUtagRECT@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetOwnerTransformedMonitorRect @ 0x1C0161418 (_GetOwnerTransformedMonitorRect.c)
  */
 
-__int64 __fastcall NtUserGetOwnerTransformedMonitorRect(__int64 a1, __int64 a2, __int64 a3, struct tagRECT *a4)
+__int64 __fastcall NtUserGetOwnerTransformedMonitorRect(__int64 a1, __int64 a2, unsigned int a3, _OWORD *a4)
 {
-  int v5; // r15d
-  __int64 v8; // rdx
-  struct tagWND *v9; // rsi
-  __int64 v10; // r8
-  int v11; // ebx
-  struct tagMONITOR *v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  _BYTE v18[32]; // [rsp+20h] [rbp-38h] BYREF
-  struct tagRECT v19; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v8; // rsi
+  int v9; // ebx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  _BYTE v15[16]; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v16; // [rsp+40h] [rbp-18h] BYREF
 
-  v5 = a3;
-  v19 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v18);
-  v9 = (struct tagWND *)ValidateHwnd(a1);
-  v11 = 0;
-  if ( v9 )
+  v16 = 0LL;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v15);
+  v8 = ValidateHwnd(a1);
+  v9 = 0;
+  if ( v8 )
   {
-    v12 = (struct tagMONITOR *)ValidateHmonitor(a2);
-    if ( v12 && a4 )
+    v10 = ValidateHmonitor(a2);
+    if ( v10 && a4 )
     {
-      _GetOwnerTransformedMonitorRect(v9, v12, v5, &v19);
+      GetOwnerTransformedMonitorRect(v8, v10, a3, &v16);
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-        a4 = (struct tagRECT *)MmUserProbeAddress;
-      *a4 = v19;
-      v11 = 1;
+        a4 = (_OWORD *)MmUserProbeAddress;
+      *a4 = v16;
+      v9 = 1;
     }
     else
     {
-      UserSetLastError(87);
+      UserSetLastError(87LL, v11, v12);
     }
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v18, v8, v10);
-  UserSessionSwitchLeaveCrit(v14, v13, v15, v16);
-  return v11;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v15);
+  UserSessionSwitchLeaveCrit(v13);
+  return v9;
 }

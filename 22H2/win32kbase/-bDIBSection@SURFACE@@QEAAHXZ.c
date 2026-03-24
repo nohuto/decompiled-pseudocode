@@ -1,9 +1,8 @@
 /*
- * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C0060B10
+ * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C00175FC
  * Callers:
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     GreMakeBitmapNonStock @ 0x1C0060A30 (GreMakeBitmapNonStock.c)
- *     GreSetBitmapOwnerEx @ 0x1C0062058 (GreSetBitmapOwnerEx.c)
+ *     GreMakeBitmapNonStock @ 0x1C00172A0 (GreMakeBitmapNonStock.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
  * Callees:
  *     <none>
  */

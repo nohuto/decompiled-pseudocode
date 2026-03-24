@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0233D74
+ * XREFs of ?CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z @ 0x1C01FDEF8
  * Callers:
- *     CitProcessCallout @ 0x1C00362EC (CitProcessCallout.c)
+ *     CitProcessCallout @ 0x1C0047420 (CitProcessCallout.c)
  * Callees:
  *     <none>
  */
@@ -13,24 +13,24 @@ struct _CIT_INTERACTION_SUMMARY *__fastcall CitpInteractionSummaryGetOutstanding
   __int64 v4; // rcx
   struct _CIT_INTERACTION_SUMMARY *result; // rax
 
-  if ( (BYTE8(xmmword_1C0293D14) & 1) == 0 )
+  if ( (xmmword_1C0254574 & 1) == 0 )
     return 0LL;
-  if ( (BYTE8(xmmword_1C0293D14) & 2) != 0 )
+  if ( (xmmword_1C0254574 & 2) != 0 )
   {
-    v2 = *((_WORD *)a1 + 21);
+    v2 = *((_WORD *)a1 + 13);
     if ( !v2 )
       return 0LL;
-    v3 = *((unsigned __int16 *)a1 + 20);
-    if ( (unsigned int)v3 >= *((_DWORD *)xmmword_1C0293D30 + 14) )
+    v3 = *((unsigned __int16 *)a1 + 12);
+    if ( (unsigned int)v3 >= *((_DWORD *)xmmword_1C0254590 + 14) )
       return 0LL;
-    v4 = *(_QWORD *)xmmword_1C0293D30 + 96 * v3;
-    if ( *(_WORD *)(v4 + 32) != v2 || *(_QWORD *)(v4 + 56) != *((_QWORD *)a1 + 8) || !v4 )
+    v4 = *(_QWORD *)xmmword_1C0254590 + 96 * v3;
+    if ( *(_WORD *)(v4 + 32) != v2 || *(_QWORD *)(v4 + 56) != *((_QWORD *)a1 + 6) )
       return 0LL;
     result = *(struct _CIT_INTERACTION_SUMMARY **)(v4 + 88);
   }
   else
   {
-    result = (struct _CIT_INTERACTION_SUMMARY *)*((_QWORD *)a1 + 4);
+    result = (struct _CIT_INTERACTION_SUMMARY *)*((_QWORD *)a1 + 2);
   }
   if ( result && *(struct _CIT_INTERACTION_SUMMARY **)result != result )
   {

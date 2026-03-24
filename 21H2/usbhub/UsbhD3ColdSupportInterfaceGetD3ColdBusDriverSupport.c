@@ -1,5 +1,5 @@
 /*
- * XREFs of UsbhD3ColdSupportInterfaceGetD3ColdBusDriverSupport @ 0x1C0053510
+ * XREFs of UsbhD3ColdSupportInterfaceGetD3ColdBusDriverSupport @ 0x1C0054B70
  * Callers:
  *     <none>
  * Callees:

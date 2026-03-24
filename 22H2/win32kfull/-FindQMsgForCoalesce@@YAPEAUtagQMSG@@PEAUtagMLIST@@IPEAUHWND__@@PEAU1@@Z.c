@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C000AAD8
+ * XREFs of ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C0126610
  * Callers:
- *     ProcessSuspendedEventMessage @ 0x1C004F2B4 (ProcessSuspendedEventMessage.c)
- *     ProcessSuspendedPostMessage @ 0x1C015000E (ProcessSuspendedPostMessage.c)
+ *     ProcessSuspendedEventMessage @ 0x1C0126488 (ProcessSuspendedEventMessage.c)
+ *     ProcessSuspendedPostMessage @ 0x1C0126548 (ProcessSuspendedPostMessage.c)
  * Callees:
  *     <none>
  */

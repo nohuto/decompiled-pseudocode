@@ -1,57 +1,35 @@
 /*
- * XREFs of FsRtlTeardownPerStreamContexts @ 0x1407918D0
+ * XREFs of FsRtlTeardownPerStreamContexts @ 0x140668240
  * Callers:
- *     RawCleanupVcb @ 0x140791B24 (RawCleanupVcb.c)
+ *     RawCleanupVcb @ 0x1406681C4 (RawCleanupVcb.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
 {
   _LIST_ENTRY *p_FilterContexts; // rbx
-  unsigned __int8 v3; // al
-  void *AePushLock; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  struct _LIST_ENTRY *Flink; // rdi
-  struct _LIST_ENTRY *v7; // rax
-  unsigned __int8 v8; // al
-  void **p_AePushLock; // r14
-  struct _KTHREAD *v10; // rcx
-  __int16 KernelApcDisable; // ax
-  unsigned __int8 v12; // al
-  ULONG_PTR v13; // rcx
-  struct _KTHREAD *v14; // rdx
-  struct _KTHREAD *v15; // rcx
-  unsigned __int8 v16; // al
-  void *v17; // rcx
-  struct _KTHREAD *v18; // rcx
-  bool v19; // zf
-  struct _KTHREAD *v20; // rax
+  struct _LIST_ENTRY *Flink; // rsi
+  struct _LIST_ENTRY *v5; // rax
+  struct _KTHREAD *v6; // rax
 
   p_FilterContexts = &AdvancedHeader->FilterContexts;
   if ( p_FilterContexts->Flink != p_FilterContexts )
   {
-    v3 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-    if ( v3 >= 3u && (AePushLock = AdvancedHeader->AePushLock) != 0LL )
+    if ( (*((_BYTE *)AdvancedHeader + 7) & 0xF0u) < 0x10 )
     {
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)AePushLock, 0LL);
+      ExAcquireFastMutex(AdvancedHeader->FastMutex);
     }
     else
     {
-      if ( !v3 )
-        goto LABEL_22;
-      v20 = KeGetCurrentThread();
-      --v20->KernelApcDisable;
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
     }
     while ( 1 )
@@ -59,76 +37,40 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
       Flink = p_FilterContexts->Flink;
       if ( p_FilterContexts->Flink == p_FilterContexts )
         break;
-      v7 = Flink->Flink;
-      if ( Flink->Blink != p_FilterContexts || v7->Blink != Flink )
+      v5 = Flink->Flink;
+      if ( Flink->Blink != p_FilterContexts || v5->Blink != Flink )
         __fastfail(3u);
-      p_FilterContexts->Flink = v7;
-      v7->Blink = p_FilterContexts;
-      v8 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-      p_AePushLock = &AdvancedHeader->AePushLock;
-      if ( v8 >= 3u && *p_AePushLock )
+      p_FilterContexts->Flink = v5;
+      v5->Blink = p_FilterContexts;
+      if ( (*((_BYTE *)AdvancedHeader + 7) & 0xF0u) < 0x10 )
       {
-        ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)*p_AePushLock, 0LL);
-        v10 = KeGetCurrentThread();
-        KernelApcDisable = v10->KernelApcDisable;
-        v10->KernelApcDisable = KernelApcDisable + 1;
-        if ( KernelApcDisable == -1
-          && ($C71981A45BEB2B45F82C232A7085991E *)v10->ApcState.ApcListHead[0].Flink != &v10->152
-          && !v10->SpecialApcDisable )
-        {
-          KiCheckForKernelApcDelivery();
-        }
+        KeReleaseGuardedMutex(AdvancedHeader->FastMutex);
       }
-      else if ( v8 )
+      else
       {
-        ExReleasePushLockEx((__int64 *)&AdvancedHeader->PushLock, 0LL);
+        ExReleasePushLockEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       }
-      else
-      {
-        ExReleaseFastMutex(AdvancedHeader->FastMutex);
-      }
       ((void (__fastcall *)(struct _LIST_ENTRY *))Flink[2].Flink)(Flink);
-      v12 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-      if ( v12 >= 3u && (v13 = (ULONG_PTR)*p_AePushLock) != 0 )
+      if ( (*((_BYTE *)AdvancedHeader + 7) & 0xF0u) < 0x10 )
       {
-        v14 = KeGetCurrentThread();
-        --v14->KernelApcDisable;
-        ExAcquireAutoExpandPushLockExclusive(v13, 0LL);
-      }
-      else if ( v12 )
-      {
-        v15 = KeGetCurrentThread();
-        --v15->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
-      }
-      else
-      {
-LABEL_22:
         ExAcquireFastMutex(AdvancedHeader->FastMutex);
       }
-    }
-    v16 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-    if ( v16 >= 3u && (v17 = AdvancedHeader->AePushLock) != 0LL )
-    {
-      ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)v17, 0LL);
-      v18 = KeGetCurrentThread();
-      v19 = v18->KernelApcDisable++ == -1;
-      if ( v19
-        && ($C71981A45BEB2B45F82C232A7085991E *)v18->ApcState.ApcListHead[0].Flink != &v18->152
-        && !v18->SpecialApcDisable )
+      else
       {
-        KiCheckForKernelApcDelivery();
+        v6 = KeGetCurrentThread();
+        --v6->KernelApcDisable;
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
       }
     }
-    else if ( v16 )
+    if ( (*((_BYTE *)AdvancedHeader + 7) & 0xF0u) < 0x10 )
     {
-      ExReleasePushLockEx((__int64 *)&AdvancedHeader->PushLock, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeReleaseGuardedMutex(AdvancedHeader->FastMutex);
     }
     else
     {
-      ExReleaseFastMutex(AdvancedHeader->FastMutex);
+      ExReleasePushLockEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z @ 0x1C00E059C
+ * XREFs of ?GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z @ 0x1C00BAB64
  * Callers:
- *     VidMmGetNextBuffersContractedSize @ 0x1C001E410 (VidMmGetNextBuffersContractedSize.c)
+ *     VidMmGetNextBuffersContractedSize @ 0x1C0022DC0 (VidMmGetNextBuffersContractedSize.c)
  * Callees:
- *     ?NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ @ 0x1C00E0614 (-NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ.c)
- *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00E0D38 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
+ *     ?NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ @ 0x1C00BABDC (-NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ.c)
+ *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00BB2A4 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
  */
 
 void __fastcall VIDMM_DMA_POOL::GetNextBuffersContractedSize(

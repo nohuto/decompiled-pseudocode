@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDDqDDDDD @ 0x1C0045500
+ * XREFs of WPP_RECORDER_SF_DDDqDDDDD @ 0x1C0045044
  * Callers:
- *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000F6D4 (Bulk_Stage_EstimateRequiredTrbs.c)
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000DB28 (Bulk_Stage_EstimateRequiredTrbs.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_DDDqDDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -52,7 +52,7 @@ __int64 WPP_RECORDER_SF_DDDqDDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   va_copy(va8, va7);
   v22 = va_arg(va8, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.Reserved)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
@@ -89,5 +89,15 @@ __int64 WPP_RECORDER_SF_DDDqDDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4
            4LL,
            (__int64 *)va2,
            4LL,
-           (__int64 *)va3);
+           (__int64 *)va3,
+           8LL,
+           (__int64 *)va4,
+           4LL,
+           (__int64 *)va5,
+           4LL,
+           (__int64 *)va6,
+           4LL,
+           (__int64 *)va7,
+           4LL,
+           va8);
 }

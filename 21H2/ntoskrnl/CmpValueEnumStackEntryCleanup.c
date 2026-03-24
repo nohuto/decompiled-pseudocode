@@ -1,26 +1,16 @@
 /*
- * XREFs of CmpValueEnumStackEntryCleanup @ 0x140226470
+ * XREFs of CmpValueEnumStackEntryCleanup @ 0x14036BE88
  * Callers:
- *     CmpValueEnumStackCleanup @ 0x14069F3D4 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackCleanup @ 0x140729F30 (CmpValueEnumStackCleanup.c)
  * Callees:
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall CmpValueEnumStackEntryCleanup(__int64 *a1)
+__int64 __fastcall CmpValueEnumStackEntryCleanup(_QWORD *a1)
 {
-  _QWORD *v1; // rdx
-  __int64 v2; // rcx
   __int64 result; // rax
 
   if ( a1[1] )
-  {
-    v1 = a1 + 2;
-    v2 = *a1;
-    if ( (*(_BYTE *)(v2 + 140) & 1) != 0 )
-      return HvpReleaseCellFlat(v2, v1);
-    else
-      return HvpReleaseCellPaged(v2, v1);
-  }
+    return (*(__int64 (__fastcall **)(_QWORD, _QWORD *))(*a1 + 16LL))(*a1, a1 + 2);
   return result;
 }

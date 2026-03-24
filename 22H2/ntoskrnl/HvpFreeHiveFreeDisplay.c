@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpFreeHiveFreeDisplay @ 0x1407CC4E4
+ * XREFs of HvpFreeHiveFreeDisplay @ 0x14068A5D8
  * Callers:
- *     HvHiveCleanup @ 0x140709780 (HvHiveCleanup.c)
+ *     HvHiveCleanup @ 0x1406572B4 (HvHiveCleanup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall HvpFreeHiveFreeDisplay(__int64 a1)
@@ -16,7 +16,7 @@ _UNKNOWN **__fastcall HvpFreeHiveFreeDisplay(__int64 a1)
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = &retaddr;
-  v3 = (_QWORD *)(a1 + 328);
+  v3 = (_QWORD *)(a1 + 320);
   v4 = 2LL;
   do
   {

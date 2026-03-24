@@ -1,14 +1,12 @@
 /*
- * XREFs of ?Conditional@CExpressionValueStack@@QEAAJPEAUExpressionConditionalNode@@PEA_N@Z @ 0x180115786
+ * XREFs of ?Conditional@CExpressionValueStack@@QEAAJPEAUExpressionConditionalNode@@PEA_N@Z @ 0x1801FC01C
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Conditional(
@@ -16,50 +14,51 @@ __int64 __fastcall CExpressionValueStack::Conditional(
         struct ExpressionConditionalNode *a2,
         bool *a3)
 {
-  unsigned int v5; // edi
-  unsigned __int8 IsEnabled; // al
-  unsigned int v7; // edx
+  int v3; // eax
+  unsigned int v6; // esi
+  __int64 v7; // rax
   CExpressionValue *v8; // rax
-  _DWORD *v9; // rsi
+  _DWORD *v9; // rbx
   char v10; // cl
   unsigned int v12; // [rsp+20h] [rbp-68h]
   _BYTE v13[80]; // [rsp+30h] [rbp-58h] BYREF
 
-  if ( *((_DWORD *)this + 4) )
+  v3 = *((_DWORD *)this + 4);
+  if ( v3 )
   {
-    IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v7 = *((_DWORD *)this + 4) - 1;
-    if ( IsEnabled && v7 >= *((_DWORD *)this + 12) )
+    v7 = (unsigned int)(v3 - 1);
+    if ( (unsigned int)v7 < *((_DWORD *)this + 12) )
+    {
+      v9 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v7);
+    }
+    else
     {
       v8 = CExpressionValue::CExpressionValue((CExpressionValue *)v13);
       v9 = &CExpressionValueStack::s_emptyValue;
       CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v8);
       CExpressionValue::~CExpressionValue((CExpressionValue *)v13);
     }
-    else
-    {
-      v9 = (_DWORD *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v7);
-    }
-    v5 = 0;
+    v6 = 0;
     if ( v9[18] == 17 )
     {
       v10 = *(_BYTE *)v9;
       --*((_DWORD *)this + 4);
       *a3 = v10;
-      return v5;
+      return v6;
     }
-    v12 = 8019;
+    v12 = 8013;
   }
   else
   {
-    v12 = 8000;
+    v12 = 7994;
   }
-  v5 = -2147467259;
+  v6 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
     (__int64)this,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-    1LL,
+    1u,
     -2147467259,
-    v12);
-  return v5;
+    v12,
+    0LL);
+  return v6;
 }

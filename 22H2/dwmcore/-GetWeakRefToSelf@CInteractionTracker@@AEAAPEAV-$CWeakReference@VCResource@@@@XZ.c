@@ -1,27 +1,30 @@
 /*
- * XREFs of ?GetWeakRefToSelf@CInteractionTracker@@AEAAPEAV?$CWeakReference@VCResource@@@@XZ @ 0x180232EF8
+ * XREFs of ?GetWeakRefToSelf@CInteractionTracker@@AEAAPEAV?$CWeakReference@VCResource@@@@XZ @ 0x1801C9AF4
  * Callers:
- *     _lambda_532e28217b0c2aa3dc63221d13b9d2f4_::operator() @ 0x180230BAC (_lambda_532e28217b0c2aa3dc63221d13b9d2f4_--operator().c)
- *     ?AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1802372EC (-AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4.c)
- *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x1802388F0 (-RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractio.c)
+ *     _lambda_2149ae26af8bda672c72659e191929ce_::operator() @ 0x1801C77D8 (_lambda_2149ae26af8bda672c72659e191929ce_--operator().c)
+ *     ?AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CE14C (-AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4.c)
+ *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x1801CF90C (-RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractio.c)
  * Callees:
- *     ?Create@?$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z @ 0x180099ABC (-Create@-$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Create@?$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800653D8 (-Create@-$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 struct CWeakResourceReference *__fastcall CInteractionTracker::GetWeakRefToSelf(struct CWeakResourceReference **a1)
 {
   struct CWeakResourceReference **v1; // rbx
-  int v2; // eax
+  struct CWeakResourceReference *result; // rax
+  int v3; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v1 = a1 + 9;
-  if ( !a1[9] )
+  v1 = a1 + 8;
+  result = a1[8];
+  if ( !result )
   {
     *v1 = 0LL;
-    v2 = CWeakReference<CResource>::Create((struct CResource *)a1, a1 + 9);
-    if ( v2 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v2, retaddr);
+    v3 = CWeakReference<CVisual>::Create((struct CResource *)a1, a1 + 8);
+    if ( v3 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v3, retaddr);
+    return *v1;
   }
-  return *v1;
+  return result;
 }

@@ -1,24 +1,26 @@
 /*
- * XREFs of MiWriteEnclavePte @ 0x140648BF8
+ * XREFs of MiWriteEnclavePte @ 0x14054B4DC
  * Callers:
- *     MiAddPagesToEnclave @ 0x140646A80 (MiAddPagesToEnclave.c)
- *     MiProtectEnclavePages @ 0x1406482B8 (MiProtectEnclavePages.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3D034 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549044 (MiAddPagesToEnclave.c)
+ *     MiProtectEnclavePages @ 0x14054AA70 (MiProtectEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D21D8 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x1402846E0 (MiWriteValidPteNewProtection.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiUpdateAwePageTable @ 0x14064C0CC (MiUpdateAwePageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     MiWriteValidPteNewProtection @ 0x140290080 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiUpdateAwePageTable @ 0x14054DF74 (MiUpdateAwePageTable.c)
  */
 
-struct _KTHREAD *__fastcall MiWriteEnclavePte(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, int a4, int a5)
+struct _KTHREAD *__fastcall MiWriteEnclavePte(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4, int a5)
 {
+  int v5; // edi
+  __int64 v7; // rbx
   unsigned __int64 *v9; // r14
   unsigned __int64 v10; // rbp
   unsigned __int8 v11; // r12
@@ -31,20 +33,22 @@ struct _KTHREAD *__fastcall MiWriteEnclavePte(ULONG_PTR BugCheckParameter1, __in
   __int64 v18; // r11
   __int64 v19; // r8
 
-  v9 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
+  v5 = (int)a4;
+  v7 = a2;
+  v9 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
   v10 = ((BugCheckParameter1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( a5 )
   {
-    v11 = MiLockWorkingSetShared((__int64)v9);
-    MiMakeSystemAddressValid(BugCheckParameter1, 0LL, (*(_DWORD *)(a3 + 48) >> 12) & 0x7F, v11, 0);
+    v11 = MiLockWorkingSetShared((__int64)v9, a2, a3, a4);
+    MiMakeSystemAddressValid(BugCheckParameter1, 0LL, (*(_DWORD *)(a3 + 48) >> 12) & 0x3F, v11, 0);
   }
   else
   {
     v11 = 17;
   }
-  if ( a4 )
+  if ( v5 )
   {
-    result = MiWriteValidPteNewProtection(BugCheckParameter1, a2);
+    result = MiWriteValidPteNewProtection(BugCheckParameter1, v7);
 LABEL_21:
     LODWORD(v17) = 0;
     goto LABEL_22;
@@ -56,24 +60,24 @@ LABEL_21:
   v18 = 1LL;
   if ( v15 )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
       v14 = v18;
-      if ( HIBYTE(word_140C66DFC) != (_BYTE)v17 )
+      if ( HIBYTE(word_140C4E008) != (_BYTE)v17 )
         goto LABEL_13;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
     {
       goto LABEL_13;
     }
-    if ( ((unsigned __int8)a2 & (unsigned __int8)v18) != 0 )
-      a2 |= 0x8000000000000000uLL;
+    if ( ((unsigned __int8)v7 & (unsigned __int8)v18) != 0 )
+      v7 |= 0x8000000000000000uLL;
   }
 LABEL_13:
-  *(_QWORD *)BugCheckParameter1 = a2;
+  *(_QWORD *)BugCheckParameter1 = v7;
   if ( v14 )
   {
-    MiWritePteShadow(BugCheckParameter1, a2, v16);
+    MiWritePteShadow(BugCheckParameter1, v7, v16);
     v17 = 0LL;
   }
   v19 = (unsigned int)v17;

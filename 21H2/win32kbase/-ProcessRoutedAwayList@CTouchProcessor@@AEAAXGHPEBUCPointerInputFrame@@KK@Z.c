@@ -1,59 +1,57 @@
 /*
- * XREFs of ?ProcessRoutedAwayList@CTouchProcessor@@AEAAXGHPEBUCPointerInputFrame@@KK@Z @ 0x1C01D2B28
+ * XREFs of ?ProcessRoutedAwayList@CTouchProcessor@@AEAAXGHPEBUCPointerInputFrame@@KK@Z @ 0x1C019A67C
  * Callers:
- *     ?CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z @ 0x1C01BF98C (-CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z.c)
- *     ?CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ @ 0x1C01C04E0 (-CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ.c)
- *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01C7310 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
- *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C01D45E8 (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ *     ?CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z @ 0x1C01894F0 (-CancelActivePointer@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@@Z.c)
+ *     ?CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ @ 0x1C0189B80 (-CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ.c)
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01900D0 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z @ 0x1C019BC9C (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z.c)
  * Callees:
- *     ??4CInputDest@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C00355CC (--4CInputDest@@QEAAAEAV0@$$QEAV0@@Z.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0038C0C (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ??0CInputDest@@QEAA@AEBV0@@Z @ 0x1C00447F0 (--0CInputDest@@QEAA@AEBV0@@Z.c)
- *     ?GenerateRoutedReleasedMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KKHHVCInputDest@@@Z @ 0x1C01C8518 (-GenerateRoutedReleasedMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KKHHVCInputDest@@@Z.c)
- *     ?PopRoutedAwayTarget@CTouchProcessor@@AEAA?AVCInputDest@@G@Z @ 0x1C01CF3B4 (-PopRoutedAwayTarget@CTouchProcessor@@AEAA-AVCInputDest@@G@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0042894 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??4CInputDest@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C00435A0 (--4CInputDest@@QEAAAEAV0@$$QEAV0@@Z.c)
+ *     ??0CInputDest@@QEAA@AEBV0@@Z @ 0x1C0072210 (--0CInputDest@@QEAA@AEBV0@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GenerateRoutedReleasedMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KKHHVCInputDest@@@Z @ 0x1C0191124 (-GenerateRoutedReleasedMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KKHHVCInputDest@@@Z.c)
+ *     ?PopRoutedAwayTarget@CTouchProcessor@@AEAA?AVCInputDest@@G@Z @ 0x1C0197BF0 (-PopRoutedAwayTarget@CTouchProcessor@@AEAA-AVCInputDest@@G@Z.c)
  */
 
 void __fastcall CTouchProcessor::ProcessRoutedAwayList(
-        CTouchProcessor *this,
-        __int64 a2,
-        __int64 a3,
+        struct _KTHREAD **this,
+        unsigned __int16 a2,
+        int a3,
         const struct CPointerInputFrame *a4,
         unsigned int a5,
         unsigned int a6)
 {
-  int v7; // esi
-  unsigned __int16 v8; // bp
-  __int64 **v10; // rax
-  _QWORD *v11; // rax
-  __int64 *v12[16]; // [rsp+40h] [rbp-108h] BYREF
-  _BYTE v13[128]; // [rsp+C0h] [rbp-88h] BYREF
+  int v10; // ebx
+  __int64 **v11; // rax
+  _QWORD *v12; // rax
+  __int64 *v13[16]; // [rsp+40h] [rbp-118h] BYREF
+  _BYTE v14[128]; // [rsp+C0h] [rbp-98h] BYREF
 
-  v7 = a3;
-  v8 = a2;
-  if ( (_DWORD)a3 && !a4 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  CTouchProcessor::PopRoutedAwayTarget(this, (__int64)v12, v8);
-  while ( LODWORD(v12[0]) )
+  if ( a3 && !a4 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9894);
+  CTouchProcessor::PopRoutedAwayTarget(this, (__int64)v13, a2);
+  while ( LODWORD(v13[0]) )
   {
-    if ( v7 )
+    if ( a3 )
     {
       if ( a4 )
       {
-        v10 = (__int64 **)CInputDest::CInputDest((CInputDest *)v13, v12);
+        v10 = *(_DWORD *)(*((_QWORD *)a4 + 19) + 312LL);
+        v11 = (__int64 **)CInputDest::CInputDest((CInputDest *)v14, v13);
         CTouchProcessor::GenerateRoutedReleasedMessage(
-          (__int64)this,
+          (CTouchProcessor *)this,
           (__int64)a4,
           a5,
           a6,
-          -__CFSHR__(*(_DWORD *)(*((_QWORD *)a4 + 32) + 360LL), 4),
-          -__CFSHR__(*(_DWORD *)(*((_QWORD *)a4 + 32) + 360LL), 5),
-          v10);
+          -__CFSHR__(v10, 4),
+          -__CFSHR__(v10, 5),
+          v11);
       }
     }
-    v11 = (_QWORD *)CTouchProcessor::PopRoutedAwayTarget(this, (__int64)v13, v8);
-    CInputDest::operator=((__int64)v12, v11);
-    CInputDest::SetEmpty((CInputDest *)v13);
+    v12 = (_QWORD *)CTouchProcessor::PopRoutedAwayTarget(this, (__int64)v14, a2);
+    CInputDest::operator=((__int64)v13, v12);
+    CInputDest::SetEmpty((CInputDest *)v14);
   }
-  CInputDest::SetEmpty((CInputDest *)v12);
+  CInputDest::SetEmpty((CInputDest *)v13);
 }

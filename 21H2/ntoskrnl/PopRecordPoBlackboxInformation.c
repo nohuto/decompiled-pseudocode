@@ -1,11 +1,11 @@
 /*
- * XREFs of PopRecordPoBlackboxInformation @ 0x1409A0C98
+ * XREFs of PopRecordPoBlackboxInformation @ 0x1408FA9E0
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D89F0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
  * Callees:
- *     PopRecordPepWorkorderBlackboxInformation @ 0x1405DF34C (PopRecordPepWorkorderBlackboxInformation.c)
- *     PopRecordPoIrpBlackboxInformation @ 0x1405DF54C (PopRecordPoIrpBlackboxInformation.c)
- *     PopRecordPowerWatchdogBlackboxInformation @ 0x1405DF828 (PopRecordPowerWatchdogBlackboxInformation.c)
+ *     PopRecordPepWorkorderBlackboxInformation @ 0x14057F3EC (PopRecordPepWorkorderBlackboxInformation.c)
+ *     PopRecordPoIrpBlackboxInformation @ 0x14057F5F8 (PopRecordPoIrpBlackboxInformation.c)
+ *     PopRecordPowerWatchdogBlackboxInformation @ 0x14057F8F0 (PopRecordPowerWatchdogBlackboxInformation.c)
  */
 
 void PopRecordPoBlackboxInformation()

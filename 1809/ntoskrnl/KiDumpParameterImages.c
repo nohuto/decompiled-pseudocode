@@ -1,16 +1,16 @@
 /*
- * XREFs of KiDumpParameterImages @ 0x1402927D4
+ * XREFs of KiDumpParameterImages @ 0x1402928D4
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     KiDisplayBlueScreen @ 0x140292474 (KiDisplayBlueScreen.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KiDisplayBlueScreen @ 0x140292574 (KiDisplayBlueScreen.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlStringCbPrintfA @ 0x14017DE94 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckUnicodeToAnsi @ 0x140291EA0 (KeBugCheckUnicodeToAnsi.c)
- *     KiPcToFileHeader @ 0x140292B9C (KiPcToFileHeader.c)
- *     MmLocateUnloadedDriver @ 0x1402AB078 (MmLocateUnloadedDriver.c)
+ *     RtlStringCbPrintfA @ 0x14017DEB4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckUnicodeToAnsi @ 0x140291FA0 (KeBugCheckUnicodeToAnsi.c)
+ *     KiPcToFileHeader @ 0x140292C9C (KiPcToFileHeader.c)
+ *     MmLocateUnloadedDriver @ 0x1402AB178 (MmLocateUnloadedDriver.c)
  */
 
 void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, unsigned int a3, char a4)

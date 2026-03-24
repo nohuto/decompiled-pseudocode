@@ -1,23 +1,26 @@
 /*
- * XREFs of OPMDestroyAllProtectedOutputs @ 0x1C00A2460
+ * XREFs of OPMDestroyAllProtectedOutputs @ 0x1C0088420
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C00A24C4 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C0088474 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
  */
 
-LONG __fastcall OPMDestroyAllProtectedOutputs(__int64 a1)
+LONG OPMDestroyAllProtectedOutputs()
 {
-  __int64 v1; // rdi
+  OPM *v0; // rdi
   LONG result; // eax
-  struct _KMUTANT *v3; // rcx
+  struct _KMUTANT *v2; // rcx
 
-  v1 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 3824LL);
-  OPM::CMutex::Lock((OPM::CMutex *)(v1 + 56));
-  result = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::DestroyAllHandlesFromAdapter(v1 + 24, 0LL, v1 + 48);
-  v3 = *(struct _KMUTANT **)(v1 + 56);
-  if ( v3 )
-    return KeReleaseMutex(v3, 0);
+  v0 = qword_1C0250C58;
+  OPM::CMutex::Lock((OPM *)((char *)qword_1C0250C58 + 56));
+  result = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::DestroyAllHandlesFromAdapter(
+             (char *)v0 + 24,
+             0LL,
+             (char *)v0 + 48);
+  v2 = (struct _KMUTANT *)*((_QWORD *)v0 + 7);
+  if ( v2 )
+    return KeReleaseMutex(v2, 0);
   return result;
 }

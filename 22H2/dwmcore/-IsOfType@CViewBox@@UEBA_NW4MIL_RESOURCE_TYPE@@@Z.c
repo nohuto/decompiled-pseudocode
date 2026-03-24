@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CViewBox@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C58A0
+ * XREFs of ?IsOfType@CViewBox@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F7F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CComponentTransform2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0C80 (-IsOfType@CComponentTransform2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CComponentTransform2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4EC0 (-IsOfType@CComponentTransform2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CViewBox::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CViewBox::IsOfType(__int64 a1, int a2)
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 194 )
+  if ( a2 == 193 )
     return 1;
   v2 = CComponentTransform2D::IsOfType(a1, a2);
   v3 = 0;

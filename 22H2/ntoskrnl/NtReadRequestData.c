@@ -1,10 +1,10 @@
 /*
- * XREFs of NtReadRequestData @ 0x140978790
+ * XREFs of NtReadRequestData @ 0x1408C2130
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     LpcpCopyRequestData @ 0x1409782DC (LpcpCopyRequestData.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     LpcpCopyRequestData @ 0x1408C1C9C (LpcpCopyRequestData.c)
  */
 
 __int64 __fastcall NtReadRequestData(void *a1, unsigned __int64 a2, unsigned int a3, char *a4, SIZE_T a5, __int64 *a6)

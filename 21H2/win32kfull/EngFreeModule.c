@@ -1,9 +1,9 @@
 /*
- * XREFs of EngFreeModule @ 0x1C0286FD0
+ * XREFs of EngFreeModule @ 0x1C028A110
  * Callers:
  *     <none>
  * Callees:
- *     vUnmapFile @ 0x1C00EF3E8 (vUnmapFile.c)
+ *     vUnmapFile @ 0x1C00E667C (vUnmapFile.c)
  */
 
 void __stdcall EngFreeModule(HANDLE h)

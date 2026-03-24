@@ -1,9 +1,10 @@
 /*
- * XREFs of ?ProcessSetInterpolationMode@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETINTERPOLATIONMODE@@@Z @ 0x1800D73AC
+ * XREFs of ?ProcessSetInterpolationMode@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETINTERPOLATIONMODE@@@Z @ 0x1801EED24
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?D2DInterpolationModeFromMilInterpolationMode@@YA?AW4D2D1_INTERPOLATION_MODE@@W4Enum@MilBitmapInterpolationMode@@@Z @ 0x1800C8F10 (-D2DInterpolationModeFromMilInterpolationMode@@YA-AW4D2D1_INTERPOLATION_MODE@@W4Enum@MilBitmapIn.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSurfaceBrush::ProcessSetInterpolationMode(
@@ -12,38 +13,10 @@ __int64 __fastcall CSurfaceBrush::ProcessSetInterpolationMode(
         const struct tagMILCMD_SURFACEBRUSH_SETINTERPOLATIONMODE *a3)
 {
   int v3; // eax
-  int v4; // edx
-  __int64 v5; // rax
+  _DWORD *v4; // r9
 
-  v3 = *((_DWORD *)a3 + 2);
-  v4 = 0;
-  if ( v3 == 1 )
-  {
-    v4 = 1;
-  }
-  else if ( v3 > 1 )
-  {
-    if ( v3 <= 3 )
-    {
-      v4 = 2;
-      goto LABEL_3;
-    }
-    switch ( v3 )
-    {
-      case 4:
-        goto LABEL_9;
-      case 5:
-        v4 = 4;
-        break;
-      case 6:
-LABEL_9:
-        v4 = 3;
-        break;
-    }
-  }
-LABEL_3:
-  v5 = *(_QWORD *)this;
-  *((_DWORD *)this + 25) = v4;
-  (*(void (__fastcall **)(CSurfaceBrush *, __int64, CSurfaceBrush *))(v5 + 72))(this, 6LL, this);
+  v3 = D2DInterpolationModeFromMilInterpolationMode(*((_DWORD *)a3 + 2));
+  v4[23] = v3;
+  (*(void (__fastcall **)(_DWORD *, __int64, _DWORD *))(*(_QWORD *)v4 + 72LL))(v4, 6LL, v4);
   return 0LL;
 }

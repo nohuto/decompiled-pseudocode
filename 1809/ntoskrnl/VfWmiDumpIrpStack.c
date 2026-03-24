@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  */
 
 __int64 __fastcall VfWmiDumpIrpStack(__int64 a1)

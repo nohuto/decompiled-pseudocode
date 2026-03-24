@@ -1,7 +1,8 @@
 /*
- * XREFs of rimInputTypeFromDeviceTypeAndUsages @ 0x1C0006104
+ * XREFs of rimInputTypeFromDeviceTypeAndUsages @ 0x1C01528B8
  * Callers:
- *     RIMIDECreatePseudoHIDDevice @ 0x1C0195108 (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0167FA4 (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0168270 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
  * Callees:
  *     <none>
  */
@@ -19,13 +20,12 @@ __int64 __fastcall rimInputTypeFromDeviceTypeAndUsages(int a1, __int16 a2, __int
   if ( a2 != 13 )
     return 32LL;
   result = 4LL;
-  if ( (unsigned __int16)(a3 - 1) > 1u )
-  {
-    if ( a3 == 4 )
-      return 16LL;
-    if ( a3 == 5 )
-      return 8LL;
+  if ( (unsigned __int16)(a3 - 1) <= 1u )
+    return result;
+  if ( a3 == 4 )
+    return 16LL;
+  if ( a3 == 5 )
+    return 8LL;
+  else
     return 32LL;
-  }
-  return result;
 }

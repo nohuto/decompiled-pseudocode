@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceUserUpdateHandleOwner @ 0x1C00AC6E8
+ * XREFs of EtwTraceUserUpdateHandleOwner @ 0x1C009AA28
  * Callers:
- *     HMChangeOwnerPheProcessWorker @ 0x1C00AC568 (HMChangeOwnerPheProcessWorker.c)
- *     HMChangeOwnerThreadWorker @ 0x1C00C2298 (HMChangeOwnerThreadWorker.c)
+ *     HMChangeOwnerPheProcessWorker @ 0x1C009A8A8 (HMChangeOwnerPheProcessWorker.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00A5924 (HMChangeOwnerThreadWorker.c)
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0150614 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0125FD8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceUserUpdateHandleOwner(int a1, char a2, int a3)

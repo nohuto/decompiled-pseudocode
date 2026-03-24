@@ -1,72 +1,33 @@
 /*
- * XREFs of MiGetPageSlist @ 0x1403D6B70
+ * XREFs of MiGetPageSlist @ 0x1402EC47C
  * Callers:
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402E80D4 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1402EC204 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     MiArePageContentsZero @ 0x14064D490 (MiArePageContentsZero.c)
+ *     MiSlistGetFreePage @ 0x1402EC520 (MiSlistGetFreePage.c)
  */
 
-_QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
+__int64 __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
 {
-  int v3; // r15d
-  __int64 *v4; // r14
-  int v5; // r12d
+  int v3; // ebp
+  __int64 *v4; // rsi
   unsigned int v7; // ebx
-  int i; // esi
-  union _SLIST_HEADER *v9; // rcx
-  PSLIST_ENTRY v10; // rax
-  _QWORD *p_Next; // r8
-  __int64 v13; // [rsp+50h] [rbp+8h]
-  PSLIST_ENTRY v14; // [rsp+68h] [rbp+20h]
+  int v8; // edi
+  __int64 result; // rax
 
-  v13 = a1;
-  v3 = dword_140C65BF8;
-  v4 = &MiFreeThenFree;
-  v5 = 1;
-  if ( (a3 & 0x4000) != 0 )
-    v5 = 16;
+  v3 = dword_140C4DEF8;
+  v4 = &MiZeroThenZero;
   v7 = a2;
-  if ( (a3 & 2) != 0 )
-    v4 = &MiZeroThenZero;
-  while ( 2 )
+  v8 = (a3 & 0x4000) != 0 ? 16 : 1;
+  if ( (a3 & 2) == 0 )
+    v4 = &MiFreeThenFree;
+  while ( 1 )
   {
-    for ( i = *(_DWORD *)v4; ; i = *((_DWORD *)v4 + 1) )
-    {
-      v9 = (union _SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 6808));
-      if ( LOWORD(v9->Alignment) )
-      {
-        v10 = RtlpInterlockedPopEntrySList(v9);
-        v14 = v10;
-        p_Next = &v10->Next;
-        if ( v10 )
-        {
-          v10[1].Next = (_SLIST_ENTRY *)ZeroPte;
-          if ( i )
-          {
-            MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)&v10[1]);
-          }
-          else if ( (MiFlags & 0x80u) != 0LL && (++dword_140C68060 & MmPageValidationFrequency) == 0 )
-          {
-            MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)&v10[0x22000000000LL] >> 4));
-            p_Next = &v14->Next;
-          }
-          *p_Next = 0LL;
-          return p_Next;
-        }
-      }
-      if ( i == *((_DWORD *)v4 + 1) )
-        break;
-      a1 = v13;
-    }
-    v7 = v7 & ~v3 | v3 & (v7 + v5);
-    if ( v7 != a2 )
-    {
-      a1 = v13;
-      continue;
-    }
-    break;
+    result = MiSlistGetFreePage(a1, v4, v7);
+    if ( result )
+      break;
+    v7 = v7 & ~v3 | v3 & (v8 + v7);
+    if ( v7 == a2 )
+      return 0LL;
   }
-  return 0LL;
+  return result;
 }

@@ -1,19 +1,21 @@
 /*
- * XREFs of ?RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z @ 0x1C00A68B8
+ * XREFs of ?RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z @ 0x1C008AFF4
  * Callers:
- *     ?SuspendWorkerThread@VIDMM_GLOBAL@@QEAAXW4_VIDMM_WORKER_THREAD_SUSPEND_REASON@@@Z @ 0x1C00A685C (-SuspendWorkerThread@VIDMM_GLOBAL@@QEAAXW4_VIDMM_WORKER_THREAD_SUSPEND_REASON@@@Z.c)
- *     ?ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z @ 0x1C00A6898 (-ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z.c)
- *     ?Init@VIDMM_WORKER_THREAD@@QEAAJPEAPEAU_KEVENT@@@Z @ 0x1C00B1C34 (-Init@VIDMM_WORKER_THREAD@@QEAAJPEAPEAU_KEVENT@@@Z.c)
- *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00D4CC4 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ?SuspendWorkerThread@VIDMM_GLOBAL@@QEAAXW4_VIDMM_WORKER_THREAD_SUSPEND_REASON@@@Z @ 0x1C008AFA0 (-SuspendWorkerThread@VIDMM_GLOBAL@@QEAAXW4_VIDMM_WORKER_THREAD_SUSPEND_REASON@@@Z.c)
+ *     ?ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z @ 0x1C008AFD4 (-ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z.c)
+ *     ?Init@VIDMM_WORKER_THREAD@@QEAAJPEAPEAU_KEVENT@@@Z @ 0x1C0097AC4 (-Init@VIDMM_WORKER_THREAD@@QEAAJPEAPEAU_KEVENT@@@Z.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00AD91C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?TransitionToState@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@@Z @ 0x1C00A6960 (-TransitionToState@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@@Z.c)
+ *     ?TransitionToState@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@@Z @ 0x1C008B094 (-TransitionToState@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@@Z.c)
  */
 
 void __fastcall VIDMM_WORKER_THREAD::RequestWorkerThreadStatus(__int64 a1, int a2, char a3)
 {
   __int64 v4; // rbx
-  __int64 v6; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rax
 
   v4 = a2;
   KeEnterCriticalRegion();
@@ -26,8 +28,9 @@ void __fastcall VIDMM_WORKER_THREAD::RequestWorkerThreadStatus(__int64 a1, int a
   }
   else
   {
-    WdLogSingleEntry1(1LL, v4);
-    DxgkLogInternalTriageEvent(v6, 0x40000LL);
+    v9 = WdLogNewEntry5_WdAssertion(v7, v6, v8);
+    *(_QWORD *)(v9 + 24) = v4;
+    WdLogEvent5_WdAssertion(v9);
   }
   *(_QWORD *)(a1 + 40) = 0LL;
   ExReleasePushLockExclusiveEx(a1 + 32, 0LL);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegeObjectAuditAlarm @ 0x1401BA7B0
+ * XREFs of ZwPrivilegeObjectAuditAlarm @ 0x1401BA7D0
  * Callers:
  *     <none>
  * Callees:

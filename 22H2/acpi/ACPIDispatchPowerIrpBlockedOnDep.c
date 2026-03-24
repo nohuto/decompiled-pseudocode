@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDispatchPowerIrpBlockedOnDep @ 0x1C0024670
+ * XREFs of ACPIDispatchPowerIrpBlockedOnDep @ 0x1C0052E70
  * Callers:
  *     <none>
  * Callees:

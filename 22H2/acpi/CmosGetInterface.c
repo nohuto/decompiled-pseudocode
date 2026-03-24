@@ -1,7 +1,7 @@
 /*
- * XREFs of CmosGetInterface @ 0x1C008232C
+ * XREFs of CmosGetInterface @ 0x1C00A1EB4
  * Callers:
- *     ACPIGetCmosInterface @ 0x1C0019B00 (ACPIGetCmosInterface.c)
+ *     ACPIGetCmosInterface @ 0x1C002C4B0 (ACPIGetCmosInterface.c)
  * Callees:
  *     <none>
  */
@@ -9,11 +9,11 @@
 __int64 __fastcall CmosGetInterface(PDEVICE_OBJECT DeviceObject)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi
-  PIRP v4; // rax
-  IRP *v5; // rdx
+  PIRP v3; // rax
+  IRP *v4; // rdx
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
   NTSTATUS Status; // ebx
-  unsigned __int128 v8; // kr00_16
+  unsigned __int128 v7; // kr00_16
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-9h] BYREF
   struct _KEVENT Event; // [rsp+58h] [rbp+7h] BYREF
   _OWORD v11[2]; // [rsp+70h] [rbp+1Fh] BYREF
@@ -27,19 +27,19 @@ __int64 __fastcall CmosGetInterface(PDEVICE_OBJECT DeviceObject)
   AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceObject);
   if ( !AttachedDeviceReference )
     return 3221225486LL;
-  v4 = IoBuildSynchronousFsdRequest(0x1Bu, AttachedDeviceReference, 0LL, 0, 0LL, &Event, &IoStatusBlock);
-  v5 = v4;
-  if ( v4 )
+  v3 = IoBuildSynchronousFsdRequest(0x1Bu, AttachedDeviceReference, 0LL, 0, 0LL, &Event, &IoStatusBlock);
+  v4 = v3;
+  if ( v3 )
   {
-    v4->IoStatus.Information = 0LL;
-    v4->IoStatus.Status = -1073741637;
-    CurrentStackLocation = v4->Tail.Overlay.CurrentStackLocation;
+    v3->IoStatus.Information = 0LL;
+    v3->IoStatus.Status = -1073741637;
+    CurrentStackLocation = v3->Tail.Overlay.CurrentStackLocation;
     CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = 0LL;
     CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)&GUID_ACPI_CMOS_INTERFACE_STANDARD;
     CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = (__int64)v11;
     CurrentStackLocation[-1].MinorFunction = 8;
     CurrentStackLocation[-1].Parameters.Create.Options = 65584;
-    Status = IofCallDriver(AttachedDeviceReference, v5);
+    Status = IofCallDriver(AttachedDeviceReference, v4);
     if ( Status == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -48,9 +48,9 @@ __int64 __fastcall CmosGetInterface(PDEVICE_OBJECT DeviceObject)
     ObfDereferenceObject(AttachedDeviceReference);
     if ( Status >= 0 )
     {
-      v8 = v12;
-      AcpiWriteCmosRoutine = v8 >> 64;
-      AcpiReadCmosRoutine = v8;
+      v7 = v12;
+      AcpiWriteCmosRoutine = v7 >> 64;
+      AcpiReadCmosRoutine = v7;
     }
     return (unsigned int)Status;
   }

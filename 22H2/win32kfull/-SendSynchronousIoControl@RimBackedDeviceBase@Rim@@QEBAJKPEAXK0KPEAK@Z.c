@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C0227E40
+ * XREFs of ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C02433D0
  * Callers:
- *     ?CreateAndSendSuperWetInkPayloadForCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXIM@Z @ 0x1C0243170 (-CreateAndSendSuperWetInkPayloadForCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXIM@Z.c)
- *     ?Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0243980 (-Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?CreateAndSendSuperWetInkPayloadForCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXIM@Z @ 0x1C0254660 (-CreateAndSendSuperWetInkPayloadForCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXIM@Z.c)
+ *     ?Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0254E70 (-Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     ??1DeviceObjectPointer@Io@@QEAA@XZ @ 0x1C0227A90 (--1DeviceObjectPointer@Io@@QEAA@XZ.c)
- *     ?GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z @ 0x1C0227B38 (-GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z.c)
- *     SendSynchronousIoControl @ 0x1C0227F50 (SendSynchronousIoControl.c)
+ *     ??1DeviceObjectPointer@Io@@QEAA@XZ @ 0x1C0242FF0 (--1DeviceObjectPointer@Io@@QEAA@XZ.c)
+ *     ?GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z @ 0x1C0243098 (-GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z.c)
+ *     SendSynchronousIoControl @ 0x1C02434E0 (SendSynchronousIoControl.c)
  */
 
 __int64 __fastcall Rim::RimBackedDeviceBase::SendSynchronousIoControl(
@@ -28,8 +28,8 @@ __int64 __fastcall Rim::RimBackedDeviceBase::SendSynchronousIoControl(
   v12 = 0LL;
   if ( !v7
     || (v10 = Io::DeviceObjectPointer::GetByObjectName(
-                (struct _UNICODE_STRING *)((*((_QWORD *)this + 2) + 280LL) & -(__int64)(*((_QWORD *)this + 2) != 0LL)),
-                *((_QWORD *)this + 2) + 280LL,
+                (struct _UNICODE_STRING *)((*((_QWORD *)this + 2) + 296LL) & -(__int64)(*((_QWORD *)this + 2) != 0LL)),
+                *((_QWORD *)this + 2) + 296LL,
                 a3,
                 (void **)&v12),
         v10 >= 0) )

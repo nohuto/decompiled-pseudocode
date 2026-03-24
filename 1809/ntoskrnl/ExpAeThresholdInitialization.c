@@ -3,11 +3,11 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1401203D0 (KeGenericCallDpc.c)
- *     ExpAeMeasureContention @ 0x140186D70 (ExpAeMeasureContention.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     ExpAeMeasureContention @ 0x140186D90 (ExpAeMeasureContention.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char ExpAeThresholdInitialization()

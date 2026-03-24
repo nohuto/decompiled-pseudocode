@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1C02BB6F0
+ * XREFs of ?UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1C01548A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C029955C (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0299CDC (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02BEC8C (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02BEF94 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ECD8 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001ED70 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F424 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1984 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AC618 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 __int64 __fastcall UMPDDrvNextBand(struct _SURFOBJ *a1, struct _POINTL *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall UMPDDrvNextBand(struct _SURFOBJ *a1, struct _POINTL *a2)
   unsigned int v4; // esi
   int v5; // r14d
   UMPDOBJ *v7; // rbx
-  unsigned int v8; // eax
+  unsigned int v9; // eax
   size_t Size; // [rsp+20h] [rbp-49h]
   unsigned int v11; // [rsp+40h] [rbp-29h] BYREF
   int v12; // [rsp+44h] [rbp-25h] BYREF
@@ -47,12 +47,12 @@ __int64 __fastcall UMPDDrvNextBand(struct _SURFOBJ *a1, struct _POINTL *a2)
   *(_OWORD *)v18 = 0LL;
   if ( v16 )
   {
-    if ( !*((_DWORD *)v16 + 110)
+    if ( !*((_DWORD *)v16 + 106)
       || (v11 = 56,
-          v8 = UMPDOBJ::bThunkLargeBitmap(v16, a1, &v14, &v15, &v13, &v12, &v11),
+          v9 = UMPDOBJ::bThunkLargeBitmap(v16, a1, &v14, &v15, &v13, &v12, &v11),
           v5 = v12,
-          v4 = v8,
-          (v11 = v8) != 0) )
+          v4 = v9,
+          (v11 = v9) != 0) )
     {
       *(_QWORD *)&v17 = 0x3A00000028LL;
       v18[0] = *(struct _SURFOBJ **)v7;
@@ -64,7 +64,7 @@ __int64 __fastcall UMPDDrvNextBand(struct _SURFOBJ *a1, struct _POINTL *a2)
         {
           LODWORD(Size) = 4;
           if ( (unsigned int)UMPDOBJ::Thunk(v7, &v17, 0x28u, &v11, Size) != -1 && a2 )
-            *a2 = *(struct _POINTL *)UMPDOBJ::GetKernelPtr((char **)v7, (char *)v19);
+            *a2 = *(struct _POINTL *)UMPDOBJ::GetKernelPtr(v7, (char *)v19);
           v4 = v11;
         }
       }

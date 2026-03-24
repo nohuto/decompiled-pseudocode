@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_LLLqss @ 0x1C0046380
+ * XREFs of WPP_RECORDER_SF_LLLqss @ 0x1C00624C4
  * Callers:
- *     ACPIWakeDisableAsync @ 0x1C0044CE8 (ACPIWakeDisableAsync.c)
+ *     ACPIWakeDisableAsync @ 0x1C00619AC (ACPIWakeDisableAsync.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_LLLqss(
@@ -19,20 +19,20 @@ __int64 __fastcall WPP_RECORDER_SF_LLLqss(
         const char *a10,
         const char *a11)
 {
-  const char *v11; // rsi
-  const char *v12; // rdi
+  const char *v11; // rdi
+  const char *v12; // rsi
   __int64 v13; // rbx
-  __int64 v15; // rdx
-  __int64 v16; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
   const char *v17; // r8
-  __int64 v18; // rcx
-  __int64 v19; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rdx
   const char *v20; // rax
   __int64 v21; // rax
   int v23; // [rsp+20h] [rbp-88h]
 
-  v11 = a10;
-  v12 = a11;
+  v11 = a11;
+  v12 = a10;
   v13 = -1LL;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
   {
@@ -69,7 +69,7 @@ __int64 __fastcall WPP_RECORDER_SF_LLLqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_033ae0b85663354d3b9e90e6d2c94310_Traceguids,
+      &WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
       11LL,
       &a6,
       4LL,
@@ -85,35 +85,19 @@ __int64 __fastcall WPP_RECORDER_SF_LLLqss(
       v16,
       0LL);
   }
-  if ( v12 )
+  if ( v11 )
   {
     v21 = -1LL;
     do
       ++v21;
-    while ( v12[v21] );
+    while ( v11[v21] );
   }
-  if ( v11 )
+  if ( v12 )
   {
     do
       ++v13;
-    while ( v11[v13] );
+    while ( v12[v13] );
   }
-  if ( !v11 )
-    v11 = "NULL";
   LOWORD(v23) = 11;
-  return WppAutoLogTrace(
-           a1,
-           4LL,
-           17LL,
-           &WPP_033ae0b85663354d3b9e90e6d2c94310_Traceguids,
-           v23,
-           &a6,
-           4LL,
-           &a7,
-           4LL,
-           &a8,
-           4LL,
-           &a9,
-           8LL,
-           v11);
+  return WppAutoLogTrace(a1, 4LL, 17LL, &WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids, v23, &a6);
 }

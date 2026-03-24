@@ -1,16 +1,16 @@
 /*
- * XREFs of ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x1800DAD6C
+ * XREFs of ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x180260D0C
  * Callers:
- *     ?GetBounds@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800EAFF8 (-GetBounds@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAn.c)
+ *     ?GetBounds@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18020C6A8 (-GetBounds@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAn.c)
  * Callees:
- *     ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x180065138 (-ComputeBounds@CSpriteVectorShape@@QEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GotoSibling@?$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV?$vector@PEAVCVectorShape@@V?$allocator@PEAVCVectorShape@@@std@@@std@@@Z @ 0x1800DAE7C (-GotoSibling@-$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV-$vector@PEAVCVectorS.c)
- *     ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1800DAF44 (-PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z.c)
- *     ?GotoParent@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z @ 0x1800DB044 (-GotoParent@-$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z.c)
- *     ?GotoFirstChild@?$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV?$vector@PEAVCVectorShape@@V?$allocator@PEAVCVectorShape@@@std@@@std@@@Z @ 0x1800DB238 (-GotoFirstChild@-$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV-$vector@PEAVCVect.c)
- *     ?EndWalk@?$CGraphWalker@VCVectorShape@@@@QEAAXPEBVCVectorShape@@@Z @ 0x1800DB318 (-EndWalk@-$CGraphWalker@VCVectorShape@@@@QEAAXPEBVCVectorShape@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GotoParent@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z @ 0x18019B334 (-GotoParent@-$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z.c)
+ *     ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1801ED088 (-ComputeBounds@CSpriteVectorShape@@QEAAXXZ.c)
+ *     ?EndWalk@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAVCVectorShape@@@Z @ 0x180261478 (-EndWalk@-$CGraphWalker@VCVectorShape@@@@QEAAXPEAVCVectorShape@@@Z.c)
+ *     ?GotoFirstChild@?$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV?$vector@PEAVCVectorShape@@V?$allocator@PEAVCVectorShape@@@std@@@std@@@Z @ 0x180261510 (-GotoFirstChild@-$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV-$vector@PEAVCVect.c)
+ *     ?GotoSibling@?$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV?$vector@PEAVCVectorShape@@V?$allocator@PEAVCVectorShape@@@std@@@std@@@Z @ 0x1802615F0 (-GotoSibling@-$CGraphWalker@VCVectorShape@@@@QEAAJPEAPEAVCVectorShape@@PEAV-$vector@PEAVCVectorS.c)
+ *     ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1802616A4 (-PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z.c)
  */
 
 __int64 __fastcall CShapeTreeIterator::Walk<CShapeBoundingContext>(__int64 a1, __int64 a2, __int64 a3)
@@ -37,22 +37,22 @@ __int64 __fastcall CShapeTreeIterator::Walk<CShapeBoundingContext>(__int64 a1, _
 LABEL_2:
     v6 = *(CSpriteVectorShape **)(a3 + 8);
     *(_BYTE *)(a3 + 72) = 0;
-    if ( !*((_BYTE *)v6 + 96) )
+    if ( !*((_BYTE *)v6 + 88) )
       break;
     *(_BYTE *)(a3 + 72) = 1;
-    if ( (*(unsigned __int8 (__fastcall **)(CSpriteVectorShape *, __int64))(*(_QWORD *)v6 + 56LL))(v6, 176LL) )
+    if ( (*(unsigned __int8 (__fastcall **)(CSpriteVectorShape *, __int64))(*(_QWORD *)v6 + 56LL))(v6, 177LL) )
     {
       CSpriteVectorShape::ComputeBounds(v6);
       break;
     }
-    *((_WORD *)v6 + 48) = 0;
+    *((_WORD *)v6 + 44) = 0;
     v15 = 0LL;
     v7 = CGraphWalker<CVectorShape>::GotoFirstChild(a1, &v15);
     v9 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x29u);
-      goto LABEL_13;
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x29u, 0LL);
+      goto LABEL_16;
     }
   }
   while ( v15 );
@@ -70,8 +70,8 @@ LABEL_2:
       v9 = v12;
       if ( v12 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x39u);
-        goto LABEL_13;
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x39u, 0LL);
+        goto LABEL_16;
       }
       if ( v16 )
         goto LABEL_2;
@@ -79,11 +79,11 @@ LABEL_2:
     v15 = 0LL;
     CGraphWalker<CVectorShape>::GotoParent(a1, &v15);
     if ( !v15 )
-      goto LABEL_13;
+      goto LABEL_16;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x34u);
-LABEL_13:
-  CGraphWalker<CVectorShape>::EndWalk(a1);
+  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x34u, 0LL);
+LABEL_16:
+  CGraphWalker<CVectorShape>::EndWalk(a1, 0LL);
   if ( v9 < 0 )
     return (unsigned int)v9;
   return v3;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ??_ECMergedDirtyRect@@UEAAPEAXI@Z @ 0x1800E1550
+ * XREFs of ??_ECMergedDirtyRect@@UEAAPEAXI@Z @ 0x1800D2EC0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CMergedDirtyRect *__fastcall CMergedDirtyRect::`vector deleting destructor'(CMergedDirtyRect *this, char a2)
 {
   *(_QWORD *)this = &CMergedRectBase<4>::`vftable';
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x60uLL);
+    operator delete(this);
   return this;
 }

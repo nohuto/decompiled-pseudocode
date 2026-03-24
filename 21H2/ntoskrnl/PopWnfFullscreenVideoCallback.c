@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfFullscreenVideoCallback @ 0x14098CB20
+ * XREFs of PopWnfFullscreenVideoCallback @ 0x1408E4150
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140224C34 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407EEE10 (ExQueryWnfStateData.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x140281818 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
@@ -24,14 +24,14 @@ __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
   {
     if ( v4 < 8 )
       return 0;
-    PpmAcquireLock(&PopFxSystemLatencyLock);
-    if ( byte_140C2330E )
+    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
+    if ( byte_140C23ECE )
     {
       v2 = v6 & 2;
       if ( (v6 & 2) != 0 )
       {
 LABEL_9:
-        PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
+        PpmReleaseLock(&PopFxSystemLatencyLock);
         return (unsigned int)v1;
       }
     }
@@ -41,7 +41,7 @@ LABEL_9:
       if ( (v6 & 2) == 0 )
         goto LABEL_9;
     }
-    byte_140C2330E = v2 != 0;
+    byte_140C23ECE = v2 != 0;
     PoFxSendSystemLatencyUpdate();
     goto LABEL_9;
   }

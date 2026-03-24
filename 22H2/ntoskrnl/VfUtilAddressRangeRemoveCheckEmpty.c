@@ -1,39 +1,25 @@
 /*
- * XREFs of VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC344C
+ * XREFs of VfUtilAddressRangeRemoveCheckEmpty @ 0x1409C63C0
  * Callers:
- *     IovpCompleteRequest2 @ 0x140ACDAFC (IovpCompleteRequest2.c)
- *     VfIoFreeIrp @ 0x140ACE7E4 (VfIoFreeIrp.c)
- *     VfPendingMoreProcessingRequired @ 0x140AD2970 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140AD2BEC (ViPendingCompleteAfterWait.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE28EC (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x1409D0600 (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x1409D125C (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x1409D58B0 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x1409D5B34 (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E093C (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     <none>
+ *     VfUtilAddressRangeRemove @ 0x1409C6394 (VfUtilAddressRangeRemove.c)
  */
 
-__int64 __fastcall VfUtilAddressRangeRemoveCheckEmpty(__int64 *a1, __int64 a2)
+__int64 __fastcall VfUtilAddressRangeRemoveCheckEmpty(_QWORD *a1, __int64 a2)
 {
   __int64 result; // rax
-  __int64 v3; // r9
-  __int64 *v4; // r8
 
-  result = *a1;
-  v3 = a2 + 208;
-  v4 = a1 + 1;
-  if ( a2 == *a1 )
-  {
-    if ( v3 == *v4 )
-    {
-      *a1 = 0LL;
-      *v4 = 0LL;
-      return result;
-    }
-    *a1 = result + 208;
-  }
-  result = *v4;
-  if ( v3 == *v4 )
-  {
-    result -= 208LL;
-    *v4 = result;
-  }
+  if ( a2 != *a1 )
+    return VfUtilAddressRangeRemove(a1, a2, 208LL);
+  result = a2 + 208;
+  if ( a2 + 208 != a1[1] )
+    return VfUtilAddressRangeRemove(a1, a2, 208LL);
+  *a1 = 0LL;
+  a1[1] = 0LL;
   return result;
 }

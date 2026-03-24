@@ -3,12 +3,12 @@
  * Callers:
  *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x1400A5570 (RtlQueryPackageClaims.c)
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F29E4 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     RtlQueryPackageClaims @ 0x1400A5590 (RtlQueryPackageClaims.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
  *     SepIsNgenImage @ 0x14060A55C (SepIsNgenImage.c)
  *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     SepIsLockedDown @ 0x14089B6FC (SepIsLockedDown.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     SepIsLockedDown @ 0x14089B6DC (SepIsLockedDown.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicyWorker(

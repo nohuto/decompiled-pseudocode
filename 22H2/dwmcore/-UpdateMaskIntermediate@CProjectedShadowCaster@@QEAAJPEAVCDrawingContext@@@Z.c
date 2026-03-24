@@ -1,105 +1,160 @@
 /*
- * XREFs of ?UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z @ 0x180219DA0
+ * XREFs of ?UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z @ 0x1801E409C
  * Callers:
- *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18024B5A4 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18000C524 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?GetEffectiveMaskBrush@CProjectedShadowCaster@@QEBAPEAVCBrush@@XZ @ 0x180005BE4 (-GetEffectiveMaskBrush@CProjectedShadowCaster@@QEBAPEAVCBrush@@XZ.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180061790 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800FF334 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??$_Try_emplace@PEBVCVisualTree@@$$V@?$map@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@PEAX@std@@_N@1@$$QEAPEBVCVisualTree@@@Z @ 0x180219A40 (--$_Try_emplace@PEBVCVisualTree@@$$V@-$map@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadow.c)
- *     ?GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEBVCShape@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1802B7FF4 (-GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ??$_Lbound@PEBVCVisualTree@@@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@IEBAPEAU?$_Tree_node@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@PEAX@1@AEBQEBVCVisualTree@@@Z @ 0x18000A470 (--$_Lbound@PEBVCVisualTree@@@-$_Tree@V-$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProje.c)
+ *     ??$emplace_hint@AEBUpiecewise_construct_t@std@@V?$tuple@$$QEAPEBVCVisualTree@@@2@V?$tuple@$$V@2@@?$_Tree@V?$_Tmap_traits@PEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@U?$less@PEBVCVisualTree@@@std@@V?$allocator@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@5@$0A@@std@@@std@@QEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBVCVisualTree@@UVisualPropertyData@CProjectedShadowCaster@@@std@@@std@@@std@@@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@$$QEAPEBVCVisualTree@@@1@$$QEAV?$tuple@$$V@1@@Z @ 0x18000D898 (--$emplace_hint@AEBUpiecewise_construct_t@std@@V-$tuple@$$QEAPEBVCVisualTree@@@2@V-$tuple@$$V@2@.c)
+ *     ?GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEBVCShape@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18000F3D4 (-GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??4?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@PEAVIRenderTargetBitmap@@@Z @ 0x1801E3E58 (--4-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@PEAVIRenderTargetBitmap@@@Z.c)
+ *     ?GenerateWhiteColorIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180269430 (-GenerateWhiteColorIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D.c)
  */
 
 __int64 __fastcall CProjectedShadowCaster::UpdateMaskIntermediate(
         CProjectedShadowCaster *this,
         struct CDrawingContext *a2)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rsi
-  __int64 *v6; // r14
-  struct CBrush *EffectiveMaskBrush; // rax
-  __int64 v8; // rdx
-  struct CBrush *v9; // r12
-  int v10; // eax
-  __m128 v11; // xmm2
+  unsigned int v4; // edi
+  __int64 *v5; // rax
+  __int64 *v6; // r9
+  unsigned __int64 v7; // r10
+  __int64 *v8; // rbx
+  __int64 *v9; // rsi
+  __int64 v10; // r15
+  __int64 v11; // rcx
   int v12; // eax
   __m128 v13; // xmm2
-  CGeometry *v14; // rcx
+  int v14; // eax
+  __m128 v15; // xmm2
+  CGeometry *v16; // rcx
   int ShapeData; // eax
-  __int64 v16; // rcx
-  char v17; // cl
-  int v18; // eax
-  __int64 v19; // rcx
-  char v21; // [rsp+28h] [rbp-48h]
-  __int64 v22; // [rsp+40h] [rbp-30h] BYREF
-  char v23; // [rsp+48h] [rbp-28h]
-  const char *v24; // [rsp+50h] [rbp-20h] BYREF
-  int v25; // [rsp+58h] [rbp-18h]
-  _BYTE v26[16]; // [rsp+60h] [rbp-10h] BYREF
-  float v27; // [rsp+B0h] [rbp+40h]
-  struct D2D_SIZE_F v28; // [rsp+B8h] [rbp+48h] BYREF
-  unsigned __int64 v29; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 v18; // rcx
+  char v19; // al
+  int MaskIntermediate; // eax
+  __int64 v21; // rcx
+  const struct D2D_SIZE_F *v22; // r9
+  int WhiteColorIntermediate; // eax
+  __int64 v24; // rcx
+  struct IRenderTargetBitmap **v26; // [rsp+28h] [rbp-38h]
+  struct CShape *v27; // [rsp+40h] [rbp-20h] BYREF
+  char v28; // [rsp+48h] [rbp-18h]
+  const char *v29; // [rsp+50h] [rbp-10h] BYREF
+  int v30; // [rsp+58h] [rbp-8h]
+  __int64 *v31; // [rsp+A0h] [rbp+40h] BYREF
+  struct D2D_SIZE_F v32; // [rsp+A8h] [rbp+48h] BYREF
+  __int64 v33; // [rsp+B0h] [rbp+50h] BYREF
+  char v34; // [rsp+B8h] [rbp+58h] BYREF
 
-  v29 = *((_QWORD *)a2 + 1007);
+  v33 = *((_QWORD *)a2 + 741);
   v4 = 0;
-  v5 = *(_QWORD *)std::map<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData>::_Try_emplace<CVisualTree const *,>(
-                    (__int64 *)this + 10,
-                    (__int64)v26,
-                    &v29);
-  v6 = (__int64 *)(v5 + 80);
-  if ( !*(_QWORD *)(v5 + 80) )
+  v5 = std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::_Lbound<CVisualTree const *>(
+         (__int64 *)this + 9,
+         &v33);
+  v8 = v5;
+  if ( v5 == (__int64 *)*v6 || v7 < v5[4] )
   {
-    EffectiveMaskBrush = CProjectedShadowCaster::GetEffectiveMaskBrush(this);
-    v8 = *((_QWORD *)this + 8);
-    v9 = EffectiveMaskBrush;
-    v28 = *(struct D2D_SIZE_F *)(v8 + 140);
-    if ( (LODWORD(v28.width) & 0x7FFFFFFFu) > 0x497FFFF0 )
-    {
-      v11 = 0LL;
-      v11.m128_f32[0] = (float)(int)v28.width - v28.width;
-      v10 = (int)v28.width - _mm_cmple_ss(v11, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
-    }
-    else
-    {
-      v27 = v28.width + 6291456.25;
-      v10 = (int)(LODWORD(v27) << 10) >> 11;
-    }
-    v28.width = (float)v10;
-    if ( (LODWORD(v28.height) & 0x7FFFFFFFu) > 0x497FFFF0 )
+    v31 = &v33;
+    v8 = *(__int64 **)std::_Tree<std::_Tmap_traits<CVisualTree const *,CProjectedShadowCaster::VisualPropertyData,std::less<CVisualTree const *>,std::allocator<std::pair<CVisualTree const * const,CProjectedShadowCaster::VisualPropertyData>>,0>>::emplace_hint<std::piecewise_construct_t const &,std::tuple<CVisualTree const * &&>,std::tuple<>>(
+                        v6,
+                        (__int64)&v34,
+                        (int)v5,
+                        (__int64)v6,
+                        &v31);
+  }
+  v9 = v8 + 10;
+  if ( !v8[10] )
+  {
+    v10 = *((_QWORD *)this + 15);
+    if ( !v10 )
+      v10 = *(_QWORD *)(*((_QWORD *)this + 2) + 176LL);
+    v11 = *((_QWORD *)this + 7);
+    v32 = *(struct D2D_SIZE_F *)(v11 + 132);
+    *(FLOAT *)&v31 = v32.width;
+    if ( (LODWORD(v32.width) & 0x7FFFFFFFu) > 0x497FFFF0 )
     {
       v13 = 0LL;
-      v13.m128_f32[0] = (float)(int)v28.height - v28.height;
-      v12 = (int)v28.height - _mm_cmple_ss(v13, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
+      v13.m128_f32[0] = (float)(int)v32.width - v32.width;
+      LODWORD(v31) = _mm_cmple_ss(v13, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
+      v12 = (int)v32.width - (_DWORD)v31;
     }
     else
     {
-      v27 = v28.height + 6291456.25;
-      v12 = (int)(LODWORD(v27) << 10) >> 11;
+      *(float *)&v31 = v32.width + 6291456.25;
+      v12 = (int)((_DWORD)v31 << 10) >> 11;
     }
-    v22 = 0LL;
-    v23 = 0;
-    v28.height = (float)v12;
-    v14 = *(CGeometry **)(v8 + 248);
-    if ( v14
-      && (ShapeData = CGeometry::GetShapeData(v14, &v28, (struct CShapePtr *)&v22), v4 = ShapeData, ShapeData < 0) )
+    *(FLOAT *)&v31 = v32.height;
+    v32.width = (float)v12;
+    if ( (LODWORD(v32.height) & 0x7FFFFFFFu) > 0x497FFFF0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, ShapeData, 0x194u, 0LL);
+      v15 = 0LL;
+      v15.m128_f32[0] = (float)(int)v32.height - v32.height;
+      LODWORD(v31) = _mm_cmple_ss(v15, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
+      v14 = (int)v32.height - (_DWORD)v31;
     }
     else
     {
-      Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease(v6);
-      v17 = *(_BYTE *)(v5 + 76);
-      v24 = "DWM ProjectedShadow Mask";
-      v21 = v17;
-      v25 = 24;
-      v18 = ShadowHelpers::GenerateMaskIntermediate(&v24, a2, &v28, v9, v22, v21, v5 + 60, v6);
-      v4 = v18;
-      if ( v18 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x1A0u, 0LL);
+      *(float *)&v31 = v32.height + 6291456.25;
+      v14 = (int)((_DWORD)v31 << 10) >> 11;
     }
-    CShapePtr::Release((CShapePtr *)&v22);
+    v27 = 0LL;
+    v28 = 0;
+    v32.height = (float)v14;
+    v16 = *(CGeometry **)(v11 + 240);
+    if ( v16
+      && (ShapeData = CGeometry::GetShapeData(v16, &v32, (struct CShapePtr *)&v27), v4 = ShapeData, ShapeData < 0) )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, ShapeData, 0x195u, 0LL);
+    }
+    else
+    {
+      Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(v8 + 10);
+      v19 = *((_BYTE *)v8 + 76);
+      v29 = "DWM ProjectedShadow Mask";
+      v30 = 24;
+      MaskIntermediate = ShadowHelpers::GenerateMaskIntermediate(
+                           (__int64)&v29,
+                           a2,
+                           (__int64)&v32,
+                           v10,
+                           v27,
+                           v19,
+                           (float *)v8 + 15,
+                           v8 + 10);
+      v4 = MaskIntermediate;
+      if ( MaskIntermediate < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, MaskIntermediate, 0x1A1u, 0LL);
+      }
+      else if ( v10 != *(_QWORD *)(*((_QWORD *)this + 2) + 176LL) )
+      {
+        v31 = 0LL;
+        if ( *v9 )
+          v22 = (const struct D2D_SIZE_F *)(*(int *)(*(_QWORD *)(*v9 + 8) + 16LL) + *v9 + 8);
+        else
+          v22 = 0LL;
+        v30 = 25;
+        v29 = "DWM ProjectedShadow Color";
+        WhiteColorIntermediate = ShadowHelpers::GenerateWhiteColorIntermediate(
+                                   (ShadowHelpers *)&v29,
+                                   a2,
+                                   (struct CDrawingContext *)&v32,
+                                   v22,
+                                   (struct IBitmapRealization *)&v31,
+                                   v26);
+        v4 = WhiteColorIntermediate;
+        if ( WhiteColorIntermediate < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, WhiteColorIntermediate, 0x1ACu, 0LL);
+        else
+          Microsoft::WRL::ComPtr<IRenderTargetBitmap>::operator=(v9, (__int64)v31);
+        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v31);
+      }
+    }
+    CShapePtr::Release((CShapePtr *)&v27);
   }
   return v4;
 }

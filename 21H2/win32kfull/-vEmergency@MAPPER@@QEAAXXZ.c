@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C0291F30
+ * XREFs of ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C029451C
  * Callers:
- *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C001D14C (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
+ *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C005F930 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
  * Callees:
- *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C001D8F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
- *     ?ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C016EEB6 (-ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
- *     ulCharsetToCodePage @ 0x1C0170DBA (ulCharsetToCodePage.c)
- *     ?ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C0291D34 (-ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
- *     ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C029206C (-vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C00600F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C02942E4 (-ppfeFirst@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
+ *     ?ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C029431C (-ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ.c)
+ *     ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C0294658 (-vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z.c)
+ *     ulCharsetToCodePage @ 0x1C02DD638 (ulCharsetToCodePage.c)
  */
 
 void __fastcall MAPPER::vEmergency(MAPPER *this)
@@ -21,7 +21,7 @@ void __fastcall MAPPER::vEmergency(MAPPER *this)
   int v8; // eax
   struct PFE *v9; // rsi
   struct PFE *v10; // rax
-  int v11; // ecx
+  __int64 v11; // rcx
   int v12; // eax
   _DWORD *v13; // r8
   _QWORD v14[2]; // [rsp+20h] [rbp-38h] BYREF

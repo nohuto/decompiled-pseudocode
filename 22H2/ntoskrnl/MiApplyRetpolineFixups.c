@@ -1,18 +1,19 @@
 /*
- * XREFs of MiApplyRetpolineFixups @ 0x140325420
+ * XREFs of MiApplyRetpolineFixups @ 0x1402F45E4
  * Callers:
- *     MiReapplyImportOptimizationWorker @ 0x140640EF0 (MiReapplyImportOptimizationWorker.c)
- *     MiPerformFixups @ 0x14079DE10 (MiPerformFixups.c)
+ *     MmRemoveImportOptimizationWorker @ 0x140544750 (MmRemoveImportOptimizationWorker.c)
+ *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
  * Callees:
- *     RtlApplyImportRelocationToPage @ 0x140324EB8 (RtlApplyImportRelocationToPage.c)
- *     RtlpConstructImportRelocationFixup @ 0x140325600 (RtlpConstructImportRelocationFixup.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlApplyIndirectRelocationToPage @ 0x14067A504 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x14067A5B0 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F452C (RtlApplyImportRelocationToPage.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402F4790 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x1402F47F0 (RtlpConstructImportRelocationFixup.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x14058FC64 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x14058FD10 (RtlApplySwitchJumpRelocationToPage.c)
  */
 
-unsigned __int64 __fastcall MiApplyRetpolineFixups(
-        unsigned __int64 a1,
+__int64 __fastcall MiApplyRetpolineFixups(
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         int a4,
@@ -20,117 +21,70 @@ unsigned __int64 __fastcall MiApplyRetpolineFixups(
         unsigned __int16 *a6,
         char a7)
 {
-  int v7; // r12d
-  int v8; // edx
-  BOOL v11; // r15d
-  unsigned int v12; // ecx
-  _DWORD *v13; // r14
-  unsigned __int64 v14; // rbp
-  unsigned __int64 v15; // rsi
-  unsigned __int64 result; // rax
-  __int64 v17; // rbx
-  int v18; // r10d
-  unsigned int v19; // r8d
-  _BYTE *v20; // rax
-  int v21; // edx
-  unsigned int v22; // ecx
-  unsigned int v23; // ecx
-  unsigned __int64 v24; // [rsp+48h] [rbp-60h]
-  __int64 v25; // [rsp+58h] [rbp-50h] BYREF
-  int v26; // [rsp+60h] [rbp-48h]
-  __int16 v27; // [rsp+64h] [rbp-44h]
+  BOOL v9; // r14d
+  int v10; // ebp
+  __int64 result; // rax
+  unsigned __int64 v12; // rsi
+  unsigned __int64 v13; // rdi
+  unsigned __int64 v14; // rbx
+  _DWORD *v15; // rdi
+  unsigned int v16; // ebx
+  unsigned __int64 v17; // [rsp+48h] [rbp-60h]
+  unsigned __int64 v18; // [rsp+50h] [rbp-58h]
+  __int64 v19; // [rsp+58h] [rbp-50h] BYREF
+  int v20; // [rsp+60h] [rbp-48h]
+  __int16 v21; // [rsp+64h] [rbp-44h]
 
-  v7 = 0;
-  v8 = a5;
-  v11 = (a7 & 8) == 0;
-  if ( (a7 & 0x10) != 0 )
-  {
-    v7 = 2;
-    v11 = 0;
-  }
+  v9 = 0;
+  v10 = (a7 & 8) != 0 ? 2 : 0;
+  if ( (a7 & 8) == 0 )
+    v9 = (a7 & 1) == 0;
   if ( (KiSpeculationFeatures & 0x20000000000LL) == 0 )
-    v7 |= 1u;
-  v12 = a6[3];
-  if ( v12 >= 3 )
+    v10 |= 1u;
+  switch ( a6[3] )
   {
-    v22 = v12 - 3;
-    if ( v22 )
-    {
-      v23 = v22 - 1;
-      if ( v23 )
-      {
-        if ( v23 != 1 )
-          goto LABEL_6;
-        RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (_DWORD)Base, (__int64)(a6 + 4), v11, 1);
-      }
-      else
-      {
-        RtlApplyIndirectRelocationToPage(a1, a4, a5, (_DWORD)Base, (__int64)(a6 + 4), v11, 1);
-      }
-    }
-    else
-    {
-      RtlApplyImportRelocationToPage(a1, a4, a5, (int)Base, (_DWORD *)a6 + 2, v11, 1, v7);
-    }
-    v8 = a5;
+    case 3u:
+      RtlApplyImportRelocationToPage(a1, a4, a5, (int)Base, (_DWORD *)a6 + 2, v9, 1, v10);
+      break;
+    case 4u:
+      RtlApplyIndirectRelocationToPage(a1, a4, a5, (_DWORD)Base, (__int64)(a6 + 4), v9, 1);
+      break;
+    case 5u:
+      RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (_DWORD)Base, (__int64)(a6 + 4), v9, 1);
+      break;
   }
-LABEL_6:
-  v13 = a6 + 6;
-  v14 = (unsigned __int64)a6 + *a6 + 12;
-  v15 = v14 + a6[1];
-  result = v15 + a6[2];
-  v24 = result;
-  if ( (unsigned __int64)(a6 + 6) < v14 )
+  result = (__int64)(a6 + 6);
+  v12 = (unsigned __int64)a6 + *a6 + 12;
+  v13 = v12 + a6[1];
+  v14 = v13 + a6[2];
+  v17 = v13;
+  v18 = v14;
+  if ( (unsigned __int64)(a6 + 6) < v12 )
   {
+    v15 = a6 + 6;
     do
     {
-      v25 = 0LL;
-      v26 = 0;
-      v27 = 0;
-      v17 = *v13 & 0xFFF;
-      RtlpConstructImportRelocationFixup(v17 + a4, v8, (_DWORD)Base, (_DWORD)v13, v11, v7, (__int64)&v25);
-      v18 = (unsigned __int16)v25;
-      v19 = 0;
-      v20 = (_BYTE *)(v17 + a1);
-      v21 = 1;
-      do
-      {
-        if ( (unsigned __int64)v20 >= a1 )
-        {
-          if ( (unsigned __int64)v20 >= a1 + 4096 )
-            break;
-          if ( (v18 & v21) != 0 )
-            *v20 = v20[(_QWORD)&v25 + -v17 - a1 + 2];
-        }
-        ++v19;
-        v21 = __ROL4__(v21, 1);
-        ++v20;
-      }
-      while ( v19 < 0xC );
-      v8 = a5;
-      ++v13;
+      v16 = *v15 & 0xFFF;
+      v19 = 0LL;
+      v20 = 0;
+      v21 = 0;
+      RtlpConstructImportRelocationFixup(v16 + a4, a5, (_DWORD)Base, (_DWORD)v15, v9, v10, (__int64)&v19);
+      result = RtlpApplyGenericRetpolineFixup(a1, 4096LL, &v19, v16);
+      ++v15;
     }
-    while ( (unsigned __int64)v13 < v14 );
-    result = v24;
+    while ( (unsigned __int64)v15 < v12 );
+    v13 = v17;
+    v14 = v18;
   }
-  if ( v14 < v15 )
+  while ( v12 < v13 )
   {
-    do
-    {
-      RtlApplyIndirectRelocationToPage(a1, a4, a5, (_DWORD)Base, v14, v11, 0);
-      v14 += 2LL;
-    }
-    while ( v14 < v15 );
-    result = v24;
+    result = RtlApplyIndirectRelocationToPage(a1, a4, a5, (_DWORD)Base, v12, v9, 0);
+    v12 += 2LL;
   }
-  if ( v15 < result )
+  while ( v13 < v14 )
   {
-    do
-    {
-      result = RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (_DWORD)Base, v15, v11, 0);
-      v15 += 2LL;
-    }
-    while ( v15 < v24 );
+    result = RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (_DWORD)Base, v13, v9, 0);
+    v13 += 2LL;
   }
   return result;
 }

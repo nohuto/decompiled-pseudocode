@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvNotifyDisplayOwnershipChange @ 0x140178630
+ * XREFs of InbvNotifyDisplayOwnershipChange @ 0x140178650
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 InbvNotifyDisplayOwnershipChange()

@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxMsgWaitForMultipleObjectsEx @ 0x1C0159E74
+ * XREFs of xxxMsgWaitForMultipleObjectsEx @ 0x1C0166F14
  * Callers:
- *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00A52B0 (NtUserMsgWaitForMultipleObjectsEx.c)
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C0052BA0 (NtUserMsgWaitForMultipleObjectsEx.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxRemoveQueueCompletion @ 0x1C00A4D48 (xxxRemoveQueueCompletion.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00DA26C (xxxRemoveQueueCompletion.c)
  */
 
-__int64 __fastcall xxxMsgWaitForMultipleObjectsEx(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)
+__int64 __fastcall xxxMsgWaitForMultipleObjectsEx(__int64 a1, __int64 a2, unsigned int a3, char a4, char a5)
 {
   __int64 *v5; // rsi
   bool v6; // di
@@ -18,9 +18,9 @@ __int64 __fastcall xxxMsgWaitForMultipleObjectsEx(__int64 a1, __int64 a2, unsign
   __int64 v11; // r8
   int v12; // eax
   NTSTATUS v13; // ebx
-  __int64 v14; // rax
-  ULONG v16; // eax
-  __int64 v17; // rdx
+  ULONG v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // r8
   int v18; // [rsp+20h] [rbp-88h]
   int v19; // [rsp+28h] [rbp-80h]
   unsigned int v20; // [rsp+44h] [rbp-64h]
@@ -65,7 +65,7 @@ __int64 __fastcall xxxMsgWaitForMultipleObjectsEx(__int64 a1, __int64 a2, unsign
       v13 = v12;
     }
     while ( v12 >= 0 && v6 && v12 == 257 );
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     v8 = a3;
     v10 = a5 & 1;
     if ( v7 )
@@ -74,13 +74,13 @@ __int64 __fastcall xxxMsgWaitForMultipleObjectsEx(__int64 a1, __int64 a2, unsign
       break;
     if ( !(unsigned int)xxxRemoveQueueCompletion() )
       break;
-    v14 = *(_QWORD *)(v22 + 448);
-    a1 = a4 & *(_DWORD *)(v14 + 8);
+    a1 = 3LL;
+    LOBYTE(a1) = (*(_WORD *)(*(_QWORD *)(v22 + 448) + 6LL) & 8) != 0;
   }
-  while ( ((unsigned __int8)a4 & *(_BYTE *)(v14 + 8) & 8) == 0 );
+  while ( ((unsigned __int8)a1 & ((a4 & 8) != 0)) == 0 );
   if ( v13 >= 0 )
     return (unsigned int)v13;
-  v16 = RtlNtStatusToDosError(v13);
-  UserSetLastError(v16, v17);
+  v15 = RtlNtStatusToDosError(v13);
+  UserSetLastError(v15, v16, v17);
   return 0xFFFFFFFFLL;
 }

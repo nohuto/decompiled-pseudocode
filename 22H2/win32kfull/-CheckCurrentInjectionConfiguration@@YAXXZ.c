@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AED34
+ * XREFs of ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01DAF04
  * Callers:
- *     xxxInjectTouchInput @ 0x1C01B07F4 (xxxInjectTouchInput.c)
- *     NtUserInitializeTouchInjection @ 0x1C01D5170 (NtUserInitializeTouchInjection.c)
+ *     xxxInjectTouchInput @ 0x1C01DC7EC (xxxInjectTouchInput.c)
+ *     NtUserInitializeTouchInjection @ 0x1C01FD410 (NtUserInitializeTouchInjection.c)
  * Callees:
- *     ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01AF3D0 (-RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z.c)
+ *     ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01DB58C (-RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z.c)
  */
 
 void CheckCurrentInjectionConfiguration(void)
@@ -15,7 +15,7 @@ void CheckCurrentInjectionConfiguration(void)
 
   v0 = 0;
   v1 = *(_QWORD *)(gptiCurrent + 424LL);
-  if ( gbPendRecreateTouchInjectionDevices == 1 || (v2 = *(_QWORD *)(v1 + 904)) != 0 && *(_DWORD *)(v2 + 52) )
+  if ( gbPendRecreateTouchInjectionDevices == 1 || (v2 = *(_QWORD *)(v1 + 896)) != 0 && *(_DWORD *)(v2 + 52) )
   {
     if ( gbPendRecreateTouchInjectionDevices )
     {

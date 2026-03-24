@@ -1,13 +1,13 @@
 /*
- * XREFs of PiInitCacheGroupInformation @ 0x140B10A4C
+ * XREFs of PiInitCacheGroupInformation @ 0x140A5CE20
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x14082EF44 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     PnpRegMultiSzToUnicodeStrings @ 0x140B10B2C (PnpRegMultiSzToUnicodeStrings.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1407AC650 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpRegMultiSzToUnicodeStrings @ 0x140A5CF00 (PnpRegMultiSzToUnicodeStrings.c)
  */
 
 NTSTATUS PiInitCacheGroupInformation()

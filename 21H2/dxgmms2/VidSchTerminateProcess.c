@@ -1,35 +1,34 @@
 /*
- * XREFs of VidSchTerminateProcess @ 0x1C0082590
+ * XREFs of VidSchTerminateProcess @ 0x1C007A630
  * Callers:
  *     <none>
  * Callees:
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001868 (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000188C (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C00024B4 (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00024D8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall VidSchTerminateProcess(PVOID *P)
+__int64 __fastcall VidSchTerminateProcess(PVOID *P, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // edi
+  unsigned int v4; // edi
   DXGGLOBAL *Global; // rax
-  DXGGLOBAL *v4; // rax
-  __int64 v6; // rcx
+  DXGGLOBAL *v6; // rax
+  __int64 v8; // rax
 
   if ( P )
   {
-    v2 = 0;
+    v4 = 0;
     Global = DXGGLOBAL::GetGlobal();
-    if ( (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(Global) )
+    if ( (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(Global) )
     {
       do
       {
-        ++v2;
-        v4 = DXGGLOBAL::GetGlobal();
+        ++v4;
+        v6 = DXGGLOBAL::GetGlobal();
       }
-      while ( v2 < (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(v4) );
+      while ( v4 < (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(v6) );
     }
-    ExFreePoolWithTag(P[4], 0);
-    ExFreePoolWithTag(P[328], 0);
+    ExFreePoolWithTag(P[3], 0);
+    ExFreePoolWithTag(P[327], 0);
     if ( (PVOID *)g_pVidSchSystemProcess == P )
       g_pVidSchSystemProcess = 0LL;
     ExFreePoolWithTag(P, 0);
@@ -37,8 +36,9 @@ __int64 __fastcall VidSchTerminateProcess(PVOID *P)
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v6, 0x40000LL);
+    v8 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v8 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v8);
     return 3221225485LL;
   }
 }

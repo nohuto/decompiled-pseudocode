@@ -1,30 +1,39 @@
 /*
- * XREFs of ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009C9C4
+ * XREFs of ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5C8C
  * Callers:
- *     ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009C960 (-EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5CE0 (-EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d680___lambda_f91f4cf09ba95a878c6ebb7809dc9a5a___ @ 0x1C009CA18 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d68.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d680___lambda_f91f4cf09ba95a878c6ebb7809dc9a5a___ @ 0x1C01E5AF4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d68.c)
  */
 
 char __fastcall DirectComposition::CShapeVisualMarshaler::EmitShapes(
         DirectComposition::CShapeVisualMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
+  int v2; // eax
+  unsigned int v4; // r9d
   char updated; // al
-  char v4; // cl
+  char v6; // cl
+  __int64 v8; // [rsp+20h] [rbp-18h]
+  DirectComposition::CShapeVisualMarshaler *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 100) & 2) == 0 )
+  v2 = *((_DWORD *)this + 98);
+  v4 = *((_DWORD *)this + 96);
+  v9 = this;
+  if ( (v2 & 2) == 0 )
     return 1;
   updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d680___lambda_f91f4cf09ba95a878c6ebb7809dc9a5a___(
-              this,
+              (__int64)this,
               a2,
-              (char *)this + 396,
-              *((unsigned int *)this + 98));
-  v4 = 0;
+              (unsigned int *)this + 97,
+              v4,
+              v8,
+              (__int64)&v9);
+  v6 = 0;
   if ( updated )
   {
-    *((_DWORD *)this + 100) &= ~2u;
+    *((_DWORD *)this + 98) &= ~2u;
     return 1;
   }
-  return v4;
+  return v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIoRateEntryIoControlReference @ 0x14036381C
+ * XREFs of PspIoRateEntryIoControlReference @ 0x14028AA64
  * Callers:
- *     PsIoRateControlReference @ 0x140363780 (PsIoRateControlReference.c)
- *     PspJobIoRateVolumeEntryReference @ 0x1405E0FA0 (PspJobIoRateVolumeEntryReference.c)
+ *     PsIoRateControlReference @ 0x14028A9C8 (PsIoRateControlReference.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x140582224 (PspJobIoRateVolumeEntryReference.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
  */
 
 unsigned __int64 __fastcall PspIoRateEntryIoControlReference(struct _EX_RUNDOWN_REF *a1)
@@ -12,7 +12,7 @@ unsigned __int64 __fastcall PspIoRateEntryIoControlReference(struct _EX_RUNDOWN_
   BOOLEAN v2; // al
   __int64 v3; // rdx
 
-  v2 = ExAcquireRundownProtection(a1 + 4);
+  v2 = ExAcquireRundownProtection_0(a1 + 4);
   v3 = 0LL;
   if ( v2 )
     return a1[5].Count;

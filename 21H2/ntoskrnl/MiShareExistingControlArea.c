@@ -1,15 +1,15 @@
 /*
- * XREFs of MiShareExistingControlArea @ 0x1406FE8F4
+ * XREFs of MiShareExistingControlArea @ 0x140707DEC
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
  * Callees:
- *     PsIsCurrentThreadPrefetching @ 0x140232600 (PsIsCurrentThreadPrefetching.c)
- *     MmChangeSectionBackingFile @ 0x1402483DC (MmChangeSectionBackingFile.c)
- *     IoSetTopLevelIrp @ 0x140288140 (IoSetTopLevelIrp.c)
- *     MiValidateControlAreaPartition @ 0x14028ADEC (MiValidateControlAreaPartition.c)
- *     FsRtlReleaseFile @ 0x1406FE310 (FsRtlReleaseFile.c)
- *     MiValidateExistingImage @ 0x1406FF0A4 (MiValidateExistingImage.c)
- *     FsRtlGetFileSize @ 0x1406FF640 (FsRtlGetFileSize.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1402A72A0 (PsIsCurrentThreadPrefetching.c)
+ *     MmChangeSectionBackingFile @ 0x1402C3114 (MmChangeSectionBackingFile.c)
+ *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
+ *     MiValidateControlAreaPartition @ 0x140357234 (MiValidateControlAreaPartition.c)
+ *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
+ *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
+ *     MiValidateExistingImage @ 0x140713E5C (MiValidateExistingImage.c)
  */
 
 __int64 __fastcall MiShareExistingControlArea(__int64 a1)

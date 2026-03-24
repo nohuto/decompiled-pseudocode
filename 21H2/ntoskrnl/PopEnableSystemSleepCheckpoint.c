@@ -1,85 +1,89 @@
 /*
- * XREFs of PopEnableSystemSleepCheckpoint @ 0x1407FE8C0
+ * XREFs of PopEnableSystemSleepCheckpoint @ 0x1407749C4
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x1407FF3EC (PopIsDetailedSleepReliabilityDiagEnabled.c)
- *     PopTraceSleepCheckpointInitFailure @ 0x140994078 (PopTraceSleepCheckpointInitFailure.c)
- *     NtQueryEnvironmentVariableInfoEx @ 0x140A00D00 (NtQueryEnvironmentVariableInfoEx.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140A6BEC8 (PopCheckpointSystemSleepUnsafe.c)
+ *     KeQueryInterruptTimePrecise @ 0x1402BF150 (KeQueryInterruptTimePrecise.c)
+ *     Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage @ 0x1403F8354 (Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage.c)
+ *     PopTraceSleepCheckpointInitFailure @ 0x1408EC6B8 (PopTraceSleepCheckpointInitFailure.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x140954940 (NtQueryEnvironmentVariableInfoEx.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x1409B26E4 (PopCheckpointSystemSleepUnsafe.c)
  */
 
 __int64 PopEnableSystemSleepCheckpoint()
 {
   char v0; // di
-  int v1; // ebx
+  __int32 v1; // eax
+  int v2; // ebx
   __int32 v3; // eax
-  __int32 v4; // ecx
-  __int64 InterruptTimePrecise; // rsi
-  unsigned __int64 v6; // rax
+  __int64 v4; // rsi
+  unsigned __int64 v5; // rax
   unsigned __int64 v7; // [rsp+40h] [rbp+8h] BYREF
   LARGE_INTEGER v8; // [rsp+48h] [rbp+10h] BYREF
   __int64 v9; // [rsp+50h] [rbp+18h] BYREF
   __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0LL;
-  v0 = 0;
   v10 = 0LL;
   v7 = 0LL;
   v8.QuadPart = 0LL;
+  PopSleepReliabilityDetailedDiagEnabled = (unsigned int)Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage() != 0;
   PopCheckpointSystemSleepEnabled = 0;
+  v0 = 0;
   _InterlockedExchange(&PopSleepCheckpointStatus, 0);
   if ( PopCheckpointSystemSleepEnabledReg )
-    goto LABEL_7;
-  if ( (unsigned __int8)PopIsDetailedSleepReliabilityDiagEnabled() )
+    goto LABEL_2;
+  if ( PopSleepReliabilityDetailedDiagEnabled )
   {
     v0 = 1;
-LABEL_7:
-    v3 = 4;
-    goto LABEL_10;
+LABEL_2:
+    v1 = 4;
+    goto LABEL_8;
   }
-  if ( !byte_140C23414 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
+  if ( !byte_140C24074 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
     return (unsigned int)-1073741271;
-  v3 = 1;
-LABEL_10:
-  _InterlockedExchange(&PopSleepCheckpointStatus, v3);
-  if ( dword_140C15C70 != 2 )
+  v1 = 1;
+LABEL_8:
+  _InterlockedExchange(&PopSleepCheckpointStatus, v1);
+  if ( dword_140C19850 != 2 )
   {
-    v1 = -1073741822;
-    v4 = 8;
-LABEL_20:
-    _InterlockedExchange(&PopSleepCheckpointStatus, v4);
-    PopTraceSleepCheckpointInitFailure((unsigned int)v1);
-    return (unsigned int)v1;
+    v2 = -1073741822;
+    v3 = 8;
+LABEL_10:
+    _InterlockedExchange(&PopSleepCheckpointStatus, v3);
+LABEL_21:
+    PopTraceSleepCheckpointInitFailure((unsigned int)v2);
+    return (unsigned int)v2;
   }
-  v1 = NtQueryEnvironmentVariableInfoEx(1LL, &v10, &v7, &v9);
-  if ( v1 < 0 )
-    goto LABEL_19;
+  v2 = NtQueryEnvironmentVariableInfoEx(1LL, &v10, &v7, &v9);
+  if ( v2 < 0 )
+    goto LABEL_12;
   if ( v7 <= 0x400 )
   {
-    v1 = -1073740716;
-    v4 = 9;
-    goto LABEL_20;
+    v2 = -1073740716;
+    v3 = 9;
+    goto LABEL_10;
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v8);
-  v1 = PopCheckpointSystemSleepUnsafe(0LL);
-  if ( v1 < 0 )
+  v4 = KeQueryInterruptTimePrecise(&v8);
+  v2 = PopCheckpointSystemSleepUnsafe(0LL);
+  if ( v2 < 0 )
   {
-LABEL_19:
-    v4 = 15;
-    goto LABEL_20;
-  }
-  v6 = RtlGetInterruptTimePrecise(&v8) - InterruptTimePrecise;
-  if ( v0 && v6 > 0x186A0 )
-  {
-    v1 = 258;
-    _InterlockedExchange(&PopSleepCheckpointStatus, 10);
+LABEL_12:
+    _InterlockedExchange(&PopSleepCheckpointStatus, 15);
   }
   else
   {
+    v5 = KeQueryInterruptTimePrecise(&v8) - v4;
+    if ( v0 && v5 > 0x186A0 )
+    {
+      v2 = 258;
+      _InterlockedExchange(&PopSleepCheckpointStatus, 10);
+      return (unsigned int)v2;
+    }
     PopCheckpointSystemSleepEnabled = 1;
-    return 0;
+    v2 = 0;
   }
-  return (unsigned int)v1;
+  if ( v2 < 0 )
+    goto LABEL_21;
+  return (unsigned int)v2;
 }

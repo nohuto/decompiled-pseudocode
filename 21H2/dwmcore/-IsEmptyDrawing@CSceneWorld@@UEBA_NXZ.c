@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmptyDrawing@CSceneWorld@@UEBA_NXZ @ 0x1802531E0
+ * XREFs of ?IsEmptyDrawing@CSceneWorld@@UEBA_NXZ @ 0x18020B7A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSceneWorld::IsEmptyDrawing(CSceneWorld *this)
 {
-  return *((_QWORD *)this + 11) == 0LL;
+  return *((_QWORD *)this + 10) == 0LL;
 }

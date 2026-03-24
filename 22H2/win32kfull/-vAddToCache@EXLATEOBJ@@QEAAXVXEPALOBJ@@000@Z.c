@@ -1,88 +1,64 @@
 /*
- * XREFs of ?vAddToCache@EXLATEOBJ@@QEAAXVXEPALOBJ@@000@Z @ 0x1C0099AE4
+ * XREFs of ?vAddToCache@EXLATEOBJ@@QEAAXVXEPALOBJ@@000@Z @ 0x1C00D3F20
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C00300D0 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C01366E0 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
- *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0137568 (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     GreDrawStream @ 0x1C00839D0 (GreDrawStream.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00D40AC (-ulTime@XEPALOBJ@@QEAAKXZ.c)
  */
 
-void __fastcall EXLATEOBJ::vAddToCache(Gre::Base *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+// write access to const memory has been detected, the output may be wrong!
+void EXLATEOBJ::vAddToCache(__int64 a1, ...)
 {
-  struct Gre::Base::SESSION_GLOBALS *v9; // r14
-  __int64 v10; // rbx
-  unsigned int i; // edx
-  unsigned int v12; // r8d
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  int v16; // ecx
-  __int64 v17; // rax
-  int v18; // ecx
-  __int64 v19; // rax
-  int v20; // ecx
-  __int64 v21; // rcx
-  int v22; // edx
-  _QWORD v23[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v2; // rbx
+  unsigned int v3; // r8d
+  _QWORD v4[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+  va_list va; // [rsp+48h] [rbp+10h]
+  __int64 v7; // [rsp+50h] [rbp+18h] BYREF
+  va_list va1; // [rsp+50h] [rbp+18h]
+  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+  va_list va2; // [rsp+58h] [rbp+20h]
+  va_list va3; // [rsp+60h] [rbp+28h] BYREF
 
-  v9 = Gre::Base::Globals(a1);
-  v10 = *((_QWORD *)v9 + 5);
-  v23[0] = v10;
-  GreAcquireSemaphore(v10);
-  for ( i = 0; i < 8; ++i )
+  va_start(va3, a1);
+  va_start(va2, a1);
+  va_start(va1, a1);
+  va_start(va, a1);
+  v5 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v7 = va_arg(va2, _QWORD);
+  va_copy(va3, va2);
+  v9 = va_arg(va3, _QWORD);
+  v2 = v5;
+  v4[0] = ghsemPalette;
+  GreAcquireSemaphore(ghsemPalette);
+  v3 = 0;
+  while ( *(&xlateTable + 4 * ulTableIndex + 1) )
   {
-    v12 = *((_DWORD *)v9 + 1722);
-    v13 = 32LL * v12;
-    v14 = *(_QWORD *)((char *)v9 + v13 + 6640);
-    if ( !v14 )
-      goto LABEL_5;
-    if ( !*(_DWORD *)((char *)v9 + v13 + 6632) )
+    if ( !*((_DWORD *)&xlateTable + 8 * ulTableIndex) )
     {
-      FreeThreadBufferWithTag(v14);
-LABEL_5:
-      PopThreadGuardedObject(*(_QWORD *)a1 - 32LL);
-      *((_DWORD *)v9 + 8 * *((unsigned int *)v9 + 1722) + 1658) = 1;
-      *((_QWORD *)v9 + 4 * *((unsigned int *)v9 + 1722) + 830) = *(_QWORD *)a1;
-      v15 = *(_QWORD *)(a2 + 120);
-      if ( v15 == a2 )
-        v16 = *(_DWORD *)(a2 + 32);
-      else
-        v16 = *(_DWORD *)(v15 + 32);
-      *((_DWORD *)v9 + 8 * *((unsigned int *)v9 + 1722) + 1662) = v16;
-      v17 = *(_QWORD *)(a3 + 120);
-      if ( v17 == a3 )
-        v18 = *(_DWORD *)(a3 + 32);
-      else
-        v18 = *(_DWORD *)(v17 + 32);
-      *((_DWORD *)v9 + 8 * *((unsigned int *)v9 + 1722) + 1663) = v18;
-      v19 = *(_QWORD *)(a4 + 120);
-      if ( v19 == a4 )
-        v20 = *(_DWORD *)(a4 + 32);
-      else
-        v20 = *(_DWORD *)(v19 + 32);
-      *((_DWORD *)v9 + 8 * *((unsigned int *)v9 + 1722) + 1664) = v20;
-      v21 = *(_QWORD *)(a5 + 120);
-      if ( v21 == a5 )
-        v22 = *(_DWORD *)(a5 + 32);
-      else
-        v22 = *(_DWORD *)(v21 + 32);
-      *((_DWORD *)v9 + 8 * *((unsigned int *)v9 + 1722) + 1665) = v22;
-      *(_DWORD *)(*(_QWORD *)a1 + 36LL) = *((_DWORD *)v9 + 1722);
-      *(_DWORD *)(a2 + 56) = *((_DWORD *)v9 + 1722);
-      *((_DWORD *)v9 + 1722) = ((unsigned __int8)*((_DWORD *)v9 + 1722) + 1) & 7;
-      SEMOBJ::vUnlock((SEMOBJ *)v23);
-      return;
+      FreeThreadBufferWithTag(*(&xlateTable + 4 * ulTableIndex + 1), xlateTable);
+      break;
     }
-    *((_DWORD *)v9 + 1722) = ((_BYTE)v12 + 1) & 7;
+    ++v3;
+    ulTableIndex = ((_BYTE)ulTableIndex + 1) & 7;
+    if ( v3 >= 8 )
+      goto LABEL_6;
   }
-  if ( v10 )
-  {
-    EtwTraceGreLockReleaseSemaphore(L"hsem");
-    GreReleaseSemaphoreInternal(v10);
-  }
+  PopThreadGuardedObject(*(_QWORD *)a1 - 32LL);
+  *((_DWORD *)&xlateTable + 8 * ulTableIndex) = 1;
+  *(&xlateTable + 4 * ulTableIndex + 1) = *(struct _XLATETABLE near **)a1;
+  *((_DWORD *)&xlateTable + 8 * ulTableIndex + 4) = XEPALOBJ::ulTime((XEPALOBJ *)va);
+  *((_DWORD *)&xlateTable + 8 * ulTableIndex + 5) = XEPALOBJ::ulTime((XEPALOBJ *)va1);
+  *((_DWORD *)&xlateTable + 8 * ulTableIndex + 6) = XEPALOBJ::ulTime((XEPALOBJ *)va2);
+  *((_DWORD *)&xlateTable + 8 * ulTableIndex + 7) = XEPALOBJ::ulTime((XEPALOBJ *)va3);
+  *(_DWORD *)(*(_QWORD *)a1 + 36LL) = ulTableIndex;
+  *(_DWORD *)(v2 + 56) = ulTableIndex;
+  ulTableIndex = ((_BYTE)ulTableIndex + 1) & 7;
+LABEL_6:
+  SEMOBJ::vUnlock((SEMOBJ *)v4);
 }

@@ -1,19 +1,17 @@
 /*
- * XREFs of PsGetCurrentProcessWow64Process @ 0x140345880
+ * XREFs of PsGetCurrentProcessWow64Process @ 0x1402F63C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 PsGetCurrentProcessWow64Process()
+unsigned __int64 PsGetCurrentProcessWow64Process()
 {
-  __int64 v0; // rdx
-  unsigned __int64 v1; // rax
+  unsigned __int64 result; // rax
 
-  v0 = 0LL;
-  v1 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[30];
-  if ( v1 )
-    return *(_QWORD *)v1;
-  return v0;
+  result = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( result )
+    return *(_QWORD *)result;
+  return result;
 }

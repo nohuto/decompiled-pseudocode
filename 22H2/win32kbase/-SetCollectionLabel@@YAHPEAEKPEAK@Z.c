@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C0198C3C
+ * XREFs of ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C016B2A4
  * Callers:
- *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C0197E54 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
+ *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C016A9B4 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
  * Callees:
- *     ?BuildVendorDefinedCL@@YAHPEAEKPEAK@Z @ 0x1C0198AD8 (-BuildVendorDefinedCL@@YAHPEAEKPEAK@Z.c)
+ *     ?BuildVendorDefinedCL@@YAHPEAEKPEAK@Z @ 0x1C016B204 (-BuildVendorDefinedCL@@YAHPEAEKPEAK@Z.c)
  */
 
 __int64 __fastcall SetCollectionLabel(unsigned __int8 *a1, unsigned int a2, unsigned int *a3)

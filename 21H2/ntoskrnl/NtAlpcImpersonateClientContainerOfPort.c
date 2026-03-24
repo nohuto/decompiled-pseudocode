@@ -1,127 +1,125 @@
 /*
- * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1409663D0
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1408C2530
  * Callers:
  *     <none>
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PoEnergyEstimationEnabled @ 0x1402F6160 (PoEnergyEstimationEnabled.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x1402F61F8 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     PsGetWorkOnBehalfThread @ 0x1402F6220 (PsGetWorkOnBehalfThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PsImpersonateContainerOfThread @ 0x14030F330 (PsImpersonateContainerOfThread.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x1407ABD80 (AlpcpLookupMessage.c)
- *     AlpcpCaptureIdMessage @ 0x1407B0EB0 (AlpcpCaptureIdMessage.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x140205674 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
+ *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x1405E9E40 (AlpcpCaptureIdMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  PVOID v5; // r14
-  int v6; // edi
+  int v5; // edi
   KPROCESSOR_MODE PreviousMode; // r9
-  __int64 v8; // r9
-  struct _KTHREAD *v9; // r15
+  __int64 v7; // r9
+  struct _KTHREAD *v8; // r14
   struct _KTHREAD *WorkOnBehalfThread; // rax
-  struct _KTHREAD *v11; // rsi
-  struct _KTHREAD *v12; // r8
+  struct _KTHREAD *v10; // rsi
+  struct _KTHREAD *v11; // r8
   void *Teb; // r8
-  __int64 v14; // r8
-  int v16; // [rsp+30h] [rbp-48h] BYREF
-  ULONG_PTR v17; // [rsp+38h] [rbp-40h] BYREF
-  PVOID Object; // [rsp+40h] [rbp-38h] BYREF
-  PVOID v19; // [rsp+48h] [rbp-30h]
-  __int64 v20[5]; // [rsp+50h] [rbp-28h] BYREF
-  int v21; // [rsp+90h] [rbp+18h] BYREF
-  int v22; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v13; // r8
+  _DWORD v15[2]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-30h] BYREF
+  PVOID Object; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-18h]
+  int v20; // [rsp+80h] [rbp+18h] BYREF
+  unsigned int v21; // [rsp+88h] [rbp+20h] BYREF
 
+  v20 = 0;
+  v15[0] = 0;
+  BugCheckParameter2 = 0LL;
   v21 = 0;
-  v16 = 0;
-  v17 = 0LL;
-  v22 = 0;
-  v20[0] = 0LL;
+  v18 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = 0LL;
-  v19 = 0LL;
+  DmaAdapter = 0LL;
   if ( a3 )
   {
-    v6 = -1073741811;
+    v5 = -1073741811;
   }
   else
   {
-    AlpcpCaptureIdMessage(a2, &v22, &v21);
+    AlpcpCaptureIdMessage(a2, &v21, &v20);
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
-    v5 = Object;
-    v19 = Object;
-    if ( v6 >= 0 )
+    v5 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    DmaAdapter = (PADAPTER_OBJECT)Object;
+    if ( v5 >= 0 )
     {
       if ( (*((_BYTE *)Object + 416) & 6) == 6
         && KeGetCurrentThread()->ApcState.Process == (_KPROCESS *)*((_QWORD *)Object + 3) )
       {
-        v6 = AlpcpLookupMessage((__int64)Object, v22, v21, v8, &v17);
-        v21 = v6;
-        if ( v6 >= 0 )
+        v5 = AlpcpLookupMessage((__int64)Object, v21, v20, v7, &BugCheckParameter2);
+        v15[1] = v5;
+        if ( v5 >= 0 )
         {
-          if ( (*(_DWORD *)(v17 + 40) & 0x80u) == 0 )
+          if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) == 0 )
           {
-            v9 = *(struct _KTHREAD **)(v17 + 32);
-            if ( v9 )
+            v8 = *(struct _KTHREAD **)(BugCheckParameter2 + 32);
+            if ( v8 )
             {
-              WorkOnBehalfThread = (struct _KTHREAD *)PsGetWorkOnBehalfThread(*(struct _KTHREAD **)(v17 + 32), &v16);
-              v11 = WorkOnBehalfThread;
+              WorkOnBehalfThread = (struct _KTHREAD *)PsGetWorkOnBehalfThread(
+                                                        *(struct _KTHREAD **)(BugCheckParameter2 + 32),
+                                                        v15);
+              v10 = WorkOnBehalfThread;
               if ( WorkOnBehalfThread )
               {
                 PsImpersonateContainerOfThread((__int64)WorkOnBehalfThread);
-                if ( v16 )
-                  ObDereferenceObjectDeferDelete(v11);
+                if ( v15[0] )
+                  ObDereferenceObjectDeferDelete(v10);
               }
-              else if ( IoThreadToProcess(v9)[2].Affinity.StaticBitmap[18]
-                     || (unsigned __int8)PoEnergyEstimationEnabled() )
+              else if ( IoThreadToProcess(v8)[2].Affinity.Bitmap[18] || PoEnergyEstimationEnabled() )
               {
-                v11 = v9;
-                PsImpersonateContainerOfThread((__int64)v9);
+                v10 = v8;
+                PsImpersonateContainerOfThread((__int64)v8);
               }
               else
               {
-                v11 = 0LL;
+                v10 = 0LL;
               }
-              if ( v11 )
+              if ( v10 )
               {
-                v12 = KeGetCurrentThread();
-                if ( (v12->MiscFlags & 0x400) != 0 || v12->ApcStateIndex == 1 )
+                v11 = KeGetCurrentThread();
+                if ( (v11->MiscFlags & 0x400) != 0 || v11->ApcStateIndex == 1 )
                   Teb = 0LL;
                 else
-                  Teb = v12->Teb;
+                  Teb = v11->Teb;
                 if ( Teb )
                 {
-                  PsEncodeThreadWorkOnBehalfTicket((__int64)v11, v20);
-                  *(_QWORD *)(v14 + 696) = v20[0];
+                  PsEncodeThreadWorkOnBehalfTicket((__int64)v10, &v18);
+                  *(_QWORD *)(v13 + 696) = v18;
                 }
               }
             }
-            AlpcpUnlockMessage(v17);
+            AlpcpUnlockMessage(BugCheckParameter2);
           }
           else
           {
-            AlpcpUnlockMessage(v17);
-            v6 = -1073740029;
+            AlpcpUnlockMessage(BugCheckParameter2);
+            v5 = -1073740029;
           }
         }
       }
       else
       {
-        v6 = -1073741790;
+        v5 = -1073741790;
       }
     }
   }
-  if ( v5 )
-    ObfDereferenceObject(v5);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v6;
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return (unsigned int)v5;
 }

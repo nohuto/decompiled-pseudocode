@@ -1,9 +1,9 @@
 /*
- * XREFs of StringCbCatW @ 0x140306A74
+ * XREFs of StringCbCatW @ 0x140306B74
  * Callers:
- *     SmUniqueIdParseProductName @ 0x140306704 (SmUniqueIdParseProductName.c)
+ *     SmUniqueIdParseProductName @ 0x140306804 (SmUniqueIdParseProductName.c)
  * Callees:
- *     StringCopyWorkerW_0 @ 0x140306B68 (StringCopyWorkerW_0.c)
+ *     StringCopyWorkerW_0 @ 0x140306C68 (StringCopyWorkerW_0.c)
  */
 
 HRESULT __stdcall StringCbCatW(STRSAFE_LPWSTR pszDest, size_t cbDest, STRSAFE_LPCWSTR pszSrc)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRelativeOffsetInternal@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z @ 0x1800E94F4
+ * XREFs of ?SetRelativeOffsetInternal@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z @ 0x1800D2260
  * Callers:
- *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800E941C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800D216C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
  * Callees:
- *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x180045318 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800634E0 (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
  */
 
 void __fastcall CVisual::SetRelativeOffsetInternal(CVisual *this, struct D2D_VECTOR_3F *a2)
@@ -11,9 +11,9 @@ void __fastcall CVisual::SetRelativeOffsetInternal(CVisual *this, struct D2D_VEC
   CSparseStorage *v2; // r10
   __int64 z_low; // rcx
 
-  v2 = (CVisual *)((char *)this + 224);
-  z_low = *(_QWORD *)&a2->x - `CVisual::SetNotifiedWorldUpVector'::`2'::sc_defaultValue;
-  if ( *(_QWORD *)&a2->x == `CVisual::SetNotifiedWorldUpVector'::`2'::sc_defaultValue )
+  v2 = (CVisual *)((char *)this + 216);
+  z_low = *(_QWORD *)&a2->x - `CVisual::SetRelativeOffsetInternal'::`2'::sc_defaultValue;
+  if ( *(_QWORD *)&a2->x == `CVisual::SetRelativeOffsetInternal'::`2'::sc_defaultValue )
     z_low = LODWORD(a2->z);
   if ( z_low )
     CSparseStorage::SetData(v2, 4u, 0xCu, a2);

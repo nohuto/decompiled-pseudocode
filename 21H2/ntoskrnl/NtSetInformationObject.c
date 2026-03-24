@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetInformationObject @ 0x1406B9250
+ * XREFs of NtSetInformationObject @ 0x140691630
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentProcessSessionId @ 0x140287F00 (PsGetCurrentProcessSessionId.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MmGetSessionObjectById @ 0x1402DF7D8 (MmGetSessionObjectById.c)
- *     ObpUnlockDirectory @ 0x14066960C (ObpUnlockDirectory.c)
- *     ObpLockDirectoryExclusive @ 0x1406B96B0 (ObpLockDirectoryExclusive.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObSetHandleAttributes @ 0x1407A1B10 (ObSetHandleAttributes.c)
+ *     MmGetSessionObjectById @ 0x140206364 (MmGetSessionObjectById.c)
+ *     PsGetCurrentProcessSessionId @ 0x14025F5C0 (PsGetCurrentProcessSessionId.c)
+ *     ObpUnlockDirectory @ 0x14027EB0C (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryExclusive @ 0x1402AB5F0 (ObpLockDirectoryExclusive.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ObSetHandleAttributes @ 0x1406918A0 (ObSetHandleAttributes.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, __int16 *a3, int a4)
@@ -22,18 +22,27 @@ __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, __int16 *a3, in
   KPROCESSOR_MODE PreviousMode; // bl
   unsigned int CurrentProcessSessionId; // eax
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  void *SessionObjectById; // rsi
-  _QWORD *v16; // rbx
-  KPROCESSOR_MODE v17; // bl
-  PVOID Object; // [rsp+38h] [rbp-40h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+40h] [rbp-38h] BYREF
-  __int128 v20; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-18h]
-  __int16 v22; // [rsp+88h] [rbp+10h] BYREF
+  struct _DMA_ADAPTER *SessionObjectById; // rsi
+  struct _DMA_ADAPTER *v14; // rbx
+  __int128 *v15; // rdx
+  KPROCESSOR_MODE v16; // bl
+  PVOID Object; // [rsp+38h] [rbp-80h] BYREF
+  PVOID v18; // [rsp+40h] [rbp-78h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+48h] [rbp-70h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION v20; // [rsp+50h] [rbp-68h] BYREF
+  __int128 v21; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v22; // [rsp+70h] [rbp-48h]
+  __int64 v23; // [rsp+78h] [rbp-40h]
+  int v24; // [rsp+80h] [rbp-38h]
+  int v25; // [rsp+84h] [rbp-34h]
+  __int128 v26; // [rsp+88h] [rbp-30h] BYREF
+  __int64 v27; // [rsp+98h] [rbp-20h]
+  __int64 v28; // [rsp+A0h] [rbp-18h]
+  int v29; // [rsp+A8h] [rbp-10h]
+  int v30; // [rsp+ACh] [rbp-Ch]
+  __int16 v31; // [rsp+C8h] [rbp+10h] BYREF
 
-  v22 = 0;
+  v31 = 0;
   v5 = -1073741821;
   v6 = a2 - 4;
   if ( v6 )
@@ -52,49 +61,57 @@ __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, __int16 *a3, in
         if ( v5 >= 0 )
         {
           CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-          SessionObjectById = MmGetSessionObjectById(CurrentProcessSessionId, v12, v13, v14);
-          v16 = Object;
+          SessionObjectById = (struct _DMA_ADAPTER *)MmGetSessionObjectById(CurrentProcessSessionId, v12);
+          v14 = (struct _DMA_ADAPTER *)Object;
           if ( !SessionObjectById )
           {
             v5 = -1073740715;
-            goto LABEL_17;
+            goto LABEL_18;
           }
-          v20 = 0LL;
+          v22 = 0LL;
+          v23 = 0LL;
+          v25 = 0;
           v21 = 0LL;
-          ObpLockDirectoryExclusive(&v20, Object);
-          if ( v16[41] )
+          v24 = -60876;
+          ObpLockDirectoryExclusive((__int64)&v21, Object);
+          if ( v14[20].DmaOperations )
           {
             v5 = -1073741790;
-            ObfDereferenceObject(SessionObjectById);
+            HalPutDmaAdapter(SessionObjectById);
           }
           else
           {
-            v16[41] = SessionObjectById;
+            v14[20].DmaOperations = (_DMA_OPERATIONS *)SessionObjectById;
           }
-LABEL_16:
-          ObpUnlockDirectory((__int64)&v20);
+          v15 = &v21;
 LABEL_17:
-          ObfDereferenceObject(v16);
+          ObpUnlockDirectory((__int64)v14, (__int64)v15);
+LABEL_18:
+          HalPutDmaAdapter(v14);
         }
         return (unsigned int)v5;
       }
     }
     else
     {
-      v17 = KeGetCurrentThread()->PreviousMode;
-      if ( SeSinglePrivilegeCheck(SeTcbPrivilege, v17) )
+      v16 = KeGetCurrentThread()->PreviousMode;
+      if ( SeSinglePrivilegeCheck(SeTcbPrivilege, v16) )
       {
-        HandleInformation = 0LL;
-        Object = 0LL;
-        v5 = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, v17, &Object, &HandleInformation);
+        v20 = 0LL;
+        v18 = 0LL;
+        v5 = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, v16, &v18, &v20);
         if ( v5 < 0 )
           return (unsigned int)v5;
-        v20 = 0LL;
-        v21 = 0LL;
-        v16 = Object;
-        ObpLockDirectoryExclusive(&v20, Object);
-        *((_DWORD *)v16 + 85) = PsGetCurrentProcessSessionId();
-        goto LABEL_16;
+        v27 = 0LL;
+        v28 = 0LL;
+        v30 = 0;
+        v26 = 0LL;
+        v29 = -60876;
+        v14 = (struct _DMA_ADAPTER *)v18;
+        ObpLockDirectoryExclusive((__int64)&v26, v18);
+        *(_DWORD *)(&v14[21].Size + 1) = PsGetCurrentProcessSessionId();
+        v15 = &v26;
+        goto LABEL_17;
       }
     }
     return (unsigned int)-1073741727;
@@ -104,9 +121,9 @@ LABEL_17:
     v7 = KeGetCurrentThread()->PreviousMode;
     if ( v7 && ((unsigned __int64)(a3 + 1) > 0x7FFFFFFF0000LL || a3 + 1 < a3) )
       MEMORY[0x7FFFFFFF0000] = 0;
-    v22 = *a3;
+    v31 = *a3;
     LOBYTE(a3) = v7;
-    return (unsigned int)ObSetHandleAttributes(Handle, &v22, a3);
+    return (unsigned int)ObSetHandleAttributes(Handle, &v31, a3);
   }
   return 3221225476LL;
 }

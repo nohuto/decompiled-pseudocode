@@ -3,7 +3,7 @@
  * Callers:
  *     MiRemoveUnusedSubsection @ 0x14007BBC8 (MiRemoveUnusedSubsection.c)
  *     MiDeleteEmptySubsections @ 0x140093928 (MiDeleteEmptySubsections.c)
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
  * Callees:
  *     <none>
  */

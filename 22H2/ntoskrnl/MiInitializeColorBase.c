@@ -1,32 +1,35 @@
 /*
- * XREFs of MiInitializeColorBase @ 0x140211FB4
+ * XREFs of MiInitializeColorBase @ 0x14027DAF8
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x140214330 (MiMakeZeroedPageTablesEx.c)
- *     MiDemoteValidLargePageOneLevel @ 0x14038DB24 (MiDemoteValidLargePageOneLevel.c)
- *     MmCreateShadowMapping @ 0x140820130 (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14027D47C (MiMakeZeroedPageTablesEx.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403B9BC8 (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x1407A04DC (MmCreateShadowMapping.c)
  * Callees:
- *     MiGetSessionVm @ 0x14020B13C (MiGetSessionVm.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
+ *     MiInitializePageColorBase @ 0x14023EBF0 (MiInitializePageColorBase.c)
+ *     MiGetSessionVm @ 0x14029281C (MiGetSessionVm.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
  */
 
-__int64 __fastcall MiInitializeColorBase(unsigned __int64 a1, unsigned int a2, __int64 a3)
+unsigned int *__fastcall MiInitializeColorBase(unsigned __int64 a1, int a2, __int64 a3)
 {
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
   unsigned __int64 *SessionVm; // rcx
 
   if ( (unsigned int)MiGetSystemRegionType(a1) == 1 )
   {
-    SessionVm = (unsigned __int64 *)MiGetSessionVm();
+    SessionVm = (unsigned __int64 *)MiGetSessionVm(v7, v6, v8);
   }
-  else if ( a1 <= 0x7FFFFFFEFFFFLL
-         || a1 <= qword_140C67170 && a1 >= qword_140C6A658
-         || a1 >= 0xFFFFF68000000000uLL && a1 <= 0xFFFFF6FFFFFFFFFFuLL )
-  {
-    SessionVm = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  }
-  else
+  else if ( a1 > 0x7FFFFFFEFFFFLL
+         && (a1 < qword_140C4FB38 || a1 > qword_140C4E368)
+         && (a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL) )
   {
     SessionVm = 0LL;
   }
-  return MiInitializePageColorBase(SessionVm, a2, a3);
+  else
+  {
+    SessionVm = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
+  }
+  return MiInitializePageColorBase((__int64)SessionVm, a2, a3);
 }

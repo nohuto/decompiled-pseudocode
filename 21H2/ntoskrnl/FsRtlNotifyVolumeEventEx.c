@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlNotifyVolumeEventEx @ 0x14074C800
+ * XREFs of FsRtlNotifyVolumeEventEx @ 0x14071C400
  * Callers:
- *     RawMountVolume @ 0x14074C2EC (RawMountVolume.c)
- *     FsRtlNotifyVolumeEvent @ 0x1407FC020 (FsRtlNotifyVolumeEvent.c)
+ *     RawMountVolume @ 0x14071C1B0 (RawMountVolume.c)
+ *     FsRtlNotifyVolumeEvent @ 0x14076E0F0 (FsRtlNotifyVolumeEvent.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IoReportTargetDeviceChangeAsynchronous @ 0x1402E0740 (IoReportTargetDeviceChangeAsynchronous.c)
- *     IoGetRelatedTargetDevice @ 0x14074C9D8 (IoGetRelatedTargetDevice.c)
- *     IoReportTargetDeviceChange @ 0x1407FB910 (IoReportTargetDeviceChange.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x1402EE5E0 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     IoGetRelatedTargetDevice @ 0x14071C4DC (IoGetRelatedTargetDevice.c)
+ *     IoReportTargetDeviceChange @ 0x14076D6F0 (IoReportTargetDeviceChange.c)
  */
 
 NTSTATUS __stdcall FsRtlNotifyVolumeEventEx(
@@ -23,7 +23,7 @@ NTSTATUS __stdcall FsRtlNotifyVolumeEventEx(
   ULONG v10; // ebx
   ULONG v11; // ebx
   GUID v12; // xmm0
-  PDEVICE_OBJECT v13; // rbx
+  struct _DMA_ADAPTER *v13; // rbx
   struct _DEVICE_OBJECT *v14; // rcx
   GUID v16; // xmm0
   struct _DEVICE_OBJECT *v17; // rcx
@@ -99,7 +99,7 @@ NTSTATUS __stdcall FsRtlNotifyVolumeEventEx(
   {
     v16 = GUID_IO_VOLUME_LOCK;
 LABEL_15:
-    v13 = PhysicalDeviceObject;
+    v13 = (struct _DMA_ADAPTER *)PhysicalDeviceObject;
     v17 = PhysicalDeviceObject;
     Event->Event = v16;
     IoReportTargetDeviceChange(v17, Event);
@@ -122,12 +122,12 @@ LABEL_15:
   {
     v12 = GUID_IO_VOLUME_MOUNT;
 LABEL_11:
-    v13 = PhysicalDeviceObject;
+    v13 = (struct _DMA_ADAPTER *)PhysicalDeviceObject;
     v14 = PhysicalDeviceObject;
     Event->Event = v12;
     IoReportTargetDeviceChangeAsynchronous(v14, Event, 0LL, 0LL);
 LABEL_12:
-    ObfDereferenceObject(v13);
+    HalPutDmaAdapter(v13);
     return RelatedTargetDevice;
   }
   if ( v11 == 1 )
@@ -136,6 +136,6 @@ LABEL_12:
     goto LABEL_11;
   }
 LABEL_30:
-  ObfDereferenceObject(PhysicalDeviceObject);
+  HalPutDmaAdapter((PADAPTER_OBJECT)PhysicalDeviceObject);
   return -1073741811;
 }

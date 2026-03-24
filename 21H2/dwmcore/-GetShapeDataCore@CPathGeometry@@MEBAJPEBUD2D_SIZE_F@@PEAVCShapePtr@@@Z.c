@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetShapeDataCore@CPathGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800EDC70
+ * XREFs of ?GetShapeDataCore@CPathGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801E2A40
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x1800EDCE4 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x18025F730 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
  */
 
 __int64 __fastcall CPathGeometry::GetShapeDataCore(
@@ -14,16 +14,20 @@ __int64 __fastcall CPathGeometry::GetShapeDataCore(
         const struct D2D_SIZE_F *a2,
         struct CShapePtr *a3)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // esi
   CPathSegmentsShape *v6; // rax
   __int64 v7; // rcx
-  CPathSegmentsShape *v8; // rsi
+  CPathSegmentsShape *v8; // rbx
 
   v3 = 0;
-  if ( this[18] )
+  if ( this[17] )
   {
     v6 = (CPathSegmentsShape *)DefaultHeap::Alloc(0x18uLL);
-    if ( v6 && (v8 = CPathSegmentsShape::CPathSegmentsShape(v6, this[18])) != 0LL )
+    if ( v6 )
+      v8 = CPathSegmentsShape::CPathSegmentsShape(v6, this[17]);
+    else
+      v8 = 0LL;
+    if ( v8 )
     {
       CShapePtr::Release(a3);
       *(_QWORD *)a3 = v8;
@@ -32,7 +36,7 @@ __int64 __fastcall CPathGeometry::GetShapeDataCore(
     else
     {
       v3 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147024882, 0x35u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x35u, 0LL);
     }
   }
   return v3;

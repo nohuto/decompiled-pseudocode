@@ -1,53 +1,52 @@
 /*
- * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x1402A56D0
+ * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x14021DF20
  * Callers:
- *     RtlpWalkFrameChain @ 0x1402A4180 (RtlpWalkFrameChain.c)
- *     RtlpSameFunction @ 0x1405B1A50 (RtlpSameFunction.c)
- *     PspGetSetContextInternal @ 0x140724A70 (PspGetSetContextInternal.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     RtlpSameFunction @ 0x140586480 (RtlpSameFunction.c)
+ *     PspGetSetContextInternal @ 0x1406C2670 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1402A3B60 (RtlpxLookupFunctionTable.c)
- *     HvlQueryConnection @ 0x14038C7E0 (HvlQueryConnection.c)
- *     RtlpLookupUserFunctionTable @ 0x1403A20DC (RtlpLookupUserFunctionTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpxLookupFunctionTable @ 0x14021EB70 (RtlpxLookupFunctionTable.c)
+ *     RtlpLookupUserFunctionTable @ 0x1402F15C4 (RtlpLookupUserFunctionTable.c)
+ *     HvlQueryConnection @ 0x1403AA280 (HvlQueryConnection.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-char *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a1, __int64 a2)
+unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(ULONG_PTR a1, __int64 a2)
 {
-  unsigned __int64 v4; // rcx
-  char *v5; // r11
+  ULONG_PTR v4; // rcx
+  __int64 v5; // r11
   unsigned int v6; // r9d
-  char *v7; // r10
+  unsigned int *v7; // r10
   unsigned __int64 v8; // rbx
-  char *v9; // rdx
+  unsigned int *v9; // rdx
   int v10; // r8d
   int v11; // r9d
   int v12; // eax
   unsigned __int64 v13; // rcx
   __int64 v14; // rax
-  unsigned __int64 v16; // rax
+  ULONG_PTR v16; // rax
 
   v4 = *(_QWORD *)(a2 + 8);
   if ( a1 < v4 || a1 >= v4 + *(unsigned int *)(a2 + 16) )
   {
     if ( a1 <= 0x7FFFFFFEFFFFLL )
     {
-      v5 = (char *)RtlpLookupUserFunctionTable(a1);
+      v5 = RtlpLookupUserFunctionTable(a1);
     }
-    else if ( a1 < *((_QWORD *)&xmmword_140E00030 + 1)
-           || a1 >= *((_QWORD *)&xmmword_140E00030 + 1) + (unsigned __int64)(unsigned int)qword_140E00040 )
+    else if ( a1 < *(&xmmword_140E00020 + 1) || a1 >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
     {
-      v5 = (char *)RtlpxLookupFunctionTable(a1, a2);
+      v5 = RtlpxLookupFunctionTable(a1);
     }
     else
     {
-      *(_OWORD *)a2 = xmmword_140E00030;
-      *(_QWORD *)(a2 + 16) = qword_140E00040;
-      v5 = *(char **)a2;
+      *(_OWORD *)a2 = *(_OWORD *)&xmmword_140E00020;
+      *(_QWORD *)(a2 + 16) = qword_140E00030;
+      v5 = *(_QWORD *)a2;
     }
   }
   else
   {
-    v5 = *(char **)a2;
+    v5 = *(_QWORD *)a2;
   }
   if ( v5 )
   {
@@ -56,37 +55,37 @@ char *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a1, __int
     if ( v6 )
     {
       v8 = a1 - *(_QWORD *)(a2 + 8);
-      v9 = &v5[12 * v6 - 12];
-      if ( v8 < *(unsigned int *)v9 )
+      v9 = (unsigned int *)(v5 + 12LL * (v6 - 1));
+      if ( v8 < *v9 )
       {
         v10 = 0;
         v11 = v6 - 2;
         while ( v11 >= v10 )
         {
           v12 = (v10 + v11) >> 1;
-          v9 = &v5[12 * v12];
-          if ( v8 < *(unsigned int *)v9 )
+          v9 = (unsigned int *)(v5 + 12LL * v12);
+          if ( v8 >= *v9 )
           {
-            v11 = v12 - 1;
-          }
-          else
-          {
-            if ( v8 < *((unsigned int *)v9 + 3) )
+            if ( v8 < v9[3] )
               break;
             v10 = v12 + 1;
           }
+          else
+          {
+            v11 = v12 - 1;
+          }
         }
       }
-      if ( v8 >= *(unsigned int *)v9 && v8 < *((unsigned int *)v9 + 1) )
+      if ( v8 >= *v9 && v8 < v9[1] )
         v7 = v9;
     }
     if ( v7 )
     {
       v13 = *(_QWORD *)(a2 + 8);
-      v14 = *((unsigned int *)v7 + 2);
+      v14 = v7[2];
       if ( (v14 & 1) != 0 )
       {
-        v7 = (char *)(v14 + v13 - 1);
+        v7 = (unsigned int *)(v14 + v13 - 1);
         if ( v13 <= 0x7FFFFFFEFFFFLL && ((unsigned __int8)v7 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
       }

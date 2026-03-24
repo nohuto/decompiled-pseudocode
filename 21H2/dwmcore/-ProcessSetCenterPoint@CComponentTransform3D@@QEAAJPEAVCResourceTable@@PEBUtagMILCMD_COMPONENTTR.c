@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetCenterPoint@CComponentTransform3D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM3D_SETCENTERPOINT@@@Z @ 0x1800E939C
+ * XREFs of ?ProcessSetCenterPoint@CComponentTransform3D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM3D_SETCENTERPOINT@@@Z @ 0x1800D2B28
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComponentTransform3D::ProcessSetCenterPoint(
@@ -19,8 +19,8 @@ __int64 __fastcall CComponentTransform3D::ProcessSetCenterPoint(
   v5[0] = *((_DWORD *)a3 + 2);
   v5[2] = *((_DWORD *)a3 + 4);
   v5[1] = v3;
-  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803D02B8)(
-           (char *)this + SDWORD2(xmmword_1803D02B8),
+  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_180344168)(
+           (char *)this + SDWORD2(xmmword_180344168),
            &CComponentTransform3D::sc_Center,
            v5);
 }

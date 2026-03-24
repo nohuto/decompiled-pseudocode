@@ -1,25 +1,23 @@
 /*
- * XREFs of MiStoreSetEvictPageFile @ 0x14065C9D0
+ * XREFs of MiStoreSetEvictPageFile @ 0x14031E52C
  * Callers:
- *     MiReleasePageFileInfo @ 0x1402951BC (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x140330CC0 (MiReleasePageFileInfo.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiSufficientAvailablePages @ 0x14033E480 (MiSufficientAvailablePages.c)
  */
 
 LONG __fastcall MiStoreSetEvictPageFile(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // rbx
-  _BYTE *v3; // r8
+  struct _KEVENT *v2; // rbx
   LONG result; // eax
 
-  v2 = *(_QWORD *)(a1 + 248);
-  v3 = (_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 112) + 32LL) + ((unsigned __int64)a2 >> 3));
-  *v3 &= ~(1 << (a2 & 7));
+  v2 = *(struct _KEVENT **)(a1 + 248);
+  _bittestandreset(*(signed __int32 **)(*(_QWORD *)(a1 + 112) + 32LL), a2);
   if ( ++*(_DWORD *)(a1 + 200) == 256 )
-    return KeSetEvent((PRKEVENT)(v2 + 1240), 0, 0);
-  result = MiSufficientAvailablePages(v2, 0xA0uLL);
+    return KeSetEvent(v2 + 50, 0, 0);
+  result = MiSufficientAvailablePages(v2, 160LL);
   if ( !result )
-    return KeSetEvent((PRKEVENT)(v2 + 1240), 0, 0);
+    return KeSetEvent(v2 + 50, 0, 0);
   return result;
 }

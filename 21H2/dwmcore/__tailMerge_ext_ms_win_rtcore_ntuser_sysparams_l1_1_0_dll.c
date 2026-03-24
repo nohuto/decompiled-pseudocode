@@ -1,12 +1,12 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_rtcore_ntuser_sysparams_l1_1_0_dll @ 0x18010213B
+ * XREFs of __tailMerge_ext_ms_win_rtcore_ntuser_sysparams_l1_1_0_dll @ 0x1800E86C7
  * Callers:
- *     __imp_load_SystemParametersInfoW @ 0x18010212F (__imp_load_SystemParametersInfoW.c)
- *     __imp_load_GetDisplayConfigBufferSizes @ 0x1801021BA (__imp_load_GetDisplayConfigBufferSizes.c)
- *     __imp_load_QueryDisplayConfig @ 0x1801021CC (__imp_load_QueryDisplayConfig.c)
- *     __imp_load_GetSystemMetrics @ 0x180102E2E (__imp_load_GetSystemMetrics.c)
+ *     __imp_load_GetDisplayConfigBufferSizes @ 0x1800E86BB (__imp_load_GetDisplayConfigBufferSizes.c)
+ *     __imp_load_QueryDisplayConfig @ 0x1800E8746 (__imp_load_QueryDisplayConfig.c)
+ *     __imp_load_SystemParametersInfoW @ 0x1800E8F4C (__imp_load_SystemParametersInfoW.c)
+ *     __imp_load_GetSystemMetrics @ 0x1800E8F5E (__imp_load_GetSystemMetrics.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_rtcore_ntuser_sysparams_l1_1_0_dll(

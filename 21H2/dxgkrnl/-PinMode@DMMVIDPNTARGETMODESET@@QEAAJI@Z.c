@@ -1,144 +1,156 @@
 /*
- * XREFs of ?PinMode@DMMVIDPNTARGETMODESET@@QEAAJI@Z @ 0x1C01A7640
+ * XREFs of ?PinMode@DMMVIDPNTARGETMODESET@@QEAAJI@Z @ 0x1C01105AC
  * Callers:
- *     ?SetCofuncModeSet@DMMVIDPNTARGET@@QEAAJPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C001188C (-SetCofuncModeSet@DMMVIDPNTARGET@@QEAAJPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?PinMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I_N@Z @ 0x1C01A69F0 (-PinMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I_N@.c)
- *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C01A6D08 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
- *     ?PinMode@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I@Z @ 0x1C03A73C0 (-PinMode@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I@Z.c)
+ *     ?SetCofuncModeSet@DMMVIDPNTARGET@@QEAAJPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0008318 (-SetCofuncModeSet@DMMVIDPNTARGET@@QEAAJPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?PinMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I_N@Z @ 0x1C0124F20 (-PinMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I_N@.c)
+ *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C0125010 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
+ *     ?PinMode@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I@Z @ 0x1C02E87D0 (-PinMode@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@I@Z.c)
  * Callees:
- *     ?IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0010A74 (-IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C01A8564 (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
+ *     ?IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0005AA0 (-IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C01106EC (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
  */
 
 __int64 __fastcall DMMVIDPNTARGETMODESET::PinMode(DMMVIDPNTARGETMODESET *this, unsigned int a2)
 {
   __int64 v2; // rsi
-  char *v4; // rdx
+  DMMVIDPNTARGETMODESET *v4; // rdx
   char *v5; // rbx
-  char *v6; // rcx
-  DMMVIDPNTARGETMODESET *v7; // rcx
-  __int64 v8; // rbp
-  __int64 v9; // r15
-  __int64 v10; // r14
-  __int64 v11; // rax
-  __int64 v12; // r14
+  DMMVIDPNTARGETMODESET *v6; // rcx
+  __int64 v7; // rbp
+  __int64 v8; // r15
+  __int64 v9; // r14
+  __int64 v10; // rax
+  __int64 v11; // r14
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   unsigned int PathSourceFromTarget; // r8d
-  __int64 v14; // rsi
-  DMMVIDPNPRESENTPATH *v15; // rsi
-  __int64 v16; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  DMMVIDPNPRESENTPATH *v18; // rsi
+  __int64 v19; // rdx
+  __int64 v20; // rcx
   __int64 result; // rax
-  __int64 v18; // rax
-  __int64 v19; // [rsp+60h] [rbp+8h]
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  _QWORD *v29; // rax
+  __int64 v30; // rax
 
   v2 = a2;
   if ( !*((_BYTE *)this + 136) )
   {
-    WdLogSingleEntry2(7LL, a2, this);
+    v22 = WdLogNewEntry5_WdDmmEvent();
+    *(_QWORD *)(v22 + 24) = v2;
+    *(_QWORD *)(v22 + 32) = this;
+    WdLogEvent5_WdDmmEvent(v22);
     return 3223192352LL;
   }
-  v4 = (char *)this + 48;
+  v4 = (DMMVIDPNTARGETMODESET *)((char *)this + 48);
   v5 = 0LL;
-  v6 = (char *)*((_QWORD *)this + 6);
+  v6 = (DMMVIDPNTARGETMODESET *)*((_QWORD *)this + 6);
   if ( v6 != v4 )
-    v5 = v6 - 8;
+    v5 = (char *)v6 - 8;
   if ( !v5 )
-    goto LABEL_35;
+    goto LABEL_33;
   do
   {
     if ( *((_DWORD *)v5 + 6) == (_DWORD)v2 )
       break;
-    v7 = (DMMVIDPNTARGETMODESET *)*((_QWORD *)v5 + 1);
-    v5 = (char *)v7 - 8;
-    if ( v7 == (DMMVIDPNTARGETMODESET *)((char *)this + 48) )
+    v6 = (DMMVIDPNTARGETMODESET *)*((_QWORD *)v5 + 1);
+    v5 = (char *)v6 - 8;
+    if ( v6 == (DMMVIDPNTARGETMODESET *)((char *)this + 48) )
       v5 = 0LL;
   }
   while ( v5 );
   if ( !v5 )
   {
-LABEL_35:
-    WdLogSingleEntry2(2LL, v2, this);
+LABEL_33:
+    v30 = WdLogNewEntry5_WdError(v6, v4);
+    *(_QWORD *)(v30 + 24) = v2;
+    *(_QWORD *)(v30 + 32) = this;
+    WdLogEvent5_WdError(v30);
     return 3223192394LL;
   }
-  v8 = *((_QWORD *)this + 14);
-  v9 = *((_QWORD *)this + 18);
+  v7 = *((_QWORD *)this + 14);
+  v8 = *((_QWORD *)this + 18);
   *((_QWORD *)this + 18) = v5;
-  if ( !v8 )
+  if ( !v7 )
   {
-    WdLogSingleEntry1(2LL, this);
+    v23 = WdLogNewEntry5_WdError(v6, v4);
+    *(_QWORD *)(v23 + 24) = this;
+    WdLogEvent5_WdError(v23);
     return 3223192329LL;
   }
-  v10 = *(_QWORD *)(v8 + 40);
+  v9 = *(_QWORD *)(v7 + 40);
+  if ( !v9 )
+  {
+    v24 = WdLogNewEntry5_WdAssertion(v6, v4);
+    WdLogEvent5_WdAssertion(v24);
+    v9 = *(_QWORD *)(v7 + 40);
+  }
+  v10 = *(_QWORD *)(v9 + 72);
   if ( !v10 )
   {
-    WdLogSingleEntry0(1LL);
-    v10 = *(_QWORD *)(v8 + 40);
+    v25 = WdLogNewEntry5_WdAssertion(v6, v4);
+    WdLogEvent5_WdAssertion(v25);
+    v10 = *(_QWORD *)(v9 + 72);
   }
-  v11 = *(_QWORD *)(v10 + 72);
-  if ( !v11 )
-  {
-    WdLogSingleEntry0(1LL);
-    v11 = *(_QWORD *)(v10 + 72);
-  }
-  v12 = v11 + 96;
-  PathSourceFromTarget = DMMVIDPNTOPOLOGY::GetPathSourceFromTarget((DMMVIDPNTOPOLOGY *)(v11 + 96), *(_DWORD *)(v8 + 24));
+  v11 = v10 + 96;
+  PathSourceFromTarget = DMMVIDPNTOPOLOGY::GetPathSourceFromTarget((DMMVIDPNTOPOLOGY *)(v10 + 96), *(_DWORD *)(v7 + 24));
   if ( PathSourceFromTarget == -1 )
   {
-    WdLogSingleEntry2(2LL, v2, this);
+    v26 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v26 + 24) = v2;
+    *(_QWORD *)(v26 + 32) = this;
+    WdLogEvent5_WdError(v26);
     return 3223192384LL;
   }
-  v14 = *(_QWORD *)(v12 + 24);
-  if ( v14 == v12 + 24 )
+  v15 = *(unsigned int *)(v7 + 24);
+  v16 = v11 + 24;
+  v17 = *(_QWORD *)(v11 + 24);
+  if ( v17 == v11 + 24 )
   {
-    v15 = 0LL;
+    v18 = 0LL;
+    goto LABEL_20;
   }
-  else
+  v18 = (DMMVIDPNPRESENTPATH *)(v17 - 8);
+  if ( v18 )
   {
-    v15 = (DMMVIDPNPRESENTPATH *)(v14 - 8);
-    if ( v15 )
+    do
     {
-      do
+      if ( *(_DWORD *)(*((_QWORD *)v18 + 11) + 24LL) == PathSourceFromTarget
+        && *(_DWORD *)(*((_QWORD *)v18 + 12) + 24LL) == (_DWORD)v15 )
       {
-        if ( *(_DWORD *)(*((_QWORD *)v15 + 11) + 24LL) == PathSourceFromTarget
-          && *(_DWORD *)(*((_QWORD *)v15 + 12) + 24LL) == *(_DWORD *)(v8 + 24) )
-        {
-          break;
-        }
-        v18 = *((_QWORD *)v15 + 1);
-        v15 = (DMMVIDPNPRESENTPATH *)(v18 - 8);
-        if ( v18 == v12 + 24 )
-          v15 = 0LL;
+        break;
       }
-      while ( v15 );
-      if ( v15 )
-        goto LABEL_21;
+      v27 = *((_QWORD *)v18 + 1);
+      v18 = (DMMVIDPNPRESENTPATH *)(v27 - 8);
+      if ( v27 == v16 )
+        v18 = 0LL;
     }
+    while ( v18 );
+LABEL_20:
+    if ( v18 )
+      goto LABEL_21;
   }
-  WdLogSingleEntry0(1LL);
+  v28 = WdLogNewEntry5_WdAssertion(v16, v15);
+  WdLogEvent5_WdAssertion(v28);
 LABEL_21:
-  if ( DMMVIDPNPRESENTPATH::IsValidContentScaling(v15) )
-  {
-    v16 = *(_QWORD *)(v5 + 92);
-    if ( ((*((_DWORD *)v5 + 30) >> 3) & 0x3F) != 0 )
-    {
-      LODWORD(v19) = *(_QWORD *)(v5 + 92);
-      HIDWORD(v19) = ((*((_DWORD *)v5 + 30) >> 3) & 0x3F) * HIDWORD(v16);
-      v16 = v19;
-    }
-    *((_QWORD *)v5 + 19) = v16;
-    result = 0LL;
-    *((_DWORD *)v5 + 40) = 1;
-  }
-  else
-  {
-    WdLogSingleEntry5(
-      2LL,
-      *((unsigned int *)v5 + 21),
-      *((unsigned int *)v5 + 22),
-      *((unsigned int *)v5 + 23),
-      *((unsigned int *)v5 + 24),
-      *(unsigned int *)(v8 + 24));
-    result = 3223192389LL;
-    *((_QWORD *)this + 18) = v9;
-  }
+  if ( DMMVIDPNPRESENTPATH::IsValidContentScaling(v18) )
+    return 0LL;
+  v29 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+  v29[3] = *((unsigned int *)v5 + 21);
+  v29[4] = *((unsigned int *)v5 + 22);
+  v29[5] = *((unsigned int *)v5 + 23);
+  v29[6] = *((unsigned int *)v5 + 24);
+  v29[7] = *(unsigned int *)(v7 + 24);
+  WdLogEvent5_WdError(v29);
+  result = 3223192389LL;
+  *((_QWORD *)this + 18) = v8;
   return result;
 }

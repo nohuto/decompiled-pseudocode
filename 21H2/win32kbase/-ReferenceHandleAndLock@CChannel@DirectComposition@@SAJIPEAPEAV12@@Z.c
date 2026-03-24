@@ -1,59 +1,62 @@
 /*
- * XREFs of ?ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C00102CC
+ * XREFs of ?ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005EC94
  * Callers:
- *     ?ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010204 (-ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005EC30 (-ReferenceHandleAndLock@CDwmChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
  * Callees:
- *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C00103C4 (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
+ *     <none>
  */
 
-__int64 __fastcall DirectComposition::CChannel::ReferenceHandleAndLock(int a1, struct DirectComposition::CChannel **a2)
+__int64 __fastcall DirectComposition::CChannel::ReferenceHandleAndLock(
+        __int64 a1,
+        struct DirectComposition::CChannel **a2)
 {
+  int v3; // ebp
   unsigned int v4; // esi
-  struct DirectComposition::CProcessData *v5; // rax
-  struct DirectComposition::CProcessData *v6; // r14
-  struct _ERESOURCE *v7; // rbx
-  struct _RTL_GENERIC_TABLE *v8; // rcx
-  __int64 v9; // rdi
+  __int64 v5; // rdi
+  __int64 CurrentProcessWin32Process; // rax
+  __int64 v7; // r14
+  struct _ERESOURCE *v8; // rbx
+  struct _RTL_GENERIC_TABLE *v9; // rcx
   _QWORD *v10; // rax
   struct _ERESOURCE *v11; // rbx
   int Buffer; // [rsp+20h] [rbp-28h] BYREF
   __int64 v14; // [rsp+24h] [rbp-24h]
   int v15; // [rsp+2Ch] [rbp-1Ch]
 
+  v3 = a1;
   v4 = 0;
-  v5 = DirectComposition::CProcessData::Current();
-  v6 = v5;
-  if ( v5 )
+  v5 = 0LL;
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
+  if ( CurrentProcessWin32Process && (v7 = *(_QWORD *)(CurrentProcessWin32Process + 256)) != 0 )
   {
-    v7 = (struct _ERESOURCE *)*((_QWORD *)v5 + 1);
+    v8 = *(struct _ERESOURCE **)(v7 + 8);
     KeEnterCriticalRegion();
-    ExAcquireResourceExclusiveLite(v7, 1u);
-    v8 = *(struct _RTL_GENERIC_TABLE **)v6;
-    Buffer = a1;
+    ExAcquireResourceExclusiveLite(v8, 1u);
+    v9 = *(struct _RTL_GENERIC_TABLE **)v7;
+    Buffer = v3;
     v14 = 0LL;
-    v9 = 0LL;
     v15 = 0;
-    v10 = RtlLookupElementGenericTable(v8, &Buffer);
+    v10 = RtlLookupElementGenericTable(v9, &Buffer);
     if ( v10 )
-      v9 = v10[1];
-    if ( v9 )
-      _InterlockedIncrement((volatile signed __int32 *)(v9 + 8));
+      v5 = v10[1];
+    if ( v5 )
+      _InterlockedIncrement((volatile signed __int32 *)(v5 + 8));
     else
       v4 = -1073741790;
-    ExReleaseResourceLite(*((PERESOURCE *)v6 + 1));
+    ExReleaseResourceLite(*(PERESOURCE *)(v7 + 8));
     KeLeaveCriticalRegion();
-    if ( v9 )
-    {
-      v11 = *(struct _ERESOURCE **)(v9 + 32);
-      KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v11, 1u);
-      *a2 = (struct DirectComposition::CChannel *)v9;
-    }
   }
   else
   {
-    return (unsigned int)-1073741823;
+    v4 = -1073741823;
+  }
+  if ( v5 )
+  {
+    v11 = *(struct _ERESOURCE **)(v5 + 32);
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite(v11, 1u);
+    *a2 = (struct DirectComposition::CChannel *)v5;
   }
   return v4;
 }

@@ -1,14 +1,13 @@
 /*
- * XREFs of NtDisableLastKnownGood @ 0x14080BFE0
+ * XREFs of NtDisableLastKnownGood @ 0x14077D000
  * Callers:
  *     <none>
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IopCreateRegistryKeyEx @ 0x14067A8B0 (IopCreateRegistryKeyEx.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073FD44 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 NtDisableLastKnownGood()
@@ -25,11 +24,7 @@ __int64 NtDisableLastKnownGood()
   KeyHandle = 0LL;
   if ( KeGetCurrentThread()->PreviousMode == 1 )
   {
-    if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, 1) || PsIsCurrentThreadInServerSilo() )
-    {
-      return (unsigned int)-1073741727;
-    }
-    else
+    if ( SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
     {
       CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v5);
       if ( CachedContextBaseKey >= 0 )
@@ -47,6 +42,10 @@ __int64 NtDisableLastKnownGood()
         if ( KeyHandle )
           ZwClose(KeyHandle);
       }
+    }
+    else
+    {
+      return (unsigned int)-1073741727;
     }
   }
   else

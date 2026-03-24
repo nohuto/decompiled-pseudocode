@@ -1,18 +1,17 @@
 /*
- * XREFs of RtlStringCchCopyNW @ 0x1402F7ECC
+ * XREFs of RtlStringCchCopyNW @ 0x140371D50
  * Callers:
- *     PiDevCfgParsePropertyKeyName @ 0x1405621BC (PiDevCfgParsePropertyKeyName.c)
- *     AslPathSplit @ 0x1407590D0 (AslPathSplit.c)
- *     WmipBuildInstanceSet @ 0x14086A8A4 (WmipBuildInstanceSet.c)
- *     IopErrorLogThread @ 0x140872A00 (IopErrorLogThread.c)
- *     PiUEventHandleVetoEvent @ 0x140882E18 (PiUEventHandleVetoEvent.c)
- *     EtwpCoverageSamplerQuery @ 0x1408AA478 (EtwpCoverageSamplerQuery.c)
- *     IopLogBlockedDriverEvent @ 0x1409452FC (IopLogBlockedDriverEvent.c)
- *     PoQueryProcessEnergyTrackingState @ 0x140998658 (PoQueryProcessEnergyTrackingState.c)
- *     SdbGetMergeRedirectPath @ 0x140A4E170 (SdbGetMergeRedirectPath.c)
- *     SdbQueryDataExTagID @ 0x140A4EFF8 (SdbQueryDataExTagID.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x14036C938 (PiDevCfgParsePropertyKeyName.c)
+ *     IopErrorLogThread @ 0x140754F60 (IopErrorLogThread.c)
+ *     WmipBuildInstanceSet @ 0x1407563C8 (WmipBuildInstanceSet.c)
+ *     PiUEventHandleVetoEvent @ 0x14076DDE8 (PiUEventHandleVetoEvent.c)
+ *     AslPathSplit @ 0x14077F5C8 (AslPathSplit.c)
+ *     SdbQueryDataExTagID @ 0x1407C1F28 (SdbQueryDataExTagID.c)
+ *     IopLogBlockedDriverEvent @ 0x140891B7C (IopLogBlockedDriverEvent.c)
+ *     PoQueryProcessEnergyTrackingState @ 0x1408F2938 (PoQueryProcessEnergyTrackingState.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946474 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     <none>
+ *     RtlStringCopyWorkerW_2 @ 0x140348228 (RtlStringCopyWorkerW_2.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNW(
@@ -21,44 +20,23 @@ NTSTATUS __stdcall RtlStringCchCopyNW(
         STRSAFE_PCNZWCH pszSrc,
         size_t cchToCopy)
 {
-  size_t v4; // r10
-  size_t v5; // r9
-  signed __int64 v6; // r8
-  wchar_t v7; // ax
-  NTSTRSAFE_PWSTR v8; // rax
-  NTSTATUS result; // eax
+  NTSTATUS v4; // r10d
 
-  v4 = cchDest;
+  v4 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    result = -1073741811;
     if ( !cchDest )
-      return result;
-LABEL_13:
+      return v4;
+LABEL_9:
     *pszDest = 0;
-    return result;
+    return v4;
   }
   if ( cchToCopy > 0x7FFFFFFE )
   {
-    result = -1073741811;
-    goto LABEL_13;
+    v4 = -1073741811;
+    goto LABEL_9;
   }
-  v5 = cchToCopy - cchDest;
-  v6 = (char *)pszSrc - (char *)pszDest;
-  do
-  {
-    if ( !(v5 + v4) )
-      break;
-    v7 = *(NTSTRSAFE_PWSTR)((char *)pszDest + v6);
-    if ( !v7 )
-      break;
-    *pszDest++ = v7;
-    --v4;
-  }
-  while ( v4 );
-  v8 = pszDest - 1;
-  if ( v4 )
-    v8 = pszDest;
-  *v8 = 0;
-  return v4 == 0 ? 0x80000005 : 0;
+  return RtlStringCopyWorkerW_2(pszDest, cchDest, (size_t *)pszSrc, pszSrc, cchToCopy);
 }

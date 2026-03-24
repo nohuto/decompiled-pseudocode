@@ -1,20 +1,23 @@
 /*
- * XREFs of ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0136414
+ * XREFs of ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0164D78
  * Callers:
- *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C01366E0 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
- *     ?bSpTransferShape@@YAHPEAVSPRITE@@0@Z @ 0x1C027E8D0 (-bSpTransferShape@@YAHPEAVSPRITE@@0@Z.c)
- *     ?bSpUpdateCursor@@YAHPEAVSPRITE@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@@Z @ 0x1C027EAFC (-bSpUpdateCursor@@YAHPEAVSPRITE@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0164708 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
+ *     ?bSpTransferShape@@YAHPEAVSPRITE@@0@Z @ 0x1C0280D48 (-bSpTransferShape@@YAHPEAVSPRITE@@0@Z.c)
+ *     ?bSpUpdateCursor@@YAHPEAVSPRITE@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@@Z @ 0x1C0280EE4 (-bSpUpdateCursor@@YAHPEAVSPRITE@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B7D4 (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C001BF2C (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
- *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C001C534 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bLoadSource@MULTISURF@@QEAAHPEAUHDEV__@@@Z @ 0x1C015C0F6 (-bLoadSource@MULTISURF@@QEAAHPEAUHDEV__@@@Z.c)
- *     ?OffCopyBitsInternal@@YAHP6AHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z40401234@Z @ 0x1C015D38E (-OffCopyBitsInternal@@YAHP6AHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266478 (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
- *     ??1MULTISURF@@QEAA@XZ @ 0x1C0279AE0 (--1MULTISURF@@QEAA@XZ.c)
- *     ?vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02B3088 (-vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B121C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00ED794 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
+ *     ?vLockShared@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00EFE4C (-vLockShared@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F0C8C (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C00F0CD0 (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
+ *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C015695C (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1MULTISURF@@QEAA@XZ @ 0x1C027D9F0 (--1MULTISURF@@QEAA@XZ.c)
+ *     ?bLoadSource@MULTISURF@@QEAAHPEAUHDEV__@@@Z @ 0x1C02A645C (-bLoadSource@MULTISURF@@QEAAHPEAUHDEV__@@@Z.c)
+ *     ?vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02A6B54 (-vInit@MULTISURF@@AEAAXPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     OffCopyBits @ 0x1C02C84D8 (OffCopyBits.c)
  */
 
 __int64 __fastcall bSpCreateShape(
@@ -30,253 +33,208 @@ __int64 __fastcall bSpCreateShape(
 {
   SPRITERANGELOCK *v10; // r12
   ULONG v11; // edi
-  __int64 v12; // rcx
-  signed int v13; // r14d
-  signed int v14; // r15d
-  struct _SURFOBJ *Surface; // rcx
-  __int64 v16; // r14
-  LONG left; // r10d
-  int v18; // eax
-  __int64 v19; // rdi
-  int v20; // edx
-  _DWORD *v21; // r11
-  LONG v22; // r9d
-  LONG top; // ecx
-  LONG right; // r8d
-  LONG bottom; // edx
-  LONG v26; // ebx
-  LONG v27; // r10d
-  int v28; // eax
-  LONG v29; // edi
-  LONG v30; // r11d
-  int v31; // ecx
-  struct _SURFOBJ *v33; // r13
-  __int64 v34; // rax
-  HDEV v35; // rbx
-  int (*v36)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *); // r15
-  int v37; // eax
-  struct _SURFOBJ *v38; // rcx
-  PVOID *p_pvScan0; // rbx
-  int hsurf; // eax
-  unsigned int v41; // [rsp+50h] [rbp-B0h]
-  struct _POINTL v42; // [rsp+58h] [rbp-A8h] BYREF
-  struct _SURFOBJ *v43[2]; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v44[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v45; // [rsp+80h] [rbp-80h] BYREF
-  struct _XLATEOBJ *v46; // [rsp+88h] [rbp-78h]
-  struct _RECTL v47; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v48[40]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v49; // [rsp+C8h] [rbp-38h]
-  char v50; // [rsp+D0h] [rbp-30h]
-  int v51; // [rsp+D4h] [rbp-2Ch]
-  struct _SURFOBJ *v52; // [rsp+F8h] [rbp-8h]
-  struct _POINTL *v53; // [rsp+100h] [rbp+0h]
-  struct _RECTL v54; // [rsp+110h] [rbp+10h] BYREF
+  signed int v12; // r14d
+  signed int v13; // r13d
+  SURFOBJ *Surface; // rcx
+  __int64 v15; // r14
+  LONG left; // r8d
+  int v17; // eax
+  __int64 v18; // rdi
+  int v19; // edx
+  struct _RECTL *v20; // rdx
+  LONG top; // eax
+  int v22; // ecx
+  int v23; // ecx
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  HDEV v27; // rbx
+  BOOL (__stdcall *v28)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // r15
+  int v29; // eax
+  __int64 v30; // rcx
+  __int64 v31; // rbx
+  int v32; // eax
+  unsigned int v33; // [rsp+50h] [rbp-B0h]
+  struct _POINTL *v35[2]; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v36; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v37; // [rsp+78h] [rbp-88h]
+  struct _RECTL v38; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE v39[40]; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v40; // [rsp+B8h] [rbp-48h]
+  char v41; // [rsp+C0h] [rbp-40h]
+  int v42; // [rsp+C4h] [rbp-3Ch]
+  __int64 v43; // [rsp+E8h] [rbp-18h]
+  __int64 v44; // [rsp+F0h] [rbp-10h]
+  struct _RECTL *v45; // [rsp+100h] [rbp+0h] BYREF
+  int v46; // [rsp+108h] [rbp+8h]
+  int v47; // [rsp+10Ch] [rbp+Ch]
+  __int64 v48[2]; // [rsp+110h] [rbp+10h] BYREF
 
   v10 = (SPRITERANGELOCK *)(*((_QWORD *)a1 + 2) + 120LL);
   v11 = a7;
-  v12 = *(_QWORD *)v10;
-  v46 = a4;
-  v43[0] = a3;
-  v42 = (struct _POINTL)a2;
-  v44[0] = a9;
-  v41 = 0;
-  GreAcquireSemaphore(v12);
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"hsem", *(_QWORD *)v10, 8LL);
-  v45 = *((_QWORD *)a1 + 18);
+  v37 = (__int64)a4;
+  v35[0] = a2;
+  v45 = a9;
+  v33 = 0;
+  SPRITERANGELOCK::vLockExclusive(v10);
+  v36 = *((_QWORD *)a1 + 18);
   if ( a6 )
     INC_SHARE_REF_CNT(a6);
-  XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v45);
+  XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v36);
   *((_QWORD *)a1 + 18) = a6;
-  v13 = a5->right - a5->left;
-  v14 = a5->bottom - a5->top;
+  v12 = a5->right - a5->left;
+  v13 = a5->bottom - a5->top;
   if ( !a7 )
     v11 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 32LL) + 72LL);
-  Surface = (struct _SURFOBJ *)*((_QWORD *)a1 + 16);
-  if ( Surface
-    && (!Surface->iType && (Surface->fjBitmap & 0x20) == 0 || !a8)
-    && Surface->iBitmapFormat == v11
-    && Surface->sizlBitmap.cx >= v13
-    && Surface->sizlBitmap.cy >= v14 )
+  Surface = (SURFOBJ *)*((_QWORD *)a1 + 16);
+  if ( !Surface
+    || (Surface->iType || (Surface->fjBitmap & 0x20) != 0) && a8
+    || Surface->iBitmapFormat != v11
+    || Surface->sizlBitmap.cx < v12
+    || Surface->sizlBitmap.cy < v13 )
   {
-    goto LABEL_11;
-  }
-  if ( (*(_DWORD *)a1 & 0x40) != 0 )
-  {
-    if ( Surface->iBitmapFormat != v11 )
+    if ( (*(_DWORD *)a1 & 0x40) != 0 )
     {
-      EngUnlockSurface(Surface);
-      v34 = *((_QWORD *)a1 + 1);
-      *((_QWORD *)a1 + 16) = 0LL;
-      *(_DWORD *)a1 &= ~0x40u;
-      Surface = 0LL;
-      *((_QWORD *)a1 + 30) = 0LL;
-      if ( v34 )
-        *(_DWORD *)(v34 + 16) &= ~0x40u;
-    }
-  }
-  else
-  {
-    vSpDeleteSurface(Surface);
-    Surface = 0LL;
-  }
-  if ( (*(_DWORD *)a1 & 0x40) != 0 || !*((_QWORD *)a1 + 30) || !a8 )
-  {
-    if ( Surface )
-      goto LABEL_47;
-LABEL_46:
-    Surface = psoSpCreateSurface(*((struct _SPRITESTATE **)a1 + 2), v11, v13, v14);
-    goto LABEL_47;
-  }
-  Surface = EngLockSurface(*((HSURF *)a1 + 30));
-  if ( !Surface )
-    goto LABEL_46;
-  *(_DWORD *)a1 |= 0x40u;
-LABEL_47:
-  *((_QWORD *)a1 + 16) = Surface;
-LABEL_11:
-  EtwTraceGreLockReleaseSemaphore(L"hsem");
-  GreReleaseSemaphoreInternal(*(_QWORD *)v10);
-  GreAcquireSemaphoreSharedInternal(*(_QWORD *)v10);
-  EtwTraceGreLockAcquireSemaphoreShared(L"hsem", *(_QWORD *)v10);
-  v16 = *((_QWORD *)a1 + 16);
-  if ( !v16 )
-    goto LABEL_32;
-  left = a5->left;
-  v41 = 1;
-  *((_DWORD *)a1 + 34) = -a5->left;
-  v18 = -a5->top;
-  *((_DWORD *)a1 + 38) = v11;
-  v19 = 0LL;
-  *((_DWORD *)a1 + 35) = v18;
-  if ( a6 )
-    v20 = **((_DWORD **)a6 + 14) | *(_DWORD *)(*((_QWORD *)a6 + 14) + 8LL);
-  else
-    v20 = 0;
-  v21 = (_DWORD *)v44[0];
-  *((_DWORD *)a1 + 39) = v20;
-  v22 = a5->left;
-  top = a5->top;
-  right = a5->right;
-  bottom = a5->bottom;
-  v54.left = a5->left;
-  v54.top = top;
-  v54.right = right;
-  v54.bottom = bottom;
-  if ( v21 )
-  {
-    v26 = left + *v21;
-    v27 = v21[2] + left;
-    v28 = *((_DWORD *)a1 + 35);
-    v29 = v21[1] - v28;
-    v30 = v21[3] - v28;
-    if ( v26 > v22 )
-    {
-      v22 = v26;
-      v54.left = v26;
-    }
-    if ( v29 > top )
-      top = v29;
-    if ( v27 < right )
-    {
-      right = v27;
-      v54.right = v27;
-    }
-    if ( v30 < bottom )
-      bottom = v30;
-    v54.bottom = bottom;
-    if ( right < v22 )
-      goto LABEL_32;
-    if ( bottom < top )
-      top = bottom;
-    v19 = 0LL;
-    v54.top = top;
-  }
-  if ( v22 == right || top == bottom )
-  {
-LABEL_32:
-    EtwTraceGreLockReleaseSemaphore(L"hsem");
-    GreReleaseSemaphoreInternal(*(_QWORD *)v10);
-    return v41;
-  }
-  v31 = *(_DWORD *)a1;
-  if ( (*(_DWORD *)a1 & 0x40) == 0 )
-  {
-    v33 = v43[0];
-    goto LABEL_50;
-  }
-  if ( (v31 & 0x200) == 0 || (v33 = v43[0], *(HSURF *)(v16 + 320) != v43[0]->hsurf) )
-  {
-    *(_DWORD *)a1 = v31 | 0x80;
-    goto LABEL_32;
-  }
-LABEL_50:
-  v47 = v54;
-  ERECTL::bOffsetAdd((ERECTL *)&v47, *(const struct _POINTL **)&v42, 0);
-  v49 = 0LL;
-  v50 = 0;
-  v51 = 0;
-  MULTISURF::vInit((MULTISURF *)v48, v33, &v47);
-  v43[0] = 0LL;
-  v44[0] = 0LL;
-  if ( !_bittest((const signed __int32 *)(v16 + 88), 0xAu) )
-  {
-    if ( _bittest((const signed __int32 *)&v33[1].hsurf, 0xAu) )
-      v36 = (int (*)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))*((_QWORD *)v33->hdev + 352);
-    else
-      v36 = EngCopyBits;
-    goto LABEL_57;
-  }
-  v35 = *(HDEV *)(v16 + 24);
-  if ( (unsigned int)MULTISURF::bLoadSource((MULTISURF *)v48, v35) )
-  {
-    v36 = (int (*)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))*((_QWORD *)v35 + 352);
-LABEL_57:
-    if ( SURFREFVIEW::bMap((SURFREFVIEW *)v43, v52) && SURFREFVIEW::bMap((SURFREFVIEW *)v44, (struct _SURFOBJ *)v16) )
-    {
-      v37 = *(_DWORD *)(v16 + 88);
-      if ( (v37 & 0x80004000) != 0 && (v37 & 0x200) == 0 )
+      if ( Surface->iBitmapFormat != v11 )
       {
-        v19 = v16 - 24;
-        GreLockDisplayDevice(*(_QWORD *)(v16 - 24 + 48));
+        EngUnlockSurface(Surface);
+        v25 = *((_QWORD *)a1 + 1);
+        *((_QWORD *)a1 + 16) = 0LL;
+        *(_DWORD *)a1 &= ~0x40u;
+        Surface = 0LL;
+        *((_QWORD *)a1 + 30) = 0LL;
+        if ( v25 )
+          *(_DWORD *)(v25 + 16) &= ~0x40u;
       }
-      v38 = v52;
-      p_pvScan0 = 0LL;
-      if ( v52 )
+    }
+    else
+    {
+      vSpDeleteSurface(Surface);
+      Surface = 0LL;
+    }
+    if ( (*(_DWORD *)a1 & 0x40) == 0 && *((_QWORD *)a1 + 30) && a8 )
+    {
+      Surface = EngLockSurface(*((HSURF *)a1 + 30));
+      if ( !Surface )
+        goto LABEL_33;
+      *(_DWORD *)a1 |= 0x40u;
+    }
+    if ( Surface )
+    {
+LABEL_34:
+      *((_QWORD *)a1 + 16) = Surface;
+      goto LABEL_11;
+    }
+LABEL_33:
+    Surface = psoSpCreateSurface(*((struct _SPRITESTATE **)a1 + 2), v11, v12, v13);
+    goto LABEL_34;
+  }
+LABEL_11:
+  SPRITERANGELOCK::vUnlock(v10);
+  SPRITERANGELOCK::vLockShared(v10);
+  v15 = *((_QWORD *)a1 + 16);
+  if ( !v15 )
+    goto LABEL_20;
+  left = a5->left;
+  v33 = 1;
+  *((_DWORD *)a1 + 34) = -a5->left;
+  v17 = -a5->top;
+  *((_DWORD *)a1 + 38) = v11;
+  v18 = 0LL;
+  *((_DWORD *)a1 + 35) = v17;
+  if ( a6 )
+    v19 = **((_DWORD **)a6 + 14) | *(_DWORD *)(*((_QWORD *)a6 + 14) + 8LL);
+  else
+    v19 = 0;
+  *((_DWORD *)a1 + 39) = v19;
+  v20 = v45;
+  *(struct _RECTL *)v48 = *a5;
+  if ( v45 )
+  {
+    top = v45->top;
+    LODWORD(v45) = left + v45->left;
+    v46 = left + v20->right;
+    v22 = *((_DWORD *)a1 + 35);
+    HIDWORD(v45) = top - v22;
+    v47 = v20->bottom - v22;
+    ERECTL::operator*=((int *)v48, (int *)&v45);
+  }
+  if ( ERECTL::bEmpty((ERECTL *)v48) )
+    goto LABEL_20;
+  v23 = *(_DWORD *)a1;
+  if ( (*(_DWORD *)a1 & 0x40) != 0 && ((v23 & 0x200) == 0 || *(HSURF *)(v15 + 320) != a3->hsurf) )
+  {
+    *(_DWORD *)a1 = v23 | 0x80;
+LABEL_20:
+    SPRITERANGELOCK::vUnlock(v10);
+    return v33;
+  }
+  v38 = *(struct _RECTL *)v48;
+  ERECTL::bOffsetAdd((ERECTL *)&v38, v35[0], 0);
+  v40 = 0LL;
+  v41 = 0;
+  v42 = 0;
+  MULTISURF::vInit((MULTISURF *)v39, a3, &v38);
+  v45 = 0LL;
+  v35[0] = 0LL;
+  if ( (*(_DWORD *)(v15 + 88) & 0x400) == 0 )
+  {
+    if ( (*(_DWORD *)(v26 + 88) & 0x400) != 0 )
+      v28 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(*(_QWORD *)(v26 + 24)
+                                                                                                 + 2840LL);
+    else
+      v28 = EngCopyBits;
+    goto LABEL_44;
+  }
+  v27 = *(HDEV *)(v15 + 24);
+  if ( (unsigned int)MULTISURF::bLoadSource((MULTISURF *)v39, v27) )
+  {
+    v28 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))*((_QWORD *)v27 + 355);
+LABEL_44:
+    if ( SURFREFVIEW::bMap((SURFREFVIEW *)&v45, (struct _SURFOBJ *)v43)
+      && SURFREFVIEW::bMap((SURFREFVIEW *)v35, (struct _SURFOBJ *)v15) )
+    {
+      v29 = *(_DWORD *)(v15 + 88);
+      if ( (v29 & 0x80004000) != 0 && (v29 & 0x200) == 0 )
       {
-        hsurf = (int)v52[1].hsurf;
-        if ( (hsurf & 0x80004000) != 0 && (hsurf & 0x200) == 0 )
+        v18 = v15 - 24;
+        GreLockDisplayDevice(*(_QWORD *)(v15 - 24 + 48));
+      }
+      v30 = v43;
+      v31 = 0LL;
+      if ( v43 )
+      {
+        v32 = *(_DWORD *)(v43 + 88);
+        if ( (v32 & 0x80004000) != 0 && (v32 & 0x200) == 0 )
         {
-          p_pvScan0 = &v52[-1].pvScan0;
-          GreLockDisplayDevice(v52->hdev);
-          v38 = v52;
+          v31 = v43 - 24;
+          GreLockDisplayDevice(*(_QWORD *)(v43 - 24 + 48));
+          v30 = v43;
         }
       }
-      v42 = 0LL;
-      OffCopyBitsInternal(v36, (struct _POINTL *)a1 + 17, (struct _SURFOBJ *)v16, &v42, v38, 0LL, v46, &v54, v53);
-      if ( (*(_DWORD *)a1 & 0x200) != 0 && *((_QWORD *)a1 + 16) == v16 && *(HSURF *)(v16 + 320) == v33->hsurf )
+      OffCopyBits((int)v28, (_DWORD)a1 + 136, v15, (int)&gptlZero, v30, 0LL, v37, (__int64)v48, v44);
+      if ( (*(_DWORD *)a1 & 0x200) != 0 && *((_QWORD *)a1 + 16) == v15 && *(HSURF *)(v15 + 320) == a3->hsurf )
         *(_DWORD *)a1 |= 0x80u;
-      if ( p_pvScan0 )
-        GreUnlockDisplayDevice(p_pvScan0[6]);
-      if ( v19 )
-        GreUnlockDisplayDevice(*(_QWORD *)(v19 + 48));
+      if ( v31 )
+        GreUnlockDisplayDevice(*(_QWORD *)(v31 + 48));
+      if ( v18 )
+        GreUnlockDisplayDevice(*(_QWORD *)(v18 + 48));
     }
     else
     {
-      v41 = 0;
+      v33 = 0;
     }
-    SURFREFVIEW::bUnMap((SURFREFVIEW *)v44);
-    SURFREFVIEW::bUnMap((SURFREFVIEW *)v43);
-    MULTISURF::~MULTISURF((MULTISURF *)v48);
-    goto LABEL_32;
+    SURFREFVIEW::bUnMap((SURFREFVIEW *)v35);
+    SURFREFVIEW::bUnMap((SURFREFVIEW *)&v45);
+    MULTISURF::~MULTISURF((MULTISURF *)v39);
+    goto LABEL_20;
   }
   SPRITERANGELOCK::vUnlock(v10);
   SPRITERANGELOCK::vLockExclusive(v10);
   vSpDeleteSurface(*((struct _SURFOBJ **)a1 + 16));
   *((_QWORD *)a1 + 16) = 0LL;
   SPRITERANGELOCK::vUnlock(v10);
-  SURFREFVIEW::bUnMap((SURFREFVIEW *)v44);
-  SURFREFVIEW::bUnMap((SURFREFVIEW *)v43);
-  MULTISURF::~MULTISURF((MULTISURF *)v48);
+  SURFREFVIEW::bUnMap((SURFREFVIEW *)v35);
+  SURFREFVIEW::bUnMap((SURFREFVIEW *)&v45);
+  MULTISURF::~MULTISURF((MULTISURF *)v39);
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Remarshal@CFlipResourceState@@UEAAXXZ @ 0x1C0085C40
+ * XREFs of ?Remarshal@CFlipResourceState@@UEAAXXZ @ 0x1C006D4D0
  * Callers:
- *     ?Remarshal@CContentResourceState@@UEAAXXZ @ 0x1C0087C80 (-Remarshal@CContentResourceState@@UEAAXXZ.c)
+ *     ?Remarshal@CContentResourceState@@UEAAXXZ @ 0x1C006D4B0 (-Remarshal@CContentResourceState@@UEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CFlipResourceState::Remarshal(CFlipResourceState *this)

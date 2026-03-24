@@ -1,23 +1,23 @@
 /*
- * XREFs of Endpoint_Disable @ 0x1C0004D70
+ * XREFs of Endpoint_Disable @ 0x1C000AB88
  * Callers:
- *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00020D0 (UsbDevice_EndpointsConfigureCompletion.c)
- *     UsbDevice_ValidateEndpointConfigureRequest @ 0x1C00029BC (UsbDevice_ValidateEndpointConfigureRequest.c)
- *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C00045DC (UsbDevice_InitializeInputContextForAddEndpoints.c)
- *     UsbDevice_SetDeviceDisabled @ 0x1C000D1B0 (UsbDevice_SetDeviceDisabled.c)
- *     UsbDevice_UcxEvtEnable @ 0x1C000FC10 (UsbDevice_UcxEvtEnable.c)
- *     UsbDevice_EnableCompletion @ 0x1C00109B0 (UsbDevice_EnableCompletion.c)
- *     UsbDevice_UcxEvtReset @ 0x1C0010F60 (UsbDevice_UcxEvtReset.c)
- *     UsbDevice_DeviceResetCompletion @ 0x1C0046070 (UsbDevice_DeviceResetCompletion.c)
- *     UsbDevice_DisableCompletion @ 0x1C00462A4 (UsbDevice_DisableCompletion.c)
- *     UsbDevice_UcxEvtDisable @ 0x1C00476E0 (UsbDevice_UcxEvtDisable.c)
+ *     UsbDevice_ValidateEndpointConfigureRequest @ 0x1C0005C8C (UsbDevice_ValidateEndpointConfigureRequest.c)
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00074B0 (UsbDevice_EndpointsConfigureCompletion.c)
+ *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C0007D58 (UsbDevice_InitializeInputContextForAddEndpoints.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000AA1C (UsbDevice_SetDeviceDisabled.c)
+ *     UsbDevice_EnableCompletion @ 0x1C000E630 (UsbDevice_EnableCompletion.c)
+ *     UsbDevice_UcxEvtEnable @ 0x1C000E990 (UsbDevice_UcxEvtEnable.c)
+ *     UsbDevice_UcxEvtReset @ 0x1C0010610 (UsbDevice_UcxEvtReset.c)
+ *     UsbDevice_DeviceResetCompletion @ 0x1C0045BB0 (UsbDevice_DeviceResetCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_UcxEvtDisable @ 0x1C0047300 (UsbDevice_UcxEvtDisable.c)
  * Callees:
- *     Endpoint_Disable_Internal @ 0x1C0004DBC (Endpoint_Disable_Internal.c)
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C003142C (Controller_DecrementNumberOfEndpointsOffloaded.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Endpoint_Disable_Internal @ 0x1C000ABD4 (Endpoint_Disable_Internal.c)
+ *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0031164 (Controller_DecrementNumberOfEndpointsOffloaded.c)
  */
 
-__int64 __fastcall Endpoint_Disable(__int64 a1, __int64 a2)
+void __fastcall Endpoint_Disable(__int64 a1, __int64 a2)
 {
   char v2; // di
 
@@ -29,5 +29,5 @@ __int64 __fastcall Endpoint_Disable(__int64 a1, __int64 a2)
   }
   LOBYTE(a2) = v2;
   Endpoint_Disable_Internal(a1, a2);
-  return ESM_AddEvent((PVOID)(a1 + 288));
+  ESM_AddEvent((KSPIN_LOCK *)(a1 + 288), 27);
 }

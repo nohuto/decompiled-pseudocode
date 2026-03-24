@@ -1,21 +1,21 @@
 /*
- * XREFs of ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01D3E94
+ * XREFs of ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01D8730
  * Callers:
- *     EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C01132F0 (EditionFinalizeKoreanImeCompStrOnMouseClick.c)
+ *     EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C0106C00 (EditionFinalizeKoreanImeCompStrOnMouseClick.c)
  * Callees:
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     PostInputMessage @ 0x1C00AB69C (PostInputMessage.c)
- *     GetAppImeCompatFlags @ 0x1C00F5524 (GetAppImeCompatFlags.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     PostInputMessage @ 0x1C0050880 (PostInputMessage.c)
+ *     GetAppImeCompatFlags @ 0x1C0106F24 (GetAppImeCompatFlags.c)
  */
 
 void __fastcall FinalizeKoreanImeCompStrOnMouseClick(struct tagWND *a1)
 {
   __int64 v1; // rbx
   __int64 v2; // rcx
-  __int64 v3; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v3; // [rsp+A0h] [rbp+67h] BYREF
 
-  v3 = 0LL;
   v1 = *((_QWORD *)a1 + 2);
+  v3 = 0LL;
   if ( !*(_QWORD *)(gpqForeground + 104LL) && (GetAppImeCompatFlags(v1) & 0x400000) == 0 )
   {
     if ( *(_WORD *)(v1 + 632) <= 0x400u )

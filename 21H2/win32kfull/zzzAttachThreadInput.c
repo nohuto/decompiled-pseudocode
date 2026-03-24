@@ -1,18 +1,18 @@
 /*
- * XREFs of zzzAttachThreadInput @ 0x1C009D530
+ * XREFs of zzzAttachThreadInput @ 0x1C00115F8
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C0002004 (xxxSetModernAppWindow.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     NtUserAttachThreadInput @ 0x1C009B9B0 (NtUserAttachThreadInput.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C00A3568 (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
- *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01DC5A0 (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
- *     TryDetachShellFrame @ 0x1C01DD074 (TryDetachShellFrame.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000E488 (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
+ *     NtUserAttachThreadInput @ 0x1C00114F0 (NtUserAttachThreadInput.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01E131C (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     TryDetachShellFrame @ 0x1C01E2264 (TryDetachShellFrame.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     zzzReattachThreads @ 0x1C00A8E58 (zzzReattachThreads.c)
- *     ExemptedFromImmersiveRestrictions @ 0x1C01D9928 (ExemptedFromImmersiveRestrictions.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ExemptedFromImmersiveRestrictions @ 0x1C01D2E08 (ExemptedFromImmersiveRestrictions.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -23,13 +23,13 @@ __int64 __fastcall zzzAttachThreadInput(__int64 a1, __int64 a2, __int16 a3)
   __int64 v7; // rax
   __int64 *i; // rcx
   __int64 v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v13; // rax
-  __int64 *v14; // rdx
+  __int64 v10; // rax
+  __int64 *v12; // rdx
+  __int64 *v13; // rcx
+  __int64 v14; // rax
   __int64 *v15; // rcx
-  __int64 v16; // rax
-  __int64 *v17; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rdx
   int v18; // eax
 
   v3 = a3 & 1;
@@ -41,16 +41,16 @@ __int64 __fastcall zzzAttachThreadInput(__int64 a1, __int64 a2, __int16 a3)
       v7 = *(_QWORD *)(a2 + 424);
       if ( v7 != *(_QWORD *)(a1 + 424) || *(_QWORD *)(gptiCurrent + 424LL) != v7 )
       {
-        if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, *(_QWORD *)(a2 + 432) + 424LL)
+        if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, *(_QWORD *)(a2 + 432) + 428LL)
           && *(int *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) >= 0 )
         {
-          v10 = *(_QWORD *)(a2 + 432);
-          v11 = a2;
-LABEL_22:
-          EtwTraceUIPIInputError(gptiCurrent, v11, v10, *(_QWORD *)(v10 + 424), 2);
+          v16 = *(_QWORD *)(a2 + 432);
+          v17 = a2;
+LABEL_39:
+          EtwTraceUIPIInputError(gptiCurrent, v17, v16, *(_QWORD *)(v16 + 428), 2);
           return 3221225506LL;
         }
-        if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, *(_QWORD *)(a1 + 432) + 424LL)
+        if ( !(unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, *(_QWORD *)(a1 + 432) + 428LL)
           && *(int *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) >= 0
           || (unsigned int)IsDesktopApp(*(_QWORD *)(gptiCurrent + 424LL))
           && ((unsigned int)IsImmersiveAppRestricted(*(_QWORD *)(a2 + 424))
@@ -58,9 +58,9 @@ LABEL_22:
           && !(unsigned int)ExemptedFromImmersiveRestrictions(gptiCurrent)
           && (*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 820LL) & 0x100) == 0 )
         {
-          v10 = *(_QWORD *)(a1 + 432);
-          v11 = a1;
-          goto LABEL_22;
+          v16 = *(_QWORD *)(a1 + 432);
+          v17 = a1;
+          goto LABEL_39;
         }
       }
     }
@@ -76,15 +76,15 @@ LABEL_22:
       {
         if ( !i )
         {
-          v13 = Win32AllocPoolZInit(32LL, 1767994197LL);
-          if ( v13 )
+          v10 = Win32AllocPool(32LL, 1767994197LL);
+          if ( v10 )
           {
-            *(_QWORD *)(v13 + 8) = a1;
-            *(_QWORD *)(v13 + 16) = a2;
-            *(_DWORD *)(v13 + 24) = 1;
-            *(_QWORD *)v13 = gpai;
-            gpai = v13;
-            goto LABEL_26;
+            *(_QWORD *)(v10 + 8) = a1;
+            *(_QWORD *)(v10 + 16) = a2;
+            *(_DWORD *)(v10 + 24) = 1;
+            *(_QWORD *)v10 = gpai;
+            gpai = v10;
+            goto LABEL_22;
           }
           return 3221225495LL;
         }
@@ -100,37 +100,37 @@ LABEL_22:
       *((_DWORD *)i + 6) = v18 + 1;
       return 0LL;
     }
-    v14 = (__int64 *)gpai;
-    v15 = (__int64 *)gpai;
+    v12 = (__int64 *)gpai;
+    v13 = (__int64 *)gpai;
     if ( gpai )
     {
       while ( 1 )
       {
-        v16 = v15[2];
-        if ( v16 == a2 && v15[1] == a1 )
+        v14 = v13[2];
+        if ( v14 == a2 && v13[1] == a1 )
           break;
-        if ( v16 == a1 && v15[1] == a2 )
+        if ( v14 == a1 && v13[1] == a2 )
           break;
-        v14 = v15;
-        v15 = (__int64 *)*v15;
-        if ( !v15 )
+        v12 = v13;
+        v13 = (__int64 *)*v13;
+        if ( !v13 )
           return 3221225485LL;
       }
-      --*((_DWORD *)v15 + 6);
-      v17 = (__int64 *)*v14;
-      if ( !*(_DWORD *)(*v14 + 24) || v6 )
+      --*((_DWORD *)v13 + 6);
+      v15 = (__int64 *)*v12;
+      if ( !*(_DWORD *)(*v12 + 24) || v6 )
       {
-        *v14 = *v17;
-        Win32FreePool(v17);
-LABEL_26:
-        *(_DWORD *)(a2 + 1256) |= 0x200u;
-        *(_DWORD *)(a1 + 1256) |= 0x200u;
-        if ( _bittest((const signed __int32 *)(a1 + 1256), 0xAu) )
+        *v12 = *v15;
+        Win32FreePool(v15);
+LABEL_22:
+        *(_DWORD *)(a2 + 1232) |= 0x200u;
+        *(_DWORD *)(a1 + 1232) |= 0x200u;
+        if ( (*(_DWORD *)(a1 + 1232) & 0x400) != 0 )
           KeSetEvent(*(PRKEVENT *)(a1 + 736), 1, 0);
-        if ( _bittest((const signed __int32 *)(a2 + 1256), 0xAu) )
+        if ( (*(_DWORD *)(a2 + 1232) & 0x400) != 0 )
           KeSetEvent(*(PRKEVENT *)(a2 + 736), 1, 0);
-        if ( !*(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 464) + 48LL)
-          && !*(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 464) + 56LL) )
+        if ( !*(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464) + 48LL)
+          && !*(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464) + 56LL) )
         {
           zzzReattachThreads(0LL, a1, a2);
         }

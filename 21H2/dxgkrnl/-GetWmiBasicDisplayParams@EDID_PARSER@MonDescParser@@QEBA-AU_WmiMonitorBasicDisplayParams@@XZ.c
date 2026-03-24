@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetWmiBasicDisplayParams@EDID_PARSER@MonDescParser@@QEBA?AU_WmiMonitorBasicDisplayParams@@XZ @ 0x1C00738EC
+ * XREFs of ?GetWmiBasicDisplayParams@EDID_PARSER@MonDescParser@@QEBA?AU_WmiMonitorBasicDisplayParams@@XZ @ 0x1C006186C
  * Callers:
- *     ?EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C0071588 (-EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z.c)
+ *     ?EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C005F8F8 (-EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z.c)
  * Callees:
  *     <none>
  */

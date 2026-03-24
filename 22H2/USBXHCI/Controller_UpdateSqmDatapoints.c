@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_UpdateSqmDatapoints @ 0x1C00792B0
+ * XREFs of Controller_UpdateSqmDatapoints @ 0x1C0075B1C
  * Callers:
- *     Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C0079700 (Controller_WdfEvtDeviceSelfManagedIoCleanup.c)
+ *     Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C0075F40 (Controller_WdfEvtDeviceSelfManagedIoCleanup.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_UpdateSqmDatapoints(__int64 *a1)
@@ -38,7 +38,7 @@ __int64 __fastcall Controller_UpdateSqmDatapoints(__int64 *a1)
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_15;
-    v5 = 58;
+    v5 = 57;
     goto LABEL_14;
   }
   RtlInitUnicodeString(&DestinationString, L"HCRestoreStateFailureCount");
@@ -59,7 +59,7 @@ __int64 __fastcall Controller_UpdateSqmDatapoints(__int64 *a1)
   if ( v8 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v9) = 3;
-    WPP_RECORDER_SF_d(a1[9], v9, 4, 59, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v8);
+    WPP_RECORDER_SF_d(a1[9], v9, 4, 58, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v8);
   }
   RtlInitUnicodeString(&DestinationString, L"HCRecoveryCount");
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, struct _UNICODE_STRING *, int *))(WdfFunctions_01023
@@ -78,10 +78,10 @@ __int64 __fastcall Controller_UpdateSqmDatapoints(__int64 *a1)
              &DestinationString);
   if ( (int)result < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = 60;
+    v5 = 59;
 LABEL_14:
     LOBYTE(v4) = 3;
-    result = WPP_RECORDER_SF_d(a1[9], v4, 4, v5, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, result);
+    result = WPP_RECORDER_SF_d(a1[9], v4, 4, v5, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, result);
   }
 LABEL_15:
   if ( v14 )

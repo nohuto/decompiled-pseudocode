@@ -9,10 +9,10 @@
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG_PTR __fastcall MiInitializeTbFlush(unsigned __int64 a1)

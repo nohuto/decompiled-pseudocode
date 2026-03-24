@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHashIsCommon @ 0x1402CBEB8
+ * XREFs of MiHashIsCommon @ 0x1402CBFB8
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
  *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     <none>
  */

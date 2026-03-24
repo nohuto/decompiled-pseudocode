@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSubgraphShaderLinkingBody@CRadialGradientEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x1802B99A0
+ * XREFs of ?GetSubgraphShaderLinkingBody@CRadialGradientEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x180269830
  * Callers:
  *     <none>
  * Callees:
@@ -11,13 +11,11 @@ __int64 __fastcall CRadialGradientEffect::GetSubgraphShaderLinkingBody(__int64 a
   const char *v2; // rax
   int v3; // ecx
   __int64 result; // rax
-  __int128 v5; // [rsp+0h] [rbp-18h]
 
-  *(_QWORD *)&v5 = 1LL;
-  *((_QWORD *)&v5 + 1) = &CRadialGradientEffect::k_shaderLinkingArguments;
-  *(_OWORD *)a2 = v5;
+  *(_QWORD *)a2 = 1LL;
+  *(_QWORD *)(a2 + 8) = &CRadialGradientEffect::k_shaderLinkingArguments;
   *(_QWORD *)(a2 + 16) = 3999LL;
-  *(_QWORD *)(a2 + 24) = &unk_180358AE0;
+  *(_QWORD *)(a2 + 24) = &unk_1802DE000;
   v2 = "RadialGradientCentered_UV";
   *(_BYTE *)(a2 + 32) = 1;
   if ( !*(_BYTE *)(a1 + 44) )

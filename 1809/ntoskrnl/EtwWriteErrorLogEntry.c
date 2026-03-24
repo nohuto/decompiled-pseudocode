@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwWriteErrorLogEntry @ 0x14070C6B0
+ * XREFs of EtwWriteErrorLogEntry @ 0x14070C690
  * Callers:
- *     IopErrorLogThread @ 0x14070C3B0 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall EtwWriteErrorLogEntry(

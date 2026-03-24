@@ -1,30 +1,28 @@
 /*
- * XREFs of TR_InitializeTransferRing @ 0x1C0007E2C
+ * XREFs of TR_InitializeTransferRing @ 0x1C0005758
  * Callers:
- *     TR_Enable_Internal @ 0x1C0007D94 (TR_Enable_Internal.c)
- *     Endpoint_InitializeTransferRing @ 0x1C0013B04 (Endpoint_InitializeTransferRing.c)
- *     Endpoint_ControlEndpointResetCompletion @ 0x1C0039850 (Endpoint_ControlEndpointResetCompletion.c)
+ *     TR_Enable_Internal @ 0x1C00055F4 (TR_Enable_Internal.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C00102D0 (Endpoint_InitializeTransferRing.c)
+ *     Endpoint_ControlEndpointResetCompletion @ 0x1C00195F0 (Endpoint_ControlEndpointResetCompletion.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     TR_InitializeTransferSegment @ 0x1C004192C (TR_InitializeTransferSegment.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     TR_InitializeTransferSegment @ 0x1C003F418 (TR_InitializeTransferSegment.c)
  */
 
 __int64 __fastcall TR_InitializeTransferRing(__int64 a1)
 {
-  _QWORD *v1; // rdi
-  __int64 v3; // rcx
-  __int64 v4; // rax
+  __int64 v2; // rcx
+  __int64 v3; // rax
   __int64 result; // rax
 
-  v1 = (_QWORD *)(a1 + 176);
   if ( *(_BYTE *)(a1 + 280) )
-    TR_InitializeTransferSegment(a1, *v1);
-  memset(*(void **)(*v1 + 16LL), 0, *(unsigned int *)(*v1 + 44LL));
-  v3 = *v1;
-  v4 = *(_QWORD *)(*v1 + 16LL);
+    TR_InitializeTransferSegment(a1, *(_QWORD *)(a1 + 176));
+  memset(*(void **)(*(_QWORD *)(a1 + 176) + 16LL), 0, *(unsigned int *)(*(_QWORD *)(a1 + 176) + 44LL));
+  v2 = *(_QWORD *)(a1 + 176);
+  v3 = *(_QWORD *)(v2 + 16);
   *(_DWORD *)(a1 + 192) = 0;
-  *(_QWORD *)(a1 + 184) = v4;
-  result = (unsigned int)((*(_DWORD *)(v3 + 44) >> 4) - 1);
+  *(_QWORD *)(a1 + 184) = v3;
+  result = (unsigned int)((*(_DWORD *)(v2 + 44) >> 4) - 1);
   *(_DWORD *)(a1 + 200) = 1;
   *(_DWORD *)(a1 + 196) = result;
   return result;

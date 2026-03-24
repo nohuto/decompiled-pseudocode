@@ -1,5 +1,5 @@
 /*
- * XREFs of HalGetDmaDomain @ 0x1403729D0
+ * XREFs of HalGetDmaDomain @ 0x1403650E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall HalGetDmaDomain(__int64 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(a1 + 504) + 40LL);
+  return *(_QWORD *)(a1 + 504);
 }

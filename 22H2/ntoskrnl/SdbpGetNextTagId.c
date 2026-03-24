@@ -1,57 +1,33 @@
 /*
- * XREFs of SdbpGetNextTagId @ 0x140757FA0
+ * XREFs of SdbpGetNextTagId @ 0x140759AA8
  * Callers:
- *     SdbGetFirstChild @ 0x140757E54 (SdbGetFirstChild.c)
- *     SdbGetNextChild @ 0x140757F28 (SdbGetNextChild.c)
- *     SdbpGetNextIndexedRecord @ 0x14084B234 (SdbpGetNextIndexedRecord.c)
+ *     SdbGetNextChild @ 0x1407599E8 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x140759C60 (SdbGetFirstChild.c)
+ *     SdbpGetNextIndexedRecord @ 0x1407C15CC (SdbpGetNextIndexedRecord.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetTagDataSize @ 0x1407580A0 (SdbGetTagDataSize.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpGetTagHeadSize @ 0x140759A58 (SdbpGetTagHeadSize.c)
+ *     SdbGetTagDataSize @ 0x140759B30 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbpGetNextTagId(__int64 a1, unsigned int a2)
+__int64 __fastcall SdbpGetNextTagId(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rbx
   unsigned int v4; // edi
-  unsigned int *v5; // r14
-  int v6; // edi
+  int TagHeadSize; // esi
   unsigned int TagDataSize; // eax
 
-  v2 = a2;
-  v4 = a2 + 2;
-  if ( a2 + 2 < 2 )
+  v4 = a2;
+  if ( (SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000) == 0x7000 && (unsigned int)SdbGetTagDataSize(a1, v4) == -1 )
   {
     AslLogCallPrintf(1LL);
-    v5 = (unsigned int *)(a1 + 20);
+    return *(unsigned int *)(a1 + 20);
   }
-  else
-  {
-    v5 = (unsigned int *)(a1 + 20);
-    if ( *(_DWORD *)(a1 + 20) >= v4 )
-    {
-      if ( (*(_WORD *)(a2 + *(_QWORD *)(a1 + 8)) & 0xF000) == 0x7000 && (unsigned int)SdbGetTagDataSize(a1, a2) == -1 )
-        goto LABEL_17;
-      goto LABEL_7;
-    }
-    AslLogCallPrintf(1LL);
-  }
-  AslLogCallPrintf(1LL);
-  if ( v4 < 2 )
-  {
-LABEL_16:
-    AslLogCallPrintf(1LL);
-LABEL_17:
-    AslLogCallPrintf(1LL);
-    return *v5;
-  }
-LABEL_7:
-  if ( *v5 < v4 )
-    goto LABEL_16;
-  v6 = 6;
-  if ( (*(_WORD *)(v2 + *(_QWORD *)(a1 + 8)) & 0xF000u) < 0x7000 )
-    v6 = 2;
-  TagDataSize = SdbGetTagDataSize(a1, (unsigned int)v2);
+  TagHeadSize = SdbpGetTagHeadSize(a1, v4);
+  if ( !TagHeadSize )
+    return *(unsigned int *)(a1 + 20);
+  TagDataSize = SdbGetTagDataSize(a1, v4);
   if ( (*(_DWORD *)(a1 + 2608) & 1) == 0 )
     TagDataSize = (TagDataSize + 1) & 0xFFFFFFFE;
-  return (unsigned int)v2 + v6 + TagDataSize;
+  return v4 + TagHeadSize + TagDataSize;
 }

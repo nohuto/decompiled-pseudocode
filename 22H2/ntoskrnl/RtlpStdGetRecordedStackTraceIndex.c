@@ -1,22 +1,21 @@
 /*
- * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1405A9A04
+ * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1405860E0
  * Callers:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x1403C4950 (ExpInitializeResource.c)
- *     ExInitializeFastResource2 @ 0x1404130C0 (ExInitializeFastResource2.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     ExpInitializeResource @ 0x140399590 (ExpInitializeResource.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpStdExtendUpperWatermark @ 0x1405A98D0 (RtlpStdExtendUpperWatermark.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpStdExtendUpperWatermark @ 0x140585FA4 (RtlpStdExtendUpperWatermark.c)
  */
 
-__int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int16 *a2)
+__int64 __fastcall RtlpStdGetRecordedStackTraceIndex(KSPIN_LOCK *SpinLock, unsigned __int16 *a2)
 {
   __int64 v2; // r8
   unsigned int v5; // eax
   _DWORD *v6; // rdx
-  __int64 v7; // rsi
+  KSPIN_LOCK *v7; // rsi
   void *v8; // rdx
   _QWORD *v9; // rax
   __int64 v10; // rbx
@@ -40,19 +39,19 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
     }
     while ( v2 );
   }
-  v7 = a1 + 24LL * (v5 % *(_DWORD *)(a1 + 720));
-  *(_BYTE *)(v7 + 744) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 736));
+  v7 = &SpinLock[3 * (v5 % *((_DWORD *)SpinLock + 180))];
+  *((_BYTE *)v7 + 744) = KeAcquireSpinLockRaiseToDpc(v7 + 92);
   if ( *(_DWORD *)(a2 + 5) )
   {
     LODWORD(v10) = a2[6] + (a2[5] << 16);
   }
   else
   {
-    v9 = (_QWORD *)RtlpStdExtendUpperWatermark(a1, v8);
+    v9 = (_QWORD *)RtlpStdExtendUpperWatermark(SpinLock, v8);
     if ( v9 )
     {
       *v9 = a2;
-      v10 = (__int64)(*(_QWORD *)(a1 + 184) - (_QWORD)v9) >> 3;
+      v10 = (__int64)(SpinLock[23] - (_QWORD)v9) >> 3;
       a2[6] = v10;
       a2[5] = WORD1(v10);
     }
@@ -61,20 +60,23 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
       LODWORD(v10) = 0;
     }
   }
-  v11 = *(unsigned __int8 *)(v7 + 744);
-  KxReleaseSpinLock((volatile signed __int64 *)(v7 + 736));
+  v11 = *((unsigned __int8 *)v7 + 744);
+  KxReleaseSpinLock(v7 + 92);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v11);

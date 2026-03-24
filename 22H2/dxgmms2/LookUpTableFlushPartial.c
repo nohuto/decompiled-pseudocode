@@ -1,11 +1,11 @@
 /*
- * XREFs of LookUpTableFlushPartial @ 0x1C010A42C
+ * XREFs of LookUpTableFlushPartial @ 0x1C00D338C
  * Callers:
- *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00C2FB0 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C010A4B0 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C0088C00 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C00D3410 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
  * Callees:
- *     FlushLookUpTableBucket @ 0x1C004C078 (FlushLookUpTableBucket.c)
- *     UpdateInternalStatsOnFlush @ 0x1C010A53C (UpdateInternalStatsOnFlush.c)
+ *     FlushLookUpTableBucket @ 0x1C003E04C (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x1C00D3508 (UpdateInternalStatsOnFlush.c)
  */
 
 void __fastcall LookUpTableFlushPartial(__int64 a1)

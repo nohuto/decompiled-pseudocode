@@ -1,17 +1,49 @@
 /*
- * XREFs of HalpIommuPopulateExceptionList @ 0x1403A96AC
+ * XREFs of HalpIommuPopulateExceptionList @ 0x1403CF1B0
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099B3C4 (HalpIommuInitializeAll.c)
  * Callees:
- *     HalpIommuAddDebuggerException @ 0x1403A96C8 (HalpIommuAddDebuggerException.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 HalpIommuPopulateExceptionList()
 {
-  __int64 result; // rax
+  unsigned int *v0; // rdi
+  unsigned int v1; // ebx
+  _OWORD *MemoryInternal; // rax
+  _QWORD *v4; // rdx
+  unsigned __int64 v5; // rax
+  __int64 v6; // rcx
+  _QWORD *v7; // rax
 
-  result = HalpIommuAddDebuggerException();
-  if ( (int)result >= 0 )
-    return 0LL;
-  return result;
+  v0 = (unsigned int *)KdDebugDevice;
+  v1 = 0;
+  if ( KdDebugDevice && !*(_DWORD *)(KdDebugDevice + 220) )
+  {
+    MemoryInternal = (_OWORD *)HalpMmAllocateMemoryInternal(32, 1u);
+    v4 = MemoryInternal;
+    if ( MemoryInternal )
+    {
+      *MemoryInternal = 0LL;
+      MemoryInternal[1] = 0LL;
+      *((_DWORD *)MemoryInternal + 4) = *((unsigned __int16 *)v0 + 4);
+      v5 = (unsigned __int64)*v0 << 8;
+      v4[3] = v5;
+      v6 = v5 | (8LL * (v0[1] & 0x1F));
+      v4[3] = v6;
+      v4[3] = v6 | (v0[1] >> 5) & 7;
+      v7 = (_QWORD *)qword_140C49E18;
+      if ( *(__int64 **)qword_140C49E18 != &HalpIommuExceptionList )
+        __fastfail(3u);
+      *v4 = &HalpIommuExceptionList;
+      v4[1] = v7;
+      *v7 = v4;
+      qword_140C49E18 = (__int64)v4;
+    }
+    else
+    {
+      return (unsigned int)-1073741670;
+    }
+  }
+  return v1;
 }

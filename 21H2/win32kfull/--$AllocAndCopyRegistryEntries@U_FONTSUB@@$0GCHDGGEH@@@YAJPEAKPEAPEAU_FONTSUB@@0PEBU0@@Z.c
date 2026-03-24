@@ -1,9 +1,10 @@
 /*
- * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C0105F6C
+ * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C011954C
  * Callers:
- *     QueryRegistryFontSubstituteListRoutine @ 0x1C03914B0 (QueryRegistryFontSubstituteListRoutine.c)
+ *     QueryRegistryFontSubstituteListRoutine @ 0x1C0394610 (QueryRegistryFontSubstituteListRoutine.c)
  * Callees:
- *     PREALLOCMEM2 @ 0x1C011D46C (PREALLOCMEM2.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C0132890 (PREALLOCMEM2.c)
  */
 
 __int64 __fastcall AllocAndCopyRegistryEntries<_FONTSUB,1651729991>(
@@ -16,26 +17,18 @@ __int64 __fastcall AllocAndCopyRegistryEntries<_FONTSUB,1651729991>(
   __int128 v7; // xmm0
   _OWORD *v8; // rbx
   unsigned int v10; // edi
-  unsigned int v11; // r8d
-  void *v12; // rax
+  void *v11; // rax
 
   if ( gcfsTable < *a3 )
     goto LABEL_2;
   v10 = gcfsTable + 32;
-  v11 = 196 * (gcfsTable + 32);
   if ( gpfsTable )
-  {
-    v12 = (void *)PREALLOCMEM2(gpfsTable);
-  }
+    v11 = (void *)PREALLOCMEM2(gpfsTable);
   else
+    v11 = PALLOCMEM2(196 * (gcfsTable + 32), 1651729991LL, 1);
+  if ( v11 )
   {
-    if ( !v11 )
-      return 3221225495LL;
-    v12 = (void *)Win32AllocPoolZInit(v11, 1651729991LL);
-  }
-  if ( v12 )
-  {
-    gpfsTable = v12;
+    gpfsTable = v11;
     *a3 = v10;
 LABEL_2:
     v6 = (char *)gpfsTable + 196 * gcfsTable;

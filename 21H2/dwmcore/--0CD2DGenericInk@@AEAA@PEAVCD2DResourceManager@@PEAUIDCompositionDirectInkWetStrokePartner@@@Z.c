@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x18028D618
+ * XREFs of ??0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x18024D048
  * Callers:
- *     ?Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@PEAPEAV1@@Z @ 0x18028D718 (-Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@.c)
+ *     ?Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@PEAPEAV1@@Z @ 0x18024D148 (-Create@CD2DGenericInk@@SAJPEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@.c)
  * Callees:
- *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18006AAC4 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003A210 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 CD2DGenericInk *__fastcall CD2DGenericInk::CD2DGenericInk(
@@ -21,7 +21,7 @@ CD2DGenericInk *__fastcall CD2DGenericInk::CD2DGenericInk(
   CD2DResource::CD2DResource(this, a2, 0);
   v5 = *((_QWORD *)this + 2);
   *(_QWORD *)this = &CD2DGenericInk::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(v5 + 4) + 16) = &CD2DEffect::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(v5 + 4) + 16) = &CD2DPrimitiveProperties::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CD2DGenericInk::`vftable'{for `IDeviceResource'};
   v6 = *(int *)(*((_QWORD *)this + 2) + 4LL);
   *(_DWORD *)((char *)this + v6 + 12) = v6 - 80;

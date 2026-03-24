@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipProcessLegacyEtwCallback @ 0x1408B4590
+ * XREFs of WmipProcessLegacyEtwCallback @ 0x1408B4570
  * Callers:
- *     WmipLegacyEtwWorker @ 0x140756480 (WmipLegacyEtwWorker.c)
+ *     WmipLegacyEtwWorker @ 0x140756460 (WmipLegacyEtwWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     WmipSendWmiIrp @ 0x1405FBEA0 (WmipSendWmiIrp.c)
  *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
  */

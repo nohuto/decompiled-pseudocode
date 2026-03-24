@@ -1,11 +1,11 @@
 /*
- * XREFs of QueueShutdownData @ 0x1C01D9D08
+ * XREFs of QueueShutdownData @ 0x1C01D31E8
  * Callers:
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     xxxSetInformationThread @ 0x1C00A6350 (xxxSetInformationThread.c)
- *     NtUserShutdownBlockReasonCreate @ 0x1C00FF170 (NtUserShutdownBlockReasonCreate.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     xxxSetInformationThread @ 0x1C00D9030 (xxxSetInformationThread.c)
+ *     NtUserShutdownBlockReasonCreate @ 0x1C010AB70 (NtUserShutdownBlockReasonCreate.c)
  * Callees:
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
  */
 
 void __fastcall QueueShutdownData(__int64 a1, unsigned __int64 a2)
@@ -19,7 +19,7 @@ void __fastcall QueueShutdownData(__int64 a1, unsigned __int64 a2)
       || a1 == 0xFFFF
       || (v4 = ValidateHwndEx(a1, 0LL, 0LL)) != 0
       && (v5 = *(_QWORD *)(v4 + 40), *(_DWORD *)(v5 + 236) == 1)
-      && (*(_BYTE *)(v5 + 232) & 0x40) == 0 )
+      && (*(_BYTE *)(v5 + 234) & 0x20) == 0 )
     {
       PostEventMessageEx(
         *((struct tagTHREADINFO **)gspwndBSDR + 2),

@@ -1,11 +1,11 @@
 /*
- * XREFs of Isoch_Initialize @ 0x1C006B570
+ * XREFs of Isoch_Initialize @ 0x1C006A320
  * Callers:
  *     <none>
  * Callees:
- *     Isoch_CalculatePacketsPerFrame @ 0x1C000160C (Isoch_CalculatePacketsPerFrame.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_CalculatePacketsPerFrame @ 0x1C0001E40 (Isoch_CalculatePacketsPerFrame.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Isoch_Initialize(__int64 a1)
@@ -22,7 +22,6 @@ __int64 __fastcall Isoch_Initialize(__int64 a1)
   __int128 v12; // [rsp+78h] [rbp+3Fh]
   __int64 v13; // [rsp+88h] [rbp+4Fh]
 
-  DWORD1(v9) = 0;
   *(_QWORD *)(a1 + 392) = a1 + 384;
   *(_QWORD *)(a1 + 384) = a1 + 384;
   *(_QWORD *)(a1 + 408) = a1 + 400;

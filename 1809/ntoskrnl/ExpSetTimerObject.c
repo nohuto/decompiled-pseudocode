@@ -2,7 +2,7 @@
  * XREFs of ExpSetTimerObject @ 0x14001D7C0
  * Callers:
  *     NtSetTimerEx @ 0x14001D530 (NtSetTimerEx.c)
- *     ExpSetTimer @ 0x140140298 (ExpSetTimer.c)
+ *     ExpSetTimer @ 0x1401402B8 (ExpSetTimer.c)
  * Callees:
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -18,24 +18,24 @@
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
  *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiTimerWaitTest @ 0x1400C7B50 (KiTimerWaitTest.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     ObpDeferObjectDeletion @ 0x140125DB0 (ObpDeferObjectDeletion.c)
- *     PsInsertVirtualizedTimer @ 0x14012D07C (PsInsertVirtualizedTimer.c)
- *     KeRemoveQueueApc @ 0x14012F338 (KeRemoveQueueApc.c)
- *     KiRemoveEntryTimer @ 0x1401318AC (KiRemoveEntryTimer.c)
- *     KeRemoveQueueDpcEx @ 0x1401329E0 (KeRemoveQueueDpcEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290D28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290E38 (KiReleaseSpinLockInstrumented.c)
- *     KiTraceSetTimer @ 0x14029B868 (KiTraceSetTimer.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
- *     ExpCheckTestsigningEnabled @ 0x140706FF4 (ExpCheckTestsigningEnabled.c)
- *     ExpCheckWakeTimerAccess @ 0x14071EACC (ExpCheckWakeTimerAccess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiTimerWaitTest @ 0x1400C7B70 (KiTimerWaitTest.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
+ *     PsInsertVirtualizedTimer @ 0x14012D09C (PsInsertVirtualizedTimer.c)
+ *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
+ *     KiRemoveEntryTimer @ 0x1401318CC (KiRemoveEntryTimer.c)
+ *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
+ *     KiTraceSetTimer @ 0x14029B968 (KiTraceSetTimer.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     ExpCheckTestsigningEnabled @ 0x140706FD4 (ExpCheckTestsigningEnabled.c)
+ *     ExpCheckWakeTimerAccess @ 0x14071EAAC (ExpCheckWakeTimerAccess.c)
  */
 
 __int64 __fastcall ExpSetTimerObject(
@@ -185,7 +185,7 @@ __int64 __fastcall ExpSetTimerObject(
         }
       }
     }
-    if ( (int)qword_140418280 >= 2 || byte_140418253 )
+    if ( (int)qword_140418260 >= 2 || byte_140418233 )
     {
       v13 = 1;
       v95 = 1;
@@ -666,13 +666,13 @@ LABEL_35:
     if ( !v35 )
       goto LABEL_77;
     v54 = (_QWORD *)(BugCheckParameter2 + 264);
-    v55 = (_QWORD *)qword_1404070E8;
-    if ( *(__int64 **)qword_1404070E8 == &ExpWakeTimerList )
+    v55 = (_QWORD *)qword_140407098;
+    if ( *(__int64 **)qword_140407098 == &ExpWakeTimerList )
     {
       *v54 = &ExpWakeTimerList;
       *(_QWORD *)(BugCheckParameter2 + 272) = v55;
       *v55 = v54;
-      qword_1404070E8 = BugCheckParameter2 + 264;
+      qword_140407098 = BugCheckParameter2 + 264;
       goto LABEL_77;
     }
 LABEL_208:

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?NotifyShutdown@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6214
+ * XREFs of ?NotifyShutdown@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B08C4
  * Callers:
- *     VidMmNotifyShutdown @ 0x1C002D170 (VidMmNotifyShutdown.c)
+ *     VidMmNotifyShutdown @ 0x1C0022E10 (VidMmNotifyShutdown.c)
  * Callees:
- *     ?LogTeardownTelemetry@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E4A00 (-LogTeardownTelemetry@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?LogData@VIDMM_PURGE_TELEMETRY@@QEAAXXZ @ 0x1C00BE600 (-LogData@VIDMM_PURGE_TELEMETRY@@QEAAXXZ.c)
  */
 
-void __fastcall VIDMM_GLOBAL::NotifyShutdown(struct DXGADAPTER **this)
+void __fastcall VIDMM_GLOBAL::NotifyShutdown(VIDMM_GLOBAL *this)
 {
-  VIDMM_GLOBAL::LogTeardownTelemetry(this);
+  VIDMM_PURGE_TELEMETRY::LogData((VIDMM_GLOBAL *)((char *)this + 41208));
 }

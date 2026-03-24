@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiDiagTraceFanEvent @ 0x1C00030C0
+ * XREFs of AcpiDiagTraceFanEvent @ 0x1C000D360
  * Callers:
- *     ACPIFanPowerCallback @ 0x1C0003020 (ACPIFanPowerCallback.c)
- *     AcpiDiagTraceFanRundown @ 0x1C0048854 (AcpiDiagTraceFanRundown.c)
- *     AcpiDiagTraceFanStatusChange @ 0x1C0048918 (AcpiDiagTraceFanStatusChange.c)
+ *     ACPIFanPowerCallback @ 0x1C000D2C0 (ACPIFanPowerCallback.c)
+ *     AcpiDiagTraceFanRundown @ 0x1C0049EAC (AcpiDiagTraceFanRundown.c)
+ *     AcpiDiagTraceFanStatusChange @ 0x1C0049F58 (AcpiDiagTraceFanStatusChange.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
  */
 
 void __fastcall AcpiDiagTraceFanEvent(__int64 a1, const EVENT_DESCRIPTOR *a2, ULONG a3, __int64 a4)
@@ -19,7 +19,7 @@ void __fastcall AcpiDiagTraceFanEvent(__int64 a1, const EVENT_DESCRIPTOR *a2, UL
   RtlInitUnicodeString(v10, 0LL);
   if ( AcpiDiagHandle
     && EtwEventEnabled(AcpiDiagHandle, a2)
-    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), v10, 1LL) >= 0 )
+    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), v10, 1LL) >= 0 )
   {
     v8 = v10[0].Length >> 1;
     v9 = v10[0].Length >> 1;

@@ -1,19 +1,19 @@
 /*
- * XREFs of ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14032A638
+ * XREFs of ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14032A738
  * Callers:
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140329BF0 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140329D28 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140329F94 (-ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14032A268 (-SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140329CF0 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140329E28 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14032A094 (-ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14032A368 (-SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14015B4F0 (RtlComputeCrc32.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140329CE4 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140329ED4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14032AB8C (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C28A0 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x140704F48 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140816C60 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140329DE4 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140329FD4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14032AC8C (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C2880 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x140704F28 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140816C40 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LAYOUT *a2, char a3)

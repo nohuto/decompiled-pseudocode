@@ -1,48 +1,67 @@
 /*
- * XREFs of ?_RemoveMonitorEventHandler@MONITOR_MGR@@QEAAJPEAUHDXGMONITOREVENT__@@@Z @ 0x1C03B489C
+ * XREFs of ?_RemoveMonitorEventHandler@MONITOR_MGR@@QEAAJPEAUHDXGMONITOREVENT__@@@Z @ 0x1C02F2ED8
  * Callers:
- *     MonitorUnregisterMonitorEventCallback @ 0x1C03B1608 (MonitorUnregisterMonitorEventCallback.c)
+ *     MonitorUnregisterMonitorEventCallback @ 0x1C02F5368 (MonitorUnregisterMonitorEventCallback.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0012EA0 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0012ED0 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
  */
 
-__int64 __fastcall MONITOR_MGR::_RemoveMonitorEventHandler(MONITOR_MGR *this, struct HDXGMONITOREVENT__ ***a2)
+__int64 __fastcall MONITOR_MGR::_RemoveMonitorEventHandler(struct _FAST_MUTEX *this, struct HDXGMONITOREVENT__ ***a2)
 {
-  unsigned int v2; // edi
-  struct HDXGMONITOREVENT__ **v5; // rcx
-  struct HDXGMONITOREVENT__ *v6; // rax
-  struct HDXGMONITOREVENT__ **v8; // rax
-  struct HDXGMONITOREVENT__ **v9; // rcx
-  struct _KTHREAD **v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  struct HDXGMONITOREVENT__ **p_WaitListHead; // rcx
+  struct HDXGMONITOREVENT__ *v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  unsigned int v12; // edi
+  __int64 v13; // rax
+  struct HDXGMONITOREVENT__ **v15; // rax
+  struct HDXGMONITOREVENT__ **v16; // rcx
 
-  v2 = 0;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v10, (MONITOR_MGR *)((char *)this + 128));
-  v5 = (struct HDXGMONITOREVENT__ **)((char *)this + 56);
-  if ( a2 && (v6 = *v5, *v5 != (struct HDXGMONITOREVENT__ *)v5) )
   {
-    while ( v6 != (struct HDXGMONITOREVENT__ *)a2 )
+    v4 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    WdLogEvent5_WdAssertion(v4);
+  }
+  if ( this == (struct _FAST_MUTEX *)-224LL )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v5);
+  }
+  KeAcquireGuardedMutex(this + 4);
+  p_WaitListHead = (struct HDXGMONITOREVENT__ **)&this[2].Event.Header.WaitListHead;
+  if ( a2 && (v8 = *p_WaitListHead, *p_WaitListHead != (struct HDXGMONITOREVENT__ *)p_WaitListHead) )
+  {
+    while ( v8 != (struct HDXGMONITOREVENT__ *)a2 )
     {
-      if ( v5 == (struct HDXGMONITOREVENT__ **)v6 )
-        goto LABEL_5;
-      v6 = *(struct HDXGMONITOREVENT__ **)v6;
+      if ( p_WaitListHead == (struct HDXGMONITOREVENT__ **)v8 )
+        goto LABEL_7;
+      v8 = *(struct HDXGMONITOREVENT__ **)v8;
     }
-    v8 = *a2;
-    if ( (*a2)[1] != (struct HDXGMONITOREVENT__ *)a2 || (v9 = a2[1], *v9 != (struct HDXGMONITOREVENT__ *)a2) )
+    v15 = *a2;
+    if ( (*a2)[1] != (struct HDXGMONITOREVENT__ *)a2 || (v16 = a2[1], *v16 != (struct HDXGMONITOREVENT__ *)a2) )
       __fastfail(3u);
-    *v9 = (struct HDXGMONITOREVENT__ *)v8;
-    v8[1] = (struct HDXGMONITOREVENT__ *)v9;
+    *v16 = (struct HDXGMONITOREVENT__ *)v15;
+    v15[1] = (struct HDXGMONITOREVENT__ *)v16;
     operator delete(a2);
+    v12 = 0;
   }
   else
   {
-LABEL_5:
-    WdLogSingleEntry1(2LL, a2);
-    v2 = -1073741811;
+LABEL_7:
+    v9 = WdLogNewEntry5_WdError(p_WaitListHead, v6);
+    *(_QWORD *)(v9 + 24) = a2;
+    WdLogEvent5_WdError(v9);
+    v12 = -1073741811;
   }
-  MUTEX_LOCK::~MUTEX_LOCK(&v10);
-  return v2;
+  if ( this == (struct _FAST_MUTEX *)-224LL )
+  {
+    v13 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v13);
+  }
+  KeReleaseGuardedMutex(this + 4);
+  return v12;
 }

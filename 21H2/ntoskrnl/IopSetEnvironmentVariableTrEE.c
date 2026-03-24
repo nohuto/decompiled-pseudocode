@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSetEnvironmentVariableTrEE @ 0x14093F9F0
+ * XREFs of IopSetEnvironmentVariableTrEE @ 0x14089AED0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopIssueTrEERequest @ 0x14055C25C (IopIssueTrEERequest.c)
- *     IopEfiStatusToNTSTATUS @ 0x14093E9A0 (IopEfiStatusToNTSTATUS.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     IopIssueTrEERequest @ 0x14050AC40 (IopIssueTrEERequest.c)
+ *     IopVerifierExAllocatePool_5 @ 0x14050AD38 (IopVerifierExAllocatePool_5.c)
+ *     IopEfiStatusToNTSTATUS @ 0x140899ECC (IopEfiStatusToNTSTATUS.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetEnvironmentVariableTrEE(
@@ -20,8 +20,8 @@ __int64 __fastcall IopSetEnvironmentVariableTrEE(
         int a7)
 {
   __int64 v11; // rax
-  unsigned int v12; // esi
-  __int64 Pool2; // rax
+  unsigned int v12; // ebx
+  char *Pool_5; // rax
   __int64 v14; // rdi
   int v15; // ebx
   int v16; // ecx
@@ -35,17 +35,17 @@ __int64 __fastcall IopSetEnvironmentVariableTrEE(
     ++v11;
   while ( a3[v11] );
   v12 = 2 * v11 + 2;
-  Pool2 = ExAllocatePool2(256LL, v12 + Size + 36, 538996553LL);
-  v14 = Pool2;
-  if ( Pool2 )
+  Pool_5 = (char *)IopVerifierExAllocatePool_5(0LL, v12 + Size + 36);
+  v14 = (__int64)Pool_5;
+  if ( Pool_5 )
   {
     v16 = a7 | 6;
-    *(_OWORD *)(Pool2 + 4) = *a4;
-    *(_DWORD *)Pool2 = 36;
+    *(_OWORD *)(Pool_5 + 4) = *a4;
+    *(_DWORD *)Pool_5 = 36;
     if ( (a7 & 1) == 0 )
       v16 = a7;
-    *(_DWORD *)(Pool2 + 20) = v16;
-    memmove((void *)(Pool2 + 36), a3, v12);
+    *((_DWORD *)Pool_5 + 5) = v16;
+    memmove(Pool_5 + 36, a3, v12);
     *(_DWORD *)(v14 + 32) = v12 + 36;
     *(_QWORD *)(v14 + 24) = Size;
     memmove((void *)(v14 + v12 + 36), Src, Size);

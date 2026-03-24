@@ -1,10 +1,10 @@
 /*
- * XREFs of IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C007A020
+ * XREFs of IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C0079020
  * Callers:
- *     IntelPptFilter_FilterCommand @ 0x1C007A100 (IntelPptFilter_FilterCommand.c)
- *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007A2E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ *     IntelPptFilter_FilterCommand @ 0x1C0079100 (IntelPptFilter_FilterCommand.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C00792E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
  */
 
 char __fastcall IntelPptFilter_CheckAndIncreaseEndpointCount(__int64 a1, int a2)
@@ -21,7 +21,7 @@ char __fastcall IntelPptFilter_CheckAndIncreaseEndpointCount(__int64 a1, int a2)
   {
     v6 = v2 + a2;
     LOBYTE(a2) = 4;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
       a2,
       16,

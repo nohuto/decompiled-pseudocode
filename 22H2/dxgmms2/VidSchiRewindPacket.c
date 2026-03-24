@@ -1,35 +1,40 @@
 /*
- * XREFs of VidSchiRewindPacket @ 0x1C0014310
+ * XREFs of VidSchiRewindPacket @ 0x1C0013890
  * Callers:
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C00126D0 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C00138CC (VidSchiProcessDpcPreemptedPacket.c)
- *     VidSchiSubmitWaitCommand @ 0x1C00141D4 (VidSchiSubmitWaitCommand.c)
- *     VidSchiRun_PriorityTable @ 0x1C00B7870 (VidSchiRun_PriorityTable.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002FF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C0012EAC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiRun_PriorityTable @ 0x1C008E0A0 (VidSchiRun_PriorityTable.c)
  * Callees:
- *     VidSchiCompleteRewindPacket @ 0x1C00143C8 (VidSchiCompleteRewindPacket.c)
+ *     VidSchiCompleteRewindPacket @ 0x1C0013C74 (VidSchiCompleteRewindPacket.c)
  */
 
-void __fastcall VidSchiRewindPacket(__int64 a1, int a2, int a3, unsigned int a4)
+void __fastcall VidSchiRewindPacket(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   __int64 v4; // rbx
+  int v7; // edi
   __int64 v9; // rsi
-  int v10; // eax
+  _QWORD *v10; // rax
+  int v11; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   v4 = *(_QWORD *)(a1 + 88);
+  v7 = a2;
   v9 = *(_QWORD *)(*(_QWORD *)(v4 + 96) + 24LL);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( !a2 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v9 + 1728), &LockHandle);
+  if ( !(_DWORD)a2 )
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v9 + 1712), &LockHandle);
   if ( (*(_DWORD *)(v4 + 184) & 4) == 0 )
   {
-    WdLogSingleEntry3(4LL, v9, v4, *(unsigned int *)(a1 + 112));
-    v10 = *(_DWORD *)(v4 + 184) | 4;
+    v10 = (_QWORD *)WdLogNewEntry5_WdEvent(a1, a2);
+    v10[3] = v9;
+    v10[4] = v4;
+    v10[5] = *(unsigned int *)(a1 + 112);
+    WdLogEvent5_WdEvent(v10);
+    v11 = *(_DWORD *)(v4 + 184) | 4;
     *(_QWORD *)(v4 + 656) = a1;
-    *(_DWORD *)(v4 + 184) = v10;
+    *(_DWORD *)(v4 + 184) = v11;
   }
   if ( a3 )
     VidSchiCompleteRewindPacket(v4, a4);
-  if ( !a2 )
+  if ( !v7 )
     KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

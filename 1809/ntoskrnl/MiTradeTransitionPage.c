@@ -1,5 +1,5 @@
 /*
- * XREFs of MiTradeTransitionPage @ 0x14011810C
+ * XREFs of MiTradeTransitionPage @ 0x14011812C
  * Callers:
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
  * Callees:
@@ -9,10 +9,10 @@
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiCanPageMove @ 0x1401183D4 (MiCanPageMove.c)
- *     MiReplaceTransitionPage @ 0x14011844C (MiReplaceTransitionPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiCanPageMove @ 0x1401183F4 (MiCanPageMove.c)
+ *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTradeTransitionPage(__int64 a1, unsigned __int8 a2, __int64 a3, int a4, int a5, __int64 *a6)

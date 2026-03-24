@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BBB3C
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BBB1C
  * Callers:
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1408BBD94 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1408BBD74 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsncmp @ 0x1401977E0 (wcsncmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x1401B9B30 (ZwDeleteKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsncmp @ 0x140197800 (wcsncmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x1401B9B50 (ZwDeleteKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

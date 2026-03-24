@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFaultsIsCurrentAppTarget @ 0x140AD7A68
+ * XREFs of ViFaultsIsCurrentAppTarget @ 0x1409DD29C
  * Callers:
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 ViFaultsIsCurrentAppTarget()
@@ -22,19 +22,22 @@ __int64 ViFaultsIsCurrentAppTarget()
   v0 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   v1 = 0;
   v2 = ViFaultApplicationsList == &ViFaultApplicationsList;
-  KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
+  KxReleaseSpinLock(&ViFaultInjectionLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
-      v7 = (v6 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v6;
-      if ( v7 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+        v7 = (v6 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v6;
+        if ( v7 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v0);
@@ -42,9 +45,9 @@ __int64 ViFaultsIsCurrentAppTarget()
     return 1;
   if ( (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x10000) != 0 )
   {
-    ++dword_140D707A4;
+    ++dword_140D4A3F4;
     return 1;
   }
-  ++dword_140D707A0;
+  ++dword_140D4A3F0;
   return v1;
 }

@@ -67,13 +67,13 @@ LABEL_10:
       goto LABEL_10;
     v5 = 1;
 LABEL_17:
-    v10 = (__int64 *)qword_14040D7A8;
-    if ( *(__int64 **)qword_14040D7A8 != &VfSuspectDriversList )
+    v10 = (__int64 *)qword_14040D778;
+    if ( *(__int64 **)qword_14040D778 != &VfSuspectDriversList )
       __fastfail(3u);
-    *(_QWORD *)(a1 + 8) = qword_14040D7A8;
+    *(_QWORD *)(a1 + 8) = qword_14040D778;
     *(_QWORD *)a1 = &VfSuspectDriversList;
     *v10 = a1;
-    qword_14040D7A8 = a1;
+    qword_14040D778 = a1;
     *a3 = 1;
     if ( v5 )
       VfDriverLoadImage(a2, a1, 0, 1u);

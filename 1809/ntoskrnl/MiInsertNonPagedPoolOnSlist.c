@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertNonPagedPoolOnSlist @ 0x140161240
+ * XREFs of MiInsertNonPagedPoolOnSlist @ 0x140161260
  * Callers:
- *     MiFreePoolPages @ 0x1401610E0 (MiFreePoolPages.c)
+ *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121ED0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiLockNonPagedPoolPte @ 0x140162450 (MiLockNonPagedPoolPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121EF0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiLockNonPagedPoolPte @ 0x140162470 (MiLockNonPagedPoolPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 a1, unsigned __int64 a2)

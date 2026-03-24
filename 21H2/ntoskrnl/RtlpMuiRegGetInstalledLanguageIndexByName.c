@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140A355F4
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByName @ 0x14098158C
  * Callers:
- *     _RtlpRemovePendingDeleteLanguages @ 0x1403C5F68 (_RtlpRemovePendingDeleteLanguages.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140830B1C (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x1403ACE1C (_RtlpRemovePendingDeleteLanguages.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140793FA8 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
  * Callees:
- *     RtlpMuiRegGetOrAddString @ 0x140830CF4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140793414 (RtlpMuiRegGetOrAddString.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, _WORD *a2, __int64 a3, _WORD *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, _WORD *
   v8 = *(_QWORD *)(v6 + 16);
   do
   {
-    v9 = 28LL * (unsigned int)v7;
+    v9 = 28LL * v7;
     if ( *(_WORD *)(v9 + v8 + 6) == v12 )
     {
       v10 = *(_WORD *)(v9 + v8);

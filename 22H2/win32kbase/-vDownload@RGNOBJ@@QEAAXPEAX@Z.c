@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C005AAF0
+ * XREFs of ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C0020BF0
  * Callers:
- *     GreGetRegionData @ 0x1C005AA00 (GreGetRegionData.c)
- *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00E073A (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
+ *     GreGetRegionData @ 0x1C0020AD0 (GreGetRegionData.c)
+ *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C014C084 (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ void __fastcall RGNOBJ::vDownload(RGNOBJ *this, _OWORD *a2)
   __int64 v7; // rcx
   __int128 v8; // [rsp+0h] [rbp-18h]
 
-  v3 = *(unsigned int **)(*(_QWORD *)this + 32LL);
-  v4 = *(_DWORD *)(*(_QWORD *)this + 52LL);
+  v3 = *(unsigned int **)(*(_QWORD *)this + 88LL);
+  v4 = *(_DWORD *)(*(_QWORD *)this + 84LL);
   while ( v4 )
   {
     --v4;

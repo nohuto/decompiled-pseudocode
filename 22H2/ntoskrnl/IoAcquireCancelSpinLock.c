@@ -1,45 +1,57 @@
 /*
- * XREFs of IoAcquireCancelSpinLock @ 0x140339880
+ * XREFs of IoAcquireCancelSpinLock @ 0x1402F52B0
  * Callers:
- *     <none>
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402D55B0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0208 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x140260E00 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045FB2E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14022E810 (KxWaitForLockOwnerShip.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051630C (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
-  KIRQL CurrentIrql; // bl
-  void *ArbitraryUserPointer; // rcx
-  volatile __int64 *v4; // r8
-  __int64 v5; // rcx
-  signed __int64 *v6; // rdx
-  _DWORD *SchedulerAssist; // r8
-  __int64 v8; // r9
+  KIRQL CurrentIrql; // si
+  void *ArbitraryUserPointer; // rbx
+  volatile __int64 *v4; // rdi
+  __int64 v5; // rbx
+  struct _KPRCB *CurrentPrcb; // rcx
+  _DWORD *v7; // rdx
+  _QWORD *v8; // rdx
+  _DWORD *SchedulerAssist; // r9
+  int v10; // eax
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v8) = 4;
-    else
-      v8 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   ArbitraryUserPointer = KeGetPcr()->NtTib.ArbitraryUserPointer;
   v4 = (volatile __int64 *)*((_QWORD *)ArbitraryUserPointer + 15);
   v5 = (__int64)ArbitraryUserPointer + 112;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v7 = CurrentPrcb->SchedulerAssist;
+  if ( v7 )
+  {
+    if ( CurrentPrcb->NestingLevel <= 1u )
+    {
+      v10 = v7[6];
+      v7[6] = v10 + 1;
+      if ( v10 == -1 )
+        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    }
+  }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
     KiAcquireQueuedSpinLockInstrumented(v5, v4);
   }
   else
   {
-    v6 = (signed __int64 *)_InterlockedExchange64(v4, v5);
-    if ( v6 )
-      KxWaitForLockOwnerShip(v5, v6);
+    v8 = (_QWORD *)_InterlockedExchange64(v4, v5);
+    if ( v8 )
+      KxWaitForLockOwnerShip(v5, v8);
   }
   *Irql = CurrentIrql;
 }

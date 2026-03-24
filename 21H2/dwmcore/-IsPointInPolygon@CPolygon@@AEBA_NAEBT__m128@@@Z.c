@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsPointInPolygon@CPolygon@@AEBA_NAEBT__m128@@@Z @ 0x1801FAA4C
+ * XREFs of ?IsPointInPolygon@CPolygon@@AEBA_NAEBT__m128@@@Z @ 0x1801F7E4C
  * Callers:
- *     ?HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfaceVisibility@@PEA_N@Z @ 0x1801FA760 (-HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfa.c)
+ *     ?HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfaceVisibility@@PEA_N@Z @ 0x1801F7AF4 (-HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfa.c)
  * Callees:
  *     <none>
  */

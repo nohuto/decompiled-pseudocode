@@ -1,14 +1,14 @@
 /*
- * XREFs of KxSetTimeStampBusy @ 0x140117C30
+ * XREFs of KxSetTimeStampBusy @ 0x140117C50
  * Callers:
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KxFlushNonGlobalTb @ 0x1400ED200 (KxFlushNonGlobalTb.c)
- *     KeInvalidateAllCaches @ 0x140177030 (KeInvalidateAllCaches.c)
- *     KxFlushEntireTb @ 0x140187838 (KxFlushEntireTb.c)
- *     KiFlushAddressSpaceTb @ 0x140293BFC (KiFlushAddressSpaceTb.c)
+ *     KxFlushNonGlobalTb @ 0x1400ED220 (KxFlushNonGlobalTb.c)
+ *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
+ *     KxFlushEntireTb @ 0x140187858 (KxFlushEntireTb.c)
+ *     KiFlushAddressSpaceTb @ 0x140293CFC (KiFlushAddressSpaceTb.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 char __fastcall KxSetTimeStampBusy(volatile signed __int32 *a1, __int64 a2, __int64 a3)

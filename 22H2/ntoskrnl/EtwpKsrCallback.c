@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpKsrCallback @ 0x1409ED590
+ * XREFs of EtwpKsrCallback @ 0x140948770
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpCancelMemoryPreservation @ 0x1409ED380 (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x1409ED6CC (EtwpPreserveLogger.c)
- *     EtwpSavePersistedLoggers @ 0x1409EE078 (EtwpSavePersistedLoggers.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCancelMemoryPreservation @ 0x140948560 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x1409488AC (EtwpPreserveLogger.c)
+ *     EtwpSavePersistedLoggers @ 0x14094925C (EtwpSavePersistedLoggers.c)
  */
 
 void __fastcall EtwpKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
@@ -54,12 +54,12 @@ LABEL_9:
     v8 = v7;
     if ( v7 )
     {
-      v9 = *((_QWORD *)v7 + 136);
+      v9 = *((_QWORD *)v7 + 134);
       v10 = 0;
       if ( v9 )
       {
         v10 = 1;
-        KeWaitForSingleObject(v7 + 158, Executive, 0, 0, 0LL);
+        KeWaitForSingleObject(v7 + 162, Executive, 0, 0, 0LL);
         if ( !v3 || v3 == 3 )
         {
           if ( *(_BYTE *)(v9 + 32) )

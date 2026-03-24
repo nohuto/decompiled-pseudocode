@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00304B0
+ * XREFs of ?vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0038FB0
  * Callers:
  *     <none>
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0030540 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0039100 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
 void __fastcall NEEDGRELOCK::vLock(NEEDGRELOCK *this, struct XDCOBJ *a2)
@@ -23,7 +23,7 @@ void __fastcall NEEDGRELOCK::vLock(NEEDGRELOCK *this, struct XDCOBJ *a2)
     && (*(_DWORD *)(v4 + 40) & 0x8000) == 0 )
   {
     *(_QWORD *)this = ghsemGreLock;
-    EngAcquireSemaphore((HSEMAPHORE)ghsemGreLock);
+    EngAcquireSemaphore(ghsemGreLock);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"hsem", *(_QWORD *)this, 2LL);
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x14082DE40
+ * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x1407AB5D4
  * Callers:
- *     SLQueryLicenseValueInternal @ 0x14082D870 (SLQueryLicenseValueInternal.c)
+ *     SLQueryLicenseValueInternal @ 0x1407AB014 (SLQueryLicenseValueInternal.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     ExpSetLicenseTamperState @ 0x140639FC4 (ExpSetLicenseTamperState.c)
- *     sub_14082E084 @ 0x14082E084 (sub_14082E084.c)
- *     sub_14082E0E8 @ 0x14082E0E8 (sub_14082E0E8.c)
- *     ntoskrnl_24 @ 0x1409F9AA0 (ntoskrnl_24.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     ExpSetLicenseTamperState @ 0x1405B3064 (ExpSetLicenseTamperState.c)
+ *     sub_1407AB818 @ 0x1407AB818 (sub_1407AB818.c)
+ *     sub_1407AB87C @ 0x1407AB87C (sub_1407AB87C.c)
+ *     ntoskrnl_24 @ 0x14094D5E0 (ntoskrnl_24.c)
  */
 
 __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
@@ -58,7 +58,7 @@ __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
   if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v2);
   KeAbPostRelease((ULONG_PTR)v2);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v4 = v12;
   if ( v12 >= 0 && v16 == 1 )
   {
@@ -70,7 +70,7 @@ __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
     v7 = *(_QWORD *)a1;
     if ( *(_QWORD *)a1 )
     {
-      v8 = sub_14082E084(a1);
+      v8 = sub_1407AB818(a1);
       v12 = v8;
       if ( v8 < 0 )
         goto LABEL_30;
@@ -89,7 +89,7 @@ __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
     if ( !*(_DWORD *)(a1 + 46824) )
     {
       LOBYTE(v6) = 1;
-      v8 = sub_14082E0E8(v7, v6, a1 + 24, 2925LL, a1 + 46824);
+      v8 = sub_1407AB87C(v7, v6, a1 + 24, 2925LL, a1 + 46824);
       v12 = v8;
       v10 = (void *)(a1 + 24);
     }
@@ -97,7 +97,7 @@ __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
     {
       if ( *v9 )
       {
-        qsort(v10, (unsigned int)*v9, 0x10uLL, sub_14083F230);
+        qsort(v10, (unsigned int)*v9, 0x10uLL, sub_1407B1AE0);
         *(_BYTE *)(a1 + 46828) = 1;
       }
       else
@@ -114,7 +114,7 @@ LABEL_30:
       if ( (v11 & 2) != 0 && (v11 & 4) == 0 )
         ExfTryToWakePushLock(v2);
       KeAbPostRelease((ULONG_PTR)v2);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v4 = v12;
       goto LABEL_12;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtDeviceIoControlFile @ 0x1406E5520
+ * XREFs of NtDeviceIoControlFile @ 0x14064B6C0
  * Callers:
- *     PopFlushVolumeWorker @ 0x140AA6370 (PopFlushVolumeWorker.c)
+ *     PopFlushVolumeWorker @ 0x140997F90 (PopFlushVolumeWorker.c)
  * Callees:
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  */
 
 NTSTATUS __stdcall NtDeviceIoControlFile(
@@ -18,13 +18,18 @@ NTSTATUS __stdcall NtDeviceIoControlFile(
         PVOID OutputBuffer,
         ULONG OutputBufferLength)
 {
+  size_t Size; // [rsp+38h] [rbp-30h]
+  SIZE_T Length; // [rsp+48h] [rbp-20h]
+
+  LODWORD(Length) = OutputBufferLength;
+  LODWORD(Size) = InputBufferLength;
   return IopXxxControlFile(
-           FileHandle,
+           (int)FileHandle,
            (__int64)IoStatusBlock,
            IoControlCode,
-           (__int64)InputBuffer,
-           InputBufferLength,
+           InputBuffer,
+           Size,
            OutputBuffer,
-           OutputBufferLength,
+           Length,
            1);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?StStagingRegionIssueIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@K@Z @ 0x140306294
+ * XREFs of ?StStagingRegionIssueIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@K@Z @ 0x140306394
  * Callers:
- *     ?StDmpCurrentRegionWrite@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x140305B68 (-StDmpCurrentRegionWrite@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StDmpCurrentRegionWrite@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x140305C68 (-StDmpCurrentRegionWrite@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
  * Callees:
- *     ?StDmDeviceIoCompletion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14030424C (-StDmDeviceIoCompletion@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     StEtaIoStart @ 0x140306860 (StEtaIoStart.c)
- *     SmIssueIo @ 0x140308EF4 (SmIssueIo.c)
- *     SmWaitForSyncIo @ 0x140309478 (SmWaitForSyncIo.c)
+ *     ?StDmDeviceIoCompletion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14030434C (-StDmDeviceIoCompletion@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     StEtaIoStart @ 0x140306960 (StEtaIoStart.c)
+ *     SmIssueIo @ 0x140308FF4 (SmIssueIo.c)
+ *     SmWaitForSyncIo @ 0x140309578 (SmWaitForSyncIo.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StStagingRegionIssueIo(__int64 a1, unsigned int *a2)

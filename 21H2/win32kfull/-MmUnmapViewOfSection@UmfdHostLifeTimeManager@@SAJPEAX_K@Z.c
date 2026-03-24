@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C01074E4
+ * XREFs of ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00A750C
  * Callers:
- *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C000D860 (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
- *     vUnmapRemoteFonts @ 0x1C0287B80 (vUnmapRemoteFonts.c)
+ *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C00A8CB4 (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
+ *     vUnmapRemoteFonts @ 0x1C028AD20 (vUnmapRemoteFonts.c)
  * Callees:
- *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C001F1E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A8434 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall UmfdHostLifeTimeManager::MmUnmapViewOfSection(void *a1, __int64 a2)

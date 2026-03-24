@@ -1,17 +1,17 @@
 /*
- * XREFs of ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017FBC0
+ * XREFs of ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18022775C
  * Callers:
- *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017DD54 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
- *     ?RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017F2CC (-RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x1802262F8 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180226F34 (-RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18017BCE8 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     ?Lookup@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBA?AV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@AEBI@Z @ 0x18017C900 (-Lookup@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@V.c)
- *     ?QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z @ 0x18017E48C (-QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z.c)
- *     ?TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z @ 0x18017FAEC (-TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z.c)
- *     ?TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEAPEAX@Z @ 0x18017FDCC (-TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEA.c)
- *     ?ProcessHandledInteractionsWalk@CGestureTargetingManager@@CAJPEAUIManipulationContext@@PEAUIInteractionResource@@_KW4InertiaFrameType@@AEBUManipulationThreadTelemetryData@@@Z @ 0x1801866C4 (-ProcessHandledInteractionsWalk@CGestureTargetingManager@@CAJPEAUIManipulationContext@@PEAUIInte.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180224624 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?Lookup@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBA?AV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@AEBI@Z @ 0x180225060 (-Lookup@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@V.c)
+ *     ?QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z @ 0x1802266F4 (-QpcToMicroSec@QpcTimeConverter@@QEBAH_KPEA_K@Z.c)
+ *     ?TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z @ 0x180227688 (-TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z.c)
+ *     ?TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEAPEAX@Z @ 0x18022794C (-TargetPointer@CManipulationManager@@IEAAXPEAVCManipulationContext@@PEAVCManipulationFrame@@KPEA.c)
+ *     ?ProcessHandledInteractionsWalk@CGestureTargetingManager@@CAJPEAUIManipulationContext@@PEAUIInteractionResource@@_KW4InertiaFrameType@@AEBUManipulationThreadTelemetryData@@@Z @ 0x180237AA8 (-ProcessHandledInteractionsWalk@CGestureTargetingManager@@CAJPEAUIManipulationContext@@PEAUIInte.c)
  */
 
 void __fastcall CManipulationManager::TargetFrameInput(CManipulationManager *this, struct CManipulationFrame *a2)
@@ -39,26 +39,26 @@ void __fastcall CManipulationManager::TargetFrameInput(CManipulationManager *thi
     v7 = (int *)((char *)a2 + v6);
     if ( (unsigned int)QpcTimeConverter::QpcToMicroSec(
                          (CManipulationManager *)((char *)this + 304),
-                         *(_QWORD *)((char *)a2 + v6 + 448),
+                         *(_QWORD *)((char *)a2 + v6 + 240),
                          &v17) )
     {
       v8 = v17;
     }
     else
     {
-      v8 = 1000LL * *(unsigned int *)((char *)a2 + v6 + 432);
+      v8 = 1000LL * *(unsigned int *)((char *)a2 + v6 + 224);
       v17 = v8;
     }
     if ( v2 >= v8 )
       v8 = v2;
     v2 = v8;
-    if ( (*((_BYTE *)a2 + 176) & 2) == 0 || *(_QWORD *)((char *)a2 + v6 + 392) == -1LL )
+    if ( (*((_BYTE *)a2 + 72) & 2) == 0 || *(_QWORD *)((char *)a2 + v6 + 184) == -1LL )
     {
       CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::Lookup(
         (__int64)this + 184,
         (__int64 (__fastcall ****)(_QWORD))&v16,
-        v7 + 93);
-      if ( (((*(_DWORD *)((_BYTE *)a2 + v6 + 380) & 0x20006) - 0x20000) & 0xFFFFFFFD) == 0 )
+        v7 + 41);
+      if ( (((*(_DWORD *)((_BYTE *)a2 + v6 + 172) & 0x20006) - 0x20000) & 0xFFFFFFFD) == 0 )
         Microsoft::WRL::ComPtr<IInteractionResource>::operator=(
           (__int64 (__fastcall ****)(_QWORD))&v16,
           (_QWORD *)this + 33);
@@ -69,14 +69,14 @@ void __fastcall CManipulationManager::TargetFrameInput(CManipulationManager *thi
         CManipulationManager::TargetPointer(this, v16, a2, i, &v18);
         v9 = v18;
       }
-      *(_QWORD *)((char *)a2 + v6 + 392) = v9;
+      *(_QWORD *)((char *)a2 + v6 + 184) = v9;
       if ( v9 != (void *)-1LL )
       {
-        *((_BYTE *)a2 + 176) |= 1u;
-        if ( (*((_BYTE *)a2 + 176) & 2) == 0 )
-          CManipulationManager::TargetBufferedFrames(this, v7[93], v9, i);
+        *((_BYTE *)a2 + 72) |= 1u;
+        if ( (*((_BYTE *)a2 + 72) & 2) == 0 )
+          CManipulationManager::TargetBufferedFrames(this, v7[41], v9, i);
       }
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v16);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v16);
     }
   }
   v10 = 0;
@@ -86,9 +86,9 @@ void __fastcall CManipulationManager::TargetFrameInput(CManipulationManager *thi
     do
     {
       v12 = 0;
-      if ( *((_DWORD *)a2 + 4) == 1 && (*((_DWORD *)a2 + 95) & 0x800000) != 0 )
+      if ( *((_DWORD *)a2 + 4) == 1 && (*((_DWORD *)a2 + 43) & 0x800000) != 0 )
       {
-        v13 = *((_DWORD *)a2 + 110);
+        v13 = *((_DWORD *)a2 + 58);
         if ( v13 == 571 )
         {
           v12 = 1;
@@ -100,7 +100,7 @@ void __fastcall CManipulationManager::TargetFrameInput(CManipulationManager *thi
       }
       v14 = *(_QWORD *)(v11 + *((_QWORD *)this + 26));
       v15 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
-      CGestureTargetingManager::ProcessHandledInteractionsWalk(v14, v15, v2, v12, (char *)a2 + 184);
+      CGestureTargetingManager::ProcessHandledInteractionsWalk(v14, v15, v2, v12, (char *)a2 + 80);
       ++v10;
       v11 += 8LL;
     }

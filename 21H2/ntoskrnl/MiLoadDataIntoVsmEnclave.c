@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLoadDataIntoVsmEnclave @ 0x14097A358
+ * XREFs of MiLoadDataIntoVsmEnclave @ 0x1408D31C4
  * Callers:
- *     NtLoadEnclaveData @ 0x14097B500 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x1408D4450 (NtLoadEnclaveData.c)
  * Callees:
- *     MmSizeOfMdl @ 0x140231480 (MmSizeOfMdl.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     MiMakeProtectionMask @ 0x14032BCC0 (MiMakeProtectionMask.c)
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiCountCommittedPages @ 0x1405A8968 (MiCountCommittedPages.c)
- *     PsLoadVsmEnclaveData @ 0x1405E33F8 (PsLoadVsmEnclaveData.c)
- *     MiDecommitRegion @ 0x1407BC9B0 (MiDecommitRegion.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiCountCommittedPages @ 0x1405499A8 (MiCountCommittedPages.c)
+ *     PsLoadVsmEnclaveData @ 0x140584B3C (PsLoadVsmEnclaveData.c)
+ *     MiDecommitRegion @ 0x1406EE5F0 (MiDecommitRegion.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLoadDataIntoVsmEnclave(
@@ -23,7 +23,7 @@ __int64 __fastcall MiLoadDataIntoVsmEnclave(
         ULONG_PTR a2,
         ULONG_PTR a3,
         KPROCESSOR_MODE a4,
-        unsigned __int64 a5,
+        __int64 a5,
         int a6,
         int *a7,
         unsigned __int64 Base,
@@ -31,7 +31,7 @@ __int64 __fastcall MiLoadDataIntoVsmEnclave(
         int a10,
         _QWORD *a11)
 {
-  ULONG_PTR v12; // rsi
+  __int64 v12; // rsi
   __int64 result; // rax
   unsigned int v14; // eax
   unsigned int ProtectionMask; // eax
@@ -41,17 +41,17 @@ __int64 __fastcall MiLoadDataIntoVsmEnclave(
   _WORD *Pool; // rax
   _DWORD *v20; // r9
   int *v21; // r14
-  __int16 v23; // [rsp+64h] [rbp-C4h] BYREF
-  int v24; // [rsp+68h] [rbp-C0h] BYREF
-  int *v25; // [rsp+70h] [rbp-B8h]
-  _QWORD *v26; // [rsp+78h] [rbp-B0h]
-  ULONG_PTR BugCheckParameter1; // [rsp+80h] [rbp-A8h]
-  _WORD *v28; // [rsp+88h] [rbp-A0h]
-  ULONG_PTR v29; // [rsp+90h] [rbp-98h]
-  unsigned __int64 v30; // [rsp+98h] [rbp-90h]
-  int *v31; // [rsp+A0h] [rbp-88h]
-  unsigned __int64 v32; // [rsp+A8h] [rbp-80h]
-  _BYTE v33[48]; // [rsp+B0h] [rbp-78h] BYREF
+  __int16 v23; // [rsp+54h] [rbp-C4h] BYREF
+  int v24; // [rsp+58h] [rbp-C0h] BYREF
+  int *v25; // [rsp+60h] [rbp-B8h]
+  _QWORD *v26; // [rsp+68h] [rbp-B0h]
+  ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-A8h]
+  _WORD *v28; // [rsp+78h] [rbp-A0h]
+  ULONG_PTR v29; // [rsp+80h] [rbp-98h]
+  __int64 v30; // [rsp+88h] [rbp-90h]
+  int *v31; // [rsp+90h] [rbp-88h]
+  __int64 v32; // [rsp+98h] [rbp-80h]
+  _BYTE v33[48]; // [rsp+A0h] [rbp-78h] BYREF
 
   BugCheckParameter1 = a2;
   v29 = a3;
@@ -100,9 +100,9 @@ LABEL_14:
     return 3221227012LL;
   }
   v32 = a5 + 4095;
-  if ( MiCountCommittedPages(a5, a5 + 4095, a3, v16 + 1664) )
+  if ( MiCountCommittedPages(a5, a5 + 4095, a3, (_DWORD *)(v16 + 1664)) )
     return 3221225505LL;
-  result = MiCommitExistingVad(a3, a5, 4096LL, a10, 0, 0LL, 0, 0, 0LL, &v24, &v23);
+  result = MiCommitExistingVad(a3, a5, 4096LL, a10, 0, 0LL, 0, 0LL, &v24, &v23);
   VsmEnclaveData = result;
   if ( (int)result >= 0 )
   {
@@ -110,7 +110,7 @@ LABEL_14:
     {
       v18 = MmSizeOfMdl((PVOID)Base, 0x1000uLL);
       Pool = MiAllocatePool(64, v18, 0x6C646D4Du);
-      v12 = (ULONG_PTR)Pool;
+      v12 = (__int64)Pool;
       v28 = Pool;
       if ( !Pool )
       {
@@ -128,7 +128,7 @@ LABEL_14:
         MEMORY[0x7FFFFFFF0000] = 0;
       MmProbeAndLockPages((PMDL)v12, a4, IoReadAccess);
       v21 = v25;
-      KiUnstackDetachProcess((__int64)v33, 0LL);
+      KiUnstackDetachProcess((__int64)v33, 0);
       if ( VsmEnclaveData < 0 )
         goto LABEL_36;
     }

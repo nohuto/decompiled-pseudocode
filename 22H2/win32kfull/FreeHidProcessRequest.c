@@ -1,21 +1,21 @@
 /*
- * XREFs of FreeHidProcessRequest @ 0x1C009F158
+ * XREFs of FreeHidProcessRequest @ 0x1C010790C
  * Callers:
- *     DestroyThreadHidObjects @ 0x1C009EFD0 (DestroyThreadHidObjects.c)
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
- *     FreeProcessHidTable @ 0x1C00B8BA8 (FreeProcessHidTable.c)
+ *     DestroyThreadHidObjects @ 0x1C01075E0 (DestroyThreadHidObjects.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
+ *     FreeProcessHidTable @ 0x1C0132C68 (FreeProcessHidTable.c)
  * Callees:
- *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C009F8C4 (-IsLegacyDevice@@YAHGG@Z.c)
- *     ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C009FCC0 (-DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z.c)
- *     ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01A9564 (-DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z.c)
- *     ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C01A95F4 (-DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z.c)
+ *     ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C0006D20 (-DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C0108864 (-IsLegacyDevice@@YAHGG@Z.c)
+ *     ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C0108B68 (-DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z.c)
+ *     ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01D4824 (-DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z.c)
  */
 
 void __fastcall FreeHidProcessRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, struct tagPROCESS_HID_TABLE *a3)
 {
   int v6; // ebp
-  __int64 v7; // rcx
-  struct tagPROCESS_HID_REQUEST **v8; // rax
+  __int64 v7; // rax
+  struct tagPROCESS_HID_REQUEST **v8; // rcx
 
   v6 = IsLegacyDevice(*((_WORD *)a1 + 8), *((_WORD *)a1 + 9));
   HMAssignmentUnlock((char *)a1 + 32);

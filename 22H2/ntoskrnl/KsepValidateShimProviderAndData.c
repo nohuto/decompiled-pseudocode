@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepValidateShimProviderAndData @ 0x14080AF80
+ * XREFs of KsepValidateShimProviderAndData @ 0x1407BDE24
  * Callers:
- *     KseRegisterShimEx @ 0x14080ACB0 (KseRegisterShimEx.c)
+ *     KseRegisterShimEx @ 0x1407BDC00 (KseRegisterShimEx.c)
  * Callees:
- *     KsepGetModuleInfoByAddress @ 0x14080B034 (KsepGetModuleInfoByAddress.c)
+ *     KsepGetModuleInfoByAddress @ 0x1407BDED0 (KsepGetModuleInfoByAddress.c)
  */
 
 __int64 __fastcall KsepValidateShimProviderAndData(__int64 a1, __int64 a2, __int64 a3)
@@ -11,10 +11,10 @@ __int64 __fastcall KsepValidateShimProviderAndData(__int64 a1, __int64 a2, __int
   __int64 v4; // r10
   __int64 v5; // rax
   __int64 v6; // r9
-  __int64 v8; // r11
-  __int64 v9; // rax
-  int v10; // edx
-  unsigned __int64 v11; // rcx
+  __int64 v7; // r11
+  __int64 v8; // rax
+  int v9; // edx
+  unsigned __int64 v10; // rcx
   unsigned int v12; // [rsp+30h] [rbp+8h] BYREF
   unsigned __int64 v13; // [rsp+48h] [rbp+20h] BYREF
 
@@ -35,21 +35,21 @@ __int64 __fastcall KsepValidateShimProviderAndData(__int64 a1, __int64 a2, __int
   {
     if ( *(_DWORD *)v5 == 4 )
       break;
-    v8 = *(_QWORD *)(v5 + 16);
-    v9 = v8;
-    if ( !v8 )
+    v7 = *(_QWORD *)(v5 + 16);
+    v8 = v7;
+    if ( !v7 )
       return 0LL;
-    v10 = 0;
+    v9 = 0;
     do
     {
-      if ( *(_DWORD *)v9 == 2 )
+      if ( *(_DWORD *)v8 == 2 )
         break;
-      v11 = *(_QWORD *)(v9 + 16);
-      if ( !v11 || v11 < v13 && v11 >= v13 + v12 )
+      v10 = *(_QWORD *)(v8 + 16);
+      if ( !v10 || v10 < v13 && v10 >= v13 + v12 )
         return 0LL;
-      v9 = v8 + 32LL * (unsigned int)++v10;
+      v8 = v7 + 32LL * (unsigned int)++v9;
     }
-    while ( v9 );
+    while ( v8 );
     v6 = (unsigned int)(v6 + 1);
     v5 = v4 + 24 * v6;
   }

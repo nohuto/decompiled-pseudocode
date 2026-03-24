@@ -1,7 +1,7 @@
 /*
- * XREFs of BgfxGrowDirtyRect @ 0x140187A88
+ * XREFs of BgfxGrowDirtyRect @ 0x140187AA8
  * Callers:
- *     GxpWriteFrameBufferPixels @ 0x14016EE98 (GxpWriteFrameBufferPixels.c)
+ *     GxpWriteFrameBufferPixels @ 0x14016EEB8 (GxpWriteFrameBufferPixels.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)

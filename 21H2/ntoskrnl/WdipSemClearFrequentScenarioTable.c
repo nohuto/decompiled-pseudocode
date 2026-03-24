@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemClearFrequentScenarioTable @ 0x1403CB238
+ * XREFs of WdipSemClearFrequentScenarioTable @ 0x1403AF810
  * Callers:
- *     WdipSemInitializeGlobalState @ 0x140840FF8 (WdipSemInitializeGlobalState.c)
- *     WdipSemShutdown @ 0x1409DA868 (WdipSemShutdown.c)
+ *     WdipSemInitializeGlobalState @ 0x14079AAF4 (WdipSemInitializeGlobalState.c)
+ *     WdipSemShutdown @ 0x14092FE10 (WdipSemShutdown.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *WdipSemClearFrequentScenarioTable()
@@ -12,6 +12,6 @@ void *WdipSemClearFrequentScenarioTable()
   void *result; // rax
 
   result = memset(&WdipSemFrequentScenarioTable, 0, 0x408uLL);
-  qword_140C16C28 = 0LL;
+  qword_140C1A988 = 0LL;
   return result;
 }

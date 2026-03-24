@@ -1,20 +1,20 @@
 /*
- * XREFs of IopCreateSecureDeviceClassSettings @ 0x14083C924
+ * XREFs of IopCreateSecureDeviceClassSettings @ 0x140735DF8
  * Callers:
- *     IoCreateDeviceSecure @ 0x14083CDC0 (IoCreateDeviceSecure.c)
+ *     IoCreateDeviceSecure @ 0x140738920 (IoCreateDeviceSecure.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     IopGetPersistedStateLocation @ 0x14083CB5C (IopGetPersistedStateLocation.c)
- *     IopQuerySecureDeviceClassState @ 0x14083CC0C (IopQuerySecureDeviceClassState.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     IopGetPersistedStateLocation @ 0x140736030 (IopGetPersistedStateLocation.c)
+ *     IopQuerySecureDeviceClassState @ 0x14073C03C (IopQuerySecureDeviceClassState.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 a2, _BYTE *a3)
@@ -27,15 +27,15 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
   NTSTATUS v12; // eax
   NTSTATUS v13; // eax
   PVOID *v14; // rbx
-  HANDLE Handle; // [rsp+30h] [rbp-59h] BYREF
-  HANDLE KeyHandle; // [rsp+38h] [rbp-51h] BYREF
-  HANDLE v17; // [rsp+40h] [rbp-49h] BYREF
-  UNICODE_STRING String1; // [rsp+48h] [rbp-41h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-31h] BYREF
-  UNICODE_STRING String2; // [rsp+88h] [rbp-1h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+98h] [rbp+Fh] BYREF
-  PCWSTR SourceString[3]; // [rsp+A8h] [rbp+1Fh] BYREF
-  ULONG v23; // [rsp+108h] [rbp+7Fh] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-49h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-41h] BYREF
+  HANDLE v17; // [rsp+48h] [rbp-39h] BYREF
+  UNICODE_STRING String1; // [rsp+50h] [rbp-31h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-21h] BYREF
+  UNICODE_STRING String2; // [rsp+90h] [rbp+Fh] BYREF
+  UNICODE_STRING DestinationString; // [rsp+A0h] [rbp+1Fh] BYREF
+  PCWSTR SourceString[3]; // [rsp+B0h] [rbp+2Fh] BYREF
+  int v23; // [rsp+100h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&String2.Length = 7471216LL;
   v23 = 0;
@@ -116,11 +116,11 @@ LABEL_11:
             ZwClose(Handle);
             Handle = 0LL;
           }
-          SecureDeviceClassState = IopCreateRegistryKeyEx(&KeyHandle, 0LL, &String1, 0xF003Fu, 0, &v23);
+          SecureDeviceClassState = IopCreateRegistryKeyEx(&KeyHandle, 0LL, &String1, 983103LL, 0, &v23);
           if ( SecureDeviceClassState < 0 )
             goto LABEL_12;
         }
-        SecureDeviceClassState = IopCreateRegistryKeyEx(&Handle, KeyHandle, &DestinationString, 0xF003Fu, 0, &v23);
+        SecureDeviceClassState = IopCreateRegistryKeyEx(&Handle, KeyHandle, &DestinationString, 983103LL, 0, &v23);
         if ( SecureDeviceClassState < 0 )
           goto LABEL_12;
         if ( v23 == 2 )
@@ -180,6 +180,6 @@ LABEL_12:
     ZwClose(v17);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)SecureDeviceClassState;
 }

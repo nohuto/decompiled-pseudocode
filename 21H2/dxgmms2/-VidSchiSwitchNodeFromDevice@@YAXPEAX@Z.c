@@ -1,38 +1,38 @@
 /*
- * XREFs of ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0014BD0
+ * XREFs of ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0033500
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiIncrementContextReference @ 0x1C00130A0 (VidSchiIncrementContextReference.c)
- *     VidSchiDecrementContextReference @ 0x1C0013610 (VidSchiDecrementContextReference.c)
- *     VidSchiSwitchNodeFromContext @ 0x1C009A7E0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiIncrementContextReference @ 0x1C0011550 (VidSchiIncrementContextReference.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011740 (VidSchiDecrementContextReference.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C008D8B0 (VidSchiSwitchNodeFromContext.c)
  */
 
 void __fastcall VidSchiSwitchNodeFromDevice(_QWORD *a1)
 {
   __int64 v1; // rbp
   _QWORD **v2; // rsi
-  _QWORD *v3; // rdi
-  struct _VIDSCH_CONTEXT *v4; // rbx
+  __int64 v3; // rdx
+  _QWORD *v4; // rdi
+  struct _VIDSCH_CONTEXT *v5; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = a1[4];
   v2 = (_QWORD **)(a1 + 9);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 1728), &LockHandle);
-  v3 = *v2;
-  while ( v3 != v2 )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 1712), &LockHandle);
+  v4 = *v2;
+  while ( v4 != v2 )
   {
-    v4 = (struct _VIDSCH_CONTEXT *)(v3 - 3);
-    VidSchiIncrementContextReference((__int64)(v3 - 3));
-    if ( !*((_DWORD *)v3 + 220) )
+    v5 = (struct _VIDSCH_CONTEXT *)(v4 - 3);
+    VidSchiIncrementContextReference((__int64)(v4 - 3), v3);
+    if ( !*((_DWORD *)v4 + 218) )
     {
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      VidSchiSwitchNodeFromContext(v3 - 3);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 1728), &LockHandle);
+      VidSchiSwitchNodeFromContext(v4 - 3);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 1712), &LockHandle);
     }
-    v3 = (_QWORD *)*v3;
-    VidSchiDecrementContextReference(v4, 1);
+    v4 = (_QWORD *)*v4;
+    VidSchiDecrementContextReference(v5, 1);
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

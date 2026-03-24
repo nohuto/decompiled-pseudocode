@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801232C0
+ * XREFs of ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F8AA0
  * Callers:
  *     <none>
  * Callees:

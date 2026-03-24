@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ @ 0x1C0095358
+ * XREFs of ?OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ @ 0x1C00969D8
  * Callers:
- *     DCompositionThreadCallout @ 0x1C0094EC0 (DCompositionThreadCallout.c)
+ *     DCompositionThreadCallout @ 0x1C00969B0 (DCompositionThreadCallout.c)
  * Callees:
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C00163FC (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?Disconnect@CConnection@DirectComposition@@QEAAXXZ @ 0x1C009549C (-Disconnect@CConnection@DirectComposition@@QEAAXXZ.c)
+ *     ?Disconnect@CConnection@DirectComposition@@QEAAXXZ @ 0x1C0056700 (-Disconnect@CConnection@DirectComposition@@QEAAXXZ.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005C370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
  */
 
 void DirectComposition::CConnection::OnDwmRenderThreadExit(void)

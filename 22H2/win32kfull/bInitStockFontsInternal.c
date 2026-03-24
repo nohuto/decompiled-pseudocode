@@ -1,43 +1,44 @@
 /*
- * XREFs of bInitStockFontsInternal @ 0x1C03B31F8
+ * XREFs of bInitStockFontsInternal @ 0x1C0392344
  * Callers:
- *     bInitStockFonts @ 0x1C03B52C0 (bInitStockFonts.c)
+ *     bInitStockFonts @ 0x1C0392D50 (bInitStockFonts.c)
  * Callees:
- *     hfontCreate @ 0x1C007B9C0 (hfontCreate.c)
- *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C0085CA4 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
- *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C0085D30 (-bSetStockFont@@YAHPEAXHH@Z.c)
- *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C0086298 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     bInitOneStockFont @ 0x1C03B38D0 (bInitOneStockFont.c)
- *     hfontInitDefaultGuiFont @ 0x1C03B3AAC (hfontInitDefaultGuiFont.c)
- *     bInitSystemFont @ 0x1C03B55BC (bInitSystemFont.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     hfontCreate @ 0x1C00BBBA0 (hfontCreate.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00E49A0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00E4BE0 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00E4D78 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     bInitOneStockFont @ 0x1C0392854 (bInitOneStockFont.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03929F0 (hfontInitDefaultGuiFont.c)
+ *     bInitSystemFont @ 0x1C039434C (bInitSystemFont.c)
  */
 
-unsigned __int16 *__fastcall bInitStockFontsInternal(Gre::Base *a1)
+unsigned __int16 *bInitStockFontsInternal()
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rdi
+  BOOL v0; // ebx
   unsigned __int16 *result; // rax
-  unsigned __int16 *v3; // r14
-  BOOL v4; // ebx
-  Gre::Base *v5; // rax
-  Gre::Base *v6; // rax
-  Gre::Base *v7; // rax
-  Gre::Base *v8; // rax
-  Gre::Base *v9; // rax
-  Gre::Base *inited; // rax
+  unsigned __int16 *v2; // rsi
+  struct HOBJ__ *v3; // rax
+  int v4; // r8d
+  struct HOBJ__ *v5; // rax
+  int v6; // r8d
+  struct HOBJ__ *v7; // rax
+  int v8; // r8d
+  struct HOBJ__ *v9; // rax
+  int v10; // r8d
+  struct HOBJ__ *v11; // rax
+  int v12; // r8d
+  void *inited; // rax
   HANDLE Handle[2]; // [rsp+48h] [rbp-C0h] BYREF
-  int Src; // [rsp+58h] [rbp-B0h] BYREF
-  int v13; // [rsp+5Ch] [rbp-ACh]
-  int v14; // [rsp+68h] [rbp-A0h]
-  _BYTE v15[5]; // [rsp+6Fh] [rbp-99h]
-  wchar_t Dst[202]; // [rsp+74h] [rbp-94h] BYREF
+  _DWORD Src[108]; // [rsp+58h] [rbp-B0h] BYREF
 
   Handle[0] = 0LL;
-  v1 = Gre::Base::Globals(a1);
-  result = (unsigned __int16 *)Win32AllocPoolZInit(596LL, 1718838855LL);
-  v3 = result;
+  v0 = 1;
+  result = (unsigned __int16 *)PALLOCMEM2(0x254uLL, 1718838855LL, 1);
+  v2 = result;
   if ( result )
   {
     memmove(result, L"\\SystemRoot\\Fonts\\", 0x26uLL);
@@ -46,81 +47,80 @@ unsigned __int16 *__fastcall bInitStockFontsInternal(Gre::Base *a1)
       if ( bQueryValueKey(
              L"SystemFontSize",
              Handle[0],
-             (PVOID)((unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL),
+             (PVOID)((unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL),
              0x200u)
         && bQueryValueKey(
              L"SystemFont",
              Handle[0],
-             (PVOID)((unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL),
+             (PVOID)((unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL),
              0x200u) )
       {
         memmove(
-          v3 + 18,
-          (const void *)(((unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL) + 12),
-          *(unsigned int *)(((unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL) + 8));
-        bInitSystemFont(v3);
+          v2 + 18,
+          (const void *)(((unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL) + 12),
+          *(unsigned int *)(((unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL) + 8));
+        bInitSystemFont(v2);
       }
       ZwClose(Handle[0]);
     }
-    v4 = 1;
     if ( bOpenKey(
            L"\\Registry\\Machine\\System\\CurrentControlSet\\Hardware Profiles\\Current\\Software\\Fonts",
            Handle)
       || bOpenKey(L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize", Handle) )
     {
-      if ( !*(_QWORD *)(*((_QWORD *)v1 + 396) + 104LL) )
-        bInitOneStockFont(L"FONTS.FON", 1LL, 13LL, Handle[0], (unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL);
-      bInitOneStockFont(L"OEMFONT.FON", 3LL, 10LL, Handle[0], (unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL);
-      bInitOneStockFont(L"FIXEDFON.FON", 2LL, 16LL, Handle[0], (unsigned __int64)(v3 + 23) & 0xFFFFFFFFFFFFFFF8uLL);
+      if ( !gahStockObjects[13] )
+        bInitOneStockFont(L"FONTS.FON", 1LL, 13LL, Handle[0], (unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL);
+      bInitOneStockFont(L"OEMFONT.FON", 3LL, 10LL, Handle[0], (unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL);
+      bInitOneStockFont(L"FIXEDFON.FON", 2LL, 16LL, Handle[0], (unsigned __int64)(v2 + 23) & 0xFFFFFFFFFFFFFFF8uLL);
       ZwClose(Handle[0]);
     }
-    memset_0(&Src, 0, 0x1A4uLL);
-    Src = 16;
-    v13 = 7;
-    v14 = 700;
-    *(_DWORD *)&v15[1] = 570556929;
-    wcscpy_s(Dst, 0x20uLL, L"System");
-    v5 = hfontCreate(&Src, 1, 2, 0LL, 0x48u);
-    if ( !(unsigned int)bSetStockFont(v5, 13, 0) && !*((_DWORD *)v1 + 752) )
+    memset(Src, 0, 0x1A4uLL);
+    Src[0] = 16;
+    Src[1] = 7;
+    Src[4] = 700;
+    Src[6] = 570556929;
+    wcscpy_s((wchar_t *)&Src[7], 0x20uLL, L"System");
+    v3 = hfontCreate((WCHAR *)Src, 1, 2, 0LL, 0x48u);
+    if ( !(unsigned int)bSetStockFont(v3, 13, 0) && G_fServiceSession == v4 )
       goto LABEL_23;
-    memset_0(&Src, 0, 0x1A4uLL);
-    Src = 12;
-    v13 = 8;
-    v14 = 400;
-    *(_DWORD *)v15 = 33686015;
-    v15[4] = 49;
-    wcscpy_s(Dst, 0x20uLL, L"Terminal");
-    v6 = hfontCreate(&Src, 3, 2, 0LL, 0x48u);
-    if ( !(unsigned int)bSetStockFont(v6, 10, 0) && !*((_DWORD *)v1 + 752) )
+    memset(Src, 0, 0x1A4uLL);
+    Src[0] = 12;
+    Src[1] = 8;
+    Src[4] = 400;
+    *(_DWORD *)((char *)&Src[5] + 3) = 33686015;
+    HIBYTE(Src[6]) = 49;
+    wcscpy_s((wchar_t *)&Src[7], 0x20uLL, L"Terminal");
+    v5 = hfontCreate((WCHAR *)Src, 3, 2, 0LL, 0x48u);
+    if ( !(unsigned int)bSetStockFont(v5, 10, 0) && G_fServiceSession == v6 )
       goto LABEL_23;
-    *((_QWORD *)v1 + 76) = *(_QWORD *)(*((_QWORD *)v1 + 396) + 104LL);
-    memset_0(&Src, 0, 0x1A4uLL);
-    v15[4] = 1;
-    v7 = hfontCreate(&Src, 4, 3, 0LL, 0x48u);
-    if ( !(unsigned int)bSetStockFont(v7, 14, 0) && !*((_DWORD *)v1 + 752) )
+    DcAttrDefault[37] = gahStockObjects[13];
+    memset(Src, 0, 0x1A4uLL);
+    HIBYTE(Src[6]) = 1;
+    v7 = hfontCreate((WCHAR *)Src, 4, 3, 0LL, 0x48u);
+    if ( !(unsigned int)bSetStockFont(v7, 14, 0) && G_fServiceSession == v8 )
       goto LABEL_23;
-    if ( ((memset_0(&Src, 0, 0x1A4uLL),
-           v15[4] = 2,
-           v8 = hfontCreate(&Src, 5, 3, 0LL, 0x48u),
-           (unsigned int)bSetStockFont(v8, 12, 0))
-       || *((_DWORD *)v1 + 752))
-      && ((memset_0(&Src, 0, 0x1A4uLL),
-           v15[4] = 1,
-           v9 = hfontCreate(&Src, 6, 3, 0LL, 0x48u),
-           (unsigned int)bSetStockFont(v9, 11, 0))
-       || *((_DWORD *)v1 + 752)) )
+    if ( (memset(Src, 0, 0x1A4uLL),
+          HIBYTE(Src[6]) = 2,
+          v9 = hfontCreate((WCHAR *)Src, 5, 3, 0LL, 0x48u),
+          !(unsigned int)bSetStockFont(v9, 12, 0))
+      && G_fServiceSession == v10
+      || (memset(Src, 0, 0x1A4uLL),
+          HIBYTE(Src[6]) = 1,
+          v11 = hfontCreate((WCHAR *)Src, 6, 3, 0LL, 0x48u),
+          !(unsigned int)bSetStockFont(v11, 11, 0))
+      && G_fServiceSession == v12 )
     {
-      inited = (Gre::Base *)hfontInitDefaultGuiFont(0xFFFFFFFFLL);
-      if ( !(unsigned int)bSetStockFont(inited, 17, 0) )
-        v4 = *((_DWORD *)v1 + 752) != 0;
+LABEL_23:
+      v0 = 0;
     }
     else
     {
-LABEL_23:
-      v4 = 0;
+      inited = (void *)hfontInitDefaultGuiFont(0xFFFFFFFFLL);
+      if ( !(unsigned int)bSetStockFont(inited, 17, 0) )
+        v0 = G_fServiceSession != 0;
     }
-    Win32FreePool(v3);
-    return (unsigned __int16 *)v4;
+    Win32FreePool(v2);
+    return (unsigned __int16 *)v0;
   }
   return result;
 }

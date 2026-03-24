@@ -4,7 +4,7 @@
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall IopQueryDeviceResetRegistrySettings(HANDLE KeyHandle)

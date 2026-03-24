@@ -1,24 +1,24 @@
 /*
- * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080856C
+ * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080854C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CE0 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsThreadInSilo @ 0x1400CC250 (PsIsThreadInSilo.c)
- *     PsGetPermanentSiloContext @ 0x14010A080 (PsGetPermanentSiloContext.c)
- *     PsGetJobSilo @ 0x1402EA020 (PsGetJobSilo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
+ *     PsGetJobSilo @ 0x1402EA120 (PsGetJobSilo.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     VRegEnabledInJob @ 0x14080831C (VRegEnabledInJob.c)
- *     VrpAddNamespaceNodeToList @ 0x140809B1C (VrpAddNamespaceNodeToList.c)
- *     VrpCreateNamespaceNode @ 0x140809E5C (VrpCreateNamespaceNode.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14080A10C (VrpCreateNamespaceNodePlaceholderKey.c)
- *     VrpDestroyNamespaceNode @ 0x14080A1BC (VrpDestroyNamespaceNode.c)
+ *     VRegEnabledInJob @ 0x1408082FC (VRegEnabledInJob.c)
+ *     VrpAddNamespaceNodeToList @ 0x140809AFC (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNode @ 0x140809E3C (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14080A0EC (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateMultipleNamespaceNodes(

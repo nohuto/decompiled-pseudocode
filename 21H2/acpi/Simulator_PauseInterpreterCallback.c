@@ -1,5 +1,5 @@
 /*
- * XREFs of Simulator_PauseInterpreterCallback @ 0x1C00651A0
+ * XREFs of Simulator_PauseInterpreterCallback @ 0x1C0063F20
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CTranslateTransform3DGeneratedT@VCTranslateTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4A70
+ * XREFs of ?GetProperty@?$CTranslateTransform3DGeneratedT@VCTranslateTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016E9E0
  * Callers:
  *     <none>
  * Callees:
@@ -23,16 +23,16 @@ __int64 __fastcall CTranslateTransform3DGeneratedT<CTranslateTransform3D,CTransf
     {
       if ( v4 != 1 )
         return 2147942487LL;
-      v5 = a1[42];
+      v5 = a1[40];
     }
     else
     {
-      v5 = a1[41];
+      v5 = a1[39];
     }
   }
   else
   {
-    v5 = a1[40];
+    v5 = a1[38];
   }
   *(_DWORD *)a3 = v5;
   *(_DWORD *)(a3 + 72) = 18;

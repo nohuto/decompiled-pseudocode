@@ -1,17 +1,17 @@
 /*
- * XREFs of Callout @ 0x1407CF8E0
+ * XREFs of Callout @ 0x140686B10
  * Callers:
  *     <none>
  * Callees:
- *     sub_1406EF620 @ 0x1406EF620 (sub_1406EF620.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
  */
 
 void __fastcall Callout(_DWORD *Parameter)
 {
-  Parameter[7] = sub_1406EF620(
+  Parameter[7] = sub_1405FE2AC(
                    *(unsigned int **)Parameter,
                    Parameter[2],
                    Parameter[3],
                    (_QWORD *)Parameter + 2,
-                   Parameter + 6);
+                   (__int64)(Parameter + 6));
 }

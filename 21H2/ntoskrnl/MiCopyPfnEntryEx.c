@@ -1,67 +1,49 @@
 /*
- * XREFs of MiCopyPfnEntryEx @ 0x1402E8154
+ * XREFs of MiCopyPfnEntryEx @ 0x14026DA30
  * Callers:
- *     MiConvertStandbyToProto @ 0x140227490 (MiConvertStandbyToProto.c)
- *     MiSwapStackPageNoDpc @ 0x14024A0FC (MiSwapStackPageNoDpc.c)
- *     MiConvertPrivateToProto @ 0x140272A10 (MiConvertPrivateToProto.c)
- *     MiReplaceTransitionPage @ 0x1402E7704 (MiReplaceTransitionPage.c)
- *     MiStealPage @ 0x1402E97D4 (MiStealPage.c)
- *     MiTradeActivePage @ 0x1402EA95C (MiTradeActivePage.c)
- *     MiMigratePfn @ 0x140327C60 (MiMigratePfn.c)
- *     MiSwitchKstackPages @ 0x140591040 (MiSwitchKstackPages.c)
- *     MiSplitDirectMapPage @ 0x1405A0B10 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x1405B4024 (MiSwapNumaStandbyPage.c)
- *     MiSwapHardFaultPage @ 0x1405C4C94 (MiSwapHardFaultPage.c)
- *     MxSwapPages @ 0x140AF3FFC (MxSwapPages.c)
- *     MiTradeBootImagePage @ 0x140B05434 (MiTradeBootImagePage.c)
+ *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
+ *     MiTradeActivePage @ 0x1402B65F0 (MiTradeActivePage.c)
+ *     MiSwapStackPageNoDpc @ 0x1402C6830 (MiSwapStackPageNoDpc.c)
+ *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
+ *     MiSwitchKstackPages @ 0x14053666C (MiSwitchKstackPages.c)
+ *     MiSplitDirectMapPage @ 0x14054213C (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
+ *     MiSwapHardFaultPage @ 0x140563770 (MiSwapHardFaultPage.c)
+ *     MiTradeBootImagePage @ 0x140A4FE60 (MiTradeBootImagePage.c)
+ *     MxSwapPages @ 0x140A57120 (MxSwapPages.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x14033C300 (MiSetPfnIdentity.c)
+ *     <none>
  */
 
-char __fastcall MiCopyPfnEntryEx(__m128i *a1, __m128i *a2)
+char __fastcall MiCopyPfnEntryEx(__int64 a1, __int64 a2)
 {
-  __m128i v2; // xmm1
-  __m128i v4; // xmm2
-  __m128i v5; // xmm0
-  char v6; // dl
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  __m128i v10; // xmm0
-  __m128i v11; // xmm1
-  __m128i v13; // [rsp+20h] [rbp-30h] BYREF
-  __m128i v14; // [rsp+30h] [rbp-20h]
-  __m128i v15; // [rsp+40h] [rbp-10h]
+  __int128 v2; // xmm1
+  __int64 v3; // r8
+  __int64 v4; // rax
+  __int128 v6; // [rsp+10h] [rbp-28h]
+  __m128i v7; // [rsp+20h] [rbp-18h]
 
-  v2 = a2[2];
-  v4 = *a2;
-  v5 = a2[1];
-  v6 = a1[2].m128i_i8[3];
-  v15 = v2;
-  v13 = v4;
-  v15.m128i_i8[3] = _mm_cvtsi128_si32(_mm_srli_si128(v2, 3)) & 0x3F | v6 & 0x40;
-  v7 = v2.m128i_i64[1];
-  v14 = v5;
-  if ( (((unsigned __int64)v2.m128i_i64[1] >> 60) & 7) == 3 )
+  v2 = *(_OWORD *)(a2 + 16);
+  v7 = *(__m128i *)(a2 + 32);
+  v3 = *(_QWORD *)(a2 + 40);
+  v7.m128i_i8[3] = _mm_cvtsi128_si32(_mm_srli_si128(v7, 3)) & 0x3F | *(_BYTE *)(a1 + 35) & 0x40;
+  *(_QWORD *)&v6 = v2;
+  if ( (((unsigned __int64)v7.m128i_i64[1] >> 60) & 7) == 3 )
+    v3 &= 0x8FFFFFFFFFFFFFFFuLL;
+  v7.m128i_i8[2] = v7.m128i_i8[2] & 0x3F | *(_BYTE *)(a1 + 34) & 0xC0;
+  LOBYTE(v4) = v7.m128i_i8[2] & 7;
+  v7.m128i_i64[1] = (v3 ^ ((unsigned __int64)(unsigned __int16)(*(_QWORD *)(a1 + 40) >> 39) << 39)) & 0x1FF8000000000LL ^ v3;
+  if ( (v7.m128i_i8[2] & 7) != 6 )
   {
-    MiSetPfnIdentity(&v13, 0LL);
-    v7 = v15.m128i_i64[1];
-    v4 = v13;
+    v4 = (*((_QWORD *)&v2 + 1) ^ *(_QWORD *)(a1 + 24)) & 0xF00000000000000LL ^ *((_QWORD *)&v2 + 1);
+    *((_QWORD *)&v6 + 1) = v4;
+    v2 = v6;
   }
-  v9 = (unsigned __int64)a1[2].m128i_i64[1] >> 43;
-  v15.m128i_i8[2] = v15.m128i_i8[2] & 0x3F | a1[2].m128i_i8[2] & 0xC0;
-  v8 = (unsigned __int16)v9;
-  LOBYTE(v9) = v15.m128i_i8[2] & 7;
-  v15.m128i_i64[1] = (v7 ^ (v8 << 43)) & 0x1FF80000000000LL ^ v7;
-  if ( (v15.m128i_i8[2] & 7) != 6 )
-  {
-    v9 = (v14.m128i_i64[1] ^ a1[1].m128i_i64[1]) & 0x3800000000000000LL ^ v14.m128i_i64[1];
-    v14.m128i_i64[1] = v9;
-  }
-  v10 = v14;
-  v11 = v15;
-  *a1 = v4;
-  a1[1] = v10;
-  a1[2] = v11;
-  return v9;
+  *(_OWORD *)a1 = *(_OWORD *)a2;
+  *(_OWORD *)(a1 + 16) = v2;
+  *(__m128i *)(a1 + 32) = v7;
+  return v4;
 }

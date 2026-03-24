@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceGreMovePointerEnd @ 0x1C00C3430
+ * XREFs of EtwTraceGreMovePointerEnd @ 0x1C00B3320
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00E5834 (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C01250D4 (McTemplateK0qqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceGreMovePointerEnd(int a1, char a2, int a3)

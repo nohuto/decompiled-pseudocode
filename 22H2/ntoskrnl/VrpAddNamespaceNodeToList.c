@@ -1,203 +1,207 @@
 /*
- * XREFs of VrpAddNamespaceNodeToList @ 0x14077BA30
+ * XREFs of VrpAddNamespaceNodeToList @ 0x1405D33DC
  * Callers:
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14077B6E0 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A7215C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408828EC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     VrpFindExactNamespaceNode @ 0x14077BD04 (VrpFindExactNamespaceNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VrpFindExactNamespaceNode @ 0x1405D371C (VrpFindExactNamespaceNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpAddNamespaceNodeToList(unsigned __int64 *a1, __int64 a2)
 {
-  __int64 v2; // rbp
-  unsigned __int64 v4; // rsi
+  __int64 v2; // r14
+  unsigned __int64 v4; // rbp
   unsigned __int64 v5; // r15
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // r8
-  unsigned __int64 v8; // rcx
+  unsigned __int64 v8; // rax
   __int64 result; // rax
-  unsigned __int64 v10; // rax
+  unsigned __int64 v10; // rcx
   _QWORD *v11; // rsi
   __int64 v12; // rax
-  unsigned __int64 v13; // rcx
-  void *v14; // r9
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // rdx
-  __int64 v17; // r14
-  unsigned __int64 v18; // r8
-  unsigned __int64 v19; // r14
-  size_t v20; // r13
-  size_t v21; // r15
-  void *v22; // r12
+  void *v13; // r9
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // rdx
+  __int64 v16; // r15
+  unsigned __int64 v17; // r8
+  unsigned __int64 v18; // r15
+  size_t v19; // r13
+  SIZE_T v20; // r14
+  void *v21; // r12
   PVOID PoolWithTag; // rax
-  void *v24; // rbp
-  unsigned __int64 v25; // rax
-  _QWORD *v26; // rcx
-  unsigned __int64 v27; // rsi
-  __int64 v28; // r14
-  unsigned __int64 v29; // r8
-  unsigned __int64 v30; // r14
-  size_t v31; // r13
-  size_t v32; // rbp
-  void *v33; // r12
-  PVOID v34; // rax
-  void *v35; // rsi
-  unsigned __int64 v37; // [rsp+70h] [rbp+18h] BYREF
+  void *v23; // rsi
+  unsigned __int64 v24; // rax
+  _QWORD *v25; // rcx
+  unsigned __int64 v26; // rbp
+  __int64 v27; // r14
+  unsigned __int64 v28; // r8
+  unsigned __int64 v29; // r14
+  size_t v30; // r13
+  size_t v31; // rbp
+  void *v32; // r12
+  PVOID v33; // rax
+  void *v34; // rsi
+  unsigned __int64 v36; // [rsp+70h] [rbp+18h] BYREF
 
-  v37 = 0LL;
+  v36 = 0LL;
   v2 = a2;
-  if ( VrpFindExactNamespaceNode(a1, a2, &v37) )
+  if ( VrpFindExactNamespaceNode(a1, a2, &v36) )
     return 3221225525LL;
   v4 = a1[6];
-  v5 = v37;
+  v5 = v36;
   v6 = a1[7];
-  if ( v37 >= v4 )
+  if ( v36 >= v4 )
   {
     if ( v4 < v6 )
+      goto LABEL_35;
+    v15 = v4 + 1;
+    if ( v4 + 1 <= v6 )
+      return 2147942487LL;
+    v16 = a1[8] - 1;
+    if ( v16 + v15 < v15 )
+      return 2147483659LL;
+    v17 = a1[5];
+    v18 = (v16 + v15) & ~v16;
+    v19 = v6 * v17;
+    if ( !is_mul_ok(v6, v17) )
     {
+      result = 2147483659LL;
+      goto LABEL_34;
+    }
+    v20 = v18 * v17;
+    if ( !is_mul_ok(v18, v17) )
+    {
+      result = 2147483659LL;
 LABEL_33:
+      v2 = a2;
+LABEL_34:
+      if ( (_DWORD)result )
+        return result;
+LABEL_35:
       if ( is_mul_ok(a1[5], v4) )
       {
-        v25 = a1[9];
-        v26 = (_QWORD *)(v25 + a1[5] * v4);
-        if ( (unsigned __int64)v26 >= v25 )
+        v24 = a1[9];
+        v25 = (_QWORD *)(v24 + a1[5] * v4);
+        if ( (unsigned __int64)v25 >= v24 )
         {
-          *v26 = v2;
+          *v25 = v2;
           goto LABEL_12;
         }
       }
-      return 3221225621LL;
+      return 2147483659LL;
     }
-    v16 = v4 + 1;
-    if ( v4 + 1 <= v6 )
-      return 3221225485LL;
-    v17 = a1[8] - 1;
-    if ( v17 + v16 < v16 )
-      return 3221225621LL;
-    v18 = a1[5];
-    v19 = (v17 + v16) & ~v17;
-    v20 = v6 * v18;
-    if ( !is_mul_ok(v6, v18) || (v21 = v19 * v18, !is_mul_ok(v19, v18)) )
-    {
-      result = 3221225621LL;
-LABEL_32:
-      if ( (_DWORD)result )
-        return result;
-      goto LABEL_33;
-    }
-    v22 = (void *)a1[9];
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v19 * v18, 0x72615452u);
-    v24 = PoolWithTag;
-    if ( v22 )
-    {
-      if ( !PoolWithTag )
-      {
-LABEL_24:
-        result = 3221225495LL;
-LABEL_25:
-        v2 = a2;
-        goto LABEL_32;
-      }
-      memset(PoolWithTag, 0, v21);
-      if ( v20 >= v21 )
-        v20 = v21;
-      memmove(v24, v22, v20);
-      ExFreePoolWithTag(v22, 0x72615452u);
-    }
-    else
+    v21 = (void *)a1[9];
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v20, 0x72615452u);
+    v23 = PoolWithTag;
+    if ( v21 )
     {
       if ( PoolWithTag )
-        memset(PoolWithTag, 0, v21);
-      if ( !v24 )
-        goto LABEL_24;
+        memset(PoolWithTag, 0, v20);
+      if ( !v23 )
+        goto LABEL_32;
+      if ( v19 >= v20 )
+        v19 = v20;
+      memmove(v23, v21, v19);
+      ExFreePoolWithTag(v21, 0x72615452u);
     }
-    a1[9] = (unsigned __int64)v24;
-    result = 0LL;
-    a1[7] = v19;
-    goto LABEL_25;
+    else if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, v20);
+    }
+    if ( v23 )
+    {
+      a1[9] = (unsigned __int64)v23;
+      result = 0LL;
+      a1[7] = v18;
+      goto LABEL_33;
+    }
+LABEL_32:
+    result = 2147942414LL;
+    goto LABEL_33;
   }
   if ( v4 < v6 )
-    goto LABEL_4;
-  v27 = v4 + 1;
-  if ( v27 <= v6 )
-    return 3221225485LL;
-  v28 = a1[8] - 1;
-  if ( v28 + v27 < v27 )
-    return 3221225621LL;
-  v29 = a1[5];
-  v30 = (v28 + v27) & ~v28;
-  v31 = v6 * v29;
-  if ( is_mul_ok(v6, v29) )
   {
-    v32 = v30 * v29;
-    if ( is_mul_ok(v30, v29) )
-    {
-      v33 = (void *)a1[9];
-      v34 = ExAllocatePoolWithTag(PagedPool, v30 * v29, 0x72615452u);
-      v35 = v34;
-      if ( v33 )
-      {
-        if ( !v34 )
-        {
-LABEL_44:
-          result = 3221225495LL;
-LABEL_45:
-          v2 = a2;
-          goto LABEL_54;
-        }
-        memset(v34, 0, v32);
-        if ( v31 >= v32 )
-          v31 = v32;
-        memmove(v35, v33, v31);
-        ExFreePoolWithTag(v33, 0x72615452u);
-      }
-      else
-      {
-        if ( v34 )
-          memset(v34, 0, v32);
-        if ( !v35 )
-          goto LABEL_44;
-      }
-      a1[9] = (unsigned __int64)v35;
-      result = 0LL;
-      a1[7] = v30;
-      goto LABEL_45;
-    }
-    v2 = a2;
-  }
-  result = 3221225621LL;
-LABEL_54:
-  if ( (_DWORD)result )
-    return result;
 LABEL_4:
-  v7 = a1[5];
-  v8 = v7 * v5;
-  if ( !is_mul_ok(v7, v5) )
-    return 3221225621LL;
-  v10 = a1[9];
-  v11 = (_QWORD *)(v10 + v8);
-  if ( v10 + v8 < v10 )
-    return 3221225621LL;
-  v12 = v7 * (v5 + 1);
-  if ( !is_mul_ok(v7, v5 + 1) )
-    return 3221225621LL;
-  v13 = a1[9];
-  v14 = (void *)(v13 + v12);
-  if ( v13 + v12 < v13 )
-    return 3221225621LL;
-  v15 = a1[6] - v5;
-  if ( is_mul_ok(v15, v7) )
-  {
-    memmove(v14, v11, v15 * v7);
-    *v11 = v2;
+    v7 = a1[5];
+    v8 = v7 * v5;
+    if ( is_mul_ok(v7, v5) )
+    {
+      v10 = a1[9];
+      v11 = (_QWORD *)(v10 + v8);
+      if ( v10 + v8 >= v10 )
+      {
+        v12 = v7 * (v5 + 1);
+        if ( is_mul_ok(v7, v5 + 1) )
+        {
+          v13 = (void *)(v10 + v12);
+          if ( v10 + v12 >= v10 )
+          {
+            v14 = a1[6] - v5;
+            if ( is_mul_ok(v14, v7) )
+            {
+              memmove(v13, v11, v14 * v7);
+              *v11 = v2;
 LABEL_12:
-    ++a1[6];
-    return 0LL;
+              ++a1[6];
+              return 0LL;
+            }
+          }
+        }
+      }
+    }
+    return 2147483659LL;
   }
-  return 2147483659LL;
+  v26 = v4 + 1;
+  if ( v26 <= v6 )
+    return 2147942487LL;
+  v27 = a1[8] - 1;
+  if ( v27 + v26 < v26 )
+    return 2147483659LL;
+  v28 = a1[5];
+  v29 = (v27 + v26) & ~v27;
+  v30 = v6 * v28;
+  if ( !is_mul_ok(v6, v28) || (v31 = v29 * v28, !is_mul_ok(v29, v28)) )
+  {
+    result = 2147483659LL;
+    goto LABEL_56;
+  }
+  v32 = (void *)a1[9];
+  v33 = ExAllocatePoolWithTag(PagedPool, v29 * v28, 0x72615452u);
+  v34 = v33;
+  if ( v32 )
+  {
+    if ( v33 )
+      memset(v33, 0, v31);
+    if ( !v34 )
+      goto LABEL_55;
+    if ( v30 >= v31 )
+      v30 = v31;
+    memmove(v34, v32, v30);
+    ExFreePoolWithTag(v32, 0x72615452u);
+  }
+  else if ( v33 )
+  {
+    memset(v33, 0, v31);
+  }
+  if ( v34 )
+  {
+    a1[9] = (unsigned __int64)v34;
+    result = 0LL;
+    a1[7] = v29;
+    goto LABEL_56;
+  }
+LABEL_55:
+  result = 2147942414LL;
+LABEL_56:
+  if ( !(_DWORD)result )
+  {
+    v2 = a2;
+    goto LABEL_4;
+  }
+  return result;
 }

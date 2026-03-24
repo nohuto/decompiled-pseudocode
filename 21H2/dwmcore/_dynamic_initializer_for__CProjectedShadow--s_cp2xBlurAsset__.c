@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cp2xBlurAsset__ @ 0x1800027F0
+ * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cp2xBlurAsset__ @ 0x180002330
  * Callers:
  *     <none>
  * Callees:

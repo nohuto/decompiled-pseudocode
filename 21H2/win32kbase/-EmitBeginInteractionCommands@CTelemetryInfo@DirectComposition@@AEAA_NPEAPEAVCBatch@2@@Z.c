@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitBeginInteractionCommands@CTelemetryInfo@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00911C8
+ * XREFs of ?EmitBeginInteractionCommands@CTelemetryInfo@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0064744
  * Callers:
- *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C0012700 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
+ *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C005DE20 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CTelemetryInfo::EmitBeginInteractionCommands(
@@ -12,19 +12,18 @@ char __fastcall DirectComposition::CTelemetryInfo::EmitBeginInteractionCommands(
         struct DirectComposition::CBatch ***a2)
 {
   char v2; // di
-  DirectComposition::CTelemetryInfo *v6; // rdx
+  DirectComposition::CTelemetryInfo *v6; // rcx
   __int64 v7; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v8; // rcx
-  char *v9; // rax
-  void *v10; // [rsp+30h] [rbp+8h] BYREF
+  char *v8; // rax
+  void *v9; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
-  v10 = 0LL;
+  v9 = 0LL;
   while ( 1 )
   {
     if ( *(DirectComposition::CTelemetryInfo **)this == this )
       return 1;
-    if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x44uLL, &v10) )
+    if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x44uLL, &v9) )
       break;
     v6 = *(DirectComposition::CTelemetryInfo **)this;
     if ( *(DirectComposition::CTelemetryInfo **)(*(_QWORD *)this + 8LL) != this
@@ -32,17 +31,16 @@ char __fastcall DirectComposition::CTelemetryInfo::EmitBeginInteractionCommands(
     {
       __fastfail(3u);
     }
-    v8 = (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator;
     *(_QWORD *)this = v7;
     *(_QWORD *)(v7 + 8) = this;
-    v9 = (char *)v10;
-    *(_DWORD *)v10 = 68;
-    *((_DWORD *)v9 + 1) = 285;
-    *(_OWORD *)(v9 + 12) = *((_OWORD *)v6 + 1);
-    *(_OWORD *)(v9 + 28) = *((_OWORD *)v6 + 2);
-    *(_OWORD *)(v9 + 44) = *((_OWORD *)v6 + 3);
-    *(_QWORD *)(v9 + 60) = *((_QWORD *)v6 + 8);
-    NSInstrumentation::CLeakTrackingAllocator::Free(v8, (char *)v6);
+    v8 = (char *)v9;
+    *(_DWORD *)v9 = 68;
+    *((_DWORD *)v8 + 1) = 292;
+    *(_OWORD *)(v8 + 12) = *((_OWORD *)v6 + 1);
+    *(_OWORD *)(v8 + 28) = *((_OWORD *)v6 + 2);
+    *(_OWORD *)(v8 + 44) = *((_OWORD *)v6 + 3);
+    *(_QWORD *)(v8 + 60) = *((_QWORD *)v6 + 8);
+    Win32FreePool((__int64)v6);
   }
   if ( *(DirectComposition::CTelemetryInfo **)this == this )
     return 1;

@@ -1,113 +1,114 @@
 /*
- * XREFs of Command_ControllerResetPostReset @ 0x1C002DF9C
+ * XREFs of Command_ControllerResetPostReset @ 0x1C002DDEC
  * Callers:
- *     Controller_InternalReset @ 0x1C00321C8 (Controller_InternalReset.c)
+ *     Controller_InternalReset @ 0x1C00322D8 (Controller_InternalReset.c)
  * Callees:
- *     DynamicLock_Release @ 0x1C0003E5C (DynamicLock_Release.c)
- *     DynamicLock_Acquire @ 0x1C0004248 (DynamicLock_Acquire.c)
- *     Command_Initialize @ 0x1C001471C (Command_Initialize.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_qL @ 0x1C002F454 (WPP_RECORDER_SF_qL.c)
- *     Etw_CommandCompleteError @ 0x1C004807C (Etw_CommandCompleteError.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
+ *     Command_Initialize @ 0x1C00145F0 (Command_Initialize.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C002F170 (WPP_RECORDER_SF_qL.c)
+ *     Etw_CommandCompleteError @ 0x1C0047DE8 (Etw_CommandCompleteError.c)
  */
 
-char __fastcall Command_ControllerResetPostReset(__int64 a1)
+char __fastcall Command_ControllerResetPostReset(__int64 a1, int a2, int a3, int a4)
 {
-  __int64 v2; // rcx
-  __int64 ****v3; // rcx
-  __int64 ***v4; // rax
-  __int64 **v5; // rdx
-  _QWORD *v6; // rdx
-  __int64 ****v7; // rcx
-  __int64 ***v8; // rax
-  __int64 **v9; // rdx
-  _QWORD *v10; // rdx
-  __int64 v11; // rcx
-  int v12; // edx
-  int v13; // r8d
-  int v14; // r9d
-  __int64 *v15; // rbx
-  __int64 *v16; // rax
-  __int64 **v17; // rcx
-  __int64 *v19; // [rsp+40h] [rbp-10h] BYREF
-  __int64 **v20; // [rsp+48h] [rbp-8h]
+  __int64 v5; // rcx
+  __int64 ****v6; // rcx
+  __int64 ***v7; // rax
+  __int64 **v8; // rdx
+  _QWORD *v9; // rdx
+  __int64 ****v10; // rcx
+  __int64 ***v11; // rax
+  __int64 **v12; // rdx
+  _QWORD *v13; // rdx
+  __int64 v14; // rcx
+  int v15; // edx
+  int v16; // r8d
+  int v17; // r9d
+  int v18; // edx
+  __int64 *v19; // rbx
+  __int64 *v20; // rax
+  __int64 **v21; // rcx
+  __int64 *v23; // [rsp+40h] [rbp-10h] BYREF
+  __int64 **v24; // [rsp+48h] [rbp-8h]
 
-  v2 = *(_QWORD *)(a1 + 112);
-  v20 = &v19;
-  v19 = (__int64 *)&v19;
-  DynamicLock_Acquire(v2);
-  v3 = (__int64 ****)(a1 + 80);
+  v5 = *(_QWORD *)(a1 + 112);
+  v24 = &v23;
+  v23 = (__int64 *)&v23;
+  DynamicLock_Acquire(v5, a2, a3, a4);
+  v6 = (__int64 ****)(a1 + 80);
   while ( 1 )
   {
-    v4 = *v3;
-    if ( *v3 == (__int64 ***)v3 )
+    v7 = *v6;
+    if ( *v6 == (__int64 ***)v6 )
       break;
-    if ( v4[1] != (__int64 **)v3
-      || (v5 = *v4, (*v4)[1] != (__int64 *)v4)
-      || (*v3 = (__int64 ***)v5, v5[1] = (__int64 *)v3, v6 = v20, *v20 != (__int64 *)&v19) )
+    if ( v7[1] != (__int64 **)v6
+      || (v8 = *v7, (*v7)[1] != (__int64 *)v7)
+      || (*v6 = (__int64 ***)v8, v8[1] = (__int64 *)v6, v9 = v24, *v24 != (__int64 *)&v23) )
     {
 LABEL_20:
       __fastfail(3u);
     }
-    v4[1] = v20;
-    *v4 = &v19;
-    *v6 = v4;
-    v20 = (__int64 **)v4;
+    v7[1] = v24;
+    *v7 = &v23;
+    *v9 = v7;
+    v24 = (__int64 **)v7;
   }
-  v7 = (__int64 ****)(a1 + 96);
+  v10 = (__int64 ****)(a1 + 96);
   while ( 1 )
   {
-    v8 = *v7;
-    if ( *v7 == (__int64 ***)v7 )
+    v11 = *v10;
+    if ( *v10 == (__int64 ***)v10 )
       break;
-    if ( v8[1] != (__int64 **)v7 )
+    if ( v11[1] != (__int64 **)v10 )
       goto LABEL_20;
-    v9 = *v8;
-    if ( (*v8)[1] != (__int64 *)v8 )
+    v12 = *v11;
+    if ( (*v11)[1] != (__int64 *)v11 )
       goto LABEL_20;
-    *v7 = (__int64 ***)v9;
-    v9[1] = (__int64 *)v7;
-    v10 = v20;
-    if ( *v20 != (__int64 *)&v19 )
+    *v10 = (__int64 ***)v12;
+    v12[1] = (__int64 *)v10;
+    v13 = v24;
+    if ( *v24 != (__int64 *)&v23 )
       goto LABEL_20;
-    v8[1] = v20;
-    *v8 = &v19;
-    *v10 = v8;
-    v20 = (__int64 **)v8;
+    v11[1] = v24;
+    *v11 = &v23;
+    *v13 = v11;
+    v24 = (__int64 **)v11;
   }
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01023 + 2560))(
     WdfDriverGlobals,
     *(_QWORD *)(a1 + 24),
     0LL);
-  v11 = *(_QWORD *)(a1 + 112);
+  v14 = *(_QWORD *)(a1 + 112);
   *(_DWORD *)(a1 + 36) = 4;
-  DynamicLock_Release(v11);
+  DynamicLock_Release(v14, v15, v16, v17);
   while ( 1 )
   {
-    v15 = v19;
-    if ( v19 == (__int64 *)&v19 )
-      return Command_Initialize(a1, v12, v13, v14);
-    if ( (__int64 **)v19[1] != &v19 )
+    v19 = v23;
+    if ( v23 == (__int64 *)&v23 )
+      return Command_Initialize(a1);
+    if ( (__int64 **)v23[1] != &v23 )
       goto LABEL_20;
-    v16 = (__int64 *)*v19;
-    if ( *(__int64 **)(*v19 + 8) != v19 )
+    v20 = (__int64 *)*v23;
+    if ( *(__int64 **)(*v23 + 8) != v23 )
       goto LABEL_20;
-    v17 = &v19;
-    v19 = (__int64 *)*v19;
-    v16[1] = (__int64)&v19;
+    v21 = &v23;
+    v23 = (__int64 *)*v23;
+    v20[1] = (__int64)&v23;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v12) = 4;
+      LOBYTE(v18) = 4;
       WPP_RECORDER_SF_qL(
         *(_QWORD *)(a1 + 16),
-        v12,
+        v18,
         7,
         59,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
-        (char)v15,
-        (unsigned __int8)HIBYTE(*((_WORD *)v15 + 18)) >> 2);
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
+        (char)v19,
+        (unsigned __int8)HIBYTE(*((_WORD *)v19 + 18)) >> 2);
     }
-    Etw_CommandCompleteError(v17, a1, v15, 3LL);
-    ((void (__fastcall *)(__int64 *, __int64))v15[5])(v15, 3LL);
+    Etw_CommandCompleteError(v21, a1, v19, 3LL);
+    ((void (__fastcall *)(__int64 *, __int64))v19[5])(v19, 3LL);
   }
 }

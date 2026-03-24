@@ -1,19 +1,19 @@
 /*
- * XREFs of VfUtilFreePoolCheckIRQL @ 0x14020A930
+ * XREFs of VfUtilFreePoolCheckIRQL @ 0x14037E440
  * Callers:
- *     VfTargetDriversRemove @ 0x14020A7FC (VfTargetDriversRemove.c)
- *     ViFreeMapRegisterFile @ 0x140AC9A90 (ViFreeMapRegisterFile.c)
- *     ViTargetTrackContiguousMemory @ 0x140ACCD80 (ViTargetTrackContiguousMemory.c)
- *     ViDevObjRemove @ 0x140AD34C0 (ViDevObjRemove.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x140AD38CC (ViRemLockDeleteFirstTreeNode.c)
- *     VfLookasideAdd @ 0x140AE3240 (VfLookasideAdd.c)
- *     VfLookasideDelete @ 0x140AE335C (VfLookasideDelete.c)
- *     VfCheckForResource @ 0x140AE538C (VfCheckForResource.c)
- *     VfDeleteResource @ 0x140AE54D0 (VfDeleteResource.c)
- *     VfTrackResource @ 0x140AE55E4 (VfTrackResource.c)
- *     VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE9670 (VfSpIoSetCompletionRoutineEx_Exit.c)
+ *     VfTargetDriversRemove @ 0x14037E300 (VfTargetDriversRemove.c)
+ *     VerifierIoSetCompletionRoutineEx @ 0x1409C9740 (VerifierIoSetCompletionRoutineEx.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3D4 (ViFreeMapRegisterFile.c)
+ *     ViDevObjRemove @ 0x1409D635C (ViDevObjRemove.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x1409D6814 (ViRemLockDeleteFirstTreeNode.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D76C0 (ViTargetTrackContiguousMemory.c)
+ *     ViLookasideAdd @ 0x1409E15C4 (ViLookasideAdd.c)
+ *     ViLookasideDelete @ 0x1409E16EC (ViLookasideDelete.c)
+ *     VerifierExDeleteResourceLite @ 0x1409E1E30 (VerifierExDeleteResourceLite.c)
+ *     VerifierExInitializeResourceLite @ 0x1409E2210 (VerifierExInitializeResourceLite.c)
+ *     VfCheckForResource @ 0x1409E249C (VfCheckForResource.c)
  * Callees:
- *     VfPoolDelayFreeIfPossible @ 0x14020A950 (VfPoolDelayFreeIfPossible.c)
+ *     VfPoolDelayFreeIfPossible @ 0x14037E460 (VfPoolDelayFreeIfPossible.c)
  */
 
 __int64 __fastcall VfUtilFreePoolCheckIRQL(struct _SLIST_ENTRY *a1)

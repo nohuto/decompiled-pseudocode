@@ -1,12 +1,12 @@
 /*
- * XREFs of MmUnlockPreChargedPagedPool @ 0x140A30AA0
+ * XREFs of MmUnlockPreChargedPagedPool @ 0x140774270
  * Callers:
- *     HalpMcUpdateUnlock @ 0x14051BD84 (HalpMcUpdateUnlock.c)
- *     MiDeleteSubsectionLargePages @ 0x14064EE18 (MiDeleteSubsectionLargePages.c)
- *     PopFreeHiberContext @ 0x1409886A0 (PopFreeHiberContext.c)
+ *     HalpMcUpdateUnlock @ 0x140382170 (HalpMcUpdateUnlock.c)
+ *     MiDeleteSubsectionLargePages @ 0x1403F5BB4 (MiDeleteSubsectionLargePages.c)
+ *     PopFreeHiberContext @ 0x14077404C (PopFreeHiberContext.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiUnlockCodePage @ 0x140367338 (MiUnlockCodePage.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x1403A0950 (MiUnlockCodePage.c)
  */
 
 __int64 __fastcall MmUnlockPreChargedPagedPool(unsigned __int64 a1)

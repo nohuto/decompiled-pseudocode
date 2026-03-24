@@ -1,60 +1,77 @@
 /*
- * XREFs of MiGetUsedPtesHandle @ 0x1402E5A70
+ * XREFs of MiGetUsedPtesHandle @ 0x14028D0E0
  * Callers:
- *     MiSplitPrivatePage @ 0x14021CE64 (MiSplitPrivatePage.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiDeletePagablePteRange @ 0x14027A040 (MiDeletePagablePteRange.c)
- *     MiDecommitPages @ 0x14027F6B0 (MiDecommitPages.c)
- *     MiReservePageFileSpaceForPage @ 0x140284D50 (MiReservePageFileSpaceForPage.c)
- *     MiProtectPrivateMemory @ 0x1402A2760 (MiProtectPrivateMemory.c)
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
- *     MiCompleteRestrictedImageFault @ 0x1402E2E50 (MiCompleteRestrictedImageFault.c)
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
- *     MiEvictPageTableLock @ 0x1402E5230 (MiEvictPageTableLock.c)
- *     MiIsPageTableDeletable @ 0x1402E5884 (MiIsPageTableDeletable.c)
- *     MiInsertPhysicalPteMapping @ 0x1402F1714 (MiInsertPhysicalPteMapping.c)
- *     MiUpdatePageTableUseCount @ 0x1402F2A00 (MiUpdatePageTableUseCount.c)
- *     MiReducePteUseCount @ 0x14033AE40 (MiReducePteUseCount.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1406313EC (MiUpdatePrivateDemandZeroView.c)
- *     MiCommitHotPatchTable @ 0x140642318 (MiCommitHotPatchTable.c)
- *     MiUpdateAwePageTable @ 0x14064C0CC (MiUpdateAwePageTable.c)
- *     MiDeleteLargeUserPde @ 0x1406503D4 (MiDeleteLargeUserPde.c)
- *     MiInsertLargeUserMapping @ 0x140668B60 (MiInsertLargeUserMapping.c)
+ *     MiReservePageFileSpaceForPage @ 0x14023CFD0 (MiReservePageFileSpaceForPage.c)
+ *     MiInPagePageTable @ 0x14028C440 (MiInPagePageTable.c)
+ *     MiEvictPageTableLock @ 0x14028CCA0 (MiEvictPageTableLock.c)
+ *     MiSplitPrivatePage @ 0x14028D630 (MiSplitPrivatePage.c)
+ *     MiProtectPrivateMemory @ 0x14028E080 (MiProtectPrivateMemory.c)
+ *     MiCompleteRestrictedImageFault @ 0x14029D730 (MiCompleteRestrictedImageFault.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiDecommitPages @ 0x1402B4EB0 (MiDecommitPages.c)
+ *     MiDeletePagablePteRange @ 0x1402B79F0 (MiDeletePagablePteRange.c)
+ *     MiInsertPhysicalPteMapping @ 0x1402EB468 (MiInsertPhysicalPteMapping.c)
+ *     MiUpdatePageTableUseCount @ 0x140328C24 (MiUpdatePageTableUseCount.c)
+ *     MiReducePteUseCount @ 0x1403F3C60 (MiReducePteUseCount.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14052D2D8 (MiUpdatePrivateDemandZeroView.c)
+ *     MiCommitHotPatchTable @ 0x14053E800 (MiCommitHotPatchTable.c)
+ *     MiUpdateAwePageTable @ 0x14054DF74 (MiUpdateAwePageTable.c)
+ *     MiDeleteLargeUserPde @ 0x14054F89C (MiDeleteLargeUserPde.c)
+ *     MiInsertLargeUserMapping @ 0x14055E4B8 (MiInsertLargeUserMapping.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
  */
 
-unsigned __int64 __fastcall MiGetUsedPtesHandle(unsigned __int64 a1)
+__int64 __fastcall MiGetUsedPtesHandle(unsigned __int64 a1, __int64 Process)
 {
-  unsigned __int64 v1; // rax
-  __int64 v2; // rcx
-  struct _LIST_ENTRY *Flink; // rdx
-  __int64 v5; // r8
+  unsigned __int64 v2; // rax
+  unsigned __int64 v3; // rbx
+  __int64 v5; // rcx
   __int64 v6; // rax
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  unsigned __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
-  v2 = *(_QWORD *)v1;
-  if ( v1 >= 0xFFFFF6FB7DBED000uLL
-    && v1 <= 0xFFFFF6FB7DBED7F8uLL
-    && (MiFlags & 0x600000) != 0
+  v2 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
+  v3 = *(_QWORD *)v2;
+  if ( v2 >= 0xFFFFF6FB7DBED000uLL && v2 <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0xC00000) != 0 )
+  {
+    Process = (__int64)KeGetCurrentThread()->ApcState.Process;
+    if ( *(_BYTE *)(Process + 912) != 1 && (v3 & 1) != 0 && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
+    {
+      Process = (__int64)KeGetCurrentThread()->ApcState.Process;
+      v5 = *(_QWORD *)(Process + 1928);
+      if ( v5 )
+      {
+        Process = v3 | 0x20;
+        v6 = *(_QWORD *)(v5 + 8 * ((v2 >> 3) & 0x1FF));
+        if ( (v6 & 0x20) == 0 )
+          Process = v3;
+        v3 = Process;
+        if ( (v6 & 0x42) != 0 )
+          v3 = Process | 0x42;
+      }
+    }
+  }
+  v10 = v3;
+  if ( (unsigned int)MiPteInShadowRange(&v10, Process)
+    && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-    && (v2 & 1) != 0
-    && ((v2 & 0x20) == 0 || (v2 & 0x42) == 0) )
+    && (v3 & 1) != 0
+    && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
   {
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v5 = v2 | 0x20;
-      v6 = *((_QWORD *)&Flink->Flink + ((v1 >> 3) & 0x1FF));
-      if ( (v6 & 0x20) == 0 )
-        v5 = v2;
-      v2 = v5;
-      if ( (v6 & 0x42) != 0 )
-        v2 = v5 | 0x42;
+      v8 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v10 >> 3) & 0x1FF));
+      v9 = v3 | 0x20;
+      if ( (v8 & 0x20) == 0 )
+        v9 = v3;
+      v3 = v9;
+      if ( (v8 & 0x42) != 0 )
+        v3 = v9 | 0x42;
     }
   }
-  v7 = v2;
-  return 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v7) >> 12) & 0xFFFFFFFFFFLL)
-       - 0x220000000000LL;
+  return 48 * ((v3 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
 }

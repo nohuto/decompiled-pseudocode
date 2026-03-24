@@ -1,22 +1,22 @@
 /*
- * XREFs of SeOperationAuditAlarm @ 0x14089DA54
+ * XREFs of SeOperationAuditAlarm @ 0x14089DA34
  * Callers:
- *     ObpAuditObjectAccess @ 0x1408613B4 (ObpAuditObjectAccess.c)
+ *     ObpAuditObjectAccess @ 0x140861394 (ObpAuditObjectAccess.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
  *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1402FF9C4 (SepCheckAndCopySelfRelativeSD.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1402FFAC4 (SepCheckAndCopySelfRelativeSD.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBF4 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepSecurityDescriptorStrictLength @ 0x1408A3CC4 (SepSecurityDescriptorStrictLength.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBD4 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepSecurityDescriptorStrictLength @ 0x1408A3CA4 (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __fastcall SeOperationAuditAlarm(

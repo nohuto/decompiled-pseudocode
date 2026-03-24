@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddDebugInfoEvents @ 0x1406F1DF8
+ * XREFs of EtwpAddDebugInfoEvents @ 0x1406DF564
  * Callers:
- *     EtwpRealtimeNotifyConsumers @ 0x1406EDD54 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpAddLogHeader @ 0x1406F120C (EtwpAddLogHeader.c)
- *     EtwpFinalizeHeader @ 0x1406F1AC4 (EtwpFinalizeHeader.c)
- *     EtwpSendDbgId @ 0x1409E92F8 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1406BC504 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpFinalizeHeader @ 0x1406DF770 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x1406E03E8 (EtwpAddLogHeader.c)
+ *     EtwpSendDbgId @ 0x14093CD50 (EtwpSendDbgId.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EtwpAddEventToBuffer @ 0x1406F1F80 (EtwpAddEventToBuffer.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpAddEventToBuffer @ 0x1406DF6F0 (EtwpAddEventToBuffer.c)
  */
 
 void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *a4, int a5)
@@ -38,8 +38,8 @@ void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *
   v10 = a5 & 2;
   a5 = v10;
   if ( v10 )
-    ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-  if ( (v8 & 1) != 0 && *(_QWORD *)(a1 + 96) != a1 + 96 )
+    ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+  if ( (v8 & 1) != 0 && *(_QWORD *)(a1 + 112) != a1 + 112 )
   {
     v11 = -1LL;
     do
@@ -52,7 +52,7 @@ void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *
   v12 = v8 & 4;
   if ( v12 )
   {
-    v15 = *(__int64 **)(a1 + 112);
+    v15 = *(__int64 **)(a1 + 128);
     v13 = 0;
     if ( !v15 )
       goto LABEL_14;
@@ -67,14 +67,14 @@ void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *
   }
   else
   {
-    v13 = *(_DWORD *)(a1 + 120);
+    v13 = *(_DWORD *)(a1 + 136);
   }
   if ( v13 )
   {
     v16 = (_OWORD *)EtwpAddEventToBuffer(a2, 68LL, v5, 0LL, 32 * v13, v6, &v19);
     if ( v16 )
     {
-      v17 = *(__int64 **)(a1 + 112);
+      v17 = *(__int64 **)(a1 + 128);
       do
       {
         *v16 = *(_OWORD *)(v17 + 1);
@@ -88,8 +88,8 @@ void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *
     }
   }
 LABEL_14:
-  v14 = *(__int64 **)(a1 + 96);
-  if ( v14 != (__int64 *)(a1 + 96) )
+  v14 = *(__int64 **)(a1 + 112);
+  if ( v14 != (__int64 *)(a1 + 112) )
   {
     do
     {
@@ -101,14 +101,14 @@ LABEL_14:
       }
       v14 = (__int64 *)*v14;
     }
-    while ( v14 != (__int64 *)(a1 + 96) );
+    while ( v14 != (__int64 *)(a1 + 112) );
     v10 = a5;
   }
 LABEL_20:
   if ( v10 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 688), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(a1 + 688);
-    KeAbPostRelease(a1 + 688);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 704), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(a1 + 704);
+    KeAbPostRelease(a1 + 704);
   }
 }

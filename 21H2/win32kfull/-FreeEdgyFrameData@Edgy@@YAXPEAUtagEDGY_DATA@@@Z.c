@@ -1,22 +1,22 @@
 /*
- * XREFs of ?FreeEdgyFrameData@Edgy@@YAXPEAUtagEDGY_DATA@@@Z @ 0x1C0207C84
+ * XREFs of ?FreeEdgyFrameData@Edgy@@YAXPEAUtagEDGY_DATA@@@Z @ 0x1C0207764
  * Callers:
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall Edgy::FreeEdgyFrameData(Edgy *this, struct tagEDGY_DATA *a2)
 {
-  struct _LIST_ENTRY *v2; // rbx
+  __int64 v2; // rbx
   struct _LIST_ENTRY *v4; // rbx
   struct _LIST_ENTRY *Blink; // rdx
   struct _LIST_ENTRY *v6; // rax
 
-  v2 = (struct _LIST_ENTRY *)*((_QWORD *)this + 36);
+  v2 = *((_QWORD *)this + 36);
   if ( v2 )
   {
-    v4 = v2 + 73;
+    v4 = (struct _LIST_ENTRY *)(v2 + 1144);
     while ( v4->Flink != v4 )
     {
       Blink = v4->Blink;

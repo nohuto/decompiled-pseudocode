@@ -1,28 +1,28 @@
 /*
- * XREFs of _PnpCtxCloseMachine @ 0x140A607E0
+ * XREFs of _PnpCtxCloseMachine @ 0x140974584
  * Callers:
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14095E6F8 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6AE8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     _PnpCtxDestroyNode @ 0x140A608A8 (_PnpCtxDestroyNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     _PnpCtxDestroyNode @ 0x140974648 (_PnpCtxDestroyNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v3; // esi
+  int v2; // esi
   _QWORD *v4; // rcx
-  __int64 v5; // rdx
-  _QWORD *v6; // rax
+  __int64 v5; // rax
+  _QWORD *v6; // rdx
   struct _ERESOURCE *v7; // rbx
 
   CurrentThread = KeGetCurrentThread();
-  v3 = 0;
+  v2 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(P[30], 1u);
   do
@@ -40,17 +40,17 @@ __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
     __fastfail(3u);
     *v6 = v5;
     *(_QWORD *)(v5 + 8) = v6;
-    v3 = PnpCtxDestroyNode(v4);
+    v2 = PnpCtxDestroyNode(v4);
   }
-  while ( v3 >= 0 );
+  while ( v2 >= 0 );
   ExReleaseResourceLite(P[30]);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v3 >= 0 )
+  if ( v2 >= 0 )
   {
     v7 = P[30];
     ExDeleteResourceLite(v7);
     ExFreePoolWithTag(v7, 0);
     ExFreePoolWithTag(P, 0);
   }
-  return (unsigned int)v3;
+  return (unsigned int)v2;
 }

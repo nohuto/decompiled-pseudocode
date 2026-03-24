@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0226DA0
+ * XREFs of ?Initialize@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01EDF70
  * Callers:
  *     <none>
  * Callees:

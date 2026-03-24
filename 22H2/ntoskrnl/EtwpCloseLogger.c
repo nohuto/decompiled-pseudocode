@@ -1,14 +1,18 @@
 /*
- * XREFs of EtwpCloseLogger @ 0x1403C1EC0
+ * XREFs of EtwpCloseLogger @ 0x1403799A8
  * Callers:
- *     EtwpOpenLogger @ 0x140227610 (EtwpOpenLogger.c)
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     EtwpCCSwapFlush @ 0x140388764 (EtwpCCSwapFlush.c)
- *     EtwpLogSystemEventUnsafe @ 0x14038C540 (EtwpLogSystemEventUnsafe.c)
- *     EtwpKernelTraceRundown @ 0x140827608 (EtwpKernelTraceRundown.c)
+ *     NtTraceEvent @ 0x14025C4C0 (NtTraceEvent.c)
+ *     EtwpOpenLogger @ 0x14025D3F8 (EtwpOpenLogger.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403A993C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpCCSwapFlush @ 0x1403AA0E8 (EtwpCCSwapFlush.c)
+ *     EtwSendTraceBuffer @ 0x1405A5E70 (EtwSendTraceBuffer.c)
+ *     EtwTraceEvent @ 0x1405A5FE0 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1405A6488 (EtwTraceRaw.c)
+ *     EtwpKernelTraceRundown @ 0x1407922CC (EtwpKernelTraceRundown.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259BB0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402DEA70 (ExReleaseRundownProtectionCacheAwareEx.c)
  */
 
 _QWORD *__fastcall EtwpCloseLogger(unsigned int a1, __int64 a2, char a3)

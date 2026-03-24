@@ -1,5 +1,5 @@
 /*
- * XREFs of KiAbCompareSnappedEntryState @ 0x140132648
+ * XREFs of KiAbCompareSnappedEntryState @ 0x140132668
  * Callers:
  *     KiAbEntryGetLockedHeadEntry @ 0x1400247E0 (KiAbEntryGetLockedHeadEntry.c)
  * Callees:

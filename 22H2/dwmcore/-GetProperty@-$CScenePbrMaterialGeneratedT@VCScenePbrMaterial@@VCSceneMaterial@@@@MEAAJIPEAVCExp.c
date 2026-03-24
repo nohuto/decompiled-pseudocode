@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4C0C
+ * XREFs of ?GetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EB80
  * Callers:
- *     ?GetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4BA0 (-GetProperty@-$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCSce.c)
+ *     ?GetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EB10 (-GetProperty@-$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCSce.c)
  * Callees:
  *     <none>
  */
@@ -19,21 +19,21 @@ __int64 __fastcall CScenePbrMaterialGeneratedT<CScenePbrMaterial,CSceneMaterial>
   switch ( a2 )
   {
     case 0:
-      v4 = *(_DWORD *)(a1 + 88);
+      v4 = *(_DWORD *)(a1 + 80);
       goto LABEL_10;
     case 3:
-      v5 = *(_DWORD *)(a1 + 104);
-      *(_QWORD *)a3 = *(_QWORD *)(a1 + 96);
+      v5 = *(_DWORD *)(a1 + 96);
+      *(_QWORD *)a3 = *(_QWORD *)(a1 + 88);
       *(_DWORD *)(a3 + 8) = v5;
       *(_DWORD *)(a3 + 72) = 52;
 LABEL_11:
       *(_BYTE *)(a3 + 76) = 1;
       return v3;
     case 6:
-      v4 = *(_DWORD *)(a1 + 112);
+      v4 = *(_DWORD *)(a1 + 104);
       goto LABEL_10;
     case 8:
-      v4 = *(_DWORD *)(a1 + 116);
+      v4 = *(_DWORD *)(a1 + 108);
 LABEL_10:
       *(_DWORD *)a3 = v4;
       *(_DWORD *)(a3 + 72) = 18;

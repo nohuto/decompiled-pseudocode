@@ -1,12 +1,12 @@
 /*
- * XREFs of PiProcessAddBootDevices @ 0x140859618
+ * XREFs of PiProcessAddBootDevices @ 0x1407C6BAC
  * Callers:
- *     PipAddDevicesToBootDriverWorker @ 0x140B277F4 (PipAddDevicesToBootDriverWorker.c)
+ *     PipAddDevicesToBootDriverWorker @ 0x140A6C2D0 (PipAddDevicesToBootDriverWorker.c)
  * Callees:
- *     PoFxPrepareDevice @ 0x1402D2238 (PoFxPrepareDevice.c)
- *     PipCallDriverAddDevice @ 0x1407743C8 (PipCallDriverAddDevice.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
+ *     PoFxPrepareDevice @ 0x14036F300 (PoFxPrepareDevice.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
  */
 
 __int64 __fastcall PiProcessAddBootDevices(__int64 a1)
@@ -20,9 +20,9 @@ __int64 __fastcall PiProcessAddBootDevices(__int64 a1)
   v1 = *(_QWORD *)(a1 + 312);
   P = 0LL;
   v2 = *(_QWORD *)(v1 + 40);
-  if ( *(_DWORD *)(v2 + 300) == 772 && (*(_DWORD *)(v2 + 396) & 0x6002) == 0 && !*(_QWORD *)(v2 + 432) )
+  if ( *(_DWORD *)(v2 + 300) == 770 && (*(_DWORD *)(v2 + 396) & 0x6002) == 0 && !*(_QWORD *)(v2 + 432) )
   {
-    PiPnpRtlBeginOperation((__int64 **)&P);
+    PiPnpRtlBeginOperation(&P);
     BYTE4(v4) = PnPBootDriversInitialized;
     if ( (int)PipCallDriverAddDevice(v2, (__int64)&v4) >= 0 )
       PoFxPrepareDevice(v2, 0);

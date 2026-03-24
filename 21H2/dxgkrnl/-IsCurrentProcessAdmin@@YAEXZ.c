@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsCurrentProcessAdmin@@YAEXZ @ 0x1C0043CF4
+ * XREFs of ?IsCurrentProcessAdmin@@YAEXZ @ 0x1C0037868
  * Callers:
- *     ?ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z @ 0x1C0052D10 (-ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z.c)
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
- *     ?IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ @ 0x1C02BC3EC (-IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ.c)
+ *     ?ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z @ 0x1C0045C24 (-ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C012C020 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ @ 0x1C020DC5C (-IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ.c)
  * Callees:
  *     <none>
  */

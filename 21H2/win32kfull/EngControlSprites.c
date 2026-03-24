@@ -1,9 +1,9 @@
 /*
- * XREFs of EngControlSprites @ 0x1C02820F0
+ * XREFs of EngControlSprites @ 0x1C02855F0
  * Callers:
- *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C02797A8 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027BC58 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
  * Callees:
- *     ?vSpDeviceControlSprites@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@K@Z @ 0x1C028099C (-vSpDeviceControlSprites@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@K@Z.c)
+ *     ?vSpDeviceControlSprites@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@K@Z @ 0x1C02831A0 (-vSpDeviceControlSprites@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@K@Z.c)
  */
 
 BOOL __stdcall EngControlSprites(WNDOBJ *pwo, FLONG fl)
@@ -19,14 +19,14 @@ BOOL __stdcall EngControlSprites(WNDOBJ *pwo, FLONG fl)
   v5 = *((_QWORD *)v7 + 3);
   SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v8, (struct PDEVOBJ *)&v7);
   v6 = 0LL;
-  if ( *(_DWORD *)(v5 + 140) )
+  if ( *(_DWORD *)(v5 + 148) )
   {
     do
     {
-      vSpDeviceControlSprites(*(HDEV *)(*(_QWORD *)(v5 + 144) + 8 * v6), (struct EWNDOBJ *)pwo, fl);
+      vSpDeviceControlSprites(*(HDEV *)(*(_QWORD *)(v5 + 152) + 8 * v6), (struct EWNDOBJ *)pwo, fl);
       v6 = (unsigned int)(v6 + 1);
     }
-    while ( (unsigned int)v6 < *(_DWORD *)(v5 + 140) );
+    while ( (unsigned int)v6 < *(_DWORD *)(v5 + 148) );
   }
   else
   {

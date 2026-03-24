@@ -1,5 +1,5 @@
 /*
- * XREFs of ?cTotalCurves@EPATHOBJ@@QEAAKXZ @ 0x1C00CFD40
+ * XREFs of ?cTotalCurves@EPATHOBJ@@QEAAKXZ @ 0x1C00C0520
  * Callers:
  *     <none>
  * Callees:

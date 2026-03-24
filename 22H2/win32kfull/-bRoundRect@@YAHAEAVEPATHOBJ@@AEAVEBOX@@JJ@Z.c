@@ -1,158 +1,154 @@
 /*
- * XREFs of ?bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z @ 0x1C02C5E04
+ * XREFs of ?bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z @ 0x1C00A04E4
  * Callers:
- *     NtGdiCreateRoundRectRgn @ 0x1C02A8DE0 (NtGdiCreateRoundRectRgn.c)
- *     NtGdiRoundRect @ 0x1C02AD7B0 (NtGdiRoundRect.c)
+ *     NtGdiCreateRoundRectRgn @ 0x1C00A3080 (NtGdiCreateRoundRectRgn.c)
+ *     NtGdiRoundRect @ 0x1C0142270 (NtGdiRoundRect.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C015A700 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015A8B2 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
- *     ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015ADD6 (-bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
- *     ?bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z @ 0x1C015D024 (-bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z.c)
- *     ?efHalfDiff@@YA?AVEFLOAT@@JJ@Z @ 0x1C02C61B0 (-efHalfDiff@@YA-AVEFLOAT@@JJ@Z.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?vAbs@EFLOAT@@QEAAXXZ @ 0x1C009E914 (-vAbs@EFLOAT@@QEAAXXZ.c)
+ *     ?bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z @ 0x1C00A08C8 (-bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z.c)
+ *     ?efHalfDiff@@YA?AVEFLOAT@@JJ@Z @ 0x1C00A0924 (-efHalfDiff@@YA-AVEFLOAT@@JJ@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-int __fastcall bRoundRect(struct EPATHOBJ *this, struct _POINTL *a2, __int64 a3)
+__int64 __fastcall bRoundRect(struct EPATHOBJ *a1, struct EBOX *a2, __int64 a3)
 {
   LONG v5; // eax
-  __int64 y; // rdx
+  __int64 v6; // rdx
   __int64 v7; // rcx
-  float v8; // xmm3_4
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v8; // r8
+  __int64 v9; // r9
+  unsigned int v10; // r14d
   int v11; // r9d
   int v12; // r10d
-  float v13; // xmm4_4
-  int v14; // ecx
-  int v15; // eax
-  float v16; // xmm2_4
-  float v17; // xmm3_4
-  float v18; // xmm2_4
-  float v19; // xmm3_4
-  float v20; // xmm1_4
-  __m128i v21; // xmm0
-  float v22; // xmm1_4
+  float v13; // xmm2_4
+  float v14; // xmm3_4
+  float v15; // xmm2_4
+  float v16; // xmm3_4
+  float v17; // xmm1_4
+  __m128i v18; // xmm0
+  float v19; // xmm1_4
   LONG x; // edi
-  LONG v24; // ebx
-  __int64 v25; // r15
-  __int64 v26; // r12
-  __int64 v27; // r13
-  struct _POINTL v28; // rax
-  struct _POINTL v29; // rax
-  struct _POINTL v30; // rax
-  struct _POINTL v31; // rax
-  struct _POINTL v33; // [rsp+20h] [rbp-58h] BYREF
-  struct _POINTL v34; // [rsp+28h] [rbp-50h] BYREF
-  __int64 v35; // [rsp+30h] [rbp-48h] BYREF
-  struct _POINTL v36; // [rsp+38h] [rbp-40h] BYREF
-  float v37[2]; // [rsp+40h] [rbp-38h] BYREF
-  struct _POINTL v38; // [rsp+48h] [rbp-30h] BYREF
-  struct _POINTL v39; // [rsp+50h] [rbp-28h]
-  int v40; // [rsp+58h] [rbp-20h]
-  int v41; // [rsp+5Ch] [rbp-1Ch]
+  LONG v21; // ebx
+  __int64 v22; // r12
+  __int64 v23; // r13
+  struct _POINTL v24; // rax
+  __int64 v25; // rax
+  struct _POINTL v26; // rax
+  __int64 v27; // rax
+  struct _POINTL v29; // [rsp+20h] [rbp-58h] BYREF
+  struct _POINTL v30; // [rsp+28h] [rbp-50h] BYREF
+  __int64 v31; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v32; // [rsp+38h] [rbp-40h] BYREF
+  struct _POINTL v33; // [rsp+40h] [rbp-38h] BYREF
+  struct _POINTL v34; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v35; // [rsp+50h] [rbp-28h]
+  int v36; // [rsp+58h] [rbp-20h]
+  int v37; // [rsp+5Ch] [rbp-1Ch]
 
-  v5 = efHalfDiff((unsigned int)a2[8].x, (unsigned int)a2[9].x, a3, (unsigned int)a3);
-  y = (unsigned int)a2[9].y;
-  v7 = (unsigned int)a2[8].y;
-  v8 = *(float *)&v5;
-  v34.x = v5;
-  v33.x = efHalfDiff(v7, y, v9, v10);
-  if ( EFLOAT::bIsZero((EFLOAT *)&v34) || EFLOAT::bIsZero((EFLOAT *)&v33) )
+  v5 = efHalfDiff(*((unsigned int *)a2 + 16), *((unsigned int *)a2 + 18), a3, (unsigned int)a3);
+  v6 = *((unsigned int *)a2 + 19);
+  v7 = *((unsigned int *)a2 + 17);
+  v30.x = v5;
+  v29.x = efHalfDiff(v7, v6, v8, v9);
+  v10 = 0;
+  if ( EFLOAT::bIsZero((EFLOAT *)&v30) || EFLOAT::bIsZero((EFLOAT *)&v29) )
   {
-    v16 = FP_0_0;
-    v17 = FP_0_0;
+    v13 = FP_0_0;
+    v14 = FP_0_0;
   }
   else
   {
-    v14 = abs32(v11);
-    v15 = abs32(v12);
-    if ( v8 < 0.0 )
-      LODWORD(v8) ^= _xmm;
-    if ( v13 < 0.0 )
-      LODWORD(v13) ^= _xmm;
-    v16 = (float)v14 / v8;
-    v17 = (float)v15 / v13;
+    EFLOAT::vAbs((EFLOAT *)&v30);
+    EFLOAT::vAbs((EFLOAT *)&v29);
+    v13 = (float)(int)abs32(v11) / *(float *)&v30.x;
+    v14 = (float)(int)abs32(v12) / *(float *)&v29.x;
   }
-  if ( v16 <= FP_2_0 )
-    v18 = v16 * 0.5;
+  if ( v13 > FP_2_0 )
+    v15 = FP_1_0;
   else
-    v18 = FP_1_0;
-  if ( v17 <= FP_2_0 )
-    v19 = v17 * 0.5;
+    v15 = v13 * 0.5;
+  if ( v14 > FP_2_0 )
+    v16 = FP_1_0;
   else
-    v19 = FP_1_0;
-  v20 = (float)a2[6].y;
-  *(float *)&v35 = (float)a2[6].x * v18;
-  v21 = _mm_cvtsi32_si128(a2[7].x);
-  *((float *)&v35 + 1) = v20 * v18;
-  v22 = (float)a2[7].y * v19;
-  v37[0] = _mm_cvtepi32_ps(v21).m128_f32[0] * v19;
-  v37[1] = v22;
-  EPOINTFL::bToPOINTL((EPOINTFL *)&v35, &v34);
-  EPOINTFL::bToPOINTL((EPOINTFL *)v37, &v36);
-  x = v36.x;
-  v24 = v34.x;
-  v25 = (1922922357LL * v34.x) >> 32;
-  v26 = (1922922357LL * v34.y) >> 32;
-  v27 = (1922922357LL * v36.x) >> 32;
-  v35 = (1922922357LL * v36.y) >> 32;
-  v33.x = a2[1].x - v36.x;
-  v33.y = a2[1].y - v36.y;
-  if ( !(unsigned int)EPATHOBJ::bMoveTo(this, 0LL, &v33) )
-    return 0;
-  v38 = a2[1];
-  v28 = v38;
-  v38.y -= v35;
-  v38.x -= v27;
-  v39.x = v28.x - v25;
-  v39.y = v28.y - v26;
-  v40 = v28.x - v24;
-  v41 = v28.y - v34.y;
-  if ( !(unsigned int)EPATHOBJ::bPolyBezierTo(this, 0LL, &v38, 3u) )
-    return 0;
-  v33.x = v24 + a2[2].x;
-  v33.y = a2[2].y + v34.y;
-  if ( !(unsigned int)EPATHOBJ::bPolyLineTo(this, 0LL, &v33, 1u) )
-    return 0;
-  v39 = a2[2];
-  v29 = v39;
-  v39.y -= v35;
-  v39.x -= v27;
-  v38.x = v25 + v29.x;
-  v38.y = v26 + v29.y;
-  v40 = v29.x - x;
-  v41 = v29.y - v36.y;
-  if ( !(unsigned int)EPATHOBJ::bPolyBezierTo(this, 0LL, &v38, 3u) )
-    return 0;
-  v33.x = x + a2[3].x;
-  v33.y = a2[3].y + v36.y;
-  if ( !(unsigned int)EPATHOBJ::bPolyLineTo(this, 0LL, &v33, 1u) )
-    return 0;
-  v38 = a2[3];
-  v30 = v38;
-  v38.y += v35;
-  v38.x += v27;
-  v39.x = v25 + v30.x;
-  v39.y = v26 + v30.y;
-  v40 = v24 + v30.x;
-  v41 = v34.y + v30.y;
-  if ( !(unsigned int)EPATHOBJ::bPolyBezierTo(this, 0LL, &v38, 3u) )
-    return 0;
-  v33.x = a2[4].x - v24;
-  v33.y = a2[4].y - v34.y;
-  if ( !(unsigned int)EPATHOBJ::bPolyLineTo(this, 0LL, &v33, 1u) )
-    return 0;
-  v39 = a2[4];
-  v31 = v39;
-  v39.y += v35;
-  v39.x += v27;
-  v38.x = v31.x - v25;
-  v38.y = v31.y - v26;
-  v40 = x + v31.x;
-  v41 = v36.y + v31.y;
-  if ( (unsigned int)EPATHOBJ::bPolyBezierTo(this, 0LL, &v38, 3u) )
-    return EPATHOBJ::bCloseFigure(this);
-  else
-    return 0;
+    v16 = v14 * 0.5;
+  v17 = (float)*((int *)a2 + 13);
+  *(float *)&v32 = (float)*((int *)a2 + 12) * v15;
+  v18 = _mm_cvtsi32_si128(*((_DWORD *)a2 + 14));
+  *((float *)&v32 + 1) = v17 * v15;
+  v19 = (float)*((int *)a2 + 15) * v16;
+  *(float *)&v31 = _mm_cvtepi32_ps(v18).m128_f32[0] * v16;
+  *((float *)&v31 + 1) = v19;
+  EPOINTFL::bToPOINTL((EPOINTFL *)&v32, &v30);
+  EPOINTFL::bToPOINTL((EPOINTFL *)&v31, &v33);
+  x = v33.x;
+  v21 = v30.x;
+  v22 = (1922922357LL * v30.x) >> 32;
+  v31 = (1922922357LL * v33.x) >> 32;
+  v23 = (1922922357LL * v30.y) >> 32;
+  v32 = (1922922357LL * v33.y) >> 32;
+  v29.x = *((_DWORD *)a2 + 2) - v33.x;
+  v29.y = *((_DWORD *)a2 + 3) - v33.y;
+  if ( EPATHOBJ::bMoveTo(a1, 0LL, &v29) )
+  {
+    v34 = (struct _POINTL)*((_QWORD *)a2 + 1);
+    v24 = v34;
+    v34.x -= v31;
+    v34.y -= v32;
+    LODWORD(v35) = v24.x - v22;
+    HIDWORD(v35) = v24.y - v23;
+    v36 = v24.x - v21;
+    v37 = v24.y - v30.y;
+    if ( EPATHOBJ::bPolyBezierTo(a1, 0LL, &v34, 3u) )
+    {
+      v29.x = v21 + *((_DWORD *)a2 + 4);
+      v29.y = *((_DWORD *)a2 + 5) + v30.y;
+      if ( EPATHOBJ::bPolyLineTo(a1, 0LL, &v29, 1u) )
+      {
+        v35 = *((_QWORD *)a2 + 2);
+        v25 = v35;
+        LODWORD(v35) = v35 - v31;
+        HIDWORD(v35) -= v32;
+        v34.x = v22 + v25;
+        v34.y = v23 + HIDWORD(v25);
+        v36 = v25 - x;
+        v37 = HIDWORD(v25) - v33.y;
+        if ( EPATHOBJ::bPolyBezierTo(a1, 0LL, &v34, 3u) )
+        {
+          v29.x = x + *((_DWORD *)a2 + 6);
+          v29.y = *((_DWORD *)a2 + 7) + v33.y;
+          if ( EPATHOBJ::bPolyLineTo(a1, 0LL, &v29, 1u) )
+          {
+            v34 = (struct _POINTL)*((_QWORD *)a2 + 3);
+            v26 = v34;
+            v34.x += v31;
+            v34.y += v32;
+            LODWORD(v35) = v22 + v26.x;
+            HIDWORD(v35) = v23 + v26.y;
+            v36 = v21 + v26.x;
+            v37 = v30.y + v26.y;
+            if ( EPATHOBJ::bPolyBezierTo(a1, 0LL, &v34, 3u) )
+            {
+              v29.x = *((_DWORD *)a2 + 8) - v21;
+              v29.y = *((_DWORD *)a2 + 9) - v30.y;
+              if ( EPATHOBJ::bPolyLineTo(a1, 0LL, &v29, 1u) )
+              {
+                v35 = *((_QWORD *)a2 + 4);
+                v27 = v35;
+                LODWORD(v35) = v31 + v35;
+                HIDWORD(v35) += v32;
+                v34.x = v27 - v22;
+                v34.y = HIDWORD(v27) - v23;
+                v36 = x + v27;
+                v37 = v33.y + HIDWORD(v27);
+                if ( EPATHOBJ::bPolyBezierTo(a1, 0LL, &v34, 3u) )
+                  return (unsigned int)EPATHOBJ::bCloseFigure(a1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return v10;
 }

@@ -1,10 +1,12 @@
 /*
- * XREFs of ViShutdownWatchdogExecuteDpc @ 0x140A95A80
+ * XREFs of ViShutdownWatchdogExecuteDpc @ 0x1409DA420
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     ViShutdownScheduleWatchdog @ 0x140A95A04 (ViShutdownScheduleWatchdog.c)
+ *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x1409D81BC (VfErrorStoreTriageInformation.c)
+ *     ViShutdownScheduleWatchdog @ 0x1409DA3A4 (ViShutdownScheduleWatchdog.c)
  */
 
 void __fastcall ViShutdownWatchdogExecuteDpc(
@@ -21,9 +23,27 @@ void __fastcall ViShutdownWatchdogExecuteDpc(
     if ( !EtwpStopTraceCount || EtwpStopTraceCount == ViEtwLastStopTraceCount )
     {
       if ( v4 <= 1 )
-        VerifierBugCheckIfAppropriate(0xC4u, 0x115uLL, VfShutdownThread, 0LL, 0LL);
+      {
+        if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
+        {
+          VfErrorStoreTriageInformation(196LL, 277LL, VfShutdownThread, 0LL, 0LL);
+          VfUtilDbgPrint(
+            "\n"
+            "Driver Verifier detected that this system didn't finish shutting down\n"
+            "in more than 20 minutes. To display information about the thread that is\n"
+            "responsible for shutting down, use these debugger commands:\n"
+            "\n"
+            "dp nt!VfShutdownThread l1;!thread @$p\n"
+            "\n");
+          __debugbreak();
+        }
+        if ( (MmVerifierData & 0x800) != 0 )
+          VerifierBugCheckIfAppropriate(0xC4u, 0x115uLL, VfShutdownThread, 0LL, 0LL);
+      }
       else
+      {
         _InterlockedAnd(&MmVerifierData, 0xFFFFFFFD);
+      }
     }
     else
     {

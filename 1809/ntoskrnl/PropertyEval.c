@@ -4,13 +4,13 @@
  *     FilterEvalImpliedAnd @ 0x140591608 (FilterEvalImpliedAnd.c)
  *     FilterEvalStrict @ 0x140591808 (FilterEvalStrict.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     ArrayContains @ 0x1403298EC (ArrayContains.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     ArrayContains @ 0x1403299EC (ArrayContains.c)
  *     StringListContains @ 0x14058FE1C (StringListContains.c)
- *     CompareFileTimeType @ 0x14090423C (CompareFileTimeType.c)
- *     StringListElementSubstringMatch @ 0x140904F88 (StringListElementSubstringMatch.c)
- *     SubstringMatch @ 0x140905080 (SubstringMatch.c)
+ *     CompareFileTimeType @ 0x14090421C (CompareFileTimeType.c)
+ *     StringListElementSubstringMatch @ 0x140904F68 (StringListElementSubstringMatch.c)
+ *     SubstringMatch @ 0x140905060 (SubstringMatch.c)
  */
 
 __int64 __fastcall PropertyEval(

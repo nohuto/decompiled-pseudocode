@@ -1,8 +1,8 @@
 /*
- * XREFs of MNInitUAHMenuItem @ 0x1C00BE908
+ * XREFs of MNInitUAHMenuItem @ 0x1C0044CC8
  * Callers:
- *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C00BE738 (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
- *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C00BF2D8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
+ *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C0044B0C (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
+ *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C004C0B8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall MNInitUAHMenuItem(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
 
-  *(_DWORD *)a3 = -1431655765 * ((a2 - *(_QWORD *)(a1 + 88)) >> 5);
+  *(_DWORD *)a3 = (a2 - *(_QWORD *)(a1 + 88)) / 96;
   result = *(_QWORD *)(a1 + 40);
   if ( (*(_DWORD *)(result + 40) & 1) != 0 )
   {

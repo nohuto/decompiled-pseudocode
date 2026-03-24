@@ -1,38 +1,34 @@
 /*
- * XREFs of ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C024660C
+ * XREFs of ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0257C38
  * Callers:
- *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C0015F78 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
- *     ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C0240608 (-ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z.c)
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0240F88 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C02451D8 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C0251684 (-ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0251FE8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C02526F4 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256814 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
  * Callees:
- *     ?GetPreviousInputReport@InteractiveControlDevice@@QEAAHPEAU_LIST_ENTRY@@PEAPEAVInteractiveControlInput@@@Z @ 0x1C0245760 (-GetPreviousInputReport@InteractiveControlDevice@@QEAAHPEAU_LIST_ENTRY@@PEAPEAVInteractiveContro.c)
- *     ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C0246070 (-QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z.c)
- *     ?SetMessagePromotionType@InteractiveControlDevice@@IEAAXW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C024685C (-SetMessagePromotionType@InteractiveControlDevice@@IEAAXW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z.c)
- *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C02468D0 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
- *     ??0InteractiveControlInput@@QEAA@PEAVInteractiveControlDevice@@@Z @ 0x1C0246994 (--0InteractiveControlInput@@QEAA@PEAVInteractiveControlDevice@@@Z.c)
- *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C0246B78 (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
+ *     ?GetPreviousInputReport@InteractiveControlDevice@@QEAAHPEAU_LIST_ENTRY@@PEAPEAVInteractiveControlInput@@@Z @ 0x1C0256DA8 (-GetPreviousInputReport@InteractiveControlDevice@@QEAAHPEAU_LIST_ENTRY@@PEAPEAVInteractiveContro.c)
+ *     ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C02576B0 (-QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z.c)
+ *     ?SetMessagePromotionType@InteractiveControlDevice@@IEAAXW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0257E88 (-SetMessagePromotionType@InteractiveControlDevice@@IEAAXW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z.c)
+ *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C0257EE4 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
+ *     ??0InteractiveControlInput@@QEAA@PEAVInteractiveControlDevice@@@Z @ 0x1C0257FAC (--0InteractiveControlInput@@QEAA@PEAVInteractiveControlDevice@@@Z.c)
+ *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C0258150 (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
  */
 
 void __fastcall InteractiveControlDevice::SetFocus(__int64 a1, struct tagWND *a2, unsigned int a3, int a4)
 {
   struct _LIST_ENTRY *v4; // rdi
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rax
-  struct InteractiveControlInput *v12; // r14
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // r8
-  __int64 v16; // r9
-  InteractiveControlInput *v17; // rax
-  InteractiveControlInput *v18; // r15
-  void *v19; // rcx
-  InteractiveControlInput *v20; // rax
-  struct _LIST_ENTRY *v21; // r14
-  struct InteractiveControlInput *v22; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v9; // rax
+  struct InteractiveControlInput *v10; // r14
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  InteractiveControlInput *v13; // rax
+  InteractiveControlInput *v14; // r15
+  void *v15; // rcx
+  InteractiveControlInput *v16; // rax
+  struct _LIST_ENTRY *v17; // r14
+  struct InteractiveControlInput *v18; // [rsp+50h] [rbp+8h] BYREF
 
-  v22 = 0LL;
+  v18 = 0LL;
   v4 = (struct _LIST_ENTRY *)(a1 + 16);
   if ( *(_DWORD *)(a1 + 364) && *(_QWORD *)(a1 + 368) )
     v4 = *(struct _LIST_ENTRY **)(a1 + 368);
@@ -41,43 +37,43 @@ void __fastcall InteractiveControlDevice::SetFocus(__int64 a1, struct tagWND *a2
     if ( (unsigned int)InteractiveControlDevice::GetPreviousInputReport(
                          (InteractiveControlDevice *)a1,
                          v4,
-                         (struct _LIST_ENTRY **)&v22) )
+                         (struct _LIST_ENTRY **)&v18) )
     {
       if ( a2 )
-        v11 = *(_QWORD *)a2;
+        v9 = *(_QWORD *)a2;
       else
-        v11 = 0LL;
-      v12 = v22;
-      v13 = *((_QWORD *)v22 + 2);
-      if ( v13 == v11 )
+        v9 = 0LL;
+      v10 = v18;
+      v11 = *((_QWORD *)v18 + 2);
+      if ( v11 == v9 )
         goto LABEL_21;
-      v14 = ValidateHwnd(v13);
-      if ( v14 )
-        InteractiveControlInput::GenerateMessages(v12, v14, *(unsigned int *)(a1 + 64), 16LL);
-      v17 = (InteractiveControlInput *)Win32AllocPool(96LL, 1819440195LL, v15, v16);
-      if ( v17 )
-        v18 = InteractiveControlInput::InteractiveControlInput(v17, (struct InteractiveControlDevice *)a1);
+      v12 = ValidateHwnd(v11);
+      if ( v12 )
+        InteractiveControlInput::GenerateMessages(v10, v12, *(unsigned int *)(a1 + 64), 16LL);
+      v13 = (InteractiveControlInput *)Win32AllocPool(96LL, 1819440195LL);
+      if ( v13 )
+        v14 = InteractiveControlInput::InteractiveControlInput(v13, (struct InteractiveControlDevice *)a1);
       else
-        v18 = 0LL;
-      *(_OWORD *)((char *)v18 + 52) = *(_OWORD *)((char *)v12 + 52);
-      *(_QWORD *)((char *)v18 + 68) = *(_QWORD *)((char *)v12 + 68);
-      *((_DWORD *)v18 + 19) = *((_DWORD *)v12 + 19);
-      InteractiveControlDevice::QueueInput((InteractiveControlDevice *)a1, v4, (struct _LIST_ENTRY *)v18);
-      v19 = v18;
+        v14 = 0LL;
+      *(_OWORD *)((char *)v14 + 52) = *(_OWORD *)((char *)v10 + 52);
+      *(_QWORD *)((char *)v14 + 68) = *(_QWORD *)((char *)v10 + 68);
+      *((_DWORD *)v14 + 19) = *((_DWORD *)v10 + 19);
+      InteractiveControlDevice::QueueInput((InteractiveControlDevice *)a1, v4, (struct _LIST_ENTRY *)v14);
+      v15 = v14;
     }
     else
     {
-      v20 = (InteractiveControlInput *)Win32AllocPool(96LL, 1819440195LL, v9, v10);
-      if ( v20 )
-        v21 = (struct _LIST_ENTRY *)InteractiveControlInput::InteractiveControlInput(
-                                      v20,
+      v16 = (InteractiveControlInput *)Win32AllocPool(96LL, 1819440195LL);
+      if ( v16 )
+        v17 = (struct _LIST_ENTRY *)InteractiveControlInput::InteractiveControlInput(
+                                      v16,
                                       (struct InteractiveControlDevice *)a1);
       else
-        v21 = 0LL;
-      InteractiveControlDevice::QueueInput((InteractiveControlDevice *)a1, v4, v21);
-      v19 = v21;
+        v17 = 0LL;
+      InteractiveControlDevice::QueueInput((InteractiveControlDevice *)a1, v4, v17);
+      v15 = v17;
     }
-    InteractiveControlInput::GenerateMessages(v19, a2, a3, 8LL);
+    InteractiveControlInput::GenerateMessages(v15, a2, a3, 8LL);
 LABEL_21:
     InteractiveControlDevice::SetTargetWindow((InteractiveControlDevice *)a1, a2);
   }

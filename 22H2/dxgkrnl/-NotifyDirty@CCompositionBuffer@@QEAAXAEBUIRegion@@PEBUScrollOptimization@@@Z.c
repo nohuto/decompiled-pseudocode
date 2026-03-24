@@ -1,12 +1,11 @@
 /*
- * XREFs of ?NotifyDirty@CCompositionBuffer@@QEAAXAEBUIRegion@@PEBUScrollOptimization@@@Z @ 0x1C0001720
+ * XREFs of ?NotifyDirty@CCompositionBuffer@@QEAAXAEBUIRegion@@PEBUScrollOptimization@@@Z @ 0x1C0066B78
  * Callers:
- *     ?UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z @ 0x1C0001658 (-UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z.c)
- *     ?NotifyTokenInFrame@CFlipExBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C007E5A0 (-NotifyTokenInFrame@CFlipExBuffer@@UEAAJAEBVCToken@@PEA_N@Z.c)
- *     ?NotifyFlipContentTokenInFrame@CCompositionSwapchainBuffer@@IEAAJPEBVCFlipContentToken@@PEA_N@Z @ 0x1C008A484 (-NotifyFlipContentTokenInFrame@CCompositionSwapchainBuffer@@IEAAJPEBVCFlipContentToken@@PEA_N@Z.c)
+ *     ?UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z @ 0x1C00666A8 (-UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z.c)
+ *     ?NotifyTokenInFrame@CCompositionSwapchainBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C00675E0 (-NotifyTokenInFrame@CCompositionSwapchainBuffer@@UEAAJAEBVCToken@@PEA_N@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z @ 0x1C007D490 (-AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z @ 0x1C00667F0 (-AddScrollAsDirty@CCompositionBuffer@@IEAAXAEBUScrollOptimization@@@Z.c)
  */
 
 void __fastcall CCompositionBuffer::NotifyDirty(
@@ -15,19 +14,17 @@ void __fastcall CCompositionBuffer::NotifyDirty(
         const struct ScrollOptimization *a3)
 {
   char *v3; // rsi
-  _BYTE *v5; // rdi
 
-  v3 = (char *)this + 288;
-  v5 = (char *)this + 43;
-  if ( *((_DWORD *)this + 72) )
+  v3 = (char *)this + 256;
+  if ( *((_DWORD *)this + 64) )
   {
-    CCompositionBuffer::AddScrollAsDirty(this, (CCompositionBuffer *)((char *)this + 288));
+    CCompositionBuffer::AddScrollAsDirty(this, (CCompositionBuffer *)((char *)this + 256));
     *(_DWORD *)v3 = 0;
-    *v5 = 1;
+    *((_BYTE *)this + 42) = 1;
   }
   if ( a3 && *(_DWORD *)a3 )
   {
-    if ( *v5 )
+    if ( *((_BYTE *)this + 42) )
     {
       CCompositionBuffer::AddScrollAsDirty(this, a3);
     }
@@ -40,10 +37,10 @@ void __fastcall CCompositionBuffer::NotifyDirty(
   }
   if ( !(*(unsigned __int8 (__fastcall **)(const struct IRegion *))(*(_QWORD *)a2 + 8LL))(a2) )
   {
-    (*(void (__fastcall **)(_QWORD, const struct IRegion *, __int64))(**((_QWORD **)this + 35) + 48LL))(
-      *((_QWORD *)this + 35),
+    (*(void (__fastcall **)(_QWORD, const struct IRegion *, __int64))(**((_QWORD **)this + 31) + 48LL))(
+      *((_QWORD *)this + 31),
       a2,
       2LL);
-    *v5 = 1;
+    *((_BYTE *)this + 42) = 1;
   }
 }

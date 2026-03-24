@@ -1,7 +1,7 @@
 /*
- * XREFs of wcsstr_0 @ 0x1C0023EC3
+ * XREFs of wcsstr_0 @ 0x1C0024923
  * Callers:
- *     DpiGetDriverStorePath @ 0x1C039913C (DpiGetDriverStorePath.c)
+ *     DpiGetDriverStorePath @ 0x1C02C6C98 (DpiGetDriverStorePath.c)
  * Callees:
  *     <none>
  */

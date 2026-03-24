@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pxrlStrRead08@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C013A920
+ * XREFs of ?pxrlStrRead08@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C014D7E0
  * Callers:
  *     <none>
  * Callees:
@@ -70,7 +70,7 @@ struct _XRUNLEN *__fastcall pxrlStrRead08(
         v27 = *v10++;
         if ( a5 )
           LODWORD(v27) = a5->pulXlate[v27];
-        if ( (dword_1C02ED6E0[v25] & v39) != 0 )
+        if ( (dword_1C02F0B60[v25] & v39) != 0 )
         {
           v28 = (unsigned int)*v26;
           if ( (_DWORD)v28 )

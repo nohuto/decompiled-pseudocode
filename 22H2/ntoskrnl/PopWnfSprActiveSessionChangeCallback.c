@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfSprActiveSessionChangeCallback @ 0x140862FE0
+ * XREFs of PopWnfSprActiveSessionChangeCallback @ 0x14078E7A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7A80 (PopSetPowerSettingValueAcDc.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1406F2C58 (PopSetPowerSettingValueAcDc.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopWnfSprActiveSessionChangeCallback(__int64 a1)
@@ -16,21 +16,20 @@ __int64 __fastcall PopWnfSprActiveSessionChangeCallback(__int64 a1)
   int v2; // ebx
   __int64 v3; // rdx
   __int64 v4; // rcx
-  __int64 v5; // r8
-  unsigned int v7; // [rsp+20h] [rbp-38h] BYREF
-  int v8; // [rsp+28h] [rbp-30h] BYREF
-  __int128 v9; // [rsp+30h] [rbp-28h] BYREF
-  char v10; // [rsp+40h] [rbp-18h]
+  unsigned int v6; // [rsp+20h] [rbp-38h] BYREF
+  int v7; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v8; // [rsp+30h] [rbp-28h] BYREF
+  int v9; // [rsp+40h] [rbp-18h]
 
-  v7 = 20;
-  v10 = 0;
-  v9 = 0LL;
-  v2 = ExQueryWnfStateData(a1, &v8, &v9, &v7);
-  if ( v2 >= 0 && v7 == 20 )
+  v6 = 20;
+  v9 = 0;
+  v8 = 0LL;
+  v2 = ExQueryWnfStateData(a1, &v7, &v8, &v6);
+  if ( v2 >= 0 && v6 == 20 )
   {
     PopAcquirePolicyLock(v1);
-    PopSetPowerSettingValueAcDc(&GUID_SPR_ACTIVE_SESSION_CHANGE, 0x14u, &v9);
-    PopReleasePolicyLock(v4, v3, v5);
+    PopSetPowerSettingValueAcDc(&GUID_SPR_ACTIVE_SESSION_CHANGE, 20LL, &v8);
+    PopReleasePolicyLock(v4, v3);
   }
   return (unsigned int)v2;
 }

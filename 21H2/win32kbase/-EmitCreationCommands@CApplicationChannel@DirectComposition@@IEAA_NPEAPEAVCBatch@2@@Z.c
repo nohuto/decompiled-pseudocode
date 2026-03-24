@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitCreationCommands@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0013824
+ * XREFs of ?EmitCreationCommands@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005F000
  * Callers:
- *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C0012700 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
+ *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C005DE20 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall DirectComposition::CApplicationChannel::EmitCreationCommands(
@@ -24,7 +24,7 @@ bool __fastcall DirectComposition::CApplicationChannel::EmitCreationCommands(
     i = *(_QWORD *)(v5 + 8);
     if ( (*(_DWORD *)(v5 + 16) & 2) != 0 )
     {
-      v6 = (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 96LL))(v5, 169LL) != 0 ? 8 : 0;
+      v6 = (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 96LL))(v5, 170LL) != 0 ? 8 : 0;
       *(_QWORD *)(*((_QWORD *)this + 50) + 8LL) = *(_QWORD *)((char *)this + v6 + 408);
       *(_QWORD *)((char *)this + v6 + 408) = *((_QWORD *)this + 50);
     }

@@ -1,93 +1,92 @@
 /*
- * XREFs of ?MNCheckScroll@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagMONITOR@@@Z @ 0x1C022EBFC
+ * XREFs of ?MNCheckScroll@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagMONITOR@@@Z @ 0x1C0235540
  * Callers:
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     GetDPIMetrics @ 0x1C00BE974 (GetDPIMetrics.c)
- *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00F227C (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
- *     ?MNGetPopupBoundsRect@@YAXV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z @ 0x1C022EE24 (-MNGetPopupBoundsRect@@YAXV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z.c)
+ *     GetDPIMetrics @ 0x1C00E0DEC (GetDPIMetrics.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C0104AC8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ?MNGetPopupBoundsRect@@YAXV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z @ 0x1C0235768 (-MNGetPopupBoundsRect@@YAXV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z.c)
  */
 
 __int64 __fastcall MNCheckScroll(__int64 **a1, __int64 **a2, __int64 a3)
 {
   __int64 *v4; // rdx
   unsigned int v6; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  __int64 v7; // rcx
   __int64 DPIMetrics; // rax
-  int v10; // r8d
-  unsigned int v11; // ebx
+  int v9; // r8d
+  unsigned int v10; // ebx
   __int64 i; // rdx
-  __int64 v13; // rax
-  unsigned int v14; // r9d
-  __int64 v15; // rdx
+  __int64 v12; // rax
+  unsigned int v13; // r9d
+  int v14; // edx
   __int64 j; // r8
-  int v17; // r8d
-  __int64 v18; // rcx
-  bool v19; // zf
-  int v20; // eax
-  unsigned int v21; // eax
-  __int64 v22; // rbx
-  __int128 v24; // [rsp+20h] [rbp-28h] BYREF
-  _QWORD v25[3]; // [rsp+30h] [rbp-18h] BYREF
+  int v16; // r8d
+  __int64 v17; // rcx
+  bool v18; // zf
+  int v19; // eax
+  unsigned int v20; // eax
+  __int64 v21; // rbx
+  __int128 v23; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v24[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = *a1;
-  v24 = 0LL;
-  SmartObjStackRefBase<tagPOPUPMENU>::Init(v25, *v4);
-  ((void (__fastcall *)(_QWORD *, __int64, __int128 *, _QWORD))MNGetPopupBoundsRect)(v25, a3, &v24, 0LL);
-  v6 = HIDWORD(v24) - DWORD1(v24);
+  v23 = 0LL;
+  SmartObjStackRefBase<tagPOPUPMENU>::Init(v24, *v4);
+  ((void (__fastcall *)(_QWORD *, __int64, __int128 *, _QWORD))MNGetPopupBoundsRect)(v24, a3, &v23, 0LL);
+  v6 = HIDWORD(v23) - DWORD1(v23);
   if ( *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 52LL) && *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 52LL) < v6 )
     v6 = *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 52LL);
   if ( *(_QWORD *)(**a2 + 88)
-    && (v7 = **(_QWORD **)(**a2 + 88), *(_DWORD *)(v7 + 72) == *(_DWORD *)(**a2 + 64))
-    && (v8 = **a2, *(_DWORD *)(v8 + 68) + 6 > v6) )
+    && *(_DWORD *)(**(_QWORD **)(**a2 + 88) + 72LL) == *(_DWORD *)(**a2 + 64)
+    && (v7 = **a2, *(_DWORD *)(v7 + 68) + 6 > v6) )
   {
-    DPIMetrics = GetDPIMetrics(v8, v7);
-    v10 = 0;
-    v11 = -6 - 2 * *(_DWORD *)(DPIMetrics + 28) + v6;
-    for ( i = *(_QWORD *)(**a2 + 88); v10 < *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL); i += 96LL )
+    DPIMetrics = GetDPIMetrics(v7);
+    v9 = 0;
+    v10 = -6 - 2 * *(_DWORD *)(DPIMetrics + 28) + v6;
+    for ( i = *(_QWORD *)(**a2 + 88); v9 < *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL); i += 96LL )
     {
-      if ( *(_DWORD *)(*(_QWORD *)i + 68LL) > v11 )
+      if ( *(_DWORD *)(*(_QWORD *)i + 68LL) > v10 )
         break;
-      ++v10;
+      ++v9;
     }
-    v13 = i - 96;
-    if ( !v10 )
-      v13 = i;
-    v14 = 0;
-    *(_DWORD *)(**a2 + 68) = *(_DWORD *)(*(_QWORD *)v13 + 68LL);
-    v15 = (unsigned int)(*(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL) - 1);
-    for ( j = *(_QWORD *)(**a2 + 88) + 96LL * (int)v15; (int)v15 >= 0; v15 = (unsigned int)(v15 - 1) )
+    v12 = i - 96;
+    if ( !v9 )
+      v12 = i;
+    v13 = 0;
+    *(_DWORD *)(**a2 + 68) = *(_DWORD *)(*(_QWORD *)v12 + 68LL);
+    v14 = *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL) - 1;
+    for ( j = *(_QWORD *)(**a2 + 88) + 96LL * v14; v14 >= 0; --v14 )
     {
-      v14 += *(_DWORD *)(*(_QWORD *)j + 76LL);
-      if ( v14 > *(_DWORD *)(**a2 + 68) )
+      v13 += *(_DWORD *)(*(_QWORD *)j + 76LL);
+      if ( v13 > *(_DWORD *)(**a2 + 68) )
         break;
       j -= 96LL;
     }
-    v17 = v15 + 1;
-    if ( (_DWORD)v15 == *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL) - 1 )
-      v17 = v15;
-    *(_DWORD *)(**a2 + 120) = v17;
-    if ( *(_DWORD *)(**a2 + 116) > v17 )
-      *(_DWORD *)(**a2 + 116) = v17;
-    v18 = **a2;
-    if ( *(_DWORD *)(v18 + 116) == v17 )
+    v16 = v14 + 1;
+    if ( v14 == *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL) - 1 )
+      v16 = v14;
+    *(_DWORD *)(**a2 + 120) = v16;
+    if ( *(_DWORD *)(**a2 + 116) > v16 )
+      *(_DWORD *)(**a2 + 116) = v16;
+    v17 = **a2;
+    if ( *(_DWORD *)(v17 + 116) == v16 )
     {
-      *(_DWORD *)(v18 + 124) |= 3u;
+      *(_DWORD *)(v17 + 124) |= 3u;
     }
     else
     {
-      v19 = *(_DWORD *)(v18 + 116) == 0;
-      v18 = **a2;
-      v20 = *(_DWORD *)(v18 + 124);
-      if ( v19 )
-        v21 = v20 & 0xFFFFFFFC | 2;
+      v18 = *(_DWORD *)(v17 + 116) == 0;
+      v17 = **a2;
+      v19 = *(_DWORD *)(v17 + 124);
+      if ( v18 )
+        v20 = v19 & 0xFFFFFFFC | 2;
       else
-        v21 = v20 & 0xFFFFFFFC | 1;
-      *(_DWORD *)(v18 + 124) = v21;
+        v20 = v19 & 0xFFFFFFFC | 1;
+      *(_DWORD *)(v17 + 124) = v20;
     }
-    v22 = **a2;
-    return (unsigned int)(2 * *(_DWORD *)(GetDPIMetrics(v18, v15) + 28) + *(_DWORD *)(v22 + 68));
+    v21 = **a2;
+    return (unsigned int)(2 * *(_DWORD *)(GetDPIMetrics(v17) + 28) + *(_DWORD *)(v21 + 68));
   }
   else
   {

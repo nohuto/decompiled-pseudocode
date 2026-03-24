@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpGetSystemPlatformBinary @ 0x14075FC0C
+ * XREFs of ExpGetSystemPlatformBinary @ 0x14075FBEC
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
@@ -8,15 +8,15 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MmMapIoSpaceEx @ 0x1400E5D40 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1406B8020 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1406B8000 (ExpGetSystemFirmwareTableInformation.c)
  */
 
 __int64 __fastcall ExpGetSystemPlatformBinary(__int64 a1, unsigned int a2, char a3)

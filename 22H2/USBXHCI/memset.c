@@ -1,83 +1,108 @@
 /*
- * XREFs of memset @ 0x1C0020600
+ * XREFs of memset @ 0x1C001B2C0
  * Callers:
- *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
- *     Isoch_TransferData_Initialize @ 0x1C0004970 (Isoch_TransferData_Initialize.c)
- *     Control_TransferData_Initialize @ 0x1C00070DC (Control_TransferData_Initialize.c)
- *     TR_InitializeTransferRing @ 0x1C0007E2C (TR_InitializeTransferRing.c)
- *     UsbDevice_InitializeInputContextCommon @ 0x1C00083C0 (UsbDevice_InitializeInputContextCommon.c)
- *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0008854 (UsbDevice_SendConfigureEndpointCommand.c)
- *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C000B70C (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
- *     UsbDevice_EndpointsConfigureCompletion @ 0x1C000D0A0 (UsbDevice_EndpointsConfigureCompletion.c)
- *     DeviceSlot_D0EntryCleanupState @ 0x1C000FF38 (DeviceSlot_D0EntryCleanupState.c)
- *     Endpoint_SM_SendStopEndpointCommand @ 0x1C0010764 (Endpoint_SM_SendStopEndpointCommand.c)
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C0010AA4 (Endpoint_OnCancelSetDequeuePointer.c)
- *     TR_ReleaseSegments @ 0x1C00118AC (TR_ReleaseSegments.c)
- *     Bulk_TransferData_Initialize @ 0x1C0012934 (Bulk_TransferData_Initialize.c)
- *     UsbDevice_UcxEvtEnable @ 0x1C0013260 (UsbDevice_UcxEvtEnable.c)
- *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014180 (Command_D0EntryPostInterruptsEnabled.c)
- *     XilCoreCommand_Initialize @ 0x1C0014468 (XilCoreCommand_Initialize.c)
- *     Interrupter_Initialize @ 0x1C0014D0C (Interrupter_Initialize.c)
- *     RootHub_UcxEvtInterruptTransfer @ 0x1C0016CE0 (RootHub_UcxEvtInterruptTransfer.c)
- *     UsbDevice_SetAddress @ 0x1C0018F30 (UsbDevice_SetAddress.c)
- *     UsbDevice_EnableCompletion @ 0x1C00195B0 (UsbDevice_EnableCompletion.c)
- *     UsbDevice_SetAddressCompletion @ 0x1C0019A50 (UsbDevice_SetAddressCompletion.c)
- *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C0019E94 (XilCoreDeviceSlot_SetDeviceContext.c)
- *     Device_QueryCapabilities @ 0x1C001A064 (Device_QueryCapabilities.c)
- *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C001B660 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
- *     McGenControlCallbackV2 @ 0x1C001C800 (McGenControlCallbackV2.c)
- *     UsbDevice_UpdateUsbDevice @ 0x1C001D48C (UsbDevice_UpdateUsbDevice.c)
- *     UsbDevice_UcxEvtUpdate @ 0x1C001DE20 (UsbDevice_UcxEvtUpdate.c)
- *     memcpy_s @ 0x1C001E8B0 (memcpy_s.c)
- *     CommonBuffer_AcquireSecureBuffer @ 0x1C00320B8 (CommonBuffer_AcquireSecureBuffer.c)
- *     DeviceSlot_ControllerResetPostReset @ 0x1C0037AD0 (DeviceSlot_ControllerResetPostReset.c)
- *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C00388B8 (XilDeviceSlot_SendSetDeviceContextRequest.c)
- *     Endpoint_ControlEndpointResetCompletion @ 0x1C0039850 (Endpoint_ControlEndpointResetCompletion.c)
- *     Endpoint_OnResetSetDequeuePointer @ 0x1C003B54C (Endpoint_OnResetSetDequeuePointer.c)
- *     Endpoint_SM_ResetControlEndpoint @ 0x1C003B9EC (Endpoint_SM_ResetControlEndpoint.c)
- *     Endpoint_SM_ResetEndpoint @ 0x1C003BA98 (Endpoint_SM_ResetEndpoint.c)
- *     Endpoint_SendClearStallTransfer @ 0x1C003BD6C (Endpoint_SendClearStallTransfer.c)
- *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003C068 (Endpoint_SetUpConfigureEndpointCommand.c)
- *     Endpoint_UcxEvtEndpointReset @ 0x1C003C730 (Endpoint_UcxEvtEndpointReset.c)
- *     Interrupter_InitializeForOffload @ 0x1C003DF28 (Interrupter_InitializeForOffload.c)
- *     Register_WriteSecureMmio @ 0x1C003F0E8 (Register_WriteSecureMmio.c)
- *     TR_CreateSecureObject @ 0x1C004129C (TR_CreateSecureObject.c)
- *     Isoch_WdfEvtIoCanceledOnQueue @ 0x1C0045A00 (Isoch_WdfEvtIoCanceledOnQueue.c)
- *     XilUsbDevice_CreateSecureObject @ 0x1C0047E20 (XilUsbDevice_CreateSecureObject.c)
- *     UsbDevice_DisableCompletion @ 0x1C0048760 (UsbDevice_DisableCompletion.c)
- *     UsbDevice_ReconfigureEndpoint @ 0x1C00494EC (UsbDevice_ReconfigureEndpoint.c)
- *     UsbDevice_SendStopEndpointToOffloadedEndpoint @ 0x1C0049914 (UsbDevice_SendStopEndpointToOffloadedEndpoint.c)
- *     UsbDevice_SetResourceAssignment @ 0x1C00499BC (UsbDevice_SetResourceAssignment.c)
- *     UsbDevice_UcxEvtDisable @ 0x1C0049C80 (UsbDevice_UcxEvtDisable.c)
- *     Crashdump_Initialize @ 0x1C004C250 (Crashdump_Initialize.c)
- *     Crashdump_EventRing_PrepareForDump @ 0x1C004E6F0 (Crashdump_EventRing_PrepareForDump.c)
- *     Crashdump_Command_PrepareForDump @ 0x1C004E978 (Crashdump_Command_PrepareForDump.c)
- *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F050 (Crashdump_Endpoint_PrepareForHibernate.c)
- *     Crashdump_UsbDevice_Cleanup @ 0x1C004FA20 (Crashdump_UsbDevice_Cleanup.c)
- *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004FDF4 (Crashdump_UsbDevice_ConfigureEndpoints.c)
- *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C0050154 (Crashdump_UsbDevice_GetDeviceDescriptor.c)
- *     Crashdump_UsbDevice_GetPortStatus @ 0x1C00502E8 (Crashdump_UsbDevice_GetPortStatus.c)
- *     Crashdump_UsbDevice_PrepareForHibernate @ 0x1C00505E0 (Crashdump_UsbDevice_PrepareForHibernate.c)
- *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C0050B40 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
- *     TelemetryData_CreateReport @ 0x1C0052F6C (TelemetryData_CreateReport.c)
- *     WerKernelSubmitReport @ 0x1C0053FE0 (WerKernelSubmitReport.c)
- *     TR_Create @ 0x1C006DE38 (TR_Create.c)
- *     Controller_ConfigureS0IdleSettings @ 0x1C006ECBC (Controller_ConfigureS0IdleSettings.c)
- *     Controller_CreateWdfDevice @ 0x1C006EFFC (Controller_CreateWdfDevice.c)
- *     RootHub_Create @ 0x1C006F778 (RootHub_Create.c)
- *     IoControl_Create @ 0x1C006F950 (IoControl_Create.c)
- *     Interrupter_CreateInterrupter @ 0x1C00701D8 (Interrupter_CreateInterrupter.c)
- *     Wmi_Create @ 0x1C00705C0 (Wmi_Create.c)
- *     Controller_Create @ 0x1C0071304 (Controller_Create.c)
- *     DmaEnabler_Create @ 0x1C0073180 (DmaEnabler_Create.c)
- *     Controller_DriverInstalledDueToCompatibleIdMatch @ 0x1C007429C (Controller_DriverInstalledDueToCompatibleIdMatch.c)
- *     DriverEntry @ 0x1C00743A0 (DriverEntry.c)
- *     Controller_RetrievePciData @ 0x1C0074B0C (Controller_RetrievePciData.c)
- *     SleepstudyHelperInitializeOnce @ 0x1C0075210 (SleepstudyHelperInitializeOnce.c)
- *     WppTraceCallback @ 0x1C0079A90 (WppTraceCallback.c)
- *     Wmi_WdfEvtWmi_GetControllerCapabilities @ 0x1C007A4F0 (Wmi_WdfEvtWmi_GetControllerCapabilities.c)
- *     TelemetryData_pInitWerContext @ 0x1C007B340 (TelemetryData_pInitWerContext.c)
- *     memset$thunk$772440563353939046 @ 0x1C007D010 (memset$thunk$772440563353939046.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00021E0 (Isoch_Stage_CompleteTD.c)
+ *     Isoch_TransferData_Initialize @ 0x1C00035F0 (Isoch_TransferData_Initialize.c)
+ *     Control_TransferData_Initialize @ 0x1C00050E4 (Control_TransferData_Initialize.c)
+ *     TR_InitializeTransferRing @ 0x1C0005758 (TR_InitializeTransferRing.c)
+ *     Endpoint_SM_SendStopEndpointCommand @ 0x1C00058D4 (Endpoint_SM_SendStopEndpointCommand.c)
+ *     UsbDevice_InitializeInputContextCommon @ 0x1C00059BC (UsbDevice_InitializeInputContextCommon.c)
+ *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0005FDC (UsbDevice_SendConfigureEndpointCommand.c)
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00074B0 (UsbDevice_EndpointsConfigureCompletion.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C0009D48 (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
+ *     Etw_EndpointListRundown @ 0x1C000B1C0 (Etw_EndpointListRundown.c)
+ *     DeviceSlot_D0EntryCleanupState @ 0x1C000B42C (DeviceSlot_D0EntryCleanupState.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_TransferData_Initialize @ 0x1C000D390 (Bulk_TransferData_Initialize.c)
+ *     UsbDevice_EnableCompletion @ 0x1C000E630 (UsbDevice_EnableCompletion.c)
+ *     UsbDevice_UcxEvtEnable @ 0x1C000E990 (UsbDevice_UcxEvtEnable.c)
+ *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C000F6C4 (XilCoreDeviceSlot_SetDeviceContext.c)
+ *     UsbDevice_SetAddressCompletion @ 0x1C000F9A0 (UsbDevice_SetAddressCompletion.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     UsbDevice_SetAddress @ 0x1C001086C (UsbDevice_SetAddress.c)
+ *     Wmi_CreateControllerCapabilities @ 0x1C00110F8 (Wmi_CreateControllerCapabilities.c)
+ *     RootHub_UcxEvtInterruptTransfer @ 0x1C0011710 (RootHub_UcxEvtInterruptTransfer.c)
+ *     XilCoreCommand_Initialize @ 0x1C0014334 (XilCoreCommand_Initialize.c)
+ *     Interrupter_Initialize @ 0x1C00146A8 (Interrupter_Initialize.c)
+ *     Etw_DeviceListRundown @ 0x1C0014A50 (Etw_DeviceListRundown.c)
+ *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014C14 (Command_D0EntryPostInterruptsEnabled.c)
+ *     Device_QueryCapabilities @ 0x1C00150F4 (Device_QueryCapabilities.c)
+ *     Controller_AllocateIrqlTrackingArray @ 0x1C001536C (Controller_AllocateIrqlTrackingArray.c)
+ *     XilDeviceSlot_PrepareHardware @ 0x1C0015BCC (XilDeviceSlot_PrepareHardware.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C00161E8 (XilCoreDeviceSlot_AllocateResources.c)
+ *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C0016620 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
+ *     InitializeTelemetryAssertsKM @ 0x1C0018410 (InitializeTelemetryAssertsKM.c)
+ *     McGenControlCallbackV2 @ 0x1C0018740 (McGenControlCallbackV2.c)
+ *     Etw_EnableCallback @ 0x1C0018870 (Etw_EnableCallback.c)
+ *     UsbDevice_UcxEvtUpdate @ 0x1C0018940 (UsbDevice_UcxEvtUpdate.c)
+ *     XilUsbDevice_QueryAttributesFromTrustlet @ 0x1C0018F0C (XilUsbDevice_QueryAttributesFromTrustlet.c)
+ *     Endpoint_ControlEndpointResetCompletion @ 0x1C00195F0 (Endpoint_ControlEndpointResetCompletion.c)
+ *     Endpoint_SM_ResetControlEndpoint @ 0x1C0019C94 (Endpoint_SM_ResetControlEndpoint.c)
+ *     memcpy_s @ 0x1C0019F70 (memcpy_s.c)
+ *     XilCommand_SendAddCommandCRBToRingRequest @ 0x1C002FE88 (XilCommand_SendAddCommandCRBToRingRequest.c)
+ *     CommonBuffer_AcquireSecureBuffer @ 0x1C0030530 (CommonBuffer_AcquireSecureBuffer.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003062C (CommonBuffer_AcquireShadowBuffer.c)
+ *     Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0031884 (Controller_ExecuteDSMToSendPORTSCValues.c)
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0036010 (DeviceSlot_ControllerResetPostReset.c)
+ *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C0036DF8 (XilDeviceSlot_SendSetDeviceContextRequest.c)
+ *     XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0037ABC (XilEndpoint_SendRequestToSetSecureStreamContextArray.c)
+ *     Endpoint_CreateClearStallContext @ 0x1C0037DB4 (Endpoint_CreateClearStallContext.c)
+ *     Endpoint_OnResetSetDequeuePointer @ 0x1C0039624 (Endpoint_OnResetSetDequeuePointer.c)
+ *     Endpoint_SM_ResetEndpoint @ 0x1C0039AA4 (Endpoint_SM_ResetEndpoint.c)
+ *     Endpoint_SendClearStallTransfer @ 0x1C0039D7C (Endpoint_SendClearStallTransfer.c)
+ *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003A07C (Endpoint_SetUpConfigureEndpointCommand.c)
+ *     Endpoint_UcxEvtEndpointReset @ 0x1C003A5C0 (Endpoint_UcxEvtEndpointReset.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Interrupter_InitializeForOffload @ 0x1C003BC78 (Interrupter_InitializeForOffload.c)
+ *     Register_WriteSecureMmio @ 0x1C003CEA0 (Register_WriteSecureMmio.c)
+ *     TR_CreateSecureObject @ 0x1C003EDAC (TR_CreateSecureObject.c)
+ *     Isoch_WdfEvtIoCanceledOnQueue @ 0x1C0042D60 (Isoch_WdfEvtIoCanceledOnQueue.c)
+ *     XilUsbDevice_CreateSecureObject @ 0x1C00454A8 (XilUsbDevice_CreateSecureObject.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_ReconfigureEndpoint @ 0x1C0046B7C (UsbDevice_ReconfigureEndpoint.c)
+ *     UsbDevice_SendStopEndpointToOffloadedEndpoint @ 0x1C0046F98 (UsbDevice_SendStopEndpointToOffloadedEndpoint.c)
+ *     UsbDevice_SetResourceAssignment @ 0x1C0047040 (UsbDevice_SetResourceAssignment.c)
+ *     UsbDevice_UcxEvtDisable @ 0x1C0047300 (UsbDevice_UcxEvtDisable.c)
+ *     Crashdump_Initialize @ 0x1C0049740 (Crashdump_Initialize.c)
+ *     Crashdump_InitializeDeviceContext @ 0x1C0049A70 (Crashdump_InitializeDeviceContext.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_EventRing_PrepareForDump @ 0x1C004BC1C (Crashdump_EventRing_PrepareForDump.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004BE98 (Crashdump_Command_PrepareForDump.c)
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004C580 (Crashdump_Endpoint_PrepareForHibernate.c)
+ *     Crashdump_UsbDevice_Cleanup @ 0x1C004CF48 (Crashdump_UsbDevice_Cleanup.c)
+ *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004D31C (Crashdump_UsbDevice_ConfigureEndpoints.c)
+ *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C004D67C (Crashdump_UsbDevice_GetDeviceDescriptor.c)
+ *     Crashdump_UsbDevice_GetPortStatus @ 0x1C004D810 (Crashdump_UsbDevice_GetPortStatus.c)
+ *     Crashdump_UsbDevice_PrepareForHibernate @ 0x1C004DB10 (Crashdump_UsbDevice_PrepareForHibernate.c)
+ *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004E070 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
+ *     TelemetryData_CreateReport @ 0x1C005024C (TelemetryData_CreateReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
+ *     WerpAllocateAndInitializeSid @ 0x1C00519EC (WerpAllocateAndInitializeSid.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
+ *     Controller_SetDeviceDescription @ 0x1C006C400 (Controller_SetDeviceDescription.c)
+ *     Controller_DriverInstalledDueToCompatibleIdMatch @ 0x1C006C760 (Controller_DriverInstalledDueToCompatibleIdMatch.c)
+ *     Controller_RetrievePciData @ 0x1C006C900 (Controller_RetrievePciData.c)
+ *     Controller_CreateWdfDevice @ 0x1C006D360 (Controller_CreateWdfDevice.c)
+ *     Command_PrepareHardware @ 0x1C006DB18 (Command_PrepareHardware.c)
+ *     Interrupter_PrepareHardware @ 0x1C006DCA0 (Interrupter_PrepareHardware.c)
+ *     Interrupter_PopulateInterrupterLookupTable @ 0x1C006DDD0 (Interrupter_PopulateInterrupterLookupTable.c)
+ *     DmaEnabler_Create @ 0x1C006DE2C (DmaEnabler_Create.c)
+ *     IoControl_Create @ 0x1C006E198 (IoControl_Create.c)
+ *     Controller_ExecuteDSM @ 0x1C006EEB8 (Controller_ExecuteDSM.c)
+ *     RootHub_PrepareHardware @ 0x1C006F400 (RootHub_PrepareHardware.c)
+ *     RootHub_Create @ 0x1C0070264 (RootHub_Create.c)
+ *     Controller_ConfigureS0IdleSettings @ 0x1C0070814 (Controller_ConfigureS0IdleSettings.c)
+ *     Wmi_Create @ 0x1C00709BC (Wmi_Create.c)
+ *     Interrupter_CreateInterrupter @ 0x1C0070DA4 (Interrupter_CreateInterrupter.c)
+ *     DriverEntry @ 0x1C007112C (DriverEntry.c)
+ *     Controller_CreateSecureObject @ 0x1C007471C (Controller_CreateSecureObject.c)
+ *     Controller_RetrieveAcpiData @ 0x1C0074D40 (Controller_RetrieveAcpiData.c)
+ *     Controller_RetrieveUrsData @ 0x1C0074FA0 (Controller_RetrieveUrsData.c)
+ *     WppTraceCallback @ 0x1C0076280 (WppTraceCallback.c)
+ *     Wmi_WdfEvtWmi_GetControllerCapabilities @ 0x1C0076D40 (Wmi_WdfEvtWmi_GetControllerCapabilities.c)
+ *     TelemetryData_pInitWerContext @ 0x1C0077B68 (TelemetryData_pInitWerContext.c)
  * Callees:
  *     <none>
  */
@@ -86,76 +111,72 @@ void *__cdecl memset(void *a1, int Val, size_t Size)
 {
   void *result; // rax
   __int64 v4; // rdx
-  __m128 v5; // xmm0
-  char *v6; // r8
-  __m128 *v7; // rdx
-  _OWORD *v8; // r9
-  size_t v9; // r8
-  __m128 *v10; // r9
-  size_t v11; // r8
-  _DWORD *v12; // r9
-  size_t v13; // r8
+  size_t v5; // r9
+  char *v6; // rcx
+  size_t v7; // r8
+  __m128 v8; // xmm0
+  char *v9; // r8
+  __m128 *v10; // rcx
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // r9
+  unsigned __int64 i; // r9
+  __int64 v14; // r8
 
   result = a1;
-  v4 = 0x101010101010101LL * (unsigned __int8)Val;
-  v5 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
-  if ( Size >= 0x40 )
+  if ( Size < 8 )
   {
-    if ( (_isa_info & 2) != 0 && Size >= 0x320 )
-      return (void *)_memset_repmovs();
-    *(__m128 *)a1 = v5;
-    v6 = (char *)a1 + Size;
-    a1 = (void *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
-    Size = v6 - (_BYTE *)a1;
-    if ( Size >= 0x40 )
-    {
-      v7 = (__m128 *)((char *)a1 + Size - 16);
-      v8 = (_OWORD *)(((unsigned __int64)a1 + Size - 48) & 0xFFFFFFFFFFFFFFF0uLL);
-      v9 = Size >> 6;
-      do
-      {
-        *(__m128 *)a1 = v5;
-        *((__m128 *)a1 + 1) = v5;
-        a1 = (char *)a1 + 64;
-        --v9;
-        *((__m128 *)a1 - 2) = v5;
-        *((__m128 *)a1 - 1) = v5;
-      }
-      while ( v9 );
-      *v8 = v5;
-      v8[1] = v5;
-      v8[2] = v5;
-      *v7 = v5;
-      return result;
-    }
-LABEL_9:
-    v10 = (__m128 *)((char *)a1 + Size - 16);
-    *(__m128 *)a1 = v5;
-    v11 = (Size & 0x20) >> 1;
-    *v10 = v5;
-    *(__m128 *)((char *)a1 + v11) = v5;
-    *(__m128 *)((char *)v10 - v11) = v5;
-    return result;
-  }
-  if ( Size >= 0x10 )
-    goto LABEL_9;
-  if ( Size < 4 )
-  {
-    if ( Size )
-    {
-      *(_BYTE *)a1 = v4;
-      if ( Size != 1 )
-        *(_WORD *)((char *)a1 + Size - 2) = v4;
-    }
+    for ( ; Size; --Size )
+      *((char *)a1 + Size - 1) = Val;
   }
   else
   {
-    v12 = (char *)a1 + Size - 4;
-    *(_DWORD *)a1 = v4;
-    v13 = (Size & 8) >> 1;
-    *v12 = v4;
-    *(_DWORD *)((char *)a1 + v13) = v4;
-    *(_DWORD *)((char *)v12 - v13) = v4;
+    v4 = 0x101010101010101LL * (unsigned __int8)Val;
+    if ( Size >= 0x4F )
+    {
+      v8 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
+      *(__m128 *)a1 = v8;
+      v9 = (char *)a1 + Size;
+      v10 = (__m128 *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
+      v11 = v9 - (char *)v10;
+      v12 = v11 >> 7;
+      if ( v11 >> 7 )
+      {
+        do
+        {
+          *v10 = v8;
+          v10[1] = v8;
+          v10 += 8;
+          v10[-6] = v8;
+          v10[-5] = v8;
+          --v12;
+          v10[-4] = v8;
+          v10[-3] = v8;
+          v10[-2] = v8;
+          v10[-1] = v8;
+        }
+        while ( v12 );
+        v11 &= 0x7Fu;
+      }
+      for ( i = v11 >> 4; i; --i )
+        *v10++ = v8;
+      v14 = v11 & 0xF;
+      if ( v14 )
+        *(__m128 *)((char *)v10 + v14 - 16) = v8;
+    }
+    else
+    {
+      v5 = Size & 0x78;
+      v6 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);
+      do
+      {
+        *(_QWORD *)((char *)result + v5 - 8) = v4;
+        v5 -= 8LL;
+      }
+      while ( v5 );
+      v7 = Size & 7;
+      if ( v7 )
+        *(_QWORD *)&v6[v7 - 8] = v4;
+    }
   }
   return result;
 }

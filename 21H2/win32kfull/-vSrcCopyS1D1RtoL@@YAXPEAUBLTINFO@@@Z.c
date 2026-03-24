@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSrcCopyS1D1RtoL@@YAXPEAUBLTINFO@@@Z @ 0x1C02C8020
+ * XREFs of ?vSrcCopyS1D1RtoL@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9910
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall vSrcCopyS1D1RtoL(struct BLTINFO *a1)

@@ -1,17 +1,19 @@
 /*
- * XREFs of ?GetDesktopPlaneResource@CDDisplaySwapChain@@UEBAXPEAPEAUIUnknown@@@Z @ 0x18027B170
+ * XREFs of ?GetDesktopPlaneResource@CDDisplaySwapChain@@UEBAXPEAPEAUIUnknown@@@Z @ 0x180239C10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDDisplaySwapChain::GetDesktopPlaneResource(CDDisplaySwapChain *this, struct IUnknown **a2)
 {
-  struct IUnknown *v3; // rbx
+  __int64 v3; // rax
+  struct IUnknown *v4; // rbx
 
-  v3 = *(struct IUnknown **)(32LL * *((unsigned int *)this + 76) + *((_QWORD *)this + 34));
-  if ( v3 )
-    ((void (__fastcall *)(struct IUnknown *))v3->lpVtbl->AddRef)(v3);
-  *a2 = v3;
+  v3 = 32LL * *((unsigned int *)this + 42);
+  v4 = *(struct IUnknown **)(v3 + *((_QWORD *)this + 17));
+  if ( v4 )
+    ((void (__fastcall *)(_QWORD))v4->lpVtbl->AddRef)(*(_QWORD *)(v3 + *((_QWORD *)this + 17)));
+  *a2 = v4;
 }

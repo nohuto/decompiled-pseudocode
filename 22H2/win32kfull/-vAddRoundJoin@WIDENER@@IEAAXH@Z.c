@@ -1,17 +1,17 @@
 /*
- * XREFs of ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02F2418
+ * XREFs of ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CEC3C
  * Callers:
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F21F8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C01409F0 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
- *     ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C015DB80 (-bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z.c)
- *     ?vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z @ 0x1C015E18C (-vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z.c)
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C015E238 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z @ 0x1C015E29C (-vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z.c)
- *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E718 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E75E (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E7A4 (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E7EA (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02F1EDC (-cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z.c)
+ *     ?vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z @ 0x1C0140B34 (-vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C0140B60 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0141028 (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0141070 (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C01410B8 (-bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0141644 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
+ *     ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02CE610 (-cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z.c)
+ *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CF144 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CF18C (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
  */
 
 void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
@@ -31,7 +31,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
   int v14; // edi
   __int64 v15; // [rsp+80h] [rbp+40h] BYREF
   __int64 v16; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+58h] BYREF
+  char v17; // [rsp+98h] [rbp+58h] BYREF
 
   v2 = 0;
   v4 = bTurnLeftRandom(
@@ -39,7 +39,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
          (struct EVECTORFX *)(*((_QWORD *)this + 89) + 48LL));
   if ( (*((_DWORD *)this + 10) & 0x10) != 0 || v3 )
   {
-    v5 = WIDENER::vecInDraw(this, &v16);
+    v5 = (__int64 *)WIDENER::vecInDraw(this, &v16);
   }
   else
   {
@@ -51,7 +51,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
   if ( v2 )
     v7 = WIDENER::vecOutPerp(this, &v16);
   else
-    v7 = WIDENER::vecOutDraw(this, &v17);
+    v7 = (__int64 *)WIDENER::vecOutDraw(this, &v17);
   v16 = *v7;
   v8 = v16;
   WIDEPATHOBJ::vAddPoint(
@@ -68,7 +68,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
     if ( v4 )
     {
       v12 = WIDEPENOBJ::cptAddRound(v11, this, v10, v9, v4, v2, v2);
-      WIDEPATHOBJ::vAddPoint((WIDENER *)((char *)this + 984), (const struct _POINTFIX *)((char *)this + 692));
+      WIDEPATHOBJ::vAddPoint((WIDENER *)((char *)this + 984), (struct _POINTFIX *)((char *)this + 692));
       if ( (*((_DWORD *)this + 10) & 0x10) == 0 )
       {
         WIDENER::vAddLeft(this, (struct EVECTORFX *)&v16);
@@ -84,13 +84,13 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
         WIDENER::vAddLeft(this, (struct EVECTORFX *)&v15);
         v13 = (WIDENER *)((char *)this + 984);
 LABEL_19:
-        WIDEPATHOBJ::vAddPoint(v13, (const struct _POINTFIX *)((char *)this + 692));
+        WIDEPATHOBJ::vAddPoint(v13, (struct _POINTFIX *)((char *)this + 692));
       }
     }
     else
     {
       v14 = WIDEPENOBJ::cptAddRound(v11, this, v10, v9, 0, v2, v2);
-      WIDEPATHOBJ::vAddPoint((WIDENER *)((char *)this + 1136), (const struct _POINTFIX *)((char *)this + 692));
+      WIDEPATHOBJ::vAddPoint((WIDENER *)((char *)this + 1136), (struct _POINTFIX *)((char *)this + 692));
       if ( (*((_DWORD *)this + 10) & 0x10) == 0 )
       {
         WIDEPATHOBJ::vAddPoint(

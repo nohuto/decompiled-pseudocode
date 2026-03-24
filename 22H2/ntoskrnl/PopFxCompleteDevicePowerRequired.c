@@ -1,21 +1,20 @@
 /*
- * XREFs of PopFxCompleteDevicePowerRequired @ 0x140310900
+ * XREFs of PopFxCompleteDevicePowerRequired @ 0x140261FA4
  * Callers:
- *     PopFxHandleReportDevicePoweredOn @ 0x14028CF30 (PopFxHandleReportDevicePoweredOn.c)
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     PopFxDeliverDevicePowerRequired @ 0x14036D95C (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039F580 (PoFxReportDevicePoweredOn.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1403A6468 (PopFxDeliverDevicePowerRequired.c)
  * Callees:
- *     PopDiagTraceFxDevicePowered @ 0x140310990 (PopDiagTraceFxDevicePowered.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     PopPluginDevicePower @ 0x140313090 (PopPluginDevicePower.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     PopPluginDevicePower @ 0x140261158 (PopPluginDevicePower.c)
+ *     PopDiagTraceFxDevicePowered @ 0x140261F38 (PopDiagTraceFxDevicePowered.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
 char __fastcall PopFxCompleteDevicePowerRequired(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   char v2; // bl
   int v5; // eax
-  __int64 v6; // rdx
 
   v2 = 0;
   v5 = _InterlockedDecrement((volatile signed __int32 *)(BugCheckParameter2 + 36));
@@ -24,15 +23,14 @@ char __fastcall PopFxCompleteDevicePowerRequired(ULONG_PTR BugCheckParameter2, _
   if ( v5 )
   {
     if ( a2 )
-      PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), 0LL, 16LL, 0LL);
+      PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), 0, 16, 0LL);
   }
   else
   {
     PopDiagTraceFxDevicePowered(*(_QWORD *)(BugCheckParameter2 + 48));
     if ( !a2 )
-      PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), 0LL, 16LL, 1LL);
-    LOBYTE(v6) = 1;
-    return PopPluginDevicePower(BugCheckParameter2, v6, a2);
+      PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), 0, 16, 1LL);
+    return PopPluginDevicePower(BugCheckParameter2, 1, a2);
   }
   return v2;
 }

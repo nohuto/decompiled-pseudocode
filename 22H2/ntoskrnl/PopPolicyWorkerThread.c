@@ -1,100 +1,98 @@
 /*
- * XREFs of PopPolicyWorkerThread @ 0x140361740
+ * XREFs of PopPolicyWorkerThread @ 0x14031E2A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopSystemIdleWorker @ 0x1407A72B0 (PopSystemIdleWorker.c)
- *     PopPolicyWorkerNotify @ 0x1407DD420 (PopPolicyWorkerNotify.c)
- *     PopCoalescingNotify @ 0x140987090 (PopCoalescingNotify.c)
- *     PopPolicyWorkerAction @ 0x14098A1E0 (PopPolicyWorkerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x14098A3D0 (PopPolicyWorkerActionPromote.c)
- *     PopPreCriticalBatteryNotify @ 0x140992770 (PopPreCriticalBatteryNotify.c)
- *     PopPolicyTimeChange @ 0x1409945F0 (PopPolicyTimeChange.c)
- *     PopPolicySystemIdle @ 0x14099BF80 (PopPolicySystemIdle.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopPolicySystemIdle @ 0x1406F2890 (PopPolicySystemIdle.c)
+ *     PopPolicyWorkerNotify @ 0x1406F49C0 (PopPolicyWorkerNotify.c)
+ *     PopPolicyWorkerAction @ 0x1407762D0 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x140779F20 (PopPolicyWorkerActionPromote.c)
+ *     PopPolicyTimeChange @ 0x14077A1F0 (PopPolicyTimeChange.c)
+ *     PopCoalescingNotify @ 0x1408E6900 (PopCoalescingNotify.c)
+ *     PopPreCriticalBatteryNotify @ 0x1408EC2E0 (PopPreCriticalBatteryNotify.c)
+ *     PopSystemIdleWorker @ 0x1408F1150 (PopSystemIdleWorker.c)
  */
 
 __int64 __fastcall PopPolicyWorkerThread(int a1)
 {
   KIRQL v2; // al
-  int v3; // esi
-  int v4; // r15d
-  KIRQL v5; // bl
+  int v3; // ebp
+  int i; // r8d
+  int v5; // ebx
   int v6; // eax
-  unsigned int v7; // eax
-  int v8; // edi
-  int v9; // eax
-  __int64 (*v10)(void); // rax
+  __int64 (*v7)(void); // rax
+  KIRQL v8; // di
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
-  unsigned __int8 v17; // al
-  struct _KPRCB *v18; // r9
-  _DWORD *v19; // r8
-  int v20; // eax
+  int v13; // eax
+  bool v14; // zf
+  unsigned __int8 v15; // al
+  struct _KPRCB *v16; // r9
+  _DWORD *v17; // r8
+  int v18; // eax
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PopWorkerSpinLock);
-  v3 = PopWorkerStatus | a1;
-  v4 = 0;
-  v5 = v2;
-  PopWorkerStatus = v3;
-  v6 = v3;
-  while ( 1 )
+  v3 = 0;
+  for ( i = a1 | PopWorkerStatus; ; i = (1 << v5) | PopWorkerStatus )
   {
-    v7 = PopWorkerPending & v6;
-    if ( !v7 )
+    v8 = v2;
+    PopWorkerStatus = i;
+    if ( (PopWorkerPending & i) == 0 )
       break;
-    _BitScanForward((unsigned int *)&v8, v7);
-    v9 = ~(1 << v8);
-    PopWorkerStatus = v3 & v9;
-    PopWorkerPending &= v9;
-    KxReleaseSpinLock((volatile signed __int64 *)&PopWorkerSpinLock);
+    _BitScanForward((unsigned int *)&v5, PopWorkerPending & i);
+    v6 = ~(1 << v5);
+    PopWorkerStatus = i & v6;
+    PopWorkerPending &= v6;
+    KxReleaseSpinLock(&PopWorkerSpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << (v5 + 1));
-        v16 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v13 = ~(unsigned __int16)(-1LL << (v8 + 1));
+          v14 = (v13 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v13;
+          if ( v14 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v5);
-    v10 = PopWorkerTypes[v8];
-    if ( v10 )
-      v4 |= v10();
-    v5 = KeAcquireSpinLockRaiseToDpc(&PopWorkerSpinLock);
-    PopWorkerStatus |= 1 << v8;
-    v6 = PopWorkerStatus;
-    v3 = PopWorkerStatus;
+    __writecr8(v8);
+    v7 = PopWorkerTypes[v5];
+    if ( v7 )
+      v3 |= v7();
+    v2 = KeAcquireSpinLockRaiseToDpc(&PopWorkerSpinLock);
   }
-  PopWorkerPending |= v4;
-  KxReleaseSpinLock((volatile signed __int64 *)&PopWorkerSpinLock);
+  PopWorkerPending |= v3;
+  KxReleaseSpinLock(&PopWorkerSpinLock);
   if ( KiIrqlFlags )
   {
-    v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v5 <= 0xFu && v17 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v18 = KeGetCurrentPrcb();
-      v19 = v18->SchedulerAssist;
-      v20 = ~(unsigned __int16)(-1LL << (v5 + 1));
-      v16 = (v20 & v19[5]) == 0;
-      v19[5] &= v20;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(v18);
+      v15 = KeGetCurrentIrql();
+      if ( v15 <= 0xFu && v8 <= 0xFu && v15 >= 2u )
+      {
+        v16 = KeGetCurrentPrcb();
+        v17 = v16->SchedulerAssist;
+        v18 = ~(unsigned __int16)(-1LL << (v8 + 1));
+        v14 = (v18 & v17[5]) == 0;
+        v17[5] &= v18;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(v16);
+      }
     }
   }
-  result = v5;
-  __writecr8(v5);
+  result = v8;
+  __writecr8(v8);
   return result;
 }

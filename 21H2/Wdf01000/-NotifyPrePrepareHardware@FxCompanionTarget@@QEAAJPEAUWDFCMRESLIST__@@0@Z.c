@@ -1,11 +1,11 @@
 /*
- * XREFs of ?NotifyPrePrepareHardware@FxCompanionTarget@@QEAAJPEAUWDFCMRESLIST__@@0@Z @ 0x1C0061234
+ * XREFs of ?NotifyPrePrepareHardware@FxCompanionTarget@@QEAAJPEAUWDFCMRESLIST__@@0@Z @ 0x1C0043864
  * Callers:
- *     ?InvokeCompanionCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCompanionTarget@@@Z @ 0x1C008E140 (-InvokeCompanionCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCompanionTarget@@@Z.c)
+ *     ?InvokeCompanionCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCompanionTarget@@@Z @ 0x1C008B740 (-InvokeCompanionCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCompanionTarget@@@Z.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?CreateWdmList@FxCmResList@@QEAAPEAU_CM_RESOURCE_LIST@@_K@Z @ 0x1C0072290 (-CreateWdmList@FxCmResList@@QEAAPEAU_CM_RESOURCE_LIST@@_K@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?CreateWdmList@FxCmResList@@QEAAPEAU_CM_RESOURCE_LIST@@W4_POOL_TYPE@@@Z @ 0x1C0061400 (-CreateWdmList@FxCmResList@@QEAAPEAU_CM_RESOURCE_LIST@@W4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall FxCompanionTarget::NotifyPrePrepareHardware(
@@ -20,9 +20,9 @@ __int64 __fastcall FxCompanionTarget::NotifyPrePrepareHardware(
 
   pList = 0LL;
   FxObjectHandleGetPtr(this->m_Device->m_Globals, (unsigned __int64)Raw, 0x1036u, (void **)&pList);
-  WdmList = FxCmResList::CreateWdmList(pList, 0x100uLL);
+  WdmList = FxCmResList::CreateWdmList(pList, PagedPool);
   FxObjectHandleGetPtr(this->m_Device->m_Globals, (unsigned __int64)Translated, 0x1036u, (void **)&pList);
-  v6 = FxCmResList::CreateWdmList(pList, 0x100uLL);
+  v6 = FxCmResList::CreateWdmList(pList, PagedPool);
   v7 = this->m_RdDeviceCompanion->SendPrepareHardware(this->m_RdDeviceCompanion, WdmList, v6);
   if ( WdmList )
     ExFreePoolWithTag(WdmList, 0);

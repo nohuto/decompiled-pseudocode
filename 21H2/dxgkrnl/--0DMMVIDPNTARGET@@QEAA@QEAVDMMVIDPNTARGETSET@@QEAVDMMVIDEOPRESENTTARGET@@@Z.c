@@ -1,161 +1,137 @@
 /*
- * XREFs of ??0DMMVIDPNTARGET@@QEAA@QEAVDMMVIDPNTARGETSET@@QEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C000C834
+ * XREFs of ??0DMMVIDPNTARGET@@QEAA@QEAVDMMVIDPNTARGETSET@@QEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C00056E8
  * Callers:
- *     ??0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C018A4B0 (--0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ??0DMMVIDPN@@QEAA@AEBV0@@Z @ 0x1C01A6FD0 (--0DMMVIDPN@@QEAA@AEBV0@@Z.c)
+ *     ??0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C010D698 (--0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ??0DMMVIDPN@@QEAA@AEBV0@@Z @ 0x1C0111980 (--0DMMVIDPN@@QEAA@AEBV0@@Z.c)
  * Callees:
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ??0DMMVIDPNTARGETMODESET@@IEAA@PEAVDMMVIDPNTARGET@@@Z @ 0x1C0004770 (--0DMMVIDPNTARGETMODESET@@IEAA@PEAVDMMVIDPNTARGET@@@Z.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 DMMVIDPNTARGET *__fastcall DMMVIDPNTARGET::DMMVIDPNTARGET(
         DMMVIDPNTARGET *this,
         struct DMMVIDPNTARGETSET *const a2,
-        struct DMMVIDEOPRESENTTARGET *const a3,
-        __int64 a4)
+        struct DMMVIDEOPRESENTTARGET *const a3)
 {
-  int v4; // eax
-  __int64 Pool2; // rax
-  unsigned __int8 (__fastcall ***v9)(_QWORD); // rdi
-  unsigned __int8 (__fastcall ***v10)(_QWORD); // rcx
+  int v3; // eax
+  void **v7; // rcx
+  char *PoolWithTag; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
   __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 v13; // rdi
-  __int64 v14; // rcx
-  int v16; // edx
-  int v17; // ecx
-  int v18; // r8d
+  unsigned __int8 (__fastcall ***v12)(_QWORD); // rdi
+  unsigned __int8 (__fastcall ***v13)(_QWORD); // rcx
+  DMMVIDPNTARGETMODESET *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  DMMVIDPNTARGETMODESET *v19; // rdi
+  __int64 v20; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
 
-  v4 = *((_DWORD *)a3 + 6);
+  v3 = *((_DWORD *)a3 + 6);
   *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
+  v7 = &SetElement::`vftable';
   *(_QWORD *)this = &SetElement::`vftable';
-  *((_DWORD *)this + 6) = v4;
-  if ( v4 == -1 )
+  *((_DWORD *)this + 6) = v3;
+  if ( v3 == -1 )
   {
-    WdLogSingleEntry1(1LL, 240LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v17,
-          v16,
-          v18,
-          0,
-          2,
-          -1,
-          (__int64)L"i_Id != D3DDDI_ID_UNINITIALIZED",
-          240LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v22 = WdLogNewEntry5_WdAssertion(&SetElement::`vftable', a2);
+    *(_QWORD *)(v22 + 24) = 240LL;
+    WdLogEvent5_WdAssertion(v22);
   }
+  *((_DWORD *)this + 18) = 0;
+  *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
   *(_QWORD *)this = &DMMVIDPNTARGET::`vftable'{for `IndexedSetElement<unsigned int>'};
   *((_QWORD *)this + 4) = &DMMVIDPNTARGET::`vftable'{for `ContainedBy<DMMVIDPNTARGETSET>'};
   *((_QWORD *)this + 6) = &DMMVIDPNTARGET::`vftable'{for `SignedWithClassSignature<DMMVIDPNTARGET>'};
   *((_QWORD *)this + 8) = &DMMVIDPNSOURCE::`vftable'{for `FallibleConstruction'};
   *((_QWORD *)this + 10) = &DMMVIDPNTARGET::`vftable'{for `NonReferenceCounted'};
   *((_DWORD *)this + 14) = 1833173001;
-  *((_DWORD *)this + 18) = 0;
-  *((_QWORD *)this + 12) = a3;
-  *((_QWORD *)this + 13) = 0LL;
-  *((_QWORD *)this + 14) = 0LL;
-  *((_QWORD *)this + 15) = 0LL;
   *((_DWORD *)this + 22) = 1;
-  _InterlockedAdd((volatile signed __int32 *)a3 + 18, 1u);
+  *((_QWORD *)this + 12) = a3;
+  _InterlockedIncrement((volatile signed __int32 *)a3 + 18);
   if ( a2 )
   {
     if ( *((_QWORD *)this + 5) )
-      WdLogSingleEntry0(1LL);
+    {
+      v24 = WdLogNewEntry5_WdAssertion(v7, a2);
+      WdLogEvent5_WdAssertion(v24);
+    }
     *((_QWORD *)this + 5) = a2;
   }
   else
   {
-    WdLogSingleEntry2(2LL, (char *)this + 32, *((_QWORD *)this + 5));
+    v23 = WdLogNewEntry5_WdError(v7, a2);
+    *(_QWORD *)(v23 + 24) = (char *)this + 32;
+    *(_QWORD *)(v23 + 32) = *((_QWORD *)this + 5);
+    WdLogEvent5_WdError(v23);
   }
-  Pool2 = ExAllocatePool2(256LL, 48LL, 1313891414LL, a4);
-  v9 = (unsigned __int8 (__fastcall ***)(_QWORD))Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x4E506456u);
+  v12 = (unsigned __int8 (__fastcall ***)(_QWORD))PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 8) = 0;
-    *(_QWORD *)Pool2 = &DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::`vftable';
-    *(_QWORD *)(Pool2 + 24) = Pool2 + 16;
-    *(_QWORD *)(Pool2 + 16) = Pool2 + 16;
-    *(_QWORD *)(Pool2 + 32) = 0LL;
-    *(_DWORD *)(Pool2 + 40) = 2;
+    *((_DWORD *)PoolWithTag + 2) = 0;
+    *((_QWORD *)PoolWithTag + 4) = 0LL;
+    *(_QWORD *)PoolWithTag = &DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::`vftable';
+    *((_QWORD *)PoolWithTag + 3) = PoolWithTag + 16;
+    *((_QWORD *)PoolWithTag + 2) = PoolWithTag + 16;
+    *((_DWORD *)PoolWithTag + 10) = 2;
   }
   else
   {
-    v9 = 0LL;
+    v12 = 0LL;
   }
-  v10 = (unsigned __int8 (__fastcall ***)(_QWORD))*((_QWORD *)this + 15);
-  if ( v9 != v10 && v10 )
-    ((void (__fastcall *)(unsigned __int8 (__fastcall ***)(_QWORD), __int64))(*v10)[2])(v10, 1LL);
-  *((_QWORD *)this + 15) = v9;
-  if ( v9 )
+  v13 = (unsigned __int8 (__fastcall ***)(_QWORD))*((_QWORD *)this + 15);
+  if ( v12 != v13 && v13 )
+    ((void (__fastcall *)(unsigned __int8 (__fastcall ***)(_QWORD), __int64))(*v13)[2])(v13, 1LL);
+  *((_QWORD *)this + 15) = v12;
+  if ( v12 )
   {
-    if ( (**v9)(v9) )
+    if ( (**v12)(v12) )
     {
       while ( 1 )
       {
-        v12 = ExAllocatePool2(256LL, 152LL, 1313891414LL, v11);
-        v13 = v12;
-        if ( v12 )
+        v14 = (DMMVIDPNTARGETMODESET *)ExAllocatePoolWithTag(PagedPool, 0x98uLL, 0x4E506456u);
+        v19 = v14 ? DMMVIDPNTARGETMODESET::DMMVIDPNTARGETMODESET(v14, this) : 0LL;
+        if ( v19 )
           break;
-        WdLogSingleEntry0(6LL);
+        v27 = WdLogNewEntry5_WdLowResource(v16, v15, v17, v18);
+        WdLogEvent5_WdLowResource(v27);
         ZwYieldExecution();
       }
-      *(_QWORD *)(v12 + 8) = 0LL;
-      *(_QWORD *)(v12 + 16) = 0LL;
-      *(_QWORD *)v12 = &SetElement::`vftable';
-      *(_QWORD *)(v12 + 32) = &DoublyLinkedList<DMMVIDEOPRESENTSOURCE,DoubleLinkedListElementDeleter<DMMVIDEOPRESENTSOURCE>>::`vftable';
-      *(_QWORD *)(v12 + 56) = v12 + 48;
-      *(_QWORD *)(v12 + 48) = v12 + 48;
-      *(_QWORD *)(v12 + 24) = &IndexedSet<DMMVIDPNTARGETMODE>::`vftable';
-      *(_DWORD *)(v12 + 40) = 0;
-      *(_QWORD *)(v12 + 64) = 0LL;
-      *(_DWORD *)(v12 + 72) = 2;
-      *(_DWORD *)(v12 + 80) = 0;
-      *(_QWORD *)(v12 + 88) = &ReferenceCounted::`vftable';
-      *(_DWORD *)(v12 + 96) = 1;
-      *(_BYTE *)(v12 + 136) = 1;
-      *(_QWORD *)(v12 + 112) = 0LL;
-      *(_DWORD *)(v12 + 128) = 1833173005;
-      *(_QWORD *)v12 = &DMMVIDPNTARGETMODESET::`vftable'{for `SetElement'};
-      *(_QWORD *)(v12 + 24) = &DMMVIDPNTARGETMODESET::`vftable'{for `IndexedSet<DMMVIDPNTARGETMODE>'};
-      *(_QWORD *)(v12 + 88) = &DMMVIDPNTARGETMODESET::`vftable'{for `ReferenceCounted'};
-      *(_QWORD *)(v12 + 104) = &DMMVIDPNTARGETMODESET::`vftable'{for `AggregatedBy<DMMVIDPNTARGET>'};
-      *(_QWORD *)(v12 + 120) = &DMMVIDPNTARGETMODESET::`vftable'{for `SignedWithClassSignature<DMMVIDPNTARGETMODESET>'};
-      *(_QWORD *)(v12 + 144) = 0LL;
-      if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v12 + 32))(v12 + 32) )
-      {
-        if ( *(_QWORD *)(v13 + 112) )
-          WdLogSingleEntry0(1LL);
-        *(_QWORD *)(v13 + 112) = this;
-      }
-      else
-      {
-        *(_QWORD *)(WdLogNewEntry5_WdTrace() + 24) = *(int *)(v13 + 40);
-      }
-      v14 = *((_QWORD *)this + 13);
-      if ( v14 && v13 != v14 )
-        ReferenceCounted::Release((ReferenceCounted *)(v14 + 88));
-      *((_QWORD *)this + 13) = v13;
+      v20 = *((_QWORD *)this + 13);
+      if ( v20 && v19 != (DMMVIDPNTARGETMODESET *)v20 )
+        ReferenceCounted::Release((ReferenceCounted *)(v20 + 88), v15);
+      *((_QWORD *)this + 13) = v19;
       *((_DWORD *)this + 22) = 2;
     }
     else
     {
-      WdLogSingleEntry2(7LL, this, *((unsigned int *)this + 6));
+      v26 = WdLogNewEntry5_WdDmmEvent();
+      *(_QWORD *)(v26 + 24) = this;
+      *(_QWORD *)(v26 + 32) = *((unsigned int *)this + 6);
+      WdLogEvent5_WdDmmEvent(v26);
       *((_DWORD *)this + 18) = *(_DWORD *)(*((_QWORD *)this + 15) + 8LL);
     }
   }
   else
   {
-    WdLogSingleEntry2(6LL, this, *((unsigned int *)this + 6));
+    v25 = WdLogNewEntry5_WdLowResource(v13, v9, v10, v11);
+    *(_QWORD *)(v25 + 24) = this;
+    *(_QWORD *)(v25 + 32) = *((unsigned int *)this + 6);
+    WdLogEvent5_WdLowResource(v25);
     *((_DWORD *)this + 18) = -1073741801;
   }
   return this;

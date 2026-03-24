@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpTimerResetProfileAdjustment @ 0x140334110
+ * XREFs of HalpTimerResetProfileAdjustment @ 0x140395BA0
  * Callers:
- *     HalpTimerNotifyProcessorFreeze @ 0x1403340D0 (HalpTimerNotifyProcessorFreeze.c)
- *     HalProcessorIdle @ 0x140419FC0 (HalProcessorIdle.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE230 (HalCalibratePerformanceCounter.c)
+ *     HalCalibratePerformanceCounter @ 0x140384030 (HalCalibratePerformanceCounter.c)
+ *     HalProcessorIdle @ 0x1403F9320 (HalProcessorIdle.c)
+ *     HalpTimerNotifyProcessorFreeze @ 0x1404B6910 (HalpTimerNotifyProcessorFreeze.c)
  * Callees:
  *     <none>
  */
 
-__int64 HalpTimerResetProfileAdjustment()
+bool HalpTimerResetProfileAdjustment()
 {
-  __int64 result; // rax
+  bool result; // al
   __int16 v1; // [rsp+0h] [rbp-8h]
 
   _disable();
-  result = v1 & 0x200;
+  result = (v1 & 0x200) != 0;
   if ( HalpProfileData )
     *(_DWORD *)(32LL * KeGetPcr()->Prcb.Number + HalpProfileData + 20) = 0;
   if ( (v1 & 0x200) != 0 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of ?CheckDirectFlipSupport@CLegacySwapChain@@UEBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x18028AB2C
+ * XREFs of ?CheckDirectFlipSupport@CLegacySwapChain@@UEBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180249420
  * Callers:
- *     ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180108CD0 (-CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPAC.c)
- *     ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180109CD0 (-CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPA.c)
- *     ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x18010A350 (-CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SP.c)
- *     ?CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z @ 0x1802913AC (-CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z.c)
+ *     ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x1800F7470 (-CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPAC.c)
+ *     ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x1800F7930 (-CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPA.c)
+ *     ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x1800F7C10 (-CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SP.c)
+ *     ?CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z @ 0x18024E328 (-CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z.c)
  * Callees:
- *     ?CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x18001244C (-CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z.c)
- *     ?AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x180012500 (-AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
- *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18003EC38 (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18028B2D4 (-DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV-$TMilRect@IUMilRectU@@UMil3DRect.c)
+ *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18003057C (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ?AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x1800F1F28 (-AddCheckMPOCache@CD3DDevice@@QEAAXPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
+ *     ?CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1800F1FC0 (-CheckMPOCache@CD3DDevice@@QEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180249B14 (-DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV-$TMilRect@IUMilRectU@@UMil3DRect.c)
  */
 
 char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
@@ -62,7 +62,7 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
   int v45; // [rsp+D8h] [rbp-9h]
 
   v5 = 0;
-  v6 = *(float *)(a1 - 240);
+  v6 = *(float *)(a1 - 192);
   v7 = 0;
   v25 = a2;
   v8 = 0;
@@ -73,8 +73,8 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
   v24 = v12;
   if ( v13 || v12 )
     v7 = 1;
-  if ( (unsigned __int8)CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 400, a4)
-    || (unsigned __int8)CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 400, v26) )
+  if ( (unsigned __int8)CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 352, a4)
+    || (unsigned __int8)CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 352, v26) )
   {
     v8 = 1;
   }
@@ -82,14 +82,14 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
   {
     if ( (unsigned int)a3 <= DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709 )
     {
-      v14 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, int *))(**(_QWORD **)(a1 - 328) + 144LL))(
-              *(_QWORD *)(a1 - 328),
+      v14 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, int *))(**(_QWORD **)(a1 - 280) + 144LL))(
+              *(_QWORD *)(a1 - 280),
               0LL,
               v25,
               &v24);
       if ( v14 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x33Bu);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x20Au, 0LL);
       }
       else if ( v24 )
       {
@@ -101,7 +101,7 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
   if ( *(int *)(a1 - 164) < 1 )
     return v5;
   memset_0(v27, 0, 0x90uLL);
-  v29 = *(_DWORD *)(a1 - 192);
+  v29 = *(_DWORD *)(a1 - 172);
   v32 = *a4;
   v33 = a4[1];
   v34 = a4[2];
@@ -112,7 +112,7 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
   if ( v8 )
     v16 = 4;
   v28 = v25;
-  v17 = *(CD3DDevice **)(a1 - 336);
+  v17 = *(CD3DDevice **)(a1 - 288);
   v31 = v16;
   v30 = 0;
   v37 = v36;
@@ -125,7 +125,7 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
   v44 = 2;
   if ( CD3DDevice::CheckMPOCache(v17, (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)v27, 1u, &v23) )
     return v23;
-  v18 = *(_QWORD *)(a1 - 328);
+  v18 = *(_QWORD *)(a1 - 280);
   v24 = 0;
   LODWORD(v25) = 0;
   v19 = (*(__int64 (__fastcall **)(__int64, __int64, _BYTE *, int *, __int64 *))(*(_QWORD *)v18 + 176LL))(
@@ -136,7 +136,7 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
           &v25);
   if ( v19 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x323u);
+    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x1F1u, 0LL);
     return v23;
   }
   v21 = v23;
@@ -144,9 +144,7 @@ char __fastcall CLegacySwapChain::CheckDirectFlipSupport(
     v21 = 1;
   v5 = v21;
   CD3DDevice::AddCheckMPOCache(
-    *(CD3DDevice **)(a1 - 336),
-    (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)v27,
-    1u,
-    v21);
+    *(CD3DDevice **)(a1 - 288),
+    (const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *)v27);
   return v5;
 }

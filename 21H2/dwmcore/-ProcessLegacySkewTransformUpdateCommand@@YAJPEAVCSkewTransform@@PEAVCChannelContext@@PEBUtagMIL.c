@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessLegacySkewTransformUpdateCommand@@YAJPEAVCSkewTransform@@PEAVCChannelContext@@PEBUtagMILCMD_SKEWTRANSFORM@@@Z @ 0x180205C84
+ * XREFs of ?ProcessLegacySkewTransformUpdateCommand@@YAJPEAVCSkewTransform@@PEAVCChannelContext@@PEBUtagMILCMD_SKEWTRANSFORM@@@Z @ 0x1801B361C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ProcessLegacySkewTransformUpdateCommand(
@@ -21,31 +21,31 @@ __int64 __fastcall ProcessLegacySkewTransformUpdateCommand(
   __int64 v12; // rax
 
   v3 = *((float *)a3 + 2);
-  if ( v3 != *((float *)a1 + 40) )
+  if ( v3 != *((float *)a1 + 38) )
   {
     v6 = *(_QWORD *)a1;
-    *((float *)a1 + 40) = v3;
+    *((float *)a1 + 38) = v3;
     (*(void (__fastcall **)(struct CSkewTransform *, _QWORD, _QWORD))(v6 + 72))(a1, 0LL, 0LL);
   }
   v7 = *((float *)a3 + 3);
-  if ( v7 != *((float *)a1 + 41) )
+  if ( v7 != *((float *)a1 + 39) )
   {
     v8 = *(_QWORD *)a1;
-    *((float *)a1 + 41) = v7;
+    *((float *)a1 + 39) = v7;
     (*(void (__fastcall **)(struct CSkewTransform *, _QWORD, _QWORD))(v8 + 72))(a1, 0LL, 0LL);
   }
   v9 = *((float *)a3 + 4);
-  if ( v9 != *((float *)a1 + 42) )
+  if ( v9 != *((float *)a1 + 40) )
   {
     v10 = *(_QWORD *)a1;
-    *((float *)a1 + 42) = v9;
+    *((float *)a1 + 40) = v9;
     (*(void (__fastcall **)(struct CSkewTransform *, _QWORD, _QWORD))(v10 + 72))(a1, 0LL, 0LL);
   }
   v11 = *((float *)a3 + 5);
-  if ( v11 != *((float *)a1 + 43) )
+  if ( v11 != *((float *)a1 + 41) )
   {
     v12 = *(_QWORD *)a1;
-    *((float *)a1 + 43) = v11;
+    *((float *)a1 + 41) = v11;
     (*(void (__fastcall **)(struct CSkewTransform *, _QWORD, _QWORD))(v12 + 72))(a1, 0LL, 0LL);
   }
   return 0LL;

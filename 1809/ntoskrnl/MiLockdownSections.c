@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockdownSections @ 0x140682C04
+ * XREFs of MiLockdownSections @ 0x140682BE4
  * Callers:
- *     MiConstructLoaderEntry @ 0x140682490 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
  *     MiInitializeLoadedModuleList @ 0x1409CF350 (MiInitializeLoadedModuleList.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiUnlockLoaderEntry @ 0x1400DBB0C (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1400DBD44 (MiLockLoaderEntry.c)
+ *     MiUnlockLoaderEntry @ 0x1400DBB2C (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1400DBD64 (MiLockLoaderEntry.c)
  */
 
 __int64 __fastcall MiLockdownSections(__int64 a1)

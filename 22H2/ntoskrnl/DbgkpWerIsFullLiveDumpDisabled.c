@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpWerIsFullLiveDumpDisabled @ 0x140883BDC
+ * XREFs of DbgkpWerIsFullLiveDumpDisabled @ 0x140889618
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x14053C1B8 (DbgkCaptureLiveKernelDump.c)
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140883A30 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE598 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 bool DbgkpWerIsFullLiveDumpDisabled()
@@ -22,25 +22,27 @@ bool DbgkpWerIsFullLiveDumpDisabled()
 
   KeyHandle = 0LL;
   ResultLength = 0;
-  ObjectAttributes.RootDirectory = 0LL;
+  HIDWORD(ObjectAttributes.RootDirectory) = 0;
+  *(_QWORD *)(&ObjectAttributes.Length + 1) = 0LL;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   v7 = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v3[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\FullLiveKernelReports";
   ValueName.Buffer = L"FullLiveReportsMax";
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v3;
   KeyValueInformation = 0LL;
   v3[0] = 11272362LL;
   *(_QWORD *)&ValueName.Length = 2490404LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
-  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
-    return 0;
-  if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) < 0
-    || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
+  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
+    if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
+      && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
+    {
+      ZwClose(KeyHandle);
+      return HIDWORD(KeyValueInformation) == 0;
+    }
     ZwClose(KeyHandle);
-    return 0;
   }
-  ZwClose(KeyHandle);
-  return HIDWORD(KeyValueInformation) == 0;
+  return 0;
 }

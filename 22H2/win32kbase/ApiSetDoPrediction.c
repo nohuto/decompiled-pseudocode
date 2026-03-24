@@ -1,9 +1,10 @@
 /*
- * XREFs of ApiSetDoPrediction @ 0x1C0205A9C
+ * XREFs of ApiSetDoPrediction @ 0x1C01CA4C8
  * Callers:
- *     rimPredictionPolicyUpdateStateAndApply @ 0x1C01AB2D0 (rimPredictionPolicyUpdateStateAndApply.c)
+ *     rimPredictionPolicyUpdateStateAndApply @ 0x1C017C040 (rimPredictionPolicyUpdateStateAndApply.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall ApiSetDoPrediction(
@@ -15,19 +16,49 @@ _QWORD *__fastcall ApiSetDoPrediction(
         _QWORD *a6,
         _QWORD *a7)
 {
+  __int64 v9; // rdi
+  int v11; // eax
   _QWORD *result; // rax
 
-  if ( qword_1C0296238 && (int)qword_1C0296238() >= 0 )
+  v9 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    result = qword_1C0296240;
-    if ( qword_1C0296240 )
-      return (_QWORD *)qword_1C0296240(a1, a2, a3, a4, a5, a6, a7);
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      64,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  if ( qword_1C0256F58 )
+    v11 = qword_1C0256F58();
+  else
+    v11 = -1073741637;
+  if ( v11 < 0 )
+  {
+    *a6 = v9;
+    result = a7;
+    *a7 = a3;
   }
   else
   {
-    *a6 = a2;
-    result = a7;
-    *a7 = a3;
+    result = qword_1C0256F60;
+    if ( qword_1C0256F60 )
+      result = (_QWORD *)qword_1C0256F60(a1, v9, a3, a4, a5, a6, a7);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(a2) = 5;
+      return (_QWORD *)WPP_RECORDER_SF_(
+                         WPP_GLOBAL_Control->DeviceExtension,
+                         a2,
+                         10,
+                         65,
+                         (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+    }
   }
   return result;
 }

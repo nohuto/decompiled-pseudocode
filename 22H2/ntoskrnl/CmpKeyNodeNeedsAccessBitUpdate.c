@@ -1,7 +1,9 @@
 /*
- * XREFs of CmpKeyNodeNeedsAccessBitUpdate @ 0x140A16AA4
+ * XREFs of CmpKeyNodeNeedsAccessBitUpdate @ 0x1405EE808
  * Callers:
- *     CmpGetKeyNodeForKcb @ 0x140710714 (CmpGetKeyNodeForKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
+ *     CmpGetKeyNodeForKcb @ 0x1406E4DC4 (CmpGetKeyNodeForKcb.c)
  * Callees:
  *     <none>
  */

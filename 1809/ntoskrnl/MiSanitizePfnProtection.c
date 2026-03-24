@@ -5,7 +5,7 @@
  *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiSetProtectionOnTransitionPte @ 0x140093BB8 (MiSetProtectionOnTransitionPte.c)
- *     MiUpdatePfnProtection @ 0x1402BF45C (MiUpdatePfnProtection.c)
+ *     MiUpdatePfnProtection @ 0x1402BF55C (MiUpdatePfnProtection.c)
  * Callees:
  *     <none>
  */

@@ -5,9 +5,9 @@
  *     ViCheckPadding @ 0x14092CE08 (ViCheckPadding.c)
  *     ViFreeMapRegistersToFile @ 0x14092D6BC (ViFreeMapRegistersToFile.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
 
@@ -28,11 +28,11 @@ void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
     if ( RtlCompareMemory((const void *)(a1 - 8), &ViDmaVerifierTag, 8uLL) != 8 )
     {
       ViHalPreprocessOptions(
-        byte_1404054A4,
+        byte_140405494,
         "Area before %x byte allocation at %p has been modified.",
         268435471,
         (const void *)1);
-      VfReportIssueWithOptions(0xE6u, 0xFuLL, 1uLL, (unsigned int)v4, a1, byte_1404054A4);
+      VfReportIssueWithOptions(0xE6u, 0xFuLL, 1uLL, (unsigned int)v4, a1, byte_140405494);
     }
     v6 += 8LL;
   }

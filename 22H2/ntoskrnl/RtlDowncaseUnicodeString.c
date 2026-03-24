@@ -1,13 +1,11 @@
 /*
- * XREFs of RtlDowncaseUnicodeString @ 0x1407BE7D0
+ * XREFs of RtlDowncaseUnicodeString @ 0x14067B500
  * Callers:
- *     DifRtlDowncaseUnicodeStringWrapper @ 0x1405EB460 (DifRtlDowncaseUnicodeStringWrapper.c)
- *     ExpKdPullRemoteFileForUser @ 0x14084FCC0 (ExpKdPullRemoteFileForUser.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095BA1C (ExpKdPullRemoteFileForUser.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     AllocateOrValidateUnicodeStringBuffer @ 0x140316B1C (AllocateOrValidateUnicodeStringBuffer.c)
- *     NLS_DOWNCASE @ 0x14034DDC8 (NLS_DOWNCASE.c)
- *     ExFreePool @ 0x140AAFCC0 (ExFreePool.c)
+ *     NLS_DOWNCASE @ 0x140309740 (NLS_DOWNCASE.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlDowncaseUnicodeString(
@@ -15,35 +13,35 @@ NTSTATUS __stdcall RtlDowncaseUnicodeString(
         PCUNICODE_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  __int64 v5; // rbx
-  __int64 v6; // r15
-  unsigned __int16 *v7; // rdx
-  char v8; // r10
-  NTSTATUS result; // eax
-  unsigned int v10; // r11d
+  SIZE_T Length; // rax
+  unsigned int v6; // ebx
+  unsigned int v7; // r10d
+  unsigned __int16 v8; // ax
+  __int64 v9; // r9
+  wchar_t *StringRoutine; // rax
 
-  v5 = 0LL;
-  if ( AllocateDestinationString || SourceString->Length )
+  Length = SourceString->Length;
+  v6 = 0;
+  if ( AllocateDestinationString )
   {
-    v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 155);
-    result = AllocateOrValidateUnicodeStringBuffer(
-               v8,
-               *v7,
-               (__int64 *)&DestinationString->Buffer,
-               &DestinationString->MaximumLength);
-    if ( result < 0 )
-      return result;
-    v10 = SourceString->Length >> 1;
-    while ( (unsigned int)v5 < v10 )
-    {
-      DestinationString->Buffer[v5] = NLS_DOWNCASE(v6, SourceString->Buffer[v5]);
-      v5 = (unsigned int)(v5 + 1);
-    }
-    DestinationString->Length = SourceString->Length;
+    DestinationString->MaximumLength = Length;
+    StringRoutine = (wchar_t *)ExpAllocateStringRoutine(Length);
+    DestinationString->Buffer = StringRoutine;
+    if ( !StringRoutine )
+      return -1073741801;
+    LOWORD(Length) = SourceString->Length;
   }
-  else
+  else if ( (unsigned __int16)Length > DestinationString->MaximumLength )
   {
-    DestinationString->Length = 0;
+    return -2147483643;
   }
+  v7 = (unsigned __int16)Length >> 1;
+  while ( v6 < v7 )
+  {
+    v8 = NLS_DOWNCASE(SourceString->Buffer[v6]);
+    DestinationString->Buffer[v9] = v8;
+    ++v6;
+  }
+  DestinationString->Length = SourceString->Length;
   return 0;
 }

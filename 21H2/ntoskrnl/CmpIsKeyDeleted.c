@@ -1,28 +1,33 @@
 /*
- * XREFs of CmpIsKeyDeleted @ 0x14071A6D4
+ * XREFs of CmpIsKeyDeleted @ 0x140670F30
  * Callers:
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406A52D4 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x14071A4E8 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpFindSubKeyByNumberEx @ 0x1407C3070 (CmpFindSubKeyByNumberEx.c)
- *     CmpVEExecuteOpenLogic @ 0x1407C64A0 (CmpVEExecuteOpenLogic.c)
- *     CmpSyncKcbCacheForHive @ 0x1409176B0 (CmpSyncKcbCacheForHive.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpVEExecuteOpenLogic @ 0x140654F90 (CmpVEExecuteOpenLogic.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x14066AA6C (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x14066FC00 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpSyncKcbCacheForHive @ 0x140870BD0 (CmpSyncKcbCacheForHive.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpIsKeyStackDeleted @ 0x140720F74 (CmpIsKeyStackDeleted.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1407C05F4 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpStartKcbStack @ 0x1406FB380 (CmpStartKcbStack.c)
+ *     CmpPopulateKcbStack @ 0x1406FB4F0 (CmpPopulateKcbStack.c)
+ *     CmpIsKeyStackDeleted @ 0x1406FB540 (CmpIsKeyStackDeleted.c)
  */
 
 char __fastcall CmpIsKeyDeleted(__int64 a1, __int64 a2)
 {
+  __int64 v3; // rdx
   char IsKeyStackDeleted; // bl
-  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v7; // [rsp+20h] [rbp-28h] BYREF
   PPRIVILEGE_SET Privileges[2]; // [rsp+30h] [rbp-18h]
 
-  v5 = 0LL;
-  WORD1(v5) = -1;
+  v3 = *(unsigned __int16 *)(a1 + 66);
+  v7 = 0LL;
+  WORD1(v7) = -1;
   *(_OWORD *)Privileges = 0LL;
-  CmpStartKcbStackForTopLayerKcb(&v5, a1);
-  IsKeyStackDeleted = CmpIsKeyStackDeleted(&v5, a2);
+  if ( (int)CmpStartKcbStack(&v7, v3) >= 0 )
+    CmpPopulateKcbStack(&v7, a1);
+  IsKeyStackDeleted = CmpIsKeyStackDeleted(&v7, a2);
   if ( Privileges[1] )
     CmSiFreeMemory(Privileges[1]);
   return IsKeyStackDeleted;

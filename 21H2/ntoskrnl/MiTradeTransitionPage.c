@@ -1,216 +1,212 @@
 /*
- * XREFs of MiTradeTransitionPage @ 0x1402E8240
+ * XREFs of MiTradeTransitionPage @ 0x14026B6E8
  * Callers:
- *     MiTradePage @ 0x140277580 (MiTradePage.c)
+ *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140268408 (MiReleaseFreshPage.c)
- *     MiIsPfnFromSlabAllocation @ 0x140277C50 (MiIsPfnFromSlabAllocation.c)
- *     MiCanPageMove @ 0x140277C9C (MiCanPageMove.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiReplaceTransitionPage @ 0x1402E7704 (MiReplaceTransitionPage.c)
- *     MiGetPfnChannel @ 0x1402E8990 (MiGetPfnChannel.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402E89B0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
+ *     MiCanPageMove @ 0x14026B990 (MiCanPageMove.c)
+ *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
+ *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiTradeTransitionPage(ULONG_PTR a1, unsigned __int8 a2, __int64 a3, int a4, int a5, __int64 *a6)
+__int64 __fastcall MiTradeTransitionPage(
+        ULONG_PTR BugCheckParameter2,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        int a5,
+        __int64 *a6)
 {
-  unsigned __int64 v6; // r14
-  unsigned __int64 v9; // r14
-  int v10; // r12d
+  unsigned __int64 v6; // rbp
+  __int64 v9; // r13
+  unsigned __int64 v10; // r15
+  int v11; // ebp
+  __int64 v12; // rdx
+  __int64 v13; // r8
   int PfnChannel; // eax
-  __int64 v12; // r8
-  unsigned int v13; // r12d
+  __int64 v15; // r8
+  unsigned int v16; // ebp
   __int64 Page; // rax
-  __int64 v15; // r13
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  unsigned __int64 v18; // r12
-  BOOL IsPfnFromSlabAllocation; // eax
-  int v20; // r8d
-  __int64 v21; // r14
-  unsigned int v23; // r14d
-  unsigned __int8 v24; // al
-  struct _KPRCB *v25; // r9
-  _DWORD *v26; // r8
-  int v27; // eax
-  bool v28; // zf
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r13
+  __int64 v21; // r12
+  unsigned __int64 v22; // rbp
+  int IsPfnFromSlabAllocation; // eax
+  __int64 v24; // rdx
+  unsigned int v25; // r8d
+  unsigned int v27; // r15d
+  unsigned __int8 v28; // al
+  struct _KPRCB *v29; // r9
+  _DWORD *v30; // r8
+  int v31; // eax
+  bool v32; // zf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v32; // eax
-  unsigned __int8 v33; // al
-  struct _KPRCB *v34; // r10
-  int v35; // edx
-  _DWORD *v36; // r9
+  int v36; // eax
   unsigned __int8 v37; // al
-  struct _KPRCB *v38; // r9
-  int v39; // eax
-  _DWORD *v40; // r8
-  __int64 v41; // [rsp+20h] [rbp-38h]
-  __int64 v42; // [rsp+60h] [rbp+8h]
+  struct _KPRCB *v38; // r10
+  int v39; // edx
+  _DWORD *v40; // r9
+  unsigned __int8 v41; // al
+  struct _KPRCB *v42; // r9
+  int v43; // eax
+  _DWORD *v44; // r8
+  __int64 v45; // [rsp+50h] [rbp+8h]
 
-  v6 = a2;
-  if ( *(_WORD *)(a1 + 32) )
+  v6 = (unsigned __int8)a2;
+  if ( *(_WORD *)(BugCheckParameter2 + 32) )
   {
-    ++dword_140C29DE8;
-    _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   else
   {
-    if ( MiCanPageMove(a1) )
+    if ( (unsigned int)MiCanPageMove(BugCheckParameter2, a2)
+      && !(unsigned int)MiIsPfnFromSlabAllocation(BugCheckParameter2) )
     {
-      if ( !MiIsPfnFromSlabAllocation(a1) )
+      v9 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL));
+      v45 = v9;
+      _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags )
       {
-        v42 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
-        _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          if ( (KiIrqlFlags & 1) != 0 )
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
           {
-            CurrentIrql = KeGetCurrentIrql();
-            if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
-            {
-              CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-              v28 = (v32 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v32;
-              if ( v28 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-            }
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+            v32 = (v36 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v36;
+            if ( v32 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
-        __writecr8(v6);
-        v9 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4);
-        if ( a4 == -1 )
-        {
-          v10 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4)) + 2);
-          PfnChannel = MiGetPfnChannel(a1);
-          v12 = (a5 & 0x1000000 | 0x8000u) >> 8;
-          v13 = (PfnChannel << byte_140C506CD) | dword_140C50738 & v9 | (v10 << byte_140C506CC);
-          if ( (a5 & 0x2000000) != 0 )
-            LODWORD(v12) = v12 | 0x20000;
-        }
-        else
-        {
-          v12 = 48LL;
-          v13 = dword_140C50738 & v9 | a4 & ~dword_140C50738;
-        }
-        Page = MiGetPage(v42, v13, v12);
-        v41 = Page;
-        if ( Page == -1 )
-        {
-          ++dword_140C29E14;
-          return 1LL;
-        }
-        v15 = 48 * Page - 0x220000000000LL;
-        v18 = (unsigned __int8)MiLockPageInline(a1);
-        if ( v15 == a1 )
-        {
-          v21 = -1LL;
-LABEL_20:
-          ++dword_140C29DA4;
-          *(_QWORD *)(a1 + 16) = ZeroPte;
-          MiSetOriginalPtePfnFromFreeList(a1 + 16, v16, v17);
-          _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
-          {
-            if ( (KiIrqlFlags & 1) != 0 )
-            {
-              v37 = KeGetCurrentIrql();
-              if ( v37 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v37 >= 2u )
-              {
-                v38 = KeGetCurrentPrcb();
-                v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-                v40 = v38->SchedulerAssist;
-                v28 = (v39 & v40[5]) == 0;
-                v40[5] &= v39;
-                if ( v28 )
-                  KiRemoveSystemWorkPriorityKick(v38);
-              }
-            }
-          }
-          __writecr8(v18);
-          if ( a6 )
-            *a6 = v21;
-          return 3LL;
-        }
-        if ( v9 > qword_140C50840
-          || (*(_QWORD *)(16 * ((__int64)(a1 + 0x220000000000LL) >> 4) - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0
-          || _bittest64((const signed __int64 *)(a1 + 40), 0x35u) )
-        {
-          v20 = 0;
-        }
-        else
-        {
-          IsPfnFromSlabAllocation = MiIsPfnFromSlabAllocation(a1);
-          v20 = 0;
-          if ( !IsPfnFromSlabAllocation
-            && !*(_WORD *)(a1 + 32)
-            && *(char *)(a1 + 35) >= 0
-            && v42 == *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL))
-            && MiCanPageMove(a1) )
-          {
-            if ( (unsigned __int8)((*(_BYTE *)(a1 + 34) & 7) - 2) <= 2u )
-            {
-              MiReplaceTransitionPage(a1, v15, v20, a3);
-              v21 = v41;
-              goto LABEL_20;
-            }
-            v23 = 2;
-            goto LABEL_28;
-          }
-        }
-        v23 = v20;
-LABEL_28:
-        ++dword_140C29DE8;
-        _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
-        {
-          if ( (KiIrqlFlags & 1) != 0 )
-          {
-            v33 = KeGetCurrentIrql();
-            if ( v33 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v33 >= 2u )
-            {
-              v34 = KeGetCurrentPrcb();
-              v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-              v36 = v34->SchedulerAssist;
-              v28 = (v35 & v36[5]) == 0;
-              v36[5] &= v35;
-              if ( v28 )
-                KiRemoveSystemWorkPriorityKick(v34);
-            }
-          }
-        }
-        __writecr8(v18);
-        MiReleaseFreshPage(v15);
-        return v23;
       }
-      ++dword_140C29DF0;
+      __writecr8(v6);
+      v10 = (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48;
+      if ( a4 == -1 )
+      {
+        v11 = *(_DWORD *)(MiSearchNumaNodeTable((__int64)(BugCheckParameter2 + 0x58000000000LL) / 48) + 8);
+        PfnChannel = MiGetPfnChannel(BugCheckParameter2, v12, v13);
+        v15 = 128LL;
+        v16 = (PfnChannel << byte_140C4DE8D) | dword_140C4DEF8 & v10 | (v11 << byte_140C4DE8C);
+        if ( (a5 & 0x3000000) != 0 )
+          v15 = 65664LL;
+      }
+      else
+      {
+        v15 = 48LL;
+        v16 = dword_140C4DEF8 & v10 | a4 & ~dword_140C4DEF8;
+      }
+      Page = MiGetPage(v9, v16, v15);
+      v20 = Page;
+      if ( Page == -1 )
+        return 1LL;
+      v21 = 48 * Page - 0x58000000000LL;
+      v22 = (unsigned __int8)MiLockPageInline(BugCheckParameter2, v18, v19);
+      if ( v21 == BugCheckParameter2 )
+      {
+        v20 = -1LL;
+LABEL_19:
+        *(_QWORD *)(BugCheckParameter2 + 16) = ZeroPte;
+        MiSetOriginalPtePfnFromFreeList(BugCheckParameter2 + 16);
+        _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v41 = KeGetCurrentIrql();
+            if ( v41 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v41 >= 2u )
+            {
+              v42 = KeGetCurrentPrcb();
+              v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v22 + 1));
+              v44 = v42->SchedulerAssist;
+              v32 = (v43 & v44[5]) == 0;
+              v44[5] &= v43;
+              if ( v32 )
+                KiRemoveSystemWorkPriorityKick(v42);
+            }
+          }
+        }
+        __writecr8(v22);
+        if ( a6 )
+          *a6 = v20;
+        return 3LL;
+      }
+      if ( v10 > 0xFFFFFFFFFLL
+        || (*(_QWORD *)(48 * v10 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) == 0
+        || MiIsPfnFileOnly(BugCheckParameter2) )
+      {
+        v25 = 0;
+      }
+      else
+      {
+        IsPfnFromSlabAllocation = MiIsPfnFromSlabAllocation(BugCheckParameter2);
+        v25 = 0;
+        if ( !IsPfnFromSlabAllocation
+          && !*(_WORD *)(BugCheckParameter2 + 32)
+          && v45 == *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL))
+          && (unsigned int)MiCanPageMove(BugCheckParameter2, v24) )
+        {
+          if ( (unsigned __int8)((*(_BYTE *)(BugCheckParameter2 + 34) & 7) - 2) <= 2u )
+          {
+            MiReplaceTransitionPage(BugCheckParameter2);
+            goto LABEL_19;
+          }
+          v27 = 2;
+          goto LABEL_24;
+        }
+      }
+      v27 = v25;
+LABEL_24:
+      _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v37 = KeGetCurrentIrql();
+          if ( v37 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v37 >= 2u )
+          {
+            v38 = KeGetCurrentPrcb();
+            v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v22 + 1));
+            v40 = v38->SchedulerAssist;
+            v32 = (v39 & v40[5]) == 0;
+            v40[5] &= v39;
+            if ( v32 )
+              KiRemoveSystemWorkPriorityKick(v38);
+          }
+        }
+      }
+      __writecr8(v22);
+      MiReleaseFreshPage(v21);
+      return v27;
     }
-    else
-    {
-      ++dword_140C29DEC;
-    }
-    _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v24 = KeGetCurrentIrql();
-      if ( v24 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v24 >= 2u )
+      v28 = KeGetCurrentIrql();
+      if ( v28 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v28 >= 2u )
       {
-        v25 = KeGetCurrentPrcb();
-        v26 = v25->SchedulerAssist;
-        v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-        v28 = (v27 & v26[5]) == 0;
-        v26[5] &= v27;
-        if ( v28 )
-          KiRemoveSystemWorkPriorityKick(v25);
+        v29 = KeGetCurrentPrcb();
+        v30 = v29->SchedulerAssist;
+        v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v32 = (v31 & v30[5]) == 0;
+        v30[5] &= v31;
+        if ( v32 )
+          KiRemoveSystemWorkPriorityKick(v29);
       }
     }
   }

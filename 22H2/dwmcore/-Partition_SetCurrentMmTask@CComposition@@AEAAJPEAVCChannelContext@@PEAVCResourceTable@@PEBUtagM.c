@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Partition_SetCurrentMmTask@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SETCURRENTMMTASK@@@Z @ 0x1800CE0C8
+ * XREFs of ?Partition_SetCurrentMmTask@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SETCURRENTMMTASK@@@Z @ 0x180030580
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdateMmcssPartners@CComposition@@QEAAJXZ @ 0x1800CE32C (-UpdateMmcssPartners@CComposition@@QEAAJXZ.c)
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CE480 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?UpdateMmcssPartners@CComposition@@QEAAJXZ @ 0x180030650 (-UpdateMmcssPartners@CComposition@@QEAAJXZ.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030920 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CComposition::Partition_SetCurrentMmTask(
@@ -23,7 +23,7 @@ __int64 __fastcall CComposition::Partition_SetCurrentMmTask(
   __int128 v10; // xmm0
   __int128 v11; // xmm1
   int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   unsigned int v14; // ebx
   _OWORD v16[9]; // [rsp+30h] [rbp-A8h] BYREF
 
@@ -43,10 +43,10 @@ __int64 __fastcall CComposition::Partition_SetCurrentMmTask(
   v16[6] = v10;
   v16[7] = *(_OWORD *)((char *)a4 + 120);
   v16[8] = v11;
-  v12 = CMmcssTask::Set((CComposition *)((char *)this + 336), (const struct DWM_MMTASK *)v16, 1);
+  v12 = CMmcssTask::Set((CComposition *)((char *)this + 184), (const struct DWM_MMTASK *)v16, 1);
   v14 = v12;
   if ( v12 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x4B6u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x428u, 0LL);
   else
     CComposition::UpdateMmcssPartners(this);
   return v14;

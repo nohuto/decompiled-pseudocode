@@ -1,1 +1,112 @@
-/*\n * XREFs of KeyboardClassGetWaitWakeEnableState @ 0x1C000D0E0\n * Callers:\n *     KeyboardStart @ 0x1C00023C0 (KeyboardStart.c)\n * Callees:\n *     __security_check_cookie @ 0x1C0002D20 (__security_check_cookie.c)\n *     memmove @ 0x1C0002E00 (memmove.c)\n *     memset @ 0x1C0003140 (memset.c)\n */\n\nchar __fastcall KeyboardClassGetWaitWakeEnableState(__int64 a1)\n{\n  struct _DEVICE_OBJECT *v2; // rcx\n  char v3; // r14\n  int v4; // r15d\n  NTSTATUS v5; // eax\n  void *v6; // rsi\n  unsigned int *PoolWithTag; // rdi\n  NTSTATUS v8; // esi\n  ULONGLONG v9; // rax\n  int v10; // edi\n  unsigned int v11; // eax\n  ULONG Length; // [rsp+30h] [rbp-D0h] BYREF\n  int v14; // [rsp+34h] [rbp-CCh] BYREF\n  void *DeviceRegKey; // [rsp+38h] [rbp-C8h] BYREF\n  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF\n  _QWORD OutputBuffer[9]; // [rsp+50h] [rbp-B0h] BYREF\n  int v18; // [rsp+98h] [rbp-68h]\n  _OSVERSIONINFOEXW VersionInfo; // [rsp+A0h] [rbp-60h] BYREF\n\n  DeviceRegKey = 0LL;\n  v2 = *(struct _DEVICE_OBJECT **)(a1 + 24);\n  v3 = 0;\n  v14 = 0;\n  v4 = 0;\n  v5 = IoOpenDeviceRegistryKey(v2, 1u, 0x1F0000u, &DeviceRegKey);\n  if ( v5 < 0 )\n    goto LABEL_26;\n  v6 = DeviceRegKey;\n  RtlInitUnicodeString(&DestinationString, L"WaitWakeEnabled");\n  if ( (unsigned int)DestinationString.MaximumLength + 28 >= (unsigned int)DestinationString.MaximumLength + 24 )\n  {\n    Length = DestinationString.MaximumLength + 28;\n    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, Length, 0x4364624Bu);\n    if ( PoolWithTag )\n    {\n      v8 = ZwQueryValueKey(v6, &DestinationString, KeyValueFullInformation, PoolWithTag, Length, &Length);\n      if ( v8 >= 0 )\n      {\n        v11 = PoolWithTag[3];\n        if ( v11 > 4 )\n        {\n          v8 = -1073741789;\n        }\n        else\n        {\n          memmove(&v14, (char *)PoolWithTag + PoolWithTag[2], v11);\n          v4 = v14;\n        }\n      }\n      ExFreePoolWithTag(PoolWithTag, 0);\n    }\n    else\n    {\n      v8 = -1073741801;\n    }\n    if ( v8 >= 0 )\n    {\n      v3 = 1;\n      *(_BYTE *)(a1 + 362) = v4 != 0;\n    }\n  }\n  LOBYTE(v5) = ZwClose(DeviceRegKey);\n  DeviceRegKey = 0LL;\n  if ( !v3 )\n  {\nLABEL_26:\n    if ( !*(_BYTE *)(a1 + 362) )\n    {\n      memset(&VersionInfo, 0, sizeof(VersionInfo));\n      VersionInfo.dwOSVersionInfoSize = 284;\n      VersionInfo.wProductType = 1;\n      v9 = VerSetConditionMask(0LL, 0x80u, 1u);\n      v5 = RtlVerifyVersionInfo(&VersionInfo, 0x80u, v9);\n      if ( v5 >= 0 )\n      {\n        v10 = 4;\n        memset(OutputBuffer, 0, sizeof(OutputBuffer));\n        v18 = 0;\n        v5 = ZwPowerInformation(SystemPowerCapabilities, 0LL, 0, OutputBuffer, 0x4Cu);\n        if ( v5 >= 0 )\n        {\n          if ( !BYTE5(OutputBuffer[0]) )\n          {\n            if ( BYTE4(OutputBuffer[0]) )\n            {\n              v10 = 3;\n            }\n            else\n            {\n              LOBYTE(v5) = -BYTE3(OutputBuffer[0]);\n              v10 = BYTE3(OutputBuffer[0]) != 0 ? 2 : 0;\n            }\n          }\n          if ( *(_DWORD *)(a1 + 288) >= v10 )\n            *(_BYTE *)(a1 + 362) = 1;\n        }\n      }\n    }\n  }\n  return v5;\n}\n
+/*
+ * XREFs of KeyboardClassGetWaitWakeEnableState @ 0x1C000D0E0
+ * Callers:
+ *     KeyboardStart @ 0x1C00023C0 (KeyboardStart.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0002D20 (__security_check_cookie.c)
+ *     memmove @ 0x1C0002E00 (memmove.c)
+ *     memset @ 0x1C0003140 (memset.c)
+ */
+
+char __fastcall KeyboardClassGetWaitWakeEnableState(__int64 a1)
+{
+  struct _DEVICE_OBJECT *v2; // rcx
+  char v3; // r14
+  int v4; // r15d
+  NTSTATUS v5; // eax
+  void *v6; // rsi
+  unsigned int *PoolWithTag; // rdi
+  NTSTATUS v8; // esi
+  ULONGLONG v9; // rax
+  int v10; // edi
+  unsigned int v11; // eax
+  ULONG Length; // [rsp+30h] [rbp-D0h] BYREF
+  int v14; // [rsp+34h] [rbp-CCh] BYREF
+  void *DeviceRegKey; // [rsp+38h] [rbp-C8h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD OutputBuffer[9]; // [rsp+50h] [rbp-B0h] BYREF
+  int v18; // [rsp+98h] [rbp-68h]
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+A0h] [rbp-60h] BYREF
+
+  DeviceRegKey = 0LL;
+  v2 = *(struct _DEVICE_OBJECT **)(a1 + 24);
+  v3 = 0;
+  v14 = 0;
+  v4 = 0;
+  v5 = IoOpenDeviceRegistryKey(v2, 1u, 0x1F0000u, &DeviceRegKey);
+  if ( v5 < 0 )
+    goto LABEL_26;
+  v6 = DeviceRegKey;
+  RtlInitUnicodeString(&DestinationString, L"WaitWakeEnabled");
+  if ( (unsigned int)DestinationString.MaximumLength + 28 >= (unsigned int)DestinationString.MaximumLength + 24 )
+  {
+    Length = DestinationString.MaximumLength + 28;
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, Length, 0x4364624Bu);
+    if ( PoolWithTag )
+    {
+      v8 = ZwQueryValueKey(v6, &DestinationString, KeyValueFullInformation, PoolWithTag, Length, &Length);
+      if ( v8 >= 0 )
+      {
+        v11 = PoolWithTag[3];
+        if ( v11 > 4 )
+        {
+          v8 = -1073741789;
+        }
+        else
+        {
+          memmove(&v14, (char *)PoolWithTag + PoolWithTag[2], v11);
+          v4 = v14;
+        }
+      }
+      ExFreePoolWithTag(PoolWithTag, 0);
+    }
+    else
+    {
+      v8 = -1073741801;
+    }
+    if ( v8 >= 0 )
+    {
+      v3 = 1;
+      *(_BYTE *)(a1 + 362) = v4 != 0;
+    }
+  }
+  LOBYTE(v5) = ZwClose(DeviceRegKey);
+  DeviceRegKey = 0LL;
+  if ( !v3 )
+  {
+LABEL_26:
+    if ( !*(_BYTE *)(a1 + 362) )
+    {
+      memset(&VersionInfo, 0, sizeof(VersionInfo));
+      VersionInfo.dwOSVersionInfoSize = 284;
+      VersionInfo.wProductType = 1;
+      v9 = VerSetConditionMask(0LL, 0x80u, 1u);
+      v5 = RtlVerifyVersionInfo(&VersionInfo, 0x80u, v9);
+      if ( v5 >= 0 )
+      {
+        v10 = 4;
+        memset(OutputBuffer, 0, sizeof(OutputBuffer));
+        v18 = 0;
+        v5 = ZwPowerInformation(SystemPowerCapabilities, 0LL, 0, OutputBuffer, 0x4Cu);
+        if ( v5 >= 0 )
+        {
+          if ( !BYTE5(OutputBuffer[0]) )
+          {
+            if ( BYTE4(OutputBuffer[0]) )
+            {
+              v10 = 3;
+            }
+            else
+            {
+              LOBYTE(v5) = -BYTE3(OutputBuffer[0]);
+              v10 = BYTE3(OutputBuffer[0]) != 0 ? 2 : 0;
+            }
+          }
+          if ( *(_DWORD *)(a1 + 288) >= v10 )
+            *(_BYTE *)(a1 + 362) = 1;
+        }
+      }
+    }
+  }
+  return v5;
+}

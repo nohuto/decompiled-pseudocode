@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UpdateAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@K@Z @ 0x1C00DA65C
+ * XREFs of ?UpdateAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@K@Z @ 0x1C00B4A00
  * Callers:
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0093DF0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006BD00 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00039B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003A80 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?IsHighPriorityProcess@DXGPROCESS@@QEBA_NXZ @ 0x1C0014CF0 (-IsHighPriorityProcess@DXGPROCESS@@QEBA_NXZ.c)
- *     ?RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C009D21C (-RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z.c)
- *     ?GetPriorityClass@VIDMM_SEGMENT@@SA?AW4_VIDMM_ALLOCATION_PRIORITY_CLASS@@K@Z @ 0x1C00A5584 (-GetPriorityClass@VIDMM_SEGMENT@@SA-AW4_VIDMM_ALLOCATION_PRIORITY_CLASS@@K@Z.c)
- *     ?CanBePromoted@VIDMM_PROCESS_BUDGET_STATE@@QEAA_NXZ @ 0x1C00DF780 (-CanBePromoted@VIDMM_PROCESS_BUDGET_STATE@@QEAA_NXZ.c)
- *     ?AddToPromotionCandidateList@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_PROCESS_BUDGET_STATE@@_N@Z @ 0x1C00EDBFC (-AddToPromotionCandidateList@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_PROCESS_BUDGET_STATE@@_N@Z.c)
+ *     ?IsHighPriorityProcess@DXGPROCESS@@QEBA_NXZ @ 0x1C0001040 (-IsHighPriorityProcess@DXGPROCESS@@QEBA_NXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006030 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00060DC (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0082E58 (-RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?GetPriorityClass@VIDMM_SEGMENT@@SA?AW4_VIDMM_ALLOCATION_PRIORITY_CLASS@@K@Z @ 0x1C0089DEC (-GetPriorityClass@VIDMM_SEGMENT@@SA-AW4_VIDMM_ALLOCATION_PRIORITY_CLASS@@K@Z.c)
+ *     ?CanBePromoted@VIDMM_PROCESS_BUDGET_STATE@@QEAA_NXZ @ 0x1C00B9F24 (-CanBePromoted@VIDMM_PROCESS_BUDGET_STATE@@QEAA_NXZ.c)
+ *     ?AddToPromotionCandidateList@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_PROCESS_BUDGET_STATE@@_N@Z @ 0x1C00CA820 (-AddToPromotionCandidateList@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_PROCESS_BUDGET_STATE@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::UpdateAllocationPriority(VIDMM_GLOBAL *this, __int64 **a2, int a3)
@@ -21,65 +21,66 @@ void __fastcall VIDMM_GLOBAL::UpdateAllocationPriority(VIDMM_GLOBAL *this, __int
   unsigned int v8; // r8d
   int v9; // eax
   __int64 v10; // rbp
-  _QWORD *v11; // r10
-  __int64 v12; // r12
-  _QWORD *v13; // rsi
-  _QWORD **v14; // rsi
-  _QWORD *v15; // r11
-  _DWORD *v16; // rcx
-  VIDMM_PROCESS_BUDGET_STATE *v17; // rcx
-  __int64 v18; // r9
+  __int64 v11; // rdx
+  _QWORD *v12; // r10
+  __int64 v13; // r15
+  _QWORD *v14; // rsi
+  _QWORD **v15; // rsi
+  _QWORD *v16; // r11
+  _DWORD *v17; // rcx
+  VIDMM_PROCESS_BUDGET_STATE *v18; // rcx
+  __int64 v19; // r9
   char IsHighPriorityProcess; // al
-  struct VIDMM_PROCESS_BUDGET_STATE *v20; // r8
+  struct VIDMM_PROCESS_BUDGET_STATE *v21; // r8
 
   v4 = **a2;
-  v5 = *(_DWORD *)(v4 + 112) == 2;
-  v6 = *(_DWORD *)(v4 + 392);
-  *(_DWORD *)(v4 + 392) = a3;
-  if ( v5 && (*(_DWORD *)(*(_QWORD *)(v4 + 120) + 80LL) & 0x1001) != 0 && (*(_DWORD *)(v4 + 68) & 0x400) == 0 )
+  v5 = *(_DWORD *)(v4 + 120) == 2;
+  v6 = *(_DWORD *)(v4 + 384);
+  *(_DWORD *)(v4 + 384) = a3;
+  if ( v5 && (*(_DWORD *)(*(_QWORD *)(v4 + 128) + 80LL) & 0x1001) != 0 && (*(_DWORD *)(v4 + 76) & 0x400) == 0 )
   {
     PriorityClass = (int)VIDMM_SEGMENT::GetPriorityClass(v6);
     v9 = VIDMM_SEGMENT::GetPriorityClass(v8);
     v10 = v9;
     if ( (_DWORD)PriorityClass != v9 )
     {
-      DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v4 + 296));
-      v11 = *(_QWORD **)(v4 + 272);
-      if ( v11 != (_QWORD *)(v4 + 272) )
+      DXGFASTMUTEX::Acquire(*(DXGFASTMUTEX **)(v4 + 312));
+      v12 = *(_QWORD **)(v4 + 288);
+      if ( v12 != (_QWORD *)(v4 + 288) )
       {
-        v12 = PriorityClass;
+        v13 = PriorityClass;
         do
         {
-          v13 = v11;
-          v11 = (_QWORD *)*v11;
-          v14 = (_QWORD **)(v13 - 2);
-          v15 = *v14;
-          while ( v15 != v14 )
+          v14 = v12;
+          v12 = (_QWORD *)*v12;
+          v15 = (_QWORD **)(v14 - 2);
+          v16 = *v15;
+          while ( v16 != v15 )
           {
-            v16 = v15 - 5;
-            v15 = (_QWORD *)*v15;
-            if ( (v16[7] & 3) == 2 )
+            v17 = v16 - 5;
+            v16 = (_QWORD *)*v16;
+            if ( (v17[7] & 3) == 2 )
             {
-              v17 = (VIDMM_PROCESS_BUDGET_STATE *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v16 + 8LL)
+              v18 = (VIDMM_PROCESS_BUDGET_STATE *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v17 + 8LL)
                                                                                      + 16LL)
                                                                          + 8LL
                                                                          * *(unsigned int *)(*((_QWORD *)this + 3)
-                                                                                           + 240LL))
+                                                                                           + 232LL))
                                                              + 48LL)
-                                                 + 296LL * (*(_DWORD *)(v4 + 68) & 0x3F));
-              *((_QWORD *)v17 + v12 + 32) -= *(_QWORD *)(v4 + 16);
-              *((_QWORD *)v17 + v10 + 32) += *(_QWORD *)(v4 + 16);
-              if ( VIDMM_PROCESS_BUDGET_STATE::CanBePromoted(v17) )
+                                                 + 296LL * (*(_DWORD *)(v4 + 76) & 0x3F));
+              *((_QWORD *)v18 + v13 + 32) -= *(_QWORD *)(v4 + 16);
+              *((_QWORD *)v18 + v10 + 32) += *(_QWORD *)(v4 + 16);
+              if ( VIDMM_PROCESS_BUDGET_STATE::CanBePromoted(v18) )
               {
-                IsHighPriorityProcess = DXGPROCESS::IsHighPriorityProcess(*(DXGPROCESS **)(v18 + 32));
-                VIDMM_GLOBAL::AddToPromotionCandidateList(this, *(_DWORD *)(v4 + 68) & 0x3F, v20, IsHighPriorityProcess);
+                IsHighPriorityProcess = DXGPROCESS::IsHighPriorityProcess(*(DXGPROCESS **)(v19 + 32));
+                VIDMM_GLOBAL::AddToPromotionCandidateList(this, *(_DWORD *)(v4 + 76) & 0x3F, v21, IsHighPriorityProcess);
               }
             }
           }
         }
-        while ( v11 != (_QWORD *)(v4 + 272) );
+        while ( v12 != (_QWORD *)(v4 + 288) );
       }
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v4 + 296));
+      DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v4 + 312), v11);
       VIDMM_GLOBAL::RequestNewBudget(this, 1);
     }
   }

@@ -6,11 +6,11 @@
  *     NtImpersonateAnonymousToken @ 0x1405B9710 (NtImpersonateAnonymousToken.c)
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
  *     AlpcpImpersonateMessage @ 0x1406378A0 (AlpcpImpersonateMessage.c)
- *     EtwpCreateLogFile @ 0x140699B1C (EtwpCreateLogFile.c)
- *     SeImpersonateClientEx @ 0x14069AF40 (SeImpersonateClientEx.c)
- *     PsAssignImpersonationToken @ 0x1406F6FF0 (PsAssignImpersonationToken.c)
- *     PsRevertThreadToSelf @ 0x140889320 (PsRevertThreadToSelf.c)
- *     PsRevertToSelf @ 0x140889350 (PsRevertToSelf.c)
+ *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
+ *     SeImpersonateClientEx @ 0x14069AF20 (SeImpersonateClientEx.c)
+ *     PsAssignImpersonationToken @ 0x1406F6FD0 (PsAssignImpersonationToken.c)
+ *     PsRevertThreadToSelf @ 0x140889300 (PsRevertThreadToSelf.c)
+ *     PsRevertToSelf @ 0x140889330 (PsRevertToSelf.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
@@ -24,11 +24,11 @@
  *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SeSetTokenTrustLink @ 0x140126F60 (SeSetTokenTrustLink.c)
- *     SeQueryTokenTrustSid @ 0x140131498 (SeQueryTokenTrustSid.c)
+ *     SeSetTokenTrustLink @ 0x140126F80 (SeSetTokenTrustLink.c)
+ *     SeQueryTokenTrustSid @ 0x1401314B8 (SeQueryTokenTrustSid.c)
  *     PspWriteTebImpersonationInfo @ 0x140637F50 (PspWriteTebImpersonationInfo.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SeCopyClientToken @ 0x140649E94 (SeCopyClientToken.c)
+ *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
  */
 
 NTSTATUS __stdcall PsImpersonateClient(

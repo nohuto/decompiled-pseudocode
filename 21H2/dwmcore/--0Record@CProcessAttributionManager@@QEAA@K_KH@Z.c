@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x180064DA4
+ * XREFs of ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x180033F80
  * Callers:
- *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180061EA8 (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
+ *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180035B6C (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 CProcessAttributionManager::Record *__fastcall CProcessAttributionManager::Record::Record(

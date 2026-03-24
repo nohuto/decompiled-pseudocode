@@ -1,10 +1,9 @@
 /*
- * XREFs of PsGetVersion @ 0x14025B4D0
+ * XREFs of PsGetVersion @ 0x14037FAA0
  * Callers:
- *     DifPsGetVersionWrapper @ 0x14061A610 (DifPsGetVersionWrapper.c)
- *     Win7PsGetVersion @ 0x140965830 (Win7PsGetVersion.c)
- *     Win81PsGetVersion @ 0x140965910 (Win81PsGetVersion.c)
- *     Win8PsGetVersion @ 0x1409659F0 (Win8PsGetVersion.c)
+ *     Win7PsGetVersion @ 0x1408C1840 (Win7PsGetVersion.c)
+ *     Win81PsGetVersion @ 0x1408C1920 (Win81PsGetVersion.c)
+ *     Win8PsGetVersion @ 0x1408C1A00 (Win8PsGetVersion.c)
  * Callees:
  *     <none>
  */

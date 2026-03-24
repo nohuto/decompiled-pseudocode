@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x140389CB0
+ * XREFs of ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x140382100
  * Callers:
- *     TlgAggregateFlush @ 0x1406527A8 (TlgAggregateFlush.c)
+ *     TlgAggregateFlush @ 0x1405C9440 (TlgAggregateFlush.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     EnableFlushTimer @ 0x1403A72E4 (EnableFlushTimer.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     EnableFlushTimer @ 0x140376764 (EnableFlushTimer.c)
  */
 
 void __fastcall TlgAggregateInternalFlushTimerCallbackKernelMode(struct _EX_TIMER *a1, volatile signed __int16 *a2)
@@ -15,7 +15,7 @@ void __fastcall TlgAggregateInternalFlushTimerCallbackKernelMode(struct _EX_TIME
   if ( v2 )
   {
     if ( v2 == 1 )
-      EnableFlushTimer(a1, 15000LL);
+      EnableFlushTimer((ULONG_PTR)a1, 0x3A98u);
   }
   else
   {

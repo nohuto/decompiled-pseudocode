@@ -3,11 +3,11 @@
  * Callers:
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
  *     PsQueryStatisticsProcess @ 0x1405FE700 (PsQueryStatisticsProcess.c)
- *     NtQueryInformationThread @ 0x14064A580 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiGetThreadReadyTime @ 0x1401B4970 (KiGetThreadReadyTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiGetThreadReadyTime @ 0x1401B4990 (KiGetThreadReadyTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryValuesThread(__int64 a1, __int64 a2, __int64 a3)

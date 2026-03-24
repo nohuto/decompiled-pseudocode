@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAuditEnumerateRsdts @ 0x140AF8ED0
+ * XREFs of HalpAuditEnumerateRsdts @ 0x140A65638
  * Callers:
- *     HalpAuditAcpiTables @ 0x140AF8BF8 (HalpAuditAcpiTables.c)
+ *     HalpAuditAcpiTables @ 0x140A65350 (HalpAuditAcpiTables.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     HalpAuditEnumerateRsdtsInRange @ 0x140AF8F6C (HalpAuditEnumerateRsdtsInRange.c)
- *     HalpAuditGetExtendedBiosDataArea @ 0x140AF910C (HalpAuditGetExtendedBiosDataArea.c)
- *     HalpAuditAllocateRsdtArrayTable @ 0x140AF917C (HalpAuditAllocateRsdtArrayTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140A656CC (HalpAuditEnumerateRsdtsInRange.c)
+ *     HalpAuditGetExtendedBiosDataArea @ 0x140A6586C (HalpAuditGetExtendedBiosDataArea.c)
+ *     HalpAuditAllocateRsdtArrayTable @ 0x140A658DC (HalpAuditAllocateRsdtArrayTable.c)
  */
 
 __int64 __fastcall HalpAuditEnumerateRsdts(__int64 a1, PVOID *a2)
@@ -24,10 +24,15 @@ __int64 __fastcall HalpAuditEnumerateRsdts(__int64 a1, PVOID *a2)
   v7 = 0;
   P = 0LL;
   v4 = HalpAuditAllocateRsdtArrayTable(&P);
-  if ( v4 < 0
-    || (int)HalpAuditGetExtendedBiosDataArea(v3, &v10, &v7) >= 0
-    && (LOBYTE(v5) = 1, v4 = HalpAuditEnumerateRsdtsInRange(v10, v7, v5, &P), v4 < 0)
-    || (v4 = HalpAuditEnumerateRsdtsInRange(917504LL, 0x20000LL, 0LL, &P), v4 < 0) )
+  if ( v4 >= 0 )
+  {
+    if ( (int)HalpAuditGetExtendedBiosDataArea(v3, &v10, &v7) < 0
+      || (LOBYTE(v5) = 1, v4 = HalpAuditEnumerateRsdtsInRange(v10, v7, v5, &P), v4 >= 0) )
+    {
+      v4 = HalpAuditEnumerateRsdtsInRange(917504LL, 0x20000LL, 0LL, &P);
+    }
+  }
+  if ( v4 < 0 )
   {
     if ( P )
       ExFreePoolWithTag(P, 0);

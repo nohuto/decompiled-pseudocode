@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021E160
+ * XREFs of ?SetIntegerProperty@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD530
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0098400 (-SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@.c)
+ *     ?SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E5030 (-SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@.c)
  */
 
 __int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetIntegerProperty(
@@ -18,35 +18,35 @@ __int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetIntege
   v5 = 0;
   switch ( a3 )
   {
-    case '8':
-      if ( *((_DWORD *)this + 99) == (_DWORD)a4 )
+    case '7':
+      if ( *((_DWORD *)this + 97) == a4 )
         return v5;
-      *((_DWORD *)this + 137) |= 0x20u;
-      *((_DWORD *)this + 99) = a4;
+      *((_DWORD *)this + 136) |= 0x20u;
+      *((_DWORD *)this + 97) = a4;
       goto LABEL_17;
-    case ';':
-      if ( *((_DWORD *)this + 104) == (_DWORD)a4 )
+    case ':':
+      if ( *((_DWORD *)this + 102) == a4 )
         return v5;
-      *((_DWORD *)this + 137) |= 0x100u;
-      *((_DWORD *)this + 104) = a4;
+      *((_DWORD *)this + 136) |= 0x100u;
+      *((_DWORD *)this + 102) = a4;
       goto LABEL_17;
-    case 'B':
-      if ( *((_DWORD *)this + 112) == (_DWORD)a4 )
+    case 'A':
+      if ( *((_DWORD *)this + 110) == a4 )
         return v5;
-      *((_DWORD *)this + 137) |= 0x8000u;
-      *((_DWORD *)this + 112) = a4;
+      *((_DWORD *)this + 136) |= 0x8000u;
+      *((_DWORD *)this + 110) = a4;
       goto LABEL_17;
-    case 'G':
-      if ( *((_DWORD *)this + 121) == (_DWORD)a4 )
+    case 'F':
+      if ( *((_DWORD *)this + 119) == a4 )
         return v5;
-      *((_DWORD *)this + 137) |= 0x100000u;
-      *((_DWORD *)this + 121) = a4;
+      *((_DWORD *)this + 136) |= 0x100000u;
+      *((_DWORD *)this + 119) = a4;
       goto LABEL_17;
-    case 'L':
-      if ( *((_BYTE *)this + 544) == ((_DWORD)a4 != 0) )
+    case 'K':
+      if ( *((_BYTE *)this + 540) == ((_DWORD)a4 != 0) )
         return v5;
-      *((_DWORD *)this + 137) |= 0x2000000u;
-      *((_BYTE *)this + 544) = (_DWORD)a4 != 0;
+      *((_DWORD *)this + 136) |= 0x2000000u;
+      *((_BYTE *)this + 540) = (_DWORD)a4 != 0;
 LABEL_17:
       *a5 = 1;
       return v5;

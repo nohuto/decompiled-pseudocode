@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C00C5820
+ * XREFs of ?StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C00B7580
  * Callers:
  *     <none>
  * Callees:
- *     bDeleteSurface @ 0x1C0019110 (bDeleteSurface.c)
+ *     bDeleteSurface @ 0x1C001BA00 (bDeleteSurface.c)
  */
 
 void __fastcall StubDispDisableSurface(struct DHPDEV__ *a1)

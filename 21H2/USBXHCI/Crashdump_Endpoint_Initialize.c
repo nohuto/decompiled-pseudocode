@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_Endpoint_Initialize @ 0x1C004CEC4
+ * XREFs of Crashdump_Endpoint_Initialize @ 0x1C004C444
  * Callers:
- *     Crashdump_InitializeDeviceContext @ 0x1C004A540 (Crashdump_InitializeDeviceContext.c)
+ *     Crashdump_InitializeDeviceContext @ 0x1C0049A70 (Crashdump_InitializeDeviceContext.c)
  * Callees:
- *     Crashdump_CommonBufferAcquire @ 0x1C0049F6C (Crashdump_CommonBufferAcquire.c)
+ *     Crashdump_CommonBufferAcquire @ 0x1C00494AC (Crashdump_CommonBufferAcquire.c)
  */
 
 __int64 __fastcall Crashdump_Endpoint_Initialize(
@@ -24,20 +24,20 @@ __int64 __fastcall Crashdump_Endpoint_Initialize(
   __int64 v14; // rcx
 
   *(_DWORD *)(a1 + 160) = 0;
-  *(_QWORD *)a1 = a2;
-  *(_QWORD *)(a1 + 8) = a2;
   *(_QWORD *)(a1 + 16) = a2 + 328;
   *(_QWORD *)(a1 + 24) = a3;
+  *(_QWORD *)a1 = a2;
+  *(_QWORD *)(a1 + 8) = a2;
   *(_DWORD *)(a1 + 32) = a4;
   *(_QWORD *)(a1 + 168) = 1LL;
   v8 = (unsigned int)(a4 - 1) + 1LL;
-  if ( (*(_DWORD *)(*(_QWORD *)a2 + 100LL) & 4) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)a2 + 104LL) & 4) != 0 )
     v9 = v8 << 6;
   else
     v9 = 32 * v8;
   *(_QWORD *)(a1 + 40) = a7 + v9;
   v10 = (unsigned int)(a4 - 1) + 1LL;
-  if ( (*(_DWORD *)(*(_QWORD *)a2 + 100LL) & 4) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)a2 + 104LL) & 4) != 0 )
     v11 = v10 << 6;
   else
     v11 = 32 * v10;
@@ -47,7 +47,7 @@ __int64 __fastcall Crashdump_Endpoint_Initialize(
     v12 = 80;
   else
     v12 = 16 * ((((unsigned __int64)a5 + 8190) >> 12) + 2);
-  v13 = Crashdump_CommonBufferAcquire(a2, v12, a1 + 80);
+  v13 = Crashdump_CommonBufferAcquire(*(_QWORD *)a1, v12, a1 + 80);
   if ( v13 >= 0 )
   {
     v13 = Crashdump_CommonBufferAcquire(*(_QWORD *)a1, v12, a1 + 104);

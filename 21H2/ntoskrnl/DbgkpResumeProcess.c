@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpResumeProcess @ 0x14092AAA4
+ * XREFs of DbgkpResumeProcess @ 0x140887B78
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
  * Callees:
- *     PsThawMultiProcess @ 0x140257280 (PsThawMultiProcess.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
  */
 
 void __fastcall DbgkpResumeProcess(ULONG_PTR a1)
 {
-  PsThawMultiProcess(a1, 0LL, 1u);
+  PsThawProcess(a1, 0);
   KeLeaveCriticalRegion();
 }

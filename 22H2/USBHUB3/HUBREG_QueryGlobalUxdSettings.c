@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBREG_QueryGlobalUxdSettings @ 0x1C0085AE4
+ * XREFs of HUBREG_QueryGlobalUxdSettings @ 0x1C0080018
  * Callers:
- *     HUBREG_UpdateUxdSettings @ 0x1C0086398 (HUBREG_UpdateUxdSettings.c)
- *     HUBREG_DeleteUxdSettings @ 0x1C0086928 (HUBREG_DeleteUxdSettings.c)
- *     HUBREG_UxdShutdown @ 0x1C0086BF0 (HUBREG_UxdShutdown.c)
+ *     HUBREG_UpdateUxdSettings @ 0x1C00808CC (HUBREG_UpdateUxdSettings.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C0080E50 (HUBREG_DeleteUxdSettings.c)
+ *     HUBREG_UxdShutdown @ 0x1C008111C (HUBREG_UxdShutdown.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryGlobalUxdSettings(__int64 a1)

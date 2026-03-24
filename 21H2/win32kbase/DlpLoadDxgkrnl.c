@@ -1,10 +1,10 @@
 /*
- * XREFs of DlpLoadDxgkrnl @ 0x1C00BE900
+ * XREFs of DlpLoadDxgkrnl @ 0x1C00B2698
  * Callers:
- *     InitializeGraphicsInfrastructure @ 0x1C00BE738 (InitializeGraphicsInfrastructure.c)
+ *     InitializeGraphicsInfrastructure @ 0x1C00B24E4 (InitializeGraphicsInfrastructure.c)
  * Callees:
- *     DlpGetServiceNameInSystemSpace @ 0x1C00BE9FC (DlpGetServiceNameInSystemSpace.c)
- *     DlpUnloadDxgkrnl @ 0x1C0210238 (DlpUnloadDxgkrnl.c)
+ *     DlpGetServiceNameInSystemSpace @ 0x1C00B2794 (DlpGetServiceNameInSystemSpace.c)
+ *     DlpUnloadDxgkrnl @ 0x1C01D159C (DlpUnloadDxgkrnl.c)
  */
 
 __int64 __fastcall DlpLoadDxgkrnl(__int64 a1, union _LARGE_INTEGER a2, __int64 a3, __int64 a4)

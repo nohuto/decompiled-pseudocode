@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BF560
+ * XREFs of ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C0214D94
  * Callers:
- *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B96C8 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C020F5FC (-ReportState@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C000209C (McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer.c)
- *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C00082D8 (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
+ *     McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0001CE4 (McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer.c)
+ *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C00026B4 (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::ReportState(ADAPTER_DISPLAY *this)
@@ -24,12 +24,12 @@ void __fastcall ADAPTER_DISPLAY::ReportState(ADAPTER_DISPLAY *this)
   __int64 v14; // [rsp+70h] [rbp-18h]
   __int64 v15; // [rsp+78h] [rbp-10h]
 
-  for ( i = 0; i < *((_DWORD *)this + 24); ++i )
+  for ( i = 0; i < *((_DWORD *)this + 20); ++i )
   {
     DisplayModeInfo = ADAPTER_DISPLAY::GetDisplayModeInfo(this, i);
     if ( bTracingEnabled )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000) != 0 )
       {
         LODWORD(v15) = *((_DWORD *)DisplayModeInfo + 12);
         LODWORD(v14) = *((_DWORD *)DisplayModeInfo + 11);

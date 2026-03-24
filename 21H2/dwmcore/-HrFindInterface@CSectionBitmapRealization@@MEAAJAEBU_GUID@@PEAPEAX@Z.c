@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CSectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DCF90
+ * XREFs of ?HrFindInterface@CSectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC440
  * Callers:
- *     ?HrFindInterface@CGDISectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DCF40 (-HrFindInterface@CGDISectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CGDISectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC3A0 (-HrFindInterface@CGDISectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
- *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DD000 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC530 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CSectionBitmapRealization::HrFindInterface(
@@ -29,11 +29,11 @@ __int64 __fastcall CSectionBitmapRealization::HrFindInterface(
         v6 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data4;
       if ( v6 )
         return (unsigned int)CBitmapRealization::HrFindInterface(this, a2, a3);
-      v8 = (unsigned __int64)this + 336;
+      v8 = (unsigned __int64)this + 304;
     }
     else
     {
-      v8 = (unsigned __int64)this + 320;
+      v8 = (unsigned __int64)this + 288;
     }
     *a3 = (void *)(v8 & -(__int64)(this != 0LL));
     return 0;

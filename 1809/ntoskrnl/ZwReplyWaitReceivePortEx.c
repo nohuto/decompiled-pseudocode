@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwReplyWaitReceivePortEx @ 0x1401B86D0
+ * XREFs of ZwReplyWaitReceivePortEx @ 0x1401B86F0
  * Callers:
  *     <none>
  * Callees:

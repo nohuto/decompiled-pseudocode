@@ -1,9 +1,9 @@
 /*
- * XREFs of RealSuccessor @ 0x1402DEC9C
+ * XREFs of RealSuccessor @ 0x1402646C0
  * Callers:
- *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1402DEA50 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1402DEB90 (RtlEnumerateGenericTableLikeADirectory.c)
- *     RtlGetElementGenericTableAvl @ 0x1405EB370 (RtlGetElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x140264490 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1402645A0 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlGetElementGenericTableAvl @ 0x14058BCF0 (RtlGetElementGenericTableAvl.c)
  * Callees:
  *     <none>
  */

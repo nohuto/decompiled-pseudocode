@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceRelationsList @ 0x140855B20
+ * XREFs of PiPnpRtlGetDeviceRelationsList @ 0x1408A3440
  * Callers:
  *     <none>
  * Callees:
- *     ZwPlugPlayControl @ 0x14041CE00 (ZwPlugPlayControl.c)
+ *     ZwPlugPlayControl @ 0x1403FC080 (ZwPlugPlayControl.c)
  */
 
 __int64 __fastcall PiPnpRtlGetDeviceRelationsList(
@@ -11,44 +11,42 @@ __int64 __fastcall PiPnpRtlGetDeviceRelationsList(
         __int128 *a2,
         int a3,
         __int64 a4,
-        int a5,
-        _DWORD *a6,
+        unsigned int a5,
+        unsigned int *a6,
         int a7)
 {
-  __int128 v7; // xmm0
-  int v8; // eax
-  unsigned int v9; // ecx
-  int v11; // eax
+  unsigned int v7; // ecx
+  __int128 v8; // xmm0
+  int v9; // eax
+  unsigned int v10; // eax
   __int128 v12; // [rsp+20h] [rbp-28h] BYREF
   int v13; // [rsp+30h] [rbp-18h]
-  int v14; // [rsp+34h] [rbp-14h]
+  unsigned int v14; // [rsp+34h] [rbp-14h]
   __int64 v15; // [rsp+38h] [rbp-10h]
 
-  if ( a2 && a6 && !a7 )
+  if ( !a2 || !a6 || a7 )
+    return (unsigned int)-1073741811;
+  v8 = *a2;
+  v13 = a3;
+  v12 = v8;
+  v15 = a4;
+  v14 = a5;
+  v9 = ZwPlugPlayControl(16LL, (__int64)&v12);
+  v7 = v9;
+  if ( v9 < 0 )
   {
-    v7 = *a2;
-    v13 = a3;
-    v12 = v7;
-    v15 = a4;
-    v14 = a5;
-    v8 = ZwPlugPlayControl(16LL, (__int64)&v12);
-    v9 = v8;
-    if ( v8 >= 0 )
-    {
-      v11 = v14;
-      *a6 = v14;
-      if ( v11 )
-        return v9;
-    }
-    else if ( v8 == -1073741789 )
+    if ( v9 == -1073741789 )
     {
       *a6 = v14;
-      return v9;
+      return v7;
     }
     return (unsigned int)-1073741772;
   }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
+  v10 = v14;
+  *a6 = v14;
+  if ( !v10 )
+    return (unsigned int)-1073741772;
+  if ( v10 > a5 )
+    return (unsigned int)-1073741789;
+  return v7;
 }

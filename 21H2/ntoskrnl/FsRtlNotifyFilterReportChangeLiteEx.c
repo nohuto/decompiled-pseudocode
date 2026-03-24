@@ -1,22 +1,23 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChangeLiteEx @ 0x1406AB670
+ * XREFs of FsRtlNotifyFilterReportChangeLiteEx @ 0x1406907E0
  * Callers:
- *     FsRtlNotifyFilterReportChangeLite @ 0x140930090 (FsRtlNotifyFilterReportChangeLite.c)
+ *     FsRtlNotifyFilterReportChangeLite @ 0x14088D610 (FsRtlNotifyFilterReportChangeLite.c)
  * Callees:
- *     PsChargePoolQuota @ 0x1402331B0 (PsChargePoolQuota.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1402331E0 (PsReturnProcessPagedPoolQuota.c)
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     FsRtlNotifyCompleteIrpList @ 0x1406ABBF4 (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyInitializeSync @ 0x1406AC3A0 (FsRtlNotifyInitializeSync.c)
- *     FsRtlNotifyUninitializeSync @ 0x1406E5920 (FsRtlNotifyUninitializeSync.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     PsChargePoolQuota @ 0x1402AA6E0 (PsChargePoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x140690D48 (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyInitializeSync @ 0x140691400 (FsRtlNotifyInitializeSync.c)
+ *     FsRtlNotifyUninitializeSync @ 0x1406C0020 (FsRtlNotifyUninitializeSync.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall FsRtlNotifyFilterReportChangeLiteEx(
@@ -41,31 +42,36 @@ void __fastcall FsRtlNotifyFilterReportChangeLiteEx(
   char v18; // r14
   unsigned __int8 (__fastcall *v19)(_QWORD, __int64, _QWORD); // rax
   unsigned __int8 (__fastcall *v20)(_QWORD); // rax
-  __int16 v21; // cx
-  unsigned int v22; // r12d
-  unsigned __int16 *v23; // rdx
-  unsigned int v24; // r14d
-  unsigned int v25; // r13d
-  _DWORD *v26; // rbx
-  __int64 v27; // rax
-  __int64 v28; // rax
-  __int64 v29; // rcx
-  __int64 Pool2; // rax
+  ULONG v21; // r12d
+  char *v22; // rcx
+  ULONG v23; // r14d
+  ULONG v24; // r13d
+  NTSTATUS v25; // eax
+  __int16 v26; // r9
+  __int64 v27; // r10
+  _DWORD *v28; // rbx
+  __int64 v29; // rax
+  __int64 v30; // rax
   __int64 v31; // rcx
-  char *v32; // rbx
-  char *v33; // rbx
-  __int16 v34; // cx
-  __int16 v35; // ax
-  char v36; // [rsp+31h] [rbp-A7h]
-  struct _REAL_NOTIFY_SYNC *v37; // [rsp+50h] [rbp-88h]
-  PNOTIFY_SYNC NotifySync[4]; // [rsp+60h] [rbp-78h] BYREF
-  unsigned __int16 *v39; // [rsp+80h] [rbp-58h]
-  char *v40; // [rsp+88h] [rbp-50h]
-  const void **v42; // [rsp+F0h] [rbp+18h]
+  PVOID PoolWithTag; // rax
+  __int64 v33; // rcx
+  char *v34; // rbx
+  char *v35; // rbx
+  __int16 v36; // r9
+  __int16 v37; // ax
+  char v38; // [rsp+31h] [rbp-A7h]
+  ULONG pulResult[2]; // [rsp+48h] [rbp-90h] BYREF
+  struct _REAL_NOTIFY_SYNC *v40; // [rsp+50h] [rbp-88h]
+  ULONG v41; // [rsp+58h] [rbp-80h]
+  PNOTIFY_SYNC NotifySync[3]; // [rsp+60h] [rbp-78h] BYREF
+  NTSTATUS v43; // [rsp+78h] [rbp-60h]
+  char *v44; // [rsp+80h] [rbp-58h]
+  char *v45; // [rsp+88h] [rbp-50h]
 
-  v42 = a3;
   v10 = a4;
   v11 = a2;
+  pulResult[1] = 0;
+  pulResult[0] = 0;
   if ( *a2 == (struct _REAL_NOTIFY_SYNC *)a2 || a10 && *(_DWORD *)a10 < 0x50u )
     return;
   if ( !*a1 )
@@ -88,15 +94,15 @@ void __fastcall FsRtlNotifyFilterReportChangeLiteEx(
   while ( 1 )
   {
     NotifySync[2] = v15;
-    v37 = v15;
+    v40 = v15;
     if ( v15 == (struct _REAL_NOTIFY_SYNC *)v11 )
       break;
     v16 = (char *)v15 - 32;
     NotifySync[1] = (struct _REAL_NOTIFY_SYNC *)((char *)v15 - 32);
-    v40 = (char *)v15 - 32;
+    v45 = (char *)v15 - 32;
     v17 = (__int16 *)((char *)v15 + 40);
     v18 = (unsigned __int8)*v17 >> 7;
-    v36 = v18;
+    v38 = v18;
     if ( (*((_DWORD *)v15 + 11) & a5) != 0
       && ((a9 & 1) != 0
        || (*v17 & 1) != 0
@@ -106,122 +112,121 @@ void __fastcall FsRtlNotifyFilterReportChangeLiteEx(
       v20 = (unsigned __int8 (__fastcall *)(_QWORD))*((_QWORD *)v16 + 8);
       if ( !v20 || !a8 || v20(*((_QWORD *)v16 + 1)) )
       {
-        v21 = *v17;
         if ( (*v17 & 2) == 0 )
         {
-          v22 = *((_DWORD *)v16 + 24);
-          if ( v22 )
+          v21 = *((_DWORD *)v16 + 24);
+          if ( v21 )
           {
-            v23 = 0LL;
-            v39 = 0LL;
+            v44 = 0LL;
             if ( *((_DWORD *)v16 + 25) )
             {
-              v22 = *((_DWORD *)v16 + 25);
+              v21 = *((_DWORD *)v16 + 25);
             }
             else
             {
-              a3 = (const void **)*((_QWORD *)v16 + 6);
-              if ( a3 != (const void **)(v16 + 48) )
+              v22 = (char *)*((_QWORD *)v16 + 6);
+              if ( v22 != v16 + 48 )
               {
-                v23 = (unsigned __int16 *)(a3 - 21);
-                v39 = (unsigned __int16 *)(a3 - 21);
-                v22 = *((_DWORD *)a3[2] + 2);
+                v44 = v22 - 168;
+                v21 = *(_DWORD *)(*((_QWORD *)v22 + 2) + 8LL);
               }
             }
-            v24 = *(unsigned __int16 *)v42 + (v18 != 0 ? 84 : 12);
+            v23 = *(unsigned __int16 *)a3 + (v18 != 0 ? 84 : 12);
             if ( v10 )
-              v24 += *(unsigned __int16 *)v10 + 2;
-            v25 = (*((_DWORD *)v16 + 26) + 3) & 0xFFFFFFFC;
-            if ( v24 > v22 || v24 + v25 > v22 )
+              v23 += *(unsigned __int16 *)v10 + 2;
+            v24 = (*((_DWORD *)v16 + 26) + 3) & 0xFFFFFFFC;
+            v41 = v24;
+            v25 = RtlULongAdd(v24, v23, pulResult);
+            v43 = v25;
+            if ( v23 > v21 || v25 || pulResult[0] > v21 )
             {
-              v34 = v21 | 2;
-              *v17 = v34;
-              v15 = v37;
+              v36 = v26 | 2;
+              *v17 = v36;
+              v15 = v40;
             }
             else
             {
-              v26 = 0LL;
-              v27 = *((_QWORD *)v16 + 11);
+              v28 = 0LL;
+              v29 = *((_QWORD *)v16 + 11);
+              if ( v29 )
+              {
+                *(_DWORD *)(v29 + *((unsigned int *)v16 + 27)) = v24 - *((_DWORD *)v16 + 27);
+                *((_DWORD *)v16 + 27) = v24;
+                v28 = (_DWORD *)(*((_QWORD *)v16 + 11) + v24);
+                goto LABEL_42;
+              }
               if ( v27 )
               {
-                *(_DWORD *)(v27 + *((unsigned int *)v16 + 27)) = v25 - *((_DWORD *)v16 + 27);
-                *((_DWORD *)v16 + 27) = v25;
-                v26 = (_DWORD *)(*((_QWORD *)v16 + 11) + v25);
-              }
-              else
-              {
-                if ( !v23 )
-                  goto LABEL_30;
-                v28 = *((_QWORD *)v23 + 3);
-                if ( v28 )
+                v30 = *(_QWORD *)(v27 + 24);
+                if ( v30 )
                 {
-                  v26 = (_DWORD *)*((_QWORD *)v23 + 3);
-                  *((_QWORD *)v16 + 11) = v28;
+                  v28 = *(_DWORD **)(v27 + 24);
+                  *((_QWORD *)v16 + 11) = v30;
+                  goto LABEL_41;
                 }
-                else
+                v31 = *(_QWORD *)(v27 + 8);
+                if ( v31 )
                 {
-                  v29 = *((_QWORD *)v23 + 1);
-                  if ( !v29 )
-                    goto LABEL_30;
-                  if ( (*(_BYTE *)(v29 + 10) & 5) != 0 )
-                    v26 = *(_DWORD **)(v29 + 24);
+                  if ( (*(_BYTE *)(v31 + 10) & 5) != 0 )
+                    v28 = *(_DWORD **)(v31 + 24);
                   else
-                    v26 = MmMapLockedPagesSpecifyCache((PMDL)v29, 0, MmCached, 0LL, 0, 0x40000010u);
-                  *((_QWORD *)v16 + 11) = v26;
+                    v28 = MmMapLockedPagesSpecifyCache((PMDL)v31, 0, MmCached, 0LL, 0, 0x40000010u);
+                  *((_QWORD *)v16 + 11) = v28;
+LABEL_41:
+                  *((_DWORD *)v16 + 25) = v21;
                 }
-                *((_DWORD *)v16 + 25) = v22;
               }
-LABEL_30:
+LABEL_42:
               if ( !*((_QWORD *)v16 + 11) )
               {
-                PsChargePoolQuota(*((PEPROCESS *)v16 + 15), PagedPool, v22);
-                Pool2 = ExAllocatePool2(290LL, v22, 1316115270LL);
-                *((_QWORD *)v16 + 11) = Pool2;
-                *((_QWORD *)v16 + 10) = Pool2;
-                *((_DWORD *)v16 + 25) = v22;
-                v26 = (_DWORD *)*((_QWORD *)v16 + 11);
+                PsChargePoolQuota(*((PEPROCESS *)v16 + 15), PagedPool, v21);
+                PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)17, v21, 0x4E725346u);
+                *((_QWORD *)v16 + 11) = PoolWithTag;
+                *((_QWORD *)v16 + 10) = PoolWithTag;
+                *((_DWORD *)v16 + 25) = v21;
+                v28 = (_DWORD *)*((_QWORD *)v16 + 11);
               }
-              v15 = v37;
-              if ( v26 )
+              v15 = v40;
+              if ( v28 )
               {
-                v31 = *((unsigned int *)v16 + 26);
-                if ( v25 > (unsigned int)v31 )
-                  memset((void *)(*((_QWORD *)v16 + 11) + v31), 0, v25 - (unsigned int)v31);
-                *v26 = 0;
-                v26[1] = a6;
-                if ( v36 )
+                v33 = *((unsigned int *)v16 + 26);
+                if ( v24 > (unsigned int)v33 )
+                  memset((void *)(*((_QWORD *)v16 + 11) + v33), 0, v24 - (unsigned int)v33);
+                *v28 = 0;
+                v28[1] = a6;
+                if ( v38 )
                 {
-                  *((_QWORD *)v26 + 1) = *(_QWORD *)(a10 + 8);
-                  *((_QWORD *)v26 + 2) = *(_QWORD *)(a10 + 16);
-                  *((_QWORD *)v26 + 3) = *(_QWORD *)(a10 + 24);
-                  *((_QWORD *)v26 + 4) = *(_QWORD *)(a10 + 32);
-                  *((_QWORD *)v26 + 5) = *(_QWORD *)(a10 + 40);
-                  *((_QWORD *)v26 + 6) = *(_QWORD *)(a10 + 48);
-                  v26[14] = *(_DWORD *)(a10 + 56);
-                  v26[15] = *(_DWORD *)(a10 + 60);
-                  *((_QWORD *)v26 + 8) = *(_QWORD *)(a10 + 64);
-                  *((_QWORD *)v26 + 9) = *(_QWORD *)(a10 + 72);
-                  v26[20] = v24 - 84;
-                  v32 = (char *)(v26 + 21);
+                  *((_QWORD *)v28 + 1) = *(_QWORD *)(a10 + 8);
+                  *((_QWORD *)v28 + 2) = *(_QWORD *)(a10 + 16);
+                  *((_QWORD *)v28 + 3) = *(_QWORD *)(a10 + 24);
+                  *((_QWORD *)v28 + 4) = *(_QWORD *)(a10 + 32);
+                  *((_QWORD *)v28 + 5) = *(_QWORD *)(a10 + 40);
+                  *((_QWORD *)v28 + 6) = *(_QWORD *)(a10 + 48);
+                  v28[14] = *(_DWORD *)(a10 + 56);
+                  v28[15] = *(_DWORD *)(a10 + 60);
+                  *((_QWORD *)v28 + 8) = *(_QWORD *)(a10 + 64);
+                  *((_QWORD *)v28 + 9) = *(_QWORD *)(a10 + 72);
+                  v28[20] = v23 - 84;
+                  v34 = (char *)(v28 + 21);
                 }
                 else
                 {
-                  v26[2] = v24 - 12;
-                  v32 = (char *)(v26 + 3);
+                  v28[2] = v23 - 12;
+                  v34 = (char *)(v28 + 3);
                 }
-                memmove(v32, v42[1], *(unsigned __int16 *)v42);
+                memmove(v34, a3[1], *(unsigned __int16 *)a3);
                 if ( a4 )
                 {
-                  v33 = &v32[*(unsigned __int16 *)v42];
-                  *(_WORD *)v33 = 58;
-                  memmove(v33 + 2, a4[1], *(unsigned __int16 *)a4);
+                  v35 = &v34[*(unsigned __int16 *)a3];
+                  *(_WORD *)v35 = 58;
+                  memmove(v35 + 2, a4[1], *(unsigned __int16 *)a4);
                 }
-                *((_DWORD *)v16 + 26) = v24 + v25;
+                *((_DWORD *)v16 + 26) = v23 + v24;
               }
-              v17 = (__int16 *)(v40 + 72);
-              v34 = *((_WORD *)v40 + 36);
+              v17 = (__int16 *)(v45 + 72);
+              v36 = *((_WORD *)v45 + 36);
             }
-            if ( (v34 & 2) != 0 && *((_QWORD *)v16 + 11) )
+            if ( (v36 & 2) != 0 && *((_QWORD *)v16 + 11) )
             {
               if ( *((_QWORD *)v16 + 10) )
               {
@@ -237,19 +242,19 @@ LABEL_30:
           }
           else
           {
-            v15 = v37;
+            v15 = v40;
           }
         }
-        v35 = *v17;
+        v37 = *v17;
         if ( a6 == 4 )
         {
-          *v17 = v35 | 8;
+          *v17 = v37 | 8;
         }
         else
         {
-          *v17 = v35 & 0xFFF7;
+          *v17 = v37 & 0xFFF7;
           if ( *((char **)v16 + 6) != v16 + 48 )
-            FsRtlNotifyCompleteIrpList(v16, 0LL, a3);
+            FsRtlNotifyCompleteIrpList(v16, 0LL);
         }
       }
     }

@@ -1,23 +1,23 @@
 /*
- * XREFs of ??1CNineGridBrush@@MEAA@XZ @ 0x1800B8A84
+ * XREFs of ??1CNineGridBrush@@MEAA@XZ @ 0x1800D3054
  * Callers:
- *     ??_GCNineGridBrush@@MEAAPEAXI@Z @ 0x1800B8A40 (--_GCNineGridBrush@@MEAAPEAXI@Z.c)
+ *     ??_GCNineGridBrush@@MEAAPEAXI@Z @ 0x1800D3010 (--_GCNineGridBrush@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CNineGridBrush::~CNineGridBrush(CNineGridBrush *this)
 {
-  __int64 v2; // rcx
+  __int64 v2; // rdx
 
   *(_QWORD *)this = &CNineGridBrush::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CNineGridBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CNineGridBrush::`vftable'{for `IContent'};
-  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 60) = v2 - 104;
-  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 60) = *(_DWORD *)(*((_QWORD *)this + 8) + 8LL)
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CBitmapLock::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CNineGridBrush::`vftable'{for `IContent'};
+  v2 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 52) = v2 - 104;
+  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 52) = *(_DWORD *)(*((_QWORD *)this + 7) + 8LL)
                                                                          - 120;
-  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 11));
-  *((_QWORD *)this + 11) = 0LL;
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 10));
+  *((_QWORD *)this + 10) = 0LL;
   CBrush::~CBrush(this);
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
  * Callees:
- *     WheapInitializeInUsePageOfflineNotifications @ 0x140759C98 (WheapInitializeInUsePageOfflineNotifications.c)
+ *     WheapInitializeInUsePageOfflineNotifications @ 0x140759C78 (WheapInitializeInUsePageOfflineNotifications.c)
  */
 
 PVOID *WheaInitializeServices()

@@ -1,12 +1,12 @@
 /*
- * XREFs of Interrupter_D0Entry @ 0x1C00147A8
+ * XREFs of Interrupter_D0Entry @ 0x1C0014640
  * Callers:
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0010230 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C0004288 (Controller_IsControllerAccessible.c)
- *     Interrupter_InterrupterRegisterIntialize @ 0x1C00144F0 (Interrupter_InterrupterRegisterIntialize.c)
- *     Interrupter_Initialize @ 0x1C0014810 (Interrupter_Initialize.c)
- *     WPP_RECORDER_SF_qL @ 0x1C002F454 (WPP_RECORDER_SF_qL.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     Interrupter_InterrupterRegisterIntialize @ 0x1C00143C4 (Interrupter_InterrupterRegisterIntialize.c)
+ *     Interrupter_Initialize @ 0x1C00146A8 (Interrupter_Initialize.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C002F170 (WPP_RECORDER_SF_qL.c)
  */
 
 __int64 __fastcall Interrupter_D0Entry(__int64 a1, int a2, char a3)
@@ -21,8 +21,8 @@ __int64 __fastcall Interrupter_D0Entry(__int64 a1, int a2, char a3)
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
       a2,
       9,
-      33,
-      (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+      32,
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
       a1,
       v6);
   }

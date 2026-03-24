@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C0011B70
+ * XREFs of ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C004BF20
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     PerformDLMObjectBindings @ 0x1C004C97C (PerformDLMObjectBindings.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     PerformDLMObjectBindings @ 0x1C0065AE8 (PerformDLMObjectBindings.c)
  */
 
 __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
@@ -14,8 +14,8 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
   bool v1; // zf
   _QWORD *v3; // rdi
   char v4; // r8
-  const char *v5; // rax
-  const char *v6; // rcx
+  void *v5; // rax
+  void *v6; // rcx
   __int64 v7; // rdx
 
   v1 = (*(_DWORD *)(a1 + 84) & 0x100) == 0;
@@ -24,35 +24,35 @@ __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
   if ( !v1 )
   {
     PerformDLMObjectBindings(a1 + 88, **(_QWORD **)(a1 + 56));
-    dword_1C006F938 = 0;
+    dword_1C0082908 = 0;
     pszDest = 0;
-    FreeDataBuffs(a1 + 88, 1LL);
+    FreeDataBuffs(a1 + 88, 1u);
   }
   v4 = 0;
-  v5 = (const char *)&unk_1C00622D0;
-  v6 = (const char *)&unk_1C00622D0;
+  v5 = &unk_1C00701BA;
+  v6 = &unk_1C00701BA;
   if ( v3 )
   {
     v7 = v3[1];
     v4 = (char)v3;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v5 = (const char *)v3[76];
+      v5 = (void *)v3[71];
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = (const char *)v3[77];
+        v6 = (void *)v3[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
+    WPP_RECORDER_SF_Lqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       6u,
       0x44u,
-      (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v4,
-      v5,
-      v6);
+      (__int64)v5,
+      (__int64)v6);
   ACPIBuildCompleteMustSucceed(0LL, 0, 0LL, a1);
   return 0LL;
 }

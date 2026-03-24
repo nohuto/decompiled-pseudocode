@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCoverageFlushPending @ 0x1407E8E14
+ * XREFs of EtwpCoverageFlushPending @ 0x1406A4A30
  * Callers:
- *     EtwpCoverageRecord @ 0x1407DDB00 (EtwpCoverageRecord.c)
- *     EtwpCoverageFlushWorkItemCallback @ 0x1407E8D40 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwpCoverageReset @ 0x1409E850C (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1409E86F0 (EtwpCoverageResetCP.c)
- *     EtwpFlushCoverage @ 0x1409E8A4C (EtwpFlushCoverage.c)
+ *     EtwpCoverageRecord @ 0x140698CA4 (EtwpCoverageRecord.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x1406A4960 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpFlushCoverage @ 0x140774B24 (EtwpFlushCoverage.c)
+ *     EtwpCoverageReset @ 0x1409352C4 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1409354A4 (EtwpCoverageResetCP.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeCancelTimer2 @ 0x14031DD00 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     KeCancelTimer2 @ 0x140348B50 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 int *__fastcall EtwpCoverageFlushPending(int **a1)
@@ -19,13 +19,13 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
   int *v3; // rsi
   unsigned __int64 v4; // rdi
   int *v5; // rcx
-  int v6; // eax
+  int *v6; // rcx
   int v7; // eax
   int v8; // eax
   int v9; // eax
-  __int64 v10; // rax
-  unsigned __int16 v11; // dx
-  int *v12; // rcx
+  int v10; // eax
+  __int64 v11; // rax
+  unsigned __int16 v12; // dx
   __int16 v13; // [rsp+38h] [rbp-59h] BYREF
   int v14; // [rsp+3Ch] [rbp-55h] BYREF
   int v15; // [rsp+40h] [rbp-51h] BYREF
@@ -58,42 +58,42 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
     v3 = a1[5];
     v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     v13 = *((_WORD *)a1 + 32);
-    if ( (unsigned int)dword_140C04320 > 5 )
+    if ( (unsigned int)dword_140C02C28 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C02C28, 0x400000000000LL) )
       {
-        v5 = *a1;
-        v6 = **a1;
+        v6 = *a1;
+        v7 = **a1;
         v21 = 0;
-        v14 = v6;
+        v14 = v7;
         v19 = &v14;
         v20 = 4;
-        v7 = v5[1];
+        v8 = v6[1];
         v24 = 0;
-        v15 = v7;
+        v15 = v8;
         v22 = &v15;
         v23 = 4;
-        v8 = v4 - v5[4];
+        v9 = v4 - v6[4];
         v27 = 0;
-        v16 = v8;
+        v16 = v9;
         v25 = &v16;
         v26 = 4;
-        v9 = v4 - v5[5];
+        v10 = v4 - v6[5];
         v30 = 0;
         v33 = 0;
         v36 = 0;
-        v17 = v9;
+        v17 = v10;
         v28 = &v17;
         v31 = &v13;
-        v10 = *((_QWORD *)v3 + 4);
+        v11 = *((_QWORD *)v3 + 4);
         v29 = 4;
-        v11 = *((_WORD *)v3 + 12) - v10;
-        v34 = v10;
-        v35 = v11;
+        v12 = *((_WORD *)v3 + 12) - v11;
+        v34 = v11;
+        v35 = v12;
         v32 = 2;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04320,
-          (unsigned __int8 *)&word_1400354CE,
+          (__int64)&dword_140C02C28,
+          (unsigned __int8 *)&word_14002C6E6,
           0LL,
           0LL,
           8u,
@@ -101,9 +101,9 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
       }
     }
     *((_QWORD *)v3 + 4) = *((_QWORD *)v3 + 3);
-    v12 = *a1;
+    v5 = *a1;
     *((_DWORD *)a1 + 16) = 0;
-    KeCancelTimer2((__int64)(v12 + 60));
+    KeCancelTimer2((__int64)(v5 + 60));
     result = *a1;
     (*a1)[4] = v4;
   }

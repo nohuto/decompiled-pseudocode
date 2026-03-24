@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CManipulation@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801F4020
+ * XREFs of ?IsOfType@CManipulation@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801D45B0
  * Callers:
  *     <none>
  * Callees:

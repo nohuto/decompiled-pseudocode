@@ -1,10 +1,11 @@
 /*
- * XREFs of KiVerifyContextXStateCetUEnabled @ 0x14056E34C
+ * XREFs of KiVerifyContextXStateCetUEnabled @ 0x140516020
  * Callers:
- *     KeVerifyContextXStateCetU @ 0x140298378 (KeVerifyContextXStateCetU.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextXStateCetU @ 0x14027794C (KeVerifyContextXStateCetU.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x14041BBC0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
  */
 
 __int64 __fastcall KiVerifyContextXStateCetUEnabled(_QWORD *a1, void *a2)

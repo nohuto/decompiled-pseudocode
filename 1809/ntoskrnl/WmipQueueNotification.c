@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipQueueNotification @ 0x14068F338
+ * XREFs of WmipQueueNotification @ 0x14068F318
  * Callers:
- *     WmipWriteWnodeToObject @ 0x14010C134 (WmipWriteWnodeToObject.c)
+ *     WmipWriteWnodeToObject @ 0x14010C154 (WmipWriteWnodeToObject.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

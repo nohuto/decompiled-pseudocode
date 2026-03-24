@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlQueryRegistryValues @ 0x1407E9DB0
+ * XREFs of RtlQueryRegistryValues @ 0x1406B7960
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall RtlQueryRegistryValues(
         ULONG RelativeTo,
         PCWSTR Path,
@@ -14,5 +13,5 @@ NTSTATUS __stdcall RtlQueryRegistryValues(
         PVOID Context,
         PVOID Environment)
 {
-  return RtlpQueryRegistryValues(*(__int64 *)&RelativeTo, Path, QueryTable, (__int64)Context);
+  return RtlpQueryRegistryValues(RelativeTo, Path, QueryTable, Context);
 }

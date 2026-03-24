@@ -1,81 +1,83 @@
 /*
- * XREFs of VidSchiSubmitQueueCommand @ 0x1C00F379C
+ * XREFs of VidSchiSubmitQueueCommand @ 0x1C00D04F0
  * Callers:
- *     VidSchiDrainContextFromWorkerThread @ 0x1C0038950 (VidSchiDrainContextFromWorkerThread.c)
+ *     VidSchiDrainContextFromWorkerThread @ 0x1C002F564 (VidSchiDrainContextFromWorkerThread.c)
  * Callees:
- *     VidSchIsTDRPending @ 0x1C000AD70 (VidSchIsTDRPending.c)
- *     VidSchiSubmitWaitCommand @ 0x1C000EC78 (VidSchiSubmitWaitCommand.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C0015200 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiSubmitSignalCommand @ 0x1C00163B0 (VidSchiSubmitSignalCommand.c)
- *     VidSchiSubmitSoftwareCommand @ 0x1C0016F08 (VidSchiSubmitSoftwareCommand.c)
- *     VidSchiProcessCompletedQueuePacket @ 0x1C0018878 (VidSchiProcessCompletedQueuePacket.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     VidSchiSubmitPagingCommand @ 0x1C00959B0 (VidSchiSubmitPagingCommand.c)
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C0096600 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchiSubmitRenderCommand @ 0x1C00F38D0 (VidSchiSubmitRenderCommand.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002F90 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchIsTDRPending @ 0x1C000C0E0 (VidSchIsTDRPending.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C0013B98 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiSubmitSignalCommand @ 0x1C0014030 (VidSchiSubmitSignalCommand.c)
+ *     VidSchiSubmitSoftwareCommand @ 0x1C0014900 (VidSchiSubmitSoftwareCommand.c)
+ *     VidSchiProcessCompletedQueuePacket @ 0x1C0016D1C (VidSchiProcessCompletedQueuePacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007F970 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0086C40 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00D062C (VidSchiSubmitRenderCommand.c)
  */
 
-void __fastcall VidSchiSubmitQueueCommand(LARGE_INTEGER *this, __int64 a2, __int64 a3)
+void __fastcall VidSchiSubmitQueueCommand(_VIDSCH_QUEUE_PACKET *this)
 {
-  LARGE_INTEGER v3; // rax
-  __int64 v5; // rdi
-  __int64 v6; // rsi
-  DWORD LowPart; // eax
-  __int64 v8; // rbp
-  LARGE_INTEGER *v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // r8
+  __int64 v1; // rax
+  __int64 v3; // rdi
+  __int64 v4; // rsi
+  int v5; // eax
+  __int64 v6; // rbp
+  int v7; // eax
+  _QWORD *v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
 
-  v3 = this[11];
-  v5 = *(_QWORD *)(v3.QuadPart + 104);
-  v6 = *(_QWORD *)(v3.QuadPart + 96);
-  LowPart = this[6].LowPart;
-  v8 = *(_QWORD *)(v5 + 32);
-  if ( LowPart )
+  v1 = *((_QWORD *)this + 11);
+  v3 = *(_QWORD *)(v1 + 104);
+  v4 = *(_QWORD *)(v1 + 96);
+  v5 = *((_DWORD *)this + 12);
+  v6 = *(_QWORD *)(v3 + 32);
+  if ( v5 )
   {
-    switch ( LowPart )
+    switch ( v5 )
     {
-      case 8u:
+      case 8:
         VidSchiSubmitPagingCommand(this);
         break;
-      case 3u:
-        VidSchiSubmitMmIoFlipCommand((struct _VIDSCH_QUEUE_PACKET *)this, a2, a3);
+      case 3:
+        VidSchiSubmitMmIoFlipCommand(this);
         break;
-      case 4u:
-        VidSchiSubmitWaitCommand((struct _VIDSCH_QUEUE_PACKET *)this);
+      case 4:
+        VidSchiSubmitWaitCommand(this);
         break;
-      case 5u:
-        VidSchiSubmitSignalCommand((struct _VIDSCH_QUEUE_PACKET *)this);
+      case 5:
+        VidSchiSubmitSignalCommand(this);
         break;
-      case 6u:
-        v9 = this + 40;
-        if ( this[39].LowPart != 5 )
-          v9 = (LARGE_INTEGER *)v9->QuadPart;
-        ((void (__fastcall *)(LARGE_INTEGER *))this[37].QuadPart)(v9);
-        VidSchiProcessCompletedQueuePacket((struct _VIDSCH_QUEUE_PACKET *)this, v10, v11);
+      case 6:
+        v7 = *((_DWORD *)this + 78);
+        v8 = (_QWORD *)((char *)this + 320);
+        if ( (unsigned int)(v7 - 5) > 1 )
+          v8 = (_QWORD *)*v8;
+        (*((void (__fastcall **)(_QWORD *))this + 37))(v8);
+        VidSchiProcessCompletedQueuePacket(this, v9, v10);
         break;
-      case 7u:
-        VidSchiSubmitSoftwareCommand((struct _VIDSCH_QUEUE_PACKET *)this);
+      case 7:
+        VidSchiSubmitSoftwareCommand(this);
         break;
     }
   }
   else
   {
-    if ( (*(_BYTE *)(v8 + 3036) & 1) != 0
-      || VidSchIsTDRPending(*(_QWORD *)(v5 + 32))
-      || *(_BYTE *)(v5 + 204)
-      || _InterlockedCompareExchange((volatile signed __int32 *)(v5 + 200), 0, 0) )
+    if ( (*(_BYTE *)(v6 + 2940) & 1) != 0
+      || VidSchIsTDRPending(*(_QWORD *)(v3 + 32))
+      || *(_BYTE *)(v3 + 204)
+      || _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 200), 0, 0) )
     {
-      this[8].LowPart &= ~4u;
+      *((_DWORD *)this + 16) &= ~4u;
     }
-    if ( (this[8].LowPart & 4) != 0 )
+    if ( (*((_DWORD *)this + 16) & 4) != 0 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(v6 + 2880));
-      RtlSetBitEx(v8 + 488, *(unsigned __int16 *)(v6 + 4));
+      _InterlockedDecrement((volatile signed __int32 *)(v4 + 2864));
+      RtlSetBitEx(v6 + 480);
     }
-    if ( (this[34].LowPart & 0x8000000) != 0 )
-      VidSchiSubmitRenderVirtualCommand((_VIDSCH_QUEUE_PACKET *)this);
+    if ( (*((_DWORD *)this + 68) & 0x8000000) != 0 )
+      VidSchiSubmitRenderVirtualCommand(this);
     else
-      VidSchiSubmitRenderCommand((struct _VIDSCH_QUEUE_PACKET *)this);
+      VidSchiSubmitRenderCommand(this);
   }
 }

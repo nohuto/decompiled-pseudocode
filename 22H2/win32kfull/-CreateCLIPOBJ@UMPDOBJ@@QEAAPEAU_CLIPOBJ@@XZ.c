@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateCLIPOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@XZ @ 0x1C0298C38
+ * XREFs of ?CreateCLIPOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@XZ @ 0x1C029345C
  * Callers:
- *     NtGdiEngCreateClip @ 0x1C02C9480 (NtGdiEngCreateClip.c)
+ *     NtGdiEngCreateClip @ 0x1C02B2270 (NtGdiEngCreateClip.c)
  * Callees:
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0299418 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F008 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
  */
 
 struct _CLIPOBJ *__fastcall UMPDOBJ::CreateCLIPOBJ(UMPDOBJ *this)
@@ -17,7 +17,7 @@ struct _CLIPOBJ *__fastcall UMPDOBJ::CreateCLIPOBJ(UMPDOBJ *this)
   v2 = (CLIPOBJ *)Clip;
   if ( !Clip )
     return 0LL;
-  if ( !(unsigned int)UMPDOBJ::ThunkDDIOBJ(this, (UMPDOBJ *)((char *)this + 128), &Clip, 0x18u, 0LL) )
+  if ( !(unsigned int)UMPDOBJ::ThunkDDIOBJ(this, (UMPDOBJ *)((char *)this + 128), (const void **)&Clip, 0x18u, 0LL) )
   {
     EngDeleteClip(v2);
     return 0LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HasMessageRootWindow @ 0x1C0210758
+ * XREFs of HasMessageRootWindow @ 0x1C0209108
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
  * Callees:
- *     _GetAncestor @ 0x1C00FF684 (_GetAncestor.c)
+ *     _GetAncestor @ 0x1C010B068 (_GetAncestor.c)
  */
 
 __int64 __fastcall HasMessageRootWindow(__int64 a1)

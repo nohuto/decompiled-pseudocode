@@ -1,10 +1,10 @@
 /*
- * XREFs of _wsplitpath_s @ 0x1403E6C70
+ * XREFs of _wsplitpath_s @ 0x1403D7830
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     wcsncpy_s @ 0x1403E7870 (wcsncpy_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
  */
 
 errno_t __cdecl wsplitpath_s(
@@ -18,19 +18,22 @@ errno_t __cdecl wsplitpath_s(
         wchar_t *Ext,
         size_t ExtSize)
 {
-  size_t v12; // rax
-  int v13; // ecx
-  const wchar_t *v14; // rbx
-  wchar_t v15; // ax
-  const wchar_t *v16; // rbp
-  const wchar_t *v17; // rsi
-  const wchar_t *v18; // rbx
-  rsize_t v19; // r9
+  const wchar_t *v9; // rdi
+  size_t v11; // rsi
+  int v13; // r9d
+  __int64 v14; // rax
+  const wchar_t *v15; // rbx
+  wchar_t v16; // ax
+  const wchar_t *v17; // rbp
+  const wchar_t *v18; // rsi
+  const wchar_t *v19; // rbx
   rsize_t v20; // r9
-  rsize_t v21; // rbx
+  rsize_t v21; // r9
   rsize_t v22; // rbx
+  rsize_t v23; // rbx
 
-  v12 = DriveSize;
+  v9 = FullPath;
+  v11 = DriveSize;
   v13 = 0;
   if ( !FullPath )
     goto LABEL_4;
@@ -72,113 +75,111 @@ LABEL_4:
   {
     goto LABEL_4;
   }
-  v14 = FullPath;
-  if ( *FullPath )
-    v14 = FullPath + 1;
-  if ( *v14 == 58 )
+  v14 = 1LL;
+  v15 = FullPath;
+  do
+  {
+    if ( !*v15 )
+      break;
+    ++v15;
+    --v14;
+  }
+  while ( v14 );
+  if ( *v15 == 58 )
   {
     if ( Drive )
     {
       if ( DriveSize < 3 )
-        goto LABEL_58;
+        goto LABEL_57;
       wcsncpy_s(Drive, DriveSize, FullPath, 2uLL);
-      v13 = 0;
     }
-    FullPath = v14 + 1;
+    v9 = v15 + 1;
   }
   else if ( Drive )
   {
     *Drive = 0;
   }
-  v15 = *FullPath;
-  v16 = 0LL;
+  v16 = *v9;
   v17 = 0LL;
-  v18 = FullPath;
-  if ( !*FullPath )
-    goto LABEL_39;
+  v18 = 0LL;
+  v19 = v9;
+  if ( !*v9 )
+    goto LABEL_40;
   do
   {
-    if ( v15 == 47 || v15 == 92 )
+    if ( v16 == 47 || v16 == 92 )
     {
-      v16 = v18 + 1;
+      v17 = v19 + 1;
     }
-    else if ( v15 == 46 )
+    else if ( v16 == 46 )
     {
-      v17 = v18;
+      v18 = v19;
     }
-    v15 = *++v18;
+    v16 = *++v19;
   }
-  while ( *v18 );
-  if ( !v16 )
+  while ( *v19 );
+  if ( v17 )
   {
-LABEL_39:
+    if ( Dir )
+    {
+      v20 = v17 - v9;
+      if ( DirSize <= v20 )
+        goto LABEL_56;
+      wcsncpy_s(Dir, DirSize, v9, v20);
+    }
+    v9 = v17;
+  }
+  else
+  {
+LABEL_40:
     if ( Dir )
       *Dir = 0;
-LABEL_41:
-    if ( v17 && v17 >= FullPath )
-    {
-      if ( !Filename )
-      {
-LABEL_46:
-        if ( !Ext )
-          return 0;
-        v21 = v18 - v17;
-        if ( ExtSize > v21 )
-        {
-          wcsncpy_s(Ext, ExtSize, v17, v21);
-          return 0;
-        }
-        goto LABEL_55;
-      }
-      v20 = v17 - FullPath;
-      if ( FilenameSize > v20 )
-      {
-        wcsncpy_s(Filename, FilenameSize, FullPath, v20);
-        goto LABEL_46;
-      }
-LABEL_55:
-      v13 = 0;
-      goto LABEL_56;
-    }
+  }
+  if ( !v18 || v18 < v9 )
+  {
     if ( Filename )
     {
-      v22 = v18 - FullPath;
-      if ( FilenameSize <= v22 )
-        goto LABEL_55;
-      wcsncpy_s(Filename, FilenameSize, FullPath, v22);
+      v23 = v19 - v9;
+      if ( FilenameSize <= v23 )
+        goto LABEL_56;
+      wcsncpy_s(Filename, FilenameSize, v9, v23);
     }
     if ( Ext )
       *Ext = 0;
     return 0;
   }
-  if ( !Dir )
+  if ( !Filename )
   {
-LABEL_38:
-    FullPath = v16;
-    goto LABEL_41;
+LABEL_47:
+    if ( !Ext )
+      return 0;
+    v22 = v19 - v18;
+    if ( ExtSize > v22 )
+    {
+      wcsncpy_s(Ext, ExtSize, v18, v22);
+      return 0;
+    }
+    goto LABEL_56;
   }
-  v19 = v16 - FullPath;
-  if ( DirSize > v19 )
+  v21 = v18 - v9;
+  if ( FilenameSize > v21 )
   {
-    wcsncpy_s(Dir, DirSize, FullPath, v19);
-    goto LABEL_38;
+    wcsncpy_s(Filename, FilenameSize, v9, v21);
+    goto LABEL_47;
   }
 LABEL_56:
-  v12 = DriveSize;
+  v13 = 0;
+  v11 = DriveSize;
 LABEL_57:
-  if ( Drive )
-  {
-LABEL_58:
-    if ( v12 )
-      *Drive = 0;
-  }
+  if ( Drive && v11 )
+    *Drive = 0;
   if ( Dir && DirSize )
     *Dir = 0;
   if ( Filename && FilenameSize )
     *Filename = 0;
   if ( Ext && ExtSize )
     *Ext = 0;
-  if ( FullPath && !v13 )
+  if ( v9 && !v13 )
     return 34;
   xHalTimerWatchdogStop();
   return 22;

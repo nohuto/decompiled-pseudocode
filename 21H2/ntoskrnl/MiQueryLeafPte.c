@@ -1,45 +1,51 @@
 /*
- * XREFs of MiQueryLeafPte @ 0x14045C260
+ * XREFs of MiQueryLeafPte @ 0x140547020
  * Callers:
  *     <none>
  * Callees:
- *     MiHyperSpaceSize @ 0x14027A0F4 (MiHyperSpaceSize.c)
- *     MiIdentifyPfnWrapper @ 0x1402B1D10 (MiIdentifyPfnWrapper.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiGetPfnProtection @ 0x1402E9768 (MiGetPfnProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPfnProtection @ 0x140270C88 (MiGetPfnProtection.c)
+ *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIdentifyPfnWrapper @ 0x140349190 (MiIdentifyPfnWrapper.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
 __int64 __fastcall MiQueryLeafPte(__int64 a1, unsigned __int64 a2, int a3)
 {
-  __int64 v3; // rdi
+  __int64 v3; // rsi
   int v4; // r11d
   unsigned __int64 v5; // r10
-  unsigned __int64 v6; // rsi
+  unsigned __int64 v6; // rdi
   __int64 v7; // rbp
   unsigned __int64 v8; // rbx
   __int64 v9; // r14
-  __int64 v10; // rcx
+  __int16 v10; // ax
   __int64 v11; // rdx
-  unsigned __int64 v12; // rdx
+  __int64 v12; // rcx
   __int64 v13; // rcx
-  unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // rcx
-  __int64 v18; // rbx
-  __int64 v19; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v14; // r8
+  unsigned __int64 v15; // r8
+  __int64 v16; // rcx
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // r8
+  __int64 v19; // r8
+  _DWORD *v20; // r9
+  unsigned __int64 v21; // rcx
+  __int64 v23; // rbx
+  __int64 v24; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = *(_QWORD *)(a1 + 168);
   v4 = a3;
   v5 = a2;
   v6 = (__int64)(a2 << 25) >> 16;
-  if ( (v6 < qword_140C51BE8 || v6 >= qword_140C51BE8 + MiHyperSpaceSize()) && v4 < 1 )
+  if ( (v6 < qword_140C4E360 || v6 >= qword_140C4E360 + MiHyperSpaceSize()) && v4 < 1 )
   {
-    v19 = MI_READ_PTE_LOCK_FREE(v5);
-    if ( (v19 & 1) != 0 )
+    v24 = MI_READ_PTE_LOCK_FREE(v5);
+    if ( (v24 & 1) != 0 )
     {
-      v7 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v19) >> 12) & 0xFFFFFFFFFFLL)
-         - 0x220000000000LL;
+      v7 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v24) >> 12) & 0xFFFFFFFFFLL)
+         - 0x58000000000LL;
       if ( (*(_DWORD *)v3 & 1) != 0 )
       {
         v8 = *(_QWORD *)(v3 + 16) + 1LL;
@@ -48,50 +54,50 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, unsigned __int64 a2, int a3)
         {
           v9 = *(_QWORD *)(v3 + 8);
           *(_QWORD *)(v9 + 8 * v8 - 8) = v6 ^ ((unsigned __int16)v6 ^ (unsigned __int16)*(_QWORD *)(v9 + 8 * v8 - 8)) & 0xFFF;
-          v10 = (*(_DWORD *)(v9 + 8 * v8 - 8) ^ (*((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((v7 + 0x220000000000LL) >> 4))
-                                                 + 2) << 9)) & 0xE00;
-          *(_QWORD *)(v9 + 8 * v8 - 8) ^= v10;
-          v11 = *(_QWORD *)(v9 + 8 * v8 - 8) ^ ((unsigned __int16)*(_QWORD *)(v9 + 8 * v8 - 8) ^ (*(_QWORD *)(v7 + 40) >> 55)) & 0x100;
-          *(_QWORD *)(v9 + 8 * v8 - 8) = v11;
-          if ( *(__int64 *)(v7 + 40) >= 0 )
-          {
-            v15 = v11 & 0xFFFFFFFFFFFFFF1FuLL;
-            *(_QWORD *)(v9 + 8 * v8 - 8) = v15;
-            v14 = v15 ^ ((unsigned __int8)v15 ^ (unsigned __int8)((unsigned __int64)*(unsigned int *)(v7 + 16) >> 5)) & 0x1F;
-          }
-          else
+          *(_QWORD *)(v9 + 8 * v8 - 8) ^= (*(_DWORD *)(v9 + 8 * v8 - 8) ^ (*((_DWORD *)MiSearchNumaNodeTable((v7 + 0x58000000000LL) / 48)
+                                                                           + 2) << 9)) & 0xE00;
+          v10 = MI_PFN_IS_PROTO(v7);
+          *(_QWORD *)(v9 + 8 * v8 - 8) = v11 ^ ((unsigned __int16)v11 ^ (unsigned __int16)(v10 << 8)) & 0x100;
+          if ( MI_PFN_IS_PROTO(v12) )
           {
             if ( (*(_DWORD *)v3 & 2) != 0 )
             {
-              v12 = v11 & 0xFFFFFFFFFFFFF11FuLL | 0xE0;
+              v15 = v14 & 0xFFFFFFFFFFFFF11FuLL | 0xE0;
             }
             else
             {
-              LOBYTE(v13) = 7;
+              LOBYTE(v16) = 7;
               if ( (*(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFuLL) < 7 )
-                v13 = *(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL;
-              v10 = (unsigned __int8)(v11 ^ (32 * v13)) & 0xE0;
-              v12 = v10 ^ v11;
+                v16 = *(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL;
+              v13 = (unsigned __int8)(v14 ^ (32 * v16)) & 0xE0;
+              v15 = v13 ^ v14;
             }
-            *(_QWORD *)(v9 + 8 * v8 - 8) = v12;
-            v14 = *(_QWORD *)(v9 + 8 * v8 - 8) ^ (*(_DWORD *)(v9 + 8 * v8 - 8) ^ (unsigned int)MiGetPfnProtection(
-                                                                                                 v10,
-                                                                                                 v6)) & 0x1F;
+            *(_QWORD *)(v9 + 8 * v8 - 8) = v15;
+            v17 = *(_QWORD *)(v9 + 8 * v8 - 8) ^ (*(_DWORD *)(v9 + 8 * v8 - 8) ^ (unsigned int)MiGetPfnProtection(
+                                                                                                 v13,
+                                                                                                 v6,
+                                                                                                 v7)) & 0x1F;
           }
-          *(_QWORD *)(v9 + 8 * v8 - 8) = v14;
+          else
+          {
+            v18 = v14 & 0xFFFFFFFFFFFFFF1FuLL;
+            *(_QWORD *)(v9 + 8 * v8 - 8) = v18;
+            v17 = v18 ^ ((unsigned __int8)v18 ^ (unsigned __int8)((unsigned __int64)*(unsigned int *)(v7 + 16) >> 5)) & 0x1F;
+          }
+          *(_QWORD *)(v9 + 8 * v8 - 8) = v17;
           return 0LL;
         }
-        return 5LL;
+        return 4LL;
       }
-      if ( *(__int64 *)(v7 + 40) < 0 )
+      if ( MI_PFN_IS_PROTO(v7) )
       {
-        v16 = *(_QWORD *)(v3 + 16) + 1LL;
-        *(_QWORD *)(v3 + 16) = v16;
-        if ( v16 >= *(_QWORD *)(v3 + 24) )
-          return 5LL;
-        v18 = 32 * v16 + *(_QWORD *)(v3 + 8);
-        MiIdentifyPfnWrapper(v7, v18 - 32);
-        *(_QWORD *)(v18 - 8) = v6;
+        v21 = *(_QWORD *)(v3 + 16) + 1LL;
+        *(_QWORD *)(v3 + 16) = v21;
+        if ( v21 >= *(_QWORD *)(v3 + 24) )
+          return 4LL;
+        v23 = 32 * v21 + *(_QWORD *)(v3 + 8);
+        MiIdentifyPfnWrapper(v7, v23 - 32, v19, v20);
+        *(_QWORD *)(v23 - 8) = v6;
       }
     }
   }

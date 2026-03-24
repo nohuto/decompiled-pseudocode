@@ -1,17 +1,17 @@
 /*
- * XREFs of IopAcquireReleaseConnectLockInternal @ 0x14081788C
+ * XREFs of IopAcquireReleaseConnectLockInternal @ 0x1407C4720
  * Callers:
- *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
- *     IopDestroyActiveConnectBlock @ 0x1408176BC (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x1408177B8 (IopInitializeActiveConnectBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x140762650 (IopDestroyActiveConnectBlock.c)
+ *     IopReleaseActiveConnectLock @ 0x1407627BC (IopReleaseActiveConnectLock.c)
+ *     IopAcquireActiveConnectLock @ 0x1407627E0 (IopAcquireActiveConnectLock.c)
+ *     IopInitializeActiveConnectBlock @ 0x140762804 (IopInitializeActiveConnectBlock.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
-char __fastcall IopAcquireReleaseConnectLockInternal(__int64 a1, char a2, char a3)
+NTSTATUS __fastcall IopAcquireReleaseConnectLockInternal(__int64 a1, char a2, char a3)
 {
   struct _KEVENT *v3; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -37,6 +37,6 @@ char __fastcall IopAcquireReleaseConnectLockInternal(__int64 a1, char a2, char a
   else
   {
     KeSetEvent(v3, 0, 0);
-    return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    return (unsigned int)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
 }

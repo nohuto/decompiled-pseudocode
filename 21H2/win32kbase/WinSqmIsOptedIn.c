@@ -1,12 +1,12 @@
 /*
- * XREFs of WinSqmIsOptedIn @ 0x1C0167D40
+ * XREFs of WinSqmIsOptedIn @ 0x1C00B2D30
  * Callers:
  *     <none>
  * Callees:
- *     WinSqmIsOptedInEx @ 0x1C005BE90 (WinSqmIsOptedInEx.c)
+ *     WinSqmIsOptedInEx @ 0x1C00B2D50 (WinSqmIsOptedInEx.c)
  */
 
-_BOOL8 WinSqmIsOptedIn()
+__int64 WinSqmIsOptedIn()
 {
-  return WinSqmIsOptedInEx(1);
+  return WinSqmIsOptedInEx(1LL);
 }

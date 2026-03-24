@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapWmiExecuteErrorInjectionMethod @ 0x14064633C
+ * XREFs of WheapWmiExecuteErrorInjectionMethod @ 0x1405BD8AC
  * Callers:
- *     WheapWmiExecuteMethod @ 0x140646840 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1405BDDB0 (WheapWmiExecuteMethod.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_GettingConfigDescriptorWhileRenuemrating @ 0x1C001EE80
+ * XREFs of HUBDSM_GettingConfigDescriptorWhileRenuemrating @ 0x1C001E940
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetConfigDescriptorWithDefaultSizeUsingControlTransfer @ 0x1C00280BC (HUBDTX_GetConfigDescriptorWithDefaultSizeUsingControlTransfer.c)
+ *     HUBDTX_GetConfigDescriptorWithDefaultSizeUsingControlTransfer @ 0x1C0027C14 (HUBDTX_GetConfigDescriptorWithDefaultSizeUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_GettingConfigDescriptorWhileRenuemrating(__int64 a1)

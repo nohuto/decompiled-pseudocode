@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSections @ 0x14083969C
+ * XREFs of MiInitializeSections @ 0x140797A24
  * Callers:
- *     MiInitializePartition @ 0x140838DF0 (MiInitializePartition.c)
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitializePartition @ 0x1407974EC (MiInitializePartition.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeInitializeSemaphore @ 0x1402B32C0 (KeInitializeSemaphore.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeSemaphore @ 0x1402D6DB0 (KeInitializeSemaphore.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
  */
 
 void __fastcall MiInitializeSections(__int64 a1)
@@ -15,7 +15,7 @@ void __fastcall MiInitializeSections(__int64 a1)
   __int64 v2; // rcx
   char v3; // al
 
-  v2 = a1 + 1584;
+  v2 = a1 + 1520;
   *(_QWORD *)(v2 + 40) = v2 + 32;
   *(_QWORD *)(v2 + 32) = v2 + 32;
   *(_QWORD *)(v2 + 56) = v2 + 48;
@@ -23,27 +23,27 @@ void __fastcall MiInitializeSections(__int64 a1)
   *(_QWORD *)(v2 + 72) = v2 + 64;
   *(_QWORD *)(v2 + 64) = v2 + 64;
   KeInitializeSemaphore((PRKSEMAPHORE)v2, 0, 0x7FFFFFFF);
-  *(_QWORD *)(a1 + 1672) = a1 + 1664;
-  *(_QWORD *)(a1 + 1664) = a1 + 1664;
-  *(_QWORD *)(a1 + 1776) = a1 + 1768;
-  *(_QWORD *)(a1 + 1768) = a1 + 1768;
-  *(_QWORD *)(a1 + 1792) = a1 + 1784;
-  *(_QWORD *)(a1 + 1784) = a1 + 1784;
-  KeInitializeEvent((PRKEVENT)(a1 + 1464), NotificationEvent, 0);
-  *(_QWORD *)(a1 + 1808) = a1 + 1800;
-  *(_QWORD *)(a1 + 1800) = a1 + 1800;
-  KeInitializeEvent((PRKEVENT)(a1 + 1440), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 1816), SynchronizationEvent, 0);
-  KeInitializeTimerEx((PKTIMER)(a1 + 1680), SynchronizationTimer);
-  KeInitializeEvent((PRKEVENT)(a1 + 2040), NotificationEvent, 0);
-  InitializeSListHead((PSLIST_HEADER)(a1 + 2064));
-  *(_QWORD *)(a1 + 1528) = 1LL;
-  *(_QWORD *)(a1 + 1496) = 0LL;
-  *(_QWORD *)(a1 + 1536) = 0LL;
-  *(_DWORD *)(a1 + 1568) = 0;
-  v3 = *(_BYTE *)(a1 + 1575) & 0xFD;
-  *(_QWORD *)(a1 + 1520) = a1;
-  *(_BYTE *)(a1 + 1572) = -1;
-  *(_BYTE *)(a1 + 1575) = v3 | 4;
-  KeInitializeEvent((PRKEVENT)(a1 + 1544), NotificationEvent, 0);
+  *(_QWORD *)(a1 + 1608) = a1 + 1600;
+  *(_QWORD *)(a1 + 1600) = a1 + 1600;
+  *(_QWORD *)(a1 + 1712) = a1 + 1704;
+  *(_QWORD *)(a1 + 1704) = a1 + 1704;
+  *(_QWORD *)(a1 + 1728) = a1 + 1720;
+  *(_QWORD *)(a1 + 1720) = a1 + 1720;
+  KeInitializeEvent((PRKEVENT)(a1 + 1400), NotificationEvent, 0);
+  *(_QWORD *)(a1 + 1744) = a1 + 1736;
+  *(_QWORD *)(a1 + 1736) = a1 + 1736;
+  KeInitializeEvent((PRKEVENT)(a1 + 1376), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(a1 + 1752), SynchronizationEvent, 0);
+  KeInitializeTimerEx((PKTIMER)(a1 + 1616), SynchronizationTimer);
+  KeInitializeEvent((PRKEVENT)(a1 + 1808), NotificationEvent, 0);
+  InitializeSListHead((PSLIST_HEADER)(a1 + 1840));
+  *(_QWORD *)(a1 + 1464) = 1LL;
+  *(_QWORD *)(a1 + 1432) = 0LL;
+  *(_QWORD *)(a1 + 1472) = 0LL;
+  *(_DWORD *)(a1 + 1504) = 0;
+  v3 = *(_BYTE *)(a1 + 1511) & 0xFD;
+  *(_QWORD *)(a1 + 1456) = a1;
+  *(_BYTE *)(a1 + 1508) = -1;
+  *(_BYTE *)(a1 + 1511) = v3 | 4;
+  KeInitializeEvent((PRKEVENT)(a1 + 1480), NotificationEvent, 0);
 }

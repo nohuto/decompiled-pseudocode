@@ -4,7 +4,7 @@
  *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  * Callees:
- *     IopUpdateFunctionPointers @ 0x14027F384 (IopUpdateFunctionPointers.c)
+ *     IopUpdateFunctionPointers @ 0x14027F484 (IopUpdateFunctionPointers.c)
  *     IoVerifierCheckForSettingsChange @ 0x140923740 (IoVerifierCheckForSettingsChange.c)
  */
 

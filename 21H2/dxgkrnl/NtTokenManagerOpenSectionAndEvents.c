@@ -1,46 +1,48 @@
 /*
- * XREFs of NtTokenManagerOpenSectionAndEvents @ 0x1C0003230
+ * XREFs of NtTokenManagerOpenSectionAndEvents @ 0x1C000DB10
  * Callers:
  *     <none>
  * Callees:
- *     DxgkGetSessionTokenManager @ 0x1C0003660 (DxgkGetSessionTokenManager.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkGetSessionTokenManager @ 0x1C000E150 (DxgkGetSessionTokenManager.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtTokenManagerOpenSectionAndEvents(HANDLE *a1, _QWORD *a2, HANDLE *a3, HANDLE *a4)
 {
   _QWORD *v6; // rbx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   struct DXGGLOBAL *Global; // rax
   int SessionTokenManager; // esi
-  __int64 v10; // rbx
+  __int64 v12; // rbx
   HANDLE Handle; // [rsp+38h] [rbp-40h] BYREF
-  HANDLE v13; // [rsp+40h] [rbp-38h] BYREF
-  HANDLE v14; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-20h] BYREF
+  HANDLE v15; // [rsp+40h] [rbp-38h] BYREF
+  HANDLE v16; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v17; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-20h] BYREF
 
   v6 = a2;
-  v14 = (HANDLE)-1LL;
-  v16 = 0LL;
-  v13 = (HANDLE)-1LL;
+  v16 = (HANDLE)-1LL;
+  v18 = 0LL;
+  v15 = (HANDLE)-1LL;
   Handle = (HANDLE)-1LL;
   KeEnterCriticalRegion();
-  Global = DXGGLOBAL_GetGlobal();
-  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38073) + 528LL))() )
+  Global = DXGGLOBAL::GetGlobal(v9, v8);
+  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))() )
   {
-    v15 = 0LL;
-    SessionTokenManager = DxgkGetSessionTokenManager(&v15);
+    v17 = 0LL;
+    SessionTokenManager = DxgkGetSessionTokenManager(&v17);
     if ( SessionTokenManager >= 0 )
     {
-      v10 = v15;
-      SessionTokenManager = (*(__int64 (__fastcall **)(__int64, HANDLE *, __int64 *, HANDLE *, HANDLE *))(*(_QWORD *)v15 + 48LL))(
-                              v15,
-                              &v14,
+      v12 = v17;
+      SessionTokenManager = (*(__int64 (__fastcall **)(__int64, HANDLE *, __int64 *, HANDLE *, HANDLE *))(*(_QWORD *)v17 + 48LL))(
+                              v17,
                               &v16,
-                              &v13,
+                              &v18,
+                              &v15,
                               &Handle);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
       v6 = a2;
     }
   }
@@ -52,13 +54,13 @@ __int64 __fastcall NtTokenManagerOpenSectionAndEvents(HANDLE *a1, _QWORD *a2, HA
   {
     if ( a1 + 1 < a1 || (unsigned __int64)(a1 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a1 = v14;
+    *a1 = v16;
     if ( v6 + 1 < v6 || (unsigned __int64)(v6 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *v6 = v16;
+    *v6 = v18;
     if ( a3 + 1 < a3 || (unsigned __int64)(a3 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a3 = v13;
+    *a3 = v15;
     if ( a4 + 1 < a4 || (unsigned __int64)(a4 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
     *a4 = Handle;
@@ -71,10 +73,10 @@ __int64 __fastcall NtTokenManagerOpenSectionAndEvents(HANDLE *a1, _QWORD *a2, HA
   {
     if ( Handle != (HANDLE)-1LL )
       ObCloseHandle(Handle, 1);
-    if ( v13 != (HANDLE)-1LL )
-      ObCloseHandle(v13, 1);
-    if ( v14 != (HANDLE)-1LL )
-      ObCloseHandle(v14, 1);
+    if ( v15 != (HANDLE)-1LL )
+      ObCloseHandle(v15, 1);
+    if ( v16 != (HANDLE)-1LL )
+      ObCloseHandle(v16, 1);
   }
   KeLeaveCriticalRegion();
   return (unsigned int)SessionTokenManager;

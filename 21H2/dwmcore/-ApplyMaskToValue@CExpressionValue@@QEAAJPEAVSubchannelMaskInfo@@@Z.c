@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801FE380
+ * XREFs of ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B186C
  * Callers:
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180050DC0 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x1800716AC (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
- *     ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800E13F0 (-SampleStartingValue@CKeyframeAnimation@@AEAAJXZ.c)
- *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x180227558 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
- *     ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x18025008C (-QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNo.c)
+ *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x18005BDD0 (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073600 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800ACE18 (-SampleStartingValue@CKeyframeAnimation@@AEAAJXZ.c)
+ *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D8D90 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ *     ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x180200B7C (-QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNo.c)
  * Callees:
- *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800525D0 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z @ 0x1800E9898 (-CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z @ 0x1800A913C (-CopyIntoFloatArray@CExpressionValue@@QEBAJIPEAM@Z.c)
+ *     ?GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800A9188 (-GetExpressionTypeChannelCount@@YAIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CExpressionValue::ApplyMaskToValue(CExpressionValue *this, struct SubchannelMaskInfo *a2)
@@ -52,7 +52,7 @@ __int64 __fastcall CExpressionValue::ApplyMaskToValue(CExpressionValue *this, st
   v10 = v8;
   if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x2EFu);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x2EFu, 0LL);
     return v10;
   }
   for ( i = 0; i < v5; *((_DWORD *)&v26 + v9) = v8 )
@@ -68,7 +68,7 @@ __int64 __fastcall CExpressionValue::ApplyMaskToValue(CExpressionValue *this, st
       if ( *(_DWORD *)a2 != 2 )
       {
         v10 = -2147467259;
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2147467259, 0x30Au);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147467259, 0x30Au, 0LL);
         return v10;
       }
       v12 = 4 * (*((unsigned __int8 *)a2 + 4) - i) - 4;
@@ -77,13 +77,13 @@ __int64 __fastcall CExpressionValue::ApplyMaskToValue(CExpressionValue *this, st
     if ( (unsigned int)v13 >= v6 )
     {
       v10 = -2147467259;
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, -2147467259, 0x315u);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147467259, 0x315u, 0LL);
       return v10;
     }
     if ( i >= 0x10 )
     {
       v10 = -2147467259;
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, -2147467259, 0x320u);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147467259, 0x320u, 0LL);
       return v10;
     }
     v8 = LODWORD(v30[v13]);
@@ -147,6 +147,6 @@ LABEL_29:
     return v10;
   }
   v10 = -2147467259;
-  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2147467259, 0x357u);
+  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147467259, 0x357u, 0LL);
   return v10;
 }

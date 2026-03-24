@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiInitSpool @ 0x1C0277A10
+ * XREFs of NtGdiInitSpool @ 0x1C027C120
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetAlphaMode@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_SETALPHAMODE@@@Z @ 0x1801A1AD8
+ * XREFs of ?ProcessSetAlphaMode@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_SETALPHAMODE@@@Z @ 0x18016FED8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     <none>
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRemoteAppRenderTarget::ProcessSetAlphaMode(
@@ -11,19 +11,23 @@ __int64 __fastcall CRemoteAppRenderTarget::ProcessSetAlphaMode(
         struct CResourceTable *a2,
         const struct tagMILCMD_REMOTEAPPRENDERTARGET_SETALPHAMODE *a3)
 {
-  int v3; // eax
+  int v3; // edx
   int v4; // xmm0_4
+  __int64 v5; // rcx
 
   v3 = *((_DWORD *)a3 + 2);
-  if ( v3 != *((_DWORD *)this + 29) )
+  if ( v3 != *((_DWORD *)this + 23) )
   {
-    *((_DWORD *)this + 29) = v3;
+    *((_DWORD *)this + 23) = v3;
     if ( v3 == 3 )
       v4 = (int)FLOAT_1_0;
     else
       v4 = 0;
-    *((_DWORD *)this + 34) = v4;
-    *((_BYTE *)this + 141) = 1;
+    *((_DWORD *)this + 31) = v4;
+    *((_BYTE *)this + 129) = 1;
+    v5 = *((_QWORD *)this + 20);
+    if ( v5 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 56LL))(v5);
   }
   return 0LL;
 }

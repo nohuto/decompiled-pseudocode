@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_WaitingForResetComplete @ 0x1C00138C0
+ * XREFs of HUBPSM30_WaitingForResetComplete @ 0x1C00123A0
  * Callers:
  *     <none>
  * Callees:

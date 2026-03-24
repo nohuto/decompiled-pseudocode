@@ -1,167 +1,158 @@
 /*
- * XREFs of xxxInitSendValidateMinMaxInfoEx @ 0x1C0063E00
+ * XREFs of xxxInitSendValidateMinMaxInfoEx @ 0x1C0064D40
  * Callers:
- *     xxxAdjustSize @ 0x1C00686A8 (xxxAdjustSize.c)
- *     ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C00BA884 (-xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00CA7B4 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     ?xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOptions@1@K@Z @ 0x1C015B0AC (-xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOption.c)
- *     ?xxxGetMinMaxTrackInfo@@YAXPEAUMOVESIZEDATA@@H@Z @ 0x1C020D2C8 (-xxxGetMinMaxTrackInfo@@YAXPEAUMOVESIZEDATA@@H@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B73C (xxxMinMaximizeEx.c)
+ *     xxxAdjustSize @ 0x1C004B2E8 (xxxAdjustSize.c)
+ *     ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C011C9CC (-xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z.c)
+ *     ?xxxGetMinMaxTrackInfo@@YAXPEAU_MOVESIZEDATA@@H@Z @ 0x1C020EAAC (-xxxGetMinMaxTrackInfo@@YAXPEAU_MOVESIZEDATA@@H@Z.c)
  * Callees:
- *     ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C004CE04 (-GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z.c)
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C0062280 (-GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z.c)
- *     GetMonitorRectForWindow @ 0x1C0063604 (GetMonitorRectForWindow.c)
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     _HasCaptionIcon @ 0x1C00684C0 (_HasCaptionIcon.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C007B464 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
- *     GetScreenRectForDpi @ 0x1C00B06C4 (GetScreenRectForDpi.c)
- *     GetDPIServerInfo @ 0x1C00BA3D4 (GetDPIServerInfo.c)
- *     GetWindowDpiLastNotify @ 0x1C00BBEF0 (GetWindowDpiLastNotify.c)
- *     _GetClientRect @ 0x1C00F2600 (_GetClientRect.c)
- *     ?ComputeMaxTrackSize@@YA?AUtagSIZE@@UtagRECT@@G@Z @ 0x1C00F9288 (-ComputeMaxTrackSize@@YA-AUtagSIZE@@UtagRECT@@G@Z.c)
- *     ?GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z @ 0x1C00F9318 (-GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z.c)
- *     ?GetMonitorMaxArea@@YA?AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C010435C (-GetMonitorMaxArea@@YA-AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z.c)
+ *     GetMonitorMaxArea @ 0x1C0041474 (GetMonitorMaxArea.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042200 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     GetMaxTrackSizeForWindow @ 0x1C00424BC (GetMaxTrackSizeForWindow.c)
+ *     GetMonitorRectForWindow @ 0x1C0042874 (GetMonitorRectForWindow.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AEAC (GetWindowBordersWithDpiAwareness.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C6B8 (GetWindowDpiLastNotify.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     _HasCaptionIcon @ 0x1C0061D98 (_HasCaptionIcon.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     GetDPIServerInfo @ 0x1C00E0E18 (GetDPIServerInfo.c)
+ *     _GetClientRect @ 0x1C00FFC48 (_GetClientRect.c)
  */
 
-__int64 __fastcall xxxInitSendValidateMinMaxInfoEx(struct tagWND *a1, __int64 a2, struct tagMONITOR *a3)
+__int64 __fastcall xxxInitSendValidateMinMaxInfoEx(struct tagWND *a1, __int64 a2, struct tagMONITOR *a3, int a4)
 {
-  struct tagRECT v6; // xmm6
+  __int64 v7; // rcx
+  __int64 v8; // r12
+  __int128 v9; // xmm6
   __int64 DesktopWindow; // rax
-  __int64 v8; // r8
-  int v9; // r15d
-  __int64 v10; // rdx
-  struct tagMONITOR *v11; // r12
+  __int64 v11; // r8
+  int v12; // r14d
+  struct tagMONITOR *v13; // r13
   int WindowBordersWithDpiAwareness; // esi
-  int v13; // ecx
-  int v14; // edx
   int v15; // ecx
-  int v16; // eax
-  __int64 TargetInfoAsUlong_low; // rdx
+  int v16; // edx
+  int v17; // ecx
+  int v18; // eax
+  __int64 Type; // rdx
   __int64 Prop; // rax
-  __int64 v19; // rax
-  int v20; // esi
-  __int64 v21; // rcx
-  int v22; // edx
+  __int64 v21; // rax
+  int v22; // esi
+  __int64 v23; // rcx
+  int v24; // edx
   unsigned int WindowDpiLastNotify; // eax
-  __int64 v24; // rdx
-  int v25; // ecx
-  unsigned int v26; // eax
+  __int64 v26; // rdx
+  int v27; // ecx
+  unsigned int v28; // eax
   int DpiDependentMetric; // eax
-  unsigned __int16 WindowCompositedDpi; // r14
-  const struct tagWND *v29; // rcx
-  unsigned int WindowCompositedDpiContext; // eax
-  __int64 v31; // r8
+  __int64 v30; // rcx
+  __int64 v31; // rcx
   __int64 v32; // rdx
-  __int64 v33; // rcx
-  int bottom; // r15d
-  signed int top; // r13d
-  __int64 v36; // rax
-  __int64 v37; // rdx
-  int v38; // r14d
-  int v39; // ecx
-  unsigned int v40; // eax
-  __int64 v41; // rcx
-  __int64 v42; // rdx
-  __int64 v43; // rcx
-  __int64 v44; // r8
-  __int64 v45; // rdx
-  int v46; // r14d
-  int v47; // eax
+  int v33; // r14d
+  int v34; // eax
   __int64 result; // rax
-  int v49; // ecx
-  unsigned int v50; // eax
-  int v51; // eax
-  __int64 v52; // rdx
-  char v53; // al
+  int v36; // r15d
+  signed int v37; // r12d
+  __int64 v38; // rax
+  __int64 v39; // rdx
+  int v40; // ecx
+  unsigned int v41; // eax
+  int v42; // r14d
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  int v45; // ecx
+  unsigned int v46; // eax
+  int v47; // eax
+  __int64 v48; // rcx
+  char v49; // dl
+  int v50; // edx
+  unsigned int v51; // eax
+  int v52; // eax
+  __int64 v53; // rdx
   int v54; // ecx
   unsigned int v55; // eax
-  int v56; // eax
-  __int64 v57; // rdx
-  int v58; // ecx
-  unsigned int v59; // eax
-  int v60; // r8d
-  int v61; // ecx
+  int v56; // r8d
+  int v57; // ecx
+  __int64 v58; // rax
+  __int64 v59; // rax
+  int v60; // eax
+  __int64 v61; // rax
   __int64 v62; // rax
-  __int64 v63; // rax
-  __int64 v64; // rax
+  int v63; // edx
+  unsigned int v64; // eax
   __int64 v65; // rax
   __int64 v66; // rax
-  __int64 v67; // rax
-  int v68; // ecx
-  unsigned int v69; // eax
+  int v67; // edx
+  unsigned int v68; // eax
+  __int64 v69; // rax
   __int64 v70; // rax
-  int v71; // ecx
-  unsigned int v72; // eax
-  __int64 v73; // rax
-  __int64 v74; // [rsp+28h] [rbp-59h]
-  struct tagRECT v75; // [rsp+38h] [rbp-49h] BYREF
-  struct tagRECT v76; // [rsp+48h] [rbp-39h]
-  struct tagRECT v77; // [rsp+58h] [rbp-29h] BYREF
-  _QWORD v78[3]; // [rsp+68h] [rbp-19h] BYREF
-  _QWORD v79[5]; // [rsp+80h] [rbp-1h] BYREF
-  int v80; // [rsp+E8h] [rbp+67h]
-  int v81; // [rsp+100h] [rbp+7Fh]
+  __int128 v71; // [rsp+38h] [rbp-39h] BYREF
+  __int128 v72; // [rsp+48h] [rbp-29h] BYREF
+  _QWORD v73[3]; // [rsp+58h] [rbp-19h] BYREF
+  _QWORD v74[5]; // [rsp+70h] [rbp-1h] BYREF
+  int v75; // [rsp+D8h] [rbp+67h]
+  int v76; // [rsp+E0h] [rbp+6Fh]
 
-  v78[2] = 0LL;
-  v79[2] = 0LL;
-  v75 = 0LL;
+  v73[2] = 0LL;
+  v74[2] = 0LL;
+  v71 = 0LL;
   *(_DWORD *)a2 = *(_DWORD *)(gpsi + 2124LL);
-  *(_DWORD *)(a2 + 4) = *(_DWORD *)(gpsi + 2128LL);
-  v74 = *(_QWORD *)(GetDispInfo() + 96);
-  v6 = *(struct tagRECT *)GetMonitorRectForWindow((__int64)&v77, v74, a1);
-  v76 = v6;
+  v7 = *(unsigned int *)(gpsi + 2128LL);
+  *(_DWORD *)(a2 + 4) = v7;
+  v8 = *(_QWORD *)(GetDispInfo(v7, a2) + 96);
+  v9 = *GetMonitorRectForWindow(&v72, v8, a1);
+  v72 = v9;
   DesktopWindow = GetDesktopWindow(a1);
-  if ( v8 == DesktopWindow )
+  if ( v11 == DesktopWindow )
   {
-    v9 = 1;
-    v75 = v6;
-    v11 = _MonitorFromWindowInternal(a1, 1u, 1);
+    v12 = 1;
+    v71 = v9;
+    v13 = _MonitorFromWindowInternal(a1, 1, 1);
     if ( a3 )
-      v11 = a3;
+      v13 = a3;
   }
   else
   {
-    v9 = 0;
-    v11 = 0LL;
-    GetClientRect(v8, &v75);
+    v12 = 0;
+    v13 = 0LL;
+    GetClientRect(v11, &v71);
   }
-  WindowBordersWithDpiAwareness = GetWindowBordersWithDpiAwareness(a1, v10, 0, 0);
-  v80 = v75.left - WindowBordersWithDpiAwareness;
-  v13 = WindowBordersWithDpiAwareness - (v75.left - WindowBordersWithDpiAwareness);
-  v75.left -= WindowBordersWithDpiAwareness;
-  v14 = v13 + v75.right;
-  v81 = v75.top - WindowBordersWithDpiAwareness;
-  v15 = WindowBordersWithDpiAwareness - (v75.top - WindowBordersWithDpiAwareness);
-  v75.top -= WindowBordersWithDpiAwareness;
-  v16 = v15 + v75.bottom;
-  *(_DWORD *)(a2 + 8) = v14;
-  TargetInfoAsUlong_low = LOWORD(WPP_MAIN_CB.Dpc.TargetInfoAsUlong);
-  *(_DWORD *)(a2 + 12) = v16;
-  Prop = GetProp(a1, TargetInfoAsUlong_low, 1LL);
+  WindowBordersWithDpiAwareness = GetWindowBordersWithDpiAwareness((__int64)a1);
+  v75 = v71 - WindowBordersWithDpiAwareness;
+  v15 = WindowBordersWithDpiAwareness - (v71 - WindowBordersWithDpiAwareness);
+  LODWORD(v71) = v71 - WindowBordersWithDpiAwareness;
+  v16 = v15 + DWORD2(v71);
+  v76 = DWORD1(v71) - WindowBordersWithDpiAwareness;
+  v17 = WindowBordersWithDpiAwareness - (DWORD1(v71) - WindowBordersWithDpiAwareness);
+  DWORD1(v71) -= WindowBordersWithDpiAwareness;
+  v18 = v17 + HIDWORD(v71);
+  *(_DWORD *)(a2 + 8) = v16;
+  Type = (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type;
+  *(_DWORD *)(a2 + 12) = v18;
+  Prop = GetProp(a1, Type, 1LL);
   if ( Prop && (*(_DWORD *)(Prop + 48) & 0x40) != 0 )
-    v19 = *(_QWORD *)(Prop + 40);
+    v21 = *(_QWORD *)(Prop + 40);
   else
-    v19 = *(_QWORD *)&v75.left;
-  *(_QWORD *)(a2 + 16) = v19;
-  v20 = 2 * WindowBordersWithDpiAwareness;
-  v21 = *((_QWORD *)a1 + 5);
-  if ( (*(_BYTE *)(v21 + 30) & 0xC0) != 0 && *(char *)(v21 + 24) >= 0 )
+    v21 = v71;
+  *(_QWORD *)(a2 + 16) = v21;
+  v22 = 2 * WindowBordersWithDpiAwareness;
+  v23 = *((_QWORD *)a1 + 5);
+  if ( (*(_BYTE *)(v23 + 30) & 0xC0) != 0 && *(char *)(v23 + 24) >= 0 )
   {
-    v22 = *(_DWORD *)(v21 + 288) & 0xF;
-    if ( v22 == 3 )
+    v24 = *(_DWORD *)(v23 + 288) & 0xF;
+    if ( v24 == 3 )
     {
-      WindowDpiLastNotify = (*(_DWORD *)(v21 + 288) >> 8) & 0x1FF;
+      WindowDpiLastNotify = (*(_DWORD *)(v23 + 288) >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v21 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v23 + 232) & 0x8000000) != 0 )
     {
-      WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
+      WindowDpiLastNotify = GetWindowDpiLastNotify((__int64)a1);
     }
-    else if ( !v22
-           && (v62 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-           && (*(_DWORD *)(**(_QWORD **)(v62 + 8) + 64LL) & 1) != 0 )
+    else if ( !v24
+           && (v58 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+           && (*(_DWORD *)(**(_QWORD **)(v58 + 8) + 64LL) & 1) != 0 )
     {
       WindowDpiLastNotify = 96;
     }
@@ -170,184 +161,229 @@ __int64 __fastcall xxxInitSendValidateMinMaxInfoEx(struct tagWND *a1, __int64 a2
       WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
     }
     *(_DWORD *)(a2 + 24) = GetDpiDependentMetric(16LL, WindowDpiLastNotify);
-    v24 = *((_QWORD *)a1 + 5);
-    v25 = *(_DWORD *)(v24 + 288) & 0xF;
-    if ( v25 == 3 )
+    v26 = *((_QWORD *)a1 + 5);
+    v27 = *(_DWORD *)(v26 + 288) & 0xF;
+    if ( v27 == 3 )
     {
-      v26 = (*(_DWORD *)(v24 + 288) >> 8) & 0x1FF;
+      v28 = (*(_DWORD *)(v26 + 288) >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v24 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v26 + 232) & 0x8000000) != 0 )
     {
-      v26 = GetWindowDpiLastNotify(a1);
+      v28 = GetWindowDpiLastNotify((__int64)a1);
     }
-    else if ( !v25
-           && (v63 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-           && (*(_DWORD *)(**(_QWORD **)(v63 + 8) + 64LL) & 1) != 0 )
+    else if ( !v27
+           && (v59 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+           && (*(_DWORD *)(**(_QWORD **)(v59 + 8) + 64LL) & 1) != 0 )
     {
-      v26 = 96;
+      v28 = 96;
     }
     else
     {
-      v26 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+      v28 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
     }
-    DpiDependentMetric = GetDpiDependentMetric(17LL, v26);
+    DpiDependentMetric = GetDpiDependentMetric(17LL, v28);
   }
   else
   {
-    DpiDependentMetric = 2;
-    if ( v20 >= 2 )
-      DpiDependentMetric = v20;
-    *(_DWORD *)(a2 + 24) = DpiDependentMetric;
+    v60 = v22;
+    if ( v22 < 2 )
+      v60 = 2;
+    *(_DWORD *)(a2 + 24) = v60;
+    DpiDependentMetric = v22;
+    if ( v22 < 2 )
+      DpiDependentMetric = 2;
   }
   *(_DWORD *)(a2 + 28) = DpiDependentMetric;
-  WindowCompositedDpi = GetWindowCompositedDpi(a1);
-  WindowCompositedDpiContext = GetWindowCompositedDpiContext(v29);
-  GetScreenRectForDpi(&v75, (WindowCompositedDpiContext >> 8) & 0x1FF);
-  if ( !WindowCompositedDpi )
-    WindowCompositedDpi = *(_WORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
-  v77 = v75;
-  *(struct tagSIZE *)(a2 + 32) = ComputeMaxTrackSize(&v77, WindowCompositedDpi);
-  v78[0] = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = v78;
-  v78[1] = v11;
-  if ( v11 )
-    HMLockObject(v11);
-  v79[0] = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = v79;
-  v79[1] = v74;
-  HMLockObject(v74);
-  xxxSendMessage((ULONG_PTR)a1);
-  v32 = gpsi;
+  *(struct tagSIZE *)(a2 + 32) = GetMaxTrackSizeForWindow((__int64)a1);
+  v73[0] = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = v73;
+  v73[1] = v13;
+  if ( v13 )
+    HMLockObject(v13);
+  v74[0] = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = v74;
+  v74[1] = v8;
+  HMLockObject(v8);
+  if ( !a4 )
+    xxxSendMessage((unsigned __int64)a1, 0x24u, 0LL, (struct _LARGE_STRING *)a2);
   *(_DWORD *)a2 = *(_DWORD *)(gpsi + 2124LL);
-  v33 = *(unsigned int *)(gpsi + 2128LL);
-  *(_DWORD *)(a2 + 4) = v33;
-  if ( v9 )
+  v30 = *(unsigned int *)(gpsi + 2128LL);
+  *(_DWORD *)(a2 + 4) = v30;
+  if ( v12 )
   {
-    v75 = *GetMonitorMaxArea(&v77, a1, v11);
-    if ( *(_DWORD *)(a2 + 8) < v76.right - v76.left
-      || (bottom = v76.bottom, top = v76.top, *(_DWORD *)(a2 + 12) < v76.bottom - v76.top) )
+    v71 = *GetMonitorMaxArea(&v71, a1, (__int64)v13);
+    if ( *(_DWORD *)(a2 + 8) < DWORD2(v72) - (int)v72
+      || (v36 = HIDWORD(v72), v37 = DWORD1(v72), *(_DWORD *)(a2 + 12) < HIDWORD(v72) - DWORD1(v72)) )
     {
-      SetOrClrWF(0LL, a1, 832LL, 1LL);
-      v32 = *(_QWORD *)&v75.left;
+      SetOrClrWF(0, (__int64)a1, 0x340u, 1);
+      LODWORD(v43) = v71;
     }
     else
     {
-      SetOrClrWF(1LL, a1, 832LL, 1LL);
-      v36 = GetProp(a1, LOWORD(WPP_MAIN_CB.Dpc.TargetInfoAsUlong), 1LL);
-      if ( v36 )
+      SetOrClrWF(1, (__int64)a1, 0x340u, 1);
+      v38 = GetProp(a1, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL);
+      if ( v38 )
       {
-        v60 = *(_DWORD *)(v36 + 48);
-        if ( (v60 & 0x40) != 0 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 30LL) & 4) != 0 )
+        v56 = *(_DWORD *)(v38 + 48);
+        if ( (v56 & 0x40) != 0 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 30LL) & 4) != 0 )
         {
-          v61 = *(_DWORD *)(a2 + 16);
-          if ( v61 != v80 && *(_DWORD *)(v36 + 40) == v61 )
+          v57 = *(_DWORD *)(a2 + 16);
+          if ( v57 != v75 && *(_DWORD *)(v38 + 40) == v57 )
           {
-            *(_DWORD *)(v36 + 48) = v60 & 0xFFFFFFBF;
-            *(_DWORD *)(a2 + 20) = v81;
-            *(_DWORD *)(a2 + 16) = v80;
+            *(_DWORD *)(v38 + 48) = v56 & 0xFFFFFFBF;
+            *(_DWORD *)(a2 + 20) = v76;
+            *(_DWORD *)(a2 + 16) = v75;
           }
         }
       }
-      v37 = *((_QWORD *)a1 + 5);
-      v38 = *(_DWORD *)(a2 + 20);
-      v39 = *(_DWORD *)(v37 + 288) & 0xF;
-      if ( v39 == 3 )
+      v39 = *((_QWORD *)a1 + 5);
+      v40 = *(_DWORD *)(v39 + 288) & 0xF;
+      if ( v40 == 3 )
       {
-        v40 = (*(_DWORD *)(v37 + 288) >> 8) & 0x1FF;
+        v41 = (*(_DWORD *)(v39 + 288) >> 8) & 0x1FF;
       }
-      else if ( (*(_DWORD *)(v37 + 232) & 0x400) != 0 )
+      else if ( (*(_DWORD *)(v39 + 232) & 0x8000000) != 0 )
       {
-        v40 = GetWindowDpiLastNotify(a1);
+        v41 = GetWindowDpiLastNotify((__int64)a1);
       }
-      else if ( !v39
-             && (v64 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-             && (*(_DWORD *)(**(_QWORD **)(v64 + 8) + 64LL) & 1) != 0 )
+      else if ( !v40
+             && (v61 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+             && (*(_DWORD *)(**(_QWORD **)(v61 + 8) + 64LL) & 1) != 0 )
       {
-        v40 = 96;
+        v41 = 96;
       }
       else
       {
-        v40 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+        v41 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
       }
-      if ( (int)(v38 + GetDpiDependentMetric(2LL, v40)) <= top && *(_DWORD *)(a2 + 12) + *(_DWORD *)(a2 + 20) >= bottom )
-        v75 = *(struct tagRECT *)GetMonitorRectForWindow((__int64)&v77, (__int64)v11, a1);
-      v32 = *(_QWORD *)&v75.left;
-      v41 = HIDWORD(*(_QWORD *)&v75.right);
-      *(_DWORD *)(a2 + 8) += v76.left + v75.right - v75.left - v76.right;
-      v33 = (unsigned int)(top + v41 - HIDWORD(v32) - bottom);
-      *(_DWORD *)(a2 + 12) += v33;
+      v42 = *(_DWORD *)(a2 + 20);
+      if ( (int)(v42 + GetDpiDependentMetric(2LL, v41)) <= v37 && v42 + *(_DWORD *)(a2 + 12) >= v36 )
+        v71 = *GetMonitorRectForWindow(&v71, (__int64)v13, a1);
+      v43 = v71;
+      v44 = HIDWORD(*((_QWORD *)&v71 + 1));
+      *(_DWORD *)(a2 + 8) += v72 + DWORD2(v71) - v71 - DWORD2(v72);
+      v30 = (unsigned int)(v37 + v44 - HIDWORD(v43) - v36);
+      *(_DWORD *)(a2 + 12) += v30;
     }
-    *(_DWORD *)(a2 + 20) += v75.top;
-    *(_DWORD *)(a2 + 16) += v32;
+    *(_DWORD *)(a2 + 16) += v43;
+    *(_DWORD *)(a2 + 20) += DWORD1(v71);
   }
-  ThreadUnlock1(v33, v32, v31);
-  ThreadUnlock1(v43, v42, v44);
-  v45 = *((_QWORD *)a1 + 5);
-  if ( (*(_BYTE *)(v45 + 16) & 8) != 0 )
+  ThreadUnlock1(v30);
+  ThreadUnlock1(v31);
+  v32 = *((_QWORD *)a1 + 5);
+  if ( (*(_BYTE *)(v32 + 16) & 8) != 0 )
   {
-    v49 = *(_DWORD *)(v45 + 288) & 0xF;
-    if ( v49 == 3 )
+    v45 = *(_DWORD *)(v32 + 288) & 0xF;
+    if ( v45 == 3 )
     {
-      v50 = (*(_DWORD *)(v45 + 288) >> 8) & 0x1FF;
+      v46 = (*(_DWORD *)(v32 + 288) >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v45 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v32 + 232) & 0x8000000) != 0 )
     {
-      v50 = GetWindowDpiLastNotify(a1);
+      v46 = GetWindowDpiLastNotify((__int64)a1);
     }
-    else if ( !v49
-           && (v65 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-           && (*(_DWORD *)(**(_QWORD **)(v65 + 8) + 64LL) & 1) != 0 )
+    else if ( !v45
+           && (v62 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+           && (*(_DWORD *)(**(_QWORD **)(v62 + 8) + 64LL) & 1) != 0 )
     {
-      v50 = 96;
+      v46 = 96;
     }
     else
     {
-      v50 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+      v46 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
     }
-    v51 = GetDpiDependentMetric(17LL, v50);
-    v52 = *((_QWORD *)a1 + 5);
-    v46 = v51;
-    if ( *(char *)(v52 + 24) < 0 )
+    v47 = GetDpiDependentMetric(17LL, v46);
+    v48 = *((_QWORD *)a1 + 5);
+    v33 = v47;
+    v49 = *(_BYTE *)(v48 + 30) & 8;
+    if ( *(char *)(v48 + 24) < 0 )
     {
-      if ( (*(_BYTE *)(v52 + 30) & 8) != 0 )
+      if ( v49 )
       {
-        v68 = *(_DWORD *)(v52 + 288) & 0xF;
-        if ( v68 == 3 )
+        v67 = *(_DWORD *)(v48 + 288) & 0xF;
+        if ( v67 == 3 )
         {
-          v69 = (*(_DWORD *)(v52 + 288) >> 8) & 0x1FF;
+          v68 = (*(_DWORD *)(v48 + 288) >> 8) & 0x1FF;
         }
-        else if ( (*(_DWORD *)(v52 + 232) & 0x400) != 0 )
+        else if ( (*(_DWORD *)(v48 + 232) & 0x8000000) != 0 )
         {
-          v69 = GetWindowDpiLastNotify(a1);
+          v68 = GetWindowDpiLastNotify((__int64)a1);
         }
-        else if ( !v68
-               && (v70 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-               && (*(_DWORD *)(**(_QWORD **)(v70 + 8) + 64LL) & 1) != 0 )
+        else if ( !v67
+               && (v69 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+               && (*(_DWORD *)(**(_QWORD **)(v69 + 8) + 64LL) & 1) != 0 )
         {
-          v69 = 96;
+          v68 = 96;
         }
         else
         {
-          v69 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+          v68 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
         }
-        v20 += GetDpiDependentMetric(23LL, v69);
+        v22 += GetDpiDependentMetric(23LL, v68);
       }
     }
     else
     {
-      v53 = *(_BYTE *)(v52 + 30);
-      if ( (v53 & 8) != 0 )
+      if ( v49 )
       {
-        if ( (v53 & 3) != 0 )
+        if ( (*(_BYTE *)(v48 + 30) & 3) != 0 )
         {
-          v54 = *(_DWORD *)(v52 + 288) & 0xF;
+          v50 = *(_DWORD *)(v48 + 288) & 0xF;
+          if ( v50 == 3 )
+          {
+            v51 = (*(_DWORD *)(v48 + 288) >> 8) & 0x1FF;
+          }
+          else if ( (*(_DWORD *)(v48 + 232) & 0x8000000) != 0 )
+          {
+            v51 = GetWindowDpiLastNotify((__int64)a1);
+          }
+          else if ( !v50
+                 && (v65 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+                 && (*(_DWORD *)(**(_QWORD **)(v65 + 8) + 64LL) & 1) != 0 )
+          {
+            v51 = 96;
+          }
+          else
+          {
+            v51 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+          }
+          v52 = GetDpiDependentMetric(12LL, v51);
+          v22 += v52 + 2 * v52;
+        }
+        else if ( (*(_BYTE *)(v48 + 25) & 4) != 0 )
+        {
+          v63 = *(_DWORD *)(v48 + 288) & 0xF;
+          if ( v63 == 3 )
+          {
+            v64 = (*(_DWORD *)(v48 + 288) >> 8) & 0x1FF;
+          }
+          else if ( (*(_DWORD *)(v48 + 232) & 0x8000000) != 0 )
+          {
+            v64 = GetWindowDpiLastNotify((__int64)a1);
+          }
+          else if ( !v63
+                 && (v70 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+                 && (*(_DWORD *)(**(_QWORD **)(v70 + 8) + 64LL) & 1) != 0 )
+          {
+            v64 = 96;
+          }
+          else
+          {
+            v64 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+          }
+          v22 += 2 * GetDpiDependentMetric(12LL, v64);
+        }
+        if ( (unsigned int)HasCaptionIcon((__int64)a1) )
+        {
+          v53 = *((_QWORD *)a1 + 5);
+          v54 = *(_DWORD *)(v53 + 288) & 0xF;
           if ( v54 == 3 )
           {
-            v55 = (*(_DWORD *)(v52 + 288) >> 8) & 0x1FF;
+            v55 = (*(_DWORD *)(v53 + 288) >> 8) & 0x1FF;
           }
-          else if ( (*(_DWORD *)(v52 + 232) & 0x400) != 0 )
+          else if ( (*(_DWORD *)(v53 + 232) & 0x8000000) != 0 )
           {
-            v55 = GetWindowDpiLastNotify(a1);
+            v55 = GetWindowDpiLastNotify((__int64)a1);
           }
           else if ( !v54
                  && (v66 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
@@ -359,72 +395,24 @@ __int64 __fastcall xxxInitSendValidateMinMaxInfoEx(struct tagWND *a1, __int64 a2
           {
             v55 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
           }
-          v56 = GetDpiDependentMetric(12LL, v55);
-          v20 += v56 + 2 * v56;
-        }
-        else if ( (*(_BYTE *)(v52 + 25) & 4) != 0 )
-        {
-          v71 = *(_DWORD *)(v52 + 288) & 0xF;
-          if ( v71 == 3 )
-          {
-            v72 = (*(_DWORD *)(v52 + 288) >> 8) & 0x1FF;
-          }
-          else if ( (*(_DWORD *)(v52 + 232) & 0x400) != 0 )
-          {
-            v72 = GetWindowDpiLastNotify(a1);
-          }
-          else if ( !v71
-                 && (v73 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-                 && (*(_DWORD *)(**(_QWORD **)(v73 + 8) + 64LL) & 1) != 0 )
-          {
-            v72 = 96;
-          }
-          else
-          {
-            v72 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
-          }
-          v20 += 2 * GetDpiDependentMetric(12LL, v72);
-        }
-        if ( (unsigned int)HasCaptionIcon(a1) )
-        {
-          v57 = *((_QWORD *)a1 + 5);
-          v58 = *(_DWORD *)(v57 + 288) & 0xF;
-          if ( v58 == 3 )
-          {
-            v59 = (*(_DWORD *)(v57 + 288) >> 8) & 0x1FF;
-          }
-          else if ( (*(_DWORD *)(v57 + 232) & 0x400) != 0 )
-          {
-            v59 = GetWindowDpiLastNotify(a1);
-          }
-          else if ( !v58
-                 && (v67 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-                 && (*(_DWORD *)(**(_QWORD **)(v67 + 8) + 64LL) & 1) != 0 )
-          {
-            v59 = 96;
-          }
-          else
-          {
-            v59 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
-          }
-          v20 += GetDpiDependentMetric(13LL, v59);
+          v22 += GetDpiDependentMetric(13LL, v55);
         }
       }
-      v20 += 4 * *(_DWORD *)(GetDPIServerInfo() + 16);
+      v22 += 4 * *(_DWORD *)(GetDPIServerInfo() + 16);
     }
-    v20 += 4;
+    v22 += 4;
   }
   else
   {
-    v46 = v20;
+    v33 = v22;
   }
-  v47 = *(_DWORD *)(a2 + 24);
-  if ( v47 <= v20 )
-    v47 = v20;
-  *(_DWORD *)(a2 + 24) = v47;
+  v34 = *(_DWORD *)(a2 + 24);
+  if ( v34 <= v22 )
+    v34 = v22;
+  *(_DWORD *)(a2 + 24) = v34;
   result = *(unsigned int *)(a2 + 28);
-  if ( (int)result <= v46 )
-    result = (unsigned int)v46;
+  if ( (int)result <= v33 )
+    result = (unsigned int)v33;
   *(_DWORD *)(a2 + 28) = result;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetGlyphIndicesW @ 0x1C0100A10
+ * XREFs of NtGdiGetGlyphIndicesW @ 0x1C01148B0
  * Callers:
  *     <none>
  * Callees:
- *     NtGdiGetGlyphIndicesWInternal @ 0x1C0100A40 (NtGdiGetGlyphIndicesWInternal.c)
+ *     NtGdiGetGlyphIndicesWInternal @ 0x1C01148E0 (NtGdiGetGlyphIndicesWInternal.c)
  */
 
 __int64 __fastcall NtGdiGetGlyphIndicesW(__int64 a1, __int64 a2)

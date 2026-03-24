@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsCallbackHookDriverUnload @ 0x14029FFF0
+ * XREFs of KseDsCallbackHookDriverUnload @ 0x1402A00F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KsepDsEventDriverUnload @ 0x1402A0C20 (KsepDsEventDriverUnload.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KsepDsEventDriverUnload @ 0x1402A0D20 (KsepDsEventDriverUnload.c)
  */
 
 __int64 __fastcall KseDsCallbackHookDriverUnload(__int64 a1)

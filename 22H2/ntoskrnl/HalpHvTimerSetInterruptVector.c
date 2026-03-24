@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHvTimerSetInterruptVector @ 0x14051ECE0
+ * XREFs of HalpHvTimerSetInterruptVector @ 0x1404D49F0
  * Callers:
  *     <none>
  * Callees:
@@ -16,7 +16,7 @@ __int64 __fastcall HalpHvTimerSetInterruptVector(__int64 a1, unsigned __int8 a2,
   if ( (v3 & 1) == 0 )
     __writemsr(
       0x40000083u,
-      *(_QWORD *)(a1 + 24 * a3 + 16) ^ (*(_DWORD *)(a1 + 24 * a3 + 16) ^ (unsigned int)v3) & 0xFFE | 1LL);
+      *(_QWORD *)(a1 + 24 * a3 + 16) ^ ((unsigned __int16)v3 ^ (unsigned __int16)*(_QWORD *)(a1 + 24 * a3 + 16)) & 0xFFE | 1LL);
   __writemsr(0x40000093u, a2);
   result = 196616LL;
   *(_QWORD *)(a1 + 24 * a3) = 196616LL;

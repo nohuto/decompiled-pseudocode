@@ -1,142 +1,139 @@
 /*
- * XREFs of HvpMarkDirty @ 0x14071F430
+ * XREFs of HvpMarkDirty @ 0x140708560
  * Callers:
- *     HvMarkDirtyForFlush @ 0x14020AEB4 (HvMarkDirtyForFlush.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14068C0C4 (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14068C544 (HvpRemapAndEnlistHiveBins.c)
- *     HvpEnlistFreeCells @ 0x14068C700 (HvpEnlistFreeCells.c)
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     CmpTransMgrPrepare @ 0x1407424F0 (CmpTransMgrPrepare.c)
- *     CmpTransMgrSyncHive @ 0x140742834 (CmpTransMgrSyncHive.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14070999C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpEnlistFreeCells @ 0x140709B00 (HvpEnlistFreeCells.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140720FE0 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     CmpTransMgrSyncHive @ 0x14076901C (CmpTransMgrSyncHive.c)
+ *     HvFoldBackDirtyData @ 0x140876964 (HvFoldBackDirtyData.c)
+ *     HvMarkDirty @ 0x14087BD00 (HvMarkDirty.c)
  * Callees:
- *     CmpArmLazyWriter @ 0x1402A4320 (CmpArmLazyWriter.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmpLogDirtyVectorUse @ 0x140688290 (CmpLogDirtyVectorUse.c)
- *     CmpIssueNewDirtyCallback @ 0x1406CA588 (CmpIssueNewDirtyCallback.c)
- *     HvpSetRangeProtection @ 0x14079B0D0 (HvpSetRangeProtection.c)
- *     CmpForceFlushForCoalescing @ 0x140881450 (CmpForceFlushForCoalescing.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     CmpArmLazyWriter @ 0x140358040 (CmpArmLazyWriter.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmpIssueNewDirtyCallback @ 0x1406BD060 (CmpIssueNewDirtyCallback.c)
+ *     HvpSetRangeProtection @ 0x140709E78 (HvpSetRangeProtection.c)
+ *     CmpLogDirtyVectorUse @ 0x140721BE0 (CmpLogDirtyVectorUse.c)
+ *     CmpForceFlushForCoalescing @ 0x140876C60 (CmpForceFlushForCoalescing.c)
  */
 
-__int64 __fastcall HvpMarkDirty(ULONG_PTR BugCheckParameter2, int a2, int a3, int a4)
+char __fastcall HvpMarkDirty(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3, int a4)
 {
-  int v4; // eax
-  int v9; // ebx
+  int v8; // ebx
   unsigned int v10; // edx
   unsigned int v11; // ebx
-  int v12; // esi
-  unsigned int v13; // ebx
-  ULONG v14; // esi
-  unsigned int v15; // eax
-  unsigned int v16; // ebp
-  ULONG v17; // eax
-  int v19; // eax
-  unsigned int v20; // ebx
-  int v21; // r14d
-  __int64 v22; // rcx
-  unsigned int v23; // edx
-  __int64 v24; // rax
-  unsigned int v25; // edx
-  __int64 v26; // rax
-  __int16 v27; // [rsp+30h] [rbp-98h] BYREF
-  int v28; // [rsp+34h] [rbp-94h] BYREF
-  __int64 v29; // [rsp+38h] [rbp-90h] BYREF
-  __int64 *v30; // [rsp+40h] [rbp-88h] BYREF
-  _QWORD v31[2]; // [rsp+48h] [rbp-80h]
-  int v32; // [rsp+58h] [rbp-70h]
-  int v33; // [rsp+5Ch] [rbp-6Ch]
+  unsigned int v12; // ecx
+  int v13; // eax
+  int v14; // edi
+  unsigned int v15; // ebx
+  ULONG v16; // edi
+  unsigned int v17; // eax
+  unsigned int v18; // r15d
+  ULONG v19; // eax
+  unsigned int v21; // ebx
+  int v22; // r14d
+  __int64 v23; // rax
+  unsigned int v24; // edx
+  __int64 v25; // rax
+  unsigned int v26; // edx
+  __int64 v27; // rax
+  __int16 v28; // [rsp+30h] [rbp-A8h] BYREF
+  int v29; // [rsp+34h] [rbp-A4h] BYREF
+  ULONG_PTR v30; // [rsp+38h] [rbp-A0h] BYREF
+  __int64 v31; // [rsp+40h] [rbp-98h] BYREF
+  ULONG_PTR *v32; // [rsp+50h] [rbp-88h] BYREF
+  _QWORD v33[2]; // [rsp+58h] [rbp-80h]
+  int v34; // [rsp+68h] [rbp-70h]
+  int v35; // [rsp+6Ch] [rbp-6Ch]
 
-  v4 = *(_DWORD *)(BugCheckParameter2 + 164);
-  if ( (v4 & 1) != 0 )
-    return 3221225506LL;
-  if ( (v4 & 2) != 0 && a4 != 2 )
-    return 3221225865LL;
   if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 1) != 0 || a2 < 0 )
-    return 0LL;
-  v9 = a2 - 1;
+    return 1;
+  v8 = a2 - 1;
   v10 = *(_DWORD *)(BugCheckParameter2 + 136);
-  v11 = (unsigned int)(a3 + v9) >> 9;
-  if ( v10 > 1 )
+  v11 = (a3 + v8) >> 9;
+  v12 = (unsigned int)a2 >> 9;
+  if ( v10 <= 1 )
   {
-    v19 = ~(v10 - 1);
-    v12 = ((unsigned int)a2 >> 9) & v19;
-    v11 = (v19 & (v10 + v11)) - 1;
+    v14 = v12;
   }
   else
   {
-    v12 = (unsigned int)a2 >> 9;
+    v13 = ~(v10 - 1);
+    v14 = v12 & v13;
+    v11 = (v13 & (v10 + v11)) - 1;
   }
-  v13 = ((v11 + 16) & 0xFFFFFFF8) - 9;
-  v14 = (v12 + 8) & 0xFFFFFFF8;
-  if ( v14 )
-    v14 -= 8;
-  v15 = *(_DWORD *)(BugCheckParameter2 + 280) >> 9;
-  if ( v13 >= v15 )
-    v13 = v15 - 1;
-  v16 = 0;
-  v17 = v14;
-  if ( v14 > v13 )
-    goto LABEL_16;
+  v15 = ((v11 + 16) & 0xFFFFFFF8) - 9;
+  v16 = (v14 + 8) & 0xFFFFFFF8;
+  if ( v16 )
+    v16 -= 8;
+  v17 = *(_DWORD *)(BugCheckParameter2 + 272) >> 9;
+  if ( v15 >= v17 )
+    v15 = v17 - 1;
+  v18 = 0;
+  v19 = v16;
+  if ( v16 > v15 )
+    goto LABEL_14;
   do
   {
-    if ( !_bittest64(*(const signed __int64 **)(BugCheckParameter2 + 96), v17) )
-      ++v16;
-    ++v17;
+    if ( !_bittest64(*(const signed __int64 **)(BugCheckParameter2 + 96), v19) )
+      ++v18;
+    ++v19;
   }
-  while ( v17 <= v13 );
-  if ( !v16 )
+  while ( v19 <= v15 );
+  if ( !v18 )
   {
-LABEL_16:
+LABEL_14:
     if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 2) == 0 )
     {
-      v29 = *(_QWORD *)(BugCheckParameter2 + 4136) + 10000000LL * (unsigned int)CmpLazyFlushIntervalInSeconds;
-      CmpArmLazyWriter(0, (unsigned __int64 *)&v29, 0);
+      v31 = *(_QWORD *)(BugCheckParameter2 + 4176) + 10000000LL * (unsigned int)CmpLazyFlushIntervalInSeconds;
+      CmpArmLazyWriter(0, (unsigned __int64 *)&v31, 0);
     }
-    return 0LL;
+    return 1;
   }
-  v20 = v13 - v14;
-  if ( (unsigned __int8)HvpSetRangeProtection(BugCheckParameter2, v14 << 9) )
+  v21 = v15 - v16;
+  if ( (unsigned __int8)HvpSetRangeProtection(BugCheckParameter2, v16 << 9) )
   {
-    v21 = *(_DWORD *)(BugCheckParameter2 + 104);
-    *(_DWORD *)(BugCheckParameter2 + 104) = v21 + v16;
-    RtlSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88), v14, v20 + 1);
-    CmpLogDirtyVectorUse(BugCheckParameter2, 0, a2, a3);
-    v29 = BugCheckParameter2;
-    if ( (DWORD2(PerfGlobalGroupMask[0]) & 0x1000000) != 0 )
+    v22 = *(_DWORD *)(BugCheckParameter2 + 104);
+    *(_DWORD *)(BugCheckParameter2 + 104) = v22 + v18;
+    RtlSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88), v16, v21 + 1);
+    CmpLogDirtyVectorUse(BugCheckParameter2, 0LL, (unsigned int)a2, a3);
+    v30 = BugCheckParameter2;
+    if ( (DWORD2(PerfGlobalGroupMask) & 0x1000000) != 0 )
     {
-      v28 = a4;
-      v27 = 0;
-      v30 = &v29;
-      v31[0] = 8LL;
-      v22 = *(_QWORD *)(BugCheckParameter2 + 1864);
-      v23 = 1;
-      if ( v22 )
+      v29 = a4;
+      v28 = 0;
+      v32 = &v30;
+      v23 = *(_QWORD *)(BugCheckParameter2 + 1856);
+      v33[0] = 8LL;
+      v24 = 1;
+      if ( v23 )
       {
-        v23 = 2;
-        v32 = *(unsigned __int16 *)(BugCheckParameter2 + 1856);
-        v31[1] = v22;
-        v33 = 0;
+        v33[1] = v23;
+        v24 = 2;
+        v34 = *(unsigned __int16 *)(BugCheckParameter2 + 1848);
+        v35 = 0;
       }
-      v24 = 2LL * v23;
-      v25 = v23 + 1;
-      v31[v24 - 1] = &v27;
-      v31[v24] = 2LL;
-      v26 = 2LL * v25;
-      v31[v26 - 1] = &v28;
-      v31[v26] = 4LL;
-      EtwTraceKernelEvent((__int64)&v30, v25 + 1, 0x41000000u, 0x928u, 0x501902u);
+      v25 = 2LL * v24;
+      v26 = v24 + 1;
+      v33[v25 - 1] = &v28;
+      v33[v25] = 2LL;
+      v27 = 2LL * v26;
+      v33[v27 - 1] = &v29;
+      v33[v27] = 4LL;
+      EtwTraceKernelEvent((int)&v32, v26 + 1, 0x41000000u, 2344, 5249282);
     }
-    if ( !v21 )
+    if ( !v22 )
     {
-      *(_QWORD *)(BugCheckParameter2 + 4136) = KiQueryUnbiasedInterruptTime();
+      *(_QWORD *)(BugCheckParameter2 + 4176) = KiQueryUnbiasedInterruptTime();
       CmpIssueNewDirtyCallback();
     }
-    if ( (int)(v16 + _InterlockedExchangeAdd(&CmpDirtySectorCount, v16)) >= 0x8000 )
+    if ( (int)(v18 + _InterlockedExchangeAdd(&CmpDirtySectorCount, v18)) >= 0x8000 )
       CmpForceFlushForCoalescing();
-    goto LABEL_16;
+    goto LABEL_14;
   }
-  return 3221225853LL;
+  return 0;
 }

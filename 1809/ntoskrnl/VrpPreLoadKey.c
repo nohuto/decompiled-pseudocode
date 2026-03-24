@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpPreLoadKey @ 0x14080B784
+ * XREFs of VrpPreLoadKey @ 0x14080B764
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
@@ -10,10 +10,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
@@ -21,17 +21,17 @@
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     CmSetCallbackObjectContext @ 0x1407EADF0 (CmSetCallbackObjectContext.c)
- *     VrpAllocateKeyContext @ 0x140808388 (VrpAllocateKeyContext.c)
- *     VrpFreeKeyContext @ 0x1408084B0 (VrpFreeKeyContext.c)
- *     VrpAddNamespaceNodeToList @ 0x140809B1C (VrpAddNamespaceNodeToList.c)
- *     VrpCreateNamespaceNode @ 0x140809E5C (VrpCreateNamespaceNode.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14080A10C (VrpCreateNamespaceNodePlaceholderKey.c)
- *     VrpDestroyNamespaceNode @ 0x14080A1BC (VrpDestroyNamespaceNode.c)
- *     VrpBuildKeyPath @ 0x14080DFFC (VrpBuildKeyPath.c)
- *     VrpGetNextToken @ 0x14080E23C (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x14080E320 (VrpStripTrailingCharacters.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     CmSetCallbackObjectContext @ 0x1407EADD0 (CmSetCallbackObjectContext.c)
+ *     VrpAllocateKeyContext @ 0x140808368 (VrpAllocateKeyContext.c)
+ *     VrpFreeKeyContext @ 0x140808490 (VrpFreeKeyContext.c)
+ *     VrpAddNamespaceNodeToList @ 0x140809AFC (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNode @ 0x140809E3C (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14080A0EC (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
+ *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
+ *     VrpGetNextToken @ 0x14080E21C (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x14080E300 (VrpStripTrailingCharacters.c)
  */
 
 __int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
@@ -161,7 +161,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
     v69 = v10;
     v70[0] = v9;
     v70[1] = 0;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CA50, &ActivityId, 0LL, 4u, &pData);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CB60, &ActivityId, 0LL, 4u, &pData);
   }
   VrpGetNextToken(P, &v39, &String1);
   if ( !RtlEqualUnicodeString(&String1, &VrpRegistryString, 1u) )
@@ -387,7 +387,7 @@ LABEL_22:
                         v63[1] = 0;
                         v64 = &v37;
                         v65 = 4LL;
-                        TlgWrite(&stru_1403FFAD8, &unk_14036CB5C, &ActivityId, 0LL, 7u, &v55);
+                        TlgWrite(&stru_1403FFAD8, &unk_14036CC6C, &ActivityId, 0LL, 7u, &v55);
                       }
                     }
                   }
@@ -424,7 +424,7 @@ LABEL_58:
     v38 = NamespaceNodePlaceholderKey;
     v72 = &v38;
     v73 = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CA26, &ActivityId, 0LL, 3u, &v71);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CB36, &ActivityId, 0LL, 3u, &v71);
   }
   if ( v6 )
     VrpFreeKeyContext(v6);

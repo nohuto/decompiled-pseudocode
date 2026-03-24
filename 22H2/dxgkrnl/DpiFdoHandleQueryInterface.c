@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiFdoHandleQueryInterface @ 0x1C0222CB0
+ * XREFs of DpiFdoHandleQueryInterface @ 0x1C019B910
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiFdoHandleQueryInterface(__int64 a1, IRP *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall DpiFdoHandleQueryInterface(__int64 a1, IRP *a2)
   unsigned int v11; // edi
 
   v2 = *(_QWORD *)(a1 + 64);
-  v3 = &off_1C013FA88;
+  v3 = &off_1C00B1B78;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   v7 = 0;
   while ( 1 )

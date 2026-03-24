@@ -1,11 +1,10 @@
 /*
- * XREFs of PipIommuValidateDeviceId @ 0x14084C850
+ * XREFs of PipIommuValidateDeviceId @ 0x140766104
  * Callers:
- *     PipIommuRetrieveSecondaryDeviceId @ 0x140659040 (PipIommuRetrieveSecondaryDeviceId.c)
- *     PipIommuRetrieveDeviceId @ 0x14084C784 (PipIommuRetrieveDeviceId.c)
+ *     PipIommuRetrieveDeviceId @ 0x140766020 (PipIommuRetrieveDeviceId.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IdpValidateAcpiName @ 0x14084C8D8 (IdpValidateAcpiName.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     IdpValidateAcpiName @ 0x1407C5A34 (IdpValidateAcpiName.c)
  */
 
 __int64 __fastcall PipIommuValidateDeviceId(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
@@ -21,10 +20,9 @@ __int64 __fastcall PipIommuValidateDeviceId(ULONG_PTR a1, ULONG_PTR a2, __int64 
   result = (unsigned int)(*(_DWORD *)a2 - 1);
   if ( (unsigned int)result > 5 )
   {
-    LODWORD(result) = -1073741811;
-    goto LABEL_14;
+    result = 3221225485LL;
   }
-  if ( *(_DWORD *)a2 == 1 )
+  else if ( *(_DWORD *)a2 == 1 )
   {
     v6 = *(_QWORD *)(a2 + 16);
     if ( v6 && (v7 = *(unsigned __int16 *)(v3 + 14), (_WORD)v7) )
@@ -46,7 +44,6 @@ __int64 __fastcall PipIommuValidateDeviceId(ULONG_PTR a1, ULONG_PTR a2, __int64 
     result = IdpValidateAcpiName(a2, a3);
   }
   if ( (int)result < 0 )
-LABEL_14:
     KeBugCheckEx(0xCAu, 0x12uLL, v4, v3, (int)result);
   return result;
 }

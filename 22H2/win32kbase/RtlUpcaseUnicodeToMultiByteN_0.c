@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUpcaseUnicodeToMultiByteN_0 @ 0x1C00CFE96
+ * XREFs of RtlUpcaseUnicodeToMultiByteN_0 @ 0x1C00C7176
  * Callers:
- *     toupper @ 0x1C00CE3A0 (toupper.c)
+ *     toupper @ 0x1C00C57E4 (toupper.c)
  * Callees:
  *     <none>
  */

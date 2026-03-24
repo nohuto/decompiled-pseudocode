@@ -1,16 +1,16 @@
 /*
- * XREFs of ExUnregisterExtension @ 0x140A01570
+ * XREFs of ExUnregisterExtension @ 0x140956A50
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpDereferenceHost @ 0x140A0165C (ExpDereferenceHost.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpDereferenceHost @ 0x140956B3C (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
@@ -23,14 +23,14 @@ __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
   void (__fastcall *v7)(__int64, unsigned __int64); // rax
 
   CurrentThread = KeGetCurrentThread();
-  p_Count = &a1[9].Count;
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire((__int64)&a1[9], 0LL);
+  p_Count = &a1[9].Count;
+  v4 = KeAbPreAcquire((ULONG_PTR)&a1[9], 0LL, 0LL);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
-    ExfAcquirePushLockExclusiveEx(p_Count, v4, (__int64)p_Count);
+    ExfAcquirePushLockExclusiveEx(p_Count, v4, (ULONG_PTR)p_Count);
   if ( v5 )
-    *(_BYTE *)(v5 + 18) = 1;
+    *(_BYTE *)(v5 + 26) |= 1u;
   Count = (void (__fastcall *)(__int64, unsigned __int64))a1[6].Count;
   if ( Count )
     Count(2LL, a1[7].Count);

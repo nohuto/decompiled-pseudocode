@@ -1,28 +1,28 @@
 /*
- * XREFs of IopQueryConflictListInternal @ 0x14095F29C
+ * XREFs of IopQueryConflictListInternal @ 0x1408B98EC
  * Callers:
- *     IopQueryConflictList @ 0x14095F204 (IopQueryConflictList.c)
+ *     IopQueryConflictList @ 0x1408B9854 (IopQueryConflictList.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopFreeReqList @ 0x14082045C (IopFreeReqList.c)
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
- *     IopCallArbiter @ 0x140821830 (IopCallArbiter.c)
- *     PnpCmResourcesToIoResources @ 0x140821D18 (PnpCmResourcesToIoResources.c)
- *     IopQueryConflictFillConflicts @ 0x14095ECBC (IopQueryConflictFillConflicts.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
+ *     IopCallArbiter @ 0x1407522E4 (IopCallArbiter.c)
+ *     IopFreeReqList @ 0x140753068 (IopFreeReqList.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
+ *     IopQueryConflictFillConflicts @ 0x1408B930C (IopQueryConflictFillConflicts.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryConflictListInternal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, int a5)
 {
-  __int64 v8; // r8
+  __int64 v8; // rdx
   int ConflictFillConflicts; // ebx
   int v10; // ecx
-  __int64 v11; // rdx
+  __int64 v11; // r8
   int v12; // eax
   int v13; // eax
-  _DWORD *v14; // rax
-  void *v15; // rdi
+  char *v14; // rax
+  char *v15; // rdi
   __int64 v16; // rdx
   __int64 v17; // rax
   __int64 v18; // r10
@@ -45,27 +45,31 @@ __int64 __fastcall IopQueryConflictListInternal(__int64 a1, __int64 a2, __int64 
   a4[2] = 0;
   a4[3] = 0;
   a4[4] = 32;
-  if ( !a1 || (v8 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL)) == 0 )
+  if ( a1 )
+    v8 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
+  else
+    v8 = 0LL;
+  if ( !v8 )
     return (unsigned int)-1073741810;
-  switch ( *(_BYTE *)(a2 + 20) )
+  if ( *(_BYTE *)(a2 + 20) == 1 )
+    goto LABEL_12;
+  if ( *(_BYTE *)(a2 + 20) != 2 )
   {
-    case 1:
-      goto LABEL_9;
-    case 2:
-      goto LABEL_11;
-    case 3:
-LABEL_9:
+    if ( *(_BYTE *)(a2 + 20) == 3 )
+    {
+LABEL_12:
       if ( !*(_DWORD *)(a2 + 32) )
         return 0;
-      goto LABEL_11;
+      goto LABEL_14;
+    }
+    if ( *(_BYTE *)(a2 + 20) != 4 )
+    {
+      if ( *(_BYTE *)(a2 + 20) != 7 )
+        return (unsigned int)-1073741811;
+      goto LABEL_12;
+    }
   }
-  if ( *(_BYTE *)(a2 + 20) != 4 )
-  {
-    if ( *(_BYTE *)(a2 + 20) != 7 )
-      return (unsigned int)-1073741811;
-    goto LABEL_9;
-  }
-LABEL_11:
+LABEL_14:
   v10 = *(_DWORD *)(v8 + 456);
   v11 = *(_QWORD *)(v8 + 440);
   if ( v10 == -1 )

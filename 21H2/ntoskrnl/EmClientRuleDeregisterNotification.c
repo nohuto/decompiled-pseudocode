@@ -1,13 +1,13 @@
 /*
- * XREFs of EmClientRuleDeregisterNotification @ 0x14092C730
+ * XREFs of EmClientRuleDeregisterNotification @ 0x140889CF0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EmClientRuleDeregisterNotification(PVOID P)
@@ -31,7 +31,7 @@ void __fastcall EmClientRuleDeregisterNotification(PVOID P)
       i = (unsigned int)(i + 1);
     }
     if ( *(_QWORD *)P )
-      ObfDereferenceObject(*(PVOID *)P);
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)P);
     ExFreePoolWithTag(*((PVOID *)P + 1), 0x6C634D45u);
     ExFreePoolWithTag(P, 0x6C634D45u);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

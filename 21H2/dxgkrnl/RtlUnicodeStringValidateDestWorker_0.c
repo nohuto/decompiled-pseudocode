@@ -1,10 +1,11 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker_0 @ 0x1C00513B8
+ * XREFs of RtlUnicodeStringValidateDestWorker_0 @ 0x1C0041104
  * Callers:
- *     ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0051240 (-RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0051310 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0040F28 (-RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCchCatStringN@@YAJPEAU_UNICODE_STRING@@PEBG_K@Z @ 0x1C0041000 (-RtlUnicodeStringCchCatStringN@@YAJPEAU_UNICODE_STRING@@PEBG_K@Z.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0041088 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x1C0051428 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1C0041174 (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker_0(

@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipGetSysIds @ 0x1409DC80C
+ * XREFs of WmipGetSysIds @ 0x140931C28
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x1406932C0 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x140682580 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     WmipFindSMBiosStructure @ 0x1409DC350 (WmipFindSMBiosStructure.c)
- *     WmipFindSysIdTable @ 0x1409DC494 (WmipFindSysIdTable.c)
- *     WmipParseSysIdTable @ 0x1409DCAD0 (WmipParseSysIdTable.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     WmipFindSMBiosStructure @ 0x1409317F8 (WmipFindSMBiosStructure.c)
+ *     WmipFindSysIdTable @ 0x14093193C (WmipFindSysIdTable.c)
+ *     WmipParseSysIdTable @ 0x140931EEC (WmipParseSysIdTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
@@ -27,32 +27,34 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
   __int64 v14; // r14
   __int64 v15; // rdi
   _OWORD *PoolWithTag; // rax
-  _BYTE v17[4]; // [rsp+30h] [rbp-58h] BYREF
-  int v18; // [rsp+34h] [rbp-54h] BYREF
-  PVOID BaseAddress; // [rsp+38h] [rbp-50h] BYREF
-  int v20; // [rsp+40h] [rbp-48h]
-  unsigned int NumberOfBytes; // [rsp+44h] [rbp-44h] BYREF
-  _QWORD NumberOfBytes_4[8]; // [rsp+48h] [rbp-40h] BYREF
+  int v17; // [rsp+30h] [rbp-68h] BYREF
+  int v18; // [rsp+34h] [rbp-64h] BYREF
+  int v19; // [rsp+38h] [rbp-60h]
+  _BYTE v20[4]; // [rsp+3Ch] [rbp-5Ch] BYREF
+  int v21; // [rsp+40h] [rbp-58h] BYREF
+  _DWORD NumberOfBytes[3]; // [rsp+44h] [rbp-54h] BYREF
+  __int64 v23; // [rsp+50h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-40h] BYREF
 
   v7 = a1;
-  NumberOfBytes_4[0] = 0LL;
-  NumberOfBytes = 0;
+  *(_QWORD *)&NumberOfBytes[1] = 0LL;
+  v21 = 0;
   KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   if ( !WmipSysIdRead )
   {
-    if ( (int)WmipFindSysIdTable(NumberOfBytes_4, v17, &NumberOfBytes) < 0 )
+    if ( (int)WmipFindSysIdTable(&NumberOfBytes[1], v20, &v21) < 0 )
     {
       BaseAddress = 0LL;
-      NumberOfBytes_4[0] = 0LL;
-      NumberOfBytes = 0;
-      SMBiosStructure = WmipFindSMBiosStructure(1, NumberOfBytes_4, &BaseAddress, &NumberOfBytes);
-      v20 = SMBiosStructure;
+      v23 = 0LL;
+      NumberOfBytes[0] = 0;
+      SMBiosStructure = WmipFindSMBiosStructure(1, &v23, &BaseAddress, NumberOfBytes);
+      v19 = SMBiosStructure;
       if ( SMBiosStructure >= 0 )
       {
         WmipSysId1394 = 0LL;
         WmipSysId1394Count = 0;
-        v15 = NumberOfBytes_4[0];
-        if ( *(_BYTE *)(NumberOfBytes_4[0] + 1LL) <= 8u )
+        v15 = v23;
+        if ( *(_BYTE *)(v23 + 1) <= 8u )
         {
           WmipSysIdUuid = 0LL;
           WmipSysIdUuidCount = 0;
@@ -65,36 +67,30 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
             *PoolWithTag = *(_OWORD *)(v15 + 8);
             WmipSysIdUuidCount = 1;
             WmipSysIdUuid = (__int64)PoolWithTag;
-            v20 = 0;
+            v19 = 0;
           }
           else
           {
             ExFreePoolWithTag(0LL, 0);
-            v20 = -1073741823;
+            v19 = -1073741823;
           }
         }
         if ( BaseAddress )
-          MmUnmapIoSpace(BaseAddress, NumberOfBytes);
+          MmUnmapIoSpace(BaseAddress, NumberOfBytes[0]);
         ExReleaseResourceLite(&WmipSMBiosLock);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        SMBiosStructure = v20;
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        SMBiosStructure = v19;
       }
     }
     else
     {
+      v17 = 0;
       v18 = 0;
-      LODWORD(BaseAddress) = 0;
-      SMBiosStructure = WmipParseSysIdTable(
-                          NumberOfBytes_4[0],
-                          NumberOfBytes,
-                          0,
-                          (unsigned int)&v18,
-                          0LL,
-                          (__int64)&BaseAddress);
+      SMBiosStructure = WmipParseSysIdTable(NumberOfBytes[1], v21, 0, (unsigned int)&v17, 0LL, (__int64)&v18);
       if ( SMBiosStructure >= 0 )
       {
-        v9 = (unsigned int)(16 * v18);
-        v10 = v9 + 8 * (_DWORD)BaseAddress;
+        v9 = (unsigned int)(16 * v17);
+        v10 = v9 + 8 * v18;
         if ( v10 )
         {
           v11 = ExAllocatePoolWithTag(PagedPool, v10, 0x73696D57u);
@@ -106,12 +102,12 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
           }
           v14 = (__int64)v11 + v9;
           SMBiosStructure = WmipParseSysIdTable(
-                              NumberOfBytes_4[0],
-                              NumberOfBytes,
+                              NumberOfBytes[1],
+                              v21,
                               (_DWORD)v11,
-                              (unsigned int)&v18,
+                              (unsigned int)&v17,
                               v14,
-                              (__int64)&BaseAddress);
+                              (__int64)&v18);
           if ( SMBiosStructure < 0 )
           {
             ExFreePoolWithTag(v12, 0);
@@ -119,9 +115,9 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
           else
           {
             WmipSysIdUuid = (__int64)v12;
-            WmipSysIdUuidCount = v18;
+            WmipSysIdUuidCount = v17;
             WmipSysId1394 = v14;
-            WmipSysId1394Count = (int)BaseAddress;
+            WmipSysId1394Count = v18;
           }
         }
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of InputAABFDATAToAA24 @ 0x1C00DB790
+ * XREFs of InputAABFDATAToAA24 @ 0x1C00D5040
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 _BYTE *__fastcall InputAABFDATAToAA24(char *a1, _BYTE *a2)

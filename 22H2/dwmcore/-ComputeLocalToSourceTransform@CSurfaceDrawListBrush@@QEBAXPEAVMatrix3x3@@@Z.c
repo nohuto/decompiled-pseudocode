@@ -1,11 +1,12 @@
 /*
- * XREFs of ?ComputeLocalToSourceTransform@CSurfaceDrawListBrush@@QEBAXPEAVMatrix3x3@@@Z @ 0x1800FC644
+ * XREFs of ?ComputeLocalToSourceTransform@CSurfaceDrawListBrush@@QEBAXPEAVMatrix3x3@@@Z @ 0x18019D9EC
  * Callers:
- *     ?ConfigureIntermediateFromInput@CBrushRenderingGraph@@IEBAXAEBUIntermediateConfigurationInputs@1@PEAUIntermediateConfigurationOutputs@1@@Z @ 0x1800FC3E8 (-ConfigureIntermediateFromInput@CBrushRenderingGraph@@IEBAXAEBUIntermediateConfigurationInputs@1.c)
+ *     ?ConfigureIntermediateFromInput@CBrushRenderingGraph@@AEBAXAEBUIntermediateConfigurationInputs@1@PEAUIntermediateConfigurationOutputs@1@@Z @ 0x18001CB74 (-ConfigureIntermediateFromInput@CBrushRenderingGraph@@AEBAXAEBUIntermediateConfigurationInputs@1.c)
+ *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x180094FF0 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
  * Callees:
- *     ?GetSize@CDrawListBitmap@@QEBA?AUD2D_SIZE_U@@XZ @ 0x1800B6B34 (-GetSize@CDrawListBitmap@@QEBA-AUD2D_SIZE_U@@XZ.c)
- *     ??DMatrix3x3@@QEBA?AV0@AEBV0@@Z @ 0x1800D5240 (--DMatrix3x3@@QEBA-AV0@AEBV0@@Z.c)
- *     ?TryInvert@Matrix3x3@@SA_NAEBV1@PEAV1@@Z @ 0x1800D59BC (-TryInvert@Matrix3x3@@SA_NAEBV1@PEAV1@@Z.c)
+ *     ?GetSize@CDrawListBitmap@@QEBA?AUD2D_SIZE_U@@XZ @ 0x180056B28 (-GetSize@CDrawListBitmap@@QEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ??DMatrix3x3@@QEBA?AV0@AEBV0@@Z @ 0x1800989C4 (--DMatrix3x3@@QEBA-AV0@AEBV0@@Z.c)
+ *     ?TryInvert@Matrix3x3@@SA_NAEBV1@PEAV1@@Z @ 0x1800C1F80 (-TryInvert@Matrix3x3@@SA_NAEBV1@PEAV1@@Z.c)
  */
 
 void __fastcall CSurfaceDrawListBrush::ComputeLocalToSourceTransform(CSurfaceDrawListBrush *this, struct Matrix3x3 *a2)
@@ -31,7 +32,7 @@ void __fastcall CSurfaceDrawListBrush::ComputeLocalToSourceTransform(CSurfaceDra
   *((_DWORD *)a2 + 8) = 1065353216;
   if ( Matrix3x3::TryInvert(a2, a2) )
   {
-    if ( *((_BYTE *)this + 144) == (_BYTE)v5 )
+    if ( *((_BYTE *)this + 168) == (_BYTE)v5 )
     {
       CDrawListBitmap::GetSize((CSurfaceDrawListBrush *)((char *)this + 56), &v9);
       v10[1] = 0.0;
@@ -43,7 +44,7 @@ void __fastcall CSurfaceDrawListBrush::ComputeLocalToSourceTransform(CSurfaceDra
       v10[6] = 0.0 - (float)((float)(int)v9 * 0.0);
       LODWORD(v10[8]) = (_DWORD)FLOAT_1_0;
       v10[7] = 0.0 - (float)((float)SHIDWORD(v9) * 0.0);
-      v7 = Matrix3x3::operator*((float *)a2, v11, (float *)this + 21);
+      v7 = Matrix3x3::operator*((float *)a2, v11, (float *)this + 27);
       v8 = Matrix3x3::operator*(v7, v12, v10);
       *(_OWORD *)a2 = *(_OWORD *)v8;
       *((_OWORD *)a2 + 1) = *((_OWORD *)v8 + 1);

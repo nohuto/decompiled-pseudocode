@@ -1,16 +1,16 @@
 /*
- * XREFs of IoTranslateBusAddress @ 0x140287FA0
+ * XREFs of IoTranslateBusAddress @ 0x1402880A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     IopFindResourceHandlerInfo @ 0x14072F860 (IopFindResourceHandlerInfo.c)
- *     IopFindLegacyBusDeviceNode @ 0x14072F8F0 (IopFindLegacyBusDeviceNode.c)
- *     IopQueryResourceHandlerInterface @ 0x14072FA2C (IopQueryResourceHandlerInterface.c)
+ *     IopFindResourceHandlerInfo @ 0x14072F840 (IopFindResourceHandlerInfo.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14072F8D0 (IopFindLegacyBusDeviceNode.c)
+ *     IopQueryResourceHandlerInterface @ 0x14072FA0C (IopQueryResourceHandlerInterface.c)
  */
 
 BOOLEAN __stdcall IoTranslateBusAddress(

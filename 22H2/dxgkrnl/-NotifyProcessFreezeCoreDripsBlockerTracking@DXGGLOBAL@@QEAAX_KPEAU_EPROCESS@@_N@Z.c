@@ -1,13 +1,13 @@
 /*
- * XREFs of ?NotifyProcessFreezeCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C01E5A58
+ * XREFs of ?NotifyProcessFreezeCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C00ECA28
  * Callers:
- *     ?NotifyProcessThaw@DXGPROCESS@@QEAAXXZ @ 0x1C016AA90 (-NotifyProcessThaw@DXGPROCESS@@QEAAXXZ.c)
- *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C01A4F00 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
+ *     ?NotifyProcessThaw@DXGPROCESS@@QEAAXXZ @ 0x1C00ECD78 (-NotifyProcessThaw@DXGPROCESS@@QEAAXXZ.c)
+ *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C00ED878 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?NotifyProcessFreeze@DripsBlockerTrackingHelper@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C0307544 (-NotifyProcessFreeze@DripsBlockerTrackingHelper@@QEAAX_KPEAU_EPROCESS@@_N@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?NotifyProcessFreeze@DripsBlockerTrackingHelper@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C02C3D38 (-NotifyProcessFreeze@DripsBlockerTrackingHelper@@QEAAX_KPEAU_EPROCESS@@_N@Z.c)
  */
 
 void __fastcall DXGGLOBAL::NotifyProcessFreezeCoreDripsBlockerTracking(
@@ -16,14 +16,15 @@ void __fastcall DXGGLOBAL::NotifyProcessFreezeCoreDripsBlockerTracking(
         struct _EPROCESS *a3,
         bool a4)
 {
-  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // rdx
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( *((_DWORD *)this + 530) && *((_BYTE *)this + 304376) )
+  if ( *((_DWORD *)this + 494) && *((_BYTE *)this + 304216) )
   {
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGGLOBAL *)((char *)this + 2128), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
-    DripsBlockerTrackingHelper::NotifyProcessFreeze((DXGGLOBAL *)((char *)this + 2296), a2, a3, a4);
-    if ( v8[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (DXGGLOBAL *)((char *)this + 1984), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
+    DripsBlockerTrackingHelper::NotifyProcessFreeze((DXGGLOBAL *)((char *)this + 2136), a2, a3, a4);
+    if ( v9[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9, v8);
   }
 }

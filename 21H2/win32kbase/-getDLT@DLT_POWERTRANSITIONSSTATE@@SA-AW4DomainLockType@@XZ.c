@@ -1,5 +1,5 @@
 /*
- * XREFs of ?getDLT@DLT_POWERTRANSITIONSSTATE@@SA?AW4DomainLockType@@XZ @ 0x1C00D8270
+ * XREFs of ?getDLT@DLT_POWERTRANSITIONSSTATE@@SA?AW4DomainLockType@@XZ @ 0x1C0114AA0
  * Callers:
  *     <none>
  * Callees:

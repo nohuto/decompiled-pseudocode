@@ -1,131 +1,114 @@
 /*
- * XREFs of _PostThreadMessageEx @ 0x1C0115548
+ * XREFs of _PostThreadMessageEx @ 0x1C00DA464
  * Callers:
- *     ?xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0010920 (-xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
- *     _PostThreadMessage @ 0x1C009C5A0 (_PostThreadMessage.c)
- *     NtUserPostThreadMessage @ 0x1C0115410 (NtUserPostThreadMessage.c)
+ *     _PostThreadMessage @ 0x1C00DA3F8 (_PostThreadMessage.c)
+ *     xxxDoHotKeyStuff @ 0x1C0104F50 (xxxDoHotKeyStuff.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C0115518 (-AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z.c)
- *     IsPointerInputClientMessage @ 0x1C0118064 (IsPointerInputClientMessage.c)
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     ?AllocQEntryEx@@YAPEAUtagQMSG@@PEAUtagMLIST@@PEAU1@W4_AllocQEntryPosition@@@Z @ 0x1C011E31C (-AllocQEntryEx@@YAPEAUtagQMSG@@PEAUtagMLIST@@PEAU1@W4_AllocQEntryPosition@@@Z.c)
- *     ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C011F1F0 (-StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagU.c)
- *     ProcessSuspendedPostMessage @ 0x1C015000E (ProcessSuspendedPostMessage.c)
+ *     PtiKbdFromQ @ 0x1C004FB88 (PtiKbdFromQ.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C00551A0 (-StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagU.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     IsPointerInputMessage @ 0x1C006B2D4 (IsPointerInputMessage.c)
+ *     ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C00DA678 (-AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z.c)
+ *     ?AllocQEntryEx@@YAPEAUtagQMSG@@PEAUtagMLIST@@PEAU1@_N@Z @ 0x1C0100F54 (-AllocQEntryEx@@YAPEAUtagQMSG@@PEAUtagMLIST@@PEAU1@_N@Z.c)
+ *     ProcessSuspendedPostMessage @ 0x1C0126548 (ProcessSuspendedPostMessage.c)
  */
 
 __int64 __fastcall PostThreadMessageEx(
-        __int16 *a1,
-        unsigned int a2,
-        unsigned __int64 a3,
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
         __int64 a4,
         struct tagINPUT_MESSAGE_SOURCE *a5)
 {
-  __int16 *v8; // rdi
-  BOOL v9; // eax
-  int v10; // ecx
-  __int64 v11; // rbp
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v13; // rcx
-  __int64 v14; // rsi
-  struct tagQMSG *v15; // rsi
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rcx
+  __int64 v5; // rbx
+  __int64 v8; // rdi
+  __int64 v9; // rsi
+  __int64 v10; // rcx
+  __int64 CurrentProcessWin32Process; // rbp
+  struct tagQMSG *v12; // rsi
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v16; // rcx
 
+  v5 = (unsigned int)a2;
   v8 = a1;
-  if ( !a1 || (*((_DWORD *)a1 + 122) & 0x1000001) != 0x1000000 )
+  if ( !a1 || (*(_DWORD *)(a1 + 488) & 0x1000001) != 0x1000000 )
   {
-    v10 = 1444;
-    goto LABEL_53;
+    v16 = 1444LL;
+    goto LABEL_45;
   }
-  if ( a2 < 0x400 )
+  a2 = 0x8000LL;
+  if ( (unsigned int)v5 < 0x400
+    && ((a1 = (unsigned __int16)MessageTable[v5], (a1 & 0x200) != 0) || (_DWORD)v5 == 537 && (a3 & 0x8000) != 0)
+    || (_DWORD)v5 == 536 && (a3 & 0x8000) != 0 )
   {
-    a1 = MessageTable;
-    v9 = _bittest16(&MessageTable[a2], 9u) || a2 == 537 && (a3 & 0x8000) != 0;
-    if ( v9 || a2 == 536 && (a3 & 0x8000) != 0 )
-    {
-      v10 = 1159;
-LABEL_53:
-      UserSetLastError(v10);
-      return 0LL;
-    }
+    v16 = 1159LL;
+LABEL_45:
+    UserSetLastError(v16, a2, a3);
+    return 0LL;
   }
-  v11 = *((_QWORD *)v8 + 53);
+  v9 = *(_QWORD *)(v8 + 424);
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v14 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
+  if ( v9 != CurrentProcessWin32Process )
   {
-    v13 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-    v14 = v13 & CurrentProcessWin32Process;
-  }
-  if ( v11 == v14 )
-    goto LABEL_22;
-  if ( a2 > 0xD0 )
-  {
-    if ( a2 != 272 )
+    if ( (unsigned int)v5 <= 0xD0 )
     {
-      if ( a2 != 353 && a2 != 424 && a2 != 563 && a2 != 648 )
-        goto LABEL_22;
-      goto LABEL_37;
+      if ( (_DWORD)v5 != 208 )
+      {
+        v10 = (unsigned int)(v5 - 12);
+        if ( (_DWORD)v5 != 12 )
+        {
+          if ( (_DWORD)v5 == 13 )
+            goto LABEL_8;
+          if ( (_DWORD)v5 == 78 )
+            goto LABEL_39;
+          v10 = (unsigned int)(v5 - 188);
+          if ( (_DWORD)v5 != 188 )
+            goto LABEL_8;
+        }
+      }
     }
-    goto LABEL_41;
+    else
+    {
+      if ( (_DWORD)v5 == 272 )
+        goto LABEL_39;
+      if ( (_DWORD)v5 != 353 && (_DWORD)v5 != 424 && (_DWORD)v5 != 563 && (_DWORD)v5 != 648 )
+        goto LABEL_8;
+    }
+    if ( (unsigned __int8)Enforced(v10) && *(_QWORD *)v9 != gpepCSRSS
+      || *(_DWORD *)(v9 + 780) == *(_DWORD *)(CurrentProcessWin32Process + 780)
+      && *(_DWORD *)(v9 + 784) == *(_DWORD *)(CurrentProcessWin32Process + 784) )
+    {
+      goto LABEL_8;
+    }
+LABEL_39:
+    v16 = 5LL;
+    goto LABEL_45;
   }
-  switch ( a2 )
+LABEL_8:
+  if ( (_DWORD)v5 == 576 || (_DWORD)v5 == 281 || IsPointerInputMessage(v5) )
   {
-    case 0xD0u:
-    case 0xCu:
-      goto LABEL_37;
-    case 0xDu:
-      goto LABEL_22;
-    case 0x4Eu:
-LABEL_41:
-      v10 = 5;
-      goto LABEL_53;
+    v16 = 1002LL;
+    goto LABEL_45;
   }
-  if ( a2 != 188 )
-    goto LABEL_22;
-LABEL_37:
-  if ( (!(unsigned __int8)Enforced(v13) || *(_QWORD *)v11 == gpepCSRSS)
-    && (*(_DWORD *)(v11 + 772) != *(_DWORD *)(v14 + 772) || *(_DWORD *)(v11 + 776) != *(_DWORD *)(v14 + 776)) )
-  {
-    goto LABEL_41;
-  }
-LABEL_22:
-  if ( a2 == 576 || a2 == 281 || a2 - 577 <= 3 || (unsigned int)IsPointerInputClientMessage(a2) )
-  {
-    v10 = 1002;
-    goto LABEL_53;
-  }
-  AdjustForCoalescing((struct tagMLIST *)(v8 + 404), 0LL, a2);
-  if ( (*((_DWORD *)v8 + 318) & 0x20) != 0
-    && v8 != (__int16 *)gptiCurrent
-    && !(unsigned int)ProcessSuspendedPostMessage(v8, 0LL, a2, a3, a4) )
+  AdjustForCoalescing((struct tagMLIST *)(v8 + 808), 0LL, v5);
+  if ( (*(_DWORD *)(v8 + 1232) & 0x20) != 0
+    && v8 != gptiCurrent
+    && !(unsigned int)ProcessSuspendedPostMessage(v8, 0LL, (unsigned int)v5) )
   {
     return 0LL;
   }
-  v15 = (struct tagQMSG *)AllocQEntryEx(v8 + 404, 0LL, 1LL);
-  if ( !v15 )
+  v12 = AllocQEntryEx((struct tagMLIST *)(v8 + 808), 0LL, 0);
+  if ( !v12 )
     return 0LL;
-  v16 = *((_QWORD *)v8 + 54);
-  v17 = *(_QWORD *)(v16 + 128);
-  if ( v17 )
-    v18 = *(_QWORD *)(v17 + 16);
-  else
-    v18 = *(_QWORD *)(v16 + 104);
-  StoreQMessage(v15, 0LL, a2, a3, a4, 0, 0LL, 0, 0LL, 0, a5, *(_DWORD *)(*(_QWORD *)(v18 + 424) + 280LL), 0LL, 0LL);
-  if ( (*((_DWORD *)v8 + 122) & 1) == 0 )
-  {
-    _InterlockedOr((volatile signed __int32 *)(*((_QWORD *)v8 + 56) + 8LL), 0x108u);
-    _InterlockedOr((volatile signed __int32 *)(*((_QWORD *)v8 + 56) + 4LL), 0x108u);
-    if ( (*(_DWORD *)(*((_QWORD *)v8 + 56) + 16LL) & 0x108) != 0 )
-      KeSetEvent(*((PRKEVENT *)v8 + 92), 2, 0);
-  }
-  if ( a2 == 786 )
-    SetWakeBit(v8, 128LL);
-  v19 = *((_QWORD *)v8 + 54);
-  if ( v8 == *(__int16 **)(v19 + 72) )
-    *(_QWORD *)(v19 + 80) = v15;
+  v13 = PtiKbdFromQ(*(_QWORD *)(v8 + 432));
+  StoreQMessage(v12, 0LL, v5, a3, a4, 0, 0LL, 0, 0LL, 0, a5, *(_DWORD *)(*(_QWORD *)(v13 + 424) + 280LL), 0LL, 0LL);
+  SetWakeBit(v8, 0x108u);
+  if ( (_DWORD)v5 == 786 )
+    SetWakeBit(v8, 0x80u);
+  v14 = *(_QWORD *)(v8 + 432);
+  if ( v8 == *(_QWORD *)(v14 + 64) )
+    *(_QWORD *)(v14 + 72) = v12;
   return 1LL;
 }

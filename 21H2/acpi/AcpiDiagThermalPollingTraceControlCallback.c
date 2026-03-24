@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiDiagThermalPollingTraceControlCallback @ 0x1C00479F0
+ * XREFs of AcpiDiagThermalPollingTraceControlCallback @ 0x1C00496D0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagRequeueThermalPollingTimer @ 0x1C00478A0 (AcpiDiagRequeueThermalPollingTimer.c)
+ *     AcpiDiagRequeueThermalPollingTimer @ 0x1C004958C (AcpiDiagRequeueThermalPollingTimer.c)
  */
 
 void __fastcall AcpiDiagThermalPollingTraceControlCallback(

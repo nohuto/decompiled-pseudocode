@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlCheckOplockEx @ 0x1402A5CB0
+ * XREFs of FsRtlCheckOplockEx @ 0x140355D90
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
  */
 
 NTSTATUS __stdcall FsRtlCheckOplockEx(
@@ -14,5 +14,15 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
         POPLOCK_WAIT_COMPLETE_ROUTINE CompletionRoutine,
         POPLOCK_FS_PREPOST_IRP PostIrpRoutine)
 {
-  return FsRtlCheckOplockEx2(Oplock, Irp, Flags, 0LL, Context, CompletionRoutine, PostIrpRoutine, 0LL, 0LL, 0LL);
+  return FsRtlCheckOplockEx2(
+           (__int64 *)Oplock,
+           Irp,
+           Flags,
+           0,
+           (__int64)Context,
+           (__int64)CompletionRoutine,
+           (__int64)PostIrpRoutine,
+           0LL,
+           0LL,
+           0LL);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyOnChanged@CVisualReferenceController@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800F8C90
+ * XREFs of ?NotifyOnChanged@CVisualReferenceController@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E0130
  * Callers:
  *     <none>
  * Callees:

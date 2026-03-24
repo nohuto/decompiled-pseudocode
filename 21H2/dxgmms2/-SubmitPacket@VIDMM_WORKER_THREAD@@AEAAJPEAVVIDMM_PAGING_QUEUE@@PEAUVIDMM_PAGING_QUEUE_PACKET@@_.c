@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SubmitPacket@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00DF1D8
+ * XREFs of ?SubmitPacket@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B9974
  * Callers:
- *     ?FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00DE984 (-FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z.c)
+ *     ?FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00B9064 (-FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z.c)
  * Callees:
- *     McTemplateK0ppx_EtwWriteTransfer @ 0x1C002F124 (McTemplateK0ppx_EtwWriteTransfer.c)
- *     McTemplateK0ppxx_EtwWriteTransfer @ 0x1C002F1B0 (McTemplateK0ppxx_EtwWriteTransfer.c)
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C00880D0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0093DF0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
- *     ?CheckBudgetRefreshConditionOnProcessMemoryChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ @ 0x1C00DF91C (-CheckBudgetRefreshConditionOnProcessMemoryChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ.c)
- *     ?GetVidMmDevice@VIDMM_PAGING_QUEUE_PACKET@@QEAAPEAVVIDMM_DEVICE@@XZ @ 0x1C00E16EC (-GetVidMmDevice@VIDMM_PAGING_QUEUE_PACKET@@QEAAPEAVVIDMM_DEVICE@@XZ.c)
+ *     McTemplateK0ppx_EtwWriteTransfer @ 0x1C0025050 (McTemplateK0ppx_EtwWriteTransfer.c)
+ *     McTemplateK0ppxx_EtwWriteTransfer @ 0x1C00250DC (McTemplateK0ppxx_EtwWriteTransfer.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0065C20 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006BD00 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?CheckBudgetRefreshConditionOnProcessMemoryChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ @ 0x1C0082C68 (-CheckBudgetRefreshConditionOnProcessMemoryChange@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXXZ.c)
+ *     ?GetVidMmDevice@VIDMM_PAGING_QUEUE_PACKET@@QEAAPEAVVIDMM_DEVICE@@XZ @ 0x1C00BBB9C (-GetVidMmDevice@VIDMM_PAGING_QUEUE_PACKET@@QEAAPEAVVIDMM_DEVICE@@XZ.c)
  */
 
 __int64 __fastcall VIDMM_WORKER_THREAD::SubmitPacket(
@@ -20,43 +20,67 @@ __int64 __fastcall VIDMM_WORKER_THREAD::SubmitPacket(
         struct VIDMM_ALLOC **a6)
 {
   int *v10; // rsi
-  unsigned int v11; // esi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
+  unsigned int v14; // esi
   struct VIDMM_DEVICE *VidMmDevice; // rax
-  __int64 v13; // rcx
-  __int64 v14; // r8
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  _QWORD *v20; // rax
+  __int64 v21; // r8
+  union _LARGE_INTEGER PerformanceFrequency; // [rsp+70h] [rbp+18h] BYREF
 
-  if ( (byte_1C006E941 & 1) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0ppx_EtwWriteTransfer((__int64)this, (__int64)a2, (__int64)a3, a2, a3, *((_QWORD *)a3 + 5));
   v10 = (int *)((char *)a3 + 48);
   if ( *((_BYTE *)a3 + 24) )
   {
-    WdLogSingleEntry5(4LL, *v10, a3, *((_QWORD *)a3 + 8), *((_QWORD *)a3 + 7), *((_QWORD *)a3 + 4));
-    v11 = VIDMM_GLOBAL::ProcessDeferredCommand(
+    PerformanceFrequency.QuadPart = 0LL;
+    KeQueryPerformanceCounter(&PerformanceFrequency);
+    v13 = (_QWORD *)WdLogNewEntry5_WdEvent(v12, v11);
+    v13[3] = *v10;
+    v13[4] = a3;
+    v13[5] = *((_QWORD *)a3 + 8);
+    v13[6] = *((_QWORD *)a3 + 7);
+    v13[7] = *((_QWORD *)a3 + 4);
+    WdLogEvent5_WdEvent(v13);
+    v14 = VIDMM_GLOBAL::ProcessDeferredCommand(
             *this,
-            (unsigned __int64)a3 + 48,
-            (__int64)a5,
+            (struct VIDMM_PAGING_QUEUE_PACKET *)((char *)a3 + 48),
+            a5,
             *((_BYTE *)a3 + 25),
-            *((struct VIDMM_ALLOC ***)a3 + 4),
+            *((_QWORD *)a3 + 4),
             *((struct _VIDSCH_SYNC_OBJECT **)a2 + 11),
             a4,
             a6);
     VidMmDevice = VIDMM_PAGING_QUEUE_PACKET::GetVidMmDevice(a3);
-    VIDMM_PROCESS_ADAPTER_INFO::CheckBudgetRefreshConditionOnProcessMemoryChange(*((VIDMM_PROCESS_ADAPTER_INFO **)VidMmDevice
-                                                                                 + 2));
+    VIDMM_PROCESS_ADAPTER_INFO::CheckBudgetRefreshConditionOnProcessMemoryChange(
+      *((VIDMM_PROCESS_ADAPTER_INFO **)VidMmDevice + 2),
+      v16,
+      v17);
   }
   else
   {
-    WdLogSingleEntry4(4LL, *v10, a3, *((unsigned __int8 *)a3 + 25), *((_QWORD *)a3 + 4));
+    v20 = (_QWORD *)WdLogNewEntry5_WdEvent(this, a2);
+    v20[3] = *v10;
+    v20[4] = a3;
+    v20[5] = *((unsigned __int8 *)a3 + 25);
+    v20[6] = *((_QWORD *)a3 + 4);
+    WdLogEvent5_WdEvent(v20);
     *a5 = 0;
     *a6 = 0LL;
-    v11 = VIDMM_GLOBAL::ProcessSystemCommand(
-            *this,
+    LOBYTE(v21) = *((_BYTE *)a3 + 25);
+    v14 = VIDMM_GLOBAL::ProcessSystemCommand(
+            (unsigned __int64)*this,
             (struct VIDMM_PAGING_QUEUE_PACKET *)((char *)a3 + 48),
-            *((_BYTE *)a3 + 25),
-            *((struct VIDMM_ALLOC **)a3 + 4),
+            v21,
+            *((_QWORD *)a3 + 4),
             *((struct _VIDSCH_SYNC_OBJECT **)a2 + 11));
   }
-  if ( (byte_1C006E941 & 1) != 0 )
-    McTemplateK0ppxx_EtwWriteTransfer(v13, &EventPagingQueueComplete, v14, a2, a3, *((_QWORD *)a3 + 5), 0LL);
-  return v11;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0ppxx_EtwWriteTransfer(v18, &EventPagingQueueComplete, v19, a2, a3, *((_QWORD *)a3 + 5), 0LL);
+  return v14;
 }

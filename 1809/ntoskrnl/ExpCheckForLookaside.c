@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCheckForLookaside @ 0x14031CB04
+ * XREFs of ExpCheckForLookaside @ 0x14031CC04
  * Callers:
  *     ExpFreePoolChecks @ 0x14009D77C (ExpFreePoolChecks.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
- *     ExpCheckForLookasideList @ 0x14031CB6C (ExpCheckForLookasideList.c)
+ *     ExpCheckForLookasideList @ 0x14031CC6C (ExpCheckForLookasideList.c)
  *     VfCheckForLookaside @ 0x14093EF78 (VfCheckForLookaside.c)
  */
 

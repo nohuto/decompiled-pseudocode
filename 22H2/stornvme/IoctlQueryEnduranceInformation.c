@@ -1,31 +1,29 @@
 /*
- * XREFs of IoctlQueryEnduranceInformation @ 0x1C0013A20
+ * XREFs of IoctlQueryEnduranceInformation @ 0x1C00130A4
  * Callers:
- *     IoctlToNVMe @ 0x1C0014870 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     memset @ 0x1C0004B80 (memset.c)
- *     GetNamespaceId @ 0x1C0007BE0 (GetNamespaceId.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     BuildGetLogPageCommand @ 0x1C0010E84 (BuildGetLogPageCommand.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 __int64 __fastcall IoctlQueryEnduranceInformation(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // edi
+  unsigned int v3; // edi
   int v4; // ebp
   __int64 v6; // rdx
-  unsigned __int8 v7; // dl
-  _DWORD *SrbDataBuffer; // r13
-  unsigned int v9; // edx
+  unsigned __int8 v7; // cl
+  _DWORD *v8; // rsi
+  __int64 v9; // rax
+  unsigned int v10; // edx
   __int64 result; // rax
-  unsigned int *v11; // [rsp+40h] [rbp-48h] BYREF
 
-  v2 = 0;
-  v11 = 0LL;
+  v3 = 0;
   v4 = 0;
   GetSrbExtension(a2);
   if ( *(_BYTE *)(v6 + 2) == 40 )
@@ -33,18 +31,27 @@ __int64 __fastcall IoctlQueryEnduranceInformation(__int64 a1, __int64 a2)
   else
     v7 = *(_BYTE *)(v6 + 7);
   GetNamespaceId(a1, v7);
-  SrbDataBuffer = (_DWORD *)GetSrbDataBuffer(a2, &v11);
-  v9 = *v11;
-  if ( *v11 >= 0x54 )
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    NVMeZeroMemory(SrbDataBuffer + 7, v9 - 28);
-    NVMeAllocateDmaBuffer(a1, 0x200u);
-    *(_BYTE *)(a2 + 3) = 4;
-    v2 = -1056964605;
+    v8 = *(_DWORD **)(a2 + 64);
+    v9 = 60LL;
   }
   else
   {
-    if ( v9 < 0x24 )
+    v8 = *(_DWORD **)(a2 + 24);
+    v9 = 16LL;
+  }
+  v10 = *(_DWORD *)(v9 + a2);
+  if ( v10 >= 0x54 )
+  {
+    NVMeZeroMemory(v8 + 7, v10 - 28);
+    NVMeAllocateDmaBuffer(a1, 0x200u);
+    *(_BYTE *)(a2 + 3) = 4;
+    v3 = -1056964605;
+  }
+  else
+  {
+    if ( v10 < 0x24 )
     {
       *(_BYTE *)(a2 + 3) = 6;
       return 3238002694LL;
@@ -52,9 +59,9 @@ __int64 __fastcall IoctlQueryEnduranceInformation(__int64 a1, __int64 a2)
     v4 = 8;
     *(_BYTE *)(a2 + 3) = 1;
   }
-  SrbDataBuffer[8] = 56;
-  SrbDataBuffer[7] = 56;
-  result = v2;
-  SrbDataBuffer[6] = v4;
+  v8[8] = 56;
+  v8[7] = 56;
+  result = v3;
+  v8[6] = v4;
   return result;
 }

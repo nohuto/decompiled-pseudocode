@@ -1,5 +1,5 @@
 /*
- * XREFs of ESM_CheckingIfStopEndpontReissueCountReached @ 0x1C0051590
+ * XREFs of ESM_CheckingIfStopEndpontReissueCountReached @ 0x1C004E9E0
  * Callers:
  *     <none>
  * Callees:
@@ -18,7 +18,6 @@ __int64 __fastcall ESM_CheckingIfStopEndpontReissueCountReached(__int64 a1)
     return 21LL;
   ++v2[32].m128i_i32[0];
   result = 33LL;
-  ++v2[34].m128i_i32[3];
   v2[29].m128i_i8[8] = 1;
   return result;
 }

@@ -1,80 +1,81 @@
 /*
- * XREFs of CiThreadUpdatePriorities @ 0x1C000B210
+ * XREFs of CiThreadUpdatePriorities @ 0x1C000AEA0
  * Callers:
- *     CiThreadSetRelativePriority @ 0x1C000AC80 (CiThreadSetRelativePriority.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadSetRelativePriority @ 0x1C000A920 (CiThreadSetRelativePriority.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall CiThreadUpdatePriorities(_BYTE *a1, _BYTE *a2, unsigned __int8 a3)
+char __fastcall CiThreadUpdatePriorities(_BYTE *a1, _BYTE *a2, unsigned __int8 a3)
 {
-  char v4; // dl
-  unsigned __int8 v5; // r9
-  char v6; // r9
-  char v7; // al
+  char result; // al
+  unsigned __int8 v6; // dl
+  char v7; // cl
   int v8; // r11d
-  char v9; // r8
-  int v10; // r11d
+  char v9; // dl
+  char v10; // r8
+  int v11; // r11d
 
   if ( CiSystemResponsiveness == 100 )
   {
-    v9 = a3 + 9;
-    v6 = v9;
-    v4 = v9;
+    v10 = a3 + 9;
+    v9 = v10;
+    result = v10;
     goto LABEL_14;
   }
-  v4 = a3 + a2[1];
-  if ( v4 )
+  result = a3 + a2[1];
+  if ( result )
   {
-    if ( (unsigned __int8)v4 >= 8u )
-      v4 = 7;
+    if ( (unsigned __int8)result >= 8u )
+      result = 7;
   }
   else
   {
-    v4 = 1;
+    result = 1;
   }
-  v5 = a2[2];
-  if ( v5 >= 8u )
-    v5 = a3;
-  v6 = v5 + 8;
+  v6 = a2[2];
+  if ( v6 >= 8u )
+    v6 = a3;
   v7 = a3 + *a2;
   v8 = ((unsigned __int8)a2[3] >> 4) & 7;
-  v9 = v7;
+  v9 = v6 + 8;
+  v10 = v7;
   if ( v8 != 2 )
   {
-    v10 = v8 - 1;
-    if ( !v10 )
+    v11 = v8 - 1;
+    if ( !v11 )
     {
-      v9 = v6;
+      v10 = v9;
       goto LABEL_10;
     }
-    if ( v10 != 2 )
+    if ( v11 != 2 )
       goto LABEL_10;
     if ( (unsigned __int8)v7 >= 0x17u )
     {
       if ( (unsigned __int8)v7 > 0x1Au )
-        v9 = 26;
+        v10 = 26;
       goto LABEL_10;
     }
 LABEL_17:
-    v9 = 23;
+    v10 = 23;
     goto LABEL_10;
   }
   if ( (unsigned __int8)v7 < 0x10u )
   {
-    v9 = 16;
+    v10 = 16;
     goto LABEL_10;
   }
   if ( (unsigned __int8)v7 >= 0x18u )
     goto LABEL_17;
 LABEL_10:
-  if ( (unsigned __int8)v6 >= 0x1Bu )
-    v6 = 26;
   if ( (unsigned __int8)v9 >= 0x1Bu )
-    v9 = 27;
+    v9 = 26;
+  if ( (unsigned __int8)v10 >= 0x1Bu )
+    v10 = 27;
 LABEL_14:
-  a1[106] = v4;
-  a1[105] = v6;
-  a1[104] = v9;
+  a1[106] = result;
+  a1[105] = v9;
+  a1[104] = v10;
+  return result;
 }

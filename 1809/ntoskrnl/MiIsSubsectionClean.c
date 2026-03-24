@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsSubsectionClean @ 0x1402A2594
+ * XREFs of MiIsSubsectionClean @ 0x1402A2694
  * Callers:
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiCheckProtoPtePageState @ 0x140030780 (MiCheckProtoPtePageState.c)

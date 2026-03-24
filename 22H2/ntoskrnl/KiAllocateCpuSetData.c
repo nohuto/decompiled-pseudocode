@@ -1,26 +1,30 @@
 /*
- * XREFs of KiAllocateCpuSetData @ 0x140B49340
+ * XREFs of KiAllocateCpuSetData @ 0x140A3FD90
  * Callers:
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KiCreateCpuSetForProcessor @ 0x140A8D5D8 (KiCreateCpuSetForProcessor.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiCreateCpuSetForProcessor @ 0x14099D7FC (KiCreateCpuSetForProcessor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KiAllocateCpuSetData(unsigned int a1)
 {
   __int64 result; // rax
-  __int64 v3; // rcx
+  char *v3; // rdi
+  __int64 v4; // rcx
 
   if ( KiMaximumGroups != 1 )
     a1 = (unsigned __int16)KiMaximumGroups << 6;
-  result = ExAllocatePool2(64LL, 32 * a1, 0x2020654Bu);
+  result = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 32 * a1, 0x2020654Bu);
+  v3 = (char *)result;
   if ( result )
   {
-    KiCpuSetAffinities = (void *)result;
-    v3 = 8LL * a1;
-    KiCpuSetAffinitiesShadow = (void *)(v3 + result);
-    KiCpuSetData = v3 + result + v3;
+    memset((void *)result, 0, 32 * a1);
+    KiCpuSetAffinities = v3;
+    v4 = 8LL * a1;
+    KiCpuSetAffinitiesShadow = &v3[v4];
+    KiCpuSetData = (__int64)&v3[v4 + v4];
     LODWORD(KiCpuSetAffinitySize) = 8 * a1;
     KiCreateCpuSetForProcessor(KiProcessorBlock[0]);
     return 1LL;

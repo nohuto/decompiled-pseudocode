@@ -1,16 +1,17 @@
 /*
- * XREFs of ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C001BB98
+ * XREFs of ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C00EDF70
  * Callers:
- *     vSpDynamicModeChange @ 0x1C001B8E0 (vSpDynamicModeChange.c)
+ *     vSpDynamicModeChange @ 0x1C00EDCB0 (vSpDynamicModeChange.c)
  * Callees:
- *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C001B570 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00EDFC0 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
  */
 
 void __fastcall MULTISPRITEDDIACCESS::~MULTISPRITEDDIACCESS(struct _SPRITESTATE **this)
 {
   struct _SPRITESTATE *v1; // r8
   __int64 v3; // rbx
-  __int64 v4; // rax
+  struct _SPRITESTATE *v4; // r9
+  __int64 v5; // rax
 
   v1 = *this;
   if ( *this )
@@ -20,13 +21,17 @@ void __fastcall MULTISPRITEDDIACCESS::~MULTISPRITEDDIACCESS(struct _SPRITESTATE 
       v3 = 0LL;
       do
       {
-        v4 = *(_QWORD *)(*((_QWORD *)v1 + 8) + 8 * v3);
-        if ( *(_DWORD *)(v4 + 168) && (*(_DWORD *)(v4 + 40) & 0x20000) == 0 )
-          vSpDirectDriverAccess((struct _SPRITESTATE *)(v4 + 80), 0);
-        v1 = *this;
+        v4 = v1;
+        v5 = *(_QWORD *)(*((_QWORD *)v1 + 8) + 8 * v3);
+        if ( *(_DWORD *)(v5 + 176) && (*(_DWORD *)(v5 + 40) & 0x20000) == 0 )
+        {
+          vSpDirectDriverAccess((struct _SPRITESTATE *)(v5 + 88), 0);
+          v4 = *this;
+        }
         v3 = (unsigned int)(v3 + 1);
+        v1 = v4;
       }
-      while ( (unsigned int)v3 < *((_DWORD *)*this + 15) );
+      while ( (unsigned int)v3 < *((_DWORD *)v4 + 15) );
     }
     else if ( *((_DWORD *)v1 + 22) )
     {

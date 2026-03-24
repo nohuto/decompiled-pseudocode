@@ -1,10 +1,10 @@
 /*
- * XREFs of PspWaitOnAllProcessesJobCallback @ 0x1409B3540
+ * XREFs of PspWaitOnAllProcessesJobCallback @ 0x140909D60
  * Callers:
  *     <none>
  * Callees:
- *     PspGetNextJobProcess @ 0x1406A0D90 (PspGetNextJobProcess.c)
- *     PspWaitForUsermodeExit @ 0x1409B3EDC (PspWaitForUsermodeExit.c)
+ *     PspGetNextJobProcess @ 0x14068EDB0 (PspGetNextJobProcess.c)
+ *     PspWaitForUsermodeExit @ 0x14090B33C (PspWaitForUsermodeExit.c)
  */
 
 __int64 __fastcall PspWaitOnAllProcessesJobCallback(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyTokenInFrame@CCompositionBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C007D9B0
+ * XREFs of ?NotifyTokenInFrame@CCompositionBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C0066C70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionBuffer::NotifyTokenInFrame(CCompositionBuffer *this, const struct CToken *a2, bool *a3)

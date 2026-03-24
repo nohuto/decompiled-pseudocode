@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TransferCompleted@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0037EF0
+ * XREFs of ?TransferCompleted@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0035660
  * Callers:
  *     <none>
  * Callees:
- *     ?PutScatterGatherList@FxDmaScatterGatherTransaction@@AEAAXPEAU_SCATTER_GATHER_LIST@@@Z @ 0x1C0037E22 (-PutScatterGatherList@FxDmaScatterGatherTransaction@@AEAAXPEAU_SCATTER_GATHER_LIST@@@Z.c)
+ *     ?PutScatterGatherList@FxDmaScatterGatherTransaction@@AEAAXPEAU_SCATTER_GATHER_LIST@@@Z @ 0x1C0035334 (-PutScatterGatherList@FxDmaScatterGatherTransaction@@AEAAXPEAU_SCATTER_GATHER_LIST@@@Z.c)
  */
 
 __int64 __fastcall FxDmaScatterGatherTransaction::TransferCompleted(FxDmaScatterGatherTransaction *this)

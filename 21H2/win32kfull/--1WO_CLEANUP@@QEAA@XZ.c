@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0283684
+ * XREFs of ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0286AD8
  * Callers:
- *     EngCreateWnd @ 0x1C0283EE0 (EngCreateWnd.c)
+ *     EngCreateWnd @ 0x1C0287330 (EngCreateWnd.c)
  * Callees:
  *     <none>
  */
@@ -22,19 +22,19 @@ void __fastcall WO_CLEANUP::~WO_CLEANUP(WO_CLEANUP *this)
     if ( v2 )
     {
       *v2 = 0;
-      Win32FreePool(*((_QWORD *)this + 1));
+      Win32FreePool(*((void **)this + 1));
     }
     v3 = *((_QWORD *)this + 2);
     if ( v3 )
     {
       *(_DWORD *)(v3 + 152) = 0;
-      Win32FreePool(*((_QWORD *)this + 2));
+      Win32FreePool(*((void **)this + 2));
     }
     v4 = *((_QWORD *)this + 3);
     if ( v4 )
     {
       *(_DWORD *)(v4 + 152) = 0;
-      Win32FreePool(*((_QWORD *)this + 3));
+      Win32FreePool(*((void **)this + 3));
     }
     v5 = (REGION *)*((_QWORD *)this + 4);
     if ( v5 )

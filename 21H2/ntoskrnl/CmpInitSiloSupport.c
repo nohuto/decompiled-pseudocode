@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitSiloSupport @ 0x140861E5C
+ * XREFs of CmpInitSiloSupport @ 0x1407A56F8
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     PspStorageAllocSlot @ 0x1408258B8 (PspStorageAllocSlot.c)
- *     CmInitServerSiloState @ 0x140861E8C (CmInitServerSiloState.c)
+ *     PspStorageAllocSlot @ 0x140795848 (PspStorageAllocSlot.c)
+ *     CmInitServerSiloState @ 0x1407A5728 (CmInitServerSiloState.c)
  */
 
 __int64 __fastcall CmpInitSiloSupport(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0214458
+ * XREFs of ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219834
  * Callers:
- *     EditionPromotePointer @ 0x1C016DAC0 (EditionPromotePointer.c)
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     EditionPromotePointer @ 0x1C0219C10 (EditionPromotePointer.c)
  * Callees:
- *     ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C016D94A (-PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z.c)
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02137B0 (-ForceCompletePendingPromotion@@YAXXZ.c)
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0213BC0 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0213F58 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
- *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C0214098 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02189B8 (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218DC8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C0218FCC (-PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z.c)
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0219240 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C02193F0 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
  */
 
 __int64 __fastcall PointerPromotion::xxxPromotePointer(PointerPromotion *this, unsigned int a2, unsigned int a3)
@@ -26,10 +26,10 @@ __int64 __fastcall PointerPromotion::xxxPromotePointer(PointerPromotion *this, u
   v4 = (__int16)this;
   v13 = 0LL;
   v11[0] = 0LL;
-  InputTraceLogging::Pointer::PromoteToMouse(a2);
+  InputTraceLogging::Pointer::PromoteToMouse(a2, (__int16)this, a3, 0);
   if ( !(unsigned int)ValidatePointerPromotion(v4, a2, &v12, &v13, v11) )
     return 0LL;
-  if ( !word_1C0335D70 )
+  if ( !word_1C033ABB0 )
   {
 LABEL_11:
     v6 = v13;
@@ -37,7 +37,7 @@ LABEL_11:
 LABEL_12:
     if ( v9 == 0x10000000 )
     {
-      dword_1C0335D98 |= 8u;
+      dword_1C033ABD8 |= 8u;
       return 1LL;
     }
     else
@@ -47,7 +47,7 @@ LABEL_12:
       return v10;
     }
   }
-  if ( word_1C0335D70 != v4 || (v6 = v13, dword_1C0335D74 != *((_DWORD *)v13 + 8)) )
+  if ( word_1C033ABB0 != v4 || (v6 = v13, dword_1C033ABB4 != *((_DWORD *)v13 + 8)) )
   {
     ForceCompletePendingPromotion();
     v12 = a3;
@@ -58,10 +58,10 @@ LABEL_12:
   LOBYTE(v7) = v12;
   if ( (v12 & 0x80000) == 0 )
   {
-    v9 = (dword_1C0335D84 != 0 ? 50331648 : 0x1000000) | ((dword_1C0335D80 != 0) + 1) | v12 & 0xFFFF00;
+    v9 = (dword_1C033ABC4 != 0 ? 50331648 : 0x1000000) | ((dword_1C033ABC0 != 0) + 1) | v12 & 0xFFFF00;
     goto LABEL_12;
   }
-  if ( dword_1C0335D80 )
+  if ( dword_1C033ABC0 )
     v7 = v12 >> 1;
   return v7 & 1;
 }

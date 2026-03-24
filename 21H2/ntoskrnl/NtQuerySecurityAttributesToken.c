@@ -1,17 +1,19 @@
 /*
- * XREFs of NtQuerySecurityAttributesToken @ 0x1406A09D0
+ * XREFs of NtQuerySecurityAttributesToken @ 0x1406011C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     SepReferenceTokenByHandle @ 0x1402F8F70 (SepReferenceTokenByHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepCaptureUnicodeStringArray @ 0x1406A0BF0 (SepCaptureUnicodeStringArray.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SepCaptureUnicodeStringArray @ 0x140601510 (SepCaptureUnicodeStringArray.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1409560F0 (ExRaiseAccessViolation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQuerySecurityAttributesToken(
@@ -19,87 +21,102 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
         __int64 a2,
         unsigned int a3,
         volatile void *a4,
-        SIZE_T Length,
-        volatile void *Address)
+        unsigned int Length,
+        unsigned __int64 a6)
 {
-  char v9; // r15
-  unsigned __int8 PreviousMode; // bl
-  unsigned int v11; // r14d
-  volatile void *v12; // r13
-  int SecurityAttributesToken; // esi
-  int v14; // r9d
+  char v9; // r12
+  unsigned __int8 v10; // si
+  __int64 v11; // r14
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rax
+  int SecurityAttributesToken; // edi
   struct _KTHREAD *CurrentThread; // rax
-  PERESOURCE *v16; // rdi
-  __int64 v17; // rdx
-  int v19; // [rsp+44h] [rbp-44h]
-  PVOID Object; // [rsp+48h] [rbp-40h] BYREF
+  PADAPTER_OBJECT v17; // rbx
+  char v18; // dl
+  _BYTE v20[4]; // [rsp+40h] [rbp-48h] BYREF
+  int v21; // [rsp+44h] [rbp-44h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-40h] BYREF
   PVOID P; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-30h] BYREF
+  __int64 v24; // [rsp+58h] [rbp-30h] BYREF
 
   P = 0LL;
   v9 = 0;
-  Object = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v11 = Length;
-  if ( (_DWORD)Length )
+  DmaAdapter = 0LL;
+  v24 = 0LL;
+  v20[0] = 0;
+  v10 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  v20[1] = v10;
+  if ( Length )
   {
     if ( a4 )
       goto LABEL_3;
-LABEL_20:
+LABEL_24:
     SecurityAttributesToken = -1073741811;
-    v19 = -1073741811;
-LABEL_19:
-    v16 = (PERESOURCE *)Object;
-    goto LABEL_8;
+    v21 = -1073741811;
+LABEL_25:
+    v17 = DmaAdapter;
+    goto LABEL_15;
   }
   if ( a4 )
-    goto LABEL_20;
+    goto LABEL_24;
 LABEL_3:
-  if ( PreviousMode )
+  if ( v10 )
   {
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    v12 = Address;
-    ProbeForWrite(Address, 4uLL, 4u);
+    ProbeForWrite(a4, Length, 4u);
+    v11 = a6;
+    v12 = a6;
+    if ( (a6 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v13 = a6 + 3;
+    if ( a6 >= a6 + 3 || v13 >= 0x7FFFFFFF0000LL )
+      ExRaiseAccessViolation();
+    v14 = (v13 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+    do
+    {
+      *(_BYTE *)v12 = *(_BYTE *)v12;
+      v12 = (v12 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+    }
+    while ( v12 != v14 );
   }
   else
   {
-    v12 = Address;
+    v11 = a6;
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, PreviousMode, &P);
-  v19 = SecurityAttributesToken;
+  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, v10, &P);
+  v21 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
-    goto LABEL_19;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, PreviousMode, v14, &Object, &Length, &v22);
-  v19 = SecurityAttributesToken;
+    goto LABEL_25;
+  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, v10, &DmaAdapter, v20, &v24);
+  v21 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
-    goto LABEL_19;
+    goto LABEL_25;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v16 = (PERESOURCE *)Object;
-  ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
+  v17 = DmaAdapter;
+  ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
   v9 = 1;
-  LOBYTE(Length) = 1;
   SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
-                              (__int64)v16,
-                              v17,
+                              (__int64)v17,
+                              v18,
                               (__int64)P,
                               a3,
                               0,
                               (__int64)a4,
-                              v11,
-                              (__int64)v12);
-  v19 = SecurityAttributesToken;
-LABEL_8:
-  if ( PreviousMode == 1 && P )
+                              Length,
+                              v11);
+  v21 = SecurityAttributesToken;
+LABEL_15:
+  if ( v10 == 1 && P )
     ExFreePoolWithTag(P, 0);
   if ( v9 )
   {
-    ExReleaseResourceLite(v16[6]);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    SecurityAttributesToken = v19;
-    v16 = (PERESOURCE *)Object;
+    ExReleaseResourceLite(*(PERESOURCE *)&v17[3].Version);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    SecurityAttributesToken = v21;
+    v17 = DmaAdapter;
   }
-  if ( v16 )
-    ObfDereferenceObjectWithTag(v16, 0x74726853u);
+  if ( v17 )
+    HalPutDmaAdapter(v17);
   return (unsigned int)SecurityAttributesToken;
 }

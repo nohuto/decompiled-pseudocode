@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRenderingEffect@CHWDrawListEntry@@UEBAPEAVCRenderingEffect@@XZ @ 0x180106E10
+ * XREFs of ?GetRenderingEffect@CHWDrawListEntry@@UEBAPEAVCRenderingEffect@@XZ @ 0x1800E26B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CRenderingEffect *__fastcall CHWDrawListEntry::GetRenderingEffect(CHWDrawListEntry *this)
 {
-  return (struct CRenderingEffect *)*((_QWORD *)this + 9);
+  return (struct CRenderingEffect *)*((_QWORD *)this + 22);
 }

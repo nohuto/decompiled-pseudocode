@@ -1,77 +1,84 @@
 /*
- * XREFs of BapdpProcessWmdResults @ 0x140B38718
+ * XREFs of BapdpProcessWmdResults @ 0x140A4037C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B38D8C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A405AC (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     BapdpQueryData @ 0x140B39564 (BapdpQueryData.c)
- *     BapdpRegisterWmdResult @ 0x140B98C24 (BapdpRegisterWmdResult.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A40B64 (BapdpQueryData.c)
+ *     BapdpRegisterWmdResult @ 0x140A94488 (BapdpRegisterWmdResult.c)
  */
 
 void BapdpProcessWmdResults()
 {
   unsigned __int64 v0; // rcx
-  __int64 Pool2; // rdi
-  unsigned int v2; // ebx
-  unsigned int v3; // r15d
-  char v4; // r12
-  unsigned __int64 v5; // rsi
-  unsigned __int64 v6; // r14
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // xmm0_8
-  _DWORD v10[4]; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v11; // [rsp+40h] [rbp-30h]
-  _DWORD v12[4]; // [rsp+50h] [rbp-20h] BYREF
+  char *PoolWithTag; // rbx
+  __int64 v2; // r14
+  unsigned int v3; // esi
+  unsigned int v4; // r15d
+  unsigned __int64 v5; // rdi
+  char v6; // r12
+  unsigned int v7; // r13d
+  int Data; // r8d
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rax
+  unsigned __int64 v11; // xmm0_8
+  _DWORD v12[4]; // [rsp+30h] [rbp-40h] BYREF
+  __int128 v13; // [rsp+40h] [rbp-30h]
+  _DWORD v14[4]; // [rsp+50h] [rbp-20h] BYREF
 
-  v12[0] = 1421354843;
-  v12[1] = 1195365425;
-  v12[2] = 921041836;
-  v12[3] = -1550547808;
-  v11 = 0LL;
-  Pool2 = ExAllocatePool2(64LL, 0x10000uLL, 0x64506142u);
-  if ( Pool2 )
+  v14[0] = 1421354843;
+  v14[1] = 1195365425;
+  v14[2] = 921041836;
+  v14[3] = -1550547808;
+  v13 = 0LL;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x10000uLL, 0x64506142u);
+  if ( !PoolWithTag )
+    return;
+  v2 = *((_QWORD *)&v13 + 1);
+  v3 = 0;
+  v4 = 0;
+  v12[0] = 0x10000;
+  v5 = v13;
+  v6 = 0;
+  do
   {
-    v2 = 0;
-    v10[0] = 0x10000;
-    v3 = 0;
-    v4 = 0;
-LABEL_3:
-    v6 = *((_QWORD *)&v11 + 1);
-    v5 = v11;
-    while ( (int)BapdpQueryData(v0, v12, v2, Pool2, v10) >= 0 )
+    v7 = v3;
+    Data = BapdpQueryData(v0, v14, v3, PoolWithTag, v12);
+    if ( Data < 0 )
+      goto LABEL_4;
+    if ( !v6 )
     {
-      if ( !v4 )
-      {
-        v4 = 1;
-        v11 = *(_OWORD *)(Pool2 + 28);
-LABEL_11:
-        v3 = v2++;
-        goto LABEL_3;
-      }
-      v7 = *(_QWORD *)(Pool2 + 28);
-      if ( (__int16)v7 > (__int16)v5
-        || (__int16)v7 >= (__int16)v5
-        && ((v0 = v7 >> 16, SWORD1(v7) > SWORD1(v5))
-         || SWORD1(v7) >= SWORD1(v5)
-         && ((v0 = HIDWORD(v7), SWORD2(v7) > SWORD2(v5))
-          || SWORD2(v7) >= SWORD2(v5)
-          && ((v8 = HIWORD(v7), v0 = HIWORD(v5), (__int16)v8 > SHIWORD(v5))
-           || (__int16)v8 >= SHIWORD(v5)
-           && ((v9 = _mm_srli_si128(*(__m128i *)(Pool2 + 28), 8).m128i_u64[0], (__int16)v9 > (__int16)v6)
-            || (__int16)v9 >= (__int16)v6
-            && ((v0 = v9 >> 16, SWORD1(v9) > SWORD1(v6))
-             || SWORD1(v9) >= SWORD1(v6) && (v0 = HIDWORD(v6), SWORD2(v9) > SWORD2(v6))))))) )
-      {
-        v11 = *(_OWORD *)(Pool2 + 28);
-        goto LABEL_11;
-      }
-      ++v2;
+      v6 = 1;
+      v13 = *(_OWORD *)(PoolWithTag + 28);
+LABEL_24:
+      v5 = v13;
+      v4 = v3;
+      v2 = *((_QWORD *)&v13 + 1);
+      goto LABEL_4;
     }
-    if ( v4 == 1 && (v3 == v2 || (int)BapdpQueryData(v0, v12, v3, Pool2, v10) >= 0) )
-      BapdpRegisterWmdResult((PVOID)Pool2);
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+    v9 = *(_QWORD *)(PoolWithTag + 28);
+    if ( (__int16)v9 > (__int16)v5
+      || (__int16)v9 >= (__int16)v5
+      && ((v0 = v9 >> 16, SWORD1(v9) > SWORD1(v5))
+       || SWORD1(v9) >= SWORD1(v5)
+       && ((v0 = HIDWORD(v9), SWORD2(v9) > SWORD2(v5))
+        || SWORD2(v9) >= SWORD2(v5)
+        && ((v10 = HIWORD(v9), v0 = HIWORD(v5), (__int16)v10 > SHIWORD(v5))
+         || (__int16)v10 >= SHIWORD(v5)
+         && ((v11 = _mm_srli_si128(*(__m128i *)(PoolWithTag + 28), 8).m128i_u64[0], v0 = v11, (__int16)v11 > (__int16)v2)
+          || (__int16)v11 >= (__int16)v2
+          && (SWORD1(v11) > SWORD1(v2) || SWORD1(v11) >= SWORD1(v2) && (v0 = HIDWORD(v11), SWORD2(v11) > SWORD2(v2))))))) )
+    {
+      v13 = *(_OWORD *)(PoolWithTag + 28);
+      goto LABEL_24;
+    }
+LABEL_4:
+    ++v3;
   }
+  while ( Data >= 0 );
+  if ( v6 == 1 && (v4 == v7 || (int)BapdpQueryData(v0, v14, v4, PoolWithTag, v12) >= 0) )
+    BapdpRegisterWmdResult(PoolWithTag);
+  ExFreePoolWithTag(PoolWithTag, 0);
 }

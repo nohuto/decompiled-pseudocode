@@ -1,19 +1,19 @@
 /*
- * XREFs of PsGetCurrentServerSiloName @ 0x1409AB760
+ * XREFs of PsGetCurrentServerSiloName @ 0x140905AC0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 *PsGetCurrentServerSiloName()
+__int64 *__fastcall PsGetCurrentServerSiloName(__int64 a1, __int64 a2)
 {
-  _WORD *v0; // rax
-  __int64 *v1; // rcx
+  _WORD *v2; // rax
+  __int64 *v3; // rcx
 
-  v0 = (char *)PsGetCurrentServerSiloGlobals() + 1280;
-  v1 = &PspDefaultSiloName;
-  if ( *v0 )
-    return (__int64 *)v0;
-  return v1;
+  v2 = (char *)PsGetCurrentServerSiloGlobals(a1, a2) + 1088;
+  v3 = &PspDefaultSiloName;
+  if ( *v2 )
+    return (__int64 *)v2;
+  return v3;
 }

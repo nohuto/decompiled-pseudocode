@@ -1,22 +1,22 @@
 /*
- * XREFs of MiActOnLargeKernelHalPages @ 0x14081E6F8
+ * XREFs of MiActOnLargeKernelHalPages @ 0x1407A1E1C
  * Callers:
- *     MiProtectSystemImage @ 0x14081F240 (MiProtectSystemImage.c)
- *     MiInitializeBootLoadedDriverPfns @ 0x140B4750C (MiInitializeBootLoadedDriverPfns.c)
- *     MiCreateSlabAllocationsFromKernelHal @ 0x140B486E4 (MiCreateSlabAllocationsFromKernelHal.c)
+ *     MiProtectSystemImage @ 0x1407A1ABC (MiProtectSystemImage.c)
+ *     MiCreateSlabAllocationsFromKernelHal @ 0x140A504E4 (MiCreateSlabAllocationsFromKernelHal.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140A65FFC (MiInitializeBootLoadedDriverPfns.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiActOnLargeKernelHalPages(__int64 a1, __int64 (__fastcall *a2)(unsigned __int64, __int64))
 {
-  __int64 v4; // rbp
+  __int64 v4; // rax
   __int64 *v5; // rbx
   int v6; // r8d
-  unsigned __int64 v7; // r9
-  int v8; // ecx
+  __int64 v7; // rbp
+  unsigned __int64 v8; // r9
   int v9; // esi
   unsigned int v10; // ecx
   unsigned __int64 v11; // rdi
@@ -24,23 +24,24 @@ __int64 __fastcall MiActOnLargeKernelHalPages(__int64 a1, __int64 (__fastcall *a
   unsigned __int64 v13; // r14
   __int64 result; // rax
   __int64 v15; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-60h]
-  int v17; // [rsp+30h] [rbp-58h]
-  __int128 v18; // [rsp+34h] [rbp-54h]
-  int v19; // [rsp+44h] [rbp-44h]
+  int v16; // [rsp+28h] [rbp-60h]
+  int v17; // [rsp+2Ch] [rbp-5Ch]
+  int v18; // [rsp+30h] [rbp-58h]
+  __int128 v19; // [rsp+34h] [rbp-54h]
+  int v20; // [rsp+44h] [rbp-44h]
 
   v4 = RtlImageNtHeader(a1);
-  v5 = &v15;
-  v6 = 0x40000000;
-  v16 = 0LL;
-  v7 = a1;
   v15 = 0LL;
-  v8 = *(_DWORD *)(v4 + 84);
+  v5 = &v15;
+  v17 = 0;
+  v6 = 0x40000000;
+  v20 = 0x40000000;
+  v7 = v4;
+  v8 = a1;
   v9 = *(unsigned __int16 *)(v4 + 6) + 1;
-  v19 = 0x40000000;
-  v18 = 0LL;
-  LODWORD(v16) = v8;
-  v17 = v8;
+  v16 = *(_DWORD *)(v4 + 84);
+  v19 = 0LL;
+  v18 = v16;
   do
   {
     v10 = *((_DWORD *)v5 + 4);
@@ -51,21 +52,21 @@ __int64 __fastcall MiActOnLargeKernelHalPages(__int64 a1, __int64 (__fastcall *a
     v13 = ((v10 + 4095LL) & 0xFFFFFFFFFFFFF000uLL) + 0x1FFFFF;
     if ( v12 != v6 )
     {
-      if ( v7 < v11 )
+      if ( v8 < v11 )
       {
-        result = a2(v7, a1 + *((unsigned int *)v5 + 3));
+        result = a2(v8, a1 + *((unsigned int *)v5 + 3));
         if ( (int)result < 0 )
           return result;
       }
       v6 = v12;
-      v7 = v11;
+      v8 = v11;
     }
     if ( v5 == &v15 )
-      v5 = (__int64 *)(*(unsigned __int16 *)(v4 + 20) + v4 + 24);
+      v5 = (__int64 *)(*(unsigned __int16 *)(v7 + 20) + v7 + 24);
     else
       v5 += 5;
     --v9;
   }
   while ( v9 );
-  return a2(v7, (v13 + v11) & 0xFFFFFFFFFFE00000uLL);
+  return a2(v8, (v13 + v11) & 0xFFFFFFFFFFE00000uLL);
 }

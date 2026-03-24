@@ -1,10 +1,10 @@
 /*
- * XREFs of _SetCancelRotationDelayHintWindow @ 0x1C01CEE94
+ * XREFs of _SetCancelRotationDelayHintWindow @ 0x1C01D2AD0
  * Callers:
- *     NtUserSetCancelRotationDelayHintWindow @ 0x1C01FCA20 (NtUserSetCancelRotationDelayHintWindow.c)
+ *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C0023254 (IAMThreadAccessGranted.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     IAMThreadAccessGranted @ 0x1C0037FF4 (IAMThreadAccessGranted.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 SetCancelRotationDelayHintWindow()
@@ -18,14 +18,14 @@ __int64 SetCancelRotationDelayHintWindow()
   v0 = 1;
   if ( IAMThreadAccessGranted(gptiCurrent) )
   {
-    v3 = *(_QWORD *)(v2 + 24) + 296LL;
+    v3 = *(_QWORD *)(v2 + 24) + 304LL;
     v5[1] = v2;
     v5[0] = v3;
-    HMAssignmentLock(v5, 0LL);
+    HMAssignmentLock(v5);
   }
   else
   {
-    UserSetLastError(5LL, v1);
+    UserSetLastError(5LL, v1, v2);
     return 0;
   }
   return v0;

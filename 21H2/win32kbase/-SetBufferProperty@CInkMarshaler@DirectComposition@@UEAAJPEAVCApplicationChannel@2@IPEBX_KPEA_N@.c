@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0218A00
+ * XREFs of ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E2780
  * Callers:
  *     <none>
  * Callees:
- *     ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C021854C (-AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
- *     ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C0218BD0 (-SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
+ *     ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E22AC (-AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
+ *     ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E2950 (-SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CInkMarshaler::SetBufferProperty(
@@ -19,7 +19,8 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetBufferProperty(
   unsigned int v7; // r8d
   unsigned int v8; // r8d
   unsigned int v9; // r8d
-  int v11; // eax
+  __int64 v10; // rax
+  int v12; // eax
 
   v6 = 0;
   *a6 = 0;
@@ -33,7 +34,7 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetBufferProperty(
   {
     if ( !a4 || a5 != 16 )
       return (unsigned int)-1073741811;
-    *((_OWORD *)this + 4) = *(_OWORD *)a4;
+    *(_OWORD *)((char *)this + 56) = *(_OWORD *)a4;
 LABEL_21:
     *((_DWORD *)this + 4) &= ~0x20u;
     goto LABEL_17;
@@ -43,9 +44,9 @@ LABEL_21:
   {
     if ( !a4 || a5 != 28 )
       return (unsigned int)-1073741811;
-    *((_OWORD *)this + 5) = *(_OWORD *)a4;
-    *((_QWORD *)this + 12) = *((_QWORD *)a4 + 2);
-    *((_DWORD *)this + 26) = *((_DWORD *)a4 + 6);
+    *(_OWORD *)((char *)this + 72) = *(_OWORD *)a4;
+    *((_QWORD *)this + 11) = *((_QWORD *)a4 + 2);
+    *((_DWORD *)this + 24) = *((_DWORD *)a4 + 6);
     goto LABEL_21;
   }
   v8 = v7 - 1;
@@ -54,8 +55,18 @@ LABEL_21:
     v9 = v8 - 1;
     if ( v9 )
     {
-      if ( v9 == 2 && a4 && a5 == 36 && *((_QWORD *)this + 18) )
-        return (unsigned int)DirectComposition::CInkMarshaler::SetSegments(this, *((_DWORD *)this + 36) - 1, a4, 1u, a6);
+      if ( v9 == 2 )
+      {
+        if ( a4 )
+        {
+          if ( a5 == 36 )
+          {
+            v10 = *((_QWORD *)this + 17);
+            if ( v10 )
+              return (unsigned int)DirectComposition::CInkMarshaler::SetSegments(this, (int)v10 - 1, a4, 1u, a6);
+          }
+        }
+      }
     }
     else if ( a4 && a5 == 36 * (a5 / 0x24) )
     {
@@ -65,10 +76,10 @@ LABEL_21:
   }
   if ( !a4 || a5 != 12 )
     return (unsigned int)-1073741811;
-  *(_QWORD *)((char *)this + 108) = *(_QWORD *)a4;
-  v11 = *((_DWORD *)a4 + 2);
+  *(_QWORD *)((char *)this + 100) = *(_QWORD *)a4;
+  v12 = *((_DWORD *)a4 + 2);
   *((_DWORD *)this + 4) &= ~0x40u;
-  *((_DWORD *)this + 29) = v11;
+  *((_DWORD *)this + 27) = v12;
 LABEL_17:
   *a6 = 1;
   return v6;

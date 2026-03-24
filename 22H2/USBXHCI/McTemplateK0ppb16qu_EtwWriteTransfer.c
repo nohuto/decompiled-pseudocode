@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C004ADCC
+ * XREFs of McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C0048814
  * Callers:
- *     Command_HandleCommandCompletionEvent @ 0x1C000A2E4 (Command_HandleCommandCompletionEvent.c)
- *     Etw_CommandCompleteError @ 0x1C004A768 (Etw_CommandCompleteError.c)
+ *     Command_HandleCommandCompletionEvent @ 0x1C0006928 (Command_HandleCommandCompletionEvent.c)
+ *     Etw_CommandCompleteError @ 0x1C0047DE8 (Etw_CommandCompleteError.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppb16qu_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

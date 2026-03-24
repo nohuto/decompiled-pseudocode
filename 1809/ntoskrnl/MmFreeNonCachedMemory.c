@@ -1,5 +1,5 @@
 /*
- * XREFs of MmFreeNonCachedMemory @ 0x14084DE40
+ * XREFs of MmFreeNonCachedMemory @ 0x14084DE20
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MmFreePagesFromMdl @ 0x1401373B0 (MmFreePagesFromMdl.c)
- *     MiSetPfnOriginalPte @ 0x1402BFCF4 (MiSetPfnOriginalPte.c)
+ *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
+ *     MiSetPfnOriginalPte @ 0x1402BFDF4 (MiSetPfnOriginalPte.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

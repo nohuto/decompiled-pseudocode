@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetTargetIoType@FxIoTarget@@IEAAEXZ @ 0x1C0026DE0
+ * XREFs of ?GetTargetIoType@FxIoTarget@@IEAAEXZ @ 0x1C0064ED0
  * Callers:
- *     ?Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z @ 0x1C0026D34 (-Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z.c)
- *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C002CAD0 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
- *     ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C003420C (-SetFilterIoType@FxDevice@@AEAAXXZ.c)
+ *     ?SetFilterIoType@FxDevice@@AEAAXXZ @ 0x1C005265C (-SetFilterIoType@FxDevice@@AEAAXXZ.c)
+ *     ?Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z @ 0x1C006567C (-Init@FxIoTarget@@QEAAJPEAVFxDeviceBase@@@Z.c)
+ *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C00670B0 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
  * Callees:
  *     <none>
  */

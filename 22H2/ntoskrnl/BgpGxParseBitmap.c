@@ -1,21 +1,21 @@
 /*
- * XREFs of BgpGxParseBitmap @ 0x140AED3F0
+ * XREFs of BgpGxParseBitmap @ 0x1409F1880
  * Callers:
- *     BgpGxProcessQrCodeBitmap @ 0x140383D58 (BgpGxProcessQrCodeBitmap.c)
- *     AnFwDisplayFade @ 0x140AED9AC (AnFwDisplayFade.c)
- *     BgpGxDrawBitmapImage @ 0x140AF3720 (BgpGxDrawBitmapImage.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x1403CDF10 (BgpGxProcessQrCodeBitmap.c)
+ *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
+ *     BgpGxDrawBitmapImage @ 0x1409F7704 (BgpGxDrawBitmapImage.c)
  * Callees:
- *     BgpGxCopyBitmapToRectangle @ 0x140AED34C (BgpGxCopyBitmapToRectangle.c)
- *     BgpGxRectangleDestroy @ 0x140AEEA30 (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x140AEEA54 (BgpGxRectangleCreate.c)
+ *     BgpGxCopyBitmapToRectangle @ 0x1409F192C (BgpGxCopyBitmapToRectangle.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x1409F32C0 (BgpGxRectangleCreate.c)
  */
 
-__int64 __fastcall BgpGxParseBitmap(__int64 a1, __int64 *a2)
+__int64 __fastcall BgpGxParseBitmap(__int64 a1, _QWORD *a2)
 {
   _DWORD *v3; // rbx
   __int64 v4; // rdx
   int v5; // edi
-  __int64 v6; // rdx
+  _DWORD *v6; // rdx
   __int64 v7; // rbx
   _DWORD v9[6]; // [rsp+20h] [rbp-18h] BYREF
   __int64 v10; // [rsp+58h] [rbp+20h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall BgpGxParseBitmap(__int64 a1, __int64 *a2)
       }
       else
       {
-        v6 = (__int64)v3;
+        v6 = v3;
         v7 = v10;
         BgpGxCopyBitmapToRectangle(v10, v6);
         *a2 = v7;

@@ -1,17 +1,16 @@
 /*
- * XREFs of McTemplateK0hzr0_EtwWriteTransfer @ 0x140557D44
+ * XREFs of McTemplateK0hzr0_EtwWriteTransfer @ 0x14050CB28
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14035F2C4 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1408577F0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408A0600 (IoRequestDeviceRemovalForReset.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C3C60 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036E304 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0hzr0_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
-        const GUID *a3,
+        __int64 a3,
         unsigned __int16 a4,
         __int64 a5)
 {
@@ -32,9 +31,9 @@ NTSTATUS __fastcall McTemplateK0hzr0_EtwWriteTransfer(
   v12 = 0;
   v11 = 2 * a4;
   return McGenEventWrite_EtwWriteTransfer(
-           IoMgrProvider_Context,
-           (const EVENT_DESCRIPTOR *)IoMgr_LegacyFsFilterBlockedByPolicy,
-           a3,
+           MS_KernelPnP_Provider_Context,
+           (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceReset_Start,
+           0LL,
            3u,
            &v6);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCMCaptureRegistryInputData @ 0x1406BAA98
+ * XREFs of PiCMCaptureRegistryInputData @ 0x140633C4C
  * Callers:
- *     PiCMOpenDeviceKey @ 0x1406BA720 (PiCMOpenDeviceKey.c)
- *     PiCMOpenObjectKey @ 0x1406BA8F4 (PiCMOpenObjectKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x140806A24 (PiCMOpenDeviceInterfaceKey.c)
- *     PiCMOpenClassKey @ 0x14081C354 (PiCMOpenClassKey.c)
+ *     PiCMOpenDeviceKey @ 0x14062FD18 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x1406338E0 (PiCMOpenObjectKey.c)
+ *     PiCMOpenClassKey @ 0x1406BEA68 (PiCMOpenClassKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x1408B0B54 (PiCMOpenDeviceInterfaceKey.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402DF554 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x14077C610 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureRegistryInputData(_DWORD *a1, unsigned int a2, int a3, __int64 a4)
@@ -28,14 +28,14 @@ __int64 __fastcall PiCMCaptureRegistryInputData(_DWORD *a1, unsigned int a2, int
   if ( !a1 || !a2 )
   {
     UserModeCallersCopy = -1073741811;
-    goto LABEL_19;
+    goto LABEL_18;
   }
   if ( a3 )
   {
     if ( ((unsigned __int8)a1 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v13 = (unsigned __int64)a1 + a2;
-    if ( v13 > 0x7FFFFFFF0000LL || v13 < (unsigned __int64)a1 )
+    v8 = (unsigned __int64)a1 + a2;
+    if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
     if ( a2 >= 0x24 && *a1 == 36 )
     {
@@ -58,8 +58,8 @@ __int64 __fastcall PiCMCaptureRegistryInputData(_DWORD *a1, unsigned int a2, int
   {
     if ( ((unsigned __int8)a1 & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v8 = (unsigned __int64)a1 + a2;
-    if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)a1 )
+    v13 = (unsigned __int64)a1 + a2;
+    if ( v13 > 0x7FFFFFFF0000LL || v13 < (unsigned __int64)a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
     if ( a2 < 0x30 )
     {
@@ -95,17 +95,17 @@ __int64 __fastcall PiCMCaptureRegistryInputData(_DWORD *a1, unsigned int a2, int
           v5 = 1;
           *(_WORD *)(*v9 + 2 * ((unsigned __int64)*(unsigned int *)(a4 + 24) >> 1) - 2) = 0;
         }
-LABEL_19:
+LABEL_18:
         if ( UserModeCallersCopy >= 0 )
           return (unsigned int)UserModeCallersCopy;
         goto LABEL_36;
       }
       if ( *(_DWORD *)(a4 + 24) >= 2u )
-        goto LABEL_19;
+        goto LABEL_18;
     }
     else if ( !*(_DWORD *)(a4 + 24) )
     {
-      goto LABEL_19;
+      goto LABEL_18;
     }
     UserModeCallersCopy = -1073741811;
   }

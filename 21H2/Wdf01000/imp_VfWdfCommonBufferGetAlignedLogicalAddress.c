@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfCommonBufferGetAlignedLogicalAddress @ 0x1C00C0410
+ * XREFs of imp_VfWdfCommonBufferGetAlignedLogicalAddress @ 0x1C00BF460
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 _LARGE_INTEGER __fastcall imp_VfWdfCommonBufferGetAlignedLogicalAddress(

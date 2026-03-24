@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x18003DE68
+ * XREFs of ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x18002ED24
  * Callers:
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x18003D624 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030A60 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801939A4 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801638F4 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CMmcssTask::LoadRuntime(CMmcssTask *this)

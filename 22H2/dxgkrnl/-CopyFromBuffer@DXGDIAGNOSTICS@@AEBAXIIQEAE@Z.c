@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CopyFromBuffer@DXGDIAGNOSTICS@@AEBAXIIQEAE@Z @ 0x1C0050CD4
+ * XREFs of ?CopyFromBuffer@DXGDIAGNOSTICS@@AEBAXIIQEAE@Z @ 0x1C000175C
  * Callers:
- *     ?ReadDiagnosticsInternal@DXGDIAGNOSTICS@@AEBAJIIQEAEPEAI@Z @ 0x1C0051058 (-ReadDiagnosticsInternal@DXGDIAGNOSTICS@@AEBAJIIQEAEPEAI@Z.c)
+ *     ?ReadDiagnosticsInternal@DXGDIAGNOSTICS@@AEBAJIIQEAEPEAI@Z @ 0x1C00016AC (-ReadDiagnosticsInternal@DXGDIAGNOSTICS@@AEBAJIIQEAEPEAI@Z.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 void __fastcall DXGDIAGNOSTICS::CopyFromBuffer(
@@ -12,31 +12,27 @@ void __fastcall DXGDIAGNOSTICS::CopyFromBuffer(
         size_t a3,
         unsigned __int8 *const a4)
 {
-  __int64 v4; // rdi
-  unsigned int v6; // edx
-  __int64 v8; // rcx
-  int v9; // ebp
-  int v10; // eax
-  const void *v11; // rdx
-  unsigned __int8 *v12; // rcx
+  unsigned int v4; // eax
+  const void *v8; // rdx
+  unsigned __int8 *v9; // rcx
+  int v10; // ebp
+  int v11; // eax
 
-  v4 = a2;
-  v6 = *((_DWORD *)this + 4);
-  v8 = *((_QWORD *)this + 7);
-  v9 = v4 + a3;
-  if ( (int)v4 + (int)a3 <= v6 )
+  v4 = *((_DWORD *)this + 4);
+  v8 = (const void *)(*((_QWORD *)this + 6) + a2);
+  v9 = a4;
+  v10 = a2 + a3;
+  if ( a2 + (unsigned int)a3 > v4 )
   {
-    v11 = (const void *)(v4 + v8);
-    a3 = (unsigned int)a3;
-    v12 = a4;
+    memmove(a4, v8, v4 - a2);
+    v11 = *((_DWORD *)this + 4);
+    v8 = (const void *)*((_QWORD *)this + 6);
+    v9 = &a4[v11 - a2];
+    a3 = (unsigned int)(v10 - v11);
   }
   else
   {
-    memmove(a4, (const void *)(v4 + v8), v6 - (unsigned int)v4);
-    v10 = *((_DWORD *)this + 4);
-    v11 = (const void *)*((_QWORD *)this + 7);
-    v12 = &a4[(unsigned int)(v10 - v4)];
-    a3 = (unsigned int)(v9 - v10);
+    a3 = (unsigned int)a3;
   }
-  memmove(v12, v11, a3);
+  memmove(v9, v8, a3);
 }

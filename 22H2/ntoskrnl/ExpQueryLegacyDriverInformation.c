@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryLegacyDriverInformation @ 0x1409F6E8C
+ * XREFs of ExpQueryLegacyDriverInformation @ 0x14094AC64
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IoGetLegacyVetoList @ 0x1407A8E70 (IoGetLegacyVetoList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IoGetLegacyVetoList @ 0x1406F44A0 (IoGetLegacyVetoList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryLegacyDriverInformation(__int64 a1, unsigned int *a2)

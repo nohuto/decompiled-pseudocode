@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C00D1520
+ * XREFs of ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C00C7FA0
  * Callers:
- *     ??0DCOBJ@@QEAA@XZ @ 0x1C003BC08 (--0DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003BD24 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??0DCOBJ@@QEAA@XZ @ 0x1C003C914 (--0DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003C948 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  * Callees:
- *     PushThreadGuardedObject @ 0x1C0049F70 (PushThreadGuardedObject.c)
+ *     PushThreadGuardedObject @ 0x1C002E110 (PushThreadGuardedObject.c)
  */
 
 unsigned __int64 __fastcall UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(

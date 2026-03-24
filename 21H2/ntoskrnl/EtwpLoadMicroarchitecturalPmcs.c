@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpLoadMicroarchitecturalPmcs @ 0x140862888
+ * XREFs of EtwpLoadMicroarchitecturalPmcs @ 0x1407D284C
  * Callers:
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E1200 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A58C (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void EtwpLoadMicroarchitecturalPmcs()
 {
   __int64 v0; // rax
-  size_t v1; // r14
-  WCHAR *Pool2; // rdi
+  SIZE_T v1; // r14
+  WCHAR *PoolWithTag; // rdi
   int v3; // esi
   NTSTATUS v4; // eax
   int v5; // ebx
@@ -38,59 +38,58 @@ void EtwpLoadMicroarchitecturalPmcs()
   v0 = -1LL;
   do
     ++v0;
-  while ( aRegistryMachin_27[v0] );
+  while ( aRegistryMachin_24[v0] );
   v1 = (unsigned int)(2 * v0 + 514);
-  Pool2 = (WCHAR *)ExAllocatePool2(256LL, v1, 1350005829LL);
-  if ( !Pool2 )
-    return;
-  RtlInitUnicodeString(
-    (PUNICODE_STRING)&DestinationString[1],
-    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\ProfileSource");
-  ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.Attributes = 576;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( ZwOpenKey(DestinationString, 0x20019u, &ObjectAttributes) < 0 )
-    goto LABEL_5;
-  v3 = -1;
-  do
+  PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v1, 0x50777445u);
+  if ( PoolWithTag )
   {
-    v4 = ZwEnumerateKey(DestinationString[0], ++v3, KeyBasicInformation, KeyInformation, 0x216u, ResultLength);
-    v5 = v4;
-    if ( v4 >= 0 )
+    RtlInitUnicodeString(
+      (PUNICODE_STRING)&DestinationString[1],
+      L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\ProfileSource");
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(DestinationString, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      if ( KeyInformation[3] < 0x1FEu )
+      v3 = -1;
+      do
       {
-        *((_WORD *)&KeyInformation[4] + ((unsigned __int64)KeyInformation[3] >> 1)) = 0;
-        if ( RtlStringCbPrintfW(
-               Pool2,
-               v1,
-               L"%ws\\%ws",
-               L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\ProfileSource",
-               &KeyInformation[4]) >= 0 )
+        v4 = ZwEnumerateKey(DestinationString[0], ++v3, KeyBasicInformation, KeyInformation, 0x216u, ResultLength);
+        v5 = v4;
+        if ( v4 < 0 || KeyInformation[3] >= 0x1FEu )
         {
-          RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], Pool2);
-          ObjectAttributes.Length = 48;
-          ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
-          ObjectAttributes.RootDirectory = 0LL;
-          ObjectAttributes.Attributes = 576;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
+          if ( v4 == -1073741789 || v4 == -2147483643 )
+            v5 = 0;
+        }
+        else
+        {
+          *((_WORD *)&KeyInformation[4] + ((unsigned __int64)KeyInformation[3] >> 1)) = 0;
+          if ( RtlStringCbPrintfW(
+                 PoolWithTag,
+                 v1,
+                 L"%ws\\%ws",
+                 L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\ProfileSource",
+                 &KeyInformation[4]) >= 0 )
           {
-            EtwpLoadMicroarchitecturalProfileGroup(KeyHandle);
-            ZwClose(KeyHandle);
+            RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], PoolWithTag);
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 576;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
+            {
+              EtwpLoadMicroarchitecturalProfileGroup(KeyHandle);
+              ZwClose(KeyHandle);
+            }
           }
         }
       }
-      continue;
+      while ( v5 >= 0 );
+      ZwClose(DestinationString[0]);
     }
-    if ( v4 != -1073741789 && v4 != -2147483643 )
-      break;
-    v5 = 0;
+    ExFreePoolWithTag(PoolWithTag, 0x50777445u);
   }
-  while ( v5 >= 0 );
-  ZwClose(DestinationString[0]);
-LABEL_5:
-  ExFreePoolWithTag(Pool2, 0x50777445u);
 }

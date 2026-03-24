@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuCleanupPageTable @ 0x140526D84
+ * XREFs of HalpIommuCleanupPageTable @ 0x1404DB790
  * Callers:
- *     HalpIommuFreeDmaDomain @ 0x1405181F0 (HalpIommuFreeDmaDomain.c)
+ *     HalpIommuFreeDmaDomain @ 0x1404C94AC (HalpIommuFreeDmaDomain.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpIommuCleanupPageTable(__int64 a1)
@@ -18,14 +18,14 @@ __int64 __fastcall HalpIommuCleanupPageTable(__int64 a1)
   _DWORD *v7; // r12
   int v8; // r9d
   unsigned int v9; // edx
-  __int64 v10; // rcx
-  int v11; // eax
-  __int64 v12; // rcx
+  int v10; // eax
   __int64 result; // rax
-  char *v14; // r13
-  __int64 v15; // rbx
+  __int64 v12; // rcx
+  char *v13; // r13
+  int v14; // ebx
+  __int64 v15; // rax
   __int64 v16; // rbx
-  __int64 v17; // [rsp+20h] [rbp-88h]
+  char *v17; // [rsp+20h] [rbp-88h]
   _OWORD v18[3]; // [rsp+28h] [rbp-80h] BYREF
   _BYTE v19[24]; // [rsp+58h] [rbp-50h] BYREF
 
@@ -44,40 +44,41 @@ __int64 __fastcall HalpIommuCleanupPageTable(__int64 a1)
     {
       v8 = *(_DWORD *)(a1 + 28);
       v9 = 1 << *v7;
-      v10 = (__int64)&v1[v9 << v8];
-      v11 = *(_DWORD *)(a1 + 24) - 1;
-      v17 = v10;
-      if ( v3 == v11 )
+      v10 = *(_DWORD *)(a1 + 24) - 1;
+      v17 = &v1[v9 << v8];
+      if ( v3 == v10 )
       {
-        memset(v1, 0, (unsigned __int64)v9 << v8);
-        result = HalpMmAllocCtxFree(v12, (__int64)v1);
+        result = (__int64)memset(v1, 0, (unsigned __int64)v9 << v8);
       }
       else
       {
-        v14 = 0LL;
+        v12 = (unsigned int)*v6;
+        v13 = 0LL;
         do
         {
-          v15 = (unsigned int)*v6;
-          if ( (unsigned int)v15 >= v9 )
+          v14 = v12;
+          if ( (unsigned int)v12 >= v9 )
             break;
-          v14 = *(char **)(v10 + 8 * v15);
-          LODWORD(v15) = v15 + 1;
-          *v6 = v15;
+          v15 = (unsigned int)v12;
+          v12 = (unsigned int)(v12 + 1);
+          *v6 = v12;
+          v14 = v12;
+          v13 = *(char **)&v1[8 * v15 + (int)(v9 << v8)];
         }
-        while ( !v14 );
-        if ( v14 )
+        while ( !v13 );
+        if ( v13 )
         {
-          v16 = (unsigned int)(v15 - 1);
+          v16 = (unsigned int)(v14 - 1);
           result = (__int64)memset(&v1[(_DWORD)v16 << v8], 0, 1LL << v8);
           ++v3;
           ++v7;
           ++v6;
-          v1 = v14;
-          *(_QWORD *)(v17 + 8 * v16) = 0LL;
-          *++v5 = v14;
+          v1 = v13;
+          *(_QWORD *)&v17[8 * v16] = 0LL;
+          *++v5 = v13;
           continue;
         }
-        result = HalpMmAllocCtxFree(v10, (__int64)v1);
+        result = HalpMmAllocCtxFree(v12, (__int64)v1);
         *v6 = 0;
       }
       --v3;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x140150640
+ * XREFs of MiGetPageForWriteCluster @ 0x140150660
  * Callers:
- *     MiBuildReservationCluster @ 0x14015009C (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1401500BC (MiBuildReservationCluster.c)
  * Callees:
- *     MiReferencePageForModifiedWrite @ 0x14011BB74 (MiReferencePageForModifiedWrite.c)
- *     MiCheckPteForWriteCluster @ 0x140150758 (MiCheckPteForWriteCluster.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
+ *     MiCheckPteForWriteCluster @ 0x140150778 (MiCheckPteForWriteCluster.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPageForWriteCluster(

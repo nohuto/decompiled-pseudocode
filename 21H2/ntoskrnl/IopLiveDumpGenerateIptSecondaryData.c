@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpGenerateIptSecondaryData @ 0x140A66B0C
+ * XREFs of IopLiveDumpGenerateIptSecondaryData @ 0x1409AC6A8
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14055A628 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x14055AD48 (IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x140508F60 (IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration.c)
  */
 
 char IopLiveDumpGenerateIptSecondaryData()
@@ -38,57 +38,58 @@ char IopLiveDumpGenerateIptSecondaryData()
   v16 = 0LL;
   if ( (v2 & 0x80u) != 0 )
     MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
-  v3 = (void **)(v0 + 1040);
-  v4 = *(_QWORD *)(v0 + 1040);
+  v3 = (void **)(v0 + 944);
+  v4 = *(_QWORD *)(v0 + 944);
   if ( v4 )
   {
-    *(_DWORD *)(v0 + 1080) = 0;
-    *(_QWORD *)(v0 + 1072) = v4;
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(IptInterface + 40))(2LL, 0LL, v0 + 1040, 48LL);
-    v5 = *(_DWORD *)(v0 + 1080);
-    if ( v5 && *(_DWORD *)(v0 + 1048) >= v5 )
+    *(_DWORD *)(v0 + 984) = 0;
+    *(_QWORD *)(v0 + 976) = v4;
+    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(IptInterface + 40))(2LL, 0LL, v0 + 944, 48LL);
+    v5 = *(_DWORD *)(v0 + 984);
+    if ( v5 && *(_DWORD *)(v0 + 952) >= v5 )
     {
-      v6 = *(void **)(v0 + 1072);
+      v6 = *(void **)(v0 + 976);
       if ( *v3 != v6 )
       {
         memmove(*v3, v6, v5);
-        *(_QWORD *)(v0 + 1072) = *v3;
-        v5 = *(_DWORD *)(v0 + 1080);
-      }
-      if ( v5 )
-      {
-        if ( *(_QWORD *)(v0 + 992) )
-        {
-          LODWORD(v15) = *(_DWORD *)v0;
-          *((_QWORD *)&v15 + 1) = *(_QWORD *)(v0 + 8);
-          v16 = *(_OWORD *)(v0 + 16);
-          v17 = *(_QWORD *)(v0 + 32);
-          HIDWORD(v14) = 0x2000000;
-          (*(void (__fastcall **)(__int64, _QWORD, __int128 *, __int64))(IptInterface + 32))(7LL, 0LL, &v14, 56LL);
-          v7 = v14;
-          if ( (_QWORD)v14 )
-          {
-            v8 = 16 * *(_DWORD *)(v14 + 16) + 12;
-            if ( v8 <= *(_DWORD *)(v0 + 1000) )
-            {
-              v9 = *(unsigned int **)(v0 + 992);
-              *(_DWORD *)(v0 + 1032) = v8;
-              *(_QWORD *)(v0 + 1024) = v9;
-              *(GUID *)(v0 + 1008) = GUID_TRIAGEDUMP_DATA;
-              v10 = *(_DWORD *)(v7 + 16);
-              *v9 = v10;
-              v9[1] = 4;
-              memmove(v9 + 2, (const void *)(v14 + 48), 16LL * v10);
-              v9[4 * *v9 + 2] = 5525577;
-            }
-          }
-        }
+        *(_QWORD *)(v0 + 976) = *v3;
+        v5 = *(_DWORD *)(v0 + 984);
       }
     }
     else
     {
-      *(_QWORD *)(v0 + 1072) = 0LL;
-      *(_DWORD *)(v0 + 1080) = 0;
+      *(_QWORD *)(v0 + 976) = 0LL;
+      *(_DWORD *)(v0 + 984) = 0;
+      v5 = 0;
+    }
+    if ( v5 )
+    {
+      if ( *(_QWORD *)(v0 + 896) )
+      {
+        LODWORD(v15) = *(_DWORD *)v0;
+        *((_QWORD *)&v15 + 1) = *(_QWORD *)(v0 + 8);
+        v16 = *(_OWORD *)(v0 + 16);
+        v17 = *(_QWORD *)(v0 + 32);
+        HIDWORD(v14) = 0x2000000;
+        (*(void (__fastcall **)(__int64, _QWORD, __int128 *, __int64))(IptInterface + 32))(7LL, 0LL, &v14, 56LL);
+        v7 = v14;
+        if ( (_QWORD)v14 )
+        {
+          v8 = 16 * *(_DWORD *)(v14 + 16) + 12;
+          if ( v8 <= *(_DWORD *)(v0 + 904) )
+          {
+            v9 = *(unsigned int **)(v0 + 896);
+            *(_DWORD *)(v0 + 936) = v8;
+            *(_QWORD *)(v0 + 928) = v9;
+            *(GUID *)(v0 + 912) = GUID_TRIAGEDUMP_DATA;
+            v10 = *(_DWORD *)(v7 + 16);
+            *v9 = v10;
+            v9[1] = 4;
+            memmove(v9 + 2, (const void *)(v14 + 48), 16LL * v10);
+            v9[4 * *v9 + 2] = 5525577;
+          }
+        }
+      }
     }
   }
   v11 = *(_DWORD *)(v0 + 80);

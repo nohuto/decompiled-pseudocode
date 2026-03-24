@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpControlRequest @ 0x14069DAA0
+ * XREFs of PfpRpControlRequest @ 0x14069DA80
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfpRpControlRequestVerify @ 0x14011A11C (PfpRpControlRequestVerify.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PfpRpControlRequestVerify @ 0x14011A13C (PfpRpControlRequestVerify.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfpRpControlRequestPerform @ 0x14069DB58 (PfpRpControlRequestPerform.c)
- *     PfpRpControlRequestCopy @ 0x14069DBD4 (PfpRpControlRequestCopy.c)
+ *     PfpRpControlRequestPerform @ 0x14069DB38 (PfpRpControlRequestPerform.c)
+ *     PfpRpControlRequestCopy @ 0x14069DBB4 (PfpRpControlRequestCopy.c)
  */
 
 __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsReleaseTransitionLock @ 0x14098C27C
+ * XREFs of PopDirectedDripsReleaseTransitionLock @ 0x1408E3850
  * Callers:
- *     PopDirectedDripsResumeDevices @ 0x14098C2AC (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsSuspendDevices @ 0x14098C45C (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsResumeDevices @ 0x1408E3880 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3A78 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     PopReleaseTransitionLock @ 0x14081CF98 (PopReleaseTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14078DAD4 (PopReleaseTransitionLock.c)
  */
 
 LONG __fastcall PopDirectedDripsReleaseTransitionLock(void *a1)

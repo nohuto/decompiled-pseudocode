@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpGrowDirtyVectors @ 0x1401368C0
+ * XREFs of HvpGrowDirtyVectors @ 0x1401368E0
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     RtlCopyBitMap @ 0x14000F710 (RtlCopyBitMap.c)
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??8D2DQuaternion@@QEBAHAEBU0@@Z @ 0x18027CAF4
+ * XREFs of ??8D2DQuaternion@@QEBAHAEBU0@@Z @ 0x18021BDA4
  * Callers:
- *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180055770 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
+ *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180074D00 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
  * Callees:
  *     <none>
  */

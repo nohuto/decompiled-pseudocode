@@ -1,43 +1,29 @@
 /*
- * XREFs of ?ReleaseOverlayId@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C02C1A08
+ * XREFs of ?ReleaseOverlayId@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C021715C
  * Callers:
- *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C0334828 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
+ *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C027A668 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-void __fastcall ADAPTER_RENDER::ReleaseOverlayId(ADAPTER_RENDER *this, unsigned int a2)
+void __fastcall ADAPTER_RENDER::ReleaseOverlayId(ADAPTER_RENDER *this, __int64 a2)
 {
   __int64 v3; // rdi
+  __int64 v4; // rax
+  __int64 v5; // rax
 
-  v3 = a2;
-  if ( a2 >= *(_DWORD *)(*((_QWORD *)this + 2) + 2260LL) )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *(_DWORD *)(*((_QWORD *)this + 2) + 2036LL) )
   {
-    WdLogSingleEntry1(1LL, 3265LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"OverlayId < GetAdapter()->m_DriverCaps.MaxOverlays",
-      3265LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 3031LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  if ( !*((_QWORD *)this + v3 + 103) )
+  if ( !*((_QWORD *)this + v3 + 87) )
   {
-    WdLogSingleEntry1(1LL, 3266LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_OverlayOwner[OverlayId] != NULL",
-      3266LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 3032LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  *((_QWORD *)this + v3 + 103) = 0LL;
+  *((_QWORD *)this + v3 + 87) = 0LL;
 }

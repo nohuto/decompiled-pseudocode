@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_SettingSEL @ 0x1C0022920
+ * XREFs of HUBDSM_SettingSEL @ 0x1C00224D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_SetSelUsingControlTransfer @ 0x1C002AA6C (HUBDTX_SetSelUsingControlTransfer.c)
+ *     HUBDTX_SetSelUsingControlTransfer @ 0x1C002A3A4 (HUBDTX_SetSelUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_SettingSEL(__int64 a1)

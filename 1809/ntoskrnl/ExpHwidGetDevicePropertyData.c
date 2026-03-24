@@ -3,12 +3,12 @@
  * Callers:
  *     ExpHwidAuthenticateHardwareId @ 0x140586410 (ExpHwidAuthenticateHardwareId.c)
  *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
- *     sub_1408DB21C @ 0x1408DB21C (sub_1408DB21C.c)
+ *     sub_1408DB1FC @ 0x1408DB1FC (sub_1408DB1FC.c)
  * Callees:
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
  *     sub_140586C84 @ 0x140586C84 (sub_140586C84.c)
  *     ExpHwidEnsurePropertyBufferLength @ 0x140586CA0 (ExpHwidEnsurePropertyBufferLength.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x14082864C (PnpGetDeviceInterfacePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x14082862C (PnpGetDeviceInterfacePropertyData.c)
  */
 
 __int64 __fastcall ExpHwidGetDevicePropertyData(PDEVICE_OBJECT Pdo, int a2, const DEVPROPKEY *a3, int a4, __int64 Type)

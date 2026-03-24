@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetPolygonNoRef@CVisual@@IEAAJPEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W43MilCompositingMode@@W43MilBitmapInterpolationMode@@_N44PEAPEAVCPolygon@@@Z @ 0x180210C00
+ * XREFs of ?GetPolygonNoRef@CVisual@@IEAAJPEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W43MilCompositingMode@@W43MilBitmapInterpolationMode@@_N44PEAPEAVCPolygon@@@Z @ 0x1801AD860
  * Callers:
- *     ?CreatePolygonAndPushToBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N11@Z @ 0x1801D7F80 (-CreatePolygonAndPushToBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N11@Z.c)
+ *     ?CreatePolygonAndPushToBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N11@Z @ 0x18019949C (-CreatePolygonAndPushToBspTree@CBspPreComputeHelper@@AEAAJPEAVCVisual@@_N11@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x1801D78D4 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
- *     ?Create@CPolygon@@SAJPEAV?$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W46MilCompositingMode@@W46MilBitmapInterpolationMode@@_N7PEAUD2D_VECTOR_4F@@PEAPEAV1@@Z @ 0x180213154 (-Create@CPolygon@@SAJPEAV-$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMa.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x180199354 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
+ *     ?Create@CPolygon@@SAJPEAV?$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMatrix@@MIW4Enum@MilBitmapBorderMode@@W46MilCompositingMode@@W46MilBitmapInterpolationMode@@_N7PEAUD2D_VECTOR_4F@@PEAPEAV1@@Z @ 0x1801F7340 (-Create@CPolygon@@SAJPEAV-$DynArray@UPoint@CPolygon@@$0A@@@PEAVCVisual@@PEAVCContent@@PEAVCMILMa.c)
  */
 
 __int64 __fastcall CVisual::GetPolygonNoRef(
@@ -26,233 +26,221 @@ __int64 __fastcall CVisual::GetPolygonNoRef(
         __int64 *a11)
 {
   __int64 v12; // rax
-  unsigned int v15; // ebx
+  int v15; // ebx
   int v16; // eax
   __int64 v17; // rcx
-  __int64 v18; // rcx
-  unsigned int v19; // r8d
-  int v20; // edi
-  __int64 v21; // rcx
-  __int64 v22; // rdx
-  int v23; // eax
-  int v24; // r9d
-  unsigned int v25; // r9d
-  __int64 v26; // rcx
+  int v18; // r9d
+  __int64 v19; // rcx
+  unsigned int v20; // r8d
+  __int64 v21; // rdx
+  int v22; // eax
+  unsigned int v23; // r9d
+  __int64 v24; // rdx
+  int v25; // eax
+  unsigned int v26; // r8d
   __int64 v27; // rdx
   int v28; // eax
-  unsigned int v29; // r8d
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  int v32; // eax
-  __int64 v33; // rcx
-  __int64 v34; // rdx
-  int v35; // eax
-  __int64 v36; // rcx
-  unsigned int v38; // [rsp+20h] [rbp-E0h]
-  __int128 v39; // [rsp+70h] [rbp-90h]
-  __int128 v40; // [rsp+70h] [rbp-90h]
-  __int128 v41; // [rsp+70h] [rbp-90h]
-  __int128 v42; // [rsp+70h] [rbp-90h]
-  __int64 v43; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v44; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v45; // [rsp+98h] [rbp-68h] BYREF
-  __int128 v46; // [rsp+A8h] [rbp-58h] BYREF
-  int v47; // [rsp+B8h] [rbp-48h]
-  _QWORD v48[2]; // [rsp+C0h] [rbp-40h] BYREF
-  int v49; // [rsp+D0h] [rbp-30h]
-  __int64 v50; // [rsp+D4h] [rbp-2Ch]
-  _BYTE v51[80]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  int v31; // eax
+  unsigned int v33; // [rsp+20h] [rbp-E0h]
+  __int128 v34; // [rsp+70h] [rbp-90h]
+  __int128 v35; // [rsp+70h] [rbp-90h]
+  __int128 v36; // [rsp+70h] [rbp-90h]
+  __int128 v37; // [rsp+70h] [rbp-90h]
+  __int64 v38; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v39; // [rsp+88h] [rbp-78h] BYREF
+  __int128 v40; // [rsp+98h] [rbp-68h] BYREF
+  __int128 v41; // [rsp+A8h] [rbp-58h] BYREF
+  int v42; // [rsp+B8h] [rbp-48h]
+  _QWORD v43[2]; // [rsp+C0h] [rbp-40h] BYREF
+  int v44; // [rsp+D0h] [rbp-30h]
+  __int64 v45; // [rsp+D4h] [rbp-2Ch]
+  _BYTE v46[80]; // [rsp+E0h] [rbp-20h] BYREF
 
   v12 = 0LL;
-  v43 = 0LL;
+  v38 = 0LL;
   v15 = 0;
-  if ( *(_QWORD *)(a1 + 256) || a10 )
+  if ( !*(_QWORD *)(a1 + 248) && !a10 )
+    goto LABEL_41;
+  v42 = 1;
+  v43[0] = v46;
+  v43[1] = v46;
+  v44 = 4;
+  v45 = 4LL;
+  v40 = 0LL;
+  v39 = _xmm;
+  if ( a10 )
   {
-    v47 = 1;
-    v48[0] = v51;
-    v48[1] = v51;
-    v49 = 4;
-    v50 = 4LL;
-    v45 = 0LL;
-    v44 = _xmm;
-    if ( a10 )
-    {
-      v45 = *(_OWORD *)(a1 + 172);
-    }
-    else
-    {
-      v16 = (*(__int64 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)a1 + 224LL))(a1, &v45);
-      v15 = v16;
-      if ( v16 < 0 )
-      {
-        v38 = 5870;
-LABEL_43:
-        v24 = v16;
-        goto LABEL_44;
-      }
-    }
-    (*(void (__fastcall **)(__int64, __int128 *, __int128 *))(*(_QWORD *)a1 + 304LL))(a1, &v45, &v45);
-    *((_QWORD *)&v39 + 1) = 0x3F80000000000000LL;
-    *(_QWORD *)&v39 = v45;
-    v19 = HIDWORD(v50) + 1;
-    v46 = v39;
-    if ( (unsigned int)(HIDWORD(v50) + 1) < HIDWORD(v50) )
-    {
-      v15 = -2147024362;
-      v20 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024362, 0xB5u, 0LL);
-LABEL_13:
-      v38 = 5881;
-LABEL_14:
-      v24 = v20;
-LABEL_44:
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v24, v38, 0LL);
-      DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v48);
-      goto LABEL_45;
-    }
-    if ( v19 > (unsigned int)v50 )
-    {
-      v23 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v48, 20, 1, &v46);
-      v20 = v23;
-      v15 = v23;
-      if ( v23 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v23, 0xC0u, 0LL);
-        goto LABEL_13;
-      }
-      v19 = HIDWORD(v50);
-    }
-    else
-    {
-      v21 = v48[0];
-      v22 = 5LL * HIDWORD(v50);
-      *(_OWORD *)(v48[0] + 4 * v22) = v39;
-      *(_DWORD *)(v21 + 4 * v22 + 16) = v47;
-      HIDWORD(v50) = v19;
-    }
-    v25 = v19 + 1;
-    *((_QWORD *)&v40 + 1) = 0x3F80000000000000LL;
-    *(_QWORD *)&v40 = __PAIR64__(DWORD1(v45), DWORD2(v45));
-    v46 = v40;
-    if ( v19 + 1 < v19 )
-    {
-      v15 = -2147024362;
-      v20 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, -2147024362, 0xB5u, 0LL);
-LABEL_22:
-      v38 = 5883;
-      goto LABEL_14;
-    }
-    if ( v25 > (unsigned int)v50 )
-    {
-      v28 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v48, 20, 1, &v46);
-      v20 = v28;
-      v15 = v28;
-      if ( v28 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v28, 0xC0u, 0LL);
-        goto LABEL_22;
-      }
-      v25 = HIDWORD(v50);
-    }
-    else
-    {
-      v26 = v48[0];
-      v27 = 5LL * v19;
-      *(_OWORD *)(v48[0] + 4 * v27) = v40;
-      *(_DWORD *)(v26 + 4 * v27 + 16) = v47;
-      HIDWORD(v50) = v19 + 1;
-    }
-    v29 = v25 + 1;
-    *((_QWORD *)&v41 + 1) = 0x3F80000000000000LL;
-    *(_QWORD *)&v41 = *((_QWORD *)&v45 + 1);
-    v46 = v41;
-    if ( v25 + 1 < v25 )
-    {
-      v15 = -2147024362;
-      v20 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, -2147024362, 0xB5u, 0LL);
-LABEL_30:
-      v38 = 5885;
-      goto LABEL_14;
-    }
-    if ( v29 > (unsigned int)v50 )
-    {
-      v32 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v48, 20, 1, &v46);
-      v20 = v32;
-      v15 = v32;
-      if ( v32 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v32, 0xC0u, 0LL);
-        goto LABEL_30;
-      }
-      v29 = HIDWORD(v50);
-    }
-    else
-    {
-      v30 = v48[0];
-      v31 = 5LL * v25;
-      *(_OWORD *)(v48[0] + 4 * v31) = v41;
-      *(_DWORD *)(v30 + 4 * v31 + 16) = v47;
-      HIDWORD(v50) = v25 + 1;
-    }
-    *((_QWORD *)&v42 + 1) = 0x3F80000000000000LL;
-    *(_QWORD *)&v42 = __PAIR64__(HIDWORD(v45), v45);
-    v46 = v42;
-    if ( v29 + 1 < v29 )
-    {
-      v15 = -2147024362;
-      v20 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, -2147024362, 0xB5u, 0LL);
-LABEL_41:
-      v38 = 5887;
-      goto LABEL_14;
-    }
-    if ( v29 + 1 > (unsigned int)v50 )
-    {
-      v35 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v48, 20, 1, &v46);
-      v20 = v35;
-      v15 = v35;
-      if ( v35 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v35, 0xC0u, 0LL);
-        goto LABEL_41;
-      }
-    }
-    else
-    {
-      v33 = v48[0];
-      v34 = 5LL * v29;
-      *(_OWORD *)(v48[0] + 4 * v34) = v42;
-      *(_DWORD *)(v33 + 4 * v34 + 16) = v47;
-      HIDWORD(v50) = v29 + 1;
-    }
-    v16 = CPolygon::Create(
-            (unsigned int)v48,
-            a1,
-            *(_QWORD *)(a1 + 256),
-            a2,
-            LODWORD(a3),
-            a4,
-            a5,
-            a6,
-            a7,
-            a8,
-            a9,
-            (__int64)&v44,
-            (__int64)&v43);
+    v40 = *(_OWORD *)(a1 + 164);
+  }
+  else
+  {
+    v16 = (*(__int64 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)a1 + 248LL))(a1, &v40);
     v15 = v16;
     if ( v16 < 0 )
     {
-      v38 = 5902;
-      goto LABEL_43;
+      v33 = 5708;
+LABEL_6:
+      v18 = v16;
+LABEL_48:
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v18, v33, 0LL);
+      DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v43);
+      goto LABEL_49;
     }
-    DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v48);
-    v12 = v43;
   }
+  (*(void (__fastcall **)(__int64, __int128 *, __int128 *))(*(_QWORD *)a1 + 320LL))(a1, &v40, &v40);
+  *((_QWORD *)&v34 + 1) = 0x3F80000000000000LL;
+  *(_QWORD *)&v34 = v40;
+  v20 = HIDWORD(v45) + 1;
+  v41 = v34;
+  if ( (unsigned int)(HIDWORD(v45) + 1) >= HIDWORD(v45) )
+  {
+    if ( v20 <= (unsigned int)v45 )
+    {
+      v17 = v43[0];
+      v21 = 5LL * HIDWORD(v45);
+      *(_OWORD *)(v43[0] + 4 * v21) = v34;
+      *(_DWORD *)(v17 + 4 * v21 + 16) = v42;
+      HIDWORD(v45) = v20;
+      goto LABEL_16;
+    }
+    v22 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v43, 20, 1, &v41);
+    v15 = v22;
+    if ( v22 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v22, 0xC0u, 0LL);
+  }
+  else
+  {
+    v15 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, -2147024362, 0xB5u, 0LL);
+  }
+  if ( v15 < 0 )
+  {
+    v33 = 5719;
+    goto LABEL_47;
+  }
+  v20 = HIDWORD(v45);
+LABEL_16:
+  v23 = v20 + 1;
+  *((_QWORD *)&v35 + 1) = 0x3F80000000000000LL;
+  *(_QWORD *)&v35 = __PAIR64__(DWORD1(v40), DWORD2(v40));
+  v41 = v35;
+  if ( v20 + 1 >= v20 )
+  {
+    if ( v23 <= (unsigned int)v45 )
+    {
+      v17 = v43[0];
+      v24 = 5LL * v20;
+      *(_OWORD *)(v43[0] + 4 * v24) = v35;
+      *(_DWORD *)(v17 + 4 * v24 + 16) = v42;
+      HIDWORD(v45) = v20 + 1;
+      goto LABEL_24;
+    }
+    v25 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v43, 20, 1, &v41);
+    v15 = v25;
+    if ( v25 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v25, 0xC0u, 0LL);
+  }
+  else
+  {
+    v15 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024362, 0xB5u, 0LL);
+  }
+  if ( v15 < 0 )
+  {
+    v33 = 5721;
+    goto LABEL_47;
+  }
+  v23 = HIDWORD(v45);
+LABEL_24:
+  v26 = v23 + 1;
+  *((_QWORD *)&v36 + 1) = 0x3F80000000000000LL;
+  *(_QWORD *)&v36 = *((_QWORD *)&v40 + 1);
+  v41 = v36;
+  if ( v23 + 1 >= v23 )
+  {
+    if ( v26 <= (unsigned int)v45 )
+    {
+      v17 = v43[0];
+      v27 = 5LL * v23;
+      *(_OWORD *)(v43[0] + 4 * v27) = v36;
+      *(_DWORD *)(v17 + 4 * v27 + 16) = v42;
+      HIDWORD(v45) = v23 + 1;
+      goto LABEL_32;
+    }
+    v28 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v43, 20, 1, &v41);
+    v15 = v28;
+    if ( v28 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v28, 0xC0u, 0LL);
+  }
+  else
+  {
+    v15 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024362, 0xB5u, 0LL);
+  }
+  if ( v15 < 0 )
+  {
+    v33 = 5723;
+    goto LABEL_47;
+  }
+  v26 = HIDWORD(v45);
+LABEL_32:
+  *((_QWORD *)&v37 + 1) = 0x3F80000000000000LL;
+  *(_QWORD *)&v37 = __PAIR64__(HIDWORD(v40), v40);
+  v41 = v37;
+  if ( v26 + 1 < v26 )
+  {
+    v15 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024362, 0xB5u, 0LL);
+LABEL_38:
+    if ( v15 >= 0 )
+      goto LABEL_39;
+    v33 = 5725;
+LABEL_47:
+    v18 = v15;
+    goto LABEL_48;
+  }
+  if ( v26 + 1 > (unsigned int)v45 )
+  {
+    v31 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v43, 20, 1, &v41);
+    v15 = v31;
+    if ( v31 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v31, 0xC0u, 0LL);
+    goto LABEL_38;
+  }
+  v29 = v43[0];
+  v30 = 5LL * v26;
+  *(_OWORD *)(v43[0] + 4 * v30) = v37;
+  *(_DWORD *)(v29 + 4 * v30 + 16) = v42;
+  HIDWORD(v45) = v26 + 1;
+LABEL_39:
+  v16 = CPolygon::Create(
+          (unsigned int)v43,
+          a1,
+          *(_QWORD *)(a1 + 248),
+          a2,
+          LODWORD(a3),
+          a4,
+          a5,
+          a6,
+          a7,
+          a8,
+          a9,
+          (__int64)&v39,
+          (__int64)&v38);
+  v15 = v16;
+  if ( v16 < 0 )
+  {
+    v33 = 5740;
+    goto LABEL_6;
+  }
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v43);
+  v12 = v38;
+LABEL_41:
   *a11 = v12;
-  v43 = 0LL;
-LABEL_45:
-  ReleaseInterface<CPolygon>(&v43);
-  return v15;
+  v38 = 0LL;
+LABEL_49:
+  ReleaseInterface<CPolygon>(&v38);
+  return (unsigned int)v15;
 }

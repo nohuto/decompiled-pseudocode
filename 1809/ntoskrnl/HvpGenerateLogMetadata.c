@@ -2,7 +2,7 @@
  * XREFs of HvpGenerateLogMetadata @ 0x1405A83CC
  * Callers:
  *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
- *     HvpApplyLegacyLogFile @ 0x1408069B0 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x140806990 (HvpApplyLegacyLogFile.c)
  * Callees:
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
  *     HvpCountSetRangesInVector @ 0x1405DF8D4 (HvpCountSetRangesInVector.c)

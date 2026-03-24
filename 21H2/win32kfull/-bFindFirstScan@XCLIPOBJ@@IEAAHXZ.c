@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bFindFirstScan@XCLIPOBJ@@IEAAHXZ @ 0x1C014338C
+ * XREFs of ?bFindFirstScan@XCLIPOBJ@@IEAAHXZ @ 0x1C014C0E4
  * Callers:
- *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C0143A2C (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C014B35C (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
  * Callees:
  *     <none>
  */

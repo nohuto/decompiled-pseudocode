@@ -1,12 +1,11 @@
 /*
- * XREFs of Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C0026EA8
+ * XREFs of Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C0028450
  * Callers:
- *     DpiFdoHandleSystemPower @ 0x1C01F0DA4 (DpiFdoHandleSystemPower.c)
- *     DpiInitializeEx @ 0x1C021DD08 (DpiInitializeEx.c)
- *     DpiKsrCallback @ 0x1C03A5F20 (DpiKsrCallback.c)
+ *     DpiFdoHandleSystemPower @ 0x1C017572C (DpiFdoHandleSystemPower.c)
+ *     DpiInitializeEx @ 0x1C01992D8 (DpiInitializeEx.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_KsrDisplay__private_ReportDeviceUsage()

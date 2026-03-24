@@ -1,11 +1,11 @@
 /*
- * XREFs of SepFindMatchingCachedHandlesEntry @ 0x14065C054
+ * XREFs of SepFindMatchingCachedHandlesEntry @ 0x14065C034
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x14065BF78 (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x14065BF58 (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x1400DD710 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x140117AF0 (RtlGetNextEntryHashTable.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x1400DD730 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x140117B10 (RtlGetNextEntryHashTable.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */
 

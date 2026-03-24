@@ -1,28 +1,29 @@
 /*
- * XREFs of PiSwDispatch @ 0x140764DB0
+ * XREFs of PiSwDispatch @ 0x14074D990
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     PiSwDeviceDereference @ 0x140661C18 (PiSwDeviceDereference.c)
- *     PiSwIrpPropertySet @ 0x140762C04 (PiSwIrpPropertySet.c)
- *     PiSwIrpSetLifetime @ 0x140762F18 (PiSwIrpSetLifetime.c)
- *     PiSwIrpInterfaceRegister @ 0x14076308C (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpStartCreate @ 0x140764EC8 (PiSwIrpStartCreate.c)
- *     PiAuDoesClientHaveAccess @ 0x14078A600 (PiAuDoesClientHaveAccess.c)
- *     PiSwIrpInterfacePropertySet @ 0x14084F808 (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpInterfaceSetState @ 0x140860758 (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpCleanup @ 0x140953700 (PiSwIrpCleanup.c)
- *     PiSwIrpGetLifetime @ 0x140953894 (PiSwIrpGetLifetime.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
+ *     PiSwIrpCleanup @ 0x14074CE88 (PiSwIrpCleanup.c)
+ *     PiSwDeviceDereference @ 0x14074CF94 (PiSwDeviceDereference.c)
+ *     PiSwIrpSetLifetime @ 0x14074CFCC (PiSwIrpSetLifetime.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpStartCreate @ 0x14074DAB8 (PiSwIrpStartCreate.c)
+ *     PiSwIrpPropertySet @ 0x14078A5A4 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1407BD244 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x1407CEDBC (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpGetLifetime @ 0x1408AEA70 (PiSwIrpGetLifetime.c)
  */
 
-__int64 __fastcall PiSwDispatch(__int64 a1, IRP *a2, __int64 a3)
+__int64 __fastcall PiSwDispatch(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
   unsigned int Status; // ebx
   UCHAR MajorFunction; // al
-  IRP *v9; // rcx
+  IRP *v8; // rcx
   PVOID FsContext2; // rcx
+  __int64 v10; // rcx
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   Status = a2->IoStatus.Status;
@@ -30,10 +31,10 @@ __int64 __fastcall PiSwDispatch(__int64 a1, IRP *a2, __int64 a3)
   if ( !CurrentStackLocation->MajorFunction )
   {
     CurrentStackLocation->FileObject->FsContext2 = 0LL;
-    Status = (unsigned __int8)PiAuDoesClientHaveAccess(128LL) == 0 ? 0xC0000022 : 0;
+    Status = PiAuDoesClientHaveAccess(0x80u) == 0 ? 0xC0000022 : 0;
     a2->IoStatus.Status = Status;
 LABEL_12:
-    v9 = a2;
+    v8 = a2;
     goto LABEL_13;
   }
   if ( MajorFunction != 14 )
@@ -51,8 +52,9 @@ LABEL_12:
     {
       if ( MajorFunction != 18 )
         return Status;
-      if ( CurrentStackLocation->FileObject->FsContext2 )
-        PiSwIrpCleanup();
+      v10 = (__int64)CurrentStackLocation->FileObject->FsContext2;
+      if ( v10 )
+        PiSwIrpCleanup(v10);
     }
     Status = 0;
     a2->IoStatus.Status = 0;
@@ -63,23 +65,23 @@ LABEL_12:
     case 0x470400u:
       return (unsigned int)PiSwIrpStartCreate(a2);
     case 0x470404u:
-      return (unsigned int)PiSwIrpPropertySet(a2, (__int64)a2, a3);
+      return (unsigned int)PiSwIrpPropertySet(a2);
     case 0x470408u:
-      return (unsigned int)PiSwIrpInterfaceRegister(a2, (__int64)a2, a3);
+      return (unsigned int)PiSwIrpInterfaceRegister(a2);
     case 0x47040Cu:
       return (unsigned int)PiSwIrpInterfaceSetState(a2);
   }
   if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart != 4654096 )
   {
     if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 4654100 )
-      return (unsigned int)PiSwIrpSetLifetime(a2, (__int64)a2, a3);
-    v9 = a2;
+      return (unsigned int)PiSwIrpSetLifetime(a2);
+    v8 = a2;
     if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 4654104 )
       return (unsigned int)PiSwIrpGetLifetime(a2);
     Status = -1073741637;
     a2->IoStatus.Status = -1073741637;
 LABEL_13:
-    IofCompleteRequest(v9, 0);
+    IofCompleteRequest(v8, 0);
     return Status;
   }
   return (unsigned int)PiSwIrpInterfacePropertySet(a2);

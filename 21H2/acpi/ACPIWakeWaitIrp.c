@@ -1,20 +1,20 @@
 /*
- * XREFs of ACPIWakeWaitIrp @ 0x1C002E510
+ * XREFs of ACPIWakeWaitIrp @ 0x1C002E1E0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000E14C (WPP_RECORDER_SF_qqss.c)
- *     ACPIDispatchForwardOrFailPowerIrp @ 0x1C002E578 (ACPIDispatchForwardOrFailPowerIrp.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIDeviceIrpWaitWakeRequest @ 0x1C004FC38 (ACPIDeviceIrpWaitWakeRequest.c)
- *     WPP_RECORDER_SF_qddqss @ 0x1C0063CF8 (WPP_RECORDER_SF_qddqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDispatchForwardOrFailPowerIrp @ 0x1C002E4A0 (ACPIDispatchForwardOrFailPowerIrp.c)
+ *     ACPIDeviceIrpWaitWakeRequest @ 0x1C002E524 (ACPIDeviceIrpWaitWakeRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qddqss @ 0x1C00629B8 (WPP_RECORDER_SF_qddqss.c)
  */
 
 __int64 __fastcall ACPIWakeWaitIrp(ULONG_PTR a1, IRP *a2)
 {
-  __int64 DeviceExtension; // rax
-  __int64 v5; // rbx
+  _QWORD *DeviceExtension; // rax
+  _QWORD *v5; // rbx
   __int64 v6; // r8
   const char *v8; // rdx
   const char *v9; // rcx
@@ -27,23 +27,23 @@ __int64 __fastcall ACPIWakeWaitIrp(ULONG_PTR a1, IRP *a2)
   char v16; // [rsp+90h] [rbp+18h] BYREF
   char v17; // [rsp+98h] [rbp+20h] BYREF
 
-  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
+  DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
   v16 = 0;
   v5 = DeviceExtension;
   v15[0] = 0;
   v17 = 0;
-  v6 = *(_QWORD *)(DeviceExtension + 8);
+  v6 = DeviceExtension[1];
   if ( (v6 & 0x10000) == 0 )
     return ACPIDispatchForwardOrFailPowerIrp(a1, a2);
-  if ( _bittest64((const signed __int64 *)(DeviceExtension + 1000), 0x20u) && !*(_QWORD *)(DeviceExtension + 680) )
+  if ( (DeviceExtension[120] & 0x100000000LL) != 0 && !DeviceExtension[80] )
   {
-    v8 = (const char *)&unk_1C006FB8B;
-    v9 = (const char *)&unk_1C006FB8B;
+    v8 = (const char *)&unk_1C00701BA;
+    v9 = (const char *)&unk_1C00701BA;
     if ( (v6 & 0x200000000000LL) != 0 )
     {
-      v8 = *(const char **)(DeviceExtension + 608);
+      v8 = (const char *)DeviceExtension[71];
       if ( (v6 & 0x400000000000LL) != 0 )
-        v9 = *(const char **)(DeviceExtension + 616);
+        v9 = (const char *)DeviceExtension[72];
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qqss(
@@ -51,9 +51,9 @@ __int64 __fastcall ACPIWakeWaitIrp(ULONG_PTR a1, IRP *a2)
         4u,
         0x11u,
         0x1Au,
-        (__int64)&WPP_f2b70cf489233296687a8e467b880eb0_Traceguids,
+        (__int64)&WPP_78661b2d78ff34e38fc1910a80efa3ce_Traceguids,
         (char)a2,
-        DeviceExtension,
+        (char)DeviceExtension,
         v8,
         v9);
     return ACPIDispatchForwardOrFailPowerIrp(a1, a2);
@@ -61,50 +61,50 @@ __int64 __fastcall ACPIWakeWaitIrp(ULONG_PTR a1, IRP *a2)
   if ( (v6 & 0x102000000LL) != 0 && (v6 & 0x20) == 0 )
   {
     (*((void (__fastcall **)(_QWORD, char *, _BYTE *, char *))PciPmeInterface + 4))(
-      *(_QWORD *)(DeviceExtension + 784),
+      DeviceExtension[93],
       &v16,
       v15,
       &v17);
     if ( v16 )
     {
-      if ( !_bittest64((const signed __int64 *)(v5 + 8), 0x3Bu) )
+      if ( (v5[1] & 0x800000000000000LL) == 0 )
         return ACPIDispatchForwardOrFailPowerIrp(a1, a2);
     }
   }
-  if ( *(_DWORD *)(v5 + 536) < (signed int)a2->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length )
+  if ( *((_DWORD *)v5 + 124) < (signed int)a2->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length )
   {
-    v10 = *(_QWORD *)(v5 + 8);
-    v11 = &unk_1C006FB8B;
-    v12 = &unk_1C006FB8B;
+    v10 = v5[1];
+    v11 = &unk_1C00701BA;
+    v12 = &unk_1C00701BA;
     if ( (v10 & 0x200000000000LL) != 0 )
     {
-      v11 = *(void **)(v5 + 608);
+      v11 = (void *)v5[71];
       if ( (v10 & 0x400000000000LL) != 0 )
-        v12 = *(void **)(v5 + 616);
+        v12 = (void *)v5[72];
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_25;
+      goto LABEL_26;
     v13 = 27;
-LABEL_24:
-    WPP_RECORDER_SF_qddqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v11, (_DWORD)v12, v13);
 LABEL_25:
+    WPP_RECORDER_SF_qddqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v11, (_DWORD)v12, v13);
+LABEL_26:
     a2->IoStatus.Status = -1073741436;
     IofCompleteRequest(a2, 0);
     return 3221225860LL;
   }
-  LODWORD(v12) = *(_DWORD *)(v5 + 384);
-  if ( *(_DWORD *)(v5 + 540) < (int)v12 )
+  LODWORD(v12) = *((_DWORD *)v5 + 86);
+  if ( *((_DWORD *)v5 + 125) < (int)v12 )
   {
-    v14 = *(_QWORD *)(v5 + 8);
-    v11 = &unk_1C006FB8B;
+    v14 = v5[1];
+    v11 = &unk_1C00701BA;
     if ( (v14 & 0x200000000000LL) != 0 )
-      v11 = *(void **)(v5 + 608);
+      v11 = (void *)v5[71];
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_25;
+      goto LABEL_26;
     v13 = 28;
-    goto LABEL_24;
+    goto LABEL_25;
   }
-  _InterlockedIncrement((volatile signed __int32 *)(v5 + 728));
+  _InterlockedIncrement((volatile signed __int32 *)v5 + 172);
   a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
   ACPIDeviceIrpWaitWakeRequest(a1, a2);
   return 259LL;

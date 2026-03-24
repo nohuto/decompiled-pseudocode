@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECCompositionSwapchainStatistics@@MEAAPEAXI@Z @ 0x18025DC60
+ * XREFs of ??_ECCompositionSwapchainStatistics@@MEAAPEAXI@Z @ 0x18020D3F0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CCompositionSwapchainStatistics@@MEAA@XZ @ 0x18025DBEC (--1CCompositionSwapchainStatistics@@MEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CCompositionSwapchainStatistics@@MEAA@XZ @ 0x18020D398 (--1CCompositionSwapchainStatistics@@MEAA@XZ.c)
  */
 
 CCompositionSwapchainStatistics *__fastcall CCompositionSwapchainStatistics::`vector deleting destructor'(
@@ -16,9 +16,9 @@ CCompositionSwapchainStatistics *__fastcall CCompositionSwapchainStatistics::`ve
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x70);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

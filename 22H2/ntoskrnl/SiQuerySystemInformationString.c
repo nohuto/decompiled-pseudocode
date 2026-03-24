@@ -1,13 +1,13 @@
 /*
- * XREFs of SiQuerySystemInformationString @ 0x140804974
+ * XREFs of SiQuerySystemInformationString @ 0x140785F54
  * Callers:
- *     SyspartGetFirmwarePartition @ 0x140804918 (SyspartGetFirmwarePartition.c)
- *     SyspartGetSystemPartition @ 0x140A5F37C (SyspartGetSystemPartition.c)
+ *     SyspartGetFirmwarePartition @ 0x140785EF8 (SyspartGetFirmwarePartition.c)
+ *     SyspartGetSystemPartition @ 0x1409735F0 (SyspartGetSystemPartition.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned
   unsigned int v7; // esi
   int SystemInformation; // eax
   int v9; // ebx
-  __int64 Pool2; // rax
+  const void **PoolWithTag; // rax
   const void **v11; // rdi
   unsigned int v12; // eax
 
@@ -24,11 +24,11 @@ __int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned
   v9 = SystemInformation;
   if ( SystemInformation == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(256LL, 0LL, 1263556947LL);
-    v11 = (const void **)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (const void **)ExAllocatePoolWithTag(PagedPool, 0LL, 0x4B505953u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v9 = ZwQuerySystemInformation(v7, Pool2);
+      v9 = ZwQuerySystemInformation(v7, (__int64)PoolWithTag);
       if ( v9 >= 0 )
       {
         v12 = *(unsigned __int16 *)v11 + 2;

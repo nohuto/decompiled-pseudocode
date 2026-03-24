@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C003C91C
+ * XREFs of ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C002A884
  * Callers:
- *     ACPIRootInitialize @ 0x1C0093778 (ACPIRootInitialize.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
- *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A7C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A9AC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
  */
 
 __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
@@ -16,8 +16,8 @@ __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
   __int64 v5; // rcx
   __int64 v6; // rbx
   __int64 v7; // rcx
-  __int64 v8; // rax
-  int v9; // eax
+  int v8; // eax
+  __int64 v9; // rax
   __int128 v11; // [rsp+30h] [rbp-30h] BYREF
   __int64 v12; // [rsp+40h] [rbp-20h]
   struct _KEVENT Event; // [rsp+48h] [rbp-18h] BYREF
@@ -32,7 +32,7 @@ __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
   do
   {
     v4 = *(_QWORD *)((char *)&AmliGlobalPreDefinedRootObjects + v1);
-    dword_1C006F938 = 0;
+    dword_1C0082908 = 0;
     v5 = v4 + 120;
     pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
@@ -47,29 +47,29 @@ __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
   do
   {
     v7 = *(_QWORD *)((char *)&AcpiAmliPreDefinedRootAcpiObjects + v6);
-    if ( v7 == *(_QWORD *)(v0 + 760) )
+    if ( v7 == *(_QWORD *)(v0 + 720) )
     {
-      v8 = *(_QWORD *)(v0 + 944);
-LABEL_12:
-      *(_QWORD *)((char *)&AcpiAmliPreDefinedRootNativeHandles + v6) = v8;
-      goto LABEL_13;
+      v9 = *(_QWORD *)(v0 + 904);
+LABEL_14:
+      *(_QWORD *)((char *)&AcpiAmliPreDefinedRootNativeHandles + v6) = v9;
+      goto LABEL_11;
     }
     *(_QWORD *)&v11 = 0LL;
     *((_QWORD *)&v11 + 1) = &Event;
     v12 = 3221225473LL;
-    v9 = AcpiNotifyPlExtDiscoverDeviceAsync(v7, (__int64)ACPIRootDeviceDiscoverDeviceCompletion, (__int64)&v11);
-    if ( v9 == 259 )
+    v8 = AcpiNotifyPlExtDiscoverDeviceAsync(v7, ACPIRootDeviceDiscoverDeviceCompletion, &v11);
+    if ( v8 == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-      v9 = v12;
+      v8 = v12;
     }
-    if ( v9 >= 0 )
+    if ( v8 >= 0 )
     {
-      v8 = v11;
+      v9 = v11;
       if ( (_QWORD)v11 )
-        goto LABEL_12;
+        goto LABEL_14;
     }
-LABEL_13:
+LABEL_11:
     v6 += 8LL;
     --v2;
   }

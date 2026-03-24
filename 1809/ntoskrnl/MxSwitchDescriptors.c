@@ -1,5 +1,5 @@
 /*
- * XREFs of MxSwitchDescriptors @ 0x1409F7CEC
+ * XREFs of MxSwitchDescriptors @ 0x1409F7CFC
  * Callers:
  *     MxGetNextPage @ 0x1409BBB2C (MxGetNextPage.c)
  * Callees:

@@ -1,13 +1,14 @@
 /*
- * XREFs of memcmp @ 0x1C0028100
+ * XREFs of memcmp @ 0x1C0028BC0
  * Callers:
- *     CompareEventEntry @ 0x1C00758C8 (CompareEventEntry.c)
- *     ?_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z @ 0x1C0182B50 (-_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z.c)
- *     ?_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z @ 0x1C01DC280 (-_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z.c)
- *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0208CEC (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
- *     ?_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z @ 0x1C020A560 (-_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z.c)
- *     ?AddEdid@EDIDCACHE@DxgMonitor@@UEAAXU_LUID@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C02260A0 (-AddEdid@EDIDCACHE@DxgMonitor@@UEAAXU_LUID@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z.c)
- *     ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C03BC5C0 (-_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z.c)
+ *     CompareEventEntry @ 0x1C0062620 (CompareEventEntry.c)
+ *     ?_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z @ 0x1C0141DFC (-_StringCompare@CCD_SET_STRING_ID@@CAHAEBU_STRING@@0@Z.c)
+ *     ?_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z @ 0x1C0160B60 (-_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z.c)
+ *     ?_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z @ 0x1C017EB30 (-_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z.c)
+ *     ?FindEdidInCache@EDIDCACHE@@AEAAHU_LUID@@IPEBE@Z @ 0x1C0181928 (-FindEdidInCache@EDIDCACHE@@AEAAHU_LUID@@IPEBE@Z.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C0182B14 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C02F10C0 (-_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z.c)
+ *     MonitorSetAdvancedColorParams @ 0x1C02F4B48 (MonitorSetAdvancedColorParams.c)
  * Callees:
  *     <none>
  */

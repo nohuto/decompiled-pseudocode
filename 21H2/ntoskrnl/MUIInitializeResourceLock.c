@@ -1,21 +1,21 @@
 /*
- * XREFs of MUIInitializeResourceLock @ 0x14085F65C
+ * XREFs of MUIInitializeResourceLock @ 0x1407CFB6C
  * Callers:
- *     NtGetMUIRegistryInfo @ 0x1406BE9A0 (NtGetMUIRegistryInfo.c)
- *     NtFlushInstallUILanguage @ 0x14085F580 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
+ *     NtGetMUIRegistryInfo @ 0x14069C770 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x1407CFA90 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
 {
   struct _ERESOURCE *PoolWithTag; // rax
-  struct _ERESOURCE *v3; // rbx
-  unsigned int v4; // edi
+  struct _ERESOURCE *v3; // rdi
+  unsigned int v4; // ebx
 
   if ( a1 )
   {
@@ -30,15 +30,15 @@ __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
       if ( PoolWithTag )
       {
         v4 = ExInitializeResourceLite(PoolWithTag);
-        if ( (v4 & 0xC0000000) == 0xC0000000 )
-          goto LABEL_11;
-        if ( _InterlockedCompareExchange64(a1, (signed __int64)v3, 0LL) )
-          ExDeleteResourceLite(v3);
-        else
-          v3 = 0LL;
-        v4 = 0;
+        if ( (v4 & 0xC0000000) != 0xC0000000 )
+        {
+          if ( _InterlockedCompareExchange64(a1, (signed __int64)v3, 0LL) )
+            ExDeleteResourceLite(v3);
+          else
+            v3 = 0LL;
+          v4 = 0;
+        }
         if ( v3 )
-LABEL_11:
           ExFreePoolWithTag(v3, 0);
       }
       else

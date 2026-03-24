@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801C6FFC
+ * XREFs of ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x18018A2B4
  * Callers:
- *     ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x1801C6B08 (-Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z.c)
+ *     ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x180189E08 (-Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800A7C48 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x1801C1710 (-ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ.c)
- *     ?GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z @ 0x1801C6ABC (-GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z.c)
- *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x1801C7360 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180079DA4 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x180185D20 (-ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ.c)
+ *     ?GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z @ 0x180189DC0 (-GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z.c)
+ *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x18018A4F0 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CIndirectSwapchainRenderTarget::ReleaseCurrentBuffer(CIndirectSwapchainRenderTarget *this)
@@ -23,27 +23,27 @@ __int64 __fastcall CIndirectSwapchainRenderTarget::ReleaseCurrentBuffer(CIndirec
 
   v1 = 0;
   v7 = 0;
-  if ( *((_QWORD *)this + 243) )
+  if ( *((_QWORD *)this + 245) )
   {
     CIndirectSwapchainRenderTarget::GetMetaData(this, &v8, (unsigned int *)&v7);
-    v4 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, void *))(**(_QWORD **)(v3 + 1936) + 64LL))(
-           *(_QWORD *)(v3 + 1936),
+    v4 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, void *))(**(_QWORD **)(v3 + 1952) + 64LL))(
+           *(_QWORD *)(v3 + 1952),
            (unsigned int)v7,
            v8);
     v7 = v4;
     v1 = v4;
     if ( v4 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x180u);
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x180u, 0LL);
     }
     else
     {
-      *((_WORD *)this + 964) = 0;
-      *((_BYTE *)this + 1930) = 0;
-      *((_DWORD *)this + 480) = 0;
-      DynArrayImpl<0>::ShrinkToSize((__int64)this + 1896, 1u);
-      (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 243) + 16LL))(*((_QWORD *)this + 243));
-      *((_QWORD *)this + 243) = 0LL;
+      *((_WORD *)this + 972) = 0;
+      *((_BYTE *)this + 1946) = 0;
+      *((_DWORD *)this + 484) = 0;
+      DynArrayImpl<0>::ShrinkToSize((__int64)this + 1912, 1u);
+      (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 245) + 16LL))(*((_QWORD *)this + 245));
+      *((_QWORD *)this + 245) = 0LL;
     }
   }
   COffScreenRenderTarget::ReleaseRenderTargets(this);

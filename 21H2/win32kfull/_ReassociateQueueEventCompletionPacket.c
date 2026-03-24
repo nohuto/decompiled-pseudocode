@@ -1,8 +1,7 @@
 /*
- * XREFs of _ReassociateQueueEventCompletionPacket @ 0x1C01D9EA8
+ * XREFs of _ReassociateQueueEventCompletionPacket @ 0x1C01D3390
  * Callers:
- *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00A52B0 (NtUserMsgWaitForMultipleObjectsEx.c)
- *     NtUserReassociateQueueEventCompletionPacket @ 0x1C01FB750 (NtUserReassociateQueueEventCompletionPacket.c)
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C0052BA0 (NtUserMsgWaitForMultipleObjectsEx.c)
  * Callees:
  *     <none>
  */

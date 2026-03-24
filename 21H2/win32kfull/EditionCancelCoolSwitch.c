@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionCancelCoolSwitch @ 0x1C01110D0
+ * XREFs of EditionCancelCoolSwitch @ 0x1C0125DC0
  * Callers:
  *     <none>
  * Callees:
- *     xxxCancelCoolSwitch @ 0x1C01110F4 (xxxCancelCoolSwitch.c)
+ *     xxxCancelCoolSwitch @ 0x1C0125DE4 (xxxCancelCoolSwitch.c)
  */
 
 __int64 __fastcall EditionCancelCoolSwitch(_DWORD *a1)

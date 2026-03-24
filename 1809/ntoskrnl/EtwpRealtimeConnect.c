@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeConnect @ 0x1406C2B18
+ * XREFs of EtwpRealtimeConnect @ 0x1406C2AF8
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
@@ -16,8 +16,8 @@
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     EtwpSynchronizeWithLogger @ 0x1406C2FC8 (EtwpSynchronizeWithLogger.c)
- *     EtwpOpenConsumer @ 0x1406C3050 (EtwpOpenConsumer.c)
+ *     EtwpSynchronizeWithLogger @ 0x1406C2FA8 (EtwpSynchronizeWithLogger.c)
+ *     EtwpOpenConsumer @ 0x1406C3030 (EtwpOpenConsumer.c)
  */
 
 __int64 __fastcall EtwpRealtimeConnect(__int64 a1)

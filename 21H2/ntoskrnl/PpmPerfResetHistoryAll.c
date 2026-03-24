@@ -1,49 +1,55 @@
 /*
- * XREFs of PpmPerfResetHistoryAll @ 0x14081A760
+ * XREFs of PpmPerfResetHistoryAll @ 0x1407BB9A4
  * Callers:
- *     PpmCheckReInit @ 0x14081A3AC (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x1407BA7E4 (PpmCheckReInit.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     PpmPerfResetHistory @ 0x1403B402C (PpmPerfResetHistory.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     PpmPerfResetHistory @ 0x1403C2418 (PpmPerfResetHistory.c)
  */
 
-void PpmPerfResetHistoryAll()
+__int64 PpmPerfResetHistoryAll()
 {
+  __int64 result; // rax
   __int64 Prcb; // rax
   __int64 i; // rbx
-  unsigned int v2; // edi
-  __int64 v3; // rcx
-  unsigned __int16 *v4[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v5; // [rsp+30h] [rbp-18h]
-  int v6; // [rsp+32h] [rbp-16h]
-  __int16 v7; // [rsp+36h] [rbp-12h]
-  unsigned int v8; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v3; // edi
+  __int64 v4; // rcx
+  unsigned __int16 *v5[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int16 v6; // [rsp+30h] [rbp-18h]
+  int v7; // [rsp+32h] [rbp-16h]
+  __int16 v8; // [rsp+36h] [rbp-12h]
+  unsigned int v9; // [rsp+50h] [rbp+8h] BYREF
 
-  v6 = 0;
   v7 = 0;
-  v5 = 0;
   v8 = 0;
-  v4[1] = (unsigned __int16 *)qword_140C0B8E8[0];
-  v4[0] = (unsigned __int16 *)PpmCheckRegistered;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v8, v4) )
+  v6 = 0;
+  v9 = 0;
+  v5[1] = (unsigned __int16 *)qword_140C113E8[0];
+  v5[0] = (unsigned __int16 *)PpmCheckRegistered;
+  while ( 1 )
   {
-    Prcb = KeGetPrcb(v8);
-    PpmPerfResetHistory(Prcb + 33968);
+    result = KeEnumerateNextProcessor(&v9, v5);
+    if ( (_DWORD)result )
+      break;
+    Prcb = KeGetPrcb(v9);
+    PpmPerfResetHistory(Prcb + 33128);
   }
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
-    if ( *(_DWORD *)(i + 296) )
+    if ( *(_DWORD *)(i + 200) )
     {
-      v2 = 0;
+      v3 = 0;
       do
       {
-        v3 = *(_QWORD *)(i + 312) + 136LL * v2;
-        if ( *(_DWORD *)(v3 + 16) == 1 )
-          PpmPerfResetHistory(*(_QWORD *)v3);
-        ++v2;
+        result = v3;
+        v4 = *(_QWORD *)(i + 216) + 136LL * v3;
+        if ( *(_DWORD *)(v4 + 16) == 1 )
+          result = PpmPerfResetHistory(*(_QWORD *)v4);
+        ++v3;
       }
-      while ( v2 < *(_DWORD *)(i + 296) );
+      while ( v3 < *(_DWORD *)(i + 200) );
     }
   }
+  return result;
 }

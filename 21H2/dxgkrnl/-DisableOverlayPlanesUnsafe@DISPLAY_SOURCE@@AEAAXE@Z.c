@@ -1,57 +1,52 @@
 /*
- * XREFs of ?DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z @ 0x1C01964D8
+ * XREFs of ?DisableOverlayPlanesUnsafe@DISPLAY_SOURCE@@AEAAXE@Z @ 0x1C00EF578
  * Callers:
- *     ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01962B0 (-DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?SetAllocationForSinglePlanePresent@ADAPTER_DISPLAY@@QEAAXIPEBVDXGALLOCATION@@@Z @ 0x1C01963A0 (-SetAllocationForSinglePlanePresent@ADAPTER_DISPLAY@@QEAAXIPEBVDXGALLOCATION@@@Z.c)
- *     ?DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01C6F6C (-DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00EF2B0 (-DisableOverlayPlanes@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?SetAllocationForSinglePlanePresent@ADAPTER_DISPLAY@@QEAAXIPEBVDXGALLOCATION@@@Z @ 0x1C00EF400 (-SetAllocationForSinglePlanePresent@ADAPTER_DISPLAY@@QEAAXIPEBVDXGALLOCATION@@@Z.c)
+ *     ?DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C016C7A0 (-DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ClearAllQueryStateUnsafe@DISPLAY_SOURCE@@QEAAXXZ @ 0x1C01C8E24 (-ClearAllQueryStateUnsafe@DISPLAY_SOURCE@@QEAAXXZ.c)
- *     ?GetLatestPostCompositionConfigInternal@DISPLAY_SOURCE@@AEAAPEAU_POST_COMPOSITION_CONFIG@@XZ @ 0x1C01C8E50 (-GetLatestPostCompositionConfigInternal@DISPLAY_SOURCE@@AEAAPEAU_POST_COMPOSITION_CONFIG@@XZ.c)
- *     ?CreateNewPlaneConfig@DISPLAY_SOURCE@@AEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@E@Z @ 0x1C01DB908 (-CreateNewPlaneConfig@DISPLAY_SOURCE@@AEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATI.c)
- *     ?GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z @ 0x1C01E6CCC (-GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z.c)
- *     ?CreateNewPostCompositionConfig@DISPLAY_SOURCE@@AEAAXEPEBUtagRECT@@0@Z @ 0x1C02BF8FC (-CreateNewPostCompositionConfig@DISPLAY_SOURCE@@AEAAXEPEBUtagRECT@@0@Z.c)
+ *     ?GetLatestPostCompositionConfigInternal@DISPLAY_SOURCE@@AEAAPEAU_POST_COMPOSITION_CONFIG@@XZ @ 0x1C00E0658 (-GetLatestPostCompositionConfigInternal@DISPLAY_SOURCE@@AEAAPEAU_POST_COMPOSITION_CONFIG@@XZ.c)
+ *     ?ClearAllQueryStateUnsafe@DISPLAY_SOURCE@@QEAAXXZ @ 0x1C00E06C0 (-ClearAllQueryStateUnsafe@DISPLAY_SOURCE@@QEAAXXZ.c)
+ *     ?GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z @ 0x1C00E07E8 (-GetLatestPlaneConfigInternal@DISPLAY_SOURCE@@QEAAPEAU_DISPLAY_PLANE_CONFIG@@I@Z.c)
+ *     ?CreateNewPlaneConfig@DISPLAY_SOURCE@@AEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@IW4_D3DDDIFORMAT@@E@Z @ 0x1C016A5AC (-CreateNewPlaneConfig@DISPLAY_SOURCE@@AEAAXIPEBVDXGALLOCATION@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATI.c)
+ *     ?CreateNewPostCompositionConfig@DISPLAY_SOURCE@@AEAAXEPEBUtagRECT@@0@Z @ 0x1C02110FC (-CreateNewPostCompositionConfig@DISPLAY_SOURCE@@AEAAXEPEBUtagRECT@@0@Z.c)
  */
 
-void __fastcall DISPLAY_SOURCE::DisableOverlayPlanesUnsafe(DISPLAY_SOURCE *this, char a2)
+void __fastcall DISPLAY_SOURCE::DisableOverlayPlanesUnsafe(DISPLAY_SOURCE *this, __int64 a2)
 {
+  char v2; // si
   unsigned int i; // edi
   struct _POST_COMPOSITION_CONFIG *LatestPostCompositionConfigInternal; // rax
   struct _DISPLAY_PLANE_CONFIG *LatestPlaneConfigInternal; // rax
-  struct tagRECT v7; // [rsp+70h] [rbp-18h] BYREF
+  __int64 v7; // rax
+  struct tagRECT v8; // [rsp+70h] [rbp-28h] BYREF
+  struct tagRECT v9; // [rsp+80h] [rbp-18h] BYREF
 
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 632LL) != KeGetCurrentThread() )
+  v2 = a2;
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 544LL) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 9902LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DisplayCore->IsDisplayStateMutexOwner()",
-      9902LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v7 + 24) = 9767LL;
+    WdLogEvent5_WdAssertion(v7);
   }
-  if ( *((_BYTE *)this + 3768) || a2 )
+  if ( *((_BYTE *)this + 3744) || v2 )
   {
     DISPLAY_SOURCE::ClearAllQueryStateUnsafe(this);
-    for ( i = a2 == 0; i < *((_DWORD *)this + 940); ++i )
+    for ( i = v2 == 0; i < *((_DWORD *)this + 934); ++i )
     {
       LatestPlaneConfigInternal = DISPLAY_SOURCE::GetLatestPlaneConfigInternal(this, i);
       if ( LatestPlaneConfigInternal && (*((_DWORD *)LatestPlaneConfigInternal + 2) & 1) != 0 )
       {
-        v7 = 0LL;
+        v8 = 0LL;
         DISPLAY_SOURCE::CreateNewPlaneConfig(
           this,
           i,
           0LL,
           0,
           0,
-          &v7,
-          &v7,
-          &v7,
+          &v8,
+          &v8,
+          &v8,
           D3DDDI_ROTATION_IDENTITY,
           D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE,
           D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P709,
@@ -65,10 +60,10 @@ void __fastcall DISPLAY_SOURCE::DisableOverlayPlanesUnsafe(DISPLAY_SOURCE *this,
     {
       if ( *(_BYTE *)LatestPostCompositionConfigInternal )
       {
-        v7 = 0LL;
-        DISPLAY_SOURCE::CreateNewPostCompositionConfig(this, 0, &v7, &v7);
+        v9 = 0LL;
+        DISPLAY_SOURCE::CreateNewPostCompositionConfig(this, 0, &v9, &v9);
       }
     }
-    *((_BYTE *)this + 3768) = 0;
+    *((_BYTE *)this + 3744) = 0;
   }
 }

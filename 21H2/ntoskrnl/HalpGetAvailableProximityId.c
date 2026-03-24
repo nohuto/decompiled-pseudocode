@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetAvailableProximityId @ 0x140B4C370
+ * XREFs of HalpGetAvailableProximityId @ 0x140A8CE20
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 HalpGetAvailableProximityId()
   unsigned int v1; // edx
   unsigned int v2; // r9d
   __int64 v3; // rbx
-  unsigned int *v4; // r10
+  unsigned int *v4; // r11
   unsigned int v5; // ecx
   unsigned int v6; // eax
   unsigned int v8; // edx
@@ -43,22 +43,20 @@ __int64 HalpGetAvailableProximityId()
   if ( v5 != -1 )
     return v5 + 1;
   v8 = -2;
-  while ( 2 )
+  while ( 1 )
   {
     v9 = 0LL;
-    while ( v8 != *(_DWORD *)(*(_QWORD *)(HalpNumaConfig + 24) + 4 * v9) )
+    do
     {
-      v9 = (unsigned int)(v9 + 1);
-      if ( (unsigned int)v9 >= v2 )
-      {
-        if ( (_DWORD)v9 == v2 )
-          return v8;
+      if ( v8 == *(_DWORD *)(*(_QWORD *)(HalpNumaConfig + 24) + 4 * v9) )
         break;
-      }
+      v9 = (unsigned int)(v9 + 1);
     }
-    if ( --v8 )
-      continue;
-    break;
+    while ( (unsigned int)v9 < v2 );
+    if ( (_DWORD)v9 == v2 )
+      break;
+    if ( !--v8 )
+      return 0LL;
   }
-  return 0LL;
+  return v8;
 }

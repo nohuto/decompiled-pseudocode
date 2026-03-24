@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPILoadProcessFACS @ 0x1C00BD604
+ * XREFs of ACPILoadProcessFACS @ 0x1C00BEB28
  * Callers:
- *     ACPILoadProcessFADT @ 0x1C00BEF88 (ACPILoadProcessFADT.c)
+ *     ACPILoadProcessFADT @ 0x1C00BECCC (ACPILoadProcessFADT.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_q @ 0x1C0023BB0 (WPP_RECORDER_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ACPILoadProcessFACS()
@@ -28,7 +28,7 @@ __int64 ACPILoadProcessFACS()
         2u,
         6u,
         0xDu,
-        (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
     return (unsigned int)-1072431079;
   }
   if ( *(_DWORD *)(v1 + 4) != 64 )
@@ -39,7 +39,7 @@ __int64 ACPILoadProcessFACS()
         2u,
         6u,
         0xEu,
-        (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
         v1);
     return (unsigned int)-1072431079;
   }
@@ -49,7 +49,7 @@ __int64 ACPILoadProcessFACS()
       2u,
       6u,
       0xFu,
-      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+      (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
       v1);
   *((_QWORD *)AcpiInformation + 2) = v2;
   v3 = (_DWORD *)(v2 + 16);
@@ -57,12 +57,12 @@ __int64 ACPILoadProcessFACS()
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LODWORD(v5) = *v3;
-    WPP_RECORDER_SF_D(
+    WPP_RECORDER_SF_L(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       6u,
       0x10u,
-      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+      (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids,
       v5);
   }
   return v0;

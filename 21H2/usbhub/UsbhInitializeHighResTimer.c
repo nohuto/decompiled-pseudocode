@@ -1,7 +1,7 @@
 /*
- * XREFs of UsbhInitializeHighResTimer @ 0x1C005B8A4
+ * XREFs of UsbhInitializeHighResTimer @ 0x1C005CF44
  * Callers:
- *     DriverEntry @ 0x1C00410A8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00422D8 (DriverEntry.c)
  * Callees:
  *     <none>
  */

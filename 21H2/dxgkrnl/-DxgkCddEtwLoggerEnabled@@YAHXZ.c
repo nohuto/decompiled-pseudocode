@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgkCddEtwLoggerEnabled@@YAHXZ @ 0x1C01EA4D0
+ * XREFs of ?DxgkCddEtwLoggerEnabled@@YAHXZ @ 0x1C016F270
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 DxgkCddEtwLoggerEnabled(void)
 {
-  return qword_1C012F870 & 0x20;
+  return qword_1C00B19B0 & 0x20;
 }

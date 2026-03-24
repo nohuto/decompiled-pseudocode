@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x1409A2C7C
+ * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x1408FD220
  * Callers:
- *     TtmpPushTerminalState @ 0x1409A2BAC (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x1408FD150 (TtmpPushTerminalState.c)
  * Callees:
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, int a3)
@@ -14,7 +14,7 @@ void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, 
   _QWORD *v6; // rbx
   __int64 v7; // rdx
   __int64 v8; // r8
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v10; // rcx
   __int64 v11; // rax
 
@@ -29,7 +29,7 @@ void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, 
       {
         if ( v6[3] == *(_QWORD *)(a2 + 24) && *((_DWORD *)v6 + 8) == *(_DWORD *)(a2 + 32) )
         {
-          v7 = 2867LL;
+          v7 = 2862LL;
           v8 = 3221226026LL;
           goto LABEL_9;
         }
@@ -42,13 +42,17 @@ void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, 
       v6 = (_QWORD *)v6[1];
     }
 LABEL_11:
-    Pool2 = ExAllocatePool2(256LL, 40LL, 1148023892LL);
-    v10 = (_QWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x446D7454u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 16) = v3;
-      *(_QWORD *)(Pool2 + 24) = *(_QWORD *)(a2 + 24);
-      *(_DWORD *)(Pool2 + 32) = *(_DWORD *)(a2 + 32);
+      *PoolWithTag = 0LL;
+      PoolWithTag[1] = 0LL;
+      PoolWithTag[3] = 0LL;
+      PoolWithTag[4] = 0LL;
+      PoolWithTag[2] = v3;
+      PoolWithTag[3] = *(_QWORD *)(a2 + 24);
+      *((_DWORD *)PoolWithTag + 8) = *(_DWORD *)(a2 + 32);
       v11 = *v6;
       if ( *(_QWORD **)(*v6 + 8LL) != v6 )
         __fastfail(3u);
@@ -59,7 +63,7 @@ LABEL_11:
     }
     else
     {
-      v7 = 2902LL;
+      v7 = 2897LL;
       v8 = 3221225626LL;
 LABEL_9:
       TtmiLogError("TtmpQueueTerminalDisplayStateOntoDevice", v7, v8, 0xFFFFFFFFLL);

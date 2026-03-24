@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpSetFirmwareEnvironmentVariable @ 0x1408D24C0
+ * XREFs of ExpSetFirmwareEnvironmentVariable @ 0x1408D24A0
  * Callers:
- *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB80 (ExSetFirmwareEnvironmentVariable.c)
- *     NtSetSystemEnvironmentValueEx @ 0x1408D5BE0 (NtSetSystemEnvironmentValueEx.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB60 (ExSetFirmwareEnvironmentVariable.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x1408D5BC0 (NtSetSystemEnvironmentValueEx.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
- *     IoSetEnvironmentVariableEx @ 0x140821608 (IoSetEnvironmentVariableEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall ExpSetFirmwareEnvironmentVariable(

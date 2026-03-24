@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted @ 0x1C0051500
+ * XREFs of ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted @ 0x1C004E990
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C003BBF0 (Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted.c)
+ *     Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C0039C00 (Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted.c)
  */
 
 __int64 __fastcall ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted(__int64 a1)

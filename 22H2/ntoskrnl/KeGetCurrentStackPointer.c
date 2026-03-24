@@ -1,19 +1,18 @@
 /*
- * XREFs of KeGetCurrentStackPointer @ 0x14041EA70
+ * XREFs of KeGetCurrentStackPointer @ 0x1403FDC50
  * Callers:
- *     RtlEnoughStackSpaceForStackCapture @ 0x140227820 (RtlEnoughStackSpaceForStackCapture.c)
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     RtlpGetStackLimits @ 0x14022E980 (RtlpGetStackLimits.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271270 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KeQueryCurrentStackInformation @ 0x14034E3B0 (KeQueryCurrentStackInformation.c)
- *     KasanWrapperRtlRestoreContext @ 0x1403565D0 (KasanWrapperRtlRestoreContext.c)
- *     EtwpTraceStackWalk @ 0x14046896C (EtwpTraceStackWalk.c)
- *     EtwpTraceLastBranchRecord @ 0x140469446 (EtwpTraceLastBranchRecord.c)
- *     PnprGetStackLimits @ 0x140563084 (PnprGetStackLimits.c)
- *     MiDoStackCopy @ 0x14062CE10 (MiDoStackCopy.c)
- *     VfUtilCaptureViolationKernelStack @ 0x140AC3490 (VfUtilCaptureViolationKernelStack.c)
- *     ViDeadlockAnalyze @ 0x140AD9740 (ViDeadlockAnalyze.c)
- *     MmVerifierTrimMemory @ 0x140AE90D0 (MmVerifierTrimMemory.c)
+ *     RtlWalkFrameChain @ 0x14021CE70 (RtlWalkFrameChain.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402AA760 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1402AA8C0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     RtlpGetStackLimits @ 0x1402D0BE0 (RtlpGetStackLimits.c)
+ *     KeQueryCurrentStackInformation @ 0x140340240 (KeQueryCurrentStackInformation.c)
+ *     PnprGetStackLimits @ 0x14050F4B8 (PnprGetStackLimits.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140585C04 (RtlEnoughStackSpaceForStackCapture.c)
+ *     EtwpTraceStackWalk @ 0x1405A7074 (EtwpTraceStackWalk.c)
+ *     EtwpTraceLastBranchRecord @ 0x1405B01F4 (EtwpTraceLastBranchRecord.c)
+ *     MmVerifierTrimMemory @ 0x1409C5C14 (MmVerifierTrimMemory.c)
+ *     VfUtilCaptureViolationKernelStack @ 0x1409C6400 (VfUtilCaptureViolationKernelStack.c)
+ *     ViDeadlockAnalyze @ 0x1409DEBA4 (ViDeadlockAnalyze.c)
  * Callees:
  *     <none>
  */

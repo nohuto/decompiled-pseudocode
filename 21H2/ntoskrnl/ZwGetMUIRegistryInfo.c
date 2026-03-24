@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetMUIRegistryInfo @ 0x14041D6E0
+ * XREFs of ZwGetMUIRegistryInfo @ 0x1403FC280
  * Callers:
  *     <none>
  * Callees:

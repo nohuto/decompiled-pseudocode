@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepInitializeDebuggerMasks @ 0x14059F250
+ * XREFs of PopPepInitializeDebuggerMasks @ 0x140574BDC
  * Callers:
- *     PopPepPlatformStateRegistered @ 0x14059FA24 (PopPepPlatformStateRegistered.c)
+ *     PopPepInitializeVetoMasks @ 0x140574CDC (PopPepInitializeVetoMasks.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopDiagTraceDebuggerTransitionRequirements @ 0x140592678 (PopDiagTraceDebuggerTransitionRequirements.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopDiagTraceDebuggerTransitionRequirements @ 0x1405714D4 (PopDiagTraceDebuggerTransitionRequirements.c)
  */
 
 void __fastcall PopPepInitializeDebuggerMasks(__int64 a1, unsigned int a2)
 {
   ULONG_PTR v3; // rbx
   __int64 v4; // rcx
-  unsigned int v5; // eax
-  __int64 v6; // rcx
-  _BYTE *v7; // rdx
+  unsigned int v5; // ecx
+  _BYTE *v6; // rdx
+  _BYTE *v7; // rax
   __int64 v8; // [rsp+20h] [rbp-48h] BYREF
   unsigned int v9; // [rsp+28h] [rbp-40h]
   int v10; // [rsp+2Ch] [rbp-3Ch]
@@ -40,20 +40,20 @@ void __fastcall PopPepInitializeDebuggerMasks(__int64 a1, unsigned int a2)
           v5 = 0;
           if ( a2 )
           {
-            v6 = 0LL;
-            v7 = v12;
+            v6 = v12;
+            v7 = (_BYTE *)(PopPepPlatformState + 56);
             do
             {
-              if ( *v7 )
+              if ( *v6 )
               {
-                if ( !*(_BYTE *)(v6 + PopPepPlatformState + 57) )
+                if ( !v7[1] )
                   PopFxBugCheck(0x61FuLL, v3, v5, 0LL);
-                *(_BYTE *)(v6 + PopPepPlatformState + 56) = 1;
+                *v7 = 1;
                 PopAutomaticDebuggerTransitions = 1;
               }
               ++v5;
-              ++v7;
-              v6 += 448LL;
+              ++v6;
+              v7 += 384;
             }
             while ( v5 < a2 );
           }

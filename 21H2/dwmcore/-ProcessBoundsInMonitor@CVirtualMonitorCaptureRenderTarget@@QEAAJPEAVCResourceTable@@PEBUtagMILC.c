@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessBoundsInMonitor@CVirtualMonitorCaptureRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VIRTUALMONITORCAPTURERENDERTARGET_BOUNDSINMONITOR@@@Z @ 0x1801C6074
+ * XREFs of ?ProcessBoundsInMonitor@CVirtualMonitorCaptureRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VIRTUALMONITORCAPTURERENDERTARGET_BOUNDSINMONITOR@@@Z @ 0x180188C08
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x1801C522C (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x180188088 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CVirtualMonitorCaptureRenderTarget::ProcessBoundsInMonitor(
@@ -21,21 +21,21 @@ __int64 __fastcall CVirtualMonitorCaptureRenderTarget::ProcessBoundsInMonitor(
   __int64 v9; // rcx
 
   v4 = 0;
-  *(_OWORD *)((char *)this + 2072) = *(_OWORD *)((char *)a3 + 8);
+  *((_OWORD *)this + 131) = *(_OWORD *)((char *)a3 + 8);
   v5 = (unsigned int)(*((_DWORD *)a3 + 4) - *((_DWORD *)a3 + 2));
-  *((_DWORD *)this + 525) = v5;
+  *((_DWORD *)this + 531) = v5;
   v6 = *((_DWORD *)a3 + 5) - *((_DWORD *)a3 + 3);
-  *((_DWORD *)this + 526) = v6;
-  *((_DWORD *)this + 527) = *((_DWORD *)a3 + 2);
-  *((_DWORD *)this + 528) = *((_DWORD *)a3 + 3);
-  v7 = *((_QWORD *)this + 265);
+  *((_DWORD *)this + 532) = v6;
+  *((_DWORD *)this + 533) = *((_DWORD *)a3 + 2);
+  *((_DWORD *)this + 534) = *((_DWORD *)a3 + 3);
+  v7 = *((_QWORD *)this + 268);
   if ( v7 )
   {
     v8 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(*(_QWORD *)v7 + 24LL))(v7, v5, v6);
     v4 = v8;
     if ( v8 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x8Fu);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x92u, 0LL);
       CCaptureRenderTarget::ReleaseRenderingResources(this);
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vLineCallbackOctant34@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FD320
+ * XREFs of ?vLineCallbackOctant34@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C015B620
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vLineCallbackOctant34(struct _DDALINE *a1, unsigned __int8 *a2, int a3, unsigned int a4)

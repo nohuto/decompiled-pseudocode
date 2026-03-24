@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045AD4E
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8B1C
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateNewTranslationBuffer @ 0x1405108A8 (HalpDmaAllocateNewTranslationBuffer.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x1409342E8 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x1404C6F18 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1408650C8 (HalpDmaAllocateLocalScatterPool.c)
  * Callees:
- *     HalpDmaGetMasterAdapterVersion @ 0x14045ADA4 (HalpDmaGetMasterAdapterVersion.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolV2 @ 0x14045D760 (HalpDmaAllocateScatterPagesFromScatterPoolV2.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x1404FF670 (HalpDmaAllocateScatterPagesFromScatterPoolV3.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x1404B7380 (HalpDmaAllocateScatterPagesFromScatterPoolV3.c)
+ *     HalpDmaGetMasterAdapterVersion @ 0x1404B8BDC (HalpDmaGetMasterAdapterVersion.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolV2 @ 0x1404CD5BC (HalpDmaAllocateScatterPagesFromScatterPoolV2.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPool(
@@ -16,15 +16,15 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPool(
         __int64 a3,
         __int64 a4,
         char a5,
-        __int64 a6)
+        unsigned int *a6)
 {
-  int v6; // ecx
-  int v7; // r8d
+  __int64 v6; // rcx
+  unsigned int v7; // r8d
   int v8; // r9d
-  int v9; // r10d
+  __int64 v9; // r10
 
   if ( (unsigned int)HalpDmaGetMasterAdapterVersion(a2) == 2 )
-    return HalpDmaAllocateScatterPagesFromScatterPoolV2(v6, v9, v7, v8, a5, a6);
+    return HalpDmaAllocateScatterPagesFromScatterPoolV2(v6, v9, v7, v8, a5, (__int64)a6);
   else
     return HalpDmaAllocateScatterPagesFromScatterPoolV3(v6, v9, v7, v8, a5, a6);
 }

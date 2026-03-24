@@ -1,20 +1,48 @@
 /*
- * XREFs of CmpMachineHiveLoadedWorkItem @ 0x1408613D0
+ * XREFs of CmpMachineHiveLoadedWorkItem @ 0x1407CB890
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmpMachineHiveCallbackFatalFilter @ 0x140A0F79C (CmpMachineHiveCallbackFatalFilter.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpMachineHiveCallbackFatalFilter @ 0x14086A1B0 (CmpMachineHiveCallbackFatalFilter.c)
  */
 
-__int64 __fastcall CmpMachineHiveLoadedWorkItem(__int64 a1, __int64 a2)
+char __fastcall CmpMachineHiveLoadedWorkItem(__int64 a1)
 {
-  _QWORD *v2; // rbx
-  __int64 result; // rax
+  ULONG_PTR v2; // r14
+  ULONG_PTR v3; // rsi
+  _QWORD *v4; // rax
+  __int64 *v5; // rbx
+  __int64 v7; // rcx
 
-  v2 = (_QWORD *)(a2 + 96);
-  *(_QWORD *)(a2 + 96) = KeGetCurrentThread();
-  result = (*(__int64 (__fastcall **)(_QWORD))(a2 + 80))(*(_QWORD *)(a2 + 88));
-  *v2 = 0LL;
-  return result;
+  v2 = a1 + 144;
+  v3 = a1 + 144;
+  ExAcquirePushLockExclusiveEx(a1 + 144, 0LL);
+  do
+  {
+    while ( 1 )
+    {
+      v4 = (_QWORD *)(a1 + 152);
+      v5 = *(__int64 **)(a1 + 152);
+      if ( v5 == (__int64 *)(a1 + 152) )
+        break;
+      v7 = *v5;
+      if ( (_QWORD *)v5[1] != v4 || *(__int64 **)(v7 + 8) != v5 )
+        __fastfail(3u);
+      *v4 = v7;
+      *(_QWORD *)(v7 + 8) = v4;
+      *((_WORD *)v5 + 18) = 1;
+      ExReleasePushLockEx(v2, 0LL);
+      ((void (__fastcall *)(__int64))v5[2])(v5[3]);
+      ExAcquirePushLockExclusiveEx(v3, 0LL);
+      *((_BYTE *)v5 + 36) = 0;
+      if ( *((_BYTE *)v5 + 38) )
+        KeSetEvent(&CmpMachineHiveCallbackEvent, 0, 0);
+    }
+  }
+  while ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 176), 0xFFFFFFFF) > 1 );
+  return ExReleasePushLockEx(v3, 0LL);
 }

@@ -2,18 +2,18 @@
  * XREFs of PpmSetProfilePolicySetting @ 0x14058ABB4
  * Callers:
  *     PopSetNewPolicyValue @ 0x14058B120 (PopSetNewPolicyValue.c)
- *     PpmProcessSettingsFromQueryTable @ 0x14087A850 (PpmProcessSettingsFromQueryTable.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x14087A830 (PpmProcessSettingsFromQueryTable.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PpmInfoAdjustSetting @ 0x14058B9B8 (PpmInfoAdjustSetting.c)
  *     PpmInfoReleaseLocks @ 0x14058BB8C (PpmInfoReleaseLocks.c)
- *     PpmReapplyPerfPolicy @ 0x14074F044 (PpmReapplyPerfPolicy.c)
- *     PpmGetPolicyAction @ 0x140755E80 (PpmGetPolicyAction.c)
- *     PpmEventTraceProfileSetting @ 0x1407567B8 (PpmEventTraceProfileSetting.c)
- *     PpmReapplyIdlePolicy @ 0x140867360 (PpmReapplyIdlePolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x14074F024 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x140755E60 (PpmGetPolicyAction.c)
+ *     PpmEventTraceProfileSetting @ 0x140756798 (PpmEventTraceProfileSetting.c)
+ *     PpmReapplyIdlePolicy @ 0x140867340 (PpmReapplyIdlePolicy.c)
  */
 
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __int64 a4, int a5)
@@ -111,7 +111,7 @@ LABEL_8:
     else
       PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
     *(_QWORD *)&v49.Data1 = PpmCurrentProfile;
-    v43 = dword_14041810C;
+    v43 = dword_1404180CC;
     v19 = *a1 - *(_QWORD *)&NullGuid.Data1;
     if ( *a1 == *(_QWORD *)&NullGuid.Data1 )
       v19 = a1[1] - *(_QWORD *)NullGuid.Data4;
@@ -172,7 +172,7 @@ LABEL_57:
       if ( !v22 )
         goto LABEL_25;
       LOBYTE(v24) = v13;
-      LOBYTE(v25) = byte_14040E7A8;
+      LOBYTE(v25) = byte_14040E7C8;
       PpmEventTraceProfileSetting(v25, (unsigned int)*v12, (unsigned int)v12[1], v24, v21, v45, v6, 0);
       v27 = 0;
       if ( *(__int64 **)&v49.Data1 == PpmDefaultProfile )

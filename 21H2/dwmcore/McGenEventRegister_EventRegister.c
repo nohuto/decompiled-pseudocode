@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventRegister_EventRegister @ 0x180025ED8
+ * XREFs of McGenEventRegister_EventRegister @ 0x1800B293C
  * Callers:
- *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x180025928 (-RegisterDwmGuidWithEtw@@YAXXZ.c)
+ *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800B27DC (-RegisterDwmGuidWithEtw@@YAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ ULONG McGenEventRegister_EventRegister()
   if ( !Microsoft_Windows_Dwm_Core_Provider_Context[0] )
     return EventRegister(
              &Microsoft_Windows_Dwm_Core_Provider,
-             (PENABLECALLBACK)McGenControlCallbackV2,
+             McGenControlCallbackV2,
              Microsoft_Windows_Dwm_Core_Provider_Context,
              Microsoft_Windows_Dwm_Core_Provider_Context);
   return result;

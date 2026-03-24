@@ -7,12 +7,12 @@
  *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
  *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
  *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     MiFreeInitializationCode @ 0x1406C783C (MiFreeInitializationCode.c)
- *     MiAllocatePerSessionProtos @ 0x1406C9210 (MiAllocatePerSessionProtos.c)
- *     MiGetAweInfoPartition @ 0x14084FEF0 (MiGetAweInfoPartition.c)
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
+ *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
+ *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
  * Callees:
  *     <none>
  */

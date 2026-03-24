@@ -1,18 +1,18 @@
 /*
- * XREFs of PopAndFreeW32ThreadLock @ 0x1C00AA2B0
+ * XREFs of PopAndFreeW32ThreadLock @ 0x1C00961BC
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C004D550 (xxxCreateThreadInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*PopAndFreeW32ThreadLock())(void)
+__int64 (__fastcall *__fastcall PopAndFreeW32ThreadLock(__int64 a1))(_QWORD)
 {
-  __int64 (*result)(void); // rax
+  __int64 (__fastcall *result)(_QWORD); // rax
 
-  result = qword_1C0295548;
-  if ( qword_1C0295548 )
-    return (__int64 (*)(void))qword_1C0295548();
+  result = qword_1C02560D8;
+  if ( qword_1C02560D8 )
+    return (__int64 (__fastcall *)(_QWORD))qword_1C02560D8(a1);
   return result;
 }

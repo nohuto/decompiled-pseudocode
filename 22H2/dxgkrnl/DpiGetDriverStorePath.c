@@ -1,72 +1,52 @@
 /*
- * XREFs of DpiGetDriverStorePath @ 0x1C039913C
+ * XREFs of DpiGetDriverStorePath @ 0x1C02C6C98
  * Callers:
- *     ?DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z @ 0x1C016B7A4 (-DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z.c)
- *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0211D70 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037F390 (-VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z @ 0x1C0173350 (-DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z.c)
+ *     ?VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02423C0 (-VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     wcsstr_0 @ 0x1C0023EC3 (wcsstr_0.c)
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00408CC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000C2B4 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     wcsstr_0 @ 0x1C0024923 (wcsstr_0.c)
  */
 
-__int64 __fastcall DpiGetDriverStorePath(__int64 a1, unsigned __int16 *a2, int *a3)
+__int64 __fastcall DpiGetDriverStorePath(__int64 a1, unsigned __int16 *a2, _DWORD *a3)
 {
-  __int64 v3; // rcx
-  int v6; // ebx
-  wchar_t *v7; // rax
-  wchar_t v8; // cx
-  wchar_t *v9; // r8
-  wchar_t v10; // dx
-  wchar_t *v11; // rax
-  int v12; // eax
-  __int128 v14; // [rsp+20h] [rbp-18h] BYREF
+  int FullDriverPath; // ebx
+  wchar_t *v6; // rax
+  wchar_t *v7; // rdx
+  wchar_t i; // ax
+  wchar_t *v9; // rcx
 
-  v3 = *(_QWORD *)(a1 + 64);
-  v14 = 0LL;
-  v6 = IoQueryFullDriverPath(*(_QWORD *)(*(_QWORD *)(v3 + 40) + 32LL), &v14);
-  if ( v6 < 0 )
-    return (unsigned int)v6;
-  if ( (unsigned __int16)v14 >= (unsigned __int64)(unsigned int)*a3 - 2 )
+  FullDriverPath = IoQueryFullDriverPath(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 64) + 40LL) + 32LL));
+  if ( FullDriverPath >= 0 )
   {
-    v6 = -2147483643;
-    v12 = (unsigned __int16)v14 + 2;
-  }
-  else
-  {
-    RtlStringCbCopyW(a2, (unsigned __int16)v14, *((size_t **)&v14 + 1));
-    a2[(unsigned __int64)(unsigned __int16)v14 >> 1] = 0;
-    v7 = wcsstr_0(a2, L"FileRepository");
-    if ( !v7 )
+    if ( *a3 == 2LL )
     {
-      v6 = -1073741811;
-      goto LABEL_19;
+      FullDriverPath = -2147483643;
+      *a3 = 2;
     }
-    while ( *v7 != 92 && *v7 )
-      ++v7;
-    v8 = *v7;
-    v9 = v7;
-    v10 = *v7;
-    if ( *v7 )
-      v10 = v7[1];
-    v11 = v7 + 1;
-    if ( !v8 )
-      v11 = v9;
-    if ( v10 != 92 )
+    else
     {
-      do
+      RtlStringCbCopyW(a2, 0LL, 0LL);
+      *a2 = 0;
+      v6 = wcsstr_0(a2, L"FileRepository");
+      v7 = v6;
+      if ( v6 )
       {
-        if ( !*v11 )
-          break;
-        ++v11;
+        for ( i = *v6; i != 92 && i; i = *v7 )
+          ++v7;
+        v9 = v7 + 1;
+        if ( !*v7 )
+          v9 = v7;
+        while ( *v9 != 92 && *v9 )
+          ++v9;
+        *v9 = 0;
+        *a3 = (_DWORD)v9 - (_DWORD)a2;
       }
-      while ( *v11 != 92 );
+      else
+      {
+        return (unsigned int)-1073741811;
+      }
     }
-    *v11 = 0;
-    v12 = (_DWORD)v11 - (_DWORD)a2;
   }
-  *a3 = v12;
-LABEL_19:
-  if ( *((_QWORD *)&v14 + 1) )
-    ExFreePoolWithTag(*((PVOID *)&v14 + 1), 0);
-  return (unsigned int)v6;
+  return (unsigned int)FullDriverPath;
 }

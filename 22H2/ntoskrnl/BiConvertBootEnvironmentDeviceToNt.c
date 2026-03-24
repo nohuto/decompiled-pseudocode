@@ -1,417 +1,376 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140809F18
+ * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x1407824D4
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x140807EB4 (BiConvertRegistryDataToElement.c)
- *     BiVerifyBootPartition @ 0x140809E44 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140809F18 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x1407824D4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertRegistryDataToElement @ 0x140784CB0 (BiConvertRegistryDataToElement.c)
+ *     BiVerifyBootPartition @ 0x1407857A0 (BiVerifyBootPartition.c)
  * Callees:
- *     strcpy_s @ 0x1403DF230 (strcpy_s.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     BiGetNtPartitionPath @ 0x140809890 (BiGetNtPartitionPath.c)
- *     BiVerifyBootPartition @ 0x140809E44 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140809F18 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5CD50 (BiConvertBootEnvironmentDeviceToUnknown.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     strcpy_s @ 0x1403D7670 (strcpy_s.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x1407824D4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiGetNtPartitionPath @ 0x140782648 (BiGetNtPartitionPath.c)
+ *     BiVerifyBootPartition @ 0x1407857A0 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x14096FA80 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiConvertBootEnvironmentDeviceToNt(
-        unsigned int *Src,
-        int a2,
-        char a3,
-        wchar_t **a4,
-        unsigned int *a5)
+__int64 __fastcall BiConvertBootEnvironmentDeviceToNt(char *Src, int a2, char a3, wchar_t **a4, unsigned int *a5)
 {
   int v6; // ecx
-  wchar_t *v7; // rbx
-  _WORD *v8; // r13
+  wchar_t *PoolWithTag; // rbx
+  char v8; // r13
   unsigned int v9; // r15d
   int v10; // ecx
   int v11; // ecx
   int v12; // ecx
-  int v13; // edi
-  __int64 v14; // r14
-  int NtPartitionPath; // eax
-  __int64 v16; // r14
-  unsigned int v17; // edi
-  wchar_t *v18; // rax
-  size_t v19; // r8
-  char *v20; // rcx
-  PVOID v21; // rdx
-  int v23; // ecx
-  int v24; // ecx
-  int v25; // ecx
-  int v26; // ecx
+  int NtPartitionPath; // edi
+  __int64 v14; // rsi
+  void *v15; // r13
+  __int64 v16; // rsi
+  wchar_t *v17; // rax
+  int v19; // ecx
+  int v20; // ecx
+  wchar_t *v21; // rax
+  SIZE_T v22; // r13
+  __int64 v23; // rsi
+  __int64 v24; // r15
+  __int64 v25; // rdi
+  int v26; // eax
   __int64 v27; // rax
-  __int64 v28; // rax
-  wchar_t *v29; // rax
-  unsigned int v30; // eax
-  __int64 v31; // r14
-  __int64 v32; // r15
-  unsigned int v33; // r12d
-  __int64 v34; // rdi
-  int v35; // eax
-  __int64 v36; // rax
-  unsigned int v37; // r12d
-  void *v38; // rax
-  wchar_t *v39; // rax
-  wchar_t *v40; // r8
-  unsigned int v41; // r14d
-  wchar_t *v42; // rax
-  int v43; // eax
-  int v44; // eax
-  unsigned int v45; // ecx
-  bool v46; // zf
-  unsigned __int64 v47; // rcx
-  __int64 v48; // rdx
-  __int64 v49; // rax
-  unsigned int *v50; // r14
-  __int64 v51; // r14
-  unsigned int v52; // r14d
-  unsigned int v53; // edi
-  unsigned int v54; // r12d
-  wchar_t *Pool2; // rax
-  size_t Size; // [rsp+30h] [rbp-38h] BYREF
-  wchar_t *v57; // [rsp+38h] [rbp-30h] BYREF
-  PVOID P; // [rsp+40h] [rbp-28h]
-  void *Srca; // [rsp+48h] [rbp-20h] BYREF
-  wchar_t *v60; // [rsp+50h] [rbp-18h]
-  char v61; // [rsp+B0h] [rbp+48h]
+  PVOID v28; // rax
+  size_t v29; // r8
+  PVOID v30; // rdx
+  wchar_t *v31; // rax
+  const wchar_t *v32; // r8
+  unsigned int v33; // esi
+  int v34; // eax
+  int v35; // ecx
+  bool v36; // zf
+  unsigned __int64 v37; // rcx
+  __int64 v38; // r8
+  __int64 v39; // rax
+  char *v40; // rsi
+  char *v41; // rdi
+  __int64 v42; // rsi
+  unsigned int v43; // esi
+  unsigned int v44; // r13d
+  int v45; // eax
+  size_t Size; // [rsp+30h] [rbp-30h] BYREF
+  size_t v47; // [rsp+38h] [rbp-28h] BYREF
+  PVOID v48; // [rsp+40h] [rbp-20h]
+  PVOID P; // [rsp+48h] [rbp-18h]
+  void *Srca; // [rsp+50h] [rbp-10h] BYREF
+  size_t v51; // [rsp+58h] [rbp-8h]
+  char v52; // [rsp+A0h] [rbp+40h]
 
-  v6 = *Src;
-  v7 = 0LL;
-  v60 = 0LL;
+  v6 = *(_DWORD *)Src;
+  PoolWithTag = 0LL;
+  v51 = 0LL;
+  v8 = 0;
   Size = 0LL;
-  v8 = 0LL;
-  LODWORD(v57) = 0;
   v9 = 0;
-  Srca = 0LL;
+  LODWORD(v47) = 0;
   P = 0LL;
-  v61 = 0;
-  if ( !v6 )
+  Srca = 0LL;
+  v48 = 0LL;
+  v52 = 0;
+  if ( v6 )
   {
-    v45 = Src[4];
-    if ( v45 != 3 && v45 != 5 )
-      goto LABEL_76;
-    v46 = v45 == 3;
-    v47 = Src[2];
-    v48 = 52LL;
-    if ( !v46 )
-      v48 = 32LL;
-    v49 = 9LL;
-    if ( !v46 )
-      v49 = 4LL;
-    v50 = &Src[v49 + 4];
-    if ( v47 >= v48 + 12 && v50[2] <= (int)v47 - (int)v48 )
+    v10 = v6 - 2;
+    if ( !v10 )
     {
-      v13 = BiConvertBootEnvironmentDeviceToNt(v50, (__int64)&Size);
-      if ( v13 < 0 )
-      {
-LABEL_73:
-        if ( v13 == -1073741670 )
-          goto LABEL_77;
-        goto LABEL_74;
-      }
-      if ( *(_DWORD *)P == 3 )
-        goto LABEL_76;
-      v8 = (_WORD *)((char *)v50 + v50[2]);
-      v51 = -1LL;
-      do
-        ++v51;
-      while ( v8[v51] );
-      v52 = 2 * v51 + 2;
-      if ( v52 + 32 >= 0x20 && v52 + 32 + (unsigned int)Size >= v52 + 32 )
-      {
-        v53 = (v52 + 31) & 0xFFFFFFF8;
-        v54 = Size + v53;
-        v9 = Size + v53;
-        Pool2 = (wchar_t *)ExAllocatePool2(258LL, (unsigned int)Size + v53, 1262764866LL);
-        v7 = Pool2;
-        if ( Pool2 )
-        {
-          memset(Pool2, 0, v54);
-          memmove(v7 + 12, v8, v52);
-          *((_DWORD *)v7 + 5) = v53;
-          memmove((char *)v7 + v53, P, (unsigned int)Size);
-          *(_DWORD *)v7 = 4 - (Src[4] != 3);
-          v13 = 0;
-          goto LABEL_14;
-        }
-        goto LABEL_20;
-      }
-    }
-LABEL_74:
-    if ( v7 )
-      ExFreePoolWithTag(v7, 0x4B444342u);
-    goto LABEL_76;
-  }
-  v10 = v6 - 2;
-  if ( !v10 )
-  {
 LABEL_5:
-    v13 = BiVerifyBootPartition((int *)Src, 0LL, 0LL, 0LL, 0LL, (unsigned int *)&v57);
-    if ( v13 < 0 )
-      goto LABEL_73;
-    v14 = (unsigned int)v57;
-    if ( (a3 & 0x20) != 0 && (_DWORD)v57 )
-    {
-      v13 = -1073741823;
-      goto LABEL_63;
-    }
-    NtPartitionPath = BiGetNtPartitionPath((int)Src, &Srca);
-    v8 = Srca;
-    v13 = NtPartitionPath;
-    if ( NtPartitionPath < 0 )
-    {
-LABEL_63:
-      if ( !(_DWORD)v14 )
-        goto LABEL_72;
-      v13 = BiConvertBootEnvironmentDeviceToNt((char *)Src + v14, (__int64)&Size);
-      if ( v13 < 0 )
-        goto LABEL_73;
-      v41 = Size + 34;
-      v9 = Size + 34;
-      HIDWORD(Size) = Size + 34;
-      v42 = (wchar_t *)ExAllocatePool2(258LL, (unsigned int)(Size + 34), 1262764866LL);
-      v60 = v42;
-      v7 = v42;
-      if ( v42 )
+      NtPartitionPath = BiVerifyBootPartition((_DWORD)Src, 0, 0, 0, 0LL, (__int64)&v47);
+      if ( NtPartitionPath < 0 )
+        goto LABEL_86;
+      v14 = (unsigned int)v47;
+      if ( (a3 & 0x20) != 0 && (_DWORD)v47 )
       {
-        memset(v42, 0, v41);
-        *(_DWORD *)v7 = 8;
-        *((_DWORD *)v7 + 5) = 0;
-        v43 = 301989890;
-        if ( a2 )
-        {
-          if ( a2 == 553648129 )
-          {
-            v43 = 570425346;
-          }
-          else if ( a2 == 285212739 )
-          {
-            v43 = 301989956;
-          }
-        }
-        *((_DWORD *)v7 + 7) = v43;
-        *((_DWORD *)v7 + 6) = 34;
-        memmove(v7 + 17, P, (unsigned int)Size);
-LABEL_72:
-        if ( v13 < 0 )
-          goto LABEL_73;
-LABEL_14:
-        *a4 = v7;
-        *a5 = v9;
-        goto LABEL_15;
+        NtPartitionPath = -1073741823;
+        goto LABEL_58;
       }
-LABEL_20:
-      v13 = -1073741670;
-      goto LABEL_15;
+      NtPartitionPath = BiGetNtPartitionPath(Src, &Srca);
+      if ( NtPartitionPath < 0 )
+      {
+        P = Srca;
+LABEL_58:
+        if ( !(_DWORD)v14 )
+          goto LABEL_85;
+        NtPartitionPath = BiConvertBootEnvironmentDeviceToNt(&Src[v14], (__int64)&Size);
+        if ( NtPartitionPath >= 0 )
+        {
+          v9 = Size + 34;
+          HIDWORD(Size) = Size + 34;
+          v33 = Size + 34;
+          PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(Size + 34), 0x4B444342u);
+          v51 = (size_t)PoolWithTag;
+          if ( PoolWithTag )
+          {
+            memset(PoolWithTag, 0, v33);
+            *(_DWORD *)PoolWithTag = 8;
+            *((_DWORD *)PoolWithTag + 5) = 0;
+            v34 = 301989890;
+            if ( a2 )
+            {
+              if ( a2 == 553648129 )
+              {
+                v34 = 570425346;
+              }
+              else if ( a2 == 285212739 )
+              {
+                v34 = 301989956;
+              }
+            }
+            *((_DWORD *)PoolWithTag + 7) = v34;
+            *((_DWORD *)PoolWithTag + 6) = 34;
+            memmove(PoolWithTag + 17, v48, (unsigned int)Size);
+LABEL_85:
+            if ( NtPartitionPath < 0 )
+              goto LABEL_86;
+LABEL_12:
+            *a4 = PoolWithTag;
+            *a5 = v9;
+LABEL_13:
+            v8 = v52;
+            goto LABEL_14;
+          }
+          goto LABEL_64;
+        }
+LABEL_86:
+        if ( NtPartitionPath == -1073741670 )
+          goto LABEL_90;
+        if ( PoolWithTag )
+          ExFreePoolWithTag(PoolWithTag, 0x4B444342u);
+LABEL_89:
+        v45 = BiConvertBootEnvironmentDeviceToUnknown(Src);
+        v9 = HIDWORD(Size);
+        NtPartitionPath = v45;
+        PoolWithTag = (wchar_t *)v51;
+LABEL_90:
+        if ( NtPartitionPath < 0 )
+          goto LABEL_13;
+        goto LABEL_12;
+      }
+      v15 = Srca;
+      v16 = -1LL;
+      P = Srca;
+      v52 = 1;
+      do
+        ++v16;
+      while ( *((_WORD *)Srca + v16) );
+      v9 = 2 * v16 + 22;
+      v17 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x4B444342u);
+      PoolWithTag = v17;
+      if ( v17 )
+      {
+        memset(v17, 0, v9);
+        *(_DWORD *)PoolWithTag = 2;
+        memmove(PoolWithTag + 10, v15, (unsigned int)(2 * v16 + 2));
+        NtPartitionPath = 0;
+        goto LABEL_12;
+      }
+LABEL_19:
+      NtPartitionPath = -1073741670;
+      goto LABEL_13;
     }
-    v61 = 1;
-    v16 = -1LL;
-    do
-      ++v16;
-    while ( *((_WORD *)Srca + v16) );
-    v17 = 2 * v16 + 22;
-    v9 = v17;
-    v18 = (wchar_t *)ExAllocatePool2(258LL, v17, 1262764866LL);
-    v7 = v18;
-    if ( !v18 )
-      goto LABEL_20;
-    memset(v18, 0, v17);
-    v19 = (unsigned int)(2 * v16 + 2);
-    v20 = (char *)(v7 + 10);
-    v21 = v8;
-    *(_DWORD *)v7 = 2;
+    v11 = v10 - 3;
+    if ( v11 )
+    {
+      v12 = v11 - 1;
+      if ( !v12 )
+        goto LABEL_5;
+      v19 = v12 - 1;
+      if ( v19 )
+      {
+        v20 = v19 - 1;
+        if ( !v20 )
+        {
+          v22 = 34LL;
+          v23 = -1LL;
+          v36 = *((_DWORD *)Src + 4) == 1;
+          v9 = 34;
+          HIDWORD(Size) = 34;
+          if ( v36 )
+          {
+            v24 = -1LL;
+            do
+              ++v24;
+            while ( *(_WORD *)&Src[2 * v24 + 28] );
+            v9 = 2 * v24 + 34;
+            HIDWORD(Size) = v9;
+            v22 = v9;
+          }
+          v25 = *((unsigned int *)Src + 6);
+          if ( (_DWORD)v25 )
+          {
+            if ( (a3 & 0x20) != 0 )
+              goto LABEL_94;
+            v26 = BiGetNtPartitionPath(Src, &Srca);
+            P = Srca;
+            if ( v26 >= 0 )
+            {
+              v52 = 1;
+              v27 = -1LL;
+              do
+                ++v27;
+              while ( *((_WORD *)Srca + v27) );
+              LODWORD(v47) = 2 * v27 + 2;
+              LODWORD(Size) = 2 * v27 + 22;
+              v28 = ExAllocatePoolWithTag(PagedPool, (unsigned int)Size, 0x4B444342u);
+              v48 = v28;
+              if ( !v28 )
+              {
+                NtPartitionPath = -1073741670;
+LABEL_17:
+                ExFreePoolWithTag(P, 0x4B444342u);
+                return (unsigned int)NtPartitionPath;
+              }
+              memset(v28, 0, (unsigned int)Size);
+              v29 = (unsigned int)v47;
+              v30 = P;
+              *(_DWORD *)v48 = 2;
+              memmove((char *)v48 + 20, v30, v29);
+            }
+            if ( !v48 )
+            {
+LABEL_94:
+              if ( (unsigned int)(*((_DWORD *)Src + 2) - v25) < 0x4C )
+                goto LABEL_89;
+              NtPartitionPath = BiConvertBootEnvironmentDeviceToNt(&Src[v25 + 40], (__int64)&Size);
+              if ( NtPartitionPath < 0 )
+                goto LABEL_86;
+            }
+            LODWORD(v25) = v22;
+            v9 = v22 + Size;
+            v22 = (unsigned int)(v22 + Size);
+          }
+          v31 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v22, 0x4B444342u);
+          PoolWithTag = v31;
+          if ( !v31 )
+            goto LABEL_19;
+          memset(v31, 0, v22);
+          *(_DWORD *)PoolWithTag = 8;
+          if ( *((_DWORD *)Src + 4) )
+          {
+            *((_DWORD *)PoolWithTag + 5) = 1;
+            v32 = (const wchar_t *)(Src + 28);
+            do
+              ++v23;
+            while ( v32[v23] );
+            wcscpy_s(PoolWithTag + 16, v23 + 1, v32);
+          }
+          else
+          {
+            *((_DWORD *)PoolWithTag + 5) = 0;
+            *((_DWORD *)PoolWithTag + 7) = *((_DWORD *)Src + 5);
+          }
+          if ( v48 )
+          {
+            *((_DWORD *)PoolWithTag + 6) = v25;
+            memmove((char *)PoolWithTag + (unsigned int)v25, v48, (unsigned int)Size);
+          }
+LABEL_26:
+          NtPartitionPath = 0;
+          goto LABEL_12;
+        }
+        if ( v20 != 1 )
+          goto LABEL_89;
+        v9 = *((_DWORD *)Src + 4) + 21;
+        v21 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x4B444342u);
+        PoolWithTag = v21;
+        if ( v21 )
+        {
+          memset(v21, 0, v9);
+          *(_DWORD *)PoolWithTag = 9;
+          strcpy_s((char *)PoolWithTag + 20, 1uLL, Src + 20);
+          goto LABEL_26;
+        }
+      }
+      else
+      {
+        v9 = 36;
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x24uLL, 0x4B444342u);
+        if ( PoolWithTag )
+        {
+          *(_OWORD *)PoolWithTag = 0LL;
+          *((_OWORD *)PoolWithTag + 1) = 0LL;
+          *((_DWORD *)PoolWithTag + 8) = 0;
+          *(_DWORD *)PoolWithTag = 7;
+          *(_OWORD *)(PoolWithTag + 10) = *((_OWORD *)Src + 2);
+          goto LABEL_26;
+        }
+      }
+    }
+    else
+    {
+      v9 = 20;
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x14uLL, 0x4B444342u);
+      if ( PoolWithTag )
+      {
+        *(_OWORD *)PoolWithTag = 0LL;
+        *((_DWORD *)PoolWithTag + 4) = 0;
+        *(_DWORD *)PoolWithTag = 1;
+        goto LABEL_26;
+      }
+    }
+    NtPartitionPath = -1073741670;
+    goto LABEL_14;
+  }
+  v35 = *((_DWORD *)Src + 4);
+  if ( v35 != 3 && v35 != 5 )
+    goto LABEL_89;
+  v36 = v35 == 3;
+  v37 = *((unsigned int *)Src + 2);
+  v38 = 52LL;
+  if ( !v36 )
+    v38 = 32LL;
+  v39 = 36LL;
+  if ( !v36 )
+    v39 = 16LL;
+  v40 = &Src[v39 + 16];
+  if ( v37 < v38 + 12 || *((_DWORD *)v40 + 2) > (unsigned int)(v37 - v38) )
+  {
+    NtPartitionPath = -1073741811;
+    goto LABEL_85;
+  }
+  NtPartitionPath = BiConvertBootEnvironmentDeviceToNt(v40, (__int64)&Size);
+  if ( NtPartitionPath < 0 )
+    goto LABEL_86;
+  if ( *(_DWORD *)v48 == 3 )
+    goto LABEL_89;
+  v41 = &v40[*((unsigned int *)v40 + 2)];
+  P = v41;
+  v42 = -1LL;
+  do
+    ++v42;
+  while ( *(_WORD *)&v41[2 * v42] );
+  v43 = 2 * v42 + 2;
+  if ( v43 + 32 < 0x20 || v43 + 32 + (unsigned int)Size < v43 + 32 )
+    goto LABEL_89;
+  v44 = (v43 + 31) & 0xFFFFFFF8;
+  v51 = (unsigned int)Size + v44;
+  v9 = Size + v44;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v51, 0x4B444342u);
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, v51);
+    memmove(PoolWithTag + 12, v41, v43);
+    *((_DWORD *)PoolWithTag + 5) = v44;
+    memmove((char *)PoolWithTag + v44, v48, (unsigned int)Size);
+    *(_DWORD *)PoolWithTag = 4 - (*((_DWORD *)Src + 4) != 3);
+    NtPartitionPath = 0;
     goto LABEL_12;
   }
-  v11 = v10 - 3;
-  if ( !v11 )
-  {
-    v9 = 20;
-    v7 = (wchar_t *)ExAllocatePool2(258LL, 20LL, 1262764866LL);
-    if ( !v7 )
-      goto LABEL_20;
-    *(_OWORD *)v7 = 0LL;
-    *((_DWORD *)v7 + 4) = 0;
-    *(_DWORD *)v7 = 1;
-    goto LABEL_13;
-  }
-  v12 = v11 - 1;
-  if ( !v12 )
-    goto LABEL_5;
-  v23 = v12 - 1;
-  if ( !v23 )
-  {
-    v9 = 36;
-    v7 = (wchar_t *)ExAllocatePool2(258LL, 36LL, 1262764866LL);
-    if ( !v7 )
-      goto LABEL_20;
-    *(_OWORD *)v7 = 0LL;
-    *((_OWORD *)v7 + 1) = 0LL;
-    *((_DWORD *)v7 + 8) = 0;
-    *(_DWORD *)v7 = 7;
-    *(_OWORD *)(v7 + 10) = *((_OWORD *)Src + 2);
-    goto LABEL_13;
-  }
-  v24 = v23 - 1;
-  if ( !v24 )
-  {
-    v30 = 34;
-    v31 = -1LL;
-    HIDWORD(Size) = 34;
-    v46 = Src[4] == 1;
-    v9 = 34;
-    v57 = (wchar_t *)(Src + 7);
-    if ( v46 )
-    {
-      v32 = -1LL;
-      do
-        ++v32;
-      while ( *((_WORD *)Src + v32 + 14) );
-      v9 = 2 * v32 + 34;
-      HIDWORD(Size) = v9;
-      v30 = v9;
-      v33 = v9;
-    }
-    else
-    {
-      v33 = 34;
-    }
-    v34 = Src[6];
-    if ( (_DWORD)v34 )
-    {
-      if ( (a3 & 0x20) != 0 )
-        goto LABEL_46;
-      v35 = BiGetNtPartitionPath((int)Src, &Srca);
-      v8 = Srca;
-      if ( v35 >= 0 )
-      {
-        v61 = 1;
-        v36 = -1LL;
-        do
-          ++v36;
-        while ( *((_WORD *)Srca + v36) );
-        v37 = 2 * v36 + 2;
-        LODWORD(Size) = 2 * v36 + 22;
-        v38 = (void *)ExAllocatePool2(258LL, (unsigned int)Size, 1262764866LL);
-        P = v38;
-        if ( !v38 )
-        {
-          v13 = -1073741670;
-LABEL_18:
-          ExFreePoolWithTag(v8, 0x4B444342u);
-          return (unsigned int)v13;
-        }
-        memset(v38, 0, (unsigned int)Size);
-        *(_DWORD *)P = 2;
-        memmove((char *)P + 20, v8, v37);
-      }
-      if ( !P )
-      {
-LABEL_46:
-        if ( Src[2] - (unsigned int)v34 < 0x4C )
-          goto LABEL_76;
-        v13 = BiConvertBootEnvironmentDeviceToNt((char *)Src + v34 + 40, (__int64)&Size);
-        if ( v13 < 0 )
-          goto LABEL_73;
-      }
-      LODWORD(v34) = v9;
-      v9 += Size;
-      v30 = v9;
-      v33 = v9;
-    }
-    v39 = (wchar_t *)ExAllocatePool2(258LL, v30, 1262764866LL);
-    v7 = v39;
-    if ( !v39 )
-      goto LABEL_20;
-    memset(v39, 0, v33);
-    *(_DWORD *)v7 = 8;
-    if ( Src[4] )
-    {
-      v40 = v57;
-      *((_DWORD *)v7 + 5) = 1;
-      do
-        ++v31;
-      while ( v40[v31] );
-      wcscpy_s(v7 + 16, v31 + 1, v40);
-    }
-    else
-    {
-      *((_DWORD *)v7 + 5) = 0;
-      *((_DWORD *)v7 + 7) = Src[5];
-    }
-    if ( P )
-    {
-      *((_DWORD *)v7 + 6) = v34;
-      v19 = (unsigned int)Size;
-      v21 = P;
-      v20 = (char *)v7 + (unsigned int)v34;
-LABEL_12:
-      memmove(v20, v21, v19);
-    }
-LABEL_13:
-    v13 = 0;
-    goto LABEL_14;
-  }
-  v25 = v24 - 1;
-  if ( !v25 )
-  {
-    v9 = Src[4] + 21;
-    v29 = (wchar_t *)ExAllocatePool2(258LL, v9, 1262764866LL);
-    v7 = v29;
-    if ( !v29 )
-      goto LABEL_20;
-    memset(v29, 0, v9);
-    *(_DWORD *)v7 = 9;
-    strcpy_s((char *)v7 + 20, Src[4], (const char *)Src + 20);
-    goto LABEL_13;
-  }
-  v26 = v25 - 1;
-  if ( !v26 )
-  {
-    v9 = 40;
-    v28 = ExAllocatePool2(258LL, 40LL, 1262764866LL);
-    v7 = (wchar_t *)v28;
-    if ( !v28 )
-      goto LABEL_20;
-    *(_OWORD *)v28 = 0LL;
-    *(_OWORD *)(v28 + 16) = 0LL;
-    *(_QWORD *)(v28 + 32) = 0LL;
-    *(_DWORD *)v28 = 10;
-    *(_OWORD *)(v28 + 20) = *((_OWORD *)Src + 1);
-    *(_DWORD *)(v28 + 36) = Src[8];
-    goto LABEL_13;
-  }
-  if ( v26 == 1 )
-  {
-    v9 = 40;
-    v27 = ExAllocatePool2(258LL, 40LL, 1262764866LL);
-    v7 = (wchar_t *)v27;
-    if ( !v27 )
-      goto LABEL_20;
-    *(_OWORD *)v27 = 0LL;
-    *(_OWORD *)(v27 + 16) = 0LL;
-    *(_QWORD *)(v27 + 32) = 0LL;
-    *(_DWORD *)v27 = 11;
-    *(_DWORD *)(v27 + 20) = Src[4];
-    *(_OWORD *)(v27 + 24) = *((_OWORD *)Src + 2);
-    goto LABEL_13;
-  }
-LABEL_76:
-  v44 = BiConvertBootEnvironmentDeviceToUnknown(Src);
-  v9 = HIDWORD(Size);
-  v13 = v44;
-  v7 = v60;
-LABEL_77:
-  if ( v13 >= 0 )
-    goto LABEL_14;
-LABEL_15:
-  if ( P )
-    ExFreePoolWithTag(P, 0x4B444342u);
-  if ( v61 )
-    goto LABEL_18;
-  return (unsigned int)v13;
+LABEL_64:
+  NtPartitionPath = -1073741670;
+  v8 = 0;
+LABEL_14:
+  if ( v48 )
+    ExFreePoolWithTag(v48, 0x4B444342u);
+  if ( v8 )
+    goto LABEL_17;
+  return (unsigned int)NtPartitionPath;
 }

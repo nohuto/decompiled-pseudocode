@@ -1,112 +1,87 @@
 /*
- * XREFs of RtlFindHotPatchInformation @ 0x140A7653C
+ * XREFs of RtlFindHotPatchInformation @ 0x14091AFA0
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x140A36228 (MiCaptureHotPatchInfo.c)
- *     MiMapAndApplyPatchInSession @ 0x140A3A024 (MiMapAndApplyPatchInSession.c)
- *     MiOpenHotPatchFile @ 0x140A3A3C0 (MiOpenHotPatchFile.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8E04 (MiApplyDriverHotPatch.c)
+ *     MiOpenHotPatchFile @ 0x1408CCB58 (MiOpenHotPatchFile.c)
+ *     MiPerformImageHotPatch @ 0x1408CCF14 (MiPerformImageHotPatch.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     RtlFindHotPatchBase @ 0x140A7650C (RtlFindHotPatchBase.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     RtlFindHotPatchBase @ 0x14091AF70 (RtlFindHotPatchBase.c)
  */
 
-__int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1)
+__int64 __fastcall RtlFindHotPatchInformation(__int64 a1)
 {
-  unsigned int *v2; // rdi
-  unsigned int *v3; // rsi
-  __int64 v4; // r14
-  int v5; // edx
-  __int16 v6; // bx
-  unsigned int *v7; // rcx
-  unsigned int v8; // eax
-  bool v9; // cf
-  char *v10; // rdx
-  __int64 v11; // r10
+  __int64 v2; // rax
+  int v3; // edx
+  __int64 v4; // rdi
+  _DWORD *v5; // rax
+  unsigned __int64 v6; // rcx
+  __int64 v7; // r8
+  unsigned int v8; // r10d
+  unsigned int *v9; // r9
+  unsigned int v10; // eax
+  unsigned int v11; // edx
   unsigned int v12; // r8d
-  unsigned int *v13; // r9
-  unsigned int v14; // eax
-  unsigned int v15; // edx
-  unsigned int v16; // r8d
-  unsigned int v17; // r10d
-  __int64 v18; // r9
-  unsigned int v20; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v21; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int v13; // r10d
+  __int64 v14; // r9
+  unsigned int v16; // [rsp+38h] [rbp+10h] BYREF
 
-  v20 = 0;
-  v21 = 0LL;
-  v2 = 0LL;
-  v3 = 0LL;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v21);
-  v4 = v21;
-  LOBYTE(v5) = 1;
-  v6 = *(_WORD *)(v21 + 4);
-  v7 = (unsigned int *)RtlImageDirectoryEntryToData(a1, v5, 10, (int)&v20);
-  if ( !v7 )
+  v16 = 0;
+  v2 = RtlImageNtHeader(a1);
+  LOBYTE(v3) = 1;
+  v4 = v2;
+  v5 = (_DWORD *)RtlImageDirectoryEntryToData(a1, v3, 10, (int)&v16);
+  if ( !v5 )
     return 0LL;
-  if ( v6 == -31132 || v6 == -21916 )
+  if ( v16 <= 4 )
+    return 0LL;
+  if ( v16 != *v5 )
+    return 0LL;
+  if ( v16 < 0xF4 )
+    return 0LL;
+  if ( (_DWORD *)((char *)v5 + v16) < v5 )
+    return 0LL;
+  v6 = a1 + *(unsigned int *)(v4 + 80);
+  if ( (unsigned __int64)v5 >= v6 )
+    return 0LL;
+  if ( (unsigned __int64)v5 + v16 > v6 )
+    return 0LL;
+  _mm_lfence();
+  v7 = (unsigned int)v5[60];
+  if ( (unsigned int)v7 >= 0xFFFFFFF8 || (_DWORD)v7 == 0 )
+    return 0LL;
+  v8 = *(_DWORD *)(v4 + 80);
+  if ( (int)v7 + 8 > v8 )
+    return 0LL;
+  v9 = (unsigned int *)(a1 + v7);
+  switch ( *(_DWORD *)(a1 + v7) )
   {
-    v8 = v20;
-    if ( v20 <= 4 )
-      return 0LL;
-    v3 = v7;
-    if ( v20 != *v7 )
-      return 0LL;
-    v9 = v20 < 0xF4;
-  }
-  else
-  {
-    if ( v6 != 332 )
-      return 0LL;
-    v8 = v20;
-    if ( v20 <= 4 )
-      return 0LL;
-    v2 = v7;
-    if ( v20 == 64 )
-      v8 = *v7;
-    if ( v8 != *v7 )
-      return 0LL;
-    v9 = v8 < 0x98;
-  }
-  if ( v9 )
-    return 0LL;
-  v10 = (char *)v7 + v8;
-  if ( v10 < (char *)v7 )
-    return 0LL;
-  v11 = *(unsigned int *)(v4 + 80);
-  if ( (unsigned __int64)v7 >= v11 + a1 || (unsigned __int64)v10 > v11 + a1 )
-    return 0LL;
-  v12 = v6 == -31132 || v6 == -21916 ? v3[60] : v2[37];
-  if ( v12 >= 0xFFFFFFF8 || v12 == 0 || v12 + 8 > (unsigned int)v11 )
-    return 0LL;
-  v13 = (unsigned int *)(a1 + v12);
-  switch ( *v13 )
-  {
-    case 1u:
-      v14 = 20;
+    case 1:
+      v10 = 20;
       break;
-    case 2u:
-      v14 = 24;
+    case 2:
+      v10 = 24;
       break;
-    case 3u:
-      v14 = 28;
+    case 3:
+      v10 = 28;
       break;
     default:
       return 0LL;
   }
-  v15 = v13[1];
-  if ( v15 >= v14 )
+  v11 = v9[1];
+  if ( v11 >= v10 )
   {
-    if ( v13[2] )
+    if ( v9[2] )
     {
-      if ( v15 + v12 > v15 && v15 + v12 <= (unsigned int)v11 )
+      if ( v11 + (unsigned int)v7 > v11 && v11 + (unsigned int)v7 <= v8 )
       {
-        v16 = v13[4];
-        if ( v16 <= 0x3FFFFFF9 )
+        v12 = v9[4];
+        if ( v12 <= 0x3FFFFFF9 )
         {
-          v17 = 4 * v16 + v13[3];
-          if ( v17 > 4 * v16 && v17 <= v15 && v16 == 1 && RtlFindHotPatchBase(v13) )
-            return v18;
+          v13 = 4 * v12 + v9[3];
+          if ( v13 > 4 * v12 && v13 <= v11 && v12 == 1 && RtlFindHotPatchBase(v9) )
+            return v14;
         }
       }
     }

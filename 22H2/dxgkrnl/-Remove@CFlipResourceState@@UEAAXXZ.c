@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Remove@CFlipResourceState@@UEAAXXZ @ 0x1C0085C70
+ * XREFs of ?Remove@CFlipResourceState@@UEAAXXZ @ 0x1C006D540
  * Callers:
- *     ?Remove@CContentResourceState@@UEAAXXZ @ 0x1C0087D30 (-Remove@CContentResourceState@@UEAAXXZ.c)
+ *     ?Remove@CContentResourceState@@UEAAXXZ @ 0x1C006D500 (-Remove@CContentResourceState@@UEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CFlipResourceState::Remove(CFlipResourceState *this)

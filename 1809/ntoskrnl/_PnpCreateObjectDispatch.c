@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpCreateObjectDispatch @ 0x1408F9CB8
+ * XREFs of _PnpCreateObjectDispatch @ 0x1408F9C98
  * Callers:
- *     _PnpCreateObject @ 0x1408F9B40 (_PnpCreateObject.c)
+ *     _PnpCreateObject @ 0x1408F9B20 (_PnpCreateObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _PnpCtxGetObjectDispatchCallback @ 0x14059A400 (_PnpCtxGetObjectDispatchCallback.c)
  */
 

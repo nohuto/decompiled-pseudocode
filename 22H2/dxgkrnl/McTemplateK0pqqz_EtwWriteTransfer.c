@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqqz_EtwWriteTransfer @ 0x1C0041554
+ * XREFs of McTemplateK0pqqz_EtwWriteTransfer @ 0x1C003A86C
  * Callers:
- *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C021B04C (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
+ *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C0196180 (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqz_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

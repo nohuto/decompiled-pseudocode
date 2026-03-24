@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetMaxCount@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C0185754
+ * XREFs of ?GetMaxCount@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C015B018
  * Callers:
- *     RIMGetMaxCountFeatureDetails @ 0x1C01890E0 (RIMGetMaxCountFeatureDetails.c)
+ *     RIMGetMaxCountFeatureDetails @ 0x1C015DDA8 (RIMGetMaxCountFeatureDetails.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::RIM::GetMaxCount(const struct RIMDEV *a1)
@@ -17,12 +17,12 @@ void __fastcall InputTraceLogging::RIM::GetMaxCount(const struct RIMDEV *a1)
   int v5; // [rsp+60h] [rbp-18h]
   int v6; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 256LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
   {
     v6 = 0;
     v4 = &v2;
     v2 = v1;
     v5 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0289810, (unsigned __int8 *)dword_1C02585E7, 0LL, 0LL, 3u, &v3);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024AA90, (unsigned __int8 *)dword_1C021A85E, 0LL, 0LL, 3u, &v3);
   }
 }

@@ -1,79 +1,90 @@
 /*
- * XREFs of RtlpHpVsSubsegmentCreate @ 0x140239D20
+ * XREFs of RtlpHpVsSubsegmentCreate @ 0x1402B6A54
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x14034BBF0 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsSubsegmentInitialize @ 0x140239E54 (RtlpHpVsSubsegmentInitialize.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2, unsigned int a3)
 {
-  __int64 v3; // rsi
-  int v4; // r14d
-  unsigned int v5; // edx
-  unsigned int v6; // r14d
-  unsigned int v9; // ecx
-  unsigned int v10; // ebx
-  __int64 v11; // rbp
-  unsigned int v12; // r14d
-  int v14; // [rsp+60h] [rbp+8h] BYREF
-  unsigned int v15; // [rsp+68h] [rbp+10h] BYREF
-  unsigned int v16; // [rsp+78h] [rbp+20h]
+  __int64 v3; // rdi
+  __int64 v4; // rbx
+  unsigned int v5; // r14d
+  unsigned int v8; // ecx
+  __int64 v9; // rbp
+  unsigned int v10; // r14d
+  unsigned __int64 v11; // r8
+  __int16 v12; // cx
+  __int16 v13; // cx
+  int v15; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v16; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v17; // [rsp+78h] [rbp+20h]
 
   v3 = 0LL;
-  v4 = a2 + 4167;
-  v5 = 2 * a2 + 72;
-  v15 = 0;
-  v14 = 0;
-  v6 = v4 & 0xFFFFF000;
+  v4 = (unsigned int)(2 * a2 + 72);
   v16 = 0;
-  if ( ((v5 - 1) & v5) != 0 )
+  v15 = 0;
+  v5 = (a2 + 4167) & 0xFFFFF000;
+  v17 = 0;
+  if ( ((2 * a2 + 71) & (unsigned int)v4) != 0 )
   {
-    _BitScanReverse(&v9, v5);
-    v16 = v9;
-    v5 = 1 << (v9 + 1);
+    _BitScanReverse(&v8, v4);
+    v17 = v8;
+    v4 = (unsigned int)(1 << (v8 + 1));
   }
-  v10 = 0x10000;
-  if ( v5 > 0x10000 )
-  {
-    v10 = v5;
-    if ( v5 >= 0x40000 )
-      v10 = 0x40000;
-  }
+  if ( (unsigned int)v4 <= 0x10000 )
+    v4 = 0x10000LL;
+  if ( (unsigned int)v4 >= 0x40000 )
+    v4 = 0x40000LL;
   while ( 1 )
   {
-    v11 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, int *, unsigned int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 136)))(
-            a1 ^ *(_QWORD *)(a1 + 128),
-            v10,
-            a3,
-            &v14,
-            &v15);
-    if ( v11 )
+    v9 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, int *, unsigned int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 136)))(
+           a1 ^ *(_QWORD *)(a1 + 128),
+           (unsigned int)v4,
+           a3,
+           &v15,
+           &v16);
+    if ( v9 )
       break;
-    v10 = v15;
-    if ( v15 < v6 )
-      return v3;
+    if ( v16 < v5 )
+      goto LABEL_17;
+    v4 = v16;
   }
-  v12 = 4096;
-  if ( (v14 & 1) != 0 )
-    v12 = v10;
+  v10 = 4096;
+  if ( (v15 & 1) != 0 )
+    v10 = v4;
   if ( ((int (__fastcall *)(__int64, __int64, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 152)))(
          a1 ^ *(_QWORD *)(a1 + 128),
-         v11,
-         v12) < 0 )
+         v9,
+         v10) >= 0 )
   {
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), (unsigned __int64)v10 >> 12);
+    v11 = (unsigned __int64)(v4 - 48) >> 4;
+    *(_OWORD *)v9 = 0LL;
+    *(_OWORD *)(v9 + 16) = 0LL;
+    *(_QWORD *)(v9 + 32) = 0LL;
+    *(_WORD *)(v9 + 32) = v11;
+    v12 = 0;
+    *(_QWORD *)(v9 + 16) = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)((unsigned __int64)v10 >> 12));
+    if ( v10 == (_DWORD)v4 )
+      v12 = 0x8000;
+    v13 = *(_WORD *)(v9 + 34) & 0x7FFF | v12;
+    *(_WORD *)(v9 + 34) = v13;
+    *(_WORD *)(v9 + 34) ^= (v11 ^ v13 ^ 0x2BED) & 0x7FFF;
+    *(_OWORD *)(v9 + 48) = 0LL;
+    *(_WORD *)(v9 + 52) = 0;
+    v3 = v9;
+    *(_WORD *)(v9 + 50) = v11;
+    *(_QWORD *)(v9 + 48) ^= (v9 + 48) ^ RtlpHpHeapGlobals;
+    return v3;
+  }
+LABEL_17:
+  if ( v9 )
     ((void (__fastcall *)(__int64, __int64, _QWORD, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 144)))(
       a1 ^ *(_QWORD *)(a1 + 128),
-      v11,
-      v10,
+      v9,
+      (unsigned int)v4,
       a3);
-  }
-  else
-  {
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), (unsigned __int64)v12 >> 12);
-    RtlpHpVsSubsegmentInitialize(v11, v10, v12, *(unsigned int *)(a1 + 8));
-    return v11;
-  }
   return v3;
 }

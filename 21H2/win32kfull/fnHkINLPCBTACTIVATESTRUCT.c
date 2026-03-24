@@ -1,11 +1,13 @@
 /*
- * XREFs of fnHkINLPCBTACTIVATESTRUCT @ 0x1C01509E8
+ * XREFs of fnHkINLPCBTACTIVATESTRUCT @ 0x1C015C9DC
  * Callers:
- *     xxxHkCallHook @ 0x1C0053C4C (xxxHkCallHook.c)
- *     xxxCallCtfHook @ 0x1C0075F08 (xxxCallCtfHook.c)
+ *     xxxCallCtfHook @ 0x1C0052914 (xxxCallCtfHook.c)
+ *     xxxHkCallHook @ 0x1C005CAB0 (xxxHkCallHook.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall fnHkINLPCBTACTIVATESTRUCT(int a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5)
@@ -30,11 +32,15 @@ __int64 __fastcall fnHkINLPCBTACTIVATESTRUCT(int a1, __int64 a2, __int128 *a3, _
   v10 = *a3;
   v11 = a4;
   v12 = a5;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
   LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
   EtwTraceBeginCallback(41LL);
   v5 = KeUserModeCallback(41LL, v8, 48LL, &v15, &v14);
   EtwTraceEndCallback(41LL);
   LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a5);
   if ( v5 < 0 || v14 != 24 )
     return 0LL;
   v6 = v15;

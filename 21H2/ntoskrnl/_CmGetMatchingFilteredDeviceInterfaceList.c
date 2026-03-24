@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceInterfaceList @ 0x140787F7C
+ * XREFs of _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406B1B50
  * Callers:
- *     PiDevCfgConfigureDeviceInterfaces @ 0x140697BE0 (PiDevCfgConfigureDeviceInterfaces.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x140772190 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     IopGetDeviceInterfaces @ 0x1407879A8 (IopGetDeviceInterfaces.c)
- *     PnpDisableDeviceInterfaces @ 0x140810788 (PnpDisableDeviceInterfaces.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x140861A78 (_CmGetMatchingDeviceInterfaceList.c)
- *     PnpDeleteDeviceInterfaces @ 0x140944640 (PnpDeleteDeviceInterfaces.c)
- *     _CmDeleteDeviceWorker @ 0x140A245FC (_CmDeleteDeviceWorker.c)
- *     _CmDeleteInterfaceClassWorker @ 0x140A25124 (_CmDeleteInterfaceClassWorker.c)
+ *     IopGetDeviceInterfaces @ 0x14063A508 (IopGetDeviceInterfaces.c)
+ *     _CmDeleteDeviceWorker @ 0x14072CA88 (_CmDeleteDeviceWorker.c)
+ *     PnpDisableDeviceInterfaces @ 0x14073601C (PnpDisableDeviceInterfaces.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407461B0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x1407679A4 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x1407D1A7C (_CmGetMatchingDeviceInterfaceList.c)
+ *     PnpDeleteDeviceInterfaces @ 0x14089F8A8 (PnpDeleteDeviceInterfaces.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x140975684 (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x14083DEC8 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1407B0448 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceList(

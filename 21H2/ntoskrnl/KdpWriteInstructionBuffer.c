@@ -1,8 +1,8 @@
 /*
- * XREFs of KdpWriteInstructionBuffer @ 0x140565ED4
+ * XREFs of KdpWriteInstructionBuffer @ 0x140511F64
  * Callers:
- *     KdpInsertBreakpoint @ 0x140A748B4 (KdpInsertBreakpoint.c)
- *     KdpRemoveBreakpoint @ 0x140A74AA0 (KdpRemoveBreakpoint.c)
+ *     KdpInsertBreakpoint @ 0x1409BA334 (KdpInsertBreakpoint.c)
+ *     KdpRemoveBreakpoint @ 0x1409BA520 (KdpRemoveBreakpoint.c)
  * Callees:
  *     <none>
  */

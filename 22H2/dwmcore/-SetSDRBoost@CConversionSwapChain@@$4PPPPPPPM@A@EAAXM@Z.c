@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetSDRBoost@CConversionSwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x1801213C0
+ * XREFs of ?SetSDRBoost@CConversionSwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x1800F7840
  * Callers:
  *     <none>
  * Callees:

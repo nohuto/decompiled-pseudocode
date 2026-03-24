@@ -1,51 +1,43 @@
 /*
- * XREFs of HalpDispatchPower @ 0x140A95CA0
+ * XREFs of HalpDispatchPower @ 0x140998190
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     HalpPassIrpFromFdoToPdo @ 0x14038F0E4 (HalpPassIrpFromFdoToPdo.c)
- *     HalpDispatchSystemStateTransition @ 0x14050D2B4 (HalpDispatchSystemStateTransition.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     HalpDispatchSystemStateTransition @ 0x14038B4F0 (HalpDispatchSystemStateTransition.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1403A6B9C (HalpPassIrpFromFdoToPdo.c)
  */
 
 __int64 __fastcall HalpDispatchPower(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8
   unsigned int Status; // ebx
-  int MinorFunction; // edx
+  unsigned __int8 v6; // dl
   int v7; // eax
   unsigned int v8; // esi
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   Status = a2->IoStatus.Status;
-  MinorFunction = CurrentStackLocation->MinorFunction;
-  if ( **(_DWORD **)(a1 + 64) == 193 )
+  v6 = CurrentStackLocation->MinorFunction - 2;
+  if ( **(_DWORD **)(a1 + 64) != 193 )
   {
-    if ( (unsigned int)(MinorFunction - 2) <= 1 )
-    {
-      if ( !CurrentStackLocation->Parameters.Create.Options )
-      {
-        v7 = HalpDispatchSystemStateTransition((__int64)a2);
-        v8 = v7;
-        if ( v7 < 0 )
-        {
-          a2->IoStatus.Status = v7;
-          IofCompleteRequest(a2, 0);
-          return v8;
-        }
-      }
-      a2->IoStatus.Status = 0;
-    }
-    return (unsigned int)HalpPassIrpFromFdoToPdo(a1, a2);
-  }
-  else
-  {
-    if ( MinorFunction == 2 || MinorFunction == 3 )
+    if ( v6 <= 1u )
     {
       Status = 0;
       a2->IoStatus.Status = 0;
     }
     IofCompleteRequest(a2, 0);
+    return Status;
   }
-  return Status;
+  if ( v6 > 1u )
+    return (unsigned int)HalpPassIrpFromFdoToPdo(a1, a2);
+  if ( CurrentStackLocation->Parameters.Create.Options
+    || (v7 = HalpDispatchSystemStateTransition((__int64)a2), v8 = v7, v7 >= 0) )
+  {
+    a2->IoStatus.Status = 0;
+    return (unsigned int)HalpPassIrpFromFdoToPdo(a1, a2);
+  }
+  a2->IoStatus.Status = v7;
+  IofCompleteRequest(a2, 0);
+  return v8;
 }

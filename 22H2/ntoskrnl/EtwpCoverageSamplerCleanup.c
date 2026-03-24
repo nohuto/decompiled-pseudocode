@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCoverageSamplerCleanup @ 0x1409F3004
+ * XREFs of EtwpCoverageSamplerCleanup @ 0x1409461E4
  * Callers:
- *     EtwpCoverageSamplerDelete @ 0x1409F31A0 (EtwpCoverageSamplerDelete.c)
+ *     EtwpCoverageSamplerDelete @ 0x140946370 (EtwpCoverageSamplerDelete.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwpCovSampContextCleanup @ 0x1409F10F4 (EtwpCovSampContextCleanup.c)
- *     EtwpCoverageSamplerFreeTable @ 0x1409F31B8 (EtwpCoverageSamplerFreeTable.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmUnmapViewInSystemSpace @ 0x14068F560 (MmUnmapViewInSystemSpace.c)
+ *     EtwpCovSampContextCleanup @ 0x1409430C4 (EtwpCovSampContextCleanup.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x140946388 (EtwpCoverageSamplerFreeTable.c)
  */
 
 void __fastcall EtwpCoverageSamplerCleanup(__int64 a1)
@@ -14,11 +14,11 @@ void __fastcall EtwpCoverageSamplerCleanup(__int64 a1)
   _QWORD **v2; // rdi
   _QWORD *v3; // rcx
   _QWORD *v4; // rax
-  ULONG_PTR v5; // rcx
-  void *v6; // rcx
+  void *v5; // rcx
+  struct _DMA_ADAPTER *v6; // rcx
 
   EtwpCovSampContextCleanup(a1 + 16);
-  v2 = (_QWORD **)(a1 + 1680);
+  v2 = (_QWORD **)(a1 + 1168);
   while ( 1 )
   {
     v3 = *v2;
@@ -28,24 +28,24 @@ void __fastcall EtwpCoverageSamplerCleanup(__int64 a1)
       __fastfail(3u);
     *v2 = v4;
     v4[1] = v2;
-    if ( v3 == *(_QWORD **)(a1 + 1664) )
-      *(_QWORD *)(a1 + 1664) = 0LL;
+    if ( v3 == *(_QWORD **)(a1 + 1152) )
+      *(_QWORD *)(a1 + 1152) = 0LL;
     EtwpCoverageSamplerFreeTable(v3);
   }
-  *(_DWORD *)(a1 + 1696) = 0;
-  v5 = *(_QWORD *)(a1 + 1704);
+  *(_DWORD *)(a1 + 1184) = 0;
+  v5 = *(void **)(a1 + 1192);
   if ( v5 )
   {
-    MiRemoveFromSystemSpace(v5, 1);
-    *(_QWORD *)(a1 + 1704) = 0LL;
-    *(_DWORD *)(a1 + 1716) = 0;
-    *(_DWORD *)(a1 + 1712) = 0;
-    *(_DWORD *)(a1 + 1720) = 0;
+    MmUnmapViewInSystemSpace(v5);
+    *(_QWORD *)(a1 + 1192) = 0LL;
+    *(_DWORD *)(a1 + 1204) = 0;
+    *(_DWORD *)(a1 + 1200) = 0;
+    *(_DWORD *)(a1 + 1208) = 0;
   }
-  v6 = *(void **)(a1 + 1672);
+  v6 = *(struct _DMA_ADAPTER **)(a1 + 1160);
   if ( v6 )
   {
-    ObfDereferenceObject(v6);
-    *(_QWORD *)(a1 + 1672) = 0LL;
+    HalPutDmaAdapter(v6);
+    *(_QWORD *)(a1 + 1160) = 0LL;
   }
 }

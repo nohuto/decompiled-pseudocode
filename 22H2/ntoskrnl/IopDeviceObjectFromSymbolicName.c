@@ -1,27 +1,27 @@
 /*
- * XREFs of IopDeviceObjectFromSymbolicName @ 0x140790C94
+ * XREFs of IopDeviceObjectFromSymbolicName @ 0x14073A5E0
  * Callers:
- *     IopGetSessionIdFromSymbolicName @ 0x140790C38 (IopGetSessionIdFromSymbolicName.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14073A584 (IopGetSessionIdFromSymbolicName.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall IopDeviceObjectFromSymbolicName(__int64 a1)
 {
   _QWORD *v1; // rdi
-  __int64 Pool2; // rax
+  WCHAR *PoolWithTag; // rax
   WCHAR *v4; // r14
   int ObjectProperty; // ebx
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   int v8; // [rsp+A0h] [rbp+30h] BYREF
   int v9; // [rsp+A8h] [rbp+38h] BYREF
-  void *v10; // [rsp+B0h] [rbp+40h] BYREF
+  __int16 *v10; // [rsp+B0h] [rbp+40h] BYREF
 
   v1 = 0LL;
   v9 = 0;
@@ -36,9 +36,9 @@ _QWORD *__fastcall IopDeviceObjectFromSymbolicName(__int64 a1)
         if ( (int)PnpUnicodeStringToWstr(&v10, 0LL, (unsigned __int16 *)a1) >= 0 )
         {
           v8 = 400;
-          Pool2 = ExAllocatePool2(256LL, 400LL, 1198550608LL);
-          v4 = (WCHAR *)Pool2;
-          if ( Pool2 )
+          PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x47706E50u);
+          v4 = PoolWithTag;
+          if ( PoolWithTag )
           {
             ObjectProperty = PnpGetObjectProperty(
                                *(__int64 *)&PiPnpRtlCtx,
@@ -48,7 +48,7 @@ _QWORD *__fastcall IopDeviceObjectFromSymbolicName(__int64 a1)
                                0LL,
                                (__int64)&DEVPKEY_Device_InstanceId,
                                (__int64)&v9,
-                               Pool2,
+                               (__int64)PoolWithTag,
                                v8,
                                (__int64)&v8,
                                0);

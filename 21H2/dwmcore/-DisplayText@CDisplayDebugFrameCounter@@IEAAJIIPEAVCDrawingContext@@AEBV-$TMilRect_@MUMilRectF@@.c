@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DisplayText@CDisplayDebugFrameCounter@@IEAAJIIPEAVCDrawingContext@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV3@@Z @ 0x1801D6D58
+ * XREFs of ?DisplayText@CDisplayDebugFrameCounter@@IEAAJIIPEAVCDrawingContext@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV3@@Z @ 0x180162318
  * Callers:
- *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x1801D6A58 (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
+ *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x18016200C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
  * Callees:
- *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180004548 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DisplayNumber@CDisplayDebugFrameCounter@@IEAAJIU_D3DCOLORVALUE@@PEAUD2D_RECT_F@@PEAVCDrawingContext@@@Z @ 0x1801D6CB8 (-DisplayNumber@CDisplayDebugFrameCounter@@IEAAJIU_D3DCOLORVALUE@@PEAUD2D_RECT_F@@PEAVCDrawingCon.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?DisplayNumber@CDisplayDebugFrameCounter@@IEAAJIU_D3DCOLORVALUE@@PEAUD2D_RECT_F@@PEAVCDrawingContext@@@Z @ 0x180162284 (-DisplayNumber@CDisplayDebugFrameCounter@@IEAAJIU_D3DCOLORVALUE@@PEAUD2D_RECT_F@@PEAVCDrawingCon.c)
+ *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x1801771A8 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
  */
 
 __int64 __fastcall CDisplayDebugFrameCounter::DisplayText(
@@ -19,114 +19,99 @@ __int64 __fastcall CDisplayDebugFrameCounter::DisplayText(
         int a6,
         __int64 a7)
 {
-  struct _D3DCOLORVALUE v8; // xmm10
+  struct _D3DCOLORVALUE v10; // xmm10
   float v12; // xmm3_4
-  float v13; // xmm9_4
-  struct D2D_RECT_F v14; // xmm1
-  bool v15; // zf
+  struct D2D_RECT_F v13; // xmm1
+  bool v14; // zf
   int Factory; // eax
-  __int64 v17; // rcx
-  unsigned int v18; // ebx
-  _QWORD *v19; // r15
-  int v20; // eax
-  __int64 v21; // rcx
-  int v22; // xmm7_4
-  int v23; // xmm8_4
-  int v24; // eax
-  __int64 v25; // rcx
-  int v26; // eax
-  __int64 v27; // rcx
-  struct _D3DCOLORVALUE v29; // [rsp+58h] [rbp-B0h] BYREF
-  __int128 v30; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v31; // [rsp+78h] [rbp-90h] BYREF
-  struct D2D_RECT_F v32; // [rsp+88h] [rbp-80h] BYREF
-  struct D2D_RECT_F v33; // [rsp+98h] [rbp-70h] BYREF
+  __int64 v16; // rcx
+  unsigned int v17; // ebx
+  _QWORD *v18; // r15
+  int v19; // eax
+  __int64 v20; // rcx
+  int v21; // eax
+  __int64 v22; // rcx
+  int v23; // eax
+  __int64 v24; // rcx
+  struct D2D_RECT_F v26; // [rsp+68h] [rbp-A0h]
+  struct _D3DCOLORVALUE v27; // [rsp+78h] [rbp-90h] BYREF
+  struct D2D_RECT_F v28; // [rsp+88h] [rbp-80h] BYREF
+  struct D2D_RECT_F v29; // [rsp+98h] [rbp-70h] BYREF
 
-  *(struct _D3DCOLORVALUE *)&v8.r = (struct _D3DCOLORVALUE)_xmm;
-  v31 = 0LL;
-  v30 = _xmm;
+  *(struct _D3DCOLORVALUE *)&v10.r = (struct _D3DCOLORVALUE)_xmm;
   if ( a6 == 1 )
     v12 = (float)((float)(*(float *)(a5 + 12) * 0.25) * 3.0) - (float)(120.0 * 0.5);
   else
     v12 = *(float *)(a5 + 8) - 120.0;
-  v29.g = 0.0;
-  v13 = *(float *)&v30 + v12;
-  v29.a = 24.0;
-  v29.r = v12 + 20.0;
-  v29.b = (float)(v12 + 20.0) + 40.0;
-  v14 = *(struct D2D_RECT_F *)&v29.r;
-  v29.g = 0.0;
-  v15 = *(_BYTE *)this == 0;
-  v29.r = (float)(v12 + 40.0) + 40.0;
-  v29.a = 24.0;
-  v32 = v14;
-  v29.b = v29.r + 40.0;
-  v33 = *(struct D2D_RECT_F *)&v29.r;
-  if ( v15 )
+  v26.top = 0.0;
+  v26.bottom = 24.0;
+  v26.left = v12 + 20.0;
+  v26.right = (float)(v12 + 20.0) + 40.0;
+  v13 = v26;
+  v26.top = 0.0;
+  v14 = *((_BYTE *)this + 16) == 0;
+  v26.left = (float)(v12 + 40.0) + 40.0;
+  v26.bottom = 24.0;
+  v28 = v13;
+  v26.right = v26.left + 40.0;
+  v29 = v26;
+  if ( v14 )
   {
-    Factory = DWriteCreateFactory(0LL, &GUID_b859ee5a_d838_4b5b_a2e8_1adc7d93db48, (char *)this + 8);
-    v18 = Factory;
+    Factory = DWriteCreateFactory(0LL, &GUID_b859ee5a_d838_4b5b_a2e8_1adc7d93db48, (char *)this + 24);
+    v17 = Factory;
     if ( Factory < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, Factory, 0x97u);
-      return v18;
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, Factory, 0x9Au, 0LL);
+      return v17;
     }
-    v19 = (_QWORD *)((char *)this + 16);
-    v20 = (*(__int64 (__fastcall **)(_QWORD, const wchar_t *, _QWORD, __int64, _DWORD, int, _DWORD, wchar_t *, char *))(**((_QWORD **)this + 1) + 120LL))(
-            *((_QWORD *)this + 1),
+    v18 = (_QWORD *)((char *)this + 32);
+    v19 = (*(__int64 (__fastcall **)(_QWORD, const wchar_t *, _QWORD, __int64, _DWORD, int, _DWORD, wchar_t *, char *))(**((_QWORD **)this + 3) + 120LL))(
+            *((_QWORD *)this + 3),
             L"Lucida Console",
             0LL,
             400LL,
             0,
             5,
             LODWORD(FLOAT_20_0),
-            word_18032C468,
-            (char *)this + 16);
-    v18 = v20;
-    if ( v20 < 0 )
+            word_1802CE8C0,
+            (char *)this + 32);
+    v17 = v19;
+    if ( v19 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0xA6u);
-      return v18;
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xA9u, 0LL);
+      return v17;
     }
-    (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*v19 + 24LL))(*v19, 2LL);
-    (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*v19 + 32LL))(*v19, 2LL);
-    *(_BYTE *)this = 1;
+    (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*v18 + 24LL))(*v18, 2LL);
+    (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*v18 + 32LL))(*v18, 2LL);
+    *((_BYTE *)this + 16) = 1;
   }
-  v22 = DWORD1(v30);
-  v23 = HIDWORD(v30);
-  DWORD1(v31) = DWORD1(v30);
-  HIDWORD(v31) = HIDWORD(v30);
-  v30 = _xmm;
-  *(_QWORD *)&v29.b = &v31;
-  *(float *)&v31 = v13;
-  *((float *)&v31 + 2) = v12 + 120.0;
-  *(_QWORD *)&v29.r = 1LL;
-  CDrawingContext::FillRectanglesWithSolidColor(a4, (__int64)&v29, (__int64)&v30);
+  *(struct _D3DCOLORVALUE *)&v27.r = (struct _D3DCOLORVALUE)_xmm;
+  CDrawingContext::FillRectanglesWithSolidColor(a4);
   if ( a2 <= 0x1E )
-    *(struct _D3DCOLORVALUE *)&v8.r = *(struct _D3DCOLORVALUE *)&_xmm;
-  *(struct _D3DCOLORVALUE *)&v29.r = *(struct _D3DCOLORVALUE *)&v8.r;
-  v24 = CDisplayDebugFrameCounter::DisplayNumber((struct IDWriteTextFormat **)this, a2, &v29, &v32, a4);
-  v18 = v24;
-  if ( v24 < 0 )
+    *(struct _D3DCOLORVALUE *)&v10.r = (struct _D3DCOLORVALUE)_xmm;
+  *(struct _D3DCOLORVALUE *)&v27.r = *(struct _D3DCOLORVALUE *)&v10.r;
+  v21 = CDisplayDebugFrameCounter::DisplayNumber((struct IDWriteTextFormat **)this, a2, &v27, &v28, a4);
+  v17 = v21;
+  if ( v21 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0LL, v24, 0xBFu);
+    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0xC2u, 0LL);
   }
   else
   {
-    *(struct _D3DCOLORVALUE *)&v29.r = (struct _D3DCOLORVALUE)_xmm;
-    v26 = CDisplayDebugFrameCounter::DisplayNumber((struct IDWriteTextFormat **)this, a3, &v29, &v33, a4);
-    v18 = v26;
-    if ( v26 < 0 )
+    *(struct _D3DCOLORVALUE *)&v27.r = (struct _D3DCOLORVALUE)_xmm;
+    v23 = CDisplayDebugFrameCounter::DisplayNumber((struct IDWriteTextFormat **)this, a3, &v27, &v29, a4);
+    v17 = v23;
+    if ( v23 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0LL, v26, 0xC2u);
+      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0xC5u, 0LL);
     }
     else
     {
-      *(float *)a7 = v13;
-      *(_DWORD *)(a7 + 4) = v22;
+      *(float *)a7 = v12 + 0.0;
+      *(_DWORD *)(a7 + 4) = DWORD1(_xmm);
       *(float *)(a7 + 8) = v12 + 120.0;
-      *(_DWORD *)(a7 + 12) = v23;
+      *(_DWORD *)(a7 + 12) = HIDWORD(_xmm);
     }
   }
-  return v18;
+  return v17;
 }

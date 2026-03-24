@@ -1,112 +1,112 @@
 /*
- * XREFs of IopProcessIoTracking @ 0x14045F528
+ * XREFs of IopProcessIoTracking @ 0x1405081DC
  * Callers:
- *     IopPerfCompleteRequest @ 0x14045F2FE (IopPerfCompleteRequest.c)
+ *     IopPerfCompleteRequest @ 0x140507D14 (IopPerfCompleteRequest.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     ExfTryAcquirePushLockSharedEx @ 0x14032F93C (ExfTryAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x1402E0E80 (ExfTryAcquirePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x1402E3DB0 (KeAbPostReleaseEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F889C (EtwTraceAutoBoostEntryExhaustion.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char __fastcall IopProcessIoTracking(__int64 a1, int a2)
+char __fastcall IopProcessIoTracking(__int64 a1, unsigned int a2)
 {
   char v2; // si
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v4; // rdi
-  ULONG_PTR v5; // rbx
-  unsigned int AbEntrySummary; // eax
-  unsigned int v7; // ecx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v10; // eax
-  signed __int32 v11; // ett
+  struct _KTHREAD *v4; // rbx
+  unsigned __int64 v5; // rdi
+  unsigned __int8 AbEntrySummary; // cl
+  unsigned __int8 AbOrphanedEntrySummary; // al
+  __int64 v8; // rax
   int SessionId; // eax
-  $C71981A45BEB2B45F82C232A7085991E *v13; // rax
+  __int64 v10; // rcx
+  bool v11; // zf
+  char result; // al
   __int64 i; // rbx
-  struct _KTHREAD *v15; // rcx
-  unsigned int v18; // [rsp+20h] [rbp-58h]
-  __int16 v19; // [rsp+30h] [rbp-48h] BYREF
-  int v20; // [rsp+32h] [rbp-46h]
-  __int16 v21; // [rsp+36h] [rbp-42h]
-  __int64 v22; // [rsp+38h] [rbp-40h]
-  int v23; // [rsp+40h] [rbp-38h]
+  int v14; // [rsp+28h] [rbp-50h] BYREF
+  _QWORD v15[3]; // [rsp+30h] [rbp-48h] BYREF
 
-  v22 = a1;
-  v20 = 0;
+  v15[0] = 24LL;
   v2 = 0;
-  v21 = 0;
-  v23 = a2;
-  v19 = 24;
+  v15[1] = a1;
+  v15[2] = a2;
   if ( KeGetCurrentIrql() < 2u )
   {
     CurrentThread = KeGetCurrentThread();
-    v2 = 1;
     --CurrentThread->SpecialApcDisable;
+    v2 = 1;
   }
+  v14 = 0;
   v4 = KeGetCurrentThread();
-  v5 = 0LL;
-  _disable();
-  AbEntrySummary = v4->AbEntrySummary;
-  if ( v4->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(a1, (__int64)v4)) != 0 )
+  --v4->SpecialApcDisable;
+  if ( ++v4->AbAllocationRegionCount != 1 )
   {
-    _BitScanForward(&v7, AbEntrySummary);
-    v18 = v7;
-    v4->AbEntrySummary = AbEntrySummary & ~(1 << v7);
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
-    {
-      _m_prefetchw(SchedulerAssist);
-      v10 = *SchedulerAssist;
-      do
-      {
-        v11 = v10;
-        v10 = _InterlockedCompareExchange(SchedulerAssist, v10 & 0xFFDFFFFF, v10);
-      }
-      while ( v11 != v10 );
-      if ( (v10 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-    }
-    _enable();
-    v5 = (ULONG_PTR)(&v4[1].Process + 12 * v18);
-    if ( (unsigned __int64)&IopPerfIoTrackingLock - qword_140C65AE8 < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx((__int64)v4->ApcState.Process);
-    else
-      SessionId = -1;
-    *(_DWORD *)(v5 + 8) = SessionId;
-    *(_QWORD *)v5 = (unsigned __int64)&IopPerfIoTrackingLock & 0x7FFFFFFFFFFFFFFCLL;
+    v5 = 0LL;
+LABEL_5:
+    _interlockedbittestandset((volatile signed __int32 *)&v4->116 + 1, 0x10u);
+    goto LABEL_18;
   }
+  AbEntrySummary = v4->AbEntrySummary;
+  if ( AbEntrySummary )
+    goto LABEL_9;
+  if ( v4->AbOrphanedEntrySummary )
+  {
+    AbOrphanedEntrySummary = v4->AbOrphanedEntrySummary;
+    v4->AbOrphanedEntrySummary = 0;
+    AbEntrySummary = AbOrphanedEntrySummary | v4->AbEntrySummary;
+LABEL_9:
+    _BitScanForward((unsigned int *)&v8, AbEntrySummary);
+    v4->AbEntrySummary = AbEntrySummary & ~(1 << v8);
+    v5 = (unsigned __int64)&v4->LockEntries[v8];
+    goto LABEL_10;
+  }
+  v5 = 0LL;
+  if ( (WORD2(PerfGlobalGroupMask) & 0x200) == 0 )
+    goto LABEL_5;
+  EtwTraceAutoBoostEntryExhaustion((__int64)v4, (__int64)&IopPerfIoTrackingLock);
+LABEL_10:
+  if ( !v5 )
+    goto LABEL_5;
+  if ( (unsigned __int64)&IopPerfIoTrackingLock >= 0xFFFF800000000000uLL
+    && byte_140C4F9C8[(((unsigned __int64)&IopPerfIoTrackingLock >> 39) & 0x1FF) - 256] == 1 )
+  {
+    SessionId = MmGetSessionIdEx((__int64)v4->ApcState.Process);
+  }
+  else
+  {
+    SessionId = -1;
+  }
+  *(_DWORD *)(v5 + 40) = SessionId;
+  *(_QWORD *)(v5 + 32) = (unsigned __int64)&IopPerfIoTrackingLock & 0x7FFFFFFFFFFFFFFCLL;
+LABEL_18:
+  --v4->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)v4, (__int64)&IopPerfIoTrackingLock, &v14);
+  v11 = v4->SpecialApcDisable++ == -1;
+  if ( v11 && ($C459BD0D405E8E46662177FB3D0A143F *)v4->ApcState.ApcListHead[0].Flink != &v4->152 )
+    KiCheckForKernelApcDelivery(v10);
   if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&IopPerfIoTrackingLock, 17LL, 0LL)
-    || (LOBYTE(v13) = ExfTryAcquirePushLockSharedEx((signed __int64 *)&IopPerfIoTrackingLock, 0), (_BYTE)v13) )
+    || (result = ExfTryAcquirePushLockShared(&IopPerfIoTrackingLock)) != 0 )
   {
     if ( v5 )
-      *(_BYTE *)(v5 + 18) = 1;
+      *(_BYTE *)(v5 + 26) |= 1u;
     for ( i = IopPerfIoTrackingListHead; (__int64 *)i != &IopPerfIoTrackingListHead; i = *(_QWORD *)i )
-      (*(void (__fastcall **)(__int16 *))(i + 16))(&v19);
+      (*(void (__fastcall **)(_QWORD *))(i + 16))(v15);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&IopPerfIoTrackingLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&IopPerfIoTrackingLock);
-    LOBYTE(v13) = KeAbPostRelease((ULONG_PTR)&IopPerfIoTrackingLock);
+    result = KeAbPostRelease((ULONG_PTR)&IopPerfIoTrackingLock);
   }
   else if ( v5 )
   {
-    LOBYTE(v13) = KeAbPostReleaseEx((ULONG_PTR)&IopPerfIoTrackingLock, v5);
+    result = KeAbPostReleaseEx((ULONG_PTR)&IopPerfIoTrackingLock, v5);
   }
   if ( v2 == 1 )
-  {
-    v15 = KeGetCurrentThread();
-    if ( v15->SpecialApcDisable++ == -1 )
-    {
-      v13 = &v15->152;
-      if ( ($C71981A45BEB2B45F82C232A7085991E *)v13->ApcState.ApcListHead[0].Flink != v13 )
-        LOBYTE(v13) = KiCheckForKernelApcDelivery();
-    }
-  }
-  return (char)v13;
+    return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+  return result;
 }

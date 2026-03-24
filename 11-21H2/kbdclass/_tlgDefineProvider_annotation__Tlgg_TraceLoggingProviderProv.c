@@ -1,1 +1,12 @@
-/*\n * XREFs of _tlgDefineProvider_annotation__Tlgg_TraceLoggingProviderProv @ 0x1C000746C\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nvoid tlgDefineProvider_annotation__Tlgg_TraceLoggingProviderProv()\n{\n  ;\n}\n
+/*
+ * XREFs of _tlgDefineProvider_annotation__Tlgg_TraceLoggingProviderProv @ 0x1C000746C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void tlgDefineProvider_annotation__Tlgg_TraceLoggingProviderProv()
+{
+  ;
+}

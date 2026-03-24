@@ -1,20 +1,19 @@
 /*
- * XREFs of CcCopyBytesToUserBuffer @ 0x14032A7D0
+ * XREFs of CcCopyBytesToUserBuffer @ 0x1403234C0
  * Callers:
- *     CcMapAndCopyFromCache @ 0x1407BDF60 (CcMapAndCopyFromCache.c)
+ *     CcMapAndCopyFromCache @ 0x1406EF550 (CcMapAndCopyFromCache.c)
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     CcCopyReadExceptionFilter @ 0x140376F34 (CcCopyReadExceptionFilter.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     CcLockSystemCacheBuffer @ 0x14053A460 (CcLockSystemCacheBuffer.c)
- *     HviCopyMemory @ 0x1405F2B80 (HviCopyMemory.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CcCopyReadExceptionFilter @ 0x1404E9FD4 (CcCopyReadExceptionFilter.c)
+ *     CcLockSystemCacheBuffer @ 0x1404EA4A8 (CcLockSystemCacheBuffer.c)
+ *     HviCopyMemory @ 0x1405945DC (HviCopyMemory.c)
  */
 
-__int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, __int64 a4)
+__int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, char a4)
 {
-  char v4; // r15
   unsigned int v5; // ebx
   char *v6; // r14
   unsigned int v8; // edi
@@ -25,7 +24,6 @@ __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, __i
   struct _MDL *v14; // [rsp+40h] [rbp-38h] BYREF
   unsigned int v15; // [rsp+98h] [rbp+20h] BYREF
 
-  v4 = a4;
   v5 = Size;
   v6 = Src;
   v8 = 0;
@@ -34,7 +32,7 @@ __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, __i
   v10 = 0LL;
   v13 = 0LL;
   v15 = 0;
-  if ( !(_BYTE)a4 || (v10 = CcLockSystemCacheBuffer(Src, &v14, Size, 0LL, &v15), v13 = v10, v9 = v14, v10) )
+  if ( !a4 || (v10 = CcLockSystemCacheBuffer(Src, &v14, Size, 0LL, &v15), v13 = v10, v9 = v14, v10) )
   {
     while ( v5 )
     {
@@ -42,14 +40,14 @@ __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, __i
         v11 = 0x40000;
       else
         v11 = v5;
-      if ( v4 )
-        HviCopyMemory(a1, v10, v11, a4);
+      if ( a4 )
+        HviCopyMemory(a1, v10, v11);
       else
         memmove(a1, v6, v11);
       v5 -= v11;
       a1 += v11;
       v10 = v13;
-      if ( v4 )
+      if ( a4 )
       {
         v10 = v11 + v13;
         v13 = v10;

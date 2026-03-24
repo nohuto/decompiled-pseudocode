@@ -1,33 +1,33 @@
 /*
  * XREFs of PopSaveHiberContext @ 0x14056A060
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x1401C51C0 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x1401C51E0 (PopSaveHiberContextWrapper.c)
  * Callees:
  *     RtlNumberOfClearBits @ 0x14000F420 (RtlNumberOfClearBits.c)
  *     RtlCopyBitMap @ 0x14000F710 (RtlCopyBitMap.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     PopResetRangeEnum @ 0x14013BB84 (PopResetRangeEnum.c)
- *     IoNotifyDump @ 0x1401445DC (IoNotifyDump.c)
- *     IoInitializeDumpStack @ 0x140144684 (IoInitializeDumpStack.c)
- *     IoGetDumpHiberRanges @ 0x1401446B8 (IoGetDumpHiberRanges.c)
- *     IoDumpStackResumeCapable @ 0x1401599C0 (IoDumpStackResumeCapable.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x140270AA8 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlDisableEnlightenment @ 0x140270AD4 (HvlDisableEnlightenment.c)
- *     HvlDiscardPagesFromHibernation @ 0x14027683C (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x14027689C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlPrepareForHibernate @ 0x140276BE0 (HvlPrepareForHibernate.c)
- *     HvlPrepareForSecureHibernate @ 0x140276CF8 (HvlPrepareForSecureHibernate.c)
- *     VslNotifyShutdown @ 0x14027B7DC (VslNotifyShutdown.c)
- *     KdPowerTransition @ 0x14028C0E0 (KdPowerTransition.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x1402D3638 (_PopInternalError.c)
- *     PopWriteSecurePages @ 0x1402DBFBC (PopWriteSecurePages.c)
- *     DbgUnLoadImageSymbols @ 0x1402EC91C (DbgUnLoadImageSymbols.c)
+ *     PopResetRangeEnum @ 0x14013BBA4 (PopResetRangeEnum.c)
+ *     IoNotifyDump @ 0x1401445FC (IoNotifyDump.c)
+ *     IoInitializeDumpStack @ 0x1401446A4 (IoInitializeDumpStack.c)
+ *     IoGetDumpHiberRanges @ 0x1401446D8 (IoGetDumpHiberRanges.c)
+ *     IoDumpStackResumeCapable @ 0x1401599E0 (IoDumpStackResumeCapable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x140270BA8 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlDisableEnlightenment @ 0x140270BD4 (HvlDisableEnlightenment.c)
+ *     HvlDiscardPagesFromHibernation @ 0x14027693C (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x14027699C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlPrepareForHibernate @ 0x140276CE0 (HvlPrepareForHibernate.c)
+ *     HvlPrepareForSecureHibernate @ 0x140276DF8 (HvlPrepareForSecureHibernate.c)
+ *     VslNotifyShutdown @ 0x14027B8DC (VslNotifyShutdown.c)
+ *     KdPowerTransition @ 0x14028C1E0 (KdPowerTransition.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x1402D3738 (_PopInternalError.c)
+ *     PopWriteSecurePages @ 0x1402DC0BC (PopWriteSecurePages.c)
+ *     DbgUnLoadImageSymbols @ 0x1402ECA1C (DbgUnLoadImageSymbols.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     PopWriteHeaderPages @ 0x140569A20 (PopWriteHeaderPages.c)
  *     PopCreateDumpMdl @ 0x14056A410 (PopCreateDumpMdl.c)
@@ -133,18 +133,18 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3, __int64 a2,
       if ( v46 )
         goto LABEL_12;
     }
-    dword_140417AE8 |= 4u;
-    byte_140417A61 = 1;
+    dword_1404178E8 |= 4u;
+    byte_140417861 = 1;
 LABEL_12:
     if ( (unsigned int)PshedArePluginsPresent() )
     {
-      dword_140417AE8 |= 8u;
-      byte_140417A61 = 1;
+      dword_1404178E8 |= 8u;
+      byte_140417861 = 1;
     }
     if ( !(unsigned __int8)off_1403FE590[0]() )
     {
-      dword_140417AE8 |= 1u;
-      byte_140417A61 = 1;
+      dword_1404178E8 |= 1u;
+      byte_140417861 = 1;
     }
     v6 = HvlHypervisorConnected == 0;
     v7 = *(_QWORD *)(BugCheckParameter3 + 200);
@@ -221,7 +221,7 @@ LABEL_12:
       }
       while ( v9 < v8->SizeOfBitMap >> 5 );
     }
-    if ( byte_140417A61 )
+    if ( byte_140417861 )
     {
       v12 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 32);
     }
@@ -234,7 +234,7 @@ LABEL_12:
     v13 = *(_QWORD *)(BugCheckParameter3 + 168);
     *(_DWORD *)(BugCheckParameter3 + 184) = 8;
     IoGetDumpHiberRanges(v14, v13);
-    if ( !byte_140417A61 )
+    if ( !byte_140417861 )
       IoNotifyDump(1);
     v15 = __rdtsc();
     v16 = (int)IoInitializeDumpStack(*(_QWORD *)(BugCheckParameter3 + 168));
@@ -271,8 +271,8 @@ LABEL_12:
     }
     PopResetRangeEnum((_QWORD *)BugCheckParameter3);
     v22 = *(_QWORD **)(BugCheckParameter3 + 160);
-    v23 = qword_140417A38;
-    *v22 = qword_140417A38;
+    v23 = qword_140417838;
+    *v22 = qword_140417838;
     v22[1] = v23;
     v22[2] = 0LL;
     v47 = __rdtsc();
@@ -292,11 +292,11 @@ LABEL_12:
       *(_DWORD *)(BugCheckParameter3 + 184) = 4;
       *(_QWORD *)(BugCheckParameter3 + 96) = v8;
       v27 = RtlNumberOfClearBits(v8);
-      v28 = qword_140417AB8;
+      v28 = qword_1404178B8;
       v29 = *(_DWORD *)(BugCheckParameter3 + 280);
       v30 = *(_QWORD *)(BugCheckParameter3 + 272);
       v31 = (v27 + *(_QWORD *)(BugCheckParameter3 + 88)) << 12;
-      memset(qword_140417AB8, 0, 0x40uLL);
+      memset(qword_1404178B8, 0, 0x40uLL);
       v28[6] = 0;
       *(_QWORD *)v28 = v30;
       v28[2] = v29;
@@ -342,11 +342,11 @@ LABEL_12:
       *(_QWORD *)(BugCheckParameter3 + 96) = BugCheckParameter3 + 32;
       *(_QWORD *)(BugCheckParameter3 + 112) = 0LL;
       v40 = RtlNumberOfClearBits((PRTL_BITMAP)(BugCheckParameter3 + 32));
-      v41 = qword_140417AB8;
+      v41 = qword_1404178B8;
       v42 = *(_DWORD *)(BugCheckParameter3 + 280);
       v43 = *(_QWORD *)(BugCheckParameter3 + 272);
       v44 = (unsigned __int64)v40 << 12;
-      memset(qword_140417AB8, 0, 0x40uLL);
+      memset(qword_1404178B8, 0, 0x40uLL);
       v41[6] = 0;
       *(_QWORD *)v41 = v43;
       v41[2] = v42;

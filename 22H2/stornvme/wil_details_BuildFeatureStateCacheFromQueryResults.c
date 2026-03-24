@@ -1,8 +1,8 @@
 /*
- * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0034008
+ * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0029008
  * Callers:
- *     wil_details_UpdateFeatureConfiguredStates @ 0x1C003424C (wil_details_UpdateFeatureConfiguredStates.c)
- *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C0037114 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x1C002923C (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C002B108 (wil_details_PopulateInitialConfiguredFeatureStates.c)
  * Callees:
  *     <none>
  */

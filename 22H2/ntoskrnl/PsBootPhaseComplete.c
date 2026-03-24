@@ -1,18 +1,18 @@
 /*
- * XREFs of PsBootPhaseComplete @ 0x1408552CC
+ * XREFs of PsBootPhaseComplete @ 0x1407A8CFC
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080CEA0 (CmCompleteRegistryInitialization.c)
- *     CmpFinishSystemHivesLoad @ 0x14080D490 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x14079A330 (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     RtlQueryImageFileExecutionOptions @ 0x1408555A0 (RtlQueryImageFileExecutionOptions.c)
- *     PspQueryForwardersEnabled @ 0x140855618 (PspQueryForwardersEnabled.c)
- *     PspIsDfssEnabled @ 0x1408556A0 (PspIsDfssEnabled.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x1407A8FD0 (RtlQueryImageFileExecutionOptions.c)
+ *     PspQueryForwardersEnabled @ 0x1407A9048 (PspQueryForwardersEnabled.c)
+ *     PspIsDfssEnabled @ 0x1407A90D0 (PspIsDfssEnabled.c)
  */
 
 __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
@@ -127,7 +127,7 @@ __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
         }
         if ( v11 < 0 || HIDWORD(KeyValueInformation) || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
         {
-          _interlockedbittestandset((volatile signed __int32 *)(MmWriteableSharedUserData + 752), *v10);
+          _interlockedbittestandset((volatile signed __int32 *)0xFFFFF780000002F0LL, *v10);
           v9 = KeyHandle;
         }
         ++v12;
@@ -139,7 +139,7 @@ __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
     }
   }
   PsCpuFairShareEnabled = PspIsDfssEnabled();
-  v14 = PdcCreateWatchdogAroundClientCall();
+  v14 = HalSystemVectorDispatchEntry();
   ServerSiloGlobals = PsGetServerSiloGlobals(v14);
   ServerSiloGlobals[1048] = PspQueryForwardersEnabled();
   result = PspGlobalFlags & 0xFFFFFFF3 | 4;

@@ -1,126 +1,62 @@
 /*
- * XREFs of DeleteProperties @ 0x1C0056AA0
+ * XREFs of DeleteProperties @ 0x1C0086F40
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@AEAUtagObjLock@@@Z @ 0x1C0056EDC (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C0056F9C (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
- *     UserGlobalAtomTableCallout @ 0x1C0059240 (UserGlobalAtomTableCallout.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     UserDeleteAtomFromAtomTable @ 0x1C0090CD0 (UserDeleteAtomFromAtomTable.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     UserGlobalAtomTableCallout @ 0x1C008705C (UserGlobalAtomTableCallout.c)
+ *     ??0?$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ @ 0x1C0087174 (--0-$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ.c)
+ *     UserDeleteAtomFromAtomTable @ 0x1C00871C0 (UserDeleteAtomFromAtomTable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DeleteProperties(__int64 a1)
 {
-  _QWORD *v2; // rdi
-  __int64 v3; // rdx
-  int v4; // ebp
-  __int64 i; // rbx
-  __int16 v6; // cx
-  _QWORD *v7; // rax
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r14
-  void *v11; // rdx
-  _QWORD *v12; // rbx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // rcx
-  __int64 v17; // rcx
-  __int64 v18; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v19; // [rsp+30h] [rbp-48h]
-  char v20; // [rsp+40h] [rbp-38h]
-  char v21; // [rsp+48h] [rbp-30h]
+  __int64 v2; // rcx
+  int v3; // esi
+  __int64 v4; // rbx
+  __int16 v5; // cx
+  __int64 v6; // rcx
+  __int64 v7; // rbp
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = 0LL;
-  SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::ObjectLock<tagObjLock>(
-    &v18,
-    *(_QWORD *)(a1 + 144));
-  LockRefactorStagingAssertOwned(*(const struct tagObjLock **)(a1 + 144));
-  v3 = *(_QWORD *)(*(_QWORD *)(a1 + 144) + 24LL);
+  v2 = *(_QWORD *)(a1 + 144);
+  v3 = *(_DWORD *)(v2 + 4);
+  v4 = v2 + 8;
   if ( v3 )
   {
-    v4 = *(_DWORD *)(v3 + 4);
-    for ( i = v3 + 8; v4; --v4 )
+    do
     {
-      v6 = *(_WORD *)(i + 10);
-      if ( (v6 & 1) != 0 )
+      v5 = *(_WORD *)(v4 + 10);
+      if ( (v5 & 1) != 0 )
       {
-        if ( (v6 & 0x8001) == 0x8001 )
+        if ( (v5 & 0x8001) == 0x8001 )
         {
-          v7 = *(_QWORD **)i;
-          if ( v2 )
-            v7[1] = v2;
-          v2 = v7;
+          (***(void (__fastcall ****)(_QWORD))v4)(*(_QWORD *)v4);
         }
-        else if ( (v6 & 8) != 0 )
+        else if ( (v5 & 8) != 0 )
         {
-          RtlFreeHeap(*(PVOID *)(*(_QWORD *)(a1 + 24) + 136LL), 0, *(PVOID *)i);
+          RtlFreeHeap(*(PVOID *)(*(_QWORD *)(a1 + 24) + 128LL), 0, *(PVOID *)v4);
         }
-        else if ( (v6 & 4) == 0 && *(_QWORD *)i )
+        else if ( (v5 & 4) == 0 )
         {
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *(void **)i);
+          Win32FreePool(*(_QWORD *)v4);
         }
       }
-      v8 = UserGlobalAtomTableCallout();
-      v9 = *(unsigned __int16 *)(i + 10);
-      v10 = v8;
-      if ( (v9 & 2) != 0 && v8 && (v9 & 0x10) == 0 )
+      CLockDomainExclusive<DLT_JOB>::CLockDomainExclusive<DLT_JOB>(v8);
+      v7 = UserGlobalAtomTableCallout();
+      if ( (*(_BYTE *)(v4 + 10) & 2) != 0
+        && (*(_DWORD *)(PsGetCurrentProcessWin32Process(v6) + 820) & 0x4000000) == 0
+        && v7 )
       {
-        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
-        if ( CurrentProcessWin32Process )
-        {
-          v14 = -*(_QWORD *)CurrentProcessWin32Process;
-          CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-        }
-        if ( (*(_DWORD *)(CurrentProcessWin32Process + 816) & 0x4000000) == 0 )
-        {
-          v15 = PsGetCurrentProcessWin32Process(v14);
-          if ( v15 )
-            v15 &= -(__int64)(*(_QWORD *)v15 != 0LL);
-          if ( *(_DWORD *)(i + 12) == *(_DWORD *)(v15 + 892) )
-            UserDeleteAtomFromAtomTable(v10, *(unsigned __int16 *)(i + 8));
-        }
+        UserDeleteAtomFromAtomTable(v7, *(unsigned __int16 *)(v4 + 8));
       }
-      i += 16LL;
+      v4 += 16LL;
+      --v3;
     }
-    v11 = *(void **)(*(_QWORD *)(a1 + 144) + 24LL);
-    if ( v11 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v11);
-    *(_QWORD *)(*(_QWORD *)(a1 + 144) + 24LL) = 0LL;
-    if ( v21 && v20 )
-    {
-      v17 = v19;
-      if ( v19 )
-      {
-        *(_QWORD *)(v19 + 8) = 0LL;
-        ExReleasePushLockExclusiveEx(v17, 0LL);
-        KeLeaveCriticalRegion();
-      }
-      v20 = 0;
-    }
-    if ( v2 )
-    {
-      do
-      {
-        v12 = (_QWORD *)v2[1];
-        (*(void (__fastcall **)(_QWORD *))*v2)(v2);
-        v2 = v12;
-      }
-      while ( v12 );
-    }
+    while ( v3 );
+    v2 = *(_QWORD *)(a1 + 144);
   }
-  else if ( v21 && v20 )
-  {
-    v16 = v19;
-    if ( v19 )
-    {
-      *(_QWORD *)(v19 + 8) = 0LL;
-      ExReleasePushLockExclusiveEx(v16, 0LL);
-      KeLeaveCriticalRegion();
-    }
-  }
+  Win32FreePool(v2);
+  *(_QWORD *)(a1 + 144) = 0LL;
 }

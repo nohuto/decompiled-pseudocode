@@ -1,54 +1,49 @@
 /*
- * XREFs of PfpServiceMainThreadBoostPrep @ 0x14097ED58
+ * XREFs of PfpServiceMainThreadBoostPrep @ 0x140779DF8
  * Callers:
- *     PfpScenCtxScenarioSet @ 0x140A883D8 (PfpScenCtxScenarioSet.c)
+ *     PfpScenCtxScenarioSet @ 0x14099AB88 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x14020B8F0 (ObDereferenceObjectDeferDelete.c)
- *     PsLookupThreadByThreadId @ 0x1406FAFC0 (PsLookupThreadByThreadId.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402C3BD0 (ObDereferenceObjectDeferDelete.c)
+ *     PsLookupThreadByThreadId @ 0x140625A50 (PsLookupThreadByThreadId.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PfpServiceMainThreadBoostPrep(__int64 a1, PETHREAD *a2)
+__int64 __fastcall PfpServiceMainThreadBoostPrep(__int64 a1, _QWORD *a2)
 {
   void *v3; // rcx
-  unsigned int v5; // ebx
-  NTSTATUS v6; // eax
-  PETHREAD v7; // rdi
-  __int64 Pool2; // rax
-  PETHREAD Thread; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS v5; // eax
+  PVOID v6; // rdi
+  unsigned int v7; // ebx
+  PVOID PoolWithTag; // rax
+  PVOID Object; // [rsp+30h] [rbp+8h] BYREF
 
-  Thread = 0LL;
+  Object = 0LL;
   v3 = *(void **)(a1 + 72);
-  if ( v3 )
-  {
-    v6 = PsLookupThreadByThreadId(v3, &Thread);
-    v7 = Thread;
-    v5 = v6;
-    if ( v6 >= 0 )
-    {
-      if ( *(_QWORD *)&Thread[1].Header.Lock == *(_QWORD *)(a1 + 80) )
-      {
-        Pool2 = ExAllocatePool2(64LL, 168LL, 1146119760LL);
-        if ( Pool2 )
-        {
-          *a2 = v7;
-          v5 = 0;
-          a2[1] = (PETHREAD)Pool2;
-          return v5;
-        }
-        v5 = -1073741670;
-      }
-      else
-      {
-        v5 = -1073741735;
-      }
-    }
-    if ( v7 )
-      ObDereferenceObjectDeferDelete(v7);
-  }
-  else
-  {
+  if ( !v3 )
     return (unsigned int)-2147483614;
+  v5 = PsLookupThreadByThreadId(v3, (PETHREAD *)&Object);
+  v6 = Object;
+  v7 = v5;
+  if ( v5 >= 0 )
+  {
+    if ( *((_QWORD *)Object + 134) == *(_QWORD *)(a1 + 80) )
+    {
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA8uLL, 0x44506650u);
+      if ( PoolWithTag )
+      {
+        *a2 = v6;
+        v7 = 0;
+        a2[1] = PoolWithTag;
+        return v7;
+      }
+      v7 = -1073741670;
+    }
+    else
+    {
+      v7 = -1073741735;
+    }
   }
-  return v5;
+  if ( v6 )
+    ObDereferenceObjectDeferDelete(v6);
+  return v7;
 }

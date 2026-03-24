@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GFxSpinLock@@UEAAPEAXI@Z @ 0x1C0038EA0
+ * XREFs of ??_GFxSpinLock@@UEAAPEAXI@Z @ 0x1C0062430
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
  */
 
 FxSpinLock *__fastcall FxSpinLock::`scalar deleting destructor'(FxSpinLock *this, unsigned int a2, unsigned int a3)

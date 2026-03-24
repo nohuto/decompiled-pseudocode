@@ -1,15 +1,12 @@
 /*
- * XREFs of CmpFreeExtraParameter @ 0x1407E72A0
+ * XREFs of CmpFreeExtraParameter @ 0x1405D848C
  * Callers:
- *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     CmCreateKey @ 0x140692410 (CmCreateKey.c)
- *     CmpCleanupParseContext @ 0x140692A84 (CmpCleanupParseContext.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmOpenKey @ 0x1406E2B10 (CmOpenKey.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
+ *     CmpCleanupParseContext @ 0x1406CE840 (CmpCleanupParseContext.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall CmpFreeExtraParameter(_QWORD *a1)

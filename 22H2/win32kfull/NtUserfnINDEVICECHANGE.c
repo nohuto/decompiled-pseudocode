@@ -1,14 +1,13 @@
 /*
- * XREFs of NtUserfnINDEVICECHANGE @ 0x1C00A8810
+ * XREFs of NtUserfnINDEVICECHANGE @ 0x1C011FCB0
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtUserfnINDEVICECHANGE(
@@ -19,15 +18,15 @@ __int64 __fastcall NtUserfnINDEVICECHANGE(
         __int64 a5,
         char a6)
 {
-  unsigned int *v6; // r14
+  _DWORD *v9; // rsi
   __int64 v10; // rbx
-  _DWORD *v11; // rsi
-  __int64 v12; // rbx
-  unsigned int v14; // ebx
+  unsigned int v12; // ebx
+  __int64 v13; // rdx
+  __int64 v14; // r8
   __int64 v15; // rax
   __int64 v16; // rdx
-  __int64 v17; // rax
-  unsigned __int64 v18; // rax
+  __int64 v17; // r8
+  __int64 v18; // rdx
   __int64 v19; // rax
   unsigned __int64 v20; // rax
   unsigned __int64 v21; // rcx
@@ -36,110 +35,106 @@ __int64 __fastcall NtUserfnINDEVICECHANGE(
   unsigned int v24; // ecx
   __int64 v25; // rax
   unsigned __int64 v26; // rax
-  __int128 v27; // [rsp+60h] [rbp-48h] BYREF
-  __int64 v28; // [rsp+70h] [rbp-38h]
+  __int64 v27; // rax
+  unsigned __int64 v28; // rax
+  __int128 v29; // [rsp+60h] [rbp-48h] BYREF
+  __int64 v30; // [rsp+70h] [rbp-38h]
+  volatile void *Address; // [rsp+C8h] [rbp+20h]
 
-  v6 = a4;
-  v10 = (unsigned __int16)a3 & 0x8000;
-  v11 = 0LL;
-  v27 = 0LL;
-  v28 = 0LL;
-  PtiCurrentShared();
-  if ( a3 <= 0x800A
-    && ((_DWORD)a3 == 0x8000
-     || (_DWORD)a3 == 32772
-     || (_DWORD)a3 == 32775
-     || (_DWORD)a3 == 32776
-     || (unsigned int)(a3 - 32777) < 2)
-    && !v6 )
+  Address = a4;
+  v9 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
+  if ( a3 <= 0x800A && ((_DWORD)a3 == 0x8000 || (_DWORD)a3 == 32772 || (unsigned int)a3 > 0x8006) && !a4 )
   {
-LABEL_73:
-    v12 = 0LL;
-    UserSetLastError(87LL);
-    return v12;
+LABEL_69:
+    v10 = 0LL;
+    UserSetLastError(87LL, 32778LL, a3);
+    return v10;
   }
-  if ( !v10 )
-    goto LABEL_8;
-  if ( !v6 )
-    goto LABEL_71;
-  if ( (unsigned __int64)v6 >= MmUserProbeAddress )
-    v6 = (unsigned int *)MmUserProbeAddress;
-  v14 = *v6;
-  if ( *v6 < 0xC )
-    goto LABEL_73;
-  ProbeForRead(a4, *v6, 1u);
-  if ( v14 + 2 < v14 )
+  if ( (a3 & 0x8000) == 0 )
+    goto LABEL_6;
+  if ( !a4 )
   {
-LABEL_71:
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, 32778LL, a3);
     return 0LL;
   }
-  v15 = Win32AllocPoolWithQuotaZInit(v14 + 2, 1986294613LL);
-  v11 = (_DWORD *)v15;
+  if ( (unsigned __int64)a4 >= MmUserProbeAddress )
+    a4 = (unsigned int *)MmUserProbeAddress;
+  v12 = *a4;
+  if ( *a4 < 0xC )
+    goto LABEL_69;
+  ProbeForRead(Address, *a4, 1u);
+  if ( v12 + 2 < v12 )
+  {
+    UserSetLastError(87LL, v13, v14);
+    return 0LL;
+  }
+  v15 = Win32AllocPoolWithQuota(v12 + 2, 1986294613LL);
+  v9 = (_DWORD *)v15;
   if ( v15 )
   {
-    PushW32ThreadLock(v15, &v27, (__int64)Win32FreePool);
-    memmove(v11, a4, v14);
-    *((_WORD *)v11 + ((unsigned __int64)v14 >> 1)) = 0;
-    v6 = v11;
-    if ( *v11 == v14 )
+    PushW32ThreadLock(v15, &v29, (__int64)Win32FreePool);
+    memmove(v9, (const void *)Address, v12);
+    *((_WORD *)v9 + ((unsigned __int64)v12 >> 1)) = 0;
+    if ( *v9 == v12 )
     {
-      switch ( v11[1] )
+      switch ( v9[1] )
       {
         case 3:
-          if ( v14 >= 0x10 )
+          if ( v12 >= 0x10 )
+          {
+            v27 = -1LL;
+            do
+              ++v27;
+            while ( *((_WORD *)v9 + v27 + 6) );
+            if ( (int)v27 + 1 >= (unsigned int)v27 )
+            {
+              v28 = 2LL * (unsigned int)(v27 + 1);
+              if ( v28 <= 0xFFFFFFFF && (int)v28 + 12 >= (unsigned int)v28 && (int)v28 + 12 <= v12 )
+                goto LABEL_6;
+            }
+          }
+          v10 = 0LL;
+          break;
+        case 5:
+          if ( v12 >= 0x20 )
           {
             v25 = -1LL;
             do
               ++v25;
-            while ( *((_WORD *)v11 + v25 + 6) );
+            while ( *((_WORD *)v9 + v25 + 14) );
             if ( (int)v25 + 1 >= (unsigned int)v25 )
             {
               v26 = 2LL * (unsigned int)(v25 + 1);
-              if ( v26 <= 0xFFFFFFFF && (int)v26 + 12 >= (unsigned int)v26 && (int)v26 + 12 <= v14 )
-                goto LABEL_8;
+              if ( v26 <= 0xFFFFFFFF && (int)v26 + 28 >= (unsigned int)v26 && (int)v26 + 28 <= v12 )
+                goto LABEL_6;
             }
           }
-          v12 = 0LL;
-          break;
-        case 5:
-          if ( v14 >= 0x20 )
-          {
-            v17 = -1LL;
-            do
-              ++v17;
-            while ( *((_WORD *)v11 + v17 + 14) );
-            if ( (int)v17 + 1 >= (unsigned int)v17 )
-            {
-              v18 = 2LL * (unsigned int)(v17 + 1);
-              if ( v18 <= 0xFFFFFFFF && (int)v18 + 28 >= (unsigned int)v18 && (int)v18 + 28 <= v14 )
-                goto LABEL_8;
-            }
-          }
-          v12 = 0LL;
+          v10 = 0LL;
           break;
         case 6:
-          if ( v14 < 0x38 )
+          if ( v12 < 0x38 )
           {
-            v12 = 0LL;
+            v10 = 0LL;
           }
           else
           {
             if ( a3 != 32774 )
-              goto LABEL_8;
-            v16 = (int)v11[12];
-            if ( (int)v16 < 0 )
-              goto LABEL_8;
-            if ( (v16 & 1) != 0 )
+              goto LABEL_6;
+            v18 = (int)v9[12];
+            if ( (int)v18 < 0 )
+              goto LABEL_6;
+            if ( (v18 & 1) != 0 )
               ExRaiseDatatypeMisalignment();
-            if ( (int)v16 + 52 > v14 )
+            if ( (int)v18 + 52 > v12 )
             {
-              v12 = 0LL;
+              v10 = 0LL;
             }
             else
             {
-              v21 = (unsigned __int64)v11 + v16 + 52;
-              if ( v21 >= (unsigned __int64)(v11 + 13) )
+              v21 = (unsigned __int64)v9 + v18 + 52;
+              if ( v21 >= (unsigned __int64)(v9 + 13) )
               {
                 v22 = -1LL;
                 do
@@ -152,57 +147,54 @@ LABEL_71:
                   {
                     v24 = v23 + 52;
                     if ( (int)v23 + 52 >= (unsigned int)v23
-                      && (unsigned int)v16 + v24 >= v24
-                      && (unsigned int)v16 + v24 <= v14 )
+                      && (unsigned int)v18 + v24 >= v24
+                      && (unsigned int)v18 + v24 <= v12 )
                     {
-LABEL_8:
-                      v12 = (*((__int64 (__fastcall **)(__int64, _QWORD, unsigned __int64, unsigned int *, __int64))&WPP_MAIN_CB.SectorSize
-                             + ((a6 + 6) & 0x1F)))(
+LABEL_6:
+                      v10 = ((__int64 (__fastcall *)(__int64, _QWORD, unsigned __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
                               a1,
                               a2,
-                              a3,
-                              v6,
-                              a5);
+                              a3);
                       break;
                     }
                   }
                 }
               }
-              v12 = 0LL;
+              v10 = 0LL;
             }
           }
           break;
         case 7:
-          if ( v14 >= 0x1A0 )
+          if ( v12 >= 0x1A0 )
           {
             v19 = -1LL;
             do
               ++v19;
-            while ( *((_WORD *)v11 + v19 + 8) );
+            while ( *((_WORD *)v9 + v19 + 8) );
             if ( (int)v19 + 1 >= (unsigned int)v19 )
             {
               v20 = 2LL * (unsigned int)(v19 + 1);
-              if ( v20 <= 0xFFFFFFFF && (int)v20 + 16 >= (unsigned int)v20 && (int)v20 + 16 <= v14 )
-                goto LABEL_8;
+              if ( v20 <= 0xFFFFFFFF && (int)v20 + 16 >= (unsigned int)v20 && (int)v20 + 16 <= v12 )
+                goto LABEL_6;
             }
           }
-          v12 = 0LL;
+          v10 = 0LL;
           break;
         default:
-          goto LABEL_8;
+          goto LABEL_6;
       }
     }
     else
     {
-      v12 = 0LL;
+      v10 = 0LL;
     }
   }
   else
   {
-    UserSetLastError(8LL);
-    v12 = 0LL;
+    UserSetLastError(8LL, v16, v17);
+    v10 = 0LL;
   }
-  if ( v11 )
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v27);
-  return v12;
+  if ( v9 )
+    PopAndFreeAlwaysW32ThreadLock((__int64)&v29);
+  return v10;
 }

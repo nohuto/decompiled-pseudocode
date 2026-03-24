@@ -1,36 +1,44 @@
 /*
- * XREFs of IoGetFileObjectFilterContext @ 0x1402FD5C0
+ * XREFs of IoGetFileObjectFilterContext @ 0x1402FB2DC
  * Callers:
- *     FsRtlRemovePerFileObjectContext @ 0x1402FD3D0 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileObjectContext @ 0x1402FD4C0 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlPTeardownPerFileObjectContexts @ 0x1407657C8 (FsRtlPTeardownPerFileObjectContexts.c)
+ *     FsRtlRemovePerFileObjectContext @ 0x1402FB0F0 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x1402FB1E0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlPTeardownPerFileObjectContexts @ 0x14066C394 (FsRtlPTeardownPerFileObjectContexts.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x140250C30 (IopAllocateFileObjectExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14022BB40 (IopAllocateFileObjectExtension.c)
  */
 
 __int64 __fastcall IoGetFileObjectFilterContext(__int64 a1, _QWORD *a2, char a3)
 {
-  __int64 v3; // rbx
-  _QWORD *v6; // rax
+  _QWORD *v3; // rax
+  __int64 v4; // rbx
   __int64 result; // rax
 
-  v3 = 0LL;
-  if ( !*(_QWORD *)(a1 + 208) )
+  v3 = *(_QWORD **)(a1 + 208);
+  v4 = 0LL;
+  if ( v3 )
+    goto LABEL_2;
+  if ( !a3 )
   {
-    if ( !a3 )
-    {
-      result = 0LL;
-      goto LABEL_6;
-    }
-    result = IopAllocateFileObjectExtension(a1, 0LL);
-    if ( (int)result < 0 )
-      goto LABEL_6;
+    result = 0LL;
+    goto LABEL_5;
   }
-  v6 = *(_QWORD **)(a1 + 208);
-  if ( v6 && v6 != IopRevocationExtension )
-    v3 = v6[4];
-  result = 0LL;
-LABEL_6:
-  *a2 = v3;
+  result = IopAllocateFileObjectExtension(a1, 0LL);
+  if ( (int)result >= 0 )
+  {
+    v3 = *(_QWORD **)(a1 + 208);
+    if ( !v3 )
+    {
+LABEL_4:
+      result = 0LL;
+      goto LABEL_5;
+    }
+LABEL_2:
+    if ( v3 != IopRevocationExtension )
+      v4 = v3[4];
+    goto LABEL_4;
+  }
+LABEL_5:
+  *a2 = v4;
   return result;
 }

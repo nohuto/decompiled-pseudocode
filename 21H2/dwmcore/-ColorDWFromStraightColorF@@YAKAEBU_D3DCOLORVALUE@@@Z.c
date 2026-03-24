@@ -1,9 +1,8 @@
 /*
- * XREFs of ?ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z @ 0x1800D743C
+ * XREFs of ?ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z @ 0x1801A0A9C
  * Callers:
- *     ?ComputeColorAndUV@CDrawListEntryBuilder@@AEBAXPEBUPrimitiveVertexAttributesDesc@@V?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@V?$StridedSpan@UVertexAAFixup_UVxN@@@@@Z @ 0x1800A4C20 (-ComputeColorAndUV@CDrawListEntryBuilder@@AEBAXPEBUPrimitiveVertexAttributesDesc@@V-$StridedSpan.c)
- *     ?UpdatePremultipliedColor@CDrawListPrimitive@@QEAAXAEBU_D3DCOLORVALUE@@@Z @ 0x1801E8AC4 (-UpdatePremultipliedColor@CDrawListPrimitive@@QEAAXAEBU_D3DCOLORVALUE@@@Z.c)
- *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x18022E6D4 (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
+ *     ?GenerateGeometry@Mesh@@QEAAJ_N0AEBV?$StridedSpan@UVertexXYW_ColorDW@@@@AEBV?$StridedSpan@UVertexAAFixupBase@@@@PEAHGPEAG3@Z @ 0x180088070 (-GenerateGeometry@Mesh@@QEAAJ_N0AEBV-$StridedSpan@UVertexXYW_ColorDW@@@@AEBV-$StridedSpan@UVerte.c)
+ *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x1801DF74C (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
  * Callees:
  *     <none>
  */

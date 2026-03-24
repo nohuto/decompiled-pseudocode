@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DestroyProcessCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C03350D0
+ * XREFs of ?DestroyProcessCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02845A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0358158 (-NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00065B8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0006614 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0230210 (-NotifyDxgProcessDestroyed@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z.c)
  */
 
-__int64 __fastcall DestroyProcessCallback(ADAPTER_RENDER **a1, struct DXGPROCESS *a2)
+__int64 __fastcall DestroyProcessCallback(struct DXGADAPTER *const **a1, struct DXGPROCESS *a2)
 {
-  ADAPTER_RENDER *v4; // rcx
+  struct DXGADAPTER *const *v4; // rcx
   _BYTE v6[8]; // [rsp+20h] [rbp-28h] BYREF
   struct DXGADAPTER *v7; // [rsp+28h] [rbp-20h]
   char v8; // [rsp+30h] [rbp-18h]
@@ -20,7 +20,7 @@ __int64 __fastcall DestroyProcessCallback(ADAPTER_RENDER **a1, struct DXGPROCESS
   DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v6);
   if ( *((_DWORD *)a1 + 50) == 1 )
   {
-    v4 = a1[350];
+    v4 = a1[338];
     if ( v4 )
       ADAPTER_RENDER::NotifyDxgProcessDestroyed(v4, a2);
   }

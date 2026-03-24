@@ -1,70 +1,80 @@
 /*
- * XREFs of ?SetReferenceProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C002C060
+ * XREFs of ?SetReferenceProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00607F0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetReferenceProperty(
-        struct DirectComposition::CResourceMarshaler **this,
+        DirectComposition::CSurfaceBrushMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
   unsigned int v5; // ebx
-  unsigned int v9; // r9d
-  unsigned int v11; // r9d
-  unsigned int v12; // r9d
+  int v9; // ebp
+  char v10; // al
+  __int64 v11; // rcx
+  struct DirectComposition::CResourceMarshaler **v12; // rsi
+  bool v14; // zf
 
   v5 = 0;
-  if ( !a3 )
+  *a5 = 0;
+  if ( a3 )
   {
-    if ( !a4 )
-      goto LABEL_6;
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((unsigned int *)a4 + 9), 42LL)
-      && !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(v9, 202LL)
-      && !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(v11, 129LL)
-      && !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(v12, 71LL) )
-    {
-      return 3221225485LL;
-    }
-    if ( a4
-      && !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(
-                             *((unsigned int *)a4 + 9),
-                             147LL) )
-    {
+    if ( a3 != 6 )
       return (unsigned int)-1073741811;
-    }
-    else
+    v9 = 64;
+    if ( a4 )
     {
-LABEL_6:
-      if ( a4 != this[9] )
-      {
-        if ( a4 )
-          DirectComposition::CResourceMarshaler::AddRef(a4);
-        DirectComposition::CApplicationChannel::ReleaseResource(a2, this[9]);
-        this[9] = a4;
-        *((_DWORD *)this + 4) |= 0x20u;
-        *a5 = 1;
-      }
+      v10 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+              a4,
+              27LL);
+      v11 = 80LL;
+      goto LABEL_6;
     }
-    return v5;
+    v11 = 80LL;
+    goto LABEL_17;
   }
-  if ( a3 == 6 )
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             this + 10,
-             a4,
-             1LL,
-             29,
-             this + 2,
-             64,
-             0,
-             a5);
-  return 3221225485LL;
+  v9 = 32;
+  if ( !a4 )
+  {
+    v11 = 72LL;
+LABEL_17:
+    v10 = 1;
+    goto LABEL_6;
+  }
+  if ( (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+         a4,
+         40LL)
+    || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+         a4,
+         200LL)
+    || (v14 = (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+                a4,
+                127LL) == 0,
+        v10 = 0,
+        !v14) )
+  {
+    v10 = 1;
+  }
+  v11 = 72LL;
+LABEL_6:
+  v12 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v11);
+  if ( !(DirectComposition::CSurfaceBrushMarshaler *)((char *)this + v11) || !v10 )
+    return (unsigned int)-1073741811;
+  if ( *v12 != a4 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, *v12);
+    *v12 = a4;
+    if ( a4 )
+      DirectComposition::CResourceMarshaler::AddRef(a4);
+    *((_DWORD *)this + 4) |= v9;
+    *a5 = 1;
+  }
+  return v5;
 }

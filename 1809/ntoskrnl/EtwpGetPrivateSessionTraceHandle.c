@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetPrivateSessionTraceHandle @ 0x1408BFE44
+ * XREFs of EtwpGetPrivateSessionTraceHandle @ 0x1408BFE24
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     RtlRandomEx @ 0x14013DAA0 (RtlRandomEx.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     PidNodeCompare @ 0x1408C061C (PidNodeCompare.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1408C2FE0 (EtwpCheckCurrentUserProcessAccess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlRandomEx @ 0x14013DAC0 (RtlRandomEx.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     PidNodeCompare @ 0x1408C05FC (PidNodeCompare.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1408C2FC0 (EtwpCheckCurrentUserProcessAccess.c)
  */
 
 __int64 __fastcall EtwpGetPrivateSessionTraceHandle(_DWORD *a1, unsigned int a2, unsigned __int16 *a3)

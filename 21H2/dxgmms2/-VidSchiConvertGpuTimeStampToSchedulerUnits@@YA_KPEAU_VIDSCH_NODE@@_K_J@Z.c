@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z @ 0x1C001EA70
+ * XREFs of ?VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z @ 0x1C0036F68
  * Callers:
- *     ?VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0041394 (-VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     ?VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00396E8 (-VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,11 +15,11 @@ unsigned __int64 __fastcall VidSchiConvertGpuTimeStampToSchedulerUnits(
   __int64 v4; // r9
   unsigned __int64 v6; // rcx
 
-  v3 = *((_QWORD *)a1 + 1399);
-  v4 = *((_QWORD *)a1 + 1400);
+  v3 = *((_QWORD *)a1 + 1397);
+  v4 = *((_QWORD *)a1 + 1398);
   if ( v4 == v3 )
     return 0LL;
-  v6 = *((_QWORD *)a1 + 1397) + (a2 - v3) * (*((_QWORD *)a1 + 1398) - *((_QWORD *)a1 + 1397)) / (v4 - v3);
+  v6 = *((_QWORD *)a1 + 1395) + (a2 - v3) * (*((_QWORD *)a1 + 1396) - *((_QWORD *)a1 + 1395)) / (v4 - v3);
   if ( is_mul_ok(v6, 0x989680uLL) )
     return v6 * (unsigned __int128)0x989680uLL / a3;
   else

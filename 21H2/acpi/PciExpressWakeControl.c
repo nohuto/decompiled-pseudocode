@@ -1,9 +1,9 @@
 /*
- * XREFs of PciExpressWakeControl @ 0x1C005B430
+ * XREFs of PciExpressWakeControl @ 0x1C005A5D0
  * Callers:
  *     <none>
  * Callees:
- *     WRITE_PM1_ENABLE @ 0x1C0024674 (WRITE_PM1_ENABLE.c)
+ *     WRITE_PM1_ENABLE @ 0x1C00269B0 (WRITE_PM1_ENABLE.c)
  */
 
 void __fastcall PciExpressWakeControl(__int64 a1, char a2)

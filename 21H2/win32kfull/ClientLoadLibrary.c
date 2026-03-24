@@ -1,17 +1,19 @@
 /*
- * XREFs of ClientLoadLibrary @ 0x1C006A724
+ * XREFs of ClientLoadLibrary @ 0x1C0020D98
  * Callers:
- *     xxxLoadHmodIndex @ 0x1C0054214 (xxxLoadHmodIndex.c)
+ *     xxxLoadHmodIndex @ 0x1C002067C (xxxLoadHmodIndex.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C006A940 (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
- *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C006E568 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C0021A58 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
+ *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0021AFC (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall ClientLoadLibrary(void **a1, void **a2)
@@ -20,69 +22,76 @@ __int64 __fastcall ClientLoadLibrary(void **a1, void **a2)
   int v5; // ebx
   __int64 *v6; // rcx
   __int64 v7; // rbx
-  _BYTE v9[4]; // [rsp+30h] [rbp-2A8h] BYREF
-  int v10; // [rsp+34h] [rbp-2A4h] BYREF
-  ULONG_PTR RegionSize; // [rsp+38h] [rbp-2A0h] BYREF
-  unsigned __int64 v12; // [rsp+40h] [rbp-298h] BYREF
-  __int128 v13; // [rsp+48h] [rbp-290h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-280h]
-  __int64 v15; // [rsp+60h] [rbp-278h]
-  unsigned __int8 v16[72]; // [rsp+70h] [rbp-268h] BYREF
-  unsigned __int8 v17[512]; // [rsp+C0h] [rbp-218h] BYREF
+  char v9; // [rsp+30h] [rbp-2B8h] BYREF
+  _BYTE v10[3]; // [rsp+31h] [rbp-2B7h] BYREF
+  int v11; // [rsp+34h] [rbp-2B4h] BYREF
+  _QWORD v12[2]; // [rsp+38h] [rbp-2B0h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp-2A0h] BYREF
+  __int128 v14; // [rsp+50h] [rbp-298h] BYREF
+  __int64 v15; // [rsp+60h] [rbp-288h]
+  __int64 v16; // [rsp+68h] [rbp-280h]
+  unsigned __int8 v17[72]; // [rsp+80h] [rbp-268h] BYREF
+  unsigned __int8 v18[512]; // [rsp+D0h] [rbp-218h] BYREF
 
-  memset(v16, 0, sizeof(v16));
-  v12 = 0LL;
-  v10 = 0;
+  memset(v17, 0, sizeof(v17));
+  v12[0] = 0LL;
+  v11 = 0;
   v4 = (unsigned __int8 *)AllocCallbackMessage(
                             0x48u,
                             2u,
                             *((unsigned __int16 *)a2 + 1) + (unsigned __int64)*((unsigned __int16 *)a1 + 1),
-                            v17,
+                            v18,
                             1,
                             0x200uLL);
-  RegionSize = (ULONG_PTR)v4;
+  v12[1] = v4;
   if ( !v4 )
     return 0LL;
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v13 = 0LL;
+  W32GetThreadWin32Thread(KeGetCurrentThread());
   v14 = 0LL;
-  if ( v4 != v16 && v4 != v17 )
-    PushW32ThreadLock(v4, &v13, Win32FreePool);
+  v15 = 0LL;
+  if ( v4 != v17 && v4 != v18 )
+    PushW32ThreadLock(v4, &v14, Win32FreePool);
   *((_WORD *)v4 + 20) = *(_WORD *)a1;
   *((_WORD *)v4 + 21) = *((_WORD *)a1 + 1);
   if ( CaptureCallbackData((struct _CAPTUREBUF *)v4, a1[1], *(unsigned __int16 *)a1 + 2, (void **)v4 + 6) < 0 )
-    goto LABEL_17;
+    goto LABEL_18;
   *((_WORD *)v4 + 28) = *(_WORD *)a2;
   *((_WORD *)v4 + 29) = *((_WORD *)a2 + 1);
   if ( CaptureCallbackData((struct _CAPTUREBUF *)v4, a2[1], *(unsigned __int16 *)a2 + 2, (void **)v4 + 8) < 0 )
-    goto LABEL_17;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v9);
+    goto LABEL_18;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v10);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9);
   EtwTraceBeginCallback(75LL);
   *((_QWORD *)v4 + 2) = 0LL;
-  v5 = KeUserModeCallback(75LL, v4, *(unsigned int *)v4, &v12, &v10);
+  v5 = KeUserModeCallback(75LL, v4, *(unsigned int *)v4, v12, &v11);
   EtwTraceEndCallback(75LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v9);
-  if ( v5 >= 0 && v10 == 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v10);
+  if ( v5 < 0 )
+    goto LABEL_18;
+  if ( v11 == 24 )
   {
-    v6 = (__int64 *)v12;
-    if ( v12 + 8 < v12 || v12 + 8 > MmUserProbeAddress )
+    v6 = (__int64 *)v12[0];
+    if ( (unsigned __int64)(v12[0] + 8LL) < v12[0] || v12[0] + 8LL > MmUserProbeAddress )
       v6 = (__int64 *)MmUserProbeAddress;
     v7 = *v6;
-    v15 = *v6;
+    v16 = *v6;
   }
   else
   {
-LABEL_17:
+LABEL_18:
     v7 = 0LL;
   }
-  if ( v4 != v16 && v4 != v17 )
+  if ( v4 != v17 && v4 != v18 )
   {
     if ( *((_QWORD *)v4 + 4) )
     {
       RegionSize = 0LL;
       ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v4 + 4, &RegionSize, 0x8000u);
     }
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v13);
+    PopAndFreeAlwaysW32ThreadLock(&v14);
   }
   return v7;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CiDispatchCreate @ 0x1C000A010
+ * XREFs of CiDispatchCreate @ 0x1C000A340
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
- *     WPP_SF_Z @ 0x1C0004764 (WPP_SF_Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
+ *     WPP_SF_Z @ 0x1C00044B4 (WPP_SF_Z.c)
  */
 
 __int64 __fastcall CiDispatchCreate(__int64 a1, IRP *a2)

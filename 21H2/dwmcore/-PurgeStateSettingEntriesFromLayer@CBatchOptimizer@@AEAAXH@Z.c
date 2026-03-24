@@ -1,35 +1,36 @@
 /*
- * XREFs of ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180019080
+ * XREFs of ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180011F18
  * Callers:
- *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18007FFE0 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
- *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800805F0 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
- *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180113676 (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180011FAC (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C073C (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
  * Callees:
- *     ?DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListBatchManager@@AEBV?$span@PEAVCBatchCommand@@$0?0@gsl@@@Z @ 0x1800115DC (-DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListBatchManager@@AEBV-$span@PEAVCBatchCommand@@$0-.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListEntryBatch@@AEBV?$span@PEAVCBaseDrawListEntry@@$0?0@gsl@@@Z @ 0x180012314 (-DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListEntryBatch@@AEBV-$span@PEAVCBaseDrawListEntry@@.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CBatchOptimizer::PurgeStateSettingEntriesFromLayer(CBatchOptimizer *this, int a2)
 {
-  _DWORD *v2; // rbx
-  int v3; // eax
-  __int64 v4; // rsi
-  _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rdx
+  _DWORD *v3; // rbx
+  int v4; // eax
+  __int64 v5; // rdi
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = (_DWORD *)((char *)this + 520 * *((int *)this + a2 + 12));
-  v3 = v2[24] - v2[25];
-  if ( v3 )
+  v2 = *((int *)this + a2 + 12);
+  v3 = (_DWORD *)((char *)this + 520 * v2);
+  v4 = v3[24] - v3[25];
+  if ( v4 )
   {
-    v4 = v3;
-    v5[0] = v3;
-    if ( v3 == -1LL || (v5[1] = v2 + 30, v2 == (_DWORD *)-120LL) )
+    v5 = v4;
+    v6[0] = v4;
+    if ( v4 < 0 || (v6[1] = v3 + 30, v3 == (_DWORD *)-120LL) )
     {
-      gsl::details::terminate(this);
-      JUMPOUT(0x18012082ALL);
+      ((void (__fastcall *)(CBatchOptimizer *, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(this, v2);
+      __debugbreak();
     }
-    CBatchOptimizer::DiscardEntries(*((_QWORD *)this + 1), (__int64)v5);
-    memmove_0(v2 + 30, &v2[2 * v4 + 30], 8LL * (unsigned int)v2[25]);
-    v2[24] = v2[25];
+    CBatchOptimizer::DiscardEntries(*(_QWORD *)(*((_QWORD *)this + 1) + 168LL), v6);
+    memmove_0(v3 + 30, &v3[2 * v5 + 30], 8LL * (unsigned int)v3[25]);
+    v3[24] = v3[25];
   }
 }

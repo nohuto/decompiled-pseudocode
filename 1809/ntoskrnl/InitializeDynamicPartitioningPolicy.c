@@ -3,9 +3,9 @@
  * Callers:
  *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     HviIsAnyHypervisorPresent @ 0x140176B90 (HviIsAnyHypervisorPresent.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
  */
 
 __int64 __fastcall InitializeDynamicPartitioningPolicy(int a1)

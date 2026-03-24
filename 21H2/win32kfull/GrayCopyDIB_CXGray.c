@@ -1,5 +1,5 @@
 /*
- * XREFs of GrayCopyDIB_CXGray @ 0x1C0001010
+ * XREFs of GrayCopyDIB_CXGray @ 0x1C0002380
  * Callers:
  *     <none>
  * Callees:

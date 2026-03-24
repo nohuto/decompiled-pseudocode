@@ -1,5 +1,5 @@
 /*
- * XREFs of _anonymous_namespace_::_dynamic_atexit_destructor_for___currentSequence__ @ 0x180124380
+ * XREFs of _anonymous_namespace_::_dynamic_atexit_destructor_for___currentSequence__ @ 0x1800F8F40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 anonymous_namespace_::_dynamic_atexit_destructor_for___currentSequence__()
 {
-  return anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo(qword_1803E5990);
+  return anonymous_namespace_::FrameSequenceInfo::_FrameSequenceInfo(qword_180347220);
 }

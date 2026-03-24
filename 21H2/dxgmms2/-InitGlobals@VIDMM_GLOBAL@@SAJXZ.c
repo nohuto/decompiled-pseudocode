@@ -1,183 +1,233 @@
 /*
- * XREFs of ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00B3A58
+ * XREFs of ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C009357C
  * Callers:
- *     VidMmInitGlobals @ 0x1C001CA60 (VidMmInitGlobals.c)
+ *     VidMmInitGlobals @ 0x1C0017300 (VidMmInitGlobals.c)
  * Callees:
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001868 (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000188C (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00029AC (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     McGenEventRegister_EtwRegister @ 0x1C001CA78 (McGenEventRegister_EtwRegister.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     TlgRegisterAggregateProviderEx @ 0x1C00B36C4 (TlgRegisterAggregateProviderEx.c)
- *     ?InitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00B3FB0 (-InitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ.c)
- *     ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C00B4010 (-InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ.c)
- *     ?InitGlobals@VIDMM_DMA_POOL@@SAJXZ @ 0x1C00B4058 (-InitGlobals@VIDMM_DMA_POOL@@SAJXZ.c)
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B41D8 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
- *     __security_init_cookie @ 0x1C00F9044 (__security_init_cookie.c)
- *     ?wil_InitializeFeatureStaging@@YAJXZ @ 0x1C00F9078 (-wil_InitializeFeatureStaging@@YAJXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C00024B4 (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00024D8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C0017318 (McGenEventRegister_EtwRegister.c)
+ *     Feature_3895685435__private_IsEnabledDeviceUsage @ 0x1C00179EC (Feature_3895685435__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C00931F0 (TlgRegisterAggregateProviderEx.c)
+ *     ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C0093A34 (-InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ.c)
+ *     ?InitGlobals@VIDMM_DMA_POOL@@SAJXZ @ 0x1C0093A7C (-InitGlobals@VIDMM_DMA_POOL@@SAJXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093BFC (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     __security_init_cookie @ 0x1C00D6044 (__security_init_cookie.c)
+ *     wil_InitializeFeatureStaging @ 0x1C00D6078 (wil_InitializeFeatureStaging.c)
  */
 
 __int64 VIDMM_GLOBAL::InitGlobals(void)
 {
   int v0; // eax
-  unsigned int v1; // esi
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   DXGGLOBAL *Global; // rax
-  __int64 v5; // rax
-  unsigned __int64 MaximumGlobalAdapterCount; // kr00_8
-  __int64 v7; // rcx
+  unsigned __int64 MaximumAdapterCount; // rbx
+  SIZE_T v9; // rax
+  PVOID v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rax
   int inited; // eax
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  NTSTATUS v12; // eax
-  __int64 v13; // rcx
+  int v15; // eax
+  _QWORD *v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rax
+  NTSTATUS v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // rax
+  NTSTATUS v26; // eax
+  NTSTATUS v27; // eax
+  NTSTATUS v28; // eax
+  NTSTATUS v29; // eax
   int LiveDumpWithWdLogs; // eax
-  __int64 v15; // rcx
-  _PCW_REGISTRATION_INFORMATION Info; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v17; // [rsp+80h] [rbp-80h]
-  struct _PCW_REGISTRATION_INFORMATION v18; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v19; // [rsp+B8h] [rbp-48h]
-  struct _PCW_REGISTRATION_INFORMATION v20; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v21; // [rsp+F0h] [rbp-10h]
-  struct _PCW_REGISTRATION_INFORMATION v22; // [rsp+F8h] [rbp-8h] BYREF
-  __int64 v23; // [rsp+128h] [rbp+28h]
-  struct _PCW_REGISTRATION_INFORMATION v24; // [rsp+130h] [rbp+30h] BYREF
-  __int64 v25; // [rsp+160h] [rbp+60h]
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // rdi
+  __int64 v35; // rax
+  _QWORD v36[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v37[2]; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD v38[2]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v39[2]; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v40[2]; // [rsp+80h] [rbp-80h] BYREF
+  _PCW_REGISTRATION_INFORMATION Info; // [rsp+90h] [rbp-70h] BYREF
+  struct _PCW_REGISTRATION_INFORMATION v42; // [rsp+C0h] [rbp-40h] BYREF
+  struct _PCW_REGISTRATION_INFORMATION v43; // [rsp+F0h] [rbp-10h] BYREF
+  struct _PCW_REGISTRATION_INFORMATION v44; // [rsp+120h] [rbp+20h] BYREF
+  struct _PCW_REGISTRATION_INFORMATION v45; // [rsp+150h] [rbp+50h] BYREF
 
   _security_init_cookie();
   v0 = wil_InitializeFeatureStaging();
-  v1 = v0;
+  v4 = v0;
   if ( v0 < 0 )
   {
     VIDMM_GLOBAL::KirEnabled = 0;
-    WdLogSingleEntry1(1LL, v0);
-    goto LABEL_24;
+LABEL_28:
+    v35 = WdLogNewEntry5_WdAssertion(v2, v1, v3);
+    *(_QWORD *)(v35 + 24) = v4;
+    goto LABEL_29;
   }
-  VIDMM_GLOBAL::KirEnabled = 1;
-  KeQueryPerformanceCounter(&VIDMM_GLOBAL::_QpcFrequency);
   bTracingEnabled = 0;
+  VIDMM_GLOBAL::KirEnabled = 1;
   McGenEventRegister_EtwRegister();
-  TlgRegisterAggregateProviderEx(v3, v2);
+  TlgRegisterAggregateProviderEx(v6, v5);
   VIDMM_GLOBAL::ReadConfiguration();
-  VIDMM_GLOBAL::_RotationHistory = (void *)operator new[](98304LL, 0x6D4D6956u, 64LL);
+  VIDMM_GLOBAL::_RotationHistory = operator new[](0x18000uLL, 0x6D4D6956u, (POOL_TYPE)512);
   if ( VIDMM_GLOBAL::_RotationHistory )
     *(&VIDMM_GLOBAL::_RotationHistory + 1) = (void *)2048;
   Global = DXGGLOBAL::GetGlobal();
-  MaximumGlobalAdapterCount = (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(Global);
-  v5 = 4 * MaximumGlobalAdapterCount;
-  if ( !is_mul_ok(MaximumGlobalAdapterCount, 4uLL) )
-    v5 = -1LL;
-  VIDMM_PROCESS::_pDxProcessPerAdapterCount = (void *)operator new[](v5, 0x33316956u, 256LL);
-  if ( !VIDMM_PROCESS::_pDxProcessPerAdapterCount )
+  MaximumAdapterCount = (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(Global);
+  v9 = 4 * MaximumAdapterCount;
+  if ( !is_mul_ok(MaximumAdapterCount, 4uLL) )
+    v9 = -1LL;
+  v10 = operator new[](v9, 0x33316956u, PagedPool);
+  VIDMM_PROCESS::_pDxProcessPerAdapterCount = v10;
+  if ( !v10 )
   {
-    _InterlockedAdd(&dword_1C006E77C, 1u);
-    WdLogSingleEntry1(6LL, 493LL);
-    DxgkLogInternalTriageEvent(v7, 262145LL);
-    return -1073741801LL;
-  }
-  inited = VIDMM_DMA_POOL::InitGlobals();
-  v1 = inited;
-  if ( inited < 0 || (inited = VIDMM_PROCESS_FENCE_STORAGE::InitGlobalStorage(), v1 = inited, inited < 0) )
-  {
-    WdLogSingleEntry1(1LL, inited);
-LABEL_24:
-    DxgkLogInternalTriageEvent(v10, 0x40000LL);
-    return v1;
-  }
-  qword_1C006E8B8 = (__int64)&VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead;
-  VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead.Flink = &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead;
-  v11 = operator new(32LL, 0x30316956u, 256LL);
-  if ( !v11 )
-  {
-    VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListLock = 0LL;
-    WdLogSingleEntry1(1LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(v15, 0x40000LL);
+    _InterlockedAdd(&dword_1C00506CC, 1u);
+    v12 = WdLogNewEntry5_WdLowResource(v11);
+    *(_QWORD *)(v12 + 24) = 492LL;
+    WdLogEvent5_WdLowResource(v12);
     return 3221225495LL;
   }
-  *(_QWORD *)v11 = 0LL;
-  *(_QWORD *)(v11 + 8) = 0LL;
-  *(_DWORD *)(v11 + 16) = 0;
-  *(_DWORD *)(v11 + 20) = 64;
-  *(_DWORD *)(v11 + 24) = -1;
-  VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListLock = (struct DXGPUSHLOCK *)v11;
-  qword_1C006E8F8 = (__int64)&VIDMM_GLOBAL::_AdapterListHead;
-  VIDMM_GLOBAL::_AdapterListHead.Flink = &VIDMM_GLOBAL::_AdapterListHead;
-  Info.Name = (PCUNICODE_STRING)L"$&";
-  Info.Counters = (PPCW_COUNTER_DESCRIPTOR)&`InitRegistrationInformationGpuPerformanceCounterSetProcessMemory'::`2'::Descriptors;
-  VIDMM_PARTITION::_PartitionTree = 0LL;
-  *(_QWORD *)&Info.Version = 512LL;
-  *(_QWORD *)&Info.CounterCount = 5LL;
-  v17 = 0LL;
-  Info.Callback = 0LL;
-  Info.CallbackContext = 0LL;
-  v12 = PcwRegister(&GpuPerformanceCounterSetProcessMemory, &Info);
-  v1 = v12;
-  if ( v12 < 0 )
-    goto LABEL_19;
-  VIDMM_GLOBAL::PerfCounterSetEngineRegistered = 1;
-  v18.Name = (PCUNICODE_STRING)&`InitRegistrationInformationGpuPerformanceCounterSetEngine'::`2'::Name;
-  *(_QWORD *)&v18.Version = 512LL;
-  v18.Counters = (PPCW_COUNTER_DESCRIPTOR)&`InitRegistrationInformationGpuPerformanceCounterSetEngine'::`2'::Descriptors;
-  *(_QWORD *)&v18.CounterCount = 2LL;
-  v19 = 0LL;
-  v18.Callback = 0LL;
-  v18.CallbackContext = 0LL;
-  v12 = PcwRegister(&GpuPerformanceCounterSetEngine, &v18);
-  v1 = v12;
-  if ( v12 < 0 )
-    goto LABEL_19;
-  VIDMM_GLOBAL::PerfCounterSetProcessMemoryRegistered = 1;
-  v20.Name = (PCUNICODE_STRING)L"$&";
-  *(_QWORD *)&v20.Version = 512LL;
-  v20.Counters = (PPCW_COUNTER_DESCRIPTOR)&`InitRegistrationInformationGpuPerformanceCounterSetAdapterMemory'::`2'::Descriptors;
-  *(_QWORD *)&v20.CounterCount = 3LL;
-  v21 = 0LL;
-  v20.Callback = 0LL;
-  v20.CallbackContext = 0LL;
-  v12 = PcwRegister(&GpuPerformanceCounterSetAdapterMemory, &v20);
-  v1 = v12;
-  if ( v12 < 0 )
-    goto LABEL_19;
-  VIDMM_GLOBAL::PerfCounterSetAdapterMemoryRegistered = 1;
-  v22.Name = (PCUNICODE_STRING)L"02";
-  *(_QWORD *)&v22.Version = 512LL;
-  v22.Counters = (PPCW_COUNTER_DESCRIPTOR)&`InitRegistrationInformationGpuPerformanceCounterSetNonLocalAdapterMemory'::`2'::Descriptors;
-  *(_QWORD *)&v22.CounterCount = 1LL;
-  v23 = 0LL;
-  v22.Callback = 0LL;
-  v22.CallbackContext = 0LL;
-  v12 = PcwRegister(&GpuPerformanceCounterSetLocalAdapterMemory, &v22);
-  v1 = v12;
-  if ( v12 < 0 )
-    goto LABEL_19;
-  VIDMM_GLOBAL::PerfCounterSetLocalAdapterMemoryRegistered = 1;
-  v24.Name = (PCUNICODE_STRING)L"8:";
-  *(_QWORD *)&v24.Version = 512LL;
-  v24.Counters = (PPCW_COUNTER_DESCRIPTOR)&`InitRegistrationInformationGpuPerformanceCounterSetNonLocalAdapterMemory'::`2'::Descriptors;
-  *(_QWORD *)&v24.CounterCount = 1LL;
-  v25 = 0LL;
-  v24.Callback = 0LL;
-  v24.CallbackContext = 0LL;
-  v12 = PcwRegister(&GpuPerformanceCounterSetNonLocalAdapterMemory, &v24);
-  v1 = v12;
-  if ( v12 >= 0 )
+  memset(v10, 0, 4 * MaximumAdapterCount);
+  inited = VIDMM_DMA_POOL::InitGlobals();
+  v4 = inited;
+  if ( inited < 0 )
+    goto LABEL_28;
+  v15 = VIDMM_PROCESS_FENCE_STORAGE::InitGlobalStorage();
+  v4 = v15;
+  if ( v15 < 0 )
+    goto LABEL_28;
+  qword_1C0050868 = (__int64)&VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead;
+  VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead.Flink = &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead;
+  v16 = operator new[](0x20uLL, 0x30316956u, PagedPool);
+  if ( v16 )
   {
-    VIDMM_GLOBAL::PerfCounterSetNonLocalAdapterMemoryRegistered = 1;
-    VIDMM_GLOBAL::InitPhysicalHeap();
+    *v16 = 0LL;
+    v16[1] = 0LL;
+    *((_DWORD *)v16 + 4) = 0;
+    *((_DWORD *)v16 + 5) = 53;
+    *((_DWORD *)v16 + 6) = -1;
   }
   else
   {
-LABEL_19:
-    WdLogSingleEntry1(1LL, v12);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
-    LiveDumpWithWdLogs = DxgCreateLiveDumpWithWdLogs(403LL, 2065LL, (int)v1, 0LL, 0LL, 0);
+    v16 = 0LL;
+  }
+  VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListLock = (struct DXGPUSHLOCK *)v16;
+  if ( !v16 )
+  {
+    v20 = WdLogNewEntry5_WdAssertion(v18, v17, v19);
+    *(_QWORD *)(v20 + 24) = -1073741801LL;
+    WdLogEvent5_WdAssertion(v20);
+    return 3221225495LL;
+  }
+  VIDMM_PARTITION::_PartitionTree = 0LL;
+  qword_1C00508B0 = (__int64)&VIDMM_GLOBAL::_AdapterListHead;
+  VIDMM_GLOBAL::_AdapterListHead.Flink = &VIDMM_GLOBAL::_AdapterListHead;
+  v36[0] = 2490404LL;
+  v36[1] = L"GPU Process Memory";
+  Info.Counters = (PPCW_COUNTER_DESCRIPTOR)&`RegisterGpuPerformanceCounterSetProcessMemory'::`2'::Descriptors;
+  Info.Name = (PCUNICODE_STRING)v36;
+  *(_QWORD *)&Info.Version = 256LL;
+  *(_QWORD *)&Info.CounterCount = 5LL;
+  Info.Callback = 0LL;
+  Info.CallbackContext = 0LL;
+  v21 = PcwRegister(&GpuPerformanceCounterSetProcessMemory, &Info);
+  v4 = v21;
+  if ( v21 < 0 )
+    goto LABEL_17;
+  VIDMM_GLOBAL::PerfCounterSetEngineRegistered = 1;
+  v37[1] = L"GPU Engine";
+  v37[0] = 1441812LL;
+  v42.Counters = (PPCW_COUNTER_DESCRIPTOR)&`RegisterGpuPerformanceCounterSetEngine'::`2'::Descriptors;
+  *(_QWORD *)&v42.Version = 256LL;
+  v42.Name = (PCUNICODE_STRING)v37;
+  *(_QWORD *)&v42.CounterCount = 2LL;
+  v42.Callback = 0LL;
+  v42.CallbackContext = 0LL;
+  v26 = PcwRegister(&GpuPerformanceCounterSetEngine, &v42);
+  v4 = v26;
+  if ( v26 < 0 )
+    goto LABEL_17;
+  VIDMM_GLOBAL::PerfCounterSetProcessMemoryRegistered = 1;
+  v38[1] = L"GPU Adapter Memory";
+  v38[0] = 2490404LL;
+  v43.Counters = (PPCW_COUNTER_DESCRIPTOR)&`RegisterGpuPerformanceCounterSetAdapterMemory'::`2'::Descriptors;
+  *(_QWORD *)&v43.Version = 256LL;
+  v43.Name = (PCUNICODE_STRING)v38;
+  *(_QWORD *)&v43.CounterCount = 3LL;
+  v43.Callback = 0LL;
+  v43.CallbackContext = 0LL;
+  v27 = PcwRegister(&GpuPerformanceCounterSetAdapterMemory, &v43);
+  v4 = v27;
+  if ( v27 < 0 )
+    goto LABEL_17;
+  VIDMM_GLOBAL::PerfCounterSetAdapterMemoryRegistered = 1;
+  v39[1] = L"GPU Local Adapter Memory";
+  v39[0] = 3276848LL;
+  v44.Counters = (PPCW_COUNTER_DESCRIPTOR)&`RegisterGpuPerformanceCounterSetNonLocalAdapterMemory'::`2'::Descriptors;
+  *(_QWORD *)&v44.Version = 256LL;
+  v44.Name = (PCUNICODE_STRING)v39;
+  *(_QWORD *)&v44.CounterCount = 1LL;
+  v44.Callback = 0LL;
+  v44.CallbackContext = 0LL;
+  v28 = PcwRegister(&GpuPerformanceCounterSetLocalAdapterMemory, &v44);
+  v4 = v28;
+  if ( v28 < 0 )
+    goto LABEL_17;
+  VIDMM_GLOBAL::PerfCounterSetLocalAdapterMemoryRegistered = 1;
+  v40[1] = L"GPU Non Local Adapter Memory";
+  v40[0] = 3801144LL;
+  v45.Counters = (PPCW_COUNTER_DESCRIPTOR)&`RegisterGpuPerformanceCounterSetNonLocalAdapterMemory'::`2'::Descriptors;
+  *(_QWORD *)&v45.Version = 256LL;
+  v45.Name = (PCUNICODE_STRING)v40;
+  *(_QWORD *)&v45.CounterCount = 1LL;
+  v45.Callback = 0LL;
+  v45.CallbackContext = 0LL;
+  v29 = PcwRegister(&GpuPerformanceCounterSetNonLocalAdapterMemory, &v45);
+  v4 = v29;
+  if ( v29 < 0 )
+  {
+LABEL_17:
+    v25 = WdLogNewEntry5_WdAssertion(v23, v22, v24);
+    *(_QWORD *)(v25 + 24) = v4;
+    WdLogEvent5_WdAssertion(v25);
+  }
+  else
+  {
+    VIDMM_GLOBAL::PerfCounterSetNonLocalAdapterMemoryRegistered = 1;
+    if ( (unsigned int)Feature_3895685435__private_IsEnabledDeviceUsage() )
+      ExInitializeLookasideListEx(
+        (PLOOKASIDE_LIST_EX)&g_VaRangeLookasideList,
+        0LL,
+        0LL,
+        PagedPool,
+        0,
+        0x88uLL,
+        0x35356956u,
+        0);
+  }
+  if ( (int)v4 < 0 )
+  {
+    LiveDumpWithWdLogs = DxgCreateLiveDumpWithWdLogs(0x193u, 0x811uLL, (int)v4, 0LL, 0LL, 0);
+    v34 = LiveDumpWithWdLogs;
     if ( LiveDumpWithWdLogs < 0 )
     {
-      WdLogSingleEntry1(1LL, LiveDumpWithWdLogs);
-      goto LABEL_24;
+      v35 = WdLogNewEntry5_WdAssertion(v32, v31, v33);
+      *(_QWORD *)(v35 + 24) = v34;
+LABEL_29:
+      WdLogEvent5_WdAssertion(v35);
     }
   }
-  return v1;
+  return (unsigned int)v4;
 }

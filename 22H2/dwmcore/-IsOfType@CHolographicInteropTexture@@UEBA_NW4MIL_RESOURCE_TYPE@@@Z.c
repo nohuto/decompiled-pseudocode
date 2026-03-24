@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CHolographicInteropTexture@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1802AB280
+ * XREFs of ?IsOfType@CHolographicInteropTexture@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1802591E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CHolographicInteropTexture::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 80;
+  return a2 == 76;
 }

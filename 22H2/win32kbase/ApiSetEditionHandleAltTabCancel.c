@@ -1,10 +1,11 @@
 /*
- * XREFs of ApiSetEditionHandleAltTabCancel @ 0x1C020642C
+ * XREFs of ApiSetEditionHandleAltTabCancel @ 0x1C004D978
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C006B3FC (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004D1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
  * Callees:
- *     IsEditionHandleAltTabCancelSupported @ 0x1C00B6E00 (IsEditionHandleAltTabCancelSupported.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     IsEditionHandleAltTabCancelSupported @ 0x1C004DA60 (IsEditionHandleAltTabCancelSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionHandleAltTabCancel(
@@ -16,10 +17,37 @@ __int64 __fastcall ApiSetEditionHandleAltTabCancel(
         int a6,
         int a7)
 {
+  unsigned int v9; // r14d
   unsigned int v11; // edi
+  int v12; // edx
+  int v14; // [rsp+20h] [rbp-38h]
 
+  v9 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      418,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
   v11 = 0;
-  if ( (int)IsEditionHandleAltTabCancelSupported() >= 0 && qword_1C0296788 )
-    return (unsigned int)qword_1C0296788(a1, a2, a3, a4, a5, a6, a7);
+  if ( (int)IsEditionHandleAltTabCancelSupported() >= 0 && qword_1C0257530 )
+  {
+    LOBYTE(v14) = a5;
+    v11 = qword_1C0257530(a1, v9, a3, a4, v14, a6, a7);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v12) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v12,
+      10,
+      419,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
   return v11;
 }

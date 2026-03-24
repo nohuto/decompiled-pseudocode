@@ -1,111 +1,95 @@
 /*
- * XREFs of ReadField @ 0x1C0052B00
+ * XREFs of ReadField @ 0x1C0024420
  * Callers:
- *     ReadObject @ 0x1C0005BEE (ReadObject.c)
- *     AccFieldUnit @ 0x1C0051650 (AccFieldUnit.c)
+ *     AsyncEvalObject @ 0x1C0005890 (AsyncEvalObject.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     AccFieldUnit @ 0x1C000A0B0 (AccFieldUnit.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     PushAccFieldObj @ 0x1C0052608 (PushAccFieldObj.c)
- *     RawFieldAccess @ 0x1C0052780 (RawFieldAccess.c)
- *     SupportsOnlyRawAccess @ 0x1C0052F78 (SupportsOnlyRawAccess.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     PushAccFieldObj @ 0x1C0024C10 (PushAccFieldObj.c)
+ *     SupportsOnlyRawAccess @ 0x1C0024D40 (SupportsOnlyRawAccess.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     RawFieldAccess @ 0x1C0067D58 (RawFieldAccess.c)
  */
 
 __int64 __fastcall ReadField(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rbx
-  __int64 v7; // r14
-  unsigned int v8; // edi
-  unsigned int v9; // edi
-  __int64 ObjectTypeName; // rdx
-  int v11; // ecx
-  __int64 v12; // rsi
-  unsigned int v13; // r8d
-  void *v14; // rax
-  char v15; // al
-  __int64 v16; // r8
+  __int64 v7; // rbp
+  bool v8; // al
+  int v9; // ecx
+  char v10; // al
+  int v11; // r9d
+  __int64 v12; // r10
+  __int64 v13; // r8
+  unsigned int v15; // edi
+  int v17; // ecx
+  int ObjectTypeName; // edx
+  int v19; // ecx
+  unsigned int v20; // r8d
+  void *v21; // rax
 
-  v4 = a4;
   v7 = a1;
   if ( (*(_DWORD *)(a3 + 12) & 0xFu) > 4 )
   {
-    if ( *(_WORD *)(a2 + 2) != 5 )
+    if ( *(_WORD *)(a2 + 2) == 5 )
     {
-      v9 = -1072431087;
-      LogError(-1072431087);
-      AcpiDiagTraceAmlError(v7, -1072431087);
-      ObjectTypeName = *(unsigned int *)(a3 + 12);
-      v11 = 162;
-      goto LABEL_25;
+      v13 = a2;
+      return (unsigned int)RawFieldAccess(a1, 0LL, v13);
     }
-    v16 = a2;
-    return (unsigned int)RawFieldAccess(a1, 0, v16, a4);
+    v15 = -1072431087;
+    LogError(3222536209LL);
+    AcpiDiagTraceAmlError(v7, 3222536209LL);
+    ObjectTypeName = *(_DWORD *)(a3 + 12);
+    v19 = 162;
+    goto LABEL_23;
   }
-  v8 = IsCompatableDSDTRevision() ? 8 : 4;
-  if ( !*(_WORD *)(v4 + 2) )
+  v8 = IsCompatableDSDTRevision();
+  v9 = *(unsigned __int16 *)(a4 + 2);
+  if ( *(_WORD *)(a4 + 2) )
   {
-    if ( (*(_DWORD *)(a3 + 12) & 0x10000) == 0 && *(_DWORD *)(a3 + 8) <= 8 * v8 )
-    {
-      v12 = v4 + 16;
-      *(_WORD *)(v4 + 2) = 1;
-      goto LABEL_17;
-    }
-    *(_WORD *)(v4 + 2) = 3;
-    v13 = (unsigned int)(*(_DWORD *)(a3 + 8) + 7) >> 3;
-    *(_DWORD *)(v4 + 24) = v13;
-    v14 = (void *)HeapAlloc(gpheapGlobal, 1179992648, v13);
-    *(_QWORD *)(v4 + 32) = v14;
-    if ( !v14 )
-    {
-      v9 = -1073741670;
-      LogError(-1073741670);
-      AcpiDiagTraceAmlError(v7, -1073741670);
-      ObjectTypeName = *(unsigned int *)(v4 + 24);
-      v11 = 161;
-      goto LABEL_25;
-    }
-    memset(v14, 0, *(unsigned int *)(v4 + 24));
-    goto LABEL_15;
+    v17 = v9 - 1;
+    if ( !v17 || (unsigned int)(v17 - 1) < 2 )
+      goto LABEL_6;
+    v15 = -1072431095;
+    LogError(3222536201LL);
+    AcpiDiagTraceAmlError(v7, 3222536201LL);
+    ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(a4 + 2));
+    v19 = 163;
+LABEL_23:
+    PrintDebugMessage(v19, ObjectTypeName, 0, 0, 0LL);
+    return v15;
   }
-  if ( *(_WORD *)(v4 + 2) == 1 )
+  if ( (*(_DWORD *)(a3 + 12) & 0x10000) == 0 && *(_DWORD *)(a3 + 8) <= 8 * (v8 ? 8 : 4) )
   {
-    v12 = v4 + 16;
-    v8 = 8;
-    goto LABEL_17;
+    *(_WORD *)(a4 + 2) = v9 + 1;
+    goto LABEL_6;
   }
-  if ( *(_WORD *)(v4 + 2) != 2 )
+  *(_WORD *)(a4 + 2) = 3;
+  v20 = (unsigned int)(*(_DWORD *)(a3 + 8) + 7) >> 3;
+  *(_DWORD *)(a4 + 24) = v20;
+  v21 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1179992648, v20);
+  *(_QWORD *)(a4 + 32) = v21;
+  if ( !v21 )
   {
-    if ( *(_WORD *)(v4 + 2) != 3 )
-    {
-      v9 = -1072431095;
-      LogError(-1072431095);
-      AcpiDiagTraceAmlError(v7, -1072431095);
-      ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(v4 + 2));
-      v11 = 163;
-LABEL_25:
-      PrintDebugMessage(v11, (const void *)ObjectTypeName, 0LL, 0LL, 0LL);
-      return v9;
-    }
-LABEL_15:
-    v8 = *(_DWORD *)(v4 + 24);
-    goto LABEL_16;
+    v15 = -1073741670;
+    LogError(3221225626LL);
+    AcpiDiagTraceAmlError(v7, 3221225626LL);
+    ObjectTypeName = *(_DWORD *)(a4 + 24);
+    v19 = 161;
+    goto LABEL_23;
   }
-  v8 = *(_DWORD *)(v4 + 24) - 1;
-LABEL_16:
-  v12 = *(_QWORD *)(v4 + 32);
-LABEL_17:
-  v15 = SupportsOnlyRawAccess(a2);
-  v16 = a2;
+  memset(v21, 0, *(unsigned int *)(a4 + 24));
+LABEL_6:
+  v10 = SupportsOnlyRawAccess(a2);
+  v13 = a2;
   a1 = v7;
-  if ( v15 )
-  {
-    a4 = v4;
-    return (unsigned int)RawFieldAccess(a1, 0, v16, a4);
-  }
-  return (unsigned int)PushAccFieldObj(v7, (int)ReadFieldObj, a2, a3, v12, v8);
+  if ( v10 )
+    return (unsigned int)RawFieldAccess(a1, 0LL, v13);
+  return (unsigned int)PushAccFieldObj(v7, ReadFieldObj, a2, a3, v12, v11);
 }

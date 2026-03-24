@@ -1,61 +1,51 @@
 /*
- * XREFs of ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C014FE8C
+ * XREFs of ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DA6B8
  * Callers:
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C008C350 (-OnPointerCursorOperation@@YAXXZ.c)
+ *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C00282A0 (-OnPointerCursorOperation@@YAXXZ.c)
  * Callees:
- *     TransitionCursorSuppressionState @ 0x1C003D8F0 (TransitionCursorSuppressionState.c)
- *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C005B398 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
- *     ?MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z @ 0x1C005B8C4 (-MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z.c)
- *     ?HidePointer@CursorApiRouter@@QEAA_N_N@Z @ 0x1C00E11D0 (-HidePointer@CursorApiRouter@@QEAA_N_N@Z.c)
+ *     GreMovePointer @ 0x1C0016B30 (GreMovePointer.c)
+ *     TransitionCursorSuppressionState @ 0x1C0028C70 (TransitionCursorSuppressionState.c)
+ *     GreHidePointer @ 0x1C0028DC0 (GreHidePointer.c)
+ *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C0166BB0 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
  */
 
 void __fastcall RenderCursor(const struct tagPOINTERCURSORDATA *a1)
 {
   int v1; // edi
-  __int64 v3; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  CursorApiRouter *v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
+  __int64 v5; // rcx
 
   v1 = 0;
   if ( !Feedback::gfInRange )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     if ( gCursorSuppressionState != 3 && (Feedback::gfUsingPenCursors || !Feedback::gfUsingTouchCursors) )
       v1 = 1;
     if ( ((gCursorSuppressionState - 1) & 0xFFFFFFFB) != 0 )
       TransitionCursorSuppressionState(2u, 0);
-    UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
+    UserSessionSwitchLeaveCrit(v3);
     Feedback::gfInRange = 1;
   }
-  CursorApiRouter::MovePointer(a1, *(HDEV *)(gpDispInfo + 40LL), *((_DWORD *)a1 + 1), *((_DWORD *)a1 + 2));
+  GreMovePointer(*(_DWORD **)(gpDispInfo + 40LL), *((_DWORD *)a1 + 1), *((_DWORD *)a1 + 2), 8);
   CCursorSizes::zzzUpdateGlobalCursorSize(gpCursorSizes, (const struct tagPOINT *)((char *)a1 + 4), 0);
   if ( v1 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     if ( ((gCursorSuppressionState - 1) & 0xFFFFFFFB) != 0 )
       TransitionCursorSuppressionState(8u, 0);
-    CursorApiRouter::HidePointer(v7, 0);
-    UserSessionSwitchLeaveCrit(v9, v8, v10, v11);
+    GreHidePointer(0);
+    UserSessionSwitchLeaveCrit(v4);
   }
   if ( (*(_DWORD *)a1 & 2) == 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     if ( (Feedback::gfUsingPenCursors || Feedback::gfUsingTouchCursors)
       && ((gCursorSuppressionState - 1) & 0xFFFFFFFB) != 0 )
     {
       TransitionCursorSuppressionState(2u, 0);
     }
-    UserSessionSwitchLeaveCrit(v13, v12, v14, v15);
+    UserSessionSwitchLeaveCrit(v5);
     Feedback::gfInRange = 0;
   }
 }

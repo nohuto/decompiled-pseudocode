@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfTelemetryCallback @ 0x14016A110
+ * XREFs of PpmPerfTelemetryCallback @ 0x14016A130
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140138CA8 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
  */
 
 char PpmPerfTelemetryCallback()
 {
-  return PopQueueWorkItem((__int64)&unk_1404188C8, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&unk_140418908, DelayedWorkQueue);
 }

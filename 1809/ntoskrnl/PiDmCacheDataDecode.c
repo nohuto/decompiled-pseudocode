@@ -2,11 +2,11 @@
  * XREFs of PiDmCacheDataDecode @ 0x140598F2C
  * Callers:
  *     PiDmObjectGetCachedObjectPropertyData @ 0x140598D6C (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectProcessPropertyChange @ 0x1406F223C (PiDmObjectProcessPropertyChange.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140702A58 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406F221C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140702A38 (PiDmListUpdateAggregationCountWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  */
 

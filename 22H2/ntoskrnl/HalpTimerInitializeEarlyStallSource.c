@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerInitializeEarlyStallSource @ 0x1403A38E4
+ * XREFs of HalpTimerInitializeEarlyStallSource @ 0x1403B06D8
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerInitialize @ 0x14037ABD0 (HalpTimerInitialize.c)
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A3BB8 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     HalpTimerInitialize @ 0x1403B11C4 (HalpTimerInitialize.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403B1718 (HalpTimerRegisterBuiltinPluginsCommon.c)
  */
 
 __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
 
   LODWORD(HalpRegisteredTimerCount) = 0;
   HalpTimerLoaderBlock = a1;
-  qword_140C64688 = (__int64)&HalpRegisteredTimers;
+  qword_140C4C168 = (__int64)&HalpRegisteredTimers;
   HalpRegisteredTimers = (ULONG_PTR)&HalpRegisteredTimers;
   v2 = HalpTimerRegisterBuiltinPluginsCommon(0LL);
   if ( v2 < 0 )
@@ -30,7 +30,7 @@ __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
   {
     HalpPerformanceCounter = (ULONG_PTR)Timer;
     HalpStallCounter = (__int64)Timer;
-    v2 = HalpTimerInitialize((__int64)Timer);
+    v2 = HalpTimerInitialize(Timer);
     if ( v2 >= 0 )
     {
       v5 = v4[23] & 0xFFFFFFFB;
@@ -48,7 +48,7 @@ __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
           *((_DWORD *)v4 + 63) = 40;
           v4[33] = (ULONG_PTR)"minkernel\\hals\\lib\\timers\\common\\timer.c";
           v4[24] = 15625000LL;
-          *((_DWORD *)v4 + 68) = 1190;
+          *((_DWORD *)v4 + 68) = 1186;
         }
       }
       else

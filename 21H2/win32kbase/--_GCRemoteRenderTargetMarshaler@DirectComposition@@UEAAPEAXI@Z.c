@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCRemoteRenderTargetMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00D4190
+ * XREFs of ??_GCRemoteRenderTargetMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00C4B60
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 DirectComposition::CRemoteRenderTargetMarshaler *__fastcall DirectComposition::CRemoteRenderTargetMarshaler::`scalar deleting destructor'(
@@ -12,8 +12,6 @@ DirectComposition::CRemoteRenderTargetMarshaler *__fastcall DirectComposition::C
 {
   *(_QWORD *)this = &DirectComposition::CRemoteRenderTargetMarshaler::`vftable';
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+    Win32FreePool((__int64)this);
   return this;
 }

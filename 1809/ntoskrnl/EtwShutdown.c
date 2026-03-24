@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwShutdown @ 0x1406DD260
+ * XREFs of EtwShutdown @ 0x1406DD240
  * Callers:
  *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
- *     PspDeleteExternalServerSiloState @ 0x1408870F4 (PspDeleteExternalServerSiloState.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PspDeleteExternalServerSiloState @ 0x1408870D4 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpStopTrace @ 0x140658FB0 (EtwpStopTrace.c)
- *     EtwpFlushCoverage @ 0x1406DD370 (EtwpFlushCoverage.c)
- *     EtwpTraceSystemShutdown @ 0x1408B9024 (EtwpTraceSystemShutdown.c)
+ *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
+ *     EtwpFlushCoverage @ 0x1406DD350 (EtwpFlushCoverage.c)
+ *     EtwpTraceSystemShutdown @ 0x1408B9004 (EtwpTraceSystemShutdown.c)
  */
 
 void __fastcall EtwShutdown(char a1)

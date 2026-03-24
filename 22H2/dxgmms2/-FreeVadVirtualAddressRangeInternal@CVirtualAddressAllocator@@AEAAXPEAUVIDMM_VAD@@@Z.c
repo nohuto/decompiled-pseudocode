@@ -1,22 +1,20 @@
 /*
- * XREFs of ?FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z @ 0x1C008C2D0
+ * XREFs of ?FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z @ 0x1C006863C
  * Callers:
- *     ?FreeGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@_K1E@Z @ 0x1C008789C (-FreeGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@_K1E@Z.c)
- *     ?RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z @ 0x1C0089934 (-RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z.c)
- *     ?FreeAllocMappedVaRangeList@CVirtualAddressAllocator@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C008BC90 (-FreeAllocMappedVaRangeList@CVirtualAddressAllocator@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1C00A7740 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
- *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00C2B74 (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
- *     ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C00E31F8 (-FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1C005EDB4 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
+ *     ?FreeGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@_K1E@Z @ 0x1C0062290 (-FreeGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@QEAAJPEAVCVirtualAddressAllocator@@_K1E@Z.c)
+ *     ?RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z @ 0x1C0067F6C (-RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C008A0EC (-FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z @ 0x1C00BBB9C (-FreeVirtualAddressRange@CVirtualAddressAllocator@@QEAAJ_K@Z.c)
  * Callees:
- *     ?ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ @ 0x1C0002138 (-ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     McTemplateK0ppxxxxxqxx_EtwWriteTransfer @ 0x1C002FE30 (McTemplateK0ppxxxxxqxx_EtwWriteTransfer.c)
- *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C002FF30 (McTemplateK0pqxx_EtwWriteTransfer.c)
- *     ?RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z @ 0x1C0089934 (-RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z.c)
- *     ?FreeVad@CVirtualAddressAllocator@@SAXPEAUVIDMM_VAD@@@Z @ 0x1C008AC50 (-FreeVad@CVirtualAddressAllocator@@SAXPEAUVIDMM_VAD@@@Z.c)
- *     ?RemoveVadFromFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C008C58C (-RemoveVadFromFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z.c)
- *     ?CompareVadSizeAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C00B149C (-CompareVadSizeAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     ?GetVidMmAllocFromOwner@@YAPEAUVIDMM_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z @ 0x1C0002020 (-GetVidMmAllocFromOwner@@YAPEAUVIDMM_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z.c)
+ *     McTemplateK0ppxxxxxqxx_EtwWriteTransfer @ 0x1C00260D4 (McTemplateK0ppxxxxxqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C00261D4 (McTemplateK0pqxx_EtwWriteTransfer.c)
+ *     ?RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z @ 0x1C0067F6C (-RemoveVaRangeFromVad@CVirtualAddressAllocator@@QEAAXPEAU_LIST_ENTRY@@EE@Z.c)
+ *     ?RemoveVadFromFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C00683A0 (-RemoveVadFromFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z.c)
+ *     ?InsertVadToFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z @ 0x1C0068814 (-InsertVadToFreeList@CVirtualAddressAllocator@@IEAAXPEAUVIDMM_VAD@@@Z.c)
+ *     ?FreeVad@CVirtualAddressAllocator@@SAXPEAUVIDMM_VAD@@@Z @ 0x1C0068958 (-FreeVad@CVirtualAddressAllocator@@SAXPEAUVIDMM_VAD@@@Z.c)
  */
 
 void __fastcall CVirtualAddressAllocator::FreeVadVirtualAddressRangeInternal(
@@ -25,265 +23,150 @@ void __fastcall CVirtualAddressAllocator::FreeVadVirtualAddressRangeInternal(
         __int64 a3)
 {
   _QWORD *v3; // rax
-  struct VIDMM_VAD *v4; // rdi
-  __int64 v5; // rdx
+  __int64 v5; // rcx
+  struct VIDMM_VAD *v6; // rbx
   __int64 v7; // rcx
-  unsigned int v8; // ebx
-  __int64 v9; // rsi
-  __int64 v10; // r8
-  char *v11; // rcx
+  unsigned int v8; // ebp
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rsi
+  __int64 v11; // r8
   char *v12; // rdx
-  __int64 v13; // rax
-  _DWORD *v14; // rbx
-  unsigned int *v15; // rbx
+  char *v13; // rcx
+  __int64 v14; // rax
+  _DWORD *v15; // rsi
   char *v16; // rsi
-  __int64 v17; // rcx
-  unsigned int v18; // edx
-  __int64 v19; // rcx
-  char **v20; // rax
-  unsigned int v21; // esi
-  _QWORD **v22; // r14
-  _QWORD *v23; // rcx
-  struct _RTL_BALANCED_NODE *v24; // rbx
-  struct _RTL_BALANCED_NODE *v25; // rax
-  __int64 v26; // r8
-  __int64 v27; // rcx
-  __int64 v28; // rdx
-  struct VIDMM_VAD **v29; // rcx
-  _QWORD *v30; // rcx
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  _QWORD *v33; // rax
-  __int64 v34; // [rsp+20h] [rbp-78h]
-  __int64 v35; // [rsp+50h] [rbp-48h]
-  __int64 v36; // [rsp+A8h] [rbp+10h] BYREF
+  _DWORD *v17; // rbp
+  __int64 v18; // rcx
+  char **v19; // rax
+  __int64 v20; // rdx
+  struct VIDMM_VAD **v21; // rcx
+  _QWORD *v22; // rdx
+  __int64 VidMmAllocFromOwner; // rax
+  __int64 v24; // r8
+  __int64 v25; // [rsp+20h] [rbp-58h]
+  __int64 v26; // [rsp+50h] [rbp-28h]
 
   v3 = (_QWORD *)((char *)a2 + 56);
-  v4 = a2;
   v5 = *((_QWORD *)a2 + 7);
+  v6 = a2;
   if ( v5 )
   {
     if ( *(_QWORD **)(v5 + 8) != v3 )
-      goto LABEL_40;
-    v30 = (_QWORD *)v3[1];
-    if ( (_QWORD *)*v30 != v3 )
-      goto LABEL_40;
-    *v30 = v5;
-    *(_QWORD *)(v5 + 8) = v30;
+      goto LABEL_27;
+    v22 = (_QWORD *)*((_QWORD *)a2 + 8);
+    if ( (_QWORD *)*v22 != v3 )
+      goto LABEL_27;
+    *v22 = v5;
+    *(_QWORD *)(v5 + 8) = v22;
     *v3 = 0LL;
   }
-  v7 = *((unsigned int *)v4 + 18);
+  v7 = *((unsigned int *)v6 + 18);
   v8 = 0;
   if ( (v7 & 0x7F0) != 0 )
   {
-    while ( 1 )
+    do
     {
       while ( 1 )
       {
-        v9 = *((_QWORD *)v4 + 3 * v8 + 12);
-        if ( (struct VIDMM_VAD *)v9 != (struct VIDMM_VAD *)((char *)v4 + 24 * v8 + 96) )
+        v9 = (_QWORD *)((char *)v6 + 24 * v8 + 96);
+        v10 = (_QWORD *)*v9;
+        if ( (_QWORD *)*v9 == v9 )
           break;
-        v7 = *((unsigned int *)v4 + 18);
-        if ( ++v8 >= ((*((_DWORD *)v4 + 18) >> 4) & 0x7Fu) )
-          goto LABEL_5;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
+        {
+          VidMmAllocFromOwner = GetVidMmAllocFromOwner((int)(*((_DWORD *)v10 + 14) << 28) >> 28, v10[6]);
+          LODWORD(v26) = v24;
+          McTemplateK0ppxxxxxqxx_EtwWriteTransfer(
+            v10[8],
+            &EndGpuVirtualAddressRangeMapping,
+            v24,
+            this,
+            VidMmAllocFromOwner,
+            v10[8],
+            v10[11],
+            v10[12],
+            v10[10],
+            v10[9],
+            v26,
+            v10[13],
+            v10[14]);
+        }
+        CVirtualAddressAllocator::RemoveVaRangeFromVad(this, (struct _LIST_ENTRY *)v10, 0, 1);
       }
-      if ( (byte_1C0076982 & 0x20) != 0 )
-        break;
-LABEL_39:
-      CVirtualAddressAllocator::RemoveVaRangeFromVad(this, (struct _LIST_ENTRY *)v9, 0, 1);
+      v7 = *((unsigned int *)v6 + 18);
+      ++v8;
     }
-    v31 = *(_QWORD *)(v9 + 48);
-    v32 = (unsigned int)((int)(*(_DWORD *)(v9 + 56) << 28) >> 28);
-    if ( (int)v32 >= 1 )
-    {
-      v32 = (unsigned int)(v32 - 1);
-      if ( !(_DWORD)v32 )
-      {
-LABEL_51:
-        LODWORD(v35) = *(_DWORD *)(v9 + 56);
-        McTemplateK0ppxxxxxqxx_EtwWriteTransfer(
-          v32,
-          &EndGpuVirtualAddressRangeMapping,
-          (unsigned int)v35,
-          this,
-          v31,
-          *(_QWORD *)(v9 + 64),
-          *(_QWORD *)(v9 + 88),
-          *(_QWORD *)(v9 + 96),
-          *(_QWORD *)(v9 + 80),
-          *(_QWORD *)(v9 + 72),
-          v35,
-          *(_QWORD *)(v9 + 104),
-          *(_QWORD *)(v9 + 112));
-        goto LABEL_39;
-      }
-      v32 = (unsigned int)(v32 - 3);
-      if ( !(_DWORD)v32 )
-      {
-        v31 = *(_QWORD *)(v31 + 64);
-        goto LABEL_51;
-      }
-      if ( (_DWORD)v32 == 1 )
-      {
-        v31 = *(_QWORD *)(v31 + 24);
-        goto LABEL_51;
-      }
-    }
-    v31 = 0LL;
-    goto LABEL_51;
+    while ( v8 < ((*((_DWORD *)v6 + 18) >> 4) & 0x7Fu) );
   }
-LABEL_5:
-  if ( (byte_1C0076982 & 0x20) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
   {
-    LODWORD(v34) = v7;
+    LODWORD(v25) = v7;
     McTemplateK0pqxx_EtwWriteTransfer(
       v7,
       &DestroyGpuVirtualAddressRange,
       a3,
       this,
-      v34,
-      *((_QWORD *)v4 + 3),
-      *((_QWORD *)v4 + 4));
+      v25,
+      *((_QWORD *)v6 + 3),
+      *((_QWORD *)v6 + 4));
   }
-  RtlAvlRemoveNode((char *)this + 48, v4);
-  *((_DWORD *)v4 + 18) &= 0xFFFFFFF0;
-  v11 = (char *)v4 + 80;
+  RtlAvlRemoveNode((char *)this + 48, v6);
+  *((_DWORD *)v6 + 18) &= 0xFFFFFFF0;
+  v12 = (char *)v6 + 80;
   while ( 1 )
   {
-    v12 = *(char **)v11;
-    if ( *(char **)(*(_QWORD *)v11 + 8LL) != v11 )
-      goto LABEL_40;
-    v13 = *(_QWORD *)v12;
+    v13 = *(char **)v12;
     if ( *(char **)(*(_QWORD *)v12 + 8LL) != v12 )
-      goto LABEL_40;
-    *(_QWORD *)v11 = v13;
-    *(_QWORD *)(v13 + 8) = v11;
-    if ( v12 == v11 )
+      goto LABEL_27;
+    v14 = *(_QWORD *)v13;
+    if ( *(char **)(*(_QWORD *)v13 + 8LL) != v13 )
+      goto LABEL_27;
+    *(_QWORD *)v12 = v14;
+    *(_QWORD *)(v14 + 8) = v12;
+    if ( v13 == v12 )
       break;
-    **((_QWORD **)v12 + 2) = 0LL;
-    *(_QWORD *)v12 = 0LL;
-    *((_QWORD *)v12 + 1) = 0LL;
+    **((_QWORD **)v13 + 2) = 0LL;
+    *(_QWORD *)v13 = 0LL;
+    *((_QWORD *)v13 + 1) = 0LL;
   }
-  v14 = (_DWORD *)*((_QWORD *)v4 + 6);
-  if ( v14 != (_DWORD *)((char *)this + 24) && *((_QWORD *)v4 + 3) == *((_QWORD *)v14 - 1) && (v14[8] & 0xF) == 1 )
+  v15 = (_DWORD *)*((_QWORD *)v6 + 6);
+  if ( v15 != (_DWORD *)((char *)this + 24) && *((_QWORD *)v6 + 3) == *((_QWORD *)v15 - 1) && (v15[8] & 0xF) == 1 )
   {
-    CVirtualAddressAllocator::RemoveVadFromFreeList(this, (struct VIDMM_VAD *)(v14 - 10));
-    *((_QWORD *)v14 - 1) = *((_QWORD *)v4 + 4);
-    v28 = *((_QWORD *)v4 + 5);
-    if ( *(struct VIDMM_VAD **)(v28 + 8) != (struct VIDMM_VAD *)((char *)v4 + 40) )
-      goto LABEL_40;
-    v29 = (struct VIDMM_VAD **)*((_QWORD *)v4 + 6);
-    if ( *v29 != (struct VIDMM_VAD *)((char *)v4 + 40) )
-      goto LABEL_40;
-    *v29 = (struct VIDMM_VAD *)v28;
-    *(_QWORD *)(v28 + 8) = v29;
-    CVirtualAddressAllocator::FreeVad(v4, v28);
-    v4 = (struct VIDMM_VAD *)(v14 - 10);
+    CVirtualAddressAllocator::RemoveVadFromFreeList(this, (struct VIDMM_VAD *)(v15 - 10), v11);
+    *((_QWORD *)v15 - 1) = *((_QWORD *)v6 + 4);
+    v20 = *((_QWORD *)v6 + 5);
+    if ( *(struct VIDMM_VAD **)(v20 + 8) != (struct VIDMM_VAD *)((char *)v6 + 40) )
+      goto LABEL_27;
+    v21 = (struct VIDMM_VAD **)*((_QWORD *)v6 + 6);
+    if ( *v21 != (struct VIDMM_VAD *)((char *)v6 + 40) )
+      goto LABEL_27;
+    *v21 = (struct VIDMM_VAD *)v20;
+    *(_QWORD *)(v20 + 8) = v21;
+    CVirtualAddressAllocator::FreeVad(v6);
+    v6 = (struct VIDMM_VAD *)(v15 - 10);
   }
-  v15 = (unsigned int *)*((_QWORD *)v4 + 5);
-  v16 = (char *)v4 + 40;
-  if ( v15 != (unsigned int *)((char *)this + 24) )
+  v16 = (char *)v6 + 40;
+  v17 = (_DWORD *)*((_QWORD *)v6 + 5);
+  if ( v17 != (_DWORD *)((char *)this + 24) && *((_QWORD *)v6 + 4) == *((_QWORD *)v17 - 2) && (v17[8] & 0xF) == 1 )
   {
-    v17 = *((_QWORD *)v15 - 2);
-    if ( *((_QWORD *)v4 + 4) == v17 )
+    CVirtualAddressAllocator::RemoveVadFromFreeList(this, (struct VIDMM_VAD *)(v17 - 10), v11);
+    *((_QWORD *)v17 - 2) = *((_QWORD *)v6 + 3);
+    v18 = *(_QWORD *)v16;
+    if ( *(char **)(*(_QWORD *)v16 + 8LL) == v16 )
     {
-      v10 = v15[8];
-      if ( (v15[8] & 0xF) == 1 )
+      v19 = (char **)*((_QWORD *)v6 + 6);
+      if ( *v19 == v16 )
       {
-        if ( (byte_1C0076982 & 0x20) != 0 )
-        {
-          LODWORD(v34) = v15[8];
-          McTemplateK0pqxx_EtwWriteTransfer(
-            v17,
-            &DestroyGpuVirtualAddressRange,
-            v10,
-            this,
-            v34,
-            v17,
-            *((_QWORD *)v15 - 1));
-        }
-        RtlAvlRemoveNode((char *)this + 40, v15 - 10);
-        v15[8] &= 0xFFFFFFF0;
-        *((_QWORD *)v15 - 2) = *((_QWORD *)v4 + 3);
-        v19 = *(_QWORD *)v16;
-        if ( *(char **)(*(_QWORD *)v16 + 8LL) == v16 )
-        {
-          v20 = (char **)*((_QWORD *)v4 + 6);
-          if ( *v20 == v16 )
-          {
-            *v20 = (char *)v19;
-            v21 = 0;
-            *(_QWORD *)(v19 + 8) = v20;
-            if ( (*((_DWORD *)v4 + 18) & 0x7F0) != 0 )
-            {
-              do
-              {
-                v22 = (_QWORD **)((char *)v4 + 24 * v21 + 96);
-                while ( 1 )
-                {
-                  v23 = *v22;
-                  if ( *v22 == v22 )
-                    break;
-                  if ( (_QWORD **)v23[1] != v22 )
-                    goto LABEL_40;
-                  v33 = (_QWORD *)*v23;
-                  if ( *(_QWORD **)(*v23 + 8LL) != v23 )
-                    goto LABEL_40;
-                  *v22 = v33;
-                  v33[1] = v22;
-                  *v23 = 0LL;
-                  v23[1] = 0LL;
-                  VIDMM_MAPPED_VA_RANGE::ReleaseVaRangeReference((VIDMM_MAPPED_VA_RANGE *)(v23 - 1), v18);
-                }
-                ++v21;
-              }
-              while ( v21 < ((*((_DWORD *)v4 + 18) >> 4) & 0x7Fu) );
-            }
-            operator delete(v4);
-            v4 = (struct VIDMM_VAD *)(v15 - 10);
-            goto LABEL_26;
-          }
-        }
-LABEL_40:
-        __fastfail(3u);
+        *v19 = (char *)v18;
+        *(_QWORD *)(v18 + 8) = v19;
+        CVirtualAddressAllocator::FreeVad(v6);
+        v6 = (struct VIDMM_VAD *)(v17 - 10);
+        goto LABEL_17;
       }
     }
+LABEL_27:
+    __fastfail(3u);
   }
-LABEL_26:
-  LOBYTE(v10) = 0;
-  v24 = (struct _RTL_BALANCED_NODE *)*((_QWORD *)this + 5);
-  v36 = *((_QWORD *)v4 + 4) - *((_QWORD *)v4 + 3);
-  if ( !v24 )
-    goto LABEL_33;
-  while ( (int)CompareVadSizeAvl(&v36, v24) < 0 )
-  {
-    v25 = v24->Children[0];
-    if ( !v24->Children[0] )
-    {
-      LOBYTE(v10) = 0;
-      goto LABEL_33;
-    }
-LABEL_29:
-    v24 = v25;
-  }
-  v25 = v24->Children[1];
-  if ( v25 )
-    goto LABEL_29;
-  LOBYTE(v10) = 1;
-LABEL_33:
-  RtlAvlInsertNodeEx((char *)this + 40, v24, v10, v4);
-  v27 = *((_DWORD *)v4 + 18) & 0xFFFFE7F0 | 1;
-  *((_DWORD *)v4 + 18) = v27;
-  if ( (byte_1C0076982 & 0x20) != 0 )
-  {
-    LODWORD(v34) = v27;
-    McTemplateK0pqxx_EtwWriteTransfer(
-      v27,
-      &CreateGpuVirtualAddressRange,
-      v26,
-      this,
-      v34,
-      *((_QWORD *)v4 + 3),
-      *((_QWORD *)v4 + 4));
-  }
+LABEL_17:
+  CVirtualAddressAllocator::InsertVadToFreeList(this, v6);
 }

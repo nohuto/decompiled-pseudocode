@@ -1,18 +1,18 @@
 /*
- * XREFs of PipRestoreDevNodeState @ 0x14015ACA0
+ * XREFs of PipRestoreDevNodeState @ 0x14015ACC0
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x14015A93C (PnpRemoveLockedDeviceNode.c)
- *     PnpRequestDeviceRemovalWorker @ 0x1406ECD68 (PnpRequestDeviceRemovalWorker.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED448 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpDeleteLockedDeviceNode @ 0x1406EE154 (PnpDeleteLockedDeviceNode.c)
- *     PnpCancelStopDeviceNode @ 0x14083F3F8 (PnpCancelStopDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14015A95C (PnpRemoveLockedDeviceNode.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1406ECD48 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED428 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1406EE134 (PnpDeleteLockedDeviceNode.c)
+ *     PnpCancelStopDeviceNode @ 0x14083F3D8 (PnpCancelStopDeviceNode.c)
  * Callees:
  *     PipIsDevNodeDNStarted @ 0x140007294 (PipIsDevNodeDNStarted.c)
  *     PipAreDriversLoadedWorker @ 0x1400072E0 (PipAreDriversLoadedWorker.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A90 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A70 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipRestoreDevNodeState(__int64 a1)

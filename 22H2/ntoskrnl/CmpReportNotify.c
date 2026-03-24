@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpReportNotify @ 0x1407D2130
+ * XREFs of CmpReportNotify @ 0x14066ED7C
  * Callers:
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpProcessLightWeightUOW @ 0x140A1C95C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14066EB84 (CmpProcessLightWeightUOW.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpReportNotifyForKcbStack @ 0x1406D5460 (CmpReportNotifyForKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpReportNotifyForKcbStack @ 0x1405ED300 (CmpReportNotifyForKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
  */
 
 void __fastcall CmpReportNotify(__int64 a1, int a2, int a3, __int64 a4)
@@ -23,7 +23,7 @@ void __fastcall CmpReportNotify(__int64 a1, int a2, int a3, __int64 a4)
       a1 = *(_QWORD *)(a1 + 72);
     a1 = *(_QWORD *)(a1 + 72);
   }
-  CmpStartKcbStackForTopLayerKcb((__int64)&v7, a1);
+  CmpStartKcbStackForTopLayerKcb(&v7, a1);
   CmpReportNotifyForKcbStack((__int64)&v7, a2, a3, a4);
   if ( *((_QWORD *)&v8 + 1) )
     CmSiFreeMemory(*((PPRIVILEGE_SET *)&v8 + 1));

@@ -1,48 +1,20 @@
 /*
- * XREFs of RIMDirectPnpRemoveUserModeRimDevices @ 0x1C00B4690
+ * XREFs of RIMDirectPnpRemoveUserModeRimDevices @ 0x1C00A4034
  * Callers:
- *     ?HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z @ 0x1C00B4650 (-HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z.c)
+ *     ?HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z @ 0x1C00A3F70 (-HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMSyncWalkRimObjList @ 0x1C00B4890 (RIMSyncWalkRimObjList.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     RIMSyncWalkRimObjList @ 0x1C00A40BC (RIMSyncWalkRimObjList.c)
  */
 
 __int64 RIMDirectPnpRemoveUserModeRimDevices()
 {
-  bool v0; // dl
   __int64 result; // rax
-  bool v2; // dl
 
-  v0 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v0,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      103,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids);
-  result = RIMSyncWalkRimObjList(0LL, 0LL, lambda_49136834bf577b2d4dfaf1505099b979_::_lambda_invoker_cdecl_);
-  v2 = 0;
-  if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control )
-  {
-    result = HIDWORD(WPP_GLOBAL_Control->Timer);
-    if ( (result & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-      v2 = 1;
-  }
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    return WPP_RECORDER_AND_TRACE_SF_(
-             WPP_GLOBAL_Control->AttachedDevice,
-             v2,
-             WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-             (_DWORD)gRimLog,
-             4,
-             1,
-             104,
-             (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 94, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
+  result = RIMSyncWalkRimObjList(0LL, 0LL, lambda_a40ee2d8b2104278d8f721ac30c590e8_::_lambda_invoker_cdecl_);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    return WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 95, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
   return result;
 }

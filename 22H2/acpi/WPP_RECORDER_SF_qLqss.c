@@ -1,34 +1,31 @@
 /*
- * XREFs of WPP_RECORDER_SF_qLqss @ 0x1C0009C8C
+ * XREFs of WPP_RECORDER_SF_qLqss @ 0x1C001E3E0
  * Callers:
- *     ACPIDeviceIrpForwardRequest @ 0x1C00027E0 (ACPIDeviceIrpForwardRequest.c)
- *     ACPICMButtonSetPower @ 0x1C0018C10 (ACPICMButtonSetPower.c)
- *     ACPIDeviceCompleteRequest @ 0x1C001C97C (ACPIDeviceCompleteRequest.c)
- *     ACPIDeviceIrpCompleteRequest @ 0x1C001D6A0 (ACPIDeviceIrpCompleteRequest.c)
- *     ACPIDeviceIrpDelayedDeviceOffRequest @ 0x1C001D820 (ACPIDeviceIrpDelayedDeviceOffRequest.c)
- *     ACPIDeviceIrpDelayedDeviceOnRequest @ 0x1C001D960 (ACPIDeviceIrpDelayedDeviceOnRequest.c)
- *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2C0 (ACPIDeviceIrpWaitWakeRequestPending.c)
- *     ACPIDevicePowerProcessPhase0DeviceSubPhase1 @ 0x1C001EE30 (ACPIDevicePowerProcessPhase0DeviceSubPhase1.c)
- *     ACPIDevicePowerProcessPhase4 @ 0x1C002041C (ACPIDevicePowerProcessPhase4.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase1 @ 0x1C0020670 (ACPIDevicePowerProcessPhase5DeviceSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C00208A0 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C0020B30 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase4 @ 0x1C0020DA0 (ACPIDevicePowerProcessPhase5DeviceSubPhase4.c)
- *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase1 @ 0x1C0021890 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase2 @ 0x1C0021A30 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase2.c)
- *     ACPIFanCompletePendingIrps @ 0x1C0026700 (ACPIFanCompletePendingIrps.c)
- *     ACPIRootIrpQueryPower @ 0x1C003D100 (ACPIRootIrpQueryPower.c)
- *     ACPIWakeCompleteRequestQueue @ 0x1C0044B6C (ACPIWakeCompleteRequestQueue.c)
- *     ACPIDockIrpQueryEjectRelations @ 0x1C007B238 (ACPIDockIrpQueryEjectRelations.c)
- *     ACPIDockIrpStartDevice @ 0x1C007BA20 (ACPIDockIrpStartDevice.c)
- *     ACPIBusIrpQueryBusRelations @ 0x1C007EC88 (ACPIBusIrpQueryBusRelations.c)
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080990 (ACPIBusIrpQueryResourceRequirements.c)
- *     ACPIBusIrpQueryResources @ 0x1C0080E90 (ACPIBusIrpQueryResources.c)
- *     ACPIBusIrpQueryTargetRelation @ 0x1C00812FC (ACPIBusIrpQueryTargetRelation.c)
- *     ACPIFilterIrpFilterResourceRequirements @ 0x1C0085AA0 (ACPIFilterIrpFilterResourceRequirements.c)
- *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0086670 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     ACPIDeviceIrpForwardRequest @ 0x1C000CEC0 (ACPIDeviceIrpForwardRequest.c)
+ *     ACPIDeviceIrpCompleteRequest @ 0x1C000E200 (ACPIDeviceIrpCompleteRequest.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C001B550 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase4 @ 0x1C001B810 (ACPIDevicePowerProcessPhase5DeviceSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C001C080 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase0DeviceSubPhase1 @ 0x1C001C490 (ACPIDevicePowerProcessPhase0DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase1 @ 0x1C001E620 (ACPIDevicePowerProcessPhase5DeviceSubPhase1.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001EAE8 (ACPIDeviceCompleteRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C00255F0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPICMButtonSetPower @ 0x1C004EA80 (ACPICMButtonSetPower.c)
+ *     ACPIDeviceIrpDelayedDeviceOffRequest @ 0x1C0050760 (ACPIDeviceIrpDelayedDeviceOffRequest.c)
+ *     ACPIDeviceIrpDelayedDeviceOnRequest @ 0x1C00508B0 (ACPIDeviceIrpDelayedDeviceOnRequest.c)
+ *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase1 @ 0x1C0051CA0 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase2 @ 0x1C0051E50 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase2.c)
+ *     ACPIRootIrpQueryPower @ 0x1C005ECB0 (ACPIRootIrpQueryPower.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C008F638 (ACPIBusIrpQueryTargetRelation.c)
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1C009BCA0 (ACPIFilterIrpFilterResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C009C430 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C00A2AC0 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIDockIrpQueryEjectRelations @ 0x1C00ABD18 (ACPIDockIrpQueryEjectRelations.c)
+ *     ACPIDockIrpStartDevice @ 0x1C00AC580 (ACPIDockIrpStartDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qLqss(
@@ -43,100 +40,93 @@ __int64 __fastcall WPP_RECORDER_SF_qLqss(
         const char *a9,
         const char *a10)
 {
-  const char *v10; // rsi
-  const char *v12; // rdi
-  __int64 v13; // rbx
-  unsigned __int64 v15; // r14
-  unsigned int v16; // ebp
-  unsigned int v17; // r12d
-  int v18; // eax
-  unsigned __int8 v19; // cf
-  __int64 v20; // r8
-  __int64 v21; // r8
-  const char *v22; // r9
-  __int64 v23; // rdx
+  __int64 v10; // rdi
+  __int64 v11; // rsi
+  unsigned __int64 v13; // r14
+  unsigned int v14; // r15d
+  unsigned int v15; // r12d
+  __int64 v16; // rbx
+  int v17; // eax
+  unsigned __int8 v18; // cf
+  __int64 v19; // r8
+  __int64 v20; // rax
+  __int64 v22; // r8
+  const char *v23; // r9
   __int64 v24; // rdx
-  const char *v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rbx
-  int v29; // [rsp+20h] [rbp-88h]
+  __int64 v25; // rdx
+  const char *v26; // rcx
+  int v27; // [rsp+20h] [rbp-88h]
+  __int64 v28; // [rsp+B0h] [rbp+8h]
 
-  v10 = a9;
-  v12 = a10;
-  v13 = -1LL;
-  v15 = (unsigned __int64)a3 >> 16;
-  v16 = a2;
-  v17 = a4;
-  v18 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v15 + (((a3 - 1) >> 5) & 0x7FF) + 1);
-  v19 = _bittest(&v18, (a3 - 1) & 0x1F);
-  v20 = 5LL;
-  if ( v19 && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v15 + 1) >= a2 )
+  v28 = a1;
+  v10 = (__int64)a10;
+  v11 = (__int64)a9;
+  v13 = (unsigned __int64)a3 >> 16;
+  v14 = a2;
+  v15 = a4;
+  v16 = -1LL;
+  v17 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v13 + (((a3 - 1) >> 5) & 0x7FF) + 1);
+  v18 = _bittest(&v17, (a3 - 1) & 0x1F);
+  v19 = 5LL;
+  if ( v18 && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v13 + 1) >= a2 )
   {
     if ( a10 )
     {
-      v21 = -1LL;
+      v22 = -1LL;
       do
-        ++v21;
-      while ( a10[v21] );
-      v20 = v21 + 1;
+        ++v22;
+      while ( a10[v22] );
+      v19 = v22 + 1;
     }
-    v22 = a10;
+    v23 = a10;
     if ( !a10 )
-      v22 = "NULL";
+      v23 = "NULL";
     if ( a9 )
     {
-      v23 = -1LL;
+      v24 = -1LL;
       do
-        ++v23;
-      while ( a9[v23] );
-      v24 = v23 + 1;
+        ++v24;
+      while ( a9[v24] );
+      v25 = v24 + 1;
     }
     else
     {
-      v24 = 5LL;
+      v25 = 5LL;
     }
-    v25 = a9;
+    v26 = a9;
     if ( !a9 )
-      v25 = "NULL";
+      v26 = "NULL";
     ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
-      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v15),
+      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v13),
       43LL,
       a5,
-      v17,
+      v15,
       &a6,
       8LL,
       &a7,
       4LL,
       &a8,
       8LL,
+      v26,
       v25,
-      v24,
-      v22,
-      v20,
+      v23,
+      v19,
       0LL);
+    a1 = v28;
   }
-  if ( v12 )
-  {
-    v26 = -1LL;
-    do
-      ++v26;
-    while ( v12[v26] );
-  }
-  if ( !v12 )
-    v12 = "NULL";
   if ( v10 )
   {
+    v20 = -1LL;
     do
-      ++v13;
-    while ( v10[v13] );
-    v27 = v13 + 1;
+      ++v20;
+    while ( *(_BYTE *)(v10 + v20) );
   }
-  else
+  if ( v11 )
   {
-    v27 = 5LL;
+    do
+      ++v16;
+    while ( *(_BYTE *)(v11 + v16) );
   }
-  if ( !v10 )
-    v10 = "NULL";
-  LOWORD(v29) = v17;
-  return WppAutoLogTrace(a1, v16, a3, a5, v29, &a6, 8LL, &a7, 4LL, &a8, 8LL, v10, v27, v12);
+  LOWORD(v27) = v15;
+  return WppAutoLogTrace(a1, v14, a3, a5, v27, &a6);
 }

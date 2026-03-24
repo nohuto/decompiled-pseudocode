@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiIsNeedWakeUpAdapter @ 0x1C005FB4C
+ * XREFs of DpiIsNeedWakeUpAdapter @ 0x1C0052148
  * Callers:
- *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0023F5C (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0038894 (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,8 @@ char __fastcall DpiIsNeedWakeUpAdapter(__int64 a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 64);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 4080), &LockHandle);
-  LOBYTE(v1) = *(_DWORD *)(v1 + 4144) != 0;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 4072), &LockHandle);
+  LOBYTE(v1) = *(_DWORD *)(v1 + 4136) != 0;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   return v1;
 }

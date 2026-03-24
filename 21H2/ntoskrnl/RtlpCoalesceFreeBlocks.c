@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCoalesceFreeBlocks @ 0x1405E8A08
+ * XREFs of RtlpCoalesceFreeBlocks @ 0x140589490
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405E966C (RtlpDeCommitFreeBlock.c)
- *     RtlpExtendHeap @ 0x1405E9C3C (RtlpExtendHeap.c)
- *     RtlpFreeHeap @ 0x1405EA0E4 (RtlpFreeHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A0E4 (RtlpDeCommitFreeBlock.c)
+ *     RtlpExtendHeap @ 0x14058A6B4 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x14058AB94 (RtlpFreeHeap.c)
  * Callees:
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     RtlCompareMemoryUlong @ 0x14042A260 (RtlCompareMemoryUlong.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F1C10 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapRemoveListEntry @ 0x1405F26CC (RtlpHeapRemoveListEntry.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x140594088 (RtlpHeapRemoveListEntry.c)
  */
 
 __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned __int64 v5; // r9
   __int64 v7; // rbx
   unsigned int v8; // ecx
-  __int64 *v9; // r15
+  __int64 *v9; // r14
   __int64 v10; // r8
   __int64 v11; // rdi
   __int64 v12; // rax
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v21; // rax
   __int64 v22; // rbx
   int v23; // edx
-  __int64 *v24; // r15
+  __int64 *v24; // r14
   __int64 v25; // rdi
   __int64 v26; // rax
   __int64 v27; // r9
@@ -178,7 +178,7 @@ LABEL_41:
           DbgPrint(
             "HEAP: Free Heap block %p modified at %p after it was freed\n",
             (const void *)v22,
-            (const void *)(v22 + v34 + 32));
+            (const void *)(v34 + v22 + 32));
           if ( (_BYTE)KdDebuggerEnabled )
             __debugbreak();
         }

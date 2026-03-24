@@ -1,51 +1,51 @@
 /*
- * XREFs of DelegateCoalescePointerMessage @ 0x1C01EC898
+ * XREFs of DelegateCoalescePointerMessage @ 0x1C01F1F38
  * Callers:
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01DBF48 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
- *     DelegateReleasePointerMessage @ 0x1C01EA234 (DelegateReleasePointerMessage.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0D20 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     DelegateReleasePointerMessage @ 0x1C01EF99C (DelegateReleasePointerMessage.c)
  * Callees:
- *     DelQEntry @ 0x1C005BE3C (DelQEntry.c)
+ *     DelQEntry @ 0x1C006684C (DelQEntry.c)
  */
 
 __int64 __fastcall DelegateCoalescePointerMessage(__int64 a1, int a2, __int64 a3)
 {
-  int v5; // r8d
-  int v7; // r9d
-  int v8; // r8d
-  unsigned int v9; // edx
-  unsigned int v11; // eax
-  unsigned int v12; // edi
-  __int64 v13; // rcx
+  unsigned int v6; // ecx
+  unsigned int v8; // eax
+  unsigned int v9; // edi
+  __int64 v10; // rcx
 
-  v5 = *(_DWORD *)(a3 + 100);
-  v7 = -__CFSHR__(v5, 6);
-  v8 = -__CFSHR__(v5, 7);
-  if ( v8 )
+  if ( __CFSHR__(*(_DWORD *)(a3 + 100), 7) )
   {
-    if ( !v7 )
+    if ( !__CFSHR__(*(_DWORD *)(a3 + 100), 6) )
       goto LABEL_6;
   }
-  else if ( v7 )
+  else if ( __CFSHR__(*(_DWORD *)(a3 + 100), 6) )
   {
     goto LABEL_6;
   }
   if ( !a2 )
     return 0LL;
 LABEL_6:
-  v9 = *(_DWORD *)(a3 + 24);
-  if ( v9 == 595 )
+  v6 = *(_DWORD *)(a3 + 24);
+  if ( v6 == 595 )
     return 0LL;
-  v11 = CTouchProcessor::DelegateCoalescePointerMessage(gpTouchProcessor, *(_QWORD *)(a3 + 40), a2, v7, v8, v9);
-  v12 = v11;
-  if ( a2 && v11 )
+  v8 = CTouchProcessor::DelegateCoalescePointerMessage(
+         gpTouchProcessor,
+         *(_QWORD *)(a3 + 40),
+         a2,
+         -__CFSHR__(*(_DWORD *)(a3 + 100), 6),
+         -__CFSHR__(*(_DWORD *)(a3 + 100), 7),
+         v6);
+  v9 = v8;
+  if ( a2 && v8 )
   {
-    v13 = *(_QWORD *)(a1 + 432);
-    if ( *(_QWORD *)(v13 + 80) == a3 )
+    v10 = *(_QWORD *)(a1 + 432);
+    if ( *(_QWORD *)(v10 + 80) == a3 )
     {
-      *(_QWORD *)(v13 + 80) = 0LL;
-      v13 = *(_QWORD *)(a1 + 432);
+      *(_QWORD *)(v10 + 80) = 0LL;
+      v10 = *(_QWORD *)(a1 + 432);
     }
-    DelQEntry(v13 + 24, a3, 1);
+    DelQEntry((unsigned int **)(v10 + 24), (unsigned int *)a3, 1);
   }
-  return v12;
+  return v9;
 }

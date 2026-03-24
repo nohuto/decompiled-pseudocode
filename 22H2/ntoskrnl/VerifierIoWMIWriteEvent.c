@@ -1,19 +1,19 @@
 /*
- * XREFs of VerifierIoWMIWriteEvent @ 0x140AE5170
+ * XREFs of VerifierIoWMIWriteEvent @ 0x1409E8060
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     WmiVerifierCopyEvent @ 0x1405FBBD8 (WmiVerifierCopyEvent.c)
- *     WmiVerifierTakeEventOwnership @ 0x1405FBC30 (WmiVerifierTakeEventOwnership.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     WmiVerifierCopyEvent @ 0x1405A57B0 (WmiVerifierCopyEvent.c)
+ *     WmiVerifierTakeEventOwnership @ 0x1405A5808 (WmiVerifierTakeEventOwnership.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VerifierIoWMIWriteEvent(__int64 a1)
 {
   unsigned int *v2; // rcx
   int v3; // ebx
-  void *v4; // rsi
+  PVOID v4; // rsi
   void *v5; // rcx
 
   if ( WmiVerifierTakeEventOwnership(a1) )
@@ -21,7 +21,7 @@ __int64 __fastcall VerifierIoWMIWriteEvent(__int64 a1)
     v4 = WmiVerifierCopyEvent(v2);
     if ( v4 )
     {
-      v3 = ((__int64 (__fastcall *)(void *))pXdvIoWMIWriteEvent)(v4);
+      v3 = ((__int64 (__fastcall *)(PVOID))pXdvIoWMIWriteEvent)(v4);
       v5 = (void *)a1;
       if ( v3 < 0 )
         v5 = v4;

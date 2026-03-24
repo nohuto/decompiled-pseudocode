@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFreeWaitWakePowerRequest @ 0x1C0062620
+ * XREFs of ACPIFreeWaitWakePowerRequest @ 0x1C00617D0
  * Callers:
- *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00623F0 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C0025774 (ACPIDereferenceWaitWakePowerRequest.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1C00309D4 (ExFreeToNPagedLookasideList.c)
- *     ACPIDelayedFreeWakeInterrupt @ 0x1C00622A0 (ACPIDelayedFreeWakeInterrupt.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C00614EC (ACPIDelayedFreeWakeInterrupt.c)
  */
 
 void __fastcall ACPIFreeWaitWakePowerRequest(char **Entry)
@@ -18,30 +18,26 @@ void __fastcall ACPIFreeWaitWakePowerRequest(char **Entry)
   v1 = *((_DWORD *)Entry + 29);
   v2 = Entry + 19;
   if ( v1 <= 1 )
-  {
     v4 = (char *)(Entry + 19);
-    if ( !v1 )
-      goto LABEL_8;
-  }
   else
-  {
     v4 = *v2;
-  }
-  v5 = v4 + 24;
-  v6 = *((unsigned int *)Entry + 29);
-  do
+  if ( v1 )
   {
-    ACPIDelayedFreeWakeInterrupt(*(_DWORD *)v5, *((_QWORD *)v5 + 1));
-    v5 += 40;
-    --v6;
+    v5 = v4 + 24;
+    v6 = *((unsigned int *)Entry + 29);
+    do
+    {
+      ACPIDelayedFreeWakeInterrupt(*(_DWORD *)v5, *((_QWORD *)v5 + 1));
+      v5 += 40;
+      --v6;
+    }
+    while ( v6 );
   }
-  while ( v6 );
   if ( v1 > 1 )
   {
     ExFreePoolWithTag(v4, 0x50706341u);
     *v2 = 0LL;
   }
-LABEL_8:
   *((_DWORD *)Entry + 29) = 0;
   ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RequestLookAsideList, Entry);
 }

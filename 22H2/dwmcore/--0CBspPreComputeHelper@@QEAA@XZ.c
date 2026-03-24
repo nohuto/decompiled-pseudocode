@@ -1,8 +1,7 @@
 /*
- * XREFs of ??0CBspPreComputeHelper@@QEAA@XZ @ 0x1800DB730
+ * XREFs of ??0CBspPreComputeHelper@@QEAA@XZ @ 0x18003E0B4
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ??0SubTreeContext@CPreComputeContext@@QEAA@$$QEAV01@@Z @ 0x1801B5E50 (--0SubTreeContext@CPreComputeContext@@QEAA@$$QEAV01@@Z.c)
+ *     ??0CPreComputeContext@@IEAA@PEAVCVisualTree@@@Z @ 0x1800444CC (--0CPreComputeContext@@IEAA@PEAVCVisualTree@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -53,6 +52,5 @@ CBspPreComputeHelper *__fastcall CBspPreComputeHelper::CBspPreComputeHelper(CBsp
   *((_QWORD *)this + 42) = 0LL;
   *((_DWORD *)this + 82) = 0;
   *((_DWORD *)this + 86) = 0;
-  *((_DWORD *)this + 88) = 0;
   return this;
 }

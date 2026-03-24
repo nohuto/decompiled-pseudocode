@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsIdleResiliencyCallback @ 0x14098BD1C
+ * XREFs of PopDirectedDripsIdleResiliencyCallback @ 0x1408E3294
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x1409971BC (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x1402501A0 (PopQueueDirectedDripsWork.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     PopDeepSleepSetDisengageReason @ 0x1402D5F7C (PopDeepSleepSetDisengageReason.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x14099F0A0 (PopDirectedDripsUmMarkTestDevices.c)
+ *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PopQueueDirectedDripsWork @ 0x14037A5A8 (PopQueueDirectedDripsWork.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x1408F87B8 (PopDirectedDripsUmMarkTestDevices.c)
  */
 
 __int64 __fastcall PopDirectedDripsIdleResiliencyCallback(int a1, char a2)
@@ -32,14 +32,14 @@ __int64 __fastcall PopDirectedDripsIdleResiliencyCallback(int a1, char a2)
   if ( (HandleAttributes & 1) != 0 )
   {
     PopDeepSleepSetDisengageReason(8u);
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C240C8, 0LL);
-    byte_140C240D1 = a2;
-    dword_140C240D4 = a1;
-    byte_140C240D8 = 0;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C24CA8, 0LL);
+    byte_140C24CB1 = a2;
+    dword_140C24CB4 = a1;
+    byte_140C24CB8 = 0;
     PopQueueDirectedDripsWork(v7, 0x400uLL);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C240C8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C240C8);
-    KeAbPostRelease((ULONG_PTR)&qword_140C240C8);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C24CA8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C24CA8);
+    KeAbPostRelease((ULONG_PTR)&qword_140C24CA8);
     v6 = 259;
     if ( a2 )
       PopDirectedDripsUmMarkTestDevices();

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?OnKeyStateRequested@CAsyncKeyEventMonitor@@QEAAXK@Z @ 0x1C003CFBC
+ * XREFs of ?OnKeyStateRequested@CAsyncKeyEventMonitor@@QEAAXK@Z @ 0x1C0005E40
  * Callers:
- *     EtwTraceGetAsyncKeyState @ 0x1C003CF4C (EtwTraceGetAsyncKeyState.c)
+ *     EtwTraceGetAsyncKeyState @ 0x1C0005DD0 (EtwTraceGetAsyncKeyState.c)
  * Callees:
  *     <none>
  */

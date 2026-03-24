@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseD2DResources@CD2DEffect@@UEAAXXZ @ 0x18028DD90
+ * XREFs of ?ReleaseD2DResources@CD2DEffect@@UEAAXXZ @ 0x18024D740
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CD2DEffect::ReleaseD2DResources(CD2DEffect *this)
 {
-  ReleaseInterface<ID2D1Effect>((__int64 *)this + 10);
+  ReleaseInterface<ID2D1Geometry>((__int64 *)this + 10);
 }

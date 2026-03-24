@@ -1,25 +1,24 @@
 /*
- * XREFs of ?GetMsgPointerIdFromEdition@CTouchProcessor@@QEAAG_K@Z @ 0x1C01C71A0
+ * XREFs of ?GetMsgPointerIdFromEdition@CTouchProcessor@@QEAAG_K@Z @ 0x1C0191AF0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?GetMsgPointerId@CTouchProcessor@@AEAAG_K@Z @ 0x1C01C716C (-GetMsgPointerId@CTouchProcessor@@AEAAG_K@Z.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CTouchProcessor::GetMsgPointerIdFromEdition(CTouchProcessor *this, void *a2)
+__int64 __fastcall CTouchProcessor::GetMsgPointerIdFromEdition(CTouchProcessor *this, _WORD *a2)
 {
-  unsigned __int64 v2; // rbx
-  CTouchProcessor *v3; // rcx
+  unsigned __int16 v3; // bx
   CInpLockGuard *v5[9]; // [rsp+20h] [rbp-48h] BYREF
 
-  v2 = (unsigned __int64)a2;
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
     (CInpLockGuardExclusiveIfNeeded *)v5,
-    (CTouchProcessor *)((char *)this + 32),
+    (CTouchProcessor *)((char *)this + 40),
     a2);
-  LOWORD(v2) = CTouchProcessor::GetMsgPointerId(v3, v2);
+  v3 = 0;
+  if ( a2 )
+    v3 = a2[8];
   CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v5);
-  return (unsigned __int16)v2;
+  return v3;
 }

@@ -1,51 +1,49 @@
 /*
- * XREFs of KeSelectIdealProcessor @ 0x14020385C
+ * XREFs of KeSelectIdealProcessor @ 0x140340F98
  * Callers:
- *     KiReselectIdealProcessorAfterAffinityChange @ 0x14020377C (KiReselectIdealProcessorAfterAffinityChange.c)
- *     KeSelectInitialIdealProcessorForThread @ 0x14020380C (KeSelectInitialIdealProcessorForThread.c)
- *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x1405768AC (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
- *     ExpNodeCreateSystemThread @ 0x140683660 (ExpNodeCreateSystemThread.c)
- *     ExpWorkQueueManagerInitialize @ 0x14084ABF0 (ExpWorkQueueManagerInitialize.c)
+ *     KeStartThread @ 0x140340A7C (KeStartThread.c)
+ *     KiComputeThreadAffinity @ 0x14035D000 (KiComputeThreadAffinity.c)
+ *     KiSetAffinityThread @ 0x14035D934 (KiSetAffinityThread.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
+ *     ExpNodeCreateSystemThread @ 0x1406FD92C (ExpNodeCreateSystemThread.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1407C2F58 (ExpWorkQueueManagerInitialize.c)
  * Callees:
- *     KiSelectIdealProcessor @ 0x140203904 (KiSelectIdealProcessor.c)
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
+ *     KiSelectIdealProcessor @ 0x140341078 (KiSelectIdealProcessor.c)
  */
 
-ULONG __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, _QWORD *a3, unsigned int a4)
+__int64 __fastcall KeSelectIdealProcessor(__int64 a1, _QWORD *a2, _WORD *a3, unsigned int *a4)
 {
-  __int64 v4; // r10
-  __int64 *v7; // rdx
-  unsigned int v8; // eax
-  unsigned __int8 v9; // al
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
+  _WORD *v4; // rbx
+  __int64 v5; // r8
+  __int64 v6; // rdx
+  unsigned __int64 v7; // rdx
+  __int64 result; // rax
 
-  v4 = *(_QWORD *)a1;
-  v7 = &KiGroupBlock[4 * *(unsigned __int16 *)(a1 + 8)];
-  if ( (*(_QWORD *)a1 & ~v7[3]) != 0 )
-    v4 = *(_QWORD *)a1 & ~v7[3];
-  if ( a3 )
+  v4 = a3;
+  if ( !a3 )
+    v4 = (_WORD *)(a1 + 108);
+  v5 = *a2 & *(_QWORD *)(a1 + 136);
+  if ( a4 )
   {
     if ( (KiCacheAwareScheduling & 4) != 0 )
     {
-      v8 = 0;
-      if ( a4 )
+      v6 = KiProcessorBlock[*a4];
+      if ( *(_QWORD *)(v6 + 192) == a1 )
       {
-        while ( (*a3 & v4) == 0 )
+        v7 = *(_QWORD *)(v6 + 33896);
+        if ( (v5 & v7) != 0
+          && (unsigned int)((0x101010101010101LL
+                           * ((((v7 - ((v7 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                             + (((v7 - ((v7 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                             + ((((v7 - ((v7 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                               + (((v7 - ((v7 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24 >= 2 )
         {
-          ++v8;
-          ++a3;
-          if ( v8 >= a4 )
-            goto LABEL_8;
+          v5 &= v7;
         }
-        v4 &= *a3;
       }
     }
   }
-LABEL_8:
-  v9 = KiSelectIdealProcessor(v4, *v7, v7[2], (unsigned __int16)*a2);
-  ProcNumber = 0;
-  *a2 = v9;
-  ProcNumber.Group = *(_WORD *)(a1 + 8);
-  ProcNumber.Number = v9;
-  return KeGetProcessorIndexFromNumber(&ProcNumber);
+  result = KiSelectIdealProcessor(a1, (unsigned __int16)*v4, v5);
+  *v4 = result;
+  return result;
 }

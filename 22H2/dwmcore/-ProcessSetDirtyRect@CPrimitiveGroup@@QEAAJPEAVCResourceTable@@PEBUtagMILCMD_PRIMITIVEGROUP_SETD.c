@@ -1,88 +1,89 @@
 /*
- * XREFs of ?ProcessSetDirtyRect@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_SETDIRTYRECT@@PEBXI@Z @ 0x1800EFBD8
+ * XREFs of ?ProcessSetDirtyRect@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_SETDIRTYRECT@@PEBXI@Z @ 0x1800C712C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047C6C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?PixelAlign@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x180061AA4 (-PixelAlign@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUnique.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180077744 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B858 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CPrimitiveGroup::ProcessSetDirtyRect(
-        const struct FastRegion::Internal::CRgnData **this,
+        void **this,
         struct CResourceTable *a2,
         const struct tagMILCMD_PRIMITIVEGROUP_SETDIRTYRECT *a3,
-        char *a4,
+        float *a4,
         unsigned int a5)
 {
   unsigned int v5; // edx
-  const struct FastRegion::Internal::CRgnData **v8; // rbx
+  void **v8; // rbx
   char v9; // di
   int v10; // esi
   bool v11; // al
-  float *v12; // rdx
-  int *v13; // rax
-  int v14; // r9d
-  int v15; // r10d
-  int v16; // edx
-  int v17; // eax
-  _DWORD *v19; // [rsp+38h] [rbp-41h] BYREF
-  _DWORD v20[3]; // [rsp+40h] [rbp-39h] BYREF
-  _DWORD v21[2]; // [rsp+4Ch] [rbp-2Dh] BYREF
-  _DWORD v22[9]; // [rsp+54h] [rbp-25h] BYREF
-  _BYTE v23[15]; // [rsp+79h] [rbp+0h] BYREF
-  int v24[4]; // [rsp+88h] [rbp+Fh] BYREF
+  float v12; // xmm0_4
+  __int64 v13; // r8
+  int v14; // edx
+  __int64 v15; // r8
+  __int64 v16; // r8
+  int v17; // edx
+  int v18; // eax
+  int v19; // r9d
+  int v20; // r10d
+  int v21; // r11d
+  int v22; // eax
+  _DWORD *v24; // [rsp+38h] [rbp-41h] BYREF
+  _DWORD v25[3]; // [rsp+40h] [rbp-39h] BYREF
+  _DWORD v26[2]; // [rsp+4Ch] [rbp-2Dh] BYREF
+  _DWORD v27[9]; // [rsp+54h] [rbp-25h] BYREF
+  _BYTE v28[15]; // [rsp+79h] [rbp+0h] BYREF
   void *retaddr; // [rsp+D0h] [rbp+57h]
 
   v5 = *((_DWORD *)a3 + 2);
   v8 = this;
   v9 = 1;
-  if ( v5
-    && (this = (const struct FastRegion::Internal::CRgnData **)(16LL * v5),
-        (const struct FastRegion::Internal::CRgnData **)a5 == this) )
+  if ( v5 && (this = (void **)(16LL * v5), (void **)a5 == this) )
   {
     v10 = 0;
     while ( 1 )
     {
       v11 = 0;
-      v12 = (float *)&a4[16 * v10];
-      if ( *v12 >= -16777216.0 && v12[1] >= -16777216.0 && v12[2] <= 16777216.0 )
-        v11 = v12[3] <= 16777216.0;
+      if ( a4[4 * v10] >= -16777216.0 && a4[4 * v10 + 1] >= -16777216.0 && a4[4 * v10 + 2] <= 16777216.0 )
+        v11 = a4[4 * v10 + 3] <= 16777216.0;
       if ( !v11 )
         break;
-      v20[0] = 0;
-      v19 = v20;
-      v13 = PixelAlign(v24, v12);
-      v14 = v13[2];
-      v15 = *v13;
-      v16 = v13[3];
-      if ( *v13 < v14 && v13[1] < v16 )
+      v12 = a4[4 * v10];
+      v24 = v25;
+      PixelAlign(v12, 0);
+      PixelAlign(a4[2 * v13 + 1], v14);
+      PixelAlign(a4[2 * v15 + 2], 1);
+      v18 = PixelAlign(a4[2 * v16 + 3], v17);
+      if ( v19 >= v18 || v20 >= v21 )
       {
-        v21[0] = v13[1];
-        v20[0] = 2;
-        v20[1] = v15;
-        v20[2] = v14;
-        v21[1] = (unsigned int)v23 - 29 - (unsigned int)v21;
-        v22[2] = v15;
-        v22[3] = v14;
-        v22[1] = (unsigned int)v23 - 29 - (unsigned int)v22 + 8;
-        v22[0] = v16;
+        v25[0] = 0;
       }
-      v17 = FastRegion::CRegion::Union(v8 + 69, (const struct FastRegion::Internal::CRgnData **)&v19);
-      if ( v17 < 0 )
-        ModuleFailFastForHRESULT((unsigned int)v17, retaddr);
-      FastRegion::CRegion::FreeMemory((void **)&v19);
+      else
+      {
+        v27[0] = v18;
+        v25[0] = 2;
+        v25[1] = v20;
+        v25[2] = v21;
+        v26[0] = v19;
+        v26[1] = (unsigned int)v28 - 29 - (unsigned int)v26;
+        v27[2] = v20;
+        v27[1] = (unsigned int)v28 - 29 - (unsigned int)v27 + 8;
+        v27[3] = v21;
+      }
+      v22 = FastRegion::CRegion::Union(v8 + 74, (const struct FastRegion::Internal::CRgnData **)&v24);
+      if ( v22 < 0 )
+        ModuleFailFastForHRESULT((unsigned int)v22, retaddr);
+      FastRegion::CRegion::FreeMemory((void **)&v24);
       if ( (unsigned int)++v10 >= *((_DWORD *)a3 + 2) )
       {
-        (*((void (__fastcall **)(const struct FastRegion::Internal::CRgnData **, __int64, const struct FastRegion::Internal::CRgnData **))*v8
-         + 9))(
-          v8,
-          1LL,
-          v8);
+        (*((void (__fastcall **)(void **, __int64, void **))*v8 + 9))(v8, 1LL, v8);
         v9 = 0;
         break;
       }
@@ -90,10 +91,10 @@ __int64 __fastcall CPrimitiveGroup::ProcessSetDirtyRect(
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x196u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x19Eu, 0LL);
   }
-  *(_DWORD *)v8[69] = 0;
+  *(_DWORD *)v8[74] = 0;
   if ( v9 )
-    (*((void (__fastcall **)(const struct FastRegion::Internal::CRgnData **, _QWORD, _QWORD))*v8 + 9))(v8, 0LL, 0LL);
+    (*((void (__fastcall **)(void **, _QWORD, _QWORD))*v8 + 9))(v8, 0LL, 0LL);
   return 0LL;
 }

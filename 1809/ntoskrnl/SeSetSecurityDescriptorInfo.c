@@ -2,7 +2,7 @@
  * XREFs of SeSetSecurityDescriptorInfo @ 0x1405CA200
  * Callers:
  *     ObSetSecurityDescriptorInfo @ 0x1405C8A30 (ObSetSecurityDescriptorInfo.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140699558 (IopSetDeviceSecurityDescriptor.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140699538 (IopSetDeviceSecurityDescriptor.c)
  * Callees:
  *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
  */

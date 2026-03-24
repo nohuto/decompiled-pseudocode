@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bRedirHooked@SURFACE@@QEAAHXZ @ 0x1C00E03E0
+ * XREFs of ?bRedirHooked@SURFACE@@QEAAHXZ @ 0x1C00F9054
  * Callers:
- *     EngDrawStream @ 0x1C00E0180 (EngDrawStream.c)
+ *     EngDrawStream @ 0x1C00F8E10 (EngDrawStream.c)
  * Callees:
  *     <none>
  */

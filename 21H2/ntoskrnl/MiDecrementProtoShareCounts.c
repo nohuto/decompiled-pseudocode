@@ -1,57 +1,55 @@
 /*
- * XREFs of MiDecrementProtoShareCounts @ 0x14059E1E8
+ * XREFs of MiDecrementProtoShareCounts @ 0x1405406A0
  * Callers:
- *     MiCreateFileOnlyPfns @ 0x1409704A0 (MiCreateFileOnlyPfns.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  * Callees:
- *     MiDecrementShareCount @ 0x140273FD0 (MiDecrementShareCount.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiDecrementProtoShareCounts(__int64 a1, __int64 a2)
+void __fastcall MiDecrementProtoShareCounts(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  __int64 v2; // rdi
-  __int64 v3; // rbx
-  unsigned __int64 v4; // rsi
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  __int64 v4; // rdi
+  __int64 v5; // rbx
+  unsigned __int64 v6; // rsi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
+  int v9; // eax
+  bool v10; // zf
 
   if ( a2 )
   {
-    v2 = a2;
-    v3 = 48 * a1 - 0x220000000000LL;
+    v4 = a2;
+    v5 = 48 * a1 - 0x58000000000LL;
     do
     {
-      v4 = (unsigned __int8)MiLockPageInline(v3);
-      MiDecrementShareCount(v3, v5, v6, v7);
-      _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v6 = (unsigned __int8)MiLockPageInline(v5, a2, a3, SchedulerAssist);
+      MiDecrementShareCount(v5);
+      _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
+            a2 = -1LL << ((unsigned __int8)v6 + 1);
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-            v12 = (v11 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v11;
-            if ( v12 )
+            v9 = ~(unsigned __int16)a2;
+            v10 = (v9 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)v9 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
+            if ( v10 )
               KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
       }
-      __writecr8(v4);
-      v3 += 48LL;
-      --v2;
+      __writecr8(v6);
+      v5 += 48LL;
+      --v4;
     }
-    while ( v2 );
+    while ( v4 );
   }
 }

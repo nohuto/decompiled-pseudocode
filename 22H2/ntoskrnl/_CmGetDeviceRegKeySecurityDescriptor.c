@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceRegKeySecurityDescriptor @ 0x14086F6AC
+ * XREFs of _CmGetDeviceRegKeySecurityDescriptor @ 0x14076E240
  * Callers:
- *     _CmOpenDeviceRegKeyWorker @ 0x1406CE2A4 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x1406BAA90 (_CmOpenDeviceRegKeyWorker.c)
  * Callees:
- *     _CmGetRegKeySecurityDescriptor @ 0x14086F758 (_CmGetRegKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _CmGetRegKeySecurityDescriptor @ 0x14077EC1C (_CmGetRegKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceRegKeySecurityDescriptor(__int64 a1, int a2, _QWORD *a3)
@@ -23,38 +23,31 @@ __int64 __fastcall CmGetDeviceRegKeySecurityDescriptor(__int64 a1, int a2, _QWOR
   if ( !a2 || (a2 & 0xFFFFFCE8) != 0 )
   {
     v7 = -1073741811;
+LABEL_19:
+    if ( v5 )
+      ExFreePoolWithTag(v5, 0);
+    return v7;
   }
-  else
+  *a3 = 0LL;
+  if ( (a2 & 0xF00) == 0 )
   {
-    *a3 = 0LL;
-    if ( (a2 & 0xF00) != 0 )
-      return v7;
-    v8 = (unsigned __int8)a2;
-    if ( (unsigned __int8)a2 != 17 )
+    if ( (v8 = (unsigned __int8)a2, (unsigned __int8)a2 == 17)
+      || (unsigned __int8)a2 == 18 && *(_BYTE *)(a1 + 4)
+      || (unsigned int)(unsigned __int8)a2 - 19 <= 1 )
     {
-      if ( (unsigned __int8)a2 == 18 )
+      if ( *(_DWORD *)a1 >= 0xA000000u && ((unsigned __int8)a2 == 17 || (unsigned __int8)a2 == 18 && *(_BYTE *)(a1 + 4)) )
+        v6 = 1;
+      LOBYTE(v8) = v6;
+      RegKeySecurityDescriptor = CmGetRegKeySecurityDescriptor(v8, &v11);
+      v5 = v11;
+      v7 = RegKeySecurityDescriptor;
+      if ( RegKeySecurityDescriptor >= 0 )
       {
-        if ( !*(_BYTE *)(a1 + 4) )
-          return v7;
-      }
-      else if ( (unsigned int)(unsigned __int8)a2 - 19 > 1 )
-      {
+        *a3 = v11;
         return v7;
       }
-    }
-    if ( *(_DWORD *)a1 >= 0xA000000u && ((unsigned __int8)a2 == 17 || (unsigned __int8)a2 == 18 && *(_BYTE *)(a1 + 4)) )
-      v6 = 1;
-    LOBYTE(v8) = v6;
-    RegKeySecurityDescriptor = CmGetRegKeySecurityDescriptor(v8, &v11);
-    v5 = v11;
-    v7 = RegKeySecurityDescriptor;
-    if ( RegKeySecurityDescriptor >= 0 )
-    {
-      *a3 = v11;
-      return v7;
+      goto LABEL_19;
     }
   }
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0);
   return v7;
 }

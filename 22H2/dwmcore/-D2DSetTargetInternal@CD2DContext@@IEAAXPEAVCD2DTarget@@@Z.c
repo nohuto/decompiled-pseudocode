@@ -1,24 +1,28 @@
 /*
- * XREFs of ?D2DSetTargetInternal@CD2DContext@@IEAAXPEAVCD2DTarget@@@Z @ 0x18009208C
+ * XREFs of ?D2DSetTargetInternal@CD2DContext@@IEAAXPEAVCD2DTarget@@@Z @ 0x18002C990
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008D348 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
- *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x180092028 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
- *     ?ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ @ 0x1800D1A9C (-ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ.c)
- *     ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x180287BF0 (-PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z.c)
+ *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x18002C850 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
+ *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x180078970 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CD2DContext::D2DSetTargetInternal(CD2DContext *this, struct CD2DTarget *a2)
 {
-  __int64 *v2; // rcx
-  __int64 v3; // rax
+  __int64 v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // rdx
 
-  v2 = (__int64 *)*((_QWORD *)this + 26);
-  v3 = *v2;
+  v2 = *((_QWORD *)this + 31);
   if ( a2 )
-    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v3 + 56))(v2, *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5));
+  {
+    v3 = *((_QWORD *)a2 + 5);
+    v4 = *((_QWORD *)a2 + 4);
+  }
   else
-    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v3 + 56))(v2, 0LL, 0LL);
+  {
+    v3 = 0LL;
+    v4 = 0LL;
+  }
+  (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v2 + 56LL))(v2, v4, v3);
 }

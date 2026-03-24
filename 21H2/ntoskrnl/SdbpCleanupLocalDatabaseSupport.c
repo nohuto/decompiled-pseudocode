@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCleanupLocalDatabaseSupport @ 0x1406E0C00
+ * XREFs of SdbpCleanupLocalDatabaseSupport @ 0x140755F8C
  * Callers:
- *     SdbReleaseDatabase @ 0x1406E0A70 (SdbReleaseDatabase.c)
+ *     SdbReleaseDatabase @ 0x140755FC8 (SdbReleaseDatabase.c)
  * Callees:
- *     SdbpCloseLocalDatabaseEx @ 0x140A136D8 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x140966778 (SdbpCloseLocalDatabaseEx.c)
  */
 
 __int64 __fastcall SdbpCleanupLocalDatabaseSupport(__int64 a1, __int64 a2)

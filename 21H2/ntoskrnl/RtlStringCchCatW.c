@@ -1,70 +1,76 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x1402D87F0
+ * XREFs of RtlStringCchCatW @ 0x140371960
  * Callers:
- *     SdbpCreateSearchDBContext @ 0x14075B270 (SdbpCreateSearchDBContext.c)
- *     AslpFileQueryVersionString @ 0x140841F20 (AslpFileQueryVersionString.c)
- *     AslPathCombine @ 0x140A15B1C (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x140A15D60 (AslPathToSystemPathBuf.c)
- *     AslpEnvResolveVars @ 0x140A18114 (AslpEnvResolveVars.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140B1C49C (BapdpProcessVsmKeyBlobs.c)
+ *     ExpGetGlobalLocaleSection @ 0x140612BDC (ExpGetGlobalLocaleSection.c)
+ *     AslpEnvResolveVars @ 0x140753DC4 (AslpEnvResolveVars.c)
+ *     SdbpCreateSearchDBContext @ 0x14075AE40 (SdbpCreateSearchDBContext.c)
+ *     SshpQueryRegistryValues @ 0x1407968F0 (SshpQueryRegistryValues.c)
+ *     AslpFileQueryVersionString @ 0x1407B2E5C (AslpFileQueryVersionString.c)
+ *     AslPathCombine @ 0x140968814 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x140968980 (AslPathToSystemPathBuf.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140A4140C (BapdpProcessVsmKeyBlobs.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCchCatW(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR pszSrc)
 {
-  size_t v4; // r9
-  NTSTRSAFE_PWSTR v5; // rax
-  size_t v6; // r8
-  NTSTATUS result; // eax
-  wchar_t *v8; // rdx
-  size_t v9; // rcx
-  __int64 v10; // rax
-  char *v11; // r11
-  wchar_t v12; // r8
-  wchar_t *v13; // rax
+  NTSTATUS v5; // r9d
+  size_t v7; // rcx
+  NTSTRSAFE_PWSTR i; // rax
+  size_t v9; // r8
+  wchar_t *v10; // rdx
+  size_t v11; // rcx
+  __int64 v12; // r9
+  char *v13; // r11
+  wchar_t v14; // ax
+  wchar_t *v15; // rax
 
-  v4 = cchDest;
+  v5 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
-    return -1073741811;
-  v5 = pszDest;
-  do
+    v5 = -1073741811;
+  if ( v5 < 0 )
+    goto LABEL_19;
+  v7 = cchDest;
+  for ( i = pszDest; v7; --v7 )
   {
-    if ( !*v5 )
+    if ( !*i )
       break;
-    ++v5;
-    --cchDest;
+    ++i;
   }
-  while ( cchDest );
-  v6 = (v4 - cchDest) & -(__int64)(cchDest != 0);
-  result = cchDest == 0 ? 0xC000000D : 0;
-  if ( cchDest )
+  v5 = v7 == 0 ? 0xC000000D : 0;
+  if ( v7 )
+    v9 = cchDest - v7;
+  else
+LABEL_19:
+    v9 = 0LL;
+  if ( v5 >= 0 )
   {
-    v8 = &pszDest[v6];
-    v9 = v4 - v6;
-    if ( v4 != v6 )
+    v10 = &pszDest[v9];
+    v11 = cchDest - v9;
+    if ( cchDest != v9 )
     {
-      v10 = 2147483646LL;
-      v11 = (char *)((char *)pszSrc - (char *)v8);
+      v12 = 2147483646LL;
+      v13 = (char *)((char *)pszSrc - (char *)v10);
       do
       {
-        if ( !v10 )
-          break;
-        v12 = *(wchar_t *)((char *)v8 + (_QWORD)v11);
         if ( !v12 )
           break;
-        *v8 = v12;
-        --v10;
-        ++v8;
-        --v9;
+        v14 = *(wchar_t *)((char *)v10 + (_QWORD)v13);
+        if ( !v14 )
+          break;
+        *v10 = v14;
+        --v12;
+        ++v10;
+        --v11;
       }
-      while ( v9 );
+      while ( v11 );
     }
-    v13 = v8 - 1;
-    if ( v9 )
-      v13 = v8;
-    *v13 = 0;
-    return v9 == 0 ? 0x80000005 : 0;
+    v15 = v10 - 1;
+    if ( v11 )
+      v15 = v10;
+    v5 = v11 == 0 ? 0x80000005 : 0;
+    *v15 = 0;
   }
-  return result;
+  return v5;
 }

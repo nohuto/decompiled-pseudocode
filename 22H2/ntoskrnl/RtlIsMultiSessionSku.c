@@ -1,23 +1,26 @@
 /*
- * XREFs of RtlIsMultiSessionSku @ 0x1407ED2A0
+ * XREFs of RtlIsMultiSessionSku @ 0x1406816A0
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403713AC (OpenGlobalizationUserSettingsKey.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1407ED23C (SepIsImpersonationAllowedDueToCapability.c)
- *     RtlCapabilityCheck @ 0x1407ED2D0 (RtlCapabilityCheck.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     NtSetDefaultLocale @ 0x1407FCF20 (NtSetDefaultLocale.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140843BA4 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     RtlCapabilityCheckForSingleSessionSku @ 0x1409BC060 (RtlCapabilityCheckForSingleSessionSku.c)
- *     NtSetSystemTime @ 0x1409F8340 (NtSetSystemTime.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A414C (OpenGlobalizationUserSettingsKey.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140681634 (SepIsImpersonationAllowedDueToCapability.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     NtSetDefaultLocale @ 0x14078BD50 (NtSetDefaultLocale.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14079E4F8 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     RtlCapabilityCheck @ 0x1409133A0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x140913780 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     NtSetSystemTime @ 0x14094BD60 (NtSetSystemTime.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-char RtlIsMultiSessionSku()
+char __fastcall RtlIsMultiSessionSku(__int64 a1, __int64 a2)
 {
-  if ( PsIsCurrentThreadInServerSilo() )
-    return *(_BYTE *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 28LL);
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
+    return *(_BYTE *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(v3, v2) + 141) + 28LL);
   else
     return MEMORY[0xFFFFF780000002F1] & 1;
 }

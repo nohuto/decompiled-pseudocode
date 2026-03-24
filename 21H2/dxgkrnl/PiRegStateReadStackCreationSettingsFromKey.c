@@ -1,12 +1,12 @@
 /*
- * XREFs of PiRegStateReadStackCreationSettingsFromKey @ 0x1C0385A5C
+ * XREFs of PiRegStateReadStackCreationSettingsFromKey @ 0x1C02C4D70
  * Callers:
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C0385C50 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C02C4F64 (PpRegStateReadCreateClassCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C005EE70 (WdmlibRtlInitUnicodeStringEx.c)
- *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C0385EE8 (SeUtilSecurityInfoFromSecurityDescriptor.c)
- *     CmRegUtilUcValueGetFullBuffer @ 0x1C0386220 (CmRegUtilUcValueGetFullBuffer.c)
- *     CmRegUtilWstrValueGetDword @ 0x1C0386484 (CmRegUtilWstrValueGetDword.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0050B6C (WdmlibRtlInitUnicodeStringEx.c)
+ *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C02C51FC (SeUtilSecurityInfoFromSecurityDescriptor.c)
+ *     CmRegUtilUcValueGetFullBuffer @ 0x1C02C5530 (CmRegUtilUcValueGetFullBuffer.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C02C5794 (CmRegUtilWstrValueGetDword.c)
  */
 
 __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, __int64 a2)
@@ -14,11 +14,11 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
   _DWORD *v2; // r13
   _DWORD *v3; // r15
   _DWORD *v4; // r12
-  PVOID v7; // rsi
+  unsigned int *v7; // rsi
   NTSTATUS inited; // ebx
   __int64 v9; // r8
   __int64 v10; // r9
-  int FullBuffer; // eax
+  NTSTATUS FullBuffer; // eax
   int v12; // eax
   PVOID v13; // rax
   int Dword; // eax
@@ -27,29 +27,31 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
   __int64 v17; // r8
   int v18; // eax
   void *v19; // rcx
-  PVOID P; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v21; // [rsp+30h] [rbp-20h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
-  PVOID SecurityDescriptor; // [rsp+A8h] [rbp+58h] BYREF
+  PVOID P; // [rsp+A8h] [rbp+58h] BYREF
 
   v2 = (_DWORD *)(a2 + 4);
   v3 = (_DWORD *)(a2 + 16);
   *(_DWORD *)a2 = 0;
   v4 = (_DWORD *)(a2 + 20);
   *(_QWORD *)(a2 + 8) = 0LL;
-  SecurityDescriptor = 0LL;
   P = 0LL;
+  v21 = 0LL;
   *(_DWORD *)(a2 + 4) = 0;
   v7 = 0LL;
   *(_DWORD *)(a2 + 16) = 0;
   *(_DWORD *)(a2 + 20) = 0;
   DestinationString = 0LL;
   inited = WdmlibRtlInitUnicodeStringEx(&DestinationString, L"Security");
-  if ( inited < 0
-    || (FullBuffer = CmRegUtilUcValueGetFullBuffer(KeyHandle, &DestinationString, (__int64)&P),
-        v7 = P,
-        v10 = 0LL,
-        inited = FullBuffer,
-        FullBuffer < 0) )
+  if ( inited >= 0 )
+  {
+    FullBuffer = CmRegUtilUcValueGetFullBuffer(KeyHandle, &DestinationString, (__int64)&v21);
+    v7 = (unsigned int *)v21;
+    inited = FullBuffer;
+    v10 = 0LL;
+  }
+  if ( inited < 0 )
   {
     if ( inited == -1073741772 )
       inited = v10;
@@ -57,7 +59,7 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
   else
   {
     LOBYTE(v10) = 1;
-    inited = SeCaptureSecurityDescriptor((char *)P + *((unsigned int *)P + 2), 0LL, 1LL, v10, &SecurityDescriptor);
+    inited = SeCaptureSecurityDescriptor((char *)v7 + v7[2], 0LL, 1LL, v10, &P);
     v10 = 0LL;
   }
   if ( v7 )
@@ -66,15 +68,15 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
     v10 = 0LL;
   }
   if ( inited < 0 )
-    goto LABEL_22;
-  if ( SecurityDescriptor )
+    goto LABEL_23;
+  if ( P )
   {
-    v12 = SeUtilSecurityInfoFromSecurityDescriptor(SecurityDescriptor);
+    v12 = SeUtilSecurityInfoFromSecurityDescriptor(P);
     v10 = 0LL;
     inited = v12;
     if ( v12 < 0 )
-      goto LABEL_22;
-    v13 = SecurityDescriptor;
+      goto LABEL_23;
+    v13 = P;
     *(_DWORD *)a2 |= 2u;
     *(_QWORD *)(a2 + 8) = v13;
   }
@@ -84,7 +86,7 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
   if ( Dword < 0 )
   {
     if ( Dword != -1073741772 )
-      goto LABEL_22;
+      goto LABEL_23;
   }
   else
   {
@@ -96,7 +98,7 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
   if ( v16 < 0 )
   {
     if ( v16 != -1073741772 )
-      goto LABEL_22;
+      goto LABEL_23;
   }
   else
   {
@@ -112,7 +114,7 @@ __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, 
   }
   if ( v18 == -1073741772 )
     return 0;
-LABEL_22:
+LABEL_23:
   v19 = *(void **)(a2 + 8);
   if ( v19 )
   {

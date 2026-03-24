@@ -1,19 +1,18 @@
 /*
- * XREFs of ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x180072F50
+ * XREFs of ?AppendGeometry@CD3DBatchExecutionContext@@AEAAJIIAEBV?$span@$$CBG$0?0@gsl@@PEAPEAX1@Z @ 0x180079690
  * Callers:
- *     ?EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@_N@Z @ 0x180072D70 (-EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
- *     ?EmitCpuClipAntialiasTemplateGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCCpuClipAntialiasBatchCommand@@_N@Z @ 0x18007D208 (-EmitCpuClipAntialiasTemplateGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCCpuClipAntialiasBa.c)
- *     ?EmitInstancedGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1802087D4 (-EmitInstancedGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z.c)
- *     ?EmitGeometry@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1802B86C0 (-EmitGeometry@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCo.c)
+ *     ?EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCHWDrawListEntry@@_N@Z @ 0x1800787D0 (-EmitGeometryImpl@CRenderingEffect@@KAJPEAVCD3DBatchExecutionContext@@PEBVCHWDrawListEntry@@_N@Z.c)
+ *     ?AppendInstancedPrimitive@@YAJPEAVCD3DBatchExecutionContext@@PEBVCHWDrawListEntry@@PEBVCDrawListPrimitive@@AEBV?$span@$$CBG$0?0@gsl@@AEBUVertexFormatDesc@@@Z @ 0x1801A9A10 (-AppendInstancedPrimitive@@YAJPEAVCD3DBatchExecutionContext@@PEBVCHWDrawListEntry@@PEBVCDrawList.c)
+ *     ?EmitGeometry@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCBaseDrawListEntry@@@Z @ 0x1802688E0 (-EmitGeometry@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCBaseDrawListEntr.c)
  * Callees:
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180073594 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureByteSpace@CD3DDynamicAppendBuffer@@QEAAJI_N@Z @ 0x1800D080C (-EnsureByteSpace@CD3DDynamicAppendBuffer@@QEAAJI_N@Z.c)
- *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800DB67C (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z @ 0x18020A9B8 (-BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z.c)
- *     ?IsHardwareProtectionDisabled@CD2DContext@@QEBA_NXZ @ 0x180287B9C (-IsHardwareProtectionDisabled@CD2DContext@@QEBA_NXZ.c)
+ *     ?EnsureByteSpace@CD3DDynamicAppendBuffer@@QEAAJI_N@Z @ 0x18002B850 (-EnsureByteSpace@CD3DDynamicAppendBuffer@@QEAAJI_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x180066ECC (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x18007A274 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152674 (McTemplateU0q_EventWriteTransfer.c)
+ *     ?BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z @ 0x1801AA2EC (-BeginAppend@CD3DDynamicAppendBuffer@@QEAAJII@Z.c)
+ *     ?IsHardwareProtectionDisabled@CD2DContext@@QEBA_NXZ @ 0x18023CCA0 (-IsHardwareProtectionDisabled@CD2DContext@@QEBA_NXZ.c)
  */
 
 __int64 __fastcall CD3DBatchExecutionContext::AppendGeometry(
@@ -25,543 +24,561 @@ __int64 __fastcall CD3DBatchExecutionContext::AppendGeometry(
         _QWORD *a6)
 {
   __int64 v6; // rax
-  __int64 v8; // r13
-  unsigned int v9; // ebx
-  unsigned int v11; // edi
-  bool v12; // zf
-  CD3DDynamicAppendBuffer *v13; // r8
-  unsigned int *v14; // rsi
-  int v15; // eax
-  int v16; // ecx
-  unsigned int v17; // r14d
-  unsigned int v18; // eax
-  unsigned int v19; // ebp
-  __int64 v20; // r14
-  int v21; // ecx
-  unsigned int v22; // ecx
-  unsigned int v23; // eax
-  __int64 v24; // r13
-  int v25; // ebp
-  int v26; // eax
-  unsigned int v27; // ecx
-  unsigned int v28; // r8d
-  unsigned int v29; // eax
+  unsigned int v7; // ebx
+  unsigned int v8; // r12d
+  unsigned int v12; // ebp
+  CD3DDynamicAppendBuffer *v13; // r10
+  int v14; // edx
+  unsigned int *v15; // rsi
+  int v16; // eax
+  int v17; // r15d
+  int v18; // r9d
+  unsigned int v19; // eax
+  unsigned int v20; // eax
+  unsigned int v21; // r13d
+  UINT v22; // r14d
+  UINT v23; // r14d
+  unsigned int v24; // eax
+  unsigned int v25; // eax
+  unsigned int v26; // r13d
+  char v27; // r14
+  __int64 v28; // r14
+  __int64 v29; // rcx
   unsigned int v30; // eax
   unsigned int v31; // eax
-  unsigned int v32; // r9d
-  unsigned int v33; // ecx
-  int v34; // edx
-  unsigned int v35; // r14d
-  int v36; // r14d
-  int v37; // eax
-  unsigned int v38; // r13d
-  unsigned int v39; // eax
-  bool v40; // cf
-  __int64 v41; // rax
-  int v42; // ebp
-  int v43; // eax
-  unsigned int v44; // ecx
-  __int64 v45; // r10
-  __int64 v46; // r10
-  unsigned int v47; // eax
-  unsigned int v48; // eax
-  unsigned int v49; // ebp
-  __int64 v50; // rdx
-  unsigned int *v51; // r9
-  unsigned int v52; // r10d
-  unsigned __int64 v53; // r8
-  __int16 v54; // r11
-  unsigned __int64 v55; // rdx
-  __m128i v56; // xmm1
-  __m128i v57; // xmm1
-  __int64 v58; // rax
-  __int64 v59; // rax
-  __int64 v60; // rax
-  unsigned __int64 v61; // rdx
-  _WORD *v62; // rcx
-  __int64 v63; // r8
+  __int64 v32; // r8
+  unsigned int *v33; // r10
+  unsigned int v34; // r9d
+  unsigned __int64 v35; // rax
+  __int16 v36; // r11
+  unsigned __int64 v37; // r8
+  __m128i v38; // xmm1
+  __m128i v39; // xmm1
+  __int64 v40; // rcx
+  __int64 v41; // rcx
+  __int64 v42; // rcx
+  unsigned __int64 v43; // r8
+  unsigned __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int16 v46; // ax
+  unsigned int v47; // edx
+  __int64 v48; // rcx
+  unsigned int v49; // eax
+  __int64 v50; // rcx
+  unsigned int v52; // edx
+  __int64 v53; // rcx
+  unsigned int v54; // eax
+  __int64 v55; // r12
+  int v56; // eax
+  unsigned int v57; // eax
+  unsigned int v58; // eax
+  unsigned int v59; // eax
+  unsigned int v60; // r8d
+  int v61; // edx
+  unsigned int v62; // r12d
+  int v63; // r12d
   __int64 v64; // rcx
-  unsigned int v65; // r12d
-  _QWORD *v66; // rax
-  __int64 v67; // rcx
-  unsigned int v69; // eax
+  __int64 v65; // rax
+  int v66; // eax
+  _BOOL8 v67; // rcx
+  __int64 v68; // r10
+  __int64 v69; // r10
   unsigned int v70; // eax
   unsigned int v71; // eax
-  unsigned int v72; // eax
-  __int64 v73; // rcx
+  __int64 v72; // rcx
+  int v73; // eax
   int v74; // eax
-  int v75; // eax
-  __int64 v76; // rax
-  __int64 v77; // rcx
-  unsigned int v78; // ecx
-  unsigned int v79; // r14d
-  int v80; // r9d
+  __int64 v75; // rax
+  __int64 v76; // rcx
+  int v77; // eax
+  __int64 v78; // rcx
+  int v79; // eax
+  __int64 v80; // rcx
   int v81; // eax
-  unsigned int v82; // ecx
-  int v83; // ebp
-  unsigned int v84; // ecx
-  int v85; // eax
-  CD2DContext *v86; // rcx
+  __int64 v82; // rcx
+  int v83; // eax
+  CD2DContext *v84; // rcx
   char IsHardwareProtectionDisabled; // al
-  __int64 v88; // r8
-  char v89; // dl
-  unsigned int v90; // ecx
-  int v91; // eax
-  CD2DContext *v92; // rcx
-  char v93; // al
-  unsigned int v94; // edx
-  char v95; // r9
-  CD3DDynamicAppendBuffer *v96; // r14
-  int v97; // eax
-  unsigned int v98; // ecx
-  __int64 v99; // rdx
-  unsigned int v100; // [rsp+20h] [rbp-A8h]
-  unsigned int v101; // [rsp+40h] [rbp-88h]
-  __int64 v102; // [rsp+48h] [rbp-80h] BYREF
-  unsigned int v103; // [rsp+50h] [rbp-78h] BYREF
-  int v104; // [rsp+54h] [rbp-74h]
-  CD3DDynamicAppendBuffer *v105; // [rsp+58h] [rbp-70h]
-  unsigned int v106; // [rsp+60h] [rbp-68h]
-  unsigned int v107; // [rsp+64h] [rbp-64h]
-  _QWORD v108[12]; // [rsp+68h] [rbp-60h] BYREF
-  int v109; // [rsp+D0h] [rbp+8h] BYREF
-  bool v110; // [rsp+D8h] [rbp+10h]
-  unsigned int v111; // [rsp+E0h] [rbp+18h]
-  unsigned int *v112; // [rsp+E8h] [rbp+20h]
+  __int64 v86; // r8
+  char v87; // dl
+  int v88; // eax
+  CD2DContext *v89; // rcx
+  char v90; // al
+  unsigned int v91; // edx
+  char v92; // r9
+  CD3DDynamicAppendBuffer *v93; // r12
+  __int64 v94; // rax
+  int v95; // eax
+  __int64 v96; // rcx
+  __int64 v97; // rcx
+  unsigned int v98; // r8d
+  bool v99; // [rsp+40h] [rbp-98h]
+  unsigned int v100; // [rsp+44h] [rbp-94h] BYREF
+  __int64 v101; // [rsp+48h] [rbp-90h] BYREF
+  unsigned int v102; // [rsp+50h] [rbp-88h] BYREF
+  int v103; // [rsp+54h] [rbp-84h]
+  unsigned int v104; // [rsp+58h] [rbp-80h]
+  CD3DDynamicAppendBuffer *v105; // [rsp+60h] [rbp-78h]
+  unsigned int v106; // [rsp+68h] [rbp-70h]
+  unsigned int v107; // [rsp+6Ch] [rbp-6Ch]
+  unsigned int v108; // [rsp+70h] [rbp-68h]
+  _QWORD v109[12]; // [rsp+78h] [rbp-60h] BYREF
+  int v110; // [rsp+E0h] [rbp+8h] BYREF
+  unsigned int v111; // [rsp+E8h] [rbp+10h]
+  unsigned int v112; // [rsp+F0h] [rbp+18h]
+  unsigned int *v113; // [rsp+F8h] [rbp+20h]
 
-  v112 = a4;
-  v111 = a3;
+  v113 = a4;
+  v112 = a3;
+  v111 = a2;
   v6 = *(_QWORD *)(a1 + 32);
+  v7 = 0;
   v8 = *a4;
-  v9 = 0;
-  v109 = 0;
-  v11 = 16;
-  v12 = *(_BYTE *)(a1 + 72) == 0;
+  v12 = 16;
   v13 = (CD3DDynamicAppendBuffer *)(v6 + 112);
-  v14 = (unsigned int *)(v6 + 16);
-  v105 = (CD3DDynamicAppendBuffer *)(v6 + 112);
-  v15 = *(_DWORD *)(a1 + 76);
-  v16 = 48;
-  if ( v12 )
-    v16 = 16;
-  v17 = v16 + 8 * v15;
-  v18 = 0;
+  v14 = 48;
+  v15 = (unsigned int *)(v6 + 16);
+  v16 = *(_DWORD *)(a1 + 76);
+  v17 = 0;
+  if ( !*(_BYTE *)(a1 + 72) )
+    v14 = 16;
+  v105 = v13;
+  v18 = v14 + 8 * v16;
+  v19 = 0;
   if ( *(_BYTE *)(a1 + 73) )
-    v18 = 48;
-  v101 = v17;
+    v19 = 48;
   v106 = v18;
-  v110 = (_DWORD)v8 != 0;
-  if ( a2 * v17 > v14[10] )
+  v107 = v19;
+  v20 = 100;
+  v21 = 100;
+  if ( a2 >= 0x64 )
+    v21 = a2;
+  LOBYTE(v110) = v8 != 0;
+  v99 = a3 != 0;
+  if ( v8 )
   {
-    CD3DBatchExecutionContext::Flush(a1, 8LL);
-    v109 = CD3DDynamicAppendBuffer::EnsureByteSpace((CD3DDynamicAppendBuffer *)v14, a2 * v17, 0);
-    v79 = v109;
-    if ( v109 < 0 )
+    if ( v8 < 0x64 )
+      v8 = 100;
+  }
+  else
+  {
+    v8 = 0;
+  }
+  if ( a3 )
+  {
+    if ( a3 >= 0x64 )
+      v20 = a3;
+  }
+  else
+  {
+    v20 = 0;
+  }
+  v100 = v20;
+  v22 = v18 * v21;
+  v104 = v18 * v21;
+  if ( v18 * v21 > v15[10] )
+  {
+    CD3DBatchExecutionContext::Flush(a1, 8);
+    v77 = CD3DDynamicAppendBuffer::EnsureByteSpace((CD3DDynamicAppendBuffer *)v15, v22, 0);
+    v17 = v77;
+    if ( v77 < 0 )
     {
-      v100 = 592;
-LABEL_95:
-      v80 = v79;
-LABEL_99:
-      MilInstrumentationCheckHR_MaybeFailFast(v78, 0LL, 0, v80, v100, 0LL);
-      return v79;
+      MilInstrumentationCheckHR_MaybeFailFast(v78, 0LL, 0, v77, 0x252u, 0LL);
+      return (unsigned int)v17;
     }
-    v17 = v101;
-    v18 = v106;
+    v20 = v100;
     v13 = v105;
     *(_BYTE *)(a1 + 81) = 1;
   }
-  v19 = v111 * v18;
-  if ( v111 * v18 <= *((_DWORD *)v13 + 10) )
-    goto LABEL_7;
-  CD3DBatchExecutionContext::Flush(a1, 1024LL);
-  v109 = CD3DDynamicAppendBuffer::EnsureByteSpace(v105, v19, 0);
-  v79 = v109;
-  if ( v109 < 0 )
+  v23 = v107 * v20;
+  if ( v107 * v20 > *((_DWORD *)v13 + 10) )
   {
-    v100 = 602;
-    goto LABEL_95;
+    CD3DBatchExecutionContext::Flush(a1, 1024);
+    v79 = CD3DDynamicAppendBuffer::EnsureByteSpace(v105, v23, 0);
+    v17 = v79;
+    if ( v79 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v80, 0LL, 0, v79, 0x25Cu, 0LL);
+      return (unsigned int)v17;
+    }
+    v13 = v105;
+    *(_BYTE *)(a1 + 81) = 1;
   }
-  v17 = v101;
-  v13 = v105;
-  *(_BYTE *)(a1 + 81) = 1;
-LABEL_7:
   if ( *(_BYTE *)(a1 + 81) )
   {
-    v73 = *(_QWORD *)(a1 + 32);
+    v72 = *(_QWORD *)(a1 + 32);
     *(_BYTE *)(a1 + 81) = 0;
-    v74 = 8 * *(_DWORD *)(a1 + 76);
+    v73 = 8 * *(_DWORD *)(a1 + 76);
     if ( *(_BYTE *)(a1 + 72) )
-      v75 = v74 + 48;
+      v74 = v73 + 48;
     else
-      v75 = v74 + 16;
-    v103 = v75;
+      v74 = v73 + 16;
+    v102 = v74;
     if ( *(_BYTE *)(a1 + 73) )
-      v104 = 48;
+      v103 = 48;
     else
-      v104 = 0;
-    v102 = 0LL;
-    v108[0] = *(_QWORD *)(v73 + 24);
-    v76 = *(_QWORD *)(v73 + 120);
-    v77 = *(_QWORD *)(a1 + 16);
-    v108[1] = v76;
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, _QWORD *, unsigned int *, __int64 *))(*(_QWORD *)v77 + 144LL))(
-      v77,
+      v103 = 0;
+    v101 = 0LL;
+    v109[0] = *(_QWORD *)(v72 + 24);
+    v75 = *(_QWORD *)(v72 + 120);
+    v76 = *(_QWORD *)(a1 + 16);
+    v109[1] = v75;
+    (*(void (__fastcall **)(__int64, _QWORD, __int64, _QWORD *, unsigned int *, __int64 *))(*(_QWORD *)v76 + 144LL))(
+      v76,
       0LL,
       2LL,
-      v108,
-      &v103,
-      &v102);
+      v109,
+      &v102,
+      &v101);
     v13 = v105;
   }
-  if ( *((_QWORD *)v14 + 3) )
+  if ( *((_QWORD *)v15 + 3) )
   {
-    v69 = v14[10] - v14[9];
-    v70 = v14[8] == 32 ? v69 >> 5 : v69 / v14[8];
-    if ( a2 > v70 )
+    v24 = v15[10] - v15[9];
+    v25 = v15[8] == 32 ? v24 >> 5 : v24 / v15[8];
+    if ( v21 > v25 )
     {
-      CD3DBatchExecutionContext::Flush(a1, 32LL);
+      CD3DBatchExecutionContext::Flush(a1, 32);
       v13 = v105;
     }
   }
+  v26 = v100;
   if ( *((_QWORD *)v13 + 3)
-    && v111 > (unsigned int)(*((_DWORD *)v13 + 10) - *((_DWORD *)v13 + 9)) / *((_DWORD *)v13 + 8) )
+    && v100 > (unsigned int)(*((_DWORD *)v13 + 10) - *((_DWORD *)v13 + 9)) / *((_DWORD *)v13 + 8) )
   {
-    CD3DBatchExecutionContext::Flush(a1, 2048LL);
+    CD3DBatchExecutionContext::Flush(a1, 2048);
   }
-  if ( !v110 )
-    goto LABEL_76;
-  v20 = *(_QWORD *)(a1 + 32);
-  v109 = 0;
-  if ( 2 * v8 > (unsigned __int64)*(unsigned int *)(v20 + 104) )
+  v27 = v110;
+  if ( (_BYTE)v110 )
   {
-    CD3DBatchExecutionContext::Flush(a1, 16LL);
-    v81 = CD3DDynamicAppendBuffer::EnsureByteSpace((CD3DDynamicAppendBuffer *)(v20 + 64), 2 * (int)v8, 0);
-    v109 = v81;
-    v83 = v81;
-    if ( v81 < 0 )
+    v28 = *(_QWORD *)(a1 + 32);
+    v17 = 0;
+    if ( 2 * (unsigned __int64)v8 > *(unsigned int *)(v28 + 104) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v82, 0LL, 0, v81, 0xD5u, 0LL);
-      v79 = v83;
-LABEL_123:
-      MilInstrumentationCheckHR_MaybeFailFast(v84, 0LL, 0, v83, 0x27Au, 0LL);
-      return v79;
+      CD3DBatchExecutionContext::Flush(a1, 16);
+      v81 = CD3DDynamicAppendBuffer::EnsureByteSpace((CD3DDynamicAppendBuffer *)(v28 + 64), 2 * v8, 0);
+      v17 = v81;
+      if ( v81 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v82, 0LL, 0, v81, 0xD1u, 0LL);
+LABEL_29:
+        if ( v17 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v17, 0x27Cu, 0LL);
+          return (unsigned int)v17;
+        }
+        v27 = v110;
+        goto LABEL_31;
+      }
+      (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 16) + 152LL))(
+        *(_QWORD *)(a1 + 16),
+        *(_QWORD *)(v28 + 72),
+        57LL);
     }
-    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 16) + 152LL))(
-      *(_QWORD *)(a1 + 16),
-      *(_QWORD *)(v20 + 72),
-      57LL);
-  }
-  if ( *(_QWORD *)(v20 + 88) )
-  {
-    v71 = *(_DWORD *)(v20 + 104) - *(_DWORD *)(v20 + 100);
-    if ( *(_DWORD *)(v20 + 96) == 2 )
-      v72 = v71 >> 1;
+    v29 = *(_QWORD *)(v28 + 88);
+    if ( v29 )
+    {
+      v30 = *(_DWORD *)(v28 + 104) - *(_DWORD *)(v28 + 100);
+      if ( *(_DWORD *)(v28 + 96) == 2 )
+        v31 = v30 >> 1;
+      else
+        v31 = v30 / *(_DWORD *)(v28 + 96);
+      if ( v8 > v31 )
+      {
+        CD3DBatchExecutionContext::Flush(a1, 64);
+        v29 = *(_QWORD *)(v28 + 88);
+      }
+      if ( v29 )
+        goto LABEL_29;
+    }
+    v52 = *(_DWORD *)(v28 + 104) - *(_DWORD *)(v28 + 100);
+    v53 = -*(_DWORD *)(v28 + 100) & 1;
+    v102 = v53;
+    LODWORD(v101) = v52;
+    v54 = v53 + 2 * v8;
+    v55 = *(_QWORD *)(v28 + 64);
+    v108 = v54;
+    v17 = *(_DWORD *)(v55 + 1128);
+    if ( v17 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0, v17, 0xBBAu, 0LL);
+    }
     else
-      v72 = v71 / *(_DWORD *)(v20 + 96);
-    if ( (unsigned int)v8 > v72 )
-      CD3DBatchExecutionContext::Flush(a1, 64LL);
-    if ( *(_QWORD *)(v20 + 88) )
     {
-      v17 = v101;
-LABEL_76:
-      v28 = v109;
-      goto LABEL_31;
+      v56 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD *))(**(_QWORD **)(v55 + 600)
+                                                                                        + 112LL))(
+              *(_QWORD *)(v55 + 600),
+              *(_QWORD *)(v28 + 72),
+              0LL,
+              5 - (unsigned int)(v52 < v54),
+              0,
+              v109);
+      v17 = v56;
+      if ( v56 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v56, 0xBC0u, 0LL);
     }
+    if ( !*(_DWORD *)(v55 + 1128)
+      && (v17 == -2005532292 || v17 == -2147024882 || v17 == -2005270523)
+      && *(_DWORD *)(v55 + 496) )
+    {
+      if ( v17 == -2005270523 )
+      {
+        v83 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(v55 + 592) + 312LL))(*(_QWORD *)(v55 + 592));
+        *(_DWORD *)(v55 + 1128) = -2003304307;
+        v29 = v83 == -2005270480;
+        if ( v83 != -2005270480 )
+        {
+LABEL_117:
+          if ( *(int *)(v55 + 1128) < 0 )
+          {
+            v17 = *(_DWORD *)(v55 + 1128);
+            goto LABEL_55;
+          }
+LABEL_53:
+          if ( (unsigned __int8)TranslateDXGIorD3DErrorInContext((unsigned int)v17, 0LL, &v100) )
+          {
+            v17 = v100;
+            if ( (v100 & 0x80000000) != 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v100, 0xD8Bu, 0LL);
+          }
+          if ( v17 == -2003304307 )
+          {
+            *(_DWORD *)(v55 + 1128) = -2003304307;
+            goto LABEL_125;
+          }
+LABEL_55:
+          if ( v17 >= 0 )
+          {
+            *(_QWORD *)(v28 + 88) = v109[0];
+            v57 = v108;
+            *(_DWORD *)(v28 + 96) = 2;
+            if ( (unsigned int)v101 < v57 )
+              *(_DWORD *)(v28 + 100) = 0;
+            else
+              *(_DWORD *)(v28 + 100) += v102;
+LABEL_58:
+            if ( v17 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v17, 0xDCu, 0LL);
+            }
+            else
+            {
+              v58 = *(_DWORD *)(v28 + 100);
+              if ( *(_DWORD *)(v28 + 96) == 2 )
+                v59 = v58 >> 1;
+              else
+                v59 = v58 / *(_DWORD *)(v28 + 96);
+              *(_DWORD *)(a1 + 88) = v59;
+            }
+            goto LABEL_29;
+          }
+LABEL_125:
+          MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v17, 0x6Cu, 0LL);
+          goto LABEL_58;
+        }
+      }
+      CD2DContext::IsHardwareProtectionDisabled((CD2DContext *)(v55 + 16));
+      *((_BYTE *)v84 + 484) = 1;
+      IsHardwareProtectionDisabled = CD2DContext::IsHardwareProtectionDisabled(v84);
+      if ( v87 != IsHardwareProtectionDisabled && (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+        McTemplateU0q_EventWriteTransfer(v29, &EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE, v86);
+    }
+    if ( v17 >= 0 )
+      goto LABEL_53;
+    goto LABEL_117;
   }
-  v21 = *(_DWORD *)(v20 + 100);
-  if ( (unsigned int)v8 < 0x12C )
-    LODWORD(v8) = 300;
-  LODWORD(v102) = *(_DWORD *)(v20 + 104) - *(_DWORD *)(v20 + 100);
-  v22 = -v21 & 1;
-  v103 = v22;
-  v23 = v22 + 2 * v8;
-  v24 = *(_QWORD *)(v20 + 64);
-  v107 = v23;
-  v25 = *(_DWORD *)(v24 + 1088);
-  if ( v25 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v25, 0x9F9u, 0LL);
-  }
-  else
-  {
-    v26 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD *))(**(_QWORD **)(v24 + 560) + 112LL))(
-            *(_QWORD *)(v24 + 560),
-            *(_QWORD *)(v20 + 72),
-            0LL,
-            5 - (unsigned int)((unsigned int)v102 < v23),
-            0,
-            v108);
-    v25 = v26;
-    if ( v26 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x9FFu, 0LL);
-  }
-  if ( *(_DWORD *)(v24 + 1088)
-    || v25 != -2005532292 && v25 != -2147024882 && v25 != -2005270523
-    || !*(_DWORD *)(v24 + 448) )
-  {
-LABEL_22:
-    if ( v25 >= 0 )
-      goto LABEL_23;
-    goto LABEL_113;
-  }
-  if ( v25 != -2005270523
-    || (v85 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(v24 + 552) + 312LL))(*(_QWORD *)(v24 + 552)),
-        *(_DWORD *)(v24 + 1088) = -2003304307,
-        (v27 = v85 == -2005270480) != 0) )
-  {
-    CD2DContext::IsHardwareProtectionDisabled((CD2DContext *)(v24 + 16));
-    *((_BYTE *)v86 + 436) = 1;
-    IsHardwareProtectionDisabled = CD2DContext::IsHardwareProtectionDisabled(v86);
-    if ( v89 != IsHardwareProtectionDisabled && (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-      McTemplateU0q_EventWriteTransfer(
-        &Microsoft_Windows_Dwm_Core_Provider_Context,
-        &EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE,
-        v88);
-    goto LABEL_22;
-  }
-LABEL_113:
-  if ( *(int *)(v24 + 1088) < 0 )
-  {
-    v25 = *(_DWORD *)(v24 + 1088);
-    v79 = v25;
-LABEL_122:
-    MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v25, 0x6Cu, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v90, 0LL, 0, v25, 0xE1u, 0LL);
-    v83 = v79;
-    goto LABEL_123;
-  }
-LABEL_23:
-  if ( (unsigned __int8)TranslateDXGIorD3DErrorInContext((unsigned int)v25, 0LL, &v109) )
-  {
-    v25 = v109;
-    if ( v109 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v109, 0xB38u, 0LL);
-  }
-  v109 = v25;
-  v28 = v25;
-  if ( v25 == -2003304307 )
-  {
-    *(_DWORD *)(v24 + 1088) = -2003304307;
-    goto LABEL_121;
-  }
-  if ( v25 < 0 )
-  {
-LABEL_121:
-    v79 = v25;
-    goto LABEL_122;
-  }
-  *(_QWORD *)(v20 + 88) = v108[0];
-  v29 = v107;
-  *(_DWORD *)(v20 + 96) = 2;
-  if ( (unsigned int)v102 < v29 )
-    *(_DWORD *)(v20 + 100) = 0;
-  else
-    *(_DWORD *)(v20 + 100) += v103;
-  v30 = *(_DWORD *)(v20 + 100);
-  if ( *(_DWORD *)(v20 + 96) == 2 )
-    v31 = v30 >> 1;
-  else
-    v31 = v30 / *(_DWORD *)(v20 + 96);
-  v17 = v101;
-  *(_DWORD *)(a1 + 88) = v31;
 LABEL_31:
-  v32 = 100;
-  if ( *((_QWORD *)v14 + 3) )
-    goto LABEL_54;
-  v33 = v14[9];
-  if ( v17 == 32 )
-    v34 = v14[9] & 0x1F;
-  else
-    v34 = v33 % v17;
-  v35 = v17 - v34;
-  if ( v101 == 32 )
-    v36 = v35 & 0x1F;
-  else
-    v36 = v35 % v101;
-  v37 = 100;
-  v38 = v14[10] - v33;
-  if ( a2 >= 0x64 )
-    v37 = a2;
-  v39 = v36 + v101 * v37;
-  v40 = v38 < v39;
-  v103 = v39;
-  v41 = *(_QWORD *)v14;
-  v102 = v41;
-  v42 = *(_DWORD *)(v41 + 1088);
-  if ( v42 < 0 )
+  if ( !*((_QWORD *)v15 + 3) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v42, 0x9F9u, 0LL);
-  }
-  else
-  {
-    v43 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD, _DWORD, _QWORD *))(**(_QWORD **)(v41 + 560) + 112LL))(
-            *(_QWORD *)(v41 + 560),
-            *((_QWORD *)v14 + 1),
-            0LL,
-            5 - (unsigned int)v40,
-            0,
-            v108);
-    v42 = v43;
-    if ( v43 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0x9FFu, 0LL);
-  }
-  v45 = v102;
-  if ( *(_DWORD *)(v102 + 1088)
-    || v42 != -2005532292 && v42 != -2147024882 && v42 != -2005270523
-    || !*(_DWORD *)(v102 + 448) )
-  {
-LABEL_45:
-    if ( v42 >= 0 )
-      goto LABEL_46;
-    goto LABEL_128;
-  }
-  if ( v42 != -2005270523
-    || (v91 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(v102 + 552) + 312LL))(*(_QWORD *)(v102 + 552)),
-        v45 = v102,
-        v44 = v91 == -2005270480,
-        *(_DWORD *)(v102 + 1088) = -2003304307,
-        v91 == -2005270480) )
-  {
-    CD2DContext::IsHardwareProtectionDisabled((CD2DContext *)(v45 + 16));
-    *((_BYTE *)v92 + 436) = 1;
-    v93 = CD2DContext::IsHardwareProtectionDisabled(v92);
-    if ( v95 != v93 && (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+    v60 = v15[9];
+    if ( v106 == 32 )
+      v61 = v15[9] & 0x1F;
+    else
+      v61 = v60 % v106;
+    v62 = v106 - v61;
+    if ( v106 == 32 )
+      v63 = v62 & 0x1F;
+    else
+      v63 = v62 % v106;
+    v64 = v15[10] - v60;
+    v104 += v63;
+    v102 = v64;
+    v65 = *(_QWORD *)v15;
+    v101 = v65;
+    v17 = *(_DWORD *)(v65 + 1128);
+    if ( v17 < 0 )
     {
-      McTemplateU0q_EventWriteTransfer(
-        &Microsoft_Windows_Dwm_Core_Provider_Context,
-        &EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE,
-        v94);
-      v45 = v102;
+      MilInstrumentationCheckHR_MaybeFailFast(v64, 0LL, 0, v17, 0xBBAu, 0LL);
     }
-    goto LABEL_45;
-  }
-LABEL_128:
-  if ( *(int *)(v45 + 1088) < 0 )
-  {
-    v42 = *(_DWORD *)(v45 + 1088);
-    v79 = v42;
-    goto LABEL_98;
-  }
-LABEL_46:
-  if ( (unsigned __int8)TranslateDXGIorD3DErrorInContext((unsigned int)v42, 0LL, &v109) )
-  {
-    v42 = v109;
-    if ( v109 < 0 )
+    else
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v109, 0xB38u, 0LL);
-      v46 = v102;
+      v66 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD, _DWORD, _QWORD *))(**(_QWORD **)(v65 + 600)
+                                                                                         + 112LL))(
+              *(_QWORD *)(v65 + 600),
+              *((_QWORD *)v15 + 1),
+              0LL,
+              5 - (unsigned int)((unsigned int)v64 < v104),
+              0,
+              v109);
+      v17 = v66;
+      if ( v66 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v66, 0xBC0u, 0LL);
     }
-  }
-  v109 = v42;
-  v28 = v42;
-  if ( v42 == -2003304307 )
-  {
-    *(_DWORD *)(v46 + 1088) = -2003304307;
-    goto LABEL_97;
-  }
-  if ( v42 < 0 )
-  {
-LABEL_97:
-    v79 = v42;
-LABEL_98:
-    MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v42, 0x6Cu, 0LL);
-    v80 = v42;
-    v100 = 641;
-    goto LABEL_99;
-  }
-  v14[8] = v101;
-  *((_QWORD *)v14 + 3) = v108[0];
-  if ( v38 < v103 )
-    v14[9] = 0;
-  else
-    v14[9] += v36;
-  v47 = v14[9];
-  if ( v14[8] == 32 )
-    v48 = v47 >> 5;
-  else
-    v48 = v47 / v14[8];
-  *(_DWORD *)(a1 + 84) = v48;
-  v32 = 100;
-LABEL_54:
-  v49 = v111;
-  if ( v111 )
-  {
-    v96 = v105;
-    if ( !*((_QWORD *)v105 + 3) )
+    v68 = v101;
+    if ( !*(_DWORD *)(v101 + 1128)
+      && (v17 == -2005532292 || v17 == -2147024882 || v17 == -2005270523)
+      && *(_DWORD *)(v101 + 496) )
     {
-      if ( v111 >= 0x64 )
-        v32 = v111;
-      v97 = CD3DDynamicAppendBuffer::BeginAppend(v105, v106, v32);
-      v109 = v97;
-      v28 = v97;
-      if ( v97 < 0 )
+      if ( v17 == -2005270523 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v98, 0LL, 0, v97, 0x28Cu, 0LL);
-        return (unsigned int)v109;
+        v88 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(v101 + 592) + 312LL))(*(_QWORD *)(v101 + 592));
+        v68 = v101;
+        v67 = v88 == -2005270480;
+        *(_DWORD *)(v101 + 1128) = -2003304307;
+        if ( v88 != -2005270480 )
+        {
+LABEL_132:
+          if ( *(int *)(v68 + 1128) < 0 )
+          {
+            v17 = *(_DWORD *)(v68 + 1128);
+            goto LABEL_76;
+          }
+LABEL_74:
+          if ( (unsigned __int8)TranslateDXGIorD3DErrorInContext((unsigned int)v17, 0LL, &v110) )
+          {
+            v17 = v110;
+            if ( v110 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v110, 0xD8Bu, 0LL);
+              v69 = v101;
+            }
+          }
+          if ( v17 == -2003304307 )
+          {
+            *(_DWORD *)(v69 + 1128) = -2003304307;
+            goto LABEL_140;
+          }
+LABEL_76:
+          if ( v17 >= 0 )
+          {
+            v15[8] = v106;
+            *((_QWORD *)v15 + 3) = v109[0];
+            if ( v102 < v104 )
+              v15[9] = 0;
+            else
+              v15[9] += v63;
+            goto LABEL_79;
+          }
+LABEL_140:
+          MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v17, 0x6Cu, 0LL);
+LABEL_79:
+          if ( v17 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0, v17, 0x282u, 0LL);
+            return (unsigned int)v17;
+          }
+          v70 = v15[9];
+          if ( v15[8] == 32 )
+            v71 = v70 >> 5;
+          else
+            v71 = v70 / v15[8];
+          *(_DWORD *)(a1 + 84) = v71;
+          goto LABEL_32;
+        }
       }
-      *(_DWORD *)(a1 + 92) = *((_DWORD *)v96 + 9) / *((_DWORD *)v96 + 8);
-    }
-    v99 = *((_QWORD *)v96 + 3) + *((unsigned int *)v96 + 9);
-    *((_DWORD *)v96 + 9) += *((_DWORD *)v96 + 8) * v49;
-    *a6 = v99;
-    *(_DWORD *)(a1 + 104) += v49;
-  }
-  if ( v110 )
-  {
-    v50 = *(_QWORD *)(a1 + 32);
-    v51 = v112;
-    v52 = *v112;
-    v53 = *(_QWORD *)(v50 + 88) + *(unsigned int *)(v50 + 100);
-    *(_DWORD *)(v50 + 100) += *(_DWORD *)(v50 + 96) * *v112;
-    v54 = *(_WORD *)(a1 + 96) + *(_WORD *)(a1 + 84);
-    v55 = *((_QWORD *)v51 + 1);
-    v56 = _mm_cvtsi32_si128(v54);
-    v57 = _mm_shuffle_epi32(_mm_unpacklo_epi16(v56, v56), 0);
-    if ( v52 )
-    {
-      if ( v52 < 0x20 )
-        goto LABEL_62;
-      v58 = v52 - 1;
-      if ( v53 <= v55 + 2 * v58 && v53 + 2 * v58 >= v55 )
-        goto LABEL_62;
-      do
+      CD2DContext::IsHardwareProtectionDisabled((CD2DContext *)(v68 + 16));
+      *((_BYTE *)v89 + 484) = 1;
+      v90 = CD2DContext::IsHardwareProtectionDisabled(v89);
+      if ( v92 != v90 && (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
       {
-        v59 = v9;
-        v9 += 32;
-        *(__m128i *)(v53 + 2 * v59) = _mm_add_epi16(_mm_loadu_si128((const __m128i *)(v55 + 2 * v59)), v57);
-        *(__m128i *)(v53 + 2LL * (v11 - 8)) = _mm_add_epi16(
-                                                _mm_loadu_si128((const __m128i *)(v55 + 2LL * (v11 - 8))),
-                                                v57);
-        *(__m128i *)(v53 + 2LL * v11) = _mm_add_epi16(_mm_loadu_si128((const __m128i *)(v55 + 2LL * v11)), v57);
-        v60 = v11 + 8;
-        v11 += 32;
-        *(__m128i *)(v53 + 2 * v60) = _mm_add_epi16(_mm_loadu_si128((const __m128i *)(v55 + 2 * v60)), v57);
+        McTemplateU0q_EventWriteTransfer(v67, &EVTDESC_ETWGUID_HW_PROTECTION_TEMPDISABLE, v91);
+        v68 = v101;
       }
-      while ( v9 < (v52 & 0xFFFFFFE0) );
-      if ( v9 < v52 )
+    }
+    if ( v17 >= 0 )
+      goto LABEL_74;
+    goto LABEL_132;
+  }
+LABEL_32:
+  if ( v99 )
+  {
+    v93 = v105;
+    v94 = *((_QWORD *)v105 + 3);
+    if ( !v94 )
+    {
+      v95 = CD3DDynamicAppendBuffer::BeginAppend(v105, v107, v26);
+      v17 = v95;
+      if ( v95 < 0 )
       {
-LABEL_62:
-        v61 = v55 - v53;
-        v62 = (_WORD *)(v53 + 2LL * v9);
-        v63 = v52 - v9;
+        MilInstrumentationCheckHR_MaybeFailFast(v96, 0LL, 0, v95, 0x28Cu, 0LL);
+        return (unsigned int)v17;
+      }
+      *(_DWORD *)(a1 + 92) = *((_DWORD *)v93 + 9) / *((_DWORD *)v93 + 8);
+      v94 = *((_QWORD *)v93 + 3);
+    }
+    v97 = *((unsigned int *)v93 + 9);
+    v98 = v112;
+    *((_DWORD *)v93 + 9) = v97 + v112 * *((_DWORD *)v93 + 8);
+    *a6 = v94 + v97;
+    *(_DWORD *)(a1 + 104) += v98;
+  }
+  if ( v27 )
+  {
+    v32 = *(_QWORD *)(a1 + 32);
+    v33 = v113;
+    v34 = *v113;
+    v35 = *(_QWORD *)(v32 + 88) + *(unsigned int *)(v32 + 100);
+    *(_DWORD *)(v32 + 100) += *v113 * *(_DWORD *)(v32 + 96);
+    v36 = *(_WORD *)(a1 + 84) + *(_WORD *)(a1 + 96);
+    v37 = *((_QWORD *)v33 + 1);
+    v38 = _mm_cvtsi32_si128(v36);
+    v39 = _mm_shuffle_epi32(_mm_unpacklo_epi16(v38, v38), 0);
+    if ( v34 )
+    {
+      if ( v34 >= 0x20 )
+      {
+        v40 = v34 - 1;
+        if ( v35 > v37 + 2 * v40 || v35 + 2 * v40 < v37 )
+        {
+          do
+          {
+            v41 = v7;
+            v7 += 32;
+            *(__m128i *)(v35 + 2 * v41) = _mm_add_epi16(_mm_loadu_si128((const __m128i *)(v37 + 2 * v41)), v39);
+            *(__m128i *)(v35 + 2LL * (v12 - 8)) = _mm_add_epi16(
+                                                    _mm_loadu_si128((const __m128i *)(v37 + 2LL * (v12 - 8))),
+                                                    v39);
+            *(__m128i *)(v35 + 2LL * v12) = _mm_add_epi16(_mm_loadu_si128((const __m128i *)(v37 + 2LL * v12)), v39);
+            v42 = v12 + 8;
+            v12 += 32;
+            *(__m128i *)(v35 + 2 * v42) = _mm_add_epi16(_mm_loadu_si128((const __m128i *)(v37 + 2 * v42)), v39);
+          }
+          while ( v7 < (v34 & 0xFFFFFFE0) );
+        }
+      }
+      if ( v7 < v34 )
+      {
+        v43 = v37 - v35;
+        v44 = v35 + 2LL * v7;
+        v45 = v34 - v7;
         do
         {
-          *v62 = *(_WORD *)((char *)v62 + v61) + v54;
-          ++v62;
-          --v63;
+          v46 = *(_WORD *)(v43 + v44);
+          v44 += 2LL;
+          *(_WORD *)(v44 - 2) = v36 + v46;
+          --v45;
         }
-        while ( v63 );
+        while ( v45 );
       }
     }
-    *(_DWORD *)(a1 + 100) += v52;
-    v28 = v109;
+    *(_DWORD *)(a1 + 100) += v34;
   }
-  *(_DWORD *)(a1 + 96) += a2;
-  v64 = v14[9];
-  v65 = v64 + v14[8] * a2;
-  v66 = a5;
-  v67 = *((_QWORD *)v14 + 3) + v64;
-  v14[9] = v65;
-  *v66 = v67;
-  return v28;
+  v47 = v111;
+  *(_DWORD *)(a1 + 96) += v111;
+  v48 = v15[9];
+  v49 = v48 + v47 * v15[8];
+  v50 = *((_QWORD *)v15 + 3) + v48;
+  v15[9] = v49;
+  *a5 = v50;
+  return (unsigned int)v17;
 }

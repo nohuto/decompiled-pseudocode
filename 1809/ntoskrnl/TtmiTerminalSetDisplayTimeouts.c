@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiTerminalSetDisplayTimeouts @ 0x14087EEE8
+ * XREFs of TtmiTerminalSetDisplayTimeouts @ 0x14087EEC8
  * Callers:
- *     TtmpTerminal0PowerSettingCallback @ 0x140881420 (TtmpTerminal0PowerSettingCallback.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x1408821A0 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpTerminal0PowerSettingCallback @ 0x140881400 (TtmpTerminal0PowerSettingCallback.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x140882180 (TtmpDispatchSetDisplayTimeouts.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x140880240 (TtmiScheduleSessionWorker.c)
- *     TtmiLogTerminalDisplayTimeouts @ 0x140885C54 (TtmiLogTerminalDisplayTimeouts.c)
+ *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogTerminalDisplayTimeouts @ 0x140885C34 (TtmiLogTerminalDisplayTimeouts.c)
  */
 
 __int64 __fastcall TtmiTerminalSetDisplayTimeouts(_DWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)

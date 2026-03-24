@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSchedulerDpc @ 0x14066D720
+ * XREFs of KiSchedulerDpc @ 0x1405BFB40
  * Callers:
  *     <none>
  * Callees:
- *     RtlWriteTryAcquireTickLock @ 0x14020D934 (RtlWriteTryAcquireTickLock.c)
- *     KiMcaDeferredRecoveryService @ 0x14042B2E0 (KiMcaDeferredRecoveryService.c)
+ *     KiMcaDeferredRecoveryService @ 0x140409960 (KiMcaDeferredRecoveryService.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14058F348 (RtlWriteTryAcquireTickLock.c)
  */
 
 void __fastcall __noreturn KiSchedulerDpc(
@@ -23,7 +23,6 @@ void __fastcall __noreturn KiSchedulerDpc(
   struct _KTHREAD *v11; // rax
   unsigned __int8 CurrentIrql; // cl
   _DWORD *SchedulerAssist; // r9
-  int v14; // eax
 
   v4 = DeferredContext;
   v5 = DeferredContext[13] % 0xA;
@@ -63,16 +62,13 @@ void __fastcall __noreturn KiSchedulerDpc(
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          v14 = 4;
-          if ( CurrentIrql != 2 )
-            v14 = (-1LL << (CurrentIrql + 1)) & 4;
-          SchedulerAssist[5] |= v14;
+          SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
         }
       }
     }
     else
     {
-      RtlWriteTryAcquireTickLock((signed __int64 *)0xFFFFF78000000340LL);
+      RtlWriteTryAcquireTickLock();
     }
   }
   KiMcaDeferredRecoveryService(__ROL4__(-2071986176, 137), v4[9], v4[10], v4[11], v4[12]);

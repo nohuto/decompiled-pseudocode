@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetMemoryPartitionImplicit @ 0x1407E7464
+ * XREFs of PspGetMemoryPartitionImplicit @ 0x140614404
  * Callers:
- *     PspGetMemoryPartitionContext @ 0x1406B9120 (PspGetMemoryPartitionContext.c)
+ *     PspGetMemoryPartitionContext @ 0x14060D3E0 (PspGetMemoryPartitionContext.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020C010 (PsGetEffectiveServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PspUnlockJobChain @ 0x1406A0C10 (PspUnlockJobChain.c)
- *     PspLockJobChain @ 0x1406A0CC8 (PspLockJobChain.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     PsGetEffectiveServerSilo @ 0x140361880 (PsGetEffectiveServerSilo.c)
+ *     PspUnlockJobChain @ 0x140616570 (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x1406166A0 (PspLockJobChain.c)
  */
 
 __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD *a3)
@@ -14,65 +14,50 @@ __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD 
   unsigned int v5; // edi
   struct _KTHREAD *CurrentThread; // r15
   __int64 EffectiveServerSilo; // rbx
-  int v9; // eax
-  void *v10; // rcx
+  __int64 v9; // rax
 
   v5 = 0;
   *a3 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  PspLockJobChain(a1, (__int64)CurrentThread, 0);
+  PspLockJobChain(a1, CurrentThread, 0LL);
   if ( (a2 & 0x400) != 0 )
   {
     EffectiveServerSilo = PsGetEffectiveServerSilo(a1);
   }
   else
   {
-    EffectiveServerSilo = a1;
-    if ( a1 )
+    for ( EffectiveServerSilo = a1; EffectiveServerSilo; EffectiveServerSilo = *(_QWORD *)(EffectiveServerSilo + 1072) )
     {
-      while ( 1 )
+      if ( (*(_DWORD *)(EffectiveServerSilo + 256) & 0x1000) == 0
+        && ((*(_DWORD *)(EffectiveServerSilo + 256) & 0x800) == 0 || (a2 & 1) == 0) )
       {
-        v9 = *(_DWORD *)(EffectiveServerSilo + 256);
-        if ( (v9 & 0x1000) == 0 )
-        {
-          if ( (a2 & 1) == 0 )
-            goto LABEL_5;
-          if ( (v9 & 0x800) == 0 )
-            break;
-        }
-        EffectiveServerSilo = *(_QWORD *)(EffectiveServerSilo + 1288);
-        if ( !EffectiveServerSilo )
-          goto LABEL_12;
+        break;
       }
     }
-    else
-    {
-LABEL_12:
-      if ( (a2 & 1) == 0 )
-        goto LABEL_5;
-    }
-    if ( EffectiveServerSilo == a1 && (*(_DWORD *)(EffectiveServerSilo + 1536) & 0x40000000) == 0 )
+    if ( (a2 & 1) != 0 && EffectiveServerSilo == a1 && (*(_DWORD *)(EffectiveServerSilo + 1320) & 0x40000000) == 0 )
     {
       v5 = -1073741790;
-      goto LABEL_10;
+      goto LABEL_11;
     }
   }
-LABEL_5:
   if ( EffectiveServerSilo )
   {
-    v10 = *(void **)(EffectiveServerSilo + 1776);
-    if ( v10 == (void *)-1LL )
+    v9 = *(_QWORD *)(EffectiveServerSilo + 1560);
+    if ( v9 == -1 )
     {
       v5 = -1073740682;
     }
     else
     {
-      if ( v10 )
-        ObfReferenceObjectWithTag(v10, 0x624A7350u);
-      *a3 = *(_QWORD *)(EffectiveServerSilo + 1776);
+      if ( v9 )
+      {
+        ObfReferenceObjectWithTag(*(PVOID *)(EffectiveServerSilo + 1560), 0x624A7350u);
+        v9 = *(_QWORD *)(EffectiveServerSilo + 1560);
+      }
+      *a3 = v9;
     }
   }
-LABEL_10:
-  PspUnlockJobChain(a1, (__int64)CurrentThread, 0);
+LABEL_11:
+  PspUnlockJobChain(a1, CurrentThread, 0LL);
   return v5;
 }

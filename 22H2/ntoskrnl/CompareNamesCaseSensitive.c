@@ -1,97 +1,91 @@
 /*
- * XREFs of CompareNamesCaseSensitive @ 0x1409BA788
+ * XREFs of CompareNamesCaseSensitive @ 0x140911B24
  * Callers:
- *     PfxFindPrefix @ 0x1409BAA10 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x1409BAB10 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x140911D30 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140911E30 (PfxInsertPrefix.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)
 {
-  unsigned int v3; // edi
-  bool v4; // r13
-  __int64 v5; // r12
-  _QWORD *CurrentServerSiloGlobals; // rax
-  __int64 v8; // rsi
-  unsigned int v9; // ebp
-  unsigned int v11; // eax
-  unsigned int v12; // ebx
-  unsigned int v13; // r8d
-  __int64 v14; // r15
-  unsigned __int8 v15; // r10
-  unsigned __int8 v16; // r11
-  char v17; // bl
-  char v18; // r9
-  unsigned __int8 v19; // dl
-  unsigned __int8 v20; // al
-  unsigned int i; // r9d
-  unsigned int j; // r9d
-  signed __int32 v23[18]; // [rsp+0h] [rbp-48h] BYREF
-  __int64 v24; // [rsp+50h] [rbp+8h]
+  __int64 v2; // rdi
+  unsigned int v3; // esi
+  const void *v6; // rdx
+  unsigned int v7; // eax
+  const void *v8; // rcx
+  unsigned int v9; // ebx
+  unsigned int v10; // r9d
+  __int64 v11; // r15
+  __int64 v12; // rdx
+  __int64 v13; // r12
+  unsigned __int8 v14; // r11
+  unsigned __int8 v15; // bl
+  char v16; // cl
+  char v17; // bp
+  unsigned __int8 v18; // r8
+  unsigned __int8 v19; // al
+  unsigned int i; // r10d
 
-  v3 = 0;
-  v4 = 0;
-  v5 = 0LL;
-  if ( !RtlpIsUtf8Process() )
-  {
-    _InterlockedOr(v23, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v5 = CurrentServerSiloGlobals[151];
-    v4 = *((_WORD *)CurrentServerSiloGlobals + 538) != 0;
-  }
-  v8 = *a1;
-  v9 = *a2;
-  if ( (_WORD)v8 == 1 && **((_BYTE **)a1 + 1) == 92 && (unsigned __int16)v9 > 1u && **((_BYTE **)a2 + 1) == 92 )
+  v2 = *a1;
+  v3 = *a2;
+  if ( (_WORD)v2 == 1 && **((_BYTE **)a1 + 1) == 92 && (unsigned __int16)v3 > 1u && **((_BYTE **)a2 + 1) == 92 )
     return 1LL;
-  v11 = *a1;
-  if ( (unsigned __int16)v8 >= (unsigned __int16)v9 )
-    v11 = *a2;
-  v12 = v11;
-  v13 = RtlCompareMemory(*((const void **)a1 + 1), *((const void **)a2 + 1), v11);
-  if ( v13 < v12 )
+  v6 = (const void *)*((_QWORD *)a2 + 1);
+  v7 = *a1;
+  v8 = (const void *)*((_QWORD *)a1 + 1);
+  if ( (unsigned __int16)v2 >= (unsigned __int16)v3 )
+    v7 = v3;
+  v9 = v7;
+  v10 = RtlCompareMemory(v8, v6, v7);
+  if ( v10 < v9 )
   {
-    v14 = *((_QWORD *)a1 + 1);
+    v11 = *((_QWORD *)a1 + 1);
+    v12 = 0LL;
+    v13 = *((_QWORD *)a2 + 1);
+    v14 = 0;
     v15 = 0;
-    v16 = 0;
-    v24 = *((_QWORD *)a2 + 1);
-    v17 = *(_BYTE *)(v13 + v24);
-    v18 = *(_BYTE *)(v13 + v14);
-    if ( v18 != 92 )
-      v15 = *(_BYTE *)(v13 + v14);
-    v19 = v15;
+    v16 = *(_BYTE *)(v10 + v11);
+    v17 = *(_BYTE *)(v10 + v13);
+    if ( v16 != 92 )
+      v14 = *(_BYTE *)(v10 + v11);
+    v18 = v14;
     if ( v17 != 92 )
-      v16 = *(_BYTE *)(v13 + v24);
-    v20 = v16;
-    if ( v4 )
+      v15 = *(_BYTE *)(v10 + v13);
+    v19 = v15;
+    if ( (_BYTE)NlsMbCodePageTag )
     {
-      if ( v18 == 92 )
+      if ( v16 == 92 )
       {
-        for ( i = 0; i < v13; i += (*(_WORD *)(v5 + 2LL * *(unsigned __int8 *)(i + v14)) != 0) + 1 )
+        for ( i = 0; i < v10; i += (NlsLeadByteInfoTable[*(unsigned __int8 *)(i + v11)] != 0) + 1 )
           ;
-        v19 = v15;
-        if ( i != v13 )
-          v19 = 92;
+        v18 = v14;
+        if ( i != v10 )
+          v18 = 92;
       }
-      v20 = v16;
+      v19 = v15;
       if ( v17 == 92 )
       {
-        for ( j = 0; j < v13; j += (*(_WORD *)(v5 + 2LL * *(unsigned __int8 *)(j + v24)) != 0) + 1 )
-          ;
-        v20 = v16;
-        if ( j != v13 )
-          v20 = 92;
+        if ( v10 )
+        {
+          do
+            LODWORD(v12) = (NlsLeadByteInfoTable[*(unsigned __int8 *)(v12 + v13)] != 0) + 1 + v12;
+          while ( (unsigned int)v12 < v10 );
+        }
+        v19 = v15;
+        if ( (_DWORD)v12 != v10 )
+          v19 = 92;
       }
     }
-    if ( v19 < v20 )
+    if ( v18 < v19 )
       return 0LL;
-    if ( v19 > v20 )
+    if ( v18 > v19 )
       return 3LL;
   }
-  if ( v9 <= (unsigned int)v8 )
-    return (unsigned int)(v9 < (unsigned int)v8) + 2;
-  LOBYTE(v3) = *(_BYTE *)(v8 + *((_QWORD *)a2 + 1)) == 92;
-  return v3;
+  if ( (unsigned int)v2 < v3 )
+    return *(_BYTE *)(v2 + *((_QWORD *)a2 + 1)) == 92;
+  if ( (unsigned int)v2 <= v3 )
+    return 2LL;
+  else
+    return 3LL;
 }

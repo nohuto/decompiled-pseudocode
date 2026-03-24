@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z @ 0x1C01F9258
+ * XREFs of ?PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z @ 0x1C02199D4
  * Callers:
- *     FreeSpb @ 0x1C000C170 (FreeSpb.c)
+ *     FreeSpb @ 0x1C0219D24 (FreeSpb.c)
  * Callees:
  *     <none>
  */

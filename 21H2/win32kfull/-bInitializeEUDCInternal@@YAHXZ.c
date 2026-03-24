@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00EF8F4
+ * XREFs of ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00E6950
  * Callers:
- *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00EE480 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0134720 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
  * Callees:
- *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00EFAC8 (-vInitializeFontAssocStatus@@YAXXZ.c)
- *     bAddAllFlEntry @ 0x1C015E414 (bAddAllFlEntry.c)
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00E6B24 (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00E6C58 (bAddAllFlEntry.c)
  */
 
 __int64 bInitializeEUDCInternal(void)
@@ -21,7 +21,7 @@ __int64 bInitializeEUDCInternal(void)
   AnsiCodePage = 0;
   OemCodePage = 0;
   RtlGetDefaultCodePage(&AnsiCodePage, &OemCodePage);
-  String.Buffer = &word_1C0337758;
+  String.Buffer = &word_1C033D0C8;
   *(_QWORD *)&String.Length = 1310720LL;
   RtlIntegerToUnicodeString(AnsiCodePage, 0xAu, &String);
   SharedQueryTable.QueryRoutine = 0LL;
@@ -31,9 +31,9 @@ __int64 bInitializeEUDCInternal(void)
   SharedQueryTable.DefaultType = 67108868;
   SharedQueryTable.DefaultData = 0LL;
   SharedQueryTable.DefaultLength = 0;
-  qword_1C0335A18 = 0LL;
-  dword_1C0335A20 = 0;
-  qword_1C0335A28 = 0LL;
+  qword_1C033A868 = 0LL;
+  dword_1C033A870 = 0;
+  qword_1C033A878 = 0LL;
   if ( RtlQueryRegistryValues(3u, L"FontLink", &SharedQueryTable, 0LL, 0LL) < 0 )
     ulFontLinkControl = 0;
   v6 = 0;
@@ -52,13 +52,13 @@ __int64 bInitializeEUDCInternal(void)
     LOBYTE(v0) = v7 != 0;
     gbAllowSCPUAFontFallback = v0;
   }
-  off_1C0326338 = &off_1C0326330;
-  off_1C0326330 = &off_1C0326330;
+  off_1C032B380 = &off_1C032B378;
+  off_1C032B378 = &off_1C032B378;
   if ( (ulFontLinkControl & 1) == 0 )
   {
-    dword_1C0336380 = 3;
+    dword_1C033B0C0 = 3;
     bAddAllFlEntry(0LL);
-    dword_1C0336380 = 12;
+    dword_1C033B0C0 = 12;
     vInitializeFontAssocStatus();
   }
   return 1LL;

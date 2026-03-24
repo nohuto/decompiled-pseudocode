@@ -1,19 +1,22 @@
 /*
- * XREFs of log_xstr @ 0x1C0040EFC
+ * XREFs of log_xstr @ 0x1C0042118
  * Callers:
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhExceptionTrace @ 0x1C004A388 (UsbhExceptionTrace.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhExceptionTrace @ 0x1C004B76C (UsbhExceptionTrace.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall log_xstr(__int64 a1, unsigned __int64 a2, __int64 a3)
+_OWORD *__fastcall log_xstr(_OWORD *a1, unsigned __int64 a2, __int64 a3)
 {
-  *(_OWORD *)a1 = 0LL;
-  *(_QWORD *)a1 = a3;
+  _OWORD *result; // rax
+  __int128 v4; // [rsp+0h] [rbp-18h]
+
+  *((_QWORD *)&v4 + 1) = 0x7FFFLL;
+  *(_QWORD *)&v4 = a3;
   if ( a2 < 0x7FFF )
-    *(_WORD *)(a1 + 8) = a2;
-  else
-    *(_WORD *)(a1 + 8) = 0x7FFF;
-  return a1;
+    WORD4(v4) = a2;
+  result = a1;
+  *a1 = v4;
+  return result;
 }

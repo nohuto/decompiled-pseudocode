@@ -1,16 +1,16 @@
 /*
- * XREFs of ApiSetpConstructPathToExtension @ 0x140A0A718
+ * XREFs of ApiSetpConstructPathToExtension @ 0x14095EA50
  * Callers:
- *     ApiSetpLoadSchemaExtension @ 0x140A0A848 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetpLoadSchemaExtension @ 0x14095EB80 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ApiSetpConstructPathToExtension(PCWSTR Source, __int16 a2, UNICODE_STRING *a3)
 {
-  __int64 v3; // rdx
+  SIZE_T v3; // rdx
   NTSTATUS appended; // ebx
   wchar_t *Buffer; // rcx
   UNICODE_STRING Destination; // [rsp+20h] [rbp-18h] BYREF
@@ -18,7 +18,7 @@ __int64 __fastcall ApiSetpConstructPathToExtension(PCWSTR Source, __int16 a2, UN
   v3 = (unsigned __int16)(a2 + 44);
   *(_QWORD *)&Destination.Length = 0LL;
   Destination.MaximumLength = v3;
-  Destination.Buffer = (wchar_t *)ExAllocatePool2(256LL, v3, 1751339841LL);
+  Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v3, 0x68635341u);
   if ( Destination.Buffer )
   {
     appended = RtlAppendUnicodeToString(&Destination, L"\\SystemRoot\\System32\\");

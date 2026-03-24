@@ -1,12 +1,12 @@
 /*
- * XREFs of memset @ 0x1C00036C0
+ * XREFs of memset @ 0x1C0003480
  * Callers:
- *     CiCreateTaskIndexClientFromThread @ 0x1C000A380 (CiCreateTaskIndexClientFromThread.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
- *     CiProcessCreate @ 0x1C000B800 (CiProcessCreate.c)
- *     WppTraceCallback @ 0x1C000C6B0 (WppTraceCallback.c)
- *     CiSystemInitialize @ 0x1C000D0B0 (CiSystemInitialize.c)
- *     CiConfigInitializeFromRegistry @ 0x1C000D8D0 (CiConfigInitializeFromRegistry.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
+ *     CiProcessCreate @ 0x1C000B400 (CiProcessCreate.c)
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B600 (CiCreateTaskIndexClientFromThread.c)
+ *     WppTraceCallback @ 0x1C000C950 (WppTraceCallback.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000D960 (CiConfigInitializeFromRegistry.c)
+ *     CiSystemInitialize @ 0x1C000E230 (CiSystemInitialize.c)
  * Callees:
  *     <none>
  */
@@ -15,76 +15,72 @@ void *__cdecl memset(void *a1, int Val, size_t Size)
 {
   void *result; // rax
   __int64 v4; // rdx
-  __m128 v5; // xmm0
-  char *v6; // r8
-  __m128 *v7; // rdx
-  _OWORD *v8; // r9
-  size_t v9; // r8
-  __m128 *v10; // r9
-  size_t v11; // r8
-  _DWORD *v12; // r9
-  size_t v13; // r8
+  size_t v5; // r9
+  char *v6; // rcx
+  size_t v7; // r8
+  __m128 v8; // xmm0
+  char *v9; // r8
+  __m128 *v10; // rcx
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // r9
+  unsigned __int64 i; // r9
+  __int64 v14; // r8
 
   result = a1;
-  v4 = 0x101010101010101LL * (unsigned __int8)Val;
-  v5 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
-  if ( Size >= 0x40 )
+  if ( Size < 8 )
   {
-    if ( (_isa_info & 2) != 0 && Size >= 0x320 )
-      return (void *)_memset_repmovs();
-    *(__m128 *)a1 = v5;
-    v6 = (char *)a1 + Size;
-    a1 = (void *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
-    Size = v6 - (_BYTE *)a1;
-    if ( Size >= 0x40 )
-    {
-      v7 = (__m128 *)((char *)a1 + Size - 16);
-      v8 = (_OWORD *)(((unsigned __int64)a1 + Size - 48) & 0xFFFFFFFFFFFFFFF0uLL);
-      v9 = Size >> 6;
-      do
-      {
-        *(__m128 *)a1 = v5;
-        *((__m128 *)a1 + 1) = v5;
-        a1 = (char *)a1 + 64;
-        --v9;
-        *((__m128 *)a1 - 2) = v5;
-        *((__m128 *)a1 - 1) = v5;
-      }
-      while ( v9 );
-      *v8 = v5;
-      v8[1] = v5;
-      v8[2] = v5;
-      *v7 = v5;
-      return result;
-    }
-LABEL_9:
-    v10 = (__m128 *)((char *)a1 + Size - 16);
-    *(__m128 *)a1 = v5;
-    v11 = (Size & 0x20) >> 1;
-    *v10 = v5;
-    *(__m128 *)((char *)a1 + v11) = v5;
-    *(__m128 *)((char *)v10 - v11) = v5;
-    return result;
-  }
-  if ( Size >= 0x10 )
-    goto LABEL_9;
-  if ( Size < 4 )
-  {
-    if ( Size )
-    {
-      *(_BYTE *)a1 = v4;
-      if ( Size != 1 )
-        *(_WORD *)((char *)a1 + Size - 2) = v4;
-    }
+    for ( ; Size; --Size )
+      *((char *)a1 + Size - 1) = Val;
   }
   else
   {
-    v12 = (char *)a1 + Size - 4;
-    *(_DWORD *)a1 = v4;
-    v13 = (Size & 8) >> 1;
-    *v12 = v4;
-    *(_DWORD *)((char *)a1 + v13) = v4;
-    *(_DWORD *)((char *)v12 - v13) = v4;
+    v4 = 0x101010101010101LL * (unsigned __int8)Val;
+    if ( Size >= 0x4F )
+    {
+      v8 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
+      *(__m128 *)a1 = v8;
+      v9 = (char *)a1 + Size;
+      v10 = (__m128 *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
+      v11 = v9 - (char *)v10;
+      v12 = v11 >> 7;
+      if ( v11 >> 7 )
+      {
+        do
+        {
+          *v10 = v8;
+          v10[1] = v8;
+          v10 += 8;
+          v10[-6] = v8;
+          v10[-5] = v8;
+          --v12;
+          v10[-4] = v8;
+          v10[-3] = v8;
+          v10[-2] = v8;
+          v10[-1] = v8;
+        }
+        while ( v12 );
+        v11 &= 0x7Fu;
+      }
+      for ( i = v11 >> 4; i; --i )
+        *v10++ = v8;
+      v14 = v11 & 0xF;
+      if ( v14 )
+        *(__m128 *)((char *)v10 + v14 - 16) = v8;
+    }
+    else
+    {
+      v5 = Size & 0x78;
+      v6 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);
+      do
+      {
+        *(_QWORD *)((char *)result + v5 - 8) = v4;
+        v5 -= 8LL;
+      }
+      while ( v5 );
+      v7 = Size & 7;
+      if ( v7 )
+        *(_QWORD *)&v6[v7 - 8] = v4;
+    }
   }
   return result;
 }

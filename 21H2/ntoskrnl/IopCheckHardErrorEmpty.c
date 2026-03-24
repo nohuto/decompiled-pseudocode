@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckHardErrorEmpty @ 0x140556550
+ * XREFs of IopCheckHardErrorEmpty @ 0x1405005D8
  * Callers:
- *     IopHardErrorThread @ 0x1409345F0 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x140891660 (IopHardErrorThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char IopCheckHardErrorEmpty()
@@ -20,15 +20,15 @@ char IopCheckHardErrorEmpty()
   bool v7; // zf
 
   v0 = 1;
-  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140C472B0);
+  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140C45D70);
   IopCurrentHardError = 0LL;
   v2 = v1;
-  if ( (__int64 *)qword_140C472A0 == &qword_140C472A0 )
+  if ( (__int64 *)qword_140C45D60 == &qword_140C45D60 )
   {
-    byte_140C472D8 = 0;
+    byte_140C45D98 = 0;
     v0 = 0;
   }
-  KxReleaseSpinLock(&qword_140C472B0);
+  KxReleaseSpinLock(&qword_140C45D70);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

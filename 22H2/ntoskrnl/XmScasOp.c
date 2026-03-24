@@ -1,19 +1,19 @@
 /*
- * XREFs of XmScasOp @ 0x140534220
+ * XREFs of XmScasOp @ 0x1404E6880
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x140398FFC (XmGetStringAddress.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
- *     XmCompareOperands @ 0x140533F9C (XmCompareOperands.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmGetStringAddress @ 0x1403C0A5C (XmGetStringAddress.c)
+ *     XmCompareOperands @ 0x1404E65FC (XmCompareOperands.c)
  */
 
 __int64 __fastcall XmScasOp(__int64 a1)
 {
   int v2; // edi
   __int64 result; // rax
-  unsigned __int16 *StringAddress; // rax
+  int *StringAddress; // rax
   __int64 v5; // rcx
 
   v2 = 1;
@@ -29,8 +29,8 @@ __int64 __fastcall XmScasOp(__int64 a1)
   {
     if ( !v2 )
       break;
-    StringAddress = (unsigned __int16 *)XmGetStringAddress(a1, 0, 7u);
-    XmSetDestinationValue(a1, StringAddress);
+    StringAddress = XmGetStringAddress(a1, 0, 7u);
+    XmSetDestinationValue(a1, (unsigned __int16 *)StringAddress);
     result = XmCompareOperands(v5);
     --v2;
   }

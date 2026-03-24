@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetMeshData@CGeometry2D@@QEAAJQEAPEBUMilVertexXYZDUV2@@PEAIQEAPEBI1@Z @ 0x180202B10
+ * XREFs of ?GetMeshData@CGeometry2D@@QEAAJQEAPEBUMilVertexXYZDUV2@@PEAIQEAPEBI1@Z @ 0x1801B498C
  * Callers:
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x180194320 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018E210 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FreeCaches@CGeometry2D@@AEAAXXZ @ 0x180202ADC (-FreeCaches@CGeometry2D@@AEAAXXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?FreeCaches@CGeometry2D@@AEAAXXZ @ 0x1801B4958 (-FreeCaches@CGeometry2D@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CGeometry2D::GetMeshData(
@@ -16,7 +16,7 @@ __int64 __fastcall CGeometry2D::GetMeshData(
         const unsigned int **const a4,
         unsigned int *a5)
 {
-  unsigned int v5; // ebx
+  int v5; // ebx
   unsigned __int64 v10; // rbx
   LPVOID v11; // rax
   __int64 v12; // rcx
@@ -24,58 +24,62 @@ __int64 __fastcall CGeometry2D::GetMeshData(
   __int64 v14; // rcx
   unsigned __int64 v15; // rbx
   LPVOID v16; // rax
-  __int64 v17; // rcx
-  int v18; // eax
-  __int64 v19; // rcx
+  int v17; // eax
+  __int64 v18; // rcx
+  unsigned int v20; // [rsp+20h] [rbp-28h]
 
   v5 = 0;
-  if ( *((_QWORD *)this + 8) )
-    goto LABEL_11;
-  v10 = (*(unsigned int (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 184LL))(this);
-  v11 = DefaultHeap::Alloc(saturated_mul(v10, 0x20uLL));
-  *((_QWORD *)this + 8) = v11;
-  if ( v11 )
+  if ( !*((_QWORD *)this + 7) )
   {
-    v13 = (*(__int64 (__fastcall **)(CGeometry2D *, LPVOID, _QWORD))(*(_QWORD *)this + 224LL))(
+    v10 = (*(unsigned int (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 200LL))(this);
+    v11 = DefaultHeap::Alloc(saturated_mul(v10, 0x20uLL));
+    *((_QWORD *)this + 7) = v11;
+    if ( !v11 )
+    {
+      v20 = 44;
+LABEL_4:
+      v5 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, v20, 0LL);
+LABEL_13:
+      CGeometry2D::FreeCaches((void **)this);
+      return (unsigned int)v5;
+    }
+    v13 = (*(__int64 (__fastcall **)(CGeometry2D *, LPVOID, _QWORD))(*(_QWORD *)this + 240LL))(
             this,
             v11,
             (unsigned int)v10);
     v5 = v13;
     if ( v13 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x2Du);
-      goto LABEL_10;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x2Du, 0LL);
+      goto LABEL_12;
     }
-    v15 = (*(unsigned int (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 192LL))(this);
+    v15 = (*(unsigned int (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 208LL))(this);
     v16 = DefaultHeap::Alloc(saturated_mul(v15, 4uLL));
-    *((_QWORD *)this + 9) = v16;
+    *((_QWORD *)this + 8) = v16;
     if ( !v16 )
     {
-      v5 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, -2147024882, 0x33u);
-      goto LABEL_10;
+      v20 = 51;
+      goto LABEL_4;
     }
-    v18 = (*(__int64 (__fastcall **)(CGeometry2D *, _QWORD, LPVOID, _QWORD))(*(_QWORD *)this + 216LL))(
+    v17 = (*(__int64 (__fastcall **)(CGeometry2D *, _QWORD, LPVOID, _QWORD))(*(_QWORD *)this + 232LL))(
             this,
             0LL,
             v16,
             (unsigned int)v15);
-    v5 = v18;
-    if ( v18 < 0 )
+    v5 = v17;
+    if ( v17 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x34u);
-      goto LABEL_10;
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x34u, 0LL);
+      goto LABEL_12;
     }
-LABEL_11:
-    *a2 = (const struct MilVertexXYZDUV2 *)*((_QWORD *)this + 8);
-    *a3 = (*(__int64 (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 184LL))(this);
-    *a4 = (const unsigned int *)*((_QWORD *)this + 9);
-    *a5 = (*(__int64 (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 192LL))(this);
-    return v5;
   }
-  v5 = -2147024882;
-  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, -2147024882, 0x2Cu);
-LABEL_10:
-  CGeometry2D::FreeCaches((void **)this);
-  return v5;
+  *a2 = (const struct MilVertexXYZDUV2 *)*((_QWORD *)this + 7);
+  *a3 = (*(__int64 (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 200LL))(this);
+  *a4 = (const unsigned int *)*((_QWORD *)this + 8);
+  *a5 = (*(__int64 (__fastcall **)(CGeometry2D *))(*(_QWORD *)this + 208LL))(this);
+LABEL_12:
+  if ( v5 < 0 )
+    goto LABEL_13;
+  return (unsigned int)v5;
 }

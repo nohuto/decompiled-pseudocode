@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceToBiosMemory32Fixed @ 0x1C0093528
+ * XREFs of PnpiCmResourceToBiosMemory32Fixed @ 0x1C00B4EE8
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C0092830 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
  *     <none>
  */
@@ -9,9 +9,8 @@
 __int64 __fastcall PnpiCmResourceToBiosMemory32Fixed(__int64 a1, __int64 a2)
 {
   int v3; // eax
-  unsigned int v4; // ecx
-  __int64 i; // r8
-  char v6; // dl
+  unsigned int v4; // r9d
+  __int64 i; // rcx
 
   *(_BYTE *)(a1 + 3) = 0;
   v3 = 0;
@@ -24,12 +23,9 @@ __int64 __fastcall PnpiCmResourceToBiosMemory32Fixed(__int64 a1, __int64 a2)
       if ( ++v3 >= v4 )
         return 0LL;
     }
-    v6 = *(_BYTE *)(a1 + 3);
     *(_DWORD *)(a1 + 4) = *(_DWORD *)(i + 4);
     *(_DWORD *)(a1 + 8) = *(_DWORD *)(i + 12) >> 8;
-    if ( (*(_BYTE *)(i + 2) & 1) == 0 )
-      v6 |= 1u;
-    *(_BYTE *)(a1 + 3) = v6;
+    *(_BYTE *)(a1 + 3) = (*(_BYTE *)(i + 2) & 1) == 0;
     *(_BYTE *)i = 0;
   }
   return 0LL;

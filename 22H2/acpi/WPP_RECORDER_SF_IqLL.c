@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_IqLL @ 0x1C0032230
+ * XREFs of WPP_RECORDER_SF_IqLL @ 0x1C0019A80
  * Callers:
- *     ACPIMatchHardwareAddress @ 0x1C0088CF8 (ACPIMatchHardwareAddress.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_IqLL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -50,11 +50,5 @@ __int64 WPP_RECORDER_SF_IqLL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
            v7,
            (__int64 *)va,
            8LL,
-           (__int64 *)va1,
-           8LL,
-           (__int64 *)va2,
-           4LL,
-           va3,
-           4LL,
-           0LL);
+           (__int64 *)va1);
 }

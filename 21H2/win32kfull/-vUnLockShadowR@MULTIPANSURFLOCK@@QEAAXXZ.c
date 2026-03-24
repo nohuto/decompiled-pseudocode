@@ -1,42 +1,38 @@
 /*
- * XREFs of ?vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C02951D4
+ * XREFs of ?vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C0297758
  * Callers:
- *     ??1MULTIPANSURFLOCK@@QEAA@XZ @ 0x1C02924A4 (--1MULTIPANSURFLOCK@@QEAA@XZ.c)
- *     ?bTryLockShadowR@MULTIPANSURFLOCK@@QEAAHPEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C029432C (-bTryLockShadowR@MULTIPANSURFLOCK@@QEAAHPEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
+ *     ??1MULTIPANSURFLOCK@@QEAA@XZ @ 0x1C0294A94 (--1MULTIPANSURFLOCK@@QEAA@XZ.c)
+ *     ?bTryLockShadowR@MULTIPANSURFLOCK@@QEAAHPEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C02968FC (-bTryLockShadowR@MULTIPANSURFLOCK@@QEAAHPEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
  * Callees:
- *     ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C02940E0 (-ShadowUnLock@@YAXPEAU_PANDEV@@@Z.c)
+ *     ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C02966B0 (-ShadowUnLock@@YAXPEAU_PANDEV@@@Z.c)
  */
 
 void __fastcall MULTIPANSURFLOCK::vUnLockShadowR(MULTIPANSURFLOCK *this)
 {
-  _BYTE *v2; // rdi
+  __int64 i; // rdi
   __int64 v3; // rsi
-  __int64 v4; // rbp
-  __int64 v5; // rcx
+  char *v4; // r14
+  __int64 v5; // rax
   struct _PANDEV *v6; // rcx
 
-  v2 = (char *)this + 130;
-  v3 = 760LL;
-  do
+  for ( i = 87LL; i >= 15; i -= 9LL )
   {
-    v4 = 9LL;
+    v3 = 8LL;
+    v4 = (char *)this + i;
     do
     {
-      if ( *v2 == 1 )
+      if ( v4[v3 + 35] == 1 )
       {
         v5 = *((_QWORD *)this + 4);
         if ( !v5 )
           v5 = *((_QWORD *)this + 5);
-        EngReleaseSemaphore(*(HSEMAPHORE *)(v3 + v5));
-        *v2 = 0;
+        EngReleaseSemaphore(*(HSEMAPHORE *)(v5 + 8 * (i + v3)));
+        v4[v3 + 35] = 0;
       }
-      v3 -= 8LL;
-      --v2;
-      --v4;
+      --v3;
     }
-    while ( v4 );
+    while ( v3 >= 0 );
   }
-  while ( v3 >= 184 );
   v6 = (struct _PANDEV *)*((_QWORD *)this + 4);
   if ( !v6 )
     v6 = (struct _PANDEV *)*((_QWORD *)this + 5);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CoordMap@@QEAA@XZ @ 0x18005A684
+ * XREFs of ??1CoordMap@@QEAA@XZ @ 0x1800074A0
  * Callers:
- *     ??1CNineGridDrawListBrush@@UEAA@XZ @ 0x18005A654 (--1CNineGridDrawListBrush@@UEAA@XZ.c)
+ *     ??_GCNineGridDrawListBrush@@UEAAPEAXI@Z @ 0x1800073D0 (--_GCNineGridDrawListBrush@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CoordMap::~CoordMap(CoordMap *this)
@@ -24,7 +24,7 @@ void __fastcall CoordMap::~CoordMap(CoordMap *this)
   *((_QWORD *)this + 46) = 0LL;
   if ( v3 == (CoordMap *)((char *)this + 392) )
     v3 = 0LL;
-  DefaultHeap::Free(v3);
+  operator delete(v3);
   v5 = (CoordMap *)*((_QWORD *)this + 23);
   v6 = (__int64)(*((_QWORD *)this + 24) - (_QWORD)v5) >> 4;
   if ( v6 )
@@ -32,7 +32,7 @@ void __fastcall CoordMap::~CoordMap(CoordMap *this)
   *((_QWORD *)this + 23) = 0LL;
   if ( v5 == (CoordMap *)((char *)this + 208) )
     v5 = 0LL;
-  DefaultHeap::Free(v5);
+  operator delete(v5);
   v7 = *(CoordMap **)this;
   v8 = (__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 4;
   if ( v8 )
@@ -40,5 +40,5 @@ void __fastcall CoordMap::~CoordMap(CoordMap *this)
   *(_QWORD *)this = 0LL;
   if ( v7 == (CoordMap *)((char *)this + 24) )
     v7 = 0LL;
-  DefaultHeap::Free(v7);
+  operator delete(v7);
 }

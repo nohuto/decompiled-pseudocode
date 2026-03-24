@@ -1,29 +1,31 @@
 /*
- * XREFs of ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00FA554
+ * XREFs of ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C010C03C
  * Callers:
- *     _ChangeWindowMessageFilter @ 0x1C00A6E9C (_ChangeWindowMessageFilter.c)
- *     _ChangeWindowMessageFilterEx @ 0x1C00A70D8 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F428 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilter @ 0x1C003F5C0 (_ChangeWindowMessageFilter.c)
  * Callees:
- *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00FA678 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C010C174 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
  */
 
-__int64 __fastcall RemoveMessageFromFilter(void ***a1, unsigned int a2, int *a3)
+__int64 __fastcall RemoveMessageFromFilter(void *const **a1, unsigned int a2, int *a3)
 {
   void **v3; // rdi
+  unsigned __int64 v5; // rbp
   int v7; // ebx
   void *const *v8; // rcx
   int v9; // r12d
-  void **v10; // r8
-  __int64 v11; // rdx
-  int v12; // ecx
-  __int64 v13; // rax
-  void **v14; // rcx
-  __int64 v15; // rax
+  void **v11; // r8
+  __int64 v12; // rdx
+  int v13; // ecx
+  __int64 v14; // rax
+  void **v15; // rcx
   __int64 v16; // rax
+  __int64 v17; // rax
   void **v18; // [rsp+50h] [rbp+8h] BYREF
   void **v19; // [rsp+60h] [rbp+18h] BYREF
 
-  v3 = *a1;
+  v3 = (void **)*a1;
+  v5 = a2;
   v7 = 0;
   v8 = *a1;
   v19 = 0LL;
@@ -31,38 +33,38 @@ __int64 __fastcall RemoveMessageFromFilter(void ***a1, unsigned int a2, int *a3)
   v9 = IsMessageAllowedByFilterEx(v8, a2, &v19, &v18);
   if ( v9 )
   {
-    v10 = v18;
-    v11 = (a2 >> 3) & 0x3F;
-    v12 = *((unsigned __int8 *)v18 + v11) & ~(1 << (a2 & 7));
-    *((_BYTE *)v18 + v11) = v12;
-    if ( !(_BYTE)v12 )
+    v11 = v18;
+    v12 = (v5 >> 3) & 0x3F;
+    v13 = *((unsigned __int8 *)v18 + v12) & ~(1 << (v5 & 7));
+    *((_BYTE *)v18 + v12) = v13;
+    if ( !(_BYTE)v13 )
     {
-      v13 = 0LL;
-      while ( !v10[v13] )
+      v14 = 0LL;
+      while ( !v11[v14] )
       {
-        if ( (unsigned __int64)++v13 >= 8 )
+        if ( (unsigned __int64)++v14 >= 8 )
         {
-          Win32FreePool(v10);
-          v14 = v19;
-          v19[((unsigned __int64)a2 >> 9) & 0xF] = 0LL;
-          v15 = 0LL;
-          while ( !v14[v15] )
+          Win32FreePool(v11);
+          v15 = v19;
+          v19[(v5 >> 9) & 0xF] = 0LL;
+          v16 = 0LL;
+          while ( !v15[v16] )
           {
-            if ( (unsigned __int64)++v15 >= 0x10 )
+            if ( (unsigned __int64)++v16 >= 0x10 )
             {
-              Win32FreePool(v14);
-              v16 = 0LL;
-              v3[(unsigned __int64)a2 >> 13] = 0LL;
-              while ( !v3[v16] )
+              Win32FreePool(v15);
+              v17 = 0LL;
+              v3[v5 >> 13] = 0LL;
+              while ( !v3[v17] )
               {
-                if ( (unsigned __int64)++v16 >= 8 )
+                if ( (unsigned __int64)++v17 >= 8 )
                 {
                   Win32FreePool(v3);
                   v3 = 0LL;
-                  goto LABEL_13;
+                  goto LABEL_2;
                 }
               }
-              goto LABEL_13;
+              goto LABEL_2;
             }
           }
           break;
@@ -70,7 +72,7 @@ __int64 __fastcall RemoveMessageFromFilter(void ***a1, unsigned int a2, int *a3)
       }
     }
   }
-LABEL_13:
+LABEL_2:
   if ( a3 )
   {
     LOBYTE(v7) = v9 == 0;

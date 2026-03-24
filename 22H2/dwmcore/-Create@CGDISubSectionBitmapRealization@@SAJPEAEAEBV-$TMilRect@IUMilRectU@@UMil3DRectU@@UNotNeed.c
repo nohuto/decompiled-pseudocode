@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x1802B0D04
+ * XREFs of ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x180262C20
  * Callers:
- *     ?CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z @ 0x18021D9A4 (-CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z.c)
+ *     ?CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z @ 0x1801C193C (-CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ??0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@PEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x1802B0A7C (--0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AE.c)
- *     ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x1802B0E80 (-EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ??0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@PEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18026299C (--0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AE.c)
+ *     ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x180262D90 (-EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ.c)
  */
 
 __int64 __fastcall CGDISubSectionBitmapRealization::Create(
@@ -21,68 +21,68 @@ __int64 __fastcall CGDISubSectionBitmapRealization::Create(
         int a6,
         _QWORD *a7)
 {
-  int v11; // eax
-  LPVOID v12; // rax
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  CGDISubSectionBitmapRealization *v15; // rbx
-  int v16; // eax
-  __int64 v17; // rcx
-  unsigned int v18; // edi
-  __int64 v20; // [rsp+48h] [rbp-C0h] BYREF
-  int v21; // [rsp+50h] [rbp-B8h]
-  int v22; // [rsp+54h] [rbp-B4h]
-  int v23; // [rsp+58h] [rbp-B0h]
-  int v24; // [rsp+5Ch] [rbp-ACh]
-  _QWORD v25[5]; // [rsp+60h] [rbp-A8h] BYREF
-  _DWORD v26[20]; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v27; // [rsp+D8h] [rbp-30h]
+  LPVOID v11; // rax
+  __int64 v12; // rcx
+  CMILCOMBase *v13; // rbx
+  int v14; // eax
+  __int64 v15; // rcx
+  unsigned int v16; // edi
+  __int64 v18; // [rsp+48h] [rbp-91h] BYREF
+  int v19; // [rsp+50h] [rbp-89h]
+  int v20; // [rsp+54h] [rbp-85h]
+  int v21; // [rsp+58h] [rbp-81h]
+  int v22; // [rsp+5Ch] [rbp-7Dh]
+  _OWORD v23[2]; // [rsp+60h] [rbp-79h] BYREF
+  _DWORD v24[32]; // [rsp+88h] [rbp-51h] BYREF
 
   *a7 = 0LL;
-  memset_0(v26, 0, 0x90uLL);
-  v26[12] = 0;
-  v26[0] = a6;
-  v20 = 0LL;
-  v21 = *(_DWORD *)(a3 + 8) - *(_DWORD *)a3;
-  v11 = *(_DWORD *)(a3 + 12) - *(_DWORD *)(a3 + 4);
-  v26[18] = (_DWORD)FLOAT_1_0;
-  memset(v25, 0, sizeof(v25));
-  v22 = v11;
-  v26[17] = 1;
-  LODWORD(v25[0]) = 1;
-  v24 = a5;
-  v26[19] = 0;
-  v27 = _xmm;
-  v23 = a4;
-  v12 = DefaultHeap::Alloc(0x218uLL);
-  if ( v12
-    && (v14 = CGDISubSectionBitmapRealization::CGDISubSectionBitmapRealization(
-                (__int64)v12,
-                (const struct CSM_BUFFER_ATTRIBUTES *)v26,
-                (const struct CSM_REALIZATION_INFO *)v25,
-                (const struct CSM_SYSMEM_SECTION_INFO *)&v20,
-                a1,
-                a2,
-                (_OWORD *)a3),
-        (v15 = (CGDISubSectionBitmapRealization *)v14) != 0LL) )
+  memset_0(v24, 0, 0x78uLL);
+  v24[11] = 0;
+  v24[18] = 0;
+  v24[19] = 0;
+  v24[21] = 0;
+  v24[22] = 0;
+  v18 = 0LL;
+  v24[0] = a6;
+  v24[16] = 1;
+  memset(v23, 0, sizeof(v23));
+  LODWORD(v23[0]) = 1;
+  v19 = *(_DWORD *)(a3 + 8) - *(_DWORD *)a3;
+  v20 = *(_DWORD *)(a3 + 12) - *(_DWORD *)(a3 + 4);
+  v22 = a5;
+  v24[17] = 1065353216;
+  v24[20] = 1065353216;
+  v21 = a4;
+  v11 = DefaultHeap::Alloc(0x1F8uLL);
+  if ( v11 )
+    v13 = (CMILCOMBase *)CGDISubSectionBitmapRealization::CGDISubSectionBitmapRealization(
+                           (__int64)v11,
+                           (const struct CSM_BUFFER_ATTRIBUTES *)v24,
+                           (const struct CSM_REALIZATION_INFO *)v23,
+                           (const struct CSM_SYSMEM_SECTION_INFO *)&v18,
+                           a1,
+                           a2,
+                           (_OWORD *)a3);
+  else
+    v13 = 0LL;
+  if ( v13 )
   {
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v14 + 8));
-    v16 = CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(v15);
-    v18 = v16;
-    if ( v16 < 0 )
+    CMILCOMBase::InternalAddRef(v13);
+    v14 = CGDISubSectionBitmapRealization::EnsureBitmapCacheSource(v13);
+    v16 = v14;
+    if ( v14 >= 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x38u, 0LL);
-      CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v15);
+      *a7 = (char *)v13 + 360;
+      return v16;
     }
-    else
-    {
-      *a7 = (char *)v15 + 392;
-    }
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x38u, 0LL);
   }
   else
   {
-    v18 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x36u, 0LL);
+    v16 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x36u, 0LL);
   }
-  return v18;
+  if ( v13 )
+    CRenderTargetBitmap::Release(v13);
+  return v16;
 }

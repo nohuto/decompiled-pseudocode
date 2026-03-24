@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1PTPEngineTraceProducer@@UEAA@XZ @ 0x1C02053E0
+ * XREFs of ??1PTPEngineTraceProducer@@UEAA@XZ @ 0x1C01C9A8C
  * Callers:
- *     ??_EPTPEngineTraceProducer@@UEAAPEAXI@Z @ 0x1C0205430 (--_EPTPEngineTraceProducer@@UEAAPEAXI@Z.c)
+ *     ??_EPTPEngineTraceProducer@@UEAAPEAXI@Z @ 0x1C01C9AE0 (--_EPTPEngineTraceProducer@@UEAAPEAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PTPEngineTraceProducer::~PTPEngineTraceProducer(PTPEngineTraceProducer *this)

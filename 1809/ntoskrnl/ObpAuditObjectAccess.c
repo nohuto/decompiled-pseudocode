@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpAuditObjectAccess @ 0x1408613B4
+ * XREFs of ObpAuditObjectAccess @ 0x140861394
  * Callers:
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     NtWriteFile @ 0x140638C40 (NtWriteFile.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExLockHandleTableEntry @ 0x140053220 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     SeOperationAuditAlarm @ 0x14089DA54 (SeOperationAuditAlarm.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE130 (ExpGetHandleExtraInfo.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     SeOperationAuditAlarm @ 0x14089DA34 (SeOperationAuditAlarm.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
  */
 
 char __fastcall ObpAuditObjectAccess(__int64 a1, __int64 a2, volatile signed __int64 *a3, __int64 a4, int a5)

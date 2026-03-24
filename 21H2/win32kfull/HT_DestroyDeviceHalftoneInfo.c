@@ -1,11 +1,11 @@
 /*
- * XREFs of HT_DestroyDeviceHalftoneInfo @ 0x1C010BD78
+ * XREFs of HT_DestroyDeviceHalftoneInfo @ 0x1C0120C68
  * Callers:
- *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0092E30 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
- *     HT_DestroyDeviceHalftoneInfoWrap @ 0x1C010BC50 (HT_DestroyDeviceHalftoneInfoWrap.c)
- *     ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C010BC88 (-bDisableHalftone@PDEVOBJ@@QEAAHXZ.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A8F0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     HT_DestroyDeviceHalftoneInfoWrap @ 0x1C0120B40 (HT_DestroyDeviceHalftoneInfoWrap.c)
+ *     ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C0120B78 (-bDisableHalftone@PDEVOBJ@@QEAAHXZ.c)
  * Callees:
- *     CleanUpDHI @ 0x1C010BDA0 (CleanUpDHI.c)
+ *     CleanUpDHI @ 0x1C0120C90 (CleanUpDHI.c)
  */
 
 __int64 __fastcall HT_DestroyDeviceHalftoneInfo(_DWORD *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpFwInitializeLock @ 0x1409FB9C0
+ * XREFs of BgpFwInitializeLock @ 0x1409FB9D0
  * Callers:
  *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
  * Callees:

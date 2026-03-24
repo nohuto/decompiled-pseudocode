@@ -1,5 +1,5 @@
 /*
- * XREFs of KeUpdatePrimaryThreadContext @ 0x140846AE4
+ * XREFs of KeUpdatePrimaryThreadContext @ 0x140846AC4
  * Callers:
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  * Callees:

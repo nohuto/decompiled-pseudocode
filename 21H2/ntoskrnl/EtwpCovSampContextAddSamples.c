@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampContextAddSamples @ 0x1409EF4C4
+ * XREFs of EtwpCovSampContextAddSamples @ 0x140942DEC
  * Callers:
- *     EtwpCovSampCaptureBufferProcess @ 0x14088399A (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampContextAddAddresses @ 0x1409EF3C8 (EtwpCovSampContextAddAddresses.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F209C (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x140942190 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampContextAddAddresses @ 0x140942CF0 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140945B44 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EtwCovSampHash @ 0x140460AEA (EtwCovSampHash.c)
- *     EtwpCovSampHashLookupInTable @ 0x140883B44 (EtwpCovSampHashLookupInTable.c)
- *     EtwpCovSampCaptureContextSetPaused @ 0x1409EEA10 (EtwpCovSampCaptureContextSetPaused.c)
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1409F12F0 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
- *     EtwpCoverageSamplerFreeTable @ 0x1409F2898 (EtwpCoverageSamplerFreeTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     EtwCovSampHash @ 0x1405AE314 (EtwCovSampHash.c)
+ *     EtwpCovSampCaptureContextSetPaused @ 0x140942248 (EtwpCovSampCaptureContextSetPaused.c)
+ *     EtwpCovSampHashLookupInTable @ 0x140944C60 (EtwpCovSampHashLookupInTable.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140944D40 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x140946338 (EtwpCoverageSamplerFreeTable.c)
  */
 
 __int64 __fastcall EtwpCovSampContextAddSamples(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
@@ -23,51 +23,53 @@ __int64 __fastcall EtwpCovSampContextAddSamples(ULONG_PTR BugCheckParameter2, __
   __int64 v9; // r12
   unsigned int RoomAndAcquireLock; // eax
   __int64 v11; // r12
-  unsigned __int8 *v12; // rcx
+  _DWORD *v12; // rcx
   __int64 v13; // r13
   __int64 v14; // rax
   int v15; // r9d
   unsigned int i; // r10d
   _QWORD *v17; // r13
-  __int64 *v19; // [rsp+30h] [rbp-78h]
-  _QWORD *v20; // [rsp+38h] [rbp-70h]
-  __int64 v21; // [rsp+40h] [rbp-68h]
-  __int64 *v22; // [rsp+50h] [rbp-58h] BYREF
-  PVOID P; // [rsp+58h] [rbp-50h]
-  ULONG_PTR v24; // [rsp+60h] [rbp-48h]
-  ULONG_PTR v25; // [rsp+68h] [rbp-40h]
-  unsigned int v27; // [rsp+C8h] [rbp+20h]
+  _QWORD *v19; // [rsp+30h] [rbp-88h]
+  _QWORD *v20; // [rsp+38h] [rbp-80h]
+  __int64 v21; // [rsp+40h] [rbp-78h]
+  _QWORD *v22; // [rsp+50h] [rbp-68h] BYREF
+  PVOID P; // [rsp+58h] [rbp-60h]
+  ULONG_PTR v24; // [rsp+60h] [rbp-58h]
+  __int64 v25; // [rsp+68h] [rbp-50h]
+  ULONG_PTR v26; // [rsp+70h] [rbp-48h]
+  unsigned int v28; // [rsp+D8h] [rbp+20h]
 
   v4 = a2;
   v24 = BugCheckParameter2;
-  v25 = BugCheckParameter2;
+  v26 = BugCheckParameter2;
   v7 = 0;
   v22 = 0LL;
   v8 = 0;
   P = 0LL;
-  v9 = qword_140C15D88;
+  v9 = qword_140C198C8;
   RoomAndAcquireLock = EtwpCovSampHashMakeRoomAndAcquireLock(BugCheckParameter2);
-  v27 = RoomAndAcquireLock;
+  v28 = RoomAndAcquireLock;
   if ( RoomAndAcquireLock < a3 )
   {
     EtwpCovSampCaptureContextSetPaused(BugCheckParameter2, v9, 1);
-    RoomAndAcquireLock = v27;
+    RoomAndAcquireLock = v28;
   }
   v11 = 0LL;
   while ( RoomAndAcquireLock && (unsigned int)v11 < a3 )
   {
-    v12 = (unsigned __int8 *)(v4 + 8 * v11);
-    v19 = (__int64 *)v12;
+    v12 = (_DWORD *)(v4 + 8 * v11);
+    v20 = v12;
     v13 = *(_QWORD *)(BugCheckParameter2 + 1192);
     if ( !v13 )
       goto LABEL_14;
     LODWORD(v21) = *(_DWORD *)(v24 + 28);
     HIDWORD(v21) = v21;
-    v14 = EtwCovSampHash(__PAIR64__(*(_DWORD *)v12, *((_DWORD *)v12 + 1)), v21);
+    v14 = EtwCovSampHash(__PAIR64__(*v12, v12[1]), v21);
+    v25 = v14;
     v15 = 1;
     for ( i = 0; i < *(_DWORD *)(BugCheckParameter2 + 1208); ++i )
     {
-      if ( (*(_BYTE *)(((*(_DWORD *)(BugCheckParameter2 + 1204) & ((unsigned int)v14 + i * HIDWORD(v14))) >> 3) + v13) & (unsigned __int8)(1 << (*(_BYTE *)(BugCheckParameter2 + 1204) & (v14 + i * BYTE4(v14)) & 7))) == 0 )
+      if ( (*(_BYTE *)(((*(_DWORD *)(BugCheckParameter2 + 1204) & ((unsigned int)v14 + i * HIDWORD(v25))) >> 3) + v13) & (unsigned __int8)(1 << (*(_BYTE *)(BugCheckParameter2 + 1204) & (v14 + i * BYTE4(v25)) & 7))) == 0 )
       {
         v15 = 0;
         break;
@@ -75,28 +77,28 @@ __int64 __fastcall EtwpCovSampContextAddSamples(ULONG_PTR BugCheckParameter2, __
     }
     if ( !v15 )
     {
-      v12 = (unsigned __int8 *)v19;
+      v12 = v20;
 LABEL_14:
       v17 = *(_QWORD **)(BugCheckParameter2 + 1168);
       while ( 1 )
       {
-        v20 = v17;
-        if ( (unsigned int)EtwpCovSampHashLookupInTable((__int64)v17, v12, &v22) )
+        v19 = v17;
+        if ( (unsigned int)EtwpCovSampHashLookupInTable(v17, v12, &v22) )
           break;
         v17 = (_QWORD *)*v17;
-        v12 = (unsigned __int8 *)v19;
+        v12 = v20;
         if ( v17 == (_QWORD *)(BugCheckParameter2 + 1168) )
         {
-          *v22 = *v19;
-          ++*((_DWORD *)v20 + 4);
+          *v22 = *v20;
+          ++*((_DWORD *)v19 + 4);
           ++v7;
-          RoomAndAcquireLock = --v27;
+          RoomAndAcquireLock = --v28;
           goto LABEL_19;
         }
       }
     }
     ++v8;
-    RoomAndAcquireLock = v27;
+    RoomAndAcquireLock = v28;
 LABEL_19:
     v11 = (unsigned int)(v11 + 1);
     v4 = a2;
@@ -107,7 +109,7 @@ LABEL_19:
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(BugCheckParameter2);
     KeAbPostRelease(BugCheckParameter2);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( P )
     EtwpCoverageSamplerFreeTable(P);

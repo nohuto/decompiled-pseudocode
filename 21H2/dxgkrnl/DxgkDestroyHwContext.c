@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkDestroyHwContext @ 0x1C02E2C40
+ * XREFs of DxgkDestroyHwContext @ 0x1C022EE40
  * Callers:
  *     <none>
  * Callees:

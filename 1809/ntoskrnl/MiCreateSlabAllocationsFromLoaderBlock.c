@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F744C (MiCreateSlabEntriesFromLoaderSlab.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F745C (MiCreateSlabEntriesFromLoaderSlab.c)
  */
 
 __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)

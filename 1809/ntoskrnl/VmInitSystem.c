@@ -3,8 +3,8 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     ExRegisterHost @ 0x1407275DC (ExRegisterHost.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
  */
 
 __int64 VmInitSystem()

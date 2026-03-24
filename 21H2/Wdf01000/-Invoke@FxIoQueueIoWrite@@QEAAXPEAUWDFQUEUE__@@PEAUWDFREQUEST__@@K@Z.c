@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Invoke@FxIoQueueIoWrite@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C00117F8
+ * XREFs of ?Invoke@FxIoQueueIoWrite@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C00766B8
  * Callers:
- *     ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0009D30 (-DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ *     ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0008E30 (-DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxIoQueueIoWrite::Invoke(
@@ -27,12 +27,9 @@ void __fastcall FxIoQueueIoWrite::Invoke(
     if ( m_CallbackLock )
     {
       m_CallbackLock->Lock(m_CallbackLock, &irql);
-      this->Method(Queue, Request, v6);
+      Method = this->Method;
     }
-    else
-    {
-      Method(Queue, Request, Length);
-    }
+    Method(Queue, Request, v6);
     if ( this->m_CallbackLock )
     {
       LOBYTE(v10) = irql;

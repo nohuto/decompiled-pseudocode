@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBuildProcessSpecialSynchronizationList @ 0x1C0004570
+ * XREFs of ACPIBuildProcessSpecialSynchronizationList @ 0x1C001D2F4
  * Callers:
- *     ACPIBuildDeviceDpc @ 0x1C0004100 (ACPIBuildDeviceDpc.c)
+ *     ACPIBuildDeviceDpc @ 0x1C001CDD0 (ACPIBuildDeviceDpc.c)
  * Callees:
- *     ACPIBuildProcessGenericComplete @ 0x1C0004900 (ACPIBuildProcessGenericComplete.c)
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIBuildProcessGenericComplete @ 0x1C001D510 (ACPIBuildProcessGenericComplete.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
  */
 
 __int64 ACPIBuildProcessSpecialSynchronizationList()
@@ -31,7 +31,7 @@ __int64 ACPIBuildProcessSpecialSynchronizationList()
   char v20; // [rsp+80h] [rbp+8h]
 
   v0 = AcpiBuildSpecialSynchronizationList;
-  v1 = &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids;
+  v1 = &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids;
   v2 = 1;
   v20 = 1;
   if ( AcpiBuildSpecialSynchronizationList == (PSLIST_ENTRY)&AcpiBuildSpecialSynchronizationList )
@@ -57,8 +57,8 @@ __int64 ACPIBuildProcessSpecialSynchronizationList()
       if ( (Next & 0x40) == 0 )
       {
         v13 = (_QWORD *)*((_QWORD *)&v3[2].Next + 1);
-        v14 = &unk_1C006FB8B;
-        v15 = &unk_1C006FB8B;
+        v14 = &unk_1C00701BA;
+        v15 = &unk_1C00701BA;
         LOBYTE(v16) = 0;
         if ( v13 )
         {
@@ -66,15 +66,15 @@ __int64 ACPIBuildProcessSpecialSynchronizationList()
           v16 = *((_QWORD *)&v3[2].Next + 1);
           if ( (v17 & 0x200000000000LL) != 0 )
           {
-            v14 = (void *)v13[76];
+            v14 = (void *)v13[71];
             v18 = (v17 & 0x400000000000LL) == 0;
-            v1 = &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids;
+            v1 = &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids;
             if ( !v18 )
-              v15 = (void *)v13[77];
+              v15 = (void *)v13[72];
           }
           else
           {
-            v1 = &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids;
+            v1 = &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids;
           }
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -85,14 +85,14 @@ __int64 ACPIBuildProcessSpecialSynchronizationList()
             (_DWORD)v1,
             6,
             69,
-            (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
             Next,
             v16,
             (__int64)v14,
             (__int64)v15);
         }
         ACPIBuildProcessGenericComplete(v3);
-        v1 = &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids;
+        v1 = &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids;
       }
     }
   }
@@ -107,9 +107,9 @@ LABEL_23:
       do
       {
         v7 = v6;
-        v8 = &unk_1C006FB8B;
+        v8 = &unk_1C00701BA;
         v6 = v6->Next;
-        v9 = &unk_1C006FB8B;
+        v9 = &unk_1C00701BA;
         LOBYTE(v10) = 0;
         v11 = (_QWORD *)*((_QWORD *)&v7[2].Next + 1);
         if ( v11 )
@@ -118,9 +118,9 @@ LABEL_23:
           v10 = *((_QWORD *)&v7[2].Next + 1);
           if ( (v12 & 0x200000000000LL) != 0 )
           {
-            v8 = (void *)v11[76];
+            v8 = (void *)v11[71];
             if ( (v12 & 0x400000000000LL) != 0 )
-              v9 = (void *)v11[77];
+              v9 = (void *)v11[72];
           }
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -132,7 +132,7 @@ LABEL_23:
             (_DWORD)v9,
             6,
             70,
-            (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
             (char)v7[5].Next,
             v10,
             (__int64)v8,

@@ -1,130 +1,127 @@
 /*
- * XREFs of VidSchTerminateContext @ 0x1C0098F20
+ * XREFs of VidSchTerminateContext @ 0x1C0081C30
  * Callers:
- *     VidSchiCreateContextInternal @ 0x1C001270C (VidSchiCreateContextInternal.c)
- *     VidSchTerminateAdapter @ 0x1C00F55F0 (VidSchTerminateAdapter.c)
+ *     VidSchiCreateContextInternal @ 0x1C00107A8 (VidSchiCreateContextInternal.c)
+ *     VidSchTerminateAdapter @ 0x1C00D2C00 (VidSchTerminateAdapter.c)
  * Callees:
- *     VidSchiDecrementContextReference @ 0x1C0013610 (VidSchiDecrementContextReference.c)
- *     ?VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0013794 (-VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?DdiDestroyContext@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C002CA6C (-DdiDestroyContext@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
- *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003C1BC (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
- *     VidSchFlushContext @ 0x1C009A2F0 (VidSchFlushContext.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011740 (VidSchiDecrementContextReference.c)
+ *     ?VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C00118C4 (-VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     ?DdiDestroyContext@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C0022554 (-DdiDestroyContext@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C00336A8 (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     VidSchFlushContext @ 0x1C0081D80 (VidSchFlushContext.c)
  */
 
-__int64 __fastcall VidSchTerminateContext(struct _VIDSCH_CONTEXT *a1)
+__int64 __fastcall VidSchTerminateContext(struct _VIDSCH_CONTEXT *a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // r14
-  int v3; // eax
-  __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // r8
-  __int128 v8; // xmm1
-  int v9; // r10d
-  int v10; // edx
-  __int64 v11; // r9
-  int v12; // ecx
-  __int64 v13; // rcx
-  void *v14; // rdx
+  __int64 v4; // rsi
+  int v5; // eax
+  __int64 v7; // rcx
+  int v8; // eax
+  __int64 v9; // r9
+  __int64 v10; // r8
+  __int128 v11; // xmm1
+  int v12; // r10d
+  int v13; // edx
+  int v14; // edx
   __int64 v15; // rax
-  int v16; // edx
-  __int128 v17; // xmm1
-  __int64 v18; // r8
-  int v19; // ecx
-  __int64 v20; // r9
-  int v21; // ecx
-  __int128 v22; // [rsp+88h] [rbp+37h] BYREF
-  __int128 v23; // [rsp+98h] [rbp+47h]
+  void *v16; // rdx
+  __int64 v17; // rax
+  __int64 v18; // r9
+  int v19; // edx
+  __int128 v20; // xmm1
+  __int64 v21; // r8
+  int v22; // ecx
+  int v23; // ecx
+  __int128 v24; // [rsp+88h] [rbp+37h] BYREF
+  __int128 v25; // [rsp+98h] [rbp+47h]
 
   if ( a1 )
   {
-    v2 = *(_QWORD *)(*((_QWORD *)a1 + 12) + 24LL);
-    ExAcquireResourceExclusiveLite((PERESOURCE)(v2 + 2880), 1u);
-    _InterlockedCompareExchange((volatile signed __int32 *)a1 + 226, 1, 0);
-    ExReleaseResourceLite((PERESOURCE)(v2 + 2880));
-    v22 = 0LL;
-    LODWORD(v22) = 15;
-    VidSchFlushContext(a1, &v22);
-    v3 = *((_DWORD *)a1 + 28);
-    if ( (v3 & 1) != 0 && (v14 = (void *)*((_QWORD *)a1 + 8)) != 0LL )
+    v4 = *(_QWORD *)(*((_QWORD *)a1 + 12) + 24LL);
+    ExAcquireResourceExclusiveLite((PERESOURCE)(v4 + 2784), 1u);
+    _InterlockedCompareExchange((volatile signed __int32 *)a1 + 224, 1, 0);
+    ExReleaseResourceLite((PERESOURCE)(v4 + 2784));
+    v24 = 0LL;
+    LODWORD(v24) = 13;
+    VidSchFlushContext(a1, &v24);
+    v5 = *((_DWORD *)a1 + 28);
+    if ( (v5 & 1) != 0 && (v16 = (void *)*((_QWORD *)a1 + 8)) != 0LL )
     {
-      ADAPTER_RENDER::DdiDestroyContext(*(ADAPTER_RENDER **)(v2 + 8), v14);
+      ADAPTER_RENDER::DdiDestroyContext(*(ADAPTER_RENDER **)(v4 + 8), v16);
       *((_QWORD *)a1 + 8) = 0LL;
       if ( bTracingEnabled )
       {
-        v15 = *((_QWORD *)a1 + 13);
-        v16 = *((_DWORD *)a1 + 231);
-        v17 = *(_OWORD *)((char *)a1 + 964);
-        v18 = *((unsigned int *)a1 + 230);
-        v19 = *(_DWORD *)(v15 + 48) >> 4;
-        v22 = *(_OWORD *)((char *)a1 + 948);
-        v23 = v17;
-        if ( v15 )
+        v17 = *((_QWORD *)a1 + 13);
+        if ( v17 )
         {
-          v20 = *(_QWORD *)(v15 + 8);
-          if ( !v20 )
-            v20 = v15;
+          v18 = *(_QWORD *)(v17 + 8);
+          if ( !v18 )
+            v18 = *((_QWORD *)a1 + 13);
         }
         else
         {
-          v20 = 0LL;
+          v18 = 0LL;
         }
-        v21 = (2 * (v19 & 1)) | 1;
-        if ( (byte_1C006E941 & 4) != 0 )
+        v19 = *((_DWORD *)a1 + 229);
+        v20 = *(_OWORD *)((char *)a1 + 956);
+        v21 = *((unsigned int *)a1 + 228);
+        v22 = (*(_DWORD *)(v17 + 48) >> 4) & 1;
+        v24 = *(_OWORD *)((char *)a1 + 940);
+        v25 = v20;
+        v23 = (2 * v22) | 1;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
           McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(
-            v21,
-            &EventDestroyContext,
-            v18,
-            v20,
-            v18,
-            v16,
-            v22,
-            SBYTE4(v22),
-            SBYTE8(v22),
-            SBYTE12(v22),
             v23,
+            &EventDestroyContext,
             v21,
+            v18,
+            v21,
+            v19,
+            v24,
+            SBYTE4(v24),
+            SBYTE8(v24),
+            SBYTE12(v24),
+            v25,
+            v23,
             a1);
       }
     }
-    else if ( (v3 & 4) != 0 && bTracingEnabled )
+    else if ( (v5 & 4) != 0 && bTracingEnabled )
     {
-      v5 = *((_QWORD *)a1 + 13);
-      v6 = *((_DWORD *)a1 + 28) & 0x40;
-      v7 = *((unsigned int *)a1 + 231);
-      v8 = *(_OWORD *)((char *)a1 + 964);
-      v9 = *((_DWORD *)a1 + 230);
-      v10 = *(_DWORD *)(v5 + 48) >> 4;
-      v22 = *(_OWORD *)((char *)a1 + 948);
-      v23 = v8;
-      if ( v5 )
+      v7 = *((_QWORD *)a1 + 13);
+      v8 = *((_DWORD *)a1 + 28) & 0x40;
+      if ( v7 )
       {
-        v11 = *(_QWORD *)(v5 + 8);
-        if ( !v11 )
-          v11 = v5;
+        v9 = *(_QWORD *)(v7 + 8);
+        if ( !v9 )
+          v9 = *((_QWORD *)a1 + 13);
       }
       else
       {
-        v11 = 0LL;
+        v9 = 0LL;
       }
-      if ( (byte_1C006E941 & 4) != 0 )
-      {
-        v12 = (2 * (v10 & 1 | (v6 != 0 ? 2 : 0))) | 1;
+      v10 = *((unsigned int *)a1 + 229);
+      v11 = *(_OWORD *)((char *)a1 + 956);
+      v12 = *((_DWORD *)a1 + 228);
+      v13 = (*(_DWORD *)(v7 + 48) >> 4) & 1;
+      v24 = *(_OWORD *)((char *)a1 + 940);
+      v25 = v11;
+      v14 = (2 * ((v8 != 0 ? 2 : 0) | v13)) | 1;
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
         McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(
-          v12,
+          v7,
           &EventDestroyContext,
-          v7,
-          v11,
+          v10,
           v9,
-          v7,
-          v22,
-          SBYTE4(v22),
-          SBYTE8(v22),
-          SBYTE12(v22),
-          v23,
           v12,
+          v10,
+          v24,
+          SBYTE4(v24),
+          SBYTE8(v24),
+          SBYTE12(v24),
+          v25,
+          v14,
           a1);
-      }
     }
     VidSchiRemoveContextFromSyncPoints(a1);
     *((_QWORD *)a1 + 7) = 0LL;
@@ -133,8 +130,9 @@ __int64 __fastcall VidSchTerminateContext(struct _VIDSCH_CONTEXT *a1)
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
+    v15 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v15 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v15);
     return 3221225485LL;
   }
 }

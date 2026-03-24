@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CancelAutoPromotion@@YAXXZ @ 0x1C0213458
+ * XREFs of ?CancelAutoPromotion@@YAXXZ @ 0x1C02185AC
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
- *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C00F0F50 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
- *     ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C0213534 (-CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ.c)
- *     ?ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C021366C (-ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
- *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C021374C (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
- *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0213DC0 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
+ *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C000BC24 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C021872C (-CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ.c)
+ *     ?ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218864 (-ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218944 (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
+ *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C02190A8 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
  */
 
 void CancelAutoPromotion(void)
@@ -20,14 +20,14 @@ void CancelAutoPromotion(void)
   v3 = 0LL;
   v2 = 0LL;
   if ( (unsigned int)FindMousePromotionInContactRange(
-                       (const struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10,
-                       dword_1C0335C94,
+                       (const struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50,
+                       dword_1C033AAD4,
                        &v3,
                        &v2) )
   {
     v1 = 0LL;
     ExtractRangeFromQueue(
-      (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10,
+      (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50,
       (struct tagMOUSE_PROMOTION_QUEUE *)&v1,
       v3,
       v2);
@@ -39,8 +39,8 @@ void CancelAutoPromotion(void)
     if ( EntryFromLastEntry )
     {
       *((_DWORD *)EntryFromLastEntry + 5) = 303104;
-      QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10, EntryFromLastEntry);
+      QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50, EntryFromLastEntry);
     }
   }
-  dword_1C0335D98 &= 0xFFFFFFE9;
+  dword_1C033ABD8 &= 0xFFFFFFE9;
 }

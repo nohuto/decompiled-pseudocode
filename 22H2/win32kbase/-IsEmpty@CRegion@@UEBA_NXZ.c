@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C00A79E0
+ * XREFs of ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C00944D0
  * Callers:
  *     <none>
  * Callees:
- *     ?iComplexity@RGNCOREOBJ@@QEBAJXZ @ 0x1C0044530 (-iComplexity@RGNCOREOBJ@@QEBAJXZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0031758 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
  */
 
 bool __fastcall CRegion::IsEmpty(CRegion *this)
@@ -21,5 +21,5 @@ bool __fastcall CRegion::IsEmpty(CRegion *this)
   if ( v2 != 1 )
     return 1;
   v5 = *((_QWORD *)this + 2);
-  return (unsigned int)RGNCOREOBJ::iComplexity((RGNCOREOBJ *)&v5) == 1;
+  return (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v5) == 1;
 }

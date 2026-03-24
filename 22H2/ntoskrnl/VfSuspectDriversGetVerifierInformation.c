@@ -1,15 +1,15 @@
 /*
- * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140ADB44C
+ * XREFs of VfSuspectDriversGetVerifierInformation @ 0x1409D98F0
  * Callers:
- *     VfGetVerifierInformation @ 0x1405D2108 (VfGetVerifierInformation.c)
+ *     VfGetVerifierInformation @ 0x1409ECAC4 (VfGetVerifierInformation.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfTargetDriversGetZeroCounters @ 0x140ACC578 (VfTargetDriversGetZeroCounters.c)
- *     VfAvlEnumerateNodes @ 0x140ADD2A4 (VfAvlEnumerateNodes.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfTargetDriversGetZeroCounters @ 0x1409D6EA4 (VfTargetDriversGetZeroCounters.c)
+ *     VfAvlEnumerateNodes @ 0x1409E0668 (VfAvlEnumerateNodes.c)
  */
 
 __int64 __fastcall VfSuspectDriversGetVerifierInformation(
@@ -72,18 +72,18 @@ __int64 __fastcall VfSuspectDriversGetVerifierInformation(
       v14 = VfClearanceFlag;
       *(_DWORD *)(v6 + 16) = VfTriageContext;
       *(_DWORD *)(v6 + 20) = ViVerifyAllDrivers & 1 | *(_DWORD *)(v6 + 20) & 0xFFFFFFFC | (2 * (v14 & 1));
-      *(_DWORD *)(v6 + 40) = dword_140C13964;
-      *(_DWORD *)(v6 + 44) = dword_140C13968;
-      *(_DWORD *)(v6 + 92) = dword_140C1399C;
-      *(_DWORD *)(v6 + 48) = dword_140C1396C;
-      *(_DWORD *)(v6 + 52) = dword_140C13970;
-      *(_DWORD *)(v6 + 56) = dword_140C13974;
-      *(_DWORD *)(v6 + 60) = dword_140C13978;
-      *(_DWORD *)(v6 + 64) = dword_140C1397C;
-      *(_DWORD *)(v6 + 68) = dword_140C13980;
-      *(_DWORD *)(v6 + 72) = dword_140C13984;
-      *(_DWORD *)(v6 + 76) = dword_140C13988;
-      *(_DWORD *)(v6 + 80) = dword_140C1398C;
+      *(_DWORD *)(v6 + 40) = dword_140C2A8E4;
+      *(_DWORD *)(v6 + 44) = dword_140C2A8E8;
+      *(_DWORD *)(v6 + 92) = dword_140C2A918;
+      *(_DWORD *)(v6 + 48) = dword_140C2A8EC;
+      *(_DWORD *)(v6 + 52) = dword_140C2A8F0;
+      *(_DWORD *)(v6 + 56) = dword_140C2A8F4;
+      *(_DWORD *)(v6 + 60) = dword_140C2A8F8;
+      *(_DWORD *)(v6 + 64) = dword_140C2A8FC;
+      *(_DWORD *)(v6 + 68) = dword_140C2A900;
+      *(_DWORD *)(v6 + 72) = dword_140C2A904;
+      *(_DWORD *)(v6 + 76) = dword_140C2A908;
+      *(_DWORD *)(v6 + 80) = dword_140C2A90C;
       *(_DWORD *)(v6 + 84) = *((_DWORD *)v10 + 4);
       *(_DWORD *)(v6 + 88) = *((_DWORD *)v10 + 5);
       if ( *((_DWORD *)v10 + 4) <= *((_DWORD *)v10 + 5) )
@@ -121,7 +121,7 @@ __int64 __fastcall VfSuspectDriversGetVerifierInformation(
   }
 LABEL_11:
   ViDriversLoadLockOwner = 0LL;
-  KeReleaseMutex(&ViDriversLoadLock, 0);
+  KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
   if ( v8 >= 0 )
     *(_DWORD *)v6 = 0;
   return (unsigned int)v8;

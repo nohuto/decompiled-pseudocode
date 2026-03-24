@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxComponentLatency @ 0x14045E2C4
+ * XREFs of PopDiagTraceFxComponentLatency @ 0x140571C3C
  * Callers:
- *     PoFxSetComponentLatency @ 0x14045DDB0 (PoFxSetComponentLatency.c)
+ *     PoFxSetComponentLatency @ 0x140569200 (PoFxSetComponentLatency.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxComponentLatency(__int64 a1, int a2, __int64 a3)

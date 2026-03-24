@@ -1,18 +1,17 @@
 /*
- * XREFs of bFToL @ 0x1C00038EC
+ * XREFs of bFToL @ 0x1C0082B80
  * Callers:
- *     vConvertXformToMatrix @ 0x1C0001B20 (vConvertXformToMatrix.c)
- *     efSin @ 0x1C0003A40 (efSin.c)
- *     ?bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z @ 0x1C0003B50 (-bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z.c)
- *     bCvtPts1 @ 0x1C0007EC4 (bCvtPts1.c)
- *     ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C000B300 (-bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z.c)
- *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0039250 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0152254 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
- *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0157978 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
- *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C0157A50 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
- *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C015F82C (-vMakeIso@DC@@QEAAXXZ.c)
- *     bCvtPts @ 0x1C023610C (bCvtPts.c)
- *     bCvtVts @ 0x1C02362CC (bCvtVts.c)
+ *     ?bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z @ 0x1C0022460 (-bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C00247D0 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C0025170 (-bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z.c)
+ *     bCvtPts1 @ 0x1C003E640 (bCvtPts1.c)
+ *     efSin @ 0x1C00A49D0 (efSin.c)
+ *     bCvtPts @ 0x1C00BC844 (bCvtPts.c)
+ *     bCvtVts @ 0x1C00BE0A8 (bCvtVts.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C013CA64 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C013E6D8 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C013E7B0 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C0142860 (-vMakeIso@DC@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

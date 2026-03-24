@@ -1,5 +1,5 @@
 /*
- * XREFs of EngAcquireSemaphoreSharedNoWait @ 0x1C0169AD0
+ * XREFs of EngAcquireSemaphoreSharedNoWait @ 0x1C00BFC30
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 __fastcall EngAcquireSemaphoreSharedNoWait(PERESOURCE Resource)
 {
   unsigned int v1; // ebx
   BOOLEAN v3; // al
-  __int64 v4; // rcx
+  __int64 v5; // rcx
 
   v1 = 0;
   if ( Resource )
@@ -22,7 +22,7 @@ __int64 __fastcall EngAcquireSemaphoreSharedNoWait(PERESOURCE Resource)
     if ( !v3 )
     {
       KeLeaveCriticalRegion();
-      PsLeavePriorityRegion(v4);
+      PsLeavePriorityRegion(v5);
     }
   }
   return v1;

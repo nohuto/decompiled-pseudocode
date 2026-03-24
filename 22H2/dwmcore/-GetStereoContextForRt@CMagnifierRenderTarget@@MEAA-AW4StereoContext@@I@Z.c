@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetStereoContextForRt@CMagnifierRenderTarget@@MEAA?AW4StereoContext@@I@Z @ 0x180106B60
+ * XREFs of ?GetStereoContextForRt@CMagnifierRenderTarget@@MEAA?AW4StereoContext@@I@Z @ 0x1800E2330
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CMagnifierRenderTarget::GetStereoContextForRt(__int64 a1, unsigned int a2)
 {
-  return *(unsigned int *)(32LL * a2 + a1 + 1904);
+  return *(unsigned int *)(32 * (a2 + 60LL) + a1);
 }

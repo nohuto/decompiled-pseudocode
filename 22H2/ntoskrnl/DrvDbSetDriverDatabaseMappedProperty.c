@@ -1,23 +1,23 @@
 /*
- * XREFs of DrvDbSetDriverDatabaseMappedProperty @ 0x140866854
+ * XREFs of DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0
  * Callers:
- *     DrvDbCreateDatabaseNode @ 0x140815840 (DrvDbCreateDatabaseNode.c)
- *     DrvDbDispatchDriverDatabase @ 0x140876610 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbInitializeDatabaseNodeVersion @ 0x140A6DDE0 (DrvDbInitializeDatabaseNodeVersion.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406B4C50 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4698 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbInitializeDatabaseNodeVersion @ 0x14097ECE4 (DrvDbInitializeDatabaseNodeVersion.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14086671C (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetRegValueMappedProperty @ 0x140866A64 (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x140877088 (DrvDbOpenObjectRegKey.c)
- *     DrvDbLoadDatabaseNode @ 0x1408775F0 (DrvDbLoadDatabaseNode.c)
- *     DrvDbUnloadDatabaseNode @ 0x1408778A8 (DrvDbUnloadDatabaseNode.c)
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     DrvDbUnloadDatabaseNode @ 0x1406B7450 (DrvDbUnloadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406B7534 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406B91F0 (DrvDbOpenObjectRegKey.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x140728234 (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x1407358D4 (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbSetDriverDatabaseMappedProperty(
@@ -29,312 +29,315 @@ __int64 __fastcall DrvDbSetDriverDatabaseMappedProperty(
         const WCHAR *SourceString,
         unsigned int a7)
 {
-  __int64 (**v7)[3]; // r13
   int DatabaseNode; // esi
-  __int64 v12; // r12
-  int v13; // eax
-  int v14; // ecx
+  const UNICODE_STRING *v11; // r15
+  int v12; // eax
+  __int64 v13; // rcx
+  int v14; // edx
   unsigned int v15; // r10d
   __int64 **v16; // r8
   __int64 *v17; // r9
-  unsigned int v18; // edx
-  __int64 (**v19)[3]; // r9
-  int v20; // r10d
-  __int64 *v21; // r8
-  unsigned int v22; // edx
-  __int64 (**v23)[3]; // r8
-  __int64 *v24; // r9
-  __int64 v25; // rcx
-  HANDLE v26; // rcx
+  __int64 (**v18)[3]; // r10
+  __int64 (**v19)[3]; // r13
+  unsigned int v20; // r8d
+  __int64 *v21; // r9
+  HANDLE v22; // r13
+  int v23; // eax
+  __int64 v25; // rax
+  __int64 v26; // rax
   int v27; // eax
+  unsigned int v28; // eax
   __int64 v29; // rax
-  bool v30; // zf
+  int v30; // eax
   __int64 v31; // rax
-  int v32; // eax
-  unsigned int v33; // eax
-  __int64 v34; // rax
-  __int64 v35; // rdx
-  int v36; // eax
+  struct _KTHREAD *v32; // rax
+  const UNICODE_STRING *v33; // rbx
+  int v34; // eax
+  struct _ERESOURCE *v35; // rcx
+  __int64 v36; // rax
   __int64 v37; // rax
-  struct _KTHREAD *v38; // rax
-  __int64 v39; // rbx
-  int v40; // eax
-  struct _ERESOURCE *v41; // rcx
-  __int64 v42; // rax
+  __int64 v38; // rax
+  __int64 (**v39)[3]; // r10
+  unsigned int v40; // r8d
+  __int64 *v41; // r9
+  __int64 v42; // rcx
   __int64 v43; // rax
-  __int64 v44; // rax
-  __int64 v45; // rcx
-  __int64 v46; // rax
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v48; // rdi
-  UNICODE_STRING v49; // xmm0
-  __int64 v50; // [rsp+50h] [rbp-20h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-18h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
+  const UNICODE_STRING *v45; // rdi
+  UNICODE_STRING v46; // xmm0
+  const UNICODE_STRING *v47; // [rsp+50h] [rbp-30h] BYREF
+  __int64 (**v48)[3]; // [rsp+58h] [rbp-28h]
+  HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-18h] BYREF
 
-  LODWORD(v7) = 0;
   Handle = 0LL;
-  v50 = 0LL;
+  v47 = 0LL;
   DatabaseNode = 0;
-  v12 = 0LL;
+  v11 = 0LL;
   DestinationString = 0LL;
-  v13 = wcsicmp(a2, L"*");
+  v12 = wcsicmp(a2, L"*");
   v14 = *(_DWORD *)(a4 + 16);
-  if ( v13 )
+  if ( v12 )
   {
     if ( v14 == 2 )
     {
-      v34 = *(_QWORD *)a4 - DEVPKEY_NODE;
+      v29 = *(_QWORD *)a4 - DEVPKEY_NODE;
       if ( *(_QWORD *)a4 == DEVPKEY_NODE )
-        v34 = *(_QWORD *)(a4 + 8) + 0x5008C7D4C8250077LL;
-      if ( !v34 )
+        v29 = *(_QWORD *)(a4 + 8) + 0x5008C7D4C8250077LL;
+      if ( !v29 )
       {
-LABEL_60:
+LABEL_50:
         DatabaseNode = -1073741790;
-        goto LABEL_30;
+        goto LABEL_24;
       }
     }
     v15 = 0;
-    v16 = off_140C043E0;
+    v16 = off_140C02CB0;
     while ( 1 )
     {
       v17 = *v16;
       if ( *((_DWORD *)*v16 + 4) == v14 )
       {
-        v35 = *v17 - *(_QWORD *)a4;
+        v13 = *v17 - *(_QWORD *)a4;
         if ( *v17 == *(_QWORD *)a4 )
-          v35 = v17[1] - *(_QWORD *)(a4 + 8);
-        if ( !v35 )
+          v13 = v17[1] - *(_QWORD *)(a4 + 8);
+        if ( !v13 )
           break;
       }
       ++v15;
       ++v16;
-      if ( v15 >= 8 )
+      if ( v15 >= 7 )
       {
-        v18 = 0;
-        v19 = &off_140005F70;
-        v20 = *(_DWORD *)(a4 + 16);
+        v48 = 0LL;
+        v18 = &off_140004E10;
+        v19 = 0LL;
+        v20 = 0;
         while ( 1 )
         {
-          v21 = (__int64 *)*v19;
-          if ( LODWORD((**v19)[2]) == v20 )
+          v21 = (__int64 *)*v18;
+          if ( LODWORD((**v18)[2]) == v14 )
           {
-            v45 = *v21 - *(_QWORD *)a4;
+            v13 = *v21 - *(_QWORD *)a4;
             if ( *v21 == *(_QWORD *)a4 )
-              v45 = v21[1] - *(_QWORD *)(a4 + 8);
-            if ( !v45 )
+              v13 = v21[1] - *(_QWORD *)(a4 + 8);
+            if ( !v13 )
               break;
           }
-          ++v18;
-          v19 += 5;
-          if ( v18 >= 0xC )
-            goto LABEL_9;
+          ++v20;
+          v18 += 5;
+          if ( v20 >= 0xC )
+            goto LABEL_14;
         }
-        v7 = &off_140005F70 + 5 * v18;
-        if ( v7 )
-          goto LABEL_19;
-LABEL_9:
-        v22 = (unsigned int)v7;
-        v23 = &off_140006150;
+        v13 = 5LL * v20;
+        v19 = &off_140004E10 + 5 * v20;
+        v48 = v19;
+LABEL_14:
+        if ( v19 )
+          goto LABEL_15;
+        v48 = 0LL;
+        v39 = &off_140009E00;
+        v19 = 0LL;
+        v40 = 0;
         while ( 1 )
         {
-          v24 = (__int64 *)*v23;
-          if ( LODWORD((**v23)[2]) == v20 )
+          v41 = (__int64 *)*v39;
+          if ( LODWORD((**v39)[2]) == v14 )
           {
-            v25 = *v24 - *(_QWORD *)a4;
-            if ( *v24 == *(_QWORD *)a4 )
-              v25 = v24[1] - *(_QWORD *)(a4 + 8);
-            if ( !v25 )
+            v42 = *v41 - *(_QWORD *)a4;
+            if ( *v41 == *(_QWORD *)a4 )
+              v42 = v41[1] - *(_QWORD *)(a4 + 8);
+            if ( !v42 )
               break;
           }
-          ++v22;
-          v23 += 5;
-          if ( v22 >= 4 )
-            goto LABEL_126;
+          ++v40;
+          v39 += 5;
+          if ( v40 >= 4 )
+            goto LABEL_105;
         }
-        v7 = &off_140006150 + 5 * v22;
-        if ( !v7 )
+        v19 = &off_140009E00 + 5 * v40;
+        v48 = v19;
+LABEL_105:
+        if ( !v19 )
         {
-LABEL_126:
           DatabaseNode = -1073741802;
-          goto LABEL_30;
+          goto LABEL_24;
         }
-        DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v50);
-        if ( DatabaseNode < 0 )
-          goto LABEL_30;
-        v12 = v50;
-LABEL_19:
-        if ( a5 != *((_DWORD *)v7 + 2) && a5 )
-          goto LABEL_45;
-        v26 = a3;
-        if ( a3 )
-          goto LABEL_25;
-        if ( v12 )
-          v27 = DrvDbOpenObjectRegKey(a1, *(_QWORD *)(a1 + 40), 1, (_DWORD)a2, 2, 1, (__int64)&Handle, 0LL, 0LL);
-        else
-          v27 = DrvDbOpenDriverDatabaseRegKey((_QWORD *)a1, a2, 2u, 0, (__int64)&Handle, 0LL);
-        DatabaseNode = v27;
-        if ( v27 >= 0 )
+        DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v47);
+        if ( DatabaseNode >= 0 )
         {
-          v26 = 0LL;
-LABEL_25:
-          if ( Handle )
-            v26 = Handle;
-          DatabaseNode = DrvDbSetRegValueMappedProperty(v26, v26, v7, a5, SourceString, a7);
-          if ( DatabaseNode >= 0 && v50 && (*(_DWORD *)(v50 + 64) & 0x10) != 0 && *(_DWORD *)(a4 + 16) == 14 )
+          v11 = v47;
+          if ( ((__int64)v47[3].Buffer & 0x10) == 0 )
+            goto LABEL_50;
+LABEL_15:
+          if ( a5 != *((_DWORD *)v19 + 2) && a5 )
           {
-            v46 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_RegistryPath;
-            if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_RegistryPath )
-              v46 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-            if ( !v46 && a5 )
+LABEL_111:
+            DatabaseNode = -1073741811;
+            goto LABEL_24;
+          }
+          if ( (v22 = a3) != 0LL && (!v11 || ((__int64)v11[3].Buffer & 0x10) == 0)
+            || (!v11 || ((__int64)v11[3].Buffer & 0x10) == 0
+              ? (v23 = DrvDbOpenDriverDatabaseRegKey(a1, a2, 2LL, 0LL, &Handle, 0LL))
+              : (v23 = DrvDbOpenObjectRegKey(
+                         (__int64 *)a1,
+                         *(const UNICODE_STRING **)(a1 + 32),
+                         1u,
+                         a2,
+                         2,
+                         0,
+                         &Handle,
+                         0LL,
+                         0LL)),
+                DatabaseNode = v23,
+                v23 >= 0) )
+          {
+            if ( Handle )
+              v22 = Handle;
+            DatabaseNode = DrvDbSetRegValueMappedProperty(v13, v22, v48, a5, SourceString, a7);
+            if ( DatabaseNode >= 0 && v11 && ((__int64)v11[3].Buffer & 0x10) != 0 && *(_DWORD *)(a4 + 16) == 14 )
             {
-              if ( a7 >= 2 && SourceString && !SourceString[((unsigned __int64)a7 >> 1) - 1] )
+              v43 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_RegistryPath;
+              if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_RegistryPath )
+                v43 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+              if ( !v43 && a5 )
               {
+                if ( a7 < 2 || !SourceString || SourceString[((unsigned __int64)a7 >> 1) - 1] )
+                  goto LABEL_111;
                 if ( !RtlCreateUnicodeString(&DestinationString, SourceString) )
                 {
                   DatabaseNode = -1073741670;
-                  goto LABEL_30;
+                  goto LABEL_24;
                 }
                 CurrentThread = KeGetCurrentThread();
-                v48 = v50;
                 --CurrentThread->KernelApcDisable;
-                ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v48 + 152), 1u);
-                RtlFreeUnicodeString((PUNICODE_STRING)(v48 + 48));
-                v49 = DestinationString;
-                *(_DWORD *)(v48 + 40) = 0;
-                *(UNICODE_STRING *)(v48 + 48) = v49;
-                v41 = *(struct _ERESOURCE **)(v48 + 152);
-                goto LABEL_125;
+                v45 = v47;
+                ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v47[9].Length, 1u);
+                RtlFreeAnsiString((PUNICODE_STRING)&v45[2].Buffer);
+                v46 = DestinationString;
+                *(_DWORD *)&v45[2].Length = 0;
+                *(UNICODE_STRING *)&v45[2].Buffer = v46;
+                v35 = *(struct _ERESOURCE **)&v45[9].Length;
+                goto LABEL_129;
               }
-              goto LABEL_45;
             }
           }
         }
-        goto LABEL_30;
+        goto LABEL_24;
       }
     }
-    DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v50);
+    DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v47);
     if ( DatabaseNode < 0 )
-      goto LABEL_30;
-    v36 = *(_DWORD *)(a4 + 16);
-    switch ( v36 )
+      goto LABEL_24;
+    v30 = *(_DWORD *)(a4 + 16);
+    switch ( v30 )
     {
       case 5:
-        v37 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Loaded;
+        v31 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Loaded;
         if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_Loaded )
-          v37 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-        if ( v37 )
-          goto LABEL_30;
-        if ( a5 == 17 && a7 == 1 && SourceString )
+          v31 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+        if ( !v31 )
         {
-          if ( (*(_DWORD *)(v50 + 64) & 1) != 0 )
-            goto LABEL_60;
-          v38 = KeGetCurrentThread();
-          v39 = v50;
-          --v38->KernelApcDisable;
-          ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v39 + 152), 1u);
+          if ( a5 != 17 || a7 != 1 || !SourceString )
+            goto LABEL_111;
+          if ( ((__int64)v47[3].Buffer & 1) != 0 )
+            goto LABEL_50;
+          v32 = KeGetCurrentThread();
+          --v32->KernelApcDisable;
+          v33 = v47;
+          ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v47[9].Length, 1u);
           if ( *(_BYTE *)SourceString == 0xFF )
-            v40 = DrvDbLoadDatabaseNode(a1, v39);
+            v34 = DrvDbLoadDatabaseNode((__int64 *)a1, (__int64)v33);
           else
-            v40 = DrvDbUnloadDatabaseNode(a1, v39);
-          v41 = *(struct _ERESOURCE **)(v39 + 152);
-          DatabaseNode = v40;
-LABEL_125:
-          ExReleaseResourceLite(v41);
+            v34 = DrvDbUnloadDatabaseNode(a1, (__int64)v33);
+          v35 = *(struct _ERESOURCE **)&v33[9].Length;
+          DatabaseNode = v34;
+LABEL_129:
+          ExReleaseResourceLite(v35);
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-          goto LABEL_30;
+          goto LABEL_24;
         }
-        goto LABEL_45;
+        goto LABEL_24;
       case 6:
-        v42 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Selected;
+        v36 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Selected;
         if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_Selected )
-          v42 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-        if ( v42 )
-          goto LABEL_30;
-        if ( a5 != 17 || a7 != 1 || !SourceString )
-          goto LABEL_45;
-        if ( *(_BYTE *)SourceString == 0xFF )
+          v36 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+        if ( !v36 )
         {
-          *(_QWORD *)(a1 + 48) = v50;
-          goto LABEL_30;
-        }
-        if ( v50 != *(_QWORD *)(a1 + 48) )
-        {
-          v30 = v50 == 0;
-          goto LABEL_43;
-        }
-        goto LABEL_44;
-      case 7:
-        v43 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Disabled;
-        if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_Disabled )
-          v43 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-        if ( v43 )
-          goto LABEL_30;
-        if ( a5 == 17 && a7 == 1 && SourceString )
-        {
+          if ( a5 != 17 || a7 != 1 || !SourceString )
+            goto LABEL_111;
           if ( *(_BYTE *)SourceString == 0xFF )
-            *(_DWORD *)(v50 + 64) |= 4u;
-          else
-            *(_DWORD *)(v50 + 64) &= ~4u;
-          goto LABEL_30;
+          {
+            *(_QWORD *)(a1 + 40) = v47;
+          }
+          else if ( v47 == *(const UNICODE_STRING **)(a1 + 40) || !v47 )
+          {
+            *(_QWORD *)(a1 + 40) = 0LL;
+          }
         }
-        goto LABEL_45;
+        goto LABEL_24;
+      case 7:
+        v37 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Disabled;
+        if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_Disabled )
+          v37 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+        if ( !v37 )
+        {
+          if ( a5 != 17 || a7 != 1 || !SourceString )
+            goto LABEL_111;
+          if ( *(_BYTE *)SourceString == 0xFF )
+            LODWORD(v47[3].Buffer) |= 4u;
+          else
+            LODWORD(v47[3].Buffer) &= ~4u;
+        }
+        goto LABEL_24;
     }
-    if ( v36 != 11 )
-      goto LABEL_30;
-    v44 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_AccessMask;
+    if ( v30 != 11 )
+      goto LABEL_24;
+    v38 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_AccessMask;
     if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_AccessMask )
-      v44 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-    if ( v44 )
-      goto LABEL_30;
+      v38 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+    if ( v38 )
+      goto LABEL_24;
     if ( a5 != 7 || a7 != 4 || !SourceString )
-      goto LABEL_45;
-    if ( v50 != *(_QWORD *)(a1 + 32) )
-      goto LABEL_60;
-    v32 = *(_DWORD *)SourceString;
-    goto LABEL_54;
+      goto LABEL_111;
+    if ( v47 != *(const UNICODE_STRING **)(a1 + 32) )
+      goto LABEL_50;
+    v27 = *(_DWORD *)SourceString;
+    goto LABEL_44;
   }
   if ( v14 != 6 )
   {
     if ( v14 == 11 )
     {
-      v31 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_AccessMask;
+      v26 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_AccessMask;
       if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_AccessMask )
-        v31 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-      if ( !v31 )
+        v26 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+      if ( !v26 )
       {
-        if ( a5 == 7 && a7 == 4 && SourceString )
-        {
-          v32 = *(_DWORD *)SourceString;
-LABEL_54:
-          v33 = v32 & 0xD0000000;
-          *(_DWORD *)(a1 + 12) = v33;
-          if ( v33 == 0x10000000 )
-            *(_DWORD *)(a1 + 12) = -805306368;
-          goto LABEL_30;
-        }
-LABEL_45:
-        DatabaseNode = -1073741811;
-        goto LABEL_30;
+        if ( a5 != 7 || a7 != 4 || !SourceString )
+          goto LABEL_111;
+        v27 = *(_DWORD *)SourceString;
+LABEL_44:
+        v28 = v27 & 0xD0000000;
+        *(_DWORD *)(a1 + 12) = v28;
+        if ( v28 == 0x10000000 )
+          *(_DWORD *)(a1 + 12) = -805306368;
+        goto LABEL_24;
       }
     }
-LABEL_56:
+LABEL_46:
     DatabaseNode = -1073741637;
-    goto LABEL_30;
+    goto LABEL_24;
   }
-  v29 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Selected;
+  v25 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_Selected;
   if ( *(_QWORD *)a4 == DEVPKEY_DriverDatabase_Selected )
-    v29 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-  if ( v29 )
-    goto LABEL_56;
+    v25 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+  if ( v25 )
+    goto LABEL_46;
   if ( a5 != 17 || a7 != 1 || !SourceString )
-    goto LABEL_45;
-  v30 = *(_BYTE *)SourceString == 0xFF;
-LABEL_43:
-  if ( v30 )
-LABEL_44:
-    *(_QWORD *)(a1 + 48) = 0LL;
-LABEL_30:
+    goto LABEL_111;
+  if ( *(_BYTE *)SourceString == 0xFF )
+    *(_QWORD *)(a1 + 40) = 0LL;
+LABEL_24:
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)DatabaseNode;

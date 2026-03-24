@@ -1,64 +1,60 @@
 /*
- * XREFs of NLS_UPCASE @ 0x1403477B0
+ * XREFs of NLS_UPCASE @ 0x140206AF0
  * Callers:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14021A3A0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x1402D7D00 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x14045EDD4 (UpcaseUnicodeToMultiByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1405E4598 (UpcaseUnicodeToUTF8NHelper.c)
- *     CmpCompareTwoCompressedNames @ 0x14065C57C (CmpCompareTwoCompressedNames.c)
- *     RtlFindUnicodeSubstring @ 0x140678510 (RtlFindUnicodeSubstring.c)
- *     CmpComputeComponentHashes @ 0x1406811B0 (CmpComputeComponentHashes.c)
- *     CompareUnicodeStrings @ 0x14069498C (CompareUnicodeStrings.c)
- *     CmpCheckLeaf @ 0x14069A7B0 (CmpCheckLeaf.c)
- *     CmpCheckLexicographicalOrder @ 0x14069B700 (CmpCheckLexicographicalOrder.c)
- *     ObpCreateSymbolicLinkName @ 0x1406A97F0 (ObpCreateSymbolicLinkName.c)
- *     ObpLookupDirectoryEntry @ 0x1406A9B40 (ObpLookupDirectoryEntry.c)
- *     CmpCompareUnicodeString @ 0x140717780 (CmpCompareUnicodeString.c)
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
- *     CmpHashCompressedComponent @ 0x14071BC04 (CmpHashCompressedComponent.c)
- *     CmpFindNameInListCellWithStatus @ 0x140722280 (CmpFindNameInListCellWithStatus.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1407350A0 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     RtlHashUnicodeString @ 0x14078C240 (RtlHashUnicodeString.c)
- *     RtlpHashStringToAtom @ 0x1407A0EE0 (RtlpHashStringToAtom.c)
- *     CmpGetNameControlBlock @ 0x1407C3E50 (CmpGetNameControlBlock.c)
- *     CmpCompareInIndex @ 0x1407C4180 (CmpCompareInIndex.c)
- *     CmpCompareCompressedName @ 0x1407C45A0 (CmpCompareCompressedName.c)
- *     CmpFindSubKeyInRoot @ 0x1407C5F80 (CmpFindSubKeyInRoot.c)
- *     CmpWalkOneLevel @ 0x1407C8AE0 (CmpWalkOneLevel.c)
- *     CmpFindNameInListFromIndex @ 0x1407C94E0 (CmpFindNameInListFromIndex.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     RtlCompareUnicodeStrings @ 0x1407CD7A0 (RtlCompareUnicodeStrings.c)
- *     AslStringPatternMatchExW @ 0x140851068 (AslStringPatternMatchExW.c)
- *     RtlSuffixUnicodeString @ 0x1409B57F0 (RtlSuffixUnicodeString.c)
- *     RtlUpcaseUnicodeToCustomCPN @ 0x1409B6890 (RtlUpcaseUnicodeToCustomCPN.c)
- *     RtlIsValidOemCharacter @ 0x1409BBB30 (RtlIsValidOemCharacter.c)
- *     SdbpGetProcessHistory @ 0x140A13308 (SdbpGetProcessHistory.c)
- *     AslEnvVarQuery @ 0x140A17E60 (AslEnvVarQuery.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1402069B0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x140206A40 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x1405859C4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140585AB8 (UpcaseUnicodeToUTF8NHelper.c)
+ *     CmpCheckLeaf @ 0x1405EBF20 (CmpCheckLeaf.c)
+ *     RtlFindUnicodeSubstring @ 0x1405ED870 (RtlFindUnicodeSubstring.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     CmpCompareInIndex @ 0x1405EDCF0 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
+ *     CmpCheckLexicographicalOrder @ 0x1405F2E10 (CmpCheckLexicographicalOrder.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
+ *     RtlpHashStringToAtom @ 0x14061BB60 (RtlpHashStringToAtom.c)
+ *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpCompareUnicodeString @ 0x140672920 (CmpCompareUnicodeString.c)
+ *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
+ *     CompareUnicodeStrings @ 0x1406939E8 (CompareUnicodeStrings.c)
+ *     ObpCreateSymbolicLinkName @ 0x1406B8F14 (ObpCreateSymbolicLinkName.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
+ *     CmpComputeComponentHashes @ 0x1406FBCC0 (CmpComputeComponentHashes.c)
+ *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
+ *     AslEnvVarQuery @ 0x14075417C (AslEnvVarQuery.c)
+ *     CmpHashCompressedComponent @ 0x140766704 (CmpHashCompressedComponent.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875E28 (CmpCompareTwoCompressedNames.c)
+ *     RtlSuffixUnicodeString @ 0x14090FC40 (RtlSuffixUnicodeString.c)
+ *     RtlUpcaseUnicodeToCustomCPN @ 0x140910CF0 (RtlUpcaseUnicodeToCustomCPN.c)
+ *     RtlIsValidOemCharacter @ 0x1409164D0 (RtlIsValidOemCharacter.c)
+ *     SdbpGetProcessHistory @ 0x1409662BC (SdbpGetProcessHistory.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int16 __fastcall NLS_UPCASE(__int64 a1, unsigned __int16 a2)
+unsigned __int16 __fastcall NLS_UPCASE(unsigned __int16 a1)
 {
-  if ( a2 < 0x61u )
-    return a2;
-  if ( a2 <= 0x7Au )
-    return a2 - 32;
-  if ( a1 && a2 >= 0xC0u )
-    return a2
-         + *(_WORD *)(a1
-                    + 2LL
-                    * ((a2 & 0xF)
-                     + (unsigned int)*(unsigned __int16 *)(a1
-                                                         + 2LL
-                                                         * (((a2 >> 4) & 0xF)
-                                                          + (unsigned int)*(unsigned __int16 *)(a1
-                                                                                              + 2
-                                                                                              * ((unsigned __int64)a2 >> 8))))));
-  else
-    return a2;
+  if ( a1 < 0x61u )
+    return a1;
+  if ( a1 <= 0x7Au )
+    return a1 - 32;
+  if ( !Nls844UnicodeUpcaseTable || a1 < 0xC0u )
+    return a1;
+  return a1
+       + *(_WORD *)(Nls844UnicodeUpcaseTable
+                  + 2LL
+                  * ((a1 & 0xF)
+                   + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                       + 2LL
+                                                       * (((unsigned __int8)a1 >> 4)
+                                                        + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                                                            + 2
+                                                                                            * ((unsigned __int64)a1 >> 8))))));
 }

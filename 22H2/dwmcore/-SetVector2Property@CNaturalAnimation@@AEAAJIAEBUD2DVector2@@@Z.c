@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetVector2Property@CNaturalAnimation@@AEAAJIAEBUD2DVector2@@@Z @ 0x18023E254
+ * XREFs of ?SetVector2Property@CNaturalAnimation@@AEAAJIAEBUD2DVector2@@@Z @ 0x1801D9058
  * Callers:
- *     ?SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023DE00 (-SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801D8C40 (-SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::SetVector2Property(CNaturalAnimation *this, int a2, const struct D2DVector2 *a3)
@@ -15,22 +15,22 @@ __int64 __fastcall CNaturalAnimation::SetVector2Property(CNaturalAnimation *this
   v3 = 0;
   switch ( a2 )
   {
-    case '\'':
+    case '&':
       v5 = *(_QWORD *)a3;
-      *((_BYTE *)this + 588) |= 0x20u;
-      *((_QWORD *)this + 45) = v5;
+      *((_BYTE *)this + 564) |= 0x20u;
+      *((_QWORD *)this + 42) = v5;
       break;
-    case '+':
+    case '*':
       v4 = *(_QWORD *)a3;
-      *((_BYTE *)this + 588) |= 0x10u;
-      *((_QWORD *)this + 42) = v4;
+      *((_BYTE *)this + 564) |= 0x10u;
+      *((_QWORD *)this + 39) = v4;
       break;
-    case '/':
-      *(_QWORD *)((char *)this + 372) = *(_QWORD *)a3;
+    case '.':
+      *(_QWORD *)((char *)this + 348) = *(_QWORD *)a3;
       break;
     default:
       v3 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x41Eu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x3FEu, 0LL);
       break;
   }
   return v3;

@@ -1,317 +1,429 @@
 /*
- * XREFs of MiAllocateFileExtents @ 0x14096F8CC
+ * XREFs of MiAllocateFileExtents @ 0x1408CF510
  * Callers:
- *     MiCreatePrototypePtes @ 0x14026E564 (MiCreatePrototypePtes.c)
- *     MiAddViewsForSection @ 0x140311CC0 (MiAddViewsForSection.c)
- *     MiUpdateActiveSubsection @ 0x140597C48 (MiUpdateActiveSubsection.c)
- *     MiInitializeCachedExtentWalker @ 0x14059F4C4 (MiInitializeCachedExtentWalker.c)
- *     MiRefillPurgedExtents @ 0x1405A0A20 (MiRefillPurgedExtents.c)
- *     MiFaultGetFileExtents @ 0x1405A7158 (MiFaultGetFileExtents.c)
- *     MiInitializeImageExtents @ 0x1409706E4 (MiInitializeImageExtents.c)
+ *     MiCreatePrototypePtes @ 0x1402F7DF8 (MiCreatePrototypePtes.c)
+ *     MiAddViewsForSection @ 0x1403155F0 (MiAddViewsForSection.c)
+ *     MiUpdateActiveSubsection @ 0x14053CEE0 (MiUpdateActiveSubsection.c)
+ *     MiRefillPurgedExtents @ 0x140542050 (MiRefillPurgedExtents.c)
+ *     MiFaultGetFileExtents @ 0x1405483F0 (MiFaultGetFileExtents.c)
+ *     MiInitializeImageExtents @ 0x1408D006C (MiInitializeImageExtents.c)
  * Callees:
- *     MiSetSubsectionBase @ 0x14022CD50 (MiSetSubsectionBase.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026EA80 (MiUpdateSystemProtoPtesTree.c)
- *     MiDereferenceControlAreaFile @ 0x140280D08 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiStartingOffset @ 0x1403342D0 (MiStartingOffset.c)
- *     MiEndingOffset @ 0x14033E0D4 (MiEndingOffset.c)
- *     FsRtlGetFileExtents @ 0x140540EA0 (FsRtlGetFileExtents.c)
- *     MiChangingSubsectionProtos @ 0x14059D69C (MiChangingSubsectionProtos.c)
- *     MiEliminateStaleExtents @ 0x14059E3E8 (MiEliminateStaleExtents.c)
- *     MiInsertCopyExtents @ 0x14059F6F4 (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x14059FC8C (MiMergeCopyExtents.c)
- *     MiSubsectionProtosCreated @ 0x1405A0FD8 (MiSubsectionProtosCreated.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x1405A19E0 (MiUnlinkSubsectionWaitBlock.c)
- *     MiReplaceSystemProtoPtesNode @ 0x1405C350C (MiReplaceSystemProtoPtesNode.c)
- *     MiNewPfnsSuitable @ 0x1409697E4 (MiNewPfnsSuitable.c)
- *     MiConvertRunsToPages @ 0x140970054 (MiConvertRunsToPages.c)
- *     MiCreateFileOnlyPfns @ 0x1409704A0 (MiCreateFileOnlyPfns.c)
- *     MiDeleteFileExtentList @ 0x140970668 (MiDeleteFileExtentList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
+ *     MiSetSubsectionBase @ 0x1402A1874 (MiSetSubsectionBase.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeSubsectionPte @ 0x1402F83DC (MiMakeSubsectionPte.c)
+ *     MiEndingOffset @ 0x14031C840 (MiEndingOffset.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     FsRtlGetFileExtents @ 0x1404EED40 (FsRtlGetFileExtents.c)
+ *     MiChangingSubsectionProtos @ 0x14053F918 (MiChangingSubsectionProtos.c)
+ *     MiDecrementProtoShareCounts @ 0x1405406A0 (MiDecrementProtoShareCounts.c)
+ *     MiEliminateStaleExtents @ 0x1405408C8 (MiEliminateStaleExtents.c)
+ *     MiSubsectionProtosCreated @ 0x140542484 (MiSubsectionProtosCreated.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x1405425D4 (MiUnlinkSubsectionWaitBlock.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140557EB0 (MiReplaceSystemProtoPtesNode.c)
+ *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     MiNewPfnsSuitable @ 0x1408C5F20 (MiNewPfnsSuitable.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MiConvertRunsToPages @ 0x1408CFE24 (MiConvertRunsToPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiAllocateFileExtents(
-        ULONG_PTR BugCheckParameter2,
-        unsigned int a2,
-        ULONG_PTR a3,
-        int a4,
-        int a5,
-        unsigned int a6)
+__int64 __fastcall MiAllocateFileExtents(ULONG_PTR BugCheckParameter2, unsigned int a2, ULONG_PTR a3, int a4, char a5)
 {
   unsigned __int64 v7; // r9
-  unsigned __int64 v9; // rax
-  unsigned int *inserted; // r15
-  __int64 v11; // rsi
-  unsigned __int64 v12; // r13
-  unsigned __int64 v13; // rbx
-  unsigned __int64 v14; // rax
-  unsigned int i; // r12d
+  ULONG_PTR v8; // rax
+  __int64 v9; // r13
+  unsigned __int64 v10; // r14
+  unsigned __int64 v11; // rbx
+  unsigned __int64 v12; // rax
+  struct _FILE_OBJECT *v13; // r12
+  unsigned int i; // esi
   _DWORD *Pool; // rax
+  __int64 v16; // rdx
   _DWORD *v17; // rdi
-  __int64 v19; // rdx
-  __int64 v20; // rdx
-  struct _FILE_OBJECT *v21; // r13
-  void *v22; // r12
-  int FileOnlyPfns; // ebx
-  __int64 v24; // r8
-  __int64 v25; // r13
-  int v26; // eax
-  __int128 *v27; // rcx
-  int v28; // edx
-  __int64 v29; // [rsp+28h] [rbp-99h]
-  unsigned int v30; // [rsp+38h] [rbp-89h] BYREF
-  int FileExtents; // [rsp+3Ch] [rbp-85h]
-  int v32; // [rsp+40h] [rbp-81h]
-  struct _FILE_OBJECT *v33; // [rsp+48h] [rbp-79h] BYREF
-  unsigned int *v34; // [rsp+50h] [rbp-71h] BYREF
-  unsigned __int64 v35; // [rsp+58h] [rbp-69h]
-  unsigned __int64 v36; // [rsp+60h] [rbp-61h]
-  _OWORD v37[2]; // [rsp+68h] [rbp-59h] BYREF
-  __int64 v38; // [rsp+88h] [rbp-39h]
-  __int128 v39; // [rsp+90h] [rbp-31h] BYREF
-  __int128 v40; // [rsp+A0h] [rbp-21h]
-  __int128 v41; // [rsp+B0h] [rbp-11h]
-  int v42; // [rsp+118h] [rbp+57h]
-  unsigned int v43; // [rsp+120h] [rbp+5Fh]
+  __int64 v19; // r12
+  int v20; // eax
+  unsigned __int64 v21; // r14
+  _QWORD *v22; // rsi
+  int v23; // ebx
+  ULONG_PTR v24; // rbx
+  int v25; // ecx
+  unsigned __int64 v26; // rdx
+  ULONG_PTR v27; // r8
+  ULONG_PTR v28; // rdi
+  int v29; // eax
+  __int64 SubsectionPte; // rbx
+  __int64 *v31; // rdi
+  __int64 v32; // r8
+  int v33; // eax
+  ULONG_PTR v34; // rbx
+  __int64 v35; // rcx
+  ULONG_PTR *ControlAreaPartition; // rax
+  __int64 v37; // rbx
+  void *v38; // rcx
+  int FileExtents; // [rsp+38h] [rbp-A1h]
+  unsigned int v40; // [rsp+38h] [rbp-A1h]
+  int v41; // [rsp+3Ch] [rbp-9Dh]
+  int v42; // [rsp+40h] [rbp-99h]
+  unsigned int v43; // [rsp+44h] [rbp-95h] BYREF
+  ULONG_PTR BugCheckParameter2a; // [rsp+48h] [rbp-91h]
+  unsigned __int64 v45; // [rsp+50h] [rbp-89h]
+  unsigned __int64 v46; // [rsp+58h] [rbp-81h] BYREF
+  __int64 v47; // [rsp+60h] [rbp-79h]
+  ULONG_PTR v48; // [rsp+68h] [rbp-71h] BYREF
+  ULONG_PTR v49; // [rsp+70h] [rbp-69h] BYREF
+  __int128 v50; // [rsp+78h] [rbp-61h] BYREF
+  __int128 v51; // [rsp+88h] [rbp-51h]
+  __int128 v52; // [rsp+98h] [rbp-41h]
+  _OWORD v53[2]; // [rsp+A8h] [rbp-31h] BYREF
+  __int64 v54; // [rsp+C8h] [rbp-11h]
+  _QWORD v55[2]; // [rsp+D0h] [rbp-9h] BYREF
+  int v56; // [rsp+E0h] [rbp+7h]
+  int v57; // [rsp+E4h] [rbp+Bh]
+  int v58; // [rsp+138h] [rbp+5Fh]
+  int v59; // [rsp+138h] [rbp+5Fh]
+  unsigned int v60; // [rsp+140h] [rbp+67h]
 
-  v43 = a2;
+  v60 = a2;
+  v43 = 0;
+  v46 = 0LL;
+  v45 = 0LL;
   v7 = a3;
-  v35 = 0LL;
-  v9 = (unsigned int)(a4 << 12);
-  inserted = 0LL;
-  v36 = (unsigned int)v9;
-  memset(v37, 0, sizeof(v37));
-  v38 = 0LL;
-  v34 = 0LL;
-  v39 = 0LL;
-  v40 = 0LL;
-  v41 = 0LL;
-LABEL_2:
-  v11 = *(_QWORD *)BugCheckParameter2;
-  v12 = v9;
-  if ( (*(_DWORD *)(*(_QWORD *)BugCheckParameter2 + 56LL) & 0x20) != 0 )
+  v8 = (unsigned int)(a4 << 12);
+  BugCheckParameter2a = (unsigned int)v8;
+  memset(v53, 0, sizeof(v53));
+  v54 = 0LL;
+  v50 = 0LL;
+  v51 = 0LL;
+  v52 = 0LL;
+  while ( 2 )
   {
-    v42 = 1;
-    if ( *(_QWORD *)(BugCheckParameter2 + 8) )
-      v13 = MiStartingOffset(BugCheckParameter2, v7, a6);
+    v9 = *(_QWORD *)BugCheckParameter2;
+    v10 = v8;
+    v47 = v9;
+    if ( (*(_DWORD *)(v9 + 56) & 0x20) != 0 )
+    {
+      v42 = 1;
+      if ( *(_QWORD *)(BugCheckParameter2 + 8) )
+        v11 = MiStartingOffset((__int64 *)BugCheckParameter2, v7, 0);
+      else
+        v11 = (unsigned __int64)a2 << 12;
+      v12 = MiEndingOffset(BugCheckParameter2);
+      v45 = v12;
+      if ( v11 == v12 && !v11 )
+        return 0LL;
+      if ( v10 + v11 > v12 )
+        v10 = ((unsigned int)(v12 - v11) + 511LL) & 0xFFFFFFFFFFFFFE00uLL;
+    }
     else
-      v13 = (unsigned __int64)a2 << 12;
-    v14 = MiEndingOffset(BugCheckParameter2);
-    v35 = v14;
-    if ( v13 == v14 && !v13 )
-      return 0LL;
-    if ( v13 + v12 > v14 )
-      v12 = ((unsigned int)(v14 - v13) + 511LL) & 0xFFFFFFFFFFFFFE00uLL;
-  }
-  else
-  {
-    v42 = 2;
-    v13 = (a2
-         + (*(unsigned int *)(BugCheckParameter2 + 36) | ((unsigned __int64)(*(_WORD *)(BugCheckParameter2 + 32) & 0xFFC0) << 26))) << 12;
-  }
-  v33 = (struct _FILE_OBJECT *)MiReferenceControlAreaFile(v11);
-  v30 = 1;
-  for ( i = ((__rdtsc() >> 4) & 7) + 8; ; i = FileExtents )
-  {
-    while ( 1 )
     {
-      if ( !i )
+      v42 = 2;
+      v11 = (a2
+           + (*(unsigned int *)(BugCheckParameter2 + 36) | ((unsigned __int64)(*(_WORD *)(BugCheckParameter2 + 32) & 0xFFC0) << 26))) << 12;
+    }
+    v13 = (struct _FILE_OBJECT *)MiReferenceControlAreaFile(v9);
+    v41 = 1;
+    for ( i = ((__rdtsc() >> 4) & 7) + 8; ; i = v40 )
+    {
+      while ( 1 )
       {
+        if ( !i )
+        {
 LABEL_16:
-        MiDereferenceControlAreaFile(v11, (unsigned __int64)v33);
-        return 3221225626LL;
+          MiDereferenceControlAreaFile(v9, (unsigned __int64)v13);
+          return 3221225626LL;
+        }
+        Pool = MiAllocatePool(64, 16LL * (i - 1) + 24, 0x6546694Du);
+        v17 = Pool;
+        if ( Pool )
+          break;
+        if ( !v41 )
+          goto LABEL_16;
+        i >>= 1;
       }
-      Pool = MiAllocatePool(64, 16LL * (i - 1) + 24, 0x3446694Du);
-      v17 = Pool;
-      if ( Pool )
-        break;
-      if ( !v30 )
-        goto LABEL_16;
-      i >>= 1;
-    }
-    *Pool = i;
-    Pool[1] = 0;
-    v30 = 0;
-    v32 = 0;
-    if ( v42 == 1 )
-    {
-      if ( v13 + v12 > v35 )
-        v12 = (unsigned int)(v35 - v13);
-      v19 = *(_QWORD *)(BugCheckParameter2 + 8);
-      if ( v19 && (*(_BYTE *)(*(_QWORD *)(v11 + 96) + 48LL) & 1) != 0 )
-        v13 = (v19 - *(_QWORD *)(*(_QWORD *)v11 + 64LL)) >> 3 << 12;
-    }
-    v12 = (v12 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    if ( v42 != 1 || (*(_DWORD *)(v11 + 56) & 2) == 0 )
-    {
-      FileExtents = MiChangingSubsectionProtos((_QWORD *)BugCheckParameter2, a5 | 8u, (__int64)v37);
+      *Pool = i;
+      Pool[1] = 0;
+      v41 = 0;
+      v58 = 0;
+      if ( v42 == 1 )
+      {
+        if ( v10 + v11 > v45 )
+          v10 = (unsigned int)(v45 - v11);
+        v16 = *(_QWORD *)(BugCheckParameter2 + 8);
+        if ( v16 && (*(_BYTE *)(*(_QWORD *)(v9 + 96) + 48LL) & 1) != 0 )
+          v11 = (v16 - *(_QWORD *)(*(_QWORD *)v9 + 64LL)) >> 3 << 12;
+      }
+      v10 = (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+      if ( v42 != 1 || (*(_DWORD *)(v9 + 56) & 2) == 0 )
+      {
+        v59 = MiChangingSubsectionProtos((_QWORD *)BugCheckParameter2, a5 | 8u, (__int64)v53);
+        if ( v59 < 0 )
+        {
+          MiDereferenceControlAreaFile(v9, (unsigned __int64)v13);
+          ExFreePoolWithTag(v17, 0);
+          return (unsigned int)v59;
+        }
+        v58 = 1;
+      }
+      FileExtents = FsRtlGetFileExtents(v13, v16, v11, v10, v17);
       if ( FileExtents < 0 )
       {
-        MiDereferenceControlAreaFile(v11, (unsigned __int64)v33);
-        goto LABEL_98;
+        MiDereferenceControlAreaFile(v9, (unsigned __int64)v13);
+        if ( v58 == 1 )
+          MiUnlinkSubsectionWaitBlock((__int64 *)BugCheckParameter2, (__int64)v53, 0);
+        v38 = v17;
+LABEL_127:
+        ExFreePoolWithTag(v38, 0);
+        return (unsigned int)FileExtents;
       }
-      v32 = 1;
-    }
-    FileExtents = FsRtlGetFileExtents(v33, v42, v13, v12, v17);
-    if ( FileExtents < 0 )
-      break;
-    FileExtents = v17[1];
-    if ( FileExtents <= i )
-    {
-      MiDereferenceControlAreaFile(v11, (unsigned __int64)v33);
-      if ( (unsigned int)MiNewPfnsSuitable((__int64)v17) )
+      v40 = v17[1];
+      if ( v40 <= i )
+        break;
+      if ( v58 == 1 )
       {
-        v30 = -1;
-        v21 = 0LL;
-        v22 = 0LL;
-        v33 = 0LL;
-        if ( v17[1] )
+        MiUnlinkSubsectionWaitBlock((__int64 *)BugCheckParameter2, (__int64)v53, 0);
+        v40 = v17[1];
+      }
+      v17[1] = i;
+      ExFreePoolWithTag(v17, 0);
+    }
+    MiDereferenceControlAreaFile(v9, (unsigned __int64)v13);
+    v19 = 0LL;
+    if ( !(unsigned int)MiNewPfnsSuitable((__int64)v17) )
+    {
+      v23 = -1073740761;
+LABEL_121:
+      ExFreePoolWithTag(v17, 0);
+      if ( v58 == 1 )
+        MiUnlinkSubsectionWaitBlock((__int64 *)BugCheckParameter2, (__int64)v53, 0);
+      return (unsigned int)v23;
+    }
+    if ( v17[1] )
+    {
+      v22 = (_QWORD *)MiConvertRunsToPages(v17, &v46, &v43);
+      if ( v22 )
+      {
+        if ( (a5 & 0x40) == 0 || v43 <= 1 )
         {
-          v22 = (void *)MiConvertRunsToPages(v17, v20, &v33, &v30);
-          if ( v22 )
-          {
-            if ( (a5 & 0x40) == 0 || v30 <= 1 )
-            {
-              if ( v42 != 1 || (*(_DWORD *)(v11 + 56) & 2) == 0 )
-              {
-                v21 = v33;
-                goto LABEL_44;
-              }
-              v21 = v33;
-              goto LABEL_53;
-            }
-            FileOnlyPfns = -1073741800;
-          }
-          else
-          {
-LABEL_37:
-            FileOnlyPfns = -1073741670;
-          }
+          v21 = v46;
+          v20 = v42;
+          goto LABEL_41;
         }
-        else
-        {
-          if ( (a5 & 0x40) == 0 && v42 != 1 )
-          {
-            if ( (*(_BYTE *)(v11 + 62) & 0xC) == 8 )
-              goto LABEL_37;
-LABEL_44:
-            FileOnlyPfns = MiChangingSubsectionProtos((_QWORD *)BugCheckParameter2, a5 | 0x10u, (__int64)v37);
-            if ( FileOnlyPfns < 0 )
-            {
-              ExFreePoolWithTag(v17, 0);
-              if ( v22 )
-                ExFreePoolWithTag(v22, 0);
-              if ( FileOnlyPfns == -1073740748 )
-              {
-                v7 = a3;
-                a2 = v43;
-                v9 = v36;
-                goto LABEL_2;
-              }
-              return (unsigned int)FileOnlyPfns;
-            }
-            if ( v22 && (*(_BYTE *)(v11 + 62) & 0xC) == 4 && (a5 & 1) == 0 )
-              MiEliminateStaleExtents(a3, (__int64)v22, (unsigned __int64)v21);
-            if ( v42 == 1 || (*(_BYTE *)(v11 + 62) & 0xC) != 8 )
-              goto LABEL_53;
-            if ( (a5 & 1) != 0 )
-            {
-              inserted = MiInsertCopyExtents((__int64)v17, 0LL, 1);
-              if ( !inserted )
-              {
-                FileOnlyPfns = -1073741670;
-                goto LABEL_67;
-              }
-LABEL_53:
-              ExFreePoolWithTag(v17, 0);
-              if ( inserted )
-              {
-                v25 = a3;
-                FileOnlyPfns = 0;
-                goto LABEL_73;
-              }
-              if ( v22 && (*(_BYTE *)(v11 + 56) & 0x20) == 0 && (a5 & 1) != 0 && (*(_BYTE *)(v11 + 62) & 0xC) == 4 )
-              {
-                *((_QWORD *)&v41 + 1) = v21;
-                *((_QWORD *)&v40 + 1) = *((_QWORD *)&v40 + 1) & 0xFFFFFFFFFFFFFFF8uLL | 4;
-                *(_QWORD *)&v41 = a3;
-                MiUpdateSystemProtoPtesTree((__int64)&v39, 1);
-              }
-              v29 = (__int64)v21;
-              v25 = a3;
-              FileOnlyPfns = MiCreateFileOnlyPfns(BugCheckParameter2, a3, a5, (_DWORD)v22, v29);
-              if ( FileOnlyPfns < 0 )
-              {
-                if ( !(_QWORD)v41 )
-                  goto LABEL_84;
-                v28 = 0;
-                v27 = &v39;
-              }
-              else
-              {
-LABEL_73:
-                if ( (a5 & 1) == 0 )
-                  goto LABEL_84;
-                if ( (a5 & 0x40) != 0 )
-                  *(_DWORD *)(BugCheckParameter2 + 108) = 2;
-                MiSetSubsectionBase((__int64 *)BugCheckParameter2, v25, v30, (__int64)inserted);
-                v27 = (__int128 *)(BugCheckParameter2 + 120);
-                if ( (_QWORD)v41 )
-                {
-                  MiReplaceSystemProtoPtesNode((unsigned __int64 *)&v39, (_QWORD *)(BugCheckParameter2 + 120));
-LABEL_84:
-                  if ( v42 != 1 || (*(_DWORD *)(v11 + 56) & 2) == 0 )
-                    MiSubsectionProtosCreated(BugCheckParameter2, (__int64)v37, a4, 0);
-                  if ( v22 )
-                    ExFreePoolWithTag(v22, 0);
-                  return (unsigned int)FileOnlyPfns;
-                }
-                if ( (*(_DWORD *)(v11 + 56) & 0x20) != 0 )
-                  goto LABEL_84;
-                v28 = 1;
-              }
-              MiUpdateSystemProtoPtesTree((__int64)v27, v28);
-              goto LABEL_84;
-            }
-            v26 = MiMergeCopyExtents((_QWORD *)BugCheckParameter2, (__int64)v17, v24, &v34);
-            inserted = v34;
-            FileOnlyPfns = v26;
-            if ( v26 >= 0 )
-              goto LABEL_53;
-            if ( v26 == -1073741302 )
-              FileOnlyPfns = 0;
-LABEL_67:
-            MiSubsectionProtosCreated(BugCheckParameter2, (__int64)v37, 0, 0);
-LABEL_93:
-            ExFreePoolWithTag(v17, 0);
-            if ( inserted )
-              MiDeleteFileExtentList(inserted);
-            return (unsigned int)FileOnlyPfns;
-          }
-          FileOnlyPfns = -1073741823;
-        }
+        v23 = -1073741800;
       }
       else
       {
-        FileOnlyPfns = -1073740761;
+        v23 = -1073741670;
       }
-      if ( v32 )
-        MiUnlinkSubsectionWaitBlock((__int64 *)BugCheckParameter2, (__int64)v37, 0);
-      goto LABEL_93;
+      goto LABEL_121;
     }
-    if ( v32 )
+    if ( (a5 & 0x40) != 0 || (v20 = v42, v42 == 1) )
     {
-      MiUnlinkSubsectionWaitBlock((__int64 *)BugCheckParameter2, (__int64)v37, 0);
-      FileExtents = v17[1];
+      v23 = -1073741823;
+      goto LABEL_121;
     }
-    v17[1] = i;
+    v43 = -1;
+    v21 = 0LL;
+    v46 = 0LL;
+    v22 = 0LL;
+LABEL_41:
+    if ( v20 == 1 && (*(_DWORD *)(v9 + 56) & 2) != 0 )
+      goto LABEL_54;
+    v23 = MiChangingSubsectionProtos((_QWORD *)BugCheckParameter2, a5 | 0x10u, (__int64)v53);
+    if ( v23 >= 0 )
+    {
+      if ( v22 )
+      {
+        v24 = a3;
+        if ( (a5 & 1) == 0 )
+          MiEliminateStaleExtents(a3, (__int64)v22, v21);
+        goto LABEL_55;
+      }
+LABEL_54:
+      v24 = a3;
+LABEL_55:
+      ExFreePoolWithTag(v17, 0);
+      if ( v22 && (*(_BYTE *)(v9 + 56) & 0x20) == 0 && (a5 & 1) != 0 )
+      {
+        *((_QWORD *)&v52 + 1) = v21;
+        *(_QWORD *)&v52 = v24;
+        *((_QWORD *)&v51 + 1) = *((_QWORD *)&v51 + 1) & 0xFFFFFFFFFFFFFFF8uLL | 4;
+        MiUpdateSystemProtoPtesTree((unsigned __int64 *)&v50, 1);
+      }
+      v25 = 0;
+      v26 = 0LL;
+      FileExtents = 0;
+      v27 = -1LL;
+      v45 = 0LL;
+      v28 = 0LL;
+      BugCheckParameter2a = -1LL;
+      v29 = a5 & 0x40;
+      while ( 1 )
+      {
+        if ( (unsigned int)v19 == v21 )
+        {
+          if ( !v28 )
+            goto LABEL_84;
+        }
+        else
+        {
+          if ( !v28 )
+          {
+            v27 = v22[v19];
+            BugCheckParameter2a = v27;
+            v28 = 1LL;
+            goto LABEL_106;
+          }
+          v26 = v45;
+          if ( v22[v19 - 1] + 1LL == v22[v19] )
+          {
+            ++v28;
+            goto LABEL_107;
+          }
+          v29 = a5 & 0x40;
+        }
+        if ( v27 == 0x8000000000000000uLL )
+        {
+          if ( v25 < 0 )
+            goto LABEL_104;
+          SubsectionPte = MiMakeSubsectionPte(BugCheckParameter2);
+          v31 = (__int64 *)(a3 + 8 * ((unsigned int)v19 - v28));
+          if ( MiPteInShadowRange((unsigned __int64)v31) )
+          {
+            if ( (unsigned int)MiPteHasShadow() )
+            {
+              v33 = 1;
+              if ( !HIBYTE(word_140C4E008) && (SubsectionPte & 1) != 0 )
+                SubsectionPte |= 0x8000000000000000uLL;
+LABEL_79:
+              *v31 = SubsectionPte;
+              if ( v33 )
+                MiWritePteShadow((__int64)v31, SubsectionPte, v32);
+              if ( (a5 & 2) != 0 )
+              {
+                v25 = -1073740023;
+                FileExtents = -1073740023;
+LABEL_83:
+                v29 = a5 & 0x40;
+LABEL_84:
+                if ( v25 < 0 )
+                {
+                  if ( (_QWORD)v52 )
+                    MiUpdateSystemProtoPtesTree((unsigned __int64 *)&v50, 0);
+LABEL_113:
+                  v37 = v47;
+                }
+                else
+                {
+                  if ( (a5 & 1) == 0 )
+                    goto LABEL_113;
+                  if ( v29 )
+                    *(_DWORD *)(BugCheckParameter2 + 108) = 2;
+                  MiSetSubsectionBase((__int64 *)BugCheckParameter2, a3, v43);
+                  if ( (_QWORD)v52 )
+                  {
+                    MiReplaceSystemProtoPtesNode((unsigned __int64 *)&v50, (_QWORD *)(BugCheckParameter2 + 112));
+                    goto LABEL_113;
+                  }
+                  v37 = v47;
+                  if ( (*(_DWORD *)(v47 + 56) & 0x20) == 0 )
+                    MiUpdateSystemProtoPtesTree((unsigned __int64 *)(BugCheckParameter2 + 112), 1);
+                }
+                if ( v42 != 1 || (*(_DWORD *)(v37 + 56) & 2) == 0 )
+                  MiSubsectionProtosCreated(BugCheckParameter2, (__int64)v53, a4, 0);
+                if ( v22 )
+                {
+                  v38 = v22;
+                  goto LABEL_127;
+                }
+                return (unsigned int)FileExtents;
+              }
+              goto LABEL_102;
+            }
+            if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+              && (SubsectionPte & 1) != 0 )
+            {
+              SubsectionPte |= 0x8000000000000000uLL;
+            }
+            v21 = v46;
+          }
+          v33 = 0;
+          goto LABEL_79;
+        }
+        if ( (v27 & 0x4000000000000000LL) != 0 )
+        {
+          if ( v25 >= 0 || (unsigned __int64)&v22[v19] > v26 )
+            goto LABEL_104;
+          if ( (unsigned int)v19 == v21 )
+            goto LABEL_83;
+          v28 = 0LL;
+          LODWORD(v19) = v19 - 1;
+        }
+        else
+        {
+          if ( v25 < 0 )
+          {
+            if ( (unsigned __int64)&v22[v19] <= v26 )
+            {
+              if ( (a5 & 0x40) != 0 )
+                MiDecrementProtoShareCounts(v27, v28, v27, (_DWORD *)0x4000000000000000LL);
+              MiRemovePhysicalMemory(BugCheckParameter2a, v28, 0x12u);
+LABEL_102:
+              v25 = FileExtents;
+LABEL_103:
+              v27 = BugCheckParameter2a;
+            }
+LABEL_104:
+            if ( (unsigned int)v19 == v21 )
+              goto LABEL_83;
+            v28 = 0LL;
+            LODWORD(v19) = v19 - 1;
+LABEL_106:
+            v26 = v45;
+            goto LABEL_107;
+          }
+          v57 = 0;
+          v55[0] = BugCheckParameter2;
+          v34 = (unsigned int)v19 - v28;
+          v56 = 2 - (v29 != 0);
+          v35 = *(_QWORD *)BugCheckParameter2;
+          v48 = v28 << 12;
+          v55[1] = a3 + 8 * v34;
+          v49 = v27 << 12;
+          ControlAreaPartition = (ULONG_PTR *)MiGetControlAreaPartition(v35);
+          FileExtents = MiAddPhysicalMemory(ControlAreaPartition, &v49, &v48, 2, (__int64)v55);
+          v25 = FileExtents;
+          if ( FileExtents >= 0 )
+            goto LABEL_103;
+          v27 = BugCheckParameter2a;
+          v26 = (unsigned __int64)&v22[v34];
+          v28 = 0LL;
+          v45 = v26;
+          LODWORD(v19) = -1;
+        }
+LABEL_107:
+        v19 = (unsigned int)(v19 + 1);
+        v29 = a5 & 0x40;
+        if ( (unsigned int)v19 > v21 )
+          goto LABEL_84;
+      }
+    }
     ExFreePoolWithTag(v17, 0);
+    if ( v22 )
+      ExFreePoolWithTag(v22, 0);
+    if ( v23 == -1073740748 )
+    {
+      a2 = v60;
+      v8 = BugCheckParameter2a;
+      v7 = a3;
+      continue;
+    }
+    return (unsigned int)v23;
   }
-  MiDereferenceControlAreaFile(v11, (unsigned __int64)v33);
-  if ( v32 )
-    MiUnlinkSubsectionWaitBlock((__int64 *)BugCheckParameter2, (__int64)v37, 0);
-LABEL_98:
-  ExFreePoolWithTag(v17, 0);
-  return (unsigned int)FileExtents;
 }

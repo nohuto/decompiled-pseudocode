@@ -1,18 +1,20 @@
 /*
- * XREFs of CmpGetCallbackObjectContext @ 0x140692DB8
+ * XREFs of CmpGetCallbackObjectContext @ 0x14068AFE4
  * Callers:
- *     CmpCallbackFillObjectContext @ 0x140735E30 (CmpCallbackFillObjectContext.c)
+ *     CmpCallbackFillObjectContext @ 0x1406F39F0 (CmpCallbackFillObjectContext.c)
  * Callees:
- *     CmpUnlockContextList @ 0x1406930B0 (CmpUnlockContextList.c)
- *     CmpLockContextListShared @ 0x140693128 (CmpLockContextListShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, __int64 *a2)
 {
   __int64 v2; // rdi
   _QWORD *v4; // rbx
-  _QWORD *v6; // rax
-  __int64 v7; // rdx
+  struct _KTHREAD *CurrentThread; // rax
+  _QWORD *v7; // rax
+  __int64 v8; // rdx
 
   v2 = 0LL;
   if ( !a1 )
@@ -22,24 +24,27 @@ __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, __int64 *a2)
   v4 = a1 + 18;
   if ( (_QWORD *)*v4 == v4 )
     return 0LL;
-  CmpLockContextListShared();
-  v6 = (_QWORD *)*v4;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&CmpContextListLock, 0LL);
+  v7 = (_QWORD *)*v4;
   if ( (_QWORD *)*v4 != v4 )
   {
-    v7 = *a2;
-    while ( v6[4] != v7 )
+    v8 = *a2;
+    while ( v7[4] != v8 )
     {
-      if ( v6[4] >= v7 )
+      if ( v7[4] >= v8 )
       {
-        v6 = (_QWORD *)*v6;
-        if ( v6 != v4 )
+        v7 = (_QWORD *)*v7;
+        if ( v7 != v4 )
           continue;
       }
       goto LABEL_9;
     }
-    v2 = v6[7];
+    v2 = v7[7];
   }
 LABEL_9:
-  CmpUnlockContextList();
+  ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v2;
 }

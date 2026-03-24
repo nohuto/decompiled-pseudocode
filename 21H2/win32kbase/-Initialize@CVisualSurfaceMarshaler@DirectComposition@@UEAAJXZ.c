@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CVisualSurfaceMarshaler@DirectComposition@@UEAAJXZ @ 0x1C022A1E0
+ * XREFs of ?Initialize@CVisualSurfaceMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01EA4A0
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 __int64 __fastcall DirectComposition::CVisualSurfaceMarshaler::Initialize(
         DirectComposition::CVisualSurfaceMarshaler *this)
 {
-  *((_DWORD *)this + 24) = 2;
+  *((_DWORD *)this + 22) = 2;
   return 0LL;
 }

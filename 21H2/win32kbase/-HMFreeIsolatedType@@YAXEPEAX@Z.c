@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0030D88
+ * XREFs of ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0028308
  * Callers:
- *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C0030D58 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
+ *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C002AD84 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
  * Callees:
- *     ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C0030E74 (-HMTagToIsolatedType@@YA-AW4UserTypeIsolationCountedType@@E@Z.c)
- *     ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0093950 (-Free@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z.c)
- *     ?Free@?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00984E4 (-Free@-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z.c)
- *     ?Free@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C009AC90 (-Free@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C00283F4 (-HMTagToIsolatedType@@YA-AW4UserTypeIsolationCountedType@@E@Z.c)
+ *     ?Free@?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0113538 (-Free@-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0113654 (-Free@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0113770 (-Free@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  */
 
 void __fastcall HMFreeIsolatedType(__int64 a1, void *a2)
@@ -25,16 +25,16 @@ void __fastcall HMFreeIsolatedType(__int64 a1, void *a2)
     {
       if ( v4 == 1 )
       {
-        v6 = *((_QWORD *)gpUserTypeIsolation + 3);
-        if ( v6 )
-          NSInstrumentation::CTypeIsolation<81920,160>::Free(v6, a2);
+        v5 = *((_QWORD *)gpUserTypeIsolation + 3);
+        if ( v5 )
+          NSInstrumentation::CTypeIsolation<81920,160>::Free(v5, a2);
       }
     }
     else
     {
-      v5 = *((_QWORD *)gpUserTypeIsolation + 2);
-      if ( v5 )
-        NSInstrumentation::CTypeIsolation<86016,336>::Free(v5, a2);
+      v6 = *((_QWORD *)gpUserTypeIsolation + 2);
+      if ( v6 )
+        NSInstrumentation::CTypeIsolation<86016,336>::Free(v6, a2);
     }
   }
   else

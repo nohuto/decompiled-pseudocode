@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStart @ 0x140878EE0
+ * XREFs of PopDiagTraceSleepStudyStart @ 0x1408EB2D8
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
- *     PopSleepstudyScenarioStopWorker @ 0x140993460 (PopSleepstudyScenarioStopWorker.c)
+ *     PopSleepstudyStartNextSession @ 0x140775738 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyScenarioStopWorker @ 0x1408FA380 (PopSleepstudyScenarioStopWorker.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PopGetModernStandbyTransitionReason @ 0x1403C7E5C (PopGetModernStandbyTransitionReason.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140576440 (PopGetModernStandbyTransitionReason.c)
  */
 
 void PopDiagTraceSleepStudyStart()
@@ -39,9 +39,9 @@ void PopDiagTraceSleepStudyStart()
   int v24; // [rsp+B8h] [rbp+3Fh]
   int v25; // [rsp+BCh] [rbp+43h]
 
-  if ( PopDiagSleepStudyHandleRegistered )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_START_REASON) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SPM_SCENARIO_START) )
     {
       UserData.Reserved = 0;
       v7 = 0;
@@ -51,7 +51,7 @@ void PopDiagTraceSleepStudyStart()
       v5 = &v1;
       UserData.Size = 16;
       v6 = 1;
-      ModernStandbyTransitionReason = PopGetModernStandbyTransitionReason(1);
+      ModernStandbyTransitionReason = PopGetModernStandbyTransitionReason(1, 0LL);
       v10 = 0;
       v13 = 0;
       v16 = 0;
@@ -62,7 +62,7 @@ void PopDiagTraceSleepStudyStart()
       v9 = 4;
       v8 = &v2;
       v11 = &PopCsConsumption;
-      v14 = &dword_140CF7D98;
+      v14 = &dword_140C4FFD0;
       v17 = &PopWdiCurrentScenarioInstanceId;
       v20 = 0xFFFFF780000002C4uLL;
       v23 = &v3;
@@ -71,7 +71,7 @@ void PopDiagTraceSleepStudyStart()
       v21 = 4;
       v18 = 8;
       v24 = 8;
-      EtwWrite(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_START_REASON, &PopDiagActivityId, 8u, &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SPM_SCENARIO_START, &PopDiagActivityId, 8u, &UserData);
     }
   }
 }

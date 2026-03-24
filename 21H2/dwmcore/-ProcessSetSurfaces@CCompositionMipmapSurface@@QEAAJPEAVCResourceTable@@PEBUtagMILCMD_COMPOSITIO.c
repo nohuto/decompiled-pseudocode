@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetSurfaces@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONMIPMAPSURFACE_SETSURFACES@@PEBXI@Z @ 0x18020D408
+ * XREFs of ?ProcessSetSurfaces@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONMIPMAPSURFACE_SETSURFACES@@PEBXI@Z @ 0x1801BA898
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18000CF50 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800D19A8 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionMipmapSurface::ProcessSetSurfaces(
@@ -45,7 +45,7 @@ __int64 __fastcall CCompositionMipmapSurface::ProcessSetSurfaces(
 
   ResourceWithoutType = *((unsigned int *)a3 + 2);
   v8 = a2;
-  if ( ResourceWithoutType > (__int64)(*((_QWORD *)this + 13) - *((_QWORD *)this + 12)) >> 5 )
+  if ( ResourceWithoutType > (__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 5 )
   {
     v27 = 230;
     goto LABEL_3;
@@ -56,7 +56,7 @@ __int64 __fastcall CCompositionMipmapSurface::ProcessSetSurfaces(
     while ( 1 )
     {
       ResourceWithoutType = (unsigned __int64)CResourceTable::GetResourceWithoutType(v8, a4[6 * v10 + 1]);
-      if ( a4[6 * v10] >= *((_DWORD *)this + 34) )
+      if ( a4[6 * v10] >= *((_DWORD *)this + 32) )
         break;
       if ( ResourceWithoutType )
       {
@@ -84,7 +84,7 @@ __int64 __fastcall CCompositionMipmapSurface::ProcessSetSurfaces(
     v27 = 258;
 LABEL_3:
     v9 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(ResourceWithoutType, 0LL, 0LL, -2003303421, v27);
+    MilInstrumentationCheckHR_MaybeFailFast(ResourceWithoutType, 0LL, 0, -2003303421, v27, 0LL);
     return v9;
   }
 LABEL_15:
@@ -107,7 +107,7 @@ LABEL_15:
     v29[3] = v28;
     if ( v14 )
     {
-      v18 = *((_QWORD *)this + 12);
+      v18 = *((_QWORD *)this + 11);
       v19 = 32LL * (unsigned int)v16;
       v13 = v14;
       if ( *(struct CResource **)(v19 + v18) != v14
@@ -116,16 +116,16 @@ LABEL_15:
               v29) )
       {
         *(_BYTE *)(v19 + v18 + 24) = 1;
-        *((_BYTE *)this + 160) = 1;
-        if ( *(struct CResource **)(v19 + *((_QWORD *)this + 12)) != v17 )
+        *((_BYTE *)this + 152) = 1;
+        if ( *(struct CResource **)(v19 + *((_QWORD *)this + 11)) != v17 )
           break;
       }
     }
 LABEL_23:
     v12 = (unsigned int)(v12 + 1);
     v24 = 32 * v16;
-    *(_QWORD *)(v24 + *((_QWORD *)this + 12)) = v13;
-    v25 = *((_QWORD *)this + 12);
+    *(_QWORD *)(v24 + *((_QWORD *)this + 11)) = v13;
+    v25 = *((_QWORD *)this + 11);
     *(_DWORD *)(v24 + v25 + 8) = v34;
     *(_DWORD *)(v24 + v25 + 12) = v30;
     *(_DWORD *)(v24 + v25 + 16) = v32;
@@ -138,7 +138,7 @@ LABEL_23:
   v9 = v20;
   if ( v20 >= 0 )
   {
-    v22 = *((_QWORD *)this + 12);
+    v22 = *((_QWORD *)this + 11);
     v23 = *(struct CResource **)(v19 + v22);
     if ( v23 )
     {
@@ -147,6 +147,6 @@ LABEL_23:
     }
     goto LABEL_23;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x11Du);
+  MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x11Du, 0LL);
   return v9;
 }

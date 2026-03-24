@@ -1,31 +1,32 @@
 /*
- * XREFs of ExReferenceCallBackBlock @ 0x140214F10
+ * XREFs of ExReferenceCallBackBlock @ 0x14025A1B0
  * Callers:
- *     IoBoostThreadIoPriority @ 0x14031B140 (IoBoostThreadIoPriority.c)
- *     KiEnumerateCallback @ 0x1403D56C0 (KiEnumerateCallback.c)
- *     IoUnregisterPriorityCallback @ 0x140557580 (IoUnregisterPriorityCallback.c)
- *     KeDeregisterBoundCallback @ 0x14056C3A0 (KeDeregisterBoundCallback.c)
- *     KiHandleBound @ 0x14056CD60 (KiHandleBound.c)
- *     PoIssueCoalescingNotification @ 0x14058D824 (PoIssueCoalescingNotification.c)
- *     ExCallCallBack @ 0x1406AF8E4 (ExCallCallBack.c)
- *     PspCallProcessNotifyRoutines @ 0x1406AF954 (PspCallProcessNotifyRoutines.c)
- *     PsCallImageNotifyRoutines @ 0x1406AFC10 (PsCallImageNotifyRoutines.c)
- *     PspCallThreadNotifyRoutines @ 0x1406AFDA0 (PspCallThreadNotifyRoutines.c)
- *     ExCallSessionCallBack @ 0x1407C6220 (ExCallSessionCallBack.c)
- *     DbgkLkmdRegisterCallback @ 0x140844A20 (DbgkLkmdRegisterCallback.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140844E98 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkLkmdUnregisterCallback @ 0x14093AD40 (DbgkLkmdUnregisterCallback.c)
- *     DbgkpLkmdFireCallbacks @ 0x14093ADE4 (DbgkpLkmdFireCallbacks.c)
- *     PoUnregisterCoalescingCallback @ 0x140986EF0 (PoUnregisterCoalescingCallback.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x1409B5CC0 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x1409B5DB0 (PsRemoveLoadImageNotifyRoutine.c)
+ *     IoBoostThreadIoPriority @ 0x1402D8E10 (IoBoostThreadIoPriority.c)
+ *     KiEnumerateCallback @ 0x140380590 (KiEnumerateCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x140506290 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x140514070 (KeDeregisterBoundCallback.c)
+ *     KiHandleBound @ 0x140514AB0 (KiHandleBound.c)
+ *     PoIssueCoalescingNotification @ 0x14056E9B8 (PoIssueCoalescingNotification.c)
+ *     ExCallCallBack @ 0x14061B29C (ExCallCallBack.c)
+ *     PspCallProcessNotifyRoutines @ 0x14061B30C (PspCallProcessNotifyRoutines.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     PsCallImageNotifyRoutines @ 0x14061B690 (PsCallImageNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x14061B820 (PspCallThreadNotifyRoutines.c)
+ *     ExCallSessionCallBack @ 0x140660AC8 (ExCallSessionCallBack.c)
+ *     DbgkLkmdRegisterCallback @ 0x1407996C0 (DbgkLkmdRegisterCallback.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140799B58 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x1408881C0 (DbgkLkmdUnregisterCallback.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140888264 (DbgkpLkmdFireCallbacks.c)
+ *     PoUnregisterCoalescingCallback @ 0x1408E6760 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x14090C400 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x14090C4F0 (PsRemoveLoadImageNotifyRoutine.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireRundownProtectionEx @ 0x1402F5CE0 (ExAcquireRundownProtectionEx.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExAcquireRundownProtectionEx @ 0x14026D9B0 (ExAcquireRundownProtectionEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExReferenceCallBackBlock(signed __int64 *a1)
@@ -36,15 +37,15 @@ struct _EX_RUNDOWN_REF *__fastcall ExReferenceCallBackBlock(signed __int64 *a1)
   signed __int64 v6; // rax
   signed __int64 v7; // rax
   signed __int64 v8; // rtt
-  signed __int64 Count; // rdx
-  bool v10; // zf
-  signed __int64 v11; // rax
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rsi
+  unsigned __int64 v9; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v17; // eax
+  int v13; // eax
+  bool v14; // zf
+  signed __int64 Count; // rdx
+  signed __int64 v16; // rax
+  unsigned __int64 v17; // rdx
 
   _m_prefetchw(a1);
   v2 = *a1;
@@ -82,51 +83,54 @@ struct _EX_RUNDOWN_REF *__fastcall ExReferenceCallBackBlock(signed __int64 *a1)
       Count = v5->Count;
       if ( (v5->Count & 1) != 0 )
       {
-LABEL_18:
-        v12 = Count & 0xFFFFFFFFFFFFFFFEuLL;
-        if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v12, 0xFFFFFFFFFFFFFFF1uLL) == 15
-          && !_interlockedbittestandreset((volatile signed __int32 *)(v12 + 32), 0) )
+LABEL_31:
+        v17 = Count & 0xFFFFFFFFFFFFFFFEuLL;
+        if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v17, 0xFFFFFFFFFFFFFFF1uLL) == 15
+          && !_interlockedbittestandreset((volatile signed __int32 *)(v17 + 32), 0) )
         {
-          KeSetEvent((PRKEVENT)(v12 + 8), 0, 0);
+          KeSetEvent((PRKEVENT)(v17 + 8), 0, 0);
         }
       }
       else
       {
         while ( 1 )
         {
-          v11 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, Count - 30, Count);
-          v10 = Count == v11;
-          Count = v11;
-          if ( v10 )
+          v16 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, Count - 30, Count);
+          v14 = Count == v16;
+          Count = v16;
+          if ( v14 )
             break;
-          if ( (v11 & 1) != 0 )
-            goto LABEL_18;
+          if ( (v16 & 1) != 0 )
+            goto LABEL_31;
         }
       }
     }
   }
   else
   {
-    v13 = ExAcquireSpinLockShared(&ExpCallBackFlush);
+    v9 = ExAcquireSpinLockShared(&ExpCallBackFlush);
     v5 = (struct _EX_RUNDOWN_REF *)(*a1 & 0xFFFFFFFFFFFFFFF0uLL);
-    if ( v5 && !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*a1 & 0xFFFFFFFFFFFFFFF0uLL)) )
+    if ( v5 && !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*a1 & 0xFFFFFFFFFFFFFFF0uLL)) )
       v5 = 0LL;
     ExReleaseSpinLockSharedFromDpcLevel(&ExpCallBackFlush);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-        v10 = (v17 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v17;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v14 = (v13 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v13;
+          if ( v14 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v13);
+    __writecr8(v9);
     if ( !v5 )
       return 0LL;
   }

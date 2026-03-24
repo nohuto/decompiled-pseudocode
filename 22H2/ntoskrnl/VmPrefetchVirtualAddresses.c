@@ -1,14 +1,14 @@
 /*
- * XREFs of VmPrefetchVirtualAddresses @ 0x1409DBF94
+ * XREFs of VmPrefetchVirtualAddresses @ 0x14092E8A0
  * Callers:
- *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     NtSetInformationVirtualMemory @ 0x1407A4530 (NtSetInformationVirtualMemory.c)
+ *     MmInSwapWorkingSet @ 0x140350CF4 (MmInSwapWorkingSet.c)
+ *     NtSetInformationVirtualMemory @ 0x1406FA310 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     VmpPrefetchVirtualAddresses @ 0x1405FA72C (VmpPrefetchVirtualAddresses.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405A44C4 (VmpPrefetchVirtualAddresses.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, int a3)
@@ -16,13 +16,13 @@ __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, 
   unsigned int v4; // ebx
   _KPROCESS *Process; // rbp
   volatile LONG *v7; // rcx
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   struct _WORK_QUEUE_ITEM *v9; // rdi
   struct _LIST_ENTRY *v10; // rcx
 
   v4 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v7 = (volatile LONG *)Process[2].Affinity.StaticBitmap[5];
+  v7 = (volatile LONG *)Process[2].Affinity.Bitmap[5];
   if ( v7 )
   {
     if ( a3 )
@@ -31,17 +31,17 @@ __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, 
     }
     else
     {
-      Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 16 * (a2 + 4), 1666215254LL);
-      v9 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 16 * (a2 + 4), 0x63506D56u);
+      v9 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        Pool2->List.Blink = 0LL;
-        Pool2[1].List.Flink = 0LL;
-        Pool2[1].List.Blink = 0LL;
-        Pool2[1].WorkerRoutine = 0LL;
-        Pool2->WorkerRoutine = (void (__fastcall *)(void *))VmpPrefetchWorker;
-        Pool2->Parameter = Pool2;
-        Pool2->List.Flink = 0LL;
+        PoolWithTag->List.Blink = 0LL;
+        PoolWithTag[1].List.Flink = 0LL;
+        PoolWithTag[1].List.Blink = 0LL;
+        PoolWithTag[1].WorkerRoutine = 0LL;
+        PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))VmpPrefetchWorker;
+        PoolWithTag->Parameter = PoolWithTag;
+        PoolWithTag->List.Flink = 0LL;
         ObfReferenceObject(Process);
         v9[1].WorkerRoutine = (void (__fastcall *)(void *))a2;
         v10 = (struct _LIST_ENTRY *)(((unsigned __int64)&v9[1].Parameter + 7) & 0xFFFFFFFFFFFFFFF8uLL);

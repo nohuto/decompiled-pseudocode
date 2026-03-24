@@ -1,9 +1,9 @@
 /*
- * XREFs of SmCrEncInitialize @ 0x1406ED4E0
+ * XREFs of SmCrEncInitialize @ 0x140712B78
  * Callers:
- *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140260D58 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035DAD0 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *__fastcall SmCrEncInitialize(_DWORD *a1)

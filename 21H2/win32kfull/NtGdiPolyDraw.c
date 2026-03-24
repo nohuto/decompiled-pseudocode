@@ -1,48 +1,68 @@
 /*
- * XREFs of NtGdiPolyDraw @ 0x1C02AE280
+ * XREFs of NtGdiPolyDraw @ 0x1C02AFB40
  * Callers:
  *     <none>
  * Callees:
- *     GrePolyDraw @ 0x1C029EE18 (GrePolyDraw.c)
+ *     Feature_2249667896__private_IsEnabledDeviceUsage @ 0x1C016B1FC (Feature_2249667896__private_IsEnabledDeviceUsage.c)
+ *     GrePolyDraw @ 0x1C02A0538 (GrePolyDraw.c)
  */
 
-__int64 __fastcall NtGdiPolyDraw(HDC a1, struct _POINTL *Address, char *a3, SIZE_T Size)
+__int64 __fastcall NtGdiPolyDraw(HDC a1, struct _POINTL *a2, char *a3, unsigned int a4)
 {
-  SIZE_T v4; // r15
-  unsigned int v8; // ebx
-  HANDLE v9; // rsi
-  HANDLE v10; // rdi
-  SIZE_T v11; // rdx
+  unsigned int v7; // esi
+  HANDLE v8; // rdi
+  void *v9; // rbx
+  __int64 v10; // rdi
+  int IsEnabledDeviceUsage; // eax
+  SIZE_T v12; // rdx
+  HANDLE v13; // rax
 
-  v4 = (unsigned int)Size;
-  v8 = 1;
+  v7 = 1;
+  v8 = 0LL;
   v9 = 0LL;
-  v10 = 0LL;
-  if ( (unsigned int)Size <= 0x1FFFFFFF )
+  if ( a4 <= 0x1FFFFFFF )
   {
-    v11 = (unsigned int)Size;
-    if ( v11 * 8 )
+    v10 = a4;
+    if ( v10 * 8 )
     {
-      if ( ((unsigned __int8)Address & 3) != 0 )
+      if ( ((unsigned __int8)a2 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&Address[v11] > MmUserProbeAddress || &Address[v11] < Address )
+      if ( (unsigned __int64)&a2[v10] > MmUserProbeAddress || &a2[v10] < a2 )
         *(_BYTE *)MmUserProbeAddress = 0;
     }
-    if ( (_DWORD)Size
-      && ((unsigned __int64)&a3[(unsigned int)Size] > MmUserProbeAddress || &a3[(unsigned int)Size] < a3) )
-    {
+    if ( a4 && ((unsigned __int64)&a3[a4] > MmUserProbeAddress || &a3[a4] < a3) )
       *(_BYTE *)MmUserProbeAddress = 0;
+    IsEnabledDeviceUsage = Feature_2249667896__private_IsEnabledDeviceUsage();
+    v12 = 8LL * a4;
+    if ( IsEnabledDeviceUsage )
+    {
+      v8 = (HANDLE)GrepSecureVirtualMemory(a2, v12, 2LL);
+      v13 = (HANDLE)GrepSecureVirtualMemory(a3, a4, 2LL);
     }
-    v9 = MmSecureVirtualMemory(Address, v11 * 8, 2u);
-    v10 = MmSecureVirtualMemory(a3, v4, 2u);
+    else
+    {
+      v8 = MmSecureVirtualMemory(a2, v12, 2u);
+      v13 = MmSecureVirtualMemory(a3, a4, 2u);
+    }
+    v9 = v13;
   }
-  if ( !v9 || !v10 )
-    v8 = 0;
+  if ( !v8 || !v9 )
+    v7 = 0;
+  if ( v7 )
+    v7 = GrePolyDraw(a1, a2, a3, a4);
   if ( v8 )
-    v8 = GrePolyDraw(a1, Address, a3, v4);
+  {
+    if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
+      GrepUnsecureVirtualMemory(v8);
+    else
+      MmUnsecureVirtualMemory(v8);
+  }
   if ( v9 )
-    MmUnsecureVirtualMemory(v9);
-  if ( v10 )
-    MmUnsecureVirtualMemory(v10);
-  return v8;
+  {
+    if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
+      GrepUnsecureVirtualMemory(v9);
+    else
+      MmUnsecureVirtualMemory(v9);
+  }
+  return v7;
 }

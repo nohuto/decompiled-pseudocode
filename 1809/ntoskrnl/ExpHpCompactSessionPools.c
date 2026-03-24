@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpHpCompactSessionPools @ 0x1401B7608
+ * XREFs of ExpHpCompactSessionPools @ 0x1401B7628
  * Callers:
- *     ExpHpCompactionRoutine @ 0x1401B7750 (ExpHpCompactionRoutine.c)
+ *     ExpHpCompactionRoutine @ 0x1401B7770 (ExpHpCompactionRoutine.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlpHpHeapCompact @ 0x1401B6224 (RtlpHpHeapCompact.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlpHpHeapCompact @ 0x1401B6244 (RtlpHpHeapCompact.c)
  */
 
 __int64 ExpHpCompactSessionPools()

@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpLogEvent @ 0x140958B60
+ * XREFs of PnpLogEvent @ 0x1408A1F4C
  * Callers:
- *     PpCheckInDriverDatabase @ 0x140692C14 (PpCheckInDriverDatabase.c)
- *     PiIsDriverBlocked @ 0x140692F18 (PiIsDriverBlocked.c)
- *     PiInitializeDDB @ 0x14069378C (PiInitializeDDB.c)
- *     PnpQueryID @ 0x1407985E8 (PnpQueryID.c)
- *     PnpFixupID @ 0x140798764 (PnpFixupID.c)
- *     PpBootDDBHelper @ 0x140814E34 (PpBootDDBHelper.c)
- *     PnpLogDuplicateDevice @ 0x140959854 (PnpLogDuplicateDevice.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     PpCheckInDriverDatabase @ 0x140739F60 (PpCheckInDriverDatabase.c)
+ *     PnpQueryID @ 0x1407435F0 (PnpQueryID.c)
+ *     PnpFixupID @ 0x140743778 (PnpFixupID.c)
+ *     PiIsDriverBlocked @ 0x14077E204 (PiIsDriverBlocked.c)
+ *     PiInitializeDDB @ 0x14077E864 (PiInitializeDDB.c)
+ *     PpBootDDBHelper @ 0x1407A4350 (PpBootDDBHelper.c)
+ *     PnpLogDuplicateDevice @ 0x1408A2890 (PnpLogDuplicateDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     IoWriteErrorLogEntry @ 0x1403C6CB0 (IoWriteErrorLogEntry.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1405567E8 (IoAllocateGenericErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x140380230 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140505508 (IoAllocateGenericErrorLogEntry.c)
  */
 
 void __fastcall PnpLogEvent(const void **a1, const void **a2, int a3, const void *a4, unsigned int Size)
 {
   __int64 v9; // rcx
   __int64 v10; // rdx
-  unsigned __int64 v11; // rsi
-  __int64 GenericErrorLogEntry; // rax
+  unsigned __int64 v11; // rdi
+  _WORD *GenericErrorLogEntry; // rax
   _WORD *v13; // rbx
-  char *v14; // rsi
-  char *v15; // rsi
+  char *v14; // rdi
+  char *v15; // rdi
 
   v9 = 0LL;
   v10 = 0LL;
@@ -36,16 +36,16 @@ void __fastcall PnpLogEvent(const void **a1, const void **a2, int a3, const void
   {
     GenericErrorLogEntry = IoAllocateGenericErrorLogEntry((unsigned __int8)v10 + (unsigned __int8)v11
                                                                                + (unsigned __int8)v9);
-    v13 = (_WORD *)GenericErrorLogEntry;
+    v13 = GenericErrorLogEntry;
     if ( GenericErrorLogEntry )
     {
-      *(_WORD *)(GenericErrorLogEntry + 6) = v11;
-      v14 = (char *)(GenericErrorLogEntry + v11);
-      *(_DWORD *)(GenericErrorLogEntry + 12) = a3;
-      *(_DWORD *)(GenericErrorLogEntry + 20) = a3;
-      *(_WORD *)(GenericErrorLogEntry + 2) = Size;
+      GenericErrorLogEntry[3] = v11;
+      v14 = (char *)GenericErrorLogEntry + v11;
+      *((_DWORD *)GenericErrorLogEntry + 3) = a3;
+      *((_DWORD *)GenericErrorLogEntry + 5) = a3;
+      GenericErrorLogEntry[1] = Size;
       if ( Size )
-        memmove((void *)(GenericErrorLogEntry + 40), a4, Size);
+        memmove(GenericErrorLogEntry + 20, a4, Size);
       if ( a1 )
       {
         v13[2] = 1;

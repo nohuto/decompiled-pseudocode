@@ -1,51 +1,46 @@
 /*
- * XREFs of PpmHeteroComputeRelativePerformance @ 0x14084A750
+ * XREFs of PpmHeteroComputeRelativePerformance @ 0x1407BB938
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140849B04 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BAC0C (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeIsEqualAffinityEx @ 0x140292B10 (KeIsEqualAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x140292F90 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
+ *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x1403C2250 (KeIsEqualAffinityEx.c)
  */
 
 char PpmHeteroComputeRelativePerformance()
 {
-  char v0; // r14
+  char v0; // di
   __int64 *v2; // rcx
-  unsigned __int64 v3; // rbx
+  unsigned __int64 v3; // r8
   unsigned __int64 v4; // rax
-  char v5; // si
+  char v5; // bl
   char v6; // cl
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rbx
-  unsigned int v9; // edi
-  __int64 Prcb; // rax
-  __int64 v11; // r9
-  __int64 v12; // rbp
-  unsigned __int64 v13; // r10
-  unsigned __int64 v14; // r8
-  unsigned int v15; // r11d
-  unsigned __int64 i; // rax
-  __int64 v17; // r10
-  unsigned __int64 v18; // rdx
-  int v19; // r8d
-  char v20; // r9
-  __int64 *v21; // rcx
-  unsigned __int64 v22; // rax
+  unsigned int v7; // ebx
+  __int64 v8; // r10
+  unsigned int v9; // r9d
+  unsigned __int64 v10; // r8
+  __int64 v11; // r11
+  unsigned __int64 v12; // r11
+  unsigned int i; // edx
+  __int64 v14; // rax
+  int v15; // edx
+  char v16; // r8
+  unsigned __int64 v17; // r10
+  __int64 *v18; // rax
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // r9
+  __int64 j; // rax
+  int v22; // r9d
   unsigned __int64 v23; // r10
   __int64 v24; // rax
-  char v25; // dl
-  int v26; // r9d
-  unsigned __int64 v27; // r10
-  __int64 v28; // rax
-  unsigned __int64 v29; // rcx
-  unsigned __int64 v30; // r8
-  __int64 v31; // rcx
+  unsigned __int64 v25; // r8
+  unsigned __int64 v26; // rcx
+  __int64 k; // rcx
 
   v0 = 0;
   if ( !(unsigned int)KeIsEmptyAffinityEx(PpmCheckRegistered) )
   {
-    if ( (unsigned int)KeIsEqualAffinityEx(&PpmPerfStatesRegistered, (unsigned __int16 *)PpmCheckRegistered) )
+    if ( (unsigned int)KeIsEqualAffinityEx(PpmPerfStatesRegistered, (unsigned __int16 *)PpmCheckRegistered) )
     {
       if ( PpmPerfDomainCount != 1 )
       {
@@ -56,7 +51,7 @@ char PpmHeteroComputeRelativePerformance()
           do
           {
             v4 = v3;
-            v3 = v2[59];
+            v3 = v2[43];
             v2 = (__int64 *)*v2;
             if ( v4 > v3 )
               v3 = v4;
@@ -72,121 +67,89 @@ char PpmHeteroComputeRelativePerformance()
               v5 = v7 - 14;
               v6 = v5;
             }
-            v8 = v3 >> v6;
+            v8 = PpmPerfDomainHead;
             v9 = -1;
-            Prcb = KeGetPrcb(0);
-            v11 = PpmPerfDomainHead;
-            v12 = *(_QWORD *)(Prcb + 33968);
-            while ( 1 )
+            v10 = v3 >> v6;
+            while ( (__int64 *)v8 != &PpmPerfDomainHead )
             {
-              v18 = 0LL;
-              if ( (__int64 *)v11 == &PpmPerfDomainHead )
-                break;
-              v13 = *(_QWORD *)(v11 + 472);
-              *(_BYTE *)(v11 + 480) = 100 * (v13 >> v5) / v8;
-              if ( v13 >> v5 == v8 )
+              v11 = *(_QWORD *)(v8 + 344) >> v5;
+              *(_BYTE *)(v8 + 352) = 100 * v11 / v10;
+              if ( v11 == v10 )
               {
-                v14 = 0x10000LL;
+                v12 = 0x10000LL;
               }
               else
               {
-                v14 = ((v13 >> v5 << 16) + (v8 >> 1)) / v8;
-                if ( v14 <= 1 )
-                  v14 = 1LL;
+                v12 = ((v11 << 16) + (v10 >> 1)) / v10;
+                if ( v12 <= 1 )
+                  v12 = 1LL;
               }
-              v15 = 0;
-              for ( i = ((v13 * *(unsigned int *)(v12 + 440)) << 16)
-                      / (*(_QWORD *)(v12 + 472)
-                       * (unsigned __int64)*(unsigned int *)(v11 + 440)); v15 < *(_DWORD *)(v11 + 296); ++v15 )
+              for ( i = 0; i < *(_DWORD *)(v8 + 200); ++i )
               {
-                v17 = *(_QWORD *)(136LL * v15 + *(_QWORD *)(v11 + 312));
-                if ( v17 )
-                {
-                  if ( *(_BYTE *)(v17 + 64) )
-                    *(_DWORD *)(v17 - 760) = i;
-                  *(_DWORD *)(v17 + 60) = v14;
-                }
+                v14 = *(_QWORD *)(136LL * i + *(_QWORD *)(v8 + 216));
+                if ( v14 )
+                  *(_DWORD *)(v14 + 56) = v12;
               }
-              v11 = *(_QWORD *)v11;
-              if ( v9 >= v14 )
-                v9 = v14;
+              v8 = *(_QWORD *)v8;
+              if ( v9 >= v12 )
+                v9 = v12;
             }
-            v19 = PpmPerfDomainCount;
-            v20 = 0;
-            for ( PpmHeteroMinRelativePerformance = v9; v19; ++v20 )
+            v15 = PpmPerfDomainCount;
+            v16 = 0;
+            v17 = 0LL;
+            PpmHeteroMinRelativePerformance = v9;
+            while ( v15 )
             {
-              v21 = (__int64 *)PpmPerfDomainHead;
-              v22 = -1LL;
-              if ( (__int64 *)PpmPerfDomainHead == &PpmPerfDomainHead )
+              v18 = (__int64 *)PpmPerfDomainHead;
+              v19 = -1LL;
+              while ( v18 != &PpmPerfDomainHead )
               {
-                v18 = -1LL;
+                v20 = v18[43];
+                if ( v20 > v17 && v19 >= v20 )
+                  v19 = v18[43];
+                v18 = (__int64 *)*v18;
               }
-              else
+              for ( j = PpmPerfDomainHead; (__int64 *)j != &PpmPerfDomainHead; j = *(_QWORD *)j )
               {
-                do
+                if ( *(_QWORD *)(j + 344) == v19 )
                 {
-                  v23 = v21[59];
-                  if ( v23 > v18 && v22 >= v23 )
-                    v22 = v21[59];
-                  v21 = (__int64 *)*v21;
+                  *(_BYTE *)(j + 205) = v16;
+                  --v15;
                 }
-                while ( v21 != &PpmPerfDomainHead );
-                v18 = v22;
-                v24 = PpmPerfDomainHead;
-                do
+              }
+              v17 = v19;
+              ++v16;
+            }
+            v22 = PpmPerfDomainCount;
+            v23 = 0LL;
+            PpmHeteroNominalPerformanceClasses = v16;
+            while ( v22 )
+            {
+              v24 = PpmPerfDomainHead;
+              v25 = 0xFFFFFFFFLL;
+              while ( (__int64 *)v24 != &PpmPerfDomainHead )
+              {
+                v26 = *(_QWORD *)(v24 + 344) * *(unsigned int *)(v24 + 320);
+                if ( v26 > v23 && v25 >= v26 )
+                  v25 = *(_QWORD *)(v24 + 344) * *(unsigned int *)(v24 + 320);
+                v24 = *(_QWORD *)v24;
+              }
+              for ( k = PpmPerfDomainHead; (__int64 *)k != &PpmPerfDomainHead; k = *(_QWORD *)k )
+              {
+                if ( *(_QWORD *)(k + 344) * *(unsigned int *)(k + 320) == v25 )
                 {
-                  if ( *(_QWORD *)(v24 + 472) == v18 )
+                  if ( *(_BYTE *)(k + 206) != (_BYTE)v15 )
                   {
-                    *(_BYTE *)(v24 + 301) = v20;
-                    --v19;
+                    v0 = 1;
+                    *(_BYTE *)(k + 206) = v15;
                   }
-                  v24 = *(_QWORD *)v24;
+                  --v22;
                 }
-                while ( (__int64 *)v24 != &PpmPerfDomainHead );
               }
+              v23 = v25;
+              LOBYTE(v15) = v15 + 1;
             }
-            v25 = 0;
-            PpmHeteroNominalPerformanceClasses = v20;
-            v26 = PpmPerfDomainCount;
-            v27 = 0LL;
-            while ( v26 )
-            {
-              v28 = PpmPerfDomainHead;
-              v29 = 0xFFFFFFFFLL;
-              if ( (__int64 *)PpmPerfDomainHead == &PpmPerfDomainHead )
-              {
-                v27 = 0xFFFFFFFFLL;
-              }
-              else
-              {
-                do
-                {
-                  v30 = *(_QWORD *)(v28 + 472) * *(unsigned int *)(v28 + 444);
-                  if ( v30 > v27 && v29 >= v30 )
-                    v29 = *(_QWORD *)(v28 + 472) * *(unsigned int *)(v28 + 444);
-                  v28 = *(_QWORD *)v28;
-                }
-                while ( (__int64 *)v28 != &PpmPerfDomainHead );
-                v27 = v29;
-                v31 = PpmPerfDomainHead;
-                do
-                {
-                  if ( *(_QWORD *)(v31 + 472) * *(unsigned int *)(v31 + 444) == v27 )
-                  {
-                    if ( *(_BYTE *)(v31 + 302) != v25 )
-                    {
-                      v0 = 1;
-                      *(_BYTE *)(v31 + 302) = v25;
-                    }
-                    --v26;
-                  }
-                  v31 = *(_QWORD *)v31;
-                }
-                while ( (__int64 *)v31 != &PpmPerfDomainHead );
-              }
-              ++v25;
-            }
-            PpmHeteroHighestPerformanceClasses = v25;
+            PpmHeteroHighestPerformanceClasses = v15;
           }
         }
       }

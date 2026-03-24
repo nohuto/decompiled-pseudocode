@@ -1,66 +1,71 @@
 /*
- * XREFs of MiGetBaseResidentPage @ 0x140235E40
+ * XREFs of MiGetBaseResidentPage @ 0x1403F6734
  * Callers:
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x140235D34 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiTradePage @ 0x140277580 (MiTradePage.c)
- *     MiActivePageClaimCandidate @ 0x140278960 (MiActivePageClaimCandidate.c)
- *     MiProbeUnlockPage @ 0x1402B7320 (MiProbeUnlockPage.c)
- *     MiTransferPartitionPageRun @ 0x1405BF718 (MiTransferPartitionPageRun.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
+ *     MiActivePageClaimCandidate @ 0x140302700 (MiActivePageClaimCandidate.c)
+ *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6B08 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiTransferPartitionPageRun @ 0x140562E10 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiLockNestedPageAtDpcInline @ 0x140239060 (MiLockNestedPageAtDpcInline.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14026AF90 (MiLockNestedPageAtDpcInline.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiGetBaseResidentPage(__int64 a1)
+__int64 __fastcall MiGetBaseResidentPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v1; // rbx
-  ULONG_PTR v2; // rsi
-  int v3; // r14d
-  ULONG_PTR v4; // rdi
-  int i; // ebp
-  __int64 v6; // rax
-  unsigned int v7; // ecx
-  __int64 *v8; // rdx
-  __int64 v9; // rax
-  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-28h]
+  __int64 v4; // rbx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  ULONG_PTR v7; // rbp
+  int v8; // r14d
+  ULONG_PTR v9; // rdi
+  int i; // esi
+  __int64 v11; // rax
+  unsigned int v12; // ecx
+  __int64 *v13; // rdx
+  __int64 v14; // rax
+  __int128 v16; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v17; // [rsp+40h] [rbp-28h]
 
-  v1 = a1;
-  v11 = 0LL;
-  v12 = 0LL;
-  v2 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-  v3 = 0;
-  v4 = v2;
+  v4 = a1;
+  v16 = 0LL;
+  v17 = 0LL;
+  v5 = a1 + 0x58000000000LL;
+  v6 = (unsigned __int128)(v5 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+  v7 = v5 / 48;
+  v8 = 0;
+  v9 = v5 / 48;
   for ( i = 2; ; --i )
   {
-    v6 = MiLargePageSizes[i] - 1;
-    if ( (v6 & v4) != 0 )
+    v11 = MiLargePageSizes[i] - 1;
+    if ( (v11 & v9) != 0 )
     {
-      v4 &= ~v6;
-      v1 = 48 * v4 - 0x220000000000LL;
-      if ( (unsigned int)++v3 > 3 )
-        KeBugCheckEx(0x1Au, 0x9700uLL, v2, v4, 0LL);
-      *((_QWORD *)&v11 + (unsigned int)(v3 - 1)) = v1;
-      MiLockNestedPageAtDpcInline(48 * v4 - 0x220000000000LL);
+      v9 &= ~v11;
+      v4 = 48 * v9 - 0x58000000000LL;
+      if ( (unsigned int)++v8 > 3 )
+        KeBugCheckEx(0x1Au, 0x9700uLL, v7, v9, 0LL);
+      *((_QWORD *)&v16 + (unsigned int)(v8 - 1)) = v4;
+      MiLockNestedPageAtDpcInline(48 * v9 - 0x58000000000LL, v6, a3, a4);
     }
-    if ( (*(_BYTE *)(v1 + 36) & 3) != 0 )
+    if ( (*(_BYTE *)(v4 + 39) & 3) != 0 )
       break;
     if ( !i )
-      KeBugCheckEx(0x1Au, 0x9701uLL, v2, v4, 0LL);
+      KeBugCheckEx(0x1Au, 0x9701uLL, v7, v9, 0LL);
   }
-  v7 = 0;
-  v8 = (__int64 *)&v11;
+  v12 = 0;
+  v13 = (__int64 *)&v16;
   do
   {
-    v9 = *v8;
-    if ( !*v8 )
+    v14 = *v13;
+    if ( !*v13 )
       break;
-    if ( v9 != v1 )
-      _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    ++v7;
-    ++v8;
+    if ( v14 != v4 )
+      _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    ++v12;
+    ++v13;
   }
-  while ( v7 < 3 );
-  return v1;
+  while ( v12 < 3 );
+  return v4;
 }

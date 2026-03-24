@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxResolveDesktopForWOW @ 0x1C01E43F8
+ * XREFs of xxxResolveDesktopForWOW @ 0x1C01E9C64
  * Callers:
- *     NtUserResolveDesktopForWOW @ 0x1C01FC160 (NtUserResolveDesktopForWOW.c)
+ *     NtUserResolveDesktopForWOW @ 0x1C02011F0 (NtUserResolveDesktopForWOW.c)
  * Callees:
- *     CloseProtectedHandle @ 0x1C00A6598 (CloseProtectedHandle.c)
- *     _OpenDesktop @ 0x1C00CEF78 (_OpenDesktop.c)
- *     ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C00CFA90 (-SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z.c)
- *     _OpenWindowStation @ 0x1C00CFD84 (_OpenWindowStation.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     _OpenDesktop @ 0x1C000F208 (_OpenDesktop.c)
+ *     ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C000FE48 (-SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z.c)
+ *     _OpenWindowStation @ 0x1C0010164 (_OpenWindowStation.c)
+ *     CloseProtectedHandle @ 0x1C00D93E8 (CloseProtectedHandle.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall xxxResolveDesktopForWOW(PUNICODE_STRING Destination)
@@ -96,7 +96,7 @@ LABEL_10:
     *((_QWORD *)BaseAddress + 2) = v7;
     *((_QWORD *)BaseAddress + 4) = 0LL;
     *((_QWORD *)BaseAddress + 5) = 0LL;
-    v12 = OpenDesktop((__int64)BaseAddress, v11, 0LL, 0x2000000, &Handle);
+    v12 = OpenDesktop((struct _OBJECT_ATTRIBUTES *)BaseAddress, v11, 0LL, 0x2000000, &Handle);
     ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, RegionSize, 0x8000u);
     ObCloseHandle(v9, 1);
     if ( v12 >= 0 )

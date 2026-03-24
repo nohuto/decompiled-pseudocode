@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmResetPerformanceAccumulation @ 0x1403A69EC
+ * XREFs of PpmResetPerformanceAccumulation @ 0x1403C2014
  * Callers:
- *     PpmResetPerfTimes @ 0x1403A6910 (PpmResetPerfTimes.c)
+ *     PpmResetPerfTimes @ 0x1403C1F50 (PpmResetPerfTimes.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall PpmResetPerformanceAccumulation(LARGE_INTEGER *a1)
 {
   LARGE_INTEGER result; // rax
 
-  if ( _bittest64((const signed __int64 *)&a1[4404], 0x27u) )
-    a1[4225].QuadPart = __readmsr(0xDB2u);
-  a1[4211].QuadPart = __rdtsc();
+  if ( (a1[4276].QuadPart & 0x8000000000LL) != 0 )
+    a1[4120].QuadPart = __readmsr(0xDB2u);
+  a1[4106].QuadPart = __rdtsc();
   result = KeQueryPerformanceCounter(0LL);
-  a1[4215] = result;
+  a1[4110] = result;
   return result;
 }

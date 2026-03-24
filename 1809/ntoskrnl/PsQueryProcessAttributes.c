@@ -4,8 +4,8 @@
  *     PopCreateUserPowerRequest @ 0x140588C2C (PopCreateUserPowerRequest.c)
  *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)

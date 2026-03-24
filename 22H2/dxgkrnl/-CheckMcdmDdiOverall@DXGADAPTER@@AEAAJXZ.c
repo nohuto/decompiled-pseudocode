@@ -1,1972 +1,693 @@
 /*
- * XREFs of ?CheckMcdmDdiOverall@DXGADAPTER@@AEAAJXZ @ 0x1C001D240
+ * XREFs of ?CheckMcdmDdiOverall@DXGADAPTER@@AEAAJXZ @ 0x1C0022FC0
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGADAPTER::CheckMcdmDdiOverall(DXGADAPTER *this)
+__int64 __fastcall DXGADAPTER::CheckMcdmDdiOverall(DXGADAPTER *this, __int64 a2)
 {
-  int v3; // eax
-  int v4; // esi
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
-  int v11; // edx
-  int v12; // ecx
-  int v13; // r8d
-  int v14; // edx
-  int v15; // ecx
-  int v16; // r8d
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  int v20; // edx
-  int v21; // ecx
-  int v22; // r8d
-  int v23; // edx
-  int v24; // ecx
-  int v25; // r8d
-  int v26; // edx
-  int v27; // ecx
-  int v28; // r8d
-  int v29; // edx
-  int v30; // ecx
-  int v31; // r8d
-  int v32; // edx
-  int v33; // ecx
-  int v34; // r8d
-  int v35; // edx
-  int v36; // ecx
-  int v37; // r8d
-  int v38; // edx
-  int v39; // ecx
-  int v40; // r8d
-  int v41; // edx
-  int v42; // ecx
-  int v43; // r8d
-  int v44; // edx
-  int v45; // ecx
-  int v46; // r8d
-  int v47; // edx
-  int v48; // ecx
-  int v49; // r8d
-  int v50; // edx
-  int v51; // ecx
-  int v52; // r8d
-  int v53; // edx
-  int v54; // ecx
-  int v55; // r8d
-  int v56; // edx
-  int v57; // ecx
-  int v58; // r8d
-  int v59; // edx
-  int v60; // ecx
-  int v61; // r8d
-  int v62; // edx
-  int v63; // ecx
-  int v64; // r8d
-  int v65; // edx
-  int v66; // ecx
-  int v67; // r8d
-  int v68; // edx
-  int v69; // ecx
-  int v70; // r8d
-  int v71; // edx
-  int v72; // ecx
-  int v73; // r8d
-  int v74; // edx
-  int v75; // ecx
-  int v76; // r8d
-  int v77; // edx
-  int v78; // ecx
-  int v79; // r8d
-  int v80; // edx
-  int v81; // ecx
-  int v82; // r8d
-  int v83; // edx
-  int v84; // ecx
-  int v85; // r8d
-  int v86; // edx
-  int v87; // ecx
-  int v88; // r8d
-  int v89; // edx
-  int v90; // ecx
-  int v91; // r8d
-  int v92; // edx
-  int v93; // ecx
-  int v94; // r8d
-  int v95; // edx
-  int v96; // ecx
-  int v97; // r8d
-  int v98; // edx
-  int v99; // ecx
-  int v100; // r8d
-  int v101; // edx
-  int v102; // ecx
-  int v103; // r8d
-  int v104; // edx
-  int v105; // ecx
-  int v106; // r8d
-  int v107; // edx
-  int v108; // ecx
-  int v109; // r8d
-  int v110; // edx
-  int v111; // ecx
-  int v112; // r8d
-  int v113; // edx
-  int v114; // ecx
-  int v115; // r8d
-  int v116; // edx
-  int v117; // ecx
-  int v118; // r8d
-  int v119; // edx
-  int v120; // ecx
-  int v121; // r8d
-  int v122; // edx
-  int v123; // ecx
-  int v124; // r8d
-  int v125; // edx
-  int v126; // ecx
-  int v127; // r8d
-  int v128; // edx
-  int v129; // ecx
-  int v130; // r8d
-  int v131; // edx
-  int v132; // ecx
-  int v133; // r8d
-  int v134; // edx
-  int v135; // ecx
-  int v136; // r8d
-  int v137; // edx
-  int v138; // ecx
-  int v139; // r8d
-  int v140; // edx
-  int v141; // ecx
-  int v142; // r8d
-  int v143; // edx
-  int v144; // ecx
-  int v145; // r8d
-  int v146; // edx
-  int v147; // ecx
-  int v148; // r8d
-  int v149; // edx
-  int v150; // ecx
-  int v151; // r8d
-  int v152; // edx
-  int v153; // ecx
-  int v154; // r8d
-  int v155; // edx
-  int v156; // ecx
-  int v157; // r8d
-  int v158; // edx
-  int v159; // ecx
-  int v160; // r8d
-  int v161; // edx
-  int v162; // ecx
-  int v163; // r8d
-  int v164; // edx
-  int v165; // ecx
-  int v166; // r8d
-  int v167; // edx
-  int v168; // ecx
-  int v169; // r8d
-  int v170; // edx
-  int v171; // ecx
-  int v172; // r8d
-  int v173; // edx
-  int v174; // ecx
-  int v175; // r8d
-  int v176; // edx
-  int v177; // ecx
-  int v178; // r8d
-  int v179; // edx
-  int v180; // ecx
-  int v181; // r8d
-  int v182; // edx
-  int v183; // ecx
-  int v184; // r8d
-  int v185; // edx
-  int v186; // ecx
-  int v187; // r8d
-  int v188; // edx
-  int v189; // ecx
-  int v190; // r8d
-  int v191; // edx
-  int v192; // ecx
-  int v193; // r8d
-  int v194; // edx
-  int v195; // ecx
-  int v196; // r8d
-  int v197; // edx
-  int v198; // ecx
-  int v199; // r8d
-  int v200; // edx
-  int v201; // ecx
-  int v202; // r8d
-  int v203; // edx
-  int v204; // ecx
-  int v205; // r8d
-  int v206; // edx
-  int v207; // ecx
-  int v208; // r8d
-  int v209; // edx
-  int v210; // ecx
-  int v211; // r8d
-  int v212; // edx
-  int v213; // ecx
-  int v214; // r8d
-  int v215; // edx
-  int v216; // ecx
-  int v217; // r8d
-  int v218; // edx
-  int v219; // ecx
-  int v220; // r8d
-  int v221; // edx
-  int v222; // ecx
-  int v223; // r8d
-  int v224; // edx
-  int v225; // ecx
-  int v226; // r8d
-  int v227; // edx
-  int v228; // ecx
-  int v229; // r8d
-  int v230; // edx
-  int v231; // ecx
-  int v232; // r8d
-  int v233; // edx
-  int v234; // ecx
-  int v235; // r8d
-  int v236; // edx
-  int v237; // ecx
-  int v238; // r8d
-  int v239; // edx
-  int v240; // ecx
-  int v241; // r8d
-  int v242; // edx
-  int v243; // ecx
-  int v244; // r8d
-  int v245; // edx
-  int v246; // ecx
-  int v247; // r8d
-  __int64 v248; // rdx
-  int v249; // edx
-  int v250; // ecx
-  int v251; // r8d
-  int v252; // edx
-  int v253; // ecx
-  int v254; // r8d
+  int v4; // eax
+  int v5; // ebx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rax
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // rax
+  __int64 v48; // rax
+  __int64 v49; // rax
+  __int64 v50; // rax
+  __int64 v51; // rax
+  __int64 v52; // rax
+  __int64 v53; // rax
+  __int64 v54; // rax
+  __int64 v55; // rax
+  __int64 v56; // rax
+  __int64 v57; // rax
+  __int64 v58; // rax
+  __int64 v59; // rax
+  __int64 v60; // rax
+  __int64 v61; // rax
+  __int64 v62; // rax
+  __int64 v63; // rax
+  __int64 v64; // rax
+  __int64 v65; // rax
+  __int64 v66; // rax
+  __int64 v67; // rax
+  __int64 v68; // rax
+  __int64 v69; // rax
+  __int64 v70; // rax
+  __int64 v71; // rax
+  __int64 v72; // rax
+  __int64 v73; // rax
+  __int64 v74; // rax
+  __int64 v75; // rax
+  __int64 v76; // rax
+  __int64 v77; // rax
+  __int64 v78; // rax
+  __int64 v79; // rax
+  __int64 v80; // rax
+  __int64 v81; // rax
+  __int64 v82; // rax
+  __int64 v83; // rax
+  __int64 v84; // rax
+  __int64 v85; // rax
+  __int64 v86; // rax
+  __int64 v87; // rcx
+  __int64 v88; // rax
 
-  if ( (*((_DWORD *)this + 698) & 8) == 0 )
+  if ( (*((_DWORD *)this + 642) & 8) == 0 )
     return 0LL;
-  v3 = *((_DWORD *)this + 109);
-  if ( (v3 & 8) != 0 || (v3 & 0x4000) != 0 )
+  v4 = *((_DWORD *)this + 87);
+  if ( (v4 & 8) != 0 || (v4 & 0x4000) != 0 )
     return 0LL;
-  v4 = 0;
-  if ( !*((_QWORD *)this + 56) )
+  v5 = 0;
+  if ( !*((_QWORD *)this + 45) )
   {
-    WdLogSingleEntry1(2LL, 75LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v6,
-        v5,
-        v7,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiQueryAdapterInfo is required.",
-        75LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    v4 = 1;
-  }
-  if ( !*((_QWORD *)this + 67) )
-  {
-    WdLogSingleEntry1(2LL, 77LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v9,
-        v8,
-        v10,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiBuildPagingBuffer is required.",
-        77LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 113) )
-  {
-    WdLogSingleEntry1(2LL, 78LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v12,
-        v11,
-        v13,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiCalibrateGpuClock is required.",
-        78LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 90) )
-  {
-    WdLogSingleEntry1(2LL, 79LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v15,
-        v14,
-        v16,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiCloseAllocation is required.",
-        79LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 74) )
-  {
-    WdLogSingleEntry1(2LL, 80LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v18,
-        v17,
-        v19,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiCollectDbgInfo is required.",
-        80LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 58) )
-  {
-    WdLogSingleEntry1(2LL, 81LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v21,
-        v20,
-        v22,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiCreateAllocation is required.",
-        81LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 96) )
-  {
-    WdLogSingleEntry1(2LL, 82LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v24,
-        v23,
-        v25,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiCreateContext is required.",
-        82LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 57) )
-  {
-    WdLogSingleEntry1(2LL, 83LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v27,
-        v26,
-        v28,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiCreateDevice is required.",
-        83LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 60) )
-  {
-    WdLogSingleEntry1(2LL, 84LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v30,
-        v29,
-        v31,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiDescribeAllocation is required.",
-        84LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 59) )
-  {
-    WdLogSingleEntry1(2LL, 85LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v33,
-        v32,
-        v34,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiDestroyAllocation is required.",
-        85LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 97) )
-  {
-    WdLogSingleEntry1(2LL, 86LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v36,
-        v35,
-        v37,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiDestroyContext is required.",
-        86LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 88) )
-  {
-    WdLogSingleEntry1(2LL, 87LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v39,
-        v38,
-        v40,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiDestroyDevice is required.",
-        87LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 114) )
-  {
-    WdLogSingleEntry1(2LL, 89LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v42,
-        v41,
-        v43,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiFormatHistoryBuffer is required.",
-        89LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 109) )
-  {
-    WdLogSingleEntry1(2LL, 90LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v45,
-        v44,
-        v46,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiGetNodeMetadata is required.",
-        90LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 61) )
-  {
-    WdLogSingleEntry1(2LL, 91LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v48,
-        v47,
-        v49,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiGetStandardAllocationDriverData is required.",
-        91LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 89) )
-  {
-    WdLogSingleEntry1(2LL, 93LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v51,
-        v50,
-        v52,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiOpenAllocation is required.",
-        93LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 66) )
-  {
-    WdLogSingleEntry1(2LL, 94LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v54,
-        v53,
-        v55,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiPreemptCommand is required.",
-        94LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v6 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v6 + 24) = 74LL;
+    WdLogEvent5_WdError(v6);
+    v5 = 1;
   }
   if ( !*((_QWORD *)this + 56) )
   {
-    WdLogSingleEntry1(2LL, 95LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v57,
-        v56,
-        v58,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiQueryAdapterInfo is required.",
-        95LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 100) )
-  {
-    WdLogSingleEntry1(2LL, 96LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v60,
-        v59,
-        v61,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiQueryDependentEngineGroup is required.",
-        96LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
-  }
-  if ( !*((_QWORD *)this + 101) )
-  {
-    WdLogSingleEntry1(2LL, 98LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v63,
-        v62,
-        v64,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiQueryEngineStatus is required.",
-        98LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v7 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v7 + 24) = 76LL;
+    WdLogEvent5_WdError(v7);
+    ++v5;
   }
   if ( !*((_QWORD *)this + 102) )
   {
-    WdLogSingleEntry1(2LL, 101LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v66,
-        v65,
-        v67,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiResetEngine is required.",
-        101LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v8 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v8 + 24) = 77LL;
+    WdLogEvent5_WdError(v8);
+    ++v5;
   }
-  if ( !*((_QWORD *)this + 71) )
+  if ( !*((_QWORD *)this + 79) )
   {
-    WdLogSingleEntry1(2LL, 102LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v69,
-        v68,
-        v70,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiResetFromTimeout is required.",
-        102LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v9 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v9 + 24) = 78LL;
+    WdLogEvent5_WdError(v9);
+    ++v5;
   }
-  if ( !*((_QWORD *)this + 72) )
+  if ( !*((_QWORD *)this + 63) )
   {
-    WdLogSingleEntry1(2LL, 103LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v72,
-        v71,
-        v73,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiRestartFromTimeout is required.",
-        103LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v10 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v10 + 24) = 79LL;
+    WdLogEvent5_WdError(v10);
+    ++v5;
   }
-  if ( !*((_QWORD *)this + 125) )
+  if ( !*((_QWORD *)this + 47) )
   {
-    WdLogSingleEntry1(2LL, 105LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v75,
-        v74,
-        v76,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiSetStablePowerState is required.",
-        105LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v11 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v11 + 24) = 80LL;
+    WdLogEvent5_WdError(v11);
+    ++v5;
   }
-  if ( !*((_QWORD *)this + 162) )
+  if ( !*((_QWORD *)this + 85) )
   {
-    WdLogSingleEntry1(2LL, 106LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v78,
-        v77,
-        v79,
-        0,
-        0,
-        -1,
-        (__int64)L"DxgkDdiSetVirtualMachineData is required.",
-        106LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    ++v4;
+    v12 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v12 + 24) = 81LL;
+    WdLogEvent5_WdError(v12);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 81) )
+  if ( !*((_QWORD *)this + 46) )
   {
-    WdLogSingleEntry1(2LL, 115LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v81,
-          v80,
-          v82,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCommitVidPn is not used.",
-          115LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v13 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v13 + 24) = 82LL;
+    WdLogEvent5_WdError(v13);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 62) )
+  if ( !*((_QWORD *)this + 49) )
   {
-    WdLogSingleEntry1(2LL, 116LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v84,
-          v83,
-          v85,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiAcquireSwizzlingRange is not used.",
-          116LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v14 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v14 + 24) = 83LL;
+    WdLogEvent5_WdError(v14);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 112) )
+  if ( !*((_QWORD *)this + 48) )
   {
-    WdLogSingleEntry1(2LL, 117LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v87,
-          v86,
-          v88,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCheckMultiPlaneOverlaySupport is not used.",
-          117LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v15 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v15 + 24) = 84LL;
+    WdLogEvent5_WdError(v15);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 123) )
+  if ( !*((_QWORD *)this + 86) )
   {
-    WdLogSingleEntry1(2LL, 118LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v90,
-          v89,
-          v91,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCheckMultiPlaneOverlaySupport2 is not used.",
-          118LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v16 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v16 + 24) = 85LL;
+    WdLogEvent5_WdError(v16);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 127) )
+  if ( !*((_QWORD *)this + 77) )
   {
-    WdLogSingleEntry1(2LL, 119LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v93,
-          v92,
-          v94,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCheckMultiPlaneOverlaySupport3 is not used.",
-          119LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v17 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v17 + 24) = 86LL;
+    WdLogEvent5_WdError(v17);
+    ++v5;
   }
-  if ( *((__int64 (__fastcall **)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))this + 166) != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+  if ( !*((_QWORD *)this + 103) )
   {
-    WdLogSingleEntry1(2LL, 120LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v96,
-          v95,
-          v97,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiControlDiagnosticReporting is not used.",
-          120LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v18 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v18 + 24) = 88LL;
+    WdLogEvent5_WdError(v18);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 86) )
+  if ( !*((_QWORD *)this + 98) )
   {
-    WdLogSingleEntry1(2LL, 121LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v99,
-          v98,
-          v100,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiControlInterrupt is not used.",
-          121LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v19 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v19 + 24) = 89LL;
+    WdLogEvent5_WdError(v19);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 111) )
+  if ( !*((_QWORD *)this + 50) )
   {
-    WdLogSingleEntry1(2LL, 122LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v102,
-          v101,
-          v103,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiControlInterrupt2 is not used.",
-          122LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v20 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v20 + 24) = 90LL;
+    WdLogEvent5_WdError(v20);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 174) )
+  if ( !*((_QWORD *)this + 78) )
   {
-    WdLogSingleEntry1(2LL, 123LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v105,
-          v104,
-          v106,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiControlInterrupt3 is not used.",
-          123LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v21 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v21 + 24) = 92LL;
+    WdLogEvent5_WdError(v21);
+    ++v5;
   }
-  if ( *((__int64 (__fastcall **)())this + 134) != W32kStub_GreSfmOpenTokenEvent )
+  if ( !*((_QWORD *)this + 55) )
   {
-    WdLogSingleEntry1(2LL, 124LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v108,
-          v107,
-          v109,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiControlModeBehavior is not used.",
-          124LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v22 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v22 + 24) = 93LL;
+    WdLogEvent5_WdError(v22);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 87) )
+  if ( !*((_QWORD *)this + 45) )
   {
-    WdLogSingleEntry1(2LL, 126LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v111,
-          v110,
-          v112,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCreateOverlay is not used.",
-          126LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v23 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v23 + 24) = 94LL;
+    WdLogEvent5_WdError(v23);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 142) )
+  if ( !*((_QWORD *)this + 89) )
   {
-    WdLogSingleEntry1(2LL, 127LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v114,
-          v113,
-          v115,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCreatePeriodicFrameNotification is not used.",
-          127LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v24 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v24 + 24) = 95LL;
+    WdLogEvent5_WdError(v24);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 154) )
+  if ( !*((_QWORD *)this + 90) )
   {
-    WdLogSingleEntry1(2LL, 128LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v117,
-          v116,
-          v118,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCreateProtectedSession is not used.",
-          128LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v25 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v25 + 24) = 97LL;
+    WdLogEvent5_WdError(v25);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 95) )
+  if ( !*((_QWORD *)this + 91) )
   {
-    WdLogSingleEntry1(2LL, 129LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v120,
-          v119,
-          v121,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiDestroyOverlay is not used.",
-          129LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v26 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v26 + 24) = 100LL;
+    WdLogEvent5_WdError(v26);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 143) )
+  if ( !*((_QWORD *)this + 60) )
   {
-    WdLogSingleEntry1(2LL, 130LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v123,
-          v122,
-          v124,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiDestroyPeriodicFrameNotification is not used.",
-          130LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v27 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v27 + 24) = 101LL;
+    WdLogEvent5_WdError(v27);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 155) )
+  if ( !*((_QWORD *)this + 61) )
   {
-    WdLogSingleEntry1(2LL, 131LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v126,
-          v125,
-          v127,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiDestroyProtectedSession is not used.",
-          131LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v28 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v28 + 24) = 102LL;
+    WdLogEvent5_WdError(v28);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 149) )
+  if ( !*((_QWORD *)this + 114) )
   {
-    WdLogSingleEntry1(2LL, 132LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v129,
-          v128,
-          v130,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiDisplayDetectControl is not used.",
-          132LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v29 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v29 + 24) = 104LL;
+    WdLogEvent5_WdError(v29);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 78) )
+  if ( !*((_QWORD *)this + 155) )
   {
-    WdLogSingleEntry1(2LL, 133LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v132,
-          v131,
-          v133,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiEnumVidPnCofuncModality is not used.",
-          133LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 151) )
-  {
-    WdLogSingleEntry1(2LL, 134LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v135,
-          v134,
-          v136,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiExchangePreStartInfo is not used.",
-          134LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 94) )
-  {
-    WdLogSingleEntry1(2LL, 135LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v138,
-          v137,
-          v139,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiFlipOverlay is not used.",
-          135LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 152) )
-  {
-    WdLogSingleEntry1(2LL, 136LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v141,
-          v140,
-          v142,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiGetMultiPlaneOverlayCaps is not used.",
-          136LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 153) )
-  {
-    WdLogSingleEntry1(2LL, 137LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v144,
-          v143,
-          v145,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiGetPostCompositionCaps is not used.",
-          137LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 84) )
-  {
-    WdLogSingleEntry1(2LL, 138LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v147,
-          v146,
-          v148,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiGetScanLine is not used.",
-          138LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 76) )
-  {
-    WdLogSingleEntry1(2LL, 139LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v150,
-          v149,
-          v151,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiIsSupportedVidPn is not used.",
-          139LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 158) )
-  {
-    WdLogSingleEntry1(2LL, 141LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v153,
-          v152,
-          v154,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiNotifyFocusPresent is not used.",
-          141LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 129) )
-  {
-    WdLogSingleEntry1(2LL, 142LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v156,
-          v155,
-          v157,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiPostMultiPlaneOverlayPresent is not used.",
-          142LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 92) )
-  {
-    WdLogSingleEntry1(2LL, 143LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v159,
-          v158,
-          v160,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiPresent is not used.",
-          143LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 168) )
-  {
-    WdLogSingleEntry1(2LL, 144LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v162,
-          v161,
-          v163,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiPresentToHwQueue is not used.",
-          144LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 150) )
-  {
-    WdLogSingleEntry1(2LL, 145LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v165,
-          v164,
-          v166,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiQueryConnectionChange is not used.",
-          145LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 75) )
-  {
-    WdLogSingleEntry1(2LL, 146LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v168,
-          v167,
-          v169,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiQueryCurrentFence is not used.",
-          146LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((__int64 (__fastcall **)())this + 165) != W32kStub_UserRemoveWindowedSwapChain )
-  {
-    WdLogSingleEntry1(2LL, 147LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v171,
-          v170,
-          v172,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiQueryDiagnosticTypesSupport is not used.",
-          147LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 77) )
-  {
-    WdLogSingleEntry1(2LL, 149LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v174,
-          v173,
-          v175,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiRecommendFunctionalVidPn is not used.",
-          149LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 83) )
-  {
-    WdLogSingleEntry1(2LL, 150LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v177,
-          v176,
-          v178,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiRecommendMonitorModes is not used.",
-          150LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 63) )
-  {
-    WdLogSingleEntry1(2LL, 152LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v180,
-          v179,
-          v181,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiReleaseSwizzlingRange is not used.",
-          152LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 115) )
-  {
-    WdLogSingleEntry1(2LL, 153LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v183,
-          v182,
-          v184,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiRenderGdi is not used.",
-          153LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 99) )
-  {
-    WdLogSingleEntry1(2LL, 154LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v186,
-          v185,
-          v187,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiRenderKm is not used.",
-          154LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 98) )
-  {
-    WdLogSingleEntry1(2LL, 155LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v189,
-          v188,
-          v190,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetDisplayPrivateDriverFormat is not used.",
-          155LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 68) )
-  {
-    WdLogSingleEntry1(2LL, 156LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v192,
-          v191,
-          v193,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetPalette is not used.",
-          156LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 69) )
-  {
-    WdLogSingleEntry1(2LL, 157LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v195,
-          v194,
-          v196,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetPointerPosition is not used.",
-          157LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v30 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v30 + 24) = 105LL;
+    WdLogEvent5_WdError(v30);
+    ++v5;
   }
   if ( *((_QWORD *)this + 70) )
   {
-    WdLogSingleEntry1(2LL, 158LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v198,
-          v197,
-          v199,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetPointerShape is not used.",
-          158LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v31 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v31 + 24) = 114LL;
+    WdLogEvent5_WdError(v31);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 110) )
+  if ( *((_QWORD *)this + 51) )
   {
-    WdLogSingleEntry1(2LL, 159LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v201,
-          v200,
-          v202,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetPowerPState is not used.",
-          159LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v32 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v32 + 24) = 115LL;
+    WdLogEvent5_WdError(v32);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 148) )
+  if ( *((_QWORD *)this + 101) )
   {
-    WdLogSingleEntry1(2LL, 160LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v204,
-          v203,
-          v205,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetTargetAdjustedColorimetry is not used.",
-          160LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v33 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v33 + 24) = 116LL;
+    WdLogEvent5_WdError(v33);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 112) )
+  {
+    v34 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v34 + 24) = 117LL;
+    WdLogEvent5_WdError(v34);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 116) )
+  {
+    v35 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v35 + 24) = 118LL;
+    WdLogEvent5_WdError(v35);
+    ++v5;
+  }
+  if ( *((__int64 (__fastcall **)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))this + 159) != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+  {
+    v36 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v36 + 24) = 119LL;
+    WdLogEvent5_WdError(v36);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 75) )
+  {
+    v37 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v37 + 24) = 120LL;
+    WdLogEvent5_WdError(v37);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 100) )
+  {
+    v38 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v38 + 24) = 121LL;
+    WdLogEvent5_WdError(v38);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 167) )
+  {
+    v39 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v39 + 24) = 122LL;
+    WdLogEvent5_WdError(v39);
+    ++v5;
+  }
+  if ( *((__int64 (__fastcall **)())this + 123) != W32kStub_GreSfmOpenTokenEvent )
+  {
+    v40 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v40 + 24) = 123LL;
+    WdLogEvent5_WdError(v40);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 76) )
+  {
+    v41 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v41 + 24) = 125LL;
+    WdLogEvent5_WdError(v41);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 134) )
+  {
+    v42 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v42 + 24) = 126LL;
+    WdLogEvent5_WdError(v42);
+    ++v5;
   }
   if ( *((_QWORD *)this + 147) )
   {
-    WdLogSingleEntry1(2LL, 162LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v207,
-          v206,
-          v208,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetTargetAnalogCopyProtection is not used.",
-          162LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v43 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v43 + 24) = 127LL;
+    WdLogEvent5_WdError(v43);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 146) )
+  if ( *((_QWORD *)this + 84) )
   {
-    WdLogSingleEntry1(2LL, 163LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v210,
-          v209,
-          v211,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetTargetContentType is not used.",
-          163LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 145) )
-  {
-    WdLogSingleEntry1(2LL, 164LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v213,
-          v212,
-          v214,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetTargetGamma is not used.",
-          164LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 144) )
-  {
-    WdLogSingleEntry1(2LL, 165LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v216,
-          v215,
-          v217,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetTimingsFromVidPn is not used.",
-          165LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 126) )
-  {
-    WdLogSingleEntry1(2LL, 166LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v219,
-          v218,
-          v220,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetVideoProtectedRegion is not used.",
-          166LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 79) )
-  {
-    WdLogSingleEntry1(2LL, 167LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v222,
-          v221,
-          v223,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetVidPnSourceAddress is not used.",
-          167LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 108) )
-  {
-    WdLogSingleEntry1(2LL, 168LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v225,
-          v224,
-          v226,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetVidPnSourceAddressWithMultiPlaneOverlay is not used.",
-          168LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 124) )
-  {
-    WdLogSingleEntry1(2LL, 169LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v228,
-          v227,
-          v229,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetVidPnSourceAddressWithMultiPlaneOverlay2 is not used.",
-          169LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 128) )
-  {
-    WdLogSingleEntry1(2LL, 170LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v231,
-          v230,
-          v232,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetVidPnSourceAddressWithMultiPlaneOverlay3 is not used.",
-          170LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 80) )
-  {
-    WdLogSingleEntry1(2LL, 171LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v234,
-          v233,
-          v235,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiSetVidPnSourceVisibility is not used.",
-          171LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 85) )
-  {
-    WdLogSingleEntry1(2LL, 172LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v237,
-          v236,
-          v238,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiStopCapture is not used.",
-          172LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-  }
-  if ( *((_QWORD *)this + 82) )
-  {
-    WdLogSingleEntry1(2LL, 177LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v240,
-          v239,
-          v241,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiUpdateActiveVidPnPresentPath is not used.",
-          177LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v44 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v44 + 24) = 128LL;
+    WdLogEvent5_WdError(v44);
+    ++v5;
   }
   if ( *((_QWORD *)this + 135) )
   {
-    WdLogSingleEntry1(2LL, 178LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v243,
-          v242,
-          v244,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiUpdateMonitorLinkInfo is not used.",
-          178LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v45 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v45 + 24) = 129LL;
+    WdLogEvent5_WdError(v45);
+    ++v5;
   }
-  if ( *((_QWORD *)this + 93) )
+  if ( *((_QWORD *)this + 148) )
   {
-    WdLogSingleEntry1(2LL, 179LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v246,
-          v245,
-          v247,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiUpdateOverlay is not used.",
-          179LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v46 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v46 + 24) = 130LL;
+    WdLogEvent5_WdError(v46);
+    ++v5;
   }
-  v248 = *((_QWORD *)this + 107);
-  if ( (*((_DWORD *)this + 570) & 0x10) != 0 )
+  if ( *((_QWORD *)this + 141) )
   {
-    if ( !v248 )
-    {
-      WdLogSingleEntry1(2LL, 185LL);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v250,
-          v249,
-          v251,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCancelCommand is required.",
-          185LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      ++v4;
-    }
+    v47 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v47 + 24) = 131LL;
+    WdLogEvent5_WdError(v47);
+    ++v5;
   }
-  else if ( v248 )
+  if ( *((_QWORD *)this + 67) )
   {
-    WdLogSingleEntry1(2LL, 185LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v253,
-          v252,
-          v254,
-          0,
-          0,
-          -1,
-          (__int64)L"DxgkDdiCancelCommand is not used.",
-          185LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v48 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v48 + 24) = 132LL;
+    WdLogEvent5_WdError(v48);
+    ++v5;
   }
-  if ( !v4 )
+  if ( *((_QWORD *)this + 143) )
   {
-    *((_QWORD *)this + 92) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-    if ( !*((_QWORD *)this + 65) )
-      *((_QWORD *)this + 65) = DXGADAPTER::DefaultDdiSubmitCommand;
+    v49 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v49 + 24) = 133LL;
+    WdLogEvent5_WdError(v49);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 83) )
+  {
+    v50 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v50 + 24) = 134LL;
+    WdLogEvent5_WdError(v50);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 144) )
+  {
+    v51 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v51 + 24) = 135LL;
+    WdLogEvent5_WdError(v51);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 145) )
+  {
+    v52 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v52 + 24) = 136LL;
+    WdLogEvent5_WdError(v52);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 73) )
+  {
+    v53 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v53 + 24) = 137LL;
+    WdLogEvent5_WdError(v53);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 65) )
+  {
+    v54 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v54 + 24) = 138LL;
+    WdLogEvent5_WdError(v54);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 151) )
+  {
+    v55 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v55 + 24) = 140LL;
+    WdLogEvent5_WdError(v55);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 118) )
+  {
+    v56 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v56 + 24) = 141LL;
+    WdLogEvent5_WdError(v56);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 81) )
+  {
+    v57 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v57 + 24) = 142LL;
+    WdLogEvent5_WdError(v57);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 161) )
+  {
+    v58 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v58 + 24) = 143LL;
+    WdLogEvent5_WdError(v58);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 142) )
+  {
+    v59 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v59 + 24) = 144LL;
+    WdLogEvent5_WdError(v59);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 64) )
+  {
+    v60 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v60 + 24) = 145LL;
+    WdLogEvent5_WdError(v60);
+    ++v5;
+  }
+  if ( *((__int64 (__fastcall **)())this + 158) != W32kStub_UserRemoveWindowedSwapChain )
+  {
+    v61 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v61 + 24) = 146LL;
+    WdLogEvent5_WdError(v61);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 66) )
+  {
+    v62 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v62 + 24) = 148LL;
+    WdLogEvent5_WdError(v62);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 72) )
+  {
+    v63 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v63 + 24) = 149LL;
+    WdLogEvent5_WdError(v63);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 52) )
+  {
+    v64 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v64 + 24) = 151LL;
+    WdLogEvent5_WdError(v64);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 104) )
+  {
+    v65 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v65 + 24) = 152LL;
+    WdLogEvent5_WdError(v65);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 88) )
+  {
+    v66 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v66 + 24) = 153LL;
+    WdLogEvent5_WdError(v66);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 87) )
+  {
+    v67 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v67 + 24) = 154LL;
+    WdLogEvent5_WdError(v67);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 57) )
+  {
+    v68 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v68 + 24) = 155LL;
+    WdLogEvent5_WdError(v68);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 58) )
+  {
+    v69 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v69 + 24) = 156LL;
+    WdLogEvent5_WdError(v69);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 59) )
+  {
+    v70 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v70 + 24) = 157LL;
+    WdLogEvent5_WdError(v70);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 99) )
+  {
+    v71 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v71 + 24) = 158LL;
+    WdLogEvent5_WdError(v71);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 140) )
+  {
+    v72 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v72 + 24) = 159LL;
+    WdLogEvent5_WdError(v72);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 139) )
+  {
+    v73 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v73 + 24) = 161LL;
+    WdLogEvent5_WdError(v73);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 138) )
+  {
+    v74 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v74 + 24) = 162LL;
+    WdLogEvent5_WdError(v74);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 137) )
+  {
+    v75 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v75 + 24) = 163LL;
+    WdLogEvent5_WdError(v75);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 136) )
+  {
+    v76 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v76 + 24) = 164LL;
+    WdLogEvent5_WdError(v76);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 115) )
+  {
+    v77 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v77 + 24) = 165LL;
+    WdLogEvent5_WdError(v77);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 68) )
+  {
+    v78 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v78 + 24) = 166LL;
+    WdLogEvent5_WdError(v78);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 97) )
+  {
+    v79 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v79 + 24) = 167LL;
+    WdLogEvent5_WdError(v79);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 113) )
+  {
+    v80 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v80 + 24) = 168LL;
+    WdLogEvent5_WdError(v80);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 117) )
+  {
+    v81 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v81 + 24) = 169LL;
+    WdLogEvent5_WdError(v81);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 69) )
+  {
+    v82 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v82 + 24) = 170LL;
+    WdLogEvent5_WdError(v82);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 74) )
+  {
+    v83 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v83 + 24) = 171LL;
+    WdLogEvent5_WdError(v83);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 71) )
+  {
+    v84 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v84 + 24) = 176LL;
+    WdLogEvent5_WdError(v84);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 124) )
+  {
+    v85 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v85 + 24) = 177LL;
+    WdLogEvent5_WdError(v85);
+    ++v5;
+  }
+  if ( *((_QWORD *)this + 82) )
+  {
+    v86 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v86 + 24) = 178LL;
+    WdLogEvent5_WdError(v86);
+    ++v5;
+  }
+  v87 = *((_QWORD *)this + 96);
+  if ( (*((_DWORD *)this + 514) & 0x10) == 0 )
+  {
+    if ( !v87 )
+      goto LABEL_172;
+    goto LABEL_171;
+  }
+  if ( !v87 )
+  {
+LABEL_171:
+    v88 = WdLogNewEntry5_WdError(v87, a2);
+    *(_QWORD *)(v88 + 24) = 184LL;
+    WdLogEvent5_WdError(v88);
+    ++v5;
+  }
+LABEL_172:
+  if ( !v5 )
+  {
+    *((_QWORD *)this + 81) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    if ( !*((_QWORD *)this + 54) )
+      *((_QWORD *)this + 54) = DXGADAPTER::DefaultDdiSubmitCommand;
     return 0LL;
   }
   return 3221225561LL;

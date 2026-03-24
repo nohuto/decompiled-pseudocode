@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFinishResume @ 0x1401518F0
+ * XREFs of MiFinishResume @ 0x140151910
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PsGetNextPartition @ 0x14011FFC8 (PsGetNextPartition.c)
- *     MiDereferencePageRunsEx @ 0x14012B5D8 (MiDereferencePageRunsEx.c)
- *     MiReferencePageRuns @ 0x14012B6B0 (MiReferencePageRuns.c)
- *     MiPurgeZeroList @ 0x14015199C (MiPurgeZeroList.c)
- *     MiPurgePartitionStandby @ 0x140151DFC (MiPurgePartitionStandby.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x14011FFE8 (PsGetNextPartition.c)
+ *     MiDereferencePageRunsEx @ 0x14012B5F8 (MiDereferencePageRunsEx.c)
+ *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
+ *     MiPurgeZeroList @ 0x1401519BC (MiPurgeZeroList.c)
+ *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
  */
 
 LONG __fastcall MiFinishResume(unsigned int a1)

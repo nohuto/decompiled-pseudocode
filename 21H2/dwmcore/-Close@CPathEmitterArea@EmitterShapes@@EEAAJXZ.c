@@ -1,31 +1,31 @@
 /*
- * XREFs of ?Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ @ 0x180259280
+ * XREFs of ?Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ @ 0x180208D00
  * Callers:
  *     <none>
  * Callees:
- *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x180258AC8 (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
+ *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x18020841C (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
  */
 
 __int64 __fastcall EmitterShapes::CPathEmitterArea::Close(char **this)
 {
-  unsigned int i; // r9d
-  char *v3; // r8
-  __int64 v4; // rdx
+  char *v2; // r9
+  unsigned int i; // r8d
+  __int64 v4; // r10
   __int64 v5; // rax
 
   std::_Sort_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
+    this[2],
     this[3],
-    this[4],
-    0x6DB6DB6DB6DB6DB7LL * ((this[4] - this[3]) >> 2),
-    (unsigned __int8 (__fastcall *)(__int128 *, char *))EmitterShapes::SortTriangles);
+    (this[3] - this[2]) / 28,
+    (unsigned __int8 (__fastcall *)(unsigned __int64, unsigned __int64))EmitterShapes::SortTriangles);
+  v2 = this[2];
   for ( i = 1; ; ++i )
   {
-    v3 = this[3];
-    if ( i >= (unsigned __int64)(0x6DB6DB6DB6DB6DB7LL * ((this[4] - v3) >> 2)) )
+    v4 = i;
+    if ( i >= (unsigned __int64)((this[3] - v2) / 28) )
       break;
-    v4 = 28LL * i;
     v5 = 28LL * (i - 1);
-    *(float *)&v3[v4 + 24] = *(float *)&v3[v5 + 24] + *(float *)&v3[v4 + 24];
+    *(float *)&v2[28 * v4 + 24] = *(float *)&v2[v5 + 24] + *(float *)&v2[28 * v4 + 24];
   }
   return 0LL;
 }

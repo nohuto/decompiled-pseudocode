@@ -1,25 +1,32 @@
 /*
- * XREFs of ?AddSystemResourceRef@CBatch@DirectComposition@@QEAAJVResourceHandle@@@Z @ 0x1C0030FAC
+ * XREFs of ?AddSystemResourceRef@CBatch@DirectComposition@@QEAAJVResourceHandle@@@Z @ 0x1C006048C
  * Callers:
- *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C00318F0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
- *     ?EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle@@@Z @ 0x1C0032A98 (-EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle.c)
+ *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005DFD0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     ?EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle@@@Z @ 0x1C0063EA8 (-EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle.c)
  * Callees:
- *     ?Create@CSystemResourceReference@CBatch@DirectComposition@@SAJVResourceHandle@@PEAVCApplicationChannel@3@PEAPEAV123@@Z @ 0x1C0030EE4 (-Create@CSystemResourceReference@CBatch@DirectComposition@@SAJVResourceHandle@@PEAVCApplicationC.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     ?ReferenceSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C006050C (-ReferenceSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
  */
 
-__int64 __fastcall DirectComposition::CBatch::AddSystemResourceRef(__int64 a1, int a2)
+__int64 __fastcall DirectComposition::CBatch::AddSystemResourceRef(__int64 a1, unsigned int a2)
 {
-  __int64 result; // rax
-  _QWORD *v4; // r8
-  _QWORD *v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // r14
+  unsigned int v5; // edi
+  _DWORD *v6; // rsi
 
-  v5 = 0LL;
-  result = DirectComposition::CBatch::CSystemResourceReference::Create(a2, *(_QWORD *)(a1 + 8), (__int64 *)&v5);
-  if ( (int)result >= 0 )
+  v2 = *(_QWORD *)(a1 + 8);
+  v5 = 0;
+  v6 = Win32AllocPoolWithQuotaZInit(0x10uLL, 0x72624344u);
+  if ( v6 )
   {
-    v4 = v5;
-    *v5 = *(_QWORD *)(a1 + 88);
-    *(_QWORD *)(a1 + 88) = v4;
+    DirectComposition::CConnection::ReferenceSystemResource(*(_QWORD *)(v2 + 40), a2);
+    v6[2] = a2;
+    *(_QWORD *)v6 = *(_QWORD *)(a1 + 88);
+    *(_QWORD *)(a1 + 88) = v6;
   }
-  return result;
+  else
+  {
+    return (unsigned int)-1073741801;
+  }
+  return v5;
 }

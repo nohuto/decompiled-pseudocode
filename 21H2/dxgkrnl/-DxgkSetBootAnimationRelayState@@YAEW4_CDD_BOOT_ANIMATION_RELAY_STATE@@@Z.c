@@ -1,63 +1,70 @@
 /*
- * XREFs of ?DxgkSetBootAnimationRelayState@@YAEW4_CDD_BOOT_ANIMATION_RELAY_STATE@@@Z @ 0x1C01F6850
+ * XREFs of ?DxgkSetBootAnimationRelayState@@YAEW4_CDD_BOOT_ANIMATION_RELAY_STATE@@@Z @ 0x1C016DD20
  * Callers:
- *     DxgDetermineBootImageMode @ 0x1C01F60AC (DxgDetermineBootImageMode.c)
+ *     DxgDetermineBootImageMode @ 0x1C0192624 (DxgDetermineBootImageMode.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
-char __fastcall DxgkSetBootAnimationRelayState(int a1)
+char __fastcall DxgkSetBootAnimationRelayState(__int64 a1, __int64 a2)
 {
+  int v2; // ebx
   struct DXGGLOBAL *Global; // rax
-  int v3; // r8d
-  char v4; // bl
-  int v6; // r8d
-  int v7; // r8d
-  bool v8; // zf
-  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // r8d
+  int v9; // r8d
+  int v10; // r8d
+  char v11; // bl
+  bool v13; // zf
+  _BYTE v14[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  Global = DXGGLOBAL_GetGlobal();
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (struct DXGGLOBAL *)((char *)Global + 1664), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
-  v3 = *((_DWORD *)DXGGLOBAL_GetGlobal() + 413);
-  if ( v3 )
+  v2 = a1;
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v14, (struct DXGGLOBAL *)((char *)Global + 1504), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v14);
+  v8 = *((_DWORD *)DXGGLOBAL::GetGlobal(v5, v4) + 373);
+  if ( v8 )
   {
-    v6 = v3 - 1;
-    if ( v6 )
+    v9 = v8 - 1;
+    if ( v9 )
     {
-      v7 = v6 - 1;
-      if ( v7 )
+      v10 = v9 - 1;
+      if ( v10 )
       {
-        if ( v7 != 1 )
-          goto LABEL_7;
-        v8 = a1 == 4;
+        if ( v10 != 1 )
+        {
+LABEL_5:
+          v11 = 0;
+          goto LABEL_6;
+        }
+        v13 = v2 == 4;
       }
       else
       {
-        v8 = a1 == 3;
+        v13 = v2 == 3;
       }
     }
     else
     {
-      v8 = a1 == 2;
+      v13 = v2 == 2;
     }
-    if ( v8 )
-      goto LABEL_3;
+    if ( !v13 )
+      goto LABEL_5;
   }
-  else if ( ((a1 - 1) & 0xFFFFFFFD) == 0 )
+  else if ( ((v2 - 1) & 0xFFFFFFFD) != 0 )
   {
-LABEL_3:
-    *((_DWORD *)DXGGLOBAL_GetGlobal() + 413) = a1;
-    v4 = 1;
-    goto LABEL_4;
+    goto LABEL_5;
   }
-LABEL_7:
-  v4 = 0;
-LABEL_4:
-  if ( v9[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9);
-  return v4;
+  *((_DWORD *)DXGGLOBAL::GetGlobal(v7, v6) + 373) = v2;
+  v11 = 1;
+LABEL_6:
+  if ( v14[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v14, v6);
+  return v11;
 }

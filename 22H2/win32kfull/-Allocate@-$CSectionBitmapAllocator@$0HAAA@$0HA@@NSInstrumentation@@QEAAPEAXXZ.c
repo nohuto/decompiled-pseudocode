@@ -1,41 +1,34 @@
 /*
- * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C02287B0
+ * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C0243904
  * Callers:
- *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C02288DC (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C0243A1C (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
  * Callees:
- *     ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C005B560 (--1-$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrument.c)
- *     ?CommitSlot@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C0228BD4 (-CommitSlot@-$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?CommitSlot@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C0243CE8 (-CommitSlot@-$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NI@Z.c)
  */
 
 __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Allocate(__int64 *a1)
 {
   __int64 v1; // rbx
   ULONG ClearBits; // eax
-  ULONG v4; // ebp
-  __int64 v5; // rsi
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rsi
+  ULONG v5; // ebp
 
-  v7 = *a1;
-  v1 = v7;
+  v1 = *a1;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v1, 0LL);
   ClearBits = RtlFindClearBits((PRTL_BITMAP)(a1[2] ^ a1[3]), 1u, *((_DWORD *)a1 + 8) < 0xFCu ? *((_DWORD *)a1 + 8) : 0);
-  v4 = ClearBits;
-  if ( ClearBits == -1
-    || !(unsigned __int8)NSInstrumentation::CSectionBitmapAllocator<28672,112>::CommitSlot(a1, ClearBits) )
+  v4 = 0LL;
+  v5 = ClearBits;
+  if ( ClearBits != -1
+    && (unsigned __int8)NSInstrumentation::CSectionBitmapAllocator<28672,112>::CommitSlot(a1, ClearBits) )
   {
-    NSInstrumentation::CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>::~CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>(&v7);
-    return 0LL;
+    RtlTestBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v5);
+    RtlSetBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v5);
+    if ( ++*((_DWORD *)a1 + 8) >= 0xFCu )
+      *((_DWORD *)a1 + 8) = 0;
+    v4 = ((v5 / 0x24) << 12) + (a1[2] ^ a1[1]) + 112 * (v5 % 0x24);
   }
-  else
-  {
-    RtlTestBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v4);
-    RtlSetBit((PRTL_BITMAP)(a1[2] ^ a1[3]), v4);
-    ++*((_DWORD *)a1 + 8);
-    *((_DWORD *)a1 + 8) &= -(*((_DWORD *)a1 + 8) < 0xFCu);
-    v5 = ((v4 / 0x24) << 12) + (a1[2] ^ a1[1]);
-    ExReleasePushLockExclusiveEx(v1, 0LL);
-    KeLeaveCriticalRegion();
-    return v5 + 112 * (v4 % 0x24);
-  }
+  ExReleasePushLockExclusiveEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+  return v4;
 }

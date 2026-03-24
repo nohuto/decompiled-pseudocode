@@ -1,21 +1,15 @@
 /*
- * XREFs of VmCheckPageCombine @ 0x1408A6F20
+ * XREFs of VmCheckPageCombine @ 0x14092E878
  * Callers:
- *     MiCapturePfnVm @ 0x140215CFC (MiCapturePfnVm.c)
+ *     MiCapturePfnVm @ 0x140367A50 (MiCapturePfnVm.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall VmCheckPageCombine(__int64 a1, int a2)
+_BOOL8 __fastcall VmCheckPageCombine(__int64 a1, int a2)
 {
-  __int64 v2; // r8
-  bool result; // al
+  __int64 v2; // rax
 
   v2 = *(_QWORD *)(a1 + 2288);
-  result = 0;
-  if ( !v2 )
-    return 1;
-  if ( (*(_BYTE *)(v2 + 104) & 1) == 0 )
-    return a2 != 0;
-  return result;
+  return !v2 || (*(_DWORD *)(v2 + 88) & 1) == 0 && a2;
 }

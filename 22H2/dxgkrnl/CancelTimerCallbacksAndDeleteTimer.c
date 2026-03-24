@@ -1,8 +1,8 @@
 /*
- * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x1C03D7E04
+ * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x1C03011C0
  * Callers:
- *     DestroyAggregateSession @ 0x1C03D7E94 (DestroyAggregateSession.c)
- *     TlgUnregisterAggregateProvider @ 0x1C03D80D8 (TlgUnregisterAggregateProvider.c)
+ *     DestroyAggregateSession @ 0x1C0301250 (DestroyAggregateSession.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C0301500 (TlgUnregisterAggregateProvider.c)
  * Callees:
  *     <none>
  */

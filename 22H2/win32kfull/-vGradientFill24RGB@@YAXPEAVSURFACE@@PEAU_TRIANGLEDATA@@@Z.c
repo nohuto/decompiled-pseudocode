@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vGradientFill24RGB@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02F9970
+ * XREFs of ?vGradientFill24RGB@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02D2970
  * Callers:
  *     <none>
  * Callees:

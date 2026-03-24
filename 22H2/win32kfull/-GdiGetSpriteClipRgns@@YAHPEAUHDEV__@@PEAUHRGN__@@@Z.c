@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027A1A0
+ * XREFs of ?GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027E06C
  * Callers:
- *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C026EBF0 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
+ *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0275DA4 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C011BD38 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z @ 0x1C027E434 (-bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B2D1C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z @ 0x1C02808BC (-bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z.c)
  */
 
 __int64 __fastcall GdiGetSpriteClipRgns(HDEV a1, HRGN a2)
@@ -18,15 +18,15 @@ __int64 __fastcall GdiGetSpriteClipRgns(HDEV a1, HRGN a2)
   SpriteClipRgns = 1;
   if ( v6[0] )
   {
-    if ( *((_DWORD *)a1 + 35) )
+    if ( *((_DWORD *)a1 + 37) )
     {
       do
-        SpriteClipRgns &= bSpGetSpriteClipRgns(*(HDEV *)(*((_QWORD *)a1 + 18) + 8LL * v3++), (struct RGNOBJAPI *)v6);
-      while ( v3 < *((_DWORD *)a1 + 35) );
+        SpriteClipRgns &= bSpGetSpriteClipRgns(*(HDEV *)(*((_QWORD *)a1 + 19) + 8LL * v3++), (struct RGNOBJAPI *)v6);
+      while ( v3 < *((_DWORD *)a1 + 37) );
     }
     else
     {
-      SpriteClipRgns = bSpGetSpriteClipRgns(*((HDEV *)a1 + 10), (struct RGNOBJAPI *)v6);
+      SpriteClipRgns = bSpGetSpriteClipRgns(*((HDEV *)a1 + 11), (struct RGNOBJAPI *)v6);
     }
   }
   RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v6);

@@ -1,7 +1,7 @@
 /*
- * XREFs of SendSynchronousIoControl @ 0x1C023F270
+ * XREFs of SendSynchronousIoControl @ 0x1C0243AA0
  * Callers:
- *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C023F160 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
+ *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C0243990 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
  * Callees:
  *     <none>
  */

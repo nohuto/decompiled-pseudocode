@@ -1,23 +1,22 @@
 /*
- * XREFs of ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1407E2ED8
+ * XREFs of ExpWnfGetPermanentPerUserDataStoreHandle @ 0x14095CD7C
  * Callers:
- *     ExpWnfAcquirePermanentDataStoreHandle @ 0x1407E2E00 (ExpWnfAcquirePermanentDataStoreHandle.c)
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140855A3C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x1407C9A88 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     RtlLengthSidAsUnicodeString @ 0x1407FB288 (RtlLengthSidAsUnicodeString.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FB3F0 (RtlConvertSidToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406ED390 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x1406EFBC8 (RtlLengthSidAsUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(PSID Sid, PHANDLE KeyHandle)
+__int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid, PHANDLE KeyHandle)
 {
   __int64 result; // rax
-  unsigned __int16 v5; // di
-  unsigned __int16 v6; // si
-  wchar_t *Pool2; // rax
+  unsigned __int16 v5; // si
+  unsigned __int16 v6; // r14
+  wchar_t *PoolWithTag; // rax
   wchar_t *v8; // rbx
   NTSTATUS v9; // edi
   UNICODE_STRING Destination; // [rsp+40h] [rbp-19h] BYREF
@@ -25,21 +24,21 @@ __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(PSID Sid, PHANDLE Ke
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
   int v13; // [rsp+D0h] [rbp+77h] BYREF
 
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   *(_DWORD *)(&UnicodeString.MaximumLength + 1) = 0;
-  memset(&ObjectAttributes, 0, 44);
   v13 = 0;
   result = RtlLengthSidAsUnicodeString(Sid, &v13);
   if ( (int)result >= 0 )
   {
     v5 = v13;
-    v6 = v13 + 100;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)(v13 + 100), 543583831LL);
-    v8 = Pool2;
-    if ( Pool2 )
+    v6 = v13 + 82;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(v13 + 82), 0x20666E57u);
+    v8 = PoolWithTag;
+    if ( PoolWithTag )
     {
       *(_QWORD *)&Destination.Length = 0LL;
       Destination.MaximumLength = v6;
-      Destination.Buffer = Pool2;
+      Destination.Buffer = PoolWithTag;
       RtlAppendUnicodeToString(&Destination, L"\\Registry\\User\\");
       UnicodeString.Length = 0;
       UnicodeString.MaximumLength = v5;
@@ -48,7 +47,7 @@ __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(PSID Sid, PHANDLE Ke
       if ( v9 >= 0 )
       {
         Destination.Length += UnicodeString.Length;
-        RtlAppendUnicodeToString(&Destination, L"\\Software\\Classes\\NotificationData");
+        RtlAppendUnicodeToString(&Destination, L"_Classes\\NotificationData");
         ObjectAttributes.ObjectName = &Destination;
         ObjectAttributes.Length = 48;
         ObjectAttributes.RootDirectory = 0LL;

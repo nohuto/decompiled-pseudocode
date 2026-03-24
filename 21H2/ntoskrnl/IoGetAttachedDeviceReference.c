@@ -1,43 +1,47 @@
 /*
- * XREFs of IoGetAttachedDeviceReference @ 0x1403109B0
+ * XREFs of IoGetAttachedDeviceReference @ 0x14022CA10
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x14068B750 (CmpVolumeManagerGetContextForFile.c)
- *     CmpGetVolumeClusterSize @ 0x14068BEAC (CmpGetVolumeClusterSize.c)
- *     WmipGetFilePDO @ 0x1406C1BD4 (WmipGetFilePDO.c)
- *     WmipRegisterDevice @ 0x1406C82F8 (WmipRegisterDevice.c)
- *     IopFilterResourceRequirementsCall @ 0x140748D6C (IopFilterResourceRequirementsCall.c)
- *     WmipForwardWmiIrp @ 0x140783A9C (WmipForwardWmiIrp.c)
- *     HalpQueryPccInterface @ 0x14090AD84 (HalpQueryPccInterface.c)
- *     IoBuildPoDeviceNotifyList @ 0x140A50D3C (IoBuildPoDeviceNotifyList.c)
- *     IoShutdownSystem @ 0x140A651B8 (IoShutdownSystem.c)
- *     VfIrpSendSynchronousIrp @ 0x140A8D17C (VfIrpSendSynchronousIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406396EC (WmipForwardWmiIrp.c)
+ *     CmpGetVolumeClusterSize @ 0x14071DDD8 (CmpGetVolumeClusterSize.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140721F94 (CmpVolumeManagerGetContextForFile.c)
+ *     IopFilterResourceRequirementsCall @ 0x140750A80 (IopFilterResourceRequirementsCall.c)
+ *     WmipRegisterDevice @ 0x140755008 (WmipRegisterDevice.c)
+ *     WmipGetFilePDO @ 0x14078D404 (WmipGetFilePDO.c)
+ *     HalpQueryPccInterface @ 0x140866A7C (HalpQueryPccInterface.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972B0 (IoBuildPoDeviceNotifyList.c)
+ *     IoShutdownSystem @ 0x1409AADD8 (IoShutdownSystem.c)
+ *     VfIrpSendSynchronousIrp @ 0x1409D1510 (VfIrpSendSynchronousIrp.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObpIncrPointerCount @ 0x14030F6D0 (ObpIncrPointerCount.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
+ *     ObpIncrPointerCount @ 0x14021BFC0 (ObpIncrPointerCount.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetAttachedDeviceReference(PDEVICE_OBJECT DeviceObject)
 {
-  unsigned __int8 CurrentIrql; // di
+  __int64 v1; // r8
+  unsigned __int8 CurrentIrql; // si
+  char *v4; // rcx
   struct _DEVICE_OBJECT *i; // rax
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v6; // al
+  unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v8; // r8
-  int v9; // eax
-  bool v10; // zf
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    v1 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+    SchedulerAssist[5] = v1;
   }
-  KxAcquireQueuedSpinLock((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
+  v4 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160;
+  KxAcquireQueuedSpinLock(v4, *((_QWORD *)v4 + 1), v1);
   for ( i = DeviceObject->AttachedDevice; i; i = i->AttachedDevice )
     DeviceObject = i;
   if ( ObpTraceFlags )
@@ -48,15 +52,15 @@ PDEVICE_OBJECT __stdcall IoGetAttachedDeviceReference(PDEVICE_OBJECT DeviceObjec
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v6 = KeGetCurrentIrql();
-      if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      v8 = KeGetCurrentIrql();
+      if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v8 = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v10 = (v9 & v8[5]) == 0;
-        v8[5] &= v9;
-        if ( v10 )
+        v10 = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v12 = (v11 & v10[5]) == 0;
+        v10[5] &= v11;
+        if ( v12 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

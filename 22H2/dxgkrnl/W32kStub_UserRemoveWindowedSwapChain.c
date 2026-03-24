@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_UserRemoveWindowedSwapChain @ 0x1C01EA660
+ * XREFs of W32kStub_UserRemoveWindowedSwapChain @ 0x1C016C4B0
  * Callers:
  *     <none>
  * Callees:

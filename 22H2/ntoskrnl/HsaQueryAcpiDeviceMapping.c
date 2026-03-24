@@ -1,7 +1,7 @@
 /*
- * XREFs of HsaQueryAcpiDeviceMapping @ 0x140530BB0
+ * XREFs of HsaQueryAcpiDeviceMapping @ 0x1404E41B0
  * Callers:
- *     HsaCreateDevice @ 0x14052F540 (HsaCreateDevice.c)
+ *     HsaCreateDevice @ 0x1404E27E0 (HsaCreateDevice.c)
  * Callees:
  *     <none>
  */

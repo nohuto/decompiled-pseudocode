@@ -1,64 +1,51 @@
 /*
- * XREFs of ?FlushAllDevice@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@@Z @ 0x1C0227B00
+ * XREFs of ?FlushAllDevice@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@@Z @ 0x1C02855A0
  * Callers:
- *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C019755C (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C013042C (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0007F58 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
- *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z @ 0x1C018AF08 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C0008E04 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z @ 0x1C00EF2E8 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z.c)
  */
 
 void __fastcall DXGPROCESS::FlushAllDevice(struct _KTHREAD **this, const struct DXGADAPTER *a2)
 {
-  char *v4; // rax
-  struct _KTHREAD *v5; // rbx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rax
+  char *v7; // rax
+  struct _KTHREAD *v8; // rbx
   _QWORD *Current; // rax
-  _QWORD v7[2]; // [rsp+50h] [rbp-18h] BYREF
+  _QWORD v10[3]; // [rsp+20h] [rbp-18h] BYREF
 
   if ( KeGetCurrentIrql() )
   {
-    WdLogSingleEntry1(1LL, 2852LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"KeGetCurrentIrql() == PASSIVE_LEVEL",
-      2852LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 2720LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 2854LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pAdapterToFlush", 2854LL, 0LL, 0LL, 0LL, 0LL);
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 2722LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  if ( this[28] != KeGetCurrentThread() )
+  if ( this[23] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 2855LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DeviceCreationLock.IsExclusiveOwner()",
-      2855LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 2723LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v4 = (char *)(this + 40);
-  v5 = this[40];
-  v7[0] = v4;
+  v7 = (char *)(this + 35);
+  v8 = this[35];
+  v10[0] = v7;
   while ( 1 )
   {
-    v7[1] = v5;
-    Current = (_QWORD *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v7);
+    v10[1] = v8;
+    Current = (_QWORD *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v10);
     if ( !Current )
       break;
     if ( *(const struct DXGADAPTER **)(Current[2] + 16LL) == a2 )
-      DXGDEVICE::FlushScheduler(Current, 5u, 0xFFFFFFFD, 0);
-    v5 = *(struct _KTHREAD **)v5;
+      DXGDEVICE::FlushScheduler(Current, 5u);
+    v8 = *(struct _KTHREAD **)v8;
   }
 }

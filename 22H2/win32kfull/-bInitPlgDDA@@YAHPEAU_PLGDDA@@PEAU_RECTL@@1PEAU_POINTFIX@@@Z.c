@@ -1,931 +1,809 @@
 /*
- * XREFs of ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FE124
+ * XREFs of ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02D54FC
  * Callers:
- *     EngPlgBlt @ 0x1C028F8F0 (EngPlgBlt.c)
+ *     EngPlgBlt @ 0x1C028BFC0 (EngPlgBlt.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bSubOverflow@@YAHJJ@Z @ 0x1C015A73E (-bSubOverflow@@YAHJJ@Z.c)
- *     ?bSubOverflow@@YAH_J0@Z @ 0x1C015ECEE (-bSubOverflow@@YAH_J0@Z.c)
- *     QDIV @ 0x1C02FE010 (QDIV.c)
- *     ROT_DIV @ 0x1C02FE078 (ROT_DIV.c)
- *     ?bAddOverflow@@YAH_J0@Z @ 0x1C02FE0D8 (-bAddOverflow@@YAH_J0@Z.c)
- *     ?bMulOverflow@@YAH_J0@Z @ 0x1C02FF444 (-bMulOverflow@@YAH_J0@Z.c)
- *     bScalePlgDDALToPlgDDA @ 0x1C02FF4CC (bScalePlgDDALToPlgDDA.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?bSubOverflow@@YAHJJ@Z @ 0x1C014727C (-bSubOverflow@@YAHJJ@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     QDIV @ 0x1C02D5418 (QDIV.c)
+ *     ROT_DIV @ 0x1C02D5468 (ROT_DIV.c)
+ *     ?bAddOverflow@@YAH_J0@Z @ 0x1C02D54B8 (-bAddOverflow@@YAH_J0@Z.c)
+ *     ?bMulOverflow@@YAH_J0@Z @ 0x1C02D6808 (-bMulOverflow@@YAH_J0@Z.c)
+ *     bScalePlgDDALToPlgDDA @ 0x1C02D688C (bScalePlgDDALToPlgDDA.c)
+ *     ?bSubOverflow@@YAH_J0@Z @ 0x1C02D7514 (-bSubOverflow@@YAH_J0@Z.c)
  */
 
-__int64 __fastcall bInitPlgDDA(struct _PLGDDA *a1, struct _RECTL *a2, struct _RECTL *a3, struct _POINTFIX *a4)
+void *__fastcall bInitPlgDDA(struct _PLGDDA *a1, struct _RECTL *a2, struct _RECTL *a3, struct _POINTFIX *a4)
 {
-  unsigned int v7; // ebx
-  __int64 result; // rax
+  unsigned int v6; // ebx
+  void *result; // rax
   __int64 v9; // rdi
-  struct _POINTFIX v10; // rcx
-  __int64 v11; // rax
+  struct _POINTFIX v10; // r8
+  unsigned __int64 v11; // r11
   struct _POINTFIX v12; // r14
-  int v13; // r15d
-  int x; // r13d
-  int v15; // r14d
   LONG left; // r9d
-  int v17; // eax
-  LONG top; // edx
-  int v19; // eax
-  int v20; // r9d
+  int v14; // r15d
+  int x; // r12d
+  unsigned __int64 v16; // r8
+  unsigned __int64 v17; // r11
+  unsigned __int64 v18; // r14
+  int v19; // r10d
+  LONG top; // r12d
+  int v21; // r9d
+  int v22; // r9d
   LONG right; // r13d
-  int v22; // eax
-  int v23; // r10d
-  int v24; // eax
+  int v24; // ecx
   int v25; // r9d
-  LONG v26; // r12d
-  int v27; // eax
-  int v28; // r10d
-  LONG bottom; // esi
-  int v30; // eax
-  int v31; // r9d
-  int v32; // r10d
-  int v33; // r11d
-  __int64 *p_left; // r11
-  __int64 v35; // rax
-  unsigned int v36; // ecx
-  int v37; // edx
-  int v38; // edx
-  int v39; // edx
-  int v40; // edx
-  int v41; // r8d
-  __int64 v42; // r13
-  __int64 v43; // r12
-  __int64 v44; // rdx
-  __int64 v45; // r9
-  __int64 v46; // rcx
+  int v26; // ecx
+  __int64 v27; // rcx
+  int v28; // edx
+  __int64 v29; // r9
+  int v30; // edx
+  int v31; // edx
+  int v32; // ecx
+  int v33; // edx
+  __int64 v34; // r13
+  __int64 v35; // r12
+  __int64 v36; // r8
+  __int64 v37; // r9
+  __int64 v38; // r10
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // r11
+  __int64 v42; // r15
+  __int64 v43; // r14
+  __int64 v44; // rax
+  __int64 v45; // rcx
+  __int64 v46; // rsi
   __int64 v47; // r8
-  __int64 v48; // rsi
-  __int64 v49; // r14
-  __int64 v50; // r15
-  __int64 v51; // r11
+  __int64 v48; // rax
+  __int64 v49; // r8
+  __int64 v50; // rdx
+  __int64 v51; // rsi
   __int64 v52; // rax
-  __int64 v53; // rcx
-  __int64 v54; // r8
-  __int64 v55; // rax
-  __int64 v56; // rsi
-  __int64 v57; // r8
-  __int64 v58; // rax
-  __int64 v59; // r8
-  __int64 v60; // rdx
-  __int64 v61; // rsi
-  __int64 v62; // rax
-  __int64 v63; // r9
+  __int64 v53; // r9
+  __int64 v54; // r10
+  __int64 v55; // r11
+  __int64 v56; // r15
+  __int64 v57; // rsi
+  __int64 v58; // rcx
+  __int64 v59; // rcx
+  __int64 v60; // r9
+  __int64 v61; // rcx
+  __int64 v62; // r10
+  __int64 v63; // rdx
   __int64 v64; // r10
-  __int64 v65; // r11
-  __int64 v66; // r15
-  __int64 v67; // r14
-  int v68; // eax
-  __int64 v69; // rdx
-  __int64 v70; // r10
-  __int64 v71; // rcx
-  signed __int64 v72; // r9
-  int v73; // eax
-  __int64 v74; // rcx
-  signed __int64 v75; // r10
-  int v76; // eax
-  __int64 v77; // rdx
-  __int64 v78; // r10
-  int v79; // eax
-  __int64 v80; // r9
-  unsigned int v81; // r11d
-  unsigned __int64 v82; // rsi
-  __int64 v83; // r8
-  unsigned __int64 v84; // r8
-  __int64 v85; // r9
-  __int64 v86; // r10
-  __int64 v87; // rdx
-  unsigned __int64 v88; // rcx
+  __int64 v65; // rcx
+  unsigned int v66; // r11d
+  unsigned __int64 v67; // r14
+  __int64 v68; // r8
+  unsigned __int64 v69; // r8
+  _OWORD *v70; // rcx
+  __int64 v71; // r9
+  __int64 v72; // r10
+  __int64 v73; // rdx
+  unsigned __int64 v74; // rcx
+  __int128 v75; // kr00_16
+  __int64 v76; // r8
+  unsigned __int64 v77; // rdx
+  __int64 v78; // rdx
+  unsigned __int64 v79; // rcx
+  __int64 v80; // rcx
+  __int64 v81; // r9
+  __int64 v82; // rcx
+  __int64 v83; // r11
+  __int64 v84; // r9
+  __int64 v85; // r10
+  __int128 *v86; // rcx
+  __int128 v87; // xmm0
+  __int64 v88; // xmm1_8
   __int64 v89; // r8
-  __int64 v90; // rdx
-  __int64 v91; // r8
-  unsigned __int64 v92; // rdx
-  __int64 v93; // rdx
-  unsigned __int64 v94; // rcx
+  __int64 v90; // r9
+  __int128 *v91; // rcx
+  __int128 v92; // xmm0
+  __int64 v93; // xmm1_8
+  __int64 v94; // rcx
   __int64 v95; // rcx
-  __int64 v96; // r11
-  int v97; // eax
-  __int64 v98; // rcx
-  int v99; // eax
-  __int64 v100; // r9
+  __int64 v96; // r9
+  __int64 v97; // r14
+  __int64 v98; // r9
+  __int64 v99; // r11
+  __int64 v100; // rcx
   __int64 v101; // r10
-  __int64 v102; // rdx
-  __int64 v103; // r11
-  __int128 *v104; // rcx
-  __int128 v105; // xmm0
-  __int64 v106; // xmm1_8
-  __int64 v107; // r8
-  __int64 v108; // r10
-  __int128 *v109; // rcx
-  __int128 v110; // xmm0
-  __int64 v111; // xmm1_8
-  __int64 v112; // rcx
-  __int64 v113; // rcx
-  __int64 v114; // r10
-  __int64 v115; // rsi
-  __int64 v116; // r9
-  __int64 v117; // r11
-  int v118; // eax
-  __int64 v119; // rdx
-  __int64 v120; // r9
-  unsigned int v121; // r9d
-  __int64 v122; // r11
-  __int64 v123; // r10
-  __int64 v124; // r9
-  __int64 v125; // r11
-  __int64 v126; // r12
-  __int64 v127; // r13
-  int v128; // eax
-  __int64 v129; // r11
-  int v130; // eax
-  __int64 v131; // r14
-  __int64 v132; // r12
-  __int64 v133; // r13
-  __int64 v134; // r9
-  int v135; // eax
-  __int64 v136; // rdx
+  __int64 v102; // r9
+  __int64 v103; // r9
+  __int64 v104; // r12
+  __int64 v105; // r13
+  __int64 v106; // r9
+  __int64 v107; // rdx
+  __int64 v108; // r9
+  __int64 v109; // rsi
+  __int64 v110; // r12
+  __int64 v111; // rax
+  __int64 v112; // r9
+  __int64 v113; // rdx
+  __int64 v114; // r9
+  __int64 v115; // r13
+  __int64 v116; // r12
+  __int64 v117; // rdx
+  __int64 v118; // r12
+  __int64 v119; // r9
+  __int64 v120; // r12
+  __int64 v121; // r9
+  __int64 v122; // r9
+  __int64 v123; // r12
+  __int64 v124; // rdx
+  __int64 v125; // r9
+  __int64 v126; // r10
+  __int64 v127; // r11
+  __int64 v128; // r9
+  bool v129; // zf
+  __int64 v130; // r10
+  __int64 v131; // rcx
+  __int64 v132; // rdx
+  __int64 v133; // r9
+  __int64 v134; // rcx
+  __int64 v135; // rdx
+  __int64 v136; // r9
   __int64 v137; // r9
-  unsigned int v138; // r11d
-  int v139; // eax
-  __int64 v140; // rdx
-  __int64 v141; // r10
-  signed __int64 v142; // r9
-  __int64 v143; // r10
-  int v144; // eax
-  __int64 v145; // rdx
-  __int64 v146; // r9
+  __int64 v138; // rdx
+  __int64 v139; // r9
+  __int64 v140; // rcx
+  __int64 v141; // r9
+  unsigned __int64 v142; // r8
+  __int64 v143; // r11
+  __int64 v144; // r9
+  __int64 v145; // r10
+  __int64 v146; // r11
   __int64 v147; // r10
   __int64 v148; // r9
-  int v149; // eax
-  __int64 v150; // rdx
+  __int64 v149; // r11
+  __int64 *v150; // r13
   __int64 v151; // r9
-  __int64 v152; // r10
-  signed __int64 v153; // r10
-  __int64 v154; // r9
-  int v155; // eax
-  __int64 v156; // rdx
-  __int64 v157; // r10
-  int v158; // eax
+  __int64 v152; // r9
+  __int64 v153; // r10
+  __int64 v154; // r11
+  __int64 v155; // rcx
+  __int64 v156; // r10
+  unsigned __int64 v157; // r8
+  __int64 v158; // r11
   __int64 v159; // r9
-  __int64 v160; // r11
-  int v161; // eax
-  __int64 v162; // rdx
+  __int64 v160; // r10
+  __int64 v161; // r11
+  __int64 v162; // r10
   __int64 v163; // r9
-  __int64 v164; // r10
+  __int64 v164; // r11
   __int64 v165; // r9
-  __int64 v166; // r10
-  int v167; // eax
-  __int64 v168; // rdx
-  __int64 v169; // r9
-  int v170; // eax
-  __int64 v171; // r9
-  __int64 v172; // r10
-  unsigned __int64 v173; // r8
-  __int64 v174; // r11
-  __int64 v175; // r9
-  __int64 v176; // r10
-  __int64 v177; // r11
-  __int64 v178; // r10
+  __int64 v166; // r9
+  __int64 v167; // r10
+  __int64 v168; // r11
+  __int64 v169; // rcx
+  __int64 v170; // r10
+  unsigned __int64 v171; // r8
+  __int64 v172; // r9
+  __int64 v173; // rdx
+  __int64 v174; // r9
+  unsigned int v175; // r11d
+  __int64 v176; // rcx
+  __int64 v177; // r9
+  __int64 v178; // r11
   __int64 v179; // r9
   __int64 v180; // r11
-  int v181; // eax
-  __int64 v182; // r9
-  __int64 v183; // r9
-  __int64 v184; // r10
-  __int64 v185; // r11
-  int v186; // eax
-  __int64 v187; // r9
-  __int64 v188; // r10
-  unsigned __int64 v189; // r8
+  __int64 v181; // r9
+  __int64 v182; // r11
+  __int64 v183; // rdx
+  __int64 v184; // r9
+  __int64 v185; // r10
+  __int64 v186; // r11
+  __int64 v187; // rsi
+  __int64 v188; // r9
+  __int64 v189; // r10
   __int64 v190; // r11
-  __int64 v191; // r9
-  __int64 v192; // r10
-  __int64 v193; // r11
-  __int64 v194; // r10
-  __int64 v195; // r9
-  __int64 v196; // r11
-  int v197; // eax
-  __int64 v198; // r9
+  __int64 v191; // rdx
+  __int64 v192; // r9
+  __int64 v193; // r9
+  __int64 v194; // r13
+  __int64 v195; // r15
+  __int64 v196; // rdx
+  __int64 v197; // r9
+  __int64 v198; // r10
   __int64 v199; // r9
   __int64 v200; // r10
-  __int64 v201; // r11
-  int v202; // eax
-  __int64 v203; // r9
-  __int64 v204; // r10
-  unsigned __int64 v205; // r8
+  __int64 v201; // rdx
+  __int64 v202; // r9
+  __int64 v203; // rdx
+  unsigned __int64 v204; // r8
+  __int64 v205; // r11
   __int64 v206; // r9
-  int v207; // eax
-  __int64 v208; // rdx
+  __int64 v207; // r10
+  __int64 v208; // r11
   __int64 v209; // r9
-  signed __int64 v210; // r11
-  int v211; // eax
+  __int64 v210; // r11
+  __int64 *v211; // r13
   __int64 v212; // r10
-  signed __int64 v213; // r9
+  __int64 v213; // r9
   __int64 v214; // r10
-  int v215; // eax
+  __int64 v215; // r11
   __int64 v216; // r9
   __int64 v217; // r10
-  signed __int64 v218; // r11
-  __int64 v219; // r10
-  int v220; // eax
-  __int64 v221; // rdx
-  __int64 v222; // r10
-  __int64 v223; // r11
-  __int64 v224; // r14
-  __int64 v225; // r9
-  __int64 v226; // r10
-  int v227; // eax
-  __int64 v228; // rdx
-  __int64 v229; // r9
-  int v230; // eax
-  __int64 v231; // r9
-  __int64 v232; // r15
-  int v233; // eax
-  __int64 v234; // rdx
-  __int64 v235; // r9
-  __int64 v236; // r10
-  __int64 v237; // r9
-  __int64 v238; // r10
-  int v239; // eax
-  __int64 v240; // rdx
-  __int64 v241; // r9
-  int v242; // eax
-  __int64 v243; // rdx
-  __int64 v244; // r9
-  unsigned __int64 v245; // r8
-  __int64 v246; // r11
-  __int64 v247; // r9
-  __int64 v248; // r10
-  __int64 v249; // r11
-  __int64 v250; // r9
-  __int64 v251; // r11
-  int v252; // eax
-  __int64 v253; // r10
-  __int64 v254; // r9
-  __int64 v255; // r10
-  __int64 v256; // r11
-  int v257; // eax
-  __int64 v258; // r9
-  __int64 v259; // r10
-  unsigned __int64 v260; // r8
-  __int64 v261; // r11
-  __int64 v262; // r9
-  __int64 v263; // r10
-  __int64 v264; // r11
-  __int64 v265; // rsi
-  __int64 v266; // r11
-  __int64 v267; // r13
-  int v268; // eax
-  __int64 v269; // rsi
-  __int64 v270; // r9
-  __int64 v271; // r9
-  __int64 v272; // r10
-  int v273; // eax
-  __int64 v274; // r9
-  unsigned __int64 v275; // r8
-  __int64 v276; // rdx
-  __int64 v277; // xmm1_8
-  __int128 v278; // xmm0
-  __int64 v279; // xmm1_8
-  __int128 v280; // xmm0
-  __int64 v281; // xmm1_8
-  __int128 v282; // xmm0
-  __int64 v283; // xmm1_8
-  __int128 v284; // xmm0
-  __int64 v285; // xmm1_8
-  __int128 v286; // xmm0
-  __int64 v287; // xmm1_8
-  struct _PLGDDA *v288; // rdx
-  __int64 v289; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v290; // [rsp+28h] [rbp-D8h]
-  __int64 v291; // [rsp+30h] [rbp-D0h]
-  __int64 v292; // [rsp+38h] [rbp-C8h]
-  __int64 v293; // [rsp+40h] [rbp-C0h]
-  __int64 v294; // [rsp+48h] [rbp-B8h]
-  __int64 v295; // [rsp+50h] [rbp-B0h]
-  __int64 v296; // [rsp+58h] [rbp-A8h]
-  __int64 v297; // [rsp+60h] [rbp-A0h]
-  __int64 v298[2]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v299; // [rsp+78h] [rbp-88h]
-  __int64 v300; // [rsp+80h] [rbp-80h]
-  __int64 v301; // [rsp+88h] [rbp-78h]
-  __int64 v302; // [rsp+90h] [rbp-70h]
-  __int64 v303; // [rsp+98h] [rbp-68h]
-  __int64 v304; // [rsp+A0h] [rbp-60h]
-  __int64 v305; // [rsp+A8h] [rbp-58h]
-  __int64 v306; // [rsp+B0h] [rbp-50h]
-  __int64 v307; // [rsp+B8h] [rbp-48h]
-  __int64 v308; // [rsp+C0h] [rbp-40h]
-  struct _PLGDDA *v309; // [rsp+C8h] [rbp-38h]
-  __int64 v310[2]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v311; // [rsp+E0h] [rbp-20h]
-  __int128 v312; // [rsp+E8h] [rbp-18h] BYREF
-  __int64 v313; // [rsp+F8h] [rbp-8h]
-  struct _POINTFIX v314; // [rsp+100h] [rbp+0h]
-  struct _POINTFIX v315; // [rsp+108h] [rbp+8h]
-  int v316; // [rsp+110h] [rbp+10h]
-  int v317; // [rsp+114h] [rbp+14h]
+  unsigned __int64 v218; // r8
+  __int64 v219; // r11
+  __int64 v220; // r9
+  __int64 v221; // r10
+  __int64 v222; // r11
+  __int64 v223; // r14
+  __int64 v224; // r11
+  __int64 v225; // r13
+  __int64 v226; // r14
+  __int64 v227; // r9
+  __int64 v228; // r9
+  __int64 v229; // r10
+  __int64 v230; // r9
+  unsigned __int64 v231; // r8
+  __int64 v232; // rdx
+  __int64 v233; // xmm1_8
+  __int128 v234; // xmm0
+  __int64 v235; // xmm1_8
+  __int128 *v236; // rcx
+  __int128 v237; // xmm0
+  __int64 v238; // xmm1_8
+  __int128 v239; // xmm0
+  __int64 v240; // xmm1_8
+  __int128 v241; // xmm0
+  __int64 v242; // xmm1_8
+  __int128 v243; // xmm0
+  __int64 v244; // xmm1_8
+  struct _PLGDDA *v245; // rdx
+  __int64 v246[2]; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v247; // [rsp+30h] [rbp-D0h]
+  __int64 v248; // [rsp+38h] [rbp-C8h]
+  __int64 v249; // [rsp+40h] [rbp-C0h]
+  __int64 v250; // [rsp+48h] [rbp-B8h]
+  __int64 v251; // [rsp+50h] [rbp-B0h]
+  __int64 *p_left; // [rsp+58h] [rbp-A8h]
+  __int64 v253; // [rsp+60h] [rbp-A0h]
+  __int64 v254; // [rsp+68h] [rbp-98h]
+  __int64 v255; // [rsp+70h] [rbp-90h]
+  __int64 v256; // [rsp+78h] [rbp-88h]
+  __int64 v257; // [rsp+80h] [rbp-80h]
+  __int64 v258; // [rsp+88h] [rbp-78h]
+  __int64 v259; // [rsp+90h] [rbp-70h]
+  __int64 v260; // [rsp+98h] [rbp-68h]
+  __int64 v261; // [rsp+A0h] [rbp-60h]
+  __int64 v262; // [rsp+A8h] [rbp-58h]
+  __int64 v263; // [rsp+B0h] [rbp-50h]
+  __int64 v264; // [rsp+B8h] [rbp-48h]
+  struct _PLGDDA *v265; // [rsp+C0h] [rbp-40h]
+  __int64 v266[2]; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v267; // [rsp+D8h] [rbp-28h]
+  __int128 v268; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v269; // [rsp+F0h] [rbp-10h]
+  unsigned __int64 v270; // [rsp+F8h] [rbp-8h]
+  struct _POINTFIX v271; // [rsp+100h] [rbp+0h]
+  struct _POINTFIX v272; // [rsp+108h] [rbp+8h]
+  int v273; // [rsp+110h] [rbp+10h]
+  int v274; // [rsp+114h] [rbp+14h]
 
-  v309 = a1;
-  *(_OWORD *)v310 = 0LL;
-  v312 = 0LL;
-  v7 = 0;
-  result = Win32AllocPoolZInit(792LL, 1633969223LL);
-  v9 = result;
+  p_left = (__int64 *)&a2->left;
+  v265 = a1;
+  v6 = 0;
+  *(_OWORD *)v266 = 0LL;
+  v268 = 0LL;
+  result = PALLOCMEM2(0x318uLL, 1633969223LL, 1);
+  v9 = (__int64)result;
   if ( result )
   {
     v10 = a4[1];
-    v11 = (__int64)*a4;
+    v11 = (unsigned __int64)*a4;
     v12 = a4[2];
-    v13 = v12.x + v10.x - v11;
-    v315 = v12;
-    x = v12.x;
-    v313 = v11;
-    v314 = v10;
-    v10 = (struct _POINTFIX)HIDWORD(*(unsigned __int64 *)&v10);
-    v15 = v10.x + v12.y - HIDWORD(v11);
-    v316 = v13;
-    v317 = v15;
-    ((void (__fastcall *)(_QWORD))SGDGetSessionState)(v10);
     left = a3->left;
-    if ( a3->left || a3->top )
+    v14 = v12.x + v10.x - v11;
+    v271 = v10;
+    x = v12.x;
+    v16 = HIDWORD(*(unsigned __int64 *)&v10);
+    v270 = v11;
+    v17 = HIDWORD(v11);
+    v272 = v12;
+    v18 = HIDWORD(*(unsigned __int64 *)&v12);
+    v19 = v18 + v16 - v17;
+    v273 = v14;
+    v274 = v19;
+    if ( left || a3->top )
     {
-      LODWORD(v290) = a2->left;
-      LOBYTE(v17) = bSubOverflow(v290, left);
-      if ( v17 )
-        goto LABEL_175;
+      LODWORD(v248) = a2->left;
+      if ( bSubOverflow(v248, left) )
+        goto LABEL_176;
       top = a3->top;
-      LODWORD(v289) = a2->top;
-      LOBYTE(v19) = bSubOverflow(v289, top);
-      if ( v19 )
-        goto LABEL_175;
-      right = a2->right;
-      LOBYTE(v22) = bSubOverflow(right, v20);
-      if ( v22 )
-        goto LABEL_175;
-      LOBYTE(v24) = bSubOverflow(a2->bottom, v23);
-      if ( v24 )
-        goto LABEL_175;
-      v26 = a3->right;
-      LOBYTE(v27) = bSubOverflow(v26, v25);
-      if ( v27 )
-        goto LABEL_175;
-      bottom = a3->bottom;
-      LOBYTE(v30) = bSubOverflow(bottom, v28);
+      LODWORD(v249) = a2->top;
+      if ( bSubOverflow(v249, top) )
+        goto LABEL_176;
+      LODWORD(v247) = a2->right;
+      if ( bSubOverflow(v247, v21) )
+        goto LABEL_176;
+      LODWORD(v246[0]) = a2->bottom;
+      if ( bSubOverflow(v246[0], top) )
+        goto LABEL_176;
+      right = a3->right;
+      if ( bSubOverflow(right, v22) || bSubOverflow(a3->bottom, top) )
+        goto LABEL_176;
+      a3 = (struct _RECTL *)&v268;
+      LODWORD(v266[0]) = v248 - v25;
+      DWORD2(v268) = right - v25;
+      HIDWORD(v266[0]) = v249 - top;
+      LODWORD(v266[1]) = v247 - v25;
+      v26 = v24 - top;
+      HIDWORD(v266[1]) = LODWORD(v246[0]) - top;
+      x = v272.x;
+      p_left = v266;
+      HIDWORD(v268) = v26;
+    }
+    v27 = ((int)v16 <= v19) ^ (unsigned int)((int)v16 > (int)v17);
+    v28 = ((int)v16 <= v19) ^ ((int)v16 > (int)v17);
+    if ( *((_DWORD *)&v270 + 2 * v27 + 1) > *((_DWORD *)&v270 + 2 * ((unsigned int)v27 ^ 3LL) + 1) )
+      v28 ^= 3u;
+    v29 = 0LL;
+    if ( v28 )
+    {
+      v30 = v28 - 1;
       if ( v30 )
-        goto LABEL_175;
-      LODWORD(v310[1]) = right - v31;
-      x = v315.x;
-      LODWORD(v310[0]) = v290 - v31;
-      HIDWORD(v310[1]) = v33 - v32;
-      HIDWORD(v310[0]) = v289 - v32;
-      HIDWORD(v312) = bottom - v32;
-      p_left = v310;
-      a3 = (struct _RECTL *)&v312;
-      DWORD2(v312) = v26 - v31;
-    }
-    else
-    {
-      p_left = (__int64 *)&a2->left;
-    }
-    v35 = (v314.y > SHIDWORD(v313)) ^ (unsigned int)(v314.y <= v15);
-    v36 = 0;
-    v37 = (v314.y > SHIDWORD(v313)) ^ (v314.y <= v15);
-    if ( *((_DWORD *)&v313 + 2 * (unsigned int)v35 + 1) > *((_DWORD *)&v313 + 2 * (v35 ^ 3) + 1) )
-      v37 ^= 3u;
-    if ( !v37 )
-    {
-      if ( v314.y >= v315.y && (v314.y > v315.y || v314.x >= x) )
       {
-        v36 = 1;
-        goto LABEL_42;
-      }
-      goto LABEL_40;
-    }
-    v38 = v37 - 1;
-    if ( v38 )
-    {
-      v39 = v38 - 1;
-      if ( v39 )
-      {
-        if ( v39 == 1 )
+        v31 = v30 - 1;
+        if ( v31 )
         {
-          if ( v314.y < v315.y || v314.y <= v315.y && v314.x < x )
+          if ( v31 == 1 )
           {
-            v36 = 6;
-LABEL_42:
-            v40 = a3->bottom - a3->top;
-            v41 = a3->right - a3->left;
-            goto LABEL_43;
-          }
-          v36 = 7;
-        }
-LABEL_40:
-        v40 = a3->right - a3->left;
-        v41 = a3->bottom - a3->top;
-LABEL_43:
-        v42 = v41;
-        v43 = v40;
-        if ( !v40 )
-          goto LABEL_175;
-        if ( !v41 )
-          goto LABEL_175;
-        v44 = *((int *)p_left + 1);
-        v45 = v36;
-        v46 = *(int *)p_left;
-        v47 = 3 * v45;
-        v45 *= 2LL;
-        v48 = dword_1C0329FC0[2 * v47];
-        v49 = dword_1C0329FB0[2 * v47];
-        v50 = dword_1C0329FB4[2 * v47];
-        v51 = (v43 - 1) * dword_1C0329FB8[2 * v47];
-        v293 = dword_1C0329FBC[2 * v47];
-        v300 = v48;
-        v302 = v49;
-        v295 = v50;
-        v297 = v50 * v44 + v49 * v46 + v51;
-        v52 = v46 * v293;
-        v53 = dword_1C032A074[2 * v45];
-        v54 = v52 + (v42 - 1) * dword_1C0329FC4[2 * v47];
-        v55 = v44 * v48;
-        v56 = *((int *)&v313 + 2 * v53);
-        v57 = v55 + v54;
-        v58 = dword_1C032A070[2 * v45];
-        v296 = v57;
-        v59 = *((int *)&v313 + 2 * v58);
-        v60 = *((int *)&v313 + 2 * v58 + 1);
-        v61 = v56 - v59;
-        v62 = dword_1C032A078[2 * v45];
-        v63 = *((int *)&v313 + 2 * v53 + 1) - v60;
-        v304 = v59;
-        v305 = v60;
-        v64 = *((int *)&v313 + 2 * v62) - v59;
-        v65 = *((int *)&v313 + 2 * v62 + 1) - v60;
-        v294 = v61;
-        v291 = v64;
-        v292 = v63;
-        v290 = v65;
-        if ( v61 )
-        {
-          if ( (unsigned int)bMulOverflow(v42, v61) )
-            goto LABEL_175;
-        }
-        if ( v63 && (unsigned int)bMulOverflow(v42, v63) )
-          goto LABEL_175;
-        if ( v64 && (unsigned int)bMulOverflow(v43, v64) )
-          goto LABEL_175;
-        if ( v65 && (unsigned int)bMulOverflow(v43, v65) )
-          goto LABEL_175;
-        v66 = v65 * v43;
-        v301 = v61 * v42;
-        v67 = v63 * v42;
-        v303 = v64 * v43;
-        if ( !(v65 * v43) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v43, v42) )
-          goto LABEL_175;
-        LOBYTE(v68) = bAddOverflow(v305, 16LL);
-        if ( v68 )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v43 * v42, v69 + v70) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v297, v67) )
-          goto LABEL_175;
-        LOBYTE(v73) = bAddOverflow(v72, v71 * v67);
-        if ( v73 )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v296, v66) )
-          goto LABEL_175;
-        LOBYTE(v76) = bAddOverflow(v75, v74 * v66);
-        if ( v76 )
-          goto LABEL_175;
-        LOBYTE(v79) = bSubOverflow(v78 + v77, 1LL);
-        if ( v79 )
-          goto LABEL_175;
-        v289 = v80 - 1;
-        if ( (unsigned int)bMulOverflow(v43 * v42, v81) )
-          goto LABEL_175;
-        v82 = 16 * v43 * v42;
-        if ( !v82 )
-          goto LABEL_175;
-        v311 = 0LL;
-        v299 = 0LL;
-        *(_OWORD *)v310 = 0LL;
-        *(_OWORD *)v298 = 0LL;
-        ROT_DIV(v310, v67, v82);
-        ROT_DIV(v298, v66, v83);
-        QDIV((unsigned __int64 *)(v9 + 8), (unsigned __int64 *)&v289, v84);
-        v85 = v310[0];
-        v86 = v310[1];
-        *(_OWORD *)(v9 + 24) = *(_OWORD *)(v9 + 8);
-        v87 = v85 + *(_QWORD *)(v9 + 24);
-        v88 = v86 + *(_QWORD *)(v9 + 32);
-        *(_QWORD *)(v9 + 24) = v87;
-        *(_QWORD *)(v9 + 32) = v88;
-        if ( v88 >= v82 )
-        {
-          *(_QWORD *)(v9 + 24) = v87 + 1;
-          *(_QWORD *)(v9 + 32) = v88 - v82;
-        }
-        v89 = v298[0];
-        v90 = v298[1];
-        *(_OWORD *)(v9 + 40) = *(_OWORD *)(v9 + 8);
-        v91 = *(_QWORD *)(v9 + 40) + v89;
-        v92 = *(_QWORD *)(v9 + 48) + v90;
-        *(_QWORD *)(v9 + 40) = v91;
-        *(_QWORD *)(v9 + 48) = v92;
-        if ( v92 >= v82 )
-        {
-          *(_QWORD *)(v9 + 40) = v91 + 1;
-          *(_QWORD *)(v9 + 48) = v92 - v82;
-        }
-        *(_OWORD *)(v9 + 56) = *(_OWORD *)(v9 + 40);
-        v93 = v85 + *(_QWORD *)(v9 + 56);
-        v94 = v86 + *(_QWORD *)(v9 + 64);
-        *(_QWORD *)(v9 + 56) = v93;
-        *(_QWORD *)(v9 + 64) = v94;
-        if ( v94 >= v82 )
-        {
-          *(_QWORD *)(v9 + 56) = v93 + 1;
-          *(_QWORD *)(v9 + 64) = v94 - v82;
-        }
-        if ( (unsigned int)bMulOverflow(v302, v67) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v293, v66) )
-          goto LABEL_175;
-        LOBYTE(v97) = bAddOverflow(v96 * v67, v95 * v66);
-        if ( v97 )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v295, v67) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v300, v66) )
-          goto LABEL_175;
-        v298[0] = v295 * v67;
-        LOBYTE(v99) = bAddOverflow(v295 * v67, v98 * v66);
-        if ( v99 )
-          goto LABEL_175;
-        ROT_DIV((__int64 *)(v9 + 264), v101 + v100, v82);
-        v102 = v298[0];
-        *(_QWORD *)(v9 + 280) = v82;
-        v105 = *v104;
-        v106 = *((_QWORD *)v104 + 2);
-        *(_OWORD *)(v9 + 288) = *v104;
-        *(_OWORD *)(v9 + 312) = v105;
-        *(_OWORD *)(v9 + 336) = v105;
-        *(_QWORD *)(v9 + 304) = v106;
-        *(_QWORD *)(v9 + 328) = v106;
-        *(_QWORD *)(v9 + 352) = v106;
-        ROT_DIV((__int64 *)(v9 + 360), v103 + v102, v107);
-        v108 = v290;
-        *(_QWORD *)(v9 + 376) = v82;
-        v110 = *v109;
-        v111 = *((_QWORD *)v109 + 2);
-        v112 = v294;
-        *(_OWORD *)(v9 + 384) = v110;
-        *(_OWORD *)(v9 + 408) = v110;
-        *(_OWORD *)(v9 + 432) = v110;
-        *(_QWORD *)(v9 + 400) = v111;
-        *(_QWORD *)(v9 + 424) = v111;
-        *(_QWORD *)(v9 + 448) = v111;
-        if ( (unsigned int)bMulOverflow(v112, v108) )
-          goto LABEL_175;
-        v115 = v113 * v114;
-        if ( (unsigned int)bMulOverflow(v292, v291) )
-          goto LABEL_175;
-        v289 = v117 * v116;
-        LOBYTE(v118) = bSubOverflow(v115, v117 * v116);
-        if ( v118 )
-          goto LABEL_175;
-        v306 = v120 - v119;
-        *(_OWORD *)v298 = 0LL;
-        *(_OWORD *)v310 = 0LL;
-        if ( (unsigned int)bMulOverflow(v43, 16LL) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v42, v121) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v302, v122) )
-          goto LABEL_175;
-        if ( (unsigned int)bMulOverflow(v293, v123) )
-          goto LABEL_175;
-        v126 = 16 * v43;
-        if ( !v126 )
-          goto LABEL_175;
-        v127 = 16 * v42;
-        if ( !v127 )
-          goto LABEL_175;
-        ROT_DIV(v298, v124 * v125, v126);
-        ROT_DIV(v310, v293 * v290, v127);
-        v307 = v310[0];
-        v308 = v298[0];
-        LOBYTE(v128) = bAddOverflow(v298[0], v310[0]);
-        if ( v128 )
-          goto LABEL_175;
-        ROT_DIV(v298, v295 * v129, v126);
-        ROT_DIV(v310, v300 * v290, v127);
-        *(_QWORD *)&v312 = v310[0];
-        LOBYTE(v130) = bAddOverflow(v298[0], v310[0]);
-        if ( v130 )
-          goto LABEL_175;
-        if ( !v67 )
-        {
-          v131 = 0LL;
-          v132 = v292;
-          v133 = v289;
-          *(_QWORD *)(v9 + 648) = 0LL;
-          *(_QWORD *)(v9 + 656) = 0LL;
-          *(_QWORD *)(v9 + 664) = 0LL;
-          *(_QWORD *)(v9 + 456) = 0LL;
-          *(_QWORD *)(v9 + 464) = 0LL;
-          *(_QWORD *)(v9 + 472) = 0LL;
-          *(_QWORD *)(v9 + 552) = 0LL;
-          *(_QWORD *)(v9 + 560) = 0LL;
-          *(_QWORD *)(v9 + 568) = 0LL;
-          *(_QWORD *)(v9 + 72) = 0LL;
-          *(_QWORD *)(v9 + 80) = 0LL;
-          *(_QWORD *)(v9 + 120) = 0LL;
-          *(_QWORD *)(v9 + 128) = 0LL;
-          *(_QWORD *)(v9 + 744) = 0LL;
-          *(_QWORD *)(v9 + 752) = 0LL;
-          goto LABEL_133;
-        }
-        if ( !(unsigned int)bMulOverflow(*(_QWORD *)(v9 + 8), 16LL) )
-        {
-          LOBYTE(v135) = bSubOverflow(16 * v134, v305);
-          if ( !v135 && !(unsigned int)bMulOverflow(v301, v137 - v136) )
-          {
-            LOBYTE(v139) = bAddOverflow(v304, v138);
-            if ( !v139 )
+            if ( (int)v16 < (int)v18 || (int)v16 <= (int)v18 && v271.x < x )
             {
-              v310[0] = v140 + v141;
-              if ( !(unsigned int)bMulOverflow(v67, v140 + v141) )
+              v29 = 6LL;
+LABEL_19:
+              v32 = a3->bottom - a3->top;
+              v33 = a3->right - a3->left;
+LABEL_20:
+              v34 = v33;
+              v35 = v32;
+              if ( !v32 )
+                goto LABEL_176;
+              if ( !v33 )
+                goto LABEL_176;
+              v36 = 3 * v29;
+              v37 = 2 * v29;
+              v38 = dword_1C02FB86C[2 * v36];
+              v39 = *((int *)p_left + 1);
+              v40 = *(int *)p_left;
+              v41 = dword_1C02FB870[2 * v36];
+              v42 = dword_1C02FB864[2 * v36];
+              v43 = (v35 - 1) * dword_1C02FB868[2 * v36];
+              v253 = SLODWORD((&aiPlgConst)[v36]);
+              v249 = v38;
+              v257 = v41;
+              v255 = v42;
+              v256 = v42 * v39 + v253 * v40 + v43;
+              v44 = v40 * v38;
+              v45 = dword_1C02FB7E4[2 * v37];
+              v46 = *((int *)&v270 + 2 * v45);
+              v47 = v39 * v41 + v44 + (v34 - 1) * dword_1C02FB874[2 * v36];
+              v48 = SLODWORD((&aiPlgSort)[v37]);
+              v250 = v47;
+              v49 = *((int *)&v270 + 2 * v48);
+              v50 = *((int *)&v270 + 2 * v48 + 1);
+              v51 = v46 - v49;
+              v52 = dword_1C02FB7E8[2 * v37];
+              v53 = *((int *)&v270 + 2 * v45 + 1) - v50;
+              v261 = v49;
+              v260 = v50;
+              v54 = *((int *)&v270 + 2 * v52) - v49;
+              v55 = *((int *)&v270 + 2 * v52 + 1) - v50;
+              v254 = v51;
+              v248 = v54;
+              v251 = v53;
+              v247 = v55;
+              if ( v51 )
               {
-                LOBYTE(v144) = bAddOverflow(v142, v67 * v143);
-                if ( !v144 )
+                if ( (unsigned int)bMulOverflow(v34, v51) )
+                  goto LABEL_176;
+              }
+              if ( v53 && (unsigned int)bMulOverflow(v34, v53) )
+                goto LABEL_176;
+              if ( v54 && (unsigned int)bMulOverflow(v35, v54) )
+                goto LABEL_176;
+              if ( v55 && (unsigned int)bMulOverflow(v35, v55) )
+                goto LABEL_176;
+              v56 = v35 * v55;
+              v259 = v34 * v51;
+              v57 = v34 * v53;
+              v258 = v35 * v54;
+              if ( !(v35 * v55) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v35, v34) )
+                goto LABEL_176;
+              if ( bAddOverflow(v260, 16LL) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v34 * v35, v58 + 16) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v256, v57) )
+                goto LABEL_176;
+              if ( bAddOverflow(v60, v59 * v57) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v250, v56) )
+                goto LABEL_176;
+              if ( bAddOverflow(v62, v61 * v56) )
+                goto LABEL_176;
+              if ( (unsigned int)bSubOverflow(v64 + v63, 1LL) )
+                goto LABEL_176;
+              v246[0] = v65 - 1;
+              if ( (unsigned int)bMulOverflow(v34 * v35, v66) )
+                goto LABEL_176;
+              v67 = 16 * v34 * v35;
+              if ( !v67 )
+                goto LABEL_176;
+              v267 = 0LL;
+              v269 = 0LL;
+              *(_OWORD *)v266 = 0LL;
+              v268 = 0LL;
+              ROT_DIV(v266, v57, v67);
+              ROT_DIV((__int64 *)&v268, v56, v68);
+              QDIV((unsigned __int64 *)(v9 + 8), (unsigned __int64 *)v246, v69);
+              v71 = v266[0];
+              v72 = v266[1];
+              *(_OWORD *)(v9 + 24) = *v70;
+              v73 = v71 + *(_QWORD *)(v9 + 24);
+              v74 = v72 + *(_QWORD *)(v9 + 32);
+              *(_QWORD *)(v9 + 24) = v73;
+              *(_QWORD *)(v9 + 32) = v74;
+              if ( v74 >= v67 )
+              {
+                *(_QWORD *)(v9 + 24) = v73 + 1;
+                *(_QWORD *)(v9 + 32) = v74 - v67;
+              }
+              v75 = v268;
+              *(_OWORD *)(v9 + 40) = *(_OWORD *)(v9 + 8);
+              v76 = *(_QWORD *)(v9 + 40) + v75;
+              v77 = *(_QWORD *)(v9 + 48) + *((_QWORD *)&v75 + 1);
+              *(_QWORD *)(v9 + 40) = v76;
+              *(_QWORD *)(v9 + 48) = v77;
+              if ( v77 >= v67 )
+              {
+                *(_QWORD *)(v9 + 40) = v76 + 1;
+                *(_QWORD *)(v9 + 48) = v77 - v67;
+              }
+              *(_OWORD *)(v9 + 56) = *(_OWORD *)(v9 + 40);
+              v78 = v71 + *(_QWORD *)(v9 + 56);
+              v79 = v72 + *(_QWORD *)(v9 + 64);
+              *(_QWORD *)(v9 + 56) = v78;
+              *(_QWORD *)(v9 + 64) = v79;
+              if ( v79 >= v67 )
+              {
+                *(_QWORD *)(v9 + 56) = v78 + 1;
+                *(_QWORD *)(v9 + 64) = v79 - v67;
+              }
+              if ( (unsigned int)bMulOverflow(v253, v57) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v249, v56) )
+                goto LABEL_176;
+              v266[0] = v81 * v57;
+              if ( bAddOverflow(v81 * v57, v80 * v56) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v255, v57) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v257, v56) )
+                goto LABEL_176;
+              if ( bAddOverflow(v255 * v57, v82 * v56) )
+                goto LABEL_176;
+              ROT_DIV((__int64 *)(v9 + 264), v83 + v266[0], v67);
+              *(_QWORD *)(v9 + 280) = v67;
+              v87 = *v86;
+              v88 = *((_QWORD *)v86 + 2);
+              *(_OWORD *)(v9 + 288) = *v86;
+              *(_OWORD *)(v9 + 312) = v87;
+              *(_OWORD *)(v9 + 336) = v87;
+              *(_QWORD *)(v9 + 304) = v88;
+              *(_QWORD *)(v9 + 328) = v88;
+              *(_QWORD *)(v9 + 352) = v88;
+              ROT_DIV((__int64 *)(v9 + 360), v85 + v84, v89);
+              v90 = v247;
+              *(_QWORD *)(v9 + 376) = v67;
+              v92 = *v91;
+              v93 = *((_QWORD *)v91 + 2);
+              v94 = v254;
+              *(_OWORD *)(v9 + 384) = v92;
+              *(_OWORD *)(v9 + 408) = v92;
+              *(_OWORD *)(v9 + 432) = v92;
+              *(_QWORD *)(v9 + 400) = v93;
+              *(_QWORD *)(v9 + 424) = v93;
+              *(_QWORD *)(v9 + 448) = v93;
+              if ( (unsigned int)bMulOverflow(v94, v90) )
+                goto LABEL_176;
+              v97 = v95 * v96;
+              if ( (unsigned int)bMulOverflow(v251, v248) )
+                goto LABEL_176;
+              p_left = (__int64 *)(v98 * v99);
+              if ( (unsigned int)bSubOverflow(v97, v98 * v99) )
+                goto LABEL_176;
+              v262 = v100 - v101;
+              *(_OWORD *)v246 = 0LL;
+              *(_OWORD *)v266 = 0LL;
+              if ( (unsigned int)bMulOverflow(v35, 16LL) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v34, 16LL) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v253, v102) )
+                goto LABEL_176;
+              if ( (unsigned int)bMulOverflow(v249, v247) )
+                goto LABEL_176;
+              v104 = 16 * v35;
+              if ( !v104 )
+                goto LABEL_176;
+              v105 = 16 * v34;
+              if ( !v105 )
+                goto LABEL_176;
+              ROT_DIV(v246, v253 * v103, v104);
+              ROT_DIV(v266, v249 * v247, v105);
+              v263 = v266[0];
+              v264 = v246[0];
+              if ( bAddOverflow(v246[0], v266[0]) )
+                goto LABEL_176;
+              ROT_DIV(v246, v255 * v106, v104);
+              ROT_DIV(v266, v257 * v247, v105);
+              v107 = v266[0];
+              *(_QWORD *)&v268 = v266[0];
+              v266[0] = v246[0];
+              if ( bAddOverflow(v246[0], v107) )
+                goto LABEL_176;
+              if ( !v57 )
+              {
+                *(_QWORD *)(v9 + 648) = 0LL;
+                v109 = 0LL;
+                *(_QWORD *)(v9 + 656) = 0LL;
+                v110 = v108;
+                *(_QWORD *)(v9 + 664) = 0LL;
+                *(_QWORD *)(v9 + 456) = 0LL;
+                *(_QWORD *)(v9 + 464) = 0LL;
+                *(_QWORD *)(v9 + 472) = 0LL;
+                *(_QWORD *)(v9 + 552) = 0LL;
+                *(_QWORD *)(v9 + 560) = 0LL;
+                *(_QWORD *)(v9 + 568) = 0LL;
+                *(_QWORD *)(v9 + 72) = 0LL;
+                *(_QWORD *)(v9 + 80) = 0LL;
+                *(_QWORD *)(v9 + 120) = 0LL;
+                *(_QWORD *)(v9 + 128) = 0LL;
+                *(_QWORD *)(v9 + 744) = 0LL;
+                *(_QWORD *)(v9 + 752) = 0LL;
+                goto LABEL_134;
+              }
+              if ( !(unsigned int)bMulOverflow(*(_QWORD *)(v9 + 8), 16LL)
+                && !(unsigned int)bSubOverflow(16 * v112, v260) )
+              {
+                v115 = v259;
+                if ( !(unsigned int)bMulOverflow(v259, v114 - v113) )
                 {
-                  v147 = v145 + v146;
-                  v148 = v296;
-                  if ( !v296 || !(unsigned int)bMulOverflow(v296, v115) )
+                  v116 = v261;
+                  if ( !bAddOverflow(v261, 16LL) )
                   {
-                    LOBYTE(v149) = bSubOverflow(v147, v148 * v115);
-                    if ( !v149 )
+                    v118 = v117 + v116;
+                    if ( !(unsigned int)bMulOverflow(v57, v118) )
                     {
-                      v132 = v292;
-                      v153 = v152 - v150;
-                      if ( v151 )
+                      v120 = v57 * v118;
+                      if ( !bAddOverflow(v119, v120) )
                       {
-                        if ( (unsigned int)bMulOverflow(v291, v292) )
-                          goto LABEL_175;
-                        v133 = v289;
-                        if ( (unsigned int)bMulOverflow(v154, v289) )
-                          goto LABEL_175;
-                      }
-                      else
-                      {
-                        v133 = v289;
-                      }
-                      LOBYTE(v155) = bAddOverflow(v153, v151 * v133);
-                      if ( !v155 )
-                      {
-                        v292 = v156 + v157;
-                        LOBYTE(v158) = bSubOverflow(v156 + v157, 1LL);
-                        if ( !v158 )
+                        v122 = v120 + v121;
+                        v123 = v250;
+                        if ( (!v250 || !(unsigned int)bMulOverflow(v250, v97))
+                          && !(unsigned int)bSubOverflow(v122, v123 * v97) )
                         {
-                          v289 = v159 - 1;
-                          if ( !(unsigned int)bMulOverflow(v160, v67) )
+                          v128 = v125 - v124;
+                          v129 = v123 == 0;
+                          v110 = v251;
+                          if ( v129 )
                           {
-                            v131 = 16 * v67;
-                            *(_QWORD *)(v9 + 664) = v131;
-                            *(_QWORD *)(v9 + 472) = v131;
-                            *(_QWORD *)(v9 + 568) = v131;
-                            if ( v131 )
+                            v131 = v250;
+                          }
+                          else if ( (unsigned int)bMulOverflow(v127, v251) || (unsigned int)bMulOverflow(v250, v130) )
+                          {
+                            goto LABEL_176;
+                          }
+                          if ( !bAddOverflow(v128, v131 * v126) )
+                          {
+                            v251 = v133 + v132;
+                            if ( !(unsigned int)bSubOverflow(v133 + v132, 1LL) )
                             {
-                              QDIV((unsigned __int64 *)(v9 + 72), (unsigned __int64 *)&v289, v131);
-                              if ( !(unsigned int)bMulOverflow(16LL, v301) )
+                              v246[0] = v134 - 1;
+                              if ( !(unsigned int)bMulOverflow(16LL, v57) )
                               {
-                                LOBYTE(v161) = bSubOverflow(*(_QWORD *)(v9 + 40), *(_QWORD *)(v9 + 8));
-                                if ( !v161 )
+                                v109 = 16 * v57;
+                                *(_QWORD *)(v9 + 664) = v109;
+                                *(_QWORD *)(v9 + 472) = v109;
+                                *(_QWORD *)(v9 + 568) = v109;
+                                if ( v109 )
                                 {
-                                  v296 = 16 * v164;
-                                  if ( !(unsigned int)bMulOverflow(16 * v164, v163 - v162) )
+                                  QDIV((unsigned __int64 *)(v9 + 72), (unsigned __int64 *)v246, v109);
+                                  if ( !(unsigned int)bMulOverflow(16LL, v115)
+                                    && !(unsigned int)bSubOverflow(*(_QWORD *)(v9 + 40), *(_QWORD *)(v9 + 8)) )
                                   {
-                                    LOBYTE(v167) = bSubOverflow(16 * v166 * v165, v306);
-                                    if ( !v167 )
+                                    v250 = 16 * v115;
+                                    if ( !(unsigned int)bMulOverflow(16 * v115, v136 - v135)
+                                      && !(unsigned int)bSubOverflow(16 * v115 * v137, v262)
+                                      && !bAddOverflow(v251 - 1, v139 - v138) )
                                     {
-                                      LOBYTE(v170) = bAddOverflow(v292 - 1, v169 - v168);
-                                      if ( !v170 )
+                                      v142 = *(_QWORD *)(v9 + 664);
+                                      v246[0] = v141 + v140;
+                                      QDIV((unsigned __int64 *)(v9 + 120), (unsigned __int64 *)v246, v142);
+                                      ROT_DIV((__int64 *)(v9 + 648), v250, *(_QWORD *)(v9 + 664));
+                                      v143 = v249;
+                                      if ( !v247
+                                        || !(unsigned int)bMulOverflow(v249, v254)
+                                        && !(unsigned int)bMulOverflow(v146 * v145, v144) )
                                       {
-                                        v173 = *(_QWORD *)(v9 + 664);
-                                        v289 = v171 + v172;
-                                        QDIV((unsigned __int64 *)(v9 + 120), (unsigned __int64 *)&v289, v173);
-                                        ROT_DIV((__int64 *)(v9 + 648), v296, *(_QWORD *)(v9 + 664));
-                                        v174 = v293;
-                                        if ( !v290
-                                          || !(unsigned int)bMulOverflow(v293, v294)
-                                          && !(unsigned int)bMulOverflow(v177 * v176, v175) )
+                                        v147 = v143 * v97;
+                                        if ( !v110
+                                          || !(unsigned int)bMulOverflow(v143, v248)
+                                          && !(unsigned int)bMulOverflow(v149 * v148, v110) )
                                         {
-                                          v178 = v174 * v115;
-                                          if ( !v132
-                                            || !(unsigned int)bMulOverflow(v174, v291)
-                                            && !(unsigned int)bMulOverflow(v180 * v179, v132) )
+                                          v150 = p_left;
+                                          if ( !(unsigned int)bSubOverflow(v147, v143 * (_QWORD)p_left)
+                                            && !(unsigned int)bMulOverflow(16LL, v263 + v264)
+                                            && !(unsigned int)bMulOverflow(16 * v151, v259)
+                                            && !(unsigned int)bSubOverflow(16 * v154 * v152, v153) )
                                           {
-                                            LOBYTE(v181) = bSubOverflow(v178, v174 * v133);
-                                            if ( !v181
-                                              && !(unsigned int)bMulOverflow(16LL, v307 + v308)
-                                              && !(unsigned int)bMulOverflow(16 * v182, v301) )
+                                            v157 = *(_QWORD *)(v9 + 472);
+                                            v246[0] = v155 - v156;
+                                            QDIV((unsigned __int64 *)(v9 + 456), (unsigned __int64 *)v246, v157);
+                                            v158 = v257;
+                                            if ( !v247
+                                              || !(unsigned int)bMulOverflow(v257, v254)
+                                              && !(unsigned int)bMulOverflow(v161 * v160, v159) )
                                             {
-                                              LOBYTE(v186) = bSubOverflow(16 * v185 * v183, v184);
-                                              if ( !v186 )
+                                              v162 = v158 * v97;
+                                              if ( (!v110
+                                                 || !(unsigned int)bMulOverflow(v158, v248)
+                                                 && !(unsigned int)bMulOverflow(v164 * v163, v110))
+                                                && !(unsigned int)bSubOverflow(v162, v158 * (_QWORD)v150)
+                                                && !(unsigned int)bMulOverflow(16LL, v268 + v266[0])
+                                                && !(unsigned int)bMulOverflow(16 * v165, v259)
+                                                && !(unsigned int)bSubOverflow(16 * v168 * v166, v167) )
                                               {
-                                                v189 = *(_QWORD *)(v9 + 472);
-                                                v289 = v187 - v188;
-                                                QDIV((unsigned __int64 *)(v9 + 456), (unsigned __int64 *)&v289, v189);
-                                                v190 = v300;
-                                                if ( !v290
-                                                  || !(unsigned int)bMulOverflow(v300, v294)
-                                                  && !(unsigned int)bMulOverflow(v193 * v192, v191) )
+                                                v171 = *(_QWORD *)(v9 + 568);
+                                                v246[0] = v169 - v170;
+                                                QDIV((unsigned __int64 *)(v9 + 552), (unsigned __int64 *)v246, v171);
+                                                ROT_DIV((__int64 *)(v9 + 744), v250, v109);
+LABEL_134:
+                                                *(_QWORD *)(v9 + 760) = v109;
+                                                if ( !(unsigned int)bMulOverflow(16LL, *(_QWORD *)(v9 + 8))
+                                                  && !(unsigned int)bSubOverflow(16 * v172, v260)
+                                                  && !(unsigned int)bMulOverflow(v258, v174 - v173)
+                                                  && !bAddOverflow(v261, v175)
+                                                  && !(unsigned int)bMulOverflow(v56, v176 + 16)
+                                                  && !bAddOverflow(v177, v56 * v178) )
                                                 {
-                                                  v194 = v190 * v115;
-                                                  if ( !v132
-                                                    || !(unsigned int)bMulOverflow(v190, v291)
-                                                    && !(unsigned int)bMulOverflow(v196 * v195, v132) )
+                                                  v181 = v180 + v179;
+                                                  v182 = v256;
+                                                  if ( (!v256 || !(unsigned int)bMulOverflow(v256, v97))
+                                                    && !bAddOverflow(v181, v182 * v97) )
                                                   {
-                                                    LOBYTE(v197) = bSubOverflow(v194, v190 * v133);
-                                                    if ( !v197
-                                                      && !(unsigned int)bMulOverflow(16LL, v312 + v298[0])
-                                                      && !(unsigned int)bMulOverflow(16 * v198, v301) )
+                                                    v187 = v248;
+                                                    v188 = v183 + v184;
+                                                    if ( (!v186
+                                                       || !(unsigned int)bMulOverflow(v248, v110)
+                                                       && !(unsigned int)bMulOverflow(v190, v189))
+                                                      && !(unsigned int)bSubOverflow(v188, v186 * v185)
+                                                      && !(unsigned int)bSubOverflow(v192 - v191, 1LL) )
                                                     {
-                                                      LOBYTE(v202) = bSubOverflow(16 * v201 * v199, v200);
-                                                      if ( !v202 )
+                                                      v194 = v193 - 1;
+                                                      v246[0] = v193 - 1;
+                                                      if ( !(unsigned int)bMulOverflow(16LL, v56) )
                                                       {
-                                                        v205 = *(_QWORD *)(v9 + 568);
-                                                        v289 = v203 - v204;
-                                                        QDIV(
-                                                          (unsigned __int64 *)(v9 + 552),
-                                                          (unsigned __int64 *)&v289,
-                                                          v205);
-                                                        ROT_DIV((__int64 *)(v9 + 744), v296, v131);
-LABEL_133:
-                                                        *(_QWORD *)(v9 + 760) = v131;
-                                                        if ( !(unsigned int)bMulOverflow(16LL, *(_QWORD *)(v9 + 8)) )
+                                                        v195 = 16 * v56;
+                                                        *(_QWORD *)(v9 + 688) = v195;
+                                                        *(_QWORD *)(v9 + 496) = v195;
+                                                        *(_QWORD *)(v9 + 592) = v195;
+                                                        if ( v195 )
                                                         {
-                                                          LOBYTE(v207) = bSubOverflow(16 * v206, v305);
-                                                          if ( !v207 && !(unsigned int)bMulOverflow(v303, v209 - v208) )
+                                                          QDIV(
+                                                            (unsigned __int64 *)(v9 + 88),
+                                                            (unsigned __int64 *)v246,
+                                                            v195);
+                                                          if ( !(unsigned int)bMulOverflow(16LL, v258)
+                                                            && !(unsigned int)bSubOverflow(
+                                                                                *(_QWORD *)(v9 + 24),
+                                                                                *(_QWORD *)(v9 + 8)) )
                                                           {
-                                                            LOBYTE(v211) = bAddOverflow(v210, 16LL);
-                                                            if ( !v211 && !(unsigned int)bMulOverflow(v66, v212) )
+                                                            v256 = 16 * v198;
+                                                            if ( !(unsigned int)bMulOverflow(16 * v198, v197 - v196)
+                                                              && !bAddOverflow(16 * v200 * v199, v262)
+                                                              && !bAddOverflow(v194, v202 + v201) )
                                                             {
-                                                              LOBYTE(v215) = bAddOverflow(v213, v66 * v214);
-                                                              if ( !v215 )
+                                                              v204 = *(_QWORD *)(v9 + 688);
+                                                              v246[0] = v203 + v194;
+                                                              QDIV(
+                                                                (unsigned __int64 *)(v9 + 104),
+                                                                (unsigned __int64 *)v246,
+                                                                v204);
+                                                              ROT_DIV(
+                                                                (__int64 *)(v9 + 672),
+                                                                v256,
+                                                                *(_QWORD *)(v9 + 688));
+                                                              v205 = v253;
+                                                              if ( !v247
+                                                                || !(unsigned int)bMulOverflow(v253, v254)
+                                                                && !(unsigned int)bMulOverflow(v208 * v207, v206) )
                                                               {
-                                                                v218 = v216 + v217;
-                                                                v219 = v297;
-                                                                if ( !v297 || !(unsigned int)bMulOverflow(v297, v115) )
+                                                                v209 = v205 * v97;
+                                                                if ( !v110
+                                                                  || !(unsigned int)bMulOverflow(v205, v187)
+                                                                  && !(unsigned int)bMulOverflow(v210 * v187, v110) )
                                                                 {
-                                                                  LOBYTE(v220) = bAddOverflow(v218, v219 * v115);
-                                                                  if ( !v220 )
+                                                                  v211 = p_left;
+                                                                  if ( !(unsigned int)bSubOverflow(
+                                                                                        v209,
+                                                                                        v205 * (_QWORD)p_left)
+                                                                    && !(unsigned int)bMulOverflow(16LL, v263 + v264)
+                                                                    && !(unsigned int)bMulOverflow(16 * v212, v258)
+                                                                    && !bAddOverflow(16 * v215 * v214, v213) )
                                                                   {
-                                                                    v224 = v291;
-                                                                    v225 = v221 + v223;
-                                                                    if ( !v222
-                                                                      || !(unsigned int)bMulOverflow(v291, v132)
-                                                                      && !(unsigned int)bMulOverflow(v226, v133) )
+                                                                    v218 = *(_QWORD *)(v9 + 496);
+                                                                    v246[0] = v216 + v217;
+                                                                    QDIV(
+                                                                      (unsigned __int64 *)(v9 + 480),
+                                                                      (unsigned __int64 *)v246,
+                                                                      v218);
+                                                                    v219 = v255;
+                                                                    if ( !v247
+                                                                      || !(unsigned int)bMulOverflow(v255, v254)
+                                                                      && !(unsigned int)bMulOverflow(v222 * v221, v220) )
                                                                     {
-                                                                      LOBYTE(v227) = bSubOverflow(v225, v222 * v133);
-                                                                      if ( !v227 )
+                                                                      v223 = v219 * v97;
+                                                                      if ( !v110
+                                                                        || !(unsigned int)bMulOverflow(v219, v187)
+                                                                        && !(unsigned int)bMulOverflow(
+                                                                                            v224 * v187,
+                                                                                            v110) )
                                                                       {
-                                                                        LOBYTE(v230) = bSubOverflow(v229 - v228, 1LL);
-                                                                        if ( !v230 )
+                                                                        v225 = v219 * (_QWORD)v211;
+                                                                        if ( !(unsigned int)bSubOverflow(v223, v225) )
                                                                         {
-                                                                          v289 = v231 - 1;
-                                                                          if ( !(unsigned int)bMulOverflow(16LL, v66) )
+                                                                          v226 = v223 - v225;
+                                                                          if ( !(unsigned int)bMulOverflow(
+                                                                                                16LL,
+                                                                                                v268 + v266[0])
+                                                                            && !(unsigned int)bMulOverflow(
+                                                                                                16 * v227,
+                                                                                                v258)
+                                                                            && !bAddOverflow(16 * v229 * v228, v226) )
                                                                           {
-                                                                            v232 = 16 * v66;
-                                                                            *(_QWORD *)(v9 + 688) = v232;
-                                                                            *(_QWORD *)(v9 + 496) = v232;
-                                                                            *(_QWORD *)(v9 + 592) = v232;
-                                                                            if ( v232 )
-                                                                            {
-                                                                              QDIV(
-                                                                                (unsigned __int64 *)(v9 + 88),
-                                                                                (unsigned __int64 *)&v289,
-                                                                                v232);
-                                                                              if ( !(unsigned int)bMulOverflow(
-                                                                                                    16LL,
-                                                                                                    v303) )
-                                                                              {
-                                                                                LOBYTE(v233) = bSubOverflow(
-                                                                                                 *(_QWORD *)(v9 + 24),
-                                                                                                 *(_QWORD *)(v9 + 8));
-                                                                                if ( !v233 )
-                                                                                {
-                                                                                  v297 = 16 * v236;
-                                                                                  if ( !(unsigned int)bMulOverflow(16 * v236, v235 - v234) )
-                                                                                  {
-                                                                                    LOBYTE(v239) = bAddOverflow(
-                                                                                                     16 * v238 * v237,
-                                                                                                     v306);
-                                                                                    if ( !v239 )
-                                                                                    {
-                                                                                      LOBYTE(v242) = bAddOverflow(v289, v241 + v240);
-                                                                                      if ( !v242 )
-                                                                                      {
-                                                                                        v245 = *(_QWORD *)(v9 + 688);
-                                                                                        v289 = v243 + v244;
-                                                                                        QDIV(
-                                                                                          (unsigned __int64 *)(v9 + 104),
-                                                                                          (unsigned __int64 *)&v289,
-                                                                                          v245);
-                                                                                        ROT_DIV(
-                                                                                          (__int64 *)(v9 + 672),
-                                                                                          v297,
-                                                                                          *(_QWORD *)(v9 + 688));
-                                                                                        v246 = v302;
-                                                                                        if ( !v290
-                                                                                          || !(unsigned int)bMulOverflow(v302, v294)
-                                                                                          && !(unsigned int)bMulOverflow(v249 * v248, v247) )
-                                                                                        {
-                                                                                          v250 = v246 * v115;
-                                                                                          if ( !v132
-                                                                                            || !(unsigned int)bMulOverflow(v246, v224)
-                                                                                            && !(unsigned int)bMulOverflow(v251 * v224, v132) )
-                                                                                          {
-                                                                                            LOBYTE(v252) = bSubOverflow(v250, v246 * v133);
-                                                                                            if ( !v252
-                                                                                              && !(unsigned int)bMulOverflow(16LL, v307 + v308)
-                                                                                              && !(unsigned int)bMulOverflow(16 * v253, v303) )
-                                                                                            {
-                                                                                              LOBYTE(v257) = bAddOverflow(16 * v256 * v255, v254);
-                                                                                              if ( !v257 )
-                                                                                              {
-                                                                                                v260 = *(_QWORD *)(v9 + 496);
-                                                                                                v289 = v258 + v259;
-                                                                                                QDIV(
-                                                                                                  (unsigned __int64 *)(v9 + 480),
-                                                                                                  (unsigned __int64 *)&v289,
-                                                                                                  v260);
-                                                                                                v261 = v295;
-                                                                                                if ( !v290 || !(unsigned int)bMulOverflow(v295, v294) && !(unsigned int)bMulOverflow(v264 * v263, v262) )
-                                                                                                {
-                                                                                                  v265 = v261 * v115;
-                                                                                                  if ( !v132 || !(unsigned int)bMulOverflow(v261, v224) && !(unsigned int)bMulOverflow(v266 * v224, v132) )
-                                                                                                  {
-                                                                                                    v267 = v261 * v133;
-                                                                                                    LOBYTE(v268) = bSubOverflow(v265, v267);
-                                                                                                    if ( !v268 )
-                                                                                                    {
-                                                                                                      v269 = v265 - v267;
-                                                                                                      if ( !(unsigned int)bMulOverflow(16LL, v312 + v298[0]) && !(unsigned int)bMulOverflow(16 * v270, v303) )
-                                                                                                      {
-                                                                                                        LOBYTE(v273) = bAddOverflow(16 * v272 * v271, v269);
-                                                                                                        if ( !v273 )
-                                                                                                        {
-                                                                                                          v275 = *(_QWORD *)(v9 + 592);
-                                                                                                          v289 = v269 + v274;
-                                                                                                          QDIV((unsigned __int64 *)(v9 + 576), (unsigned __int64 *)&v289, v275);
-                                                                                                          v276 = v297;
-                                                                                                          v277 = *(_QWORD *)(v9 + 688);
-                                                                                                          *(_OWORD *)(v9 + 696) = *(_OWORD *)(v9 + 672);
-                                                                                                          v278 = *(_OWORD *)(v9 + 480);
-                                                                                                          *(_QWORD *)(v9 + 712) = v277;
-                                                                                                          v279 = *(_QWORD *)(v9 + 496);
-                                                                                                          *(_OWORD *)(v9 + 504) = v278;
-                                                                                                          v280 = *(_OWORD *)(v9 + 576);
-                                                                                                          *(_QWORD *)(v9 + 520) = v279;
-                                                                                                          v281 = *(_QWORD *)(v9 + 592);
-                                                                                                          *(_OWORD *)(v9 + 600) = v280;
-                                                                                                          v282 = *(_OWORD *)(v9 + 648);
-                                                                                                          *(_QWORD *)(v9 + 616) = v281;
-                                                                                                          v283 = *(_QWORD *)(v9 + 664);
-                                                                                                          *(_OWORD *)(v9 + 720) = v282;
-                                                                                                          v284 = *(_OWORD *)(v9 + 456);
-                                                                                                          *(_QWORD *)(v9 + 736) = v283;
-                                                                                                          v285 = *(_QWORD *)(v9 + 472);
-                                                                                                          *(_OWORD *)(v9 + 528) = v284;
-                                                                                                          v286 = *(_OWORD *)(v9 + 552);
-                                                                                                          *(_QWORD *)(v9 + 544) = v285;
-                                                                                                          v287 = *(_QWORD *)(v9 + 568);
-                                                                                                          *(_OWORD *)(v9 + 624) = v286;
-                                                                                                          *(_QWORD *)(v9 + 640) = v287;
-                                                                                                          ROT_DIV((__int64 *)(v9 + 768), v276, v232);
-                                                                                                          v288 = v309;
-                                                                                                          *(_QWORD *)(v9 + 784) = v232;
-                                                                                                          v7 = bScalePlgDDALToPlgDDA(v9, v288);
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
+                                                                            v231 = *(_QWORD *)(v9 + 592);
+                                                                            v246[0] = v226 + v230;
+                                                                            QDIV(
+                                                                              (unsigned __int64 *)(v9 + 576),
+                                                                              (unsigned __int64 *)v246,
+                                                                              v231);
+                                                                            v232 = v256;
+                                                                            v233 = *(_QWORD *)(v9 + 688);
+                                                                            *(_OWORD *)(v9 + 696) = *(_OWORD *)(v9 + 672);
+                                                                            v234 = *(_OWORD *)(v9 + 480);
+                                                                            *(_QWORD *)(v9 + 712) = v233;
+                                                                            v235 = *(_QWORD *)(v9 + 496);
+                                                                            *(_OWORD *)(v9 + 504) = v234;
+                                                                            v237 = *v236;
+                                                                            *(_QWORD *)(v9 + 520) = v235;
+                                                                            v238 = *((_QWORD *)v236 + 2);
+                                                                            *(_OWORD *)(v9 + 600) = v237;
+                                                                            v239 = *(_OWORD *)(v9 + 648);
+                                                                            *(_QWORD *)(v9 + 616) = v238;
+                                                                            v240 = *(_QWORD *)(v9 + 664);
+                                                                            *(_OWORD *)(v9 + 720) = v239;
+                                                                            v241 = *(_OWORD *)(v9 + 456);
+                                                                            *(_QWORD *)(v9 + 736) = v240;
+                                                                            v242 = *(_QWORD *)(v9 + 472);
+                                                                            *(_OWORD *)(v9 + 528) = v241;
+                                                                            v243 = *(_OWORD *)(v9 + 552);
+                                                                            *(_QWORD *)(v9 + 544) = v242;
+                                                                            v244 = *(_QWORD *)(v9 + 568);
+                                                                            *(_OWORD *)(v9 + 624) = v243;
+                                                                            *(_QWORD *)(v9 + 640) = v244;
+                                                                            ROT_DIV((__int64 *)(v9 + 768), v232, v195);
+                                                                            v245 = v265;
+                                                                            *(_QWORD *)(v9 + 784) = v195;
+                                                                            v6 = bScalePlgDDALToPlgDDA(v9, v245);
                                                                           }
                                                                         }
                                                                       }
@@ -957,48 +835,58 @@ LABEL_133:
                   }
                 }
               }
+LABEL_176:
+              Win32FreePool((void *)v9);
+              return (void *)v6;
             }
+            v29 = 7LL;
           }
+          goto LABEL_89;
         }
-LABEL_175:
-        Win32FreePool((void *)v9);
-        return v7;
+        if ( (int)v17 >= v19 )
+        {
+          if ( (int)v17 > v19 || (v111 = 4LL, (int)v270 >= v14) )
+            v111 = 5LL;
+        }
+        else
+        {
+          v111 = 4LL;
+        }
+        v29 = v111;
       }
-      if ( SHIDWORD(v313) < v15 )
-        goto LABEL_24;
-      if ( SHIDWORD(v313) > v15 )
+      else if ( (int)v17 >= v19 && ((int)v17 > v19 || (int)v270 >= v14) )
       {
-        v36 = 5;
-        goto LABEL_40;
+        LODWORD(v111) = 3;
+        v29 = 3LL;
       }
-      if ( (int)v313 < v13 )
+      else
       {
-LABEL_24:
-        v36 = 4;
-        goto LABEL_42;
+        LODWORD(v111) = 2;
+        v29 = 2LL;
       }
-      v36 = 5;
     }
     else
     {
-      if ( SHIDWORD(v313) < v15 )
-        goto LABEL_30;
-      if ( SHIDWORD(v313) > v15 )
+      if ( (int)v16 < (int)v18 )
+        goto LABEL_89;
+      if ( (int)v16 > (int)v18 )
       {
-        v36 = 3;
-        goto LABEL_42;
+        v29 = 1LL;
+        goto LABEL_19;
       }
-      if ( (int)v313 < v13 )
+      if ( v271.x < x )
       {
-LABEL_30:
-        v36 = 2;
-        goto LABEL_40;
+LABEL_89:
+        v32 = a3->right - a3->left;
+        v33 = a3->bottom - a3->top;
+        goto LABEL_20;
       }
-      v36 = 3;
+      v29 = 1LL;
+      LODWORD(v111) = 1;
     }
-    if ( v36 == 3 )
-      goto LABEL_42;
-    goto LABEL_40;
+    if ( (_DWORD)v111 == 1 || (_DWORD)v111 != 2 && (unsigned int)v111 <= 4 )
+      goto LABEL_19;
+    goto LABEL_89;
   }
   return result;
 }

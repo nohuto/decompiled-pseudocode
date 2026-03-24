@@ -1,42 +1,36 @@
 /*
- * XREFs of NtGdiGetPerBandInfo @ 0x1C02786F0
+ * XREFs of NtGdiGetPerBandInfo @ 0x1C0153E20
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C0275F90 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
+ *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C0153EC8 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtGdiGetPerBandInfo(HDC a1, ULONG64 a2)
 {
-  ULONG64 v3; // rbx
   unsigned int PerBandInfo; // r8d
   _BYTE *v5; // rdx
-  _PERBANDINFO v7; // [rsp+20h] [rbp-28h] BYREF
+  _PERBANDINFO v6; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v7, 0, sizeof(v7));
+  memset(&v6, 0, sizeof(v6));
   if ( a2 )
   {
-    v3 = a2 & 3;
     if ( (a2 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = *(_PERBANDINFO *)a2;
+    v6 = *(_PERBANDINFO *)a2;
   }
-  else
-  {
-    v3 = 0LL;
-  }
-  PerBandInfo = GreGetPerBandInfo(a1, &v7);
+  PerBandInfo = GreGetPerBandInfo(a1, &v6);
   if ( PerBandInfo - 1 <= 0xFFFFFFFD )
   {
-    if ( v3 )
+    if ( (a2 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v5 = (_BYTE *)a2;
     if ( a2 >= MmUserProbeAddress )
       v5 = (_BYTE *)MmUserProbeAddress;
     *v5 = *v5;
     v5[19] = v5[19];
-    *(_PERBANDINFO *)a2 = v7;
+    *(_PERBANDINFO *)a2 = v6;
   }
   return PerBandInfo;
 }

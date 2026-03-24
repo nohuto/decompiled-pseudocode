@@ -1,44 +1,45 @@
 /*
- * XREFs of PnpCallDriverEntry @ 0x1407E2148
+ * XREFs of PnpCallDriverEntry @ 0x140770084
  * Callers:
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpWatchdogEtwWrite @ 0x140560B10 (PnpWatchdogEtwWrite.c)
- *     PnpRecordBlackbox @ 0x140785ADC (PnpRecordBlackbox.c)
- *     PnpWatchdogTimerPause @ 0x140785B50 (PnpWatchdogTimerPause.c)
- *     WdtpCancelTimer @ 0x140785BDC (WdtpCancelTimer.c)
- *     PnpEnableWatchdog @ 0x14078652C (PnpEnableWatchdog.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     PnpFreeWatchdog @ 0x1403488D4 (PnpFreeWatchdog.c)
+ *     ExDeleteTimer @ 0x140348920 (ExDeleteTimer.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpEnableWatchdog @ 0x1406F0344 (PnpEnableWatchdog.c)
+ *     PnpRecordBlackbox @ 0x1406F03A0 (PnpRecordBlackbox.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB8E4 (PnpWatchdogEtwWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCallDriverEntry(__int64 a1, __int64 a2)
 {
-  __int64 v4; // r8
-  __int64 v5; // rsi
-  unsigned int v6; // edi
-  void *v7; // rbx
-  _QWORD v9[5]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD *v4; // rsi
+  unsigned int v5; // edi
+  __int64 v6; // rbx
+  int v7; // edx
+  _QWORD v9[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v9[0] = 0LL;
   v9[1] = a1;
-  v4 = *(_QWORD *)(a1 + 48);
   v9[2] = KeGetCurrentThread();
-  v5 = PnpEnableWatchdog(5, (__int64)v9, (const UNICODE_STRING *)(v4 + 24));
-  v6 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 88))(a1, a2);
-  if ( v5 )
+  v4 = PnpEnableWatchdog(5, (__int64)v9);
+  v5 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 88))(a1, a2);
+  if ( v4 )
   {
-    PnpWatchdogTimerPause(*(_QWORD *)(v5 + 8));
-    PnpRecordBlackbox(0LL, *(_DWORD *)(v5 + 16));
-    if ( *(_BYTE *)(v5 + 32) )
-    {
-      PnpWatchdogEtwWrite(v5, 1);
-      if ( !*(_BYTE *)(v5 + 33) )
-        PnpWatchdogEtwWrite(v5, 3);
-    }
-    v7 = *(void **)(v5 + 8);
-    WdtpCancelTimer((__int64)v7, 1);
-    ExFreePoolWithTag(v7, 0x54645750u);
+    v6 = v4[1];
+    ExDeleteTimer(*(_QWORD *)(v6 + 56), 1, 1, 0LL);
+    *(_QWORD *)(v6 + 56) = 0LL;
+    if ( *(int *)(v6 + 96) > 0 )
+      KeWaitForSingleObject((PVOID)(v6 + 104), Executive, 0, 0, 0LL);
+    ExFreePoolWithTag((PVOID)v6, 0x54645750u);
+    v7 = *((_DWORD *)v4 + 4);
+    v4[1] = 0LL;
+    PnpRecordBlackbox(0LL, v7);
+    if ( *((_BYTE *)v4 + 32) )
+      PnpWatchdogEtwWrite(v4, 0LL);
+    PnpFreeWatchdog(v4);
   }
-  return v6;
+  return v5;
 }

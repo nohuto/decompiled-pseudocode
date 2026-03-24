@@ -1,44 +1,38 @@
 /*
- * XREFs of NtUserfnOUTLPCOMBOBOXINFO @ 0x1C00089D0
+ * XREFs of NtUserfnOUTLPCOMBOBOXINFO @ 0x1C010A560
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall NtUserfnOUTLPCOMBOBOXINFO(__int64 a1, unsigned int a2, __int64 a3, _OWORD *a4, __int64 a5, char a6)
 {
-  _BYTE *v10; // rdx
   __int64 result; // rax
-  __int128 v12; // [rsp+50h] [rbp-78h] BYREF
-  __int128 v13; // [rsp+60h] [rbp-68h]
-  __int128 v14; // [rsp+70h] [rbp-58h]
-  __int128 v15; // [rsp+80h] [rbp-48h]
+  _OWORD v11[4]; // [rsp+50h] [rbp-78h] BYREF
 
-  memset_0(&v12, 0, 0x40uLL);
-  PtiCurrentShared();
-  v10 = a4;
+  memset(v11, 0, sizeof(v11));
   if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-    v10 = (_BYTE *)MmUserProbeAddress;
-  *v10 = *v10;
-  v10[63] = v10[63];
-  v12 = *a4;
-  v13 = a4[1];
-  v14 = a4[2];
-  v15 = a4[3];
-  result = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *, __int64))&WPP_MAIN_CB.SectorSize
-            + ((a6 + 6) & 0x1F)))(
+    *(_DWORD *)MmUserProbeAddress = 0;
+  *a4 = *a4;
+  a4[1] = a4[1];
+  a4[2] = a4[2];
+  a4[3] = a4[3];
+  v11[0] = *a4;
+  v11[1] = a4[1];
+  v11[2] = a4[2];
+  v11[3] = a4[3];
+  result = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _OWORD *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
              a1,
              a2,
              a3,
-             &v12,
+             v11,
              a5);
-  *a4 = v12;
-  a4[1] = v13;
-  a4[2] = v14;
-  a4[3] = v15;
+  *a4 = v11[0];
+  a4[1] = v11[1];
+  a4[2] = v11[2];
+  a4[3] = v11[3];
   return result;
 }

@@ -5,8 +5,8 @@
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpGetCallbackObjectContext @ 0x14069C0D8 (CmpGetCallbackObjectContext.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpGetCallbackObjectContext @ 0x14069C0B8 (CmpGetCallbackObjectContext.c)
  */
 
 void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, __int64 *a3)

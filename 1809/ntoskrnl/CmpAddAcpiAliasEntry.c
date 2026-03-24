@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddAcpiAliasEntry @ 0x1407FB398
+ * XREFs of CmpAddAcpiAliasEntry @ 0x1407FB378
  * Callers:
- *     CmSetAcpiHwProfile @ 0x140730EF0 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x140730ED0 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpAddAcpiAliasEntry(

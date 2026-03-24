@@ -1,37 +1,36 @@
 /*
- * XREFs of KeGetProcessorNumberFromIndex @ 0x14030CCE0
+ * XREFs of KeGetProcessorNumberFromIndex @ 0x14033E500
  * Callers:
- *     KeMaskInterrupt @ 0x14031F3D4 (KeMaskInterrupt.c)
- *     HalpInterruptInitializeIpis @ 0x14037ED00 (HalpInterruptInitializeIpis.c)
- *     IoGetAffinityInterrupt @ 0x1403B5880 (IoGetAffinityInterrupt.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x1403CE794 (KeSetIdealProcessorThreadByNumber.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x140507A38 (HalpPmuReservedResourcesProcessorCallback.c)
- *     WheaFlushETWEventsSelectProcessor @ 0x140580350 (WheaFlushETWEventsSelectProcessor.c)
- *     PspWriteTebIdealProcessor @ 0x14076FF4C (PspWriteTebIdealProcessor.c)
- *     PnprAddProcessorResources @ 0x14096587C (PnprAddProcessorResources.c)
- *     EtwpProcessorRundown @ 0x1409EF810 (EtwpProcessorRundown.c)
- *     PnprQuiesceProcessorDpc @ 0x140A9D540 (PnprQuiesceProcessorDpc.c)
+ *     KeMaskInterrupt @ 0x1403769B0 (KeMaskInterrupt.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140376FC0 (HalGetProcessorIdByNtNumber.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14037A2E4 (KeSetIdealProcessorThreadByNumber.c)
+ *     IoGetAffinityInterrupt @ 0x140381700 (IoGetAffinityInterrupt.c)
+ *     HalpInterruptInitializeIpis @ 0x1403B045C (HalpInterruptInitializeIpis.c)
+ *     PspWriteTebIdealProcessor @ 0x1406C0488 (PspWriteTebIdealProcessor.c)
+ *     PnprAddProcessorResources @ 0x1408AD0B4 (PnprAddProcessorResources.c)
+ *     EtwpProcessorRundown @ 0x14093E8DC (EtwpProcessorRundown.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE4D0 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall KeGetProcessorNumberFromIndex(ULONG ProcIndex, PPROCESSOR_NUMBER ProcNumber)
 {
-  unsigned int v2; // ecx
+  unsigned int v3; // ecx
 
   if ( !ProcIndex )
   {
     *ProcNumber = 0;
     return 0;
   }
-  if ( ProcIndex < 0x800 )
+  if ( ProcIndex < 0x500 )
   {
-    v2 = KiProcessorIndexToNumberMappingTable[ProcIndex];
-    if ( v2 )
+    v3 = KiProcessorIndexToNumberMappingTable[ProcIndex];
+    if ( v3 )
     {
       ProcNumber->Reserved = 0;
-      ProcNumber->Group = v2 >> 6;
-      ProcNumber->Number = v2 & 0x3F;
+      ProcNumber->Group = v3 >> 6;
+      ProcNumber->Number = v3 & 0x3F;
       return 0;
     }
   }

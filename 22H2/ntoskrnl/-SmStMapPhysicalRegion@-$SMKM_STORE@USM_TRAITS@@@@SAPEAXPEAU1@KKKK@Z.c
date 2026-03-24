@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C0FCC
+ * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405994A8
  * Callers:
- *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1405C1068 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x14026C5B0 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
  * Callees:
- *     SmFpAllocate @ 0x14046592E (SmFpAllocate.c)
+ *     SmFpAllocate @ 0x1403130C8 (SmFpAllocate.c)
  */
 
-__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
+unsigned __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
@@ -18,7 +18,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
   __int64 v7; // rbp
   __int64 v8; // rax
   unsigned __int64 v9; // rdx
-  __int64 v10; // rcx
+  unsigned __int64 v10; // rcx
 
   v5 = *(_QWORD *)(a1 + 6216);
   v6 = a2;
@@ -31,7 +31,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
   }
   else
   {
-    v10 = SmFpAllocate((volatile LONG *)(a1 + 6608), 5, (__int64)KeGetCurrentThread(), v9, a5 & 1);
+    v10 = SmFpAllocate((PEX_SPIN_LOCK)(a1 + 6608), 5, (__int64)KeGetCurrentThread(), v9, a5 & 1);
     if ( !v10 )
       return v10;
   }

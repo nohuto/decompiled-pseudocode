@@ -1,16 +1,15 @@
 /*
- * XREFs of ViAvlReleaseTableLockFromDpcLevel @ 0x1402D82D0
+ * XREFs of ViAvlReleaseTableLockFromDpcLevel @ 0x140371C0C
  * Callers:
- *     VfAvlCleanupLockContext @ 0x1402D81DC (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x1402D8234 (VfAvlInsertReservedTreeNode.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1402D8304 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     VfAvlLookupTreeNode @ 0x1402D8518 (VfAvlLookupTreeNode.c)
- *     VfAvlDeleteTreeNode @ 0x1402DB8D8 (VfAvlDeleteTreeNode.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140A9B1BC (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140A9B230 (VfAvlEnumerateNodes.c)
+ *     VfAvlCleanupLockContext @ 0x140371B24 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140371B70 (VfAvlInsertReservedTreeNode.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140371C40 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     VfAvlDeleteTreeNode @ 0x14037EB38 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
+ *     VfAvlEnumerateNodes @ 0x1409E0658 (VfAvlEnumerateNodes.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall ViAvlReleaseTableLockFromDpcLevel(__int64 a1, __int64 a2)

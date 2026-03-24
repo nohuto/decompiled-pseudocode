@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvGetPageFault @ 0x1405276C0
+ * XREFs of IommupHvGetPageFault @ 0x1404DA000
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvGetPageFault(
@@ -13,12 +13,12 @@ __int64 __fastcall IommupHvGetPageFault(
         int *a3,
         _QWORD *a4,
         _WORD *a5,
-        __int64 a6,
+        _DWORD *a6,
         unsigned __int64 *a7,
         __int64 *a8)
 {
   __int64 v11; // rax
-  __int64 v12; // r8
+  __int64 v12; // r9
   int v13; // ecx
   __int64 v14; // rax
   int v15; // ecx
@@ -31,20 +31,20 @@ __int64 __fastcall IommupHvGetPageFault(
   if ( (_DWORD)v11 == HIDWORD(v11) )
   {
     if ( *(_BYTE *)(*((_QWORD *)a1 + 1) + 9LL) )
-      ((void (__fastcall *)(_QWORD))qword_140C4C5B8)(*a1);
+      ((void (__fastcall *)(_QWORD))qword_140C4A2B8)(*a1);
     return 0LL;
   }
   else
   {
     v12 = *((_QWORD *)a1 + 2);
     v13 = 0;
-    *(_OWORD *)a2 = *(_OWORD *)(v12 + 48LL * (unsigned int)v11);
-    *(_OWORD *)(a2 + 16) = *(_OWORD *)(v12 + 48LL * (unsigned int)v11 + 16);
-    *(_OWORD *)(a2 + 32) = *(_OWORD *)(v12 + 48LL * (unsigned int)v11 + 32);
-    if ( (_DWORD)v11 != 84 )
+    *(_OWORD *)a2 = *(_OWORD *)(v12 + 40LL * (unsigned int)v11);
+    *(_OWORD *)(a2 + 16) = *(_OWORD *)(v12 + 40LL * (unsigned int)v11 + 16);
+    *(_QWORD *)(a2 + 32) = *(_QWORD *)(v12 + 40LL * (unsigned int)v11 + 32);
+    if ( (_DWORD)v11 != 101 )
       v13 = v11 + 1;
     **((_DWORD **)a1 + 1) = v13;
-    if ( *(__int64 *)(a2 + 40) >= 0 )
+    if ( *(__int64 *)(a2 + 32) >= 0 )
     {
       v15 = *(_DWORD *)(a2 + 8);
       if ( (v15 & 0x100000) == 0 )
@@ -54,9 +54,8 @@ __int64 __fastcall IommupHvGetPageFault(
       *a3 = v15 & 0xFFFFF;
       *a4 = *(_QWORD *)a2;
       *a5 = (*(_DWORD *)(a2 + 8) >> 21) & 0x1FF;
+      *a6 = 0;
       *a7 = *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFF000uLL;
-      *(_OWORD *)a6 = 0LL;
-      *(_QWORD *)(a6 + 16) = 0LL;
       v16 = *(_QWORD *)(a2 + 16);
       v17 = *(_DWORD *)(a2 + 16) & 1 | 2LL;
       if ( (*(_QWORD *)(a2 + 16) & 2) == 0 )
@@ -76,8 +75,7 @@ __int64 __fastcall IommupHvGetPageFault(
       *a3 = -1;
       *a4 = 0LL;
       *a5 = -1;
-      *(_OWORD *)a6 = 0LL;
-      *(_QWORD *)(a6 + 16) = 0LL;
+      *a6 = 0;
       *a7 = 0LL;
       v14 = 64LL;
     }

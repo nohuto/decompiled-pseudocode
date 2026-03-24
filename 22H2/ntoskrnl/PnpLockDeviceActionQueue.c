@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpLockDeviceActionQueue @ 0x1403C383C
+ * XREFs of PnpLockDeviceActionQueue @ 0x140320450
  * Callers:
- *     IoControlPnpDeviceActionQueue @ 0x1403C381C (IoControlPnpDeviceActionQueue.c)
- *     IoBuildPoDeviceNotifyList @ 0x140A9E1B8 (IoBuildPoDeviceNotifyList.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B3FE48 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
+ *     IoControlPnpDeviceActionQueue @ 0x14032038C (IoControlPnpDeviceActionQueue.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972A0 (IoBuildPoDeviceNotifyList.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
  */
 
 __int64 PnpLockDeviceActionQueue()
@@ -33,19 +33,22 @@ __int64 PnpLockDeviceActionQueue()
     v0 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
     if ( !PnpEnumerationInProgress )
       break;
-    KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+    KxReleaseSpinLock(&PnpSpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
-        v6 = (v5 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v5;
-        if ( v6 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+          v6 = (v5 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v5;
+          if ( v6 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v0);
@@ -54,22 +57,23 @@ __int64 PnpLockDeviceActionQueue()
   }
   PnpEnumerationInProgress = 1;
   KeResetEvent(&PnpEnumerationLock);
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+  KxReleaseSpinLock(&PnpSpinLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v0 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v7 = KeGetCurrentPrcb();
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
-      v8 = v7->SchedulerAssist;
-      v6 = ((unsigned int)result & v8[5]) == 0;
-      v8[5] &= result;
-      if ( v6 )
-        result = KiRemoveSystemWorkPriorityKick(v7);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v0 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        v7 = KeGetCurrentPrcb();
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+        v8 = v7->SchedulerAssist;
+        v6 = ((unsigned int)result & v8[5]) == 0;
+        v8[5] &= result;
+        if ( v6 )
+          result = KiRemoveSystemWorkPriorityKick(v7);
+      }
     }
   }
   __writecr8(v0);

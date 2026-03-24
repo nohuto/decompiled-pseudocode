@@ -1,33 +1,32 @@
 /*
- * XREFs of Bulk_Cleanup @ 0x1C0044450
+ * XREFs of Bulk_Cleanup @ 0x1C0043CB0
  * Callers:
  *     <none>
  * Callees:
- *     Bulk_DoesDriverOwnRequests @ 0x1C000BA84 (Bulk_DoesDriverOwnRequests.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
+ *     Bulk_DoesDriverOwnRequests @ 0x1C000BCDC (Bulk_DoesDriverOwnRequests.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 void __fastcall Bulk_Cleanup(__int64 a1)
 {
-  int v2; // [rsp+28h] [rbp-20h]
-  int v3; // [rsp+30h] [rbp-18h]
-  int v4; // [rsp+38h] [rbp-10h]
+  __int64 v2; // rdx
+  int v3; // eax
 
   *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
   if ( Bulk_DoesDriverOwnRequests((_QWORD *)a1) && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v4 = *(_DWORD *)(a1 + 64);
-    v3 = *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL);
-    v2 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
-    WPP_RECORDER_SF_ddd(
+    v2 = *(_QWORD *)(a1 + 56);
+    v3 = *(_DWORD *)(v2 + 144);
+    LOBYTE(v2) = 2;
+    WPP_RECORDER_SF_ddL(
       *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
-      2u,
-      0xEu,
-      0xAu,
-      (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
       v2,
+      14,
+      10,
+      (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
+      *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       v3,
-      v4);
+      *(_DWORD *)(a1 + 64));
   }
   KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
 }

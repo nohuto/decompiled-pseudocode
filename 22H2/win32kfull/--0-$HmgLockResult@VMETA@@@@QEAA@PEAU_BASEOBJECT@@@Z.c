@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0?$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C01406D8
+ * XREFs of ??0?$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C016D23C
  * Callers:
- *     GreDeleteServerMetaFile @ 0x1C02D2D08 (GreDeleteServerMetaFile.c)
- *     NtGdiGetServerMetaFileBits @ 0x1C02D2ED0 (NtGdiGetServerMetaFileBits.c)
+ *     GreDeleteServerMetaFile @ 0x1C02B8054 (GreDeleteServerMetaFile.c)
+ *     NtGdiGetServerMetaFileBits @ 0x1C02B8210 (NtGdiGetServerMetaFileBits.c)
  * Callees:
  *     <none>
  */

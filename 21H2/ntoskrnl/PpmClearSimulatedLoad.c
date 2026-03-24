@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmClearSimulatedLoad @ 0x14098E9D8
+ * XREFs of PpmClearSimulatedLoad @ 0x1408E60E4
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmClearSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
@@ -28,11 +28,11 @@ __int64 __fastcall PpmClearSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
-      v4 = *(_DWORD *)(i + 296);
+      v4 = *(_DWORD *)(i + 200);
       v5 = 0;
       if ( v4 )
       {
-        v6 = *(_QWORD *)(i + 312);
+        v6 = *(_QWORD *)(i + 216);
         while ( 1 )
         {
           v7 = 136LL * v5;
@@ -57,7 +57,7 @@ LABEL_12:
     v9 = -1073741811;
     goto LABEL_17;
   }
-  v8 = KeGetPrcb(ProcessorIndexFromNumber) + 33968;
+  v8 = KeGetPrcb(ProcessorIndexFromNumber) + 33128;
 LABEL_16:
   v2 = *(void **)(v8 + 24);
   *(_QWORD *)(v8 + 24) = 0LL;

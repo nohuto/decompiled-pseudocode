@@ -1,14 +1,14 @@
 /*
- * XREFs of PiMarkDeviceTreeForReenumerationWorker @ 0x140873C70
+ * XREFs of PiMarkDeviceTreeForReenumerationWorker @ 0x140780C30
  * Callers:
  *     <none>
  * Callees:
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
  */
 
 __int64 __fastcall PiMarkDeviceTreeForReenumerationWorker(__int64 a1)
 {
-  if ( *(_DWORD *)(a1 + 300) == 778 )
+  if ( *(_DWORD *)(a1 + 300) == 776 )
     PipSetDevNodeFlags(a1, 8);
   return 0LL;
 }

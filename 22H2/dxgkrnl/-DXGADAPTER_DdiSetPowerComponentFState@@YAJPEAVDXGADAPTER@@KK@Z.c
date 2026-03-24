@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DXGADAPTER_DdiSetPowerComponentFState@@YAJPEAVDXGADAPTER@@KK@Z @ 0x1C0048F20
+ * XREFs of ?DXGADAPTER_DdiSetPowerComponentFState@@YAJPEAVDXGADAPTER@@KK@Z @ 0x1C0042560
  * Callers:
  *     <none>
  * Callees:
- *     ?DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z @ 0x1C0044F88 (-DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z.c)
+ *     ?DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z @ 0x1C003DA90 (-DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER_DdiSetPowerComponentFState(struct DXGADAPTER *a1, unsigned int a2, __int64 a3)

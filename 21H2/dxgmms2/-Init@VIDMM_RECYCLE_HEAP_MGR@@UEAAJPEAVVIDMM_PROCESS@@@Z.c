@@ -1,156 +1,169 @@
 /*
- * XREFs of ?Init@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAVVIDMM_PROCESS@@@Z @ 0x1C0083430
+ * XREFs of ?Init@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAVVIDMM_PROCESS@@@Z @ 0x1C00785B0
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::Init(VIDMM_RECYCLE_HEAP_MGR *this, struct VIDMM_PROCESS *a2)
 {
   struct _KEVENT *v3; // rax
-  struct _LOOKASIDE_LIST_EX *v4; // rax
-  NTSTATUS v5; // edi
-  unsigned __int64 v6; // rbp
-  PSLIST_ENTRY *v7; // rsi
+  __int64 v4; // rcx
+  struct _LOOKASIDE_LIST_EX *v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rcx
   __int64 v8; // rdi
-  PSLIST_ENTRY v9; // rax
-  struct _LOOKASIDE_LIST_EX *v10; // rax
-  NTSTATUS v11; // eax
-  unsigned __int64 v12; // rbp
-  PSLIST_ENTRY *v13; // rsi
-  __int64 v14; // rdi
-  PSLIST_ENTRY v15; // rax
-  struct _KTHREAD **v16; // rdx
-  _QWORD *v17; // rax
-  _QWORD *v18; // rbx
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  _BYTE v22[8]; // [rsp+50h] [rbp-38h] BYREF
-  DXGPUSHLOCK *v23; // [rsp+58h] [rbp-30h]
-  int v24; // [rsp+60h] [rbp-28h]
+  unsigned __int64 v9; // rbp
+  PSLIST_ENTRY *v10; // rsi
+  __int64 v11; // rdi
+  PSLIST_ENTRY v12; // rax
+  __int64 v13; // rcx
+  struct _LOOKASIDE_LIST_EX *v14; // rax
+  __int64 v15; // rcx
+  NTSTATUS v16; // eax
+  __int64 v17; // rcx
+  unsigned __int64 v18; // rbp
+  PSLIST_ENTRY *v19; // rsi
+  __int64 v20; // rdi
+  PSLIST_ENTRY v21; // rax
+  __int64 v22; // rcx
+  struct _KTHREAD **v23; // rdx
+  _QWORD *v24; // rax
+  _QWORD *v25; // rbx
+  __int64 v27; // rax
+  __int64 v28; // rax
+  _BYTE v29[8]; // [rsp+40h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v30; // [rsp+48h] [rbp-20h]
+  int v31; // [rsp+50h] [rbp-18h]
 
   *((_QWORD *)this + 1) = a2;
-  v3 = (struct _KEVENT *)operator new(24LL, 0x30316956u, 64LL);
-  *((_QWORD *)this + 199) = v3;
+  v3 = (struct _KEVENT *)operator new[](0x18uLL, 0x30316956u, (POOL_TYPE)512);
+  *((_QWORD *)this + 198) = v3;
   if ( !v3 )
   {
-    _InterlockedIncrement(&dword_1C006E7F4);
-    WdLogSingleEntry1(6LL, 9881LL);
+    _InterlockedIncrement(&dword_1C0050744);
+    v27 = WdLogNewEntry5_WdLowResource(v4);
+    *(_QWORD *)(v27 + 24) = 9882LL;
 LABEL_27:
-    DxgkLogInternalTriageEvent(v20, 262145LL);
+    WdLogEvent5_WdLowResource(v27);
     return 3221225495LL;
   }
   KeInitializeEvent(v3, NotificationEvent, 0);
-  v4 = (struct _LOOKASIDE_LIST_EX *)operator new(96LL, 0x30316956u, 64LL);
-  *((_QWORD *)this + 164) = v4;
-  if ( !v4 )
+  v5 = (struct _LOOKASIDE_LIST_EX *)operator new[](0x60uLL, 0x30316956u, (POOL_TYPE)512);
+  *((_QWORD *)this + 164) = v5;
+  if ( !v5 )
   {
-    _InterlockedIncrement(&dword_1C006E7F4);
-    WdLogSingleEntry1(6LL, 9895LL);
+    _InterlockedIncrement(&dword_1C0050744);
+    v27 = WdLogNewEntry5_WdLowResource(v6);
+    *(_QWORD *)(v27 + 24) = 9896LL;
     goto LABEL_27;
   }
-  v5 = ExInitializeLookasideListEx(v4, 0LL, 0LL, PagedPool, 0, 0xB0uLL, 0x32316956u, 0);
-  if ( v5 < 0 )
+  LODWORD(v8) = ExInitializeLookasideListEx(v5, 0LL, 0LL, PagedPool, 0, 0xB0uLL, 0x32316956u, 0);
+  if ( (int)v8 < 0 )
   {
-    _InterlockedIncrement(&dword_1C006E7F4);
-    WdLogSingleEntry1(6LL, 9904LL);
+    _InterlockedIncrement(&dword_1C0050744);
+    v28 = WdLogNewEntry5_WdLowResource(v7);
+    *(_QWORD *)(v28 + 24) = 9905LL;
 LABEL_22:
-    DxgkLogInternalTriageEvent(v21, 262145LL);
-    return (unsigned int)v5;
+    WdLogEvent5_WdLowResource(v28);
+    return (unsigned int)v8;
   }
   else
   {
-    v6 = 0LL;
-    v7 = (PSLIST_ENTRY *)((char *)this + 1624);
+    v9 = 0LL;
+    v10 = (PSLIST_ENTRY *)((char *)this + 1616);
     do
     {
-      v8 = *((_QWORD *)this + 164);
-      ++*(_DWORD *)(v8 + 20);
-      v9 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v8);
-      if ( !v9 )
+      v11 = *((_QWORD *)this + 164);
+      ++*(_DWORD *)(v11 + 20);
+      v12 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v11);
+      if ( !v12 )
       {
-        ++*(_DWORD *)(v8 + 24);
-        v9 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v8 + 48))(
-                             *(unsigned int *)(v8 + 36),
-                             *(unsigned int *)(v8 + 44),
-                             *(unsigned int *)(v8 + 40),
-                             v8);
+        ++*(_DWORD *)(v11 + 24);
+        v12 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v11 + 48))(
+                              *(unsigned int *)(v11 + 36),
+                              *(unsigned int *)(v11 + 44),
+                              *(unsigned int *)(v11 + 40),
+                              v11);
       }
-      *v7 = v9;
-      if ( !v9 )
+      *v10 = v12;
+      if ( !v12 )
       {
-        _InterlockedIncrement(&dword_1C006E7F4);
-        WdLogSingleEntry1(6LL, 9916LL);
+        _InterlockedIncrement(&dword_1C0050744);
+        v27 = WdLogNewEntry5_WdLowResource(v13);
+        *(_QWORD *)(v27 + 24) = 9917LL;
         goto LABEL_27;
       }
-      ++v6;
-      ++v7;
+      ++v9;
+      ++v10;
     }
-    while ( v6 < 4 );
-    *((_DWORD *)this + 404) = 4;
-    v10 = (struct _LOOKASIDE_LIST_EX *)operator new(96LL, 0x30316956u, 64LL);
-    *((_QWORD *)this + 165) = v10;
-    if ( !v10 )
+    while ( v9 < 4 );
+    *((_DWORD *)this + 402) = 4;
+    v14 = (struct _LOOKASIDE_LIST_EX *)operator new[](0x60uLL, 0x30316956u, (POOL_TYPE)512);
+    *((_QWORD *)this + 165) = v14;
+    if ( !v14 )
     {
-      _InterlockedIncrement(&dword_1C006E7F4);
-      WdLogSingleEntry1(6LL, 9927LL);
+      _InterlockedIncrement(&dword_1C0050744);
+      v27 = WdLogNewEntry5_WdLowResource(v15);
+      *(_QWORD *)(v27 + 24) = 9928LL;
       goto LABEL_27;
     }
-    v11 = ExInitializeLookasideListEx(v10, 0LL, 0LL, PagedPool, 0, 0xF0uLL, 0x32316956u, 0);
-    v5 = v11;
-    if ( v11 < 0 )
+    v16 = ExInitializeLookasideListEx(v14, 0LL, 0LL, PagedPool, 0, 0xF0uLL, 0x32316956u, 0);
+    v8 = v16;
+    if ( v16 < 0 )
     {
-      _InterlockedIncrement(&dword_1C006E7F4);
-      WdLogSingleEntry1(6LL, v11);
+      _InterlockedIncrement(&dword_1C0050744);
+      v28 = WdLogNewEntry5_WdLowResource(v17);
+      *(_QWORD *)(v28 + 24) = v8;
       goto LABEL_22;
     }
-    v12 = 0LL;
-    v13 = (PSLIST_ENTRY *)((char *)this + 1656);
+    v18 = 0LL;
+    v19 = (PSLIST_ENTRY *)((char *)this + 1648);
     do
     {
-      v14 = *((_QWORD *)this + 165);
-      ++*(_DWORD *)(v14 + 20);
-      v15 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v14);
-      if ( !v15 )
+      v20 = *((_QWORD *)this + 165);
+      ++*(_DWORD *)(v20 + 20);
+      v21 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v20);
+      if ( !v21 )
       {
-        ++*(_DWORD *)(v14 + 24);
-        v15 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v14 + 48))(
-                              *(unsigned int *)(v14 + 36),
-                              *(unsigned int *)(v14 + 44),
-                              *(unsigned int *)(v14 + 40),
-                              v14);
+        ++*(_DWORD *)(v20 + 24);
+        v21 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v20 + 48))(
+                              *(unsigned int *)(v20 + 36),
+                              *(unsigned int *)(v20 + 44),
+                              *(unsigned int *)(v20 + 40),
+                              v20);
       }
-      *v13 = v15;
-      if ( !v15 )
+      *v19 = v21;
+      if ( !v21 )
       {
-        _InterlockedIncrement(&dword_1C006E7F4);
-        WdLogSingleEntry1(6LL, 9948LL);
+        _InterlockedIncrement(&dword_1C0050744);
+        v27 = WdLogNewEntry5_WdLowResource(v22);
+        *(_QWORD *)(v27 + 24) = 9949LL;
         goto LABEL_27;
       }
-      ++v12;
-      ++v13;
+      ++v18;
+      ++v19;
     }
-    while ( v12 < 4 );
-    v16 = (struct _KTHREAD **)VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListLock;
-    *((_DWORD *)this + 405) = 4;
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v22, v16, 0);
-    DXGPUSHLOCK::AcquireExclusive(v23);
-    v17 = (_QWORD *)qword_1C006E8B8;
-    v18 = (_QWORD *)((char *)this + 1600);
-    v24 = 2;
-    if ( *(struct _LIST_ENTRY **)qword_1C006E8B8 != &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead )
+    while ( v18 < 4 );
+    v23 = (struct _KTHREAD **)VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListLock;
+    *((_DWORD *)this + 403) = 4;
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v29, v23, 0);
+    DXGPUSHLOCK::AcquireExclusive(v30);
+    v24 = (_QWORD *)qword_1C0050868;
+    v25 = (_QWORD *)((char *)this + 1592);
+    v31 = 2;
+    if ( *(struct _LIST_ENTRY **)qword_1C0050868 != &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead )
       __fastfail(3u);
-    *v18 = &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead;
-    v18[1] = v17;
-    *v17 = v18;
-    qword_1C006E8B8 = (__int64)v18;
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v22);
+    *v25 = &VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListHead;
+    v25[1] = v24;
+    *v24 = v25;
+    qword_1C0050868 = (__int64)v25;
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v29);
     return 0LL;
   }
 }

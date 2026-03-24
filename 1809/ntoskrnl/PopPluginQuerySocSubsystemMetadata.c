@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPluginQuerySocSubsystemMetadata @ 0x14086AE78
+ * XREFs of PopPluginQuerySocSubsystemMetadata @ 0x14086AE58
  * Callers:
- *     PopFxLogSocSubsystemMetadata @ 0x140869BFC (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x140869BDC (PopFxLogSocSubsystemMetadata.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
- *     PopFxValidateReturnedUnicodeString @ 0x14086A964 (PopFxValidateReturnedUnicodeString.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x14086A944 (PopFxValidateReturnedUnicodeString.c)
  */
 
 char __fastcall PopPluginQuerySocSubsystemMetadata(__int64 a1, int a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VslGetSecureTebAddress @ 0x14081887C
+ * XREFs of VslGetSecureTebAddress @ 0x14081885C
  * Callers:
- *     NtQueryInformationThread @ 0x14064A580 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslGetSecureTebAddress(__int64 a1, _QWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetCenterXCommand@CSkewTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0220A8C
+ * XREFs of ?EmitSetCenterXCommand@CSkewTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D6C90
  * Callers:
- *     ?EmitUpdateCommands@CSkewTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0225390 (-EmitUpdateCommands@CSkewTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSkewTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB800 (-EmitUpdateCommands@CSkewTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSkewTransformMarshaler::EmitSetCenterXCommand(
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CSkewTransformMarshaler::EmitSetCenterXComman
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 650;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 22);
+    *((_DWORD *)v3 + 1) = 645;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 20);
     *((_DWORD *)this + 4) &= ~0x200u;
     return 1;
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiGetBusDriverD3ColdSupport @ 0x1C008ECC0
+ * XREFs of AcpiGetBusDriverD3ColdSupport @ 0x1C0090400
  * Callers:
  *     <none>
  * Callees:

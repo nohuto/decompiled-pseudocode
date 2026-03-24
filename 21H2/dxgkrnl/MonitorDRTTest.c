@@ -1,77 +1,123 @@
 /*
- * XREFs of MonitorDRTTest @ 0x1C03AFECC
+ * XREFs of MonitorDRTTest @ 0x1C02F334C
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C02FF2BC (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F574 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z @ 0x1C039A9B4 (-DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z.c)
- *     MonitorCreateSimulatedMonitor @ 0x1C03AFD5C (MonitorCreateSimulatedMonitor.c)
- *     MonitorDestroySimulatedMonitor @ 0x1C03B005C (MonitorDestroySimulatedMonitor.c)
- *     ?_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z @ 0x1C03B3920 (-_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z @ 0x1C02DC518 (-DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z.c)
+ *     ?_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z @ 0x1C02F1E1C (-_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z.c)
+ *     MonitorCreateSimulatedMonitor @ 0x1C02F31C4 (MonitorCreateSimulatedMonitor.c)
+ *     MonitorDestroySimulatedMonitor @ 0x1C02F352C (MonitorDestroySimulatedMonitor.c)
  */
 
 __int64 __fastcall MonitorDRTTest(
         DXGADAPTER *this,
         struct _D3DKMT_DRT_MONITOR *a2,
-        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a3)
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a3,
+        __int64 a4)
 {
-  unsigned int v6; // eax
+  __int64 v7; // rdx
   __int64 v8; // rcx
-  __int64 v9; // rdx
-  unsigned int v10; // ebx
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  unsigned int v15; // r9d
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rax
+  int v19; // ecx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  unsigned int v22; // ebx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
   unsigned int SimulatedMonitor; // eax
-  __int64 v12; // r9
-  MONITOR_MGR *v13; // rcx
-  int v14; // [rsp+20h] [rbp-28h]
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r9
+  __int64 v31; // rax
+  MONITOR_MGR *v32; // rcx
+  __int64 v33; // rax
+  int v34; // [rsp+20h] [rbp-28h]
+  int v35; // [rsp+30h] [rbp-18h]
 
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
   if ( !this || !a2 )
     return 3221225485LL;
-  v6 = *((_DWORD *)a2 + 1);
-  if ( v6 < 0x20 )
+  if ( *((_DWORD *)a2 + 1) < 0x20u )
   {
-    WdLogSingleEntry2(3LL, a2, v6);
+    v10 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+    *(_QWORD *)(v10 + 24) = a2;
+    *(_QWORD *)(v10 + 32) = *((unsigned int *)a2 + 1);
+    WdLogEvent5_WdWarning(v10);
     return 3221225485LL;
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
-    WdLogSingleEntry0(1LL);
-  v8 = *((_QWORD *)this + 349);
-  if ( !v8 )
   {
-    WdLogSingleEntry1(2LL, this);
+    v16 = WdLogNewEntry5_WdAssertion(v13, v12);
+    WdLogEvent5_WdAssertion(v16);
+  }
+  v17 = *((_QWORD *)this + 337);
+  if ( !v17 )
+  {
+    v18 = WdLogNewEntry5_WdError(v13, 0LL);
+    *(_QWORD *)(v18 + 24) = this;
+    WdLogEvent5_WdError(v18);
     return 3221225659LL;
   }
-  v9 = *((unsigned int *)a2 + 3);
-  switch ( (_DWORD)v9 )
+  v19 = *((_DWORD *)a2 + 3);
+  if ( !v19 )
   {
-    case 0:
-      v13 = *(MONITOR_MGR **)(v8 + 112);
-      if ( !v13 )
-      {
-        WdLogSingleEntry1(2LL, this);
-        return 3221225485LL;
-      }
-      return (unsigned int)MONITOR_MGR::_DRTGetTargetInformation(v13, a2);
-    case 1:
-      if ( (int)DmmEnableModeResetOnMonitorEvent((PERESOURCE *)this, 0) < 0 )
-        WdLogSingleEntry0(1LL);
-      SimulatedMonitor = MonitorCreateSimulatedMonitor(
-                           (PERESOURCE *)this,
-                           *((unsigned int *)a2 + 4),
-                           *((_DWORD *)a2 + 5),
-                           v12,
-                           v14,
-                           0);
-      goto LABEL_20;
-    case 2:
-      if ( (int)DmmEnableModeResetOnMonitorEvent((PERESOURCE *)this, 0) < 0 )
-        WdLogSingleEntry0(1LL);
-      SimulatedMonitor = MonitorDestroySimulatedMonitor(this, *((_DWORD *)a2 + 4), a3);
-LABEL_20:
-      v10 = SimulatedMonitor;
-      DmmEnableModeResetOnMonitorEvent((PERESOURCE *)this, 1);
-      return v10;
+    v32 = *(MONITOR_MGR **)(v17 + 96);
+    if ( !v32 )
+    {
+      v33 = WdLogNewEntry5_WdError(0LL, v17);
+      *(_QWORD *)(v33 + 24) = this;
+      WdLogEvent5_WdError(v33);
+      return 3221225485LL;
+    }
+    return (unsigned int)MONITOR_MGR::_DRTGetTargetInformation(v32, a2, v14, v15);
   }
-  WdLogSingleEntry2(3LL, v9, a2);
+  v20 = (unsigned int)(v19 - 1);
+  if ( !(_DWORD)v20 )
+  {
+    if ( (int)DmmEnableModeResetOnMonitorEvent((PERESOURCE *)this, 0LL) < 0 )
+    {
+      v31 = WdLogNewEntry5_WdAssertion(v29, v28);
+      WdLogEvent5_WdAssertion(v31);
+    }
+    SimulatedMonitor = MonitorCreateSimulatedMonitor(
+                         (PERESOURCE *)this,
+                         *((unsigned int *)a2 + 4),
+                         *((unsigned int *)a2 + 5),
+                         v30,
+                         v34,
+                         0,
+                         v35,
+                         a3);
+    goto LABEL_20;
+  }
+  if ( (_DWORD)v20 == 1 )
+  {
+    if ( (int)DmmEnableModeResetOnMonitorEvent((PERESOURCE *)this, 0LL) < 0 )
+    {
+      v25 = WdLogNewEntry5_WdAssertion(v24, v23);
+      WdLogEvent5_WdAssertion(v25);
+    }
+    SimulatedMonitor = MonitorDestroySimulatedMonitor(this, *((_DWORD *)a2 + 4), a3);
+LABEL_20:
+    LOBYTE(v27) = 1;
+    v22 = SimulatedMonitor;
+    DmmEnableModeResetOnMonitorEvent((PERESOURCE *)this, v27);
+    return v22;
+  }
+  v21 = WdLogNewEntry5_WdWarning(v20, v17, v14);
+  *(_QWORD *)(v21 + 24) = *((unsigned int *)a2 + 3);
+  *(_QWORD *)(v21 + 32) = a2;
+  WdLogEvent5_WdWarning(v21);
   return (unsigned int)-1073741811;
 }

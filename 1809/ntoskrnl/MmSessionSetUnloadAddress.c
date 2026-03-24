@@ -1,11 +1,11 @@
 /*
- * XREFs of MmSessionSetUnloadAddress @ 0x140177D54
+ * XREFs of MmSessionSetUnloadAddress @ 0x140177D74
  * Callers:
- *     ExpInitializeSessionDriver @ 0x14071E330 (ExpInitializeSessionDriver.c)
+ *     ExpInitializeSessionDriver @ 0x14071E310 (ExpInitializeSessionDriver.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmSessionSetUnloadAddress(__int64 a1)

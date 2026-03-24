@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCreateEnclave @ 0x1409744A4
+ * XREFs of KeCreateEnclave @ 0x1408BB4EC
  * Callers:
- *     MiCreateHardwareEnclave @ 0x140A3D7F8 (MiCreateHardwareEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x1408D2920 (MiCreateHardwareEnclave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiEncls @ 0x14041F5C0 (KiEncls.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiEncls @ 0x1403FE6E0 (KiEncls.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall KeCreateEnclave(
@@ -20,7 +20,7 @@ __int64 __fastcall KeCreateEnclave(
 {
   _QWORD *v8; // rbp
   bool v10; // zf
-  int v11; // eax
+  int v12; // eax
   __int64 v13; // [rsp+60h] [rbp+0h] BYREF
 
   v8 = (_QWORD *)((unsigned __int64)&v13 & 0xFFFFFFFFFFFFFFC0uLL);
@@ -28,23 +28,23 @@ __int64 __fastcall KeCreateEnclave(
   *a8 = 0;
   if ( v10 )
     return 3221225659LL;
-  if ( !_bittest64(&KeFeatureBits, 0x2Bu) && (a6 & 0x100) != 0 || *(_QWORD *)a4 != a3 )
+  if ( !_bittest64((const signed __int64 *)&KeFeatureBits, 0x2Bu) && (a6 & 0x100) != 0 || *(_QWORD *)a4 != a3 )
     return 3221225485LL;
   if ( (a6 & 1) != 0 )
   {
-    if ( (*(_DWORD *)(a4 + 48) & 4) != 0 )
-      goto LABEL_8;
+    if ( (*(_DWORD *)(a4 + 48) & 4) == 0 )
+      return 3221225485LL;
+  }
+  else if ( (*(_DWORD *)(a4 + 48) & 4) != 0 )
+  {
     return 3221225485LL;
   }
-  if ( (*(_DWORD *)(a4 + 48) & 4) != 0 )
-    return 3221225485LL;
-LABEL_8:
   *(_QWORD *)(a4 + 8) = a2;
   *a7 = 0;
-  v11 = *a7;
+  v12 = *a7;
   if ( (*(_BYTE *)(a4 + 48) & 2) != 0 )
-    v11 = 2;
-  *a7 = v11;
+    v12 = 2;
+  *a7 = v12;
   memset(v8 + 8, 0, 0x40uLL);
   *(_QWORD *)(((unsigned __int64)&v13 & 0xFFFFFFFFFFFFFFC0uLL) + 0x10) = ((unsigned __int64)&v13 & 0xFFFFFFFFFFFFFFC0uLL)
                                                                        + 64;

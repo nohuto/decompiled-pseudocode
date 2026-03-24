@@ -1,27 +1,27 @@
 /*
- * XREFs of FsRtlPrivateCancelFileLockIrp @ 0x14053D830
+ * XREFs of FsRtlPrivateCancelFileLockIrp @ 0x1404EF9F0
  * Callers:
- *     FsRtlPrivateLock @ 0x140327350 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateLock @ 0x1402D8B40 (FsRtlPrivateLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x14045EB20 (FsRtlCompleteLockIrpReal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF5B0 (FsRtlCompleteLockIrpReal.c)
  */
 
 void __fastcall FsRtlPrivateCancelFileLockIrp(__int64 a1, IRP *a2)
 {
-  ULONG_PTR Information; // rdi
+  ULONG_PTR Information; // rsi
   char v3; // bp
-  ULONG_PTR v4; // rdi
+  KSPIN_LOCK *v4; // rsi
   KIRQL CancelIrql; // bl
   void **i; // rax
-  IRP *v8; // rsi
+  IRP *v8; // rdi
   IRP *v9; // rcx
-  volatile signed __int64 *v10; // rcx
+  KSPIN_LOCK *v10; // rcx
   unsigned __int8 v11; // al
   struct _KPRCB *v12; // r10
   _DWORD *v13; // r8
@@ -36,14 +36,14 @@ void __fastcall FsRtlPrivateCancelFileLockIrp(__int64 a1, IRP *a2)
   Information = a2->IoStatus.Information;
   v3 = 0;
   v20 = 0;
-  v4 = Information + 24;
+  v4 = (KSPIN_LOCK *)(Information + 24);
   CancelIrql = a2->CancelIrql;
   if ( !a1 )
     goto LABEL_3;
   KeReleaseQueuedSpinLock(7uLL, a2->CancelIrql);
   CancelIrql = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
   v3 = 1;
-  for ( i = (void **)&FsRtlFileLockCancelCollideList; ; i = (void **)(v4 + 24) )
+  for ( i = (void **)&FsRtlFileLockCancelCollideList; ; i = (void **)(v4 + 3) )
   {
     v8 = (IRP *)*i;
     if ( *i )
@@ -51,27 +51,30 @@ void __fastcall FsRtlPrivateCancelFileLockIrp(__int64 a1, IRP *a2)
 LABEL_7:
     if ( !v3 )
     {
-      KxReleaseSpinLock((volatile signed __int64 *)v4);
+      KxReleaseSpinLock(v4);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && CancelIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v19 = ~(unsigned __int16)(-1LL << (CancelIrql + 1));
-          v15 = (v19 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v19;
-          if ( v15 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && CancelIrql <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << (CancelIrql + 1));
+            v15 = (v19 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v19;
+            if ( v15 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CancelIrql);
       return;
     }
     v3 = 0;
-    KxAcquireSpinLock((PKSPIN_LOCK)v4);
-    KxReleaseSpinLock((volatile signed __int64 *)&FsRtlFileLockCancelCollideLock);
+    KxAcquireSpinLock(v4);
+    KxReleaseSpinLock(&FsRtlFileLockCancelCollideLock);
 LABEL_3:
     ;
   }
@@ -86,33 +89,28 @@ LABEL_3:
       goto LABEL_7;
   }
   *i = v9;
-  if ( v3 || v8 != *(IRP **)(v4 + 32) )
-  {
-    a2->IoStatus.Information = 0LL;
-    v10 = (volatile signed __int64 *)&FsRtlFileLockCancelCollideLock;
-    if ( v3 )
-      goto LABEL_14;
-  }
-  else
-  {
-    *(_QWORD *)(v4 + 32) = i;
-    a2->IoStatus.Information = 0LL;
-  }
-  v10 = (volatile signed __int64 *)v4;
-LABEL_14:
+  if ( !v3 && v8 == (IRP *)v4[4] )
+    v4[4] = (KSPIN_LOCK)i;
+  a2->IoStatus.Information = 0LL;
+  v10 = &FsRtlFileLockCancelCollideLock;
+  if ( !v3 )
+    v10 = v4;
   KxReleaseSpinLock(v10);
   if ( KiIrqlFlags )
   {
-    v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CancelIrql <= 0xFu && v11 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v12 = KeGetCurrentPrcb();
-      v13 = v12->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << (CancelIrql + 1));
-      v15 = (v14 & v13[5]) == 0;
-      v13[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(v12);
+      v11 = KeGetCurrentIrql();
+      if ( v11 <= 0xFu && CancelIrql <= 0xFu && v11 >= 2u )
+      {
+        v12 = KeGetCurrentPrcb();
+        v13 = v12->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << (CancelIrql + 1));
+        v15 = (v14 & v13[5]) == 0;
+        v13[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)v12);
+      }
     }
   }
   __writecr8(CancelIrql);

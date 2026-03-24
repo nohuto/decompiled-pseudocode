@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapWorkQueueWorkerRoutine @ 0x140613A80
+ * XREFs of WheapWorkQueueWorkerRoutine @ 0x1405BD770
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedRemoveHeadList @ 0x14032F150 (ExInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExInterlockedRemoveHeadList @ 0x1402F8780 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapWorkQueueWorkerRoutine(PLIST_ENTRY ListHead)

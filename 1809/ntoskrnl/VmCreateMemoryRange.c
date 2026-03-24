@@ -1,17 +1,17 @@
 /*
- * XREFs of VmCreateMemoryRange @ 0x1408B0140
+ * XREFs of VmCreateMemoryRange @ 0x1408B0120
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     VmpInsertMemoryRange @ 0x14030C6A0 (VmpInsertMemoryRange.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     VmpInsertMemoryRange @ 0x14030C7A0 (VmpInsertMemoryRange.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VmpAllocateMemoryRanges @ 0x1408B05F4 (VmpAllocateMemoryRanges.c)
- *     VmpDecodePreallocationRangeHandle @ 0x1408B06E8 (VmpDecodePreallocationRangeHandle.c)
- *     VmpFreeMemoryRanges @ 0x1408B073C (VmpFreeMemoryRanges.c)
- *     VmpProcessContextCleanup @ 0x1408B0B48 (VmpProcessContextCleanup.c)
- *     VmpValidateMemoryRangeParameters @ 0x1408B0B5C (VmpValidateMemoryRangeParameters.c)
+ *     VmpAllocateMemoryRanges @ 0x1408B05D4 (VmpAllocateMemoryRanges.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x1408B06C8 (VmpDecodePreallocationRangeHandle.c)
+ *     VmpFreeMemoryRanges @ 0x1408B071C (VmpFreeMemoryRanges.c)
+ *     VmpProcessContextCleanup @ 0x1408B0B28 (VmpProcessContextCleanup.c)
+ *     VmpValidateMemoryRangeParameters @ 0x1408B0B3C (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)

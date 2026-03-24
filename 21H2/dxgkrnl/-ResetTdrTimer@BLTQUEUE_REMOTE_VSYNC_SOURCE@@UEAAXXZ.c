@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ResetTdrTimer@BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAXXZ @ 0x1C03BFB60
+ * XREFs of ?ResetTdrTimer@BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAXXZ @ 0x1C03008F0
  * Callers:
  *     <none>
  * Callees:

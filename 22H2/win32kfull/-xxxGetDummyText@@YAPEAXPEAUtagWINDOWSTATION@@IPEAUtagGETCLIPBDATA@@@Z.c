@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD43C
+ * XREFs of ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C021EEB0
  * Callers:
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
  * Callees:
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00131A8 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002F970 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
  */
 
 __int64 __fastcall xxxGetDummyText(struct tagWINDOWSTATION *a1, int a2, struct tagGETCLIPBDATA *a3)
@@ -18,10 +18,10 @@ __int64 __fastcall xxxGetDummyText(struct tagWINDOWSTATION *a1, int a2, struct t
   __int64 v11; // rbx
   struct tagWINDOWSTATION *v12; // rcx
   unsigned int v13; // edx
-  struct tagCLIP *v14; // rax
   struct tagCLIP *v15; // rax
-  __int64 v16; // rdi
-  struct tagCLIP *v17; // rax
+  struct tagCLIP *v16; // rax
+  __int64 v17; // rdi
+  struct tagCLIP *v18; // rax
 
   v5 = 1;
   v6 = a2 - 1;
@@ -51,30 +51,30 @@ LABEL_8:
   v12 = a1;
   if ( *((_QWORD *)ClipFormat + 1) == 1LL )
   {
-    v14 = FindClipFormat(a1, v9, 1);
-    if ( v14 && *((_QWORD *)v14 + 1) != 1LL )
+    v15 = FindClipFormat(a1, v9, 1);
+    if ( v15 && *((_QWORD *)v15 + 1) != 1LL )
     {
       v5 = 0;
       v13 = v9;
       v12 = a1;
-      goto LABEL_14;
+      goto LABEL_11;
     }
     return 0LL;
   }
   v13 = v8;
-LABEL_14:
-  if ( !xxxGetClipboardData(v12, v13, a3) )
+LABEL_11:
+  if ( !xxxGetClipboardData(v12, v13, (__int64)a3) )
     return 0LL;
   if ( !v5 )
     v8 = v9;
-  v15 = FindClipFormat(a1, v8, 1);
-  if ( !v15 )
+  v16 = FindClipFormat(a1, v8, 1);
+  if ( !v16 )
     return 0LL;
-  *(_DWORD *)a3 = *(_DWORD *)v15;
-  v16 = *((_QWORD *)v15 + 1);
-  v17 = FindClipFormat(a1, 0x10u, 1);
-  if ( v17 )
-    v11 = *((_QWORD *)v17 + 1);
+  *(_DWORD *)a3 = *(_DWORD *)v16;
+  v17 = *((_QWORD *)v16 + 1);
+  v18 = FindClipFormat(a1, 0x10u, 1);
+  if ( v18 )
+    v11 = *((_QWORD *)v18 + 1);
   *((_QWORD *)a3 + 1) = v11;
-  return v16;
+  return v17;
 }

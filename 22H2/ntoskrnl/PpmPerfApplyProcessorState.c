@@ -1,119 +1,109 @@
 /*
- * XREFs of PpmPerfApplyProcessorState @ 0x14034EA0C
+ * XREFs of PpmPerfApplyProcessorState @ 0x14039843C
  * Callers:
- *     PpmPerfAction @ 0x1402BF990 (PpmPerfAction.c)
- *     PpmPerfApplyProcessorStates @ 0x14034E810 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfAction @ 0x140220730 (PpmPerfAction.c)
+ *     PpmPerfApplyProcessorStates @ 0x140398250 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     PpmUpdatePerformanceFeedback @ 0x1402C6D10 (PpmUpdatePerformanceFeedback.c)
- *     PpmGetIdleGenerationCounter @ 0x14034AE44 (PpmGetIdleGenerationCounter.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034EB5C (PpmContinueActiveTimeAccumulation.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034EB90 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmScaleIdleStateValues @ 0x14034ED1C (PpmScaleIdleStateValues.c)
- *     PpmEventLegacyProcessorPerfStateChange @ 0x14034ED3C (PpmEventLegacyProcessorPerfStateChange.c)
- *     PpmEventTraceExpectedUtility @ 0x14034EE70 (PpmEventTraceExpectedUtility.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmUpdatePerformanceFeedback @ 0x140224030 (PpmUpdatePerformanceFeedback.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x1403449DC (PpmContinueActiveTimeAccumulation.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1403985A4 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmEventTraceExpectedUtility @ 0x140398828 (PpmEventTraceExpectedUtility.c)
+ *     PpmScaleIdleStateValues @ 0x140398914 (PpmScaleIdleStateValues.c)
+ *     PpmEventLegacyProcessorPerfStateChange @ 0x140398934 (PpmEventLegacyProcessorPerfStateChange.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PpmGetIdleGenerationCounter @ 0x140565C50 (PpmGetIdleGenerationCounter.c)
  */
 
 char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, char a2)
 {
-  _PROC_PERF_CONSTRAINT *Constraint; // r15
+  _PROC_PERF_CONSTRAINT *Constraint; // rbp
   _PROC_PERF_CHECK_CONTEXT *p_CheckContext; // r13
   _PROC_PERF_DOMAIN *Domain; // rsi
   char v6; // bl
   char v7; // r12
   _PROC_PERF_CHECK_CONTEXT *Master; // rcx
-  bool v9; // r14
+  char v9; // r15
   LARGE_INTEGER PerformanceCounter; // rdx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  bool v13; // bp
-  KSPIN_LOCK *p_QosUpdateLock; // r15
+  LARGE_INTEGER v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  KSPIN_LOCK *p_QosUpdateLock; // r14
+  bool v16; // bp
   char updated; // bl
-  signed __int32 *v16; // r8
-  __int64 v17; // r9
+  __int64 v18; // r8
+  __int64 v19; // r9
   void (__fastcall *DomainPerfControlHandler)(unsigned __int64, _PERF_CONTROL_STATE_SELECTION *, unsigned __int8, unsigned __int8); // rax
-  __int64 IdleGenerationCounter; // rbp
-  volatile signed __int32 *SchedulerAssist; // rcx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 v23; // eax
-  signed __int32 v24; // ett
-  __int16 v25; // [rsp+60h] [rbp-8h]
+  __int64 v22; // rbp
+  KSPIN_LOCK *v23; // rcx
+  __int16 v24; // [rsp+60h] [rbp-8h]
+  _PROC_PERF_CONSTRAINT *v25; // [rsp+70h] [rbp+8h]
 
   Constraint = a1->PowerState.CheckContext.Constraint;
   p_CheckContext = &a1->PowerState.CheckContext;
   Domain = a1->PowerState.CheckContext.Domain;
+  v25 = Constraint;
   v6 = a2;
   v7 = 1;
   Master = Domain->Master;
-  v9 = p_CheckContext == Master || Domain->InitiateAllProcessors;
+  if ( p_CheckContext == Master || (v9 = 0, Domain->InitiateAllProcessors) )
+    v9 = 1;
   if ( Domain->Coordination != 0xFD && a2 )
     v9 = 1;
   if ( a1 != KeGetCurrentPrcb() && (p_CheckContext == Master || v9 && Domain->AffinitizeControl) )
     return 0;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  if ( KeGetCurrentPrcb() == a1 )
+  if ( KeGetCurrentPrcb() != a1 )
   {
-    ((void (__fastcall *)(_QWORD, _QWORD))PpmContinueActiveTimeAccumulation)(
-      a1,
-      (LARGE_INTEGER)PerformanceCounter.QuadPart);
+    v22 = ((__int64 (__fastcall *)(_QWORD, _QWORD))PpmGetIdleGenerationCounter)(
+            a1,
+            (LARGE_INTEGER)PerformanceCounter.QuadPart);
+    if ( v22 )
+    {
+      updated = PpmUpdatePerformanceFeedback((__int64)a1, 0, 1, 0, 0LL);
+      if ( !updated )
+      {
+LABEL_30:
+        if ( !updated )
+          return updated;
+        v6 = a2;
+        Constraint = v25;
+        goto LABEL_9;
+      }
+      if ( v22 == PpmGetIdleGenerationCounter(a1, v12) )
+      {
+        updated = 1;
+        goto LABEL_30;
+      }
+    }
+    return 0;
   }
-  else
-  {
-    IdleGenerationCounter = PpmGetIdleGenerationCounter((__int64)a1);
-    if ( !IdleGenerationCounter )
-      return 0;
-    updated = PpmUpdatePerformanceFeedback((__int64)a1, 0, 1, 0, 0LL);
-    if ( !updated )
-      return updated;
-    if ( IdleGenerationCounter != PpmGetIdleGenerationCounter((__int64)a1) )
-      return 0;
-    v6 = a2;
-  }
+  PpmContinueActiveTimeAccumulation((__int64)a1, PerformanceCounter.QuadPart, v11.QuadPart);
+LABEL_9:
+  p_QosUpdateLock = &Constraint->QosUpdateLock;
   if ( Constraint->UseQosUpdateLock )
   {
     _disable();
-    SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-    if ( SchedulerAssist )
-      _InterlockedOr(SchedulerAssist, 0x200000u);
-    p_QosUpdateLock = &Constraint->QosUpdateLock;
-    v13 = (v25 & 0x200) != 0;
-    KxAcquireSpinLock(p_QosUpdateLock);
+    v23 = &Constraint->QosUpdateLock;
+    v16 = (v24 & 0x200) != 0;
+    KxAcquireSpinLock(v23);
   }
   else
   {
     v7 = 0;
-    v13 = 0;
-    p_QosUpdateLock = &Constraint->QosUpdateLock;
+    v16 = 0;
   }
-  LOBYTE(v12) = v6;
-  LOBYTE(v11) = v9;
-  updated = PpmPerfArbitratorApplyProcessorState(a1, v11, v12);
+  LOBYTE(v13) = v6;
+  LOBYTE(v12) = v9;
+  updated = PpmPerfArbitratorApplyProcessorState(a1, v12, v13, v14);
   if ( v7 )
   {
-    KxReleaseSpinLock((volatile signed __int64 *)p_QosUpdateLock);
-    if ( v13 )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v16 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-      if ( v16 )
-      {
-        _m_prefetchw(v16);
-        v23 = *v16;
-        do
-        {
-          v24 = v23;
-          v23 = _InterlockedCompareExchange(v16, v23 & 0xFFDFFFFF, v23);
-        }
-        while ( v24 != v23 );
-        if ( (v23 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
+    KxReleaseSpinLock(p_QosUpdateLock);
+    if ( v16 )
       _enable();
-    }
   }
   if ( updated )
   {
@@ -122,9 +112,9 @@ char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, char a2)
       DomainPerfControlHandler = Domain->DomainPerfControlHandler;
       if ( DomainPerfControlHandler )
       {
-        LOBYTE(v17) = a2;
-        LOBYTE(v16) = v9;
-        DomainPerfControlHandler(Domain->DomainContext, Domain->QosSelection, (unsigned __int8)v16, v17);
+        LOBYTE(v19) = a2;
+        LOBYTE(v18) = v9;
+        DomainPerfControlHandler(Domain->DomainContext, Domain->QosSelection, v18, v19);
       }
     }
     if ( !a2 )

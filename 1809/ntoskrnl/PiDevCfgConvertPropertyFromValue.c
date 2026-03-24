@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDevCfgConvertPropertyFromValue @ 0x14082C314
+ * XREFs of PiDevCfgConvertPropertyFromValue @ 0x14082C2F4
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CF4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

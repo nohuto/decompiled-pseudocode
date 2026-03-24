@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBFDO_IoctlGetNodeConnectionInfo @ 0x1C000D5AC
+ * XREFs of HUBFDO_IoctlGetNodeConnectionInfo @ 0x1C000D1D4
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C0078740 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBFDO_GetPortStatusForDebugging @ 0x1C000D35C (HUBFDO_GetPortStatusForDebugging.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     HUBFDO_IoctlValidateParameters @ 0x1C0075D84 (HUBFDO_IoctlValidateParameters.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBFDO_GetPortStatusForDebugging @ 0x1C000CF7C (HUBFDO_GetPortStatusForDebugging.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00749E4 (HUBFDO_IoctlValidateParameters.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlGetNodeConnectionInfo(__int64 a1, __int64 a2, size_t a3, int a4, char a5)
@@ -62,7 +62,7 @@ __int64 __fastcall HUBFDO_IoctlGetNodeConnectionInfo(__int64 a1, __int64 a2, siz
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
           WdfDriverGlobals,
           v9,
-          off_1C0067198);
+          off_1C0066170);
   v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, size_t, void **, _QWORD))(WdfFunctions_01015 + 2160))(
           WdfDriverGlobals,
           v5,
@@ -110,7 +110,7 @@ LABEL_10:
           && *(unsigned __int16 *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                                      WdfDriverGlobals,
                                      v14,
-                                     off_1C00670F8)
+                                     off_1C00660D0)
                                  + 48) == v8 )
         {
           break;
@@ -127,7 +127,7 @@ LABEL_10:
         v15 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                             WdfDriverGlobals,
                             v14,
-                            off_1C00670F8)
+                            off_1C00660D0)
                         + 24);
         *(_DWORD *)v43 = v8;
         v16 = v43;
@@ -224,8 +224,8 @@ LABEL_39:
       *(_QWORD *)(v10 + 2520),
       2u,
       3u,
-      0x2Du,
-      (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+      0x29u,
+      (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
       v11);
   }
   if ( a5 == 1 )

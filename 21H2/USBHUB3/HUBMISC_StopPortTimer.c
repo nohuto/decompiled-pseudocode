@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_StopPortTimer @ 0x1C002F9C8
+ * XREFs of HUBMISC_StopPortTimer @ 0x1C002F328
  * Callers:
- *     HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer @ 0x1C0011390 (HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer.c)
- *     HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold @ 0x1C0011620 (HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold.c)
- *     HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected @ 0x1C0011640 (HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected.c)
+ *     HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer @ 0x1C0010F80 (HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer.c)
+ *     HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold @ 0x1C0011210 (HUBPSM20_StoppingReconnectTimerOnOvercurrentInD3Cold.c)
+ *     HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected @ 0x1C0011230 (HUBPSM20_StoppingTimerAndQueueingHubResetInDisconnected.c)
  * Callees:
  *     <none>
  */

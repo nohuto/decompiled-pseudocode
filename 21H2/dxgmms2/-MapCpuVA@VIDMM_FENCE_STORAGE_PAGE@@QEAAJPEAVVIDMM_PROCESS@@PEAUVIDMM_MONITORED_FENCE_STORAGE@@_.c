@@ -1,12 +1,9 @@
 /*
- * XREFs of ?MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_N2PEAPEAX@Z @ 0x1C00A4DEC
+ * XREFs of ?MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_N2PEAPEAX@Z @ 0x1C008A00C
  * Callers:
- *     ?MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z @ 0x1C00A4D64 (-MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z.c)
+ *     ?MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z @ 0x1C0089F84 (-MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z.c)
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?VidMmiEnsureVirtualAddressRangeValid@@YAJPEAX_K@Z @ 0x1C00E1EDC (-VidMmiEnsureVirtualAddressRangeValid@@YAJPEAX_K@Z.c)
+ *     ?VidMmiEnsureVirtualAddressRangeValid@@YAJPEAX_K@Z @ 0x1C00BC46C (-VidMmiEnsureVirtualAddressRangeValid@@YAJPEAX_K@Z.c)
  */
 
 __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::MapCpuVA(
@@ -15,130 +12,111 @@ __int64 __fastcall VIDMM_FENCE_STORAGE_PAGE::MapCpuVA(
         struct VIDMM_MONITORED_FENCE_STORAGE *a3,
         char a4,
         bool a5,
-        void **a6)
+        unsigned __int64 a6)
 {
-  void **v6; // r12
-  char *v10; // rbp
-  char *v11; // r14
+  _QWORD *v6; // r15
+  __int64 v10; // r12
+  char *v11; // rbp
+  char *v12; // rdi
   char *i; // rax
-  __int64 v13; // rsi
-  __int64 Pool2; // rax
+  __int64 *PoolWithTag; // rbx
   __int64 v16; // rcx
-  unsigned __int64 v17; // rbx
-  __int64 v18; // rdi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v20; // edi
-  char **v21; // rcx
-  char *v22; // rax
-  void *v23; // rax
+  int v17; // eax
+  int v18; // esi
+  char **v19; // rcx
+  char *v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rdx
   __int64 v24; // rcx
-  void *v25; // rbp
-  __int64 v26; // rbx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *v27; // rax
-  int v28; // eax
-  __int64 v29; // [rsp+60h] [rbp-48h] BYREF
-  __int64 v30; // [rsp+68h] [rbp-40h]
-  unsigned __int64 v31; // [rsp+B8h] [rbp+10h] BYREF
-  struct VIDMM_MONITORED_FENCE_STORAGE *v32; // [rsp+C0h] [rbp+18h]
+  __int64 v25; // rax
+  __int64 v26; // [rsp+98h] [rbp+10h] BYREF
+  struct VIDMM_MONITORED_FENCE_STORAGE *v27; // [rsp+A0h] [rbp+18h]
 
-  v32 = a3;
-  v6 = a6;
-  *a6 = 0LL;
-  if ( a2 && (*(_DWORD *)(*((_QWORD *)a2 + 4) + 424LL) & 0x100) != 0 )
+  v27 = a3;
+  v6 = (_QWORD *)a6;
+  *(_QWORD *)a6 = 0LL;
+  if ( a2 && (*(_BYTE *)(*((_QWORD *)a2 + 4) + 347LL) & 0x20) != 0 )
   {
-    v23 = (void *)*((_QWORD *)this + 18);
-    if ( !v23 )
+    v21 = *((_QWORD *)this + 17);
+    if ( !v21 )
     {
-      WdLogSingleEntry1(1LL, 457LL);
-      DxgkLogInternalTriageEvent(v24, 262146LL);
-      v23 = (void *)*((_QWORD *)this + 18);
+      v22 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+      *(_QWORD *)(v22 + 24) = 456LL;
+      WdLogEvent5_WdAssertion(v22);
+      v21 = *((_QWORD *)this + 17);
     }
-    *v6 = v23;
+    *v6 = v21;
     return 0LL;
   }
   else
   {
-    v10 = (char *)this + 72;
+    v10 = 0LL;
+    v11 = (char *)this + 72;
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v10, 0LL);
-    v11 = (char *)this + 40;
-    *((_QWORD *)v10 + 1) = KeGetCurrentThread();
-    for ( i = (char *)*((_QWORD *)this + 5); i != v11; i = *(char **)i )
+    ExAcquirePushLockExclusiveEx(v11, 0LL);
+    v12 = (char *)this + 40;
+    *((_QWORD *)v11 + 1) = KeGetCurrentThread();
+    for ( i = (char *)*((_QWORD *)this + 5); i != v12; i = *(char **)i )
     {
-      v13 = (__int64)(i - 16);
+      PoolWithTag = (__int64 *)(i - 16);
       if ( a2 == *((struct VIDMM_PROCESS **)i - 1) )
       {
         ++*((_DWORD *)i + 4);
 LABEL_7:
-        *v6 = (void *)(*(_QWORD *)v13 + *((unsigned int *)v32 + 4));
-        *((_QWORD *)v10 + 1) = 0LL;
-        ExReleasePushLockExclusiveEx(v10, 0LL);
+        *v6 = *PoolWithTag + *((unsigned int *)v27 + 4);
+        *((_QWORD *)v11 + 1) = 0LL;
+        ExReleasePushLockExclusiveEx(v11, 0LL);
         KeLeaveCriticalRegion();
         return 0LL;
       }
     }
-    Pool2 = ExAllocatePool2(64LL, 40LL, 1700882774LL);
-    v13 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x28uLL, 0x65616956u);
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 32) = 1;
-      *(_QWORD *)(Pool2 + 8) = a2;
+      *PoolWithTag = 0LL;
+      PoolWithTag[2] = 0LL;
+      PoolWithTag[3] = 0LL;
+      PoolWithTag[4] = 1LL;
+      PoolWithTag[1] = (__int64)a2;
+      v10 = *(_QWORD *)a2;
       v16 = *(_QWORD *)a2;
-      v29 = 0LL;
-      v31 = 4096LL;
-      v30 = v16;
-      if ( PsGetProcessWow64Process(v16) || (LODWORD(a6) = 2, a4) )
-        LODWORD(a6) = 4;
-      v17 = v31;
-      v18 = *((_QWORD *)this + 13);
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      v20 = (*((__int64 (__fastcall **)(__int64, __int64, __int64, _QWORD, unsigned __int64, __int64 *, unsigned __int64 *, int, _DWORD, _DWORD))VirtualMemoryInterface
-             + 3))(
-              v18,
-              v30,
-              v13,
-              0LL,
-              v17,
-              &v29,
-              &v31,
-              2,
-              0,
-              (_DWORD)a6);
-      if ( v20 >= 0 )
+      v26 = 0LL;
+      a6 = 4096LL;
+      if ( PsGetProcessWow64Process(v16) || (v17 = 2, a4) )
+        v17 = 4;
+      v18 = MmMapViewOfSection(*((_QWORD *)this + 13), v10, PoolWithTag, 0LL, a6, &v26, &a6, 2, 0, v17);
+      if ( v18 >= 0 )
       {
-        if ( !a4 || !a5 || (v28 = VidMmiEnsureVirtualAddressRangeValid(*(void **)v13, v31), v20 = v28, v28 >= 0) )
+        if ( !a4 || !a5 || (v18 = VidMmiEnsureVirtualAddressRangeValid((void *)*PoolWithTag, a6), v18 >= 0) )
         {
-          v21 = (char **)*((_QWORD *)v11 + 1);
-          v22 = (char *)(v13 + 16);
-          if ( *v21 != v11 )
+          v19 = (char **)*((_QWORD *)this + 6);
+          v20 = (char *)(PoolWithTag + 2);
+          if ( *v19 != v12 )
             __fastfail(3u);
-          *(_QWORD *)v22 = v11;
-          *(_QWORD *)(v13 + 24) = v21;
-          *v21 = v22;
-          *((_QWORD *)v11 + 1) = v22;
+          *(_QWORD *)v20 = v12;
+          PoolWithTag[3] = (__int64)v19;
+          *v19 = v20;
+          *((_QWORD *)this + 6) = v20;
           goto LABEL_7;
         }
-        WdLogSingleEntry0(3LL);
+        v25 = WdLogNewEntry5_WdWarning(v24, v23);
+        WdLogEvent5_WdWarning(v25);
       }
     }
     else
     {
-      v20 = -1073741801;
+      v18 = -1073741801;
     }
-    *((_QWORD *)v10 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v10, 0LL);
+    *((_QWORD *)v11 + 1) = 0LL;
+    ExReleasePushLockExclusiveEx(v11, 0LL);
     KeLeaveCriticalRegion();
-    if ( v13 )
+    if ( PoolWithTag )
     {
-      v25 = *(void **)v13;
-      if ( *(_QWORD *)v13 )
-      {
-        v26 = *(_QWORD *)a2;
-        v27 = DxgkGetVirtualMemoryInterface();
-        (*((void (__fastcall **)(__int64, void *))v27 + 4))(v26, v25);
-      }
-      ExFreePoolWithTag((PVOID)v13, 0);
+      if ( *PoolWithTag )
+        MmUnmapViewOfSection(v10);
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
-    return (unsigned int)v20;
+    return (unsigned int)v18;
   }
 }

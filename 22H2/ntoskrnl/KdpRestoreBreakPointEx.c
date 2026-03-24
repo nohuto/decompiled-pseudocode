@@ -1,48 +1,41 @@
 /*
- * XREFs of KdpRestoreBreakPointEx @ 0x140AB5520
+ * XREFs of KdpRestoreBreakPointEx @ 0x1409B7F08
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
- *     KdpDeleteBreakpoint @ 0x140AB2AB8 (KdpDeleteBreakpoint.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
+ *     KdpDeleteBreakpoint @ 0x1409BA248 (KdpDeleteBreakpoint.c)
  */
 
-__int64 __fastcall KdpRestoreBreakPointEx(__int64 a1, char **a2)
+__int64 __fastcall KdpRestoreBreakPointEx(__int64 a1, PVOID *a2)
 {
   unsigned int v3; // edx
-  unsigned int v5; // edx
-  int *v6; // rsi
-  unsigned int v7; // edi
-  int v9; // [rsp+30h] [rbp-C8h] BYREF
-  _QWORD v10[3]; // [rsp+38h] [rbp-C0h] BYREF
-  _BYTE v11[128]; // [rsp+50h] [rbp-A8h] BYREF
+  char *v5; // rsi
+  unsigned int i; // edi
+  __int64 v8; // [rsp+30h] [rbp-C8h] BYREF
+  _QWORD v9[3]; // [rsp+38h] [rbp-C0h] BYREF
+  char v10; // [rsp+50h] [rbp-A8h] BYREF
 
-  v9 = 0;
+  LODWORD(v8) = 0;
   v3 = *(_DWORD *)(a1 + 16);
-  v10[0] = 56LL;
-  v10[1] = a1;
+  v9[0] = 56LL;
+  v9[1] = a1;
   if ( *(unsigned __int16 *)a2 == 4LL * v3
-    && (KdpCopyMemoryChunks(a2[1], (__int64)v11, 4 * v3, 0, 4, &v9), v5 = *(_DWORD *)(a1 + 16), v9 == 4LL * v5) )
+    && (KdpCopyMemoryChunks(a2[1], 4, (__int64)&v8), (unsigned int)v8 == 4LL * *(unsigned int *)(a1 + 16)) )
   {
     *(_DWORD *)(a1 + 8) = 0;
-    v6 = (int *)v11;
-    v7 = 0;
-    if ( v5 )
+    v5 = &v10;
+    for ( i = 0; i < *(_DWORD *)(a1 + 16); v5 += 4 )
     {
-      do
-      {
-        if ( !KdpDeleteBreakpoint(*v6) )
-          *(_DWORD *)(a1 + 8) = -1073741823;
-        ++v7;
-        ++v6;
-      }
-      while ( v7 < *(_DWORD *)(a1 + 16) );
+      if ( !(unsigned __int8)KdpDeleteBreakpoint(*(unsigned int *)v5) )
+        *(_DWORD *)(a1 + 8) = -1073741823;
+      ++i;
     }
   }
   else
   {
     *(_DWORD *)(a1 + 8) = -1073741823;
   }
-  return KdSendPacket(2LL, v10, a2, &KdpContext);
+  return KdSendPacket(2LL, v9, a2, &KdpContext);
 }

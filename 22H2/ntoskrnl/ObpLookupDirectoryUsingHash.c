@@ -1,41 +1,69 @@
 /*
- * XREFs of ObpLookupDirectoryUsingHash @ 0x1407B7418
+ * XREFs of ObpLookupDirectoryUsingHash @ 0x140601F48
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED7D0 (ObpLookupObjectName.c)
- *     ObpLookupDirectoryEntry @ 0x1407B72E8 (ObpLookupDirectoryEntry.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
+ *     ObpLockDirectoryShared @ 0x1402065CC (ObpLockDirectoryShared.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ObpUnlockDirectory @ 0x140347B1C (ObpUnlockDirectory.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall ObpLookupDirectoryUsingHash(__int64 a1, const UNICODE_STRING *a2, __int64 a3, char a4)
+void *__fastcall ObpLookupDirectoryUsingHash(char *a1, const UNICODE_STRING *a2, __int64 a3, BOOLEAN a4)
 {
-  BOOLEAN v5; // bp
-  __int64 **v7; // rdi
-  __int64 *v8; // rbx
-  __int64 result; // rax
+  char v5; // bp
+  char *v9; // rsi
+  __int64 *v10; // rdi
+  int v11; // r15d
+  void *v12; // rdi
+  struct _DMA_ADAPTER *v13; // rcx
+  void *result; // rax
 
-  v5 = (a4 & 0x40) != 0;
-  v7 = (__int64 **)(a1 + 8LL * *(unsigned __int8 *)(a3 + 20));
-  v8 = *v7;
-  if ( !*v7 )
-    return 0LL;
+  v5 = *(_BYTE *)(a3 + 30);
+  v9 = &a1[8 * *(unsigned __int16 *)(a3 + 28)];
+  if ( !v5 )
+    ObpLockDirectoryShared(a3, a1);
+  v10 = *(__int64 **)v9;
+  if ( !*(_QWORD *)v9 )
+    goto LABEL_15;
+  v11 = *(_DWORD *)(a3 + 24);
   do
   {
-    if ( *((_DWORD *)v8 + 4) == *(_DWORD *)(a3 + 16)
+    if ( *((_DWORD *)v10 + 4) == v11
       && RtlEqualUnicodeString(
            a2,
-           (PCUNICODE_STRING)(v8[1] - 48 - ObpInfoMaskToOffset[*(_BYTE *)(v8[1] - 48 + 26) & 3] + 8),
-           v5) )
+           (PCUNICODE_STRING)(v10[1] - 48 - ObpInfoMaskToOffset[*(_BYTE *)(v10[1] - 48 + 26) & 3] + 8),
+           a4) )
     {
       break;
     }
-    v7 = (__int64 **)v8;
-    v8 = (__int64 *)*v8;
+    v9 = (char *)v10;
+    v10 = (__int64 *)*v10;
   }
-  while ( v8 );
-  if ( !v8 )
+  while ( v10 );
+  if ( v10 )
+  {
+    v12 = (void *)v10[1];
+    ObfReferenceObject(v12);
+    if ( !v5 )
+    {
+      ObpUnlockDirectory((__int64)a1, a3);
+      v9 = 0LL;
+    }
+    v13 = *(struct _DMA_ADAPTER **)(a3 + 8);
+    if ( v13 )
+      HalPutDmaAdapter(v13);
+    *(_QWORD *)(a3 + 8) = v12;
+    result = v12;
+    *(_QWORD *)(a3 + 16) = v9;
+  }
+  else
+  {
+LABEL_15:
+    if ( !v5 )
+      ObpUnlockDirectory((__int64)a1, a3);
     return 0LL;
-  result = v8[1];
-  *(_QWORD *)(a3 + 8) = v7;
+  }
   return result;
 }

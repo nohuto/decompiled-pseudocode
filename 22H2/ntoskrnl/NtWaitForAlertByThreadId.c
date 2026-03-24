@@ -1,9 +1,9 @@
 /*
- * XREFs of NtWaitForAlertByThreadId @ 0x140742E20
+ * XREFs of NtWaitForAlertByThreadId @ 0x14061A7A0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForAlertByThreadId @ 0x1402C1774 (KeWaitForAlertByThreadId.c)
+ *     KeWaitForAlertByThreadId @ 0x140256B90 (KeWaitForAlertByThreadId.c)
  */
 
 __int64 __fastcall NtWaitForAlertByThreadId(void *a1, __int64 *a2)

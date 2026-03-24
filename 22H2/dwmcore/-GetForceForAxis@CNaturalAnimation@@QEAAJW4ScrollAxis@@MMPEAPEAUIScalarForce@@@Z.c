@@ -1,16 +1,15 @@
 /*
- * XREFs of ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x18023CB9C
+ * XREFs of ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x1801D7B0C
  * Callers:
- *     ?GetScalarForce@CNaturalAnimation@@QEAAJMMPEAPEAUIScalarForce@@@Z @ 0x180232DE0 (-GetScalarForce@CNaturalAnimation@@QEAAJMMPEAPEAUIScalarForce@@@Z.c)
- *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x1802343A4 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
+ *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x1801CAE80 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z @ 0x180099B0C (-Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ClearState@CNaturalAnimation@@AEAAXXZ @ 0x18023C618 (-ClearState@CNaturalAnimation@@AEAAXXZ.c)
- *     ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x18023E37C (-SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z @ 0x18006541C (-Get@CWeakResourceReference@@KAJPEAVCResource@@PEAPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ClearState@CNaturalAnimation@@AEAAXXZ @ 0x1801D75D8 (-ClearState@CNaturalAnimation@@AEAAXXZ.c)
+ *     ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D9180 (-SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CNaturalAnimation::GetForceForAxis(
@@ -20,87 +19,80 @@ __int64 __fastcall CNaturalAnimation::GetForceForAxis(
         float a4,
         struct CWeakResourceReference *a5)
 {
-  struct CWeakResourceReference *v5; // r15
-  char *v8; // rax
-  char *v9; // r14
-  char *v10; // rbx
-  int v11; // eax
-  __int64 v12; // rcx
-  int v13; // esi
-  __int64 v14; // rax
-  int v15; // eax
-  __int64 v16; // rcx
-  struct CWeakResourceReference *v17; // rcx
-  void *retaddr; // [rsp+68h] [rbp+0h]
+  struct CWeakResourceReference *v5; // r14
+  _DWORD *v8; // rax
+  _DWORD *v9; // rbx
+  int v10; // eax
+  __int64 v11; // rcx
+  int v12; // esi
+  __int64 v13; // rax
+  int v14; // eax
+  struct CWeakResourceReference *v15; // rcx
+  void *retaddr; // [rsp+58h] [rbp+0h]
 
   v5 = a5;
   *(_QWORD *)a5 = 0LL;
-  v8 = (char *)operator new(0x28uLL);
+  v8 = operator new(0x30uLL);
   v9 = v8;
   if ( v8 )
   {
-    *(_QWORD *)(v8 + 12) = 0LL;
-    *(_QWORD *)(v8 + 20) = 0LL;
-    *(_QWORD *)(v8 + 28) = 0LL;
-    *((_DWORD *)v8 + 9) = 0;
-    *((_DWORD *)v8 + 2) = 0;
-    *(_QWORD *)v8 = &CNaturalAnimationScalarForceAdapater::`vftable';
-    ((void (__fastcall *)(char *))CNaturalAnimationScalarForceAdapater::`vftable')(v8);
-    v10 = v9;
+    v8[4] = 0;
+    *(_QWORD *)v8 = &CNaturalAnimationScalarForceAdapater::`vftable'{for `IScalarForce'};
+    *((_QWORD *)v8 + 1) = &CNaturalAnimationScalarForceAdapater::`vftable'{for `CMILRefCountBase'};
   }
   else
   {
     v9 = 0LL;
-    v10 = 0LL;
   }
+  if ( v9 )
+    (**(void (__fastcall ***)(_DWORD *))v9)(v9);
   if ( a2 )
   {
     if ( a2 != 1 )
       ModuleFailFastForHRESULT(2147942487LL, retaddr);
-    *(float *)(a1 + 376) = a4;
-    *(float *)(a1 + 340) = a3;
+    *(float *)(a1 + 352) = a4;
+    *(float *)(a1 + 316) = a3;
   }
   else
   {
-    *(float *)(a1 + 372) = a4;
-    *(float *)(a1 + 336) = a3;
+    *(float *)(a1 + 348) = a4;
+    *(float *)(a1 + 312) = a3;
   }
-  *(_BYTE *)(a1 + 588) |= 0x10u;
+  *(_BYTE *)(a1 + 564) |= 0x10u;
   CNaturalAnimation::ClearState((CNaturalAnimation *)a1);
-  v11 = CNaturalAnimation::SetupAnimationIfNecessary((CNaturalAnimation *)a1);
-  v13 = v11;
-  if ( v11 < 0 )
+  v10 = CNaturalAnimation::SetupAnimationIfNecessary((CNaturalAnimation *)a1);
+  v12 = v10;
+  if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x39Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x395u, 0LL);
   }
   else
   {
-    v14 = *(_QWORD *)(a1 + 16);
+    v13 = *(_QWORD *)(a1 + 16);
     a5 = 0LL;
-    *((_QWORD *)v9 + 3) = v14;
-    *((_DWORD *)v9 + 4) = a2;
-    v15 = CWeakResourceReference::Get((struct CResource *)a1, &a5);
-    v13 = v15;
-    if ( v15 < 0 )
+    *((_QWORD *)v9 + 4) = v13;
+    v9[6] = a2;
+    v14 = CWeakResourceReference::Get((struct CResource *)a1, &a5);
+    v12 = v14;
+    if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x94u, 0LL);
-      v17 = a5;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v15, 0LL, 0, v14, 0x97u, 0LL);
+      v15 = a5;
+      if ( a5 )
+        (*(void (__fastcall **)(struct CWeakResourceReference *))(*(_QWORD *)a5 + 8LL))(a5);
     }
     else
     {
-      v17 = 0LL;
-      *((_QWORD *)v9 + 4) = a5;
+      *((_QWORD *)v9 + 5) = a5;
     }
-    if ( v17 )
-      (*(void (__fastcall **)(struct CWeakResourceReference *))(*(_QWORD *)v17 + 8LL))(v17);
-    if ( v13 >= 0 )
+    if ( v12 >= 0 )
     {
       *(_QWORD *)v5 = v9;
-      return (unsigned int)v13;
+      return (unsigned int)v12;
     }
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v17, 0LL, 0, v13, 0x39Du, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v15, 0LL, 0, v12, 0x397u, 0LL);
   }
-  if ( v10 )
-    (*(void (__fastcall **)(char *))(*(_QWORD *)v10 + 8LL))(v10);
-  return (unsigned int)v13;
+  if ( v9 )
+    (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v9 + 8LL))(v9);
+  return (unsigned int)v12;
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of PpmPerfUpdateDomainPolicy @ 0x1407A6860
+ * XREFs of PpmPerfUpdateDomainPolicy @ 0x14078B4DC
  * Callers:
- *     PopPowerRequestCallbackPerfBoostRequired @ 0x1407E9D00 (PopPowerRequestCallbackPerfBoostRequired.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
- *     PpmUpdatePerfStates @ 0x140986D70 (PpmUpdatePerfStates.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PopPerfBoostPowerRequest @ 0x14078B430 (PopPerfBoostPowerRequest.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
+ *     PpmUpdatePerfStates @ 0x1408E65E0 (PpmUpdatePerfStates.c)
  * Callees:
- *     PpmPerfCalculateQosClassPolicies @ 0x14032A788 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14032AF34 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x14032AFD0 (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmCheckCustomRun @ 0x14032B45C (PpmCheckCustomRun.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmEventQosSupport @ 0x1407EA83C (PpmEventQosSupport.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x14032B284 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmCheckCustomRun @ 0x14037CB48 (PpmCheckCustomRun.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x1403807D8 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x1403A26EC (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmEventQosSupport @ 0x14078B650 (PpmEventQosSupport.c)
  */
 
-void __fastcall PpmPerfUpdateDomainPolicy(char a1)
+char __fastcall PpmPerfUpdateDomainPolicy(char a1)
 {
   __int64 v1; // rbx
-  char v2; // si
-  char v3; // r15
-  char v4; // r14
+  char v2; // bp
+  char v3; // r14
+  char v4; // r15
   char v5; // di
-  int v6; // ebp
+  int v6; // esi
   unsigned int v7; // edx
   int *v8; // r8
   char v9; // r9
@@ -30,9 +30,9 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
   int v11; // ecx
   int v12; // eax
   unsigned int v13; // eax
-  char updated; // al
-  int v15; // eax
-  int v17; // [rsp+70h] [rbp+18h] BYREF
+  bool v14; // cl
+  int v16; // eax
+  int v18; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = PpmPerfDomainHead;
   v2 = a1;
@@ -43,36 +43,36 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
     if ( PpmPerfVmQosSupported )
     {
       v5 = 1;
-      v15 = 0;
+      v16 = 0;
     }
     else
     {
       v5 = 0;
-      v15 = 128;
+      v16 = 128;
     }
-    v17 = v15;
+    v18 = v16;
   }
   else
   {
     v5 = 0;
-    v17 = 0;
+    v18 = 0;
     v6 = 0;
     do
     {
       if ( PpmPerfCalculateQosClassPolicies(v1) )
         v3 = 1;
-      if ( (*(_BYTE *)(v1 + 732) & 0xF) == 0 )
+      if ( (*(_BYTE *)(v1 + 528) & 0xF) == 0 )
         v4 = 1;
-      if ( *(_BYTE *)(v1 + 762) )
+      if ( *(_BYTE *)(v1 + 546) )
       {
         v5 = 1;
       }
       else
       {
         v7 = 0;
-        v8 = (int *)(v1 + 724);
+        v8 = (int *)(v1 + 520);
         v9 = 1;
-        v10 = 6LL;
+        v10 = 4LL;
         do
         {
           v11 = *v8;
@@ -93,26 +93,20 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
     v2 = a1;
     if ( v5 )
       v6 = 0;
-    v17 = v6;
+    v18 = v6;
   }
-  updated = PpmPerfUpdateQosDisableReasons(&v17);
-  PpmPerfMultimediaQosSupported = v4;
+  v14 = PpmPerfUpdateQosDisableReasons(&v18) != 0;
   if ( v5 != PpmPerfQosEnabled )
   {
     PpmPerfQosEnabled = v5;
     v2 = 1;
-    goto LABEL_21;
+    v14 = 1;
   }
-  if ( updated )
-LABEL_21:
+  PpmPerfMultimediaQosSupported = v4;
+  if ( v14 )
     PpmEventQosSupport(0LL);
-  if ( v3 || v2 )
-  {
-    PpmPerfSetAllDomainsToUpdate();
-    PpmCheckCustomRun((v2 != 0) + 1);
-  }
-  else
-  {
-    PpmReleaseLock(&PpmPerfPolicyLock);
-  }
+  if ( !v3 && !v2 )
+    return PpmReleaseLock(&PpmPerfPolicyLock);
+  PpmPerfSetAllDomainsToUpdate();
+  return PpmCheckCustomRun((v2 != 0) + 1);
 }

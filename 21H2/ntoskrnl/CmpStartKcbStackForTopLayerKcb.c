@@ -1,44 +1,76 @@
 /*
- * XREFs of CmpStartKcbStackForTopLayerKcb @ 0x1407C05F4
+ * XREFs of CmpStartKcbStackForTopLayerKcb @ 0x140665D30
  * Callers:
- *     CmQueryLayeredKey @ 0x140226200 (CmQueryLayeredKey.c)
- *     CmDeleteLayeredKey @ 0x14053F5E8 (CmDeleteLayeredKey.c)
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
- *     CmpSetKeySecurity @ 0x140677810 (CmpSetKeySecurity.c)
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmpDoWritethroughReparse @ 0x140680100 (CmpDoWritethroughReparse.c)
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
- *     CmpStartSiloRegistryNamespace @ 0x140690978 (CmpStartSiloRegistryNamespace.c)
- *     CmpPerformUnloadKey @ 0x14069E98C (CmpPerformUnloadKey.c)
- *     CmpReportNotify @ 0x14069EF78 (CmpReportNotify.c)
- *     CmDeleteValueKey @ 0x140714E58 (CmDeleteValueKey.c)
- *     CmpIsKeyDeleted @ 0x14071A6D4 (CmpIsKeyDeleted.c)
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x140720E20 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpQueryKeySecurity @ 0x140721254 (CmpQueryKeySecurity.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407F6698 (CmEnumerateValueFromLayeredKey.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F7AD0 (CmpCheckKeyBodyAccess.c)
- *     CmpAssignKeySecurity @ 0x14085BE8C (CmpAssignKeySecurity.c)
- *     CmCallbackGetKeyObjectID @ 0x1408812B0 (CmCallbackGetKeyObjectID.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x14090E160 (CmOpenKeyForBugCheckRecovery.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x14091210C (CmQueryMultipleValueForLayeredKey.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140913E28 (CmSetLastWriteTimeKey.c)
- *     CmpEnumerateLayeredKey @ 0x140914324 (CmpEnumerateLayeredKey.c)
- *     CmpDoBuildVirtualStack @ 0x140916918 (CmpDoBuildVirtualStack.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmpQueryKeySecurity @ 0x140665360 (CmpQueryKeySecurity.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x140665BF0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
+ *     CmpReportNotify @ 0x1406A405C (CmpReportNotify.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869A70 (CmCallbackGetKeyObjectID.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C548 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
  * Callees:
- *     CmpPopulateKcbStack @ 0x1407C063C (CmpPopulateKcbStack.c)
- *     CmpStartKcbStack @ 0x1407C07F4 (CmpStartKcbStack.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1405D6C8C (CmpSetKcbAtLayerHeight.c)
  */
 
-__int64 __fastcall CmpStartKcbStackForTopLayerKcb(__int64 a1, __int64 a2)
+__int64 __fastcall CmpStartKcbStackForTopLayerKcb(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  int started; // ebx
+  int v4; // esi
+  PVOID v5; // rbp
+  __int16 v8; // dx
+  __int64 i; // r10
+  __int64 v11; // r10
+  __int16 v12; // dx
+  SIZE_T v13; // r14
+  PVOID TransientPoolWithTag; // rax
 
-  started = CmpStartKcbStack(a1, *(unsigned __int16 *)(a2 + 66));
-  if ( started >= 0 )
-    CmpPopulateKcbStack(a1, a2);
-  return (unsigned int)started;
+  v4 = *(__int16 *)(a2 + 66);
+  v5 = 0LL;
+  if ( v4 >= 2 )
+  {
+    v13 = 8LL * (unsigned int)(v4 - 1);
+    TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, v13, 0x35364D43u, a4);
+    v5 = TransientPoolWithTag;
+    if ( !TransientPoolWithTag )
+      return 3221225626LL;
+    memset(TransientPoolWithTag, 0, v13);
+  }
+  *(_WORD *)a1 = v4;
+  *(_WORD *)(a1 + 2) = -1;
+  *(_QWORD *)(a1 + 24) = v5;
+  *(_WORD *)(a1 + 2) = *(_WORD *)(a2 + 66);
+  v8 = *(_WORD *)(a2 + 66);
+  if ( v8 )
+  {
+    for ( i = *(_QWORD *)(a2 + 192); i; v8 = v12 - 1 )
+    {
+      CmpSetKcbAtLayerHeight(a1, v8, *(_QWORD *)(i + 16));
+      i = *(_QWORD *)(v11 + 24);
+    }
+  }
+  else
+  {
+    *(_QWORD *)(a1 + 8) = a2;
+  }
+  return 0LL;
 }

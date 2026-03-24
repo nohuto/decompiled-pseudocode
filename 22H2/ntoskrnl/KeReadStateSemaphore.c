@@ -1,9 +1,7 @@
 /*
- * XREFs of KeReadStateSemaphore @ 0x1402F8730
+ * XREFs of KeReadStateSemaphore @ 0x14026E9C0
  * Callers:
- *     SymCryptCrtGenerateForTwoCoprimes @ 0x1403FD500 (SymCryptCrtGenerateForTwoCoprimes.c)
- *     SymCryptIntExtendedGcd @ 0x1403FD704 (SymCryptIntExtendedGcd.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1409763D0 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

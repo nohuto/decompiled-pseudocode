@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDTX_GetProductIdStringDescriptorUsingControlTransfer @ 0x1C002B528
+ * XREFs of HUBDTX_GetProductIdStringDescriptorUsingControlTransfer @ 0x1C00288AC
  * Callers:
- *     HUBDSM_QueryingLanguageSpecificProductIdString @ 0x1C00206A0 (HUBDSM_QueryingLanguageSpecificProductIdString.c)
+ *     HUBDSM_QueryingLanguageSpecificProductIdString @ 0x1C001DC80 (HUBDSM_QueryingLanguageSpecificProductIdString.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBDTX_GetDescriptor @ 0x1C002A488 (HUBDTX_GetDescriptor.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C0027800 (HUBDTX_GetDescriptor.c)
  */
 
 __int64 __fastcall HUBDTX_GetProductIdStringDescriptorUsingControlTransfer(__int64 a1)
@@ -39,7 +39,7 @@ LABEL_6:
         2u,
         5u,
         0x41u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v7);
     }
     return HUBSM_AddEvent(a1 + 504, 4004);

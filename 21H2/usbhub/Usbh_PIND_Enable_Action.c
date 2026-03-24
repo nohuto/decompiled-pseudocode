@@ -1,14 +1,14 @@
 /*
- * XREFs of Usbh_PIND_Enable_Action @ 0x1C002EDB8
+ * XREFs of Usbh_PIND_Enable_Action @ 0x1C0030188
  * Callers:
- *     UsbhDispatch_PindicatorEvent @ 0x1C002E6CC (UsbhDispatch_PindicatorEvent.c)
+ *     UsbhDispatch_PindicatorEvent @ 0x1C002FAA8 (UsbhDispatch_PindicatorEvent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhLockPindicator @ 0x1C002E990 (UsbhLockPindicator.c)
- *     UsbhSetPindicatorState @ 0x1C002EAD4 (UsbhSetPindicatorState.c)
- *     UsbhSetPortIndicator @ 0x1C002EB18 (UsbhSetPortIndicator.c)
- *     UsbhUnlockPindicator @ 0x1C002ECA8 (UsbhUnlockPindicator.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhLockPindicator @ 0x1C002FD6C (UsbhLockPindicator.c)
+ *     UsbhSetPindicatorState @ 0x1C002FEA4 (UsbhSetPindicatorState.c)
+ *     UsbhSetPortIndicator @ 0x1C002FEE8 (UsbhSetPortIndicator.c)
+ *     UsbhUnlockPindicator @ 0x1C0030078 (UsbhUnlockPindicator.c)
  */
 
 LONG __fastcall Usbh_PIND_Enable_Action(__int64 a1, __int64 a2, __int64 a3)

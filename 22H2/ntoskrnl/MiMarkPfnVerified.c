@@ -1,104 +1,107 @@
 /*
- * XREFs of MiMarkPfnVerified @ 0x140219BF0
+ * XREFs of MiMarkPfnVerified @ 0x140310124
  * Callers:
- *     MiAllocateWsle @ 0x14026B6B0 (MiAllocateWsle.c)
- *     MiRevertValidPte @ 0x140278960 (MiRevertValidPte.c)
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiSetSystemCodeProtection @ 0x1402841F0 (MiSetSystemCodeProtection.c)
- *     MiGatherMappedPages @ 0x140297C04 (MiGatherMappedPages.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MiInitializeBootLoadedDriverPfnRange @ 0x140376004 (MiInitializeBootLoadedDriverPfnRange.c)
- *     MiProtectDriverSectionPte @ 0x14061A510 (MiProtectDriverSectionPte.c)
- *     MiInitializeBootShadowStackPage @ 0x1406449D4 (MiInitializeBootShadowStackPage.c)
- *     MiCompleteSecureProcessFault @ 0x140645C08 (MiCompleteSecureProcessFault.c)
- *     MiValidateImagePfn @ 0x1406B0FF8 (MiValidateImagePfn.c)
- *     MiFillPerSessionProtos @ 0x140A4A01C (MiFillPerSessionProtos.c)
- *     MiCreateDescriptorPfns @ 0x140B45B04 (MiCreateDescriptorPfns.c)
- *     MiHandleBootImage @ 0x140B4A1A8 (MiHandleBootImage.c)
- *     MiValidateKernelHalLargePageRange @ 0x140B9B8D0 (MiValidateKernelHalLargePageRange.c)
+ *     MiAllocateWsle @ 0x140211C80 (MiAllocateWsle.c)
+ *     MiValidateInPage @ 0x14023AEE0 (MiValidateInPage.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiGatherMappedPages @ 0x140255428 (MiGatherMappedPages.c)
+ *     MiRevertValidPte @ 0x1402B4990 (MiRevertValidPte.c)
+ *     MiSetSystemCodeProtection @ 0x140357D78 (MiSetSystemCodeProtection.c)
+ *     MiCompleteSecureProcessFault @ 0x1405480C4 (MiCompleteSecureProcessFault.c)
+ *     MiValidateImagePfn @ 0x140680124 (MiValidateImagePfn.c)
+ *     MiFillPerSessionProtos @ 0x1408D8030 (MiFillPerSessionProtos.c)
+ *     MiSwitchToPfns @ 0x140A42F08 (MiSwitchToPfns.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140A65FFC (MiInitializeBootLoadedDriverPfns.c)
+ *     MiValidateKernelHalLargePageRange @ 0x140A92D10 (MiValidateKernelHalLargePageRange.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiGetPagePrivilege @ 0x140282C40 (MiGetPagePrivilege.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeSetPagePrivilege @ 0x1403D46B4 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiGetPagePrivilege @ 0x1402A8D80 (MiGetPagePrivilege.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeSetPagePrivilege @ 0x140512DB8 (KeSetPagePrivilege.c)
  */
 
-char __fastcall MiMarkPfnVerified(ULONG_PTR BugCheckParameter2, char a2)
+unsigned __int8 __fastcall MiMarkPfnVerified(ULONG_PTR a1, char a2, __int64 a3, _DWORD *a4)
 {
-  char v2; // bl
-  ULONG_PTR v4; // rbp
-  unsigned __int8 v5; // si
-  __int64 v6; // rax
-  int v7; // r8d
-  __int64 v8; // r8
+  char v4; // di
+  ULONG_PTR v6; // rbp
+  unsigned __int8 v7; // si
+  char v8; // dl
+  int v9; // eax
+  __int64 v10; // r8
+  unsigned __int8 result; // al
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  bool v13; // zf
-  __int128 v15; // [rsp+30h] [rbp-18h] BYREF
+  int v15; // eax
+  bool v16; // zf
+  __int128 v17; // [rsp+30h] [rbp-18h] BYREF
 
-  v2 = a2;
-  v15 = 0LL;
-  v4 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4);
+  v4 = a2;
+  v17 = 0LL;
+  v6 = (__int64)(a1 + 0x58000000000LL) / 48;
   if ( (a2 & 4) != 0 )
-    v5 = 17;
+    v7 = 17;
   else
-    v5 = MiLockPageInline(BugCheckParameter2);
-  if ( (v2 & 2) != 0 )
+    v7 = MiLockPageInline(
+           a1,
+           (unsigned __int128)((__int64)(a1 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
+           a1 + 0x58000000000LL,
+           a4);
+  if ( (v4 & 2) != 0 && ((*(_QWORD *)(a1 + 40) >> 60) & 7) == 3 )
+    v4 &= ~2u;
+  if ( (v4 & 2) != 0 && (MiFlags & 0x10000) != 0 )
   {
-    if ( ((*(_QWORD *)(BugCheckParameter2 + 40) >> 60) & 7) == 3 )
-      v2 &= ~2u;
-    if ( (v2 & 2) != 0 && (MiFlags & 0x8000) != 0 )
+    if ( !(unsigned int)MI_PFN_IS_PROTO(a1) && (MiFlags & 0x8000) != 0 )
+      *(_QWORD *)&v17 = (__int64)(*(_QWORD *)(a1 + 8) << 25) >> 16;
+    v9 = v4 & 1;
+    v4 = v8 & 0xFE;
+    if ( !v9 )
+      v4 = v8;
+    v10 = (unsigned int)(4 * v9 + 2);
+    if ( (v4 & 0x20) != 0 )
     {
-      if ( *(__int64 *)(BugCheckParameter2 + 40) >= 0 && (MiFlags & 0x4000) != 0 )
-        *(_QWORD *)&v15 = (__int64)(*(_QWORD *)(BugCheckParameter2 + 8) << 25) >> 16;
-      v7 = v2 & 1;
-      if ( (v2 & 1) != 0 )
-        v2 &= ~1u;
-      v8 = (unsigned int)(4 * v7 + 2);
-      if ( (v2 & 0x20) != 0 )
-      {
-        v8 = (unsigned int)v8 | 0x40;
-        if ( (*(_BYTE *)(BugCheckParameter2 + 34) & 0x10) == 0 && (*(_DWORD *)(BugCheckParameter2 + 16) & 4) == 0 )
-          LODWORD(v8) = v8 | 0x800;
-      }
-      if ( (int)KeSetPagePrivilege(v4, &v15, v8) < 0 )
-        KeBugCheckEx(0x1Au, 0x5150CuLL, v4, 0LL, 0LL);
+      v10 = (unsigned int)v10 | 0x40;
+      if ( (*(_BYTE *)(a1 + 34) & 0x10) == 0 && (*(_DWORD *)(a1 + 16) & 4) == 0 )
+        LODWORD(v10) = v10 | 0x800;
     }
+    if ( (int)KeSetPagePrivilege(v6, &v17, v10) < 0 )
+      KeBugCheckEx(0x1Au, 0x5150CuLL, v6, 0LL, 0LL);
   }
-  LOBYTE(v6) = (*(_QWORD *)(BugCheckParameter2 + 40) >> 60) & 7;
-  if ( (_BYTE)v6 != 3 )
+  result = (*(_QWORD *)(a1 + 40) >> 60) & 7;
+  if ( result != 3 )
   {
-    MiSetPfnIdentity(BugCheckParameter2, 3);
-    v6 = *(_QWORD *)(BugCheckParameter2 + 16);
+    result = 0;
+    *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
   }
-  if ( (v2 & 1) != 0 && (MiFlags & 0x8000) != 0 )
+  if ( (v4 & 1) != 0 && (MiFlags & 0x10000) != 0 )
   {
-    MiGetPagePrivilege(BugCheckParameter2);
-    LOBYTE(v6) = KeSetPagePrivilege(v4, &v15, 4LL);
+    MiGetPagePrivilege(a1, 1, &v17);
+    result = KeSetPagePrivilege(v6, &v17, 4LL);
   }
-  if ( v5 != 17 )
+  if ( v7 != 17 )
   {
-    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << (v5 + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << (v7 + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    LOBYTE(v6) = v5;
-    __writecr8(v5);
+    result = v7;
+    __writecr8(v7);
   }
-  return v6;
+  return result;
 }

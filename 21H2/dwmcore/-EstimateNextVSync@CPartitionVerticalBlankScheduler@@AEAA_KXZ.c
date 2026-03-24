@@ -1,7 +1,7 @@
 /*
- * XREFs of ?EstimateNextVSync@CPartitionVerticalBlankScheduler@@AEAA_KXZ @ 0x1800F3A74
+ * XREFs of ?EstimateNextVSync@CPartitionVerticalBlankScheduler@@AEAA_KXZ @ 0x1800DD858
  * Callers:
- *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18007A840 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18006F5A0 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,11 @@ unsigned __int64 __fastcall CPartitionVerticalBlankScheduler::EstimateNextVSync(
 {
   _QWORD *v1; // r8
 
-  v1 = (_QWORD *)*((_QWORD *)this + 565);
+  v1 = (_QWORD *)*((_QWORD *)this + 630);
   if ( v1[2] )
-    return v1[7] + *((_QWORD *)this + 2147) - v1[7] + v1[32] - (*((_QWORD *)this + 2147) - v1[7]) % v1[32];
+    return v1[7] + *((_QWORD *)this + 1990) - v1[7] + v1[36] - (*((_QWORD *)this + 1990) - v1[7]) % v1[36];
   else
-    return *(_QWORD *)(*((_QWORD *)this + 564) + 256LL)
-         + *((_QWORD *)this + 2147)
-         - *((_QWORD *)this + 2147) % *(_QWORD *)(*((_QWORD *)this + 564) + 256LL);
+    return *(_QWORD *)(*((_QWORD *)this + 629) + 288LL)
+         + *((_QWORD *)this + 1990)
+         - *((_QWORD *)this + 1990) % *(_QWORD *)(*((_QWORD *)this + 629) + 288LL);
 }

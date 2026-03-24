@@ -1,8 +1,7 @@
 /*
- * XREFs of PsReferencePartition @ 0x14045ECC6
+ * XREFs of PsReferencePartition @ 0x1405842F8
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

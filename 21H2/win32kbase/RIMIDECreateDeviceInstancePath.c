@@ -1,123 +1,88 @@
 /*
- * XREFs of RIMIDECreateDeviceInstancePath @ 0x1C0004D20
+ * XREFs of RIMIDECreateDeviceInstancePath @ 0x1C0167380
  * Callers:
- *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C00046D4 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C019C4FC (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0168074 (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0168340 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
  * Callees:
- *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C0004DBC (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
- *     isChildPartition @ 0x1C00383F0 (isChildPartition.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     isChildPartition @ 0x1C0040F30 (isChildPartition.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C0166E9C (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
  */
 
-__int64 __fastcall RIMIDECreateDeviceInstancePath(
-        int a1,
-        unsigned __int16 a2,
-        unsigned __int16 a3,
-        struct _UNICODE_STRING *a4)
+__int64 RIMIDECreateDeviceInstancePath()
 {
-  unsigned int v5; // ebp
-  unsigned int v6; // r14d
-  unsigned int v8; // ebx
-  int v9; // edx
-  int v10; // r8d
-  int v11; // eax
-  int v12; // edx
-  int v13; // r8d
-  PDEVICE_OBJECT v15; // rcx
-  __int16 v16; // r9
-  const unsigned __int16 *v17; // rdx
+  unsigned int v0; // ebx
+  int v1; // edx
+  unsigned __int16 v2; // r8
+  struct _UNICODE_STRING *v3; // r10
+  int v4; // r11d
+  int v5; // r9d
+  __int64 v6; // r9
+  __int64 v7; // r8
+  const unsigned __int16 *v8; // rdx
+  int v9; // eax
+  int v10; // edx
 
-  v5 = a3;
-  v6 = a2;
-  v8 = -1073741823;
-  if ( !(unsigned __int8)isChildPartition() )
+  v0 = -1073741823;
+  if ( !isChildPartition() )
   {
-    if ( !a1 )
+    if ( v4 )
     {
-      v11 = RtlUnicodeStringPrintf(a4, L"\\??\\Microsoft Mouse RID\\%u", (unsigned int)dword_1C0296AE0);
-      goto LABEL_5;
-    }
-    if ( a1 == 1 )
-    {
-      v11 = RtlUnicodeStringPrintf(a4, L"\\??\\Microsoft Keyboard RID\\%u", (unsigned int)dword_1C0296AE0);
-      goto LABEL_5;
-    }
-    if ( a1 != 2 )
-    {
-      v15 = WPP_GLOBAL_Control;
-      LOBYTE(v9) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-      LOBYTE(v10) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( v4 != 1 )
       {
-        v16 = 16;
-        goto LABEL_21;
+        if ( v4 != 2 )
+        {
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            return v0;
+          v5 = 16;
+          goto LABEL_7;
+        }
+        v6 = v2;
+        v7 = (unsigned __int16)v1;
+        v8 = L"\\??\\Microsoft HID RID\\%04X_%04X\\%u";
+        goto LABEL_9;
       }
-      return v8;
+      v9 = RtlUnicodeStringPrintf(v3, L"\\??\\Microsoft Keyboard RID\\%u", (unsigned int)dword_1C0259578);
     }
-    v17 = L"\\??\\Microsoft HID RID\\%04X_%04X\\%u";
-    goto LABEL_24;
+    else
+    {
+      v9 = RtlUnicodeStringPrintf(v3, L"\\??\\Microsoft Mouse RID\\%u", (unsigned int)dword_1C0259578);
+    }
+LABEL_20:
+    v0 = v9;
+    if ( v9 >= 0 )
+    {
+      ++dword_1C0259578;
+    }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v10) = 2;
+      WPP_RECORDER_SF_d((_DWORD)gRimLog, v10, 1, 17, (__int64)&WPP_6618ffd707d032c105188cf3f3e4149b_Traceguids, v9);
+    }
+    return v0;
   }
-  switch ( a1 )
+  switch ( v4 )
   {
     case 0:
-      v11 = RtlUnicodeStringPrintf(a4, L"\\??\\Microsoft Mouse RID\\c\\%u", (unsigned int)dword_1C0296AE0);
-LABEL_5:
-      v8 = v11;
-      if ( v11 < 0 )
-      {
-        LOBYTE(v12) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-        if ( (_BYTE)v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_D(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v12,
-            v13,
-            (_DWORD)gRimLog,
-            2,
-            1,
-            17,
-            (__int64)&WPP_7878fd3f7fa83d1a8663537599fa40db_Traceguids,
-            v11);
-        }
-      }
-      else
-      {
-        ++dword_1C0296AE0;
-      }
-      return v8;
+      v9 = RtlUnicodeStringPrintf(v3, L"\\??\\Microsoft Mouse RID\\c\\%u", (unsigned int)dword_1C0259578);
+      goto LABEL_20;
     case 1:
-      v11 = RtlUnicodeStringPrintf(a4, L"\\??\\Microsoft Keyboard RID\\c\\%u", (unsigned int)dword_1C0296AE0);
-      goto LABEL_5;
+      v9 = RtlUnicodeStringPrintf(v3, L"\\??\\Microsoft Keyboard RID\\c\\%u", (unsigned int)dword_1C0259578);
+      goto LABEL_20;
     case 2:
-      v17 = L"\\??\\Microsoft HID RID\\c\\%04X_%04X\\%u";
-LABEL_24:
-      v11 = RtlUnicodeStringPrintf(a4, v17, v6, v5, dword_1C0296AE0);
-      goto LABEL_5;
+      v6 = v2;
+      v7 = (unsigned __int16)v1;
+      v8 = L"\\??\\Microsoft HID RID\\c\\%04X_%04X\\%u";
+LABEL_9:
+      v9 = RtlUnicodeStringPrintf(v3, v8, v7, v6, dword_1C0259578);
+      goto LABEL_20;
   }
-  v15 = WPP_GLOBAL_Control;
-  LOBYTE(v9) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-  LOBYTE(v10) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v16 = 15;
-LABEL_21:
-    WPP_RECORDER_AND_TRACE_SF_D(
-      v15->AttachedDevice,
-      v9,
-      v10,
-      (_DWORD)gRimLog,
-      2,
-      1,
-      v16,
-      (__int64)&WPP_7878fd3f7fa83d1a8663537599fa40db_Traceguids,
-      a1);
+    v5 = 15;
+LABEL_7:
+    LOBYTE(v1) = 2;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v1, 1, v5, (__int64)&WPP_6618ffd707d032c105188cf3f3e4149b_Traceguids, v4);
   }
-  return v8;
+  return v0;
 }

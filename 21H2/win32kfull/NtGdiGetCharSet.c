@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetCharSet @ 0x1C001C2B0
+ * XREFs of NtGdiGetCharSet @ 0x1C009C020
  * Callers:
  *     <none>
  * Callees:
- *     GreGetCharSet @ 0x1C001C490 (GreGetCharSet.c)
+ *     GreGetCharSet @ 0x1C009B770 (GreGetCharSet.c)
  */
 
 __int64 __fastcall NtGdiGetCharSet(HDC a1)

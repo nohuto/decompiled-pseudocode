@@ -1,24 +1,31 @@
 /*
- * XREFs of ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x180044614
+ * XREFs of ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x1800377DC
  * Callers:
- *     ?ClearBatchCaches@CInternalMilCmdConnection@@UEAA_NK@Z @ 0x1800DD500 (-ClearBatchCaches@CInternalMilCmdConnection@@UEAA_NK@Z.c)
- *     ??1CInternalMilCmdConnection@@UEAA@XZ @ 0x180193A30 (--1CInternalMilCmdConnection@@UEAA@XZ.c)
+ *     ?ClearCaches@CInternalMilCmdConnection@@UEAA_NK@Z @ 0x1800C87F0 (-ClearCaches@CInternalMilCmdConnection@@UEAA_NK@Z.c)
+ *     ??1CInternalMilCmdConnection@@EEAA@XZ @ 0x18014EFB8 (--1CInternalMilCmdConnection@@EEAA@XZ.c)
  * Callees:
- *     ??_GCCommandBatch@@QEAAPEAXI@Z @ 0x180044698 (--_GCCommandBatch@@QEAAPEAXI@Z.c)
+ *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x180037848 (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CInternalMilCmdConnection::FreeBatchPool(union _SLIST_HEADER *this)
 {
-  unsigned int v1; // edx
+  CDataStreamWriter *v1; // rcx
   PSLIST_ENTRY v2; // rbx
-  struct _LIST_ENTRY *v3; // rcx
+  struct _LIST_ENTRY *v3; // rdi
+  CDataStreamWriter *v4; // rcx
 
-  v2 = InterlockedFlushSList(this + 10);
+  v2 = InterlockedFlushSList(this + 12);
   while ( v2 )
   {
     v3 = (struct _LIST_ENTRY *)&v2[-4];
     v2 = v2->Next;
     if ( v3 )
-      CCommandBatch::`scalar deleting destructor'(v3, v1);
+    {
+      CDataStreamWriter::FreeBlocks(v1, v3);
+      operator delete(v3[2].Flink);
+      CDataStreamWriter::FreeBlocks(v4, v3 + 1);
+      operator delete(v3);
+    }
   }
 }

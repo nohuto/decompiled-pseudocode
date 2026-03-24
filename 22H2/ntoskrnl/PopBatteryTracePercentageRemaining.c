@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryTracePercentageRemaining @ 0x1409958BC
+ * XREFs of PopBatteryTracePercentageRemaining @ 0x1408ED73C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a4)
@@ -85,9 +85,9 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v8 = v11;
     }
   }
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL);
+    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
     if ( (_BYTE)v4 )
     {
       v29 = 0;
@@ -107,8 +107,8 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v15 = v5;
       v37 = 4;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C03950,
-                     (unsigned __int8 *)byte_14003105D,
+                     (__int64)&dword_140C02228,
+                     (unsigned __int8 *)&byte_140028E5F,
                      0LL,
                      0LL,
                      6u,

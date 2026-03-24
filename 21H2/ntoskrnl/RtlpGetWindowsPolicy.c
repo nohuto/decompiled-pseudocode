@@ -1,70 +1,68 @@
 /*
- * XREFs of RtlpGetWindowsPolicy @ 0x140830FE0
+ * XREFs of RtlpGetWindowsPolicy @ 0x140793200
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x1403C64C0 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1403AC89C (RtlpMuiRegLoadLicInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x14041E2C0 (ZwQueryLicenseValue.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, unsigned int *a3, _QWORD *a4)
 {
   void *v4; // rbx
-  __int64 result; // rax
-  unsigned int v9; // ecx
-  unsigned int v10; // ebp
+  int LicenseValue; // eax
+  unsigned int v9; // edi
+  unsigned int v10; // eax
+  unsigned int v11; // edi
   PVOID PoolWithTag; // rax
-  unsigned int v12; // edi
-  UNICODE_STRING v13; // [rsp+30h] [rbp-18h] BYREF
+  UNICODE_STRING v14; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = 0LL;
-  v13 = 0LL;
+  v14 = 0LL;
   if ( !a2 || !a3 || !a4 || !SourceString )
-    return 3221225485LL;
-  RtlInitUnicodeString(&v13, SourceString);
-  result = ZwQueryLicenseValue((__int64)&v13, a2);
-  if ( (int)result >= 0 )
   {
-    v9 = *a3;
+    v9 = -1073741811;
+    goto LABEL_14;
+  }
+  RtlInitUnicodeString(&v14, SourceString);
+  LicenseValue = ZwQueryLicenseValue((__int64)&v14, a2);
+  v9 = LicenseValue;
+  if ( LicenseValue >= 0 )
+  {
+    v10 = *a3;
     if ( !*a3 )
     {
       *a4 = 0LL;
-      return result;
+      return v9;
     }
 LABEL_8:
-    v10 = v9;
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x72746C6Du);
+    v11 = v10;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v10, 0x72746C6Du);
     v4 = PoolWithTag;
     if ( PoolWithTag )
-      memset(PoolWithTag, 0, v10);
-    if ( v4 )
-      goto LABEL_11;
-    return 3221225495LL;
+      memset(PoolWithTag, 0, v11);
+    goto LABEL_10;
   }
-  if ( (_DWORD)result == -1073741789 )
-  {
-    v9 = *a3;
-    if ( !*a3 )
-      return 3221225495LL;
+  if ( LicenseValue != -1073741789 )
+    goto LABEL_11;
+  v10 = *a3;
+  if ( *a3 )
     goto LABEL_8;
-  }
+LABEL_10:
+  if ( !v4 )
+    return (unsigned int)-1073741801;
 LABEL_11:
-  result = ZwQueryLicenseValue((__int64)&v13, a2);
-  v12 = result;
-  if ( (int)result < 0 )
-  {
-    if ( v4 )
-    {
-      ExFreePoolWithTag(v4, 0);
-      return v12;
-    }
-  }
-  else
+  v9 = ZwQueryLicenseValue((__int64)&v14, a2);
+  if ( (v9 & 0x80000000) == 0 )
   {
     *a4 = v4;
+    return v9;
   }
-  return result;
+LABEL_14:
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0);
+  return v9;
 }

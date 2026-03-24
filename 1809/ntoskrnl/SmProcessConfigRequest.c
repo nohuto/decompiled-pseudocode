@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x14075EA34
+ * XREFs of SmProcessConfigRequest @ 0x14075EA14
  * Callers:
- *     SmSetStoreInformation @ 0x1406CBC50 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406CBC30 (SmSetStoreInformation.c)
  * Callees:
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     SmpSystemStoreCreate @ 0x14075EB48 (SmpSystemStoreCreate.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SmpSystemStoreCreate @ 0x14075EB28 (SmpSystemStoreCreate.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)

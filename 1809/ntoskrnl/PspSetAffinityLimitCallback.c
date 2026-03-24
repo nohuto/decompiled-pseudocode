@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetAffinityLimitCallback @ 0x14088A1D0
+ * XREFs of PspSetAffinityLimitCallback @ 0x14088A1B0
  * Callers:
  *     <none>
  * Callees:
- *     PspCheckJobAccessState @ 0x140889988 (PspCheckJobAccessState.c)
+ *     PspCheckJobAccessState @ 0x140889968 (PspCheckJobAccessState.c)
  */
 
 __int64 __fastcall PspSetAffinityLimitCallback(__int64 a1, __int64 a2)

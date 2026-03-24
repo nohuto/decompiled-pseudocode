@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSolidXorRect24@@YAXPEAU_RECTL@@KPEAEJKK@Z @ 0x1C0303E00
+ * XREFs of ?vSolidXorRect24@@YAXPEAU_RECTL@@KPEAEJKK@Z @ 0x1C02DAED0
  * Callers:
  *     <none>
  * Callees:

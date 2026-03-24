@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00069CC
+ * XREFs of ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00BDEDC
  * Callers:
- *     ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0006908 (-vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z.c)
+ *     ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0025364 (-vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z.c)
  * Callees:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C0006A50 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C00BE020 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z.c)
  */
 
 __int64 __fastcall DC::bOldPenNominal(DC *this, struct EXFORMOBJ *a2, int a3)
@@ -57,15 +57,15 @@ __int64 __fastcall DC::bOldPenNominal(DC *this, struct EXFORMOBJ *a2, int a3)
         v10 = v15;
         if ( v15 < 0 )
           v10 = -v15;
-        if ( v9 <= v10 )
-        {
-          v11 = v15;
-          v12 = v15 < 0;
-        }
-        else
+        if ( v9 > v10 )
         {
           v11 = HIDWORD(v14);
           v12 = v14 < 0;
+        }
+        else
+        {
+          v11 = v15;
+          v12 = v15 < 0;
         }
         if ( v12 )
           v11 = -v11;

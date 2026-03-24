@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessUnregister@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSWAPCHAINRENDERTARGET_UNREGISTER@@@Z @ 0x1801EF744
+ * XREFs of ?ProcessUnregister@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSWAPCHAINRENDERTARGET_UNREGISTER@@@Z @ 0x180189E14
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x1801EFB90 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
+ *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x18018A120 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CIndirectSwapchainRenderTarget::ProcessUnregister(

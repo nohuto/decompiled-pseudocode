@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_AcquiringAddressZeroOwnershipOnRenum @ 0x1C0020740
+ * XREFs of HUBDSM_AcquiringAddressZeroOwnershipOnRenum @ 0x1C001DD20
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl @ 0x1C0026544 (HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl.c)
+ *     HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl @ 0x1C0023BBC (HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_AcquiringAddressZeroOwnershipOnRenum(__int64 a1)

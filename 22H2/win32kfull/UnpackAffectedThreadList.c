@@ -1,35 +1,26 @@
 /*
- * XREFs of UnpackAffectedThreadList @ 0x1C005CEE8
+ * XREFs of UnpackAffectedThreadList @ 0x1C001230C
  * Callers:
- *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C005BE80 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
- *     zzzReattachThreads @ 0x1C005C0B8 (zzzReattachThreads.c)
- *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C009C3C0 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C0012370 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
+ *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C00D7C60 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall UnpackAffectedThreadList(__int64 a1)
+void UnpackAffectedThreadList()
 {
-  __int64 v1; // rcx
-  _QWORD *v2; // rdi
-  _QWORD *v3; // rbx
-  void *v4; // rcx
-  _QWORD *v5; // rax
-  __int64 v6; // rcx
-  __int64 result; // rax
+  struct _LIST_ENTRY *Flink; // rbx
+  struct _LIST_ENTRY *v1; // rcx
 
-  v2 = (_QWORD *)(SGDGetUserSessionState(a1) + 16880);
-  v3 = (_QWORD *)*v2;
-  while ( v3 && v3 != v2 )
+  Flink = gListAffectedThreadsForQueueRecalc.Flink;
+  while ( Flink && Flink != &gListAffectedThreadsForQueueRecalc )
   {
-    v4 = v3;
-    v3 = (_QWORD *)v3[189];
-    Win32FreePool(v4);
+    v1 = Flink;
+    Flink = Flink[94].Blink;
+    Win32FreePool(v1);
   }
-  v5 = (_QWORD *)(SGDGetUserSessionState(v1) + 16880);
-  v5[1] = v5;
-  *v5 = v5;
-  result = SGDGetUserSessionState(v6);
-  *(_DWORD *)(result + 16896) = 0;
-  return result;
+  gnThreadsAffectedForQueueRecalc = 0;
+  off_1C032A238 = &gListAffectedThreadsForQueueRecalc;
+  gListAffectedThreadsForQueueRecalc.Flink = &gListAffectedThreadsForQueueRecalc;
 }

@@ -1,34 +1,35 @@
 /*
- * XREFs of SepCopyTokenIntegrity @ 0x140226B60
+ * XREFs of SepCopyTokenIntegrity @ 0x1402521FC
  * Callers:
- *     SeQueryTokenIntegrity @ 0x1402F6584 (SeQueryTokenIntegrity.c)
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x14066ED98 (AuthzBasepQueryTokenAttributeAndValues.c)
- *     SeIsTokenAssignableToProcess @ 0x1406BA488 (SeIsTokenAssignableToProcess.c)
- *     SepAdjustPrivileges @ 0x1406BAA20 (SepAdjustPrivileges.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
- *     SeTokenCanImpersonate @ 0x1407354A0 (SeTokenCanImpersonate.c)
+ *     SeQueryTokenIntegrity @ 0x140251BD8 (SeQueryTokenIntegrity.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x1405C139C (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     SepValidLabelSubjectContext @ 0x140607E9C (SepValidLabelSubjectContext.c)
+ *     SepAdjustPrivileges @ 0x140608570 (SepAdjustPrivileges.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
+ *     SeTokenCanImpersonate @ 0x1406D41E0 (SeTokenCanImpersonate.c)
+ *     SeIsTokenAssignableToProcess @ 0x14070DAF4 (SeIsTokenAssignableToProcess.c)
  * Callees:
- *     <none>
+ *     SepLocateTokenIntegrity @ 0x14025222C (SepLocateTokenIntegrity.c)
  */
 
-_DWORD *__fastcall SepCopyTokenIntegrity(__int64 a1, __int64 a2)
+__int64 __fastcall SepCopyTokenIntegrity(__int64 a1)
 {
-  __int64 v2; // rax
-  _DWORD *result; // rax
+  __int64 TokenIntegrity; // rax
+  __int64 v2; // rdx
+  __int64 result; // rax
 
-  v2 = *(unsigned int *)(a1 + 208);
-  if ( (_DWORD)v2 == -1 || (result = (_DWORD *)(*(_QWORD *)(a1 + 152) + 16 * v2)) == 0LL )
+  TokenIntegrity = SepLocateTokenIntegrity(a1);
+  if ( TokenIntegrity )
   {
-    result = SeUntrustedMandatorySid;
-    *(_QWORD *)a2 = SeUntrustedMandatorySid;
-    *(_DWORD *)(a2 + 8) = 96;
+    *(_QWORD *)v2 = *(_QWORD *)TokenIntegrity;
+    result = *(unsigned int *)(TokenIntegrity + 8);
   }
   else
   {
-    *(_QWORD *)a2 = *(_QWORD *)result;
-    *(_DWORD *)(a2 + 8) = result[2];
+    *(_QWORD *)v2 = SeUntrustedMandatorySid;
+    result = 96LL;
   }
+  *(_DWORD *)(v2 + 8) = result;
   return result;
 }

@@ -1,31 +1,31 @@
 /*
- * XREFs of ?WilApiImpl_UnsubscribeFeatureStateChangeNotification@details@wil@@YAXPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@@Z @ 0x18019A940
+ * XREFs of ?WilApiImpl_UnsubscribeFeatureStateChangeNotification@details@wil@@YAXPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@@Z @ 0x1800E6080
  * Callers:
  *     <none>
  * Callees:
- *     ?Unsubscribe@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@PEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@@Z @ 0x18019A7E0 (-Unsubscribe@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@PEAUFEATURE_STATE_CHANGE_SUBSC.c)
+ *     ?Unsubscribe@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@PEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@@Z @ 0x1800E60D8 (-Unsubscribe@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@PEAUFEATURE_STATE_CHANGE_SUBSC.c)
  */
 
 void __fastcall wil::details::WilApiImpl_UnsubscribeFeatureStateChangeNotification(
-        struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *this,
+        unsigned __int64 this,
         struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *a2)
 {
   struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *v2; // r8
   struct _RTL_CRITICAL_SECTION *v3; // rcx
 
-  if ( ((unsigned int)this & 0x80000000) != 0 )
+  if ( (this & 0x80000000) != 0 )
   {
     if ( !wil::details::g_featureStateManager )
       return;
-    v2 = (struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *)((unsigned __int64)this & 0xFFFFFFFF7FFFFFFFuLL);
-    v3 = &stru_1803E5D80;
+    v2 = (struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *)(this & 0xFFFFFFFF7FFFFFFFuLL);
+    v3 = &stru_18034B3A8;
+    goto LABEL_4;
   }
-  else
+  if ( wil::details::g_featureStateManager )
   {
-    if ( !wil::details::g_featureStateManager )
-      return;
-    v2 = this;
-    v3 = &stru_1803E5D30;
+    v2 = (struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *)this;
+    v3 = (struct _RTL_CRITICAL_SECTION *)&unk_18034B348;
+LABEL_4:
+    wil::details_abi::SubscriptionList::Unsubscribe(v3, &stru_18034B320, v2);
   }
-  wil::details_abi::SubscriptionList::Unsubscribe(v3, &stru_1803E5D08, v2);
 }

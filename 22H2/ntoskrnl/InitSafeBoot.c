@@ -1,15 +1,15 @@
 /*
- * XREFs of InitSafeBoot @ 0x140B91AE8
+ * XREFs of InitSafeBoot @ 0x140A8C3D0
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     NtSetValueKey @ 0x1406D2AB0 (NtSetValueKey.c)
- *     NtQueryValueKey @ 0x1406E2F20 (NtQueryValueKey.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtQueryValueKey @ 0x140645200 (NtQueryValueKey.c)
+ *     NtSetValueKey @ 0x1406DCBB0 (NtSetValueKey.c)
  */
 
 int __fastcall InitSafeBoot(char a1)
@@ -51,11 +51,11 @@ int __fastcall InitSafeBoot(char a1)
       LODWORD(Class) = 44;
       if ( (int)NtQueryValueKey(
                   KeyHandle,
-                  &DestinationString,
-                  2,
-                  (char *)v13,
+                  (unsigned __int64)&DestinationString,
+                  2LL,
+                  (unsigned __int64)v13,
                   (size_t)Class,
-                  (unsigned int *)&Disposition) < 0 )
+                  (unsigned __int64)&Disposition) < 0 )
         a1 = 0;
     }
     RtlInitUnicodeString(&DestinationString, L"Option");
@@ -72,23 +72,17 @@ int __fastcall InitSafeBoot(char a1)
       CreateOptions[0] = 4;
       NtSetValueKey(
         (__int64)Handle,
-        &DestinationString,
-        0,
-        4u,
-        (struct _PRIVILEGE_SET *)&InitSafeBootMode,
+        (unsigned __int64)&DestinationString,
+        0LL,
+        4LL,
+        &InitSafeBootMode,
         *(size_t *)CreateOptions);
       if ( a1 == 1 )
       {
         RtlInitUnicodeString(&DestinationString, L"UseAlternateShell");
         CreateOptionsa[0] = 4;
         LODWORD(v7) = 1;
-        NtSetValueKey(
-          (__int64)Handle,
-          &DestinationString,
-          0,
-          4u,
-          (struct _PRIVILEGE_SET *)&v7,
-          *(size_t *)CreateOptionsa);
+        NtSetValueKey((__int64)Handle, (unsigned __int64)&DestinationString, 0LL, 4LL, &v7, *(size_t *)CreateOptionsa);
       }
       return NtClose(Handle);
     }

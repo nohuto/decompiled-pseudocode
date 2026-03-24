@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWMIQueryAllDataMultiple @ 0x1409DEE60
+ * XREFs of IoWMIQueryAllDataMultiple @ 0x140931050
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipQueryAllDataMultiple @ 0x1409E0D24 (WmipQueryAllDataMultiple.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipQueryAllDataMultiple @ 0x140932B28 (WmipQueryAllDataMultiple.c)
  */
 
 NTSTATUS __stdcall IoWMIQueryAllDataMultiple(

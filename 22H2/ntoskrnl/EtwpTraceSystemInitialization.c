@@ -1,168 +1,166 @@
 /*
- * XREFs of EtwpTraceSystemInitialization @ 0x140B381EC
+ * XREFs of EtwpTraceSystemInitialization @ 0x140A41CF8
  * Callers:
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     RtlGetSystemTimePrecise @ 0x140226E30 (RtlGetSystemTimePrecise.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     HviIsHypervisorVendorMicrosoft @ 0x140373BE0 (HviIsHypervisorVendorMicrosoft.c)
- *     HviGetHypervisorFeatures @ 0x140383390 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HviGetHardwareFeatures @ 0x140615410 (HviGetHardwareFeatures.c)
- *     RtlGetVersion @ 0x140759210 (RtlGetVersion.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     RtlGetSystemTimePrecise @ 0x140341F30 (RtlGetSystemTimePrecise.c)
+ *     HviGetHypervisorFeatures @ 0x1403A9020 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1403AA5F0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HviGetHardwareFeatures @ 0x1405BEEB0 (HviGetHardwareFeatures.c)
+ *     RtlGetVersion @ 0x14068F5D0 (RtlGetVersion.c)
  */
 
 char EtwpTraceSystemInitialization()
 {
-  __int64 v0; // rax
-  __int64 v1; // r9
-  __int64 v2; // r10
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  REGHANDLE v6; // rbx
-  __int64 v7; // rbx
-  _QWORD *v8; // rdi
+  NTSTATUS Version; // eax
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  __int64 v3; // r9
+  REGHANDLE v4; // rbx
+  __int64 v5; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // r9
+  __int64 v8; // r10
   char v9; // r9
   REGHANDLE v10; // rsi
   __int64 v11; // rax
-  __int64 v12; // rax
-  ULONGLONG v13; // rax
-  int v15; // [rsp+48h] [rbp-C0h] BYREF
-  int v16; // [rsp+4Ch] [rbp-BCh] BYREF
-  unsigned int v17; // [rsp+50h] [rbp-B8h] BYREF
-  int v18; // [rsp+54h] [rbp-B4h] BYREF
-  int v19; // [rsp+58h] [rbp-B0h] BYREF
-  int v20; // [rsp+5Ch] [rbp-ACh] BYREF
-  int v21; // [rsp+60h] [rbp-A8h] BYREF
-  int v22; // [rsp+64h] [rbp-A4h] BYREF
-  int v23; // [rsp+68h] [rbp-A0h] BYREF
-  int v24; // [rsp+6Ch] [rbp-9Ch] BYREF
-  int v25; // [rsp+70h] [rbp-98h] BYREF
-  int v26; // [rsp+74h] [rbp-94h] BYREF
-  LARGE_INTEGER v27; // [rsp+78h] [rbp-90h] BYREF
+  ULONGLONG v12; // rax
+  int v14; // [rsp+48h] [rbp-C0h] BYREF
+  int v15; // [rsp+4Ch] [rbp-BCh] BYREF
+  unsigned int v16; // [rsp+50h] [rbp-B8h] BYREF
+  int v17; // [rsp+54h] [rbp-B4h] BYREF
+  int v18; // [rsp+58h] [rbp-B0h] BYREF
+  int v19; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v20; // [rsp+60h] [rbp-A8h] BYREF
+  int v21; // [rsp+64h] [rbp-A4h] BYREF
+  int v22; // [rsp+68h] [rbp-A0h] BYREF
+  int v23; // [rsp+6Ch] [rbp-9Ch] BYREF
+  __int64 v24; // [rsp+70h] [rbp-98h] BYREF
+  LARGE_INTEGER v25; // [rsp+78h] [rbp-90h] BYREF
   __int64 SystemTimePrecise; // [rsp+80h] [rbp-88h] BYREF
-  __int128 v29; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v30; // [rsp+98h] [rbp-70h] BYREF
+  __int128 v27; // [rsp+88h] [rbp-80h] BYREF
+  __int128 v28; // [rsp+98h] [rbp-70h] BYREF
   int VersionInformation; // [rsp+A8h] [rbp-60h] BYREF
   _DWORD VersionInformation_4[71]; // [rsp+ACh] [rbp-5Ch] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1C8h] [rbp+C0h] BYREF
   __int64 *p_SystemTimePrecise; // [rsp+1D8h] [rbp+D0h]
-  __int64 v35; // [rsp+1E0h] [rbp+D8h]
-  _DWORD *v36; // [rsp+1E8h] [rbp+E0h]
-  __int64 v37; // [rsp+1F0h] [rbp+E8h]
-  int *v38; // [rsp+1F8h] [rbp+F0h]
-  __int64 v39; // [rsp+200h] [rbp+F8h]
-  _DWORD *v40; // [rsp+208h] [rbp+100h]
-  __int64 v41; // [rsp+210h] [rbp+108h]
-  int *v42; // [rsp+218h] [rbp+110h]
-  __int64 v43; // [rsp+220h] [rbp+118h]
-  LARGE_INTEGER *v44; // [rsp+228h] [rbp+120h]
-  __int64 v45; // [rsp+230h] [rbp+128h]
-  struct _EVENT_DATA_DESCRIPTOR v46; // [rsp+238h] [rbp+130h] BYREF
-  int *v47; // [rsp+258h] [rbp+150h]
-  __int64 v48; // [rsp+260h] [rbp+158h]
-  int *v49; // [rsp+268h] [rbp+160h]
-  __int64 v50; // [rsp+270h] [rbp+168h]
-  int *v51; // [rsp+278h] [rbp+170h]
-  __int64 v52; // [rsp+280h] [rbp+178h]
-  int *v53; // [rsp+288h] [rbp+180h]
-  __int64 v54; // [rsp+290h] [rbp+188h]
-  int *v55; // [rsp+298h] [rbp+190h]
-  __int64 v56; // [rsp+2A0h] [rbp+198h]
-  int *v57; // [rsp+2A8h] [rbp+1A0h]
-  __int64 v58; // [rsp+2B0h] [rbp+1A8h]
-  int *v59; // [rsp+2B8h] [rbp+1B0h]
-  __int64 v60; // [rsp+2C0h] [rbp+1B8h]
-  __int128 *v61; // [rsp+2C8h] [rbp+1C0h]
-  __int64 v62; // [rsp+2D0h] [rbp+1C8h]
-  unsigned int *v63; // [rsp+2D8h] [rbp+1D0h]
-  __int64 v64; // [rsp+2E0h] [rbp+1D8h]
-  int *v65; // [rsp+2E8h] [rbp+1E0h]
-  __int64 v66; // [rsp+2F0h] [rbp+1E8h]
-  struct _EVENT_DATA_DESCRIPTOR v67; // [rsp+2F8h] [rbp+1F0h] BYREF
-  unsigned int *v68; // [rsp+318h] [rbp+210h]
-  __int64 v69; // [rsp+320h] [rbp+218h]
-  int *v70; // [rsp+328h] [rbp+220h]
-  __int64 v71; // [rsp+330h] [rbp+228h]
+  __int64 v33; // [rsp+1E0h] [rbp+D8h]
+  _DWORD *v34; // [rsp+1E8h] [rbp+E0h]
+  __int64 v35; // [rsp+1F0h] [rbp+E8h]
+  int *v36; // [rsp+1F8h] [rbp+F0h]
+  __int64 v37; // [rsp+200h] [rbp+F8h]
+  _DWORD *v38; // [rsp+208h] [rbp+100h]
+  __int64 v39; // [rsp+210h] [rbp+108h]
+  int *v40; // [rsp+218h] [rbp+110h]
+  __int64 v41; // [rsp+220h] [rbp+118h]
+  LARGE_INTEGER *v42; // [rsp+228h] [rbp+120h]
+  __int64 v43; // [rsp+230h] [rbp+128h]
+  struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+238h] [rbp+130h] BYREF
+  int *v45; // [rsp+258h] [rbp+150h]
+  __int64 v46; // [rsp+260h] [rbp+158h]
+  int *v47; // [rsp+268h] [rbp+160h]
+  __int64 v48; // [rsp+270h] [rbp+168h]
+  int *v49; // [rsp+278h] [rbp+170h]
+  __int64 v50; // [rsp+280h] [rbp+178h]
+  int *v51; // [rsp+288h] [rbp+180h]
+  __int64 v52; // [rsp+290h] [rbp+188h]
+  int *v53; // [rsp+298h] [rbp+190h]
+  __int64 v54; // [rsp+2A0h] [rbp+198h]
+  int *v55; // [rsp+2A8h] [rbp+1A0h]
+  __int64 v56; // [rsp+2B0h] [rbp+1A8h]
+  __int64 *v57; // [rsp+2B8h] [rbp+1B0h]
+  __int64 v58; // [rsp+2C0h] [rbp+1B8h]
+  __int128 *v59; // [rsp+2C8h] [rbp+1C0h]
+  __int64 v60; // [rsp+2D0h] [rbp+1C8h]
+  unsigned int *v61; // [rsp+2D8h] [rbp+1D0h]
+  __int64 v62; // [rsp+2E0h] [rbp+1D8h]
+  int *v63; // [rsp+2E8h] [rbp+1E0h]
+  __int64 v64; // [rsp+2F0h] [rbp+1E8h]
+  struct _EVENT_DATA_DESCRIPTOR v65; // [rsp+2F8h] [rbp+1F0h] BYREF
+  unsigned int *v66; // [rsp+318h] [rbp+210h]
+  __int64 v67; // [rsp+320h] [rbp+218h]
+  int *v68; // [rsp+328h] [rbp+220h]
+  __int64 v69; // [rsp+330h] [rbp+228h]
 
   memset(VersionInformation_4, 0, 0x118uLL);
-  v18 = NtBuildQfe;
-  v19 = InitSafeBootMode;
-  v30 = 0LL;
+  v17 = NtBuildQfe;
+  v18 = InitSafeBootMode;
+  v28 = 0LL;
   VersionInformation = 284;
-  LODWORD(v0) = RtlGetVersion((PRTL_OSVERSIONINFOW)&VersionInformation);
-  if ( (int)v0 >= 0 )
+  Version = RtlGetVersion((PRTL_OSVERSIONINFOW)&VersionInformation);
+  if ( Version >= 0 )
   {
-    v27 = KeBootTime;
-    if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x800000000000LL) )
+    v25 = KeBootTime;
+    if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x800000000000LL) )
     {
-      v20 = VersionInformation_4[0];
-      *(_QWORD *)&v29 = v1;
+      v19 = VersionInformation_4[0];
+      *(_QWORD *)&v27 = v7;
+      v45 = &v19;
+      LOBYTE(v14) = v8 != 0;
+      v20 = VersionInformation_4[1];
+      v46 = 4LL;
       v47 = &v20;
-      LOBYTE(v15) = v2 != 0;
-      v21 = VersionInformation_4[1];
-      v48 = 4LL;
+      v21 = VersionInformation_4[2];
       v49 = &v21;
-      v22 = VersionInformation_4[2];
       v51 = &v22;
+      v23 = v17;
       v53 = &v23;
-      v24 = v18;
-      v55 = &v24;
-      LOWORD(v16) = VersionInformation_4[68];
-      v57 = &v16;
-      v25 = v19;
-      v59 = &v25;
-      v61 = &v29;
-      v17 = dword_140C6AC48;
-      v63 = &v17;
-      v65 = &v15;
+      LOWORD(v15) = VersionInformation_4[68];
+      v55 = &v15;
+      LODWORD(v24) = v18;
+      v57 = &v24;
+      v59 = &v27;
+      v16 = dword_140C50B64;
+      v61 = &v16;
+      v63 = &v14;
+      v48 = 4LL;
       v50 = 4LL;
+      v22 = 1;
       v52 = 4LL;
-      v23 = 1;
       v54 = 4LL;
-      v56 = 4LL;
-      v58 = 2LL;
-      v60 = 4LL;
-      v62 = 8LL;
-      v64 = 4LL;
-      v66 = 1LL;
+      v56 = 2LL;
+      v58 = 4LL;
+      v60 = 8LL;
+      v62 = 4LL;
+      v64 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C066C0,
-        (unsigned __int8 *)&word_140034BEE,
+        (__int64)&dword_140C02BF0,
+        (unsigned __int8 *)word_14002D1FA,
         0LL,
         0LL,
         0xCu,
-        &v46);
+        &v44);
     }
-    LOBYTE(v0) = HviIsHypervisorVendorMicrosoft();
-    if ( (_BYTE)v0 )
+    LOBYTE(Version) = HviIsHypervisorVendorMicrosoft();
+    if ( (_BYTE)Version )
     {
-      HviGetHardwareFeatures((__int64)&v30, v3, v4, v5);
-      v29 = 0LL;
-      LOBYTE(v0) = HviGetHypervisorFeatures(&v29);
-      if ( (unsigned int)dword_140C066C0 > 5 )
+      HviGetHardwareFeatures((__int64)&v28, v1, v2, v3);
+      v27 = 0LL;
+      LOBYTE(Version) = HviGetHypervisorFeatures(&v27);
+      if ( (unsigned int)dword_140C02BF0 > 5 )
       {
-        LOBYTE(v0) = tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL);
-        if ( (_BYTE)v0 )
+        LOBYTE(Version) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
+        if ( (_BYTE)Version )
         {
-          LOBYTE(v15) = v9;
-          v17 = ((unsigned int)v30 >> 10) & 0xF;
-          v69 = 4LL;
-          v68 = &v17;
-          v71 = 1LL;
-          v70 = &v15;
-          LOBYTE(v0) = tlgWriteTransfer_EtwWriteTransfer(
-                         (__int64)&dword_140C066C0,
-                         (unsigned __int8 *)&dword_140034C84,
-                         0LL,
-                         0LL,
-                         4u,
-                         &v67);
+          LOBYTE(v14) = v9;
+          v16 = ((unsigned int)v28 >> 10) & 0xF;
+          v67 = 4LL;
+          v66 = &v16;
+          v69 = 1LL;
+          v68 = &v14;
+          LOBYTE(Version) = tlgWriteTransfer_EtwWriteTransfer(
+                              (__int64)&dword_140C02BF0,
+                              (unsigned __int8 *)byte_14002CEF8,
+                              0LL,
+                              0LL,
+                              4u,
+                              &v65);
         }
       }
     }
@@ -170,62 +168,56 @@ char EtwpTraceSystemInitialization()
     {
       *(_QWORD *)&UserData.Size = 4LL;
       UserData.Ptr = (ULONGLONG)VersionInformation_4;
-      v35 = 4LL;
+      v33 = 4LL;
       p_SystemTimePrecise = (__int64 *)&VersionInformation_4[1];
+      v35 = 4LL;
+      v34 = &VersionInformation_4[2];
       v37 = 4LL;
-      v36 = &VersionInformation_4[2];
-      v39 = 4LL;
-      v38 = &v18;
-      v40 = &VersionInformation_4[68];
-      v42 = &v19;
-      v44 = &v27;
-      v41 = 2LL;
-      v43 = 4LL;
-      v45 = 8LL;
+      v36 = &v17;
+      v38 = &VersionInformation_4[68];
+      v40 = &v18;
+      v42 = &v25;
+      v39 = 2LL;
+      v41 = 4LL;
+      v43 = 8LL;
       EtwWriteEx(EtwKernelProvRegHandle, &KernelSystemStart, 0LL, 0, 0LL, 0LL, 7u, &UserData);
-      v6 = EtwKernelProvRegHandle;
-      if ( EtwEventEnabled(EtwKernelProvRegHandle, &BootPerformanceData) )
+      v4 = EtwKernelProvRegHandle;
+      LOBYTE(Version) = EtwEventEnabled(EtwKernelProvRegHandle, &BootPerformanceData);
+      if ( (_BYTE)Version )
       {
         *(_QWORD *)&UserData.Size = 264LL;
         UserData.Ptr = (ULONGLONG)&EtwBootPerfData;
-        EtwWriteEx(v6, &BootPerformanceData, 0LL, 0, 0LL, 0LL, 1u, &UserData);
+        LOBYTE(Version) = EtwWriteEx(v4, &BootPerformanceData, 0LL, 0, 0LL, 0LL, 1u, &UserData);
       }
-      v7 = KeLoaderBlock_0;
-      v0 = *(_QWORD *)(KeLoaderBlock_0 + 240);
-      v8 = (_QWORD *)(v0 + 224);
-      if ( (*(_DWORD *)(v0 + 132) & 0x100) != 0 || *v8 )
+      v5 = KeLoaderBlock_0;
+      v6 = *(_QWORD *)(KeLoaderBlock_0 + 240);
+      if ( (*(_DWORD *)(v6 + 132) & 0x100) != 0 || *(_QWORD *)(v6 + 224) )
       {
         v10 = EtwKernelProvRegHandle;
-        LOBYTE(v0) = EtwEventEnabled(EtwKernelProvRegHandle, &VsmPerformanceData);
-        if ( (_BYTE)v0 )
+        LOBYTE(Version) = EtwEventEnabled(EtwKernelProvRegHandle, &VsmPerformanceData);
+        if ( (_BYTE)Version )
         {
-          UserData.Ptr = (ULONGLONG)v8;
           *(_QWORD *)&UserData.Size = 8LL;
-          v11 = *(_QWORD *)(v7 + 240) + 3520LL;
-          v35 = 64LL;
+          UserData.Ptr = v6 + 224;
+          v11 = *(_QWORD *)(v5 + 240) + 3488LL;
+          v33 = 64LL;
           p_SystemTimePrecise = (__int64 *)v11;
-          v12 = *(_QWORD *)(v7 + 240);
-          v37 = 8LL;
-          v36 = (_DWORD *)(v12 + 3864);
-          LOBYTE(v0) = EtwWriteEx(v10, &VsmPerformanceData, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+          LOBYTE(Version) = EtwWriteEx(v10, &VsmPerformanceData, 0LL, 0, 0LL, 0LL, 2u, &UserData);
         }
       }
-      if ( (qword_140C31AF8 & 4) != 0 )
+      if ( (qword_140C197B8 & 4) != 0 )
       {
-        v26 = (*(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2648LL) >> 14) & 1;
         SystemTimePrecise = RtlGetSystemTimePrecise();
-        v13 = *(_QWORD *)(KeLoaderBlock_0 + 240) + 2944LL;
+        v12 = *(_QWORD *)(KeLoaderBlock_0 + 240) + 2912LL;
         *(_QWORD *)&UserData.Size = 8LL;
-        UserData.Ptr = v13;
+        UserData.Ptr = v12;
         p_SystemTimePrecise = &SystemTimePrecise;
-        v35 = 8LL;
-        v36 = (_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2936LL);
-        v38 = &v26;
-        v37 = 4LL;
-        v39 = 4LL;
-        LOBYTE(v0) = EtwWriteEx(EtwKernelProvRegHandle, &SoftBootInfo, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+        v33 = 8LL;
+        v34 = (_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2904LL);
+        v35 = 4LL;
+        LOBYTE(Version) = EtwWriteEx(EtwKernelProvRegHandle, &SoftBootInfo, 0LL, 0, 0LL, 0LL, 3u, &UserData);
       }
     }
   }
-  return v0;
+  return Version;
 }

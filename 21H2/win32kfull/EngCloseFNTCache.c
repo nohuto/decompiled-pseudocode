@@ -1,12 +1,12 @@
 /*
- * XREFs of EngCloseFNTCache @ 0x1C00EF2AC
+ * XREFs of EngCloseFNTCache @ 0x1C00E6540
  * Callers:
- *     xxxLW_LoadFonts @ 0x1C00EE740 (xxxLW_LoadFonts.c)
- *     EngFntCacheAllocInternal @ 0x1C028603C (EngFntCacheAllocInternal.c)
+ *     xxxLW_LoadFonts @ 0x1C00E6470 (xxxLW_LoadFonts.c)
+ *     EngFntCacheAllocInternal @ 0x1C028910C (EngFntCacheAllocInternal.c)
  * Callees:
- *     bSetFntCacheReg @ 0x1C00E214C (bSetFntCacheReg.c)
- *     ComputeFileviewCheckSum @ 0x1C00E2BCC (ComputeFileviewCheckSum.c)
- *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00EF2F4 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     bSetFntCacheReg @ 0x1C00E5CE4 (bSetFntCacheReg.c)
+ *     ComputeFileviewCheckSum @ 0x1C00E6098 (ComputeFileviewCheckSum.c)
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6588 (-vCleanUpFntCacheInternal@@YAXXZ.c)
  */
 
 void EngCloseFNTCache()
@@ -18,22 +18,22 @@ void EngCloseFNTCache()
   int v4; // eax
   unsigned int v5; // ecx
 
-  v0 = dword_1C0335DA0;
-  if ( (dword_1C0335DA0 & 3) != 0 )
+  v0 = dword_1C033ABE0;
+  if ( (dword_1C033ABE0 & 3) != 0 )
   {
-    v1 = (_DWORD *)qword_1C0335DA8;
-    if ( qword_1C0335DA8 )
+    v1 = (_DWORD *)qword_1C033ABE8;
+    if ( qword_1C033ABE8 )
     {
-      if ( (dword_1C0335DA0 & 2) == 0 )
+      if ( (dword_1C033ABE0 & 2) == 0 )
         goto LABEL_4;
-      if ( *(_QWORD *)qword_1C0335DA8 && *(_DWORD *)(qword_1C0335DA8 + 20) )
+      if ( *(_QWORD *)qword_1C033ABE8 && *(_DWORD *)(qword_1C033ABE8 + 20) )
       {
-        *(_DWORD *)(*(_QWORD *)qword_1C0335DA8 + 20LL) = *(_DWORD *)(qword_1C0335DA8 + 8);
+        *(_DWORD *)(*(_QWORD *)qword_1C033ABE8 + 20LL) = *(_DWORD *)(qword_1C033ABE8 + 8);
         *(_DWORD *)(*(_QWORD *)v1 + 36LL) = v1[8] - v1[6];
         v3 = ComputeFileviewCheckSum((_DWORD *)(*(_QWORD *)v1 + 4LL), *(_DWORD *)(*(_QWORD *)v1 + 24LL) - 4);
-        v1 = (_DWORD *)qword_1C0335DA8;
-        **(_DWORD **)qword_1C0335DA8 = v3;
-        v0 = dword_1C0335DA0;
+        v1 = (_DWORD *)qword_1C033ABE8;
+        **(_DWORD **)qword_1C033ABE8 = v3;
+        v0 = dword_1C033ABE0;
       }
       if ( (v0 & 2) != 0 )
       {
@@ -59,6 +59,6 @@ LABEL_5:
       goto LABEL_5;
     }
   }
-  dword_1C0335DA0 = 0;
+  dword_1C033ABE0 = 0;
   gbFntCacheClosed = 1;
 }

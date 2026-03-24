@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRealVaToFlushType @ 0x14038A6B8
+ * XREFs of MiRealVaToFlushType @ 0x140378C18
  * Callers:
- *     MiFlushValidPteFromTb @ 0x14038A3A4 (MiFlushValidPteFromTb.c)
- *     MiDbgReleaseAddress @ 0x14038A450 (MiDbgReleaseAddress.c)
- *     MiDbgWriteCheck @ 0x14038A514 (MiDbgWriteCheck.c)
+ *     MiFlushValidPteFromTb @ 0x140378B6C (MiFlushValidPteFromTb.c)
+ *     MiDbgReleaseAddress @ 0x140545FFC (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x1405465FC (MiDbgWriteCheck.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14025D3F4 (MiHyperSpaceSize.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
+ *     MiHyperSpaceSize @ 0x1402925B8 (MiHyperSpaceSize.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MiRealVaToFlushType(unsigned __int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MiRealVaToFlushType(unsigned __int64 a1)
   v1 = a1;
   if ( a1 < 0xFFFF800000000000uLL )
     return 1;
-  if ( a1 >= qword_140C67168 && (v2 = MiHyperSpaceSize(), v1 < qword_140C67168 + v2) )
+  if ( a1 >= qword_140C4E360 && (v2 = MiHyperSpaceSize(), v1 < qword_140C4E360 + v2) )
   {
     return 1;
   }

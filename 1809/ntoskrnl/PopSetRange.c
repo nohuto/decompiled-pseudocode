@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetRange @ 0x14014494C
+ * XREFs of PopSetRange @ 0x14014496C
  * Callers:
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     RtlMarkHiberPhase @ 0x1402FAC40 (RtlMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     RtlMarkHiberPhase @ 0x1402FAD40 (RtlMarkHiberPhase.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  *     PopDiscardRange @ 0x14056BA08 (PopDiscardRange.c)
  *     PopSetBootPhaseRange @ 0x14056BA20 (PopSetBootPhaseRange.c)
  *     PopCloneRange @ 0x14056BA60 (PopCloneRange.c)

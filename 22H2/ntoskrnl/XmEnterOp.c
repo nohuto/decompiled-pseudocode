@@ -1,10 +1,10 @@
 /*
- * XREFs of XmEnterOp @ 0x140533D20
+ * XREFs of XmEnterOp @ 0x1404E6380
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmPushStack @ 0x1403B8F30 (XmPushStack.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     XmPushStack @ 0x140396668 (XmPushStack.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
 __int64 __fastcall XmEnterOp(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C007DA78
+ * XREFs of ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C0018678
  * Callers:
- *     ?NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@Z @ 0x1C007E560 (-NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@.c)
+ *     ?NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@Z @ 0x1C0018630 (-NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@.c)
  * Callees:
- *     ?CalcTransformChange@CCompositionBuffer@@SA?AW4TransformComparison@1@PEBM0@Z @ 0x1C007D514 (-CalcTransformChange@CCompositionBuffer@@SA-AW4TransformComparison@1@PEBM0@Z.c)
- *     ?SetPendingIndependentFlipAttributes@CFlipExBuffer@@IEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@@Z @ 0x1C007E804 (-SetPendingIndependentFlipAttributes@CFlipExBuffer@@IEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOK.c)
+ *     ?SetPendingIndependentFlipAttributes@CFlipExBuffer@@IEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@@Z @ 0x1C001C5B0 (-SetPendingIndependentFlipAttributes@CFlipExBuffer@@IEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOK.c)
+ *     ?CalcTransformChange@CCompositionBuffer@@SA?AW4TransformComparison@1@PEBM0@Z @ 0x1C001CAE8 (-CalcTransformChange@CCompositionBuffer@@SA-AW4TransformComparison@1@PEBM0@Z.c)
  */
 
 bool __fastcall CFlipExBuffer::CheckIndependentFlipAttributes(
@@ -12,101 +12,110 @@ bool __fastcall CFlipExBuffer::CheckIndependentFlipAttributes(
         const struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *a2,
         bool *a3)
 {
-  const struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *v4; // r9
-  CFlipExBuffer *v5; // r11
-  char v6; // cl
-  char v7; // r14
-  LONG left; // ebp
-  __int64 v9; // r8
-  unsigned int v10; // esi
-  _DWORD *v11; // rbx
-  _DWORD *v12; // rdi
-  bool v13; // zf
-  int v15; // eax
-  float *v16; // rdx
-  float *v17; // rcx
-  _DWORD *v18; // r10
+  int v4; // eax
+  const struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *v5; // r9
+  CFlipExBuffer *v6; // r11
+  bool v7; // sf
+  bool v8; // of
+  char v10; // di
+  LONG left; // ebx
+  __int64 v12; // r8
+  int v13; // eax
+  float *v14; // rdx
+  float *v15; // rcx
+  int v16; // r10d
   struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS::$999A3466B180106FECC6453D6FF00F87::$CDA7573B07EF0A4513B0E43B6C419F7F Value; // ecx
-  int v20; // edx
+  int v18; // edx
+  __int64 v19; // r11
+  int v20; // eax
+  bool v21; // zf
 
   *a3 = 0;
-  v4 = a2;
-  v5 = this;
-  if ( *((int *)this + 96) >= 1 )
+  v4 = *((_DWORD *)this + 88);
+  v5 = a2;
+  v6 = this;
+  v8 = __OFSUB__(v4, 1);
+  v7 = v4 - 1 < 0;
+  if ( v4 >= 1 )
   {
-    v6 = *((_BYTE *)this + 628);
-    v7 = 0;
+    v10 = 0;
     left = a2->SourceRect.left;
-    v9 = (-(__int64)(v6 != 0) & 0x158) + 48;
-    v10 = *(_DWORD *)((char *)v5 + v9 + 52);
-    if ( __PAIR64__(*(_DWORD *)((char *)v5 + v9 + 56), v10) != *(_QWORD *)&a2->SourceRect.left
-      || (v11 = (_DWORD *)((char *)v5 + v9 + 60), *v11 != a2->SourceRect.right)
-      || (v12 = (_DWORD *)((char *)v5 + v9 + 64), *v12 != a2->SourceRect.bottom) )
+    v12 = *((_BYTE *)this + 572) != 0 ? 360LL : 48LL;
+    if ( *(_QWORD *)((char *)this + v12 + 48) != *(_QWORD *)&a2->SourceRect.left
+      || *(_DWORD *)((char *)this + v12 + 56) != a2->SourceRect.right
+      || *(_DWORD *)((char *)this + v12 + 60) != a2->SourceRect.bottom )
     {
-      v7 = 1;
-      v11 = (_DWORD *)((char *)v5 + (-(__int64)(v6 != 0) & 0x158) + 108);
-      v12 = (_DWORD *)((char *)v5 + (-(__int64)(v6 != 0) & 0x158) + 112);
+      v10 = 1;
     }
-    if ( *((_BYTE *)v5 + 624) )
+    if ( *((_BYTE *)this + 568) )
     {
-      if ( *(_DWORD *)((char *)v5 + v9 + 120) != a2->TargetRect.left
-        || *(_DWORD *)((char *)v5 + v9 + 124) != a2->TargetRect.top
-        || *(_DWORD *)((char *)v5 + v9 + 128) != a2->TargetRect.right
-        || *(_DWORD *)((char *)v5 + v9 + 132) != a2->TargetRect.bottom
-        || *(_DWORD *)((char *)v5 + v9 + 112) != a2->DestWidth )
+      if ( *(_DWORD *)((char *)this + v12 + 100) != a2->TargetRect.left
+        || *(_DWORD *)((char *)this + v12 + 104) != a2->TargetRect.top
+        || *(_DWORD *)((char *)this + v12 + 108) != a2->TargetRect.right
+        || *(_DWORD *)((char *)this + v12 + 112) != a2->TargetRect.bottom
+        || *(_DWORD *)((char *)this + v12 + 92) != a2->DestWidth )
       {
-        goto LABEL_14;
+        goto LABEL_38;
       }
-      v13 = *(_DWORD *)((char *)v5 + v9 + 116) == a2->DestHeight;
-      goto LABEL_13;
+      v21 = *(_DWORD *)((char *)this + v12 + 96) == a2->DestHeight;
     }
-    v15 = CCompositionBuffer::CalcTransformChange((float *)((char *)v5 + v9 + 72), a2->Transform);
-    if ( v15 == 1 )
+    else
     {
-      if ( v7 )
+      v13 = CCompositionBuffer::CalcTransformChange((char *)this + v12 + 68, a2->Transform);
+      if ( v13 != 1 )
       {
-        if ( *v11 - v10 != v4->SourceRect.right - left )
-          goto LABEL_14;
-        v13 = *v12 - *v18 == v4->SourceRect.bottom - v4->SourceRect.top;
-LABEL_13:
-        if ( !v13 )
-          goto LABEL_14;
+        if ( *(_DWORD *)((char *)v6 + v12 + 64) != 1
+          || v13 != 2
+          || COERCE_INT((float)((float)(*(_DWORD *)((char *)v6 + v12 + 56) - v16) * *v15) + 0.5) != COERCE_INT((float)((float)(v5->SourceRect.right - left) * *v14) + 0.5)
+          || COERCE_INT(
+               (float)((float)(*(_DWORD *)((char *)v6 + v12 + 60) - *(_DWORD *)((char *)v6 + v12 + 52))
+                     * *(float *)((char *)v6 + v12 + 80))
+             + 0.5) != COERCE_INT((float)((float)(v5->SourceRect.bottom - v5->SourceRect.top) * v5->Transform[3]) + 0.5) )
+        {
+          goto LABEL_38;
+        }
+        goto LABEL_9;
       }
-    }
-    else if ( *(_DWORD *)((char *)v5 + v9 + 68) != 1
-           || v15 != 2
-           || COERCE_INT((float)((float)(int)(*v11 - v10) * *v17) + 0.5) != COERCE_INT(
-                                                                              (float)((float)(v4->SourceRect.right - left)
-                                                                                    * *v16)
-                                                                            + 0.5)
-           || COERCE_INT((float)((float)(*v12 - *v18) * *(float *)((char *)v5 + v9 + 84)) + 0.5) != COERCE_INT((float)((float)(v4->SourceRect.bottom - v4->SourceRect.top) * v4->Transform[3]) + 0.5) )
-    {
-      goto LABEL_14;
-    }
-    Value = (struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS::$999A3466B180106FECC6453D6FF00F87::$CDA7573B07EF0A4513B0E43B6C419F7F)v4->Flags.Value;
-    v20 = *(_DWORD *)((char *)v5 + v9 + 136);
-    if ( (((unsigned __int8)v20 ^ (unsigned __int8)(*(unsigned int *)&Value >> 1)) & 1) == 0
-      && *(_DWORD *)((char *)v5 + v9 + 68) == v4->Rotation
-      && (((unsigned __int8)v20 ^ (unsigned __int8)(*(unsigned int *)&Value >> 1)) & 4) == 0
-      && *(_DWORD *)((char *)v5 + v9 + 36) == v4->CustomDuration
-      && *(_DWORD *)((char *)v5 + v9) == ((*(unsigned int *)&Value >> 7) & 3)
-      && (((unsigned __int8)v20 ^ (unsigned __int8)(*(unsigned int *)&Value >> 1)) & 8) == 0 )
-    {
-      if ( v7
-        || *(float *)((char *)v5 + v9 + 20) != v4->RevealColor[0]
-        || *(float *)((char *)v5 + v9 + 24) != v4->RevealColor[1]
-        || *(float *)((char *)v5 + v9 + 28) != v4->RevealColor[2]
-        || *(float *)((char *)v5 + v9 + 32) != v4->RevealColor[3]
-        || *(_DWORD *)((char *)v5 + v9 + 48) != v4->ColorSpace )
+      if ( !v10 )
       {
-        *a3 = 1;
+LABEL_9:
+        Value = (struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS::$999A3466B180106FECC6453D6FF00F87::$CDA7573B07EF0A4513B0E43B6C419F7F)v5->Flags.Value;
+        v18 = *(_DWORD *)((char *)v6 + v12 + 116);
+        if ( (((unsigned __int8)v18 ^ (unsigned __int8)(*(unsigned int *)&Value >> 1)) & 1) == 0
+          && *(_DWORD *)((char *)v6 + v12 + 64) == v5->Rotation
+          && (((unsigned __int8)v18 ^ (unsigned __int8)(*(unsigned int *)&Value >> 1)) & 4) == 0
+          && *(_DWORD *)((char *)v6 + v12 + 36) == v5->CustomDuration
+          && *(_DWORD *)((char *)v6 + v12) == ((*(unsigned int *)&Value >> 7) & 3)
+          && (((unsigned __int8)v18 ^ (unsigned __int8)(*(unsigned int *)&Value >> 1)) & 8) == 0 )
+        {
+          if ( v10
+            || *(float *)((char *)v6 + v12 + 20) != v5->RevealColor[0]
+            || *(float *)((char *)v6 + v12 + 24) != v5->RevealColor[1]
+            || *(float *)((char *)v6 + v12 + 28) != v5->RevealColor[2]
+            || *(float *)((char *)v6 + v12 + 32) != v5->RevealColor[3]
+            || *(_DWORD *)((char *)v6 + v12 + 44) != v5->ColorSpace )
+          {
+            *a3 = 1;
+          }
+          goto LABEL_21;
+        }
+LABEL_38:
+        *((_DWORD *)v6 + 88) = -1;
+LABEL_21:
+        CFlipExBuffer::SetPendingIndependentFlipAttributes(v6, v5);
+        v20 = *(_DWORD *)(v19 + 352);
+        v8 = __OFSUB__(v20, 1);
+        v7 = v20 - 1 < 0;
+        return v7 == v8;
       }
-      goto LABEL_15;
+      if ( *(_DWORD *)((char *)v6 + v12 + 56) - v16 != v5->SourceRect.right - left )
+        goto LABEL_38;
+      v21 = *(_DWORD *)((char *)v6 + v12 + 60) - *(_DWORD *)((char *)v6 + v12 + 52) == v5->SourceRect.bottom
+                                                                                     - v5->SourceRect.top;
     }
-LABEL_14:
-    *((_DWORD *)v5 + 96) = -1;
-LABEL_15:
-    CFlipExBuffer::SetPendingIndependentFlipAttributes(v5, v4);
+    if ( !v21 )
+      goto LABEL_38;
+    goto LABEL_9;
   }
-  return *((_DWORD *)v5 + 96) >= 1;
+  return v7 == v8;
 }

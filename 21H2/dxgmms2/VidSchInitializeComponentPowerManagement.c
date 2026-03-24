@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchInitializeComponentPowerManagement @ 0x1C00B86B0
+ * XREFs of VidSchInitializeComponentPowerManagement @ 0x1C00D1A10
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001350C (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0011590 (VidSchiDriverNodeEngineToSchedulerNode.c)
  */
 
 __int64 __fastcall VidSchInitializeComponentPowerManagement(
@@ -22,28 +22,28 @@ __int64 __fastcall VidSchInitializeComponentPowerManagement(
   char v11; // al
 
   *a6 = 0;
-  if ( a2 )
+  if ( !a2 )
   {
-    if ( a2 == 2 )
+    v6 = VidSchiDriverNodeEngineToSchedulerNode(a1, a4, a3);
+    if ( v6 < *(_DWORD *)(v7 + 72) )
     {
-      if ( a4 >= *(_DWORD *)(a1 + 40) )
-        return 3221225485LL;
-      *(_DWORD *)(*(_QWORD *)(a1 + 8LL * a4 + 3200) + 44232LL) = a5;
+      v9 = *(__int64 **)(v7 + 624);
+      if ( v6 < *(_DWORD *)(v7 + 696) )
+        v9 += v6;
+      v10 = *v9;
+      *(_DWORD *)(v10 + 11224) = a5;
+      v11 = *(_BYTE *)(v10 + 12) & 1;
+      *(_BYTE *)(v10 + 11228) = 1;
+      *v8 = v11;
+      return 0LL;
     }
-    return 0LL;
+    return 3221225485LL;
   }
-  v6 = VidSchiDriverNodeEngineToSchedulerNode(a1, a4, a3);
-  if ( v6 < *(_DWORD *)(v7 + 80) )
+  if ( a2 == 2 )
   {
-    v9 = *(__int64 **)(v7 + 632);
-    if ( v6 < *(_DWORD *)(v7 + 704) )
-      v9 += v6;
-    v10 = *v9;
-    *(_DWORD *)(v10 + 11240) = a5;
-    v11 = *(_BYTE *)(v10 + 12) & 1;
-    *(_BYTE *)(v10 + 11244) = 1;
-    *v8 = v11;
-    return 0LL;
+    if ( a4 >= *(_DWORD *)(a1 + 40) )
+      return 3221225485LL;
+    *(_DWORD *)(*(_QWORD *)(a1 + 8LL * a4 + 3104) + 33288LL) = a5;
   }
-  return 3221225485LL;
+  return 0LL;
 }

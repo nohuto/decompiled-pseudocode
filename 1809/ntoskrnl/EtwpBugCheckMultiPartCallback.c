@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpBugCheckMultiPartCallback @ 0x140312EF0
+ * XREFs of EtwpBugCheckMultiPartCallback @ 0x140312FF0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 void __fastcall EtwpBugCheckMultiPartCallback(
@@ -34,7 +34,7 @@ void __fastcall EtwpBugCheckMultiPartCallback(
   {
     v4 = &EtwpDumpCallbackContext;
     EtwpDumpCallbackContext = 0LL;
-    qword_140409E58 = 0LL;
+    qword_140409E18 = 0LL;
     ReasonSpecificData[6] = &EtwpDumpCallbackContext;
   }
   if ( !*((_BYTE *)v4 + 2) )

@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x140978A64
+ * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x1408C243C
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x14071AA80 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x140664160 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140714C9C (AlpcpGetEffectiveTokenMessage.c)
- *     SeDeleteClientSecurity @ 0x14071D1F0 (SeDeleteClientSecurity.c)
- *     SeGetTokenControlInformation @ 0x1409CF2A0 (SeGetTokenControlInformation.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1406644BC (AlpcpGetEffectiveTokenMessage.c)
+ *     SeGetTokenControlInformation @ 0x140922B34 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall AlpcpQueryTokenModifiedIdMessage(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4, _DWORD *a5)
@@ -16,10 +16,10 @@ __int64 __fastcall AlpcpQueryTokenModifiedIdMessage(__int64 a1, __int64 a2, _QWO
   __int64 v11; // [rsp+30h] [rbp-88h] BYREF
   _BYTE v12[16]; // [rsp+38h] [rbp-80h] BYREF
   __int128 v13; // [rsp+48h] [rbp-70h]
-  _BYTE v14[80]; // [rsp+60h] [rbp-58h] BYREF
+  PADAPTER_OBJECT v14[10]; // [rsp+60h] [rbp-58h] BYREF
   char v15; // [rsp+D8h] [rbp+20h] BYREF
 
-  memset(v14, 0, 0x44uLL);
+  memset(v14, 0, 0x48uLL);
   v15 = 0;
   v11 = 0LL;
   v13 = 0LL;
@@ -31,7 +31,7 @@ __int64 __fastcall AlpcpQueryTokenModifiedIdMessage(__int64 a1, __int64 a2, _QWO
       return result;
     SeGetTokenControlInformation(v11, v12);
     if ( v15 )
-      SeDeleteClientSecurity((__int64)v14);
+      HalPutDmaAdapter(v14[2]);
   }
   else
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCompareObjects @ 0x1406BF0F0
+ * XREFs of NtCompareObjects @ 0x1406BF0D0
  * Callers:
  *     <none>
  * Callees:

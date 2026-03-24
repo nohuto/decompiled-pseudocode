@@ -1,9 +1,10 @@
 /*
- * XREFs of ?vGetBlendInfo@@YAXKPEAVSURFACE@@KPEAU_BLENDINFO@@@Z @ 0x1C00D6168
+ * XREFs of ?vGetBlendInfo@@YAXKPEAVSURFACE@@KPEAU_BLENDINFO@@@Z @ 0x1C00C80FC
  * Callers:
- *     ?pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z @ 0x1C00D60B4 (-pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z.c)
+ *     vSrcOpaqCopyS8D32 @ 0x1C00C7B50 (vSrcOpaqCopyS8D32.c)
+ *     ?pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z @ 0x1C00C8048 (-pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAU_BLENDINFO@@H@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall vGetBlendInfo(int a1, struct SURFACE *a2, int a3, struct _BLENDINFO *a4)
@@ -34,7 +35,7 @@ void __fastcall vGetBlendInfo(int a1, struct SURFACE *a2, int a3, struct _BLENDI
   v7 = *((_QWORD *)a2 + 16);
   v8 = *((_QWORD *)a2 + 6);
   if ( !v7 )
-    v7 = *(_QWORD *)(v8 + 1776);
+    v7 = *(_QWORD *)(v8 + 1808);
   v9 = *(_DWORD *)(v7 + 24);
   if ( (v9 & 2) != 0 )
   {
@@ -45,7 +46,7 @@ void __fastcall vGetBlendInfo(int a1, struct SURFACE *a2, int a3, struct _BLENDI
     v11 = *v26;
     v13 = v26[1];
     v12 = v26[2];
-LABEL_21:
+LABEL_25:
     HIDWORD(v27[0]) = v15;
     DWORD1(v27[0]) = v16;
     LODWORD(v27[2]) = v12;
@@ -67,7 +68,7 @@ LABEL_21:
     v15 = 2 * v10 - 8;
     v12 = v11 << v10 << v10;
     v14 = v10 + 2 * (v10 - 4);
-    goto LABEL_21;
+    goto LABEL_25;
   }
   if ( (v9 & 8) != 0 )
   {
@@ -119,21 +120,25 @@ LABEL_9:
     *(_QWORD *)&v27[1] = v19;
   }
   v20 = gulGamma;
-  if ( gulGamma != 1200 || (v20 = *(_DWORD *)(v8 + 2416)) != 0 )
+  if ( gulGamma == 1200 )
   {
-    if ( v20 < 0x44C )
-    {
-      v21 = (unsigned __int8 *)&ajGammaCT_10;
-      *((_QWORD *)&v27[3] + 1) = &ajGammaCT_10;
-      goto LABEL_19;
-    }
+    v20 = *(_DWORD *)(v8 + 2448);
+    if ( !v20 )
+      v20 = 1200;
+  }
+  if ( v20 < 0x44C )
+  {
+    v21 = (unsigned __int8 *)&ajGammaCT_10;
+    *((_QWORD *)&v27[3] + 1) = &ajGammaCT_10;
+  }
+  else
+  {
     if ( v20 < 0x4B0 )
     {
       v21 = (unsigned __int8 *)&ajGammaCT_11;
       v22 = &ajGammaInvCT_11;
-      goto LABEL_18;
     }
-    if ( v20 >= 0x514 )
+    else if ( v20 >= 0x514 )
     {
       if ( v20 >= 0x578 )
       {
@@ -209,14 +214,14 @@ LABEL_9:
         v21 = (unsigned __int8 *)&ajGammaCT_13;
         v22 = &ajGammaInvCT_13;
       }
-      goto LABEL_18;
     }
+    else
+    {
+      v21 = (unsigned __int8 *)&ajGammaCT_12;
+      v22 = &ajGammaInvCT_12;
+    }
+    *((_QWORD *)&v27[3] + 1) = v22;
   }
-  v21 = (unsigned __int8 *)&ajGammaCT_12;
-  v22 = &ajGammaInvCT_12;
-LABEL_18:
-  *((_QWORD *)&v27[3] + 1) = v22;
-LABEL_19:
   v23 = v27[1];
   *(_QWORD *)&v27[3] = v21;
   DWORD1(v27[2]) = v21[(unsigned __int8)((unsigned __int64)((a3 & (unsigned int)v11) << v17) >> v16)];

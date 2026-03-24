@@ -1,8 +1,8 @@
 /*
- * XREFs of CcCanIWrite @ 0x140104D00
+ * XREFs of CcCanIWrite @ 0x140104D20
  * Callers:
- *     FsRtlCopyWrite @ 0x1408140F0 (FsRtlCopyWrite.c)
- *     FsRtlPrepareMdlWriteDev @ 0x140814B00 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x1408140D0 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140814AE0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
  *     MmEnoughMemoryForWrite @ 0x140021608 (MmEnoughMemoryForWrite.c)
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
@@ -14,18 +14,18 @@
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
  *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExInterlockedInsertHeadList @ 0x14010BEB0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x14010BF30 (ExInterlockedInsertTailList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1402698B0 (CcPostDeferredWrites.c)
- *     CcPerfLogCanWriteFail @ 0x14026B800 (CcPerfLogCanWriteFail.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExInterlockedInsertHeadList @ 0x14010BED0 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x14010BF50 (ExInterlockedInsertTailList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
+ *     CcPerfLogCanWriteFail @ 0x14026B900 (CcPerfLogCanWriteFail.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

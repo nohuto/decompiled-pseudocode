@@ -1,104 +1,108 @@
 /*
- * XREFs of VerifierBugCheckIfAppropriate @ 0x140ACE284
+ * XREFs of VerifierBugCheckIfAppropriate @ 0x1409D0D64
  * Callers:
- *     VfFailDeviceNode @ 0x1403B3A20 (VfFailDeviceNode.c)
- *     VfFailDriver @ 0x1405CE460 (VfFailDriver.c)
- *     VfFailSystemBIOS @ 0x1405CE490 (VfFailSystemBIOS.c)
- *     MdlInvariantPostProcessing1 @ 0x1405CF524 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x1405CF708 (MdlInvariantPreProcessing1.c)
- *     VerifierFreeTrackedPool @ 0x1405CFBF0 (VerifierFreeTrackedPool.c)
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     VfMiscCheckKernelAddress @ 0x1405D2528 (VfMiscCheckKernelAddress.c)
- *     VfIrpDatabaseCheckExFreePool @ 0x140AC1876 (VfIrpDatabaseCheckExFreePool.c)
- *     IovCompleteRequest @ 0x140AC248C (IovCompleteRequest.c)
- *     IovFreeIrpPrivate @ 0x140AC26D0 (IovFreeIrpPrivate.c)
- *     IovInitializeTimer @ 0x140AC2780 (IovInitializeTimer.c)
- *     VfAllocateCommonBufferEx @ 0x140AC6110 (VfAllocateCommonBufferEx.c)
- *     VfAllocateCommonBufferWithBounds @ 0x140AC6280 (VfAllocateCommonBufferWithBounds.c)
- *     VerifierIoAllocateIrp @ 0x140ACBD00 (VerifierIoAllocateIrp.c)
- *     VerifierIoAllocateIrpEx @ 0x140ACBDF0 (VerifierIoAllocateIrpEx.c)
- *     VerifierPortIoAllocateIrp @ 0x140ACC0A0 (VerifierPortIoAllocateIrp.c)
- *     VfFastIoCheckState @ 0x140ACC204 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140ACC2DC (VfFastIoSnapState.c)
- *     VfIoCompletionCheckState @ 0x140ACC32C (VfIoCompletionCheckState.c)
- *     VfTargetEtwUnregister @ 0x140ACC734 (VfTargetEtwUnregister.c)
- *     ViTargetRemovingCheckContiguousMemory @ 0x140ACCC50 (ViTargetRemovingCheckContiguousMemory.c)
- *     ViTargetRemovingCheckEtwWmi @ 0x140ACCCCC (ViTargetRemovingCheckEtwWmi.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x140ACEDD0 (ViIrpCheckKernelAddressForIrp.c)
- *     VfHandlePoolAlloc @ 0x140AD1FB0 (VfHandlePoolAlloc.c)
- *     ViFreeTrackedPool @ 0x140AD23FC (ViFreeTrackedPool.c)
- *     VerifierIoVolumeDeviceToDosName @ 0x140AD3020 (VerifierIoVolumeDeviceToDosName.c)
- *     ViDevObjRemove @ 0x140AD34C0 (ViDevObjRemove.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x140AD3620 (VerifierIoInitializeRemoveLockEx.c)
- *     VfRemLockReportBadReleaseAndWaitTag @ 0x140AD386C (VfRemLockReportBadReleaseAndWaitTag.c)
- *     VfRemLockReportBadReleaseTag @ 0x140AD389C (VfRemLockReportBadReleaseTag.c)
- *     ViErrorFinishReport @ 0x140AD4724 (ViErrorFinishReport.c)
- *     VfCheckUserHandle @ 0x140AD4CE4 (VfCheckUserHandle.c)
- *     VfZwNotifyChangeKey_Entry @ 0x140AD58B0 (VfZwNotifyChangeKey_Entry.c)
- *     ViZwCheckApcRequirement @ 0x140AD5ED8 (ViZwCheckApcRequirement.c)
- *     ViZwCheckUnicodeString @ 0x140AD5F84 (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x140AD600C (ViZwCheckVirtualAddress.c)
- *     ViShutdownWatchdogExecuteDpc @ 0x140AD6100 (ViShutdownWatchdogExecuteDpc.c)
- *     VfPoolCheckForLeaks @ 0x140ADB08C (VfPoolCheckForLeaks.c)
- *     VerifierPortExAllocatePoolWithQuotaTag @ 0x140ADE380 (VerifierPortExAllocatePoolWithQuotaTag.c)
- *     ViWdIrpTimedOut @ 0x140ADF3EC (ViWdIrpTimedOut.c)
- *     VfMiscExInitializeLookasideListEx_Entry @ 0x140AE0B10 (VfMiscExInitializeLookasideListEx_Entry.c)
- *     VfMiscExInitializeNPagedLookasideList_Entry @ 0x140AE0B80 (VfMiscExInitializeNPagedLookasideList_Entry.c)
- *     VfMiscIoFreeMdl_Entry @ 0x140AE0CB0 (VfMiscIoFreeMdl_Entry.c)
- *     VfMiscIoInitializeWorkItem_Entry @ 0x140AE0D00 (VfMiscIoInitializeWorkItem_Entry.c)
- *     VfMiscKeAcquireInStackQueuedSpinLockAtDpcLevel_Entry @ 0x140AE0D90 (VfMiscKeAcquireInStackQueuedSpinLockAtDpcLevel_Entry.c)
- *     VfMiscKeReleaseInStackQueuedSpinLockFromDpcLevel_Entry @ 0x140AE0F00 (VfMiscKeReleaseInStackQueuedSpinLockFromDpcLevel_Entry.c)
- *     VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140AE0F50 (VfMiscKeReleaseInStackQueuedSpinLock_Entry.c)
- *     VfMiscKeReleaseSpinLock_Entry @ 0x140AE1010 (VfMiscKeReleaseSpinLock_Entry.c)
- *     VfMiscKeTryToAcquireSpinLockAtDpcLevel_Entry @ 0x140AE10E0 (VfMiscKeTryToAcquireSpinLockAtDpcLevel_Entry.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140AE1200 (VfMiscMmBuildMdlForNonPagedPool_Entry.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140AE1240 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140AE12B0 (VfMiscMmUnmapLockedPages_Entry.c)
- *     VfMiscObReferenceObjectByHandle_Exit @ 0x140AE1530 (VfMiscObReferenceObjectByHandle_Exit.c)
- *     VfMiscObReferenceObjectByPointer_Entry @ 0x140AE15E0 (VfMiscObReferenceObjectByPointer_Entry.c)
- *     VfMiscObfReferenceObject_Exit @ 0x140AE1650 (VfMiscObfReferenceObject_Exit.c)
- *     ViMiscCheckKeLowerIrql @ 0x140AE2308 (ViMiscCheckKeLowerIrql.c)
- *     ViMiscCheckKeRaiseIrql @ 0x140AE23AC (ViMiscCheckKeRaiseIrql.c)
- *     ViMiscCheckResourceAcquire @ 0x140AE241C (ViMiscCheckResourceAcquire.c)
- *     ViMiscCheckResourceRelease @ 0x140AE24BC (ViMiscCheckResourceRelease.c)
- *     ViMiscEnforceRule @ 0x140AE2528 (ViMiscEnforceRule.c)
- *     ViMiscExCheckAPCsDisabled @ 0x140AE2574 (ViMiscExCheckAPCsDisabled.c)
- *     ViMiscValidateKeWaitUsage @ 0x140AE25E0 (ViMiscValidateKeWaitUsage.c)
- *     ViMiscValidateSynchronizationObject @ 0x140AE2700 (ViMiscValidateSynchronizationObject.c)
- *     VfCheckForLookaside @ 0x140AE3178 (VfCheckForLookaside.c)
- *     VfLookasideAdd @ 0x140AE3240 (VfLookasideAdd.c)
- *     VfLookasideDelete @ 0x140AE335C (VfLookasideDelete.c)
- *     VerifierMmAllocateContiguousMemory @ 0x140AE3440 (VerifierMmAllocateContiguousMemory.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140AE35C0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140AE3700 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
- *     VerifierMmAllocateContiguousNodeMemory @ 0x140AE3820 (VerifierMmAllocateContiguousNodeMemory.c)
- *     VerifierMmAllocateNodePagesForMdlEx @ 0x140AE3970 (VerifierMmAllocateNodePagesForMdlEx.c)
- *     VerifierMmAllocatePagesForMdl @ 0x140AE3AF0 (VerifierMmAllocatePagesForMdl.c)
- *     VerifierMmAllocatePagesForMdlEx @ 0x140AE3C00 (VerifierMmAllocatePagesForMdlEx.c)
- *     VerifierMmMapIoSpace @ 0x140AE3FF0 (VerifierMmMapIoSpace.c)
- *     VerifierMmMapLockedPages @ 0x140AE4180 (VerifierMmMapLockedPages.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE4250 (VerifierMmMapLockedPagesSpecifyCache.c)
- *     VerifierMmProbeAndLockPages @ 0x140AE4450 (VerifierMmProbeAndLockPages.c)
- *     VerifierMmProbeAndLockProcessPages @ 0x140AE4540 (VerifierMmProbeAndLockProcessPages.c)
- *     VerifierMmUnlockPages @ 0x140AE4680 (VerifierMmUnlockPages.c)
- *     VerifierMmUnmapIoSpace @ 0x140AE47C0 (VerifierMmUnmapIoSpace.c)
- *     ViMmMapLockedPagesSanityChecks @ 0x140AE4A58 (ViMmMapLockedPagesSanityChecks.c)
- *     ViMmValidateIrql @ 0x140AE4B50 (ViMmValidateIrql.c)
- *     VfCheckForResource @ 0x140AE538C (VfCheckForResource.c)
- *     VfDeleteResource @ 0x140AE54D0 (VfDeleteResource.c)
- *     VfTrackResource @ 0x140AE55E4 (VfTrackResource.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140AE5B58 (ViCtxCheckAndReleaseIsrState.c)
- *     ExAllocatePoolSanityChecks @ 0x140AE8C7C (ExAllocatePoolSanityChecks.c)
- *     ExFreePoolSanityChecks @ 0x140AE8DFC (ExFreePoolSanityChecks.c)
- *     MmCheckMdlPages @ 0x140AE9264 (MmCheckMdlPages.c)
- *     MmCheckMapIoSpace @ 0x140AE936C (MmCheckMapIoSpace.c)
- *     ViIrqlKeLeaveCriticalRegion_Entry @ 0x140AE9550 (ViIrqlKeLeaveCriticalRegion_Entry.c)
+ *     VfFailDeviceNode @ 0x1403A6AD0 (VfFailDeviceNode.c)
+ *     VfFailDriver @ 0x1405A0720 (VfFailDriver.c)
+ *     VfFailSystemBIOS @ 0x1405A0750 (VfFailSystemBIOS.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405A14E4 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405A16D8 (MdlInvariantPreProcessing1.c)
+ *     VerifierFreeTrackedPool @ 0x1405A1BE0 (VerifierFreeTrackedPool.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     IovCompleteRequest @ 0x1409C4FB0 (IovCompleteRequest.c)
+ *     IovFreeIrpPrivate @ 0x1409C51E0 (IovFreeIrpPrivate.c)
+ *     IovInitializeTimer @ 0x1409C5290 (IovInitializeTimer.c)
+ *     MmCheckMdlPages @ 0x1409C5DAC (MmCheckMdlPages.c)
+ *     MmCheckMapIoSpace @ 0x1409C5EB8 (MmCheckMapIoSpace.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C659C (VfUtilCheckKernelAddress.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C6B1C (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VerifierIoAllocateIrp @ 0x1409C9360 (VerifierIoAllocateIrp.c)
+ *     VerifierIoFreeMdl @ 0x1409C9630 (VerifierIoFreeMdl.c)
+ *     VerifierIoInitializeWorkItem @ 0x1409C9690 (VerifierIoInitializeWorkItem.c)
+ *     VerifierPortIoAllocateIrp @ 0x1409C9860 (VerifierPortIoAllocateIrp.c)
+ *     VfFastIoCheckState @ 0x1409C99C4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409C9A9C (VfFastIoSnapState.c)
+ *     VfIoCompletionCheckState @ 0x1409C9AEC (VfIoCompletionCheckState.c)
+ *     VfAllocateCommonBufferEx @ 0x1409CAB30 (VfAllocateCommonBufferEx.c)
+ *     VfAllocateCommonBufferWithBounds @ 0x1409CACB0 (VfAllocateCommonBufferWithBounds.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x1409D1898 (ViIrpCheckKernelAddressForIrp.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x1409D34E0 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45E0 (VeAllocatePoolWithTagPriority.c)
+ *     VerifierExAllocatePoolWithQuota @ 0x1409D4D10 (VerifierExAllocatePoolWithQuota.c)
+ *     VerifierExAllocatePoolWithQuotaTag @ 0x1409D4E80 (VerifierExAllocatePoolWithQuotaTag.c)
+ *     ViFreeTrackedPool @ 0x1409D5298 (ViFreeTrackedPool.c)
+ *     VerifierIoVolumeDeviceToDosName @ 0x1409D5F60 (VerifierIoVolumeDeviceToDosName.c)
+ *     ViDevObjRemove @ 0x1409D635C (ViDevObjRemove.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x1409D64D0 (VerifierIoInitializeRemoveLockEx.c)
+ *     VfRemLockReportBadReleaseAndWaitTag @ 0x1409D67B4 (VfRemLockReportBadReleaseAndWaitTag.c)
+ *     VfRemLockReportBadReleaseTag @ 0x1409D67E4 (VfRemLockReportBadReleaseTag.c)
+ *     VfTargetEtwUnregister @ 0x1409D7064 (VfTargetEtwUnregister.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x1409D7590 (ViTargetRemovingCheckContiguousMemory.c)
+ *     ViTargetRemovingCheckEtwWmi @ 0x1409D760C (ViTargetRemovingCheckEtwWmi.c)
+ *     ViErrorFinishReport @ 0x1409D826C (ViErrorFinishReport.c)
+ *     VfCheckUserHandle @ 0x1409DA194 (VfCheckUserHandle.c)
+ *     ViShutdownWatchdogExecuteDpc @ 0x1409DA430 (ViShutdownWatchdogExecuteDpc.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon @ 0x1409DA5A8 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon.c)
+ *     VerifierKeEnterCriticalRegion @ 0x1409DAB20 (VerifierKeEnterCriticalRegion.c)
+ *     VerifierKeLeaveCriticalRegion @ 0x1409DADA0 (VerifierKeLeaveCriticalRegion.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x1409DB000 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockForDpcCommon @ 0x1409DB0C0 (VerifierKeReleaseInStackQueuedSpinLockForDpcCommon.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon @ 0x1409DB190 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon.c)
+ *     VerifierKeReleaseSpinLockFromDpcLevel @ 0x1409DB450 (VerifierKeReleaseSpinLockFromDpcLevel.c)
+ *     VerifierKeReleaseSpinLockFromDpcLevelNoReboot @ 0x1409DB4E0 (VerifierKeReleaseSpinLockFromDpcLevelNoReboot.c)
+ *     VerifierKeSetEvent @ 0x1409DB620 (VerifierKeSetEvent.c)
+ *     ViKeAcquireSpinLockAtDpcLevelCommon @ 0x1409DBF00 (ViKeAcquireSpinLockAtDpcLevelCommon.c)
+ *     ViKeLowerIrqlSanityChecks @ 0x1409DC148 (ViKeLowerIrqlSanityChecks.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
+ *     ViKeReleaseSpinLockCommon @ 0x1409DC370 (ViKeReleaseSpinLockCommon.c)
+ *     ViKeTryToAcquireSpinLockAtDpcLevelCommon @ 0x1409DC3E0 (ViKeTryToAcquireSpinLockAtDpcLevelCommon.c)
+ *     ViKeWaitSanityChecks @ 0x1409DC61C (ViKeWaitSanityChecks.c)
+ *     VfPoolCheckForLeaks @ 0x1409E0130 (VfPoolCheckForLeaks.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x1409E071C (VfIrpDatabaseCheckExFreePool.c)
+ *     ViWdIrpTimedOut @ 0x1409E0F70 (ViWdIrpTimedOut.c)
+ *     VerifierExInitializeLookasideListEx @ 0x1409E11B0 (VerifierExInitializeLookasideListEx.c)
+ *     VerifierExInitializeNPagedLookasideList @ 0x1409E1300 (VerifierExInitializeNPagedLookasideList.c)
+ *     VerifierExInitializePagedLookasideList @ 0x1409E1420 (VerifierExInitializePagedLookasideList.c)
+ *     VfCheckForLookaside @ 0x1409E1528 (VfCheckForLookaside.c)
+ *     ViLookasideAdd @ 0x1409E15C4 (ViLookasideAdd.c)
+ *     ViLookasideDelete @ 0x1409E16EC (ViLookasideDelete.c)
+ *     VerifierExDeleteResourceLite @ 0x1409E1E30 (VerifierExDeleteResourceLite.c)
+ *     VerifierExInitializeResourceLite @ 0x1409E2210 (VerifierExInitializeResourceLite.c)
+ *     VfCheckForResource @ 0x1409E249C (VfCheckForResource.c)
+ *     ViResourceAcquireSanityChecks @ 0x1409E25E0 (ViResourceAcquireSanityChecks.c)
+ *     ViResourceReleaseSanityChecks @ 0x1409E26A8 (ViResourceReleaseSanityChecks.c)
+ *     VerifierPortExAllocatePoolWithQuotaTag @ 0x1409E4C40 (VerifierPortExAllocatePoolWithQuotaTag.c)
+ *     ViExCheckAPCLevelOrBelow @ 0x1409E4D94 (ViExCheckAPCLevelOrBelow.c)
+ *     ViExCheckAPCsDisabled @ 0x1409E4DD4 (ViExCheckAPCsDisabled.c)
+ *     VerifierMmAllocateContiguousMemory @ 0x1409E5DF0 (VerifierMmAllocateContiguousMemory.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x1409E5EE0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x1409E6000 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x1409E6120 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmAllocateNodePagesForMdlEx @ 0x1409E6280 (VerifierMmAllocateNodePagesForMdlEx.c)
+ *     VerifierMmAllocatePagesForMdl @ 0x1409E6420 (VerifierMmAllocatePagesForMdl.c)
+ *     VerifierMmAllocatePagesForMdlEx @ 0x1409E6510 (VerifierMmAllocatePagesForMdlEx.c)
+ *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E6630 (VerifierMmBuildMdlForNonPagedPool.c)
+ *     VerifierMmMapIoSpace @ 0x1409E69B0 (VerifierMmMapIoSpace.c)
+ *     VerifierMmMapLockedPages @ 0x1409E6B20 (VerifierMmMapLockedPages.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x1409E6C00 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VerifierMmProbeAndLockPages @ 0x1409E6DE0 (VerifierMmProbeAndLockPages.c)
+ *     VerifierMmProbeAndLockProcessPages @ 0x1409E6ED0 (VerifierMmProbeAndLockProcessPages.c)
+ *     VerifierMmUnlockPages @ 0x1409E7010 (VerifierMmUnlockPages.c)
+ *     VerifierMmUnmapIoSpace @ 0x1409E7150 (VerifierMmUnmapIoSpace.c)
+ *     VerifierMmUnmapLockedPages @ 0x1409E71E0 (VerifierMmUnmapLockedPages.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x1409E7598 (ViMmMapLockedPagesSanityChecks.c)
+ *     ViMmValidateIrql @ 0x1409E7690 (ViMmValidateIrql.c)
+ *     VerifierObReferenceObjectByHandle @ 0x1409E7B50 (VerifierObReferenceObjectByHandle.c)
+ *     VerifierObReferenceObjectByPointer @ 0x1409E7C70 (VerifierObReferenceObjectByPointer.c)
+ *     VerifierObfReferenceObject @ 0x1409E7E00 (VerifierObfReferenceObject.c)
+ *     VfZwNotifyChangeKey @ 0x1409E9E80 (VfZwNotifyChangeKey.c)
+ *     ViZwCheckApcRequirement @ 0x1409EC804 (ViZwCheckApcRequirement.c)
+ *     ViZwCheckUnicodeString @ 0x1409EC8BC (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x1409EC954 (ViZwCheckVirtualAddress.c)
+ *     ExAllocatePoolSanityChecks @ 0x1409ECDF4 (ExAllocatePoolSanityChecks.c)
+ *     ExFreePoolSanityChecks @ 0x1409ECF60 (ExFreePoolSanityChecks.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     CarInitializeRuleViolationDetails @ 0x1405D3DF0 (CarInitializeRuleViolationDetails.c)
- *     CarQueryReportActionForTriage @ 0x1405D3FF0 (CarQueryReportActionForTriage.c)
- *     CarReportRuleViolationForTriage @ 0x1405D4450 (CarReportRuleViolationForTriage.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierBugCheckIfAppropriate(
@@ -108,50 +112,54 @@ __int64 __fastcall VerifierBugCheckIfAppropriate(
         ULONG_PTR BugCheckParameter3,
         __int64 BugCheckParameter4)
 {
-  unsigned __int8 CurrentIrql; // si
   __int64 result; // rax
-  unsigned int v11; // edx
+  unsigned __int8 CurrentIrql; // cl
+  unsigned int v11; // ebx
   __int64 *v12; // rcx
   __int64 v13; // rcx
-  _DWORD v14[4]; // [rsp+30h] [rbp-68h] BYREF
-  _QWORD v15[10]; // [rsp+40h] [rbp-58h] BYREF
+  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
-  memset(v15, 0, 0x48uLL);
+  result = (__int64)&retaddr;
   CurrentIrql = KeGetCurrentIrql();
-  result = CarInitializeRuleViolationDetails(v15);
-  if ( (VfRuleClasses & 0x400000) == 0 || CurrentIrql <= 2u )
+  v11 = 0;
+  if ( (MmVerifierData & 0x400000) != 0 )
   {
-    v11 = 0;
-    v12 = ViVerifierBugcheckAttributes;
-    while ( *(_DWORD *)v12 != BugCheckCode || *((_DWORD *)v12 + 1) != BugCheckParameter1 )
-    {
-      ++v11;
-      v12 = (__int64 *)((char *)v12 + 12);
-      if ( v11 >= 0xD )
-        goto LABEL_7;
-    }
-    if ( VfVerifyMode < *((_DWORD *)v12 + 2) )
-    {
-      v13 = 5LL * (((unsigned __int8)_InterlockedExchangeAdd(&ViBugcheckLogIndex, 1u) + 1) & 0xF);
-      result = BugCheckParameter4;
-      *((_QWORD *)&ViBugcheckLog + v13 + 4) = BugCheckParameter4;
-      *((_DWORD *)&ViBugcheckLog + 2 * v13) = BugCheckCode;
-      *((_QWORD *)&ViBugcheckLog + v13 + 1) = BugCheckParameter1;
-      *((_QWORD *)&ViBugcheckLog + v13 + 2) = BugCheckParameter2;
-      *((_QWORD *)&ViBugcheckLog + v13 + 3) = BugCheckParameter3;
+    if ( CurrentIrql > 2u )
       return result;
-    }
-LABEL_7:
-    if ( CurrentIrql > 2u
-      || ViLegacyVolatile
-      || (int)CarQueryReportActionForTriage(BugCheckCode, BugCheckParameter1, v14) < 0 )
+    if ( ViXdvTipUtils )
     {
-      KeBugCheckEx(BugCheckCode, BugCheckParameter1, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
+      if ( (VfFlightOptions & 1) == 0 || !(*(unsigned int (__fastcall **)(_QWORD))(ViXdvTipUtils + 16))(BugCheckCode) )
+        return (*(__int64 (__fastcall **)(_QWORD, ULONG_PTR, ULONG_PTR, ULONG_PTR, __int64))(ViXdvTipUtils + 8))(
+                 BugCheckCode,
+                 BugCheckParameter1,
+                 BugCheckParameter2,
+                 BugCheckParameter3,
+                 BugCheckParameter4);
     }
-    v15[2] = BugCheckParameter4;
-    v15[0] = BugCheckParameter2;
-    v15[1] = BugCheckParameter3;
-    return CarReportRuleViolationForTriage(BugCheckCode, (unsigned int)BugCheckParameter1, (__int64)v15);
+    else
+    {
+      result = VfFlightOptions & 1;
+      if ( !(_BYTE)result )
+        return result;
+    }
   }
+  v12 = ViVerifierBugcheckAttributes;
+  while ( *(_DWORD *)v12 != BugCheckCode || *((_DWORD *)v12 + 1) != BugCheckParameter1 )
+  {
+    ++v11;
+    v12 = (__int64 *)((char *)v12 + 12);
+    if ( v11 >= 0xD )
+      goto LABEL_13;
+  }
+  if ( VfVerifyMode >= *((_DWORD *)v12 + 2) )
+LABEL_13:
+    KeBugCheckEx(BugCheckCode, BugCheckParameter1, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
+  v13 = 5LL * (((unsigned __int8)_InterlockedExchangeAdd(&ViBugcheckLogIndex, 1u) + 1) & 0xF);
+  result = BugCheckParameter4;
+  *((_QWORD *)&ViBugcheckLog + v13 + 4) = BugCheckParameter4;
+  *((_DWORD *)&ViBugcheckLog + 2 * v13) = BugCheckCode;
+  *((_QWORD *)&ViBugcheckLog + v13 + 1) = BugCheckParameter1;
+  *((_QWORD *)&ViBugcheckLog + v13 + 2) = BugCheckParameter2;
+  *((_QWORD *)&ViBugcheckLog + v13 + 3) = BugCheckParameter3;
   return result;
 }

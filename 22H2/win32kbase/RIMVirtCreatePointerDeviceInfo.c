@@ -1,629 +1,405 @@
 /*
- * XREFs of RIMVirtCreatePointerDeviceInfo @ 0x1C018CC18
+ * XREFs of RIMVirtCreatePointerDeviceInfo @ 0x1C0160080
  * Callers:
- *     RIMVirtAllocateHidDesc @ 0x1C0183828 (RIMVirtAllocateHidDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162838 (RIMVirtAllocateHidDesc.c)
  * Callees:
- *     RIMGetQDCActivePathsData @ 0x1C0019514 (RIMGetQDCActivePathsData.c)
- *     RIMFreeQDCActivePathsData @ 0x1C0019774 (RIMFreeQDCActivePathsData.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     RIMIsRunningOnDesktop @ 0x1C004FEC0 (RIMIsRunningOnDesktop.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     RIMGetDeviceParent @ 0x1C006CE24 (RIMGetDeviceParent.c)
- *     RimDeviceTypeToRimInputTypeString @ 0x1C0078D74 (RimDeviceTypeToRimInputTypeString.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     ??$Write@U?$_tlgWrapSz@G@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@33@Z @ 0x1C018554C (--$Write@U-$_tlgWrapSz@G@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2I.c)
- *     rimSetupPalmTelemetry @ 0x1C0185D88 (rimSetupPalmTelemetry.c)
- *     RIMFreePointerDevice @ 0x1C0188858 (RIMFreePointerDevice.c)
- *     RIMInitializeDeadzone @ 0x1C018A6C4 (RIMInitializeDeadzone.c)
- *     RIMIsDeviceExcluded @ 0x1C018AAE8 (RIMIsDeviceExcluded.c)
- *     RIMVirtAssignTouchType @ 0x1C018C698 (RIMVirtAssignTouchType.c)
- *     RIMVirtGetDeviceButtons @ 0x1C018D8D4 (RIMVirtGetDeviceButtons.c)
- *     RIMVirtGetProductString @ 0x1C018E00C (RIMVirtGetProductString.c)
- *     RIMGetMonitorPhysicalSize @ 0x1C018F900 (RIMGetMonitorPhysicalSize.c)
- *     RIMSetDeviceOutputConfig @ 0x1C018FED8 (RIMSetDeviceOutputConfig.c)
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01907FC (rimFindMonitorForDigitizerWithQDCData.c)
- *     RIMCmAllocPointerDeviceContacts @ 0x1C01B00D0 (RIMCmAllocPointerDeviceContacts.c)
- *     RIMValidatePTPProperties @ 0x1C01B4284 (RIMValidatePTPProperties.c)
- *     ?AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01DE204 (-AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
- *     ApiSetRetrieveCalibrationData @ 0x1C0208158 (ApiSetRetrieveCalibrationData.c)
- *     HMValidateSharedHandleNoRip @ 0x1C0208528 (HMValidateSharedHandleNoRip.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMIsRunningOnDesktop @ 0x1C00429EC (RIMIsRunningOnDesktop.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     RIMGetDeviceParent @ 0x1C006D900 (RIMGetDeviceParent.c)
+ *     RIMFreeQDCActivePathsData @ 0x1C006E774 (RIMFreeQDCActivePathsData.c)
+ *     RIMGetQDCActivePathsData @ 0x1C006EBA0 (RIMGetQDCActivePathsData.c)
+ *     RimDeviceTypeToRimInputTypeString @ 0x1C00ACB34 (RimDeviceTypeToRimInputTypeString.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C00B4228 (HMValidateSharedHandleNoRip.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ??$Write@U?$_tlgWrapSz@G@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@33@Z @ 0x1C015AE10 (--$Write@U-$_tlgWrapSz@G@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2I.c)
+ *     rimSetupPalmTelemetry @ 0x1C015B59C (rimSetupPalmTelemetry.c)
+ *     RIMFreePointerDevice @ 0x1C015D624 (RIMFreePointerDevice.c)
+ *     RIMInitializeDeadzone @ 0x1C015EB10 (RIMInitializeDeadzone.c)
+ *     RIMIsDeviceExcluded @ 0x1C015ECDC (RIMIsDeviceExcluded.c)
+ *     RIMVirtAssignTouchType @ 0x1C015FE5C (RIMVirtAssignTouchType.c)
+ *     RIMVirtGetDeviceButtons @ 0x1C01609E4 (RIMVirtGetDeviceButtons.c)
+ *     RIMVirtGetProductString @ 0x1C0160BA8 (RIMVirtGetProductString.c)
+ *     RIMGetMonitorPhysicalSize @ 0x1C0164770 (RIMGetMonitorPhysicalSize.c)
+ *     RIMSetDeviceOutputConfig @ 0x1C0164B4C (RIMSetDeviceOutputConfig.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165580 (rimFindMonitorForDigitizerWithQDCData.c)
+ *     RIMCmAllocPointerDeviceContacts @ 0x1C017FF10 (RIMCmAllocPointerDeviceContacts.c)
+ *     RIMValidatePTPProperties @ 0x1C0181CE4 (RIMValidatePTPProperties.c)
+ *     ?AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A51F4 (-AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ApiSetRetrieveCalibrationData @ 0x1C01D036C (ApiSetRetrieveCalibrationData.c)
  */
 
-__int64 RIMVirtCreatePointerDeviceInfo(__int64 a1, __int64 a2, ...)
+__int64 RIMVirtCreatePointerDeviceInfo(__int64 a1, __int64 a2, __int64 a3, __int16 *a4, ...)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v2; // rsi
-  __int64 v3; // r15
-  int v4; // eax
-  __int16 *v6; // r13
-  __int64 Pool2; // rbx
-  _QWORD *v8; // rax
-  unsigned int v9; // r10d
-  __int64 v10; // r11
-  __int64 v11; // rsi
+  __int16 *v6; // rsi
+  char *v7; // rax
+  __int64 v8; // rbx
+  __int64 v10; // rdi
+  _QWORD *v11; // r12
   __int64 v12; // rdx
-  int ProductString; // eax
-  PDEVICE_OBJECT *v14; // rdx
-  _UNKNOWN **v15; // r8
-  int DeviceButtons; // r14d
-  int v17; // edx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int16 v21; // cx
-  __int64 v22; // r9
+  int ProductString; // r15d
+  _UNKNOWN **v14; // rdx
+  int v15; // edx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int16 v19; // cx
+  int v20; // ecx
+  int v21; // esi
+  int v22; // edx
   __int64 v23; // rcx
-  int v24; // r13d
-  __int64 v25; // rdx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  PDEVICE_OBJECT v33; // rcx
-  _DWORD *v34; // r12
-  __int128 v35; // xmm0
-  __int128 v36; // xmm1
-  __m128i v37; // xmm2
-  int v38; // eax
-  int v39; // eax
+  _DWORD *v24; // rax
+  struct _UNICODE_STRING *v25; // r9
+  __int64 v26; // r8
+  _DWORD *v27; // rdx
+  _WORD *v28; // rcx
+  __int64 v29; // r10
+  __int16 v30; // ax
+  int Buffer; // eax
+  struct _UNICODE_STRING v32; // xmm1
+  struct _UNICODE_STRING v33; // xmm0
+  int v34; // eax
+  unsigned int v35; // edx
+  unsigned int *v36; // rax
+  unsigned int v37; // ecx
+  unsigned int v38; // edx
+  __int64 v39; // rax
   __int128 v40; // xmm0
   __int128 v41; // xmm1
-  __int128 v42; // xmm0
-  int v43; // ecx
-  _DWORD *v44; // r12
-  __int64 v45; // rcx
-  _DWORD *v46; // rax
-  __int64 v47; // r14
-  __int64 v48; // r13
-  _DWORD *v49; // r11
-  _WORD *v50; // r10
-  __int16 v51; // ax
-  int v52; // eax
-  __int128 v53; // xmm1
-  __int128 v54; // xmm0
-  __int16 v55; // cx
+  int v42; // eax
+  __int128 v43; // xmm0
+  struct _UNICODE_STRING v44; // xmm1
+  struct _UNICODE_STRING v45; // xmm0
+  struct _UNICODE_STRING v46; // xmm1
+  struct _UNICODE_STRING v47; // xmm0
+  struct _UNICODE_STRING v48; // xmm1
+  struct _UNICODE_STRING v49; // xmm0
+  int v50; // ecx
+  int v51; // r8d
+  struct _UNICODE_STRING v52; // xmm1
+  int v53; // eax
+  __int64 v54; // xmm0_8
+  int v55; // ecx
   int v56; // edx
-  int v57; // r8d
-  int v58; // r9d
-  unsigned int v59; // edx
-  unsigned int *v60; // rax
-  unsigned int v61; // ecx
-  int v62; // r14d
-  unsigned int v63; // edx
-  __int64 v64; // rax
-  int v65; // eax
-  __int128 v66; // xmm1
-  __int64 v67; // r12
-  __int128 v68; // xmm0
-  int v69; // eax
-  __int128 v70; // xmm1
-  __int128 v71; // xmm0
-  __int128 v72; // xmm1
-  __int128 v73; // xmm0
-  __int128 v74; // xmm1
-  __int128 v75; // xmm0
-  int v76; // ecx
-  int v77; // r8d
-  int v78; // edx
-  int v79; // r8d
-  int v80; // r8d
-  _QWORD *v81; // rdx
-  _QWORD *v82; // rcx
-  int v83; // edx
-  int v84; // r8d
-  unsigned __int64 v86; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned int *v87; // [rsp+50h] [rbp-B8h]
-  __int64 v88; // [rsp+58h] [rbp-B0h] BYREF
-  __int128 v89; // [rsp+60h] [rbp-A8h]
-  __m256i v90; // [rsp+70h] [rbp-98h]
-  __int64 v91; // [rsp+90h] [rbp-78h]
-  int v92; // [rsp+98h] [rbp-70h]
-  __int64 v93; // [rsp+A0h] [rbp-68h] BYREF
-  struct _UNICODE_STRING v94; // [rsp+A8h] [rbp-60h] BYREF
-  _QWORD v95[2]; // [rsp+B8h] [rbp-50h] BYREF
-  const WCHAR *v96[13]; // [rsp+C8h] [rbp-40h] BYREF
-  _OWORD v97[8]; // [rsp+130h] [rbp+28h] BYREF
-  _BYTE v98[24]; // [rsp+1B0h] [rbp+A8h] BYREF
-  PVOID BackTrace[28]; // [rsp+1C8h] [rbp+C0h] BYREF
-  __int64 v102; // [rsp+2C8h] [rbp+1C0h] BYREF
-  va_list va; // [rsp+2C8h] [rbp+1C0h]
-  __int16 *v104; // [rsp+2D0h] [rbp+1C8h]
-  __int64 v105; // [rsp+2D8h] [rbp+1D0h]
-  __int64 v106; // [rsp+2E0h] [rbp+1D8h]
-  va_list va1; // [rsp+2E8h] [rbp+1E0h] BYREF
+  __int64 v57; // r8
+  _QWORD *v58; // rdx
+  int v59; // edx
+  struct _UNICODE_STRING v60[8]; // [rsp+48h] [rbp-89h] BYREF
+  unsigned int *v61; // [rsp+C8h] [rbp-9h]
+  const WCHAR *v62; // [rsp+D0h] [rbp-1h] BYREF
+  __int128 v63[4]; // [rsp+D8h] [rbp+7h] BYREF
+  unsigned int v64; // [rsp+138h] [rbp+67h]
+  const WCHAR *v66; // [rsp+148h] [rbp+77h] BYREF
+  va_list va; // [rsp+148h] [rbp+77h]
+  __int64 v68; // [rsp+150h] [rbp+7Fh]
+  va_list va1; // [rsp+158h] [rbp+87h] BYREF
 
-  va_start(va1, a2);
-  va_start(va, a2);
-  v102 = va_arg(va1, _QWORD);
-  v104 = va_arg(va1, __int16 *);
-  v105 = va_arg(va1, _QWORD);
-  v106 = va_arg(va1, _QWORD);
-  v2 = gpLeakTrackingAllocator;
-  v3 = a2;
-  LODWORD(v105) = 0;
-  v87 = 0LL;
-  v4 = *(_DWORD *)gpLeakTrackingAllocator;
-  LODWORD(v102) = 1668313938;
-  v93 = 260LL;
-  v6 = v104;
-  v88 = 1288LL;
-  v97[0] = 0LL;
-  if ( !v4 )
-  {
-    Pool2 = ExAllocatePool2(260LL, 1288LL, 1668313938LL);
-    if ( Pool2 )
-      _InterlockedAdd64((volatile signed __int64 *)v2 + 14, 1uLL);
-    goto LABEL_16;
-  }
-  if ( v4 != 1 )
-  {
-    if ( v4 == 2 )
-    {
-      v86 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 1668313938, &v86) )
-      {
-        v95[0] = &v93;
-        va_copy((va_list)&v95[1], va);
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  (__int64)v2,
-                  (__int64)v95,
-                  &v88);
-        goto LABEL_16;
-      }
-      Pool2 = ExAllocatePool2(v10, 1304LL, v9);
-      if ( Pool2 )
-      {
-        _InterlockedAdd64((volatile signed __int64 *)v2 + 16, 1uLL);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-        {
-          if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                 (__int64)v2,
-                 Pool2,
-                 v86,
-                 (struct NSInstrumentation::CBackTrace *)BackTrace) )
-          {
-            goto LABEL_19;
-          }
-        }
-        else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                    (__int64)v2,
-                    (const void *)Pool2,
-                    v86,
-                    (struct NSInstrumentation::CBackTrace *)BackTrace) )
-        {
-          Pool2 += 16LL;
-          goto LABEL_16;
-        }
-        _InterlockedAdd64((volatile signed __int64 *)v2 + 17, 1uLL);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
+  va_start(va1, a4);
+  va_start(va, a4);
+  v66 = va_arg(va1, const WCHAR *);
+  v68 = va_arg(va1, _QWORD);
+  v64 = 0;
+  v61 = 0LL;
+  v63[0] = 0LL;
+  v6 = a4;
+  v7 = (char *)Win32AllocPoolZInit(0x4C8uLL, 1668313938LL);
+  v8 = (__int64)v7;
+  if ( !v7 )
     return 3221225628LL;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x63707352u) )
-    return 3221225628LL;
-  v8 = (_QWORD *)ExAllocatePool2(v93 & 0xFFFFFFFFFFFFFFFDuLL, 1304LL, (unsigned int)v102);
-  Pool2 = (__int64)v8;
-  if ( !v8
-    || (_InterlockedAdd64((volatile signed __int64 *)v2 + 14, 1uLL),
-        *v8 = 1668313938LL,
-        Pool2 = (__int64)(v8 + 2),
-        v8 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v2 + 1),
-      0x63707352uLL);
-  }
-LABEL_16:
-  if ( !Pool2 )
-    return 3221225628LL;
-LABEL_19:
-  v11 = v106;
-  v88 = Pool2 + 768;
-  v12 = v106;
-  *(_DWORD *)(Pool2 + 768) = *(_DWORD *)(v106 + 1152);
-  v95[0] = Pool2 + 912;
-  *(_QWORD *)(Pool2 + 920) = Pool2 + 912;
-  *(_QWORD *)(Pool2 + 912) = Pool2 + 912;
-  ProductString = RIMVirtGetProductString(Pool2, v12);
-  v14 = &WPP_GLOBAL_Control;
-  v15 = &WPP_RECORDER_INITIALIZED;
-  DeviceButtons = ProductString;
+  v10 = v68;
+  v11 = v7 + 864;
+  v12 = v68;
+  *((_DWORD *)v7 + 180) = *(_DWORD *)(v68 + 1096);
+  *((_QWORD *)v7 + 109) = v7 + 864;
+  *((_QWORD *)v7 + 108) = v7 + 864;
+  ProductString = RIMVirtGetProductString(v7, v12);
+  v14 = &WPP_RECORDER_INITIALIZED;
   if ( ProductString < 0 )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v14) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v14) = 0;
+      LOBYTE(v14) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, (_DWORD)v14, 1, 44, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
     }
-    if ( (_BYTE)v14 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( (unsigned int)dword_1C0249170 > 5 && tlgKeywordOn((__int64)&dword_1C0249170, 0x400000000000LL) )
     {
-      LOBYTE(v15) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        (_DWORD)v14,
-        (_DWORD)v15,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        44,
-        (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-    }
-    if ( (unsigned int)dword_1C02882F8 > 5 && tlgKeywordOn((__int64)&dword_1C02882F8, 0x400000000000LL) )
-    {
-      v17 = *(unsigned __int8 *)(v3 + 48);
-      v86 = (unsigned __int64)L"Failed to retrieve productString";
-      v96[0] = *(const WCHAR **)(v3 + 216);
-      *(_QWORD *)&v94.Length = RimDeviceTypeToRimInputTypeString(v3, v17);
+      v15 = *(unsigned __int8 *)(a2 + 48);
+      v66 = L"Failed to retrieve productString";
+      v62 = *(const WCHAR **)(a2 + 216);
+      *(_QWORD *)&v60[0].Length = RimDeviceTypeToRimInputTypeString(a2, v15);
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
+        v16,
+        byte_1C021A79B,
+        v17,
         v18,
-        byte_1C02584E6,
-        v19,
-        v20,
-        (const WCHAR **)&v94,
-        v96,
-        (const WCHAR **)&v86);
+        (const WCHAR **)v60,
+        &v62,
+        (const WCHAR **)va);
     }
   }
-  *(_OWORD *)(v3 + 2120) = *(_OWORD *)(v11 + 1372);
-  *(_OWORD *)(v3 + 2136) = *(_OWORD *)(v11 + 1388);
-  *(_OWORD *)(v3 + 2152) = *(_OWORD *)(v11 + 1404);
-  *(_OWORD *)(v3 + 2168) = *(_OWORD *)(v11 + 1420);
-  *(_OWORD *)(v3 + 2184) = *(_OWORD *)(v11 + 1436);
-  *(_OWORD *)(v3 + 2200) = *(_OWORD *)(v11 + 1452);
-  *(_OWORD *)(v3 + 2216) = *(_OWORD *)(v11 + 1468);
-  *(_OWORD *)(v3 + 2232) = *(_OWORD *)(v11 + 1484);
-  *(_QWORD *)(v3 + 2248) = *(_QWORD *)(v11 + 1500);
-  v21 = *v6;
-  v94 = *(struct _UNICODE_STRING *)(Pool2 + 368);
-  if ( !(unsigned int)RIMIsDeviceExcluded(v21, &v94) )
+  *(_OWORD *)(a2 + 2112) = *(_OWORD *)(v10 + 1316);
+  *(_OWORD *)(a2 + 2128) = *(_OWORD *)(v10 + 1332);
+  *(_OWORD *)(a2 + 2144) = *(_OWORD *)(v10 + 1348);
+  *(_OWORD *)(a2 + 2160) = *(_OWORD *)(v10 + 1364);
+  *(_OWORD *)(a2 + 2176) = *(_OWORD *)(v10 + 1380);
+  *(_OWORD *)(a2 + 2192) = *(_OWORD *)(v10 + 1396);
+  *(_OWORD *)(a2 + 2208) = *(_OWORD *)(v10 + 1412);
+  *(_OWORD *)(a2 + 2224) = *(_OWORD *)(v10 + 1428);
+  *(_QWORD *)(a2 + 2240) = *(_QWORD *)(v10 + 1444);
+  v19 = *v6;
+  v60[0] = *(struct _UNICODE_STRING *)(v8 + 320);
+  if ( RIMIsDeviceExcluded(v19, v60) )
+    goto LABEL_17;
+  v20 = *(_DWORD *)(a1 + 84);
+  v21 = 1;
+  if ( (v20 & 4) != 0 )
   {
-    v23 = *(unsigned int *)(a1 + 84);
-    v24 = 1;
-    v25 = (__int64)v104;
-    if ( (v23 & 4) != 0 )
+    if ( *a4 == 2 )
     {
-      if ( *v104 == 2 )
+      *(_DWORD *)(v8 + 24) = 5;
+      rimSetupPalmTelemetry(a1);
+      if ( (int)RIMInitializeDeadzone() < 0 )
       {
-        *(_DWORD *)(Pool2 + 24) = 5;
-        rimSetupPalmTelemetry(a1);
-        if ( (int)RIMInitializeDeadzone(v27, v26, v28, v29) < 0 )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v33 = WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-            || (LOBYTE(v30) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
+          LOBYTE(v22) = 3;
+          WPP_RECORDER_SF_((_DWORD)gRimLog, v22, 1, 45, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
+        }
+        gDeviceArbitrationType = 1;
+      }
+      goto LABEL_16;
+    }
+    if ( *a4 == 1 )
+    {
+      *(_DWORD *)(v8 + 24) = 6;
+      if ( RIMIsRunningOnDesktop() )
+        goto LABEL_16;
+      goto LABEL_55;
+    }
+  }
+  if ( (v20 & 0x18) != 0 && (unsigned __int16)(*a4 - 4) <= 1u )
+  {
+    *(_DWORD *)(v8 + 24) = 1;
+    ProductString = RIMVirtAssignTouchType(v8, (__int64)a4, v10);
+    if ( ProductString == -1073741668 )
+      goto LABEL_61;
+    if ( *a4 == 5 )
+    {
+      v64 = *(_DWORD *)(v8 + 24);
+      *(_DWORD *)(v8 + 24) = 7;
+    }
+    v60[1] = *(struct _UNICODE_STRING *)(v10 + 436);
+    v60[2] = *(struct _UNICODE_STRING *)(v10 + 452);
+    v52 = v60[2];
+    *(_QWORD *)&v60[3].Length = *(_QWORD *)(v10 + 468);
+    v53 = *(_DWORD *)(v10 + 476);
+    *(struct _UNICODE_STRING *)(v8 + 268) = v60[1];
+    v54 = *(_QWORD *)&v60[3].Length;
+    *(struct _UNICODE_STRING *)(v8 + 284) = v52;
+    *(_QWORD *)(v8 + 300) = v54;
+    *(_DWORD *)(v8 + 308) = v53;
+    v55 = *(_DWORD *)(a1 + 84);
+    if ( (v55 & 4) != 0 && (unsigned int)(*(_DWORD *)(v8 + 24) - 5) <= 1 )
+      v21 = 0;
+    if ( (v55 & 8) != 0 && *(_DWORD *)(v8 + 24) == 7 )
+      v21 = 0;
+    if ( (v55 & 0x10) != 0 && (unsigned int)(*(_DWORD *)(v8 + 24) - 1) <= 3 )
+      v21 = 0;
+    if ( !v21 )
+    {
+      *(_DWORD *)(v8 + 720) = *(_DWORD *)(v10 + 1096);
+      *(_DWORD *)(v8 + 904) = *(_DWORD *)(v10 + 1248);
+    }
+    ProductString = 0;
+    goto LABEL_54;
+  }
+  if ( (v20 & 0x20) != 0 && (*(_DWORD *)(a2 + 184) & 0x4000) != 0 )
+  {
+    v21 = 0;
+LABEL_54:
+    if ( v21 != 1 )
+    {
+LABEL_16:
+      v6 = a4;
+LABEL_17:
+      v23 = 6LL;
+      *(_DWORD *)(v8 + 312) ^= (*(_DWORD *)(v8 + 312) ^ (*(_DWORD *)(v10 + 508) << 7)) & 0x80;
+      *(_DWORD *)(v8 + 840) = *(_DWORD *)(v10 + 1200);
+      v24 = (_DWORD *)(v8 + 32);
+      do
+      {
+        *v24 = -1;
+        v24 += 4;
+        --v23;
+      }
+      while ( v23 );
+      if ( (int)RIMCmAllocPointerDeviceContacts(v8, 2020635474LL) >= 0 )
+      {
+        v25 = (struct _UNICODE_STRING *)(v8 + 28);
+        v26 = v8 + 352;
+        v27 = (_DWORD *)(v10 + 212);
+        v28 = (_WORD *)(v10 + 672);
+        v29 = 6LL;
+        do
+        {
+          *(_DWORD *)&v60[1].Length = (unsigned __int16)*(v28 - 4);
+          *(_DWORD *)(&v60[1].MaximumLength + 1) = *((_DWORD *)v28 - 1);
+          v30 = *v28;
+          v28 += 32;
+          LOWORD(v60[1].Buffer) = v30;
+          WORD1(v60[1].Buffer) = *(v28 - 30);
+          HIDWORD(v60[1].Buffer) = (unsigned __int16)*(v28 - 28);
+          *(_DWORD *)&v60[2].Length = *((_DWORD *)v28 - 13);
+          *(_DWORD *)(&v60[2].MaximumLength + 1) = (unsigned __int16)*(v28 - 24);
+          v60[2].Buffer = *(PWSTR *)(v28 - 22);
+          v60[3] = *(struct _UNICODE_STRING *)(v28 - 18);
+          *(_QWORD *)&v60[4].Length = *(_QWORD *)(v28 - 10);
+          LODWORD(v60[4].Buffer) = (unsigned __int16)*(v28 - 6);
+          Buffer = (int)v60[4].Buffer;
+          v32 = v60[2];
+          *(struct _UNICODE_STRING *)v26 = v60[1];
+          v33 = v60[3];
+          *(struct _UNICODE_STRING *)(v26 + 16) = v32;
+          *(_QWORD *)&v32.Length = *(_QWORD *)&v60[4].Length;
+          *(struct _UNICODE_STRING *)(v26 + 32) = v33;
+          *(_QWORD *)(v26 + 48) = *(_QWORD *)&v32.Length;
+          *(_DWORD *)(v26 + 56) = Buffer;
+          v26 += 60LL;
+          v60[0].Length = *((_WORD *)v27 - 4);
+          v60[0].MaximumLength = *((_WORD *)v27 - 2);
+          v34 = *v27;
+          v27 += 5;
+          *(_DWORD *)(&v60[0].MaximumLength + 1) = v34;
+          v60[0].Buffer = (PWSTR)*((_QWORD *)v27 - 2);
+          *v25++ = v60[0];
+          --v29;
+        }
+        while ( v29 );
+        *(_BYTE *)(v8 + 776) = *(_BYTE *)(v8 + 356);
+        *(_OWORD *)(v8 + 140) = *(_OWORD *)(v10 + 340);
+        *(_OWORD *)(v8 + 124) = *(_OWORD *)(v10 + 324);
+        v35 = *(_DWORD *)(v8 + 312) & 0xFFFF7FFF | (*(_DWORD *)(v10 + 540) != 0 ? 0x8000 : 0);
+        *(_DWORD *)(v8 + 312) = v35;
+        *(_DWORD *)(v8 + 312) = v35 & 0xFFFEFFFF | (*(_DWORD *)(v10 + 544) != 0 ? 0x10000 : 0);
+        *(_DWORD *)(v8 + 724) = *(_DWORD *)(v10 + 1100);
+        v36 = RIMGetQDCActivePathsData((unsigned int *)v63);
+        v37 = *(_DWORD *)(v8 + 24) - 6;
+        v61 = v36;
+        v11 = (_QWORD *)(v8 + 864);
+        if ( v37 > 1 )
+        {
+          *(_DWORD *)(a2 + 1344) = 1;
+          *(_QWORD *)(a2 + 1876) = *(_QWORD *)(v10 + 1304);
+          *(_DWORD *)(a2 + 1888) = *(_DWORD *)(v10 + 1312);
+          LODWORD(v66) = 0;
+          rimFindMonitorForDigitizerWithQDCData(a2, v36, (const WCHAR **)va);
+          if ( *v6 == 4 )
           {
-            LOBYTE(v30) = 0;
+            v38 = *(_DWORD *)(v8 + 312) & 0xFFFFFEFF | (*(_DWORD *)(v10 + 512) != 0 ? 0x100 : 0);
+            *(_DWORD *)(v8 + 312) = v38;
+            *(_DWORD *)(v8 + 312) = v38 & 0xFFFFFF7F | (*(_DWORD *)(v10 + 508) != 0 ? 0x80 : 0);
           }
-          LOBYTE(v31) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)v30 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v30,
-              v31,
-              (_DWORD)gRimLog,
-              3,
-              1,
-              45,
-              (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-          *(_DWORD *)(SGDGetUserSessionState(v33, v30, v31, v32) + 436) = 1;
         }
-        goto LABEL_66;
+        if ( *(_DWORD *)(v8 + 148) - *(_DWORD *)(v8 + 140) <= 1 || *(_DWORD *)(v8 + 152) - *(_DWORD *)(v8 + 144) <= 1 )
+        {
+          v39 = HMValidateSharedHandleNoRip(*(_QWORD *)(a2 + 1352));
+          *(_OWORD *)(v8 + 140) = *(_OWORD *)RIMGetMonitorPhysicalSize(v60, v39);
+        }
+        memset(&v60[1], 0, 0x70uLL);
+        v40 = *(_OWORD *)(v10 + 376);
+        v41 = *(_OWORD *)(v10 + 392);
+        *(_DWORD *)&v60[1].Length = *(_DWORD *)(v10 + 356);
+        v42 = *(_DWORD *)(v10 + 424);
+        *(_OWORD *)(&v60[2].MaximumLength + 1) = v40;
+        *(_DWORD *)(&v60[5].MaximumLength + 1) = v42;
+        v43 = *(_OWORD *)(v10 + 408);
+        *(_OWORD *)(&v60[3].MaximumLength + 1) = v41;
+        v44 = v60[2];
+        *(_OWORD *)(&v60[4].MaximumLength + 1) = v43;
+        *(struct _UNICODE_STRING *)(v8 + 156) = v60[1];
+        v45 = v60[3];
+        *(struct _UNICODE_STRING *)(v8 + 172) = v44;
+        v46 = v60[4];
+        *(struct _UNICODE_STRING *)(v8 + 188) = v45;
+        v47 = v60[5];
+        *(struct _UNICODE_STRING *)(v8 + 204) = v46;
+        v48 = v60[6];
+        *(struct _UNICODE_STRING *)(v8 + 220) = v47;
+        v49 = v60[7];
+        *(struct _UNICODE_STRING *)(v8 + 236) = v48;
+        *(struct _UNICODE_STRING *)(v8 + 252) = v49;
+        RIMSetDeviceOutputConfig((struct RIMDEV *)a2, (struct tagHID_POINTER_DEVICE_INFO *)v8);
+        if ( *(_DWORD *)(v8 + 24) == 7
+          && (int)CPTPProcessorFactory::AddProcessor((struct tagHID_POINTER_DEVICE_INFO *)v8) < 0 )
+        {
+          ProductString = -1073741668;
+        }
+        else
+        {
+          ProductString = RIMVirtGetDeviceButtons(v50, v8, v51, (_DWORD)v6, v10);
+          if ( ProductString >= 0 )
+          {
+            if ( *(_DWORD *)(v8 + 24) != 7 )
+            {
+              v60[0] = *(struct _UNICODE_STRING *)(a2 + 208);
+              ApiSetRetrieveCalibrationData(v8, v60);
+            }
+          }
+          else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v56) = 3;
+            WPP_RECORDER_SF_((_DWORD)gRimLog, v56, 1, 46, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
+          }
+        }
       }
-      if ( *v104 == 1 )
-      {
-        *(_DWORD *)(Pool2 + 24) = 6;
-        v24 = 0;
-        if ( !RIMIsRunningOnDesktop(v23, v25, 2LL, v22) )
-          goto LABEL_63;
-        goto LABEL_62;
-      }
+      goto LABEL_61;
     }
-    if ( (v23 & 0x18) == 0 || (unsigned __int16)(*v104 - 4) > 1u )
-    {
-      if ( (v23 & 0x20) != 0 && (*(_DWORD *)(v3 + 184) & 0x10000) != 0 )
-        goto LABEL_66;
-LABEL_63:
-      DeviceButtons = -1073741808;
-      goto LABEL_91;
-    }
-    v34 = (_DWORD *)(Pool2 + 24);
-    *(_DWORD *)(Pool2 + 24) = 1;
-    DeviceButtons = RIMVirtAssignTouchType(Pool2, v25, v11);
-    if ( DeviceButtons == -1073741668 )
-      goto LABEL_91;
-    if ( *v104 == 5 )
-    {
-      LODWORD(v105) = *v34;
-      *v34 = 7;
-    }
-    memset(&v96[1], 0, 0x5CuLL);
-    v35 = *(_OWORD *)(v11 + 488);
-    LODWORD(v96[1]) = *(_DWORD *)(v11 + 444);
-    v36 = *(_OWORD *)(v11 + 504);
-    HIDWORD(v96[1]) = *(_DWORD *)(v11 + 448);
-    v37 = *(__m128i *)(v11 + 520);
-    v96[2] = *(const WCHAR **)(v11 + 452);
-    *(_OWORD *)&v96[3] = *(_OWORD *)(v11 + 460);
-    v38 = *(_DWORD *)(v11 + 476);
-    *(_OWORD *)((char *)&v96[6] + 4) = v35;
-    LODWORD(v96[5]) = v38;
-    HIDWORD(v96[5]) = *(_DWORD *)(v11 + 480);
-    v39 = *(_DWORD *)(v11 + 484);
-    *(_OWORD *)(Pool2 + 268) = *(_OWORD *)&v96[1];
-    LODWORD(v96[6]) = v39;
-    v40 = *(_OWORD *)&v96[5];
-    *(_OWORD *)((char *)&v96[8] + 4) = v36;
-    *(__m128i *)((char *)&v96[10] + 4) = v37;
-    *(_OWORD *)(Pool2 + 284) = *(_OWORD *)&v96[3];
-    v41 = *(_OWORD *)&v96[7];
-    *(_OWORD *)(Pool2 + 300) = v40;
-    v42 = *(_OWORD *)&v96[9];
-    *(_OWORD *)(Pool2 + 316) = v41;
-    *(const WCHAR **)&v41 = v96[11];
-    *(_OWORD *)(Pool2 + 332) = v42;
-    *(_QWORD *)(Pool2 + 348) = v41;
-    *(_DWORD *)(Pool2 + 356) = _mm_cvtsi128_si32(_mm_srli_si128(v37, 12));
-    v43 = *(_DWORD *)(a1 + 84);
-    if ( (v43 & 4) != 0 && (unsigned int)(*v34 - 5) <= 1 )
-      v24 = 0;
-    if ( (v43 & 8) != 0 && *v34 == 7 )
-      v24 = 0;
-    if ( (v43 & 0x10) != 0 && (unsigned int)(*v34 - 1) <= 3 )
-    {
-      v24 = 0;
-    }
-    else if ( v24 )
-    {
+  }
+LABEL_55:
+  ProductString = -1073741808;
 LABEL_61:
-      DeviceButtons = 0;
-LABEL_62:
-      if ( v24 != 1 )
-        goto LABEL_66;
-      goto LABEL_63;
-    }
-    *(_DWORD *)v88 = *(_DWORD *)(v11 + 1152);
-    *(_DWORD *)(Pool2 + 952) = *(_DWORD *)(v11 + 1304);
-    goto LABEL_61;
-  }
-LABEL_66:
-  v44 = (_DWORD *)(Pool2 + 32);
-  v45 = 6LL;
-  *(_DWORD *)(Pool2 + 360) ^= (*(_DWORD *)(Pool2 + 360) ^ (*(_DWORD *)(v11 + 564) << 7)) & 0x80;
-  *(_DWORD *)(Pool2 + 888) = *(_DWORD *)(v11 + 1256);
-  v46 = (_DWORD *)(Pool2 + 32);
-  do
+  RIMFreeQDCActivePathsData((__int64)v61);
+  if ( ProductString < 0 )
+    goto LABEL_79;
+  if ( *(_DWORD *)(v8 + 24) == 7 )
+    ProductString = RIMValidatePTPProperties(v64, v8);
+  if ( ProductString < 0 )
   {
-    *v46 = -1;
-    v46 += 4;
-    --v45;
-  }
-  while ( v45 );
-  if ( (int)RIMCmAllocPointerDeviceContacts(Pool2, 2020635474LL) >= 0 )
-  {
-    v47 = Pool2 + 400;
-    v48 = 6LL;
-    v49 = (_DWORD *)(v11 + 220);
-    v50 = (_WORD *)(v11 + 728);
-    do
-    {
-      LODWORD(v89) = (unsigned __int16)*(v50 - 4);
-      DWORD1(v89) = *((_DWORD *)v50 - 1);
-      v51 = *v50;
-      v50 += 32;
-      WORD4(v89) = v51;
-      WORD5(v89) = *(v50 - 30);
-      HIDWORD(v89) = (unsigned __int16)*(v50 - 28);
-      v90.m256i_i32[0] = *((_DWORD *)v50 - 13);
-      v90.m256i_i32[1] = (unsigned __int16)*(v50 - 24);
-      *(_OWORD *)&v90.m256i_u64[1] = *(_OWORD *)(v50 - 22);
-      v90.m256i_i64[3] = *(_QWORD *)(v50 - 14);
-      v91 = *(_QWORD *)(v50 - 10);
-      v92 = (unsigned __int16)*(v50 - 6);
-      v52 = v92;
-      v53 = *(_OWORD *)v90.m256i_i8;
-      *(_OWORD *)v47 = v89;
-      v54 = *(_OWORD *)&v90.m256i_u64[2];
-      *(_OWORD *)(v47 + 16) = v53;
-      *(_QWORD *)&v53 = v91;
-      *(_OWORD *)(v47 + 32) = v54;
-      *(_QWORD *)(v47 + 48) = v53;
-      *(_DWORD *)(v47 + 56) = v52;
-      v47 += 60LL;
-      LOWORD(v52) = *((_WORD *)v49 - 4);
-      v55 = *((_WORD *)v49 - 2);
-      v56 = *v49;
-      v57 = v49[1];
-      v58 = v49[2];
-      v49 += 5;
-      *((_WORD *)v44 - 2) = v52;
-      *((_WORD *)v44 - 1) = v55;
-      *v44 = v56;
-      v44[1] = v57;
-      v44[2] = v58;
-      v44 += 4;
-      --v48;
-    }
-    while ( v48 );
-    *(_BYTE *)(Pool2 + 824) = *(_BYTE *)(Pool2 + 404);
-    *(_OWORD *)(Pool2 + 140) = *(_OWORD *)(v11 + 348);
-    *(_OWORD *)(Pool2 + 124) = *(_OWORD *)(v11 + 332);
-    v59 = *(_DWORD *)(Pool2 + 360) & 0xFFFF7FFF | (*(_DWORD *)(v11 + 596) != 0 ? 0x8000 : 0);
-    *(_DWORD *)(Pool2 + 360) = v59;
-    *(_DWORD *)(Pool2 + 360) = v59 & 0xFFFEFFFF | (*(_DWORD *)(v11 + 600) != 0 ? 0x10000 : 0);
-    *(_DWORD *)(Pool2 + 772) = *(_DWORD *)(v11 + 1156);
-    v60 = RIMGetQDCActivePathsData((unsigned int *)v97);
-    v3 = a2;
-    v61 = *(_DWORD *)(Pool2 + 24) - 6;
-    v87 = v60;
-    if ( v61 <= 1 )
-    {
-      v62 = (int)v104;
-    }
-    else
-    {
-      *(_DWORD *)(a2 + 1336) = 1;
-      *(_QWORD *)(a2 + 1868) = *(_QWORD *)(v11 + 1360);
-      *(_DWORD *)(a2 + 1880) = *(_DWORD *)(v11 + 1368);
-      LODWORD(v86) = 0;
-      rimFindMonitorForDigitizerWithQDCData(a2, v60, &v86);
-      v62 = (int)v104;
-      if ( *v104 == 4 )
-      {
-        v63 = *(_DWORD *)(Pool2 + 360) & 0xFFFFFEFF | (*(_DWORD *)(v11 + 568) != 0 ? 0x100 : 0);
-        *(_DWORD *)(Pool2 + 360) = v63;
-        *(_DWORD *)(Pool2 + 360) = v63 & 0xFFFFFF7F | (*(_DWORD *)(v11 + 564) != 0 ? 0x80 : 0);
-      }
-    }
-    if ( *(_DWORD *)(Pool2 + 148) - *(_DWORD *)(Pool2 + 140) <= 1
-      || *(_DWORD *)(Pool2 + 152) - *(_DWORD *)(Pool2 + 144) <= 1 )
-    {
-      v64 = HMValidateSharedHandleNoRip(*(_QWORD *)(a2 + 1344));
-      *(_OWORD *)(Pool2 + 140) = *(_OWORD *)RIMGetMonitorPhysicalSize(v98, v64);
-    }
-    memset(&v97[1], 0, 0x70uLL);
-    v65 = *(_DWORD *)(v11 + 364);
-    v66 = *(_OWORD *)(v11 + 400);
-    v67 = (__int64)v87;
-    *(_OWORD *)((char *)&v97[2] + 4) = *(_OWORD *)(v11 + 384);
-    LODWORD(v97[1]) = v65;
-    v68 = *(_OWORD *)(v11 + 416);
-    v69 = *(_DWORD *)(v11 + 432);
-    *(_OWORD *)((char *)&v97[3] + 4) = v66;
-    DWORD1(v97[5]) = v69;
-    v70 = v97[2];
-    *(_OWORD *)((char *)&v97[4] + 4) = v68;
-    *(_OWORD *)(Pool2 + 156) = v97[1];
-    v71 = v97[3];
-    *(_OWORD *)(Pool2 + 172) = v70;
-    v72 = v97[4];
-    *(_OWORD *)(Pool2 + 188) = v71;
-    v73 = v97[5];
-    *(_OWORD *)(Pool2 + 204) = v72;
-    v74 = v97[6];
-    *(_OWORD *)(Pool2 + 220) = v73;
-    v75 = v97[7];
-    *(_OWORD *)(Pool2 + 236) = v74;
-    *(_OWORD *)(Pool2 + 252) = v75;
-    RIMSetDeviceOutputConfig((struct RIMDEV *)a2, (struct tagHID_POINTER_DEVICE_INFO *)Pool2);
-    if ( *(_DWORD *)(Pool2 + 24) == 7
-      && (int)CPTPProcessorFactory::AddProcessor((struct tagHID_POINTER_DEVICE_INFO *)Pool2) < 0 )
-    {
-      DeviceButtons = -1073741668;
-    }
-    else
-    {
-      DeviceButtons = RIMVirtGetDeviceButtons(v76, Pool2, v77, v62, v11);
-      if ( DeviceButtons >= 0 )
-      {
-        if ( *(_DWORD *)(Pool2 + 24) != 7 )
-        {
-          v94 = *(struct _UNICODE_STRING *)(a2 + 208);
-          ApiSetRetrieveCalibrationData(Pool2, &v94);
-        }
-      }
-      else
-      {
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-          || (LOBYTE(v78) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-        {
-          LOBYTE(v78) = 0;
-        }
-        if ( (_BYTE)v78 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v79) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v78,
-            v79,
-            (_DWORD)gRimLog,
-            3,
-            1,
-            46,
-            (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-        }
-      }
-    }
-    goto LABEL_92;
-  }
-LABEL_91:
-  v67 = (__int64)v87;
-LABEL_92:
-  RIMFreeQDCActivePathsData(v67);
-  if ( DeviceButtons < 0
-    || *(_DWORD *)(Pool2 + 24) == 7
-    && (DeviceButtons = RIMValidatePTPProperties((unsigned int)v105, Pool2), DeviceButtons < 0) )
-  {
-    if ( *(_QWORD *)(Pool2 + 784) )
-    {
-      LODWORD(v105) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 4857);
-    }
-    RIMFreePointerDevice(a1, Pool2);
+LABEL_79:
+    if ( *(_QWORD *)(v8 + 736) )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 4620);
+    RIMFreePointerDevice(a1, v8);
   }
   else
   {
-    *(_DWORD *)(v3 + 200) |= 0x80u;
-    if ( (unsigned int)(*(_DWORD *)(Pool2 + 24) - 1) <= 3 )
+    *(_DWORD *)(a2 + 200) |= 0x80u;
+    if ( (unsigned int)(*(_DWORD *)(v8 + 24) - 1) <= 3 )
     {
-      *(_DWORD *)(a1 + 720) += *(_DWORD *)v88;
-      *(_DWORD *)(Pool2 + 360) |= 0x400u;
-      if ( *(_DWORD *)(a1 + 720) > 0xA00u )
-      {
-        LODWORD(v102) = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 4838);
-      }
+      *(_DWORD *)(a1 + 532) += *(_DWORD *)(v8 + 720);
+      *(_DWORD *)(v8 + 312) |= 0x400u;
+      if ( *(_DWORD *)(a1 + 532) > 0xA00u )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 4601);
     }
-    *(_DWORD *)(Pool2 + 792) = 100;
-    *(_QWORD *)(Pool2 + 800) = 100 * gliQpcFreq.QuadPart / 1000;
-    *(_QWORD *)(v3 + 472) = Pool2;
-    *(_QWORD *)(Pool2 + 16) = v3;
-    v81 = *(_QWORD **)(a1 + 440);
-    if ( *v81 != a1 + 432 )
+    *(_DWORD *)(v8 + 744) = 100;
+    *(_QWORD *)(v8 + 752) = 100 * gliQpcFreq.QuadPart / 1000;
+    *(_QWORD *)(a2 + 480) = v8;
+    *(_QWORD *)(v8 + 16) = a2;
+    v58 = *(_QWORD **)(a1 + 440);
+    if ( *v58 != a1 + 432 )
       __fastfail(3u);
-    v82 = (_QWORD *)v95[0];
-    *(_QWORD *)(v95[0] + 8LL) = v81;
-    *v82 = a1 + 432;
-    *v81 = v82;
-    *(_QWORD *)(a1 + 440) = v82;
-    *(_QWORD *)(Pool2 + 784) = -1LL;
-    if ( !(unsigned int)RIMGetDeviceParent(0LL, v3, v80) )
+    v11[1] = v58;
+    *v11 = a1 + 432;
+    *v58 = v11;
+    *(_QWORD *)(a1 + 440) = v11;
+    *(_QWORD *)(v8 + 736) = -1LL;
+    if ( !(unsigned int)RIMGetDeviceParent(0LL, a2, v57)
+      && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-        || (LOBYTE(v83) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-      {
-        LOBYTE(v83) = 0;
-      }
-      if ( (_BYTE)v83 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v84) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v83,
-          v84,
-          (_DWORD)gRimLog,
-          3,
-          1,
-          47,
-          (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-      }
+      LOBYTE(v59) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v59, 1, 47, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
     }
   }
-  return (unsigned int)DeviceButtons;
+  return (unsigned int)ProductString;
 }

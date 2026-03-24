@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpIommuAllocateAndZeroPageTable @ 0x14037E658
+ * XREFs of HalpIommuAllocateAndZeroPageTable @ 0x1404DB6D8
  * Callers:
- *     HalpIommuMapLogicalRange @ 0x14037DE28 (HalpIommuMapLogicalRange.c)
- *     HalpIommuInitializeDmarPageTable @ 0x14037FD88 (HalpIommuInitializeDmarPageTable.c)
- *     HalpIommuMapLogical @ 0x1405270A4 (HalpIommuMapLogical.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x1404DBBDC (HalpIommuInitializeDmarPageTable.c)
+ *     HalpIommuMapLogical @ 0x1404DBD64 (HalpIommuMapLogical.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC14C (HalpIommuMapLogicalRange.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE40 (KeInvalidateRangeAllCachesNoIpi.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpAllocPhysicalMemory @ 0x140B4C03C (HalpAllocPhysicalMemory.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x140283F70 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpAllocPhysicalMemory @ 0x140A64AC0 (HalpAllocPhysicalMemory.c)
  */
 
-PVOID __fastcall HalpIommuAllocateAndZeroPageTable(__int64 a1, unsigned int a2, __int64 a3)
+void *__fastcall HalpIommuAllocateAndZeroPageTable(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rdi
   __int64 v4; // rcx
   unsigned int v5; // edi
   LARGE_INTEGER v6; // rax
   size_t v7; // rsi
-  PVOID v8; // rbx
+  void *v8; // rbx
 
   v3 = 1LL << *(_DWORD *)(a1 + 4LL * a2 + 36);
   v4 = *(unsigned int *)(a1 + 28);
@@ -27,7 +27,7 @@ PVOID __fastcall HalpIommuAllocateAndZeroPageTable(__int64 a1, unsigned int a2, 
   if ( !a3 )
   {
     v7 = v5;
-    v8 = (PVOID)HalpMmAllocCtxAlloc(v4, v5);
+    v8 = (void *)HalpMmAllocCtxAlloc(v4, v5);
     if ( v8 )
       goto LABEL_4;
     return 0LL;

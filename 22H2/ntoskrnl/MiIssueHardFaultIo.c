@@ -1,144 +1,98 @@
 /*
- * XREFs of MiIssueHardFaultIo @ 0x1402A1AC0
+ * XREFs of MiIssueHardFaultIo @ 0x140306F74
  * Callers:
- *     MiIssueHardFault @ 0x1402A0F90 (MiIssueHardFault.c)
- *     MiPfCoalesceAndIssueIOs @ 0x140360C60 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfIssueCoalesceCandidates @ 0x140631D64 (MiPfIssueCoalesceCandidates.c)
+ *     MiIssueHardFault @ 0x14028F030 (MiIssueHardFault.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x14031B9F4 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140539110 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     IoPageReadEx @ 0x1402A66F0 (IoPageReadEx.c)
- *     SmPageRead @ 0x1405C9B90 (SmPageRead.c)
- *     MiCopyImageExtentContents @ 0x14063C6D4 (MiCopyImageExtentContents.c)
- *     MiTransferFileExtent @ 0x14063F8DC (MiTransferFileExtent.c)
+ *     IoPageReadEx @ 0x14029C7C0 (IoPageReadEx.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     SmPageRead @ 0x1403070AC (SmPageRead.c)
  */
 
 __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)
 {
-  unsigned int v3; // r10d
-  __int64 v7; // rdx
-  __int64 v8; // rdx
-  ULONG_PTR v9; // rdx
-  int v10; // esi
-  int v11; // ebx
+  unsigned int v4; // ecx
+  int v5; // ebp
+  int v6; // esi
+  char v7; // bl
   _KPROCESS *Process; // rdx
-  signed __int32 v13; // eax
-  struct _KEVENT *v14; // rsi
-  int *v15; // r14
-  int v16; // eax
-  unsigned int v17; // ebx
-  _QWORD *v19; // rax
-  __int64 v20; // rbx
-  __int64 v21; // rax
-  __int64 v22; // rax
-  struct _MDL *v23; // rcx
-  signed __int32 v24; // ett
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  unsigned __int64 v28; // r9
+  signed __int32 v9; // eax
+  struct _KEVENT *v10; // rbp
+  NTSTATUS *v11; // rsi
+  NTSTATUS v12; // eax
+  unsigned int v13; // ebx
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  unsigned __int64 v17; // r8
+  signed __int32 v18; // ett
 
-  v3 = *(_DWORD *)(a1 + 192);
-  if ( (v3 & 0x100) != 0 )
+  v4 = *(_DWORD *)(a1 + 192);
+  v5 = v4 & 8;
+  if ( (v4 & 0x100) != 0 )
   {
-    v25 = a1 + 272;
-    v26 = (a1 + 272) | 1;
-    if ( (v3 & 8) == 0 )
-      v26 = v25;
-    v27 = v26;
+    v15 = (a1 + 272) | 1;
+    if ( !v5 )
+      v15 = a1 + 272;
+    v16 = v15;
     if ( (a3 & 1) != 0 )
     {
-      v28 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
-      if ( *(_BYTE *)v28 == 1 && (*(_DWORD *)(v28 + 80) & 0x800) != 0 )
-        v27 = v26 | 2;
+      v17 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
+      if ( *(_BYTE *)v17 == 1 && (*(_DWORD *)(v17 + 80) & 0x800) != 0 )
+        v16 = v15 | 2;
     }
-    v14 = (struct _KEVENT *)(a1 + 32);
-    v15 = (int *)(a1 + 80);
-    v16 = SmPageRead(
-            *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(*(_QWORD *)(a1 + 248) + 40LL) >> 43) & 0x3FFLL))
-                      + 200LL),
-            a1 + 96,
-            v27,
-            a1 + 32,
-            a1 + 80);
-LABEL_18:
-    v17 = v16;
-    if ( v16 < 0 )
-    {
-      *(_QWORD *)(a1 + 88) = 0LL;
-      *v15 = v16;
-      KeSetEvent(v14, 0, 0);
-    }
-    return v17;
-  }
-  if ( a2 )
-  {
-    v19 = *(_QWORD **)(a1 + 208);
-    if ( (*(_BYTE *)(*v19 + 62LL) & 0xC) != 8 )
-    {
-LABEL_9:
-      v10 = (v3 >> 1) & 4 | 1;
-      if ( (v3 & 0x40000) == 0 )
-        v10 = (v3 >> 1) & 4;
-      if ( (v3 & 8) != 0 )
-      {
-        v11 = v10 | 2;
-      }
-      else
-      {
-        v11 = v10;
-        if ( !a2 && (unsigned int)MiGetSystemRegionType(*(_QWORD *)(a1 + 224)) == 8 )
-          v11 = v10 | 2;
-        Process = KeGetCurrentThread()->Process;
-        v13 = Process[2].Affinity.StaticBitmap[3];
-        while ( v13 )
-        {
-          v24 = v13;
-          v13 = _InterlockedCompareExchange(
-                  (volatile signed __int32 *)&Process[2].Affinity.StaticBitmap[3],
-                  v13 - 1,
-                  v13);
-          if ( v24 == v13 )
-          {
-            v11 |= 8u;
-            break;
-          }
-        }
-      }
-      v14 = (struct _KEVENT *)(a1 + 32);
-      v15 = (int *)(a1 + 80);
-      v16 = IoPageReadEx(*(PFILE_OBJECT *)(a1 + 200), a1 + 80, v11, 0LL);
-      goto LABEL_18;
-    }
-    v20 = a1 + 272;
-    if ( *(_QWORD *)(a1 + 256) )
-      v20 = *(_QWORD *)(a1 + 256);
-    MiCopyImageExtentContents(a1, v20, *v19, a3);
-    v21 = *(unsigned int *)(v20 + 40);
-    *(_DWORD *)(a1 + 80) = 0;
-    *(_QWORD *)(a1 + 88) = v21;
-    KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
-    return 0LL;
+    v11 = (NTSTATUS *)(a1 + 80);
+    v10 = (struct _KEVENT *)(a1 + 32);
+    v12 = SmPageRead(a1 + 96, v16, a1 + 32, a1 + 80);
   }
   else
   {
-    v7 = *(_QWORD *)(a1 + 248);
-    if ( *(__int64 *)(v7 + 40) >= 0 )
-      goto LABEL_9;
-    v8 = *(_QWORD *)(v7 + 16);
-    if ( (v8 & 0x400) == 0 )
-      goto LABEL_9;
-    if ( qword_140C65C40 && (v8 & 0x10) == 0 )
-      v8 &= ~qword_140C65C40;
-    v9 = v8 >> 16;
-    if ( (*(_BYTE *)(*(_QWORD *)v9 + 62LL) & 0xC) != 8 )
-      goto LABEL_9;
-    v22 = *(_QWORD *)(a1 + 256);
-    v23 = (struct _MDL *)(a1 + 272);
-    if ( v22 )
-      v23 = *(struct _MDL **)(a1 + 256);
-    MiTransferFileExtent(v23, v9, a1 + 80);
-    KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
-    return *(unsigned int *)(a1 + 80);
+    v6 = (v4 >> 1) & 4 | 1;
+    if ( (v4 & 0x40000) == 0 )
+      v6 = (v4 >> 1) & 4;
+    if ( (v4 & 8) != 0 )
+    {
+      v7 = v6 | 2;
+    }
+    else
+    {
+      v7 = v6;
+      if ( !a2 && (unsigned int)MiGetSystemRegionType(*(_QWORD *)(a1 + 224)) == 8 )
+        v7 = v6 | 2;
+    }
+    if ( !v5 )
+    {
+      Process = KeGetCurrentThread()->Process;
+      v9 = Process[2].Affinity.Bitmap[3];
+      while ( v9 )
+      {
+        v18 = v9;
+        v9 = _InterlockedCompareExchange((volatile signed __int32 *)&Process[2].Affinity.Bitmap[3], v9 - 1, v9);
+        if ( v18 == v9 )
+        {
+          v7 |= 8u;
+          break;
+        }
+      }
+    }
+    v10 = (struct _KEVENT *)(a1 + 32);
+    v11 = (NTSTATUS *)(a1 + 80);
+    v12 = IoPageReadEx(
+            *(PFILE_OBJECT *)(a1 + 200),
+            (struct _MDL *)(a1 + 272),
+            (_QWORD *)(a1 + 96),
+            (struct _KEVENT *)(a1 + 32),
+            (struct _IO_STATUS_BLOCK *)(a1 + 80),
+            v7,
+            0LL);
   }
+  v13 = v12;
+  if ( v12 < 0 )
+  {
+    *(_QWORD *)(a1 + 88) = 0LL;
+    *v11 = v12;
+    KeSetEvent(v10, 0, 0);
+  }
+  return v13;
 }

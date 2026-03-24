@@ -1,102 +1,45 @@
 /*
- * XREFs of RIMIDEResetPointerDeviceMaxCount @ 0x1C019E298
+ * XREFs of RIMIDEResetPointerDeviceMaxCount @ 0x1C0169C1C
  * Callers:
- *     NtUserSetFeatureReportResponse @ 0x1C0161000 (NtUserSetFeatureReportResponse.c)
+ *     NtUserSetFeatureReportResponse @ 0x1C0133B00 (NtUserSetFeatureReportResponse.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     RIMCmAllocPointerDeviceContacts @ 0x1C01B6298 (RIMCmAllocPointerDeviceContacts.c)
- *     RIMCmFreePointerDeviceContacts @ 0x1C01B6804 (RIMCmFreePointerDeviceContacts.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmAllocPointerDeviceContacts @ 0x1C017FFE0 (RIMCmAllocPointerDeviceContacts.c)
+ *     RIMCmFreePointerDeviceContacts @ 0x1C018033C (RIMCmFreePointerDeviceContacts.c)
  */
 
 __int64 __fastcall RIMIDEResetPointerDeviceMaxCount(_DWORD *a1, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // esi
-  unsigned int v5; // ebx
-  unsigned int v6; // r14d
-  PVOID v7; // rbp
-  unsigned __int64 v8; // rdx
-  __int64 v9; // rax
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  char v13; // r15
-  __int64 Pool2; // rsi
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-B8h] BYREF
+  unsigned int v3; // ebx
+  unsigned int v4; // ebp
+  unsigned int v6; // esi
+  __int64 v7; // rdx
+  __int64 v8; // r8
 
-  v3 = a2;
-  if ( (a1[90] & 0x2000) == 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v5 = 0;
-  if ( !a1[192] )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  if ( !v3 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v6 = v3 + 1;
+  v3 = 0;
+  v4 = a2;
+  if ( (a1[78] & 0x2000) == 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 536);
+  if ( !a1[180] )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 537);
+  if ( !v4 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 538);
+  v6 = v4 + 1;
   if ( a1[6] != 7 )
-    v6 = v3;
+    v6 = v4;
   RIMCmFreePointerDeviceContacts(a1, a2, a3);
   if ( (int)RIMCmAllocPointerDeviceContacts(a1, 1785620818LL) >= 0 )
   {
-    v7 = gpLeakTrackingAllocator;
-    v8 = 8LL * v6;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x78707352) == 0x78707352 )
+    if ( Win32AllocPoolZInit(8LL * v6, 2020635474LL) )
     {
-      v9 = 0LL;
-      if ( *((_DWORD *)gpLeakTrackingAllocator + 11) )
-      {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v9) != 2020635474 )
-        {
-          if ( ++v9 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_14;
-        }
-        v13 = 0;
-        if ( v8 < 0x1000 || (v8 & 0xFFF) != 0 )
-        {
-          v13 = 1;
-          v8 += 16LL;
-        }
-        Pool2 = ExAllocatePool2(260LL, v8);
-        if ( !Pool2 )
-          goto LABEL_16;
-        memset(BackTrace, 0, sizeof(BackTrace));
-        RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-        if ( v13 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                 (__int64)v7,
-                 (const void *)Pool2,
-                 (struct NSInstrumentation::CBackTrace *)BackTrace) )
-          {
-            v10 = Pool2 + 16;
-LABEL_15:
-            if ( !v10 )
-            {
-LABEL_16:
-              RIMCmFreePointerDeviceContacts(a1, v11, v12);
-              return v5;
-            }
-LABEL_27:
-            a1[192] = v6;
-            return 1;
-          }
-        }
-        else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                    (__int64)v7,
-                    Pool2,
-                    (struct NSInstrumentation::CBackTrace *)BackTrace) )
-        {
-          goto LABEL_27;
-        }
-        ExFreePoolWithTag((PVOID)Pool2, 0);
-        goto LABEL_16;
-      }
+      a1[180] = v6;
+      return 1;
     }
-LABEL_14:
-    v10 = ExAllocatePool2(260LL, v8);
-    goto LABEL_15;
+    else
+    {
+      RIMCmFreePointerDeviceContacts(a1, v7, v8);
+    }
   }
-  return v5;
+  return v3;
 }

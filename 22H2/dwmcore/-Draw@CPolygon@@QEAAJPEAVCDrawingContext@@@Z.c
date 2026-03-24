@@ -1,33 +1,32 @@
 /*
- * XREFs of ?Draw@CPolygon@@QEAAJPEAVCDrawingContext@@@Z @ 0x1802135F0
+ * XREFs of ?Draw@CPolygon@@QEAAJPEAVCDrawingContext@@@Z @ 0x1801F7794
  * Callers:
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPolygon::Draw(CPolygon *this, struct CDrawingContext *a2)
 {
   __int64 v2; // r9
   unsigned int v3; // ebx
+  int v4; // eax
   __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rcx
 
   v2 = *((_QWORD *)this + 31);
   v3 = 0;
   if ( v2 )
   {
-    v5 = *(int *)(*(_QWORD *)(v2 + 64) + 8LL) + v2 + 64;
-    v6 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, __int64, _QWORD))(*(_QWORD *)v5 + 16LL))(
-           v5,
+    v4 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, __int64, _QWORD))(*(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 56) + 8LL) + v2 + 56)
+                                                                                       + 16LL))(
+           *(int *)(*(_QWORD *)(v2 + 56) + 8LL) + v2 + 56,
            a2,
-           *((_QWORD *)this + 27) + 140LL,
+           *((_QWORD *)this + 27) + 132LL,
            0LL);
-    v3 = v6;
-    if ( v6 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x1FCu, 0LL);
+    v3 = v4;
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x1FCu, 0LL);
   }
   return v3;
 }

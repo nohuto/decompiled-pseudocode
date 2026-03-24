@@ -1,47 +1,51 @@
 /*
- * XREFs of ?IsReadyToDraw@CMaskBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1800D7FF0
+ * XREFs of ?IsReadyToDraw@CMaskBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1800BB2C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-bool __fastcall CMaskBrush::IsReadyToDraw(CMaskBrush *this, struct CDrawingContext *a2, bool *a3)
+__int64 __fastcall CMaskBrush::IsReadyToDraw(CMaskBrush *this, struct CDrawingContext *a2, bool *a3)
 {
-  bool v3; // di
+  unsigned __int8 v3; // bl
   __int64 v5; // rcx
-  bool v8; // bl
-  __int64 v9; // rcx
-  bool result; // al
-  char v11; // [rsp+40h] [rbp+8h] BYREF
-  char v12; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v8; // rcx
+  __int64 result; // rax
+  char v10; // [rsp+40h] [rbp+8h] BYREF
+  char v11; // [rsp+50h] [rbp+18h] BYREF
 
   v3 = 0;
-  v5 = *((_QWORD *)this + 12);
+  v5 = *((_QWORD *)this + 11);
+  v10 = 0;
   v11 = 0;
-  v12 = 0;
   if ( !v5 )
     goto LABEL_8;
-  v8 = 1;
-  if ( (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, char *))(*(_QWORD *)v5 + 288LL))(
+  if ( (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, char *))(*(_QWORD *)v5 + 296LL))(
          v5,
          a2,
-         &v11) )
+         &v10) )
   {
-    v9 = *((_QWORD *)this + 11);
-    if ( !v9
-      || (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, char *))(*(_QWORD *)v9 + 288LL))(
-           v9,
+    v8 = *((_QWORD *)this + 10);
+    if ( !v8
+      || (*(unsigned __int8 (__fastcall **)(__int64, struct CDrawingContext *, char *))(*(_QWORD *)v8 + 296LL))(
+           v8,
            a2,
-           &v12) )
+           &v11) )
     {
       v3 = 1;
     }
   }
-  if ( !v11 && !v12 )
+  if ( v10 || v11 )
+  {
+    result = v3;
+    *a3 = 1;
+  }
+  else
+  {
 LABEL_8:
-    v8 = 0;
-  result = v3;
-  *a3 = v8;
+    *a3 = 0;
+    return v3;
+  }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x180240B6C
+ * XREFs of ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x1801DB75C
  * Callers:
- *     ?GetValueAt@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat4@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x180240F24 (-GetValueAt@-$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@QEBA-AUfl.c)
+ *     ?GetValueAt@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat4@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x1801DBB4C (-GetValueAt@-$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@QEBA-AUfl.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numer
         float a2)
 {
   __int64 v2; // r9
-  unsigned int v3; // edx
-  unsigned __int64 v4; // r8
+  unsigned int v3; // r8d
+  unsigned __int64 v4; // rdx
 
   v2 = *(_QWORD *)(a1 + 8);
   v3 = 1;
-  v4 = 0x6DB6DB6DB6DB6DB7LL * ((*(_QWORD *)(a1 + 16) - v2) >> 2);
+  v4 = (*(_QWORD *)(a1 + 16) - v2) / 28;
   while ( v3 < v4 )
   {
     if ( (float)(*(float *)(28LL * v3 + v2) + 0.00000011920929) >= a2 )

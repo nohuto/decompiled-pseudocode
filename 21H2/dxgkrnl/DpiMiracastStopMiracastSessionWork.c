@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastStopMiracastSessionWork @ 0x1C038E160
+ * XREFs of DpiMiracastStopMiracastSessionWork @ 0x1C02CF140
  * Callers:
  *     <none>
  * Callees:
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0061CB0 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0061EE0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0054050 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542A0 (DpiMiracastStopMiracastSessionSync.c)
  */
 
 void __fastcall DpiMiracastStopMiracastSessionWork(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
@@ -16,6 +16,6 @@ void __fastcall DpiMiracastStopMiracastSessionWork(PVOID IoObject, PVOID Context
     0LL,
     *((_DWORD *)Context + 6),
     0);
-  DpiMiracastReleaseMiracastDeviceContext(*(int **)Context, (unsigned int)DpiMiracastStopMiracastSessionAsync);
+  DpiMiracastReleaseMiracastDeviceContext(*(int **)Context, (__int64)DpiMiracastStopMiracastSessionAsync);
   ExFreePoolWithTag(Context, 0);
 }

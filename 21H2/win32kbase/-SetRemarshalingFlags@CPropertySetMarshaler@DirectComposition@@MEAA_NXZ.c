@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CPropertySetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022C080
+ * XREFs of ?SetRemarshalingFlags@CPropertySetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EC580
  * Callers:
  *     <none>
  * Callees:
- *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C0010C48 (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0216428 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C006185C (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFBB4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CPropertySetMarshaler::SetRemarshalingFlags(
@@ -16,15 +16,15 @@ char __fastcall DirectComposition::CPropertySetMarshaler::SetRemarshalingFlags(
   char v5; // al
 
   v1 = 0;
-  if ( *((_DWORD *)this + 22) )
+  if ( *((_DWORD *)this + 20) )
   {
     v3 = 0;
     do
       PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::SetMarshalStatus(
-        (__int64 *)this + 10,
+        (__int64 *)this + 9,
         v3++,
         1LL);
-    while ( v3 < *((_DWORD *)this + 22) );
+    while ( v3 < *((_DWORD *)this + 20) );
     *((_DWORD *)this + 4) |= 0x80u;
     v4 = *((_DWORD *)this + 4);
   }
@@ -32,7 +32,7 @@ char __fastcall DirectComposition::CPropertySetMarshaler::SetRemarshalingFlags(
   {
     v4 = *((_DWORD *)this + 4);
   }
-  if ( *((_DWORD *)this + 28) )
+  if ( *((_DWORD *)this + 26) )
     *((_DWORD *)this + 4) = v4 | 0x100;
   v5 = DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this);
   if ( (*((_DWORD *)this + 4) & 0x180) != 0 || v5 )

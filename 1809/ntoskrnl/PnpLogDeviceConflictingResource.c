@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpLogDeviceConflictingResource @ 0x14073043C
+ * XREFs of PnpLogDeviceConflictingResource @ 0x14073041C
  * Callers:
- *     IopTestConfiguration @ 0x14072E318 (IopTestConfiguration.c)
+ *     IopTestConfiguration @ 0x14072E2F8 (IopTestConfiguration.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

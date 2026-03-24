@@ -1,13 +1,13 @@
 /*
- * XREFs of ?LockCursor@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01DB918
+ * XREFs of ?LockCursor@CCursorClip@@QEAAXUtagRECT@@@Z @ 0x1C01A2B54
  * Callers:
- *     NtUserLockCursor @ 0x1C00AD6F0 (NtUserLockCursor.c)
+ *     NtUserLockCursor @ 0x1C009C790 (NtUserLockCursor.c)
  * Callees:
- *     PtInRect @ 0x1C003C178 (PtInRect.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0096098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0096160 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C00A0B94 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005A5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005CD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C006D968 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
+ *     PtInRect @ 0x1C006FD0C (PtInRect.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __fastcall CCursorClip::LockCursor(CCursorClip *this, struct tagRECT *a2)

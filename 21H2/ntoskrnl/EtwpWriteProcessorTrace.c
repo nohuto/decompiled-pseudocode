@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpWriteProcessorTrace @ 0x140635910
+ * XREFs of EtwpWriteProcessorTrace @ 0x1405B0570
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpWriteProcessorTrace(__int64 *a1, __int64 a2, int a3, int a4)
@@ -31,5 +31,5 @@ void __fastcall EtwpWriteProcessorTrace(__int64 *a1, __int64 a2, int a3, int a4)
   v6 = *a1;
   v11 = a3;
   v12 = 0;
-  EtwpLogKernelEvent((__int64)&v7, *(_QWORD *)(v6 + 1096), *(_DWORD *)v6, 2u, 0x1F20u, v5);
+  EtwpLogKernelEvent((__int64)&v7, *(_QWORD *)(v6 + 1080), *(_DWORD *)v6, 2u, 0x1F20u, v5);
 }

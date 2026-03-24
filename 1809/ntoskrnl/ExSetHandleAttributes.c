@@ -1,7 +1,7 @@
 /*
- * XREFs of ExSetHandleAttributes @ 0x140109EC4
+ * XREFs of ExSetHandleAttributes @ 0x140109EE4
  * Callers:
- *     ObSetHandleAttributes @ 0x14068D8F0 (ObSetHandleAttributes.c)
+ *     ObSetHandleAttributes @ 0x14068D8D0 (ObSetHandleAttributes.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00BDB30
+ * XREFs of ?Initialize@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00A59A0
  * Callers:
  *     <none>
  * Callees:
@@ -15,7 +15,7 @@ __int64 __fastcall DirectComposition::CCompositionDistantLightMarshaler::Initial
   *((_DWORD *)this + 32) = -1082130432;
   result = 0LL;
   *((_BYTE *)this + 88) = 1;
-  *((_OWORD *)this + 6) = xmmword_1C0255208;
+  *((_OWORD *)this + 6) = xmmword_1C02178C0;
   *((_DWORD *)this + 33) = 1065353216;
   return result;
 }

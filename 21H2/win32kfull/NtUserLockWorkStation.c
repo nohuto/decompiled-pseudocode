@@ -1,18 +1,17 @@
 /*
- * XREFs of NtUserLockWorkStation @ 0x1C0005370
+ * XREFs of NtUserLockWorkStation @ 0x1C0008C90
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     CheckWinstaAttributeAccess @ 0x1C009EAE0 (CheckWinstaAttributeAccess.c)
+ *     CheckWinstaAttributeAccess @ 0x1C00333F0 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 NtUserLockWorkStation()
 {
   __int64 v0; // rbx
-  __int64 v1; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v0 = 0LL;
   if ( (unsigned int)CheckWinstaAttributeAccess(0x10u) )
   {
@@ -23,6 +22,6 @@ __int64 NtUserLockWorkStation()
   {
     UserSetLastError(5LL);
   }
-  UserSessionSwitchLeaveCrit(v1);
+  UserSessionSwitchLeaveCrit();
   return v0;
 }

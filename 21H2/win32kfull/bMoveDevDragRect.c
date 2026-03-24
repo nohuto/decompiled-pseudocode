@@ -1,14 +1,14 @@
 /*
- * XREFs of bMoveDevDragRect @ 0x1C02823D0
+ * XREFs of bMoveDevDragRect @ 0x1C0285CA8
  * Callers:
- *     bSetDevDragRect @ 0x1C010FE70 (bSetDevDragRect.c)
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C020C464 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     bSetDevDragRect @ 0x1C0029500 (bSetDevDragRect.c)
+ *     xxxDrawDragRectEx @ 0x1C0211504 (xxxDrawDragRectEx.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     GreUpdateSprite @ 0x1C0020E98 (GreUpdateSprite.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C0086CD0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     GreUpdateSprite @ 0x1C00BEB60 (GreUpdateSprite.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bMoveDevDragRect(HDEV a1, int *a2, int *a3, int a4)
@@ -42,9 +42,9 @@ __int64 __fastcall bMoveDevDragRect(HDEV a1, int *a2, int *a3, int a4)
   struct tagSIZE v34; // [rsp+88h] [rbp-49h] BYREF
   HDEV v35; // [rsp+90h] [rbp-41h] BYREF
   HDEV v36; // [rsp+98h] [rbp-39h]
-  char v37[8]; // [rsp+A0h] [rbp-31h] BYREF
+  _BYTE v37[8]; // [rsp+A0h] [rbp-31h] BYREF
   __int64 v38; // [rsp+A8h] [rbp-29h] BYREF
-  char v39[8]; // [rsp+B0h] [rbp-21h] BYREF
+  _BYTE v39[8]; // [rsp+B0h] [rbp-21h] BYREF
   int v40; // [rsp+B8h] [rbp-19h] BYREF
   _DWORD v41[3]; // [rsp+BCh] [rbp-15h] BYREF
   int v42; // [rsp+C8h] [rbp-9h]
@@ -72,7 +72,7 @@ __int64 __fastcall bMoveDevDragRect(HDEV a1, int *a2, int *a3, int a4)
   v9 = a2[1];
   v10 = v35;
   v11 = *a3;
-  v12 = *((_DWORD *)v35 + 312);
+  v12 = *((_DWORD *)v35 + 314);
   v40 = *a2;
   v41[2] = v8;
   v45 = v8;
@@ -133,7 +133,7 @@ __int64 __fastcall bMoveDevDragRect(HDEV a1, int *a2, int *a3, int a4)
     goto LABEL_21;
   v27 = v36;
   v28 = &v40;
-  v29 = (void **)(v10 + 302);
+  v29 = (void **)(v10 + 304);
   do
   {
     v34.cx = v28[2] - *v28;
@@ -166,7 +166,7 @@ __int64 __fastcall bMoveDevDragRect(HDEV a1, int *a2, int *a3, int a4)
 LABEL_21:
     v30 = v26;
     v31 = 4 - v26;
-    v32 = (void **)(v10 + 2 * v30 + 302);
+    v32 = (void **)(v10 + 2 * v30 + 304);
     do
     {
       if ( *v32 )

@@ -1,23 +1,40 @@
 /*
- * XREFs of ?GetRailWindowDeviceBounds@CRemoteAppRenderTarget@@IEBA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBVCMILMatrix@@@Z @ 0x1801C276C
+ * XREFs of ?GetRailWindowDeviceBounds@CRemoteAppRenderTarget@@IEBA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBVCMILMatrix@@@Z @ 0x1801863AC
  * Callers:
- *     ?RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@@Z @ 0x1801C2BF8 (-RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion.c)
+ *     ?RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x180186A1C (-RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?PixelAlign@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x1800882E4 (-PixelAlign@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUnique.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180077274 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800869D0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
-_DWORD *__fastcall CRemoteAppRenderTarget::GetRailWindowDeviceBounds(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
+_DWORD *__fastcall CRemoteAppRenderTarget::GetRailWindowDeviceBounds(__int64 a1, _DWORD *a2, CMILMatrix *a3)
 {
-  __int64 i; // rdx
-  __int128 v7; // [rsp+20h] [rbp-38h] BYREF
-  float v8[4]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 i; // rax
+  int v5; // eax
+  float v6; // xmm0_4
+  int v7; // edx
+  int v8; // eax
+  float v9; // xmm0_4
+  int v10; // eax
+  float v11; // xmm0_4
+  int v12; // edx
+  __int128 v14; // [rsp+20h] [rbp-38h] BYREF
+  float v15[4]; // [rsp+30h] [rbp-28h] BYREF
 
   for ( i = 0LL; i < 4; ++i )
-    v8[i] = (float)*(int *)(a1 + 4 * i + 264);
-  v7 = 0LL;
-  CMILMatrix::Transform2DBoundsHelper<0>(a3, (__int64)v8, (float *)&v7, a4);
-  PixelAlign(a2, (__int64)&v7);
+    v15[i] = (float)*(int *)(a1 + 4 * i + 264);
+  v14 = 0LL;
+  CMILMatrix::Transform2DBoundsHelper<0>(a3, (__int64)v15, (float *)&v14);
+  v5 = PixelAlign(*(float *)&v14, 0);
+  v6 = *((float *)&v14 + 1);
+  *a2 = v5;
+  v8 = PixelAlign(v6, v7);
+  v9 = *((float *)&v14 + 2);
+  a2[1] = v8;
+  v10 = PixelAlign(v9, 1);
+  v11 = *((float *)&v14 + 3);
+  a2[2] = v10;
+  a2[3] = PixelAlign(v11, v12);
   return a2;
 }

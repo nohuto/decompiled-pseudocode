@@ -8,7 +8,7 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
  *     VfUtilIsProtectedDriver @ 0x1409261C4 (VfUtilIsProtectedDriver.c)

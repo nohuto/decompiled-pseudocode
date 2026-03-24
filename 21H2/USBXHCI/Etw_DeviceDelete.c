@@ -1,10 +1,10 @@
 /*
- * XREFs of Etw_DeviceDelete @ 0x1C0048304
+ * XREFs of Etw_DeviceDelete @ 0x1C0048070
  * Callers:
- *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C00466F0 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
+ *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0046230 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048C38 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048A00 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_DeviceDelete(__int64 a1, __int64 a2)

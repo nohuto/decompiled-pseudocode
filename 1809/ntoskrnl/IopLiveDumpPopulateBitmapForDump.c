@@ -5,9 +5,9 @@
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MmRemoveSystemCacheFromDump @ 0x1402AE5AC (MmRemoveSystemCacheFromDump.c)
- *     RtlFindNextForwardRunClearEx @ 0x1402EE910 (RtlFindNextForwardRunClearEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MmRemoveSystemCacheFromDump @ 0x1402AE6AC (MmRemoveSystemCacheFromDump.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1402EEA10 (RtlFindNextForwardRunClearEx.c)
  */
 
 void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)

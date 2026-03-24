@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpSetInterruptInformation @ 0x140859F04
+ * XREFs of PnpSetInterruptInformation @ 0x140772910
  * Callers:
- *     PnpSetDevicePropertyData @ 0x140866B78 (PnpSetDevicePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x14074307C (PnpSetDevicePropertyData.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpSetInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
 {
-  unsigned int *Pool2; // rax
-  unsigned int *v7; // rbx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v7; // rbx
   __int64 v8; // rax
   void *v9; // rcx
 
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, a3 + 4, 1198550608LL);
-  v7 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, a3 + 4, 0x47706E50u);
+  v7 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *Pool2 = a3;
-  memmove(Pool2 + 1, a2, a3);
+  *PoolWithTag = a3;
+  memmove(PoolWithTag + 1, a2, a3);
   v8 = *(_QWORD *)(a1 + 312);
   v9 = *(void **)(v8 + 88);
   *(_QWORD *)(v8 + 88) = v7;

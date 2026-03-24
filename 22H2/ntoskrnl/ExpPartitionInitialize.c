@@ -1,43 +1,51 @@
 /*
- * XREFs of ExpPartitionInitialize @ 0x14084A868
+ * XREFs of ExpPartitionInitialize @ 0x1407C2B6C
  * Callers:
- *     PspAllocatePartition @ 0x14085A080 (PspAllocatePartition.c)
- *     ExpWorkerInitialization @ 0x140B674AC (ExpWorkerInitialization.c)
+ *     PspAllocatePartition @ 0x1407CC1D4 (PspAllocatePartition.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     ExpPartitionCreatePoolInternal @ 0x14084AA20 (ExpPartitionCreatePoolInternal.c)
- *     ExpWorkQueueManagerInitialize @ 0x14084ABF0 (ExpWorkQueueManagerInitialize.c)
- *     ExpPartitionDestroy @ 0x140A00998 (ExpPartitionDestroy.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1407C2D70 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1407C2F58 (ExpWorkQueueManagerInitialize.c)
+ *     ExpPartitionDestroy @ 0x140955EC4 (ExpPartitionDestroy.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPartitionInitialize(__int64 a1)
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rax
-  __int64 v6; // rax
-  unsigned __int16 v7; // si
-  __int64 v8; // r14
-  __int64 v9; // rcx
+  unsigned int v4; // ebx
+  PVOID v5; // rax
+  unsigned int v6; // ebx
+  PVOID v7; // rax
+  unsigned __int16 v8; // si
+  __int64 v9; // r14
+  __int64 v10; // rcx
   int PoolInternal; // ebx
   __int64 result; // rax
 
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 32LL, 1817671749LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x6C577845u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v4 = 8 * (unsigned int)(unsigned __int16)KeNumberNodes;
-    *Pool2 = a1;
-    v5 = ExAllocatePool2(64LL, v4, 1817671749LL);
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    PoolWithTag[3] = 0LL;
+    *PoolWithTag = a1;
+    v4 = 8 * (unsigned __int16)KeNumberNodes;
+    v5 = ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x6C577845u);
     v3[1] = v5;
     if ( v5 )
     {
-      v6 = ExAllocatePool2(64LL, 8 * (unsigned int)(unsigned __int16)KeNumberNodes, 1817671749LL);
-      v3[2] = v6;
-      if ( v6 )
+      memset(v5, 0, v4);
+      v6 = 8 * (unsigned __int16)KeNumberNodes;
+      v7 = ExAllocatePoolWithTag(NonPagedPoolNx, v6, 0x6C577845u);
+      v3[2] = v7;
+      if ( v7 )
       {
-        v7 = 0;
+        memset(v7, 0, v6);
+        v8 = 0;
         if ( !KeNumberNodes )
         {
 LABEL_12:
@@ -48,24 +56,25 @@ LABEL_12:
         }
         while ( 1 )
         {
-          v8 = 0LL;
-          if ( (_UNKNOWN *)KeNodeBlock[v7] != (_UNKNOWN *)((char *)&KiNodeInit + 304 * v7) )
-            v8 = KeNodeBlock[v7];
-          *(_QWORD *)(v3[2] + 8LL * v7) = ExAllocatePool2(64LL, 280LL, 1817671749LL);
-          v9 = *(_QWORD *)(v3[2] + 8LL * v7);
-          if ( !v9 )
+          v9 = 0LL;
+          if ( (_UNKNOWN *)KeNodeBlock[v8] != (_UNKNOWN *)((char *)&KiNodeInit + 384 * v8) )
+            v9 = KeNodeBlock[v8];
+          *(_QWORD *)(v3[2] + 8LL * v8) = ExAllocatePoolWithTag(NonPagedPoolNx, 0x118uLL, 0x6C577845u);
+          v10 = *(_QWORD *)(v3[2] + 8LL * v8);
+          if ( !v10 )
             break;
-          ExpWorkQueueManagerInitialize(v9, v3, v8);
-          *(_QWORD *)(v3[1] + 8LL * v7) = ExAllocatePool2(64LL, 64LL, 1817671749LL);
-          if ( !*(_QWORD *)(v3[1] + 8LL * v7) )
+          ExpWorkQueueManagerInitialize(v10, v3, v9);
+          *(_QWORD *)(v3[1] + 8LL * v8) = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x6C577845u);
+          if ( !*(_QWORD *)(v3[1] + 8LL * v8) )
             break;
-          PoolInternal = ExpPartitionCreatePoolInternal((_DWORD)v3, 0, ExpMaximumKernelWorkerThreads, v8, 0);
+          memset(*(void **)(v3[1] + 8LL * v8), 0, 0x40uLL);
+          PoolInternal = ExpPartitionCreatePoolInternal((_DWORD)v3, 0, ExpMaximumKernelWorkerThreads, v9, 0);
           if ( PoolInternal < 0 )
             goto LABEL_13;
-          PoolInternal = ExpPartitionCreatePoolInternal((_DWORD)v3, 0, ExpMaximumKernelWorkerThreads, v8, 1);
+          PoolInternal = ExpPartitionCreatePoolInternal((_DWORD)v3, 0, ExpMaximumKernelWorkerThreads, v9, 1);
           if ( PoolInternal < 0 )
             goto LABEL_13;
-          if ( ++v7 >= (unsigned __int16)KeNumberNodes )
+          if ( ++v8 >= (unsigned __int16)KeNumberNodes )
             goto LABEL_12;
         }
       }

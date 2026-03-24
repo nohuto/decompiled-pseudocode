@@ -1,18 +1,18 @@
 /*
- * XREFs of ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00C6AA0
+ * XREFs of ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00F6740
  * Callers:
- *     xxxSetScrollBar @ 0x1C00C64F8 (xxxSetScrollBar.c)
- *     xxxEnableScrollBar @ 0x1C00C6A60 (xxxEnableScrollBar.c)
+ *     xxxSetScrollBar @ 0x1C00F6058 (xxxSetScrollBar.c)
+ *     xxxEnableScrollBar @ 0x1C00F6700 (xxxEnableScrollBar.c)
  * Callees:
- *     _InitPwSB @ 0x1C006884C (_InitPwSB.c)
- *     IsVisible @ 0x1C006C350 (IsVisible.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     xxxDrawScrollBar @ 0x1C00C5DC8 (xxxDrawScrollBar.c)
+ *     _InitPwSB @ 0x1C0063EC0 (_InitPwSB.c)
+ *     IsVisible @ 0x1C0068164 (IsVisible.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     xxxDrawScrollBar @ 0x1C0157F30 (xxxDrawScrollBar.c)
  */
 
 __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
 {
-  unsigned int *inited; // rbx
+  unsigned int *inited; // rdi
   unsigned int v4; // esi
   int v8; // r12d
   unsigned int v9; // ebp
@@ -48,7 +48,7 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
     {
       v11 = *inited & 0xFFFFFFFC;
       if ( a3 )
-        v11 = a3 | *inited;
+        v11 = *inited | a3;
       *inited = v11;
       if ( v11 != v9 )
       {
@@ -67,13 +67,13 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
       }
       if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 1) != 0 )
       {
-        xxxWindowEvent(0x800Au, a1, -6, 1u, 1);
+        xxxWindowEvent(0x800Au, a1, -6, 1u, 1u);
         if ( inited != *((unsigned int **)a1 + 19) )
           goto LABEL_16;
       }
       if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 2) != 0 )
       {
-        xxxWindowEvent(0x800Au, a1, -6, 5u, 1);
+        xxxWindowEvent(0x800Au, a1, -6, 5u, 1u);
         if ( inited != *((unsigned int **)a1 + 19) )
           goto LABEL_16;
       }
@@ -91,19 +91,19 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
         {
           if ( (unsigned int)IsVisible((__int64)a1) )
           {
-            xxxDrawScrollBar(v18, DCEx, 1u);
+            xxxDrawScrollBar(v18, DCEx, 1);
             if ( inited != *((unsigned int **)a1 + 19) )
               goto LABEL_16;
           }
         }
         if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 4) != 0 )
         {
-          xxxWindowEvent(0x800Au, a1, -5, 1u, 1);
+          xxxWindowEvent(0x800Au, a1, -5, 1u, 1u);
           if ( inited != *((unsigned int **)a1 + 19) )
             goto LABEL_16;
         }
         if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 8) != 0 )
-          xxxWindowEvent(0x800Au, a1, -5, 5u, 1);
+          xxxWindowEvent(0x800Au, a1, -5, 5u, 1u);
       }
     }
     v4 = v8;

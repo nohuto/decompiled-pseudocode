@@ -1,59 +1,37 @@
 /*
- * XREFs of SetManifestWinVer @ 0x1C00960C0
+ * XREFs of SetManifestWinVer @ 0x1C00FEA40
  * Callers:
  *     <none>
  * Callees:
- *     SbGetProcessSwitchContext @ 0x1C00961F8 (SbGetProcessSwitchContext.c)
+ *     SbGetProcessSwitchContext @ 0x1C00FEB10 (SbGetProcessSwitchContext.c)
+ *     SbGetContextDetailsByGuid @ 0x1C00FEB68 (SbGetContextDetailsByGuid.c)
  */
 
 __int64 SetManifestWinVer()
 {
-  unsigned __int16 v0; // di
+  unsigned __int16 v0; // bx
   _QWORD *v1; // rcx
-  char *v2; // rbx
   __int64 ProcessWow64Process; // rax
-  __int64 v4; // rcx
+  __int64 v3; // rcx
   __int64 ProcessSwitchContext; // rax
-  _QWORD *v6; // r9
-  int v7; // edx
-  unsigned int i; // ecx
-  __int64 v9; // r10
-  __int64 v10; // r8
   __int64 result; // rax
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+48h] [rbp+10h]
 
+  v7 = gptiCurrent;
   v0 = -26368;
   v1 = *(_QWORD **)(gptiCurrent + 424LL);
   if ( v1 )
   {
-    v2 = 0LL;
+    v6 = 0LL;
     ProcessWow64Process = PsGetProcessWow64Process(*v1);
-    v4 = ProcessWow64Process
-       ? *(unsigned int *)(ProcessWow64Process + 488)
-       : *(_QWORD *)(PsGetProcessPeb(**(_QWORD **)(gptiCurrent + 424LL)) + 728);
-    ProcessSwitchContext = SbGetProcessSwitchContext(v4);
-    if ( ProcessSwitchContext )
-    {
-      v6 = (_QWORD *)(ProcessSwitchContext + 48);
-      v7 = 0;
-      if ( ProcessSwitchContext != -48 )
-      {
-        for ( i = 0; i < 5; ++i )
-        {
-          v9 = 32LL * i;
-          v10 = *v6 - *(_QWORD *)((char *)&SbSupportedOsList + v9 + 4);
-          if ( *v6 == *(_QWORD *)((char *)&SbSupportedOsList + v9 + 4) )
-            v10 = *(_QWORD *)(ProcessSwitchContext + 56) - *(_QWORD *)((char *)&SbSupportedOsList + v9 + 12);
-          if ( !v10 )
-          {
-            v7 = 1;
-            v2 = (char *)&SbSupportedOsList + v9;
-            break;
-          }
-        }
-      }
-      if ( v7 )
-        v0 = *((_WORD *)v2 + 11) | (*((_WORD *)v2 + 10) << 8);
-    }
+    if ( ProcessWow64Process )
+      v3 = *(unsigned int *)(ProcessWow64Process + 488);
+    else
+      v3 = *(_QWORD *)(PsGetProcessPeb(**(_QWORD **)(gptiCurrent + 424LL)) + 728);
+    ProcessSwitchContext = SbGetProcessSwitchContext(v3);
+    if ( ProcessSwitchContext && (unsigned int)SbGetContextDetailsByGuid(ProcessSwitchContext + 48, &v6) )
+      v0 = *(_WORD *)(v6 + 22) | (*(_WORD *)(v6 + 20) << 8);
   }
   result = v0;
   *(_DWORD *)(gptiCurrent + 636LL) = v0;

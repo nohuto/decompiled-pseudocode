@@ -1,20 +1,19 @@
 /*
- * XREFs of PipDmgFlushQueueAndRestartDevices @ 0x140956ADC
+ * XREFs of PipDmgFlushQueueAndRestartDevices @ 0x1408B1468
  * Callers:
- *     PipDmgConsoleUnlockCallback @ 0x1409569C0 (PipDmgConsoleUnlockCallback.c)
- *     PipDmgReevaluateQueue @ 0x140956BBC (PipDmgReevaluateQueue.c)
+ *     PipDmgConsoleUnlockCallback @ 0x1408B13B0 (PipDmgConsoleUnlockCallback.c)
+ *     PipDmgReevaluateQueue @ 0x1408B152C (PipDmgReevaluateQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PipDmgRequestRestartOnBlockedDevice @ 0x140956BF8 (PipDmgRequestRestartOnBlockedDevice.c)
- *     PipDmgRequestUpdateConsoleLockState @ 0x140956ED0 (PipDmgRequestUpdateConsoleLockState.c)
- *     PiDmaGuardQueueFlush @ 0x14095EB04 (PiDmaGuardQueueFlush.c)
- *     PipDgqFreeEntry @ 0x14095EC14 (PipDgqFreeEntry.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x1408B1568 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     PiDmaGuardQueueFlush @ 0x1408B9154 (PiDmaGuardQueueFlush.c)
+ *     PipDgqFreeEntry @ 0x1408B9258 (PipDgqFreeEntry.c)
  */
 
 PVOID *PipDmgFlushQueueAndRestartDevices()
 {
   PVOID *v0; // rbx
-  int v1; // eax
+  PVOID v1; // rcx
   PVOID *result; // rax
   _QWORD *v3; // rax
   PVOID P[2]; // [rsp+30h] [rbp-10h] BYREF
@@ -26,25 +25,18 @@ PVOID *PipDmgFlushQueueAndRestartDevices()
   PiDmaGuardQueueFlush(P);
   v0 = (PVOID *)P[0];
   if ( P[0] == P )
-    goto LABEL_10;
+    goto LABEL_6;
   do
   {
-    v1 = *((_DWORD *)v0 + 6);
-    if ( (v1 & 2) != 0 )
-    {
-      PipDmgRequestRestartOnBlockedDevice(v0[2]);
-    }
-    else if ( (v1 & 4) != 0 )
-    {
-      PipDmgRequestUpdateConsoleLockState((ULONG_PTR)v0[2]);
-    }
+    v1 = v0[2];
     v0 = (PVOID *)*v0;
+    PipDmgRequestRestartOnBlockedDevice(v1);
   }
   while ( v0 != P );
   while ( 1 )
   {
     v0 = (PVOID *)P[0];
-LABEL_10:
+LABEL_6:
     result = P;
     if ( v0 == P )
       break;

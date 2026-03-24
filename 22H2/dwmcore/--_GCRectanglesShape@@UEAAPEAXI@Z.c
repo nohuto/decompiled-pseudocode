@@ -1,85 +1,131 @@
 /*
- * XREFs of ??_GCRectanglesShape@@UEAAPEAXI@Z @ 0x1800620D0
+ * XREFs of ??_GCRectanglesShape@@UEAAPEAXI@Z @ 0x180081640
  * Callers:
- *     ?GetUnOccludedWorldShape@CRectanglesShape@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1800331A0 (-GetUnOccludedWorldShape@CRectanglesShape@@UEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
- *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800629A0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
- *     ?BuildFromRectFs@CShape@@SAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IPEAPEAV1@@Z @ 0x1801B17EC (-BuildFromRectFs@CShape@@SAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
- *     ?GetUnOccludedWorldShape@CRegionShape@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1801B20A0 (-GetUnOccludedWorldShape@CRegionShape@@UEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAn.c)
- *     ?IntersectWithRect@CRegionShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x1801B22E4 (-IntersectWithRect@CRegionShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
- *     ?IntersectWithRect@CRectanglesShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x1801B26B0 (-IntersectWithRect@CRectanglesShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?IntersectWithRect@CRegionShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x1800195A8 (-IntersectWithRect@CRegionShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
+ *     ?GetUnOccludedWorldShape@CRectanglesShape@@UEBAJV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1800591C0 (-GetUnOccludedWorldShape@CRectanglesShape@@UEBAJV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180080AA0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ?IntersectWithRect@CRectanglesShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x18025CFE0 (-IntersectWithRect@CRectanglesShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?BuildFromRectFs@CShape@@SAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IPEAPEAV1@@Z @ 0x18025D20C (-BuildFromRectFs@CShape@@SAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
+ *     ?GetUnOccludedWorldShape@CRegionShape@@UEBAJV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x18025F650 (-GetUnOccludedWorldShape@CRegionShape@@UEBAJV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ??0CThreadContext@@AEAA@XZ @ 0x1800FED20 (--0CThreadContext@@AEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-CRectanglesShape *__fastcall CRectanglesShape::`scalar deleting destructor'(CRectanglesShape *this, char a2)
+CRectanglesShape *__fastcall CRectanglesShape::`scalar deleting destructor'(
+        CRectanglesShape *this,
+        char a2,
+        unsigned int a3)
 {
-  __int64 v4; // rcx
   void *v5; // rcx
-  __int64 v6; // rcx
-  _QWORD *Value; // rbx
-  CThreadContext *v9; // rax
-  unsigned int v10; // ecx
-  CThreadContext *v11; // rax
+  void *v6; // rdx
+  __int64 v7; // rcx
+  void *v8; // rcx
+  __int64 v9; // rcx
+  _QWORD *Value; // rdi
+  int v12; // eax
+  _QWORD *v13; // rax
+  __int64 v14; // rcx
+  DWORD v15; // ecx
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   *(_QWORD *)this = &CRectanglesShape::`vftable';
   *((_DWORD *)this + 10) = 0;
-  DynArrayImpl<0>::ShrinkToSize((char *)this + 16, 16LL);
-  v4 = *((_QWORD *)this + 8);
-  if ( v4 )
-  {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
-    *((_QWORD *)this + 8) = 0LL;
-  }
   v5 = (void *)*((_QWORD *)this + 2);
-  if ( v5 != *((void **)this + 3) )
+  v6 = (void *)*((_QWORD *)this + 3);
+  if ( v5 != v6 )
   {
     operator delete(v5);
+    v6 = (void *)*((_QWORD *)this + 3);
+    v12 = *((_DWORD *)this + 8);
+    *((_QWORD *)this + 2) = v6;
+    *((_DWORD *)this + 9) = v12;
+  }
+  v7 = *((_QWORD *)this + 8);
+  if ( v7 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    *((_QWORD *)this + 8) = 0LL;
+    v6 = (void *)*((_QWORD *)this + 3);
+  }
+  v8 = (void *)*((_QWORD *)this + 2);
+  if ( v8 != v6 )
+  {
+    operator delete(v8);
     *((_QWORD *)this + 2) = 0LL;
   }
-  v6 = *((_QWORD *)this + 1);
-  if ( v6 )
+  v9 = *((_QWORD *)this + 1);
+  if ( v9 )
   {
     *((_QWORD *)this + 1) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
   }
-  if ( (a2 & 1) != 0 )
+  if ( (a2 & 1) == 0 )
+    return this;
+  if ( (a2 & 4) != 0 )
   {
-    if ( (a2 & 4) != 0 )
-    {
-      __global_delete(this, 0x48uLL);
-    }
-    else
-    {
-      Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
-      if ( !Value )
-      {
-        v9 = (CThreadContext *)operator new(0x190uLL);
-        if ( !v9 || (v11 = CThreadContext::CThreadContext(v9), (Value = v11) == 0LL) )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0x42u, 0LL);
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        }
-        TlsSetValue(CThreadContext::s_dwTlsIndex, v11);
-      }
-      if ( *((_DWORD *)Value + 9) >= *((_DWORD *)Value + 8) )
-      {
-        operator delete(this);
-      }
-      else
-      {
-        *(_QWORD *)this = Value[5];
-        ++*((_DWORD *)Value + 9);
-        Value[5] = this;
-      }
-    }
+    CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x48, a3);
+    return this;
   }
+  Value = TlsGetValue(CThreadContext::s_dwTlsIndex);
+  if ( !Value )
+  {
+    v13 = operator new(0x118uLL);
+    Value = v13;
+    if ( !v13 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x42u, 0LL);
+      ModuleFailFastForHRESULT(2147942414LL, retaddr);
+    }
+    *v13 = 0LL;
+    v13[1] = 0LL;
+    v13[2] = 0LL;
+    v15 = CThreadContext::s_dwTlsIndex;
+    v13[3] = 0LL;
+    v13[4] = 0LL;
+    v13[5] = 0LL;
+    v13[6] = 0LL;
+    v13[7] = 0LL;
+    v13[8] = 0LL;
+    v13[9] = 0LL;
+    v13[10] = 0LL;
+    v13[11] = 0LL;
+    v13[12] = 0LL;
+    v13[13] = 0LL;
+    v13[14] = 0LL;
+    v13[15] = 0LL;
+    v13[16] = 0LL;
+    v13[17] = 0LL;
+    v13[18] = 0LL;
+    v13[19] = 0LL;
+    v13[20] = 0LL;
+    v13[21] = 0LL;
+    v13[22] = 0LL;
+    v13[23] = 0LL;
+    v13[24] = 0LL;
+    v13[25] = 0LL;
+    v13[26] = 0LL;
+    v13[27] = 0LL;
+    v13[28] = 0LL;
+    v13[29] = 0LL;
+    v13[30] = 0LL;
+    v13[31] = 0LL;
+    v13[32] = 0LL;
+    v13[33] = 0LL;
+    v13[34] = 0LL;
+    TlsSetValue(v15, v13);
+  }
+  if ( *((_DWORD *)Value + 3) < *((_DWORD *)Value + 2) )
+  {
+    *(_QWORD *)this = Value[2];
+    ++*((_DWORD *)Value + 3);
+    Value[2] = this;
+    return this;
+  }
+  operator delete(this);
   return this;
 }

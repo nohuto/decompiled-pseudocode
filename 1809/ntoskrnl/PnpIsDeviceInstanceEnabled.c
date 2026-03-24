@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpIsDeviceInstanceEnabled @ 0x1406FE514
+ * XREFs of PnpIsDeviceInstanceEnabled @ 0x1406FE4F4
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406DA66C (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x1408324D0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1406DA64C (IopInitializeDeviceInstanceKey.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408324B0 (PiProfileUpdateDeviceTreeCallback.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
  *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x1406FE69C (PnpGetDeviceInstanceCsConfigFlags.c)
- *     PnpDisableDevice @ 0x140827CB8 (PnpDisableDevice.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x1406FE67C (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     PnpDisableDevice @ 0x140827C98 (PnpDisableDevice.c)
  */
 
 __int64 __fastcall PnpIsDeviceInstanceEnabled(void *a1, unsigned __int16 *a2, int a3)

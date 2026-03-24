@@ -4,8 +4,8 @@
  *     MiOutlawInswaps @ 0x140011E64 (MiOutlawInswaps.c)
  *     MmQueryProcessWorkingSetSwapPages @ 0x14001284C (MmQueryProcessWorkingSetSwapPages.c)
  *     MiOutPageSingleKernelStack @ 0x14007FAB0 (MiOutPageSingleKernelStack.c)
- *     MmInSwapWorkingSet @ 0x1400E4E64 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x1400E5108 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1400E4E84 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
  * Callees:
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAtom@CHwndTargetProp@@MEAAGXZ @ 0x1C0123D60
+ * XREFs of ?GetAtom@CHwndTargetProp@@MEAAGXZ @ 0x1C0137B80
  * Callers:
  *     <none>
  * Callees:

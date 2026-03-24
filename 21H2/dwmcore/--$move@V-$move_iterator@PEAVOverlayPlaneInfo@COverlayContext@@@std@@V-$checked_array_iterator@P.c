@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$move@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@std@@V?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@0@0V12@@Z @ 0x1801B7A8C
+ * XREFs of ??$move@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@std@@V?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@stdext@@V?$move_iterator@PEAVOverlayPlaneInfo@COverlayContext@@@0@0V12@@Z @ 0x180169DC8
  * Callers:
- *     ?clear_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18001D154 (-clear_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneInf.c)
+ *     ?clear_region@?$vector_facade@VOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@VOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18002F9C0 (-clear_region@-$vector_facade@VOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@VOverlayPlaneInf.c)
  * Callees:
- *     ??4OverlayPlaneInfo@COverlayContext@@QEAAAEAV01@$$QEAV01@@Z @ 0x180112A8A (--4OverlayPlaneInfo@COverlayContext@@QEAAAEAV01@$$QEAV01@@Z.c)
+ *     ??4OverlayPlaneInfo@COverlayContext@@QEAAAEAV01@$$QEAV01@@Z @ 0x18016C72C (--4OverlayPlaneInfo@COverlayContext@@QEAAAEAV01@$$QEAV01@@Z.c)
  */
 
 __int64 __fastcall std::move<std::move_iterator<COverlayContext::OverlayPlaneInfo *>,stdext::checked_array_iterator<COverlayContext::OverlayPlaneInfo *>>(
@@ -13,30 +13,20 @@ __int64 __fastcall std::move<std::move_iterator<COverlayContext::OverlayPlaneInf
         _QWORD *a4)
 {
   __int64 v4; // rbx
-  __int64 v8; // rdx
-  bool v9; // cf
-  __int64 v10; // rsi
+  unsigned __int64 v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // rbp
   __int64 result; // rax
   __int64 v12; // xmm1_8
 
   v4 = a2;
-  v8 = 0x6DB6DB6DB6DB6DB7LL * ((a3 - a2) >> 5);
-  if ( v8 >= 0 )
+  v8 = (__int64)((unsigned __int128)((a3 - a2) * (__int128)0x4924924924924925LL) >> 64) >> 6;
+  v9 = (v8 >> 63) + v8;
+  if ( v9 < 0 && a4[2] < (unsigned __int64)-v9 || v9 > 0 && a4[1] - a4[2] < (unsigned __int64)v9 )
   {
-    if ( v8 <= 0 )
-      goto LABEL_7;
-    v9 = a4[1] - a4[2] < (unsigned __int64)v8;
-  }
-  else
-  {
-    v9 = a4[2] < (unsigned __int64)-v8;
-  }
-  if ( v9 )
-  {
-    _o__invalid_parameter_noinfo_noreturn(a1);
+    _o__invalid_parameter_noinfo_noreturn(a1, v9);
     __debugbreak();
   }
-LABEL_7:
   v10 = *a4 + 224LL * a4[2];
   while ( v4 != a3 )
   {
@@ -45,7 +35,7 @@ LABEL_7:
     v4 += 224LL;
   }
   result = a1;
-  a4[2] = 0x6DB6DB6DB6DB6DB7LL * ((v10 - *a4) >> 5);
+  a4[2] = (v10 - *a4) / 224;
   v12 = a4[2];
   *(_OWORD *)a1 = *(_OWORD *)a4;
   *(_QWORD *)(a1 + 16) = v12;

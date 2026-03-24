@@ -1,17 +1,17 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x1400C99E0
+ * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x1400C9A00
  * Callers:
- *     KeExpandKernelStackAndCalloutEx @ 0x1400C99B0 (KeExpandKernelStackAndCalloutEx.c)
- *     MiSwapStackPage @ 0x14012D160 (MiSwapStackPage.c)
- *     KeExpandKernelStackAndCallout @ 0x14013B080 (KeExpandKernelStackAndCallout.c)
- *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x14014F7A8 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
- *     MiDoStackCopy @ 0x14015E7E0 (MiDoStackCopy.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x1400C99D0 (KeExpandKernelStackAndCalloutEx.c)
+ *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
+ *     KeExpandKernelStackAndCallout @ 0x14013B0A0 (KeExpandKernelStackAndCallout.c)
+ *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x14014F7C8 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
+ *     MiDoStackCopy @ 0x14015E800 (MiDoStackCopy.c)
  * Callees:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AC0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiFatalFilter @ 0x14028F2E8 (KiFatalFilter.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AE0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiFatalFilter @ 0x14028F3E8 (KiFatalFilter.c)
  */
 
 __int64 __fastcall KeExpandKernelStackAndCalloutInternal(

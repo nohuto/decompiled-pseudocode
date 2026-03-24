@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PrintDisposeMessage@FxIoTarget@@IEAAXXZ @ 0x1C0074104
+ * XREFs of ?PrintDisposeMessage@FxIoTarget@@IEAAXXZ @ 0x1C00657D4
  * Callers:
- *     ?DecrementIoCount@FxIoTarget@@IEAAXXZ @ 0x1C000505C (-DecrementIoCount@FxIoTarget@@IEAAXXZ.c)
+ *     ?DecrementIoCount@FxIoTarget@@IEAAXXZ @ 0x1C000C9A0 (-DecrementIoCount@FxIoTarget@@IEAAXXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
  */
 
 void __fastcall FxIoTarget::PrintDisposeMessage(FxIoTarget *this)

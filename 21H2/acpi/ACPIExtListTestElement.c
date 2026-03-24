@@ -1,14 +1,13 @@
 /*
- * XREFs of ACPIExtListTestElement @ 0x1C000A7D4
+ * XREFs of ACPIExtListTestElement @ 0x1C001A904
  * Callers:
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C000A564 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIDetectDockDevices @ 0x1C000A628 (ACPIDetectDockDevices.c)
- *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C000A724 (ACPIInternalFindDeviceExtensionNoLock.c)
- *     EnableDisableDeviceTreeRegionSpace @ 0x1C002963C (EnableDisableDeviceTreeRegionSpace.c)
- *     ACPIInitDeleteChildDeviceList @ 0x1C002D08C (ACPIInitDeleteChildDeviceList.c)
- *     ACPIDockFindCorrespondingDock @ 0x1C0048FA8 (ACPIDockFindCorrespondingDock.c)
- *     ACPIBuildSurpriseRemovedExtension @ 0x1C004B044 (ACPIBuildSurpriseRemovedExtension.c)
- *     ACPIDetectEjectDevices @ 0x1C004E440 (ACPIDetectEjectDevices.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C0018210 (EnableDisableDeviceTreeRegionSpace.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     ACPIDetectDockDevices @ 0x1C001A800 (ACPIDetectDockDevices.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002D204 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIDockFindCorrespondingDock @ 0x1C002D274 (ACPIDockFindCorrespondingDock.c)
+ *     ACPIDetectEjectDevices @ 0x1C004F600 (ACPIDetectEjectDevices.c)
  * Callees:
  *     <none>
  */
@@ -28,8 +27,8 @@ char __fastcall ACPIExtListTestElement(__int64 a1, char a2)
   {
     if ( *(_DWORD *)(a1 + 48) == 1 )
     {
-      if ( *(_DWORD *)(v2 + 732) )
-        _InterlockedIncrement((volatile signed __int32 *)(v2 + 732));
+      if ( *(_DWORD *)(v2 + 692) )
+        _InterlockedIncrement((volatile signed __int32 *)(v2 + 692));
       KeReleaseSpinLock(*(PKSPIN_LOCK *)(a1 + 16), *(_BYTE *)(a1 + 24));
     }
     return 1;

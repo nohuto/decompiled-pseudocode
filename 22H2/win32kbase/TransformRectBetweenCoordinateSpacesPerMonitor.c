@@ -1,11 +1,11 @@
 /*
- * XREFs of TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C000E09C
+ * XREFs of TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C0070FEC
  * Callers:
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
- *     TransformOffscreenAdjacentRect @ 0x1C013F50C (TransformOffscreenAdjacentRect.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
+ *     TransformOffscreenAdjacentRect @ 0x1C00C0C3C (TransformOffscreenAdjacentRect.c)
  * Callees:
- *     LogicalToPhysicalDPIRect @ 0x1C0059F20 (LogicalToPhysicalDPIRect.c)
- *     PhysicalToLogicalDPIRect @ 0x1C009AB80 (PhysicalToLogicalDPIRect.c)
+ *     LogicalToPhysicalDPIRect @ 0x1C00711D0 (LogicalToPhysicalDPIRect.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C0071310 (PhysicalToLogicalDPIRect.c)
  */
 
 __int64 TransformRectBetweenCoordinateSpacesPerMonitor(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, ...)

@@ -1,105 +1,96 @@
 /*
- * XREFs of IoVerifyVolume @ 0x140947760
+ * XREFs of IoVerifyVolume @ 0x140893F30
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IopDecrementVpbRefCount @ 0x1402AFF60 (IopDecrementVpbRefCount.c)
- *     IopDereferenceVpbAndFree @ 0x140319D70 (IopDereferenceVpbAndFree.c)
- *     IopReferenceVerifyVpb @ 0x140555BDC (IopReferenceVerifyVpb.c)
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
- *     PoVolumeDevice @ 0x14087269C (PoVolumeDevice.c)
- *     IopCreateVpb @ 0x140874D70 (IopCreateVpb.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IopDecrementVpbRefCount @ 0x1402D5240 (IopDecrementVpbRefCount.c)
+ *     IopDereferenceVpbAndFree @ 0x1402F4AA0 (IopDereferenceVpbAndFree.c)
+ *     IopReferenceVerifyVpb @ 0x140500C54 (IopReferenceVerifyVpb.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
+ *     PoVolumeDevice @ 0x14078018C (PoVolumeDevice.c)
+ *     IopCreateVpb @ 0x140781300 (IopCreateVpb.c)
  */
 
 NTSTATUS __stdcall IoVerifyVolume(PDEVICE_OBJECT DeviceObject, BOOLEAN AllowRawMount)
 {
-  struct _KEVENT *p_DeviceLock; // r12
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v6; // ebx
-  __int64 v7; // rdx
-  PDEVICE_OBJECT v8; // rbx
-  struct _DEVICE_OBJECT *AttachedDevice; // rax
+  struct _KEVENT *p_DeviceLock; // r12
+  NTSTATUS v6; // edi
+  struct _DEVICE_OBJECT *v7; // rdi
+  struct _DEVICE_OBJECT *i; // rax
   __int64 Irp; // rax
-  IRP *v11; // rsi
-  __int64 v12; // rdx
-  __int64 v13; // r14
-  __int128 v15; // [rsp+30h] [rbp-30h] BYREF
+  IRP *v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // r14
+  __int128 v14; // [rsp+30h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v17; // [rsp+90h] [rbp+30h] BYREF
-  PDEVICE_OBJECT DeviceObjecta; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v16; // [rsp+A0h] [rbp+40h] BYREF
+  PDEVICE_OBJECT DeviceObjecta; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v18; // [rsp+B8h] [rbp+58h] BYREF
 
-  p_DeviceLock = &DeviceObject->DeviceLock;
   DeviceObjecta = 0LL;
-  v17 = 0LL;
+  v16 = 0LL;
   memset(&Event, 0, sizeof(Event));
-  v15 = 0LL;
+  v14 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
+  p_DeviceLock = &DeviceObject->DeviceLock;
   KeWaitForSingleObject(&DeviceObject->DeviceLock, Executive, 0, 0, 0LL);
-  if ( !IopReferenceVerifyVpb((__int64)DeviceObject, (ULONG_PTR *)&v17, &DeviceObjecta) )
+  if ( !IopReferenceVerifyVpb((__int64)DeviceObject, (ULONG_PTR *)&v16, &DeviceObjecta) )
   {
     v6 = 0;
 LABEL_11:
     if ( (int)IopCreateVpb((__int64)DeviceObject) < 0
       || (PoVolumeDevice((__int64)DeviceObject),
-          v17 = 0LL,
-          (int)IopMountVolume((ULONG_PTR)DeviceObject, AllowRawMount, 1, 0, (ULONG_PTR *)&v17) < 0) )
+          v18 = 0LL,
+          (int)IopMountVolume((ULONG_PTR)DeviceObject, AllowRawMount, 1, 0, (ULONG_PTR *)&v18) < 0) )
     {
       DeviceObject->Flags &= ~2u;
     }
-    else if ( v17 )
+    else if ( v18 )
     {
-      IopDecrementVpbRefCount(v17, 1);
+      IopDecrementVpbRefCount(v18, 1);
     }
     goto LABEL_16;
   }
   KeInitializeEvent(&Event, NotificationEvent, 0);
-  v8 = DeviceObjecta;
-  if ( DeviceObjecta->AttachedDevice )
-  {
-    AttachedDevice = DeviceObjecta->AttachedDevice;
-    do
-    {
-      v8 = AttachedDevice;
-      AttachedDevice = AttachedDevice->AttachedDevice;
-    }
-    while ( AttachedDevice );
-  }
-  LOBYTE(v7) = v8->StackSize;
-  Irp = IopAllocateIrpExReturn((__int64)v8, v7, 0LL);
-  v11 = (IRP *)Irp;
+  v7 = DeviceObjecta;
+  for ( i = DeviceObjecta->AttachedDevice; i; i = i->AttachedDevice )
+    v7 = i;
+  Irp = IopAllocateIrpExReturn();
+  v10 = (IRP *)Irp;
   if ( !Irp )
   {
-    IopDereferenceVpbAndFree(v17);
+    IopDereferenceVpbAndFree(v16);
     v6 = -1073741670;
     goto LABEL_16;
   }
   *(_DWORD *)(Irp + 16) = 66;
   *(_BYTE *)(Irp + 64) = 0;
   *(_QWORD *)(Irp + 80) = &Event;
-  *(_QWORD *)(Irp + 72) = &v15;
-  v12 = *(_QWORD *)(Irp + 184);
-  v13 = v17;
+  *(_QWORD *)(Irp + 72) = &v14;
+  v11 = *(_QWORD *)(Irp + 184);
+  v12 = v16;
   *(_QWORD *)(Irp + 152) = KeGetCurrentThread();
-  *(_BYTE *)(v12 - 70) = AllowRawMount != 0;
-  *(_QWORD *)(v12 - 56) = DeviceObjecta;
-  *(_WORD *)(v12 - 72) = 525;
-  *(_QWORD *)(v12 - 64) = v13;
+  *(_BYTE *)(v11 - 70) = AllowRawMount != 0;
+  *(_QWORD *)(v11 - 56) = DeviceObjecta;
+  *(_WORD *)(v11 - 72) = 525;
+  *(_QWORD *)(v11 - 64) = v12;
   IopQueueThreadIrp(Irp);
-  v6 = IofCallDriver(v8, v11);
+  v6 = IofCallDriver(v7, v10);
   if ( v6 == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    v6 = v15;
+    v6 = v14;
   }
-  IopDereferenceVpbAndFree(v13);
+  IopDereferenceVpbAndFree(v12);
   if ( v6 == -1073741806 )
     goto LABEL_11;
 LABEL_16:

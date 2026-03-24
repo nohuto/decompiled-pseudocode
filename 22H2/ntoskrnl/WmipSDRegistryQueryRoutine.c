@@ -1,25 +1,25 @@
 /*
- * XREFs of WmipSDRegistryQueryRoutine @ 0x1407B4490
+ * XREFs of WmipSDRegistryQueryRoutine @ 0x140676E00
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     SeValidSecurityDescriptor @ 0x1407B4510 (SeValidSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SeValidSecurityDescriptor @ 0x140676E80 (SeValidSecurityDescriptor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipSDRegistryQueryRoutine(__int64 a1, int a2, void *a3, ULONG a4, __int64 a5, _QWORD *a6)
 {
   unsigned int v6; // ebx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v6 = 0;
   if ( a2 == 3 && a3 && SeValidSecurityDescriptor(a4, a3) )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, a4, 1885957463LL);
-    *a6 = Pool2;
-    if ( Pool2 )
-      memmove(Pool2, a3, a4);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, a4, 0x70696D57u);
+    *a6 = PoolWithTag;
+    if ( PoolWithTag )
+      memmove(PoolWithTag, a3, a4);
     else
       return (unsigned int)-1073741670;
   }

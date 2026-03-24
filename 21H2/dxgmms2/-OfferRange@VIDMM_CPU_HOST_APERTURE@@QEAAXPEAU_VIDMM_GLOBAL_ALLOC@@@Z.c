@@ -1,7 +1,7 @@
 /*
- * XREFs of ?OfferRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C001A564
+ * XREFs of ?OfferRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0029520
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C00880D0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0065C20 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ void __fastcall VIDMM_CPU_HOST_APERTURE::OfferRange(VIDMM_CPU_HOST_APERTURE *thi
   _QWORD *v5; // rax
   __int64 v6; // rcx
 
-  v2 = (_QWORD *)((char *)a2 + 472);
+  v2 = (_QWORD *)((char *)a2 + 464);
   v3 = *v2;
   if ( *(_QWORD **)(*v2 + 8LL) != v2
     || (v4 = (_QWORD *)v2[1], (_QWORD *)*v4 != v2)

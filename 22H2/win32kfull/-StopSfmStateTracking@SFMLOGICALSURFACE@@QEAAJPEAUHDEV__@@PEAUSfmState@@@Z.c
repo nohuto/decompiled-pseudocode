@@ -1,24 +1,26 @@
 /*
- * XREFs of ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0079E0C
+ * XREFs of ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0016DB8
  * Callers:
- *     GreSfmCloseCompositorRef @ 0x1C0079C9C (GreSfmCloseCompositorRef.c)
- *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C007B35C (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
- *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C007C7E0 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
- *     GrepSfmRemoveSurfaces @ 0x1C00BD0D0 (GrepSfmRemoveSurfaces.c)
- *     GreHintSpriteShape @ 0x1C00D41D4 (GreHintSpriteShape.c)
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C00D8400 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
- *     SFMLOGICALSURFACEREF_vDestructorWrap @ 0x1C02689F0 (SFMLOGICALSURFACEREF_vDestructorWrap.c)
+ *     GreSfmCloseCompositorRef @ 0x1C0015168 (GreSfmCloseCompositorRef.c)
+ *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C0015944 (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C00907A0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C00BDE38 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
+ *     SFMLOGICALSURFACEREF_vDestructorWrap @ 0x1C012E560 (SFMLOGICALSURFACEREF_vDestructorWrap.c)
+ *     GrepSfmRemoveSurfaces @ 0x1C01333C0 (GrepSfmRemoveSurfaces.c)
  * Callees:
- *     ?SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z @ 0x1C02663A4 (-SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z.c)
+ *     ?SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z @ 0x1C026DE2C (-SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z.c)
  */
 
 __int64 __fastcall SFMLOGICALSURFACE::StopSfmStateTracking(SFMLOGICALSURFACE *this, HDEV a2, struct SfmState *a3)
 {
+  HDEV v4; // rsi
   SFMLOGICALSURFACE **v6; // rdx
   SFMLOGICALSURFACE **v7; // rax
+  int v8; // eax
 
   *((_DWORD *)this + 61) &= ~8u;
-  DEC_SHARE_REF_CNT(this);
+  v4 = a2;
+  DEC_SHARE_REF_CNT(this, a2);
   --*((_DWORD *)a3 + 14);
   v6 = (SFMLOGICALSURFACE **)*((_QWORD *)this + 4);
   if ( v6[1] != (SFMLOGICALSURFACE *)((char *)this + 32)
@@ -28,11 +30,15 @@ __int64 __fastcall SFMLOGICALSURFACE::StopSfmStateTracking(SFMLOGICALSURFACE *th
   }
   *v7 = (SFMLOGICALSURFACE *)v6;
   v6[1] = (SFMLOGICALSURFACE *)v7;
-  if ( (*((_DWORD *)this + 61) & 0x80u) != 0 )
+  v8 = *((_DWORD *)this + 61);
+  if ( (v8 & 0x80u) != 0 )
   {
-    if ( a2 || (a2 = (HDEV)*((_QWORD *)this + 3)) != 0LL )
-      SpNotifyLSurfaceTracking(a2, *(HLSURF *)this, 0);
-    *((_DWORD *)this + 61) &= ~0x80u;
+    if ( v4 || (v4 = (HDEV)*((_QWORD *)this + 3)) != 0LL )
+    {
+      SpNotifyLSurfaceTracking(v4, *(HLSURF *)this, 0);
+      v8 = *((_DWORD *)this + 61);
+    }
+    *((_DWORD *)this + 61) = v8 & 0xFFFFFF7F;
   }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_Cleanup @ 0x1C004FA20
+ * XREFs of Crashdump_UsbDevice_Cleanup @ 0x1C004CF48
  * Callers:
- *     Crashdump_Cleanup @ 0x1C004BD10 (Crashdump_Cleanup.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_Endpoint_StopEndpoint @ 0x1C004F814 (Crashdump_Endpoint_StopEndpoint.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Endpoint_StopEndpoint @ 0x1C004CD3C (Crashdump_Endpoint_StopEndpoint.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_Cleanup(__int64 a1)

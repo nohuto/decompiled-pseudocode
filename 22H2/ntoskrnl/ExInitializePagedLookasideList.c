@@ -1,14 +1,15 @@
 /*
- * XREFs of ExInitializePagedLookasideList @ 0x1407D71C0
+ * XREFs of ExInitializePagedLookasideList @ 0x1406FB9F0
  * Callers:
- *     WmipInitializeAllocs @ 0x140B3C184 (WmipInitializeAllocs.c)
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
- *     FsRtlInitSystem @ 0x140B693F0 (FsRtlInitSystem.c)
- *     FsRtlInitializeLargeMcbs @ 0x140B6982C (FsRtlInitializeLargeMcbs.c)
- *     FsRtlInitializeTunnels @ 0x140B698CC (FsRtlInitializeTunnels.c)
- *     FsRtlInitializeFileLocks @ 0x140B699BC (FsRtlInitializeFileLocks.c)
+ *     AlpcpInitSystem @ 0x1407CDF6C (AlpcpInitSystem.c)
+ *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
+ *     FsRtlInitializeLargeMcbs @ 0x140A6BE18 (FsRtlInitializeLargeMcbs.c)
+ *     FsRtlInitializeFileLocks @ 0x140A6BEB4 (FsRtlInitializeFileLocks.c)
+ *     FsRtlInitializeTunnels @ 0x140A6C04C (FsRtlInitializeTunnels.c)
+ *     WmipInitializeAllocs @ 0x140A73064 (WmipInitializeAllocs.c)
+ *     RtlInitializeRangeListPackage @ 0x140A936EC (RtlInitializeRangeListPackage.c)
  * Callees:
- *     ExInitializePagedLookasideListInternal @ 0x140361260 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1403522C0 (ExInitializePagedLookasideListInternal.c)
  */
 
 void __stdcall ExInitializePagedLookasideList(
@@ -22,8 +23,8 @@ void __stdcall ExInitializePagedLookasideList(
 {
   ExInitializePagedLookasideListInternal(
     (__int64)Lookaside,
-    (PVOID (__fastcall *)(int, SIZE_T, ULONG))Allocate,
-    Free,
+    Allocate,
+    (void (__stdcall *)(PVOID, ULONG))Free,
     Flags,
     Size,
     Tag,

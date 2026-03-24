@@ -1,17 +1,17 @@
 /*
- * XREFs of ?InitializeWorker@FxInterrupt@@QEAAJPEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C001ED40
+ * XREFs of ?InitializeWorker@FxInterrupt@@QEAAJPEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C0089878
  * Callers:
- *     ?Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C001EC3C (-Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
+ *     ?Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C0089758 (-Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C00193BC (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
- *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C0019730 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
- *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C00199A0 (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
- *     ?_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPEAUWDFWAITLOCK__@@@Z @ 0x1C00233E4 (-_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPE.c)
- *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0026218 (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C0013ED8 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
+ *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C0013F60 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
+ *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0014B18 (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C003BC4C (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ *     ?_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPEAUWDFWAITLOCK__@@@Z @ 0x1C00622F0 (-_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPE.c)
  */
 
 __int64 __fastcall FxInterrupt::InitializeWorker(
@@ -66,28 +66,30 @@ __int64 __fastcall FxInterrupt::InitializeWorker(
     FxObjectHandleGetPtr(m_Globals, (unsigned __int64)SpinLock, 0x1024u, (void **)&waitLock);
     *((_BYTE *)waitLock + 121) = 1;
     p_m_Lock = (unsigned __int64 *)(waitLock + 28);
-    goto LABEL_7;
+LABEL_9:
+    this->m_SpinLock = p_m_Lock;
+    goto LABEL_10;
   }
   if ( !PassiveHandling )
   {
     p_m_Lock = &this->m_BuiltInSpinLock.m_Lock;
-LABEL_7:
-    this->m_SpinLock = p_m_Lock;
+    goto LABEL_9;
   }
+LABEL_10:
   v12 = FxDeviceBase::_SearchForDevice(Parent, &callbacks);
   m_DeviceBase = this->m_DeviceBase;
   if ( !m_DeviceBase || v12 != m_DeviceBase || (unsigned __int16)(m_Type - 4098) > 1u )
   {
     ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(Parent);
     v20 = -1073741811;
-    WPP_IFR_SF_qqd(
+    WPP_IFR_SF_qid(
       m_Globals,
       2u,
       0xCu,
       0x12u,
       WPP_InterruptObject_cpp_Traceguids,
       ObjectHandleUnchecked,
-      Configuration,
+      (__int64)Configuration,
       -1073741811);
     return v20;
   }
@@ -138,20 +140,17 @@ LABEL_7:
         this->m_DisposeWaitLock = 1;
       }
     }
-    if ( this->m_EvtInterruptWorkItem || FxLibraryGlobals.IsUserModeFramework && this->m_EvtInterruptDpc )
-    {
-      v19 = FxSystemWorkItem::_Create(
-              m_Globals,
-              this->m_DeviceBase->m_DeviceObject.m_DeviceObject,
-              &this->m_SystemWorkItem);
-      v20 = v19;
-      if ( v19 < 0 )
-      {
-        WPP_IFR_SF_d(m_Globals, 2u, 0xCu, 0x14u, WPP_InterruptObject_cpp_Traceguids, v19);
-        return v20;
-      }
-    }
-    return 0LL;
+    if ( !this->m_EvtInterruptWorkItem && (!FxLibraryGlobals.IsUserModeFramework || !this->m_EvtInterruptDpc) )
+      return 0LL;
+    v19 = FxSystemWorkItem::_Create(
+            m_Globals,
+            this->m_DeviceBase->m_DeviceObject.m_DeviceObject,
+            &this->m_SystemWorkItem);
+    v20 = v19;
+    if ( v19 >= 0 )
+      return 0LL;
+    WPP_IFR_SF_d(m_Globals, 2u, 0xCu, 0x14u, WPP_InterruptObject_cpp_Traceguids, v19);
+    return v20;
   }
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpGrowMapBufferWorker @ 0x140505810
+ * XREFs of HalpGrowMapBufferWorker @ 0x1404B8F60
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404584D6 (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x140512444 (HalpDmaProcessMapRegisterQueueV3.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x1409094F8 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x1409095FC (HalpDmaGrowScatterMapBuffers.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6358 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCCE8 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140865364 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140865468 (HalpDmaGrowScatterMapBuffers.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall HalpGrowMapBufferWorker(PVOID P)
+void __fastcall HalpGrowMapBufferWorker(_QWORD *P)
 {
   __int64 v2; // rdi
   __int64 v3; // rdx
@@ -25,7 +25,7 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
   int v11; // eax
   bool v12; // zf
 
-  v2 = *((_QWORD *)P + 4);
+  v2 = P[4];
   v3 = (*((_DWORD *)P + 11) + 16) & 0xFFFFF;
   if ( *((_BYTE *)P + 40) )
     HalpDmaGrowScatterMapBuffers(v2, v3);
@@ -43,7 +43,8 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
   v7 = *((_DWORD *)P + 12);
   if ( v7 == 2 )
   {
-    HalpDmaProcessMapRegisterQueueV2(v2, *((_BYTE *)P + 40));
+    LOBYTE(v4) = *((_BYTE *)P + 40);
+    HalpDmaProcessMapRegisterQueueV2(v2, v4);
   }
   else if ( v7 == 3 )
   {

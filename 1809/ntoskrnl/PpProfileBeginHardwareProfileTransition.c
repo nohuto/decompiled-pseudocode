@@ -1,8 +1,8 @@
 /*
- * XREFs of PpProfileBeginHardwareProfileTransition @ 0x1408327B4
+ * XREFs of PpProfileBeginHardwareProfileTransition @ 0x140832794
  * Callers:
- *     PipProcessStartPhase1 @ 0x1406EBCD0 (PipProcessStartPhase1.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase1 @ 0x1406EBCB0 (PipProcessStartPhase1.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  */

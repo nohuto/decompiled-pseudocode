@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockNestedProtoPoolPage @ 0x14035A01C
+ * XREFs of MiUnlockNestedProtoPoolPage @ 0x14032161C
  * Callers:
- *     MiUnlockDataCopyPages @ 0x14034FACC (MiUnlockDataCopyPages.c)
- *     MiCombineWithStandbyExisting @ 0x140359B7C (MiCombineWithStandbyExisting.c)
+ *     MiCopyDataPageToImagePage @ 0x140284A68 (MiCopyDataPageToImagePage.c)
+ *     MiConvertStandbyToProto @ 0x1403668C8 (MiConvertStandbyToProto.c)
  * Callees:
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402A9250 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiUnlockNestedProtoPoolPage(__int64 a1)

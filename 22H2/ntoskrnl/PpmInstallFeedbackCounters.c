@@ -1,135 +1,114 @@
 /*
- * XREFs of PpmInstallFeedbackCounters @ 0x1403914F8
+ * XREFs of PpmInstallFeedbackCounters @ 0x1403C0ED8
  * Callers:
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     PpmPerfFeedbackCounterRead @ 0x14033C840 (PpmPerfFeedbackCounterRead.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034EB5C (PpmContinueActiveTimeAccumulation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x1403449DC (PpmContinueActiveTimeAccumulation.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     PpmPerfFeedbackCounterRead @ 0x1403C105C (PpmPerfFeedbackCounterRead.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
+void __fastcall PpmInstallFeedbackCounters(__int64 a1, _QWORD *a2)
 {
-  __int64 v5; // rcx
+  __int64 v4; // rcx
   unsigned __int8 CurrentIrql; // si
-  __int64 v8; // r15
-  __int64 v9; // rbx
+  __int64 v6; // r12
+  __int64 v7; // rbx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int16 v11; // bp
-  volatile signed __int32 *v12; // rcx
-  bool v13; // bp
-  __int64 v14; // rdx
-  __int64 v15; // r14
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *v17; // r8
-  signed __int32 v18; // eax
-  signed __int32 v19; // ett
+  __int64 v9; // r8
+  __int16 v10; // bp
+  bool v11; // bp
+  __int64 v12; // rdx
+  __int64 v13; // r14
+  __int64 v14; // rax
   _DWORD *SchedulerAssist; // r9
-  __int64 v21; // rax
-  unsigned __int8 v22; // al
-  struct _KPRCB *v23; // r9
-  _DWORD *v24; // r8
-  int v25; // eax
-  bool v26; // zf
-  int v27; // [rsp+20h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY v28; // [rsp+28h] [rbp-60h] BYREF
+  unsigned __int8 v16; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
+  int v21; // [rsp+20h] [rbp-68h] BYREF
+  struct _GROUP_AFFINITY v22; // [rsp+28h] [rbp-60h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
-  int v30; // [rsp+80h] [rbp-8h]
+  int v24; // [rsp+80h] [rbp-8h]
 
-  v27 = 0;
-  v5 = *(unsigned int *)(a1 + 36);
-  v28 = 0LL;
-  *(_DWORD *)v28.Reserved = 0;
-  LODWORD(v5) = KiProcessorIndexToNumberMappingTable[v5];
-  v28.Reserved[2] = 0;
-  *(_DWORD *)&v28.Group = (unsigned __int16)((unsigned int)v5 >> 6);
-  v28.Mask = 1LL << (v5 & 0x3F);
+  v21 = 0;
+  v4 = *(unsigned int *)(a1 + 36);
+  v22 = 0LL;
+  *(_DWORD *)v22.Reserved = 0;
+  LODWORD(v4) = KiProcessorIndexToNumberMappingTable[v4];
+  *(_DWORD *)&v22.Group = (unsigned __int16)((unsigned int)v4 >> 6);
+  v22.Reserved[2] = 0;
+  v22.Mask = 1LL << (v4 & 0x3F);
   PreviousAffinity = 0LL;
-  KeSetSystemGroupAffinityThread(&v28, &PreviousAffinity);
+  KeSetSystemGroupAffinityThread(&v22, &PreviousAffinity);
   CurrentIrql = KeGetCurrentIrql();
-  v8 = 2LL;
+  v6 = 2LL;
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v21) = 4;
-    if ( CurrentIrql != 2 )
-      v21 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v21;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v9 = a1 + 33680;
+  v7 = a1 + 32840;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  PpmContinueActiveTimeAccumulation(a1, PerformanceCounter.QuadPart);
-  v11 = v30;
+  PpmContinueActiveTimeAccumulation(a1, PerformanceCounter.QuadPart, v9);
+  v10 = v24;
   _disable();
-  v12 = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-  if ( v12 )
-    _InterlockedOr(v12, 0x200000u);
-  v13 = (v11 & 0x200) != 0;
-  KxAcquireSpinLock((PKSPIN_LOCK)v9);
-  v15 = v9 - (_QWORD)a2;
+  v11 = (v10 & 0x200) != 0;
+  KxAcquireSpinLock((PKSPIN_LOCK)v7);
+  v13 = v7 - (_QWORD)a2;
   do
   {
+    v14 = *a2;
     if ( *a2 )
     {
-      if ( *(_BYTE *)(*a2 + 34) )
-        *(_BYTE *)(v9 + 137) = 1;
-      *(__int64 *)((char *)a2 + v15 + 24) = *a2;
-      LOBYTE(v14) = 1;
-      *(__int64 *)((char *)a2 + v15 + 64) = 100LL * *(_QWORD *)(v9 + 48);
-      PpmPerfFeedbackCounterRead(*a2, v14, &v27);
+      if ( *(_BYTE *)(v14 + 34) )
+      {
+        *(_BYTE *)(v7 + 137) = 1;
+        v14 = *a2;
+      }
+      *(_QWORD *)((char *)a2 + v13 + 24) = v14;
+      LOBYTE(v12) = 1;
+      *(_QWORD *)((char *)a2 + v13 + 64) = 100LL * *(_QWORD *)(v7 + 48);
+      PpmPerfFeedbackCounterRead(*a2, v12, &v21);
     }
     ++a2;
-    --v8;
+    --v6;
   }
-  while ( v8 );
-  if ( *(_QWORD *)(v9 + 32) )
+  while ( v6 );
+  if ( *(_QWORD *)(v7 + 32) )
   {
-    *(_BYTE *)(v9 + 136) = 1;
+    *(_BYTE *)(v7 + 136) = 1;
   }
-  else if ( *(_QWORD *)(v9 + 24) )
+  else if ( *(_QWORD *)(v7 + 24) )
   {
-    *(_BYTE *)(v9 + 136) = 0;
+    *(_BYTE *)(v7 + 136) = 0;
   }
-  *(_BYTE *)(v9 + 138) = a3;
-  KxReleaseSpinLock((volatile signed __int64 *)v9);
-  if ( v13 )
-  {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v17 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( v17 )
-    {
-      _m_prefetchw(v17);
-      v18 = *v17;
-      do
-      {
-        v19 = v18;
-        v18 = _InterlockedCompareExchange(v17, v18 & 0xFFDFFFFF, v18);
-      }
-      while ( v19 != v18 );
-      if ( (v18 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-    }
+  KxReleaseSpinLock((PKSPIN_LOCK)v7);
+  if ( v11 )
     _enable();
-  }
   if ( KiIrqlFlags )
   {
-    v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v23 = KeGetCurrentPrcb();
-      v24 = v23->SchedulerAssist;
-      v25 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v26 = (v25 & v24[5]) == 0;
-      v24[5] &= v25;
-      if ( v26 )
-        KiRemoveSystemWorkPriorityKick(v23);
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v18 = CurrentPrcb->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v20 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
+        if ( v20 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

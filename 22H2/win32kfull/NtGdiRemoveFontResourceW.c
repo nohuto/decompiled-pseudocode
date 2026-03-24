@@ -1,17 +1,17 @@
 /*
- * XREFs of NtGdiRemoveFontResourceW @ 0x1C02C4590
+ * XREFs of NtGdiRemoveFontResourceW @ 0x1C02AF680
  * Callers:
  *     <none>
  * Callees:
- *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C009A9A4 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     GreRemoveFontResourceW @ 0x1C028E63C (GreRemoveFontResourceW.c)
- *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02C1B54 (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010E6E8 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     GreRemoveFontResourceW @ 0x1C028AF00 (GreRemoveFontResourceW.c)
+ *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02AD98C (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
  */
 
 __int64 __fastcall NtGdiRemoveFontResourceW(
-        const unsigned __int16 *a1,
+        WCHAR *a1,
         unsigned int a2,
         int a3,
         unsigned int a4,
@@ -21,18 +21,15 @@ __int64 __fastcall NtGdiRemoveFontResourceW(
   struct tagDESIGNVECTOR *v9; // rsi
   unsigned __int16 *v10; // rbx
   unsigned int v11; // edi
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  unsigned int v14; // r15d
-  _BYTE v17[4]; // [rsp+70h] [rbp-138h] BYREF
-  int v18; // [rsp+74h] [rbp-134h]
-  unsigned __int16 v19[80]; // [rsp+C0h] [rbp-E8h] BYREF
+  unsigned int v12; // r15d
+  _DWORD v15[20]; // [rsp+70h] [rbp-138h] BYREF
+  unsigned __int16 v16[80]; // [rsp+C0h] [rbp-E8h] BYREF
 
   v9 = a6;
   v10 = 0LL;
   v11 = 0;
-  memset_0(v17, 0, 0x48uLL);
-  v14 = 0;
+  memset(v15, 0, 0x48uLL);
+  v12 = 0;
   if ( a2 > 1 )
   {
     if ( a2 > 0x50 )
@@ -42,19 +39,19 @@ __int64 __fastcall NtGdiRemoveFontResourceW(
     }
     else
     {
-      v10 = v19;
+      v10 = v16;
     }
     if ( v10 )
       v11 = bCheckAndCapThePath(v10, a1, a2, a3);
   }
   if ( v11 && a6 )
   {
-    if ( (unsigned int)ProbeAndReadDesignVector((struct tagDESIGNVECTOR *)v17, a6) )
+    if ( (unsigned int)ProbeAndReadDesignVector((struct tagDESIGNVECTOR *)v15, a6) )
     {
-      if ( v18 )
+      if ( v15[1] )
       {
-        v9 = (struct tagDESIGNVECTOR *)v17;
-        v14 = 4 * v18 + 8;
+        v9 = (struct tagDESIGNVECTOR *)v15;
+        v12 = 4 * v15[1] + 8;
       }
       else
       {
@@ -67,8 +64,8 @@ __int64 __fastcall NtGdiRemoveFontResourceW(
     }
   }
   if ( v11 )
-    v11 = GreRemoveFontResourceW((Gre::Base *)v10, a2, a3, a4, a5, v9, v14);
-  if ( v10 && v10 != v19 )
-    FreeTmpBuffer(v10, v12, v13);
+    v11 = GreRemoveFontResourceW(v10, a2, a3, a4, a5, v9, v12);
+  if ( v10 && v10 != v16 )
+    FreeTmpBuffer(v10);
   return v11;
 }

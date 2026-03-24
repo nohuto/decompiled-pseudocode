@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00A7790
+ * XREFs of ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C003FC24
  * Callers:
- *     _ChangeWindowMessageFilter @ 0x1C00A6E9C (_ChangeWindowMessageFilter.c)
- *     _ChangeWindowMessageFilterEx @ 0x1C00A70D8 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F428 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilter @ 0x1C003F5C0 (_ChangeWindowMessageFilter.c)
  * Callees:
- *     ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C00A78B8 (-MsgLookupTableAlloc@@YAPEAXI@Z.c)
+ *     ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C003FD4C (-MsgLookupTableAlloc@@YAPEAXI@Z.c)
  */
 
 __int64 __fastcall AddMessageToFilter(void ***a1, unsigned int a2, int *a3)

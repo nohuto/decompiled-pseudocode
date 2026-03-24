@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@COffScreenRenderTarget@@$4PPPPPPPM@IGA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801064F0
+ * XREFs of ?QueryInterface@COffScreenRenderTarget@@$4PPPPPPPM@IGA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F5BE0
  * Callers:
  *     <none>
  * Callees:

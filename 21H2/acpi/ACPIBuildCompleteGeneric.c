@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIBuildCompleteGeneric @ 0x1C002C4C0
+ * XREFs of ACPIBuildCompleteGeneric @ 0x1C002FEA0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
  */
 
 void __fastcall ACPIBuildCompleteGeneric(__int64 a1, int a2, __int64 a3, __int64 a4)

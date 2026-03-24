@@ -1,8 +1,8 @@
 /*
- * XREFs of PspApplyWorkingSetLimits @ 0x140889804
+ * XREFs of PspApplyWorkingSetLimits @ 0x1408897E4
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsJobPostCallback @ 0x1406CD1B0 (PspSetJobLimitsJobPostCallback.c)
+ *     PspSetJobLimitsJobPostCallback @ 0x1406CD190 (PspSetJobLimitsJobPostCallback.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -10,8 +10,8 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     MmEnforceWorkingSetLimit @ 0x14008FB50 (MmEnforceWorkingSetLimit.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmAdjustWorkingSetSize @ 0x14018ED10 (MmAdjustWorkingSetSize.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

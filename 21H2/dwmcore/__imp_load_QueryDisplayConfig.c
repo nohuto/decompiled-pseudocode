@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_QueryDisplayConfig @ 0x1801021CC
+ * XREFs of __imp_load_QueryDisplayConfig @ 0x1800E8746
  * Callers:
  *     <none>
  * Callees:

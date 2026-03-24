@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AtlasedRectsMeshSetConstantOpacity@CChannel@@UEAAJIH@Z @ 0x180018690
+ * XREFs of ?AtlasedRectsMeshSetConstantOpacity@CChannel@@UEAAJIH@Z @ 0x18001D7C0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::AtlasedRectsMeshSetConstantOpacity(CChannel *this, unsigned int a2, int a3)

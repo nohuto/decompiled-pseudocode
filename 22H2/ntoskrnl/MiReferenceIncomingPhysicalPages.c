@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceIncomingPhysicalPages @ 0x140A41E28
+ * XREFs of MiReferenceIncomingPhysicalPages @ 0x1408D6154
  * Callers:
- *     NtMapUserPhysicalPages @ 0x140A428F0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140A42BA0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x1408D6D30 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408D6FF0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiDecrementAweMapCount @ 0x1406496B8 (MiDecrementAweMapCount.c)
- *     MiGetAweNode @ 0x14064A914 (MiGetAweNode.c)
- *     MiGetAwePageSize @ 0x14064A988 (MiGetAwePageSize.c)
- *     MiGetAweViewPageSize @ 0x14064AA28 (MiGetAweViewPageSize.c)
- *     MiIncrementAweMapCount @ 0x14064AB40 (MiIncrementAweMapCount.c)
- *     MiGetVadCacheAttribute @ 0x140660C14 (MiGetVadCacheAttribute.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381AA0 (ExGetCallBackBlockRoutine.c)
+ *     MiDecrementAweMapCount @ 0x14054B928 (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x14054C320 (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x14054C418 (MiGetAweViewPageSize.c)
+ *     MiIncrementAweMapCount @ 0x14054C5B4 (MiIncrementAweMapCount.c)
+ *     MiGetVadCacheAttribute @ 0x14055BCC0 (MiGetVadCacheAttribute.c)
  */
 
 __int64 __fastcall MiReferenceIncomingPhysicalPages(
@@ -20,167 +20,196 @@ __int64 __fastcall MiReferenceIncomingPhysicalPages(
         __int64 a4,
         __int64 *a5,
         __int64 a6,
-        __int64 a7)
+        _DWORD *a7)
 {
-  __int64 v7; // rbx
-  __int64 v8; // rdi
-  int v9; // r15d
-  __int64 v10; // r13
-  int v11; // esi
-  __int64 v12; // r11
-  __int64 v13; // r10
-  __int64 PteAddress; // r12
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // r9
+  __int64 v8; // rbx
+  unsigned __int64 v9; // rsi
+  __int64 v10; // rcx
+  int v11; // edi
+  unsigned int v12; // ebp
+  unsigned __int64 v13; // r15
+  __int64 v14; // r10
+  __int64 AweViewPageSize; // rax
+  unsigned int v16; // r8d
   __int64 v17; // r11
-  unsigned __int64 AweViewPageSize; // r14
-  unsigned __int64 v19; // rbp
-  __int64 v20; // rax
-  __int64 v21; // rdi
-  unsigned __int64 v22; // r8
+  _DWORD *PteAddress; // r12
+  unsigned __int64 v19; // r13
+  const signed __int64 *v20; // rax
+  unsigned __int64 v21; // r14
+  __int64 v22; // rax
+  unsigned __int64 v23; // r10
+  unsigned __int64 v24; // r8
+  __int64 v25; // r9
   _QWORD *AweNode; // rax
-  __int64 v24; // rax
-  __int64 v25; // r11
-  int v27; // eax
-  int v28; // ecx
-  __int64 v29; // rdi
-  unsigned __int64 v30; // rsi
-  unsigned __int64 v31; // rdi
-  int v32; // [rsp+20h] [rbp-68h]
-  __int64 AwePageSize; // [rsp+28h] [rbp-60h]
-  __int64 v34; // [rsp+30h] [rbp-58h] BYREF
-  unsigned __int64 v35; // [rsp+38h] [rbp-50h]
-  int VadCacheAttribute; // [rsp+B8h] [rbp+30h]
+  __int64 v27; // r8
+  __int64 v28; // r11
+  unsigned __int64 v29; // rax
+  __int64 v30; // r9
+  __int64 v31; // rcx
+  __int64 v32; // rdi
+  unsigned __int64 v33; // rsi
+  __int64 v34; // rbp
+  __int64 v35; // rcx
+  unsigned __int64 v36; // rbp
+  int v38; // [rsp+20h] [rbp-78h]
+  int v39; // [rsp+24h] [rbp-74h]
+  __int64 v40; // [rsp+30h] [rbp-68h] BYREF
+  unsigned __int64 v41; // [rsp+38h] [rbp-60h]
+  const signed __int64 *v42; // [rsp+40h] [rbp-58h]
+  unsigned __int64 v45; // [rsp+B0h] [rbp+18h]
+  unsigned int VadCacheAttribute; // [rsp+C8h] [rbp+30h]
 
-  v7 = 0LL;
-  v8 = a2;
-  v9 = 0;
+  v45 = a3;
+  v8 = 0LL;
+  v9 = a3;
+  v38 = 0;
   v10 = *(_QWORD *)(a6 + 24);
-  v11 = *(_DWORD *)(v10 + 48) & 0x2200000;
-  v32 = v11;
+  v11 = *(_DWORD *)(v10 + 48) & 0x1100000;
+  v39 = v11;
   VadCacheAttribute = MiGetVadCacheAttribute(v10);
-  v34 = 0LL;
-  AwePageSize = MiGetAwePageSize(v12);
+  v12 = VadCacheAttribute;
+  v40 = 0LL;
+  v13 = ExGetCallBackBlockRoutine(a1);
+  AweViewPageSize = MiGetAweViewPageSize(v14);
   PteAddress = a7;
-  AweViewPageSize = MiGetAweViewPageSize(v13);
-  v19 = 0LL;
-  if ( !AweViewPageSize )
-    AweViewPageSize = v15;
-  v35 = AweViewPageSize;
-  if ( v16 )
+  v19 = v13;
+  if ( AweViewPageSize )
+    v19 = AweViewPageSize;
+  v41 = *(_QWORD *)(a1 + 16);
+  v20 = *(const signed __int64 **)(a1 + 24);
+  v21 = 0LL;
+  v42 = v20;
+  if ( v9 )
   {
-    v20 = a4;
+    v22 = a2;
     while ( 1 )
     {
-      v21 = *(_QWORD *)(v8 + 8 * v19);
-      if ( !v20 )
-        goto LABEL_23;
-      if ( v21 )
+      v23 = *(_QWORD *)(v22 + 8 * v21);
+      if ( !v17 )
+        goto LABEL_18;
+      if ( v23 )
         break;
-      ++v19;
-LABEL_17:
-      v11 = v32;
-      v8 = a2;
-      if ( v19 >= v16 )
+      ++v21;
+LABEL_41:
+      if ( v21 >= v9 )
       {
-        v7 = v34;
-        goto LABEL_19;
+        v8 = v40;
+        goto LABEL_43;
       }
     }
-    PteAddress = MiGetPteAddress(*(_QWORD *)(v20 + 8 * v19));
-    if ( v22 >= (*(unsigned int *)(v10 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32)) << 12
-      && v22 <= (((*(unsigned int *)(v10 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v10 + 33) << 32)) << 12) | 0xFFF) )
+    PteAddress = (_DWORD *)MiGetPteAddress(*(_QWORD *)(v17 + 8 * v21));
+    if ( v24 < (*(unsigned int *)(v25 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v25 + 32) << 32)) << 12
+      || v24 > (((*(unsigned int *)(v25 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v25 + 33) << 32)) << 12) | 0xFFF) )
     {
+      AweNode = MiGetAweNode(v24);
+      v27 = MiGetAweViewPageSize((__int64)AweNode);
+      v29 = v13;
+      if ( v27 )
+        v29 = v27;
+      if ( v29 != v19 )
+        goto LABEL_39;
+      v30 = *(_QWORD *)(v28 + 24);
+      if ( (*(_DWORD *)(v30 + 48) & 0x1100000) == 0x1100000 )
+      {
+        if ( v11 != 17825792 )
+          goto LABEL_39;
+      }
+      else if ( v11 == 17825792 )
+      {
+        goto LABEL_39;
+      }
+      if ( v12 != (unsigned int)MiGetVadCacheAttribute(v30) )
+        goto LABEL_39;
+    }
+LABEL_18:
+    if ( v23 / v13 < v41 && ((v19 - 1) & v23) == 0 )
+    {
+      v31 = 0LL;
+      if ( v19 / v13 )
+      {
+        while ( _bittest64(v42, v23 / v13 + v31) )
+        {
+          if ( ++v31 >= v19 / v13 )
+            goto LABEL_23;
+        }
+        goto LABEL_39;
+      }
 LABEL_23:
-      v28 = VadCacheAttribute;
-    }
-    else
-    {
-      AweNode = MiGetAweNode(v22);
-      v24 = MiGetAweViewPageSize((__int64)AweNode);
-      if ( !v24 )
-        v24 = AwePageSize;
-      if ( v24 != AweViewPageSize )
-        goto LABEL_15;
-      v10 = *(_QWORD *)(v25 + 24);
-      if ( (*(_DWORD *)(v10 + 48) & 0x2200000) == 0x2200000 )
+      v16 = v38;
+      v32 = 48 * v23 - 0x58000000000LL;
+      if ( v38 < 0 )
       {
-        if ( v11 != 35651584 )
-          goto LABEL_15;
-      }
-      else if ( v11 == 35651584 )
-      {
-        goto LABEL_15;
-      }
-      v27 = MiGetVadCacheAttribute(*(_QWORD *)(v25 + 24));
-      v28 = VadCacheAttribute;
-      if ( VadCacheAttribute != v27 )
-        goto LABEL_15;
-      v17 = a1;
-    }
-    v29 = v21 & 0x7FFFFFFFFFFFFFFFLL;
-    if ( ((AweViewPageSize - 1) & v29) == 0 )
-    {
-      v30 = 0LL;
-      if ( v9 < 0 )
-      {
-        if ( AweViewPageSize )
+        v36 = 0LL;
+        if ( v19 )
         {
           do
           {
-            MiDecrementAweMapCount(v17, v29, &v34, 0);
-            v17 = a1;
-            v29 += AwePageSize;
-            v30 += AwePageSize;
+            MiDecrementAweMapCount(v31, v32, &v40, 0LL);
+            v32 += 48 * v13;
+            v36 += v13;
           }
-          while ( v30 < AweViewPageSize );
+          while ( v36 < v19 );
+          v16 = v38;
+LABEL_28:
+          v9 = v45;
         }
       }
-      else if ( AweViewPageSize )
+      else
       {
+        v33 = 0LL;
+        if ( !v19 )
+        {
+          v9 = v45;
+          goto LABEL_30;
+        }
+        v34 = 48 * v13;
         while ( 1 )
         {
-          v9 = MiIncrementAweMapCount(v17, v29, v28, PteAddress);
-          if ( v9 < 0 )
+          v38 = MiIncrementAweMapCount(a1, v32, VadCacheAttribute, PteAddress);
+          v16 = v38;
+          if ( v38 < 0 )
             break;
-          v29 += AwePageSize;
-          v30 += AwePageSize;
-          v17 = a1;
-          v28 = VadCacheAttribute;
-          if ( v30 >= AweViewPageSize )
-            goto LABEL_36;
+          v33 += v13;
+          v34 = 48 * v13;
+          v32 += 48 * v13;
+          if ( v33 >= v19 )
+            goto LABEL_28;
         }
-        if ( v30 )
+        if ( v33 )
         {
-          v31 = v29 - v30;
           do
           {
-            v30 -= AwePageSize;
-            MiDecrementAweMapCount(a1, v31 + v30, &v34, 0);
+            v32 -= v34;
+            MiDecrementAweMapCount(v35, v32, &v40, 0LL);
+            v33 -= v13;
           }
-          while ( v30 );
-          AweViewPageSize = v35;
+          while ( v33 );
+          v16 = v38;
         }
-        goto LABEL_15;
+        v9 = v21;
+        PteAddress = &a7[-2 * v19];
+        v45 = v21;
+        v21 = -1LL;
       }
-LABEL_36:
-      v16 = a3;
-      PteAddress += 8 * AweViewPageSize;
-      ++v19;
-      goto LABEL_16;
+      v12 = VadCacheAttribute;
+LABEL_30:
+      PteAddress += 2 * v19;
+      v11 = v39;
+      ++v21;
+LABEL_40:
+      v22 = a2;
+      v17 = a4;
+      goto LABEL_41;
     }
-LABEL_15:
-    PteAddress = a7;
-    v16 = v19;
-    a3 = v19;
-    v9 = -1073741800;
-    v19 = 0LL;
-LABEL_16:
-    v20 = a4;
-    v17 = a1;
-    goto LABEL_17;
+LABEL_39:
+    v16 = -1073741800;
+    v45 = v21;
+    v9 = v21;
+    v38 = -1073741800;
+    v21 = 0LL;
+    goto LABEL_40;
   }
-LABEL_19:
-  *a5 = v7;
-  return (unsigned int)v9;
+LABEL_43:
+  *a5 = v8;
+  return v16;
 }

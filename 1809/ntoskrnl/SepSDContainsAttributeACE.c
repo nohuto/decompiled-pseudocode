@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSDContainsAttributeACE @ 0x1408A3C6C
+ * XREFs of SepSDContainsAttributeACE @ 0x1408A3C4C
  * Callers:
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6FC (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
  *     RtlGetSaclSecurityDescriptor @ 0x14060DCC0 (RtlGetSaclSecurityDescriptor.c)
  */
 

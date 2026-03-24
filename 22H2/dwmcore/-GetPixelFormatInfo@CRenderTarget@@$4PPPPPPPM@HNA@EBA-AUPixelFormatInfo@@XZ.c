@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CRenderTarget@@$4PPPPPPPM@HNA@EBA?AUPixelFormatInfo@@XZ @ 0x18011C6A0
+ * XREFs of ?GetPixelFormatInfo@CRenderTarget@@$4PPPPPPPM@HNA@EBA?AUPixelFormatInfo@@XZ @ 0x1800F5390
  * Callers:
  *     <none>
  * Callees:

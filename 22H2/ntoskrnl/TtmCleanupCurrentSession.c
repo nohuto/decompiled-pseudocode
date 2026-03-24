@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmCleanupCurrentSession @ 0x1409A3F40
+ * XREFs of TtmCleanupCurrentSession @ 0x1408FE53C
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PoUnregisterPowerSettingCallback @ 0x140987120 (PoUnregisterPowerSettingCallback.c)
- *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A5150 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1409A531C (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogCleanupCurrentSessionStart @ 0x1409A7180 (TtmiLogCleanupCurrentSessionStart.c)
- *     TtmiLogCleanupCurrentSessionStop @ 0x1409A7228 (TtmiLogCleanupCurrentSessionStop.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140772340 (PoUnregisterPowerSettingCallback.c)
+ *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1408FF7AC (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1408FF990 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogCleanupCurrentSessionStart @ 0x1409018A0 (TtmiLogCleanupCurrentSessionStart.c)
+ *     TtmiLogCleanupCurrentSessionStop @ 0x140901948 (TtmiLogCleanupCurrentSessionStop.c)
  */
 
 __int64 TtmCleanupCurrentSession()
@@ -36,7 +36,7 @@ __int64 TtmCleanupCurrentSession()
   if ( !TtmpSession || *(_DWORD *)TtmpSession == v2 )
   {
     TtmpCleanupPowerRequestsTrackingFromCurrentSession(TtmpSession);
-    ObfDereferenceObject(*(PVOID *)(v3 + 32));
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v3 + 32));
     v4 = *(void **)(v3 + 24);
     *(_QWORD *)(v3 + 32) = 0LL;
     ObCloseHandle(v4, 0);

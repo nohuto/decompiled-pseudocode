@@ -4,8 +4,8 @@
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 ExRngInitializeSystem()

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpDereferenceStackEntry @ 0x140315864
+ * XREFs of EtwpDereferenceStackEntry @ 0x140315964
  * Callers:
- *     EtwpStackRundown @ 0x1403158D4 (EtwpStackRundown.c)
- *     EtwpTraceStackKey @ 0x140315B14 (EtwpTraceStackKey.c)
+ *     EtwpStackRundown @ 0x1403159D4 (EtwpStackRundown.c)
+ *     EtwpTraceStackKey @ 0x140315C14 (EtwpTraceStackKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     EtwpTraceCachedStack @ 0x140315A3C (EtwpTraceCachedStack.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpTraceCachedStack @ 0x140315B3C (EtwpTraceCachedStack.c)
  */
 
 PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsigned int **a2)

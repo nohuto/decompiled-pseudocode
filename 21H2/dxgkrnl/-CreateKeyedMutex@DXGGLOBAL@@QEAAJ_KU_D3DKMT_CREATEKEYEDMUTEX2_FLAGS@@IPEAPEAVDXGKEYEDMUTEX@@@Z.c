@@ -1,105 +1,108 @@
 /*
- * XREFs of ?CreateKeyedMutex@DXGGLOBAL@@QEAAJ_KU_D3DKMT_CREATEKEYEDMUTEX2_FLAGS@@IPEAPEAVDXGKEYEDMUTEX@@@Z @ 0x1C033EDB8
+ * XREFs of ?CreateKeyedMutex@DXGGLOBAL@@QEAAJ_KU_D3DKMT_CREATEKEYEDMUTEX2_FLAGS@@IPEAPEAVDXGKEYEDMUTEX@@@Z @ 0x1C028FFE8
  * Callers:
- *     ?CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMUTEX2_FLAGS@@@Z @ 0x1C033ECC4 (-CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMU.c)
- *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C03627DC (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
+ *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C0238A64 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
+ *     ?CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMUTEX2_FLAGS@@@Z @ 0x1C028FF24 (-CreateAndOpenKeyedMutex@DXGGLOBAL@@QEAAJ_KPEAPEAVDXGKEYEDMUTEX@@PEAIPEAXIU_D3DKMT_CREATEKEYEDMU.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??_GDXGKEYEDMUTEX@@QEAAPEAXI@Z @ 0x1C002F902 (--_GDXGKEYEDMUTEX@@QEAAPEAXI@Z.c)
- *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C005583C (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ?Initialize@DXGKEYEDMUTEX@@QEAAJI@Z @ 0x1C033FE08 (-Initialize@DXGKEYEDMUTEX@@QEAAJI@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040BB4 (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ??_GDXGKEYEDMUTEX@@QEAAPEAXI@Z @ 0x1C00491B4 (--_GDXGKEYEDMUTEX@@QEAAPEAXI@Z.c)
+ *     ?Initialize@DXGKEYEDMUTEX@@QEAAJI@Z @ 0x1C0290E74 (-Initialize@DXGKEYEDMUTEX@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall DXGGLOBAL::CreateKeyedMutex(
         DXGGLOBAL *this,
         __int64 a2,
         struct _D3DKMT_CREATEKEYEDMUTEX2_FLAGS a3,
-        __int64 a4,
+        unsigned int a4,
         struct DXGKEYEDMUTEX **a5)
 {
-  unsigned int v5; // r15d
   __int64 v9; // rax
-  DXGKEYEDMUTEX *v10; // rdi
-  DXGKEYEDMUTEX *v11; // rcx
-  _QWORD *v12; // rax
-  int v13; // ebx
-  DXGKEYEDMUTEX **v14; // rax
-  __int64 v15; // rcx
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  DXGKEYEDMUTEX *v15; // rdi
+  _QWORD *v16; // rax
+  __int64 v17; // rax
+  int v18; // ebx
+  __int64 v19; // rdx
+  __int64 v20; // rdx
+  DXGKEYEDMUTEX **v21; // rax
+  __int64 v22; // rcx
 
-  v5 = a4;
   if ( !a5 )
   {
-    WdLogSingleEntry1(1LL, 4452LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"ppKeyedMutex != NULL", 4452LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 4475LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   *a5 = 0LL;
-  v9 = operator new[](0xB8uLL, 0x4B677844u, 64LL, a4);
-  v10 = (DXGKEYEDMUTEX *)v9;
-  if ( v9 )
+  v10 = operator new[](0xB0uLL, 0x4B677844u, (POOL_TYPE)512);
+  v15 = (DXGKEYEDMUTEX *)v10;
+  if ( v10 )
   {
-    *(_QWORD *)(v9 + 16) = this;
-    *(_OWORD *)v9 = 0LL;
-    *(_QWORD *)(v9 + 24) = 0LL;
-    *(_DWORD *)(v9 + 32) = 0;
-    v11 = (DXGKEYEDMUTEX *)v9;
-    *(_QWORD *)(v9 + 56) = 1LL;
-    *(_QWORD *)(v9 + 64) = 0LL;
-    *(_QWORD *)(v9 + 72) = a2;
-    *(_QWORD *)(v9 + 80) = a2;
-    *(_QWORD *)(v9 + 88) = 0LL;
-    *(_QWORD *)(v9 + 120) = 0LL;
-    *(_QWORD *)(v9 + 128) = 0LL;
-    *(_QWORD *)(v9 + 136) = 0LL;
-    *(_DWORD *)(v9 + 144) = 0;
-    *(_DWORD *)(v9 + 148) = 34;
-    *(_DWORD *)(v9 + 152) = 64;
-    *(_QWORD *)(v9 + 160) = 0LL;
-    *(_DWORD *)(v9 + 168) = 0;
-    *(struct _D3DKMT_CREATEKEYEDMUTEX2_FLAGS *)(v9 + 172) = a3;
-    *(_BYTE *)(v9 + 176) = 0;
-    v12 = (_QWORD *)(v9 + 96);
-    v12[1] = v12;
-    *v12 = v12;
-    *((_QWORD *)v10 + 6) = (char *)v10 + 40;
-    *((_QWORD *)v10 + 5) = (char *)v10 + 40;
-    v13 = DXGKEYEDMUTEX::Initialize(v11, v5);
-    if ( v13 >= 0 )
+    v10[2] = this;
+    *(_OWORD *)v10 = 0LL;
+    v10[3] = 0LL;
+    *((_DWORD *)v10 + 8) = 0;
+    v10[7] = 1LL;
+    v10[8] = 0LL;
+    v10[9] = a2;
+    v10[10] = a2;
+    v10[11] = 0LL;
+    v10[14] = 0LL;
+    v10[15] = 0LL;
+    v10[16] = 0LL;
+    *((_DWORD *)v10 + 34) = 0;
+    *((_DWORD *)v10 + 35) = 34;
+    *((_DWORD *)v10 + 36) = 53;
+    v10[19] = 0LL;
+    *((_DWORD *)v10 + 40) = 0;
+    *((struct _D3DKMT_CREATEKEYEDMUTEX2_FLAGS *)v10 + 41) = a3;
+    *((_BYTE *)v10 + 168) = 0;
+    v16 = v10 + 12;
+    v16[1] = v16;
+    *v16 = v16;
+    *((_QWORD *)v15 + 6) = (char *)v15 + 40;
+    *((_QWORD *)v15 + 5) = (char *)v15 + 40;
+  }
+  else
+  {
+    v15 = 0LL;
+  }
+  if ( v15 )
+  {
+    v18 = DXGKEYEDMUTEX::Initialize(v15, a4);
+    if ( v18 >= 0 )
     {
-      DXGKEYEDMUTEX::AcquireReference(v10);
-      DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 640));
-      v14 = (DXGKEYEDMUTEX **)((char *)this + 688);
-      v15 = *((_QWORD *)this + 86);
-      if ( *(DXGGLOBAL **)(v15 + 8) != (DXGGLOBAL *)((char *)this + 688) )
+      DXGKEYEDMUTEX::AcquireReference(v15, v19);
+      DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 528));
+      v21 = (DXGKEYEDMUTEX **)((char *)this + 568);
+      v22 = *((_QWORD *)this + 71);
+      if ( *(DXGGLOBAL **)(v22 + 8) != (DXGGLOBAL *)((char *)this + 568) )
         __fastfail(3u);
-      *(_QWORD *)v10 = v15;
-      *((_QWORD *)v10 + 1) = v14;
-      *(_QWORD *)(v15 + 8) = v10;
-      *v14 = v10;
-      DXGFASTMUTEX::Release((struct _KTHREAD **)this + 80);
-      *a5 = v10;
+      *(_QWORD *)v15 = v22;
+      *((_QWORD *)v15 + 1) = v21;
+      *(_QWORD *)(v22 + 8) = v15;
+      *v21 = v15;
+      DXGFASTMUTEX::Release((struct _KTHREAD **)this + 66, v20);
+      *a5 = v15;
     }
     else
     {
-      DXGKEYEDMUTEX::`scalar deleting destructor'(v10);
+      DXGKEYEDMUTEX::`scalar deleting destructor'(v15);
     }
   }
   else
   {
-    v13 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating DXGKEYEDMUTEX class, returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+    v18 = -1073741801;
+    *(_QWORD *)(v17 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v17);
   }
-  return (unsigned int)v13;
+  return (unsigned int)v18;
 }

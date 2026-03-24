@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBFDO_IoctlCyclePort @ 0x1C00780D8
+ * XREFs of HUBFDO_IoctlCyclePort @ 0x1C0076D30
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C0078740 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
  *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBMISC_GetActivityIdIrp @ 0x1C0030B10 (HUBMISC_GetActivityIdIrp.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBFDO_IoctlValidateParameters @ 0x1C0075D84 (HUBFDO_IoctlValidateParameters.c)
- *     HUBMISC_VerifyCallerIsAdmin @ 0x1C007DFD8 (HUBMISC_VerifyCallerIsAdmin.c)
- *     HUBREG_UpdateUxdSettings @ 0x1C0081E38 (HUBREG_UpdateUxdSettings.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0030470 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00749E4 (HUBFDO_IoctlValidateParameters.c)
+ *     HUBMISC_VerifyCallerIsAdmin @ 0x1C007C9FC (HUBMISC_VerifyCallerIsAdmin.c)
+ *     HUBREG_UpdateUxdSettings @ 0x1C00808CC (HUBREG_UpdateUxdSettings.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlCyclePort(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -47,7 +47,7 @@ __int64 __fastcall HUBFDO_IoctlCyclePort(__int64 a1, __int64 a2, unsigned __int6
   v8 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                    WdfDriverGlobals,
                    v7,
-                   off_1C0067198);
+                   off_1C0066170);
   v31 = 0LL;
   v9 = 0;
   v10 = 0;
@@ -58,7 +58,7 @@ __int64 __fastcall HUBFDO_IoctlCyclePort(__int64 a1, __int64 a2, unsigned __int6
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_27;
-    v14 = 57;
+    v14 = 53;
     goto LABEL_4;
   }
   IsAdmin = HUBFDO_IoctlValidateParameters((__int64)v8, 4uLL, a4, v31, 8uLL, a3);
@@ -96,7 +96,7 @@ __int64 __fastcall HUBFDO_IoctlCyclePort(__int64 a1, __int64 a2, unsigned __int6
                                                                                                  + 1616))(
                                    WdfDriverGlobals,
                                    v17,
-                                   off_1C00670F8)
+                                   off_1C00660D0)
                                + 48) == v9 )
       {
         break;
@@ -109,7 +109,7 @@ __int64 __fastcall HUBFDO_IoctlCyclePort(__int64 a1, __int64 a2, unsigned __int6
     v21 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
             WdfDriverGlobals,
             v18,
-            off_1C00670F8);
+            off_1C00660D0);
     v22 = v21;
     v23 = *(_QWORD *)(v21 + 24);
     if ( !v23 )
@@ -128,7 +128,7 @@ LABEL_15:
       WdfDriverGlobals,
       v24,
       "User Mode FDO Request",
-      4932LL,
+      4794LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubfdo.c");
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 1088))(WdfDriverGlobals, v8[2]);
     IsAdmin = HUBMISC_VerifyCallerIsAdmin(v8[315]);
@@ -140,16 +140,16 @@ LABEL_15:
                   v8[2],
                   v25,
                   0LL,
-                  4945,
+                  4807,
                   "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubfdo.c");
       if ( IsAdmin < 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v14 = 58;
+          v14 = 54;
 LABEL_4:
           LODWORD(v29) = IsAdmin;
-          WPP_RECORDER_SF_d(v8[315], 2u, 3u, v14, (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids, v29);
+          WPP_RECORDER_SF_d(v8[315], 2u, 3u, v14, (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids, v29);
           goto LABEL_27;
         }
         goto LABEL_27;
@@ -160,7 +160,7 @@ LABEL_4:
         WdfDriverGlobals,
         v8[2],
         0LL,
-        4967LL,
+        4829LL,
         "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubfdo.c");
     }
     v26 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, v23);
@@ -168,7 +168,7 @@ LABEL_4:
       WdfDriverGlobals,
       v26,
       "User Mode FDO Request",
-      4972LL,
+      4834LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubfdo.c");
   }
 LABEL_27:

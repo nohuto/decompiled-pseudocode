@@ -1,10 +1,10 @@
 /*
- * XREFs of CmIsLastKnownGoodBoot @ 0x140B2B090
+ * XREFs of CmIsLastKnownGoodBoot @ 0x140A6F1BC
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140B2AE28 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140A6EF54 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlQueryRegistryValuesEx @ 0x1406DEF50 (RtlQueryRegistryValuesEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406BBF50 (RtlQueryRegistryValuesEx.c)
  */
 
 bool CmIsLastKnownGoodBoot()
@@ -72,7 +72,7 @@ bool CmIsLastKnownGoodBoot()
   v29 = 0;
   v30 = 0LL;
   v31 = 0;
-  return (int)RtlQueryRegistryValuesEx(0LL, (__int64)L"\\Registry\\Machine\\System\\Select", (__int64)&v4, 0LL) >= 0
+  return (int)RtlQueryRegistryValuesEx(0LL, L"\\Registry\\Machine\\System\\Select", (__int64)&v4, 0LL) >= 0
       && v1 != v3
       && v2 == v1;
 }

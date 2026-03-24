@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x140326A4C
+ * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x140326B4C
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x140325AEC (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140325BEC (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     SeRmReferenceFindCapName @ 0x1403008E0 (SeRmReferenceFindCapName.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     SeRmReferenceFindCapName @ 0x1403009E0 (SeRmReferenceFindCapName.c)
  *     RtlGetSaclSecurityDescriptor @ 0x14060DCC0 (RtlGetSaclSecurityDescriptor.c)
  */
 

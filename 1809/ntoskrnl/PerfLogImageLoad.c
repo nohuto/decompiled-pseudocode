@@ -5,8 +5,8 @@
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     EtwpPsProvTraceImage @ 0x1405F6154 (EtwpPsProvTraceImage.c)
  */
 

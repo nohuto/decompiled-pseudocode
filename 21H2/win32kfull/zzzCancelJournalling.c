@@ -1,18 +1,18 @@
 /*
- * XREFs of zzzCancelJournalling @ 0x1C011886C
+ * XREFs of zzzCancelJournalling @ 0x1C0029398
  * Callers:
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     xxxDoHotKeyStuff @ 0x1C00F6330 (xxxDoHotKeyStuff.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
  * Callees:
- *     zzzUnhookWindowsHookEx @ 0x1C002468C (zzzUnhookWindowsHookEx.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     PhkFirstGlobalValid @ 0x1C004DAB0 (PhkFirstGlobalValid.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     ?IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z @ 0x1C00A93A4 (-IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z.c)
- *     _PostThreadMessage @ 0x1C00AB08C (_PostThreadMessage.c)
- *     PhkNextValid @ 0x1C00EA754 (PhkNextValid.c)
- *     SendMsgCleanup @ 0x1C00F7EF0 (SendMsgCleanup.c)
- *     xxxReceiverDied @ 0x1C00F7FC0 (xxxReceiverDied.c)
+ *     zzzUnhookWindowsHookEx @ 0x1C001FAF4 (zzzUnhookWindowsHookEx.c)
+ *     PhkNextValid @ 0x1C0020370 (PhkNextValid.c)
+ *     IsThreadHung @ 0x1C003E194 (IsThreadHung.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     PhkFirstGlobalValid @ 0x1C006672C (PhkFirstGlobalValid.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     SendMsgCleanup @ 0x1C00DA490 (SendMsgCleanup.c)
+ *     _PostThreadMessage @ 0x1C00DA748 (_PostThreadMessage.c)
+ *     xxxReceiverDied @ 0x1C00DADBC (xxxReceiverDied.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -22,21 +22,24 @@ __int64 zzzCancelJournalling()
   __int64 v1; // rdi
   __int64 result; // rax
   __int64 v3; // rdx
-  struct tagWND *v4; // rdx
+  __int64 v4; // rdx
+  __int64 v5; // rbx
   __int64 Valid; // rbx
-  __int64 v6; // rbx
+  __int64 v7; // rbx
+  __int64 v8; // rbx
 
   ForceResetMouseButtonsDownState();
   ++gdwDeferWinEvent;
-  GlobalValid = PhkFirstGlobalValid(gptiRit, 1);
+  GlobalValid = PhkFirstGlobalValid(gptiRit, 1LL);
   if ( GlobalValid )
   {
     do
     {
-      if ( *(_QWORD *)(GlobalValid + 16) )
+      v5 = *(_QWORD *)(GlobalValid + 16);
+      if ( v5 )
       {
-        PostThreadMessage(*(_QWORD *)(GlobalValid + 16), 0x4Bu, 0LL, 0LL);
-        SendMsgCleanup();
+        PostThreadMessage(*(_QWORD *)(GlobalValid + 16), 75LL, 0LL);
+        SendMsgCleanup(v5);
       }
       Valid = PhkNextValid(GlobalValid);
       zzzUnhookWindowsHookEx((struct tagHOOK *)GlobalValid);
@@ -46,21 +49,22 @@ __int64 zzzCancelJournalling()
   }
   zzzEndDeferWinEventNotify();
   ++gdwDeferWinEvent;
-  v1 = PhkFirstGlobalValid(gptiRit, 0);
+  v1 = PhkFirstGlobalValid(gptiRit, 0LL);
   if ( v1 )
   {
     do
     {
-      if ( *(_QWORD *)(v1 + 16) )
+      v7 = *(_QWORD *)(v1 + 16);
+      if ( v7 )
       {
-        PostThreadMessage(*(_QWORD *)(v1 + 16), 0x4Bu, 0LL, 0LL);
-        SendMsgCleanup();
+        PostThreadMessage(*(_QWORD *)(v1 + 16), 75LL, 0LL);
+        SendMsgCleanup(v7);
       }
-      v6 = PhkNextValid(v1);
+      v8 = PhkNextValid(v1);
       zzzUnhookWindowsHookEx((struct tagHOOK *)v1);
-      v1 = v6;
+      v1 = v8;
     }
-    while ( v6 );
+    while ( v8 );
   }
   zzzEndDeferWinEventNotify();
   gppiLockSFW = 0LL;
@@ -70,12 +74,12 @@ __int64 zzzCancelJournalling()
     v3 = *(_QWORD *)(grpdeskRitInput + 8LL);
     if ( v3 )
     {
-      v4 = *(struct tagWND **)(v3 + 24);
+      v4 = *(_QWORD *)(v3 + 24);
       if ( v4 )
       {
-        result = *((_QWORD *)v4 + 5);
+        result = *(_QWORD *)(v4 + 40);
         if ( (*(_BYTE *)(result + 31) & 8) != 0 )
-          return SetOrClrWF(0, v4, 0xF08u, 1);
+          return SetOrClrWF(0LL, v4, 3848LL, 1LL);
       }
     }
   }

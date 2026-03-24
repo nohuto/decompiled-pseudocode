@@ -1,32 +1,32 @@
 /*
- * XREFs of RunMethodCallBack @ 0x1C004E610
+ * XREFs of RunMethodCallBack @ 0x1C0066A50
  * Callers:
- *     DebugRunMethod @ 0x1C004DE30 (DebugRunMethod.c)
+ *     DebugRunMethod @ 0x1C0066440 (DebugRunMethod.c)
  * Callees:
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     DumpObject @ 0x1C0051EB8 (DumpObject.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
  */
 
 void __fastcall RunMethodCallBack(__int64 *a1, int a2, __int64 a3)
 {
   __int64 v3; // rcx
-  __int64 v5; // rax
+  _QWORD *v5; // rax
   void *v6; // rdx
   void *v7; // rbx
   __int64 v8; // rdx
-  __int64 ObjectPath; // rax
+  _QWORD *ObjectPath; // rax
   const char *v10; // rdx
   void *v11; // rbx
 
   v3 = *a1;
   if ( a2 )
   {
-    if ( dword_1C006F938 )
+    if ( dword_1C0082908 )
     {
       ObjectPath = GetObjectPath(v3);
-      v10 = (const char *)&unk_1C00622D0;
-      v11 = (void *)ObjectPath;
+      v10 = (const char *)&unk_1C00701BA;
+      v11 = ObjectPath;
       if ( ObjectPath )
         v10 = (const char *)ObjectPath;
       ConPrintf("\n%s failed with the following error:\n%s\n", v10, pszDest);
@@ -37,10 +37,10 @@ void __fastcall RunMethodCallBack(__int64 *a1, int a2, __int64 a3)
   else
   {
     v5 = GetObjectPath(v3);
-    v6 = &unk_1C00622D0;
-    v7 = (void *)v5;
+    v6 = &unk_1C00701BA;
+    v7 = v5;
     if ( v5 )
-      v6 = (void *)v5;
+      v6 = v5;
     ConPrintf("\n%s completed successfully with object data:\n", v6);
     if ( v7 )
       ExFreePoolWithTag(v7, 0);

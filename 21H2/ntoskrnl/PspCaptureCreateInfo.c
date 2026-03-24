@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCaptureCreateInfo @ 0x1406703B8
+ * XREFs of PspCaptureCreateInfo @ 0x14060A100
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspCaptureCreateInfo(char a1, unsigned __int64 a2, __int64 a3)
@@ -33,7 +33,7 @@ __int64 __fastcall PspCaptureCreateInfo(char a1, unsigned __int64 a2, __int64 a3
     v6 = (32 * *(_BYTE *)(a2 + 16)) ^ (*(_BYTE *)(a3 + 8) ^ (32 * *(_BYTE *)(a2 + 16))) & 0x7F;
     *(_BYTE *)(a3 + 8) = v6;
     *(_BYTE *)(a3 + 9) ^= (*(_BYTE *)(a3 + 9) ^ (*(_BYTE *)(a2 + 16) >> 3)) & 1;
-    *(_DWORD *)(a3 + 164) = *(_DWORD *)(a2 + 20);
+    *(_DWORD *)(a3 + 160) = *(_DWORD *)(a2 + 20);
     v7 = v6 ^ (v6 ^ (2 * *(_BYTE *)(a2 + 16))) & 2;
     *(_BYTE *)(a3 + 8) = v7;
     *(_BYTE *)(a3 + 8) = v7 ^ (v7 ^ (8 * *(_BYTE *)(a2 + 16))) & 0x10;

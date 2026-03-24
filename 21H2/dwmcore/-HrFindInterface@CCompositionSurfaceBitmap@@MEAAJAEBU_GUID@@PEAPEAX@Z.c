@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CCompositionSurfaceBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800ACFF0
+ * XREFs of ?HrFindInterface@CCompositionSurfaceBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18008E070
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E8150 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C8B0 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CCompositionSurfaceBitmap::HrFindInterface(
@@ -28,12 +28,12 @@ __int64 __fastcall CCompositionSurfaceBitmap::HrFindInterface(
       if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_c155b649_2c5b_416a_b836_bbda56b2ec27.Data1 )
         v8 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_c155b649_2c5b_416a_b836_bbda56b2ec27.Data4;
       if ( v8 )
-        return (unsigned int)CContent::HrFindInterface(this, a2, a3);
-      v6 = (unsigned __int64)this + 96;
+        return (unsigned int)CContent::HrFindInterface(this, a2, (CContent **)a3);
+      v6 = (unsigned __int64)this + 88;
     }
     else
     {
-      v6 = (unsigned __int64)this + 72;
+      v6 = (unsigned __int64)this + 64;
     }
     *a3 = (void *)(v6 & -(__int64)(this != 0LL));
     return 0;

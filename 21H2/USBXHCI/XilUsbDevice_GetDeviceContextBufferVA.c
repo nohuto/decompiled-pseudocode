@@ -1,18 +1,18 @@
 /*
- * XREFs of XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C
+ * XREFs of XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4
  * Callers:
- *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00020D0 (UsbDevice_EndpointsConfigureCompletion.c)
- *     UsbDevice_InitializeInputContextForDropEndpoints @ 0x1C000448C (UsbDevice_InitializeInputContextForDropEndpoints.c)
- *     UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C000BFCC (UsbDevice_GetXhciEndpointDequeuePointer.c)
- *     UsbDevice_GetEndpointState @ 0x1C000C034 (UsbDevice_GetEndpointState.c)
- *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C0010670 (XilCoreDeviceSlot_SetDeviceContext.c)
- *     UsbDevice_SetAddressCompletion @ 0x1C0010C30 (UsbDevice_SetAddressCompletion.c)
- *     UsbDevice_UcxEvtReset @ 0x1C0010F60 (UsbDevice_UcxEvtReset.c)
- *     Endpoint_OnCancelEndpointConfigure @ 0x1C0038A28 (Endpoint_OnCancelEndpointConfigure.c)
- *     Endpoint_OnResetEndpointConfigure @ 0x1C0038FA8 (Endpoint_OnResetEndpointConfigure.c)
- *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003A428 (Endpoint_SetUpConfigureEndpointCommand.c)
- *     UsbDevice_GetEndpointOffloadInformation @ 0x1C00467DC (UsbDevice_GetEndpointOffloadInformation.c)
- *     Crashdump_InitializeDeviceContext @ 0x1C004A540 (Crashdump_InitializeDeviceContext.c)
+ *     UsbDevice_InitializeInputContextForDropEndpoints @ 0x1C0005C1C (UsbDevice_InitializeInputContextForDropEndpoints.c)
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00074B0 (UsbDevice_EndpointsConfigureCompletion.c)
+ *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C000F6C4 (XilCoreDeviceSlot_SetDeviceContext.c)
+ *     UsbDevice_SetAddressCompletion @ 0x1C000F9A0 (UsbDevice_SetAddressCompletion.c)
+ *     UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C0010020 (UsbDevice_GetXhciEndpointDequeuePointer.c)
+ *     UsbDevice_GetEndpointState @ 0x1C0010088 (UsbDevice_GetEndpointState.c)
+ *     UsbDevice_UcxEvtReset @ 0x1C0010610 (UsbDevice_UcxEvtReset.c)
+ *     Endpoint_OnCancelEndpointConfigure @ 0x1C00387A8 (Endpoint_OnCancelEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C0038D28 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003A07C (Endpoint_SetUpConfigureEndpointCommand.c)
+ *     UsbDevice_GetEndpointOffloadInformation @ 0x1C004631C (UsbDevice_GetEndpointOffloadInformation.c)
+ *     Crashdump_InitializeDeviceContext @ 0x1C0049A70 (Crashdump_InitializeDeviceContext.c)
  * Callees:
  *     <none>
  */

@@ -1,93 +1,74 @@
 /*
- * XREFs of ViDeadlockRemoveResource @ 0x140ADAA68
+ * XREFs of ViDeadlockRemoveResource @ 0x1409DFA5C
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1405D18B8 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockAddResource @ 0x140AD93DC (ViDeadlockAddResource.c)
- *     ViDeadlockEmptyDatabase @ 0x140AD9E40 (ViDeadlockEmptyDatabase.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405A2168 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockAddResource @ 0x1409DE848 (ViDeadlockAddResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x1409DF324 (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     ViDeadlockPreprocessOptions @ 0x140ADA830 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveNode @ 0x140ADA934 (ViDeadlockRemoveNode.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeRemove @ 0x1409C6394 (VfUtilAddressRangeRemove.c)
+ *     ViDeadlockPreprocessOptions @ 0x1409DF828 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveNode @ 0x1409DF924 (ViDeadlockRemoveNode.c)
  */
 
-unsigned __int64 __fastcall ViDeadlockRemoveResource(int *a1, int a2, int **a3)
+__int64 __fastcall ViDeadlockRemoveResource(int *a1, int a2, int **a3)
 {
-  int v6; // ebp
-  __int64 *v7; // rax
-  int *v8; // rsi
-  int *v9; // rbx
-  _QWORD *v10; // r9
-  __int64 v11; // rdx
-  int **v12; // rcx
-  unsigned __int64 v13; // r10
-  unsigned __int64 result; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rax
-  __int64 v17; // rcx
+  __int64 *v6; // rax
+  int *v7; // rsi
+  int *v8; // rbx
+  _QWORD *v9; // r9
+  __int64 v10; // rdx
+  int **v11; // rcx
+  unsigned __int64 v12; // r8
+  __int64 result; // rax
+  __int64 v14; // rcx
 
   if ( *((_DWORD *)ViDeadlockGlobals + 8196) || *((int *)ViDeadlockGlobals + 8282) > 1024 )
+    a2 = 1;
+  if ( !a2 )
   {
-    v6 = 1;
-  }
-  else
-  {
-    v6 = a2;
-    if ( !a2 )
+    v6 = (__int64 *)*((_QWORD *)a1 + 2);
+    if ( v6 )
     {
-      v7 = (__int64 *)*((_QWORD *)a1 + 2);
-      if ( v7 )
-      {
-        ViDeadlockPreprocessOptions(
-          byte_140C0DE50,
-          "Deleted lock 0x%p is still owned by the thread 0x%p.",
-          4107LL,
-          *((_QWORD *)a1 + 1),
-          *v7,
-          (__int64)a1);
-        VfReportIssueWithOptions(
-          0xC4u,
-          0x100BuLL,
-          *((_QWORD *)a1 + 1),
-          **((_QWORD **)a1 + 2),
-          (ULONG_PTR)a1,
-          byte_140C0DE50);
-        v6 = a2;
-      }
+      ViDeadlockPreprocessOptions(
+        byte_140C12F38,
+        "Deleted lock 0x%p is still owned by the thread 0x%p.",
+        4107LL,
+        *((_QWORD *)a1 + 1),
+        *v6,
+        (__int64)a1);
+      VfReportIssueWithOptions(
+        0xC4u,
+        0x100BuLL,
+        *((_QWORD *)a1 + 1),
+        **((_QWORD **)a1 + 2),
+        (ULONG_PTR)a1,
+        byte_140C12F38);
     }
   }
-  v8 = (int *)*((_QWORD *)a1 + 3);
-  while ( v8 != a1 + 6 )
+  v7 = (int *)*((_QWORD *)a1 + 3);
+  while ( v7 != a1 + 6 )
   {
-    v9 = v8 - 10;
-    v8 = *(int **)v8;
-    ViDeadlockRemoveNode(v9, v6);
-    *(_QWORD *)v9 = *a3;
-    *a3 = v9;
+    v8 = v7 - 10;
+    v7 = *(int **)v7;
+    ViDeadlockRemoveNode(v8, a2);
+    *(_QWORD *)v8 = *a3;
+    *a3 = v8;
   }
-  v10 = ViDeadlockGlobals;
+  v9 = ViDeadlockGlobals;
   --*((_QWORD *)ViDeadlockGlobals + 3);
-  v11 = *((_QWORD *)a1 + 5);
-  if ( *(int **)(v11 + 8) != a1 + 10 || (v12 = (int **)*((_QWORD *)a1 + 6), *v12 != a1 + 10) )
+  v10 = *((_QWORD *)a1 + 5);
+  if ( *(int **)(v10 + 8) != a1 + 10 || (v11 = (int **)*((_QWORD *)a1 + 6), *v11 != a1 + 10) )
     __fastfail(3u);
-  *v12 = (int *)v11;
-  *(_QWORD *)(v11 + 8) = v12;
-  v13 = *((_QWORD *)a1 + 1);
-  result = 1023 * ((v13 >> 12) / 0x3FF);
-  if ( *(_QWORD *)(16 * ((v13 >> 12) % 0x3FF) + v10[2]) == 16 * ((v13 >> 12) % 0x3FF) + v10[2] )
-  {
-    v10[2 * ((v13 >> 12) % 0x3FF) + 4] = 0LL;
-    v10[2 * ((v13 >> 12) % 0x3FF) + 5] = 0LL;
-  }
-  else
-  {
-    v15 = (unsigned int)ViDeadlockResourceTypeSizeInfo[*a1];
-    v16 = v10[2 * ((v13 >> 12) % 0x3FF) + 4];
-    if ( v13 == v16 )
-      v10[2 * ((v13 >> 12) % 0x3FF) + 4] = v15 + v16;
-    v17 = v10[2 * ((v13 >> 12) % 0x3FF) + 5];
-    result = v13 + v15;
-    if ( v13 + v15 == v17 )
-      v10[2 * ((v13 >> 12) % 0x3FF) + 5] = v17 - v15;
-  }
+  *v11 = (int *)v10;
+  *(_QWORD *)(v10 + 8) = v11;
+  v12 = *((_QWORD *)a1 + 1) >> 12;
+  result = 1023 * (v12 / 0x3FF);
+  v12 %= 0x3FFuLL;
+  v14 = 2 * (v12 + 2);
+  if ( *(_QWORD *)(16 * v12 + v9[2]) != 16 * v12 + v9[2] )
+    return VfUtilAddressRangeRemove(&v9[v14], *((_QWORD *)a1 + 1), (unsigned int)ViDeadlockResourceTypeSizeInfo[*a1]);
+  v9[v14] = 0LL;
+  v9[v14 + 1] = 0LL;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PcisuppInitGlobalState @ 0x1C0099E54
+ * XREFs of PcisuppInitGlobalState @ 0x1C009FCC8
  * Callers:
- *     AcpiIrqLibInitializeGlobalState @ 0x1C00ABB78 (AcpiIrqLibInitializeGlobalState.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEF34 (AcpiIrqLibInitializeGlobalState.c)
  * Callees:
  *     <none>
  */

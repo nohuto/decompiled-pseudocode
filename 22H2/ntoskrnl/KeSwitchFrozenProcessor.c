@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSwitchFrozenProcessor @ 0x140576C30
+ * XREFs of KeSwitchFrozenProcessor @ 0x14051DA40
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KiSetDebuggerOwner @ 0x14020D3E0 (KiSetDebuggerOwner.c)
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KiCheckStall @ 0x1402C2660 (KiCheckStall.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KiCheckStall @ 0x14051DC60 (KiCheckStall.c)
+ *     KiSetDebuggerOwner @ 0x14051E354 (KiSetDebuggerOwner.c)
  */
 
 __int64 __fastcall KeSwitchFrozenProcessor(ULONG a1)
@@ -15,7 +15,8 @@ __int64 __fastcall KeSwitchFrozenProcessor(ULONG a1)
   __int64 v2; // rcx
   struct _KPRCB *CurrentPrcb; // rbx
   volatile signed __int32 *SchedulerAssist; // rax
-  volatile signed __int32 *v6; // rcx
+  __int64 v6; // rdx
+  volatile signed __int32 *v7; // rcx
 
   v1 = a1;
   if ( a1 < KeQueryActiveProcessorCountEx(0xFFFFu) && !PoAllProcIntrDisabled )
@@ -35,10 +36,13 @@ __int64 __fastcall KeSwitchFrozenProcessor(ULONG a1)
         _InterlockedOr(SchedulerAssist, 0x20000u);
       KeQueryPerformanceCounter(0LL);
       while ( CurrentPrcb != (struct _KPRCB *)KiDebuggerOwner )
-        KiCheckStall((__int64)CurrentPrcb, 1);
-      v6 = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
-      if ( v6 )
-        _InterlockedAnd(v6, 0xFFFDFFFF);
+      {
+        LOBYTE(v6) = 1;
+        KiCheckStall(CurrentPrcb, v6);
+      }
+      v7 = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
+      if ( v7 )
+        _InterlockedAnd(v7, 0xFFFDFFFF);
     }
   }
   return 2LL;

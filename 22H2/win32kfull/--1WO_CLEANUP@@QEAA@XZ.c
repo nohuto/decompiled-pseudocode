@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0287264
+ * XREFs of ??1WO_CLEANUP@@QEAA@XZ @ 0x1C02864A8
  * Callers:
- *     EngCreateWnd @ 0x1C0287AF0 (EngCreateWnd.c)
+ *     EngCreateWnd @ 0x1C0286D00 (EngCreateWnd.c)
  * Callees:
  *     <none>
  */

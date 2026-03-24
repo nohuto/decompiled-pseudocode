@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z @ 0x1C006CA94
+ * XREFs of ?FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z @ 0x1C0059284
  * Callers:
- *     imp_WdfCxVerifierKeBugCheck @ 0x1C0063ED0 (imp_WdfCxVerifierKeBugCheck.c)
- *     imp_WdfVerifierKeBugCheck @ 0x1C0063FA0 (imp_WdfVerifierKeBugCheck.c)
- *     imp_WdfDriverErrorReportApiMissing @ 0x1C0066540 (imp_WdfDriverErrorReportApiMissing.c)
+ *     imp_WdfCxVerifierKeBugCheck @ 0x1C00497C0 (imp_WdfCxVerifierKeBugCheck.c)
+ *     imp_WdfVerifierKeBugCheck @ 0x1C0049890 (imp_WdfVerifierKeBugCheck.c)
+ *     imp_WdfDriverErrorReportApiMissing @ 0x1C004C310 (imp_WdfDriverErrorReportApiMissing.c)
  * Callees:
  *     <none>
  */

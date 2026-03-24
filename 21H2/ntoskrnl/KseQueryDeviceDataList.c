@@ -1,38 +1,34 @@
 /*
- * XREFs of KseQueryDeviceDataList @ 0x140963440
+ * XREFs of KseQueryDeviceDataList @ 0x1408BF3E0
  * Callers:
- *     ExpGetDeviceDataInformation @ 0x1409F6464 (ExpGetDeviceDataInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x14094A178 (ExpGetDeviceDataInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KsepShimDbChanged @ 0x140368A88 (KsepShimDbChanged.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KsepCacheLookup @ 0x1407EC9DC (KsepCacheLookup.c)
- *     KsepDbCacheReadDevice @ 0x1407ED450 (KsepDbCacheReadDevice.c)
- *     KsepDbCacheInsertDevice @ 0x14085E788 (KsepDbCacheInsertDevice.c)
- *     KseResetDeviceCache @ 0x1409635EC (KseResetDeviceCache.c)
- *     KsepDbCacheQueryDeviceDataList @ 0x1409637DC (KsepDbCacheQueryDeviceDataList.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140963B40 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepCacheDeviceFree @ 0x140965070 (KsepCacheDeviceFree.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KsepShimDbChanged @ 0x1403725F0 (KsepShimDbChanged.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KsepCacheLock @ 0x140749810 (KsepCacheLock.c)
+ *     KsepDbCacheReadDevice @ 0x140755E7C (KsepDbCacheReadDevice.c)
+ *     KsepCacheLookup @ 0x14075F7B0 (KsepCacheLookup.c)
+ *     KsepDbCacheInsertDevice @ 0x1407CCD18 (KsepDbCacheInsertDevice.c)
+ *     KseResetDeviceCache @ 0x1408BF54C (KseResetDeviceCache.c)
+ *     KsepDbCacheQueryDeviceDataList @ 0x1408BF74C (KsepDbCacheQueryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1408BFAC0 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepCacheDeviceFree @ 0x1408C1040 (KsepCacheDeviceFree.c)
+ *     KsepCacheUnlock @ 0x1408C1188 (KsepCacheUnlock.c)
  */
 
-__int64 __fastcall KseQueryDeviceDataList(WCHAR *SourceString, __int64 a2, unsigned int a3, __int64 a4)
+__int64 __fastcall KseQueryDeviceDataList(PCWSTR SourceString, __int64 a2, unsigned int a3, __int64 a4)
 {
-  int RegistryDeviceDataList; // edi
-  struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v10; // rcx
-  _QWORD *v11; // rax
-  ULONG_PTR v12; // rsi
-  __int64 v13; // rbx
-  _QWORD *v15; // [rsp+20h] [rbp-78h] BYREF
-  _QWORD v16[10]; // [rsp+30h] [rbp-68h] BYREF
+  int RegistryDeviceDataList; // ebx
+  _QWORD *v9; // rax
+  _QWORD *v10; // rsi
+  __int64 v11; // rsi
+  _QWORD *v13; // [rsp+20h] [rbp-78h] BYREF
+  _QWORD v14[10]; // [rsp+30h] [rbp-68h] BYREF
 
-  memset(v16, 0, 0x44uLL);
-  v15 = 0LL;
-  if ( dword_140C54EF4 != 2 || (KseEngine & 2) != 0 )
+  memset(v14, 0, 0x48uLL);
+  v13 = 0LL;
+  if ( dword_140C505E4 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !SourceString || !a4 )
     return (unsigned int)-1073741811;
@@ -42,33 +38,27 @@ __int64 __fastcall KseQueryDeviceDataList(WCHAR *SourceString, __int64 a2, unsig
     if ( (unsigned int)KsepShimDbChanged() )
     {
       KseResetDeviceCache();
-LABEL_13:
-      RegistryDeviceDataList = KsepDbCacheReadDevice(SourceString, &v15);
+LABEL_11:
+      RegistryDeviceDataList = KsepDbCacheReadDevice((__int64)SourceString, (__int64 *)&v13);
       if ( RegistryDeviceDataList >= 0 )
       {
-        v13 = (__int64)v15;
-        RegistryDeviceDataList = KsepDbCacheQueryDeviceDataList(v15, a2, a3, a4);
-        if ( (int)KsepDbCacheInsertDevice(SourceString, v13) < 0 )
-          KsepCacheDeviceFree(v13);
+        v11 = (__int64)v13;
+        RegistryDeviceDataList = KsepDbCacheQueryDeviceDataList(v13, a2, a3, a4);
+        if ( (int)KsepDbCacheInsertDevice(SourceString, v11) < 0 )
+          KsepCacheDeviceFree(v11);
       }
       return (unsigned int)RegistryDeviceDataList;
     }
-    RtlInitUnicodeString((PUNICODE_STRING)&v16[5], SourceString);
-    CurrentThread = KeGetCurrentThread();
-    v10 = qword_140C54F38;
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v10, 0LL);
-    v11 = KsepCacheLookup(qword_140C54F38, (__int64)v16);
-    v15 = v11;
-    if ( v11 )
-      RegistryDeviceDataList = KsepDbCacheQueryDeviceDataList(v11, a2, a3, a4);
-    v12 = qword_140C54F38;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C54F38, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v12);
-    KeAbPostRelease(v12);
-    KeLeaveCriticalRegion();
-    if ( !v15 )
-      goto LABEL_13;
+    RtlInitUnicodeString((PUNICODE_STRING)&v14[5], SourceString);
+    KsepCacheLock(qword_140C50628);
+    v9 = KsepCacheLookup(qword_140C50628, (__int64)v14);
+    v13 = v9;
+    v10 = v9;
+    if ( v9 )
+      RegistryDeviceDataList = KsepDbCacheQueryDeviceDataList(v9, a2, a3, a4);
+    KsepCacheUnlock(qword_140C50628);
+    if ( !v10 )
+      goto LABEL_11;
   }
   return (unsigned int)RegistryDeviceDataList;
 }

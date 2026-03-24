@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStop @ 0x1408829CC
+ * XREFs of TtmiLogCalloutStop @ 0x1408829AC
  * Callers:
- *     TtmpStopCallout @ 0x14087E6EC (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, unsigned __int64 a6)
@@ -86,7 +86,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
         v49[2] = 4LL;
         v49[3] = &v23;
         v49[4] = 8LL;
-        LOBYTE(v6) = TlgWrite(&stru_14096D7E8, &unk_140372013, 0LL, 0LL, 0xAu, &v37);
+        LOBYTE(v6) = TlgWrite(&stru_14096D7E8, &unk_140372278, 0LL, 0LL, 0xAu, &v37);
       }
     }
   }
@@ -117,7 +117,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
       v36[2] = 4LL;
       v36[3] = &v21;
       v36[4] = 8LL;
-      LOBYTE(v6) = TlgWrite(&stru_14096D820, &unk_14037224E, 0LL, 0LL, 0xAu, &pData);
+      LOBYTE(v6) = TlgWrite(&stru_14096D820, &unk_14037242A, 0LL, 0LL, 0xAu, &pData);
     }
   }
   return (char)v6;

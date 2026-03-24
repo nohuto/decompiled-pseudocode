@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PeekStackValue@CNaturalAnimation@@AEAA?ATInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x18023D5D4
+ * XREFs of ?PeekStackValue@CNaturalAnimation@@AEAA?ATInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x1801D84EC
  * Callers:
- *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18023C17C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D717C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CNaturalAnimation::PeekStackValue(__int64 a1, __int64 a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall CNaturalAnimation::PeekStackValue(__int64 a1, __int64 a2, __i
 
   *(_QWORD *)a2 = 0LL;
   *(_DWORD *)(a2 + 8) = 0;
-  v4 = *(_DWORD *)(a1 + 152);
+  v4 = *(_DWORD *)(a1 + 144);
   switch ( v4 )
   {
     case 18:

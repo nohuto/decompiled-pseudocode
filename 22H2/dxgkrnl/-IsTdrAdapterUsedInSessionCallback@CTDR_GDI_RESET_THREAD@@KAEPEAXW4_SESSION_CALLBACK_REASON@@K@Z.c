@@ -1,39 +1,32 @@
 /*
- * XREFs of ?IsTdrAdapterUsedInSessionCallback@CTDR_GDI_RESET_THREAD@@KAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C030DD30
+ * XREFs of ?IsTdrAdapterUsedInSessionCallback@CTDR_GDI_RESET_THREAD@@KAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C0264D10
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
 char __fastcall CTDR_GDI_RESET_THREAD::IsTdrAdapterUsedInSessionCallback(__int64 a1, int a2, unsigned int a3)
 {
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   struct DXGGLOBAL *Global; // rax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  __int64 v7; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rax
 
   if ( a2 || a3 == (unsigned int)RtlGetActiveConsoleId() )
-    goto LABEL_9;
-  Global = DXGGLOBAL::GetGlobal();
+    return 1;
+  Global = DXGGLOBAL::GetGlobal(v6, v5);
   SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                     *((DXGSESSIONMGR **)Global + 118),
+                                     *((DXGSESSIONMGR **)Global + 102),
                                      a3);
   if ( !SessionDataForSpecifiedSession )
-    return (char)SessionDataForSpecifiedSession;
-  v7 = *(_QWORD *)(a1 + 32);
-  SessionDataForSpecifiedSession = *(struct DXGSESSIONDATA **)((char *)SessionDataForSpecifiedSession + 18508);
-  if ( !v7 )
-  {
-    if ( !HIDWORD(SessionDataForSpecifiedSession) )
-    {
-      LOBYTE(SessionDataForSpecifiedSession) = (_DWORD)SessionDataForSpecifiedSession != 0;
-      return (char)SessionDataForSpecifiedSession;
-    }
-LABEL_9:
-    LOBYTE(SessionDataForSpecifiedSession) = 1;
-    return (char)SessionDataForSpecifiedSession;
-  }
-  LOBYTE(SessionDataForSpecifiedSession) = SessionDataForSpecifiedSession == *(struct DXGSESSIONDATA **)(v7 + 404);
-  return (char)SessionDataForSpecifiedSession;
+    return 0;
+  v9 = *(_QWORD *)(a1 + 32);
+  v10 = *(_QWORD *)((char *)SessionDataForSpecifiedSession + 18500);
+  if ( v9 )
+    return v10 == *(_QWORD *)(v9 + 316);
+  return v10 != 0;
 }

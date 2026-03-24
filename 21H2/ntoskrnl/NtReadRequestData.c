@@ -1,10 +1,10 @@
 /*
- * XREFs of NtReadRequestData @ 0x1409660C0
+ * XREFs of NtReadRequestData @ 0x1408C20E0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     LpcpCopyRequestData @ 0x140965C1C (LpcpCopyRequestData.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     LpcpCopyRequestData @ 0x1408C1C4C (LpcpCopyRequestData.c)
  */
 
 __int64 __fastcall NtReadRequestData(void *a1, unsigned __int64 a2, unsigned int a3, char *a4, SIZE_T a5, __int64 *a6)
@@ -15,6 +15,6 @@ __int64 __fastcall NtReadRequestData(void *a1, unsigned __int64 a2, unsigned int
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v7 = LpcpCopyRequestData(0, a1, a2, a3, a4, a5, a6);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v7;
 }

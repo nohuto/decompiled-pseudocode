@@ -1,12 +1,10 @@
 /*
- * XREFs of ?AllocTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IPEBUtagTOUCHINPUT@@IPEAK@Z @ 0x1C01AEC08
+ * XREFs of ?AllocTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IPEBUtagTOUCHINPUT@@IPEAK@Z @ 0x1C01DAE3C
  * Callers:
- *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01AF02C (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
+ *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01DB1A8 (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C01AEB84 (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 struct HTOUCHINPUT__ *__fastcall AllocTouchInputInfo(
@@ -15,49 +13,37 @@ struct HTOUCHINPUT__ *__fastcall AllocTouchInputInfo(
         const struct tagTOUCHINPUT *a3,
         int a4)
 {
-  unsigned __int64 v8; // rax
-  unsigned int v9; // esi
-  __int64 v10; // r8
-  __int64 v11; // rbx
+  const struct tagTOUCHINPUT *v6; // r14
+  unsigned __int64 v7; // rax
+  int v8; // r9d
+  __int64 v9; // rax
+  __int64 v10; // rbx
   struct HTOUCHINPUT__ *result; // rax
-  ULONG v13; // eax
-  tagDomLock *v14; // [rsp+20h] [rbp-68h] BYREF
-  char v15; // [rsp+28h] [rbp-60h]
-  char v16; // [rsp+48h] [rbp-40h]
-  char v17; // [rsp+50h] [rbp-38h]
+  ULONG v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // r8
 
-  if ( a2
-    && (v8 = 48LL * (a2 - 1), v8 <= 0xFFFFFFFF)
-    && (unsigned int)v8 < 0xFFFFFFB0
-    && (v9 = 48 * a2, 48 * (unsigned __int64)a2 <= 0xFFFFFFFF) )
+  v6 = a3;
+  if ( !a2 || (v7 = 48LL * (a2 - 1), v7 > 0xFFFFFFFF) || (v8 = v7 + 80, (unsigned int)v7 >= 0xFFFFFFB0) )
+    v8 = 0;
+  if ( v8 && 48 * (unsigned __int64)a2 <= 0xFFFFFFFF )
   {
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<DLT_HANDLEMANAGER>::ObjectLock<>::ObjectLock<>((__int64)&v14);
-    LOBYTE(v10) = 20;
-    v11 = HMAllocObject(a1, 0LL, v10);
-    if ( v17 && v16 )
+    LOBYTE(a3) = 20;
+    v9 = HMAllocObject(a1, 0LL, a3);
+    v10 = v9;
+    if ( v9 )
     {
-      if ( v14 )
-      {
-        if ( v15 )
-          tagDomLock::UnLockExclusive(v14);
-        else
-          tagDomLock::UnLockShared(v14);
-      }
-      v16 = 0;
-    }
-    if ( v11 )
-    {
-      *(_DWORD *)(v11 + 24) = a2;
-      memmove((void *)(v11 + 32), a3, v9);
-      result = *(struct HTOUCHINPUT__ **)v11;
-      *(_DWORD *)(v11 + 28) = a4;
+      *(_DWORD *)(v9 + 24) = a2;
+      memmove((void *)(v9 + 32), v6, 48 * a2);
+      result = *(struct HTOUCHINPUT__ **)v10;
+      *(_DWORD *)(v10 + 28) = a4;
       return result;
     }
   }
   else
   {
-    v13 = RtlNtStatusToDosError(-1073741675);
-    UserSetLastError(v13);
+    v12 = RtlNtStatusToDosError(-1073741675);
+    UserSetLastError(v12, v13, v14);
   }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180183070
+ * XREFs of ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180234AA0
  * Callers:
- *     ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x180182E68 (-InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidM.c)
- *     ?TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPEAVCInteraction@@@Z @ 0x180185280 (-TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPE.c)
+ *     ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x180234890 (-InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidM.c)
+ *     ?TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPEAVCInteraction@@@Z @ 0x1802369E0 (-TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPE.c)
  * Callees:
- *     ?GetVisualEffectiveParentImpl@CManipulationContext@@CAPEBVCVisual@@PEBV2@PEA_N@Z @ 0x180182C44 (-GetVisualEffectiveParentImpl@CManipulationContext@@CAPEBVCVisual@@PEBV2@PEA_N@Z.c)
+ *     ?GetVisualEffectiveParentImpl@CManipulationContext@@CAPEBVCVisual@@PEBV2@PEA_N@Z @ 0x1802346AC (-GetVisualEffectiveParentImpl@CManipulationContext@@CAPEBVCVisual@@PEBV2@PEA_N@Z.c)
  */
 
 bool __fastcall CManipulationContext::IsInteractionDescendantOfVisual(
@@ -13,19 +13,21 @@ bool __fastcall CManipulationContext::IsInteractionDescendantOfVisual(
 {
   __int64 v2; // r8
   const struct CVisual *VisualEffectiveParentImpl; // rax
-  bool v5; // bl
+  bool i; // cl
+  const struct CVisual *v6; // rbx
 
-  v2 = *((_QWORD *)a1 + 14);
+  v2 = *((_QWORD *)a1 + 13);
   VisualEffectiveParentImpl = 0LL;
   if ( v2 )
     VisualEffectiveParentImpl = *(const struct CVisual **)(v2 + 16);
-  v5 = 0;
-  while ( VisualEffectiveParentImpl && !v5 )
+  for ( i = 0; VisualEffectiveParentImpl; i = v6 == a2 )
   {
-    v5 = VisualEffectiveParentImpl == a2;
+    v6 = VisualEffectiveParentImpl;
+    if ( i )
+      break;
     VisualEffectiveParentImpl = CManipulationContext::GetVisualEffectiveParentImpl(
                                   VisualEffectiveParentImpl,
                                   (bool *)a2);
   }
-  return v5;
+  return i;
 }

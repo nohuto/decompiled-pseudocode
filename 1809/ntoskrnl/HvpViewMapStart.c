@@ -2,7 +2,7 @@
  * XREFs of HvpViewMapStart @ 0x1405A51A0
  * Callers:
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
- *     HvHiveStartEmptyClone @ 0x1407F7274 (HvHiveStartEmptyClone.c)
+ *     HvHiveStartEmptyClone @ 0x1407F7254 (HvHiveStartEmptyClone.c)
  * Callees:
  *     CmSiGetSectionLength @ 0x14000F130 (CmSiGetSectionLength.c)
  *     CmSiCreateSectionForFile @ 0x14000F16C (CmSiCreateSectionForFile.c)

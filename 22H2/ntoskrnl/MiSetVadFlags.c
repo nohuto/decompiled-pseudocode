@@ -1,77 +1,115 @@
 /*
- * XREFs of MiSetVadFlags @ 0x140287590
+ * XREFs of MiSetVadFlags @ 0x14025B120
  * Callers:
- *     MiRemoveSecureEntry @ 0x140217310 (MiRemoveSecureEntry.c)
- *     MiSetVadDeleted @ 0x140289764 (MiSetVadDeleted.c)
- *     MiAddSecureEntry @ 0x140746294 (MiAddSecureEntry.c)
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiGetVadForHotPatchInProgress @ 0x140A3737C (MiGetVadForHotPatchInProgress.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiRemoveSecureEntry @ 0x14025AE40 (MiRemoveSecureEntry.c)
+ *     MiAddSecureEntry @ 0x14061FBE0 (MiAddSecureEntry.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE554 (MiSetImageHotPatchAllowed.c)
  * Callees:
- *     MiLockVadCore @ 0x1402876B0 (MiLockVadCore.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiSetVadFlags(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall MiSetVadFlags(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  char v4; // si
-  unsigned __int64 v6; // rbp
-  int v7; // edi
+  char v4; // bp
+  char v5; // di
+  unsigned __int8 CurrentIrql; // si
   signed __int32 v8; // eax
-  int v9; // r8d
-  int v10; // esi
-  int v11; // r9d
-  unsigned int v12; // ecx
-  signed __int32 v13; // ett
+  signed __int32 v9; // ett
+  signed __int32 v10; // eax
+  int v11; // r10d
+  int v12; // r11d
+  int v13; // edi
+  int v14; // r9d
+  unsigned int v15; // ecx
+  signed __int32 v16; // ett
   __int64 result; // rax
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v18; // zf
+  unsigned __int8 v18; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v20; // r8
+  int v21; // eax
+  bool v22; // zf
+  int v23; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = a2;
-  v6 = (unsigned __int8)MiLockVadCore(a1, a2);
-  v7 = v4 & 2;
-  if ( (v4 & 2) != 0 )
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
-                                                       + 284));
+  v4 = a3;
+  v23 = 0;
+  v5 = a2;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
+  }
   v8 = *(_DWORD *)(a1 + 48);
-  v9 = v4 & 1;
-  v10 = v4 & 4;
-  v11 = a3 & 1;
   do
   {
-    v12 = v8;
-    if ( v9 )
-      v12 = v8 & 0xFFFFFFF7 | (8 * v11);
-    if ( v7 )
-      v12 = (4 * v11) | v12 & 0xFFFFFFFB;
-    if ( v10 )
-      v12 ^= (v12 ^ (a3 << 23)) & 0x1800000;
-    v13 = v8;
-    v8 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v12, v8);
+    while ( (v8 & 1) != 0 )
+    {
+      if ( (v8 & 2) != 0 )
+      {
+        v23 = 0;
+        do
+        {
+          KeYieldProcessorEx(&v23, a2, a3, (__int64)SchedulerAssist);
+          v8 = *(_DWORD *)(a1 + 48);
+        }
+        while ( (v8 & 1) != 0 );
+      }
+      else
+      {
+        v8 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v8 | 2, v8);
+      }
+    }
+    v9 = v8;
+    v8 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v8 & 0xFFFFFFFC | 1, v8);
   }
-  while ( v13 != v8 );
-  if ( v7 )
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
-                                                         + 284));
+  while ( v9 != v8 );
+  v10 = *(_DWORD *)(a1 + 48);
+  v11 = v5 & 1;
+  v12 = v5 & 2;
+  v13 = v5 & 4;
+  v14 = v4 & 1;
+  do
+  {
+    v15 = v10;
+    if ( v11 )
+    {
+      v14 = v4 & 1;
+      v15 = v10 & 0xFFFFFFF7 | (8 * v14);
+    }
+    if ( v12 )
+      v15 = (4 * v14) | v15 & 0xFFFFFFFB;
+    else
+      v14 = v4 & 1;
+    if ( v13 )
+      v15 = v15 & 0xFFBFFFFF | (v14 << 22);
+    v16 = v10;
+    v10 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v15, v10);
+  }
+  while ( v16 != v10 );
   _InterlockedAnd((volatile signed __int32 *)(a1 + 48), 0xFFFFFFFC);
-  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v18 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v18 = KeGetCurrentIrql();
+      if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v20 = CurrentPrcb->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v22 = (v21 & v20[5]) == 0;
+        v20[5] &= v21;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v6);
+  result = CurrentIrql;
+  __writecr8(CurrentIrql);
   return result;
 }

@@ -1,31 +1,35 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@PEAVDXGSYNCOBJECT@@$01@@QEAAPEAPEAVDXGSYNCOBJECT@@I@Z @ 0x1C02307CC
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@PEAVDXGSYNCOBJECT@@$01@@QEAAPEAPEAVDXGSYNCOBJECT@@I@Z @ 0x1C015E984
  * Callers:
- *     ??0?$DXGPOINTERARRAYORDEREDACQUIRE@VDXGSYNCOBJECT@@$1?AcquireSyncObjectMutex@@YAXPEAV1@@Z$1?ReleaseSyncObjectMutex@@YAX0@Z$01@@QEAA@PEAPEAVDXGSYNCOBJECT@@IEE@Z @ 0x1C0025E64 (--0-$DXGPOINTERARRAYORDEREDACQUIRE@VDXGSYNCOBJECT@@$1-AcquireSyncObjectMutex@@YAXPEAV1@@Z$1-Rele.c)
- *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C031B6B8 (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
+ *     ??0?$DXGPOINTERARRAYORDEREDACQUIRE@VDXGSYNCOBJECT@@$1?AcquireSyncObjectMutex@@YAXPEAV1@@Z$1?ReleaseSyncObjectMutex@@YAX0@Z$01@@QEAA@PEAPEAVDXGSYNCOBJECT@@IE@Z @ 0x1C00279E0 (--0-$DXGPOINTERARRAYORDEREDACQUIRE@VDXGSYNCOBJECT@@$1-AcquireSyncObjectMutex@@YAXPEAV1@@Z$1-Rele.c)
+ *     ?WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAX@Z @ 0x1C01269D4 (-WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDX.c)
+ *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C026F85C (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<DXGSYNCOBJECT *,2>::AllocateElements(__int64 *a1, unsigned int a2)
+PVOID __fastcall PagedPoolZeroedArray<DXGSYNCOBJECT *,2>::AllocateElements(_DWORD *a1, unsigned int a2)
 {
-  __int64 result; // rax
-  void *v5; // rcx
+  __int64 v4; // rdi
+  PVOID result; // rax
 
-  if ( a2 <= 2 )
-  {
-    v5 = a1 + 1;
-    *a1 = (__int64)v5;
-    if ( a2 )
-      memset(v5, 0, 8LL * a2);
-  }
-  else
+  v4 = a2;
+  if ( a2 > 2 )
   {
     if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
       return 0LL;
-    *a1 = ExAllocatePool2(256LL, 8LL * a2, 1265072196LL);
+    result = ExAllocatePoolWithTag(PagedPool, 8LL * a2, 0x4B677844u);
   }
-  result = *a1;
-  *((_DWORD *)a1 + 6) = a2;
+  else
+  {
+    result = a1 + 2;
+  }
+  *(_QWORD *)a1 = result;
+  a1[6] = a2;
+  if ( result )
+  {
+    memset(result, 0, 8 * v4);
+    return *(PVOID *)a1;
+  }
   return result;
 }

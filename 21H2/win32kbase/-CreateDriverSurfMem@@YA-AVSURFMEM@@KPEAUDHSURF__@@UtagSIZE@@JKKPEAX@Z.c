@@ -1,11 +1,13 @@
 /*
- * XREFs of ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00DA580
+ * XREFs of ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00CB33C
  * Callers:
- *     ?hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00B4184 (-hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
- *     ?EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z @ 0x1C00DA790 (-EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z.c)
+ *     ?hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C00A2714 (-hbmCreateDriverSurface@@YAPEAUHBITMAP__@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
+ *     EngCreateLockedBitmap @ 0x1C00CB540 (EngCreateLockedBitmap.c)
+ *     EngCreateLockedDeviceBitmap @ 0x1C00CB5B0 (EngCreateLockedDeviceBitmap.c)
+ *     EngCreateLockedRedirectionDeviceBitmap @ 0x1C00CB620 (EngCreateLockedRedirectionDeviceBitmap.c)
  * Callees:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C001A590 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0025050 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00267F0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C00306C0 (--1SURFMEM@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CreateDriverSurfMem(
@@ -20,8 +22,8 @@ __int64 __fastcall CreateDriverSurfMem(
 {
   unsigned int v12; // edx
   unsigned __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
+  int v14; // edx
+  int v15; // r8d
   __int64 v16; // rax
   __int64 v17; // rcx
   char v18; // cl
@@ -45,51 +47,43 @@ __int64 __fastcall CreateDriverSurfMem(
   v24 = a4;
   v26 = 0LL;
   v27 = a7;
-  if ( a8 )
+  if ( !a8 )
+    goto LABEL_19;
+  v12 = a5;
+  if ( !a5 )
+    goto LABEL_19;
+  switch ( a6 & 0xFFFF7FFF )
   {
-    v12 = a5;
-    if ( a5 )
-    {
-      if ( (a6 & 0xFFFF7FFF) == 1 )
-      {
-        v13 = 8LL * a5;
-      }
-      else
-      {
-        if ( (a6 & 0xFFFF7FFF) != 2 )
-        {
-          if ( (a6 & 0xFFFF7FFF) != 3 )
-          {
-            if ( (a6 & 0xFFFF7FFF) != 4 )
-            {
-              if ( (a6 & 0xFFFF7FFF) != 5 )
-              {
-                if ( (a6 & 0xFFFF7FFF) != 6 )
-                  goto LABEL_19;
-                v12 = a5 >> 2;
-                goto LABEL_12;
-              }
-              v12 = (2863311531u * (unsigned __int64)a5) >> 32;
-            }
-            v12 >>= 1;
-          }
-LABEL_12:
-          LODWORD(v24) = v12;
-          goto LABEL_19;
-        }
-        v13 = 2LL * a5;
-      }
+    case 1u:
+      v13 = 8LL * a5;
+LABEL_17:
       if ( v13 <= 0xFFFFFFFF )
       {
         LODWORD(v24) = v13;
-        goto LABEL_19;
+        break;
       }
 LABEL_32:
       *(_QWORD *)a1 = 0LL;
       *(_BYTE *)(a1 + 8) = 0;
       *(_DWORD *)(a1 + 12) = 0;
       return a1;
-    }
+    case 2u:
+      v13 = 2LL * a5;
+      goto LABEL_17;
+    case 3u:
+LABEL_12:
+      LODWORD(v24) = v12;
+      break;
+    case 4u:
+LABEL_14:
+      v12 >>= 1;
+      goto LABEL_12;
+    case 5u:
+      v12 = (2863311531u * (unsigned __int64)a5) >> 32;
+      goto LABEL_14;
+    case 6u:
+      v12 = a5 >> 2;
+      goto LABEL_12;
   }
 LABEL_19:
   v20 = 0LL;
@@ -115,15 +109,13 @@ LABEL_19:
       *(_DWORD *)(v20 + 112) |= 0x400000u;
       v16 = v20;
     }
-    else if ( !a2 )
+    if ( a2 )
     {
-      goto LABEL_26;
+      *(_DWORD *)(v16 + 88) = 0;
+      *(_QWORD *)(v20 + 80) = 0LL;
+      *(_QWORD *)(v20 + 72) = 0LL;
+      v16 = v20;
     }
-    *(_DWORD *)(v16 + 88) = 0;
-    *(_QWORD *)(v20 + 80) = 0LL;
-    *(_QWORD *)(v20 + 72) = 0LL;
-    v16 = v20;
-LABEL_26:
     *(_DWORD *)(v16 + 112) |= 0x200000u;
     v17 = v20;
     if ( (int)a4 <= *(_DWORD *)(v20 + 56) && v29 <= *(_DWORD *)(v20 + 60) )
@@ -146,12 +138,13 @@ LABEL_26:
     *(_BYTE *)(a1 + 8) = v18;
     v20 = 0LL;
     v21 = 0;
-    goto LABEL_21;
   }
-  *(_QWORD *)a1 = 0LL;
-  *(_BYTE *)(a1 + 8) = 0;
-  *(_DWORD *)(a1 + 12) = 0;
-LABEL_21:
+  else
+  {
+    *(_QWORD *)a1 = 0LL;
+    *(_BYTE *)(a1 + 8) = 0;
+    *(_DWORD *)(a1 + 12) = 0;
+  }
   SURFMEM::~SURFMEM((SURFMEM *)&v20, v14, v15);
   return a1;
 }

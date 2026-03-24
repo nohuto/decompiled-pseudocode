@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgkCddAdapterReference@@YAXQEAXPEA_K@Z @ 0x1C01EA4B0
+ * XREFs of ?DxgkCddAdapterReference@@YAXQEAXPEA_K@Z @ 0x1C016F250
  * Callers:
  *     <none>
  * Callees:

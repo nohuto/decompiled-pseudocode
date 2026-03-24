@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer @ 0x1C0010B50
+ * XREFs of HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer @ 0x1C0010740
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReleaseInterruptReference @ 0x1C000FCB8 (HUBMUX_ReleaseInterruptReference.c)
- *     HUBMISC_DetachDevice @ 0x1C002E51C (HUBMISC_DetachDevice.c)
+ *     HUBMUX_ReleaseInterruptReference @ 0x1C000F89C (HUBMUX_ReleaseInterruptReference.c)
+ *     HUBMISC_DetachDevice @ 0x1C002DE98 (HUBMISC_DetachDevice.c)
  */
 
 __int64 __fastcall HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer(__int64 a1)

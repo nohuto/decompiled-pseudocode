@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpValidateMessage @ 0x14071C018
+ * XREFs of AlpcpValidateMessage @ 0x1405E3F28
  * Callers:
- *     AlpcpValidateConnectionMessage @ 0x140717398 (AlpcpValidateConnectionMessage.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x14071AC80 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x14071B668 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendMessage @ 0x1407395B0 (AlpcpSendMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpValidateConnectionMessage @ 0x1405E1B94 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall AlpcpValidateMessage(unsigned __int16 *a1, char a2)
   __int64 v2; // rax
   unsigned __int16 v4; // r8
   unsigned __int64 v5; // rax
-  unsigned __int64 v6; // rdx
+  unsigned __int64 v6; // rcx
 
   v2 = *a1;
   v4 = v2 + 40;
@@ -22,11 +22,16 @@ __int64 __fastcall AlpcpValidateMessage(unsigned __int16 *a1, char a2)
   {
     v5 = v2 + 40;
     v6 = a1[1];
-    if ( !a2 )
-      return v6 != v5 ? 0xC000000D : 0;
-    if ( v5 <= v6 )
+    if ( a2 )
     {
-      a1[1] = v4;
+      if ( v5 <= v6 )
+      {
+        a1[1] = v4;
+        return 0LL;
+      }
+    }
+    else if ( v5 == v6 )
+    {
       return 0LL;
     }
   }

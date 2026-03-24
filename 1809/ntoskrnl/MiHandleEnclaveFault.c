@@ -1,5 +1,5 @@
 /*
- * XREFs of MiHandleEnclaveFault @ 0x14085903C
+ * XREFs of MiHandleEnclaveFault @ 0x14085901C
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  * Callees:

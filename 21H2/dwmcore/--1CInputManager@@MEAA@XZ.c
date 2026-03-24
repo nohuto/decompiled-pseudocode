@@ -1,23 +1,26 @@
 /*
- * XREFs of ??1CInputManager@@MEAA@XZ @ 0x180180E6C
+ * XREFs of ??1CInputManager@@MEAA@XZ @ 0x180221ECC
  * Callers:
- *     ??_GCInputManager@@MEAAPEAXI@Z @ 0x180180F60 (--_GCInputManager@@MEAAPEAXI@Z.c)
- *     ??1CGlobalInputManager@@UEAA@XZ @ 0x180272278 (--1CGlobalInputManager@@UEAA@XZ.c)
+ *     ??_ECGlobalInputManager@@UEAAPEAXI@Z @ 0x180221410 (--_ECGlobalInputManager@@UEAAPEAXI@Z.c)
+ *     ??_GCInputManager@@MEAAPEAXI@Z @ 0x180222030 (--_GCInputManager@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?reset@?$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1?IMessageSessionCloseEndpointFunction@details@wil@@YAX01@Z$0A@@wil@@QEAAXPEAUIMessageSession@@_K@Z @ 0x1800F7CF0 (-reset@-$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1-IMessageSessionCloseEndpointFun.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1CHitTestContext@@QEAA@XZ @ 0x180180E00 (--1CHitTestContext@@QEAA@XZ.c)
- *     ?Stop@CMit@@QEAAXXZ @ 0x18018F53C (-Stop@CMit@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?reset@?$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1?IMessageSessionCloseEndpointFunction@details@wil@@YAX01@Z$0A@@wil@@QEAAXPEAUIMessageSession@@_K@Z @ 0x1800DFC70 (-reset@-$unique_com_token@UIMessageSession@@_K$$A6AXPEAU1@_K@Z$1-IMessageSessionCloseEndpointFun.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Stop@CMit@@QEAAXXZ @ 0x1802333AC (-Stop@CMit@@QEAAXXZ.c)
  */
 
 void __fastcall CInputManager::~CInputManager(CInputManager *this)
 {
   CMit *v2; // rcx
   void (__fastcall ***v3)(_QWORD, __int64); // rcx
-  unsigned __int64 v4; // r8
-  unsigned __int64 v5; // r8
-  __int64 v6; // rcx
-  __int64 v7; // rcx
+  void *v4; // rcx
+  void *v5; // rcx
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // r8
+  __int64 v8; // rcx
+  __int64 v9; // rcx
 
   *(_QWORD *)this = &CInputManager::`vftable';
   v2 = (CMit *)*((_QWORD *)this + 3);
@@ -33,26 +36,38 @@ void __fastcall CInputManager::~CInputManager(CInputManager *this)
       *((_QWORD *)this + 5),
       L"EdgyNotificationEndpoint",
       0LL);
+  v4 = (void *)*((_QWORD *)this + 34);
   CInputManager::s_pInputManager = 0LL;
-  CHitTestContext::~CHitTestContext((void **)this + 10);
+  operator delete(v4);
+  operator delete(*((void **)this + 30));
+  v5 = (void *)*((_QWORD *)this + 25);
+  if ( v5 )
+  {
+    std::_Deallocate<16,0>(v5, (*((_QWORD *)this + 27) - (_QWORD)v5) & 0xFFFFFFFFFFFFFFF0uLL);
+    *((_QWORD *)this + 25) = 0LL;
+    *((_QWORD *)this + 26) = 0LL;
+    *((_QWORD *)this + 27) = 0LL;
+  }
+  operator delete(*((void **)this + 17));
   wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
     (wil::details **)this + 8,
     0LL,
-    v4);
+    v6);
   wil::unique_com_token<IMessageSession,unsigned __int64,void (IMessageSession *,unsigned __int64),&void wil::details::IMessageSessionCloseEndpointFunction(IMessageSession *,unsigned __int64),0>::reset(
     (wil::details **)this + 6,
     0LL,
-    v5);
-  v6 = *((_QWORD *)this + 5);
-  if ( v6 )
+    v7);
+  v8 = *((_QWORD *)this + 5);
+  if ( v8 )
   {
     *((_QWORD *)this + 5) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
   }
-  v7 = *((_QWORD *)this + 4);
-  if ( v7 )
+  v9 = *((_QWORD *)this + 4);
+  if ( v9 )
   {
     *((_QWORD *)this + 4) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
   }
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

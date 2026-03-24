@@ -1,34 +1,36 @@
 /*
- * XREFs of WMIInitialize @ 0x140B3CDD0
+ * XREFs of WMIInitialize @ 0x140A3BF84
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IoCreateDriver @ 0x140812780 (IoCreateDriver.c)
- *     WmipInitializeAllocs @ 0x140B3C184 (WmipInitializeAllocs.c)
- *     WmipInitializeRegistration @ 0x140B3CAE8 (WmipInitializeRegistration.c)
- *     WmipGetSMBiosFromLoaderBlock @ 0x140B3CB80 (WmipGetSMBiosFromLoaderBlock.c)
- *     WmipRegisterFirmwareProviders @ 0x140B3CD08 (WmipRegisterFirmwareProviders.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x1407A5330 (IoCreateDriver.c)
+ *     WmipInitializeRegistration @ 0x140A6A038 (WmipInitializeRegistration.c)
+ *     WmipInitializeAllocs @ 0x140A73064 (WmipInitializeAllocs.c)
+ *     WmipRegisterFirmwareProviders @ 0x140A73644 (WmipRegisterFirmwareProviders.c)
+ *     WmipGetSMBiosFromLoaderBlock @ 0x140A73D6C (WmipGetSMBiosFromLoaderBlock.c)
  */
 
-char __fastcall WMIInitialize(int a1, __int64 a2)
+char __fastcall WMIInitialize(__int64 a1, __int64 a2)
 {
   char v2; // bl
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   DestinationString = 0LL;
-  if ( a1 )
+  if ( (_DWORD)a1 )
   {
-    WmipInitializeRegistration(a1);
+    WmipInitializeRegistration(a1, a2);
     return 1;
   }
-  WmipInitializeAllocs();
+  WmipInitializeAllocs(a1, a2);
   RtlInitUnicodeString(&DestinationString, L"\\Driver\\WMIxWDM");
-  if ( IoCreateDriver(&DestinationString, (__int64 (__fastcall *)(void **, _QWORD))WmipDriverEntry) >= 0 )
+  if ( IoCreateDriver(&DestinationString, (_DMA_OPERATIONS *)WmipDriverEntry) >= 0 )
   {
     WmipGetSMBiosFromLoaderBlock(a2);
-    WmipRegisterFirmwareProviders();
+    WmipRegisterFirmwareProviders(v5, v4);
     return 1;
   }
   return v2;

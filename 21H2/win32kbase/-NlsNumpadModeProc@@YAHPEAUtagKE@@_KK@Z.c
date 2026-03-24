@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB550
+ * XREFs of ?NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABB50
  * Callers:
  *     <none>
  * Callees:
- *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01EB8FC (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01ABEFC (-NlsTestKeyStateToggle@@YAHE@Z.c)
  */
 
 __int64 __fastcall NlsNumpadModeProc(struct tagKE *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall NlsNumpadModeProc(struct tagKE *a1)
 
   if ( (unsigned int)NlsTestKeyStateToggle(0x90u) )
   {
-    if ( (byte_1C0295764 & 1) != 0 )
+    if ( (byte_1C0250884 & 1) != 0 )
     {
       v5 = *(_WORD *)(v1 + 2) & 0x8F00;
       *(_WORD *)(v1 + 2) = v5;

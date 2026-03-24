@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ScaleTransformUpdate@CChannel@@UEAAJINNNN@Z @ 0x1800ECE40
+ * XREFs of ?ScaleTransformUpdate@CChannel@@UEAAJINNNN@Z @ 0x1800D9F80
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::ScaleTransformUpdate(
-        CDataStreamWriter **this,
+        CChannel *this,
         unsigned int a2,
         double a3,
         double a4,
@@ -22,10 +22,10 @@ __int64 __fastcall CChannel::ScaleTransformUpdate(
   _DWORD v12[8]; // [rsp+20h] [rbp-48h] BYREF
   struct _RTL_CRITICAL_SECTION *v13; // [rsp+70h] [rbp+8h] BYREF
 
-  v13 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
-  CChannel::CheckHandle((__int64)this, a2, 151);
-  v12[0] = 493;
+  v13 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 152);
+  v12[0] = 498;
   v12[1] = a2;
   v8 = a3;
   v9 = a4;

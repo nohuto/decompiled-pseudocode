@@ -3,15 +3,15 @@
  * Callers:
  *     PsFreezeProcess @ 0x140588E24 (PsFreezeProcess.c)
  *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
- *     PsThawProcess @ 0x14067E324 (PsThawProcess.c)
- *     PsSetProcessFaultInformation @ 0x1406E1DC0 (PsSetProcessFaultInformation.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1408BF8A0 (EtwpPsProvProcessEnumCallback.c)
+ *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
+ *     PsSetProcessFaultInformation @ 0x1406E1DA0 (PsSetProcessFaultInformation.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1408BF880 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PsGetProcessDeepFreezeStats @ 0x1405B2334 (PsGetProcessDeepFreezeStats.c)
  *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
  */

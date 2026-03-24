@@ -1,7 +1,7 @@
 /*
- * XREFs of UsbhRegisterBootDeviceNotification @ 0x1C005B81C
+ * XREFs of UsbhRegisterBootDeviceNotification @ 0x1C005CEBC
  * Callers:
- *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054570 (UsbhPdoPnp_DeviceUsageNotification.c)
+ *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0055C00 (UsbhPdoPnp_DeviceUsageNotification.c)
  * Callees:
  *     <none>
  */

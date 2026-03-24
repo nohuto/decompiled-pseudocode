@@ -1,28 +1,29 @@
 /*
- * XREFs of HalpMap @ 0x1403BF3B8
+ * XREFs of HalpMap @ 0x1403BB938
  * Callers:
- *     HalpAcpiGetRsdt @ 0x140213908 (HalpAcpiGetRsdt.c)
- *     HalpAcpiCheckAndMapTable @ 0x140215144 (HalpAcpiCheckAndMapTable.c)
- *     HalpPciMapMmConfigPhysicalAddress @ 0x14023AEE0 (HalpPciMapMmConfigPhysicalAddress.c)
- *     HalMapIoSpace @ 0x1403BE7F0 (HalMapIoSpace.c)
- *     HalpMapPhysicalMemoryWriteThrough64 @ 0x1403BEC00 (HalpMapPhysicalMemoryWriteThrough64.c)
- *     HalpAcpiAllocateMemory @ 0x1403BF088 (HalpAcpiAllocateMemory.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     HalpMapPhysicalMemory64 @ 0x140416FEC (HalpMapPhysicalMemory64.c)
- *     HalpAllocateEarlyPages @ 0x140509490 (HalpAllocateEarlyPages.c)
- *     HalpMapEarlyPages @ 0x140509570 (HalpMapEarlyPages.c)
- *     HalpPowerWriteResetCommand @ 0x14050A93C (HalpPowerWriteResetCommand.c)
- *     HalpInterruptMapParkedPage @ 0x14051DEB0 (HalpInterruptMapParkedPage.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x14052448C (HalpUsbLegacyStopOhciInterrupt.c)
- *     HalpSetupAcpiPhase0 @ 0x140AF968C (HalpSetupAcpiPhase0.c)
- *     HalpAcpiTableCacheInit @ 0x140AF9A94 (HalpAcpiTableCacheInit.c)
- *     HalpBlkAllocateAndShadowMemory @ 0x140B4CE34 (HalpBlkAllocateAndShadowMemory.c)
- *     HalpBlkAllocatePageTablePage @ 0x140B4CF2C (HalpBlkAllocatePageTablePage.c)
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140B4D124 (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpAcpiGetRsdt @ 0x140294540 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140294BD8 (HalpAcpiCheckAndMapTable.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x1402B1EC8 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpAcpiAllocateMemory @ 0x1403BB808 (HalpAcpiAllocateMemory.c)
+ *     HalpMapPhysicalMemory64 @ 0x1403EFE80 (HalpMapPhysicalMemory64.c)
+ *     HalpAllocateEarlyPages @ 0x1404BC8F0 (HalpAllocateEarlyPages.c)
+ *     HalpMapEarlyPages @ 0x1404BC9D0 (HalpMapEarlyPages.c)
+ *     HalpMapPhysicalMemoryWriteThrough64 @ 0x1404BCA00 (HalpMapPhysicalMemoryWriteThrough64.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
+ *     HalpInterruptMapParkedPage @ 0x1404D1900 (HalpInterruptMapParkedPage.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D737C (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpAllocateNumaConfigData @ 0x140A644EC (HalpAllocateNumaConfigData.c)
+ *     HalpAcpiTableCacheInit @ 0x140A64690 (HalpAcpiTableCacheInit.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140A8DC88 (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140A8DD80 (HalpBlkAllocatePageTablePage.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpMmGetPteAddressSafe @ 0x1403BF580 (HalpMmGetPteAddressSafe.c)
- *     HalpFlushTLB @ 0x1403BF630 (HalpFlushTLB.c)
- *     HalpIsHeap64KRegionExecutable @ 0x140509500 (HalpIsHeap64KRegionExecutable.c)
+ *     HalpMmGetPteAddressSafe @ 0x1403BBB00 (HalpMmGetPteAddressSafe.c)
+ *     HalpFlushTLB @ 0x1403BBBB0 (HalpFlushTLB.c)
+ *     HalpIsHeap64KRegionExecutable @ 0x1404BC960 (HalpIsHeap64KRegionExecutable.c)
  */
 
 unsigned __int64 __fastcall HalpMap(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
@@ -85,13 +86,11 @@ LABEL_12:
             continue;
           goto LABEL_13;
         }
-        if ( !(unsigned __int8)HalpIsHeap64KRegionExecutable(v11)
-          && !(unsigned __int8)HalpIsHeap64KRegionExecutable(v11 + (v8 << 12) - 4096) )
+        if ( (unsigned __int8)HalpIsHeap64KRegionExecutable(v11)
+          || (unsigned __int8)HalpIsHeap64KRegionExecutable(v11 + (v8 << 12) - 4096) )
         {
-          v7 = 1LL;
-          goto LABEL_13;
+          v12 = 0;
         }
-        v12 = 0;
         v7 = 1LL;
       }
       break;
@@ -116,7 +115,7 @@ LABEL_13:
       a2 = v18;
     do
     {
-      v19 = a2 | a1 & 0xFFFFFFFFFF000LL;
+      v19 = a2 | a1 & 0xFFFFFFFFF000LL;
       v7 = 0xFFFFF68000000000uLL;
       a1 += 4096LL;
       v10 = 8 * ((v11 >> 12) & 0xFFFFFFFFFLL) - 0x98000000000LL;

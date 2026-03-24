@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpPrintSpaces @ 0x140672D4C
+ * XREFs of BcpPrintSpaces @ 0x1405C5254
  * Callers:
- *     BcpDisplayCriticalString @ 0x14067237C (BcpDisplayCriticalString.c)
+ *     BcpDisplayCriticalString @ 0x1405C488C (BcpDisplayCriticalString.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140671CA4 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x1405C4314 (BgpDisplayCharacterEx.c)
  */
 
 __int64 __fastcall BcpPrintSpaces(__int64 *a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5, _DWORD *a6)

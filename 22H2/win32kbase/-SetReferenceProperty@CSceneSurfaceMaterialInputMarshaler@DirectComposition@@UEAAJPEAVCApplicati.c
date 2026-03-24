@@ -1,10 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0230280
+ * XREFs of ?SetReferenceProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F7BF0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::SetReferenceProperty(
@@ -14,30 +15,36 @@ __int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::SetRe
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  unsigned int *v5; // r10
-  DirectComposition::CSceneSurfaceMaterialInputMarshaler *v7; // r11
-  unsigned int v8; // r9d
+  unsigned int v5; // ebx
+  struct DirectComposition::CResourceMarshaler **v10; // r14
+  char v11; // al
 
-  v5 = (unsigned int *)a4;
-  v7 = this;
-  if ( a3 == 1
-    && (!a4
-     || DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((_DWORD *)a4 + 9), 37)
-     || DirectComposition::CResourceMarshaler::IsDerivedResourceType(v8, 202)) )
+  v5 = 0;
+  *a5 = 0;
+  if ( a3 != 1 )
+    return 3221225485LL;
+  v10 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 56);
+  if ( a4 )
+    v11 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+            a4,
+            35LL);
+  else
+    v11 = 1;
+  if ( v10 && v11 )
   {
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             (struct DirectComposition::CResourceMarshaler **)v7 + 7,
-             v5,
-             1,
-             147,
-             (int *)v7 + 4,
-             64,
-             0,
-             a5);
+    if ( *v10 != a4 )
+    {
+      DirectComposition::CApplicationChannel::ReleaseResource(a2, *v10);
+      *v10 = a4;
+      if ( a4 )
+        DirectComposition::CResourceMarshaler::AddRef(a4);
+      *((_DWORD *)this + 4) |= 0x40u;
+      *a5 = 1;
+    }
   }
   else
   {
-    return 3221225485LL;
+    return (unsigned int)-1073741811;
   }
+  return v5;
 }

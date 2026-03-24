@@ -1,8 +1,8 @@
 /*
- * XREFs of PfCheckDeprioritizeImage @ 0x140666E74
+ * XREFs of PfCheckDeprioritizeImage @ 0x140666E54
  * Callers:
  *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
- *     PfProcessCreateNotification @ 0x140666B7C (PfProcessCreateNotification.c)
+ *     PfProcessCreateNotification @ 0x140666B5C (PfProcessCreateNotification.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

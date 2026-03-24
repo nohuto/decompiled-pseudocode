@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetWindowsPolicy @ 0x14073EFE4
+ * XREFs of RtlpGetWindowsPolicy @ 0x14073EFC4
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x140182AC0 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x140182AE0 (RtlpMuiRegLoadLicInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

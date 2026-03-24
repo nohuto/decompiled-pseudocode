@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCD3DTexture@@MEAAPEAXI@Z @ 0x1802BF7F0
+ * XREFs of ??_GCD3DTexture@@MEAAPEAXI@Z @ 0x18026D3E0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1CD3DTexture@@MEAA@XZ @ 0x1802BF688 (--1CD3DTexture@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD3DTexture@@MEAA@XZ @ 0x18026D294 (--1CD3DTexture@@MEAA@XZ.c)
  */
 
 CD3DTexture *__fastcall CD3DTexture::`scalar deleting destructor'(CD3DTexture *this, char a2)

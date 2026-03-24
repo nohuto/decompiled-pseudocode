@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801A5050
+ * XREFs of ?SetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180172D30
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801A5144 (-SetProperty@-$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIW4DCOMPO.c)
- *     ?OnBaseColorFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ @ 0x18023D5EC (-OnBaseColorFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ.c)
- *     ?OnMetallicFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ @ 0x18023D6E0 (-OnMetallicFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180172E30 (-SetProperty@-$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIW4DCOMPO.c)
+ *     ?OnBaseColorFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ @ 0x1801EAD3C (-OnBaseColorFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ.c)
+ *     ?OnMetallicFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ @ 0x1801EAE80 (-OnMetallicFactorChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRoughnessMaterial,CScenePbrMaterial>::SetProperty(
@@ -30,7 +30,7 @@ __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRough
       v4 = CScenePbrMaterialGeneratedT<CScenePbrMaterial,CSceneMaterial>::SetProperty(a1, a2, a3);
       v6 = v4;
       if ( v4 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0xFB1u);
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0xF5Bu, 0LL);
       return v6;
     }
     if ( (_DWORD)a2 != 10 )
@@ -38,27 +38,27 @@ __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRough
       v7 = CScenePbrMaterialGeneratedT<CScenePbrMaterial,CSceneMaterial>::SetProperty(a1, a2, 69LL);
       v6 = v7;
       if ( v7 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0xFACu);
+        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xF56u, 0LL);
       return v6;
     }
-    *(_OWORD *)(a1 + 144) = *a4;
+    *(_OWORD *)(a1 + 136) = *a4;
     CSceneMetallicRoughnessMaterial::OnBaseColorFactorChanged((CSceneMetallicRoughnessMaterial *)a1);
     return 0;
   }
   if ( (_DWORD)a2 == 11 )
   {
-    if ( *(float *)a4 != *(float *)(a1 + 160) )
+    if ( *(float *)a4 != *(float *)(a1 + 152) )
     {
-      *(_DWORD *)(a1 + 160) = *(_DWORD *)a4;
+      *(_DWORD *)(a1 + 152) = *(_DWORD *)a4;
       CSceneMetallicRoughnessMaterial::OnMetallicFactorChanged((CSceneMetallicRoughnessMaterial *)a1);
     }
     return 0;
   }
   if ( (_DWORD)a2 == 13 )
   {
-    if ( *(float *)a4 != *(float *)(a1 + 164) )
+    if ( *(float *)a4 != *(float *)(a1 + 156) )
     {
-      *(_DWORD *)(a1 + 164) = *(_DWORD *)a4;
+      *(_DWORD *)(a1 + 156) = *(_DWORD *)a4;
       CSceneMetallicRoughnessMaterial::OnMetallicFactorChanged((CSceneMetallicRoughnessMaterial *)a1);
     }
     return 0;
@@ -66,6 +66,6 @@ __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRough
   v9 = CScenePbrMaterialGeneratedT<CScenePbrMaterial,CSceneMaterial>::SetProperty(a1, a2, 18LL);
   v6 = v9;
   if ( v9 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0xFA2u);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xF4Cu, 0LL);
   return v6;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z @ 0x1C00D07D0
+ * XREFs of ?DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z @ 0x1C004DD04
  * Callers:
- *     EditionPostDwmSpeedHitTest @ 0x1C00D0570 (EditionPostDwmSpeedHitTest.c)
- *     ?DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z @ 0x1C00D07D0 (-DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z.c)
+ *     xxxDCompSpeedHitTest @ 0x1C004CE8C (xxxDCompSpeedHitTest.c)
+ *     ?DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z @ 0x1C004DD04 (-DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z.c)
  * Callees:
- *     ?LayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z @ 0x1C001278C (-LayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z.c)
- *     ?DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z @ 0x1C00D07D0 (-DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z.c)
- *     ?DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C00D08FC (-DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
+ *     LayerHitTest @ 0x1C0006BE4 (LayerHitTest.c)
+ *     ?DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C004DA7C (-DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     ?DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z @ 0x1C004DD04 (-DCEChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@PEAU2@PEBU_SUBPIXELS@@@Z.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
  */
 
 struct tagWND *__fastcall DCEChildTreeSpeedHitTest(
@@ -16,53 +16,48 @@ struct tagWND *__fastcall DCEChildTreeSpeedHitTest(
         struct tagPOINT *a3,
         const struct _SUBPIXELS *a4)
 {
-  struct tagWND *i; // rsi
+  __int64 i; // rsi
   __int64 v9; // rcx
-  struct tagPOINT v10; // rbx
+  __int64 v10; // rbx
   __int64 v11; // rcx
-  struct tagWND *v12; // rax
-  struct tagPOINT v14; // [rsp+40h] [rbp+8h] BYREF
+  struct tagWND *result; // rax
+  struct tagPOINT v13; // [rsp+40h] [rbp+8h] BYREF
 
-  for ( i = (struct tagWND *)*((_QWORD *)a1 + 14); ; i = (struct tagWND *)*((_QWORD *)i + 11) )
+  for ( i = *((_QWORD *)a1 + 14); ; i = *(_QWORD *)(i + 88) )
   {
     if ( !i )
       return a1;
-    if ( *((_QWORD *)i + 27) )
+    if ( *(_QWORD *)(i + 216) )
       break;
-    v9 = *((_QWORD *)i + 5);
-    v10 = *a3;
+    v9 = *(_QWORD *)(i + 40);
+    v10 = (__int64)*a3;
     if ( (*(_BYTE *)(v9 + 31) & 0x10) != 0
-      && v10.x >= *(_DWORD *)(v9 + 88)
-      && v10.x < *(_DWORD *)(v9 + 96)
-      && v10.y >= *(_DWORD *)(v9 + 92)
-      && v10.y < *(_DWORD *)(v9 + 100) )
+      && (int)v10 >= *(_DWORD *)(v9 + 88)
+      && (int)v10 < *(_DWORD *)(v9 + 96)
+      && SHIDWORD(v10) >= *(_DWORD *)(v9 + 92)
+      && SHIDWORD(v10) < *(_DWORD *)(v9 + 100) )
     {
       v11 = *(_QWORD *)(v9 + 168);
-      if ( (!v11 || (unsigned int)GrePtInRegion(v11, (unsigned int)v10.x, HIDWORD(*(unsigned __int64 *)&v10)))
-        && ((*(_BYTE *)(*((_QWORD *)i + 5) + 26LL) & 8) == 0 || LayerHitTest(i, v10)) )
+      if ( (!v11 || (unsigned int)GrePtInRegion(v11, (unsigned int)v10, HIDWORD(v10)))
+        && ((*(_BYTE *)(*(_QWORD *)(i + 40) + 26LL) & 8) == 0 || LayerHitTest(i, v10)) )
       {
-        goto LABEL_11;
+        goto LABEL_12;
       }
     }
-LABEL_17:
+LABEL_2:
     ;
   }
-  v14 = a2;
-  if ( !(unsigned int)DCEIsWindowHit(i, &v14, a4) )
-    goto LABEL_17;
-  *a3 = v14;
-LABEL_11:
-  if ( *((_QWORD *)i + 14) )
-  {
-    if ( (unsigned int)PtInRect(*((_QWORD *)i + 5) + 104LL, *a3) )
-    {
-      v12 = DCEChildTreeSpeedHitTest(i, a2, a3, a4);
-      if ( v12 )
-      {
-        if ( v12 != i )
-          return v12;
-      }
-    }
-  }
-  return i;
+  v13 = a2;
+  if ( !(unsigned int)DCEIsWindowHit((struct tagWND *)i, &v13, a4) )
+    goto LABEL_2;
+  *a3 = v13;
+LABEL_12:
+  if ( !*(_QWORD *)(i + 112) )
+    return (struct tagWND *)i;
+  if ( !(unsigned int)PtInRect(*(_QWORD *)(i + 40) + 104LL) )
+    return (struct tagWND *)i;
+  result = DCEChildTreeSpeedHitTest((struct tagWND *)i, a2, a3, a4);
+  if ( !result || result == (struct tagWND *)i )
+    return (struct tagWND *)i;
+  return result;
 }

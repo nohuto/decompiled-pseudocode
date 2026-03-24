@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvEnableDisplayString @ 0x140193EE0
+ * XREFs of InbvEnableDisplayString @ 0x140193F00
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:

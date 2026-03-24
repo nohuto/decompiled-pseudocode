@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpSubscribeCallbacks @ 0x140B5A6E8
+ * XREFs of SshpSubscribeCallbacks @ 0x140A40044
  * Callers:
- *     SshInitialize @ 0x140B51AA0 (SshInitialize.c)
+ *     SshInitialize @ 0x140A3F9B4 (SshInitialize.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     SSHSupportRegisterPowerSettingCallback @ 0x140825ED0 (SSHSupportRegisterPowerSettingCallback.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x1407919EC (SSHSupportRegisterPowerSettingCallback.c)
  */
 
 int SshpSubscribeCallbacks()

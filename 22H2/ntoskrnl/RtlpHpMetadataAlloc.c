@@ -1,48 +1,44 @@
 /*
- * XREFs of RtlpHpMetadataAlloc @ 0x140324348
+ * XREFs of RtlpHpMetadataAlloc @ 0x1402FE634
  * Callers:
- *     RtlpHpLargeAlloc @ 0x140323EBC (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapAllocate @ 0x140397AD8 (RtlpHpHeapAllocate.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B5FB0 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpLargeAlloc @ 0x1402FDFBC (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapAllocate @ 0x14037B320 (RtlpHpHeapAllocate.c)
  * Callees:
- *     RtlpHpAllocateHeap @ 0x14024D400 (RtlpHpAllocateHeap.c)
- *     RtlpHpSegAlloc @ 0x14024DB20 (RtlpHpSegAlloc.c)
- *     RtlpHpMetadataHeapCtxGet @ 0x140324448 (RtlpHpMetadataHeapCtxGet.c)
- *     RtlpHpMetadataHeapStart @ 0x140324474 (RtlpHpMetadataHeapStart.c)
+ *     RtlpHpSegAlloc @ 0x140289ED0 (RtlpHpSegAlloc.c)
+ *     RtlpHpMetadataHeapStart @ 0x1402FE738 (RtlpHpMetadataHeapStart.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1402FE76C (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpAllocateHeap @ 0x1402FE7B0 (RtlpHpAllocateHeap.c)
  */
 
-char *__fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)
+__int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)
 {
-  __int64 v4; // xmm0_8
-  __int64 v8; // rax
-  char v9; // r8
-  __int64 v10; // rbx
-  __int64 *v11; // r14
-  __int128 v14; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v7; // rbx
+  _QWORD *v8; // rsi
+  _QWORD *v9; // r9
+  char v10; // dl
+  __int128 v13; // [rsp+30h] [rbp-18h] BYREF
 
-  v14 = *a4;
-  v4 = v14;
-  v8 = RtlpHpMetadataHeapCtxGet(&v14);
-  *(_QWORD *)&v14 = v4;
-  v9 = BYTE1(v4);
-  v10 = 0LL;
-  v11 = (__int64 *)v8;
-  BYTE3(v14) = 0;
-  *((_QWORD *)&v14 + 1) = 0LL;
-  if ( BYTE1(v4) >= 3u )
-    v9 = 3;
-  BYTE1(v14) = v9;
-  if ( (int)RtlpHpMetadataHeapStart(v8, &v14) >= 0 )
+  v13 = *a4;
+  v7 = 0LL;
+  v8 = (_QWORD *)RtlpHpMetadataHeapCtxGet(&v13);
+  *(_QWORD *)&v13 = *v9;
+  v10 = BYTE1(v13);
+  BYTE3(v13) = 0;
+  *((_QWORD *)&v13 + 1) = 0LL;
+  if ( BYTE1(v13) >= 2u )
+    v10 = 2;
+  BYTE1(v13) = v10;
+  if ( (int)RtlpHpMetadataHeapStart(v8, &v13) >= 0 )
   {
     if ( a3 )
-      return (char *)RtlpHpSegAlloc(
-                       *v11 + 320 + (*(unsigned int *)(*v11 + 336) < a1 ? 0xC0 : 0),
-                       a1,
-                       a1,
-                       a2,
-                       a2 < a1 ? 83886080 : 0x1000000);
+      return RtlpHpSegAlloc(
+               *v8 + 256LL + (*(unsigned int *)(*v8 + 272LL) < a1 ? 0xC0 : 0),
+               a1,
+               a1,
+               a2,
+               a2 < a1 ? 83886080 : 0x1000000);
     else
-      return RtlpHpAllocateHeap(*v11, a1, 0x1000000, 0);
+      return RtlpHpAllocateHeap(*v8, a1, 0x1000000LL, 0LL);
   }
-  return (char *)v10;
+  return v7;
 }

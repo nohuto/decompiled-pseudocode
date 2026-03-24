@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmSetInstallerClassRegProp @ 0x140A6329C
+ * XREFs of _CmSetInstallerClassRegProp @ 0x14097593C
  * Callers:
- *     PiCMSetRegistryProperty @ 0x14096ABC4 (PiCMSetRegistryProperty.c)
- *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x140A69C20 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x1408B0F90 (PiCMSetRegistryProperty.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x14097BCC8 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x140A63400 (_CmSetInstallerClassRegPropWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140975AA0 (_CmSetInstallerClassRegPropWorker.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegProp(

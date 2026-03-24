@@ -1,18 +1,19 @@
 /*
- * XREFs of ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C008217C
+ * XREFs of ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076E3C
  * Callers:
- *     imp_WdfIoQueuePurgeSynchronously @ 0x1C0081040 (imp_WdfIoQueuePurgeSynchronously.c)
+ *     imp_WdfIoQueuePurgeSynchronously @ 0x1C00744D0 (imp_WdfIoQueuePurgeSynchronously.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C000FAF8 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
- *     ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B404 (-QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
- *     WPP_IFR_SF_dq @ 0x1C005319C (WPP_IFR_SF_dq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014F40 (-QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C0017894 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
+ *     WPP_IFR_SF_dq @ 0x1C002EA2C (WPP_IFR_SF_dq.c)
  */
 
 __int64 __fastcall FxIoQueue::QueuePurgeSynchronously(FxIoQueue *this)
 {
   int v2; // edi
   const void *_a2; // rax
+  _FX_DRIVER_GLOBALS *v4; // r10
   void *ObjectHandleUnchecked; // rax
   MxEvent eventOnStack; // [rsp+40h] [rbp-28h] BYREF
 
@@ -26,7 +27,7 @@ __int64 __fastcall FxIoQueue::QueuePurgeSynchronously(FxIoQueue *this)
     {
       _a2 = (const void *)FxObject::GetObjectHandleUnchecked(this);
       WPP_IFR_SF_dq(
-        this->m_Globals,
+        v4,
         5u,
         0xDu,
         0x4Bu,

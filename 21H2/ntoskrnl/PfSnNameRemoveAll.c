@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnNameRemoveAll @ 0x1406B5F74
+ * XREFs of PfSnNameRemoveAll @ 0x140698BDC
  * Callers:
- *     PfFileInfoNotify @ 0x1402CCCF0 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
  * Callees:
- *     PfSnActiveTraceGetNext @ 0x14023A910 (PfSnActiveTraceGetNext.c)
- *     PfSnNameRemove @ 0x14023A9D0 (PfSnNameRemove.c)
- *     PfSnLogStreamDelete @ 0x1406B5FC4 (PfSnLogStreamDelete.c)
+ *     PfSnActiveTraceGetNext @ 0x1402B52F8 (PfSnActiveTraceGetNext.c)
+ *     PfSnNameRemove @ 0x1402B53B4 (PfSnNameRemove.c)
+ *     PfSnLogStreamDelete @ 0x140698C2C (PfSnLogStreamDelete.c)
  */
 
 __int64 *__fastcall PfSnNameRemoveAll(__int64 a1)

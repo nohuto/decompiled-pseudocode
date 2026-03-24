@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCommand_Create @ 0x1C001A704
+ * XREFs of XilCommand_Create @ 0x1C0017CD8
  * Callers:
- *     Command_Create @ 0x1C006FFA4 (Command_Create.c)
+ *     Command_Create @ 0x1C0070AFC (Command_Create.c)
  * Callees:
- *     XilCommand_CreateSecureObject @ 0x1C0031448 (XilCommand_CreateSecureObject.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     XilCommand_CreateSecureObject @ 0x1C002F8B4 (XilCommand_CreateSecureObject.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall XilCommand_Create(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall XilCommand_Create(__int64 a1)
 
   v2 = a1 + 136;
   *(_QWORD *)(v2 + 8) = a1;
-  v3 = *(_BYTE *)(*(_QWORD *)(a1 + 8) + 601LL);
+  v3 = *(_BYTE *)(*(_QWORD *)(a1 + 8) + 553LL);
   *(_BYTE *)v2 = v3;
   if ( v3 )
   {

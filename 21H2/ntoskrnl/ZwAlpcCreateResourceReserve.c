@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAlpcCreateResourceReserve @ 0x14041C700
+ * XREFs of ZwAlpcCreateResourceReserve @ 0x1403FB340
  * Callers:
- *     DifZwAlpcCreateResourceReserveWrapper @ 0x14061D320 (DifZwAlpcCreateResourceReserveWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

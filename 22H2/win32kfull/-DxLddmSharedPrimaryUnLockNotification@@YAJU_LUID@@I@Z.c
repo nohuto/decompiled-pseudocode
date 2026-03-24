@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C026E9E0
+ * XREFs of ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0275B98
  * Callers:
- *     NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C0270170 (NtGdiDdDDISharedPrimaryUnLockNotification.c)
+ *     NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C0277B20 (NtGdiDdDDISharedPrimaryUnLockNotification.c)
  * Callees:
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C006DC80 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     UserRedrawDesktop @ 0x1C0222E68 (UserRedrawDesktop.c)
- *     vSpUnTearDownSprites @ 0x1C02844F0 (vSpUnTearDownSprites.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C002A998 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     UserRedrawDesktop @ 0x1C023DF48 (UserRedrawDesktop.c)
+ *     vSpUnTearDownSprites @ 0x1C0285DA0 (vSpUnTearDownSprites.c)
  */
 
 __int64 __fastcall DxLddmSharedPrimaryUnLockNotification(struct _LUID a1, int a2)
@@ -17,57 +17,56 @@ __int64 __fastcall DxLddmSharedPrimaryUnLockNotification(struct _LUID a1, int a2
   int v3; // edi
   unsigned int v4; // r14d
   int v5; // r15d
+  DYNAMICMODECHANGESHARELOCK *v6; // rcx
   __int64 i; // rsi
-  __int64 v7; // rdi
+  int v8; // eax
+  __int64 v9; // rdi
   unsigned int CurrentProcessId; // eax
   __int64 ProcessEntry; // rax
-  __int64 v10; // rdi
-  __int64 v11; // rax
-  Gre::Base *v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
+  __int64 v12; // rdi
+  __int64 v13; // rax
   LONG HighPart; // [rsp+64h] [rbp+44h]
-  __int64 v21; // [rsp+70h] [rbp+50h] BYREF
+  __int64 v18; // [rsp+70h] [rbp+50h] BYREF
 
   HighPart = a1.HighPart;
   LowPart = a1.LowPart;
   v3 = a2;
   v4 = 0;
   v5 = 0;
-  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v21);
-  for ( i = hdevEnumerateDisplayOnly(0LL); i; i = hdevEnumerateDisplayOnly(i) )
+  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v18);
+  for ( i = hdevEnumerate(0LL); i; i = hdevEnumerate(i) )
   {
-    v21 = i;
-    if ( (*(_DWORD *)(i + 40) & 0x20400) == 0
-      && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v21)
-      && LowPart == PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v21)->LowPart
-      && HighPart == PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v21)->HighPart
-      && *(_DWORD *)(*(_QWORD *)(v21 + 2552) + 248LL) == v3 )
+    v18 = i;
+    v8 = *(_DWORD *)(i + 40);
+    if ( (v8 & 0x400) == 0
+      && (v8 & 0x20000) == 0
+      && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v18)
+      && LowPart == PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v18)->LowPart
+      && HighPart == PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v18)->HighPart
+      && *(_DWORD *)(*(_QWORD *)(v18 + 2576) + 256LL) == v3 )
     {
-      GreLockVisRgn(v21);
-      GreLockSprite(v21);
-      GreLockDisplayDevice(v21);
-      v7 = v21;
+      GreLockVisRgn(v18);
+      GreLockSprite(v18);
+      GreLockDisplayDevice(v18);
+      v9 = v18;
       CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
-      ProcessEntry = DxLddmFindProcessEntry(v7 + 2600, CurrentProcessId & 0xFFFFFFFC);
-      v10 = ProcessEntry;
+      ProcessEntry = DxLddmFindProcessEntry(v9 + 2624, CurrentProcessId & 0xFFFFFFFC);
+      v12 = ProcessEntry;
       if ( ProcessEntry )
       {
         if ( *(_DWORD *)(ProcessEntry + 20) )
         {
-          v11 = v21;
-          if ( *(_QWORD *)(v21 + 2624) )
+          v13 = v18;
+          if ( *(_QWORD *)(v18 + 2648) )
           {
-            (*(void (__fastcall **)(_QWORD, __int64))(v21 + 2624))(*(_QWORD *)(v21 + 1768), v10 + 28);
-            v11 = v21;
+            (*(void (__fastcall **)(_QWORD, __int64))(v18 + 2648))(*(_QWORD *)(v18 + 1800), v12 + 28);
+            v13 = v18;
           }
-          --*(_DWORD *)(v11 + 2616);
-          if ( (*(_DWORD *)(v10 + 20))-- == 1 )
+          --*(_DWORD *)(v13 + 2640);
+          if ( (*(_DWORD *)(v12 + 20))-- == 1 )
           {
-            vSpUnTearDownSprites(v21, v10 + 28, 1LL);
-            if ( *(_DWORD *)(v10 + 44) != *((_DWORD *)Gre::Base::Globals(v13) + 1629) )
+            vSpUnTearDownSprites(v18, v12 + 28, 1LL);
+            if ( *(_DWORD *)(v12 + 44) != giVisRgnUniqueness )
               v5 = 1;
           }
         }
@@ -76,14 +75,14 @@ __int64 __fastcall DxLddmSharedPrimaryUnLockNotification(struct _LUID a1, int a2
       {
         v4 = -1073741811;
       }
-      GreUnlockDisplayDevice(v21);
-      GreUnlockSprite(v21);
-      GreUnlockVisRgn(v21);
+      GreUnlockDisplayDevice(v18);
+      GreUnlockSprite(v18);
+      GreUnlockVisRgn(v18);
       v3 = a2;
     }
   }
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v21);
+  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v6);
   if ( v5 )
-    UserRedrawDesktop(v15, v14, v16, v17);
+    UserRedrawDesktop();
   return v4;
 }

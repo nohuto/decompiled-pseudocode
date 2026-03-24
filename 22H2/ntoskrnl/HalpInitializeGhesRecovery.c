@@ -1,31 +1,38 @@
 /*
- * XREFs of HalpInitializeGhesRecovery @ 0x1403A8800
+ * XREFs of HalpInitializeGhesRecovery @ 0x1403C54DC
  * Callers:
- *     HalpInitializeMce @ 0x140A8B600 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A0A8C (HalpInitializeMce.c)
  * Callees:
- *     <none>
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 (__fastcall *HalpInitializeGhesRecovery())()
 {
-  _QWORD *v0; // rax
-  __int64 v1; // rcx
+  struct _SLIST_ENTRY *v0; // rdi
+  _QWORD *v1; // rbx
+  __int64 v2; // rsi
   __int64 (__fastcall *result)(); // rax
 
-  v0 = &unk_140C611E0;
-  v1 = 32LL;
+  if ( ((unsigned __int8)&WheapDrsPoolList & 0xF) != 0 )
+    RtlRaiseStatus(0x80000002);
+  v0 = &WheapDrsPoolEntries;
+  WheapDrsPoolList = 0LL;
+  v1 = &unk_140CED9E8;
+  v2 = 32LL;
   do
   {
-    v0 += 10;
-    *(_OWORD *)(v0 - 13) = 0LL;
-    *(_OWORD *)(v0 - 11) = 0LL;
-    *(v0 - 9) = 0LL;
-    *(v0 - 11) = HalpErrorDeferredHandler;
-    *((_DWORD *)v0 - 28) = 0;
-    --v1;
+    *(_OWORD *)(v1 - 3) = 0LL;
+    *(_OWORD *)(v1 - 1) = 0LL;
+    v1[1] = 0LL;
+    *(v1 - 1) = HalpErrorDeferredHandler;
+    RtlpInterlockedPushEntrySList(&WheapDrsPoolList, v0);
+    v0 += 6;
+    v1 += 12;
+    --v2;
   }
-  while ( v1 );
+  while ( v2 );
   result = HalpRequestGenericErrorRecovery;
-  off_140C01DE8[0] = HalpRequestGenericErrorRecovery;
+  off_140C009D8[0] = HalpRequestGenericErrorRecovery;
   return result;
 }

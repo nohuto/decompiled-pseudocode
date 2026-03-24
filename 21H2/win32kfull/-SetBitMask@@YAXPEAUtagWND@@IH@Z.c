@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C01166B0
+ * XREFs of ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C012B170
  * Callers:
- *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C01168D0 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012B390 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
  * Callees:
- *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C0116B70 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C012B630 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
  */
 
 void __fastcall SetBitMask(struct tagWND *a1, unsigned int a2, int a3)

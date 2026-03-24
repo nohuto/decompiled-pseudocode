@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadPagingConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BE2EC
+ * XREFs of ?ReadPagingConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0092EE8
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0468 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0091434 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadPagingConfiguration(void)
@@ -301,18 +301,18 @@ void VIDMM_GLOBAL::ReadPagingConfiguration(void)
   {
     v0 = 16;
   }
-  qword_1C00764F0 = 10000LL * v3;
-  qword_1C00764F8 = 10000LL * v4;
-  qword_1C0076500 = 10000LL * v5;
-  qword_1C0076508 = 10000LL * v6;
-  qword_1C0076528 = v31;
-  dword_1C0076530 = v9;
-  qword_1C0076510 = 10000LL * v0;
-  qword_1C0076518 = (unsigned int)(10000 * v7);
-  qword_1C0076550 = (unsigned __int64)v10 << 20;
-  dword_1C007646C = v11;
-  dword_1C0076534 = v12;
-  dword_1C0076538 = v13;
-  dword_1C00765C0 = v14;
-  qword_1C0076520 = (unsigned int)(10000 * v8);
+  qword_1C0050440 = 10000LL * v3;
+  qword_1C0050448 = 10000LL * v4;
+  qword_1C0050450 = 10000LL * v5;
+  qword_1C0050458 = 10000LL * v6;
+  qword_1C0050478 = v31;
+  dword_1C0050480 = v9;
+  qword_1C0050460 = 10000LL * v0;
+  qword_1C0050468 = (unsigned int)(10000 * v7);
+  qword_1C00504A0 = (unsigned __int64)v10 << 20;
+  dword_1C00503B8 = v11;
+  dword_1C0050484 = v12;
+  dword_1C0050488 = v13;
+  dword_1C0050510 = v14;
+  qword_1C0050470 = (unsigned int)(10000 * v8);
 }

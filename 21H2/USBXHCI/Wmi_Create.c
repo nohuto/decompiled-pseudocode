@@ -1,12 +1,12 @@
 /*
- * XREFs of Wmi_Create @ 0x1C006D600
+ * XREFs of Wmi_Create @ 0x1C00709BC
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Wmi_Create(__int64 a1, __int64 a2, _QWORD *a3)
@@ -37,7 +37,7 @@ __int64 __fastcall Wmi_Create(__int64 a1, __int64 a2, _QWORD *a3)
   v11[1] = 0;
   v13 = 0LL;
   v18[2] = &v19;
-  v17 = off_1C00612E8;
+  v17 = off_1C00602E8;
   v14 = 1;
   v12 = Wmi_WdfEvtCleanupCallback;
   v15 = 1;
@@ -60,7 +60,7 @@ __int64 __fastcall Wmi_Create(__int64 a1, __int64 a2, _QWORD *a3)
   v8 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    v10,
-                   off_1C00612E8);
+                   off_1C00602E8);
   *v8 = a2;
   *a3 = v8;
   return 0LL;

@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhCancelEnumeration @ 0x1C001EB50
+ * XREFs of UsbhCancelEnumeration @ 0x1C00023E0
  * Callers:
- *     UsbhBusPause_Action @ 0x1C0014220 (UsbhBusPause_Action.c)
- *     UsbhEnumerate1 @ 0x1C001EDD0 (UsbhEnumerate1.c)
- *     UsbhPCE_Disable @ 0x1C0033B7C (UsbhPCE_Disable.c)
- *     UsbhEnumerate2 @ 0x1C004BE8C (UsbhEnumerate2.c)
- *     UsbhHandleOvercurrent @ 0x1C004C3B4 (UsbhHandleOvercurrent.c)
+ *     UsbhBusPause_Action @ 0x1C0006460 (UsbhBusPause_Action.c)
+ *     UsbhEnumerate1 @ 0x1C001C7A8 (UsbhEnumerate1.c)
+ *     UsbhPCE_Disable @ 0x1C0034EE0 (UsbhPCE_Disable.c)
+ *     UsbhEnumerate2 @ 0x1C004D298 (UsbhEnumerate2.c)
+ *     UsbhHandleOvercurrent @ 0x1C004D7C4 (UsbhHandleOvercurrent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     Usbh_BusPause_PdoEvent @ 0x1C0039DEC (Usbh_BusPause_PdoEvent.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     Usbh_BusPause_PdoEvent @ 0x1C003B0FC (Usbh_BusPause_PdoEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
  */
 
 __int64 __fastcall UsbhCancelEnumeration(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -33,9 +33,9 @@ __int64 __fastcall UsbhCancelEnumeration(__int64 a1, unsigned int a2, __int64 a3
   if ( a2 - 1 > 1 )
     return a2;
   FdoExt(a1);
-  UsbhCancelResetTimeout(a1, a3, 1);
+  UsbhCancelResetTimeout(a1, a3, 1LL);
   UsbhAssertBusLock(a1);
-  UsbhReleaseEnumBusLockEx(a1, *(_QWORD *)(a3 + 376), *(_WORD *)(a3 + 4));
+  UsbhReleaseEnumBusLockEx(a1, *(_QWORD *)(a3 + 376), *(unsigned __int16 *)(a3 + 4));
   UsbhBusUnlatchPdo(a1, a4, a3, v9, 0LL);
   Usbh_BusPause_PdoEvent(a1, a4, a3, *(_QWORD *)(a3 + 376));
   return 4LL;

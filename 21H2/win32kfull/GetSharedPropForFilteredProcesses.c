@@ -1,8 +1,8 @@
 /*
- * XREFs of GetSharedPropForFilteredProcesses @ 0x1C0235B4C
+ * XREFs of GetSharedPropForFilteredProcesses @ 0x1C00D5CF0
  * Callers:
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     NtUserGetProp @ 0x1C00DA0E0 (NtUserGetProp.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     NtUserGetProp @ 0x1C00D5B80 (NtUserGetProp.c)
  * Callees:
  *     <none>
  */

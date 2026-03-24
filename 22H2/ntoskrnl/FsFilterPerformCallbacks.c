@@ -1,17 +1,17 @@
 /*
- * XREFs of FsFilterPerformCallbacks @ 0x1402A1E90
+ * XREFs of FsFilterPerformCallbacks @ 0x1402D74C0
  * Callers:
- *     FsRtlReleaseFileForModWrite @ 0x1402F4A7C (FsRtlReleaseFileForModWrite.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x140349A9C (FsRtlAcquireFileForModWriteEx.c)
- *     FsRtlReleaseFile @ 0x140723980 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140723B90 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlQueryOpen @ 0x1407AC0F4 (FsRtlQueryOpen.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407B4A78 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407B4D18 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlReleaseFileForModWrite @ 0x1402547F4 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025522C (FsRtlAcquireFileForModWriteEx.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     FsRtlReleaseFile @ 0x140655100 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x1406552D0 (FsRtlAcquireFileExclusiveCommon.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1406BFDE4 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1406BFFC4 (FsRtlAcquireFileForCcFlushEx.c)
  * Callees:
- *     FsFilterGetCallbacks @ 0x1402A2010 (FsFilterGetCallbacks.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     FsFilterGetCallbacks @ 0x1402D7640 (FsFilterGetCallbacks.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsFilterPerformCallbacks(__int64 a1, char a2, char a3, _DWORD *a4)
@@ -26,13 +26,12 @@ __int64 __fastcall FsFilterPerformCallbacks(__int64 a1, char a2, char a3, _DWORD
   _QWORD *v15; // rsi
   _QWORD *v16; // rdx
   __int64 result; // rax
-  __int64 v18; // rax
-  __int64 v19; // [rsp+70h] [rbp+8h] BYREF
-  __int64 (__fastcall *v20)(__int64, _QWORD *); // [rsp+88h] [rbp+20h] BYREF
+  __int64 v18; // [rsp+70h] [rbp+8h] BYREF
+  __int64 (__fastcall *v19)(__int64, _QWORD *); // [rsp+88h] [rbp+20h] BYREF
 
   v4 = *(_QWORD *)(a1 + 8);
-  v20 = 0LL;
   v19 = 0LL;
+  v18 = 0LL;
   *a4 = 2;
   if ( !v4 )
     return 0LL;
@@ -41,12 +40,12 @@ __int64 __fastcall FsFilterPerformCallbacks(__int64 a1, char a2, char a3, _DWORD
     v9 = *(unsigned __int8 *)(a1 + 4);
     v10 = *(_QWORD *)(*(_QWORD *)(v4 + 312) + 48LL);
     *(_QWORD *)(a1 + 8) = v4;
-    FsFilterGetCallbacks(v9, v4, &v20, &v19);
-    v12 = v20;
-    v13 = v19;
-    if ( !v20 )
+    FsFilterGetCallbacks(v9, v4, &v19, &v18);
+    v12 = v19;
+    v13 = v18;
+    if ( !v19 )
       break;
-    if ( v19 )
+    if ( v18 )
       goto LABEL_4;
     v15 = 0LL;
 LABEL_7:
@@ -69,7 +68,7 @@ LABEL_7:
       {
 LABEL_36:
         if ( !a3 )
-          KeBugCheckEx(0x22u, (int)result, 0LL, 0x3B8uLL, 0LL);
+          KeBugCheckEx(0x22u, (int)result, 0LL, 0x38CuLL, 0LL);
         *a4 |= 1u;
       }
       if ( !v15 )
@@ -87,8 +86,7 @@ LABEL_40:
 LABEL_12:
     v11 = -1;
 LABEL_13:
-    v18 = *(_QWORD *)(a1 + 8);
-    if ( v4 == v18 )
+    if ( v4 == *(_QWORD *)(a1 + 8) )
     {
       if ( !v10 )
       {
@@ -100,13 +98,13 @@ LABEL_13:
     else
     {
       *(_DWORD *)(a1 + 64) |= 4u;
-      v4 = v18;
+      v4 = *(_QWORD *)(a1 + 8);
     }
 LABEL_16:
     if ( !v4 )
       return 0LL;
   }
-  if ( !v19 )
+  if ( !v18 )
   {
     v4 = *(_QWORD *)(*(_QWORD *)(v4 + 312) + 48LL);
     if ( !v10 )

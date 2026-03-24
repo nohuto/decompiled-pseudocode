@@ -1,5 +1,5 @@
 /*
- * XREFs of MiReleaseSessionVa @ 0x140138064
+ * XREFs of MiReleaseSessionVa @ 0x140138084
  * Callers:
  *     MiMakeSystemRangeAvailable @ 0x1400280B0 (MiMakeSystemRangeAvailable.c)
  * Callees:
@@ -12,7 +12,7 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)

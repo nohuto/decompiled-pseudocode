@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiIoctlCleanupArgumentObjects @ 0x1C001DCFC
+ * XREFs of AcpiIoctlCleanupArgumentObjects @ 0x1C000C248
  * Callers:
- *     ACPIIoctlEvalControlMethod @ 0x1C001BC74 (ACPIIoctlEvalControlMethod.c)
- *     AcpiIoctlCleanupArgumentObjects @ 0x1C001DCFC (AcpiIoctlCleanupArgumentObjects.c)
- *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002D9AC (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C000BAC4 (ACPIIoctlEvalControlMethod.c)
+ *     AcpiIoctlCleanupArgumentObjects @ 0x1C000C248 (AcpiIoctlCleanupArgumentObjects.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4 (ACPIIoctlAsyncEvalControlMethod.c)
  * Callees:
- *     AcpiIoctlCleanupArgumentObjects @ 0x1C001DCFC (AcpiIoctlCleanupArgumentObjects.c)
+ *     AcpiIoctlCleanupArgumentObjects @ 0x1C000C248 (AcpiIoctlCleanupArgumentObjects.c)
  */
 
 void __fastcall AcpiIoctlCleanupArgumentObjects(__int64 a1, unsigned int a2)
@@ -30,9 +30,11 @@ void __fastcall AcpiIoctlCleanupArgumentObjects(__int64 a1, unsigned int a2)
           {
             v5 = *v4;
             if ( (_DWORD)v5 )
+            {
               AcpiIoctlCleanupArgumentObjects(v4 + 2, v5);
-            ExFreePoolWithTag(v4, 0x41706341u);
-            *v2 = 0LL;
+              ExFreePoolWithTag(v4, 0x41706341u);
+              *v2 = 0LL;
+            }
           }
         }
       }

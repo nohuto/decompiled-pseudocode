@@ -1,47 +1,54 @@
 /*
- * XREFs of RtlQueryFeatureConfiguration @ 0x14035CAB0
+ * XREFs of RtlQueryFeatureConfiguration @ 0x14038C100
  * Callers:
- *     wil_RtlStagingConfig_QueryFeatureState @ 0x140933F20 (wil_RtlStagingConfig_QueryFeatureState.c)
- *     CmQuerySingleFeatureConfiguration @ 0x140A11D2C (CmQuerySingleFeatureConfiguration.c)
- *     wil_details_UpdateFeatureConfiguredStates @ 0x140A12424 (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x14032C634 (wil_details_GetCurrentFeatureEnabledState.c)
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1405CC7E0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     CmQuerySingleFeatureConfiguration @ 0x14086B1FC (CmQuerySingleFeatureConfiguration.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035CBB8 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x14035CC4C (RtlpFcBufferManagerReferenceBuffers.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1404115B0 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
- *     RtlpFcGetBufferManager @ 0x1407D143C (RtlpFcGetBufferManager.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1407D144C (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     KeIsBugCheckActive @ 0x14039A3FC (KeIsBugCheckActive.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6268 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403A664C (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140778E34 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlpFcGetBufferManager @ 0x1409190D8 (RtlpFcGetBufferManager.c)
  */
 
 __int64 __fastcall RtlQueryFeatureConfiguration(unsigned int a1, unsigned int a2, _QWORD *a3, __int64 a4)
 {
+  char v8; // cl
+  ULONG_PTR v9; // r8
   __int64 BufferManager; // rsi
-  int v10; // eax
-  unsigned int v11; // ebx
-  __int64 v12; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v13; // [rsp+28h] [rbp-50h] BYREF
-  __int128 v14; // [rsp+30h] [rbp-48h] BYREF
+  int FeatureConfigurationFromBufferSet; // eax
+  unsigned int v13; // ebx
+  __int64 v14; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-10h] BYREF
+  ULONG_PTR BugCheckParameter4; // [rsp+48h] [rbp+0h]
 
-  v12 = 0LL;
-  v13 = 0LL;
   v14 = 0LL;
-  if ( ObGetCurrentIrql() > 1u && ((KiBugCheckActive & 3) != 0 || PoPowerDownActionInProgress) )
+  v15 = 0LL;
+  if ( ObGetCurrentIrql() <= 1u )
+  {
+    BufferManager = RtlpFcGetBufferManager();
+    RtlpFcBufferManagerReferenceBuffers(BufferManager, &v14, &v15);
+    FeatureConfigurationFromBufferSet = RtlpFcQueryFeatureConfigurationFromBufferSet(v15, a1, a2, a4);
+    v13 = FeatureConfigurationFromBufferSet;
+    if ( FeatureConfigurationFromBufferSet >= 0 )
+    {
+      v13 = 0;
+      *a3 = v14;
+    }
+    else if ( FeatureConfigurationFromBufferSet == -1073741275 || FeatureConfigurationFromBufferSet == -2147483614 )
+    {
+      *a3 = v14;
+    }
+    RtlpFcBufferManagerDereferenceBuffers(BufferManager, v15);
+    return v13;
+  }
+  else
+  {
+    if ( !(unsigned __int8)KeIsBugCheckActive(0LL) && PoPowerDownActionInProgress == v8 )
+      KeBugCheckEx(0xAu, (ULONG_PTR)RtlQueryFeatureConfiguration, v9, 0LL, BugCheckParameter4);
     return 2147483682LL;
-  BufferManager = RtlpFcGetBufferManager();
-  RtlpFcBufferManagerReferenceBuffers(BufferManager, &v12, &v13);
-  v10 = RtlpFcQueryFeatureConfigurationFromBufferSet(v13, a1, a2, &v14);
-  v11 = v10;
-  if ( v10 >= 0 )
-  {
-    RtlpFcConvertFeatureConfigurationsInternalToExternal(&v14, a4, 1LL);
-    v11 = 0;
-    *a3 = v12;
   }
-  else if ( v10 == -1073741275 || v10 == -2147483614 )
-  {
-    *a3 = v12;
-  }
-  RtlpFcBufferManagerDereferenceBuffers(BufferManager, v13);
-  return v11;
 }

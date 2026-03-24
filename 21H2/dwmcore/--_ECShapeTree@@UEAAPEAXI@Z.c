@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_ECShapeTree@@UEAAPEAXI@Z @ 0x180040D40
+ * XREFs of ??_ECShapeTree@@UEAAPEAXI@Z @ 0x18016CF00
  * Callers:
  *     <none>
  * Callees:
- *     ??1CContainerVectorShape@@MEAA@XZ @ 0x1800431C4 (--1CContainerVectorShape@@MEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CContainerVectorShape@@MEAA@XZ @ 0x1801BE634 (--1CContainerVectorShape@@MEAA@XZ.c)
  */
 
 CShapeTree *__fastcall CShapeTree::`vector deleting destructor'(CShapeTree *this, char a2)
@@ -14,9 +14,9 @@ CShapeTree *__fastcall CShapeTree::`vector deleting destructor'(CShapeTree *this
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0xA8uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0xA0);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

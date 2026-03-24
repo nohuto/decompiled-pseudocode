@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUpdateOverThrottledCount @ 0x14098B2A8
+ * XREFs of PopUpdateOverThrottledCount @ 0x1408E7FB4
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140373610 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x14098B0C0 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C4D58 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x1408E7DD0 (PopThermalZoneRemove.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     PopDiagTraceThermalOverthrottleState @ 0x140594C7C (PopDiagTraceThermalOverthrottleState.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceThermalOverthrottleState @ 0x140573024 (PopDiagTraceThermalOverthrottleState.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, unsigned __int8 a2)
@@ -16,25 +16,24 @@ __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, unsigned __int8 a2)
   int v4; // ecx
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // r8
-  int v9; // [rsp+58h] [rbp+10h] BYREF
+  int v8; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 48);
-  v9 = 0;
+  v8 = 0;
   PopDiagTraceThermalOverthrottleState(v2, a2);
   PopAcquirePolicyLock(v4);
   if ( a2 )
   {
-    if ( ++dword_140C3C848 == 1 )
+    if ( ++dword_140C22E88 == 1 )
     {
-      v9 = 1;
+      v8 = 1;
 LABEL_5:
-      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_OVERTHROTTLE, (__int64)&v9);
+      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_OVERTHROTTLE, (__int64)&v8);
     }
   }
-  else if ( !--dword_140C3C848 )
+  else if ( !--dword_140C22E88 )
   {
     goto LABEL_5;
   }
-  return PopReleasePolicyLock(v6, v5, v7);
+  return PopReleasePolicyLock(v6, v5);
 }

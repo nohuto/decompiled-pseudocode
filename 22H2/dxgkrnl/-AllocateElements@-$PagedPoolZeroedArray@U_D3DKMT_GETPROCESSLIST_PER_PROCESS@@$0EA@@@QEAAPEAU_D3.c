@@ -1,32 +1,35 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@I@Z @ 0x1C02CDD3C
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@I@Z @ 0x1C02214EC
  * Callers:
- *     NtDxgkGetProcessList @ 0x1C02D6800 (NtDxgkGetProcessList.c)
+ *     NtDxgkGetProcessList @ 0x1C0227840 (NtDxgkGetProcessList.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<_D3DKMT_GETPROCESSLIST_PER_PROCESS,64>::AllocateElements(
-        __int64 *a1,
+PVOID __fastcall PagedPoolZeroedArray<_D3DKMT_GETPROCESSLIST_PER_PROCESS,64>::AllocateElements(
+        _DWORD *a1,
         unsigned int a2)
 {
-  __int64 result; // rax
-  void *v5; // rcx
+  __int64 v4; // rdi
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 0x40 )
   {
-    v5 = a1 + 1;
-    *a1 = (__int64)v5;
-    if ( a2 )
-      memset(v5, 0, 8LL * a2);
+    result = a1 + 2;
   }
   else
   {
     if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
       return 0LL;
-    *a1 = ExAllocatePool2(256LL, 8LL * a2, 1265072196LL);
+    result = ExAllocatePoolWithTag(PagedPool, 8LL * a2, 0x4B677844u);
   }
-  result = *a1;
-  *((_DWORD *)a1 + 130) = a2;
+  *(_QWORD *)a1 = result;
+  a1[130] = a2;
+  if ( result )
+  {
+    memset(result, 0, 8 * v4);
+    return *(PVOID *)a1;
+  }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryEtwCallback @ 0x140994BB0
+ * XREFs of PopBatteryEtwCallback @ 0x1408ED180
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopBatteryTraceSystemBatteryStatus @ 0x140369AC4 (PopBatteryTraceSystemBatteryStatus.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopBatteryTraceSystemBatteryStatus @ 0x140399948 (PopBatteryTraceSystemBatteryStatus.c)
  */
 
 void __fastcall PopBatteryEtwCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)

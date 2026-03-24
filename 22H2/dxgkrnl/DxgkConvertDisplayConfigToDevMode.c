@@ -1,142 +1,107 @@
 /*
- * XREFs of DxgkConvertDisplayConfigToDevMode @ 0x1C016DB30
+ * XREFs of DxgkConvertDisplayConfigToDevMode @ 0x1C014A8A0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C016DAD0 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
- *     ?PopulatePublicGdiDisplayModeInfo@VIDPN_MGR@@SAJ_K000W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@QEAU_devicemodeW@@@Z @ 0x1C016FD44 (-PopulatePublicGdiDisplayModeInfo@VIDPN_MGR@@SAJ_K000W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W.c)
- *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0171364 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C000C40C (-GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C012C6F0 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?PopulatePublicGdiDisplayModeInfo@VIDPN_MGR@@SAJ_K000W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@QEAU_devicemodeW@@@Z @ 0x1C0147B78 (-PopulatePublicGdiDisplayModeInfo@VIDPN_MGR@@SAJ_K000W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W.c)
+ *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C014AA00 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
  */
 
-__int64 __fastcall DxgkConvertDisplayConfigToDevMode(__int64 a1, struct _devicemodeW *a2, __int64 a3)
+__int64 __fastcall DxgkConvertDisplayConfigToDevMode(struct _D3DDDI_RATIONAL *a1, struct _devicemodeW *a2, __int64 a3)
 {
   enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION v5; // edi
-  enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING v6; // r12d
-  unsigned int v7; // r15d
-  int v8; // ecx
-  int v9; // esi
-  int v10; // ecx
-  bool v11; // r9
-  int v12; // ecx
-  int *v13; // rax
-  int v14; // edx
+  __int64 v6; // rdx
+  enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING Denominator; // r12d
+  __int64 Numerator; // rcx
+  __int64 v9; // rdx
+  int v10; // esi
+  unsigned int BitsPerPixel; // eax
+  __int64 v12; // rdx
+  DWORD v13; // r8d
+  DWORD v14; // r9d
   __int64 v15; // rcx
   __int64 v16; // r8
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-18h]
-  char v22; // [rsp+60h] [rbp-10h]
-  struct _D3DDDI_RATIONAL v23; // [rsp+A0h] [rbp+30h] BYREF
+  __int64 v18; // rax
+  int v19; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v20; // [rsp+48h] [rbp-18h]
+  char v21; // [rsp+50h] [rbp-10h]
+  struct _D3DDDI_RATIONAL v22; // [rsp+90h] [rbp+30h] BYREF
 
-  v20 = -1;
-  v21 = 0LL;
+  v19 = -1;
+  v20 = 0LL;
   v5 = D3DKMDT_VPPR_IDENTITY;
-  if ( (qword_1C013F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v22 = 1;
-    v20 = 2178;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2178);
+    v21 = 1;
+    v19 = 2178;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 2178);
   }
   else
   {
-    v22 = 0;
+    v21 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v20, 2178);
-  if ( (*(_QWORD *)a1 & 0x100001030387LL) == 0x100001030387LL )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 2178LL);
+  if ( (a1->Numerator & 0x30387LL) == 0x30387 )
   {
-    v6 = *(_DWORD *)(a1 + 76);
-    if ( *(_DWORD *)(a1 + 196) == -2 && *(_DWORD *)(a1 + 200) == -2 )
+    Denominator = a1[9].Denominator;
+    if ( *(_QWORD *)&a1[6] != 0xFFFFFFFEFFFFFFFEuLL )
     {
-      v7 = 64;
+      v22 = a1[6];
+      DmmMapVSyncFromRationalToInteger(&v22, (unsigned int)Denominator, 0LL);
     }
-    else
+    Numerator = a1[14].Numerator;
+    v22.Numerator = 0;
+    v10 = DxgkConvertDisplayConfigCScalingToDdiScaling(Numerator, &a1[2], &v22);
+    if ( v10 >= 0 )
     {
-      v23 = *(struct _D3DDDI_RATIONAL *)(a1 + 196);
-      v7 = DmmMapVSyncFromRationalToInteger(&v23, v6, 0LL);
-    }
-    v8 = *(_DWORD *)(a1 + 112);
-    v23.Numerator = 0;
-    v9 = DxgkConvertDisplayConfigCScalingToDdiScaling(
-           v8,
-           (struct _LUID *)(a1 + 16),
-           (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)&v23);
-    if ( v9 >= 0 )
-    {
-      v10 = *(_DWORD *)(a1 + 104);
-      v11 = ((v10 - 2) & 0xFFFFFFFD) == 0;
-      v12 = v10 - 1;
-      if ( v12 )
+      if ( a1[13].Numerator != 1 )
       {
-        v18 = v12 - 1;
-        if ( v18 )
+        switch ( a1[13].Numerator )
         {
-          v19 = v18 - 1;
-          if ( v19 )
-          {
-            if ( v19 == 1 )
-              v5 = D3DKMDT_VPPR_ROTATE270;
-          }
-          else
-          {
+          case 2u:
+            v5 = D3DKMDT_VPPR_ROTATE90;
+            break;
+          case 3u:
             v5 = D3DKMDT_VPPR_ROTATE180;
-          }
-        }
-        else
-        {
-          v5 = D3DKMDT_VPPR_ROTATE90;
+            break;
+          case 4u:
+            v5 = D3DKMDT_VPPR_ROTATE270;
+            break;
         }
       }
-      v13 = (int *)(a1 + 128);
-      if ( v11 )
-        v14 = *(_DWORD *)(a1 + 124);
-      else
-        v14 = *v13;
-      if ( !v11 )
-        v13 = (int *)(a1 + 124);
-      v9 = VIDPN_MGR::PopulatePublicGdiDisplayModeInfo(
-             0x20uLL,
-             *v13,
-             v14,
-             v7,
-             v6,
-             v5,
-             (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING)v23.Numerator,
-             a2);
-      if ( v9 >= 0 )
+      BitsPerPixel = GetBitsPerPixel(a1[12].Numerator);
+      v10 = VIDPN_MGR::PopulatePublicGdiDisplayModeInfo(
+              BitsPerPixel,
+              v12,
+              v13,
+              v14,
+              Denominator,
+              v5,
+              (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING)v22.Numerator,
+              a2);
+      if ( v10 >= 0 )
       {
         a2->dmFields |= 0x20u;
-        a2->dmPosition.x = *(_DWORD *)(a1 + 116);
-        a2->dmPosition.y = *(_DWORD *)(a1 + 120);
+        a2->dmPosition.x = a1[14].Denominator;
+        a2->dmPosition.y = a1[15].Numerator;
       }
     }
   }
   else
   {
-    WdLogSingleEntry1(1LL, 1700LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"An invalid path was passed to DxgkConvertDisplayConfigToDevMode, missing required flags.",
-      1700LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v9 = -1073741811;
+    v18 = WdLogNewEntry5_WdAssertion(197511LL, v6);
+    *(_QWORD *)(v18 + 24) = 1683LL;
+    WdLogEvent5_WdAssertion(v18);
+    v10 = -1073741811;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v20);
-  if ( v22 )
-  {
-    LOBYTE(v15) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v20);
-  }
-  return (unsigned int)v9;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19, v9);
+  if ( v21 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v19);
+  return (unsigned int)v10;
 }

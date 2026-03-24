@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaSetProgressBarSubset @ 0x14013E040
+ * XREFs of BvgaSetProgressBarSubset @ 0x14013E060
  * Callers:
  *     <none>
  * Callees:

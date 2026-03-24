@@ -1,129 +1,73 @@
 /*
- * XREFs of CmpDoCompareKeyName @ 0x1406DA960
+ * XREFs of CmpDoCompareKeyName @ 0x1405EE600
  * Callers:
- *     CmpCompareInIndex @ 0x1406D9710 (CmpCompareInIndex.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x140826618 (CmpFindSubKeyByHashWithStatus.c)
- *     CmpSelectLeaf @ 0x140874FE0 (CmpSelectLeaf.c)
+ *     CmpCompareInIndex @ 0x1405EDCF0 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmpSelectLeaf @ 0x14076B3D8 (CmpSelectLeaf.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407ACED0 (CmpFindSubKeyByHashWithStatus.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpCompareTwoCompressedNames @ 0x1407BFD60 (CmpCompareTwoCompressedNames.c)
- *     CmpCompareCompressedName @ 0x1407C4C74 (CmpCompareCompressedName.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875E78 (CmpCompareTwoCompressedNames.c)
  */
 
-__int64 __fastcall CmpDoCompareKeyName(ULONG_PTR a1, const UNICODE_STRING *a2, unsigned __int16 *a3, unsigned int a4)
+__int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, unsigned __int16 *a3, unsigned int a4)
 {
-  bool v4; // zf
-  __int64 CellPaged; // rax
-  unsigned __int8 *v9; // r11
-  unsigned __int16 v10; // r10
-  unsigned __int16 *Buffer; // rbx
-  unsigned __int16 v12; // r9
-  unsigned __int16 v13; // di
-  unsigned int v14; // esi
-  int v15; // edi
-  LONG v17; // eax
-  _QWORD *CurrentServerSiloGlobals; // rax
-  _QWORD *v19; // rax
-  UNICODE_STRING String2; // [rsp+20h] [rbp-28h] BYREF
-  int v21; // [rsp+50h] [rbp+8h] BYREF
-  int v22; // [rsp+54h] [rbp+Ch]
+  __int64 (__fastcall *v5)(__int64, _QWORD, int *); // rax
+  __int64 v8; // rax
+  unsigned __int16 v10; // cx
+  __int64 v11; // r10
+  LONG v12; // eax
+  int v13; // ebx
+  UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
+  int v15; // [rsp+40h] [rbp+8h] BYREF
+  int v16; // [rsp+44h] [rbp+Ch]
 
-  v21 = -1;
-  v4 = (*(_BYTE *)(a1 + 140) & 1) == 0;
-  v22 = 0;
+  v15 = -1;
+  v16 = 0;
+  v5 = *(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8);
   String2 = 0LL;
-  if ( v4 )
-    CellPaged = HvpGetCellPaged(a1);
-  else
-    CellPaged = HvpGetCellFlat(a1, a4);
-  if ( !CellPaged )
+  v8 = v5(a1, a4, &v15);
+  if ( !v8 )
     return 2LL;
-  v9 = (unsigned __int8 *)(CellPaged + 76);
-  if ( (*(_BYTE *)(CellPaged + 2) & 0x20) != 0 )
+  v10 = *(_WORD *)(v8 + 72);
+  v11 = v8 + 76;
+  if ( (*(_BYTE *)(v8 + 2) & 0x20) != 0 )
   {
-    if ( !a3 )
-    {
-      v10 = a2->Length >> 1;
-      Buffer = a2->Buffer;
-      v12 = *(_WORD *)(CellPaged + 72);
-      if ( v10 )
-      {
-        while ( v12 )
-        {
-          v13 = *Buffer++;
-          v14 = *v9++;
-          if ( v13 != (_WORD)v14 )
-          {
-            if ( v13 >= 0x61u )
-            {
-              if ( v13 > 0x7Au )
-              {
-                CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-                v13 = NLS_UPCASE(CurrentServerSiloGlobals[154], v13);
-              }
-              else
-              {
-                v13 -= 32;
-              }
-            }
-            if ( v14 >= 0x61 )
-            {
-              if ( v14 > 0x7A )
-              {
-                v19 = PsGetCurrentServerSiloGlobals();
-                LOWORD(v14) = NLS_UPCASE(v19[154], v14);
-              }
-              else
-              {
-                LOWORD(v14) = v14 - 32;
-              }
-            }
-            v15 = v13 - (unsigned __int16)v14;
-            if ( v15 )
-              goto LABEL_14;
-          }
-          --v12;
-          if ( !--v10 )
-            break;
-        }
-      }
-      v15 = v10 - v12;
-      goto LABEL_14;
-    }
-    v17 = CmpCompareTwoCompressedNames(
-            *((_QWORD *)a3 + 1),
-            *a3,
-            CellPaged + 76,
-            *(unsigned __int16 *)(CellPaged + 72),
-            *(_QWORD *)&String2.Length,
-            String2.Buffer);
+    if ( a3 )
+      v12 = CmpCompareTwoCompressedNames(*((_QWORD *)a3 + 1), *a3, v11, *(unsigned __int16 *)(v8 + 72));
+    else
+      v12 = CmpCompareCompressedName(
+              a2,
+              v11,
+              *(unsigned __int16 *)(v8 + 72),
+              0LL,
+              *(_QWORD *)&String2.Length,
+              String2.Buffer);
   }
   else
   {
-    String2.Length = *(_WORD *)(CellPaged + 72);
-    String2.MaximumLength = String2.Length;
-    String2.Buffer = (wchar_t *)(CellPaged + 76);
+    String2.Buffer = (wchar_t *)(v8 + 76);
+    String2.Length = v10;
+    String2.MaximumLength = v10;
     if ( a3 )
     {
-      v15 = -(int)CmpCompareCompressedName(&String2, *((_QWORD *)a3 + 1), *a3, 0LL);
-      goto LABEL_14;
+      v13 = -(int)((__int64 (__fastcall *)(UNICODE_STRING *, _QWORD, _QWORD, _QWORD))CmpCompareCompressedName)(
+                    &String2,
+                    *((_QWORD *)a3 + 1),
+                    *a3,
+                    0LL);
+      goto LABEL_11;
     }
-    v17 = RtlCompareUnicodeString(a2, &String2, 1u);
+    v12 = RtlCompareUnicodeString(a2, &String2, 1u);
   }
-  v15 = v17;
-LABEL_14:
-  if ( (*(_BYTE *)(a1 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(a1, &v21);
-  else
-    HvpReleaseCellPaged(a1, &v21);
-  if ( v15 )
-    return ((v15 >> 31) & 0xFFFFFFFE) + 1;
+  v13 = v12;
+LABEL_11:
+  (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v15);
+  if ( v13 )
+    return ((v13 >> 31) & 0xFFFFFFFE) + 1;
   else
     return 0LL;
 }

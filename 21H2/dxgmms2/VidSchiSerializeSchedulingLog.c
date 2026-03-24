@@ -1,15 +1,15 @@
 /*
- * XREFs of VidSchiSerializeSchedulingLog @ 0x1C00F61F8
+ * XREFs of VidSchiSerializeSchedulingLog @ 0x1C00D39A0
  * Callers:
- *     VidSchiCreateNodeSchedulingLog @ 0x1C0042A90 (VidSchiCreateNodeSchedulingLog.c)
+ *     VidSchiCreateNodeSchedulingLog @ 0x1C003AC90 (VidSchiCreateNodeSchedulingLog.c)
  * Callees:
- *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0003AE0 (VidSchiSchedulerNodeToDriverEngine.c)
- *     VidSchiSchedulerNodeToDriverNode @ 0x1C003A594 (VidSchiSchedulerNodeToDriverNode.c)
- *     McTemplateK0pqqxxxxqbr7_EtwWriteTransfer @ 0x1C0041684 (McTemplateK0pqqxxxxqbr7_EtwWriteTransfer.c)
- *     ?GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ @ 0x1C0047868 (-GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0001898 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiSchedulerNodeToDriverNode @ 0x1C0031824 (VidSchiSchedulerNodeToDriverNode.c)
+ *     McTemplateK0pqqxxxxqbr7_EtwWriteTransfer @ 0x1C00399DC (McTemplateK0pqqxxxxqbr7_EtwWriteTransfer.c)
+ *     ?GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ @ 0x1C003EA0C (-GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ.c)
  */
 
-int __fastcall VidSchiSerializeSchedulingLog(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+char __fastcall VidSchiSerializeSchedulingLog(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   __int64 v6; // r13
   unsigned int v8; // edx
@@ -42,27 +42,27 @@ int __fastcall VidSchiSerializeSchedulingLog(__int64 a1, __int64 a2, __int64 a3,
     do
     {
       v19 = 1536;
-      LODWORD(CpuVa) = v18 - v16;
       if ( v18 - v16 < 0x600 )
         v19 = v18 - v16;
-      if ( (byte_1C006E943 & 2) != 0 )
+      LOBYTE(CpuVa) = BYTE2(Microsoft_Windows_DxgKrnlEnableBits);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x800000) != 0 )
       {
         LODWORD(v23) = 32 * v19;
         LODWORD(v22) = v15;
         LODWORD(v21) = v12;
-        LODWORD(CpuVa) = McTemplateK0pqqxxxxqbr7_EtwWriteTransfer(
-                           (__int64)&v17[8 * v16 + 8],
-                           v12,
-                           v13,
-                           *(_QWORD *)(v6 + 16),
-                           v21,
-                           v22,
-                           v14,
-                           a5,
-                           a4,
-                           a6,
-                           v23,
-                           &v17[8 * v16 + 8]);
+        LOBYTE(CpuVa) = McTemplateK0pqqxxxxqbr7_EtwWriteTransfer(
+                          (__int64)&v17[8 * v16 + 8],
+                          v12,
+                          v13,
+                          *(_QWORD *)(v6 + 16),
+                          v21,
+                          v22,
+                          v14,
+                          a5,
+                          a4,
+                          a6,
+                          v23,
+                          &v17[8 * v16 + 8]);
         v14 = a3;
         v15 = v25;
         v12 = v24;
@@ -71,5 +71,5 @@ int __fastcall VidSchiSerializeSchedulingLog(__int64 a1, __int64 a2, __int64 a3,
     }
     while ( v16 < v18 );
   }
-  return (int)CpuVa;
+  return (char)CpuVa;
 }

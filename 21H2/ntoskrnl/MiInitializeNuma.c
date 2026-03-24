@@ -1,155 +1,85 @@
 /*
- * XREFs of MiInitializeNuma @ 0x1403B7358
+ * XREFs of MiInitializeNuma @ 0x1403AFCA8
  * Callers:
- *     MiInitializePartition @ 0x14081D450 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiInitializeChannelOrdering @ 0x14081DB30 (MiInitializeChannelOrdering.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     MiInitializeChannelOrdering @ 0x14079CCFC (MiInitializeChannelOrdering.c)
  */
 
-__int64 __fastcall MiInitializeNuma(__int64 a1)
+void __fastcall MiInitializeNuma(ULONG_PTR *a1)
 {
-  __int64 v1; // r13
-  unsigned int v2; // ebx
-  __int64 v3; // r8
-  __int64 v4; // rdi
-  unsigned int v5; // edx
-  _DWORD *v6; // r8
-  unsigned __int64 v7; // rcx
-  _QWORD *v8; // rsi
-  char *v9; // rbp
-  _QWORD *v10; // r14
-  char *v11; // r13
-  _QWORD *v12; // r12
-  _QWORD *v13; // rbx
-  __int64 v14; // rdi
-  unsigned int v15; // esi
-  int *v16; // r14
-  union _SLIST_HEADER *v17; // rbp
-  int v18; // ecx
-  _DWORD *v19; // rsi
-  __int64 v20; // r14
-  union _SLIST_HEADER *v21; // rbp
-  unsigned int v22; // ebp
-  __int64 v23; // rsi
-  __int64 result; // rax
-  __int64 v25; // [rsp+20h] [rbp-58h]
-  unsigned int v27; // [rsp+88h] [rbp+10h]
-  __int64 v28; // [rsp+90h] [rbp+18h]
-  __int64 v29; // [rsp+98h] [rbp+20h]
+  ULONG_PTR v1; // rdi
+  PSLIST_HEADER v3; // rbp
+  unsigned int i; // ebx
+  int v5; // esi
+  int *v6; // r14
+  union _SLIST_HEADER *v7; // r15
+  int v8; // eax
+  unsigned int v9; // edx
+  _DWORD *v10; // r8
+  unsigned __int64 v11; // rax
+  _QWORD *v12; // rcx
+  __int64 v13; // rdx
+  _QWORD *v14; // rax
+  __int64 v15; // r8
 
-  v1 = *(_QWORD *)(a1 + 16);
-  v2 = 0;
-  v27 = 0;
-  v3 = a1;
-  v29 = v1;
-  if ( KeNumberNodes )
+  v1 = a1[2];
+  v3 = SListHead;
+  for ( i = 0; i < (unsigned __int16)KeNumberNodes; v3 += 11 )
   {
-    v4 = v1 + 24400;
-    v25 = v1 + 24400;
-    do
+    *(_DWORD *)(v1 + 4212) = i;
+    *(_BYTE *)(v1 + 3248) = 8;
+    *(_BYTE *)(v1 + 3250) = 8;
+    *(_QWORD *)(v1 + 4296) = 0LL;
+    *(_QWORD *)(v1 + 4328) = 0LL;
+    *(_DWORD *)(v1 + 4208) = i << byte_140C4DE8C;
+    if ( a1 == &MiSystemPartition )
     {
-      *(_QWORD *)(v4 - 1784) = v3;
-      *(_DWORD *)(v4 - 1684) = v2;
-      *(_BYTE *)(v4 - 21152) = 8;
-      *(_BYTE *)(v4 - 21150) = 8;
-      *(_QWORD *)(v4 - 1600) = 0LL;
-      *(_DWORD *)(v4 - 1552) = 0;
-      *(_DWORD *)(v4 - 1688) = v2 << byte_140C506CC;
-      MiInitializeChannelOrdering(v3, v2);
       v5 = 0;
-      v6 = (_DWORD *)(v4 - 1936);
+      v6 = (int *)&v3[1];
+      v7 = v3;
       do
       {
-        v7 = v5 << 8;
-        *v6 = dword_140C50738 + 1;
-        ++v5;
-        v6 += 4;
-        *((_QWORD *)v6 - 1) = v1 + 4 * (v7 >> 5) + 22496;
+        InitializeSListHead(v7);
+        v8 = -(v5++ != 1);
+        v7 += 2;
+        *v6 = v8 & 5;
+        v6 += 8;
       }
       while ( v5 < 2 );
-      v8 = (_QWORD *)(v4 - 21120);
-      v28 = 8LL;
-      v9 = (char *)(v4 - 18320);
-      v10 = (_QWORD *)(v4 - 21144);
-      do
-      {
-        v11 = v9;
-        v12 = v8;
-        v13 = v10;
-        v14 = 4LL;
-        do
-        {
-          *v13 = 0LL;
-          *(v12 - 1) = 0x3FFFFFFFFFLL;
-          *v12 = 0x3FFFFFFFFFLL;
-          memset(v11, -1, 0x200uLL);
-          v11 += 4096;
-          v13 += 88;
-          v12 += 88;
-          --v14;
-        }
-        while ( v14 );
-        v10 += 11;
-        v9 += 512;
-        v8 += 11;
-        --v28;
-      }
-      while ( v28 );
-      v15 = 0;
-      v16 = (int *)(v25 - 1408);
-      v17 = (union _SLIST_HEADER *)(v25 - 1424);
-      do
-      {
-        InitializeSListHead(v17);
-        v18 = -(v15++ != 0);
-        v17 += 2;
-        *v16 = ~(_BYTE)v18 & 5;
-        v16 += 8;
-      }
-      while ( v15 < 3 );
-      v19 = (_DWORD *)(v25 - 1312);
-      v20 = 3LL;
-      v21 = (union _SLIST_HEADER *)(v25 - 1328);
-      do
-      {
-        InitializeSListHead(v21);
-        v21 += 2;
-        *v19 = 5;
-        v19 += 8;
-        --v20;
-      }
-      while ( v20 );
-      v22 = 0;
-      v23 = v25 - 1152;
-      do
-      {
-        memset((void *)(v23 - 80), 0, 0xA8uLL);
-        *(_DWORD *)(v23 - 32) = v22++;
-        *(_DWORD *)(v23 - 28) = v27;
-        *(_DWORD *)(v23 - 8) = 2;
-        *(_QWORD *)v23 = 0x3FFFFFFFFFLL;
-        *(_QWORD *)(v23 + 8) = 0x3FFFFFFFFFLL;
-        *(_DWORD *)(v23 + 16) = 0;
-        v23 += 168LL;
-      }
-      while ( v22 < 7 );
-      result = (unsigned __int16)KeNumberNodes;
-      v3 = a1;
-      v1 = v29 + 24512;
-      *(_QWORD *)(v25 - 16) = 0LL;
-      v2 = v27 + 1;
-      *(_DWORD *)(v25 - 8) = 5;
-      *(_QWORD *)v25 = 0x3FFFFFFFFFLL;
-      *(_QWORD *)(v25 + 8) = 0x3FFFFFFFFFLL;
-      *(_DWORD *)(v25 + 16) = 0;
-      v4 = v25 + 24512;
-      v27 = v2;
-      v29 += 24512LL;
-      v25 += 24512LL;
     }
-    while ( v2 < (unsigned int)result );
+    MiInitializeChannelOrdering(a1, i);
+    v9 = 0;
+    v10 = (_DWORD *)(v1 + 4032);
+    do
+    {
+      *v10 = dword_140C4DEF8 + 1;
+      v10 += 4;
+      v11 = (unsigned __int64)(v9++ << 8) >> 5;
+      *((_QWORD *)v10 - 1) = v1 + 4 * (v11 + 1016);
+    }
+    while ( v9 < 2 );
+    v12 = (_QWORD *)(v1 + 3264);
+    v13 = 8LL;
+    do
+    {
+      v14 = v12;
+      v15 = 4LL;
+      do
+      {
+        *(v14 - 1) = 0LL;
+        *v14 = 0xFFFFFFFFFLL;
+        v14[1] = 0xFFFFFFFFFLL;
+        v14 += 24;
+        --v15;
+      }
+      while ( v15 );
+      v12 += 3;
+      --v13;
+    }
+    while ( v13 );
+    ++i;
+    v1 += 4544LL;
   }
-  return result;
 }

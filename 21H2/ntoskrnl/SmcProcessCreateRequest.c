@@ -1,20 +1,20 @@
 /*
- * XREFs of SmcProcessCreateRequest @ 0x1409D4BC0
+ * XREFs of SmcProcessCreateRequest @ 0x14092A7E0
  * Callers:
- *     SmSetStoreInformation @ 0x1406E5AA0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406BE524 (SmSetStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SmcCacheCreatePrepare @ 0x1409D4AF4 (SmcCacheCreatePrepare.c)
- *     SmcCacheAdd @ 0x1409D77F8 (SmcCacheAdd.c)
- *     SmcCacheCleanup @ 0x1409D790C (SmcCacheCleanup.c)
- *     SmcCacheDelete @ 0x1409D7990 (SmcCacheDelete.c)
- *     SmcCacheDereference @ 0x1409D79E8 (SmcCacheDereference.c)
- *     SmcCacheInitialize @ 0x1409D7A10 (SmcCacheInitialize.c)
- *     SmcCacheStart @ 0x1409D7D54 (SmcCacheStart.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcCacheCreatePrepare @ 0x14092A714 (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x14092D2D4 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x14092D3E8 (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x14092D46C (SmcCacheDelete.c)
+ *     SmcCacheInitialize @ 0x14092D4C4 (SmcCacheInitialize.c)
+ *     SmcCacheStart @ 0x14092D830 (SmcCacheStart.c)
  */
 
 __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)
@@ -25,7 +25,7 @@ __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int 
   _OWORD *v11; // rax
   _OWORD *v12; // rcx
   __int64 v13; // rdx
-  struct _PRIVILEGE_SET *v14; // rax
+  struct _PRIVILEGE_SET *NonPaged; // rax
   _DWORD v16[4]; // [rsp+20h] [rbp-478h] BYREF
   __int64 v17; // [rsp+30h] [rbp-468h]
   _QWORD v18[132]; // [rsp+40h] [rbp-458h] BYREF
@@ -40,9 +40,9 @@ __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int 
     {
       if ( (a2 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v10 = 0x7FFFFFFF0000LL;
-      if ( a2 < 0x7FFFFFFF0000LL )
-        v10 = a2;
+      v10 = a2;
+      if ( a2 >= 0x7FFFFFFF0000LL )
+        v10 = 0x7FFFFFFF0000LL;
       *(_BYTE *)v10 = *(_BYTE *)v10;
       *(_BYTE *)(v10 + 1055) = *(_BYTE *)(v10 + 1055);
     }
@@ -75,11 +75,11 @@ __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int 
       Prepare = SmcCacheCreatePrepare(a1);
       if ( Prepare >= 0 )
       {
-        v14 = (struct _PRIVILEGE_SET *)SmAlloc(0x428uLL, 0x61436D73u);
-        v8 = v14;
-        if ( v14 )
+        NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x428uLL, 0x61436D73u);
+        v8 = NonPaged;
+        if ( NonPaged )
         {
-          SmcCacheInitialize(v14);
+          SmcCacheInitialize(NonPaged);
           HIWORD(v18[131]) = 0;
           Prepare = SmcCacheStart(v8, &v18[1], &v18[4]);
           if ( Prepare >= 0 )
@@ -106,7 +106,7 @@ __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int 
     Prepare = -1073741306;
   }
   if ( v16[0] != -1 )
-    SmcCacheDereference(a1);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 32LL * (v16[0] & 0xF) + 8));
   if ( v8 )
   {
     SmcCacheCleanup(v8);

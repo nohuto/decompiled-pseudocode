@@ -2,15 +2,15 @@
  * XREFs of PpmCheckStart @ 0x14008B8E0
  * Callers:
  *     PpmCheckPeriodicStart @ 0x14008B6C0 (PpmCheckPeriodicStart.c)
- *     PpmCheckCustomRun @ 0x140141B54 (PpmCheckCustomRun.c)
+ *     PpmCheckCustomRun @ 0x140141B74 (PpmCheckCustomRun.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x140141EB4 (PpmPerfSetAllDomainsToUpdate.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x140141ED4 (PpmPerfSetAllDomainsToUpdate.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __fastcall PpmCheckStart(int a1)

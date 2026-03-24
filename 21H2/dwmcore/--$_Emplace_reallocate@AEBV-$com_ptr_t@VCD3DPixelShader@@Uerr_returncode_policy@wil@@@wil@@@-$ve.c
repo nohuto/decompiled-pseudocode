@@ -1,86 +1,112 @@
 /*
- * XREFs of ??$_Emplace_reallocate@AEBV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x1800ED52C
+ * XREFs of ??$_Emplace_reallocate@AEBV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x1800D83B4
  * Callers:
- *     ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD3DPixelShader@@@Z @ 0x180039560 (-FindOrCreateResourceNoRef@-$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@QEAAJPEAVC.c)
+ *     ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD3DPixelShader@@@Z @ 0x180051590 (-FindOrCreateResourceNoRef@-$CDeviceResourceTable@VCD3DPixelShader@@VCLinkedShader@@@@QEAAJPEAVC.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B7030 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1800E8B50 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VISwapChainRealization@@Uerr_returncode_policy@wil@@.c)
- *     ??$_Uninitialized_move@PEAV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAPEAV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@QEAV12@0PEAV12@AEAV?$allocator@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1800ED650 (--$_Uninitialized_move@PEAV-$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@V-$al.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@0AEAV?$allocator@V?$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1800DB894 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VCD3DPixelShader@@Uerr_returncode_policy@wil@@@wil@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 *__fastcall std::vector<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy> const &>(
-        __int64 *a1,
-        __int64 a2,
-        __int64 *a3)
+_QWORD *__fastcall std::vector<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy> const &>(
+        __int64 **a1,
+        __int64 *a2,
+        void (__fastcall ****a3)(_QWORD))
 {
-  unsigned __int64 v3; // rdi
-  __int64 v5; // rbp
-  __int64 v7; // rax
-  unsigned __int64 v9; // r15
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
-  __int64 v13; // rsi
-  __int64 *v14; // rbp
-  __int64 v15; // rax
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  _QWORD *v18; // r8
-  __int64 v19; // rcx
-  __int64 *result; // rax
+  __int64 v4; // rbp
+  __int64 *v5; // rdi
+  __int64 v6; // rax
+  unsigned __int64 v8; // r14
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rax
+  __int64 v12; // r12
+  SIZE_T v13; // rcx
+  __int64 v14; // rax
+  void (__fastcall ***v15)(_QWORD); // rcx
+  _QWORD *v16; // rsi
+  _QWORD *v17; // rbp
+  __int64 *v18; // r8
+  _QWORD *v19; // rcx
+  __int64 *v20; // rdx
+  _QWORD *result; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 *v24; // rdx
+  __int64 v25; // rax
 
-  v3 = 0x1FFFFFFFFFFFFFFFLL;
-  v5 = (a2 - *a1) >> 3;
-  v7 = (a1[1] - *a1) >> 3;
-  if ( v7 == 0x1FFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  v9 = v7 + 1;
-  v10 = (a1[2] - *a1) >> 3;
-  v11 = v10 >> 1;
-  if ( v10 <= 0x1FFFFFFFFFFFFFFFLL - (v10 >> 1) )
+  v4 = a2 - *a1;
+  v5 = a2;
+  v6 = a1[1] - *a1;
+  if ( v6 == 0x1FFFFFFFFFFFFFFFLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v6 + 1;
+  v9 = a1[2] - *a1;
+  v10 = v9 >> 1;
+  if ( v9 > 0x1FFFFFFFFFFFFFFFLL - (v9 >> 1) )
   {
-    v3 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v3 = v7 + 1;
+    v11 = v6 + 1;
   }
-  size_of = std::_Get_size_of_n<8>(v3);
-  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = (__int64 *)(v13 + 8 * v5);
+  else
+  {
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v8;
+  }
+  v12 = v11;
+  v13 = 8 * v11;
+  if ( v11 > 0x1FFFFFFFFFFFFFFFLL )
+    v13 = -1LL;
+  v14 = std::_Allocate<16,std::_Default_allocate_traits,0>(v13);
   v15 = *a3;
-  *v14 = *a3;
+  v16 = (_QWORD *)v14;
+  v17 = (_QWORD *)(v14 + 8 * v4);
+  *v17 = *a3;
   if ( v15 )
+    (**v15)(v15);
+  v18 = a1[1];
+  v19 = v16;
+  v20 = *a1;
+  if ( v5 == v18 )
   {
-    v16 = *(int *)(*(_QWORD *)(v15 + 8) + 4LL) + v15 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 8LL))(v16);
+    while ( v20 != v18 )
+    {
+      v22 = *v20;
+      *v20 = 0LL;
+      *v19++ = v22;
+      ++v20;
+    }
   }
-  v17 = a1[1];
-  v18 = (_QWORD *)v13;
-  v19 = *a1;
-  if ( a2 != v17 )
+  else
   {
-    std::_Uninitialized_move<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy> *,std::allocator<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>>(
-      v19,
-      a2,
-      v13);
-    v17 = a1[1];
-    v18 = v14 + 1;
-    v19 = a2;
+    while ( v20 != v5 )
+    {
+      v23 = *v20;
+      *v20 = 0LL;
+      *v19++ = v23;
+      ++v20;
+    }
+    std::_Destroy_range<std::allocator<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>>(v19, v19);
+    v24 = a1[1];
+    v19 = v17 + 1;
+    while ( v5 != v24 )
+    {
+      v25 = *v5;
+      *v5 = 0LL;
+      *v19++ = v25;
+      ++v5;
+    }
   }
-  std::_Uninitialized_move<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy> *,std::allocator<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>>(
-    v19,
-    v17,
-    v18);
+  std::_Destroy_range<std::allocator<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>>(v19, v19);
   if ( *a1 )
   {
-    std::_Destroy_range<std::allocator<wil::com_ptr_t<ISwapChainRealization,wil::err_returncode_policy>>>(*a1, a1[1]);
-    std::_Deallocate<16,0>((void *)*a1, (a1[2] - *a1) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Destroy_range<std::allocator<wil::com_ptr_t<CD3DPixelShader,wil::err_returncode_policy>>>(*a1, a1[1]);
+    std::_Deallocate<16,0>(*a1, ((char *)a1[2] - (char *)*a1) & 0xFFFFFFFFFFFFFFF8uLL);
   }
-  *a1 = v13;
-  a1[1] = v13 + 8 * v9;
-  result = v14;
-  a1[2] = v13 + 8 * v3;
+  a1[1] = &v16[v8];
+  result = v17;
+  *a1 = v16;
+  a1[2] = &v16[v12];
   return result;
 }

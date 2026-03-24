@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpTerminal0PowerSettingCallback @ 0x1409A5F60
+ * XREFs of TtmpTerminal0PowerSettingCallback @ 0x140900380
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmiTerminalSetDisplayTimeouts @ 0x1409A37AC (TtmiTerminalSetDisplayTimeouts.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDC6C (TtmiTerminalSetDisplayTimeouts.c)
  */
 
 __int64 __fastcall TtmpTerminal0PowerSettingCallback(

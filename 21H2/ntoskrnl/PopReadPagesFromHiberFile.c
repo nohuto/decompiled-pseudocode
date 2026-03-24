@@ -1,19 +1,19 @@
 /*
- * XREFs of PopReadPagesFromHiberFile @ 0x14098F634
+ * XREFs of PopReadPagesFromHiberFile @ 0x1408E6EEC
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
- *     PopReadResumeContext @ 0x14098F890 (PopReadResumeContext.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopReadResumeContext @ 0x1408E7148 (PopReadResumeContext.c)
  * Callees:
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     IoPageRead @ 0x140388EE0 (IoPageRead.c)
- *     RtlLongLongAdd @ 0x1405D0114 (RtlLongLongAdd.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IoPageRead @ 0x14037F8F0 (IoPageRead.c)
+ *     RtlLongLongAdd @ 0x14056F4B8 (RtlLongLongAdd.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, PVOID *a3)
@@ -25,9 +25,9 @@ __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, P
   signed int Status; // edi
   unsigned __int128 v9; // rax
   unsigned __int64 v10; // rcx
-  __int64 v11; // r10
-  unsigned __int64 v12; // r11
-  void *Pool2; // rax
+  unsigned __int64 v11; // r10
+  SIZE_T v12; // r11
+  PVOID PoolWithTag; // rax
   struct _MDL *Mdl; // rax
   struct _MDL *v16; // [rsp+30h] [rbp-58h] BYREF
   LARGE_INTEGER StartingOffset; // [rsp+38h] [rbp-50h] BYREF
@@ -42,7 +42,7 @@ __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, P
   if ( !BYTE8(PopCapabilities)
     || (unsigned __int64)(*(_QWORD *)&PopHiberInfo - 1LL) > 0xFFFFFFFFFFFFFFFDuLL
     || (char *)FileObject - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
-    || qword_140C22BD0 < 0x1000 )
+    || qword_140C23850 < 0x1000 )
   {
     Status = -1073741637;
     goto LABEL_26;
@@ -80,13 +80,13 @@ LABEL_14:
       Status = RtlLongLongAdd(v10, v7, (unsigned __int64 *)&v16);
       if ( Status >= 0 )
       {
-        if ( (unsigned __int64)v16 <= v12 )
+        if ( (unsigned __int64)v16 <= v11 )
         {
-          Pool2 = (void *)ExAllocatePool2(256LL, v11, 544040269LL);
-          *a3 = Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, v12, 0x206D654Du);
+          *a3 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            Mdl = IoAllocateMdl(Pool2, v7, 0, 0, 0LL);
+            Mdl = IoAllocateMdl(PoolWithTag, v7, 0, 0, 0LL);
             v4 = Mdl;
             v16 = Mdl;
             if ( Mdl )

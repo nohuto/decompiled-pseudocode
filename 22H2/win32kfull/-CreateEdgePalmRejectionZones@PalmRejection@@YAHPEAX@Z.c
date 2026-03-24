@@ -1,74 +1,41 @@
 /*
- * XREFs of ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C01E72D0
+ * XREFs of ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C0206D88
  * Callers:
- *     EditionCreateEdgePalmRejectionZones @ 0x1C01E7580 (EditionCreateEdgePalmRejectionZones.c)
+ *     EditionCreateEdgePalmRejectionZones @ 0x1C0206F70 (EditionCreateEdgePalmRejectionZones.c)
  * Callees:
- *     _GetPointerDeviceRects @ 0x1C00AC894 (_GetPointerDeviceRects.c)
- *     ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C01E7488 (-_ReadSettingsFromRegKey@PalmRejection@@YAXXZ.c)
+ *     _GetPointerDeviceRects @ 0x1C012282C (_GetPointerDeviceRects.c)
+ *     ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C0206E9C (-_ReadSettingsFromRegKey@PalmRejection@@YAXXZ.c)
  */
 
 __int64 __fastcall PalmRejection::CreateEdgePalmRejectionZones(PalmRejection *this, void *a2)
 {
-  PalmRejection *v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  int v6; // esi
-  __int64 v7; // rcx
-  int v8; // ebx
-  __int64 v9; // rcx
-  int v10; // edi
-  __int64 v11; // rcx
-  int v12; // r12d
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  int v15; // r14d
-  int v16; // r13d
-  __int64 v17; // rcx
-  int v18; // r15d
-  __int64 v19; // rcx
-  __int64 v20; // rax
-  int v21; // ebx
-  int v23; // [rsp+20h] [rbp-20h] BYREF
-  int v24; // [rsp+24h] [rbp-1Ch]
-  int v25; // [rsp+28h] [rbp-18h]
-  int v26; // [rsp+2Ch] [rbp-14h]
-  __int128 v27; // [rsp+30h] [rbp-10h] BYREF
-  int v29; // [rsp+88h] [rbp+48h]
-  int v30; // [rsp+90h] [rbp+50h]
+  __int64 v3; // r10
+  _DWORD v5[3]; // [rsp+20h] [rbp-30h] BYREF
+  unsigned int v6; // [rsp+2Ch] [rbp-24h]
+  _DWORD v7[4]; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v8; // [rsp+40h] [rbp-10h] BYREF
 
-  if ( !*(_DWORD *)(SGDGetUserSessionState(this) + 17352) )
+  if ( !gPalmRejectSettingsInitialized )
   {
-    PalmRejection::_ReadSettingsFromRegKey(v3);
-    *(_DWORD *)(SGDGetUserSessionState(v4) + 17352) = 1;
+    PalmRejection::_ReadSettingsFromRegKey(this);
+    gPalmRejectSettingsInitialized = 1;
   }
-  v27 = 0LL;
-  GetPointerDeviceRects((__int64)this, &v27, 0LL);
-  v6 = *(_DWORD *)(SGDGetUserSessionState(v5) + 17364);
-  v8 = *(_DWORD *)(SGDGetUserSessionState(v7) + 17360);
-  v10 = *(_DWORD *)(SGDGetUserSessionState(v9) + 17356);
-  v12 = *(_DWORD *)(SGDGetUserSessionState(v11) + 17360);
-  v14 = SGDGetUserSessionState(v13);
-  v15 = DWORD2(v27);
-  v16 = *(_DWORD *)(v14 + 17364);
-  v29 = DWORD2(v27) + 1;
-  v18 = *(_DWORD *)(SGDGetUserSessionState(v17) + 17356);
-  v20 = SGDGetUserSessionState(v19);
-  v23 = 0;
-  v25 = v8;
-  v21 = HIDWORD(v27);
-  v30 = *(_DWORD *)(v20 + 17356);
-  v24 = v6;
-  v26 = HIDWORD(v27) - v10 + 1;
-  AddEdgePalmRejectionZone(this, 1LL, &v23);
-  v24 = v16;
-  v25 = v29;
-  v23 = v15 - v12 + 1;
-  v26 = v21 - v18 + 1;
-  AddEdgePalmRejectionZone(this, 2LL, &v23);
-  v23 = 0;
-  v25 = v29;
-  v24 = v21 - v30 + 1;
-  v26 = v21 + 1;
-  AddEdgePalmRejectionZone(this, 3LL, &v23);
+  v8 = 0LL;
+  GetPointerDeviceRects((__int64)this, &v8, 0LL);
+  v5[0] = 0;
+  LODWORD(v8) = 0;
+  v5[2] = gPalmRejectVEdgeThr;
+  v3 = HIDWORD(*((_QWORD *)&v8 + 1));
+  v7[0] = DWORD2(v8) - gPalmRejectVEdgeThr + 1;
+  v5[1] = gPalmRejectTopEdgeThr;
+  v6 = HIDWORD(v8) - gPalmRejectHEdgeThr + 1;
+  v7[2] = ++DWORD2(v8);
+  v7[3] = v6;
+  DWORD1(v8) = v6;
+  v7[1] = gPalmRejectTopEdgeThr;
+  HIDWORD(v8) = v3 + 1;
+  AddEdgePalmRejectionZone(this, 1LL, v5);
+  AddEdgePalmRejectionZone(this, 2LL, v7);
+  AddEdgePalmRejectionZone(this, 3LL, &v8);
   return 1LL;
 }

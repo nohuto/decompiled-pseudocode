@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWorkerFactoryManagerThread @ 0x14017FE80
+ * XREFs of ExpWorkerFactoryManagerThread @ 0x14017FEA0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400CE200 (ExpWorkerFactoryCheckCreate.c)
- *     KeRegisterObjectNotification @ 0x1400FD2A0 (KeRegisterObjectNotification.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140106D68 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     KeTimeOutQueueWaiters @ 0x140106F94 (KeTimeOutQueueWaiters.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400CE220 (ExpWorkerFactoryCheckCreate.c)
+ *     KeRegisterObjectNotification @ 0x1400FD2C0 (KeRegisterObjectNotification.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140106D88 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KeTimeOutQueueWaiters @ 0x140106FB4 (KeTimeOutQueueWaiters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
  */
 
 void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)

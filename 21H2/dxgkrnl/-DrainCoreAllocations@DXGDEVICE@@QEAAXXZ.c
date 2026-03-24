@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DrainCoreAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C02E4AD0
+ * XREFs of ?DrainCoreAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C0254578
  * Callers:
- *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C02E762C (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C02568E8 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C02D5C7C (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C0227764 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
  */
 
 void __fastcall DXGDEVICE::DrainCoreAllocations(struct _KTHREAD **this)
@@ -30,7 +30,7 @@ void __fastcall DXGDEVICE::DrainCoreAllocations(struct _KTHREAD **this)
       v4 = (struct _KTHREAD *)*((_QWORD *)v2 + 8);
       *((_QWORD *)v2 + 7) = 0LL;
       *((_QWORD *)v2 + 8) = 0LL;
-      DXGDEVICE::DestroyCoreAllocations(this, 0LL, (struct DXGADAPTERALLOCATION **)v2);
+      DXGDEVICE::DestroyCoreAllocations(this, 0LL, (struct DXGALLOCATION **)v2);
       *((_QWORD *)v2 + 7) = v3;
       *((_QWORD *)v2 + 8) = v4;
       v2 = v4;

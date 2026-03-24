@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetPredictionInfo@CSuperWetInkScribbleBase@@UEAAXMPEAUtagRECT@@PEAM@Z @ 0x1802AB610
+ * XREFs of ?GetPredictionInfo@CSuperWetInkScribbleBase@@UEAAXMPEAUtagRECT@@PEAM@Z @ 0x1802692D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CSuperWetInkScribbleBase::GetPredictionInfo(

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoctlSetTemperatureThresholdProcess @ 0x1C001BF00
+ * XREFs of IoctlSetTemperatureThresholdProcess @ 0x1C0013678
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall IoctlSetTemperatureThresholdProcess(__int64 a1, __int64 a2)
@@ -41,7 +41,7 @@ __int64 __fastcall IoctlSetTemperatureThresholdProcess(__int64 a1, __int64 a2)
   }
   if ( (*(_BYTE *)(v5 + 36) & 1) == 0
     || (v7 = *(_WORD *)(v5 + 38), v7 > 8u)
-    || (v8 = 0, !v7) && !*(_BYTE *)(v5 + 42) && !*(_WORD *)(*(_QWORD *)(v4 + 1640) + 266LL)
+    || (v8 = 0, !v7) && !*(_BYTE *)(v5 + 42) && !*(_WORD *)(*(_QWORD *)(v4 + 1624) + 266LL)
     || (v9 = *(_WORD *)(v5 + 40), v9 < -273) )
   {
     *(_BYTE *)(v2 + 3) = 6;

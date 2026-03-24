@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140809710
+ * XREFs of VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408096F0
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CE0 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
@@ -9,7 +9,7 @@
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     VrpUnloadDifferencingHive @ 0x14080DCDC (VrpUnloadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14080DCBC (VrpUnloadDifferencingHive.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDifferencingHiveForHost(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)

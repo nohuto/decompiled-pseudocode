@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPepComponentSetResidency @ 0x1405D4D6C
+ * XREFs of PopPepComponentSetResidency @ 0x140574388
  * Callers:
- *     PoFxSetComponentResidency @ 0x1405CACD0 (PoFxSetComponentResidency.c)
+ *     PoFxSetComponentResidency @ 0x140569250 (PoFxSetComponentResidency.c)
  * Callees:
- *     PopPepUpdateIdleState @ 0x140354B48 (PopPepUpdateIdleState.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140354BBC (PopPepComponentGetResidencyIdleState.c)
- *     PopPepCountReadyActivities @ 0x1403565AC (PopPepCountReadyActivities.c)
- *     PopPepReleaseActivityLink @ 0x1403565F8 (PopPepReleaseActivityLink.c)
- *     PopPepRequestWork @ 0x14035666C (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x1403567F8 (PopPepPromoteActivities.c)
- *     PopPepLockActivityLink @ 0x140356948 (PopPepLockActivityLink.c)
+ *     PopPepCountReadyActivities @ 0x140261BDC (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x140261C28 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x140261C9C (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140261E28 (PopPepPromoteActivities.c)
+ *     PopPepLockActivityLink @ 0x140261F78 (PopPepLockActivityLink.c)
+ *     PopPepUpdateIdleState @ 0x140262538 (PopPepUpdateIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140262644 (PopPepComponentGetResidencyIdleState.c)
  */
 
 __int64 __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned __int64 a3)
@@ -24,7 +24,7 @@ __int64 __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigne
   KIRQL v12; // [rsp+58h] [rbp+10h] BYREF
 
   v3 = 0LL;
-  v5 = (__int64)&a1[52 * a2 + 48];
+  v5 = (__int64)&a1[50 * a2 + 46];
   v12 = 0;
   if ( a3 != -1LL )
     v3 = a3;
@@ -37,7 +37,7 @@ __int64 __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigne
   {
     *(_DWORD *)(v5 + 160) = ResidencyIdleState;
     ready = PopPepCountReadyActivities(a1, v5, 2);
-    PopPepUpdateIdleState((__int64)a1, (unsigned int *)v5, 1);
+    PopPepUpdateIdleState((__int64)a1, v5, 1);
     PopPepPromoteActivities((__int64)a1, v5, 2);
     v10 = PopPepCountReadyActivities(a1, v5, 2);
     PopPepRequestWork(ready, v10);

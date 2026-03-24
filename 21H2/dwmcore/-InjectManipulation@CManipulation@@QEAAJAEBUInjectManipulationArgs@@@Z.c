@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1801F3ECC
+ * XREFs of ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1801D4458
  * Callers:
- *     ?ProcessInjectManipulation@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_INJECTMANIPULATION@@PEBXI@Z @ 0x1801F4168 (-ProcessInjectManipulation@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_IN.c)
- *     ?CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180217200 (-CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801C4CC0 (-CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ProcessInjectManipulation@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_INJECTMANIPULATION@@PEBXI@Z @ 0x1801D46EC (-ProcessInjectManipulation@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_IN.c)
  * Callees:
- *     ??0ManipulationData@@QEAA@XZ @ 0x1801F3AAC (--0ManipulationData@@QEAA@XZ.c)
- *     ?Update@CManipulation@@QEAAJPEAUManipulationData@@@Z @ 0x1801F4814 (-Update@CManipulation@@QEAAJPEAUManipulationData@@@Z.c)
+ *     ??0ManipulationData@@QEAA@XZ @ 0x1801D40AC (--0ManipulationData@@QEAA@XZ.c)
+ *     ?Update@CManipulation@@QEAAJPEAUManipulationData@@@Z @ 0x1801D4D74 (-Update@CManipulation@@QEAAJPEAUManipulationData@@@Z.c)
  */
 
 __int64 __fastcall CManipulation::InjectManipulation(CManipulation *this, const struct InjectManipulationArgs *a2)

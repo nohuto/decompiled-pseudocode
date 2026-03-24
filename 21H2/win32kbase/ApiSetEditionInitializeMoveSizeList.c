@@ -1,70 +1,42 @@
 /*
- * XREFs of ApiSetEditionInitializeMoveSizeList @ 0x1C005B424
+ * XREFs of ApiSetEditionInitializeMoveSizeList @ 0x1C00B6C50
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*ApiSetEditionInitializeMoveSizeList())(void)
+__int64 ApiSetEditionInitializeMoveSizeList()
 {
-  char v0; // bl
-  char v1; // dl
-  char v2; // r8
-  __int64 (*result)(void); // rax
-  char v4; // dl
+  __int64 result; // rax
 
-  v0 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (v1 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    v1 = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (v2 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    v2 = 0;
-  }
-  if ( v1 || v2 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v1,
-      v2,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
       5,
       10,
       126,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  result = qword_1C029CE38;
-  if ( qword_1C029CE38 )
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  if ( qword_1C0258248 )
+    result = qword_1C0258248();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
   {
-    result = (__int64 (*)(void))qword_1C029CE38();
-    if ( (int)result >= 0 )
-    {
-      result = qword_1C029CE40;
-      if ( qword_1C029CE40 )
-        result = (__int64 (*)(void))qword_1C029CE40();
-    }
+    result = (__int64)qword_1C0258250;
+    if ( qword_1C0258250 )
+      result = qword_1C0258250();
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (v4 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v4 = 0;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      return WPP_RECORDER_SF_(
+               WPP_GLOBAL_Control->DeviceExtension,
+               5,
+               10,
+               127,
+               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v0 = 0;
-  if ( v4 || v0 )
-    return (__int64 (*)(void))WPP_RECORDER_AND_TRACE_SF_(
-                                WPP_GLOBAL_Control->AttachedDevice,
-                                v4,
-                                v0,
-                                WPP_GLOBAL_Control->DeviceExtension,
-                                5,
-                                10,
-                                127,
-                                (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
   return result;
 }

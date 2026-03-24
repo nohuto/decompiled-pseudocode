@@ -1,90 +1,101 @@
 /*
- * XREFs of ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0275338
+ * XREFs of ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C01522C0
  * Callers:
- *     NtGdiDoBanding @ 0x1C0278260 (NtGdiDoBanding.c)
+ *     NtGdiDoBanding @ 0x1C0152210 (NtGdiDoBanding.c)
  * Callees:
- *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C001D278 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0276638 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
- *     GreDeleteWnd @ 0x1C0288120 (GreDeleteWnd.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B55C4 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     GreDeleteWnd @ 0x1C02872C0 (GreDeleteWnd.c)
+ *     ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C0288330 (-bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
  */
 
 __int64 __fastcall GreDoBanding(HDC a1, int a2, struct _POINTL *a3, struct tagSIZE *a4)
 {
-  __int64 v7; // rsi
-  __int64 v8; // rbx
-  __int64 (__fastcall *v9)(__int64, struct _POINTL *); // rbx
-  unsigned int v10; // edi
-  __int64 (__fastcall *v11)(__int64, struct _POINTL *); // rdi
-  unsigned int v12; // ecx
-  EWNDOBJ *v13; // rcx
-  _QWORD v15[2]; // [rsp+20h] [rbp-48h] BYREF
-  _BYTE v16[32]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // rsi
+  __int64 v10; // rbx
+  __int64 (__fastcall *v11)(__int64, struct _POINTL *); // rbx
+  struct _EPROCESS *CurrentProcess; // rax
+  unsigned int v13; // edi
+  __int64 (__fastcall *v14)(__int64, struct _POINTL *); // rdi
+  struct _EPROCESS *v15; // rax
+  EWNDOBJ *v17; // rcx
+  _QWORD v18[2]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v19[32]; // [rsp+30h] [rbp-38h] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v15, a1);
-  if ( (unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v15)
-    && (v7 = *(_QWORD *)(v15[0] + 496LL)) != 0
-    && (v8 = *(_QWORD *)(v15[0] + 48LL), *(_QWORD *)(v8 + 2536))
-    && (*(_DWORD *)(v7 + 112) & 0x2000000) != 0 )
+  DCOBJ::DCOBJ((DCOBJ *)v18, a1);
+  if ( !(unsigned int)XDCOBJ::bValidSurf((XDCOBJ *)v18)
+    || (v9 = *(_QWORD *)(v18[0] + 496LL)) == 0
+    || (v10 = *(_QWORD *)(v18[0] + 48LL), !*(_QWORD *)(v10 + 2560))
+    || (*(_DWORD *)(v9 + 112) & 0x2000000) == 0 )
   {
-    if ( a2 )
+LABEL_22:
+    v13 = 0;
+    goto LABEL_23;
+  }
+  if ( a2 )
+  {
+    v11 = *(__int64 (__fastcall **)(__int64, struct _POINTL *))(v10 + 3144);
+    if ( gUMPDSecurityLevel == 2
+      || gUMPDSecurityLevel
+      && (CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(gUMPDSecurityLevel, v7, v8),
+          (unsigned int)bIsProcessLocalSystem(CurrentProcess))
+      || v11 )
     {
-      v9 = *(__int64 (__fastcall **)(__int64, struct _POINTL *))(v8 + 3120);
-      if ( !UmpdSecurityGateNoUmpdObj() || v9 )
-        v10 = v9(v7 + 24, a3);
-      else
-        v10 = 0;
-      a4->cx = *(_DWORD *)(v7 + 56);
-      a4->cy = *(_DWORD *)(v7 + 60);
-      *(struct _POINTL *)(v15[0] + 2104LL) = *a3;
+      v13 = v11(v9 + 24, a3);
     }
     else
     {
-      v11 = *(__int64 (__fastcall **)(__int64, struct _POINTL *))(v8 + 3128);
-      if ( !UmpdSecurityGateNoUmpdObj() || v11 )
+      if ( gfUMPDDebug )
+        DbgPrint(
+          "clientcore\\windows\\core\\ntgdi\\gre\\windows\\print.cxx:%d:GreDoBanding:!pfnDrvStartBanding\n",
+          2484);
+      v13 = 0;
+    }
+    a4->cx = *(_DWORD *)(v9 + 56);
+    a4->cy = *(_DWORD *)(v9 + 60);
+LABEL_15:
+    *(struct _POINTL *)(v18[0] + 2112LL) = *a3;
+    goto LABEL_23;
+  }
+  v14 = *(__int64 (__fastcall **)(__int64, struct _POINTL *))(v10 + 3152);
+  if ( gUMPDSecurityLevel != 2 )
+  {
+    if ( !gUMPDSecurityLevel
+      || (v15 = (struct _EPROCESS *)PsGetCurrentProcess(gUMPDSecurityLevel, v7, v8),
+          !(unsigned int)bIsProcessLocalSystem(v15)) )
+    {
+      if ( !v14 )
       {
-        v10 = v11(v7 + 24, a3);
-        v12 = v10;
-        if ( v10 )
-        {
-          if ( a3->x == -1 )
-          {
-            v10 &= -((*(_DWORD *)(v8 + 40) & 0x8000) != 0);
-            if ( ((*(_DWORD *)(v8 + 40) & 0x8000) != 0 ? v12 : 0) != 0 )
-            {
-              *(_DWORD *)(v15[0] + 36LL) &= ~0x100u;
-              v13 = *(EWNDOBJ **)(v7 + 136);
-              if ( v13 )
-              {
-                GreDeleteWnd(v13);
-                *(_QWORD *)(v7 + 136) = 0LL;
-              }
-              *(_WORD *)(v15[0] + 2088LL) = 0;
-            }
-          }
-          else
-          {
-            *(struct _POINTL *)(v15[0] + 2104LL) = *a3;
-          }
-        }
-      }
-      else
-      {
-        v10 = 0;
+        if ( gfUMPDDebug )
+          DbgPrint("clientcore\\windows\\core\\ntgdi\\gre\\windows\\print.cxx:%d:GreDoBanding:!pfnDrvNextBand\n", 2511);
+        goto LABEL_22;
       }
     }
-    DCOBJ::~DCOBJ((DCOBJ *)v15);
-    return v10;
   }
-  else
+  v13 = v14(v9 + 24, a3);
+  if ( !v13 )
+    goto LABEL_23;
+  if ( a3->x != -1 )
+    goto LABEL_15;
+  v13 &= -((*(_DWORD *)(v10 + 40) & 0x8000) != 0);
+  if ( v13 )
   {
-    if ( v15[0] )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v15);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v16);
-    return 0LL;
+    *(_DWORD *)(v18[0] + 36LL) &= ~0x100u;
+    v17 = *(EWNDOBJ **)(v9 + 136);
+    if ( v17 )
+    {
+      GreDeleteWnd(v17);
+      *(_QWORD *)(v9 + 136) = 0LL;
+    }
+    *(_WORD *)(v18[0] + 2096LL) = 0;
   }
+LABEL_23:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v18);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v19);
+  return v13;
 }

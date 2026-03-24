@@ -1,81 +1,90 @@
 /*
- * XREFs of ??$_Emplace_reallocate@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@?$vector@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$allocator@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@@std@@QEAAPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAV2@AEBV2@@Z @ 0x18012DC96
+ * XREFs of ??$_Emplace_reallocate@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@?$vector@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$allocator@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@@std@@QEAAPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@QEAV2@AEBV2@@Z @ 0x18004FA8C
  * Callers:
- *     ?IntersectWithRect@CRegionShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x1801B22E4 (-IntersectWithRect@CRegionShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
- *     ?IntersectWithRect@CRectanglesShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x1801B26B0 (-IntersectWithRect@CRectanglesShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?IntersectWithRect@CRegionShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x1800195A8 (-IntersectWithRect@CRegionShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
+ *     ?GetUnOccludedWorldShape@CRectanglesShape@@UEBAJV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1800591C0 (-GetUnOccludedWorldShape@CRectanglesShape@@UEBAJV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ *     ?IntersectWithRect@CRectanglesShape@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCShape@@@Z @ 0x18025CFE0 (-IntersectWithRect@CRectanglesShape@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?GetUnOccludedWorldShape@CRegionShape@@UEBAJV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x18025F650 (-GetUnOccludedWorldShape@CRegionShape@@UEBAJV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
  * Callees:
- *     ??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z @ 0x18004286C (--$_Get_size_of_n@$0BA@@std@@YA_K_K@Z.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ?_Calculate_growth@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@AEBA_K_K@Z @ 0x1800A7934 (-_Calculate_growth@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@AEBA_K_K@Z.c)
- *     ?_Change_array@?$vector@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$allocator@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@@std@@AEAAXQEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_K1@Z @ 0x1801B25FC (-_Change_array@-$vector@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@Rect.c)
+ *     ?_Calculate_growth@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@AEBA_K_K@Z @ 0x18004F9E4 (-_Calculate_growth@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@AEBA_K_K@Z.c)
+ *     ?_Change_array@?$vector@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@V?$allocator@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@std@@@std@@AEAAXQEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_K1@Z @ 0x18004FA1C (-_Change_array@-$vector@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@Rect.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
  */
 
-char *__fastcall std::vector<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>>::_Emplace_reallocate<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded> const &>(
-        char **a1,
-        char *a2,
+unsigned __int64 __fastcall std::vector<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>>::_Emplace_reallocate<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded> const &>(
+        __int64 *a1,
+        __int128 *a2,
         _OWORD *a3)
 {
-  char *v3; // rsi
-  __int64 v6; // rax
-  __int64 v8; // r14
-  unsigned __int64 v9; // r15
-  SIZE_T size_of; // rax
-  _OWORD *v11; // rax
-  _OWORD *v12; // r10
-  char *v13; // rsi
-  char *v14; // rdx
-  char *v15; // rcx
-  __int128 v16; // xmm0
-  __int128 v17; // xmm0
-  char *v18; // rdx
-  signed __int64 v19; // rcx
+  unsigned __int64 v3; // rdi
+  __int64 v5; // rax
+  __int128 *v6; // rbx
+  __int64 v8; // r15
+  unsigned __int64 v9; // r14
+  SIZE_T v10; // rcx
+  unsigned __int64 v11; // r9
+  _OWORD *v12; // rax
+  unsigned __int64 v13; // rdi
+  __int64 v14; // r10
+  __int128 *v15; // rdx
+  __int128 *v16; // rcx
+  _OWORD *v17; // r8
+  __int128 v19; // xmm0
+  __int128 v20; // xmm0
+  unsigned __int64 v21; // rcx
 
-  v3 = *a1;
-  v6 = (a1[1] - *a1) >> 4;
-  if ( v6 == 0xFFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  v8 = v6 + 1;
-  v9 = std::vector<tagRECT>::_Calculate_growth(a1, v6 + 1);
-  size_of = std::_Get_size_of_n<16>(v9);
-  v11 = (_OWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v12 = v11;
-  v13 = (char *)v11 + ((a2 - v3) & 0xFFFFFFFFFFFFFFF0uLL);
-  *(_OWORD *)v13 = *a3;
-  v14 = a1[1];
-  v15 = *a1;
-  if ( a2 == v14 )
+  v3 = (unsigned __int64)a2 - *a1;
+  v5 = (a1[1] - *a1) >> 4;
+  v6 = a2;
+  if ( v5 == 0xFFFFFFFFFFFFFFFLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v5 + 1;
+  v9 = std::vector<tagRECT>::_Calculate_growth(a1, v5 + 1);
+  v10 = 16 * v9;
+  if ( v9 > v11 )
+    v10 = -1LL;
+  v12 = (_OWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(v10);
+  v13 = v3 & 0xFFFFFFFFFFFFFFF0uLL;
+  v14 = (__int64)v12;
+  *(_OWORD *)((char *)v12 + v13) = *a3;
+  v15 = (__int128 *)a1[1];
+  v16 = (__int128 *)*a1;
+  if ( v6 == v15 )
   {
-    while ( v15 != v14 )
+    v17 = v12;
+    while ( v16 != v15 )
     {
-      v16 = *(_OWORD *)v15;
-      v15 += 16;
-      *v11++ = v16;
+      v19 = *v16++;
+      *v17++ = v19;
     }
   }
   else
   {
-    while ( v15 != a2 )
+    if ( v16 != v6 )
     {
-      v17 = *(_OWORD *)v15;
-      v15 += 16;
-      *v11++ = v17;
-    }
-    v18 = a1[1];
-    if ( a2 != v18 )
-    {
-      v19 = v13 - a2;
       do
       {
-        *(_OWORD *)&a2[v19 + 16] = *(_OWORD *)a2;
-        a2 += 16;
+        v20 = *v16++;
+        *v12++ = v20;
       }
-      while ( a2 != v18 );
+      while ( v16 != v6 );
+      v15 = (__int128 *)a1[1];
+    }
+    if ( v6 != v15 )
+    {
+      v21 = v14 + v13 - (_QWORD)v6;
+      do
+      {
+        *(__int128 *)((char *)v6 + v21 + 16) = *v6;
+        ++v6;
+      }
+      while ( v6 != v15 );
     }
   }
   std::vector<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>>::_Change_array(
     a1,
-    v12,
+    v14,
     v8,
     v9);
-  return v13;
+  return v13 + *a1;
 }

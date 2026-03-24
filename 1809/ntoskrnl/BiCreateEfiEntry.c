@@ -1,19 +1,19 @@
 /*
- * XREFs of BiCreateEfiEntry @ 0x1408F2DC0
+ * XREFs of BiCreateEfiEntry @ 0x1408F2DA0
  * Callers:
- *     BiBindEfiEntries @ 0x1408F21B4 (BiBindEfiEntries.c)
- *     BiExportBcdObjects @ 0x1408F3580 (BiExportBcdObjects.c)
+ *     BiBindEfiEntries @ 0x1408F2194 (BiBindEfiEntries.c)
+ *     BiExportBcdObjects @ 0x1408F3560 (BiExportBcdObjects.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BiSetRegistryValue @ 0x140713DA4 (BiSetRegistryValue.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiAddBootEntry @ 0x1408F1CE8 (BiAddBootEntry.c)
- *     BiCreateBootEntry @ 0x1408F2A38 (BiCreateBootEntry.c)
- *     BiGetSavedBootEntry @ 0x1408F3F90 (BiGetSavedBootEntry.c)
- *     BiUpdateEfiEntry @ 0x1408F4BE8 (BiUpdateEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D84 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BiSetRegistryValue @ 0x140713D84 (BiSetRegistryValue.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiAddBootEntry @ 0x1408F1CC8 (BiAddBootEntry.c)
+ *     BiCreateBootEntry @ 0x1408F2A18 (BiCreateBootEntry.c)
+ *     BiGetSavedBootEntry @ 0x1408F3F70 (BiGetSavedBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x1408F4BC8 (BiUpdateEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D64 (BiUpdateObjectReferenceInEfiEntry.c)
  */
 
 __int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)

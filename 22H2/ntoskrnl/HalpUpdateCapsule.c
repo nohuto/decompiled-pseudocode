@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpUpdateCapsule @ 0x140521460
+ * XREFs of HalpUpdateCapsule @ 0x1404D75E0
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalEfiUpdateCapsule @ 0x14050D18C (HalEfiUpdateCapsule.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalEfiUpdateCapsule @ 0x1404C3E28 (HalEfiUpdateCapsule.c)
  */
 
 __int64 HalpUpdateCapsule()

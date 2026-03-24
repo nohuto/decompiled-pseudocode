@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSynchronizeWithDynamicProcessors @ 0x1406C3EEC
+ * XREFs of KeSynchronizeWithDynamicProcessors @ 0x1406A91D4
  * Callers:
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     IoEnableIrpCredits @ 0x1409339DC (IoEnableIrpCredits.c)
- *     ExpNodeHotAddProcessorWorker @ 0x140A01E60 (ExpNodeHotAddProcessorWorker.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
+ *     IoEnableIrpCredits @ 0x140890D68 (IoEnableIrpCredits.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x140955D50 (ExpNodeHotAddProcessorWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 void KeSynchronizeWithDynamicProcessors()

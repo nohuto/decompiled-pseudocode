@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryGroupAffinity @ 0x1400F3660
+ * XREFs of KeQueryGroupAffinity @ 0x1400F3680
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     MmCreatePeb @ 0x140678550 (MmCreatePeb.c)
- *     PopProcessorInformation @ 0x14070D738 (PopProcessorInformation.c)
- *     PpmEnableWmiInterface @ 0x140758650 (PpmEnableWmiInterface.c)
- *     EtwpProcessorRundown @ 0x1408BF5C0 (EtwpProcessorRundown.c)
- *     NtCreateProfile @ 0x1408DA240 (NtCreateProfile.c)
+ *     MmCreatePeb @ 0x140678530 (MmCreatePeb.c)
+ *     PopProcessorInformation @ 0x14070D718 (PopProcessorInformation.c)
+ *     PpmEnableWmiInterface @ 0x140758630 (PpmEnableWmiInterface.c)
+ *     EtwpProcessorRundown @ 0x1408BF5A0 (EtwpProcessorRundown.c)
+ *     NtCreateProfile @ 0x1408DA220 (NtCreateProfile.c)
  * Callees:
  *     <none>
  */

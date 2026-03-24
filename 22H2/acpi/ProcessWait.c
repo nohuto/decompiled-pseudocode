@@ -1,16 +1,16 @@
 /*
- * XREFs of ProcessWait @ 0x1C0058AE0
+ * XREFs of ProcessWait @ 0x1C006A6A0
  * Callers:
  *     <none>
  * Callees:
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
  */
 
 __int64 __fastcall ProcessWait(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v4; // edi
-  __int64 v5; // rcx
+  _QWORD *v5; // rcx
 
   v4 = a3;
   *(_WORD *)(*(_QWORD *)(a2 + 48) + 2LL) = 1;
@@ -24,8 +24,8 @@ __int64 __fastcall ProcessWait(__int64 a1, __int64 a2, unsigned int a3)
   {
     *(_QWORD *)(*(_QWORD *)(a2 + 48) + 16LL) = 0LL;
   }
-  v5 = *(_QWORD *)(a1 + 416);
-  *(_QWORD *)(a1 + 416) = *(_QWORD *)(v5 + 8);
+  v5 = *(_QWORD **)(a1 + 416);
+  *(_QWORD *)(a1 + 416) = v5[1];
   HeapFree(v5);
   return v4;
 }

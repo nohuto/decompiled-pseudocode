@@ -1,14 +1,14 @@
 /*
- * XREFs of _ExcludeUpdateRgn @ 0x1C000674C
+ * XREFs of _ExcludeUpdateRgn @ 0x1C0042FD0
  * Callers:
- *     ?UT_InvertCaret@@YAXXZ @ 0x1C00065F8 (-UT_InvertCaret@@YAXXZ.c)
- *     NtUserExcludeUpdateRgn @ 0x1C01CF7B0 (NtUserExcludeUpdateRgn.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0044F6C (-UT_InvertCaret@@YAXXZ.c)
+ *     NtUserExcludeUpdateRgn @ 0x1C015BF90 (NtUserExcludeUpdateRgn.c)
  * Callees:
- *     GreExtSelectClipRgnInternal @ 0x1C011A2F0 (GreExtSelectClipRgnInternal.c)
- *     GreGetRandomRgn @ 0x1C0131360 (GreGetRandomRgn.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GetDCOrgOnScreen @ 0x1C01BDC24 (GetDCOrgOnScreen.c)
- *     ?CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z @ 0x1C0214F34 (-CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z.c)
+ *     ?CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z @ 0x1C003FD00 (-CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z.c)
+ *     GetDCOrgOnScreen @ 0x1C0042AB0 (GetDCOrgOnScreen.c)
+ *     GreGetRandomRgn @ 0x1C0042B10 (GreGetRandomRgn.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     GreExtSelectClipRgnInternal @ 0x1C016C338 (GreExtSelectClipRgnInternal.c)
  */
 
 __int64 __fastcall ExcludeUpdateRgn(HDC a1, struct tagWND *a2)
@@ -28,16 +28,16 @@ __int64 __fastcall ExcludeUpdateRgn(HDC a1, struct tagWND *a2)
     }
     else
     {
-      result = GetDCOrgOnScreen(a1, &v6);
+      result = GetDCOrgOnScreen((__int64)a1, &v6);
       if ( (_DWORD)result )
       {
-        if ( (unsigned int)GreGetRandomRgn(a1) == 1 )
+        if ( (unsigned int)GreGetRandomRgn(a1, ghrgnInv1, 1) == 1 )
           GreOffsetRgn(ghrgnInv1, (unsigned int)v6, HIDWORD(v6));
         else
           CalcVirtualScreenClipRegion(ghrgnInv1, a2);
         GreCombineRgn(ghrgnInv1, ghrgnInv1, *(_QWORD *)(*((_QWORD *)a2 + 5) + 136LL), 4LL);
         GreOffsetRgn(ghrgnInv1, (unsigned int)-(int)v6, (unsigned int)-HIDWORD(v6));
-        return GreExtSelectClipRgnInternal(a1, ghrgnInv1, 5LL);
+        return GreExtSelectClipRgnInternal(a1);
       }
     }
   }

@@ -1,34 +1,34 @@
 /*
- * XREFs of ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0219510
+ * XREFs of ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C019450C
  * Callers:
- *     DxgkAddAdapter @ 0x1C01FF9D0 (DxgkAddAdapter.c)
+ *     DxgkAddAdapter @ 0x1C0195B98 (DxgkAddAdapter.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer @ 0x1C0040C98 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer.c)
- *     ??_GDXGADAPTER@@QEAAPEAXI@Z @ 0x1C0051B74 (--_GDXGADAPTER@@QEAAPEAXI@Z.c)
- *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C01B625C (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
- *     DxgkStartPnPTransition @ 0x1C021989C (DxgkStartPnPTransition.c)
- *     DxgkDetermineAffectedSession @ 0x1C0219BA8 (DxgkDetermineAffectedSession.c)
- *     ??0DXGADAPTER@@QEAA@PEAVDXGGLOBAL@@@Z @ 0x1C0219BF4 (--0DXGADAPTER@@QEAA@PEAVDXGGLOBAL@@@Z.c)
- *     ?ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z @ 0x1C021A08C (-ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z.c)
- *     DpiReportAdapter @ 0x1C021A0B4 (DpiReportAdapter.c)
- *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021A2B8 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
- *     ?FinalizeInitialization@ADAPTER_RENDER@@QEAAJXZ @ 0x1C021AD98 (-FinalizeInitialization@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C021AE14 (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
- *     ?DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z @ 0x1C021AFBC (-DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z.c)
- *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C021B04C (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B6644 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
- *     ?SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0315868 (-SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z @ 0x1C03620B8 (-NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?IsComputeOnlyAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0009188 (-IsComputeOnlyAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D994 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer @ 0x1C003A0C4 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer.c)
+ *     ??_GDXGADAPTER@@QEAAPEAXI@Z @ 0x1C004648C (--_GDXGADAPTER@@QEAAPEAXI@Z.c)
+ *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C0101D60 (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z @ 0x1C01910CC (-ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z.c)
+ *     DxgkStartPnPTransition @ 0x1C019489C (DxgkStartPnPTransition.c)
+ *     DxgkDetermineAffectedSession @ 0x1C0194B90 (DxgkDetermineAffectedSession.c)
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0194BDC (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ *     DpiReportAdapter @ 0x1C0195528 (DpiReportAdapter.c)
+ *     ??0DXGADAPTER@@QEAA@PEAVDXGGLOBAL@@@Z @ 0x1C0195738 (--0DXGADAPTER@@QEAA@PEAVDXGGLOBAL@@@Z.c)
+ *     ?FinalizeInitialization@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0196044 (-FinalizeInitialization@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z @ 0x1C01960F0 (-DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z.c)
+ *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C0196180 (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
+ *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C019CF40 (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020C968 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C026C220 (-SetVirtualRenderAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z @ 0x1C02B5E68 (-NotifyVailAdapter@DXGVAILOBJECT@@SAXH@Z.c)
  */
 
 __int64 __fastcall DXGGLOBAL::CreateAdapter(
@@ -39,264 +39,280 @@ __int64 __fastcall DXGGLOBAL::CreateAdapter(
         struct _DXGK_ADAPTER_CAPS *a5,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a6)
 {
-  void *v8; // r13
-  void *v9; // rax
-  DXGADAPTER *v10; // rax
-  __int64 v11; // rdi
-  int v12; // r14d
-  __int64 v13; // r14
-  __int64 v14; // r15
-  int v15; // r12d
-  __int64 v16; // rax
-  int v17; // r11d
-  unsigned int v18; // r9d
-  ADAPTER_RENDER **v19; // r15
-  struct _LUID *v20; // rdx
-  __int64 v21; // r12
-  unsigned __int8 IsAdapterSessionized; // al
-  int v23; // ecx
-  int v24; // r8d
-  int v25; // edx
-  unsigned __int64 v26; // rax
-  __int64 *v27; // rax
-  DXGGLOBAL **v28; // rcx
-  __int64 v29; // rcx
-  int v30; // r15d
+  void *v6; // r12
+  PVOID v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  DXGADAPTER *v13; // rbx
+  int v14; // esi
+  __int64 v15; // rax
+  int v16; // esi
+  __int64 v17; // r12
+  int v18; // r13d
+  int *AdapterType; // rax
+  unsigned int v20; // r9d
+  struct _LUID *v21; // rdx
+  ADAPTER_RENDER *v22; // rcx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  bool IsAdapterSessionized; // al
+  int v26; // ecx
+  bool v27; // r13
+  int v28; // r8d
+  int v29; // edx
+  unsigned __int64 v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  DXGADAPTER **v33; // rax
+  DXGGLOBAL **v34; // rcx
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  int v39; // r14d
   int updated; // eax
-  __int64 v33; // rcx
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  int v43; // edi
+  __int64 v45; // rax
+  __int64 v46; // rcx
+  __int64 v47; // rcx
+  __int64 v48; // rax
+  __int64 v49; // rax
   struct DXGGLOBAL *Global; // rax
-  struct DXGGLOBAL *v35; // rax
-  NTSTATUS v36; // eax
-  __int64 v37; // rbx
-  int v38; // [rsp+C8h] [rbp-C0h]
-  int v39; // [rsp+E0h] [rbp-A8h]
-  unsigned __int8 v40[4]; // [rsp+108h] [rbp-80h] BYREF
-  int v41; // [rsp+10Ch] [rbp-7Ch]
-  unsigned int v42; // [rsp+110h] [rbp-78h] BYREF
-  unsigned __int64 v43; // [rsp+118h] [rbp-70h] BYREF
-  _BYTE v44[8]; // [rsp+120h] [rbp-68h] BYREF
-  __int64 v45; // [rsp+128h] [rbp-60h]
-  char v46; // [rsp+130h] [rbp-58h]
+  struct DXGGLOBAL *v51; // rax
+  NTSTATUS v52; // eax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  __int64 v55; // rdi
+  __int64 v56; // rax
+  __int64 v57; // rax
+  int v58; // [rsp+C8h] [rbp-C0h]
+  int v59; // [rsp+E0h] [rbp-A8h]
+  unsigned __int8 v60[4]; // [rsp+108h] [rbp-80h] BYREF
+  int v61; // [rsp+10Ch] [rbp-7Ch]
+  unsigned int v62; // [rsp+110h] [rbp-78h] BYREF
+  int v63; // [rsp+114h] [rbp-74h] BYREF
+  unsigned __int64 v64; // [rsp+118h] [rbp-70h] BYREF
+  _BYTE v65[8]; // [rsp+120h] [rbp-68h] BYREF
+  DXGADAPTER *v66; // [rsp+128h] [rbp-60h]
+  char v67; // [rsp+130h] [rbp-58h]
 
-  v41 = 0;
-  v8 = a4;
-  v9 = (void *)operator new[](0x12C0uLL, 0x4B677844u, 64LL);
+  v61 = 0;
+  v6 = a4;
+  v9 = operator new(0x11A0uLL, 0x4B677844u, 1, (POOL_TYPE)512);
   if ( v9 )
+    v13 = DXGADAPTER::DXGADAPTER(v9, this);
+  else
+    v13 = 0LL;
+  if ( v13 )
   {
-    v10 = DXGADAPTER::DXGADAPTER(v9, this);
-    v11 = (__int64)v10;
-    if ( v10 )
+    v14 = DXGADAPTER::Initialize(v13, DeviceObject, a5);
+    if ( v14 < 0 )
     {
-      v12 = DXGADAPTER::Initialize(v10, DeviceObject, a5);
-      if ( v12 < 0 )
+      if ( DXGADAPTER::IsComputeOnlyAdapter(v13) )
+        DXGADAPTER::AdapterTelemetry(v46, 0LL, a6);
+    }
+    else
+    {
+      if ( bTracingEnabled )
       {
-        if ( (*(_DWORD *)(v11 + 2792) & 8) != 0 )
-          DXGADAPTER::AdapterTelemetry(v11, 0LL, a6);
+        v15 = *((_QWORD *)v13 + 337);
+        if ( v15 )
+          v16 = *(_DWORD *)(v15 + 80);
+        else
+          LOBYTE(v16) = 0;
+        v17 = *((_QWORD *)v13 + 34);
+        v18 = *((_DWORD *)v13 + 736);
+        AdapterType = DXGADAPTER::GetAdapterType(v13, &v63);
+        v20 = *((_DWORD *)v13 + 511);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+        {
+          v47 = v20 >> 14;
+          LOBYTE(v47) = v47 & 7;
+          McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqp_EtwWriteTransfer(
+            v47,
+            &EventCreateAdapter,
+            v20 >> 31,
+            (__int64)DeviceObject,
+            (char)v13,
+            v16,
+            *((_QWORD *)v13 + 249),
+            *((_DWORD *)v13 + 500),
+            *((_QWORD *)v13 + 251),
+            *((_DWORD *)v13 + 504),
+            *((_DWORD *)v13 + 505),
+            *((_DWORD *)v13 + 507),
+            *((_DWORD *)v13 + 508),
+            *((_DWORD *)v13 + 509),
+            *((_DWORD *)v13 + 512),
+            *((_DWORD *)v13 + 506),
+            *((_DWORD *)v13 + 510),
+            v20,
+            (v20 >> 10) & 0xF,
+            v47,
+            (v20 >> 17) & 7,
+            (v20 & 0x80000000) != 0,
+            *((_DWORD *)v13 + 513),
+            *((_DWORD *)v13 + 514),
+            v58,
+            *((_DWORD *)v13 + 516),
+            *((_DWORD *)v13 + 517),
+            v59,
+            v18,
+            *AdapterType,
+            v17);
+        }
+        v6 = a4;
+      }
+      DpiReportAdapter(DeviceObject, v13);
+      if ( *((_QWORD *)v13 + 338) )
+        DXGADAPTER::ReportNodeMetadata(v13);
+      DXGADAPTER::AdapterTelemetry(v13, 0LL, a6);
+      v14 = 0;
+      *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 27) + 64LL) + 3896LL) = v13;
+      v22 = (ADAPTER_RENDER *)*((_QWORD *)v13 + 338);
+      if ( v22 && (v14 = ADAPTER_RENDER::FinalizeInitialization(v22), v14 < 0) )
+      {
+        v48 = WdLogNewEntry5_WdWarning(v23, v21, v24);
+        *(_QWORD *)(v48 + 24) = -1073741801LL;
+        *(_QWORD *)(v48 + 32) = 2317LL;
+        WdLogEvent5_WdWarning(v48);
+        *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 27) + 64LL) + 3896LL) = 0LL;
       }
       else
       {
-        if ( bTracingEnabled )
+        v62 = 0;
+        v64 = 0LL;
+        IsAdapterSessionized = DXGADAPTER::IsAdapterSessionized(v13, v21, &v62, &v64);
+        v26 = v64;
+        v27 = IsAdapterSessionized;
+        LOBYTE(v26) = IsAdapterSessionized;
+        LOBYTE(v28) = *((_QWORD *)v13 + 337) != 0LL;
+        LOBYTE(v29) = *((_QWORD *)v13 + 338) != 0LL;
+        v30 = DxgkDetermineAffectedSession(v26, v29, v28, 0, v64);
+        if ( DxgkStartPnPTransition(v6, v30) )
         {
-          v13 = *(_QWORD *)(v11 + 4580);
-          v14 = *(_QWORD *)(v11 + 280);
-          v15 = *DXGADAPTER::GetAdapterType((DXGADAPTER *)v11, (int *)&v43);
-          v16 = *(_QWORD *)(v11 + 2920);
-          if ( v16 )
-            v17 = *(_DWORD *)(v16 + 96);
+          if ( *((_QWORD *)v13 + 338) && (*((_DWORD *)v13 + 87) & 0x4000) == 0 )
+          {
+            v66 = v13;
+            v67 = 0;
+            DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v65);
+            if ( *((_DWORD *)v13 + 50) == 1 )
+            {
+              if ( *((_DWORD *)this + 76074) != 10 || (*((_DWORD *)this + 76077) & 1) != 0 )
+                (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 338) + 616LL) + 8LL)
+                                                       + 952LL))(
+                  *(_QWORD *)(*((_QWORD *)v13 + 338) + 624LL),
+                  *((_DWORD *)this + 76077) & 1);
+              if ( *(_QWORD *)((char *)this + 304300) != 0x1E00000032LL )
+                (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 338) + 640LL)
+                                                                           + 8LL)
+                                                               + 1160LL))(
+                  *(_QWORD *)(*((_QWORD *)v13 + 338) + 648LL),
+                  *((unsigned int *)this + 76075),
+                  *((unsigned int *)this + 76076));
+            }
+            if ( v67 )
+              DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v65);
+          }
+          DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 584));
+          DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 624));
+          v33 = (DXGADAPTER **)((char *)this + 664);
+          v34 = (DXGGLOBAL **)*((_QWORD *)this + 83);
+          if ( v34[1] != (DXGGLOBAL *)((char *)this + 664) )
+            __fastfail(3u);
+          *(_QWORD *)v13 = v34;
+          *((_QWORD *)v13 + 1) = v33;
+          v34[1] = v13;
+          *v33 = v13;
+          if ( DXGGLOBAL::ConsiderForMultiAdapterFeatureUsage((DXGGLOBAL *)v34, v13) )
+          {
+            if ( ++*((_DWORD *)this + 76152) == 2 )
+            {
+              Global = DXGGLOBAL::GetGlobal(v36, v35);
+              DXGGLOBAL::RecordFeatureUsage(Global, 6LL, 1LL);
+            }
+            if ( *((_BYTE *)v13 + 2540) )
+            {
+              ++*((_DWORD *)this + 76148);
+            }
+            else if ( *((_BYTE *)v13 + 2535) )
+            {
+              ++*((_DWORD *)this + 76149);
+            }
+            if ( *((_DWORD *)this + 76149) && *((_DWORD *)this + 76148) )
+            {
+              v51 = DXGGLOBAL::GetGlobal(v36, v35);
+              DXGGLOBAL::RecordFeatureUsage(v51, 9LL, 1LL);
+            }
+          }
+          DXGFASTMUTEX::Release((struct _KTHREAD **)this + 78, v35);
+          DXGFASTMUTEX::Release((struct _KTHREAD **)this + 73, v37);
+          if ( *((_BYTE *)v13 + 209) )
+          {
+            if ( !*((_QWORD *)this + 104) && !DXGADAPTER::IsComputeOnlyAdapter(v13) )
+            {
+              DXGGLOBAL::SetVirtualRenderAdapter(this, v13);
+              v39 = *((unsigned __int8 *)v13 + 211);
+              goto LABEL_30;
+            }
+          }
           else
-            LOBYTE(v17) = 0;
-          v18 = *(_DWORD *)(v11 + 2268);
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
           {
-            v33 = v18 >> 14;
-            LOBYTE(v33) = v33 & 7;
-            McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer(
-              v33,
-              &EventCreateAdapter,
-              v18 >> 31,
-              (__int64)DeviceObject,
-              v11,
-              v17,
-              *(_QWORD *)(v11 + 2216),
-              *(_DWORD *)(v11 + 2224),
-              *(_QWORD *)(v11 + 2232),
-              *(_DWORD *)(v11 + 2240),
-              *(_DWORD *)(v11 + 2244),
-              *(_DWORD *)(v11 + 2252),
-              *(_DWORD *)(v11 + 2256),
-              *(_DWORD *)(v11 + 2260),
-              *(_DWORD *)(v11 + 2272),
-              *(_DWORD *)(v11 + 2248),
-              *(_DWORD *)(v11 + 2264),
-              v18,
-              (v18 >> 10) & 0xF,
-              v33,
-              (v18 >> 17) & 7,
-              (v18 & 0x80000000) != 0,
-              *(_DWORD *)(v11 + 2276),
-              *(_DWORD *)(v11 + 2280),
-              v38,
-              *(_DWORD *)(v11 + 2288),
-              *(_DWORD *)(v11 + 2292),
-              v39,
-              *(_DWORD *)(v11 + 3168),
-              v15,
-              v14,
-              v13);
+            v38 = *(_QWORD *)(*((_QWORD *)v13 + 27) + 64LL);
+            if ( *(_BYTE *)(v38 + 5736) )
+            {
+              v52 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v38 + 5720), 1u);
+              v55 = v52;
+              if ( v52 < 0 )
+              {
+                v56 = WdLogNewEntry5_WdError(v54, v53);
+                *(_QWORD *)(v56 + 24) = v55;
+                WdLogEvent5_WdError(v56);
+              }
+            }
           }
-          v8 = a4;
-        }
-        DpiReportAdapter(DeviceObject, v11);
-        v19 = (ADAPTER_RENDER **)(v11 + 2928);
-        if ( *(_QWORD *)(v11 + 2928) )
-          DXGADAPTER::ReportNodeMetadata((DXGADAPTER *)v11);
-        DXGADAPTER::AdapterTelemetry(v11, 0LL, a6);
-        v21 = v11 + 216;
-        v12 = 0;
-        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v11 + 216) + 64LL) + 3912LL) = v11;
-        if ( *v19 && (v12 = ADAPTER_RENDER::FinalizeInitialization(*v19), v12 < 0) )
-        {
-          WdLogSingleEntry2(3LL, -1073741801LL, 2487LL);
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v21 + 64LL) + 3912LL) = 0LL;
-        }
-        else
-        {
-          v43 = 0LL;
-          *(_BYTE *)(v11 + 213) = 1;
-          v42 = 0;
-          IsAdapterSessionized = DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v11, v20, &v42, &v43);
-          v23 = v43;
-          LOBYTE(v23) = IsAdapterSessionized;
-          LOBYTE(v24) = *(_QWORD *)(v11 + 2920) != 0LL;
-          v40[0] = IsAdapterSessionized;
-          LOBYTE(v25) = *v19 != 0LL;
-          v26 = DxgkDetermineAffectedSession(v23, v25, v24, 0, v43);
-          if ( DxgkStartPnPTransition(v8, v26) )
+          v39 = v61;
+LABEL_30:
+          *((_BYTE *)v13 + 4368) = 1;
+          if ( v27 )
+            updated = ZwUpdateWnfStateData(&WNF_DX_REMOTE_ADAPTER_START, 0LL, 0LL, 0LL, &v62, 0, 0);
+          else
+            updated = ZwUpdateWnfStateData(&WNF_DX_CONSOLE_ADAPTER_START, 0LL, 0LL, 0LL, 0LL, 0, 0);
+          v43 = updated;
+          if ( updated < 0 )
           {
-            if ( *v19 && (*(_DWORD *)(v11 + 436) & 0x4000) == 0 )
-            {
-              v45 = v11;
-              v46 = 0;
-              DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v44);
-              if ( *(_DWORD *)(v11 + 200) == 1 )
-              {
-                if ( *((_DWORD *)this + 76114) != 10 || (*((_DWORD *)this + 76117) & 1) != 0 )
-                  (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)*v19 + 92) + 8LL) + 952LL))(
-                    *((_QWORD *)*v19 + 93),
-                    *((_DWORD *)this + 76117) & 1);
-                if ( *(_QWORD *)((char *)this + 304460) != 0x1E00000032LL )
-                  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)*v19 + 95) + 8LL) + 1152LL))(
-                    *((_QWORD *)*v19 + 96),
-                    *((unsigned int *)this + 76115),
-                    *((unsigned int *)this + 76116));
-              }
-              if ( v46 )
-                DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v44);
-            }
-            DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 672));
-            DXGFASTMUTEX::Acquire((DXGGLOBAL *)((char *)this + 720));
-            v27 = (__int64 *)((char *)this + 768);
-            v28 = (DXGGLOBAL **)*((_QWORD *)this + 96);
-            if ( v28[1] != (DXGGLOBAL *)((char *)this + 768) )
-              __fastfail(3u);
-            *(_QWORD *)v11 = v28;
-            *(_QWORD *)(v11 + 8) = v27;
-            v28[1] = (DXGGLOBAL *)v11;
-            *v27 = v11;
-            if ( DXGGLOBAL::ConsiderForMultiAdapterFeatureUsage((DXGGLOBAL *)v28, (struct DXGADAPTER *)v11) )
-            {
-              if ( ++*((_DWORD *)this + 76206) == 2 )
-              {
-                Global = DXGGLOBAL::GetGlobal();
-                DXGGLOBAL::RecordFeatureUsage(Global, 6LL, 1LL);
-              }
-              if ( *(_BYTE *)(v11 + 2764) )
-              {
-                ++*((_DWORD *)this + 76202);
-              }
-              else if ( *(_BYTE *)(v11 + 2759) )
-              {
-                ++*((_DWORD *)this + 76203);
-              }
-              if ( *((_DWORD *)this + 76203) && *((_DWORD *)this + 76202) )
-              {
-                v35 = DXGGLOBAL::GetGlobal();
-                DXGGLOBAL::RecordFeatureUsage(v35, 9LL, 1LL);
-              }
-            }
-            DXGFASTMUTEX::Release((struct _KTHREAD **)this + 90);
-            DXGFASTMUTEX::Release((struct _KTHREAD **)this + 84);
-            if ( *(_BYTE *)(v11 + 209) )
-            {
-              if ( !*((_QWORD *)this + 120) && (*(_DWORD *)(v11 + 2792) & 8) == 0 )
-              {
-                DXGGLOBAL::SetVirtualRenderAdapter(this, (struct DXGADAPTER *)v11);
-                v30 = *(unsigned __int8 *)(v11 + 211);
-                goto LABEL_29;
-              }
-            }
-            else
-            {
-              v29 = *(_QWORD *)(*(_QWORD *)v21 + 64LL);
-              if ( *(_BYTE *)(v29 + 5680) )
-              {
-                v36 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v29 + 5664), 1u);
-                if ( v36 < 0 )
-                  WdLogSingleEntry1(2LL, v36);
-              }
-            }
-            v30 = v41;
-LABEL_29:
-            *(_BYTE *)(v11 + 4616) = 1;
-            if ( v40[0] )
-              updated = ZwUpdateWnfStateData(&WNF_DX_REMOTE_ADAPTER_START, 0LL, 0LL, 0LL, &v42, 0, 0);
-            else
-              updated = ZwUpdateWnfStateData(&WNF_DX_CONSOLE_ADAPTER_START, 0LL, 0LL, 0LL, 0LL, 0, 0);
-            if ( updated < 0 )
-            {
-              v37 = updated;
-              WdLogSingleEntry2(2LL, v11, updated);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                0x40000,
-                -1,
-                (__int64)L"Failed to send Start WNF for Adapter=0x%I64x with Status=0x%I64x",
-                v11,
-                v37,
-                0LL,
-                0LL,
-                0LL);
-            }
-            if ( v30 )
-              DXGVAILOBJECT::NotifyVailAdapter(1);
-            if ( (*(_BYTE *)(v11 + 2891) & 1) != 0 )
-            {
-              v40[0] = 0;
-              DxgkCheckAndUpdatePairingForNewAdapter((struct DXGADAPTER *)v11, v40);
-              *((_BYTE *)a5 + 1) ^= (*((_BYTE *)a5 + 1) ^ (v40[0] << 6)) & 0x40;
-            }
-            *a3 = (struct DXGADAPTER *)v11;
-            return (unsigned int)v12;
+            v57 = WdLogNewEntry5_WdError(v42, v41);
+            *(_QWORD *)(v57 + 24) = v13;
+            *(_QWORD *)(v57 + 32) = v43;
+            WdLogEvent5_WdError(v57);
           }
-          WdLogSingleEntry2(2LL, -1073741801LL, 2508LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to start PnP transition on the affected sessions, returning 0x%I64x",
-            -1073741801LL,
-            2508LL,
-            0LL,
-            0LL,
-            0LL);
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v21 + 64LL) + 3912LL) = 0LL;
+          if ( v39 )
+            DXGVAILOBJECT::NotifyVailAdapter(1);
+          if ( *((_QWORD *)v13 + 338) )
+          {
+            v60[0] = 0;
+            DxgkCheckAndUpdatePairingForNewAdapter(v13, v60);
+            *((_BYTE *)a5 + 1) ^= (*((_BYTE *)a5 + 1) ^ (v60[0] << 6)) & 0x40;
+          }
+          *a3 = v13;
+          return (unsigned int)v14;
         }
-        DXGADAPTER::Destroy((DXGADAPTER *)v11);
+        v49 = WdLogNewEntry5_WdError(v32, v31);
+        *(_QWORD *)(v49 + 24) = -1073741801LL;
+        *(_QWORD *)(v49 + 32) = 2338LL;
+        WdLogEvent5_WdError(v49);
+        *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 27) + 64LL) + 3896LL) = 0LL;
       }
-      DXGADAPTER::`scalar deleting destructor'((DXGADAPTER *)v11);
-      return (unsigned int)v12;
+      DXGADAPTER::Destroy(v13);
     }
+    DXGADAPTER::`scalar deleting destructor'(v13);
+    return (unsigned int)v14;
   }
-  WdLogSingleEntry1(3LL, -1073741801LL);
+  v45 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+  *(_QWORD *)(v45 + 24) = -1073741801LL;
+  WdLogEvent5_WdWarning(v45);
   return 3221225495LL;
 }

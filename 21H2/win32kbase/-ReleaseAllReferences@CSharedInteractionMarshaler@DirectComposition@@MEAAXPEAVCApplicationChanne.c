@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedInteractionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0083C30
+ * XREFs of ?ReleaseAllReferences@CSharedInteractionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00830A0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CInteractionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0086330 (-ReleaseAllReferences@CInteractionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CInteractionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0083580 (-ReleaseAllReferences@CInteractionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CSharedInteractionMarshaler::ReleaseAllReferences(
@@ -12,11 +12,11 @@ void __fastcall DirectComposition::CSharedInteractionMarshaler::ReleaseAllRefere
 {
   __int64 v4; // rcx
 
-  v4 = *((_QWORD *)this + 43);
+  v4 = *((_QWORD *)this + 42);
   if ( v4 )
   {
     ObfDereferenceObject((PVOID)(v4 - 24));
-    *((_QWORD *)this + 43) = 0LL;
+    *((_QWORD *)this + 42) = 0LL;
   }
   DirectComposition::CInteractionMarshaler::ReleaseAllReferences(this, a2);
 }

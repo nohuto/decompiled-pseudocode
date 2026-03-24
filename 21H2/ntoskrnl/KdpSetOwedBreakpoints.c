@@ -1,13 +1,13 @@
 /*
- * XREFs of KdpSetOwedBreakpoints @ 0x140A74B64
+ * XREFs of KdpSetOwedBreakpoints @ 0x1409BA5E0
  * Callers:
- *     KdSetOwedBreakpoints @ 0x140565E50 (KdSetOwedBreakpoints.c)
+ *     KdSetOwedBreakpoints @ 0x140511EE0 (KdSetOwedBreakpoints.c)
  * Callees:
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
- *     KdpCopyCodeStream @ 0x140A74644 (KdpCopyCodeStream.c)
- *     KdpInsertBreakpoint @ 0x140A748B4 (KdpInsertBreakpoint.c)
- *     KdpRemoveBreakpoint @ 0x140A74AA0 (KdpRemoveBreakpoint.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdpCopyCodeStream @ 0x1409B9A9C (KdpCopyCodeStream.c)
+ *     KdpInsertBreakpoint @ 0x1409BA334 (KdpInsertBreakpoint.c)
+ *     KdpRemoveBreakpoint @ 0x1409BA520 (KdpRemoveBreakpoint.c)
  */
 
 void __fastcall KdpSetOwedBreakpoints(__int64 a1)
@@ -29,7 +29,7 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
   v13 = 0LL;
   if ( KdpOweBreakpoint )
   {
-    v1 = (__int64 *)&unk_140C33EC8;
+    v1 = (__int64 *)&unk_140C34208;
     v2 = a1 & 0xFFFFFFFFFFFFF000uLL;
     Process = KeGetCurrentThread()->ApcState.Process;
     while ( 1 )
@@ -54,7 +54,7 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
     }
     v8 = KdEnterDebugger(0LL);
     KdpOweBreakpoint = 0;
-    v9 = (unsigned __int8 *)&unk_140C33EE5;
+    v9 = (unsigned __int8 *)&unk_140C34225;
     do
     {
       if ( (*(_DWORD *)(v9 - 5) & 0xA) != 0 )
@@ -62,7 +62,7 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
         v10 = *(_QWORD *)(v9 - 37);
         if ( v10 >= 0xFFFF800000000000uLL || *(_KPROCESS **)(v9 - 29) == Process )
         {
-          if ( (int)KdpCopyCodeStream((char *)(v10 & ~(unsigned __int64)*v9), (__int64)&v13, *(v9 - 1), 4) >= 0 )
+          if ( (int)KdpCopyCodeStream((PVOID)(v10 & ~(unsigned __int64)*v9), (__int64)&v13, *(v9 - 1), 4) >= 0 )
           {
             v11 = (__int64)(v9 - 37);
             if ( (*(_DWORD *)(v9 - 5) & 2) != 0 )
@@ -85,7 +85,7 @@ void __fastcall KdpSetOwedBreakpoints(__int64 a1)
       }
       v9 += 40;
     }
-    while ( (__int64)v9 < (__int64)((unsigned __int8 *)KdpSearchPageHits + 5) );
+    while ( (__int64)v9 < (__int64)((unsigned __int8 *)&KdpSearchPfnValue + 5) );
     KdExitDebugger(v8);
   }
 }

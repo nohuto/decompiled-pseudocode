@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIThermalCancelRequest @ 0x1C0060B50
+ * XREFs of ACPIThermalCancelRequest @ 0x1C005FD60
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qqssdddd @ 0x1C002112C (WPP_RECORDER_SF_qqssdddd.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqssdddd @ 0x1C001317C (WPP_RECORDER_SF_qqssdddd.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall ACPIThermalCancelRequest(ULONG_PTR BugCheckParameter3, PIRP Irp)
@@ -21,10 +21,10 @@ void __fastcall ACPIThermalCancelRequest(ULONG_PTR BugCheckParameter3, PIRP Irp)
   union _LARGE_INTEGER v12; // [rsp+70h] [rbp-38h] BYREF
   struct _TIME_FIELDS v13; // [rsp+78h] [rbp-30h] BYREF
 
-  v2 = &unk_1C006FB8B;
+  v2 = &unk_1C00701BA;
   v13 = 0LL;
   LOBYTE(DeviceExtension) = 0;
-  v6 = &unk_1C006FB8B;
+  v6 = &unk_1C00701BA;
   v12.QuadPart = MEMORY[0xFFFFF78000000008];
   RtlTimeToTimeFields(&v12, &v13);
   if ( ACPIInternalGetDeviceExtension(BugCheckParameter3) )
@@ -33,9 +33,9 @@ void __fastcall ACPIThermalCancelRequest(ULONG_PTR BugCheckParameter3, PIRP Irp)
     v7 = DeviceExtension[1];
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v2 = (void *)DeviceExtension[76];
+      v2 = (void *)DeviceExtension[71];
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = (void *)DeviceExtension[77];
+        v6 = (void *)DeviceExtension[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

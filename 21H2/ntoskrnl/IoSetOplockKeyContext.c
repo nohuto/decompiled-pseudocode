@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetOplockKeyContext @ 0x14039E588
+ * XREFs of IoSetOplockKeyContext @ 0x140390E44
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x1402A22E0 (FsRtlpAttachOplockKey.c)
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x140359A7C (FsRtlpAttachOplockKey.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     IopAllocateFileObjectExtension @ 0x1402A3A60 (IopAllocateFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x1402A3F70 (IopSetTypeSpecificFoExtension.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     IopSetTypeSpecificFoExtension @ 0x1402B7F84 (IopSetTypeSpecificFoExtension.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
  */
 
 __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __int16 a3)

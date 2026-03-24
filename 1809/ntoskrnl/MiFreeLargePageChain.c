@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeLargePageChain @ 0x1402CC72C
+ * XREFs of MiFreeLargePageChain @ 0x1402CC82C
  * Callers:
  *     MiGetLargePageChain @ 0x140028A18 (MiGetLargePageChain.c)
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiFreeLargePageChain(__int64 a1)

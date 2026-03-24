@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTFreeTraceDump @ 0x140360674
+ * XREFs of PfTFreeTraceDump @ 0x1402D5024
  * Callers:
- *     PfGetCompletedTrace @ 0x1407DB830 (PfGetCompletedTrace.c)
- *     PfTTraceListFree @ 0x1407DBEE0 (PfTTraceListFree.c)
+ *     PfGetCompletedTrace @ 0x1406CD47C (PfGetCompletedTrace.c)
+ *     PfTTraceListFree @ 0x1406CDB44 (PfTTraceListFree.c)
  * Callees:
- *     PfpRepurposeNameLoggingTrace @ 0x1407D933C (PfpRepurposeNameLoggingTrace.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PfpRepurposeNameLoggingTrace @ 0x1406C7914 (PfpRepurposeNameLoggingTrace.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfTFreeTraceDump(_DWORD *a1)

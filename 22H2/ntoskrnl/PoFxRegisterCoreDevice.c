@@ -1,70 +1,71 @@
 /*
- * XREFs of PoFxRegisterCoreDevice @ 0x140837B60
+ * XREFs of PoFxRegisterCoreDevice @ 0x1407B4E00
  * Callers:
- *     HalpInterruptInitPowerManagement @ 0x14039529C (HalpInterruptInitPowerManagement.c)
- *     HalpTimerInitPowerManagement @ 0x1403953B8 (HalpTimerInitPowerManagement.c)
- *     HalpDmaInitPowerManagement @ 0x14039BE6C (HalpDmaInitPowerManagement.c)
- *     PoFxRegisterDebugger @ 0x140B60C60 (PoFxRegisterDebugger.c)
+ *     HalpDmaInitPowerManagement @ 0x1403BAA80 (HalpDmaInitPowerManagement.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403BD770 (HalpInterruptInitPowerManagement.c)
+ *     HalpTimerInitPowerManagement @ 0x1403BD88C (HalpTimerInitPowerManagement.c)
+ *     PoFxRegisterDebugger @ 0x140A73A68 (PoFxRegisterDebugger.c)
  * Callees:
- *     PopFxInsertDevice @ 0x140395D0C (PopFxInsertDevice.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopFxConvertV1Components @ 0x140837C88 (PopFxConvertV1Components.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PopFxInsertDevice @ 0x1403BDBF4 (PopFxInsertDevice.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
+ *     PopFxConvertV1Components @ 0x1407B5F3C (PopFxConvertV1Components.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxRegisterCoreDevice(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  int v5; // esi
   void *v6; // rdi
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v9; // ebx
-  _QWORD v11[10]; // [rsp+50h] [rbp-58h] BYREF
-  _QWORD *v12; // [rsp+B0h] [rbp+8h] BYREF
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  int v10; // ebx
+  _QWORD v12[10]; // [rsp+50h] [rbp-58h] BYREF
+  _QWORD *v13; // [rsp+B0h] [rbp+8h] BYREF
 
-  v12 = 0LL;
-  v5 = a1;
+  memset(v12, 0, sizeof(v12));
+  v6 = 0LL;
+  v13 = 0LL;
   if ( a1 && *(_DWORD *)a2 == 1 && *(_QWORD *)(a2 + 24) )
   {
-    v6 = (void *)PopFxConvertV1Components(a2 + 48, *(unsigned int *)(a2 + 4));
-    if ( v6 )
+    v7 = PopFxConvertV1Components(a2 + 48, *(unsigned int *)(a2 + 4));
+    v6 = (void *)v7;
+    if ( !v7 )
     {
-      memset(v11, 0, sizeof(v11));
-      v11[0] = *(_QWORD *)(a2 + 8);
-      v11[1] = *(_QWORD *)(a2 + 16);
-      v11[2] = *(_QWORD *)(a2 + 32);
-      v11[6] = *(_QWORD *)(a2 + 24);
-      v9 = PopFxRegisterDeviceWorker(
-             0,
-             v5,
-             (unsigned int)v11,
-             (_DWORD)v6,
-             *(_DWORD *)(a2 + 4),
-             *(_QWORD *)(a2 + 40),
-             0,
-             0LL,
-             (__int64)&v12);
-      if ( v9 < 0 )
-      {
-        v12 = 0LL;
-      }
-      else
-      {
-        PopFxInsertDevice(v8, v7, v12);
-        v9 = 0;
-      }
-      ExFreePoolWithTag(v6, 0x4D584650u);
+      v10 = -1073741670;
+      goto LABEL_9;
+    }
+    v12[0] = *(_QWORD *)(a2 + 8);
+    v12[1] = *(_QWORD *)(a2 + 16);
+    v12[2] = *(_QWORD *)(a2 + 32);
+    v12[6] = *(_QWORD *)(a2 + 24);
+    v10 = PopFxRegisterDeviceWorker(
+            0,
+            a1,
+            (unsigned int)v12,
+            v7,
+            *(_DWORD *)(a2 + 4),
+            *(_QWORD *)(a2 + 40),
+            0,
+            0LL,
+            (__int64)&v13);
+    if ( v10 < 0 )
+    {
+      v13 = 0LL;
     }
     else
     {
-      v9 = -1073741670;
+      PopFxInsertDevice(v9, v8, v13);
+      v10 = 0;
     }
   }
   else
   {
-    v9 = -1073741811;
+    v10 = -1073741811;
   }
-  *a3 = v12;
-  return (unsigned int)v9;
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0x4D584650u);
+LABEL_9:
+  *a3 = v13;
+  return (unsigned int)v10;
 }

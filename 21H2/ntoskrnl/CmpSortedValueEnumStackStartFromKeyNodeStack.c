@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140921D8C
+ * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x14087B8FC
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x1402260D0 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ECE88 (CmpGetValueCountForKeyNodeStack.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14069F1CC (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x14069F45C (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpSortedValueEnumStackEntryStart @ 0x140921BE8 (CmpSortedValueEnumStackEntryStart.c)
- *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x140921D5C (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140729F10 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpSortedValueEnumStackEntryStart @ 0x14087B728 (CmpSortedValueEnumStackEntryStart.c)
+ *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B894 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(
@@ -27,8 +27,8 @@ __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(
   __int16 v14; // dx
   __int64 v15; // rdx
   __int64 v16; // rdx
-  ULONG_PTR v17; // rcx
-  __int64 v18; // r9
+  __int64 v17; // rcx
+  struct _LOOKASIDE_LIST_EX *v18; // r9
 
   v4 = *a2;
   if ( (__int16)(*a2 + 1) > 2 )
@@ -62,7 +62,7 @@ __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(
     {
       if ( (unsigned int)CmpGetEffectiveKeyNodeSemantics(*EntryAtLayerHeight, v15) == 1 )
         return 0LL;
-      result = CmpSortedValueEnumStackEntryStart(v18, v17, v16);
+      result = CmpSortedValueEnumStackEntryStart((__int64)v18, v17, v16, v18);
       if ( (int)result < 0 )
         return result;
       if ( (unsigned int)CmpGetEffectiveKeyNodeSemantics(*EntryAtLayerHeight, EntryAtLayerHeight[2]) )

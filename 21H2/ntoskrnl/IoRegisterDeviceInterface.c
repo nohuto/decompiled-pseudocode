@@ -1,16 +1,15 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x140769AD0
+ * XREFs of IoRegisterDeviceInterface @ 0x140748ED0
  * Callers:
- *     DifIoRegisterDeviceInterfaceWrapper @ 0x140610550 (DifIoRegisterDeviceInterfaceWrapper.c)
- *     PiSwCompleteCreate @ 0x14076426C (PiSwCompleteCreate.c)
+ *     PiSwCompleteCreate @ 0x14074D690 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x1403E39D0 (wcspbrk.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     IopRegisterDeviceInterface @ 0x140769C24 (IopRegisterDeviceInterface.c)
- *     PnpUnicodeStringToWstr @ 0x140779CA0 (PnpUnicodeStringToWstr.c)
- *     PnpUnicodeStringToWstrFree @ 0x14077BAB8 (PnpUnicodeStringToWstrFree.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x1403D4650 (wcspbrk.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterDeviceInterface(
@@ -21,7 +20,7 @@ NTSTATUS __stdcall IoRegisterDeviceInterface(
 {
   WCHAR *v4; // rdi
   wchar_t *v5; // rsi
-  _DWORD *DeviceNode; // r14
+  PVOID DeviceNode; // r14
   __int64 v10; // rcx
   int v11; // eax
   int inited; // ebx
@@ -30,9 +29,9 @@ NTSTATUS __stdcall IoRegisterDeviceInterface(
   wchar_t *Str; // [rsp+30h] [rbp-10h] BYREF
   PCWSTR SourceString; // [rsp+38h] [rbp-8h] BYREF
   unsigned int v18; // [rsp+80h] [rbp+40h] BYREF
-  const GUID *v19; // [rsp+88h] [rbp+48h]
+  GUID *v19; // [rsp+88h] [rbp+48h]
 
-  v19 = InterfaceClassGuid;
+  v19 = (GUID *)InterfaceClassGuid;
   v18 = 0;
   v4 = 0LL;
   v5 = 0LL;
@@ -41,7 +40,7 @@ NTSTATUS __stdcall IoRegisterDeviceInterface(
   *SymbolicLinkName = 0LL;
   if ( !PhysicalDeviceObject
     || (DeviceNode = PhysicalDeviceObject->DeviceObjectExtension->DeviceNode) == 0LL
-    || (DeviceNode[99] & 0x20000) != 0 )
+    || (*((_DWORD *)DeviceNode + 99) & 0x20000) != 0 )
   {
     inited = -1073741808;
 LABEL_15:
@@ -56,7 +55,7 @@ LABEL_15:
     goto LABEL_13;
   if ( ReferenceString && ReferenceString->Length >= 2u )
   {
-    v15 = PnpUnicodeStringToWstr(&Str, 0LL, ReferenceString);
+    v15 = PnpUnicodeStringToWstr((__int16 **)&Str, 0LL, &ReferenceString->Length);
     v5 = Str;
     inited = v15;
     if ( v15 < 0 )
@@ -70,7 +69,7 @@ LABEL_13:
   }
   v10 = *((_QWORD *)DeviceNode + 6);
   LODWORD(Str) = 0;
-  v11 = IopRegisterDeviceInterface(v10, (_DWORD)v19, (_DWORD)v5, 0, (__int64)&SourceString, (__int64)&Str);
+  v11 = IopRegisterDeviceInterface(v10, (int *)v19, (__int64)v5, 0, (PVOID *)&SourceString, &Str);
   v4 = (WCHAR *)SourceString;
   inited = v11;
   if ( v11 < 0 )
@@ -81,6 +80,6 @@ LABEL_13:
   if ( inited < 0 )
     goto LABEL_15;
 LABEL_9:
-  PnpUnicodeStringToWstrFree(v5, ReferenceString);
+  PnpUnicodeStringToWstrFree(v5, (__int64)ReferenceString);
   return inited;
 }

@@ -1,13 +1,12 @@
 /*
- * XREFs of ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0089018
+ * XREFs of ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C006F008
  * Callers:
- *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C035DFA0 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C02BCD10 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
  * Callees:
- *     ?ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@PEBUTrackedWorkloadStateInfo@@I@Z @ 0x1C0088E28 (-ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@PEBUTrackedW.c)
- *     ?ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C00892A0 (-ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z.c)
- *     ?ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C008936C (-ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z.c)
- *     ?Update@RollingStats@@QEAAXXZ @ 0x1C0089414 (-Update@RollingStats@@QEAAXXZ.c)
- *     ?ReportState@TrackedWorkloadMonitor@@QEAAXXZ @ 0x1C035EB30 (-ReportState@TrackedWorkloadMonitor@@QEAAXXZ.c)
+ *     ?ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@I@Z @ 0x1C006EE34 (-ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@I@Z.c)
+ *     ?ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C006F250 (-ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z.c)
+ *     ?ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C006F324 (-ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z.c)
+ *     ?Update@RollingStats@@IEAAXXZ @ 0x1C006F3D0 (-Update@RollingStats@@IEAAXXZ.c)
  */
 
 bool __fastcall TrackedWorkloadMonitor::GetTargetPowerLevel(
@@ -16,120 +15,114 @@ bool __fastcall TrackedWorkloadMonitor::GetTargetPowerLevel(
         unsigned int *a3,
         unsigned int *a4)
 {
-  unsigned int v5; // edx
-  char v8; // r15
-  unsigned int v9; // r8d
-  char *v10; // rdi
-  unsigned int v11; // r12d
-  int v12; // r14d
-  int v13; // ebx
-  unsigned int v14; // ecx
-  int v15; // ecx
+  char v5; // r15
+  __int64 v8; // rsi
+  unsigned int v9; // eax
+  unsigned int v10; // r12d
+  int v11; // ebp
+  int v12; // edi
+  unsigned int v13; // ecx
+  int v14; // ecx
   bool result; // al
-  unsigned int v17; // [rsp+70h] [rbp+8h] BYREF
-  unsigned int *v18; // [rsp+80h] [rbp+18h]
+  unsigned int v16; // ecx
+  unsigned int v17; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int *v18; // [rsp+70h] [rbp+18h]
 
   v18 = a3;
-  v5 = *((_DWORD *)a2 + 5);
-  v8 = 0;
-  v9 = *((_DWORD *)a2 + 6);
-  v10 = (char *)this + 40 * *((unsigned int *)this + 56);
-  v11 = *((_DWORD *)v10 + 12);
-  v12 = *((_DWORD *)v10 + 6);
-  v13 = v12;
-  v17 = v11;
-  if ( v5 >= v9 )
+  v5 = 0;
+  v8 = 5LL * *((unsigned int *)this + 54);
+  v9 = *((_DWORD *)a2 + 5);
+  v10 = *((_DWORD *)this + 10 * *((unsigned int *)this + 54) + 10);
+  v11 = *((_DWORD *)this + 10 * *((unsigned int *)this + 54) + 4);
+  v12 = v11;
+  v13 = *((_DWORD *)a2 + 6);
+  v17 = v10;
+  if ( v9 < v13 )
   {
-    if ( v12 == 1 )
-      goto LABEL_34;
-    if ( v12 == 2 )
-    {
-LABEL_4:
-      v14 = 100;
-      v13 = 1;
-      if ( *((_DWORD *)this + 2) )
-        v14 = *((_DWORD *)this + 2);
-      v17 = v14;
-      goto LABEL_37;
-    }
-    if ( v12 != 3 )
-    {
-      switch ( v12 )
-      {
-        case 4:
-        case 5:
-          if ( !v10[61] && TrackedWorkloadMonitor::ShouldIncreasePower(this, a2, &v17) )
-          {
-            v13 = 4;
-            v8 = 1;
-            goto LABEL_17;
-          }
-          break;
-        case 6:
-          if ( !v10[61] && TrackedWorkloadMonitor::ShouldIncreasePower(this, a2, &v17) )
-          {
-            v13 = 4;
-            goto LABEL_37;
-          }
-          if ( TrackedWorkloadMonitor::ShouldDecreasePower(this, a2, &v17) )
-          {
-            v13 = 5;
-            goto LABEL_37;
-          }
-          if ( *((_DWORD *)v10 + 14) )
-            goto LABEL_19;
-          v8 = 1;
-LABEL_18:
-          if ( !v8 )
-            goto LABEL_19;
-LABEL_37:
-          TrackedWorkloadMonitor::ChangeState((__int64)this, v13, a2, (__int64)(v10 + 24), v17);
-          goto LABEL_21;
-        case 7:
-          v17 = 100;
-          break;
-        default:
-          goto LABEL_19;
-      }
-    }
-    if ( *((_DWORD *)v10 + 14) )
-      goto LABEL_19;
-    v13 = 6;
-LABEL_17:
-    if ( v13 != v12 )
-      goto LABEL_37;
-    goto LABEL_18;
-  }
-  if ( v12 != 1 )
-  {
-    if ( v12 != 2 )
+    if ( v11 == 1 )
+      goto LABEL_33;
+    if ( v11 != 2 )
       return 0;
-    goto LABEL_4;
   }
-LABEL_34:
-  if ( !*((_DWORD *)v10 + 14) && v5 >= v9 )
+  switch ( v11 )
   {
-    RollingStats::Update(a2);
-    *((_QWORD *)v10 + 4) = *((_QWORD *)a2 + 4);
-    RollingStats::Update(a2);
-    v13 = 6;
-    *((_QWORD *)v10 + 5) = *((_QWORD *)a2 + 5);
-    *((_DWORD *)v10 + 12) = v11;
+    case 1:
+LABEL_33:
+      if ( *((_DWORD *)this + 2 * v8 + 11) || v9 < v13 )
+        goto LABEL_20;
+      RollingStats::Update(a2);
+      *((_QWORD *)this + v8 + 3) = *((_QWORD *)a2 + 4);
+      RollingStats::Update(a2);
+      *((_QWORD *)this + v8 + 4) = *((_QWORD *)a2 + 5);
+      *((_DWORD *)this + 2 * v8 + 10) = v10;
+      goto LABEL_36;
+    case 2:
+      v16 = 100;
+      v12 = 1;
+      if ( *(_DWORD *)this )
+        v16 = *(_DWORD *)this;
+      v17 = v16;
+      goto LABEL_39;
+    case 3:
+LABEL_12:
+      if ( !*((_DWORD *)this + 2 * v8 + 11) )
+      {
+        v12 = 6;
+LABEL_39:
+        TrackedWorkloadMonitor::ChangeState((__int64)this, v12, a2, v17);
+        goto LABEL_22;
+      }
+      goto LABEL_20;
+  }
+  if ( v11 <= 3 )
+    goto LABEL_20;
+  if ( v11 <= 5 )
+  {
+    if ( !*((_BYTE *)this + 8 * v8 + 49) && TrackedWorkloadMonitor::ShouldIncreasePower(this, a2, &v17) )
+    {
+      v12 = 4;
+LABEL_27:
+      v5 = 1;
+LABEL_37:
+      if ( v12 != v11 || v5 )
+        goto LABEL_39;
+      goto LABEL_20;
+    }
+    if ( *((_DWORD *)this + 2 * v8 + 11) )
+      goto LABEL_20;
+LABEL_36:
+    v12 = 6;
     goto LABEL_37;
   }
-LABEL_19:
-  v15 = *((_DWORD *)v10 + 14);
-  if ( !v15 )
-    goto LABEL_22;
-  *((_DWORD *)v10 + 14) = v15 - 1;
-LABEL_21:
-  TrackedWorkloadMonitor::ReportState(this);
+  if ( v11 != 6 )
+  {
+    if ( v11 != 7 )
+      goto LABEL_20;
+    v17 = 100;
+    goto LABEL_12;
+  }
+  if ( !*((_BYTE *)this + 8 * v8 + 49) && TrackedWorkloadMonitor::ShouldIncreasePower(this, a2, &v17) )
+  {
+    v12 = 4;
+    goto LABEL_39;
+  }
+  if ( TrackedWorkloadMonitor::ShouldDecreasePower(this, a2, &v17) )
+  {
+    v12 = 5;
+    goto LABEL_39;
+  }
+  if ( !*((_DWORD *)this + 2 * v8 + 11) )
+    goto LABEL_27;
+LABEL_20:
+  v14 = *((_DWORD *)this + 2 * v8 + 11);
+  if ( v14 )
+    *((_DWORD *)this + 2 * v8 + 11) = v14 - 1;
 LABEL_22:
-  if ( v11 != v17 )
+  if ( v10 != v17 )
   {
     *a4 = v17;
     result = 1;
-    *v18 = v11;
+    *v18 = v10;
     return result;
   }
   return 0;

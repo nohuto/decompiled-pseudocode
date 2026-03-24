@@ -1,44 +1,33 @@
 /*
- * XREFs of MiInitializeSystemCache @ 0x14085C7EC
+ * XREFs of MiInitializeSystemCache @ 0x1407A0A58
  * Callers:
- *     MiLateInitializeSystemCache @ 0x1403AD7E8 (MiLateInitializeSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x140292B80 (MiObtainSystemCacheView.c)
  * Callees:
- *     MiQuerySystemBase @ 0x14036EA74 (MiQuerySystemBase.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407AA178 (MiInitializeSystemWorkingSetList.c)
- *     MiInitializeDynamicRegion @ 0x140B6F798 (MiInitializeDynamicRegion.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiQuerySystemBase @ 0x14032D21C (MiQuerySystemBase.c)
+ *     InitializeListHeadPte @ 0x1403B5DE4 (InitializeListHeadPte.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407866BC (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicRegion @ 0x140A4E6D4 (MiInitializeDynamicRegion.c)
  */
 
-__int64 __fastcall MiInitializeSystemCache(__int64 a1)
+__int64 __fastcall MiInitializeSystemCache(ULONG_PTR *a1)
 {
-  _QWORD *v2; // rax
-  __int64 v3; // rcx
-  __int64 v4; // rdi
+  __int64 PteAddress; // rax
+  __int64 v3; // rbx
   __int64 SystemBase; // rax
 
-  v2 = (_QWORD *)(a1 + 1848);
-  v3 = 4LL;
-  do
-  {
-    v2[1] = v2;
-    *v2 = v2;
-    v2 += 4;
-    --v3;
-  }
-  while ( v3 );
-  v4 = 0LL;
-  *(_QWORD *)(a1 + 1984) = a1 + 1976;
-  *(_QWORD *)(a1 + 1976) = a1 + 1976;
-  *(_QWORD *)(a1 + 2016) = a1 + 2008;
-  *(_QWORD *)(a1 + 2008) = a1 + 2008;
-  if ( (unsigned __int16 *)a1 != MiSystemPartition )
-    return MiInitializeSystemWorkingSetList(a1, a1 + 17344, 2, v4);
-  qword_140C671B0[0] = 0LL;
-  byte_140C69BB8 = byte_140C69BB8 & 0xF8 | 2;
-  SystemBase = MiQuerySystemBase(3);
+  PteAddress = MiGetPteAddress(0xFFFF800000000000uLL);
+  InitializeListHeadPte((unsigned __int64)(a1 + 223), PteAddress);
+  v3 = 0LL;
+  if ( a1 != &MiSystemPartition )
+    return MiInitializeSystemWorkingSetList(a1, (__int64)(a1 + 904), 2u, (_DWORD *)v3);
+  qword_140C4E3A8 = 0LL;
+  byte_140C4F0B8 = byte_140C4F0B8 & 0xF8 | 2;
+  SystemBase = MiQuerySystemBase(2);
   if ( (unsigned int)MiInitializeDynamicRegion(8LL, SystemBase, 0x100000000000LL) )
   {
-    v4 = 0x100000000LL;
-    return MiInitializeSystemWorkingSetList(a1, a1 + 17344, 2, v4);
+    v3 = 0x100000000LL;
+    return MiInitializeSystemWorkingSetList(a1, (__int64)(a1 + 904), 2u, (_DWORD *)v3);
   }
   return 0LL;
 }

@@ -1,19 +1,25 @@
 /*
- * XREFs of IsValidKernelDpiAwarenessContext @ 0x1C01CCB34
+ * XREFs of IsValidKernelDpiAwarenessContext @ 0x1C0111A60
  * Callers:
- *     NtUserTransformPoint @ 0x1C01DF0F0 (NtUserTransformPoint.c)
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C005D000 (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     NtUserTransformPoint @ 0x1C0111920 (NtUserTransformPoint.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall IsValidKernelDpiAwarenessContext(int a1)
 {
-  unsigned int v1; // ecx
+  int v1; // ecx
+  int v2; // ecx
+  _BOOL8 result; // rax
 
-  v1 = a1 & 0x7FFFFFFF;
-  return v1 == 24592
-      || v1 == 1073766416
-      || v1 == 18
-      || v1 == 34
-      || (((v1 & 0xFFFE00FF) - 17) & 0xFFFFFFFD) == 0 && ((v1 >> 8) & 0x1FF) != 0;
+  v1 = a1 & 0x5FFFFFFF;
+  result = 1;
+  if ( v1 != 34 && v1 != 18 && v1 != 1073766416 && v1 != 24592 )
+  {
+    v2 = v1 & 0x7FFE00FF;
+    if ( v2 != 17 && (v2 != 19 || !(unsigned int)DrvIsUniformSpaceMapping(*(_QWORD *)(gpDispInfo + 16LL))) )
+      return 0;
+  }
+  return result;
 }

@@ -1,26 +1,25 @@
 /*
- * XREFs of ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01FF118
+ * XREFs of ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01C3904
  * Callers:
- *     ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C020190C (-HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z.c)
- *     ?ProcessTimer@CPTPEngine@@MEAAJXZ @ 0x1C02027C0 (-ProcessTimer@CPTPEngine@@MEAAJXZ.c)
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C02028C8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
- *     ?SendTimedMouseClick@CPTPEngine@@AEAAXIUtagPOINT@@HK@Z @ 0x1C0204054 (-SendTimedMouseClick@CPTPEngine@@AEAAXIUtagPOINT@@HK@Z.c)
+ *     ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C01C5FB4 (-HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z.c)
+ *     ?ProcessTimer@CPTPEngine@@MEAAJXZ @ 0x1C01C6EC0 (-ProcessTimer@CPTPEngine@@MEAAJXZ.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6FCC (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z @ 0x1C0203E58 (-SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z.c)
- *     ?SendTimerOutput@CBasePTPEngine@@IEAAXW4Action@Timer@Payload@PTPEngineOutput@@I@Z @ 0x1C0204130 (-SendTimerOutput@CBasePTPEngine@@IEAAXW4Action@Timer@Payload@PTPEngineOutput@@I@Z.c)
+ *     ?SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z @ 0x1C01C85A0 (-SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z.c)
+ *     ?SendTimerOutput@CBasePTPEngine@@IEAAXW4Action@Timer@Payload@PTPEngineOutput@@I@Z @ 0x1C01C87DC (-SendTimerOutput@CBasePTPEngine@@IEAAXW4Action@Timer@Payload@PTPEngineOutput@@I@Z.c)
  */
 
 void __fastcall CPTPEngine::CancelMouseUpTimer(CPTPEngine *this, int a2)
 {
   unsigned int *v2; // rdi
 
-  v2 = (unsigned int *)((char *)this + 3920);
-  if ( *((_DWORD *)this + 980) )
+  v2 = (unsigned int *)((char *)this + 3816);
+  if ( *((_DWORD *)this + 954) )
   {
-    if ( *((_DWORD *)this + 978) )
+    if ( *((_DWORD *)this + 952) )
     {
       CBasePTPEngine::SendTimerOutput(this, 1LL);
-      *((_DWORD *)this + 978) = 0;
+      *((_DWORD *)this + 952) = 0;
     }
     if ( a2 )
       CPTPEngine::SendMouseUpIfPending(this, v2);

@@ -1,33 +1,28 @@
 /*
- * XREFs of ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00A0CC4
+ * XREFs of ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0071654
  * Callers:
- *     ??1CInputConfig@@AEAA@XZ @ 0x1C009ED60 (--1CInputConfig@@AEAA@XZ.c)
- *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C009FE3C (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
- *     ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C01E3834 (-CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z.c)
- *     ?ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z @ 0x1C01E395C (-ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z.c)
+ *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C006DCF4 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
+ *     ??_GCInputConfig@@AEAAPEAXI@Z @ 0x1C0074100 (--_GCInputConfig@@AEAAPEAXI@Z.c)
+ *     ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C01B30D0 (-CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z.c)
+ *     ?ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z @ 0x1C01B31E0 (-ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C00A0D30 (-FreeRegions@CInputSpace@@QEAAXXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C00716D8 (-FreeRegions@CInputSpace@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CInputConfig::_FreeInputSpace(CInputConfig *this, struct _LIST_ENTRY *a2)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *Blink; // rcx
 
   if ( !ExIsResourceAcquiredExclusiveLite(CInputConfig::slock) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, v3, v5);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 568LL);
   Flink = a2->Flink;
   if ( a2->Flink->Blink != a2 || (Blink = a2->Blink, Blink->Flink != a2) )
     __fastfail(3u);
   Blink->Flink = Flink;
   Flink->Blink = Blink;
   CInputSpace::FreeRegions((CInputSpace *)&a2[1]);
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    (char *)a2);
+  Win32FreePool((__int64)a2);
 }

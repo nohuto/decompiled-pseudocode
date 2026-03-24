@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIValidateGPEEventIndex @ 0x1C002C73C
+ * XREFs of ACPIValidateGPEEventIndex @ 0x1C00560EC
  * Callers:
- *     ACPIGpeValidIndex @ 0x1C002C6FC (ACPIGpeValidIndex.c)
+ *     ACPIGpeValidIndex @ 0x1C001A140 (ACPIGpeValidIndex.c)
  * Callees:
  *     <none>
  */

@@ -1,66 +1,48 @@
 /*
- * XREFs of zzzSetDesktop @ 0x1C006A860
+ * XREFs of zzzSetDesktop @ 0x1C0065E20
  * Callers:
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
- *     xxxSetThreadDesktop @ 0x1C006A6E4 (xxxSetThreadDesktop.c)
- *     xxxCreateWindowStation @ 0x1C006B42C (xxxCreateWindowStation.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
+ *     xxxCreateWindowStation @ 0x1C000C6EC (xxxCreateWindowStation.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     xxxSetThreadDesktop @ 0x1C00D9270 (xxxSetThreadDesktop.c)
  * Callees:
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C005C644 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C0070838 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C007085C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
- *     PhkNextValid @ 0x1C00719E4 (PhkNextValid.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
+ *     GetDesktopView @ 0x1C004EFA0 (GetDesktopView.c)
+ *     GetJournallingQueue @ 0x1C0066630 (GetJournallingQueue.c)
+ *     CheckHandleFlag @ 0x1C00666B8 (CheckHandleFlag.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall zzzSetDesktop(struct tagTHREADINFO *a1, __int64 a2, void *a3)
 {
-  __int64 v6; // rsi
-  unsigned int v8; // r12d
-  int v9; // r15d
-  __int64 v10; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  PVOID **v12; // r12
-  PVOID *v13; // r15
-  __int64 v14; // r14
-  __int64 *ThreadWin32Thread; // rax
-  char *v16; // r14
-  struct tagTHREADINFO **v17; // rdx
-  struct tagTHREADINFO **v18; // rcx
-  _QWORD *v19; // rdx
-  _QWORD *v20; // rdx
-  _QWORD *v21; // rax
-  __int64 v22; // rcx
+  PVOID *v6; // r13
+  __int64 ThreadWin32Thread; // rax
+  char *v8; // r14
+  _QWORD *v9; // r8
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rax
+  __int64 v12; // rcx
   char *Heap; // rax
-  char *v24; // r13
-  __int64 v25; // r10
-  _QWORD *v26; // r9
-  __int64 *v27; // r8
-  int v28; // ecx
-  __int64 v29; // rax
-  char *v30; // rcx
-  __int64 v31; // rax
-  PERESOURCE *v32; // rax
-  bool IsLockedShared; // al
-  __int64 Valid; // rcx
-  PERESOURCE *v35; // rax
-  bool v36; // al
-  tagQ *v37; // rcx
-  __int64 *v38; // rax
-  PVOID Object; // [rsp+50h] [rbp-C8h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+58h] [rbp-C0h] BYREF
-  __int64 v41; // [rsp+60h] [rbp-B8h] BYREF
-  PVOID *v42; // [rsp+68h] [rbp-B0h]
-  void (*v43)(void); // [rsp+70h] [rbp-A8h]
-  __int128 v44; // [rsp+A0h] [rbp-78h]
-  __int128 v45; // [rsp+B0h] [rbp-68h]
-  __int128 v46; // [rsp+C0h] [rbp-58h]
+  _QWORD *DesktopView; // rax
+  __int64 v15; // rdx
+  struct tagTHREADINFO *v16; // rdx
+  __int64 v17; // rcx
+  __int64 JournallingQueue; // rax
+  __int64 v19; // rax
+  int v21; // ecx
+  __int64 v22; // rax
+  __int64 v23; // r8
+  struct tagTHREADINFO **v24; // rdx
+  __int64 v25; // [rsp+48h] [rbp-80h] BYREF
+  PVOID *v26; // [rsp+50h] [rbp-78h]
+  void (*v27)(void); // [rsp+58h] [rbp-70h]
+  __int128 v28; // [rsp+88h] [rbp-40h]
+  __int64 v29; // [rsp+98h] [rbp-30h]
+  PVOID Object; // [rsp+D8h] [rbp+10h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+E8h] [rbp+20h] BYREF
 
-  v6 = 0LL;
   if ( a2 && (*(_DWORD *)(a2 + 48) & 6) != 0 && a2 != *((_QWORD *)a1 + 57) && a1 != (struct tagTHREADINFO *)gTermIO[2] )
     return 3221225506LL;
   *((_DWORD *)a1 + 122) &= ~0x400000u;
@@ -71,32 +53,13 @@ __int64 __fastcall zzzSetDesktop(struct tagTHREADINFO *a1, __int64 a2, void *a3)
     Object = 0LL;
     if ( ObReferenceObjectByHandle(a3, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &Object, &HandleInformation) < 0 )
     {
-      *((_DWORD *)a1 + 224) = 0;
+      *((_DWORD *)a1 + 222) = 0;
     }
     else
     {
       ObfDereferenceObject(Object);
-      *((_DWORD *)a1 + 224) = HandleInformation.GrantedAccess;
-      v8 = 3 * ((unsigned int)a3 >> 2);
-      v9 = 0;
-      v44 = 0LL;
-      v45 = 0LL;
-      v46 = 0LL;
-      EnterHandleFlagsCrit();
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v10);
-      if ( CurrentProcessWin32Process )
-      {
-        if ( !*(_QWORD *)CurrentProcessWin32Process )
-          CurrentProcessWin32Process = 0LL;
-        if ( CurrentProcessWin32Process
-          && v8 < *(_DWORD *)(CurrentProcessWin32Process + 712)
-          && _bittest64(*(const signed __int64 **)(CurrentProcessWin32Process + 720), v8) )
-        {
-          v9 = 1;
-        }
-      }
-      LeaveHandleFlagsCrit();
-      if ( v9 )
+      *((_DWORD *)a1 + 222) = HandleInformation.GrantedAccess;
+      if ( (unsigned int)CheckHandleFlag(0LL) )
         *((_DWORD *)a1 + 122) |= 0x400000u;
       if ( !(unsigned int)SetHandleFlag(a3, 1LL, 1LL) )
         return 3221225495LL;
@@ -104,185 +67,114 @@ __int64 __fastcall zzzSetDesktop(struct tagTHREADINFO *a1, __int64 a2, void *a3)
   }
   else
   {
-    *((_DWORD *)a1 + 224) = 0;
+    *((_DWORD *)a1 + 222) = 0;
   }
-  v12 = (PVOID **)((char *)a1 + 456);
-  if ( a2 && (PVOID *)a2 == *v12 )
+  if ( a2 && a2 == *((_QWORD *)a1 + 57) )
     return 0LL;
-  v13 = *v12;
-  v14 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v14 = *ThreadWin32Thread;
-  v41 = *(_QWORD *)(v14 + 16);
-  *(_QWORD *)(v14 + 16) = &v41;
-  v42 = v13;
-  v43 = (void (*)(void))UserDereferenceObject;
-  if ( v13 )
-    ObfReferenceObject(v13);
-  v16 = (char *)*((_QWORD *)a1 + 56);
-  if ( *v12 )
+  v6 = (PVOID *)*((_QWORD *)a1 + 57);
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v25 = *(_QWORD *)(ThreadWin32Thread + 16);
+  *(_QWORD *)(ThreadWin32Thread + 16) = &v25;
+  v26 = v6;
+  v27 = (void (*)(void))UserDereferenceObject;
+  if ( v6 )
+    ObfReferenceObject(v6);
+  v8 = (char *)*((_QWORD *)a1 + 56);
+  if ( *((_QWORD *)a1 + 57) )
   {
-    v17 = (struct tagTHREADINFO **)*((_QWORD *)a1 + 93);
-    v18 = (struct tagTHREADINFO **)*((_QWORD *)a1 + 94);
-    if ( v17[1] != (struct tagTHREADINFO *)((char *)a1 + 744) || *v18 != (struct tagTHREADINFO *)((char *)a1 + 744) )
-LABEL_34:
-      __fastfail(3u);
-    *v18 = (struct tagTHREADINFO *)v17;
-    v17[1] = (struct tagTHREADINFO *)v18;
-  }
-  LockObjectAssignment((char *)a1 + 456, a2);
-  if ( a2 )
-  {
-    *((_QWORD *)a1 + 58) = *(_QWORD *)(a2 + 8);
-    v20 = (_QWORD *)((char *)a1 + 744);
-    v21 = (_QWORD *)(a2 + 176);
-    v22 = *(_QWORD *)(a2 + 176);
-    if ( *(_QWORD *)(v22 + 8) != a2 + 176 )
-      goto LABEL_34;
-    *v20 = v22;
-    *((_QWORD *)a1 + 94) = v21;
-    *(_QWORD *)(v22 + 8) = v20;
-    *v21 = v20;
-    Heap = (char *)RtlAllocateHeap(*(PVOID *)(a2 + 136), 0, 0x30uLL);
-    *((_QWORD *)a1 + 56) = Heap;
-    v24 = (char *)a1 + 1056;
-    if ( !Heap )
+    v23 = *((_QWORD *)a1 + 93);
+    v24 = (struct tagTHREADINFO **)*((_QWORD *)a1 + 94);
+    if ( *(struct tagTHREADINFO **)(v23 + 8) != (struct tagTHREADINFO *)((char *)a1 + 744)
+      || *v24 != (struct tagTHREADINFO *)((char *)a1 + 744) )
     {
-      *((_QWORD *)a1 + 56) = v24;
-      Heap = (char *)a1 + 1056;
+      goto LABEL_44;
     }
+    *v24 = (struct tagTHREADINFO *)v23;
+    *(_QWORD *)(v23 + 8) = v24;
   }
-  else
+  v28 = *(_OWORD *)((char *)a1 + 392);
+  v29 = *((_QWORD *)a1 + 51);
+  LockObjectAssignment((char *)a1 + 456, a2);
+  if ( !a2 )
   {
     *((_QWORD *)a1 + 58) = gpkdiStatic;
-    Heap = (char *)a1 + 1056;
-    *((_QWORD *)a1 + 56) = (char *)a1 + 1056;
-    v24 = (char *)a1 + 1056;
+    goto LABEL_35;
   }
-  if ( v16 )
+  *((_QWORD *)a1 + 58) = *(_QWORD *)(a2 + 8);
+  v10 = (_QWORD *)((char *)a1 + 744);
+  v11 = (_QWORD *)(a2 + 168);
+  v12 = *(_QWORD *)(a2 + 168);
+  if ( *(_QWORD *)(v12 + 8) != a2 + 168 )
+LABEL_44:
+    __fastfail(3u);
+  *v10 = v12;
+  *((_QWORD *)a1 + 94) = v11;
+  *(_QWORD *)(v12 + 8) = v10;
+  *v11 = v10;
+  Heap = (char *)RtlAllocateHeap(*(PVOID *)(a2 + 128), 0, 0x18uLL);
+  *((_QWORD *)a1 + 56) = Heap;
+  if ( !Heap )
   {
-    if ( v16 != Heap )
+LABEL_35:
+    Heap = (char *)a1 + 1040;
+    *((_QWORD *)a1 + 56) = (char *)a1 + 1040;
+  }
+  if ( v8 )
+  {
+    if ( v8 != Heap )
     {
-      *(_OWORD *)Heap = *(_OWORD *)v16;
-      *((_OWORD *)Heap + 1) = *((_OWORD *)v16 + 1);
-      *((_OWORD *)Heap + 2) = *((_OWORD *)v16 + 2);
+      *(_OWORD *)Heap = *(_OWORD *)v8;
+      *((_QWORD *)Heap + 2) = *((_QWORD *)v8 + 2);
     }
-    if ( v16 != v24 )
-      RtlFreeHeap(v13[17], 0, v16);
+    if ( v8 != (char *)a1 + 1040 )
+      RtlFreeHeap(v6[16], 0, v8);
   }
   else
   {
     *(_OWORD *)Heap = 0LL;
-    *((_OWORD *)Heap + 1) = 0LL;
-    *((_OWORD *)Heap + 2) = 0LL;
+    *((_QWORD *)Heap + 2) = 0LL;
   }
-  if ( !a2 )
-    goto LABEL_50;
-  v19 = *(_QWORD **)(*((_QWORD *)a1 + 53) + 696LL);
-  if ( !v19 )
-    goto LABEL_50;
-  do
+  if ( a2 && (DesktopView = GetDesktopView(*((_QWORD *)a1 + 53), a2), (v9 = DesktopView) != 0LL) )
   {
-    if ( v19[1] == a2 )
-      break;
-    v19 = (_QWORD *)*v19;
-  }
-  while ( v19 );
-  if ( v19 )
-  {
-    v25 = *(_QWORD *)(a2 + 16) - v19[2];
-    v26 = (_QWORD *)((char *)a1 + 472);
-    *((_QWORD *)a1 + 59) = v25;
-    v27 = (__int64 *)((char *)a1 + 480);
-    *(_QWORD *)(*((_QWORD *)a1 + 60) + 32LL) = **((_QWORD **)a1 + 58) - v25;
-    *(_QWORD *)(*((_QWORD *)a1 + 60) + 40LL) = v19[2];
+    v15 = *(_QWORD *)(a2 + 16) - DesktopView[2];
+    *((_QWORD *)a1 + 59) = v15;
+    *(_QWORD *)(*((_QWORD *)a1 + 60) + 32LL) = **((_QWORD **)a1 + 58) - v15;
+    *(_QWORD *)(*((_QWORD *)a1 + 60) + 40LL) = DesktopView[2];
   }
   else
   {
-LABEL_50:
-    v26 = (_QWORD *)((char *)a1 + 472);
     *((_QWORD *)a1 + 59) = 0LL;
-    v27 = (__int64 *)((char *)a1 + 480);
     *(_QWORD *)(*((_QWORD *)a1 + 60) + 32LL) = 0LL;
     *(_QWORD *)(*((_QWORD *)a1 + 60) + 40LL) = 0LL;
-    v28 = (gdwGTERMFlags & 1) - 1;
-    *((_DWORD *)a1 + 190) = v28;
-    v29 = *((_QWORD *)a1 + 54);
-    if ( v29 )
-      *(_DWORD *)(v29 + 392) = v28;
+    v21 = (gdwGTERMFlags & 1) - 1;
+    *((_DWORD *)a1 + 190) = v21;
+    v22 = *((_QWORD *)a1 + 54);
+    if ( v22 )
+      *(_DWORD *)(v22 + 384) = v21;
   }
-  v30 = (char *)*((_QWORD *)a1 + 56);
-  v31 = *v27;
-  if ( v30 == v24 )
+  v16 = (struct tagTHREADINFO *)*((_QWORD *)a1 + 56);
+  v17 = *((_QWORD *)a1 + 60);
+  if ( v16 == (struct tagTHREADINFO *)((char *)a1 + 1040) )
   {
-    *(_QWORD *)(v31 + 96) = 0LL;
+    *(_QWORD *)(v17 + 96) = 0LL;
   }
   else
   {
-    v30 -= *v26;
-    *(_QWORD *)(v31 + 96) = v30;
+    v16 = (struct tagTHREADINFO *)((char *)v16 - *((_QWORD *)a1 + 59));
+    *(_QWORD *)(v17 + 96) = v16;
   }
-  if ( *((_QWORD *)a1 + 54) && (*((_DWORD *)a1 + 122) & 0x80u) == 0 && *v12 )
+  if ( *((_QWORD *)a1 + 54) )
   {
-    if ( !gbInDestroyHandleTableObjects )
+    JournallingQueue = GetJournallingQueue(a1, v16, v9);
+    if ( JournallingQueue )
     {
-      v32 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v30, v19, v27, v26);
-      if ( ExIsResourceAcquiredExclusiveLite(*v32) != 1 )
-      {
-        if ( !IS_USERCRIT_OWNED_AT_ALL() )
-          goto LABEL_65;
-        if ( tagDomLock::IsLockedExclusive(gDomainHookLock)
-          || (IsLockedShared = tagDomLock::IsLockedShared(gDomainHookLock)) )
-        {
-          IsLockedShared = 1;
-        }
-        if ( !IsLockedShared )
-LABEL_65:
-          __int2c();
-      }
-    }
-    Valid = *(_QWORD *)(*((_QWORD *)a1 + 58) + 56LL);
-    if ( Valid )
-    {
-      if ( (*(_DWORD *)(Valid + 64) & 0x80u) != 0 )
-        Valid = PhkNextValid();
-      if ( Valid )
-        goto LABEL_82;
-    }
-    if ( !gbInDestroyHandleTableObjects )
-    {
-      v35 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(Valid, v19, v27, v26);
-      if ( ExIsResourceAcquiredExclusiveLite(*v35) != 1 )
-      {
-        if ( !IS_USERCRIT_OWNED_AT_ALL() )
-          goto LABEL_77;
-        if ( tagDomLock::IsLockedExclusive(gDomainHookLock) || (v36 = tagDomLock::IsLockedShared(gDomainHookLock)) )
-          v36 = 1;
-        if ( !v36 )
-LABEL_77:
-          __int2c();
-      }
-    }
-    Valid = *(_QWORD *)(*((_QWORD *)a1 + 58) + 48LL);
-    if ( Valid )
-    {
-      if ( (*(_DWORD *)(Valid + 64) & 0x80u) != 0 )
-        Valid = PhkNextValid();
-      if ( Valid )
-      {
-LABEL_82:
-        v37 = *(tagQ **)(*(_QWORD *)(Valid + 16) + 432LL);
-        if ( v37 )
-          tagQ::zzzAttachToQueue(v37, a1, 0LL);
-      }
+      ++*(_DWORD *)(JournallingQueue + 392);
+      zzzAttachToQueue(a1, (struct tagQ *)JournallingQueue, 0LL, 0);
     }
   }
-  v38 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( v38 )
-    v6 = *v38;
-  *(_QWORD *)(v6 + 16) = v41;
-  if ( v42 )
-    v43();
+  v19 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)(v19 + 16) = v25;
+  if ( v26 )
+    v27();
   return 0LL;
 }

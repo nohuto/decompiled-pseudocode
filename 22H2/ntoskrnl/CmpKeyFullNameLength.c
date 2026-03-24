@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpKeyFullNameLength @ 0x1406D9320
+ * XREFs of CmpKeyFullNameLength @ 0x1405F3480
  * Callers:
- *     CmpDoWritethroughReparse @ 0x140693570 (CmpDoWritethroughReparse.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8840 (CmpCreateKeyControlBlock.c)
- *     CmpConstructNameFromKeyNodes @ 0x1406DD670 (CmpConstructNameFromKeyNodes.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x140A17018 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1405F3210 (CmpConstructNameFromKeyNodes.c)
+ *     CmpDoWritethroughReparse @ 0x1406CDE40 (CmpDoWritethroughReparse.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140778B38 (CmpConstructNameFromKcbNameBlocks.c)
  * Callees:
  *     <none>
  */
@@ -12,30 +12,25 @@
 __int64 __fastcall CmpKeyFullNameLength(__int64 a1)
 {
   unsigned int v1; // r8d
-  __int64 *v2; // rdx
-  __int64 v3; // rax
-  int v4; // ecx
+  __int64 v2; // rax
+  int v3; // edx
 
   v1 = 0;
-  if ( a1 )
+  while ( a1 )
   {
-    do
+    if ( (*(_DWORD *)(a1 + 184) & 0x40000) != 0 && *(_QWORD *)(a1 + 72) )
     {
-      while ( 1 )
-      {
-        v2 = (__int64 *)(a1 + 72);
-        if ( (*(_DWORD *)(a1 + 184) & 0x40000) == 0 || !*v2 )
-          break;
-        a1 = *v2;
-      }
-      v3 = *(_QWORD *)(a1 + 80);
-      v4 = *(unsigned __int16 *)(v3 + 24);
-      if ( (*(_DWORD *)v3 & 1) != 0 )
-        v4 *= 2;
-      v1 += v4 + 2;
-      a1 = *v2;
+      a1 = *(_QWORD *)(a1 + 72);
     }
-    while ( *v2 );
+    else
+    {
+      v2 = *(_QWORD *)(a1 + 80);
+      v3 = *(unsigned __int16 *)(v2 + 24);
+      if ( (*(_DWORD *)v2 & 1) != 0 )
+        v3 *= 2;
+      a1 = *(_QWORD *)(a1 + 72);
+      v1 += v3 + 2;
+    }
   }
   return v1;
 }

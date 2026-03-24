@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TreeOrder@CVisualDepthGeometry@@AEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x18025B0F4
+ * XREFs of ?TreeOrder@CVisualDepthGeometry@@AEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x1802099E8
  * Callers:
- *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x18025A904 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A44 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
  * Callees:
  *     <none>
  */

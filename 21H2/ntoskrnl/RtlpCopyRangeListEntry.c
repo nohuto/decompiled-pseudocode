@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCopyRangeListEntry @ 0x14083A490
+ * XREFs of RtlpCopyRangeListEntry @ 0x140761290
  * Callers:
- *     RtlpAddIntersectingRanges @ 0x14083A1D0 (RtlpAddIntersectingRanges.c)
- *     RtlCopyRangeList @ 0x14083A400 (RtlCopyRangeList.c)
- *     RtlMergeRangeLists @ 0x1409B59D0 (RtlMergeRangeLists.c)
+ *     RtlCopyRangeList @ 0x140761200 (RtlCopyRangeList.c)
+ *     RtlpAddIntersectingRanges @ 0x1407BC984 (RtlpAddIntersectingRanges.c)
+ *     RtlMergeRangeLists @ 0x14090FDF0 (RtlMergeRangeLists.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     RtlpDeleteRangeListEntry @ 0x14083984C (RtlpDeleteRangeListEntry.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlpDeleteRangeListEntry @ 0x140761608 (RtlpDeleteRangeListEntry.c)
  */
 
 _QWORD *__fastcall RtlpCopyRangeListEntry(__int64 a1)
@@ -22,7 +22,7 @@ _QWORD *__fastcall RtlpCopyRangeListEntry(__int64 a1)
   char **v11; // rax
   char *v12; // rdx
 
-  v2 = ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RtlpRangeListEntryLookasideList);
+  v2 = ExAllocateFromNPagedLookasideList(&RtlpRangeListEntryLookasideList);
   v3 = v2;
   if ( v2 )
   {
@@ -43,7 +43,7 @@ _QWORD *__fastcall RtlpCopyRangeListEntry(__int64 a1)
         v8 = i - 40;
         if ( v6 == i )
           break;
-        v9 = ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RtlpRangeListEntryLookasideList);
+        v9 = ExAllocateFromNPagedLookasideList(&RtlpRangeListEntryLookasideList);
         v10 = v9;
         if ( !v9 )
         {

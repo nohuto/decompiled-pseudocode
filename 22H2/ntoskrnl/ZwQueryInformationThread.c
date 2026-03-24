@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInformationThread @ 0x14041AB40
+ * XREFs of ZwQueryInformationThread @ 0x1403F9EC0
  * Callers:
- *     DifZwQueryInformationThreadWrapper @ 0x1405F4B20 (DifZwQueryInformationThreadWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

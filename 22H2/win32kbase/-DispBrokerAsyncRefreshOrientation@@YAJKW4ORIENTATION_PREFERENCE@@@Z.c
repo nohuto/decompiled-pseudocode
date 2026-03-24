@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DispBrokerAsyncRefreshOrientation@@YAJKW4ORIENTATION_PREFERENCE@@@Z @ 0x1C012F490
+ * XREFs of ?DispBrokerAsyncRefreshOrientation@@YAJKW4ORIENTATION_PREFERENCE@@@Z @ 0x1C0116060
  * Callers:
  *     <none>
  * Callees:
- *     DispBroker::DispBrokerClient::AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___ @ 0x1C012F0E8 (DispBroker--DispBrokerClient--AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___.c)
+ *     DispBroker::DispBrokerClient::AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___ @ 0x1C0115870 (DispBroker--DispBrokerClient--AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___.c)
  */
 
 __int64 __fastcall DispBrokerAsyncRefreshOrientation(__int64 a1, int a2)
 {
-  int *v3[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
   int v4; // [rsp+40h] [rbp+8h] BYREF
   int v5; // [rsp+48h] [rbp+10h] BYREF
 
@@ -16,5 +16,7 @@ __int64 __fastcall DispBrokerAsyncRefreshOrientation(__int64 a1, int a2)
   v4 = a1;
   v3[0] = &v4;
   v3[1] = &v5;
-  return DispBroker::DispBrokerClient::AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___(a1, v3);
+  return DispBroker::DispBrokerClient::AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___(
+           a1,
+           (__int64)v3);
 }

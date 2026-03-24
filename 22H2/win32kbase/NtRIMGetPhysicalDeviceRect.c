@@ -1,10 +1,10 @@
 /*
- * XREFs of NtRIMGetPhysicalDeviceRect @ 0x1C0174E60
+ * XREFs of NtRIMGetPhysicalDeviceRect @ 0x1C01537D0
  * Callers:
  *     <none>
  * Callees:
- *     RIMGetPhysicalDeviceRect @ 0x1C0178980 (RIMGetPhysicalDeviceRect.c)
- *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0206B8C (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0056718 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     RIMGetPhysicalDeviceRect @ 0x1C01569C0 (RIMGetPhysicalDeviceRect.c)
  */
 
 __int64 __fastcall NtRIMGetPhysicalDeviceRect(__int64 a1, __int64 a2, __int64 a3)

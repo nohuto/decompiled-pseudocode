@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeValidatePowerStates @ 0x1C000A58C
+ * XREFs of NVMeValidatePowerStates @ 0x1C0010F10
  * Callers:
- *     NVMePowerInitialize @ 0x1C0009B20 (NVMePowerInitialize.c)
+ *     NVMePowerInitialize @ 0x1C000FEB4 (NVMePowerInitialize.c)
  * Callees:
- *     NVMeGetPowerState @ 0x1C000A1AC (NVMeGetPowerState.c)
- *     NVMePowerStateGetMaxPower @ 0x1C000A634 (NVMePowerStateGetMaxPower.c)
+ *     NVMeGetPowerState @ 0x1C000EBE0 (NVMeGetPowerState.c)
+ *     NVMePowerStateGetMaxPower @ 0x1C0010964 (NVMePowerStateGetMaxPower.c)
  */
 
 char __fastcall NVMeValidatePowerStates(__int64 a1)
@@ -13,7 +13,7 @@ char __fastcall NVMeValidatePowerStates(__int64 a1)
   unsigned __int8 v3; // r11
   unsigned __int8 v4; // r10
   __int64 v5; // rbx
-  __int64 v6; // r8
+  unsigned __int16 *v6; // r8
   unsigned int MaxPower; // eax
   char v8; // r9
   char v9; // r10
@@ -21,16 +21,16 @@ char __fastcall NVMeValidatePowerStates(__int64 a1)
   unsigned int v11; // edx
 
   PowerState = NVMeGetPowerState(a1, 0);
-  if ( (*(_BYTE *)(PowerState + 3) & 2) == 0 )
+  if ( (*(_BYTE *)(PowerState + 3) & 2) != 0 )
+    return 0;
+  v4 = 1;
+  if ( v3 > 1u )
   {
-    v4 = 1;
-    if ( v3 <= 1u )
-      return 1;
     while ( 1 )
     {
       v5 = PowerState;
       NVMeGetPowerState(a1, v4);
-      NVMePowerStateGetMaxPower(v5);
+      NVMePowerStateGetMaxPower((unsigned __int16 *)v5);
       MaxPower = NVMePowerStateGetMaxPower(v6);
       if ( MaxPower > v11 )
         break;
@@ -54,6 +54,7 @@ char __fastcall NVMeValidatePowerStates(__int64 a1)
       if ( v4 >= v10 )
         return 1;
     }
+    return 0;
   }
-  return 0;
+  return 1;
 }

@@ -1,51 +1,51 @@
 /*
- * XREFs of MiSetZeroPageThreadPriority @ 0x140353BEC
+ * XREFs of MiSetZeroPageThreadPriority @ 0x14054FDF4
  * Callers:
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiZeroPageMakeHot @ 0x140655C7C (MiZeroPageMakeHot.c)
+ *     MiZeroPage @ 0x140232C80 (MiZeroPage.c)
+ *     MiZeroPageThread @ 0x1403CA4D0 (MiZeroPageThread.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, int a2)
+__int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, __int64 a2, int a3)
 {
-  struct _KTHREAD *CurrentThread; // r14
-  __int64 v5; // rsi
-  unsigned __int64 v6; // rdi
-  unsigned int v7; // ebx
-  unsigned __int8 CurrentIrql; // cl
+  unsigned int v6; // ebx
+  unsigned __int64 OldIrql; // rdi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  bool v13; // zf
+  int v11; // eax
+  bool v12; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  CurrentThread = KeGetCurrentThread();
-  v5 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 88) + 168LL) + 48LL) + 16LL)
-     + 25408LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 88) + 168LL) + 56LL);
-  v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v5 + 23160));
-  if ( (*(_DWORD *)(a1 + 136) & 8) != 0 )
-    v7 = 32;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4928), &LockHandle);
+  if ( *(_BYTE *)(a1 + 6296) )
+    v6 = 32;
   else
-    v7 = KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, a2);
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 23160));
+    v6 = KeSetActualBasePriorityThread(a2, a3);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v6);
-  return v7;
+  __writecr8(OldIrql);
+  return v6;
 }

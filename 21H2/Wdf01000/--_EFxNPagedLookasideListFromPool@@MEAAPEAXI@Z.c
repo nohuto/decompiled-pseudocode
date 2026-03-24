@@ -1,28 +1,34 @@
 /*
- * XREFs of ??_EFxNPagedLookasideListFromPool@@MEAAPEAXI@Z @ 0x1C006A250
+ * XREFs of ??_EFxNPagedLookasideListFromPool@@MEAAPEAXI@Z @ 0x1C0054600
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNPagedLookasideListFromPool@@MEAA@XZ @ 0x1C006A1A4 (--1FxNPagedLookasideListFromPool@@MEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
  */
 
 FxNPagedLookasideListFromPool *__fastcall FxNPagedLookasideListFromPool::`vector deleting destructor'(
         FxNPagedLookasideListFromPool *this,
-        unsigned int a2,
+        char a2,
         unsigned int a3)
 {
-  char v3; // bl
-  FX_POOL_TRACKER *p_LastTotalAllocates; // rcx
+  bool v3; // zf
+  FxNPagedLookasideListFromPool *v6; // rcx
 
-  v3 = a2;
-  FxNPagedLookasideListFromPool::~FxNPagedLookasideListFromPool(this, a2, a3);
-  if ( (v3 & 1) != 0 )
+  v3 = this->m_MemoryObjectSize == 0;
+  this->__vftable = (FxNPagedLookasideListFromPool_vtbl *)FxNPagedLookasideListFromPool::`vftable';
+  if ( !v3 )
+    ExDeleteNPagedLookasideList(&this->m_ObjectLookaside);
+  if ( this->m_BufferSize )
+    ExDeleteNPagedLookasideList(&this->m_PoolLookaside);
+  this->__vftable = (FxNPagedLookasideListFromPool_vtbl *)FxLookasideList::`vftable';
+  FxObject::~FxObject(this, a2, a3);
+  if ( (a2 & 1) != 0 )
   {
-    p_LastTotalAllocates = (FX_POOL_TRACKER *)&this[-1].m_PoolLookaside.L.LastTotalAllocates;
+    v6 = (FxNPagedLookasideListFromPool *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      p_LastTotalAllocates = (FX_POOL_TRACKER *)this;
-    FxPoolFree(p_LastTotalAllocates);
+      v6 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v6);
   }
   return this;
 }

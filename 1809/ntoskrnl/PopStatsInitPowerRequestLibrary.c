@@ -4,13 +4,13 @@
  *     PopPowerRequestInit @ 0x1409DB558 (PopPowerRequestInit.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 PopStatsInitPowerRequestLibrary()
 {
   PowerReqestStatsLock = 0LL;
-  qword_14040E6B8 = 0LL;
+  qword_14040E778 = 0LL;
   memset(&ExecutionRequiredStopWatchCollection, 0, 0x38uLL);
   qword_14040E6C8 = (__int64)&ExecutionRequiredStopWatchCollection;
   ExecutionRequiredStopWatchCollection = (__int64)&ExecutionRequiredStopWatchCollection;

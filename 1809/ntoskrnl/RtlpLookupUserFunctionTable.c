@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLookupUserFunctionTable @ 0x140133C78
+ * XREFs of RtlpLookupUserFunctionTable @ 0x140133C98
  * Callers:
  *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
  * Callees:
@@ -7,10 +7,10 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
- *     RtlpLookupUserFunctionTableInverted @ 0x140133FE8 (RtlpLookupUserFunctionTableInverted.c)
- *     MmGetImageBase @ 0x1406BA3C4 (MmGetImageBase.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x140134008 (RtlpLookupUserFunctionTableInverted.c)
+ *     MmGetImageBase @ 0x1406BA3A4 (MmGetImageBase.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)

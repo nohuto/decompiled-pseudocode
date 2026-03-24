@@ -1,16 +1,16 @@
 /*
- * XREFs of PipFreeDependencyEdge @ 0x14055FBE4
+ * XREFs of PipFreeDependencyEdge @ 0x14050C720
  * Callers:
- *     PipDeleteAllDependencyRelations @ 0x14085C97C (PipDeleteAllDependencyRelations.c)
- *     PipMergeDependencyEdgeList @ 0x140942B68 (PipMergeDependencyEdgeList.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD600 (PipDeleteAllDependencyRelations.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DD70 (PipMergeDependencyEdgeList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PipDereferenceDependencyNode @ 0x14084440C (PipDereferenceDependencyNode.c)
- *     PipFreeBindingRequestEntry @ 0x140942AC4 (PipFreeBindingRequestEntry.c)
- *     PipNotifyDependenciesChanged @ 0x140942D5C (PipNotifyDependenciesChanged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PipDereferenceDependencyNode @ 0x14074CAC0 (PipDereferenceDependencyNode.c)
+ *     PipFreeBindingRequestEntry @ 0x14089DCCC (PipFreeBindingRequestEntry.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DF6C (PipNotifyDependenciesChanged.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipFreeDependencyEdge(_DWORD *P, __int64 a2)

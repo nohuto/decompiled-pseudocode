@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpIommuGetSecurityPolicy @ 0x14025E834
+ * XREFs of HalpIommuGetSecurityPolicy @ 0x1402D3F1C
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x14084685C (HalpDmaAllocateChildAdapterV3.c)
- *     HalpDmaGetRemappingInformation @ 0x140864A38 (HalpDmaGetRemappingInformation.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaGetRemappingInformation @ 0x1407D4B08 (HalpDmaGetRemappingInformation.c)
  * Callees:
  *     <none>
  */

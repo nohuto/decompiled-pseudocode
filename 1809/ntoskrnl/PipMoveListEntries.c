@@ -1,8 +1,8 @@
 /*
- * XREFs of PipMoveListEntries @ 0x140287B80
+ * XREFs of PipMoveListEntries @ 0x140287C80
  * Callers:
- *     PipMergeDependencyEdgeList @ 0x140823FAC (PipMergeDependencyEdgeList.c)
- *     PipMergeDependencyNodes @ 0x140824130 (PipMergeDependencyNodes.c)
+ *     PipMergeDependencyEdgeList @ 0x140823F8C (PipMergeDependencyEdgeList.c)
+ *     PipMergeDependencyNodes @ 0x140824110 (PipMergeDependencyNodes.c)
  * Callees:
  *     <none>
  */

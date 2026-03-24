@@ -1,15 +1,13 @@
 /*
- * XREFs of McTemplateK0pqqqqq_EtwWriteTransfer @ 0x1C004832C
+ * XREFs of McTemplateK0pqqqqq_EtwWriteTransfer @ 0x1C003FA44
  * Callers:
- *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C01A21A0 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
- *     DpiDxgkDdiQueryChildStatus @ 0x1C01F59FC (DpiDxgkDdiQueryChildStatus.c)
- *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C035DFA0 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C0155200 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
-NTSTATUS McTemplateK0pqqqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
+NTSTATUS McTemplateK0pqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-51h] BYREF
   va_list v5; // [rsp+40h] [rbp-41h]
@@ -57,11 +55,16 @@ NTSTATUS McTemplateK0pqqqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR 
   va_copy(v7, va1);
   v10 = 4LL;
   va_copy(v9, va2);
+  v12 = 4LL;
   va_copy(v11, va3);
   va_copy(v13, va4);
   va_copy(v15, va5);
-  v12 = 4LL;
   v14 = 4LL;
   v16 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, a2, a3, 7u, &v4);
+  return McGenEventWrite_EtwWriteTransfer(
+           (REGHANDLE *)&DxgkControlGuid_Context,
+           &EventCddStandardAllocationShadowSurface,
+           a3,
+           7u,
+           &v4);
 }

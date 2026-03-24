@@ -1,5 +1,5 @@
 /*
- * XREFs of ExTryAcquirePushLockSharedEx @ 0x140103A90
+ * XREFs of ExTryAcquirePushLockSharedEx @ 0x140103AB0
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C30 (ExfTryAcquirePushLockShared.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 char __fastcall ExTryAcquirePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

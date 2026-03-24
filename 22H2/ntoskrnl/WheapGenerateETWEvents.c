@@ -1,28 +1,47 @@
 /*
- * XREFs of WheapGenerateETWEvents @ 0x140613338
+ * XREFs of WheapGenerateETWEvents @ 0x1405BD350
  * Callers:
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x140611090 (WheapProcessWorkQueueItem.c)
- *     WheapProcessWaitingETWEvents @ 0x140861010 (WheapProcessWaitingETWEvents.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x1405BBB10 (WheapProcessWorkQueueItem.c)
+ *     WheapEtwEnableCallback @ 0x1407D34F0 (WheapEtwEnableCallback.c)
  * Callees:
- *     WheaIsCriticalState @ 0x1403811C0 (WheaIsCriticalState.c)
- *     WheapCompressErrorRecord @ 0x140610D98 (WheapCompressErrorRecord.c)
- *     WheapGenerateETWErrorRecord @ 0x1406131A0 (WheapGenerateETWErrorRecord.c)
- *     WheapGenerateETWErrorRecordLarge @ 0x140613220 (WheapGenerateETWErrorRecordLarge.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     WheaLogInternalEvent @ 0x1403BA6F0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-char __fastcall WheapGenerateETWEvents(__int64 a1)
+NTSTATUS __fastcall WheapGenerateETWEvents(__int64 a1)
 {
-  char result; // al
+  ULONGLONG v1; // rsi
+  unsigned int v2; // edi
+  __int128 Src; // [rsp+30h] [rbp-50h] BYREF
+  __int128 v6; // [rsp+40h] [rbp-40h]
+  __int64 v7; // [rsp+50h] [rbp-30h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+68h] [rbp-18h]
+  unsigned int v10; // [rsp+70h] [rbp-10h]
+  int v11; // [rsp+74h] [rbp-Ch]
 
-  result = WheaIsCriticalState();
-  if ( !result && (*(_DWORD *)(a1 + 104) & 0x100) == 0 )
+  v1 = a1 + 20;
+  v2 = *(_DWORD *)(a1 + 20);
+  v7 = 0LL;
+  Src = 0LL;
+  v6 = 0LL;
+  if ( v2 > 0xFBFB )
   {
-    WheapCompressErrorRecord(3, a1);
-    if ( *(_DWORD *)(a1 + 20) <= 0xEFFBu )
-      return WheapGenerateETWErrorRecord(a1);
-    else
-      return WheapGenerateETWErrorRecordLarge(a1);
+    v2 = 64507;
+    v7 = *(_QWORD *)(a1 + 96);
+    *(_QWORD *)&Src = 0x1674C6857LL;
+    *((_QWORD *)&Src + 1) = 40LL;
+    *(_QWORD *)&v6 = 0x8000001D4C4E524BuLL;
+    *((_QWORD *)&v6 + 1) = 0x800000002LL;
+    WheaLogInternalEvent(&Src);
   }
-  return result;
+  UserData.Reserved = 0;
+  v11 = 0;
+  UserData.Ptr = v1;
+  UserData.Size = 4;
+  v9 = a1;
+  v10 = v2;
+  return EtwWrite(WheapEtwHandle, &EVENT_WHEA_ERROR, 0LL, 2u, &UserData);
 }

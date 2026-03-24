@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedReadRemoteAppRenderTargetMarshaler @ 0x1C023A650
+ * XREFs of CreateSharedReadRemoteAppRenderTargetMarshaler @ 0x1C01F92D0
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedReadRemoteAppRenderTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C023A238 (-Create@CSharedReadRemoteAppRenderTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
+ *     ?Create@CSharedReadRemoteAppRenderTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F90F0 (-Create@CSharedReadRemoteAppRenderTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
  */
 
 __int64 __fastcall CreateSharedReadRemoteAppRenderTargetMarshaler(

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiClearBitmapAttributes @ 0x1C010F9B0
+ * XREFs of NtGdiClearBitmapAttributes @ 0x1C01257A0
  * Callers:
  *     <none>
  * Callees:

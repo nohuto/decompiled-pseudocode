@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepRegistryQueryDriverShims @ 0x14069499C
+ * XREFs of KsepRegistryQueryDriverShims @ 0x14075A9E4
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x1406945C4 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075AF3C (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     KsepRegistryOpenKey @ 0x1406944C4 (KsepRegistryOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x14084646C (KsepRegistryQuerySZ.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     KsepRegistryOpenKey @ 0x14075AC54 (KsepRegistryOpenKey.c)
+ *     KsepRegistryQuerySZ @ 0x1407BF100 (KsepRegistryQuerySZ.c)
  */
 
-__int64 __fastcall KsepRegistryQueryDriverShims(_WORD *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int SZ; // ebx
   HANDLE Handle; // [rsp+50h] [rbp+18h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall KsepRegistryQueryDriverShims(_WORD *a1, __int64 a2, __int64 a
   if ( Handle )
   {
     ZwClose(Handle);
-    _InterlockedIncrement(dword_140C407DC);
+    _InterlockedIncrement(dword_140C2AA9C);
   }
   return (unsigned int)SZ;
 }

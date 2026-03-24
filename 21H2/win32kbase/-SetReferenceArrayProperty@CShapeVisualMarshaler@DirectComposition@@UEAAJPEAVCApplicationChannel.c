@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CShapeVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C021C4E0
+ * XREFs of ?SetReferenceArrayProperty@CShapeVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01E5E80
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C00AE080 (-SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?ClearShapes@CShapeVisualMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021C33C (-ClearShapes@CShapeVisualMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C005D4C0 (-SetReferenceArrayProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?ClearShapes@CShapeVisualMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01E5CE8 (-ClearShapes@CShapeVisualMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CShapeVisualMarshaler::SetReferenceArrayProperty(
@@ -18,35 +18,42 @@ __int64 __fastcall DirectComposition::CShapeVisualMarshaler::SetReferenceArrayPr
         bool *a6)
 {
   unsigned int v6; // ebx
-  unsigned int i; // ebp
-  unsigned int v11; // esi
+  int v9; // esi
+  unsigned int v10; // r13d
 
   v6 = 0;
+  v9 = 0;
   *a6 = 0;
   if ( a4 || !a5 )
   {
-    if ( a3 == 53 )
+    if ( a3 == 51 )
     {
-      for ( i = 0; i < a5; ++i )
+      v10 = 0;
+      do
       {
-        if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[i] + 96LL))(
-                a4[i],
+        if ( v10 >= a5 )
+          break;
+        if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v10] + 96LL))(
+                a4[v10],
                 192LL) )
-          return (unsigned int)-1073741811;
+          v9 = -1073741811;
+        ++v10;
       }
-      DirectComposition::CShapeVisualMarshaler::ClearShapes(this, a2);
-      *((_DWORD *)this + 100) = a5;
-      v11 = 0;
-      *((_QWORD *)this + 49) = a4;
-      *((_DWORD *)this + 101) = 0;
-      *a6 = 1;
-      *((_DWORD *)this + 102) |= 2u;
-      if ( *((_DWORD *)this + 100) )
+      while ( v9 >= 0 );
+      if ( v9 >= 0 )
       {
-        do
-          DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 49)
-                                                                                                  + 8LL * v11++));
-        while ( v11 < *((_DWORD *)this + 100) );
+        DirectComposition::CShapeVisualMarshaler::ClearShapes(this, a2);
+        *((_DWORD *)this + 96) = a5;
+        *((_QWORD *)this + 47) = a4;
+        *((_DWORD *)this + 97) = 0;
+        *a6 = 1;
+        *((_DWORD *)this + 98) |= 2u;
+        if ( *((_DWORD *)this + 96) )
+        {
+          do
+            DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 47) + 8LL * v6++));
+          while ( v6 < *((_DWORD *)this + 96) );
+        }
       }
     }
     else
@@ -58,5 +65,5 @@ __int64 __fastcall DirectComposition::CShapeVisualMarshaler::SetReferenceArrayPr
   {
     return (unsigned int)-1073741811;
   }
-  return v6;
+  return (unsigned int)v9;
 }

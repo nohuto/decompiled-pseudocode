@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceUIPIClipboardError @ 0x1C014EE90
+ * XREFs of EtwTraceUIPIClipboardError @ 0x1C0124250
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C0034434 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
- *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003D340 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     McTemplateK0nqqq_EtwWriteTransfer @ 0x1C014FEFC (McTemplateK0nqqq_EtwWriteTransfer.c)
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C004B390 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C0056570 (WPP_RECORDER_SF_qDD.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     McTemplateK0nqqq_EtwWriteTransfer @ 0x1C0125714 (McTemplateK0nqqq_EtwWriteTransfer.c)
  */
 
 _UNKNOWN **__fastcall EtwTraceUIPIClipboardError(PEPROCESS *a1, PEPROCESS *a2, char a3, __int64 a4)
@@ -18,15 +18,15 @@ _UNKNOWN **__fastcall EtwTraceUIPIClipboardError(PEPROCESS *a1, PEPROCESS *a2, c
   int v9; // r8d
   int v10; // r9d
   _UNKNOWN **result; // rax
-  char v12; // [rsp+64h] [rbp-54h]
-  _OWORD v13[2]; // [rsp+68h] [rbp-50h] BYREF
-  int v14; // [rsp+88h] [rbp-30h]
+  char v12; // [rsp+44h] [rbp-54h]
+  _OWORD v13[2]; // [rsp+48h] [rbp-50h] BYREF
+  int v14; // [rsp+68h] [rbp-30h]
 
   v4 = a4;
   v12 = BYTE4(a4);
+  v14 = 0;
   v6 = (char)a2;
   memset(v13, 0, sizeof(v13));
-  v14 = 0;
   EtwpSetTraceHeader(
     (struct _W32KUIPI_Msg_Template::_tagW32KUIPI_Msg_Template_UIPI_Trace_Header *)v13,
     6,
@@ -36,22 +36,16 @@ _UNKNOWN **__fastcall EtwTraceUIPIClipboardError(PEPROCESS *a1, PEPROCESS *a2, c
     a2);
   if ( (Microsoft_Windows_Win32kEnableBits & 4) != 0 )
     McTemplateK0nqqq_EtwWriteTransfer(v8, (unsigned int)&UIPIClipboardEvent, v9, v10, (__int64)v13, a3, v4, v12);
-  LOBYTE(v7) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_qDD(
-                          WPP_GLOBAL_Control->AttachedDevice,
+    LOBYTE(v7) = 4;
+    return (_UNKNOWN **)WPP_RECORDER_SF_qDD(
+                          (_DWORD)gBaseLog,
                           v7,
-                          v9,
-                          WPP_MAIN_CB.Queue.ListEntry.Flink,
-                          4,
                           18,
                           15,
-                          (__int64)&WPP_e42196a162103e27bc3596ad59aba599_Traceguids,
+                          (__int64)&WPP_54d33ffc9e3d3dbf4995411973a3d843_Traceguids,
                           v6,
                           a3,
                           v4);

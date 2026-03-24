@@ -1,31 +1,31 @@
 /*
- * XREFs of ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C022B9A4
+ * XREFs of ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C0246EAC
  * Callers:
- *     xxxDrawCaptionTemp @ 0x1C022C094 (xxxDrawCaptionTemp.c)
+ *     xxxDrawCaptionTemp @ 0x1C0158B14 (xxxDrawCaptionTemp.c)
  * Callees:
- *     PrepareHDCBITSBitmap @ 0x1C0016A4C (PrepareHDCBITSBitmap.c)
- *     _DrawIconEx @ 0x1C0028030 (_DrawIconEx.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     GetOemBitmapInfoForDpi @ 0x1C009A53C (GetOemBitmapInfoForDpi.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C022B810 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
+ *     _DrawIconEx @ 0x1C0043EF4 (_DrawIconEx.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010710C (GetOemBitmapInfoForDpi.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010721C (PrepareHDCBITSBitmap.c)
+ *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C0246D18 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
  */
 
 void __fastcall DrawCaptionIcon(HDC a1, struct tagRECT *a2, struct tagCURSOR *a3, HBRUSH a4, char a5)
 {
-  unsigned int v6; // ebp
+  int v6; // ebp
   unsigned int DpiForSystem; // eax
-  __int64 v11; // rdx
   __int64 i; // rcx
-  int v13; // esi
-  struct tagCURSOR **v14; // rax
-  _QWORD *v15; // rax
-  int v16; // eax
-  unsigned int v17; // eax
-  __int64 v18; // r9
-  __int64 v19; // r8
+  int v12; // edi
+  struct tagCURSOR **v13; // rax
+  _QWORD *v14; // rax
+  unsigned int v15; // eax
+  unsigned int v16; // eax
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  __int128 *v19; // rcx
   __int128 v20; // xmm1
   unsigned int v21; // edi
   __int64 v22; // rcx
@@ -36,10 +36,10 @@ void __fastcall DrawCaptionIcon(HDC a1, struct tagRECT *a2, struct tagCURSOR *a3
   LONG left; // edi
   LONG top; // esi
   __int64 v29; // rcx
-  int v30; // eax
+  unsigned int v30; // eax
   int DpiDependentMetric; // ebx
   __int64 v32; // rcx
-  int v33; // eax
+  unsigned int v33; // eax
   int v34; // eax
   RECT v35; // [rsp+60h] [rbp-38h] BYREF
 
@@ -57,13 +57,13 @@ void __fastcall DrawCaptionIcon(HDC a1, struct tagRECT *a2, struct tagCURSOR *a3
     v35.bottom = top + v6;
     FillRect(a1, &v35, a4);
     v30 = GetDpiForSystem(v29);
-    DpiDependentMetric = GetDpiDependentMetric(20, v30);
+    DpiDependentMetric = GetDpiDependentMetric(20LL, v30);
     v33 = GetDpiForSystem(v32);
-    v34 = GetDpiDependentMetric(21, v33);
+    v34 = GetDpiDependentMetric(21LL, v33);
     DrawIconEx(
       a1,
-      (int)(v6 - DpiDependentMetric) / 2 + left + 1,
-      top + (int)(v6 - v34) / 2,
+      (v6 - DpiDependentMetric) / 2 + left + 1,
+      top + (v6 - v34) / 2,
       (__int64)a3,
       DpiDependentMetric,
       v34,
@@ -73,70 +73,69 @@ void __fastcall DrawCaptionIcon(HDC a1, struct tagRECT *a2, struct tagCURSOR *a3
   }
   else
   {
-    v11 = a5 & 0x10;
     if ( (a5 & 0x10) != 0 )
     {
       i = (__int64)a3 - gcachedCaptions[0];
-      v13 = a3 != (struct tagCURSOR *)gcachedCaptions[0] ? 5 : 0;
+      v12 = a3 != (struct tagCURSOR *)gcachedCaptions[0] ? 5 : 0;
     }
     else
     {
-      v13 = 1;
+      v12 = 1;
       i = 1LL;
-      v14 = (struct tagCURSOR **)&gcachedCaptions[2];
+      v13 = (struct tagCURSOR **)&gcachedCaptions[2];
       do
       {
-        if ( *v14 == a3 )
+        if ( *v13 == a3 )
           break;
-        ++v13;
+        ++v12;
         ++i;
-        v14 += 2;
+        v13 += 2;
       }
       while ( i < 5 );
     }
-    if ( v13 >= 5 )
+    if ( v12 >= 5 )
     {
       if ( (a5 & 0x10) != 0 )
       {
-        v13 = 0;
+        v12 = 0;
       }
       else
       {
-        v13 = 1;
-        v15 = &gcachedCaptions[2];
+        v12 = 1;
+        v14 = &gcachedCaptions[2];
         for ( i = 1LL; i < 4; ++i )
         {
-          if ( !*v15 )
+          if ( !*v14 )
             break;
-          ++v13;
-          v15 += 2;
+          ++v12;
+          v14 += 2;
         }
       }
-      v16 = GetDpiForSystem(i);
-      v17 = GetDpiDependentMetric(20, v16);
-      BltMe4Times(gcachedCaptions[2 * v13 + 1], v6, v17, ghdcMem, a3, a5);
+      v15 = GetDpiForSystem(i);
+      v16 = GetDpiDependentMetric(20LL, v15);
+      BltMe4Times(gcachedCaptions[2 * v12 + 1], v6, v16, *(HDC *)ghdcMem, a3, a5);
       *(_QWORD *)&v35.right = a3;
-      *(_QWORD *)&v35.left = &gcachedCaptions[2 * v13];
-      HMAssignmentLock(&v35, 0LL);
+      *(_QWORD *)&v35.left = &gcachedCaptions[2 * v12];
+      HMAssignmentLock(&v35);
     }
-    if ( v13 > 1LL )
+    if ( v12 > 1LL )
     {
-      v18 = v13 - 1LL;
-      v19 = 16LL * v13;
-      v13 = 1;
+      v17 = v12 - 1LL;
+      v18 = 16LL * v12;
+      v12 = 1;
       do
       {
-        v11 = v19 + gcachedCaptions[0];
-        v19 -= 16LL;
-        v20 = *(_OWORD *)v11;
-        *(_OWORD *)v11 = *(_OWORD *)(v19 + gcachedCaptions[0]);
-        *(_OWORD *)(v19 + gcachedCaptions[0]) = v20;
-        --v18;
+        v19 = (__int128 *)(v18 + gcachedCaptions[0]);
+        v18 -= 16LL;
+        v20 = *v19;
+        *v19 = *(_OWORD *)(v18 + gcachedCaptions[0]);
+        *(_OWORD *)(v18 + gcachedCaptions[0]) = v20;
+        --v17;
       }
-      while ( v18 );
+      while ( v17 );
     }
-    v21 = gcachedCaptions[2 * v13 + 1];
-    v23 = (HDC)PrepareHDCBITSBitmap(0LL, v11);
+    v21 = gcachedCaptions[2 * v12 + 1];
+    v23 = (HDC)PrepareHDCBITSBitmap(0LL);
     if ( v23 )
     {
       v24 = GetDpiForSystem(v22);
@@ -145,7 +144,7 @@ void __fastcall DrawCaptionIcon(HDC a1, struct tagRECT *a2, struct tagCURSOR *a3
         v25 = v21;
       OemBitmapInfoForDpi = GetOemBitmapInfoForDpi(v25, v24);
       NtGdiBitBltInternal(
-        (__int64)a1,
+        a1,
         a2->left,
         a2->top,
         v6,

@@ -1,45 +1,47 @@
 /*
- * XREFs of _anonymous_namespace_::ApplyKeyStateToQueue @ 0x1C00A6FA4
+ * XREFs of _anonymous_namespace_::ApplyKeyStateToQueue @ 0x1C0093CA8
  * Callers:
- *     _anonymous_namespace_::UpdateKeyState @ 0x1C00A6F1C (_anonymous_namespace_--UpdateKeyState.c)
+ *     _anonymous_namespace_::UpdateKeyState @ 0x1C0093C10 (_anonymous_namespace_--UpdateKeyState.c)
  * Callees:
  *     <none>
  */
 
 int __fastcall anonymous_namespace_::ApplyKeyStateToQueue(__int64 a1, unsigned __int8 a2, char a3)
 {
-  unsigned __int64 v3; // r10
-  char v4; // dl
-  int v5; // eax
+  unsigned __int64 v5; // rcx
+  char v6; // r8
+  int v7; // eax
   int result; // eax
-  int v7; // ebx
-  int v8; // edx
-  unsigned int v9; // eax
-  int v10; // edx
+  unsigned __int64 v9; // r10
+  int v10; // r11d
+  int v11; // r8d
+  unsigned int v12; // eax
+  int v13; // r8d
 
-  v3 = a2;
   if ( a3 )
   {
-    v7 = a2 & 3;
-    v8 = *(unsigned __int8 *)(((unsigned __int64)a2 >> 2) + a1 + 236);
-    if ( !_bittest(&v8, (unsigned __int8)(2 * v7)) )
+    v9 = (unsigned __int64)a2 >> 2;
+    v10 = a2 & 3;
+    v11 = *(unsigned __int8 *)(v9 + a1 + 228);
+    if ( !_bittest(&v11, (unsigned __int8)(2 * v10)) )
     {
-      v9 = 2 * v7 + 1;
-      if ( _bittest(&v8, v9) )
-        v10 = v8 & ~(1 << v9);
+      v12 = 2 * v10 + 1;
+      if ( _bittest(&v11, v12) )
+        v13 = v11 & ~(1 << v12);
       else
-        v10 = v8 | (1 << v9);
-      *(_BYTE *)((v3 >> 2) + a1 + 236) = v10;
+        v13 = v11 | (1 << v12);
+      *(_BYTE *)(v9 + a1 + 228) = v13;
     }
   }
-  v4 = 2 * (v3 & 3);
-  v5 = *(unsigned __int8 *)((v3 >> 2) + a1 + 236);
+  v5 = (unsigned __int64)a2 >> 2;
+  v6 = 2 * (a2 & 3);
+  v7 = *(unsigned __int8 *)(v5 + a1 + 228);
   if ( a3 )
-    result = v5 | (1 << v4);
+    result = v7 | (1 << v6);
   else
-    result = v5 & ~(1 << v4);
-  *(_BYTE *)((v3 >> 2) + a1 + 236) = result;
-  if ( (unsigned __int8)v3 < 0x20u )
+    result = v7 & ~(1 << v6);
+  *(_BYTE *)(v5 + a1 + 228) = result;
+  if ( a2 < 0x20u )
   {
     result = (int)gpsi;
     ++*((_DWORD *)gpsi + 1746);

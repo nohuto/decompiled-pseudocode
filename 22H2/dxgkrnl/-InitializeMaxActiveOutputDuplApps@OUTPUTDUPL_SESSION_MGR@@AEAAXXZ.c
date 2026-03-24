@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeMaxActiveOutputDuplApps@OUTPUTDUPL_SESSION_MGR@@AEAAXXZ @ 0x1C01EB6B4
+ * XREFs of ?InitializeMaxActiveOutputDuplApps@OUTPUTDUPL_SESSION_MGR@@AEAAXXZ @ 0x1C016E2F4
  * Callers:
- *     ??0OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C01EB5B4 (--0OUTPUTDUPL_SESSION_MGR@@QEAA@XZ.c)
+ *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C016DC5C (--0DXGSESSIONDATA@@QEAA@K@Z.c)
  * Callees:
  *     <none>
  */

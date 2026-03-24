@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipSMBiosFindStructure @ 0x1409DCD48
+ * XREFs of WmipSMBiosFindStructure @ 0x140932164
  * Callers:
- *     WmipSMBiosHideMachine @ 0x1409DCDD0 (WmipSMBiosHideMachine.c)
+ *     WmipSMBiosHideMachine @ 0x1409321EC (WmipSMBiosHideMachine.c)
  * Callees:
  *     <none>
  */

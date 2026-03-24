@@ -1,48 +1,48 @@
 /*
- * XREFs of ACPIIoctlEvalPreProcessingV2 @ 0x1C0058160
+ * XREFs of ACPIIoctlEvalPreProcessingV2 @ 0x1C0057978
  * Callers:
- *     ACPIIoctlEvalControlMethod @ 0x1C001BC74 (ACPIIoctlEvalControlMethod.c)
- *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002D9AC (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C000BAC4 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4 (ACPIIoctlAsyncEvalControlMethod.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     AcpiIoctlArgumentToPackageObjV2 @ 0x1C0058E44 (AcpiIoctlArgumentToPackageObjV2.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AcpiIoctlArgumentToPackageObjV2 @ 0x1C0058444 (AcpiIoctlArgumentToPackageObjV2.c)
  */
 
 __int64 __fastcall ACPIIoctlEvalPreProcessingV2(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
-        _QWORD *a5,
+        POOL_TYPE a4,
+        __int64 *a5,
         _QWORD *a6,
         _QWORD *a7,
         unsigned int *a8)
 {
-  void *v9; // rdi
+  _OWORD *v9; // rbx
   unsigned int v10; // r15d
   unsigned int v11; // eax
   int v13; // ecx
   __int64 result; // rax
-  int *v15; // rbx
+  int *v15; // rdi
   __int64 *v16; // rdx
-  void *Pool2; // rbp
+  PVOID PoolWithTag; // rbp
   int v18; // eax
   __int64 v19; // rax
   _DWORD *v20; // rsi
-  __int64 v21; // rax
-  unsigned int v22; // r12d
-  __int64 v23; // r14
-  __int16 v24; // ax
-  unsigned __int16 v25; // ax
-  int v26; // ebx
-  __int64 v27; // rax
+  size_t v21; // rdi
+  _OWORD *v22; // rax
+  unsigned int v23; // r12d
+  char *v24; // r14
+  __int16 v25; // ax
+  unsigned __int16 v26; // ax
+  int v27; // edi
   __int64 v28; // rax
-  volatile signed __int32 *v29; // [rsp+30h] [rbp-78h] BYREF
-  __int64 v30; // [rsp+38h] [rbp-70h]
-  _QWORD *v31; // [rsp+40h] [rbp-68h]
+  __int64 v30; // [rsp+38h] [rbp-70h] BYREF
+  __int64 *v31; // [rsp+40h] [rbp-68h]
   _QWORD *v32; // [rsp+48h] [rbp-60h]
   _QWORD *v33; // [rsp+50h] [rbp-58h]
   unsigned int *v34; // [rsp+58h] [rbp-50h]
@@ -56,9 +56,8 @@ __int64 __fastcall ACPIIoctlEvalPreProcessingV2(
   v33 = a7;
   v34 = a8;
   v11 = *(_DWORD *)(a3 + 16);
-  v30 = a4;
   v13 = *(_DWORD *)(a3 + 8);
-  v29 = 0LL;
+  v30 = 0LL;
   *(_QWORD *)(a2 + 56) = 0LL;
   if ( v11 < 8 )
     return 3221225476LL;
@@ -67,14 +66,14 @@ __int64 __fastcall ACPIIoctlEvalPreProcessingV2(
   v15 = *(int **)(a2 + 24);
   v36 = 0;
   Src = v15[1];
-  v16 = *(__int64 **)(ACPIInternalGetDeviceExtension(BugCheckParameter3) + 760);
+  v16 = *(__int64 **)(ACPIInternalGetDeviceExtension(BugCheckParameter3) + 720);
   if ( !v16 )
     return 3221225486LL;
-  result = AMLIGetNameSpaceObject(&Src, v16, &v29, 1);
+  result = AMLIGetNameSpaceObject(&Src, v16, (unsigned __int64 *)&v30, 1);
   if ( (int)result >= 0 )
   {
-    Pool2 = (void *)ExAllocatePool2(a4, 40LL, 1383097153LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(a4, 0x28uLL, 0x52706341u);
+    if ( PoolWithTag )
     {
       v18 = *v15;
       if ( *v15 == 1265198401 )
@@ -87,95 +86,99 @@ __int64 __fastcall ACPIIoctlEvalPreProcessingV2(
         if ( (_DWORD)v19 )
         {
           v20 = v15 + 4;
-          v10 = v15[3];
-          v21 = ExAllocatePool2(a4, 40 * v19, 1097884481LL);
-          v9 = (void *)v21;
-          if ( v21 )
+          v21 = 40 * v19;
+          v10 = v19;
+          v22 = ExAllocatePoolWithTag(a4, 40 * v19, 0x41706341u);
+          v9 = v22;
+          if ( v22 )
           {
-            v22 = 0;
-            v23 = v21 + 24;
+            memset(v22, 0, v21);
+            v23 = 0;
+            v24 = (char *)v9 + 24;
             while ( 1 )
             {
               if ( *(_WORD *)v20 == 4 )
-                v24 = 4;
+                v25 = 4;
               else
-                v24 = *(_WORD *)v20 + 1;
-              *(_WORD *)(v23 - 22) = v24;
-              v25 = *(_WORD *)v20;
+                v25 = *(_WORD *)v20 + 1;
+              *((_WORD *)v24 - 11) = v25;
+              v26 = *(_WORD *)v20;
               if ( *(_WORD *)v20 )
               {
-                if ( v25 > 2u )
+                if ( v26 > 2u )
                 {
-                  if ( v25 == 4 )
+                  if ( v26 == 4 )
                   {
-                    v26 = AcpiIoctlArgumentToPackageObjV2(
+                    v27 = AcpiIoctlArgumentToPackageObjV2(
                             (_DWORD)v20,
-                            v30,
+                            a4,
                             0,
-                            (unsigned int)v9 + 8 * (5 * v22 + 3),
-                            (__int64)v9 + 40 * v22 + 32);
-                    if ( v26 < 0 )
+                            (unsigned int)v9 + 8 * (5 * v23 + 3),
+                            (__int64)v9 + 40 * v23 + 32);
+                    if ( v27 < 0 )
                       goto LABEL_35;
                     goto LABEL_29;
                   }
-                  *(_WORD *)(v23 - 22) = 3;
+                  *((_WORD *)v24 - 11) = 3;
                 }
-                *(_DWORD *)v23 = v20[1];
-                *(_QWORD *)(v23 + 8) = (unsigned __int64)(v20 + 2) & -(__int64)(v20[1] != 0);
+                *(_DWORD *)v24 = v20[1];
+                *((_QWORD *)v24 + 1) = (unsigned __int64)(v20 + 2) & -(__int64)(v20[1] != 0);
               }
               else
               {
-                *(_QWORD *)(v23 - 8) = (unsigned int)v20[2];
+                *((_QWORD *)v24 - 1) = (unsigned int)v20[2];
               }
 LABEL_29:
-              v27 = (unsigned int)v20[1];
-              if ( (unsigned int)v27 < 4 )
-                v27 = 4LL;
-              ++v22;
-              v20 = (_DWORD *)((char *)v20 + v27 + 8);
-              v23 += 40LL;
-              if ( v22 >= v10 )
+              v28 = (unsigned int)v20[1];
+              if ( (unsigned int)v28 < 4 )
+                v28 = 4LL;
+              ++v23;
+              v20 = (_DWORD *)((char *)v20 + v28 + 8);
+              v24 += 40;
+              if ( v23 >= v10 )
                 goto LABEL_45;
             }
           }
           goto LABEL_34;
         }
 LABEL_45:
-        *v31 = v29;
-        *v32 = Pool2;
+        *v31 = v30;
+        *v32 = PoolWithTag;
         *v33 = v9;
         *v34 = v10;
         return 0LL;
       }
       v10 = 1;
-      v28 = ExAllocatePool2(a4, 40LL, 1097884481LL);
-      v9 = (void *)v28;
-      if ( v28 )
+      v9 = ExAllocatePoolWithTag(a4, 0x28uLL, 0x41706341u);
+      if ( v9 )
       {
+        *v9 = 0LL;
+        v9[1] = 0LL;
+        *((_QWORD *)v9 + 4) = 0LL;
         if ( *v15 == 1281975617 )
         {
-          *(_WORD *)(v28 + 2) = 1;
-          *(_QWORD *)(v28 + 16) = (unsigned int)v15[2];
+          *((_WORD *)v9 + 1) = 1;
+          *((_QWORD *)v9 + 2) = (unsigned int)v15[2];
         }
         else
         {
-          *(_WORD *)(v28 + 2) = 2;
-          *(_DWORD *)(v28 + 24) = v15[2];
-          *(_QWORD *)(v28 + 32) = (unsigned __int64)(v15 + 3) & -(__int64)(v15[2] != 0);
+          *((_WORD *)v9 + 1) = 2;
+          *((_DWORD *)v9 + 6) = v15[2];
+          *((_QWORD *)v9 + 4) = (unsigned __int64)(v15 + 3) & -(__int64)(v15[2] != 0);
         }
         goto LABEL_45;
       }
     }
 LABEL_34:
-    v26 = -1073741670;
+    v27 = -1073741670;
 LABEL_35:
-    if ( v29 )
-      AMLIDereferenceHandleEx(v29);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x52706341u);
+    if ( v30 )
+      AMLIDereferenceHandleEx(v30);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x52706341u);
     if ( v9 )
       ExFreePoolWithTag(v9, 0x52706341u);
-    return (unsigned int)v26;
+    return (unsigned int)v27;
   }
   return result;
 }

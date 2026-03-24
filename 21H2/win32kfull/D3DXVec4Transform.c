@@ -1,8 +1,8 @@
 /*
- * XREFs of D3DXVec4Transform @ 0x1C01DF398
+ * XREFs of D3DXVec4Transform @ 0x1C01E4B20
  * Callers:
- *     BuildVertexList @ 0x1C01DF28C (BuildVertexList.c)
- *     GetInertiaRegionInVirtualizedScreen @ 0x1C02132B8 (GetInertiaRegionInVirtualizedScreen.c)
+ *     BuildVertexList @ 0x1C01E4A14 (BuildVertexList.c)
+ *     GetInertiaRegionInVirtualizedScreen @ 0x1C021840C (GetInertiaRegionInVirtualizedScreen.c)
  * Callees:
  *     <none>
  */

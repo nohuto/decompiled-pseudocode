@@ -1,68 +1,65 @@
 /*
- * XREFs of _CloseDesktop @ 0x1C006AE68
+ * XREFs of _CloseDesktop @ 0x1C00D8F78
  * Callers:
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
- *     EditionCloseDesktopEntryPoint @ 0x1C006AE20 (EditionCloseDesktopEntryPoint.c)
- *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00B684C (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C000DB68 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     EditionCloseDesktopEntryPoint @ 0x1C00D8F30 (EditionCloseDesktopEntryPoint.c)
  * Callees:
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
  */
 
 __int64 __fastcall CloseDesktop(unsigned __int64 Handle, KPROCESSOR_MODE a2)
 {
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v5; // rbx
+  unsigned int v4; // ebx
+  __int64 CurrentProcessWin32Process; // rdi
   int v6; // eax
-  unsigned int v7; // edi
-  PVOID v8; // rdi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  unsigned int v9; // ebp
+  PVOID v10; // rbp
   __int64 i; // rcx
-  NTSTATUS v10; // ebx
-  ULONG v12; // eax
+  ULONG v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // r8
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
 
+  v4 = 0;
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(Handle);
-  v5 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v5 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
   Object = 0LL;
   v6 = ObReferenceObjectByHandle((HANDLE)Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, a2, &Object, 0LL);
-  v7 = v6;
+  v9 = v6;
   if ( v6 < 0 )
   {
-    v12 = RtlNtStatusToDosError(v6);
-    UserSetLastError(v12);
-    return v7;
+    v13 = RtlNtStatusToDosError(v6);
+    UserSetLastError(v13, v14, v15);
+    return v9;
   }
   else
   {
-    v8 = Object;
-    if ( *(_QWORD *)v5 != gpepCSRSS )
+    v10 = Object;
+    if ( *(_QWORD *)CurrentProcessWin32Process != gpepCSRSS )
     {
-      for ( i = *(_QWORD *)(v5 + 320); i; i = *(_QWORD *)(i + 664) )
+      for ( i = *(_QWORD *)(CurrentProcessWin32Process + 320); i; i = *(_QWORD *)(i + 664) )
       {
-        if ( ((*(_QWORD *)(i + 592) ^ Handle) & 0xFFFFFFFFFFFFFFFCuLL) == 0 )
+        if ( ((Handle ^ *(_QWORD *)(i + 592)) & 0xFFFFFFFFFFFFFFFCuLL) == 0 )
         {
-          UserSetLastError(170LL);
-          ObfDereferenceObject(Object);
-          return 2147483665LL;
+          UserSetLastError(170LL, v7, v8);
+          v4 = -2147483631;
+          goto LABEL_11;
         }
       }
-      if ( Object == *(PVOID *)(v5 + 336) && ((*(_QWORD *)(v5 + 384) ^ Handle) & 0xFFFFFFFFFFFFFFFCuLL) == 0 )
+      if ( Object == *(PVOID *)(CurrentProcessWin32Process + 336)
+        && ((Handle ^ *(_QWORD *)(CurrentProcessWin32Process + 392)) & 0xFFFFFFFFFFFFFFFCuLL) == 0 )
       {
-        UnlockObjectAssignment(v5 + 336);
-        *(_QWORD *)(v5 + 384) = 0LL;
+        UnlockObjectAssignment(CurrentProcessWin32Process + 336);
+        *(_QWORD *)(CurrentProcessWin32Process + 392) = 0LL;
       }
     }
     SetHandleFlag(Handle, 0LL, 0LL);
-    v10 = CloseProtectedHandle((HANDLE)Handle, a2);
-    ObfDereferenceObject(v8);
-    if ( !gbIgnoreStressedOutStuff && v10 < 0 )
-    {
-      LODWORD(Object) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 5612LL);
-    }
-    return 0LL;
+    CloseProtectedHandle((HANDLE)Handle);
+LABEL_11:
+    ObfDereferenceObject(v10);
+    return v4;
   }
 }

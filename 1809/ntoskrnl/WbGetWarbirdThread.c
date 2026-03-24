@@ -13,8 +13,8 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     sub_140625200 @ 0x140625200 (sub_140625200.c)
  *     sub_140625298 @ 0x140625298 (sub_140625298.c)
- *     sub_14069176C @ 0x14069176C (sub_14069176C.c)
- *     sub_1406D0370 @ 0x1406D0370 (sub_1406D0370.c)
+ *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
+ *     sub_1406D0350 @ 0x1406D0350 (sub_1406D0350.c)
  */
 
 __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
@@ -62,7 +62,7 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v9 == -1073741198 )
   {
-    v9 = sub_1406D0370(a1, CurrentThread, &v19);
+    v9 = sub_1406D0350(a1, CurrentThread, &v19);
     if ( v9 < 0 )
     {
 LABEL_25:
@@ -78,7 +78,7 @@ LABEL_25:
     if ( v15 )
       *(_BYTE *)(v15 + 26) |= 1u;
     v16 = v19;
-    v9 = sub_14069176C((int)a1 + 88, (_DWORD)v19, v14, *v19, 8, -1);
+    v9 = sub_14069174C((int)a1 + 88, (_DWORD)v19, v14, *v19, 8, -1);
     if ( v9 >= 0 )
       _InterlockedIncrement64(v16 + 1);
     v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL);

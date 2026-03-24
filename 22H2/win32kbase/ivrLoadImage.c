@@ -1,202 +1,111 @@
 /*
- * XREFs of ivrLoadImage @ 0x1C01EEE84
+ * XREFs of ivrLoadImage @ 0x1C01BA908
  * Callers:
- *     InputInitialize @ 0x1C00814D4 (InputInitialize.c)
+ *     InputInitialize @ 0x1C008B0FC (InputInitialize.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1C00CE29C (wcsrchr.c)
- *     _strnicmp @ 0x1C00CE388 (_strnicmp.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1C00C56DC (wcsrchr.c)
+ *     _strnicmp @ 0x1C00C57CC (_strnicmp.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 struct _SYSTEM_GDI_DRIVER_INFORMATION *ivrLoadImage()
 {
   NTSTATUS v0; // eax
-  __int64 v1; // rdi
-  int v2; // r15d
-  wchar_t *v3; // rax
-  const WCHAR *v4; // rax
-  NTSTATUS v5; // eax
-  NSInstrumentation::CLeakTrackingAllocator *v6; // rbx
-  unsigned __int64 v7; // rsi
-  int v8; // eax
-  __int64 Pool2; // rsi
-  _QWORD *v10; // rax
-  __int64 v11; // r10
-  char v12; // r14
-  NTSTATUS v13; // eax
-  unsigned int v14; // ebx
-  __int64 v15; // r14
-  char *v16; // rbx
-  ULONG ReturnLength; // [rsp+28h] [rbp-E0h] BYREF
-  unsigned int v19; // [rsp+30h] [rbp-D8h] BYREF
-  ULONG Size[2]; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned __int64 v21; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v22; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int64 AnsiString; // [rsp+50h] [rbp-B8h] BYREF
-  struct _STRING AnsiString_8; // [rsp+58h] [rbp-B0h] BYREF
-  struct _UNICODE_STRING DestinationString_8; // [rsp+68h] [rbp-A0h] BYREF
-  struct _UNICODE_STRING SourceString_8; // [rsp+78h] [rbp-90h] BYREF
-  _QWORD v27[2]; // [rsp+88h] [rbp-80h] BYREF
-  PVOID BackTrace[20]; // [rsp+98h] [rbp-70h] BYREF
-  _BYTE SystemInformation[304]; // [rsp+138h] [rbp+30h] BYREF
+  int v1; // edi
+  wchar_t *v2; // rax
+  const WCHAR *v3; // rax
+  NTSTATUS v4; // eax
+  _DWORD *v5; // rax
+  _DWORD *v6; // rsi
+  NTSTATUS v7; // eax
+  unsigned int v8; // ebx
+  __int64 v9; // r14
+  char *v10; // rbx
+  __int64 AddressOfEntryPoint; // rcx
+  ULONG AnsiString; // [rsp+28h] [rbp-E0h] BYREF
+  ULONG AnsiString_4; // [rsp+2Ch] [rbp-DCh] BYREF
+  struct _STRING AnsiString_8; // [rsp+30h] [rbp-D8h] BYREF
+  struct _UNICODE_STRING DestinationString_8; // [rsp+40h] [rbp-C8h] BYREF
+  UNICODE_STRING SourceString_8; // [rsp+50h] [rbp-B8h] BYREF
+  _BYTE SystemInformation[304]; // [rsp+68h] [rbp-A0h] BYREF
 
   DestinationString_8 = 0LL;
-  qword_1C02975C8 = 0LL;
+  qword_1C0258638 = 0LL;
   gwin32knsImageInfo.DriverName = 0LL;
-  xmmword_1C02975A8 = 0LL;
-  xmmword_1C02975B8 = 0LL;
+  xmmword_1C0258618 = 0LL;
+  xmmword_1C0258628 = 0LL;
   RtlInitUnicodeString(&DestinationString_8, L"\\SystemRoot\\System32\\win32kns.sys");
   gwin32knsImageInfo.DriverName = DestinationString_8;
   v0 = ZwSetSystemInformation(SystemLoadGdiDriverInSystemSpaceInformation, &gwin32knsImageInfo, 0x38uLL);
-  v1 = 0LL;
+  v1 = 0;
   if ( v0 >= 0 )
     return &gwin32knsImageInfo;
   if ( v0 != -1073741554 )
     return 0LL;
   memset(SystemInformation, 0, sizeof(SystemInformation));
-  ReturnLength = 0;
-  v2 = 0;
+  AnsiString = 0;
   AnsiString_8 = 0LL;
   SourceString_8 = 0LL;
-  v3 = wcsrchr(L"\\SystemRoot\\System32\\win32kns.sys", 0x5Cu);
-  v4 = v3 ? v3 + 1 : L"\\SystemRoot\\System32\\win32kns.sys";
-  RtlInitUnicodeString(&SourceString_8, v4);
+  v2 = wcsrchr(L"\\SystemRoot\\System32\\win32kns.sys", 0x5Cu);
+  v3 = v2 ? v2 + 1 : L"\\SystemRoot\\System32\\win32kns.sys";
+  RtlInitUnicodeString(&SourceString_8, v3);
   if ( RtlUnicodeStringToAnsiString(&AnsiString_8, &SourceString_8, 1u) < 0 )
     return 0LL;
-  v5 = ZwQuerySystemInformation(SystemModuleInformation, SystemInformation, 0x130u, &ReturnLength);
-  if ( (int)(v5 + 0x80000000) >= 0 && v5 != -1073741820 )
-    goto LABEL_42;
-  while ( 1 )
+  v4 = ZwQuerySystemInformation(SystemModuleInformation, SystemInformation, 0x130u, &AnsiString);
+  if ( (int)(v4 + 0x80000000) < 0 || v4 == -1073741820 )
   {
-    v6 = gpLeakTrackingAllocator;
-    v7 = ReturnLength;
-    v19 = 1684825161;
-    v22 = 260LL;
-    v8 = *(_DWORD *)gpLeakTrackingAllocator;
-    AnsiString = ReturnLength;
-    if ( !v8 )
+    while ( 1 )
     {
-      Pool2 = ExAllocatePool2(260LL, ReturnLength, 1684825161LL);
-      if ( Pool2 )
-        _InterlockedIncrement64((volatile signed __int64 *)v6 + 14);
-LABEL_29:
-      if ( !Pool2 )
-        goto LABEL_42;
-      goto LABEL_32;
-    }
-    if ( v8 == 1 )
-    {
-      if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x646C6449u)
-        || v7 + 16 < v7 )
+      v5 = Win32AllocPoolZInit(AnsiString, 1684825161LL);
+      v6 = v5;
+      if ( !v5 )
+        break;
+      v7 = ZwQuerySystemInformation(SystemModuleInformation, v5, AnsiString, &AnsiString);
+      if ( v7 != -1073741820 )
       {
-        goto LABEL_42;
+        if ( v7 >= 0 )
+        {
+          v8 = 0;
+          if ( *v6 )
+          {
+            while ( 1 )
+            {
+              v9 = v8;
+              if ( !strnicmp(
+                      (const char *)&v6[74 * v8 + 12] + HIWORD(v6[74 * v8 + 11]),
+                      AnsiString_8.Buffer,
+                      AnsiString_8.Length) )
+                break;
+              if ( ++v8 >= *v6 )
+                goto LABEL_18;
+            }
+            AnsiString_4 = 0;
+            v10 = *(char **)&v6[74 * v8 + 6];
+            *((_QWORD *)&xmmword_1C0258628 + 1) = RtlImageDirectoryEntryToData(
+                                                    *(PVOID *)&v6[74 * v9 + 6],
+                                                    1u,
+                                                    0,
+                                                    &AnsiString_4);
+            AddressOfEntryPoint = RtlImageNtHeader(v10)->OptionalHeader.AddressOfEntryPoint;
+            *((_QWORD *)&xmmword_1C0258618 + 1) = 0LL;
+            *(_QWORD *)&xmmword_1C0258628 = &v10[AddressOfEntryPoint];
+            v1 = 1;
+            *(_QWORD *)&xmmword_1C0258618 = v10;
+          }
+        }
+LABEL_18:
+        Win32FreePool((__int64)v6);
+        break;
       }
-      v10 = (_QWORD *)ExAllocatePool2(v22 & 0xFFFFFFFFFFFFFFFDuLL, v7 + 16, v19);
-      Pool2 = (__int64)v10;
-      if ( !v10
-        || (_InterlockedIncrement64((volatile signed __int64 *)v6 + 14),
-            *v10 = 1684825161LL,
-            Pool2 = (__int64)(v10 + 2),
-            v10 == (_QWORD *)-16LL) )
-      {
-        NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-          *((NSInstrumentation::CPointerHashTable **)v6 + 1),
-          0x646C6449uLL);
-      }
-      goto LABEL_29;
-    }
-    if ( v8 != 2 )
-      goto LABEL_42;
-    v21 = 0LL;
-    if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 1684825161, &v21) )
-    {
-      v27[0] = &v22;
-      v27[1] = &v19;
-      Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                (__int64)v6,
-                (__int64)v27,
-                &AnsiString);
-      goto LABEL_29;
-    }
-    v12 = 0;
-    if ( v7 < 0x1000 || (v7 & 0xFFF) != 0 )
-    {
-      v7 += 16LL;
-      v12 = 1;
-      AnsiString = v7;
-    }
-    Pool2 = ExAllocatePool2(v11, v7, 1684825161LL);
-    if ( !Pool2 )
-      goto LABEL_42;
-    _InterlockedIncrement64((volatile signed __int64 *)v6 + 16);
-    NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-    if ( v12 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-    {
-      if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-              (__int64)v6,
-              (const void *)Pool2,
-              v21,
-              (struct NSInstrumentation::CBackTrace *)BackTrace) )
-        goto LABEL_41;
-      Pool2 += 16LL;
-      goto LABEL_29;
-    }
-    if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-            (__int64)v6,
-            Pool2,
-            v21,
-            (struct NSInstrumentation::CBackTrace *)BackTrace) )
-    {
-LABEL_41:
-      _InterlockedIncrement64((volatile signed __int64 *)v6 + 17);
-      _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      goto LABEL_42;
-    }
-LABEL_32:
-    v13 = ZwQuerySystemInformation(SystemModuleInformation, (PVOID)Pool2, ReturnLength, &ReturnLength);
-    if ( v13 != -1073741820 )
-      break;
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-  }
-  if ( v13 >= 0 )
-  {
-    v14 = 0;
-    if ( *(_DWORD *)Pool2 )
-    {
-      while ( 1 )
-      {
-        v15 = 296LL * v14;
-        if ( !strnicmp(
-                (const char *)(Pool2 + v15 + *(unsigned __int16 *)(v15 + Pool2 + 46) + 48LL),
-                AnsiString_8.Buffer,
-                AnsiString_8.Length) )
-          break;
-        if ( ++v14 >= *(_DWORD *)Pool2 )
-          goto LABEL_40;
-      }
-      v16 = *(char **)(v15 + Pool2 + 24);
-      Size[0] = 0;
-      *((_QWORD *)&xmmword_1C02975B8 + 1) = RtlImageDirectoryEntryToData(v16, 1u, 0, Size);
-      v2 = 1;
-      *(_QWORD *)&xmmword_1C02975B8 = &v16[RtlImageNtHeader(v16)->OptionalHeader.AddressOfEntryPoint];
-      xmmword_1C02975A8 = (unsigned __int64)v16;
+      Win32FreePool((__int64)v6);
     }
   }
-LABEL_40:
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-LABEL_42:
   RtlFreeAnsiString(&AnsiString_8);
-  if ( v2 == 1 )
+  if ( v1 == 1 )
     return &gwin32knsImageInfo;
-  return (struct _SYSTEM_GDI_DRIVER_INFORMATION *)v1;
+  else
+    return 0LL;
 }

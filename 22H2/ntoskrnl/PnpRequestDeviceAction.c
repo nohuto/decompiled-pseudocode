@@ -1,64 +1,62 @@
 /*
- * XREFs of PnpRequestDeviceAction @ 0x140358A44
+ * XREFs of PnpRequestDeviceAction @ 0x14036F614
  * Callers:
- *     IoInvalidateDeviceRelations @ 0x140358990 (IoInvalidateDeviceRelations.c)
- *     IopAttachDeviceToDeviceStackSafe @ 0x14035F2C4 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoInvalidateDeviceState @ 0x1403A7470 (IoInvalidateDeviceState.c)
- *     PnpInitializeProcessor @ 0x14055F828 (PnpInitializeProcessor.c)
- *     PiControlGetSetDeviceStatus @ 0x1406CBDD0 (PiControlGetSetDeviceStatus.c)
- *     PiProcessQueryDeviceState @ 0x14079379C (PiProcessQueryDeviceState.c)
- *     PpDevCfgProcessDevices @ 0x140813294 (PpDevCfgProcessDevices.c)
- *     PnpBootPhaseComplete @ 0x140813690 (PnpBootPhaseComplete.c)
- *     IopReleaseFilteredBootResources @ 0x140818824 (IopReleaseFilteredBootResources.c)
- *     IoReportRootDevice @ 0x140836DC0 (IoReportRootDevice.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1408446E0 (PiDevCfgProcessDeviceCallback.c)
- *     PiResetProblemDevicesWorker @ 0x14084AD20 (PiResetProblemDevicesWorker.c)
- *     IopDeleteDriver @ 0x14085ED30 (IopDeleteDriver.c)
- *     PipAttemptDependentStart @ 0x140861FA4 (PipAttemptDependentStart.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     IopReleaseDeviceResources @ 0x140869C4C (IopReleaseDeviceResources.c)
- *     PnpInvalidateRelationsInList @ 0x140881998 (PnpInvalidateRelationsInList.c)
- *     IoRequestDeviceRemovalForReset @ 0x1409572E0 (IoRequestDeviceRemovalForReset.c)
- *     PpSystemHiveLimitCallback @ 0x140958630 (PpSystemHiveLimitCallback.c)
- *     PipDmgRequestRestartOnBlockedDevice @ 0x14096B528 (PipDmgRequestRestartOnBlockedDevice.c)
- *     PipDmgRequestUpdateConsoleLockState @ 0x14096B800 (PipDmgRequestUpdateConsoleLockState.c)
- *     PiQueueDeviceRequest @ 0x14096DF98 (PiQueueDeviceRequest.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B3FE48 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeSystemDrivers @ 0x140B40180 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x14034C324 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoInvalidateDeviceRelations @ 0x14036F560 (IoInvalidateDeviceRelations.c)
+ *     IoInvalidateDeviceState @ 0x1403A4A40 (IoInvalidateDeviceState.c)
+ *     PnpInitializeProcessor @ 0x14050C298 (PnpInitializeProcessor.c)
+ *     PiControlGetSetDeviceStatus @ 0x1406B2710 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14072F6CC (PiQueueDeviceRequest.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpInvalidateRelationsInList @ 0x14074AF10 (PnpInvalidateRelationsInList.c)
+ *     IopReleaseDeviceResources @ 0x14074B5CC (IopReleaseDeviceResources.c)
+ *     IopReleaseFilteredBootResources @ 0x140752928 (IopReleaseFilteredBootResources.c)
+ *     PiResetProblemDevicesWorker @ 0x14076E940 (PiResetProblemDevicesWorker.c)
+ *     IopDeleteDriver @ 0x140771D30 (IopDeleteDriver.c)
+ *     PnpBootPhaseComplete @ 0x1407A3624 (PnpBootPhaseComplete.c)
+ *     PpDevCfgProcessDevices @ 0x1407A36EC (PpDevCfgProcessDevices.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BE4D0 (PiDevCfgProcessDeviceCallback.c)
+ *     IoReportRootDevice @ 0x1407C7D80 (IoReportRootDevice.c)
+ *     PipAttemptDependentStart @ 0x14089DB04 (PipAttemptDependentStart.c)
+ *     IopResourceRequirementsChanged @ 0x14089FA80 (IopResourceRequirementsChanged.c)
+ *     PpSystemHiveLimitCallback @ 0x1408A1A40 (PpSystemHiveLimitCallback.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x1408B15B8 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x14031E030 (PnpIsSafeToExamineUserModeTeb.c)
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     PnpLogActionQueueEvent @ 0x14035949C (PnpLogActionQueueEvent.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14035DF84 (PopDirectedDripsSetDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x14026EEB8 (PnpIsSafeToExamineUserModeTeb.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
+ *     PnpLogActionQueueEvent @ 0x14036FEE8 (PnpLogActionQueueEvent.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x140379FB4 (PopDirectedDripsSetDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRequestDeviceAction(
         PVOID Object,
-        unsigned int a2,
+        int a2,
         char a3,
-        _QWORD *a4,
+        __int64 a4,
         __int64 a5,
         __int64 a6,
-        __int64 *a7)
+        _QWORD *a7)
 {
-  __int64 Pool2; // rdi
+  char *PoolWithTag; // rdi
   char v12; // al
   struct _LIST_ENTRY *Flink; // rcx
   __int64 v14; // rcx
-  unsigned __int64 v15; // r12
-  unsigned __int64 v16; // r12
+  unsigned __int64 v15; // r13
+  unsigned __int64 v16; // r13
   __int64 v17; // r8
-  unsigned __int64 v18; // r12
-  __int64 *v19; // rax
+  unsigned __int64 v18; // r13
+  _QWORD *v19; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -80,37 +78,37 @@ __int64 __fastcall PnpRequestDeviceAction(
   struct _KPRCB *v39; // r10
   _DWORD *v40; // r9
   int v41; // edx
-  unsigned int v42; // [rsp+28h] [rbp-50h]
-  GUID v43; // [rsp+40h] [rbp-38h]
+  unsigned int v42; // [rsp+28h] [rbp-40h]
+  GUID v43; // [rsp+30h] [rbp-38h]
 
   v43 = NullGuid;
   if ( PnpShutdownEvent.Header.SignalState )
     return 3221225865LL;
-  Pool2 = ExAllocatePool2(64LL, 96LL, 846229072LL);
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x32706E50u);
+  if ( !PoolWithTag )
     return 3221225626LL;
   if ( !Object )
     Object = (PVOID)*((_QWORD *)IopRootDeviceNode + 4);
   ObfReferenceObjectWithTag(Object, 0x746C6644u);
-  *(_QWORD *)(Pool2 + 16) = Object;
-  *(_DWORD *)(Pool2 + 24) = a2;
-  *(_BYTE *)(Pool2 + 28) = a3;
-  if ( a4 )
-    *(_QWORD *)(Pool2 + 32) = *a4;
-  *(_QWORD *)(Pool2 + 40) = a5;
-  *(_QWORD *)(Pool2 + 48) = a6;
-  *(_DWORD *)(Pool2 + 72) = 1;
-  *(_BYTE *)(Pool2 + 76) = 0;
-  *(_BYTE *)(Pool2 + 88) = 0;
-  *(_QWORD *)(Pool2 + 80) = 0LL;
+  *((_QWORD *)PoolWithTag + 2) = Object;
+  *((_DWORD *)PoolWithTag + 6) = a2;
+  PoolWithTag[28] = a3;
+  *((_QWORD *)PoolWithTag + 4) = a4;
+  *((_QWORD *)PoolWithTag + 5) = a5;
+  *((_QWORD *)PoolWithTag + 6) = a6;
+  *((_DWORD *)PoolWithTag + 18) = 1;
+  PoolWithTag[76] = 0;
+  PoolWithTag[88] = 0;
+  *((_QWORD *)PoolWithTag + 10) = 0LL;
   if ( !a2 )
     goto LABEL_42;
-  if ( a2 != 6 && a2 != 9 && a2 != 10 && a2 != 14 )
+  if ( a2 != 6 )
   {
-    if ( a2 - 17 >= 2 )
+    if ( a2 <= 8 )
     {
+LABEL_8:
       v12 = 1;
-LABEL_14:
+LABEL_9:
       if ( v12 && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
       {
         Flink = KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink;
@@ -119,100 +117,114 @@ LABEL_14:
           v43 = (GUID)*Flink;
         }
         else if ( PnpIsSafeToExamineUserModeTeb()
-               && KeGetPcr()->NtTib.$5C14B8504E5BBEA9C78932444904D36F::$B3978927B1617B2B8454E8E478E76600::Self )
+               && KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self )
         {
-          v43 = *(GUID *)&KeGetPcr()->NtTib.$5C14B8504E5BBEA9C78932444904D36F::$B3978927B1617B2B8454E8E478E76600::Self[105].SubSystemTib;
+          v43 = *(GUID *)&KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self[105].SubSystemTib;
         }
       }
-      goto LABEL_18;
+      goto LABEL_13;
     }
+    if ( a2 > 10 && a2 != 14 )
+    {
+      if ( a2 <= 16 || a2 > 18 )
+        goto LABEL_8;
 LABEL_42:
-    v12 = 0;
-    goto LABEL_14;
+      v12 = 0;
+      goto LABEL_9;
+    }
   }
-LABEL_18:
-  *(GUID *)(Pool2 + 56) = v43;
+LABEL_13:
+  *(GUID *)(PoolWithTag + 56) = v43;
   if ( Object )
     v14 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
   else
     v14 = 0LL;
-  PnpLogActionQueueEvent(v14, a2, 0LL, 0LL);
-  v42 = *(_DWORD *)(Pool2 + 24);
-  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140C3F3E8);
-  if ( ++dword_140C3F3F0 == 1 )
+  PnpLogActionQueueEvent(v14, (unsigned int)a2, 0LL, 0LL);
+  v42 = *((_DWORD *)PoolWithTag + 6);
+  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140C24EC8);
+  if ( ++dword_140C24ED0 == 1 )
     PopDirectedDripsSetDisengageReason(4LL);
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F3E8);
+  KxReleaseSpinLock(&qword_140C24EC8);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
-      v25 = (v24 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v24;
-      if ( v25 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+        v25 = (v24 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v24;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v15);
-  v16 = KeAcquireSpinLockRaiseToDpc(&qword_140C38EF0);
+  v16 = KeAcquireSpinLockRaiseToDpc(&qword_140C1E9F0);
   v17 = MEMORY[0xFFFFF78000000008];
-  ++dword_140C38EF8;
+  ++dword_140C1E9F8;
   ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v42 + 16);
-  if ( byte_140C38F70 )
+  if ( byte_140C1EA68 )
   {
-    ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v42 + 108);
-    if ( dword_140C38EF8 == 1 )
-      qword_140C38F80 = v17;
+    ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v42 + 102);
+    if ( dword_140C1E9F8 == 1 )
+      qword_140C1EA78 = v17;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
+  KxReleaseSpinLock(&qword_140C1E9F0);
   if ( KiIrqlFlags )
   {
-    v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v27 = KeGetCurrentPrcb();
-      v28 = v27->SchedulerAssist;
-      v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-      v25 = (v29 & v28[5]) == 0;
-      v28[5] &= v29;
-      if ( v25 )
-        KiRemoveSystemWorkPriorityKick(v27);
+      v26 = KeGetCurrentIrql();
+      if ( v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
+      {
+        v27 = KeGetCurrentPrcb();
+        v28 = v27->SchedulerAssist;
+        v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+        v25 = (v29 & v28[5]) == 0;
+        v28[5] &= v29;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(v27);
+      }
     }
   }
   __writecr8(v16);
   v18 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
-  v19 = (__int64 *)qword_140C5B4A8;
-  if ( *(__int64 **)qword_140C5B4A8 != &PnpEnumerationRequestList )
+  v19 = (_QWORD *)qword_140C435C8;
+  if ( *(__int64 **)qword_140C435C8 != &PnpEnumerationRequestList )
     __fastfail(3u);
-  *(_QWORD *)Pool2 = &PnpEnumerationRequestList;
-  *(_QWORD *)(Pool2 + 8) = v19;
-  *v19 = Pool2;
-  qword_140C5B4A8 = Pool2;
+  *(_QWORD *)PoolWithTag = &PnpEnumerationRequestList;
+  *((_QWORD *)PoolWithTag + 1) = v19;
+  *v19 = PoolWithTag;
+  qword_140C435C8 = (__int64)PoolWithTag;
   if ( a7 )
   {
-    ++*(_DWORD *)(Pool2 + 72);
-    *a7 = Pool2;
+    ++*((_DWORD *)PoolWithTag + 18);
+    *a7 = PoolWithTag;
   }
   if ( a2 == 7 || a2 == 10 )
   {
     PnpEnumerationInProgress = 1;
     KeResetEvent(&PnpEnumerationLock);
-    KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+    KxReleaseSpinLock(&PnpSpinLock);
     if ( KiIrqlFlags )
     {
-      v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v38 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v39 = KeGetCurrentPrcb();
-        v40 = v39->SchedulerAssist;
-        v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-        v25 = (v41 & v40[5]) == 0;
-        v40[5] &= v41;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v39);
+        v38 = KeGetCurrentIrql();
+        if ( v38 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v38 >= 2u )
+        {
+          v39 = KeGetCurrentPrcb();
+          v40 = v39->SchedulerAssist;
+          v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
+          v25 = (v41 & v40[5]) == 0;
+          v40[5] &= v41;
+          if ( v25 )
+            KiRemoveSystemWorkPriorityKick(v39);
+        }
       }
     }
     __writecr8(v18);
@@ -220,19 +232,22 @@ LABEL_18:
   }
   else if ( PnpEnumerationInProgress || !PnPBootDriversLoaded )
   {
-    KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+    KxReleaseSpinLock(&PnpSpinLock);
     if ( KiIrqlFlags )
     {
-      v34 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v34 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v35 = KeGetCurrentPrcb();
-        v36 = v35->SchedulerAssist;
-        v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-        v25 = (v37 & v36[5]) == 0;
-        v36[5] &= v37;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v35);
+        v34 = KeGetCurrentIrql();
+        if ( v34 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v34 >= 2u )
+        {
+          v35 = KeGetCurrentPrcb();
+          v36 = v35->SchedulerAssist;
+          v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
+          v25 = (v37 & v36[5]) == 0;
+          v36[5] &= v37;
+          if ( v25 )
+            KiRemoveSystemWorkPriorityKick(v35);
+        }
       }
     }
     __writecr8(v18);
@@ -241,19 +256,22 @@ LABEL_18:
   {
     PnpEnumerationInProgress = 1;
     KeResetEvent(&PnpEnumerationLock);
-    KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+    KxReleaseSpinLock(&PnpSpinLock);
     if ( KiIrqlFlags )
     {
-      v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v30 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v31 = KeGetCurrentPrcb();
-        v32 = v31->SchedulerAssist;
-        v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-        v25 = (v33 & v32[5]) == 0;
-        v32[5] &= v33;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v31);
+        v30 = KeGetCurrentIrql();
+        if ( v30 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v30 >= 2u )
+        {
+          v31 = KeGetCurrentPrcb();
+          v32 = v31->SchedulerAssist;
+          v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
+          v25 = (v33 & v32[5]) == 0;
+          v32[5] &= v33;
+          if ( v25 )
+            KiRemoveSystemWorkPriorityKick(v31);
+        }
       }
     }
     __writecr8(v18);

@@ -1,16 +1,16 @@
 /*
- * XREFs of KeQueryKvaShadowRegion @ 0x1403CF778
+ * XREFs of KeQueryKvaShadowRegion @ 0x140300E50
  * Callers:
- *     MiCheckRelevantKernelShadows @ 0x1403CF708 (MiCheckRelevantKernelShadows.c)
+ *     MiCheckRelevantKernelShadows @ 0x140300DE0 (MiCheckRelevantKernelShadows.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402F7190 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x140301830 (RtlSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, unsigned __int64 *a3)
 {
   __int64 v5; // rcx
-  unsigned __int64 v6; // rax
+  __int64 v6; // rax
   _DWORD *v7; // rax
   unsigned int v8; // ecx
   unsigned int v9; // eax
@@ -37,7 +37,7 @@ __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, uns
     v6 = RtlImageNtHeader(0x140000000LL);
     v7 = (_DWORD *)RtlSectionTableFromVirtualAddress(
                      v6,
-                     0x140000000LL,
+                     0x140000000uLL,
                      (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
     *a2 = (unsigned __int64 *)(0x140000000LL + (unsigned int)v7[3]);
     v8 = v7[2];

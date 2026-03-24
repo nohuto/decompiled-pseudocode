@@ -1,16 +1,17 @@
 /*
- * XREFs of ?HrFindInterface@CColorKeyBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B6E50
+ * XREFs of ?HrFindInterface@CColorKeyBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180267AC0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C500 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CColorKeyBitmap::HrFindInterface(CColorKeyBitmap *this, const struct _GUID *a2, void **a3)
 {
-  void *v3; // rbx
-  unsigned int v6; // edi
+  char *v3; // rbx
+  unsigned int v6; // esi
   __int64 v7; // rax
   __int64 v8; // rax
   __int64 v9; // rdx
@@ -31,18 +32,18 @@ __int64 __fastcall CColorKeyBitmap::HrFindInterface(CColorKeyBitmap *this, const
         v8 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8.Data4;
       if ( v8 )
       {
-        return (unsigned int)-2147467262;
+        return (unsigned int)CMILCOMBase::HrFindInterface(this, a2, a3);
       }
       else
       {
-        v9 = *((_QWORD *)this + 4);
+        v9 = *((_QWORD *)this + 5);
         v12 = 0LL;
         if ( v9
           && (v10 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(v9 + 8 + *(int *)(*(_QWORD *)(v9 + 8) + 4LL)),
               (**v10)(v10, &GUID_040bd03f_cd21_4ba9_8975_23925ae81cd8, &v12) >= 0) )
         {
           v6 = 0;
-          v3 = (void *)(((unsigned __int64)this + 24) & -(__int64)(this != 0LL));
+          v3 = (char *)this + 32;
         }
         else
         {
@@ -54,8 +55,8 @@ __int64 __fastcall CColorKeyBitmap::HrFindInterface(CColorKeyBitmap *this, const
     }
     else
     {
-      *a3 = this;
-      return 0;
+      v6 = 0;
+      *a3 = (void *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
     }
   }
   return v6;

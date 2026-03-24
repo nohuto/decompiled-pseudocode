@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetNextPartitionUnsafe @ 0x14012015C
+ * XREFs of PsGetNextPartitionUnsafe @ 0x14012017C
  * Callers:
- *     PsGetNextPartition @ 0x14011FFC8 (PsGetNextPartition.c)
- *     CcForEachPartition @ 0x140120060 (CcForEachPartition.c)
- *     CcUnmapInactiveViews @ 0x14026A860 (CcUnmapInactiveViews.c)
- *     ExSwapinWorkerThreads @ 0x1406E033C (ExSwapinWorkerThreads.c)
+ *     PsGetNextPartition @ 0x14011FFE8 (PsGetNextPartition.c)
+ *     CcForEachPartition @ 0x140120080 (CcForEachPartition.c)
+ *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
+ *     ExSwapinWorkerThreads @ 0x1406E031C (ExSwapinWorkerThreads.c)
  * Callees:
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _UNKNOWN **__fastcall PsGetNextPartitionUnsafe(_QWORD *Object)

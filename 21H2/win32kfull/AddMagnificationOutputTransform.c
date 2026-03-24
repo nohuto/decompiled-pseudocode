@@ -1,12 +1,12 @@
 /*
- * XREFs of AddMagnificationOutputTransform @ 0x1C00FB810
+ * XREFs of AddMagnificationOutputTransform @ 0x1C010FE20
  * Callers:
  *     <none>
  * Callees:
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     AcquireMagInputLock @ 0x1C00FB868 (AcquireMagInputLock.c)
- *     MagInputTransform @ 0x1C0212718 (MagInputTransform.c)
- *     MagnificationInverseTransformPoint @ 0x1C0212738 (MagnificationInverseTransformPoint.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     AcquireMagInputLock @ 0x1C010FE78 (AcquireMagInputLock.c)
+ *     MagInputTransform @ 0x1C0213F48 (MagInputTransform.c)
+ *     MagnificationInverseTransformPoint @ 0x1C0213F68 (MagnificationInverseTransformPoint.c)
  */
 
 __int64 __fastcall AddMagnificationOutputTransform(unsigned __int64 *a1)

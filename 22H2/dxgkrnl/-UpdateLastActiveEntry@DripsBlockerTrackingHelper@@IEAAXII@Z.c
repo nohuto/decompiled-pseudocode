@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UpdateLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C0307918
+ * XREFs of ?UpdateLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02C4154
  * Callers:
- *     ?RemoveProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0307750 (-RemoveProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TY.c)
+ *     ?RemoveProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C02C3F5C (-RemoveProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TY.c)
  * Callees:
  *     <none>
  */

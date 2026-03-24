@@ -1,72 +1,66 @@
 /*
- * XREFs of ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C008895C
+ * XREFs of ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E5DB4
  * Callers:
- *     InitFNTCache @ 0x1C00880A0 (InitFNTCache.c)
- *     bInitCacheTable @ 0x1C028A078 (bInitCacheTable.c)
- *     bReAllocCacheFile @ 0x1C028A268 (bReAllocCacheFile.c)
+ *     InitFNTCache @ 0x1C00E53A0 (InitFNTCache.c)
+ *     bInitCacheTable @ 0x1C028881C (bInitCacheTable.c)
+ *     bReAllocCacheFile @ 0x1C0288998 (bReAllocCacheFile.c)
  * Callees:
- *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C0078E78 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
- *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C0079744 (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C00A84B0 (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A85CC (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void *__fastcall bMapFileRetainHandle(const unsigned __int16 *a1, struct _FILEVIEW *a2, int a3, int *a4)
 {
-  Gre::Base *v6; // rcx
-  void *v7; // rsi
-  unsigned int v8; // ebx
+  void *v6; // rsi
+  unsigned int v7; // ebx
   void *result; // rax
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  PVOID MappedBase[2]; // [rsp+30h] [rbp-50h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-40h]
-  PVOID Section[2]; // [rsp+50h] [rbp-30h]
-  __int128 v17; // [rsp+60h] [rbp-20h]
-  __int128 v18; // [rsp+70h] [rbp-10h]
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  __int128 v11; // xmm1
+  __int128 v12; // xmm0
+  PVOID MappedBase[10]; // [rsp+30h] [rbp-50h] BYREF
   ULONG_PTR ViewSize; // [rsp+B8h] [rbp+38h] BYREF
 
   ViewSize = (ULONG_PTR)a4;
-  memset_0(MappedBase, 0, 0x50uLL);
-  Gre::Base::Globals(v6);
-  v7 = (void *)*((_QWORD *)a2 + 6);
-  v8 = 0;
-  if ( v7 || (result = hGetHandleFromFilePath(L"\\SystemRoot\\system32\\FNTCACHE.DAT", a3 != 0), (v7 = result) != 0LL) )
+  memset(MappedBase, 0, sizeof(MappedBase));
+  v6 = (void *)*((_QWORD *)a2 + 6);
+  v7 = 0;
+  if ( v6 || (result = hGetHandleFromFilePath(L"\\SystemRoot\\system32\\FNTCACHE.DAT", a3 != 0), (v6 = result) != 0LL) )
   {
     if ( (unsigned int)bCreateSectionFromHandle(
-                         v7,
-                         L"\\SystemRoot\\system32\\FNTCACHE.DAT",
+                         v6,
+                         (WCHAR *)L"\\SystemRoot\\system32\\FNTCACHE.DAT",
                          (struct _FILEVIEW *)MappedBase,
                          a3,
                          0LL,
                          0) )
     {
       ViewSize = 0LL;
-      if ( MmMapViewInSessionSpace(Section[0], &MappedBase[1], &ViewSize) < 0 )
+      if ( MmMapViewInSessionSpace(MappedBase[4], &MappedBase[1], &ViewSize) < 0 )
       {
         vUnreferenceFileviewSection((struct _FILEVIEW *)MappedBase);
       }
       else
       {
-        v8 = 1;
-        v10 = v15;
+        v7 = 1;
+        v9 = *(_OWORD *)&MappedBase[2];
         *(_OWORD *)a2 = *(_OWORD *)MappedBase;
-        v11 = *(_OWORD *)Section;
-        *((_OWORD *)a2 + 1) = v10;
-        v12 = v17;
-        *((_OWORD *)a2 + 2) = v11;
-        v13 = v18;
-        *((_OWORD *)a2 + 3) = v12;
-        *((_OWORD *)a2 + 4) = v13;
+        v10 = *(_OWORD *)&MappedBase[4];
+        *((_OWORD *)a2 + 1) = v9;
+        v11 = *(_OWORD *)&MappedBase[6];
+        *((_OWORD *)a2 + 2) = v10;
+        v12 = *(_OWORD *)&MappedBase[8];
+        *((_OWORD *)a2 + 3) = v11;
+        *((_OWORD *)a2 + 4) = v12;
       }
     }
     else if ( !*((_QWORD *)a2 + 6) )
     {
-      ZwClose(v7);
+      ZwClose(v6);
     }
-    return (void *)v8;
+    return (void *)v7;
   }
   return result;
 }

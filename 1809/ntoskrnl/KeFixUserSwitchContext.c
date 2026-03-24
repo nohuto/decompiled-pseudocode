@@ -1,11 +1,11 @@
 /*
- * XREFs of KeFixUserSwitchContext @ 0x140846A28
+ * XREFs of KeFixUserSwitchContext @ 0x140846A08
  * Callers:
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDF0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
- *     KeCopyContextFromUmsContext @ 0x140846444 (KeCopyContextFromUmsContext.c)
- *     KiRestoreUchFromUmsContext @ 0x140847020 (KiRestoreUchFromUmsContext.c)
+ *     KeCopyContextFromUmsContext @ 0x140846424 (KeCopyContextFromUmsContext.c)
+ *     KiRestoreUchFromUmsContext @ 0x140847000 (KiRestoreUchFromUmsContext.c)
  */
 
 _UNKNOWN **__fastcall KeFixUserSwitchContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

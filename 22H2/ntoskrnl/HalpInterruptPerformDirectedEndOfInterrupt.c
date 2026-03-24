@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x140506828
+ * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404BDA78
  * Callers:
- *     HalPerformEndOfInterrupt @ 0x140331670 (HalPerformEndOfInterrupt.c)
+ *     HalPerformEndOfInterrupt @ 0x1402EED70 (HalPerformEndOfInterrupt.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x14031FD7C (HalpInterruptFindLinesForGsiRange.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378A18 (HalpInterruptFindLinesForGsiRange.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpInterruptPerformDirectedEndOfInterrupt(__int64 a1)
@@ -27,7 +27,7 @@ void __fastcall HalpInterruptPerformDirectedEndOfInterrupt(__int64 a1)
           if ( LinesForGsiRange )
           {
             v3 = HalpInterruptLookupController(LinesForGsiRange[4]);
-            if ( (*((_DWORD *)v3 + 61) & 0x400) != 0 )
+            if ( (*((_DWORD *)v3 + 55) & 0x400) != 0 )
               ((void (__fastcall *)(ULONG_PTR, _QWORD, _QWORD))v3[25])(v3[2], (unsigned int)v1[3], v1[12] & 0x3FFFFFFF);
           }
         }

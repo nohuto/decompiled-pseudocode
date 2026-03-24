@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DisablingEndpointsOnDetachWithSpecialFile @ 0x1C001D270
+ * XREFs of HUBDSM_DisablingEndpointsOnDetachWithSpecialFile @ 0x1C001CD30
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C0025D54 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
+ *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00258C8 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingEndpointsOnDetachWithSpecialFile(__int64 a1)

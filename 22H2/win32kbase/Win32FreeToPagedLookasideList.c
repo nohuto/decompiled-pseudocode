@@ -1,47 +1,32 @@
 /*
- * XREFs of Win32FreeToPagedLookasideList @ 0x1C0047F20
+ * XREFs of Win32FreeToPagedLookasideList @ 0x1C002CF10
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C007CD3C (-Win32kNtUserCleanupInternal@@YAXXZ.c)
+ *     UnlockQueue @ 0x1C00C77C0 (UnlockQueue.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ @ 0x1C011C654 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAXXZ.c)
+ *     NullifyLookasideRef @ 0x1C011CA14 (NullifyLookasideRef.c)
+ *     UserDeleteW32Thread @ 0x1C011CB00 (UserDeleteW32Thread.c)
+ *     zzzDestroyQueue @ 0x1C011D730 (zzzDestroyQueue.c)
+ *     ?Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ @ 0x1C01286E4 (-Cleanup@ThreadLockedPerfRegion@InputTraceLogging@@AEAAXXZ.c)
  * Callees:
- *     ?PlatformFreeToPagedLookasideList@NSInstrumentation@@YAXPEAX0@Z @ 0x1C0096E20 (-PlatformFreeToPagedLookasideList@NSInstrumentation@@YAXPEAX0@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C016F734 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
- *     ?Remove@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAA_NQEBVCBackTraceStorageUnit@2@@Z @ 0x1C01700DC (-Remove@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall Win32FreeToPagedLookasideList(unsigned int *a1, char *a2, void *a3)
+__int64 (*__fastcall Win32FreeToPagedLookasideList(__int64 a1, __int64 a2))(void)
 {
-  char *v3; // rsi
-  NSInstrumentation::CLeakTrackingAllocator *v4; // rdi
-  char *v6; // rdx
-  NSInstrumentation::CPointerHashTable *v7; // rcx
-  void *v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 (*result)(void); // rax
 
-  v3 = a2;
-  v4 = gpLeakTrackingAllocator;
-  if ( !*((_BYTE *)a1 + 5) )
+  result = qword_1C0256D60;
+  if ( qword_1C0256D60 )
   {
-    if ( (*(_DWORD *)gpLeakTrackingAllocator & 0xFFFFFFFD) != 0 )
+    result = (__int64 (*)(void))qword_1C0256D60();
+    if ( (int)result >= 0 )
     {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)gpLeakTrackingAllocator + 1),
-        (const void *)*a1);
-      v3 -= 16;
+      result = (__int64 (*)(void))qword_1C0256D68;
+      if ( qword_1C0256D68 )
+        return (__int64 (*)(void))qword_1C0256D68(a1, a2);
     }
-    _InterlockedIncrement64((volatile signed __int64 *)v4 + 15);
-    v6 = v3;
-    goto LABEL_5;
   }
-  v7 = (NSInstrumentation::CPointerHashTable *)*((_QWORD *)gpLeakTrackingAllocator + 11);
-  v8 = 0LL;
-  if ( NSInstrumentation::CPointerHashTable::Remove(v7, a2 - 16, &v8) )
-  {
-    NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Remove(
-      *((NSInstrumentation::CPrioritizedWriterLock **)v4 + 13),
-      (struct NSInstrumentation::CBackTraceStorageUnit *)((unsigned __int64)v8 & 0xFFFFFFFFFFFFFFF8uLL));
-    _InterlockedIncrement64((volatile signed __int64 *)v4 + 17);
-    v6 = v3 - 16;
-LABEL_5:
-    NSInstrumentation::PlatformFreeToPagedLookasideList((NSInstrumentation *)(a1 + 4), v6, a3);
-  }
+  return result;
 }

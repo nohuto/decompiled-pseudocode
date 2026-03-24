@@ -1,21 +1,20 @@
 /*
- * XREFs of EtwTraceTimedEvent @ 0x140338BB0
+ * XREFs of EtwTraceTimedEvent @ 0x14030654C
  * Callers:
- *     KiExpireTimer2 @ 0x140251960 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x14031D998 (KeDisableTimer2.c)
- *     KiFinalizeTimer2Disablement @ 0x14031DED4 (KiFinalizeTimer2Disablement.c)
- *     PerfInfoLogInterrupt @ 0x140338B30 (PerfInfoLogInterrupt.c)
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     HvlSendSyntheticClusterIpi @ 0x1403CBC40 (HvlSendSyntheticClusterIpi.c)
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     EtwpTraceFltTimedIo @ 0x140467AD0 (EtwpTraceFltTimedIo.c)
- *     PerfInfoLogInterruptHv @ 0x140467CE0 (PerfInfoLogInterruptHv.c)
- *     IopTimerDispatch @ 0x140555D40 (IopTimerDispatch.c)
- *     EtwTraceCpuCacheFlush @ 0x1405FC95C (EtwTraceCpuCacheFlush.c)
- *     PerfInfoLogIpiReceive @ 0x1405FEAE0 (PerfInfoLogIpiReceive.c)
+ *     KiProcessExpiredTimerList @ 0x140247410 (KiProcessExpiredTimerList.c)
+ *     KiExpireTimer2 @ 0x14024AF30 (KiExpireTimer2.c)
+ *     KeDisableTimer2 @ 0x140348C40 (KeDisableTimer2.c)
+ *     KiFinalizeTimer2Disablement @ 0x140348F6C (KiFinalizeTimer2Disablement.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     IopTimerDispatch @ 0x140500DB0 (IopTimerDispatch.c)
+ *     EtwTraceCpuCacheFlush @ 0x1405A7504 (EtwTraceCpuCacheFlush.c)
+ *     EtwpTraceFltTimedIo @ 0x1405A9930 (EtwpTraceFltTimedIo.c)
+ *     PerfInfoLogInterruptHv @ 0x1405AA080 (PerfInfoLogInterruptHv.c)
+ *     PerfInfoLogIpiReceive @ 0x1405AA0D0 (PerfInfoLogIpiReceive.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceTimedEvent(
@@ -26,35 +25,39 @@ void __fastcall EtwTraceTimedEvent(
         unsigned int a5,
         __int64 a6)
 {
-  unsigned __int64 v7; // rdi
-  unsigned int v8; // ebx
-  bool v9; // zf
+  unsigned int v7; // ebx
+  bool v8; // zf
+  unsigned __int64 i; // rbp
   __int64 v10; // rcx
   __int64 v11; // rax
-  _QWORD v12[3]; // [rsp+38h] [rbp-40h] BYREF
-  int v13; // [rsp+50h] [rbp-28h]
-  int i; // [rsp+54h] [rbp-24h]
+  __int64 v12; // [rsp+38h] [rbp-40h] BYREF
+  int v13; // [rsp+40h] [rbp-38h]
+  int v14; // [rsp+44h] [rbp-34h]
+  __int64 v15; // [rsp+48h] [rbp-30h]
+  int v16; // [rsp+50h] [rbp-28h]
+  int v17; // [rsp+54h] [rbp-24h]
 
-  v12[2] = a3;
-  v7 = a2;
-  v13 = a4;
-  v8 = *(_DWORD *)(EtwpHostSiloState + 4248);
-  v9 = !_BitScanForward((unsigned int *)&a3, v8);
-  for ( i = 0; !v9; v9 = !_BitScanForward((unsigned int *)&a3, v8) )
+  v15 = a3;
+  v16 = a4;
+  v17 = 0;
+  v7 = *(_DWORD *)(EtwpHostSiloState + 4224);
+  v8 = !_BitScanForward((unsigned int *)&a3, v7);
+  for ( i = a2; !v8; v8 = !_BitScanForward((unsigned int *)&a3, v7) )
   {
-    v8 &= v8 - 1;
-    v10 = 32LL * (unsigned int)a3 + EtwpHostSiloState + 4284;
+    v7 &= v7 - 1;
+    v10 = 32 * a3 + EtwpHostSiloState + 4260;
     if ( v10 )
     {
-      if ( ((unsigned int)v7 & *(_DWORD *)(v10 + 4 * (v7 >> 29)) & 0x1FFFFFFF) != 0 )
+      if ( ((unsigned int)i & *(_DWORD *)(v10 + 4 * (i >> 29)) & 0x1FFFFFFF) != 0 )
       {
-        v11 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * a3 + 4233) - 1LL;
-        v12[1] = 8LL;
-        v12[0] = a6 + 8 * v11;
+        v11 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * a3 + 4209);
+        v14 = 0;
+        v13 = 8;
+        v12 = a6 + 8 * (v11 - 1);
         EtwpLogKernelEvent(
-          (__int64)v12,
+          (__int64)&v12,
           EtwpHostSiloState,
-          *(unsigned __int8 *)(EtwpHostSiloState + 2 * a3 + 4232),
+          *(unsigned __int8 *)(EtwpHostSiloState + 2 * a3 + 4208),
           2u,
           a1,
           a5);

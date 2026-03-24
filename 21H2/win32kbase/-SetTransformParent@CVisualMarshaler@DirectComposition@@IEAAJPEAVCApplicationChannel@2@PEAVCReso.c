@@ -1,14 +1,13 @@
 /*
- * XREFs of ?SetTransformParent@CVisualMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCResourceMarshaler@2@_NPEA_N@Z @ 0x1C00848A8
+ * XREFs of ?SetTransformParent@CVisualMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCResourceMarshaler@2@_NPEA_N@Z @ 0x1C005A0B8
  * Callers:
- *     ?SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00845C0 (-SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCR.c)
+ *     ?SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0059DF0 (-SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCR.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C001520C (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
- *     ?SetResourceReferenceProperty@CApplicationChannel@DirectComposition@@QEAAJPEAVCResourceMarshaler@2@I0@Z @ 0x1C0085DB8 (-SetResourceReferenceProperty@CApplicationChannel@DirectComposition@@QEAAJPEAVCResourceMarshaler.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?Release@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD46C (-Release@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?SetResourceReferenceProperty@CApplicationChannel@DirectComposition@@QEAAJPEAVCResourceMarshaler@2@I0@Z @ 0x1C0026084 (-SetResourceReferenceProperty@CApplicationChannel@DirectComposition@@QEAAJPEAVCResourceMarshaler.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CVisualMarshaler::SetTransformParent(
@@ -18,94 +17,90 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::SetTransformParent(
         char a4,
         bool *a5)
 {
-  bool *v5; // r15
-  unsigned int v6; // ebx
-  unsigned __int8 v11; // cl
-  char v13; // r12
+  bool *v5; // r14
+  int v6; // ebx
+  char v11; // cl
+  char v13; // r15
   struct DirectComposition::CResourceMarshaler *v14; // rcx
   DirectComposition::CResourceMarshaler *v15; // rbx
-  int v16; // eax
-  struct DirectComposition::CResourceMarshaler *v17; // rdx
-  int v18; // eax
-  struct DirectComposition::CResourceMarshaler *v19; // [rsp+50h] [rbp+8h] BYREF
+  struct DirectComposition::CResourceMarshaler *v16; // rdx
+  int v17; // eax
+  struct DirectComposition::CResourceMarshaler *v18; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = a5;
   v6 = 0;
-  if ( a3 != this[19] )
+  if ( a3 != this[18] )
   {
     if ( !a3
       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a3 + 96LL))(
            a3,
-           199LL) )
+           198LL) )
     {
-      DirectComposition::CApplicationChannel::ReleaseResource(a2, this[19]);
-      this[19] = a3;
+      DirectComposition::CApplicationChannel::ReleaseResource(a2, this[18]);
+      this[18] = a3;
       if ( a3 )
         DirectComposition::CResourceMarshaler::AddRef(a3);
-      goto LABEL_20;
+      goto LABEL_22;
     }
-    v19 = 0LL;
+    v18 = 0LL;
     v13 = 0;
-    v14 = this[19];
+    v14 = this[18];
     if ( !v14 )
-      goto LABEL_21;
+      goto LABEL_18;
     if ( (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v14 + 96LL))(
            v14,
-           200LL) )
+           199LL) )
     {
-      v15 = this[19];
+      v15 = this[18];
       DirectComposition::CResourceMarshaler::AddRef(v15);
-      v16 = DirectComposition::CResourceMarshaler::Release(v15);
-      v17 = v19;
-      if ( v16 == 1 )
-        v17 = v15;
-      v19 = v17;
+      --*((_DWORD *)v15 + 5);
+      v16 = v18;
+      if ( *((_DWORD *)v15 + 5) == 1 )
+        v16 = v15;
+      v18 = v16;
     }
     else
     {
-      v17 = v19;
+      v16 = v18;
     }
-    if ( !v17 )
+    if ( !v16 )
     {
-LABEL_21:
+LABEL_18:
       v13 = 1;
-      v6 = DirectComposition::CApplicationChannel::CreateInternalResource(a2, (DirectComposition *)0xC8, &v19);
-      if ( (v6 & 0x80000000) != 0 )
-        goto LABEL_26;
-      v17 = v19;
+      v6 = DirectComposition::CApplicationChannel::CreateInternalResource(a2, 0xC7u, &v18);
+      if ( v6 < 0 )
+        goto LABEL_24;
+      v16 = v18;
     }
-    v18 = DirectComposition::CApplicationChannel::SetResourceReferenceProperty(a2, v17, 0, a3);
-    v6 = v18;
+    v17 = DirectComposition::CApplicationChannel::SetResourceReferenceProperty(a2, v16, 0LL, a3);
+    v6 = v17;
     if ( !v13 )
+      goto LABEL_13;
+    if ( v17 >= 0 )
     {
-      if ( v18 < 0 )
-        return v6;
-      goto LABEL_2;
-    }
-    if ( v18 >= 0 )
-    {
-      DirectComposition::CApplicationChannel::ReleaseResource(a2, this[19]);
-      this[19] = v19;
-LABEL_20:
+      DirectComposition::CApplicationChannel::ReleaseResource(a2, this[18]);
+      this[18] = v18;
+LABEL_22:
       *((_DWORD *)this + 4) |= 0x200u;
       *v5 = 1;
-      goto LABEL_2;
+      goto LABEL_13;
     }
-LABEL_26:
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, v19);
-    return v6;
+LABEL_24:
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, v18);
+LABEL_13:
+    if ( v6 < 0 )
+      return (unsigned int)v6;
   }
-LABEL_2:
-  v11 = *((_BYTE *)this + 320);
-  if ( v11 >> 7 != a4 )
+  v11 = *((_BYTE *)this + 289);
+  if ( (v11 & 1) != a4 )
   {
-    if ( this[19] )
+    if ( this[18] )
     {
       *((_DWORD *)this + 4) |= 0x200u;
       *v5 = 1;
-      v11 = *((_BYTE *)this + 320);
+      v11 = *((_BYTE *)this + 289);
     }
-    *((_BYTE *)this + 320) = (a4 << 7) | v11 & 0x7F;
+    *((_BYTE *)this + 289) = a4 | v11 & 0xFE;
   }
-  return v6;
+  return (unsigned int)v6;
 }

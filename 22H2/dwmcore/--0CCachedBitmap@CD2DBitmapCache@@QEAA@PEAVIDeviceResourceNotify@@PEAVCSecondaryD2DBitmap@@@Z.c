@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CCachedBitmap@CD2DBitmapCache@@QEAA@PEAVIDeviceResourceNotify@@PEAVCSecondaryD2DBitmap@@@Z @ 0x1800ED8F8
+ * XREFs of ??0CCachedBitmap@CD2DBitmapCache@@QEAA@PEAVIDeviceResourceNotify@@PEAVCSecondaryD2DBitmap@@@Z @ 0x18003B268
  * Callers:
- *     ?CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x1800ED6AC (-CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z.c)
+ *     ?CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x18003AECC (-CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@?$vector@PEAVIDeviceResourceNotify@@V?$allocator@PEAVIDeviceResourceNotify@@@std@@@std@@QEAAPEAPEAVIDeviceResourceNotify@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800B9B84 (--$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@-$vector@PEAVIDeviceResourceNotify@@V-$all.c)
+ *     ??$_Emplace_reallocate@PEBUShaderLinkingBody@@@?$vector@PEBUShaderLinkingBody@@V?$allocator@PEBUShaderLinkingBody@@@std@@@std@@QEAAPEAPEBUShaderLinkingBody@@QEAPEBU2@$$QEAPEBU2@@Z @ 0x180045444 (--$_Emplace_reallocate@PEBUShaderLinkingBody@@@-$vector@PEBUShaderLinkingBody@@V-$allocator@PEBU.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
  */
 
 CD2DBitmapCache::CCachedBitmap *__fastcall CD2DBitmapCache::CCachedBitmap::CCachedBitmap(
@@ -12,28 +12,26 @@ CD2DBitmapCache::CCachedBitmap *__fastcall CD2DBitmapCache::CCachedBitmap::CCach
         struct IDeviceResourceNotify *a2,
         struct CSecondaryD2DBitmap *a3)
 {
-  __int64 v5; // rcx
-  _BYTE *v6; // rdx
-  struct IDeviceResourceNotify *v8; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v5; // rdx
+  struct IDeviceResourceNotify *v7; // [rsp+30h] [rbp+8h] BYREF
 
   *(_QWORD *)this = a2;
   *((_QWORD *)this + 1) = a3;
   if ( a3 )
-    CMILRefCountImpl::AddReference((struct CSecondaryD2DBitmap *)((char *)a3 + 8));
-  v5 = *((_QWORD *)this + 1) + 56LL;
-  v8 = a2;
-  v6 = *(_BYTE **)(v5 + 8);
-  if ( v6 == *(_BYTE **)(v5 + 16) )
   {
-    std::vector<IDeviceResourceNotify *>::_Emplace_reallocate<IDeviceResourceNotify * const &>(
-      (const void **)v5,
-      v6,
-      &v8);
+    CMILCOMBase::InternalAddRef(a3);
+    a3 = (struct CSecondaryD2DBitmap *)*((_QWORD *)this + 1);
+  }
+  v7 = a2;
+  v5 = (_QWORD *)*((_QWORD *)a3 + 8);
+  if ( *((_QWORD **)a3 + 9) == v5 )
+  {
+    std::vector<ShaderLinkingBody const *>::_Emplace_reallocate<ShaderLinkingBody const *>((char *)a3 + 56, v5, &v7);
   }
   else
   {
-    *(_QWORD *)v6 = a2;
-    *(_QWORD *)(v5 + 8) += 8LL;
+    *v5 = a2;
+    *((_QWORD *)a3 + 8) += 8LL;
   }
   return this;
 }

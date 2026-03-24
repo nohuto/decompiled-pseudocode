@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitializeIdentityMatrix@@YAJPEAMII@Z @ 0x1C0073EB0
+ * XREFs of ?InitializeIdentityMatrix@@YAJPEAMII@Z @ 0x1C0061F20
  * Callers:
- *     ?ConvertToMatrix_3x4@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073C00 (-ConvertToMatrix_3x4@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
- *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074330 (ColorSpaceTransformInitIdentityTransform.c)
+ *     ?ConvertToMatrix_3x4@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z @ 0x1C0061C74 (-ConvertToMatrix_3x4@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C00623A0 (ColorSpaceTransformInitIdentityTransform.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall InitializeIdentityMatrix(float *a1, __int64 a2, unsigned int a3)

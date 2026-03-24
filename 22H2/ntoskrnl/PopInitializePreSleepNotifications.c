@@ -1,7 +1,7 @@
 /*
- * XREFs of PopInitializePreSleepNotifications @ 0x140864D70
+ * XREFs of PopInitializePreSleepNotifications @ 0x1407D42AC
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -22,10 +22,10 @@ __int64 PopInitializePreSleepNotifications()
     v0 = 3600;
     PopPreSleepNotificationSeconds = 3600;
   }
-  dword_140C39B9C = v0;
-  result = (unsigned int)_InterlockedExchange(&dword_140C39BC0, 0);
-  qword_140C39BB8 = 0LL;
+  dword_140C20544 = v0;
+  result = (unsigned int)_InterlockedExchange(&dword_140C20460, 0);
+  qword_140C20458 = 0LL;
   PopPreSleepNotifyWorkItem = 0LL;
-  qword_140C39BB0 = (__int64)PopPreSleepNotifyWorker;
+  qword_140C20450 = (__int64)PopPreSleepNotifyWorker;
   return result;
 }

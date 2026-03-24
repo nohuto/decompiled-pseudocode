@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qDqqss @ 0x1C005188C
+ * XREFs of WPP_RECORDER_SF_qDqqss @ 0x1C005239C
  * Callers:
- *     ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum @ 0x1C00514D0 (ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum.c)
+ *     ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum @ 0x1C0051FC0 (ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qDqqss(
@@ -69,7 +69,7 @@ __int64 __fastcall WPP_RECORDER_SF_qDqqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, const ULONG_PTR *, _QWORD, char *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      &WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a4,
       &a6,
       8LL,
@@ -99,5 +99,5 @@ __int64 __fastcall WPP_RECORDER_SF_qDqqss(
     while ( v13[v12] );
   }
   LOWORD(v24) = a4;
-  return WppAutoLogTrace(a1, 4LL, 10LL, &WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids, v24, &a6);
+  return WppAutoLogTrace(a1, 4LL, 10LL, &WPP_095c070a05c4368bad966ca54a81e920_Traceguids, v24, &a6);
 }

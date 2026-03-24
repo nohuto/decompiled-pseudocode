@@ -1,19 +1,19 @@
 /*
- * XREFs of AuxKlibQueryModuleInformation @ 0x1C00BD500
+ * XREFs of AuxKlibQueryModuleInformation @ 0x1C00BE1F8
  * Callers:
- *     FxpGetImageBase @ 0x1C0027CF0 (FxpGetImageBase.c)
+ *     FxpGetImageBase @ 0x1C0090BF8 (FxpGetImageBase.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 unsigned int __fastcall AuxKlibQueryModuleInformation(unsigned int *BufferSize, unsigned int QueryInfo, char *a3)
 {
   unsigned int v5; // edi
+  ULONG v6; // esi
   unsigned int result; // eax
   _AUX_PROCESS_MODULES *p_StaticInfo; // rbx
-  ULONG i; // r8d
   NTSTATUS v9; // eax
   int v10; // esi
   __int64 NumberOfModules; // rax
@@ -29,7 +29,8 @@ unsigned int __fastcall AuxKlibQueryModuleInformation(unsigned int *BufferSize, 
 
   v5 = 0;
   NeededSize = 0;
-  memset(&StaticInfo, 0, 0x12CuLL);
+  v6 = 304;
+  memset(&StaticInfo, 0, sizeof(StaticInfo));
   if ( AuxpInitState != 1 )
     return -1073741823;
   if ( AuxpKlibFns.QueryModuleInformationPtr )
@@ -38,20 +39,21 @@ unsigned int __fastcall AuxKlibQueryModuleInformation(unsigned int *BufferSize, 
   if ( ((unsigned __int8)a3 & 7) == 0 )
   {
     p_StaticInfo = &StaticInfo;
-    for ( i = 304; ; i = NeededSize )
+    while ( 1 )
     {
-      v9 = ZwQuerySystemInformation(SystemModuleInformation, p_StaticInfo, i, &NeededSize);
+      v9 = ZwQuerySystemInformation(SystemModuleInformation, p_StaticInfo, v6, &NeededSize);
       v10 = v9;
       if ( v9 >= 0 )
         break;
       if ( v9 != -1073741820 )
-        goto LABEL_11;
+        goto $exit_failure;
       if ( p_StaticInfo != &StaticInfo )
         ExFreePoolWithTag(p_StaticInfo, 0);
       p_StaticInfo = (_AUX_PROCESS_MODULES *)ExAllocatePoolWithQuotaTag(PagedPool, NeededSize, 0x4B787541u);
       ModuleInfo = p_StaticInfo;
       if ( !p_StaticInfo )
         return -1073741670;
+      v6 = NeededSize;
     }
     NumberOfModules = p_StaticInfo->NumberOfModules;
     if ( (unsigned __int64)(272 * NumberOfModules) <= 0xFFFFFFFF )
@@ -100,7 +102,7 @@ unsigned int __fastcall AuxKlibQueryModuleInformation(unsigned int *BufferSize, 
     {
       v10 = -1073741675;
     }
-LABEL_11:
+$exit_failure:
     if ( p_StaticInfo != &StaticInfo )
       ExFreePoolWithTag(p_StaticInfo, 0);
     return v10;

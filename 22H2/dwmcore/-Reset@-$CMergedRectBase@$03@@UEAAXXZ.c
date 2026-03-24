@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Reset@?$CMergedRectBase@$03@@UEAAXXZ @ 0x180106FD0
+ * XREFs of ?Reset@?$CMergedRectBase@$03@@UEAAXXZ @ 0x1800E2720
  * Callers:
  *     <none>
  * Callees:

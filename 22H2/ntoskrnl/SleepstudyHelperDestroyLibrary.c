@@ -1,14 +1,14 @@
 /*
- * XREFs of SleepstudyHelperDestroyLibrary @ 0x1409A1F40
+ * XREFs of SleepstudyHelperDestroyLibrary @ 0x1408FB9E0
  * Callers:
- *     SleepstudyHelper_Uninitialize @ 0x1409A2510 (SleepstudyHelper_Uninitialize.c)
- *     SshInitialize @ 0x140B51AA0 (SshInitialize.c)
+ *     SleepstudyHelper_Uninitialize @ 0x1408FB7F0 (SleepstudyHelper_Uninitialize.c)
+ *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D18C (SSHSupportReleasePushLockExclusive.c)
- *     SshpDereferenceBlocker @ 0x1407A88CC (SshpDereferenceBlocker.c)
- *     SshpFreeDataEntry @ 0x1409A17B8 (SshpFreeDataEntry.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x140322E08 (SSHSupportReleasePushLockExclusive.c)
+ *     SshpDereferenceBlocker @ 0x14069AB84 (SshpDereferenceBlocker.c)
+ *     SshpFreeDataEntry @ 0x1408FAC68 (SshpFreeDataEntry.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)
@@ -19,7 +19,7 @@ __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)
   _QWORD *v5; // rsi
   _QWORD *v6; // rdi
   __int64 v7; // rax
-  volatile signed __int64 *v8; // r14
+  ULONG_PTR *v8; // r14
   __int64 v9; // rcx
   _QWORD *v10; // rax
   _QWORD **i; // rdi
@@ -34,7 +34,7 @@ LABEL_17:
       __fastfail(3u);
     *v4 = (ULONG *)v3;
     *(_QWORD *)(v3 + 8) = v4;
-    SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&SshpLibraryListLock);
+    SSHSupportReleasePushLockExclusive((ULONG_PTR)&SshpLibraryListLock);
     v5 = a1 + 10;
     while ( 1 )
     {
@@ -48,7 +48,7 @@ LABEL_17:
         goto LABEL_17;
       *v5 = v7;
       *(_QWORD *)(v7 + 8) = v5;
-      v8 = (volatile signed __int64 *)(&SshpBlockerCollections + 4 * *((int *)v6 + 10));
+      v8 = &SshpBlockerCollections + 4 * *((int *)v6 + 10);
       ExAcquirePushLockExclusiveEx((ULONG_PTR)v8, 0LL);
       v9 = v6[2];
       if ( *(_QWORD **)(v9 + 8) != v6 + 2 )
@@ -58,8 +58,8 @@ LABEL_17:
         goto LABEL_17;
       *v10 = v9;
       *(_QWORD *)(v9 + 8) = v10;
-      SSHSupportReleasePushLockExclusive(v8);
-      SshpDereferenceBlocker((_QWORD *)v6[15]);
+      SSHSupportReleasePushLockExclusive((ULONG_PTR)v8);
+      SshpDereferenceBlocker((_QWORD *)v6[13]);
     }
     for ( i = (_QWORD **)(a1 + 14); *i != i; SshpFreeDataEntry(*i) )
       ;

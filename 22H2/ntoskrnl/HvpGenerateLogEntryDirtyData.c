@@ -1,26 +1,26 @@
 /*
- * XREFs of HvpGenerateLogEntryDirtyData @ 0x140294F40
+ * XREFs of HvpGenerateLogEntryDirtyData @ 0x140331580
  * Callers:
- *     HvpGenerateLogEntry @ 0x140705808 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140720D30 (HvpGenerateLogEntry.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
- *     HvpCopyDataToOffsetArray @ 0x140294E74 (HvpCopyDataToOffsetArray.c)
- *     CmpLogDirtyVectorUse @ 0x1406BBF28 (CmpLogDirtyVectorUse.c)
- *     HvpCountSetRangesInVector @ 0x1407071F4 (HvpCountSetRangesInVector.c)
- *     HvpFindNextDirtyBlock @ 0x14070924C (HvpFindNextDirtyBlock.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
+ *     HvpCopyDataToOffsetArray @ 0x1403331A0 (HvpCopyDataToOffsetArray.c)
+ *     HvpFindNextDirtyBlock @ 0x1406BEED8 (HvpFindNextDirtyBlock.c)
+ *     HvpCountSetRangesInVector @ 0x1406BF180 (HvpCountSetRangesInVector.c)
+ *     CmpLogDirtyVectorUse @ 0x140720FB0 (CmpLogDirtyVectorUse.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryDirtyData(
         ULONG_PTR BugCheckParameter2,
-        __int64 a2,
+        int a2,
         __int64 a3,
-        unsigned int *a4,
-        unsigned int *a5,
+        __int64 a4,
+        __int64 a5,
         __int64 a6)
 {
   RTL_BITMAP *v6; // rdi
-  __int64 v10; // r9
-  unsigned int *v11; // rbx
+  int v10; // r9d
+  __int64 v11; // rbx
   ULONG v12; // ebx
   unsigned int v13; // eax
   __int64 v15; // [rsp+90h] [rbp+40h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(
   {
     v11 = a5;
     do
-      HvpCopyDataToOffsetArray(0LL, v15, a2, v10, a4, v11);
+      HvpCopyDataToOffsetArray(0, v15, a2, v10, a4, v11);
     while ( (unsigned __int8)HvpFindNextDirtyBlock(BugCheckParameter2, (__int64)&v15, (__int64)&a6, 0) );
   }
   v12 = RtlNumberOfSetBits(v6);

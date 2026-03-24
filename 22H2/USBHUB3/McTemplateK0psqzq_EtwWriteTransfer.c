@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0psqzq_EtwWriteTransfer @ 0x1C002DB2C
+ * XREFs of McTemplateK0psqzq_EtwWriteTransfer @ 0x1C002AA70
  * Callers:
- *     HUBDSM_ComparingSerialNumberOnReEnumeration @ 0x1C00236E0 (HUBDSM_ComparingSerialNumberOnReEnumeration.c)
+ *     HUBMISC_CheckIfSerialNumberIsIdentical @ 0x1C0030940 (HUBMISC_CheckIfSerialNumberIsIdentical.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0psqzq_EtwWriteTransfer(__int64 a1, __int64 a2, const GUID *a3, ...)

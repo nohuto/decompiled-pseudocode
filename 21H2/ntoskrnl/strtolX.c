@@ -1,9 +1,9 @@
 /*
- * XREFs of strtolX @ 0x1403E0898
+ * XREFs of strtolX @ 0x1403D14D0
  * Callers:
- *     atol @ 0x1403E0CE0 (atol.c)
+ *     atol @ 0x1403D1920 (atol.c)
  * Callees:
- *     strtoxlX @ 0x1403E0640 (strtoxlX.c)
+ *     strtoxlX @ 0x1403D1270 (strtoxlX.c)
  */
 
 __int64 __fastcall strtolX(unsigned __int8 *a1, unsigned __int8 **a2, unsigned int a3, int a4)

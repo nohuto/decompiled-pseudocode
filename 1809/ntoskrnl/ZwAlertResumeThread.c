@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlertResumeThread @ 0x1401B8F10
+ * XREFs of ZwAlertResumeThread @ 0x1401B8F30
  * Callers:
  *     <none>
  * Callees:

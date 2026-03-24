@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpProfileCreate @ 0x1408D9BEC
+ * XREFs of ExpProfileCreate @ 0x1408D9BCC
  * Callers:
- *     NtCreateProfile @ 0x1408DA240 (NtCreateProfile.c)
- *     NtCreateProfileEx @ 0x1408DA320 (NtCreateProfileEx.c)
+ *     NtCreateProfile @ 0x1408DA220 (NtCreateProfile.c)
+ *     NtCreateProfileEx @ 0x1408DA300 (NtCreateProfileEx.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     KeVerifyGroupAffinity @ 0x14016B70C (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     KeVerifyGroupAffinity @ 0x14016B72C (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExIsRestrictedCaller @ 0x1406ADA0C (ExIsRestrictedCaller.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExIsRestrictedCaller @ 0x1406AD9EC (ExIsRestrictedCaller.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpProfileCreate(

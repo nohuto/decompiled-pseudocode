@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapUnCOWAndSealRange @ 0x140750B64
+ * XREFs of HvpViewMapUnCOWAndSealRange @ 0x140722EC8
  * Callers:
- *     HvUnCOWReconciledPages @ 0x1402F6034 (HvUnCOWReconciledPages.c)
+ *     HvUnCOWReconciledPages @ 0x140361C30 (HvUnCOWReconciledPages.c)
  * Callees:
- *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x140750C18 (HvpViewMapMakeViewRangeUnCOWByCaller.c)
+ *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x140722F7C (HvpViewMapMakeViewRangeUnCOWByCaller.c)
  */
 
 void __fastcall HvpViewMapUnCOWAndSealRange(__int64 a1, int a2, unsigned int a3)

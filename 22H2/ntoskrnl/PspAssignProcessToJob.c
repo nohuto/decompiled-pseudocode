@@ -1,311 +1,367 @@
 /*
- * XREFs of PspAssignProcessToJob @ 0x14069FFF0
+ * XREFs of PspAssignProcessToJob @ 0x14071E800
  * Callers:
- *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
+ *     PsAssignProcessToJobObject @ 0x14071E780 (PsAssignProcessToJobObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PspIncrementJobChainProcessCounts @ 0x14069F520 (PspIncrementJobChainProcessCounts.c)
- *     PspUnlockJobsAndProcessExclusive @ 0x14069F5E8 (PspUnlockJobsAndProcessExclusive.c)
- *     PspValidateJobAssignmentMemoryPartition @ 0x14069F680 (PspValidateJobAssignmentMemoryPartition.c)
- *     PspLockJobsAndProcessExclusive @ 0x14069F70C (PspLockJobsAndProcessExclusive.c)
- *     PspValidateJobAssignmentSiloPolicy @ 0x14069F78C (PspValidateJobAssignmentSiloPolicy.c)
- *     PspGetJobLockHierarchyForAssignment @ 0x14069F7F8 (PspGetJobLockHierarchyForAssignment.c)
- *     PspUnlockJobAssignment @ 0x14069F860 (PspUnlockJobAssignment.c)
- *     PspLockJobAssignment @ 0x14069F8C8 (PspLockJobAssignment.c)
- *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
- *     PspValidateJobChainLimits @ 0x1406A048C (PspValidateJobChainLimits.c)
- *     PspGetJobAssignmentDisposition @ 0x1406A05A0 (PspGetJobAssignmentDisposition.c)
- *     MmAssignProcessToJob @ 0x1406A0694 (MmAssignProcessToJob.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x1406A0894 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspGetNextJobProcess @ 0x1406A0D90 (PspGetNextJobProcess.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspChargeJobWakeCounter @ 0x1406A3A44 (PspChargeJobWakeCounter.c)
- *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1406A3DF8 (PspLockJobExclusive.c)
- *     PspChangeProcessExecutionState @ 0x1406A6C04 (PspChangeProcessExecutionState.c)
- *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     PsQueryProcessAttributes @ 0x14071DE84 (PsQueryProcessAttributes.c)
- *     PspIsSetJobIoAttribution @ 0x1407D8A58 (PspIsSetJobIoAttribution.c)
- *     PspDoesJobHierarchyPermitUILimits @ 0x1409B2268 (PspDoesJobHierarchyPermitUILimits.c)
- *     PspIsJobMovable @ 0x1409B2614 (PspIsJobMovable.c)
- *     PspQuitNextJobProcess @ 0x1409B288C (PspQuitNextJobProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PsQueryProcessAttributes @ 0x140600F24 (PsQueryProcessAttributes.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x14060514C (PspApplyJobChainLimitsToProcess.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140605A6C (PspApplyWorkingSetLimitsToProcess.c)
+ *     MmAssignProcessToJob @ 0x140605C30 (MmAssignProcessToJob.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     PspLockJobAssignment @ 0x140616484 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x1406164B0 (PspUnlockJobAssignment.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspChargeJobWakeCounter @ 0x140618278 (PspChargeJobWakeCounter.c)
+ *     PspUnlockJob @ 0x140618B90 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x140618BD4 (PspLockJobExclusive.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     PspIsSetJobIoAttribution @ 0x14065DAC0 (PspIsSetJobIoAttribution.c)
+ *     PspGetNextJobProcess @ 0x14068EDB0 (PspGetNextJobProcess.c)
+ *     PspDoesJobHierarchyPermitUILimits @ 0x1406A54AC (PspDoesJobHierarchyPermitUILimits.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x14071EC9C (PspUnlockJobsAndProcessExclusive.c)
+ *     PspIncrementJobChainProcessCounts @ 0x14071ED18 (PspIncrementJobChainProcessCounts.c)
+ *     PspEstablishJobHierarchy @ 0x14071EDDC (PspEstablishJobHierarchy.c)
+ *     PspValidateJobChainLimits @ 0x14071F290 (PspValidateJobChainLimits.c)
+ *     PspValidateJobAssignmentMemoryPartition @ 0x14071F3A8 (PspValidateJobAssignmentMemoryPartition.c)
+ *     PspValidateJobAssignmentSiloPolicy @ 0x14071F434 (PspValidateJobAssignmentSiloPolicy.c)
+ *     PspGetJobAssignmentDisposition @ 0x14071FA48 (PspGetJobAssignmentDisposition.c)
+ *     PspLockJobsAndProcessExclusive @ 0x14071FB3C (PspLockJobsAndProcessExclusive.c)
+ *     PspGetJobLockHierarchyForAssignment @ 0x14071FBBC (PspGetJobLockHierarchyForAssignment.c)
+ *     PspIsJobMovable @ 0x140908FD4 (PspIsJobMovable.c)
+ *     PspQuitNextJobProcess @ 0x14090924C (PspQuitNextJobProcess.c)
  */
 
-__int64 __fastcall PspAssignProcessToJob(PVOID Object, _QWORD *a2, __int64 a3, int a4)
+__int64 __fastcall PspAssignProcessToJob(ULONG_PTR a1, PEPROCESS Process, __int64 a3, int a4)
 {
   unsigned int v4; // r14d
   char v5; // bl
-  __int64 NextJobProcess; // rsi
+  PEPROCESS NextJobProcess; // rsi
   struct _KTHREAD *CurrentThread; // r12
   int JobAssignmentDisposition; // eax
-  __int64 v12; // rax
-  __int64 v13; // r12
-  int v14; // edi
-  char v15; // bl
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  int v19; // ecx
-  __int64 v20; // rdi
-  PVOID v21; // rax
-  unsigned int v22; // eax
-  _BYTE v23[4]; // [rsp+40h] [rbp-59h] BYREF
-  int v24; // [rsp+44h] [rbp-55h] BYREF
-  unsigned int v25; // [rsp+48h] [rbp-51h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-49h]
-  struct _KTHREAD *v27; // [rsp+58h] [rbp-41h]
-  __int128 v28; // [rsp+60h] [rbp-39h] BYREF
-  __int64 v29; // [rsp+70h] [rbp-29h]
-  __int128 v30; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v31; // [rsp+88h] [rbp-11h]
-  _OWORD v32[2]; // [rsp+90h] [rbp-9h] BYREF
-  __int64 v33; // [rsp+B0h] [rbp+17h]
+  __int64 v12; // rdx
+  int v13; // ecx
+  __int64 v14; // rax
+  ULONG_PTR v15; // r12
+  int v16; // edi
+  __int64 v17; // rdi
+  char v18; // bl
+  __int64 v19; // rdx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  _DWORD *v22; // r9
+  _DWORD *v23; // r9
+  int v24; // r8d
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  _DWORD *v27; // r9
+  unsigned int v28; // r13d
+  unsigned __int64 v30; // rax
+  unsigned int v31; // eax
+  char v32[4]; // [rsp+40h] [rbp-59h] BYREF
+  int v33; // [rsp+44h] [rbp-55h] BYREF
+  __int64 v34; // [rsp+48h] [rbp-51h]
+  struct _KTHREAD *v35; // [rsp+50h] [rbp-49h]
+  unsigned int v36; // [rsp+58h] [rbp-41h] BYREF
+  __int128 v37; // [rsp+60h] [rbp-39h] BYREF
+  PEPROCESS v38; // [rsp+70h] [rbp-29h]
+  __int128 v39; // [rsp+78h] [rbp-21h] BYREF
+  __int64 v40; // [rsp+88h] [rbp-11h]
+  int v41[4]; // [rsp+90h] [rbp-9h] BYREF
+  __int128 v42; // [rsp+A0h] [rbp+7h]
+  __int64 v43; // [rsp+B0h] [rbp+17h]
 
-  v23[0] = 0;
-  v29 = 0LL;
+  v32[0] = 0;
+  v38 = 0LL;
   v4 = 0;
-  v31 = 0LL;
-  v33 = 0LL;
-  v28 = 0LL;
+  v40 = 0LL;
+  v43 = 0LL;
+  v37 = 0LL;
   v5 = 0;
-  NextJobProcess = (__int64)a2;
-  v30 = 0LL;
+  NextJobProcess = Process;
+  v39 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v27 = CurrentThread;
-  v24 = 0;
-  memset(v32, 0, sizeof(v32));
+  v35 = CurrentThread;
+  v33 = 0;
+  *(_OWORD *)v41 = 0LL;
+  v42 = 0LL;
   if ( a4 == 5 )
   {
-    a3 = a2[162];
-    NextJobProcess = PspGetNextJobProcess(Object, CurrentThread, &v30, 0LL);
-    ObfReferenceObjectWithTag((PVOID)NextJobProcess, 0x624A7350u);
+    a3 = Process[1].Affinity.Bitmap[16];
+    NextJobProcess = (PEPROCESS)PspGetNextJobProcess(a1, (__int64)CurrentThread, &v39, 0LL);
+    ObfReferenceObjectWithTag(NextJobProcess, 0x624A7350u);
     v5 = 1;
-    PspQuitNextJobProcess(Object, CurrentThread, &v30, NextJobProcess);
-    v4 = v24;
-  }
-  if ( NextJobProcess )
-  {
-    if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(NextJobProcess + 1112)) )
-    {
-      v14 = -1073741558;
-      goto LABEL_43;
-    }
-    v5 |= 0x10u;
-  }
-  PspGetJobLockHierarchyForAssignment((__int64)Object, NextJobProcess, a3, a4, (__int64)v32);
-  v5 |= 6u;
-  PspLockJobAssignment((__int64)CurrentThread);
-  PspLockJobsAndProcessExclusive((unsigned int *)v32, NextJobProcess, (__int64)CurrentThread, 1);
-  if ( a4 != 5 )
-  {
-    JobAssignmentDisposition = PspGetJobAssignmentDisposition(Object, NextJobProcess, a3, &v24);
-    v4 = v24;
-    if ( JobAssignmentDisposition >= 0 )
-    {
-      if ( v24 != a4 )
-      {
-        v14 = -1073741267;
-        goto LABEL_43;
-      }
-      if ( v24 == 2 )
-      {
-        v14 = 0;
-        goto LABEL_43;
-      }
-      goto LABEL_10;
-    }
-LABEL_86:
-    v14 = -1073741790;
-    goto LABEL_43;
-  }
-  if ( !(unsigned __int8)PspIsJobMovable(Object) )
-    goto LABEL_86;
-  v21 = *(PVOID *)(NextJobProcess + 1296);
-  v24 = 5;
-  if ( v21 != Object || (*(_DWORD *)(NextJobProcess + 2172) & 0x1000) == 0 )
-  {
-    v4 = v24;
-    v14 = -1073741790;
-    goto LABEL_43;
-  }
-  v4 = v24;
-LABEL_10:
-  if ( NextJobProcess && v4 != 5 )
-  {
-    a3 = *(_QWORD *)(NextJobProcess + 1296);
-    v4 = v24;
-  }
-  if ( v4 == 4
-    && (*((_DWORD *)Object + 384) & 0x10) != 0
-    && ((*(_DWORD *)(a3 + 1536) & 0x10) != 0 || !(unsigned __int8)PspDoesJobHierarchyPermitUILimits(a3))
-    || !PspValidateJobAssignmentSiloPolicy((__int64)Object, a3, NextJobProcess, v4)
-    || !PspValidateJobAssignmentMemoryPartition((__int64)Object, a3, NextJobProcess, v4)
-    || v4 == 5 && (*((_DWORD *)Object + 260) & 1) != 0
-    || ((v4 - 4) & 0xFFFFFFFC) == 0 && v4 != 6 && (unsigned int)*(unsigned __int8 *)(a3 + 1086) + 1 > 0x64 )
-  {
-    goto LABEL_92;
-  }
-  if ( ((v4 - 4) & 0xFFFFFFFC) == 0 && v4 != 6 )
-  {
-    v19 = 0;
-    while ( (unsigned int)(v19 - 1) <= 1
-         || !_bittest((const signed __int32 *)Object + 384, 0x19u)
-         || !_bittest((const signed __int32 *)(a3 + 1536), 0x19u) )
-    {
-      if ( ++v19 >= 3 )
-        goto LABEL_19;
-    }
-    goto LABEL_92;
-  }
-LABEL_19:
-  if ( ((v4 - 4) & 0xFFFFFFFC) == 0
-    && v4 != 6
-    && (*(_DWORD *)(a3 + 1564) || (unsigned __int8)PspIsSetJobIoAttribution(a3))
-    && (*((_DWORD *)Object + 391) || (unsigned __int8)PspIsSetJobIoAttribution((__int64)Object)) )
-  {
-LABEL_92:
-    v14 = -1073741637;
-    goto LABEL_43;
-  }
-  if ( v4 == 1 || v4 == 3 )
-  {
-    v12 = a3;
-LABEL_22:
-    v13 = (__int64)Object;
-    goto LABEL_23;
-  }
-  if ( v4 == 4 )
-  {
-    v12 = 0LL;
-    goto LABEL_22;
-  }
-  if ( v4 != 5 )
-  {
-    v13 = 0LL;
-    v26 = 0LL;
-    goto LABEL_25;
-  }
-  v13 = a3;
-  v12 = 0LL;
-LABEL_23:
-  v26 = v12;
-  if ( v13 )
-  {
-    v14 = PspValidateJobChainLimits(v13, v12, NextJobProcess, 0LL);
-    if ( v14 < 0 )
-      goto LABEL_108;
-  }
-LABEL_25:
-  v14 = PspEstablishJobHierarchy((char *)Object, NextJobProcess, a3, v4);
-  if ( v14 < 0 )
-  {
-LABEL_108:
-    CurrentThread = v27;
-    goto LABEL_43;
+    PspQuitNextJobProcess(a1, CurrentThread, &v39, NextJobProcess);
+    v4 = v33;
   }
   if ( !NextJobProcess )
   {
-    v14 = 0;
-    goto LABEL_108;
-  }
-  if ( (*((_DWORD *)Object + 384) & 0x1000) != 0 )
-  {
-    v20 = 0LL;
-    do
+LABEL_6:
+    PspGetJobLockHierarchyForAssignment(a1, (_DWORD)NextJobProcess, a3, a4, (__int64)v41);
+    v5 |= 6u;
+    PspLockJobAssignment((__int64)CurrentThread);
+    PspLockJobsAndProcessExclusive(v41, NextJobProcess, CurrentThread, 1LL);
+    if ( a4 == 5 )
     {
-      if ( (*(_DWORD *)(NextJobProcess + 4LL * (int)v20 + 2472) & 0x7FFFFFFF) != 0 )
-        PspChargeJobWakeCounter(Object, 0, 0LL, 6451018LL);
-      _interlockedbittestandset((volatile signed __int32 *)(NextJobProcess + 4 * v20 + 2472), 0x1Fu);
-      v20 = (unsigned int)(v20 + 1);
-    }
-    while ( (unsigned int)v20 < 7 );
-    if ( (*(_DWORD *)(NextJobProcess + 2508) & 0x7FFFFFFF) != 0 )
-      PspChargeJobWakeCounter(Object, 4, 0LL, 6451018LL);
-    _interlockedbittestandset((volatile signed __int32 *)(NextJobProcess + 2508), 0x1Fu);
-  }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(NextJobProcess + 1080), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(NextJobProcess + 1080));
-  KeAbPostRelease(NextJobProcess + 1080);
-  v4 = v24;
-  v15 = v5 | 8;
-  v16 = v26;
-  if ( v24 == 4 )
-    v16 = a3;
-  PspIncrementJobChainProcessCounts(v13, v16, NextJobProcess, 0);
-  PspApplyJobChainLimitsToProcess(Object, a3, NextJobProcess);
-  CurrentThread = v27;
-  PspUnlockJobsAndProcessExclusive((int *)v32, 0LL, (__int64)v27);
-  v5 = v15 & 0xFB;
-  if ( (*((_DWORD *)Object + 384) & 0x1000000) == 0 )
-  {
-    PsQueryProcessAttributes(NextJobProcess, v23, 0LL);
-    if ( v23[0] )
-      _InterlockedOr((volatile signed __int32 *)Object + 384, 0x1000000u);
-    else
-      _InterlockedOr((volatile signed __int32 *)Object + 384, 0x1800000u);
-    v4 = v24;
-  }
-  v14 = PspApplyWorkingSetLimitsToProcess(NextJobProcess);
-  if ( v14 >= 0 )
-  {
-    v17 = 0LL;
-    if ( v4 == 5 )
-      v17 = 4LL;
-    if ( (unsigned int)MmAssignProcessToJob(NextJobProcess, a3, v17) )
-    {
-      PspUnlockJobAssignment((__int64)CurrentThread);
-      --CurrentThread->KernelApcDisable;
-      v5 &= ~2u;
-      PspChangeProcessExecutionState((PEPROCESS)NextJobProcess);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
-      if ( !*((_DWORD *)Object + 136) )
-        goto LABEL_41;
-      v22 = *((_DWORD *)Object + 144);
-      DWORD2(v28) = 1;
-      *(_QWORD *)&v28 = Object;
-      v29 = NextJobProcess;
-      v25 = v22;
-      if ( v22 > 0xFFFFFFFD
-        || (PspLockJobExclusive(Object, CurrentThread),
-            v14 = PsInvokeWin32Callout(6LL, &v28, 1LL, &v25),
-            PspUnlockJob(Object, CurrentThread),
-            v14 >= 0) )
+      if ( (unsigned __int8)PspIsJobMovable(a1) )
       {
-LABEL_41:
-        if ( v4 == 5 )
+        v30 = NextJobProcess[1].Affinity.Bitmap[16];
+        v33 = 5;
+        if ( v30 == a1 && (HIDWORD(NextJobProcess[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         {
-          v14 = -1073741267;
-          v5 |= 0x20u;
+          v4 = v33;
+          goto LABEL_10;
         }
+        v4 = v33;
+        v16 = -1073741790;
+LABEL_59:
+        v28 = -1073741558;
+        goto LABEL_60;
       }
     }
     else
     {
-      v14 = -1073741756;
+      JobAssignmentDisposition = PspGetJobAssignmentDisposition(a1, NextJobProcess, a3, &v33);
+      v4 = v33;
+      if ( JobAssignmentDisposition >= 0 )
+      {
+        if ( v33 == a4 )
+        {
+          if ( v33 != 2 )
+          {
+LABEL_10:
+            if ( NextJobProcess && v4 != 5 )
+            {
+              a3 = NextJobProcess[1].Affinity.Bitmap[16];
+              v4 = v33;
+            }
+            if ( v4 == 4
+              && (*(_DWORD *)(a1 + 1320) & 0x10) != 0
+              && ((*(_DWORD *)(a3 + 1320) & 0x10) != 0 || !PspDoesJobHierarchyPermitUILimits((_QWORD *)a3, 1))
+              || !(unsigned __int8)PspValidateJobAssignmentSiloPolicy(a1, a3, NextJobProcess, v4)
+              || !(unsigned __int8)PspValidateJobAssignmentMemoryPartition(a1, a3, NextJobProcess, v4) )
+            {
+              goto LABEL_90;
+            }
+            v12 = 4294967292LL;
+            if ( v4 == 5 )
+            {
+              if ( (*(_DWORD *)(a1 + 848) & 1) != 0 )
+                goto LABEL_90;
+            }
+            else if ( ((v4 - 4) & 0xFFFFFFFC) != 0 || v4 == 6 )
+            {
+LABEL_20:
+              if ( ((v4 - 4) & 0xFFFFFFFC) == 0 && v4 != 6 )
+              {
+                v13 = 0;
+                while ( (unsigned int)(v13 - 1) <= 1
+                     || (*(_DWORD *)(a1 + 1320) & 0x2000000) == 0
+                     || (*(_DWORD *)(a3 + 1320) & 0x2000000) == 0 )
+                {
+                  if ( ++v13 >= 3 )
+                    goto LABEL_25;
+                }
+                goto LABEL_90;
+              }
+LABEL_25:
+              if ( ((v4 - 4) & 0xFFFFFFFC) != 0
+                || v4 == 6
+                || !*(_DWORD *)(a3 + 1348) && !PspIsSetJobIoAttribution((_QWORD *)a3, 4294967292LL, 1)
+                || !*(_DWORD *)(a1 + 1348) && !PspIsSetJobIoAttribution((_QWORD *)a1, v12, 0) )
+              {
+                switch ( v4 )
+                {
+                  case 1u:
+                  case 3u:
+                    v14 = a3;
+                    break;
+                  case 4u:
+                    v14 = 0LL;
+                    break;
+                  case 5u:
+                    v15 = a3;
+                    v14 = 0LL;
+LABEL_32:
+                    v34 = v14;
+                    if ( v15 )
+                    {
+                      v16 = PspValidateJobChainLimits(v15, v14, NextJobProcess, 0LL);
+                      if ( v16 < 0 )
+                      {
+LABEL_102:
+                        CurrentThread = v35;
+                        goto LABEL_59;
+                      }
+                    }
+LABEL_34:
+                    v16 = PspEstablishJobHierarchy((PVOID)a1);
+                    if ( v16 >= 0 )
+                    {
+                      if ( NextJobProcess )
+                      {
+                        if ( (*(_DWORD *)(a1 + 1320) & 0x1000) != 0 )
+                        {
+                          v17 = 0LL;
+                          do
+                          {
+                            if ( (*((_DWORD *)&NextJobProcess[2].AffinityPadding[8] + (int)v17) & 0x7FFFFFFF) != 0 )
+                              PspChargeJobWakeCounter(
+                                (char *)a1,
+                                (char *)a3,
+                                v17,
+                                *((_DWORD *)&NextJobProcess[2].AffinityPadding[8] + (int)v17) & 0x7FFFFFFF,
+                                0,
+                                0LL,
+                                6451018LL);
+                            _interlockedbittestandset(
+                              (volatile signed __int32 *)&NextJobProcess[2].AffinityPadding[8] + v17,
+                              0x1Fu);
+                            v17 = (unsigned int)(v17 + 1);
+                          }
+                          while ( (unsigned int)v17 < 7 );
+                          if ( (HIDWORD(NextJobProcess[2].ReadyListHead.Flink) & 0x7FFFFFFF) != 0 )
+                            PspChargeJobWakeCounter(
+                              (char *)a1,
+                              (char *)a3,
+                              0,
+                              HIDWORD(NextJobProcess[2].ReadyListHead.Flink) & 0x7FFFFFFF,
+                              4,
+                              0LL,
+                              6451018LL);
+                          _interlockedbittestandset(
+                            (volatile signed __int32 *)&NextJobProcess[2].ReadyListHead.Flink + 1,
+                            0x1Fu);
+                        }
+                        if ( (_InterlockedExchangeAdd64(
+                                (volatile signed __int64 *)&NextJobProcess[1].Header.Lock,
+                                0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+                          ExfTryToWakePushLock((volatile signed __int64 *)&NextJobProcess[1].Header.Lock);
+                        KeAbPostRelease((ULONG_PTR)&NextJobProcess[1]);
+                        v4 = v33;
+                        v18 = v5 | 8;
+                        v19 = v34;
+                        if ( v33 == 4 )
+                          v19 = a3;
+                        PspIncrementJobChainProcessCounts(v15, v19, NextJobProcess, 0LL);
+                        PspApplyJobChainLimitsToProcess(a1, a3, (__int64)NextJobProcess);
+                        CurrentThread = v35;
+                        PspUnlockJobsAndProcessExclusive(v41, 0LL, v35);
+                        v5 = v18 & 0xFB;
+                        if ( (*(_DWORD *)(a1 + 1320) & 0x1000000) == 0 )
+                        {
+                          PsQueryProcessAttributes(NextJobProcess, (__int64)v32, 0LL);
+                          if ( v32[0] )
+                            _InterlockedOr((volatile signed __int32 *)(a1 + 1320), 0x1000000u);
+                          else
+                            _InterlockedOr((volatile signed __int32 *)(a1 + 1320), 0x1800000u);
+                          v4 = v33;
+                        }
+                        v16 = PspApplyWorkingSetLimitsToProcess((__int64)NextJobProcess, v20, v21, v22);
+                        if ( v16 >= 0 )
+                        {
+                          v24 = 0;
+                          if ( v4 == 5 )
+                            v24 = 4;
+                          if ( (unsigned int)MmAssignProcessToJob((__int64)NextJobProcess, a3, v24, v23) )
+                          {
+                            PspUnlockJobAssignment((__int64)CurrentThread);
+                            v5 &= ~2u;
+                            --CurrentThread->KernelApcDisable;
+                            PspChangeProcessExecutionState(NextJobProcess, v25, v26, v27);
+                            KeLeaveCriticalRegionThread((__int64)CurrentThread);
+                            if ( !*(_DWORD *)(a1 + 448) )
+                              goto LABEL_57;
+                            v31 = *(_DWORD *)(a1 + 480);
+                            DWORD2(v37) = 1;
+                            *(_QWORD *)&v37 = a1;
+                            v38 = NextJobProcess;
+                            v36 = v31;
+                            if ( v31 <= 0xFFFFFFFD )
+                            {
+                              PspLockJobExclusive(a1, (__int64)CurrentThread);
+                              v16 = PsInvokeWin32Callout(6, (__int64)&v37, 1, (__int64)&v36);
+                              PspUnlockJob(a1, (__int64)CurrentThread);
+                            }
+                            if ( v16 >= 0 )
+                            {
+LABEL_57:
+                              if ( v4 == 5 )
+                              {
+                                v16 = -1073741267;
+                                v5 |= 0x20u;
+                              }
+                            }
+                          }
+                          else
+                          {
+                            v16 = -1073741756;
+                          }
+                        }
+                        goto LABEL_59;
+                      }
+                      v16 = 0;
+                    }
+                    goto LABEL_102;
+                  default:
+                    v15 = 0LL;
+                    v34 = 0LL;
+                    goto LABEL_34;
+                }
+                v15 = a1;
+                goto LABEL_32;
+              }
+LABEL_90:
+              v16 = -1073741637;
+              goto LABEL_59;
+            }
+            if ( (unsigned int)*(unsigned __int8 *)(a3 + 874) + 1 > 0x64 )
+              goto LABEL_90;
+            goto LABEL_20;
+          }
+          v16 = 0;
+        }
+        else
+        {
+          v16 = -1073741267;
+        }
+        goto LABEL_59;
+      }
     }
+    v16 = -1073741790;
+    goto LABEL_59;
   }
-LABEL_43:
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&NextJobProcess[1].ProfileListHead.Blink) )
+  {
+    v5 |= 0x10u;
+    goto LABEL_6;
+  }
+  v28 = -1073741558;
+  v16 = -1073741558;
+LABEL_60:
   if ( (v5 & 0x10) != 0 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(NextJobProcess + 1112));
-  if ( (v5 & 0x20) == 0 && v14 < 0 && (v5 & 8) != 0 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&NextJobProcess[1].ProfileListHead.Blink);
+  if ( (v5 & 0x20) == 0 && v16 < 0 && (v5 & 8) != 0 )
   {
     if ( v4 == 5 )
-      KeBugCheckEx(0xEFu, NextJobProcess, 0LL, (ULONG_PTR)Object, v14);
-    PspRemoveProcessFromJobChain((PEPROCESS)NextJobProcess);
+      KeBugCheckEx(0xEFu, (ULONG_PTR)NextJobProcess, 0LL, a1, v16);
+    if ( v16 != -1073741558 )
+      v28 = -1073741756;
+    PspRemoveProcessFromJobChain(NextJobProcess, 0LL, 0xAu, v28);
   }
   if ( (v5 & 4) != 0 )
-    PspUnlockJobsAndProcessExclusive((int *)v32, NextJobProcess, (__int64)CurrentThread);
+    PspUnlockJobsAndProcessExclusive(v41, NextJobProcess, CurrentThread);
   if ( (v5 & 2) != 0 )
     PspUnlockJobAssignment((__int64)CurrentThread);
   if ( (v5 & 1) != 0 )
-    ObfDereferenceObjectWithTag((PVOID)NextJobProcess, 0x624A7350u);
-  return (unsigned int)v14;
+    ObfDereferenceObjectWithTag(NextJobProcess, 0x624A7350u);
+  return (unsigned int)v16;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of DrvDbOpenContext @ 0x140827238
+ * XREFs of DrvDbOpenContext @ 0x1407A400C
  * Callers:
- *     PiDrvDbInit @ 0x140826000 (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x1407A350C (PiDrvDbInit.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     DrvDbLoadDatabaseNode @ 0x1406C1D24 (DrvDbLoadDatabaseNode.c)
- *     DrvDbRegisterObjects @ 0x140827378 (DrvDbRegisterObjects.c)
- *     DrvDbCreateDatabaseNode @ 0x1408274C4 (DrvDbCreateDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A30510 (DrvDbDestroyDatabaseNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     DrvDbLoadDatabaseNode @ 0x14063E754 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbRegisterObjects @ 0x1407A4150 (DrvDbRegisterObjects.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4268 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097E86C (DrvDbDestroyDatabaseNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 DrvDbOpenContext()
@@ -18,7 +18,7 @@ __int64 DrvDbOpenContext()
   __int64 v0; // r14
   __int64 v1; // rsi
   int v2; // edi
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v4; // rbx
   _QWORD *v5; // rax
   struct _ERESOURCE *v6; // rax
@@ -26,65 +26,77 @@ __int64 DrvDbOpenContext()
   int DatabaseNode; // edi
   int v9; // eax
   void *v11; // rsi
-  __int64 v12; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
 
   v0 = *(_QWORD *)&PiPnpRtlCtx;
   v1 = 0LL;
   PiDrvDbCtx = 0LL;
   v12 = 0LL;
   v2 = **(_DWORD **)&PiPnpRtlCtx;
-  Pool2 = ExAllocatePool2(256LL, 64LL, 1111770192LL);
-  v4 = Pool2;
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  *(_QWORD *)Pool2 = v0;
-  *(_DWORD *)(Pool2 + 8) = v2;
-  *(_DWORD *)(Pool2 + 12) = -805306368;
-  v5 = (_QWORD *)(Pool2 + 16);
-  v5[1] = v5;
-  *v5 = v5;
-  v6 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1111770192LL);
-  *(_QWORD *)(v4 + 56) = v6;
-  if ( v6 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x42444450u);
+  v4 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    DatabaseNode = ExInitializeResourceLite(v6);
+    PoolWithTag[3] = 0LL;
+    PoolWithTag[4] = 0LL;
+    PoolWithTag[5] = 0LL;
+    PoolWithTag[6] = 0LL;
+    *PoolWithTag = v0;
+    *((_DWORD *)PoolWithTag + 2) = v2;
+    *((_DWORD *)PoolWithTag + 3) = -805306368;
+    v5 = PoolWithTag + 2;
+    v5[1] = v5;
+    *v5 = v5;
+    v6 = (struct _ERESOURCE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x42444450u);
+    *(_QWORD *)(v4 + 48) = v6;
+    if ( v6 )
+    {
+      DatabaseNode = ExInitializeResourceLite(v6);
+      if ( DatabaseNode < 0 )
+      {
+        ExFreePoolWithTag(*(PVOID *)(v4 + 48), 0);
+        *(_QWORD *)(v4 + 48) = 0LL;
+      }
+    }
+    else
+    {
+      DatabaseNode = -1073741670;
+    }
     if ( DatabaseNode >= 0 )
     {
-      v9 = DrvDbCreateDatabaseNode(v4, L"SYSTEM", 0LL, 1LL, L"DriverDatabase", 3, 0LL, 0LL, &v12);
+      v9 = DrvDbCreateDatabaseNode(v4, L"SYSTEM", 1LL, L"DriverDatabase", 3, 0LL, 0LL, &v12);
       v1 = v12;
       DatabaseNode = v9;
       if ( v9 >= 0 )
       {
-        DatabaseNode = DrvDbLoadDatabaseNode((_QWORD *)v4, v12);
+        DatabaseNode = DrvDbLoadDatabaseNode((__int64 *)v4, v12);
         if ( DatabaseNode >= 0 )
         {
           DatabaseNode = DrvDbRegisterObjects(v0, v4);
           if ( DatabaseNode >= 0 )
           {
             PiDrvDbCtx = v4;
-            return (unsigned int)DatabaseNode;
+            v4 = 0LL;
           }
         }
       }
     }
-    else
+    if ( v4 )
     {
-      ExFreePoolWithTag(*(PVOID *)(v4 + 56), 0);
-      *(_QWORD *)(v4 + 56) = 0LL;
+      if ( v1 )
+        DrvDbDestroyDatabaseNode(v4, v1, v7);
+      v11 = *(void **)(v4 + 48);
+      if ( v11 )
+      {
+        ExDeleteResourceLite(*(PERESOURCE *)(v4 + 48));
+        ExFreePoolWithTag(v11, 0);
+      }
+      ExFreePoolWithTag((PVOID)v4, 0);
     }
   }
   else
   {
-    DatabaseNode = -1073741670;
+    return (unsigned int)-1073741801;
   }
-  if ( v1 )
-    DrvDbDestroyDatabaseNode(v4, v1, v7);
-  v11 = *(void **)(v4 + 56);
-  if ( v11 )
-  {
-    ExDeleteResourceLite(*(PERESOURCE *)(v4 + 56));
-    ExFreePoolWithTag(v11, 0);
-  }
-  ExFreePoolWithTag((PVOID)v4, 0);
   return (unsigned int)DatabaseNode;
 }

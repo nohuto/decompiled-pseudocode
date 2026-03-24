@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiOpenDefaultTerminal @ 0x1409A325C
+ * XREFs of TtmiOpenDefaultTerminal @ 0x1408FD818
  * Callers:
- *     TtmpDispatchOpenTerminal @ 0x1409A6AB0 (TtmpDispatchOpenTerminal.c)
+ *     TtmpDispatchOpenTerminal @ 0x140900ED8 (TtmpDispatchOpenTerminal.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiOpenDefaultTerminal(__int64 a1, ACCESS_MASK a2, KPROCESSOR_MODE a3, HANDLE *a4)
@@ -27,18 +27,18 @@ __int64 __fastcall TtmiOpenDefaultTerminal(__int64 a1, ACCESS_MASK a2, KPROCESSO
   {
     v10 = (unsigned int)v8;
     v11 = (unsigned int)v8;
-    v12 = 926LL;
+    v12 = 788LL;
 LABEL_5:
     TtmiLogError("TtmiOpenDefaultTerminal", v12, v11, v10);
     return v9;
   }
   v9 = ObOpenObjectByPointer(Object, a3 == 0 ? 0x200 : 0, 0LL, a2, TtmpTerminalObjectType, a3, a4);
-  ObfDereferenceObject(Object);
+  HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   if ( (v9 & 0x80000000) != 0 )
   {
     v10 = v9;
     v11 = v9;
-    v12 = 951LL;
+    v12 = 813LL;
     goto LABEL_5;
   }
   return v9;

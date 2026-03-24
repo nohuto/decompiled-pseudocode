@@ -1,9 +1,9 @@
 /*
- * XREFs of SepCompareSidValuesBlocks @ 0x1408A1E1C
+ * XREFs of SepCompareSidValuesBlocks @ 0x1408A1DFC
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x1408A224C (SepSetTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x1408A222C (SepSetTokenUserAndGroups.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  */
 
 char __fastcall SepCompareSidValuesBlocks(__int64 a1, __int64 a2)

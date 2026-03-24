@@ -1,199 +1,162 @@
 /*
- * XREFs of EtwpCreateLogFile @ 0x1407F6D40
+ * XREFs of EtwpCreateLogFile @ 0x14071334C
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpLogger @ 0x140773610 (EtwpLogger.c)
- *     EtwpBufferingModeFlush @ 0x1408A7F08 (EtwpBufferingModeFlush.c)
+ *     EtwpLogger @ 0x1406BE4D0 (EtwpLogger.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     EtwpBufferingModeFlush @ 0x14093D1D8 (EtwpBufferingModeFlush.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041AFC0 (ZwQueryVolumeInformationFile.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     EtwpSendSessionNotification @ 0x14077ED30 (EtwpSendSessionNotification.c)
- *     EtwpFinalizeHeader @ 0x1407F64A8 (EtwpFinalizeHeader.c)
- *     EtwpDelayCreate @ 0x1407F70C4 (EtwpDelayCreate.c)
- *     EtwpExpandFileName @ 0x1407F73F0 (EtwpExpandFileName.c)
- *     EtwpUpdateFileHeader @ 0x1407F7664 (EtwpUpdateFileHeader.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     EtwpExpandFileName @ 0x14065F6D8 (EtwpExpandFileName.c)
+ *     EtwpFinalizeHeader @ 0x140713010 (EtwpFinalizeHeader.c)
+ *     EtwpUpdateFileHeader @ 0x140713648 (EtwpUpdateFileHeader.c)
+ *     EtwpDelayCreate @ 0x140713990 (EtwpDelayCreate.c)
+ *     PsRevertToSelf @ 0x1407145E0 (PsRevertToSelf.c)
+ *     SeImpersonateClientEx @ 0x140714780 (SeImpersonateClientEx.c)
+ *     EtwpSendSessionNotification @ 0x140714D88 (EtwpSendSessionNotification.c)
  */
 
-__int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2, unsigned int *a3)
+__int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2)
 {
-  struct _SECURITY_CLIENT_CONTEXT *ClientContext; // r15
-  volatile signed __int64 *v6; // r14
-  __int64 v7; // r13
-  __int64 v8; // r8
-  char v9; // al
-  int v10; // r12d
-  int v11; // eax
-  bool v12; // r12
-  int v13; // eax
-  HANDLE v14; // rsi
-  NTSTATUS updated; // r15d
-  bool v16; // r15
-  __int64 v17; // rdx
-  bool v18; // zf
-  void *v19; // r12
-  unsigned int v20; // r13d
-  __int128 v22; // xmm1
-  char v23; // al
-  UNICODE_STRING v24; // xmm1
-  bool v25; // [rsp+40h] [rbp-79h]
-  char v26; // [rsp+41h] [rbp-78h]
-  unsigned int v27; // [rsp+44h] [rbp-75h]
-  HANDLE FileHandle; // [rsp+48h] [rbp-71h] BYREF
-  int v29; // [rsp+50h] [rbp-69h]
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-61h] BYREF
-  struct _SECURITY_CLIENT_CONTEXT *v31; // [rsp+68h] [rbp-51h]
-  unsigned int *v32; // [rsp+70h] [rbp-49h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-41h] BYREF
-  struct _IO_STATUS_BLOCK v34; // [rsp+88h] [rbp-31h] BYREF
-  __int128 FileInformation; // [rsp+98h] [rbp-21h] BYREF
-  __int128 v36; // [rsp+A8h] [rbp-11h]
-  __int64 v37; // [rsp+B8h] [rbp-1h]
-  __int128 FsInformation; // [rsp+C0h] [rbp+7h] BYREF
-  __int64 v39; // [rsp+D0h] [rbp+17h]
+  char v4; // r12
+  char v5; // r15
+  __int128 v6; // xmm0
+  char v7; // si
+  NTSTATUS updated; // r14d
+  HANDLE v9; // rsi
+  __int64 v10; // rdx
+  void *v11; // r15
+  bool v12; // zf
+  __int128 v13; // xmm1
+  UNICODE_STRING v15; // xmm1
+  bool v16; // [rsp+30h] [rbp-39h]
+  HANDLE FileHandle; // [rsp+38h] [rbp-31h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-29h] BYREF
+  __int128 v19; // [rsp+50h] [rbp-19h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
+  _OWORD FileInformation[2]; // [rsp+70h] [rbp+7h] BYREF
+  __int64 v22; // [rsp+90h] [rbp+27h]
 
-  v32 = a3;
   FileHandle = 0LL;
-  v26 = 0;
-  v31 = 0LL;
-  v37 = 0LL;
-  v27 = 0;
-  ClientContext = 0LL;
-  FileInformation = 0LL;
-  v36 = 0LL;
-  v34 = 0LL;
+  v22 = 0LL;
+  memset(FileInformation, 0, sizeof(FileInformation));
+  v4 = 0;
+  v5 = 0;
+  IoStatusBlock = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  if ( (*(_DWORD *)(a1 + 816) & 4) == 0 )
-    return 0LL;
-  _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFFFFC);
-  if ( !*(_QWORD *)(a1 + 160) && !*(_QWORD *)(a1 + 192) )
-    return 0LL;
-  v6 = (volatile signed __int64 *)(a1 + 688);
-  v7 = a1 + (*(_QWORD *)(a1 + 192) != 0LL ? 184LL : 152LL);
-  ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-  if ( (*(_DWORD *)(a1 + 816) & 2) != 0 )
-    v8 = *(unsigned int *)(a1 + 296);
-  else
-    v8 = 0LL;
-  EtwpExpandFileName(0LL, v7, v8, a1 + 136, *(_QWORD *)(a1 + 1096) == EtwpHostSiloState);
-  v9 = _InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v9 & 2) != 0 && (v9 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 688));
-  KeAbPostRelease(a1 + 688);
-  v10 = *(_DWORD *)(a1 + 12);
-  v25 = (v10 & 4) != 0;
-  v11 = *(_DWORD *)(a1 + 816) >> 1;
-  LOBYTE(v11) = (*(_DWORD *)(a1 + 816) & 2) != 0;
-  v29 = v11;
-  if ( a2 && *(_QWORD *)(a1 + 720) )
+  if ( (*(_DWORD *)(a1 + 832) & 4) != 0 )
   {
-    ClientContext = (struct _SECURITY_CLIENT_CONTEXT *)(a1 + 704);
-    v31 = (struct _SECURITY_CLIENT_CONTEXT *)(a1 + 704);
-  }
-  v12 = (v10 & 0x4000000) == 0;
-  while ( 1 )
-  {
-    v39 = 0LL;
-    FsInformation = 0LL;
-    IoStatusBlock = 0LL;
-    v13 = EtwpDelayCreate((__int64)&FileHandle, 0, v11, ClientContext);
-    v14 = FileHandle;
-    updated = v13;
-    if ( v13 < 0 )
-      goto LABEL_41;
-    updated = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 0x18u, FileFsSizeInformation);
-    if ( updated < 0 )
-      goto LABEL_41;
-    v16 = v25;
-    v27 = HIDWORD(v39);
-    if ( !v25 && v12 && ((HIDWORD(v39) - 1) & *(_DWORD *)(a1 + 4)) != 0 )
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 836), 0xFFFFFFFC);
+    if ( *(_QWORD *)(a1 + 176) || *(_QWORD *)(a1 + 208) )
     {
-      if ( (*(_DWORD *)(a1 + 12) & 0x400) == 0 && (*(_DWORD *)(a1 + 816) & 2) == 0 )
+      if ( *(_QWORD *)(a1 + 208) )
       {
-        updated = -1073741306;
-LABEL_41:
-        v20 = v27;
-LABEL_32:
-        if ( v14 )
+        v6 = *(_OWORD *)(a1 + 200);
+      }
+      else
+      {
+        if ( (*(_DWORD *)(a1 + 832) & 2) != 0 )
         {
-          ZwClose(v14);
-          if ( *(_QWORD *)(a1 + 800) && DestinationString.Buffer )
+          ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+          EtwpExpandFileName(0, (UNICODE_STRING *)(a1 + 168), *(_DWORD *)(a1 + 312), (unsigned __int16 *)(a1 + 152));
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 704), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 704));
+          KeAbPostRelease(a1 + 704);
+        }
+        v6 = *(_OWORD *)(a1 + 168);
+      }
+      v7 = (*(_DWORD *)(a1 + 832) & 2) != 0;
+      v16 = (*(_BYTE *)(a1 + 12) & 4) != 0;
+      v19 = v6;
+      if ( a2 == 1 )
+      {
+        if ( *(_QWORD *)(a1 + 736) )
+        {
+          updated = SeImpersonateClientEx((PSECURITY_CLIENT_CONTEXT)(a1 + 720), 0LL);
+          v5 = 1;
+          if ( updated < 0 )
+            goto LABEL_23;
+        }
+      }
+      updated = EtwpDelayCreate((__int64)&FileHandle, 0, v7);
+      if ( v5 == 1 )
+        PsRevertToSelf();
+      v9 = FileHandle;
+      if ( updated >= 0 )
+      {
+        LODWORD(v22) = 0x2000;
+        ZwSetInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
+        if ( *(_QWORD *)(a1 + 816) )
+        {
+          EtwpFinalizeHeader(a1, 0);
+          v11 = *(void **)(a1 + 816);
+        }
+        else
+        {
+          v4 = 1;
+          v11 = 0LL;
+        }
+        v12 = *(_QWORD *)(a1 + 208) == 0LL;
+        *(_QWORD *)(a1 + 816) = v9;
+        if ( !v12 )
+        {
+          ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+          v13 = *(_OWORD *)(a1 + 200);
+          DestinationString = *(UNICODE_STRING *)(a1 + 168);
+          *(_OWORD *)(a1 + 168) = v13;
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 704), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 704));
+          KeAbPostRelease(a1 + 704);
+          RtlInitUnicodeString((PUNICODE_STRING)(a1 + 200), 0LL);
+          v9 = FileHandle;
+        }
+        LOBYTE(v10) = v16;
+        updated = EtwpUpdateFileHeader(a1, v10);
+        if ( updated < 0 )
+        {
+          *(_QWORD *)(a1 + 816) = v11;
+        }
+        else
+        {
+          if ( !v4 )
+            EtwpSendSessionNotification(a1, 1LL, 0LL);
+          v9 = 0LL;
+          FileHandle = 0LL;
+          if ( !v11 )
+            goto LABEL_23;
+          ZwClose(v11);
+        }
+      }
+      if ( v9 )
+      {
+        ZwClose(v9);
+        if ( *(_QWORD *)(a1 + 816) )
+        {
+          if ( DestinationString.Buffer )
           {
-            ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-            v24 = DestinationString;
-            *(_OWORD *)(a1 + 184) = *(_OWORD *)(a1 + 152);
-            *(UNICODE_STRING *)(a1 + 152) = v24;
-            if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 688));
-            KeAbPostRelease(a1 + 688);
+            ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+            v15 = DestinationString;
+            *(_OWORD *)(a1 + 200) = *(_OWORD *)(a1 + 168);
+            *(UNICODE_STRING *)(a1 + 168) = v15;
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 704), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 704));
+            KeAbPostRelease(a1 + 704);
             RtlInitUnicodeString(&DestinationString, 0LL);
           }
         }
-        goto LABEL_21;
       }
-      v12 = 0;
-      ZwClose(v14);
-      v14 = 0LL;
-      FileHandle = 0LL;
+LABEL_23:
+      RtlFreeAnsiString((PUNICODE_STRING)(a1 + 200));
+      RtlFreeAnsiString(&DestinationString);
+      return (unsigned int)updated;
     }
-    if ( v14 )
-      break;
-    LOBYTE(v11) = v29;
-    ClientContext = v31;
   }
-  v37 = 0x2000LL;
-  FileInformation = 0LL;
-  v36 = 0LL;
-  ZwSetInformationFile(v14, &v34, &FileInformation, 0x28u, FileBasicInformation);
-  if ( *(_QWORD *)(a1 + 800) )
-    EtwpFinalizeHeader(a1, 0);
-  else
-    v26 = 1;
-  v18 = *(_QWORD *)(a1 + 192) == 0LL;
-  v19 = *(void **)(a1 + 800);
-  *(_QWORD *)(a1 + 800) = v14;
-  if ( !v18 )
-  {
-    ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-    v22 = *(_OWORD *)(a1 + 184);
-    DestinationString = *(UNICODE_STRING *)(a1 + 152);
-    *(_OWORD *)(a1 + 152) = v22;
-    v23 = _InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v23 & 2) != 0 && (v23 & 4) == 0 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 688));
-    KeAbPostRelease(a1 + 688);
-    RtlInitUnicodeString((PUNICODE_STRING)(a1 + 184), 0LL);
-    v16 = v25;
-    v14 = FileHandle;
-  }
-  v20 = v27;
-  LOBYTE(v17) = v16;
-  updated = EtwpUpdateFileHeader(a1, v17, v27);
-  if ( updated < 0 )
-  {
-    *(_QWORD *)(a1 + 800) = v19;
-    goto LABEL_32;
-  }
-  if ( !v26 )
-    EtwpSendSessionNotification(a1, 1u, 0);
-  v14 = 0LL;
-  FileHandle = 0LL;
-  if ( v19 )
-  {
-    ZwClose(v19);
-    goto LABEL_32;
-  }
-LABEL_21:
-  if ( v32 )
-    *v32 = v20;
-  RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 184));
-  RtlFreeUnicodeString(&DestinationString);
-  return (unsigned int)updated;
+  return 0LL;
 }

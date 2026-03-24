@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFsControlFile @ 0x1407BB4C0
+ * XREFs of NtFsControlFile @ 0x140677860
  * Callers:
  *     <none>
  * Callees:
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  */
 
 NTSTATUS __stdcall NtFsControlFile(
@@ -18,16 +18,19 @@ NTSTATUS __stdcall NtFsControlFile(
         PVOID OutputBuffer,
         ULONG OutputBufferLength)
 {
+  char v13; // [rsp+50h] [rbp-18h]
+
+  v13 = 0;
   return IopXxxControlFile(
            FileHandle,
-           (IRP *)Event,
-           (LARGE_INTEGER)ApcRoutine,
-           (__int64)ApcContext,
-           IoStatusBlock,
+           Event,
+           (__int64)ApcRoutine,
+           ApcContext,
+           (unsigned __int64)IoStatusBlock,
            FsControlCode,
            (char *)InputBuffer,
            InputBufferLength,
            OutputBuffer,
            OutputBufferLength,
-           0);
+           v13);
 }

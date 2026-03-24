@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeSystemSpaceMap @ 0x14071557C
+ * XREFs of MiInitializeSystemSpaceMap @ 0x14071555C
  * Callers:
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
  *     MiInitializePteInfo @ 0x1409B74C8 (MiInitializePteInfo.c)

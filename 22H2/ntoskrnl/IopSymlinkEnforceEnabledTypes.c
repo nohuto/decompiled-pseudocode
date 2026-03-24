@@ -1,20 +1,21 @@
 /*
- * XREFs of IopSymlinkEnforceEnabledTypes @ 0x140948EB4
+ * XREFs of IopSymlinkEnforceEnabledTypes @ 0x1406A64E4
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     FsRtlInsertExtraCreateParameter @ 0x1406B9450 (FsRtlInsertExtraCreateParameter.c)
- *     FsRtlAllocateExtraCreateParameter @ 0x140742EE0 (FsRtlAllocateExtraCreateParameter.c)
- *     FsRtlFindExtraCreateParameter @ 0x140765860 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x14060D2E0 (FsRtlInsertExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x140651070 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x1406BD480 (FsRtlAllocateExtraCreateParameter.c)
  */
 
 NTSTATUS __fastcall IopSymlinkEnforceEnabledTypes(bool a1, char a2, struct _ECP_LIST *a3)
 {
-  char v3; // bl
+  char v3; // di
   NTSTATUS result; // eax
-  _DWORD *v8; // rdi
-  _QWORD *v9; // rdx
-  bool v10; // zf
+  _DWORD *v8; // rbx
+  bool v9; // zf
+  _QWORD *v10; // rdx
+  bool v11; // zf
   PVOID EcpContext; // [rsp+78h] [rbp+20h] BYREF
 
   v3 = IopSymlinkEnabledTypes;
@@ -45,41 +46,45 @@ NTSTATUS __fastcall IopSymlinkEnforceEnabledTypes(bool a1, char a2, struct _ECP_
       if ( result < 0 )
         return result;
       v8 = EcpContext;
-      v9 = EcpContext;
+      v10 = EcpContext;
       *(_OWORD *)EcpContext = 0LL;
-      v9[2] = 0LL;
-      *((_DWORD *)v9 + 6) = 0;
-      *(_DWORD *)v9 = 28;
-      FsRtlInsertExtraCreateParameter(a3, v9);
+      v10[2] = 0LL;
+      *((_DWORD *)v10 + 6) = 0;
+      *(_DWORD *)v10 = 28;
+      FsRtlInsertExtraCreateParameter(a3, v10);
     }
     if ( a1 )
     {
-      if ( (v3 & 3) != 0 )
-      {
-        if ( !a2 )
-        {
-          if ( (v3 & 2) == 0 )
-            v8[1] = 2;
-          v10 = (v3 & 1) == 0;
-LABEL_27:
-          if ( v10 )
-            v8[1] = 1;
-          return 0;
-        }
-        if ( (v3 & 1) != 0 )
-          return 0;
-      }
-    }
-    else if ( (v3 & 0xC) != 0 )
-    {
+      if ( (v3 & 3) == 0 )
+        return -1073740011;
       if ( a2 )
-        return (v3 & 4) == 0 ? 0xC0000715 : 0;
+      {
+        v9 = (v3 & 1) == 0;
+        goto LABEL_10;
+      }
+      if ( (v3 & 2) == 0 )
+        v8[1] = 2;
+      v11 = (v3 & 1) == 0;
+    }
+    else
+    {
+      if ( (v3 & 0xC) == 0 )
+        return -1073740011;
+      if ( a2 )
+      {
+        v9 = (v3 & 4) == 0;
+LABEL_10:
+        if ( !v9 )
+          return 0;
+        return -1073740011;
+      }
       if ( (v3 & 8) == 0 )
         v8[1] = 2;
-      v10 = (v3 & 4) == 0;
-      goto LABEL_27;
+      v11 = (v3 & 4) == 0;
     }
-    return -1073740011;
+    if ( v11 )
+      v8[1] = 1;
+    return 0;
   }
   return result;
 }

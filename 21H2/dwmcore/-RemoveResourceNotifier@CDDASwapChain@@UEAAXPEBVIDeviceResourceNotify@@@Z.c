@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RemoveResourceNotifier@CDDASwapChain@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180293FAC
+ * XREFs of ?RemoveResourceNotifier@CDDASwapChain@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180250AC8
  * Callers:
- *     ?RemoveResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x18010AA10 (-RemoveResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?RemoveResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800F8080 (-RemoveResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEBVIDeviceResourceNotify@@@Z.c)
  * Callees:
  *     <none>
  */

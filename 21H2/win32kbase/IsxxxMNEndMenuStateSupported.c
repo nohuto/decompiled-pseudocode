@@ -1,15 +1,15 @@
 /*
- * XREFs of IsxxxMNEndMenuStateSupported @ 0x1C023E33C
+ * XREFs of IsxxxMNEndMenuStateSupported @ 0x1C01FC5DC
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsxxxMNEndMenuStateSupported()
 {
-  if ( qword_1C029BF70 )
-    return qword_1C029BF70();
+  if ( qword_1C0257230 )
+    return qword_1C0257230();
   else
     return 3221225659LL;
 }

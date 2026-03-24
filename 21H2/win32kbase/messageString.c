@@ -1,7 +1,7 @@
 /*
- * XREFs of messageString @ 0x1C01DA5FC
+ * XREFs of messageString @ 0x1C01A1210
  * Callers:
- *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01D012C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019892C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
  * Callees:
  *     <none>
  */
@@ -34,7 +34,7 @@ const char *__fastcall messageString(unsigned int a1)
       return "WM_POINTERENTER";
     if ( v4 == 1 )
       return "WM_POINTERLEAVE";
-    return (const char *)&unk_1C0268818;
+    return (const char *)&unk_1C0225490;
   }
   v6 = a1 - 588;
   if ( !v6 )
@@ -46,6 +46,6 @@ const char *__fastcall messageString(unsigned int a1)
   if ( !v8 )
     return "WM_POINTERROUTEDAWAY";
   if ( v8 != 1 )
-    return (const char *)&unk_1C0268818;
+    return (const char *)&unk_1C0225490;
   return "WM_POINTERROUTEDRELEASED";
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z @ 0x1C0039670
+ * XREFs of ?bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z @ 0x1C00951F8
  * Callers:
- *     ?bModifyWorldTransform@XDCOBJ@@QEAAHPEBU_XFORML@@K@Z @ 0x1C00396E0 (-bModifyWorldTransform@XDCOBJ@@QEAAHPEBU_XFORML@@K@Z.c)
+ *     NtGdiModifyWorldTransform @ 0x1C0098420 (NtGdiModifyWorldTransform.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017E64 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0098748 (-bIsZero@EFLOAT@@QEBAHXZ.c)
  */
 
 __int64 __fastcall bWorldMatrixInRange(struct MATRIX *a1)
@@ -24,15 +24,15 @@ __int64 __fastcall bWorldMatrixInRange(struct MATRIX *a1)
       return v1;
     return 0;
   }
-  if ( EFLOAT::bIsZero(a1) && EFLOAT::bIsZero((EFLOAT *)(v4 + 12)) )
+  if ( (unsigned int)EFLOAT::bIsZero(a1) && (unsigned int)EFLOAT::bIsZero((EFLOAT *)(v4 + 12)) )
   {
-    if ( EFLOAT::bIsZero(v6) || EFLOAT::bIsZero(v7) )
+    if ( (unsigned int)EFLOAT::bIsZero(v6) || (unsigned int)EFLOAT::bIsZero(v7) )
       return v3;
   }
   else
   {
     v9 = (float)(v5[3] * *v5) - (float)(*(float *)v6 * v5[2]);
-    if ( EFLOAT::bIsZero((EFLOAT *)&v9) )
+    if ( (unsigned int)EFLOAT::bIsZero((EFLOAT *)&v9) )
       return v8;
   }
   return v1;

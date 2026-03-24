@@ -1,8 +1,8 @@
 /*
- * XREFs of _o___stdio_common_vsprintf_0 @ 0x1801017BA
+ * XREFs of _o___stdio_common_vsprintf_0 @ 0x1800E80BA
  * Callers:
- *     _vsnprintf @ 0x180101A78 (_vsnprintf.c)
- *     _vscprintf @ 0x180101B44 (_vscprintf.c)
+ *     _vsnprintf @ 0x1800E82E8 (_vsnprintf.c)
+ *     _scprintf @ 0x1800E8350 (_scprintf.c)
  * Callees:
  *     <none>
  */

@@ -1,42 +1,41 @@
 /*
- * XREFs of PsGetWorkOnBehalfThread @ 0x1402F6220
+ * XREFs of PsGetWorkOnBehalfThread @ 0x1402055CC
  * Callers:
- *     PsGetEffectiveContainerId @ 0x140234210 (PsGetEffectiveContainerId.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402F5EA0 (IoReferenceIoAttributionFromThread.c)
- *     IopQueueWorkItemProlog @ 0x1403467F0 (IopQueueWorkItemProlog.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1406BCB64 (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     AlpcpCaptureAttributes @ 0x1407AB790 (AlpcpCaptureAttributes.c)
- *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1409663D0 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     IopQueueWorkItemProlog @ 0x140206670 (IopQueueWorkItemProlog.c)
+ *     PsGetEffectiveContainerId @ 0x1402B6CE0 (PsGetEffectiveContainerId.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1402F88E8 (IoReferenceIoAttributionFromThread.c)
+ *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1406A15FC (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2530 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PVOID __fastcall PsGetWorkOnBehalfThread(struct _KTHREAD *a1, _DWORD *a2)
 {
-  PVOID result; // rax
-  KIRQL v5; // al
   PVOID Object; // rbx
+  KIRQL v6; // al
   unsigned __int64 v7; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v11; // eax
+  int v11; // edx
   bool v12; // zf
 
-  result = a1[1].WaitBlock[1].Object;
+  Object = a1[1].WaitBlock[1].Object;
   *a2 = 0;
-  if ( result && a1 != KeGetCurrentThread() )
+  if ( Object && a1 != KeGetCurrentThread() )
   {
-    v5 = ExAcquireSpinLockShared(&PspThreadWorkOnBehalfLock);
+    v6 = ExAcquireSpinLockShared(&PspThreadWorkOnBehalfLock);
     Object = a1[1].WaitBlock[1].Object;
-    v7 = v5;
+    v7 = v6;
     if ( Object )
     {
-      ObfReferenceObjectWithTag(Object, 0x746C6644u);
+      ObfReferenceObjectWithTag(a1[1].WaitBlock[1].Object, 0x746C6644u);
       *a2 = 1;
     }
     ExReleaseSpinLockSharedFromDpcLevel(&PspThreadWorkOnBehalfLock);
@@ -58,7 +57,6 @@ PVOID __fastcall PsGetWorkOnBehalfThread(struct _KTHREAD *a1, _DWORD *a2)
       }
     }
     __writecr8(v7);
-    return Object;
   }
-  return result;
+  return Object;
 }

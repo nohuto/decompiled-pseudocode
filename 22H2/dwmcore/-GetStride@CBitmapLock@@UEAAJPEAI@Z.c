@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetStride@CBitmapLock@@UEAAJPEAI@Z @ 0x1800F2730
+ * XREFs of ?GetStride@CBitmapLock@@UEAAJPEAI@Z @ 0x1800D29A0
  * Callers:
- *     ?GetStride@CBitmapLock@@WBI@EAAJPEAI@Z @ 0x18011E9C0 (-GetStride@CBitmapLock@@WBI@EAAJPEAI@Z.c)
+ *     ?GetStride@CBitmapLock@@WBA@EAAJPEAI@Z @ 0x1800F6620 (-GetStride@CBitmapLock@@WBA@EAAJPEAI@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CBitmapLock::GetStride(CBitmapLock *this, unsigned int *a2)
@@ -13,14 +13,14 @@ __int64 __fastcall CBitmapLock::GetStride(CBitmapLock *this, unsigned int *a2)
   unsigned int v5; // ebx
   struct _RTL_CRITICAL_SECTION *v7; // [rsp+40h] [rbp+8h] BYREF
 
-  v7 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
+  v7 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 24);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
   if ( a2 )
   {
-    if ( *((_BYTE *)this + 72) )
+    if ( *((_BYTE *)this + 64) )
     {
       v5 = 0;
-      *a2 = *((_DWORD *)this + 24);
+      *a2 = *((_DWORD *)this + 22);
     }
     else
     {

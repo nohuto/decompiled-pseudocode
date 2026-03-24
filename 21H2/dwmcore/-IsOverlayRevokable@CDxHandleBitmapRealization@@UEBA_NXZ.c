@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOverlayRevokable@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x1800FCB70
+ * XREFs of ?IsOverlayRevokable@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x1800E3B10
  * Callers:
  *     <none>
  * Callees:

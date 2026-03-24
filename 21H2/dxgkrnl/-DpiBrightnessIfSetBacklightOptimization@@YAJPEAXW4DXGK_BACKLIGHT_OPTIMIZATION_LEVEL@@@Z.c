@@ -1,60 +1,38 @@
 /*
- * XREFs of ?DpiBrightnessIfSetBacklightOptimization@@YAJPEAXW4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z @ 0x1C038FF00
+ * XREFs of ?DpiBrightnessIfSetBacklightOptimization@@YAJPEAXW4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z @ 0x1C02D1210
  * Callers:
  *     <none>
  * Callees:
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C03905F4 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DpiBrightnessSetBacklightOptimizationHelper@@YAJPEAU_DEVICE_OBJECT@@W4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z @ 0x1C02D160C (-DpiBrightnessSetBacklightOptimizationHelper@@YAJPEAU_DEVICE_OBJECT@@W4DXGK_BACKLIGHT_OPTIMIZATI.c)
  */
 
-__int64 __fastcall DpiBrightnessIfSetBacklightOptimization(_QWORD *a1, unsigned int a2)
+__int64 __fastcall DpiBrightnessIfSetBacklightOptimization(
+        struct _DEVICE_OBJECT *a1,
+        enum DXGK_BACKLIGHT_OPTIMIZATION_LEVEL a2)
 {
-  __int64 v2; // rdi
-  __int64 v4; // rcx
-  struct _KMUTANT *v7; // r14
-  int v8; // ebx
-  __int64 v9; // rdi
-  __int64 v10; // rdx
+  char *DeviceExtension; // rbp
+  char *v3; // rsi
+  int v7; // ebx
 
-  v2 = 0LL;
-  v4 = a1[8];
-  if ( *(_WORD *)(v4 + 4666) == 2 )
-    v2 = v4 + 4664;
-  if ( !v2 )
+  DeviceExtension = (char *)a1->DeviceExtension;
+  v3 = 0LL;
+  if ( *((_WORD *)DeviceExtension + 2369) == 2 )
+    v3 = DeviceExtension + 4736;
+  if ( !v3 )
     return 3221225659LL;
-  v7 = (struct _KMUTANT *)(v4 + 4392);
-  v8 = -1073741661;
-  KeWaitForSingleObject((PVOID)(v4 + 4392), Executive, 0, 0, 0LL);
-  if ( *(_QWORD *)(v2 + 72) )
+  v7 = -1073741661;
+  KeWaitForSingleObject(DeviceExtension + 4464, Executive, 0, 0, 0LL);
+  if ( *((_QWORD *)v3 + 9) )
   {
-    v8 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
-    if ( v8 >= 0 )
+    v7 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
+    if ( v7 >= 0 )
     {
-      v9 = a1[8];
-      v10 = 0LL;
-      if ( *(_WORD *)(v9 + 4666) == 2 )
-        v10 = v9 + 4664;
-      if ( v10 )
-      {
-        if ( !*(_QWORD *)(v10 + 72) || a2 == *(_DWORD *)(v9 + 4380) )
-        {
-          v8 = 0;
-        }
-        else
-        {
-          v8 = DpiCallDrvSetBacklightOptimizationLevel(a1, v10, a2);
-          if ( v8 >= 0 )
-            *(_DWORD *)(v9 + 4380) = a2;
-        }
-      }
-      else
-      {
-        v8 = -1073741637;
-      }
+      v7 = DpiBrightnessSetBacklightOptimizationHelper(a1, a2);
       DpiReleaseCoreSyncAccessSafe((__int64)a1, 0);
     }
   }
-  KeReleaseMutex(v7, 0);
-  return (unsigned int)v8;
+  KeReleaseMutex((PRKMUTEX)(DeviceExtension + 4464), 0);
+  return (unsigned int)v7;
 }

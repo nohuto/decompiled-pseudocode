@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAddToDelayedClose @ 0x14073EAD8
+ * XREFs of CmpAddToDelayedClose @ 0x140677A44
  * Callers:
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E9B8 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406778F0 (CmpDereferenceKeyControlBlockWithLock.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     CmpArmDelayedCloseTimer @ 0x1402B953C (CmpArmDelayedCloseTimer.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     CmpArmDelayedCloseTimer @ 0x140305C58 (CmpArmDelayedCloseTimer.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __fastcall CmpAddToDelayedClose(ULONG_PTR BugCheckParameter2)
@@ -27,9 +27,9 @@ void __fastcall CmpAddToDelayedClose(ULONG_PTR BugCheckParameter2)
   *(_QWORD *)(v3 + 8) = v2;
   CmpDelayedLRUListHead = BugCheckParameter2 + 224;
   *(_BYTE *)(BugCheckParameter2 + 64) |= 2u;
-  ++qword_140D552E8;
+  ++qword_140D2EF88;
   v4 = ++CmpDelayedCloseElements > (unsigned int)CmpDelayedCloseSize;
-  ExReleaseFastMutex((PFAST_MUTEX)&CmpDelayedCloseTableLock);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpDelayedCloseTableLock);
   if ( v4 )
     CmpArmDelayedCloseTimer();
 }

@@ -1,72 +1,62 @@
 /*
- * XREFs of ObpCheckTraverseAccess @ 0x1406CDC5C
+ * XREFs of ObpCheckTraverseAccess @ 0x1408DD130
  * Callers:
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SeFastTraverseCheck @ 0x14024C714 (SeFastTraverseCheck.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     ObReleaseObjectSecurityEx @ 0x140722890 (ObReleaseObjectSecurityEx.c)
- *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x1407248C0 (ObpGetObjectSecurity.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeFastTraverseCheck @ 0x140595D90 (SeFastTraverseCheck.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
+ *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
  */
 
 BOOLEAN __fastcall ObpCheckTraverseAccess(
         __int64 a1,
         __int64 a2,
         struct _ACCESS_STATE *a3,
-        char a4,
+        BOOLEAN a4,
         KPROCESSOR_MODE a5,
         PNTSTATUS AccessStatus)
 {
   KPROCESSOR_MODE AccessMode; // bl
-  unsigned __int64 v9; // r9
-  unsigned __int64 v10; // r9
-  __int64 v11; // r13
+  unsigned __int64 v8; // r9
+  __int64 v9; // r15
   NTSTATUS ObjectSecurity; // eax
-  __int64 v13; // rdx
-  __int64 v14; // r9
-  BOOLEAN v15; // bl
+  BOOLEAN v12; // bl
   PPRIVILEGE_SET Privileges; // [rsp+50h] [rbp-10h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+90h] [rbp+30h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+98h] [rbp+38h] BYREF
-  char v20; // [rsp+A8h] [rbp+48h] BYREF
+  BOOLEAN MemoryAllocated; // [rsp+A8h] [rbp+48h] BYREF
 
-  v20 = a4;
+  MemoryAllocated = a4;
   AccessMode = a5;
   GrantedAccess = 0;
   Privileges = 0LL;
   SecurityDescriptor = 0LL;
-  v9 = *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8);
-  v20 = 0;
-  v10 = (unsigned __int8)ObHeaderCookie ^ v9;
-  v11 = ObTypeIndexTable[v10];
-  LOBYTE(v10) = a5;
-  ObjectSecurity = ObpGetObjectSecurity(a1, &SecurityDescriptor, &v20, v10);
-  if ( ObjectSecurity < 0 )
-  {
-    *AccessStatus = ObjectSecurity;
-    return 0;
-  }
-  else
+  v8 = *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8);
+  MemoryAllocated = 0;
+  v9 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v8];
+  ObjectSecurity = ObpGetObjectSecurity(a1, &SecurityDescriptor, &MemoryAllocated, a5);
+  if ( ObjectSecurity >= 0 )
   {
     if ( SeFastTraverseCheck((__int64)SecurityDescriptor, (__int64)a3, 2) )
     {
-      v15 = 1;
+      v12 = 1;
     }
     else
     {
       SeLockSubjectContext(&a3->SubjectSecurityContext);
-      v15 = SeAccessCheck(
+      v12 = SeAccessCheck(
               SecurityDescriptor,
               &a3->SubjectSecurityContext,
               1u,
               2u,
               0,
               &Privileges,
-              (PGENERIC_MAPPING)(v11 + 76),
+              (PGENERIC_MAPPING)(v9 + 76),
               AccessMode,
               &GrantedAccess,
               AccessStatus);
@@ -77,8 +67,12 @@ BOOLEAN __fastcall ObpCheckTraverseAccess(
       }
       SeUnlockSubjectContext(&a3->SubjectSecurityContext);
     }
-    LOBYTE(v13) = v20;
-    ObReleaseObjectSecurityEx(SecurityDescriptor, v13, a1, v14);
-    return v15;
+    ObReleaseObjectSecurity(SecurityDescriptor, MemoryAllocated);
+    return v12;
+  }
+  else
+  {
+    *AccessStatus = ObjectSecurity;
+    return 0;
   }
 }

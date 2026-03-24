@@ -1,9 +1,9 @@
 /*
- * XREFs of IopUpdateOtherOperationCount @ 0x1402F672C
+ * XREFs of IopUpdateOtherOperationCount @ 0x14022BCB0
  * Callers:
- *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
- *     NtQueryInformationFile @ 0x1407AFEF0 (NtQueryInformationFile.c)
+ *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
  * Callees:
  *     <none>
  */

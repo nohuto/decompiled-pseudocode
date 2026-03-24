@@ -1,11 +1,11 @@
 /*
- * XREFs of SleepstudyHelperQueryBlockerStatistics @ 0x1405DFB70
+ * XREFs of SleepstudyHelperQueryBlockerStatistics @ 0x140580BF0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SleepstudyHelperQueryBlockerStatistics(PKSPIN_LOCK SpinLock, char *a2, KSPIN_LOCK *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall SleepstudyHelperQueryBlockerStatistics(PKSPIN_LOCK SpinLock, 
     if ( (SpinLock[1] & 3) == 3 )
     {
       v8 = 1;
-      v9 = MEMORY[0xFFFFF78000000008] - SpinLock[3];
+      v9 = MEMORY[0xFFFFF78000000008] - SpinLock[2];
     }
     else
     {

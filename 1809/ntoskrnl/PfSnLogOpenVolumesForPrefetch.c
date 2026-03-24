@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogOpenVolumesForPrefetch @ 0x14065DB04
+ * XREFs of PfSnLogOpenVolumesForPrefetch @ 0x14065DAE4
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x14065DC6C (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14065DC4C (PfSnOpenVolumesForPrefetch.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogOpenVolumesForPrefetch(__int64 a1, char a2)

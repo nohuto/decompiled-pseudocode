@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhValidateMsOs20RegistryProperty @ 0x1C00525A0
+ * XREFs of UsbhValidateMsOs20RegistryProperty @ 0x1C0053BF0
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 char __fastcall UsbhValidateMsOs20RegistryProperty(__int64 a1, _DWORD *a2, unsigned __int16 *a3)

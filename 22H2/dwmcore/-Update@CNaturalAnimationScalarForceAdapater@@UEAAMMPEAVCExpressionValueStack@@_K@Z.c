@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Update@CNaturalAnimationScalarForceAdapater@@UEAAMMPEAVCExpressionValueStack@@_K@Z @ 0x1802776A0
+ * XREFs of ?Update@CNaturalAnimationScalarForceAdapater@@UEAAMMPEAVCExpressionValueStack@@_K@Z @ 0x180216020
  * Callers:
  *     <none>
  * Callees:
- *     ?PeekStackValue@CExpressionValueStack@@QEAAPEAVCExpressionValue@@H@Z @ 0x180107AB0 (-PeekStackValue@CExpressionValueStack@@QEAAPEAVCExpressionValue@@H@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_14978362@@@details@wil@@QEAA_NXZ @ 0x180119B04 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_14978362@@@details@wil@@QEAA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?GetOwner@CNaturalAnimationScalarForceAdapater@@AEBAPEAVCNaturalAnimation@@XZ @ 0x1802775AC (-GetOwner@CNaturalAnimationScalarForceAdapater@@AEBAPEAVCNaturalAnimation@@XZ.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 float __fastcall CNaturalAnimationScalarForceAdapater::Update(
@@ -16,64 +16,71 @@ float __fastcall CNaturalAnimationScalarForceAdapater::Update(
         struct CExpressionValueStack *a3,
         __int64 a4)
 {
-  float v5; // xmm6_4
-  struct CNaturalAnimation *v8; // rax
-  int v9; // eax
-  int v10; // ecx
-  struct CNaturalAnimation *Owner; // rax
-  int v12; // eax
-  int v13; // ecx
-  struct CExpressionValue *v14; // rax
-  _BYTE v16[16]; // [rsp+30h] [rbp-28h] BYREF
-  const void *retaddr; // [rsp+58h] [rbp+0h]
+  _QWORD *v5; // rcx
+  int v7; // eax
+  __int64 v8; // rax
+  int v9; // ecx
+  __int64 v10; // rax
+  CExpressionValue *v11; // rax
+  float *v12; // rbx
+  float result; // xmm0_4
+  __int64 v14; // rax
+  CExpressionValue *v15; // rax
+  float *v16; // rbx
+  _BYTE v17[80]; // [rsp+30h] [rbp-58h] BYREF
+  const void *retaddr; // [rsp+88h] [rbp+0h]
+  char v19; // [rsp+90h] [rbp+8h] BYREF
 
-  v5 = 0.0;
-  if ( !wil::details::FeatureImpl<__WilFeatureTraits_Feature_14978362>::__private_IsEnabled(`wil::Feature<__WilFeatureTraits_Feature_14978362>::GetImpl'::`2'::impl) )
-  {
-    Owner = CNaturalAnimationScalarForceAdapater::GetOwner(this);
-    v12 = (*(__int64 (__fastcall **)(struct CNaturalAnimation *, struct CExpressionValueStack *, __int64, _BYTE *))(*(_QWORD *)Owner + 256LL))(
-            Owner,
-            a3,
-            a4,
-            v16);
-    if ( v12 < 0 )
-      ModuleFailFastForHRESULT(v12, retaddr);
-    v13 = *((_DWORD *)CNaturalAnimationScalarForceAdapater::GetOwner(this) + 38);
-    if ( v13 != 18 )
-    {
-      if ( v13 != 35 )
-        ModuleFailFastForHRESULT(-2147467259, retaddr);
-      goto LABEL_10;
-    }
-LABEL_12:
-    v5 = *(float *)CExpressionValueStack::PeekStackValue(a3, 0);
-LABEL_13:
-    --*((_DWORD *)a3 + 4);
-    return v5;
-  }
-  v8 = CNaturalAnimationScalarForceAdapater::GetOwner(this);
-  v9 = (*(__int64 (__fastcall **)(struct CNaturalAnimation *, struct CExpressionValueStack *, __int64, _BYTE *))(*(_QWORD *)v8 + 256LL))(
-         v8,
+  v5 = (_QWORD *)*((_QWORD *)this + 5);
+  if ( v5 )
+    v5 = (_QWORD *)v5[2];
+  v7 = (*(__int64 (__fastcall **)(_QWORD *, struct CExpressionValueStack *, __int64, char *))(*v5 + 256LL))(
+         v5,
          a3,
          a4,
-         v16);
-  if ( v9 < 0 )
-    ModuleFailFastForHRESULT(v9, retaddr);
-  if ( v9 != 1 )
+         &v19);
+  if ( v7 < 0 )
+    ModuleFailFastForHRESULT(v7, retaddr);
+  v8 = *((_QWORD *)this + 5);
+  if ( v8 )
+    v8 = *(_QWORD *)(v8 + 16);
+  v9 = *(_DWORD *)(v8 + 144);
+  if ( v9 == 18 )
   {
-    v10 = *((_DWORD *)CNaturalAnimationScalarForceAdapater::GetOwner(this) + 38);
-    if ( v10 != 18 )
+    v14 = (unsigned int)(*((_DWORD *)a3 + 4) - 1);
+    if ( (unsigned int)v14 < *((_DWORD *)a3 + 12) )
     {
-      if ( v10 != 35 )
-        ModuleFailFastForHRESULT(-2147467259, retaddr);
-LABEL_10:
-      v14 = CExpressionValueStack::PeekStackValue(a3, 0);
-      v5 = *(float *)v14;
-      if ( *((_DWORD *)this + 4) )
-        v5 = *((float *)v14 + 1);
-      goto LABEL_13;
+      v16 = (float *)(*((_QWORD *)a3 + 3) + 80 * v14);
     }
-    goto LABEL_12;
+    else
+    {
+      v15 = CExpressionValue::CExpressionValue((CExpressionValue *)v17);
+      v16 = (float *)&CExpressionValueStack::s_emptyValue;
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v15);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v17);
+    }
+    result = *v16;
   }
-  return v5;
+  else
+  {
+    if ( v9 != 35 )
+      ModuleFailFastForHRESULT(-2147467259, retaddr);
+    v10 = (unsigned int)(*((_DWORD *)a3 + 4) - 1);
+    if ( (unsigned int)v10 < *((_DWORD *)a3 + 12) )
+    {
+      v12 = (float *)(*((_QWORD *)a3 + 3) + 80 * v10);
+    }
+    else
+    {
+      v11 = CExpressionValue::CExpressionValue((CExpressionValue *)v17);
+      v12 = (float *)&CExpressionValueStack::s_emptyValue;
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v11);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v17);
+    }
+    result = *v12;
+    if ( *((_DWORD *)this + 6) )
+      result = v12[1];
+  }
+  --*((_DWORD *)a3 + 4);
+  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializeCmciVector @ 0x1403B0CB0
+ * XREFs of HalpInitializeCmciVector @ 0x1403A3FB8
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x1403B0A04 (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x140251FD8 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x1403B0D74 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x1403A407C (HalpInterruptGetPriority.c)
  */
 
 __int64 __fastcall HalpInitializeCmciVector(__int64 a1, int a2)
@@ -31,8 +31,8 @@ __int64 __fastcall HalpInitializeCmciVector(__int64 a1, int a2)
   v13 = 0;
   v15 = 0LL;
   v16 = 0;
-  v4 = *(_DWORD *)(a1 + 224) == 2;
-  v19 = *(_DWORD *)(a1 + 240);
+  v4 = *(_DWORD *)(a1 + 216) == 2;
+  v19 = *(_DWORD *)(a1 + 232);
   v20 = -7;
   if ( !v4 || !HalpInterruptFindLines(&v19) )
     return 0LL;

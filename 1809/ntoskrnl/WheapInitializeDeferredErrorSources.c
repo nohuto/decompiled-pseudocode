@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapInitializeDeferredErrorSources @ 0x14031F954
+ * XREFs of WheapInitializeDeferredErrorSources @ 0x14031FA54
  * Callers:
  *     WheaConfigureErrorSource @ 0x140573910 (WheaConfigureErrorSource.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     WheapInitializeErrorSource @ 0x140727DB8 (WheapInitializeErrorSource.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     WheapInitializeErrorSource @ 0x140727D98 (WheapInitializeErrorSource.c)
  */
 
 __int64 __fastcall WheapInitializeDeferredErrorSources(int a1)

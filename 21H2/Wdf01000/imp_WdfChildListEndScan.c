@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfChildListEndScan @ 0x1C0013170
+ * XREFs of imp_WdfChildListEndScan @ 0x1C000E230
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?EndScan@FxChildList@@QEAAXPEAK@Z @ 0x1C00131C0 (-EndScan@FxChildList@@QEAAXPEAK@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?EndScan@FxChildList@@QEAAXPEAK@Z @ 0x1C000E280 (-EndScan@FxChildList@@QEAAXPEAK@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
  */
 
 void __fastcall imp_WdfChildListEndScan(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFCHILDLIST__ *DeviceList)
@@ -16,7 +16,11 @@ void __fastcall imp_WdfChildListEndScan(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFC
   FxChildList *pList; // [rsp+40h] [rbp+8h] BYREF
 
   pList = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)DeviceList, 0x1029u, (void **)&pList);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)DeviceList,
+    0x1029u,
+    (void **)&pList);
   v4 = pList;
   m_Globals = pList->m_Globals;
   if ( m_Globals->FxVerboseOn )

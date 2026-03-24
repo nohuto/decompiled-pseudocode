@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsHardwareProtected@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x1802A6014
+ * XREFs of ?IsHardwareProtected@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x180266464
  * Callers:
- *     ?IsHardwareProtected@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x18010C750 (-IsHardwareProtected@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
- *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802A6358 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
+ *     ?IsHardwareProtected@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F9240 (-IsHardwareProtected@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802667B8 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -15,6 +15,6 @@ bool __fastcall CDxHandleYUVBitmapRealization::IsHardwareProtected(CDxHandleYUVB
   v1 = *((_QWORD *)this - 14);
   result = 0;
   if ( v1 )
-    return (*(_DWORD *)(v1 + 144) & 0x80000) != 0;
+    return (*(_DWORD *)(v1 + 160) & 0x80000) != 0;
   return result;
 }

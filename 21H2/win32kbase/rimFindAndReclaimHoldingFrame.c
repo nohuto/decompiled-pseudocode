@@ -1,27 +1,26 @@
 /*
- * XREFs of rimFindAndReclaimHoldingFrame @ 0x1C01A6D9C
+ * XREFs of rimFindAndReclaimHoldingFrame @ 0x1C01721B4
  * Callers:
- *     RIMCompletePointerDeviceFrame @ 0x1C01A62A0 (RIMCompletePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C01714F4 (RIMCompletePointerDeviceFrame.c)
  * Callees:
- *     ?DropCompleteFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMHOLDINGFRAME@@_NW4InputTracing_RimCompletionReason@@@Z @ 0x1C01A4FA0 (-DropCompleteFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMHOLDINGFRAME@@_NW4InputTracing_R.c)
- *     rimFindHoldingFrame @ 0x1C01A6DDC (rimFindHoldingFrame.c)
- *     rimReclaimHoldingFrame @ 0x1C01A7B2C (rimReclaimHoldingFrame.c)
+ *     rimFindHoldingFrame @ 0x1C00A6778 (rimFindHoldingFrame.c)
+ *     ?DropCompleteFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMHOLDINGFRAME@@_NW4InputTracing_RimCompletionReason@@@Z @ 0x1C01709C8 (-DropCompleteFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMHOLDINGFRAME@@_NW4InputTracing_R.c)
+ *     rimReclaimHoldingFrame @ 0x1C0172A50 (rimReclaimHoldingFrame.c)
  */
 
-__int64 __fastcall rimFindAndReclaimHoldingFrame(__int64 a1, __int64 a2)
+_QWORD *__fastcall rimFindAndReclaimHoldingFrame(__int64 a1, __int64 a2, int a3)
 {
-  __int64 result; // rax
-  __int64 v3; // r10
-  __int64 v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
+  _QWORD *result; // rax
+  _QWORD *v6; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
 
   result = rimFindHoldingFrame(a1, a2);
-  v4 = result;
+  v6 = result;
   if ( result )
   {
-    InputTraceLogging::RIM::DropCompleteFrame(v3, result);
-    return rimReclaimHoldingFrame(v6, v5, v4);
+    InputTraceLogging::RIM::DropCompleteFrame(a2, (__int64)result, a3 != 0);
+    return (_QWORD *)rimReclaimHoldingFrame(v8, v7, v6);
   }
   return result;
 }

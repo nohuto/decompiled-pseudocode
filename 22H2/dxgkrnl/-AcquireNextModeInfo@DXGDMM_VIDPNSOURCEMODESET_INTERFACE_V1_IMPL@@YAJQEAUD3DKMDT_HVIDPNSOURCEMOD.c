@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AcquireNextModeInfo@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@QEBU_D3DKMDT_VIDPN_SOURCE_MODE@@PEAPEBU3@@Z @ 0x1C020F290
+ * XREFs of ?AcquireNextModeInfo@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@QEBU_D3DKMDT_VIDPN_SOURCE_MODE@@PEAPEBU3@@Z @ 0x1C012FFF0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@SAPEAVDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C0001B98 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@S.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODE@@@@@@QEAAEQEBVDMMVIDPNSOURCEMODE@@@Z @ 0x1C000E170 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U-$DoubleLinkedListElementDeleter@V.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??$AcquireDdiEnumeratorCachedModeInfo@V?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVIDPNSOURCEMODESET@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNSOURCEMODESET@@QEAAJV?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVIDPNSOURCEMODESET@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C020F3EC (--$AcquireDdiEnumeratorCachedModeInfo@V-$binder2nd@V-$mem_fun1_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVID.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@SAPEAVDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C00098BC (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@S.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODE@@@@@@QEAAEQEBVDMMVIDPNSOURCEMODE@@@Z @ 0x1C00178D4 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNSOURCEMODE@@U-$DoubleLinkedListElementDeleter@V.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??$AcquireDdiEnumeratorCachedModeInfo@V?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVIDPNSOURCEMODESET@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNSOURCEMODESET@@QEAAJV?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVIDPNSOURCEMODESET@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C013014C (--$AcquireDdiEnumeratorCachedModeInfo@V-$binder2nd@V-$mem_fun1_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVID.c)
  */
 
 __int64 __fastcall DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::AcquireNextModeInfo(
@@ -17,124 +17,156 @@ __int64 __fastcall DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::AcquireNextModeI
         const struct _D3DKMDT_VIDPN_SOURCE_MODE *const a3,
         const struct _D3DKMDT_VIDPN_SOURCE_MODE **a4)
 {
-  __int64 v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  _DWORD *v10; // rdi
-  __int64 v11; // rbx
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned int v17; // ebx
-  __int64 v18; // rbx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v22; // rax
-  bool v23; // zf
-  struct DMMVIDPNSOURCEMODE *(__fastcall *v24)(DMMVIDPNSOURCEMODESET *, const struct DMMVIDPNSOURCEMODE *const); // [rsp+20h] [rbp-50h] BYREF
-  int v25; // [rsp+28h] [rbp-48h]
-  __int64 v26; // [rsp+30h] [rbp-40h]
-  int v27; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v28; // [rsp+48h] [rbp-28h]
-  char v29; // [rsp+50h] [rbp-20h]
-  __int64 v30; // [rsp+68h] [rbp-8h]
-  __int64 v31; // [rsp+A0h] [rbp+30h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rbx
+  _DWORD *v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  unsigned int v21; // ebx
+  __int64 v22; // rbx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v26; // rax
+  __int64 v27; // rcx
+  bool v28; // zf
+  _QWORD *v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  struct DMMVIDPNSOURCEMODE *(__fastcall *v37)(DMMVIDPNSOURCEMODESET *, const struct DMMVIDPNSOURCEMODE *const); // [rsp+20h] [rbp-50h] BYREF
+  int v38; // [rsp+28h] [rbp-48h]
+  __int64 v39; // [rsp+30h] [rbp-40h]
+  int v40; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v41; // [rsp+48h] [rbp-28h]
+  char v42; // [rsp+50h] [rbp-20h]
+  __int64 v43; // [rsp+68h] [rbp-8h]
+  __int64 v44; // [rsp+A0h] [rbp+30h] BYREF
 
-  v27 = -1;
-  v28 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v40 = -1;
+  v41 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v29 = 1;
-    v27 = 6004;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v42 = 1;
+    v40 = 6004;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 6004);
   }
   else
   {
-    v29 = 0;
+    v42 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v27, 6004);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v40, 6004LL);
   if ( a3 )
   {
     *(_QWORD *)&a3->Id = 0LL;
-    v7 = ExposedViaHandle<DMMVIDPNSOURCEMODESET,D3DKMDT_HVIDPNSOURCEMODESET__ *>::GetFromHandle((__int64)this);
-    if ( v7 )
+    v11 = ExposedViaHandle<DMMVIDPNSOURCEMODESET,D3DKMDT_HVIDPNSOURCEMODESET__ *>::GetFromHandle((__int64)this);
+    if ( v11 )
     {
-      v8 = a2 - 16;
-      v9 = -a2;
-      v10 = (_DWORD *)(v8 & -(__int64)(v9 != 0));
-      if ( v10 && *v10 == 305419896 )
+      v12 = a2 - 16;
+      v13 = -a2;
+      v14 = (_DWORD *)(v12 & -(__int64)(v13 != 0));
+      if ( v14 && *v14 == 305419896 )
       {
-        v11 = *(_QWORD *)((v8 & -(__int64)(v9 != 0)) + 8);
-        if ( !v11 )
-          WdLogSingleEntry0(1LL);
-        if ( DoublyLinkedList<DMMVIDPNSOURCEMODE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODE>>::ContainsByReference(
-               v7 + 32,
-               v11) )
+        v15 = *(_QWORD *)((v12 & -(__int64)(v13 != 0)) + 8);
+        if ( !v15 )
         {
-          v25 = 0;
-          v31 = 0LL;
-          v24 = DMMVIDPNSOURCEMODESET::GetNextMode;
-          v30 = v11;
-          v26 = v11;
-          v12 = DMMVIDPNSOURCEMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_STL::binder2nd<KM_STL::mem_fun1_t<DMMVIDPNSOURCEMODE *,DMMVIDPNSOURCEMODESET,DMMVIDPNSOURCEMODE const *>>>(
-                  v7,
-                  &v24,
-                  &v31);
-          v17 = v12;
-          if ( v12 == -1071774902 )
+          v31 = WdLogNewEntry5_WdAssertion(v10, v9);
+          WdLogEvent5_WdAssertion(v31);
+        }
+        if ( DoublyLinkedList<DMMVIDPNSOURCEMODE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODE>>::ContainsByReference(
+               v11 + 32,
+               v15) )
+        {
+          v38 = 0;
+          v44 = 0LL;
+          v37 = DMMVIDPNSOURCEMODESET::GetNextMode;
+          v43 = v15;
+          v39 = v15;
+          v18 = DMMVIDPNSOURCEMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_STL::binder2nd<KM_STL::mem_fun1_t<DMMVIDPNSOURCEMODE *,DMMVIDPNSOURCEMODESET,DMMVIDPNSOURCEMODE const *>>>(
+                  v11,
+                  &v37,
+                  &v44);
+          v21 = v18;
+          if ( v18 == -1071774902 )
           {
-            v22 = WdLogNewEntry5_WdTrace(v14, v13, v15, v16);
-            v23 = v31 == 0;
-            *(_QWORD *)(v22 + 24) = v7;
-            if ( !v23 )
-              WdLogSingleEntry0(1LL);
-            v17 = 1075708748;
+            v26 = WdLogNewEntry5_WdTrace(v20, v19);
+            v28 = v44 == 0;
+            *(_QWORD *)(v26 + 24) = v11;
+            if ( !v28 )
+            {
+              v33 = WdLogNewEntry5_WdAssertion(v27, v19);
+              WdLogEvent5_WdAssertion(v33);
+            }
+            v21 = 1075708748;
           }
-          else if ( v12 < 0 )
+          else if ( v18 < 0 )
           {
-            WdLogSingleEntry2(7LL, v10, v7);
+            v34 = WdLogNewEntry5_WdDmmEvent(v20);
+            *(_QWORD *)(v34 + 24) = v14;
+            *(_QWORD *)(v34 + 32) = v11;
+            WdLogEvent5_WdDmmEvent(v34);
           }
           else
           {
-            v18 = v31;
-            if ( !v31 )
-              WdLogSingleEntry0(1LL);
-            *(_QWORD *)&a3->Id = v18;
-            v17 = 0;
+            v22 = v44;
+            if ( !v44 )
+            {
+              v35 = WdLogNewEntry5_WdAssertion(v20, v19);
+              WdLogEvent5_WdAssertion(v35);
+            }
+            *(_QWORD *)&a3->Id = v22;
+            v21 = 0;
           }
         }
         else
         {
-          WdLogSingleEntry2(2LL, v10, v7);
-          v17 = -1071774928;
+          v32 = WdLogNewEntry5_WdError(v17, v16);
+          *(_QWORD *)(v32 + 24) = v14;
+          *(_QWORD *)(v32 + 32) = v11;
+          WdLogEvent5_WdError(v32);
+          v21 = -1071774928;
         }
       }
       else
       {
-        WdLogSingleEntry1(2LL, v8 & -(__int64)(v9 != 0));
-        v17 = -1071774960;
+        v36 = WdLogNewEntry5_WdError(v10, v9);
+        *(_QWORD *)(v36 + 24) = v14;
+        WdLogEvent5_WdError(v36);
+        v21 = -1071774960;
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, this);
-      v17 = -1071774968;
+      v30 = WdLogNewEntry5_WdError(v10, v9);
+      *(_QWORD *)(v30 + 24) = this;
+      WdLogEvent5_WdError(v30);
+      v21 = -1071774968;
     }
   }
   else
   {
-    WdLogSingleEntry3(2LL, 0LL, a2, this);
-    v17 = -1073741811;
+    v29 = (_QWORD *)WdLogNewEntry5_WdError(v8, v7);
+    v29[3] = 0LL;
+    v29[4] = a2;
+    v29[5] = this;
+    WdLogEvent5_WdError(v29);
+    v21 = -1073741811;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27);
-  if ( v29 )
-  {
-    LOBYTE(v19) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v27);
-  }
-  return v17;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v40, v19);
+  if ( v42 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v40);
+  return v21;
 }

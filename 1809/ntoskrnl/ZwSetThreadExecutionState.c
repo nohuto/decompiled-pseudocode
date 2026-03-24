@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetThreadExecutionState @ 0x1401BB630
+ * XREFs of ZwSetThreadExecutionState @ 0x1401BB650
  * Callers:
  *     <none>
  * Callees:

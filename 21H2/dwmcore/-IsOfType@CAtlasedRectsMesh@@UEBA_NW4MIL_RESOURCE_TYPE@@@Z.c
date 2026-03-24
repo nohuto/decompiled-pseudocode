@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CAtlasedRectsMesh@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E45E0
+ * XREFs of ?IsOfType@CAtlasedRectsMesh@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D0420
  * Callers:
  *     <none>
  * Callees:

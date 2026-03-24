@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDecrementAppHiveUnloadCount @ 0x14013763C
+ * XREFs of CmpDecrementAppHiveUnloadCount @ 0x14013765C
  * Callers:
  *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
  *     CmpLateUnloadHiveWorker @ 0x1405AFC50 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x140111B60 (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x140111B80 (ExpUnblockPushLock.c)
  */
 
 void CmpDecrementAppHiveUnloadCount()

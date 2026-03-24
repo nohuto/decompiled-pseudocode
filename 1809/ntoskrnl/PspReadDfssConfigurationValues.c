@@ -1,16 +1,16 @@
 /*
- * XREFs of PspReadDfssConfigurationValues @ 0x1402E92B0
+ * XREFs of PspReadDfssConfigurationValues @ 0x1402E93B0
  * Callers:
- *     PspIsDfssEnabled @ 0x140733E00 (PspIsDfssEnabled.c)
- *     PspDfssConfigurationChangeHandler @ 0x140886650 (PspDfssConfigurationChangeHandler.c)
+ *     PspIsDfssEnabled @ 0x140733DE0 (PspIsDfssEnabled.c)
+ *     PspDfssConfigurationChangeHandler @ 0x140886630 (PspDfssConfigurationChangeHandler.c)
  * Callees:
- *     KeUpdateGroupSchedulingConstants @ 0x140191398 (KeUpdateGroupSchedulingConstants.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwNotifyChangeKey @ 0x1401BA3D0 (ZwNotifyChangeKey.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1401913B8 (KeUpdateGroupSchedulingConstants.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlQueryImageFileKeyOption @ 0x1406BB3C0 (RtlQueryImageFileKeyOption.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BB3A0 (RtlQueryImageFileKeyOption.c)
  */
 
 void PspReadDfssConfigurationValues()

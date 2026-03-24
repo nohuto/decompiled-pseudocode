@@ -1,14 +1,12 @@
 /*
- * XREFs of ZwCreateDirectoryObject @ 0x14041BBE0
+ * XREFs of ZwCreateDirectoryObject @ 0x1403FAF00
  * Callers:
- *     DifZwCreateDirectoryObjectWrapper @ 0x1405EE2A0 (DifZwCreateDirectoryObjectWrapper.c)
- *     SeGetTokenDeviceMap @ 0x1407AFD00 (SeGetTokenDeviceMap.c)
- *     ObpInitializeRootNamespace @ 0x14081E004 (ObpInitializeRootNamespace.c)
- *     ExInitializeNls @ 0x140822DEC (ExInitializeNls.c)
- *     SepInitializationPhase1 @ 0x140823D08 (SepInitializationPhase1.c)
- *     ObpGetSilosRootDirectory @ 0x140A74040 (ObpGetSilosRootDirectory.c)
- *     CmpInitializeDriverStores @ 0x140B3B144 (CmpInitializeDriverStores.c)
- *     PspInitializeCpuPartitionsPhase1 @ 0x140B54920 (PspInitializeCpuPartitionsPhase1.c)
+ *     SeGetTokenDeviceMap @ 0x1406770FC (SeGetTokenDeviceMap.c)
+ *     SepInitializationPhase1 @ 0x14079D7A8 (SepInitializationPhase1.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0DC0 (ObpInitializeRootNamespace.c)
+ *     ObpGetSilosRootDirectory @ 0x1409809DC (ObpGetSilosRootDirectory.c)
+ *     CmpInitializeDriverStores @ 0x140A5831C (CmpInitializeDriverStores.c)
+ *     ExInitializeNls @ 0x140A73EC4 (ExInitializeNls.c)
  * Callees:
  *     <none>
  */

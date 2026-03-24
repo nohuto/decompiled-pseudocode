@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCoverageEnsureStringBuffer @ 0x140857DE8
+ * XREFs of EtwpCoverageEnsureStringBuffer @ 0x1407CA34C
  * Callers:
- *     EtwpCoverageRecord @ 0x1407DDB00 (EtwpCoverageRecord.c)
- *     EtwpCoverageEnsureContext @ 0x1408579E4 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageRecord @ 0x140698CA4 (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x1407C9F5C (EtwpCoverageEnsureContext.c)
  * Callees:
- *     EtwpCoverageInitializeStringBuffer @ 0x14036E954 (EtwpCoverageInitializeStringBuffer.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwpCoverageInitializeStringBuffer @ 0x14032D160 (EtwpCoverageInitializeStringBuffer.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCoverageEnsureStringBuffer(__int64 a1)
 {
-  _QWORD *v1; // rdi
+  _QWORD *v1; // rbx
   _QWORD *i; // r8
-  _QWORD *Pool2; // rax
-  unsigned int v5; // ebx
+  _QWORD *PoolWithTag; // rax
+  unsigned int v5; // edi
   _QWORD *v6; // rsi
   _QWORD *v7; // rax
 
@@ -26,12 +26,12 @@ __int64 __fastcall EtwpCoverageEnsureStringBuffer(__int64 a1)
       return 0;
     }
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 0x2000LL, 1450669125LL);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x2000uLL, 0x56777445u);
   v5 = 0;
-  v6 = Pool2;
-  if ( Pool2 )
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    EtwpCoverageInitializeStringBuffer(Pool2, 0x2000u);
+    EtwpCoverageInitializeStringBuffer(PoolWithTag, 0x2000u);
     *(_QWORD *)(a1 + 40) = v6;
     v7 = (_QWORD *)v1[1];
     if ( (_QWORD *)*v7 != v1 )

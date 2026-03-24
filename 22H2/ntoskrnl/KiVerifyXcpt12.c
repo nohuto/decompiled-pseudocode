@@ -1,31 +1,30 @@
 /*
- * XREFs of KiVerifyXcpt12 @ 0x140B5FA40
+ * XREFs of KiVerifyXcpt12 @ 0x140A667A0
  * Callers:
  *     <none>
  * Callees:
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     KiVerifyXcptFilter @ 0x140B5FBF4 (KiVerifyXcptFilter.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x140A668BC (KiVerifyXcptFilter.c)
  */
 
 __int64 __fastcall KiVerifyXcpt12(__int64 a1)
 {
-  int *v1; // rax
   __int64 result; // rax
-  _QWORD v3[7]; // [rsp+0h] [rbp-38h] BYREF
+  _QWORD v2[7]; // [rsp+0h] [rbp-38h] BYREF
 
-  v3[4] = v3;
+  v2[4] = v2;
   if ( *(_DWORD *)(a1 + 8) == 1 )
   {
     ++**(_DWORD **)a1;
-    v1 = (int *)(a1 + 12);
+    LODWORD(result) = *(_DWORD *)(a1 + 12);
   }
   else
   {
-    v1 = (int *)(a1 + 12);
+    LODWORD(result) = -1;
     *(_DWORD *)(a1 + 12) = -1;
     *(_DWORD *)(a1 + 16) = 1;
   }
-  result = *v1;
-  *(_QWORD *)(a1 + 24) += result;
+  result = (int)result;
+  *(_QWORD *)(a1 + 24) += (int)result;
   return result;
 }

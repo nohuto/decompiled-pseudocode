@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DetermineIdealAtlasSize@CAtlasManager@@CAII@Z @ 0x1800E5770
+ * XREFs of ?DetermineIdealAtlasSize@CAtlasManager@@CAII@Z @ 0x18024C06C
  * Callers:
- *     ?AllocateGradientStrip@CAtlasManager@@QEAAJPEAVCAtlasEntry@@@Z @ 0x180040104 (-AllocateGradientStrip@CAtlasManager@@QEAAJPEAVCAtlasEntry@@@Z.c)
- *     ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x1800E5708 (-CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z.c)
+ *     ?AllocateGradientStrip@CAtlasManager@@QEAAJPEAVCAtlasEntry@@@Z @ 0x18024BCCC (-AllocateGradientStrip@CAtlasManager@@QEAAJPEAVCAtlasEntry@@@Z.c)
+ *     ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x18024BF00 (-CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z.c)
  * Callees:
  *     <none>
  */

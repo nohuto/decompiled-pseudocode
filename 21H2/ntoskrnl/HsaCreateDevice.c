@@ -1,62 +1,77 @@
 /*
- * XREFs of HsaCreateDevice @ 0x140531560
+ * XREFs of HsaCreateDevice @ 0x1404E28A0
  * Callers:
  *     <none>
  * Callees:
- *     ExtEnvAllocateMemory @ 0x1403CE24C (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x14052268C (ExtEnvFreeMemory.c)
- *     HsaQueryAcpiDeviceMapping @ 0x140532F40 (HsaQueryAcpiDeviceMapping.c)
+ *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
+ *     HsaQueryAcpiDeviceMapping @ 0x1404E4270 (HsaQueryAcpiDeviceMapping.c)
  */
 
-__int64 __fastcall HsaCreateDevice(__int64 a1, __int128 *a2, __int64 a3, unsigned __int64 *a4)
+__int64 __fastcall HsaCreateDevice(__int64 a1, unsigned __int16 *a2, __int64 a3, unsigned __int64 *a4)
 {
-  __int128 *v5; // rsi
-  int Memory; // ebx
+  unsigned __int16 *v5; // rsi
+  int v7; // ebx
   __int64 v8; // rcx
-  int v9; // eax
+  int Memory; // eax
   __int64 v10; // rcx
   unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rdx
-  __int128 v14; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-28h]
-  unsigned __int64 v16; // [rsp+60h] [rbp+8h] BYREF
+  _OWORD *v12; // r14
+  __int64 *v13; // r8
+  _DWORD *v14; // rax
+  unsigned __int64 v15; // rdx
+  __int128 v17; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v18; // [rsp+30h] [rbp-28h]
+  _OWORD *v19; // [rsp+60h] [rbp+8h] BYREF
 
-  v16 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
+  v19 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
   v5 = a2;
   if ( *(_DWORD *)a2 != 1 )
   {
     if ( *(_DWORD *)a2 != 2 )
       return (unsigned int)-1073741275;
-    Memory = HsaQueryAcpiDeviceMapping(a1, a2, &v14);
-    if ( Memory < 0 )
-      return (unsigned int)Memory;
-    v5 = &v14;
+    v7 = HsaQueryAcpiDeviceMapping(a1, a2, &v17);
+    if ( v7 < 0 )
+      return (unsigned int)v7;
+    v5 = (unsigned __int16 *)&v17;
   }
-  if ( *(_DWORD *)(a1 + 160) != *((unsigned __int16 *)v5 + 4) )
+  if ( *(_DWORD *)(a1 + 160) != v5[4] )
     return (unsigned int)-1073741275;
-  v8 = *((unsigned __int16 *)v5 + 6);
+  v8 = v5[6];
   if ( !_bittest(*(const signed __int32 **)(a1 + 192), v8) )
     return (unsigned int)-1073741275;
-  v9 = ExtEnvAllocateMemory(v8, 0x28u, &v16);
-  v11 = v16;
-  Memory = v9;
-  if ( v9 < 0 || (Memory = ExtEnvAllocateMemory(v10, 4u, (_QWORD *)(v16 + 32)), Memory < 0) )
+  Memory = ExtEnvAllocateMemory(v8, 0x28u, (__int64 *)&v19);
+  v11 = (unsigned __int64)v19;
+  v7 = Memory;
+  if ( Memory < 0
+    || (v12 = v19 + 2,
+        v13 = (__int64 *)(v19 + 2),
+        *v19 = 0LL,
+        *(_OWORD *)(v11 + 16) = 0LL,
+        *(_QWORD *)(v11 + 32) = 0LL,
+        v7 = ExtEnvAllocateMemory(v10, 0xCu, v13),
+        v7 < 0) )
   {
     if ( v11 )
     {
-      v12 = *(_QWORD *)(v11 + 32);
-      if ( v12 )
-        ExtEnvFreeMemory(v10, v12);
+      v15 = *(_QWORD *)(v11 + 32);
+      if ( v15 )
+        ExtEnvFreeMemory(v10, v15);
       ExtEnvFreeMemory(v10, v11);
     }
   }
   else
   {
-    Memory = 0;
-    **(_DWORD **)(v11 + 32) = *((unsigned __int16 *)v5 + 6);
+    v14 = *(_DWORD **)v12;
+    *(_QWORD *)v14 = 0LL;
+    v14[2] = 0;
+    **(_DWORD **)v12 = v5[6];
+    *(_DWORD *)(*(_QWORD *)v12 + 4LL) = 1 << (v5[5] & 3);
+    v7 = 0;
+    *(_DWORD *)(*(_QWORD *)v12 + 8LL) = 1 << (3 - (v5[5] & 3));
     *a4 = v11;
   }
-  return (unsigned int)Memory;
+  return (unsigned int)v7;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IsEditionGetProcessWindowStationEntryPointSupported @ 0x1C00ABDF4
+ * XREFs of IsEditionGetProcessWindowStationEntryPointSupported @ 0x1C00965A0
  * Callers:
- *     NtUserGetProcessWindowStation @ 0x1C00AFAF0 (NtUserGetProcessWindowStation.c)
- *     NtUserCreateWindowStation @ 0x1C00BDEA0 (NtUserCreateWindowStation.c)
+ *     ApiSetEditionCreateWindowStationEntryPoint @ 0x1C00963E0 (ApiSetEditionCreateWindowStationEntryPoint.c)
+ *     ApiSetEditionGetProcessWindowStationEntryPoint @ 0x1C0096508 (ApiSetEditionGetProcessWindowStationEntryPoint.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsEditionGetProcessWindowStationEntryPointSupported()
 {
-  if ( qword_1C0295388 )
-    return qword_1C0295388();
+  if ( qword_1C0255EF8 )
+    return qword_1C0255EF8();
   else
     return 3221225659LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?HitTest@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1801060CC
+ * XREFs of ?HitTest@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800E211C
  * Callers:
- *     ?HitTest@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18011C940 (-HitTest@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F4920 (-HitTest@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
  *     <none>
  */

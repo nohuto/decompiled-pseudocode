@@ -1,22 +1,22 @@
 /*
- * XREFs of BcdDeleteObject @ 0x140A1CC1C
+ * XREFs of BcdDeleteObject @ 0x14096ECB0
  * Callers:
- *     PopBcdRegenerateResumeObject @ 0x14099D244 (PopBcdRegenerateResumeObject.c)
- *     BiBindEfiBootManager @ 0x140A1E354 (BiBindEfiBootManager.c)
- *     BiBindEfiEntries @ 0x140A1E590 (BiBindEfiEntries.c)
+ *     PopBcdRegenerateResumeObject @ 0x1408F5884 (PopBcdRegenerateResumeObject.c)
+ *     BiBindEfiBootManager @ 0x1409703EC (BiBindEfiBootManager.c)
+ *     BiBindEfiEntries @ 0x140970628 (BiBindEfiEntries.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x1403A7864 (BiIsOfflineHandle.c)
- *     BiSetFirmwareModifiedFromObject @ 0x14064CD04 (BiSetFirmwareModifiedFromObject.c)
- *     BiIsLinkedToFirmwareVariable @ 0x140803438 (BiIsLinkedToFirmwareVariable.c)
- *     BiDeleteKey @ 0x14080422C (BiDeleteKey.c)
- *     BiReleaseBcdSyncMutant @ 0x1408134D8 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14081369C (BiAcquireBcdSyncMutant.c)
+ *     BiIsOfflineHandle @ 0x14039B59C (BiIsOfflineHandle.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x1405C3B34 (BiSetFirmwareModifiedFromObject.c)
+ *     BiDeleteKey @ 0x140779960 (BiDeleteKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784774 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x1407849A8 (BiIsLinkedToFirmwareVariable.c)
  */
 
-NTSTATUS __fastcall BcdDeleteObject(void *a1)
+int __fastcall BcdDeleteObject(void *a1)
 {
   char IsOfflineHandle; // di
-  NTSTATUS result; // eax
+  int result; // eax
   int v4; // ebx
 
   IsOfflineHandle = BiIsOfflineHandle((char)a1);

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhFdoPnp_QueryDeviceRelations @ 0x1C000EDC0
+ * XREFs of UsbhFdoPnp_QueryDeviceRelations @ 0x1C0014DE0
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhQueryBusRelations @ 0x1C000B7A0 (UsbhQueryBusRelations.c)
- *     UsbhFdoChainIrp @ 0x1C002996C (UsbhFdoChainIrp.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhQueryBusRelations @ 0x1C0011530 (UsbhQueryBusRelations.c)
+ *     UsbhFdoChainIrp @ 0x1C002ACBC (UsbhFdoChainIrp.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhFdoPnp_QueryDeviceRelations(__int64 a1, IRP *a2)

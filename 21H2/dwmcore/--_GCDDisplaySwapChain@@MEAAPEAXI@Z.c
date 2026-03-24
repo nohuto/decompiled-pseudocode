@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCDDisplaySwapChain@@MEAAPEAXI@Z @ 0x180283240
+ * XREFs of ??_GCDDisplaySwapChain@@MEAAPEAXI@Z @ 0x180243070
  * Callers:
- *     ??_ECDDisplaySwapChain@@OBI@EAAPEAXI@Z @ 0x180108330 (--_ECDDisplaySwapChain@@OBI@EAAPEAXI@Z.c)
+ *     ??_ECDDisplaySwapChain@@OBA@EAAPEAXI@Z @ 0x1800F6FF0 (--_ECDDisplaySwapChain@@OBA@EAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CDDisplaySwapChain@@MEAA@XZ @ 0x180282544 (--1CDDisplaySwapChain@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CDDisplaySwapChain@@MEAA@XZ @ 0x1802426EC (--1CDDisplaySwapChain@@MEAA@XZ.c)
  */
 
 CDDisplaySwapChain *__fastcall CDDisplaySwapChain::`scalar deleting destructor'(CDDisplaySwapChain *this, char a2)

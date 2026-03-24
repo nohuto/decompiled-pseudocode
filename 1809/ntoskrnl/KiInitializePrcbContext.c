@@ -1,11 +1,11 @@
 /*
  * XREFs of KiInitializePrcbContext @ 0x1405727D8
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  * Callees:
- *     MmAllocateIndependentPages @ 0x140108F80 (MmAllocateIndependentPages.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiInitializePrcbContext(__int64 a1, __int64 a2)

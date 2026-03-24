@@ -4,12 +4,12 @@
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     RtlCreateRetpolineStubsFunctionTable @ 0x1402F6810 (RtlCreateRetpolineStubsFunctionTable.c)
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
- *     MiMarkRetpolineBits @ 0x140853D70 (MiMarkRetpolineBits.c)
- *     MiCreateRetpolineBitmap @ 0x1409F7050 (MiCreateRetpolineBitmap.c)
- *     MiLockRetpolineStubs @ 0x1409F7170 (MiLockRetpolineStubs.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1402F6910 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
+ *     MiMarkRetpolineBits @ 0x140853D50 (MiMarkRetpolineBits.c)
+ *     MiCreateRetpolineBitmap @ 0x1409F7060 (MiCreateRetpolineBitmap.c)
+ *     MiLockRetpolineStubs @ 0x1409F7180 (MiLockRetpolineStubs.c)
  */
 
 __int64 MiInitializeRetpoline()

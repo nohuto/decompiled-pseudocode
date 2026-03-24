@@ -1,11 +1,11 @@
 /*
- * XREFs of TraceLoggingPTPAAPKeyPress @ 0x1C021F450
+ * XREFs of TraceLoggingPTPAAPKeyPress @ 0x1C0225BB0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
- *     ?TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z @ 0x1C021EA1C (-TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z.c)
- *     ?TraceLoggingPTPKeyToGestureTiming@@YAX_J0PEBUtagTPTELEMTIMINGS@@00@Z @ 0x1C021EAE4 (-TraceLoggingPTPKeyToGestureTiming@@YAX_J0PEBUtagTPTELEMTIMINGS@@00@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z @ 0x1C02251AC (-TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z.c)
+ *     ?TraceLoggingPTPKeyToGestureTiming@@YAX_J0PEBUtagTPTELEMTIMINGS@@00@Z @ 0x1C022526C (-TraceLoggingPTPKeyToGestureTiming@@YAX_J0PEBUtagTPTELEMTIMINGS@@00@Z.c)
  */
 
 __int64 __fastcall TraceLoggingPTPAAPKeyPress(int a1)

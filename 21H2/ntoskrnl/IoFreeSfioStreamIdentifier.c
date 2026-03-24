@@ -1,19 +1,19 @@
 /*
- * XREFs of IoFreeSfioStreamIdentifier @ 0x140557510
+ * XREFs of IoFreeSfioStreamIdentifier @ 0x140505AA0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Signature)
 {
-  __int64 v3; // rcx
   void **FileObjectExtension; // rbx
+  __int64 v4; // r9
   NTSTATUS v5; // esi
   KSPIN_LOCK *v6; // rbp
   KIRQL v7; // al
@@ -31,8 +31,8 @@ NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Sig
   v5 = -1073741275;
   if ( FileObjectExtension )
   {
-    v6 = (KSPIN_LOCK *)(v3 + 184);
-    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 184));
+    v6 = (KSPIN_LOCK *)(v4 + 184);
+    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 184));
     v8 = (PVOID *)*FileObjectExtension;
     v9 = v7;
     if ( *FileObjectExtension != FileObjectExtension )

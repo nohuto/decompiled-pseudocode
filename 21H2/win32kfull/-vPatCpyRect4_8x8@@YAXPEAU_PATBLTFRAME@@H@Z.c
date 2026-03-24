@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C5970
+ * XREFs of ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C7190
  * Callers:
- *     ?vBrushPath4_8x8Enum@@YAXPEAU_RECTL@@KPEAX@Z @ 0x1C02CEC70 (-vBrushPath4_8x8Enum@@YAXPEAU_RECTL@@KPEAX@Z.c)
+ *     ?vBrushPath4_8x8Enum@@YAXPEAU_RECTL@@KPEAX@Z @ 0x1C02D0760 (-vBrushPath4_8x8Enum@@YAXPEAU_RECTL@@KPEAX@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C6DBC (-vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C85CC (-vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z.c)
  */
 
 void __fastcall vPatCpyRect4_8x8(struct _PATBLTFRAME *a1, int a2)
@@ -61,9 +61,9 @@ void __fastcall vPatCpyRect4_8x8(struct _PATBLTFRAME *a1, int a2)
   }
   do
   {
-    v13 = dword_1C02F9CE0[v3->left & 7];
+    v13 = dword_1C02FC3E0[v3->left & 7];
     v14 = ~v13;
-    v15 = dword_1C02F9CE0[v3->right & 7];
+    v15 = dword_1C02FC3E0[v3->right & 7];
     if ( !v15 )
       v15 = -1;
     v16 = (int)((v3->right >> 1) - (((v3->left + 7) >> 1) & 0xFFFFFFFC)) >> 2;

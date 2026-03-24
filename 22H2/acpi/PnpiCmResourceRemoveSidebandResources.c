@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiCmResourceRemoveSidebandResources @ 0x1C0092CE4
+ * XREFs of PnpiCmResourceRemoveSidebandResources @ 0x1C00B4810
  * Callers:
- *     PnpCmResourcesExcludeSidebandResources @ 0x1C00926DC (PnpCmResourcesExcludeSidebandResources.c)
+ *     PnpCmResourcesExcludeSidebandResources @ 0x1C00B46C0 (PnpCmResourcesExcludeSidebandResources.c)
  * Callees:
- *     PnpiCmResourceSidebandConnection @ 0x1C0092EC4 (PnpiCmResourceSidebandConnection.c)
+ *     PnpiCmResourceSidebandConnection @ 0x1C00B49F0 (PnpiCmResourceSidebandConnection.c)
  */
 
 __int64 __fastcall PnpiCmResourceRemoveSidebandResources(
@@ -15,20 +15,20 @@ __int64 __fastcall PnpiCmResourceRemoveSidebandResources(
         unsigned int *a6)
 {
   __int64 v6; // rbp
-  __int64 v10; // r11
+  __int64 v10; // r10
   __int64 result; // rax
   unsigned int *v12; // rcx
   __int64 v13; // r14
-  unsigned int v14; // r13d
-  __int64 v15; // r12
+  unsigned int v14; // r12d
+  __int64 v15; // r15
   unsigned int v16; // esi
   __int64 v17; // rdx
   __int64 v18; // r9
   __int64 v19; // rdx
   char v20; // r8
-  unsigned int v21; // r10d
-  unsigned int v22; // ecx
-  __int64 v23; // rdx
+  unsigned int v21; // r11d
+  unsigned int v22; // edx
+  __int64 v23; // rcx
   __int64 v24; // rcx
   unsigned int v25; // eax
   char v27; // [rsp+78h] [rbp+10h] BYREF

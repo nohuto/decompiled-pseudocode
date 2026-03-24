@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIrtReleaseDeviceAperture @ 0x140934B00
+ * XREFs of HalpIrtReleaseDeviceAperture @ 0x140865F98
  * Callers:
- *     HalpIrtAllocateIndex @ 0x140820818 (HalpIrtAllocateIndex.c)
- *     HalpIrtFreeIndex @ 0x1409349C4 (HalpIrtFreeIndex.c)
+ *     HalpIrtAllocateIndex @ 0x1408659D4 (HalpIrtAllocateIndex.c)
+ *     HalpIrtFreeIndex @ 0x140865E68 (HalpIrtFreeIndex.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
  */
 
 void __fastcall HalpIrtReleaseDeviceAperture(int a1, int a2)
@@ -45,5 +45,5 @@ void __fastcall HalpIrtReleaseDeviceAperture(int a1, int a2)
       break;
     }
   }
-  ExReleaseFastMutex(&HalpIrtLock);
+  KeReleaseGuardedMutex(&HalpIrtLock);
 }

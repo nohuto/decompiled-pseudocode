@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFreeIndexByCell @ 0x1407FECD4
+ * XREFs of CmpFreeIndexByCell @ 0x1407FECB4
  * Callers:
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035C0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  */
 

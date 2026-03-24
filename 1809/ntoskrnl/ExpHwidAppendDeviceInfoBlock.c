@@ -6,9 +6,9 @@
  *     ExpHwidNetworkIfDeviceInfoProvider @ 0x140585BC0 (ExpHwidNetworkIfDeviceInfoProvider.c)
  *     ExpHwidProcessDevice @ 0x140586158 (ExpHwidProcessDevice.c)
  *     ExpHwidSysVolIfGetDiskInfo @ 0x140586E88 (ExpHwidSysVolIfGetDiskInfo.c)
- *     sub_1408DB080 @ 0x1408DB080 (sub_1408DB080.c)
+ *     sub_1408DB060 @ 0x1408DB060 (sub_1408DB060.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

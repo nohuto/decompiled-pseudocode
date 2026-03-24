@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCleanupCurrentSessionStop @ 0x1409A7228
+ * XREFs of TtmiLogCleanupCurrentSessionStop @ 0x140901948
  * Callers:
- *     TtmCleanupCurrentSession @ 0x1409A3F40 (TtmCleanupCurrentSession.c)
+ *     TtmCleanupCurrentSession @ 0x1408FE53C (TtmCleanupCurrentSession.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void TtmiLogCleanupCurrentSessionStop()
@@ -18,16 +18,16 @@ void TtmiLogCleanupCurrentSessionStop()
   int v4; // [rsp+60h] [rbp-18h]
   int v5; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v5 = 0;
       v1 = ProcessSessionId;
       v4 = 4;
       v3 = &v1;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53948, (unsigned __int8 *)&unk_1400340F0, 0LL, 0LL, 3u, &v2);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002BFED, 0LL, 0LL, 3u, &v2);
     }
   }
 }

@@ -1,45 +1,41 @@
 /*
- * XREFs of ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F10B0
+ * XREFs of ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800D3E7C
  * Callers:
- *     ?AdvanceFrame@CDeviceManager@@IEAAXXZ @ 0x1800764A4 (-AdvanceFrame@CDeviceManager@@IEAAXXZ.c)
- *     ?DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ @ 0x1800EEFA8 (-DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ.c)
- *     ?DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ @ 0x1800EF034 (-DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ.c)
- *     ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x18029D2E8 (-MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ.c)
- *     ?UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z @ 0x18029D380 (-UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z.c)
+ *     ?DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ @ 0x18002A838 (-DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ.c)
+ *     ?DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ @ 0x18002CBDC (-DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x18024C850 (-MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ.c)
+ *     ?UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z @ 0x18024C8E0 (-UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z.c)
  * Callees:
- *     ?Invalidate@CD3DResource@@IEAAXXZ @ 0x1800F1198 (-Invalidate@CD3DResource@@IEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x180287D90 (-RemoveHwProtectedResource@CD2DContext@@IEAAXXZ.c)
+ *     ?Invalidate@CD3DResource@@IEAAXXZ @ 0x1800D3F24 (-Invalidate@CD3DResource@@IEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x18023CCE8 (-RemoveHwProtectedResource@CD2DContext@@IEAAXXZ.c)
  */
 
 void __fastcall CD3DResourceManager::DestroyResource(CD3DResourceManager *this, struct CD3DResource *a2)
 {
-  char *v4; // rcx
-  struct CD3DResource **v5; // rdx
-  struct CD3DResource **v6; // rcx
-  char *v7; // rcx
+  struct CD3DResource **v4; // rdx
+  struct CD3DResource **v5; // rcx
 
-  v4 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 4LL) + 8;
-  (*(void (__fastcall **)(char *))(*(_QWORD *)v4 + 8LL))(v4);
-  if ( (**(int (__fastcall ***)(struct CD3DResource *))a2)(a2) >= 0 )
+  (**(void (__fastcall ***)(struct CD3DResource *))a2)(a2);
+  if ( (**((int (__fastcall ***)(char *))a2 + 3))((char *)a2 + 24) >= 0 )
     CD3DResource::Invalidate(a2);
-  if ( *((_BYTE *)a2 + 68) )
+  if ( *((_BYTE *)a2 + 84) )
   {
-    if ( *((_BYTE *)a2 + 69) )
+    if ( *((_BYTE *)a2 + 85) )
       CD2DContext::RemoveHwProtectedResource((CD2DContext *)(*((_QWORD *)this + 10) + 16LL));
     --*((_DWORD *)this + 18);
   }
-  (*(void (__fastcall **)(struct CD3DResource *))(*(_QWORD *)a2 + 80LL))(a2);
-  *((_QWORD *)a2 + 3) = 0LL;
-  v5 = (struct CD3DResource **)*((_QWORD *)a2 + 4);
-  if ( v5[1] != (struct CD3DResource *)((char *)a2 + 32)
-    || (v6 = (struct CD3DResource **)*((_QWORD *)a2 + 5), *v6 != (struct CD3DResource *)((char *)a2 + 32)) )
+  (*(void (__fastcall **)(struct CD3DResource *))(*(_QWORD *)a2 + 24LL))(a2);
+  *((_QWORD *)a2 + 2) = 0LL;
+  v4 = (struct CD3DResource **)*((_QWORD *)a2 + 5);
+  if ( v4[1] != (struct CD3DResource *)((char *)a2 + 40)
+    || (v5 = (struct CD3DResource **)*((_QWORD *)a2 + 6), *v5 != (struct CD3DResource *)((char *)a2 + 40)) )
   {
     __fastfail(3u);
   }
-  *v6 = (struct CD3DResource *)v5;
-  v5[1] = (struct CD3DResource *)v6;
-  *((_DWORD *)this + 12) -= *((_DWORD *)a2 + 16);
-  v7 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 4LL) + 8;
-  (*(void (__fastcall **)(char *))(*(_QWORD *)v7 + 16LL))(v7);
+  *v5 = (struct CD3DResource *)v4;
+  v4[1] = (struct CD3DResource *)v5;
+  *((_DWORD *)this + 12) -= *((_DWORD *)a2 + 20);
+  (*(void (__fastcall **)(struct CD3DResource *))(*(_QWORD *)a2 + 8LL))(a2);
 }

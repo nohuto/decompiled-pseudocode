@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetContextThread @ 0x1406C5330
+ * XREFs of NtGetContextThread @ 0x1406C5310
  * Callers:
  *     <none>
  * Callees:

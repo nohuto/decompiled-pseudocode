@@ -1,14 +1,14 @@
 /*
- * XREFs of ?VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00A9174
+ * XREFs of ?VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00BBE5C
  * Callers:
- *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00A5CE0 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
+ *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C0089E80 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z @ 0x1C001A2D8 (-CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z.c)
- *     ??0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C001A300 (--0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?UnpinOneAllocation@VIDMM_GLOBAL@@QEAA_NPEAUVIDMM_ALLOC@@W4VIDMM_UNPIN_ACTION@@_N@Z @ 0x1C00A9F98 (-UnpinOneAllocation@VIDMM_GLOBAL@@QEAA_NPEAUVIDMM_ALLOC@@W4VIDMM_UNPIN_ACTION@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z @ 0x1C0022508 (-CompleteAsynchronousUnpin@DXGDEVICE@@QEAAXIPEAVDXGALLOCATION@@@Z.c)
+ *     ??0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00232E8 (--0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?UnpinOneAllocation@VIDMM_GLOBAL@@QEAA_NPEAUVIDMM_ALLOC@@W4VIDMM_UNPIN_ACTION@@_N@Z @ 0x1C00B4870 (-UnpinOneAllocation@VIDMM_GLOBAL@@QEAA_NPEAUVIDMM_ALLOC@@W4VIDMM_UNPIN_ACTION@@_N@Z.c)
  */
 
 void __fastcall VidMmCompleteAsyncUnpin(struct _KTHREAD **a1, struct VIDMM_ALLOC **a2)
@@ -16,7 +16,7 @@ void __fastcall VidMmCompleteAsyncUnpin(struct _KTHREAD **a1, struct VIDMM_ALLOC
   _QWORD *v2; // rdi
   char v5; // si
   char v6; // al
-  char v7; // bl
+  bool v7; // bl
   __int64 v8; // rcx
   __int64 v9; // rbx
   DXGDEVICE *v10; // rcx
@@ -30,29 +30,29 @@ void __fastcall VidMmCompleteAsyncUnpin(struct _KTHREAD **a1, struct VIDMM_ALLOC
   DXGPROCESSVIDMMLOCK::DXGPROCESSVIDMMLOCK(
     (DXGPROCESSVIDMMLOCK *)&v14,
     *(struct _KTHREAD ***)(*(_QWORD *)(*((_QWORD *)*a2 + 2) + 8LL) + 40LL));
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, a1 + 5580, 0);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, a1 + 5579, 0);
   DXGPUSHLOCK::AcquireExclusive(v12);
   *((_BYTE *)v2 + 25) &= ~2u;
   v6 = *((_BYTE *)v2 + 25);
   v13 = 2;
   if ( (v6 & 1) != 0 && (v6 & 4) == 0 )
   {
-    v7 = VIDMM_GLOBAL::UnpinOneAllocation(a1, v2, 1LL);
+    v7 = VIDMM_GLOBAL::UnpinOneAllocation(a1, (__int64)v2, 1LL, 1);
     DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
     if ( v7 )
-      VIDMM_GLOBAL::UnpinOneAllocation(a1, v2, 2LL);
+      VIDMM_GLOBAL::UnpinOneAllocation(a1, (__int64)v2, 2LL, 0);
     v5 = 1;
   }
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
   if ( v14 )
   {
-    v8 = v14 + 184;
-    *(_QWORD *)(v14 + 192) = 0LL;
+    v8 = v14 + 144;
+    *(_QWORD *)(v14 + 152) = 0LL;
     ExReleasePushLockExclusiveEx(v8, 0LL);
     KeLeaveCriticalRegion();
   }
   v9 = v2[2];
-  ExReleaseRundownProtection((PEX_RUNDOWN_REF)v2 + 29);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)v2 + 31);
   *a2 = 0LL;
   if ( v5 )
     DXGDEVICE::CompleteAsynchronousUnpin(

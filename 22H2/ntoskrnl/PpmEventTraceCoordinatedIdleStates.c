@@ -1,12 +1,13 @@
 /*
- * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x140998D78
+ * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x1408F2F48
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1408650B0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5310 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PpmEventTraceCoordinatedIdleStates()
@@ -14,14 +15,14 @@ void PpmEventTraceCoordinatedIdleStates()
   __int64 v0; // rdi
   unsigned int v1; // eax
   ULONG v2; // esi
-  __int64 Pool2; // rax
+  SIZE_T v3; // rbp
+  struct _EVENT_DATA_DESCRIPTOR *PoolWithTag; // rax
   struct _EVENT_DATA_DESCRIPTOR *UserData; // rbx
-  unsigned int v5; // r9d
-  _DWORD *v6; // r8
-  int v7; // edx
-  __int64 v8; // r11
+  __int64 v6; // r9
+  struct _EVENT_DATA_DESCRIPTOR *v7; // r8
+  int v8; // edx
   struct _EVENT_DATA_DESCRIPTOR *v9; // rcx
-  const wchar_t *v10; // r10
+  const wchar_t *v10; // r11
   int v11; // eax
   unsigned int v12; // [rsp+40h] [rbp+8h] BYREF
 
@@ -31,39 +32,40 @@ void PpmEventTraceCoordinatedIdleStates()
     v1 = PpmPlatformStates ? *(_DWORD *)PpmPlatformStates : 0;
     v12 = v1;
     v2 = 2 * v1 + 1;
-    Pool2 = ExAllocatePool2(256LL, 16 * v2 + 12 * v1, 1699565648LL);
-    UserData = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
-    if ( Pool2 )
+    v3 = 16 * v2 + 12 * v1;
+    PoolWithTag = (struct _EVENT_DATA_DESCRIPTOR *)ExAllocatePoolWithTag(PagedPool, v3, 0x654D5050u);
+    UserData = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 12) = 0;
-      v5 = 0;
-      v6 = (_DWORD *)(Pool2 + 16LL * v2);
-      *(_DWORD *)(Pool2 + 8) = 4;
-      for ( *(_QWORD *)Pool2 = &v12; v5 < v12; UserData[v7 + 2].Reserved = 0 )
+      memset(PoolWithTag, 0, (unsigned int)v3);
+      UserData->Reserved = 0;
+      v6 = 0LL;
+      v7 = &UserData[v2];
+      UserData->Ptr = (ULONGLONG)&v12;
+      for ( UserData->Size = 4; (unsigned int)v6 < v12; UserData[v8 + 2].Reserved = 0 )
       {
-        v7 = 2 * v5;
-        v8 = 448LL * v5;
-        v9 = &UserData[2 * v5 + 1];
-        *v6 = *(_DWORD *)(v8 + v0 + 72);
-        v6[1] = *(_DWORD *)(v8 + v0 + 76);
-        v6[2] = *(unsigned __int8 *)(v8 + v0 + 121);
+        v8 = 2 * v6;
+        v9 = &UserData[(unsigned int)(2 * v6 + 1)];
+        LODWORD(v7->Ptr) = *(_DWORD *)(384 * v6 + v0 + 72);
+        HIDWORD(v7->Ptr) = *(_DWORD *)(384 * v6 + v0 + 76);
+        v7->Size = *(unsigned __int8 *)(384 * v6 + v0 + 121);
         v9->Reserved = 0;
-        v9->Ptr = (ULONGLONG)v6;
+        v9->Ptr = (ULONGLONG)v7;
         v9->Size = 12;
-        v10 = *(const wchar_t **)(v8 + v0 + 400);
+        v10 = *(const wchar_t **)(384 * v6 + v0 + 304);
         if ( v10 )
         {
-          v11 = *(unsigned __int16 *)(v8 + v0 + 394);
+          v11 = *(unsigned __int16 *)(384 * v6 + v0 + 298);
         }
         else
         {
           v11 = 28;
           v10 = L"<unspecified>";
         }
-        UserData[v7 + 2].Ptr = (ULONGLONG)v10;
-        v6 += 3;
-        UserData[v7 + 2].Size = v11;
-        ++v5;
+        UserData[v8 + 2].Ptr = (ULONGLONG)v10;
+        v7 = (struct _EVENT_DATA_DESCRIPTOR *)((char *)v7 + 12);
+        UserData[v8 + 2].Size = v11;
+        v6 = (unsigned int)(v6 + 1);
       }
       EtwWrite(PpmEtwHandle, &PPM_ETW_COORDINATED_IDLE_RUNDOWN, 0LL, v2, UserData);
       ExFreePoolWithTag(UserData, 0x654D5050u);

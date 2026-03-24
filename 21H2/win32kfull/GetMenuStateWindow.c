@@ -1,9 +1,9 @@
 /*
- * XREFs of GetMenuStateWindow @ 0x1C023002C
+ * XREFs of GetMenuStateWindow @ 0x1C0236A24
  * Callers:
- *     NtUserEndMenu @ 0x1C0120810 (NtUserEndMenu.c)
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
- *     xxxMNDragOver @ 0x1C02454E4 (xxxMNDragOver.c)
+ *     NtUserEndMenu @ 0x1C0134990 (NtUserEndMenu.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
+ *     xxxMNDragOver @ 0x1C0249BDC (xxxMNDragOver.c)
  * Callees:
  *     <none>
  */

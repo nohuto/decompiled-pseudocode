@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C01B7174
+ * XREFs of ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C0180A14
  * Callers:
- *     rimProcessPointerDeviceContact @ 0x1C01B2140 (rimProcessPointerDeviceContact.c)
+ *     rimProcessPointerDeviceContact @ 0x1C017C828 (rimProcessPointerDeviceContact.c)
  * Callees:
- *     ?_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z @ 0x1C01B73E0 (-_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z.c)
- *     ?_ProcessTouchPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@KH@Z @ 0x1C01B74C0 (-_ProcessTouchPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@KH@.c)
- *     ?_Report@PalmTelemetry@@AEAAXK@Z @ 0x1C01B7538 (-_Report@PalmTelemetry@@AEAAXK@Z.c)
- *     ?_ResetTelemetryData@PalmTelemetry@@AEAAXXZ @ 0x1C01B77CC (-_ResetTelemetryData@PalmTelemetry@@AEAAXXZ.c)
+ *     ?_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z @ 0x1C0180C98 (-_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z.c)
+ *     ?_ProcessTouchPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@KH@Z @ 0x1C0180DB0 (-_ProcessTouchPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@KH@.c)
+ *     ?_Report@PalmTelemetry@@AEAAXK@Z @ 0x1C0180E5C (-_Report@PalmTelemetry@@AEAAXK@Z.c)
+ *     ?_ResetTelemetryData@PalmTelemetry@@AEAAXXZ @ 0x1C01810D0 (-_ResetTelemetryData@PalmTelemetry@@AEAAXXZ.c)
  */
 
 void __fastcall PalmTelemetry::Update(
@@ -19,7 +19,7 @@ void __fastcall PalmTelemetry::Update(
   unsigned __int64 v9; // rdi
   int v10; // ecx
 
-  v4 = *((_DWORD *)a2 + 90);
+  v4 = *((_DWORD *)a2 + 78);
   if ( (v4 & 8) == 0 && (v4 & 0x2000) == 0 )
   {
     v9 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;

@@ -1,10 +1,10 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1C0028F30
+ * XREFs of McGenControlCallbackV2 @ 0x1C0023630
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0029028 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C002372C (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 void __stdcall McGenControlCallbackV2(
@@ -17,14 +17,15 @@ void __stdcall McGenControlCallbackV2(
         PVOID CallbackContext)
 {
   unsigned int v7; // esi
-  unsigned int v10; // r9d
+  unsigned int v10; // r8d
   unsigned __int8 v11; // cl
-  __int64 v12; // r8
+  __int64 v12; // rdx
   bool v13; // r11
-  __int64 v14; // rax
-  unsigned __int64 v15; // rdx
-  int v16; // r8d
-  int v17; // eax
+  int v14; // edx
+  int *v15; // rcx
+  int v16; // eax
+  int v17; // edx
+  int v18; // eax
 
   v7 = Level;
   if ( CallbackContext )
@@ -33,10 +34,10 @@ void __stdcall McGenControlCallbackV2(
     {
       if ( ControlCode == 1 )
       {
-        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
         v10 = 0;
         *((_QWORD *)CallbackContext + 3) = MatchAllKeyword;
-        *((_BYTE *)CallbackContext + 40) = Level;
+        *((_BYTE *)CallbackContext + 40) = v7;
+        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
         for ( *((_DWORD *)CallbackContext + 9) = 1; v10 < *((unsigned __int16 *)CallbackContext + 21); ++v10 )
         {
           v11 = *((_BYTE *)CallbackContext + 40);
@@ -51,25 +52,26 @@ void __stdcall McGenControlCallbackV2(
               v13 = 1;
             }
           }
-          v14 = *((_QWORD *)CallbackContext + 6);
-          v15 = (unsigned __int64)v10 >> 5;
-          v16 = 1 << (v10 & 0x1F);
+          v14 = 1 << (v10 & 0x1F);
+          v15 = (int *)(*((_QWORD *)CallbackContext + 6) + 4 * ((unsigned __int64)v10 >> 5));
+          v16 = *v15;
           if ( v13 )
-            *(_DWORD *)(v14 + 4 * v15) |= v16;
+            v17 = v16 | v14;
           else
-            *(_DWORD *)(v14 + 4 * v15) &= ~v16;
+            v17 = v16 & ~v14;
+          *v15 = v17;
         }
       }
     }
     else
     {
-      v17 = *((unsigned __int16 *)CallbackContext + 21);
+      v18 = *((unsigned __int16 *)CallbackContext + 21);
       *((_DWORD *)CallbackContext + 9) = 0;
       *((_BYTE *)CallbackContext + 40) = 0;
       *((_QWORD *)CallbackContext + 2) = 0LL;
       *((_QWORD *)CallbackContext + 3) = 0LL;
-      if ( (_WORD)v17 )
-        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v17 - 1) / 32 + 1));
+      if ( (_WORD)v18 )
+        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v18 - 1) / 32 + 1));
     }
     DxgkEtwEnableCallback(ControlCode, v7, MatchAnyKeyword);
   }

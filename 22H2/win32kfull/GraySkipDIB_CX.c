@@ -1,5 +1,5 @@
 /*
- * XREFs of GraySkipDIB_CX @ 0x1C0262C70
+ * XREFs of GraySkipDIB_CX @ 0x1C026B5D0
  * Callers:
  *     <none>
  * Callees:

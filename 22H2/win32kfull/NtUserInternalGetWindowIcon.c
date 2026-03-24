@@ -1,31 +1,29 @@
 /*
- * XREFs of NtUserInternalGetWindowIcon @ 0x1C01D5BC0
+ * XREFs of NtUserInternalGetWindowIcon @ 0x1C0007E90
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _GetWindowIcon @ 0x1C01E380C (_GetWindowIcon.c)
+ *     _GetWindowIcon @ 0x1C0007F14 (_GetWindowIcon.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserInternalGetWindowIcon(__int64 a1, unsigned int a2)
 {
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 WindowIcon; // rbx
+  __int64 WindowIcon; // rdi
+  __int64 v5; // rax
 
   EnterCrit(0LL, 1LL);
-  v4 = ValidateHwnd(a1);
   WindowIcon = 0LL;
-  if ( v4 )
+  gbValidateHandleForIL = 0;
+  v5 = ValidateHwnd(a1);
+  if ( v5 )
   {
-    if ( a2 <= 2 )
-      WindowIcon = GetWindowIcon(v4, a2);
+    if ( a2 > 2 )
+      UserSetLastError(87LL);
     else
-      UserSetLastError(87);
+      WindowIcon = GetWindowIcon(v5, a2);
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
+  UserSessionSwitchLeaveCrit();
   return WindowIcon;
 }

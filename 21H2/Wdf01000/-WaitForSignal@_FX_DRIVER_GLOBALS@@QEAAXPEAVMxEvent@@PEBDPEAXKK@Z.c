@@ -1,14 +1,14 @@
 /*
- * XREFs of ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C000FAF8
+ * XREFs of ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C0017894
  * Callers:
- *     ?StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C000F900 (-StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z.c)
- *     ?StartPowerTransitionOff@FxIoQueue@@QEAAXXZ @ 0x1C000F9BC (-StartPowerTransitionOff@FxIoQueue@@QEAAXXZ.c)
- *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C0079658 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
- *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0081AB0 (-Dispose@FxIoQueue@@UEAAEXZ.c)
- *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0081E40 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
- *     ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0082088 (-QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z.c)
- *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C008217C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
- *     ?WakeInterruptIsr@FxInterrupt@@QEAAEXZ @ 0x1C008D460 (-WakeInterruptIsr@FxInterrupt@@QEAAEXZ.c)
+ *     ?StartPowerTransitionOff@FxIoQueue@@QEAAXXZ @ 0x1C0012840 (-StartPowerTransitionOff@FxIoQueue@@QEAAXXZ.c)
+ *     ?StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C00128F8 (-StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z.c)
+ *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C006CAC8 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
+ *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0075FA0 (-Dispose@FxIoQueue@@UEAAEXZ.c)
+ *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076AF8 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0076D48 (-QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z.c)
+ *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C0076E3C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?WakeInterruptIsr@FxInterrupt@@QEAAEXZ @ 0x1C0089CC4 (-WakeInterruptIsr@FxInterrupt@@QEAAEXZ.c)
  * Callees:
  *     <none>
  */

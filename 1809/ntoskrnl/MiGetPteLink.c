@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPteLink @ 0x1400AD784
+ * XREFs of MiGetPteLink @ 0x1400AD7A4
  * Callers:
  *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
- *     MiObtainSystemCacheView @ 0x1400AD200 (MiObtainSystemCacheView.c)
- *     MmMapViewInSystemCache @ 0x1400AD910 (MmMapViewInSystemCache.c)
- *     RemoveListEntryPte @ 0x14012971C (RemoveListEntryPte.c)
- *     MiWaitForSystemCacheViewFlush @ 0x14013919C (MiWaitForSystemCacheViewFlush.c)
- *     MmAllocateSpecialPool @ 0x1402ACA64 (MmAllocateSpecialPool.c)
+ *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
+ *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
+ *     RemoveListEntryPte @ 0x14012973C (RemoveListEntryPte.c)
+ *     MiWaitForSystemCacheViewFlush @ 0x1401391BC (MiWaitForSystemCacheViewFlush.c)
+ *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
  * Callees:
  *     <none>
  */

@@ -9,11 +9,11 @@
  *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiAgeWorkingSetTail @ 0x140075A50 (MiAgeWorkingSetTail.c)
- *     MiIsPageTableLocked @ 0x14012D9FC (MiIsPageTableLocked.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertVmAccessedEntry @ 0x1402B305C (MiInsertVmAccessedEntry.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)

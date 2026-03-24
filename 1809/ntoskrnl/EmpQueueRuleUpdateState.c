@@ -1,16 +1,16 @@
 /*
- * XREFs of EmpQueueRuleUpdateState @ 0x14017FBC0
+ * XREFs of EmpQueueRuleUpdateState @ 0x14017FBE0
  * Callers:
- *     EmpProviderDeregisterEntry @ 0x14026E4A8 (EmpProviderDeregisterEntry.c)
- *     EmpProviderRegister @ 0x14072CB10 (EmpProviderRegister.c)
- *     EmpClientRuleRegisterNotification @ 0x140813680 (EmpClientRuleRegisterNotification.c)
- *     EmProviderDeregister @ 0x1408138E0 (EmProviderDeregister.c)
- *     EmProviderRegisterEntry @ 0x140813AF0 (EmProviderRegisterEntry.c)
+ *     EmpProviderDeregisterEntry @ 0x14026E5A8 (EmpProviderDeregisterEntry.c)
+ *     EmpProviderRegister @ 0x14072CAF0 (EmpProviderRegister.c)
+ *     EmpClientRuleRegisterNotification @ 0x140813660 (EmpClientRuleRegisterNotification.c)
+ *     EmProviderDeregister @ 0x1408138C0 (EmProviderDeregister.c)
+ *     EmProviderRegisterEntry @ 0x140813AD0 (EmProviderRegisterEntry.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

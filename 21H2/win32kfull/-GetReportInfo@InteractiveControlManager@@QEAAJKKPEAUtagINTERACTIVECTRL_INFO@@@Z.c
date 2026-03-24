@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C024F350
+ * XREFs of ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C0252360
  * Callers:
- *     NtUserGetInteractiveControlInfo @ 0x1C01F4C40 (NtUserGetInteractiveControlInfo.c)
+ *     NtUserGetInteractiveControlInfo @ 0x1C01FA170 (NtUserGetInteractiveControlInfo.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     GetDPITransformationMonitor @ 0x1C01DF820 (GetDPITransformationMonitor.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C024E748 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
- *     ?FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z @ 0x1C024ED28 (-FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z.c)
- *     ?GetInputReport@InteractiveControlDevice@@QEAAHKPEAPEAVInteractiveControlInput@@@Z @ 0x1C02540A8 (-GetInputReport@InteractiveControlDevice@@QEAAHKPEAPEAVInteractiveControlInput@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     GetDPITransformationMonitor @ 0x1C01E5670 (GetDPITransformationMonitor.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C025175C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z @ 0x1C0251D38 (-FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z.c)
+ *     ?GetInputReport@InteractiveControlDevice@@QEAAHKPEAPEAVInteractiveControlInput@@@Z @ 0x1C0257338 (-GetInputReport@InteractiveControlDevice@@QEAAHKPEAPEAVInteractiveControlInput@@@Z.c)
  */
 
 __int64 __fastcall InteractiveControlManager::GetReportInfo(
@@ -17,7 +17,7 @@ __int64 __fastcall InteractiveControlManager::GetReportInfo(
         __int64 a3,
         struct tagINTERACTIVECTRL_INFO *a4)
 {
-  unsigned __int16 v5; // si
+  unsigned __int16 v5; // bx
   int Device; // eax
   __int64 v9; // r8
   __int64 v10; // r9
@@ -35,14 +35,14 @@ __int64 __fastcall InteractiveControlManager::GetReportInfo(
   v18 = 0LL;
   v5 = a3;
   DPITransformationMonitor = 0LL;
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     v17[0] = a2;
     v20[0] = (__int64)"InteractiveControlManager::GetReportInfo entry";
     v16 = a3;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F18DA,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F4475,
       a3,
       (__int64)a4,
       (void **)v20,
@@ -78,25 +78,25 @@ __int64 __fastcall InteractiveControlManager::GetReportInfo(
       v11 = -1073741811;
     }
   }
-  else if ( (unsigned int)dword_1C03262C0 > 2 )
+  else if ( (unsigned int)dword_1C032B2F8 > 2 )
   {
     v17[0] = Device;
     v20[0] = (__int64)"Function failed.";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F15F5,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F4190,
       v9,
       v10,
       (void **)v20,
       (__int64)v17);
   }
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     v17[0] = v11;
     v20[0] = (__int64)"InteractiveControlManager::GetReportInfo exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F1582,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F411D,
       v9,
       v10,
       (void **)v20,

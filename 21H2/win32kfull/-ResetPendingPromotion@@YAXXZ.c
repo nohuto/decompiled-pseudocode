@@ -1,18 +1,18 @@
 /*
- * XREFs of ?ResetPendingPromotion@@YAXXZ @ 0x1C0213EA4
+ * XREFs of ?ResetPendingPromotion@@YAXXZ @ 0x1C021918C
  * Callers:
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02137B0 (-ForceCompletePendingPromotion@@YAXXZ.c)
- *     ?ProcessRangeInCache@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1HHH@Z @ 0x1C0213AC4 (-ProcessRangeInCache@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1HHH@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02189B8 (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?ProcessRangeInCache@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1HHH@Z @ 0x1C0218CCC (-ProcessRangeInCache@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1HHH@Z.c)
  * Callees:
  *     <none>
  */
 
 void ResetPendingPromotion(void)
 {
-  if ( qword_1C0335D78 )
-    *(_DWORD *)(qword_1C0335D78 + 1144) = 0;
-  word_1C0335D70 = 0;
-  dword_1C0335D74 = 0;
-  qword_1C0335D78 = 0LL;
-  dword_1C0335D80 = 0;
+  if ( qword_1C033ABB8 )
+    *(_DWORD *)(qword_1C033ABB8 + 1120) = 0;
+  word_1C033ABB0 = 0;
+  dword_1C033ABB4 = 0;
+  qword_1C033ABB8 = 0LL;
+  dword_1C033ABC0 = 0;
 }

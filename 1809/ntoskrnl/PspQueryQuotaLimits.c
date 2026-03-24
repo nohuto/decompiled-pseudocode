@@ -1,15 +1,15 @@
 /*
- * XREFs of PspQueryQuotaLimits @ 0x14066D5F8
+ * XREFs of PspQueryQuotaLimits @ 0x14066D5D8
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MmQueryWorkingSetInformation @ 0x1400F10C8 (MmQueryWorkingSetInformation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmQueryWorkingSetInformation @ 0x1400F10E8 (MmQueryWorkingSetInformation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  */
 

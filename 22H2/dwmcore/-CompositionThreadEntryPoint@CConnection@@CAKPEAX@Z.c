@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z @ 0x1800D6670
+ * XREFs of ?CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z @ 0x1800267E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,14 @@
 /*
- * XREFs of UsbhGetPersistedUsbFlagsPath @ 0x1C00448B0
+ * XREFs of UsbhGetPersistedUsbFlagsPath @ 0x1C0045B84
  * Callers:
- *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0044570 (UsbhGetInitRegUsbDeviceFlags.c)
- *     UsbhGetRegPersistedUsbDeviceFlags @ 0x1C0044AEC (UsbhGetRegPersistedUsbDeviceFlags.c)
+ *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0045830 (UsbhGetInitRegUsbDeviceFlags.c)
+ *     UsbhGetRegPersistedUsbDeviceFlags @ 0x1C0045DD8 (UsbhGetRegPersistedUsbDeviceFlags.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
  */
 
 wchar_t *__fastcall UsbhGetPersistedUsbFlagsPath(__int64 a1, __int64 a2)
@@ -15,7 +16,7 @@ wchar_t *__fastcall UsbhGetPersistedUsbFlagsPath(__int64 a1, __int64 a2)
   unsigned __int16 *v2; // rdi
   wchar_t *v3; // rbx
   int PersistedStateLocation; // eax
-  __int64 Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   int v6; // esi
   PDEVICE_OBJECT v7; // rcx
   unsigned __int16 v8; // r9
@@ -39,16 +40,17 @@ wchar_t *__fastcall UsbhGetPersistedUsbFlagsPath(__int64 a1, __int64 a2)
                              &v13);
   if ( PersistedStateLocation == -2147483643 )
   {
-    Pool2 = ExAllocatePool2(64LL, v13 + 26, 1112885333LL);
-    v3 = (wchar_t *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), v13 + 26, 0x42554855u);
+    v3 = PoolWithTag;
+    if ( PoolWithTag )
     {
+      memset(PoolWithTag, 0, v13 + 26);
       v6 = RtlGetPersistedStateLocation(
              L"usbflags",
              0LL,
              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\usbflags",
              0LL,
-             Pool2,
+             v3,
              v13,
              0LL);
       if ( v6 >= 0 )

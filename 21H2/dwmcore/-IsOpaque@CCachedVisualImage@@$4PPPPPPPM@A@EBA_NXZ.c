@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOpaque@CCachedVisualImage@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801061D0
+ * XREFs of ?IsOpaque@CCachedVisualImage@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F5190
  * Callers:
  *     <none>
  * Callees:

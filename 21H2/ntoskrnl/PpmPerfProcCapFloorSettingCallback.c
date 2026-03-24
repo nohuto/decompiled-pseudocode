@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x140997BA0
+ * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x1408F0AE0
  * Callers:
  *     <none>
  * Callees:
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmReapplyPerfPolicy @ 0x140849940 (PpmReapplyPerfPolicy.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
  */
 
 __int64 __fastcall PpmPerfProcCapFloorSettingCallback(
@@ -41,7 +41,7 @@ __int64 __fastcall PpmPerfProcCapFloorSettingCallback(
   Prcb = KeGetPrcb(v4);
   if ( Prcb )
   {
-    v11 = *(_QWORD *)(Prcb + 33976);
+    v11 = *(_QWORD *)(Prcb + 33136);
     if ( v11 )
     {
       if ( v8 )

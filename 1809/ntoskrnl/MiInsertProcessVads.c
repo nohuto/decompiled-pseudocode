@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInsertProcessVads @ 0x140679B84
+ * XREFs of MiInsertProcessVads @ 0x140679B64
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140760640 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x140760620 (MmInitializeHandBuiltProcess2.c)
  * Callees:
  *     MiGetWsAndInsertVad @ 0x140063E20 (MiGetWsAndInsertVad.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)

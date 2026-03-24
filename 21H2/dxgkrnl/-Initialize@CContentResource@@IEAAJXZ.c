@@ -1,18 +1,18 @@
 /*
- * XREFs of ?Initialize@CContentResource@@IEAAJXZ @ 0x1C008124C
+ * XREFs of ?Initialize@CContentResource@@IEAAJXZ @ 0x1C006E0E0
  * Callers:
- *     ?Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z @ 0x1C0081124 (-Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z.c)
+ *     ?Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z @ 0x1C006DFA4 (-Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z.c)
  * Callees:
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00054E8 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     ?GetActiveBuffer@CCompositionSurface@@IEBAPEAVCCompositionBuffer@@XZ @ 0x1C000668C (-GetActiveBuffer@CCompositionSurface@@IEBAPEAVCCompositionBuffer@@XZ.c)
- *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C00072FC (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
- *     ??$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@@Z @ 0x1C0080F88 (--$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C000FC78 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C000FE74 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
+ *     ?GetActiveBuffer@CCompositionSurface@@IEBAPEAVCCompositionBuffer@@XZ @ 0x1C0011B4C (-GetActiveBuffer@CCompositionSurface@@IEBAPEAVCCompositionBuffer@@XZ.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     ??$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@@Z @ 0x1C006DE88 (--$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@.c)
  */
 
 __int64 __fastcall CContentResource::Initialize(CContentResource *this)
 {
-  unsigned int v2; // ebx
+  int v2; // ebx
   __int64 v3; // rcx
   __int64 v4; // r8
   void *v5; // rcx
@@ -41,16 +41,14 @@ __int64 __fastcall CContentResource::Initialize(CContentResource *this)
         v2 = v6;
         if ( v6 >= 0 )
         {
-          v8 = CompositionSurfaceObject::LockForRead((CompositionSurfaceObject *)Object, &v12);
+          v8 = CompositionSurfaceObject::LockForRead((char *)Object, &v12);
           v9 = v12;
           v2 = v8;
           if ( v8 >= 0 )
           {
             if ( CCompositionSurface::GetActiveBuffer(v12) )
-            {
               v2 = -1073741811;
-            }
-            else
+            if ( v2 >= 0 )
             {
               *((_QWORD *)this + 6) = v7;
               v7 = 0LL;
@@ -64,5 +62,5 @@ __int64 __fastcall CContentResource::Initialize(CContentResource *this)
       }
     }
   }
-  return v2;
+  return (unsigned int)v2;
 }

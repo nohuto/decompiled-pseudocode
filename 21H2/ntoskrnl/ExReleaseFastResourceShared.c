@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReleaseFastResourceShared @ 0x14063C9F0
+ * XREFs of ExReleaseFastResourceShared @ 0x1405B4570
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseFastResourceShared @ 0x14039D010 (ExpReleaseFastResourceShared.c)
- *     ExpReleaseFastResourceExclusive @ 0x14039D3E4 (ExpReleaseFastResourceExclusive.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExpReleaseFastResourceShared @ 0x14038E980 (ExpReleaseFastResourceShared.c)
+ *     ExpReleaseFastResourceExclusive @ 0x14038FBC0 (ExpReleaseFastResourceExclusive.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

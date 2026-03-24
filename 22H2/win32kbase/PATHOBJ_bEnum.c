@@ -1,22 +1,22 @@
 /*
- * XREFs of PATHOBJ_bEnum @ 0x1C000D430
+ * XREFs of PATHOBJ_bEnum @ 0x1C0026CC0
  * Callers:
- *     ?bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z @ 0x1C000D410 (-bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z.c)
- *     ?bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z @ 0x1C0156D58 (-bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z.c)
+ *     ?bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z @ 0x1C0026B64 (-bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z.c)
+ *     ?bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z @ 0x1C00BEDF0 (-bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z.c)
  * Callees:
  *     <none>
  */
 
 BOOL __stdcall PATHOBJ_bEnum(PATHOBJ *ppo, PATHDATA *ppd)
 {
-  PATHOBJ v2; // r11
+  PATHOBJ v2; // r10
   BOOL v3; // r8d
   __int64 v5; // r9
   FLONG fl; // ecx
-  __int64 *i; // rax
-  int v8; // edx
-  _DWORD *j; // rcx
   BOOL result; // eax
+  __int64 *i; // rax
+  int v9; // edx
+  _DWORD *j; // rcx
 
   v2 = ppo[1];
   v3 = 0;
@@ -43,8 +43,8 @@ BOOL __stdcall PATHOBJ_bEnum(PATHOBJ *ppo, PATHDATA *ppd)
     ppo->fl = fl & 0xFFFFFFFB;
     for ( i = *(__int64 **)(*(_QWORD *)&v2 + 32LL); i; i = (__int64 *)*i )
     {
-      v8 = *((_DWORD *)i + 5);
-      for ( j = i + 3; v8; --v8 )
+      v9 = *((_DWORD *)i + 5);
+      for ( j = i + 3; v9; --v9 )
       {
         *j *= 16;
         j[1] *= 16;

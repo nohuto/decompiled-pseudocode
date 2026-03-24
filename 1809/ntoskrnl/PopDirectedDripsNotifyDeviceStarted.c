@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0F0
+ * XREFs of PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0D0
  * Callers:
- *     PipProcessStartPhase3 @ 0x1406EAB38 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PoDirectedDripsSetDeviceFlags @ 0x1402D6910 (PoDirectedDripsSetDeviceFlags.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PoDirectedDripsSetDeviceFlags @ 0x1402D6A10 (PoDirectedDripsSetDeviceFlags.c)
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CD10 (PopDirectedDripsNotifyUsbDeviceStarted.c)
+ *     PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CCF0 (PopDirectedDripsNotifyUsbDeviceStarted.c)
  */
 
 int __fastcall PopDirectedDripsNotifyDeviceStarted(__int64 a1)

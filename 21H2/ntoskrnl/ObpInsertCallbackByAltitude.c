@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpInsertCallbackByAltitude @ 0x14085B02C
+ * XREFs of ObpInsertCallbackByAltitude @ 0x1407CA9E4
  * Callers:
- *     ObRegisterCallbacks @ 0x14085AE70 (ObRegisterCallbacks.c)
+ *     ObRegisterCallbacks @ 0x1407CA810 (ObRegisterCallbacks.c)
  * Callees:
- *     RtlCompareAltitudes @ 0x140212060 (RtlCompareAltitudes.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
+ *     RtlCompareAltitudes @ 0x1402BAD10 (RtlCompareAltitudes.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall ObpInsertCallbackByAltitude(__int64 a1, _QWORD *a2)
@@ -14,14 +14,13 @@ __int64 __fastcall ObpInsertCallbackByAltitude(__int64 a1, _QWORD *a2)
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v3; // r14
   unsigned int v4; // esi
-  ULONG_PTR v6; // r15
+  ULONG_PTR v6; // rbp
   _QWORD *v7; // rbx
   __int64 *v8; // rax
   __int64 v9; // rcx
-  struct _KTHREAD *v10; // rcx
-  const UNICODE_STRING *v12; // rbp
-  LONG v13; // eax
-  bool v14; // zf
+  const UNICODE_STRING *v11; // r15
+  LONG v12; // eax
+  bool v13; // zf
 
   CurrentThread = KeGetCurrentThread();
   v3 = (_QWORD *)(a1 + 200);
@@ -32,21 +31,21 @@ __int64 __fastcall ObpInsertCallbackByAltitude(__int64 a1, _QWORD *a2)
   v7 = (_QWORD *)*v3;
   if ( (_QWORD *)*v3 == v3 )
     goto LABEL_2;
-  v12 = (const UNICODE_STRING *)a2[3];
+  v11 = (const UNICODE_STRING *)a2[3];
   while ( 1 )
   {
-    v13 = RtlCompareAltitudes((PCUNICODE_STRING)(v7[3] + 16LL), v12 + 1);
-    v14 = v13 == 0;
-    if ( v13 <= 0 )
+    v12 = RtlCompareAltitudes((PCUNICODE_STRING)(v7[3] + 16LL), v11 + 1);
+    v13 = v12 == 0;
+    if ( v12 <= 0 )
       break;
     v7 = (_QWORD *)*v7;
     if ( v7 == v3 )
     {
-      v14 = v13 == 0;
+      v13 = v12 == 0;
       break;
     }
   }
-  if ( !v14 )
+  if ( !v13 )
   {
 LABEL_2:
     v8 = (__int64 *)v7[1];
@@ -63,9 +62,6 @@ LABEL_2:
     v4 = -1071906799;
   }
   ExReleasePushLockEx(v6, 0LL);
-  v10 = KeGetCurrentThread();
-  v14 = v10->SpecialApcDisable++ == -1;
-  if ( v14 && ($CEA84C04E3712D858E5667A507841A2A *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return v4;
 }

@@ -1,30 +1,33 @@
 /*
- * XREFs of HsaGrowPasidTable @ 0x1405327F0
+ * XREFs of HsaGrowPasidTable @ 0x1404E3B10
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HsaGrowPasidTable(__int64 a1, __int64 a2, unsigned int a3)
 {
-  _QWORD *v6; // rbx
-  __int64 Pool2; // rax
+  unsigned __int64 *v6; // rbx
+  PVOID PoolWithTag; // rax
   unsigned int v8; // esi
   unsigned int v9; // edi
-  void *v10; // rax
+  PVOID v10; // rax
+  void *v11; // rbp
 
   if ( a3 >= 0x40000 )
     return 3221225659LL;
-  v6 = *(_QWORD **)(a2 + 40);
+  v6 = *(unsigned __int64 **)(a2 + 40);
   if ( !v6 )
   {
-    Pool2 = ExAllocatePool2(64LL, 0x2000LL, 1634492744LL);
-    *(_QWORD *)(a2 + 40) = Pool2;
-    v6 = (_QWORD *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x2000uLL, 0x61734848u);
+    *(_QWORD *)(a2 + 40) = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225626LL;
+    memset(PoolWithTag, 0, 0x2000uLL);
+    v6 = *(unsigned __int64 **)(a2 + 40);
   }
   v8 = 0;
   v9 = a3 >> 9;
@@ -32,11 +35,13 @@ __int64 __fastcall HsaGrowPasidTable(__int64 a1, __int64 a2, unsigned int a3)
   {
     if ( (*(_BYTE *)v6 & 1) == 0 )
     {
-      v10 = (void *)ExAllocatePool2(64LL, 4096LL, 1634492744LL);
+      v10 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x61734848u);
+      v11 = v10;
       if ( !v10 )
         return 3221225626LL;
-      v6[512] = v10;
-      *v6 = *v6 ^ (*v6 ^ MmGetPhysicalAddress(v10).QuadPart & 0xFFFFFFFFFFFFF000uLL) & 0xFFFFFFFFFF000LL | 1;
+      memset(v10, 0, 0x1000uLL);
+      v6[512] = (unsigned __int64)v11;
+      *v6 = *v6 ^ (*v6 ^ MmGetPhysicalAddress(v11).QuadPart & 0xFFFFFFFFFFFFF000uLL) & 0xFFFFFFFFFF000LL | 1;
     }
     ++v8;
     ++v6;

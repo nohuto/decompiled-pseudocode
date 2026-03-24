@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FxTraceInitialize@@YAJXZ @ 0x1C002F0CC
+ * XREFs of ?FxTraceInitialize@@YAJXZ @ 0x1C0039B58
  * Callers:
- *     FxLibraryCommonCommission @ 0x1C002E7B8 (FxLibraryCommonCommission.c)
+ *     FxLibraryCommonCommission @ 0x1C00417E8 (FxLibraryCommonCommission.c)
  * Callees:
  *     <none>
  */
@@ -9,14 +9,14 @@
 __int64 __fastcall FxTraceInitialize()
 {
   WPP_GLOBAL_WDF_Control.NextDevice = 0LL;
-  WPP_GLOBAL_WDF_Control.DriverObject = (_DRIVER_OBJECT *)&WdfTraceGuid;
+  WPP_GLOBAL_WDF_Control.DriverObject = (_DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_KmdfTraceGuid;
   LOWORD(WPP_GLOBAL_WDF_Control.Vpb) = 257;
   WPP_GLOBAL_WDF_Control.CurrentIrp = (_IRP *)L"KmdfTraceGuid";
-  WPP_GLOBAL_WDF_Control.Timer = (_IO_TIMER *)L" TRACINGFULL TRACINGERROR TRACINGDBGPRINT TRACINGFRAMEWORKS TRACINGAPI TRA"
-                                               "CINGAPIERROR TRACINGRESOURCES TRACINGLOCKING TRACINGCONTEXT TRACINGPOOL T"
-                                               "RACINGHANDLE TRACINGPNP TRACINGIO TRACINGIOTARGET TRACINGDMA TRACINGREQUE"
-                                               "ST TRACINGDRIVER TRACINGDEVICE TRACINGUSEROBJECT TRACINGOBJECT TRACINGPNP"
-                                               "POWERSTATES TRACINGIFRCAPTURE";
+  WPP_GLOBAL_WDF_Control.Timer = (struct _IO_TIMER *)L" TRACINGFULL TRACINGERROR TRACINGDBGPRINT TRACINGFRAMEWORKS TRACING"
+                                                      "API TRACINGAPIERROR TRACINGRESOURCES TRACINGLOCKING TRACINGCONTEXT"
+                                                      " TRACINGPOOL TRACINGHANDLE TRACINGPNP TRACINGIO TRACINGIOTARGET TR"
+                                                      "ACINGDMA TRACINGREQUEST TRACINGDRIVER TRACINGDEVICE TRACINGUSEROBJ"
+                                                      "ECT TRACINGOBJECT TRACINGPNPPOWERSTATES TRACINGIFRCAPTURE";
   *(_QWORD *)&WPP_GLOBAL_WDF_Control.Type = WppTraceCallbackWdf;
   IoWMIRegistrationControl(&WPP_GLOBAL_WDF_Control, 0x80000001);
   return 0LL;

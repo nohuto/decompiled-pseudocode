@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMDeleteObject @ 0x1408377D0
+ * XREFs of PiCMDeleteObject @ 0x1408377B0
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -8,8 +8,8 @@
  *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
  *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
  *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
- *     _PnpDeleteObject @ 0x1408F9DE8 (_PnpDeleteObject.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     _PnpDeleteObject @ 0x1408F9DC8 (_PnpDeleteObject.c)
  */
 
 __int64 __fastcall PiCMDeleteObject(

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C01E426C
+ * XREFs of ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C01AADBC
  * Callers:
- *     ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C01E4438 (-xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z.c)
+ *     ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C01AAF88 (-xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z.c)
  * Callees:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
- *     InternalMapVirtualKeyEx @ 0x1C003F3A0 (InternalMapVirtualKeyEx.c)
+ *     InternalMapVirtualKeyEx @ 0x1C003CFB0 (InternalMapVirtualKeyEx.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
  */
 
 void __fastcall xxxAdjustPushState(

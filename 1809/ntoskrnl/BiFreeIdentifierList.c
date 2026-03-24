@@ -1,9 +1,9 @@
 /*
- * XREFs of BiFreeIdentifierList @ 0x1408F3A98
+ * XREFs of BiFreeIdentifierList @ 0x1408F3A78
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1408F23EC (BiBindEfiNamespaceObjects.c)
- *     BiBuildIdentifierList @ 0x1408F2488 (BiBuildIdentifierList.c)
- *     BiExportStoreAlterationsToEfi @ 0x1408F39F8 (BiExportStoreAlterationsToEfi.c)
+ *     BiBindEfiNamespaceObjects @ 0x1408F23CC (BiBindEfiNamespaceObjects.c)
+ *     BiBuildIdentifierList @ 0x1408F2468 (BiBuildIdentifierList.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

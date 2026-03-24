@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceKeyCallback @ 0x14087E790
+ * XREFs of PiDevCfgConfigureDeviceKeyCallback @ 0x1407692A0
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14087E7E4 (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x14076931C (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceKeyCallback(
@@ -16,8 +16,8 @@ __int64 __fastcall PiDevCfgConfigureDeviceKeyCallback(
         __int64 a5,
         __int64 a6)
 {
-  if ( *(_DWORD *)(a3 + 16) != 16 || wcsicmp(*(const wchar_t **)a3, L"Properties") )
-    return PiDevCfgCopyDeviceKeys(a4, a5, a3, a6);
-  else
+  if ( *(_DWORD *)(a3 + 16) == 16 && !wcsicmp(*(const wchar_t **)a3, L"Properties") )
     return PiDevCfgCopyDeviceKey(a4, 1, 0LL, a6);
+  else
+    return PiDevCfgCopyDeviceKeys(a4, a5, a3, a6);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepFreeSecurityAttributeValues @ 0x1401346A8
+ * XREFs of AuthzBasepFreeSecurityAttributeValues @ 0x1401346C8
  * Callers:
- *     AuthzBasepCommitSecurityAttributeChanges @ 0x1400CC960 (AuthzBasepCommitSecurityAttributeChanges.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x1400D91F8 (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x140134658 (AuthzBasepDeleteAllSecurityAttributeValues.c)
- *     AuthzBasepRollbackSecurityAttributeChanges @ 0x140324D40 (AuthzBasepRollbackSecurityAttributeChanges.c)
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x1400CC980 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x1400D9218 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x140134678 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x140324E40 (AuthzBasepRollbackSecurityAttributeChanges.c)
  * Callees:
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140134714 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140134734 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

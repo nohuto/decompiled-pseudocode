@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiFlushUserBatch @ 0x1C0034660
+ * XREFs of NtGdiFlushUserBatch @ 0x1C008EFB0
  * Callers:
  *     <none>
  * Callees:
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0034690 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EFE0 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
  */
 
 void NtGdiFlushUserBatch()

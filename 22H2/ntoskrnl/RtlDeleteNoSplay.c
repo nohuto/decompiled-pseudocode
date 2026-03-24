@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlDeleteNoSplay @ 0x140326D50
+ * XREFs of RtlDeleteNoSplay @ 0x1402F8310
  * Callers:
- *     FsRtlRemoveNodeFromTunnel @ 0x140326BAC (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140327780 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlUninitializeFileLock @ 0x14036AB20 (FsRtlUninitializeFileLock.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402D9CF8 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlUninitializeFileLock @ 0x1402F6110 (FsRtlUninitializeFileLock.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x1402F815C (FsRtlRemoveNodeFromTunnel.c)
  * Callees:
- *     RtlSubtreePredecessor @ 0x140327FB0 (RtlSubtreePredecessor.c)
- *     SwapSplayLinks @ 0x140327FD8 (SwapSplayLinks.c)
+ *     SwapSplayLinks @ 0x1402F83E4 (SwapSplayLinks.c)
+ *     RtlSubtreePredecessor @ 0x1402F8550 (RtlSubtreePredecessor.c)
  */
 
 void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
 {
   _RTL_SPLAY_LINKS *LeftChild; // rcx
   _RTL_SPLAY_LINKS *v5; // rax
-  __int64 v6; // rdx
   _RTL_SPLAY_LINKS *Parent; // rax
+  __int64 v7; // rdx
   __int64 v8; // rdx
   RTL_SPLAY_LINKS *v9; // rax
 
@@ -52,10 +52,10 @@ void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
     }
     else
     {
-      v6 = 8LL;
+      v7 = 8LL;
       if ( v5->LeftChild != Links )
-        v6 = 16LL;
-      *(_RTL_SPLAY_LINKS **)((char *)&v5->Parent + v6) = 0LL;
+        v7 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&v5->Parent + v7) = 0LL;
     }
   }
 }

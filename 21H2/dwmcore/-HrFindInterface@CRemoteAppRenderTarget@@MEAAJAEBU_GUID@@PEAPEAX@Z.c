@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801C28F0
+ * XREFs of ?HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180186510
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B33F0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E5360 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CRemoteAppRenderTarget::HrFindInterface(
@@ -26,7 +26,7 @@ __int64 __fastcall CRemoteAppRenderTarget::HrFindInterface(
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 152) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 144) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

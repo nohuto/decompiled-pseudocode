@@ -1,14 +1,14 @@
 /*
- * XREFs of MiVaIsUltra @ 0x14026C7D0
+ * XREFs of MiVaIsUltra @ 0x1402754B0
  * Callers:
- *     MiZeroPageWorkMapping @ 0x14022689C (MiZeroPageWorkMapping.c)
- *     MiTranslatePageForCopy @ 0x14026C808 (MiTranslatePageForCopy.c)
- *     MiPrefetchVirtualMemory @ 0x140284EB0 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
+ *     MiZeroPageWorkMapping @ 0x14029A678 (MiZeroPageWorkMapping.c)
+ *     MiTranslatePageForCopy @ 0x1402B4DE4 (MiTranslatePageForCopy.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall MiVaIsUltra(unsigned __int64 a1)
 {
-  return qword_140C53088 && a1 >= qword_140C53088 && a1 < qword_140C53088 + (qword_140C53098 << 30);
+  return qword_140C4EBF8 && a1 >= qword_140C4EBF8 && a1 < qword_140C4EBF8 + (qword_140C4EC08 << 30);
 }

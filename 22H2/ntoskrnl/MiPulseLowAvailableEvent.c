@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPulseLowAvailableEvent @ 0x140653890
+ * XREFs of MiPulseLowAvailableEvent @ 0x14055BF1C
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402201DC (MiComputeSystemTrimCriteria.c)
+ *     MiComputeSystemTrimCriteria @ 0x14033A450 (MiComputeSystemTrimCriteria.c)
  * Callees:
- *     KePulseEvent @ 0x1402206C0 (KePulseEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KePulseEvent @ 0x14033AAD0 (KePulseEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPulseLowAvailableEvent(__int64 a1)
@@ -19,31 +19,32 @@ __int64 __fastcall MiPulseLowAvailableEvent(__int64 a1)
   bool v7; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  result = *(_QWORD *)(a1 + 304);
+  result = *(_QWORD *)(a1 + 280);
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !*(_DWORD *)(result + 4) )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 15872), &LockHandle);
-    v3 = *(struct _KEVENT **)(a1 + 304);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4928), &LockHandle);
+    v3 = *(struct _KEVENT **)(a1 + 280);
     if ( !v3->Header.SignalState )
       KePulseEvent(v3, 0, 0);
-    result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    result = (unsigned int)KiIrqlFlags;
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && LockHandle.OldIrql <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v7 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v7 )
+            result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);

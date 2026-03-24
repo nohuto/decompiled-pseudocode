@@ -11,9 +11,9 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiInitializeTransitionPfn(__int64 a1, _QWORD *a2)

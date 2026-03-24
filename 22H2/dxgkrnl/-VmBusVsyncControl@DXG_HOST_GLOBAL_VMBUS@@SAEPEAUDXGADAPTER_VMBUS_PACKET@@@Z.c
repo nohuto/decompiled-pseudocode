@@ -1,11 +1,11 @@
 /*
- * XREFs of ?VmBusVsyncControl@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0395000
+ * XREFs of ?VmBusVsyncControl@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0251200
  * Callers:
  *     <none>
  * Callees:
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B804 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     _lambda_e7624565a55af25c5c5aa1d22c9a7051_::operator() @ 0x1C016798C (_lambda_e7624565a55af25c5c5aa1d22c9a7051_--operator().c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040634 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     _lambda_933b32e0a92a62a544db01ace2b25516_::operator() @ 0x1C00D7CE4 (_lambda_933b32e0a92a62a544db01ace2b25516_--operator().c)
  */
 
 unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusVsyncControl(struct DXGADAPTER_VMBUS_PACKET *a1)
@@ -23,8 +23,8 @@ unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusVsyncControl(struct DXGAD
   {
     v3[0] = &v6;
     v3[1] = (__int64 *)&v4;
-    v5 = lambda_e7624565a55af25c5c5aa1d22c9a7051_::operator()(v3);
-    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)v4 + 16), &v5, 4u);
+    v5 = lambda_933b32e0a92a62a544db01ace2b25516_::operator()(v3);
+    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)v4 + 9), &v5, 4u);
     LOBYTE(v1) = 1;
   }
   return v1;

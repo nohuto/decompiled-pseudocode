@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_PoweredOffDisconnected @ 0x1C00121A0
+ * XREFs of HUBPSM30_PoweredOffDisconnected @ 0x1C0010D80
  * Callers:
  *     <none>
  * Callees:

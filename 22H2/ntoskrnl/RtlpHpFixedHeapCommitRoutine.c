@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpFixedHeapCommitRoutine @ 0x1405B69A0
+ * XREFs of RtlpHpFixedHeapCommitRoutine @ 0x140594B40
  * Callers:
  *     <none>
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
  */
 
 NTSTATUS __fastcall RtlpHpFixedHeapCommitRoutine(__int64 a1, PVOID *a2, ULONG_PTR *a3)

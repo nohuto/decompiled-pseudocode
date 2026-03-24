@@ -1,34 +1,37 @@
 /*
- * XREFs of ?CopyRegistryKeys@DXGADAPTER@@QEAAJXZ @ 0x1C02B9D58
+ * XREFs of ?CopyRegistryKeys@DXGADAPTER@@QEAAJXZ @ 0x1C020B794
  * Callers:
- *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02BBED4 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
+ *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C020D86C (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C001A56C (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C03788C4 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000B1D8 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C0248D68 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
  */
 
-__int64 __fastcall DXGADAPTER::CopyRegistryKeys(DXGADAPTER *this)
+__int64 __fastcall DXGADAPTER::CopyRegistryKeys(DXGADAPTER *this, __int64 a2)
 {
-  unsigned int v1; // ebx
+  unsigned int v2; // ebx
+  __int64 v4; // rax
   __int64 result; // rax
-  unsigned __int16 v4[264]; // [rsp+20h] [rbp-228h] BYREF
+  unsigned __int16 v6[264]; // [rsp+20h] [rbp-228h] BYREF
 
-  v1 = 0;
+  v2 = 0;
   if ( *((_BYTE *)this + 210) )
   {
-    WdLogSingleEntry1(4LL, 12342LL);
+    v4 = WdLogNewEntry5_WdEvent(this, a2);
+    *(_QWORD *)(v4 + 24) = 11593LL;
+    WdLogEvent5_WdEvent(v4);
     return 0LL;
   }
-  if ( *((_DWORD *)DXGGLOBAL_GetGlobal() + 450) >= 0x16u )
+  if ( *((_DWORD *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 408) >= 0x16u )
   {
-    RtlStringCbCopyW(v4, 0x208uLL, (size_t *)L"Classes");
-    result = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetRegistryKeys((DXGADAPTER *)((char *)this + 4344), v4);
+    RtlStringCbCopyW(v6, 0x208uLL, (size_t *)L"Classes");
+    result = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetRegistryKeys((DXGADAPTER *)((char *)this + 4240), v6);
     if ( (int)result < 0 )
       return result;
-    RtlStringCbCopyW(v4, 0x208uLL, (size_t *)L"MediaFoundation\\Transforms");
-    return (unsigned int)DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetRegistryKeys((DXGADAPTER *)((char *)this + 4344), v4);
+    RtlStringCbCopyW(v6, 0x208uLL, (size_t *)L"MediaFoundation\\Transforms");
+    return (unsigned int)DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetRegistryKeys((DXGADAPTER *)((char *)this + 4240), v6);
   }
-  return v1;
+  return v2;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlInitExtraCreateParameterLookasideList @ 0x140859B90
+ * XREFs of FsRtlInitExtraCreateParameterLookasideList @ 0x1407CB7B0
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExInitializePagedLookasideListInternal @ 0x140361260 (ExInitializePagedLookasideListInternal.c)
- *     ExInitializeNPagedLookasideList @ 0x1403C2C30 (ExInitializeNPagedLookasideList.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1403522C0 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A130 (ExInitializeNPagedLookasideList.c)
  */
 
 void __stdcall FsRtlInitExtraCreateParameterLookasideList(

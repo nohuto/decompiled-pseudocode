@@ -1,12 +1,11 @@
 /*
- * XREFs of FsRtlPTeardownPerFileObjectContexts @ 0x14071CD2C
+ * XREFs of FsRtlPTeardownPerFileObjectContexts @ 0x14068A814
  * Callers:
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
  * Callees:
- *     IoGetFileObjectFilterContext @ 0x1402A3610 (IoGetFileObjectFilterContext.c)
- *     IoChangeFileObjectFilterContext @ 0x1402A3984 (IoChangeFileObjectFilterContext.c)
- *     ExCleanupAutoExpandPushLock @ 0x1402A3D50 (ExCleanupAutoExpandPushLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IoGetFileObjectFilterContext @ 0x1402A2A8C (IoGetFileObjectFilterContext.c)
+ *     IoChangeFileObjectFilterContext @ 0x140356BBC (IoChangeFileObjectFilterContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlPTeardownPerFileObjectContexts(__int64 a1)
@@ -18,7 +17,6 @@ void __fastcall FsRtlPTeardownPerFileObjectContexts(__int64 a1)
   if ( P )
   {
     IoChangeFileObjectFilterContext(a1);
-    ExCleanupAutoExpandPushLock((__int64)P);
     ExFreePoolWithTag(P, 0);
   }
 }

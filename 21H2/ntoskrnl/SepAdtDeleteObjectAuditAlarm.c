@@ -1,27 +1,28 @@
 /*
- * XREFs of SepAdtDeleteObjectAuditAlarm @ 0x1409C8774
+ * XREFs of SepAdtDeleteObjectAuditAlarm @ 0x14091ED24
  * Callers:
- *     NtDeleteObjectAuditAlarm @ 0x1409CAC10 (NtDeleteObjectAuditAlarm.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409CADE0 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140734BC0 (NtDeleteObjectAuditAlarm.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409213B0 (SeDeleteObjectAuditAlarmWithTransaction.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140723F80 (SepAdtAuditObjectAccessWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x140627514 (SepAdtAuditObjectAccessWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SepAdtDeleteObjectAuditAlarm(
+void SepAdtDeleteObjectAuditAlarm(
         const UNICODE_STRING *a1,
         unsigned __int64 a2,
         __int64 *a3,
         __int64 a4,
         __int128 *a5,
-        char a6)
+        char a6,
+        ...)
 {
   _KPROCESS *CurrentThreadProcess; // rax
   int AllocatedFullProcessImageName; // eax
@@ -49,7 +50,7 @@ void __fastcall SepAdtDeleteObjectAuditAlarm(
   if ( (unsigned __int8)SepAdtAuditObjectAccessWithContext(a4, a1, 1, 0, 0LL, a6, &v24) )
   {
     CurrentThreadProcess = PsGetCurrentThreadProcess();
-    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, &P);
+    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
     if ( AllocatedFullProcessImageName < 0 )
     {
       SepAuditFailed((unsigned int)AllocatedFullProcessImageName);

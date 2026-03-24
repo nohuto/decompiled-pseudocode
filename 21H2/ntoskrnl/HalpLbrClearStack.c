@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLbrClearStack @ 0x140459760
+ * XREFs of HalpLbrClearStack @ 0x1404DD1E0
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char HalpLbrClearStack()

@@ -1,70 +1,69 @@
 /*
- * XREFs of ExpRefreshSystemTime @ 0x1408357A0
+ * XREFs of ExpRefreshSystemTime @ 0x1407A909C
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     HalQueryRealTimeClock @ 0x14022D360 (HalQueryRealTimeClock.c)
- *     RtlTimeFieldsToTime @ 0x14022D4D0 (RtlTimeFieldsToTime.c)
- *     ExSystemTimeToLocalTime @ 0x14022D770 (ExSystemTimeToLocalTime.c)
- *     ExLocalTimeToSystemTime @ 0x14022D7D0 (ExLocalTimeToSystemTime.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlTimeToTimeFields @ 0x1402D1A30 (RtlTimeToTimeFields.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     PoNotifySystemTimeSet @ 0x1403B65EC (PoNotifySystemTimeSet.c)
- *     KeSetSystemTime @ 0x1403B6B94 (KeSetSystemTime.c)
- *     HalSetRealTimeClock @ 0x140503420 (HalSetRealTimeClock.c)
- *     ExAcquireTimeRefreshLock @ 0x1407D6F54 (ExAcquireTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
+ *     ExLocalTimeToSystemTime @ 0x1402B5530 (ExLocalTimeToSystemTime.c)
+ *     HalQueryRealTimeClock @ 0x1402B5570 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x1402B5900 (RtlTimeFieldsToTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D3270 (ExSystemTimeToLocalTime.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlTimeToTimeFields @ 0x14036E9A0 (RtlTimeToTimeFields.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7804 (PoNotifySystemTimeSet.c)
+ *     KeSetSystemTime @ 0x1403A7A48 (KeSetSystemTime.c)
+ *     HalSetRealTimeClock @ 0x1404B6B40 (HalSetRealTimeClock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
  */
 
-void ExpRefreshSystemTime()
+void __fastcall ExpRefreshSystemTime(__int64 a1, __int64 a2)
 {
-  __int64 v0; // rbx
-  unsigned __int8 v1; // di
-  int v2; // esi
-  LARGE_INTEGER v3; // rax
-  int v4; // [rsp+28h] [rbp-28h]
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
-  LARGE_INTEGER Time; // [rsp+70h] [rbp+20h] BYREF
-  LARGE_INTEGER SystemTime; // [rsp+78h] [rbp+28h] BYREF
-  LARGE_INTEGER v8; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v2; // rbx
+  char v3; // si
+  int v4; // edi
+  LARGE_INTEGER v5; // rax
+  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+50h] [rbp+20h] BYREF
+  LARGE_INTEGER v8; // [rsp+58h] [rbp+28h] BYREF
+  LARGE_INTEGER Time; // [rsp+60h] [rbp+30h] BYREF
 
   SystemTime.QuadPart = 0LL;
   v8.QuadPart = 0LL;
   Time.QuadPart = 0LL;
   TimeFields = 0LL;
-  v0 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 157);
+  v2 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 133);
   ExAcquireTimeRefreshLock(1u);
-  v1 = ExpSystemIsInCmosMode;
+  v3 = ExpSystemIsInCmosMode;
   if ( HalQueryRealTimeClock((__int64)&TimeFields) )
   {
     if ( RtlTimeFieldsToTime(&TimeFields, &Time) )
     {
-      v2 = *(_DWORD *)(v0 + 436);
+      v4 = *(_DWORD *)(v2 + 436);
       if ( (unsigned __int8)ExpRefreshTimeZoneInformation(0LL) )
       {
-        if ( v2 != *(_DWORD *)(v0 + 436) )
+        if ( v4 != *(_DWORD *)(v2 + 436) )
         {
-          v3.QuadPart = MEMORY[0xFFFFF78000000014];
+          v5.QuadPart = MEMORY[0xFFFFF78000000014];
           SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
           if ( !ExpRealTimeIsUniversal )
           {
-            if ( v1 )
+            if ( v3 )
             {
               ExLocalTimeToSystemTime(&Time, &v8);
               KeSetSystemTime((__int64)&v8, (__int64)&SystemTime, 0);
-              goto LABEL_10;
+              goto LABEL_9;
             }
             ExSystemTimeToLocalTime(&SystemTime, &Time);
             RtlTimeToTimeFields(&Time, &TimeFields);
-            HalSetRealTimeClock(&TimeFields);
-            v3 = SystemTime;
+            HalSetRealTimeClock(&TimeFields.Year);
+            v5 = SystemTime;
           }
-          v8 = v3;
-LABEL_10:
-          PoNotifySystemTimeSet((__int64 *)&v8, (__int64 *)&SystemTime, 3, (int)&Time, *(_DWORD *)(v0 + 436), v4, v1);
+          v8 = v5;
+LABEL_9:
+          PoNotifySystemTimeSet((__int64 *)&v8, (__int64 *)&SystemTime);
         }
       }
     }

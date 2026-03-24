@@ -1,15 +1,15 @@
 /*
- * XREFs of MmUpdateSlabRangeProtection @ 0x1409F75A8
+ * XREFs of MmUpdateSlabRangeProtection @ 0x1409F75B8
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiCompareSlabEntry @ 0x1402C1E64 (MiCompareSlabEntry.c)
- *     MiInsertSlabEntry @ 0x1402C29A4 (MiInsertSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x1402C2B54 (MiRemoveSlabEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiCompareSlabEntry @ 0x1402C1F64 (MiCompareSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x1402C2AA4 (MiInsertSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1402C2C54 (MiRemoveSlabEntry.c)
  */
 
 __int64 __fastcall MmUpdateSlabRangeProtection(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3)

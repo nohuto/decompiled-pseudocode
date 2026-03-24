@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpKrnGetDataTableEntry @ 0x1400F3830
+ * XREFs of LdrpKrnGetDataTableEntry @ 0x1400F3850
  * Callers:
- *     LdrpGetImageSize @ 0x1400F37A4 (LdrpGetImageSize.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1400F404C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpResGetMappingSize @ 0x14068B08C (LdrpResGetMappingSize.c)
+ *     LdrpGetImageSize @ 0x1400F37C4 (LdrpGetImageSize.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F406C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResGetMappingSize @ 0x14068B06C (LdrpResGetMappingSize.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 PVOID *__fastcall LdrpKrnGetDataTableEntry(unsigned __int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C0050984
+ * XREFs of ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C012B280
  * Callers:
- *     SetGestureConfigSettings @ 0x1C00509F8 (SetGestureConfigSettings.c)
- *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C0051080 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
- *     ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C0051460 (-SetBitMask@@YAXPEAUtagWND@@IH@Z.c)
- *     GetGestureConfigSettings @ 0x1C02045D0 (GetGestureConfigSettings.c)
+ *     ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C012ADC0 (-SetBitMask@@YAXPEAUtagWND@@IH@Z.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012AFE0 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     SetGestureConfigSettings @ 0x1C012B144 (SetGestureConfigSettings.c)
+ *     GetGestureConfigSettings @ 0x1C0227088 (GetGestureConfigSettings.c)
  * Callees:
- *     VWPLGetData @ 0x1C004FA84 (VWPLGetData.c)
+ *     VWPLGetData @ 0x1C003FA18 (VWPLGetData.c)
  */
 
 struct tagVWPLGESTUREDATA *__fastcall GetGCData(struct tagWND *a1)
@@ -17,6 +17,6 @@ struct tagVWPLGESTUREDATA *__fastcall GetGCData(struct tagWND *a1)
 
   v1 = *((_QWORD *)a1 + 2);
   v4 = 0LL;
-  v2 = VWPLGetData(*(_DWORD **)(*(_QWORD *)(v1 + 424) + 880LL), (__int64)a1, &v4);
+  v2 = VWPLGetData(*(_DWORD **)(*(_QWORD *)(v1 + 424) + 872LL), (__int64)a1, &v4);
   return (struct tagVWPLGESTUREDATA *)(v4 & -(__int64)(v2 != 0));
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ShouldSetNoOwner @ 0x1C00A0B70
+ * XREFs of ShouldSetNoOwner @ 0x1C00873F0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ __int64 __fastcall ShouldSetNoOwner(__int64 a1, __int64 a2)
   __int64 result; // rax
   int v4; // edx
 
-  if ( (*(_DWORD *)(a1 + 816) & 0x30) != 0 )
+  if ( (*(_DWORD *)(a1 + 820) & 0x30) != 0 )
     return 0LL;
   if ( !a2 )
     return 0LL;

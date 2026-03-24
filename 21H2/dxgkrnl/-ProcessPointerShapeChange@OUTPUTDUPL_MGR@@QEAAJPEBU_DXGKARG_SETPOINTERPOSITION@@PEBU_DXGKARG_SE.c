@@ -1,118 +1,232 @@
 /*
- * XREFs of ?ProcessPointerShapeChange@OUTPUTDUPL_MGR@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@II@Z @ 0x1C01A1EC0
+ * XREFs of ?ProcessPointerShapeChange@OUTPUTDUPL_MGR@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@II@Z @ 0x1C015A870
  * Callers:
- *     OutputDuplProcessRemoteSessionSetPointerShape @ 0x1C032589C (OutputDuplProcessRemoteSessionSetPointerShape.c)
+ *     OutputDuplProcessRemoteSessionSetPointerShape @ 0x1C029E448 (OutputDuplProcessRemoteSessionSetPointerShape.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?InitializePacketHeader@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C019F5D0 (-InitializePacketHeader@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z.c)
- *     ?LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C02248C0 (-LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
- *     ?IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ @ 0x1C0321960 (-IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ.c)
- *     ?LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z @ 0x1C0321EF8 (-LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z.c)
- *     ?ProcessPointerShape@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@@Z @ 0x1C0327A8C (-ProcessPointerShape@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETP.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?InitializePacketHeader@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C015CC08 (-InitializePacketHeader@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z.c)
+ *     ?IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ @ 0x1C029A7F0 (-IsHighFreqLoggingEnabled@OUTPUTDUPL_MGR@@QEAAHXZ.c)
+ *     ?LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z @ 0x1C029AD80 (-LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z.c)
+ *     ?LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C029ADEC (-LogPointerPositionChangeParams@OUTPUTDUPL_MGR@@AEAAXPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
+ *     ?ProcessPointerShape@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@@Z @ 0x1C02A1D44 (-ProcessPointerShape@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETP.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_MGR::ProcessPointerShapeChange(
         OUTPUTDUPL_MGR *this,
-        const struct _DXGKARG_SETPOINTERPOSITION *a2,
+        struct _DXGKARG_SETPOINTERPOSITION *a2,
         const struct _DXGKARG_SETPOINTERSHAPE *a3,
         UINT a4,
         UINT a5)
 {
-  __int64 VidPnSourceId; // rax
-  __m128i v9; // xmm1
-  __int64 v10; // xmm0_8
-  struct DXGFASTMUTEX *v11; // rbx
-  OUTPUTDUPL_CONTEXT **v12; // rbx
-  __int64 v13; // rsi
-  unsigned int v14; // r14d
-  int v15; // r12d
-  OUTPUTDUPL_CONTEXT *v16; // r9
-  OUTPUTDUPL_MGR *v18; // rcx
-  int v19; // eax
-  _BYTE v21[16]; // [rsp+58h] [rbp-89h] BYREF
-  _DXGKARG_SETPOINTERSHAPE v22; // [rsp+68h] [rbp-79h] BYREF
-  _DWORD v23[20]; // [rsp+90h] [rbp-51h] BYREF
+  D3DDDI_VIDEO_PRESENT_SOURCE_ID v5; // eax
+  __int64 v9; // rsi
+  __m128i v10; // xmm1
+  __int64 v11; // xmm0_8
+  __int64 *v12; // r15
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v14; // rbx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  int v18; // eax
+  unsigned int v19; // ebx
+  OUTPUTDUPL_CONTEXT **v20; // r15
+  int v21; // r12d
+  OUTPUTDUPL_CONTEXT *v22; // r9
+  __int64 v23; // rbx
+  int v24; // eax
+  int v25; // eax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  int v31; // eax
+  __int64 v32; // rax
+  int v33; // r9d
+  __int64 v34; // rax
+  __int64 v35; // rax
+  OUTPUTDUPL_MGR *v36; // rcx
+  int v37; // eax
+  _QWORD *v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // [rsp+20h] [rbp-A1h] BYREF
+  char v42; // [rsp+28h] [rbp-99h]
+  UINT v43; // [rsp+30h] [rbp-91h]
+  struct _DXGKARG_SETPOINTERPOSITION *v44; // [rsp+38h] [rbp-89h]
+  _DXGKARG_SETPOINTERSHAPE v45; // [rsp+40h] [rbp-81h] BYREF
+  _DWORD v46[20]; // [rsp+70h] [rbp-51h] BYREF
 
-  VidPnSourceId = a3->VidPnSourceId;
-  if ( (unsigned int)VidPnSourceId >= *((_DWORD *)this + 19) )
+  v5 = *((_DWORD *)this + 13);
+  v44 = a2;
+  if ( a3->VidPnSourceId >= v5 )
   {
-    WdLogSingleEntry2(3LL, VidPnSourceId, this);
+    v27 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v27 + 24) = a3->VidPnSourceId;
+    *(_QWORD *)(v27 + 32) = this;
+    WdLogEvent5_WdWarning(v27);
     return 3221225473LL;
   }
   else
   {
-    v9 = *(__m128i *)&a3->VidPnSourceId;
-    *(_OWORD *)&v22.Flags.0 = *(_OWORD *)&a3->Flags.0;
-    v22.Height = a5;
-    v10 = *(_QWORD *)&a3->XHot;
-    *(__m128i *)&v22.VidPnSourceId = v9;
-    v22.Width = a4;
-    *(_QWORD *)&v22.XHot = v10;
-    v11 = (struct DXGFASTMUTEX *)(*((_QWORD *)this + 2) + 72LL * (unsigned int)_mm_cvtsi128_si32(v9));
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, v11, 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
-    v12 = (OUTPUTDUPL_CONTEXT **)*((_QWORD *)v11 + 6);
-    LODWORD(v13) = 0;
-    v14 = 0;
-    v15 = 1;
-    if ( *((_DWORD *)this + 2) )
+    LODWORD(v9) = 0;
+    v10 = *(__m128i *)&a3->VidPnSourceId;
+    v43 = a5;
+    *(_OWORD *)&v45.Flags.0 = *(_OWORD *)&a3->Flags.0;
+    v45.Width = a4;
+    v11 = *(_QWORD *)&a3->XHot;
+    v12 = (__int64 *)(*((_QWORD *)this + 2) + 32LL * (unsigned int)_mm_cvtsi128_si32(v10));
+    *(__m128i *)&v45.VidPnSourceId = v10;
+    v45.Height = a5;
+    *(_QWORD *)&v45.XHot = v11;
+    v41 = *v12;
+    v42 = 0;
+    if ( !v41 )
     {
-      while ( 1 )
-      {
-        v16 = *v12;
-        if ( *v12 && *((_DWORD *)v16 + 79) )
-        {
-          if ( v15 )
-          {
-            if ( (unsigned int)OUTPUTDUPL_MGR::IsHighFreqLoggingEnabled(this) )
-            {
-              memset(v23, 0, sizeof(v23));
-              OUTPUTDUPL_MGR::InitializePacketHeader(v18, (struct _DXGK_DIAG_OUTPUTDUPL_HEADER *)v23);
-              v23[13] = a3->VidPnSourceId;
-              v23[14] = a3->Flags.Value;
-              v23[15] = a4;
-              v23[16] = a5;
-              v23[17] = a3->Pitch;
-              v23[18] = a3->XHot;
-              v23[19] = a3->YHot;
-              v23[1] = 80;
-              v23[12] = 3;
-              OUTPUTDUPL_MGR::LogEtwAndDiagnostics(this, 0, (struct _DXGK_DIAG_OUTPUTDUPL_HEADER *)v23, 1);
-              OUTPUTDUPL_MGR::LogPointerPositionChangeParams(this, a2);
-              v16 = *v12;
-            }
-            v15 = 0;
-          }
-          v19 = OUTPUTDUPL_CONTEXT::ProcessPointerShape(v16, a2, &v22);
-          v13 = v19;
-          if ( v19 < 0 )
-            break;
-        }
-        ++v14;
-        ++v12;
-        if ( v14 >= *((_DWORD *)this + 2) )
-          goto LABEL_5;
-      }
-      WdLogSingleEntry3(2LL, v22.VidPnSourceId, v14, v19);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Process pointer shape failed in vidpn: 0x%I64x, idx: 0x%I64x, status: 0x%I64x",
-        v22.VidPnSourceId,
-        v14,
-        v13,
-        0LL,
-        0LL);
+      v28 = WdLogNewEntry5_WdAssertion(this, a2);
+      *(_QWORD *)(v28 + 24) = 762LL;
+      WdLogEvent5_WdAssertion(v28);
     }
-LABEL_5:
-    if ( v21[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21);
-    return (unsigned int)v13;
+    CurrentThread = KeGetCurrentThread();
+    if ( *(struct _KTHREAD **)(v41 + 16) == CurrentThread )
+    {
+      v29 = WdLogNewEntry5_WdAssertion(CurrentThread, a2);
+      *(_QWORD *)(v29 + 24) = 769LL;
+      WdLogEvent5_WdAssertion(v29);
+    }
+    if ( v42 )
+    {
+      v30 = WdLogNewEntry5_WdCriticalError(CurrentThread, a2);
+      *(_QWORD *)(v30 + 40) = &v41;
+      *(_QWORD *)(v30 + 24) = 275LL;
+      *(_QWORD *)(v30 + 32) = 4LL;
+      *(_OWORD *)(v30 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v30);
+    }
+    v14 = v41;
+    KeEnterCriticalRegion();
+    if ( *(struct _KTHREAD **)(v14 + 16) == KeGetCurrentThread() )
+    {
+      v31 = *(_DWORD *)(v14 + 24);
+      if ( v31 <= 0 )
+      {
+        v32 = WdLogNewEntry5_WdAssertion(v16, v15);
+        *(_QWORD *)(v32 + 24) = 661LL;
+        WdLogEvent5_WdAssertion(v32);
+        v31 = *(_DWORD *)(v14 + 24);
+      }
+      v18 = v31 + 1;
+    }
+    else
+    {
+      if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v14, 0LL) )
+      {
+        if ( bTracingEnabled )
+        {
+          v33 = *(_DWORD *)(v14 + 28);
+          if ( v33 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+            McTemplateK0q_EtwWriteTransfer(v16, &EventBlockThread, v17, v33);
+        }
+        _InterlockedIncrement64((volatile signed __int64 *)(v14 + 8));
+        ExAcquirePushLockExclusiveEx(v14, 0LL);
+      }
+      if ( *(_QWORD *)(v14 + 16) )
+      {
+        v34 = WdLogNewEntry5_WdAssertion(v16, v15);
+        *(_QWORD *)(v34 + 24) = 685LL;
+        WdLogEvent5_WdAssertion(v34);
+      }
+      if ( *(_DWORD *)(v14 + 24) )
+      {
+        v35 = WdLogNewEntry5_WdAssertion(v16, v15);
+        *(_QWORD *)(v35 + 24) = 686LL;
+        WdLogEvent5_WdAssertion(v35);
+      }
+      *(_QWORD *)(v14 + 16) = KeGetCurrentThread();
+      v18 = 1;
+    }
+    *(_DWORD *)(v14 + 24) = v18;
+    v19 = 0;
+    v42 = 1;
+    v20 = (OUTPUTDUPL_CONTEXT **)v12[1];
+    v21 = 1;
+    if ( !*((_DWORD *)this + 2) )
+      goto LABEL_19;
+    while ( 1 )
+    {
+      v22 = *v20;
+      if ( *v20 && *((_DWORD *)v22 + 79) )
+      {
+        if ( v21 )
+        {
+          if ( (unsigned int)OUTPUTDUPL_MGR::IsHighFreqLoggingEnabled(this) )
+          {
+            memset(v46, 0, sizeof(v46));
+            OUTPUTDUPL_MGR::InitializePacketHeader(v36, (struct _DXGK_DIAG_OUTPUTDUPL_HEADER *)v46);
+            v46[13] = a3->VidPnSourceId;
+            v46[14] = a3->Flags.Value;
+            v46[16] = v43;
+            v46[17] = a3->Pitch;
+            v46[18] = a3->XHot;
+            v46[19] = a3->YHot;
+            v46[1] = 80;
+            v46[12] = 3;
+            v46[15] = a4;
+            OUTPUTDUPL_MGR::LogEtwAndDiagnostics(this, 0, (struct _DXGK_DIAG_OUTPUTDUPL_HEADER *)v46, 1);
+            OUTPUTDUPL_MGR::LogPointerPositionChangeParams(this, v44);
+            v22 = *v20;
+          }
+          v21 = 0;
+        }
+        v37 = OUTPUTDUPL_CONTEXT::ProcessPointerShape(v22, v44, &v45);
+        v9 = v37;
+        if ( v37 < 0 )
+          break;
+      }
+      ++v19;
+      ++v20;
+      if ( v19 >= *((_DWORD *)this + 2) )
+        goto LABEL_18;
+    }
+    v38 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v38[3] = v45.VidPnSourceId;
+    v38[4] = v19;
+    v38[5] = v9;
+    WdLogEvent5_WdError(v38);
+LABEL_18:
+    if ( v42 )
+    {
+LABEL_19:
+      v23 = v41;
+      v42 = 0;
+      if ( *(struct _KTHREAD **)(v41 + 16) != KeGetCurrentThread() )
+      {
+        v39 = WdLogNewEntry5_WdCriticalError(v16, v15);
+        *(_QWORD *)(v39 + 24) = 275LL;
+        *(_QWORD *)(v39 + 32) = 4LL;
+        *(_QWORD *)(v39 + 40) = v23;
+        *(_OWORD *)(v39 + 48) = 0LL;
+        WdLogEvent5_WdCriticalError(v39);
+      }
+      v24 = *(_DWORD *)(v23 + 24);
+      if ( v24 <= 0 )
+      {
+        v40 = WdLogNewEntry5_WdAssertion(v16, v15);
+        *(_QWORD *)(v40 + 24) = 705LL;
+        WdLogEvent5_WdAssertion(v40);
+        v24 = *(_DWORD *)(v23 + 24);
+      }
+      v25 = v24 - 1;
+      *(_DWORD *)(v23 + 24) = v25;
+      if ( !v25 )
+      {
+        *(_QWORD *)(v23 + 16) = 0LL;
+        ExReleasePushLockExclusiveEx(v23, 0LL);
+      }
+      KeLeaveCriticalRegion();
+    }
+    return (unsigned int)v9;
   }
 }

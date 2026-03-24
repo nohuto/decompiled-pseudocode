@@ -1,14 +1,14 @@
 /*
- * XREFs of PoUnregisterPowerSettingCallback @ 0x1407FC690
+ * XREFs of PoUnregisterPowerSettingCallback @ 0x140772680
  * Callers:
- *     SSHSupportUnregisterPowerSettingCallback @ 0x1409A0CD4 (SSHSupportUnregisterPowerSettingCallback.c)
- *     TtmCleanupCurrentSession @ 0x1409A40F8 (TtmCleanupCurrentSession.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x1408FBAD4 (SSHSupportUnregisterPowerSettingCallback.c)
+ *     TtmCleanupCurrentSession @ 0x1408FE4EC (TtmCleanupCurrentSession.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PopUnregisterPowerSettingCallback @ 0x140389874 (PopUnregisterPowerSettingCallback.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PopUnregisterPowerSettingCallback @ 0x140380F0C (PopUnregisterPowerSettingCallback.c)
  */
 
 NTSTATUS __stdcall PoUnregisterPowerSettingCallback(PVOID Handle)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLockHotPatchPageRange @ 0x1402B95B4
+ * XREFs of MiLockHotPatchPageRange @ 0x1402B96B4
  * Callers:
- *     MiLockHotPatchPages @ 0x140855EB8 (MiLockHotPatchPages.c)
- *     MiLockHotPatchUndoPages @ 0x140855F4C (MiLockHotPatchUndoPages.c)
+ *     MiLockHotPatchPages @ 0x140855E98 (MiLockHotPatchPages.c)
+ *     MiLockHotPatchUndoPages @ 0x140855F2C (MiLockHotPatchUndoPages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
@@ -10,12 +10,12 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB3F0 (MiMakeDriverPagesPrivate.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     KeSetPagePrivilege @ 0x14028DB20 (KeSetPagePrivilege.c)
- *     MiReferenceDriverPage @ 0x1402A6038 (MiReferenceDriverPage.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB11C (MiCopyOnWriteCheckConditions.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
+ *     MiReferenceDriverPage @ 0x1402A6138 (MiReferenceDriverPage.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiLockHotPatchPageRange(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

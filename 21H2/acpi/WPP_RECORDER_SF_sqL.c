@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_sqL @ 0x1C00262B0
+ * XREFs of WPP_RECORDER_SF_sqL @ 0x1C002AF3C
  * Callers:
- *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002615C (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
- *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A0270 (ACPIInternalNotifyAvailableDeviceObject.c)
+ *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C002ADE8 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A2218 (ACPIInternalNotifyAvailableDeviceObject.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_sqL(

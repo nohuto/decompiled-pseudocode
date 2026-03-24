@@ -1,11 +1,11 @@
 /*
- * XREFs of NtRequestPort @ 0x1406BF850
+ * XREFs of NtRequestPort @ 0x1406BF830
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
  */

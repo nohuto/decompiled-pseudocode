@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDqdDDDD @ 0x1C0002F20
+ * XREFs of WPP_RECORDER_SF_DDqdDDDD @ 0x1C0002890
  * Callers:
- *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
- *     Isoch_Transfer_PrepareForCompletion @ 0x1C0045768 (Isoch_Transfer_PrepareForCompletion.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00021E0 (Isoch_Stage_CompleteTD.c)
+ *     Isoch_Transfer_PrepareForCompletion @ 0x1C0042AD8 (Isoch_Transfer_PrepareForCompletion.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_DDqdDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -48,10 +48,10 @@ __int64 WPP_RECORDER_SF_DDqdDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   va_copy(va7, va6);
   v20 = va_arg(va7, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.Reserved)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+      &WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
       16LL,
       (__int64 *)va,
       4LL,
@@ -75,7 +75,7 @@ __int64 WPP_RECORDER_SF_DDqdDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
            a1,
            4LL,
            14LL,
-           &WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+           &WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
            v7,
            (__int64 *)va,
            4LL,

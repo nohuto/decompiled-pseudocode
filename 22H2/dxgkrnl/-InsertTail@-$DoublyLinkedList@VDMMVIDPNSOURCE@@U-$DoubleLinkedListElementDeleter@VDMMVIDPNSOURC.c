@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InsertTail@?$DoublyLinkedList@VDMMVIDPNSOURCE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@QEAAEQEAVDMMVIDPNSOURCE@@@Z @ 0x1C0005F34
+ * XREFs of ?InsertTail@?$DoublyLinkedList@VDMMVIDPNSOURCE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@QEAAEQEAVDMMVIDPNSOURCE@@@Z @ 0x1C0009994
  * Callers:
- *     ?AddSource@DMMVIDPNSOURCESET@@QEAAJV?$auto_ptr@VDMMVIDPNSOURCE@@@@@Z @ 0x1C019932C (-AddSource@DMMVIDPNSOURCESET@@QEAAJV-$auto_ptr@VDMMVIDPNSOURCE@@@@@Z.c)
+ *     ?AddSource@DMMVIDPNSOURCESET@@QEAAJV?$auto_ptr@VDMMVIDPNSOURCE@@@@@Z @ 0x1C0130328 (-AddSource@DMMVIDPNSOURCESET@@QEAAJV-$auto_ptr@VDMMVIDPNSOURCE@@@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,37 +10,37 @@ char __fastcall DoublyLinkedList<DMMVIDPNSOURCE,DoubleLinkedListElementDeleter<D
         _QWORD *a1,
         __int64 a2)
 {
-  _QWORD *v2; // r8
-  __int64 v5; // rdx
-  _QWORD *v6; // rcx
-  _QWORD *v7; // rax
+  _QWORD *v3; // rcx
+  __int64 v4; // r9
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rdx
   char result; // al
-  _QWORD *v9; // rax
+  _QWORD *v8; // rax
 
-  v2 = a1 + 2;
   if ( a2 )
   {
-    v5 = 0LL;
-    if ( (_QWORD *)*v2 != v2 )
-      v5 = *v2 - 8LL;
-    while ( v5 )
+    v3 = a1 + 2;
+    v4 = 0LL;
+    if ( (_QWORD *)*v3 != v3 )
+      v4 = *v3 - 8LL;
+    while ( v4 && v4 != a2 )
     {
-      if ( v5 == a2 )
-        return 0;
-      v9 = *(_QWORD **)(v5 + 8);
-      v5 = (__int64)(v9 - 1);
-      if ( v9 == v2 )
-        v5 = 0LL;
+      v8 = *(_QWORD **)(v4 + 8);
+      v4 = (__int64)(v8 - 1);
+      if ( v8 == v3 )
+        v4 = 0LL;
     }
+    if ( v4 )
+      return 0;
   }
+  v5 = (_QWORD *)(a2 + 8);
   v6 = (_QWORD *)a1[3];
-  v7 = (_QWORD *)(a2 + 8);
-  if ( (_QWORD *)*v6 != v2 )
+  if ( (_QWORD *)*v6 != a1 + 2 )
     __fastfail(3u);
-  *v7 = v2;
-  *(_QWORD *)(a2 + 16) = v6;
-  *v6 = v7;
-  v2[1] = v7;
+  *v5 = a1 + 2;
+  v5[1] = v6;
+  *v6 = v5;
+  a1[3] = v5;
   result = 1;
   ++a1[4];
   return result;

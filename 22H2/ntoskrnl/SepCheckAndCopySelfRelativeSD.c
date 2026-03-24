@@ -1,20 +1,20 @@
 /*
- * XREFs of SepCheckAndCopySelfRelativeSD @ 0x1405B8D48
+ * XREFs of SepCheckAndCopySelfRelativeSD @ 0x140596C68
  * Callers:
- *     SeOperationAuditAlarm @ 0x1409CB54C (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC218 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409CCF9C (SepAdtStagingEvent.c)
+ *     SeOperationAuditAlarm @ 0x14091E80C (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F4E8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920250 (SepAdtStagingEvent.c)
  * Callees:
- *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     SepSecurityDescriptorStrictLength @ 0x14070DA6C (SepSecurityDescriptorStrictLength.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140767A50 (RtlAbsoluteToSelfRelativeSD.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140924E2C (SepSecurityDescriptorStrictLength.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCheckAndCopySelfRelativeSD(__int16 *a1, PVOID *a2, ULONG *a3, _BYTE *a4)
 {
   NTSTATUS v7; // ebx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v9; // rcx
   PSECURITY_DESCRIPTOR AbsoluteSecurityDescriptor; // [rsp+40h] [rbp+8h] BYREF
 
@@ -35,11 +35,11 @@ __int64 __fastcall SepCheckAndCopySelfRelativeSD(__int16 *a1, PVOID *a2, ULONG *
       v7 = RtlAbsoluteToSelfRelativeSD(&AbsoluteSecurityDescriptor, 0LL, a3);
       if ( v7 == -1073741789 )
       {
-        Pool2 = (void *)ExAllocatePool2(256LL, *a3, 1883333971LL);
-        *a2 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, *a3, 0x70416553u);
+        *a2 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          v7 = RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor, Pool2, a3);
+          v7 = RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor, PoolWithTag, a3);
           if ( v7 >= 0 )
           {
             *a4 = 1;

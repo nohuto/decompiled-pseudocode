@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpDiskFullWarning @ 0x140A11AF8
+ * XREFs of CmpDiskFullWarning @ 0x140876BF8
  * Callers:
- *     CmpLazyWriteWorker @ 0x14039FE60 (CmpLazyWriteWorker.c)
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
+ *     CmpLazyWriteWorker @ 0x1403BFD00 (CmpLazyWriteWorker.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void CmpDiskFullWarning()
 {
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
 
   if ( !CmpDiskFullWorkerPopupDisplayed && CmpCannotWriteConfiguration && ExReadyForErrors && CmpProfileLoaded )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 538987843LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x20204D43u);
+    if ( PoolWithTag )
     {
-      Pool2->List.Flink = 0LL;
-      Pool2->WorkerRoutine = (void (__fastcall *)(void *))CmpDiskFullWarningWorker;
+      PoolWithTag->List.Flink = 0LL;
+      PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))CmpDiskFullWarningWorker;
       CmpDiskFullWorkerPopupDisplayed = 1;
-      Pool2->Parameter = Pool2;
-      ExQueueWorkItem(Pool2, DelayedWorkQueue);
+      PoolWithTag->Parameter = PoolWithTag;
+      ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
     }
   }
 }

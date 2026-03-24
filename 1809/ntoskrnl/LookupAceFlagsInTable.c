@@ -1,10 +1,10 @@
 /*
- * XREFs of LookupAceFlagsInTable @ 0x1408A63B8
+ * XREFs of LookupAceFlagsInTable @ 0x1408A6398
  * Callers:
- *     LocalGetAclForString @ 0x1406AFCAC (LocalGetAclForString.c)
- *     LocalConvertAclToString @ 0x1408A4F70 (LocalConvertAclToString.c)
+ *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalConvertAclToString @ 0x1408A4F50 (LocalConvertAclToString.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a4)

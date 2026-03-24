@@ -1,20 +1,19 @@
 /*
- * XREFs of ?AdapterObjectSignalFence@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C034ED40
+ * XREFs of ?AdapterObjectSignalFence@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C0170E24
  * Callers:
- *     ?SignalFence@DXGSYNCOBJECT@@QEAAJ_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C0351614 (-SignalFence@DXGSYNCOBJECT@@QEAAJ_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z.c)
+ *     ?SignalFence@DXGSYNCOBJECT@@QEAAJ_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C0170DB0 (-SignalFence@DXGSYNCOBJECT@@QEAAJ_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0qpx_EtwWriteTransfer @ 0x1C0058A0C (McTemplateK0qpx_EtwWriteTransfer.c)
- *     ?VmBusSendSignalFence@DXG_GUEST_GLOBAL_VMBUS@@QEAAJI_KW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C038E1E4 (-VmBusSendSignalFence@DXG_GUEST_GLOBAL_VMBUS@@QEAAJI_KW4SIGNAL_FENCE_HANDLE_TYPE@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qpx_EtwWriteTransfer @ 0x1C0049678 (McTemplateK0qpx_EtwWriteTransfer.c)
+ *     ?VmBusSendSignalFence@DXG_GUEST_GLOBAL_VMBUS@@QEAAJI_KW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C024C610 (-VmBusSendSignalFence@DXG_GUEST_GLOBAL_VMBUS@@QEAAJI_KW4SIGNAL_FENCE_HANDLE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall DXGADAPTERSYNCOBJECT::AdapterObjectSignalFence(
@@ -25,76 +24,71 @@ __int64 __fastcall DXGADAPTERSYNCOBJECT::AdapterObjectSignalFence(
         unsigned int a5)
 {
   struct DXGADAPTER *v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rdi
   struct DXGGLOBAL *Global; // rax
-  __int64 v12; // rdi
-  __int64 v13; // rax
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  char v18; // [rsp+40h] [rbp-C0h]
-  __int64 v19; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE v21[16]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v22[144]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v23; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v24[16]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v25[144]; // [rsp+70h] [rbp-90h] BYREF
 
   v9 = *(struct DXGADAPTER **)(*(_QWORD *)(a1 + 16) + 16LL);
   if ( *((_BYTE *)v9 + 209) )
   {
-    Global = DXGGLOBAL::GetGlobal();
-    return DXG_GUEST_GLOBAL_VMBUS::VmBusSendSignalFence(*((_QWORD *)Global + 214), a4, a3, a5);
+    Global = DXGGLOBAL::GetGlobal(a1, (__int64)v9);
+    return DXG_GUEST_GLOBAL_VMBUS::VmBusSendSignalFence(*((_QWORD *)Global + 197), a4, a3, a5);
   }
   else
   {
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v22, v9, 0LL);
-    if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v22, 0LL) >= 0 )
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v25, v9, 0LL);
+    if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v25, 0LL) < 0 )
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, (struct DXGFASTMUTEX *const)(a2 + 32), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
-      v20 = *(_QWORD *)(a1 + 32);
-      v13 = *(_QWORD *)(a1 + 16);
-      v19 = a3;
-      v18 = 0;
-      v14 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int, __int64 *, _DWORD, __int64 *, char))(*(_QWORD *)(*(_QWORD *)(v13 + 736) + 8LL) + 640LL))(
+      v20 = WdLogNewEntry5_WdEvent(v11, v10);
+      *(_QWORD *)(v20 + 24) = 1277LL;
+      WdLogEvent5_WdEvent(v20);
+      LODWORD(v17) = 0;
+    }
+    else
+    {
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v24, (struct DXGFASTMUTEX *const)(a2 + 32), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v24);
+      v23 = *(_QWORD *)(a1 + 32);
+      v12 = *(_QWORD *)(a1 + 16);
+      v22 = a3;
+      v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int, __int64 *, _DWORD, __int64 *))(*(_QWORD *)(*(_QWORD *)(v12 + 616) + 8LL) + 640LL))(
               0LL,
               0LL,
               0LL,
               0LL,
               1,
-              &v20,
+              &v23,
               0,
-              &v19,
-              v18);
-      v12 = v14;
-      if ( v14 >= 0 )
+              &v22);
+      v17 = v13;
+      if ( v13 < 0 )
       {
-        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          McTemplateK0qpx_EtwWriteTransfer(v16, v15, v17, 0, v20, v19);
-        LODWORD(v12) = 0;
+        v21 = WdLogNewEntry5_WdError(v15, v14);
+        *(_QWORD *)(v21 + 24) = v17;
+        WdLogEvent5_WdError(v21);
       }
       else
       {
-        WdLogSingleEntry1(2LL, v14);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"DXGADAPTERSYNCOBJECT::SignalFence failed. Status: %I64x",
-          v12,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0qpx_EtwWriteTransfer(v15, v14, v16, 0, v23, v22);
+        LODWORD(v17) = 0;
       }
-      if ( v21[8] )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21);
+      if ( v24[8] )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v24, v14);
     }
-    else
-    {
-      WdLogSingleEntry1(4LL, 1273LL);
-      LODWORD(v12) = 0;
-    }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v22);
-    return (unsigned int)v12;
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v25, v14);
+    return (unsigned int)v17;
   }
 }

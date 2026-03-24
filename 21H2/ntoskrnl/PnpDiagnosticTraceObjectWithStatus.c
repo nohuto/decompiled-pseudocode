@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDiagnosticTraceObjectWithStatus @ 0x1402D1EB4
+ * XREFs of PnpDiagnosticTraceObjectWithStatus @ 0x140364DE4
  * Callers:
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1402D1E10 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     PiDevCfgProcessDevice @ 0x140747740 (PiDevCfgProcessDevice.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     PiDrvDbLoadNode @ 0x1407D4E34 (PiDrvDbLoadNode.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x1407F3CF0 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PnpRebalance @ 0x14095A02C (PnpRebalance.c)
- *     PnpInitializeBootStartDriver @ 0x140B11D58 (PnpInitializeBootStartDriver.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140364D40 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     PiDrvDbLoadNode @ 0x140629F74 (PiDrvDbLoadNode.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140725DB0 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     PnpRebalance @ 0x1408B87A4 (PnpRebalance.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceObjectWithStatus(

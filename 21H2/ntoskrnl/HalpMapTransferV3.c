@@ -1,14 +1,21 @@
 /*
- * XREFs of HalpMapTransferV3 @ 0x140517AD4
+ * XREFs of HalpMapTransferV3 @ 0x1404CA838
  * Callers:
- *     IoMapTransferInternal @ 0x140390C08 (IoMapTransferInternal.c)
+ *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
  * Callees:
- *     HalpDmaMapContiguousTransferV3 @ 0x140504520 (HalpDmaMapContiguousTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x140504644 (HalpDmaMapScatterTransferV3.c)
- *     HalpDmaZeroMapBuffers @ 0x140513F84 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404B7ACC (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404B7BF0 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaZeroMapBuffers @ 0x1404C88D4 (HalpDmaZeroMapBuffers.c)
  */
 
-__int64 __fastcall HalpMapTransferV3(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int *a5, char a6, char a7)
+__int64 __fastcall HalpMapTransferV3(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned int *a5,
+        char a6,
+        char a7)
 {
   __int16 v7; // bp
   _QWORD *v10; // r15

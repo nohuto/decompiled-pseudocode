@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfPopulateStateDataRemoteCallback @ 0x140A08660
+ * XREFs of ExpWnfPopulateStateDataRemoteCallback @ 0x14095CE90
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateDataRemoteCallback(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PoStoreDiagnosticContext @ 0x14032B378
+ * XREFs of PoStoreDiagnosticContext @ 0x14038A59C
  * Callers:
- *     PopTraceThermalRequestActiveActivity @ 0x140595868 (PopTraceThermalRequestActiveActivity.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x140595A88 (PopTraceThermalRequestPassiveHistogram.c)
- *     ExGetWakeTimerList @ 0x14060B698 (ExGetWakeTimerList.c)
- *     PopPowerRequestGetDiagnosticBuffer @ 0x1407A6B98 (PopPowerRequestGetDiagnosticBuffer.c)
- *     PopDiagTraceThermalRequest @ 0x140860C54 (PopDiagTraceThermalRequest.c)
- *     PopGetPowerRequestListInfo @ 0x140984300 (PopGetPowerRequestListInfo.c)
- *     ExGetNextWakeTime @ 0x140AAAFAC (ExGetNextWakeTime.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14038A188 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038A374 (PopTraceThermalRequestActiveActivity.c)
+ *     ExGetWakeTimerList @ 0x1405B6088 (ExGetWakeTimerList.c)
+ *     PopDiagTraceThermalRequest @ 0x1406A46F4 (PopDiagTraceThermalRequest.c)
+ *     PopGetPowerRequestDiagnosticBuffer @ 0x1408E1940 (PopGetPowerRequestDiagnosticBuffer.c)
+ *     PopGetPowerRequestListInfo @ 0x1408E3E64 (PopGetPowerRequestListInfo.c)
+ *     ExGetNextWakeTime @ 0x1409B2F28 (ExGetNextWakeTime.c)
  * Callees:
- *     PoStoreRequester @ 0x14032CD64 (PoStoreRequester.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     PoStoreRequester @ 0x14034BEB8 (PoStoreRequester.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, un
 
   v3 = *a3;
   v14 = *a3;
-  result = PoStoreRequester(a1, a2, &v14, 0LL);
+  result = PoStoreRequester(a1, (__int64)a2, &v14, 0);
   v8 = *(_QWORD *)(a1 + 48);
   v9 = v14;
   v10 = result;

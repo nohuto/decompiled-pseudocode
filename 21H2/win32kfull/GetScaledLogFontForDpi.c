@@ -1,20 +1,20 @@
 /*
- * XREFs of GetScaledLogFontForDpi @ 0x1C0063C80
+ * XREFs of GetScaledLogFontForDpi @ 0x1C0047AC4
  * Callers:
- *     GetWindowNCMetrics @ 0x1C006492C (GetWindowNCMetrics.c)
- *     GetWindowNCMetricsForDpi @ 0x1C00654D8 (GetWindowNCMetricsForDpi.c)
- *     _SystemParametersInfoForDpi @ 0x1C00F8C8C (_SystemParametersInfoForDpi.c)
+ *     GetWindowNCMetricsForDpi @ 0x1C0064180 (GetWindowNCMetricsForDpi.c)
+ *     GetWindowNCMetrics @ 0x1C00E0CB0 (GetWindowNCMetrics.c)
+ *     _SystemParametersInfoForDpi @ 0x1C010F92C (_SystemParametersInfoForDpi.c)
  * Callees:
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
- *     GetDPIMETRICSForDpiUnsafe @ 0x1C00BF124 (GetDPIMETRICSForDpiUnsafe.c)
- *     DeleteMetricsFont @ 0x1C00C7520 (DeleteMetricsFont.c)
- *     GetDPIServerInfoForDpi @ 0x1C00C76E0 (GetDPIServerInfoForDpi.c)
- *     CreateScaledFont @ 0x1C01E4B98 (CreateScaledFont.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044EF8 (GetDPIServerInfoForDpi.c)
+ *     GetDPIMETRICSForDpiUnsafe @ 0x1C00481B0 (GetDPIMETRICSForDpiUnsafe.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
+ *     DeleteMetricsFont @ 0x1C00E2290 (DeleteMetricsFont.c)
+ *     CreateScaledFont @ 0x1C01EA410 (CreateScaledFont.c)
  */
 
 _BOOL8 __fastcall GetScaledLogFontForDpi(unsigned int a1, unsigned int a2, __int64 a3)
 {
-  HBRUSH *DPIMETRICSForDpiUnsafe; // rax
+  HSURF *DPIMETRICSForDpiUnsafe; // rax
   BOOL v7; // esi
   int ScaledFont; // ebp
   unsigned int v9; // ebx
@@ -22,13 +22,13 @@ _BOOL8 __fastcall GetScaledLogFontForDpi(unsigned int a1, unsigned int a2, __int
   unsigned int v11; // ebx
   unsigned int v12; // ebx
   INT v13; // r8d
-  HBRUSH v14; // rbx
-  __int64 v16; // rcx
+  HSURF v14; // rbx
+  HSURF v16; // rcx
 
   DPIMETRICSForDpiUnsafe = 0LL;
   v7 = 0;
   if ( a1 <= 3 )
-    DPIMETRICSForDpiUnsafe = (HBRUSH *)GetDPIMETRICSForDpiUnsafe(a2);
+    DPIMETRICSForDpiUnsafe = (HSURF *)GetDPIMETRICSForDpiUnsafe(a2);
   ScaledFont = 0;
   if ( !a1 )
   {
@@ -37,7 +37,7 @@ _BOOL8 __fastcall GetScaledLogFontForDpi(unsigned int a1, unsigned int a2, __int
       v14 = DPIMETRICSForDpiUnsafe[8];
       goto LABEL_13;
     }
-    v16 = *(_QWORD *)(Get96DpiMetrics() + 64);
+    v16 = *(HSURF *)(Get96DpiMetrics() + 64);
     goto LABEL_30;
   }
   v9 = a1 - 1;
@@ -48,7 +48,7 @@ _BOOL8 __fastcall GetScaledLogFontForDpi(unsigned int a1, unsigned int a2, __int
       v14 = DPIMETRICSForDpiUnsafe[4];
       goto LABEL_13;
     }
-    v16 = *(_QWORD *)(Get96DpiMetrics() + 32);
+    v16 = *(HSURF *)(Get96DpiMetrics() + 32);
     goto LABEL_30;
   }
   v10 = v9 - 1;
@@ -59,7 +59,7 @@ _BOOL8 __fastcall GetScaledLogFontForDpi(unsigned int a1, unsigned int a2, __int
       v14 = *DPIMETRICSForDpiUnsafe;
       goto LABEL_13;
     }
-    v16 = *(_QWORD *)Get96DpiMetrics();
+    v16 = *(HSURF *)Get96DpiMetrics();
     goto LABEL_30;
   }
   v11 = v10 - 1;
@@ -70,7 +70,7 @@ _BOOL8 __fastcall GetScaledLogFontForDpi(unsigned int a1, unsigned int a2, __int
       v14 = DPIMETRICSForDpiUnsafe[7];
       goto LABEL_13;
     }
-    v16 = *(_QWORD *)(Get96DpiMetrics() + 56);
+    v16 = *(HSURF *)(Get96DpiMetrics() + 56);
 LABEL_30:
     v14 = 0LL;
     ScaledFont = CreateScaledFont(v16, 0LL, 0LL, 0LL);
@@ -98,10 +98,10 @@ LABEL_30:
     }
     return v7;
   }
-  v14 = *(HBRUSH *)(GetDPIServerInfoForDpi(a2) + 8);
+  v14 = *(HSURF *)(GetDPIServerInfoForDpi(a2) + 8);
 LABEL_13:
   if ( v14 )
-    v7 = GreExtGetObjectW(v14, 92LL, (char *)a3) != 0;
+    v7 = GreExtGetObjectW(v14) != 0;
   if ( ScaledFont )
     DeleteMetricsFont(v14);
   return v7;

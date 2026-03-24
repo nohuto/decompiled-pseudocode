@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C0211700
+ * XREFs of ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E2880
  * Callers:
- *     ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0211530 (-SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@.c)
+ *     ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E26B0 (-SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@.c)
  * Callees:
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0022CDC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00668DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
@@ -20,8 +20,8 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetSegments(
   __int64 v9; // r15
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // r13
-  unsigned __int64 v12; // rsi
-  int v13; // ebp
+  unsigned __int64 v12; // rbp
+  int v13; // esi
   const struct D2D1_INK_BEZIER_SEGMENT *v14; // rdi
 
   v5 = *((_QWORD *)this + 17);

@@ -1,72 +1,73 @@
 /*
- * XREFs of PspSetupUserShadowStack @ 0x1409B1BBC
+ * XREFs of PspSetupUserShadowStack @ 0x14090A62C
  * Callers:
- *     PspAllocateThread @ 0x140740EE0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlLocateExtendedFeature @ 0x140463BB0 (RtlLocateExtendedFeature.c)
- *     MmFreeVirtualMemory @ 0x1407455D0 (MmFreeVirtualMemory.c)
- *     RtlCalculateUserShadowStackSizes @ 0x1408A6434 (RtlCalculateUserShadowStackSizes.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409B1800 (PspReserveAndCommitUserShadowStack.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlLocateExtendedFeature @ 0x14058F460 (RtlLocateExtendedFeature.c)
+ *     MmFreeVirtualMemory @ 0x14063AD20 (MmFreeVirtualMemory.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x14090A368 (PspReserveAndCommitUserShadowStack.c)
+ *     RtlCalculateUserShadowStackSizes @ 0x14090FF54 (RtlCalculateUserShadowStackSizes.c)
  */
 
-NTSTATUS __fastcall PspSetupUserShadowStack(
+__int64 __fastcall PspSetupUserShadowStack(
         _KPROCESS *BugCheckParameter1,
-        __int64 a2,
+        _DWORD *a2,
         __int64 a3,
         _BYTE *a4,
         unsigned int a5)
 {
-  NTSTATUS result; // eax
-  int v10; // esi
-  _QWORD *ExtendedFeature; // rax
-  __int64 v12; // rax
-  unsigned __int64 v13; // [rsp+30h] [rbp-31h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-29h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-21h] BYREF
-  ULONG_PTR v16; // [rsp+48h] [rbp-19h]
-  $115DCDF994C6370D29323EAB0E0C9502 v17; // [rsp+50h] [rbp-11h] BYREF
+  __int64 result; // rax
+  _DWORD *v10; // r9
+  int v11; // esi
+  char *ExtendedFeature; // rax
+  __int64 v13; // rax
+  unsigned __int64 v14; // [rsp+30h] [rbp-31h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-29h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-21h] BYREF
+  ULONG_PTR v17; // [rsp+48h] [rbp-19h] BYREF
+  _OWORD v18[3]; // [rsp+50h] [rbp-11h] BYREF
 
+  v15 = 0LL;
+  v17 = 0LL;
   v14 = 0LL;
-  v16 = 0LL;
-  v13 = 0LL;
-  memset(&v17, 0, sizeof(v17));
-  result = RtlCalculateUserShadowStackSizes(a3, &v13);
-  if ( result >= 0 )
+  memset(v18, 0, sizeof(v18));
+  result = RtlCalculateUserShadowStackSizes(a3, &v14, &v17);
+  if ( (int)result >= 0 )
   {
-    KiStackAttachProcess(BugCheckParameter1, 0, (__int64)&v17);
-    v15 = 0LL;
-    v10 = PspReserveAndCommitUserShadowStack(v13, v16, a5, &v15, &v14);
-    if ( v10 < 0 )
+    KiStackAttachProcess(BugCheckParameter1, 0LL, (__int64)v18, v10);
+    v16 = 0LL;
+    v11 = PspReserveAndCommitUserShadowStack(v14, v17, a5, &v16, &v15);
+    if ( v11 < 0 )
     {
-      v12 = v15;
+      v13 = v16;
     }
     else
     {
-      if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 )
+      if ( (a2[12] & 0x100040) == 0x100040 )
       {
-        ExtendedFeature = (_QWORD *)RtlLocateExtendedFeature(a2 + 1232, 11LL);
+        ExtendedFeature = RtlLocateExtendedFeature(a2 + 308, 0xBu, 0LL);
         if ( ExtendedFeature )
         {
-          *(_QWORD *)(*(int *)(a2 + 1248) + a2 + 1232) |= 0x800uLL;
-          ExtendedFeature[1] = v14;
-          *ExtendedFeature = 1LL;
+          *(_QWORD *)((char *)a2 + a2[312] + 1232) |= 0x800uLL;
+          *((_QWORD *)ExtendedFeature + 1) = v15;
+          *(_QWORD *)ExtendedFeature = 1LL;
         }
       }
-      *(_QWORD *)(a3 + 64) = v15;
+      *(_QWORD *)(a3 + 64) = v16;
       *a4 |= 8u;
-      v12 = 0LL;
+      v13 = 0LL;
     }
-    if ( v12 )
+    if ( v13 )
     {
-      v14 = 0LL;
-      v13 = v12;
-      MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, &v13, &v14, 0x8000, 0, 0x40000000);
+      v15 = 0LL;
+      v14 = v13;
+      MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, &v14, &v15, 0x8000, 0, 0x40000000);
     }
-    KiUnstackDetachProcess(&v17);
-    return v10;
+    KiUnstackDetachProcess((__int64)v18, 0);
+    return (unsigned int)v11;
   }
   return result;
 }

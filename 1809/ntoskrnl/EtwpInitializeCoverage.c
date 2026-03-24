@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeCoverage @ 0x140742F9C
+ * XREFs of EtwpInitializeCoverage @ 0x140742F7C
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
  */
 
 TLG_STATUS EtwpInitializeCoverage()

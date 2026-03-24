@@ -3,13 +3,13 @@
  * Callers:
  *     SeCodeIntegrityInitializePolicy @ 0x1409DC0B4 (SeCodeIntegrityInitializePolicy.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepSecureBootSetRegistryKey @ 0x1409DC258 (SepSecureBootSetRegistryKey.c)
- *     SepSecureBootBuildRules @ 0x1409F8328 (SepSecureBootBuildRules.c)
- *     SepSecureBootCheckForUpdates @ 0x1409F839C (SepSecureBootCheckForUpdates.c)
+ *     SepSecureBootBuildRules @ 0x1409F8338 (SepSecureBootBuildRules.c)
+ *     SepSecureBootCheckForUpdates @ 0x1409F83AC (SepSecureBootCheckForUpdates.c)
  */
 
 __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -46,11 +46,11 @@ __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULON
   }
   v6 = 0LL;
   g_SecureBootPolicyBlobHeader = *(_OWORD *)BugCheckParameter2;
-  qword_1404401F0 = *(_QWORD *)(BugCheckParameter2 + 16);
+  qword_1404401E8 = *(_QWORD *)(BugCheckParameter2 + 16);
   if ( *(_DWORD *)(BugCheckParameter2 + 12) )
     v6 = (_WORD *)(BugCheckParameter2 + *(unsigned int *)(BugCheckParameter2 + 8));
   SepSecureBootSetRegistryKey(v6);
-  if ( (dword_1404401E4 & 8) != 0 )
+  if ( (dword_1404401DC & 8) != 0 )
     SepSecureBootCheckForUpdates();
   if ( !v6 )
     return 0;
@@ -62,10 +62,10 @@ __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULON
   if ( !PoolWithTag )
     goto LABEL_37;
   memmove(PoolWithTag, v6, *(unsigned int *)(BugCheckParameter2 + 12));
-  qword_1404DC690 = v10;
+  qword_1404DC688 = v10;
   if ( v6[18] || v6[19] )
   {
-    qword_1404E1530 = (__int64)v10 + v10[13] + 60;
+    qword_1404E14E8 = (__int64)v10 + v10[13] + 60;
     v7 = SepSecureBootBuildRules();
     if ( v7 < 0 )
       goto LABEL_34;
@@ -111,10 +111,10 @@ LABEL_33:
             if ( v7 >= 0 )
               return (unsigned int)v7;
 LABEL_34:
-            if ( qword_1404DC690 )
+            if ( qword_1404DC688 )
             {
-              ExFreePoolWithTag(qword_1404DC690, 0);
-              qword_1404DC690 = 0LL;
+              ExFreePoolWithTag(qword_1404DC688, 0);
+              qword_1404DC688 = 0LL;
             }
             KeBugCheckEx(0x145u, v7, BugCheckParameter2, v2, 0LL);
           }

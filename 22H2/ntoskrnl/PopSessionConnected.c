@@ -1,31 +1,32 @@
 /*
- * XREFs of PopSessionConnected @ 0x1407EBD5C
+ * XREFs of PopSessionConnected @ 0x14078D8D0
  * Callers:
- *     PopSessionConnectionChange @ 0x1407EBF04 (PopSessionConnectionChange.c)
+ *     PopSessionConnectionChange @ 0x14078D82C (PopSessionConnectionChange.c)
  * Callees:
- *     PopSetSessionDisplayStatus @ 0x1407A6040 (PopSetSessionDisplayStatus.c)
- *     PopDiagTraceSessionStates @ 0x1407EBDDC (PopDiagTraceSessionStates.c)
- *     PopAdaptiveGetSessionStateUnsafe @ 0x1407EC320 (PopAdaptiveGetSessionStateUnsafe.c)
- *     PopDiagTraceAdaptiveOverrideTriggered @ 0x14098C71C (PopDiagTraceAdaptiveOverrideTriggered.c)
+ *     PopDiagTraceSessionStates @ 0x140725380 (PopDiagTraceSessionStates.c)
+ *     PopConsoleSessionActiveInput @ 0x140772AD4 (PopConsoleSessionActiveInput.c)
+ *     PopRemoteSessionActiveInput @ 0x140772B48 (PopRemoteSessionActiveInput.c)
+ *     PopSetSessionDisplayStatus @ 0x1407818B8 (PopSetSessionDisplayStatus.c)
  */
 
-__int64 __fastcall PopSessionConnected(unsigned int a1, __int64 a2, __int64 a3)
+__int64 __fastcall PopSessionConnected(unsigned int a1, unsigned __int8 a2, int *a3)
 {
-  PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CONNECTED);
-  if ( *(_BYTE *)(a2 + 1) )
+  __int64 v7; // rdx
+
+  PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CONNECTED, a1, a2);
+  if ( a2 )
   {
     PopConsoleSession = 1;
-    dword_140C39CD8 = a1;
+    PopSetSessionDisplayStatus(a1, 1, 0);
+    LODWORD(PopConsoleContext) = a1;
+    return PopConsoleSessionActiveInput(
+             a1,
+             (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24,
+             a3);
   }
-  PopSetSessionDisplayStatus(a1, 1, 0);
-  if ( PopAdaptiveBootContext )
+  else
   {
-    dword_140C39D0C = 0;
-    byte_140C39CF8 = 1;
-    qword_140C39D00 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-                     * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-    dword_140C39D08 = 2;
-    PopDiagTraceAdaptiveOverrideTriggered(qword_140C39D00, 1LL, 2LL, 0LL);
+    PopSetSessionDisplayStatus(a1, 1, 0);
+    return PopRemoteSessionActiveInput(a1, v7, a3);
   }
-  return PopAdaptiveGetSessionStateUnsafe(a1, a2 + 8, a3);
 }

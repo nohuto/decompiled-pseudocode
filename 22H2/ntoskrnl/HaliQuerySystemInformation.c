@@ -1,298 +1,315 @@
 /*
- * XREFs of HaliQuerySystemInformation @ 0x140A88510
+ * XREFs of HaliQuerySystemInformation @ 0x14098F9D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetPlatformTimerInformation @ 0x140366450 (HalpGetPlatformTimerInformation.c)
- *     HalpQueryNumaRangeTableInformation @ 0x1403B4C50 (HalpQueryNumaRangeTableInformation.c)
- *     HalpGetDisplayBiosInformation @ 0x1403B58E8 (HalpGetDisplayBiosInformation.c)
- *     xKdEnumerateDebuggingDevices @ 0x1403B6620 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpTimerQueryWatchdogType @ 0x1404FE910 (HalpTimerQueryWatchdogType.c)
- *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x140506A18 (HalpDpQueryMaxHotPlugMemoryAddress.c)
- *     HalpHvQueryHyperlaunchEntrypoint @ 0x14051B418 (HalpHvQueryHyperlaunchEntrypoint.c)
- *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x1407E1978 (HalpQueryHeterogeneousMemoryAttributesInterface.c)
- *     HalpQueryPerDeviceMsiLimitInformation @ 0x1407E198C (HalpQueryPerDeviceMsiLimitInformation.c)
- *     xHalAllocatePmcCounterSet @ 0x1407FDC60 (xHalAllocatePmcCounterSet.c)
- *     HalpInterruptGetIrtInfo @ 0x140820AF0 (HalpInterruptGetIrtInfo.c)
- *     HalpQueryIommuReservedRegionInformation @ 0x14082A15C (HalpQueryIommuReservedRegionInformation.c)
- *     HalpGetProcessorBrandString @ 0x140852A2C (HalpGetProcessorBrandString.c)
- *     HalpQuerySecondaryInterruptInformation @ 0x140862D60 (HalpQuerySecondaryInterruptInformation.c)
- *     HalpInterruptQueryControllerInfo @ 0x140864024 (HalpInterruptQueryControllerInfo.c)
- *     HalpGetAcpiStaticNumaTopology @ 0x140864A28 (HalpGetAcpiStaticNumaTopology.c)
- *     HalpQueryProfileInformation @ 0x140865858 (HalpQueryProfileInformation.c)
- *     HalpDmaGetRemappingInformation @ 0x140865AA8 (HalpDmaGetRemappingInformation.c)
- *     HalpGetMcaLog @ 0x14093344C (HalpGetMcaLog.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x14093508C (HalpQueryAcpiWakeAlarmSystemPowerState.c)
- *     HalpAuditQueryResults @ 0x140935404 (HalpAuditQueryResults.c)
- *     HalpChannelPowerRequest @ 0x140935A0C (HalpChannelPowerRequest.c)
- *     HalpQueryDebuggerInformation @ 0x140AB2EEC (HalpQueryDebuggerInformation.c)
- *     HalpQueryChannelTopologyInformation @ 0x140B939E8 (HalpQueryChannelTopologyInformation.c)
+ *     HalpGetPlatformTimerInformation @ 0x1403295F4 (HalpGetPlatformTimerInformation.c)
+ *     HalpQueryNumaRangeTableInformation @ 0x1403CE79C (HalpQueryNumaRangeTableInformation.c)
+ *     HalpGetDisplayBiosInformation @ 0x1403CF1E0 (HalpGetDisplayBiosInformation.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403CFD40 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpTimerQueryWatchdogType @ 0x1404B6A00 (HalpTimerQueryWatchdogType.c)
+ *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x1404BDC68 (HalpDpQueryMaxHotPlugMemoryAddress.c)
+ *     HalpHvQueryHyperlaunchEntrypoint @ 0x1404D1FBC (HalpHvQueryHyperlaunchEntrypoint.c)
+ *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x1406A0C9C (HalpQueryHeterogeneousMemoryAttributesInterface.c)
+ *     HalpQueryPerDeviceMsiLimitInformation @ 0x1406A0CB0 (HalpQueryPerDeviceMsiLimitInformation.c)
+ *     xHalAllocatePmcCounterSet @ 0x140726050 (xHalAllocatePmcCounterSet.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x140764AA4 (HalpQueryIommuReservedRegionInformation.c)
+ *     HalpQueryProfileInformation @ 0x140773AB8 (HalpQueryProfileInformation.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407B9C34 (HalpInterruptGetIrtInfo.c)
+ *     HalpGetProcessorBrandString @ 0x1407C7C70 (HalpGetProcessorBrandString.c)
+ *     HalpInterruptQueryControllerInfo @ 0x1407D1D7C (HalpInterruptQueryControllerInfo.c)
+ *     HalpGetAcpiStaticNumaTopology @ 0x1407D403C (HalpGetAcpiStaticNumaTopology.c)
+ *     HalpQuerySecondaryInterruptInformation @ 0x1407D4360 (HalpQuerySecondaryInterruptInformation.c)
+ *     HalpDmaGetRemappingInformation @ 0x1407D4A28 (HalpDmaGetRemappingInformation.c)
+ *     HalpGetMcaLog @ 0x1408646C4 (HalpGetMcaLog.c)
+ *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x140866390 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
+ *     HalpAuditQueryResults @ 0x140866744 (HalpAuditQueryResults.c)
+ *     HalpChannelPowerRequest @ 0x140866978 (HalpChannelPowerRequest.c)
+ *     HalpQueryDebuggerInformation @ 0x1409B54CC (HalpQueryDebuggerInformation.c)
+ *     HalpQueryChannelTopologyInformation @ 0x140A8DA48 (HalpQueryChannelTopologyInformation.c)
  */
 
-__int64 __fastcall HaliQuerySystemInformation(int a1, unsigned int a2, LARGE_INTEGER *a3, int *a4)
+__int64 __fastcall HaliQuerySystemInformation(int a1, unsigned int a2, __int16 *a3, int *a4)
 {
-  unsigned int PerDeviceMsiLimitInformation; // ebx
-  unsigned int v9; // edi
-  __int64 (__fastcall ****v10)(); // r15
-  unsigned int PlatformTimerInformation; // eax
-  int v13; // edi
-  int v14; // edi
-  int v15; // edi
-  int v16; // edi
-  int v17; // edi
-  int v18; // edi
-  int v19; // edi
-  int v21; // edi
-  int WatchdogType; // eax
-  bool v23; // cc
-  int Src[64]; // [rsp+20h] [rbp-E0h] BYREF
+  int IommuReservedRegionInformation; // ebx
+  unsigned int v9; // ecx
+  __int64 (__fastcall ****v10)(); // rdx
+  int PlatformTimerInformation; // eax
+  int v12; // esi
+  int v15; // esi
+  int v16; // esi
+  int v17; // esi
+  bool v18; // cc
+  int v19; // esi
+  int v20; // esi
+  int v21; // esi
+  bool v22; // cf
+  int AcpiWakeAlarmSystemPowerState; // eax
+  int v24[64]; // [rsp+20h] [rbp-E0h] BYREF
 
-  memset(Src, 0, sizeof(Src));
-  PerDeviceMsiLimitInformation = 0;
+  memset(v24, 0, sizeof(v24));
+  IommuReservedRegionInformation = 0;
   if ( a4 )
     *a4 = 0;
-  if ( a1 > 31 )
+  v9 = 0;
+  v10 = 0LL;
+  if ( a1 > 30 )
   {
-    if ( a1 > 44 )
+    if ( a1 <= 40 )
     {
-      switch ( a1 )
+      if ( a1 == 40 )
       {
-        case '-':
-          v9 = 8;
-          if ( a2 == 8 )
-          {
-            v10 = (__int64 (__fastcall ****)())Src;
-            *(_QWORD *)Src = HalpHvQueryHyperlaunchEntrypoint();
-            goto LABEL_12;
-          }
-          return (unsigned int)-1073741820;
-        case '.':
-          v21 = 4;
-          if ( a2 < 4 )
-            return (unsigned int)-1073741820;
-          WatchdogType = HalpTimerQueryWatchdogType(a3);
-          break;
-        case '/':
-          return (unsigned int)HalpDmaGetRemappingInformation(a2, a4);
-        case '1':
-          v21 = 8;
-          if ( a2 != 8 )
-            return (unsigned int)-1073741820;
-          WatchdogType = HalpQueryHeterogeneousMemoryAttributesInterface(a3);
-          break;
-        case '2':
-          if ( a2 < 2 )
-            return (unsigned int)-1073741820;
-          PerDeviceMsiLimitInformation = HalpQueryPerDeviceMsiLimitInformation(a3);
-          if ( (PerDeviceMsiLimitInformation & 0x80000000) == 0 )
-            *a4 = 2;
-          return PerDeviceMsiLimitInformation;
-        default:
-          if ( (unsigned int)(a1 - 51) > 1 )
-            return (unsigned int)-1073741496;
-          return (unsigned int)HalpQueryProfileInformation(a1, a2, (__int64)a3, (unsigned int *)a4);
-      }
-      goto LABEL_55;
-    }
-    if ( a1 == 44 )
-      return (unsigned int)HalpQueryProfileInformation(a1, a2, (__int64)a3, (unsigned int *)a4);
-    v13 = a1 - 33;
-    if ( !v13 )
-      return (unsigned int)HalpQueryDebuggerInformation(a3, a2, a4);
-    v14 = v13 - 1;
-    if ( v14 )
-    {
-      v15 = v14 - 1;
-      if ( v15 )
-      {
-        v16 = v15 - 1;
-        if ( !v16 )
-          return (unsigned int)HalpChannelPowerRequest((__int16 *)a3, a2, a4);
-        v17 = v16 - 1;
-        if ( v17 )
-        {
-          v18 = v17 - 2;
-          if ( !v18 )
-            return (unsigned int)HalpInterruptQueryControllerInfo(a2, a3, a4);
-          v19 = v18 - 1;
-          if ( !v19 )
-          {
-            if ( a2 < 0x10 )
-              return (unsigned int)-1073741820;
-            PerDeviceMsiLimitInformation = HalpQueryIommuReservedRegionInformation((__int64)a3, a2);
-            if ( (PerDeviceMsiLimitInformation & 0x80000000) == 0 )
-              *a4 = 16;
-            return PerDeviceMsiLimitInformation;
-          }
-          if ( v19 != 3 )
-            return (unsigned int)-1073741496;
-          v21 = 4;
-          if ( (HalpPlatformFlags & 4) != 0 )
-            return (unsigned int)-1073741637;
-          if ( a2 < 4 )
-            return (unsigned int)-1073741820;
-          WatchdogType = HalpQueryAcpiWakeAlarmSystemPowerState(a3);
-LABEL_55:
-          PerDeviceMsiLimitInformation = WatchdogType;
-          if ( WatchdogType < 0 )
-            return PerDeviceMsiLimitInformation;
-          goto LABEL_56;
-        }
-        v10 = &off_14000A3C0;
         if ( a2 < 0x10 )
-          v10 = 0LL;
-        v9 = a2 < 0x10 ? 0 : 0x10;
-        PerDeviceMsiLimitInformation = a2 < 0x10 ? 0xC0000004 : 0;
-LABEL_71:
-        if ( !v9 )
-          return PerDeviceMsiLimitInformation;
-        goto LABEL_34;
+          return (unsigned int)-1073741820;
+        IommuReservedRegionInformation = HalpQueryIommuReservedRegionInformation((__int64)a3, a2);
+        if ( IommuReservedRegionInformation >= 0 )
+          *a4 = 16;
+        return (unsigned int)IommuReservedRegionInformation;
       }
-      v10 = (__int64 (__fastcall ****)())HalpFwS3PerformanceTable;
-      if ( !HalpFwS3PerformanceTable )
-        return (unsigned int)-1073741822;
-      v9 = *(_DWORD *)(HalpFwS3PerformanceTable + 4);
-      v23 = v9 <= HalpFwS3PerformanceTableMaximumLength;
-    }
-    else
-    {
-      v10 = (__int64 (__fastcall ****)())HalpFwBootPerformanceTable;
-      if ( !HalpFwBootPerformanceTable )
-        return (unsigned int)-1073741822;
-      v9 = *(_DWORD *)(HalpFwBootPerformanceTable + 4);
-      v23 = v9 <= HalpFwBootPerformanceTableMaximumLength;
-    }
-    if ( v23 )
-    {
-      if ( a2 < v9 )
-        goto LABEL_61;
-      goto LABEL_71;
-    }
-    return (unsigned int)-1073741822;
-  }
-  if ( a1 == 31 )
-    return (unsigned int)HalpQueryChannelTopologyInformation(a3, a2, a4);
-  if ( a1 <= 17 )
-  {
-    if ( a1 != 17 )
-    {
-      switch ( a1 )
+      v15 = a1 - 31;
+      if ( !v15 )
+        return (unsigned int)HalpQueryChannelTopologyInformation(a3, a2, a4);
+      v16 = v15 - 2;
+      if ( !v16 )
+        return (unsigned int)HalpQueryDebuggerInformation(a3, a2, a4);
+      v17 = v16 - 1;
+      if ( !v17 )
       {
-        case 1:
-          return (unsigned int)HalpQueryProfileInformation(a1, a2, (__int64)a3, (unsigned int *)a4);
-        case 7:
-          return (unsigned int)HalpGetMcaLog();
-        case 8:
-          return (unsigned int)-1073741496;
-        case 9:
-          v10 = (__int64 (__fastcall ****)())Src;
-          v9 = 4;
-          Src[0] = HalpGetDisplayBiosInformation();
+        v10 = (__int64 (__fastcall ****)())HalpFwBootPerformanceTable;
+        if ( !HalpFwBootPerformanceTable )
+          return (unsigned int)-1073741822;
+        v9 = *(_DWORD *)(HalpFwBootPerformanceTable + 4);
+        v18 = v9 <= HalpFwBootPerformanceTableMaximumLength;
+LABEL_32:
+        if ( v18 )
+        {
+          if ( a2 >= v9 )
+            goto LABEL_15;
           goto LABEL_34;
-        case 11:
-          if ( a2 != 64 )
-            return (unsigned int)-1073741820;
-          PerDeviceMsiLimitInformation = -1073741496;
-          if ( HalpNumaConfig )
-          {
-            PerDeviceMsiLimitInformation = HalpGetAcpiStaticNumaTopology();
-            if ( (PerDeviceMsiLimitInformation & 0x80000000) == 0 )
-              *a4 = 64;
-          }
-          return PerDeviceMsiLimitInformation;
-        case 12:
-          v10 = (__int64 (__fastcall ****)())Src;
-          Src[0] = a3->LowPart;
-          v9 = 144;
-          PerDeviceMsiLimitInformation = xHalAllocatePmcCounterSet();
-LABEL_34:
-          if ( a2 < v9 )
-            v9 = a2;
-          goto LABEL_12;
-        case 13:
-          return (unsigned int)HalpGetMcaLog();
+        }
+        return (unsigned int)-1073741822;
       }
+      v19 = v17 - 1;
+      if ( !v19 )
+      {
+        v10 = (__int64 (__fastcall ****)())HalpFwS3PerformanceTable;
+        if ( !HalpFwS3PerformanceTable )
+          return (unsigned int)-1073741822;
+        v9 = *(_DWORD *)(HalpFwS3PerformanceTable + 4);
+        v18 = v9 <= HalpFwS3PerformanceTableMaximumLength;
+        goto LABEL_32;
+      }
+      v20 = v19 - 1;
+      if ( !v20 )
+        return (unsigned int)HalpChannelPowerRequest(a3, a2, a4);
+      v21 = v20 - 1;
+      if ( v21 )
+      {
+        if ( v21 != 2 )
+          goto LABEL_87;
+        return (unsigned int)HalpInterruptQueryControllerInfo(a2, a3, a4);
+      }
+      v10 = &off_140003E70;
+      if ( a2 < 0x10 )
+        v10 = 0LL;
+      v9 = a2 < 0x10 ? 0 : 0x10;
+      v22 = a2 < 0x10;
+LABEL_64:
+      IommuReservedRegionInformation = v22 ? 0xC0000004 : 0;
+      goto LABEL_15;
+    }
+    switch ( a1 )
+    {
+      case '+':
+        if ( (HalpPlatformFlags & 4) != 0 )
+          return (unsigned int)-1073741637;
+        if ( a2 < 4 )
+        {
+          IommuReservedRegionInformation = -1073741820;
+          goto LABEL_15;
+        }
+        AcpiWakeAlarmSystemPowerState = HalpQueryAcpiWakeAlarmSystemPowerState((PLARGE_INTEGER)a3);
+        break;
+      case ',':
+        return (unsigned int)HalpQueryProfileInformation();
+      case '-':
+        if ( a2 == 8 )
+          *(_QWORD *)v24 = HalpHvQueryHyperlaunchEntrypoint();
+        v10 = (__int64 (__fastcall ****)())v24;
+        v9 = 8;
+        if ( a2 != 8 )
+        {
+          v10 = 0LL;
+          v9 = 0;
+        }
+        v22 = a2 != 8;
+        goto LABEL_64;
+      case '.':
+        if ( a2 < 4 )
+          return (unsigned int)-1073741820;
+        AcpiWakeAlarmSystemPowerState = HalpTimerQueryWatchdogType(a3);
+        break;
+      case '/':
+        return (unsigned int)HalpDmaGetRemappingInformation(a2, a4);
+      case '1':
+        if ( a2 != 8 )
+          return (unsigned int)-1073741820;
+        IommuReservedRegionInformation = HalpQueryHeterogeneousMemoryAttributesInterface(a3);
+        if ( IommuReservedRegionInformation < 0 )
+          return (unsigned int)IommuReservedRegionInformation;
+LABEL_56:
+        *a4 = 8;
+        return (unsigned int)IommuReservedRegionInformation;
+      case '2':
+        if ( a2 < 2 )
+          return (unsigned int)-1073741820;
+        IommuReservedRegionInformation = HalpQueryPerDeviceMsiLimitInformation(a3);
+        if ( IommuReservedRegionInformation >= 0 )
+          *a4 = 2;
+        return (unsigned int)IommuReservedRegionInformation;
+      default:
+        goto LABEL_87;
+    }
+    IommuReservedRegionInformation = AcpiWakeAlarmSystemPowerState;
+    if ( AcpiWakeAlarmSystemPowerState >= 0 )
+      *a4 = 4;
+    return (unsigned int)IommuReservedRegionInformation;
+  }
+  if ( a1 == 30 )
+    return (unsigned int)HalpQueryNumaRangeTableInformation(a3, a2, (unsigned int *)a4);
+  if ( a1 > 17 )
+  {
+    if ( a1 != 20 )
+    {
+      if ( a1 != 23 )
+      {
+        switch ( a1 )
+        {
+          case 25:
+            if ( a2 >= 0xC )
+            {
+              PlatformTimerInformation = HalpGetPlatformTimerInformation(v24);
+LABEL_11:
+              IommuReservedRegionInformation = PlatformTimerInformation;
+LABEL_12:
+              v10 = (__int64 (__fastcall ****)())v24;
+              if ( a2 < 0xC )
+                v10 = 0LL;
+              v9 = a2 < 0xC ? 0 : 0xC;
+              goto LABEL_15;
+            }
+            goto LABEL_106;
+          case 26:
+            if ( a2 < 8 )
+              IommuReservedRegionInformation = -1073741820;
+            else
+              IommuReservedRegionInformation = HalpAuditQueryResults(v24);
+            v10 = (__int64 (__fastcall ****)())v24;
+            if ( a2 < 8 )
+              v10 = 0LL;
+            v9 = a2 < 8 ? 0 : 8;
+LABEL_15:
+            v12 = v9;
+            if ( !v9 )
+              return (unsigned int)IommuReservedRegionInformation;
+            goto LABEL_16;
+          case 27:
+            if ( a2 >= 0xC )
+            {
+              PlatformTimerInformation = HalpInterruptGetIrtInfo(v24);
+              goto LABEL_11;
+            }
+LABEL_106:
+            IommuReservedRegionInformation = -1073741820;
+            goto LABEL_12;
+          case 28:
+            if ( a2 < 0x38 )
+              IommuReservedRegionInformation = -1073741820;
+            else
+              IommuReservedRegionInformation = HalpQuerySecondaryInterruptInformation((__int64)v24);
+            v10 = (__int64 (__fastcall ****)())v24;
+            if ( a2 < 0x38 )
+              v10 = 0LL;
+            v9 = a2 < 0x38 ? 0 : 0x38;
+            goto LABEL_15;
+          case 29:
+            if ( a2 >= 0x18 )
+            {
+              IommuReservedRegionInformation = xKdEnumerateDebuggingDevices();
+              if ( IommuReservedRegionInformation >= 0 )
+                *a4 = 24;
+              return (unsigned int)IommuReservedRegionInformation;
+            }
+            return (unsigned int)-1073741820;
+        }
+LABEL_87:
+        IommuReservedRegionInformation = -1073741496;
+        goto LABEL_15;
+      }
+      return (unsigned int)HalpGetProcessorBrandString(a2, (__int64)a3, (unsigned int *)a4);
+    }
+    return (unsigned int)HalpQueryProfileInformation();
+  }
+  switch ( a1 )
+  {
+    case 17:
+      if ( a2 != 8 )
+        return (unsigned int)-1073741820;
+      *(_QWORD *)a3 = HalpDpQueryMaxHotPlugMemoryAddress();
+      goto LABEL_56;
+    case 1:
+      return (unsigned int)HalpQueryProfileInformation();
+    case 7:
+      return (unsigned int)HalpGetMcaLog();
+    case 8:
+      return (unsigned int)-1073741496;
+    case 9:
+      v12 = 4;
+      v24[0] = HalpGetDisplayBiosInformation();
+      goto LABEL_16;
+  }
+  if ( a1 != 11 )
+  {
+    if ( a1 == 12 )
+    {
+      v24[0] = *(_DWORD *)a3;
+      IommuReservedRegionInformation = xHalAllocatePmcCounterSet();
+      goto LABEL_47;
+    }
+    if ( a1 != 13 )
+    {
       if ( a1 != 16 )
-        return (unsigned int)-1073741496;
+        goto LABEL_87;
       v9 = 456;
       if ( a2 >= 0x1C8 )
       {
         v10 = (__int64 (__fastcall ****)())&BadIOAddrList;
-        goto LABEL_12;
+LABEL_47:
+        v12 = v9;
+LABEL_16:
+        if ( a2 >= v9 )
+          a2 = v12;
+        *a4 = a2;
+        memmove(a3, v10, a2);
+        return (unsigned int)IommuReservedRegionInformation;
       }
-LABEL_61:
+LABEL_34:
       *a4 = v9;
       return (unsigned int)-1073741820;
     }
-    v21 = 8;
-    if ( a2 != 8 )
-      return (unsigned int)-1073741820;
-    a3->QuadPart = HalpDpQueryMaxHotPlugMemoryAddress();
-LABEL_56:
-    *a4 = v21;
-    return PerDeviceMsiLimitInformation;
+    return (unsigned int)HalpGetMcaLog();
   }
-  switch ( a1 )
-  {
-    case 20:
-      return (unsigned int)HalpQueryProfileInformation(a1, a2, (__int64)a3, (unsigned int *)a4);
-    case 23:
-      return (unsigned int)HalpGetProcessorBrandString(a2, (__int64)a3, a4);
-    case 25:
-      v9 = 12;
-      if ( a2 >= 0xC )
-      {
-        v10 = (__int64 (__fastcall ****)())Src;
-        PlatformTimerInformation = HalpGetPlatformTimerInformation(Src);
-LABEL_11:
-        PerDeviceMsiLimitInformation = PlatformTimerInformation;
-LABEL_12:
-        *a4 = v9;
-        memmove(a3, v10, v9);
-        return PerDeviceMsiLimitInformation;
-      }
-      return (unsigned int)-1073741820;
-    case 26:
-      v9 = 8;
-      if ( a2 >= 8 )
-      {
-        v10 = (__int64 (__fastcall ****)())Src;
-        PlatformTimerInformation = HalpAuditQueryResults(Src);
-        goto LABEL_11;
-      }
-      return (unsigned int)-1073741820;
-    case 27:
-      v9 = 12;
-      if ( a2 >= 0xC )
-      {
-        v10 = (__int64 (__fastcall ****)())Src;
-        PlatformTimerInformation = HalpInterruptGetIrtInfo(Src);
-        goto LABEL_11;
-      }
-      return (unsigned int)-1073741820;
-    case 28:
-      v9 = 56;
-      if ( a2 >= 0x38 )
-      {
-        v10 = (__int64 (__fastcall ****)())Src;
-        PlatformTimerInformation = HalpQuerySecondaryInterruptInformation((__int64)Src);
-        goto LABEL_11;
-      }
-      return (unsigned int)-1073741820;
-  }
-  if ( a1 != 29 )
-  {
-    if ( a1 == 30 )
-      return (unsigned int)HalpQueryNumaRangeTableInformation(a3, a2, (unsigned int *)a4);
-    return (unsigned int)-1073741496;
-  }
-  if ( a2 < 0x18 )
+  if ( a2 != 64 )
     return (unsigned int)-1073741820;
-  PerDeviceMsiLimitInformation = xKdEnumerateDebuggingDevices();
-  if ( (PerDeviceMsiLimitInformation & 0x80000000) == 0 )
-    *a4 = 24;
-  return PerDeviceMsiLimitInformation;
+  IommuReservedRegionInformation = -1073741496;
+  if ( HalpNumaConfig )
+  {
+    IommuReservedRegionInformation = HalpGetAcpiStaticNumaTopology();
+    if ( IommuReservedRegionInformation >= 0 )
+      *a4 = 64;
+  }
+  return (unsigned int)IommuReservedRegionInformation;
 }

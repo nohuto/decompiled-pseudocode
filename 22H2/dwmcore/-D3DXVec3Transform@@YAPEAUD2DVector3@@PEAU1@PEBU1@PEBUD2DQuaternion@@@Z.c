@@ -1,7 +1,8 @@
 /*
- * XREFs of ?D3DXVec3Transform@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x18027EC70
+ * XREFs of ?D3DXVec3Transform@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x1801E2528
  * Callers:
- *     ?Vector3Transform@CExpressionValueStack@@QEAAJXZ @ 0x180262A04 (-Vector3Transform@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?GetRandomUnitDir@@YA?AUfloat3@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@AEBU1234@1_N@Z @ 0x1801E2070 (-GetRandomUnitDir@@YA-AUfloat3@Numerics@Foundation@Windows@@AEAV-$mersenne_twister_engine@I$0CA@.c)
+ *     ?Vector3Transform@CExpressionValueStack@@QEAAJXZ @ 0x1802021A0 (-Vector3Transform@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of GreGetHandleCount @ 0x1C016BEB0
+ * XREFs of GreGetHandleCount @ 0x1C013EEA0
  * Callers:
  *     <none>
  * Callees:

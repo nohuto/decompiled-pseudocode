@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAlphaDescriptor@CLinearTransferEffect@@MEAA?AW4FilterEffectOpacity@CFilterEffect@@XZ @ 0x18023A850
+ * XREFs of ?GetAlphaDescriptor@CLinearTransferEffect@@MEAA?AW4FilterEffectOpacity@CFilterEffect@@XZ @ 0x1801D2CF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CLinearTransferEffect::GetAlphaDescriptor(__int64 a1)
 {
-  return (unsigned int)(*(_BYTE *)(a1 + 220) != 0) + 1;
+  return (unsigned int)(*(_BYTE *)(a1 + 196) != 0) + 1;
 }

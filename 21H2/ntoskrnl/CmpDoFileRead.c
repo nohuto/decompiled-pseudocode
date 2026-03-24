@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileRead @ 0x1402509C4
+ * XREFs of CmpDoFileRead @ 0x1402C781C
  * Callers:
- *     CmpFileRead @ 0x1406D7050 (CmpFileRead.c)
+ *     CmpFileRead @ 0x1406B48F0 (CmpFileRead.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     CmpCreateEvent @ 0x14071489C (CmpCreateEvent.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     CmpCreateEvent @ 0x140671E70 (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpDoFileRead(HANDLE FileHandle, __int64 a2, ULONG a3, char *a4, ULONG a5, int a6, __int64 a7)
 {
   ULONG v7; // edi
   unsigned int v9; // r15d
-  signed int v10; // eax
+  int v10; // eax
   NTSTATUS Status; // ebx
   ULONG v12; // r14d
   char *Buffer; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall CmpDoFileRead(HANDLE FileHandle, __int64 a2, ULONG a3, char *
   Status = v10;
   if ( v10 < 0 )
   {
-    SetFailureLocation(a7, 1, 12, v10, 0x10u);
+    SetFailureLocation(a7, 1, 12, v10, 16);
     return (unsigned int)Status;
   }
   v12 = a5;
@@ -86,9 +86,9 @@ LABEL_12:
         *(_DWORD *)(a7 + 224) = Information - Length;
       }
       CmRegistryIODebug = 1;
-      dword_140D3CE10 = Information - Length;
+      dword_140D2EAA0 = Information - Length;
       result = 3221225489LL;
-      qword_140D3CE08 = (__int64)FileHandle;
+      qword_140D2EA98 = (__int64)FileHandle;
       return result;
     }
 LABEL_11:
@@ -103,8 +103,8 @@ LABEL_11:
     *(_DWORD *)(a7 + 224) = Status;
   }
   CmRegistryIODebug = 1;
-  qword_140D3CE08 = (__int64)FileHandle;
-  dword_140D3CE10 = Status;
+  qword_140D2EA98 = (__int64)FileHandle;
+  dword_140D2EAA0 = Status;
 LABEL_13:
   ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   ZwClose(Event);

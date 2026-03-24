@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpBcInitializeCriticalMode @ 0x1409FB410
+ * XREFs of BgpBcInitializeCriticalMode @ 0x1409FB420
  * Callers:
  *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
- *     BcpGetProgressMessages @ 0x1401867B8 (BcpGetProgressMessages.c)
- *     BcpGetMaxResourceProfile @ 0x140186930 (BcpGetMaxResourceProfile.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
+ *     BcpGetProgressMessages @ 0x1401867D8 (BcpGetProgressMessages.c)
+ *     BcpGetMaxResourceProfile @ 0x140186950 (BcpGetMaxResourceProfile.c)
  *     BgpDisplayCharacterDestroyContext @ 0x140950EF8 (BgpDisplayCharacterDestroyContext.c)
  *     BgpDisplayCharacterGetContext @ 0x140951948 (BgpDisplayCharacterGetContext.c)
- *     BgpFoDetermineFontInformation @ 0x1409FB738 (BgpFoDetermineFontInformation.c)
- *     BcpFindMessage @ 0x1409FB7F8 (BcpFindMessage.c)
+ *     BgpFoDetermineFontInformation @ 0x1409FB748 (BgpFoDetermineFontInformation.c)
+ *     BcpFindMessage @ 0x1409FB808 (BcpFindMessage.c)
  */
 
 __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)

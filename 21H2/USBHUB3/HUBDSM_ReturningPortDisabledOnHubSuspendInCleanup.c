@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_ReturningPortDisabledOnHubSuspendInCleanup @ 0x1C0021940
+ * XREFs of HUBDSM_ReturningPortDisabledOnHubSuspendInCleanup @ 0x1C00214F0
  * Callers:
  *     <none>
  * Callees:

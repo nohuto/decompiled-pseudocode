@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetPartitionInformation @ 0x140940AA0
+ * XREFs of IoSetPartitionInformation @ 0x14088DF10
  * Callers:
- *     DifIoSetPartitionInformationWrapper @ 0x1405E1510 (DifIoSetPartitionInformationWrapper.c)
+ *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1406753D8 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675500 (--1SC_DISK@@UEAA@XZ.c)
- *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140675DA0 (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1409404E8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6914 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6A24 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1405C711C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D958 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 NTSTATUS __stdcall IoSetPartitionInformation(
@@ -20,11 +20,11 @@ NTSTATUS __stdcall IoSetPartitionInformation(
   UCHAR v5; // di
   NTSTATUS v7; // ebx
   _SET_PARTITION_INFORMATION_EX v9; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v10[50]; // [rsp+A0h] [rbp-60h] BYREF
+  _QWORD v10[46]; // [rsp+A0h] [rbp-60h] BYREF
 
   v5 = PartitionType;
   SC_DISK::SC_DISK((SC_DISK *)v10);
-  v10[49] = 0LL;
+  v10[44] = 0LL;
   v10[0] = &NT_DISK::`vftable';
   *((_DWORD *)&v9.PartitionStyle + 1) = 0;
   memset(&v9.Mbr + 1, 0, 0x6FuLL);

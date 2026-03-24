@@ -1,24 +1,30 @@
 /*
- * XREFs of ??_GCTableTransferEffect@@UEAAPEAXI@Z @ 0x180242090
+ * XREFs of ??_GCTableTransferEffect@@UEAAPEAXI@Z @ 0x1801F0A20
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1CTableTransferEffect@@UEAA@XZ @ 0x180242054 (--1CTableTransferEffect@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x180094910 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CFilterEffect@@MEAA@XZ @ 0x18016BC2C (--1CFilterEffect@@MEAA@XZ.c)
  */
 
 CTableTransferEffect *__fastcall CTableTransferEffect::`scalar deleting destructor'(
         CTableTransferEffect *this,
         char a2)
 {
-  CTableTransferEffect::~CTableTransferEffect(this);
+  `vector destructor iterator'(
+    (char *)this + 160,
+    40LL,
+    4LL,
+    (void (__fastcall *)(char *))DynArrayIA<float,2,0>::~DynArrayIA<float,2,0>);
+  CFilterEffect::~CFilterEffect(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x140);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

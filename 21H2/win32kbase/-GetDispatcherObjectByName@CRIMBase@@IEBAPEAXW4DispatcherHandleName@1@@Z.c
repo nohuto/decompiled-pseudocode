@@ -1,25 +1,22 @@
 /*
- * XREFs of ?GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z @ 0x1C00497AC
+ * XREFs of ?GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z @ 0x1C00564EC
  * Callers:
- *     ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C0049760 (-HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ.c)
+ *     ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C00564A0 (-HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ.c)
  * Callees:
- *     ?IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ @ 0x1C0034740 (-IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ @ 0x1C0044910 (-IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CRIMBase::GetDispatcherObjectByName(__int64 a1)
 {
   __int64 v2; // rbx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
 
   v2 = 0LL;
-  if ( CRIMBase::SensorDispatcherObject::IsValid((CRIMBase::SensorDispatcherObject *)(a1 + 872)) )
+  if ( CRIMBase::SensorDispatcherObject::IsValid((CRIMBase::SensorDispatcherObject *)(a1 + 856)) )
   {
-    if ( *(_DWORD *)(a1 + 888) != 11 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v4, v3, v5);
-    return *(_QWORD *)(a1 + 920);
+    if ( *(_DWORD *)(a1 + 872) != 11 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 394LL);
+    return *(_QWORD *)(a1 + 904);
   }
   return v2;
 }

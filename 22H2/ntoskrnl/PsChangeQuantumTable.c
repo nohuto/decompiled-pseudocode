@@ -1,75 +1,54 @@
 /*
- * XREFs of PsChangeQuantumTable @ 0x1407C09D4
+ * XREFs of PsChangeQuantumTable @ 0x14078C6B8
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     PspInitPhase0 @ 0x140B4DF94 (PspInitPhase0.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
+ *     PspInitPhase0 @ 0x140A3D098 (PspInitPhase0.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     MmIsThisAnNtAsSystem @ 0x1402907D0 (MmIsThisAnNtAsSystem.c)
- *     KeSetQuantumProcess @ 0x14035062C (KeSetQuantumProcess.c)
- *     PspUnlockProcessListShared @ 0x1403506E4 (PspUnlockProcessListShared.c)
- *     PspComputeQuantum @ 0x1406B64A8 (PspComputeQuantum.c)
+ *     PspUnlockProcessListShared @ 0x140264068 (PspUnlockProcessListShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     MmIsThisAnNtAsSystem @ 0x1402E6A80 (MmIsThisAnNtAsSystem.c)
+ *     KeSetQuantumProcess @ 0x14035B384 (KeSetQuantumProcess.c)
+ *     PspComputeQuantum @ 0x1407073CC (PspComputeQuantum.c)
  */
 
 char __fastcall PsChangeQuantumTable(char a1, char a2)
 {
   unsigned int v3; // eax
   int v5; // eax
-  BOOLEAN IsThisAnNtAsSystem; // al
-  __int64 *v7; // rcx
-  char *v8; // rbx
-  int v9; // edi
+  char *v6; // rbx
+  int v7; // edi
   char result; // al
   struct _KTHREAD *CurrentThread; // rdi
   __int64 *i; // rbx
-  char v13; // al
-  __int64 v14; // r8
+  char v11; // al
+  __int64 v12; // r8
 
   v3 = a2 & 3;
   if ( v3 >= 2 )
     v3 = 2;
   PsPrioritySeparation = v3;
   v5 = a2 & 0xC;
-  if ( (a2 & 0xC) != 0 )
+  if ( v5 == 4 )
   {
-    if ( v5 == 4 )
-    {
-      v8 = (char *)&PspVariableQuantums;
-      goto LABEL_7;
-    }
-    if ( v5 == 8 )
-    {
-      v8 = PspFixedQuantums;
-      goto LABEL_7;
-    }
+    v6 = (char *)&PspVariableQuantums;
   }
-  IsThisAnNtAsSystem = MmIsThisAnNtAsSystem();
-  v7 = (__int64 *)PspFixedQuantums;
-  if ( !IsThisAnNtAsSystem )
-    v7 = &PspVariableQuantums;
-  v8 = (char *)v7;
-LABEL_7:
-  v9 = a2 & 0x30;
-  if ( !v9 )
+  else if ( v5 == 8 )
   {
-LABEL_8:
+    v6 = PspFixedQuantums;
+  }
+  else
+  {
+    v6 = PspFixedQuantums;
     if ( !MmIsThisAnNtAsSystem() )
-      goto LABEL_9;
-    goto LABEL_22;
+      v6 = (char *)&PspVariableQuantums;
   }
-  if ( v9 != 16 )
-  {
-    if ( v9 == 32 )
-      goto LABEL_9;
-    goto LABEL_8;
-  }
-LABEL_22:
-  v8 += 3;
-LABEL_9:
-  PspForegroundQuantum = *(_WORD *)v8;
-  result = v8[2];
-  PspUseJobSchedulingClasses = v8 == &byte_140A77B0F;
-  byte_140D54BEE = result;
+  v7 = a2 & 0x30;
+  if ( v7 == 16 || v7 != 32 && MmIsThisAnNtAsSystem() )
+    v6 += 3;
+  PspForegroundQuantum = *(_WORD *)v6;
+  result = v6[2];
+  PspUseJobSchedulingClasses = v6 == &byte_1409836D7;
+  byte_140D2E876 = result;
   if ( a1 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -77,8 +56,8 @@ LABEL_9:
     ExAcquirePushLockSharedEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
     for ( i = (__int64 *)PsActiveProcessHead; i != &PsActiveProcessHead; i = (__int64 *)*i )
     {
-      v13 = PspComputeQuantum((__int64)(i - 137), *((_BYTE *)i + 754));
-      KeSetQuantumProcess(v14, v13);
+      v11 = PspComputeQuantum((__int64)(i - 137), *((_BYTE *)i + 754));
+      KeSetQuantumProcess(v12, v11);
     }
     return PspUnlockProcessListShared((__int64)CurrentThread);
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405B92E8
+ * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405971F8
  * Callers:
- *     SeTokenCanImpersonate @ 0x1407354A0 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x1406D41E0 (SeTokenCanImpersonate.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int64 a2)
@@ -41,11 +41,11 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
   v2 = (unsigned __int16 *)v12;
   *(_OWORD *)P = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].ActiveProcessors.StaticBitmap[2] )
-    v2 = (unsigned __int16 *)Process[1].ActiveProcessors.StaticBitmap[2];
+  if ( Process[1].ActiveProcessors.Bitmap[2] )
+    v2 = (unsigned __int16 *)Process[1].ActiveProcessors.Bitmap[2];
   EtwpQueryProcessCommandLine(Process, P);
   v6 = P[1];
-  if ( (unsigned int)dword_140C06550 > 5 && tlgKeywordOn((__int64)&dword_140C06550, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02B70 > 5 && tlgKeywordOn((__int64)&dword_140C02B70, 0x400000000000LL) )
   {
     v7 = *(_DWORD *)(*(_QWORD *)(a1 + 216) + 32LL);
     v15 = &v10;
@@ -66,7 +66,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v24 = 2LL;
     v25 = v6;
     v26[1] = 0;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C06550, (unsigned __int8 *)byte_1400342F3, 0LL, 0LL, 8u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02B70, (unsigned __int8 *)word_14002C342, 0LL, 0LL, 8u, &v14);
   }
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

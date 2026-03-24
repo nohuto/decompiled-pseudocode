@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeUpdateConsumers @ 0x14079A984
+ * XREFs of EtwpRealtimeUpdateConsumers @ 0x1406AE300
  * Callers:
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
@@ -19,50 +19,50 @@ LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
   __int64 v8; // rdi
   _QWORD *i; // rcx
 
-  v1 = a1 + 688;
-  if ( (*(_DWORD *)(a1 + 824) & 0x20) != 0 )
+  v1 = a1 + 704;
+  if ( (*(_DWORD *)(a1 + 836) & 0x20) != 0 )
   {
-    ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-    v4 = *(_QWORD *)(a1 + 352);
-    *(_QWORD *)(a1 + 352) = 0LL;
+    ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+    v4 = *(_QWORD *)(a1 + 368);
+    *(_QWORD *)(a1 + 368) = 0LL;
     ExReleasePushLockEx(v1, 0LL);
     v5 = *(_QWORD *)(v4 + 40);
     *(_QWORD *)(v4 + 40) = 0LL;
-    *(_OWORD *)(v5 + 80) = *(_OWORD *)(a1 + 432);
-    v6 = *(_QWORD **)(a1 + 336);
-    if ( *v6 != a1 + 328 )
+    *(_OWORD *)(v5 + 80) = *(_OWORD *)(a1 + 448);
+    v6 = *(_QWORD **)(a1 + 352);
+    if ( *v6 != a1 + 344 )
       __fastfail(3u);
-    *(_QWORD *)v4 = a1 + 328;
+    *(_QWORD *)v4 = a1 + 344;
     *(_QWORD *)(v4 + 8) = v6;
     *v6 = v4;
-    *(_QWORD *)(a1 + 336) = v4;
-    ++*(_DWORD *)(a1 + 344);
+    *(_QWORD *)(a1 + 352) = v4;
+    ++*(_DWORD *)(a1 + 360);
     *(_BYTE *)(v4 + 90) &= ~8u;
-    _InterlockedOr((volatile signed __int32 *)(a1 + 824), 0x40u);
-    *(_DWORD *)(a1 + 40) = 0;
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFFFDF);
-    KeSetEvent((PRKEVENT)(a1 + 456), 0, 0);
+    _InterlockedOr((volatile signed __int32 *)(a1 + 836), 0x40u);
+    *(_DWORD *)(a1 + 56) = 0;
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 836), 0xFFFFFFDF);
+    KeSetEvent((PRKEVENT)(a1 + 472), 0, 0);
   }
-  result = *(_DWORD *)(a1 + 824);
+  result = *(_DWORD *)(a1 + 836);
   if ( (result & 0x10) != 0 )
   {
     v7 = -1073741162;
     ExAcquirePushLockExclusiveEx(v1, 0LL);
-    v8 = *(_QWORD *)(a1 + 352);
-    *(_QWORD *)(a1 + 352) = 0LL;
+    v8 = *(_QWORD *)(a1 + 368);
+    *(_QWORD *)(a1 + 368) = 0LL;
     ExReleasePushLockEx(v1, 0LL);
-    for ( i = *(_QWORD **)(a1 + 328); i != (_QWORD *)(a1 + 328); i = (_QWORD *)*i )
+    for ( i = *(_QWORD **)(a1 + 344); i != (_QWORD *)(a1 + 344); i = (_QWORD *)*i )
     {
       if ( (_QWORD *)v8 == i && (*(_BYTE *)(v8 + 90) & 1) == 0 )
       {
-        _InterlockedOr((volatile signed __int32 *)(a1 + 824), 4u);
+        _InterlockedOr((volatile signed __int32 *)(a1 + 836), 4u);
         *(_BYTE *)(v8 + 90) |= 1u;
         v7 = 0;
       }
     }
-    *(_DWORD *)(a1 + 40) = v7;
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFFFEF);
-    return KeSetEvent((PRKEVENT)(a1 + 456), 0, 0);
+    *(_DWORD *)(a1 + 56) = v7;
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 836), 0xFFFFFFEF);
+    return KeSetEvent((PRKEVENT)(a1 + 472), 0, 0);
   }
   return result;
 }

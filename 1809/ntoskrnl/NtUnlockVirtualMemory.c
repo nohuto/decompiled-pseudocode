@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUnlockVirtualMemory @ 0x1400B3D70
+ * XREFs of NtUnlockVirtualMemory @ 0x1400B3D90
  * Callers:
  *     <none>
  * Callees:
@@ -14,15 +14,15 @@
  *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiUnlockVa @ 0x14015E080 (MiUnlockVa.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiUnlockVa @ 0x14015E0A0 (MiUnlockVa.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     MiUnlockVadRange @ 0x140604A50 (MiUnlockVadRange.c)
  *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
- *     MiLockUnlockCommon @ 0x1406A24DC (MiLockUnlockCommon.c)
+ *     MiLockUnlockCommon @ 0x1406A24BC (MiLockUnlockCommon.c)
  */
 
 NTSTATUS __stdcall NtUnlockVirtualMemory(

@@ -1,57 +1,56 @@
 /*
- * XREFs of MiFaultInProbeAddress @ 0x14023C9F8
+ * XREFs of MiFaultInProbeAddress @ 0x1402B7988
  * Callers:
- *     MiProbeLeafFrame @ 0x140247F34 (MiProbeLeafFrame.c)
- *     MiProbeAndLockPacket @ 0x14031B810 (MiProbeAndLockPacket.c)
- *     MiLockPageLeafPageTable @ 0x14031BF80 (MiLockPageLeafPageTable.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MiLockPageLeafPageTable @ 0x14020B3E0 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafFrame @ 0x1402FD840 (MiProbeLeafFrame.c)
  * Callees:
- *     MiLockProbePacketWorkingSet @ 0x14023CB20 (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14023CB68 (MiUnlockProbePacketWorkingSet.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiDeliverPicoExceptionForProbedPage @ 0x1405842C0 (MiDeliverPicoExceptionForProbedPage.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MiLockProbePacketWorkingSet @ 0x1402B7AB8 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1402B7B00 (MiUnlockProbePacketWorkingSet.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiDeliverPicoExceptionForProbedPage @ 0x140530A7C (MiDeliverPicoExceptionForProbedPage.c)
  */
 
 __int64 __fastcall MiFaultInProbeAddress(__int64 a1)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  ULONG_PTR v4; // rsi
-  __int64 v5; // rax
-  unsigned int v6; // r14d
-  ULONG_PTR v7; // rdi
-  int v8; // edi
-  _QWORD v10[14]; // [rsp+28h] [rbp-29h] BYREF
+  signed __int64 v2; // rsi
+  __int64 v3; // rax
+  unsigned int v4; // r14d
+  unsigned __int64 v5; // rdx
+  ULONG_PTR v6; // rdi
+  int v7; // edi
+  _QWORD v9[14]; // [rsp+28h] [rbp-29h] BYREF
 
-  memset(&v10[2], 0, 0x60uLL);
-  v4 = *(_QWORD *)(a1 + 8);
-  v5 = *(_QWORD *)(a1 + 16);
-  v6 = *(_DWORD *)(a1 + 96);
-  LOWORD(v10[2]) = 2;
-  v10[0] = v4 & 0xFFFFFFFFFFFFF000uLL;
-  v10[1] = v5 - (v4 & 0xFFFFFFFFFFFFF000uLL);
-  v10[4] = 1LL;
-  v10[3] = v10;
-  v7 = 0LL;
-  memset(&v10[5], 0, 20);
-  if ( v6 )
+  memset(&v9[2], 0, 0x60uLL);
+  v2 = *(_QWORD *)a1;
+  v3 = *(_QWORD *)(a1 + 8);
+  v4 = *(_DWORD *)(a1 + 88);
+  v5 = *(_QWORD *)a1 & 0xFFFFFFFFFFFFF000uLL;
+  LOWORD(v9[2]) = 2;
+  v9[0] = v5;
+  v9[1] = v3 - v5;
+  v9[4] = 1LL;
+  v9[3] = v9;
+  v6 = 0LL;
+  memset(&v9[5], 0, 20);
+  if ( v4 )
   {
-    v7 = 2LL;
-    if ( v6 == 3 )
+    v6 = 2LL;
+    if ( v4 == 3 )
     {
-      v7 = 0LL;
+      v6 = 0LL;
     }
-    else if ( (*(_BYTE *)(a1 + 72) & 0xF) == 6
-           && (unsigned int)MiGetSystemRegionType(v4, v4 & 0xFFFFFFFFFFFFF000uLL, v2, v3) == 12 )
+    else if ( (*(_BYTE *)(a1 + 64) & 0xF) == 6 && (unsigned int)MiGetSystemRegionType(v2) == 12 )
     {
-      v7 = 0LL;
+      v6 = 0LL;
     }
   }
   MiUnlockProbePacketWorkingSet(a1);
-  v8 = MmAccessFault(v7, v4);
-  if ( v8 < 0 && (*(_DWORD *)(a1 + 72) & 0xF) == 1 && *(_QWORD *)(*(_QWORD *)(a1 + 88) + 2240LL) )
-    v8 = MiDeliverPicoExceptionForProbedPage(v4, v6);
+  v7 = MmAccessFault(v6, v2, 0, (ULONG_PTR)&v9[2] + 1);
+  if ( v7 < 0 && (*(_DWORD *)(a1 + 64) & 0xF) == 1 && *(_QWORD *)(*(_QWORD *)(a1 + 80) + 2240LL) )
+    v7 = MiDeliverPicoExceptionForProbedPage(v2, v4);
   MiLockProbePacketWorkingSet(a1);
-  return (unsigned int)v8;
+  return (unsigned int)v7;
 }

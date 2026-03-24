@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiPdoHandleOpmIoctls @ 0x1C03A25E8
+ * XREFs of DpiPdoHandleOpmIoctls @ 0x1C01728D8
  * Callers:
- *     DpiPdoDispatchInternalIoctl @ 0x1C01DCED0 (DpiPdoDispatchInternalIoctl.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C01665C0 (DpiPdoDispatchInternalIoctl.c)
  * Callees:
- *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0063D88 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
- *     DxgkAttemptOpmVmBusRedirect @ 0x1C02C2704 (DxgkAttemptOpmVmBusRedirect.c)
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CBE4 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     DxgkAttemptOpmVmBusRedirect @ 0x1C0172AE0 (DxgkAttemptOpmVmBusRedirect.c)
  */
 
 __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
@@ -13,12 +13,12 @@ __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
   _DWORD *v3; // rbx
   __int64 v4; // rcx
   unsigned __int64 *v5; // rdi
-  void **v6; // r12
+  _DWORD *v6; // r12
   char *v7; // r13
   unsigned int v8; // r14d
   unsigned int v9; // r15d
   __int64 v10; // rbp
-  unsigned int v11; // edx
+  __int64 v11; // rdx
   __int64 result; // rax
   unsigned __int64 *v13; // [rsp+38h] [rbp-30h]
   unsigned int v14; // [rsp+70h] [rbp+8h] BYREF
@@ -27,13 +27,13 @@ __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
   v3 = (_DWORD *)(a2 + 48);
   v4 = *(_QWORD *)(a2 + 184);
   v5 = (unsigned __int64 *)(a2 + 56);
-  v6 = *(void ***)(a2 + 112);
+  v6 = *(_DWORD **)(a2 + 112);
   v13 = (unsigned __int64 *)(a2 + 48);
   v7 = *(char **)(v4 + 32);
   v8 = *(_DWORD *)(v4 + 24);
   v9 = *(_DWORD *)(v4 + 16);
   v10 = *(_QWORD *)(*(_QWORD *)(v2 + 32) + 64LL);
-  v11 = *(_DWORD *)(v2 + 504);
+  v11 = *(unsigned int *)(v2 + 504);
   v14 = *(_DWORD *)(v4 + 8);
   if ( (unsigned int)DxgkAttemptOpmVmBusRedirect(*(_QWORD *)(v10 + 2672), v11, v8, v7, v9, v6, &v14, v13) )
   {

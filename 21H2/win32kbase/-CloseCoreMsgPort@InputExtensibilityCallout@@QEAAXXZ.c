@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CloseCoreMsgPort@InputExtensibilityCallout@@QEAAXXZ @ 0x1C009E864
+ * XREFs of ?CloseCoreMsgPort@InputExtensibilityCallout@@QEAAXXZ @ 0x1C0074A6C
  * Callers:
- *     xxxUserProcessCallout @ 0x1C00369B0 (xxxUserProcessCallout.c)
- *     ?UnInitialize@InputExtensibilityCallout@@SAXXZ @ 0x1C009E810 (-UnInitialize@InputExtensibilityCallout@@SAXXZ.c)
+ *     xxxUserProcessCallout @ 0x1C003BE30 (xxxUserProcessCallout.c)
+ *     ?UnInitialize@InputExtensibilityCallout@@SAXXZ @ 0x1C0074A00 (-UnInitialize@InputExtensibilityCallout@@SAXXZ.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
  */
 
 void __fastcall InputExtensibilityCallout::CloseCoreMsgPort(InputExtensibilityCallout *this)

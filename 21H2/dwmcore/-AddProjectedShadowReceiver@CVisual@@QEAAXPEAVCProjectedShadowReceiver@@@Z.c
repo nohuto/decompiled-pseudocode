@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x1801F6A58
+ * XREFs of ?AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x18000DAD4
  * Callers:
- *     ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x180235B10 (-SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z @ 0x18000CFEC (-SetReceivingVisual@CProjectedShadowReceiver@@QEAAXPEAVCVisual@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180194114 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
- *     ??$_Emplace_reallocate@AEBQEAVCProjectedShadowReceiver@@@?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@QEAAPEAPEAVCProjectedShadowReceiver@@QEAPEAV2@AEBQEAV2@@Z @ 0x1801F66E8 (--$_Emplace_reallocate@AEBQEAVCProjectedShadowReceiver@@@-$vector@PEAVCProjectedShadowReceiver@@.c)
- *     ?SetProjectedShadowReceivers@CVisual@@QEAAXPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@@Z @ 0x1801F8724 (-SetProjectedShadowReceivers@CVisual@@QEAAXPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocat.c)
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C27C (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ *     ?SetProjectedShadowReceivers@CVisual@@QEAAXPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@@Z @ 0x18000F3A8 (-SetProjectedShadowReceivers@CVisual@@QEAAXPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocat.c)
+ *     ??$_Emplace_reallocate@AEBQEAUObserver@CProcessAttributionManager@@@?$vector@PEAUObserver@CProcessAttributionManager@@V?$allocator@PEAUObserver@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUObserver@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x18001A318 (--$_Emplace_reallocate@AEBQEAUObserver@CProcessAttributionManager@@@-$vector@PEAUObserver@CProce.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVisual::AddProjectedShadowReceiver(CVisual *this, struct CProjectedShadowReceiver *a2)
@@ -16,12 +16,12 @@ void __fastcall CVisual::AddProjectedShadowReceiver(CVisual *this, struct CProje
   _QWORD *v4; // rax
   __int64 ProjectedShadowReceivers; // rdi
   char v6; // al
-  _BYTE *v7; // rdx
+  _QWORD *v7; // rdx
   bool v8; // bp
   struct CProjectedShadowReceiver *v9; // [rsp+38h] [rbp+10h] BYREF
 
   v9 = a2;
-  if ( (**((_DWORD **)this + 29) & 0x20000) == 0 )
+  if ( (**((_DWORD **)this + 28) & 0x20000) == 0 )
   {
     v4 = operator new(0x18uLL);
     if ( v4 )
@@ -33,21 +33,21 @@ void __fastcall CVisual::AddProjectedShadowReceiver(CVisual *this, struct CProje
     CVisual::SetProjectedShadowReceivers(this, v4);
   }
   ProjectedShadowReceivers = CVisual::GetProjectedShadowReceivers((__int64)this);
-  v6 = (*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)this + 256LL))(this);
-  v7 = *(_BYTE **)(ProjectedShadowReceivers + 8);
+  v6 = (*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)this + 280LL))(this);
+  v7 = *(_QWORD **)(ProjectedShadowReceivers + 8);
   v8 = v6 == 0;
-  if ( v7 == *(_BYTE **)(ProjectedShadowReceivers + 16) )
+  if ( *(_QWORD **)(ProjectedShadowReceivers + 16) == v7 )
   {
-    std::vector<CProjectedShadowReceiver *>::_Emplace_reallocate<CProjectedShadowReceiver * const &>(
-      (const void **)ProjectedShadowReceivers,
+    std::vector<CProcessAttributionManager::Observer *>::_Emplace_reallocate<CProcessAttributionManager::Observer * const &>(
+      ProjectedShadowReceivers,
       v7,
       &v9);
   }
   else
   {
-    *(_QWORD *)v7 = a2;
+    *v7 = a2;
     *(_QWORD *)(ProjectedShadowReceivers + 8) += 8LL;
   }
   if ( v8 )
-    CVisual::PropagateFlags((__int64)this, 5u);
+    CVisual::PropagateFlags(this, 5LL);
 }

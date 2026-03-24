@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipAllocateSingleInstanceWnode @ 0x1408B2708
+ * XREFs of WmipAllocateSingleInstanceWnode @ 0x1408B26E8
  * Callers:
- *     IoWMIExecuteMethod @ 0x1408B1EE0 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1408B2210 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1408B2320 (IoWMISetSingleItem.c)
+ *     IoWMIExecuteMethod @ 0x1408B1EC0 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x1408B21F0 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1408B2300 (IoWMISetSingleItem.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

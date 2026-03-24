@@ -1,36 +1,36 @@
 /*
- * XREFs of PowerRes @ 0x1C002B420
+ * XREFs of PowerRes @ 0x1C0023BB0
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     PushScope @ 0x1C0018570 (PushScope.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     PushScope @ 0x1C0022A38 (PushScope.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall PowerRes(__int64 a1, __int64 a2)
+__int64 __fastcall PowerRes(__int64 a1, __int64 *a2)
 {
   __int64 *v2; // rsi
   unsigned int NameSpaceObject; // ebx
-  _SLIST_ENTRY *v6; // rax
+  __int64 v6; // rax
   __int64 v7; // r8
   __int64 v8; // rdx
   __int64 v9; // r9
   char v10; // cl
   __int64 v11; // rdx
 
-  v2 = (__int64 *)(a2 + 64);
+  v2 = a2 + 8;
   NameSpaceObject = CreateNameSpaceObject(
                       *(_QWORD *)(a1 + 320),
-                      *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
+                      *(unsigned __int8 **)(a2[10] + 32),
                       *(_QWORD *)(a1 + 80),
                       *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-                      (__int64 *)(a2 + 64),
+                      a2 + 8,
                       0);
   if ( !NameSpaceObject )
   {
@@ -47,7 +47,7 @@ __int64 __fastcall PowerRes(__int64 a1, __int64 a2)
       v9 = *(_QWORD *)(*v2 + 96);
       do
       {
-        v10 = *(_BYTE *)(*(_QWORD *)(a2 + 80) + v8 + 56);
+        v10 = *(_BYTE *)(a2[10] + v8 + 56);
         v8 += 40LL;
         *(_BYTE *)(v7 + v9) = v10;
         ++v7;
@@ -62,12 +62,12 @@ __int64 __fastcall PowerRes(__int64 a1, __int64 a2)
       return (unsigned int)PushScope(
                              a1,
                              *(_QWORD *)(a1 + 120),
-                             *(_SLIST_ENTRY **)(a2 + 40),
+                             a2[5],
                              0LL,
                              v11,
                              *(_QWORD *)(a1 + 88),
                              *(_QWORD *)(a1 + 320),
-                             *(_QWORD *)(a2 + 88));
+                             a2[11]);
     }
     else
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfAccumulateBrandedFrequency @ 0x140986988
+ * XREFs of PpmPerfAccumulateBrandedFrequency @ 0x1408E621C
  * Callers:
- *     PpmPerfGetBrandedFrequency @ 0x1409869C8 (PpmPerfGetBrandedFrequency.c)
+ *     PpmPerfGetBrandedFrequency @ 0x1408E625C (PpmPerfGetBrandedFrequency.c)
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfAccumulateBrandedFrequency(unsigned int a1, _DWORD *a2)
@@ -13,9 +13,9 @@ __int64 __fastcall PpmPerfAccumulateBrandedFrequency(unsigned int a1, _DWORD *a2
   __int64 result; // rax
 
   Prcb = KeGetPrcb(a1);
-  v4 = *(_QWORD *)(Prcb + 33968);
+  v4 = *(_QWORD *)(Prcb + 33128);
   if ( v4 )
-    result = *(unsigned int *)(v4 + 440);
+    result = *(unsigned int *)(v4 + 316);
   else
     result = *(unsigned int *)(Prcb + 68);
   if ( a2[1] < (unsigned int)result )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProcessId@CHolographicInteropTexture@@UEAAIXZ @ 0x1800FC7F0
+ * XREFs of ?GetProcessId@CHolographicInteropTexture@@UEAAIXZ @ 0x1800E38A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CHolographicInteropTexture::GetProcessId(CHolographicInteropTexture *this)
 {
-  return *((unsigned int *)this + 37);
+  return *((unsigned int *)this + 35);
 }

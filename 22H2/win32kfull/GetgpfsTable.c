@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgpfsTable @ 0x1C00BE9F0
+ * XREFs of GetgpfsTable @ 0x1C01374C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgpfsTable(__int64 a1)
+void **GetgpfsTable()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 19472LL;
+  return &gpfsTable;
 }

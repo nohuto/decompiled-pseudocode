@@ -1,11 +1,11 @@
 /*
- * XREFs of BiFreeIdentifierList @ 0x140A1FF3C
+ * XREFs of BiFreeIdentifierList @ 0x140971FD0
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x140A1E7F0 (BiBindEfiNamespaceObjects.c)
- *     BiBuildIdentifierList @ 0x140A1E890 (BiBuildIdentifierList.c)
- *     BiExportStoreAlterationsToEfi @ 0x140A1FE8C (BiExportStoreAlterationsToEfi.c)
+ *     BiBindEfiNamespaceObjects @ 0x140970888 (BiBindEfiNamespaceObjects.c)
+ *     BiBuildIdentifierList @ 0x140970928 (BiBuildIdentifierList.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140971F30 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall BiFreeIdentifierList(_QWORD **a1)

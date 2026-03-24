@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBootDeviceWait @ 0x1401823CC
+ * XREFs of PnpBootDeviceWait @ 0x1401823EC
  * Callers:
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     HeadlessKernelAddLogEntry @ 0x1400F5248 (HeadlessKernelAddLogEntry.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     HeadlessKernelAddLogEntry @ 0x1400F5268 (HeadlessKernelAddLogEntry.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
  */
 
 __int64 __fastcall PnpBootDeviceWait(

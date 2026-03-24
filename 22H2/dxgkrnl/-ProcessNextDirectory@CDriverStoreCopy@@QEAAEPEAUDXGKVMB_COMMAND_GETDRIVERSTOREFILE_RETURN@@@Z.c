@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessNextDirectory@CDriverStoreCopy@@QEAAEPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C030C968
+ * XREFs of ?ProcessNextDirectory@CDriverStoreCopy@@QEAAEPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0263CE4
  * Callers:
- *     ?VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037F390 (-VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02423C0 (-VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00408CC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C030C05C (-EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000C2B4 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C02633BC (-EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
  */
 
 unsigned __int8 __fastcall CDriverStoreCopy::ProcessNextDirectory(
@@ -13,9 +13,8 @@ unsigned __int8 __fastcall CDriverStoreCopy::ProcessNextDirectory(
 {
   void *v4; // rcx
   CDriverStoreCopy **v5; // rax
-  CDriverStoreCopy **v6; // r11
+  CDriverStoreCopy **v6; // rbx
   CDriverStoreCopy *v7; // rcx
-  __int64 v9; // r11
 
   v4 = (void *)*((_QWORD *)this + 2);
   if ( v4 != (void *)-1LL )
@@ -32,7 +31,7 @@ unsigned __int8 __fastcall CDriverStoreCopy::ProcessNextDirectory(
   if ( v6 == v5 )
     return 0;
   *((_DWORD *)a2 + 4) = RtlStringCbCopyW((unsigned __int16 *)a2 + 30, 0x208uLL, (size_t *)v6 - 65);
-  ExFreePoolWithTag((PVOID)(v9 - 520), 0);
+  ExFreePoolWithTag(v6 - 65, 0);
   if ( *((int *)a2 + 4) >= 0 )
     CDriverStoreCopy::EnumDirectory(this, a2);
   return 1;

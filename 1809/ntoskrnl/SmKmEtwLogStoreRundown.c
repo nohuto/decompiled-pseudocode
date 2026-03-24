@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmEtwLogStoreRundown @ 0x140750258
+ * XREFs of SmKmEtwLogStoreRundown @ 0x140750238
  * Callers:
- *     SmEtwEnableCallback @ 0x140750200 (SmEtwEnableCallback.c)
+ *     SmEtwEnableCallback @ 0x1407501E0 (SmEtwEnableCallback.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReferenceEx @ 0x1400E11CC (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1208 (SmKmStoreRefFromStoreIndex.c)
- *     SmKmEtwLogStoreChange @ 0x1408AC734 (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x1408AC868 (SmKmEtwLogStoreStats.c)
+ *     SmKmStoreReferenceEx @ 0x1400E11EC (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmEtwLogStoreChange @ 0x1408AC714 (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x1408AC848 (SmKmEtwLogStoreStats.c)
  */
 
 void __fastcall SmKmEtwLogStoreRundown(__int64 a1, __int64 a2)

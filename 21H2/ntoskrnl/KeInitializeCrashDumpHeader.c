@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeCrashDumpHeader @ 0x140555F30
+ * XREFs of KeInitializeCrashDumpHeader @ 0x140505690
  * Callers:
  *     <none>
  * Callees:
- *     IoFillDumpHeader @ 0x140551F78 (IoFillDumpHeader.c)
+ *     IoFillDumpHeader @ 0x140501AF8 (IoFillDumpHeader.c)
  */
 
 NTSTATUS __stdcall KeInitializeCrashDumpHeader(

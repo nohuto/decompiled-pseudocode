@@ -1,17 +1,17 @@
 /*
- * XREFs of SepDesktopAppxSubProcessToken @ 0x1400DA000
+ * XREFs of SepDesktopAppxSubProcessToken @ 0x1400DA020
  * Callers:
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     RtlQueryPackageClaims @ 0x1400A5570 (RtlQueryPackageClaims.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A74 (AuthzBasepSetSecurityAttributesToken.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     SepDesktopAppModifyTokenBreakaway @ 0x1402FEC78 (SepDesktopAppModifyTokenBreakaway.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x1402FED10 (SepVerifyDesktopAppPolicyOverrideCaller.c)
- *     SepVerifyDesktopAppxImage @ 0x1402FEF10 (SepVerifyDesktopAppxImage.c)
+ *     RtlQueryPackageClaims @ 0x1400A5590 (RtlQueryPackageClaims.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     SepDesktopAppModifyTokenBreakaway @ 0x1402FED78 (SepDesktopAppModifyTokenBreakaway.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x1402FEE10 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402FF010 (SepVerifyDesktopAppxImage.c)
  */
 
 __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3, _BYTE *a4, _BYTE *a5)

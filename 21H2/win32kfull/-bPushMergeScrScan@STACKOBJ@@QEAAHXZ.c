@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02B80C0
+ * XREFs of ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02B9DE0
  * Callers:
- *     ?bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z @ 0x1C02B7B54 (-bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z.c)
+ *     ?bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z @ 0x1C02B9858 (-bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?bExpand@STACKOBJ@@QEAAHK@Z @ 0x1C02B79D4 (-bExpand@STACKOBJ@@QEAAHK@Z.c)
- *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B7AA0 (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
- *     ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02B8600 (-vMergeSpans@@YAXPEAU_SPAN@@0000@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?bExpand@STACKOBJ@@QEAAHK@Z @ 0x1C02B96F4 (-bExpand@STACKOBJ@@QEAAHK@Z.c)
+ *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B97AC (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
+ *     ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02BA31C (-vMergeSpans@@YAXPEAU_SPAN@@0000@Z.c)
  */
 
 __int64 __fastcall STACKOBJ::bPushMergeScrScan(STACKOBJ *this)
@@ -18,6 +18,7 @@ __int64 __fastcall STACKOBJ::bPushMergeScrScan(STACKOBJ *this)
   unsigned int v6; // edx
   unsigned int v7; // r14d
   _DWORD *v8; // rdx
+  __int64 v9; // r9
 
   v1 = *((_QWORD *)this + 2);
   v2 = 0;
@@ -33,10 +34,11 @@ __int64 __fastcall STACKOBJ::bPushMergeScrScan(STACKOBJ *this)
     if ( *((_DWORD *)this + 1) )
     {
       v8 = (_DWORD *)*((_QWORD *)this + 1);
+      v9 = (unsigned int)v8[2];
       if ( *v8 == **((_DWORD **)this + 2) )
       {
-        v7 = v5 - 24;
-        v5 += v8[2] - 24;
+        v5 = v9 + v5 - 24;
+        v7 -= 24;
         if ( v5 > *(_DWORD *)(*((_QWORD *)this + 3) + 8LL) && !(unsigned int)STACKOBJ::bExpandScanline(this, v5, 1) )
           return 0LL;
         **((_DWORD **)this + 3) = **((_DWORD **)this + 2);
@@ -55,7 +57,7 @@ __int64 __fastcall STACKOBJ::bPushMergeScrScan(STACKOBJ *this)
       else
       {
         v2 = *((_DWORD *)this + 1);
-        *((_QWORD *)this + 1) = (char *)v8 + (unsigned int)v8[2];
+        *((_QWORD *)this + 1) = (char *)v8 + v9;
       }
     }
     *((_DWORD *)this + 1) = v2 + v7;

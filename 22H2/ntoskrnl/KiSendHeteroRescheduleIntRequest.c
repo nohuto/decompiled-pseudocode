@@ -1,45 +1,39 @@
 /*
- * XREFs of KiSendHeteroRescheduleIntRequest @ 0x140461B06
+ * XREFs of KiSendHeteroRescheduleIntRequest @ 0x14051FE70
  * Callers:
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiIdleSchedule @ 0x1403072F0 (KiIdleSchedule.c)
- *     KiUnparkCurrentProcessor @ 0x14057E6E4 (KiUnparkCurrentProcessor.c)
+ *     KiIdleSchedule @ 0x140256430 (KiIdleSchedule.c)
+ *     KiSwapThread @ 0x1402C6D60 (KiSwapThread.c)
+ *     KeTransitionProcessorParkState @ 0x1405253EC (KeTransitionProcessorParkState.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255E20 (KeIsMultiCoreClassesEnabled.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x140461BE4 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FF30 (KiSendHeteroRescheduleIntRequestHelper.c)
  */
 
-__int64 __fastcall KiSendHeteroRescheduleIntRequest(_QWORD *a1, __int64 a2)
+__int64 __fastcall KiSendHeteroRescheduleIntRequest(_QWORD *a1)
 {
-  __int64 v2; // rdi
+  __int64 *v2; // rcx
   __int64 result; // rax
-  __int64 v5; // rsi
-  __int64 v6; // rcx
-  int v7; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  int v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = a1[24];
-  result = *(_QWORD *)(v2 + 24);
-  if ( (result & a1[4364]) != 0 )
+  v2 = (__int64 *)a1[24];
+  result = v2[1];
+  if ( (result & a1[4235]) != 0 )
   {
-    v8 = 0LL;
-    v7 = -1;
-    v5 = a1[25];
-    KeIsMultiCoreClassesEnabled((__int64)a1, a2);
-    v6 = *(_QWORD *)(*(_QWORD *)(v2 + 192) + 24LL * *(unsigned __int8 *)(v2 + 185) + 8);
-    result = *(_QWORD *)(v2 + 8);
-    if ( (v5 & result) != 0 && (v6 & v5) != 0 )
+    v7 = 0LL;
+    v6 = -1;
+    v4 = a1[25];
+    result = *v2;
+    v5 = v2[27];
+    if ( (v4 & *v2) != 0 && (v4 & v5) != 0 )
     {
-      result = KiSendHeteroRescheduleIntRequestHelper(
-                 ~*(_QWORD *)(v2 + 16) & (*(_QWORD *)(v2 + 80) | *(_QWORD *)(v2 + 96)) & (*(_QWORD *)(v2 + 128) ^ v6),
-                 &v8,
-                 &v7,
-                 a1);
+      result = KiSendHeteroRescheduleIntRequestHelper(v2[10] & ~v2[3] & (v5 ^ v2[17]), &v7, &v6, a1);
       if ( (_BYTE)result )
       {
-        result = KiSendHeteroRescheduleIntRequestHelper(1LL << v7, 0LL, 0LL, a1);
+        result = KiSendHeteroRescheduleIntRequestHelper(1LL << v6, 0LL, 0LL, a1);
         if ( !(_BYTE)result )
-          return KiSendHeteroRescheduleIntRequestHelper(v8 ^ (1LL << v7), 0LL, 0LL, a1);
+          return KiSendHeteroRescheduleIntRequestHelper(v7 ^ (1LL << v6), 0LL, 0LL, a1);
       }
     }
   }

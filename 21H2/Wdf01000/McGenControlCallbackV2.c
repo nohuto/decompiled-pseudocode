@@ -1,9 +1,9 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1C00602C0
+ * XREFs of McGenControlCallbackV2 @ 0x1C00422B0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall McGenControlCallbackV2(
@@ -15,14 +15,15 @@ void __fastcall McGenControlCallbackV2(
         _EVENT_FILTER_DESCRIPTOR *FilterData,
         unsigned __int16 *CallbackContext)
 {
-  unsigned int v7; // r9d
+  unsigned int v7; // r8d
   unsigned __int8 v8; // cl
-  __int64 v9; // r8
+  __int64 v9; // rdx
   bool v10; // r11
-  __int64 v11; // rax
-  unsigned __int64 v12; // rdx
-  int v13; // r8d
-  int v14; // eax
+  int v11; // edx
+  int *v12; // rcx
+  int v13; // eax
+  int v14; // edx
+  int v15; // eax
 
   if ( CallbackContext )
   {
@@ -30,10 +31,10 @@ void __fastcall McGenControlCallbackV2(
     {
       if ( ControlCode == 1 )
       {
-        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
+        *((_BYTE *)CallbackContext + 40) = Level;
         v7 = 0;
         *((_QWORD *)CallbackContext + 3) = MatchAllKeyword;
-        *((_BYTE *)CallbackContext + 40) = Level;
+        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
         for ( *((_DWORD *)CallbackContext + 9) = 1; v7 < CallbackContext[21]; ++v7 )
         {
           v8 = *((_BYTE *)CallbackContext + 40);
@@ -48,25 +49,26 @@ void __fastcall McGenControlCallbackV2(
               v10 = 1;
             }
           }
-          v11 = *((_QWORD *)CallbackContext + 6);
-          v12 = (unsigned __int64)v7 >> 5;
-          v13 = 1 << (v7 & 0x1F);
+          v11 = 1 << (v7 & 0x1F);
+          v12 = (int *)(*((_QWORD *)CallbackContext + 6) + 4 * ((unsigned __int64)v7 >> 5));
+          v13 = *v12;
           if ( v10 )
-            *(_DWORD *)(v11 + 4 * v12) |= v13;
+            v14 = v13 | v11;
           else
-            *(_DWORD *)(v11 + 4 * v12) &= ~v13;
+            v14 = v13 & ~v11;
+          *v12 = v14;
         }
       }
     }
     else
     {
-      v14 = CallbackContext[21];
+      v15 = CallbackContext[21];
       *((_DWORD *)CallbackContext + 9) = 0;
       *((_BYTE *)CallbackContext + 40) = 0;
       *((_QWORD *)CallbackContext + 2) = 0LL;
       *((_QWORD *)CallbackContext + 3) = 0LL;
-      if ( (_WORD)v14 )
-        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v14 - 1) / 32 + 1));
+      if ( (_WORD)v15 )
+        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v15 - 1) / 32 + 1));
     }
   }
 }

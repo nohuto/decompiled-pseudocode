@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchIsTDRFaultingDevice @ 0x1C00A7590
+ * XREFs of VidSchIsTDRFaultingDevice @ 0x1C008B9D0
  * Callers:
  *     <none>
  * Callees:

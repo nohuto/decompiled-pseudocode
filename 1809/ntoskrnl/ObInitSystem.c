@@ -7,28 +7,28 @@
  *     ObpReleaseLookupContext @ 0x140016078 (ObpReleaseLookupContext.c)
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ObpLockDirectoryExclusive @ 0x140109FB0 (ObpLockDirectoryExclusive.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14015F980 (ExInitializeNPagedLookasideListInternal.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ObpLockDirectoryExclusive @ 0x140109FD0 (ObpLockDirectoryExclusive.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14015F9A0 (ExInitializeNPagedLookasideListInternal.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExInitializeSystemLookasideList @ 0x140570370 (ExInitializeSystemLookasideList.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406542B0 (RtlSetSaclSecurityDescriptor.c)
- *     ExCreateHandleTable @ 0x140696420 (ExCreateHandleTable.c)
- *     ObpInsertDirectoryEntry @ 0x1406A504C (ObpInsertDirectoryEntry.c)
- *     NtCreateDirectoryObject @ 0x1406ADCE0 (NtCreateDirectoryObject.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
- *     ObpInitObjectTypeSD @ 0x140728FFC (ObpInitObjectTypeSD.c)
- *     ObpLookupDirectoryEntry @ 0x140729208 (ObpLookupDirectoryEntry.c)
- *     ObInitializeProcessor @ 0x1407292E4 (ObInitializeProcessor.c)
- *     ObpInitializeRootNamespace @ 0x14072BC8C (ObpInitializeRootNamespace.c)
- *     ObInitServerSilo @ 0x140759EC0 (ObInitServerSilo.c)
- *     RtlAddAuditAccessAce @ 0x140892934 (RtlAddAuditAccessAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140654290 (RtlSetSaclSecurityDescriptor.c)
+ *     ExCreateHandleTable @ 0x140696400 (ExCreateHandleTable.c)
+ *     ObpInsertDirectoryEntry @ 0x1406A502C (ObpInsertDirectoryEntry.c)
+ *     NtCreateDirectoryObject @ 0x1406ADCC0 (NtCreateDirectoryObject.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     ObpInitObjectTypeSD @ 0x140728FDC (ObpInitObjectTypeSD.c)
+ *     ObpLookupDirectoryEntry @ 0x1407291E8 (ObpLookupDirectoryEntry.c)
+ *     ObInitializeProcessor @ 0x1407292C4 (ObInitializeProcessor.c)
+ *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
+ *     ObInitServerSilo @ 0x140759EA0 (ObInitServerSilo.c)
+ *     RtlAddAuditAccessAce @ 0x140892914 (RtlAddAuditAccessAce.c)
  *     ObpInitInfoBlockOffsets @ 0x1409D397C (ObpInitInfoBlockOffsets.c)
  *     ObpInitStackTrace @ 0x1409DC46C (ObpInitStackTrace.c)
  */
@@ -117,10 +117,10 @@ char ObInitSystem()
     }
     while ( v3 );
     ObpDefaultObject = 0;
-    qword_140419EB0 = (__int64)&qword_140419EA8;
-    qword_140419EA8 = (__int64)&qword_140419EA8;
-    byte_140419EA2 = 6;
-    dword_140419EA4 = 1;
+    qword_140419E50 = (__int64)&qword_140419E48;
+    qword_140419E48 = (__int64)&qword_140419E48;
+    byte_140419E42 = 6;
+    dword_140419E44 = 1;
     ObpKernelHandleTable = ExCreateHandleTable(0LL, 1LL);
     KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[5] = ObpKernelHandleTable;
     if ( !ObpKernelHandleTable )

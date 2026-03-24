@@ -1,30 +1,31 @@
 /*
- * XREFs of ?CalculateMouseTable@@YAXXZ @ 0x1C00A3100
+ * XREFs of ?CalculateMouseTable@@YAXXZ @ 0x1C000D430
  * Callers:
- *     xxxUpdatePerUserAccessPackSettings @ 0x1C00A2650 (xxxUpdatePerUserAccessPackSettings.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C000F410 (xxxUpdatePerUserAccessPackSettings.c)
  * Callees:
  *     <none>
  */
 
 void CalculateMouseTable(void)
 {
-  signed int v0; // ebx
-  __int64 v1; // rdi
-  signed int v2; // r9d
-  ULONG v3; // r14d
-  int v4; // esi
-  int v5; // ebp
-  int v6; // r10d
-  int v7; // r8d
-  signed int v8; // eax
+  signed int v0; // r11d
+  __int64 v1; // rbx
+  signed int v2; // r8d
+  ULONG v3; // ebp
+  int v4; // edi
+  int v5; // esi
+  int v6; // r9d
+  int v7; // r10d
+  signed int v8; // ecx
   int v9; // edx
-  __int64 v10; // rax
+  bool v10; // zf
   __int64 v11; // rax
+  __int64 v12; // rax
 
-  v0 = 50 * dword_1C02905D8;
+  v0 = 50 * dword_1C024F950;
   v1 = 256LL;
   v2 = 0;
-  v3 = 50000 * dword_1C02905D8 / (20 * dword_1C02905DC);
+  v3 = 50000 * dword_1C024F950 / (20 * dword_1C024F954);
   v4 = 0;
   v5 = 0;
   v6 = 0;
@@ -38,22 +39,24 @@ void CalculateMouseTable(void)
     v4 += v2;
     v9 = (v4 - 1000 * v5 + 500) / 1000;
     v5 += v9;
+    v10 = v2 == v0;
     if ( v2 < v0 )
     {
       if ( v7 < 128 )
       {
-        v11 = v7++;
-        gMouseCursor[v11 + 1] = v9;
+        v12 = v7++;
+        gMouseCursor[v12 + 1] = v9;
       }
+      v10 = v2 == v0;
     }
-    else if ( v2 == v0 && v6 < 128 )
+    if ( v10 && v6 < 128 )
     {
-      v10 = v6++;
-      gMouseCursor[v10 + 130] = v9;
+      v11 = v6++;
+      gMouseCursor[v11 + 130] = v9;
     }
     --v1;
   }
   while ( v1 );
   gMouseCursor[0] = v7;
-  byte_1C0290511 = v6;
+  byte_1C024F881 = v6;
 }

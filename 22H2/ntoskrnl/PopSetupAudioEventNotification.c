@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupAudioEventNotification @ 0x140865EB4
+ * XREFs of PopSetupAudioEventNotification @ 0x1407D4FB4
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupAudioEventNotification()
@@ -12,7 +12,7 @@ __int64 PopSetupAudioEventNotification()
 
   return ExSubscribeWnfStateChange(
            (__int64)&v1,
-           (__int64)&WNF_SEB_AUDIO_ACTIVITY,
+           (__int64)WNF_SEB_AUDIO_ACTIVITY,
            1,
            0,
            (__int64)PopWnfAudioCallback,

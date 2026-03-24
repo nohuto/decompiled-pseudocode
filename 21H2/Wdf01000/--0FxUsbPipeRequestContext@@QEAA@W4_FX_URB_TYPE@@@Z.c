@@ -1,13 +1,13 @@
 /*
- * XREFs of ??0FxUsbPipeRequestContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C0079220
+ * XREFs of ??0FxUsbPipeRequestContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C006C620
  * Callers:
- *     imp_WdfUsbTargetPipeAbortSynchronously @ 0x1C0075D60 (imp_WdfUsbTargetPipeAbortSynchronously.c)
- *     imp_WdfUsbTargetPipeResetSynchronously @ 0x1C00768B0 (imp_WdfUsbTargetPipeResetSynchronously.c)
- *     ?FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C00797EC (-FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
- *     ?FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C0079B6C (-FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
- *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C007A6DC (-Reset@FxUsbPipe@@QEAAJXZ.c)
+ *     imp_WdfUsbTargetPipeAbortSynchronously @ 0x1C0068680 (imp_WdfUsbTargetPipeAbortSynchronously.c)
+ *     imp_WdfUsbTargetPipeResetSynchronously @ 0x1C0069230 (imp_WdfUsbTargetPipeResetSynchronously.c)
+ *     ?FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C006CCFC (-FormatAbortRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
+ *     ?FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C006D050 (-FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
+ *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C006DBE0 (-Reset@FxUsbPipe@@QEAAJXZ.c)
  * Callees:
- *     ??0FxUsbRequestContext@@QEAA@E@Z @ 0x1C003903A (--0FxUsbRequestContext@@QEAA@E@Z.c)
+ *     ??0FxUsbRequestContext@@QEAA@E@Z @ 0x1C006C6D4 (--0FxUsbRequestContext@@QEAA@E@Z.c)
  */
 
 void __fastcall FxUsbPipeRequestContext::FxUsbPipeRequestContext(FxUsbPipeRequestContext *this, _FX_URB_TYPE FxUrbType)

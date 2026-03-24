@@ -1,17 +1,17 @@
 /*
- * XREFs of SepVerifyDesktopAppxImage @ 0x1403761D8
+ * XREFs of SepVerifyDesktopAppxImage @ 0x1402013A4
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140203EE0 (SepDesktopAppxSubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1402504F4 (SepDesktopAppxSubProcessToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     SeGetTrustLabelAce @ 0x1402FBE30 (SeGetTrustLabelAce.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1403763A8 (SepVerifyDesktopAppxPackageName.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ObQuerySecurityObject @ 0x140673A24 (ObQuerySecurityObject.c)
- *     PsReferenceProcessFilePointer @ 0x140673AD0 (PsReferenceProcessFilePointer.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140201574 (SepVerifyDesktopAppxPackageName.c)
+ *     SeGetTrustLabelAce @ 0x14027E380 (SeGetTrustLabelAce.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     ObQuerySecurityObject @ 0x140604B34 (ObQuerySecurityObject.c)
+ *     PsReferenceProcessFilePointer @ 0x140604BE0 (PsReferenceProcessFilePointer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxImage(__int64 a1, __int64 a2, char a3, _BYTE *a4)
@@ -21,76 +21,82 @@ __int64 __fastcall SepVerifyDesktopAppxImage(__int64 a1, __int64 a2, char a3, _B
   __int64 TrustLabelAce; // r15
   NTSTATUS v10; // ebx
   int SecurityObject; // eax
-  _BYTE *Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   _BYTE v14[4]; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned int v15; // [rsp+34h] [rbp-CCh] BYREF
-  PVOID Object; // [rsp+38h] [rbp-C8h] BYREF
+  _DWORD NumberOfBytes[3]; // [rsp+34h] [rbp-CCh] BYREF
   _BYTE SecurityDescriptor[512]; // [rsp+40h] [rbp-C0h] BYREF
 
   *a4 = 0;
   v7 = 0LL;
   v8 = *(_DWORD *)(a1 + 2172);
   TrustLabelAce = 0LL;
-  Object = 0LL;
+  *(_QWORD *)&NumberOfBytes[1] = 0LL;
   v14[0] = 0;
   if ( (v8 & 1) != 0 )
     return 0;
-  v10 = PsReferenceProcessFilePointer(a1, &Object);
-  if ( v10 < 0 )
-    goto LABEL_17;
-  v15 = 512;
-  v7 = SecurityDescriptor;
-  v10 = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-  if ( v10 < 0 )
-    goto LABEL_17;
-  SecurityObject = ObQuerySecurityObject((_DWORD)Object, 132, (unsigned int)SecurityDescriptor, 512, (__int64)&v15);
-  if ( SecurityObject == -1073741789 )
+  v10 = PsReferenceProcessFilePointer(a1, &NumberOfBytes[1]);
+  if ( v10 >= 0 )
   {
-    Pool2 = (_BYTE *)ExAllocatePool2(256LL, v15, 538994003LL);
-    v7 = Pool2;
-    if ( !Pool2 )
+    NumberOfBytes[0] = 512;
+    v7 = SecurityDescriptor;
+    v10 = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+    if ( v10 >= 0 )
     {
-      v10 = -1073741801;
-      goto LABEL_17;
-    }
-    v10 = RtlCreateSecurityDescriptor(Pool2, 1u);
-    if ( v10 < 0 )
-      goto LABEL_17;
-    SecurityObject = ObQuerySecurityObject((_DWORD)Object, 132, (_DWORD)v7, v15, (__int64)&v15);
-  }
-  if ( SecurityObject < 0 )
-  {
-    v10 = 0;
-  }
-  else
-  {
-    if ( !v7 )
-    {
-      v10 = -1073739509;
-      goto LABEL_17;
-    }
-    v10 = SepVerifyDesktopAppxPackageName(a2, v7, v14);
-    if ( v10 >= 0 && a3 == 1 )
-      TrustLabelAce = SeGetTrustLabelAce((__int64)v7);
-    if ( v14[0] != 1 )
-      goto LABEL_17;
-    if ( a3 == 1 )
-    {
-      if ( !TrustLabelAce )
+      SecurityObject = ObQuerySecurityObject(
+                         NumberOfBytes[1],
+                         132,
+                         (unsigned int)SecurityDescriptor,
+                         512,
+                         (__int64)NumberOfBytes);
+      if ( SecurityObject == -1073741789 )
       {
-        v10 = -1073740702;
-        goto LABEL_17;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x20206553u);
+        v7 = PoolWithTag;
+        if ( !PoolWithTag )
+        {
+          v10 = -1073741801;
+          goto LABEL_23;
+        }
+        v10 = RtlCreateSecurityDescriptor(PoolWithTag, 1u);
+        if ( v10 < 0 )
+          goto LABEL_23;
+        SecurityObject = ObQuerySecurityObject(
+                           NumberOfBytes[1],
+                           132,
+                           (_DWORD)v7,
+                           NumberOfBytes[0],
+                           (__int64)NumberOfBytes);
       }
+      if ( SecurityObject < 0 )
+      {
+        v10 = 0;
+        goto LABEL_23;
+      }
+      if ( !v7 )
+      {
+        v10 = -1073739509;
+        goto LABEL_23;
+      }
+      v10 = SepVerifyDesktopAppxPackageName(a2, v7, v14);
+      if ( v10 >= 0 && a3 == 1 )
+        TrustLabelAce = SeGetTrustLabelAce(v7);
+      if ( v14[0] != 1 )
+        goto LABEL_23;
+      if ( a3 == 1 )
+      {
+        if ( TrustLabelAce )
+          goto LABEL_22;
+        v10 = -1073740702;
+      }
+      if ( a3 )
+        goto LABEL_23;
+LABEL_22:
+      *a4 = 1;
     }
-    else if ( a3 )
-    {
-      goto LABEL_17;
-    }
-    *a4 = 1;
   }
-LABEL_17:
-  if ( Object )
-    ObfDereferenceObjectWithTag(Object, 0x746C6644u);
+LABEL_23:
+  if ( *(_QWORD *)&NumberOfBytes[1] )
+    ObfDereferenceObjectWithTag(*(PVOID *)&NumberOfBytes[1], 0x746C6644u);
   if ( v7 && v7 != SecurityDescriptor )
     ExFreePoolWithTag(v7, 0);
   return (unsigned int)v10;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pxrlStrRead04OR@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C1850
+ * XREFs of ?pxrlStrRead04OR@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C2FC0
  * Callers:
  *     <none>
  * Callees:
@@ -58,7 +58,7 @@ struct _XRUNLEN *__fastcall pxrlStrRead04OR(
       v35 = (struct _XLATEOBJ *)((char *)a1 + 32);
       while ( 1 )
       {
-        v27 = a5->pulXlate[(unsigned __int64)(v15 & (unsigned int)dword_1C02EC958[v26]) >> LOBYTE(dword_1C02EC938[v26])];
+        v27 = a5->pulXlate[(unsigned __int64)(v15 & (unsigned int)dword_1C02EFF78[v26]) >> LOBYTE(dword_1C02EFF98[v26])];
         iUniq = v35->iUniq;
         v35 = (struct _XLATEOBJ *)((char *)v35 + 4);
         if ( (_DWORD)iUniq )
@@ -103,7 +103,7 @@ struct _XRUNLEN *__fastcall pxrlStrRead04OR(
       v18 = (unsigned int *)((char *)a1 + 32);
       while ( 1 )
       {
-        v19 = (v15 & (unsigned int)dword_1C02EC958[v17]) >> dword_1C02EC938[v17];
+        v19 = (v15 & (unsigned int)dword_1C02EFF78[v17]) >> dword_1C02EFF98[v17];
         v20 = *v18++;
         if ( (_DWORD)v20 )
         {

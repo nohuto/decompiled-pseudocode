@@ -1,72 +1,71 @@
 /*
- * XREFs of ?Clone@FxDeviceDescriptionEntry@@QEAAPEAU1@PEAU_LIST_ENTRY@@@Z @ 0x1C005B98C
+ * XREFs of ?Clone@FxDeviceDescriptionEntry@@QEAAPEAU1@PEAU_LIST_ENTRY@@@Z @ 0x1C003ABB0
  * Callers:
- *     ?CloneEntryLocked@FxChildList@@IEAAEPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntry@@E@Z @ 0x1C005BA9C (-CloneEntryLocked@FxChildList@@IEAAEPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntry@@E@Z.c)
+ *     ?CloneEntryLocked@FxChildList@@IEAAEPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntry@@E@Z @ 0x1C003AC7C (-CloneEntryLocked@FxChildList@@IEAAEPEAU_LIST_ENTRY@@PEAUFxDeviceDescriptionEntry@@E@Z.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ??0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z @ 0x1C0032E78 (--0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z.c)
- *     ?DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z @ 0x1C0033A4C (-DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z.c)
- *     ?DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C005BD10 (-DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
+ *     ??0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z @ 0x1C003A7D0 (--0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z.c)
+ *     ??2FxDeviceDescriptionEntry@@SAPEAX_KPEAU_FX_DRIVER_GLOBALS@@0@Z @ 0x1C003A850 (--2FxDeviceDescriptionEntry@@SAPEAX_KPEAU_FX_DRIVER_GLOBALS@@0@Z.c)
+ *     ?DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C003B1D0 (-DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
+ *     ?DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z @ 0x1C003B220 (-DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z.c)
  */
 
 FxDeviceDescriptionEntry *__fastcall FxDeviceDescriptionEntry::Clone(
         FxDeviceDescriptionEntry *this,
         _LIST_ENTRY *FreeListHead)
 {
-  FxChildList *m_DeviceList; // rax
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  unsigned __int64 m_TotalDescriptionSize; // r9
-  void *v7; // rax
-  FX_POOL **v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rbx
-  FxChildList *v11; // rcx
+  FX_POOL **v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rbx
+  int v8; // eax
+  FxChildList *m_DeviceList; // rcx
   _LIST_ENTRY *Blink; // rax
-  __m128i v14; // [rsp+30h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+48h] [rbp+0h]
 
-  m_DeviceList = this->m_DeviceList;
-  v14.m128i_i64[0] = 0LL;
-  v14.m128i_i64[1] = 64LL;
-  m_Globals = m_DeviceList->m_Globals;
-  m_TotalDescriptionSize = m_DeviceList->m_TotalDescriptionSize;
-  if ( m_Globals->FxPoolTrackingOn )
-    v7 = retaddr;
-  else
-    v7 = 0LL;
-  v8 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v14, m_TotalDescriptionSize, m_Globals->Tag, v7);
-  if ( !v8 )
-    return 0LL;
-  FxDeviceDescriptionEntry::FxDeviceDescriptionEntry(
-    (FxDeviceDescriptionEntry *)v8,
-    this->m_DeviceList,
-    this->m_DeviceList->m_IdentificationDescriptionSize,
-    this->m_DeviceList->m_AddressDescriptionSize);
-  v10 = v9;
-  if ( !v9 )
-    return 0LL;
-  if ( (int)FxChildList::DuplicateId(
-              this->m_DeviceList,
-              *(_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER **)(v9 + 24),
-              this->m_IdentificationDescription) < 0
-    || (v11 = this->m_DeviceList, v11->m_AddressDescriptionSize)
-    && FxChildList::DuplicateAddress(
-         v11,
-         *(_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER **)(v10 + 32),
-         this->m_AddressDescription) < 0 )
+  v4 = FxDeviceDescriptionEntry::operator new(
+         (unsigned __int64)this,
+         this->m_DeviceList->m_Globals,
+         this->m_DeviceList->m_TotalDescriptionSize);
+  if ( v4 )
   {
+    FxDeviceDescriptionEntry::FxDeviceDescriptionEntry(
+      (FxDeviceDescriptionEntry *)v4,
+      this->m_DeviceList,
+      this->m_DeviceList->m_IdentificationDescriptionSize,
+      this->m_DeviceList->m_AddressDescriptionSize);
+    v6 = v5;
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( !v6 )
+    return 0LL;
+  v8 = FxChildList::DuplicateId(
+         this->m_DeviceList,
+         *(_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER **)(v6 + 24),
+         this->m_IdentificationDescription);
+  if ( v8 < 0 )
+    goto LABEL_11;
+  m_DeviceList = this->m_DeviceList;
+  if ( m_DeviceList->m_AddressDescriptionSize )
+    v8 = FxChildList::DuplicateAddress(
+           m_DeviceList,
+           *(_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER **)(v6 + 32),
+           this->m_AddressDescription);
+  if ( v8 < 0 )
+  {
+LABEL_11:
     Blink = FreeListHead->Blink;
     if ( Blink->Flink != FreeListHead )
       __fastfail(3u);
-    *(_QWORD *)v10 = FreeListHead;
-    *(_QWORD *)(v10 + 8) = Blink;
-    Blink->Flink = (_LIST_ENTRY *)v10;
-    FreeListHead->Blink = (_LIST_ENTRY *)v10;
+    *(_QWORD *)v6 = FreeListHead;
+    *(_QWORD *)(v6 + 8) = Blink;
+    Blink->Flink = (_LIST_ENTRY *)v6;
+    FreeListHead->Blink = (_LIST_ENTRY *)v6;
     return 0LL;
   }
   else
   {
-    *(_BYTE *)(v10 + 80) = 1;
+    *(_BYTE *)(v6 + 80) = 1;
   }
-  return (FxDeviceDescriptionEntry *)v10;
+  return (FxDeviceDescriptionEntry *)v6;
 }

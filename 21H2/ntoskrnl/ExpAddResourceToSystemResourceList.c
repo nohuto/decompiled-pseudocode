@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAddResourceToSystemResourceList @ 0x1403A58AC
+ * XREFs of ExpAddResourceToSystemResourceList @ 0x140399C1C
  * Callers:
- *     ExInitializeFastResource @ 0x1403A5830 (ExInitializeFastResource.c)
+ *     ExInitializeFastResource @ 0x140399BA0 (ExInitializeFastResource.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpAddResourceToSystemResourceList(_QWORD *a1)
@@ -18,13 +18,13 @@ __int64 __fastcall ExpAddResourceToSystemResourceList(_QWORD *a1)
   bool v7; // zf
 
   v2 = ExAcquireSpinLockExclusive(&ExpResourceSpinLock);
-  v3 = (_QWORD *)qword_140C11758;
-  if ( *(__int64 **)qword_140C11758 != &ExpSystemResourcesList )
+  v3 = (_QWORD *)qword_140C16B08;
+  if ( *(__int64 **)qword_140C16B08 != &ExpSystemResourcesList )
     __fastfail(3u);
   *a1 = &ExpSystemResourcesList;
   a1[1] = v3;
   *v3 = a1;
-  qword_140C11758 = (__int64)a1;
+  qword_140C16B08 = (__int64)a1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&ExpResourceSpinLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

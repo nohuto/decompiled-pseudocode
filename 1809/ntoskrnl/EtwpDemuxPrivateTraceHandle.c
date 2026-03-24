@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpDemuxPrivateTraceHandle @ 0x1408BFD1C
+ * XREFs of EtwpDemuxPrivateTraceHandle @ 0x1408BFCFC
  * Callers:
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpNotifyGuid @ 0x1406588A8 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x140658888 (EtwpNotifyGuid.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     PidNodeCompare @ 0x1408C061C (PidNodeCompare.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PidNodeCompare @ 0x1408C05FC (PidNodeCompare.c)
  */
 
 __int64 __fastcall EtwpDemuxPrivateTraceHandle(int a1, unsigned __int16 a2, unsigned __int16 *a3)

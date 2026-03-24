@@ -1,9 +1,9 @@
 /*
- * XREFs of unsafe_cast_fnid_zero_to_PDIALOG @ 0x1C00DD334
+ * XREFs of unsafe_cast_fnid_zero_to_PDIALOG @ 0x1C00318FC
  * Callers:
- *     SetDialogPointer @ 0x1C00DD234 (SetDialogPointer.c)
+ *     SetDialogPointer @ 0x1C00317C0 (SetDialogPointer.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall unsafe_cast_fnid_zero_to_PDIALOG(__int64 a1)
@@ -15,9 +15,9 @@ __int64 __fastcall unsafe_cast_fnid_zero_to_PDIALOG(__int64 a1)
   if ( a1 )
   {
     v2 = *(_QWORD *)(a1 + 40);
-    if ( _bittest16((const signed __int16 *)(v2 + 42), 0xCu) )
+    if ( (*(_WORD *)(v2 + 42) & 0x1000) != 0 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1101LL);
       v2 = *(_QWORD *)(a1 + 40);
     }
     v3 = *(_WORD *)(v2 + 42);
@@ -28,7 +28,7 @@ __int64 __fastcall unsafe_cast_fnid_zero_to_PDIALOG(__int64 a1)
         return *(_QWORD *)(v2 + 296);
       if ( v4 == 676 )
       {
-        if ( *(_DWORD *)(v2 + 248) )
+        if ( *(_DWORD *)(v2 + 252) )
           return *(_QWORD *)(a1 + 280);
         return *(_QWORD *)(v2 + 296);
       }

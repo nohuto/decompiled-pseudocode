@@ -1,26 +1,26 @@
 /*
- * XREFs of ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C0007C70
+ * XREFs of ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C00CDAA0
  * Callers:
- *     ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0007458 (-BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@.c)
+ *     ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00CD260 (-BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?BltLnkAccel6666@@YAXPEAE0JJJJ@Z @ 0x1C02DA50C (-BltLnkAccel6666@@YAXPEAE0JJJJ@Z.c)
- *     ?BltLnkAccel8888@@YAXPEAE0JJJJ@Z @ 0x1C02DA5AC (-BltLnkAccel8888@@YAXPEAE0JJJJ@Z.c)
- *     ?BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z @ 0x1C02DA654 (-BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?BltLnkAccel6666@@YAXPEAE0JJJJ@Z @ 0x1C02DC07C (-BltLnkAccel6666@@YAXPEAE0JJJJ@Z.c)
+ *     ?BltLnkAccel8888@@YAXPEAE0JJJJ@Z @ 0x1C02DC11C (-BltLnkAccel8888@@YAXPEAE0JJJJ@Z.c)
+ *     ?BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z @ 0x1C02DC1C4 (-BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z.c)
  */
 
 void __fastcall BltLnkRect(struct _BLTLNKINFO *a1, struct _RECTL *a2)
 {
   int v4; // ecx
-  char *v5; // r15
+  char *v5; // r12
   const unsigned __int8 *v6; // rsi
-  LONG bottom; // r11d
+  LONG bottom; // r13d
   LONG top; // r10d
   int v9; // edi
   LONG left; // edx
   unsigned int v11; // r14d
-  __int64 v12; // r13
+  __int64 v12; // r11
   int v13; // r8d
   __int64 v14; // r9
   int v15; // r8d
@@ -33,26 +33,26 @@ void __fastcall BltLnkRect(struct _BLTLNKINFO *a1, struct _RECTL *a2)
   __int64 v22; // rax
   int v23; // r10d
   char v24; // dl
-  int v25; // r11d
-  __int64 v26; // r8
-  int v27; // r15d
-  unsigned int v28; // ecx
-  __int64 v29; // rax
+  int v25; // r13d
+  int v26; // r12d
+  unsigned int v27; // ecx
+  __int64 v28; // rax
   unsigned __int64 n; // rdx
+  __int64 v30; // r8
   int v33; // eax
   int v34; // ecx
   int v35; // eax
   int v36; // eax
-  void (__fastcall *v37)(unsigned __int8 *, unsigned int, const unsigned __int8 *, unsigned int, unsigned int, unsigned int, unsigned int); // rax
+  void (__fastcall *v37)(unsigned __int8 *, __int64, const unsigned __int8 *, int, unsigned int, unsigned int, unsigned int); // rax
   int v38; // ecx
-  unsigned int v39; // r11d
+  unsigned int v39; // r13d
   int v40; // edx
   unsigned int v41; // ecx
   int v42; // ecx
   int v43; // eax
   void (*v44)(struct BLTINFO *, struct _BLTLNK_MASKINFO *, unsigned int *, unsigned int *); // rax
   int v45; // r8d
-  void (__fastcall *v46)(struct BLTINFO *, unsigned int, unsigned int *, unsigned __int8); // r11
+  void (__fastcall *v46)(struct BLTINFO *, unsigned int, unsigned int *, unsigned __int8); // r13
   int v47; // ecx
   unsigned __int8 v48; // r8
   int v49; // eax
@@ -101,68 +101,67 @@ void __fastcall BltLnkRect(struct _BLTLNKINFO *a1, struct _RECTL *a2)
   __int64 i; // [rsp+78h] [rbp-610h]
   int v95; // [rsp+90h] [rbp-5F8h]
   unsigned int v96; // [rsp+90h] [rbp-5F8h]
-  XLATEOBJ *v97; // [rsp+90h] [rbp-5F8h]
+  void (*v97)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+90h] [rbp-5F8h]
   int v98; // [rsp+90h] [rbp-5F8h]
   int v99; // [rsp+90h] [rbp-5F8h]
   int v100; // [rsp+98h] [rbp-5F0h]
   void (__fastcall *v101)(struct BLTINFO *, struct _BLTLNK_MASKINFO *, unsigned int *, unsigned int *); // [rsp+A0h] [rbp-5E8h]
-  void (__fastcall *v102)(unsigned __int8 *, unsigned int, const unsigned __int8 *, unsigned int, unsigned int, unsigned int, unsigned int); // [rsp+A8h] [rbp-5E0h]
-  void (* near *v103)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+B0h] [rbp-5D8h]
-  void (* near *v104)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+B0h] [rbp-5D8h]
-  ULONG *pulXlate; // [rsp+B0h] [rbp-5D8h]
-  void (* near *v106)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+B0h] [rbp-5D8h]
-  void (* near *v107)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+B0h] [rbp-5D8h]
-  unsigned int v108; // [rsp+BCh] [rbp-5CCh]
-  __int128 v109; // [rsp+C0h] [rbp-5C8h] BYREF
-  __int128 v110; // [rsp+D0h] [rbp-5B8h]
-  __int64 v111; // [rsp+E0h] [rbp-5A8h]
-  struct _BLTLNKINFO *v112; // [rsp+E8h] [rbp-5A0h]
-  void (* near *v113)(struct BLTINFO *); // [rsp+F0h] [rbp-598h]
-  void (* near *v114)(struct BLTINFO *); // [rsp+F8h] [rbp-590h]
-  void (* near *v115)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+100h] [rbp-588h]
-  XLATEOBJ *v116; // [rsp+110h] [rbp-578h] BYREF
-  char *v117; // [rsp+118h] [rbp-570h]
-  __int64 v118; // [rsp+120h] [rbp-568h]
-  int v119; // [rsp+128h] [rbp-560h]
-  unsigned int v120; // [rsp+12Ch] [rbp-55Ch]
-  int v121; // [rsp+130h] [rbp-558h]
-  int v122; // [rsp+134h] [rbp-554h]
-  int v123; // [rsp+138h] [rbp-550h]
-  int v124; // [rsp+13Ch] [rbp-54Ch]
-  unsigned int v125; // [rsp+140h] [rbp-548h]
-  unsigned int v126; // [rsp+144h] [rbp-544h]
-  LONG v127; // [rsp+148h] [rbp-540h]
-  int v128; // [rsp+14Ch] [rbp-53Ch]
-  int v129; // [rsp+150h] [rbp-538h]
-  __int64 v130; // [rsp+1B0h] [rbp-4D8h] BYREF
-  char *v131; // [rsp+1B8h] [rbp-4D0h]
-  char *v132; // [rsp+1C0h] [rbp-4C8h]
-  int v133; // [rsp+1C8h] [rbp-4C0h]
-  unsigned int v134; // [rsp+1CCh] [rbp-4BCh]
-  int v135; // [rsp+1D0h] [rbp-4B8h]
-  int v136; // [rsp+1D4h] [rbp-4B4h]
-  int v137; // [rsp+1D8h] [rbp-4B0h]
-  int v138; // [rsp+1DCh] [rbp-4ACh]
-  int v139; // [rsp+1E0h] [rbp-4A8h]
-  int v140; // [rsp+1E4h] [rbp-4A4h]
-  unsigned int v141; // [rsp+1E8h] [rbp-4A0h]
-  int v142; // [rsp+1ECh] [rbp-49Ch]
-  int v143; // [rsp+1F0h] [rbp-498h]
-  _DWORD v144[64]; // [rsp+250h] [rbp-438h] BYREF
-  _DWORD v145[64]; // [rsp+350h] [rbp-338h] BYREF
-  _DWORD v146[64]; // [rsp+450h] [rbp-238h] BYREF
-  _DWORD v147[64]; // [rsp+550h] [rbp-138h] BYREF
+  void (* near *v102)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+A8h] [rbp-5E0h]
+  void (* near *v103)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+A8h] [rbp-5E0h]
+  void (* near *v104)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+A8h] [rbp-5E0h]
+  void (* near *v105)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+A8h] [rbp-5E0h]
+  void (__fastcall *v106)(unsigned __int8 *, __int64, const unsigned __int8 *, int, unsigned int, unsigned int, unsigned int); // [rsp+B0h] [rbp-5D8h]
+  unsigned int v107; // [rsp+BCh] [rbp-5CCh]
+  __int128 v108; // [rsp+C0h] [rbp-5C8h] BYREF
+  __int128 v109; // [rsp+D0h] [rbp-5B8h]
+  __int64 v110; // [rsp+E0h] [rbp-5A8h]
+  struct _BLTLNKINFO *v111; // [rsp+E8h] [rbp-5A0h]
+  void (* near *v112)(struct BLTINFO *); // [rsp+F0h] [rbp-598h]
+  void (* near *v113)(struct BLTINFO *); // [rsp+F8h] [rbp-590h]
+  void (* near *v114)(unsigned int *, unsigned int *, unsigned int *, unsigned int); // [rsp+100h] [rbp-588h]
+  XLATEOBJ *v115; // [rsp+110h] [rbp-578h] BYREF
+  char *v116; // [rsp+118h] [rbp-570h]
+  __int64 v117; // [rsp+120h] [rbp-568h]
+  int v118; // [rsp+128h] [rbp-560h]
+  unsigned int v119; // [rsp+12Ch] [rbp-55Ch]
+  int v120; // [rsp+130h] [rbp-558h]
+  int v121; // [rsp+134h] [rbp-554h]
+  int v122; // [rsp+138h] [rbp-550h]
+  int v123; // [rsp+13Ch] [rbp-54Ch]
+  unsigned int v124; // [rsp+140h] [rbp-548h]
+  unsigned int v125; // [rsp+144h] [rbp-544h]
+  LONG v126; // [rsp+148h] [rbp-540h]
+  int v127; // [rsp+14Ch] [rbp-53Ch]
+  int v128; // [rsp+150h] [rbp-538h]
+  __int64 v129; // [rsp+1B0h] [rbp-4D8h] BYREF
+  char *v130; // [rsp+1B8h] [rbp-4D0h]
+  char *v131; // [rsp+1C0h] [rbp-4C8h]
+  int v132; // [rsp+1C8h] [rbp-4C0h]
+  unsigned int v133; // [rsp+1CCh] [rbp-4BCh]
+  int v134; // [rsp+1D0h] [rbp-4B8h]
+  int v135; // [rsp+1D4h] [rbp-4B4h]
+  int v136; // [rsp+1D8h] [rbp-4B0h]
+  int v137; // [rsp+1DCh] [rbp-4ACh]
+  int v138; // [rsp+1E0h] [rbp-4A8h]
+  int v139; // [rsp+1E4h] [rbp-4A4h]
+  unsigned int v140; // [rsp+1E8h] [rbp-4A0h]
+  int v141; // [rsp+1ECh] [rbp-49Ch]
+  int v142; // [rsp+1F0h] [rbp-498h]
+  _DWORD v143[64]; // [rsp+250h] [rbp-438h] BYREF
+  _DWORD v144[64]; // [rsp+350h] [rbp-338h] BYREF
+  _DWORD v145[64]; // [rsp+450h] [rbp-238h] BYREF
+  _DWORD v146[64]; // [rsp+550h] [rbp-138h] BYREF
 
-  v112 = a1;
+  v111 = a1;
   v4 = 0;
   v82 = 0;
   v89 = 0;
   v85 = 0;
-  v143 = 0;
-  v129 = 0;
-  v114 = 0LL;
+  v142 = 0;
+  v128 = 0;
   v113 = 0LL;
-  v102 = 0LL;
+  v112 = 0LL;
+  v106 = 0LL;
   v101 = 0LL;
   v5 = 0LL;
   v6 = 0LL;
@@ -174,10 +173,10 @@ void __fastcall BltLnkRect(struct _BLTLNKINFO *a1, struct _RECTL *a2)
   v86 = 0;
   v83 = 0;
   v100 = 0;
-  v108 = 0;
+  v107 = 0;
+  v108 = 0LL;
   v109 = 0LL;
   v110 = 0LL;
-  v111 = 0LL;
   bottom = a2->bottom;
   top = a2->top;
   v9 = bottom - top;
@@ -225,7 +224,7 @@ LABEL_4:
       v83 = (3 * left) >> 2;
       v89 = -left & 3;
       v85 = 0;
-      v108 = v89;
+      v107 = v89;
       v100 = 3;
       v82 = (v89 + 2 * (v11 + 1) + v11 + 1) >> 2;
       break;
@@ -250,7 +249,7 @@ LABEL_4:
     {
       v87 = *((_DWORD *)a1 + 38);
       v84 = left - *((_DWORD *)a1 + 40);
-      v37 = BltLnkReadPat1;
+      v37 = (void (__fastcall *)(unsigned __int8 *, __int64, const unsigned __int8 *, int, unsigned int, unsigned int, unsigned int))BltLnkReadPat1;
       goto LABEL_69;
     }
     v54 = v53 - 1;
@@ -258,7 +257,7 @@ LABEL_4:
     {
       v87 = *((_DWORD *)a1 + 38);
       v84 = left - *((_DWORD *)a1 + 40);
-      v37 = BltLnkReadPat4;
+      v37 = (void (__fastcall *)(unsigned __int8 *, __int64, const unsigned __int8 *, int, unsigned int, unsigned int, unsigned int))BltLnkReadPat4;
       goto LABEL_69;
     }
     v55 = v54 - 1;
@@ -287,7 +286,7 @@ LABEL_67:
 LABEL_68:
   v37 = BltLnkReadPat;
 LABEL_69:
-  v102 = v37;
+  v106 = v37;
 LABEL_70:
   if ( v84 >= v87 )
     v84 %= v87;
@@ -314,7 +313,7 @@ LABEL_7:
   v18 = *((_QWORD *)a1 + 8);
   if ( v18 )
   {
-    v130 = *((_QWORD *)a1 + 6);
+    v129 = *((_QWORD *)a1 + 6);
     v19 = *((_DWORD *)a1 + 36) - *((_DWORD *)a1 + 1) + top;
     *((_DWORD *)a1 + 50) = v19;
     v20 = a2->left + *((_DWORD *)a1 + 35) - *(_DWORD *)a1;
@@ -354,12 +353,12 @@ LABEL_7:
   {
     v80 = v42 - ~v40 % v42 - 1;
   }
-  *((_QWORD *)&v109 + 1) = *((_QWORD *)a1 + 10);
-  *(_QWORD *)&v109 = *((_QWORD *)&v109 + 1) + v80 * *((_DWORD *)a1 + 30);
-  *((_QWORD *)&v110 + 1) = __PAIR64__(v39, v96);
-  *(_QWORD *)&v110 = __PAIR64__(v80, v42);
-  BYTE4(v111) = *((_BYTE *)a1 + 229);
-  LODWORD(v111) = *((_DWORD *)a1 + 34);
+  *((_QWORD *)&v108 + 1) = *((_QWORD *)a1 + 10);
+  *(_QWORD *)&v108 = *((_QWORD *)&v108 + 1) + v80 * *((_DWORD *)a1 + 30);
+  *((_QWORD *)&v109 + 1) = __PAIR64__(v39, v96);
+  *(_QWORD *)&v109 = __PAIR64__(v80, v42);
+  BYTE4(v110) = *((_BYTE *)a1 + 229);
+  LODWORD(v110) = *((_DWORD *)a1 + 34);
   v43 = *(_DWORD *)(v12 + 96);
   if ( v43 == 6 )
   {
@@ -410,20 +409,20 @@ LABEL_14:
     && *(_DWORD *)(*((_QWORD *)a1 + 3) + 96LL) == *(_DWORD *)(v12 + 96)
     && (*(_DWORD *)(*((_QWORD *)a1 + 6) + 4LL) & 1) != 0 )
   {
-    v118 = v17;
-    v117 = v5;
-    v119 = 1;
-    v122 = v15;
-    v120 = v11;
-    v121 = v9;
-    v123 = *((_DWORD *)a1 + 31);
-    v124 = *((_DWORD *)a1 + 32);
-    v125 = *((_DWORD *)a1 + 47);
-    v126 = v11 + v125;
-    v127 = a2->left;
-    v128 = 0;
-    v116 = xloIdent;
-    v101((struct BLTINFO *)&v116, (struct _BLTLNK_MASKINFO *)&v109, v144, v146);
+    v117 = v17;
+    v116 = v5;
+    v118 = 1;
+    v121 = v15;
+    v119 = v11;
+    v120 = v9;
+    v122 = *((_DWORD *)a1 + 31);
+    v123 = *((_DWORD *)a1 + 32);
+    v124 = *((_DWORD *)a1 + 47);
+    v125 = v11 + v124;
+    v126 = a2->left;
+    v127 = 0;
+    v115 = xloIdent;
+    v101((struct BLTINFO *)&v115, (struct _BLTLNK_MASKINFO *)&v108, v143, v145);
     return;
   }
   if ( v24 != -72 && v24 != -30 )
@@ -432,69 +431,69 @@ LABEL_14:
   {
 LABEL_23:
     v25 = *((_DWORD *)a1 + 53);
-    v26 = v108;
     if ( v25 )
     {
-      v132 = (char *)v144 + v108;
-      v131 = v5;
-      v133 = 1;
-      v27 = *((_DWORD *)a1 + 26);
-      v136 = v27;
-      v134 = v11;
-      v135 = 1;
+      v131 = (char *)v143 + v107;
+      v130 = v5;
+      v132 = 1;
+      v26 = *((_DWORD *)a1 + 26);
+      v135 = v26;
+      v133 = v11;
+      v134 = 1;
+      v136 = 1;
       v137 = 1;
-      v138 = 1;
-      v139 = *((_DWORD *)a1 + 47);
-      v140 = v11 + v139;
-      v141 = v85;
-      v142 = 1;
-      v130 = *((_QWORD *)a1 + 6);
-      v28 = 4 * ((8 * *(_DWORD *)(v12 + 96)) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 96LL));
-      v29 = v28 + 1;
-      if ( (*(_DWORD *)(v130 + 4) & 1) == 0 )
-        v29 = v28;
+      v138 = *((_DWORD *)a1 + 47);
+      v139 = v11 + v138;
+      v140 = v85;
+      v141 = 1;
+      v129 = *((_QWORD *)a1 + 6);
+      v27 = 4 * (*(_DWORD *)(*((_QWORD *)a1 + 3) + 96LL) | (8 * *(_DWORD *)(v12 + 96)));
+      v28 = v27 + 1;
+      if ( (*(_DWORD *)(v129 + 4) & 1) == 0 )
+        v28 = v27;
       n = 0x1C0000000uLL;
-      v114 = (&SrcCopyFunctionTable)[v29];
+      v113 = (&SrcCopyFunctionTable)[v28];
     }
     else
     {
-      v27 = *((_DWORD *)a1 + 26);
+      v26 = *((_DWORD *)a1 + 26);
       n = 0x1C0000000uLL;
     }
-    v118 = v17;
-    v117 = (char *)v146 + v108;
-    v119 = 1;
-    v122 = v27;
-    v120 = v11;
-    v121 = 1;
+    v117 = v17;
+    v116 = (char *)v145 + v107;
+    v118 = 1;
+    v121 = v26;
+    v119 = v11;
+    v120 = 1;
+    v122 = 1;
     v123 = 1;
-    v124 = 1;
-    v125 = v85;
-    v126 = v11 + v85;
-    v127 = a2->left;
-    v128 = 0;
-    v116 = xloIdent;
+    v124 = v85;
+    v125 = v11 + v85;
+    v126 = a2->left;
+    v127 = 0;
+    v115 = xloIdent;
+    v30 = v12;
     if ( !v23 )
-      v113 = (&SrcCopyFunctionTable)[4 * (*(_DWORD *)(v12 + 96) | (unsigned int)(8 * *(_DWORD *)(v12 + 96))) + 1];
+      v112 = (&SrcCopyFunctionTable)[4 * (*(_DWORD *)(v12 + 96) | (unsigned int)(8 * *(_DWORD *)(v12 + 96))) + 1];
     if ( *((_DWORD *)a1 + 55) )
     {
       if ( *((_DWORD *)a1 + 54) )
       {
         if ( v25 )
         {
-          v107 = (&RopFunctionTable)[*((_BYTE *)a1 + 228) & 0xF];
-          v115 = (&RopFunctionTable)[(unsigned __int64)*((unsigned __int8 *)a1 + 228) >> 4];
+          v105 = (&RopFunctionTable)[*((_BYTE *)a1 + 228) & 0xF];
+          v114 = (&RopFunctionTable)[(unsigned __int64)*((unsigned __int8 *)a1 + 228) >> 4];
           v99 = v9;
-          for ( i = v17; v99--; v118 = i )
+          for ( i = v17; v99--; v117 = i )
           {
-            ((void (__fastcall *)(__int64 *, unsigned __int64, __int64))v114)(&v130, n, v26);
-            v131 += *((int *)a1 + 31);
-            ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v107)(v147, i + 4LL * v83, v144, v82);
-            ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v115)(v145, i + 4LL * v83, v144, v82);
+            ((void (__fastcall *)(__int64 *, unsigned __int64, __int64))v113)(&v129, n, v30);
+            v130 += *((int *)a1 + 31);
+            ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v105)(v146, i + 4LL * v83, v143, v82);
+            ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v114)(v144, i + 4LL * v83, v143, v82);
             v72 = v80;
             if ( v6 )
             {
-              v102((unsigned __int8 *)v144 + v89, v85, v6, v87, v84, v11, v100);
+              v106((unsigned __int8 *)v143 + v89, v85, v6, v87, v84, v11, v100);
               if ( *((_DWORD *)a1 + 26) == 1 )
               {
                 v6 += *((int *)a1 + 33);
@@ -507,7 +506,7 @@ LABEL_23:
               }
               else
               {
-                v75 = *((int *)v112 + 29);
+                v75 = *((int *)v111 + 29);
                 if ( v81 )
                 {
                   --v81;
@@ -516,22 +515,22 @@ LABEL_23:
                 else
                 {
                   v81 = v88 - 1;
-                  v6 = (const unsigned __int8 *)(*((_QWORD *)a1 + 11) + (v88 - 1) * (int)v75);
+                  v6 = (const unsigned __int8 *)(*((_QWORD *)a1 + 11) + (int)v75 * (v88 - 1));
                 }
               }
               v76 = v82;
               v77 = 0LL;
               while ( v76 )
               {
-                j = *(_DWORD *)((char *)v144 + v77) & *(_DWORD *)((char *)v145 + v77) | (unsigned int)~*(_DWORD *)((char *)v144 + v77) & *(_DWORD *)((char *)v147 + v77);
-                *(_DWORD *)((char *)v146 + v77) = j;
+                j = *(_DWORD *)((char *)v143 + v77) & *(_DWORD *)((char *)v144 + v77) | (unsigned int)~*(_DWORD *)((char *)v143 + v77) & *(_DWORD *)((char *)v146 + v77);
+                *(_DWORD *)((char *)v145 + v77) = j;
                 v77 += 4LL;
                 --v76;
               }
             }
             else if ( *(_DWORD *)(*((_QWORD *)a1 + 2) + 96LL) == 5 )
             {
-              v78 = (char *)v144 + v108;
+              v78 = (char *)v143 + v107;
               for ( j = v11; (_DWORD)j; j = (unsigned int)(j - 1) )
               {
                 *(_WORD *)v78 = v86;
@@ -542,8 +541,8 @@ LABEL_23:
               v77 = 0LL;
               while ( v79 )
               {
-                j = *(_DWORD *)((char *)v144 + v77) & *(_DWORD *)((char *)v145 + v77) | (unsigned int)~*(_DWORD *)((char *)v144 + v77) & *(_DWORD *)((char *)v147 + v77);
-                *(_DWORD *)((char *)v146 + v77) = j;
+                j = *(_DWORD *)((char *)v143 + v77) & *(_DWORD *)((char *)v144 + v77) | (unsigned int)~*(_DWORD *)((char *)v143 + v77) & *(_DWORD *)((char *)v146 + v77);
+                *(_DWORD *)((char *)v145 + v77) = j;
                 v77 += 4LL;
                 --v79;
               }
@@ -554,41 +553,41 @@ LABEL_23:
               j = 0LL;
               while ( (_DWORD)v77 )
               {
-                *(_DWORD *)((char *)v146 + j) = v86 & *(_DWORD *)((char *)v145 + j) | ~v86 & *(_DWORD *)((char *)v147 + j);
+                *(_DWORD *)((char *)v145 + j) = v86 & *(_DWORD *)((char *)v144 + j) | ~v86 & *(_DWORD *)((char *)v146 + j);
                 j += 4LL;
                 v77 = (unsigned int)(v77 - 1);
               }
             }
             if ( *((_DWORD *)a1 + 56) )
             {
-              v101((struct BLTINFO *)&v116, (struct _BLTLNK_MASKINFO *)&v109, v144, 0LL);
+              v101((struct BLTINFO *)&v115, (struct _BLTLNK_MASKINFO *)&v108, v143, 0LL);
               if ( *((int *)a1 + 26) <= 0 )
               {
                 if ( v80 )
                 {
                   --v80;
-                  *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+                  *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
                 }
                 else
                 {
                   v80 = *((_DWORD *)a1 + 43) - 1;
-                  *(_QWORD *)&v109 = *((_QWORD *)a1 + 10) + v80 * *((_DWORD *)a1 + 30);
+                  *(_QWORD *)&v108 = *((_QWORD *)a1 + 10) + v80 * *((_DWORD *)a1 + 30);
                 }
               }
               else
               {
                 ++v80;
-                *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+                *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
                 if ( v72 + 1 >= *((_DWORD *)a1 + 43) )
                 {
                   v80 = 0;
-                  *(_QWORD *)&v109 = *((_QWORD *)a1 + 10);
+                  *(_QWORD *)&v108 = *((_QWORD *)a1 + 10);
                 }
               }
             }
             else
             {
-              ((void (__fastcall *)(XLATEOBJ **, __int64, __int64))v113)(&v116, j, v77);
+              ((void (__fastcall *)(XLATEOBJ **, __int64, __int64))v112)(&v115, j, v77);
             }
             i += *((int *)a1 + 32);
           }
@@ -599,7 +598,7 @@ LABEL_23:
           {
             if ( *(_DWORD *)(v12 + 96) == 5 )
             {
-              v65 = (char *)v145 + v108;
+              v65 = (char *)v144 + v107;
               for ( k = v11; k; --k )
               {
                 *(_WORD *)v65 = v86;
@@ -609,11 +608,11 @@ LABEL_23:
             }
             else
             {
-              for ( m = v82; m; v145[m] = v86 )
+              for ( m = v82; m; v144[m] = v86 )
                 --m;
             }
           }
-          v106 = (&RopFunctionTable)[*((_DWORD *)a1 + 51) & 0xF];
+          v104 = (&RopFunctionTable)[*((_DWORD *)a1 + 51) & 0xF];
           v98 = v9;
           v93 = v17;
           v67 = v80;
@@ -621,7 +620,7 @@ LABEL_23:
           {
             if ( *((_DWORD *)a1 + 55) && v6 )
             {
-              v102((unsigned __int8 *)v145 + v89, v85, v6, v87, v84, v11, v100);
+              v106((unsigned __int8 *)v144 + v89, v85, v6, v87, v84, v11, v100);
               if ( *((_DWORD *)a1 + 26) == 1 )
               {
                 v6 += *((int *)a1 + 33);
@@ -634,7 +633,7 @@ LABEL_23:
               }
               else
               {
-                v70 = *((int *)v112 + 29);
+                v70 = *((int *)v111 + 29);
                 if ( v81 )
                 {
                   --v81;
@@ -643,55 +642,55 @@ LABEL_23:
                 else
                 {
                   v81 = v88 - 1;
-                  v6 = (const unsigned __int8 *)(*((_QWORD *)a1 + 11) + (v88 - 1) * (int)v70);
+                  v6 = (const unsigned __int8 *)(*((_QWORD *)a1 + 11) + (int)v70 * (v88 - 1));
                 }
               }
             }
-            ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v106)(v146, v93 + 4LL * v83, v145, v82);
+            ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v104)(v145, v93 + 4LL * v83, v144, v82);
             if ( *((_DWORD *)a1 + 56) )
             {
-              v101((struct BLTINFO *)&v116, (struct _BLTLNK_MASKINFO *)&v109, v144, 0LL);
+              v101((struct BLTINFO *)&v115, (struct _BLTLNK_MASKINFO *)&v108, v143, 0LL);
               if ( *((int *)a1 + 26) <= 0 )
               {
                 if ( v67 )
                 {
                   --v67;
-                  *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+                  *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
                 }
                 else
                 {
                   v67 = *((_DWORD *)a1 + 43) - 1;
-                  *(_QWORD *)&v109 = *((_QWORD *)a1 + 10) + v67 * *((_DWORD *)a1 + 30);
+                  *(_QWORD *)&v108 = *((_QWORD *)a1 + 10) + v67 * *((_DWORD *)a1 + 30);
                 }
               }
               else
               {
                 ++v67;
-                *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+                *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
                 if ( v67 >= *((_DWORD *)a1 + 43) )
                 {
                   v67 = 0;
-                  *(_QWORD *)&v109 = *((_QWORD *)a1 + 10);
+                  *(_QWORD *)&v108 = *((_QWORD *)a1 + 10);
                 }
               }
             }
             else
             {
-              ((void (__fastcall *)(XLATEOBJ **))v113)(&v116);
+              ((void (__fastcall *)(XLATEOBJ **))v112)(&v115);
             }
             v93 += *((int *)a1 + 32);
-            v118 = v93;
+            v117 = v93;
           }
         }
       }
       else
       {
-        v104 = (&RopFunctionTable)[*((_DWORD *)a1 + 52) & 0xF];
+        v103 = (&RopFunctionTable)[*((_DWORD *)a1 + 52) & 0xF];
         if ( !v6 )
         {
           if ( *(_DWORD *)(v12 + 96) == 5 )
           {
-            v61 = (char *)v145 + v108;
+            v61 = (char *)v144 + v107;
             for ( n = v11; (_DWORD)n; n = (unsigned int)(n - 1) )
             {
               *(_WORD *)v61 = v86;
@@ -701,20 +700,20 @@ LABEL_23:
           }
           else
           {
-            for ( ii = v82; ii; v145[ii] = v86 )
+            for ( ii = v82; ii; v144[ii] = v86 )
               --ii;
           }
         }
-        for ( jj = v17; v9--; v118 = jj )
+        for ( jj = v17; v9--; v117 = jj )
         {
           if ( *((_DWORD *)a1 + 53) )
           {
-            ((void (__fastcall *)(__int64 *, unsigned __int64, __int64))v114)(&v130, n, v26);
-            v131 += *((int *)a1 + 31);
+            ((void (__fastcall *)(__int64 *, unsigned __int64, __int64))v113)(&v129, n, v30);
+            v130 += *((int *)a1 + 31);
           }
           if ( v6 )
           {
-            v102((unsigned __int8 *)v145 + v89, v85, v6, v87, v84, v11, v100);
+            v106((unsigned __int8 *)v144 + v89, v85, v6, v87, v84, v11, v100);
             if ( *((_DWORD *)a1 + 26) == 1 )
             {
               v6 += *((int *)a1 + 33);
@@ -727,7 +726,7 @@ LABEL_23:
             }
             else
             {
-              v62 = *((int *)v112 + 29);
+              v62 = *((int *)v111 + 29);
               if ( v81 )
               {
                 --v81;
@@ -736,42 +735,42 @@ LABEL_23:
               else
               {
                 v81 = v88 - 1;
-                v6 = (const unsigned __int8 *)(*((_QWORD *)a1 + 11) + (v88 - 1) * (int)v62);
+                v6 = (const unsigned __int8 *)(*((_QWORD *)a1 + 11) + (int)v62 * (v88 - 1));
               }
             }
           }
-          ((void (__fastcall *)(_DWORD *, _DWORD *, _DWORD *, _QWORD))v104)(v146, v145, v144, v82);
+          ((void (__fastcall *)(_DWORD *, _DWORD *, _DWORD *, _QWORD))v103)(v145, v144, v143, v82);
           if ( *((_DWORD *)a1 + 56) )
           {
-            v101((struct BLTINFO *)&v116, (struct _BLTLNK_MASKINFO *)&v109, v144, 0LL);
+            v101((struct BLTINFO *)&v115, (struct _BLTLNK_MASKINFO *)&v108, v143, 0LL);
             v63 = v80;
             if ( *((int *)a1 + 26) <= 0 )
             {
               if ( v80 )
               {
                 --v80;
-                *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+                *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
               }
               else
               {
                 v80 = *((_DWORD *)a1 + 43) - 1;
-                *(_QWORD *)&v109 = *((_QWORD *)a1 + 10) + v80 * *((_DWORD *)a1 + 30);
+                *(_QWORD *)&v108 = *((_QWORD *)a1 + 10) + v80 * *((_DWORD *)a1 + 30);
               }
             }
             else
             {
               ++v80;
-              *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+              *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
               if ( v63 + 1 >= *((_DWORD *)a1 + 43) )
               {
                 v80 = 0;
-                *(_QWORD *)&v109 = *((_QWORD *)a1 + 10);
+                *(_QWORD *)&v108 = *((_QWORD *)a1 + 10);
               }
             }
           }
           else
           {
-            ((void (__fastcall *)(XLATEOBJ **))v113)(&v116);
+            ((void (__fastcall *)(XLATEOBJ **))v112)(&v115);
           }
           jj += *((int *)a1 + 32);
         }
@@ -779,47 +778,47 @@ LABEL_23:
     }
     else
     {
-      v103 = (&RopFunctionTable)[*((_BYTE *)a1 + 228) & 0xF];
+      v102 = (&RopFunctionTable)[*((_BYTE *)a1 + 228) & 0xF];
       v95 = v9;
-      for ( kk = v17; v95--; v118 = kk )
+      for ( kk = v17; v95--; v117 = kk )
       {
         if ( *((_DWORD *)a1 + 53) )
         {
-          ((void (__fastcall *)(__int64 *, unsigned __int64, __int64))v114)(&v130, n, v26);
-          v131 += *((int *)a1 + 31);
+          ((void (__fastcall *)(__int64 *, unsigned __int64, __int64))v113)(&v129, n, v30);
+          v130 += *((int *)a1 + 31);
         }
-        ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v103)(v146, kk + 4LL * v83, v144, v82);
+        ((void (__fastcall *)(_DWORD *, __int64, _DWORD *, _QWORD))v102)(v145, kk + 4LL * v83, v143, v82);
         if ( *((_DWORD *)a1 + 56) )
         {
-          v101((struct BLTINFO *)&v116, (struct _BLTLNK_MASKINFO *)&v109, v147, 0LL);
+          v101((struct BLTINFO *)&v115, (struct _BLTLNK_MASKINFO *)&v108, v146, 0LL);
           v38 = v80;
           if ( *((int *)a1 + 26) <= 0 )
           {
             if ( v80 )
             {
               --v80;
-              *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+              *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
             }
             else
             {
               v80 = *((_DWORD *)a1 + 43) - 1;
-              *(_QWORD *)&v109 = *((_QWORD *)a1 + 10) + v80 * *((_DWORD *)a1 + 30);
+              *(_QWORD *)&v108 = *((_QWORD *)a1 + 10) + v80 * *((_DWORD *)a1 + 30);
             }
           }
           else
           {
             ++v80;
-            *(_QWORD *)&v109 = *((int *)a1 + 34) + (_QWORD)v109;
+            *(_QWORD *)&v108 = *((int *)a1 + 34) + (_QWORD)v108;
             if ( v38 + 1 >= *((_DWORD *)a1 + 43) )
             {
               v80 = 0;
-              *(_QWORD *)&v109 = *((_QWORD *)a1 + 10);
+              *(_QWORD *)&v108 = *((_QWORD *)a1 + 10);
             }
           }
         }
         else
         {
-          ((void (__fastcall *)(XLATEOBJ **))v113)(&v116);
+          ((void (__fastcall *)(XLATEOBJ **))v112)(&v115);
         }
         kk += *((int *)a1 + 32);
       }
@@ -878,9 +877,9 @@ LABEL_19:
   {
     v46 = BltLnkPatMaskCopy32;
     v48 = -1;
-LABEL_100:
+LABEL_101:
     v47 = 0xFFFFFF;
-    goto LABEL_101;
+    goto LABEL_102;
   }
   v57 = v45 - 3;
   if ( !v57 )
@@ -888,7 +887,7 @@ LABEL_100:
     v46 = BltLnkPatMaskCopy8;
     v48 = -1;
     v47 = 255;
-    goto LABEL_101;
+    goto LABEL_102;
   }
   v58 = v57 - 1;
   if ( !v58 )
@@ -896,34 +895,34 @@ LABEL_100:
     v46 = BltLnkPatMaskCopy16;
     v47 = 0xFFFF;
     v48 = -1;
-    goto LABEL_101;
+    goto LABEL_102;
   }
   v59 = v58 == 1;
   v48 = -1;
   if ( v59 )
   {
     v46 = BltLnkPatMaskCopy24;
-    goto LABEL_100;
+    goto LABEL_101;
   }
-LABEL_101:
-  v97 = (XLATEOBJ *)*((_QWORD *)a1 + 6);
-  pulXlate = v97->pulXlate;
-  if ( (v47 & pulXlate[1]) != v47 || (*pulXlate & v47) != 0 )
+LABEL_102:
+  v114 = (void (* near *)(unsigned int *, unsigned int *, unsigned int *, unsigned int))*((_QWORD *)a1 + 6);
+  v97 = v114[2];
+  if ( (v47 & *((_DWORD *)v97 + 1)) != v47 || (*(_DWORD *)v97 & v47) != 0 )
     goto LABEL_19;
   if ( v24 != -30 )
     v48 = 0;
-  v118 = v17;
-  v117 = v5;
-  v119 = 1;
-  v122 = *((_DWORD *)a1 + 26);
-  v120 = v11;
-  v121 = v9;
-  v123 = *((_DWORD *)a1 + 31);
-  v124 = *((_DWORD *)a1 + 32);
-  v125 = *((_DWORD *)a1 + 47);
-  v126 = v11 + v125;
-  v127 = a2->left;
-  v128 = 0;
-  v116 = v97;
-  v46((struct BLTINFO *)&v116, v92, v144, v48);
+  v117 = v17;
+  v116 = v5;
+  v118 = 1;
+  v121 = *((_DWORD *)a1 + 26);
+  v119 = v11;
+  v120 = v9;
+  v122 = *((_DWORD *)a1 + 31);
+  v123 = *((_DWORD *)a1 + 32);
+  v124 = *((_DWORD *)a1 + 47);
+  v125 = v11 + v124;
+  v126 = a2->left;
+  v127 = 0;
+  v115 = (XLATEOBJ *)v114;
+  v46((struct BLTINFO *)&v115, v92, v143, v48);
 }

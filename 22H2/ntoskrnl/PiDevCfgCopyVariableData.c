@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgCopyVariableData @ 0x14095DA5C
+ * XREFs of PiDevCfgCopyVariableData @ 0x1408A5D74
  * Callers:
- *     PiDevCfgResolveVariableExpression @ 0x140960200 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x140962510 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8160 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA490 (PiDevCfgResolveVariableSwitchCase.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyVariableData(__int64 a1, __int64 a2)
 {
   int v2; // esi
-  void *v4; // rdi
+  PVOID v4; // rdi
   __int64 v5; // rdx
   __int64 v7; // rcx
   unsigned int v8; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v11; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -46,11 +46,11 @@ LABEL_12:
     v8 = *(_DWORD *)(a2 + 36);
     if ( !v8 )
       goto LABEL_12;
-    Pool2 = (void *)ExAllocatePool2(256LL, v8, 1667526736LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x63647050u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, *(const void **)(a2 + 40), *(unsigned int *)(a2 + 36));
+      memmove(PoolWithTag, *(const void **)(a2 + 40), *(unsigned int *)(a2 + 36));
       goto LABEL_12;
     }
     return (unsigned int)-1073741670;

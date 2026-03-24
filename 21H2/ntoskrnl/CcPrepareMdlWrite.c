@@ -1,23 +1,24 @@
 /*
- * XREFs of CcPrepareMdlWrite @ 0x140253190
+ * XREFs of CcPrepareMdlWrite @ 0x1402CC660
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14092DCF0 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14088B2B0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     CcForceWriteThrough @ 0x140253510 (CcForceWriteThrough.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     CcSetDirtyInMask @ 0x14029D860 (CcSetDirtyInMask.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140328510 (CcMapAndRead.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     CcForceWriteThrough @ 0x1402CC9DC (CcForceWriteThrough.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1403213E0 (CcMapAndRead.c)
+ *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall CcPrepareMdlWrite(
@@ -41,7 +42,7 @@ void __stdcall CcPrepareMdlWrite(
   PMDL v17; // rcx
   struct _KEVENT *v18; // rcx
   struct _MDL *Next; // rax
-  __int64 v20; // rdx
+  __int64 Partition; // rax
   unsigned __int8 OldIrql; // bl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
@@ -57,15 +58,16 @@ void __stdcall CcPrepareMdlWrite(
   __int64 v33; // [rsp+58h] [rbp-A0h] BYREF
   LONGLONG v34; // [rsp+60h] [rbp-98h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-90h] BYREF
-  LONGLONG v36; // [rsp+80h] [rbp-78h]
-  PVOID VirtualAddress; // [rsp+88h] [rbp-70h]
-  PMDL i; // [rsp+90h] [rbp-68h]
-  struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-60h]
-  struct _KTHREAD *v40; // [rsp+A0h] [rbp-58h]
+  struct _FAST_MUTEX *v36; // [rsp+80h] [rbp-78h]
+  LONGLONG v37; // [rsp+88h] [rbp-70h]
+  PVOID VirtualAddress; // [rsp+90h] [rbp-68h]
+  PMDL i; // [rsp+98h] [rbp-60h]
+  struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp-58h]
   struct _KTHREAD *v41; // [rsp+A8h] [rbp-50h]
-  ULONG v42; // [rsp+110h] [rbp+18h]
+  struct _KTHREAD *v42; // [rsp+B0h] [rbp-48h]
+  ULONG v43; // [rsp+110h] [rbp+18h]
 
-  v42 = Length;
+  v43 = Length;
   v5 = Length;
   Mdl = 0LL;
   v31 = 0LL;
@@ -75,14 +77,15 @@ void __stdcall CcPrepareMdlWrite(
   v33 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   SharedCacheMap = (struct _FAST_MUTEX *)FileObject->SectionObjectPointer->SharedCacheMap;
+  v36 = SharedCacheMap;
   if ( (FileObject->Flags & 0x10) == 0 && (unsigned __int8)CcForceWriteThrough(FileObject, Length, SharedCacheMap, 0LL) )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(0xC000009A);
   QuadPart = FileOffset->QuadPart;
   v34 = QuadPart;
   while ( v5 )
   {
     v27 = 0;
-    v36 = 0LL;
+    v37 = 0LL;
     VirtualAddress = (PVOID)CcGetVirtualAddress(
                               (_DWORD)SharedCacheMap,
                               QuadPart,
@@ -95,7 +98,7 @@ void __stdcall CcPrepareMdlWrite(
       v10 = v5;
     v27 = v10;
     v11 = QuadPart + v10;
-    v36 = v11;
+    v37 = v11;
     v12 = 2;
     v28 = 2;
     if ( (QuadPart & 0xFFF) == 0 )
@@ -131,15 +134,15 @@ LABEL_16:
     CcMapAndRead(v10, v12, v14, VirtualAddress);
     Mdl = IoAllocateMdl(VirtualAddress, v10, 0, 0, 0LL);
     if ( !Mdl )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(0xC000009A);
     CurrentThread = KeGetCurrentThread();
+    v15 = BYTE5(CurrentThread[1].Queue) + 2;
     v29 = BYTE5(CurrentThread[1].Queue) + 2;
-    v15 = v29;
-    v40 = CurrentThread;
+    v41 = CurrentThread;
     BYTE5(CurrentThread[1].Queue) = 1;
-    MiProbeAndLockPages(Mdl, 0LL, 1LL);
-    v41 = KeGetCurrentThread();
-    BYTE5(v41[1].Queue) = v15 - 2;
+    MiProbeAndLockPages((__int64)Mdl, 0, 1u);
+    v42 = KeGetCurrentThread();
+    BYTE5(v42[1].Queue) = v15 - 2;
     v29 = 0;
     ExAcquireFastMutex(SharedCacheMap + 5);
     if ( v11 > *(_QWORD *)&SharedCacheMap->OldIrql )
@@ -175,13 +178,13 @@ LABEL_16:
     v34 = v11;
     v7 = v27 + v30;
     v30 += v27;
-    v5 = v42 - v27;
-    v42 -= v27;
+    v5 = v43 - v27;
+    v43 -= v27;
   }
-  v20 = *(_QWORD *)&SharedCacheMap[9].Event.Header.Lock;
+  Partition = CcGetPartition(SharedCacheMap);
   IoStatus->Status = 0;
   IoStatus->Information = v7;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v20 + 704), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
   ++*(&SharedCacheMap->Count + 1);
   ++LODWORD(SharedCacheMap[9].Event.Header.WaitListHead.Flink);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

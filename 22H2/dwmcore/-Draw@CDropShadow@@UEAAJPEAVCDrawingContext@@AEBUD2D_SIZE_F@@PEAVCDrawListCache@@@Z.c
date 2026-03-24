@@ -1,14 +1,12 @@
 /*
- * XREFs of ?Draw@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180229848
+ * XREFs of ?Draw@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180015D30
  * Callers:
- *     ?Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011DE60 (-Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F5DB0 (-Draw@CDropShadow@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800484D0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180079010 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800E3560 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?IsReadyToDraw@CDropShadow@@AEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x18022A6D0 (-IsReadyToDraw@CDropShadow@@AEBA_NPEAVCDrawingContext@@PEA_N@Z.c)
- *     ?UpdateShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18022AF5C (-UpdateShadowIntermediates@CDropShadow@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040940 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800415F0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Draw@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180093C2C (-Draw@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  */
 
 __int64 __fastcall CDropShadow::Draw(
@@ -17,65 +15,48 @@ __int64 __fastcall CDropShadow::Draw(
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  CDropShadow *v4; // r14
-  unsigned int v9; // ebx
-  int v10; // xmm0_4
-  int v11; // xmm1_4
-  int v12; // xmm1_4
-  int v13; // eax
-  __int64 v14; // rcx
-  int updated; // eax
-  __int64 v16; // rcx
-  int v17; // eax
-  __int64 v18; // rcx
-  _OWORD v20[3]; // [rsp+30h] [rbp-50h] BYREF
-  int v21; // [rsp+60h] [rbp-20h]
-  int v22; // [rsp+64h] [rbp-1Ch]
-  int v23; // [rsp+68h] [rbp-18h]
-  int v24; // [rsp+6Ch] [rbp-14h]
-  int v25; // [rsp+70h] [rbp-10h]
-  bool v26; // [rsp+B0h] [rbp+30h] BYREF
+  CBrush *v4; // rsi
+  int v8; // xmm0_4
+  int v9; // xmm1_4
+  int v10; // xmm1_4
+  int v11; // eax
+  unsigned int v12; // ecx
+  unsigned int v13; // ebx
+  int v14; // eax
+  unsigned int v15; // ecx
+  _OWORD v17[3]; // [rsp+30h] [rbp-58h] BYREF
+  int v18; // [rsp+60h] [rbp-28h]
+  int v19; // [rsp+64h] [rbp-24h]
+  int v20; // [rsp+68h] [rbp-20h]
+  int v21; // [rsp+6Ch] [rbp-1Ch]
+  int v22; // [rsp+70h] [rbp-18h]
 
-  v4 = (CDropShadow *)((char *)this - 296);
-  v26 = 0;
-  v9 = 0;
-  if ( CDropShadow::IsReadyToDraw((CDropShadow *)((char *)this - 296), a2, &v26) && !v26 )
+  v4 = (CDropShadow *)((char *)this - 192);
+  v22 = 0;
+  v17[0] = _xmm;
+  v17[2] = _xmm;
+  v8 = *((_DWORD *)this - 47);
+  v17[1] = _xmm;
+  v9 = *((_DWORD *)this - 48);
+  v19 = v8;
+  v18 = v9;
+  v10 = *((_DWORD *)this - 46);
+  v21 = (int)FLOAT_1_0;
+  v20 = v10;
+  LOWORD(v22) = 15700;
+  v11 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)v17, 1, 1);
+  v13 = v11;
+  if ( v11 < 0 )
   {
-    v25 = 0;
-    v20[0] = _xmm;
-    v20[2] = _xmm;
-    v10 = *((_DWORD *)this - 49);
-    v20[1] = _xmm;
-    v11 = *((_DWORD *)this - 50);
-    v22 = v10;
-    v21 = v11;
-    v12 = *((_DWORD *)this - 48);
-    v24 = (int)FLOAT_1_0;
-    v23 = v12;
-    LOWORD(v25) = 5972;
-    v13 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)v20, 1, 1);
-    v9 = v13;
-    if ( v13 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1EFu, 0LL);
-    }
-    else
-    {
-      updated = CDropShadow::UpdateShadowIntermediates(v4, a2, a3);
-      v9 = updated;
-      if ( updated < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, updated, 0x1F5u, 0LL);
-      }
-      else
-      {
-        v17 = CContent::Draw((CDropShadow *)((char *)this - 200), a2, a3, a4);
-        v9 = v17;
-        if ( v17 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x1F7u, 0LL);
-      }
-      CDrawingContext::PopTransformInternal(a2, 1);
-    }
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x18Eu, 0LL);
   }
-  return v9;
+  else
+  {
+    v14 = CBrush::Draw(v4, a2, a3, a4);
+    v13 = v14;
+    if ( v14 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x194u, 0LL);
+    CDrawingContext::PopTransformInternal(a2, 1);
+  }
+  return v13;
 }

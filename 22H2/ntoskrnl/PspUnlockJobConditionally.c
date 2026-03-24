@@ -1,16 +1,16 @@
 /*
- * XREFs of PspUnlockJobConditionally @ 0x1406A30A0
+ * XREFs of PspUnlockJobConditionally @ 0x1406193EC
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspSendProcessNotificationToJobChain @ 0x14069F410 (PspSendProcessNotificationToJobChain.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x1406A2AC0 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1407D861C (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
+ *     PspSendProcessNotificationToJobChain @ 0x140605088 (PspSendProcessNotificationToJobChain.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140617BCC (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PspUnlockJobConditionally(__int64 a1, _QWORD *a2)

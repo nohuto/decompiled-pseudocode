@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryInputQueueForInputType@CInputSink@@QEBAJW4CompositionInputType@@PEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00328DC
+ * XREFs of ?QueryInputQueueForInputType@CInputSink@@QEBAJW4CompositionInputType@@PEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C005DDEC
  * Callers:
- *     ?QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C0032880 (-QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITIO.c)
+ *     ?QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C005DCF8 (-QueryInputQueueForInputType@CompositionInputObject@@QEBAJW4CompositionInputType@@PEAUCOMPOSITIO.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CInputSink::QueryInputQueueForInputType(_QWORD *a1, int a2, __int64 a3)
@@ -17,31 +17,31 @@ __int64 __fastcall CInputSink::QueryInputQueueForInputType(_QWORD *a1, int a2, _
   v3 = a2 - 1;
   if ( !v3 )
   {
-    v6 = a1[5];
-    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 40LL))(v6, a3);
+    v6 = a1[6];
+    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 56LL))(v6, a3);
   }
   v4 = v3 - 1;
   if ( !v4 )
   {
-    v6 = a1[6];
-    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 40LL))(v6, a3);
+    v6 = a1[7];
+    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 56LL))(v6, a3);
   }
   v5 = v4 - 1;
   if ( !v5 )
   {
-    v6 = a1[7];
-    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 40LL))(v6, a3);
+    v6 = a1[8];
+    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 56LL))(v6, a3);
   }
   v8 = v5 - 1;
   if ( !v8 )
   {
-    v6 = a1[8];
-    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 40LL))(v6, a3);
+    v6 = a1[9];
+    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 56LL))(v6, a3);
   }
   if ( v8 == 1 )
   {
-    v6 = a1[9];
-    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 40LL))(v6, a3);
+    v6 = a1[10];
+    return (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 56LL))(v6, a3);
   }
   return 3221225485LL;
 }

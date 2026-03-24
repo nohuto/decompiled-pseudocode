@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FxCopyMultiSz@@YAPEAGPEAGPEAUFxCollectionInternal@@@Z @ 0x1C00211E8
+ * XREFs of ?FxCopyMultiSz@@YAPEAGPEAGPEAUFxCollectionInternal@@@Z @ 0x1C0061B84
  * Callers:
- *     ?Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0020F60 (-Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     imp_WdfRegistryAssignMultiString @ 0x1C00701E0 (imp_WdfRegistryAssignMultiString.c)
+ *     imp_WdfRegistryAssignMultiString @ 0x1C005D990 (imp_WdfRegistryAssignMultiString.c)
+ *     ?Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0079120 (-Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 wchar_t *__fastcall FxCopyMultiSz(wchar_t *Buffer, FxCollectionInternal *StringCollection)

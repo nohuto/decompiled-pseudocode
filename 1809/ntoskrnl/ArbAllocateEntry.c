@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbAllocateEntry @ 0x14074D3A0
+ * XREFs of ArbAllocateEntry @ 0x14074D380
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

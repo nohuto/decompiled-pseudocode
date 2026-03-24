@@ -1,17 +1,17 @@
 /*
- * XREFs of LoadDDB @ 0x1C00225B8
+ * XREFs of LoadDDB @ 0x1C002372C
  * Callers:
- *     LoadMemDDB @ 0x1C0022558 (LoadMemDDB.c)
- *     LoadFieldUnitDDB @ 0x1C00683E8 (LoadFieldUnitDDB.c)
- *     LoadTable @ 0x1C006A0B0 (LoadTable.c)
- *     AMLILoadDDB @ 0x1C00BD7A8 (AMLILoadDDB.c)
+ *     LoadMemDDB @ 0x1C0024D60 (LoadMemDDB.c)
+ *     LoadFieldUnitDDB @ 0x1C0066D9C (LoadFieldUnitDDB.c)
+ *     LoadTable @ 0x1C00695C0 (LoadTable.c)
+ *     AMLILoadDDB @ 0x1C00BE388 (AMLILoadDDB.c)
  * Callees:
- *     PushFrame @ 0x1C0018660 (PushFrame.c)
- *     RtlStringCchCopyNA @ 0x1C0020438 (RtlStringCchCopyNA.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
- *     FreeContext @ 0x1C00694F8 (FreeContext.c)
+ *     PushFrame @ 0x1C0022DD8 (PushFrame.c)
+ *     RtlStringCchCopyNA @ 0x1C00288C8 (RtlStringCchCopyNA.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     FreeContext @ 0x1C0068074 (FreeContext.c)
  */
 
 __int64 __fastcall LoadDDB(struct _SLIST_ENTRY *Entry, __int64 a2, __int64 a3, __int64 a4)
@@ -27,11 +27,11 @@ __int64 __fastcall LoadDDB(struct _SLIST_ENTRY *Entry, __int64 a2, __int64 a3, _
     LogError(3222536217LL);
     AcpiDiagTraceAmlError(Entry, 3222536217LL);
     *(_DWORD *)pszSrc = *(_DWORD *)a2;
-    RtlStringCchCopyNA(pszDest, 5uLL, pszSrc, 4uLL);
-    PrintDebugMessage(80, (unsigned int)pszDest, a2, 0, 0LL);
+    RtlStringCchCopyNA(byte_1C0082B90, 5uLL, pszSrc, 4uLL);
+    PrintDebugMessage(80, (unsigned int)byte_1C0082B90, a2, 0, 0LL);
     goto LABEL_8;
   }
-  v8 = PushFrame(Entry, 1179927628, 0x40u, (__int64)ParseLoad, (_SLIST_ENTRY **)pszSrc);
+  v8 = PushFrame(Entry, 1179927628, 0x40u, (__int64)ParseLoad, (__int64 *)pszSrc);
   if ( v8 )
   {
 LABEL_8:

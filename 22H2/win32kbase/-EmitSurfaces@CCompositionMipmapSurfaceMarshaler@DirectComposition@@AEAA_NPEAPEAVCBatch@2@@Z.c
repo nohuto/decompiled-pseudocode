@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitSurfaces@CCompositionMipmapSurfaceMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F5B0
+ * XREFs of ?EmitSurfaces@CCompositionMipmapSurfaceMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F6E90
  * Callers:
- *     ?EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F710 (-EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F6FF0 (-EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::EmitSurfaces(
@@ -50,8 +50,8 @@ LABEL_7:
     *(_DWORD *)v15 = 24 * v7 + 16;
     *(_QWORD *)(v8 + 4) = 0LL;
     *((_DWORD *)v8 + 3) = 0;
-    *((_DWORD *)v8 + 1) = 89;
-    *((_DWORD *)v8 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v8 + 1) = 88;
+    *((_DWORD *)v8 + 2) = *((_DWORD *)this + 6);
     for ( *((_DWORD *)v8 + 3) = v7; (unsigned int)v10 < v7; v9 = (unsigned int)(v9 + 1) )
     {
       if ( ((1 << v9) & *((_DWORD *)this + 22)) != 0 )
@@ -60,7 +60,7 @@ LABEL_7:
         *(_DWORD *)&v8[24 * v10 + 16] = v9;
         v12 = *(_QWORD *)(*((_QWORD *)this + 7) + 24 * v9);
         if ( v12 )
-          v13 = *(_DWORD *)(v12 + 32);
+          v13 = *(_DWORD *)(v12 + 24);
         else
           v13 = 0;
         *(_DWORD *)&v8[24 * v10 + 20] = v13;

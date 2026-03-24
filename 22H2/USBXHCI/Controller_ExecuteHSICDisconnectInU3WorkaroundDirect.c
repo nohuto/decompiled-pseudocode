@@ -1,12 +1,12 @@
 /*
- * XREFs of Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0078144
+ * XREFs of Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0074878
  * Callers:
- *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006E440 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006B2D8 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_LL @ 0x1C0037118 (WPP_RECORDER_SF_LL.c)
- *     XilRegister_ReadUshort @ 0x1C003F29C (XilRegister_ReadUshort.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C00355EC (WPP_RECORDER_SF_LL.c)
+ *     XilRegister_ReadUshort @ 0x1C003D04C (XilRegister_ReadUshort.c)
  */
 
 __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 a1, char a2)
@@ -43,7 +43,7 @@ __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return result;
-      v9 = 253;
+      v9 = 248;
       goto LABEL_12;
     }
     v10 = *(_QWORD *)(a1 + 280);
@@ -51,7 +51,7 @@ __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 
     result = (*(__int64 (__fastcall **)(__int64, _QWORD, char *, __int64, int))(a1 + 288))(v10, 0LL, &v11, 162LL, 1);
     if ( (_DWORD)result != 1 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v9 = 254;
+      v9 = 249;
 LABEL_12:
       LOBYTE(v8) = 2;
       return WPP_RECORDER_SF_LL(
@@ -59,7 +59,7 @@ LABEL_12:
                v8,
                4,
                v9,
-               (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                1,
                result);
     }

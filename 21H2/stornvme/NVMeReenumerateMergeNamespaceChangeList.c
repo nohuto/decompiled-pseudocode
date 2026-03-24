@@ -1,7 +1,7 @@
 /*
- * XREFs of NVMeReenumerateMergeNamespaceChangeList @ 0x1C000E998
+ * XREFs of NVMeReenumerateMergeNamespaceChangeList @ 0x1C00069E4
  * Callers:
- *     NVMeReenumerateReissueGetLogNamespaceChangeListCompletion @ 0x1C000F9E0 (NVMeReenumerateReissueGetLogNamespaceChangeListCompletion.c)
+ *     NVMeReenumerateReissueGetLogNamespaceChangeListCompletion @ 0x1C0007A10 (NVMeReenumerateReissueGetLogNamespaceChangeListCompletion.c)
  * Callees:
  *     <none>
  */
@@ -9,20 +9,19 @@
 __int64 __fastcall NVMeReenumerateMergeNamespaceChangeList(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rcx
-  unsigned int v4; // ebx
+  unsigned int v4; // r11d
   unsigned int v5; // r10d
   __int64 v6; // rcx
-  __int64 v7; // r9
-  unsigned int v8; // r11d
+  __int64 i; // r8
+  __int64 v8; // rcx
   __int64 v9; // rcx
   __int64 result; // rax
-  __int64 v11; // rcx
 
   if ( a2 && a1 && *a2 != -1 )
   {
     if ( *(_DWORD *)(a1 + 4092) )
     {
-LABEL_24:
+LABEL_23:
       *a2 = -1;
     }
     else
@@ -47,34 +46,27 @@ LABEL_10:
       }
       v5 = v6;
 LABEL_15:
-      v7 = 0LL;
-      if ( v4 )
+      for ( i = 0LL; (unsigned int)i < v4; i = (unsigned int)(i + 1) )
       {
-        v8 = v5;
-        do
+        v8 = 0LL;
+        if ( v5 )
         {
-          v9 = 0LL;
-          if ( v5 )
+          while ( *(_DWORD *)(a1 + 4 * i) != a2[v8] )
           {
-            while ( *(_DWORD *)(a1 + 4 * v7) != a2[v9] )
-            {
-              v9 = (unsigned int)(v9 + 1);
-              if ( (unsigned int)v9 >= v5 )
-                goto LABEL_20;
-            }
+            v8 = (unsigned int)(v8 + 1);
+            if ( (unsigned int)v8 >= v5 )
+              goto LABEL_19;
           }
-          else
-          {
-LABEL_20:
-            if ( v8 >= 0x400 )
-              goto LABEL_24;
-            result = *(unsigned int *)(a1 + 4 * v7);
-            v11 = v8++;
-            a2[v11] = result;
-          }
-          v7 = (unsigned int)(v7 + 1);
         }
-        while ( (unsigned int)v7 < v4 );
+        else
+        {
+LABEL_19:
+          v9 = (unsigned int)i + v5;
+          if ( (unsigned int)v9 >= 0x400 )
+            goto LABEL_23;
+          result = *(unsigned int *)(a1 + 4 * i);
+          a2[v9] = result;
+        }
       }
     }
   }

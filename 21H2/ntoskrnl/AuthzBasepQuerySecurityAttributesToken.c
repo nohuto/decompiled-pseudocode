@@ -1,16 +1,16 @@
 /*
- * XREFs of AuthzBasepQuerySecurityAttributesToken @ 0x1403005E0
+ * XREFs of AuthzBasepQuerySecurityAttributesToken @ 0x14024E800
  * Callers:
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140218B60 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     NtQueryInformationToken @ 0x1407B13E0 (NtQueryInformationToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
  * Callees:
- *     AuthzBasepCopyoutSecurityAttributes @ 0x140231BF8 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x140300720 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x14024D7D0 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14024E940 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
+NTSTATUS __fastcall AuthzBasepQuerySecurityAttributesToken(
         _DWORD *a1,
         __int64 a2,
         __int64 a3,
@@ -24,7 +24,7 @@ __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
   _QWORD *v12; // rax
   unsigned __int16 v13; // cx
   unsigned __int16 v14; // dx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v16; // r14d
   size_t v17; // r15
   unsigned __int64 v18; // [rsp+60h] [rbp+8h] BYREF
@@ -43,10 +43,10 @@ __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
       {
         v13 = *((_WORD *)v12 - 4);
         if ( !v13 )
-          return 3221225485LL;
+          return -1073741811;
         v14 = *((_WORD *)v12 - 3);
         if ( !v14 || v13 > v14 || !*v12 )
-          return 3221225485LL;
+          return -1073741811;
         ++v7;
         v12 += 2;
         if ( v7 >= (unsigned int)a3 )
@@ -57,7 +57,7 @@ __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
     {
 LABEL_9:
       result = AuthzBasepGetSecurityAttributesCopyoutBufferSize(a1, a2, a3, &v18);
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
         v16 = v18;
         if ( v18 )
@@ -65,7 +65,7 @@ LABEL_9:
           v17 = (unsigned int)Size;
           if ( (unsigned int)Size < v18 )
           {
-            result = 3221225507LL;
+            result = -1073741789;
             *v6 = v18;
           }
           else
@@ -77,7 +77,7 @@ LABEL_9:
         }
         else
         {
-          return 3221225485LL;
+          return -1073741811;
         }
       }
     }

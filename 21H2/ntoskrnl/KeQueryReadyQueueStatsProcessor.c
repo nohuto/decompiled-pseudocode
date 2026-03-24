@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryReadyQueueStatsProcessor @ 0x14056A438
+ * XREFs of KeQueryReadyQueueStatsProcessor @ 0x1405144D8
  * Callers:
- *     KiChooseTargetProcessor @ 0x1403419B0 (KiChooseTargetProcessor.c)
- *     KiCanSelectSoftParkedProcessor @ 0x14045B8E6 (KiCanSelectSoftParkedProcessor.c)
+ *     KiChooseTargetProcessor @ 0x140344DE0 (KiChooseTargetProcessor.c)
+ *     KiCanSelectSoftParkedProcessor @ 0x140525A94 (KiCanSelectSoftParkedProcessor.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryReadyQueueStatsProcessor(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4, _QWORD *a5)
@@ -31,11 +31,11 @@ __int64 __fastcall KeQueryReadyQueueStatsProcessor(__int64 a1, __int64 a2, __int
   int v26; // [rsp+58h] [rbp+10h] BYREF
 
   v7 = (_DWORD *)a2;
-  if ( *(_QWORD *)(a1 + 34880) )
+  if ( *(_QWORD *)(a1 + 33856) )
   {
     CurrentPrcb = KeGetCurrentPrcb();
     v25 = 0;
-    v10 = *(_QWORD *)(a1 + 34888);
+    v10 = *(_QWORD *)(a1 + 33864);
     while ( 1 )
     {
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -66,8 +66,8 @@ __int64 __fastcall KeQueryReadyQueueStatsProcessor(__int64 a1, __int64 a2, __int
         KeYieldProcessorEx(&v25, a2, (__int64)a3, (__int64)a4);
       while ( *(_QWORD *)v10 );
     }
-    *a4 = *(_DWORD *)(v10 + 672);
-    *a5 = *(_QWORD *)(v10 + 680);
+    *a4 = *(_DWORD *)(v10 + 608);
+    *a5 = *(_QWORD *)(v10 + 616);
     _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);
     v15 = KeGetCurrentPrcb();
     a2 = (__int64)v15->SchedulerAssist;
@@ -114,8 +114,8 @@ __int64 __fastcall KeQueryReadyQueueStatsProcessor(__int64 a1, __int64 a2, __int
       KeYieldProcessorEx(&v26, a2, (__int64)a3, (__int64)a4);
     while ( *(_QWORD *)(a1 + 48) );
   }
-  *v7 = *(_DWORD *)(a1 + 33140);
-  result = *(_QWORD *)(a1 + 33144);
+  *v7 = *(_DWORD *)(a1 + 32436);
+  result = *(_QWORD *)(a1 + 32440);
   *a3 = result;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 48), 0LL);
   v23 = KeGetCurrentPrcb();

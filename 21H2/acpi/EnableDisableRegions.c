@@ -1,25 +1,25 @@
 /*
- * XREFs of EnableDisableRegions @ 0x1C0094CC0
+ * XREFs of EnableDisableRegions @ 0x1C009D934
  * Callers:
- *     ACPIDetectFilterDevices @ 0x1C0006A34 (ACPIDetectFilterDevices.c)
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C000A564 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIFilterIrpRemoveDevice @ 0x1C002CDC0 (ACPIFilterIrpRemoveDevice.c)
- *     ACPIBusIrpRemoveDevice @ 0x1C004C350 (ACPIBusIrpRemoveDevice.c)
- *     ACPIBusIrpSurpriseRemoval @ 0x1C004C940 (ACPIBusIrpSurpriseRemoval.c)
- *     ACPIBusIrpStartDeviceWorker @ 0x1C008F350 (ACPIBusIrpStartDeviceWorker.c)
- *     EnableDisableRegions @ 0x1C0094CC0 (EnableDisableRegions.c)
- *     ACPIBusIrpStopDevice @ 0x1C00ACBF0 (ACPIBusIrpStopDevice.c)
- *     ACPIFilterIrpStopDevice @ 0x1C00AEBD0 (ACPIFilterIrpStopDevice.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIFilterIrpRemoveDevice @ 0x1C002CC90 (ACPIFilterIrpRemoveDevice.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C004DC10 (ACPIBusIrpSurpriseRemoval.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C00A2EE0 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
+ *     ACPIFilterIrpStopDevice @ 0x1C00AFB30 (ACPIFilterIrpStopDevice.c)
  * Callees:
- *     AMLIGetNSObjectType @ 0x1C0001738 (AMLIGetNSObjectType.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIIterateSiblingsNext @ 0x1C001BA54 (AMLIIterateSiblingsNext.c)
- *     AMLIGetFirstChild @ 0x1C002BFAC (AMLIGetFirstChild.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     EnableDisableRegions @ 0x1C0094CC0 (EnableDisableRegions.c)
- *     IsNsobjPciBus @ 0x1C0094D74 (IsNsobjPciBus.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetFirstChild @ 0x1C001665C (AMLIGetFirstChild.c)
+ *     AMLIIterateSiblingsNext @ 0x1C0017560 (AMLIIterateSiblingsNext.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  */
 
 __int64 __fastcall EnableDisableRegions(__int64 *a1, char a2, char a3)
@@ -42,8 +42,8 @@ __int64 __fastcall EnableDisableRegions(__int64 *a1, char a2, char a3)
     WORD1(v14[5]) = 1;
     v14[2] = 2LL;
     v14[7] = a2 != 0;
-    v6 = AMLIEvalNameSpaceObject(v7, 0LL, 2u, v14);
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v7);
+    v6 = AMLIEvalNameSpaceObject((unsigned __int64 *)v7, 0LL, 2, v14);
+    AMLIDereferenceHandleEx((__int64)v7);
   }
   if ( (unsigned __int8)IsNsobjPciBus(a1) || a3 )
   {

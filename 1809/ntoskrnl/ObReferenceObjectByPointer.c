@@ -8,12 +8,12 @@
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
  *     IopAllocateFoExtensionsOnCreate @ 0x1405F9484 (IopAllocateFoExtensionsOnCreate.c)
  *     WmipQuerySetExecuteSI @ 0x1405FBF88 (WmipQuerySetExecuteSI.c)
- *     EtwpStopTrace @ 0x140658FB0 (EtwpStopTrace.c)
- *     WmipRegisterDevice @ 0x14070B24C (WmipRegisterDevice.c)
- *     EtwpRegisterPrivateSession @ 0x1408C00B8 (EtwpRegisterPrivateSession.c)
+ *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
+ *     WmipRegisterDevice @ 0x14070B22C (WmipRegisterDevice.c)
+ *     EtwpRegisterPrivateSession @ 0x1408C0098 (EtwpRegisterPrivateSession.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointer(

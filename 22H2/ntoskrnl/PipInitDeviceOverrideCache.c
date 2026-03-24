@@ -1,17 +1,17 @@
 /*
- * XREFs of PipInitDeviceOverrideCache @ 0x140B3F9C8
+ * XREFs of PipInitDeviceOverrideCache @ 0x140A5CBAC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     RtlHashUnicodeString @ 0x1406D94E0 (RtlHashUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x1408135F0 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     RtlHashUnicodeString @ 0x1406AFA80 (RtlHashUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x1407ACA90 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PipInitDeviceOverrideCache()
@@ -21,7 +21,7 @@ __int64 PipInitDeviceOverrideCache()
   unsigned int v2; // ecx
   __int64 *v3; // rdx
   unsigned int v4; // eax
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v6; // rdx
   ULONG i; // esi
   NTSTATUS v8; // eax
@@ -61,7 +61,7 @@ LABEL_17:
     goto LABEL_18;
   }
   v2 = 0;
-  v3 = qword_140020070;
+  v3 = qword_140020370;
   while ( HIDWORD(KeyInformation_8[2]) >= 3 * *(_DWORD *)v3 )
   {
     ++v2;
@@ -77,18 +77,18 @@ LABEL_8:
     v4 = 257;
     PnpDeviceOverrideHashListSize = 257;
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 16LL * v4, 0x6E697050u);
-  PnpDeviceOverrideHashList = (__int64)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 16LL * v4, 0x6E697050u);
+  PnpDeviceOverrideHashList = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
     if ( PnpDeviceOverrideHashListSize )
     {
       v6 = (unsigned int)PnpDeviceOverrideHashListSize;
       do
       {
-        Pool2[1] = Pool2;
-        *Pool2 = Pool2;
-        Pool2 += 2;
+        PoolWithTag[1] = PoolWithTag;
+        *PoolWithTag = PoolWithTag;
+        PoolWithTag += 2;
         --v6;
       }
       while ( v6 );
@@ -102,7 +102,7 @@ LABEL_8:
         if ( v21 <= 0x200 )
         {
           SourceString[(unsigned __int64)v21 >> 1] = 0;
-          v10 = (UNICODE_STRING *)ExAllocatePool2(256LL, 0x20uLL, 0x6E697050u);
+          v10 = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x6E697050u);
           v11 = v10;
           if ( !v10 )
             goto LABEL_34;

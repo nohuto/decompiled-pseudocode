@@ -1,9 +1,7 @@
 /*
- * XREFs of _tlgCreate1Sz_char @ 0x1C004BBA0
+ * XREFs of _tlgCreate1Sz_char @ 0x1C0050C4C
  * Callers:
- *     Etw_DeviceUpdate @ 0x1C001D774 (Etw_DeviceUpdate.c)
- *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F858 (Etw_ReportControllerHealthWithPortInfo.c)
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00532E4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00505B8 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +21,7 @@ __int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
   }
   else
   {
-    a2 = &unk_1C005A0F6;
+    a2 = &unk_1C0059598;
     result = 1LL;
   }
   *(_DWORD *)(a1 + 12) = 0;

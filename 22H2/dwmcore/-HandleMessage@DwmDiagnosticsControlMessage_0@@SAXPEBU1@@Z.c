@@ -1,7 +1,7 @@
 /*
- * XREFs of ?HandleMessage@DwmDiagnosticsControlMessage_0@@SAXPEBU1@@Z @ 0x180273834
+ * XREFs of ?HandleMessage@DwmDiagnosticsControlMessage_0@@SAXPEBU1@@Z @ 0x180212324
  * Callers:
- *     DispatchDwmDiagnosticsControlMessage @ 0x180273774 (DispatchDwmDiagnosticsControlMessage.c)
+ *     DispatchDwmDiagnosticsControlMessage @ 0x180212244 (DispatchDwmDiagnosticsControlMessage.c)
  * Callees:
  *     <none>
  */

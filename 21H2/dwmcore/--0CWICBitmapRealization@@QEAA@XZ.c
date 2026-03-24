@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CWICBitmapRealization@@QEAA@XZ @ 0x1800665B0
+ * XREFs of ??0CWICBitmapRealization@@QEAA@XZ @ 0x18003D40C
  * Callers:
- *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x1800664C0 (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
+ *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x18003D328 (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
  * Callees:
- *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180068108 (--0CD2DBitmapCache@@IEAA@XZ.c)
+ *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180064274 (--0CD2DBitmapCache@@IEAA@XZ.c)
  */
 
 CWICBitmapRealization *__fastcall CWICBitmapRealization::CWICBitmapRealization(CWICBitmapRealization *this)
@@ -16,7 +16,7 @@ CWICBitmapRealization *__fastcall CWICBitmapRealization::CWICBitmapRealization(C
   *((_QWORD *)this + 17) = &CWICBitmapRealization::`vbtable'{for `IPixelFormat'};
   CD2DBitmapCache::CD2DBitmapCache(this);
   *((_QWORD *)v1 + 10) = &CWICBitmapRealization::`vftable'{for `IBitmapRealization'};
-  *(_QWORD *)v1 = &CWICBitmapRealization::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)v1 = &CWICBitmapRealization::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)v1 + 12) = &CWICBitmapRealization::`vftable'{for `IWICDecoderBitmapSource'};
   *(_QWORD *)((char *)v1 + *(int *)(*((_QWORD *)v1 + 2) + 4LL) + 16) = &CWICBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
   *(_QWORD *)((char *)v1 + *(int *)(*((_QWORD *)v1 + 2) + 8LL) + 16) = &CWICBitmapRealization::`vftable'{for `IUnknown'};

@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbDevice_OnResetDisableCompletion @ 0x1C0047020
+ * XREFs of UsbDevice_OnResetDisableCompletion @ 0x1C0046B60
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_DisableCompletion @ 0x1C00462A4 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
  */
 
 void __fastcall UsbDevice_OnResetDisableCompletion(__int64 a1, __int64 a2, __int64 a3, int a4)

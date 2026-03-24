@@ -1,28 +1,27 @@
 /*
- * XREFs of ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C019E0C4
+ * XREFs of ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C012F130
  * Callers:
- *     DpiGdoDispatchInternalIoctl @ 0x1C01AAA60 (DpiGdoDispatchInternalIoctl.c)
- *     DxgkGetAllMonitorDevicesFromSessionView @ 0x1C01AB024 (DxgkGetAllMonitorDevicesFromSessionView.c)
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01DAF30 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
- *     ?CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01DC9E0 (-CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
- *     DpiPdoDispatchInternalIoctl @ 0x1C01DCED0 (DpiPdoDispatchInternalIoctl.c)
- *     DxgkIsVirtualizationDisabledForTarget @ 0x1C01E8270 (DxgkIsVirtualizationDisabledForTarget.c)
- *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C01F7020 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
- *     ?_InitializeMonitorNoDriver@DXGMONITOR@@QEAAJ$$QEAV?$unique_ptr@VIMonitorDriverInterface@DxgMonitor@@U?$default_delete@VIMonitorDriverInterface@DxgMonitor@@@wistd@@@wistd@@IPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAUDXGKMON_USB4_HOSTROUTER_INFO@@@Z @ 0x1C0208314 (-_InitializeMonitorNoDriver@DXGMONITOR@@QEAAJ$$QEAV-$unique_ptr@VIMonitorDriverInterface@DxgMoni.c)
- *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C02FF050 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
- *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C03216D0 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
- *     ?_CreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C7578 (-_CreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@.c)
+ *     ?CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C00EA400 (-CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C012C790 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
+ *     DpiGdoDispatchInternalIoctl @ 0x1C012D8F0 (DpiGdoDispatchInternalIoctl.c)
+ *     DxgkGetAllMonitorDevicesFromSessionView @ 0x1C012DE8C (DxgkGetAllMonitorDevicesFromSessionView.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C014BAF4 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C01665C0 (DpiPdoDispatchInternalIoctl.c)
+ *     DxgkIsVirtualizationDisabledForTarget @ 0x1C0169720 (DxgkIsVirtualizationDisabledForTarget.c)
+ *     ?_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183AE8 (-_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEA.c)
+ *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C025C234 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02B0498 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?_CreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2184 (-_CreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C00072F0 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0009260 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
  */
 
 __int64 __fastcall DmmGetVideoOutputTechnology(
         _QWORD *a1,
-        unsigned int a2,
+        __int64 a2,
         enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *a3,
         enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *a4)
 {
@@ -31,40 +30,40 @@ __int64 __fastcall DmmGetVideoOutputTechnology(
   __int64 v9; // rbp
   __int64 v10; // rbx
   __int64 v11; // rax
-  unsigned int v12; // edi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  unsigned int v14; // edi
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = a2;
+  v4 = (unsigned int)a2;
   if ( a3 )
     *a3 = D3DKMDT_VOT_UNINITIALIZED;
   if ( a4 )
     *a4 = D3DKMDT_VOT_UNINITIALIZED;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v16 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v16 + 24) = 0LL;
+LABEL_19:
+    WdLogEvent5_WdError(v16);
     return 3223191554LL;
   }
-  v8 = a1[365];
+  v8 = a1[337];
   if ( !v8 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v16 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v16 + 24) = a1;
+    goto LABEL_19;
   }
-  v9 = *(_QWORD *)(v8 + 104);
+  v9 = *(_QWORD *)(v8 + 88);
   if ( v9 )
   {
-    DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v9 + 40));
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v9 + 120) + 72LL));
-    v10 = *(_QWORD *)(v9 + 120);
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v19, *(_QWORD *)(v8 + 88));
+    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v9 + 80) + 72LL));
+    v10 = *(_QWORD *)(v9 + 80);
     v11 = IndexedSet<DMMVIDEOPRESENTTARGET>::FindById(v10, v4);
     if ( v11 )
     {
@@ -72,21 +71,25 @@ __int64 __fastcall DmmGetVideoOutputTechnology(
         *a3 = *(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v11 + 80);
       if ( a4 )
         *a4 = *(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v11 + 84);
-      v12 = 0;
+      v14 = 0;
     }
     else
     {
-      WdLogSingleEntry1(2LL, v4);
-      v12 = -1071774971;
+      v18 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v18 + 24) = v4;
+      WdLogEvent5_WdError(v18);
+      v14 = -1071774971;
     }
     if ( v10 )
-      ReferenceCounted::Release((ReferenceCounted *)(v10 + 64));
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v9 + 40));
-    return v12;
+      ReferenceCounted::Release((ReferenceCounted *)(v10 + 64), v12);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v19 + 40), v12);
+    return v14;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v17 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v17 + 24) = a1;
+    WdLogEvent5_WdError(v17);
     return 3223192373LL;
   }
 }

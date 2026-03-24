@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePowerAggregatorSessionBegin @ 0x14087398C
+ * XREFs of PopDiagTracePowerAggregatorSessionBegin @ 0x14087396C
  * Callers:
- *     PopPowerAggregatorWorker @ 0x140875F30 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorWorker @ 0x140875F10 (PopPowerAggregatorWorker.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePowerAggregatorSessionBegin(int a1, __int64 a2, int a3, _BYTE *a4)

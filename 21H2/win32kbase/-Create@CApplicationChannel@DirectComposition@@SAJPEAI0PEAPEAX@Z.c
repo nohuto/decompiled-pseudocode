@@ -1,120 +1,78 @@
 /*
- * XREFs of ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C000CE0C
+ * XREFs of ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C005ADF0
  * Callers:
- *     NtDCompositionCreateChannel @ 0x1C000CBA0 (NtDCompositionCreateChannel.c)
+ *     NtDCompositionCreateChannel @ 0x1C005AB10 (NtDCompositionCreateChannel.c)
  * Callees:
- *     ??0CApplicationChannel@DirectComposition@@IEAA@PEAVCConnection@1@_NI@Z @ 0x1C000CCC0 (--0CApplicationChannel@DirectComposition@@IEAA@PEAVCConnection@1@_NI@Z.c)
- *     ?InsertObject@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QEAAJIPEAVCChannel@2@@Z @ 0x1C000CF50 (-InsertObject@-$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QE.c)
- *     ?Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z @ 0x1C000E0C8 (-Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z.c)
- *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C00103C4 (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C00163FC (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C00164EC (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
- *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C00B0BA8 (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0029550 (Win32AllocPoolWithQuotaZInit.c)
+ *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C005959C (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
+ *     ??0CApplicationChannel@DirectComposition@@IEAA@PEAVCConnection@1@_NI@Z @ 0x1C005AC30 (--0CApplicationChannel@DirectComposition@@IEAA@PEAVCConnection@1@_NI@Z.c)
+ *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C005AD7C (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?InsertObject@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QEAAJIPEAVCChannel@2@@Z @ 0x1C005ADAC (-InsertObject@-$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QE.c)
+ *     ?Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z @ 0x1C005BA50 (-Initialize@CApplicationChannel@DirectComposition@@IEAAJPEAIPEAPEAX@Z.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005C370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C005C904 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::Create(unsigned int *a1, unsigned int *a2, void **a3)
 {
   struct DirectComposition::CConnection *DefaultConnection; // rbp
-  PVOID v7; // rdi
-  __int64 Pool2; // rbx
-  __int64 v9; // r8
-  DirectComposition::CApplicationChannel *v10; // rax
-  unsigned int *v11; // rdi
+  DirectComposition::CApplicationChannel *v7; // rax
+  int *v8; // rdi
+  __int64 v9; // rcx
   int inserted; // ebx
-  struct DirectComposition::CProcessData *v13; // rax
-  struct DirectComposition::CProcessData *v14; // rsi
-  struct _ERESOURCE *v15; // rbx
-  __int64 v17; // rax
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-B8h] BYREF
+  struct DirectComposition::CProcessData *v11; // rax
+  struct DirectComposition::CProcessData *v12; // rsi
+  struct _ERESOURCE *v13; // rbx
 
   DefaultConnection = DirectComposition::CConnection::GetDefaultConnection();
-  if ( !DefaultConnection )
-    return (unsigned int)-1073741790;
-  v7 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x63614344) == 0x63614344
-    && (v17 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  if ( DefaultConnection )
   {
-    while ( *((_DWORD *)gpLeakTrackingAllocator + v17) != 1667318596 )
+    v7 = (DirectComposition::CApplicationChannel *)Win32AllocPoolWithQuotaZInit(0x320uLL, 0x63614344u);
+    if ( v7 )
+      v8 = (int *)DirectComposition::CApplicationChannel::CApplicationChannel(v7, DefaultConnection, 1, *a2);
+    else
+      v8 = 0LL;
+    if ( v8 )
     {
-      if ( ++v17 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-        goto LABEL_3;
-    }
-    Pool2 = ExAllocatePool2(261LL, 1840LL);
-    if ( !Pool2 )
-      goto LABEL_21;
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-    {
-      if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                               v7,
-                               Pool2,
-                               BackTrace) )
+      inserted = DirectComposition::CApplicationChannel::Initialize(
+                   (DirectComposition::CApplicationChannel *)v8,
+                   a2,
+                   a3);
+      if ( inserted < 0 )
+        goto LABEL_16;
+      v11 = DirectComposition::CProcessData::Current(v9);
+      v12 = v11;
+      if ( v11 )
       {
-LABEL_20:
-        ExFreePoolWithTag((PVOID)Pool2, 0);
-        goto LABEL_21;
+        v13 = (struct _ERESOURCE *)*((_QWORD *)v11 + 1);
+        KeEnterCriticalRegion();
+        ExAcquireResourceExclusiveLite(v13, 1u);
+        inserted = DirectComposition::CGenericTable<unsigned int,DirectComposition::CChannel,1952662340,1>::InsertObject(
+                     *(struct _RTL_GENERIC_TABLE **)v12,
+                     v8[7],
+                     (__int64)v8);
+        ExReleaseResourceLite(*((PERESOURCE *)v12 + 1));
+        KeLeaveCriticalRegion();
       }
-      goto LABEL_5;
+      else
+      {
+        inserted = -1073741823;
+      }
+      if ( inserted < 0 )
+LABEL_16:
+        DirectComposition::CChannel::Release((DirectComposition::CChannel *)v8);
+      else
+        *a1 = v8[7];
     }
-    if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                             v7,
-                             Pool2,
-                             BackTrace) )
-      goto LABEL_20;
-    Pool2 += 16LL;
+    else
+    {
+      inserted = -1073741801;
+    }
+    DirectComposition::CConnection::Release(DefaultConnection);
   }
   else
   {
-LABEL_3:
-    Pool2 = ExAllocatePool2(261LL, 1824LL);
+    return (unsigned int)-1073741790;
   }
-  if ( !Pool2 )
-  {
-LABEL_21:
-    inserted = -1073741801;
-    goto LABEL_10;
-  }
-LABEL_5:
-  LOBYTE(v9) = 1;
-  v10 = DirectComposition::CApplicationChannel::CApplicationChannel(
-          (DirectComposition::CApplicationChannel *)Pool2,
-          DefaultConnection,
-          v9,
-          *a2);
-  v11 = (unsigned int *)v10;
-  if ( !v10 )
-    goto LABEL_21;
-  inserted = DirectComposition::CApplicationChannel::Initialize(v10, a2, a3);
-  if ( inserted < 0 )
-    goto LABEL_25;
-  v13 = DirectComposition::CProcessData::Current();
-  v14 = v13;
-  if ( !v13 )
-  {
-    inserted = -1073741823;
-    goto LABEL_25;
-  }
-  v15 = (struct _ERESOURCE *)*((_QWORD *)v13 + 1);
-  KeEnterCriticalRegion();
-  ExAcquireResourceExclusiveLite(v15, 1u);
-  inserted = DirectComposition::CGenericTable<unsigned int,DirectComposition::CChannel,1952662340,1>::InsertObject(
-               *(_QWORD *)v14,
-               v11[7],
-               v11);
-  ExReleaseResourceLite(*((PERESOURCE *)v14 + 1));
-  KeLeaveCriticalRegion();
-  if ( inserted < 0 )
-  {
-LABEL_25:
-    DirectComposition::CChannel::Release((DirectComposition::CChannel *)v11);
-    goto LABEL_10;
-  }
-  *a1 = v11[7];
-LABEL_10:
-  DirectComposition::CConnection::Release(DefaultConnection);
   return (unsigned int)inserted;
 }

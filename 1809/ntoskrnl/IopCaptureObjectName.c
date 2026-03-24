@@ -3,10 +3,10 @@
  * Callers:
  *     IoBuildPoDeviceNotifyList @ 0x14056CE10 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
  */
 
 _WORD *__fastcall IopCaptureObjectName(void *a1)

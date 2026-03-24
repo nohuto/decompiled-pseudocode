@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCoordinateSpaceVisualNoRef@CCompositionPointLight@@UEBAPEAVCVisual@@XZ @ 0x1800FB3A0
+ * XREFs of ?GetCoordinateSpaceVisualNoRef@CCompositionPointLight@@UEBAPEAVCVisual@@XZ @ 0x1800E2A10
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CVisual *__fastcall CCompositionPointLight::GetCoordinateSpaceVisualNoRef(CCompositionPointLight *this)
 {
-  return (struct CVisual *)*((_QWORD *)this + 32);
+  return (struct CVisual *)*((_QWORD *)this + 31);
 }

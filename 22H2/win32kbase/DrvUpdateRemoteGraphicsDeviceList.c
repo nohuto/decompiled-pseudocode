@@ -1,57 +1,66 @@
 /*
- * XREFs of DrvUpdateRemoteGraphicsDeviceList @ 0x1C01680F0
+ * XREFs of DrvUpdateRemoteGraphicsDeviceList @ 0x1C0148398
  * Callers:
- *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0132520 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01186D0 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ?GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z @ 0x1C00A9A44 (-GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z.c)
- *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00CC328 (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UserIsUserCritSecIn @ 0x1C004AA80 (UserIsUserCritSecIn.c)
+ *     ?GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z @ 0x1C007EBF4 (-GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z.c)
+ *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00C4D4C (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvUpdateRemoteGraphicsDeviceList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 DrvUpdateRemoteGraphicsDeviceList()
 {
-  __int64 v4; // rcx
-  __int64 v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 i; // rdi
-  __int64 DxgkWin32kInterface; // rax
-  int v10; // eax
-  unsigned int v11; // eax
-  char v13; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v0; // rdx
+  struct tagREMOTE_CONTEXT *v1; // rcx
+  __int64 v2; // rax
+  struct tagGRAPHICS_DEVICE *i; // rbx
+  int v4; // eax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  int v9; // eax
+  unsigned int v10; // eax
+  char v12; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( !IS_USERCRIT_OWNED_AT_ALL(a1, a2, a3, a4) )
-    WdLogSingleEntry0(1LL);
-  v5 = *(_QWORD *)(SGDGetSessionState(v4) + 24);
-  GreCleanupRemoteAdapterContext((struct tagREMOTE_CONTEXT *)(v5 + 3016));
+  if ( !(unsigned int)UserIsUserCritSecIn() )
+  {
+    v2 = WdLogNewEntry5_WdAssertion(v1, v0);
+    WdLogEvent5_WdAssertion(v2);
+  }
+  GreCleanupRemoteAdapterContext(v1);
   if ( !gRemoteSessionUseWddm )
   {
-    for ( i = *(_QWORD *)(v5 + 1344); i; i = *(_QWORD *)(i + 128) )
+    for ( i = gpRemoteGraphicsDeviceList; i; i = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)i + 16) )
     {
-      if ( (*(_DWORD *)(i + 160) & 0x4000000) != 0 && !*(_QWORD *)(i + 272) )
+      if ( (*((_DWORD *)i + 40) & 0x4000000) != 0 && !*((_QWORD *)i + 35) )
       {
-        v13 = 0;
-        *(_QWORD *)(i + 288) = 0LL;
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v7, v6);
-        if ( (*(int (__fastcall **)(__int64, __int64, __int64, __int64, char *))(DxgkWin32kInterface + 392))(
-               i + 272,
-               i + 288,
-               i + 296,
-               i + 280,
-               &v13) >= 0 )
+        v12 = 0;
+        *((_QWORD *)i + 37) = 0LL;
+        v4 = ((__int64 (__fastcall *)(char *, char *, char *, char *, char *))qword_1C0250A18)(
+               (char *)i + 280,
+               (char *)i + 296,
+               (char *)i + 304,
+               (char *)i + 288,
+               &v12);
+        v7 = v4;
+        if ( v4 >= 0 )
         {
-          v10 = *(_DWORD *)(i + 164);
-          if ( v13 )
-            v11 = v10 | 4;
+          v9 = *((_DWORD *)i + 41);
+          if ( v12 )
+            v10 = v9 | 4;
           else
-            v11 = v10 & 0xFFFFFFFB;
-          *(_DWORD *)(i + 164) = v11;
-          DrvUpdateRemoteAdapterInfo((struct tagGRAPHICS_DEVICE *)i);
+            v10 = v9 & 0xFFFFFFFB;
+          *((_DWORD *)i + 41) = v10;
+          DrvUpdateRemoteAdapterInfo(i);
         }
         else
         {
-          WdLogSingleEntry2(2LL, i);
+          v8 = WdLogNewEntry5_WdError(v6, v5);
+          *(_QWORD *)(v8 + 24) = i;
+          *(_QWORD *)(v8 + 32) = v7;
+          WdLogEvent5_WdError(v8);
         }
       }
     }

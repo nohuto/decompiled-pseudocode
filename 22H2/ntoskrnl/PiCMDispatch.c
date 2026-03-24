@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMDispatch @ 0x1407E28B0
+ * XREFs of PiCMDispatch @ 0x14069E0B0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall PiCMDispatch(__int64 a1, __int64 a2)
@@ -15,19 +15,20 @@ __int64 __fastcall PiCMDispatch(__int64 a1, __int64 a2)
   if ( v2 >= 0 )
   {
     v3 = **(_BYTE **)(a2 + 184);
-    if ( v3 && v3 != 2 )
+    switch ( v3 )
     {
-      if ( v3 == 14 )
-      {
+      case 0:
+      case 2:
+        goto LABEL_6;
+      case 14:
         v2 = -1073741637;
-        goto LABEL_4;
-      }
-      if ( v3 != 18 )
-        goto LABEL_4;
+        break;
+      case 18:
+LABEL_6:
+        v2 = 0;
+        break;
     }
-    v2 = 0;
   }
-LABEL_4:
   *(_DWORD *)(a2 + 48) = v2;
   IofCompleteRequest((PIRP)a2, 0);
   return (unsigned int)v2;

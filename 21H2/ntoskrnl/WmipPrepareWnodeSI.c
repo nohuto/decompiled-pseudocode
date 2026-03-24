@@ -1,28 +1,28 @@
 /*
- * XREFs of WmipPrepareWnodeSI @ 0x140783DB8
+ * XREFs of WmipPrepareWnodeSI @ 0x140757604
  * Callers:
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
+ *     WmipQuerySetExecuteSI @ 0x140757270 (WmipQuerySetExecuteSI.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     _wtoi @ 0x1403E17F0 (_wtoi.c)
- *     WmipIsNumber @ 0x1406EB7E8 (WmipIsNumber.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipAddProviderIdToPIList @ 0x140784064 (WmipAddProviderIdToPIList.c)
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
- *     WmipCountedToSz @ 0x14078418C (WmipCountedToSz.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     _wtoi @ 0x1403D2430 (_wtoi.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipAddProviderIdToPIList @ 0x14063E188 (WmipAddProviderIdToPIList.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     WmipCountedToSz @ 0x1407578B0 (WmipCountedToSz.c)
+ *     WmipIsNumber @ 0x14078E928 (WmipIsNumber.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4, _BYTE *a5, _BYTE *a6)
+__int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, unsigned int *a3, void **a4, _BYTE *a5, _BYTE *a6)
 {
-  volatile signed __int64 **v7; // rbx
+  void *v7; // rbx
   __int64 v8; // rsi
-  volatile signed __int64 **v9; // r13
+  void *v9; // r13
   __int64 v10; // rdi
   int v11; // r14d
   wchar_t *v12; // r12
@@ -34,7 +34,7 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
   unsigned int v19; // r12d
   const wchar_t *v20; // rdx
   unsigned __int64 v21; // rax
-  wchar_t *v22; // rsi
+  const wchar_t *v22; // rsi
   unsigned int v23; // ebx
   _BYTE *v24; // rax
   unsigned int v25; // ebx
@@ -43,11 +43,11 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
   volatile signed __int64 **v28; // rdi
   wchar_t *Str1; // [rsp+30h] [rbp-59h]
   unsigned int v30; // [rsp+38h] [rbp-51h] BYREF
-  volatile signed __int64 **v31; // [rsp+40h] [rbp-49h]
-  int v32; // [rsp+48h] [rbp-41h] BYREF
-  volatile signed __int64 **v33; // [rsp+50h] [rbp-39h] BYREF
+  void *v31; // [rsp+40h] [rbp-49h]
+  unsigned int v32; // [rsp+48h] [rbp-41h] BYREF
+  void *v33; // [rsp+50h] [rbp-39h] BYREF
   _BYTE *v34; // [rsp+58h] [rbp-31h]
-  int *v35; // [rsp+60h] [rbp-29h]
+  unsigned int *v35; // [rsp+60h] [rbp-29h]
   void **v36; // [rsp+68h] [rbp-21h]
   __int64 v37; // [rsp+70h] [rbp-19h]
   wchar_t pszDest[8]; // [rsp+78h] [rbp-11h] BYREF
@@ -73,11 +73,11 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
     else
     {
       *a6 = 0;
-      Str1 = (wchar_t *)WmipCountedToSz(a2 + *(unsigned int *)(a2 + 48), a6);
+      Str1 = (wchar_t *)WmipCountedToSz(a2 + *(unsigned int *)(a2 + 48));
       v12 = Str1;
       if ( Str1 )
       {
-        v31 = (volatile signed __int64 **)*v36;
+        v31 = *v36;
         v7 = v31;
         v33 = v31;
         v32 = *v35;
@@ -117,7 +117,7 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
                   {
                     v22 = &Str1[v18];
                     v23 = wtoi(v22);
-                    if ( WmipIsNumber(v22) )
+                    if ( (unsigned __int8)WmipIsNumber(v22) )
                     {
                       if ( v23 >= v19 && v23 < v19 + *(_DWORD *)(v14 + 72) && v23 < 0xF423F )
                       {
@@ -158,12 +158,7 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
                 else
                 {
                   WmipReferenceEntry(v14);
-                  v11 = WmipAddProviderIdToPIList(
-                          (unsigned int)&v33,
-                          (unsigned int)&v30,
-                          (unsigned int)&v32,
-                          (_DWORD)v31,
-                          v14);
+                  v11 = WmipAddProviderIdToPIList((const void **)&v33, &v30, &v32, v31, (volatile signed __int64 *)v14);
                   LOBYTE(v9) = v11 < 0;
                 }
               }
@@ -196,7 +191,7 @@ LABEL_12:
       {
         if ( (_DWORD)v8 )
         {
-          v28 = v7;
+          v28 = (volatile signed __int64 **)v7;
           do
           {
             WmipUnreferenceEntry((__int64)&WmipISChunkInfo, *v28++);

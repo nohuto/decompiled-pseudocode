@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetOuterConeAngle@CCompositionSpotLight@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180026FC0
+ * XREFs of ?SetOuterConeAngle@CCompositionSpotLight@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800D16B0
  * Callers:
  *     <none>
  * Callees:
- *     ?IssueLightChangedNotification@CCompositionLight@@QEAAXXZ @ 0x180027060 (-IssueLightChangedNotification@CCompositionLight@@QEAAXXZ.c)
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x1800485B4 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180065B20 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?IssueLightChangedNotification@CCompositionLight@@IEAAXXZ @ 0x1800D1750 (-IssueLightChangedNotification@CCompositionLight@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CCompositionSpotLight::SetOuterConeAngle(
@@ -12,11 +12,11 @@ __int64 __fastcall CCompositionSpotLight::SetOuterConeAngle(
         const struct AnimationHelper::AnimatedProperty *a2,
         _DWORD *a3)
 {
-  if ( *((float *)this + 96) != *(float *)a3 )
+  if ( *((float *)this + 94) != *(float *)a3 )
   {
-    *((_DWORD *)this + 96) = *a3;
-    CResource::InvalidateAnimationSources(this, 0xDu);
-    CResource::InvalidateAnimationSources(this, 0xEu);
+    *((_DWORD *)this + 94) = *a3;
+    CResource::InvalidateAnimationSources(this, 13);
+    CResource::InvalidateAnimationSources(this, 14);
     CCompositionLight::IssueLightChangedNotification(this);
   }
   return 0LL;

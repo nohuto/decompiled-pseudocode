@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ValidateUserEvent@CInputManager@@CAJPEAXPEAPEAX@Z @ 0x1C0231328
+ * XREFs of ?ValidateUserEvent@CInputManager@@CAJPEAXPEAPEAX@Z @ 0x1C01FA878
  * Callers:
- *     ?DwmInputThread@CInputManager@@IEAAJPEAX0H@Z @ 0x1C0230CC4 (-DwmInputThread@CInputManager@@IEAAJPEAX0H@Z.c)
+ *     ?DwmInputThread@CInputManager@@IEAAJPEAX0H@Z @ 0x1C01F9F74 (-DwmInputThread@CInputManager@@IEAAJPEAX0H@Z.c)
  * Callees:
  *     <none>
  */

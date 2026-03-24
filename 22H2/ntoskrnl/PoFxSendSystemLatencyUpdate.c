@@ -1,19 +1,19 @@
 /*
- * XREFs of PoFxSendSystemLatencyUpdate @ 0x14032C150
+ * XREFs of PoFxSendSystemLatencyUpdate @ 0x14034A828
  * Callers:
- *     PoNotifyVSyncChange @ 0x14032BE00 (PoNotifyVSyncChange.c)
- *     PopDeepSleepEvaluateCallback @ 0x1405984E0 (PopDeepSleepEvaluateCallback.c)
- *     PopCheckResiliencyScenarios @ 0x140700F30 (PopCheckResiliencyScenarios.c)
- *     PopWnfFullscreenVideoCallback @ 0x1409846C0 (PopWnfFullscreenVideoCallback.c)
- *     PopEnforceResiliencyScenarios @ 0x1409942E8 (PopEnforceResiliencyScenarios.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoNotifyVSyncChange @ 0x14034A7F0 (PoNotifyVSyncChange.c)
+ *     PopDeepSleepEvaluateCallback @ 0x1405775C0 (PopDeepSleepEvaluateCallback.c)
+ *     PopCheckResiliencyScenarios @ 0x1406F2B90 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140779AFC (PopEnforceResiliencyScenarios.c)
+ *     PopWnfFullscreenVideoCallback @ 0x1408E41A0 (PopWnfFullscreenVideoCallback.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     KeFlushProcessWriteBuffers @ 0x1402C000C (KeFlushProcessWriteBuffers.c)
- *     PopFxGetLatencyLimitWithoutResiliency @ 0x14032C1DC (PopFxGetLatencyLimitWithoutResiliency.c)
- *     PpmGetExitSamplingCountdown @ 0x14032C214 (PpmGetExitSamplingCountdown.c)
- *     PpmIdleUsingStateSelection @ 0x14032C240 (PpmIdleUsingStateSelection.c)
- *     PopDiagTraceSystemLatencyUpdate @ 0x14032C2CC (PopDiagTraceSystemLatencyUpdate.c)
- *     PoFxSystemLatencyNotify @ 0x14032C340 (PoFxSystemLatencyNotify.c)
+ *     KeFlushProcessWriteBuffers @ 0x140343D14 (KeFlushProcessWriteBuffers.c)
+ *     PopFxGetLatencyLimitWithoutResiliency @ 0x14034A8B4 (PopFxGetLatencyLimitWithoutResiliency.c)
+ *     PpmIdleUsingStateSelection @ 0x14034A8EC (PpmIdleUsingStateSelection.c)
+ *     PoFxSystemLatencyNotify @ 0x14034A948 (PoFxSystemLatencyNotify.c)
+ *     PopDiagTraceSystemLatencyUpdate @ 0x14034A9EC (PopDiagTraceSystemLatencyUpdate.c)
+ *     PpmGetExitSamplingCountdown @ 0x14034AA60 (PpmGetExitSamplingCountdown.c)
  */
 
 __int64 PoFxSendSystemLatencyUpdate()
@@ -24,8 +24,8 @@ __int64 PoFxSendSystemLatencyUpdate()
   char v3; // si
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  if ( byte_140C3DAD4 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
-    LatencyLimitWithoutResiliency = dword_140D1D3F4;
+  if ( byte_140C233F4 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
+    LatencyLimitWithoutResiliency = dword_140CFB31C;
   else
     LatencyLimitWithoutResiliency = PopFxGetLatencyLimitWithoutResiliency();
   result = (unsigned int)PopFxSystemLatencyLimit;

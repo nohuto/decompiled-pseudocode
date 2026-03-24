@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDefaultPolicy @ 0x1408628A0
+ * XREFs of PopDefaultPolicy @ 0x1407D24B0
  * Callers:
- *     PopResetCurrentPolicies @ 0x140825058 (PopResetCurrentPolicies.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PopResetCurrentPolicies @ 0x14079CB48 (PopResetCurrentPolicies.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall PopDefaultPolicy(_DWORD *a1)

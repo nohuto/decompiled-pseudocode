@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsRestart@CFlipToken@@UEBA_NXZ @ 0x1C001A1B0
+ * XREFs of ?IsRestart@CFlipToken@@UEBA_NXZ @ 0x1C001B9D0
  * Callers:
  *     <none>
  * Callees:

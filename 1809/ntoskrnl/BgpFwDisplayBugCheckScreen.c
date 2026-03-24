@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpFwDisplayBugCheckScreen @ 0x140328A0C
+ * XREFs of BgpFwDisplayBugCheckScreen @ 0x140328B0C
  * Callers:
- *     KiDisplayBlueScreen @ 0x140292474 (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x140292574 (KiDisplayBlueScreen.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14016EE10 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x14016F1C0 (BgpGetBitsPerPixel.c)
- *     IoSaveBugCheckProgress @ 0x140280120 (IoSaveBugCheckProgress.c)
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
- *     BcpDisplayCriticalCharacter @ 0x140327B8C (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140327C54 (BcpDisplayCriticalString.c)
- *     BcpDisplayErrorInformation @ 0x140327FB0 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140328230 (BcpDisplayProgress.c)
- *     BcpGetComponentOffsets @ 0x14032842C (BcpGetComponentOffsets.c)
- *     BcpGetDisplayType @ 0x1403285B8 (BcpGetDisplayType.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x1409FBEBC (BcpDisplayEarlyBugCheckScreen.c)
+ *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
+ *     IoSaveBugCheckProgress @ 0x140280220 (IoSaveBugCheckProgress.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
+ *     BcpDisplayCriticalCharacter @ 0x140327C8C (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
+ *     BcpDisplayErrorInformation @ 0x1403280B0 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
+ *     BcpGetComponentOffsets @ 0x14032852C (BcpGetComponentOffsets.c)
+ *     BcpGetDisplayType @ 0x1403286B8 (BcpGetDisplayType.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x1409FBECC (BcpDisplayEarlyBugCheckScreen.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckScreen(unsigned int a1, unsigned __int64 *a2, __int64 a3, _QWORD *a4, char a5)
@@ -156,7 +156,7 @@ LABEL_28:
   if ( ComponentOffsets >= 0 )
   {
     BcpCursor = BcpErrorMessageOffset;
-    dword_140438740 = dword_140405A08;
+    dword_140438740 = dword_140405A18;
     if ( a1 != 456 )
     {
       BcpDisplayErrorInformation(DisplayType, a1, a2, a3, (__int64)a4, a5);
@@ -175,7 +175,7 @@ LABEL_28:
     else
     {
       BcpCursor = BcpProgressOffset;
-      dword_140438740 = dword_140405A18;
+      dword_140438740 = dword_1404059F8;
       BcpDisplayProgress(0, DisplayType, v30);
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
       BcpLastProgressDisplayed = 0;

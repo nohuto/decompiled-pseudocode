@@ -1,17 +1,17 @@
 /*
- * XREFs of LinkNodeGetPossibleResources @ 0x1C00B5F70
+ * XREFs of LinkNodeGetPossibleResources @ 0x1C00B6908
  * Callers:
- *     IrqArbAddAllocation @ 0x1C0099940 (IrqArbAddAllocation.c)
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B6B6C (IrqArbpAssignIrqFromLinkNode.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
  * Callees:
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
- *     PnpIoResourceListToCmResourceList @ 0x1C0098DB4 (PnpIoResourceListToCmResourceList.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     PnpIoResourceListToCmResourceList @ 0x1C009BAE0 (PnpIoResourceListToCmResourceList.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  */
 
 __int64 __fastcall LinkNodeGetPossibleResources(__int64 a1, _QWORD *a2, _BYTE *a3)
 {
-  __int64 v4; // rcx
+  __int64 *v4; // rcx
   int v6; // ebx
   _DWORD *v7; // rcx
   PVOID P; // [rsp+70h] [rbp+20h] BYREF
@@ -19,7 +19,7 @@ __int64 __fastcall LinkNodeGetPossibleResources(__int64 a1, _QWORD *a2, _BYTE *a
   __int64 v11; // [rsp+80h] [rbp+30h] BYREF
 
   *a2 = 0LL;
-  v4 = *(_QWORD *)(a1 + 600);
+  v4 = *(__int64 **)(a1 + 560);
   v10 = 0LL;
   P = 0LL;
   v6 = -1073741823;
@@ -27,7 +27,7 @@ __int64 __fastcall LinkNodeGetPossibleResources(__int64 a1, _QWORD *a2, _BYTE *a
   ACPIGet(v4, 1397903455, 335609864, 0LL, 0, 0LL, 0LL, (__int64)&P, 0LL);
   if ( P )
   {
-    v6 = PnpBiosResourcesToNtResources(0LL, P, 0LL, (__int64 *)&v10);
+    v6 = PnpBiosResourcesToNtResources(0LL, P, 0LL, (unsigned int **)&v10);
     ExFreePoolWithTag(P, 0);
     P = 0LL;
     if ( v6 >= 0 )

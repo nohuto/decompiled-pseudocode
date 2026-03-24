@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmInit @ 0x1407623C0
+ * XREFs of TtmInit @ 0x1407623A0
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
  */
 
 TLG_STATUS TtmInit()

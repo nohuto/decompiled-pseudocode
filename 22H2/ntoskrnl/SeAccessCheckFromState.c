@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAccessCheckFromState @ 0x1402286B0
+ * XREFs of SeAccessCheckFromState @ 0x14032F440
  * Callers:
- *     EtwpAccessCheckFromState @ 0x1406C03D4 (EtwpAccessCheckFromState.c)
- *     CmpCheckAdminAccess @ 0x140A18EA0 (CmpCheckAdminAccess.c)
+ *     CmpCheckAdminAccess @ 0x1405D9B08 (CmpCheckAdminAccess.c)
+ *     EtwpAccessCheckFromState @ 0x1406BD064 (EtwpAccessCheckFromState.c)
  * Callees:
- *     SepTokenFromAccessInformation @ 0x14022824C (SepTokenFromAccessInformation.c)
- *     SeAccessCheckFromStateEx @ 0x1402287B0 (SeAccessCheckFromStateEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     SeAccessCheckFromStateEx @ 0x14032F550 (SeAccessCheckFromStateEx.c)
+ *     SepTokenFromAccessInformation @ 0x14032F5E4 (SepTokenFromAccessInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 BOOLEAN __stdcall SeAccessCheckFromState(
@@ -22,19 +22,19 @@ BOOLEAN __stdcall SeAccessCheckFromState(
         PACCESS_MASK GrantedAccess,
         PNTSTATUS AccessStatus)
 {
-  int v12; // esi
+  int v12; // ebp
   _BYTE *v14; // r8
-  _BYTE v16[1184]; // [rsp+50h] [rbp-998h] BYREF
-  _BYTE v17[1184]; // [rsp+4F0h] [rbp-4F8h] BYREF
+  _BYTE v16[1184]; // [rsp+50h] [rbp-988h] BYREF
+  _BYTE v17[1184]; // [rsp+4F0h] [rbp-4E8h] BYREF
 
   v12 = (int)SecurityDescriptor;
   memset(v17, 0, 0x498uLL);
   memset(v16, 0, 0x498uLL);
-  SepTokenFromAccessInformation((unsigned int **)PrimaryTokenInformation, (__int64)v17);
+  SepTokenFromAccessInformation(PrimaryTokenInformation, v17);
   LODWORD(v14) = 0;
   if ( ClientTokenInformation )
   {
-    SepTokenFromAccessInformation((unsigned int **)ClientTokenInformation, (__int64)v16);
+    SepTokenFromAccessInformation(ClientTokenInformation, v16);
     v14 = v16;
   }
   return SeAccessCheckFromStateEx(

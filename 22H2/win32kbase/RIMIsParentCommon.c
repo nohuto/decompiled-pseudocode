@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMIsParentCommon @ 0x1C01824C0
+ * XREFs of RIMIsParentCommon @ 0x1C0161C00
  * Callers:
- *     RIMFindSiblingPointerDeviceForMouseWorker @ 0x1C00BDCE8 (RIMFindSiblingPointerDeviceForMouseWorker.c)
- *     RIMFindConfigDeviceForInput @ 0x1C0180D10 (RIMFindConfigDeviceForInput.c)
- *     RIMFindInputDeviceForConfig @ 0x1C0180DC8 (RIMFindInputDeviceForConfig.c)
- *     RIMFindSiblingMouseDeviceWorker @ 0x1C0180EBC (RIMFindSiblingMouseDeviceWorker.c)
+ *     RIMFindSiblingPointerDeviceForMouse @ 0x1C00B4840 (RIMFindSiblingPointerDeviceForMouse.c)
+ *     RIMFindConfigDeviceForInput @ 0x1C0161860 (RIMFindConfigDeviceForInput.c)
+ *     RIMFindInputDeviceForConfig @ 0x1C0161918 (RIMFindInputDeviceForConfig.c)
+ *     RIMFindSiblingMouseDevice @ 0x1C0161A0C (RIMFindSiblingMouseDevice.c)
  * Callees:
  *     <none>
  */

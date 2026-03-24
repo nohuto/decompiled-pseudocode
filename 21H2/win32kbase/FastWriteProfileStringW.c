@@ -1,9 +1,9 @@
 /*
- * XREFs of FastWriteProfileStringW @ 0x1C00C3EB0
+ * XREFs of FastWriteProfileStringW @ 0x1C00B4FE0
  * Callers:
- *     FastUpdateWinIni @ 0x1C01497A0 (FastUpdateWinIni.c)
+ *     FastUpdateWinIni @ 0x1C011DC60 (FastUpdateWinIni.c)
  * Callees:
- *     OpenCacheKeyEx @ 0x1C0019FB0 (OpenCacheKeyEx.c)
+ *     OpenCacheKeyEx @ 0x1C0026440 (OpenCacheKeyEx.c)
  */
 
 void *__fastcall FastWriteProfileStringW(const UNICODE_STRING *a1, __int64 a2, const WCHAR *a3, _WORD *a4)
@@ -16,7 +16,7 @@ void *__fastcall FastWriteProfileStringW(const UNICODE_STRING *a1, __int64 a2, c
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
-  result = OpenCacheKeyEx(a1, a2, 131078LL, 0LL);
+  result = OpenCacheKeyEx(a1, a2, 0x20006u, 0LL);
   v7 = 0;
   v8 = result;
   if ( result )

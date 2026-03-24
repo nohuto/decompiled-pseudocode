@@ -1,12 +1,12 @@
 /*
- * XREFs of HdlspEnableTerminal @ 0x140AEB5C4
+ * XREFs of HdlspEnableTerminal @ 0x1409EF52C
  * Callers:
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
- *     HeadlessInit @ 0x140B76EC4 (HeadlessInit.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HeadlessInit @ 0x140A74260 (HeadlessInit.c)
  * Callees:
- *     InbvPortInitialize @ 0x14067966C (InbvPortInitialize.c)
- *     InbvPortTerminate @ 0x140679868 (InbvPortTerminate.c)
- *     HdlspSendStringAtBaud @ 0x140AEC474 (HdlspSendStringAtBaud.c)
+ *     InbvPortInitialize @ 0x1405C9C78 (InbvPortInitialize.c)
+ *     InbvPortTerminate @ 0x1405C9E6C (InbvPortTerminate.c)
+ *     HdlspSendStringAtBaud @ 0x1409F0350 (HdlspSendStringAtBaud.c)
  */
 
 __int64 __fastcall HdlspEnableTerminal(char a1)

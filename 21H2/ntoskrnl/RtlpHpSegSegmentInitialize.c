@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegSegmentInitialize @ 0x140242028
+ * XREFs of RtlpHpSegSegmentInitialize @ 0x1402A5420
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x140350070 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x14036FAB0 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037B380 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlpHpQueryVA @ 0x140362864 (RtlpHpQueryVA.c)
+ *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentInitialize(__int64 a1, __int64 a2, unsigned int a3)
@@ -25,11 +25,7 @@ __int64 __fastcall RtlpHpSegSegmentInitialize(__int64 a1, __int64 a2, unsigned i
   if ( (v3 & 7) != 0 )
   {
     v14 = *(_OWORD *)(a1 + 40);
-    ((void (__fastcall *)(unsigned __int64, __int128 *, __int64 *, _QWORD))RtlpHpQueryVA)(
-      a2 & 0xFFFFFFFFFFE00000uLL,
-      &v14,
-      &v15,
-      0LL);
+    RtlpHpQueryVA(a2 & 0xFFFFFFFFFFE00000uLL, &v14, &v15, 0LL);
     *(_QWORD *)(a2 + 24) = v15;
   }
   v7 = a3;

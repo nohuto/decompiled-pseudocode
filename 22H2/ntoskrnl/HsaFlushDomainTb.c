@@ -1,16 +1,18 @@
 /*
- * XREFs of HsaFlushDomainTb @ 0x14052F9D0
+ * XREFs of HsaFlushDomainTb @ 0x1404E2C90
  * Callers:
  *     <none>
  * Callees:
- *     HsaFlushTbInternal @ 0x14052FA4C (HsaFlushTbInternal.c)
+ *     HsaFlushTbInternal @ 0x1404E2D3C (HsaFlushTbInternal.c)
  */
 
 __int64 __fastcall HsaFlushDomainTb(int a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
-  int v6; // [rsp+30h] [rbp-18h]
+  int v5; // r8d
+  _QWORD v7[3]; // [rsp+50h] [rbp-18h] BYREF
 
-  v6 = a4;
-  LOBYTE(a4) = 1;
-  return HsaFlushTbInternal(a1, 0, *(_DWORD *)(a2 + 48), a4, 0LL, 0LL, v6, a5);
+  v5 = *(_DWORD *)(a2 + 24);
+  v7[1] = v7;
+  v7[0] = v7;
+  return HsaFlushTbInternal(a1, 0, v5, 0, 1, 0, (__int64)v7, a4, a5);
 }

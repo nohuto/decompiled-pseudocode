@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01C0270
+ * XREFs of ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01EA8BC
  * Callers:
- *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00500BC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     xxxDoHotKeyStuff @ 0x1C0104F50 (xxxDoHotKeyStuff.c)
  * Callees:
- *     ?xxxVolumeUpDownComboSupported@@YA_NXZ @ 0x1C01C030C (-xxxVolumeUpDownComboSupported@@YA_NXZ.c)
- *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01F902C (-xxxUserBeep@@YAHKK_N@Z.c)
+ *     ?xxxVolumeUpDownComboSupported@@YAHXZ @ 0x1C01EA958 (-xxxVolumeUpDownComboSupported@@YAHXZ.c)
+ *     UserBeep @ 0x1C02196B8 (UserBeep.c)
  */
 
 void xxxHandleVolumeUpDownCombo(void)
@@ -26,9 +26,9 @@ LABEL_5:
   guVolComboCount = v1 + 1;
   if ( (unsigned int)(v1 + 1) >= 3 )
   {
-    if ( xxxVolumeUpDownComboSupported() )
+    if ( (unsigned int)xxxVolumeUpDownComboSupported() )
     {
-      xxxUserBeep(0x1EEu, 0xC8u, 1);
+      UserBeep(494LL, 200LL);
       LOBYTE(v2) = 1;
       xxxDisplayDiagBlackScreenDetected(2LL, v2);
     }

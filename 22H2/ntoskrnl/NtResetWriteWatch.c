@@ -1,106 +1,107 @@
 /*
- * XREFs of NtResetWriteWatch @ 0x140747D40
+ * XREFs of NtResetWriteWatch @ 0x14063A770
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiMoveDirtyBitsToPfns @ 0x1402858F0 (MiMoveDirtyBitsToPfns.c)
- *     MiGetVadMandatoryPageSize @ 0x1402EADF0 (MiGetVadMandatoryPageSize.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140297B10 (MiMoveDirtyBitsToPfns.c)
+ *     MiGetVadMandatoryPageSize @ 0x140298600 (MiGetVadMandatoryPageSize.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtResetWriteWatch(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall NtResetWriteWatch(void *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  int v3; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v8; // r13
-  _KPROCESS *Process; // rsi
-  void *v10; // r15
-  __int64 *v11; // rax
-  char *v12; // rsi
+  _KPROCESS *Process; // rdi
+  unsigned __int64 v8; // r12
+  PVOID v9; // r13
+  int v10; // ebx
+  volatile signed __int32 *v11; // rax
+  char *v12; // rdi
+  NTSTATUS v13; // esi
   unsigned __int64 VadMandatoryPageSize; // rax
-  int v14; // edi
   __int64 v16; // rax
-  ULONG_PTR BugCheckParameter1; // [rsp+40h] [rbp-78h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v18; // [rsp+48h] [rbp-70h] BYREF
+  PVOID Object; // [rsp+40h] [rbp-88h] BYREF
+  int v18; // [rsp+48h] [rbp-80h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-78h] BYREF
 
-  v3 = 0;
-  BugCheckParameter1 = 0LL;
-  memset(&v18, 0, sizeof(v18));
+  Object = 0LL;
+  memset(&ApcState, 0, sizeof(ApcState));
   if ( a2 > 0x7FFFFFFEFFFFLL )
     return 3221225712LL;
   if ( 0x7FFFFFFF0000LL - a2 >= a3 && a3 )
   {
     CurrentThread = KeGetCurrentThread();
-    v8 = a3 + a2 - 1;
     Process = CurrentThread->ApcState.Process;
-    if ( a1 == -1LL )
+    v8 = a3 + a2 - 1;
+    if ( a1 == (void *)-1LL )
     {
-      v10 = CurrentThread->ApcState.Process;
+      v9 = CurrentThread->ApcState.Process;
+      v10 = 0;
     }
     else
     {
-      v14 = ObpReferenceObjectByHandleWithTag(
+      v13 = ObReferenceObjectByHandleWithTag(
               a1,
-              8,
-              (__int64)PsProcessType,
+              8u,
+              (POBJECT_TYPE)PsProcessType,
               CurrentThread->PreviousMode,
               0x77576D4Du,
-              &BugCheckParameter1,
-              0LL,
+              &Object,
               0LL);
-      if ( v14 < 0 )
-        return (unsigned int)v14;
-      v10 = (void *)BugCheckParameter1;
-      if ( Process != (_KPROCESS *)BugCheckParameter1 )
+      if ( v13 < 0 )
+        return (unsigned int)v13;
+      v9 = Object;
+      v10 = 0;
+      if ( Process != Object )
       {
-        KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v18);
-        v3 = 1;
+        KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
+        v10 = 1;
       }
     }
-    v11 = MiObtainReferencedVadEx(a2, 0, (int *)&BugCheckParameter1);
+    v11 = MiObtainReferencedVadEx(a2, 0, &v18);
     v12 = (char *)v11;
     if ( !v11 )
     {
-      v14 = -1073741585;
-      goto LABEL_12;
+      v13 = -1073741585;
+      goto LABEL_10;
     }
-    if ( (v11[6] & 0x600000) == 0x600000
+    if ( (v11[12] & 0x300000) == 0x300000
       && v8 <= (((*((unsigned int *)v11 + 7) | ((unsigned __int64)*((unsigned __int8 *)v11 + 33) << 32)) << 12) | 0xFFF) )
     {
       VadMandatoryPageSize = MiGetVadMandatoryPageSize((__int64)v11);
       if ( VadMandatoryPageSize <= 1 )
       {
-LABEL_10:
+LABEL_17:
         MiMoveDirtyBitsToPfns(a2, v8, (__int64)v12, 1);
-        v14 = 0;
-LABEL_11:
-        MiUnlockAndDereferenceVad(v12);
-LABEL_12:
-        if ( v3 )
-          KiUnstackDetachProcess(&v18);
-        if ( a1 != -1LL )
-          ObfDereferenceObjectWithTag(v10, 0x77576D4Du);
-        return (unsigned int)v14;
+        v13 = 0;
+        goto LABEL_9;
       }
       v16 = (VadMandatoryPageSize << 12) - 1;
       if ( (v16 & a2) == 0 )
       {
         if ( (v16 & a3) != 0 )
         {
-          v14 = -1073741583;
-          goto LABEL_11;
+          v13 = -1073741583;
+          goto LABEL_9;
         }
-        goto LABEL_10;
+        goto LABEL_17;
       }
     }
-    v14 = -1073741585;
-    goto LABEL_11;
+    v13 = -1073741585;
+LABEL_9:
+    MiUnlockAndDereferenceVad(v12);
+LABEL_10:
+    if ( v10 )
+      KeUnstackDetachProcess(&ApcState);
+    if ( a1 != (void *)-1LL )
+      ObfDereferenceObjectWithTag(v9, 0x77576D4Du);
+    return (unsigned int)v13;
   }
   return 3221225713LL;
 }

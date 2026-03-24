@@ -1,15 +1,15 @@
 /*
- * XREFs of DpiPdoSetDevicePower @ 0x1C01EFA60
+ * XREFs of DpiPdoSetDevicePower @ 0x1C01755DC
  * Callers:
- *     DpiPdoDispatchPower @ 0x1C001A360 (DpiPdoDispatchPower.c)
- *     DpiPdoDispatchInternalIoctl @ 0x1C01DCED0 (DpiPdoDispatchInternalIoctl.c)
- *     DxgkPowerOnOffMonitor @ 0x1C01EFB34 (DxgkPowerOnOffMonitor.c)
+ *     DpiPdoDispatchPower @ 0x1C001FDC0 (DpiPdoDispatchPower.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C01665C0 (DpiPdoDispatchInternalIoctl.c)
+ *     DxgkPowerOnOffMonitor @ 0x1C0176CB4 (DxgkPowerOnOffMonitor.c)
  * Callees:
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiDxgkDdiSetPowerState @ 0x1C01F0BF4 (DpiDxgkDdiSetPowerState.c)
- *     DxgkReleaseAdapterDdiSync @ 0x1C01F59A8 (DxgkReleaseAdapterDdiSync.c)
- *     DxgkAcquireAdapterDdiSync @ 0x1C01F59C8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C0174BD0 (DxgkAcquireAdapterDdiSync.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C0174C50 (DxgkReleaseAdapterDdiSync.c)
+ *     DpiDxgkDdiSetPowerState @ 0x1C0175DD0 (DpiDxgkDdiSetPowerState.c)
  */
 
 __int64 __fastcall DpiPdoSetDevicePower(__int64 a1, int a2, int a3)
@@ -18,7 +18,8 @@ __int64 __fastcall DpiPdoSetDevicePower(__int64 a1, int a2, int a3)
   int v4; // edi
   __int64 v8; // r12
   __int64 v9; // r14
-  struct _KEVENT *v10; // rcx
+  __int64 v10; // rdx
+  struct _KEVENT *v11; // rcx
 
   v3 = *(_QWORD *)(a1 + 64);
   v4 = 0;
@@ -27,27 +28,27 @@ __int64 __fastcall DpiPdoSetDevicePower(__int64 a1, int a2, int a3)
   if ( *(_DWORD *)(v3 + 284) != a2 )
   {
     *(_DWORD *)(v3 + 284) = a2;
-    if ( (*(_BYTE *)(v9 + 3921) & 4) == 0 )
+    if ( (*(_BYTE *)(v9 + 3905) & 4) == 0 )
     {
       v4 = DpiAcquireCoreSyncAccessSafe(a1, 1);
       if ( v4 >= 0 )
       {
-        DxgkAcquireAdapterDdiSync(*(_QWORD *)(v9 + 3912), 1LL);
+        DxgkAcquireAdapterDdiSync(*(_QWORD *)(v9 + 3896), 1LL);
         DpiDxgkDdiSetPowerState(v8, *(_QWORD *)(v3 + 48), *(_DWORD *)(v3 + 504), a2, a3);
-        DxgkReleaseAdapterDdiSync(*(_QWORD *)(v9 + 3912));
+        DxgkReleaseAdapterDdiSync(*(DXGADAPTER **)(v9 + 3896), v10);
         DpiReleaseCoreSyncAccessSafe(a1, 1);
         v4 = 0;
       }
     }
-    v10 = (struct _KEVENT *)(v3 + 984);
+    v11 = (struct _KEVENT *)(v3 + 984);
     if ( a2 == 1 )
     {
-      KeClearEvent(v10);
+      KeClearEvent(v11);
       KeSetEvent((PRKEVENT)(v3 + 1008), 0, 0);
     }
     else
     {
-      KeSetEvent(v10, 0, 0);
+      KeSetEvent(v11, 0, 0);
       KeClearEvent((PRKEVENT)(v3 + 1008));
     }
   }

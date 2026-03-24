@@ -7,12 +7,12 @@
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     HviGetHypervisorFeatures @ 0x14017D6F0 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorVendorMicrosoft @ 0x1401863B0 (HviIsHypervisorVendorMicrosoft.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x140322250 (HviGetHardwareFeatures.c)
- *     RtlGetVersion @ 0x1406B4750 (RtlGetVersion.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     HviGetHypervisorFeatures @ 0x14017D710 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1401863D0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x140322350 (HviGetHardwareFeatures.c)
+ *     RtlGetVersion @ 0x1406B4730 (RtlGetVersion.c)
  */
 
 char EtwpTraceSystemInitialization()
@@ -84,7 +84,7 @@ char EtwpTraceSystemInitialization()
   __int64 v65; // [rsp+330h] [rbp+228h]
 
   v14 = InitSafeBootMode;
-  v13 = 8385;
+  v13 = 8510;
   VersionInformation.dwOSVersionInfoSize = 284;
   Version = RtlGetVersion(&VersionInformation);
   if ( Version >= 0 )
@@ -122,7 +122,7 @@ char EtwpTraceSystemInitialization()
       v56 = 8LL;
       v58 = 4LL;
       v60 = 1LL;
-      TlgWrite(&stru_1404002D0, &unk_140372E3E, 0LL, 0LL, 0xCu, &pData);
+      TlgWrite(&stru_1404002D0, &unk_140373469, 0LL, 0LL, 0xCu, &pData);
     }
     LOBYTE(Version) = HviIsHypervisorVendorMicrosoft();
     if ( (_BYTE)Version )
@@ -140,7 +140,7 @@ char EtwpTraceSystemInitialization()
           v64 = &v10;
           v63 = 4LL;
           v65 = 1LL;
-          LOBYTE(Version) = TlgWrite(&stru_1404002D0, &unk_140372E09, 0LL, 0LL, 4u, &v61);
+          LOBYTE(Version) = TlgWrite(&stru_1404002D0, &unk_140372F19, 0LL, 0LL, 4u, &v61);
         }
       }
     }
@@ -169,7 +169,7 @@ char EtwpTraceSystemInitialization()
         UserData.Ptr = (ULONGLONG)&EtwBootPerfData;
         LOBYTE(Version) = EtwWriteEx(v4, &BootPerformanceData, 0LL, 0, 0LL, 0LL, 1u, &UserData);
       }
-      if ( (qword_140409DD8 & 4) != 0 )
+      if ( (qword_140409D98 & 4) != 0 )
       {
         SystemTimePrecise = RtlGetSystemTimePrecise();
         v8 = *(_QWORD *)(KeLoaderBlock_0 + 240) + 2872LL;

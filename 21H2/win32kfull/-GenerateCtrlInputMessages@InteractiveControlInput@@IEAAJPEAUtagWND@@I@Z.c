@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GenerateCtrlInputMessages@InteractiveControlInput@@IEAAJPEAUtagWND@@I@Z @ 0x1C0255360
+ * XREFs of ?GenerateCtrlInputMessages@InteractiveControlInput@@IEAAJPEAUtagWND@@I@Z @ 0x1C02585F4
  * Callers:
- *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C025547C (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
+ *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C0258710 (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
  * Callees:
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A60 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A40 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
  */
 
 __int64 __fastcall InteractiveControlInput::GenerateCtrlInputMessages(
@@ -54,7 +54,13 @@ LABEL_10:
         }
       }
 LABEL_11:
-      if ( !_PostTransformableMessageExtended(a2, v8, v9, v7, (struct tagINPUT_MESSAGE_SOURCE *)&v11, 1) )
+      if ( !_PostTransformableMessageExtended(
+              (__int64)a2,
+              v8,
+              v9,
+              (struct _LARGE_STRING *)v7,
+              (struct tagINPUT_MESSAGE_SOURCE *)&v11,
+              1) )
         return (unsigned int)-1073740030;
 LABEL_12:
       ++v8;

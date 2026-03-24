@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiGetPath @ 0x1C02ABEC0
+ * XREFs of NtGdiGetPath @ 0x1C02AD750
  * Callers:
  *     <none>
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0137840 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?bInactive@DC@@QEBAHXZ @ 0x1C0138894 (-bInactive@DC@@QEBAHXZ.c)
- *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0282D44 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0144D0C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ?bInactive@DC@@QEBAHXZ @ 0x1C0145D94 (-bInactive@DC@@QEBAHXZ.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C0286614 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
  */
 
 __int64 __fastcall NtGdiGetPath(HDC a1, struct _POINTL *Address, char *a3, unsigned int a4)

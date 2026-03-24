@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserDdeInitialize @ 0x1C010D550
+ * XREFs of NtUserDdeInitialize @ 0x1C0127FE0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxCsDdeInitialize @ 0x1C010D64C (xxxCsDdeInitialize.c)
- *     xxxDestroyThreadDDEObject @ 0x1C0119D30 (xxxDestroyThreadDDEObject.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxCsDdeInitialize @ 0x1C01280E0 (xxxCsDdeInitialize.c)
+ *     xxxDestroyThreadDDEObject @ 0x1C0135520 (xxxDestroyThreadDDEObject.c)
  */
 
 __int64 __fastcall NtUserDdeInitialize(_QWORD *a1, _QWORD *a2, _DWORD *a3, int a4, __int64 a5)
@@ -19,7 +19,7 @@ __int64 __fastcall NtUserDdeInitialize(_QWORD *a1, _QWORD *a2, _DWORD *a3, int a
   v13 = 0LL;
   v14 = 0LL;
   v12 = 0;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v10 = xxxCsDdeInitialize((unsigned int)&v13, (unsigned int)&v14, (unsigned int)&v12, a4, a5);
   if ( !v10 )
   {

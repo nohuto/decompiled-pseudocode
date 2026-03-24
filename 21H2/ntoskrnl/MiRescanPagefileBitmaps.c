@@ -1,30 +1,30 @@
 /*
- * XREFs of MiRescanPagefileBitmaps @ 0x14025ED04
+ * XREFs of MiRescanPagefileBitmaps @ 0x1403BF9B8
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14025F6B0 (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
  * Callees:
- *     MiRescanPageFileBitmapPortion @ 0x14025EDC8 (MiRescanPageFileBitmapPortion.c)
- *     RtlFindNextClearRunUlong @ 0x14025EFDC (RtlFindNextClearRunUlong.c)
- *     MiInitializePagefileBitmapsCache @ 0x14025F1A4 (MiInitializePagefileBitmapsCache.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1402B81E8 (MiRescanPageFileBitmapPortion.c)
+ *     RtlFindNextClearRunUlong @ 0x1402B83F8 (RtlFindNextClearRunUlong.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403BFB78 (MiInitializePagefileBitmapsCache.c)
  */
 
 __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
 {
   int v1; // ebx
-  int v3; // r8d
+  __int64 v3; // r8
   __int64 v4; // rsi
-  int v5; // ebp
+  unsigned int v5; // ebp
   __int64 v6; // rax
   __int64 result; // rax
-  _DWORD v8[2]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v8[2]; // [rsp+30h] [rbp-28h] BYREF
   __int64 v9; // [rsp+38h] [rbp-20h]
-  int v10; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v10; // [rsp+60h] [rbp+8h] BYREF
   __int64 v11; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = 0;
   v10 = 0;
   v8[1] = 0;
-  MiInitializePagefileBitmapsCache();
+  MiInitializePagefileBitmapsCache(a1);
   v4 = *(_QWORD *)(a1 + 176);
   v5 = 0;
   v8[0] = *(_DWORD *)a1;
@@ -33,14 +33,14 @@ __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
   v9 = *(_QWORD *)(v6 + 32);
   while ( 1 )
   {
-    result = RtlFindNextClearRunUlong((unsigned int)v8, v5, v3, -1, (__int64)&v10);
+    result = RtlFindNextClearRunUlong(v8, v5, v3, 0xFFFFFFFF, &v10);
     if ( !(_DWORD)result )
       break;
     v3 = v10;
     v5 = v10 + result;
     if ( (unsigned int)result > *(_DWORD *)(v4 + 52) )
     {
-      MiRescanPageFileBitmapPortion(a1, *(_QWORD *)(a1 + 112) + 8, v10, result, (__int64)&v11);
+      MiRescanPageFileBitmapPortion(a1, *(_QWORD *)(a1 + 112) + 8LL, v10, result, &v11);
       v4 = v11;
     }
   }

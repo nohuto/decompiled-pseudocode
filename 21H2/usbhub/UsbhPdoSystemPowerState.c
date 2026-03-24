@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhPdoSystemPowerState @ 0x1C000B094
+ * XREFs of UsbhPdoSystemPowerState @ 0x1C0010E28
  * Callers:
- *     UsbhPdoPower_SetPower @ 0x1C0002AD0 (UsbhPdoPower_SetPower.c)
+ *     UsbhPdoPower_SetPower @ 0x1C001AFE0 (UsbhPdoPower_SetPower.c)
  * Callees:
- *     UsbhSetPdoPowerState @ 0x1C0002CC0 (UsbhSetPdoPowerState.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSetPdoPowerState @ 0x1C0017660 (UsbhSetPdoPowerState.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
  */
 
 __int64 __fastcall UsbhPdoSystemPowerState(__int64 a1, __int64 a2, IRP *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall UsbhPdoSystemPowerState(__int64 a1, __int64 a2, IRP *a3)
   KSPIN_LOCK *v9; // rbx
   KIRQL v10; // al
   int v11; // ecx
-  __int64 v12; // r8
+  int v12; // r8d
   int v13; // r9d
   _DWORD *v14; // rbx
   KIRQL v15; // dl

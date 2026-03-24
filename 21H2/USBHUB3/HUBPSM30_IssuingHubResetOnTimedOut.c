@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPSM30_IssuingHubResetOnTimedOut @ 0x1C0012210
+ * XREFs of HUBPSM30_IssuingHubResetOnTimedOut @ 0x1C0011D10
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReleaseInterruptReference @ 0x1C000FCB8 (HUBMUX_ReleaseInterruptReference.c)
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FEC0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBMUX_ReleaseInterruptReference @ 0x1C000F89C (HUBMUX_ReleaseInterruptReference.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_IssuingHubResetOnTimedOut(__int64 a1)

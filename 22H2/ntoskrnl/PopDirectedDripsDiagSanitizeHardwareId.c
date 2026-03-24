@@ -1,51 +1,44 @@
 /*
- * XREFs of PopDirectedDripsDiagSanitizeHardwareId @ 0x14099F0C4
+ * XREFs of PopDirectedDripsDiagSanitizeHardwareId @ 0x1408F7FB4
  * Callers:
- *     PopDirectedDripsDiagRundownDevices @ 0x14099E948 (PopDirectedDripsDiagRundownDevices.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x1408F7814 (PopDirectedDripsDiagRundownDevices.c)
  * Callees:
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
  */
 
 const UNICODE_STRING *__fastcall PopDirectedDripsDiagSanitizeHardwareId(unsigned __int16 *a1)
 {
-  unsigned __int16 *v1; // rbx
-  __int64 v2; // rdx
-  int v3; // ecx
-  unsigned int v4; // edi
-  unsigned int v5; // ecx
+  __int64 v1; // rdx
+  unsigned int v2; // ebx
+  unsigned __int16 *v3; // rsi
+  __int64 v4; // r14
+  unsigned int i; // edi
   UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = a1;
-  v2 = 0LL;
-  v3 = *a1;
+  v1 = 0LL;
+  v2 = *a1 >> 1;
+  v3 = a1;
   String2 = 0LL;
-  if ( (v3 & 0xFFFFFFFE) != 0 )
+  if ( v2 )
   {
+    v4 = *((_QWORD *)a1 + 1);
     while ( 1 )
     {
-      v4 = v2;
-      v5 = (unsigned __int16)v3 >> 1;
-      if ( (unsigned int)v2 < v5 )
+      for ( i = v1; i < v2; ++i )
       {
-        do
-        {
-          if ( *(_WORD *)(*((_QWORD *)v1 + 1) + 2LL * v4) == 44 )
-            break;
-          ++v4;
-        }
-        while ( v4 < v5 );
+        if ( *(_WORD *)(v4 + 2LL * i) == 44 )
+          break;
       }
-      String2.Buffer = (wchar_t *)(*((_QWORD *)v1 + 1) + 2 * v2);
-      String2.Length = 2 * (v4 - v2);
+      String2.Buffer = (wchar_t *)(v4 + 2 * v1);
+      String2.Length = 2 * (i - v1);
       String2.MaximumLength = String2.Length;
       if ( RtlPrefixUnicodeString(&PopBthEnumEnumeratorPrefix, &String2, 1u) )
         break;
-      v2 = v4 + 1;
-      LOWORD(v3) = *v1;
-      if ( (unsigned int)v2 >= *v1 >> 1 )
-        return (const UNICODE_STRING *)v1;
+      v1 = i + 1;
+      if ( (unsigned int)v1 >= v2 )
+        return (const UNICODE_STRING *)v3;
     }
     return &PopBthEnumEnumeratorPrefix;
   }
-  return (const UNICODE_STRING *)v1;
+  return (const UNICODE_STRING *)v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Flush@CD3DDevice@@QEAAXXZ @ 0x1800FEE74
+ * XREFs of ?Flush@CD3DDevice@@QEAAXXZ @ 0x1800DA9C8
  * Callers:
- *     ?AdvanceFrame@CD3DDevice@@QEAAJXZ @ 0x18007F3E4 (-AdvanceFrame@CD3DDevice@@QEAAJXZ.c)
- *     ?Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z @ 0x1800FEBD0 (-Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z.c)
- *     ?OnPresentComplete@MagnifierCaptureBitsResponse@@UEAAJXZ @ 0x1801E1960 (-OnPresentComplete@MagnifierCaptureBitsResponse@@UEAAJXZ.c)
- *     ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180294420 (-RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077330 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?FlushAllDevices@CDeviceManager@@QEAAXXZ @ 0x1800DA958 (-FlushAllDevices@CDeviceManager@@QEAAXXZ.c)
+ *     ?Present@CLegacyRemotingSwapChain@@UEAAJXZ @ 0x1800E53E0 (-Present@CLegacyRemotingSwapChain@@UEAAJXZ.c)
+ *     ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180252040 (-RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD3DDevice::Flush(CD3DDevice *this)
@@ -14,7 +14,7 @@ void __fastcall CD3DDevice::Flush(CD3DDevice *this)
   __int64 v2; // rcx
   int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *((_QWORD *)this + 71);
+  v2 = *((_QWORD *)this + 76);
   if ( v2 )
   {
     v3 = 29;
@@ -22,7 +22,7 @@ void __fastcall CD3DDevice::Flush(CD3DDevice *this)
   }
   else
   {
-    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 70) + 888LL))(*((_QWORD *)this + 70));
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 75) + 888LL))(*((_QWORD *)this + 75));
   }
-  *((_BYTE *)this + 1507) = 0;
+  *((_BYTE *)this + 1435) = 0;
 }

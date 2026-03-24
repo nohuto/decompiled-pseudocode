@@ -1,36 +1,37 @@
 /*
- * XREFs of ?AddRefResource@CChannel@@UEAAJI@Z @ 0x1800F0570
+ * XREFs of ?AddRefResource@CChannel@@UEAAJI@Z @ 0x18005FE20
  * Callers:
  *     <none>
  * Callees:
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?IsValidHandle@CChannel@@AEAA_NI@Z @ 0x1800444B0 (-IsValidHandle@CChannel@@AEAA_NI@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z @ 0x18005DEE8 (-CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z.c)
  */
 
 __int64 __fastcall CChannel::AddRefResource(CChannel *this, unsigned int a2)
 {
-  unsigned int v4; // ebx
-  int v6[6]; // [rsp+20h] [rbp-18h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v4; // rcx
+  int v5; // eax
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
+  struct _RTL_CRITICAL_SECTION *v9; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v10; // [rsp+48h] [rbp+10h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v6, this);
-  v4 = 0;
-  if ( CChannel::IsValidHandle(this, a2) )
+  v10 = a2;
+  v9 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  if ( a2 )
   {
-    ++*(_DWORD *)(*((_QWORD *)this + 2) + 16LL * (a2 - 1));
+    v5 = CHandleTable::CreateOrAddRefOnChannel((__int64)this + 16, this, 0, &v10);
+    v7 = v5;
+    if ( v5 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x2A3u, 0LL);
   }
   else
   {
-    v4 = -2147024809;
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x2C3,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)0x80070057LL,
-      v6[0]);
+    v7 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2147024809, 0x2A0u, 0LL);
   }
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v6);
-  return v4;
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v9);
+  return v7;
 }

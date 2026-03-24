@@ -1,44 +1,43 @@
 /*
- * XREFs of MiChargePartitionResidentAvailable @ 0x1402E6278
+ * XREFs of MiChargePartitionResidentAvailable @ 0x140308418
  * Callers:
- *     MiProbeLockFrame @ 0x1402364E0 (MiProbeLockFrame.c)
- *     MiLockPageTablePage @ 0x140237AE0 (MiLockPageTablePage.c)
- *     MmCheckCachedPageStates @ 0x140265200 (MmCheckCachedPageStates.c)
- *     MiResolveProtoPteFault @ 0x140267DB0 (MiResolveProtoPteFault.c)
- *     MiObtainFaultCharges @ 0x140274A90 (MiObtainFaultCharges.c)
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiChargeForLockedPage @ 0x1402DC320 (MiChargeForLockedPage.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiLockPageTablePage @ 0x140209DB0 (MiLockPageTablePage.c)
+ *     MiProbeLockFrame @ 0x14020AC90 (MiProbeLockFrame.c)
+ *     MiResolveProtoPteFault @ 0x140215390 (MiResolveProtoPteFault.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
+ *     MiObtainFaultCharges @ 0x14021BA50 (MiObtainFaultCharges.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MmCheckCachedPageStates @ 0x1402A1C20 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x1402A4700 (MiMakePageAvoidRead.c)
+ *     MiChargeForLockedPage @ 0x1402A9130 (MiChargeForLockedPage.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  signed __int64 v5; // r11
-  unsigned __int64 v6; // rcx
-  signed __int64 v7; // r8
-  bool v8; // zf
-  __int64 v9; // rax
-  BOOL v10; // r10d
+  signed __int64 v5; // r10
+  unsigned __int64 v6; // r8
+  __int64 v7; // rax
+  signed __int64 v8; // r10
+  BOOL v9; // r11d
   struct _KPRCB *CurrentPrcb; // rcx
-  unsigned int CachedResidentAvailable; // edx
-  unsigned __int64 v13; // rdx
-  struct _KPRCB *v14; // r11
-  __int64 v15; // r8
+  unsigned int CachedResidentAvailable; // eax
+  unsigned __int64 v12; // rdx
+  struct _KPRCB *v13; // r10
+  __int64 v14; // r8
+  bool v15; // zf
   signed __int32 v16; // eax
-  __int64 *v18; // r8
+  __int64 *v18; // rcx
   __int64 v19; // rdi
   unsigned __int32 v20; // eax
-  unsigned __int64 v21; // rcx
+  unsigned __int64 v21; // r8
 
   if ( a2 + a3 >= a2 || a3 == 0xFFFFFFFFLL )
   {
-    v5 = *(_QWORD *)(a1 + 17280);
+    v5 = *(_QWORD *)(a1 + 7168);
     v6 = 0LL;
-    if ( v5 < 1024 && (_UNKNOWN *)a1 == &MiSystemPartition )
+    if ( v5 < 1024 && (ULONG_PTR *)a1 == &MiSystemPartition )
     {
       if ( (_DWORD)KeNumberProcessors_0 )
       {
@@ -46,9 +45,9 @@ __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int
         v19 = (unsigned int)KeNumberProcessors_0;
         do
         {
-          if ( *(_DWORD *)(*v18 + 34460) != -1 )
+          if ( *(_DWORD *)(*v18 + 33564) != -1 )
           {
-            v20 = _InterlockedExchange((volatile __int32 *)(*v18 + 34460), -1);
+            v20 = _InterlockedExchange((volatile __int32 *)(*v18 + 33564), -1);
             if ( v20 != -1 )
               v6 += v20;
           }
@@ -61,7 +60,7 @@ __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int
       {
         v21 = v6 - a2;
         if ( v21 )
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17280), v21);
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v21);
         return 3LL;
       }
       a2 -= v6;
@@ -72,80 +71,86 @@ LABEL_45:
       if ( a3 != 0xFFFFFFFFLL )
       {
 LABEL_46:
-        ++dword_140C680AC;
+        ++dword_140C4E7F4;
         if ( v6 )
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17280), v6);
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v6);
         return 0LL;
       }
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17280), -(__int64)a2);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), -(__int64)a2);
       return 3LL;
     }
     while ( 1 )
     {
       if ( a2 + a3 > v5 && a3 != 0xFFFFFFFFLL )
         goto LABEL_46;
-      v7 = v5 - a2;
-      v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 17280), v5 - a2, v5);
-      v8 = v5 == v9;
-      v5 = v9;
-      if ( v8 )
+      v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 7168), v5 - a2, v5);
+      if ( v5 == v7 )
         break;
-      if ( v9 <= 0 )
+      v5 = v7;
+      if ( v7 <= 0 )
         goto LABEL_45;
     }
-    v10 = v7 < 1024;
-    if ( (_UNKNOWN *)a1 == &MiSystemPartition )
+    v8 = v5 - a2;
+    v9 = v8 < 1024;
+    if ( (ULONG_PTR *)a1 == &MiSystemPartition )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       CachedResidentAvailable = CurrentPrcb->CachedResidentAvailable;
       if ( CachedResidentAvailable == -1 )
       {
-        if ( v7 < 2048 )
-          return (unsigned int)(v10 + 2);
-        _InterlockedCompareExchange((volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable, 0, -1);
-        CachedResidentAvailable = 0;
-      }
-      else if ( CachedResidentAvailable >= 0x40 || v7 <= 1024 )
-      {
-        return (unsigned int)(v10 + 2);
-      }
-      v13 = 128 - CachedResidentAvailable;
-      if ( v7 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 17280), v7 - v13, v7) )
-      {
-        v14 = KeGetCurrentPrcb();
-        v15 = (int)v14->CachedResidentAvailable;
-        if ( (_DWORD)v15 != -1 )
+        if ( v8 >= 2048 )
         {
-          if ( v13 + v15 <= 0x100 && v13 < 0x80000 )
+          _InterlockedCompareExchange((volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable, 0, -1);
+          CachedResidentAvailable = 0;
+          goto LABEL_9;
+        }
+      }
+      else if ( CachedResidentAvailable < 0x40 )
+      {
+LABEL_9:
+        if ( v8 > 1024 )
+        {
+          v12 = 128 - CachedResidentAvailable;
+          if ( v8 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 7168), v8 - v12, v8) )
           {
-            do
+            v13 = KeGetCurrentPrcb();
+            v14 = (int)v13->CachedResidentAvailable;
+            if ( (_DWORD)v14 != -1 )
             {
-              v16 = _InterlockedCompareExchange(
-                      (volatile signed __int32 *)&v14->CachedResidentAvailable,
-                      v13 + v15,
-                      v15);
-              v8 = (_DWORD)v15 == v16;
-              LODWORD(v15) = v16;
-              if ( v8 )
-                return (unsigned int)(v10 + 2);
+              if ( v12 + v14 <= 0x100 )
+              {
+                do
+                {
+                  if ( v12 >= 0x80000 )
+                    break;
+                  v16 = _InterlockedCompareExchange(
+                          (volatile signed __int32 *)&v13->CachedResidentAvailable,
+                          v12 + v14,
+                          v14);
+                  v15 = (_DWORD)v14 == v16;
+                  LODWORD(v14) = v16;
+                  if ( v15 )
+                    return (unsigned int)(v9 + 2);
+                }
+                while ( v16 != -1 && v12 + v16 <= 0x100 );
+              }
+              if ( (int)v14 > 192
+                && (_DWORD)v14 == _InterlockedCompareExchange(
+                                    (volatile signed __int32 *)&v13->CachedResidentAvailable,
+                                    192,
+                                    v14) )
+              {
+                v12 += (int)v14 - 192;
+              }
             }
-            while ( v16 != -1 && v13 + v16 <= 0x100 );
-          }
-          if ( (int)v15 > 192
-            && (_DWORD)v15 == _InterlockedCompareExchange(
-                                (volatile signed __int32 *)&v14->CachedResidentAvailable,
-                                192,
-                                v15) )
-          {
-            v13 += (int)v15 - 192;
+            if ( v12 )
+              _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v12);
           }
         }
-        if ( v13 )
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17280), v13);
       }
     }
-    return (unsigned int)(v10 + 2);
+    return (unsigned int)(v9 + 2);
   }
-  ++dword_140C680A8;
+  ++dword_140C4E7F0;
   return 0LL;
 }

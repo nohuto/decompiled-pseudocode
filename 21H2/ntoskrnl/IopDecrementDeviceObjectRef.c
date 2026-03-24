@@ -1,144 +1,151 @@
 /*
- * XREFs of IopDecrementDeviceObjectRef @ 0x1402A7190
+ * XREFs of IopDecrementDeviceObjectRef @ 0x140353B90
  * Callers:
- *     IopCheckVpbMounted @ 0x1402A7910 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1403A15FC (IopDecrementDeviceObjectHandleCount.c)
- *     IopMountVolume @ 0x14068E624 (IopMountVolume.c)
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IoCreateStreamFileObjectEx2 @ 0x14074CD70 (IoCreateStreamFileObjectEx2.c)
- *     IopLoadFileSystemDriver @ 0x14080C5C8 (IopLoadFileSystemDriver.c)
- *     IopShutdownBaseFileSystems @ 0x140A65554 (IopShutdownBaseFileSystems.c)
+ *     IopCheckVpbMounted @ 0x140353920 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x14039551C (IopDecrementDeviceObjectHandleCount.c)
+ *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14071BF10 (IoCreateStreamFileObjectEx2.c)
+ *     IopLoadFileSystemDriver @ 0x14077D1D4 (IopLoadFileSystemDriver.c)
+ *     IopShutdownBaseFileSystems @ 0x1409AB134 (IopShutdownBaseFileSystems.c)
  * Callees:
- *     KxWaitForLockChainValid @ 0x140282C20 (KxWaitForLockChainValid.c)
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     KxWaitForLockOwnerShip @ 0x140311C70 (KxWaitForLockOwnerShip.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045A10C (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14056E6FC (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
+ *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
-__int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, char a2)
+__int64 __fastcall IopDecrementDeviceObjectRef(
+        ULONG_PTR BugCheckParameter2,
+        char a2,
+        __int64 a3,
+        _DWORD *SchedulerAssist)
 {
-  unsigned __int8 v4; // r14
-  unsigned __int8 CurrentIrql; // bp
-  char *v6; // rbx
-  volatile __int64 *v7; // rdi
+  unsigned __int8 v6; // bp
+  unsigned __int8 CurrentIrql; // r14
+  char *v8; // rbx
+  volatile __int64 *v9; // rdi
   struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v9; // rdx
-  int v10; // eax
-  volatile signed __int64 **v11; // rbx
-  __int64 v12; // rax
-  struct _KPRCB *v13; // rcx
-  _DWORD *v14; // rdx
-  _DWORD *SchedulerAssist; // r9
-  int v17; // eax
-  __int64 v18; // rcx
+  _DWORD *v11; // rdx
+  _QWORD *v12; // rdx
+  int v13; // eax
+  volatile signed __int64 **v14; // rbx
+  __int64 v15; // rax
+  struct _KPRCB *v16; // rcx
+  _DWORD *v17; // rdx
   int v19; // eax
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r9
-  _DWORD *v22; // r8
-  int v23; // eax
-  bool v24; // zf
+  __int64 v20; // rcx
+  int v21; // eax
+  unsigned __int8 v22; // al
+  struct _KPRCB *v23; // r9
+  _DWORD *v24; // r8
+  int v25; // eax
+  bool v26; // zf
   void *retaddr; // [rsp+58h] [rbp+0h]
 
-  v4 = 0;
+  v6 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    a3 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
-  v6 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160;
-  v7 = (volatile __int64 *)*((_QWORD *)v6 + 1);
+  v8 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160;
+  v9 = (volatile __int64 *)*((_QWORD *)v8 + 1);
   CurrentPrcb = KeGetCurrentPrcb();
-  v9 = CurrentPrcb->SchedulerAssist;
-  if ( v9 )
+  v11 = CurrentPrcb->SchedulerAssist;
+  if ( v11 )
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v17 = v9[6];
-      v9[6] = v17 + 1;
-      if ( v17 == -1 )
+      v19 = v11[6];
+      v11[6] = v19 + 1;
+      if ( v19 == -1 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
-    KiAcquireQueuedSpinLockInstrumented(v6, v7);
-  }
-  else if ( _InterlockedExchange64(v7, (__int64)v6) )
-  {
-    KxWaitForLockOwnerShip(v6);
-  }
-  v10 = *(_DWORD *)(BugCheckParameter2 + 4) - 1;
-  *(_DWORD *)(BugCheckParameter2 + 4) = v10;
-  if ( v10 < 0 )
-  {
-    v18 = *(_QWORD *)(BugCheckParameter2 + 8);
-    if ( v18 )
-    {
-      IoAddTriageDumpDataBlock(v18, (PVOID)0x150);
-      IoAddTriageDumpDataBlock(
-        *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) + 64LL),
-        (PVOID)*(unsigned __int16 *)(*(_QWORD *)(BugCheckParameter2 + 8) + 56LL));
-      v10 = *(_DWORD *)(BugCheckParameter2 + 4);
-    }
-    KeBugCheckEx(0x18u, 0LL, BugCheckParameter2, 6uLL, v10);
-  }
-  if ( !v10 && (a2 || (*(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 312) + 32LL) & 7) != 0) )
-    return (unsigned __int8)IopCompleteUnloadOrDelete(BugCheckParameter2);
-  v11 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-  {
-    KiReleaseQueuedSpinLockInstrumented(v11, retaddr);
+    KiAcquireQueuedSpinLockInstrumented(v8, v9);
   }
   else
   {
-    _m_prefetchw(v11);
-    v12 = (__int64)*v11;
-    if ( !*v11 )
+    v12 = (_QWORD *)_InterlockedExchange64(v9, (__int64)v8);
+    if ( v12 )
+      KxWaitForLockOwnerShip((__int64)v8, v12);
+  }
+  v13 = *(_DWORD *)(BugCheckParameter2 + 4) - 1;
+  *(_DWORD *)(BugCheckParameter2 + 4) = v13;
+  if ( v13 < 0 )
+  {
+    v20 = *(_QWORD *)(BugCheckParameter2 + 8);
+    if ( v20 )
     {
-      if ( v11 == (volatile signed __int64 **)_InterlockedCompareExchange64(v11[1], 0LL, (signed __int64)v11) )
-        goto LABEL_11;
-      v12 = KxWaitForLockChainValid((__int64 *)v11);
+      IoAddTriageDumpDataBlock(v20, (PVOID)0x150);
+      IoAddTriageDumpDataBlock(
+        *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) + 64LL),
+        (PVOID)*(unsigned __int16 *)(*(_QWORD *)(BugCheckParameter2 + 8) + 56LL));
+      v13 = *(_DWORD *)(BugCheckParameter2 + 4);
     }
-    *v11 = 0LL;
-    _InterlockedXor64((volatile signed __int64 *)(v12 + 8), 1uLL);
+    KeBugCheckEx(0x18u, 0LL, BugCheckParameter2, 6uLL, v13);
+  }
+  if ( !v13 && (a2 || (*(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 312) + 32LL) & 7) != 0) )
+    return (unsigned __int8)IopCompleteUnloadOrDelete(BugCheckParameter2);
+  v14 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
+  {
+    KiReleaseQueuedSpinLockInstrumented(v14, retaddr);
+  }
+  else
+  {
+    _m_prefetchw(v14);
+    v15 = (__int64)*v14;
+    if ( !*v14 )
+    {
+      if ( v14 == (volatile signed __int64 **)_InterlockedCompareExchange64(v14[1], 0LL, (signed __int64)v14) )
+        goto LABEL_11;
+      v15 = KxWaitForLockChainValid((__int64 *)v14, (__int64)v12, a3, (__int64)SchedulerAssist);
+    }
+    *v14 = 0LL;
+    _InterlockedXor64((volatile signed __int64 *)(v15 + 8), 1uLL);
   }
 LABEL_11:
-  v13 = KeGetCurrentPrcb();
-  v14 = v13->SchedulerAssist;
-  if ( v14 )
+  v16 = KeGetCurrentPrcb();
+  v17 = v16->SchedulerAssist;
+  if ( v17 )
   {
-    if ( v13->NestingLevel <= 1u )
+    if ( v16->NestingLevel <= 1u )
     {
-      v19 = v14[6] - 1;
-      v14[6] = v19;
-      if ( !v19 )
-        KiRemoveSystemWorkPriorityKick(v13);
+      v21 = v17[6] - 1;
+      v17[6] = v21;
+      if ( !v21 )
+        KiRemoveSystemWorkPriorityKick(v16);
     }
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v20 = KeGetCurrentIrql();
-      if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+      v22 = KeGetCurrentIrql();
+      if ( v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
       {
-        v21 = KeGetCurrentPrcb();
-        v22 = v21->SchedulerAssist;
-        v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v24 = (v23 & v22[5]) == 0;
-        v22[5] &= v23;
-        if ( v24 )
-          KiRemoveSystemWorkPriorityKick(v21);
+        v23 = KeGetCurrentPrcb();
+        v24 = v23->SchedulerAssist;
+        v25 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v26 = (v25 & v24[5]) == 0;
+        v24[5] &= v25;
+        if ( v26 )
+          KiRemoveSystemWorkPriorityKick(v23);
       }
     }
   }
   __writecr8(CurrentIrql);
-  return v4;
+  return v6;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxIsDevicePotentialDripsConstraint @ 0x1402D81CC
+ * XREFs of PopFxIsDevicePotentialDripsConstraint @ 0x1402D82CC
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
  */
 

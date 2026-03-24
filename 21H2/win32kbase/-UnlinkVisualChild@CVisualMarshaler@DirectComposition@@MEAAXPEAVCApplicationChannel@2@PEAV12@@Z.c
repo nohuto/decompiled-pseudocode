@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UnlinkVisualChild@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@PEAV12@@Z @ 0x1C0214EC0
+ * XREFs of ?UnlinkVisualChild@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@PEAV12@@Z @ 0x1C01D5370
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 void __fastcall DirectComposition::CVisualMarshaler::UnlinkVisualChild(
@@ -12,7 +12,7 @@ void __fastcall DirectComposition::CVisualMarshaler::UnlinkVisualChild(
         struct DirectComposition::CVisualMarshaler *a3)
 {
   *((_DWORD *)a3 + 4) |= 8u;
-  *((_QWORD *)a3 + 27) = *((_QWORD *)this + 26);
-  *((_QWORD *)this + 26) = a3;
+  *((_QWORD *)a3 + 26) = *((_QWORD *)this + 25);
+  *((_QWORD *)this + 25) = a3;
   DirectComposition::CResourceMarshaler::AddRef(a3);
 }

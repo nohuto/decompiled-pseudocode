@@ -1,10 +1,10 @@
 /*
- * XREFs of ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C0026210
+ * XREFs of ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C0024B8C
  * Callers:
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024CFC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C008C694 (-xxxEnsureAllDpiCursors@@YAXXZ.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024954 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0025A8C (-xxxEnsureAllDpiCursors@@YAXXZ.c)
  * Callees:
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0026260 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024BDC (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
  */
 
 void __fastcall xxxEnsureDpiCursorsForSysCur(unsigned int a1)

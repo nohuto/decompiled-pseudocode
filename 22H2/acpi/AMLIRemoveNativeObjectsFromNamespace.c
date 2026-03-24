@@ -1,29 +1,29 @@
 /*
- * XREFs of AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C6C
+ * XREFs of AMLIRemoveNativeObjectsFromNamespace @ 0x1C00645A0
  * Callers:
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C0010E04 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
  * Callees:
- *     MarkNativeObjectsDefunct @ 0x1C004A0B4 (MarkNativeObjectsDefunct.c)
- *     FreeObjOwner @ 0x1C004B670 (FreeObjOwner.c)
- *     FreeOwnedObjects @ 0x1C004B83C (FreeOwnedObjects.c)
- *     MigrateDefunctObjectsToNewOwner @ 0x1C004C0FC (MigrateDefunctObjectsToNewOwner.c)
- *     NewObjOwner @ 0x1C004C344 (NewObjOwner.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     MarkNativeObjectsDefunct @ 0x1C006468C (MarkNativeObjectsDefunct.c)
+ *     FreeObjOwner @ 0x1C006517C (FreeObjOwner.c)
+ *     FreeOwnedObjects @ 0x1C006535C (FreeOwnedObjects.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C00654F8 (MigrateDefunctObjectsToNewOwner.c)
  */
 
 void __fastcall AMLIRemoveNativeObjectsFromNamespace(__int64 *a1)
 {
-  __int64 v2; // rbx
+  struct _EX_RUNDOWN_REF *v2; // rbx
   __int64 v3; // rbx
   KIRQL v4; // di
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+  struct _EX_RUNDOWN_REF *v5; // [rsp+38h] [rbp+10h] BYREF
+  struct _EX_RUNDOWN_REF *v6; // [rsp+40h] [rbp+18h] BYREF
 
   v5 = 0LL;
   v2 = 0LL;
   v6 = 0LL;
-  if ( (int)NewObjOwner(gpheapGlobal, &v5) >= 0 )
+  if ( (int)NewObjOwner((struct _SLIST_ENTRY *)gpheapGlobal, &v5) >= 0 )
   {
-    if ( (int)NewObjOwner(gpheapGlobal, &v6) < 0 )
+    if ( (int)NewObjOwner((struct _SLIST_ENTRY *)gpheapGlobal, &v6) < 0 )
     {
       v2 = v6;
     }

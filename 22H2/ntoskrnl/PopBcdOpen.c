@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBcdOpen @ 0x1408043A0
+ * XREFs of PopBcdOpen @ 0x1408F58B4
  * Callers:
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059DEF8 (PopAdaptivePersistSystemInitatedRebootState.c)
- *     PopAdaptiveInitializeBootContext @ 0x140B3963C (PopAdaptiveInitializeBootContext.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
+ *     PoInitHiberServices @ 0x14079AED8 (PoInitHiberServices.c)
  * Callees:
- *     BcdOpenStore @ 0x14080561C (BcdOpenStore.c)
+ *     BcdOpenStore @ 0x140782D48 (BcdOpenStore.c)
  */
 
 __int64 __fastcall PopBcdOpen(__int64 a1)
 {
-  return BcdOpenStore(0LL, 2LL, a1);
+  return BcdOpenStore(a1, 2u, a1);
 }

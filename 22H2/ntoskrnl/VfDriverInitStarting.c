@@ -1,8 +1,8 @@
 /*
- * XREFs of VfDriverInitStarting @ 0x140ABE304
+ * XREFs of VfDriverInitStarting @ 0x1409C1F74
  * Callers:
- *     MmCallDllInitialize @ 0x1408133E0 (MmCallDllInitialize.c)
- *     PnpInitializeBootStartDriver @ 0x140B41100 (PnpInitializeBootStartDriver.c)
+ *     MmCallDllInitialize @ 0x1407AC8D0 (MmCallDllInitialize.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
  * Callees:
  *     <none>
  */

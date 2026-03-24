@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CAutoUnlockBuffer@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ @ 0x1C00CEB60
+ * XREFs of ??1CAutoUnlockBuffer@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ @ 0x1C00BF4AC
  * Callers:
- *     NtGdiGetOPMInformation @ 0x1C00CEA40 (NtGdiGetOPMInformation.c)
- *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C016D1E0 (NtGdiGetCOPPCompatibleOPMInformation.c)
+ *     NtGdiGetOPMInformation @ 0x1C00BF3B0 (NtGdiGetOPMInformation.c)
+ *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C01402B0 (NtGdiGetCOPPCompatibleOPMInformation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall COPMSimpleBufferPool<_DXGKMDT_OPM_GET_INFO_PARAMETERS>::CAutoUnlockBuffer::~CAutoUnlockBuffer(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetTexture2D@CD2DBitmap@@$4PPPPPPPM@CI@EAAPEAUID3D11Texture2D@@XZ @ 0x180109A90
+ * XREFs of ?GetTexture2D@CD2DBitmap@@$4PPPPPPPM@CI@EAAPEAUID3D11Texture2D@@XZ @ 0x1800F82A0
  * Callers:
  *     <none>
  * Callees:

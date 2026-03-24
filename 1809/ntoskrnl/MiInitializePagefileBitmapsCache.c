@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializePagefileBitmapsCache @ 0x140188204
+ * XREFs of MiInitializePagefileBitmapsCache @ 0x140188224
  * Callers:
- *     MiRescanPagefileBitmaps @ 0x14018804C (MiRescanPagefileBitmaps.c)
- *     MiModifiedPageWriter @ 0x140188720 (MiModifiedPageWriter.c)
- *     MiCreatePagefile @ 0x14074CB40 (MiCreatePagefile.c)
+ *     MiRescanPagefileBitmaps @ 0x14018806C (MiRescanPagefileBitmaps.c)
+ *     MiModifiedPageWriter @ 0x140188740 (MiModifiedPageWriter.c)
+ *     MiCreatePagefile @ 0x14074CB20 (MiCreatePagefile.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)

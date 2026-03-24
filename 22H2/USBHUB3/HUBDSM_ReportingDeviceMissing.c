@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_ReportingDeviceMissing @ 0x1C001FCA0
+ * XREFs of HUBDSM_ReportingDeviceMissing @ 0x1C001D290
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_NotifyDeviceDisconnected @ 0x1C001730C (HUBPDO_NotifyDeviceDisconnected.c)
- *     HUBPDO_ReportDeviceAsMissing @ 0x1C001B310 (HUBPDO_ReportDeviceAsMissing.c)
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C0015DEC (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBPDO_ReportDeviceAsMissing @ 0x1C0019698 (HUBPDO_ReportDeviceAsMissing.c)
  */
 
 __int64 __fastcall HUBDSM_ReportingDeviceMissing(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDiagnosticTrace @ 0x1402D21B8
+ * XREFs of PnpDiagnosticTrace @ 0x14037C3D8
  * Callers:
- *     PnpDiagnosticTraceDriverFullInfo @ 0x1402D1F98 (PnpDiagnosticTraceDriverFullInfo.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x1402D20D4 (PnpDiagnosticTraceDeviceOperation.c)
- *     PnpCompleteSystemStartProcess @ 0x1403D2178 (PnpCompleteSystemStartProcess.c)
- *     PnpDiagnosticTraceAppVeto @ 0x14056294C (PnpDiagnosticTraceAppVeto.c)
- *     PiProcessStartSystemDevices @ 0x140863BE8 (PiProcessStartSystemDevices.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     IopInitializeSystemDrivers @ 0x140B110B4 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
- *     IopCallBootDriverReinitializationRoutines @ 0x140B2ABA4 (IopCallBootDriverReinitializationRoutines.c)
+ *     PnpDiagnosticTraceDriverFullInfo @ 0x14037C1B8 (PnpDiagnosticTraceDriverFullInfo.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14037C2F4 (PnpDiagnosticTraceDeviceOperation.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403C3418 (PnpCompleteSystemStartProcess.c)
+ *     PnpDiagnosticTraceAppVeto @ 0x14050F054 (PnpDiagnosticTraceAppVeto.c)
+ *     PiProcessStartSystemDevices @ 0x1407D3DFC (PiProcessStartSystemDevices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopCallBootDriverReinitializationRoutines @ 0x140A6EEAC (IopCallBootDriverReinitializationRoutines.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTrace(

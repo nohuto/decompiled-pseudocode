@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAllowAwayModeSettingCallback @ 0x140763220
+ * XREFs of PopAllowAwayModeSettingCallback @ 0x140763200
  * Callers:
  *     <none>
  * Callees:
- *     PopSetSystemState @ 0x140177794 (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x1401777B4 (PopSetSystemState.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  */
@@ -22,12 +22,12 @@ __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a
   {
     if ( *a2 )
     {
-      byte_140418112 = 1;
+      byte_1404180D2 = 1;
     }
     else
     {
-      byte_140418112 = 0;
-      if ( byte_140418111 )
+      byte_1404180D2 = 0;
+      if ( byte_1404180D1 )
         PopSetSystemState(4, 7u);
     }
     v6 = 0;

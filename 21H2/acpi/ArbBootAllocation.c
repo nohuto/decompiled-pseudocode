@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbBootAllocation @ 0x1C009BD00
+ * XREFs of ArbBootAllocation @ 0x1C00954B0
  * Callers:
- *     IrqArbBootAllocation @ 0x1C009B2C0 (IrqArbBootAllocation.c)
+ *     IrqArbBootAllocation @ 0x1C00942E0 (IrqArbBootAllocation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     RtlFreeRangeList_0 @ 0x1C002F18F (RtlFreeRangeList_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     ArbpBuildAlternative @ 0x1C009BFF8 (ArbpBuildAlternative.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     RtlFreeRangeList_0 @ 0x1C0031CCF (RtlFreeRangeList_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ArbpBuildAlternative @ 0x1C00957A8 (ArbpBuildAlternative.c)
  */
 
 __int64 __fastcall ArbBootAllocation(__int64 a1, _QWORD **a2)

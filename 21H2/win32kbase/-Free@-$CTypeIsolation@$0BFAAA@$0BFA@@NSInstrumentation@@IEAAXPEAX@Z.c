@@ -1,18 +1,20 @@
 /*
- * XREFs of ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0093950
+ * XREFs of ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0113654
  * Callers:
- *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0030D88 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
+ *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0028308 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
  * Callees:
- *     ?Free@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009386C (-Free@-$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C0093A1C (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAA-AW4Alloc.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C0179900 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ *     ?AcquireShared@CPlatformReaderWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C007A020 (-AcquireShared@CPlatformReaderWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ *     GreLeaveCriticalRegionAndReleasePushLockShared @ 0x1C007B410 (GreLeaveCriticalRegionAndReleasePushLockShared.c)
+ *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C0080FD0 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAA-AW4Alloc.c)
+ *     ?Free@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C0081074 (-Free@-$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C014D960 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
  */
 
 void __fastcall NSInstrumentation::CTypeIsolation<86016,336>::Free(__int64 a1, struct _SLIST_ENTRY *a2)
 {
-  __int64 v4; // rbx
+  NSInstrumentation::CPlatformReaderWriterLock *v4; // rbx
   _QWORD *i; // r14
   __int64 *v6; // rbp
   int v7; // eax
@@ -25,28 +27,25 @@ void __fastcall NSInstrumentation::CTypeIsolation<86016,336>::Free(__int64 a1, s
   {
     if ( !*(_BYTE *)(a1 + 36) )
     {
-      v4 = *(_QWORD *)(a1 + 16);
-      KeEnterCriticalRegion();
-      ExAcquirePushLockSharedEx(v4, 0LL);
+      v4 = *(NSInstrumentation::CPlatformReaderWriterLock **)(a1 + 16);
+      NSInstrumentation::CPlatformReaderWriterLock::AcquireShared(v4);
       for ( i = *(_QWORD **)a1; ; i = (_QWORD *)*i )
       {
         if ( i == (_QWORD *)a1 )
         {
-          ExReleasePushLockSharedEx(v4, 0LL);
-          KeLeaveCriticalRegion();
-          NSInstrumentation::PlatformAbort(3LL, a2, 0LL);
+          GreLeaveCriticalRegionAndReleasePushLockShared((__int64)v4);
+          NSInstrumentation::PlatformAbort(3LL, a2);
           return;
         }
         v6 = (__int64 *)i[4];
-        v7 = NSInstrumentation::CSectionBitmapAllocator<86016,336>::CheckAllocationStatus(v6, a2);
+        v7 = NSInstrumentation::CSectionBitmapAllocator<86016,336>::CheckAllocationStatus(v6, (unsigned __int64)a2);
         if ( v7 )
         {
           v8 = v7 - 1;
           if ( !v8 )
           {
             NSInstrumentation::CSectionBitmapAllocator<86016,336>::Free(v6, a2);
-            ExReleasePushLockSharedEx(v4, 0LL);
-            KeLeaveCriticalRegion();
+            GreLeaveCriticalRegionAndReleasePushLockShared((__int64)v4);
             return;
           }
           v9 = v8 - 1;
@@ -60,7 +59,7 @@ void __fastcall NSInstrumentation::CTypeIsolation<86016,336>::Free(__int64 a1, s
           {
             v10 = 1LL;
           }
-          NSInstrumentation::PlatformAbort(v10, a2, 0LL);
+          NSInstrumentation::PlatformAbort(v10, a2);
         }
       }
     }

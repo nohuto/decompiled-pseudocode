@@ -1,5 +1,5 @@
 /*
- * XREFs of ?XLATEOBJ_RGB16_565ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z @ 0x1C02DC2F0
+ * XREFs of ?XLATEOBJ_RGB16_565ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z @ 0x1C02BEE40
  * Callers:
  *     <none>
  * Callees:
@@ -11,32 +11,32 @@ unsigned __int8 __fastcall XLATEOBJ_RGB16_565ToPalSurf(
         const unsigned __int8 *a2,
         unsigned int a3)
 {
-  __int64 v4; // rbx
-  struct Gre::Base::SESSION_GLOBALS *v5; // rax
-  __int64 v6; // rcx
-  char v7; // cl
-  __int64 v8; // rax
+  __int64 v3; // r9
+  FLONG flXlate; // r8d
+  __int64 v5; // rcx
+  char v6; // cl
+  __int64 v7; // rax
 
-  v4 = a2[a3 & 0x1F | (unsigned __int64)((a3 >> 1) & 0x7FE0)];
-  if ( (a1[3].flXlate & 0x800) != 0 )
+  v3 = a2[a3 & 0x1F | (unsigned __int64)((a3 >> 1) & 0x7FE0)];
+  flXlate = a1[3].flXlate;
+  if ( (flXlate & 0x800) != 0 )
   {
-    v5 = Gre::Base::Globals((Gre::Base *)a1);
-    v6 = *(_QWORD *)&a1[2].iSrcType;
-    if ( v6 == *((_QWORD *)v5 + 750) )
+    v5 = *(_QWORD *)&a1[2].iSrcType;
+    if ( (struct PALETTE *)v5 == ppalDefault )
     {
-      v7 = v4 - 20;
-      if ( (unsigned __int8)v4 < 0xAu )
-        v7 = v4;
-      LOBYTE(v4) = v7;
+      v6 = v3 - 20;
+      if ( (unsigned __int8)v3 < 0xAu )
+        v6 = v3;
+      LOBYTE(v3) = v6;
     }
     else
     {
-      if ( (a1[3].flXlate & 0x1000) != 0 )
-        v8 = *(_QWORD *)(v6 + 80);
+      if ( (flXlate & 0x1000) != 0 )
+        v7 = *(_QWORD *)(v5 + 80);
       else
-        v8 = *(_QWORD *)(v6 + 72);
-      LOBYTE(v4) = *(_BYTE *)(v8 + v4 + 4);
+        v7 = *(_QWORD *)(v5 + 72);
+      LOBYTE(v3) = *(_BYTE *)(v7 + v3 + 4);
     }
   }
-  return v4;
+  return v3;
 }

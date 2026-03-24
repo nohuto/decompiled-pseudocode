@@ -1,20 +1,20 @@
 /*
- * XREFs of ACPIGetConvertToHardwareID @ 0x1C002A0E4
+ * XREFs of ACPIGetConvertToHardwareID @ 0x1C0055AA8
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C002B880 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIGetConvertToHardwareIDWide @ 0x1C002A14C (ACPIGetConvertToHardwareIDWide.c)
- *     ACPIWideStringToAnsiHelper @ 0x1C0043C78 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C000C70C (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
  */
 
-__int64 __fastcall ACPIGetConvertToHardwareID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)
+__int64 __fastcall ACPIGetConvertToHardwareID(__int64 a1, int a2, __int64 a3, int a4, char **a5, unsigned int *a6)
 {
   int v6; // edi
   unsigned int v7; // ebx
-  _DWORD v9[6]; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v9[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v9[0] = 0;
-  v6 = ACPIGetConvertToHardwareIDWide(a1, a2, a3, a4, (__int64)a5, (__int64)v9);
+  v6 = ACPIGetConvertToHardwareIDWide(a1, a2, a3, a4, a5, (int *)v9);
   if ( v6 >= 0 )
   {
     v7 = v9[0];

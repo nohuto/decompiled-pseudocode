@@ -1,70 +1,63 @@
 /*
- * XREFs of NtUserGetWindowFeedbackSetting @ 0x1C01F7390
+ * XREFs of NtUserGetWindowFeedbackSetting @ 0x1C01FC980
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     FeedbackGetWindowSetting @ 0x1C01D54D0 (FeedbackGetWindowSetting.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     FeedbackGetWindowSetting @ 0x1C01DB0D0 (FeedbackGetWindowSetting.c)
  */
 
-__int64 __fastcall NtUserGetWindowFeedbackSetting(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        _DWORD *a4,
-        unsigned int *Address)
+__int64 __fastcall NtUserGetWindowFeedbackSetting(__int64 a1, signed int a2, int a3, _DWORD *a4, unsigned int *Address)
 {
-  int v6; // r14d
-  signed int v7; // esi
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // r15
+  __int64 v11; // r8
+  __int64 v12; // r15
   int WindowSetting; // ebx
-  __int64 v13; // rdx
-  unsigned int v14; // ebx
-  unsigned int v16; // [rsp+20h] [rbp-58h] BYREF
-  int v17; // [rsp+24h] [rbp-54h]
-  unsigned int v18; // [rsp+38h] [rbp-40h]
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  unsigned int v16; // ebx
+  unsigned int v18; // [rsp+20h] [rbp-58h] BYREF
+  int v19; // [rsp+24h] [rbp-54h]
+  unsigned int v20; // [rsp+38h] [rbp-40h]
 
-  v6 = a3;
-  v7 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v11 = ValidateHwnd(a1);
-  if ( v11 )
+  EnterSharedCrit(0LL, 1LL);
+  v12 = ValidateHwnd(a1);
+  if ( v12 )
   {
-    if ( v7 && v7 <= 13 && a4 && (v6 & 0xFFFFFFFE) == 0 )
+    if ( a2 && a2 <= 13 && a4 && (a3 & 0xFFFFFFFE) == 0 )
     {
       ProbeForRead(a4, 4uLL, 4u);
-      v14 = *a4;
-      v18 = v14;
-      if ( v14 != 4 )
+      v16 = *a4;
+      v20 = v16;
+      if ( v16 != 4 )
       {
         ProbeForWrite(a4, 4uLL, 4u);
         *a4 = 4;
       }
-      if ( Address && v14 < 4 )
+      if ( Address && v16 < 4 )
       {
         WindowSetting = 0;
-        v17 = 0;
-        UserSetLastError(122LL, v13);
+        v19 = 0;
+        UserSetLastError(122LL, v14, v15);
       }
       else
       {
-        v16 = 0;
-        WindowSetting = FeedbackGetWindowSetting(v11, v7, v6, &v16);
-        v17 = WindowSetting;
+        v18 = 0;
+        WindowSetting = FeedbackGetWindowSetting(v12, a2, a3, &v18);
+        v19 = WindowSetting;
         if ( Address )
         {
           ProbeForWrite(Address, 4uLL, 4u);
-          v10 = v16;
-          *Address = v16;
+          v10 = v18;
+          *Address = v18;
         }
       }
     }
     else
     {
       WindowSetting = 0;
-      UserSetLastError(87LL, v9);
+      UserSetLastError(87LL, v9, v11);
     }
   }
   else

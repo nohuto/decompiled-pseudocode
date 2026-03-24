@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpGetPolicyValueForSystemCapability @ 0x140894BB0
+ * XREFs of RtlpGetPolicyValueForSystemCapability @ 0x140894B90
  * Callers:
- *     RtlpCapabilityCheckSystemCapability @ 0x140894238 (RtlpCapabilityCheckSystemCapability.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x140894218 (RtlpCapabilityCheckSystemCapability.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall RtlpGetPolicyValueForSystemCapability(PCUNICODE_STRING Source, PUNICODE_STRING UnicodeString)

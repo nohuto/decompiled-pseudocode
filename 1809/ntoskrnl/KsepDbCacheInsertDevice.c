@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepDbCacheInsertDevice @ 0x140722810
+ * XREFs of KsepDbCacheInsertDevice @ 0x1407227F0
  * Callers:
- *     KseQueryDeviceData @ 0x140720950 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x1408473D0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x1408473B0 (KseQueryDeviceDataList.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KsepCacheLookup @ 0x14070CAFC (KsepCacheLookup.c)
- *     KsepCacheInsert @ 0x14070CFAC (KsepCacheInsert.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KsepCacheLookup @ 0x14070CADC (KsepCacheLookup.c)
+ *     KsepCacheInsert @ 0x14070CF8C (KsepCacheInsert.c)
  */
 
 __int64 __fastcall KsepDbCacheInsertDevice(PCWSTR SourceString, __int64 a2)

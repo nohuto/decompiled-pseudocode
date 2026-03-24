@@ -1,17 +1,17 @@
 /*
- * XREFs of GetDisplayAffinity @ 0x1C0016874
+ * XREFs of GetDisplayAffinity @ 0x1C0247B0C
  * Callers:
- *     NtUserGetWindowDisplayAffinity @ 0x1C00167D0 (NtUserGetWindowDisplayAffinity.c)
- *     SetDisplayAffinity @ 0x1C022CDDC (SetDisplayAffinity.c)
+ *     NtUserGetWindowDisplayAffinity @ 0x1C01FC2D0 (NtUserGetWindowDisplayAffinity.c)
+ *     SetDisplayAffinity @ 0x1C0247B60 (SetDisplayAffinity.c)
  * Callees:
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall GetDisplayAffinity(__int64 a1, _DWORD *a2)
 {
   unsigned int v2; // ebx
-  __int64 v4; // rcx
+  __int64 v4; // r9
 
   v2 = 0;
   *a2 = 0;

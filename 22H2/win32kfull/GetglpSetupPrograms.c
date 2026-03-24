@@ -1,5 +1,5 @@
 /*
- * XREFs of GetglpSetupPrograms @ 0x1C00BEBB0
+ * XREFs of GetglpSetupPrograms @ 0x1C0137370
  * Callers:
  *     <none>
  * Callees:

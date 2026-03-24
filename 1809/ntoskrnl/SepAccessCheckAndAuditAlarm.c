@@ -3,8 +3,8 @@
  * Callers:
  *     NtAccessCheckAndAuditAlarm @ 0x1405BA330 (NtAccessCheckAndAuditAlarm.c)
  *     NtAccessCheckByTypeAndAuditAlarm @ 0x1405BA3C0 (NtAccessCheckByTypeAndAuditAlarm.c)
- *     NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1408A0420 (NtAccessCheckByTypeResultListAndAuditAlarm.c)
- *     NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1408A04D0 (NtAccessCheckByTypeResultListAndAuditAlarmByHandle.c)
+ *     NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1408A0400 (NtAccessCheckByTypeResultListAndAuditAlarm.c)
+ *     NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1408A04B0 (NtAccessCheckByTypeResultListAndAuditAlarmByHandle.c)
  * Callees:
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  */

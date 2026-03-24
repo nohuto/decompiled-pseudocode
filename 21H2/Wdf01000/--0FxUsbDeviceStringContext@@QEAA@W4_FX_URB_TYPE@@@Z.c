@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0FxUsbDeviceStringContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C007BC5C
+ * XREFs of ??0FxUsbDeviceStringContext@@QEAA@W4_FX_URB_TYPE@@@Z @ 0x1C006F47C
  * Callers:
- *     ?FormatStringRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@EG@Z @ 0x1C007F4C4 (-FormatStringRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@EG@Z.c)
+ *     ?FormatStringRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@EG@Z @ 0x1C0072CD0 (-FormatStringRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@EG@Z.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
- *     ??0FxUsbRequestContext@@QEAA@E@Z @ 0x1C003903A (--0FxUsbRequestContext@@QEAA@E@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??0FxUsbRequestContext@@QEAA@E@Z @ 0x1C006C6D4 (--0FxUsbRequestContext@@QEAA@E@Z.c)
  */
 
 void __fastcall FxUsbDeviceStringContext::FxUsbDeviceStringContext(

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDecommitHardwareEnclavePages @ 0x1402BD0D4
+ * XREFs of MiDecommitHardwareEnclavePages @ 0x1402BD1D4
  * Callers:
- *     MiDecommitEnclavePages @ 0x14085A074 (MiDecommitEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x14085A7E4 (MiTerminateHardwareEnclave.c)
+ *     MiDecommitEnclavePages @ 0x14085A054 (MiDecommitEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x14085A7C4 (MiTerminateHardwareEnclave.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -25,19 +25,19 @@
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeBlockEnclavePage @ 0x14028F834 (KeBlockEnclavePage.c)
- *     KeCreateEnclaveMetadataPage @ 0x14028FA54 (KeCreateEnclaveMetadataPage.c)
- *     KeOutPageEnclavePage @ 0x14028FA94 (KeOutPageEnclavePage.c)
- *     KeRemoveEnclavePage @ 0x14028FB30 (KeRemoveEnclavePage.c)
- *     KeTrackEnclaveTbFlush @ 0x14028FB74 (KeTrackEnclaveTbFlush.c)
- *     MiGetExceptionInfo @ 0x1402AA654 (MiGetExceptionInfo.c)
- *     MiDeleteEnclavePage @ 0x1402BDA54 (MiDeleteEnclavePage.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBlockEnclavePage @ 0x14028F934 (KeBlockEnclavePage.c)
+ *     KeCreateEnclaveMetadataPage @ 0x14028FB54 (KeCreateEnclaveMetadataPage.c)
+ *     KeOutPageEnclavePage @ 0x14028FB94 (KeOutPageEnclavePage.c)
+ *     KeRemoveEnclavePage @ 0x14028FC30 (KeRemoveEnclavePage.c)
+ *     KeTrackEnclaveTbFlush @ 0x14028FC74 (KeTrackEnclaveTbFlush.c)
+ *     MiGetExceptionInfo @ 0x1402AA754 (MiGetExceptionInfo.c)
+ *     MiDeleteEnclavePage @ 0x1402BDB54 (MiDeleteEnclavePage.c)
  */
 
 __int64 __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, ULONG_PTR a3, ULONG_PTR a4, int a5)

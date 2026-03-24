@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__ @ 0x1800037E0
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__ @ 0x180002FD0
  * Callers:
  *     <none>
  * Callees:
- *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x180025D7C (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
+ *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x1800B2ED4 (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
  */
 
 char dynamic_initializer_for__CCommonRegistryData::MaxD3DFeatureLevel__()

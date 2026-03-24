@@ -1,10 +1,10 @@
 /*
- * XREFs of ExGetNextWakeTimeForDeepSleep @ 0x14031C4BC
+ * XREFs of ExGetNextWakeTimeForDeepSleep @ 0x14031C5BC
  * Callers:
  *     PpmIdlePrepare @ 0x14005F3A0 (PpmIdlePrepare.c)
  *     KiGetNextTimerExpirationDueTime @ 0x140061FF0 (KiGetNextTimerExpirationDueTime.c)
  * Callees:
- *     KeQueryTimerDueTime @ 0x1402904C8 (KeQueryTimerDueTime.c)
+ *     KeQueryTimerDueTime @ 0x1402905C8 (KeQueryTimerDueTime.c)
  */
 
 unsigned __int64 __fastcall ExGetNextWakeTimeForDeepSleep(__int64 a1, __int64 a2, __int64 a3)

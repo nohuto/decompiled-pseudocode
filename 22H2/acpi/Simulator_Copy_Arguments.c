@@ -1,11 +1,11 @@
 /*
- * XREFs of Simulator_Copy_Arguments @ 0x1C00490A8
+ * XREFs of Simulator_Copy_Arguments @ 0x1C00639E8
  * Callers:
- *     Simulator_Pre_AsyncEvalObject @ 0x1C004961C (Simulator_Pre_AsyncEvalObject.c)
- *     Simulator_Pre_EvalNameSpaceObject @ 0x1C0049718 (Simulator_Pre_EvalNameSpaceObject.c)
+ *     Simulator_Pre_AsyncEvalObject @ 0x1C0063F4C (Simulator_Pre_AsyncEvalObject.c)
+ *     Simulator_Pre_EvalNameSpaceObject @ 0x1C0064048 (Simulator_Pre_EvalNameSpaceObject.c)
  * Callees:
- *     DupObjData @ 0x1C004AF24 (DupObjData.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
  */
 
 __int64 __fastcall Simulator_Copy_Arguments(int a1, __int64 a2, __int64 *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall Simulator_Copy_Arguments(int a1, __int64 a2, __int64 *a3)
   {
     if ( a2 && a1 > 0 )
     {
-      v7 = HeapAlloc(gpheapGlobal, 1413563464LL, (unsigned int)(40 * a1));
+      v7 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1413563464, 40 * a1);
       if ( !v7 )
         return 3221225495LL;
       v9 = 0;
@@ -31,7 +31,7 @@ __int64 __fastcall Simulator_Copy_Arguments(int a1, __int64 a2, __int64 *a3)
         v10 = 40LL * v9;
         if ( v10 > 40 * v4 )
           break;
-        if ( (unsigned int)DupObjData(gpheapGlobal, v10 + v7, v10 + a2) )
+        if ( (unsigned int)DupObjData((struct _SLIST_ENTRY *)gpheapGlobal, v10 + v7, v10 + a2) )
           break;
         ++v9;
       }

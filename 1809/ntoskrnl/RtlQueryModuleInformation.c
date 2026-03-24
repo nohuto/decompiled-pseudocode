@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlQueryModuleInformation @ 0x140716390
+ * XREFs of RtlQueryModuleInformation @ 0x140716370
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

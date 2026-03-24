@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpUpdateLoggerSecurityDescriptor @ 0x1409EC3C4
+ * XREFs of EtwpUpdateLoggerSecurityDescriptor @ 0x14094157C
  * Callers:
- *     EtwpUpdateTrace @ 0x1407F8630 (EtwpUpdateTrace.c)
+ *     EtwpUpdateTrace @ 0x140791BF8 (EtwpUpdateTrace.c)
  * Callees:
- *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728AC0 (ObDereferenceSecurityDescriptor.c)
- *     ObLogSecurityDescriptor @ 0x140728D30 (ObLogSecurityDescriptor.c)
- *     EtwpEventWriteTemplateSession @ 0x1409E3CB4 (EtwpEventWriteTemplateSession.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14031C3B4 (ExfAcquireReleasePushLockExclusive.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406D8460 (ObDereferenceSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x1406D8C70 (ObLogSecurityDescriptor.c)
+ *     EtwpEventWriteTemplateSession @ 0x140939ECC (EtwpEventWriteTemplateSession.c)
  */
 
-__int64 __fastcall EtwpUpdateLoggerSecurityDescriptor(__int64 a1, __int16 *a2)
+__int64 __fastcall EtwpUpdateLoggerSecurityDescriptor(__int64 a1, char *a2)
 {
   int v3; // edi
   __int64 v4; // rbx
@@ -24,12 +24,12 @@ __int64 __fastcall EtwpUpdateLoggerSecurityDescriptor(__int64 a1, __int16 *a2)
   v3 = ObLogSecurityDescriptor(a2, &v9, 0x10u);
   if ( v3 >= 0 )
   {
-    v4 = _InterlockedExchange64((volatile __int64 *)(a1 + 784), (v9 | 0xF) & -(__int64)(v9 != 0));
+    v4 = _InterlockedExchange64((volatile __int64 *)(a1 + 800), (v9 | 0xF) & -(__int64)(v9 != 0));
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     _InterlockedOr(v8, 0);
     if ( (EtwpSecurityLock & 1) != 0 )
-      ExfAcquireReleasePushLockExclusive((ULONG_PTR)&EtwpSecurityLock);
+      ExfAcquireReleasePushLockExclusive(&EtwpSecurityLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     ObDereferenceSecurityDescriptor(v4 & 0xFFFFFFFFFFFFFFF0uLL, (v4 & 0xF) + 1);
     if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_CHANGE_SESSION_SD) )

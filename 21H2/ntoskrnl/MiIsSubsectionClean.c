@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsSubsectionClean @ 0x14058B40C
+ * XREFs of MiIsSubsectionClean @ 0x140529C34
  * Callers:
- *     MiDeleteCachedSubsection @ 0x14058A6D4 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
  * Callees:
- *     MiLockLeafPage @ 0x1402738F0 (MiLockLeafPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockProtoPoolPage @ 0x140334790 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x140337B00 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
+ *     MiLockLeafPage @ 0x140269CD0 (MiLockLeafPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiIsSubsectionClean(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -14,7 +14,7 @@ __int64 __fastcall MiIsSubsectionClean(__int64 a1, __int64 a2, __int64 a3, __int
   unsigned int v4; // edi
   ULONG_PTR v5; // rbx
   ULONG_PTR v6; // r14
-  __int64 v7; // rbp
+  unsigned __int64 v7; // rbp
   __int64 v8; // rsi
   char v9; // al
   char v10; // al
@@ -33,10 +33,9 @@ __int64 __fastcall MiIsSubsectionClean(__int64 a1, __int64 a2, __int64 a3, __int
     return v4;
   while ( (v5 & 0xFFF) == 0 || v12 == 17 )
   {
-    LOBYTE(a2) = v12;
     if ( v12 != 17 )
-      MiUnlockProtoPoolPage(v7, a2, a3, a4);
-    v7 = MiCheckProtoPtePageState(v5, &v12);
+      MiUnlockProtoPoolPage(v7, v12);
+    v7 = MiCheckProtoPtePageState(v5, (__int64)&v12);
     if ( v7 )
       break;
     v5 = (v5 & 0xFFFFFFFFFFFFF000uLL) + 4096;
@@ -44,7 +43,7 @@ LABEL_15:
     if ( v5 >= v6 )
       goto LABEL_20;
   }
-  v8 = MiLockLeafPage((unsigned __int64 *)v5, 0LL);
+  v8 = MiLockLeafPage((__int64 *)v5, 0, a3, a4);
   if ( !v8 )
   {
 LABEL_14:
@@ -72,8 +71,7 @@ LABEL_14:
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v4 = 2 - ((v10 & 0x18) != 0);
 LABEL_20:
-  LOBYTE(a2) = v12;
   if ( v12 != 17 )
-    MiUnlockProtoPoolPage(v7, a2, a3, a4);
+    MiUnlockProtoPoolPage(v7, v12);
   return v4;
 }

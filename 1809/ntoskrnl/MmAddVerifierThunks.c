@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAddVerifierThunks @ 0x14084DB60
+ * XREFs of MmAddVerifierThunks @ 0x14084DB40
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
  *     VfThunkAddDriverThunks @ 0x140936724 (VfThunkAddDriverThunks.c)
  */
 

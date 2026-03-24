@@ -1,16 +1,16 @@
 /*
- * XREFs of MiZeroLargePages @ 0x14018510C
+ * XREFs of MiZeroLargePages @ 0x14018512C
  * Callers:
- *     MiZeroLargePageThread @ 0x140185020 (MiZeroLargePageThread.c)
+ *     MiZeroLargePageThread @ 0x140185040 (MiZeroLargePageThread.c)
  * Callees:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
- *     MiOkToZeroNextLargePage @ 0x14018537C (MiOkToZeroNextLargePage.c)
- *     MiReassessZeroThreads @ 0x1401856F8 (MiReassessZeroThreads.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     MiOkToZeroNextLargePage @ 0x14018539C (MiOkToZeroNextLargePage.c)
+ *     MiReassessZeroThreads @ 0x140185718 (MiReassessZeroThreads.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiZeroLargePages(__int64 a1, _QWORD *a2)

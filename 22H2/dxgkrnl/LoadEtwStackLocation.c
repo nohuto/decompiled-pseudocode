@@ -1,13 +1,13 @@
 /*
- * XREFs of LoadEtwStackLocation @ 0x1C0012FFC
+ * XREFs of LoadEtwStackLocation @ 0x1C0009C30
  * Callers:
- *     DpiDispatchPnp @ 0x1C01D9570 (DpiDispatchPnp.c)
- *     DpiDispatchIoctl @ 0x1C01D9710 (DpiDispatchIoctl.c)
- *     DpiDispatchInternalIoctl @ 0x1C01D9890 (DpiDispatchInternalIoctl.c)
- *     DpiDispatchPower @ 0x1C01F1D20 (DpiDispatchPower.c)
- *     DpiDispatchSystemControl @ 0x1C039A2B0 (DpiDispatchSystemControl.c)
+ *     DpiDispatchInternalIoctl @ 0x1C01333B0 (DpiDispatchInternalIoctl.c)
+ *     DpiDispatchPnp @ 0x1C015FA70 (DpiDispatchPnp.c)
+ *     DpiDispatchIoctl @ 0x1C01624D0 (DpiDispatchIoctl.c)
+ *     DpiDispatchPower @ 0x1C0176B70 (DpiDispatchPower.c)
+ *     DpiDispatchSystemControl @ 0x1C02C7F60 (DpiDispatchSystemControl.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 _BYTE *__fastcall LoadEtwStackLocation(_BYTE *a1, __int64 a2)
@@ -45,60 +45,67 @@ _BYTE *__fastcall LoadEtwStackLocation(_BYTE *a1, __int64 a2)
   *((_QWORD *)a1 + 5) = _mm_srli_si128(v7, 8).m128i_u64[0];
   if ( v10 != 27 )
     return a1;
-  if ( (unsigned __int8)v12 > 0xCu )
+  if ( (unsigned __int8)v12 <= 0xCu )
   {
-    switch ( (unsigned __int8)v12 )
+    if ( (_BYTE)v12 != 12 )
     {
-      case 0xFu:
-      case 0x10u:
-        *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
-        *((_QWORD *)a1 + 2) = v14;
-        *((_DWORD *)a1 + 6) = DWORD2(v14);
-        *((_DWORD *)a1 + 7) = v7.m128i_i32[0];
-        return a1;
-      case 0x12u:
-        a1[8] = v5.m128i_i8[8];
-        return a1;
-      case 0x13u:
-LABEL_12:
-        *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
-        return a1;
-    }
-    if ( (unsigned __int8)v12 != 22 )
+      if ( (_BYTE)v12 )
+      {
+        if ( (_BYTE)v12 == 1 )
+        {
+          *((_QWORD *)a1 + 1) = v5.m128i_i64[1];
+          return a1;
+        }
+        if ( (unsigned __int8)v12 <= 3u )
+        {
+          *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
+          *((_DWORD *)a1 + 3) = v14;
+          *((_DWORD *)a1 + 4) = DWORD2(v14);
+          *((_DWORD *)a1 + 5) = DWORD2(v14);
+          *((_DWORD *)a1 + 6) = v7.m128i_i32[0];
+          return a1;
+        }
+        if ( (_BYTE)v12 != 7 )
+        {
+          if ( (_BYTE)v12 == 8 )
+          {
+            *((_QWORD *)a1 + 1) = v5.m128i_i64[1];
+            *((_DWORD *)a1 + 4) = v14;
+            *((_QWORD *)a1 + 3) = *((_QWORD *)&v14 + 1);
+            *((_QWORD *)a1 + 4) = v7.m128i_i64[0];
+          }
+          return a1;
+        }
+      }
+LABEL_11:
+      *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
       return a1;
-    a1[8] = v5.m128i_i8[8];
-LABEL_20:
+    }
+    *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
+LABEL_19:
     *((_DWORD *)a1 + 3) = v14;
     return a1;
   }
-  if ( (unsigned __int8)v12 == 12 )
+  if ( (unsigned __int8)v12 < 0xFu )
+    return a1;
+  if ( (unsigned __int8)v12 <= 0x10u )
   {
     *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
-    goto LABEL_20;
+    *((_QWORD *)a1 + 2) = v14;
+    *((_DWORD *)a1 + 6) = DWORD2(v14);
+    *((_DWORD *)a1 + 7) = v7.m128i_i32[0];
+    return a1;
   }
-  if ( !(_BYTE)v12 )
-    goto LABEL_12;
-  switch ( (unsigned __int8)v12 )
+  switch ( (_BYTE)v12 )
   {
-    case 1u:
-      *((_QWORD *)a1 + 1) = v5.m128i_i64[1];
+    case 0x13:
+      goto LABEL_11;
+    case 0x12:
+      a1[8] = v5.m128i_i8[8];
       return a1;
-    case 2u:
-    case 3u:
-      *((_DWORD *)a1 + 2) = v5.m128i_i32[2];
-      *((_DWORD *)a1 + 3) = v14;
-      *((_DWORD *)a1 + 4) = DWORD2(v14);
-      *((_DWORD *)a1 + 5) = DWORD2(v14);
-      *((_DWORD *)a1 + 6) = v7.m128i_i32[0];
-      return a1;
-    case 7u:
-      goto LABEL_12;
-    case 8u:
-      *((_QWORD *)a1 + 1) = v5.m128i_i64[1];
-      *((_DWORD *)a1 + 4) = v14;
-      *((_QWORD *)a1 + 3) = *((_QWORD *)&v14 + 1);
-      *((_QWORD *)a1 + 4) = v7.m128i_i64[0];
-      break;
+    case 0x16:
+      a1[8] = v5.m128i_i8[8];
+      goto LABEL_19;
   }
   return a1;
 }

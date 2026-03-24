@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Release@?$ValueReference@I@@UEAAKXZ @ 0x180288350
+ * XREFs of ?Release@?$ValueReference@I@@UEAAKXZ @ 0x180247750
  * Callers:
- *     ?Release@?$ValueReference@I@@W7EAAKXZ @ 0x180108A50 (-Release@-$ValueReference@I@@W7EAAKXZ.c)
- *     ?Release@?$ValueReference@I@@WBA@EAAKXZ @ 0x180108A70 (-Release@-$ValueReference@I@@WBA@EAAKXZ.c)
+ *     ?Release@?$ValueReference@I@@W7EAAKXZ @ 0x1800F7390 (-Release@-$ValueReference@I@@W7EAAKXZ.c)
+ *     ?Release@?$ValueReference@I@@WBA@EAAKXZ @ 0x1800F73A0 (-Release@-$ValueReference@I@@WBA@EAAKXZ.c)
  * Callees:
  *     <none>
  */

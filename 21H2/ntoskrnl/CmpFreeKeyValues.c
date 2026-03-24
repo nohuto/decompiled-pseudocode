@@ -1,49 +1,31 @@
 /*
- * XREFs of CmpFreeKeyValues @ 0x14091F87C
+ * XREFs of CmpFreeKeyValues @ 0x1408790A0
  * Callers:
- *     CmDeleteLayeredKey @ 0x14053F5E8 (CmDeleteLayeredKey.c)
- *     CmpSyncKeyValues @ 0x1409207EC (CmpSyncKeyValues.c)
+ *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
+ *     CmpSyncKeyValues @ 0x140879E2C (CmpSyncKeyValues.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpFreeValue @ 0x14079B22C (CmpFreeValue.c)
- *     HvFreeCell @ 0x14079BD98 (HvFreeCell.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmpMarkKeyValuesDirty @ 0x14091FA94 (CmpMarkKeyValuesDirty.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
+ *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     CmpMarkKeyValuesDirty @ 0x1408792A0 (CmpMarkKeyValuesDirty.c)
  */
 
-__int64 __fastcall CmpFreeKeyValues(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
+char __fastcall CmpFreeKeyValues(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
-  ULONG_PTR v6; // rdx
-  __int64 CellFlat; // rax
-  __int64 v8; // r14
-  unsigned int i; // esi
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v5; // r14
+  unsigned int v6; // esi
+  int v8; // [rsp+58h] [rbp+20h] BYREF
+  int v9; // [rsp+5Ch] [rbp+24h]
 
-  v10 = 0xFFFFFFFFLL;
-  result = CmpMarkKeyValuesDirty(BugCheckParameter2);
-  if ( (int)result >= 0 )
+  v8 = -1;
+  v9 = 0;
+  if ( (unsigned __int8)CmpMarkKeyValuesDirty(BugCheckParameter2) )
   {
-    if ( (*(_BYTE *)(a3 + 2) & 2) == 0 )
+    if ( (*(_BYTE *)(a3 + 2) & 2) != 0 )
+      return 1;
+    if ( !*(_DWORD *)(a3 + 36) )
     {
-      if ( *(_DWORD *)(a3 + 36) )
-      {
-        v6 = *(unsigned int *)(a3 + 40);
-        if ( (*(_BYTE *)(BugCheckParameter2 + 140) & 1) != 0 )
-          CellFlat = HvpGetCellFlat(BugCheckParameter2, v6, &v10);
-        else
-          CellFlat = HvpGetCellPaged(BugCheckParameter2, v6, (unsigned int *)&v10);
-        v8 = CellFlat;
-        for ( i = 0; i < *(_DWORD *)(a3 + 36); ++i )
-          CmpFreeValue(BugCheckParameter2, *(unsigned int *)(v8 + 4LL * i));
-        if ( (*(_BYTE *)(BugCheckParameter2 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(BugCheckParameter2, &v10);
-        else
-          HvpReleaseCellPaged(BugCheckParameter2, (unsigned int *)&v10);
-        HvFreeCell(BugCheckParameter2, *(unsigned int *)(a3 + 40));
-      }
+LABEL_9:
       *(_DWORD *)(a3 + 40) = -1;
       *(_DWORD *)(a3 + 36) = 0;
       if ( *(_WORD *)(a3 + 74) )
@@ -52,8 +34,30 @@ __int64 __fastcall CmpFreeKeyValues(ULONG_PTR BugCheckParameter2, __int64 a2, __
         *(_DWORD *)(a3 + 48) = -1;
         *(_WORD *)(a3 + 74) = 0;
       }
+      return 1;
     }
-    return 0LL;
+    v5 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(BugCheckParameter2 + 8))(
+           BugCheckParameter2,
+           *(unsigned int *)(a3 + 40),
+           &v8);
+    if ( v5 )
+    {
+      v6 = 0;
+      if ( *(_DWORD *)(a3 + 36) )
+      {
+        while ( CmpFreeValue(BugCheckParameter2, *(unsigned int *)(v5 + 4LL * v6)) )
+        {
+          if ( ++v6 >= *(_DWORD *)(a3 + 36) )
+            goto LABEL_8;
+        }
+        (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v8);
+        return 0;
+      }
+LABEL_8:
+      (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v8);
+      HvFreeCell(BugCheckParameter2, *(unsigned int *)(a3 + 40));
+      goto LABEL_9;
+    }
   }
-  return result;
+  return 0;
 }

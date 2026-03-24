@@ -1,20 +1,19 @@
 /*
- * XREFs of ?CreatePeriodicMonitoredFenceNotificationInternal@@YAJPEAVDXGADAPTER@@0PEAVDXGSYNCOBJECT@@PEBU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@_N@Z @ 0x1C033F130
+ * XREFs of ?CreatePeriodicMonitoredFenceNotificationInternal@@YAJPEAVDXGADAPTER@@0PEAVDXGSYNCOBJECT@@PEBU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@_N@Z @ 0x1C02902F0
  * Callers:
- *     ?DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@HPEAX2@Z @ 0x1C0199960 (-DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC.c)
- *     ?CreateSynchObject@MonitoredFenceHelper@@AEAAJPEAVDXGDEVICE@@_K@Z @ 0x1C0344A64 (-CreateSynchObject@MonitoredFenceHelper@@AEAAJPEAVDXGDEVICE@@_K@Z.c)
+ *     ?DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@HPEAX@Z @ 0x1C010DA40 (-DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC.c)
+ *     ?CreateSynchObject@MonitoredFenceHelper@@AEAAJPEAVDXGDEVICE@@_K@Z @ 0x1C02BC530 (-CreateSynchObject@MonitoredFenceHelper@@AEAAJPEAVDXGDEVICE@@_K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000A924 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C000F16C (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z @ 0x1C001DAD4 (-MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01798C0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
- *     ?CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z @ 0x1C033EFBC (-CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C0007514 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C000D22C (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
+ *     ?MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z @ 0x1C0019758 (-MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C00F7CD0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     ?CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z @ 0x1C02901A4 (-CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z.c)
  */
 
 __int64 __fastcall CreatePeriodicMonitoredFenceNotificationInternal(
@@ -24,120 +23,126 @@ __int64 __fastcall CreatePeriodicMonitoredFenceNotificationInternal(
         const struct _D3DKMT_CREATESYNCHRONIZATIONOBJECT2 *a4,
         bool a5)
 {
-  struct DXGADAPTER *v9; // rcx
-  __int64 v10; // rdi
+  __int64 v9; // rdx
+  struct DXGADAPTER *v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rax
+  __int64 v13; // rbx
   int PairingAdapters; // eax
-  ADAPTER_DISPLAY **v12; // rbx
-  __int64 v13; // rdx
-  unsigned int v14; // eax
   __int64 v15; // rdx
-  ADAPTER_DISPLAY *v16; // r11
-  __int64 v17; // rbx
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  void *FenceValueCPUVirtualAddress; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  ADAPTER_DISPLAY **v18; // rdi
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rax
+  void *FenceValueCPUVirtualAddress; // rcx
+  __int64 v24; // rdx
+  __int64 InitialCount; // r14
+  unsigned int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  ADAPTER_DISPLAY *v29; // r11
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  unsigned __int64 v32; // rcx
+  unsigned __int64 v33; // rax
+  UINT64 v34; // rax
+  unsigned __int64 v35; // rdx
+  unsigned __int64 v36; // rtt
   int PeriodicFrameNotification; // eax
-  struct DXGADAPTER *v23; // [rsp+50h] [rbp-B0h] BYREF
-  struct DXGADAPTER *v24; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 v25; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v26; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v27[144]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v38; // rcx
+  __int64 v39; // r8
+  __int64 v40; // rax
+  struct DXGADAPTER *v42; // [rsp+40h] [rbp-A1h] BYREF
+  struct DXGADAPTER *v43; // [rsp+48h] [rbp-99h] BYREF
+  unsigned __int64 v44; // [rsp+50h] [rbp-91h] BYREF
+  unsigned __int64 v45; // [rsp+58h] [rbp-89h] BYREF
+  _BYTE v46[144]; // [rsp+60h] [rbp-81h] BYREF
 
-  if ( DXGADAPTER::IsDxgmms2(a1) || (*((_DWORD *)v9 + 109) & 0x100) != 0 )
+  if ( DXGADAPTER::IsDxgmms2(a1) || (*((_DWORD *)v10 + 87) & 0x100) != 0 )
   {
-    v23 = 0LL;
-    v24 = 0LL;
-    PairingAdapters = DxgkpGetPairingAdapters(v9, 0, &v23, &v26, &v24, &v25, 0);
-    v10 = PairingAdapters;
+    v42 = 0LL;
+    v43 = 0LL;
+    PairingAdapters = DxgkpGetPairingAdapters(v10, 0LL, &v42, &v45, &v43, &v44, 0);
+    v13 = PairingAdapters;
     if ( PairingAdapters < 0 )
     {
-      WdLogSingleEntry2(2LL, a1, PairingAdapters);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to get pairing adapters from adapter 0x%I64x (Status 0x%I64x)!",
-        (__int64)a1,
-        v10,
-        0LL,
-        0LL,
-        0LL);
-      return (unsigned int)v10;
+      v17 = WdLogNewEntry5_WdError(v16, v15);
+      *(_QWORD *)(v17 + 24) = a1;
+      *(_QWORD *)(v17 + 32) = v13;
+      WdLogEvent5_WdError(v17);
+      return (unsigned int)v13;
     }
-    v12 = (ADAPTER_DISPLAY **)v24;
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v27, v23, v24);
+    v18 = (ADAPTER_DISPLAY **)v43;
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v46, v42, v43);
     if ( !a5 )
-      LODWORD(v10) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v27, 0LL);
-    DXGADAPTER::ReleaseReference(v23);
-    DXGADAPTER::ReleaseReference((DXGADAPTER *)v12);
-    if ( (int)v10 >= 0 )
+      LODWORD(v13) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v46, 0LL);
+    DXGADAPTER::ReleaseReference(v42);
+    DXGADAPTER::ReleaseReference((DXGADAPTER *)v18);
+    if ( (int)v13 >= 0 )
     {
-      v14 = ADAPTER_DISPLAY::MapVidPnTargetToVidPnSource(v12[349], a4->Info.Semaphore.InitialCount);
-      v10 = v14;
-      if ( v14 == -1 )
+      InitialCount = a4->Info.Semaphore.InitialCount;
+      v26 = ADAPTER_DISPLAY::MapVidPnTargetToVidPnSource(v18[337], a4->Info.Semaphore.InitialCount);
+      v13 = v26;
+      if ( v26 == -1 )
       {
-        v17 = (unsigned int)v15;
-        WdLogSingleEntry1(2LL, v15);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid VidPnTargetId %d specified when creating a periodic monitored fence",
-          v17,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(v10) = -1073741811;
-        goto LABEL_20;
+        v30 = WdLogNewEntry5_WdError(v28, v27);
+        *(_QWORD *)(v30 + 24) = InitialCount;
+        WdLogEvent5_WdError(v30);
+        LODWORD(v13) = -1073741811;
+        goto LABEL_21;
       }
-      v18 = *((_QWORD *)ADAPTER_DISPLAY::GetDisplayModeInfo(v16, v14) + 2);
-      if ( !HIDWORD(v18) || !(_DWORD)v18 )
+      v32 = *((_QWORD *)ADAPTER_DISPLAY::GetDisplayModeInfo(v29, v26) + 2);
+      v33 = HIDWORD(v32);
+      if ( !HIDWORD(v32) || !(_DWORD)v32 )
       {
-        WdLogSingleEntry1(2LL, v10);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid refresh rate for VidPnSourceId: %d when creating a periodic monitored fence",
-          v10,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(v10) = -1073741676;
-        goto LABEL_20;
+        v40 = WdLogNewEntry5_WdError(v32, v31);
+        *(_QWORD *)(v40 + 24) = v13;
+        WdLogEvent5_WdError(v40);
+        LODWORD(v13) = -1073741676;
+        goto LABEL_21;
       }
-      v19 = 10000000 * HIDWORD(v18) / (unsigned int)v18;
+      v36 = 10000000 * v33;
+      v34 = 10000000 * v33 / (unsigned int)v32;
+      v35 = v36 % (unsigned int)v32;
+      if ( a4->Info.PeriodicMonitoredFence.Time <= v34 )
+      {
+        PeriodicFrameNotification = DXGSYNCOBJECT::CreatePeriodicFrameNotification(
+                                      a3,
+                                      a2,
+                                      (struct ADAPTER_RENDER **)v42,
+                                      (struct DXGADAPTER *)v18,
+                                      v34,
+                                      v13);
+        v13 = PeriodicFrameNotification;
+        if ( PeriodicFrameNotification >= 0 )
+          goto LABEL_21;
+        v22 = WdLogNewEntry5_WdWarning(v38, v24, v39);
+        *(_QWORD *)(v22 + 24) = v13;
+        goto LABEL_11;
+      }
+      v22 = WdLogNewEntry5_WdWarning(v32, v35, (unsigned int)v32);
       FenceValueCPUVirtualAddress = a4->Info.MonitoredFence.FenceValueCPUVirtualAddress;
-      if ( (unsigned __int64)FenceValueCPUVirtualAddress > v19 )
-      {
-        LODWORD(v10) = -1073741811;
-        WdLogSingleEntry2(3LL, FenceValueCPUVirtualAddress, -1073741811LL);
-        goto LABEL_20;
-      }
-      PeriodicFrameNotification = DXGSYNCOBJECT::CreatePeriodicFrameNotification(
-                                    a3,
-                                    a2,
-                                    (struct ADAPTER_RENDER **)v23,
-                                    (struct DXGADAPTER *)v12,
-                                    v19,
-                                    v10);
-      LODWORD(v10) = PeriodicFrameNotification;
-      if ( PeriodicFrameNotification >= 0 )
-        goto LABEL_20;
-      v13 = PeriodicFrameNotification;
+      LODWORD(v13) = -1073741811;
+      *(_QWORD *)(v22 + 32) = -1073741811LL;
     }
     else
     {
-      v13 = (int)v10;
+      v22 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+      FenceValueCPUVirtualAddress = (void *)(int)v13;
     }
-    WdLogSingleEntry1(3LL, v13);
-LABEL_20:
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v27);
-    return (unsigned int)v10;
+    *(_QWORD *)(v22 + 24) = FenceValueCPUVirtualAddress;
+LABEL_11:
+    WdLogEvent5_WdWarning(v22);
+LABEL_21:
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v46, v24);
+    return (unsigned int)v13;
   }
-  WdLogSingleEntry1(3LL, 256LL);
-  LODWORD(v10) = -1073741811;
-  return (unsigned int)v10;
+  v12 = WdLogNewEntry5_WdWarning(v10, v9, v11);
+  *(_QWORD *)(v12 + 24) = 296LL;
+  WdLogEvent5_WdWarning(v12);
+  LODWORD(v13) = -1073741811;
+  return (unsigned int)v13;
 }

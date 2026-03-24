@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFoInitialize @ 0x140B9E09C
+ * XREFs of BgpFoInitialize @ 0x140A95E18
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140AEEC38 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x1409F29E8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140387014 (FioFwReadUlongAtOffset.c)
- *     FopInitializeFonts @ 0x140B9DF5C (FopInitializeFonts.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039BE84 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x1403AC61C (FioFwReadUlongAtOffset.c)
+ *     FopInitializeFonts @ 0x140A95F14 (FopInitializeFonts.c)
  */
 
 __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
@@ -15,14 +15,14 @@ __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
   __int64 v5; // rbx
   int UlongAtOffset; // edi
   __int64 v7; // rax
-  int v9; // [rsp+50h] [rbp+18h] BYREF
-  int v10; // [rsp+58h] [rbp+20h] BYREF
+  unsigned int v9; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int v10; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0;
   v10 = 0;
   if ( !FontLibraryInitialized )
   {
-    qword_140C0E438 = (__int64)&FopFontFileListHead;
+    qword_140C13458 = (__int64)&FopFontFileListHead;
     FopFontFileListHead = (__int64)&FopFontFileListHead;
     FontLibraryInitialized = 1;
   }
@@ -38,13 +38,13 @@ __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
   *(_QWORD *)(Memory + 40) = Memory + 40;
   *(_QWORD *)(Memory + 16) = a1;
   *(_DWORD *)(Memory + 28) = a2;
-  UlongAtOffset = FioFwReadUlongAtOffset(a1, 0, &v9);
+  UlongAtOffset = FioFwReadUlongAtOffset(a1, 0LL, &v9);
   if ( UlongAtOffset < 0 )
     goto LABEL_11;
   if ( v9 == 1953784678 )
   {
     *(_DWORD *)(v5 + 32) |= 1u;
-    UlongAtOffset = FioFwReadUlongAtOffset(a1, 4u, &v10);
+    UlongAtOffset = FioFwReadUlongAtOffset(a1, 4LL, &v10);
     if ( UlongAtOffset < 0 )
       goto LABEL_11;
     if ( ((v10 - 0x10000) & 0xFFFEFFFF) != 0 )
@@ -52,7 +52,7 @@ __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
       UlongAtOffset = -1073741701;
       goto LABEL_11;
     }
-    UlongAtOffset = FioFwReadUlongAtOffset(a1, 8u, (_DWORD *)(v5 + 24));
+    UlongAtOffset = FioFwReadUlongAtOffset(a1, 8LL, (unsigned int *)(v5 + 24));
     if ( UlongAtOffset < 0 )
       goto LABEL_11;
   }

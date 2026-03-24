@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIWriteGpeEnableRegister @ 0x1C0020100
+ * XREFs of ACPIWriteGpeEnableRegister @ 0x1C002662C
  * Callers:
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C00200A4 (ACPIGpeEnableDisableEvents.c)
- *     ACPIWakeEnableWakeEvents @ 0x1C00635C0 (ACPIWakeEnableWakeEvents.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIWakeEnableWakeEvents @ 0x1C0062280 (ACPIWakeEnableWakeEvents.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIWriteGpeEnableRegister(unsigned int a1, char a2)

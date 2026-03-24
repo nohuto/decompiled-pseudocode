@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DumpDriverName@@YAJPEAXP6AJ0PEBU_GUID@@0K@ZK_K3330@Z @ 0x1C00D9370
+ * XREFs of ?DumpDriverName@@YAJPEAXP6AJ0PEBU_GUID@@0K@ZK_K3330@Z @ 0x1C00C8260
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DumpDriverName(
@@ -28,7 +28,7 @@ __int64 __fastcall DumpDriverName(
     while ( a8[v9] );
     return ((__int64 (__fastcall *)(void *, void *, _WORD *, _QWORD))a2)(
              a1,
-             &unk_1C02520D0,
+             &unk_1C0210EA0,
              a8,
              (unsigned int)(2 * v9 + 2));
   }

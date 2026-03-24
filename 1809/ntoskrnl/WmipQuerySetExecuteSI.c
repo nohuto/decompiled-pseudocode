@@ -1,16 +1,16 @@
 /*
  * XREFs of WmipQuerySetExecuteSI @ 0x1405FBF88
  * Callers:
- *     WmipIoControl @ 0x1406A9E00 (WmipIoControl.c)
- *     IoWMIQuerySingleInstance @ 0x1406B2710 (IoWMIQuerySingleInstance.c)
- *     IoWMIExecuteMethod @ 0x1408B1EE0 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1408B2210 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1408B2320 (IoWMISetSingleItem.c)
- *     WmipQuerySingleMultiple @ 0x1408B3D08 (WmipQuerySingleMultiple.c)
+ *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstance @ 0x1406B26F0 (IoWMIQuerySingleInstance.c)
+ *     IoWMIExecuteMethod @ 0x1408B1EC0 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x1408B21F0 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1408B2300 (IoWMISetSingleItem.c)
+ *     WmipQuerySingleMultiple @ 0x1408B3CE8 (WmipQuerySingleMultiple.c)
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)

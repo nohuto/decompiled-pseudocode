@@ -1,41 +1,42 @@
 /*
- * XREFs of PipUnloadEarlyLaunchDrivers @ 0x140B26B08
+ * XREFs of PipUnloadEarlyLaunchDrivers @ 0x140A728A8
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwUnloadKey2 @ 0x14041F1E0 (ZwUnloadKey2.c)
- *     IopUnloadDriver @ 0x140856DC0 (IopUnloadDriver.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwUnloadKey2 @ 0x1403FDCE0 (ZwUnloadKey2.c)
+ *     IopUnloadDriver @ 0x140769798 (IopUnloadDriver.c)
  */
 
-__int64 __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)
+_UNKNOWN **__fastcall PipUnloadEarlyLaunchDrivers(__int64 a1)
 {
-  __int64 result; // rax
-  UNICODE_STRING *v2; // rdi
-  UNICODE_STRING *v3; // rbx
-  UNICODE_STRING *v4; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  _DWORD v6[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v7; // [rsp+38h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+40h] [rbp-20h]
-  int v9; // [rsp+48h] [rbp-18h]
-  int v10; // [rsp+4Ch] [rbp-14h]
-  __int128 v11; // [rsp+50h] [rbp-10h]
+  _UNKNOWN **result; // rax
+  unsigned __int16 *v2; // rdi
+  unsigned __int16 *v3; // rbx
+  unsigned __int16 *v4; // rcx
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
+  _DWORD v6[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+38h] [rbp-30h]
+  UNICODE_STRING *p_DestinationString; // [rsp+40h] [rbp-28h]
+  int v9; // [rsp+48h] [rbp-20h]
+  int v10; // [rsp+4Ch] [rbp-1Ch]
+  __int128 v11; // [rsp+50h] [rbp-18h]
+  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
 
-  result = 0LL;
-  v2 = a1 + 4;
-  v10 = 0;
-  v3 = *(UNICODE_STRING **)&a1[4].Length;
+  result = &retaddr;
   v6[1] = 0;
+  v2 = (unsigned __int16 *)(a1 + 64);
+  v3 = *(unsigned __int16 **)(a1 + 64);
+  v10 = 0;
   DestinationString = 0LL;
-  if ( v3 != &a1[4] )
+  if ( v3 != (unsigned __int16 *)(a1 + 64) )
   {
     do
     {
       v4 = v3;
-      v3 = *(UNICODE_STRING **)&v3->Length;
-      if ( SLODWORD(v4[3].Buffer) >= 0 )
-        IopUnloadDriver(v4 + 2, 1);
+      v3 = *(unsigned __int16 **)v3;
+      if ( *((int *)v4 + 14) >= 0 )
+        IopUnloadDriver(v4 + 16, 1);
     }
     while ( v3 != v2 );
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\ELAM");
@@ -44,7 +45,7 @@ __int64 __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)
     v6[0] = 48;
     v9 = 576;
     v11 = 0LL;
-    return ZwUnloadKey2((__int64)v6, 1LL);
+    return (_UNKNOWN **)ZwUnloadKey2((__int64)v6, 1LL);
   }
   return result;
 }

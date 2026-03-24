@@ -1,54 +1,58 @@
 /*
- * XREFs of TtmpDispatchCreateTerminal @ 0x1409A661C
+ * XREFs of TtmpDispatchCreateTerminal @ 0x140900CC4
  * Callers:
- *     TtmDispatchApi @ 0x1409A603C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409006E4 (TtmDispatchApi.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A62E8 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiCreateTerminal @ 0x1409AAE58 (TtmiCreateTerminal.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmiCreateTerminal @ 0x1408FD57C (TtmiCreateTerminal.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900984 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
-__int64 __fastcall TtmpDispatchCreateTerminal(__int64 a1, __int64 a2)
+__int64 __fastcall TtmpDispatchCreateTerminal(__int64 a1, unsigned __int64 *a2)
 {
   int v4; // eax
-  __int64 v5; // r8
-  unsigned int v6; // ebx
-  __int64 v7; // rdi
-  __int64 v8; // rdx
+  unsigned int v5; // ebx
+  __int64 v6; // rdi
+  ACCESS_MASK v7; // edx
   int Terminal; // eax
-  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
 
-  v11 = 0LL;
-  Object = 0LL;
-  v4 = TtmpAcquireSessionFromTerminalHandle(*(void **)(a1 + 16), 1, 0, &v11, &Object);
-  v6 = v4;
+  v10 = 0LL;
+  DmaAdapter = 0LL;
+  v4 = TtmpAcquireSessionFromTerminalHandle(*(void **)(a1 + 16), 1, 0, &v10, (__int64 *)&DmaAdapter);
+  v5 = v4;
   if ( v4 >= 0 )
   {
-    v8 = *(unsigned int *)(a1 + 8);
-    v7 = v11;
-    LOBYTE(v5) = KeGetCurrentThread()->PreviousMode;
-    Terminal = TtmiCreateTerminal(v11, v8, v5, a2, a2 + 8, 0LL);
-    v6 = Terminal;
+    v7 = *(_DWORD *)(a1 + 8);
+    v6 = v10;
+    Terminal = TtmiCreateTerminal(
+                 v10,
+                 v7,
+                 KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10],
+                 a2,
+                 a2 + 1,
+                 0LL);
+    v5 = Terminal;
     if ( Terminal >= 0 )
-      v6 = 0;
+      v5 = 0;
     else
       TtmiLogError("TtmpDispatchCreateTerminal", 239LL, (unsigned int)Terminal, (unsigned int)Terminal);
   }
   else
   {
     TtmiLogError("TtmpDispatchCreateTerminal", 227LL, (unsigned int)v4, (unsigned int)v4);
-    v7 = v11;
+    v6 = v10;
   }
-  if ( v7 )
+  if ( v6 )
   {
     ExReleaseResourceLite(&TtmpSessionLock);
     KeLeaveCriticalRegion();
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
-  return v6;
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  return v5;
 }

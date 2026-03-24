@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCancelIoFile @ 0x1406A6630
+ * XREFs of NtCancelIoFile @ 0x1406A6610
  * Callers:
  *     <none>
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
- *     IopCancelIrpsInFileObjectList @ 0x140121A0C (IopCancelIrpsInFileObjectList.c)
- *     IoCancelIrp @ 0x140121E10 (IoCancelIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140121A2C (IopCancelIrpsInFileObjectList.c)
+ *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __stdcall NtCancelIoFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)

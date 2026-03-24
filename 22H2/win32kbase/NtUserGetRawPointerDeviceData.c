@@ -1,103 +1,82 @@
 /*
- * XREFs of NtUserGetRawPointerDeviceData @ 0x1C0145940
+ * XREFs of NtUserGetRawPointerDeviceData @ 0x1C012FC70
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C01CA8A8 (-GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PRO.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C019498C (-GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PRO.c)
  */
 
-__int64 __fastcall NtUserGetRawPointerDeviceData(__int64 a1, __int64 a2, __int64 a3, char *a4, volatile void *Address)
+__int64 __fastcall NtUserGetRawPointerDeviceData(
+        int a1,
+        unsigned int a2,
+        unsigned int a3,
+        char *a4,
+        volatile void *Address)
 {
   __int64 v6; // rbx
-  unsigned int v7; // esi
-  int v8; // r15d
-  unsigned __int64 v9; // rdx
+  __int64 v9; // rdx
   int PointerRawDataInternal; // edi
   unsigned __int64 v11; // r12
-  unsigned __int64 v12; // r15
-  int v13; // ecx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  void *QuotaZInit; // rsi
-  __int64 v17; // r8
+  unsigned __int64 v12; // r14
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  void *v15; // rsi
   __int64 CurrentProcessWow64Process; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  __int64 v26; // rax
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  struct tagTHREADINFO *v32; // [rsp+58h] [rbp-50h]
-  unsigned __int16 v33; // [rsp+B0h] [rbp+8h]
-  unsigned int v34; // [rsp+B8h] [rbp+10h]
-  unsigned int v35; // [rsp+C0h] [rbp+18h]
+  __int64 v17; // rcx
+  CTouchProcessor *v18; // rcx
+  struct tagTHREADINFO *v20; // [rsp+60h] [rbp-58h]
+  unsigned __int16 v21; // [rsp+C0h] [rbp+8h]
 
-  v35 = a3;
-  v34 = a2;
-  v33 = a1;
-  v6 = (unsigned int)a3;
-  v7 = a2;
-  v8 = a1;
-  v32 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(a1, a2, a3, (__int64)a4);
+  v21 = a1;
+  v6 = a3;
+  v20 = EnterSharedCrit(0, 1);
   PointerRawDataInternal = 0;
-  if ( !v8
-    || HIWORD(v8)
-    || !v7
+  if ( !a1
+    || HIWORD(a1)
+    || !a2
     || !(_DWORD)v6
     || !a4
     || !Address
-    || (v11 = v6 * v7, v11 > 0xFFFFFFFF)
+    || (v11 = v6 * a2, v11 > 0xFFFFFFFF)
     || (v12 = 28LL * (unsigned int)v6, v12 > 0xFFFFFFFF) )
   {
-    v13 = 87;
+    v13 = 87LL;
     goto LABEL_20;
   }
-  if ( (unsigned int)v12 >= 0x2710000
-    || (QuotaZInit = (void *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                               (NSInstrumentation::CLeakTrackingAllocator *)0xFFFFFFFFLL,
-                               v9,
-                               (unsigned int)v12,
-                               0x78707355u)) == 0LL )
+  if ( (unsigned int)v12 >= 0x2710000 || (v15 = (void *)Win32AllocPoolWithQuota((unsigned int)v12, 0x78707355u)) == 0LL )
   {
-    v13 = 8;
+    v13 = 8LL;
 LABEL_20:
-    UserSetLastError(v13);
+    UserSetLastError(v13, v9);
     goto LABEL_21;
   }
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v15, v14, v17);
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v14);
   ProbeForWrite(Address, 4LL * (unsigned int)v11, CurrentProcessWow64Process != 0 ? 1 : 4);
   if ( v12 )
   {
-    if ( ((PsGetCurrentProcessWow64Process(v20, v19, v21) == 0 ? 3 : 0) & (unsigned __int8)a4) != 0 )
+    if ( ((PsGetCurrentProcessWow64Process(v17) == 0 ? 3 : 0) & (unsigned __int8)a4) != 0 )
       ExRaiseDatatypeMisalignment();
     if ( (unsigned __int64)&a4[v12] > MmUserProbeAddress || &a4[v12] < a4 )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  memmove(QuotaZInit, a4, (unsigned int)v12);
-  v26 = SGDGetUserSessionState(v23, v22, v24, v25);
+  memmove(v15, a4, (unsigned int)v12);
   PointerRawDataInternal = CTouchProcessor::GetPointerRawDataInternal(
-                             *(CTouchProcessor **)(v26 + 3424),
-                             v32,
-                             v33,
-                             v34,
-                             v35,
-                             (const struct tagPOINTER_DEVICE_PROPERTY *)QuotaZInit,
+                             v18,
+                             v20,
+                             v21,
+                             a2,
+                             a3,
+                             (const struct tagPOINTER_DEVICE_PROPERTY *)v15,
                              v11,
                              (int *)Address);
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)QuotaZInit);
+  Win32FreePool((__int64)v15);
 LABEL_21:
-  UserSessionSwitchLeaveCrit(v28, v27, v29, v30);
+  UserSessionSwitchLeaveCrit();
   return PointerRawDataInternal;
 }

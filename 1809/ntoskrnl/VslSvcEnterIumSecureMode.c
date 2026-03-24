@@ -1,11 +1,11 @@
 /*
- * XREFs of VslSvcEnterIumSecureMode @ 0x14027C078
+ * XREFs of VslSvcEnterIumSecureMode @ 0x14027C178
  * Callers:
- *     VmCallSkSvc @ 0x14030B650 (VmCallSkSvc.c)
+ *     VmCallSkSvc @ 0x14030B750 (VmCallSkSvc.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 NTSTATUS __fastcall VslSvcEnterIumSecureMode(_OWORD *a1)

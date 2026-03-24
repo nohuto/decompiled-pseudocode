@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z @ 0x1C0024648
+ * XREFs of ?CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z @ 0x1C00232F8
  * Callers:
- *     SfnGETDBCSTEXTLENGTHS @ 0x1C0011B20 (SfnGETDBCSTEXTLENGTHS.c)
- *     xxxClientExpandStringW @ 0x1C0020288 (xxxClientExpandStringW.c)
- *     xxxClientLoadStringW @ 0x1C0022098 (xxxClientLoadStringW.c)
- *     SfnOUTSTRING @ 0x1C00B2C40 (SfnOUTSTRING.c)
- *     ClientGetListboxString @ 0x1C020576C (ClientGetListboxString.c)
- *     SfnINCNTOUTSTRING @ 0x1C02074C0 (SfnINCNTOUTSTRING.c)
- *     SfnINCNTOUTSTRINGNULL @ 0x1C0207A40 (SfnINCNTOUTSTRINGNULL.c)
+ *     SfnGETDBCSTEXTLENGTHS @ 0x1C0022B90 (SfnGETDBCSTEXTLENGTHS.c)
+ *     xxxClientLoadStringW @ 0x1C002425C (xxxClientLoadStringW.c)
+ *     xxxClientExpandStringW @ 0x1C00251BC (xxxClientExpandStringW.c)
+ *     ClientGetListboxString @ 0x1C0159EC4 (ClientGetListboxString.c)
+ *     SfnINCNTOUTSTRING @ 0x1C0229BC0 (SfnINCNTOUTSTRING.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C022A1E0 (SfnINCNTOUTSTRINGNULL.c)
  * Callees:
  *     <none>
  */
@@ -16,46 +15,48 @@ __int64 __fastcall CalcOutputStringSize(struct _CALLBACKSTATUS *a1, unsigned int
 {
   unsigned int v5; // ecx
   __int64 v7; // rbx
-  ULONG v9; // edx
-  unsigned __int64 v10; // rdx
-  ULONG v12; // ecx
-  ULONG BytesInUnicodeString; // [rsp+40h] [rbp+18h] BYREF
+  unsigned __int64 v9; // rax
+  __int64 result; // rax
+  ULONG v11; // ecx
+  ULONG BytesInMultiByteString; // [rsp+40h] [rbp+18h] BYREF
 
-  BytesInUnicodeString = 0;
+  BytesInMultiByteString = 0;
   v5 = *((_DWORD *)a1 + 2);
   v7 = a2;
   if ( v5 )
     ProbeForRead(*((volatile void **)a1 + 2), v5, 2 - (a4 != 0));
   else
     *(_BYTE *)MmUserProbeAddress = 0;
+  v9 = *((unsigned int *)a1 + 2);
   if ( a3 )
   {
-    v10 = *((unsigned int *)a1 + 2);
     if ( a4 )
     {
-LABEL_6:
-      if ( (unsigned int)v7 < (unsigned int)v10 )
-        LODWORD(v10) = v7;
-      return (unsigned int)v10;
+      if ( (unsigned int)v7 >= (unsigned int)v9 )
+        LODWORD(v7) = *((_DWORD *)a1 + 2);
+      return (unsigned int)v7;
     }
-    v12 = 2 * v7;
-    if ( 2 * v7 >= v10 )
-      v12 = *((_DWORD *)a1 + 2);
-    RtlUnicodeToMultiByteSize(&BytesInUnicodeString, *((PCWCH *)a1 + 2), v12);
-    LODWORD(v10) = BytesInUnicodeString;
+    else
+    {
+      v11 = 2 * v7;
+      if ( 2 * v7 >= v9 )
+        v11 = *((_DWORD *)a1 + 2);
+      RtlUnicodeToMultiByteSize(&BytesInMultiByteString, *((PCWCH *)a1 + 2), v11);
+      return BytesInMultiByteString;
+    }
+  }
+  else if ( a4 )
+  {
+    if ( (unsigned int)v7 < (unsigned int)v9 )
+      LODWORD(v9) = v7;
+    RtlMultiByteToUnicodeSize(&BytesInMultiByteString, *((const CHAR **)a1 + 2), v9);
+    return BytesInMultiByteString >> 1;
   }
   else
   {
-    v9 = *((_DWORD *)a1 + 2);
-    if ( !a4 )
-    {
-      LODWORD(v10) = v9 >> 1;
-      goto LABEL_6;
-    }
-    if ( (unsigned int)v7 < v9 )
-      v9 = v7;
-    RtlMultiByteToUnicodeSize(&BytesInUnicodeString, *((const CHAR **)a1 + 2), v9);
-    LODWORD(v10) = BytesInUnicodeString >> 1;
+    result = (unsigned int)v9 >> 1;
+    if ( (unsigned int)v7 < (unsigned int)result )
+      return (unsigned int)v7;
   }
-  return (unsigned int)v10;
+  return result;
 }

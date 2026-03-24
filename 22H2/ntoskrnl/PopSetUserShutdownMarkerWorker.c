@@ -1,19 +1,19 @@
 /*
- * XREFs of PopSetUserShutdownMarkerWorker @ 0x140683420
+ * XREFs of PopSetUserShutdownMarkerWorker @ 0x14077A460
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D1F4 (PopBsdHandleRequest.c)
- *     PopOkayToQueueNextWorkItem @ 0x14032ED60 (PopOkayToQueueNextWorkItem.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14032B274 (PopOkayToQueueNextWorkItem.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F76F4 (PopBsdHandleRequest.c)
  */
 
 void PopSetUserShutdownMarkerWorker()
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   BYTE8(PopBsdPowerTransition) |= 4u;
-  PopBsdHandleRequest(9u);
+  PopBsdHandleRequest(8);
   PopOkayToQueueNextWorkItem((__int64)&PopSetUserShutdownMarkerWorkItem);
-  PopReleaseRwLock(&PopBsdUpdateLock);
+  PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
 }

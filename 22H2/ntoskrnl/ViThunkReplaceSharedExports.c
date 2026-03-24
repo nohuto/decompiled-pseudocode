@@ -1,56 +1,58 @@
 /*
- * XREFs of ViThunkReplaceSharedExports @ 0x140ADD108
+ * XREFs of ViThunkReplaceSharedExports @ 0x1409D96C8
  * Callers:
- *     ViThunkReplaceAllSharedExports @ 0x140ADCE64 (ViThunkReplaceAllSharedExports.c)
+ *     ViThunkReplaceAllSharedExports @ 0x1409D92D8 (ViThunkReplaceAllSharedExports.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293860 (VfIsVerifierEnabled.c)
- *     MmReplaceImportEntry @ 0x14062CB38 (MmReplaceImportEntry.c)
+ *     VfIsVerifierEnabled @ 0x14032D0E0 (VfIsVerifierEnabled.c)
+ *     MmReplaceImportEntry @ 0x14053585C (MmReplaceImportEntry.c)
+ *     VfIsRuleClassEnabled @ 0x1409C6030 (VfIsRuleClassEnabled.c)
  */
 
-void __fastcall ViThunkReplaceSharedExports(ULONG_PTR *a1, unsigned int a2)
+void __fastcall ViThunkReplaceSharedExports(__int64 a1, unsigned int a2)
 {
-  ULONG_PTR *v2; // rbx
-  __int64 v3; // rsi
-  ULONG_PTR v4; // rbp
-  ULONG_PTR v5; // rdi
-  int v6; // eax
-  ULONG_PTR v7; // rdx
+  __int64 v2; // rbx
+  __int64 i; // rsi
+  ULONG_PTR v4; // rdi
+  int v5; // eax
+  ULONG_PTR v6; // rdx
 
-  if ( a1 )
+  if ( a1 && a2 )
   {
-    v2 = a1;
-    if ( a2 )
+    v2 = a1 + 8;
+    for ( i = a2; i; --i )
     {
-      v3 = a2;
-      while ( 1 )
+      v4 = *(_QWORD *)(v2 - 8);
+      if ( v4 )
       {
-        v4 = *v2;
-        if ( !*v2 )
-          goto LABEL_15;
-        v5 = v2[2];
-        if ( !v5 )
-          goto LABEL_15;
-        if ( (VfRuleClasses & 0x800000000LL) == 0
-          || (unsigned int)VfIsVerifierEnabled() && (VfRuleClasses & 0xFF217644) != 0 )
+        if ( !VfIsRuleClassEnabled(0x23u)
+          || (unsigned int)VfIsVerifierEnabled()
+          && ((VfRuleClasses & 0xFFAFFFFF) != 0
+           || (VfRuleClasses & 0x200000000LL) != 0
+           || (VfRuleClasses & 0x400000000LL) != 0) )
         {
-          goto LABEL_12;
+          goto LABEL_16;
         }
-        v6 = *(_DWORD *)(v5 + 32);
-        if ( (v6 & 1) != 0 )
-          break;
-LABEL_15:
-        v2 += 3;
-        if ( !--v3 )
-          return;
+        if ( !XdvEnabled )
+          goto LABEL_18;
+        if ( !VfDifAPIThunkContextHead )
+          goto LABEL_18;
+        v5 = *(_DWORD *)(v2 + 16);
+        if ( (v5 & 1) == 0 )
+          goto LABEL_18;
+        if ( (v5 & 4) != 0 )
+        {
+LABEL_16:
+          v6 = *(_QWORD *)v2;
+LABEL_17:
+          MmReplaceImportEntry(v4, v6);
+          goto LABEL_18;
+        }
+        v6 = **(_QWORD **)(v2 + 8);
+        if ( v6 )
+          goto LABEL_17;
       }
-      if ( (v6 & 4) != 0 )
-LABEL_12:
-        v7 = *(_QWORD *)(v5 + 8);
-      else
-        v7 = **(_QWORD **)(v5 + 40);
-      if ( v7 )
-        MmReplaceImportEntry(v4, v7);
-      goto LABEL_15;
+LABEL_18:
+      v2 += 32LL;
     }
   }
 }

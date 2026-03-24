@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00CEC18
+ * XREFs of ?GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00BF564
  * Callers:
- *     NtGdiGetOPMInformation @ 0x1C00CEA40 (NtGdiGetOPMInformation.c)
+ *     NtGdiGetOPMInformation @ 0x1C00BF3B0 (NtGdiGetOPMInformation.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?GetInformation@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@PEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00CECB4 (-GetInformation@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@PEAU_DXGKMDT_OPM.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00CEDBC (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?GetInformation@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@PEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00BF600 (-GetInformation@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@PEAU_DXGKMDT_OPM.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00BF6F0 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
  */
 
 __int64 __fastcall COPM::GetInformation(
@@ -20,9 +20,9 @@ __int64 __fastcall COPM::GetInformation(
   COPMProtectedOutput *v11; // [rsp+40h] [rbp+8h] BYREF
 
   v11 = this;
-  v4 = qword_1C0296A08;
-  v8 = (PRKMUTEX *)((char *)qword_1C0296A08 + 48);
-  OPM::CMutex::Lock((void **)qword_1C0296A08 + 6);
+  v4 = qword_1C0251C30;
+  v8 = (PRKMUTEX *)((char *)qword_1C0251C30 + 48);
+  OPM::CMutex::Lock((void **)qword_1C0251C30 + 6);
   v11 = 0LL;
   HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject((char *)v4 + 24, a2, &v11);
   if ( HandleObject >= 0 )

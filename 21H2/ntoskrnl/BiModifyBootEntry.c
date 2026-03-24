@@ -1,12 +1,12 @@
 /*
- * XREFs of BiModifyBootEntry @ 0x140A20758
+ * XREFs of BiModifyBootEntry @ 0x1409727F0
  * Callers:
- *     BiUpdateEfiEntry @ 0x140A210D4 (BiUpdateEfiEntry.c)
+ *     BiUpdateEfiEntry @ 0x14097316C (BiUpdateEfiEntry.c)
  * Callees:
- *     ZwModifyBootEntry @ 0x14041DAE0 (ZwModifyBootEntry.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
+ *     ZwModifyBootEntry @ 0x1403FC660 (ZwModifyBootEntry.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiModifyBootEntry(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x140864630
+ * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x140864610
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     PfpPrefetchSharedDeref @ 0x14065CA24 (PfpPrefetchSharedDeref.c)
+ *     PfpPrefetchSharedDeref @ 0x14065CA04 (PfpPrefetchSharedDeref.c)
  */
 
 void __fastcall PfpPrefetchSharedConflictNotifyEnd(volatile signed __int64 *a1, _KLOCK_ENTRY *a2)

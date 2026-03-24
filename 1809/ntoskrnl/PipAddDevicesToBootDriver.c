@@ -1,9 +1,9 @@
 /*
- * XREFs of PipAddDevicesToBootDriver @ 0x1409F5168
+ * XREFs of PipAddDevicesToBootDriver @ 0x1409F5178
  * Callers:
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     PipApplyFunctionToServiceInstances @ 0x140754F14 (PipApplyFunctionToServiceInstances.c)
+ *     PipApplyFunctionToServiceInstances @ 0x140754EF4 (PipApplyFunctionToServiceInstances.c)
  */
 
 int __fastcall PipAddDevicesToBootDriver(_QWORD *a1, __int64 a2, ULONG a3, char a4)

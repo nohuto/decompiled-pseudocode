@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetDriverEntryOrder @ 0x1401BB290
+ * XREFs of ZwSetDriverEntryOrder @ 0x1401BB2B0
  * Callers:
  *     <none>
  * Callees:

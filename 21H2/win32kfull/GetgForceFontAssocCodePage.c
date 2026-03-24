@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgForceFontAssocCodePage @ 0x1C0123010
+ * XREFs of GetgForceFontAssocCodePage @ 0x1C01378D0
  * Callers:
  *     <none>
  * Callees:

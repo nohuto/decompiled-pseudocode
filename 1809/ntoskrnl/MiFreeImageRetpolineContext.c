@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreeImageRetpolineContext @ 0x140650E24
+ * XREFs of MiFreeImageRetpolineContext @ 0x140650E04
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406508FC (MiParseImageLoadConfig.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1408538F4 (MiCaptureRetpolineRelocationTables.c)
+ *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x1408538D4 (MiCaptureRetpolineRelocationTables.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

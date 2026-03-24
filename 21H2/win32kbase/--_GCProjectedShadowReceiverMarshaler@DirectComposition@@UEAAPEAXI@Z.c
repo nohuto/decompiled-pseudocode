@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCProjectedShadowReceiverMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0009450
+ * XREFs of ??_GCProjectedShadowReceiverMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0005950
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 DirectComposition::CProjectedShadowReceiverMarshaler *__fastcall DirectComposition::CProjectedShadowReceiverMarshaler::`scalar deleting destructor'(
@@ -12,8 +12,6 @@ DirectComposition::CProjectedShadowReceiverMarshaler *__fastcall DirectCompositi
 {
   *(_QWORD *)this = &DirectComposition::CProjectedShadowReceiverMarshaler::`vftable';
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      this);
+    Win32FreePool(this);
   return this;
 }

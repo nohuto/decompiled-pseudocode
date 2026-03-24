@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetEffectiveNoWakeCharge @ 0x140700048
+ * XREFs of PspGetEffectiveNoWakeCharge @ 0x1406187C4
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
  *     <none>
  */
@@ -13,27 +13,27 @@ __int64 __fastcall PspGetEffectiveNoWakeCharge(__int64 a1, _QWORD *a2, _QWORD *a
   __int64 v6; // r8
   __int64 v7; // rdx
 
-  v3 = *(_DWORD *)(a1 + 1512);
+  v3 = *(_DWORD *)(a1 + 1320);
   *a2 = 0LL;
   *a3 = 0LL;
   result = v3;
   if ( (v3 & 0x800) != 0 )
   {
-    if ( *(_DWORD *)(a1 + 1048) )
+    if ( *(_DWORD *)(a1 + 856) )
     {
-      v6 = *(_QWORD *)(a1 + 1136);
+      v6 = *(_QWORD *)(a1 + 944);
       *a2 = v6;
       if ( (v3 & 0x400000) == 0 )
       {
-        v7 = *(_QWORD *)(a1 + 1264);
-        if ( !v7 || (*(_DWORD *)(v7 + 1512) & 0x1000) == 0 || !*(_DWORD *)(v7 + 1048) )
+        v7 = *(_QWORD *)(a1 + 1072);
+        if ( !v7 || (*(_DWORD *)(v7 + 1320) & 0x1000) == 0 || !*(_DWORD *)(v7 + 856) )
         {
           *a3 = v6;
           result = v3;
           if ( v7 )
           {
-            _InterlockedOr((volatile signed __int32 *)(v7 + 1512), 0x400000u);
-            result = *(unsigned int *)(a1 + 1512);
+            _InterlockedOr((volatile signed __int32 *)(v7 + 1320), 0x400000u);
+            result = *(unsigned int *)(a1 + 1320);
           }
         }
       }
@@ -41,10 +41,10 @@ __int64 __fastcall PspGetEffectiveNoWakeCharge(__int64 a1, _QWORD *a2, _QWORD *a
   }
   if ( (result & 0x400000) != 0 )
   {
-    result = *(_QWORD *)(a1 + 1264);
+    result = *(_QWORD *)(a1 + 1072);
     if ( result )
-      _InterlockedOr((volatile signed __int32 *)(result + 1512), 0x400000u);
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 1512), 0xFFBFFFFF);
+      _InterlockedOr((volatile signed __int32 *)(result + 1320), 0x400000u);
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 1320), 0xFFBFFFFF);
   }
   return result;
 }

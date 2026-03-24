@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetWaitableVSyncEvent@BLTQUEUE_HW_VSYNC_SOURCE@@UEAAPEAXXZ @ 0x1C01EF080
+ * XREFs of ?GetWaitableVSyncEvent@BLTQUEUE_HW_VSYNC_SOURCE@@UEAAPEAXXZ @ 0x1C016E8D0
  * Callers:
  *     <none>
  * Callees:

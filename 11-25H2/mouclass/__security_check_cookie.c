@@ -1,1 +1,30 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0006AE0\n * Callers:\n *     MouseStart @ 0x1C00034B0 (MouseStart.c)\n *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0005770 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)\n *     __GSHandlerCheckCommon @ 0x1C000699C (__GSHandlerCheckCommon.c)\n *     MouseClassFindMorePorts @ 0x1C000E190 (MouseClassFindMorePorts.c)\n *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000E690 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)\n *     MouCreateClassObject @ 0x1C000F950 (MouCreateClassObject.c)\n *     MouseClassGetWaitWakeEnableState @ 0x1C0010360 (MouseClassGetWaitWakeEnableState.c)\n *     DriverEntry @ 0x1C0011080 (DriverEntry.c)\n *     MouConfiguration @ 0x1C0011A90 (MouConfiguration.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  __int64 v1; // rcx\n\n  if ( StackCookie != _security_cookie )\nReportFailure:\n    _report_gsfailure(StackCookie);\n  v1 = __ROL8__(StackCookie, 16);\n  if ( (_WORD)v1 )\n  {\n    StackCookie = __ROR8__(v1, 16);\n    goto ReportFailure;\n  }\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0006AE0
+ * Callers:
+ *     MouseStart @ 0x1C00034B0 (MouseStart.c)
+ *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0005770 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     __GSHandlerCheckCommon @ 0x1C000699C (__GSHandlerCheckCommon.c)
+ *     MouseClassFindMorePorts @ 0x1C000E190 (MouseClassFindMorePorts.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000E690 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     MouCreateClassObject @ 0x1C000F950 (MouCreateClassObject.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C0010360 (MouseClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C0011080 (DriverEntry.c)
+ *     MouConfiguration @ 0x1C0011A90 (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

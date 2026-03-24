@@ -2,11 +2,11 @@
  * XREFs of IoReleaseCancelSpinLock @ 0x140017DC0
  * Callers:
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoReleaseCancelSpinLock(KIRQL Irql)

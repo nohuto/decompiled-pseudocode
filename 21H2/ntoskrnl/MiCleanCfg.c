@@ -1,38 +1,35 @@
 /*
- * XREFs of MiCleanCfg @ 0x14024CB6C
+ * XREFs of MiCleanCfg @ 0x1402C35D4
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14030EA70 (MiUnlockAndDereferenceVadShared.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
-__int64 MiCleanCfg()
+void MiCleanCfg()
 {
   struct _KTHREAD *CurrentThread; // rdi
   __int64 v1; // rbp
-  __int64 result; // rax
-  void **v3; // rbx
-  void *v4; // rsi
+  char **v2; // rbx
+  char *v3; // rsi
 
   CurrentThread = KeGetCurrentThread();
   v1 = 2LL;
-  result = (__int64)CurrentThread->ApcState.Process;
-  v3 = (void **)(*(_QWORD *)(result + 1680) + 440LL);
+  v2 = (char **)(CurrentThread->ApcState.Process[1].ActiveProcessorsPadding[8] + 456);
   do
   {
-    v4 = *v3;
-    if ( *v3 )
+    v3 = *v2;
+    if ( *v2 )
     {
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockSharedEx((ULONG_PTR)v4 + 40, 0LL);
+      ExAcquirePushLockSharedEx((ULONG_PTR)(v3 + 40), 0LL);
       BYTE1(CurrentThread[1].Queue) |= 0x40u;
-      result = MiUnlockAndDereferenceVadShared(v4);
-      *v3 = 0LL;
+      MiUnlockAndDereferenceVadShared(v3);
+      *v2 = 0LL;
     }
-    v3 += 4;
+    v2 += 4;
     --v1;
   }
   while ( v1 );
-  return result;
 }

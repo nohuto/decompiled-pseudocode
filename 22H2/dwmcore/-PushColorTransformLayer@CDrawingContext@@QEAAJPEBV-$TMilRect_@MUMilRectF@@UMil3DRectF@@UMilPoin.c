@@ -1,21 +1,18 @@
 /*
- * XREFs of ?PushColorTransformLayer@CDrawingContext@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCColorTransformResource@@@Z @ 0x1801D6620
+ * XREFs of ?PushColorTransformLayer@CDrawingContext@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@@Z @ 0x180177C9C
  * Callers:
- *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EA030 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ECD04 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x18007ED98 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
- *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180090EF8 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??_ECColorSpaceLayer@@UEAAPEAXI@Z @ 0x1801D3100 (--_ECColorSpaceLayer@@UEAAPEAXI@Z.c)
- *     ?Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCColorTransformResource@@PEAPEAV1@@Z @ 0x1801F3750 (-Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCColorTransformRes.c)
- *     ?AlignRectFToPointAndSizeL@@YAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUMilPointAndSizeL@@@Z @ 0x180273680 (-AlignRectFToPointAndSizeL@@YAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800627D4 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
+ *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006BD48 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ??_ECColorSpaceLayer@@UEAAPEAXI@Z @ 0x1801744F0 (--_ECColorSpaceLayer@@UEAAPEAXI@Z.c)
+ *     ?Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@PEAPEAV1@@Z @ 0x18018FE9C (-Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV-$TValueResource@U.c)
+ *     ?AlignRectFToPointAndSizeL@@YAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUMilPointAndSizeL@@@Z @ 0x180211F54 (-AlignRectFToPointAndSizeL@@YAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
  */
 
-__int64 __fastcall CDrawingContext::PushColorTransformLayer(
-        struct IDeviceTarget **this,
-        __int64 a2,
-        struct CColorTransformResource *a3)
+__int64 __fastcall CDrawingContext::PushColorTransformLayer(CDrawingContext *this, __int64 a2, __int64 a3)
 {
   CColorSpaceLayer *v3; // rdi
   int v6; // eax
@@ -25,38 +22,37 @@ __int64 __fastcall CDrawingContext::PushColorTransformLayer(
   __int64 v10; // rcx
   int v11; // eax
   __int64 v12; // rcx
-  struct CLayer *v14; // [rsp+30h] [rbp-48h] BYREF
+  CColorSpaceLayer *v14; // [rsp+30h] [rbp-48h] BYREF
   _BYTE v15[16]; // [rsp+38h] [rbp-40h] BYREF
   __int128 v16; // [rsp+48h] [rbp-30h] BYREF
 
   v3 = 0LL;
   v14 = 0LL;
   v16 = 0LL;
-  CDrawingContext::GetClipBoundsWorld((__int64)this, (float *)&v16);
+  CDrawingContext::GetClipBoundsWorld((__int64)this);
   v6 = AlignRectFToPointAndSizeL(&v16, v15);
   v8 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xE68u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xD94u, 0LL);
   }
   else
   {
-    v9 = CColorTransformLayer::Create(this[4], (const struct MilPointAndSizeL *)v15, a3, &v14);
+    v9 = CColorTransformLayer::Create(*((_QWORD *)this + 4), v15, a3, &v14);
     v8 = v9;
     if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xE6Du, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xD99u, 0LL);
       v3 = v14;
     }
     else
     {
       v3 = v14;
-      v11 = CDrawingContext::PushLayer((CDrawingContext *)this, 0LL, v14, 1, 1);
+      v11 = CDrawingContext::PushLayer(this, 0LL, v14, 1, 1);
       v8 = v11;
-      if ( v11 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xE73u, 0LL);
-      else
-        v3 = 0LL;
+      if ( v11 >= 0 )
+        return v8;
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xD9Fu, 0LL);
     }
   }
   if ( v3 )

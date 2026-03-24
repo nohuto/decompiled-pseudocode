@@ -1,60 +1,72 @@
 /*
- * XREFs of zzzDecomposeDesktop @ 0x1C005861C
+ * XREFs of zzzDecomposeDesktop @ 0x1C00EAA3C
  * Callers:
- *     xxxDwmStopRedirection @ 0x1C0057060 (xxxDwmStopRedirection.c)
- *     zzzDwmStartRedirection @ 0x1C00588D8 (zzzDwmStartRedirection.c)
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     zzzDwmStartRedirection @ 0x1C00E942C (zzzDwmStartRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9620 (xxxDwmStopRedirection.c)
  * Callees:
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     GreRemoveDisplayDriverRealizations @ 0x1C0054D48 (GreRemoveDisplayDriverRealizations.c)
- *     ?IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C005879C (-IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
- *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C005A99C (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
- *     GreUpdateSpriteVisRgn @ 0x1C005AA10 (GreUpdateSpriteVisRgn.c)
- *     MagpDecomposeDesktop @ 0x1C005AD84 (MagpDecomposeDesktop.c)
- *     zzzEnableDwmPointerSupport @ 0x1C005B13C (zzzEnableDwmPointerSupport.c)
- *     ComposeWindow @ 0x1C00C8A84 (ComposeWindow.c)
- *     IsDesktopWindow @ 0x1C00D3DF0 (IsDesktopWindow.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C00296FC (zzzEnableDwmPointerSupport.c)
+ *     ComposeWindow @ 0x1C003531C (ComposeWindow.c)
+ *     IsDesktopWindow @ 0x1C004C550 (IsDesktopWindow.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C0073150 (GreUpdateSpriteVisRgn.c)
+ *     ?IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00EABB8 (-IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
+ *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C00EABE8 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAC4C (GreTransferDwmStateToSpriteState.c)
+ *     GreRemoveDisplayDriverRealizations @ 0x1C00EAD84 (GreRemoveDisplayDriverRealizations.c)
+ *     MagpDecomposeDesktop @ 0x1C00EB284 (MagpDecomposeDesktop.c)
  */
 
-__int64 __fastcall zzzDecomposeDesktop(struct tagDESKTOP *a1)
+__int64 __fastcall zzzDecomposeDesktop(struct tagDESKTOP *a1, int a2)
 {
-  __int64 v2; // rsi
-  __int64 v4; // rbx
+  int v3; // edi
+  __int64 v4; // rsi
+  __int64 v6; // rbx
+  char v7; // r14
+  int v8; // eax
 
   if ( (*(_DWORD *)(**((_QWORD **)a1 + 1) + 64LL) & 1) != 0 )
   {
-    MagpDecomposeDesktop(gMagnContext, a1);
-    v2 = 0LL;
+    v3 = a2 != 0 ? 0x10 : 0;
+    MagpDecomposeDesktop(*(_QWORD *)&gMagnContext, a1);
+    v4 = 0LL;
     do
     {
-      if ( *(_BYTE *)(32LL * (unsigned int)v2 + gSharedInfo[1] + 24) == 1 )
+      if ( *(_BYTE *)(32LL * (unsigned int)v4 + gSharedInfo[1] + 24) == 1 )
       {
-        v4 = *(_QWORD *)(gpKernelHandleTable + 24 * v2);
-        if ( (unsigned int)IsWindowComposedOnDesktop((struct tagWND *const)v4, a1) )
+        v6 = *(_QWORD *)(gpKernelHandleTable + 24 * v4);
+        if ( (unsigned int)IsWindowComposedOnDesktop((struct tagWND *const)v6, a1) )
         {
-          if ( !(unsigned int)IsDesktopWindow(v4) && (*(_BYTE *)(*(_QWORD *)(v4 + 40) + 31LL) & 1) != 0 )
+          v7 = v3 + 2;
+          LOBYTE(v8) = IsDesktopWindow(v6);
+          if ( v8 )
+          {
+            v7 |= 4u;
+          }
+          else if ( (*(_BYTE *)(*(_QWORD *)(v6 + 40) + 31LL) & 1) != 0 )
+          {
             PostEventMessageEx(
-              *(struct tagTHREADINFO **)(v4 + 16),
-              *(struct tagQ **)(*(_QWORD *)(v4 + 16) + 432LL),
+              *(struct tagTHREADINFO **)(v6 + 16),
+              *(struct tagQ **)(*(_QWORD *)(v6 + 16) + 432LL),
               0x10u,
-              (struct tagWND *)v4,
+              (struct tagWND *)v6,
               0,
               0LL,
               0LL,
               0LL);
-          ComposeWindow((struct tagWND *)v4);
+          }
+          ComposeWindow((struct tagWND *)v6, v7);
         }
       }
-      v2 = (unsigned int)(v2 + 1);
+      v4 = (unsigned int)(v4 + 1);
     }
-    while ( (unsigned int)v2 <= giheLast );
+    while ( (unsigned int)v4 <= giheLast );
     GreRemoveDisplayDriverRealizations(*(_QWORD *)(gpDispInfo + 40LL));
-    zzzEnableDwmPointerSupport(0LL, 0LL);
+    zzzEnableDwmPointerSupport(0, 0);
     GreTransferDwmStateToSpriteState(*(HDEV *)(gpDispInfo + 40LL));
     *(_DWORD *)(**((_QWORD **)a1 + 1) + 64LL) &= ~1u;
     GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-    GreUpdateSpriteVisRgn(*(_QWORD *)(gpDispInfo + 40LL), 0LL);
+    GreUpdateSpriteVisRgn(*(_QWORD *)(gpDispInfo + 40LL), 0);
     GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     BroadcastCompositionChange(a1);
   }

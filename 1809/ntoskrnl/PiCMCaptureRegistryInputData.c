@@ -1,15 +1,15 @@
 /*
- * XREFs of PiCMCaptureRegistryInputData @ 0x1406A72C0
+ * XREFs of PiCMCaptureRegistryInputData @ 0x1406A72A0
  * Callers:
- *     PiCMOpenClassKey @ 0x1406A6D40 (PiCMOpenClassKey.c)
- *     PiCMOpenDeviceKey @ 0x1406A6ED8 (PiCMOpenDeviceKey.c)
- *     PiCMOpenObjectKey @ 0x1406A7054 (PiCMOpenObjectKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x14083849C (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenClassKey @ 0x1406A6D20 (PiCMOpenClassKey.c)
+ *     PiCMOpenDeviceKey @ 0x1406A6EB8 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x1406A7034 (PiCMOpenObjectKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x14083847C (PiCMOpenDeviceInterfaceKey.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureRegistryInputData(_DWORD *a1, unsigned int a2, int a3, char *a4)

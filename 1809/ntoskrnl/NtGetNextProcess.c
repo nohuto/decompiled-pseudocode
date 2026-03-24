@@ -1,21 +1,21 @@
 /*
- * XREFs of NtGetNextProcess @ 0x140718D90
+ * XREFs of NtGetNextProcess @ 0x140718D70
  * Callers:
  *     <none>
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessInSilo @ 0x1400CB0E8 (PsIsProcessInSilo.c)
- *     PspLockUnlockProcessExclusive @ 0x14012F2A0 (PspLockUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
+ *     PspLockUnlockProcessExclusive @ 0x14012F2C0 (PspLockUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     PsGetPreviousProcess @ 0x14088ED2C (PsGetPreviousProcess.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     PsGetPreviousProcess @ 0x14088ED0C (PsGetPreviousProcess.c)
  */
 
 __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3, int a4, HANDLE *a5)

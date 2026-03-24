@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetMaxOrientationCommand@CParticleGeneratorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218560
+ * XREFs of ?EmitSetMaxOrientationCommand@CParticleGeneratorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D8268
  * Callers:
- *     ?EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BE80 (-EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB080 (-EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleGeneratorMarshaler::EmitSetMaxOrientationCommand(
@@ -22,8 +22,8 @@ char __fastcall DirectComposition::CParticleGeneratorMarshaler::EmitSetMaxOrient
     *(_DWORD *)v5 = 28;
     *(_OWORD *)(v3 + 4) = 0LL;
     *(_QWORD *)(v3 + 20) = 0LL;
-    *((_DWORD *)v3 + 1) = 599;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 575;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
     *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 116);
     *((_DWORD *)this + 4) &= ~0x2000u;
     return 1;

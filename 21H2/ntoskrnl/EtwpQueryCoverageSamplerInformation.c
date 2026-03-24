@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpQueryCoverageSamplerInformation @ 0x1409F3D68
+ * XREFs of EtwpQueryCoverageSamplerInformation @ 0x1409477E4
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x14081C05C (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937E6C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406D75F4 (ExCheckFullProcessInformationAccess.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     EtwpCoverageSamplerQuery @ 0x1409F2984 (EtwpCoverageSamplerQuery.c)
- *     EtwpCoverageSamplerQueryStatusInformation @ 0x1409F3514 (EtwpCoverageSamplerQueryStatusInformation.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406BAC8C (ExCheckFullProcessInformationAccess.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946424 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerQueryStatusInformation @ 0x140946FCC (EtwpCoverageSamplerQueryStatusInformation.c)
  */
 
-__int64 __fastcall EtwpQueryCoverageSamplerInformation(unsigned __int64 a1, unsigned int a2, char a3, unsigned int *a4)
+__int64 __fastcall EtwpQueryCoverageSamplerInformation(__int64 a1, unsigned int a2, char a3, unsigned int *a4)
 {
-  PVOID v8; // rdi
+  struct _DMA_ADAPTER *v8; // rdi
   int StatusInformation; // ebx
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
   HANDLE Handle[2]; // [rsp+38h] [rbp-30h]
@@ -60,8 +60,8 @@ LABEL_4:
   if ( StatusInformation >= 0 )
   {
     Object = 0LL;
-    StatusInformation = ObReferenceObjectByHandle(Handle[1], 1u, qword_140C15D70, a3, &Object, 0LL);
-    v8 = Object;
+    StatusInformation = ObReferenceObjectByHandle(Handle[1], 1u, qword_140C198B0, a3, &Object, 0LL);
+    v8 = (struct _DMA_ADAPTER *)Object;
     if ( StatusInformation >= 0 )
     {
       StatusInformation = EtwpCoverageSamplerQuery((ULONG_PTR)Object, a1, a2, a4);
@@ -71,6 +71,6 @@ LABEL_4:
   }
 LABEL_19:
   if ( v8 )
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
   return (unsigned int)StatusInformation;
 }

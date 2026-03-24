@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Append_Convert_BetweenInterchange@ScanPipelineBuilder@@IEAAJW4DXGI_FORMAT@@0W4Subpipe@1@@Z @ 0x1802B048C
+ * XREFs of ?Append_Convert_BetweenInterchange@ScanPipelineBuilder@@IEAAJW4DXGI_FORMAT@@0W4Subpipe@1@@Z @ 0x18021A3D4
  * Callers:
- *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x1802B01CC (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
+ *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x18021A114 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x1802B008C (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x180219FD0 (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
  */
 
 __int64 __fastcall ScanPipelineBuilder::Append_Convert_BetweenInterchange(__int64 a1, int a2, _QWORD *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert_BetweenInterchange(__int6
           if ( a2 != 87 )
           {
             v3 = -2003304320;
-            MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2003304320, 0x190u);
+            MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003304320, 0x190u, 0LL);
             return v3;
           }
           v4 = ScanPipelineBuilder::AddOp_Binary(a1, (__int64)GammaConvert_128bppABGR_32bppARGB, a3);
@@ -57,7 +57,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert_BetweenInterchange(__int6
           if ( a2 != 87 )
           {
             v3 = -2003304320;
-            MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2003304320, 0x17Au);
+            MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003304320, 0x17Au, 0LL);
             return v3;
           }
           v4 = ScanPipelineBuilder::AddOp_Binary(a1, (__int64)Convert_64bppABGR_32bppARGB, a3);
@@ -81,7 +81,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert_BetweenInterchange(__int6
           if ( a2 != 11 )
           {
             v3 = -2003304320;
-            MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2003304320, 0x164u);
+            MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003304320, 0x164u, 0LL);
             return v3;
           }
           v4 = ScanPipelineBuilder::AddOp_Binary(a1, (__int64)Convert_32bppARGB_64bppABGR, a3);
@@ -91,7 +91,7 @@ __int64 __fastcall ScanPipelineBuilder::Append_Convert_BetweenInterchange(__int6
           v7 = 345;
         }
 LABEL_26:
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, v7);
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, v7, 0LL);
         break;
     }
   }

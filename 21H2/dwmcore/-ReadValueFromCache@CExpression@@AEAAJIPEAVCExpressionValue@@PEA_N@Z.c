@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x18006EF2C
+ * XREFs of ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x1800596E4
  * Callers:
- *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x1800716AC (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
+ *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x18005BDD0 (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
  * Callees:
- *     ?EnsureCacheBounds@CExpression@@AEAAJI_K@Z @ 0x180071CEC (-EnsureCacheBounds@CExpression@@AEAAJI_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x180214510 (-LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z.c)
+ *     ?EnsureCacheBounds@CExpression@@AEAAJI_K@Z @ 0x18005C408 (-EnsureCacheBounds@CExpression@@AEAAJI_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x1801C0F00 (-LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z.c)
  */
 
 __int64 __fastcall CExpression::ReadValueFromCache(
@@ -16,7 +16,7 @@ __int64 __fastcall CExpression::ReadValueFromCache(
 {
   int v8; // eax
   unsigned int v9; // ecx
-  bool v10; // si
+  bool v10; // di
   unsigned int v11; // ebx
   __int64 v12; // r14
   int v13; // edx
@@ -34,10 +34,10 @@ __int64 __fastcall CExpression::ReadValueFromCache(
   v11 = v8;
   if ( v8 < 0 )
   {
-    v22 = 1468;
+    v22 = 1493;
     goto LABEL_51;
   }
-  v12 = *((_QWORD *)this + 45) + a2;
+  v12 = *((_QWORD *)this + 42) + a2;
   v13 = *(_DWORD *)v12;
   if ( !*(_DWORD *)v12 )
   {
@@ -65,7 +65,7 @@ LABEL_48:
             *((_QWORD *)a3 + 2) = *(_QWORD *)(v12 + 24);
             goto LABEL_45;
           }
-          v22 = 1538;
+          v22 = 1563;
           goto LABEL_51;
         }
         if ( v20 == 161 )
@@ -81,7 +81,7 @@ LABEL_48:
             *((_OWORD *)a3 + 3) = *(_OWORD *)(v12 + 56);
             goto LABEL_45;
           }
-          v22 = 1545;
+          v22 = 1570;
           goto LABEL_51;
         }
         goto LABEL_32;
@@ -90,7 +90,7 @@ LABEL_48:
       v11 = v8;
       if ( v8 < 0 )
       {
-        v22 = 1531;
+        v22 = 1556;
         goto LABEL_51;
       }
       *((_DWORD *)a3 + 18) = 71;
@@ -101,7 +101,7 @@ LABEL_48:
       v11 = v8;
       if ( v8 < 0 )
       {
-        v22 = 1524;
+        v22 = 1549;
         goto LABEL_51;
       }
       *((_DWORD *)a3 + 18) = 70;
@@ -116,7 +116,7 @@ LABEL_44:
     v11 = v8;
     if ( v8 < 0 )
     {
-      v22 = 1517;
+      v22 = 1542;
       goto LABEL_51;
     }
     *((_DWORD *)a3 + 18) = 69;
@@ -133,7 +133,7 @@ LABEL_44:
       *((_DWORD *)a3 + 18) = 17;
       goto LABEL_45;
     }
-    v22 = 1489;
+    v22 = 1514;
     goto LABEL_51;
   }
   v15 = v14 - 1;
@@ -147,7 +147,7 @@ LABEL_44:
       *((_DWORD *)a3 + 18) = 18;
       goto LABEL_45;
     }
-    v22 = 1496;
+    v22 = 1521;
     goto LABEL_51;
   }
   v16 = v15 - 17;
@@ -161,7 +161,7 @@ LABEL_44:
       *(_QWORD *)a3 = *(_QWORD *)(v12 + 8);
       goto LABEL_45;
     }
-    v22 = 1503;
+    v22 = 1528;
     goto LABEL_51;
   }
   v17 = v16 - 7;
@@ -175,7 +175,7 @@ LABEL_44:
       *(_DWORD *)a3 = *(_DWORD *)(v12 + 8);
       goto LABEL_45;
     }
-    v22 = 1552;
+    v22 = 1577;
 LABEL_51:
     MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, v22, 0LL);
     return v11;
@@ -191,16 +191,16 @@ LABEL_51:
       *((_DWORD *)a3 + 2) = *(_DWORD *)(v12 + 16);
 LABEL_45:
       *((_BYTE *)a3 + 76) = 1;
-      if ( (*(_DWORD *)(*((_QWORD *)this + 41) + 4LL) & 0x20000000) != 0 )
+      if ( *(int *)(*((_QWORD *)this + 38) + 4LL) < 0 )
         CExpression::LogCacheAccess(this, 1, a2, a3);
       v10 = 1;
       goto LABEL_48;
     }
-    v22 = 1510;
+    v22 = 1535;
     goto LABEL_51;
   }
 LABEL_32:
   v11 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0x61Eu, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0x637u, 0LL);
   return v11;
 }

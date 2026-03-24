@@ -1,7 +1,7 @@
 /*
- * XREFs of GetNextNameSegment @ 0x1C0028224
+ * XREFs of GetNextNameSegment @ 0x1C00239C8
  * Callers:
- *     CreateNativeNameSpaceObject @ 0x1C0027F50 (CreateNativeNameSpaceObject.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
  * Callees:
  *     <none>
  */
@@ -25,25 +25,26 @@ __int64 __fastcall GetNextNameSegment(__int64 a1, int *a2, unsigned __int64 *a3)
     v13 = 1600085855;
     v8 = 0;
     v9 = a1 - (_QWORD)&v13;
-    while ( 1 )
+    do
     {
       LOBYTE(a1) = *((_BYTE *)v7 + v9);
       if ( !(_BYTE)a1 || (_BYTE)a1 == 46 )
         break;
-      if ( (unsigned __int8)(a1 - 48) > 0x2Fu || (v10 = 0x87FFFFFE03FFLL, !_bittest64(&v10, (unsigned int)(a1 - 48))) )
+      if ( (unsigned __int8)(a1 - 48) <= 0x2Fu )
       {
-        if ( (unsigned __int8)(a1 - 97) > 0x19u )
-          return (unsigned int)-1073741811;
+        v10 = 0x87FFFFFE03FFLL;
+        if ( _bittest64(&v10, (unsigned int)(a1 - 48)) )
+          continue;
       }
+      if ( (unsigned __int8)(a1 - 97) > 0x19u )
+        return (unsigned int)-1073741811;
       *(_BYTE *)v7 = a1;
       ++v8;
       v7 = (int *)((char *)v7 + 1);
-      if ( v8 >= 4 )
-        goto LABEL_12;
     }
+    while ( v8 < 4 );
     if ( !v8 )
       return (unsigned int)-1073741197;
-LABEL_12:
     *a2 = v13;
     v11 = v6 + v8;
     if ( *(_BYTE *)v11 == 46 )

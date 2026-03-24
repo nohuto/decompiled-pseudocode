@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhAcpiEvalAcpiMethodEx @ 0x1C0029104
+ * XREFs of UsbhAcpiEvalAcpiMethodEx @ 0x1C002A460
  * Callers:
- *     UsbhGetAcpiPortAttributes @ 0x1C002A8DC (UsbhGetAcpiPortAttributes.c)
+ *     UsbhGetAcpiPortAttributes @ 0x1C002BC50 (UsbhGetAcpiPortAttributes.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     memmove @ 0x1C001F540 (memmove.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhAcpiEvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, int a3, _DWORD *a4)

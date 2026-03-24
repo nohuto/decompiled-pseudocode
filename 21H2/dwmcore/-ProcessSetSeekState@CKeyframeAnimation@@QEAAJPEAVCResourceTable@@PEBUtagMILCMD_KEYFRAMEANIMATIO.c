@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetSeekState@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETSEEKSTATE@@@Z @ 0x1800EDAC0
+ * XREFs of ?ProcessSetSeekState@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETSEEKSTATE@@@Z @ 0x1800D37BC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::ProcessSetSeekState(
@@ -12,28 +12,26 @@ __int64 __fastcall CKeyframeAnimation::ProcessSetSeekState(
         const struct tagMILCMD_KEYFRAMEANIMATION_SETSEEKSTATE *a3)
 {
   __int64 v3; // rdx
-  __int64 v4; // rax
-  unsigned int v5; // ebx
-  __int64 v6; // rax
+  unsigned int v4; // ebx
+  __int64 v5; // rax
 
-  if ( *((_QWORD *)this + 48) )
+  if ( *((_QWORD *)this + 45) )
   {
-    v3 = *((_QWORD *)this + 2);
     if ( *((_BYTE *)a3 + 24) )
-      v4 = *(_QWORD *)(v3 + 608);
+      v3 = *(_QWORD *)(*((_QWORD *)this + 2) + 456LL);
     else
-      v4 = *((_QWORD *)a3 + 1);
-    *((_QWORD *)this + 63) = v4;
-    v5 = 0;
-    v6 = *((_QWORD *)a3 + 2);
-    *((_BYTE *)this + 572) |= 2u;
-    *((_QWORD *)this + 64) = v6;
-    *(_BYTE *)(*(_QWORD *)(v3 + 424) + 448LL) |= 2u;
+      v3 = *((_QWORD *)a3 + 1);
+    *((_QWORD *)this + 60) = v3;
+    v4 = 0;
+    v5 = *((_QWORD *)a3 + 2);
+    *((_BYTE *)this + 548) |= 2u;
+    *((_QWORD *)this + 61) = v5;
+    *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 272LL) + 416LL) |= 2u;
   }
   else
   {
-    v5 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003303421, 0x1B2u);
+    v4 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x1ABu, 0LL);
   }
-  return v5;
+  return v4;
 }

@@ -6,8 +6,8 @@
  * Callees:
  *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     RtlRandom @ 0x1406C8B70 (RtlRandom.c)
- *     PspInitializeProtectedProcessParameters @ 0x140756318 (PspInitializeProtectedProcessParameters.c)
+ *     RtlRandom @ 0x1406C8B50 (RtlRandom.c)
+ *     PspInitializeProtectedProcessParameters @ 0x1407562F8 (PspInitializeProtectedProcessParameters.c)
  *     PspInitializeSystemDlls @ 0x1409D6048 (PspInitializeSystemDlls.c)
  */
 

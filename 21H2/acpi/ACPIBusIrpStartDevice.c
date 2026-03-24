@@ -1,42 +1,40 @@
 /*
- * XREFs of ACPIBusIrpStartDevice @ 0x1C0090AA0
+ * XREFs of ACPIBusIrpStartDevice @ 0x1C0090F10
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     ACPIInitStartDevice @ 0x1C00050B0 (ACPIInitStartDevice.c)
- *     ACPIModuleFilterStartResources @ 0x1C004CF18 (ACPIModuleFilterStartResources.c)
- *     ACPIQueryGedDeviceInterface @ 0x1C0057188 (ACPIQueryGedDeviceInterface.c)
- *     PcisuppAcquirePciInterfaces @ 0x1C00A115C (PcisuppAcquirePciInterfaces.c)
- *     AcpiArblibCommitResources @ 0x1C00ABCE8 (AcpiArblibCommitResources.c)
- *     ArbAddInaccessibleAllocationRange @ 0x1C00B7260 (ArbAddInaccessibleAllocationRange.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1C00B7474 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
+ *     ACPIModuleFilterStartResources @ 0x1C004DFB8 (ACPIModuleFilterStartResources.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C005688C (ACPIQueryGedDeviceInterface.c)
+ *     PcisuppAcquirePciInterfaces @ 0x1C00906FC (PcisuppAcquirePciInterfaces.c)
+ *     AcpiArblibCommitResources @ 0x1C00ACFF4 (AcpiArblibCommitResources.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x1C00B7760 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x1C00B7974 (ArbAddMmConfigRangeAsBootReserved.c)
  */
 
 int __fastcall ACPIBusIrpStartDevice(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   __int64 v2; // r14
   __int64 StartContext; // rbx
-  __int64 v6; // rcx
   int result; // eax
-  int v8; // eax
-  PVOID v9; // rax
-  _QWORD *v10; // rdi
-  unsigned int v11; // esi
-  __int64 v12; // rbx
-  __int64 v13; // rax
+  int v7; // eax
+  PVOID v8; // rax
+  _QWORD *v9; // rdi
+  unsigned int v10; // esi
+  __int64 v11; // rbx
+  __int64 v12; // rax
   PKSTART_ROUTINE StartRoutine; // [rsp+28h] [rbp-48h]
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   void *ThreadHandle; // [rsp+B8h] [rbp+48h] BYREF
   PVOID Object; // [rsp+C0h] [rbp+50h] BYREF
 
   v2 = *(_QWORD *)(a2 + 184);
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   ThreadHandle = 0LL;
   StartContext = ACPIInternalGetDeviceExtension((ULONG_PTR)DeviceObject);
-  v6 = *(unsigned int *)(StartContext + 8);
-  if ( (v6 & 0x2000000) != 0 )
+  if ( (*(_DWORD *)(StartContext + 8) & 0x2000000) != 0 )
   {
     result = PcisuppAcquirePciInterfaces(DeviceObject);
     if ( result < 0 )
@@ -66,54 +64,50 @@ int __fastcall ACPIBusIrpStartDevice(PDEVICE_OBJECT DeviceObject, __int64 a2)
       ZwClose(ThreadHandle);
     }
   }
-  if ( _bittest64((const signed __int64 *)(StartContext + 1000), 0x26u) )
+  if ( (*(_QWORD *)(StartContext + 960) & 0x4000000000LL) != 0 )
   {
-    v8 = ACPIQueryGedDeviceInterface((_QWORD *)StartContext);
-    if ( v8 < 0 )
+    v7 = ACPIQueryGedDeviceInterface((_QWORD *)StartContext);
+    if ( v7 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v6 = (__int64)&WPP_RECORDER_INITIALIZED;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LODWORD(StartRoutine) = v8;
-        WPP_RECORDER_SF_D(
-          (__int64)WPP_GLOBAL_Control->DeviceExtension,
-          4u,
-          8u,
-          0x3Cu,
-          (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
-          StartRoutine);
-      }
+      LODWORD(StartRoutine) = v7;
+      WPP_RECORDER_SF_L(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        8u,
+        0x3Cu,
+        (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
+        StartRoutine);
     }
   }
-  if ( _bittest64((const signed __int64 *)(StartContext + 8), 0x25u) && *(_BYTE *)(StartContext + 184) )
+  if ( (*(_QWORD *)(StartContext + 8) & 0x2000000000LL) != 0 && *(_BYTE *)(StartContext + 184) )
   {
-    ACPIModuleFilterStartResources(v6, *(_QWORD *)(v2 + 8), *(_QWORD *)(v2 + 16));
-    v9 = *(PVOID *)(v2 + 8);
-    v10 = (_QWORD *)(StartContext + 192);
-    Object = v9;
-    v11 = 0;
+    ACPIModuleFilterStartResources(0x2000000000LL, *(_QWORD *)(v2 + 8), *(_QWORD *)(v2 + 16));
+    v8 = *(PVOID *)(v2 + 8);
+    v9 = (_QWORD *)(StartContext + 192);
+    Object = v8;
+    v10 = 0;
     while ( 1 )
     {
-      v12 = *v10;
-      result = AcpiArblibCommitResources(*v10, v9);
+      v11 = *v9;
+      result = AcpiArblibCommitResources(*v9, v8);
       if ( result < 0 )
         break;
-      if ( *(_DWORD *)(v12 + 168) == 3 )
+      if ( *(_DWORD *)(v11 + 168) == 3 )
       {
-        result = ArbAddInaccessibleAllocationRange(v12 + 136, *(_QWORD *)(v12 + 176));
+        result = ArbAddInaccessibleAllocationRange(v11 + 136, *(_QWORD *)(v11 + 176));
         if ( result < 0 )
           break;
-        result = ArbAddMmConfigRangeAsBootReserved(v12 + 136, *(_QWORD *)(v12 + 176));
+        result = ArbAddMmConfigRangeAsBootReserved(v11 + 136, *(_QWORD *)(v11 + 176));
         if ( result < 0 )
           break;
       }
-      v13 = *v10;
-      ++v11;
+      v12 = *v9;
       ++v10;
-      *(_BYTE *)(v13 + 130) = 1;
-      if ( v11 >= 3 )
+      ++v9;
+      *(_BYTE *)(v12 + 130) = 1;
+      if ( v10 >= 3 )
         goto LABEL_4;
-      v9 = Object;
+      v8 = Object;
     }
   }
   else

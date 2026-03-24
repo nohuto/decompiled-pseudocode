@@ -1,19 +1,19 @@
 /*
- * XREFs of PspSetNoChildProcessRestrictedPolicy @ 0x1406E71BC
+ * XREFs of PspSetNoChildProcessRestrictedPolicy @ 0x1406C0098
  * Callers:
- *     PspApplyMitigationOptions @ 0x14070E104 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406D8A1C (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     SeTokenSetNoChildProcessRestricted @ 0x14025A33C (SeTokenSetNoChildProcessRestricted.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     SeTokenSetNoChildProcessRestricted @ 0x1402D1920 (SeTokenSetNoChildProcessRestricted.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall PspSetNoChildProcessRestrictedPolicy(__int64 a1, int a2)
+void __fastcall PspSetNoChildProcessRestrictedPolicy(struct _KPROCESS *a1, int a2)
 {
-  unsigned __int64 v4; // rbx
+  struct _DMA_ADAPTER *v4; // rdi
 
-  v4 = PsReferencePrimaryTokenWithTag(a1, 0x79517350u);
-  SeTokenSetNoChildProcessRestricted(v4, a2 == 2, a2 == 3);
-  return ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v4, 0x79517350u);
+  v4 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
+  SeTokenSetNoChildProcessRestricted((__int64)v4, a2 == 2, a2 == 3);
+  ObFastDereferenceObject((signed __int64 *)&a1[1].Affinity.Bitmap[5], v4);
 }

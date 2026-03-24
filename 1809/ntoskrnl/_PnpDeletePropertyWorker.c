@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDeletePropertyWorker @ 0x140700FB4
+ * XREFs of _PnpDeletePropertyWorker @ 0x140700F94
  * Callers:
- *     _PnpSetGenericStoreProperty @ 0x1406E5A4C (_PnpSetGenericStoreProperty.c)
- *     DrvDbDeleteObjectSubKey @ 0x140900ED4 (DrvDbDeleteObjectSubKey.c)
+ *     _PnpSetGenericStoreProperty @ 0x1406E5A2C (_PnpSetGenericStoreProperty.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140900EB4 (DrvDbDeleteObjectSubKey.c)
  * Callees:
  *     RtlUnalignedStringCchLengthW @ 0x140015DA0 (RtlUnalignedStringCchLengthW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
  */
 

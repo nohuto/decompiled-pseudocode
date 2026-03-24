@@ -1,45 +1,49 @@
 /*
- * XREFs of ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C14FC
+ * XREFs of ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0067D78
  * Callers:
- *     OpenCacheKeyEx @ 0x1C0019FB0 (OpenCacheKeyEx.c)
- *     ?UserInitialize@@YAJXZ @ 0x1C005F1A8 (-UserInitialize@@YAJXZ.c)
- *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00D4218 (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z @ 0x1C0165240 (-SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z.c)
- *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C0165450 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C01657EC (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
- *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C01659A0 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
- *     xxxSystemParametersInfo @ 0x1C0165BD0 (xxxSystemParametersInfo.c)
- *     rimReadSingleDigitizerToMonitorMappings @ 0x1C01976C4 (rimReadSingleDigitizerToMonitorMappings.c)
+ *     xxxSystemParametersInfo @ 0x1C000BBC0 (xxxSystemParametersInfo.c)
+ *     OpenCacheKeyEx @ 0x1C0026440 (OpenCacheKeyEx.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068284 (-UserInitialize@@YAJXZ.c)
+ *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00C49BC (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?SetFilterKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagFILTERKEYS@@@Z @ 0x1C0138184 (-SetFilterKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagFILTERKEYS@@@Z.c)
+ *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C01383A4 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C01387B4 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138944 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     rimReadSingleDigitizerToMonitorMappings @ 0x1C0163CB0 (rimReadSingleDigitizerToMonitorMappings.c)
  * Callees:
- *     _vsnwprintf @ 0x1C00D5F70 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1C00C5234 (_vsnwprintf.c)
  */
 
-__int64 RtlStringCchPrintfW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3, ...)
+__int64 RtlStringCchPrintfW(wchar_t *Dest, __int64 a2, const unsigned __int16 *a3, ...)
 {
-  unsigned __int64 v4; // rsi
-  unsigned int v5; // edi
+  int v4; // edi
+  unsigned __int64 v5; // rbx
   int v6; // eax
   va_list Args; // [rsp+78h] [rbp+20h] BYREF
 
   va_start(Args, a3);
-  if ( (unsigned __int64)(a2 - 1) <= 0x7FFFFFFE )
+  v4 = 0;
+  if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    v4 = a2 - 1;
-    v5 = 0;
-    v6 = vsnwprintf(a1, a2 - 1, a3, Args);
-    if ( v6 < 0 || v6 > v4 )
-    {
-      v5 = -2147483643;
-    }
-    else if ( v6 != v4 )
-    {
-      return v5;
-    }
-    a1[v4] = 0;
-    return v5;
+    if ( a2 )
+      *Dest = 0;
   }
-  v5 = -1073741811;
-  if ( a2 )
-    *a1 = 0;
-  return v5;
+  else
+  {
+    v5 = a2 - 1;
+    v4 = 0;
+    v6 = vsnwprintf(Dest, a2 - 1, a3, Args);
+    if ( v6 < 0 || v6 > v5 )
+    {
+      Dest[v5] = 0;
+      return (unsigned int)-2147483643;
+    }
+    else if ( v6 == v5 )
+    {
+      Dest[v5] = 0;
+    }
+  }
+  return (unsigned int)v4;
 }

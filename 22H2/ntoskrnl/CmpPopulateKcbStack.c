@@ -1,39 +1,38 @@
 /*
- * XREFs of CmpPopulateKcbStack @ 0x1406D7E10
+ * XREFs of CmpPopulateKcbStack @ 0x140648C10
  * Callers:
- *     CmpQueryKeySecurity @ 0x1406D5C50 (CmpQueryKeySecurity.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpWalkOneLevel @ 0x1406DD8D0 (CmpWalkOneLevel.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20448 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x140A26450 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x140A2665C (CmpPromoteKey.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpIsKeyDeleted @ 0x1406E9D20 (CmpIsKeyDeleted.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072A84C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880110 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x140880318 (CmpPromoteKey.c)
  * Callees:
- *     CmpSetKcbAtLayerHeight @ 0x1407D53AC (CmpSetKcbAtLayerHeight.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1405D6C8C (CmpSetKcbAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpPopulateKcbStack(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r10
-  __int64 v6; // r10
+  __int16 v3; // r10
+  __int64 i; // r11
+  __int64 v5; // r11
+  __int16 v6; // r10
 
   result = *(unsigned __int16 *)(a2 + 66);
   *(_WORD *)(a1 + 2) = result;
-  v4 = *(__int16 *)(a2 + 66);
-  if ( (_WORD)v4 )
+  v3 = *(_WORD *)(a2 + 66);
+  if ( v3 )
   {
-    v5 = *(_QWORD *)(a2 + 192);
-    while ( v5 )
+    for ( i = *(_QWORD *)(a2 + 192); i; v3 = v6 - 1 )
     {
-      result = CmpSetKcbAtLayerHeight(a1, v4, *(_QWORD *)(v5 + 16));
-      v5 = *(_QWORD *)(v6 + 24);
-      LOWORD(v4) = v4 - 1;
+      result = CmpSetKcbAtLayerHeight(a1, v3, *(_QWORD *)(i + 16));
+      i = *(_QWORD *)(v5 + 24);
     }
   }
   else
   {
-    *(_QWORD *)(a1 + 8 * v4 + 8) = a2;
+    *(_QWORD *)(a1 + 8) = a2;
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcEnterRegion @ 0x1407D1628
+ * XREFs of RtlpFcEnterRegion @ 0x14078DD48
  * Callers:
- *     RtlpFcBufferManagerReferenceBuffers @ 0x14035CC4C (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6268 (RtlpFcBufferManagerReferenceBuffers.c)
  * Callees:
  *     <none>
  */

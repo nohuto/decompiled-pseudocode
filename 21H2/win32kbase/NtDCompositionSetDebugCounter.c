@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDCompositionSetDebugCounter @ 0x1C00BFF50
+ * XREFs of NtDCompositionSetDebugCounter @ 0x1C00AC3D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
@@ -20,17 +20,17 @@ __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
   if ( v3 >= 0 )
   {
     v4 = v8;
-    v5 = *((_DWORD *)v8 + 404);
+    v5 = *((_DWORD *)v8 + 148);
     if ( a2 )
     {
       if ( v5 )
       {
         if ( v5 == 3 )
-          *((_DWORD *)v8 + 404) = 2;
+          *((_DWORD *)v8 + 148) = 2;
       }
       else
       {
-        *((_DWORD *)v8 + 404) = 1;
+        *((_DWORD *)v8 + 148) = 1;
       }
     }
     else
@@ -39,11 +39,11 @@ __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
       if ( v6 )
       {
         if ( v6 == 1 )
-          *((_DWORD *)v8 + 404) = 3;
+          *((_DWORD *)v8 + 148) = 3;
       }
       else
       {
-        *((_DWORD *)v8 + 404) = 0;
+        *((_DWORD *)v8 + 148) = 0;
       }
     }
     (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v4)(v4);

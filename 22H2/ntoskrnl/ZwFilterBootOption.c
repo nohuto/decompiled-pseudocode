@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwFilterBootOption @ 0x14041C3E0
+ * XREFs of ZwFilterBootOption @ 0x1403FB6A0
  * Callers:
- *     IopInitializeInMemoryDumpData @ 0x140553410 (IopInitializeInMemoryDumpData.c)
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     IopInitializeInMemoryDumpData @ 0x140503F50 (IopInitializeInMemoryDumpData.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

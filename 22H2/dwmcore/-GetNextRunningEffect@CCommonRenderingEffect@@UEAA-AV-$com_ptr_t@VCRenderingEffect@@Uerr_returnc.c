@@ -1,178 +1,161 @@
 /*
- * XREFs of ?GetNextRunningEffect@CCommonRenderingEffect@@UEAA?AV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@PEAVCRenderingEffect@@PEA_N@Z @ 0x1800B5980
+ * XREFs of ?GetNextRunningEffect@CCommonRenderingEffect@@UEAA?AV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@PEAVCRenderingEffect@@PEA_N@Z @ 0x1800B94D0
  * Callers:
  *     <none>
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z @ 0x1800929DC (--0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z.c)
- *     ??0?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCRenderingEffect@@@Z @ 0x1800B5CF4 (--0-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCRenderingEffect@@@.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCCommonRenderingEffect@@@Z @ 0x1800B5D30 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCCommonRenderingEffect@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCRenderingEffect@@@Z @ 0x1800B9750 (--0-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCRenderingEffect@@@.c)
+ *     ??0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z @ 0x1800B9D94 (--0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCCommonRenderingEffect@@@Z @ 0x1800B9F3C (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCCommonRenderingEffect@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 _QWORD *__fastcall CCommonRenderingEffect::GetNextRunningEffect(_BYTE *a1, _QWORD *a2, _BYTE *a3, _BYTE *a4)
 {
-  int v8; // ebx
-  struct CCommonRenderingEffect **v9; // r9
-  _QWORD *v10; // r12
-  __int64 v11; // rbx
+  _BYTE *v4; // rdi
+  int v5; // ebx
+  _QWORD *v9; // rbp
+  struct CCommonRenderingEffect **v10; // r9
+  _BYTE *v11; // r11
   _BYTE *v12; // rdx
   _BYTE *v13; // rax
-  _BYTE *v14; // r11
+  __int64 v14; // rbx
   __int64 v15; // r8
-  __int64 v16; // r10
-  __int64 v17; // rbp
+  __int64 v16; // rcx
+  __int64 v17; // r10
   int v18; // eax
   struct CCommonRenderingEffect *v19; // rcx
   bool v20; // sf
-  _BYTE *v22; // r13
+  _BYTE *v22; // rbx
   struct CObjectCache *ObjectCache; // rax
   int v24; // edx
-  __int16 v25; // bp
-  char v26; // r14
-  _QWORD *v27; // rsi
-  __int16 v28; // bx
-  char v29; // di
-  __int64 v30; // rax
-  __int64 v31; // rax
-  void *retaddr; // [rsp+68h] [rbp+0h]
-  struct CCommonRenderingEffect *v33; // [rsp+70h] [rbp+8h] BYREF
-  __int16 v34; // [rsp+80h] [rbp+18h] BYREF
-  char v35; // [rsp+82h] [rbp+1Ah]
+  __int64 v25; // rax
+  void *retaddr; // [rsp+58h] [rbp+0h]
+  struct CCommonRenderingEffect *v27; // [rsp+60h] [rbp+8h] BYREF
+  __int16 v28; // [rsp+70h] [rbp+18h] BYREF
+  char v29; // [rsp+72h] [rbp+1Ah]
 
   *a4 = 0;
-  v8 = (*(__int64 (__fastcall **)(_BYTE *))(*(_QWORD *)a3 + 72LL))(a3);
-  if ( v8 != (*(unsigned int (__fastcall **)(_BYTE *))(*(_QWORD *)a1 + 72LL))(a1) )
-  {
-    *a2 = a3;
-    (**(void (__fastcall ***)(_BYTE *))a3)(a3);
-    return a2;
-  }
-  if ( a3 == a1 )
-  {
-    *a4 = 1;
-    *a2 = a1;
-    (**(void (__fastcall ***)(_BYTE *))a1)(a1);
-    return a2;
-  }
-  v9 = &v33;
-  v10 = 0LL;
-  v33 = 0LL;
-  v11 = a3 - a1;
-  v12 = a3 + 65;
-  v13 = a1 + 32;
-  v14 = (_BYTE *)(a1 - a3);
+  v4 = a1;
+  v5 = 65537;
+  if ( !a1[118] )
+    v5 = 1;
+  if ( (*(unsigned int (__fastcall **)(_BYTE *))(*(_QWORD *)a3 + 72LL))(a3) != v5 )
+    goto LABEL_32;
+  if ( a3 == v4 )
+    goto LABEL_35;
+  v9 = 0LL;
+  v10 = &v27;
+  v27 = 0LL;
+  v11 = (_BYTE *)(a3 - v4);
+  v12 = a3 + 113;
+  v13 = v4 + 56;
+  v14 = v4 - a3;
   v15 = 0LL;
   do
   {
-    v16 = *(_QWORD *)&v13[v11 - 8];
-    if ( *((_QWORD *)v13 - 1) )
+    v16 = *((_QWORD *)v13 - 5);
+    if ( v16 || *((_QWORD *)v13 - 4) )
     {
-      if ( v16 )
+      v17 = *(_QWORD *)&v13[(_QWORD)v11 - 40];
+      if ( v17 || *(_QWORD *)&v13[(_QWORD)v11 - 32] )
       {
-        v17 = *((_QWORD *)v13 - 2);
-        if ( v17 )
+        if ( v16 )
         {
-          if ( v17 != *(_QWORD *)&v13[v11 - 16] || *v13 != v13[v11] )
-            goto LABEL_23;
+          if ( v16 != v17 )
+            goto LABEL_27;
         }
-        else if ( *(_QWORD *)&v13[v11 - 8 + (_QWORD)v14] != v16 || *v13 != v13[v11] )
+        else if ( *((_QWORD *)v13 - 4) != *(_QWORD *)&v13[(_QWORD)v11 - 32] )
         {
-LABEL_23:
+          goto LABEL_27;
+        }
+        if ( *v13 != v13[(_QWORD)v11] || v12[v14 - 1] != *(v12 - 1) || v12[v14] != *v12 || v12[v14 + 1] != v12[1] )
+        {
+LABEL_27:
           *a2 = a3;
-          (**(void (__fastcall ***)(_BYTE *, _BYTE *, __int64, struct CCommonRenderingEffect **))a3)(a3, v12, v15, v9);
+          (**(void (__fastcall ***)(_BYTE *, _BYTE *, __int64, struct CCommonRenderingEffect **))a3)(a3, v12, v15, v10);
           return a2;
         }
-        if ( v12[(_QWORD)v14 - 1] != *(v12 - 1) || v12[(_QWORD)v14] != *v12 || v12[(_QWORD)v14 + 1] != v12[1] )
-          goto LABEL_23;
       }
       else
       {
-        *(_DWORD *)v9 = -1;
+        *(_DWORD *)v10 = -1;
       }
     }
-    else if ( v16 )
+    else if ( *(_QWORD *)&v13[(_QWORD)v11 - 40] || *(_QWORD *)&v13[(_QWORD)v11 - 32] )
     {
-      *(_DWORD *)v9 = 1;
+      *(_DWORD *)v10 = 1;
     }
     v15 = (unsigned int)(v15 + 1);
-    v13 += 24;
+    v13 += 48;
     v12 += 3;
-    v9 = (struct CCommonRenderingEffect **)((char *)v9 + 4);
+    v10 = (struct CCommonRenderingEffect **)((char *)v10 + 4);
   }
   while ( (unsigned int)v15 < 2 );
-  if ( a1[70] )
+  if ( !v4[118] )
   {
-    v18 = (int)v33;
-    v19 = (struct CCommonRenderingEffect *)HIDWORD(v33);
-    v20 = (int)v33 < 0;
-    if ( (int)v33 <= 0 )
-    {
-      if ( SHIDWORD(v33) <= 0 )
-      {
-        *a4 = 1;
-        *a2 = a1;
-        (**(void (__fastcall ***)(_BYTE *, _BYTE *, __int64, struct CCommonRenderingEffect **))a1)(a1, v12, v15, v9);
-        return a2;
-      }
-      v20 = (int)v33 < 0;
-    }
-    if ( !v20 && SHIDWORD(v33) >= 0 )
+    if ( v27 )
+      goto LABEL_32;
+LABEL_35:
+    *a4 = 1;
+    wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(
+      a2,
+      v4);
+    return a2;
+  }
+  v18 = (int)v27;
+  v19 = (struct CCommonRenderingEffect *)HIDWORD(v27);
+  v20 = (int)v27 < 0;
+  if ( (int)v27 <= 0 )
+  {
+    if ( SHIDWORD(v27) <= 0 )
     {
       *a4 = 1;
-LABEL_29:
-      wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(
-        a2,
-        a3);
+      *a2 = v4;
+      (**(void (__fastcall ***)(_BYTE *, _BYTE *, __int64, struct CCommonRenderingEffect **))v4)(v4, v12, v15, v10);
       return a2;
     }
-    if ( !CCommonRegistryData::EnableCommonSuperSets )
-      goto LABEL_29;
-    v22 = a3;
-    *a4 = 1;
-    if ( v18 < 0 )
-      v22 = a1;
-    if ( (int)v19 >= 0 )
-      a1 = a3;
-    ObjectCache = CThreadContext::GetObjectCache(v19);
-    v24 = *((_DWORD *)ObjectCache + 1);
-    if ( v24 )
-    {
-      v10 = (_QWORD *)*((_QWORD *)ObjectCache + 1);
-      *((_QWORD *)ObjectCache + 1) = *v10;
-      *((_DWORD *)ObjectCache + 1) = v24 - 1;
-    }
-    if ( !v10 )
-    {
-      v10 = DefaultHeap::Alloc(0x48uLL);
-      if ( !v10 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    }
-    v25 = *(_WORD *)(a1 + 67);
-    v26 = a1[69];
-    v27 = (_QWORD *)(*(__int64 (__fastcall **)(_BYTE *, __int64))(*(_QWORD *)a1 + 16LL))(a1, 1LL);
-    v28 = *((_WORD *)v22 + 32);
-    v29 = v22[66];
-    v30 = (*(__int64 (__fastcall **)(_BYTE *, _QWORD))(*(_QWORD *)v22 + 16LL))(v22, 0LL);
-    LOWORD(v33) = v25;
-    BYTE2(v33) = v26;
-    v34 = v28;
-    v35 = v29;
-    v31 = CCommonRenderingEffect::CCommonRenderingEffect((__int64)v10, v30, (__int64)&v34, v27, (__int64)&v33);
-    wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(
-      a2,
-      v31);
-    return a2;
+    v20 = (int)v27 < 0;
   }
-  else
+  if ( !v20 && SHIDWORD(v27) >= 0 )
   {
-    if ( v33 )
-      goto LABEL_29;
     *a4 = 1;
+LABEL_32:
     wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(
       a2,
-      a1);
+      a3);
     return a2;
   }
+  if ( !CCommonRegistryData::EnableCommonSuperSets )
+    goto LABEL_32;
+  *a4 = 1;
+  v22 = v4;
+  if ( v18 >= 0 )
+    v22 = a3;
+  if ( (int)v19 >= 0 )
+    v4 = a3;
+  ObjectCache = CThreadContext::GetObjectCache(v19);
+  v24 = *((_DWORD *)ObjectCache + 1);
+  if ( v24 )
+  {
+    v9 = (_QWORD *)*((_QWORD *)ObjectCache + 1);
+    *((_QWORD *)ObjectCache + 1) = *v9;
+    *((_DWORD *)ObjectCache + 1) = v24 - 1;
+  }
+  if ( !v9 )
+  {
+    v9 = DefaultHeap::Alloc(0x78uLL);
+    if ( !v9 )
+      ModuleFailFastForHRESULT(2147942414LL, retaddr);
+  }
+  LOWORD(v27) = *(_WORD *)(v4 + 115);
+  BYTE2(v27) = v4[117];
+  v28 = *((_WORD *)v22 + 56);
+  v29 = v22[114];
+  v25 = CCommonRenderingEffect::CCommonRenderingEffect(v9, v22 + 16, &v28, v4 + 64, &v27);
+  wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(
+    a2,
+    v25);
+  return a2;
 }

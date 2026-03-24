@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqqqqqq_EtwWriteTransfer @ 0x1C00668C8
+ * XREFs of McTemplateK0pqqqqqq_EtwWriteTransfer @ 0x1C0059C14
  * Callers:
- *     DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership @ 0x1C03A9414 (DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership.c)
+ *     DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership @ 0x1C02D9250 (DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqqqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

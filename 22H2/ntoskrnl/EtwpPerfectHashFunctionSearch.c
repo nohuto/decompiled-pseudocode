@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpPerfectHashFunctionSearch @ 0x140257730
+ * XREFs of EtwpPerfectHashFunctionSearch @ 0x14025ECAC
  * Callers:
- *     EtwpApplyEventIdPayloadFilter @ 0x140257600 (EtwpApplyEventIdPayloadFilter.c)
- *     EtwpApplyStackWalkIdFilter @ 0x140604318 (EtwpApplyStackWalkIdFilter.c)
+ *     EtwpApplyEventIdPayloadFilter @ 0x14025EBC0 (EtwpApplyEventIdPayloadFilter.c)
+ *     EtwpApplyStackWalkIdFilter @ 0x1405ABFE4 (EtwpApplyStackWalkIdFilter.c)
  * Callees:
  *     <none>
  */
@@ -10,16 +10,18 @@
 char __fastcall EtwpPerfectHashFunctionSearch(__int16 a1, __int64 a2)
 {
   __int64 v2; // r8
+  __int64 v3; // rax
 
-  LOWORD(v2) = *(_WORD *)(a2 + 2) & __ROR2__(a1, *(_BYTE *)(a2 + 1));
-  if ( a1 == *(_WORD *)(a2 + 4LL * (unsigned __int16)v2 + 8) )
+  v2 = (unsigned __int16)(*(_WORD *)(a2 + 2) & __ROR2__(a1, *(_BYTE *)(a2 + 1)));
+  if ( a1 == *(_WORD *)(a2 + 4 * v2 + 8) )
     return 1;
   while ( 1 )
   {
-    v2 = *(unsigned __int8 *)(a2 + 4LL * (unsigned __int16)v2 + 6);
-    if ( (_WORD)v2 == 255 )
+    v3 = *(unsigned __int8 *)(a2 + 4 * v2 + 6);
+    if ( (_BYTE)v3 == 0xFF )
       break;
-    if ( a1 == *(_WORD *)(a2 + 4 * v2 + 8) )
+    v2 = *(unsigned __int8 *)(a2 + 4 * v2 + 6);
+    if ( a1 == *(_WORD *)(a2 + 4 * v3 + 8) )
       return 1;
   }
   return 0;

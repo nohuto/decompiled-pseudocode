@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcPoPpmRegisterProfiles @ 0x140756B90
+ * XREFs of PdcPoPpmRegisterProfiles @ 0x140756B70
  * Callers:
  *     <none>
  * Callees:
- *     PpmRegisterProfiles @ 0x140756BA4 (PpmRegisterProfiles.c)
+ *     PpmRegisterProfiles @ 0x140756B84 (PpmRegisterProfiles.c)
  */
 
 __int64 PdcPoPpmRegisterProfiles()

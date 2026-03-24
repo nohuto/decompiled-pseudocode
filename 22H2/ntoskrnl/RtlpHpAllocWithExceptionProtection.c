@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpAllocWithExceptionProtection @ 0x1405A9E1C
+ * XREFs of RtlpHpAllocWithExceptionProtection @ 0x14058658C
  * Callers:
- *     RtlAllocateHeap @ 0x14034C4E0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x1402FEC50 (RtlAllocateHeap.c)
  * Callees:
- *     RtlpAllocateHeapInternal @ 0x14034C538 (RtlpAllocateHeapInternal.c)
- *     RtlpHeapExceptionFilter @ 0x1405B4A44 (RtlpHeapExceptionFilter.c)
+ *     RtlpAllocateHeapInternal @ 0x1402FECA8 (RtlpAllocateHeapInternal.c)
+ *     RtlpHeapExceptionFilter @ 0x140593394 (RtlpHeapExceptionFilter.c)
  */
 
 void *__fastcall RtlpHpAllocWithExceptionProtection(_DWORD *a1, unsigned __int64 a2, unsigned int a3, __int16 a4)

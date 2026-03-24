@@ -1,41 +1,42 @@
 /*
- * XREFs of ?AddDisplayAdapter@DISPLAYSTATECHECKER@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02ECFA0
+ * XREFs of ?AddDisplayAdapter@DISPLAYSTATECHECKER@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02B94F8
  * Callers:
- *     ?CollectDisplayAdaptersCallback@DISPLAYSTATECHECKER@@CAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02EE1D0 (-CollectDisplayAdaptersCallback@DISPLAYSTATECHECKER@@CAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?CollectDisplayAdaptersCallback@DISPLAYSTATECHECKER@@CAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02BA460 (-CollectDisplayAdaptersCallback@DISPLAYSTATECHECKER@@CAJPEAVDXGADAPTER@@PEAX@Z.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004D190 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
- *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02EE034 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004DEF0 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
+ *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02BA3A0 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
  */
 
 __int64 __fastcall DISPLAYSTATECHECKER::AddDisplayAdapter(DISPLAYSTATECHECKER *this, struct DXGADAPTER *a2)
 {
+  __int64 v4; // rdx
   struct DISPLAYDIAGNOSTICADAPTERDATA *DisplayAdapterDiagData; // rax
-  int v5; // r8d
-  __int128 v6; // xmm0
-  int v7; // ecx
-  _BYTE v9[144]; // [rsp+20h] [rbp-A8h] BYREF
+  int v6; // r8d
+  __int128 v7; // xmm0
+  int v8; // ecx
+  _BYTE v10[144]; // [rsp+20h] [rbp-A8h] BYREF
 
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v9, a2, 0LL);
-  if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v9, 0LL) >= 0 )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v10, a2, 0LL);
+  if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v10, 0LL) >= 0 )
   {
-    DisplayAdapterDiagData = DISPLAYSTATECHECKER::GetDisplayAdapterDiagData(this, *((_DWORD *)this + 3522));
+    DisplayAdapterDiagData = DISPLAYSTATECHECKER::GetDisplayAdapterDiagData(this, *((unsigned int *)this + 3514));
     if ( DisplayAdapterDiagData )
     {
-      v5 = *(_DWORD *)this;
-      v6 = *(_OWORD *)((char *)this + 20);
-      v7 = *(_DWORD *)this;
+      v6 = *(_DWORD *)this;
+      v7 = *(_OWORD *)((char *)this + 20);
+      v8 = *(_DWORD *)this;
       *(_QWORD *)DisplayAdapterDiagData = a2;
-      *((_BYTE *)DisplayAdapterDiagData + 21) = BYTE1(v7) & 1;
-      *((_DWORD *)DisplayAdapterDiagData + 6) = (unsigned __int8)v5;
-      *(_OWORD *)((char *)DisplayAdapterDiagData + 28) = v6;
+      *((_BYTE *)DisplayAdapterDiagData + 21) = BYTE1(v8) & 1;
+      *((_DWORD *)DisplayAdapterDiagData + 6) = (unsigned __int8)v6;
+      *(_OWORD *)((char *)DisplayAdapterDiagData + 28) = v7;
       DISPLAYDIAGNOSTICADAPTERDATA::CollectDisplayAdapterDiagData(DisplayAdapterDiagData, a2);
-      ++*((_DWORD *)this + 3522);
+      ++*((_DWORD *)this + 3514);
     }
   }
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v9);
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v10, v4);
   return 0LL;
 }

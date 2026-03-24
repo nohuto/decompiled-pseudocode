@@ -1,17 +1,17 @@
 /*
- * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x140218F84
+ * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x14024F520
  * Callers:
- *     AuthzBasepValueInSet @ 0x140218D80 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x140219B90 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepEvaluateExpression @ 0x14024F320 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14024FF78 (AuthzBasepValueInSet.c)
  * Callees:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14021984C (AuthzBasepUnicodeStringFromOperandValue.c)
- *     RtlIsNameInExpression @ 0x140219D90 (RtlIsNameInExpression.c)
- *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14021A454 (AuthzBasepGetOperandStringCaseForEvaluation.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140253C50 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14064AE08 (AuthzBasepCompareUnicodeStringCaseSensitive.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14024EDC0 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     RtlIsNameInExpression @ 0x14024F7F0 (RtlIsNameInExpression.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14024FF20 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14025017C (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x1405C1D30 (AuthzBasepCompareUnicodeStringCaseSensitive.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(char a1, __int64 a2, _DWORD *a3)
@@ -19,10 +19,10 @@ __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(char a1, __int64 a2, _
   wchar_t **p_Buffer; // rax
   __int64 v7; // rcx
   int OperandStringCaseForEvaluation; // eax
-  __int64 v9; // r13
+  int v9; // r13d
   UNICODE_STRING *p_Name; // rdx
   __int64 v11; // r12
-  bool v12; // zf
+  char v12; // zf
   UNICODE_STRING *v13; // rdx
   UNICODE_STRING *p_Expression; // rcx
   int IsNameInExpression; // ecx
@@ -32,14 +32,15 @@ __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(char a1, __int64 a2, _
   BOOLEAN v20; // al
   unsigned int v21; // eax
   BOOL v22; // eax
-  __int64 v23; // [rsp+20h] [rbp-48h] BYREF
-  UNICODE_STRING *v24; // [rsp+28h] [rbp-40h]
+  _WORD v23[2]; // [rsp+20h] [rbp-48h] BYREF
+  int v24; // [rsp+24h] [rbp-44h]
+  UNICODE_STRING *v25; // [rsp+28h] [rbp-40h]
   UNICODE_STRING Name; // [rsp+30h] [rbp-38h] BYREF
   UNICODE_STRING Expression; // [rsp+40h] [rbp-28h] BYREF
-  char v27; // [rsp+88h] [rbp+20h] BYREF
+  char v28; // [rsp+88h] [rbp+20h] BYREF
 
-  LOWORD(v23) = 0;
-  v27 = 0;
+  v23[0] = 0;
+  v28 = 0;
   p_Buffer = &Name.Buffer;
   v7 = 2LL;
   do
@@ -50,8 +51,8 @@ __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(char a1, __int64 a2, _
   }
   while ( v7 );
   *a3 = 0;
-  OperandStringCaseForEvaluation = AuthzBasepGetOperandStringCaseForEvaluation(a2, &v27);
-  HIDWORD(v23) = OperandStringCaseForEvaluation;
+  OperandStringCaseForEvaluation = AuthzBasepGetOperandStringCaseForEvaluation(a2, &v28);
+  v24 = OperandStringCaseForEvaluation;
   if ( OperandStringCaseForEvaluation < 0 )
   {
 LABEL_25:
@@ -59,45 +60,43 @@ LABEL_25:
     v16 = OperandStringCaseForEvaluation;
     goto LABEL_19;
   }
-  v9 = 0LL;
+  v9 = 0;
   p_Name = &Name;
-  v24 = &Name;
+  v25 = &Name;
   v11 = a2 + 16;
   do
   {
     if ( *(_DWORD *)(v11 - 4) == 1 )
     {
-      v12 = v27 == 0;
+      v12 = v28 == 0;
     }
     else
     {
-      v12 = v27 == 0;
-      if ( v27 )
+      v12 = v28 == 0;
+      if ( v28 )
       {
         *p_Name = *(UNICODE_STRING *)*(_QWORD *)(*(_QWORD *)v11 + 48LL);
         goto LABEL_9;
       }
     }
-    LOBYTE(p_Name) = v12;
     OperandStringCaseForEvaluation = AuthzBasepUnicodeStringFromOperandValue(
-                                       a2 + 40 * v9,
-                                       p_Name,
-                                       &Name + (unsigned int)v9,
-                                       (char *)&v23 + (unsigned int)v9,
-                                       v23);
-    HIDWORD(v23) = OperandStringCaseForEvaluation;
+                                       a2 + 40LL * v9,
+                                       v12,
+                                       &Name.Length + 8 * v9,
+                                       (_BYTE *)v23 + v9);
+    v24 = OperandStringCaseForEvaluation;
     if ( OperandStringCaseForEvaluation < 0 )
       goto LABEL_25;
-    p_Name = v24;
+    p_Name = v25;
 LABEL_9:
-    v9 = (unsigned int)(v9 + 1);
+    ++v9;
     v11 += 40LL;
-    v24 = ++p_Name;
+    v25 = ++p_Name;
   }
-  while ( (int)v9 < 2 );
+  while ( v9 < 2 );
   if ( (unsigned __int8)(a1 + 0x80) > 1u )
   {
-    if ( v27 )
+    if ( v28 )
       v21 = AuthzBasepCompareUnicodeStringCaseSensitive(&Name, &Expression);
     else
       v21 = RtlCompareUnicodeString(&Name, &Expression, 1u);
@@ -110,7 +109,7 @@ LABEL_9:
 LABEL_40:
         *a3 = v22;
 LABEL_43:
-        v16 = HIDWORD(v23);
+        v16 = v24;
         goto LABEL_19;
       }
       if ( a1 == -124 )
@@ -137,27 +136,28 @@ LABEL_43:
       v13 = &Expression;
       p_Expression = &Name;
     }
-    IsNameInExpression = RtlIsNameInExpression(p_Expression, v13, v27 == 0, 0LL);
+    IsNameInExpression = RtlIsNameInExpression(p_Expression, v13, v28 == 0, 0LL);
     *a3 = IsNameInExpression;
   }
   else
   {
-    if ( v27 )
+    if ( v28 )
       v20 = AuthzBasepEqualUnicodeStringCaseSensitive(&Name, &Expression);
     else
       v20 = RtlEqualUnicodeString(&Name, &Expression, 1u);
     IsNameInExpression = v20;
     *a3 = v20;
   }
-  v16 = HIDWORD(v23);
-  if ( a1 == -127 )
+  v12 = a1 == -127;
+  v16 = v24;
+  if ( v12 )
     *a3 = IsNameInExpression != 1;
 LABEL_19:
   v17 = 0LL;
   v18 = &Name.Buffer;
   do
   {
-    if ( *((_BYTE *)&v23 + v17) )
+    if ( *((_BYTE *)v23 + v17) )
       ExFreePoolWithTag(*v18, 0);
     ++v17;
     v18 += 2;

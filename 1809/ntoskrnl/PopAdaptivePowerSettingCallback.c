@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAdaptivePowerSettingCallback @ 0x140745E10
+ * XREFs of PopAdaptivePowerSettingCallback @ 0x140745DF0
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x140186470 (PopVideoPowerSettingCallback.c)
+ *     PopVideoPowerSettingCallback @ 0x140186490 (PopVideoPowerSettingCallback.c)
  * Callees:
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopDiagTracePolicyChange @ 0x140745F0C (PopDiagTracePolicyChange.c)
- *     PopCheckConsoleTimeouts @ 0x140878CB4 (PopCheckConsoleTimeouts.c)
- *     PopInputDisabled @ 0x140878E98 (PopInputDisabled.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTracePolicyChange @ 0x140745EEC (PopDiagTracePolicyChange.c)
+ *     PopCheckConsoleTimeouts @ 0x140878C94 (PopCheckConsoleTimeouts.c)
+ *     PopInputDisabled @ 0x140878E78 (PopInputDisabled.c)
  */
 
 __int64 __fastcall PopAdaptivePowerSettingCallback(__int64 *a1, int *a2, int a3)

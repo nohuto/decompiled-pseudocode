@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpFreeTablePagedPool @ 0x14068AD30
+ * XREFs of ExpFreeTablePagedPool @ 0x1406044E0
  * Callers:
- *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
- *     ExpFreeLowLevelTable @ 0x14068ACF0 (ExpFreeLowLevelTable.c)
- *     ExpAllocateMidLevelTable @ 0x1407B0618 (ExpAllocateMidLevelTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1407B0D50 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpSetHandleExtraInfo @ 0x1409F9250 (ExpSetHandleExtraInfo.c)
+ *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpFreeLowLevelTable @ 0x1406044A0 (ExpFreeLowLevelTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140606260 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateMidLevelTable @ 0x14069A62C (ExpAllocateMidLevelTable.c)
+ *     ExpSetHandleExtraInfo @ 0x14094CBC8 (ExpSetHandleExtraInfo.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140298A90 (PsReturnProcessPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpFreeTablePagedPool(struct _KPROCESS *a1, void *a2, __int64 a3)

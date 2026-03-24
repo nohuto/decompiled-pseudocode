@@ -1,178 +1,179 @@
 /*
- * XREFs of ParkIcon @ 0x1C00C3A88
+ * XREFs of ParkIcon @ 0x1C002C27C
  * Callers:
- *     NtUserGetWindowMinimizeRect @ 0x1C000E010 (NtUserGetWindowMinimizeRect.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     NtUserGetWindowMinimizeRect @ 0x1C01247A0 (NtUserGetWindowMinimizeRect.c)
  * Callees:
- *     GetRect @ 0x1C00C7BD0 (GetRect.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C00EB4B8 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
- *     InternalGetRealClientRect @ 0x1C00EF568 (InternalGetRealClientRect.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
+ *     IsTrayWindow @ 0x1C005EA90 (IsTrayWindow.c)
+ *     GetRect @ 0x1C0063E88 (GetRect.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     InternalGetRealClientRect @ 0x1C0111200 (InternalGetRealClientRect.c)
  */
 
-__int64 __fastcall ParkIcon(__int64 a1, unsigned int *a2)
+__int64 __fastcall ParkIcon(__int64 a1, int *a2)
 {
   int v4; // r14d
   int v5; // r13d
   int v6; // edx
   int v7; // esi
-  unsigned int v8; // ebx
-  int v9; // r15d
+  int v8; // ebx
+  int v9; // r12d
   int v10; // edi
-  int v11; // r13d
+  int v11; // eax
+  int v12; // r13d
   __int64 result; // rax
-  __int64 v13; // r14
-  int v14; // r12d
-  int v15; // esi
-  int v16; // r15d
-  char v17; // cl
-  unsigned int v18; // ecx
-  unsigned int v19; // eax
-  int v20; // [rsp+30h] [rbp-39h]
-  int v21; // [rsp+34h] [rbp-35h]
-  __int128 v22; // [rsp+38h] [rbp-31h] BYREF
-  unsigned __int64 v23; // [rsp+48h] [rbp-21h] BYREF
-  unsigned int v24; // [rsp+50h] [rbp-19h]
-  int v25; // [rsp+54h] [rbp-15h]
-  int v26; // [rsp+58h] [rbp-11h]
-  int v27; // [rsp+5Ch] [rbp-Dh]
-  int v28; // [rsp+60h] [rbp-9h]
-  int v29; // [rsp+64h] [rbp-5h]
-  int v30; // [rsp+68h] [rbp-1h]
-  __int64 v31; // [rsp+70h] [rbp+7h]
-  __int64 v32; // [rsp+78h] [rbp+Fh]
-  int v35; // [rsp+E0h] [rbp+77h]
-  int v36; // [rsp+E8h] [rbp+7Fh]
+  __int64 v14; // r14
+  int v15; // r15d
+  int v16; // esi
+  int v17; // r12d
+  char v18; // cl
+  unsigned int v19; // ecx
+  unsigned int v20; // eax
+  int v21; // [rsp+30h] [rbp-39h]
+  int v22; // [rsp+34h] [rbp-35h]
+  __int128 v23; // [rsp+38h] [rbp-31h] BYREF
+  int v24; // [rsp+48h] [rbp-21h] BYREF
+  int v25; // [rsp+4Ch] [rbp-1Dh]
+  int v26; // [rsp+50h] [rbp-19h]
+  int v27; // [rsp+54h] [rbp-15h]
+  int v28; // [rsp+58h] [rbp-11h]
+  int v29; // [rsp+5Ch] [rbp-Dh]
+  int v30; // [rsp+60h] [rbp-9h]
+  int v31; // [rsp+64h] [rbp-5h]
+  int v32; // [rsp+68h] [rbp-1h]
+  __int64 v33; // [rsp+70h] [rbp+7h]
+  __int64 v34; // [rsp+78h] [rbp+Fh]
+  int v37; // [rsp+E0h] [rbp+77h]
+  int v38; // [rsp+E8h] [rbp+7Fh]
 
   v23 = 0LL;
-  v22 = 0LL;
   v4 = *(_DWORD *)(gpsi + 2084LL);
   v5 = *(_DWORD *)(gpsi + 2088LL);
-  v30 = v4;
-  v26 = v5;
-  if ( !(unsigned __int8)IsTrayWindow(a1, 1LL) )
+  v32 = v4;
+  v28 = v5;
+  if ( !(unsigned int)IsTrayWindow(a1) )
   {
-    v32 = *(_QWORD *)(a1 + 104);
-    InternalGetRealClientRect(v32, (unsigned int)&v22, 1, 0, 1);
+    v34 = *(_QWORD *)(a1 + 104);
+    InternalGetRealClientRect(v34, (unsigned int)&v23, 1, 0, 1);
     v6 = *(_DWORD *)(gpsi + 2120LL);
     if ( (v6 & 1) != 0 )
     {
-      v7 = DWORD2(v22) - v4;
-      v36 = -v4;
+      v7 = DWORD2(v23) - v4;
+      v38 = -v4;
     }
     else
     {
-      v7 = v22 + *(_DWORD *)(gpsi + 2084LL) - *(_DWORD *)(gpsi + 2124LL);
-      v36 = v4;
+      v7 = v23 + *(_DWORD *)(gpsi + 2084LL) - *(_DWORD *)(gpsi + 2124LL);
+      v38 = v4;
     }
-    v27 = v7;
+    v29 = v7;
     v8 = v7;
-    LODWORD(v23) = v7;
+    v24 = v7;
     if ( (v6 & 2) != 0 )
     {
-      v9 = DWORD1(v22) + *(_DWORD *)(gpsi + 2088LL) - *(_DWORD *)(gpsi + 2128LL);
-      v20 = v5;
+      v9 = DWORD1(v23) + *(_DWORD *)(gpsi + 2088LL) - *(_DWORD *)(gpsi + 2128LL);
+      v21 = v5;
     }
     else
     {
-      v9 = HIDWORD(v22) - v5;
-      v20 = -v5;
+      v9 = HIDWORD(v23) - v5;
+      v21 = -v5;
     }
-    HIDWORD(v23) = v9;
+    v25 = v9;
     v10 = v9;
-    v28 = v9;
+    v30 = v9;
     if ( (v6 & 4) != 0 )
     {
-      v11 = SHIDWORD(v22) / v5;
-      if ( v11 < 1 )
-        v11 = 1;
-      v31 = 0LL;
+      v33 = 0LL;
+      v11 = SHIDWORD(v23) / v5;
     }
     else
     {
-      v31 = 1LL;
-      v11 = SDWORD2(v22) / v4;
-      if ( SDWORD2(v22) / v4 < 1 )
-        v11 = 1;
+      v33 = 1LL;
+      v11 = SDWORD2(v23) / v4;
     }
-    v29 = v11;
-    v21 = 0;
-    v35 = v11;
+    v12 = v11;
+    if ( v11 < 1 )
+      v12 = 1;
+    v22 = 0;
+    v31 = v12;
+    v37 = v12;
     while ( 1 )
     {
-      v24 = v8 + v4;
-      v25 = v10 + v26;
-      result = v32;
-      v13 = *(_QWORD *)(v32 + 112);
-      if ( !v13 )
-        goto LABEL_15;
-      v14 = v30;
-      v15 = v26;
-      v16 = v21;
+      v26 = v8 + v4;
+      v27 = v10 + v28;
+      result = v34;
+      v14 = *(_QWORD *)(v34 + 112);
+      if ( !v14 )
+        goto LABEL_16;
+      v15 = v32;
+      v16 = v28;
+      v17 = v22;
       do
       {
-        result = *(_QWORD *)(v13 + 40);
-        v17 = *(_BYTE *)(result + 31);
-        if ( (v17 & 0x10) == 0 || v13 == a1 )
-          goto LABEL_13;
-        if ( (v17 & 0x20) != 0 )
+        result = *(_QWORD *)(v14 + 40);
+        v18 = *(_BYTE *)(result + 31);
+        if ( (v18 & 0x10) == 0 || v14 == a1 )
+          goto LABEL_14;
+        if ( (v18 & 0x20) != 0 )
         {
-          GetRect(v13, &v22, 66LL);
+          GetRect(v14, &v23, 66LL);
         }
         else
         {
-          result = GetProp(v13, *((unsigned __int16 *)&WPP_MAIN_CB.DeviceQueue.Size + 1), 1LL);
+          result = GetProp(v14, WORD2(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc), 1LL);
           if ( !result || (*(_BYTE *)(result + 48) & 0x21) != 0x21 )
-            goto LABEL_13;
-          v18 = *(_DWORD *)(result + 32);
-          v19 = *(_DWORD *)(result + 36);
-          *(_QWORD *)&v22 = __PAIR64__(v19, v18);
-          HIDWORD(v22) = v15 + v19;
-          DWORD2(v22) = v14 + v18;
+            goto LABEL_14;
+          v19 = *(_DWORD *)(result + 32);
+          v20 = *(_DWORD *)(result + 36);
+          *(_QWORD *)&v23 = __PAIR64__(v20, v19);
+          HIDWORD(v23) = v16 + v20;
+          DWORD2(v23) = v15 + v19;
         }
-        ++v16;
-        result = IntersectRect(&v22, &v22, &v23);
+        ++v17;
+        result = IntersectRect(&v23, &v23, &v24);
         if ( (_DWORD)result )
           break;
-LABEL_13:
-        v13 = *(_QWORD *)(v13 + 88);
+LABEL_14:
+        v14 = *(_QWORD *)(v14 + 88);
       }
-      while ( v13 );
-      v21 = v16;
-      if ( !v13 )
-        goto LABEL_15;
-      if ( --v35 )
+      while ( v14 );
+      v22 = v17;
+      if ( !v14 )
+        goto LABEL_16;
+      if ( --v37 )
       {
-        if ( v31 )
+        if ( v33 )
         {
-          v8 += v36;
-          LODWORD(v23) = v8;
+          v8 += v38;
+          v24 = v8;
         }
         else
         {
-LABEL_33:
-          v10 += v20;
-          HIDWORD(v23) = v10;
+LABEL_32:
+          v10 += v21;
+          v25 = v10;
         }
       }
       else
       {
-        v35 = v29;
-        if ( v31 )
+        v37 = v31;
+        if ( v33 )
         {
-          v8 = v27;
-          LODWORD(v23) = v27;
-          goto LABEL_33;
+          v8 = v29;
+          v24 = v29;
+          goto LABEL_32;
         }
-        v8 += v36;
-        v23 = __PAIR64__(v28, v8);
-        v10 = v28;
+        v8 += v38;
+        v25 = v30;
+        v24 = v8;
+        v10 = v30;
       }
-      v4 = v30;
-      if ( v16 >= 5000 )
+      v4 = v32;
+      if ( v17 >= 5000 )
       {
-LABEL_15:
+LABEL_16:
         *a2 = v8;
         a2[1] = v10;
         return result;

@@ -24,11 +24,11 @@
  *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
  *     MiSanitizePfnProtection @ 0x140074050 (MiSanitizePfnProtection.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiSetInPagePrefetchPriority @ 0x140113B94 (MiSetInPagePrefetchPriority.c)
- *     KeInvalidAccessAllowed @ 0x140117CEC (KeInvalidAccessAllowed.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
- *     MiGetSharedProtos @ 0x140177154 (MiGetSharedProtos.c)
- *     MiGetSlabPage @ 0x1402C28DC (MiGetSlabPage.c)
+ *     MiSetInPagePrefetchPriority @ 0x140113BB4 (MiSetInPagePrefetchPriority.c)
+ *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
+ *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
+ *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
  */
 
 __int64 MiResolveMappedFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)

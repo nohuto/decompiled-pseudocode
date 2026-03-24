@@ -1,38 +1,36 @@
 /*
- * XREFs of PoSetUserPresent @ 0x140368E20
+ * XREFs of PoSetUserPresent @ 0x1403A5E50
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     PopSetSystemState @ 0x140368E90 (PopSetSystemState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     PopSetSystemState @ 0x1403A5EC0 (PopSetSystemState.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PoSetUserPresent(unsigned int a1)
+__int64 __fastcall PoSetUserPresent(__int64 a1, __int64 a2)
 {
-  char v2; // bl
+  unsigned int v2; // edi
+  unsigned __int8 CurrentIrql; // bl
   __int64 result; // rax
-  __int64 v4; // [rsp+30h] [rbp-28h] BYREF
-  int v5; // [rsp+38h] [rbp-20h]
-  int v6; // [rsp+3Ch] [rbp-1Ch]
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  _QWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = 0;
-  if ( KeGetCurrentIrql() < 2u )
+  v2 = a1;
+  CurrentIrql = KeGetCurrentIrql();
+  if ( CurrentIrql < 2u )
+    PopAcquirePolicyLock(a1, a2);
+  if ( (xmmword_140CFC490 & 0x8000) != 0 )
   {
-    PopAcquirePolicyLock();
-    v2 = 1;
+    v7[0] = 0LL;
+    v7[1] = 0LL;
+    EtwTraceKernelEvent((int)v7, 1, 0x80008000, 4673, 4200450);
   }
-  if ( (xmmword_140D06910 & 0x8000) != 0 )
-  {
-    v4 = 0LL;
-    v5 = 0;
-    v6 = 0;
-    EtwTraceKernelEvent((__int64)&v4, 1u, 0x80008000, 0x1241u, 0x401802u);
-  }
-  result = PopSetSystemState(4LL, a1);
-  if ( v2 )
-    return PopReleasePolicyLock();
+  result = PopSetSystemState(4LL, v2);
+  if ( CurrentIrql < 2u )
+    return PopReleasePolicyLock(v6, v5);
   return result;
 }

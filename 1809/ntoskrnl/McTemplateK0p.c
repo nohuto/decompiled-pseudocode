@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0p @ 0x140288B30
+ * XREFs of McTemplateK0p @ 0x140288C30
  * Callers:
  *     PiDqQueryRelease @ 0x1405900AC (PiDqQueryRelease.c)
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x1406F7500 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1406F74E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6A0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG McTemplateK0p(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

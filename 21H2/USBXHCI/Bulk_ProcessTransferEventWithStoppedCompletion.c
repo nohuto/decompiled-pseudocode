@@ -1,10 +1,10 @@
 /*
- * XREFs of Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000B3F8
+ * XREFs of Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000E178
  * Callers:
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000AE90 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
  * Callees:
- *     memmove @ 0x1C0019A00 (memmove.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
  */
 
 __int64 __fastcall Bulk_ProcessTransferEventWithStoppedCompletion(

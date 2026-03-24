@@ -1,41 +1,36 @@
 /*
- * XREFs of IoSetActivityIdIrp @ 0x14020C120
+ * XREFs of IoSetActivityIdIrp @ 0x140379200
  * Callers:
- *     IoMakeAssociatedIrpPriv @ 0x14020BA48 (IoMakeAssociatedIrpPriv.c)
- *     IoReuseIrp @ 0x14020BE20 (IoReuseIrp.c)
- *     IopInitActivityIdIrp @ 0x140556BE4 (IopInitActivityIdIrp.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1402ED8C8 (IoMakeAssociatedIrpPriv.c)
+ *     IoReuseIrp @ 0x1402EDC30 (IoReuseIrp.c)
+ *     IopInitActivityIdIrp @ 0x140500C9C (IopInitActivityIdIrp.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     IopAllocateIrpExtension @ 0x14020C420 (IopAllocateIrpExtension.c)
- *     EtwActivityIdControl @ 0x1402DFD70 (EtwActivityIdControl.c)
+ *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
+ *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
+ *     IopAllocateIrpExtension @ 0x1402EE1B0 (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall IoSetActivityIdIrp(__int64 a1, _OWORD *a2)
 {
-  unsigned int v4; // ebx
-  __int64 IrpExtension; // rax
+  NTSTATUS v4; // ebx
+  _WORD *IrpExtension; // rax
 
   v4 = 0;
-  IrpExtension = IopAllocateIrpExtension(a1, 0LL);
-  if ( IrpExtension )
+  IrpExtension = IopAllocateIrpExtension(a1, 0);
+  if ( !IrpExtension )
+    return 3221225626LL;
+  if ( a2 )
   {
-    if ( a2 )
-    {
-      *(_OWORD *)(IrpExtension + 24) = *a2;
-      return v4;
-    }
-    if ( KeGetCurrentThread() == *(struct _KTHREAD **)(a1 + 152) )
-    {
-      v4 = EtwActivityIdControl(1u, (LPGUID)(IrpExtension + 24));
-      if ( (v4 & 0x80000000) == 0 )
-        return v4;
-    }
-    else
-    {
-      v4 = -1073741637;
-    }
-    IopFreeIrpExtension(a1, 0, 1);
-    return v4;
+    *(_OWORD *)(IrpExtension + 12) = *a2;
   }
-  return 3221225626LL;
+  else
+  {
+    if ( KeGetCurrentThread() == *(struct _KTHREAD **)(a1 + 152) )
+      v4 = EtwActivityIdControl(1u, (LPGUID)(IrpExtension + 12));
+    else
+      v4 = -1073741637;
+    if ( v4 < 0 )
+      IopFreeIrpExtension(a1, 0, 1);
+  }
+  return (unsigned int)v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoVolumeDeviceToDosName @ 0x140AD3020
+ * XREFs of VerifierIoVolumeDeviceToDosName @ 0x1409D5F60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierIoVolumeDeviceToDosName(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCreateHalftonePalette @ 0x1C00B0F40
+ * XREFs of NtGdiCreateHalftonePalette @ 0x1C012B4D0
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateCompatibleHalftonePalette @ 0x1C00B0F58 (GreCreateCompatibleHalftonePalette.c)
+ *     GreCreateCompatibleHalftonePalette @ 0x1C012B4E8 (GreCreateCompatibleHalftonePalette.c)
  */
 
 __int64 __fastcall NtGdiCreateHalftonePalette(__int64 a1)

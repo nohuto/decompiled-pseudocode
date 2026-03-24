@@ -1,10 +1,10 @@
 /*
- * XREFs of ??HD2DMatrix@@QEBA?AU0@AEBU0@@Z @ 0x18027D014
+ * XREFs of ??HD2DMatrix@@QEBA?AU0@AEBU0@@Z @ 0x18021C2C4
  * Callers:
- *     ?Add@CExpressionValueStack@@QEAAJXZ @ 0x180013D7C (-Add@CExpressionValueStack@@QEAAJXZ.c)
- *     ?AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack@@@Z @ 0x18022775C (-AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack.c)
+ *     ?Add@CExpressionValueStack@@QEAAJXZ @ 0x1800D82DC (-Add@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack@@@Z @ 0x1801BD18C (-AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack.c)
  * Callees:
- *     ??0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z @ 0x18027CA44 (--0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z.c)
+ *     ??0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z @ 0x18021BCF4 (--0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z.c)
  */
 
 D2DMatrix *__fastcall D2DMatrix::operator+(float *a1, D2DMatrix *a2, float *a3)

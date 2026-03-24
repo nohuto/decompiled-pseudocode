@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRemoveFromSecurityCache @ 0x1406DD0AC
+ * XREFs of CmpRemoveFromSecurityCache @ 0x1406BBFB0
  * Callers:
- *     CmpRemoveSecurityCellList @ 0x1402555BC (CmpRemoveSecurityCellList.c)
+ *     CmpRemoveSecurityCellList @ 0x1402CD674 (CmpRemoveSecurityCellList.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140346D80 (CmpFindSecurityCellCacheIndex.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 char __fastcall CmpRemoveFromSecurityCache(__int64 a1, int a2)
@@ -24,7 +24,7 @@ char __fastcall CmpRemoveFromSecurityCache(__int64 a1, int a2)
   {
     v4 = v9;
     v5 = 16LL * v9;
-    v6 = *(_QWORD *)(*(_QWORD *)(a1 + 1888) + v5 + 8);
+    v6 = *(_QWORD *)(*(_QWORD *)(a1 + 1880) + v5 + 8);
     v7 = *(_QWORD *)(v6 + 8);
     if ( *(_QWORD *)(v7 + 8) != v6 + 8 || (v8 = *(_QWORD **)(v6 + 16), *v8 != v6 + 8) )
       __fastfail(3u);
@@ -32,10 +32,10 @@ char __fastcall CmpRemoveFromSecurityCache(__int64 a1, int a2)
     *(_QWORD *)(v7 + 8) = v8;
     (*(void (__fastcall **)(__int64, _QWORD))(a1 + 32))(v6, (unsigned int)(*(_DWORD *)(v6 + 24) + 32));
     result = (unsigned __int8)memmove(
-                                (void *)(v5 + *(_QWORD *)(a1 + 1888)),
-                                (const void *)(*(_QWORD *)(a1 + 1888) + 16LL * (v4 + 1)),
-                                16LL * (*(_DWORD *)(a1 + 1872) - v4 - 1));
-    --*(_DWORD *)(a1 + 1872);
+                                (void *)(v5 + *(_QWORD *)(a1 + 1880)),
+                                (const void *)(*(_QWORD *)(a1 + 1880) + 16LL * (v4 + 1)),
+                                16LL * (*(_DWORD *)(a1 + 1864) - v4 - 1));
+    --*(_DWORD *)(a1 + 1864);
   }
   return result;
 }

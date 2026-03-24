@@ -1,66 +1,44 @@
 /*
- * XREFs of ?RegisterSourcesForOwner@CExpression@@UEAAJXZ @ 0x1800BCB00
+ * XREFs of ?RegisterSourcesForOwner@CExpression@@UEAAJXZ @ 0x180065890
  * Callers:
  *     <none>
  * Callees:
- *     ?AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z @ 0x1800BCBB0 (-AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterSourceForAnimation@CExpression@@AEAAJPEAVCBaseExpression@@PEBUExpressionReferenceInfo@@@Z @ 0x180065910 (-RegisterSourceForAnimation@CExpression@@AEAAJPEAVCBaseExpression@@PEBUExpressionReferenceInfo@@.c)
  */
 
 __int64 __fastcall CExpression::RegisterSourcesForOwner(CExpression *this)
 {
   struct CBaseExpression *v1; // rbp
-  CExpression *v2; // rbx
   __int64 v3; // rsi
-  __int64 v4; // r9
-  unsigned int v5; // eax
-  __int64 v6; // rdx
-  int v7; // edi
-  unsigned int v8; // ebx
-  unsigned int v10; // ecx
+  int v4; // eax
+  __int64 v5; // rcx
+  unsigned int v6; // edi
 
-  v1 = (struct CBaseExpression *)*((_QWORD *)this + 56);
-  v2 = this;
+  v1 = (struct CBaseExpression *)*((_QWORD *)this + 53);
   if ( !v1 )
     v1 = this;
   v3 = 0LL;
-  if ( *((_DWORD *)this + 110) )
+  if ( *((_DWORD *)this + 104) )
   {
     while ( 1 )
     {
-      v4 = *((_QWORD *)v2 + 54);
-      v5 = *(_DWORD *)(v4 + 24 * v3 + 20);
-      if ( v5 >= *((_DWORD *)v2 + 106) )
+      v4 = CExpression::RegisterSourceForAnimation(
+             this,
+             v1,
+             (const struct ExpressionReferenceInfo *)(*((_QWORD *)this + 51) + 24 * v3));
+      v6 = v4;
+      if ( v4 < 0 )
         break;
-      LODWORD(this) = *(_DWORD *)(v4 + 24 * v3 + 20);
-      v6 = *(_QWORD *)(*((_QWORD *)v2 + 52) + 8LL * v5);
-      if ( v6 )
-      {
-        this = *(CExpression **)(v6 + 16);
-        if ( this )
-        {
-          v7 = CResource::AddSourceAnimation(this, v1, *(_DWORD *)(v4 + 24 * v3));
-          if ( v7 < 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v7, 0x19Au, 0LL);
-            goto LABEL_14;
-          }
-          *((_BYTE *)v2 + 456) |= 2u;
-        }
-      }
       v3 = (unsigned int)(v3 + 1);
-      if ( (unsigned int)v3 >= *((_DWORD *)v2 + 110) )
+      if ( (unsigned int)v3 >= *((_DWORD *)this + 104) )
         return 0;
     }
-    v7 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024809, 0x191u, 0LL);
-LABEL_14:
-    v8 = v7;
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v7, 0x16Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x17Fu, 0LL);
   }
   else
   {
     return 0;
   }
-  return v8;
+  return v6;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWriteValidPteVolatile @ 0x140217040
+ * XREFs of MiWriteValidPteVolatile @ 0x140240CE0
  * Callers:
- *     MiWriteWsle @ 0x140216194 (MiWriteWsle.c)
- *     MiSetWsleProtection @ 0x140216EE0 (MiSetWsleProtection.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14021C86C (MiTryLockProtoPoolPageAtDpc.c)
- *     MmCheckCachedPageStates @ 0x140265200 (MmCheckCachedPageStates.c)
- *     MiResolveProtoPteFault @ 0x140267DB0 (MiResolveProtoPteFault.c)
- *     MiCopyOnWrite @ 0x14026FC80 (MiCopyOnWrite.c)
- *     MiRemoveWsle @ 0x14027B330 (MiRemoveWsle.c)
- *     MiLockCode @ 0x140282210 (MiLockCode.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiLockOwnedProtoPage @ 0x1402DD410 (MiLockOwnedProtoPage.c)
- *     MiLockPagedAddress @ 0x1402ED4F0 (MiLockPagedAddress.c)
+ *     MiResolveProtoPteFault @ 0x140215390 (MiResolveProtoPteFault.c)
+ *     MiCheckProtoPtePageState @ 0x14023ABE0 (MiCheckProtoPtePageState.c)
+ *     MiCopyOnWrite @ 0x14023EC70 (MiCopyOnWrite.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140240500 (MiSetReadOnlyOnSectionView.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140285334 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiLockOwnedProtoPage @ 0x14029A9B0 (MiLockOwnedProtoPage.c)
+ *     MmCheckCachedPageStates @ 0x1402A1C20 (MmCheckCachedPageStates.c)
+ *     MiLockCode @ 0x1402A3C40 (MiLockCode.c)
+ *     MiMakePageAvoidRead @ 0x1402A4700 (MiMakePageAvoidRead.c)
+ *     MiRemoveWsle @ 0x1402B9670 (MiRemoveWsle.c)
+ *     MiWriteWsle @ 0x14031A590 (MiWriteWsle.c)
+ *     MiLockPagedAddress @ 0x14036B274 (MiLockPagedAddress.c)
  * Callees:
  *     <none>
  */
@@ -20,12 +20,13 @@
 signed __int64 __fastcall MiWriteValidPteVolatile(volatile signed __int64 *a1, int a2, unsigned __int8 a3)
 {
   signed __int64 v3; // r9
-  __int64 v4; // r10
+  __int64 v4; // r11
   __int64 v5; // rbx
   int v6; // edx
   unsigned __int64 v8; // rax
-  signed __int64 v9; // rcx
-  bool v10; // zf
+  __int64 v9; // r10
+  signed __int64 v10; // rcx
+  bool v11; // zf
   signed __int64 result; // rax
 
   v3 = *a1;
@@ -40,14 +41,13 @@ signed __int64 __fastcall MiWriteValidPteVolatile(volatile signed __int64 *a1, i
     v9 = v8 | 0x20;
     if ( !v5 )
       v9 = v8;
-    if ( v6 )
-      v9 |= 0x42uLL;
-    if ( (MiFlags & 0x2000000) != 0 )
-      _mm_lfence();
-    result = _InterlockedCompareExchange64(a1, v9, v3);
-    v10 = v3 == result;
+    v10 = v9 | 0x42;
+    if ( !v6 )
+      v10 = v9;
+    result = _InterlockedCompareExchange64(a1, v10, v3);
+    v11 = v3 == result;
     v3 = result;
   }
-  while ( !v10 );
+  while ( !v11 );
   return result;
 }

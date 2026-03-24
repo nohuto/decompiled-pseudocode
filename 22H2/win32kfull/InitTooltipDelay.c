@@ -1,19 +1,21 @@
 /*
- * XREFs of InitTooltipDelay @ 0x1C001C208
+ * XREFs of InitTooltipDelay @ 0x1C00DB354
  * Callers:
- *     _SetDoubleClickTime @ 0x1C001C0AC (_SetDoubleClickTime.c)
- *     xxxTooltipWndProc @ 0x1C001FBD0 (xxxTooltipWndProc.c)
+ *     xxxTooltipWndProc @ 0x1C00DAED0 (xxxTooltipWndProc.c)
+ *     _SetDoubleClickTime @ 0x1C00DB2A0 (_SetDoubleClickTime.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall InitTooltipDelay(__int64 a1)
+__int64 __fastcall InitTooltipDelay(__int64 a1)
 {
-  __int64 v2; // rcx
+  __int64 result; // rax
 
   if ( a1 )
   {
-    *(_DWORD *)(a1 + 8) = 3 * *(_DWORD *)(SGDGetUserSessionState(a1) + 14360);
-    *(_DWORD *)(a1 + 12) = 8 * *(_DWORD *)(SGDGetUserSessionState(v2) + 14360);
+    *(_DWORD *)(a1 + 8) = 3 * gdtDblClk;
+    result = gdtDblClk;
+    *(_DWORD *)(a1 + 12) = 8 * gdtDblClk;
   }
+  return result;
 }

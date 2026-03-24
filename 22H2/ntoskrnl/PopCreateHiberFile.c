@@ -1,85 +1,86 @@
 /*
- * XREFs of PopCreateHiberFile @ 0x140800B90
+ * XREFs of PopCreateHiberFile @ 0x14079BC20
  * Callers:
- *     PopEnableHiberFile @ 0x140803C60 (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x14079B350 (PopEnableHiberFile.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     ZwFsControlFile @ 0x14041ADC0 (ZwFsControlFile.c)
- *     ZwFlushBuffersFile @ 0x14041B000 (ZwFlushBuffersFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     IoCreateFile @ 0x1407D0C00 (IoCreateFile.c)
- *     PopCreateHiberFileSecurityDescriptor @ 0x140800FBC (PopCreateHiberFileSecurityDescriptor.c)
- *     PopSetHiberFileMcb @ 0x140801148 (PopSetHiberFileMcb.c)
- *     PopSanityCheckHiberFile @ 0x1408011BC (PopSanityCheckHiberFile.c)
- *     PopResetCurrentPolicies @ 0x140825058 (PopResetCurrentPolicies.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140835AC8 (FsRtlIssueFileNotificationFsctl.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x1403FA140 (ZwFsControlFile.c)
+ *     ZwFlushBuffersFile @ 0x1403FA380 (ZwFlushBuffersFile.c)
+ *     IoCreateFile @ 0x14060B630 (IoCreateFile.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14078D5B4 (FsRtlIssueFileNotificationFsctl.c)
+ *     PopSanityCheckHiberFile @ 0x14078E178 (PopSanityCheckHiberFile.c)
+ *     PopSetHiberFileMcb @ 0x14078E6FC (PopSetHiberFileMcb.c)
+ *     PopResetCurrentPolicies @ 0x14079CB48 (PopResetCurrentPolicies.c)
+ *     PopCreateHiberFileSecurityDescriptor @ 0x14079D224 (PopCreateHiberFileSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopCreateHiberFile(LARGE_INTEGER a1)
 {
-  PFILE_OBJECT v1; // rdi
+  struct _FILE_OBJECT *v1; // rdi
   void *HiberFileSecurityDescriptor; // r15
-  unsigned int v3; // esi
-  NTSTATUS v4; // eax
-  int v5; // ebx
+  int v3; // ebx
+  unsigned int v4; // esi
+  NTSTATUS v5; // eax
   bool v6; // r14
   NTSTATUS v7; // eax
   NTSTATUS Status; // eax
+  __int64 v9; // rdx
   HANDLE FileHandle; // [rsp+70h] [rbp-90h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-88h] BYREF
-  int v12; // [rsp+88h] [rbp-78h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+88h] [rbp-78h] BYREF
   LARGE_INTEGER AllocationSize; // [rsp+90h] [rbp-70h] BYREF
   UNICODE_STRING Destination; // [rsp+98h] [rbp-68h] BYREF
-  PFILE_OBJECT FileObject; // [rsp+A8h] [rbp-58h] BYREF
-  LARGE_INTEGER v16; // [rsp+B0h] [rbp-50h] BYREF
+  PVOID Object; // [rsp+A8h] [rbp-58h] BYREF
+  LARGE_INTEGER v17; // [rsp+B0h] [rbp-50h] BYREF
   PVOID P; // [rsp+B8h] [rbp-48h] BYREF
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D0h] [rbp-30h] BYREF
   __int128 InputBuffer; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v21; // [rsp+110h] [rbp+10h]
+  __int64 v22; // [rsp+110h] [rbp+10h]
   __int128 FileInformation; // [rsp+118h] [rbp+18h] BYREF
-  __int64 v23; // [rsp+128h] [rbp+28h]
-  _OWORD v24[2]; // [rsp+130h] [rbp+30h] BYREF
-  __int64 v25; // [rsp+150h] [rbp+50h]
+  __int64 v24; // [rsp+128h] [rbp+28h]
+  _OWORD v25[2]; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v26; // [rsp+150h] [rbp+50h]
 
   AllocationSize = a1;
   *(&Destination.MaximumLength + 2) = 0;
-  v16.QuadPart = 0LL;
-  v25 = 0LL;
-  v23 = 0LL;
+  v17.QuadPart = 0LL;
+  LODWORD(NumberOfBytes) = 0;
+  v26 = 0LL;
+  v24 = 0LL;
   DestinationString = 0LL;
+  v22 = 0LL;
   v1 = 0LL;
-  memset(v24, 0, sizeof(v24));
-  v12 = 0;
-  HiberFileSecurityDescriptor = 0LL;
-  v21 = 0LL;
-  FileInformation = 0LL;
+  memset(v25, 0, sizeof(v25));
   FileHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  FileObject = 0LL;
-  IoStatusBlock = 0LL;
+  HiberFileSecurityDescriptor = 0LL;
+  Object = 0LL;
+  FileInformation = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   P = 0LL;
+  IoStatusBlock = 0LL;
   InputBuffer = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\hiberfil.sys");
-  *(_DWORD *)&Destination.MaximumLength = (unsigned __int16)(PoHiberFileRoot.Length + DestinationString.Length);
+  *(_DWORD *)&Destination.MaximumLength = (unsigned __int16)(DestinationString.Length + PoHiberFileRoot.Length);
   Destination.Length = 0;
-  Destination.Buffer = (wchar_t *)ExAllocatePool2(
-                                    256LL,
-                                    (unsigned __int16)(PoHiberFileRoot.Length + DestinationString.Length),
-                                    1919052136LL);
+  Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(
+                                    PagedPool,
+                                    (unsigned __int16)(DestinationString.Length + PoHiberFileRoot.Length),
+                                    0x72626968u);
   if ( !Destination.Buffer )
   {
-    v5 = -1073741670;
-    goto LABEL_22;
+    v3 = -1073741670;
+    goto LABEL_32;
   }
   RtlAppendUnicodeStringToString(&Destination, &PoHiberFileRoot);
   RtlAppendUnicodeStringToString(&Destination, &DestinationString);
@@ -87,13 +88,13 @@ __int64 __fastcall PopCreateHiberFile(LARGE_INTEGER a1)
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &Destination;
+  v4 = 0;
   ObjectAttributes.Attributes = 576;
-  v3 = 0;
   ObjectAttributes.SecurityDescriptor = HiberFileSecurityDescriptor;
   ObjectAttributes.SecurityQualityOfService = 0LL;
   while ( 1 )
   {
-    v4 = IoCreateFile(
+    v5 = IoCreateFile(
            &FileHandle,
            0x100003u,
            &ObjectAttributes,
@@ -108,12 +109,12 @@ __int64 __fastcall PopCreateHiberFile(LARGE_INTEGER a1)
            CreateFileTypeNone,
            0LL,
            0x102u);
-    v5 = v4;
-    if ( v4 < 0 )
+    v3 = v5;
+    if ( v5 < 0 )
     {
-      if ( v4 != -1073741638 )
-        goto LABEL_22;
-      v5 = IoCreateFile(
+      if ( v5 != -1073741638 )
+        goto LABEL_10;
+      v3 = IoCreateFile(
              &FileHandle,
              0x10000u,
              &ObjectAttributes,
@@ -128,101 +129,99 @@ __int64 __fastcall PopCreateHiberFile(LARGE_INTEGER a1)
              CreateFileTypeNone,
              0LL,
              0x100u);
-      if ( v5 < 0 )
-        goto LABEL_22;
-      goto LABEL_35;
+      if ( v3 < 0 )
+        goto LABEL_32;
+      goto LABEL_17;
     }
     v6 = IoStatusBlock.Information == 2;
-    v5 = ZwQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
-    if ( v5 < 0 )
-      goto LABEL_22;
-    if ( (unsigned int)v23 <= 1 )
+    v3 = ZwQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
+    if ( v3 < 0 )
+      goto LABEL_32;
+    if ( (unsigned int)v24 <= 1 )
       break;
-LABEL_35:
+LABEL_17:
     ZwClose(FileHandle);
-    ++v3;
+    ++v4;
     FileHandle = 0LL;
-    if ( v3 >= 3 )
-      goto LABEL_8;
+    if ( v4 >= 3 )
+      goto LABEL_10;
   }
   if ( !v6 )
   {
-    v21 = -1LL;
+    v22 = -1LL;
     DWORD1(InputBuffer) = 1;
     *((_QWORD *)&InputBuffer + 1) = 0LL;
     ZwFsControlFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x98208u, &InputBuffer, 0x18u, 0LL, 0);
   }
-LABEL_8:
-  LODWORD(v25) = 8198;
-  v5 = ZwSetInformationFile(FileHandle, &IoStatusBlock, v24, 0x28u, FileBasicInformation);
-  if ( v5 >= 0 )
+  v3 = 0;
+LABEL_10:
+  if ( v3 >= 0 )
   {
-    v5 = ObpReferenceObjectByHandleWithTag(
-           (ULONG_PTR)FileHandle,
-           3,
-           (__int64)IoFileObjectType,
-           0,
-           0x62486F50u,
-           &FileObject,
-           0LL,
-           0LL);
-    if ( v5 < 0 )
+    LODWORD(v26) = 8198;
+    v3 = ZwSetInformationFile(FileHandle, &IoStatusBlock, v25, 0x28u, FileBasicInformation);
+    if ( v3 >= 0 )
     {
-      v1 = FileObject;
-    }
-    else
-    {
-      v16 = AllocationSize;
-      v7 = ZwSetInformationFile(FileHandle, &IoStatusBlock, &v16, 8u, FileEndOfFileInformation);
-      v1 = FileObject;
-      v5 = v7;
-      if ( v7 == 259 )
+      v3 = ObReferenceObjectByHandleWithTag(
+             FileHandle,
+             3u,
+             (POBJECT_TYPE)IoFileObjectType,
+             0,
+             0x62486F50u,
+             &Object,
+             0LL);
+      if ( v3 < 0 )
       {
-        KeWaitForSingleObject(&FileObject->Event, Executive, 0, 0, 0LL);
-        Status = IoStatusBlock.Status;
-        v5 = IoStatusBlock.Status;
+        v1 = (struct _FILE_OBJECT *)Object;
       }
       else
       {
-        Status = IoStatusBlock.Status;
-      }
-      if ( v5 >= 0 )
-      {
-        if ( Status < 0 )
+        v17 = AllocationSize;
+        v7 = ZwSetInformationFile(FileHandle, &IoStatusBlock, &v17, 8u, FileEndOfFileInformation);
+        v1 = (struct _FILE_OBJECT *)Object;
+        v3 = v7;
+        if ( v7 == 259 )
         {
-          v5 = Status;
+          KeWaitForSingleObject((char *)Object + 152, Executive, 0, 0, 0LL);
+          Status = IoStatusBlock.Status;
+          v3 = IoStatusBlock.Status;
         }
         else
         {
-          v5 = ZwFsControlFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x9004Fu, 0LL, 0, 0LL, 0);
-          if ( v5 == 259 )
+          Status = IoStatusBlock.Status;
+        }
+        if ( v3 >= 0 )
+        {
+          if ( Status < 0 )
           {
-            KeWaitForSingleObject(&v1->Event, Executive, 0, 0, 0LL);
-            v5 = IoStatusBlock.Status;
+            v3 = Status;
           }
-          if ( v5 >= 0 )
+          else
           {
-            if ( ZwFlushBuffersFile(FileHandle, &IoStatusBlock) == 259 )
-              KeWaitForSingleObject(&v1->Event, Executive, 0, 0, 0LL);
-            v5 = PopSanityCheckHiberFile(
-                   (_DWORD)FileHandle,
-                   (_DWORD)v1,
-                   (unsigned int)&AllocationSize,
-                   (unsigned int)&P,
-                   (__int64)&v12);
-            if ( v5 >= 0 )
+            v3 = ZwFsControlFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x9004Fu, 0LL, 0, 0LL, 0);
+            if ( v3 == 259 )
             {
-              v5 = PopSetHiberFileMcb(P);
-              if ( v5 >= 0 )
+              KeWaitForSingleObject(&v1->Event, Executive, 0, 0, 0LL);
+              v3 = IoStatusBlock.Status;
+            }
+            if ( v3 >= 0 )
+            {
+              if ( ZwFlushBuffersFile(FileHandle, &IoStatusBlock) == 259 )
+                KeWaitForSingleObject(&v1->Event, Executive, 0, 0, 0LL);
+              v3 = PopSanityCheckHiberFile(FileHandle, (__int64)v1, &AllocationSize, (__int64 **)&P, &NumberOfBytes);
+              if ( v3 >= 0 )
               {
-                PopHiberInfo = FileHandle;
-                qword_140C3D010 = AllocationSize.QuadPart;
-                ::FileObject = v1;
-                FsRtlIssueFileNotificationFsctl(v1);
-                FileHandle = 0LL;
-                v1 = 0LL;
-                PopResetCurrentPolicies();
-                v5 = 0;
+                v3 = PopSetHiberFileMcb(P, (unsigned int)NumberOfBytes);
+                if ( v3 >= 0 )
+                {
+                  *(_QWORD *)&PopHiberInfo = FileHandle;
+                  qword_140C23E50 = AllocationSize.QuadPart;
+                  FileObject = v1;
+                  FsRtlIssueFileNotificationFsctl(v1, v9, (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE);
+                  FileHandle = 0LL;
+                  v1 = 0LL;
+                  PopResetCurrentPolicies();
+                  v3 = 0;
+                }
               }
             }
           }
@@ -230,7 +229,7 @@ LABEL_8:
       }
     }
   }
-LABEL_22:
+LABEL_32:
   if ( FileHandle )
     ZwClose(FileHandle);
   if ( v1 )
@@ -239,5 +238,5 @@ LABEL_22:
     ExFreePoolWithTag(HiberFileSecurityDescriptor, 0);
   if ( Destination.Buffer )
     ExFreePoolWithTag(Destination.Buffer, 0);
-  return (unsigned int)v5;
+  return (unsigned int)v3;
 }

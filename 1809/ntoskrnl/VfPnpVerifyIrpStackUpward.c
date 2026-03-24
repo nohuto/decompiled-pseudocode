@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x14030AEC0 (ViErrorReport10.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x14030AFC0 (ViErrorReport10.c)
  *     PpvUtilIsPdo @ 0x140924B88 (PpvUtilIsPdo.c)
  *     IovUtilGetBottomDeviceObjectWithTag @ 0x140935490 (IovUtilGetBottomDeviceObjectWithTag.c)
  *     IovUtilGetLowerDeviceObjectWithTag @ 0x1409354F4 (IovUtilGetLowerDeviceObjectWithTag.c)

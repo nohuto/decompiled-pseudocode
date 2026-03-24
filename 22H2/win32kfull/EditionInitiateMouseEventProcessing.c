@@ -1,29 +1,28 @@
 /*
- * XREFs of EditionInitiateMouseEventProcessing @ 0x1C00A44C0
+ * XREFs of EditionInitiateMouseEventProcessing @ 0x1C010B9F0
  * Callers:
  *     <none>
  * Callees:
- *     WakeRIT @ 0x1C00A4548 (WakeRIT.c)
- *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01F902C (-xxxUserBeep@@YAHKK_N@Z.c)
+ *     WakeDIT @ 0x1C010BA54 (WakeDIT.c)
+ *     WakeRIT @ 0x1C010BAB0 (WakeRIT.c)
+ *     UserBeep @ 0x1C02196B8 (UserBeep.c)
  */
 
-__int64 __fastcall EditionInitiateMouseEventProcessing(__int64 a1, int a2)
+__int64 __fastcall EditionInitiateMouseEventProcessing(int a1)
 {
-  int v3; // ebx
   __int64 result; // rax
 
-  v3 = a1;
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)(SGDGetUserSessionState(a1) + 15976), 1, 1) )
+  if ( _InterlockedCompareExchange(&glDitMouseHandling, 1, 1) )
   {
-    EtwTraceWakeMIT(1LL);
-    result = WakeMIT(1LL);
+    EtwTraceWakeDIT(1LL);
+    result = WakeDIT(1LL);
   }
   else
   {
     EtwTraceWakeRIT(1LL);
     result = WakeRIT(1LL);
   }
-  if ( v3 )
-    return xxxUserBeep(0x1B8u, 0x7Du, a2 == 0);
+  if ( a1 )
+    return UserBeep(440LL, 125LL);
   return result;
 }

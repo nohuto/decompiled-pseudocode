@@ -1,9 +1,10 @@
 /*
- * XREFs of IoMapTransfer @ 0x140501210
+ * XREFs of IoMapTransfer @ 0x140388570
  * Callers:
- *     <none>
+ *     HalpAllocateAdapterCallbackV2 @ 0x1404CCA90 (HalpAllocateAdapterCallbackV2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IoMapTransferInternal @ 0x1403885EC (IoMapTransferInternal.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9214 (HalpIommuDomainMapLogicalRange.c)
  */
 
 PHYSICAL_ADDRESS __stdcall IoMapTransfer(
@@ -14,11 +15,42 @@ PHYSICAL_ADDRESS __stdcall IoMapTransfer(
         PULONG Length,
         BOOLEAN WriteToDevice)
 {
-  return (PHYSICAL_ADDRESS)((__int64 (__fastcall *)(PDMA_ADAPTER, PMDL, PVOID, PVOID, PULONG, BOOLEAN))DmaAdapter->DmaOperations->MapTransfer)(
-                             DmaAdapter,
-                             Mdl,
-                             MapRegisterBase,
-                             CurrentVa,
-                             Length,
-                             WriteToDevice);
+  bool v6; // zf
+  PHYSICAL_ADDRESS result; // rax
+  int v10; // ebp
+  ULONG v11; // eax
+
+  v6 = *(_DWORD *)&DmaAdapter[32].Version == 2;
+  *((_BYTE *)&DmaAdapter[32].Size + 2) = 1;
+  if ( v6 )
+  {
+    v11 = *(_DWORD *)(&DmaAdapter[15].Size + 1);
+    if ( *Length > v11 )
+      *Length = v11;
+  }
+  result.QuadPart = IoMapTransferInternal(
+                      (_DWORD)DmaAdapter,
+                      (_DWORD)Mdl,
+                      (_DWORD)MapRegisterBase,
+                      (_DWORD)CurrentVa,
+                      (__int64)Length,
+                      WriteToDevice,
+                      0);
+  v10 = result.LowPart & 0xFFF;
+  if ( *(_DWORD *)&DmaAdapter[32].Version == 2 )
+  {
+    if ( !*((_BYTE *)MapRegisterBase + 64) )
+    {
+      HalpIommuDomainMapLogicalRange(
+        DmaAdapter[31].DmaOperations->FlushAdapterBuffers,
+        3,
+        result.LowPart,
+        v10 + *Length,
+        *((_QWORD *)MapRegisterBase + 5));
+      *((_QWORD *)MapRegisterBase + 4) += v10 + *Length;
+    }
+    result = *(PHYSICAL_ADDRESS *)((char *)MapRegisterBase + 40);
+    *((_QWORD *)MapRegisterBase + 5) = result.QuadPart + *Length;
+  }
+  return result;
 }

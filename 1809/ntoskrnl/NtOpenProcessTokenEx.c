@@ -1,8 +1,8 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x140646F20
+ * XREFs of NtOpenProcessTokenEx @ 0x140646F00
  * Callers:
- *     NtOpenProcessToken @ 0x1406487A0 (NtOpenProcessToken.c)
- *     RtlpSysVolTakeOwnership @ 0x1408964A0 (RtlpSysVolTakeOwnership.c)
+ *     NtOpenProcessToken @ 0x140648780 (NtOpenProcessToken.c)
+ *     RtlpSysVolTakeOwnership @ 0x140896480 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -13,7 +13,7 @@
  *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessTokenEx(

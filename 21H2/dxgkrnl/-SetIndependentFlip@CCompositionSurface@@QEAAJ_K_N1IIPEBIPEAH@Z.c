@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z @ 0x1C0003CAC
+ * XREFs of ?SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z @ 0x1C001DDBC
  * Callers:
- *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C00039E0 (NtSetCompositionSurfaceIndependentFlipInfo.c)
+ *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C001DAF0 (NtSetCompositionSurfaceIndependentFlipInfo.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00070D4 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0010F60 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionSurface::SetIndependentFlip(
         CCompositionSurface *this,
-        unsigned __int64 a2,
+        __int64 a2,
         char a3,
         __int64 a4,
         unsigned int a5,
@@ -30,7 +30,7 @@ __int64 __fastcall CCompositionSurface::SetIndependentFlip(
     LOBYTE(v10) = v11;
     v12 = a6;
     LOBYTE(v12) = a3;
-    return (*(__int64 (__fastcall **)(struct CCompositionBuffer *, __int64, __int64, _QWORD, unsigned int, const unsigned int *, int *))(*(_QWORD *)v13 + 176LL))(
+    return (*(__int64 (__fastcall **)(struct CCompositionBuffer *, __int64, __int64, _QWORD, unsigned int, const unsigned int *, int *))(*(_QWORD *)v13 + 168LL))(
              v13,
              v12,
              v10,

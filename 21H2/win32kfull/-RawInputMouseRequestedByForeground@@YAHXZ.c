@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RawInputMouseRequestedByForeground@@YAHXZ @ 0x1C01D4008
+ * XREFs of ?RawInputMouseRequestedByForeground@@YAHXZ @ 0x1C01D89A8
  * Callers:
- *     EditionGetMouseWheelRoutingMode @ 0x1C01D4150 (EditionGetMouseWheelRoutingMode.c)
+ *     EditionGetMouseWheelRoutingMode @ 0x1C01D99E0 (EditionGetMouseWheelRoutingMode.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 RawInputMouseRequestedByForeground(void)
     v1 = *(_QWORD *)(gpqForeground + 96LL);
     if ( v1 )
     {
-      if ( LODWORD(WPP_MAIN_CB.Dpc.DpcListEntry.Next) )
+      if ( LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink) )
         return (unsigned int)IsDesktopApp(*(_QWORD *)(v1 + 424)) != 0;
     }
   }

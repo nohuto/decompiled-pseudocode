@@ -1,13 +1,13 @@
 /*
- * XREFs of ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AE5B4
+ * XREFs of ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0108CAC
  * Callers:
- *     ?SetHidPOCountToTLCInfo@@YAXGKH@Z @ 0x1C0003658 (-SetHidPOCountToTLCInfo@@YAXGKH@Z.c)
- *     ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C00AE4F8 (-CleanupFreedTLCInfo@@YAXXZ.c)
- *     FreeHidTLCInfo @ 0x1C0103208 (FreeHidTLCInfo.c)
- *     AllocateAndLinkHidTLCInfo @ 0x1C0103268 (AllocateAndLinkHidTLCInfo.c)
- *     SearchHidTLCInfo @ 0x1C0103318 (SearchHidTLCInfo.c)
- *     AllocateProcessHidTable @ 0x1C0121408 (AllocateProcessHidTable.c)
- *     CleanupHidRequestList @ 0x1C01D1030 (CleanupHidRequestList.c)
+ *     AllocateAndLinkHidTLCInfo @ 0x1C00057E8 (AllocateAndLinkHidTLCInfo.c)
+ *     ?SetHidPOCountToTLCInfo@@YAXGKH@Z @ 0x1C0006DC0 (-SetHidPOCountToTLCInfo@@YAXGKH@Z.c)
+ *     AllocateProcessHidTable @ 0x1C0107BEC (AllocateProcessHidTable.c)
+ *     ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C0107F84 (-CleanupFreedTLCInfo@@YAXXZ.c)
+ *     SearchHidTLCInfo @ 0x1C0108C0C (SearchHidTLCInfo.c)
+ *     CleanupHidRequestList @ 0x1C01D5510 (CleanupHidRequestList.c)
+ *     FreeHidTLCInfo @ 0x1C01D55C0 (FreeHidTLCInfo.c)
  * Callees:
  *     <none>
  */

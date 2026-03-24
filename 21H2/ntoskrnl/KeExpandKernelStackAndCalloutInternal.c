@@ -1,18 +1,17 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x1402AA8D0
+ * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x140329FF0
  * Callers:
- *     MiDoStackCopy @ 0x140200230 (MiDoStackCopy.c)
- *     MiSwapStackPage @ 0x140249930 (MiSwapStackPage.c)
- *     KeExpandKernelStackAndCallout @ 0x14025D2A0 (KeExpandKernelStackAndCallout.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x1402AA8A0 (KeExpandKernelStackAndCalloutEx.c)
- *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x140394080 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
+ *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
+ *     KeExpandKernelStackAndCallout @ 0x1402D3350 (KeExpandKernelStackAndCallout.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140329FC0 (KeExpandKernelStackAndCalloutEx.c)
+ *     MiDoStackCopy @ 0x140535F20 (MiDoStackCopy.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402AA9B0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KiFatalFilter @ 0x14056AA7C (KiFatalFilter.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14032A0D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiFatalFilter @ 0x140514B30 (KiFatalFilter.c)
  */
 
 __int64 __fastcall KeExpandKernelStackAndCalloutInternal(
@@ -23,10 +22,10 @@ __int64 __fastcall KeExpandKernelStackAndCalloutInternal(
         __int64 a5)
 {
   __int64 result; // rax
-  unsigned __int8 CurrentIrql; // si
+  unsigned __int8 CurrentIrql; // r12
   struct _KTHREAD *CurrentThread; // rbx
   int MiscFlags; // eax
-  char v11; // r14
+  char v11; // di
   unsigned __int8 v12; // al
 
   result = KiExpandKernelStackAndCalloutSwitchStack((_DWORD)BugCheckParameter2, BugCheckParameter3, a3, a4, a5);

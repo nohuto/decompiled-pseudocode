@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_ReturningHubSuspendInPreAddressEnumFor30 @ 0x1C0020BF0
+ * XREFs of HUBDSM_ReturningHubSuspendInPreAddressEnumFor30 @ 0x1C001E350
  * Callers:
  *     <none>
  * Callees:

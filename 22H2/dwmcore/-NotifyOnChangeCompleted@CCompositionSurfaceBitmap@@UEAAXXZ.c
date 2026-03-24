@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyOnChangeCompleted@CCompositionSurfaceBitmap@@UEAAXXZ @ 0x1801073A0
+ * XREFs of ?NotifyOnChangeCompleted@CCompositionSurfaceBitmap@@UEAAXXZ @ 0x1800E2960
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ void __fastcall CCompositionSurfaceBitmap::NotifyOnChangeCompleted(CCompositionS
 {
   _DWORD *v1; // rax
 
-  v1 = (_DWORD *)*((_QWORD *)this + 15);
-  *((_QWORD *)this + 14) = 0LL;
+  v1 = (_DWORD *)*((_QWORD *)this + 14);
+  *((_QWORD *)this + 13) = 0LL;
   *v1 = 0;
 }

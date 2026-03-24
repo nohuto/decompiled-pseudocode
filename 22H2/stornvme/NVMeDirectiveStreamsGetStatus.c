@@ -1,23 +1,23 @@
 /*
- * XREFs of NVMeDirectiveStreamsGetStatus @ 0x1C001CF54
+ * XREFs of NVMeDirectiveStreamsGetStatus @ 0x1C0018998
  * Callers:
- *     IoctlStorageStreamsGetOpenStreams @ 0x1C0014204 (IoctlStorageStreamsGetOpenStreams.c)
+ *     IoctlStorageStreamsGetOpenStreams @ 0x1C00137A4 (IoctlStorageStreamsGetOpenStreams.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     SetPrpFromBuffer @ 0x1C001B4CC (SetPrpFromBuffer.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     SetPrpFromBuffer @ 0x1C0002BA8 (SetPrpFromBuffer.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
 __int64 __fastcall NVMeDirectiveStreamsGetStatus(__int64 a1, int a2, unsigned int a3, unsigned int *a4, __int64 a5)
 {
   __int64 v9; // r15
-  __int64 v10; // rbx
-  unsigned int v11; // ebp
+  unsigned int v10; // ebp
+  __int64 v11; // rbx
   unsigned __int16 *v13; // rdx
   unsigned int v14; // eax
   __int64 v15; // r8
@@ -33,25 +33,29 @@ __int64 __fastcall NVMeDirectiveStreamsGetStatus(__int64 a1, int a2, unsigned in
   if ( !a5 )
     return 3238002694LL;
   *a4 = 0;
-  LocalCommandReuse(a1, a1 + 944);
-  v10 = *(_QWORD *)(a1 + 1040);
-  v11 = 2 * a3 + 2;
-  NVMeAllocateDmaBuffer(a1, v11);
+  *(_BYTE *)(a1 + 851) = 0;
+  memset(*(void **)(a1 + 936), 0, 0x10A0uLL);
+  v10 = 2 * a3 + 2;
+  *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4232LL) = 0LL;
+  v11 = *(_QWORD *)(a1 + 936);
+  *(_QWORD *)(a1 + 904) = v11;
+  *(_DWORD *)(a1 + 840) = 1;
+  NVMeAllocateDmaBuffer(a1, v10);
   if ( !v17 )
     return 3238002691LL;
-  NVMeZeroMemory(v17, v11);
-  if ( !(unsigned int)SetPrpFromBuffer(a1, (_QWORD *)v10, 0LL, v11) )
+  NVMeZeroMemory(v17, v10);
+  if ( !(unsigned int)SetPrpFromBuffer(a1, (_QWORD *)v11, 0LL, v10) )
     goto LABEL_13;
-  *(_BYTE *)(v10 + 4253) |= 7u;
-  *(_DWORD *)(v10 + 4100) = a2;
-  *(_DWORD *)(v10 + 4136) = (v11 >> 2) - 1;
-  *(_QWORD *)(v10 + 4224) = NVMeDirectiveCompletion;
-  *(_BYTE *)(v10 + 4096) = 26;
-  *(_WORD *)(v10 + 4140) = 258;
-  SrbAssignQueueId(a1, a1 + 952);
-  ProcessCommand(a1, a1 + 952);
+  *(_BYTE *)(v11 + 4253) |= 7u;
+  *(_DWORD *)(v11 + 4100) = a2;
+  *(_DWORD *)(v11 + 4136) = (v10 >> 2) - 1;
+  *(_QWORD *)(v11 + 4224) = NVMeDirectiveCompletion;
+  *(_BYTE *)(v11 + 4096) = 26;
+  *(_WORD *)(v11 + 4140) = 258;
+  SrbAssignQueueId(a1, a1 + 848);
+  ProcessCommand(a1, a1 + 848);
   WaitForCommandCompleteWithCustomTimeout(a1);
-  if ( *(_BYTE *)(a1 + 955) == 1 )
+  if ( *(_BYTE *)(a1 + 851) == 1 )
   {
     v13 = v17;
     v14 = *v17;
@@ -82,6 +86,6 @@ LABEL_13:
     v16 = -1056964607;
   }
   if ( v13 )
-    NVMeFreeDmaBuffer(a1, v11, (__int64 *)&v17, 0LL);
+    NVMeFreeDmaBuffer(a1, v10, (__int64 *)&v17, 0LL);
   return v16;
 }

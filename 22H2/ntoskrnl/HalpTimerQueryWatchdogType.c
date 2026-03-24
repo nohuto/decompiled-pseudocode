@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerQueryWatchdogType @ 0x1404FE910
+ * XREFs of HalpTimerQueryWatchdogType @ 0x1404B6A00
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098F9D0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
@@ -15,12 +15,12 @@ __int64 __fastcall HalpTimerQueryWatchdogType(_DWORD *a1)
   if ( HalpWatchdogTimer )
   {
     v2 = *(_DWORD *)(HalpWatchdogTimer + 228);
-    if ( v2 == 7 )
+    if ( v2 == 8 )
     {
       *a1 = 1;
       return 0LL;
     }
-    LOBYTE(v1) = v2 != 12;
+    LOBYTE(v1) = v2 != 13;
     v1 += 2;
   }
   *a1 = v1;

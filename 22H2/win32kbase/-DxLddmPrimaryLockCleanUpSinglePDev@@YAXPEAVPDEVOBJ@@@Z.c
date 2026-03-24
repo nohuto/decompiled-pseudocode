@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C001CB24
+ * XREFs of ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C0011B48
  * Callers:
- *     GreSuspendDirectDraw @ 0x1C001C510 (GreSuspendDirectDraw.c)
+ *     ?DxLddmPrimaryLockCleanUp@@YAXPEAUHDEV__@@@Z @ 0x1C0011D88 (-DxLddmPrimaryLockCleanUp@@YAXPEAUHDEV__@@@Z.c)
  * Callees:
- *     GreUnlockDisplayDevice @ 0x1C001CBA0 (GreUnlockDisplayDevice.c)
- *     GreLockDisplayDevice @ 0x1C001CBF0 (GreLockDisplayDevice.c)
- *     GreUnlockSprite @ 0x1C001CC30 (GreUnlockSprite.c)
- *     GreLockSprite @ 0x1C001CC90 (GreLockSprite.c)
- *     GreLockVisRgn @ 0x1C0051080 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C0051170 (GreUnlockVisRgn.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     GreLockDisplayDevice @ 0x1C0012520 (GreLockDisplayDevice.c)
+ *     GreUnlockDisplayDevice @ 0x1C0012560 (GreUnlockDisplayDevice.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     GreUnlockVisRgn @ 0x1C0039F20 (GreUnlockVisRgn.c)
+ *     GreLockVisRgn @ 0x1C003A140 (GreLockVisRgn.c)
+ *     GreLockSprite @ 0x1C003CF60 (GreLockSprite.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DxLddmPrimaryLockCleanUpSinglePDev(struct PDEVOBJ *a1)
@@ -25,7 +25,7 @@ void __fastcall DxLddmPrimaryLockCleanUpSinglePDev(struct PDEVOBJ *a1)
   GreLockVisRgn(*(_QWORD *)a1);
   GreLockSprite(*(_QWORD *)a1);
   GreLockDisplayDevice(*(_QWORD *)a1);
-  v2 = (_QWORD **)(*(_QWORD *)a1 + 2600LL);
+  v2 = (_QWORD **)(*(_QWORD *)a1 + 2624LL);
   v3 = *v2;
   while ( v3 != v2 )
   {
@@ -39,13 +39,18 @@ void __fastcall DxLddmPrimaryLockCleanUpSinglePDev(struct PDEVOBJ *a1)
     v7 = *((_DWORD *)v5 + 5);
     if ( v7 )
     {
-      *(_DWORD *)(*(_QWORD *)a1 + 2616LL) -= v7;
-      if ( qword_1C0294458 )
-        qword_1C0294458(*(_QWORD *)a1, (char *)v5 + 28, 1LL);
+      *(_DWORD *)(*(_QWORD *)a1 + 2640LL) -= v7;
+      if ( qword_1C0255048 )
+        qword_1C0255048(*(_QWORD *)a1, (char *)v5 + 28, 1LL);
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
+    Win32FreePool(v5);
   }
   GreUnlockDisplayDevice(*(_QWORD *)a1);
-  GreUnlockSprite(*(_QWORD *)a1);
+  EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
+  if ( ghsemSprite )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemSprite);
+    PsLeavePriorityRegion();
+  }
   GreUnlockVisRgn(*(_QWORD *)a1);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x140A74980
+ * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x140981344
  * Callers:
- *     _RtlpMuiRegValidateLIPLanguage @ 0x140A75E98 (_RtlpMuiRegValidateLIPLanguage.c)
- *     _RtlpMuiRegValidatePartialLanguage @ 0x140A760DC (_RtlpMuiRegValidatePartialLanguage.c)
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x140982894 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x140982AD0 (_RtlpMuiRegValidatePartialLanguage.c)
  * Callees:
  *     <none>
  */
@@ -69,7 +69,7 @@ LABEL_19:
         }
         break;
       case 2:
-        if ( a3 >= 0 && a3 < (unsigned int)*(unsigned __int16 *)(a1 + 6) )
+        if ( a3 >= 0 && a3 < (int)*(unsigned __int16 *)(a1 + 6) )
         {
           if ( (*(_WORD *)(28LL * a3 + *(_QWORD *)(a1 + 16)) & 0x1020) == 0x20 )
           {

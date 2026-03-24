@@ -1,45 +1,46 @@
 /*
- * XREFs of RtlGetAce @ 0x140227A80
+ * XREFs of RtlGetAce @ 0x140347A20
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x14036FE1C (SepAppendAceToTokenDefaultDacl.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067033C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
- *     PopCreateHiberFileSecurityDescriptor @ 0x140800FBC (PopCreateHiberFileSecurityDescriptor.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14080E690 (CmpHiveRootSecurityDescriptor.c)
- *     ObpGetDosDevicesProtection @ 0x140859980 (ObpGetDosDevicesProtection.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14087EFD0 (PiDevCfgGetKeySecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BE764 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1403226D4 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F82C4 (SepSetProcessTrustLabelAceForToken.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2834 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D8200 (SepAppendAceToTokenObjectAcl.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140732348 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140738828 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
+ *     PopCreateHiberFileSecurityDescriptor @ 0x14079D224 (PopCreateHiberFileSecurityDescriptor.c)
+ *     ObpGetDosDevicesProtection @ 0x1407A14C4 (ObpGetDosDevicesProtection.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407A884C (CmpHiveRootSecurityDescriptor.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlGetAce(PACL Acl, ULONG AceIndex, PVOID *Ace)
 {
-  ULONG v4; // r9d
-  PACL v5; // r8
+  PACL v4; // r9
+  ULONG v5; // r8d
 
   if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u && AceIndex < Acl->AceCount )
   {
-    v4 = 0;
-    v5 = Acl + 1;
+    v4 = Acl + 1;
     *Ace = &Acl[1];
+    v5 = 0;
     if ( AceIndex )
     {
-      while ( v5 < (PACL)((char *)Acl + Acl->AclSize) )
+      while ( v4 < (PACL)((char *)Acl + Acl->AclSize) )
       {
-        ++v4;
-        v5 = (PACL)((char *)v5 + v5->AclSize);
-        *Ace = v5;
-        if ( v4 >= AceIndex )
+        ++v5;
+        v4 = (PACL)((char *)v4 + v4->AclSize);
+        *Ace = v4;
+        if ( v5 >= AceIndex )
           goto LABEL_4;
       }
     }
     else
     {
 LABEL_4:
-      if ( v5 < (PACL)((char *)Acl + Acl->AclSize) )
+      if ( v4 < (PACL)((char *)Acl + Acl->AclSize) )
         return 0;
     }
   }

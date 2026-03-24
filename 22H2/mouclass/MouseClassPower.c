@@ -1,1 +1,239 @@
-/*\n * XREFs of MouseClassPower @ 0x1C00013A0\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_qqsd @ 0x1C00012A0 (WPP_RECORDER_SF_qqsd.c)\n *     MouseClassCheckWaitWakeEnabled @ 0x1C0004898 (MouseClassCheckWaitWakeEnabled.c)\n *     WPP_RECORDER_SF_qq @ 0x1C00063F4 (WPP_RECORDER_SF_qq.c)\n *     MouseClassCreateWaitWakeIrp @ 0x1C000EF00 (MouseClassCreateWaitWakeIrp.c)\n */\n\n__int64 __fastcall MouseClassPower(__int64 a1, IRP *a2)\n{\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // rbp\n  __int64 v4; // rsi\n  char v5; // r13\n  char v6; // r14\n  ULONG Options; // r12d\n  __int64 LowPart; // rbx\n  int v9; // edx\n  __int64 v10; // r8\n  __int64 v11; // r9\n  UCHAR MinorFunction; // al\n  NTSTATUS v13; // ebp\n  struct _IO_STACK_LOCATION *v15; // rax\n  struct _IO_STACK_LOCATION *v16; // rax\n  char v17; // bl\n  KIRQL v18; // al\n  POWER_STATE v19; // r8d\n  NTSTATUS v20; // ebx\n  KIRQL v21; // al\n  KIRQL v22; // al\n  KIRQL v23; // al\n  int RemlockSize; // [rsp+20h] [rbp-58h]\n  NTSTATUS v25; // [rsp+80h] [rbp+8h]\n\n  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;\n  v4 = *(_QWORD *)(a1 + 64);\n  v5 = a1;\n  v6 = 1;\n  Options = CurrentStackLocation->Parameters.Create.Options;\n  LowPart = (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;\n  if ( v4 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels || !*(_BYTE *)(v4 + 64) )\n  {\n    PoStartNextPowerIrp(a2);\n    a2->IoStatus.Status = -1073741637;\n    IofCompleteRequest(a2, 0);\n    return 3221225659LL;\n  }\n  v25 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, File, 1u, 0x20u);\n  if ( v25 < 0 )\n  {\n    PoStartNextPowerIrp(a2);\n    a2->IoStatus.Status = v25;\n    IofCompleteRequest(a2, 0);\n    return (unsigned int)v25;\n  }\n  MinorFunction = CurrentStackLocation->MinorFunction;\n  if ( MinorFunction != 2 )\n  {\n    if ( MinorFunction )\n    {\n      if ( MinorFunction != 3 )\n        goto LABEL_11;\n      if ( (int)LowPart < 5 && (int)LowPart > *(_DWORD *)(v4 + 272) )\n      {\n        v21 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));\n        if ( *(_QWORD *)(v4 + 280) && !*(_BYTE *)(v4 + 288) )\n        {\n          KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v21);\n          v13 = -1073741101;\n          goto LABEL_23;\n        }\n        KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v21);\n      }\n      v13 = 0;\nLABEL_23:\n      a2->IoStatus.Status = v13;\n      v17 = 0;\n      goto LABEL_24;\n    }\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n    {\n      LOBYTE(v9) = 4;\n      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, v9, 5, 91, RemlockSize, v5, (char)a2);\n    }\n    v22 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));\n    if ( *(_QWORD *)(v4 + 280) )\n    {\n      *(_QWORD *)(v4 + 296) = a2;\n    }\n    else\n    {\n      *(_QWORD *)(v4 + 280) = a2;\n      *(_BYTE *)(v4 + 288) = 0;\n      if ( (unsigned int)(_InterlockedExchange((volatile __int32 *)(v4 + 304), 0) - 1) > 1 )\n      {\n        v13 = 0;\n        v17 = 1;\nLABEL_47:\n        KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v22);\n        v6 = v17;\nLABEL_24:\n        if ( v13 >= 0 )\n        {\n          if ( !v17 )\n            goto LABEL_11;\n          goto LABEL_18;\n        }\nLABEL_52:\n        a2->IoStatus.Status = v13;\n        PoStartNextPowerIrp(a2);\n        IofCompleteRequest(a2, 0);\nLABEL_12:\n        if ( !v6 )\n          return (unsigned int)v13;\nLABEL_13:\n        IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);\n        return (unsigned int)v13;\n      }\n    }\n    v17 = 0;\n    v13 = -1073741436;\n    goto LABEL_47;\n  }\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n    WPP_RECORDER_SF_qqsd((__int64)WPP_GLOBAL_Control->DeviceExtension, (__int64)"D", v10, v11, RemlockSize);\n  if ( Options )\n  {\n    if ( Options != 1 )\n      goto LABEL_11;\n    a2->IoStatus.Status = 0;\n    if ( *(_DWORD *)(v4 + 172) < (int)LowPart )\n    {\n      PoSetPowerState(*(PDEVICE_OBJECT *)v4, DevicePowerState, (POWER_STATE)LowPart);\n      *(_DWORD *)(v4 + 172) = LowPart;\n      goto LABEL_11;\n    }\n    if ( *(_DWORD *)(v4 + 172) <= (int)LowPart )\n    {\nLABEL_11:\n      PoStartNextPowerIrp(a2);\n      ++a2->CurrentLocation;\n      ++a2->Tail.Overlay.CurrentStackLocation;\n      v13 = PoCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), a2);\n      goto LABEL_12;\n    }\n    goto LABEL_18;\n  }\n  if ( *(_DWORD *)(v4 + 176) >= (int)LowPart )\n  {\n    if ( *(_DWORD *)(v4 + 176) <= (int)LowPart )\n    {\n      if ( (_DWORD)LowPart == 1 && *(int *)(v4 + 268) > 1 && *(int *)(v4 + 272) > 1 )\n      {\n        v23 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));\n        if ( !*(_QWORD *)(v4 + 280) || *(_BYTE *)(v4 + 288) )\n        {\n          KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v23);\n          if ( (unsigned __int8)MouseClassCheckWaitWakeEnabled(v4) )\n            MouseClassCreateWaitWakeIrp((PVOID)v4);\n        }\n        else\n        {\n          KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v23);\n        }\n      }\n      a2->IoStatus.Status = 0;\n      goto LABEL_11;\n    }\n    a2->IoStatus.Status = 0;\nLABEL_18:\n    IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, File, 1u, 0x20u);\n    v15 = a2->Tail.Overlay.CurrentStackLocation;\n    *(_OWORD *)&v15[-1].MajorFunction = *(_OWORD *)&v15->MajorFunction;\n    *(_OWORD *)&v15[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v15->Parameters.NotifyDirectoryEx.CompletionFilter;\n    *(_OWORD *)(&v15[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v15->Parameters.SetQuota + 6);\n    v15[-1].FileObject = v15->FileObject;\n    v15[-1].Control = 0;\n    v16 = a2->Tail.Overlay.CurrentStackLocation;\n    v16[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)MouseClassPowerComplete;\n    v16[-1].Context = 0LL;\n    v16[-1].Control = -32;\n    a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;\n    PoCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), a2);\n    v13 = 259;\n    goto LABEL_12;\n  }\n  v13 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, File, 1u, 0x20u);\n  if ( v13 < 0 )\n    goto LABEL_52;\n  v18 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));\n  if ( !*(_QWORD *)(v4 + 280) || *(_BYTE *)(v4 + 288) )\n  {\n    KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v18);\n  }\n  else\n  {\n    KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v18);\n    if ( (int)LowPart < 5 )\n    {\n      v19.SystemState = *(SYSTEM_POWER_STATE *)(v4 + 4 * LowPart + 248);\n      goto LABEL_32;\n    }\n  }\n  v19.SystemState = PowerSystemSleeping3;\nLABEL_32:\n  a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;\n  v20 = PoRequestPowerIrp(*(PDEVICE_OBJECT *)v4, 2u, v19, (PREQUEST_POWER_COMPLETE)MouseClassPoRequestComplete, a2, 0LL);\n  if ( v20 >= 0 )\n  {\n    v13 = 259;\n    goto LABEL_13;\n  }\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);\n  PoStartNextPowerIrp(a2);\n  a2->IoStatus.Status = v20;\n  IofCompleteRequest(a2, 0);\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);\n  return 259LL;\n}\n
+/*
+ * XREFs of MouseClassPower @ 0x1C0001CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqsd @ 0x1C0002130 (WPP_RECORDER_SF_qqsd.c)
+ *     MouseClassCheckWaitWakeEnabled @ 0x1C00042E8 (MouseClassCheckWaitWakeEnabled.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0005E54 (WPP_RECORDER_SF_qq.c)
+ *     MouseClassCreateWaitWakeIrp @ 0x1C000DF40 (MouseClassCreateWaitWakeIrp.c)
+ */
+
+__int64 __fastcall MouseClassPower(__int64 a1, IRP *a2)
+{
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rbp
+  __int64 v4; // rsi
+  char v5; // r13
+  ULONG Options; // r14d
+  __int64 LowPart; // rbx
+  int v8; // edx
+  int v9; // r8d
+  int v10; // r9d
+  NTSTATUS v11; // r15d
+  UCHAR MinorFunction; // al
+  const char *v13; // rax
+  char v14; // bl
+  struct _IO_STACK_LOCATION *v16; // rax
+  struct _IO_STACK_LOCATION *v17; // rax
+  KIRQL v18; // al
+  bool v19; // r14
+  POWER_STATE v20; // r8d
+  char v21; // al
+  char v22; // r14
+  KIRQL v23; // al
+  char v24; // bl
+  KIRQL v25; // al
+  KIRQL v26; // al
+  int RemlockSize; // [rsp+20h] [rbp-58h]
+
+  CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
+  v4 = *(_QWORD *)(a1 + 64);
+  v5 = a1;
+  Options = CurrentStackLocation->Parameters.Create.Options;
+  LowPart = (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+  if ( v4 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels || !*(_BYTE *)(v4 + 64) )
+  {
+    PoStartNextPowerIrp(a2);
+    a2->IoStatus.Status = -1073741637;
+    IofCompleteRequest(a2, 0);
+    return 3221225659LL;
+  }
+  v11 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, File, 1u, 0x20u);
+  if ( v11 < 0 )
+  {
+    PoStartNextPowerIrp(a2);
+    a2->IoStatus.Status = v11;
+    IofCompleteRequest(a2, 0);
+    return (unsigned int)v11;
+  }
+  MinorFunction = CurrentStackLocation->MinorFunction;
+  if ( MinorFunction != 2 )
+  {
+    if ( MinorFunction )
+    {
+      if ( MinorFunction == 3 )
+      {
+        if ( (int)LowPart >= 5
+          || (int)LowPart <= *(_DWORD *)(v4 + 272)
+          || ((v23 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72)), !*(_QWORD *)(v4 + 280))
+           || *(_BYTE *)(v4 + 288)
+            ? (v24 = 0)
+            : (v24 = 1),
+              KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v23),
+              v11 = -1073741101,
+              !v24) )
+        {
+          v11 = 0;
+        }
+        a2->IoStatus.Status = v11;
+        v14 = 1;
+        v21 = 0;
+        goto LABEL_37;
+      }
+      goto LABEL_42;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v8) = 4;
+      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, v8, 5, 92, RemlockSize, v5, (char)a2);
+    }
+    v25 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));
+    if ( *(_QWORD *)(v4 + 280) )
+    {
+      *(_QWORD *)(v4 + 296) = a2;
+    }
+    else
+    {
+      *(_QWORD *)(v4 + 280) = a2;
+      *(_BYTE *)(v4 + 288) = 0;
+      if ( (unsigned int)(_InterlockedExchange((volatile __int32 *)(v4 + 304), 0) - 1) > 1 )
+      {
+        v11 = 0;
+        v22 = 1;
+LABEL_58:
+        KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v25);
+        v21 = 0;
+        v14 = v22;
+LABEL_38:
+        if ( v11 >= 0 )
+        {
+          if ( v22 )
+            goto LABEL_23;
+          if ( !v21 )
+            goto LABEL_16;
+          v11 = 259;
+LABEL_17:
+          if ( v14 )
+            IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);
+          return (unsigned int)v11;
+        }
+LABEL_65:
+        a2->IoStatus.Status = v11;
+        PoStartNextPowerIrp(a2);
+        IofCompleteRequest(a2, 0);
+        goto LABEL_17;
+      }
+    }
+    v22 = 0;
+    v11 = -1073741436;
+    goto LABEL_58;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v13 = "S";
+    if ( Options )
+      v13 = "D";
+    WPP_RECORDER_SF_qqsd(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (unsigned int)"D",
+      v9,
+      v10,
+      RemlockSize,
+      v5,
+      (char)a2,
+      (__int64)v13,
+      LowPart - 1);
+  }
+  if ( Options )
+  {
+    if ( Options == 1 )
+    {
+      a2->IoStatus.Status = 0;
+      if ( *(_DWORD *)(v4 + 172) < (int)LowPart )
+      {
+        PoSetPowerState(*(PDEVICE_OBJECT *)v4, DevicePowerState, (POWER_STATE)LowPart);
+        *(_DWORD *)(v4 + 172) = LowPart;
+LABEL_15:
+        v14 = 1;
+LABEL_16:
+        PoStartNextPowerIrp(a2);
+        ++a2->CurrentLocation;
+        ++a2->Tail.Overlay.CurrentStackLocation;
+        v11 = PoCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), a2);
+        goto LABEL_17;
+      }
+      if ( *(_DWORD *)(v4 + 172) <= (int)LowPart )
+        goto LABEL_15;
+      goto LABEL_22;
+    }
+LABEL_42:
+    v14 = 1;
+    v21 = 0;
+    goto LABEL_37;
+  }
+  if ( *(_DWORD *)(v4 + 176) >= (int)LowPart )
+  {
+    if ( *(_DWORD *)(v4 + 176) <= (int)LowPart )
+    {
+      if ( (_DWORD)LowPart == 1 && *(int *)(v4 + 268) > 1 && *(int *)(v4 + 272) > 1 )
+      {
+        v26 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));
+        if ( !*(_QWORD *)(v4 + 280) || *(_BYTE *)(v4 + 288) )
+          LOBYTE(LowPart) = 0;
+        KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v26);
+        if ( !(_BYTE)LowPart && (unsigned __int8)MouseClassCheckWaitWakeEnabled(v4) )
+          MouseClassCreateWaitWakeIrp((PVOID)v4);
+      }
+      a2->IoStatus.Status = 0;
+      goto LABEL_15;
+    }
+    a2->IoStatus.Status = 0;
+LABEL_22:
+    v14 = 1;
+LABEL_23:
+    IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, File, 1u, 0x20u);
+    v16 = a2->Tail.Overlay.CurrentStackLocation;
+    *(_OWORD *)&v16[-1].MajorFunction = *(_OWORD *)&v16->MajorFunction;
+    *(_OWORD *)&v16[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&v16->Parameters.NotifyDirectoryEx.CompletionFilter;
+    *(_OWORD *)(&v16[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&v16->Parameters.SetQuota + 6);
+    v16[-1].FileObject = v16->FileObject;
+    v16[-1].Control = 0;
+    v17 = a2->Tail.Overlay.CurrentStackLocation;
+    v17[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)MouseClassPowerComplete;
+    v17[-1].Context = 0LL;
+    v17[-1].Control = -32;
+    a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+    PoCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), a2);
+    v11 = 259;
+    goto LABEL_17;
+  }
+  v11 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, File, 1u, 0x20u);
+  if ( v11 < 0 )
+  {
+    v14 = 1;
+    goto LABEL_65;
+  }
+  v18 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 72));
+  v19 = *(_QWORD *)(v4 + 280) && !*(_BYTE *)(v4 + 288);
+  KeReleaseSpinLock((PKSPIN_LOCK)(v4 + 72), v18);
+  if ( v19 && (int)LowPart < 5 )
+    v20.SystemState = *(SYSTEM_POWER_STATE *)(v4 + 4 * LowPart + 248);
+  else
+    v20.SystemState = PowerSystemSleeping3;
+  a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+  v11 = PoRequestPowerIrp(*(PDEVICE_OBJECT *)v4, 2u, v20, (PREQUEST_POWER_COMPLETE)MouseClassPoRequestComplete, a2, 0LL);
+  if ( v11 >= 0 )
+  {
+    v21 = 1;
+    v14 = 1;
+LABEL_37:
+    v22 = 0;
+    goto LABEL_38;
+  }
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);
+  PoStartNextPowerIrp(a2);
+  a2->IoStatus.Status = v11;
+  IofCompleteRequest(a2, 0);
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), a2, 0x20u);
+  return 259LL;
+}

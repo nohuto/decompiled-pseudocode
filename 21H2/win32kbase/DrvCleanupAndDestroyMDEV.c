@@ -1,13 +1,13 @@
 /*
- * XREFs of DrvCleanupAndDestroyMDEV @ 0x1C0052138
+ * XREFs of DrvCleanupAndDestroyMDEV @ 0x1C000A95C
  * Callers:
- *     CleanupGDI @ 0x1C00514B8 (CleanupGDI.c)
+ *     CleanupGDI @ 0x1C000763C (CleanupGDI.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     MultiUserCleanupDCs @ 0x1C0061624 (MultiUserCleanupDCs.c)
- *     DrvDestroyMDEV @ 0x1C00755E0 (DrvDestroyMDEV.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     MultiUserCleanupDCs @ 0x1C000D6E8 (MultiUserCleanupDCs.c)
+ *     DrvDestroyMDEV @ 0x1C0014FC8 (DrvDestroyMDEV.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
 __int64 __fastcall DrvCleanupAndDestroyMDEV(__int64 a1)
@@ -15,23 +15,23 @@ __int64 __fastcall DrvCleanupAndDestroyMDEV(__int64 a1)
   __int64 result; // rax
 
   MultiUserCleanupDCs();
-  EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
+  EngAcquireSemaphore(ghsemDynamicModeChange);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemGreLock);
+  EngAcquireSemaphore(ghsemGreLock);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemSprite);
+  EngAcquireSemaphore(ghsemSprite);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
   DrvDestroyMDEV(a1);
   EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
   if ( ghsemSprite )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemSprite);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemSprite);
     PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
   if ( ghsemGreLock )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemGreLock);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemGreLock);
     PsLeavePriorityRegion();
   }
   EngAcquireSemaphore(ghsemDriverMgmt);
@@ -45,7 +45,7 @@ __int64 __fastcall DrvCleanupAndDestroyMDEV(__int64 a1)
   result = EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
   if ( ghsemDynamicModeChange )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
     return PsLeavePriorityRegion();
   }
   return result;

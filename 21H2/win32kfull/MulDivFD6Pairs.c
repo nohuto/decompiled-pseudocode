@@ -1,11 +1,11 @@
 /*
- * XREFs of MulDivFD6Pairs @ 0x1C00972DC
+ * XREFs of MulDivFD6Pairs @ 0x1C011B400
  * Callers:
- *     ComputeColorSpaceXForm @ 0x1C0095D6C (ComputeColorSpaceXForm.c)
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
- *     ComputeBGRMappingTable @ 0x1C025E794 (ComputeBGRMappingTable.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeColorSpaceXForm @ 0x1C011B064 (ComputeColorSpaceXForm.c)
+ *     ComputeBGRMappingTable @ 0x1C0261908 (ComputeBGRMappingTable.c)
  * Callees:
- *     U64DivU32RoundUp @ 0x1C00953DC (U64DivU32RoundUp.c)
+ *     U64DivU32RoundUp @ 0x1C001DD68 (U64DivU32RoundUp.c)
  */
 
 __int64 __fastcall MulDivFD6Pairs(int *a1)
@@ -17,23 +17,22 @@ __int64 __fastcall MulDivFD6Pairs(int *a1)
   unsigned int v5; // r10d
   signed int v6; // r9d
   int v7; // ebp
-  signed int v8; // r13d
-  int v9; // r14d
-  int v10; // r12d
-  int v11; // eax
-  int v12; // r14d
-  unsigned int v13; // r8d
-  unsigned int v14; // edx
-  int v15; // ebp
-  unsigned int v16; // esi
-  unsigned int v17; // eax
-  unsigned int v18; // r8d
-  int v19; // esi
-  int v20; // r9d
-  unsigned int v21; // edx
+  int v8; // r14d
+  int v9; // r12d
+  int v10; // eax
+  int v11; // r14d
+  unsigned int v12; // r8d
+  unsigned int v13; // edx
+  int v14; // ebp
+  unsigned int v15; // esi
+  unsigned int v16; // eax
+  unsigned int v17; // r8d
+  int v18; // esi
+  signed int v19; // eax
+  unsigned int v20; // edx
   __int64 result; // rax
-  signed int v23; // ecx
-  unsigned int v24; // r10d
+  signed int v22; // ecx
+  unsigned int v23; // r10d
 
   v1 = *(unsigned __int16 *)a1;
   v2 = a1;
@@ -54,47 +53,46 @@ __int64 __fastcall MulDivFD6Pairs(int *a1)
     v2 += 2;
     --v1;
     v7 = *v2;
-    v8 = v6;
-    v9 = v2[1];
+    v8 = v2[1];
     if ( *v2 <= 0 )
     {
       v7 = -v7;
-      v10 = 1;
+      v9 = 1;
       if ( !v7 )
         continue;
     }
     else
     {
-      v10 = 0;
+      v9 = 0;
     }
-    if ( v9 <= 0 )
+    if ( v8 <= 0 )
     {
-      v9 = -v9;
-      if ( !v9 )
+      v8 = -v8;
+      if ( !v8 )
         continue;
-      v10 ^= 1u;
+      v9 ^= 1u;
     }
-    v11 = (unsigned __int16)v9;
-    v12 = v9 >> 16;
-    v13 = v11 * (unsigned __int16)v7;
-    v14 = (unsigned __int16)v7 * v12;
-    v15 = v7 >> 16;
-    v16 = v11 * v15;
-    v17 = (unsigned __int16)(v11 * v15) + HIWORD(v13) + (unsigned __int16)v14;
-    v18 = (v17 << 16) | (unsigned __int16)v13;
-    v19 = HIWORD(v14) + v15 * v12 + HIWORD(v17) + HIWORD(v16);
-    if ( v10 )
+    v10 = (unsigned __int16)v8;
+    v11 = v8 >> 16;
+    v12 = v10 * (unsigned __int16)v7;
+    v13 = (unsigned __int16)v7 * v11;
+    v14 = v7 >> 16;
+    v15 = v10 * v14;
+    v16 = (unsigned __int16)(v10 * v14) + HIWORD(v12) + (unsigned __int16)v13;
+    v17 = (v16 << 16) | (unsigned __int16)v12;
+    v18 = HIWORD(v13) + v14 * v11 + HIWORD(v16) + HIWORD(v15);
+    if ( v9 )
     {
-      v19 = ~v19;
-      v18 = -v18;
-      if ( !v18 )
-        ++v19;
+      v18 = ~v18;
+      v17 = -v17;
+      if ( !v17 )
+        ++v18;
     }
-    v20 = v6 + 1;
-    v5 += v18;
-    if ( v5 >= v18 )
-      v20 = v8;
-    v6 = v19 + v20;
+    v19 = v6 + 1;
+    v5 += v17;
+    if ( v5 >= v17 )
+      v19 = v6;
+    v6 = v18 + v19;
   }
   while ( v1 );
   if ( v6 < 0 )
@@ -115,22 +113,22 @@ __int64 __fastcall MulDivFD6Pairs(int *a1)
       v4 = -v4;
       v3 = !v3;
     }
-    v21 = U64DivU32RoundUp(v6, v5, v4);
+    v20 = U64DivU32RoundUp(v6, v5, v4);
   }
   else
   {
-    v23 = v6 + 1;
-    v24 = v5 + 500000;
-    if ( v24 >= 0x7A120 )
-      v23 = v6;
-    v21 = ((((v24 >> 20) | (v23 << 12)) / 0xF424) << 16) | (((unsigned __int16)(v24 >> 4) | ((((v24 >> 20) | (v23 << 12))
+    v22 = v6 + 1;
+    v23 = v5 + 500000;
+    if ( v23 >= 0x7A120 )
+      v22 = v6;
+    v20 = ((((v23 >> 20) | (v22 << 12)) / 0xF424) << 16) | (((unsigned __int16)(v23 >> 4) | ((((v23 >> 20) | (v22 << 12))
                                                                                             + 3036
-                                                                                            * (((v24 >> 20) | (v23 << 12))
+                                                                                            * (((v23 >> 20) | (v22 << 12))
                                                                                              / 0xF424)) << 16))
                                                           / 0xF424);
   }
-  result = -v21;
+  result = -v20;
   if ( !v3 )
-    return v21;
+    return v20;
   return result;
 }

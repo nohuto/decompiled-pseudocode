@@ -1,162 +1,176 @@
 /*
- * XREFs of FsRtlReleaseEofLock @ 0x140328600
+ * XREFs of FsRtlReleaseEofLock @ 0x14026F300
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     FsRtlReleaseHeaderMutex @ 0x1402301C0 (FsRtlReleaseHeaderMutex.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExpReleaseFastMutexContended @ 0x1402BBF30 (ExpReleaseFastMutexContended.c)
- *     KeSetEventBoostPriorityEx @ 0x1402BBFA0 (KeSetEventBoostPriorityEx.c)
- *     ExpAcquireFastMutexContended @ 0x1402FCD4C (ExpAcquireFastMutexContended.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExpReleaseFastMutexContended @ 0x140271D9C (ExpReleaseFastMutexContended.c)
+ *     KeSetEventBoostPriorityEx @ 0x140271E08 (KeSetEventBoostPriorityEx.c)
+ *     ExpAcquireFastMutexContended @ 0x140273240 (ExpAcquireFastMutexContended.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402C9230 (FsRtlReleaseHeaderMutex.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F889C (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall FsRtlReleaseEofLock(__int64 a1, volatile signed __int32 *a2)
 {
   _QWORD *v3; // r15
-  struct _KTHREAD *CurrentThread; // rbp
-  __int64 v5; // rdi
-  __int64 v6; // rsi
-  unsigned int AbEntrySummary; // eax
-  unsigned int v8; // ecx
-  struct _KPRCB *CurrentPrcb; // r8
-  signed __int32 *SchedulerAssist; // rdx
+  struct _KTHREAD *CurrentThread; // rbx
+  ULONG_PTR v5; // rsi
+  __int64 v6; // rcx
+  char v7; // dl
+  __int64 v8; // rbp
   int SessionId; // eax
-  unsigned __int8 CurrentIrql; // bp
-  bool v13; // zf
-  __int64 v14; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  bool v12; // zf
+  unsigned __int8 CurrentIrql; // bl
+  __int64 v14; // rbx
   _QWORD *v15; // rcx
-  int v16; // ecx
+  int v16; // eax
   ULONG_PTR v17; // rbx
   unsigned __int64 v18; // rdi
-  signed __int32 v19; // eax
+  unsigned __int32 v19; // eax
   _QWORD *v20; // rbx
   _QWORD *result; // rax
-  signed __int32 v22; // eax
-  signed __int32 v23; // ett
-  _QWORD *v24; // rdx
-  __int64 v25; // r8
-  _QWORD *v26; // r8
+  _QWORD *v22; // rdx
+  __int64 v23; // r8
+  _QWORD *v24; // r8
+  _QWORD *v25; // r8
+  _QWORD *v26; // rcx
   _QWORD *v27; // r8
-  _QWORD *v28; // rcx
-  _QWORD *v29; // r8
-  _QWORD *v30; // r8
-  unsigned __int8 v31; // cl
-  struct _KPRCB *v32; // r10
-  _DWORD *v33; // r9
-  int v34; // eax
-  _QWORD *v35; // [rsp+38h] [rbp-60h] BYREF
-  _QWORD **v36; // [rsp+40h] [rbp-58h]
-  unsigned int v37; // [rsp+A0h] [rbp+8h]
-  int v39; // [rsp+B0h] [rbp+18h] BYREF
-  volatile signed __int32 *v40; // [rsp+B8h] [rbp+20h]
+  _QWORD *v28; // r8
+  unsigned __int8 AbOrphanedEntrySummary; // al
+  unsigned __int8 v30; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v33; // eax
+  _QWORD *v35; // [rsp+38h] [rbp-50h] BYREF
+  _QWORD **v36; // [rsp+40h] [rbp-48h]
+  int v37; // [rsp+90h] [rbp+8h] BYREF
+  volatile signed __int32 *v38; // [rsp+98h] [rbp+10h]
+  int v39; // [rsp+A0h] [rbp+18h]
+  int v40; // [rsp+A8h] [rbp+20h]
 
-  v40 = a2;
-  v39 = 0;
+  v38 = a2;
+  v40 = 0;
   v36 = &v35;
+  v37 = 0;
   v35 = &v35;
   v3 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v5 = 0LL;
-  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 48LL);
-  _disable();
-  AbEntrySummary = CurrentThread->AbEntrySummary;
-  if ( CurrentThread->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(a1, CurrentThread)) != 0 )
+  v5 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 48LL);
+  --CurrentThread->SpecialApcDisable;
+  if ( ++CurrentThread->AbAllocationRegionCount != 1 )
+    KeBugCheckEx(0x192u, (ULONG_PTR)CurrentThread, v5, KeGetCurrentIrql(), 0LL);
+  LOBYTE(v6) = CurrentThread->AbEntrySummary;
+  v39 = 0;
+  if ( !(_BYTE)v6 )
   {
-    _BitScanForward(&v8, AbEntrySummary);
-    v37 = v8;
-    CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v8);
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
+    if ( !CurrentThread->AbOrphanedEntrySummary )
     {
-      _m_prefetchw(SchedulerAssist);
-      v22 = *SchedulerAssist;
-      do
-      {
-        v23 = v22;
-        v22 = _InterlockedCompareExchange(SchedulerAssist, v22 & 0xFFDFFFFF, v22);
-      }
-      while ( v23 != v22 );
-      if ( (v22 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v8 = 0LL;
+      if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
+        EtwTraceAutoBoostEntryExhaustion(CurrentThread, v5);
+      goto LABEL_51;
     }
-    _enable();
-    v5 = (__int64)(&CurrentThread[1].Process + 12 * v37);
-    if ( (unsigned __int64)(v6 - qword_140C65AE8) < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
-    else
-      SessionId = -1;
-    *(_DWORD *)(v5 + 8) = SessionId;
-    *(_QWORD *)v5 = v6 & 0x7FFFFFFFFFFFFFFCLL;
+    AbOrphanedEntrySummary = CurrentThread->AbOrphanedEntrySummary;
+    CurrentThread->AbOrphanedEntrySummary = 0;
+    LOBYTE(v6) = AbOrphanedEntrySummary | CurrentThread->AbEntrySummary;
   }
+  v7 = v6;
+  _BitScanForward((unsigned int *)&v6, (unsigned __int8)v6);
+  v39 = v6;
+  CurrentThread->AbEntrySummary = v7 & ~(1 << v6);
+  v8 = (__int64)&CurrentThread->LockEntries[v6];
+  if ( !v8 )
+  {
+LABEL_51:
+    _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x10u);
+    goto LABEL_8;
+  }
+  if ( v5 >= 0xFFFF800000000000uLL && byte_140C4F9C8[((v5 >> 39) & 0x1FF) - 256] == 1 )
+    SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
+  else
+    SessionId = -1;
+  *(_DWORD *)(v8 + 40) = SessionId;
+  *(_QWORD *)(v8 + 32) = v5 & 0x7FFFFFFFFFFFFFFCLL;
+LABEL_8:
+  --CurrentThread->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+  v12 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v12 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery(v11);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
-  if ( !_interlockedbittestandreset((volatile signed __int32 *)v6, 0) )
-    ExpAcquireFastMutexContended(v6, v5, (__int64)CurrentPrcb);
-  if ( v5 )
-    *(_BYTE *)(v5 + 18) = 1;
-  *(_QWORD *)(v6 + 8) = KeGetCurrentThread();
-  *(_DWORD *)(v6 + 48) = CurrentIrql;
-  if ( v40 )
-    _InterlockedIncrement(v40);
-  v13 = (*(_WORD *)(a1 + 38))-- == 1;
-  if ( !v13 )
-    return (_QWORD *)FsRtlReleaseHeaderMutex(a1, a2);
+  if ( !_interlockedbittestandreset((volatile signed __int32 *)v5, 0) )
+    ExpAcquireFastMutexContended(v5);
+  if ( v8 )
+    *(_BYTE *)(v8 + 26) |= 1u;
+  *(_QWORD *)(v5 + 8) = KeGetCurrentThread();
+  *(_DWORD *)(v5 + 48) = CurrentIrql;
+  if ( a2 )
+    _InterlockedIncrement(a2);
+  v12 = (*(_WORD *)(a1 + 38))-- == 1;
+  if ( !v12 )
+    return (_QWORD *)FsRtlReleaseHeaderMutex(a1, v38);
   v14 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 40LL);
   if ( *(_BYTE *)(a1 + 36) )
   {
-    PsBoostThreadIoEx(*(_QWORD *)a1, 1, 0, 0LL);
+    LOBYTE(v10) = 1;
+    PsBoostThreadIoEx(*(_QWORD *)a1, v10, 0LL, 0LL);
     *(_BYTE *)(a1 + 36) = 0;
   }
   v15 = *(_QWORD **)(a1 + 8);
   if ( v15 == (_QWORD *)(a1 + 8) )
-    goto LABEL_16;
+    goto LABEL_21;
   do
   {
-    v24 = v15;
+    v22 = v15;
     v15 = (_QWORD *)*v15;
-    v25 = v24[5];
-    if ( v25 < 0 || v25 > v14 )
+    v23 = v22[5];
+    if ( v23 < 0 || v23 > v14 )
     {
       if ( !v3 )
       {
-        v26 = (_QWORD *)v24[1];
-        if ( (_QWORD *)v15[1] != v24 )
-          goto LABEL_44;
-        if ( (_QWORD *)*v26 != v24 )
-          goto LABEL_44;
-        *v26 = v15;
-        v15[1] = v26;
-        v27 = v35;
+        v24 = (_QWORD *)v22[1];
+        if ( (_QWORD *)v15[1] != v22 )
+          goto LABEL_46;
+        if ( (_QWORD *)*v24 != v22 )
+          goto LABEL_46;
+        *v24 = v15;
+        v15[1] = v24;
+        v25 = v35;
         if ( (_QWORD **)v35[1] != &v35 )
-          goto LABEL_44;
-        *v24 = v35;
-        v24[1] = &v35;
-        v3 = v24;
-        v27[1] = v24;
-        v35 = v24;
+          goto LABEL_46;
+        *v22 = v35;
+        v22[1] = &v35;
+        v3 = v22;
+        v25[1] = v22;
+        v35 = v22;
       }
     }
     else
     {
-      v29 = (_QWORD *)v24[1];
-      if ( (_QWORD *)v15[1] != v24 || (_QWORD *)*v29 != v24 || (*v29 = v15, v15[1] = v29, v30 = v36, *v36 != &v35) )
-LABEL_44:
+      v27 = (_QWORD *)v22[1];
+      if ( (_QWORD *)v15[1] != v22 || (_QWORD *)*v27 != v22 || (*v27 = v15, v15[1] = v27, v28 = v36, *v36 != &v35) )
+LABEL_46:
         __fastfail(3u);
-      v24[1] = v36;
-      *v24 = &v35;
-      *v30 = v24;
-      v36 = (_QWORD **)v24;
+      v22[1] = v36;
+      *v22 = &v35;
+      *v28 = v22;
+      v36 = (_QWORD **)v22;
     }
   }
   while ( v15 != (_QWORD *)(a1 + 8) );
   if ( !v3 )
   {
-LABEL_16:
+LABEL_21:
     *(_QWORD *)a1 = 0LL;
     v16 = 0;
     *(_WORD *)(a1 + 38) = 0;
@@ -168,26 +182,29 @@ LABEL_16:
     v16 = *((_DWORD *)v3 + 14);
   }
   *(_DWORD *)(a1 + 32) = v16;
-  if ( a2 )
-    _InterlockedIncrement(a2);
+  if ( v38 )
+    _InterlockedIncrement(v38);
   v17 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 48LL);
   v18 = *(unsigned __int8 *)(v17 + 48);
   *(_QWORD *)(v17 + 8) = 0LL;
   v19 = _InterlockedCompareExchange((volatile signed __int32 *)v17, 1, 0);
   if ( v19 )
-    ExpReleaseFastMutexContended((volatile signed __int32 *)v17, v19);
+    ExpReleaseFastMutexContended(v17, v19);
   if ( KiIrqlFlags )
   {
-    v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v31 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v32 = KeGetCurrentPrcb();
-      v33 = v32->SchedulerAssist;
-      v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
-      v13 = (v34 & v33[5]) == 0;
-      v33[5] &= v34;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(v32);
+      v30 = KeGetCurrentIrql();
+      if ( v30 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v30 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));
+        v12 = (v33 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v33;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v18);
@@ -195,10 +212,10 @@ LABEL_16:
   v20 = v35;
   for ( result = &v35; v20 != &v35; result = &v35 )
   {
-    v28 = v20;
+    v26 = v20;
     v20 = (_QWORD *)*v20;
-    v39 = *((_DWORD *)v28 + 14);
-    KeSetEventBoostPriorityEx((__int64)(v28 + 2), 0LL, &v39, 0LL, 1, 0);
+    v37 = *((_DWORD *)v26 + 14);
+    KeSetEventBoostPriorityEx((_DWORD)v26 + 16, 0, (unsigned int)&v37, 0, 1, 0);
   }
   return result;
 }

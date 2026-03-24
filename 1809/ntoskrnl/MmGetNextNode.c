@@ -2,10 +2,10 @@
  * XREFs of MmGetNextNode @ 0x140061FC0
  * Callers:
  *     PpmIdlePrepare @ 0x14005F3A0 (PpmIdlePrepare.c)
- *     ExpQueueWorkItem @ 0x1400B7300 (ExpQueueWorkItem.c)
- *     KiChooseTargetProcessor @ 0x1400C43B0 (KiChooseTargetProcessor.c)
- *     ExpTryQueueWorkItem @ 0x1400D170C (ExpTryQueueWorkItem.c)
- *     PoAllProcessorsDeepIdle @ 0x1400FCB74 (PoAllProcessorsDeepIdle.c)
+ *     ExpQueueWorkItem @ 0x1400B7320 (ExpQueueWorkItem.c)
+ *     KiChooseTargetProcessor @ 0x1400C43D0 (KiChooseTargetProcessor.c)
+ *     ExpTryQueueWorkItem @ 0x1400D172C (ExpTryQueueWorkItem.c)
+ *     PoAllProcessorsDeepIdle @ 0x1400FCB94 (PoAllProcessorsDeepIdle.c)
  * Callees:
  *     <none>
  */

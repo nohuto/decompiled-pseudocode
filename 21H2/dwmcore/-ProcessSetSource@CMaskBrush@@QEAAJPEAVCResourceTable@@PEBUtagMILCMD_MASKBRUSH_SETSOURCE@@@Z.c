@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetSource@CMaskBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MASKBRUSH_SETSOURCE@@@Z @ 0x1800E4CFC
+ * XREFs of ?ProcessSetSource@CMaskBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MASKBRUSH_SETSOURCE@@@Z @ 0x1800CCB34
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?IsValidSourceResource@CMaskBrush@@CA_NPEBVCResource@@@Z @ 0x1800E4D9C (-IsValidSourceResource@CMaskBrush@@CA_NPEBVCResource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?IsValidSourceResource@CMaskBrush@@CA_NPEBVCResource@@@Z @ 0x1800CCBCC (-IsValidSourceResource@CMaskBrush@@CA_NPEBVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMaskBrush::ProcessSetSource(
@@ -26,27 +26,27 @@ __int64 __fastcall CMaskBrush::ProcessSetSource(
 
   ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *((_DWORD *)a3 + 2));
   v5 = ResourceWithoutType;
-  if ( ResourceWithoutType != this[12] )
+  if ( ResourceWithoutType != this[11] )
   {
     if ( ResourceWithoutType )
     {
       if ( !CMaskBrush::IsValidSourceResource(ResourceWithoutType) )
       {
         v9 = -2003303421;
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, -2003303421, 0xC0u);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003303421, 0xC0u, 0LL);
         return v9;
       }
       v7 = CResource::RegisterNotifier((CResource *)this, v5);
       v9 = v7;
       if ( v7 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0xC3u);
+        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC3u, 0LL);
         return v9;
       }
     }
-    CResource::UnRegisterNotifierInternal((CResource *)this, this[12]);
+    CResource::UnRegisterNotifierInternal((CResource *)this, this[11]);
     v10 = *this;
-    this[12] = v5;
+    this[11] = v5;
     (*((void (__fastcall **)(struct CResource **, __int64))v10 + 9))(this, 14LL);
   }
   return 0;

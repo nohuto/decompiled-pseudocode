@@ -1,11 +1,11 @@
 /*
- * XREFs of Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003C620
+ * XREFs of Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003A4B0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     TR_EnableForwardProgress_Internal @ 0x1C0041504 (TR_EnableForwardProgress_Internal.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_EnableForwardProgress_Internal @ 0x1C003F004 (TR_EnableForwardProgress_Internal.c)
  */
 
 __int64 __fastcall Endpoint_UcxEvtEndpointEnableForwardProgress(__int64 a1, unsigned int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall Endpoint_UcxEvtEndpointEnableForwardProgress(__int64 a1, unsi
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00631A8);
+         off_1C00601A8);
   v4 = v3;
   if ( *(_BYTE *)(v3 + 37) )
   {
@@ -43,7 +43,7 @@ LABEL_8:
           v7,
           13,
           v6,
-          (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+          (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
           v9,
           v10,
           v11);

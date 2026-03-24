@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SubmitBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z @ 0x1C00B0E20
+ * XREFs of ?SubmitBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z @ 0x1C00A32F0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@BufferCache@CoreMessagingK@@SAXPEAX@Z @ 0x1C003BA9C (-Free@BufferCache@CoreMessagingK@@SAXPEAX@Z.c)
- *     CoreUICallReceive @ 0x1C00AA6F0 (CoreUICallReceive.c)
- *     ?ValidateReceiveBuffer@SendHost@CoreMessagingK@@CAXPEAUAlpcBufferK@@_K@Z @ 0x1C00B0D94 (-ValidateReceiveBuffer@SendHost@CoreMessagingK@@CAXPEAUAlpcBufferK@@_K@Z.c)
- *     ?HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z @ 0x1C00B1030 (-HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z.c)
- *     ??$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z @ 0x1C00B105C (--$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z.c)
- *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0240E14 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ *     ?Free@BufferCache@CoreMessagingK@@SAXPEAX@Z @ 0x1C004D3D4 (-Free@BufferCache@CoreMessagingK@@SAXPEAX@Z.c)
+ *     ??$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z @ 0x1C004D444 (--$AllocUninitialized@UAlpcBufferK@@@BufferCache@CoreMessagingK@@SAJGPEAPEAUAlpcBufferK@@@Z.c)
+ *     ?ValidateReceiveBuffer@SendHost@CoreMessagingK@@CAXPEAUAlpcBufferK@@_K@Z @ 0x1C00A3260 (-ValidateReceiveBuffer@SendHost@CoreMessagingK@@CAXPEAUAlpcBufferK@@_K@Z.c)
+ *     ?HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z @ 0x1C00A3500 (-HRESULTFromNTStatus@HResultUtil@CoreMessagingK@@YAJJ@Z.c)
+ *     CoreUICallReceive @ 0x1C00AA218 (CoreUICallReceive.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C01FF1F4 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
  */
 
 __int64 __fastcall CoreMessagingK::SendHost::SubmitBuffer(
@@ -18,58 +18,54 @@ __int64 __fastcall CoreMessagingK::SendHost::SubmitBuffer(
         char *a4)
 {
   char *v4; // rsi
-  __int64 v5; // rcx
+  unsigned __int16 v5; // cx
   int v6; // eax
   struct AlpcBufferK *v7; // rbx
   int v8; // edi
   unsigned __int64 v9; // rax
-  __int64 v10; // rdx
-  const struct MsgCallTypeDefinition *v11; // r8
-  const unsigned __int8 *v12; // r9
-  unsigned int v13; // ecx
-  void *v14; // rax
-  int v15; // eax
-  int v16; // edx
-  unsigned __int64 v18; // [rsp+40h] [rbp-28h] BYREF
-  struct AlpcBufferK *v19; // [rsp+48h] [rbp-20h] BYREF
-  void *v20; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v21; // [rsp+88h] [rbp+20h] BYREF
+  unsigned int v10; // ecx
+  void *v11; // rax
+  int v12; // eax
+  int v13; // edx
+  unsigned __int64 v15; // [rsp+40h] [rbp-28h] BYREF
+  struct AlpcBufferK *v16; // [rsp+48h] [rbp-20h] BYREF
+  void *v17; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v18; // [rsp+88h] [rbp+20h] BYREF
 
-  v19 = 0LL;
+  v16 = 0LL;
   v4 = a4 - 80;
-  v18 = 0LL;
-  v5 = CoreMessagingK::RegistrarClient::s_MaxReceiveMessagePayloadSize;
-  LOBYTE(v21) = 0;
-  v20 = &CoreMessagingK::ReceiveHost::s_Vtbl;
+  v15 = 0LL;
+  LOBYTE(v18) = 0;
+  v17 = &CoreMessagingK::ReceiveHost::s_Vtbl;
   if ( (unsigned __int64)CoreMessagingK::RegistrarClient::s_MaxReceiveMessagePayloadSize + 80 < 0x200 )
-    v5 = 512LL;
+    v5 = 512;
   else
-    LOWORD(v5) = CoreMessagingK::RegistrarClient::s_MaxReceiveMessagePayloadSize + 80;
-  v6 = CoreMessagingK::BufferCache::AllocUninitialized<AlpcBufferK>(v5, &v19);
-  v7 = v19;
+    v5 = CoreMessagingK::RegistrarClient::s_MaxReceiveMessagePayloadSize + 80;
+  v6 = CoreMessagingK::BufferCache::AllocUninitialized<AlpcBufferK>(v5, (void **)&v16);
+  v7 = v16;
   v8 = v6;
   if ( v6 >= 0 )
   {
     v9 = CoreMessagingK::RegistrarClient::s_MaxReceiveMessagePayloadSize + 80LL;
     if ( v9 < 0x200 )
       LOWORD(v9) = 512;
-    v18 = (unsigned __int16)v9;
-    v8 = ZwAlpcSendWaitReceivePort(CoreMessagingK::RegistrarClient::s_Port, 0x20000LL, v4, 0LL, v19, &v18, 0LL, 0LL);
+    v15 = (unsigned __int16)v9;
+    v8 = ZwAlpcSendWaitReceivePort(CoreMessagingK::RegistrarClient::s_Port, 0x20000LL, v4, 0LL, v16, &v15, 0LL, 0LL);
     if ( v8 >= 0 )
     {
-      CoreMessagingK::SendHost::ValidateReceiveBuffer(v7, v18);
-      v13 = *((_DWORD *)v7 + 18);
-      if ( v13 )
-        v14 = (char *)v7 + 80;
+      CoreMessagingK::SendHost::ValidateReceiveBuffer(v7, v15);
+      v10 = *((_DWORD *)v7 + 18);
+      if ( v10 )
+        v11 = (char *)v7 + 80;
       else
-        v14 = 0LL;
-      v15 = CoreUICallReceive((struct IMessageCallReceiveHost *)&v20, v10, v11, v12, (__int64)&v21, v14, v13);
-      if ( v15 )
-        CoreMessagingK::Runtime::BugCheck(1282LL, v15, 0LL);
+        v11 = 0LL;
+      v12 = CoreUICallReceive((struct IMessageCallReceiveHost *)&v17, (__int64)&v18, v11, v10);
+      if ( v12 )
+        CoreMessagingK::Runtime::BugCheck(1282LL, v12, 0LL);
       CoreMessagingK::BufferCache::Free(v4);
       v8 = 0;
     }
   }
   CoreMessagingK::BufferCache::Free((char *)v7);
-  return CoreMessagingK::HResultUtil::HRESULTFromNTStatus((CoreMessagingK::HResultUtil *)(unsigned int)v8, v16);
+  return CoreMessagingK::HResultUtil::HRESULTFromNTStatus((CoreMessagingK::HResultUtil *)(unsigned int)v8, v13);
 }

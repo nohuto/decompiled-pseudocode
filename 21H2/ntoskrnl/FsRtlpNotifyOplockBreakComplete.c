@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpNotifyOplockBreakComplete @ 0x14092E8B0
+ * XREFs of FsRtlpNotifyOplockBreakComplete @ 0x14088BE40
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
  */
 
 void __fastcall FsRtlpNotifyOplockBreakComplete(__int64 a1, IRP *a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAllocateVirtualMemoryEx @ 0x14041B560
+ * XREFs of ZwAllocateVirtualMemoryEx @ 0x1403FA8E0
  * Callers:
- *     PspSetupReservedUserMappings @ 0x1407DF14C (PspSetupReservedUserMappings.c)
+ *     <none>
  * Callees:
  *     <none>
  */

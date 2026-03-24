@@ -1,82 +1,78 @@
 /*
- * XREFs of ?OnContactDepart@CManipulationContext@@QEAAXIW4InputType@@PEAVCInteraction@@_N22@Z @ 0x1801A4BB0
+ * XREFs of ?OnContactDepart@CManipulationContext@@QEAAXIW4InputType@@PEAVCInteraction@@_N22@Z @ 0x180234834
  * Callers:
- *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x18019F36C (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
+ *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x1802259F8 (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
  * Callees:
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x18012D2B0 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
- *     ?CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType@@@Z @ 0x1801A425C (-CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType.c)
- *     ?RemoveKey@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBI@Z @ 0x1801A5744 (-RemoveKey@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInte.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x1802249F8 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
+ *     ?CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType@@@Z @ 0x180233EB0 (-CleanTreeState@CManipulationContext@@SAXPEAVCInteraction@@PEAV1@PEAVCComposition@@_NW4InputType.c)
+ *     ?RemoveKey@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBI@Z @ 0x180235210 (-RemoveKey@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInte.c)
  */
 
 void __fastcall CManipulationContext::OnContactDepart(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
-        __int64 a4,
+        __int64 (__fastcall ***a4)(_QWORD),
         char a5,
         char a6,
         char a7)
 {
-  _QWORD *v7; // rbx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rcx
+  __int64 (__fastcall ***v7)(_QWORD); // rbx
   int Key; // eax
-  __int64 i; // rsi
-  _QWORD *v15; // rsi
-  _QWORD *v16; // [rsp+50h] [rbp+8h] BYREF
-  unsigned int v17; // [rsp+58h] [rbp+10h] BYREF
+  __int64 (__fastcall ***v12)(_QWORD); // rsi
+  __int64 v13; // rsi
+  __int64 (__fastcall ***v14)(_QWORD); // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v15; // [rsp+58h] [rbp+10h] BYREF
 
-  v17 = a2;
-  v7 = (_QWORD *)a4;
-  v16 = (_QWORD *)a4;
-  Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v16);
-  v11 = v7;
-  v12 = v7;
+  v15 = a2;
+  v7 = a4;
+  v14 = a4;
+  Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v14);
   if ( !v7 )
   {
     Key = CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::FindKey(
             a1 + 56,
-            (int *)&v17);
+            (int *)&v15);
     if ( Key == -1 )
     {
-      v16 = 0LL;
+      v14 = 0LL;
+      v12 = 0LL;
     }
     else
     {
-      v7 = *(_QWORD **)(*(_QWORD *)(a1 + 64) + 8LL * Key);
-      v16 = v7;
-      Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v16);
-    }
-    Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v16);
-    v11 = v7;
-    v12 = v7;
-    if ( v7 )
-    {
-      (*(void (__fastcall **)(_QWORD *))(*v7 + 16LL))(v7);
-      v11 = v7;
+      v14 = *(__int64 (__fastcall ****)(_QWORD))(*(_QWORD *)(a1 + 64) + 8LL * Key);
+      v7 = v14;
+      Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v14);
       v12 = v7;
     }
+    Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v14);
+    if ( v12 )
+      (*v12)[1](v12);
   }
   if ( a5 )
   {
-    for ( i = (unsigned __int64)(v11 + 8) & -(__int64)(v12 != 0LL);
-          i;
-          i = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 48LL))(a1, i) )
+    v13 = (__int64)v7;
+    if ( v7 )
     {
-      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)i + 56LL))(i, a3);
+      do
+      {
+        (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v13 + 56LL))(v13, a3);
+        v13 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)a1 + 48LL))(a1, v13);
+      }
+      while ( v13 );
     }
     (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 136) + 56LL))(*(_QWORD *)(a1 + 136), a3);
   }
   CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::RemoveKey(
     a1 + 56,
-    &v17);
+    &v15);
   if ( !a5
-    && (v15 = v7 + 8, (*(unsigned __int8 (__fastcall **)(_QWORD *, _QWORD))(v7[8] + 216LL))(v7 + 8, 0LL))
-    && (*(unsigned __int8 (__fastcall **)(_QWORD *, _QWORD, _QWORD))(*v15 + 224LL))(v7 + 8, a2, 0LL) )
+    && ((unsigned __int8 (__fastcall *)(__int64 (__fastcall ***)(_QWORD), _QWORD))(*v7)[27])(v7, 0LL)
+    && ((unsigned __int8 (__fastcall *)(__int64 (__fastcall ***)(_QWORD), _QWORD, _QWORD))(*v7)[28])(v7, a2, 0LL) )
   {
-    (*(void (__fastcall **)(_QWORD *, _QWORD))(*v15 + 232LL))(v7 + 8, a2);
+    ((void (__fastcall *)(__int64 (__fastcall ***)(_QWORD), _QWORD))(*v7)[29])(v7, a2);
   }
   else if ( a7 )
   {
@@ -85,5 +81,5 @@ void __fastcall CManipulationContext::OnContactDepart(
   (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, a2, 0LL);
   CManipulationContext::CleanTreeState((__int64)v7, a1, *(RTL_SRWLOCK **)(a1 + 40), a6, a3);
   if ( v7 )
-    (*(void (__fastcall **)(_QWORD *))(*v7 + 16LL))(v7);
+    (*v7)[1](v7);
 }

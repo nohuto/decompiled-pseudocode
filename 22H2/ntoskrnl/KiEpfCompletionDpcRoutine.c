@@ -1,13 +1,13 @@
 /*
- * XREFs of KiEpfCompletionDpcRoutine @ 0x140579000
+ * XREFs of KiEpfCompletionDpcRoutine @ 0x140524080
  * Callers:
  *     <none>
  * Callees:
- *     KiEpfDrainCompletionQueue @ 0x14057901C (KiEpfDrainCompletionQueue.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405240E8 (KiEpfDrainCompletionQueue.c)
  */
 
 __int64 KiEpfCompletionDpcRoutine()
 {
-  _InterlockedIncrement(&dword_140C4176C);
+  _InterlockedIncrement(&dword_140C2B14C);
   return KiEpfDrainCompletionQueue();
 }

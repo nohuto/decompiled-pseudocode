@@ -1,5 +1,5 @@
 /*
- * XREFs of PopEsGetState @ 0x14071F17C
+ * XREFs of PopEsGetState @ 0x14071F15C
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:

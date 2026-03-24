@@ -5,10 +5,10 @@
  *     RtlpCopyAces @ 0x14062FDC0 (RtlpCopyAces.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlEqualPrefixSid @ 0x1406307E0 (RtlEqualPrefixSid.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
  */
 
 char __fastcall RtlpCopyEffectiveAce(

@@ -1,362 +1,348 @@
 /*
- * XREFs of LocalpGetStringForCondition @ 0x1409D6524
+ * XREFs of LocalpGetStringForCondition @ 0x1406EBBE8
  * Callers:
- *     LocalGetAceCondition @ 0x14069DEA0 (LocalGetAceCondition.c)
+ *     LocalGetAceCondition @ 0x1406ECE10 (LocalGetAceCondition.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     memset @ 0x140435400 (memset.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     EncloseSubCondition @ 0x1409D2F7C (EncloseSubCondition.c)
- *     GetOperatorIndexByToken @ 0x1409D3DF0 (GetOperatorIndexByToken.c)
- *     GetPrintableAttributeName @ 0x1409D3E14 (GetPrintableAttributeName.c)
- *     GetPrintableOperandValue @ 0x1409D401C (GetPrintableOperandValue.c)
- *     ULongAddStringSize @ 0x1409D6B40 (ULongAddStringSize.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ULongAddStringSize @ 0x1406EBFB8 (ULongAddStringSize.c)
+ *     EncloseSubCondition @ 0x1406EC010 (EncloseSubCondition.c)
+ *     GetPrintableOperandValue @ 0x1406EC05C (GetPrintableOperandValue.c)
+ *     GetPrintableAttributeName @ 0x1406EC1B0 (GetPrintableAttributeName.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     GetOperatorIndexByToken @ 0x1406ED73C (GetOperatorIndexByToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalpGetStringForCondition(
-        unsigned __int8 *a1,
+        PVOID *a1,
         unsigned int a2,
-        wchar_t *a3,
+        void *a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
         __int64 a7,
         char a8)
 {
-  unsigned int v9; // r14d
-  unsigned __int8 *v10; // r13
-  __int64 v11; // r12
-  unsigned int PrintableAttributeName; // ebx
-  int v13; // r15d
-  __int64 v14; // rsi
-  int v15; // r9d
-  char *v16; // rdi
-  bool v17; // zf
-  bool v18; // zf
-  int v19; // ecx
-  int v20; // ecx
-  bool v21; // zf
-  int v22; // ecx
-  int v23; // ecx
-  PVOID *v24; // rcx
+  unsigned int v9; // r12d
+  PVOID *v10; // rsi
+  unsigned int v11; // ebx
+  PVOID *v12; // rcx
+  __int64 v13; // rdx
+  int v14; // r13d
+  __int64 v15; // r15
+  __int64 v16; // r14
+  int v17; // r8d
+  unsigned __int8 *v18; // rsi
+  unsigned __int8 v19; // di
+  bool v20; // zf
   int OperatorIndexByToken; // eax
-  __int64 v26; // r10
-  __int64 v27; // r13
-  __int64 v28; // rax
-  unsigned int v29; // eax
-  wchar_t *v30; // rsi
-  size_t v31; // r14
-  wchar_t *v32; // rdi
-  NTSTATUS v33; // eax
-  char v34; // al
-  __int64 v35; // rax
-  PVOID *v36; // rcx
-  PVOID v37; // rsi
-  void *v38; // r14
-  unsigned int v39; // r12d
-  wchar_t *v40; // rdi
-  PVOID *v41; // rcx
-  __int64 i; // rdi
-  PVOID v43; // rcx
-  wchar_t *v45; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int8 v46; // [rsp+48h] [rbp-B8h]
-  unsigned int v47; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v48; // [rsp+50h] [rbp-B0h]
-  __int64 v49; // [rsp+58h] [rbp-A8h]
-  unsigned int v50; // [rsp+60h] [rbp-A0h]
-  __int64 v51; // [rsp+68h] [rbp-98h]
-  __int64 v52; // [rsp+70h] [rbp-90h]
-  __int64 v53; // [rsp+78h] [rbp-88h]
-  PVOID P; // [rsp+80h] [rbp-80h] BYREF
-  wchar_t *Str1; // [rsp+88h] [rbp-78h] BYREF
-  PVOID v56[256]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int v22; // r8d
+  __int64 v23; // r9
+  __int64 v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  unsigned int v27; // eax
+  PVOID v28; // rdi
+  PVOID v29; // r15
+  size_t v30; // r12
+  wchar_t *v31; // rsi
+  __int64 v32; // rax
+  int v33; // edx
+  unsigned int PrintableAttributeName; // eax
+  unsigned int PrintableOperandValue; // eax
+  _QWORD *v36; // rdi
+  PVOID v37; // rcx
+  bool v39; // zf
+  wchar_t *v40; // r15
+  size_t v41; // r12
+  NTSTATUS v42; // eax
+  __int64 v43; // rdi
+  char v44; // al
+  __int64 v45; // rdi
+  PVOID v46; // rcx
+  wchar_t *v47; // [rsp+40h] [rbp-C0h] BYREF
+  int v48; // [rsp+48h] [rbp-B8h] BYREF
+  int v49; // [rsp+4Ch] [rbp-B4h]
+  unsigned int v50; // [rsp+50h] [rbp-B0h]
+  __int64 v51; // [rsp+58h] [rbp-A8h]
+  PVOID *v52; // [rsp+60h] [rbp-A0h]
+  __int64 v53; // [rsp+68h] [rbp-98h]
+  __int64 v54; // [rsp+70h] [rbp-90h]
+  __int64 v55; // [rsp+78h] [rbp-88h]
+  PVOID v56[2]; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v57[256]; // [rsp+90h] [rbp-70h] BYREF
 
-  v53 = a5;
+  v55 = a5;
   v9 = a2;
   v10 = a1;
-  v52 = a6;
-  v11 = 0LL;
-  PrintableAttributeName = 0;
-  Str1 = a3;
+  v54 = a6;
+  v53 = a7;
+  v56[0] = a3;
+  v11 = 0;
   v50 = a2;
-  P = a1;
-  v51 = a7;
-  v45 = 0LL;
-  memset(v56, 0, sizeof(v56));
-  v47 = 0;
-  v13 = 0;
+  v52 = a1;
+  v47 = 0LL;
+  memset(v57, 0, sizeof(v57));
+  v13 = 0LL;
+  v48 = 0;
+  v14 = 0;
   if ( !v10 || !a3 || !v9 )
     return 87LL;
   if ( v9 < 6 || *(_DWORD *)v10 != 2020897377 )
     return 805LL;
-  LODWORD(v14) = 4;
-  v49 = 0LL;
-  v48 = 4;
-  do
+  LODWORD(v15) = 4;
+  v16 = 0LL;
+  v49 = 4;
+  while ( 1 )
   {
-    v15 = 1336;
-    if ( v11 == 255 )
+    v17 = 1336;
+    if ( v16 == 255 )
     {
-      PrintableAttributeName = 1001;
-      goto LABEL_102;
+      v11 = 1001;
+      goto LABEL_80;
     }
-    v16 = (char *)&v10[(unsigned int)v14];
-    v46 = *v16;
-    if ( v46 > 0x8Au )
+    v18 = (unsigned __int8 *)v10 + (unsigned int)v15;
+    v19 = *v18;
+    if ( *v18 > 0x51u )
     {
-      if ( v46 > 0xF8u )
+      if ( v19 < 0x80u )
+        goto LABEL_55;
+      if ( v19 > 0x93u )
       {
-        if ( v46 != 249 && v46 != 250 && (unsigned int)v46 - 251 > 1 )
-          goto LABEL_26;
-      }
-      else if ( v46 != 248 )
-      {
-        if ( v46 > 0x91u )
+        if ( v19 <= 0x9Fu )
+          goto LABEL_55;
+        if ( v19 > 0xA3u )
         {
-          if ( v46 == 146 || v46 == 147 )
-            goto LABEL_45;
-          v22 = v46 - 160;
-          v21 = v46 == 160;
-LABEL_42:
-          if ( !v21 )
+          if ( v19 <= 0xF7u || v19 > 0xFCu )
+            goto LABEL_55;
+          LOBYTE(v17) = *v18;
+          PrintableAttributeName = GetPrintableAttributeName(
+                                     (_DWORD)v18,
+                                     v9 - (unsigned int)v15,
+                                     v17,
+                                     (unsigned int)&v47,
+                                     (__int64)&v48);
+          v13 = 0LL;
+          v11 = PrintableAttributeName;
+          if ( PrintableAttributeName )
+            goto LABEL_52;
+          v57[v16] = v47;
+          goto LABEL_40;
+        }
+      }
+      if ( (unsigned __int8)(v19 + 96) <= 1u )
+      {
+        if ( v16 < 2 )
+          goto LABEL_55;
+        v11 = EncloseSubCondition(&v57[v14 - 1]);
+        if ( v11 )
+          goto LABEL_80;
+        v11 = EncloseSubCondition(&v57[v14 - 2]);
+        v39 = v11 == 0;
+      }
+      else
+      {
+        if ( v19 != 0xA2 )
+        {
+LABEL_19:
+          LOBYTE(v12) = *v18;
+          OperatorIndexByToken = GetOperatorIndexByToken(v12, v13, 1336LL, &Operators);
+          if ( OperatorIndexByToken < 0 )
+            goto LABEL_89;
+          v24 = 3LL * OperatorIndexByToken;
+          v25 = -1LL;
+          v26 = *(_QWORD *)(v23 + 8 * v24);
+          v51 = v24;
+          do
+            ++v25;
+          while ( *(_WORD *)(v26 + 2 * v25) );
+          v27 = 2 * v25;
+          LODWORD(v47) = v27;
+          if ( *(_BYTE *)(v23 + 8 * v24 + 16) )
           {
-            v23 = v22 - 1;
-            if ( v23 )
+            if ( !v16 )
             {
-              if ( (unsigned int)(v23 - 1) > 1 )
-                goto LABEL_26;
+LABEL_89:
+              v11 = v22;
+              goto LABEL_80;
             }
-          }
-LABEL_45:
-          if ( (unsigned __int8)(v46 + 96) <= 1u )
-          {
-            if ( v11 < 2 )
-              goto LABEL_26;
-            PrintableAttributeName = EncloseSubCondition(&v56[v13 - 1]);
-            if ( PrintableAttributeName )
-              goto LABEL_102;
-            v24 = &v56[v13 - 2];
+            v40 = (wchar_t *)v56[v16 + 1];
+            if ( (int)ULongAddStringSize(v27, v40, &v47) < 0 )
+              goto LABEL_88;
+            v41 = (unsigned int)((_DWORD)v47 + 8);
+            v31 = (wchar_t *)SddlpAlloc(v41);
+            if ( !v31 )
+            {
+LABEL_79:
+              v11 = 8;
+              goto LABEL_80;
+            }
+            if ( v19 == 0xA2 )
+            {
+              v42 = RtlStringCchPrintfW(v31, v41 >> 1, L"(%ls%ls)", (&Operators)[v51], v40);
+            }
+            else
+            {
+              v43 = v51;
+              v44 = *((_BYTE *)&Operators + 8 * v51 + 8);
+              if ( (v44 == -121 || v44 == -115)
+                && (!wcsnicmp(v40, L"@USER.", 6uLL)
+                 || !wcsnicmp(v40, L"@DEVICE.", 8uLL)
+                 || !wcsnicmp(v40, L"@TOKEN.", 7uLL)) )
+              {
+                v11 = 1336;
+                goto LABEL_92;
+              }
+              v42 = RtlStringCchPrintfW(v31, v41 >> 1, L"(%ls %ls)", (&Operators)[v43], v40);
+            }
+            v33 = 0;
+            if ( v42 < 0 )
+              goto LABEL_91;
+            if ( v40 )
+            {
+              ExFreePoolWithTag(v40, 0);
+              v33 = 0;
+            }
+            v32 = 0LL;
+            v12 = &v56[v16 + 1];
           }
           else
           {
-            if ( v46 != 0xA2 )
-            {
-LABEL_53:
-              OperatorIndexByToken = GetOperatorIndexByToken(*v16);
-              if ( OperatorIndexByToken < 0 )
-                goto LABEL_26;
-              v27 = 3LL * OperatorIndexByToken;
-              v28 = -1LL;
-              do
-                ++v28;
-              while ( *(_WORD *)(*(_QWORD *)(v26 + 8 * v27) + 2 * v28) );
-              v29 = 2 * v28;
-              LODWORD(v45) = v29;
-              if ( *(_BYTE *)(v26 + 8 * v27 + 16) )
-              {
-                if ( !v11 )
-                  goto LABEL_26;
-                v30 = (wchar_t *)v56[v11 - 1];
-                if ( (int)ULongAddStringSize(v29, v30, &v45) < 0 )
-                  goto LABEL_97;
-                v31 = (unsigned int)((_DWORD)v45 + 8);
-                v32 = (wchar_t *)SddlpAlloc(v31);
-                if ( !v32 )
-                  goto LABEL_96;
-                if ( v46 == 0xA2 )
-                {
-                  v33 = RtlStringCchPrintfW(v32, v31 >> 1, L"(%ls%ls)", (&Operators)[v27], v30);
-                }
-                else
-                {
-                  v34 = *((_BYTE *)&Operators + 8 * v27 + 8);
-                  if ( (v34 == -121 || v34 == -115)
-                    && (!wcsnicmp(v30, L"@USER.", 6uLL)
-                     || !wcsnicmp(v30, L"@DEVICE.", 8uLL)
-                     || !wcsnicmp(v30, L"@TOKEN.", 7uLL)) )
-                  {
-                    PrintableAttributeName = 1336;
-                    goto LABEL_99;
-                  }
-                  v33 = RtlStringCchPrintfW(v32, v31 >> 1, L"(%ls %ls)", (&Operators)[v27], v30);
-                }
-                if ( v33 < 0 )
-                  goto LABEL_94;
-                if ( v30 )
-                  ExFreePoolWithTag(v30, 0);
-                v35 = 0LL;
-                v36 = &v56[v11 - 1];
-              }
-              else
-              {
-                if ( v11 < 2 )
-                  goto LABEL_26;
-                v37 = v56[v11 - 1];
-                if ( (int)ULongAddStringSize(v29, v37, &v45) < 0
-                  || (v38 = *(&P + v11), (int)ULongAddStringSize((unsigned int)v45, v38, &v45) < 0) )
-                {
-LABEL_97:
-                  PrintableAttributeName = 534;
-                  goto LABEL_102;
-                }
-                LODWORD(v45) = (_DWORD)v45 + 10;
-                v39 = (unsigned int)v45;
-                v32 = (wchar_t *)SddlpAlloc((unsigned int)v45);
-                if ( !v32 )
-                {
-LABEL_96:
-                  PrintableAttributeName = 8;
-                  goto LABEL_102;
-                }
-                if ( RtlStringCchPrintfW(v32, (unsigned __int64)v39 >> 1, L"(%ls %ls %ls)", v38, (&Operators)[v27], v37) < 0 )
-                {
-LABEL_94:
-                  PrintableAttributeName = 50;
-                  goto LABEL_99;
-                }
-                if ( v37 )
-                  ExFreePoolWithTag(v37, 0);
-                if ( v38 )
-                  ExFreePoolWithTag(v38, 0);
-                v11 = v49;
-                v35 = -1LL;
-                --v13;
-                v36 = &P + v49;
-              }
-              LODWORD(v14) = v48;
-              v11 += v35;
-              v9 = v50;
-              v45 = 0LL;
-              v10 = (unsigned __int8 *)P;
-              *v36 = v32;
-              v47 = 1;
+            if ( v16 < 2 )
               goto LABEL_89;
-            }
-            if ( v11 < 1 )
-              goto LABEL_26;
-            v24 = &v56[v13 - 1];
-          }
-          PrintableAttributeName = EncloseSubCondition(v24);
-          if ( PrintableAttributeName )
-            goto LABEL_102;
-          goto LABEL_53;
-        }
-        if ( v46 == 145 )
-          goto LABEL_45;
-        v19 = v46 - 139;
-        v18 = v46 == 139;
-LABEL_31:
-        if ( v18 )
-          goto LABEL_45;
-        v20 = v19 - 1;
-        if ( !v20 )
-          goto LABEL_45;
-        v22 = v20 - 1;
-        v21 = v22 == 0;
-        goto LABEL_42;
-      }
-      PrintableAttributeName = GetPrintableAttributeName(
-                                 (__int64)&v10[(unsigned int)v14],
-                                 v9 - (unsigned int)v14,
-                                 v46,
-                                 &v45,
-                                 &v47);
-      if ( PrintableAttributeName )
-      {
-LABEL_98:
-        v32 = v45;
-LABEL_99:
-        if ( v32 )
-          ExFreePoolWithTag(v32, 0);
-        goto LABEL_102;
-      }
-      v56[v11] = v45;
+            v28 = v56[v16 + 1];
+            if ( (int)ULongAddStringSize(v27, v28, &v47) < 0
+              || (v29 = v56[v16], (int)ULongAddStringSize((unsigned int)v47, v29, &v47) < 0) )
+            {
 LABEL_88:
-      ++v13;
-      v45 = 0LL;
-      ++v11;
-LABEL_89:
-      v49 = v11;
-      goto LABEL_90;
+              v11 = 534;
+              goto LABEL_80;
+            }
+            v30 = (unsigned int)((_DWORD)v47 + 10);
+            v31 = (wchar_t *)SddlpAlloc(v30);
+            if ( !v31 )
+              goto LABEL_79;
+            if ( RtlStringCchPrintfW(v31, v30 >> 1, L"(%ls %ls %ls)", v29, (&Operators)[v51], v28) < 0 )
+            {
+LABEL_91:
+              v11 = 50;
+LABEL_92:
+              if ( v31 )
+                ExFreePoolWithTag(v31, 0);
+              goto LABEL_80;
+            }
+            if ( v28 )
+              ExFreePoolWithTag(v28, 0);
+            if ( v29 )
+              ExFreePoolWithTag(v29, 0);
+            v32 = -1LL;
+            v12 = &v56[v16];
+            v33 = -1;
+          }
+          LODWORD(v15) = v49;
+          v14 += v33;
+          v9 = v50;
+          v13 = 0LL;
+          v16 += v32;
+          *v12 = v31;
+          v48 = 1;
+          goto LABEL_41;
+        }
+        if ( v16 < 1 )
+          goto LABEL_55;
+        v11 = EncloseSubCondition(&v57[v14 - 1]);
+        v39 = v11 == 0;
+      }
+      if ( !v39 )
+        goto LABEL_80;
+      goto LABEL_19;
     }
-    if ( v46 == 138 )
+    if ( v19 >= 0x50u )
       goto LABEL_45;
-    if ( v46 > 0x80u )
+    if ( v19 )
     {
-      if ( v46 == 129 || v46 == 130 || v46 == 131 )
-        goto LABEL_45;
-      v19 = v46 - 132;
-      v18 = v46 == 132;
-      goto LABEL_31;
+      if ( v19 != 16 && v19 > 4u && v19 != 24 )
+        goto LABEL_55;
+LABEL_45:
+      PrintableOperandValue = GetPrintableOperandValue(
+                                (_DWORD)v18,
+                                v9 - (unsigned int)v15,
+                                (unsigned int)&v47,
+                                (unsigned int)&v48,
+                                v55,
+                                v54,
+                                v53,
+                                a8);
+      v13 = 0LL;
+      v11 = PrintableOperandValue;
+      if ( PrintableOperandValue )
+      {
+LABEL_52:
+        v31 = v47;
+        goto LABEL_92;
+      }
+      v12 = (PVOID *)v47;
+      v57[v16] = v47;
+LABEL_40:
+      ++v14;
+      ++v16;
+LABEL_41:
+      v47 = 0LL;
+      goto LABEL_42;
     }
-    if ( v46 == 128 )
-      goto LABEL_45;
-    if ( v46 )
-    {
-      if ( v46 != 1 && v46 != 2 && v46 != 3 && v46 != 4 && v46 != 16 && v46 != 24 && (unsigned int)v46 - 80 > 1 )
-        goto LABEL_26;
-      PrintableAttributeName = GetPrintableOperandValue(
-                                 &v10[(unsigned int)v14],
-                                 v9 - (unsigned int)v14,
-                                 (__int64)&v45,
-                                 &v47,
-                                 v53,
-                                 v52,
-                                 v51,
-                                 a8);
-      if ( PrintableAttributeName )
-        goto LABEL_98;
-      v56[v11] = v45;
-      goto LABEL_88;
-    }
+    v12 = v52;
     while ( 1 )
     {
-      v14 = (unsigned int)(v14 + 1);
-      v17 = (_DWORD)v14 == v9;
-      if ( (unsigned int)v14 >= v9 )
+      v15 = (unsigned int)(v15 + 1);
+      v20 = (_DWORD)v15 == v9;
+      if ( (unsigned int)v15 >= v9 )
         break;
-      if ( v10[v14] )
+      if ( *((_BYTE *)v52 + v15) )
       {
-        v17 = (_DWORD)v14 == v9;
+        v20 = (_DWORD)v15 == v9;
         break;
       }
     }
-    if ( !v17 )
+    if ( !v20 )
     {
-LABEL_26:
-      PrintableAttributeName = v15;
-      goto LABEL_102;
+LABEL_55:
+      v11 = 1336;
+      goto LABEL_80;
     }
-LABEL_90:
-    LODWORD(v14) = v47 + v14;
-    v48 = v14;
+LABEL_42:
+    LODWORD(v15) = v48 + v15;
+    v49 = v15;
+    if ( (unsigned int)v15 >= v9 )
+      break;
+    v10 = v52;
   }
-  while ( (unsigned int)v14 < v9 );
-  if ( v13 == 1 )
+  if ( v14 == 1 )
   {
-    v40 = Str1;
-    v41 = (PVOID *)Str1;
-    *(PVOID *)Str1 = v56[0];
-    PrintableAttributeName = EncloseSubCondition(v41);
-    if ( !PrintableAttributeName )
-      return PrintableAttributeName;
-    *(_QWORD *)v40 = 0LL;
-    goto LABEL_105;
+    v36 = v56[0];
+    v37 = v56[0];
+    *(_QWORD *)v56[0] = v57[0];
+    v11 = EncloseSubCondition(v37);
+    if ( !v11 )
+      return v11;
+    *v36 = 0LL;
+    goto LABEL_81;
   }
-LABEL_102:
-  if ( !v13 )
-    return PrintableAttributeName;
-  if ( !PrintableAttributeName )
-    PrintableAttributeName = 1336;
-LABEL_105:
-  for ( i = v13; i; --i )
+LABEL_80:
+  if ( !v14 )
+    return v11;
+LABEL_81:
+  if ( !v11 )
+    v11 = 1336;
+  v45 = v14;
+  do
   {
-    v43 = v56[i - 1];
-    if ( v43 )
-      ExFreePoolWithTag(v43, 0);
+    v46 = v56[v45-- + 1];
+    if ( v46 )
+      ExFreePoolWithTag(v46, 0);
   }
-  return PrintableAttributeName;
+  while ( v45 );
+  return v11;
 }

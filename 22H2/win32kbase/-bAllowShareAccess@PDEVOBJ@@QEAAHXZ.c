@@ -1,41 +1,34 @@
 /*
- * XREFs of ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0089ED0
+ * XREFs of ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C003A570
  * Callers:
- *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0089E50 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C015E6A0 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
- *     GreLockVisRgnSharedOrExclusive @ 0x1C016A640 (GreLockVisRgnSharedOrExclusive.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0011010 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C003A2F0 (GreLockVisRgnSharedOrExclusive.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C003A420 (-vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ??0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C003A4B0 (--0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?vLockGammaRamp@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00A7360 (-vLockGammaRamp@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0141930 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall PDEVOBJ::bAllowShareAccess(PDEVOBJ *this)
 {
-  __int64 v1; // rbx
-  PDEVOBJ *v2; // rdi
-  int v3; // eax
-  __int64 v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rax
+  __int64 v1; // rax
+  int v2; // edx
+  __int64 v3; // r8
+  _BOOL8 result; // rax
 
   v1 = *(_QWORD *)this;
-  v2 = this;
-  v3 = *(_DWORD *)(*(_QWORD *)this + 40LL);
-  if ( (v3 & 1) == 0 )
-    return 0LL;
-  if ( (v3 & 0x1000000) != 0 )
-    return 0LL;
-  if ( *(_DWORD *)(v1 + 2588) != 5 && (v3 & 0x20000) == 0 )
-  {
-    this = *(PDEVOBJ **)(v1 + 2552);
-    if ( (((unsigned __int64)this + 4) & 0xFFFFFFFFFFFFFFFBuLL) == 0 || (*((_DWORD *)this + 40) & 0x800000) == 0 )
-      return 0LL;
-  }
-  v4 = *(_QWORD *)(v1 + 24);
-  v5 = *(_QWORD *)(SGDGetSessionState(this) + 24);
-  v6 = *(_QWORD *)v2;
-  return (*(_DWORD *)(*(_QWORD *)v2 + 2096LL) & 0x400) == 0
-      && (*(_DWORD *)(v6 + 1792) & 0x8000000) == 0
-      && (*(_DWORD *)(v6 + 40) & 0x48000000) == 0
-      && (*(_DWORD *)(v4 + 40) & 0x1000000) == 0
-      && *(_DWORD *)(v5 + 6360) != 0;
+  v2 = *(_DWORD *)(*(_QWORD *)this + 40LL);
+  result = (v2 & 1) != 0
+        && (v2 & 0x1000000) == 0
+        && (*(_DWORD *)(v1 + 2612) == 5
+         || (v2 & 0x20000) != 0
+         || (v3 = *(_QWORD *)(v1 + 2576), ((v3 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0)
+         && (*(_DWORD *)(v3 + 160) & 0x800000) != 0)
+        && (*(_DWORD *)(v1 + 2128) & 0x400) == 0
+        && (v2 & 0x48000000) == 0
+        && (*(_DWORD *)(v1 + 1824) & 0x8000000) == 0
+        && (*(_DWORD *)(*(_QWORD *)(v1 + 24) + 40LL) & 0x1000000) == 0;
+  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x180029744
+ * XREFs of ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x1800AECD8
  * Callers:
- *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180028570 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
- *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180178414 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x1800AEC10 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x18014E1C4 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
  * Callees:
- *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800F3AD4 (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800AE67C (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 void __fastcall wil::details_abi::UsageIndexes::Record(
@@ -29,7 +29,7 @@ void __fastcall wil::details_abi::UsageIndexes::Record(
     wil::details_abi::RecordWnfUsageIndex(
       (wil::details_abi *)&v5,
       (const struct __WIL__WNF_STATE_NAME *)3,
-      (unsigned __int64)this,
+      (unsigned __int16 *)this,
       a4);
   }
   if ( *((_BYTE *)this + 120) )
@@ -40,7 +40,7 @@ void __fastcall wil::details_abi::UsageIndexes::Record(
     wil::details_abi::RecordWnfUsageIndex(
       (wil::details_abi *)&v5,
       (const struct __WIL__WNF_STATE_NAME *)3,
-      (unsigned __int64)this + 64,
+      (unsigned __int16 *)this + 32,
       a4);
   }
   if ( *((_BYTE *)this + 184) )
@@ -54,7 +54,7 @@ void __fastcall wil::details_abi::UsageIndexes::Record(
     wil::details_abi::RecordWnfUsageIndex(
       (wil::details_abi *)&v5,
       (const struct __WIL__WNF_STATE_NAME *)6,
-      (unsigned __int64)this + 128,
+      (unsigned __int16 *)this + 64,
       a4);
   }
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of KsepShimDbChanged @ 0x140178F5C
+ * XREFs of KsepShimDbChanged @ 0x140178F7C
  * Callers:
- *     KseQueryDeviceData @ 0x140720950 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x1408473D0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x1408473B0 (KseQueryDeviceDataList.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1401B8390 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
  */
 
 __int64 KsepShimDbChanged()

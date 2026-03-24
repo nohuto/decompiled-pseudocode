@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWsleFree @ 0x1400B2C50
+ * XREFs of MiWsleFree @ 0x1400B2C70
  * Callers:
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
@@ -14,12 +14,12 @@
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiGetPagePrivilege @ 0x1400B2A50 (MiGetPagePrivilege.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14011AACC (MiRewriteTrimPteAsDemandZero.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x14011AAEC (MiRewriteTrimPteAsDemandZero.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 MiWsleFree(__int64 a1, unsigned __int64 a2, char a3, ...)

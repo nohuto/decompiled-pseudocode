@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFreeStackCache @ 0x140883876
+ * XREFs of EtwpFreeStackCache @ 0x140941DE8
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
- *     EtwpEnableStackCaching @ 0x140883718 (EtwpEnableStackCaching.c)
+ *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     EtwpEnableStackCaching @ 0x140941C94 (EtwpEnableStackCaching.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeStackCache(char *P)
@@ -13,10 +13,10 @@ void __fastcall EtwpFreeStackCache(char *P)
   __int64 i; // rsi
   char *v3; // rax
   _QWORD *v4; // rcx
-  PSLIST_ENTRY v5; // rbx
-  PSLIST_ENTRY v6; // rcx
-  _QWORD *v7; // rdx
-  _QWORD *v8; // rbx
+  _QWORD *v5; // rdx
+  _QWORD *v6; // rbx
+  PSLIST_ENTRY v7; // rbx
+  PSLIST_ENTRY v8; // rcx
 
   for ( i = 0LL; (unsigned int)i < *((_DWORD *)P + 2); i = (unsigned int)(i + 1) )
   {
@@ -26,25 +26,25 @@ void __fastcall EtwpFreeStackCache(char *P)
       v4 = *(_QWORD **)v3;
       if ( *(char **)v3 == v3 )
         break;
-      if ( (char *)v4[1] != v3 || (v7 = (_QWORD *)*v4, *(_QWORD **)(*v4 + 8LL) != v4) )
+      if ( (char *)v4[1] != v3 || (v5 = (_QWORD *)*v4, *(_QWORD **)(*v4 + 8LL) != v4) )
         __fastfail(3u);
-      *(_QWORD *)v3 = v7;
-      v7[1] = v3;
+      *(_QWORD *)v3 = v5;
+      v5[1] = v3;
       do
       {
-        v8 = (_QWORD *)v4[2];
+        v6 = (_QWORD *)v4[2];
         ExFreePoolWithTag(v4, 0);
-        v4 = v8;
+        v4 = v6;
       }
-      while ( v8 );
+      while ( v6 );
     }
   }
-  v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)P + 1);
-  while ( v5 )
+  v7 = RtlpInterlockedFlushSList((PSLIST_HEADER)P + 1);
+  while ( v7 )
   {
-    v6 = v5;
-    v5 = v5->Next;
-    ExFreePoolWithTag(v6, 0);
+    v8 = v7;
+    v7 = v7->Next;
+    ExFreePoolWithTag(v8, 0);
   }
   ExFreePoolWithTag(P, 0);
 }

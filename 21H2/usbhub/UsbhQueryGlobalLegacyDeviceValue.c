@@ -1,32 +1,33 @@
 /*
- * XREFs of UsbhQueryGlobalLegacyDeviceValue @ 0x1C0045820
+ * XREFs of UsbhQueryGlobalLegacyDeviceValue @ 0x1C0046B50
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C001F540 (memmove.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
  */
 
 __int64 __fastcall UsbhQueryGlobalLegacyDeviceValue(
-        __int64 a1,
+        const wchar_t *a1,
         __int64 a2,
         const void *a3,
         unsigned int a4,
         __int64 a5,
         __int64 a6)
 {
-  size_t v6; // r14
-  int v8; // ebp
+  SIZE_T v6; // r15
+  int v8; // edi
   unsigned int v10; // ebx
-  int v11; // ebp
+  int v11; // edi
   unsigned int v12; // eax
   void *v13; // rcx
-  void *Pool2; // rax
-  __int64 v15; // rsi
-  void *v16; // rbp
+  PVOID PoolWithTag; // rax
+  void *v15; // rdi
+  __int64 v16; // rsi
   __int64 v18; // [rsp+28h] [rbp-30h]
 
   v6 = a4;
@@ -45,10 +46,10 @@ __int64 __fastcall UsbhQueryGlobalLegacyDeviceValue(
     {
       if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         WPP_RECORDER_SF_S(
-          WPP_GLOBAL_Control->DeviceExtension,
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
           a2,
-          (_DWORD)a3,
-          66,
+          (__int64)a3,
+          0x42u,
           (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
           a1);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -115,44 +116,49 @@ __int64 __fastcall UsbhQueryGlobalLegacyDeviceValue(
     }
   }
   v11 = v8 - 1;
-  if ( !v11 )
+  if ( v11 )
   {
-    if ( *(_DWORD *)a6 > 1u )
-      return v10;
-    if ( (_DWORD)v6 && a3 && *(_QWORD *)(a6 + 8) )
+    v12 = 2;
+    if ( v11 == 2 )
     {
-      Pool2 = (void *)ExAllocatePool2(64LL, v6, 1112885333LL);
-      v15 = *(_QWORD *)(a6 + 8);
-      v16 = Pool2;
-      if ( Pool2 )
+      if ( *(_DWORD *)a6 != 3 )
+        return v10;
+      if ( (unsigned int)v6 <= 2 )
+        v12 = v6;
+      if ( v12 )
       {
-        memmove(Pool2, a3, v6);
-        *(_QWORD *)(v15 + 8) = v16;
-        *(_DWORD *)(v15 + 4) = v6;
+        if ( a3 )
+        {
+          v13 = *(void **)(a6 + 8);
+          if ( v13 )
+          {
+            if ( v13 != a3 )
+              memmove(v13, a3, v12);
+            return v10;
+          }
+        }
       }
-      else
-      {
-        return (unsigned int)-1073741670;
-      }
-      return v10;
     }
     return (unsigned int)-1073741811;
   }
-  v12 = 2;
-  if ( v11 != 2 )
-    return (unsigned int)-1073741811;
-  if ( *(_DWORD *)a6 != 3 )
+  if ( *(_DWORD *)a6 > 1u )
     return v10;
-  if ( (unsigned int)v6 <= 2 )
-    v12 = v6;
-  if ( !v12 )
+  if ( !(_DWORD)v6 || !a3 || !*(_QWORD *)(a6 + 8) )
     return (unsigned int)-1073741811;
-  if ( !a3 )
-    return (unsigned int)-1073741811;
-  v13 = *(void **)(a6 + 8);
-  if ( !v13 )
-    return (unsigned int)-1073741811;
-  if ( v13 != a3 )
-    memmove(v13, a3, v12);
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), v6, 0x42554855u);
+  v15 = PoolWithTag;
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, v6);
+  v16 = *(_QWORD *)(a6 + 8);
+  if ( v15 )
+  {
+    memmove(v15, a3, v6);
+    *(_QWORD *)(v16 + 8) = v15;
+    *(_DWORD *)(v16 + 4) = v6;
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
   return v10;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwTraceWakeCounter @ 0x1409E2D4C
+ * XREFs of EtwTraceWakeCounter @ 0x1409368A8
  * Callers:
- *     PspChargeJobWakeCounter @ 0x140700280 (PspChargeJobWakeCounter.c)
- *     PspChargeProcessWakeCounter @ 0x1407AC250 (PspChargeProcessWakeCounter.c)
+ *     PspChargeProcessWakeCounter @ 0x1405E6B10 (PspChargeProcessWakeCounter.c)
+ *     PspChargeJobWakeCounter @ 0x140617E18 (PspChargeJobWakeCounter.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall EtwTraceWakeCounter(__int64 a1, __int16 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall EtwTraceWakeCounter(__int64 a1, __int16 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v5; // r10d
   __int16 v6; // ax
   unsigned int v7; // r8d
-  unsigned __int16 v8; // dx
-  _QWORD v9[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v10; // [rsp+40h] [rbp-28h]
-  int v11; // [rsp+44h] [rbp-24h]
-  _QWORD *v12; // [rsp+48h] [rbp-20h] BYREF
-  int v13; // [rsp+50h] [rbp-18h]
-  int v14; // [rsp+54h] [rbp-14h]
+  __int16 v8; // dx
+  _QWORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
+  int v11; // [rsp+40h] [rbp-28h]
+  int v12; // [rsp+44h] [rbp-24h]
+  _QWORD *v13; // [rsp+48h] [rbp-20h] BYREF
+  int v14; // [rsp+50h] [rbp-18h]
+  int v15; // [rsp+54h] [rbp-14h]
 
   v5 = a3;
   if ( a3 <= 0 )
@@ -39,15 +39,15 @@ void __fastcall EtwTraceWakeCounter(__int64 a1, __int16 a2, __int64 a3, __int64 
   v7 = -2147475456;
 LABEL_7:
   v8 = v6 + a2;
-  v9[0] = a1;
-  v9[1] = a5;
-  v11 = v5;
+  v10[0] = a1;
+  v10[1] = a5;
+  v12 = v5;
   if ( a4 )
-    v10 = *(_DWORD *)(a4 + 1088);
+    v11 = *(_DWORD *)(a4 + 1088);
   else
-    v10 = -1;
-  v14 = 0;
-  v12 = v9;
-  v13 = 24;
-  EtwTraceKernelEvent((__int64)&v12, 1u, v7, v8, 0x501902u);
+    v11 = -1;
+  v15 = 0;
+  v13 = v10;
+  v14 = 24;
+  return EtwTraceKernelEvent((int)&v13, 1, v7, v8, 5249282);
 }

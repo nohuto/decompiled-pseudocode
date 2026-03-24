@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Build@CProjectedShadowApproxBlurGraphBuilder@@SAJPEAVCBrush@@0PEAPEAVCBrushRenderingGraph@@PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18026AAE8
+ * XREFs of ?Build@CProjectedShadowApproxBlurGraphBuilder@@SAJPEAVCBrush@@0PEAPEAVCBrushRenderingGraph@@PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18001D0C4
  * Callers:
- *     ?CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z @ 0x1802494B0 (-CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z.c)
+ *     ?CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z @ 0x18001D038 (-CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z.c)
  * Callees:
- *     ??0CBrushRenderingGraph@@IEAA@XZ @ 0x180029B90 (--0CBrushRenderingGraph@@IEAA@XZ.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EC624 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18026A930 (-Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composit.c)
+ *     ?Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18001D188 (-Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composit.c)
+ *     ??0CBrushRenderingGraph@@AEAA@XZ @ 0x180049C54 (--0CBrushRenderingGraph@@AEAA@XZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8D94 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowApproxBlurGraphBuilder::Build(
@@ -18,47 +18,43 @@ __int64 __fastcall CProjectedShadowApproxBlurGraphBuilder::Build(
         struct Windows::UI::Composition::IEffectInstance **a4)
 {
   CBrushRenderingGraph *v8; // rax
-  __int64 v9; // rcx
-  CBrushRenderingGraph *v10; // rax
-  struct CBrushRenderingGraph *v11; // rdi
-  int v12; // eax
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
-  CBrushRenderingGraph *v16; // [rsp+30h] [rbp-28h] BYREF
-  struct CBrushRenderingGraph *v17; // [rsp+38h] [rbp-20h] BYREF
-  int v18; // [rsp+40h] [rbp-18h]
+  unsigned int v9; // ecx
+  CBrushRenderingGraph *v10; // rbx
+  int v11; // eax
+  unsigned int v12; // ecx
+  unsigned int v13; // edi
+  CBrushRenderingGraph *v15; // [rsp+30h] [rbp-28h] BYREF
+  CBrushRenderingGraph *v16; // [rsp+38h] [rbp-20h] BYREF
+  int v17; // [rsp+40h] [rbp-18h]
 
-  v8 = (CBrushRenderingGraph *)DefaultHeap::Alloc(0xD8uLL);
-  if ( !v8 )
+  v8 = (CBrushRenderingGraph *)DefaultHeap::Alloc(0xD0uLL);
+  if ( v8 )
+    v10 = CBrushRenderingGraph::CBrushRenderingGraph(v8);
+  else
+    v10 = 0LL;
+  v15 = v10;
+  if ( v10 )
   {
-    v16 = 0LL;
-    goto LABEL_7;
-  }
-  v10 = CBrushRenderingGraph::CBrushRenderingGraph(v8);
-  v16 = v10;
-  v11 = v10;
-  if ( !v10 )
-  {
-LABEL_7:
-    v14 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x17u, 0LL);
-    goto LABEL_8;
-  }
-  (**(void (__fastcall ***)(CBrushRenderingGraph *))v10)(v10);
-  v18 = 0;
-  v17 = v11;
-  v12 = CProjectedShadowApproxBlurGraphBuilder::Build((CProjectedShadowApproxBlurGraphBuilder *)&v17, a1, a2, a4);
-  v14 = v12;
-  if ( v12 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1Bu, 0LL);
+    (**(void (__fastcall ***)(CBrushRenderingGraph *))v10)(v10);
+    v17 = 0;
+    v16 = v10;
+    v11 = CProjectedShadowApproxBlurGraphBuilder::Build((CProjectedShadowApproxBlurGraphBuilder *)&v16, a1, a2, a4);
+    v13 = v11;
+    if ( v11 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x1Bu, 0LL);
+    }
+    else
+    {
+      v15 = 0LL;
+      *a3 = v10;
+    }
   }
   else
   {
-    v16 = 0LL;
-    *a3 = v11;
+    v13 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x17u, 0LL);
   }
-LABEL_8:
-  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((__int64 *)&v16);
-  return v14;
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v15);
+  return v13;
 }

@@ -1,71 +1,75 @@
 /*
- * XREFs of RtlNextUnicodePrefix @ 0x140865F90
+ * XREFs of RtlNextUnicodePrefix @ 0x140773640
  * Callers:
  *     <none>
  * Callees:
- *     RtlRealSuccessor @ 0x140326B10 (RtlRealSuccessor.c)
+ *     RtlRealSuccessor @ 0x1402F80C0 (RtlRealSuccessor.c)
  */
 
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlNextUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, BOOLEAN Restart)
 {
-  PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rax
-  PUNICODE_PREFIX_TABLE_ENTRY result; // rax
   PUNICODE_PREFIX_TABLE_ENTRY LastNextEntry; // rbx
-  PRTL_SPLAY_LINKS p_Links; // rax
-  RTL_SPLAY_LINKS *v7; // rcx
+  PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rax
+  _RTL_SPLAY_LINKS *v5; // rcx
+  PRTL_SPLAY_LINKS v6; // rax
+  PUNICODE_PREFIX_TABLE_ENTRY result; // rax
+  RTL_SPLAY_LINKS *p_Links; // rcx
   RTL_SPLAY_LINKS *Parent; // rdx
-  _RTL_SPLAY_LINKS *v9; // rax
-  RTL_SPLAY_LINKS *v10; // rcx
-  _RTL_SPLAY_LINKS *LeftChild; // rcx
+  _RTL_SPLAY_LINKS *LeftChild; // rax
+  RTL_SPLAY_LINKS *v11; // rcx
 
-  if ( Restart || (LastNextEntry = PrefixTable->LastNextEntry) == 0LL )
+  if ( !Restart && (LastNextEntry = PrefixTable->LastNextEntry) != 0LL )
+  {
+    result = LastNextEntry->CaseMatch;
+    if ( result->NodeTypeCode == 2051 )
+      goto LABEL_7;
+    v6 = RtlRealSuccessor(&result->Links);
+    if ( v6 )
+    {
+LABEL_6:
+      result = (PUNICODE_PREFIX_TABLE_ENTRY)&v6[-1];
+LABEL_7:
+      PrefixTable->LastNextEntry = result;
+      return result;
+    }
+    p_Links = &LastNextEntry->Links;
+    Parent = LastNextEntry->Links.Parent;
+    if ( Parent != &LastNextEntry->Links )
+    {
+      do
+      {
+        p_Links = Parent;
+        Parent = Parent->Parent;
+      }
+      while ( Parent != p_Links );
+    }
+    LeftChild = p_Links[-1].LeftChild;
+    if ( SWORD1(LeftChild->Parent) > 0 )
+    {
+      v11 = LeftChild[1].LeftChild;
+      v6 = LeftChild + 1;
+      while ( v11 )
+      {
+        v6 = v11;
+        v11 = v11->LeftChild;
+      }
+      goto LABEL_6;
+    }
+  }
+  else
   {
     NextPrefixTree = PrefixTable->NextPrefixTree;
-    if ( NextPrefixTree->NodeTypeCode == 2048 )
-      return 0LL;
-    LeftChild = NextPrefixTree->Links.LeftChild;
-    p_Links = &NextPrefixTree->Links;
-    while ( LeftChild )
+    if ( NextPrefixTree->NodeTypeCode != 2048 )
     {
-      p_Links = LeftChild;
-      LeftChild = LeftChild->LeftChild;
-    }
-    goto LABEL_17;
-  }
-  result = LastNextEntry->CaseMatch;
-  if ( result->NodeTypeCode != 2051 )
-  {
-    p_Links = RtlRealSuccessor(&result->Links);
-    if ( !p_Links )
-    {
-      v7 = &LastNextEntry->Links;
-      Parent = LastNextEntry->Links.Parent;
-      if ( Parent != &LastNextEntry->Links )
+      v5 = NextPrefixTree->Links.LeftChild;
+      v6 = &NextPrefixTree->Links;
+      while ( v5 )
       {
-        do
-        {
-          v7 = Parent;
-          Parent = Parent->Parent;
-        }
-        while ( Parent != v7 );
+        v6 = v5;
+        v5 = v5->LeftChild;
       }
-      v9 = v7[-1].LeftChild;
-      if ( SWORD1(v9->Parent) > 0 )
-      {
-        v10 = v9[1].LeftChild;
-        p_Links = v9 + 1;
-        while ( v10 )
-        {
-          p_Links = v10;
-          v10 = v10->LeftChild;
-        }
-        goto LABEL_17;
-      }
-      return 0LL;
+      goto LABEL_6;
     }
-LABEL_17:
-    result = (PUNICODE_PREFIX_TABLE_ENTRY)&p_Links[-1];
   }
-  PrefixTable->LastNextEntry = result;
-  return result;
+  return 0LL;
 }

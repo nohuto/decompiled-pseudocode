@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x1802B4654
+ * XREFs of ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x1802661C0
  * Callers:
- *     ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801232C0 (-IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F8AA0 (-IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,9 +11,9 @@ bool __fastcall CDxHandleYUVBitmapRealization::IsPrimaryResource(CDxHandleYUVBit
   __int64 v1; // rdx
   bool result; // al
 
-  v1 = *((_QWORD *)this - 13);
+  v1 = *((_QWORD *)this - 14);
   result = 0;
   if ( v1 )
-    return *(_BYTE *)(v1 + 68) != 0;
+    return *(_BYTE *)(v1 + 84) != 0;
   return result;
 }

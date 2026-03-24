@@ -1,23 +1,36 @@
 /*
- * XREFs of ?DirtyProjectedShadowCasters@CVisual@@QEAAXXZ @ 0x1800097E0
+ * XREFs of ?DirtyProjectedShadowCasters@CVisual@@QEAAXXZ @ 0x180010314
  * Callers:
- *     ?UpdateTransform@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z @ 0x180088C54 (-UpdateTransform@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z.c)
+ *     ?ProcessTransformParentStack@CTransformParentPreComputeHelper@@EEAAJPEBVCVisualTree@@_K_N@Z @ 0x180022010 (-ProcessTransformParentStack@CTransformParentPreComputeHelper@@EEAAJPEBVCVisualTree@@_K_N@Z.c)
  * Callees:
- *     ?RequestRedraw@CProjectedShadowCaster@@QEAAXXZ @ 0x18000982C (-RequestRedraw@CProjectedShadowCaster@@QEAAXXZ.c)
- *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000986C (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
+ *     ?RequestRedraw@CProjectedShadowCaster@@QEAAXXZ @ 0x180011C8C (-RequestRedraw@CProjectedShadowCaster@@QEAAXXZ.c)
+ *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x180011D40 (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
  */
 
 void __fastcall CVisual::DirtyProjectedShadowCasters(CVisual *this)
 {
   __int64 ProjectedShadowCasters; // rax
-  CProjectedShadowCaster **v2; // rdi
-  CProjectedShadowCaster **i; // rbx
+  __int64 v2; // rbx
+  CProjectedShadowCaster **v3; // rdi
+  unsigned __int64 v4; // rsi
 
-  if ( (**((_DWORD **)this + 29) & 0x40000) != 0 )
+  if ( (**((_DWORD **)this + 28) & 0x40000) != 0 )
   {
     ProjectedShadowCasters = CVisual::GetProjectedShadowCasters(this);
-    v2 = *(CProjectedShadowCaster ***)(ProjectedShadowCasters + 8);
-    for ( i = *(CProjectedShadowCaster ***)ProjectedShadowCasters; i != v2; ++i )
-      CProjectedShadowCaster::RequestRedraw(*i);
+    v2 = 0LL;
+    v3 = *(CProjectedShadowCaster ***)ProjectedShadowCasters;
+    v4 = (unsigned __int64)(*(_QWORD *)(ProjectedShadowCasters + 8) - *(_QWORD *)ProjectedShadowCasters + 7LL) >> 3;
+    if ( *(_QWORD *)ProjectedShadowCasters > *(_QWORD *)(ProjectedShadowCasters + 8) )
+      v4 = 0LL;
+    if ( v4 )
+    {
+      do
+      {
+        CProjectedShadowCaster::RequestRedraw(*v3);
+        ++v2;
+        ++v3;
+      }
+      while ( v2 != v4 );
+    }
   }
 }

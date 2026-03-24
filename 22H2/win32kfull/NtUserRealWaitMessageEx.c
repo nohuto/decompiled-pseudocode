@@ -1,30 +1,29 @@
 /*
- * XREFs of NtUserRealWaitMessageEx @ 0x1C01D8DC0
+ * XREFs of NtUserRealWaitMessageEx @ 0x1C0200410
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxSleepThread2 @ 0x1C0125E60 (xxxSleepThread2.c)
+ *     xxxSleepThread2 @ 0x1C00586B0 (xxxSleepThread2.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserRealWaitMessageEx(unsigned int a1, unsigned int a2)
 {
   __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  int v8; // ebx
+  __int64 v5; // r8
+  __int64 v6; // rcx
+  int v7; // ebx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (a1 & 0xFFFFA200) != 0 )
   {
-    UserSetLastError(1004);
-    v8 = 0;
+    UserSetLastError(1004LL, v4, v5);
+    v7 = 0;
   }
   else
   {
-    v8 = xxxSleepThread2(a1, a2, 1, 0, 0LL);
+    v7 = xxxSleepThread2(a1, a2, 1, 0, 0LL);
   }
-  UserSessionSwitchLeaveCrit(v5, v4, v6, v7);
-  return v8;
+  UserSessionSwitchLeaveCrit(v6);
+  return v7;
 }

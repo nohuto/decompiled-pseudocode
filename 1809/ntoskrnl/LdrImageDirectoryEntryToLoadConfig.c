@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrImageDirectoryEntryToLoadConfig @ 0x140682014
+ * XREFs of LdrImageDirectoryEntryToLoadConfig @ 0x140681FF4
  * Callers:
- *     RtlIsImageFullyRetpolined @ 0x1401B5FB8 (RtlIsImageFullyRetpolined.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1402F6618 (RtlGuardCheckLongJumpTarget.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F74A4 (RtlpCaptureDynamicRelocationTableRva.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7570 (RtlpCaptureRetpolineBinaryInfoForImage.c)
- *     LdrpFetchAddressOfSecurityCookie @ 0x140681F7C (LdrpFetchAddressOfSecurityCookie.c)
+ *     RtlIsImageFullyRetpolined @ 0x1401B5FD8 (RtlIsImageFullyRetpolined.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1402F6718 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F75A4 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7670 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x140681F5C (LdrpFetchAddressOfSecurityCookie.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     RtlWow64GetEquivalentMachineCHPE @ 0x1400F552C (RtlWow64GetEquivalentMachineCHPE.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     RtlWow64GetEquivalentMachineCHPE @ 0x1400F554C (RtlWow64GetEquivalentMachineCHPE.c)
  */
 
 __int64 __fastcall LdrImageDirectoryEntryToLoadConfig(PVOID BaseAddress)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaUseEmergencyLogicalAddressResources @ 0x140504FE8
+ * XREFs of HalpDmaUseEmergencyLogicalAddressResources @ 0x1404B85A8
  * Callers:
- *     HalpConstructScatterGatherListDmarThin @ 0x140516878 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140517830 (HalpAllocateDmaResourcesInternal.c)
+ *     HalpDmaAllocateAndPremapLa @ 0x1404B6D70 (HalpDmaAllocateAndPremapLa.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CB818 (HalpConstructScatterGatherListThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaUseEmergencyLogicalAddressResources(__int64 a1, _QWORD *a2, char a3)

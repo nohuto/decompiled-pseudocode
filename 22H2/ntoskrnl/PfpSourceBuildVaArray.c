@@ -1,60 +1,54 @@
 /*
- * XREFs of PfpSourceBuildVaArray @ 0x14097EE08
+ * XREFs of PfpSourceBuildVaArray @ 0x14070CD70
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x14097E318 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x14070C958 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PfpSourceBuildVaArray(__int64 a1, unsigned int *a2)
+__int64 __fastcall PfpSourceBuildVaArray(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbp
+  __int64 v2; // rdi
   unsigned int v3; // ebx
-  PVOID *v6; // rdi
-  __int64 Pool2; // rax
-  unsigned int v8; // eax
-  unsigned int v9; // r8d
-  _QWORD *i; // rdx
+  void *v6; // rcx
+  PVOID PoolWithTag; // rax
+  _QWORD *v8; // rdx
+  unsigned int i; // r8d
+  __int64 v10; // rcx
   __int64 v11; // rcx
-  __int64 v12; // rcx
 
   v2 = *(unsigned int *)(a1 + 24);
   v3 = 0;
-  if ( (_DWORD)v2 )
-  {
-    v6 = (PVOID *)(a2 + 2);
-    if ( a2[1] < (unsigned int)v2 )
-    {
-      if ( *v6 )
-      {
-        ExFreePoolWithTag(*v6, 0);
-        *v6 = 0LL;
-        a2[1] = 0;
-      }
-      if ( (unsigned __int64)(16 * v2) > 0xFFFFFFFF )
-        return (unsigned int)-1073741675;
-      Pool2 = ExAllocatePool2(64LL, (unsigned int)(16 * v2), 1096181328LL);
-      *v6 = (PVOID)Pool2;
-      if ( !Pool2 )
-        return (unsigned int)-1073741670;
-      a2[1] = v2;
-    }
-    v8 = *(_DWORD *)(a1 + 24);
-    v9 = 0;
-    for ( i = *v6; v9 < v8; v8 = *(_DWORD *)(a1 + 24) )
-    {
-      v11 = v9++;
-      v12 = *(_QWORD *)(a1 + 32) + 16 * v11;
-      *i = *(_QWORD *)v12;
-      i += 2;
-      *(i - 1) = *(unsigned int *)(v12 + 8);
-    }
-    *a2 = v8;
-  }
-  else
-  {
+  if ( !(_DWORD)v2 )
     return (unsigned int)-1073741275;
+  if ( *(_DWORD *)(a2 + 4) < (unsigned int)v2 )
+  {
+    v6 = *(void **)(a2 + 8);
+    if ( v6 )
+    {
+      ExFreePoolWithTag(v6, 0);
+      *(_QWORD *)(a2 + 8) = 0LL;
+      *(_DWORD *)(a2 + 4) = 0;
+    }
+    if ( (unsigned __int64)(16 * v2) > 0xFFFFFFFF )
+      return (unsigned int)-1073741675;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(16 * v2), 0x41566650u);
+    *(_QWORD *)(a2 + 8) = PoolWithTag;
+    if ( !PoolWithTag )
+      return (unsigned int)-1073741670;
+    *(_DWORD *)(a2 + 4) = v2;
+    LODWORD(v2) = *(_DWORD *)(a1 + 24);
   }
+  v8 = *(_QWORD **)(a2 + 8);
+  for ( i = 0; i < (unsigned int)v2; LODWORD(v2) = *(_DWORD *)(a1 + 24) )
+  {
+    v10 = i++;
+    v11 = *(_QWORD *)(a1 + 32) + 16 * v10;
+    *v8 = *(_QWORD *)v11;
+    v8 += 2;
+    *(v8 - 1) = *(unsigned int *)(v11 + 8);
+  }
+  *(_DWORD *)a2 = v2;
   return v3;
 }

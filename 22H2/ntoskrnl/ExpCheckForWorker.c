@@ -1,102 +1,107 @@
 /*
- * XREFs of ExpCheckForWorker @ 0x14060CC78
+ * XREFs of ExpCheckForWorker @ 0x1405B6F04
  * Callers:
- *     ExpFreePoolChecks @ 0x1402AC370 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x1402EB05C (ExpFreePoolChecks.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140251F10 (KiAcquireKobjectLockSafe.c)
- *     PsGetNextPartition @ 0x14036A720 (PsGetNextPartition.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024BE10 (KiAcquireKobjectLockSafe.c)
+ *     PsGetNextPartition @ 0x140303EF8 (PsGetNextPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  ULONG_PTR BugCheckParameter4; // r13
+  ULONG_PTR BugCheckParameter4; // r12
   _QWORD *i; // rcx
   _QWORD *result; // rax
-  _QWORD *v6; // rdi
+  volatile signed __int32 *SchedulerAssist; // r9
+  _QWORD *v7; // rbx
+  __int64 v8; // r8
   unsigned __int16 j; // bp
-  unsigned __int16 *v8; // rdx
-  __int64 v9; // r15
-  volatile signed __int32 *v10; // rbx
+  __int64 v10; // r14
+  __int64 v11; // r13
+  __int64 v12; // rdx
+  volatile signed __int32 *v13; // rdi
   unsigned __int8 CurrentIrql; // si
-  _DWORD *SchedulerAssist; // r9
-  __int64 v13; // rdx
-  volatile signed __int32 **v14; // rdx
+  volatile signed __int32 **v15; // rdx
   int k; // ecx
-  volatile signed __int32 *m; // r8
-  unsigned __int8 v17; // al
+  volatile signed __int32 *v17; // r8
+  unsigned __int8 v18; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v19; // r9
   int v20; // eax
   bool v21; // zf
-  unsigned __int16 *v22; // [rsp+60h] [rbp+8h]
 
   BugCheckParameter4 = BugCheckParameter3 + a2;
-  for ( i = 0LL; ; i = v6 )
+  for ( i = 0LL; ; i = v7 )
   {
     result = PsGetNextPartition(i);
-    v6 = result;
+    v7 = result;
     if ( !result )
       break;
+    v8 = 2LL;
     if ( result != PspSystemPartition || result[2] )
     {
       for ( j = 0; j < (unsigned __int16)KeNumberNodes; ++j )
       {
-        v8 = (unsigned __int16 *)KeNodeBlock[j];
-        v9 = 0LL;
-        if ( v8 == (unsigned __int16 *)((char *)&KiNodeInit + 304 * j) )
-          v8 = 0LL;
-        v22 = v8;
+        v10 = 0LL;
+        v11 = KeNodeBlock[j];
+        if ( (_UNKNOWN *)v11 == (_UNKNOWN *)((char *)&KiNodeInit + 384 * j) )
+          v11 = 0LL;
         do
         {
-          v10 = *(volatile signed __int32 **)(*(_QWORD *)(*(_QWORD *)(v6[2] + 8LL) + 8LL * *v8) + v9);
-          if ( ((unsigned __int8)v10 & 1) == 0 && v10 )
+          v12 = *(unsigned __int16 *)(v11 + 146);
+          v13 = *(volatile signed __int32 **)(*(_QWORD *)(*(_QWORD *)(v7[2] + 8LL) + 8 * v12) + v10);
+          if ( ((unsigned __int8)v13 & 1) == 0 && v13 )
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
             if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
-              SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-              if ( CurrentIrql == 2 )
-                LODWORD(v13) = 4;
-              else
-                v13 = (-1LL << (CurrentIrql + 1)) & 4;
-              SchedulerAssist[5] |= v13;
+              SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
+              v12 = (-1LL << (CurrentIrql + 1)) & 4;
+              v8 = (unsigned int)v12 | *((_DWORD *)SchedulerAssist + 5);
+              *((_DWORD *)SchedulerAssist + 5) = v8;
             }
-            KiAcquireKobjectLockSafe(v10);
-            v14 = (volatile signed __int32 **)(v10 + 6);
+            KiAcquireKobjectLockSafe(v13, v12, v8, (__int64)SchedulerAssist);
+            v15 = (volatile signed __int32 **)(v13 + 6);
             for ( k = 0; k < 32; ++k )
             {
-              for ( m = *v14; m != &v10[4 * k + 6]; m = *(volatile signed __int32 **)m )
+              v17 = *v15;
+              SchedulerAssist = &v13[4 * k + 6];
+              while ( v17 != SchedulerAssist )
               {
-                if ( (unsigned __int64)m >= BugCheckParameter3 && (unsigned __int64)m < BugCheckParameter4 )
-                  KeBugCheckEx(0xE4u, 0LL, (ULONG_PTR)m, BugCheckParameter3, BugCheckParameter4);
+                if ( (unsigned __int64)v17 >= BugCheckParameter3 && (unsigned __int64)v17 < BugCheckParameter4 )
+                  KeBugCheckEx(0xE4u, 0LL, (ULONG_PTR)v17, BugCheckParameter3, BugCheckParameter4);
+                v17 = *(volatile signed __int32 **)v17;
               }
-              v14 += 2;
+              v15 += 2;
             }
-            _InterlockedAnd(v10, 0xFFFFFF7F);
+            _InterlockedAnd(v13, 0xFFFFFF7F);
+            v8 = 2LL;
             if ( KiIrqlFlags )
             {
-              v17 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+              if ( (KiIrqlFlags & 1) != 0 )
               {
-                CurrentPrcb = KeGetCurrentPrcb();
-                v19 = CurrentPrcb->SchedulerAssist;
-                v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                v21 = (v20 & v19[5]) == 0;
-                v19[5] &= v20;
-                if ( v21 )
-                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                v18 = KeGetCurrentIrql();
+                if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+                {
+                  CurrentPrcb = KeGetCurrentPrcb();
+                  SchedulerAssist = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
+                  v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v21 = (v20 & SchedulerAssist[5]) == 0;
+                  *((_DWORD *)SchedulerAssist + 5) &= v20;
+                  if ( v21 )
+                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                  v8 = 2LL;
+                }
               }
             }
             __writecr8(CurrentIrql);
           }
-          v8 = v22;
-          v9 += 8LL;
+          v10 += 8LL;
         }
-        while ( v9 < 64 );
+        while ( v10 < 64 );
       }
     }
   }

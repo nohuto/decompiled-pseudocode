@@ -1,11 +1,10 @@
 /*
- * XREFs of ?IsPixelAligned@@YA_NAEBUMilRectF@@@Z @ 0x1800CABFC
+ * XREFs of ?IsPixelAligned@@YA_NAEBUMilRectF@@@Z @ 0x1800143D0
  * Callers:
- *     ?CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x18001716C (-CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
- *     ?Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@MW4DXGI_MODE_ROTATION@@PEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800CA7F8 (-Initialize@CMonitorTransform@@QEAAXAEBUD2D_SIZE_U@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
- *     ?BuildFromRectFs@CShape@@SAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IPEAPEAV1@@Z @ 0x1801B17EC (-BuildFromRectFs@CShape@@SAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
+ *     ?CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x180013EB0 (-CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
+ *     ?BuildFromRectFs@CShape@@SAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IPEAPEAV1@@Z @ 0x18025D20C (-BuildFromRectFs@CShape@@SAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
  * Callees:
- *     ?IsPixelAligned@@YA_NM@Z @ 0x1800CAC54 (-IsPixelAligned@@YA_NM@Z.c)
+ *     ?IsPixelAligned@@YA_NM@Z @ 0x180014428 (-IsPixelAligned@@YA_NM@Z.c)
  */
 
 char __fastcall IsPixelAligned(const struct MilRectF *a1)

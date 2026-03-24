@@ -1,9 +1,9 @@
 /*
- * XREFs of NtRIMGetDevicePreparsedDataLockfree @ 0x1C0174E00
+ * XREFs of NtRIMGetDevicePreparsedDataLockfree @ 0x1C0153730
  * Callers:
  *     <none>
  * Callees:
- *     RIMGetDevicePreparsedDataLockfree @ 0x1C0177D10 (RIMGetDevicePreparsedDataLockfree.c)
+ *     RIMGetDevicePreparsedDataLockfree @ 0x1C0155F90 (RIMGetDevicePreparsedDataLockfree.c)
  */
 
 __int64 __fastcall NtRIMGetDevicePreparsedDataLockfree(__int64 a1, __int64 a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dDDDdDDD @ 0x1C0032EB4
+ * XREFs of WPP_RECORDER_SF_dDDDdDDD @ 0x1C003264C
  * Callers:
- *     HUBDESC_InternalValidateSuperSpeedPlusDeviceCapabilityDescriptor @ 0x1C0037A7C (HUBDESC_InternalValidateSuperSpeedPlusDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedPlusDeviceCapabilityDescriptor @ 0x1C0037204 (HUBDESC_InternalValidateSuperSpeedPlusDeviceCapabilityDescriptor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dDDDdDDD(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
@@ -50,7 +50,7 @@ __int64 WPP_RECORDER_SF_dDDDdDDD(__int64 a1, __int64 a2, __int64 a3, unsigned __
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+      &WPP_aa79356b1e693837079f99291824f69e_Traceguids,
       a4,
       (__int64 *)va,
       4LL,
@@ -70,5 +70,5 @@ __int64 WPP_RECORDER_SF_dDDDdDDD(__int64 a1, __int64 a2, __int64 a3, unsigned __
       4LL,
       0LL);
   LOWORD(v8) = a4;
-  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v8, (__int64 *)va);
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_aa79356b1e693837079f99291824f69e_Traceguids, v8, (__int64 *)va);
 }

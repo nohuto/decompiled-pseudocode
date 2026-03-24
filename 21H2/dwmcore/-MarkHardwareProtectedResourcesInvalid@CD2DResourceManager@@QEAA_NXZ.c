@@ -1,11 +1,11 @@
 /*
- * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18028D120
+ * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18024CBDC
  * Callers:
- *     ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x18027CFA0 (-ClearProtectedResources@CD3DDevice@@QEAA_NXZ.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180071B10 (-PreRender@CComposition@@IEAAJXZ.c)
  * Callees:
- *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18006AB4C (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
- *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x1800FF534 (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18002AAE8 (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003A298 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CD2DResourceManager::MarkHardwareProtectedResourcesInvalid(CD2DResourceManager *this)
@@ -13,11 +13,11 @@ char __fastcall CD2DResourceManager::MarkHardwareProtectedResourcesInvalid(CD2DR
   CD2DContext *v1; // rdi
   char v2; // bp
   char *v3; // rbx
-  struct CD2DResource *v5; // r12
+  struct CD2DResource *v5; // r13
   CD2DContext *v6; // r14
   bool v7; // zf
-  char *v8; // r13
-  CD2DContext *v9; // rdx
+  char *v8; // r12
+  CD2DContext *v9; // rcx
   CD2DContext **v10; // rax
 
   v1 = *(CD2DContext **)this;

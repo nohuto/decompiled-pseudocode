@@ -1,8 +1,8 @@
 /*
- * XREFs of atan2f_0 @ 0x18011B884
+ * XREFs of atan2f_0 @ 0x1800F3F6F
  * Callers:
- *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x18023C8D0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
- *     ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18027E89C (-D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801D7838 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18021DB54 (-D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z.c)
  * Callees:
  *     <none>
  */

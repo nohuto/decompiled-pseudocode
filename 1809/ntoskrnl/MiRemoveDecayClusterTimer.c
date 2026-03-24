@@ -2,9 +2,9 @@
  * XREFs of MiRemoveDecayClusterTimer @ 0x1400293F0
  * Callers:
  *     MiDeleteParentDecayNode @ 0x140029354 (MiDeleteParentDecayNode.c)
- *     MiEmptyDecayClusterTimers @ 0x1400F07D0 (MiEmptyDecayClusterTimers.c)
- *     MiDecayPfnFullyInitialized @ 0x14011BD50 (MiDecayPfnFullyInitialized.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F00 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiEmptyDecayClusterTimers @ 0x1400F07F0 (MiEmptyDecayClusterTimers.c)
+ *     MiDecayPfnFullyInitialized @ 0x14011BD70 (MiDecayPfnFullyInitialized.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
  *     <none>
  */

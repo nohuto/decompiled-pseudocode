@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A67818
+ * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1409797B0
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x140A69994 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x14073144C (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDCF0 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140787D44 (_CmOpenInstallerClassRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406BE2A4 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406BE9AC (_CmOpenInstallerClassRegKey.c)
  */
 
-__int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, int a2, void *a3, __int64 a4)
+__int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, const WCHAR *a2, void *a3, __int64 a4)
 {
   int v4; // r10d
   HANDLE v5; // rbx
@@ -18,9 +18,9 @@ __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, 
   DEVPROPKEY **v9; // r9
   __int64 v10; // r8
   DEVPROPKEY *v13; // rdx
-  DEVPROPKEY **v14; // r14
+  DEVPROPKEY **v14; // r15
   __int64 v15; // rcx
-  const WCHAR *v16; // r14
+  const WCHAR *v16; // r15
   __int64 v17; // rax
   int v18; // eax
   NTSTATUS inited; // eax
@@ -34,7 +34,7 @@ __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, 
   KeyHandle = 0LL;
   v6 = 0;
   Handle = 0LL;
-  v9 = &off_140A79DF0;
+  v9 = &off_140985730;
   v10 = 0LL;
   do
   {
@@ -73,8 +73,8 @@ LABEL_22:
     else
     {
       if ( a3 )
-        LODWORD(v5) = (_DWORD)a3;
-      v18 = PnpOpenPropertiesKey(a1, (int)v5, 0LL, 2, 0, v21, &KeyHandle);
+        v5 = a3;
+      v18 = PnpOpenPropertiesKey(a1, (__int64)v5, 0LL, 2u, 0, v21, &KeyHandle);
       v6 = v18;
       if ( v18 == -1073741772 )
       {
@@ -100,7 +100,7 @@ LABEL_22:
       }
     }
     DestinationString = 0LL;
-    if ( RtlInitUnicodeStringEx(&DestinationString, &word_1408882A0) >= 0 )
+    if ( RtlInitUnicodeStringEx(&DestinationString, &word_1407D7A40) >= 0 )
       ZwDeleteValueKey(v5, &DestinationString);
     goto LABEL_32;
   }

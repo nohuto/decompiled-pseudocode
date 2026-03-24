@@ -1,25 +1,17 @@
 /*
- * XREFs of ??1CDDisplayManager@@QEAA@XZ @ 0x1801003B8
+ * XREFs of ??1CDDisplayManager@@QEAA@XZ @ 0x1800E6774
  * Callers:
- *     _dynamic_atexit_destructor_for__g_DDisplayManager__ @ 0x18010DB30 (_dynamic_atexit_destructor_for__g_DDisplayManager__.c)
+ *     _dynamic_atexit_destructor_for__g_DDisplayManager__ @ 0x1800F9990 (_dynamic_atexit_destructor_for__g_DDisplayManager__.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDDisplayManager::~CDDisplayManager(CDDisplayManager *this)
 {
-  void *v2; // rcx
-
-  v2 = (void *)*((_QWORD *)this + 4);
-  if ( v2 )
-  {
-    std::_Deallocate<16,0>(v2, (*((_QWORD *)this + 6) - (_QWORD)v2) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 4) = 0LL;
-    *((_QWORD *)this + 5) = 0LL;
-    *((_QWORD *)this + 6) = 0LL;
-  }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 2);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 1);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this);
+  if ( qword_18034B678 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)qword_18034B678 + 16LL))(qword_18034B678);
+  if ( *((_QWORD *)&g_DDisplayManager + 1) )
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)&g_DDisplayManager + 1) + 16LL))(*((_QWORD *)&g_DDisplayManager + 1));
+  if ( (_QWORD)g_DDisplayManager )
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)g_DDisplayManager + 16LL))(g_DDisplayManager);
 }

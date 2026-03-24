@@ -1,100 +1,95 @@
 /*
- * XREFs of GreSpDwmSyncCaptureSurfaceBits @ 0x1C0268210
+ * XREFs of GreSpDwmSyncCaptureSurfaceBits @ 0x1C026FC20
  * Callers:
- *     xxxPrintWindow @ 0x1C01BCFE4 (xxxPrintWindow.c)
+ *     xxxPrintWindow @ 0x1C01E7D10 (xxxPrintWindow.c)
  * Callees:
- *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C00081A8 (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00F3FD0 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C011C124 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C002DC64 (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B121C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C00B7700 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 _BOOL8 __fastcall GreSpDwmSyncCaptureSurfaceBits(HWND a1, HDC a2, float a3, int a4, int a5, int a6, int a7)
 {
-  Gre::Base *v9; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v15; // rcx
-  int v16; // eax
-  HSURF v17; // rbx
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
   BOOL updated; // ebx
-  __int64 v22; // [rsp+58h] [rbp-B0h] BYREF
-  int v23; // [rsp+60h] [rbp-A8h] BYREF
-  int v24[4]; // [rsp+68h] [rbp-A0h] BYREF
-  _QWORD v25[2]; // [rsp+78h] [rbp-90h] BYREF
-  _BYTE v26[32]; // [rsp+88h] [rbp-80h] BYREF
-  _BYTE v27[32]; // [rsp+A8h] [rbp-60h] BYREF
-  _QWORD v28[2]; // [rsp+C8h] [rbp-40h] BYREF
-  _BYTE v29[64]; // [rsp+D8h] [rbp-30h] BYREF
-  struct tagRECT v30; // [rsp+118h] [rbp+10h] BYREF
+  __int64 *v10; // rcx
+  __int64 v11; // rax
+  int v12; // edx
+  int v13; // ecx
+  __int64 v14; // rcx
+  HSURF v15; // rdi
+  int v16; // eax
+  __int64 v18; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v19; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v20; // [rsp+68h] [rbp-A0h] BYREF
+  int v21; // [rsp+70h] [rbp-98h]
+  int v22; // [rsp+74h] [rbp-94h]
+  _QWORD v23[2]; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v24[32]; // [rsp+88h] [rbp-80h] BYREF
+  _BYTE v25[32]; // [rsp+A8h] [rbp-60h] BYREF
+  _QWORD v26[2]; // [rsp+C8h] [rbp-40h] BYREF
+  _BYTE v27[64]; // [rsp+D8h] [rbp-30h] BYREF
+  __int64 v28; // [rsp+118h] [rbp+10h] BYREF
+  int v29; // [rsp+120h] [rbp+18h]
+  int v30; // [rsp+124h] [rbp+1Ch]
 
-  DCOBJ::DCOBJ((DCOBJ *)v25, a2);
-  if ( !v25[0] )
-    goto LABEL_5;
-  *(_QWORD *)&v30.left = *(_QWORD *)(v25[0] + 8LL * (*(_DWORD *)(v25[0] + 40LL) & 1) + 1016);
-  v30.bottom = v30.top + a7;
-  v30.right = v30.left + a6;
-  ERECTL::vOrder((ERECTL *)&v30);
-  v10 = Gre::Base::Globals(v9);
-  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v23, *((HSEMAPHORE *)v10 + 10));
-  v22 = *((_QWORD *)v10 + 15);
-  GreAcquireSemaphore(v22);
-  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v28);
-  DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v27, (struct XDCOBJ *)v25, 0);
-  if ( (v27[24] & 1) == 0 )
+  DCOBJ::DCOBJ((DCOBJ *)v23, a2);
+  updated = 0;
+  if ( v23[0] )
   {
-    DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v27);
-LABEL_4:
-    SEMOBJ::vUnlock((SEMOBJ *)&v22);
-    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v23);
-LABEL_5:
-    DCOBJ::~DCOBJ((DCOBJ *)v25);
-    return 0LL;
+    v10 = (__int64 *)(v23[0] + 1024LL);
+    if ( (*(_DWORD *)(v23[0] + 40LL) & 1) == 0 )
+      v10 = (__int64 *)(v23[0] + 1016LL);
+    v11 = *v10;
+    v12 = *v10 + a6;
+    v13 = HIDWORD(*v10) + a7;
+    v28 = v11;
+    v30 = v13;
+    v29 = v12;
+    ERECTL::vOrder((ERECTL *)&v28);
+    SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v19, ghsemDynamicModeChange);
+    v18 = ghsemGreLock;
+    GreAcquireSemaphore(ghsemGreLock);
+    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v26);
+    DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v25, (struct XDCOBJ *)v23, 0);
+    if ( (v25[24] & 1) != 0 && (v14 = *(_QWORD *)(v23[0] + 496LL)) != 0 )
+    {
+      v15 = *(HSURF *)(v14 + 32);
+      v21 = *(_DWORD *)(v14 + 56);
+      v16 = *(_DWORD *)(v14 + 60);
+      v20 = 0LL;
+      v22 = v16;
+      ERECTL::operator*=((int *)&v28, (int *)&v20);
+      DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v25);
+      if ( v26[0] )
+        DLODCOBJ::vUnlock((DLODCOBJ *)v26);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v27);
+      SEMOBJ::vUnlock((SEMOBJ *)&v18);
+      SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v19);
+      if ( !ERECTL::bWrapped((ERECTL *)&v28) && !KeAreApcsDisabled() )
+        updated = bSpDwmUpdateSurface(a1, 0LL, (struct XDCOBJ *)v23, v15, a3, a4, a5, (struct ERECTL *)&v28, 0LL);
+    }
+    else
+    {
+      DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v25);
+      if ( v26[0] )
+        DLODCOBJ::vUnlock((DLODCOBJ *)v26);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v27);
+      SEMOBJ::vUnlock((SEMOBJ *)&v18);
+      SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v19);
+    }
   }
-  v15 = *(_QWORD *)(v25[0] + 496LL);
-  if ( !v15 )
-  {
-    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v27, v11, v12, v13);
-    if ( v28[0] )
-      DLODCOBJ::vUnlock((DLODCOBJ *)v28);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v29);
-    goto LABEL_4;
-  }
-  v16 = *(_DWORD *)(v15 + 56);
-  v17 = *(HSURF *)(v15 + 32);
-  v24[0] = 0;
-  v24[1] = 0;
-  v24[2] = v16;
-  v24[3] = *(_DWORD *)(v15 + 60);
-  ERECTL::operator*=(&v30.left, v24);
-  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v27, v18, v19, v20);
-  if ( v28[0] )
-    DLODCOBJ::vUnlock((DLODCOBJ *)v28);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v29);
-  SEMOBJ::vUnlock((SEMOBJ *)&v22);
-  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v23);
-  if ( IsRectEmptyInl(&v30) || KeAreApcsDisabled() )
-    goto LABEL_5;
-  updated = bSpDwmUpdateSurface(a1, 0LL, (struct XDCOBJ *)v25, v17, a3, a4, a5, (struct ERECTL *)&v30, 0LL);
-  if ( v25[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v25);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v26);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v23);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v24);
   return updated;
 }

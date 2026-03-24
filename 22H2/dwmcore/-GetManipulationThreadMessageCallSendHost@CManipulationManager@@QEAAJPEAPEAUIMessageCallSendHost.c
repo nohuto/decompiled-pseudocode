@@ -1,10 +1,11 @@
 /*
- * XREFs of ?GetManipulationThreadMessageCallSendHost@CManipulationManager@@QEAAJPEAPEAUIMessageCallSendHost@@@Z @ 0x18020BFD0
+ * XREFs of ?GetManipulationThreadMessageCallSendHost@CManipulationManager@@QEAAJPEAPEAUIMessageCallSendHost@@@Z @ 0x1801C5F30
  * Callers:
- *     ?Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ @ 0x18020C700 (-Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ.c)
- *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x18020F1BC (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ @ 0x1801C66F0 (-Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801D5538 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?SendUpdateToRenderThread@CManipulationTelemetryData@@UEAAJXZ @ 0x180232170 (-SendUpdateToRenderThread@CManipulationTelemetryData@@UEAAJXZ.c)
  * Callees:
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2C10 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9CA4 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
  */
 
 __int64 __fastcall CManipulationManager::GetManipulationThreadMessageCallSendHost(
@@ -12,13 +13,16 @@ __int64 __fastcall CManipulationManager::GetManipulationThreadMessageCallSendHos
         struct IMessageCallSendHost **a2)
 {
   struct IMessageCallSendHost **v2; // rbx
+  struct IMessageCallSendHost *v3; // rax
 
   *a2 = 0LL;
   v2 = (struct IMessageCallSendHost **)((char *)this + 40);
-  if ( *((_QWORD *)this + 5) )
+  v3 = (struct IMessageCallSendHost *)*((_QWORD *)this + 5);
+  if ( v3 )
   {
     Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)this + 5);
     *a2 = *v2;
+    v3 = *v2;
   }
-  return *v2 == 0LL ? 0x80004005 : 0;
+  return v3 == 0LL ? 0x80004005 : 0;
 }

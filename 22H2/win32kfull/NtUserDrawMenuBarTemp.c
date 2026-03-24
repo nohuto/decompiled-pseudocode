@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserDrawMenuBarTemp @ 0x1C01CF1F0
+ * XREFs of NtUserDrawMenuBarTemp @ 0x1C01F8040
  * Callers:
  *     <none>
  * Callees:
- *     ?TraceLoggingDrawMenuBarTempCalled@@YAXXZ @ 0x1C0201A44 (-TraceLoggingDrawMenuBarTempCalled@@YAXXZ.c)
+ *     ?TraceLoggingDrawMenuBarTempCalled@@YAXXZ @ 0x1C0224784 (-TraceLoggingDrawMenuBarTempCalled@@YAXXZ.c)
  */
 
 __int64 NtUserDrawMenuBarTemp()

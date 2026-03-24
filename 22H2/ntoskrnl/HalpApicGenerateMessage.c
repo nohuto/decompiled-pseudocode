@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicGenerateMessage @ 0x1403ADB80
+ * XREFs of HalpApicGenerateMessage @ 0x140380710
  * Callers:
  *     <none>
  * Callees:
@@ -9,14 +9,14 @@
 __int64 __fastcall HalpApicGenerateMessage(__int64 a1, _DWORD *a2, unsigned __int64 *a3, _QWORD *a4)
 {
   int v4; // ebx
-  unsigned int v5; // r10d
+  unsigned int v5; // r11d
   int v9; // edx
+  int v10; // ecx
+  unsigned __int64 v11; // r9
+  int v12; // edx
+  int v13; // r8d
+  unsigned int v14; // edx
   unsigned __int8 CpuVendor; // cl
-  unsigned int v11; // edx
-  unsigned __int64 v12; // r9
-  int v14; // eax
-  int v15; // edx
-  int v16; // r8d
   int v17; // eax
   int v18; // eax
 
@@ -27,57 +27,57 @@ __int64 __fastcall HalpApicGenerateMessage(__int64 a1, _DWORD *a2, unsigned __in
   {
     case 1:
       v9 = 4;
-      v14 = 255;
-      goto LABEL_11;
+      v10 = 255;
+      goto LABEL_5;
     case 4:
     case 5:
-      v14 = a2[8];
-LABEL_11:
-      v12 = ((unsigned __int8)v14 | 0xFEE00LL) << 12;
+      v10 = a2[8];
+LABEL_5:
+      v11 = ((unsigned __int8)v10 | 0xFEE00LL) << 12;
       if ( HalpApicX2Mode )
-        v12 |= (unsigned __int64)(v14 & 0xFFFFFF00) << 24;
+        v11 |= (unsigned __int64)(v10 & 0xFFFFFF00) << 24;
       if ( v9 != 4 )
       {
-        v12 |= 4uLL;
+        v11 |= 4uLL;
         if ( (a2[3] & 2) != 0 )
-          v12 |= 8uLL;
+          v11 |= 8uLL;
       }
-      v15 = a2[12] | 0x4000;
+      v12 = a2[12] | 0x4000;
       if ( a2[2] != 1 )
-        v15 = a2[12];
-      v16 = v15 | 0x800;
+        v12 = a2[12];
+      v13 = v12 | 0x800;
       if ( v4 == 4 )
-        v16 = v15;
-      v11 = v16 | 0x100;
+        v13 = v12;
+      v14 = v13 | 0x100;
       if ( (a2[3] & 2) == 0 )
-        v11 = v16;
-      goto LABEL_8;
+        v14 = v13;
+      goto LABEL_16;
     case 6:
       v17 = a2[8];
       if ( HalpApicX2Mode )
         v18 = v17 << 16;
       else
         v18 = 16 * v17;
-      v14 = a2[9] | v18;
-      goto LABEL_11;
+      v10 = v18 | a2[9];
+      goto LABEL_5;
   }
   if ( v9 != 7 )
     return (unsigned int)-1073741822;
   CpuVendor = KeGetCurrentPrcb()->CpuVendor;
   if ( CpuVendor == 2 )
   {
-    v11 = 0;
-    v12 = (32 * (a2[8] & 0x7FFFu)) | (unsigned __int64)((a2[8] >> 13) & 4) | 0xFEE00018;
+    v14 = 0;
+    v11 = (32 * (a2[8] & 0x7FFFu)) | (unsigned __int64)((a2[8] >> 13) & 4) | 0xFEE00018;
   }
   else
   {
     if ( CpuVendor != 1 )
       return (unsigned int)-1073741637;
-    v12 = 4276092932LL;
-    v11 = a2[8] & 0x1FF;
+    v11 = 4276092932LL;
+    v14 = a2[8] & 0x1FF;
   }
-LABEL_8:
-  *a3 = v12;
-  *a4 = v11;
+LABEL_16:
+  *a3 = v11;
+  *a4 = v14;
   return v5;
 }

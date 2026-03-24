@@ -1,74 +1,70 @@
 /*
- * XREFs of _SysCtxOpenControlSet @ 0x140856138
+ * XREFs of _SysCtxOpenControlSet @ 0x1407A4F54
  * Callers:
- *     _SysCtxOpenMachine @ 0x140855F00 (_SysCtxOpenMachine.c)
+ *     _SysCtxOpenMachine @ 0x1407A4D24 (_SysCtxOpenMachine.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406CEE20 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlCreateKeyTransacted @ 0x14079844C (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1406B733C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406BB4DC (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
-__int64 __fastcall SysCtxOpenControlSet(unsigned int a1, void *a2, __int64 a3, HANDLE *a4)
+__int64 __fastcall SysCtxOpenControlSet(__int64 a1, char *a2, __int64 a3, HANDLE *a4)
 {
-  char v4; // r15
+  char v7; // r15
   unsigned int KeyTransacted; // ebx
   unsigned int v10; // eax
-  int v11; // [rsp+50h] [rbp-19h] BYREF
-  int v12; // [rsp+58h] [rbp-11h] BYREF
-  unsigned int KeyHandle[3]; // [rsp+5Ch] [rbp-Dh] BYREF
-  wchar_t pszDest[16]; // [rsp+68h] [rbp-1h] BYREF
+  _DWORD v11[4]; // [rsp+50h] [rbp-29h] BYREF
+  int v12; // [rsp+60h] [rbp-19h] BYREF
+  unsigned int KeyHandle[3]; // [rsp+64h] [rbp-15h] BYREF
+  wchar_t pszDest[16]; // [rsp+70h] [rbp-9h] BYREF
 
-  *(_QWORD *)&KeyHandle[1] = 0LL;
-  v4 = 0;
-  v12 = 0;
   *a4 = 0LL;
-  v11 = a1;
-  if ( a1 )
-    goto LABEL_16;
+  v11[0] = 0;
+  *(_QWORD *)&KeyHandle[1] = 0LL;
+  v12 = 0;
+  v7 = 0;
   KeyTransacted = RegRtlOpenKeyTransacted(a2, L"CurrentControlSet", 0, 0x2000000u, a4, a3);
   if ( KeyTransacted == -1073741772 )
   {
-    KeyTransacted = RegRtlOpenKeyTransacted(a2, L"Select", 0, 1u, (HANDLE *)&KeyHandle[1], a3);
+    KeyTransacted = RegRtlOpenKeyTransacted(a2, L"Select", 0, 1u, (PHANDLE)&KeyHandle[1], a3);
     if ( KeyTransacted == -1073741772 )
-      KeyTransacted = RegRtlCreateKeyTransacted((__int64)a2, L"Select", 0, 3u, 0LL, 0, (HANDLE *)&KeyHandle[1], 0LL, a3);
+      KeyTransacted = RegRtlCreateKeyTransacted(a2, L"Select", 0, 3u, 0LL, 0, (PHANDLE)&KeyHandle[1], 0LL, a3);
     if ( !KeyTransacted )
     {
       KeyHandle[0] = 4;
-      v10 = RegRtlQueryValue(*(HANDLE *)&KeyHandle[1], L"Current", &v12, &v11, KeyHandle);
+      v10 = RegRtlQueryValue(*(HANDLE *)&KeyHandle[1], L"Current", &v12, v11, KeyHandle);
       KeyTransacted = v10;
       if ( v10 == -1073741772 )
       {
-        v11 = 1;
-        v4 = 1;
-        KeyTransacted = RegRtlSetValue(*(HANDLE *)&KeyHandle[1], L"Current", 4u, &v11, 4u);
+        v11[0] = 1;
+        v7 = 1;
+        KeyTransacted = RegRtlSetValue(*(HANDLE *)&KeyHandle[1], L"Current", 4u, v11, 4u);
         if ( KeyTransacted )
-          goto LABEL_3;
+          goto LABEL_2;
       }
       else
       {
         if ( v10 )
-          goto LABEL_3;
+          goto LABEL_2;
         if ( v12 != 4 || KeyHandle[0] != 4 )
-          goto LABEL_21;
+          goto LABEL_19;
       }
-      a1 = v11;
-LABEL_16:
-      if ( a1 <= 0x3E7 && RtlStringCchPrintfW(pszDest, 0xEuLL, L"ControlSet%03d", a1) >= 0 )
+      if ( v11[0] <= 0x3E7u && RtlStringCchPrintfW(pszDest, 0xEuLL, L"ControlSet%03d") >= 0 )
       {
         KeyTransacted = RegRtlOpenKeyTransacted(a2, pszDest, 0, 0x2000000u, a4, a3);
-        if ( KeyTransacted == -1073741772 && v4 )
-          KeyTransacted = RegRtlCreateKeyTransacted((__int64)a2, pszDest, 0, 0x2000000u, 0LL, 0, a4, 0LL, a3);
-        goto LABEL_3;
+        if ( KeyTransacted == -1073741772 && v7 )
+          KeyTransacted = RegRtlCreateKeyTransacted(a2, pszDest, 0, 0x2000000u, 0LL, 0, a4, 0LL, a3);
+        goto LABEL_2;
       }
-LABEL_21:
+LABEL_19:
       KeyTransacted = -1073741811;
     }
   }
-LABEL_3:
+LABEL_2:
   if ( *(_QWORD *)&KeyHandle[1] )
     ZwClose(*(HANDLE *)&KeyHandle[1]);
   return KeyTransacted;

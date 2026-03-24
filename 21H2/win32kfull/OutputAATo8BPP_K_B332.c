@@ -1,9 +1,9 @@
 /*
- * XREFs of OutputAATo8BPP_K_B332 @ 0x1C0262010
+ * XREFs of OutputAATo8BPP_K_B332 @ 0x1C0265140
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall OutputAATo8BPP_K_B332(

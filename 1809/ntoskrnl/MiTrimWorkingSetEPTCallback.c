@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimWorkingSetEPTCallback @ 0x1402B3D10
+ * XREFs of MiTrimWorkingSetEPTCallback @ 0x1402B3E10
  * Callers:
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiTrimmedEnough @ 0x140087DD8 (MiTrimmedEnough.c)
- *     MiTrimPteWorker @ 0x1402B3C34 (MiTrimPteWorker.c)
+ *     MiTrimPteWorker @ 0x1402B3D34 (MiTrimPteWorker.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetEPTCallback(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 a5)

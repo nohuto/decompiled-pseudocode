@@ -1,10 +1,10 @@
 /*
- * XREFs of WppCleanupKm @ 0x1C00799DC
+ * XREFs of WppCleanupKm @ 0x1C00761C4
  * Callers:
- *     DriverEntry @ 0x1C00743A0 (DriverEntry.c)
- *     DriverCleanup @ 0x1C00798D0 (DriverCleanup.c)
+ *     DriverEntry @ 0x1C007112C (DriverEntry.c)
+ *     DriverCleanup @ 0x1C0076110 (DriverCleanup.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppCleanupKm(__int64 a1)
@@ -14,19 +14,19 @@ void __fastcall WppCleanupKm(__int64 a1)
   v1 = WPP_GLOBAL_Control;
   if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control )
   {
-    if ( *(_DWORD *)&WPP_MAIN_CB.SectorSize == 4 )
+    if ( LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) == 4 )
     {
       while ( v1 )
       {
         if ( v1->Vpb )
         {
-          (*((void (**)(void))&WPP_MAIN_CB.Reserved + 1))();
+          ((void (*)(void))WPP_MAIN_CB.DeviceObjectExtension)();
           v1->Vpb = 0LL;
         }
         v1 = v1->NextDevice;
       }
     }
-    else if ( *(_DWORD *)&WPP_MAIN_CB.SectorSize == 2 )
+    else if ( LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) == 2 )
     {
       IoWMIRegistrationControl(WPP_GLOBAL_Control, 0x80000002);
     }

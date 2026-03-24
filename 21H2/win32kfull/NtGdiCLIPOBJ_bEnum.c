@@ -1,74 +1,81 @@
 /*
- * XREFs of NtGdiCLIPOBJ_bEnum @ 0x1C02B0D80
+ * XREFs of NtGdiCLIPOBJ_bEnum @ 0x1C02B2380
  * Callers:
  *     <none>
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0143064 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
- *     ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C0291450 (--$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C01552E4 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C0293900 (--$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiCLIPOBJ_bEnum(__int64 a1, unsigned int a2, char *a3)
 {
-  __int64 v4; // r15
-  int v5; // ebp
-  unsigned int v6; // edi
+  int v4; // ebp
+  unsigned int v5; // edi
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v10; // rbx
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
   unsigned __int64 v11; // rax
   XCLIPOBJ *v12; // r14
   char *v13; // rax
   char *v14; // rsi
-  unsigned int v16; // [rsp+68h] [rbp+20h] BYREF
+  unsigned int v15; // [rsp+68h] [rbp+20h] BYREF
 
-  v4 = a2;
+  v4 = -1;
   v5 = -1;
-  v6 = -1;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v10 = ThreadCurrentObj;
-  if ( ThreadCurrentObj )
+  if ( !ThreadCurrentObj )
+    goto LABEL_5;
+  if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    v11 = UMPDOBJ::GetDDIOBJ<_CLIPOBJ>((__int64)ThreadCurrentObj, a1);
-    v12 = (XCLIPOBJ *)v11;
-    if ( !v11 )
+    if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
     {
-LABEL_15:
-      --*((_DWORD *)v10 + 105);
-      return v6;
+      ThreadCurrentObj = 0LL;
+LABEL_5:
+      v4 = 0;
+LABEL_6:
+      v5 = v4;
+      goto LABEL_7;
     }
-    if ( (*((_DWORD *)v10 + 103) & 0x100) == 0 || *(_QWORD *)(v11 + 56) )
-    {
-      if ( (unsigned int)(v4 - 1) <= 0x270FFFF )
-      {
-        v13 = (char *)Win32AllocPool(v4, 1886221639LL);
-        v14 = v13;
-        if ( v13 )
-        {
-          v16 = 0;
-          v6 = XCLIPOBJ::bEnum(v12, v4, v13, &v16);
-          if ( v6 != -1 && !(unsigned int)bSafeCopyBits(a3, v14, v16) )
-            v6 = -1;
-          Win32FreePool(v14);
-        }
-      }
-      goto LABEL_15;
-    }
-    if ( gfUMPDDebug )
-      DbgPrint(
-        "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiCLIPOBJ_bEnum:!peco->bValid()\n",
-        2635);
   }
   else
   {
-    v5 = 0;
+    ++*((_DWORD *)ThreadCurrentObj + 105);
   }
-  v6 = v5;
-  if ( v10 )
-    goto LABEL_15;
-  return v6;
+  v11 = UMPDOBJ::GetDDIOBJ<_CLIPOBJ>((__int64)ThreadCurrentObj, a1);
+  v12 = (XCLIPOBJ *)v11;
+  if ( v11 )
+  {
+    if ( (*((_DWORD *)ThreadCurrentObj + 103) & 0x100) != 0 && !*(_QWORD *)(v11 + 56) )
+    {
+      if ( gfUMPDDebug )
+        DbgPrint(
+          "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiCLIPOBJ_bEnum:!peco->bValid()\n",
+          2842);
+      goto LABEL_6;
+    }
+    if ( a2 <= 0x2710000 )
+    {
+      v13 = (char *)PALLOCMEM2(a2, 1886221639LL, 0);
+      v14 = v13;
+      if ( v13 )
+      {
+        v15 = 0;
+        v5 = XCLIPOBJ::bEnum(v12, a2, v13, &v15);
+        if ( v5 != -1 && !(unsigned int)bSafeCopyBits(a3, v14, v15) )
+          v5 = -1;
+        Win32FreePool(v14);
+      }
+    }
+  }
+LABEL_7:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+  return v5;
 }

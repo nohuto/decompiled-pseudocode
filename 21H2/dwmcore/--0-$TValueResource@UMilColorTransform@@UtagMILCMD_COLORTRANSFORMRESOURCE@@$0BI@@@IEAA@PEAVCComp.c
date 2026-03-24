@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@IEAA@PEAVCComposition@@@Z @ 0x18019C350
+ * XREFs of ??0?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@IEAA@PEAVCComposition@@@Z @ 0x18016A0B8
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESOURCE,24>::TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESOURCE,24>(
@@ -19,8 +19,8 @@ __int64 __fastcall TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESO
   _OWORD v10[6]; // [rsp+20h] [rbp-78h] BYREF
   int v11; // [rsp+80h] [rbp-18h]
 
-  *(_DWORD *)(a1 + 8) = 0;
   *(_QWORD *)(a1 + 16) = a2;
+  *(_DWORD *)(a1 + 8) = 0;
   *(_QWORD *)(a1 + 24) = 0LL;
   *(_QWORD *)(a1 + 40) = 0LL;
   *(_DWORD *)(a1 + 32) = 0;
@@ -28,16 +28,16 @@ __int64 __fastcall TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESO
   memset_0(v10, 0, 0x64uLL);
   v3 = v10[1];
   v4 = v11;
-  *(_OWORD *)(a1 + 64) = v10[0];
+  *(_OWORD *)(a1 + 56) = v10[0];
   v5 = v10[2];
-  *(_OWORD *)(a1 + 80) = v3;
+  *(_OWORD *)(a1 + 72) = v3;
   v6 = v10[3];
-  *(_OWORD *)(a1 + 96) = v5;
+  *(_OWORD *)(a1 + 88) = v5;
   v7 = v10[4];
-  *(_OWORD *)(a1 + 112) = v6;
+  *(_OWORD *)(a1 + 104) = v6;
   v8 = v10[5];
-  *(_OWORD *)(a1 + 128) = v7;
-  *(_OWORD *)(a1 + 144) = v8;
-  *(_DWORD *)(a1 + 160) = v4;
+  *(_OWORD *)(a1 + 120) = v7;
+  *(_OWORD *)(a1 + 136) = v8;
+  *(_DWORD *)(a1 + 152) = v4;
   return a1;
 }

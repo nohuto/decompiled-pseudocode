@@ -1,5 +1,5 @@
 /*
- * XREFs of MmGetVirtualForPhysical @ 0x1403DECC0
+ * XREFs of MmGetVirtualForPhysical @ 0x140532160
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 PVOID __stdcall MmGetVirtualForPhysical(PHYSICAL_ADDRESS PhysicalAddress)
 {
   return (PVOID)((PhysicalAddress.LowPart & 0xFFF)
-               + ((__int64)(*(_QWORD *)(48 * ((unsigned __int64)PhysicalAddress.QuadPart >> 12) - 0x21FFFFFFFFF8LL) << 25) >> 16));
+               + ((__int64)(*(_QWORD *)(48 * ((unsigned __int64)PhysicalAddress.QuadPart >> 12) - 0x57FFFFFFFF8LL) << 25) >> 16));
 }

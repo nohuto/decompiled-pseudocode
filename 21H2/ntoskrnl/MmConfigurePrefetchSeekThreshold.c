@@ -1,12 +1,12 @@
 /*
- * XREFs of MmConfigurePrefetchSeekThreshold @ 0x1406EBCBC
+ * XREFs of MmConfigurePrefetchSeekThreshold @ 0x1406C400C
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall MmConfigurePrefetchSeekThreshold(int a1)
 {
-  dword_140C531D4 = a1;
+  dword_140C4ECBC = a1;
 }

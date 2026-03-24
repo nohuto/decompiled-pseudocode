@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpExposeContextAttribute @ 0x1406C926C
+ * XREFs of AlpcpExposeContextAttribute @ 0x1406A8100
  * Callers:
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406C9174 (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406A8008 (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
  *     <none>
  */

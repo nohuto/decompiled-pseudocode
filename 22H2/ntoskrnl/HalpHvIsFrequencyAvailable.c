@@ -1,20 +1,28 @@
 /*
- * XREFs of HalpHvIsFrequencyAvailable @ 0x140379DAC
+ * XREFs of HalpHvIsFrequencyAvailable @ 0x1403CEF28
  * Callers:
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     HalpHvGetApicFrequency @ 0x14050B090 (HalpHvGetApicFrequency.c)
- *     HalpHvGetTscFrequency @ 0x14050B0C0 (HalpHvGetTscFrequency.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     HalpHvGetApicFrequency @ 0x1404C1F70 (HalpHvGetApicFrequency.c)
+ *     HalpHvGetTscFrequency @ 0x1404C1FA0 (HalpHvGetTscFrequency.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037858C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsXboxNanovisorPresent @ 0x140378C6C (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A1B40 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-bool __fastcall HalpHvIsFrequencyAvailable(__int64 a1, __int64 a2)
+bool __fastcall HalpHvIsFrequencyAvailable(__int64 a1)
 {
-  if ( !HalpIsMicrosoftCompatibleHvLoaded(a1, a2) )
-    return HalpIsXboxNanovisorPresent() != 0;
-  _RAX = 1073741827LL;
-  __asm { cpuid }
-  return (_RDX & 0x100) != 0;
+  bool v1; // zf
+
+  if ( HalpIsMicrosoftCompatibleHvLoaded(a1) )
+  {
+    _RAX = 1073741827LL;
+    __asm { cpuid }
+    v1 = (_RDX & 0x100) == 0;
+  }
+  else
+  {
+    v1 = HalpIsXboxNanovisorPresent() == 0;
+  }
+  return !v1;
 }

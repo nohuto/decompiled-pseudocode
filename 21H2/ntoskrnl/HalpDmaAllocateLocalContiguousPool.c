@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpDmaAllocateLocalContiguousPool @ 0x140908F2C
+ * XREFs of HalpDmaAllocateLocalContiguousPool @ 0x140864D90
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x14084685C (HalpDmaAllocateChildAdapterV3.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140846BEC (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140764A8C (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
- *     MmFreePagesFromMdl @ 0x140221A10 (MmFreePagesFromMdl.c)
- *     RtlSetAllBits @ 0x140262CA0 (RtlSetAllBits.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403CDDB0 (HalpDmaCommitContiguousMapBuffers.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x140456892 (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
- *     HalpDmaAllocateContiguousMemory @ 0x140512B00 (HalpDmaAllocateContiguousMemory.c)
- *     HalpDmaReturnPageToSource @ 0x140513BCC (HalpDmaReturnPageToSource.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
+ *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
+ *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x1404B8AF4 (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x1404C67F8 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpDmaReturnPageToSource @ 0x1404C7FC4 (HalpDmaReturnPageToSource.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a2)
@@ -42,25 +42,27 @@ __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a
   __int64 v22; // rcx
   struct _MDL *v23; // rsi
   __int64 v24; // rcx
-  __int64 ContiguousPagesFromContiguousPool; // rbx
-  ULONG v26; // eax
+  __int64 v25; // rbx
+  unsigned int v26; // eax
   __int64 v27; // rdx
   _QWORD *v28; // r12
-  unsigned __int64 v29; // r13
+  __int64 v29; // r13
   _QWORD *v30; // rax
-  _QWORD *v31; // rdx
-  _QWORD *v32; // rbx
-  unsigned __int64 v33; // rbx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  _QWORD *v33; // rdx
+  _QWORD *v34; // rbx
+  __int64 v35; // rbx
   PVOID BaseAddress; // [rsp+30h] [rbp-18h] BYREF
-  PHYSICAL_ADDRESS v35; // [rsp+38h] [rbp-10h]
-  int v36; // [rsp+90h] [rbp+48h]
-  ULONG v37; // [rsp+90h] [rbp+48h]
-  ULONG NumberToClear; // [rsp+98h] [rbp+50h]
+  PHYSICAL_ADDRESS v37; // [rsp+38h] [rbp-10h]
+  int v38; // [rsp+90h] [rbp+48h]
+  unsigned int v39; // [rsp+90h] [rbp+48h]
+  ULONG NumberToClear; // [rsp+98h] [rbp+50h] BYREF
   PMDL MemoryDescriptorList; // [rsp+A0h] [rbp+58h] BYREF
-  PHYSICAL_ADDRESS v40; // [rsp+A8h] [rbp+60h] BYREF
+  PHYSICAL_ADDRESS v42; // [rsp+A8h] [rbp+60h] BYREF
 
   BaseAddress = 0LL;
-  v40.QuadPart = 0LL;
+  v42.QuadPart = 0LL;
   v2 = a2;
   MemoryDescriptorList = 0LL;
   v3 = (a2 + 31) & 0xFFFFFFE0;
@@ -74,17 +76,17 @@ __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a
   *(_QWORD *)(a1 + 16) = v6;
   v8 = 1;
 LABEL_4:
-  v9 = HalpDmaAllocateContiguousMemory(a1, v2, &BaseAddress, &v40, &MemoryDescriptorList);
+  v9 = HalpDmaAllocateContiguousMemory(a1, v2, &BaseAddress, &v42, &MemoryDescriptorList);
   v11 = v9;
   NumberToClear = v9;
   if ( !v9 )
     goto LABEL_18;
   v12 = *(_BYTE *)(a1 + 145) == 0;
-  v35 = v40;
+  v37 = v42;
   if ( v12 )
   {
-    v10 = (unsigned __int64)v40.QuadPart >> 16;
-    v13 = ((((unsigned __int64)v9 << 12) + v40.QuadPart - 1) >> 16) - ((unsigned __int64)v40.QuadPart >> 16);
+    v10 = (unsigned __int64)v42.QuadPart >> 16;
+    v13 = ((((unsigned __int64)v9 << 12) + v42.QuadPart - 1) >> 16) - ((unsigned __int64)v42.QuadPart >> 16);
   }
   else
   {
@@ -109,24 +111,24 @@ LABEL_13:
       MmFreeContiguousMemory(v16);
     }
 LABEL_18:
-    ContiguousPagesFromContiguousPool = HalpDmaAllocateContiguousPagesFromContiguousPool(a1);
-    if ( !ContiguousPagesFromContiguousPool )
+    v25 = HalpDmaAllocateContiguousPagesFromContiguousPool(a1, *(_QWORD *)(a1 + 152), v2, 0LL, 1, &NumberToClear);
+    if ( !v25 )
       goto LABEL_19;
     v11 = NumberToClear;
     v26 = 0;
     v27 = 0LL;
     v28 = 0LL;
     v24 = 0LL;
-    v29 = ContiguousPagesFromContiguousPool;
+    v29 = v25;
     while ( 1 )
     {
-      v37 = v26;
-      if ( v26 >= NumberToClear )
+      v39 = v26;
+      if ( v26 >= (unsigned int)v11 )
       {
-        RtlClearBits(*(PRTL_BITMAP *)(a1 + 16), 0, NumberToClear);
+        RtlClearBits(*(PRTL_BITMAP *)(a1 + 16), 0, v11);
         goto LABEL_43;
       }
-      if ( ContiguousPagesFromContiguousPool == v29 || v27 != ContiguousPagesFromContiguousPool - 72 )
+      if ( v25 == v29 || v27 != v25 - 72 )
       {
         v30 = (_QWORD *)HalpMmAllocCtxAlloc(v24, 24LL);
         v24 = (__int64)v30;
@@ -134,25 +136,25 @@ LABEL_18:
         {
           if ( v28 )
           {
-            v31 = *(_QWORD **)(a1 + 40);
-            if ( v31 )
+            v33 = *(_QWORD **)(a1 + 40);
+            if ( v33 )
             {
               do
               {
-                v32 = (_QWORD *)*v31;
-                HalpMmAllocCtxFree(v24, (__int64)v31);
-                v31 = v32;
+                v34 = (_QWORD *)*v33;
+                HalpMmAllocCtxFree(v24, (__int64)v33);
+                v33 = v34;
               }
-              while ( v32 );
+              while ( v34 );
             }
           }
-          if ( NumberToClear )
+          if ( (_DWORD)v11 )
           {
             do
             {
-              v33 = *(_QWORD *)(v29 + 8);
-              HalpDmaReturnPageToSource(a1, v29);
-              v29 = v33;
+              v35 = *(_QWORD *)(v29 + 8);
+              HalpDmaReturnPageToSource(a1, v29, v31, v32);
+              v29 = v35;
               --v11;
             }
             while ( v11 );
@@ -173,16 +175,16 @@ LABEL_19:
         *v30 = 0LL;
         v28 = v30;
         v30[1] = 0LL;
-        v30[2] = ContiguousPagesFromContiguousPool;
+        v30[2] = v25;
       }
       ++*(_DWORD *)(v24 + 8);
-      v27 = ContiguousPagesFromContiguousPool;
-      *(_QWORD *)(ContiguousPagesFromContiguousPool + 48) &= 0xFFFFFFFFFFFFFFF3uLL;
-      ContiguousPagesFromContiguousPool = *(_QWORD *)(ContiguousPagesFromContiguousPool + 8);
-      v26 = v37 + 1;
+      v27 = v25;
+      *(_QWORD *)(v25 + 48) &= 0xFFFFFFFFFFFFFFF3uLL;
+      v25 = *(_QWORD *)(v25 + 8);
+      v26 = v39 + 1;
     }
   }
-  v36 = v13 + v11;
+  v38 = v13 + v11;
   v18 = (void *)HalpMmAllocCtxAlloc(v15, 72LL * (unsigned int)(v13 + v11));
   v20 = v18;
   if ( !v18 )
@@ -194,8 +196,8 @@ LABEL_12:
   *(_QWORD *)v17 = 0LL;
   *(_DWORD *)(v17 + 12) = 0;
   memset(v18, 0, 72 * v11);
-  QuadPart = v35.QuadPart;
-  *(_DWORD *)(v17 + 8) = v36;
+  QuadPart = v37.QuadPart;
+  *(_DWORD *)(v17 + 8) = v38;
   *(_QWORD *)(v17 + 16) = v20;
   *(_DWORD *)(a1 + 64) = 0;
   *(_QWORD *)(a1 + 40) = v17;

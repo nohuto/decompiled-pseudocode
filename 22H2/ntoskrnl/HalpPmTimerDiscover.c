@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpPmTimerDiscover @ 0x1403A41D8
+ * XREFs of HalpPmTimerDiscover @ 0x1403B17DC
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     HalSocGetAcpiTable @ 0x1403A447C (HalSocGetAcpiTable.c)
- *     HalpPmTimerConfigure @ 0x1403A44AC (HalpPmTimerConfigure.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x1403B32D4 (HalSocGetAcpiTable.c)
+ *     HalpPmTimerConfigure @ 0x1403B34A8 (HalpPmTimerConfigure.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpPmTimerDiscover()
@@ -40,7 +40,7 @@ __int64 HalpPmTimerDiscover()
       v4[1] = HalpPmTimerInitialize;
       HIDWORD(v4[14]) = 2;
       LODWORD(v4[17]) = 1;
-      HalpTimerRegister((__int64)v4, 0LL);
+      HalpTimerRegister(v4, 0LL);
     }
   }
   return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetInfo@CCompositionBuffer@@UEBAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C007D790
+ * XREFs of ?GetInfo@CCompositionBuffer@@UEBAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C00669C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionBuffer::GetInfo(CCompositionBuffer *this, struct CSM_BUFFER_INFO *a2)
@@ -22,15 +22,13 @@ __int64 __fastcall CCompositionBuffer::GetInfo(CCompositionBuffer *this, struct 
   *((_OWORD *)a2 + 5) = *((_OWORD *)this + 7);
   *((_OWORD *)a2 + 6) = *((_OWORD *)this + 8);
   *((_OWORD *)a2 + 7) = *((_OWORD *)this + 9);
-  *((_OWORD *)a2 + 8) = *((_OWORD *)this + 10);
-  *((_OWORD *)a2 + 9) = *((_OWORD *)this + 11);
-  result = (*(__int64 (__fastcall **)(CCompositionBuffer *, __int64 *))(*(_QWORD *)this + 232LL))(this, &v5);
+  *((_QWORD *)a2 + 16) = *((_QWORD *)this + 20);
+  result = (*(__int64 (__fastcall **)(CCompositionBuffer *, __int64 *))(*(_QWORD *)this + 216LL))(this, &v5);
   if ( (int)result >= 0 )
   {
     v4 = v5;
-    *((_OWORD *)a2 + 10) = *(_OWORD *)(v5 + 24);
-    *((_OWORD *)a2 + 11) = *(_OWORD *)(v4 + 40);
-    *((_QWORD *)a2 + 24) = *(_QWORD *)(v4 + 56);
+    *(_OWORD *)((char *)a2 + 136) = *(_OWORD *)(v5 + 24);
+    *(_OWORD *)((char *)a2 + 152) = *(_OWORD *)(v4 + 40);
   }
   return result;
 }

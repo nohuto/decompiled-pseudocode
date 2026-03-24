@@ -1,12 +1,14 @@
 /*
- * XREFs of ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00A2B74
+ * XREFs of ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004B9B8
  * Callers:
- *     GetResizeBorderWidthForDpi @ 0x1C00A2B34 (GetResizeBorderWidthForDpi.c)
- *     xxxCalcClientRect @ 0x1C010ACC0 (xxxCalcClientRect.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AE0C (GetWindowBordersWithDpiAwareness.c)
+ *     _AdjustWindowRectExForDpi @ 0x1C004E6DC (_AdjustWindowRectExForDpi.c)
+ *     GetResizeBorderWidthForDpi @ 0x1C00E0B40 (GetResizeBorderWidthForDpi.c)
+ *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00E0E94 (GetWindowBordersForDpiWithCompatFlags2.c)
  * Callees:
- *     GetDpiCacheSlot @ 0x1C00EDB50 (GetDpiCacheSlot.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01BF620 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiCacheSlot @ 0x1C006148C (GetDpiCacheSlot.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA020 (_ScaleSystemMetricForDPIWithoutCache.c)
  */
 
 __int64 __fastcall GetResizeBorderWidthForDpiWithAppCompat2(unsigned int a1, int a2)
@@ -20,7 +22,7 @@ __int64 __fastcall GetResizeBorderWidthForDpiWithAppCompat2(unsigned int a1, int
   }
   else
   {
-    v4 = (int)(*(_DWORD *)(Get96DpiServerInfo() + 4) * a1 + 48) / 96;
+    v4 = (int)(a1 * *(_DWORD *)(Get96DpiServerInfo() + 4) + 48) / 96;
     if ( (a2 & 0x20000000) != 0 )
     {
       if ( a1 == *(unsigned __int16 *)(gpsi + 6998LL) )

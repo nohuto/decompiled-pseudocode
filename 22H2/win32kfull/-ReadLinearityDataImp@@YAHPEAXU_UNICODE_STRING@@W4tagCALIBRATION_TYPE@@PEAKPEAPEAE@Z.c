@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01A4D84
+ * XREFs of ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01CE60C
  * Callers:
- *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01A498C (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
+ *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01CE218 (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ValidateCalibrationData @ 0x1C01A59B0 (ValidateCalibrationData.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ValidateCalibrationData @ 0x1C01CF2C8 (ValidateCalibrationData.c)
  */
 
 __int64 __fastcall ReadLinearityDataImp(
@@ -15,50 +15,54 @@ __int64 __fastcall ReadLinearityDataImp(
         void **a5)
 {
   unsigned int v5; // ebx
-  _DWORD *v10; // rax
-  _DWORD *v11; // rdi
-  void *v12; // rax
-  __int64 v13; // rcx
-  void *v14; // rbp
+  ULONG v10; // edx
+  _DWORD *v11; // rax
+  _DWORD *v12; // rdi
+  void *v13; // rax
+  __int64 v14; // rcx
+  void *v15; // rbp
 
   v5 = 0;
-  if ( ZwQueryValueKey(a1, a2, KeyValuePartialInformation, 0LL, 0, ResultLength) != -1073741772
-    && *ResultLength >= 0x28
-    && *ResultLength - 12 <= 0xCA0 )
+  if ( ZwQueryValueKey(a1, a2, KeyValuePartialInformation, 0LL, 0, ResultLength) != -1073741772 )
   {
-    if ( *a5 )
+    v10 = *ResultLength;
+    if ( *ResultLength >= 0x28 && v10 - 12 <= 0xCA0 )
     {
-      Win32FreePool(*a5);
-      *a5 = 0LL;
-    }
-    v10 = (_DWORD *)Win32AllocPoolZInit(*ResultLength, 2020635477LL);
-    v11 = v10;
-    if ( v10 )
-    {
-      if ( ZwQueryValueKey(a1, a2, KeyValuePartialInformation, v10, *ResultLength, ResultLength) >= 0
-        && v11[1] == 3
-        && (v11[3] == v11[2] || v11[4] == 2) )
+      if ( *a5 )
       {
-        v12 = (void *)Win32AllocPoolZInit((unsigned int)v11[2], 2020635477LL);
-        *a5 = v12;
-        if ( v12 )
+        Win32FreePool(*a5);
+        *a5 = 0LL;
+        v10 = *ResultLength;
+      }
+      v11 = (_DWORD *)Win32AllocPool(v10, 2020635477LL);
+      v12 = v11;
+      if ( v11 )
+      {
+        if ( ZwQueryValueKey(a1, a2, KeyValuePartialInformation, v11, *ResultLength, ResultLength) >= 0
+          && v12[1] == 3
+          && (v12[3] == v12[2] || v12[4] == 2) )
         {
-          memmove(v12, v11 + 3, (unsigned int)v11[2]);
-          v13 = (unsigned int)v11[2];
-          *ResultLength = v13;
-          v14 = *a5;
-          if ( (unsigned int)ValidateCalibrationData(v13, *a5, a3) )
+          v13 = (void *)Win32AllocPool((unsigned int)v12[2], 2020635477LL);
+          *a5 = v13;
+          if ( v13 )
           {
-            v5 = 1;
-          }
-          else
-          {
-            Win32FreePool(v14);
-            *a5 = 0LL;
+            memmove(v13, v12 + 3, (unsigned int)v12[2]);
+            v14 = (unsigned int)v12[2];
+            *ResultLength = v14;
+            v15 = *a5;
+            if ( (unsigned int)ValidateCalibrationData(v14, *a5, a3) )
+            {
+              v5 = 1;
+            }
+            else
+            {
+              Win32FreePool(v15);
+              *a5 = 0LL;
+            }
           }
         }
+        Win32FreePool(v12);
       }
-      Win32FreePool(v11);
     }
   }
   return v5;

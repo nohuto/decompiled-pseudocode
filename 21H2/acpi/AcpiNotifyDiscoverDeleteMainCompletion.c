@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C005C350
+ * XREFs of AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C005B4A0
  * Callers:
- *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0002434 (AcpiNotifyPlExtDiscoverDeviceAsync.c)
- *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005C430 (AcpiNotifyPlExtDeleteDeviceAsync.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A9AC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005B580 (AcpiNotifyPlExtDeleteDeviceAsync.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall AcpiNotifyDiscoverDeleteMainCompletion(_BYTE *P)
@@ -29,7 +29,7 @@ void __fastcall AcpiNotifyDiscoverDeleteMainCompletion(_BYTE *P)
       if ( v4 )
         v4(*((_QWORD *)v2 + 6), v2[6], 0LL);
 LABEL_11:
-      AMLIDereferenceHandleEx(*((volatile signed __int32 **)v2 + 2));
+      AMLIDereferenceHandleEx(*((_QWORD *)v2 + 2));
       goto LABEL_12;
     }
     if ( v4 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_ValidateSecureTransferType @ 0x1C000EF9C
+ * XREFs of TR_ValidateSecureTransferType @ 0x1C000D364
  * Callers:
- *     Bulk_RetrieveNextStage @ 0x1C000E980 (Bulk_RetrieveNextStage.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
  * Callees:
- *     WPP_RECORDER_SF_DDi @ 0x1C00401BC (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 __int64 __fastcall TR_ValidateSecureTransferType(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall TR_ValidateSecureTransferType(__int64 a1, __int64 a2)
           v10,
           v8,
           32,
-          (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           v8,
           *(_DWORD *)(v9 + 144),
           v4);
@@ -55,7 +55,7 @@ __int64 __fastcall TR_ValidateSecureTransferType(__int64 a1, __int64 a2)
           v6,
           a1,
           30,
-          (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           v11);

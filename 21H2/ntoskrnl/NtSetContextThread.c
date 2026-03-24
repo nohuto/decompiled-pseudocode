@@ -1,14 +1,14 @@
 /*
- * XREFs of NtSetContextThread @ 0x1409B1A00
+ * XREFs of NtSetContextThread @ 0x14090B370
  * Callers:
  *     <none>
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
@@ -18,8 +18,9 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
   int v5; // edi
   PEPROCESS v6; // rax
   PETHREAD v7; // rbx
-  PETHREAD Thread; // [rsp+30h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-30h] BYREF
+  int v9; // [rsp+30h] [rbp-48h] BYREF
+  PETHREAD Thread; // [rsp+38h] [rbp-40h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   Thread = 0LL;
@@ -41,11 +42,11 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
     {
       v5 = PspSetContextThreadInternal(v7, a2, PreviousMode, PreviousMode, 1);
     }
-    ObfDereferenceObject(v7);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v7);
   }
   UserData.Reserved = 0;
-  UserData.Ptr = (ULONGLONG)&Thread;
-  LODWORD(Thread) = v5;
+  UserData.Ptr = (ULONGLONG)&v9;
+  v9 = v5;
   UserData.Size = 4;
   EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_SETCONTEXTTHREAD, 0LL, 1u, &UserData);
   return (unsigned int)v5;

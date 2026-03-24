@@ -2,9 +2,9 @@
  * XREFs of RtlMultiByteToUnicodeSize @ 0x1405AAF50
  * Callers:
  *     RtlxAnsiStringToUnicodeSize @ 0x1405AAF20 (RtlxAnsiStringToUnicodeSize.c)
- *     RtlxOemStringToUnicodeSize @ 0x1406F71D0 (RtlxOemStringToUnicodeSize.c)
+ *     RtlxOemStringToUnicodeSize @ 0x1406F71B0 (RtlxOemStringToUnicodeSize.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x1406BD890 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406BD870 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeSize(

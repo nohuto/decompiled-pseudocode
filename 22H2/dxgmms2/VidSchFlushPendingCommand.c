@@ -1,17 +1,16 @@
 /*
- * XREFs of VidSchFlushPendingCommand @ 0x1C01074B0
+ * XREFs of VidSchFlushPendingCommand @ 0x1C00D01F0
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiSubmitCommandPacketToQueue @ 0x1C0006E60 (VidSchiSubmitCommandPacketToQueue.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     VidSchiDiscardQueuePacket @ 0x1C0105C98 (VidSchiDiscardQueuePacket.c)
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0007740 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C00CE4DC (VidSchiDiscardQueuePacket.c)
  */
 
 __int64 __fastcall VidSchFlushPendingCommand(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebp
-  __int64 v5; // rcx
+  __int64 v5; // rax
   __int64 v7; // rsi
   __int64 **v8; // rdi
   __int64 *v9; // rcx
@@ -54,8 +53,9 @@ __int64 __fastcall VidSchFlushPendingCommand(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v5, 0x40000LL);
+    v5 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v5 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v5);
     return 3221225485LL;
   }
 }

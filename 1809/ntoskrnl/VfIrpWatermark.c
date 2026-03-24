@@ -2,7 +2,7 @@
  * XREFs of VfIrpWatermark @ 0x1409306B4
  * Callers:
  *     IovUtilWatermarkIrp @ 0x14000EAC8 (IovUtilWatermarkIrp.c)
- *     PopAllocateIrp @ 0x14017271C (PopAllocateIrp.c)
+ *     PopAllocateIrp @ 0x14017273C (PopAllocateIrp.c)
  * Callees:
  *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)

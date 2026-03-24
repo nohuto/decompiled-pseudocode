@@ -1,40 +1,42 @@
 /*
- * XREFs of FsRtlpAllocateOplock @ 0x1406BE148
+ * XREFs of FsRtlpAllocateOplock @ 0x1406A6478
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x1402A2490 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402A6980 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403857EC (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057F0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x140354950 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x140374AD0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 FsRtlpAllocateOplock()
+char *FsRtlpAllocateOplock()
 {
-  __int64 v0; // rax
-  __int64 Pool2; // [rsp+20h] [rbp-18h]
+  struct _KEVENT *v0; // rax
+  char *PoolWithTag; // [rsp+20h] [rbp-18h]
 
-  Pool2 = ExAllocatePool2(288LL, 160LL, 1869763398LL);
-  v0 = ExAllocatePool2(96LL, 56LL, 1869763398LL);
-  *(_QWORD *)(Pool2 + 152) = v0;
-  *(_DWORD *)v0 = 1;
-  *(_QWORD *)(v0 + 8) = 0LL;
-  *(_DWORD *)(v0 + 16) = 0;
-  KeInitializeEvent((PRKEVENT)(v0 + 24), SynchronizationEvent, 0);
-  *(_QWORD *)(Pool2 + 48) = Pool2 + 40;
-  *(_QWORD *)(Pool2 + 40) = Pool2 + 40;
-  *(_QWORD *)(Pool2 + 64) = Pool2 + 56;
-  *(_QWORD *)(Pool2 + 56) = Pool2 + 56;
-  *(_QWORD *)(Pool2 + 80) = Pool2 + 72;
-  *(_QWORD *)(Pool2 + 72) = Pool2 + 72;
-  *(_QWORD *)(Pool2 + 96) = Pool2 + 88;
-  *(_QWORD *)(Pool2 + 88) = Pool2 + 88;
-  *(_QWORD *)(Pool2 + 112) = Pool2 + 104;
-  *(_QWORD *)(Pool2 + 104) = Pool2 + 104;
-  *(_QWORD *)(Pool2 + 128) = Pool2 + 120;
-  *(_QWORD *)(Pool2 + 120) = Pool2 + 120;
-  *(_DWORD *)(Pool2 + 144) = 1;
-  return Pool2;
+  PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)17, 0xA0uLL, 0x6F725346u);
+  memset(PoolWithTag, 0, 0xA0uLL);
+  v0 = (struct _KEVENT *)ExAllocatePoolWithTag((POOL_TYPE)528, 0x38uLL, 0x6F725346u);
+  *((_QWORD *)PoolWithTag + 19) = v0;
+  v0->Header.LockNV = 1;
+  v0->Header.WaitListHead.Flink = 0LL;
+  LODWORD(v0->Header.WaitListHead.Blink) = 0;
+  KeInitializeEvent(v0 + 1, SynchronizationEvent, 0);
+  *((_QWORD *)PoolWithTag + 6) = PoolWithTag + 40;
+  *((_QWORD *)PoolWithTag + 5) = PoolWithTag + 40;
+  *((_QWORD *)PoolWithTag + 8) = PoolWithTag + 56;
+  *((_QWORD *)PoolWithTag + 7) = PoolWithTag + 56;
+  *((_QWORD *)PoolWithTag + 10) = PoolWithTag + 72;
+  *((_QWORD *)PoolWithTag + 9) = PoolWithTag + 72;
+  *((_QWORD *)PoolWithTag + 12) = PoolWithTag + 88;
+  *((_QWORD *)PoolWithTag + 11) = PoolWithTag + 88;
+  *((_QWORD *)PoolWithTag + 14) = PoolWithTag + 104;
+  *((_QWORD *)PoolWithTag + 13) = PoolWithTag + 104;
+  *((_QWORD *)PoolWithTag + 16) = PoolWithTag + 120;
+  *((_QWORD *)PoolWithTag + 15) = PoolWithTag + 120;
+  *((_DWORD *)PoolWithTag + 36) = 1;
+  return PoolWithTag;
 }

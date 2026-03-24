@@ -1,14 +1,14 @@
 /*
- * XREFs of CcDeallocateVacbLevel @ 0x1402F3784
+ * XREFs of CcDeallocateVacbLevel @ 0x1402F27A0
  * Callers:
- *     CcSetVacbLargeOffset @ 0x1402F2EB0 (CcSetVacbLargeOffset.c)
+ *     CcSetVacbLargeOffset @ 0x140275A2C (CcSetVacbLargeOffset.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall CcDeallocateVacbLevel(PVOID Entry, int a2)
 {
-  struct _PAGED_LOOKASIDE_LIST *v3; // rcx
+  struct _NPAGED_LOOKASIDE_LIST *v3; // rcx
 
   v3 = &CcVacbLevelWithBcbListHeadsLookasideList;
   if ( !a2 )

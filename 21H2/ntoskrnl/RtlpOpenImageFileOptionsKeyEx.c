@@ -1,21 +1,20 @@
 /*
- * XREFs of RtlpOpenImageFileOptionsKeyEx @ 0x1406C2D34
+ * XREFs of RtlpOpenImageFileOptionsKeyEx @ 0x1406A6604
  * Callers:
- *     SepIsImageInMinTcbList @ 0x1406C2FDC (SepIsImageInMinTcbList.c)
- *     RtlOpenImageFileOptionsKey @ 0x1406DD890 (RtlOpenImageFileOptionsKey.c)
- *     RtlpOpenImageFileOptionsKey @ 0x1409B5C20 (RtlpOpenImageFileOptionsKey.c)
+ *     SepIsImageInMinTcbList @ 0x140602224 (SepIsImageInMinTcbList.c)
+ *     RtlOpenImageFileOptionsKey @ 0x1406BA4E0 (RtlOpenImageFileOptionsKey.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1406C2E68 (RtlpOpenBaseImageFileOptionsKey.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1406C2EE8 (RtlpProcessIFEOKeyFilter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1406A6734 (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1406A67B4 (RtlpProcessIFEOKeyFilter.c)
  */
 
 __int64 __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, __int64 a2, __int64 a3, HANDLE *a4)
 {
   unsigned int v4; // r8d
-  unsigned int v7; // edx
-  __int64 v8; // rax
+  __int64 v6; // rax
+  unsigned int v8; // edx
   unsigned int v9; // r8d
   bool v10; // r15
   __int64 result; // rax
@@ -24,27 +23,28 @@ __int64 __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, __int64 a
   bool v14; // zf
   __int64 v15; // rdx
   NTSTATUS v16; // ebx
-  __int128 i; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
-  HANDLE Handle; // [rsp+90h] [rbp+30h] BYREF
-  HANDLE KeyHandle; // [rsp+A8h] [rbp+48h] BYREF
+  HANDLE KeyHandle; // [rsp+20h] [rbp-50h] BYREF
+  __int128 i; // [rsp+28h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-38h] BYREF
+  HANDLE v20; // [rsp+A0h] [rbp+30h] BYREF
+  HANDLE Handle; // [rsp+B8h] [rbp+48h] BYREF
 
-  Handle = 0LL;
   *a4 = 0LL;
   v4 = *a1;
-  *(&ObjectAttributes.Attributes + 1) = 0;
+  Handle = 0LL;
+  v6 = *((_QWORD *)a1 + 1) + v4;
   KeyHandle = 0LL;
-  v7 = v4;
+  v8 = v4;
   *(&ObjectAttributes.Length + 1) = 0;
-  v8 = *((_QWORD *)a1 + 1) + v4;
-  for ( i = 0LL; v7; v7 -= 2 )
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  for ( i = 0LL; v8; v8 -= 2 )
   {
-    if ( *(_WORD *)(v8 - 2) == 92 )
+    if ( *(_WORD *)(v6 - 2) == 92 )
       break;
-    v8 -= 2LL;
+    v6 -= 2LL;
   }
-  v9 = v4 - v7;
-  *((_QWORD *)&i + 1) = v8;
+  v9 = v4 - v8;
+  *((_QWORD *)&i + 1) = v6;
   LOWORD(i) = v9;
   if ( (unsigned __int16)v9 != v9 )
     return 3221225507LL;
@@ -67,16 +67,16 @@ __int64 __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, __int64 a
       ZwClose(v12);
     if ( v16 >= 0 )
     {
-      Handle = KeyHandle;
-      v16 = RtlpProcessIFEOKeyFilter(&Handle, v15, a1);
+      v20 = KeyHandle;
+      v16 = RtlpProcessIFEOKeyFilter(&v20, v15, a1);
       if ( v16 < 0 )
       {
-        if ( Handle )
-          ZwClose(Handle);
+        if ( v20 )
+          ZwClose(v20);
       }
       else
       {
-        *a4 = Handle;
+        *a4 = v20;
       }
     }
     return (unsigned int)v16;

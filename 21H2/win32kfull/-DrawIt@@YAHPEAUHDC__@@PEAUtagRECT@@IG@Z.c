@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DrawIt@@YAHPEAUHDC__@@PEAUtagRECT@@IG@Z @ 0x1C00BDAC4
+ * XREFs of ?DrawIt@@YAHPEAUHDC__@@PEAUtagRECT@@IG@Z @ 0x1C0043D00
  * Callers:
- *     ?DrawScrollArrow@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C00BD428 (-DrawScrollArrow@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z.c)
- *     DrawFrameControl @ 0x1C00BF6FC (DrawFrameControl.c)
+ *     ?DrawScrollArrow@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0042B14 (-DrawScrollArrow@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z.c)
+ *     DrawFrameControl @ 0x1C0045C38 (DrawFrameControl.c)
  * Callees:
- *     GreExtTextOutWInternal @ 0x1C008ABC0 (GreExtTextOutWInternal.c)
- *     GreSetTextColor @ 0x1C00BE3F8 (GreSetTextColor.c)
+ *     GreSetTextColor @ 0x1C0044618 (GreSetTextColor.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAE5C (GreExtTextOutWInternal.c)
  */
 
 __int64 __fastcall DrawIt(HDC a1, struct tagRECT *a2, __int16 a3, unsigned __int16 a4)
@@ -15,11 +15,11 @@ __int64 __fastcall DrawIt(HDC a1, struct tagRECT *a2, __int16 a3, unsigned __int
   int v7; // ecx
   int v8; // r9d
   int v10; // r15d
-  LONG v11; // ebp
+  int v11; // ebp
   int v12; // r12d
   int v13; // edi
-  LONG v14; // esi
-  LONG v15; // ebp
+  int v14; // esi
+  int v15; // ebp
   unsigned __int16 v17; // [rsp+98h] [rbp+20h] BYREF
 
   v17 = a4;
@@ -38,13 +38,13 @@ __int64 __fastcall DrawIt(HDC a1, struct tagRECT *a2, __int16 a3, unsigned __int
   if ( !v13 )
     v14 = v11;
   v15 = v10 + 1;
-  if ( (v13 & 0x300) == 0 )
+  if ( !v13 )
     v15 = v10;
-  GreExtTextOutWInternal(a1, v15, v14, 0, 0LL, &v17, 1u, 0LL, 0LL, 0);
+  GreExtTextOutWInternal(a1, v15, v14, 0, 0LL, &v17, 1, 0LL, 0LL, 0);
   if ( v12 )
   {
     GreSetTextColor(a1);
-    GreExtTextOutWInternal(a1, v15 - 1, v14 - 1, 0, 0LL, &v17, 1u, 0LL, 0LL, 0);
+    GreExtTextOutWInternal(a1, v15 - 1, v14 - 1, 0, 0LL, &v17, 1, 0LL, 0LL, 0);
   }
   GreSetTextColor(a1);
   return 1LL;

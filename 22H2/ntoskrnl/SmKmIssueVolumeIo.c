@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmIssueVolumeIo @ 0x1405CB65C
+ * XREFs of SmKmIssueVolumeIo @ 0x14059DEE4
  * Callers:
- *     SmKmIssueIo @ 0x1405CB5F4 (SmKmIssueIo.c)
+ *     SmKmIssueIo @ 0x14059DE7C (SmKmIssueIo.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14020D970 (MmBuildMdlForNonPagedPool.c)
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     MmMdlPageContentsState @ 0x14033BF00 (MmMdlPageContentsState.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140264870 (MmBuildMdlForNonPagedPool.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     MmMdlPageContentsState @ 0x140305D20 (MmMdlPageContentsState.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
  */
 
 __int64 __fastcall SmKmIssueVolumeIo(__int64 a1, __int64 a2, LARGE_INTEGER *a3, IO_COMPLETION_ROUTINE *a4, void *a5)
@@ -18,8 +18,8 @@ __int64 __fastcall SmKmIssueVolumeIo(__int64 a1, __int64 a2, LARGE_INTEGER *a3, 
   int v14; // r8d
   unsigned __int64 v15; // rdx
   __int64 v16; // rax
+  ULONG v17; // r8d
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r9
-  ULONG v18; // r8d
   struct _IO_STACK_LOCATION *v19; // r8
 
   v5 = *(struct _DEVICE_OBJECT **)(a1 + 24);
@@ -47,6 +47,7 @@ __int64 __fastcall SmKmIssueVolumeIo(__int64 a1, __int64 a2, LARGE_INTEGER *a3, 
     MmBuildMdlForNonPagedPool(v12);
     MmMdlPageContentsState((__int64)v12, 1u);
   }
+  v17 = *(_DWORD *)(a2 + 16);
   Irp->MdlAddress = v12;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   Irp->Tail.Overlay.Thread = KeGetCurrentThread();
@@ -54,9 +55,8 @@ __int64 __fastcall SmKmIssueVolumeIo(__int64 a1, __int64 a2, LARGE_INTEGER *a3, 
   Irp->RequestorMode = 0;
   Irp->Tail.Overlay.OriginalFileObject = *(PFILE_OBJECT *)(a1 + 8);
   CurrentStackLocation[-1].MajorFunction = 4 - ((*(_DWORD *)(a2 + 32) & 1) != 0);
-  v18 = *(_DWORD *)(a2 + 16);
   CurrentStackLocation[-1].Parameters.Read.ByteOffset = *a3;
-  CurrentStackLocation[-1].Parameters.Read.Length = v18;
+  CurrentStackLocation[-1].Parameters.Read.Length = v17;
   CurrentStackLocation[-1].Parameters.Create.Options = 1397572723;
   v19 = Irp->Tail.Overlay.CurrentStackLocation;
   v19[-1].CompletionRoutine = a4;

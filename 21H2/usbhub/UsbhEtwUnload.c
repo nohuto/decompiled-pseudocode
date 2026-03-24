@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhEtwUnload @ 0x1C005B790
+ * XREFs of UsbhEtwUnload @ 0x1C005CE30
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 int UsbhEtwUnload()

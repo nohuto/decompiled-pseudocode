@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDispatchFullWake @ 0x1406E24D0
+ * XREFs of PopDispatchFullWake @ 0x1406E24B0
  * Callers:
  *     <none>
  * Callees:
- *     PopEventCalloutDispatch @ 0x14017840C (PopEventCalloutDispatch.c)
+ *     PopEventCalloutDispatch @ 0x14017842C (PopEventCalloutDispatch.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopNotifyConsoleUserPresent @ 0x1406DBBE4 (PopNotifyConsoleUserPresent.c)
- *     PopInitSIdle @ 0x14071C5DC (PopInitSIdle.c)
+ *     PopNotifyConsoleUserPresent @ 0x1406DBBC4 (PopNotifyConsoleUserPresent.c)
+ *     PopInitSIdle @ 0x14071C5BC (PopInitSIdle.c)
  */
 
 struct _KTHREAD *__fastcall PopDispatchFullWake(__int64 a1, char a2)

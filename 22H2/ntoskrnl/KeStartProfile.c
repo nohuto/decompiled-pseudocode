@@ -1,66 +1,46 @@
 /*
- * XREFs of KeStartProfile @ 0x140573F7C
+ * XREFs of KeStartProfile @ 0x14051BB0C
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1407D5610 (EtwpEnableKernelTrace.c)
- *     EtwpTimeProfileStart @ 0x1409E6BF8 (EtwpTimeProfileStart.c)
- *     EtwpCoverageSamplerStart @ 0x1409F3488 (EtwpCoverageSamplerStart.c)
- *     NtStartProfile @ 0x140A046D0 (NtStartProfile.c)
- *     KiInitializeCacheErrataSupport @ 0x140B9723C (KiInitializeCacheErrataSupport.c)
+ *     EtwpEnableKernelTrace @ 0x140793068 (EtwpEnableKernelTrace.c)
+ *     EtwpCoverageSamplerStart @ 0x1409471DC (EtwpCoverageSamplerStart.c)
+ *     NtStartProfile @ 0x14095AE20 (NtStartProfile.c)
+ *     KiInitializeCacheErrataSupport @ 0x140A920CC (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x14039A940 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KeStopProfile @ 0x1405740BC (KeStopProfile.c)
- *     KiStartProfileTarget @ 0x1405744D0 (KiStartProfileTarget.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1403A4420 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiStartProfileTarget @ 0x14051BFE0 (KiStartProfileTarget.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall KeStartProfile(ULONG_PTR a1)
+char __fastcall KeStartProfile(ULONG_PTR a1)
 {
-  unsigned int v2; // ebx
-  ULONG MaximumProcessorCount; // eax
-  ULONG_PTR Context[40]; // [rsp+28h] [rbp-E0h] BYREF
+  SIZE_T v1; // rbx
+  PVOID PoolWithTag; // rax
+  ULONG_PTR Context; // [rsp+20h] [rbp-89h] BYREF
+  int v5; // [rsp+28h] [rbp-81h]
+  int v6; // [rsp+2Ch] [rbp-7Dh]
+  int v7; // [rsp+30h] [rbp-79h]
+  _DWORD v8[45]; // [rsp+34h] [rbp-75h] BYREF
 
-  v2 = 0;
-  memset(Context, 0, 0x138uLL);
-  HIDWORD(Context[1]) = KeNumberProcessors_0;
-  LODWORD(Context[1]) = KeNumberProcessors_0;
-  LODWORD(Context[3]) = 2097153;
-  Context[0] = a1;
-  memset((char *)&Context[3] + 4, 0, 0x104uLL);
-  MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  Context[36] = ExAllocatePool2(64LL, 4 * MaximumProcessorCount + 292, 1718579792LL);
-  if ( Context[36] )
-  {
-    if ( (unsigned int)KeNumberProcessors_0 <= 1 )
-      KiStartProfileTarget((ULONG_PTR)Context);
-    else
-      KeIpiGenericCall(KiStartProfileTarget, (ULONG_PTR)Context);
-    if ( Context[36] )
-      ExFreePoolWithTag((PVOID)Context[36], 0x666F7250u);
-    if ( LODWORD(Context[2]) )
-    {
-      if ( (Context[2] & 2) != 0 )
-      {
-        v2 = -1073741637;
-      }
-      else
-      {
-        if ( (Context[2] & 1) == 0 )
-          return v2;
-        v2 = -2147483631;
-      }
-      KeStopProfile(a1);
-      return v2;
-    }
-    if ( !LOBYTE(Context[38]) )
-      return 255;
-  }
+  v6 = KeNumberProcessors_0;
+  v5 = KeNumberProcessors_0;
+  v7 = 1310721;
+  Context = a1;
+  memset(v8, 0, sizeof(v8));
+  v1 = 4 * KeQueryMaximumProcessorCountEx(0xFFFFu) + 196;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x666F7250u);
+  *(_QWORD *)&v8[41] = PoolWithTag;
+  if ( !PoolWithTag )
+    return 1;
+  memset(PoolWithTag, 0, v1);
+  if ( (unsigned int)KeNumberProcessors_0 <= 1 )
+    KiStartProfileTarget((ULONG_PTR)&Context);
   else
-  {
-    return (unsigned int)-1073741670;
-  }
-  return v2;
+    KeIpiGenericCall(KiStartProfileTarget, (ULONG_PTR)&Context);
+  if ( *(_QWORD *)&v8[41] )
+    ExFreePoolWithTag(*(PVOID *)&v8[41], 0x666F7250u);
+  return v8[43];
 }

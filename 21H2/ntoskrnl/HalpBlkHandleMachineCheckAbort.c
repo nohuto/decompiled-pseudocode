@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140AD51B0
+ * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140A1A1B0
  * Callers:
- *     HalpBlkMachineCheckAbort @ 0x140AD4280 (HalpBlkMachineCheckAbort.c)
+ *     HalpBlkMachineCheckAbort @ 0x140A19280 (HalpBlkMachineCheckAbort.c)
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140AD30B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140A180B0 (HalpBlkFatalErrorHalt.c)
  */
 
 __int64 __fastcall HalpBlkHandleMachineCheckAbort(unsigned __int64 a1)
@@ -34,13 +34,17 @@ __int64 __fastcall HalpBlkHandleMachineCheckAbort(unsigned __int64 a1)
     {
       result = __readmsr(v6);
       v8 = result;
-      if ( result < 0 && (result & 0x2000000000000000LL) != 0 )
+      if ( result < 0 )
       {
-        result = 0x4200000000000000LL;
-        if ( (v8 & 0x4200000000000000LL) != 0 )
-          HalpBlkFatalErrorHalt(0x12u, a1);
-        if ( (v4 & 8) != 0 && (v8 & 0x180000000000000LL) == 0x180000000000000LL )
-          HalpBlkFatalErrorHalt(0x12u, a1);
+        result = 0x2000000000000000LL;
+        if ( (v8 & 0x2000000000000000LL) != 0 )
+        {
+          result = 0x4200000000000000LL;
+          if ( (v8 & 0x4200000000000000LL) != 0 )
+            HalpBlkFatalErrorHalt(0x12u, a1);
+          if ( (v4 & 8) != 0 && (v8 & 0x180000000000000LL) == 0x180000000000000LL )
+            HalpBlkFatalErrorHalt(0x12u, a1);
+        }
       }
       v6 += 4;
       --v7;

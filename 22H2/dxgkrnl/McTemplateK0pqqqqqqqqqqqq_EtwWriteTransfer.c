@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C000209C
+ * XREFs of McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0001CE4
  * Callers:
- *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C0001F1C (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
- *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BF560 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C0001B7C (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
+ *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C0214D94 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 __int64 McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -125,5 +125,5 @@ __int64 McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int
   v26 = 4LL;
   v28 = 4LL;
   v30 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, "f", a3, 14LL, v4);
+  return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventSetDisplayMode, a3, 14LL, v4);
 }

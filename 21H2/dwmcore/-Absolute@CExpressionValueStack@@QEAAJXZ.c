@@ -1,94 +1,93 @@
 /*
- * XREFs of ?Absolute@CExpressionValueStack@@QEAAJXZ @ 0x180249978
+ * XREFs of ?Absolute@CExpressionValueStack@@QEAAJXZ @ 0x1801FB498
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Absolute(CExpressionValueStack *this)
 {
+  int v1; // eax
   unsigned int v2; // ebx
-  unsigned __int8 IsEnabled; // al
-  unsigned int v4; // edx
-  CExpressionValue *v5; // rax
-  __m128i *v6; // rbx
-  __int32 v7; // eax
-  __m128 v8; // xmm3
-  __int32 v9; // eax
-  __int32 v10; // xmm0_4
-  __int32 v11; // xmm1_4
-  unsigned int v13; // [rsp+28h] [rbp-19h]
-  __m128i v14; // [rsp+38h] [rbp-9h]
-  __int64 v15; // [rsp+38h] [rbp-9h]
-  _BYTE v16[80]; // [rsp+48h] [rbp+7h] BYREF
+  __int64 v3; // rax
+  CExpressionValue *v4; // rax
+  __m128i *v5; // rbx
+  __int32 v6; // eax
+  __m128 v7; // xmm3
+  __int32 v8; // eax
+  __int32 v9; // xmm0_4
+  __int32 v10; // xmm1_4
+  unsigned int v12; // [rsp+20h] [rbp-19h]
+  __m128i v13; // [rsp+30h] [rbp-9h]
+  __int64 v14; // [rsp+30h] [rbp-9h]
+  _BYTE v15[80]; // [rsp+40h] [rbp+7h] BYREF
 
-  if ( *((_DWORD *)this + 4) )
+  v1 = *((_DWORD *)this + 4);
+  if ( v1 )
   {
-    IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v4 = *((_DWORD *)this + 4) - 1;
-    if ( IsEnabled && v4 >= *((_DWORD *)this + 12) )
+    v3 = (unsigned int)(v1 - 1);
+    if ( (unsigned int)v3 < *((_DWORD *)this + 12) )
     {
-      v5 = CExpressionValue::CExpressionValue((CExpressionValue *)v16);
-      v6 = (__m128i *)&CExpressionValueStack::s_emptyValue;
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v5);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v16);
+      v5 = (__m128i *)(*((_QWORD *)this + 3) + 80 * v3);
     }
     else
     {
-      v6 = (__m128i *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v4);
+      v4 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
+      v5 = (__m128i *)&CExpressionValueStack::s_emptyValue;
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v4);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
     }
-    v7 = v6[4].m128i_i32[2];
-    switch ( v7 )
+    v6 = v5[4].m128i_i32[2];
+    switch ( v6 )
     {
       case 18:
-        v6->m128i_i32[0] &= _xmm;
-        v6[4].m128i_i32[2] = 18;
+        v5->m128i_i32[0] &= _xmm;
+        v5[4].m128i_i32[2] = 18;
         break;
       case 35:
-        v11 = v6->m128i_i32[1] & _xmm;
-        v6->m128i_i32[0] &= _xmm;
-        v6->m128i_i32[1] = v11;
-        v6[4].m128i_i32[2] = 35;
+        v10 = v5->m128i_i32[1] & _xmm;
+        v5->m128i_i32[0] &= _xmm;
+        v5->m128i_i32[1] = v10;
+        v5[4].m128i_i32[2] = 35;
         break;
       case 52:
-        v15 = v6->m128i_i64[0];
-        v10 = v6->m128i_i64[0] & _xmm;
-        v9 = v6->m128i_i32[2];
-        v6[4].m128i_i32[2] = 52;
-        v6->m128i_i32[0] = v10;
-        v6->m128i_i32[1] = HIDWORD(v15) & _xmm;
-        v6->m128i_i32[2] = v9 & _xmm;
+        v14 = v5->m128i_i64[0];
+        v9 = v5->m128i_i64[0] & _xmm;
+        v8 = v5->m128i_i32[2];
+        v5[4].m128i_i32[2] = 52;
+        v5->m128i_i32[0] = v9;
+        v5->m128i_i32[1] = HIDWORD(v14) & _xmm;
+        v5->m128i_i32[2] = v8 & _xmm;
         break;
       case 69:
-        v8 = (__m128)_mm_loadu_si128(v6);
-        v6[4].m128i_i32[2] = 69;
-        v14.m128i_i32[0] = v8.m128_i32[0] & _xmm;
-        v14.m128i_i32[1] = _mm_shuffle_ps(v8, v8, 85).m128_u32[0] & _xmm;
-        v14.m128i_i32[2] = _mm_shuffle_ps(v8, v8, 170).m128_u32[0] & _xmm;
-        v14.m128i_i32[3] = _mm_shuffle_ps(v8, v8, 255).m128_u32[0] & _xmm;
-        *v6 = v14;
+        v7 = (__m128)_mm_loadu_si128(v5);
+        v5[4].m128i_i32[2] = 69;
+        v13.m128i_i32[0] = v7.m128_i32[0] & _xmm;
+        v13.m128i_i32[1] = _mm_shuffle_ps(v7, v7, 85).m128_u32[0] & _xmm;
+        v13.m128i_i32[2] = _mm_shuffle_ps(v7, v7, 170).m128_u32[0] & _xmm;
+        v13.m128i_i32[3] = _mm_shuffle_ps(v7, v7, 255).m128_u32[0] & _xmm;
+        *v5 = v13;
         break;
       default:
-        v13 = 731;
+        v12 = 725;
         goto LABEL_3;
     }
-    v6[4].m128i_i8[12] = 1;
+    v5[4].m128i_i8[12] = 1;
     return 0;
   }
-  v13 = 673;
+  v12 = 667;
 LABEL_3:
   v2 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
     (__int64)this,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-    1LL,
+    1u,
     -2147467259,
-    v13);
+    v12,
+    0LL);
   return v2;
 }

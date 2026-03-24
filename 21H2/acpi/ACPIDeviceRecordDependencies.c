@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDeviceRecordDependencies @ 0x1C0025DD0
+ * XREFs of ACPIDeviceRecordDependencies @ 0x1C002953C
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C000F880 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     ACPIDeviceDiscoverDependencies @ 0x1C0025F00 (ACPIDeviceDiscoverDependencies.c)
- *     ACPIPowerNodeDiscoverDependencies @ 0x1C0025FA8 (ACPIPowerNodeDiscoverDependencies.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIDeviceDiscoverDependencies @ 0x1C0029674 (ACPIDeviceDiscoverDependencies.c)
+ *     ACPIPowerNodeDiscoverDependencies @ 0x1C002971C (ACPIPowerNodeDiscoverDependencies.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ACPIDeviceRecordDependencies(_QWORD **a1)
@@ -32,8 +32,8 @@ __int64 __fastcall ACPIDeviceRecordDependencies(_QWORD **a1)
     do
     {
       v4 = v3[5];
-      if ( !*(_QWORD *)(v4 + 784)
-        && (*(_QWORD *)(v4 + 648) || (*(_DWORD *)(v4 + 1000) & 0x400000LL) != 0)
+      if ( !*(_QWORD *)(v4 + 744)
+        && (*(_QWORD *)(v4 + 608) || (*(_DWORD *)(v4 + 960) & 0x400000LL) != 0)
         && (*(_QWORD *)(v4 + 8) & 0xA00000000000LL) == 0 )
       {
         *((_DWORD *)v3 + 14) |= 0x4000000u;
@@ -41,21 +41,24 @@ __int64 __fastcall ACPIDeviceRecordDependencies(_QWORD **a1)
       v3 = (_QWORD *)*v3;
     }
     while ( v3 != a1 );
-    do
+    if ( v1 != a1 )
     {
-      v5 = (_QWORD *)*v1;
-      ACPIDeviceDiscoverDependencies(v1, a1);
-      v6 = v9;
-      v7 = 7LL;
       do
       {
-        ACPIDeviceDiscoverDependencies(v1, *v6++);
-        --v7;
+        v5 = (_QWORD *)*v1;
+        ACPIDeviceDiscoverDependencies(v1, a1);
+        v6 = v9;
+        v7 = 7LL;
+        do
+        {
+          ACPIDeviceDiscoverDependencies(v1, *v6++);
+          --v7;
+        }
+        while ( v7 );
+        v1 = v5;
       }
-      while ( v7 );
-      v1 = v5;
+      while ( v5 != a1 );
     }
-    while ( v5 != a1 );
   }
   return ACPIPowerNodeDiscoverDependencies(a1);
 }

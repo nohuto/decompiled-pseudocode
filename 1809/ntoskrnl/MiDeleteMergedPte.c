@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeleteMergedPte @ 0x14011FC00
+ * XREFs of MiDeleteMergedPte @ 0x14011FC20
  * Callers:
- *     MiDecrementCombinedPte @ 0x14011F9D4 (MiDecrementCombinedPte.c)
- *     MiDecrementCloneBlockReference @ 0x1402C9530 (MiDecrementCloneBlockReference.c)
+ *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
+ *     MiDecrementCloneBlockReference @ 0x1402C9630 (MiDecrementCloneBlockReference.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)

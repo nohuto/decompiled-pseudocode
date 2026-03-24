@@ -6,9 +6,9 @@
  *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
  *     ExpWnfSubscribeWnfStateChange @ 0x14060F054 (ExpWnfSubscribeWnfStateChange.c)
  *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     NtDeleteWnfStateName @ 0x1406AB300 (NtDeleteWnfStateName.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4EF0 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14075E540 (NtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x1406AB2E0 (NtDeleteWnfStateName.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
  * Callees:
  *     <none>
  */

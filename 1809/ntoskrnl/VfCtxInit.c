@@ -3,9 +3,9 @@
  * Callers:
  *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
  * Callees:
- *     KeAllocateXStateContext @ 0x14012E7B0 (KeAllocateXStateContext.c)
- *     KeFreeXStateContext @ 0x14012F918 (KeFreeXStateContext.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeAllocateXStateContext @ 0x14012E7D0 (KeAllocateXStateContext.c)
+ *     KeFreeXStateContext @ 0x14012F938 (KeFreeXStateContext.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall VfCtxInit(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsBootImageTargetFullyRetpolined @ 0x140B52040
+ * XREFs of MiIsBootImageTargetFullyRetpolined @ 0x140A924F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x1402D9A20 (RtlIsImageFullyRetpolined.c)
+ *     RtlIsImageFullyRetpolined @ 0x140371E28 (RtlIsImageFullyRetpolined.c)
  */
 
 __int64 __fastcall MiIsBootImageTargetFullyRetpolined(unsigned __int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ValidateParentDepth @ 0x1C0075C2C
+ * XREFs of ValidateParentDepth @ 0x1C0078FA0
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ValidateNewParent @ 0x1C0075A78 (ValidateNewParent.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     ValidateNewParent @ 0x1C0078E18 (ValidateNewParent.c)
  * Callees:
  *     <none>
  */
@@ -30,16 +30,16 @@ __int64 __fastcall ValidateParentDepth(_QWORD *a1, __int64 a2)
       v6 = *(_QWORD *)(v4 + 8);
       if ( v6 )
         v5 = *(_QWORD *)(v6 + 24);
-      if ( a2 == v5 )
-        break;
     }
+    if ( a2 == v5 )
+      break;
     a2 = *(_QWORD *)(a2 + 104);
     ++v2;
   }
   v7 = v2;
   if ( a1 && a1[14] )
   {
-    v9 = a1;
+    v9 = (_QWORD *)a1[13];
     while ( 1 )
     {
       while ( a1[14] )

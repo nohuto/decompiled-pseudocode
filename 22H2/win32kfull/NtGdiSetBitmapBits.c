@@ -1,22 +1,26 @@
 /*
- * XREFs of NtGdiSetBitmapBits @ 0x1C015CF70
+ * XREFs of NtGdiSetBitmapBits @ 0x1C0018710
  * Callers:
  *     <none>
  * Callees:
- *     ?init_probe@?$umptr_r@E@@SA?AV1@PEAE_K1@Z @ 0x1C00DD314 (-init_probe@-$umptr_r@E@@SA-AV1@PEAE_K1@Z.c)
- *     ?GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV?$umptr_r@E@@PEAJ@Z @ 0x1C00E0D68 (-GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV-$umptr_r@E@@PEAJ@Z.c)
+ *     GreSetBitmapBits @ 0x1C00187F0 (GreSetBitmapBits.c)
  */
 
-__int64 __fastcall NtGdiSetBitmapBits(HSURF a1, unsigned int a2, unsigned __int64 a3)
+__int64 __fastcall NtGdiSetBitmapBits(HSURF a1, SIZE_T Size, char *Address)
 {
-  unsigned int v3; // ebx
-  _QWORD v6[5]; // [rsp+20h] [rbp-28h] BYREF
-  LONG v7; // [rsp+58h] [rbp+10h] BYREF
+  HANDLE v4; // r14
+  unsigned int v5; // ebx
 
-  v3 = 0;
-  v7 = 0;
-  umptr_r<unsigned char>::init_probe((__int64)v6, a3, a2, 1LL);
-  if ( v6[0] )
-    return (unsigned int)GreSetBitmapBitsInternal(a1, (__int64)v6, &v7);
-  return v3;
+  if ( (_DWORD)Size
+    && ((unsigned __int64)&Address[(unsigned int)Size] > MmUserProbeAddress || &Address[(unsigned int)Size] < Address) )
+  {
+    *(_BYTE *)MmUserProbeAddress = 0;
+  }
+  v4 = MmSecureVirtualMemory(Address, (unsigned int)Size, 2u);
+  v5 = v4 != 0LL;
+  if ( v5 )
+    v5 = GreSetBitmapBits(a1);
+  if ( v4 )
+    MmUnsecureVirtualMemory(v4);
+  return v5;
 }

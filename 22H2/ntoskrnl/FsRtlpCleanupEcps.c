@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpCleanupEcps @ 0x14073E6E0
+ * XREFs of FsRtlpCleanupEcps @ 0x14060CD20
  * Callers:
- *     NtQueryAttributesFile @ 0x14073E720 (NtQueryAttributesFile.c)
- *     NtQueryFullAttributesFile @ 0x1407AAE00 (NtQueryFullAttributesFile.c)
- *     IopCleanupExtraCreateParameters @ 0x1407BF710 (IopCleanupExtraCreateParameters.c)
- *     IopFastQueryNetworkAttributes @ 0x1409479D8 (IopFastQueryNetworkAttributes.c)
+ *     NtQueryFullAttributesFile @ 0x14060C860 (NtQueryFullAttributesFile.c)
+ *     NtQueryAttributesFile @ 0x14060CAF0 (NtQueryAttributesFile.c)
+ *     IopCleanupExtraCreateParameters @ 0x1406A6714 (IopCleanupExtraCreateParameters.c)
+ *     IopFastQueryNetworkAttributes @ 0x140894198 (IopFastQueryNetworkAttributes.c)
  * Callees:
- *     FsRtlFreeExtraCreateParameterList @ 0x14073E5B0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E630 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14060CD80 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060CE40 (FsRtlFreeExtraCreateParameter.c)
  */
 
 char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)
@@ -16,6 +16,7 @@ char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)
   _LIST_ENTRY *p_EcpList; // rdi
   struct _LIST_ENTRY *Flink; // rbx
   struct _LIST_ENTRY *v5; // rdx
+  struct _LIST_ENTRY *v6; // rcx
   struct _LIST_ENTRY *Blink; // rax
 
   Flags = a1->Flags;
@@ -34,15 +35,16 @@ char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)
   while ( Flink != p_EcpList )
   {
     v5 = Flink;
+    v6 = Flink;
     Flink = Flink->Flink;
     if ( ((__int64)v5[2].Blink & 1) == 0 )
     {
-      if ( Flink->Blink != v5 || (Blink = v5->Blink, Blink->Flink != v5) )
+      if ( Flink->Blink != v6 || (Blink = v6->Blink, Blink->Flink != v6) )
         __fastfail(3u);
       Blink->Flink = Flink;
       Flink->Blink = Blink;
+      v6->Flink = 0LL;
       v5->Blink = 0LL;
-      v5->Flink = 0LL;
       FsRtlFreeExtraCreateParameter(&v5[4]);
     }
   }

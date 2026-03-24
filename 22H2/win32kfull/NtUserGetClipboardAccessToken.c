@@ -1,56 +1,40 @@
 /*
- * XREFs of NtUserGetClipboardAccessToken @ 0x1C01D0210
+ * XREFs of NtUserGetClipboardAccessToken @ 0x1C01F8BD0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetClipboardAccessToken(_QWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetClipboardAccessToken(_QWORD *a1, ACCESS_MASK a2)
 {
-  ACCESS_MASK v3; // esi
-  _QWORD *v4; // rdi
-  int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  struct tagTHREADINFO *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  ULONG64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  void *v19; // rcx
-  int v21; // [rsp+80h] [rbp+18h] BYREF
-  int v22; // [rsp+84h] [rbp+1Ch]
+  int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  ULONG64 v7; // rcx
+  void *v8; // rcx
+  int v10; // [rsp+80h] [rbp+18h] BYREF
+  int v11; // [rsp+84h] [rbp+1Ch]
   void *Handle; // [rsp+88h] [rbp+20h] BYREF
 
-  v3 = a2;
-  v4 = a1;
-  v21 = 0x2000;
-  v22 = -1;
-  v5 = 0;
+  v10 = 0x2000;
+  v11 = -1;
+  v4 = 0;
   Handle = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  v10 = PtiCurrentShared(v7, v6, v8, v9);
-  if ( (unsigned __int8)CheckAccess(*((_QWORD *)v10 + 53) + 888LL, &v21)
-    && (v19 = *(void **)(*(_QWORD *)(*((_QWORD *)PtiCurrentShared(v12, v11, v13, v14) + 57) + 40LL) + 160LL)) != 0LL )
+  EnterCrit(0LL, 1LL);
+  if ( (unsigned __int8)CheckAccess(*(_QWORD *)(gptiCurrent + 424LL) + 880LL, &v10)
+    && (v8 = *(void **)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 456LL) + 40LL) + 160LL)) != 0LL )
   {
-    LOBYTE(v5) = ObOpenObjectByPointer(v19, 0, 0LL, v3, (POBJECT_TYPE)SeTokenObjectType, 1, &Handle) >= 0;
-    v16 = MmUserProbeAddress;
-    if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-      v4 = (_QWORD *)MmUserProbeAddress;
-    *v4 = Handle;
+    LOBYTE(v4) = ObOpenObjectByPointer(v8, 0, 0LL, a2, (POBJECT_TYPE)SeTokenObjectType, 1, &Handle) >= 0;
+    v7 = MmUserProbeAddress;
+    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+      a1 = (_QWORD *)MmUserProbeAddress;
+    *a1 = Handle;
   }
   else
   {
-    UserSetLastError(5);
+    UserSetLastError(5LL, v5, v6);
   }
-  UserSessionSwitchLeaveCrit(v16, v15, v17, v18);
-  return v5;
+  UserSessionSwitchLeaveCrit(v7);
+  return v4;
 }

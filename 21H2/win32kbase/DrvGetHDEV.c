@@ -1,13 +1,13 @@
 /*
- * XREFs of DrvGetHDEV @ 0x1C00718F0
+ * XREFs of DrvGetHDEV @ 0x1C0021300
  * Callers:
- *     hdcOpenDCW @ 0x1C0071480 (hdcOpenDCW.c)
+ *     hdcOpenDCW @ 0x1C0021590 (hdcOpenDCW.c)
  * Callees:
- *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0022DD0 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     DrvGetDeviceFromName @ 0x1C00719F0 (DrvGetDeviceFromName.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     DrvGetDeviceFromName @ 0x1C0021400 (DrvGetDeviceFromName.c)
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C00302B0 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
 struct PDEV *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
@@ -32,15 +32,13 @@ struct PDEV *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
       {
         do
         {
-          v5 = *((_QWORD *)v4 + 319);
+          v5 = *((_QWORD *)v4 + 322);
           if ( v5 && v5 == DeviceFromName )
           {
             if ( (*((_DWORD *)v4 + 10) & 0x400) == 0 )
             {
               ++*((_DWORD *)v4 + 2);
-              TrackObjectReferenceIncrement(
-                1u,
-                *((struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **)v4 + 440));
+              TrackObjectReferenceIncrement(1LL, *((_QWORD *)v4 + 443));
               v1 = v4;
               goto LABEL_8;
             }
@@ -54,9 +52,7 @@ struct PDEV *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
         {
           *((_QWORD *)v3 + 4) = 0LL;
           ++*((_DWORD *)v3 + 2);
-          TrackObjectReferenceIncrement(
-            1u,
-            *((struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer **)v3 + 440));
+          TrackObjectReferenceIncrement(1LL, *((_QWORD *)v3 + 443));
           v1 = v3;
         }
       }

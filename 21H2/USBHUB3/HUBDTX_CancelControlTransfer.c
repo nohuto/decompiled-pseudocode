@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDTX_CancelControlTransfer @ 0x1C0028048
+ * XREFs of HUBDTX_CancelControlTransfer @ 0x1C0027BA0
  * Callers:
- *     HUBDSM_CancellingControlTransferOnHubStopInRemainingDescriptors @ 0x1C001EC30 (HUBDSM_CancellingControlTransferOnHubStopInRemainingDescriptors.c)
+ *     HUBDSM_CancellingControlTransferOnHubStopInRemainingDescriptors @ 0x1C001E6F0 (HUBDSM_CancellingControlTransferOnHubStopInRemainingDescriptors.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _UNKNOWN **__fastcall HUBDTX_CancelControlTransfer(__int64 a1)
@@ -23,7 +23,7 @@ _UNKNOWN **__fastcall HUBDTX_CancelControlTransfer(__int64 a1)
                             3u,
                             5u,
                             0x24u,
-                            (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids);
+                            (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids);
   }
   return result;
 }

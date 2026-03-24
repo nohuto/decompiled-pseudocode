@@ -1,10 +1,11 @@
 /*
- * XREFs of SeAssignSecurity @ 0x140719100
+ * XREFs of SeAssignSecurity @ 0x14066A500
  * Callers:
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
- *     CmFcInitSystem2 @ 0x140B152D4 (CmFcInitSystem2.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x14078DBF0 (CmpCreateHiveRootCell.c)
+ *     CmFcInitSystem2 @ 0x140A38398 (CmFcInitSystem2.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurity(
@@ -22,11 +23,14 @@ NTSTATUS __stdcall SeAssignSecurity(
   if ( ParentDescriptor )
   {
     if ( (!ExplicitDescriptor || (*((_BYTE *)ExplicitDescriptor + 2) & 4) == 0)
-      && (v7 = (*((unsigned __int16 *)ParentDescriptor + 1) >> 10) & 1, !ExplicitDescriptor)
-      || (*((_BYTE *)ExplicitDescriptor + 2) & 0x10) == 0 )
+      && (*((_WORD *)ParentDescriptor + 1) & 0x400) != 0 )
     {
-      if ( _bittest16((const signed __int16 *)ParentDescriptor + 1, 0xBu) )
-        v7 |= 2u;
+      v7 = 1;
+    }
+    if ( (!ExplicitDescriptor || (*((_BYTE *)ExplicitDescriptor + 2) & 0x10) == 0)
+      && (*((_WORD *)ParentDescriptor + 1) & 0x800) != 0 )
+    {
+      v7 |= 2u;
     }
   }
   return RtlpNewSecurityObject(

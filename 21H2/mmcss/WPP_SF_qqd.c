@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_SF_qqd @ 0x1C0004D24
+ * XREFs of WPP_SF_qqd @ 0x1C0004A74
  * Callers:
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_SF_qqd(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -23,7 +23,7 @@ __int64 WPP_SF_qqd(__int64 a1, __int64 a2, __int64 a3, ...)
   return ((__int64 (__fastcall *)(__int64, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
            a1,
            43LL,
-           &WPP_0f961914fea93012ea63c8b8118ed7e5_Traceguids,
+           &WPP_17d3af65828631c5cfc6c3f73d823efb_Traceguids,
            10LL,
            (__int64 *)va,
            8LL,

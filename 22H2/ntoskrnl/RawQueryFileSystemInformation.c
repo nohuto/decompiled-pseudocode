@@ -1,18 +1,18 @@
 /*
- * XREFs of RawQueryFileSystemInformation @ 0x1409B8924
+ * XREFs of RawQueryFileSystemInformation @ 0x14090F928
  * Callers:
- *     RawUserFsCtrl @ 0x140882664 (RawUserFsCtrl.c)
+ *     RawUserFsCtrl @ 0x14076D5C8 (RawUserFsCtrl.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopBuildSynchronousFsdRequest @ 0x1407FDA70 (IopBuildSynchronousFsdRequest.c)
- *     RawPerformDevIoCtrl @ 0x1409B8384 (RawPerformDevIoCtrl.c)
- *     RawComputeFileSystemInformationChecksum @ 0x1409B88D0 (RawComputeFileSystemInformationChecksum.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1406FF1D0 (IopBuildSynchronousFsdRequest.c)
+ *     RawPerformDevIoCtrl @ 0x14090F384 (RawPerformDevIoCtrl.c)
+ *     RawComputeFileSystemInformationChecksum @ 0x14090F8D4 (RawComputeFileSystemInformationChecksum.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RawQueryFileSystemInformation(__int64 a1, __int64 a2, __int64 a3)
@@ -23,67 +23,73 @@ __int64 __fastcall RawQueryFileSystemInformation(__int64 a1, __int64 a2, __int64
   __int64 v8; // rcx
   __int64 v9; // r8
   __int64 v10; // r9
-  unsigned int v11; // esi
-  char *PoolWithTag; // rdi
-  IRP *v13; // rax
-  unsigned int v14; // eax
-  int v15; // eax
+  size_t v11; // rsi
+  PVOID PoolWithTag; // rax
+  __int64 v13; // rdi
+  IRP *v14; // rax
+  unsigned int v15; // eax
+  int v16; // eax
   struct _KEVENT Event; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v18; // [rsp+68h] [rbp-11h] BYREF
-  LARGE_INTEGER v19[2]; // [rsp+78h] [rbp-1h] BYREF
+  __int128 v19; // [rsp+68h] [rbp-11h] BYREF
+  LARGE_INTEGER v20[2]; // [rsp+78h] [rbp-1h] BYREF
   SIZE_T NumberOfBytes; // [rsp+88h] [rbp+Fh]
 
   NumberOfBytes = 0LL;
   v4 = *(unsigned int *)(a2 + 8);
   memset(&Event, 0, sizeof(Event));
-  v18 = 0LL;
-  *(_OWORD *)&v19[0].LowPart = 0LL;
+  v19 = 0LL;
+  *(_OWORD *)&v20[0].LowPart = 0LL;
   if ( (unsigned int)v4 >= 9 )
   {
     v7 = *(_QWORD **)(a1 + 24);
     memset(v7, 0, v4);
-    v6 = RawPerformDevIoCtrl(v8, *(struct _DEVICE_OBJECT **)(a3 + 184), v9, v10, v19);
+    v6 = RawPerformDevIoCtrl(v8, *(struct _DEVICE_OBJECT **)(a3 + 176), v9, v10, v20);
     if ( v6 >= 0 )
     {
       v11 = HIDWORD(NumberOfBytes);
       if ( HIDWORD(NumberOfBytes) >= 0x18 )
       {
-        PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1025, HIDWORD(NumberOfBytes), 0x62574152u);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, HIDWORD(NumberOfBytes), 0x62574152u);
+        v13 = (__int64)PoolWithTag;
         if ( PoolWithTag )
         {
+          memset(PoolWithTag, 0, v11);
           KeInitializeEvent(&Event, NotificationEvent, 0);
-          v13 = (IRP *)IopBuildSynchronousFsdRequest(
+          v14 = (IRP *)IopBuildSynchronousFsdRequest(
                          3u,
-                         *(_QWORD *)(a3 + 184),
-                         PoolWithTag,
+                         *(_QWORD *)(a3 + 176),
+                         (void *)v13,
                          v11,
                          0LL,
                          (__int64)&Event,
-                         (__int64)&v18);
-          if ( v13 )
+                         (__int64)&v19);
+          if ( v14 )
           {
-            v13->Tail.Overlay.CurrentStackLocation[-1].Flags |= 2u;
-            v6 = IofCallDriver(*(PDEVICE_OBJECT *)(a3 + 184), v13);
+            v14->Tail.Overlay.CurrentStackLocation[-1].Flags |= 2u;
+            v6 = IofCallDriver(*(PDEVICE_OBJECT *)(a3 + 176), v14);
             if ( v6 == 259 )
             {
               KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-              v6 = v18;
+              v6 = v19;
             }
             if ( v6 >= 0 )
             {
-              if ( *((_DWORD *)PoolWithTag + 4) == 1397904198
-                && (v14 = *((unsigned __int16 *)PoolWithTag + 10), v14 <= v11)
-                && (unsigned __int16)v14 >= 0x18u
-                && (unsigned __int16)RawComputeFileSystemInformationChecksum((__int64)PoolWithTag) == *((_WORD *)PoolWithTag + 11) )
+              if ( *(_DWORD *)(v13 + 16) == 1397904198
+                && (v15 = *(unsigned __int16 *)(v13 + 20), v15 <= (unsigned int)v11)
+                && (unsigned __int16)v15 >= 0x18u
+                && (unsigned __int16)RawComputeFileSystemInformationChecksum(v13) == *(_WORD *)(v13 + 22) )
               {
-                if ( PoolWithTag[3] == 82 && PoolWithTag[4] == 101 && PoolWithTag[5] == 70 && PoolWithTag[6] == 83 )
+                if ( *(_BYTE *)(v13 + 3) == 82
+                  && *(_BYTE *)(v13 + 4) == 101
+                  && *(_BYTE *)(v13 + 5) == 70
+                  && *(_BYTE *)(v13 + 6) == 83 )
                 {
-                  v15 = v6;
-                  if ( !PoolWithTag[7] )
-                    v15 = -1073741637;
-                  v6 = v15;
+                  v16 = v6;
+                  if ( !*(_BYTE *)(v13 + 7) )
+                    v16 = -1073741637;
+                  v6 = v16;
                 }
-                *v7 = *(_QWORD *)(PoolWithTag + 3);
+                *v7 = *(_QWORD *)(v13 + 3);
                 *(_QWORD *)(a1 + 56) = 9LL;
               }
               else
@@ -96,7 +102,7 @@ __int64 __fastcall RawQueryFileSystemInformation(__int64 a1, __int64 a2, __int64
           {
             v6 = -1073741670;
           }
-          ExFreePoolWithTag(PoolWithTag, 0);
+          ExFreePoolWithTag((PVOID)v13, 0);
         }
         else
         {

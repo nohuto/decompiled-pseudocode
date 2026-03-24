@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhPindicatorWorker @ 0x1C002EA80
+ * XREFs of UsbhPindicatorWorker @ 0x1C002FE50
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     Usbh_PIND_Timeout_Action @ 0x1C002F004 (Usbh_PIND_Timeout_Action.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     Usbh_PIND_Timeout_Action @ 0x1C00303D4 (Usbh_PIND_Timeout_Action.c)
  */
 
 __int64 __fastcall UsbhPindicatorWorker(__int64 a1, unsigned __int16 a2, __int64 a3)

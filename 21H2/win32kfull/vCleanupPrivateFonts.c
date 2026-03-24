@@ -1,9 +1,9 @@
 /*
- * XREFs of vCleanupPrivateFonts @ 0x1C001C200
+ * XREFs of vCleanupPrivateFonts @ 0x1C00A30A0
  * Callers:
  *     <none>
  * Callees:
- *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C00F97F0 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
+ *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C010EBC4 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
  */
 
 __int64 vCleanupPrivateFonts()

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUnlockDriverCode @ 0x14070DB80
+ * XREFs of MiUnlockDriverCode @ 0x14070DB60
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)

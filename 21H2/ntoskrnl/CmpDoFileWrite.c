@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDoFileWrite @ 0x140714594
+ * XREFs of CmpDoFileWrite @ 0x1406715BC
  * Callers:
- *     CmpFileWrite @ 0x140713F50 (CmpFileWrite.c)
- *     CmpWriteOffsetArrayToFile @ 0x1409180B0 (CmpWriteOffsetArrayToFile.c)
+ *     CmpFileWrite @ 0x1406720B0 (CmpFileWrite.c)
+ *     CmpWriteOffsetArrayToFile @ 0x14087162C (CmpWriteOffsetArrayToFile.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     CmpSetIoPriorityThread @ 0x14025C430 (CmpSetIoPriorityThread.c)
- *     CmpSetPriorityThread @ 0x14025C448 (CmpSetPriorityThread.c)
- *     CmpSetRespectIoPriorityThread @ 0x1402A20D4 (CmpSetRespectIoPriorityThread.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpCreateEvent @ 0x14071489C (CmpCreateEvent.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     CmpSetRespectIoPriorityThread @ 0x14027F078 (CmpSetRespectIoPriorityThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     CmpSetIoPriorityThread @ 0x1402D25D4 (CmpSetIoPriorityThread.c)
+ *     CmpSetPriorityThread @ 0x1402D25EC (CmpSetPriorityThread.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpCreateEvent @ 0x140671E70 (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4, char a5)
@@ -31,19 +31,21 @@ __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOK
   NTSTATUS Event; // edi
   ULONG Length; // r15d
   unsigned int v17; // ebp
-  HANDLE *v18; // rsi
+  PADAPTER_OBJECT *v18; // rsi
   unsigned int v20; // ecx
   NTSTATUS *v21; // rax
   unsigned int v22; // [rsp+50h] [rbp-58h]
+  KPRIORITY v23; // [rsp+58h] [rbp-50h]
   LARGE_INTEGER ByteOffset; // [rsp+60h] [rbp-48h] BYREF
-  char *v24; // [rsp+68h] [rbp-40h]
-  char v26; // [rsp+B8h] [rbp+10h]
-  unsigned int v27; // [rsp+C8h] [rbp+20h]
-  char v28; // [rsp+D8h] [rbp+30h]
+  char *v25; // [rsp+68h] [rbp-40h]
+  char v27; // [rsp+B8h] [rbp+10h]
+  unsigned int v28; // [rsp+C8h] [rbp+20h]
+  char v30; // [rsp+D8h] [rbp+30h]
 
-  v27 = (unsigned int)a4;
+  v28 = (unsigned int)a4;
   ByteOffset.QuadPart = 0LL;
-  v26 = 0;
+  v27 = 0;
+  v23 = 0;
   v6 = (int)a4;
   v7 = 0;
   TransientPoolWithTag = (char *)CmpAllocateTransientPoolWithTag(NonPagedPoolNx, 0x1400uLL, 0x77624D43u, a4);
@@ -54,10 +56,10 @@ __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOK
     if ( (a5 & 1) != 0 )
     {
       CmpSetIoPriorityThread();
-      CmpSetPriorityThread((ULONG_PTR)KeGetCurrentThread());
-      v26 = 1;
+      v23 = CmpSetPriorityThread(KeGetCurrentThread(), 4);
+      v27 = 1;
     }
-    v28 = CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), 1);
+    v30 = CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), 1);
     v10 = 0;
     v22 = 0;
     if ( v6 )
@@ -68,14 +70,14 @@ __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOK
         Buffer = (char *)*((_QWORD *)v11 - 1);
         v13 = *v11;
         ByteOffset.QuadPart = (unsigned int)*(v11 - 4);
-        v24 = Buffer;
+        v25 = Buffer;
         if ( v13 )
           break;
 LABEL_16:
         ++v10;
         v11 += 6;
         v22 = v10;
-        if ( v10 >= v27 )
+        if ( v10 >= v28 )
           goto LABEL_17;
       }
       while ( 1 )
@@ -86,7 +88,7 @@ LABEL_16:
           Event = CmpCreateEvent(SynchronizationEvent);
           if ( Event < 0 )
             goto LABEL_18;
-          Buffer = v24;
+          Buffer = v25;
         }
         Length = 0x100000;
         if ( v13 < 0x100000 )
@@ -108,13 +110,13 @@ LABEL_16:
                     0LL);
           if ( Event < 0 )
             goto LABEL_18;
-          Buffer = v24;
+          Buffer = v25;
         }
         v13 -= Length;
         ByteOffset.QuadPart += Length;
         Buffer += Length;
         ++v7;
-        v24 = Buffer;
+        v25 = Buffer;
         if ( v7 == 64 )
           break;
 LABEL_14:
@@ -137,7 +139,7 @@ LABEL_14:
         v21 += 4;
         if ( v20 >= 0x40 )
         {
-          Buffer = v24;
+          Buffer = v25;
           goto LABEL_14;
         }
       }
@@ -150,19 +152,19 @@ LABEL_18:
       if ( v7 )
         KeWaitForMultipleObjects(v7, (PVOID *)v9 + 64, WaitAll, Executive, 0, 0, 0LL, (PKWAIT_BLOCK)(v9 + 1024));
     }
-    if ( v26 )
+    if ( v27 )
     {
       CmpSetIoPriorityThread();
-      CmpSetPriorityThread((ULONG_PTR)KeGetCurrentThread());
+      CmpSetPriorityThread(KeGetCurrentThread(), v23);
     }
-    CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), v28);
+    CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), v30);
     v17 = 0;
-    v18 = (HANDLE *)v9;
+    v18 = (PADAPTER_OBJECT *)v9;
     do
     {
       if ( !*v18 )
         break;
-      ObfDereferenceObject(v18[64]);
+      HalPutDmaAdapter(v18[64]);
       ZwClose(*v18);
       ++v17;
       ++v18;

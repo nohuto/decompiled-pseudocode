@@ -1,15 +1,16 @@
 /*
- * XREFs of VidSchCreatePeriodicFrameNotification @ 0x1C003C910
+ * XREFs of VidSchCreatePeriodicFrameNotification @ 0x1C0033C10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C001E570 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C003B70C (-VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z.c)
- *     McTemplateK0pqxxqpp_EtwWriteTransfer @ 0x1C003C2F0 (McTemplateK0pqxxqpp_EtwWriteTransfer.c)
- *     VidSchDestroyPeriodicFrameNotification @ 0x1C003CE00 (VidSchDestroyPeriodicFrameNotification.c)
- *     VidSchControlVSyncAdapter @ 0x1C00A3620 (VidSchControlVSyncAdapter.c)
- *     VidSchIsVSyncAvailable @ 0x1C00AA260 (VidSchIsVSyncAvailable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024E10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C0032C30 (-VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z.c)
+ *     McTemplateK0pqxxqpp_EtwWriteTransfer @ 0x1C00337DC (McTemplateK0pqxxqpp_EtwWriteTransfer.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C0034090 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchControlVSyncAdapter @ 0x1C008ADA0 (VidSchControlVSyncAdapter.c)
+ *     VidSchIsVSyncAvailable @ 0x1C00D1B40 (VidSchIsVSyncAvailable.c)
  */
 
 __int64 __fastcall VidSchCreatePeriodicFrameNotification(
@@ -22,195 +23,190 @@ __int64 __fastcall VidSchCreatePeriodicFrameNotification(
 {
   __int64 v6; // r14
   __int64 v9; // r13
-  _QWORD *Pool2; // rbx
-  int v11; // edi
-  __int64 v12; // rdx
+  _QWORD *PoolWithTag; // rax
+  __int64 v11; // rcx
+  _QWORD *v12; // rdi
   __int64 v13; // rax
-  __int64 v14; // rdi
-  const wchar_t *v15; // r9
-  unsigned int v16; // ecx
-  bool v17; // zf
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  int v20; // ecx
-  int v21; // eax
-  __int64 v22; // rcx
-  __int64 v23; // r8
+  int v14; // ebx
+  __int64 v15; // rdx
+  PVOID v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  int v23; // ecx
   int v24; // eax
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // rdi
+  __int64 v25; // r8
+  int v26; // eax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rbx
   __int64 Timer; // rax
-  __int64 v29; // rdx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  __int64 v36; // rax
+  __int64 v37; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-19h] BYREF
-  __int128 v32; // [rsp+70h] [rbp-1h] BYREF
-  __int128 v33; // [rsp+80h] [rbp+Fh]
-  __int64 v34; // [rsp+90h] [rbp+1Fh]
+  __int128 v40; // [rsp+70h] [rbp-1h] BYREF
+  __int128 v41; // [rsp+80h] [rbp+Fh]
+  __int64 v42; // [rsp+90h] [rbp+1Fh]
 
   v6 = a4;
-  v34 = 0LL;
-  v9 = *((_QWORD *)a1 + a4 + 400);
-  v32 = 0LL;
-  v33 = 0LL;
+  v42 = 0LL;
+  v9 = *((_QWORD *)a1 + a4 + 388);
+  v40 = 0LL;
+  v41 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( (unsigned __int8)VidSchIsVSyncAvailable(a1, a4) && (int)VidSchControlVSyncAdapter(a1) >= 0 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(64LL, 72LL, 1650551126LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x48uLL, 0x62616956u);
+    v12 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      _InterlockedIncrement(&dword_1C006E868);
-      WdLogSingleEntry1(6LL, 13847LL);
-      DxgCoreInterface[85](
-        0LL,
-        262145LL,
-        0xFFFFFFFFLL,
-        L"ExAllocatePool for VIDSCH_PERIODIC_FRAME_NOTIFICATION_STORAGE failed, returning STATUS_NO_MEMORY.",
-        13847LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v11 = -1073741801;
+      _InterlockedIncrement(&dword_1C00507B8);
+      v13 = WdLogNewEntry5_WdLowResource(v11);
+      *(_QWORD *)(v13 + 24) = 13472LL;
+      WdLogEvent5_WdLowResource(v13);
+      v14 = -1073741801;
       VidSchControlVSyncAdapter(a1);
 LABEL_34:
       *a6 = 0LL;
-      return (unsigned int)v11;
+      return (unsigned int)v14;
     }
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 216, &LockHandle);
-    v12 = *(_QWORD *)(v9 + 78592);
-    *((_BYTE *)Pool2 + 25) = *(_BYTE *)(v9 + 82720) + 1;
-    if ( v12 )
+    memset(PoolWithTag, 0, 0x48uLL);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 214, &LockHandle);
+    *((_BYTE *)v12 + 25) = *(_BYTE *)(v9 + 70576) + 1;
+    v15 = *(_QWORD *)(v9 + 66448);
+    if ( v15 )
     {
-      v16 = 0;
-      while ( *(_QWORD *)(v12 + 8LL * v16) )
+      v19 = 0LL;
+      while ( *(_QWORD *)(v15 + 8 * v19) )
       {
-        if ( ++v16 >= 8 )
+        v19 = (unsigned int)(v19 + 1);
+        if ( (unsigned int)v19 >= 8 )
         {
-          _InterlockedIncrement(&dword_1C006E868);
-          v14 = 13889LL;
-          WdLogSingleEntry1(6LL, 13889LL);
-          v15 = L"Cap for ppPeriodicFrameNotificationStorageArray reached, returning STATUS_NO_MEMORY.";
+          _InterlockedIncrement(&dword_1C00507B8);
+          v18 = WdLogNewEntry5_WdLowResource(v19);
+          *(_QWORD *)(v18 + 24) = 13518LL;
           goto LABEL_15;
         }
       }
     }
     else
     {
-      v13 = ExAllocatePool2(64LL, 64LL, 1650551126LL);
-      *(_QWORD *)(v9 + 78592) = v13;
-      if ( !v13 )
+      v16 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x40uLL, 0x62616956u);
+      *(_QWORD *)(v9 + 66448) = v16;
+      if ( !v16 )
       {
-        _InterlockedIncrement(&dword_1C006E868);
-        v14 = 13865LL;
-        WdLogSingleEntry1(6LL, 13865LL);
-        v15 = L"ExAllocatePool for ppPeriodicFrameNotificationStorageArray failed, returning STATUS_NO_MEMORY.";
+        _InterlockedIncrement(&dword_1C00507B8);
+        v18 = WdLogNewEntry5_WdLowResource(v17);
+        *(_QWORD *)(v18 + 24) = 13492LL;
 LABEL_15:
-        DxgCoreInterface[85](0LL, 262145LL, 0xFFFFFFFFLL, v15, v14, 0LL, 0LL, 0LL, 0LL);
+        WdLogEvent5_WdLowResource(v18);
         KeReleaseInStackQueuedSpinLock(&LockHandle);
         VidSchControlVSyncAdapter(a1);
-        ExFreePoolWithTag(Pool2, 0x62616956u);
-        v11 = -1073741801;
+        ExFreePoolWithTag(v12, 0x62616956u);
+        v14 = -1073741801;
         goto LABEL_34;
       }
-      LOBYTE(v16) = 0;
+      memset(v16, 0, 0x40uLL);
+      LOBYTE(v19) = 0;
     }
-    *((_BYTE *)Pool2 + 24) = v16;
-    *(_QWORD *)(*(_QWORD *)(v9 + 78592) + 8LL * (unsigned __int8)*((_DWORD *)Pool2 + 6)) = Pool2;
+    *((_BYTE *)v12 + 24) = v19;
+    *(_QWORD *)(*(_QWORD *)(v9 + 66448) + 8LL * (unsigned __int8)*((_DWORD *)v12 + 6)) = v12;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    _InterlockedIncrement((volatile signed __int32 *)(a2 + 36));
-    v17 = *((_DWORD *)a1 + 58) == 1;
-    v18 = *((_QWORD *)a1 + 2);
-    *Pool2 = a2;
-    Pool2[8] = v18;
-    v19 = *(_QWORD *)(a5 + 16);
-    Pool2[6] = a3;
-    Pool2[2] = v19;
-    *((_DWORD *)Pool2 + 2) = v6;
-    if ( v17 )
+    _InterlockedIncrement((volatile signed __int32 *)(a2 + 32));
+    *v12 = a2;
+    v12[8] = *((_QWORD *)a1 + 2);
+    v12[2] = *(_QWORD *)(a5 + 16);
+    v12[6] = a3;
+    *((_DWORD *)v12 + 2) = v6;
+    if ( *((_DWORD *)a1 + 56) == 1 )
     {
-      v11 = -1073741822;
+      v14 = -1073741822;
     }
     else
     {
-      v20 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v18 + 2792) + 128LL) + 4000 * v6 + 1088);
-      DWORD2(v33) = *((_DWORD *)Pool2 + 6);
-      DWORD2(v32) = v20;
-      *(_QWORD *)&v33 = v19;
-      v21 = ((__int64 (__fastcall *)(_QWORD, __int128 *))DxgCoreInterface[70])(*(_QWORD *)(v18 + 2792), &v32);
-      v11 = v21;
-      if ( v21 >= 0 )
+      v22 = *((_QWORD *)a1 + 2);
+      v23 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v22 + 2696) + 112LL) + 3968 * v6 + 1068);
+      *(_QWORD *)&v41 = *(_QWORD *)(a5 + 16);
+      DWORD2(v40) = v23;
+      DWORD2(v41) = *((_DWORD *)v12 + 6);
+      v24 = ((__int64 (__fastcall *)(_QWORD, __int128 *))DxgCoreInterface[65])(*(_QWORD *)(v22 + 2696), &v40);
+      v14 = v24;
+      if ( v24 >= 0 )
       {
-        v22 = v34;
-        Pool2[4] = v34;
+        v21 = v42;
+        v12[4] = v42;
         goto LABEL_30;
       }
-      if ( (unsigned int)(v21 + 0x3FFFFFFF) > 1 )
+      if ( (unsigned int)(v24 + 0x3FFFFFFF) > 1 )
       {
 LABEL_30:
-        *a6 = Pool2;
-        if ( (byte_1C006E941 & 2) != 0 )
+        *a6 = v12;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80u) != 0LL )
           McTemplateK0pqxxqpp_EtwWriteTransfer(
-            v22,
+            v21,
             &EventCreatePeriodicFrameNotification,
-            v23,
-            *Pool2,
-            *((_DWORD *)Pool2 + 2),
-            Pool2[2],
-            Pool2[6],
-            *((_DWORD *)Pool2 + 6),
-            Pool2[4],
-            Pool2[5],
+            v25,
+            *v12,
+            *((_DWORD *)v12 + 2),
+            v12[2],
+            v12[6],
+            *((_DWORD *)v12 + 6),
+            v12[4],
+            v12[5],
             LockHandle.LockQueue.Next,
             LockHandle.LockQueue.Lock,
             *(_QWORD *)&LockHandle.OldIrql);
-        if ( v11 >= 0 )
-          return (unsigned int)v11;
+        if ( v14 >= 0 )
+          return (unsigned int)v14;
         goto LABEL_33;
       }
     }
-    v24 = *((_DWORD *)a1 + 58);
-    if ( v24 == 2 )
+    v26 = *((_DWORD *)a1 + 56);
+    if ( v26 == 2 )
     {
-      WdLogSingleEntry1(3LL, v11);
-      v11 = -1073741822;
+      v27 = WdLogNewEntry5_WdWarning(v21, v20);
+      *(_QWORD *)(v27 + 24) = v14;
+      WdLogEvent5_WdWarning(v27);
+      v14 = -1073741822;
 LABEL_33:
-      VidSchDestroyPeriodicFrameNotification(*(PVOID *)(*(_QWORD *)(v9 + 78592)
-                                                      + 8LL * (unsigned __int8)*((_DWORD *)Pool2 + 6)));
+      VidSchDestroyPeriodicFrameNotification(*(PVOID *)(*(_QWORD *)(v9 + 66448)
+                                                      + 8LL * (unsigned __int8)*((_DWORD *)v12 + 6)));
       goto LABEL_34;
     }
-    if ( v24 != 1 )
+    if ( v26 != 1 )
     {
-      WdLogSingleEntry1(3LL, v11);
+      v28 = WdLogNewEntry5_WdWarning(v21, v20);
+      *(_QWORD *)(v28 + 24) = v14;
+      WdLogEvent5_WdWarning(v28);
       if ( bTracingEnabled )
       {
-        if ( (byte_1C006E941 & 1) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v25, (__int64)&EventPerformanceWarning, v26, 25);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v29, &EventPerformanceWarning, v30, 25);
       }
     }
-    v27 = VidSchCalculatePeriodicMonitoredFenceTimerDueTime(*(_QWORD *)(v9 + 44120), Pool2[6], Pool2[2], -1);
-    Timer = ExAllocateTimer(VidSchPeriodicMonitoredFenceTimerCallback, Pool2, 4LL);
-    Pool2[5] = Timer;
+    v31 = VidSchCalculatePeriodicMonitoredFenceTimerDueTime(*(_QWORD *)(v9 + 33200), v12[6], v12[2], -1);
+    Timer = ExAllocateTimer(VidSchPeriodicMonitoredFenceTimerCallback, v12, 4LL);
+    v12[5] = Timer;
     if ( !Timer )
     {
-      WdLogSingleEntry0(1LL);
-      DxgCoreInterface[85](
-        0LL,
-        0x40000LL,
-        0xFFFFFFFFLL,
-        L"ExAllocateTimer for VIDSCH_PERIODIC_FRAME_NOTIFICATION_STORAGE failed, returning STATUS_NO_MEMORY.",
-        13952LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v11 = -1073741801;
+      v36 = WdLogNewEntry5_WdAssertion(v34, v33, v35);
+      WdLogEvent5_WdAssertion(v36);
+      v14 = -1073741801;
       goto LABEL_33;
     }
-    v29 = 0LL;
-    if ( v27 <= 0 )
-      v29 = v27;
-    ExSetTimer(Timer, v29, 0LL, 0LL);
-    v11 = 0;
+    v37 = 0LL;
+    if ( v31 <= 0 )
+      v37 = v31;
+    ExSetTimer(Timer, v37, 0LL, 0LL);
+    v14 = 0;
     goto LABEL_30;
   }
   return 3223191558LL;

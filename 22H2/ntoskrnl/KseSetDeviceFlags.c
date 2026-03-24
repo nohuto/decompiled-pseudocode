@@ -1,14 +1,14 @@
 /*
- * XREFs of KseSetDeviceFlags @ 0x140976BE0
+ * XREFs of KseSetDeviceFlags @ 0x1408BF630
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
- *     KsepStringTransform @ 0x14080A7A8 (KsepStringTransform.c)
- *     KsepRegistryCreateKey @ 0x140977898 (KsepRegistryCreateKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x14075F128 (KsepStringTransform.c)
+ *     KsepRegistryCreateKey @ 0x1408C1218 (KsepRegistryCreateKey.c)
  */
 
 __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
   Handle = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
-  if ( dword_140C64E34 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140C505E4 != 2 || (KseEngine & 2) != 0 )
   {
     v4 = -1073741823;
   }
@@ -52,7 +52,7 @@ __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
       if ( Handle )
       {
         ZwClose(Handle);
-        _InterlockedIncrement(dword_140C407DC);
+        _InterlockedIncrement(dword_140C2AA9C);
         v5 = v8;
       }
       Handle = 0LL;
@@ -76,7 +76,7 @@ LABEL_15:
   if ( Handle )
   {
     ZwClose(Handle);
-    _InterlockedIncrement(dword_140C407DC);
+    _InterlockedIncrement(dword_140C2AA9C);
   }
   return (unsigned int)v4;
 }

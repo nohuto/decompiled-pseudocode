@@ -1,60 +1,63 @@
 /*
- * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x14085EFD0
+ * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x1407D52A0
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetCollectionActive @ 0x1403DB4A4 (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x14057FE3C (SshpSetCollectionActive.c)
  */
 
-__int64 __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)
+char __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)
 {
-  ULONG_PTR *v2; // rcx
-  __int64 result; // rax
+  int v2; // ecx
+  int v3; // ecx
   int v4; // ecx
   int v5; // ecx
   int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
+  ULONG_PTR *v7; // rcx
+  char result; // al
 
-  if ( !a1 )
+  v2 = a1 - 1;
+  if ( v2 )
   {
-    v2 = &qword_140C1C920;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
+    v3 = v2 - 1;
+    if ( v3 )
+    {
+      v4 = v3 - 1;
+      if ( v4 )
+      {
+        v5 = v4 - 1;
+        if ( v5 )
+        {
+          v6 = v5 - 1;
+          if ( v6 )
+          {
+            if ( v6 != 3 )
+              return result;
+            v7 = (ULONG_PTR *)&unk_140C1E420;
+          }
+          else
+          {
+            v7 = (ULONG_PTR *)&unk_140C1E400;
+          }
+        }
+        else
+        {
+          v7 = (ULONG_PTR *)&unk_140C1E3E0;
+        }
+      }
+      else
+      {
+        v7 = (ULONG_PTR *)&unk_140C1E3C0;
+      }
+    }
+    else
+    {
+      v7 = (ULONG_PTR *)&unk_140C1E3A0;
+    }
   }
-  v4 = a1 - 1;
-  if ( !v4 )
+  else
   {
-    v2 = (ULONG_PTR *)&unk_140C1C860;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
+    v7 = &qword_140C1E380;
   }
-  v5 = v4 - 1;
-  if ( !v5 )
-  {
-    v2 = (ULONG_PTR *)&unk_140C1C880;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
-  }
-  v6 = v5 - 1;
-  if ( !v6 )
-  {
-    v2 = (ULONG_PTR *)&unk_140C1C8A0;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
-  }
-  v7 = v6 - 1;
-  if ( !v7 )
-  {
-    v2 = (ULONG_PTR *)&unk_140C1C8C0;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
-  }
-  v8 = v7 - 1;
-  if ( !v8 )
-  {
-    v2 = (ULONG_PTR *)&unk_140C1C8E0;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
-  }
-  if ( v8 == 3 )
-  {
-    v2 = (ULONG_PTR *)&unk_140C1C900;
-    return SshpSetCollectionActive((ULONG_PTR)v2, a2);
-  }
-  return result;
+  return SshpSetCollectionActive((ULONG_PTR)v7, a2);
 }

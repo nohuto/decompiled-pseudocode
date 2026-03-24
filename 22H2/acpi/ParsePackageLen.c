@@ -1,10 +1,7 @@
 /*
- * XREFs of ParsePackageLen @ 0x1C005BF1C
+ * XREFs of ParsePackageLen @ 0x1C006BD9C
  * Callers:
- *     IfElse @ 0x1C0055590 (IfElse.c)
- *     ParseField @ 0x1C005AB50 (ParseField.c)
- *     ParseFieldConnection @ 0x1C005AF80 (ParseFieldConnection.c)
- *     ParseTerm @ 0x1C005C7B0 (ParseTerm.c)
+ *     ParseFieldConnection @ 0x1C006BA34 (ParseFieldConnection.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +12,8 @@ __int64 __fastcall ParsePackageLen(_QWORD *a1, _QWORD *a2)
   unsigned __int8 *v4; // r11
   unsigned int v5; // r9d
   unsigned __int8 v6; // bl
-  unsigned __int8 v7; // cl
+  int v7; // eax
+  unsigned __int8 v8; // cl
 
   if ( a2 )
     *a2 = *a1;
@@ -29,9 +27,10 @@ __int64 __fastcall ParsePackageLen(_QWORD *a1, _QWORD *a2)
     v6 = 0;
     do
     {
-      v7 = v6++;
-      v3 |= *v4++ << (8 * v7 + 4);
+      v7 = *v4++;
+      v8 = v6++;
       *a1 = v4;
+      v3 |= v7 << (8 * v8 + 4);
     }
     while ( v6 < (unsigned __int8)v5 );
   }

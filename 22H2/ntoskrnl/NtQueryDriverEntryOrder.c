@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryDriverEntryOrder @ 0x1409FF390
+ * XREFs of NtQueryDriverEntryOrder @ 0x140954710
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     HalGetEnvironmentVariableEx @ 0x14035E2D0 (HalGetEnvironmentVariableEx.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     HalGetEnvironmentVariableEx @ 0x1403BA5F0 (HalGetEnvironmentVariableEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
 __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int *a2)
@@ -35,7 +35,7 @@ __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int 
   v16 = 0LL;
   v19 = 0;
   P = 0LL;
-  if ( dword_140C31AF0 != 2 )
+  if ( dword_140C197B0 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;

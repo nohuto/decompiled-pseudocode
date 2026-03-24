@@ -1,28 +1,26 @@
 /*
- * XREFs of ?Dispose@FxCompanionTarget@@EEAAEXZ @ 0x1C0061010
+ * XREFs of ?Dispose@FxCompanionTarget@@EEAAEXZ @ 0x1C0043640
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C000DC54 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ??0FxCREvent@@QEAA@E@Z @ 0x1C001AC84 (--0FxCREvent@@QEAA@E@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ @ 0x1C0060698 (-CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ??0FxCREvent@@QEAA@E@Z @ 0x1C0017CE0 (--0FxCREvent@@QEAA@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ @ 0x1C00426B8 (-CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ.c)
+ *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C0059E94 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
  */
 
 unsigned __int8 __fastcall FxCompanionTarget::Dispose(FxCompanionTarget *this, unsigned __int8 a2)
 {
-  unsigned __int8 v3; // cf
   const void *_a1; // rax
   FxCompanionLibrary *CompanionLibrary; // rbx
   FxCREvent eventOnStack; // [rsp+40h] [rbp-28h] BYREF
 
   FxCREvent::FxCREvent(&eventOnStack, a2);
   KeInitializeEvent(&eventOnStack.m_Event.m_Event, SynchronizationEvent, 0);
-  v3 = _bittest16((const signed __int16 *)&this->24, 0xAu);
   eventOnStack.m_Event.m_DbgFlagIsInitialized = 1;
-  if ( v3 )
+  if ( (this->m_ObjectFlags & 0x400) != 0 )
     FxObject::CallCleanupCallbacks(this);
   this->m_DisposeEvent = &eventOnStack;
   _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);

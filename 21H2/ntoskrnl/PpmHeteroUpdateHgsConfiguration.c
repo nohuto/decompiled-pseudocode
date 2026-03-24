@@ -1,270 +1,227 @@
 /*
- * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x1403CF26C
+ * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x1403C2194
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140849B04 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BAC0C (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140292F90 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KiAndAffinityEx @ 0x1402FF140 (KiAndAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402FFAC0 (KeCountSetBitsAffinityEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x140345D30 (KeCheckProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmEventHgsHardwareTable @ 0x1405D997C (PpmEventHgsHardwareTable.c)
+ *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 char PpmHeteroUpdateHgsConfiguration()
 {
-  char v0; // si
-  unsigned int v2; // r14d
-  __int64 v3; // rbx
-  __int64 Prcb; // rax
-  _BYTE *v5; // rdx
-  __int64 v6; // rcx
-  unsigned __int16 *v7; // rcx
-  __int64 v8; // rcx
-  int IsEmptyAffinity; // edi
-  __int64 v10; // rcx
-  unsigned int v11; // r12d
-  int v12; // r15d
-  char v13; // r14
+  char v0; // bl
+  __int64 v2; // rcx
+  char v3; // al
+  _QWORD *v4; // rcx
+  _BYTE *Prcb; // rax
+  int IsEmptyAffinity; // r12d
+  _BYTE *v7; // rax
+  unsigned int v8; // r15d
+  int v9; // esi
+  char v10; // di
+  __int64 v11; // rax
+  unsigned int v12; // r14d
+  __int64 v13; // rdx
   __int64 v14; // rax
-  int v15; // edi
-  unsigned int v16; // r13d
-  unsigned int v17; // eax
-  __int64 v18; // rcx
-  unsigned int v19; // r12d
-  int v20; // r15d
-  int v21; // edi
-  unsigned int v22; // r13d
-  unsigned int v23; // eax
-  char v24; // r14
-  __int64 v25; // rcx
-  __int64 v26; // rbx
-  char v27; // al
-  unsigned int v28; // [rsp+28h] [rbp-E0h] BYREF
-  char v29; // [rsp+2Ch] [rbp-DCh]
-  unsigned __int16 *v30; // [rsp+30h] [rbp-D8h] BYREF
-  __int64 v31; // [rsp+38h] [rbp-D0h]
-  _WORD v32[4]; // [rsp+40h] [rbp-C8h]
-  __int64 v33; // [rsp+48h] [rbp-C0h]
-  unsigned __int64 v34; // [rsp+50h] [rbp-B8h]
-  _QWORD v35[34]; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v36[68]; // [rsp+168h] [rbp+60h] BYREF
-  _QWORD v37[34]; // [rsp+278h] [rbp+170h] BYREF
+  unsigned int v15; // r15d
+  int v16; // esi
+  char v17; // di
+  unsigned int v18; // r14d
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  __int64 v21; // [rsp+28h] [rbp-E0h] BYREF
+  unsigned __int16 *v22; // [rsp+30h] [rbp-D8h] BYREF
+  __int64 v23; // [rsp+38h] [rbp-D0h]
+  __int16 v24; // [rsp+40h] [rbp-C8h]
+  int v25; // [rsp+42h] [rbp-C6h]
+  __int16 v26; // [rsp+46h] [rbp-C2h]
+  unsigned __int64 v27; // [rsp+48h] [rbp-C0h]
+  _QWORD v28[22]; // [rsp+58h] [rbp-B0h] BYREF
+  _QWORD v29[22]; // [rsp+108h] [rbp+0h] BYREF
 
-  *(_DWORD *)&v32[1] = 0;
-  v32[3] = 0;
-  memset(&v36[2], 0, 0x100uLL);
-  v28 = 0;
-  memset(v37, 0, 0x108uLL);
-  memset(v35, 0, 0x108uLL);
+  v25 = 0;
+  v26 = 0;
+  LODWORD(v21) = 0;
+  memset(&v29[1], 0, 0xA0uLL);
+  memset(&v28[1], 0, 0xA0uLL);
   v0 = 0;
   if ( PpmHeteroHgsEnabled )
   {
     if ( !(unsigned int)KeIsEmptyAffinityEx(PpmCheckRegistered) )
     {
-      v34 = __readmsr(0x1B1u);
-      if ( (v34 & 0x4000000) != 0 )
+      v27 = __readmsr(0x1B1u);
+      if ( (v27 & 0x4000000) != 0 )
       {
-        v36[0] = 2097153;
+        LODWORD(v29[0]) = 1310721;
         PpmHeteroHgsPopulated = 1;
-        memset(&v36[1], 0, 0x104uLL);
-        KiCopyAffinityEx((__int64)v36, 0x20u, (unsigned __int16 *)PpmCheckRegistered);
-        v2 = 0;
-        for ( LODWORD(v33) = 0; v2 < *((_DWORD *)PpmHeteroCapability + 1); LODWORD(v33) = v2 )
+        memset((char *)v29 + 4, 0, 0xA4uLL);
+        LODWORD(v28[0]) = 1310721;
+        memset((char *)v28 + 4, 0, 0xA4uLL);
+        v23 = qword_140C113E8[0];
+        v24 = 0;
+        v22 = (unsigned __int16 *)PpmCheckRegistered;
+        while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
         {
-          LODWORD(v37[0]) = 2097153;
-          memset((char *)v37 + 4, 0, 0x104uLL);
-          LODWORD(v35[0]) = 2097153;
-          memset((char *)v35 + 4, 0, 0x104uLL);
-          v31 = qword_140C0B8E8[0];
-          v32[0] = 0;
-          v30 = (unsigned __int16 *)PpmCheckRegistered;
-          while ( 1 )
+          v2 = *(unsigned __int16 *)(KeGetPrcb(v21) + 33274);
+          if ( !*(_BYTE *)(PpmHeteroHgsInterface + 8 * v2 + 16)
+            || (v3 = *(_BYTE *)(PpmHeteroHgsInterface + 8 * v2 + 17), v4 = v28, !v3) )
           {
-            v3 = v2;
-            if ( (unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
-              break;
-            Prcb = KeGetPrcb(v28);
-            v5 = (_BYTE *)(v2 * PpmHeteroHgsCapabilityBits + *(unsigned __int16 *)(Prcb + 34122) + PpmHeteroHgsTableEntry);
-            v6 = *(_QWORD *)(Prcb + 34128);
-            *(_BYTE *)(v6 + 4LL * v2 + 6) = *v5;
-            *(_BYTE *)(v6 + 4LL * v2 + 7) = v5[1];
-            if ( !*v5 || (v7 = (unsigned __int16 *)v35, !v5[1]) )
-              v7 = (unsigned __int16 *)v37;
-            KeAddProcessorAffinityEx(v7, v28);
+            v4 = v29;
           }
-          if ( (unsigned int)KeIsEmptyAffinityEx(v35) )
+          KeAddProcessorAffinityEx(v4, v21);
+        }
+        if ( (unsigned int)KeIsEmptyAffinityEx(v28) )
+        {
+          v23 = qword_140C113E8[0];
+          v24 = 0;
+          v22 = (unsigned __int16 *)PpmCheckRegistered;
+          while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
           {
-            v31 = qword_140C0B8E8[0];
-            v32[0] = 0;
-            v30 = (unsigned __int16 *)PpmCheckRegistered;
-            while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
+            Prcb = (_BYTE *)KeGetPrcb(v21);
+            if ( Prcb[33278] )
             {
-              v8 = *(_QWORD *)(KeGetPrcb(v28) + 34128);
-              if ( *(_BYTE *)(v8 + 4LL * v2 + 4) )
-              {
-                v0 = 1;
-                *(_BYTE *)(v8 + 4LL * v2 + 4) = 0;
-              }
-              if ( *(_BYTE *)(v8 + 4LL * v2 + 5) )
-              {
-                v0 = 1;
-                *(_BYTE *)(v8 + 4LL * v2 + 5) = 0;
-              }
+              v0 = 1;
+              Prcb[33278] = 0;
+            }
+            if ( Prcb[33277] )
+            {
+              v0 = 1;
+              Prcb[33277] = 0;
+            }
+            if ( Prcb[33276] )
+            {
+              v0 = 1;
+              Prcb[33276] = 0;
             }
           }
-          else
+        }
+        else
+        {
+          IsEmptyAffinity = KeIsEmptyAffinityEx(v29);
+          v24 = 0;
+          v22 = (unsigned __int16 *)v29;
+          v23 = v29[1];
+          while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
           {
-            IsEmptyAffinity = KeIsEmptyAffinityEx(v37);
-            LODWORD(v34) = IsEmptyAffinity;
-            v30 = (unsigned __int16 *)v37;
-            v32[0] = 0;
-            v31 = v37[1];
-            while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
+            v7 = (_BYTE *)KeGetPrcb(v21);
+            if ( v7[33278] )
             {
-              v10 = *(_QWORD *)(KeGetPrcb(v28) + 34128);
-              if ( *(_BYTE *)(v10 + 4LL * v2 + 4) )
-              {
-                v0 = 1;
-                *(_BYTE *)(v10 + 4LL * v2 + 4) = 0;
-              }
-              if ( *(_BYTE *)(v10 + 4LL * v2 + 5) )
-              {
-                v0 = 1;
-                *(_BYTE *)(v10 + 4LL * v2 + 5) = 0;
-              }
+              v0 = 1;
+              v7[33278] = 0;
             }
-            v11 = -1;
-            v12 = KeCountSetBitsAffinityEx(v35);
-            if ( v12 )
+            if ( v7[33277] )
             {
-              v13 = IsEmptyAffinity == 0;
-              do
+              v0 = 1;
+              v7[33277] = 0;
+            }
+            if ( v7[33276] != 1 )
+            {
+              v0 = 1;
+              v7[33276] = 1;
+            }
+          }
+          v8 = -1;
+          v9 = KeCountSetBitsAffinityEx((unsigned __int16 *)v28);
+          if ( v9 )
+          {
+            v10 = IsEmptyAffinity == 0;
+            do
+            {
+              v23 = v28[1];
+              v22 = (unsigned __int16 *)v28;
+              v24 = 0;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
               {
-                v31 = v35[1];
-                v30 = (unsigned __int16 *)v35;
-                v32[0] = 0;
-                while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
+                v11 = KeGetPrcb(v21);
+                if ( *(_BYTE *)(v11 + 33276) )
                 {
-                  v14 = KeGetPrcb(v28);
-                  if ( *(_BYTE *)(v14 + 34124) )
+                  v0 = 1;
+                  *(_BYTE *)(v11 + 33276) = 0;
+                }
+              }
+              v12 = -1;
+              v23 = v28[1];
+              v22 = (unsigned __int16 *)v28;
+              v24 = 0;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
+              {
+                v13 = *(unsigned __int16 *)(KeGetPrcb(v21) + 33274);
+                if ( (v8 == -1 || *(unsigned __int8 *)(PpmHeteroHgsInterface + 8 * v13 + 16) > v8)
+                  && v12 >= *(unsigned __int8 *)(PpmHeteroHgsInterface + 8 * v13 + 16) )
+                {
+                  v12 = *(unsigned __int8 *)(PpmHeteroHgsInterface + 8 * v13 + 16);
+                }
+              }
+              v23 = v28[1];
+              v22 = (unsigned __int16 *)v28;
+              v24 = 0;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
+              {
+                v14 = KeGetPrcb(v21);
+                if ( *(unsigned __int8 *)(PpmHeteroHgsInterface + 8LL * *(unsigned __int16 *)(v14 + 33274) + 16) == v12 )
+                {
+                  if ( *(_BYTE *)(v14 + 33277) != v10 )
                   {
                     v0 = 1;
-                    *(_BYTE *)(v14 + 34124) = 0;
+                    *(_BYTE *)(v14 + 33277) = v10;
                   }
+                  --v9;
                 }
-                v15 = -1;
-                v31 = v35[1];
-                v30 = (unsigned __int16 *)v35;
-                v32[0] = 0;
-                while ( 1 )
-                {
-                  v16 = v15;
-                  if ( (unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
-                    break;
-                  v17 = *(unsigned __int8 *)(*(_QWORD *)(KeGetPrcb(v28) + 34128) + 4 * v3 + 6);
-                  if ( v11 == -1 || v17 > v11 )
-                  {
-                    v15 = v17;
-                    if ( v16 < v17 )
-                      v15 = v16;
-                  }
-                }
-                v31 = v35[1];
-                v30 = (unsigned __int16 *)v35;
-                v32[0] = 0;
-                while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
-                {
-                  v18 = *(_QWORD *)(KeGetPrcb(v28) + 34128);
-                  if ( *(unsigned __int8 *)(v18 + 4 * v3 + 6) == v15 )
-                  {
-                    if ( *(_BYTE *)(v18 + 4 * v3 + 4) != v13 )
-                    {
-                      v0 = 1;
-                      *(_BYTE *)(v18 + 4 * v3 + 4) = v13;
-                    }
-                    --v12;
-                  }
-                }
-                ++v13;
-                v11 = v15;
               }
-              while ( v12 );
-              IsEmptyAffinity = v34;
-              v2 = v33;
+              v8 = v12;
+              ++v10;
             }
-            v19 = -1;
-            v20 = KeCountSetBitsAffinityEx(v35);
-            if ( v20 )
-            {
-              v29 = IsEmptyAffinity == 0;
-              do
-              {
-                v31 = v35[1];
-                v21 = -1;
-                v30 = (unsigned __int16 *)v35;
-                v32[0] = 0;
-                while ( 1 )
-                {
-                  v22 = v21;
-                  if ( (unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
-                    break;
-                  v23 = *(unsigned __int8 *)(*(_QWORD *)(KeGetPrcb(v28) + 34128) + 4 * v3 + 7);
-                  if ( v19 == -1 || v23 > v19 )
-                  {
-                    v21 = v23;
-                    if ( v22 < v23 )
-                      v21 = v22;
-                  }
-                }
-                v24 = v29;
-                v31 = v35[1];
-                v30 = (unsigned __int16 *)v35;
-                v32[0] = 0;
-                while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
-                {
-                  v25 = *(_QWORD *)(KeGetPrcb(v28) + 34128);
-                  if ( *(unsigned __int8 *)(v25 + 4 * v3 + 7) == v21 )
-                  {
-                    if ( *(_BYTE *)(v25 + 4 * v3 + 5) != v24 )
-                    {
-                      v0 = 1;
-                      *(_BYTE *)(v25 + 4 * v3 + 5) = v24;
-                    }
-                    --v20;
-                  }
-                }
-                v19 = v21;
-                v29 = v24 + 1;
-              }
-              while ( v20 );
-              v2 = v33;
-            }
+            while ( v9 );
           }
-          KiAndAffinityEx((unsigned __int16 *)v36, (unsigned __int16 *)v37, v36, HIWORD(v36[0]));
-          ++v2;
-        }
-        v31 = qword_140C0B8E8[0];
-        v32[0] = 0;
-        v30 = (unsigned __int16 *)PpmCheckRegistered;
-        while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v30) )
-        {
-          v26 = KeGetPrcb(v28);
-          v27 = KeCheckProcessorAffinityEx((unsigned __int16 *)v36, v28);
-          if ( *(_BYTE *)(v26 + 34124) != v27 )
+          v15 = -1;
+          v16 = KeCountSetBitsAffinityEx((unsigned __int16 *)v28);
+          if ( v16 )
           {
-            v0 = 1;
-            *(_BYTE *)(v26 + 34124) = v27;
+            v17 = IsEmptyAffinity == 0;
+            do
+            {
+              v23 = v28[1];
+              v18 = -1;
+              v22 = (unsigned __int16 *)v28;
+              v24 = 0;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
+              {
+                v19 = *(unsigned __int16 *)(KeGetPrcb(v21) + 33274);
+                if ( (v15 == -1 || *(unsigned __int8 *)(PpmHeteroHgsInterface + 8 * v19 + 17) > v15)
+                  && v18 >= *(unsigned __int8 *)(PpmHeteroHgsInterface + 8 * v19 + 17) )
+                {
+                  v18 = *(unsigned __int8 *)(PpmHeteroHgsInterface + 8 * v19 + 17);
+                }
+              }
+              v23 = v28[1];
+              v22 = (unsigned __int16 *)v28;
+              v24 = 0;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
+              {
+                v20 = KeGetPrcb(v21);
+                if ( *(unsigned __int8 *)(PpmHeteroHgsInterface + 8LL * *(unsigned __int16 *)(v20 + 33274) + 17) == v18 )
+                {
+                  if ( *(_BYTE *)(v20 + 33278) != v17 )
+                  {
+                    v0 = 1;
+                    *(_BYTE *)(v20 + 33278) = v17;
+                  }
+                  --v16;
+                }
+              }
+              ++v17;
+              v15 = v18;
+            }
+            while ( v16 );
           }
         }
-        PpmEventHgsHardwareTable(0LL);
-        v34 = __readmsr(0x1B1u) & 0xFFFFFFFFFBFFFFFFuLL;
-        __writemsr(0x1B1u, v34);
+        v27 = __readmsr(0x1B1u) & 0xFFFFFFFFFBFFFFFFuLL;
+        __writemsr(0x1B1u, v27);
       }
     }
   }

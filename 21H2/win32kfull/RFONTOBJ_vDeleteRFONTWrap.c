@@ -1,12 +1,12 @@
 /*
- * XREFs of RFONTOBJ_vDeleteRFONTWrap @ 0x1C000A7E0
+ * XREFs of RFONTOBJ_vDeleteRFONTWrap @ 0x1C012F0B0
  * Callers:
  *     <none>
  * Callees:
- *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C000AD70 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C009EF04 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
  */
 
-void __fastcall RFONTOBJ_vDeleteRFONTWrap(RFONTOBJ *a1, struct PDEVOBJ *a2, struct PFFOBJ *a3, int a4)
+void __fastcall RFONTOBJ_vDeleteRFONTWrap(struct _FONTOBJ **a1, struct PDEVOBJ *a2, struct PFFOBJ *a3, int a4)
 {
   RFONTOBJ::vDeleteRFONT(a1, a2, a3, a4);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of NVMeWriteBufferFirmwareDownload @ 0x1C001842C
+ * XREFs of NVMeWriteBufferFirmwareDownload @ 0x1C0015C4C
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetControllerMaxTransferSize @ 0x1C0007BB0 (GetControllerMaxTransferSize.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     FillClippedSGL @ 0x1C0011660 (FillClippedSGL.c)
- *     GetFirmwareGranularity @ 0x1C0012ACC (GetFirmwareGranularity.c)
- *     NVMeQueueWorkItem @ 0x1C0016BF8 (NVMeQueueWorkItem.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     GetControllerMaxTransferSize @ 0x1C0005CE0 (GetControllerMaxTransferSize.c)
+ *     GetFirmwareGranularity @ 0x1C0005D14 (GetFirmwareGranularity.c)
+ *     FillClippedSGL @ 0x1C00116F0 (FillClippedSGL.c)
+ *     NVMeQueueWorkItem @ 0x1C001522C (NVMeQueueWorkItem.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall NVMeWriteBufferFirmwareDownload(_DWORD *a1, __int64 a2)
@@ -37,10 +37,10 @@ __int64 __fastcall NVMeWriteBufferFirmwareDownload(_DWORD *a1, __int64 a2)
   }
   if ( v10 > (unsigned int)GetControllerMaxTransferSize(a1) )
     goto LABEL_3;
-  if ( (a1[8] & 0x800) == 0 )
+  if ( (a1[6] & 0x800) == 0 )
   {
-    NVMeQueueWorkItem((__int64)a1, (__int64)NVMeControllerValidateFirmwareActivateCapability);
-    a1[8] |= 0x800u;
+    NVMeQueueWorkItem((__int64)a1, (__int64)NVMeControllerValidateFirmwareActivateCapability, 0LL, v8);
+    a1[6] |= 0x800u;
   }
   FirmwareGranularity = GetFirmwareGranularity((__int64)a1);
   v7 = FirmwareGranularity;
@@ -58,7 +58,7 @@ LABEL_12:
       return (unsigned int)-1056964602;
     }
   }
-  if ( (a1[16] & 8) != 0 )
+  if ( (a1[14] & 8) != 0 )
   {
     *(_DWORD *)(SrbExtension + 4216) = v9;
     *(_BYTE *)(SrbExtension + 4253) |= 3u;
@@ -71,7 +71,7 @@ LABEL_12:
   else
   {
     v12 = (((unsigned int)GetControllerMaxTransferSize(a1) - 1) >> 12) + 2;
-    StorPortExtendedFunction(0LL, a1, 24 * v12 + 16);
+    StorPortExtendedFunction(0LL, a1, 24 * v12 + 16, 1701672526LL);
     LOBYTE(v13) = 38;
     NVMeSetSenseData(a2, v13, 0LL, 0LL);
     return (unsigned int)-1056964605;

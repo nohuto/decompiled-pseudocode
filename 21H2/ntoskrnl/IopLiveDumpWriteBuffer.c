@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpWriteBuffer @ 0x14093D4CC
+ * XREFs of IopLiveDumpWriteBuffer @ 0x140898ABC
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14093D590 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14093DA18 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpWriteSecondaryData @ 0x14093E294 (IopLiveDumpWriteSecondaryData.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898B80 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x140899748 (IopLiveDumpWriteSecondaryData.c)
  * Callees:
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     SecureDump_Encrypt_DmpData @ 0x14055E560 (SecureDump_Encrypt_DmpData.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     SecureDump_Encrypt_DmpData @ 0x14050A740 (SecureDump_Encrypt_DmpData.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteBuffer(
@@ -26,7 +26,7 @@ __int64 __fastcall IopLiveDumpWriteBuffer(
 
   v13 = 0LL;
   v7 = Length;
-  v10 = *(_BYTE *)(a5 + 976) == 0;
+  v10 = *(_BYTE *)(a5 + 880) == 0;
   IoStatusBlock = 0LL;
   if ( v10
     || a6

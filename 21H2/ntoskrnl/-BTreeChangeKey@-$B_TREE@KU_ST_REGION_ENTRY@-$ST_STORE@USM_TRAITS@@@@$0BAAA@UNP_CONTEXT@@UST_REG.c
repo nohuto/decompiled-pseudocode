@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BTreeChangeKey@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1403901F0
+ * XREFs of ?BTreeChangeKey@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1402DD260
  * Callers:
- *     ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x14038FC10 (-StCompactRegions@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z.c)
+ *     ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x1402DCC88 (-StCompactRegions@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z.c)
  * Callees:
- *     ?BTreeFindSeperatorIndexEntry@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAKPEAUSEARCH_RESULT@1@KPEAUPATH_ENTRY@1@@Z @ 0x140382E40 (-BTreeFindSeperatorIndexEntry@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CO.c)
- *     ?Compare@ST_REGION_ENTRY_COMPARATOR@?$ST_STORE@USM_TRAITS@@@@SAHPEAXAEBK1@Z @ 0x1403839C0 (-Compare@ST_REGION_ENTRY_COMPARATOR@-$ST_STORE@USM_TRAITS@@@@SAHPEAXAEBK1@Z.c)
- *     ?BTreeDescendToSibling@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAUPATH_ENTRY@1@KPEAUSEARCH_RESULT@1@@Z @ 0x1403909DC (-BTreeDescendToSibling@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@.c)
- *     ?NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x1405F6710 (-NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z.c)
- *     ?NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z @ 0x1405F67D0 (-NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z.c)
+ *     ?Compare@ST_REGION_ENTRY_COMPARATOR@?$ST_STORE@USM_TRAITS@@@@SAHPEAXAEBK1@Z @ 0x1402A2430 (-Compare@ST_REGION_ENTRY_COMPARATOR@-$ST_STORE@USM_TRAITS@@@@SAHPEAXAEBK1@Z.c)
+ *     ?BTreeFindSeperatorIndexEntry@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAKPEAUSEARCH_RESULT@1@KPEAUPATH_ENTRY@1@@Z @ 0x1402CFE68 (-BTreeFindSeperatorIndexEntry@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CO.c)
+ *     ?BTreeDescendToSibling@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAUPATH_ENTRY@1@KPEAUSEARCH_RESULT@1@@Z @ 0x1402D3A64 (-BTreeDescendToSibling@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@.c)
+ *     ?NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x140598850 (-NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z.c)
+ *     ?NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z @ 0x140598910 (-NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z.c)
  */
 
 __int64 __fastcall B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeChangeKey(
@@ -15,156 +15,149 @@ __int64 __fastcall B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,40
         __int64 a2,
         int a3)
 {
-  int v3; // r9d
-  __int64 *v7; // r9
+  __int64 v4; // r9
+  __int64 *v5; // r9
   int *v8; // r12
   __int64 v9; // r15
   int v10; // eax
   int v11; // esi
   int v13; // eax
-  int v14; // edx
-  _DWORD *v15; // r14
-  __int64 v16; // rdx
+  _DWORD *v14; // r14
+  unsigned __int64 v15; // r13
+  __int64 *v16; // rcx
   unsigned int v17; // r8d
-  void **v18; // r13
-  struct NP_CONTEXT::NP_CTX *v19; // rcx
-  int *v20; // rdx
-  int v21; // r15d
-  int v22; // eax
+  int *v18; // rdx
+  int v19; // r15d
+  int v20; // eax
+  int v21; // eax
+  struct NP_CONTEXT::NP_CTX *v22; // rcx
   int v23; // eax
-  struct NP_CONTEXT::NP_CTX *v24; // rcx
-  int v25; // eax
-  __int64 v26; // rax
+  __int64 v24; // rax
+  int v25; // esi
+  int v26; // eax
   int v27; // esi
   int v28; // eax
-  int v29; // esi
-  int v30; // eax
-  __int128 v31; // [rsp+20h] [rbp-10h] BYREF
-  int v32; // [rsp+78h] [rbp+48h] BYREF
-  int v33; // [rsp+80h] [rbp+50h] BYREF
-  unsigned __int64 v34; // [rsp+88h] [rbp+58h]
+  __int128 v29; // [rsp+20h] [rbp-10h] BYREF
+  int v30; // [rsp+78h] [rbp+48h] BYREF
+  int v31; // [rsp+80h] [rbp+50h] BYREF
+  void **v32; // [rsp+88h] [rbp+58h]
 
-  v3 = *(_DWORD *)(a2 + 24);
-  v32 = a3;
-  v7 = (__int64 *)(*(_QWORD *)a2 + 16LL * (unsigned int)(v3 - 1));
-  v31 = 0LL;
-  v8 = (int *)v7[1];
-  v9 = *v7;
-  v33 = *v8;
-  LOBYTE(v10) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v32, &v33);
+  v4 = (unsigned int)(*(_DWORD *)(a2 + 24) - 1);
+  v30 = a3;
+  v5 = (__int64 *)(*(_QWORD *)a2 + 16 * v4);
+  v29 = 0LL;
+  v8 = (int *)v5[1];
+  v9 = *v5;
+  v31 = *v8;
+  LOBYTE(v10) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v30, &v31);
   v11 = v10;
   if ( v10 > 0 )
   {
     if ( (unsigned __int64)v8 < v9 + 4 * ((unsigned __int64)((unsigned int)(unsigned __int16)*(_DWORD *)v9 - 1) + 4) )
     {
-      v33 = v8[1];
-      v32 = a3;
+      v31 = v8[1];
+      v30 = a3;
 LABEL_6:
-      LOBYTE(v13) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v32, &v33);
+      LOBYTE(v13) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v30, &v31);
       if ( v13 < 0 )
         goto LABEL_4;
       return 0LL;
     }
-    v14 = 1;
   }
-  else
+  else if ( (unsigned __int64)v8 > v9 + 16 )
   {
-    if ( (unsigned __int64)v8 > v9 + 16 )
+    if ( !v10 )
     {
-      if ( !v10 )
-      {
 LABEL_4:
-        *v8 = a3;
-        return 1LL;
-      }
-      v32 = *(v8 - 1);
-      v33 = a3;
-      goto LABEL_6;
+      *v8 = a3;
+      return 1LL;
     }
-    v14 = 0;
+    v30 = *(v8 - 1);
+    v31 = a3;
+    goto LABEL_6;
   }
   if ( !(unsigned int)B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeFindSeperatorIndexEntry(
                         a2,
-                        v14,
-                        (__int64)&v31) )
+                        v10 > 0,
+                        (__int64)&v29) )
     goto LABEL_4;
-  v15 = (_DWORD *)*((_QWORD *)&v31 + 1);
+  v14 = (_DWORD *)*((_QWORD *)&v29 + 1);
   if ( v11 > 0 )
   {
-    v33 = **((_DWORD **)&v31 + 1);
-    v32 = a3;
-    LOBYTE(v25) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v32, &v33);
-    if ( v25 < 0 )
+    v31 = **((_DWORD **)&v29 + 1);
+    v30 = a3;
+    LOBYTE(v23) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v30, &v31);
+    if ( v23 < 0 )
       goto LABEL_4;
-    v34 = (unsigned __int64)(a1 + 4);
-    if ( **(_DWORD **)((unsigned __int64)(a1 + 4) & -(__int64)(a1 != 0LL)) == -1 )
-    {
-      v26 = *(_QWORD *)(v9 + 8);
-      v32 = a3;
-      v27 = *(_DWORD *)(v26 + 16);
-      v33 = v27;
-      LOBYTE(v28) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v32, &v33);
-      if ( v28 < 0 )
-      {
-        *v15 = v27;
-        goto LABEL_4;
-      }
-      return 0LL;
-    }
-    v16 = 1LL;
   }
-  else
+  else if ( !v11 )
   {
-    if ( !v11 )
+    **((_DWORD **)&v29 + 1) = a3;
+    goto LABEL_4;
+  }
+  v15 = (unsigned __int64)(a1 + 4);
+  if ( v11 >= 0 && **(_DWORD **)((unsigned __int64)(a1 + 4) & -(__int64)(a1 != 0LL)) == -1 )
+  {
+    if ( **(_DWORD **)(v15 & -(__int64)(a1 != 0LL)) == -1 )
+      v24 = *(_QWORD *)(v9 + 8);
+    else
+      v24 = 3358LL;
+    v25 = *(_DWORD *)(v24 + 16);
+    v31 = v25;
+    v30 = a3;
+    LOBYTE(v26) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v30, &v31);
+    if ( v26 < 0 )
     {
-      **((_DWORD **)&v31 + 1) = a3;
+      *v14 = v25;
       goto LABEL_4;
     }
-    v34 = (unsigned __int64)(a1 + 4);
-    v16 = 0LL;
+    return 0LL;
   }
-  v18 = (void **)B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeDescendToSibling(
-                   &v31,
-                   v16,
-                   0LL);
-  v19 = (struct NP_CONTEXT::NP_CTX *)(v34 & -(__int64)(a1 != 0LL));
-  if ( **(_DWORD **)v19 == -1 )
-    v20 = (int *)*v18;
+  v16 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeDescendToSibling(
+          (__int64 *)&v29,
+          v11 > 0,
+          0LL);
+  v32 = (void **)v16;
+  if ( **(_DWORD **)(v15 & -(__int64)(a1 != 0LL)) == -1 )
+    v18 = (int *)*v16;
   else
-    v20 = (int *)NP_CONTEXT::NpLeafRefInternal(v19, v18, v17);
-  if ( v20 )
+    v18 = (int *)NP_CONTEXT::NpLeafRefInternal(
+                   (struct NP_CONTEXT::NP_CTX *)(v15 & -(__int64)(a1 != 0LL)),
+                   (void **)v16,
+                   v17);
+  if ( v18 )
   {
-    v21 = 0;
+    v19 = 0;
     if ( v11 >= 0 )
     {
-      v29 = v20[4];
-      v33 = v29;
-      v32 = a3;
-      LOBYTE(v30) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v32, &v33);
-      if ( v30 >= 0 )
+      v27 = v18[4];
+      v31 = v27;
+      v30 = a3;
+      LOBYTE(v28) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v30, &v31);
+      if ( v28 >= 0 )
       {
-LABEL_24:
-        v24 = (struct NP_CONTEXT::NP_CTX *)(v34 & -(__int64)(a1 != 0LL));
-        if ( **(_DWORD **)v24 != -1 )
-          NP_CONTEXT::NpLeafDerefInternal(v24, v18);
-        if ( v21 )
+LABEL_22:
+        v22 = (struct NP_CONTEXT::NP_CTX *)(v15 & -(__int64)(a1 != 0LL));
+        if ( **(_DWORD **)v22 != -1 )
+          NP_CONTEXT::NpLeafDerefInternal(v22, v32);
+        if ( v19 )
           goto LABEL_4;
         return 0LL;
       }
-      *v15 = v29;
+      *v14 = v27;
     }
     else
     {
-      v22 = *v20;
-      v33 = a3;
-      v32 = v20[(unsigned __int16)v22 + 3];
-      LOBYTE(v23) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v32, &v33);
-      if ( v23 >= 0 )
-        goto LABEL_24;
-      *v15 = a3;
+      v20 = *v18;
+      v31 = a3;
+      v30 = v18[(unsigned __int16)v20 + 3];
+      LOBYTE(v21) = ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR::Compare(a1, &v30, &v31);
+      if ( v21 >= 0 )
+        goto LABEL_22;
+      *v14 = a3;
     }
-    v21 = 1;
-    goto LABEL_24;
+    v19 = 1;
+    goto LABEL_22;
   }
   return 0xFFFFFFFFLL;
 }

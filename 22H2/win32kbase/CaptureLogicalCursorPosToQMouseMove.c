@@ -1,10 +1,10 @@
 /*
- * XREFs of CaptureLogicalCursorPosToQMouseMove @ 0x1C0052FF0
+ * XREFs of CaptureLogicalCursorPosToQMouseMove @ 0x1C0043840
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z @ 0x1C00532C0 (-CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z.c)
+ *     ?CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z @ 0x1C004386C (-CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
  */
 
 void __fastcall CaptureLogicalCursorPosToQMouseMove(struct tagQ *a1)

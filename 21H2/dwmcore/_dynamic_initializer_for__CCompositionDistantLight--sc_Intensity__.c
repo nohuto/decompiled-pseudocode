@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionDistantLight::sc_Intensity__ @ 0x180001CD0
+ * XREFs of _dynamic_initializer_for__CCompositionDistantLight::sc_Intensity__ @ 0x180001A50
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionDistantLight::sc_Intensity__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1CD8 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
-  qword_1803D1CE8 = v1;
+  xmmword_180345DE8 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
+  qword_180345DF8 = v1;
   return result;
 }

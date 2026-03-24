@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetVector4Value@DataSourceProxy@@MEAAJIMMMM@Z @ 0x1801E3AC0
+ * XREFs of ?SetVector4Value@DataSourceProxy@@MEAAJIMMMM@Z @ 0x180180D20
  * Callers:
  *     <none>
  * Callees:
- *     ??$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801E1E84 (--$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESS.c)
- *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801E29BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
- *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801E305C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ *     ??$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017F660 (--$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESS.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x18017FFEC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801805B8 (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
  */
 
 __int64 __fastcall DataSourceProxy::SetVector4Value(

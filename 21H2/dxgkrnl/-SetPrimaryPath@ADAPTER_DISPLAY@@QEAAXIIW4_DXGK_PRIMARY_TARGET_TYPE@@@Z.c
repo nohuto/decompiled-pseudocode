@@ -1,35 +1,29 @@
 /*
- * XREFs of ?SetPrimaryPath@ADAPTER_DISPLAY@@QEAAXIIW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C01E369C
+ * XREFs of ?SetPrimaryPath@ADAPTER_DISPLAY@@QEAAXIIW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C016A400
  * Callers:
- *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C01E3518 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
+ *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C016A298 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     DxgkSetPostDeviceCandidateTarget @ 0x1C001E030 (DxgkSetPostDeviceCandidateTarget.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     DxgkSetPostDeviceCandidateTarget @ 0x1C001A4B0 (DxgkSetPostDeviceCandidateTarget.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::SetPrimaryPath(__int64 a1, int a2, int a3, int a4)
 {
-  __int64 v8; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16)) )
   {
-    WdLogSingleEntry1(1LL, 8229LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"this->GetAdapter()->IsCoreResourceExclusiveOwner()",
-      8229LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v11 + 24) = 8065LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v8 = *(_QWORD *)(a1 + 16);
-  *(_DWORD *)(a1 + 136) = a2;
-  *(_DWORD *)(a1 + 140) = a3;
-  *(_DWORD *)(a1 + 144) = a4;
-  if ( (*(_DWORD *)(v8 + 436) & 1) != 0 && a3 != -1 )
+  v10 = *(_QWORD *)(a1 + 16);
+  *(_DWORD *)(a1 + 120) = a2;
+  *(_DWORD *)(a1 + 124) = a3;
+  *(_DWORD *)(a1 + 128) = a4;
+  if ( (*(_DWORD *)(v10 + 348) & 1) != 0 && a3 != -1 )
     DxgkSetPostDeviceCandidateTarget(a3);
 }

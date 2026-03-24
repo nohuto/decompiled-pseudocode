@@ -1,5 +1,5 @@
 /*
- * XREFs of MulReplaceRedirectionChild @ 0x1C02B3460
+ * XREFs of MulReplaceRedirectionChild @ 0x1C02A6F20
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 __fastcall MulReplaceRedirectionChild(__int64 ****a1, SURFOBJ *a2, __int
   unsigned int v3; // r9d
   __int64 **v6; // rbx
   __int64 *v7; // rcx
-  SURFOBJ *v8; // rsi
+  SURFOBJ *v8; // rdi
 
   v3 = 0;
   v6 = **a1;

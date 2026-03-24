@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMapContiguousMemoryLarge @ 0x1401831C4
+ * XREFs of MiMapContiguousMemoryLarge @ 0x1401831E4
  * Callers:
- *     MiMapContiguousMemory @ 0x1400E5D84 (MiMapContiguousMemory.c)
+ *     MiMapContiguousMemory @ 0x1400E5DA4 (MiMapContiguousMemory.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiReferenceIoPages @ 0x1400E5F8C (MiReferenceIoPages.c)
- *     MiIoSpaceIsConstant @ 0x1400E6390 (MiIoSpaceIsConstant.c)
- *     MiDereferenceIoPages @ 0x140123614 (MiDereferenceIoPages.c)
- *     MiMapWithLargePages @ 0x140183440 (MiMapWithLargePages.c)
- *     MiGetPageTablesForLargeMap @ 0x140183704 (MiGetPageTablesForLargeMap.c)
- *     MiAssignInitialPageAttribute @ 0x14018D1B4 (MiAssignInitialPageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
+ *     MiIoSpaceIsConstant @ 0x1400E63B0 (MiIoSpaceIsConstant.c)
+ *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
+ *     MiMapWithLargePages @ 0x140183460 (MiMapWithLargePages.c)
+ *     MiGetPageTablesForLargeMap @ 0x140183724 (MiGetPageTablesForLargeMap.c)
+ *     MiAssignInitialPageAttribute @ 0x14018D1D4 (MiAssignInitialPageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMapContiguousMemoryLarge(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3, int a4, _DWORD *a5)

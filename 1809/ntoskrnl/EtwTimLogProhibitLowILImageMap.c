@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTimLogProhibitLowILImageMap @ 0x1408BCCA0
+ * XREFs of EtwTimLogProhibitLowILImageMap @ 0x1408BCC80
  * Callers:
  *     MiAllowImageMap @ 0x1405F48B8 (MiAllowImageMap.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x140131F94 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiFillProcessIdentity @ 0x140131FCC (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x140131FB4 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x140131FEC (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C878 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __int16 *a3)
@@ -161,7 +161,7 @@ void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __in
     v45 = 8LL;
     v47 = 2LL;
     v49[1] = 0;
-    TlgWrite(&stru_1404002D0, &unk_1403739E0, 0LL, 0LL, 0xAu, &pData);
+    TlgWrite(&stru_1404002D0, &unk_140373C2F, 0LL, 0LL, 0xAu, &pData);
   }
   if ( v24 )
     ExFreePoolWithTag(v24, 0);

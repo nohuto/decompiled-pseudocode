@@ -1,33 +1,37 @@
 /*
- * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x140941224
+ * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x14088E674
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140941648 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14088E9FC (HvlpDynamicUpdateMicrocode.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpGetLogicalProcessorProperty @ 0x140540F58 (HvlpGetLogicalProcessorProperty.c)
- *     CmLogMcUpdateStatus @ 0x14061588C (CmLogMcUpdateStatus.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmLogMcUpdateStatus @ 0x1404EC9D8 (CmLogMcUpdateStatus.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x1404F2B88 (HvlpGetLogicalProcessorProperty.c)
  */
 
-void HvlpLogMicrocodeUpdateStatus()
+__int64 HvlpLogMicrocodeUpdateStatus()
 {
-  unsigned int v0; // ebx
-  ULONG *v1; // rdi
-  _OWORD v2[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 result; // rax
+  unsigned int v1; // edi
+  int *v2; // rbx
+  _BYTE v3[3264]; // [rsp+20h] [rbp-CD8h] BYREF
 
-  v0 = 0;
-  memset(v2, 0, sizeof(v2));
+  result = (__int64)memset(v3, 0, 0xCB8uLL);
+  v1 = 0;
   if ( (_DWORD)HvlpLogicalProcessorCount )
   {
-    v1 = (ULONG *)dword_140D2A9B4;
+    v2 = dword_140D042E4;
     do
     {
-      HvlpGetLogicalProcessorProperty(*v1, 1, v2);
-      if ( (int)CmLogMcUpdateStatus(*v1, (__int64)v2) < 0 )
+      HvlpGetLogicalProcessorProperty(*v2, 5, v3);
+      result = CmLogMcUpdateStatus(*v2, (__int64)v3);
+      if ( (int)result < 0 )
         break;
-      ++v0;
-      v1 += 30;
+      ++v1;
+      v2 += 30;
     }
-    while ( v0 < (unsigned int)HvlpLogicalProcessorCount );
+    while ( v1 < (unsigned int)HvlpLogicalProcessorCount );
   }
+  return result;
 }

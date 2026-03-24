@@ -1,10 +1,12 @@
 /*
- * XREFs of ?ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C003227C
+ * XREFs of ?ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C0085208
  * Callers:
- *     ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C001BAE0 (-PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z.c)
+ *     ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C000ED3C (-PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z.c)
+ *     ?PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z @ 0x1C0081E64 (-PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z.c)
+ *     ?SleepStudyEvaluateParticipation@FxPkgPnp@@QEAAXXZ @ 0x1C00854C0 (-SleepStudyEvaluateParticipation@FxPkgPnp@@QEAAXXZ.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
- *     ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C0015054 (-OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z.c)
+ *     ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C000EADC (-OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
  */
 
 void __fastcall FxPkgPnp::ReadRegistryS0Idle(FxPkgPnp *this, _UNICODE_STRING *ValueName, bool *Enabled)
@@ -18,7 +20,7 @@ void __fastcall FxPkgPnp::ReadRegistryS0Idle(FxPkgPnp *this, _UNICODE_STRING *Va
   if ( (int)FxDevice::OpenSettingsKey(m_Device, &hKey.m_Key, 0x20000u) >= 0 )
   {
     value = 0;
-    if ( FxRegKey::_QueryULong(hKey.m_Key, ValueName, &value) >= 0 )
+    if ( (int)FxRegKey::_QueryULong(hKey.m_Key, ValueName, &value) >= 0 )
       *Enabled = value != 0;
   }
   if ( hKey.m_Key )

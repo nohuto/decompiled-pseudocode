@@ -1,185 +1,206 @@
 /*
- * XREFs of ?Draw@CTextVisualContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18026C2E8
+ * XREFs of ?Draw@CTextVisualContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020C71C
  * Callers:
- *     ?Draw@CTextVisualContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011E4A0 (-Draw@CTextVisualContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCac.c)
+ *     ?Draw@CTextVisualContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6330 (-Draw@CTextVisualContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCac.c)
  * Callees:
- *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x180088B84 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1?$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801D75C4 (--1-$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Draw@CCompositionTextLine@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180227058 (-Draw@CCompositionTextLine@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?GetDrawListCacheForTextObject@CTextVisualContent@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDrawListCache@@@Z @ 0x18026C734 (-GetDrawListCacheForTextObject@CTextVisualContent@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEA.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x1800BA3C0 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA600 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetDrawListCacheForTextObject@CTextVisualContent@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDrawListCache@@@Z @ 0x18020CBD0 (-GetDrawListCacheForTextObject@CTextVisualContent@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEA.c)
  */
 
 __int64 __fastcall CTextVisualContent::Draw(
         CTextVisualContent *this,
-        struct CDrawingContext *a2,
-        struct D2D_SIZE_F *a3,
+        const struct CVisualTree **a2,
+        const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  CVisual *v6; // rax
-  struct CDrawListCache *v7; // rcx
-  int DrawListCacheForTextObject; // ebx
-  __int64 v10; // rax
+  CVisual *CurrentVisual; // rax
+  CTextVisualContent *v7; // rcx
+  __int64 **TreeData; // r13
+  _QWORD *v10; // rax
   unsigned int v11; // edi
-  __int64 *v12; // rsi
+  __int64 *v12; // r14
   __int64 *v13; // r12
-  __int64 v14; // r15
-  __int64 v15; // rdx
-  struct CDrawListCache *v16; // rbx
-  __int64 v17; // rcx
-  int v18; // eax
-  int v19; // r15d
-  __int64 v20; // rdx
-  __int64 v21; // rdx
-  struct CDrawListCache **p_TreeData; // rcx
-  __int64 v23; // rax
-  CCompositionTextLine **v24; // rsi
-  CCompositionTextLine **v25; // r12
-  CCompositionTextLine *v26; // r15
-  __int64 v27; // rax
-  CCompositionTextLine **v28; // rsi
-  CCompositionTextLine **v29; // r12
-  struct CDrawListCache *v30; // r13
-  CCompositionTextLine *v31; // r15
-  int v32; // eax
-  struct CDrawListCache *v33[2]; // [rsp+30h] [rbp-10h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+38h]
-  struct CDrawListCache *TreeData; // [rsp+88h] [rbp+48h] BYREF
-  struct D2D_SIZE_F *v36; // [rsp+90h] [rbp+50h]
+  __int64 v14; // rax
+  int DrawListCacheForTextObject; // eax
+  CDrawListEntry *v16; // rbx
+  unsigned int v17; // esi
+  __int64 v18; // rcx
+  __int64 *v19; // r14
+  __int64 *v20; // r12
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 *v23; // rsi
+  __int64 *v24; // r14
+  __int64 v25; // rdx
+  __int64 v26; // r12
+  int v27; // eax
+  CDrawListEntry *v28; // rbx
+  unsigned int v29; // ebp
+  __int64 v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // [rsp+30h] [rbp-48h]
+  __int64 v33; // [rsp+30h] [rbp-48h]
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
+  CDrawListEntry *v35; // [rsp+88h] [rbp+10h] BYREF
+  const struct D2D_SIZE_F *v36; // [rsp+90h] [rbp+18h]
 
   v36 = a3;
-  v6 = (CVisual *)(*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 3) + 32LL))((char *)a2 + 24);
-  TreeData = (struct CDrawListCache *)CVisual::FindTreeData(v6, *((const struct CVisualTree **)a2 + 1007));
-  v7 = TreeData;
-  if ( TreeData )
+  CurrentVisual = CDrawingContext::GetCurrentVisual((CDrawingContext *)(a2 + 3));
+  TreeData = CVisual::FindTreeData(CurrentVisual, a2[741]);
+  if ( !TreeData )
   {
-    v10 = *((_QWORD *)this - 4);
-    v11 = 0;
-    v12 = *(__int64 **)(v10 + 704);
-    v13 = *(__int64 **)(v10 + 712);
-    while ( v12 != v13 )
-    {
-      v14 = *v12;
-      v33[0] = 0LL;
-      DrawListCacheForTextObject = CTextVisualContent::GetDrawListCacheForTextObject(v7, a2, v7, v11, v33);
-      if ( DrawListCacheForTextObject < 0 )
-      {
-        v21 = 32LL;
-LABEL_17:
-        wil::details::in1diag3::Return_Hr(
-          retaddr,
-          (void *)v21,
-          (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
-          (const char *)(unsigned int)DrawListCacheForTextObject);
-        p_TreeData = v33;
-LABEL_18:
-        wil::com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>::~com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>((volatile signed __int32 **)p_TreeData);
-        return (unsigned int)DrawListCacheForTextObject;
-      }
-      v15 = *(_QWORD *)(v14 + 80);
-      v16 = v33[0];
-      if ( v15 )
-      {
-        v17 = v15 + 64 + *(int *)(*(_QWORD *)(v15 + 64) + 8LL);
-        v18 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, struct D2D_SIZE_F *, struct CDrawListCache *))(*(_QWORD *)v17 + 16LL))(
-                v17,
-                a2,
-                v36,
-                v33[0]);
-        v19 = v18;
-        if ( v18 < 0 )
-        {
-          wil::details::in1diag3::Return_Hr(
-            retaddr,
-            (void *)0x61,
-            (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionglyphrun.cpp",
-            (const char *)(unsigned int)v18);
-          v20 = 36LL;
-LABEL_13:
-          wil::details::in1diag3::Return_Hr(
-            retaddr,
-            (void *)v20,
-            (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
-            (const char *)(unsigned int)v19);
-          if ( v16 )
-            CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)v16);
-          return (unsigned int)v19;
-        }
-      }
-      ++v11;
-      if ( v16 )
-        CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)v16);
-      v7 = TreeData;
-      ++v12;
-    }
-    v23 = *((_QWORD *)this - 4);
-    v24 = *(CCompositionTextLine ***)(v23 + 752);
-    v25 = *(CCompositionTextLine ***)(v23 + 760);
-    while ( v24 != v25 )
-    {
-      v26 = *v24;
-      v33[0] = 0LL;
-      DrawListCacheForTextObject = CTextVisualContent::GetDrawListCacheForTextObject(v7, a2, v7, v11, v33);
-      if ( DrawListCacheForTextObject < 0 )
-      {
-        v21 = 46LL;
-        goto LABEL_17;
-      }
-      v16 = v33[0];
-      v19 = CCompositionTextLine::Draw(v26, a2, v36, v33[0]);
-      if ( v19 < 0 )
-      {
-        v20 = 50LL;
-        goto LABEL_13;
-      }
-      ++v11;
-      if ( v16 )
-        CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)v16);
-      v7 = TreeData;
-      ++v24;
-    }
-    v27 = *((_QWORD *)this - 4);
-    v28 = *(CCompositionTextLine ***)(v27 + 728);
-    v29 = *(CCompositionTextLine ***)(v27 + 736);
-    if ( v28 == v29 )
-      return 0LL;
-    v30 = TreeData;
-    while ( 1 )
-    {
-      v31 = *v28;
-      TreeData = 0LL;
-      v32 = CTextVisualContent::GetDrawListCacheForTextObject(v7, a2, v30, v11, &TreeData);
-      DrawListCacheForTextObject = v32;
-      if ( v32 < 0 )
-        break;
-      v16 = TreeData;
-      v19 = CCompositionTextLine::Draw(v31, a2, v36, TreeData);
-      if ( v19 < 0 )
-      {
-        v20 = 64LL;
-        goto LABEL_13;
-      }
-      ++v11;
-      if ( v16 )
-        CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)v16);
-      if ( ++v28 == v29 )
-        return 0LL;
-    }
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x3C,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
-      (const char *)(unsigned int)v32);
-    p_TreeData = &TreeData;
-    goto LABEL_18;
+      (void *)0x15,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+      (const char *)0x88982F04LL);
+    return 2291674884LL;
   }
-  DrawListCacheForTextObject = -2003292412;
+  v10 = (_QWORD *)*((_QWORD *)this - 4);
+  v11 = 0;
+  v12 = (__int64 *)v10[77];
+  v13 = (__int64 *)v10[78];
+  if ( v12 != v13 )
+  {
+    while ( 1 )
+    {
+      v14 = *v12;
+      v35 = 0LL;
+      v32 = v14;
+      DrawListCacheForTextObject = CTextVisualContent::GetDrawListCacheForTextObject(
+                                     v7,
+                                     (struct CDrawingContext *)a2,
+                                     (struct CTreeData *)TreeData,
+                                     v11,
+                                     &v35);
+      v16 = v35;
+      v17 = DrawListCacheForTextObject;
+      if ( DrawListCacheForTextObject < 0 )
+        break;
+      v18 = v32 + 56 + *(int *)(*(_QWORD *)(v32 + 56) + 8LL);
+      DrawListCacheForTextObject = (*(__int64 (__fastcall **)(__int64, const struct CVisualTree **, const struct D2D_SIZE_F *, CDrawListEntry *))(*(_QWORD *)v18 + 16LL))(
+                                     v18,
+                                     a2,
+                                     v36,
+                                     v35);
+      v17 = DrawListCacheForTextObject;
+      if ( DrawListCacheForTextObject < 0 )
+      {
+        v25 = 36LL;
+        goto LABEL_20;
+      }
+      ++v11;
+      if ( v16 )
+        CDrawListEntry::Release(v16);
+      if ( ++v12 == v13 )
+      {
+        v10 = (_QWORD *)*((_QWORD *)this - 4);
+        goto LABEL_10;
+      }
+    }
+    v25 = 32LL;
+    goto LABEL_20;
+  }
+LABEL_10:
+  v19 = (__int64 *)v10[83];
+  v20 = (__int64 *)v10[84];
+  if ( v19 != v20 )
+  {
+    while ( 1 )
+    {
+      v21 = *v19;
+      v35 = 0LL;
+      v33 = v21;
+      DrawListCacheForTextObject = CTextVisualContent::GetDrawListCacheForTextObject(
+                                     v7,
+                                     (struct CDrawingContext *)a2,
+                                     (struct CTreeData *)TreeData,
+                                     v11,
+                                     &v35);
+      v16 = v35;
+      v17 = DrawListCacheForTextObject;
+      if ( DrawListCacheForTextObject < 0 )
+        break;
+      v22 = v33 + 56 + *(int *)(*(_QWORD *)(v33 + 56) + 8LL);
+      DrawListCacheForTextObject = (*(__int64 (__fastcall **)(__int64, const struct CVisualTree **, const struct D2D_SIZE_F *, CDrawListEntry *))(*(_QWORD *)v22 + 16LL))(
+                                     v22,
+                                     a2,
+                                     v36,
+                                     v35);
+      v17 = DrawListCacheForTextObject;
+      if ( DrawListCacheForTextObject < 0 )
+      {
+        v25 = 50LL;
+        goto LABEL_20;
+      }
+      ++v11;
+      if ( v16 )
+        CDrawListEntry::Release(v16);
+      if ( ++v19 == v20 )
+      {
+        v10 = (_QWORD *)*((_QWORD *)this - 4);
+        goto LABEL_17;
+      }
+    }
+    v25 = 46LL;
+LABEL_20:
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)v25,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+      (const char *)(unsigned int)DrawListCacheForTextObject);
+    if ( v16 )
+      CDrawListEntry::Release(v16);
+    return v17;
+  }
+LABEL_17:
+  v23 = (__int64 *)v10[80];
+  v24 = (__int64 *)v10[81];
+  while ( 1 )
+  {
+    if ( v23 == v24 )
+      return 0LL;
+    v26 = *v23;
+    v35 = 0LL;
+    v27 = CTextVisualContent::GetDrawListCacheForTextObject(
+            v7,
+            (struct CDrawingContext *)a2,
+            (struct CTreeData *)TreeData,
+            v11,
+            &v35);
+    v28 = v35;
+    v29 = v27;
+    if ( v27 < 0 )
+      break;
+    v30 = v26 + *(int *)(*(_QWORD *)(v26 + 56) + 8LL) + 56LL;
+    v27 = (*(__int64 (__fastcall **)(__int64, const struct CVisualTree **, const struct D2D_SIZE_F *, CDrawListEntry *))(*(_QWORD *)v30 + 16LL))(
+            v30,
+            a2,
+            v36,
+            v35);
+    v29 = v27;
+    if ( v27 < 0 )
+    {
+      v31 = 64LL;
+      goto LABEL_34;
+    }
+    ++v11;
+    if ( v28 )
+      CDrawListEntry::Release(v28);
+    ++v23;
+  }
+  v31 = 60LL;
+LABEL_34:
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x15,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
-    (const char *)0x88982F04LL);
-  return (unsigned int)DrawListCacheForTextObject;
+    (void *)v31,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+    (const char *)(unsigned int)v27);
+  if ( v28 )
+    CDrawListEntry::Release(v28);
+  return v29;
 }

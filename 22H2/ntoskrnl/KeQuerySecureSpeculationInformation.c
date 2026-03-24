@@ -1,17 +1,17 @@
 /*
- * XREFs of KeQuerySecureSpeculationInformation @ 0x140573B88
+ * XREFs of KeQuerySecureSpeculationInformation @ 0x14051B448
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslGetSecureSpeculationControlInformation @ 0x140387354 (VslGetSecureSpeculationControlInformation.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExSystemExceptionFilter @ 0x140865F70 (ExSystemExceptionFilter.c)
+ *     VslGetSecureSpeculationControlInformation @ 0x1403CF3F8 (VslGetSecureSpeculationControlInformation.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall KeQuerySecureSpeculationInformation(unsigned int *a1, size_t Size, _DWORD *a3)
 {
   size_t v4; // r14
-  int SecureSpeculationControlInformation; // esi
+  __int16 SecureSpeculationControlInformation; // si
   unsigned int v8; // eax
 
   v4 = (unsigned int)Size;
@@ -39,29 +39,7 @@ LABEL_11:
     goto LABEL_11;
   }
 LABEL_12:
-  if ( (SecureSpeculationControlInformation & 0x100) != 0 )
-    *a1 |= 0x40u;
-  if ( (SecureSpeculationControlInformation & 0x200) != 0 )
-    *a1 |= 0x80u;
-  if ( (SecureSpeculationControlInformation & 0x400) != 0 )
-    *a1 |= 0x100u;
   if ( (SecureSpeculationControlInformation & 0x2000) != 0 )
-    *a1 |= 0x200u;
-  if ( (SecureSpeculationControlInformation & 0x4000) != 0 )
-    *a1 |= 0x400u;
-  if ( (SecureSpeculationControlInformation & 0x8000) != 0 )
-    *a1 |= 0x800u;
-  if ( (SecureSpeculationControlInformation & 0x800) != 0 )
-    *a1 |= 0x1000u;
-  if ( (SecureSpeculationControlInformation & 0x1000) != 0 )
-    *a1 |= 0x2000u;
-  if ( (SecureSpeculationControlInformation & 0x10000) != 0 )
-    *a1 |= 0x20u;
-  if ( (SecureSpeculationControlInformation & 0x20000) != 0 )
     *a1 |= 0x10u;
-  if ( (SecureSpeculationControlInformation & 0x40000) != 0 )
-    *a1 |= 0x4000u;
-  if ( (SecureSpeculationControlInformation & 0x80000) != 0 )
-    *a1 |= 0x8000u;
   return 0LL;
 }

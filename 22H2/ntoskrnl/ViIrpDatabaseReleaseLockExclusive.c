@@ -1,41 +1,45 @@
 /*
- * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x1405D262C
+ * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x1405A2594
  * Callers:
- *     IovpCompleteRequest2 @ 0x140ACDAFC (IovpCompleteRequest2.c)
- *     VfIoFreeIrp @ 0x140ACE7E4 (VfIoFreeIrp.c)
- *     VfPendingMoreProcessingRequired @ 0x140AD2970 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140AD2BEC (ViPendingCompleteAfterWait.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x140AE2818 (VfIrpDatabaseEntryInsertAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE28EC (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x1409D0600 (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x1409D125C (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x1409D58B0 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x1409D5B34 (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x1409E0868 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E093C (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)
+__int64 __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbx
-  unsigned __int8 CurrentIrql; // al
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v5; // eax
-  bool v6; // zf
+  bool v5; // zf
 
   v1 = a1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&ViIrpDatabaseLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-      v6 = (v5 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v5;
-      if ( v6 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v1 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+        v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v5 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v1);
+  return result;
 }

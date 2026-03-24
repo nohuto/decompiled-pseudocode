@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vDIBPatBlt@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C0009148
+ * XREFs of ?vDIBPatBlt@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C00CF084
  * Callers:
- *     EngBitBlt @ 0x1C0005C00 (EngBitBlt.c)
+ *     EngBitBlt @ 0x1C00CB5E0 (EngBitBlt.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall vDIBPatBlt(
@@ -85,7 +85,7 @@ void __fastcall vDIBPatBlt(
   v28 = *((_DWORD *)pvRbrush + 7);
   v32 = v13 * *((_DWORD *)pvRbrush + 5);
   v33 = *((_DWORD *)pvRbrush + 6);
-  v30 = v36->x * v13;
+  v30 = v13 * v36->x;
   y = v36->y;
   if ( v10 )
   {

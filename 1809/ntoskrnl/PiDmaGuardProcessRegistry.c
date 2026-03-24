@@ -3,7 +3,7 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PipDmaGuardGetRegistryPolicy @ 0x14016AB9C (PipDmaGuardGetRegistryPolicy.c)
+ *     PipDmaGuardGetRegistryPolicy @ 0x14016ABBC (PipDmaGuardGetRegistryPolicy.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessRegistry(void *a1)

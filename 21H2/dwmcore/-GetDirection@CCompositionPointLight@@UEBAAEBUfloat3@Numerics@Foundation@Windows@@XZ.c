@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDirection@CCompositionPointLight@@UEBAAEBUfloat3@Numerics@Foundation@Windows@@XZ @ 0x1800FB410
+ * XREFs of ?GetDirection@CCompositionPointLight@@UEBAAEBUfloat3@Numerics@Foundation@Windows@@XZ @ 0x1800E2A30
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 const struct Windows::Foundation::Numerics::float3 *__fastcall CCompositionPointLight::GetDirection(
         CCompositionPointLight *this)
 {
-  return (CCompositionPointLight *)((char *)this + 292);
+  return (CCompositionPointLight *)((char *)this + 284);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___ @ 0x1C023547C
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___ @ 0x1C01F4BCC
  * Callers:
- *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02357E0 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4F30 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___(
@@ -22,9 +22,9 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
   *(_DWORD *)v7 = 16;
   *(_QWORD *)(v5 + 4) = 0LL;
   *((_DWORD *)v5 + 3) = 0;
-  *((_DWORD *)v5 + 1) = 345;
-  *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 32);
+  *((_DWORD *)v5 + 1) = 351;
+  *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 24);
   result = 1;
-  v5[12] = *(_BYTE *)(*(_QWORD *)a3 + 65LL);
+  v5[12] = *(_BYTE *)(*(_QWORD *)a3 + 57LL);
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022D3FC
+ * XREFs of ?EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EDAFC
  * Callers:
- *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022D3A0 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EDAA0 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     GreUnlockDwmState @ 0x1C0030A50 (GreUnlockDwmState.c)
- *     ReferenceDwmProcess @ 0x1C0090A30 (ReferenceDwmProcess.c)
- *     CheckOrAcquireDwmStateLock @ 0x1C0090A74 (CheckOrAcquireDwmStateLock.c)
+ *     GreUnlockDwmState @ 0x1C00477B0 (GreUnlockDwmState.c)
+ *     ReferenceDwmProcess @ 0x1C00493A0 (ReferenceDwmProcess.c)
+ *     CheckOrAcquireDwmStateLock @ 0x1C00493E4 (CheckOrAcquireDwmStateLock.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitViewData(
@@ -42,11 +42,11 @@ char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitViewD
       if ( v6 >= 0 )
       {
         LOBYTE(v9) = 1;
-        v6 = ObDuplicateObject(Object, *((_QWORD *)this + 12), v5, &v15, 1048578, 0, 2, v9);
+        v6 = ObDuplicateObject(Object, *((_QWORD *)this + 11), v5, &v15, 1048578, 0, 2, v9);
         if ( v6 >= 0 )
         {
           LOBYTE(v10) = 1;
-          v6 = ObDuplicateObject(Object, *((_QWORD *)this + 11), v5, &v14, -1073741824, 0, 2, v10);
+          v6 = ObDuplicateObject(Object, *((_QWORD *)this + 10), v5, &v14, -1073741824, 0, 2, v10);
         }
       }
     }
@@ -86,8 +86,8 @@ char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitViewD
     *(_DWORD *)v12 = 36;
     *(_OWORD *)(v7 + 4) = 0LL;
     *(_OWORD *)(v7 + 20) = 0LL;
-    *((_DWORD *)v7 + 1) = 171;
-    *((_DWORD *)v7 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v7 + 1) = 180;
+    *((_DWORD *)v7 + 2) = *((_DWORD *)this + 6);
     *(_QWORD *)(v7 + 12) = v14;
     *(_QWORD *)(v7 + 20) = v15;
     *(_QWORD *)(v7 + 28) = Handle;

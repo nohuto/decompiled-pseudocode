@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperCheckWaitCommand @ 0x14011D660
+ * XREFs of SmKmStoreHelperCheckWaitCommand @ 0x14011D680
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14011D184 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmKmStoreHelperSendCommand @ 0x14011D5E4 (SmKmStoreHelperSendCommand.c)
- *     ?SmStCheckLockInProgressRegionComplete@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGION@@K@Z @ 0x140145518 (-SmStCheckLockInProgressRegionComplete@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGIO.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14011D1A4 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmKmStoreHelperSendCommand @ 0x14011D604 (SmKmStoreHelperSendCommand.c)
+ *     ?SmStCheckLockInProgressRegionComplete@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGION@@K@Z @ 0x140145538 (-SmStCheckLockInProgressRegionComplete@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGIO.c)
  * Callees:
- *     SmKmStoreHelperWaitForCommand @ 0x1401463C0 (SmKmStoreHelperWaitForCommand.c)
+ *     SmKmStoreHelperWaitForCommand @ 0x1401463E0 (SmKmStoreHelperWaitForCommand.c)
  */
 
 __int64 __fastcall SmKmStoreHelperCheckWaitCommand(__int64 a1, int a2)

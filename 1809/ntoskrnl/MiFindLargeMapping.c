@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindLargeMapping @ 0x1401569E4
+ * XREFs of MiFindLargeMapping @ 0x140156A04
  * Callers:
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFindLargeMapping(unsigned __int64 a1, unsigned __int64 a2)

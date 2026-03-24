@@ -1,87 +1,60 @@
 /*
- * XREFs of memset @ 0x1C00109C0
+ * XREFs of memset @ 0x1C0008040
  * Callers:
- *     FirmwareGetInfo @ 0x1C0002AC0 (FirmwareGetInfo.c)
- *     ScsiUnmapRequest @ 0x1C0002F48 (ScsiUnmapRequest.c)
- *     ScsiModeSenseRequest @ 0x1C000335C (ScsiModeSenseRequest.c)
- *     NVMeHwBuildIo @ 0x1C0004360 (NVMeHwBuildIo.c)
- *     MdlToPrp @ 0x1C0004D00 (MdlToPrp.c)
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     NVMeHwAdapterControl @ 0x1C0005860 (NVMeHwAdapterControl.c)
- *     NVMeLogEtwControllerInfo @ 0x1C0005BE0 (NVMeLogEtwControllerInfo.c)
- *     FillControllerConfiguration @ 0x1C0005CB4 (FillControllerConfiguration.c)
- *     NVMeControllerInitPart3 @ 0x1C0005FFC (NVMeControllerInitPart3.c)
- *     NVMeIoSubmissionQueueCreate @ 0x1C00069E8 (NVMeIoSubmissionQueueCreate.c)
- *     NVMeIoCompletionQueueCreate @ 0x1C0006C38 (NVMeIoCompletionQueueCreate.c)
- *     NVMeControllerInitPart2 @ 0x1C0006F74 (NVMeControllerInitPart2.c)
- *     NVMeGetNVMSetAttributeList @ 0x1C00071B8 (NVMeGetNVMSetAttributeList.c)
- *     NVMeControllerInitPart1 @ 0x1C0007384 (NVMeControllerInitPart1.c)
- *     NVMeControllerGetFeaturesSupportedCacheCapabilities @ 0x1C000793C (NVMeControllerGetFeaturesSupportedCacheCapabilities.c)
- *     ControllerReset @ 0x1C0007A88 (ControllerReset.c)
- *     NVMeControllerIdentify @ 0x1C0007C08 (NVMeControllerIdentify.c)
- *     NVMeGetControllerIoCommandSetIdentify @ 0x1C0007D08 (NVMeGetControllerIoCommandSetIdentify.c)
- *     NVMeNameSpaceIdentify @ 0x1C0007F68 (NVMeNameSpaceIdentify.c)
- *     NVMeGetNamespaceDescriptorListIdentify @ 0x1C0008768 (NVMeGetNamespaceDescriptorListIdentify.c)
- *     NVMeGetCommandEffectsLog @ 0x1C00088B0 (NVMeGetCommandEffectsLog.c)
- *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C0008A28 (NVMeGetCloudSSDErrorRecoveryLog.c)
- *     NVMeSetIoQueueCount @ 0x1C0008B98 (NVMeSetIoQueueCount.c)
- *     NVMeBuildPollingConfiguration @ 0x1C0008D3C (NVMeBuildPollingConfiguration.c)
- *     NVMeSetInterruptCoalescing @ 0x1C0008E58 (NVMeSetInterruptCoalescing.c)
- *     NVMeSetArbitration @ 0x1C0008F6C (NVMeSetArbitration.c)
- *     NVMeGetTemperatureThreshold @ 0x1C0009084 (NVMeGetTemperatureThreshold.c)
- *     NVMeConfigAsyncEvent @ 0x1C0009184 (NVMeConfigAsyncEvent.c)
- *     NVMeIssueAsyncEventCommand @ 0x1C0009474 (NVMeIssueAsyncEventCommand.c)
- *     NVMeSetPowerState @ 0x1C000A084 (NVMeSetPowerState.c)
- *     NVMeLogTelemetry @ 0x1C000A660 (NVMeLogTelemetry.c)
- *     NVMeParseNameSpaceIdentifyData @ 0x1C000A984 (NVMeParseNameSpaceIdentifyData.c)
- *     NVMeHwFindAdapter @ 0x1C000ACD0 (NVMeHwFindAdapter.c)
- *     NVMeGetNamespaceIoCommandSetIdentify @ 0x1C000B0FC (NVMeGetNamespaceIoCommandSetIdentify.c)
- *     NVMeGetAutoPowerStateTransition @ 0x1C000CAF4 (NVMeGetAutoPowerStateTransition.c)
- *     NVMeGetNamespaceMetadata @ 0x1C000CC64 (NVMeGetNamespaceMetadata.c)
- *     NVMeGetRichDeviceDescription @ 0x1C000CE44 (NVMeGetRichDeviceDescription.c)
- *     NVMeHwUnitControl @ 0x1C000D170 (NVMeHwUnitControl.c)
- *     DriverEntry @ 0x1C000E12C (DriverEntry.c)
- *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C000EC00 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
- *     NVMeReenumerateNameSpaceMerge @ 0x1C000F05C (NVMeReenumerateNameSpaceMerge.c)
- *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C000F748 (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
- *     FillControllerRuntimeLog @ 0x1C0017A04 (FillControllerRuntimeLog.c)
- *     NVMeControllerStartFailureEventLog @ 0x1C0017B68 (NVMeControllerStartFailureEventLog.c)
- *     AdminQueuesFreeResources @ 0x1C0017C84 (AdminQueuesFreeResources.c)
- *     NVMeCaptureLiveDumpWorkItem @ 0x1C0018670 (NVMeCaptureLiveDumpWorkItem.c)
- *     NVMeControllerRemove @ 0x1C0018DF8 (NVMeControllerRemove.c)
- *     NVMeControllerReset @ 0x1C001906C (NVMeControllerReset.c)
- *     NVMeControllerSetHostIdentifier @ 0x1C0019314 (NVMeControllerSetHostIdentifier.c)
- *     NVMeControllerStop @ 0x1C00195A8 (NVMeControllerStop.c)
- *     NVMeInitStreams @ 0x1C00198AC (NVMeInitStreams.c)
- *     IoctlCreateReservedQueuePair @ 0x1C001AFEC (IoctlCreateReservedQueuePair.c)
- *     IoctlQueryEnduranceInformation @ 0x1C001B91C (IoctlQueryEnduranceInformation.c)
- *     IoctlQueryTemperatureInfoProcess @ 0x1C001BD14 (IoctlQueryTemperatureInfoProcess.c)
- *     LogSenseInformationalExceptions @ 0x1C001C6EC (LogSenseInformationalExceptions.c)
- *     LogSenseTemperature @ 0x1C001C8D4 (LogSenseTemperature.c)
- *     NVMeGetSanitizeLogWorkItem @ 0x1C001DC70 (NVMeGetSanitizeLogWorkItem.c)
- *     SglToPrp @ 0x1C00213A4 (SglToPrp.c)
- *     NVMeControllerPanicResetActionWorkItem @ 0x1C0021E00 (NVMeControllerPanicResetActionWorkItem.c)
- *     NVMeDirectiveIdentifyEnableDirective @ 0x1C002230C (NVMeDirectiveIdentifyEnableDirective.c)
- *     NVMeDirectiveIdentifyReturnParameters @ 0x1C00223F4 (NVMeDirectiveIdentifyReturnParameters.c)
- *     NVMeDirectiveStreamsAllocateResources @ 0x1C0022584 (NVMeDirectiveStreamsAllocateResources.c)
- *     NVMeDirectiveStreamsGetStatus @ 0x1C0022678 (NVMeDirectiveStreamsGetStatus.c)
- *     NVMeDirectiveStreamsReleaseId @ 0x1C0022854 (NVMeDirectiveStreamsReleaseId.c)
- *     NVMeDirectiveStreamsReturnParameters @ 0x1C0022948 (NVMeDirectiveStreamsReturnParameters.c)
- *     NVMeGetControllerInitiatedTelemetryHeader @ 0x1C0022CC0 (NVMeGetControllerInitiatedTelemetryHeader.c)
- *     NVMeGetControllerInitiatedTelemetryLog @ 0x1C0022DEC (NVMeGetControllerInitiatedTelemetryLog.c)
- *     NVMeGetLogPageCompletion @ 0x1C0023180 (NVMeGetLogPageCompletion.c)
- *     NVMeIoCompletionQueueDelete @ 0x1C0023504 (NVMeIoCompletionQueueDelete.c)
- *     NVMeIoSubmissionQueueDelete @ 0x1C0023810 (NVMeIoSubmissionQueueDelete.c)
- *     NVMeReenumerateNameSpaceStart @ 0x1C0023AF0 (NVMeReenumerateNameSpaceStart.c)
- *     NVMeReservedCompletionQueueCreate @ 0x1C0023B84 (NVMeReservedCompletionQueueCreate.c)
- *     NVMeReservedSubmissionQueueCreate @ 0x1C0023F2C (NVMeReservedSubmissionQueueCreate.c)
- *     NVMeSanitizeRecoverWorkItem @ 0x1C00242B0 (NVMeSanitizeRecoverWorkItem.c)
- *     NVMeSetAutoPowerStateTransition @ 0x1C002449C (NVMeSetAutoPowerStateTransition.c)
- *     NVMeSetHostMemoryBuffer @ 0x1C0024584 (NVMeSetHostMemoryBuffer.c)
- *     NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C002473C (NVMeSetNonOperationalPowerStatePermissiveMode.c)
- *     NVMeSyncHostTime @ 0x1C002492C (NVMeSyncHostTime.c)
- *     NVMeSendControllerInternalData @ 0x1C0025758 (NVMeSendControllerInternalData.c)
- *     NVMeSendLunInternalData @ 0x1C0025E54 (NVMeSendLunInternalData.c)
+ *     FirmwareGetInfo @ 0x1C000233C (FirmwareGetInfo.c)
+ *     ScsiUnmapRequest @ 0x1C0002794 (ScsiUnmapRequest.c)
+ *     ScsiModeSenseRequest @ 0x1C000294C (ScsiModeSenseRequest.c)
+ *     NVMeHwBuildIo @ 0x1C0004930 (NVMeHwBuildIo.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0006C40 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ *     NVMeReenumerateNameSpaceMerge @ 0x1C0007138 (NVMeReenumerateNameSpaceMerge.c)
+ *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C000778C (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
+ *     DriverEntry @ 0x1C000A530 (DriverEntry.c)
+ *     NVMeControllerStartFailureEventLog @ 0x1C000A6FC (NVMeControllerStartFailureEventLog.c)
+ *     NVMeHwFindAdapter @ 0x1C000A790 (NVMeHwFindAdapter.c)
+ *     AdminQueuesFreeResources @ 0x1C000B248 (AdminQueuesFreeResources.c)
+ *     NVMeControllerRemove @ 0x1C000E434 (NVMeControllerRemove.c)
+ *     NVMeControllerStop @ 0x1C000E85C (NVMeControllerStop.c)
+ *     NVMeInitStreams @ 0x1C000EE88 (NVMeInitStreams.c)
+ *     NVMeLogTelemetry @ 0x1C000F3E0 (NVMeLogTelemetry.c)
+ *     IoctlQueryEnduranceInformation @ 0x1C00130A4 (IoctlQueryEnduranceInformation.c)
+ *     IoctlQueryTemperatureInfoProcess @ 0x1C001348C (IoctlQueryTemperatureInfoProcess.c)
+ *     LogSenseInformationalExceptions @ 0x1C0013E64 (LogSenseInformationalExceptions.c)
+ *     LogSenseTemperature @ 0x1C001404C (LogSenseTemperature.c)
+ *     NVMeGetRichDeviceDescription @ 0x1C0015168 (NVMeGetRichDeviceDescription.c)
+ *     QueryProtocolInfoIdentifyData @ 0x1C001667C (QueryProtocolInfoIdentifyData.c)
+ *     SglToPrp @ 0x1C001755C (SglToPrp.c)
+ *     NVMeBuildPollingConfiguration @ 0x1C0017E98 (NVMeBuildPollingConfiguration.c)
+ *     NVMeConfigAsyncEvent @ 0x1C0018014 (NVMeConfigAsyncEvent.c)
+ *     NVMeControllerIdentify @ 0x1C0018128 (NVMeControllerIdentify.c)
+ *     NVMeDirectiveIdentifyEnableDirective @ 0x1C001862C (NVMeDirectiveIdentifyEnableDirective.c)
+ *     NVMeDirectiveIdentifyReturnParameters @ 0x1C0018714 (NVMeDirectiveIdentifyReturnParameters.c)
+ *     NVMeDirectiveStreamsAllocateResources @ 0x1C00188A4 (NVMeDirectiveStreamsAllocateResources.c)
+ *     NVMeDirectiveStreamsGetStatus @ 0x1C0018998 (NVMeDirectiveStreamsGetStatus.c)
+ *     NVMeDirectiveStreamsReleaseId @ 0x1C0018B74 (NVMeDirectiveStreamsReleaseId.c)
+ *     NVMeDirectiveStreamsReturnParameters @ 0x1C0018C68 (NVMeDirectiveStreamsReturnParameters.c)
+ *     NVMeGetAutoPowerStateTransition @ 0x1C0018DE8 (NVMeGetAutoPowerStateTransition.c)
+ *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C0018FC8 (NVMeGetCloudSSDErrorRecoveryLog.c)
+ *     NVMeGetCommandEffectsLog @ 0x1C0019218 (NVMeGetCommandEffectsLog.c)
+ *     NVMeGetLogPageCompletion @ 0x1C00193A0 (NVMeGetLogPageCompletion.c)
+ *     NVMeGetTemperatureThreshold @ 0x1C0019654 (NVMeGetTemperatureThreshold.c)
+ *     NVMeIoCompletionQueueCreate @ 0x1C0019790 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoCompletionQueueDelete @ 0x1C0019BC4 (NVMeIoCompletionQueueDelete.c)
+ *     NVMeIoSubmissionQueueCreate @ 0x1C0019EC0 (NVMeIoSubmissionQueueCreate.c)
+ *     NVMeIoSubmissionQueueDelete @ 0x1C001A2D4 (NVMeIoSubmissionQueueDelete.c)
+ *     NVMeIssueAsyncEventCommand @ 0x1C001A3AC (NVMeIssueAsyncEventCommand.c)
+ *     NVMeNameSpaceIdentify @ 0x1C001A730 (NVMeNameSpaceIdentify.c)
+ *     NVMeReenumerateNameSpaceStart @ 0x1C001AC78 (NVMeReenumerateNameSpaceStart.c)
+ *     NVMeReservedCompletionQueueCreate @ 0x1C001AD0C (NVMeReservedCompletionQueueCreate.c)
+ *     NVMeReservedSubmissionQueueCreate @ 0x1C001B080 (NVMeReservedSubmissionQueueCreate.c)
+ *     NVMeSetArbitration @ 0x1C001B3E4 (NVMeSetArbitration.c)
+ *     NVMeSetAutoPowerStateTransition @ 0x1C001B504 (NVMeSetAutoPowerStateTransition.c)
+ *     NVMeSetHostMemoryBuffer @ 0x1C001B5EC (NVMeSetHostMemoryBuffer.c)
+ *     NVMeSetInterruptCoalescing @ 0x1C001B7A4 (NVMeSetInterruptCoalescing.c)
+ *     NVMeSetIoQueueCount @ 0x1C001B8B8 (NVMeSetIoQueueCount.c)
+ *     NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C001BCD4 (NVMeSetNonOperationalPowerStatePermissiveMode.c)
+ *     NVMeSetPowerState @ 0x1C001BEC4 (NVMeSetPowerState.c)
+ *     NVMeSyncHostTime @ 0x1C001C0CC (NVMeSyncHostTime.c)
  * Callees:
  *     <none>
  */
@@ -90,76 +63,72 @@ void *__cdecl memset(void *a1, int Val, size_t Size)
 {
   void *result; // rax
   __int64 v4; // rdx
-  __m128 v5; // xmm0
-  char *v6; // r8
-  __m128 *v7; // rdx
-  _OWORD *v8; // r9
-  size_t v9; // r8
-  __m128 *v10; // r9
-  size_t v11; // r8
-  _DWORD *v12; // r9
-  size_t v13; // r8
+  size_t v5; // r9
+  char *v6; // rcx
+  size_t v7; // r8
+  __m128 v8; // xmm0
+  char *v9; // r8
+  __m128 *v10; // rcx
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // r9
+  unsigned __int64 i; // r9
+  __int64 v14; // r8
 
   result = a1;
-  v4 = 0x101010101010101LL * (unsigned __int8)Val;
-  v5 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
-  if ( Size >= 0x40 )
+  if ( Size < 8 )
   {
-    if ( (_isa_info & 2) != 0 && Size >= 0x320 )
-      return (void *)_memset_repmovs();
-    *(__m128 *)a1 = v5;
-    v6 = (char *)a1 + Size;
-    a1 = (void *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
-    Size = v6 - (_BYTE *)a1;
-    if ( Size >= 0x40 )
-    {
-      v7 = (__m128 *)((char *)a1 + Size - 16);
-      v8 = (_OWORD *)(((unsigned __int64)a1 + Size - 48) & 0xFFFFFFFFFFFFFFF0uLL);
-      v9 = Size >> 6;
-      do
-      {
-        *(__m128 *)a1 = v5;
-        *((__m128 *)a1 + 1) = v5;
-        a1 = (char *)a1 + 64;
-        --v9;
-        *((__m128 *)a1 - 2) = v5;
-        *((__m128 *)a1 - 1) = v5;
-      }
-      while ( v9 );
-      *v8 = v5;
-      v8[1] = v5;
-      v8[2] = v5;
-      *v7 = v5;
-      return result;
-    }
-LABEL_9:
-    v10 = (__m128 *)((char *)a1 + Size - 16);
-    *(__m128 *)a1 = v5;
-    v11 = (Size & 0x20) >> 1;
-    *v10 = v5;
-    *(__m128 *)((char *)a1 + v11) = v5;
-    *(__m128 *)((char *)v10 - v11) = v5;
-    return result;
-  }
-  if ( Size >= 0x10 )
-    goto LABEL_9;
-  if ( Size < 4 )
-  {
-    if ( Size )
-    {
-      *(_BYTE *)a1 = v4;
-      if ( Size != 1 )
-        *(_WORD *)((char *)a1 + Size - 2) = v4;
-    }
+    for ( ; Size; --Size )
+      *((char *)a1 + Size - 1) = Val;
   }
   else
   {
-    v12 = (char *)a1 + Size - 4;
-    *(_DWORD *)a1 = v4;
-    v13 = (Size & 8) >> 1;
-    *v12 = v4;
-    *(_DWORD *)((char *)a1 + v13) = v4;
-    *(_DWORD *)((char *)v12 - v13) = v4;
+    v4 = 0x101010101010101LL * (unsigned __int8)Val;
+    if ( Size >= 0x4F )
+    {
+      v8 = _mm_movelh_ps((__m128)(unsigned __int64)v4, (__m128)(unsigned __int64)v4);
+      *(__m128 *)a1 = v8;
+      v9 = (char *)a1 + Size;
+      v10 = (__m128 *)(((unsigned __int64)a1 + 16) & 0xFFFFFFFFFFFFFFF0uLL);
+      v11 = v9 - (char *)v10;
+      v12 = v11 >> 7;
+      if ( v11 >> 7 )
+      {
+        do
+        {
+          *v10 = v8;
+          v10[1] = v8;
+          v10 += 8;
+          v10[-6] = v8;
+          v10[-5] = v8;
+          --v12;
+          v10[-4] = v8;
+          v10[-3] = v8;
+          v10[-2] = v8;
+          v10[-1] = v8;
+        }
+        while ( v12 );
+        v11 &= 0x7Fu;
+      }
+      for ( i = v11 >> 4; i; --i )
+        *v10++ = v8;
+      v14 = v11 & 0xF;
+      if ( v14 )
+        *(__m128 *)((char *)v10 + v14 - 16) = v8;
+    }
+    else
+    {
+      v5 = Size & 0x78;
+      v6 = (char *)a1 + (Size & 0xFFFFFFFFFFFFFFF8uLL);
+      do
+      {
+        *(_QWORD *)((char *)result + v5 - 8) = v4;
+        v5 -= 8LL;
+      }
+      while ( v5 );
+      v7 = Size & 7;
+      if ( v7 )
+        *(_QWORD *)&v6[v7 - 8] = v4;
+    }
   }
   return result;
 }

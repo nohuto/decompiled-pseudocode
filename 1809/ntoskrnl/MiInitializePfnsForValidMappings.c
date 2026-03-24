@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
- *     KeFlushCurrentTbOnly @ 0x140173DE0 (KeFlushCurrentTbOnly.c)
+ *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
  *     MxCreatePfns @ 0x1409C008C (MxCreatePfns.c)
  *     MxZeroPageTablePfns @ 0x1409C085C (MxZeroPageTablePfns.c)
  */

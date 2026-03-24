@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAdjustGroupConfiguration @ 0x14028FCB8
+ * XREFs of KiAdjustGroupConfiguration @ 0x14028FDB8
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char __fastcall KiAdjustGroupConfiguration(__int64 a1)

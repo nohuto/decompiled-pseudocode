@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x18010D5B4
+ * XREFs of ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x18004D394
  * Callers:
- *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18010C9DC (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18010D554 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18004C610 (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18004D0E4 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
  * Callees:
- *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18010D608 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
- *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18010D664 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18004D1AC (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18004D3E8 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
  */
 
 void __fastcall Base853Encoder::AppendByte(Base853Encoder *this, unsigned __int8 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of NVMeGetControllerSerialNumber @ 0x1C000F20C
+ * XREFs of NVMeGetControllerSerialNumber @ 0x1C000EB60
  * Callers:
- *     NVMeHwAdapterControl @ 0x1C0003550 (NVMeHwAdapterControl.c)
+ *     NVMeHwAdapterControl @ 0x1C0006080 (NVMeHwAdapterControl.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall NVMeGetControllerSerialNumber(__int64 a1, __int64 a2)
   result = 1LL;
   if ( a2 )
   {
-    v3 = *(_QWORD *)(a1 + 1840);
+    v3 = *(_QWORD *)(a1 + 1624);
     if ( v3 )
     {
       if ( *(_DWORD *)a2 == 1 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of SeTokenSetRedirectionTrustPolicy @ 0x1401B70A8
+ * XREFs of SeTokenSetRedirectionTrustPolicy @ 0x1401B70C8
  * Callers:
  *     PspSetRedirectionTrustPolicy @ 0x140582834 (PspSetRedirectionTrustPolicy.c)
  * Callees:

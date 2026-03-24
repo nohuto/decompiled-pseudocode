@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessCreate@CDesktopTree@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DESKTOPTREE_CREATE@@@Z @ 0x1800F7C34
+ * XREFs of ?ProcessCreate@CDesktopTree@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DESKTOPTREE_CREATE@@@Z @ 0x1800DDA5C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1800F7C5C (-SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1800DDA84 (-SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z.c)
  */
 
 __int64 __fastcall CDesktopTree::ProcessCreate(CDesktopTree *this, struct CResourceTable *a2, struct _LUID *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall CDesktopTree::ProcessCreate(CDesktopTree *this, struct CResou
   if ( (int)CDesktopTree::SetLuid(this, a3[1]) < 0 )
   {
     v3 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, -2003303421, 0x47u);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2003303421, 0x43u, 0LL);
   }
   return v3;
 }

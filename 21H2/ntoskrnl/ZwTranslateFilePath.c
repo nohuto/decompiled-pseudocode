@@ -1,11 +1,10 @@
 /*
- * XREFs of ZwTranslateFilePath @ 0x14041F160
+ * XREFs of ZwTranslateFilePath @ 0x1403FDC60
  * Callers:
- *     DifZwTranslateFilePathWrapper @ 0x140628230 (DifZwTranslateFilePathWrapper.c)
- *     ExpSetBootEntry @ 0x1409FD4A0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FDC88 (ExpSetDriverEntry.c)
- *     BiTranslateFilePath @ 0x140A20C90 (BiTranslateFilePath.c)
- *     SiBootEntryGetNtFilePath @ 0x140A21AB4 (SiBootEntryGetNtFilePath.c)
+ *     ExpSetBootEntry @ 0x140951100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1409518F4 (ExpSetDriverEntry.c)
+ *     BiTranslateFilePath @ 0x140972D28 (BiTranslateFilePath.c)
+ *     SiBootEntryGetNtFilePath @ 0x140973A44 (SiBootEntryGetNtFilePath.c)
  * Callees:
  *     <none>
  */

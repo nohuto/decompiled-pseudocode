@@ -1,49 +1,30 @@
 /*
- * XREFs of IommupHvMapDeviceLogicalRange @ 0x140527A68
+ * XREFs of IommupHvMapDeviceLogicalRange @ 0x1404DA284
  * Callers:
- *     HalpIommuDomainMapLogicalRange @ 0x14051AC2C (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x14051AD44 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IommupHvMapDeviceLogicalRange(
-        ULONG_PTR BugCheckParameter3,
-        __int64 a2,
-        unsigned __int64 a3,
-        __int64 a4,
-        ULONG_PTR a5)
+__int64 __fastcall IommupHvMapDeviceLogicalRange(int a1, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
 {
-  int v5; // eax
-  ULONG_PTR BugCheckParameter4; // rbx
-  int v8; // edi
-  int v9; // eax
-  char v11; // [rsp+28h] [rbp-30h]
-  int v12; // [rsp+60h] [rbp+8h] BYREF
-  int v13; // [rsp+64h] [rbp+Ch]
-  unsigned __int64 v14; // [rsp+70h] [rbp+18h] BYREF
-  unsigned __int64 v15; // [rsp+78h] [rbp+20h] BYREF
+  char v6; // [rsp+28h] [rbp-30h]
+  _QWORD v7[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v8; // [rsp+70h] [rbp+18h] BYREF
+  int v9; // [rsp+74h] [rbp+1Ch]
+  unsigned __int64 v10; // [rsp+78h] [rbp+20h] BYREF
 
-  v5 = *(_DWORD *)(BugCheckParameter3 + 48);
-  v13 = 0;
-  BugCheckParameter4 = a5;
-  v12 = v5;
-  v14 = (unsigned __int64)(a4 + 4095) >> 12;
-  v15 = a3 >> 12;
-  v11 = 1;
-  v8 = ((__int64 (__fastcall *)(int *, __int64, ULONG_PTR, unsigned __int64 *, unsigned __int64 *, char))qword_140C4C610)(
-         &v12,
-         a2,
-         a5,
-         &v15,
-         &v14,
-         v11);
-  if ( v8 < 0 )
-  {
-    v9 = ((__int64 (__fastcall *)(int *, ULONG_PTR, unsigned __int64 *))qword_140C4C618)(&v12, BugCheckParameter4, &v14);
-    if ( v9 < 0 )
-      KeBugCheckEx(0x1D9u, 1uLL, v9, BugCheckParameter3, BugCheckParameter4);
-  }
-  return (unsigned int)v8;
+  v9 = 0;
+  v8 = a1;
+  v10 = (unsigned __int64)(a4 + 4095) >> 12;
+  v7[0] = a3 >> 12;
+  v6 = 1;
+  return ((__int64 (__fastcall *)(int *, __int64, __int64, _QWORD *, unsigned __int64 *, char))qword_140C4A310)(
+           &v8,
+           a2,
+           a5,
+           v7,
+           &v10,
+           v6);
 }

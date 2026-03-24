@@ -1,7 +1,7 @@
 /*
- * XREFs of PfSnFindString @ 0x140667BFC
+ * XREFs of PfSnFindString @ 0x140667BDC
  * Callers:
- *     PfSnParsePrefetchParam @ 0x140667AA4 (PfSnParsePrefetchParam.c)
+ *     PfSnParsePrefetchParam @ 0x140667A84 (PfSnParsePrefetchParam.c)
  * Callees:
  *     <none>
  */

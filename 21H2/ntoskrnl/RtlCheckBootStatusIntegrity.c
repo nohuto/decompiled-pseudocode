@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCheckBootStatusIntegrity @ 0x1409BA9F0
+ * XREFs of RtlCheckBootStatusIntegrity @ 0x1409153E0
  * Callers:
- *     PopBootStatCheckIntegrity @ 0x140998CC4 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F22F4 (PopBootStatCheckIntegrity.c)
  * Callees:
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
- *     RtlBootStatusItemInfo @ 0x1406D6A3C (RtlBootStatusItemInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
+ *     RtlBootStatusItemInfo @ 0x14078A51C (RtlBootStatusItemInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)

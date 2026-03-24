@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CalculateInertiaValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180256740
+ * XREFs of ?CalculateInertiaValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205EF0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x18021AC2C (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x18021E688 (-UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@.c)
- *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x18021E7DC (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C9880 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x1801CD660 (-UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@.c)
+ *     ?ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z @ 0x1801CD7B4 (-ValueFromBoundary@CInteractionTracker@@QEBAMW4Boundary@@W4ScrollAxis@@@Z.c)
  */
 
 __int64 __fastcall CInteractionTrackerScaleAnimation::CalculateInertiaValueWorker(
@@ -26,13 +26,13 @@ __int64 __fastcall CInteractionTrackerScaleAnimation::CalculateInertiaValueWorke
   __int64 v14; // rcx
   unsigned int v15; // ebx
 
-  v5 = *((_QWORD *)this + 44);
+  v5 = *((_QWORD *)this + 41);
   if ( v5 )
     v5 = *(_QWORD *)(v5 + 16);
   CurrentValue = CInteractionTracker::GetCurrentValue(v5, 2);
   CInteractionTracker::ValueFromBoundary((_DWORD *)v5, 2LL, 2);
   CInteractionTracker::ValueFromBoundary(v10, 1LL, 2);
-  v12 = v11((char *)this + 456, a2, a3);
+  v12 = v11((char *)this + 432, a2, a3);
   if ( *(float *)&v12 == CurrentValue
     || (updated = CInteractionTracker::UpdateCenterPointForState(v5, a2, a3, 2u), v15 = updated, updated >= 0) )
   {
@@ -41,7 +41,7 @@ __int64 __fastcall CInteractionTrackerScaleAnimation::CalculateInertiaValueWorke
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, updated, 0x11Eu);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, updated, 0x11Eu, 0LL);
   }
   return v15;
 }

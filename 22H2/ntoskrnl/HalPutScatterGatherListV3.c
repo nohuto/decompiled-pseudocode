@@ -1,69 +1,43 @@
 /*
- * XREFs of HalPutScatterGatherListV3 @ 0x14050F348
+ * XREFs of HalPutScatterGatherListV3 @ 0x1403A2520
  * Callers:
- *     HalPutScatterGatherList @ 0x1403CE2B0 (HalPutScatterGatherList.c)
+ *     HalPutScatterGatherList @ 0x1402F6340 (HalPutScatterGatherList.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     HalpDmaStartWcb @ 0x140500AD0 (HalpDmaStartWcb.c)
- *     HalpContinueProcessingWaitQueue @ 0x14050FCA4 (HalpContinueProcessingWaitQueue.c)
- *     IoFreeMapRegistersV3 @ 0x140510390 (IoFreeMapRegistersV3.c)
- *     HalFlushAdapterBuffersEx @ 0x1405144A0 (HalFlushAdapterBuffersEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     IoFreeMapRegisters @ 0x1403A25A0 (IoFreeMapRegisters.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2630 (HalFlushAdapterBuffersEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall HalPutScatterGatherListV3(__int64 a1, __int64 a2, char a3)
+void __fastcall HalPutScatterGatherListV3(PDMA_ADAPTER DmaAdapter, __int64 a2, char a3)
 {
-  __int64 v3; // rbx
-  char v6; // r15
-  _QWORD *v7; // rsi
-  struct _MDL *v8; // rdi
-  struct _MDL *Next; // rbp
+  __int64 v3; // rdi
+  struct _MDL *v5; // rbx
+  struct _MDL *Next; // rsi
 
   v3 = *(_QWORD *)(a2 + 8);
-  if ( (*(_DWORD *)v3 & 2) != 0 )
-  {
-    v6 = 1;
-    v7 = (_QWORD *)(v3 + 24);
-    if ( *(_QWORD *)(v3 + 24) )
-    {
-      while ( 1 )
-      {
-        v7 = (_QWORD *)(v3 + 24);
-        if ( HalpDmaStartWcb(a1, (_QWORD *)(v3 + 48), 1) )
-          break;
-        _mm_pause();
-      }
-    }
-  }
-  else
-  {
-    v6 = 0;
-    v7 = (_QWORD *)(v3 + 24);
-  }
   HalFlushAdapterBuffersEx(
-    a1,
+    (_DWORD)DmaAdapter,
     *(_QWORD *)(v3 + 8),
-    *v7,
+    *(_QWORD *)(v3 + 24),
     *(_DWORD *)(v3 + 32) - *(_DWORD *)(*(_QWORD *)(v3 + 8) + 44LL) - *(_DWORD *)(*(_QWORD *)(v3 + 8) + 32LL),
     *(_DWORD *)(v3 + 40),
     a3);
-  IoFreeMapRegistersV3(a1, *v7);
-  v8 = *(struct _MDL **)(v3 + 16);
-  if ( v8 )
+  IoFreeMapRegisters(DmaAdapter, *(PVOID *)(v3 + 24), *(_DWORD *)(v3 + 44));
+  v5 = *(struct _MDL **)(v3 + 16);
+  if ( v5 )
   {
     do
     {
-      Next = v8->Next;
-      if ( (v8->MdlFlags & 1) != 0 )
-        MmUnmapLockedPages(v8->MappedSystemVa, v8);
-      IoFreeMdl(v8);
-      v8 = Next;
+      Next = v5->Next;
+      if ( (v5->MdlFlags & 1) != 0 )
+        MmUnmapLockedPages(v5->MappedSystemVa, v5);
+      IoFreeMdl(v5);
+      v5 = Next;
     }
     while ( Next );
   }
-  if ( v6 && *v7 )
-    HalpContinueProcessingWaitQueue(a1);
   if ( (*(_DWORD *)v3 & 1) == 0 )
     ExFreePoolWithTag(*(PVOID *)(v3 + 160), 0);
 }

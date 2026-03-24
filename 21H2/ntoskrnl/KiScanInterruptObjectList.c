@@ -1,52 +1,53 @@
 /*
- * XREFs of KiScanInterruptObjectList @ 0x140421050
+ * XREFs of KiScanInterruptObjectList @ 0x1403FF9B0
  * Callers:
- *     KiChainedDispatch @ 0x140420C10 (KiChainedDispatch.c)
+ *     KiChainedDispatch @ 0x1403FF5C0 (KiChainedDispatch.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     PerfInfoLogInterrupt @ 0x140223B10 (PerfInfoLogInterrupt.c)
- *     KiEntropyQueueDpc @ 0x14024B080 (KiEntropyQueueDpc.c)
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     KiEndThreadAccountingPeriod @ 0x1402B9660 (KiEndThreadAccountingPeriod.c)
- *     KiDispatchPassiveInterrupts @ 0x14045B710 (KiDispatchPassiveInterrupts.c)
- *     KzSetIrqlUnsafe @ 0x140569E70 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     PerfInfoLogInterrupt @ 0x14029BD60 (PerfInfoLogInterrupt.c)
+ *     KiEntropyQueueDpc @ 0x1402C4130 (KiEntropyQueueDpc.c)
+ *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
+ *     KiDispatchPassiveInterrupts @ 0x140521390 (KiDispatchPassiveInterrupts.c)
  */
 
-char __fastcall KiScanInterruptObjectList()
+void __fastcall KiScanInterruptObjectList()
 {
   __int64 v0; // rbp
   __int64 v1; // rsi
   unsigned __int64 v2; // rcx
-  __int64 v3; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rcx
   unsigned __int64 v5; // rax
   unsigned int EntropyCount; // r11d
   unsigned int *v7; // r10
   __int64 CurrentThread; // r8
-  __int64 v9; // rdx
-  unsigned __int64 v10; // rdx
-  int v11; // ecx
-  __int64 v12; // r12
-  bool v13; // zf
-  int v14; // edi
-  __int64 v15; // r12
-  unsigned __int64 v16; // rcx
+  unsigned __int64 v9; // rax
+  __int64 v10; // rdx
+  unsigned __int64 v11; // rdx
+  int v12; // ecx
+  __int64 v13; // r12
+  bool v14; // zf
+  int v15; // edi
+  __int64 v16; // r12
   unsigned __int64 v17; // rcx
-  int v18; // edx
+  unsigned __int64 v18; // rcx
+  int v19; // edx
   unsigned __int8 v20; // [rsp+20h] [rbp-48h]
-  _BYTE v21[64]; // [rsp+28h] [rbp-40h] BYREF
+  LARGE_INTEGER v21[8]; // [rsp+28h] [rbp-40h] BYREF
 
   v2 = *(unsigned __int8 *)(v1 + 92);
   if ( KiIrqlFlags )
   {
-    LOBYTE(v3) = KzSetIrqlUnsafe(v2);
+    CurrentIrql = KzSetIrqlUnsafe(v2);
   }
   else
   {
-    LOBYTE(v3) = KeGetCurrentIrql();
+    CurrentIrql = KeGetCurrentIrql();
     __writecr8(v2);
   }
-  *(_BYTE *)(v0 - 87) = v3;
+  *(_BYTE *)(v0 - 87) = CurrentIrql;
   *(_DWORD *)(v0 - 96) = 0;
   CurrentPrcb = KeGetCurrentPrcb();
   if ( ++CurrentPrcb->NestingLevel == 1 )
@@ -59,73 +60,71 @@ char __fastcall KiScanInterruptObjectList()
     if ( (EntropyCount & 0x3FF) == 0 )
       *(_DWORD *)(v0 - 96) = 1;
     CurrentThread = (__int64)CurrentPrcb->CurrentThread;
-    v3 = v5 - CurrentPrcb->StartCycles;
-    *(_QWORD *)(CurrentThread + 72) += v3;
-    v9 = *(unsigned int *)(CurrentThread + 80);
-    CurrentPrcb->StartCycles += v3;
-    v10 = v3 + v9;
-    v11 = v10;
-    if ( HIDWORD(v10) )
-      v11 = -1;
-    *(_DWORD *)(CurrentThread + 80) = v11;
-    if ( (*(_BYTE *)(CurrentThread + 2) & 0xBE) != 0 )
-      LOBYTE(v3) = KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v3);
+    v9 = v5 - CurrentPrcb->StartCycles;
+    *(_QWORD *)(CurrentThread + 72) += v9;
+    v10 = *(unsigned int *)(CurrentThread + 80);
+    CurrentPrcb->StartCycles += v9;
+    v11 = v9 + v10;
+    v12 = v11;
+    if ( HIDWORD(v11) )
+      v12 = -1;
+    *(_DWORD *)(CurrentThread + 80) = v12;
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
+      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v9);
   }
   _enable();
   if ( *(_DWORD *)(v0 - 96) )
-    LOBYTE(v3) = KiEntropyQueueDpc((__int64)KeGetCurrentPrcb());
-  v12 = v1 + 8;
-  v13 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
+    KiEntropyQueueDpc((__int64)KeGetCurrentPrcb());
+  v13 = v1 + 8;
+  v14 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
-  if ( !v13 )
-    LOBYTE(v3) = EtwGetKernelTraceTimestamp((unsigned __int64)v21, 0x20004000uLL);
+  if ( !v14 )
+    EtwGetKernelTraceTimestamp(v21, 0x20004000u);
   while ( 2 )
   {
-    v14 = 0;
+    v15 = 0;
     do
     {
-      v15 = v12 - 8;
-      if ( (*(_DWORD *)(v15 + 104) & 1) != 0 )
+      v16 = v13 - 8;
+      if ( (*(_DWORD *)(v16 + 104) & 1) != 0 )
       {
         v20 = 0;
       }
       else
       {
-        v16 = *(unsigned __int8 *)(v15 + 93);
-        if ( !(_BYTE)v16 )
+        v17 = *(unsigned __int8 *)(v16 + 93);
+        if ( !(_BYTE)v17 )
         {
-          LOBYTE(v3) = KiDispatchPassiveInterrupts(v15);
+          KiDispatchPassiveInterrupts(v16);
           goto LABEL_29;
         }
-        if ( (_BYTE)v16 != *(_BYTE *)(v1 + 92) )
-          __writecr8(v16);
-        LOBYTE(v3) = KiCallInterruptServiceRoutine(v15, 1);
-        v20 = v3;
-        v17 = *(unsigned __int8 *)(v1 + 92);
-        if ( (_BYTE)v17 != *(_BYTE *)(v15 + 93) )
+        if ( (_BYTE)v17 != *(_BYTE *)(v1 + 92) )
           __writecr8(v17);
+        v20 = KiCallInterruptServiceRoutine(v16, 1);
+        v18 = *(unsigned __int8 *)(v1 + 92);
+        if ( (_BYTE)v18 != *(_BYTE *)(v16 + 93) )
+          __writecr8(v18);
       }
       if ( *(_BYTE *)(v0 + 243) )
       {
-        v18 = v20;
-        BYTE1(v18) = *(_BYTE *)(v15 + 88);
-        PerfInfoLogInterrupt(v15, v18, (__int64)v21);
-        LOBYTE(v3) = EtwGetKernelTraceTimestamp((unsigned __int64)v21, 0x20004000uLL);
+        v19 = v20;
+        BYTE1(v19) = *(_BYTE *)(v16 + 88);
+        PerfInfoLogInterrupt(v16, v19, (__int64)v21);
+        EtwGetKernelTraceTimestamp(v21, 0x20004000u);
       }
       if ( v20 )
       {
-        if ( *(_WORD *)(v15 + 108) != 1 )
+        if ( *(_WORD *)(v16 + 108) != 1 )
           goto LABEL_29;
-        ++v14;
+        ++v15;
       }
-      v12 = *(_QWORD *)(v15 + 8);
+      v13 = *(_QWORD *)(v16 + 8);
     }
-    while ( v12 != v1 + 8 );
-    if ( v14 )
+    while ( v13 != v1 + 8 );
+    if ( v15 )
       continue;
     break;
   }
 LABEL_29:
   _disable();
-  return v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?FindInsertionPointOrIncrement@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@PEAEPEAX_KI@Z @ 0x180028C08
+ * XREFs of ?FindInsertionPointOrIncrement@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@PEAEPEAX_KI@Z @ 0x1800AEA98
  * Callers:
- *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1800290D4 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1800AF24C (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
  * Callees:
- *     ?UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z @ 0x180019028 (-UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z.c)
- *     ?LowerBound@RawUsageIndex@details_abi@wil@@AEAAPEAEPEAE_KPEAX1@Z @ 0x180029310 (-LowerBound@RawUsageIndex@details_abi@wil@@AEAAPEAEPEAE_KPEAX1@Z.c)
- *     ?Compare@UsageIndexProperty@details_abi@wil@@QEBAHPEAX_K@Z @ 0x1800293DC (-Compare@UsageIndexProperty@details_abi@wil@@QEBAHPEAX_K@Z.c)
- *     ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x180029410 (-Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z.c)
+ *     ?UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z @ 0x18001F3A0 (-UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z.c)
+ *     ?LowerBound@RawUsageIndex@details_abi@wil@@AEAAPEAEPEAE_KPEAX1@Z @ 0x1800AF490 (-LowerBound@RawUsageIndex@details_abi@wil@@AEAAPEAEPEAE_KPEAX1@Z.c)
+ *     ?Compare@UsageIndexProperty@details_abi@wil@@QEBAHPEAX_K@Z @ 0x1800AF55C (-Compare@UsageIndexProperty@details_abi@wil@@QEBAHPEAX_K@Z.c)
+ *     ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x1800AF590 (-Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z.c)
  */
 
 unsigned __int8 *__fastcall wil::details_abi::RawUsageIndex::FindInsertionPointOrIncrement(
@@ -28,8 +28,8 @@ unsigned __int8 *__fastcall wil::details_abi::RawUsageIndex::FindInsertionPointO
   unsigned __int8 *v17; // r15
   unsigned __int8 *v18; // rax
   unsigned __int8 *v19; // r8
-  int v21; // r15d
-  unsigned __int8 *v22; // r8
+  int v20; // r15d
+  unsigned __int8 *v21; // r8
   __int16 v23; // [rsp+30h] [rbp-20h] BYREF
   char v24; // [rsp+32h] [rbp-1Eh]
   int v25; // [rsp+34h] [rbp-1Ch]
@@ -70,25 +70,27 @@ unsigned __int8 *__fastcall wil::details_abi::RawUsageIndex::FindInsertionPointO
   }
   else
   {
-    v21 = 0;
+    v20 = 0;
     if ( !*((_DWORD *)a2 + 1) )
       return v10;
     while ( 1 )
     {
-      v22 = (unsigned __int8 *)*((_QWORD *)this + 4);
+      v21 = (unsigned __int8 *)*((_QWORD *)this + 4);
       v28 = v10;
-      if ( !wil::details_abi::UsageIndexProperty::Read((wil::details_abi::UsageIndexProperty *)&v23, &v28, v22) )
+      if ( !wil::details_abi::UsageIndexProperty::Read((wil::details_abi::UsageIndexProperty *)&v23, &v28, v21) )
         break;
       v8 = wil::details_abi::UsageIndexProperty::Compare((wil::details_abi::UsageIndexProperty *)&v23, a4, a5);
-      if ( v8 <= 0 )
-        goto LABEL_6;
-      v10 = v28;
-      if ( (unsigned int)++v21 >= *((_DWORD *)a2 + 1) )
-        return v10;
+      if ( v8 > 0 )
+      {
+        v10 = v28;
+        if ( (unsigned int)++v20 < *((_DWORD *)a2 + 1) )
+          continue;
+      }
+      goto LABEL_12;
     }
-    wil::details_abi::UsageIndexProperty::UpdateCount(a2, v21);
+    wil::details_abi::UsageIndexProperty::UpdateCount(a2, v20);
   }
-LABEL_6:
+LABEL_12:
   if ( !v8 )
   {
     if ( v24 )
@@ -97,12 +99,12 @@ LABEL_6:
     }
     else if ( !*((_BYTE *)this + 56) )
     {
-      goto LABEL_10;
+LABEL_17:
+      *((_BYTE *)this + 56) = v6;
+      return 0LL;
     }
     v6 = 1;
-LABEL_10:
-    *((_BYTE *)this + 56) = v6;
-    return 0LL;
+    goto LABEL_17;
   }
   return v10;
 }

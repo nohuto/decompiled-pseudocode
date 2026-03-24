@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIWmiEnableLog @ 0x1C00470C0
+ * XREFs of ACPIWmiEnableLog @ 0x1C00630C0
  * Callers:
- *     ACPIDispatchWmiLog @ 0x1C0047000 (ACPIDispatchWmiLog.c)
+ *     ACPIDispatchWmiLog @ 0x1C0030A90 (ACPIDispatchWmiLog.c)
  * Callees:
- *     WPP_RECORDER_SF_IdDD @ 0x1C00472F8 (WPP_RECORDER_SF_IdDD.c)
+ *     WPP_RECORDER_SF_IdDD @ 0x1C00631B8 (WPP_RECORDER_SF_IdDD.c)
  */
 
 __int64 __fastcall ACPIWmiEnableLog(__int64 a1, unsigned int a2, int a3, int a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD528
+ * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD508
  * Callers:
  *     CmpQueryKeyDataFromNode @ 0x1405D3570 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpIsKeyDeleted @ 0x140698140 (CmpIsKeyDeleted.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpIsKeyDeleted @ 0x140698120 (CmpIsKeyDeleted.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(

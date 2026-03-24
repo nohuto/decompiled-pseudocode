@@ -1,25 +1,25 @@
 /*
- * XREFs of ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x180235CA4
+ * XREFs of ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x1801CCF34
  * Callers:
- *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x180231D44 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1802351F8 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
- *     ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x18023537C (-SetRequestedScale@CInteractionTracker@@AEAA_NM@Z.c)
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x1801C88EC (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x1801CC338 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
+ *     ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x1801CC4A8 (-SetRequestedScale@CInteractionTracker@@AEAA_NM@Z.c)
  * Callees:
- *     ?BoostCompositorClock@CInteractionTracker@@AEAAX_N@Z @ 0x1802313FC (-BoostCompositorClock@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x180232194 (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ @ 0x1802322C0 (-DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ.c)
- *     ?SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z @ 0x18023545C (-SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z.c)
- *     ?StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x180235A2C (-StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801C8E9C (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ @ 0x1801C8FD4 (-DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ.c)
+ *     ?SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z @ 0x1801CC6FC (-SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z.c)
+ *     ?StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801CCCD8 (-StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z.c)
  */
 
 void __fastcall CInteractionTracker::TransitionToIdle(CInteractionTracker *this)
 {
   int v2; // ecx
   __int64 v3; // rax
-  _BYTE v4[72]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v4; // r9
+  _BYTE v5[72]; // [rsp+20h] [rbp-48h] BYREF
 
-  v2 = *((_DWORD *)this + 44) - 2;
+  v2 = *((_DWORD *)this + 42) - 2;
   if ( v2 )
   {
     if ( v2 != 1 )
@@ -28,14 +28,13 @@ void __fastcall CInteractionTracker::TransitionToIdle(CInteractionTracker *this)
   }
   else
   {
-    v3 = CInteractionTracker::CalculateInertiaCallbackValues((__int64)this, (__int64)v4);
-    *(_OWORD *)((char *)this + 580) = *(_OWORD *)v3;
-    *(_OWORD *)((char *)this + 596) = *(_OWORD *)(v3 + 16);
-    *(_OWORD *)((char *)this + 612) = *(_OWORD *)(v3 + 32);
-    *(_QWORD *)((char *)this + 628) = *(_QWORD *)(v3 + 48);
+    v3 = CInteractionTracker::CalculateInertiaCallbackValues((__int64)this, (__int64)v5);
+    *(_OWORD *)((char *)this + 572) = *(_OWORD *)v3;
+    *(_OWORD *)((char *)this + 588) = *(_OWORD *)(v3 + 16);
+    *(_OWORD *)((char *)this + 604) = *(_OWORD *)(v3 + 32);
+    *(_QWORD *)((char *)this + 620) = *(_QWORD *)(v3 + 48);
     CInteractionTracker::DestroyInteractionAnimations(this);
   }
   CInteractionTracker::DestroyDefaultAnimations(this, 0);
-  CInteractionTracker::BoostCompositorClock(this, 0);
-  CInteractionTracker::SetState((__int64)this, 0, 0);
+  CInteractionTracker::SetState((__int64)this, 0, 0LL, v4);
 }

@@ -1,43 +1,40 @@
 /*
- * XREFs of MakeSystemRelativePath @ 0x1C0305DFC
+ * XREFs of MakeSystemRelativePath @ 0x1C02DC924
  * Callers:
- *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028A8F0 (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
- *     ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C02A724C (-EngCreateFile@@YAPEAXPEBG@Z.c)
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C0288FAC (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C029E0EC (-EngCreateFile@@YAPEAXPEBG@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
  */
 
-__int64 __fastcall MakeSystemRelativePath(PCWSTR Source, PUNICODE_STRING Destination, __int64 a3, __int64 a4)
+__int64 __fastcall MakeSystemRelativePath(PCWSTR Source, PUNICODE_STRING Destination)
 {
-  __int64 v4; // rbx
-  const WCHAR *v6; // rdi
+  __int64 v2; // rbx
+  const WCHAR *v4; // rdi
   __int64 result; // rax
   const wchar_t *i; // rbx
 
-  v4 = -1LL;
-  v6 = Source;
+  v2 = -1LL;
+  v4 = Source;
   do
-    ++v4;
-  while ( Source[v4] );
+    ++v2;
+  while ( Source[v2] );
   Destination->Length = 0;
-  Destination->MaximumLength = 2 * v4 + 44;
-  if ( 2 * (_DWORD)v4 == -44 )
-    result = 0LL;
-  else
-    result = Win32AllocPool((unsigned int)(2 * v4 + 44), 1818838599LL, a3, a4);
+  Destination->MaximumLength = 2 * v2 + 44;
+  result = (__int64)PALLOCMEM2((unsigned int)(2 * v2 + 44), 1818838599LL, 0);
   Destination->Buffer = (PWSTR)result;
   if ( result )
   {
-    for ( i = &v6[(unsigned int)v4 - 10]; i >= v6; --i )
+    for ( i = &v4[(unsigned int)v2 - 10]; i >= v4; --i )
     {
       if ( !_wcsnicmp(i, L"\\system32\\", 0xAuLL) )
       {
-        v6 = i + 10;
+        v4 = i + 10;
         break;
       }
     }
     RtlAppendUnicodeToString(Destination, L"\\SystemRoot\\System32\\");
-    RtlAppendUnicodeToString(Destination, v6);
+    RtlAppendUnicodeToString(Destination, v4);
     return 1LL;
   }
   return result;

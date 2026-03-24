@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIRegReadEntireSimulatorAcpiTable @ 0x1C00B2020
+ * XREFs of ACPIRegReadEntireSimulatorAcpiTable @ 0x1C00B2740
  * Callers:
- *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C00B1B70 (ACPIRegGetTableFromSimulatorRegistryEntry.c)
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C00B2278 (ACPIRegGetTableFromSimulatorRegistryEntry.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     WPP_RECORDER_SF_d @ 0x1C005E894 (WPP_RECORDER_SF_d.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
  */
 
 __int64 __fastcall ACPIRegReadEntireSimulatorAcpiTable(void *a1, const void **a2)
@@ -17,7 +17,7 @@ __int64 __fastcall ACPIRegReadEntireSimulatorAcpiTable(void *a1, const void **a2
   int v5; // r12d
   void *v6; // rdi
   _BYTE *i; // r8
-  __int64 Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   int v9; // eax
   unsigned int v10; // esi
   unsigned int v11; // ebp
@@ -26,22 +26,22 @@ __int64 __fastcall ACPIRegReadEntireSimulatorAcpiTable(void *a1, const void **a2
   unsigned int *v14; // r13
   unsigned int *v15; // rax
   unsigned int v16; // edx
-  unsigned int v18; // [rsp+30h] [rbp-68h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+30h] [rbp-68h] BYREF
   void *v19; // [rsp+38h] [rbp-60h]
   char pszDest[16]; // [rsp+40h] [rbp-58h] BYREF
 
   v2 = (unsigned int *)*a2;
   v3 = 0LL;
-  v18 = 0;
+  LODWORD(NumberOfBytes) = 0;
   v5 = 0;
   v19 = a1;
   v6 = a1;
   while ( 1 )
   {
     RtlStringCchPrintfA(pszDest, 9uLL, "%08lx", v5);
-    for ( i = v3; ; i = (_BYTE *)Pool2 )
+    for ( i = v3; ; i = PoolWithTag )
     {
-      v9 = OSReadRegValue(pszDest, v6, i, &v18);
+      v9 = OSReadRegValue(pszDest, v6, i, (unsigned int *)&NumberOfBytes);
       if ( v9 >= 0 )
         break;
       if ( v9 != -2147483643 )
@@ -51,13 +51,13 @@ __int64 __fastcall ACPIRegReadEntireSimulatorAcpiTable(void *a1, const void **a2
       }
       if ( v3 )
         ExFreePoolWithTag(v3, 0);
-      Pool2 = ExAllocatePool2(256LL, v18, 1114661697LL);
-      v3 = (_BYTE *)Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x42706341u);
+      v3 = PoolWithTag;
+      if ( !PoolWithTag )
         return 3221225626LL;
     }
-    v10 = v18;
-    if ( v18 < 8 )
+    v10 = NumberOfBytes;
+    if ( (unsigned int)NumberOfBytes < 8 )
       break;
     v11 = 0;
     do
@@ -73,7 +73,7 @@ __int64 __fastcall ACPIRegReadEntireSimulatorAcpiTable(void *a1, const void **a2
         v14 = v2 + 1;
         if ( (_DWORD)v13 != v2[1] )
         {
-          v15 = (unsigned int *)ExAllocatePool2(64LL, (unsigned int)v13, 1953522497LL);
+          v15 = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)v13, 0x74706341u);
           v2 = v15;
           if ( !v15 )
           {
@@ -101,8 +101,8 @@ __int64 __fastcall ACPIRegReadEntireSimulatorAcpiTable(void *a1, const void **a2
       2u,
       0x16u,
       0x28u,
-      (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-      v18);
+      (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+      NumberOfBytes);
   ExFreePoolWithTag(v3, 0);
   return 3221225473LL;
 }

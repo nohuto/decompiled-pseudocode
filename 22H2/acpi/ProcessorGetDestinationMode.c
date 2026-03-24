@@ -1,8 +1,8 @@
 /*
- * XREFs of ProcessorGetDestinationMode @ 0x1C009ABC8
+ * XREFs of ProcessorGetDestinationMode @ 0x1C0095974
  * Callers:
- *     ProcessorGetMsiConnectionData @ 0x1C009ACF4 (ProcessorGetMsiConnectionData.c)
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     ProcessorGetMsiConnectionData @ 0x1C00958E0 (ProcessorGetMsiConnectionData.c)
  * Callees:
  *     <none>
  */

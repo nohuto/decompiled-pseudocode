@@ -1,12 +1,12 @@
 /*
- * XREFs of PspMapSiloSharedDataView @ 0x1407A1C6C
+ * XREFs of PspMapSiloSharedDataView @ 0x1406120C8
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspSetupUserProcessAddressSpace @ 0x1407A176C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x140611BDC (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x14028C060 (PsGetProcessServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     MmMapViewOfSection @ 0x1407A2850 (MmMapViewOfSection.c)
+ *     PsGetProcessServerSilo @ 0x14025C2E0 (PsGetProcessServerSilo.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     MmMapViewOfSection @ 0x1406128D0 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall PspMapSiloSharedDataView(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall PspMapSiloSharedDataView(__int64 a1)
   v8 = 0LL;
   v7 = 0LL;
   result = MmMapViewOfSection(
-             *(_QWORD *)(*(_QWORD *)(ProcessServerSilo + 1488) + 1328LL),
+             *(_QWORD *)(*(_QWORD *)(ProcessServerSilo + 1272) + 1136LL),
              a1,
              &v6,
              0LL,

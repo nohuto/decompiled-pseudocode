@@ -1,11 +1,11 @@
 /*
- * XREFs of PipAddDevicesToBootDriverWorker @ 0x140B6B094
+ * XREFs of PipAddDevicesToBootDriverWorker @ 0x140A6C2D0
  * Callers:
- *     PipApplyFunctionToServiceInstances @ 0x14084A26C (PipApplyFunctionToServiceInstances.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407C16F0 (PipApplyFunctionToServiceInstances.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiProcessAddBootDevices @ 0x140855240 (PiProcessAddBootDevices.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiProcessAddBootDevices @ 0x1407C6AC8 (PiProcessAddBootDevices.c)
  */
 
 __int64 __fastcall PipAddDevicesToBootDriverWorker(__int64 a1, __int64 a2)

@@ -1,51 +1,86 @@
 /*
- * XREFs of ?SetTargetOwnership@VIDPN_MGR@@QEAAJIW4_DMM_VIDEO_PRESENT_TARGET_OWNERSHIP@@@Z @ 0x1C01F2104
+ * XREFs of ?SetTargetOwnership@VIDPN_MGR@@QEAAJIW4_DMM_VIDEO_PRESENT_TARGET_OWNERSHIP@@@Z @ 0x1C0176A8C
  * Callers:
- *     ?PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F1E64 (-PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_.c)
+ *     ?PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0176804 (-PowerOnOffVidPnTarget@VIDPN_MGR@@QEAAJIW4MONITOR_EVENT@@W4MONITOR_POWER_EVENT_PARAM@@PEAU_DXGK_.c)
  * Callees:
- *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007124 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     DxgkStatusChangeNotify @ 0x1C01716F0 (DxgkStatusChangeNotify.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000951C (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     DxgkStatusChangeNotify @ 0x1C00E4A50 (DxgkStatusChangeNotify.c)
  */
 
 __int64 __fastcall VIDPN_MGR::SetTargetOwnership(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v3; // rsi
   __int64 v5; // r14
-  __int64 v6; // rbp
-  __int64 v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rbx
+  __int64 v9; // rbp
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
   struct DMMVIDEOPRESENTTARGET *TargetById; // r14
-  _QWORD v12[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rsi
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  _QWORD v27[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = a3;
   v5 = a2;
-  if ( !*(_QWORD *)(a1 + 8) )
-    WdLogSingleEntry0(1LL);
-  v6 = v5;
-  WdLogSingleEntry3(7LL, v5, *(_QWORD *)(*(_QWORD *)(a1 + 8) + 16LL), v3);
-  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 120) + 72LL));
-  v7 = *(_QWORD *)(a1 + 120);
-  TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById((DMMVIDEOPRESENTTARGETSET *)v7, v5);
+  v8 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(a1);
+  v9 = (unsigned int)v5;
+  v8[3] = v5;
+  v10 = *(_QWORD *)(a1 + 8);
+  if ( !v10 )
+  {
+    v19 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v19);
+    v10 = *(_QWORD *)(a1 + 8);
+  }
+  v8[4] = *(_QWORD *)(v10 + 16);
+  v8[5] = v3;
+  WdLogEvent5_WdDmmEvent(v8);
+  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 80) + 72LL));
+  v11 = *(_QWORD *)(a1 + 80);
+  TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById((DMMVIDEOPRESENTTARGETSET *)v11, (unsigned int)v5);
   if ( TargetById )
   {
-    if ( v7 )
-      ReferenceCounted::Release((ReferenceCounted *)(v7 + 64));
-    v12[1] = 0LL;
+    if ( v11 )
+      ReferenceCounted::Release((ReferenceCounted *)(v11 + 64), v12);
+    v27[1] = 0LL;
     *((_DWORD *)TargetById + 30) = v3;
-    v12[0] = 1LL;
-    if ( (int)DxgkStatusChangeNotify((int *)v12, v8, v9) < 0 )
-      WdLogSingleEntry0(1LL);
+    v27[0] = 1LL;
+    if ( (int)DxgkStatusChangeNotify((int *)v27, v12, v14) < 0 )
+    {
+      v26 = WdLogNewEntry5_WdAssertion(v17, v16);
+      WdLogEvent5_WdAssertion(v26);
+    }
     return 0LL;
   }
   else
   {
-    if ( !*(_QWORD *)(a1 + 8) )
-      WdLogSingleEntry0(1LL);
-    WdLogSingleEntry2(2LL, v6, *(_QWORD *)(*(_QWORD *)(a1 + 8) + 16LL));
-    if ( v7 )
-      ReferenceCounted::Release((ReferenceCounted *)(v7 + 64));
+    v22 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v22 + 24) = v9;
+    v23 = *(_QWORD *)(a1 + 8);
+    if ( !v23 )
+    {
+      v24 = WdLogNewEntry5_WdAssertion(v21, v20);
+      WdLogEvent5_WdAssertion(v24);
+      v23 = *(_QWORD *)(a1 + 8);
+    }
+    *(_QWORD *)(v22 + 32) = *(_QWORD *)(v23 + 16);
+    WdLogEvent5_WdError(v22);
+    if ( v11 )
+      ReferenceCounted::Release((ReferenceCounted *)(v11 + 64), v25);
     return 3223192325LL;
   }
 }

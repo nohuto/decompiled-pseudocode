@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDetermineDeleteType @ 0x140868BDC
+ * XREFs of PiDetermineDeleteType @ 0x140749380
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     <none>
  */
@@ -30,12 +30,12 @@ __int64 __fastcall PiDetermineDeleteType(__int64 a1)
       v5 = *(_DWORD *)(v2 + 304);
       if ( (*(_DWORD *)(v2 + 396) & 0x10) != 0 )
       {
-        if ( v5 <= 776 || v5 >= 782 || v5 == 779 )
+        if ( v5 <= 774 || v5 >= 780 || v5 == 777 )
           return 6;
         else
           return 5;
       }
-      else if ( v5 != 779 && v5 > 776 && v5 < 782 || (*(_DWORD *)(*(_QWORD *)(v1 + 312) + 32LL) & 4) != 0 )
+      else if ( v5 != 777 && v5 > 774 && v5 < 780 || (*(_DWORD *)(*(_QWORD *)(v1 + 312) + 32LL) & 4) != 0 )
       {
         return 3;
       }

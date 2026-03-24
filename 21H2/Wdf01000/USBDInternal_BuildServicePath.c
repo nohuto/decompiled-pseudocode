@@ -1,11 +1,11 @@
 /*
- * XREFs of USBDInternal_BuildServicePath @ 0x1C008FE44
+ * XREFs of USBDInternal_BuildServicePath @ 0x1C008F134
  * Callers:
- *     USBD_CreateHandle @ 0x1C00903A8 (USBD_CreateHandle.c)
+ *     USBD_CreateHandle @ 0x1C008F69C (USBD_CreateHandle.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     RtlStringCbCatW @ 0x1C008FBF0 (RtlStringCbCatW.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     RtlStringCbCatW @ 0x1C008EECC (RtlStringCbCatW.c)
  */
 
 __int64 __fastcall USBDInternal_BuildServicePath(
@@ -15,13 +15,13 @@ __int64 __fastcall USBDInternal_BuildServicePath(
 {
   _DRIVER_OBJECT *DriverObject; // rbx
   void *v4; // rdi
-  unsigned int v7; // ebx
+  int v7; // ebx
   const void *v8; // r14
   unsigned int v9; // ebx
   unsigned int v10; // ebp
   PVOID PoolWithTag; // rax
   const wchar_t *v12; // r8
-  signed int v13; // eax
+  int v13; // eax
   __int64 result; // rax
 
   DriverObject = DeviceObject->DriverObject;
@@ -44,10 +44,12 @@ __int64 __fastcall USBDInternal_BuildServicePath(
       {
         v7 = 0;
       }
-      else
+      else if ( g_EnableDbgPrints )
       {
-        if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
-          DbgPrintEx(0x4Du, 0, "RtlStringCchCatW failed with status 0x%x", v13);
+        DbgPrintEx(0x4Du, 0, "RtlStringCchCatW failed with status 0x%x", v13);
+      }
+      if ( v7 < 0 )
+      {
         ExFreePoolWithTag(v4, PoolTag);
         v4 = 0LL;
       }
@@ -55,17 +57,17 @@ __int64 __fastcall USBDInternal_BuildServicePath(
     else
     {
       v7 = -1073741670;
-      if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+      if ( g_EnableDbgPrints )
         DbgPrintEx(0x4Du, 0, "Couldnt allocate servicePath of size %d\n", v10);
     }
   }
   else
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "Unexpected Driver name, Drvobj 0x%p\n", DriverObject);
     v7 = -1073741595;
   }
-  result = v7;
+  result = (unsigned int)v7;
   *RelativeServicePath = (wchar_t *)v4;
   return result;
 }

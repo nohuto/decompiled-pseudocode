@@ -3,7 +3,7 @@
  * Callers:
  *     FsRtlAddToTunnelCacheEx @ 0x1405819D0 (FsRtlAddToTunnelCacheEx.c)
  *     FsRtlFindInTunnelCacheEx @ 0x140581D00 (FsRtlFindInTunnelCacheEx.c)
- *     FsRtlDeleteKeyFromTunnelCache @ 0x1406B9450 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x1406B9430 (FsRtlDeleteKeyFromTunnelCache.c)
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

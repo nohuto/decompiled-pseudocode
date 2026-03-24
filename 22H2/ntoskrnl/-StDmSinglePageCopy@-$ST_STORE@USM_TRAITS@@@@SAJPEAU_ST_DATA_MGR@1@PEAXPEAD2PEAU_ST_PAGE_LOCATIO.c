@@ -1,17 +1,17 @@
 /*
- * XREFs of ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140465336
+ * XREFs of ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14026BF34
  * Callers:
- *     ?StDmSinglePageTransfer@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C7858 (-StDmSinglePageTransfer@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LO.c)
+ *     ?StDmSinglePageTransfer@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14026BE6C (-StDmSinglePageTransfer@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LO.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     RtlDecompressBufferEx @ 0x1402F5980 (RtlDecompressBufferEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@J@Z @ 0x1405C6824 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_.c)
- *     SmCrAuthDecrypt @ 0x1405CDC3C (SmCrAuthDecrypt.c)
+ *     RtlDecompressBufferEx @ 0x14026CCA0 (RtlDecompressBufferEx.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@J@Z @ 0x14059BE48 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_.c)
+ *     SmCrAuthDecrypt @ 0x14059FFB0 (SmCrAuthDecrypt.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
@@ -22,127 +22,135 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
         __int64 a5,
         __int64 a6)
 {
-  void *v6; // r14
-  int v9; // r12d
-  __int64 v10; // rdx
-  char v11; // bl
-  __int64 v12; // rsi
-  __int64 v13; // r8
-  unsigned int v14; // r12d
-  char v15; // al
-  const void *v16; // rdi
-  unsigned int v17; // edi
-  __int64 v18; // rcx
-  signed __int64 *v19; // rbx
+  __int64 v7; // r9
+  int v10; // edx
+  unsigned __int64 v11; // rdi
+  __int64 v12; // r8
+  int v13; // esi
+  void *v14; // r15
+  unsigned int v15; // edx
+  __int64 v16; // rcx
+  char v17; // al
+  unsigned __int64 v18; // rbx
+  volatile signed __int64 *v19; // rbx
+  unsigned int v20; // eax
+  unsigned int v21; // ebx
+  int v22; // r15d
+  struct _KTHREAD *v23; // rax
+  __int64 v24; // rcx
+  size_t v26; // r8
+  const void *v27; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v21; // rcx
-  struct _KTHREAD *v22; // rax
-  bool v23; // zf
-  unsigned int v24; // eax
-  void *v25; // rdi
-  struct _KTHREAD *v26; // rax
-  ULONG_PTR v27; // rcx
-  int v29; // [rsp+40h] [rbp-88h] BYREF
-  void *Src; // [rsp+48h] [rbp-80h]
-  __int64 v31; // [rsp+50h] [rbp-78h]
-  __int64 v32; // [rsp+60h] [rbp-68h] BYREF
-  int v33; // [rsp+68h] [rbp-60h]
+  int v29; // [rsp+40h] [rbp-78h] BYREF
+  unsigned int v30; // [rsp+48h] [rbp-70h]
+  __int64 v31; // [rsp+50h] [rbp-68h]
+  __int64 v32; // [rsp+58h] [rbp-60h] BYREF
+  int v33; // [rsp+60h] [rbp-58h]
 
-  v6 = (void *)a4;
-  v32 = 0LL;
-  v33 = 0;
-  v9 = *(unsigned __int16 *)(a5 + 4) - 1;
+  v7 = *(unsigned int *)(a1 + 824);
   v31 = a2;
-  v10 = *(unsigned int *)(a1 + 824);
+  v10 = *(unsigned __int16 *)(a5 + 4) - 1;
+  v32 = 0LL;
+  v11 = v7 + a3;
+  v33 = 0;
+  v12 = *(_QWORD *)(a1 + 1016);
+  v13 = 0;
   v29 = 0;
-  v11 = 0;
-  Src = (void *)a4;
-  v12 = v10 + a3;
-  v13 = *(_QWORD *)(a1 + 1016);
-  v14 = -*(_DWORD *)(v13 + 8) & (*(_DWORD *)(v13 + 8) + v9);
+  v14 = (void *)a4;
+  v15 = -*(_DWORD *)(v12 + 8) & (*(_DWORD *)(v12 + 8) + v10);
+  v30 = v15;
   if ( (a4 & 1) != 0 )
   {
-    v6 = (void *)(a4 & 0xFFFFFFFFFFFFFFFEuLL);
-    Src = *(void **)(a6 + 48);
+    v14 = *(void **)(a6 + 48);
+    a4 &= ~1uLL;
   }
-  if ( (v12 & 3) != 0 )
+  v16 = v12;
+  if ( (v11 & 3) != 0 )
   {
-    v15 = v12;
-    v16 = (const void *)(a3 & 0xFFFFFFFFFFFFFFFCuLL);
-    v12 &= 0xFFFFFFFFFFFFFFFCuLL;
-    if ( (v15 & 2) != 0 )
+    v17 = v11;
+    v18 = a3 & 0xFFFFFFFFFFFFFFFCuLL;
+    v11 &= 0xFFFFFFFFFFFFFFFCuLL;
+    if ( (v17 & 2) != 0 )
     {
-      memmove(v6, v16, (unsigned int)v10 + v14);
-      return 0;
+      v26 = (unsigned int)v7 + v15;
+      v27 = (const void *)v18;
+      goto LABEL_25;
     }
-    if ( *(_DWORD *)(v13 + 24) )
+    if ( *(_DWORD *)(v12 + 24) )
     {
-      memmove(*(void **)(a1 + 1784), (const void *)v12, v14);
-      v12 = *(_QWORD *)(a1 + 1784);
+      memmove(*(void **)(a1 + 1784), (const void *)v11, v15);
+      v16 = *(_QWORD *)(a1 + 1016);
+      v15 = v30;
+      v11 = *(_QWORD *)(a1 + 1784);
     }
   }
-  v18 = *(_QWORD *)(a1 + 1016);
-  if ( !*(_DWORD *)(v18 + 24)
-    || (LODWORD(v32) = *(unsigned __int16 *)(a5 + 4),
-        HIDWORD(v32) = *(_DWORD *)(a5 + 8),
-        v33 = *(_DWORD *)(a5 + 12),
-        (int)SmCrAuthDecrypt(v18, v12, v12, v14, &v32) >= 0) )
+  if ( *(_DWORD *)(v16 + 24) )
   {
-    if ( (*(_DWORD *)(a1 + 776) & 0x40000) != 0 )
+    LODWORD(v32) = *(unsigned __int16 *)(a5 + 4);
+    HIDWORD(v32) = *(_DWORD *)(a5 + 8);
+    v33 = *(_DWORD *)(a5 + 12);
+    if ( (int)SmCrAuthDecrypt(v16, v11, v11, v15, &v32) < 0 )
     {
-      v19 = (signed __int64 *)(*(_QWORD *)(a1 + 800) + 6024LL);
-      if ( a6 == -64 )
-      {
-        CurrentThread = KeGetCurrentThread();
-        v21 = *(_QWORD *)(a1 + 800) + 6024LL;
-        --CurrentThread->SpecialApcDisable;
-        ExAcquirePushLockSharedEx(v21, 0LL);
-      }
-      else
-      {
-        if ( _InterlockedCompareExchange64(v19, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared(v19);
-        KeAbPostRelease((ULONG_PTR)v19);
-        v22 = KeGetCurrentThread();
-        v23 = v22->SpecialApcDisable++ == -1;
-        if ( v23 && ($C71981A45BEB2B45F82C232A7085991E *)v22->ApcState.ApcListHead[0].Flink != &v22->152 )
-          KiCheckForKernelApcDelivery();
-      }
-      v11 = 2;
+      v21 = -1073741173;
+      ST_STORE<SM_TRAITS>::StDmPageError(a1, v11, a4, a5, a6, -1073741173);
+      goto LABEL_19;
     }
-    v24 = *(unsigned __int16 *)(a5 + 4);
-    if ( v24 >= 0x1000 )
+  }
+  if ( (*(_DWORD *)(a1 + 776) & 0x40000) != 0 )
+  {
+    v19 = (volatile signed __int64 *)(*(_QWORD *)(a1 + 800) + 6024LL);
+    if ( a6 == -64 )
     {
-      memmove(v6, (const void *)v12, *(unsigned __int16 *)(a5 + 4));
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)v19, 0LL);
     }
     else
     {
-      v25 = Src;
-      if ( (int)RtlDecompressBufferEx(*(_WORD *)(a1 + 992), (__int64)Src, 0x1000u, v12, v24, (__int64)&v29, v31) < 0
-        || v29 != 4096 )
-      {
-        v17 = -1073741116;
-        v11 |= 1u;
-        goto LABEL_28;
-      }
-      if ( v25 != v6 )
-        memmove(v6, v25, 0x1000uLL);
+      if ( _InterlockedCompareExchange64(v19, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v19);
+      KeAbPostRelease((ULONG_PTR)v19);
+      KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }
-    v17 = 0;
-    goto LABEL_28;
+    v13 = 2;
   }
-  v17 = -1073741173;
-  v11 = 4 * (ST_STORE<SM_TRAITS>::StDmPageError(a1, v12, v6, a5, a6, -1073741173) & 1);
-LABEL_28:
-  if ( (v11 & 2) != 0 )
+  v20 = *(unsigned __int16 *)(a5 + 4);
+  if ( v20 >= 0x1000 )
   {
-    v26 = KeGetCurrentThread();
-    v27 = *(_QWORD *)(a1 + 800) + 6024LL;
-    --v26->SpecialApcDisable;
-    ExAcquirePushLockSharedEx(v27, 0LL);
+    v26 = *(unsigned __int16 *)(a5 + 4);
+    v27 = (const void *)v11;
+    goto LABEL_25;
+  }
+  if ( (int)RtlDecompressBufferEx(*(unsigned __int16 *)(a1 + 992), (_DWORD)v14, 4096, v11, v20, (__int64)&v29, v31) >= 0
+    && v29 == 4096 )
+  {
+    if ( v14 == (void *)a4 )
+    {
+LABEL_18:
+      v21 = 0;
+LABEL_19:
+      v22 = 0;
+      goto LABEL_20;
+    }
+    v26 = 4096LL;
+    v27 = v14;
+LABEL_25:
+    memmove((void *)a4, v27, v26);
+    goto LABEL_18;
+  }
+  v21 = -1073741116;
+  v22 = 1;
+  v13 &= 2u;
+LABEL_20:
+  if ( v13 )
+  {
+    v23 = KeGetCurrentThread();
+    v24 = *(_QWORD *)(a1 + 800);
+    --v23->SpecialApcDisable;
+    ExAcquirePushLockSharedEx(v24 + 6024, 0LL);
     *(_DWORD *)(a6 + 64) = 2;
   }
-  if ( (v11 & 1) != 0 && (ST_STORE<SM_TRAITS>::StDmPageError(a1, v12, v6, a5, a6, v17) & 1) != 0 )
+  if ( v22 && (ST_STORE<SM_TRAITS>::StDmPageError(a1, v11, a4, a5, a6, v21) & 1) != 0 )
     return 0;
-  return v17;
+  return v21;
 }

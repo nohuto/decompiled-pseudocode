@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetDisplayId@CRenderTargetBitmap@@UEBA?AVDisplayId@@XZ @ 0x1800DFDC8
+ * XREFs of ?GetDisplayId@CRenderTargetBitmap@@UEBA?AVDisplayId@@XZ @ 0x1800C7F74
  * Callers:
- *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AVDisplayId@@XZ @ 0x180122820 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AVDisplayId@@XZ.c)
- *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AVDisplayId@@XZ @ 0x1801234E0 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AVDisplayId@@XZ.c)
- *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA?AVDisplayId@@XZ @ 0x1801239C0 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA-AVDisplayId@@XZ.c)
- *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AVDisplayId@@XZ @ 0x180123D20 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AVDisplayId@@XZ.c)
+ *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AVDisplayId@@XZ @ 0x1800F5760 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AVDisplayId@@XZ.c)
+ *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AVDisplayId@@XZ @ 0x1800F8BC0 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AVDisplayId@@XZ.c)
+ *     ?GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AVDisplayId@@XZ @ 0x1800F8D00 (-GetDisplayId@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AVDisplayId@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CRenderTargetBitmap::GetDisplayId(__int64 a1, _DWORD *a2)

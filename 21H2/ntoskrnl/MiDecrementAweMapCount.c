@@ -1,16 +1,17 @@
 /*
- * XREFs of MiDecrementAweMapCount @ 0x1405AA4C8
+ * XREFs of MiDecrementAweMapCount @ 0x14054B9E8
  * Callers:
- *     MiFreePhysicalPages @ 0x1405AAA4C (MiFreePhysicalPages.c)
- *     MiWriteAwePtes @ 0x1405ACB84 (MiWriteAwePtes.c)
- *     MiReferenceIncomingPhysicalPages @ 0x14097D2A0 (MiReferenceIncomingPhysicalPages.c)
+ *     MiFreePhysicalPages @ 0x14054BF44 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x1408D6104 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiDecrementAweMapCount(__int64 a1, __int64 a2, __int64 *a3, char a4)
+__int64 __fastcall MiDecrementAweMapCount(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
+  char v4; // bl
   unsigned __int8 v7; // al
   __int64 v8; // rcx
   unsigned __int64 v9; // rbp
@@ -23,13 +24,14 @@ __int64 __fastcall MiDecrementAweMapCount(__int64 a1, __int64 a2, __int64 *a3, c
   int v16; // edx
   bool v17; // zf
 
-  v7 = MiLockPageInline(a2);
+  v4 = (char)a4;
+  v7 = MiLockPageInline(a2, a2, (__int64)a3, a4);
   v8 = *(_QWORD *)(a2 + 24);
   v9 = v7;
   v10 = (v8 & 0x3FFFFFFFFFFFFFFFLL) - 1;
   v11 = v8 ^ (v10 ^ v8) & 0x3FFFFFFFFFFFFFFFLL;
   *(_QWORD *)(a2 + 24) = v11;
-  if ( (a4 & 1) != 0 )
+  if ( (v4 & 1) != 0 )
   {
     *(_QWORD *)(a2 + 24) = v11 | 0x4000000000000000LL;
   }

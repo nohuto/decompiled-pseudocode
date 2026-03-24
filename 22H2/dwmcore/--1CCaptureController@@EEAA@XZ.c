@@ -1,42 +1,49 @@
 /*
- * XREFs of ??1CCaptureController@@EEAA@XZ @ 0x180220604
+ * XREFs of ??1CCaptureController@@EEAA@XZ @ 0x1801B697C
  * Callers:
- *     ??_ECCaptureController@@EEAAPEAXI@Z @ 0x1801C2BF0 (--_ECCaptureController@@EEAAPEAXI@Z.c)
+ *     ??_ECCaptureController@@EEAAPEAXI@Z @ 0x18016C950 (--_ECCaptureController@@EEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1801BE370 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@s.c)
- *     ?SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z @ 0x1801EE074 (-SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@0AEAV?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x180168DB0 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@s.c)
+ *     ?SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z @ 0x180187F84 (-SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z.c)
  */
 
 void __fastcall CCaptureController::~CCaptureController(CCaptureController *this)
 {
   CCaptureRenderTarget **v2; // rcx
-  __int64 *v3; // rcx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+  void *v6; // rdi
 
   *(_QWORD *)this = &CCaptureController::`vftable';
   while ( 1 )
   {
-    v2 = (CCaptureRenderTarget **)*((_QWORD *)this + 8);
-    if ( v2 == *((CCaptureRenderTarget ***)this + 9) )
+    v2 = (CCaptureRenderTarget **)*((_QWORD *)this + 7);
+    if ( v2 == *((CCaptureRenderTarget ***)this + 8) )
       break;
     CCaptureRenderTarget::SetController(*v2, 0LL);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 15);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 12);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 11);
-  v3 = (__int64 *)*((_QWORD *)this + 8);
+  v3 = *((_QWORD *)this + 15);
   if ( v3 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
+  v4 = *((_QWORD *)this + 11);
+  if ( v4 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+  v5 = *((_QWORD *)this + 10);
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  v6 = (void *)*((_QWORD *)this + 7);
+  if ( v6 )
   {
     std::_Destroy_range<std::allocator<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>>(
-      v3,
-      *((__int64 **)this + 9));
-    std::_Deallocate<16,0>(
-      *((void **)this + 8),
-      (*((_QWORD *)this + 10) - *((_QWORD *)this + 8)) & 0xFFFFFFFFFFFFFFF8uLL);
+      *((__int64 **)this + 7),
+      *((__int64 **)this + 8));
+    std::_Deallocate<16,0>(v6, (*((_QWORD *)this + 9) - (_QWORD)v6) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 7) = 0LL;
     *((_QWORD *)this + 8) = 0LL;
     *((_QWORD *)this + 9) = 0LL;
-    *((_QWORD *)this + 10) = 0LL;
   }
   CResource::~CResource(this);
 }

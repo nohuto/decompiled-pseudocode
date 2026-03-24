@@ -1,11 +1,11 @@
 /*
- * XREFs of RegEventHandler @ 0x1C00294BC
+ * XREFs of RegEventHandler @ 0x1C002C390
  * Callers:
- *     AMLIRegEventHandler @ 0x1C00292D8 (AMLIRegEventHandler.c)
+ *     AMLIRegEventHandler @ 0x1C002C19C (AMLIRegEventHandler.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall RegEventHandler(_QWORD *a1, __int64 a2, __int64 a3)
@@ -15,8 +15,8 @@ __int64 __fastcall RegEventHandler(_QWORD *a1, __int64 a2, __int64 a3)
   v3 = 0;
   if ( *a1 && a2 )
   {
-    LogError(3222536206LL);
-    AcpiDiagTraceAmlError(0LL, 3222536206LL);
+    LogError(-1072431090);
+    AcpiDiagTraceAmlError(0LL, -1072431090);
     PrintDebugMessage(165, 0, 0, 0, 0LL);
     return (unsigned int)-1072431090;
   }

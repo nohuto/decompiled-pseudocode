@@ -1,18 +1,24 @@
 /*
- * XREFs of CmRmIsKCBVisible @ 0x1407B3F90
+ * XREFs of CmRmIsKCBVisible @ 0x140649CF0
  * Callers:
- *     CmRmIsKcbStackVisible @ 0x140680480 (CmRmIsKcbStackVisible.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5730 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DB080 (CmpFindSubKeyByNumberEx.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmRmIsKcbStackVisible @ 0x1405CD270 (CmRmIsKcbStackVisible.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     CmEqualTrans @ 0x1407696D0 (CmEqualTrans.c)
+ *     CmEqualTrans @ 0x14071CD40 (CmEqualTrans.c)
  */
 
-bool __fastcall CmRmIsKCBVisible(__int64 a1, __int64 a2)
+char __fastcall CmRmIsKCBVisible(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
+  char result; // al
 
   v3 = *(_QWORD *)(a1 + 240);
-  return !v3 || CmEqualTrans(a2, v3) != 0;
+  if ( !v3 )
+    return 1;
+  result = CmEqualTrans(a2, v3);
+  if ( result )
+    return 1;
+  return result;
 }

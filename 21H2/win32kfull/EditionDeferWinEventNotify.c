@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionDeferWinEventNotify @ 0x1C0109000
+ * XREFs of EditionDeferWinEventNotify @ 0x1C011DA50
  * Callers:
  *     <none>
  * Callees:

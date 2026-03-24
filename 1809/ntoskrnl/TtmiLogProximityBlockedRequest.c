@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogProximityBlockedRequest @ 0x140884368
+ * XREFs of TtmiLogProximityBlockedRequest @ 0x140884348
  * Callers:
- *     TtmiSetPendingOnOffRequest @ 0x14087EDA4 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x14087ED84 (TtmiSetPendingOnOffRequest.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
@@ -60,7 +60,7 @@ char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
       v19 = 4;
       v22 = 2;
       v25[0] = 4;
-      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_1403715B4, 0LL, 0LL, 7u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_1403715FE, 0LL, 0LL, 7u, &pData);
     }
   }
   return (char)v3;

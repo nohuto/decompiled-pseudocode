@@ -1,13 +1,13 @@
 /*
- * XREFs of Interrupter_InterrupterRegisterIntialize @ 0x1C0014BA4
+ * XREFs of Interrupter_InterrupterRegisterIntialize @ 0x1C00143C4
  * Callers:
- *     Interrupter_D0Entry @ 0x1C0014974 (Interrupter_D0Entry.c)
- *     Interrupter_ControllerResetPostReset @ 0x1C003DB84 (Interrupter_ControllerResetPostReset.c)
+ *     Interrupter_D0Entry @ 0x1C0014640 (Interrupter_D0Entry.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C003B850 (Interrupter_ControllerResetPostReset.c)
  * Callees:
- *     Interrupter_UpdateERDP @ 0x1C0014AF0 (Interrupter_UpdateERDP.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_qqdddi @ 0x1C0018A48 (WPP_RECORDER_SF_qqdddi.c)
+ *     WPP_RECORDER_SF_qqdddi @ 0x1C000F8B4 (WPP_RECORDER_SF_qqdddi.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     Interrupter_UpdateERDP @ 0x1C0014228 (Interrupter_UpdateERDP.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
  */
 
 __int64 __fastcall Interrupter_InterrupterRegisterIntialize(__int64 a1)
@@ -16,10 +16,10 @@ __int64 __fastcall Interrupter_InterrupterRegisterIntialize(__int64 a1)
   __int64 result; // rax
   __int64 v4; // rbx
   __int64 v5; // rbp
-  _DWORD *v6; // rdx
-  __int64 v7; // r8
+  int *v6; // rdx
+  int v7; // r8d
   __int64 v8; // rcx
-  __int64 v9; // r8
+  unsigned __int64 v9; // r8
   _DWORD *v10; // rdx
   signed __int32 v11[10]; // [rsp+0h] [rbp-68h] BYREF
 
@@ -35,7 +35,7 @@ __int64 __fastcall Interrupter_InterrupterRegisterIntialize(__int64 a1)
           *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
           *(_DWORD *)(v4 + 124),
           *(_QWORD *)(v4 + 144),
-          32,
+          31,
           v11[8],
           v4,
           *(_QWORD *)(v4 + 144),
@@ -43,7 +43,7 @@ __int64 __fastcall Interrupter_InterrupterRegisterIntialize(__int64 a1)
           *(_DWORD *)(v4 + 128),
           *(_DWORD *)(v4 + 124),
           *(_BYTE *)(*(_QWORD *)(v4 + 144) + 24LL) + 16 * *(_DWORD *)(v4 + 124));
-      v6 = (_DWORD *)(*(_QWORD *)(v4 + 24) + 8LL);
+      v6 = (int *)(*(_QWORD *)(v4 + 24) + 8LL);
       v7 = (unsigned __int16)*(_DWORD *)(v4 + 108);
       if ( *(_BYTE *)(v5 + 137) )
       {

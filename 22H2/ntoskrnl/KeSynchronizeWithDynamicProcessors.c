@@ -1,14 +1,13 @@
 /*
- * XREFs of KeSynchronizeWithDynamicProcessors @ 0x1407D620C
+ * XREFs of KeSynchronizeWithDynamicProcessors @ 0x14068C184
  * Callers:
- *     ExpGetNextProcessThread @ 0x140742D48 (ExpGetNextProcessThread.c)
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     IoEnableIrpCredits @ 0x14094404C (IoEnableIrpCredits.c)
- *     ExpNodeHotAddProcessorWorker @ 0x140A00880 (ExpNodeHotAddProcessorWorker.c)
+ *     ExpGetProcessInformation @ 0x14063E980 (ExpGetProcessInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
+ *     IoEnableIrpCredits @ 0x140890DB8 (IoEnableIrpCredits.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x140955DA0 (ExpNodeHotAddProcessorWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
  */
 
 void KeSynchronizeWithDynamicProcessors()
@@ -21,7 +20,7 @@ void KeSynchronizeWithDynamicProcessors()
     if ( (KiDynamicProcessorLock.Count & 1) == 0 )
     {
       ExAcquireFastMutex(&KiDynamicProcessorLock);
-      ExReleaseFastMutex(&KiDynamicProcessorLock);
+      KeReleaseGuardedMutex(&KiDynamicProcessorLock);
     }
   }
 }

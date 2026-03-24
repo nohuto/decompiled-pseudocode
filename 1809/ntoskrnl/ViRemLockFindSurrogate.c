@@ -6,9 +6,9 @@
  *     VerifierIoReleaseRemoveLockAndWaitEx @ 0x140934690 (VerifierIoReleaseRemoveLockAndWaitEx.c)
  *     VerifierIoReleaseRemoveLockEx @ 0x140934700 (VerifierIoReleaseRemoveLockEx.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  */
 
 PVOID ViRemLockFindSurrogate()

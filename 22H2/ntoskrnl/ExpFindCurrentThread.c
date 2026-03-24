@@ -1,100 +1,96 @@
 /*
- * XREFs of ExpFindCurrentThread @ 0x1402600E0
+ * XREFs of ExpFindCurrentThread @ 0x1402CE1E0
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x14025FC40 (ExReleaseResourceForThreadLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402632C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExpBoostIoAfterAcquire @ 0x14031ACD0 (ExpBoostIoAfterAcquire.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C82F0 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryConvertSharedToExclusiveLite @ 0x14060AE7C (ExpTryConvertSharedToExclusiveLite.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14029EDE0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x1402CD0C0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpBoostIoAfterAcquire @ 0x1402DD0E0 (ExpBoostIoAfterAcquire.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4CB0 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x1405B5714 (ExpTryConvertSharedToExclusiveLite.c)
  * Callees:
- *     ExpExpandResourceOwnerTable @ 0x140341200 (ExpExpandResourceOwnerTable.c)
+ *     ExpExpandResourceOwnerTable @ 0x14030FD3C (ExpExpandResourceOwnerTable.c)
  */
 
 _QWORD *__fastcall ExpFindCurrentThread(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, unsigned int a6)
 {
   __int64 v6; // r10
   _QWORD *result; // rax
-  _QWORD *v11; // r8
-  _QWORD *v12; // rbp
-  unsigned __int64 v13; // rbx
-  __int64 v14; // r9
-  unsigned __int64 v15; // r10
-  _QWORD *v16; // rdx
-  _QWORD *v17; // rcx
-  __int64 v18; // rcx
+  _QWORD *v12; // rdx
+  _QWORD *v13; // r8
+  unsigned __int64 v14; // r9
+  __int64 v15; // rcx
+  __int64 v16; // r10
+  unsigned __int64 v17; // rdi
+  _QWORD *v18; // rdx
+  _QWORD *v19; // rcx
 
   v6 = *(_QWORD *)(a1 + 48);
   result = (_QWORD *)(a1 + 48);
-  if ( v6 == a2 )
-    return result;
-  v11 = 0LL;
-  v12 = 0LL;
-  if ( !v6 )
+  if ( v6 != a2 )
   {
-    v12 = (_QWORD *)(a1 + 48);
-    if ( a5 )
-      v12 = 0LL;
-  }
-  v13 = v6 != 0;
-  if ( a6 )
-  {
-    v18 = *(_QWORD *)(a1 + 16);
-    if ( v18 )
+    v12 = 0LL;
+    v13 = 0LL;
+    if ( !v6 )
     {
-      if ( a6 < *(_DWORD *)(v18 + 8) )
-      {
-        result = (_QWORD *)(v18 + 16LL * a6);
-        if ( *result == a2 )
-          return result;
-      }
+      v13 = (_QWORD *)(a1 + 48);
+      if ( a5 )
+        v13 = 0LL;
     }
-  }
-  v14 = *(_QWORD *)(a1 + 16);
-  result = (_QWORD *)v14;
-  if ( v14 )
-  {
-    v15 = *(unsigned int *)(a1 + 64) + (unsigned __int64)*(unsigned int *)(a1 + 72);
-    v11 = (_QWORD *)(v14 + 16LL * *(unsigned int *)(v14 + 8));
-    result = (_QWORD *)(v14 + 16);
-    if ( v13 < v15 )
+    v14 = *(_QWORD *)(a1 + 48) != 0LL;
+    if ( !a6
+      || (v15 = *(_QWORD *)(a1 + 16)) == 0
+      || a6 >= *(_DWORD *)(v15 + 8)
+      || (result = (_QWORD *)(v15 + 16LL * a6), *result != a2) )
     {
-      do
+      v16 = *(_QWORD *)(a1 + 16);
+      result = (_QWORD *)v16;
+      if ( v16 )
       {
-        if ( *result == a2 )
+        v17 = *(unsigned int *)(a1 + 64) + (unsigned __int64)*(unsigned int *)(a1 + 72);
+        v12 = (_QWORD *)(v16 + 16LL * *(unsigned int *)(v16 + 8));
+        result = (_QWORD *)(v16 + 16);
+        if ( v14 < v17 )
         {
-          v16 = result;
-          goto LABEL_10;
-        }
-        if ( *result )
-        {
-          if ( ++v13 == v15 )
+          while ( *result != a2 )
           {
+            if ( *result )
+            {
+              if ( ++v14 == v17 )
+              {
+                result += 2;
+                goto LABEL_13;
+              }
+            }
+            else
+            {
+              v19 = result;
+              if ( v13 )
+                v19 = v13;
+              v13 = v19;
+            }
             result += 2;
-            break;
+            if ( result == v12 )
+              goto LABEL_13;
           }
+          v18 = result;
+          goto LABEL_18;
         }
-        else
-        {
-          v17 = result;
-          if ( v12 )
-            v17 = v12;
-          v12 = v17;
-        }
-        result += 2;
       }
-      while ( result != v11 );
+LABEL_13:
+      if ( a4 )
+      {
+        if ( v13 || result < v12 && (v13 = result) != 0LL )
+        {
+          v18 = v13;
+          result = v13;
+LABEL_18:
+          KeGetCurrentThread()->ResourceIndex = ((__int64)v18 - v16) >> 4;
+          return result;
+        }
+        ExpExpandResourceOwnerTable(a1, a3, v13);
+      }
+      return 0LL;
     }
   }
-  if ( !a4 )
-    return 0LL;
-  if ( !v12 && (result >= v11 || (v12 = result) == 0LL) )
-  {
-    ExpExpandResourceOwnerTable(a1, a3, v11, v14);
-    return 0LL;
-  }
-  v16 = v12;
-  result = v12;
-LABEL_10:
-  KeGetCurrentThread()->ResourceIndex = ((__int64)v16 - v14) >> 4;
   return result;
 }

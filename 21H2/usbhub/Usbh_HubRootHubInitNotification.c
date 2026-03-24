@@ -1,13 +1,13 @@
 /*
- * XREFs of Usbh_HubRootHubInitNotification @ 0x1C003BFE4
+ * XREFs of Usbh_HubRootHubInitNotification @ 0x1C003D29C
  * Callers:
- *     UsbhFdoSystemPowerState @ 0x1C0007740 (UsbhFdoSystemPowerState.c)
- *     UsbHubhInitTimeoutTimer @ 0x1C0041450 (UsbHubhInitTimeoutTimer.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     UsbhHubStart @ 0x1C0042CB0 (UsbhHubStart.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000E9B0 (UsbhFdoSystemPowerState.c)
+ *     UsbHubhInitTimeoutTimer @ 0x1C0042700 (UsbHubhInitTimeoutTimer.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     UsbhHubStart @ 0x1C0043F60 (UsbhHubStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubRootHubInitNotification(__int64 a1, __int64 a2, __int64 a3)

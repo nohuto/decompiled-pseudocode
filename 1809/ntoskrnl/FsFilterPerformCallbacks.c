@@ -7,11 +7,11 @@
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
  *     FsRtlReleaseFile @ 0x1405DE940 (FsRtlReleaseFile.c)
  *     FsRtlAcquireFileExclusiveCommon @ 0x1405DEB10 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlQueryOpen @ 0x140814EDC (FsRtlQueryOpen.c)
+ *     FsRtlQueryOpen @ 0x140814EBC (FsRtlQueryOpen.c)
  * Callees:
  *     FsFilterGetCallbacks @ 0x14001C840 (FsFilterGetCallbacks.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsFilterPerformCallbacks(__int64 a1, char a2, char a3, _DWORD *a4)

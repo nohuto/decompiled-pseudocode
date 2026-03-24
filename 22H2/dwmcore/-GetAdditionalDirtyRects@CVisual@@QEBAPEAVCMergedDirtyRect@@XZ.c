@@ -1,7 +1,8 @@
 /*
- * XREFs of ?GetAdditionalDirtyRects@CVisual@@QEBAPEAVCMergedDirtyRect@@XZ @ 0x18004A570
+ * XREFs of ?GetAdditionalDirtyRects@CVisual@@QEBAPEAVCMergedDirtyRect@@XZ @ 0x1800A07E0
  * Callers:
- *     ?CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004AE70 (-CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PE.c)
+ *     ?CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@W4Enum@MilBitmapInterpolationMode@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800A04E0 (-CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@W4.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A08FC (--1CVisual@@MEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +15,7 @@ struct CMergedDirtyRect *__fastcall CVisual::GetAdditionalDirtyRects(CVisual *th
   __int64 v4; // rcx
   unsigned int i; // eax
 
-  v1 = (_DWORD *)*((_QWORD *)this + 29);
+  v1 = (_DWORD *)*((_QWORD *)this + 28);
   if ( (*v1 & 0x40000000) == 0 )
     return 0LL;
   v2 = (unsigned int)v1[1];

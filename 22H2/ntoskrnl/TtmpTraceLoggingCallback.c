@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTraceLoggingCallback @ 0x1409AAE30
+ * XREFs of TtmpTraceLoggingCallback @ 0x1409053C0
  * Callers:
  *     <none>
  * Callees:
- *     TtmiSessionsRundown @ 0x1409A4B8C (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x1408FF1C8 (TtmiSessionsRundown.c)
  */
 
 void __fastcall TtmpTraceLoggingCallback(__int64 a1, int a2)

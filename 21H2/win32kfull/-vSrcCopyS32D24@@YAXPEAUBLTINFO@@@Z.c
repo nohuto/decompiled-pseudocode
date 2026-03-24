@@ -1,36 +1,36 @@
 /*
- * XREFs of ?vSrcCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C013A4C0
+ * XREFs of ?vSrcCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C00F5020
  * Callers:
  *     <none>
  * Callees:
- *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C013C7F4 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C0150314 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vSrcCopyS32D24(struct BLTINFO *a1)
 {
-  unsigned int v1; // esi
+  unsigned int v1; // r15d
   XLATE *v2; // rbp
-  int v3; // r14d
+  int v3; // r12d
   unsigned int *v4; // rdi
   int v5; // r13d
   __int64 v6; // rbx
   int v7; // edx
-  int v8; // r11d
-  unsigned int v9; // esi
-  unsigned int v10; // r9d
-  int v11; // esi
-  int i; // ecx
-  unsigned int v13; // r10d
+  unsigned int v8; // r10d
+  unsigned int v9; // r15d
+  unsigned int v10; // r11d
+  int v11; // r15d
+  unsigned int i; // ecx
+  unsigned int v13; // r9d
   unsigned int v14; // r8d
   unsigned int v15; // edx
   unsigned int v16; // eax
   int j; // ecx
   char v18; // al
-  char v19; // al
-  unsigned int (*v20)(struct _XLATEOBJ *, unsigned int); // r12
-  unsigned int v21; // r15d
-  __int64 v22; // rax
+  unsigned int (*v19)(struct _XLATEOBJ *, unsigned int); // r14
+  unsigned int v20; // esi
+  __int64 v21; // rax
+  char v22; // al
   int v23; // [rsp+50h] [rbp+8h]
 
   v1 = *((_DWORD *)a1 + 7);
@@ -44,9 +44,9 @@ void __fastcall vSrcCopyS32D24(struct BLTINFO *a1)
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 40LL) + 24LL) & 8) != 0
     && (*(_DWORD *)(*((_QWORD *)v2 + 6) + 24LL) & 8) != 0 )
   {
-    v8 = *((_DWORD *)a1 + 7);
-    if ( ((unsigned __int8)v6 & 3u) <= v1 )
-      v8 = v6 & 3;
+    v8 = v6 & 3;
+    if ( v8 > v1 )
+      v8 = *((_DWORD *)a1 + 7);
     v9 = v1 - v8;
     v10 = v9 >> 2;
     v11 = v9 & 3;
@@ -56,8 +56,8 @@ void __fastcall vSrcCopyS32D24(struct BLTINFO *a1)
       {
         *(_BYTE *)v6 = *(_BYTE *)v4;
         *(_BYTE *)(v6 + 1) = *((_BYTE *)v4 + 1);
-        v19 = *((_BYTE *)v4++ + 2);
-        *(_BYTE *)(v6 + 2) = v19;
+        v22 = *((_BYTE *)v4++ + 2);
+        *(_BYTE *)(v6 + 2) = v22;
         v6 += 3LL;
       }
       v13 = v10;
@@ -94,21 +94,21 @@ void __fastcall vSrcCopyS32D24(struct BLTINFO *a1)
   }
   else
   {
-    v20 = XLATE::pfnXlateBetweenBitfields(v2);
+    v19 = XLATE::pfnXlateBetweenBitfields(v2);
     while ( 1 )
     {
-      v21 = v1;
+      v20 = v1;
       do
       {
-        v22 = ((__int64 (__fastcall *)(XLATE *, _QWORD))v20)(v2, *v4);
-        *(_BYTE *)v6 = v22;
+        v21 = ((__int64 (__fastcall *)(XLATE *, _QWORD))v19)(v2, *v4);
+        *(_BYTE *)v6 = v21;
         ++v4;
-        *(_BYTE *)(v6 + 1) = BYTE1(v22);
-        *(_BYTE *)(v6 + 2) = BYTE2(v22);
+        *(_BYTE *)(v6 + 1) = BYTE1(v21);
+        *(_BYTE *)(v6 + 2) = BYTE2(v21);
         v6 += 3LL;
-        --v21;
+        --v20;
       }
-      while ( v21 );
+      while ( v20 );
       if ( !--v3 )
         break;
       v4 = (unsigned int *)((char *)v4 + v5);

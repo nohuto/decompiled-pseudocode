@@ -1,12 +1,13 @@
 /*
- * XREFs of Windows::Internal::Details::_dynamic_atexit_destructor_for___git__ @ 0x18010DB10
+ * XREFs of Windows::Internal::Details::_dynamic_atexit_destructor_for___git__ @ 0x1800F9980
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 Windows::Internal::Details::_dynamic_atexit_destructor_for___git__()
+// attributes: thunk
+void __fastcall Windows::Internal::Details::_dynamic_atexit_destructor_for___git__(Windows::Internal::Details::Git *a1)
 {
-  return Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&qword_1803D35A8);
+  Windows::Internal::Details::Git::~Git(a1);
 }

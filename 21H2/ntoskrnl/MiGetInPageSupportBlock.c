@@ -1,40 +1,40 @@
 /*
- * XREFs of MiGetInPageSupportBlock @ 0x14033C424
+ * XREFs of MiGetInPageSupportBlock @ 0x14023EF24
  * Callers:
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiPfPutPagesInTransition @ 0x1402715A0 (MiPfPutPagesInTransition.c)
- *     MiMigratePfn @ 0x140327C60 (MiMigratePfn.c)
- *     MiAllocateInPageSupport @ 0x140339CA0 (MiAllocateInPageSupport.c)
- *     MiCreateRotateView @ 0x1406E97B4 (MiCreateRotateView.c)
- *     MiPfAllocateMdls @ 0x1406F4A80 (MiPfAllocateMdls.c)
- *     MiGetReadyInPageBlock @ 0x14096D038 (MiGetReadyInPageBlock.c)
+ *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiAllocateInPageSupport @ 0x140319BA0 (MiAllocateInPageSupport.c)
+ *     MiCreateRotateView @ 0x1406BD8A0 (MiCreateRotateView.c)
+ *     MiPfAllocateMdls @ 0x1406E8CA0 (MiPfAllocateMdls.c)
+ *     MiGetReadyInPageBlock @ 0x1408C85B4 (MiGetReadyInPageBlock.c)
  * Callees:
- *     MiAllocateInPageSupportBlock @ 0x140251B4C (MiAllocateInPageSupportBlock.c)
- *     MiInitializeInPageSupport @ 0x14033C4D0 (MiInitializeInPageSupport.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
+ *     MiInitializeInPageSupport @ 0x14023EFE0 (MiInitializeInPageSupport.c)
+ *     MiAllocateInPageSupportBlock @ 0x1402C8F1C (MiAllocateInPageSupportBlock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
  */
 
-__int64 __fastcall MiGetInPageSupportBlock(unsigned int a1)
+PSLIST_ENTRY __fastcall MiGetInPageSupportBlock(char a1)
 {
   __int64 v2; // rsi
   BOOL v3; // ebp
-  __int64 v4; // rbx
+  PSLIST_ENTRY v4; // rbx
 
   v2 = 2LL * ((a1 & 1) == 0);
   v3 = (a1 & 1) == 0;
-  v4 = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)&MiState[v2 + 2100]);
-  if ( v4 || (v4 = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)&MiState[v2 + 2104])) != 0 )
+  v4 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&MiState[v2 + 1154]);
+  if ( v4 || (v4 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&MiState[v2 + 1158])) != 0LL )
   {
-LABEL_2:
-    MiInitializeInPageSupport(v4, a1);
+LABEL_3:
+    MiInitializeInPageSupport((ULONG_PTR)v4);
     return v4;
   }
   if ( (a1 & 4) == 0 )
   {
-    v4 = MiAllocateInPageSupportBlock(v3, 1u);
+    v4 = (PSLIST_ENTRY)MiAllocateInPageSupportBlock(v3, 1LL);
     if ( !v4 )
       return v4;
-    goto LABEL_2;
+    goto LABEL_3;
   }
   return 0LL;
 }

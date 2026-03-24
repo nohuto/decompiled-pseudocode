@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiCheckExternalConnection @ 0x1C0083C04
+ * XREFs of AcpiCheckExternalConnection @ 0x1C009DB14
  * Callers:
- *     AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C0083D18 (AcpiExternalQueryTranslatedDescriptorForGsiv.c)
- *     AcpiExternalTranslateBiosToNtResources @ 0x1C0083DB0 (AcpiExternalTranslateBiosToNtResources.c)
- *     ACPIRootIrpQueryBusRelations @ 0x1C0093D98 (ACPIRootIrpQueryBusRelations.c)
+ *     ACPIRootIrpQueryBusRelations @ 0x1C009DB7C (ACPIRootIrpQueryBusRelations.c)
+ *     AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C00AF138 (AcpiExternalQueryTranslatedDescriptorForGsiv.c)
+ *     AcpiExternalTranslateBiosToNtResources @ 0x1C00AF1D0 (AcpiExternalTranslateBiosToNtResources.c)
  * Callees:
- *     QueryExternalTranslatorInterface @ 0x1C00844A4 (QueryExternalTranslatorInterface.c)
+ *     QueryExternalTranslatorInterface @ 0x1C009F8E4 (QueryExternalTranslatorInterface.c)
  */
 
 __int64 AcpiCheckExternalConnection()

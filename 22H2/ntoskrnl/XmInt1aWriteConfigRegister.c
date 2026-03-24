@@ -1,17 +1,17 @@
 /*
- * XREFs of XmInt1aWriteConfigRegister @ 0x140535058
+ * XREFs of XmInt1aWriteConfigRegister @ 0x1404E81F0
  * Callers:
- *     XmExecuteInt1a @ 0x140534C64 (XmExecuteInt1a.c)
+ *     XmExecuteInt1a @ 0x1404E7E14 (XmExecuteInt1a.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall XmInt1aWriteConfigRegister(__int64 a1)
 {
-  int v1; // edx
-  char v2; // di
-  _BYTE *v4; // rcx
-  _BYTE *v5; // r9
+  char v1; // di
+  int v3; // ecx
+  int v4; // ecx
+  int v5; // ecx
   int v6; // r8d
   int v7; // eax
   __int64 result; // rax
@@ -19,46 +19,51 @@ __int64 __fastcall XmInt1aWriteConfigRegister(__int64 a1)
   unsigned int v10; // ecx
   int v11; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(unsigned __int8 *)(a1 + 24);
-  v2 = 0;
+  v1 = 0;
+  v3 = *(unsigned __int8 *)(a1 + 24);
   v11 = 0;
-  v4 = (_BYTE *)(a1 + 36);
-  if ( (_BYTE)v1 == 12 && (*v4 & 1) != 0 || (v5 = v4, (_BYTE)v1 == 13) && (*v4 & 3) != 0 )
+  if ( (_BYTE)v3 == 12 && (*(_BYTE *)(a1 + 36) & 1) != 0 || (_BYTE)v3 == 13 && (*(_BYTE *)(a1 + 36) & 3) != 0 )
   {
     *(_DWORD *)(a1 + 16) |= 1u;
-    v5 = v4;
     *(_BYTE *)(a1 + 25) = -121;
   }
-  switch ( v1 )
+  v4 = v3 - 11;
+  if ( v4 )
   {
-    case 11:
-      v7 = *(unsigned __int8 *)(a1 + 28);
-      v6 = 1;
-      break;
-    case 12:
-      v7 = *(unsigned __int16 *)(a1 + 28);
-      v6 = 2;
-      break;
-    case 13:
+    v5 = v4 - 1;
+    if ( v5 )
+    {
+      if ( v5 != 1 )
+      {
+        v6 = 0;
+        goto LABEL_14;
+      }
       v7 = *(_DWORD *)(a1 + 28);
       v6 = 4;
-      break;
-    default:
-      v6 = 0;
-      goto LABEL_14;
+    }
+    else
+    {
+      v7 = *(unsigned __int16 *)(a1 + 28);
+      v6 = 2;
+    }
+  }
+  else
+  {
+    v7 = *(unsigned __int8 *)(a1 + 28);
+    v6 = 1;
   }
   v11 = v7;
 LABEL_14:
   result = ((__int64 (__fastcall *)(_QWORD, _QWORD, int *, _QWORD, int))XmSetPciData)(
              *(unsigned __int8 *)(a1 + 37),
-             ((unsigned __int8)*v5 >> 3) | (32 * (*v5 & 7u)),
+             (*(unsigned __int8 *)(a1 + 36) >> 3) | (32 * (*(_BYTE *)(a1 + 36) & 7u)),
              &v11,
              *(unsigned __int16 *)(a1 + 52),
              v6);
   v9 = *(_DWORD *)(a1 + 16);
   if ( (_DWORD)result )
   {
-    v2 = -121;
+    v1 = -121;
     v10 = v9 | 1;
   }
   else
@@ -66,6 +71,6 @@ LABEL_14:
     v10 = v9 & 0xFFFFFFFE;
   }
   *(_DWORD *)(a1 + 16) = v10;
-  *(_BYTE *)(a1 + 25) = v2;
+  *(_BYTE *)(a1 + 25) = v1;
   return result;
 }

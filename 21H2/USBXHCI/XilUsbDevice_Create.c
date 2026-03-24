@@ -1,12 +1,12 @@
 /*
- * XREFs of XilUsbDevice_Create @ 0x1C0015F1C
+ * XREFs of XilUsbDevice_Create @ 0x1C001646C
  * Callers:
- *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006FFE0 (UsbDevice_UcxEvtDeviceAdd.c)
+ *     UsbDevice_UcxEvtDeviceAdd @ 0x1C006F110 (UsbDevice_UcxEvtDeviceAdd.c)
  * Callees:
- *     XilCoreUsbDevice_Create @ 0x1C0016294 (XilCoreUsbDevice_Create.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     XilUsbDevice_CreateSecureObject @ 0x1C0045964 (XilUsbDevice_CreateSecureObject.c)
- *     XilUsbDevice_FreeResources @ 0x1C0045B90 (XilUsbDevice_FreeResources.c)
+ *     XilCoreUsbDevice_Create @ 0x1C001651C (XilCoreUsbDevice_Create.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     XilUsbDevice_CreateSecureObject @ 0x1C00454A8 (XilUsbDevice_CreateSecureObject.c)
+ *     XilUsbDevice_FreeResources @ 0x1C00456D4 (XilUsbDevice_FreeResources.c)
  */
 
 __int64 __fastcall XilUsbDevice_Create(__int64 a1, __int64 a2)

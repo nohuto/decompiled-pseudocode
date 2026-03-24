@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMIDEBuildButtonFlagsFromRawButtonsAndMouseInputStruct @ 0x1C019376C
+ * XREFs of RIMIDEBuildButtonFlagsFromRawButtonsAndMouseInputStruct @ 0x1C0166F90
  * Callers:
- *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C0196C38 (RIMIDEInjectMouseFromMouseInputStruct.c)
+ *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C0169774 (RIMIDEInjectMouseFromMouseInputStruct.c)
  * Callees:
  *     <none>
  */

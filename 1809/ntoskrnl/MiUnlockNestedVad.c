@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockNestedVad @ 0x14085EA1C
+ * XREFs of MiUnlockNestedVad @ 0x14085E9FC
  * Callers:
  *     MiFreeVadRange @ 0x140025674 (MiFreeVadRange.c)
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiUpControlAreaRefs @ 0x1402A3350 (MiUpControlAreaRefs.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x1402CB014 (MiUnlockAndDereferenceNestedVad.c)
+ *     MiUpControlAreaRefs @ 0x1402A3450 (MiUpControlAreaRefs.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x1402CB114 (MiUnlockAndDereferenceNestedVad.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)

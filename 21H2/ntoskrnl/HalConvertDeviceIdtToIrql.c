@@ -1,7 +1,7 @@
 /*
- * XREFs of HalConvertDeviceIdtToIrql @ 0x140844630
+ * XREFs of HalConvertDeviceIdtToIrql @ 0x14076F0C0
  * Callers:
- *     HalpQueryResources @ 0x140844508 (HalpQueryResources.c)
+ *     HalpQueryResources @ 0x1407B9214 (HalpQueryResources.c)
  * Callees:
  *     <none>
  */

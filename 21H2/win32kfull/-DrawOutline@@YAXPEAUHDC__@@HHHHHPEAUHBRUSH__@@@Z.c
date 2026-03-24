@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C02470DC
+ * XREFs of ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C024BCB0
  * Callers:
- *     xxxDrawMenuItem @ 0x1C00BE508 (xxxDrawMenuItem.c)
- *     MNDrawEdge @ 0x1C0247C54 (MNDrawEdge.c)
+ *     xxxDrawMenuItem @ 0x1C00447AC (xxxDrawMenuItem.c)
+ *     MNDrawEdge @ 0x1C024C818 (MNDrawEdge.c)
  * Callees:
- *     GrePolyPatBlt @ 0x1C00C1D4C (GrePolyPatBlt.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GrePolyPatBlt @ 0x1C0045794 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall DrawOutline(HDC a1, int a2, int a3, int a4, int a5, int a6, HBRUSH a7)
@@ -48,5 +48,5 @@ void __fastcall DrawOutline(HDC a1, int a2, int a3, int a4, int a5, int a6, HBRU
   v18 = a7;
   v22 = a6;
   v23 = a7;
-  GrePolyPatBlt(a1, 15728673, (struct _POLYPATBLT *)v7, 4);
+  GrePolyPatBlt(a1, 0xF00021u, (struct _POLYPATBLT *)v7, 4u);
 }

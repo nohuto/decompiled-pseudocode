@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhHubSyncSuspendPortEvent @ 0x1C00334E8
+ * XREFs of UsbhHubSyncSuspendPortEvent @ 0x1C003484C
  * Callers:
- *     Usbh_PCE_Suspend_Action @ 0x1C0008CC0 (Usbh_PCE_Suspend_Action.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F4B0 (Usbh_PCE_Suspend_Action.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSuspendPort @ 0x1C000D884 (UsbhSuspendPort.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     Usbh_PcLogEntry @ 0x1C0035B48 (Usbh_PcLogEntry.c)
- *     UsbhGetPortStatusBits @ 0x1C0037C98 (UsbhGetPortStatusBits.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSuspendPort @ 0x1C00138BC (UsbhSuspendPort.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     Usbh_PcLogEntry @ 0x1C0036E04 (Usbh_PcLogEntry.c)
+ *     UsbhGetPortStatusBits @ 0x1C0038F70 (UsbhGetPortStatusBits.c)
  */
 
 __int64 __fastcall UsbhHubSyncSuspendPortEvent(__int64 a1, __int64 a2, __int64 a3)

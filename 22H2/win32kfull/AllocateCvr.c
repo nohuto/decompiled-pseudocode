@@ -1,9 +1,8 @@
 /*
- * XREFs of AllocateCvr @ 0x1C0028B70
+ * XREFs of AllocateCvr @ 0x1C0031FE0
  * Callers:
- *     _BeginDeferWindowPos @ 0x1C0028318 (_BeginDeferWindowPos.c)
- *     InternalBeginDeferWindowPos @ 0x1C0028A94 (InternalBeginDeferWindowPos.c)
- *     NtUserSetWindowPos @ 0x1C0028F90 (NtUserSetWindowPos.c)
+ *     _BeginDeferWindowPos @ 0x1C0031F70 (_BeginDeferWindowPos.c)
+ *     InternalBeginDeferWindowPos @ 0x1C006B960 (InternalBeginDeferWindowPos.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +16,7 @@ __int64 __fastcall AllocateCvr(__int64 a1, int a2)
   if ( a2 <= 0 || (unsigned int)a2 > 0xC30C30 )
     return 0LL;
   v4 = 168LL * (unsigned int)a2;
-  v5 = a1 == gSMWP ? Win32AllocPoolZInit(v4, 2004054869LL) : Win32AllocPoolWithQuotaZInit(v4, 2004054869LL);
+  v5 = a1 == gSMWP ? Win32AllocPool(v4, 2004054869LL) : Win32AllocPoolWithQuota(v4, 2004054869LL);
   if ( !v5 )
     return 0LL;
   *(_DWORD *)(a1 + 24) &= ~4u;

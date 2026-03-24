@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptInitEnvCommon @ 0x1403FDD40
+ * XREFs of SymCryptInitEnvCommon @ 0x1403EF5DC
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403FB1CC (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC02C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
- *     SymCryptFatal @ 0x14056AF38 (SymCryptFatal.c)
+ *     SymCryptFatal @ 0x140514F28 (SymCryptFatal.c)
  */
 
 __int64 __fastcall SymCryptInitEnvCommon(int a1)
@@ -11,7 +11,7 @@ __int64 __fastcall SymCryptInitEnvCommon(int a1)
   char *i; // rax
   __int64 result; // rax
 
-  if ( a1 != 6553616 )
+  if ( a1 != 6553605 )
     SymCryptFatal(1634955892LL);
   _InterlockedOr(&g_SymCryptFlags, 1u);
   for ( i = SymCryptBuildString; *i; ++i )

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00A1C0C
+ * XREFs of ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00249F4
  * Callers:
- *     ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00A19B8 (-xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReaso.c)
- *     ?_LoadCursorsAndIcons@@YAHXZ @ 0x1C0115D4C (-_LoadCursorsAndIcons@@YAHXZ.c)
- *     ?zzzSetSystemCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C01CFA40 (-zzzSetSystemCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01D525C (-xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ.c)
+ *     ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00247A0 (-xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReaso.c)
+ *     ?_LoadCursorsAndIcons@@YAHXZ @ 0x1C00259E0 (-_LoadCursorsAndIcons@@YAHXZ.c)
+ *     ?zzzSetSystemCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C01D41AC (-zzzSetSystemCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01DAE58 (-xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ.c)
  * Callees:
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00A0F38 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C00A1DDC (-xxxEnsureDpiCursorsForSysCur@@YAXI@Z.c)
- *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C00A1F2C (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
- *     RtlInitUnicodeStringOrId @ 0x1C00BC910 (RtlInitUnicodeStringOrId.c)
- *     ?SetSystemCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@KPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@PEAGI@Z @ 0x1C0113208 (-SetSystemCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@KPEAU_UNICODE_STRING@@W4InputTracin.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C0024C2C (-xxxEnsureDpiCursorsForSysCur@@YAXI@Z.c)
+ *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C0024D68 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C0025544 (RtlInitUnicodeStringOrId.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E165C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?SetSystemCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@KPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@PEAGI@Z @ 0x1C012941C (-SetSystemCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@KPEAU_UNICODE_STRING@@W4InputTracin.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall zzzInternalSetSystemCursor(
@@ -23,19 +23,15 @@ __int64 __fastcall zzzInternalSetSystemCursor(
 {
   unsigned __int64 v6; // rdi
   struct _UNICODE_STRING *v8; // rsi
-  __int64 v10; // rdx
   PWSTR Buffer; // rdx
-  ULONG v12; // r8d
-  __int64 v13; // rsi
-  _BOOL8 v14; // rcx
-  __int64 v15; // rax
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int64 ThreadWin32Thread; // rax
   __int64 v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  _QWORD v21[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v22; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+50h] [rbp-28h]
+  _QWORD v18[2]; // [rsp+30h] [rbp-58h] BYREF
+  _QWORD v19[4]; // [rsp+40h] [rbp-48h] BYREF
 
   v6 = 552LL * a2;
   v8 = (struct _UNICODE_STRING *)&gasyscur[v6 / 8 + 2];
@@ -46,7 +42,7 @@ __int64 __fastcall zzzInternalSetSystemCursor(
     {
       RtlInitUnicodeString(v8, (PCWSTR)&gasyscur[v6 / 8 + 4]);
       v8->MaximumLength = 520;
-      RtlUnicodeStringCopy((struct _UNICODE_STRING *)&gasyscur[v6 / 8 + 2], a3, v12);
+      RtlUnicodeStringCopy((struct _UNICODE_STRING *)&gasyscur[v6 / 8 + 2], a3);
       v8->Buffer[259] = 0;
     }
     else
@@ -58,34 +54,38 @@ __int64 __fastcall zzzInternalSetSystemCursor(
   {
     RtlInitUnicodeString(v8, 0LL);
   }
-  v13 = *(_QWORD *)(v6 + gasyscur[0] + 8);
-  v14 = v13 == 0;
-  if ( v14 != (a4 == 0) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v14);
-  if ( v13 )
+  v11 = *(_QWORD *)(v6 + gasyscur[0] + 8);
+  if ( (v11 == 0) != (a4 == 0) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1593LL);
+  if ( v11 )
   {
     zzzSetSystemImage((struct tagCURSOR *)a1, *(struct tagCURSOR **)(v6 + gasyscur[0] + 8));
   }
   else
   {
-    if ( PsGetCurrentProcess(v14, v10) != gpepCSRSS
-      || (v15 = *(_QWORD *)(a1 + 64)) == 0
-      || (v15 & 0xFFFFFFFFFFFF0000uLL) != 0
-      || (unsigned __int16)v15 - 100 != a2 )
+    if ( PsGetCurrentProcess() != gpepCSRSS
+      || (v12 = *(_QWORD *)(a1 + 64)) == 0
+      || (v12 & 0xFFFFFFFFFFFF0000uLL) != 0
+      || (unsigned __int16)v12 - 100 != a2 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(gpepCSRSS);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1604LL);
     }
-    v21[1] = a1;
-    v16 = *(unsigned __int16 *)(v6 + gasyscur[0]);
+    v18[1] = a1;
+    v13 = *(unsigned __int16 *)(v6 + gasyscur[0]);
     *(_DWORD *)(a1 + 80) |= 0x200u;
-    *(_QWORD *)(a1 + 64) = v16;
-    v21[0] = &gasyscur[v6 / 8 + 1];
-    HMAssignmentLock(v21, 0LL);
+    *(_QWORD *)(a1 + 64) = v13;
+    v18[0] = &gasyscur[v6 / 8 + 1];
+    HMAssignmentLock(v18);
   }
   InputTraceLogging::Cursor::SetSystemCursor(*(_QWORD *)(v6 + gasyscur[0] + 8), a2, a3, a4);
-  v22 = 0LL;
-  v23 = 0LL;
-  ThreadLock(*(_QWORD *)(v6 + gasyscur[0] + 8), (__int64 *)&v22);
+  v19[2] = 0LL;
+  v14 = *(_QWORD *)(v6 + gasyscur[0] + 8);
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v19[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v19;
+  v19[1] = v14;
+  if ( v14 )
+    HMLockObject(v14);
   xxxEnsureDpiCursorsForSysCur(a2);
-  return ThreadUnlock1(v18, v17, v19);
+  return ThreadUnlock1(v16);
 }

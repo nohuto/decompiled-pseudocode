@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_Initialize @ 0x1C0014810
+ * XREFs of Interrupter_Initialize @ 0x1C00146A8
  * Callers:
- *     Interrupter_D0Entry @ 0x1C00147A8 (Interrupter_D0Entry.c)
- *     Interrupter_ControllerResetPostReset @ 0x1C003BD84 (Interrupter_ControllerResetPostReset.c)
+ *     Interrupter_D0Entry @ 0x1C0014640 (Interrupter_D0Entry.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C003B850 (Interrupter_ControllerResetPostReset.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 _UNKNOWN **__fastcall Interrupter_Initialize(__int64 a1)

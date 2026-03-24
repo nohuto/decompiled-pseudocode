@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_73f2a4da0cca98f221385d01cc2cbc64_::operator() @ 0x1801AE84C
+ * XREFs of _lambda_73f2a4da0cca98f221385d01cc2cbc64_::operator() @ 0x180151C6C
  * Callers:
- *     ?NotifyOnDeadObserver@CProcessAttributionManager@@AEAAXPEAVCProcessAttributionObserver@@@Z @ 0x1801AE8CC (-NotifyOnDeadObserver@CProcessAttributionManager@@AEAAXPEAVCProcessAttributionObserver@@@Z.c)
+ *     std::remove_if_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_CProcessAttributionManager::Record_________lambda_73f2a4da0cca98f221385d01cc2cbc64___ @ 0x180151A2C (std--remove_if_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_CProcessAttributionMana.c)
  * Callees:
- *     ??_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z @ 0x1800F18EC (--_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z.c)
+ *     ??_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z @ 0x1800DA928 (--_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z.c)
  */
 
 char __fastcall lambda_73f2a4da0cca98f221385d01cc2cbc64_::operator()(__int64 a1, __int64 a2)

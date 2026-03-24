@@ -1,60 +1,48 @@
 /*
- * XREFs of ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001B994
+ * XREFs of ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001FFE8
  * Callers:
- *     DxgkReleaseAdapter @ 0x1C01F3600 (DxgkReleaseAdapter.c)
- *     DxgkGetAdapter @ 0x1C01F3660 (DxgkGetAdapter.c)
+ *     DxgkGetAdapter @ 0x1C0177700 (DxgkGetAdapter.c)
+ *     DxgkReleaseAdapter @ 0x1C01778A0 (DxgkReleaseAdapter.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z @ 0x1C01DFA38 (-RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z.c)
- *     ?AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z @ 0x1C01E7908 (-AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z.c)
+ *     ?AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z @ 0x1C016489C (-AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z.c)
+ *     ?RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z @ 0x1C01649D8 (-RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z.c)
  */
 
 void __fastcall DXGSESSIONDATA::SetAdapterLuidInRemoteSession(DXGSESSIONDATA *this, struct DXGADAPTER *a2)
 {
-  int v4; // edx
-  int v5; // ecx
-  int v6; // r8d
+  int v3; // eax
+  int v4; // eax
+  __int64 v5; // rax
 
   if ( a2 )
   {
-    if ( *((_DWORD *)this + 4627) == *((_DWORD *)a2 + 101) && *((_DWORD *)this + 4628) == *((_DWORD *)a2 + 102) )
+    if ( *((_DWORD *)this + 4625) == *((_DWORD *)a2 + 79) && *((_DWORD *)this + 4626) == *((_DWORD *)a2 + 80) )
     {
-      ++*((_DWORD *)this + 4629);
+      ++*((_DWORD *)this + 4627);
     }
     else
     {
-      *(_QWORD *)((char *)this + 18508) = *(_QWORD *)((char *)a2 + 404);
-      *((_DWORD *)this + 4629) = 1;
-      DXGSESSIONDATA::AddAdapterToSession(this, (const struct _LUID *)((char *)this + 18508), a2, 0LL);
+      *(_QWORD *)((char *)this + 18500) = *(_QWORD *)((char *)a2 + 316);
+      *((_DWORD *)this + 4627) = 1;
+      DXGSESSIONDATA::AddAdapterToSession(this, (const struct _LUID *)((char *)this + 18500), a2, 0LL);
     }
   }
   else
   {
-    if ( !*((_DWORD *)this + 4629) )
+    v3 = *((_DWORD *)this + 4627);
+    if ( !v3 )
     {
-      WdLogSingleEntry1(1LL, 251LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v5,
-            v4,
-            v6,
-            0,
-            2,
-            -1,
-            (__int64)L"(m_NumOutputsInRemoteSession > 0)",
-            251LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v5 = WdLogNewEntry5_WdAssertion(this, 0LL);
+      *(_QWORD *)(v5 + 24) = 251LL;
+      WdLogEvent5_WdAssertion(v5);
+      v3 = *((_DWORD *)this + 4627);
     }
-    if ( (*((_DWORD *)this + 4629))-- == 1 )
+    v4 = v3 - 1;
+    *((_DWORD *)this + 4627) = v4;
+    if ( !v4 )
     {
-      DXGSESSIONDATA::RemoveAdapterFromSession(this, (const struct _LUID *)((char *)this + 18508));
-      *(_QWORD *)((char *)this + 18508) = 0LL;
+      DXGSESSIONDATA::RemoveAdapterFromSession(this, (const struct _LUID *)((char *)this + 18500));
+      *(_QWORD *)((char *)this + 18500) = 0LL;
     }
   }
 }

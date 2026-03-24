@@ -1,7 +1,7 @@
 /*
- * XREFs of ?chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z @ 0x1C02C7774
+ * XREFs of ?chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z @ 0x1C02C8F8C
  * Callers:
- *     FONTOBJ_cGetAllGlyphHandles @ 0x1C0291110 (FONTOBJ_cGetAllGlyphHandles.c)
+ *     FONTOBJ_cGetAllGlyphHandles @ 0x1C02935A0 (FONTOBJ_cGetAllGlyphHandles.c)
  * Callees:
  *     <none>
  */

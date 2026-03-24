@@ -1,49 +1,43 @@
 /*
- * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x14021AE40
+ * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x140283F70
  * Callers:
- *     MiFlushCacheForAttributeChange @ 0x14021ABA4 (MiFlushCacheForAttributeChange.c)
- *     HalpIommuMapLogicalRange @ 0x14037DE28 (HalpIommuMapLogicalRange.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14037E658 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIommuInitializeDmarPageTable @ 0x14037FD88 (HalpIommuInitializeDmarPageTable.c)
- *     KeInvalidateRangeAllCaches @ 0x140460040 (KeInvalidateRangeAllCaches.c)
- *     HalpIommuMapLogical @ 0x1405270A4 (HalpIommuMapLogical.c)
- *     HalpIommuUnmapLogicalRange @ 0x1405274B0 (HalpIommuUnmapLogicalRange.c)
- *     IvtInitializeIdentityMappings @ 0x14052D0C0 (IvtInitializeIdentityMappings.c)
- *     MiFlushGraphicsPtes @ 0x140626498 (MiFlushGraphicsPtes.c)
+ *     MiFlushCacheForAttributeChange @ 0x140283EC8 (MiFlushCacheForAttributeChange.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB6D8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x1404DBBDC (HalpIommuInitializeDmarPageTable.c)
+ *     HalpIommuMapLogical @ 0x1404DBD64 (HalpIommuMapLogical.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC14C (HalpIommuMapLogicalRange.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC56C (HalpIommuUnmapLogicalRange.c)
+ *     IvtInitializeIdentityMappings @ 0x1404E0130 (IvtInitializeIdentityMappings.c)
+ *     KeInvalidateRangeAllCaches @ 0x14051B030 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x14036D4F0 (KeInvalidateAllCaches.c)
- *     KiFlushCacheLines @ 0x140423FD0 (KiFlushCacheLines.c)
+ *     KeInvalidateAllCaches @ 0x1403A4700 (KeInvalidateAllCaches.c)
+ *     KiFlushCacheLines @ 0x140402480 (KiFlushCacheLines.c)
  */
 
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)
 {
-  struct _KPRCB *CurrentPrcb; // rax
-  unsigned __int64 v3; // rdx
+  unsigned __int64 v2; // rdx
   __int64 CFlushSize; // r8
-  char *v5; // rcx
+  char *v4; // rax
 
   if ( a2 >= KiLargestCacheSize )
   {
-    LOBYTE(CurrentPrcb) = KeInvalidateAllCaches();
+    LOBYTE(v4) = KeInvalidateAllCaches();
   }
   else
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v3 = a1 + a2;
-    CFlushSize = CurrentPrcb->CFlushSize;
-    v5 = (char *)(a1 & ~(CFlushSize - 1));
-    if ( _bittest64(&KeFeatureBits, 0x23u) )
+    v2 = a1 + a2;
+    CFlushSize = KeGetCurrentPrcb()->CFlushSize;
+    v4 = (char *)(a1 & ~(CFlushSize - 1));
+    if ( (KeFeatureBits & 0x800000000LL) != 0 )
     {
-      LOBYTE(CurrentPrcb) = KiFlushCacheLines(v5, (~(CFlushSize - 1) & (CFlushSize + v3 - 1)) - (_QWORD)v5);
+      LOBYTE(v4) = KiFlushCacheLines(a1 & ~(CFlushSize - 1), (~(CFlushSize - 1) & (CFlushSize + v2 - 1)) - (_QWORD)v4);
     }
     else
     {
-      while ( (unsigned __int64)v5 < v3 )
-      {
-        _mm_clflush(v5);
-        v5 += CFlushSize;
-      }
+      for ( ; (unsigned __int64)v4 < v2; v4 += CFlushSize )
+        _mm_clflush(v4);
     }
   }
-  return (char)CurrentPrcb;
+  return (char)v4;
 }

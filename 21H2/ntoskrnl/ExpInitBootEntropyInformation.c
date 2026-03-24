@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpInitBootEntropyInformation @ 0x14085B350
+ * XREFs of ExpInitBootEntropyInformation @ 0x1407CB370
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD **Parameter, PVOID *Context)

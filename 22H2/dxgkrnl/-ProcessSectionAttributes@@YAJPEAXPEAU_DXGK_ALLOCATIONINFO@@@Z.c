@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ProcessSectionAttributes@@YAJPEAXPEAU_DXGK_ALLOCATIONINFO@@@Z @ 0x1C02D8150
+ * XREFs of ?ProcessSectionAttributes@@YAJPEAXPEAU_DXGK_ALLOCATIONINFO@@@Z @ 0x1C0228C80
  * Callers:
- *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C01A21A0 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
- *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C01CD980 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C00FD200 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C0155200 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
  * Callees:
  *     <none>
  */
@@ -11,25 +11,28 @@ __int64 __fastcall ProcessSectionAttributes(PVOID Object, struct _DXGK_ALLOCATIO
 {
   struct _OBJECT_TYPE *ObjectType; // rax
   NTSTATUS v5; // ebx
-  int v6; // r8d
-  UINT v7; // edx
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
   UINT Alignment; // eax
   __int128 SectionInformation; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+50h] [rbp-18h]
+  __int64 v13; // [rsp+50h] [rbp-18h]
   HANDLE SectionHandle; // [rsp+80h] [rbp+18h] BYREF
 
   SectionHandle = 0LL;
-  ObjectType = (struct _OBJECT_TYPE *)ObGetObjectType(Object);
+  ObjectType = (struct _OBJECT_TYPE *)ObGetObjectType();
   v5 = ObOpenObjectByPointer(Object, 0x200u, 0LL, 0x20000u, ObjectType, 0, &SectionHandle);
   if ( v5 >= 0 )
   {
     SectionInformation = 0LL;
-    v11 = 0LL;
+    v13 = 0LL;
     v5 = ZwQuerySection(SectionHandle, SectionBasicInformation, &SectionInformation, 0x18uLL, 0LL);
     if ( v5 >= 0 )
     {
       v6 = DWORD2(SectionInformation);
       v7 = a2->Flags.Value | 4;
+      v8 = DWORD2(SectionInformation) & 0x50000000;
       if ( (DWORD2(SectionInformation) & 0x50000000) != 0 )
         v7 = a2->Flags.Value & 0xFFFFFFFB;
       a2->Flags.Value = v7;
@@ -44,7 +47,9 @@ __int64 __fastcall ProcessSectionAttributes(PVOID Object, struct _DXGK_ALLOCATIO
       }
       else
       {
-        WdLogSingleEntry1(3LL, 3987LL);
+        v9 = WdLogNewEntry5_WdWarning(v8, v7, v6);
+        *(_QWORD *)(v9 + 24) = 3874LL;
+        WdLogEvent5_WdWarning(v9);
         v5 = -1073741811;
       }
     }

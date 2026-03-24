@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnExcessPoolCommit @ 0x140286478
+ * XREFs of MiReturnExcessPoolCommit @ 0x14028BF14
  * Callers:
- *     MiCommitPoolMemory @ 0x140285D10 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14028B8AC (MiCommitPoolMemory.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReturnPhysicalPoolPages @ 0x14034000C (MiReturnPhysicalPoolPages.c)
- *     MiReturnPoolCharges @ 0x140340278 (MiReturnPoolCharges.c)
- *     MiFreeLargePageChain @ 0x14064F18C (MiFreeLargePageChain.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiReturnPhysicalPoolPages @ 0x1402E9A84 (MiReturnPhysicalPoolPages.c)
+ *     MiReturnPoolCharges @ 0x1402E9F00 (MiReturnPoolCharges.c)
+ *     MiFreeLargePageChain @ 0x140556990 (MiFreeLargePageChain.c)
  */
 
 __int64 __fastcall MiReturnExcessPoolCommit(__int64 a1)
@@ -15,8 +15,10 @@ __int64 __fastcall MiReturnExcessPoolCommit(__int64 a1)
   __int64 v3; // rdx
   __int64 v4; // rcx
   __int64 v5; // rcx
-  _OWORD v6[3]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v7; // [rsp+50h] [rbp-18h]
+  __int128 v6; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-28h]
+  __int64 v8; // [rsp+38h] [rbp-20h]
+  __int128 v9; // [rsp+40h] [rbp-18h]
 
   result = *(unsigned __int16 *)(a1 + 78);
   if ( (result & 2) != 0 )
@@ -25,7 +27,7 @@ __int64 __fastcall MiReturnExcessPoolCommit(__int64 a1)
     v3 = *(_QWORD *)(a1 + 8);
     if ( result != v3 )
       return MiReturnCommit(
-               *(_QWORD *)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 48) + 174LL)),
+               *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 48) + 174LL)),
                v3 - result);
   }
   else if ( (result & 4) != 0 )
@@ -36,11 +38,11 @@ __int64 __fastcall MiReturnExcessPoolCommit(__int64 a1)
     result = *(_QWORD *)(a1 + 8);
     if ( v4 != result )
     {
-      v6[0] = (unsigned __int64)(result - v4);
-      v6[2] = v6[0];
-      v6[1] = 0LL;
       v7 = 0LL;
-      return MiReturnPoolCharges(v6, 0LL, 0LL);
+      v8 = result - v4;
+      v6 = (unsigned __int64)(result - v4);
+      v9 = 0LL;
+      return MiReturnPoolCharges(&v6, 0LL);
     }
   }
   else if ( (result & 0x100) == 0 )

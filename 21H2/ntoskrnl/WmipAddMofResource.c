@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipAddMofResource @ 0x14084E03C
+ * XREFs of WmipAddMofResource @ 0x1407BE31C
  * Callers:
- *     WmipAddDataSource @ 0x14075D1B4 (WmipAddDataSource.c)
- *     WmipInitializeDataStructs @ 0x140B2305C (WmipInitializeDataStructs.c)
+ *     WmipAddDataSource @ 0x1407568A8 (WmipAddDataSource.c)
+ *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     RtlStringCbCopyW @ 0x1402E0978 (RtlStringCbCopyW.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     WmipAllocEntry @ 0x14075E074 (WmipAllocEntry.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipInsertMofResource @ 0x14084E1F4 (WmipInsertMofResource.c)
- *     WmipFindMRByNames @ 0x14084E278 (WmipFindMRByNames.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipAllocEntry @ 0x1407580C0 (WmipAllocEntry.c)
+ *     WmipInsertMofResource @ 0x1407BE4D4 (WmipInsertMofResource.c)
+ *     WmipFindMRByNames @ 0x1407BE558 (WmipFindMRByNames.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, const wchar_t *a4, char *a5)

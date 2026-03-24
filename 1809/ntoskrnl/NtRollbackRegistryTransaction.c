@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRollbackRegistryTransaction @ 0x1406932F0
+ * XREFs of NtRollbackRegistryTransaction @ 0x1406932D0
  * Callers:
  *     <none>
  * Callees:
@@ -7,13 +7,13 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpRollbackLightWeightTransaction @ 0x140693910 (CmpRollbackLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1406938F0 (CmpRollbackLightWeightTransaction.c)
  */
 
 __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)

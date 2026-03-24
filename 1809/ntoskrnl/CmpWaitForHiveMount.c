@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpWaitForHiveMount @ 0x1407555C4
+ * XREFs of CmpWaitForHiveMount @ 0x1407555A4
  * Callers:
  *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
  */
 

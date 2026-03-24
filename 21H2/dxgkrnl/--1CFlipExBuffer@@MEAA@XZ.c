@@ -1,15 +1,14 @@
 /*
- * XREFs of ??1CFlipExBuffer@@MEAA@XZ @ 0x1C00044C4
+ * XREFs of ??1CFlipExBuffer@@MEAA@XZ @ 0x1C000ECA4
  * Callers:
- *     ??_GCFlipExBuffer@@MEAAPEAXI@Z @ 0x1C00043F0 (--_GCFlipExBuffer@@MEAAPEAXI@Z.c)
- *     ??_GCCompositionSwapchainBuffer@@UEAAPEAXI@Z @ 0x1C0082E50 (--_GCCompositionSwapchainBuffer@@UEAAPEAXI@Z.c)
+ *     ??_GCFlipExBuffer@@MEAAPEAXI@Z @ 0x1C000EC60 (--_GCFlipExBuffer@@MEAAPEAXI@Z.c)
+ *     ??_GCCompositionSwapchainBuffer@@MEAAPEAXI@Z @ 0x1C00671C0 (--_GCCompositionSwapchainBuffer@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C0004434 (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
- *     ?ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ @ 0x1C0004478 (-ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ.c)
- *     ?ReleaseHDR10MetaData@CFlipExBuffer@@IEAAXXZ @ 0x1C000449C (-ReleaseHDR10MetaData@CFlipExBuffer@@IEAAXXZ.c)
- *     ??1CCompositionBuffer@@UEAA@XZ @ 0x1C0007EF8 (--1CCompositionBuffer@@UEAA@XZ.c)
- *     ?DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z @ 0x1C0008C84 (-DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z.c)
- *     DxgkImmediateSignalSynchronizationObjectByReference @ 0x1C019AB18 (DxgkImmediateSignalSynchronizationObjectByReference.c)
+ *     ??1CCompositionBuffer@@UEAA@XZ @ 0x1C0011B6C (--1CCompositionBuffer@@UEAA@XZ.c)
+ *     ?ReleaseHDR10MetaData@CFlipExBuffer@@IEAAXXZ @ 0x1C0011C08 (-ReleaseHDR10MetaData@CFlipExBuffer@@IEAAXXZ.c)
+ *     ?ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ @ 0x1C0011C30 (-ReleasePendingPresentLimits@CFlipExBuffer@@IEAAXXZ.c)
+ *     ?DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z @ 0x1C001D9C4 (-DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z.c)
+ *     DxgkImmediateSignalSynchronizationObjectByReference @ 0x1C0171F94 (DxgkImmediateSignalSynchronizationObjectByReference.c)
  */
 
 void __fastcall CFlipExBuffer::~CFlipExBuffer(CFlipExBuffer *this)
@@ -18,19 +17,18 @@ void __fastcall CFlipExBuffer::~CFlipExBuffer(CFlipExBuffer *this)
   void *v3; // rcx
   void *v4; // rcx
 
-  v1 = *((_DWORD *)this + 96) == 0;
+  v1 = *((_DWORD *)this + 88) == 0;
   *(_QWORD *)this = &CFlipExBuffer::`vftable';
   if ( !v1 )
     CFlipExBuffer::DisableDxgkrnlIndependentFlipMode(this, 0LL);
-  if ( *((_QWORD *)this + 44) && *((_QWORD *)this + 43) )
+  if ( *((_QWORD *)this + 40) && *((_QWORD *)this + 39) )
     DxgkImmediateSignalSynchronizationObjectByReference();
-  CFlipExBuffer::DisableCascadedSignaling(this);
   CFlipExBuffer::ReleasePendingPresentLimits(this);
   CFlipExBuffer::ReleaseHDR10MetaData(this);
-  v3 = (void *)*((_QWORD *)this + 41);
+  v3 = (void *)*((_QWORD *)this + 37);
   if ( v3 )
     ObfDereferenceObject(v3);
-  v4 = (void *)*((_QWORD *)this + 43);
+  v4 = (void *)*((_QWORD *)this + 39);
   if ( v4 )
     ObfDereferenceObject(v4);
   CCompositionBuffer::~CCompositionBuffer(this);

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDDCCIGetTimingReport @ 0x1C026FDE0
+ * XREFs of NtGdiDDCCIGetTimingReport @ 0x1C02721E0
  * Callers:
  *     <none>
  * Callees:
- *     ?DdcciGetTimingReport@CMonitorAPI@@QEAAJPEAXPEAU_MC_TIMING_REPORT@@@Z @ 0x1C026F198 (-DdcciGetTimingReport@CMonitorAPI@@QEAAJPEAXPEAU_MC_TIMING_REPORT@@@Z.c)
+ *     ?DdcciGetTimingReport@CMonitorAPI@@QEAAJPEAXPEAU_MC_TIMING_REPORT@@@Z @ 0x1C027157C (-DdcciGetTimingReport@CMonitorAPI@@QEAAJPEAXPEAU_MC_TIMING_REPORT@@@Z.c)
  */
 
 __int64 __fastcall NtGdiDDCCIGetTimingReport(CMonitorAPI *a1, _QWORD *Address)

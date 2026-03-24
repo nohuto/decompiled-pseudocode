@@ -1,8 +1,9 @@
 /*
- * XREFs of MmKernelVerifierEnabled @ 0x14045B94E
+ * XREFs of MmKernelVerifierEnabled @ 0x1405304B8
  * Callers:
- *     VerifierExFreePool @ 0x140A7F070 (VerifierExFreePool.c)
- *     VerifierExFreePoolWithTag @ 0x140A7F0E0 (VerifierExFreePoolWithTag.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     VerifierExFreePool @ 0x1409D5190 (VerifierExFreePool.c)
+ *     VerifierExFreePoolWithTag @ 0x1409D5220 (VerifierExFreePoolWithTag.c)
  * Callees:
  *     <none>
  */

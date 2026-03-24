@@ -1,63 +1,66 @@
 /*
- * XREFs of ?CompleteInitialization@OUTPUTDUPL_MGR@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C032AD60
+ * XREFs of ?CompleteInitialization@OUTPUTDUPL_MGR@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C02994E0
  * Callers:
- *     ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C032B4D0 (-DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_F.c)
+ *     ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C0299B08 (-DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_F.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?FindContextForProcess@OUTPUTDUPL_MGR@@AEAAPEAPEAVOUTPUTDUPL_CONTEXT@@PEAU_OUTPUTDUPL_CONTEXTLIST@@PEAU_EPROCESS@@PEAI@Z @ 0x1C0231D2E (-FindContextForProcess@OUTPUTDUPL_MGR@@AEAAPEAPEAVOUTPUTDUPL_CONTEXT@@PEAU_OUTPUTDUPL_CONTEXTLIS.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?FindContextForProcess@OUTPUTDUPL_MGR@@AEAAPEAPEAVOUTPUTDUPL_CONTEXT@@PEAU_OUTPUTDUPL_CONTEXTLIST@@PEAU_EPROCESS@@PEAI@Z @ 0x1C029A064 (-FindContextForProcess@OUTPUTDUPL_MGR@@AEAAPEAPEAVOUTPUTDUPL_CONTEXT@@PEAU_OUTPUTDUPL_CONTEXTLIS.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_MGR::CompleteInitialization(
         OUTPUTDUPL_MGR *this,
         const struct _D3DKMT_CREATE_OUTPUTDUPL *a2)
 {
-  struct DXGFASTMUTEX *v3; // rbx
-  __int64 v4; // rcx
+  __int64 v3; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
   struct _EPROCESS *CurrentProcess; // rax
   struct OUTPUTDUPL_CONTEXT **ContextForProcess; // rax
-  __int64 v7; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  unsigned int v12; // eax
+  __int64 v13; // rax
   unsigned int CurrentProcessSessionId; // eax
-  unsigned int v9; // ebx
-  _BYTE v11[16]; // [rsp+50h] [rbp-38h] BYREF
-  _OWORD v12[2]; // [rsp+60h] [rbp-28h] BYREF
+  unsigned int v15; // ebx
+  _BYTE v17[16]; // [rsp+30h] [rbp-38h] BYREF
+  _OWORD v18[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v3 = (struct DXGFASTMUTEX *)(*((_QWORD *)this + 2) + 72LL * a2->VidPnSourceId);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v11, v3, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
-  CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v4);
-  ContextForProcess = OUTPUTDUPL_MGR::FindContextForProcess(this, (struct _KTHREAD **)v3, CurrentProcess, 0LL);
+  v3 = *((_QWORD *)this + 2) + 32LL * a2->VidPnSourceId;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, *(struct DXGFASTMUTEX *const *)v3, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v5, v4, v6, v7);
+  ContextForProcess = OUTPUTDUPL_MGR::FindContextForProcess(
+                        this,
+                        (struct _OUTPUTDUPL_CONTEXTLIST *)v3,
+                        CurrentProcess,
+                        0LL);
   if ( ContextForProcess )
   {
     *((_DWORD *)*ContextForProcess + 79) = 1;
-    if ( *((_DWORD *)v3 + 16) >= *((_DWORD *)this + 2) )
+    v12 = *(_DWORD *)(v3 + 24);
+    if ( v12 >= *((_DWORD *)this + 2) )
     {
-      WdLogSingleEntry1(1LL, 1604LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pContextList->cActiveContexts < m_MaxActiveOutputDuplApps",
-        1604LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v13 = WdLogNewEntry5_WdAssertion(v11, v10);
+      *(_QWORD *)(v13 + 24) = 1650LL;
+      WdLogEvent5_WdAssertion(v13);
+      v12 = *(_DWORD *)(v3 + 24);
     }
-    ++*((_DWORD *)v3 + 16);
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v7);
-    memset(v12, 0, sizeof(v12));
-    LODWORD(v12[0]) = 15;
-    SMgrGdiCallout(v12, CurrentProcessSessionId, 0LL, 0LL, 0LL, 0LL);
-    v9 = 0;
+    *(_DWORD *)(v3 + 24) = v12 + 1;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v11, v10);
+    memset(v18, 0, sizeof(v18));
+    LODWORD(v18[0]) = 15;
+    SMgrGdiCallout(v18, CurrentProcessSessionId, 0LL, 0LL, 0LL, 0LL);
+    v15 = 0;
   }
   else
   {
-    v9 = -1073741275;
+    v15 = -1073741275;
   }
-  if ( v11[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11);
-  return v9;
+  if ( v17[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v10);
+  return v15;
 }

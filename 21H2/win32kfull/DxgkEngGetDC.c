@@ -1,17 +1,20 @@
 /*
- * XREFs of DxgkEngGetDC @ 0x1C0275120
+ * XREFs of DxgkEngGetDC @ 0x1C0277900
  * Callers:
  *     <none>
  * Callees:
- *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0091AE4 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
- *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00920F0 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0017954 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
  */
 
-HDC __fastcall DxgkEngGetDC(__int64 a1, _QWORD *a2)
+HDC __fastcall DxgkEngGetDC(__int64 a1, __int64 *a2)
 {
   HDC DC; // rax
   HDC v4; // rdi
-  __int64 *v6[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 *v6; // rsi
+  __int64 DisplayDC; // rax
+  __int64 v8; // rbp
+  __int64 *v9; // [rsp+20h] [rbp-18h] BYREF
+  int v10; // [rsp+48h] [rbp+10h] BYREF
 
   if ( a2 )
     *a2 = 0LL;
@@ -21,11 +24,17 @@ HDC __fastcall DxgkEngGetDC(__int64 a1, _QWORD *a2)
     return 0LL;
   if ( a2 )
   {
-    MDCOBJA::MDCOBJA((MDCOBJA *)v6, DC);
-    if ( v6[0] )
+    MDCOBJA::MDCOBJA((MDCOBJA *)&v9, DC);
+    v6 = v9;
+    if ( v9 )
     {
-      *a2 = GreCreateDisplayDC(v6[0][6], 0LL);
-      XDCOBJ::vAltUnlockFast(v6);
+      DisplayDC = GreCreateDisplayDC(v9[6], 0LL);
+      v10 = 0;
+      *a2 = DisplayDC;
+      v8 = *v6;
+      HmgDecrementShareReferenceCountEx(v6, &v10);
+      if ( v10 )
+        bDeleteDCInternalEx(v8, 0LL);
     }
     if ( !*a2 )
     {

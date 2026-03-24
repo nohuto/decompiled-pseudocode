@@ -1,27 +1,36 @@
 /*
- * XREFs of PnpIsAnyDeviceInUse @ 0x1403A56FC
+ * XREFs of PnpIsAnyDeviceInUse @ 0x14036DC98
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     PnpIsChainDereferenced @ 0x1403A55B8 (PnpIsChainDereferenced.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x14036DB30 (PnpIsChainDereferenced.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall PnpIsAnyDeviceInUse(__int64 *a1, __int64 a2, _QWORD *a3)
 {
-  __int64 v3; // rdx
-  int v4; // ecx
+  __int64 i; // rdx
+  int v4; // r9d
+  int v5; // r10d
 
-  v3 = *a1;
+  i = 0LL;
   v4 = 0;
-  while ( v3 )
+  v5 = 0;
+  do
   {
-    v4 = *(_DWORD *)(v3 + 4);
     if ( v4 )
       break;
-    v3 = *(_QWORD *)(v3 + 24);
+    for ( i = *a1; i; i = *(_QWORD *)(i + 24) )
+    {
+      v4 = *(_DWORD *)(i + 4);
+      if ( v4 )
+        break;
+    }
+    ++v5;
+    ++a1;
   }
+  while ( !v5 );
   if ( a3 )
-    *a3 = v3;
+    *a3 = i;
   return v4 != 0;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiResortScbQueue @ 0x140210D6C
+ * XREFs of KiResortScbQueue @ 0x1402EBF2C
  * Callers:
- *     KeSetSchedulingGroupRankBias @ 0x140207F60 (KeSetSchedulingGroupRankBias.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140210178 (KiRecomputeGroupSchedulingRank.c)
- *     KiRemoveThreadFromScbQueue @ 0x1402108CC (KiRemoveThreadFromScbQueue.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x140210A70 (KiInsertNonMaxOverQuotaScb.c)
- *     KiComputeGroupSchedulingRank @ 0x14022A040 (KiComputeGroupSchedulingRank.c)
+ *     KiComputeGroupSchedulingRank @ 0x140259C40 (KiComputeGroupSchedulingRank.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140288488 (KeSetSchedulingGroupRankBias.c)
+ *     KiRemoveThreadFromScbQueue @ 0x1402EB78C (KiRemoveThreadFromScbQueue.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x1402EBD9C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x1402EC8F0 (KiRecomputeGroupSchedulingRank.c)
  * Callees:
- *     KiInsertSchedulingGroupQueue @ 0x140210AD0 (KiInsertSchedulingGroupQueue.c)
- *     KiRemoveSchedulingGroupQueue @ 0x140210CE4 (KiRemoveSchedulingGroupQueue.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x1402EB83C (KiRemoveSchedulingGroupQueue.c)
+ *     KiInsertSchedulingGroupQueue @ 0x1402EBDFC (KiInsertSchedulingGroupQueue.c)
  */
 
 void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
@@ -68,12 +68,17 @@ void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
 LABEL_31:
       if ( v17 >= 0 )
         return;
-      goto LABEL_21;
+      goto LABEL_32;
     }
-    if ( v16 || *(_QWORD *)a2 > *(_QWORD *)(v6 - 88) )
+    if ( v16 )
+    {
+      v17 = 1;
+      goto LABEL_31;
+    }
+    if ( *(_QWORD *)a2 > *(_QWORD *)(v6 - 88) )
       return;
-LABEL_21:
-    KiRemoveSchedulingGroupQueue(a1, a2, 0);
+LABEL_32:
+    KiRemoveSchedulingGroupQueue(a1, a2, 0LL, (__int64)v3);
     KiInsertSchedulingGroupQueue(a1, a2, 0LL);
     return;
   }
@@ -107,21 +112,28 @@ LABEL_21:
     if ( !v11 )
     {
       v12 = *(unsigned __int16 *)(a2 + 114);
-      if ( !(_WORD)v12 )
+      if ( (_WORD)v12 )
       {
-        if ( !*(_DWORD *)(a2 + 116) && *(_QWORD *)a2 <= *(_QWORD *)(v8 - 88) )
-          return;
-        goto LABEL_21;
+        v13 = *(unsigned __int16 *)(v8 + 26);
+        _BitScanReverse((unsigned int *)&v14, v12);
+        v15 = 0;
+        if ( (_WORD)v13 )
+          _BitScanReverse((unsigned int *)&v15, v13);
+        v11 = v15 - v14;
       }
-      v13 = *(unsigned __int16 *)(v8 + 26);
-      _BitScanReverse((unsigned int *)&v14, v12);
-      v15 = 0;
-      if ( (_WORD)v13 )
-        _BitScanReverse((unsigned int *)&v15, v13);
-      v11 = v15 - v14;
+      else
+      {
+        if ( !*(_DWORD *)(a2 + 116) )
+        {
+          if ( *(_QWORD *)a2 <= *(_QWORD *)(v8 - 88) )
+            return;
+          goto LABEL_32;
+        }
+        v11 = 1;
+      }
     }
     if ( v11 <= 0 )
       return;
-    goto LABEL_21;
+    goto LABEL_32;
   }
 }

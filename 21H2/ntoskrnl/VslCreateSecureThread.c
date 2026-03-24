@@ -1,14 +1,14 @@
 /*
- * XREFs of VslCreateSecureThread @ 0x140931AC0
+ * XREFs of VslCreateSecureThread @ 0x14088F270
  * Callers:
- *     KeSecureThread @ 0x14056B97C (KeSecureThread.c)
+ *     KeSecureThread @ 0x1405132DC (KeSecureThread.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslCreateSecureThread(
+NTSTATUS __fastcall VslCreateSecureThread(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -17,7 +17,7 @@ __int64 __fastcall VslCreateSecureThread(
         __int64 a6,
         _DWORD *a7)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v12[14]; // [rsp+20h] [rbp-A8h] BYREF
 
   memset(v12, 0, 0x68uLL);
@@ -29,7 +29,7 @@ __int64 __fastcall VslCreateSecureThread(
   v12[4] = a3;
   v12[5] = a4;
   result = VslpEnterIumSecureMode(2u, 8, 0, (__int64)v12);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
     *a7 = v12[2];
   return result;
 }

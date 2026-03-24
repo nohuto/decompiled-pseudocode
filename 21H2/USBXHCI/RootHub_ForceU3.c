@@ -1,92 +1,94 @@
 /*
- * XREFs of RootHub_ForceU3 @ 0x1C003DB7C
+ * XREFs of RootHub_ForceU3 @ 0x1C003D60C
  * Callers:
- *     RootHub_HandleResumedPorts @ 0x1C000D530 (RootHub_HandleResumedPorts.c)
+ *     RootHub_HandleResumedPorts @ 0x1C000AE10 (RootHub_HandleResumedPorts.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0011F9C (RootHub_ReleaseReadModifyWriteLock.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013A48 (RootHub_AcquireReadModifyWriteLock.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     RootHub_ForceU0AndWait @ 0x1C003D7D8 (RootHub_ForceU0AndWait.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0011EE0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013DD0 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     RootHub_ForceU0AndWait @ 0x1C003D268 (RootHub_ForceU0AndWait.c)
  */
 
-__int64 __fastcall RootHub_ForceU3(_QWORD *a1, int a2)
+__int64 __fastcall RootHub_ForceU3(_QWORD *a1, int a2, __int64 a3, int a4)
 {
-  unsigned int v3; // ebp
-  __int64 v4; // rcx
-  __int64 v5; // r14
-  __int64 v6; // rbx
-  unsigned int *v7; // rsi
-  bool v8; // zf
+  unsigned int v5; // ebp
+  __int64 v6; // rcx
+  __int64 v7; // r14
+  __int64 v8; // rbx
+  unsigned int *v9; // rsi
+  bool v10; // zf
   __int64 result; // rax
   int Ulong; // eax
-  int v11; // edx
-  int v12; // ebx
-  int v13; // ebx
-  int v14; // edx
+  int v13; // edx
+  int v14; // ebx
+  int v15; // ebx
+  int v16; // r8d
+  int v17; // r9d
+  int v18; // edx
 
-  v3 = a2 - 1;
-  v4 = a1[1];
-  v5 = *(_QWORD *)(v4 + 88);
-  v6 = a1[6] + 112LL * (unsigned int)(a2 - 1);
-  v7 = (unsigned int *)(a1[5] + 16LL * (unsigned int)(a2 - 1));
-  if ( *(_BYTE *)(v6 + 13) == 2 )
-    v8 = (*(_QWORD *)(v4 + 336) & 0x8000000LL) == 0;
+  v5 = a2 - 1;
+  v6 = a1[1];
+  v7 = *(_QWORD *)(v6 + 88);
+  v8 = a1[6] + 112LL * (unsigned int)(a2 - 1);
+  v9 = (unsigned int *)(a1[5] + 16LL * (unsigned int)(a2 - 1));
+  if ( *(_BYTE *)(v8 + 13) == 2 )
+    v10 = (*(_QWORD *)(v6 + 336) & 0x8000000LL) == 0;
   else
-    v8 = (*(_QWORD *)(v4 + 336) & 0x80000LL) == 0;
-  if ( v8 || (result = RootHub_ForceU0AndWait(a1, a2), (int)result >= 0) )
+    v10 = (*(_QWORD *)(v6 + 336) & 0x80000LL) == 0;
+  if ( v10 || (result = RootHub_ForceU0AndWait(a1, a2, a3, a4), (int)result >= 0) )
   {
-    RootHub_AcquireReadModifyWriteLock((__int64)a1, v3);
-    *(_BYTE *)(v6 + 18) = 0;
-    Ulong = XilRegister_ReadUlong(v5, v7);
-    v12 = Ulong;
+    RootHub_AcquireReadModifyWriteLock((__int64)a1, v5, a3, a4);
+    *(_BYTE *)(v8 + 18) = 0;
+    Ulong = XilRegister_ReadUlong(v7, v9);
+    v14 = Ulong;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v11) = 4;
+      LOBYTE(v13) = 4;
       WPP_RECORDER_SF_d(
         *(_QWORD *)(a1[1] + 72LL),
-        v11,
+        v13,
         11,
-        229,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+        228,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         Ulong);
     }
-    if ( ((v12 & 2) == 0 || (v12 & 0x1E0u) >= 0x60) && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( ((v14 & 2) == 0 || (v14 & 0x1E0u) >= 0x60) && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v11) = 3;
+      LOBYTE(v13) = 3;
       WPP_RECORDER_SF_(
         *(_QWORD *)(a1[1] + 72LL),
-        v11,
+        v13,
         11,
-        230,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids);
+        229,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
     }
-    v13 = v12 & 0xE00C200 | 0x10060;
+    v15 = v14 & 0xE00C200 | 0x10060;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v11) = 4;
+      LOBYTE(v13) = 4;
       WPP_RECORDER_SF_d(
         *(_QWORD *)(a1[1] + 72LL),
-        v11,
+        v13,
         11,
-        231,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
-        v13);
+        230,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+        v15);
     }
-    XilRegister_WriteUlong(v5, v7, v13);
-    RootHub_ReleaseReadModifyWriteLock((__int64)a1, v3);
-    result = XilRegister_ReadUlong(v5, v7);
+    XilRegister_WriteUlong(v7, v9, v15);
+    RootHub_ReleaseReadModifyWriteLock((__int64)a1, v5, v16, v17);
+    result = XilRegister_ReadUlong(v7, v9);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v14) = 4;
+      LOBYTE(v18) = 4;
       return WPP_RECORDER_SF_d(
                *(_QWORD *)(a1[1] + 72LL),
-               v14,
+               v18,
                11,
-               232,
-               (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+               231,
+               (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                result);
     }
   }

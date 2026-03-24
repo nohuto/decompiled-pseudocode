@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepCountReadyActivities @ 0x1403565AC
+ * XREFs of PopPepCountReadyActivities @ 0x140261BDC
  * Callers:
- *     PopPepProcessEvent @ 0x140356454 (PopPepProcessEvent.c)
- *     PopPepUpdateConstraints @ 0x1403B17EC (PopPepUpdateConstraints.c)
- *     PopPepComponentSetLatency @ 0x14045E4C2 (PopPepComponentSetLatency.c)
- *     PopPepCompleteComponentIdleState @ 0x1405D4C64 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetResidency @ 0x1405D4D6C (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1405D4E64 (PopPepComponentSetWakeHint.c)
- *     PopPepIdleTimeoutRoutine @ 0x1405D5360 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
+ *     PopPepUpdateConstraints @ 0x1403A056C (PopPepUpdateConstraints.c)
+ *     PopPepCompleteComponentIdleState @ 0x140574194 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetLatency @ 0x14057429C (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x140574388 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x140574480 (PopPepComponentSetWakeHint.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1405749F0 (PopPepIdleTimeoutRoutine.c)
  * Callees:
  *     <none>
  */
@@ -31,11 +31,11 @@ __int64 __fastcall PopPepCountReadyActivities(unsigned int *a1, __int64 a2, int 
     v4 = a1[45];
     if ( (_DWORD)v4 )
     {
-      v5 = a1 + 74;
+      v5 = a1 + 72;
       do
       {
         result = (unsigned int)(*v5 + result);
-        v5 += 52;
+        v5 += 50;
         --v4;
       }
       while ( v4 );

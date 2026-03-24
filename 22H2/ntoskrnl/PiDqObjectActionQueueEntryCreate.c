@@ -1,28 +1,31 @@
 /*
- * XREFs of PiDqObjectActionQueueEntryCreate @ 0x1407877C0
+ * XREFs of PiDqObjectActionQueueEntryCreate @ 0x140765F1C
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x140788430 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140765DB8 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqObjectActionQueueEntryCreate(volatile signed __int32 *a1, __int64 *a2)
+__int64 __fastcall PiDqObjectActionQueueEntryCreate(volatile signed __int32 *a1, __int64 a2)
 {
-  unsigned int v4; // edi
-  __int64 Pool2; // rax
+  unsigned int v2; // ebx
+  _QWORD *PoolWithTag; // rax
 
-  v4 = 0;
-  Pool2 = ExAllocatePool2(256LL, 32LL, 1483763280LL);
-  *a2 = Pool2;
-  if ( Pool2 )
+  v2 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x58706E50u);
+  *(_QWORD *)a2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 16) = a1;
-    *(_QWORD *)(Pool2 + 24) = _InterlockedIncrement64(&PiDqSequenceNumber);
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[3] = 0LL;
+    PoolWithTag[2] = a1;
+    *(_QWORD *)(*(_QWORD *)a2 + 24LL) = _InterlockedIncrement64(&PiDqSequenceNumber);
     _InterlockedIncrement(a1);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v4;
+  return v2;
 }

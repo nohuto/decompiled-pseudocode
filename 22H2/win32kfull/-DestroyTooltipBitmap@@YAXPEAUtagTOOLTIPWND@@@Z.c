@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DestroyTooltipBitmap@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C00BD578
+ * XREFs of ?DestroyTooltipBitmap@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C00DB380
  * Callers:
- *     xxxTooltipWndProc @ 0x1C001FBD0 (xxxTooltipWndProc.c)
- *     ?CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z @ 0x1C022537C (-CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z.c)
+ *     xxxTooltipWndProc @ 0x1C00DAED0 (xxxTooltipWndProc.c)
+ *     ?CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z @ 0x1C0241FB0 (-CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z.c)
  * Callees:
  *     <none>
  */

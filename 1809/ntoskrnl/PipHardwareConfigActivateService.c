@@ -1,13 +1,13 @@
 /*
- * XREFs of PipHardwareConfigActivateService @ 0x140705370
+ * XREFs of PipHardwareConfigActivateService @ 0x140705350
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     PiOpenDriverRedirectedStateKey @ 0x14070544C (PiOpenDriverRedirectedStateKey.c)
- *     PipOpenServiceEnumKeys @ 0x140709554 (PipOpenServiceEnumKeys.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x14070542C (PiOpenDriverRedirectedStateKey.c)
+ *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
  */
 
 __int64 __fastcall PipHardwareConfigActivateService(PCWSTR SourceString)

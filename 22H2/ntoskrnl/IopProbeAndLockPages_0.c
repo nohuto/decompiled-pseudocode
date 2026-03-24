@@ -1,10 +1,10 @@
 /*
- * XREFs of IopProbeAndLockPages_0 @ 0x1403D3B14
+ * XREFs of IopProbeAndLockPages_0 @ 0x14031B0B8
  * Callers:
- *     IopAllocateAndPopulateWriteIrp @ 0x140224240 (IopAllocateAndPopulateWriteIrp.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403F14CC (IopAllocateAndPopulateWriteIrp.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTracker @ 0x14061D324 (MmUpdateMdlTracker.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTracker @ 0x1405311B0 (MmUpdateMdlTracker.c)
  */
 
 __int64 __fastcall IopProbeAndLockPages_0(__int64 a1, char a2, __int64 a3, __int64 a4, unsigned int a5)

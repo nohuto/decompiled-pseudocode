@@ -1,29 +1,29 @@
 /*
- * XREFs of PipClearDevNodeFlags @ 0x14076FBEC
+ * XREFs of PipClearDevNodeFlags @ 0x140746A74
  * Callers:
- *     PiProcessClearDeviceProblem @ 0x140660388 (PiProcessClearDeviceProblem.c)
- *     PnpRestartDeviceNode @ 0x14066044C (PnpRestartDeviceNode.c)
- *     PnpAllocateResources @ 0x140747FB4 (PnpAllocateResources.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x1407483B4 (PnpGetResourceRequirementsForAssignTable.c)
- *     PipEnumerateDevice @ 0x14074B420 (PipEnumerateDevice.c)
- *     PiProcessReenumeration @ 0x140764BE0 (PiProcessReenumeration.c)
- *     PipClearDevNodeProblem @ 0x140764FE4 (PipClearDevNodeProblem.c)
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
- *     PnpProcessRelation @ 0x140767AEC (PnpProcessRelation.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
- *     PipEnumerateCompleted @ 0x14076F8AC (PipEnumerateCompleted.c)
- *     PnpInvalidateRelationsInList @ 0x14080E8D0 (PnpInvalidateRelationsInList.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C (PnpSurpriseRemoveLockedDeviceNode.c)
- *     IopRemoveLegacyDeviceNode @ 0x14081F69C (IopRemoveLegacyDeviceNode.c)
- *     IopReleaseResources @ 0x14081F6E0 (IopReleaseResources.c)
- *     PnpBuildCmResourceLists @ 0x14081FCD8 (PnpBuildCmResourceLists.c)
- *     IopReleaseFilteredBootResources @ 0x140831280 (IopReleaseFilteredBootResources.c)
- *     PiProcessResourceRequirementsChanged @ 0x140947934 (PiProcessResourceRequirementsChanged.c)
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
- *     PnpCancelStopDeviceNode @ 0x140959B60 (PnpCancelStopDeviceNode.c)
- *     PipProcessRestartPhase1 @ 0x14095B2D4 (PipProcessRestartPhase1.c)
+ *     PiProcessClearDeviceProblem @ 0x140731768 (PiProcessClearDeviceProblem.c)
+ *     PnpRestartDeviceNode @ 0x140731838 (PnpRestartDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
+ *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PipClearDevNodeProblem @ 0x140739754 (PipClearDevNodeProblem.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PipEnumerateCompleted @ 0x140745380 (PipEnumerateCompleted.c)
+ *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
+ *     PnpBuildCmResourceLists @ 0x14074F54C (PnpBuildCmResourceLists.c)
+ *     PnpAllocateResources @ 0x14074FCE8 (PnpAllocateResources.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1407500CC (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopReleaseFilteredBootResources @ 0x140753138 (IopReleaseFilteredBootResources.c)
+ *     IopReleaseResources @ 0x1407533CC (IopReleaseResources.c)
+ *     IopRemoveLegacyDeviceNode @ 0x1407535A8 (IopRemoveLegacyDeviceNode.c)
+ *     PiProcessReenumeration @ 0x14076D850 (PiProcessReenumeration.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1408A26E8 (PiProcessResourceRequirementsChanged.c)
+ *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase1 @ 0x1408B526C (PipProcessRestartPhase1.c)
+ *     PnpCancelStopDeviceNode @ 0x1408B82E4 (PnpCancelStopDeviceNode.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140772044 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipClearDevNodeFlags(__int64 a1, int a2)
@@ -43,17 +43,17 @@ __int64 __fastcall PipClearDevNodeFlags(__int64 a1, int a2)
     v5 = *(_QWORD *)(a1 + 48);
     if ( v5 )
     {
-      PnpRaiseNtPlugPlayDevicePropertyChangeEvent(a1, v5, 11LL);
+      PnpRaiseNtPlugPlayDevicePropertyChangeEvent(a1, v5, 11);
       v6 = *(unsigned int *)(a1 + 396);
       result = v2 ^ *(_DWORD *)(a1 + 396);
       if ( (((unsigned __int16)v2 ^ *(_WORD *)(a1 + 396)) & 0x4000) != 0 )
       {
-        result = PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v6, *(_QWORD *)(a1 + 48), 28LL);
+        result = PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v6, *(_QWORD *)(a1 + 48), 28);
         LODWORD(v6) = *(_DWORD *)(a1 + 396);
       }
       v8 = v2 ^ (unsigned int)v6;
       if ( (v8 & 0x2000) != 0 )
-        return PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v8, *(_QWORD *)(a1 + 48), 27LL);
+        return PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v8, *(_QWORD *)(a1 + 48), 27);
     }
   }
   return result;

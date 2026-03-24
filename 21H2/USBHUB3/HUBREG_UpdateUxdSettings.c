@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBREG_UpdateUxdSettings @ 0x1C0081E38
+ * XREFs of HUBREG_UpdateUxdSettings @ 0x1C00808CC
  * Callers:
- *     HUBFDO_IoctlCyclePort @ 0x1C00780D8 (HUBFDO_IoctlCyclePort.c)
- *     HUBPDO_AssignPDOIds @ 0x1C007A95C (HUBPDO_AssignPDOIds.c)
+ *     HUBFDO_IoctlCyclePort @ 0x1C0076D30 (HUBFDO_IoctlCyclePort.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     HUBREG_QueryGlobalUxdSettings @ 0x1C0081584 (HUBREG_QueryGlobalUxdSettings.c)
- *     HUBREG_QueryUxdPortKey @ 0x1C00818CC (HUBREG_QueryUxdPortKey.c)
- *     HUBREG_QueryUxdDeviceKey @ 0x1C0081B54 (HUBREG_QueryUxdDeviceKey.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0080018 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_QueryUxdPortKey @ 0x1C0080360 (HUBREG_QueryUxdPortKey.c)
+ *     HUBREG_QueryUxdDeviceKey @ 0x1C00805E8 (HUBREG_QueryUxdDeviceKey.c)
  */
 
 __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
@@ -44,7 +44,7 @@ __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
           WdfDriverGlobals,
           WdfDriverGlobals->Driver,
-          off_1C00671E8);
+          off_1C00661C0);
   if ( (int)HUBREG_QueryGlobalUxdSettings(v10) >= 0 )
   {
     v11 = *(_DWORD *)(v10 + 4);

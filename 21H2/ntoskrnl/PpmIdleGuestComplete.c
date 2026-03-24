@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleGuestComplete @ 0x14039E160
+ * XREFs of PpmIdleGuestComplete @ 0x140390760
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvlSetPlatformIdleState @ 0x140549F88 (HvlSetPlatformIdleState.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvlSetPlatformIdleState @ 0x1404F82CC (HvlSetPlatformIdleState.c)
  */
 
 struct _KPRCB *__fastcall PpmIdleGuestComplete(__int64 a1, __int64 a2, unsigned int a3)

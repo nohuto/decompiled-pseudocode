@@ -1,33 +1,36 @@
 /*
- * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@_K$01$0DAGBGJFG@@@QEAAPEA_KI@Z @ 0x1C0019000
+ * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@_K$01$0DAGBGJFG@@@QEAAPEA_KI@Z @ 0x1C0017220
  * Callers:
- *     VidSchInitializeAdapter @ 0x1C00B7A30 (VidSchInitializeAdapter.c)
+ *     VidSchInitializeAdapter @ 0x1C008E2C0 (VidSchInitializeAdapter.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
-__int64 __fastcall NonPagedPoolZeroedArray<unsigned __int64,2,811690326>::AllocateElements(
-        __int64 *a1,
-        unsigned int a2)
+PVOID __fastcall NonPagedPoolZeroedArray<unsigned __int64,2,811690326>::AllocateElements(_DWORD *a1, unsigned int a2)
 {
-  void *v4; // rcx
-  __int64 result; // rax
+  __int64 v4; // rbx
+  PVOID result; // rax
 
-  if ( a2 <= 2 )
+  v4 = a2;
+  if ( a2 > 2 )
   {
-    v4 = a1 + 1;
-    *a1 = (__int64)v4;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 8 )
+      return 0LL;
+    result = ExAllocatePoolWithTag((POOL_TYPE)512, 8LL * a2, 0x30616956u);
+  }
+  else
+  {
+    result = a1 + 2;
+  }
+  *(_QWORD *)a1 = result;
+  a1[6] = a2;
+  if ( result )
+  {
     if ( a2 )
-      memset(v4, 0, 8LL * a2);
-    goto LABEL_4;
+    {
+      memset(result, 0, 8 * v4);
+      return *(PVOID *)a1;
+    }
   }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / a2 >= 8 )
-  {
-    *a1 = ExAllocatePool2(64LL, 8LL * a2, 811690326LL);
-LABEL_4:
-    result = *a1;
-    *((_DWORD *)a1 + 6) = a2;
-    return result;
-  }
-  return 0LL;
+  return result;
 }

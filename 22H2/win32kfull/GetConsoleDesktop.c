@@ -1,12 +1,12 @@
 /*
- * XREFs of GetConsoleDesktop @ 0x1C01BEB28
+ * XREFs of GetConsoleDesktop @ 0x1C01E92BC
  * Callers:
- *     _GetThreadDesktop @ 0x1C009B33C (_GetThreadDesktop.c)
- *     _OpenThreadDesktop @ 0x1C00B2854 (_OpenThreadDesktop.c)
- *     NtUserCheckWindowThreadDesktop @ 0x1C01CD720 (NtUserCheckWindowThreadDesktop.c)
+ *     _GetThreadDesktop @ 0x1C0104134 (_GetThreadDesktop.c)
+ *     _OpenThreadDesktop @ 0x1C01E9438 (_OpenThreadDesktop.c)
+ *     NtUserCheckWindowThreadDesktop @ 0x1C01F6C00 (NtUserCheckWindowThreadDesktop.c)
  * Callees:
- *     LockProcessByClientId @ 0x1C004FEE0 (LockProcessByClientId.c)
- *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01BE648 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
+ *     LockProcessByClientId @ 0x1C003C078 (LockProcessByClientId.c)
+ *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01E9108 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
  */
 
 __int64 __fastcall GetConsoleDesktop(int a1, _QWORD *a2, _QWORD *a3, __int64 *a4)
@@ -27,8 +27,6 @@ __int64 __fastcall GetConsoleDesktop(int a1, _QWORD *a2, _QWORD *a3, __int64 *a4
   if ( (int)result >= 0 )
   {
     ProcessWin32Process = PsGetProcessWin32Process(Object);
-    if ( ProcessWin32Process )
-      ProcessWin32Process &= -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL);
     v9 = Object;
     *a4 = ProcessWin32Process;
     ObfDereferenceObject(v9);

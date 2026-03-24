@@ -1,31 +1,32 @@
 /*
- * XREFs of ?SetProperty@CMatrixTransform3D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023B890
+ * XREFs of ?SetProperty@CMatrixTransform3D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801B58A0
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall CMatrixTransform3D::SetProperty(__int64 a1, unsigned int a2, int a3, float *a4)
+__int64 __fastcall CMatrixTransform3D::SetProperty(float *a1, unsigned int a2, int a3, float *a4)
 {
-  float v4; // xmm1_4
-  float *v5; // rbx
+  __int64 v4; // r10
+  float v5; // xmm1_4
   unsigned int v6; // ebx
 
-  if ( a3 == 18 && (v4 = *a4, a2 < 0x10) && (v5 = (float *)(a1 + 4 * (a2 + 40LL))) != 0LL )
+  v4 = (__int64)a1;
+  if ( a3 == 18 && (v5 = *a4, a2 < 0x10) && (a1 += 4 * ((unsigned __int64)a2 >> 2) + (a2 & 3) + 38) != 0LL )
   {
-    if ( *v5 != v4 )
+    if ( *a1 != v5 )
     {
-      *v5 = v4;
-      CResource::NotifyOnChanged(a1, 0, 0LL);
+      *a1 = v5;
+      CResource::NotifyOnChanged(v4, 0, 0LL);
     }
-    return v5 == 0LL ? 0x80070057 : 0;
+    return 0;
   }
   else
   {
     v6 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x44u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x46u, 0LL);
   }
   return v6;
 }

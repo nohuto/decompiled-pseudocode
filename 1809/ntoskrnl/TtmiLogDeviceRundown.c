@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogDeviceRundown @ 0x140883924
+ * XREFs of TtmiLogDeviceRundown @ 0x140883904
  * Callers:
- *     TtmiDevicesRundown @ 0x14087D5AC (TtmiDevicesRundown.c)
+ *     TtmiDevicesRundown @ 0x14087D58C (TtmiDevicesRundown.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogDeviceRundown()
@@ -65,7 +65,7 @@ void TtmiLogDeviceRundown()
       v21 = 4LL;
       v23 = 8LL;
       v25 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_140372963, 0LL, 0LL, 0xAu, &pData);
+      TlgWrite(&stru_14096D820, &unk_140372B2C, 0LL, 0LL, 0xAu, &pData);
     }
   }
 }

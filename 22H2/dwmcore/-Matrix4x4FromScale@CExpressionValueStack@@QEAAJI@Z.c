@@ -1,344 +1,383 @@
 /*
- * XREFs of ?Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z @ 0x18025FABC
+ * XREFs of ?Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z @ 0x1801FEDA4
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A610 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
- *     ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MMMUD2DVector3@@@Z @ 0x18027E214 (-D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MMMUD2DVector3@@@Z.c)
- *     ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18027E288 (-D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z.c)
- *     ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@UD2DVector3@@1@Z @ 0x18027E2F0 (-D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@UD2DVector3@@1@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A10F4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBAA4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MMMUD2DVector3@@@Z @ 0x18021D4C4 (-D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MMMUD2DVector3@@@Z.c)
+ *     ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18021D538 (-D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z.c)
+ *     ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@UD2DVector3@@1@Z @ 0x18021D5A0 (-D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@UD2DVector3@@1@Z.c)
  */
 
-__int64 __fastcall CExpressionValueStack::Matrix4x4FromScale(
-        CExpressionValueStack *this,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall CExpressionValueStack::Matrix4x4FromScale(CExpressionValueStack *this, unsigned int a2)
 {
-  unsigned int v4; // eax
-  __int64 v6; // rax
-  CExpressionValue *v7; // rax
-  char *v8; // rbx
-  int v9; // xmm0_4
-  int v10; // eax
-  int v11; // xmm0_4
-  int v12; // xmm1_4
-  __int64 v13; // rax
-  _DWORD *v14; // rbx
-  CExpressionValue *v15; // rax
-  _DWORD *v16; // r14
-  __int64 v17; // rax
+  __int64 v3; // rcx
+  unsigned int v5; // ebx
+  CExpressionValue *v6; // rax
+  char *v7; // rbx
+  int v8; // xmm0_4
+  __int64 v10; // xmm0_8
+  unsigned int v11; // eax
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+  __int64 v15; // rdx
+  __int64 v16; // rax
+  _DWORD *v17; // rbx
   CExpressionValue *v18; // rax
-  int v19; // eax
-  int v20; // eax
-  __int64 v21; // xmm0_8
-  int v22; // eax
-  char v23; // r9
+  _DWORD *v19; // rsi
+  CExpressionValue *v20; // rax
+  unsigned int v21; // eax
+  __int128 v22; // xmm0
+  __int128 v23; // xmm1
   __int128 v24; // xmm0
   __int128 v25; // xmm1
-  __int128 v26; // xmm0
-  __int128 v27; // xmm1
-  __int64 v28; // rax
-  int *v29; // rbx
-  CExpressionValue *v30; // rax
-  char *v31; // r14
-  __int64 v32; // rax
-  CExpressionValue *v33; // rax
-  int *v34; // r12
+  unsigned int v26; // eax
+  __int64 v27; // xmm0_8
+  int v28; // eax
+  __int128 v29; // xmm0
+  __int128 v30; // xmm1
+  __int128 v31; // xmm0
+  __int128 v32; // xmm1
+  char v33; // al
+  unsigned int v34; // edx
   __int64 v35; // rax
-  CExpressionValue *v36; // rax
-  int v37; // xmm0_4
-  int v38; // xmm1_4
-  int v39; // xmm2_4
-  unsigned int v40; // ebx
-  __int64 v42; // rax
-  _DWORD *v43; // rbx
-  CExpressionValue *v44; // rax
-  __int64 v45; // rax
-  CExpressionValue *v46; // rax
-  _DWORD *v47; // r13
-  __int64 v48; // rax
+  int *v36; // rbx
+  CExpressionValue *v37; // rax
+  char *v38; // rsi
+  __int64 v39; // rax
+  CExpressionValue *v40; // rax
+  int *v41; // r15
+  CExpressionValue *v42; // rax
+  int v43; // xmm0_4
+  int v44; // xmm1_4
+  int v45; // xmm2_4
+  unsigned int v46; // edx
+  __int64 v47; // rax
+  _DWORD *v48; // rbx
   CExpressionValue *v49; // rax
-  _DWORD *v50; // r12
+  _DWORD *v50; // rsi
   __int64 v51; // rax
   CExpressionValue *v52; // rax
-  __int64 v53; // xmm0_8
-  __int128 v54; // xmm0
-  __int128 v55; // xmm1
-  __int128 v56; // xmm0
-  __int128 v57; // xmm1
-  unsigned int v58; // [rsp+28h] [rbp-49h]
-  __int64 v59; // [rsp+38h] [rbp-39h] BYREF
-  int v60; // [rsp+40h] [rbp-31h]
-  __int64 v61; // [rsp+48h] [rbp-29h] BYREF
-  int v62; // [rsp+50h] [rbp-21h]
-  __int128 v63; // [rsp+58h] [rbp-19h] BYREF
-  __int128 v64; // [rsp+68h] [rbp-9h]
-  __int128 v65; // [rsp+78h] [rbp+7h]
-  __int128 v66; // [rsp+88h] [rbp+17h]
-  int v67; // [rsp+E0h] [rbp+6Fh]
+  _DWORD *v53; // r12
+  __int64 v54; // rax
+  CExpressionValue *v55; // rax
+  _DWORD *v56; // r15
+  CExpressionValue *v57; // rax
+  __int64 v58; // xmm0_8
+  __int128 v59; // xmm0
+  __int128 v60; // xmm1
+  __int128 v61; // xmm0
+  __int128 v62; // xmm1
+  unsigned int v63; // [rsp+28h] [rbp-49h]
+  __int64 v64; // [rsp+38h] [rbp-39h] BYREF
+  unsigned int v65; // [rsp+40h] [rbp-31h]
+  __int64 v66; // [rsp+48h] [rbp-29h] BYREF
+  int v67; // [rsp+50h] [rbp-21h]
+  __int128 v68; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v69; // [rsp+68h] [rbp-9h]
+  __int128 v70; // [rsp+78h] [rbp+7h]
+  __int128 v71; // [rsp+88h] [rbp+17h]
 
-  v67 = a2;
-  v4 = *((_DWORD *)this + 4);
-  if ( v4 >= (unsigned int)a2 )
+  v3 = *((unsigned int *)this + 4);
+  if ( (unsigned int)v3 >= a2 )
   {
-    switch ( (_DWORD)a2 )
+    switch ( a2 )
     {
-      case 1:
-        v6 = v4 - 1;
-        if ( (unsigned int)v6 < *((_DWORD *)this + 12) )
+      case 1u:
+        v3 = (unsigned int)(v3 - 1);
+        if ( (unsigned int)v3 < *((_DWORD *)this + 12) )
         {
-          v8 = (char *)(*((_QWORD *)this + 3) + 80 * v6);
+          v7 = (char *)(*((_QWORD *)this + 3) + 80 * v3);
         }
         else
         {
-          v7 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          v8 = (char *)&CExpressionValueStack::s_emptyValue;
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v7);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
+          v6 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          v7 = (char *)&CExpressionValueStack::s_emptyValue;
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
         }
-        if ( *((_DWORD *)v8 + 18) == 18 )
+        if ( *((_DWORD *)v7 + 18) == 18 )
         {
-          v9 = *(_DWORD *)v8;
-          *(_DWORD *)v8 = *(_DWORD *)v8;
-          *((_DWORD *)v8 + 18) = 265;
-          *(_QWORD *)(v8 + 4) = 0LL;
-          *(_QWORD *)(v8 + 12) = 0LL;
-          *((_DWORD *)v8 + 5) = v9;
-          *((_QWORD *)v8 + 3) = 0LL;
-          *((_QWORD *)v8 + 4) = 0LL;
-          *((_DWORD *)v8 + 10) = v9;
-          *(_QWORD *)(v8 + 44) = 0LL;
-          *(_QWORD *)(v8 + 52) = 0LL;
-          *((_DWORD *)v8 + 15) = 1065353216;
-          v8[76] = 1;
-LABEL_62:
-          v40 = 0;
-          *((_DWORD *)this + 4) += 1 - v67;
-          return v40;
+          v8 = *(_DWORD *)v7;
+          *((_DWORD *)v7 + 18) = 265;
+          *(_QWORD *)(v7 + 4) = 0LL;
+          *(_QWORD *)(v7 + 12) = 0LL;
+          *((_DWORD *)v7 + 5) = v8;
+          *((_QWORD *)v7 + 3) = 0LL;
+          *((_QWORD *)v7 + 4) = 0LL;
+          *((_DWORD *)v7 + 10) = v8;
+          *(_QWORD *)(v7 + 44) = 0LL;
+          *(_QWORD *)(v7 + 52) = 0LL;
+          *((_DWORD *)v7 + 15) = 1065353216;
+          v7[76] = 1;
+          goto LABEL_10;
         }
-        if ( *((_DWORD *)v8 + 18) != 52 )
+        if ( *((_DWORD *)v7 + 18) == 52 )
         {
-LABEL_40:
-          v58 = 6324;
-          goto LABEL_41;
-        }
-        v10 = *((_DWORD *)v8 + 2);
-        v59 = *(_QWORD *)v8;
-        v11 = v59;
-        v12 = HIDWORD(v59);
-        v60 = v10;
-        *((_DWORD *)v8 + 18) = 265;
-        *(_DWORD *)v8 = v11;
-        *(_QWORD *)(v8 + 4) = 0LL;
-        *(_QWORD *)(v8 + 12) = 0LL;
-        *((_DWORD *)v8 + 5) = v12;
-        *((_QWORD *)v8 + 3) = 0LL;
-        *((_QWORD *)v8 + 4) = 0LL;
-        *((_DWORD *)v8 + 10) = v10;
-        *(_QWORD *)(v8 + 44) = 0LL;
-        *(_QWORD *)(v8 + 52) = 0LL;
-        *((_DWORD *)v8 + 15) = 1065353216;
-        v8[76] = 1;
-        goto LABEL_38;
-      case 2:
-        v13 = v4 - 2;
-        v14 = &CExpressionValueStack::s_emptyValue;
-        if ( (unsigned int)v13 < *((_DWORD *)this + 12) )
-        {
-          v16 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v13);
-        }
-        else
-        {
-          v15 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v15);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-          v16 = &CExpressionValueStack::s_emptyValue;
-        }
-        v17 = (unsigned int)(*((_DWORD *)this + 4) - 1);
-        if ( (unsigned int)v17 < *((_DWORD *)this + 12) )
-        {
-          v14 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v17);
-        }
-        else
-        {
-          v18 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v18);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-        }
-        if ( v16[18] != 18 || v14[18] != 52 )
-        {
-          if ( v16[18] != 52 || v14[18] != 52 )
-            goto LABEL_40;
-          v20 = v14[2];
-          v59 = *(_QWORD *)v14;
-          v21 = *(_QWORD *)v16;
-          LOBYTE(a4) = 1;
-          v60 = v20;
-          v22 = v16[2];
-          v61 = v21;
-          v62 = v22;
-          D2DMatrixScaling(&v63, &v61, &v59, a4);
-          v24 = v63;
-          v25 = v64;
-          v16[18] = 265;
-          *(_OWORD *)v16 = v24;
-          *((_BYTE *)v16 + 76) = 1;
-          v26 = v65;
-          *((_OWORD *)v16 + 1) = v25;
-          v27 = v66;
-          *((_OWORD *)v16 + 2) = v26;
-          *((_OWORD *)v16 + 3) = v27;
-          goto LABEL_39;
-        }
-        v19 = v14[2];
-        v59 = *(_QWORD *)v14;
-        v60 = v19;
-        D2DMatrixScaling(&v63, a2, &v59);
-        break;
-      case 3:
-        v28 = v4 - 3;
-        v29 = (int *)&CExpressionValueStack::s_emptyValue;
-        if ( (unsigned int)v28 < *((_DWORD *)this + 12) )
-        {
-          v31 = (char *)(*((_QWORD *)this + 3) + 80 * v28);
-        }
-        else
-        {
-          v30 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v30);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-          v31 = (char *)&CExpressionValueStack::s_emptyValue;
-        }
-        v32 = (unsigned int)(*((_DWORD *)this + 4) - 2);
-        if ( (unsigned int)v32 < *((_DWORD *)this + 12) )
-        {
-          v34 = (int *)(*((_QWORD *)this + 3) + 80 * v32);
-        }
-        else
-        {
-          v33 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v33);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-          v34 = (int *)&CExpressionValueStack::s_emptyValue;
-        }
-        v35 = (unsigned int)(*((_DWORD *)this + 4) - 1);
-        if ( (unsigned int)v35 < *((_DWORD *)this + 12) )
-        {
-          v29 = (int *)(*((_QWORD *)this + 3) + 80 * v35);
-        }
-        else
-        {
-          v36 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v36);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-        }
-        if ( *((_DWORD *)v31 + 18) != 18 || v34[18] != 18 || v29[18] != 18 )
-          goto LABEL_40;
-        v37 = *(_DWORD *)v31;
-        v38 = *v34;
-        v39 = *v29;
-        *((_DWORD *)v31 + 18) = 265;
-        *(_DWORD *)v31 = v37;
-        *(_QWORD *)(v31 + 4) = 0LL;
-        *(_QWORD *)(v31 + 12) = 0LL;
-        *((_DWORD *)v31 + 5) = v38;
-        *((_QWORD *)v31 + 3) = 0LL;
-        *((_QWORD *)v31 + 4) = 0LL;
-        *((_DWORD *)v31 + 10) = v39;
-        *(_QWORD *)(v31 + 44) = 0LL;
-        *(_QWORD *)(v31 + 52) = 0LL;
-        *((_DWORD *)v31 + 15) = 1065353216;
-        v31[76] = 1;
-LABEL_38:
-        v23 = 1;
-LABEL_39:
-        if ( v23 )
+          v10 = *(_QWORD *)v7;
+          v11 = *((_DWORD *)v7 + 2);
+          *(_QWORD *)((char *)&v71 + 4) = 0LL;
+          LODWORD(v71) = 0;
+          *(_QWORD *)&v70 = 0LL;
+          *((_QWORD *)&v69 + 1) = 0LL;
+          LODWORD(v69) = 0;
+          v64 = v10;
+          v68 = (unsigned int)v10;
+          DWORD1(v69) = HIDWORD(v10);
+          HIDWORD(v71) = (_DWORD)FLOAT_1_0;
+          v12 = (unsigned __int64)v69;
+          v65 = v11;
+          *((_QWORD *)&v70 + 1) = v11;
+          *(_OWORD *)v7 = (unsigned int)v10;
+          *((_DWORD *)v7 + 18) = 265;
+          v13 = v70;
+          *((_OWORD *)v7 + 1) = v12;
+          v7[76] = 1;
+          v14 = v71;
+          *((_OWORD *)v7 + 2) = v13;
+          *((_OWORD *)v7 + 3) = v14;
+LABEL_27:
+          v33 = 1;
           goto LABEL_62;
-        goto LABEL_40;
-      case 4:
-        v42 = v4 - 4;
-        v43 = &CExpressionValueStack::s_emptyValue;
-        if ( (unsigned int)v42 < *((_DWORD *)this + 12) )
-        {
-          v16 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v42);
         }
-        else
-        {
-          v44 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v44);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-          v16 = &CExpressionValueStack::s_emptyValue;
-        }
-        v45 = (unsigned int)(*((_DWORD *)this + 4) - 3);
-        if ( (unsigned int)v45 < *((_DWORD *)this + 12) )
-        {
-          v47 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v45);
-        }
-        else
-        {
-          v46 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v46);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-          v47 = &CExpressionValueStack::s_emptyValue;
-        }
-        v48 = (unsigned int)(*((_DWORD *)this + 4) - 2);
-        if ( (unsigned int)v48 < *((_DWORD *)this + 12) )
-        {
-          v50 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v48);
-        }
-        else
-        {
-          v49 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v49);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-          v50 = &CExpressionValueStack::s_emptyValue;
-        }
-        v51 = (unsigned int)(*((_DWORD *)this + 4) - 1);
-        if ( (unsigned int)v51 < *((_DWORD *)this + 12) )
-        {
-          v43 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v51);
-        }
-        else
-        {
-          v52 = CExpressionValue::CExpressionValue((CExpressionValue *)&v63);
-          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v52);
-          CExpressionValue::~CExpressionValue((CExpressionValue *)&v63);
-        }
-        if ( v16[18] != 18 || v47[18] != 18 || v50[18] != 18 || v43[18] != 52 )
-          goto LABEL_40;
-        v53 = *(_QWORD *)v43;
-        v62 = v43[2];
-        v61 = v53;
-        D2DMatrixScaling(&v63);
         break;
-      default:
-        goto LABEL_40;
+      case 2u:
+        v15 = *((unsigned int *)this + 12);
+        v16 = (unsigned int)(v3 - 2);
+        v17 = &CExpressionValueStack::s_emptyValue;
+        if ( (unsigned int)v16 < (unsigned int)v15 )
+        {
+          v19 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v16);
+        }
+        else
+        {
+          v18 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v18);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+          LODWORD(v3) = *((_DWORD *)this + 4);
+          v19 = &CExpressionValueStack::s_emptyValue;
+          v15 = *((unsigned int *)this + 12);
+        }
+        v3 = (unsigned int)(v3 - 1);
+        if ( (unsigned int)v3 < (unsigned int)v15 )
+        {
+          v17 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v3);
+        }
+        else
+        {
+          v20 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v20);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+        }
+        if ( v19[18] == 18 && v17[18] == 52 )
+        {
+          v21 = v17[2];
+          v64 = *(_QWORD *)v17;
+          v65 = v21;
+          D2DMatrixScaling(&v68, v15, &v64);
+          v22 = v68;
+          v23 = v69;
+          v19[18] = 265;
+          *(_OWORD *)v19 = v22;
+          *((_BYTE *)v19 + 76) = 1;
+          v24 = v70;
+          *((_OWORD *)v19 + 1) = v23;
+          v25 = v71;
+          *((_OWORD *)v19 + 2) = v24;
+          *((_OWORD *)v19 + 3) = v25;
+          goto LABEL_10;
+        }
+        if ( v19[18] == 52 && v17[18] == 52 )
+        {
+          v26 = v17[2];
+          v64 = *(_QWORD *)v17;
+          v27 = *(_QWORD *)v19;
+          v65 = v26;
+          v28 = v19[2];
+          v66 = v27;
+          v67 = v28;
+          D2DMatrixScaling(&v68, &v66, &v64);
+          v29 = v68;
+          v30 = v69;
+          v19[18] = 265;
+          *(_OWORD *)v19 = v29;
+          *((_BYTE *)v19 + 76) = 1;
+          v31 = v70;
+          *((_OWORD *)v19 + 1) = v30;
+          v32 = v71;
+          *((_OWORD *)v19 + 2) = v31;
+          *((_OWORD *)v19 + 3) = v32;
+          goto LABEL_27;
+        }
+        break;
+      case 3u:
+        v34 = *((_DWORD *)this + 12);
+        v35 = (unsigned int)(v3 - 3);
+        v36 = (int *)&CExpressionValueStack::s_emptyValue;
+        if ( (unsigned int)v35 < v34 )
+        {
+          v38 = (char *)(*((_QWORD *)this + 3) + 80 * v35);
+        }
+        else
+        {
+          v37 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v37);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+          LODWORD(v3) = *((_DWORD *)this + 4);
+          v38 = (char *)&CExpressionValueStack::s_emptyValue;
+          v34 = *((_DWORD *)this + 12);
+        }
+        v39 = (unsigned int)(v3 - 2);
+        if ( (unsigned int)v39 < v34 )
+        {
+          v41 = (int *)(*((_QWORD *)this + 3) + 80 * v39);
+        }
+        else
+        {
+          v40 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v40);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+          LODWORD(v3) = *((_DWORD *)this + 4);
+          v41 = (int *)&CExpressionValueStack::s_emptyValue;
+          v34 = *((_DWORD *)this + 12);
+        }
+        v3 = (unsigned int)(v3 - 1);
+        if ( (unsigned int)v3 < v34 )
+        {
+          v36 = (int *)(*((_QWORD *)this + 3) + 80 * v3);
+        }
+        else
+        {
+          v42 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v42);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+        }
+        if ( *((_DWORD *)v38 + 18) == 18 && v41[18] == 18 && v36[18] == 18 )
+        {
+          v43 = *(_DWORD *)v38;
+          v33 = 1;
+          v44 = *v41;
+          v45 = *v36;
+          *((_DWORD *)v38 + 18) = 265;
+          *(_DWORD *)v38 = v43;
+          *(_QWORD *)(v38 + 4) = 0LL;
+          *(_QWORD *)(v38 + 12) = 0LL;
+          *((_DWORD *)v38 + 5) = v44;
+          *((_QWORD *)v38 + 3) = 0LL;
+          *((_QWORD *)v38 + 4) = 0LL;
+          *((_DWORD *)v38 + 10) = v45;
+          *(_QWORD *)(v38 + 44) = 0LL;
+          *(_QWORD *)(v38 + 52) = 0LL;
+          *((_DWORD *)v38 + 15) = 1065353216;
+          v38[76] = 1;
+          goto LABEL_62;
+        }
+        break;
+      case 4u:
+        v46 = *((_DWORD *)this + 12);
+        v47 = (unsigned int)(v3 - 4);
+        v48 = &CExpressionValueStack::s_emptyValue;
+        if ( (unsigned int)v47 < v46 )
+        {
+          v50 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v47);
+        }
+        else
+        {
+          v49 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v49);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+          LODWORD(v3) = *((_DWORD *)this + 4);
+          v50 = &CExpressionValueStack::s_emptyValue;
+          v46 = *((_DWORD *)this + 12);
+        }
+        v51 = (unsigned int)(v3 - 3);
+        if ( (unsigned int)v51 < v46 )
+        {
+          v53 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v51);
+        }
+        else
+        {
+          v52 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v52);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+          LODWORD(v3) = *((_DWORD *)this + 4);
+          v53 = &CExpressionValueStack::s_emptyValue;
+          v46 = *((_DWORD *)this + 12);
+        }
+        v54 = (unsigned int)(v3 - 2);
+        if ( (unsigned int)v54 < v46 )
+        {
+          v56 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v54);
+        }
+        else
+        {
+          v55 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v55);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+          LODWORD(v3) = *((_DWORD *)this + 4);
+          v56 = &CExpressionValueStack::s_emptyValue;
+          v46 = *((_DWORD *)this + 12);
+        }
+        v3 = (unsigned int)(v3 - 1);
+        if ( (unsigned int)v3 < v46 )
+        {
+          v48 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v3);
+        }
+        else
+        {
+          v57 = CExpressionValue::CExpressionValue((CExpressionValue *)&v68);
+          CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v57);
+          CExpressionValue::~CExpressionValue((CExpressionValue *)&v68);
+        }
+        if ( v50[18] == 18 && v53[18] == 18 && v56[18] == 18 && v48[18] == 52 )
+        {
+          v58 = *(_QWORD *)v48;
+          v67 = v48[2];
+          v66 = v58;
+          D2DMatrixScaling(&v68);
+          v59 = v68;
+          v33 = 1;
+          v60 = v69;
+          v50[18] = 265;
+          *(_OWORD *)v50 = v59;
+          *((_BYTE *)v50 + 76) = 1;
+          v61 = v70;
+          *((_OWORD *)v50 + 1) = v60;
+          v62 = v71;
+          *((_OWORD *)v50 + 2) = v61;
+          *((_OWORD *)v50 + 3) = v62;
+        }
+        else
+        {
+          v33 = 0;
+        }
+LABEL_62:
+        if ( !v33 )
+        {
+          v63 = 6324;
+          goto LABEL_3;
+        }
+LABEL_10:
+        v5 = 0;
+        *((_DWORD *)this + 4) += 1 - a2;
+        return v5;
     }
-    v54 = v63;
-    v55 = v64;
-    v16[18] = 265;
-    *(_OWORD *)v16 = v54;
-    v56 = v65;
-    *((_OWORD *)v16 + 1) = v55;
-    v57 = v66;
-    *((_OWORD *)v16 + 2) = v56;
-    *((_BYTE *)v16 + 76) = 1;
-    *((_OWORD *)v16 + 3) = v57;
+    v33 = 0;
     goto LABEL_62;
   }
-  v58 = 6197;
-LABEL_41:
-  v40 = -2147467259;
+  v63 = 6197;
+LABEL_3:
+  v5 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
-    (__int64)this,
+    v3,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
     1u,
     -2147467259,
-    v58,
+    v63,
     0LL);
-  return v40;
+  return v5;
 }

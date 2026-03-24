@@ -1,9 +1,9 @@
 /*
- * XREFs of Uart16550SetBaud @ 0x14067D0B0
+ * XREFs of Uart16550SetBaud @ 0x1405CAFA0
  * Callers:
- *     Uart16550InitializePortCommon @ 0x14067CDE4 (Uart16550InitializePortCommon.c)
+ *     Uart16550InitializePortCommon @ 0x1405CACD4 (Uart16550InitializePortCommon.c)
  * Callees:
- *     Uart16550SetBaudCommon @ 0x14067D0D0 (Uart16550SetBaudCommon.c)
+ *     Uart16550SetBaudCommon @ 0x1405CAFC0 (Uart16550SetBaudCommon.c)
  */
 
 char __fastcall Uart16550SetBaud(__int64 a1)

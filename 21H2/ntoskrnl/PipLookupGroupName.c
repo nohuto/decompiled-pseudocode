@@ -1,12 +1,12 @@
 /*
- * XREFs of PipLookupGroupName @ 0x140B125BC
+ * XREFs of PipLookupGroupName @ 0x140A5ED70
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140B110B4 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
- *     PipCheckDependencies @ 0x140B12560 (PipCheckDependencies.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     PipCheckDependencies @ 0x140A5ED14 (PipCheckDependencies.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     PipCreateEntry @ 0x140B126B8 (PipCreateEntry.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     PipCreateEntry @ 0x140A5EE6C (PipCreateEntry.c)
  */
 
 __int64 __fastcall PipLookupGroupName(PCUNICODE_STRING String1, int a2)
@@ -35,11 +35,13 @@ __int64 __fastcall PipLookupGroupName(PCUNICODE_STRING String1, int a2)
               return i;
             v2 = *(_QWORD *)(v2 + 16);
           }
-          if ( !a2 )
-            return 0LL;
-          result = PipCreateEntry(String1);
-          *(_QWORD *)(v2 + 16) = result;
-          return result;
+          if ( a2 )
+          {
+            result = PipCreateEntry(String1);
+            *(_QWORD *)(v2 + 16) = result;
+            return result;
+          }
+          return 0LL;
         }
         v6 = *(_QWORD *)(v2 + 8);
         if ( !v6 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpFindBestMatchNamespaceNode @ 0x14077BF88
+ * XREFs of VrpFindBestMatchNamespaceNode @ 0x1405D29C8
  * Callers:
- *     VrpCreateNamespaceNode @ 0x14077BD28 (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x1405D34B4 (VrpCreateNamespaceNode.c)
  * Callees:
- *     VrpFindNamespaceNode @ 0x14068D8C0 (VrpFindNamespaceNode.c)
+ *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
  */
 
-__int64 __fastcall VrpFindBestMatchNamespaceNode(unsigned __int64 *a1, __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall VrpFindBestMatchNamespaceNode(int a1, int a2, __int64 a3)
 {
-  return VrpFindNamespaceNode(a1, a2, 1, 0LL, a3);
+  return VrpFindNamespaceNode(a1, a2, 1, 0, a3);
 }

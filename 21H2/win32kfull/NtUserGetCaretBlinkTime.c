@@ -1,27 +1,27 @@
 /*
- * XREFs of NtUserGetCaretBlinkTime @ 0x1C00F5C10
+ * XREFs of NtUserGetCaretBlinkTime @ 0x1C0103CB0
  * Callers:
  *     <none>
  * Callees:
- *     CheckGrantedAccess @ 0x1C00F5C8C (CheckGrantedAccess.c)
+ *     CheckGrantedAccess @ 0x1C0103D34 (CheckGrantedAccess.c)
  */
 
-__int64 __fastcall NtUserGetCaretBlinkTime(__int64 a1, __int64 a2, __int64 a3)
+__int64 NtUserGetCaretBlinkTime()
 {
-  __int64 v3; // rcx
+  __int64 v0; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
+  __int64 v2; // rcx
+  unsigned int v3; // ebx
 
-  EnterSharedCrit(a1, a2, a3);
-  if ( *(_QWORD *)PsGetCurrentProcessWin32Process(v3) == gpepCSRSS
+  EnterSharedCrit(0LL, 1LL);
+  if ( *(_QWORD *)PsGetCurrentProcessWin32Process(v0) == gpepCSRSS
     || (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(gpepCSRSS),
-        v6 = 0,
+        v3 = 0,
         (unsigned int)CheckGrantedAccess(*(unsigned int *)(CurrentProcessWin32Process + 680), 2LL)) )
   {
-    v5 = gpsi;
-    v6 = *(_DWORD *)(gpsi + 4984LL);
+    v2 = gpsi;
+    v3 = *(_DWORD *)(gpsi + 4984LL);
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v2);
+  return v3;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpSlowFlushAddressSpaceTb @ 0x140279C00
+ * XREFs of HvlpSlowFlushAddressSpaceTb @ 0x140279D00
  * Callers:
- *     HvlFlushAddressSpaceTb @ 0x1402794DC (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1402795DC (HvlFlushAddressSpaceTb.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
- *     HvlpPrepareFlushHeader @ 0x140279BA8 (HvlpPrepareFlushHeader.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvlpPrepareFlushHeader @ 0x140279CA8 (HvlpPrepareFlushHeader.c)
  */
 
 PSLIST_ENTRY __fastcall HvlpSlowFlushAddressSpaceTb(__int64 a1, __int64 a2, char a3)

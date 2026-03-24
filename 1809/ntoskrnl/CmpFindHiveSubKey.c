@@ -2,12 +2,12 @@
  * XREFs of CmpFindHiveSubKey @ 0x1409CCDF4
  * Callers:
  *     CmpFindRedirectedDriverServiceStateNode @ 0x1409CCD50 (CmpFindRedirectedDriverServiceStateNode.c)
- *     CmpGetKnownHivePathNode @ 0x1409F3CDC (CmpGetKnownHivePathNode.c)
+ *     CmpGetKnownHivePathNode @ 0x1409F3CE4 (CmpGetKnownHivePathNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     CmpWalkUnicodeStringPath @ 0x14073D6EC (CmpWalkUnicodeStringPath.c)
- *     CmpGetNextName @ 0x14073D78C (CmpGetNextName.c)
+ *     CmpWalkUnicodeStringPath @ 0x14073D6CC (CmpWalkUnicodeStringPath.c)
+ *     CmpGetNextName @ 0x14073D76C (CmpGetNextName.c)
  */
 
 bool __fastcall CmpFindHiveSubKey(__int64 a1, unsigned int a2, __int128 *a3, __int64 *a4, __int64 a5)

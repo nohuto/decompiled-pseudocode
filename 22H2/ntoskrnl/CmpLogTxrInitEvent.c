@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogTxrInitEvent @ 0x140A1E5AC
+ * XREFs of CmpLogTxrInitEvent @ 0x140874DC8
  * Callers:
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
@@ -33,14 +33,14 @@ NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
 
   v23 = a3;
   v3 = L"\\SystemRoot\\System32\\Config\\SYSTEM";
-  result = *(_DWORD *)(a2 + 4160);
+  result = *(_DWORD *)(a2 + 4200);
   v9 = result;
   v5 = 68;
   if ( EtwKernelProvRegHandle )
   {
-    if ( qword_140C028D0 != a2 )
+    if ( qword_140C01170 != a2 )
     {
-      v10 = *(_OWORD *)(a2 + 1840);
+      v10 = *(_OWORD *)(a2 + 1832);
       v3 = (const wchar_t *)*((_QWORD *)&v10 + 1);
       v5 = v10;
     }

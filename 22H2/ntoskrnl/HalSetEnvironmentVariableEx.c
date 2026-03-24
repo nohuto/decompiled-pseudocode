@@ -1,19 +1,19 @@
 /*
- * XREFs of HalSetEnvironmentVariableEx @ 0x140504B70
+ * XREFs of HalSetEnvironmentVariableEx @ 0x1404BBCE0
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B3B0C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     HaliAcpiSleep @ 0x140528000 (HaliAcpiSleep.c)
- *     WheapPersistPageForMemoryError @ 0x140611038 (WheapPersistPageForMemoryError.c)
- *     IopSetEnvironmentVariableHal @ 0x1409513D0 (IopSetEnvironmentVariableHal.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140AA0A6C (PopSetMemoryOverwriteRequestAction.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA6B4 (PopCheckpointSystemSleepUnsafe.c)
+ *     HaliAcpiSleep @ 0x140385840 (HaliAcpiSleep.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403BA528 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapPersistPageForMemoryError @ 0x1405BBA98 (WheapPersistPageForMemoryError.c)
+ *     IopSetEnvironmentVariableHal @ 0x14089ADE0 (IopSetEnvironmentVariableHal.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x1409B0FEC (PopSetMemoryOverwriteRequestAction.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x1409B2824 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
- *     HalEfiSetEnvironmentVariable @ 0x14050CE9C (HalEfiSetEnvironmentVariable.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
+ *     HalEfiSetEnvironmentVariable @ 0x1404C3B68 (HalEfiSetEnvironmentVariable.c)
  */
 
 __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, int a4, int a5)

@@ -1,292 +1,241 @@
 /*
- * XREFs of BiConvertRegistryDataToElement @ 0x140807EB4
+ * XREFs of BiConvertRegistryDataToElement @ 0x140784CB0
  * Callers:
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140809F18 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiResolveLocateDevice @ 0x140A5CA64 (BiResolveLocateDevice.c)
- *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x140A5CC64 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5CD50 (BiConvertBootEnvironmentDeviceToUnknown.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x1407824D4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiResolveLocateDevice @ 0x14096F658 (BiResolveLocateDevice.c)
+ *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x14096F998 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x14096FA80 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertRegistryDataToElement(
         __int64 a1,
         unsigned int *a2,
-        __int64 a3,
+        unsigned int a3,
         unsigned int a4,
-        __int16 a5,
+        char a5,
         GUID *Guid,
         unsigned int *a7)
 {
   unsigned int *v7; // r14
-  const WCHAR *v8; // r15
-  unsigned int v9; // edi
-  unsigned int v12; // esi
-  char v13; // r12
-  __int64 v14; // rbx
-  NTSTATUS v15; // ebx
-  GUID *v17; // rdi
-  GUID *v18; // rcx
-  void *v19; // rcx
-  __int64 v20; // r9
-  __int16 v21; // r12
-  int v22; // eax
-  PVOID v23; // rdi
-  GUID *v24; // rbx
-  GUID *v25; // rcx
-  GUID *v26; // r12
-  unsigned int v27; // r13d
-  __int64 v28; // rax
-  __int64 v29; // rdx
+  unsigned int v8; // edi
+  const WCHAR *v9; // r15
+  unsigned int v11; // esi
+  char v12; // r12
+  __int64 v13; // rbx
+  NTSTATUS v14; // ebx
+  void *v15; // rcx
+  int v16; // eax
+  unsigned int *v17; // rdi
+  GUID *v19; // rdi
+  GUID *v20; // rbx
+  GUID *v21; // rcx
+  GUID *v22; // rcx
+  unsigned int v23; // ecx
+  GUID *v24; // r13
+  unsigned int v25; // r12d
+  __int64 v26; // rax
+  __int64 v27; // rdx
   PVOID P; // [rsp+30h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
   size_t Size; // [rsp+98h] [rbp+48h] BYREF
 
   v7 = a7;
-  v8 = (const WCHAR *)a2;
-  v9 = a3;
+  v8 = a3;
   P = 0LL;
   LODWORD(Size) = 0;
-  v12 = 0;
+  v9 = (const WCHAR *)a2;
+  v11 = 0;
   DestinationString = 0LL;
-  switch ( HIBYTE(a4) & 0xF )
+  if ( (HIBYTE(a4) & 0xF) == 1 )
   {
-    case 1:
-      if ( (unsigned int)a3 < 0x1C )
+    if ( a3 < 0x1C || a2[6] + 16LL != a3 )
+      return (unsigned int)-1073741788;
+    v15 = a2 + 4;
+    if ( (a5 & 1) != 0 )
+    {
+      v16 = BiConvertBootEnvironmentDeviceToQualifiedPartition(v15, &P, &Size);
+    }
+    else if ( (a5 & 2) != 0 )
+    {
+      v16 = BiConvertBootEnvironmentDeviceToUnknown(v15);
+    }
+    else
+    {
+      v16 = BiConvertBootEnvironmentDeviceToNt((char *)v15, a4, a5, (wchar_t **)&P, (unsigned int *)&Size);
+    }
+    v14 = v16;
+    if ( v16 >= 0 )
+    {
+      v17 = (unsigned int *)P;
+      if ( *(_DWORD *)P == 8 && (int)BiResolveLocateDevice(a1, P) >= 0 )
       {
-        BiLogMessage(
-          4LL,
-          L"Insufficient length for BCD element. Length %lu Required %lu DataType: %lu",
-          (unsigned int)a3,
-          28LL,
-          a4);
-        return (unsigned int)-1073741788;
-      }
-      v19 = a2 + 4;
-      v20 = a2[6] + 16LL;
-      if ( v20 != (unsigned int)a3 )
-      {
-        BiLogMessage(
-          4LL,
-          L"Unexpected length for BCD element. Length %lu Expected: %lu DataType: %lu",
-          (unsigned int)a3,
-          v20,
-          a4);
-        return (unsigned int)-1073741788;
-      }
-      v21 = a5;
-      if ( (a5 & 1) != 0 )
-      {
-        v22 = BiConvertBootEnvironmentDeviceToQualifiedPartition(v19, &P, &Size);
-      }
-      else if ( (a5 & 2) != 0 )
-      {
-        v22 = BiConvertBootEnvironmentDeviceToUnknown(v19);
+        v27 = v17[6];
+        v11 = Size - v27;
+        memmove(v17, (char *)v17 + v27, (unsigned int)(Size - v27));
       }
       else
       {
-        v22 = BiConvertBootEnvironmentDeviceToNt(v19, (__int64)&Size);
+        v11 = Size;
       }
-      v15 = v22;
-      if ( v22 >= 0 )
+      if ( v11 <= *v7 )
       {
-        v23 = P;
-        if ( *(_DWORD *)P == 8 )
-        {
-          if ( (v21 & 0x100) != 0 )
-          {
-            BiLogMessage(4LL, L"BCD resolve locate not supported. Status: %x", 3221225659LL);
-            v23 = P;
-          }
-          else
-          {
-            if ( (int)BiResolveLocateDevice(a1, P) >= 0 )
-            {
-              v29 = *((unsigned int *)P + 6);
-              LODWORD(Size) = Size - v29;
-              memmove(P, (char *)P + v29, (unsigned int)Size);
-            }
-            v23 = P;
-          }
-        }
-        if ( (unsigned int)Size <= *v7 )
-        {
-          v24 = Guid;
-          memmove(Guid, v23, (unsigned int)Size);
-          *(GUID *)&v24->Data2 = *(GUID *)v8;
-          ExFreePoolWithTag(v23, 0x4B444342u);
-          v15 = 0;
-        }
-        else
-        {
-          v15 = -1073741789;
-          ExFreePoolWithTag(v23, 0x4B444342u);
-        }
-        goto LABEL_30;
+        v20 = Guid;
+        memmove(Guid, v17, v11);
+        *(GUID *)&v20->Data2 = *(GUID *)v9;
+        ExFreePoolWithTag(v17, 0x4B444342u);
+        v14 = 0;
       }
-      break;
-    case 2:
-      if ( (_DWORD)a3 && (a3 & 1) == 0 )
+      else
       {
-        v13 = 0;
-        v12 = a3;
-        v14 = (unsigned int)a3;
-        if ( *(_WORD *)((char *)a2 + (unsigned int)a3 - 2) )
-        {
-          v9 = a3 + 2;
-          v13 = 1;
-          v12 = a3 + 2;
-        }
-        if ( v9 > *a7 )
-          goto LABEL_8;
-        v17 = Guid;
-        memmove(Guid, a2, (unsigned int)a3);
-        if ( v13 )
-          *(_WORD *)((char *)&v17->Data1 + v14) = 0;
-LABEL_13:
-        v15 = 0;
-        goto LABEL_9;
+        v14 = -1073741789;
+        ExFreePoolWithTag(v17, 0x4B444342u);
       }
-      goto LABEL_43;
-    case 3:
-      v12 = 16;
-      LODWORD(Size) = 16;
-      if ( *a7 < 0x10 )
+      goto LABEL_25;
+    }
+    v11 = Size;
+    goto LABEL_67;
+  }
+  if ( (HIBYTE(a4) & 0xF) == 2 )
+  {
+    if ( a3 && (a3 & 1) == 0 )
+    {
+      v12 = 0;
+      v11 = a3;
+      v13 = a3;
+      if ( *(_WORD *)((char *)a2 + a3 - 2) )
+      {
+        v11 = a3 + 2;
+        v12 = 1;
+        v8 = a3 + 2;
+      }
+      if ( v8 > *a7 )
         goto LABEL_8;
-      if ( (unsigned int)a3 < 2 || (a3 & 1) != 0 )
-        goto LABEL_43;
-      *((_WORD *)a2 + ((unsigned __int64)(unsigned int)a3 >> 1) - 1) = 0;
-      RtlInitUnicodeString(&DestinationString, (PCWSTR)a2);
-      v15 = RtlGUIDFromString(&DestinationString, Guid);
-      if ( v15 >= 0 )
+      v19 = Guid;
+      memmove(Guid, a2, a3);
+      if ( v12 )
+        *(_WORD *)((char *)&v19->Data1 + v13) = 0;
+LABEL_24:
+      v14 = 0;
+      goto LABEL_25;
+    }
+    return (unsigned int)-1073741788;
+  }
+  if ( (HIBYTE(a4) & 0xF) != 3 )
+  {
+    if ( (HIBYTE(a4) & 0xF) == 4 )
+    {
+      v23 = 0;
+      v24 = Guid;
+      v14 = 0;
+      LODWORD(Size) = 0;
+      if ( a3 >= 2 && (a3 & 1) == 0 )
       {
-        v15 = 0;
-LABEL_30:
-        v12 = Size;
-        goto LABEL_9;
-      }
-      break;
-    case 4:
-      v26 = Guid;
-      v27 = 0;
-      v15 = 0;
-      if ( (unsigned int)a3 >= 2 && (a3 & 1) == 0 )
-      {
-        *((_WORD *)a2 + ((unsigned __int64)(unsigned int)a3 >> 1) - 1) = 0;
+        v25 = 0;
+        *((_WORD *)a2 + ((unsigned __int64)a3 >> 1) - 1) = 0;
         if ( *(_WORD *)a2 )
         {
           do
           {
-            if ( v27 >= v9 )
+            if ( v23 >= v8 )
               break;
-            v12 += 16;
-            LODWORD(Size) = v12;
-            if ( v12 <= *v7 )
+            v11 += 16;
+            v25 = v11;
+            if ( v11 <= *v7 )
             {
-              RtlInitUnicodeString(&DestinationString, v8);
-              v15 = RtlGUIDFromString(&DestinationString, v26);
-              if ( v15 < 0 )
-                goto LABEL_37;
-              v12 = Size;
-              ++v26;
+              RtlInitUnicodeString(&DestinationString, v9);
+              v14 = RtlGUIDFromString(&DestinationString, v24);
+              if ( v14 < 0 )
+                goto LABEL_67;
+              v23 = Size;
+              ++v24;
             }
-            v28 = -1LL;
+            v26 = -1LL;
             do
-              ++v28;
-            while ( v8[v28] );
-            v27 += 2 * v28 + 2;
-            v8 += (unsigned int)(v28 + 1);
+              ++v26;
+            while ( v9[v26] );
+            v23 += 2 * v26 + 2;
+            LODWORD(Size) = v23;
+            v9 += (unsigned int)(v26 + 1);
           }
-          while ( *v8 );
+          while ( *v9 );
         }
-        if ( v12 > *v7 )
-          v15 = -1073741789;
-        goto LABEL_9;
+        if ( v25 <= *v7 )
+          goto LABEL_25;
+        goto LABEL_8;
       }
-LABEL_43:
-      BiLogMessage(4LL, L"String not multiple of WCHAR. Length %lu DataType: %lu", (unsigned int)a3);
       return (unsigned int)-1073741788;
-    default:
-      switch ( HIBYTE(a4) & 0xF )
+    }
+    if ( (HIBYTE(a4) & 0xF) == 5 )
+    {
+      v11 = 8;
+      if ( a3 > 8 )
+        return (unsigned int)-1073741788;
+      if ( *a7 < 8 )
+        goto LABEL_8;
+      v21 = Guid;
+      *(_QWORD *)&Guid->Data1 = 0LL;
+    }
+    else
+    {
+      if ( (HIBYTE(a4) & 0xF) == 6 )
       {
-        case 5:
-          v12 = 8;
-          if ( (unsigned int)a3 > 8 )
-          {
-            BiLogMessage(
-              4LL,
-              L"Exceeded length for BCD element. Length %lu Expected: %lu DataType: %lu",
-              (unsigned int)a3,
-              8LL,
-              a4);
-            return (unsigned int)-1073741788;
-          }
-          if ( *a7 >= 8 )
-          {
-            v25 = Guid;
-            *(_QWORD *)&Guid->Data1 = 0LL;
-            goto LABEL_48;
-          }
-          break;
-        case 6:
-          if ( (_DWORD)a3 == 1 )
-          {
-            v12 = 2;
-            if ( *a7 >= 2 )
-            {
-              v18 = Guid;
-              v15 = 0;
-              BYTE1(Guid->Data1) = 0;
-              LOBYTE(v18->Data1) = *(_BYTE *)a2 != 0;
-              goto LABEL_9;
-            }
-            break;
-          }
-          BiLogMessage(
-            4LL,
-            L"Unexpected length for BCD element. Length %lu Expected: %lu DataType: %lu",
-            (unsigned int)a3);
+        if ( a3 != 1 )
           return (unsigned int)-1073741788;
-        case 7:
-          if ( !(_DWORD)a3 || (a3 & 7) != 0 )
-          {
-            a3 = (unsigned int)a3;
-LABEL_42:
-            BiLogMessage(4LL, L"Unexpected length for BCD element. Length %lu DataType: %lu", a3);
-            return (unsigned int)-1073741788;
-          }
-          v12 = a3;
-          if ( *a7 >= (unsigned int)a3 )
-            goto LABEL_47;
-          break;
-        default:
-          if ( !(_DWORD)a3 )
-            goto LABEL_42;
-          v12 = a3;
-          if ( (unsigned int)a3 <= *a7 )
-          {
-LABEL_47:
-            v25 = Guid;
-LABEL_48:
-            memmove(v25, a2, (unsigned int)a3);
-            goto LABEL_13;
-          }
-          break;
+        v11 = 2;
+        if ( *a7 >= 2 )
+        {
+          v22 = Guid;
+          BYTE1(Guid->Data1) = 0;
+          LOBYTE(v22->Data1) = *(_BYTE *)a2 != 0;
+          goto LABEL_24;
+        }
+        goto LABEL_8;
       }
-LABEL_8:
-      v15 = -1073741789;
-LABEL_9:
-      *v7 = v12;
-      return (unsigned int)v15;
+      if ( (HIBYTE(a4) & 0xF) == 7 )
+      {
+        if ( !a3 || (a3 & 7) != 0 )
+          return (unsigned int)-1073741788;
+        v11 = a3;
+        if ( *a7 < a3 )
+          goto LABEL_8;
+      }
+      else
+      {
+        if ( !a3 )
+          return (unsigned int)-1073741788;
+        v11 = a3;
+        if ( a3 > *a7 )
+          goto LABEL_8;
+      }
+      v21 = Guid;
+    }
+    memmove(v21, a2, a3);
+    goto LABEL_24;
   }
-LABEL_37:
-  v12 = Size;
-  if ( v15 == -1073741789 )
-    goto LABEL_9;
-  return (unsigned int)v15;
+  v11 = 16;
+  if ( *a7 >= 0x10 )
+  {
+    if ( a3 < 2 || (a3 & 1) != 0 )
+      return (unsigned int)-1073741788;
+    *((_WORD *)a2 + ((unsigned __int64)a3 >> 1) - 1) = 0;
+    RtlInitUnicodeString(&DestinationString, (PCWSTR)a2);
+    v14 = RtlGUIDFromString(&DestinationString, Guid);
+    if ( v14 >= 0 )
+      goto LABEL_24;
+LABEL_67:
+    if ( v14 != -1073741789 )
+      return (unsigned int)v14;
+    goto LABEL_25;
+  }
+LABEL_8:
+  v14 = -1073741789;
+LABEL_25:
+  *v7 = v11;
+  return (unsigned int)v14;
 }

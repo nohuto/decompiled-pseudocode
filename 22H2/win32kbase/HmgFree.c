@@ -1,46 +1,60 @@
 /*
- * XREFs of HmgFree @ 0x1C0088BA0
+ * XREFs of HmgFree @ 0x1C007C860
  * Callers:
- *     <none>
+ *     ?bDeleteDC@XDCOBJ@@QEAAHH@Z @ 0x1C007C740 (-bDeleteDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?bDeletePalette@XEPALOBJ@@QEAAHHW4_CLEANUPTYPE@@@Z @ 0x1C013E8C0 (-bDeletePalette@XEPALOBJ@@QEAAHHW4_CLEANUPTYPE@@@Z.c)
  * Callees:
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C00440F0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
- *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0045760 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
- *     FreeObject @ 0x1C0088C60 (FreeObject.c)
+ *     FreeObject @ 0x1C002BC40 (FreeObject.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z @ 0x1C00312D0 (-GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0031680 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0033220 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     ?FreePaletteMemory@XEPALOBJ@@QEAAXXZ @ 0x1C00C955C (-FreePaletteMemory@XEPALOBJ@@QEAAXXZ.c)
  */
 
-__int64 __fastcall HmgFree(__int64 a1)
+void __fastcall HmgFree(__int64 a1, int a2, int a3)
 {
-  unsigned int v1; // ebx
-  struct OBJECT *v2; // rdi
-  __int64 v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 result; // rax
-  __int64 v9; // [rsp+30h] [rbp-28h] BYREF
-  int v10; // [rsp+38h] [rbp-20h]
+  unsigned int v3; // ebx
+  __int64 v4; // rdi
+  unsigned __int8 v5; // si
+  _DWORD *v6; // rbx
+  struct OBJECT *EntryObject; // rax
+  __int64 v8; // rdx
+  int v9; // ecx
+  int v10; // r8d
+  _DWORD *v11; // [rsp+30h] [rbp-28h] BYREF
+  int v12; // [rsp+38h] [rbp-20h]
+  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
 
-  v1 = a1;
-  v2 = 0LL;
-  SGDGetSessionState(a1);
-  GreAcquireHmgrSemaphore(v3);
-  v9 = 0LL;
-  v10 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v9, (unsigned __int16)v1 | (v1 >> 8) & 0xFF0000, 0, 0, 0);
-  if ( v10 )
+  v3 = a1;
+  v4 = 0LL;
+  v5 = 0;
+  GreAcquireHmgrSemaphore(a1, a2, a3);
+  v11 = 0LL;
+  v12 = 0;
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v11, (unsigned __int16)v3 | (v3 >> 8) & 0xFF0000, 0, 0, 0);
+  if ( v12 )
   {
-    v2 = HANDLELOCK::pObj((HANDLELOCK *)&v9);
-    HANDLELOCK::vUnlockAndRelease((HANDLELOCK *)&v9, v5, v6, v7);
-    if ( v10 )
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v9);
+    v6 = v11;
+    EntryObject = GdiHandleManager::GetEntryObject(gpHandleManager, *v11 & 0xFFFFFF);
+    v5 = *((_BYTE *)v6 + 14);
+    v4 = (__int64)EntryObject;
+    HANDLELOCK::vUnlockAndRelease((HANDLELOCK *)&v11);
   }
-  result = GreReleaseHmgrSemaphore(v4);
-  if ( v2 )
-    return FreeObject(v2);
-  return result;
+  HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v11);
+  GreReleaseHmgrSemaphore(v9, v8, v10);
+  if ( v4 )
+  {
+    if ( v5 == 8 )
+    {
+      v13 = v4;
+      XEPALOBJ::FreePaletteMemory((XEPALOBJ *)&v13);
+    }
+    else
+    {
+      FreeObject(v4, v5);
+    }
+  }
 }

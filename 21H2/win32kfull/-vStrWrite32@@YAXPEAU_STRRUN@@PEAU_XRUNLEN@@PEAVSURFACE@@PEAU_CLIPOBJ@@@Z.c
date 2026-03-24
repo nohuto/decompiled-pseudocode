@@ -1,143 +1,147 @@
 /*
- * XREFs of ?vStrWrite32@@YAXPEAU_STRRUN@@PEAU_XRUNLEN@@PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C00E05C0
+ * XREFs of ?vStrWrite32@@YAXPEAU_STRRUN@@PEAU_XRUNLEN@@PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C00F3300
  * Callers:
  *     <none>
  * Callees:
- *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C0008F24 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
- *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C0008FA8 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00CEDF0 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
+ *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C00CEE74 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall vStrWrite32(struct _STRRUN *a1, struct _XRUNLEN *a2, struct SURFACE *a3, struct _CLIPOBJ *a4)
 {
-  LONG *v4; // rdi
-  struct _XRUNLEN *v6; // r12
-  bool v8; // zf
-  LONG v9; // ecx
-  unsigned __int64 v10; // xmm0_8
-  unsigned __int64 v11; // r14
-  LONG v12; // edx
-  __int64 v13; // rax
-  int v14; // r14d
-  __int64 v15; // r11
-  LONG v16; // edx
+  struct _XRUNLEN *v5; // r12
+  struct SURFACE *v6; // rbx
+  struct _XRUNLEN *v7; // rdi
+  __int64 v9; // r14
+  __int64 v11; // rdx
+  unsigned int v12; // r10d
+  _DWORD *v13; // r9
+  _DWORD *v14; // r8
+  int *v15; // rcx
+  __int64 v16; // rdx
   int v17; // eax
-  LONG v18; // r9d
-  LONG left; // r8d
-  LONG v20; // ecx
-  int v21; // r10d
-  _DWORD *v22; // r11
-  _DWORD *v23; // r9
-  int v24; // r8d
-  __int64 v25; // rdx
-  int *v26; // rcx
-  int v27; // eax
-  __int64 v28; // r14
-  __int64 v29; // rdx
-  unsigned int v30; // r10d
-  _DWORD *v31; // r9
-  _DWORD *v32; // r8
-  int *v33; // rcx
-  __int64 v34; // rdx
-  int v35; // eax
-  int v36; // r15d
-  char *v37; // rbx
-  size_t v38; // r15
-  __int64 v39; // rsi
-  char *v40; // rbx
-  LONG v41; // ebx
-  int v42; // r13d
-  __int64 v43; // rdx
-  struct _XRUNLEN *v44; // r14
-  __int64 v45; // rsi
-  int v46; // ecx
-  int *v47; // r8
-  int v48; // r9d
-  int *v49; // rcx
-  int *v50; // [rsp+30h] [rbp-30h]
-  __int64 v51; // [rsp+38h] [rbp-28h]
-  int *v52; // [rsp+38h] [rbp-28h]
-  __int64 v53; // [rsp+40h] [rbp-20h]
-  struct _RECTL rclBounds; // [rsp+48h] [rbp-18h] BYREF
-  int v56; // [rsp+A8h] [rbp+48h]
+  int v18; // edi
+  char *v19; // rbx
+  bool v20; // zf
+  LONG v21; // edx
+  unsigned __int64 v22; // xmm0_8
+  unsigned __int64 v23; // rbp
+  LONG left; // r15d
+  LONG v25; // r8d
+  __int64 v26; // rcx
+  int v27; // ebp
+  __int64 i; // r13
+  int v29; // r8d
+  int v30; // eax
+  int v31; // edx
+  LONG v32; // r10d
+  LONG v33; // ecx
+  int v34; // r11d
+  _DWORD *v35; // r9
+  _DWORD *v36; // rdx
+  int v37; // r10d
+  __int64 v38; // r8
+  int *v39; // rcx
+  int v40; // eax
+  size_t v41; // rsi
+  __int64 v42; // rdi
+  char *v43; // rbx
+  LONG v44; // r13d
+  LONG v45; // r8d
+  int v46; // esi
+  LONG right; // ecx
+  LONG v48; // edx
+  __int64 v49; // r9
+  struct _XRUNLEN *v50; // r14
+  __int64 v51; // rbx
+  int v52; // r8d
+  _DWORD *v53; // rsi
+  int v54; // ebp
+  _DWORD *v55; // rdi
+  __int64 j; // [rsp+30h] [rbp-58h]
+  int v57; // [rsp+30h] [rbp-58h]
+  __int64 v58; // [rsp+38h] [rbp-50h]
+  struct _RECTL rclBounds; // [rsp+40h] [rbp-48h] BYREF
 
   if ( a2 )
   {
-    v4 = (LONG *)((char *)a1 + 8);
-    v6 = a2;
+    v5 = (struct _STRRUN *)((char *)a1 + 8);
+    v6 = a3;
+    v7 = a2;
     if ( a4 )
     {
-      v8 = a4->iDComplexity == 1;
+      v20 = a4->iDComplexity == 1;
       rclBounds = 0LL;
-      if ( v8 )
+      if ( v20 )
       {
-        v9 = *(_DWORD *)a1;
+        v21 = *(_DWORD *)a1;
         rclBounds = a4->rclBounds;
-        v10 = _mm_srli_si128((__m128i)rclBounds, 8).m128i_u64[0];
-        v11 = HIDWORD(v10);
-        if ( v9 < SHIDWORD(v10) )
+        v22 = _mm_srli_si128((__m128i)rclBounds, 8).m128i_u64[0];
+        v23 = HIDWORD(v22);
+        if ( v21 < SHIDWORD(v22) )
         {
-          v12 = v9 + *((_DWORD *)a1 + 1);
-          v13 = HIDWORD(*(_QWORD *)&rclBounds.left);
-          if ( v12 > rclBounds.top )
+          left = rclBounds.left;
+          v25 = v21 + *((_DWORD *)a1 + 1);
+          v26 = HIDWORD(*(_QWORD *)&rclBounds.left);
+          if ( v25 > rclBounds.top )
           {
-            if ( v9 >= rclBounds.top )
-              LODWORD(v13) = v9;
-            if ( v12 < SHIDWORD(v10) )
-              LODWORD(v11) = v9 + *((_DWORD *)a1 + 1);
-            v14 = v11 - v13;
-            v15 = *((_QWORD *)a3 + 10) + *((_DWORD *)a3 + 22) * (int)v13;
-            v51 = v15;
-            while ( v4 != (LONG *)v6 )
+            if ( v21 >= rclBounds.top )
+              LODWORD(v26) = v21;
+            if ( v25 < SHIDWORD(v22) )
+              LODWORD(v23) = v25;
+            v27 = v23 - v26;
+            for ( i = *((_QWORD *)v6 + 10) + (int)v26 * *((_DWORD *)v6 + 22);
+                  v5 != v7;
+                  v5 = (struct _XRUNLEN *)((char *)v5 + 4 * v30 + 8) )
             {
-              v16 = *v4;
-              v17 = v4[1];
-              v18 = v17 + *v4;
-              if ( v18 >= rclBounds.left )
+              v29 = *(_DWORD *)v5;
+              v30 = *((_DWORD *)v5 + 1);
+              v31 = v30 + *(_DWORD *)v5;
+              if ( v31 >= left )
               {
-                if ( v16 >= (int)v10 )
+                if ( v29 >= (int)v22 )
                   return;
-                left = rclBounds.left;
-                v20 = v10;
-                if ( v16 >= rclBounds.left )
-                  left = *v4;
-                if ( v18 < (int)v10 )
-                  v20 = v17 + *v4;
-                v21 = v20 - left;
-                v22 = (_DWORD *)(v15 + 4LL * left);
-                v23 = v22;
-                if ( left < v20 )
+                v32 = left;
+                v33 = v22;
+                if ( v29 >= left )
+                  v32 = *(_DWORD *)v5;
+                if ( v31 < (int)v22 )
+                  v33 = v30 + *(_DWORD *)v5;
+                v34 = v33 - v32;
+                v35 = (_DWORD *)(i + 4LL * v32);
+                v36 = v35;
+                if ( v32 < v33 )
                 {
-                  v24 = left - v16;
-                  v25 = v21;
-                  v26 = &v4[v24 + 2];
+                  v37 = v32 - v29;
+                  v38 = v34;
+                  v39 = (int *)((char *)v5 + 4 * v37 + 8);
                   do
                   {
-                    v27 = *v26++;
-                    *v23++ = v27;
-                    --v25;
+                    v40 = *v39++;
+                    *v36++ = v40;
+                    --v38;
                   }
-                  while ( v25 );
+                  while ( v38 );
                 }
-                if ( v14 > 1 )
+                if ( v27 > 1 )
                 {
-                  v38 = 4 * v21;
-                  v39 = (unsigned int)(v14 - 1);
+                  v41 = 4 * v34;
+                  v42 = (unsigned int)(v27 - 1);
                   do
                   {
-                    v40 = (char *)v22 + *((int *)a3 + 22);
-                    memmove(v40, v22, v38);
-                    v22 = v40;
-                    --v39;
+                    v43 = (char *)v35 + *((int *)a3 + 22);
+                    memmove(v43, v35, v41);
+                    v35 = v43;
+                    --v42;
                   }
-                  while ( v39 );
-                  v6 = a2;
+                  while ( v42 );
+                  left = rclBounds.left;
+                  v7 = a2;
                 }
-                v17 = v4[1];
-                v15 = v51;
+                v30 = *((_DWORD *)v5 + 1);
               }
-              v4 += v17 + 2;
             }
           }
         }
@@ -145,99 +149,105 @@ void __fastcall vStrWrite32(struct _STRRUN *a1, struct _XRUNLEN *a2, struct SURF
       else
       {
         XCLIPOBJ::cEnumStart((XCLIPOBJ *)a4, 0, 0, 4u, 0x64u);
-        v41 = *(_DWORD *)a1;
-        v42 = *((_DWORD *)a1 + 1);
+        v44 = *(_DWORD *)a1;
+        v45 = *(_DWORD *)a1;
+        v46 = *((_DWORD *)a1 + 1);
         rclBounds = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm);
-LABEL_56:
-        XCLIPOBJ::vFindScan((XCLIPOBJ *)a4, &rclBounds, v41);
-        while ( v42 )
+        XCLIPOBJ::vFindScan((XCLIPOBJ *)a4, &rclBounds, v45);
+        if ( v46 )
         {
-          --v42;
-          if ( v41 >= rclBounds.top && v41 < rclBounds.bottom )
+          right = rclBounds.right;
+          v48 = rclBounds.left;
+          do
           {
-            v43 = *((_QWORD *)a3 + 10) + v41 * *((_DWORD *)a3 + 22);
-            v53 = v43;
-            if ( v4 != (LONG *)v6 )
+            v57 = --v46;
+            if ( v44 >= rclBounds.top && v44 < rclBounds.bottom )
             {
-              v44 = (struct _XRUNLEN *)v4;
-              do
+              v49 = *((_QWORD *)v6 + 10) + v44 * *((_DWORD *)v6 + 22);
+              v58 = v49;
+              if ( v5 != v7 )
               {
-                v45 = *(int *)v44;
-                v46 = *((_DWORD *)v44 + 1);
-                v47 = (int *)(v43 + 4 * v45);
-                v48 = v46 + v45;
-                v50 = v47;
-                v56 = v46 + v45;
-                if ( (int)v45 < v46 + (int)v45 )
+                v50 = v5;
+                do
                 {
-                  v49 = (int *)((char *)v44 + 8);
-                  v52 = (int *)((char *)v44 + 8);
-                  do
+                  v51 = *(int *)v50;
+                  v52 = *((_DWORD *)v50 + 1);
+                  v53 = (_DWORD *)(v49 + 4 * v51);
+                  v54 = v52 + v51;
+                  if ( (int)v51 < v52 + (int)v51 )
                   {
-                    if ( (int)v45 < rclBounds.left || (int)v45 >= rclBounds.right )
+                    v55 = (_DWORD *)((char *)v50 + 8);
+                    do
                     {
-                      XCLIPOBJ::vFindSegment((XCLIPOBJ *)a4, &rclBounds, v45);
-                      v47 = v50;
-                      v48 = v56;
-                      v49 = v52;
+                      if ( (int)v51 < v48 || (int)v51 >= right )
+                      {
+                        XCLIPOBJ::vFindSegment((XCLIPOBJ *)a4, &rclBounds, v51);
+                        v48 = rclBounds.left;
+                        right = rclBounds.right;
+                      }
+                      if ( (int)v51 >= v48 && (int)v51 < right )
+                        *v53 = *v55;
+                      ++v53;
+                      ++v55;
+                      LODWORD(v51) = v51 + 1;
                     }
-                    if ( (int)v45 >= rclBounds.left && (int)v45 < rclBounds.right )
-                      *v47 = *v49;
-                    ++v47;
-                    ++v49;
-                    LODWORD(v45) = v45 + 1;
-                    v50 = v47;
-                    v52 = v49;
+                    while ( (int)v51 < v54 );
+                    v52 = *((_DWORD *)v50 + 1);
+                    v49 = v58;
+                    v7 = a2;
                   }
-                  while ( (int)v45 < v48 );
-                  v46 = *((_DWORD *)v44 + 1);
-                  v43 = v53;
+                  v50 = (struct _XRUNLEN *)((char *)v50 + 4 * v52 + 8);
                 }
-                v44 = (struct _XRUNLEN *)((char *)v44 + 4 * v46 + 8);
+                while ( v50 != v7 );
+                v6 = a3;
+                v46 = v57;
               }
-              while ( v44 != v6 );
+            }
+            if ( ++v44 < rclBounds.top || v44 >= rclBounds.bottom )
+            {
+              XCLIPOBJ::vFindScan((XCLIPOBJ *)a4, &rclBounds, v44);
+              right = rclBounds.right;
+              v48 = rclBounds.left;
             }
           }
-          if ( ++v41 < rclBounds.top || v41 >= rclBounds.bottom )
-            goto LABEL_56;
+          while ( v46 );
         }
       }
     }
     else
     {
-      v28 = *((_QWORD *)a3 + 10) + *(_DWORD *)a1 * *((_DWORD *)a3 + 22);
-      while ( v4 != (LONG *)v6 )
+      v9 = *((_QWORD *)a3 + 10) + *(_DWORD *)a1 * *((_DWORD *)a3 + 22);
+      for ( j = v9; v5 != a2; v5 = (struct _XRUNLEN *)((char *)v5 + 4 * *((int *)v5 + 1) + 8) )
       {
-        v29 = *v4;
-        v30 = v4[1];
-        v31 = (_DWORD *)(v28 + 4 * v29);
-        v32 = v31;
-        if ( (int)v29 < (int)(v30 + v29) )
+        v11 = *(int *)v5;
+        v12 = *((_DWORD *)v5 + 1);
+        v13 = (_DWORD *)(v9 + 4 * v11);
+        v14 = v13;
+        if ( (int)v11 < (int)(v12 + v11) )
         {
-          v33 = v4 + 2;
-          v34 = v30;
+          v15 = (int *)((char *)v5 + 8);
+          v16 = v12;
           do
           {
-            v35 = *v33++;
-            *v32++ = v35;
-            --v34;
+            v17 = *v15++;
+            *v14++ = v17;
+            --v16;
           }
-          while ( v34 );
+          while ( v16 );
         }
-        v36 = 1;
+        v18 = 1;
         if ( *((int *)a1 + 1) > 1 )
         {
           do
           {
-            v37 = (char *)v31 + *((int *)a3 + 22);
-            memmove(v37, v31, 4 * v4[1]);
-            ++v36;
-            v31 = v37;
+            v19 = (char *)v13 + *((int *)a3 + 22);
+            memmove(v19, v13, 4 * *((_DWORD *)v5 + 1));
+            ++v18;
+            v13 = v19;
           }
-          while ( v36 < *((_DWORD *)a1 + 1) );
-          v6 = a2;
+          while ( v18 < *((_DWORD *)a1 + 1) );
+          v9 = j;
         }
-        v4 += v4[1] + 2;
       }
     }
   }

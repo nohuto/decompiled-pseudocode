@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReclaimPool@FxPagedLookasideListFromPool@@MEAAXPEAX@Z @ 0x1C006A9F0
+ * XREFs of ?ReclaimPool@FxPagedLookasideListFromPool@@MEAAXPEAX@Z @ 0x1C0055000
  * Callers:
  *     <none>
  * Callees:
- *     FxFreeToNPagedLookasideList @ 0x1C0038068 (FxFreeToNPagedLookasideList.c)
- *     ?FxPoolRemovePagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z @ 0x1C006A79C (-FxPoolRemovePagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z.c)
+ *     FxFreeToNPagedLookasideList @ 0x1C0035998 (FxFreeToNPagedLookasideList.c)
+ *     ?FxPoolRemovePagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z @ 0x1C0054DAC (-FxPoolRemovePagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z.c)
  */
 
 void __fastcall FxPagedLookasideListFromPool::ReclaimPool(FxPagedLookasideListFromPool *this, FX_POOL_TRACKER *Pool)

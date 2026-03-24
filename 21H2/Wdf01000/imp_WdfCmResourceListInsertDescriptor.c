@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfCmResourceListInsertDescriptor @ 0x1C006F650
+ * XREFs of imp_WdfCmResourceListInsertDescriptor @ 0x1C005C630
  * Callers:
  *     <none>
  * Callees:
- *     FxCmResourceListInsertDescriptor @ 0x1C006F30C (FxCmResourceListInsertDescriptor.c)
+ *     FxCmResourceListInsertDescriptor @ 0x1C005C210 (FxCmResourceListInsertDescriptor.c)
  */
 
 int __fastcall imp_WdfCmResourceListInsertDescriptor(

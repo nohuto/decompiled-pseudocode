@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AlphaMultiply_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B1630
+ * XREFs of ?AlphaMultiply_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021B5E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ void __fastcall AlphaMultiply_128bppABGR(const struct PipelineParams *a1, const 
   int v4; // eax
   __m128 v5; // xmm0
   float v6; // xmm2_4
-  __m128 v7; // [rsp+0h] [rbp-18h]
+  __m128 v7; // [rsp+0h] [rbp-10h]
 
   v2 = (const __m128i *)*((_QWORD *)a2 + 1);
   v3 = *(__m128 **)a2;

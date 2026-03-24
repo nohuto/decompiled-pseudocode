@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00C3DE0
+ * XREFs of ?SetBufferProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B75E0
  * Callers:
  *     <none>
  * Callees:

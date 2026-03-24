@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Initialize@CHolographicClient@@AEAAJXZ @ 0x18029DB14
+ * XREFs of ?Initialize@CHolographicClient@@AEAAJXZ @ 0x18025B3F4
  * Callers:
- *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18029D52C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
+ *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18025AE3C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x18029D810 (-EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x18025B100 (-EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CHolographicClient::Initialize(LARGE_INTEGER *this)
@@ -21,14 +21,14 @@ __int64 __fastcall CHolographicClient::Initialize(LARGE_INTEGER *this)
     v5 = CHolographicClient::EnsureHolographicCompositor((CHolographicClient *)this);
     v4 = v5;
     if ( v5 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x66u);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x66u, 0LL);
     else
       QueryPerformanceFrequency(this + 35);
   }
   else
   {
     v4 = AnalogExclusiveTokenEvent | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0LL, v4, 0x64u);
+    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0, v4, 0x64u, 0LL);
   }
   return v4;
 }

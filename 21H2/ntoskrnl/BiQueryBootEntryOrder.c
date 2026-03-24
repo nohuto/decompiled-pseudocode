@@ -1,17 +1,17 @@
 /*
- * XREFs of BiQueryBootEntryOrder @ 0x140A207C4
+ * XREFs of BiQueryBootEntryOrder @ 0x14097285C
  * Callers:
- *     BiAddBootEntryToNvramDisplayOrder @ 0x140A1E268 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiBindEfiBootManager @ 0x140A1E354 (BiBindEfiBootManager.c)
- *     BiExportEfiBootManager @ 0x140A1FB1C (BiExportEfiBootManager.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A20978 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140970300 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiBindEfiBootManager @ 0x1409703EC (BiBindEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140971BC0 (BiExportEfiBootManager.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140972A10 (BiRemoveBootEntryFromNvramDisplayOrder.c)
  * Callees:
- *     ZwQueryBootEntryOrder @ 0x14041E020 (ZwQueryBootEntryOrder.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ZwQueryBootEntryOrder @ 0x1403FCBA0 (ZwQueryBootEntryOrder.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiQueryBootEntryOrder(_QWORD *a1, unsigned int *a2)

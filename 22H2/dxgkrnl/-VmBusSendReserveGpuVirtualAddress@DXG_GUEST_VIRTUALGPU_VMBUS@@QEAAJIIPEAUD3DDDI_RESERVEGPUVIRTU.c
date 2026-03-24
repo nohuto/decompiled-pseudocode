@@ -1,13 +1,10 @@
 /*
- * XREFs of ?VmBusSendReserveGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAUD3DDDI_RESERVEGPUVIRTUALADDRESS@@@Z @ 0x1C038D868
+ * XREFs of ?VmBusSendReserveGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAUD3DDDI_RESERVEGPUVIRTUALADDRESS@@@Z @ 0x1C024BFC8
  * Callers:
- *     DxgkReserveGpuVirtualAddress @ 0x1C017B640 (DxgkReserveGpuVirtualAddress.c)
+ *     DxgkReserveGpuVirtualAddress @ 0x1C0173F00 (DxgkReserveGpuVirtualAddress.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendReserveGpuVirtualAddress(
@@ -16,60 +13,54 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendReserveGpuVirtualAddress
         int a3,
         struct D3DDDI_RESERVEGPUVIRTUALADDRESS *a4)
 {
-  __int64 v8; // rax
-  int v9; // edi
-  __int128 v10; // xmm0
-  unsigned int v12[4]; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v13; // [rsp+60h] [rbp-A0h] BYREF
-  int v14; // [rsp+70h] [rbp-90h]
-  _QWORD v15[2]; // [rsp+180h] [rbp+80h] BYREF
+  __int128 v4; // xmm0
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  int v11; // ebx
+  __int64 v12; // rax
+  struct _MDL *v14; // [rsp+28h] [rbp-51h]
+  unsigned int v15[4]; // [rsp+30h] [rbp-49h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-39h] BYREF
+  int v17; // [rsp+48h] [rbp-31h]
+  int v18; // [rsp+4Ch] [rbp-2Dh]
+  int v19; // [rsp+50h] [rbp-29h]
+  __int128 v20; // [rsp+58h] [rbp-21h]
+  __int128 v21; // [rsp+68h] [rbp-11h]
+  __int128 v22; // [rsp+78h] [rbp-1h]
+  __int128 v23; // [rsp+88h] [rbp+Fh]
+  UINT64 PagingFenceValue; // [rsp+98h] [rbp+1Fh]
+  _QWORD v25[2]; // [rsp+A0h] [rbp+27h] BYREF
 
-  v14 = 0;
-  v13 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v13, this, 0x60u, 0LL, 0LL, 0LL);
-  v8 = v13;
-  if ( (_QWORD)v13 )
+  v4 = *(_OWORD *)&a4->hPagingQueue;
+  v16 = 0LL;
+  v6 = *(_OWORD *)&a4->MinimumAddress;
+  v18 = 0;
+  v20 = v4;
+  v17 = a2;
+  v7 = *(_OWORD *)&a4->Size;
+  LODWORD(v20) = a3;
+  v21 = v6;
+  v19 = 18;
+  v8 = *(_OWORD *)&a4->DriverProtection;
+  v15[0] = 16;
+  v22 = v7;
+  PagingFenceValue = a4->PagingFenceValue;
+  v23 = v8;
+  v11 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v16, 0x60u, v25, v15, v14);
+  if ( v11 < 0 || (v11 = -1073741823, v15[0] < 0x10) )
   {
-    *(_QWORD *)v13 = 0LL;
-    *(_DWORD *)(v8 + 20) = 0;
-    *(_BYTE *)(v8 + 12) = 0;
-    *(_DWORD *)(v8 + 12) &= 0x1FFu;
-    *(_DWORD *)(v8 + 8) = a2;
-    *(_DWORD *)(v8 + 16) = 18;
-    v10 = *(_OWORD *)&a4->hPagingQueue;
-    v12[0] = 16;
-    *(_OWORD *)(v8 + 24) = v10;
-    *(_OWORD *)(v8 + 40) = *(_OWORD *)&a4->MinimumAddress;
-    *(_OWORD *)(v8 + 56) = *(_OWORD *)&a4->Size;
-    *(_OWORD *)(v8 + 72) = *(_OWORD *)&a4->DriverProtection;
-    *(_QWORD *)(v8 + 88) = a4->PagingFenceValue;
-    *(_DWORD *)(v8 + 24) = a3;
-    v9 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v13, v15, v12);
-    if ( v9 < 0 || (v9 = -1073741823, v12[0] < 0x10) )
-    {
-      WdLogSingleEntry1(2LL, v9);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendReserveGpuVirtualAddress failed: 0x%I64x",
-        v9,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    else
-    {
-      v9 = 0;
-      a4->VirtualAddress = v15[0];
-      a4->PagingFenceValue = v15[1];
-    }
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdError(v12);
   }
   else
   {
-    v9 = -1073741801;
+    v11 = 0;
+    a4->VirtualAddress = v25[0];
+    a4->PagingFenceValue = v25[1];
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v13);
-  return (unsigned int)v9;
+  return (unsigned int)v11;
 }

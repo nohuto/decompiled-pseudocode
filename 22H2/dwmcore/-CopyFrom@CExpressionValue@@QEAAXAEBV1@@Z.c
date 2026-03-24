@@ -1,18 +1,19 @@
 /*
- * XREFs of ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x180057F78
+ * XREFs of ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800AC338
  * Callers:
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053F60 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x180055B24 (-ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValu.c)
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800987C4 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
- *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1800BD0B0 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
- *     ?PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z @ 0x1800BD9F0 (-PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z.c)
- *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800EA78C (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
- *     ?AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack@@@Z @ 0x18022775C (-AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack.c)
- *     ?EnsureInertiaModifierProcessed@CScrollPositionKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_K@Z @ 0x180265ED0 (-EnsureInertiaModifierProcessed@CScrollPositionKeyframeAnimation@@MEAAJPEAVCExpressionValueStack.c)
- *     ?EnsureInertiaModifierProcessed@CScrollScaleKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_K@Z @ 0x1802663E0 (-EnsureInertiaModifierProcessed@CScrollScaleKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_.c)
- *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x180267600 (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073B10 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800A91E0 (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
+ *     ?PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z @ 0x1800A9CF0 (-PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z.c)
+ *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800AA5F0 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
+ *     ?CreateConstantKeyframeValue@KeyframeValue@@SAXPEBVCExpressionValue@@PEAPEAV1@@Z @ 0x1800AAAF0 (-CreateConstantKeyframeValue@KeyframeValue@@SAXPEBVCExpressionValue@@PEAPEAV1@@Z.c)
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800AB420 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x1800ABEF0 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack@@@Z @ 0x1801BD18C (-AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack.c)
+ *     ?ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x1801D1478 (-ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValu.c)
+ *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1801DA470 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
+ *     ?EnsureInertiaModifierProcessed@CScrollPositionKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_K@Z @ 0x180204810 (-EnsureInertiaModifierProcessed@CScrollPositionKeyframeAnimation@@MEAAJPEAVCExpressionValueStack.c)
+ *     ?EnsureInertiaModifierProcessed@CScrollScaleKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_K@Z @ 0x180204D60 (-EnsureInertiaModifierProcessed@CScrollScaleKeyframeAnimation@@MEAAJPEAVCExpressionValueStack@@_.c)
+ *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18020607C (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -39,25 +40,25 @@ void __fastcall CExpressionValue::CopyFrom(CExpressionValue *this, const struct 
       v7 = v6 - 1;
       if ( v7 )
       {
-        v9 = v7 - 1;
-        if ( v9 )
+        v8 = v7 - 1;
+        if ( v8 )
         {
-          v10 = v9 - 33;
-          if ( !v10 )
+          v9 = v8 - 33;
+          if ( !v9 )
           {
             *((_DWORD *)this + 18) = 104;
             *(_OWORD *)this = *(_OWORD *)a2;
             *((_QWORD *)this + 2) = *((_QWORD *)a2 + 2);
-            goto LABEL_11;
+            goto LABEL_7;
           }
-          if ( v10 == 161 )
+          if ( v9 == 161 )
           {
             *((_DWORD *)this + 18) = 265;
             *(_OWORD *)this = *(_OWORD *)a2;
             *((_OWORD *)this + 1) = *((_OWORD *)a2 + 1);
             *((_OWORD *)this + 2) = *((_OWORD *)a2 + 2);
             *((_OWORD *)this + 3) = *((_OWORD *)a2 + 3);
-            goto LABEL_11;
+            goto LABEL_7;
           }
           return;
         }
@@ -73,14 +74,14 @@ void __fastcall CExpressionValue::CopyFrom(CExpressionValue *this, const struct 
       *((_DWORD *)this + 18) = 69;
     }
     *(_OWORD *)this = *(_OWORD *)a2;
-    goto LABEL_11;
+    goto LABEL_7;
   }
   if ( v2 == 52 )
   {
     *((_DWORD *)this + 18) = 52;
     *(_QWORD *)this = *(_QWORD *)a2;
     *((_DWORD *)this + 2) = *((_DWORD *)a2 + 2);
-    goto LABEL_11;
+    goto LABEL_7;
   }
   v3 = v2 - 11;
   if ( !v3 )
@@ -96,28 +97,28 @@ void __fastcall CExpressionValue::CopyFrom(CExpressionValue *this, const struct 
   {
     *(_BYTE *)this = *(_BYTE *)a2;
     *((_DWORD *)this + 18) = 17;
-    goto LABEL_11;
+    goto LABEL_7;
   }
   v5 = v4 - 1;
   if ( !v5 )
   {
     *(_DWORD *)this = *(_DWORD *)a2;
     *((_DWORD *)this + 18) = 18;
-LABEL_11:
+LABEL_7:
     *((_BYTE *)this + 76) = 1;
     return;
   }
-  v8 = v5 - 17;
-  if ( !v8 )
+  v10 = v5 - 17;
+  if ( !v10 )
   {
     *((_DWORD *)this + 18) = 35;
     *(_QWORD *)this = *(_QWORD *)a2;
-    goto LABEL_11;
+    goto LABEL_7;
   }
-  if ( v8 == 7 )
+  if ( v10 == 7 )
   {
     *((_DWORD *)this + 18) = 42;
     *(_DWORD *)this = *(_DWORD *)a2;
-    goto LABEL_11;
+    goto LABEL_7;
   }
 }

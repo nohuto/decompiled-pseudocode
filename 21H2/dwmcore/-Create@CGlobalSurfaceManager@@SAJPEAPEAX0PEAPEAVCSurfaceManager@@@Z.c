@@ -1,27 +1,26 @@
 /*
- * XREFs of ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x18002D868
+ * XREFs of ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x1800B5344
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x18002CA0C (--0CGlobalSurfaceManager@@IEAA@XZ.c)
- *     ?Initialize@CGlobalSurfaceManager@@IEAAJPEAPEAX0@Z @ 0x18002D910 (-Initialize@CGlobalSurfaceManager@@IEAAJPEAPEAX0@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Initialize@CGlobalSurfaceManager@@IEAAJPEAPEAX0@Z @ 0x1800B53E8 (-Initialize@CGlobalSurfaceManager@@IEAAJPEAPEAX0@Z.c)
+ *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800B5624 (--0CGlobalSurfaceManager@@IEAA@XZ.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CGlobalSurfaceManager::Create(void **a1, void **a2, struct CSurfaceManager **a3)
 {
   CGlobalSurfaceManager *v6; // rax
   CGlobalSurfaceManager *v7; // rbx
-  CGlobalSurfaceManager *v8; // rax
-  unsigned int v9; // ecx
-  CGlobalSurfaceManager *v10; // rdi
+  volatile signed __int32 *v8; // rax
+  __int64 v9; // rcx
+  CDrawListEntry *v10; // rdi
   int v11; // eax
-  unsigned int v12; // ecx
+  __int64 v12; // rcx
   unsigned int v13; // ebx
   void *retaddr; // [rsp+38h] [rbp+0h]
 
@@ -31,17 +30,17 @@ __int64 __fastcall CGlobalSurfaceManager::Create(void **a1, void **a2, struct CS
   if ( !v6 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   memset_0(v6, 0, 0x1F8uLL);
-  v8 = CGlobalSurfaceManager::CGlobalSurfaceManager(v7);
-  v10 = v8;
+  v8 = (volatile signed __int32 *)CGlobalSurfaceManager::CGlobalSurfaceManager(v7);
+  v10 = (CDrawListEntry *)v8;
   if ( v8 )
   {
-    CMILRefCountImpl::AddReference((CGlobalSurfaceManager *)((char *)v8 + 8));
-    v11 = CGlobalSurfaceManager::Initialize(v10, a1, a2);
+    _InterlockedIncrement(v8 + 2);
+    v11 = CGlobalSurfaceManager::Initialize((CGlobalSurfaceManager *)v8, a1, a2);
     v13 = v11;
     if ( v11 < 0 )
     {
       MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x40u, 0LL);
-      CMILRefCountBaseT<IMILRefCount>::InternalRelease(v10);
+      CDrawListEntry::Release(v10);
     }
     else
     {

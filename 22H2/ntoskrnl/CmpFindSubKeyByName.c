@@ -1,21 +1,24 @@
 /*
- * XREFs of CmpFindSubKeyByName @ 0x1408264AC
+ * XREFs of CmpFindSubKeyByName @ 0x1407ACD14
  * Callers:
- *     CmpLoadServicesNode @ 0x140B5C124 (CmpLoadServicesNode.c)
- *     CmpSortDriverList @ 0x140B5C1E8 (CmpSortDriverList.c)
- *     CmpFindGroupOrderList @ 0x140B5C400 (CmpFindGroupOrderList.c)
- *     CmpGetSystemControlValues @ 0x140B5C934 (CmpGetSystemControlValues.c)
- *     CmpIsLoadType @ 0x140B5DA70 (CmpIsLoadType.c)
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B5DD4C (CmpGetStateSepKeysRedirectionPathValue.c)
- *     CmpLoadManufacturingModeNode @ 0x140B99FFC (CmpLoadManufacturingModeNode.c)
- *     CmpLoadManufacturingProfileNode @ 0x140B9A124 (CmpLoadManufacturingProfileNode.c)
- *     CmpLoadManufacturingProfileServicesNode @ 0x140B9A214 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
+ *     CmpLoadServicesNode @ 0x140A602C8 (CmpLoadServicesNode.c)
+ *     CmpFindGroupOrderList @ 0x140A6036C (CmpFindGroupOrderList.c)
+ *     CmpSortDriverList @ 0x140A60418 (CmpSortDriverList.c)
+ *     CmpIsLoadType @ 0x140A6112C (CmpIsLoadType.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140A61390 (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpLoadManufacturingModeNode @ 0x140A8ECCC (CmpLoadManufacturingModeNode.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140A8EDBC (CmpLoadManufacturingProfileNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140A8EE84 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     CmpFindSubKeyByNameWithStatus @ 0x1408264D0 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACD38 (CmpFindSubKeyByNameWithStatus.c)
  */
 
-__int64 __fastcall CmpFindSubKeyByName(ULONG_PTR a1)
+__int64 __fastcall CmpFindSubKeyByName(__int64 a1, __int64 a2, __int64 a3)
 {
-  CmpFindSubKeyByNameWithStatus(a1);
-  return 0LL;
+  unsigned int v4; // [rsp+48h] [rbp+20h] BYREF
+
+  v4 = 0;
+  CmpFindSubKeyByNameWithStatus(a1, a2, a3, &v4);
+  return v4;
 }

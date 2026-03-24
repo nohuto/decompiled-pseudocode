@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiWriteEventToAllQueues @ 0x140880670
+ * XREFs of TtmiWriteEventToAllQueues @ 0x140880650
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x14087E260 (TtmpPublishDeviceEvent.c)
- *     TtmpWriteDisplayStateChangedEvent @ 0x14087F6C8 (TtmpWriteDisplayStateChangedEvent.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x140881678 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x14087E240 (TtmpPublishDeviceEvent.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x14087F6A8 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x140881658 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
  * Callees:
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiCloseEventQueue @ 0x140882250 (TtmiCloseEventQueue.c)
- *     TtmiWriteEventToSingleQueue @ 0x1408825B4 (TtmiWriteEventToSingleQueue.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiCloseEventQueue @ 0x140882230 (TtmiCloseEventQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x140882594 (TtmiWriteEventToSingleQueue.c)
  */
 
 void __fastcall TtmiWriteEventToAllQueues(__int64 a1, __int64 a2)

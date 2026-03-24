@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpMapHiveImageFromFile @ 0x1407F7AD4
+ * XREFs of HvpMapHiveImageFromFile @ 0x1407F7AB4
  * Callers:
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     HvpMapHiveImage @ 0x1407F796C (HvpMapHiveImage.c)
+ *     HvpMapHiveImage @ 0x1407F794C (HvpMapHiveImage.c)
  */
 
 __int64 __fastcall HvpMapHiveImageFromFile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, unsigned int a4)

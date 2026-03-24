@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateUsermodeParameters@FontManagementRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0306CE0
+ * XREFs of ?CreateUsermodeParameters@FontManagementRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C02DEA50
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0075888 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00760C4 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?TryComputeAlignedFieldSizes@UmfdTls@@SA_NIPEAII0I0I0@Z @ 0x1C0307274 (-TryComputeAlignedFieldSizes@UmfdTls@@SA_NIPEAII0I0I0@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A658C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00A6694 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
+ *     ?TryComputeAlignedFieldSizes@UmfdTls@@SA_NIPEAII0I0I0@Z @ 0x1C014F660 (-TryComputeAlignedFieldSizes@UmfdTls@@SA_NIPEAII0I0I0@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall FontManagementRequest::CreateUsermodeParameters(
@@ -21,7 +21,7 @@ __int64 __fastcall FontManagementRequest::CreateUsermodeParameters(
   __int64 v10; // r15
   char *v11; // rax
   _QWORD *v12; // rdi
-  char *v13; // rcx
+  char *v13; // rdx
   const void *v14; // rdx
   struct _FONTOBJ *v15; // rdx
   unsigned int v17; // [rsp+40h] [rbp-38h] BYREF
@@ -64,7 +64,7 @@ __int64 __fastcall FontManagementRequest::CreateUsermodeParameters(
   *((_QWORD *)this + 14) = &v13[v6];
   v14 = (const void *)*((_QWORD *)this + 8);
   if ( v14 )
-    memmove(v13, v14, *((unsigned int *)this + 15));
+    memmove(*((void **)this + 13), v14, *((unsigned int *)this + 15));
   else
     *((_QWORD *)this + 13) = 0LL;
   if ( !*((_QWORD *)this + 10) )

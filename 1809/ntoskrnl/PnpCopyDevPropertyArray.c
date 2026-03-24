@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCopyDevPropertyArray @ 0x1406D7250
+ * XREFs of PnpCopyDevPropertyArray @ 0x1406D7230
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1406D6E78 (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x1406D808C (PiSwCompleteCreate.c)
- *     PiSwInterfaceCreate @ 0x14075440C (PiSwInterfaceCreate.c)
- *     PiSwQueuedCreateInfoCreate @ 0x140835DCC (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1406D6E58 (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x1406D806C (PiSwCompleteCreate.c)
+ *     PiSwInterfaceCreate @ 0x1407543EC (PiSwInterfaceCreate.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x140835DAC (PiSwQueuedCreateInfoCreate.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpCopyDevProperty @ 0x14075034C (PnpCopyDevProperty.c)
+ *     PnpCopyDevProperty @ 0x14075032C (PnpCopyDevProperty.c)
  */
 
 __int64 __fastcall PnpCopyDevPropertyArray(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4, void **a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessDownOnly@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@HH@Z @ 0x1C01F8038
+ * XREFs of ?ProcessDownOnly@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@HH@Z @ 0x1C0218648
  * Callers:
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F8228 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218808 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
  * Callees:
- *     ?AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F7990 (-AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
- *     ?ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C01F7AF8 (-ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@.c)
+ *     ?AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0217F48 (-AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0218080 (-ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@.c)
  */
 
 void __fastcall ProcessDownOnly(
@@ -14,14 +14,9 @@ void __fastcall ProcessDownOnly(
         int a4)
 {
   __int64 v8; // rax
-  __int64 v9; // rcx
-  struct tagMOUSE_PROMOTION_ENTRY *v10; // rdi
-  __int64 v11; // rax
-  __int64 v12; // rbx
 
   ClearMousePromotionQueueUntil(a1 + 1, a2);
   v8 = Win32AllocPoolZInit(48LL, 1886221141LL);
-  v10 = (struct tagMOUSE_PROMOTION_ENTRY *)v8;
   if ( v8 )
   {
     *(_OWORD *)v8 = *(_OWORD *)a2;
@@ -30,13 +25,14 @@ void __fastcall ProcessDownOnly(
     *(_QWORD *)v8 = 0LL;
     if ( a3 )
       *(_DWORD *)(v8 + 44) &= ~1u;
-    v11 = SGDGetUserSessionState(v9);
-    v12 = v11 + 16056;
-    AppendMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)(v11 + 16184), v10, v10);
-    *(_WORD *)(v12 + 224) = *(_WORD *)a1;
-    *(_DWORD *)(v12 + 228) = *((_DWORD *)a2 + 8);
-    *(_QWORD *)(v12 + 232) = gptiCurrent;
-    *(_DWORD *)(v12 + 240) = a3;
-    *(_DWORD *)(v12 + 244) = a4;
+    AppendMousePromotionQueue(
+      (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0339B50,
+      (struct tagMOUSE_PROMOTION_ENTRY *)v8,
+      (struct tagMOUSE_PROMOTION_ENTRY *)v8);
+    word_1C0339BB0 = *(_WORD *)a1;
+    dword_1C0339BB4 = *((_DWORD *)a2 + 8);
+    qword_1C0339BB8 = gptiCurrent;
+    dword_1C0339BC0 = a3;
+    dword_1C0339BC4 = a4;
   }
 }

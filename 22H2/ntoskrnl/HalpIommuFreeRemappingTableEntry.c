@@ -1,27 +1,27 @@
 /*
- * XREFs of HalpIommuFreeRemappingTableEntry @ 0x14050DBD4
+ * XREFs of HalpIommuFreeRemappingTableEntry @ 0x1404C54F0
  * Callers:
- *     HalpIrtFreeIndex @ 0x1409349C4 (HalpIrtFreeIndex.c)
+ *     HalpIrtFreeIndex @ 0x140865E68 (HalpIrtFreeIndex.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuFreeRemappingTableEntry(unsigned int a1, unsigned int a2)
 {
-  ULONG_PTR *v2; // rbx
+  __int64 *v2; // rbx
   unsigned int v5; // r8d
-  ULONG_PTR *v6; // rcx
-  __int64 (__fastcall *v7)(ULONG_PTR, _QWORD, _QWORD); // rax
+  __int64 *v6; // rcx
+  __int64 (__fastcall *v7)(__int64, _QWORD, _QWORD); // rax
 
-  v2 = (ULONG_PTR *)HalpIommuList;
+  v2 = (__int64 *)HalpIommuList;
   v5 = 0;
   while ( v2 != &HalpIommuList )
   {
     v6 = v2;
-    v2 = (ULONG_PTR *)*v2;
-    if ( (v6[61] & 0x40) != 0 )
+    v2 = (__int64 *)*v2;
+    if ( (v6[57] & 0x40) != 0 )
     {
-      v7 = (__int64 (__fastcall *)(ULONG_PTR, _QWORD, _QWORD))v6[21];
+      v7 = (__int64 (__fastcall *)(__int64, _QWORD, _QWORD))v6[20];
       if ( v7 )
       {
         v5 = v7(v6[2], a1, a2);

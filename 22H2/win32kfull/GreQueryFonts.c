@@ -1,15 +1,15 @@
 /*
- * XREFs of GreQueryFonts @ 0x1C0277DDC
+ * XREFs of GreQueryFonts @ 0x1C01540A4
  * Callers:
- *     NtGdiQueryFonts @ 0x1C02C4430 (NtGdiQueryFonts.c)
+ *     NtGdiQueryFonts @ 0x1C0153F70 (NtGdiQueryFonts.c)
  * Callees:
- *     ?QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z @ 0x1C026AC98 (-QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z.c)
+ *     ?QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z @ 0x1C01540D4 (-QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z.c)
  */
 
 __int64 __fastcall GreQueryFonts(struct _UNIVERSAL_FONT_ID *a1, unsigned int a2, union _LARGE_INTEGER *a3)
 {
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  struct _FONTHASH **v4; // [rsp+48h] [rbp+20h] BYREF
 
-  v7[0] = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 20272LL);
-  return PUBLIC_PFTOBJ::QueryFonts((PUBLIC_PFTOBJ *)v7, a1, a2, a3);
+  v4 = gpPFTPublic;
+  return PUBLIC_PFTOBJ::QueryFonts((PUBLIC_PFTOBJ *)&v4, a1, a2, a3);
 }

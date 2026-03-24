@@ -1,28 +1,28 @@
 /*
- * XREFs of ExInitializeResourceLite @ 0x1400CC4D0
+ * XREFs of ExInitializeResourceLite @ 0x1400CC4F0
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
- *     CcAllocateInitializeBcb @ 0x1400CC2F8 (CcAllocateInitializeBcb.c)
+ *     CcAllocateInitializeBcb @ 0x1400CC318 (CcAllocateInitializeBcb.c)
  *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
- *     CmpInitCmRM @ 0x14067F308 (CmpInitCmRM.c)
- *     PnpInitializeNotifyEntry @ 0x1407035E4 (PnpInitializeNotifyEntry.c)
- *     RtlCreateHeap @ 0x14070AF40 (RtlCreateHeap.c)
- *     MUIInitializeResourceLock @ 0x14070F47C (MUIInitializeResourceLock.c)
- *     PiDmObjectManagerInit @ 0x14072CA48 (PiDmObjectManagerInit.c)
- *     AdtpObjsInitialize @ 0x140737248 (AdtpObjsInitialize.c)
- *     PiDqObjectManagerInit @ 0x140739D64 (PiDqObjectManagerInit.c)
- *     PiPnpRtlInit @ 0x14073A540 (PiPnpRtlInit.c)
- *     PiDrvDbCreateNode @ 0x14073AB68 (PiDrvDbCreateNode.c)
- *     DrvDbOpenContext @ 0x14073B1B8 (DrvDbOpenContext.c)
- *     DrvDbCreateDatabaseNode @ 0x14073B408 (DrvDbCreateDatabaseNode.c)
- *     _PnpCtxOpenMachine @ 0x14073B6EC (_PnpCtxOpenMachine.c)
- *     PfSnPrefetchCacheCtxInitialize @ 0x140752E4C (PfSnPrefetchCacheCtxInitialize.c)
- *     FsRtlInitializeTieringHeat @ 0x140757F38 (FsRtlInitializeTieringHeat.c)
- *     TtmInit @ 0x1407623C0 (TtmInit.c)
- *     IopInitializeBootLogging @ 0x14081A034 (IopInitializeBootLogging.c)
- *     TtmiCreateEventQueue @ 0x1408822FC (TtmiCreateEventQueue.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
+ *     PnpInitializeNotifyEntry @ 0x1407035C4 (PnpInitializeNotifyEntry.c)
+ *     RtlCreateHeap @ 0x14070AF20 (RtlCreateHeap.c)
+ *     MUIInitializeResourceLock @ 0x14070F45C (MUIInitializeResourceLock.c)
+ *     PiDmObjectManagerInit @ 0x14072CA28 (PiDmObjectManagerInit.c)
+ *     AdtpObjsInitialize @ 0x140737228 (AdtpObjsInitialize.c)
+ *     PiDqObjectManagerInit @ 0x140739D44 (PiDqObjectManagerInit.c)
+ *     PiPnpRtlInit @ 0x14073A520 (PiPnpRtlInit.c)
+ *     PiDrvDbCreateNode @ 0x14073AB48 (PiDrvDbCreateNode.c)
+ *     DrvDbOpenContext @ 0x14073B198 (DrvDbOpenContext.c)
+ *     DrvDbCreateDatabaseNode @ 0x14073B3E8 (DrvDbCreateDatabaseNode.c)
+ *     _PnpCtxOpenMachine @ 0x14073B6CC (_PnpCtxOpenMachine.c)
+ *     PfSnPrefetchCacheCtxInitialize @ 0x140752E2C (PfSnPrefetchCacheCtxInitialize.c)
+ *     FsRtlInitializeTieringHeat @ 0x140757F18 (FsRtlInitializeTieringHeat.c)
+ *     TtmInit @ 0x1407623A0 (TtmInit.c)
+ *     IopInitializeBootLogging @ 0x14081A014 (IopInitializeBootLogging.c)
+ *     TtmiCreateEventQueue @ 0x1408822DC (TtmiCreateEventQueue.c)
  *     SepInitializeWorkList @ 0x1409AE8B8 (SepInitializeWorkList.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
@@ -42,15 +42,15 @@
  *     PopInitializeDripsWatchdog @ 0x1409DEB00 (PopInitializeDripsWatchdog.c)
  *     WmipGetSMBiosFromLoaderBlock @ 0x1409DEF00 (WmipGetSMBiosFromLoaderBlock.c)
  * Callees:
- *     ExpAcquireSpinLockExclusive @ 0x1400BC680 (ExpAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlStdLogStackTrace @ 0x1402ECFB8 (RtlStdLogStackTrace.c)
- *     RtlStdReleaseStackTrace @ 0x1402ED010 (RtlStdReleaseStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x1402ED3BC (RtlpStdGetRecordedStackTraceIndex.c)
- *     PerfLogExecutiveResourceInitialize @ 0x140313490 (PerfLogExecutiveResourceInitialize.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlStdLogStackTrace @ 0x1402ED0B8 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x1402ED110 (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402ED4BC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140313590 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 NTSTATUS __stdcall ExInitializeResourceLite(PERESOURCE Resource)
@@ -109,13 +109,13 @@ NTSTATUS __stdcall ExInitializeResourceLite(PERESOURCE Resource)
     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&ExpResourceSpinLock, CurrentIrql);
   else
     ExpAcquireSpinLockExclusive(&ExpResourceSpinLock, CurrentIrql, v2);
-  v5 = (struct _LIST_ENTRY *)qword_140407108;
-  if ( *(__int64 **)qword_140407108 != &ExpSystemResourcesList )
+  v5 = (struct _LIST_ENTRY *)qword_1404070B8;
+  if ( *(__int64 **)qword_1404070B8 != &ExpSystemResourcesList )
     __fastfail(3u);
   Resource->SystemResourcesList.Flink = (struct _LIST_ENTRY *)&ExpSystemResourcesList;
   Resource->SystemResourcesList.Blink = v5;
   v5->Flink = &Resource->SystemResourcesList;
-  qword_140407108 = (__int64)Resource;
+  qword_1404070B8 = (__int64)Resource;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpResourceSpinLock, retaddr);
   else

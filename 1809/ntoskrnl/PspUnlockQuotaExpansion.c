@@ -1,10 +1,10 @@
 /*
- * XREFs of PspUnlockQuotaExpansion @ 0x14012A9A8
+ * XREFs of PspUnlockQuotaExpansion @ 0x14012A9C8
  * Callers:
- *     PspReturnResourceQuota @ 0x14012A86C (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x14012A8E8 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x140190D80 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x1402E988C (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x14012A88C (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x14012A908 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x140190DA0 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x1402E998C (PspExpandLimit.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,8 +14,8 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)

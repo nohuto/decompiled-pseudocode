@@ -1,36 +1,29 @@
 /*
- * XREFs of ?OnZeroReferenceCount@BaseBamoPeerImpl@BamoImpl@Microsoft@@EEAAXXZ @ 0x180197950
+ * XREFs of ?OnZeroReferenceCount@BaseBamoPeerImpl@BamoImpl@Microsoft@@EEAAXXZ @ 0x180166A50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0?$ConditionalCalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x180196104 (--0-$ConditionalCalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QE.c)
- *     ??1?$ConditionalCalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x180196260 (--1-$ConditionalCalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QE.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??0ConditionalDropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x180165AA8 (--0ConditionalDropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
  */
 
 void __fastcall Microsoft::BamoImpl::BaseBamoPeerImpl::OnZeroReferenceCount(
-        Microsoft::BamoImpl::BaseBamoPeerImpl *this,
-        __int64 a2,
-        __int64 a3,
-        const char *a4)
+        Microsoft::BamoImpl::BaseBamoPeerImpl *this)
 {
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  const char *v7; // r9
-  void (__fastcall ***v8)(_QWORD, __int64); // rcx
-  Microsoft::BamoImpl::BaseBamoConnectionImpl *v9[3]; // [rsp+20h] [rbp-18h] BYREF
+  void (__fastcall ***v2)(_QWORD, __int64); // rcx
+  __int64 v3; // rbx
+  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
 
-  Microsoft::BamoImpl::ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    v9,
-    *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*((_QWORD *)this + 3) + 32LL),
-    a3,
-    a4);
-  v8 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 2);
-  if ( v8 )
-    (**v8)(v8, 1LL);
-  Microsoft::BamoImpl::ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v9,
-    v5,
-    v6,
-    v7);
+  Microsoft::BamoImpl::ConditionalDropAndReacquireLock::ConditionalDropAndReacquireLock(
+    (Microsoft::BamoImpl::ConditionalDropAndReacquireLock *)&v4,
+    *(struct Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*((_QWORD *)this + 3) + 32LL));
+  v2 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 2);
+  if ( v2 )
+    (**v2)(v2, 1LL);
+  v3 = v4;
+  if ( v4 )
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)(v4 + 128));
+    *(_DWORD *)(v3 + 168) = GetCurrentThreadId();
+  }
 }

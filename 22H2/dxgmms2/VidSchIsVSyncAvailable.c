@@ -1,37 +1,38 @@
 /*
- * XREFs of VidSchIsVSyncAvailable @ 0x1C00B4540
+ * XREFs of VidSchIsVSyncAvailable @ 0x1C00D0560
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C0006310 (VidSchiSetFlipDevice.c)
- *     VidSchCreatePeriodicFrameNotification @ 0x1C003E8E0 (VidSchCreatePeriodicFrameNotification.c)
- *     VidSchGetDeviceFlipMode @ 0x1C00B5490 (VidSchGetDeviceFlipMode.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011C0C (VidSchiSetFlipDevice.c)
+ *     VidSchCreatePeriodicFrameNotification @ 0x1C0033B80 (VidSchCreatePeriodicFrameNotification.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-unsigned __int8 __fastcall VidSchIsVSyncAvailable(__int64 a1, unsigned int a2)
+unsigned __int8 __fastcall VidSchIsVSyncAvailable(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct _ERESOURCE *v4; // rdi
-  int v5; // eax
-  unsigned __int8 v6; // bl
-  __int64 v8; // rcx
+  __int64 v3; // rsi
+  __int64 v5; // rax
+  struct _ERESOURCE *v7; // rdi
+  int v8; // eax
+  unsigned __int8 v9; // bl
 
-  if ( a1 )
+  v3 = (unsigned int)a2;
+  if ( !a1 )
   {
-    if ( a2 < *(_DWORD *)(a1 + 40) )
-    {
-      v4 = (struct _ERESOURCE *)(a1 + 1088);
-      ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 1088), 1u);
-      v5 = *(_DWORD *)(a1 + 2208);
-      v6 = _bittest(&v5, a2);
-      ExReleaseResourceLite(v4);
-      return v6;
-    }
-    WdLogSingleEntry1(1LL, a2);
+    v5 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+LABEL_3:
+    WdLogEvent5_WdAssertion(v5);
+    return 0;
   }
-  else
+  if ( (unsigned int)a2 >= *(_DWORD *)(a1 + 40) )
   {
-    WdLogSingleEntry0(1LL);
+    v5 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v5 + 24) = v3;
+    goto LABEL_3;
   }
-  DxgkLogInternalTriageEvent(v8, 0x40000LL);
-  return 0;
+  v7 = (struct _ERESOURCE *)(a1 + 1072);
+  ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 1072), 1u);
+  v8 = *(_DWORD *)(a1 + 2128);
+  v9 = _bittest(&v8, v3);
+  ExReleaseResourceLite(v7);
+  return v9;
 }

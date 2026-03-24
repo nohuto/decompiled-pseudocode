@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAddressToRetpolineBit @ 0x1402B8EF0
+ * XREFs of MiAddressToRetpolineBit @ 0x1402B8FF0
  * Callers:
- *     MiMarkRetpolineBits @ 0x140853D70 (MiMarkRetpolineBits.c)
+ *     MiMarkRetpolineBits @ 0x140853D50 (MiMarkRetpolineBits.c)
  * Callees:
  *     <none>
  */

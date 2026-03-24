@@ -1,16 +1,16 @@
 /*
- * XREFs of ??_GCLegacySwapChain@@MEAAPEAXI@Z @ 0x18001BD80
+ * XREFs of ??_GCLegacySwapChain@@MEAAPEAXI@Z @ 0x180024E20
  * Callers:
- *     ??_ECLegacySwapChain@@OBA@EAAPEAXI@Z @ 0x180108C30 (--_ECLegacySwapChain@@OBA@EAAPEAXI@Z.c)
+ *     ??_ECLegacySwapChain@@OBA@EAAPEAXI@Z @ 0x1800F7410 (--_ECLegacySwapChain@@OBA@EAAPEAXI@Z.c)
  * Callees:
- *     ??1CLegacySwapChain@@MEAA@XZ @ 0x18001C360 (--1CLegacySwapChain@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CLegacySwapChain@@MEAA@XZ @ 0x180024E5C (--1CLegacySwapChain@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CLegacySwapChain *__fastcall CLegacySwapChain::`scalar deleting destructor'(CLegacySwapChain *this, char a2)
 {
   CLegacySwapChain::~CLegacySwapChain(this);
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x1A0uLL);
+    operator delete(this, 0x170uLL);
   return this;
 }

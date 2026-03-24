@@ -1,681 +1,625 @@
 /*
- * XREFs of ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0
+ * XREFs of ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530
  * Callers:
- *     ?OnChanged@CLayerVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800F5160 (-OnChanged@CLayerVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     <none>
  * Callees:
- *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004EB0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
- *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x180008440 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?clear@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003E708 (-clear@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDrawListCa.c)
- *     ?clear_region@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180040A34 (-clear_region@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDra.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042744 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18004AB80 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
- *     ?InternalQueryInterface@?$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180051778 (-InternalQueryInterface@-$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?GetTransform3DEffectNoRef@CVisual@@QEBAPEAVCTransform3D@@XZ @ 0x1800539F8 (-GetTransform3DEffectNoRef@CVisual@@QEBAPEAVCTransform3D@@XZ.c)
- *     ??0DbgString@DwmDbg@@QEAA@QEBDZZ @ 0x180088A0C (--0DbgString@DwmDbg@@QEAA@QEBDZZ.c)
- *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x180098784 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
- *     ?OnOuterTransformChanged@CVisual@@AEAAXXZ @ 0x180098E5C (-OnOuterTransformChanged@CVisual@@AEAAXXZ.c)
- *     ?AddAdditionalDirtyRect@CVisual@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180099398 (-AddAdditionalDirtyRect@CVisual@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
- *     ?ClearAllBackdropVisualImages@CVisual@@AEAAXXZ @ 0x1800A441C (-ClearAllBackdropVisualImages@CVisual@@AEAAXXZ.c)
- *     ?UpdateBackdropVisualImageForWindowBackgroundTreatment@CVisual@@AEAAXXZ @ 0x1800A4B7C (-UpdateBackdropVisualImageForWindowBackgroundTreatment@CVisual@@AEAAXXZ.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800DBDDC (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DCA44 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?OnInnerTransformChanged@CVisual@@AEAAXXZ @ 0x1800E4DA0 (-OnInnerTransformChanged@CVisual@@AEAAXXZ.c)
- *     ?OnClipChanged@CVisual@@AEAAXXZ @ 0x1800E4F28 (-OnClipChanged@CVisual@@AEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z @ 0x180272444 (-LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?clear_region@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180051D54 (-clear_region@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDra.c)
+ *     ?OnOuterTransformChanged@CVisual@@AEAAXXZ @ 0x180066484 (-OnOuterTransformChanged@CVisual@@AEAAXXZ.c)
+ *     ?GetTransform3DEffectNoRef@CVisual@@QEBAPEAVCTransform3D@@XZ @ 0x18006CB28 (-GetTransform3DEffectNoRef@CVisual@@QEBAPEAVCTransform3D@@XZ.c)
+ *     ?InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006EFD0 (-InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B7D4 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?AddAdditionalDirtyRect@CVisual@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18009C0F0 (-AddAdditionalDirtyRect@CVisual@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
+ *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18009D958 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
+ *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x18009FCA4 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
+ *     ?ManageTransformParentChildList@CVisual@@AEAAXPEAUTransformParentData@@@Z @ 0x18009FEA8 (-ManageTransformParentChildList@CVisual@@AEAAXPEAUTransformParentData@@@Z.c)
+ *     ?clear@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800A1128 (-clear@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDrawListCa.c)
+ *     ?OnClipChanged@CVisual@@AEAAXXZ @ 0x1800A1E5C (-OnClipChanged@CVisual@@AEAAXXZ.c)
+ *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x1800BF5F8 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
+ *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800C1370 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C47D0 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?OnInnerTransformChanged@CVisual@@AEAAXXZ @ 0x1800C9A98 (-OnInnerTransformChanged@CVisual@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021669C (-IsKernelDebuggerPresent@@YAHXZ.c)
  */
 
-__int64 __fastcall CVisual::OnChanged(CVisual *a1, int a2, __int64 a3)
+__int64 __fastcall CVisual::OnChanged(__int64 a1, int a2, _QWORD *a3)
 {
-  __int64 v3; // r14
-  int v4; // r13d
-  __int64 v5; // r15
-  __int16 *v6; // rdx
-  int v7; // esi
-  char v8; // r14
-  __int64 v9; // rcx
-  unsigned __int8 v10; // r12
-  char v11; // al
-  __int64 v12; // rcx
-  unsigned __int8 v13; // bl
-  unsigned __int8 v14; // r14
-  char v15; // al
-  __int64 v16; // rbx
-  __int64 v17; // rdx
-  __int64 v18; // rax
-  _BYTE *v19; // rdi
-  unsigned int v20; // edi
-  __int64 v21; // rax
-  __int64 v22; // rax
-  __int64 v23; // r12
-  __int64 v24; // rbx
-  __int64 v25; // rax
-  __int64 *v26; // r14
-  __int64 v27; // rax
-  __int64 v28; // rax
-  _DWORD *v29; // r8
-  __int64 *v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // r8
-  __int64 v34; // rax
-  _BYTE *v35; // rdx
-  _QWORD ***v36; // r9
-  unsigned int m; // ecx
-  _QWORD **v38; // rdi
-  _QWORD *n; // rbx
-  __int64 v40; // rbx
-  __int16 *v41; // rcx
-  __int64 v42; // r9
+  struct TransformParentData **v3; // r14
+  _QWORD *v4; // r12
+  int v5; // r13d
+  unsigned int v7; // esi
+  __int64 v8; // rcx
+  char v9; // r15
+  char v10; // bl
+  __int64 v11; // rbx
+  __int64 v12; // rdx
+  _BYTE *v13; // rax
+  char v14; // cl
+  char v15; // dl
+  _QWORD *v16; // rcx
+  __int64 v17; // rax
+  unsigned int v18; // ebx
+  BOOL v19; // r15d
+  __int64 v20; // rax
+  __int64 v21; // r12
+  __int64 *v22; // rsi
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // r14
+  __int64 v26; // rax
+  __int64 *v27; // rax
+  _DWORD *v28; // r8
+  char v29; // al
+  __int64 v31; // r8
+  __int64 v32; // rax
+  _BYTE *v33; // rdx
+  unsigned int i; // ecx
+  _QWORD ***v35; // rbx
+  _QWORD **v36; // rbx
+  _QWORD *j; // rsi
+  bool v38; // cl
+  int v39; // ebx
+  int (__fastcall **v40)(_QWORD *, GUID *, __int64 *); // rax
+  __int64 v41; // rbx
+  _QWORD *v42; // rcx
   __int64 v43; // r9
-  int (__fastcall **v44)(__int64, GUID *, __int64 *); // rax
-  __int64 v45; // rax
-  _BYTE *v46; // r8
-  __int64 i; // rdx
-  __int16 **v48; // rdx
-  __int16 *v49; // rax
-  __int64 v50; // rax
-  _BYTE *v51; // r8
-  __int64 j; // rdx
-  __int16 **v53; // rdx
-  __int16 *v54; // rax
-  __int64 v55; // r15
-  __int64 v56; // rax
-  __int64 v57; // r8
-  FastRegion::Internal::CRgnData **v58; // rax
-  float v59; // xmm1_4
-  float v60; // xmm0_4
-  FastRegion::Internal::CRgnData *v61; // rcx
-  __int64 v62; // rax
-  _BYTE *v63; // rdx
-  __int64 k; // rcx
-  _QWORD **v65; // rax
+  __int64 v44; // r9
+  unsigned __int64 v45; // r8
+  __int64 v46; // r12
+  __int64 v47; // rcx
+  unsigned __int64 v48; // rdx
+  unsigned __int64 v49; // rcx
+  bool v50; // zf
+  FastRegion::Internal::CRgnData **v51; // rax
+  float v52; // xmm1_4
+  float v53; // xmm0_4
+  FastRegion::Internal::CRgnData *v54; // rcx
+  __int64 v55; // rax
+  _BYTE *v56; // r8
+  __int64 m; // rdx
+  _QWORD ***v58; // rdx
+  _QWORD **v59; // rdx
+  _QWORD *v60; // rax
+  __int64 v61; // rax
+  _BYTE *v62; // r8
+  __int64 n; // rdx
+  _QWORD ***v64; // rdx
+  _QWORD **v65; // rdx
   _QWORD *v66; // rax
-  CVisual *v67; // rcx
-  CVisual *v68; // rcx
-  _QWORD *ProjectedShadowReceivers; // rax
-  __int64 v70; // rbx
-  __int64 v71; // rax
-  __int64 v72; // rbx
-  __int64 v73; // rax
-  __int64 v74; // rbx
+  __int64 v67; // rax
+  _BYTE *v68; // rdx
+  unsigned int k; // ecx
+  struct TransformParentData *v70; // rdx
+  CVisual *v71; // rcx
+  CVisual *v72; // rcx
+  char v73; // dl
+  __int64 v74; // r12
   __int64 v75; // rax
-  __int64 v76; // rbx
-  __int64 v77; // rax
-  __int64 v78; // rsi
-  __int64 v79; // r14
-  __int64 v80; // rax
-  int v81; // eax
-  int v82; // edi
-  BOOL v83; // eax
-  CHAR v84; // cl
+  int v76; // eax
+  int v77; // r14d
+  BOOL v78; // eax
+  CHAR v79; // cl
   HANDLE CurrentProcess; // rax
   HANDLE CurrentThread; // rax
-  struct CTransform3D *Transform3DEffectNoRef; // rbx
-  CHAR Response[8]; // [rsp+60h] [rbp-A0h] BYREF
-  __int16 *v89; // [rsp+68h] [rbp-98h]
-  int (__fastcall ***v90)(__int64, GUID *, __int64 *); // [rsp+70h] [rbp-90h] BYREF
-  BOOL v91; // [rsp+78h] [rbp-88h]
-  __int64 v92; // [rsp+80h] [rbp-80h] BYREF
-  float v93; // [rsp+88h] [rbp-78h] BYREF
-  float v94; // [rsp+8Ch] [rbp-74h] BYREF
-  __int64 v95; // [rsp+90h] [rbp-70h]
-  CVisual *v96; // [rsp+98h] [rbp-68h]
-  char v97[8]; // [rsp+A0h] [rbp-60h] BYREF
-  char v98[8]; // [rsp+A8h] [rbp-58h] BYREF
-  char v99[8]; // [rsp+B0h] [rbp-50h] BYREF
-  char v100[8]; // [rsp+B8h] [rbp-48h] BYREF
-  char v101[8]; // [rsp+C0h] [rbp-40h] BYREF
-  char v102[8]; // [rsp+C8h] [rbp-38h] BYREF
-  char v103[8]; // [rsp+D0h] [rbp-30h] BYREF
-  char v104[8]; // [rsp+D8h] [rbp-28h] BYREF
-  char v105[8]; // [rsp+E0h] [rbp-20h] BYREF
-  unsigned __int64 v106; // [rsp+E8h] [rbp-18h]
-  int *v107; // [rsp+F0h] [rbp-10h]
-  __int64 v108; // [rsp+F8h] [rbp-8h]
-  int v109; // [rsp+100h] [rbp+0h]
-  float v110; // [rsp+110h] [rbp+10h]
-  float v111; // [rsp+114h] [rbp+14h]
-  float v112; // [rsp+118h] [rbp+18h]
-  float v113; // [rsp+11Ch] [rbp+1Ch]
+  CMILCOMBase *Transform3DEffectNoRef; // rbx
+  CHAR Response[4]; // [rsp+60h] [rbp-69h] BYREF
+  char v84; // [rsp+64h] [rbp-65h]
+  _QWORD *v85; // [rsp+68h] [rbp-61h]
+  void *v86; // [rsp+70h] [rbp-59h] BYREF
+  __int64 v87; // [rsp+78h] [rbp-51h] BYREF
+  float v88; // [rsp+80h] [rbp-49h] BYREF
+  float v89; // [rsp+84h] [rbp-45h] BYREF
+  unsigned __int64 v90; // [rsp+88h] [rbp-41h]
+  __int64 v91; // [rsp+90h] [rbp-39h]
+  _QWORD *v92; // [rsp+98h] [rbp-31h]
+  char v93[8]; // [rsp+A0h] [rbp-29h] BYREF
+  unsigned __int64 v94; // [rsp+A8h] [rbp-21h]
+  int *v95; // [rsp+B0h] [rbp-19h]
+  __int64 v96; // [rsp+B8h] [rbp-11h]
+  int v97; // [rsp+C0h] [rbp-9h]
+  float v98; // [rsp+D0h] [rbp+7h]
+  float v99; // [rsp+D4h] [rbp+Bh]
+  float v100; // [rsp+D8h] [rbp+Fh]
+  float v101; // [rsp+DCh] [rbp+13h]
 
-  v90 = (int (__fastcall ***)(__int64, GUID *, __int64 *))a3;
-  v3 = a3;
-  v96 = a1;
-  v4 = a2;
-  v5 = (__int64)a1;
-  if ( a2 != 5 )
+  v3 = 0LL;
+  v92 = a3;
+  v4 = a3;
+  v5 = a2;
+  if ( a2 == 11 )
   {
-    v6 = _ImageBase;
-    if ( v4 >= 1 )
+    v7 = 2;
+    goto LABEL_3;
+  }
+  if ( a2 == 1 )
+  {
+LABEL_63:
+    v7 = 4;
+    goto LABEL_3;
+  }
+  if ( a2 != 3 )
+  {
+    if ( a2 == 4 )
     {
-      switch ( v4 )
-      {
-        case 1:
-          goto LABEL_4;
-        case 3:
-          v7 = 1;
-          goto LABEL_16;
-        case 4:
-          CVisual::OnClipChanged(a1);
-          break;
-        case 6:
-          CVisual::ClearContentTreeDataCaches(a1);
-          v4 = 1;
-LABEL_4:
-          v7 = 4;
-          goto LABEL_5;
-        case 11:
-          v7 = 2;
-LABEL_5:
-          if ( (*(_BYTE *)(v5 + 96) & 0x10) == 0
-            && (*(unsigned __int8 (__fastcall **)(__int64, __int16 *))(*(_QWORD *)v5 + 248LL))(v5, v6) )
-          {
-            v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v5 + 256LL))(v5);
-            LOBYTE(v6) = v8
-                      && ((**(_DWORD **)(v5 + 232) & 0x20000) != 0
-                       && (ProjectedShadowReceivers = (_QWORD *)CVisual::GetProjectedShadowReceivers(v5),
-                           *ProjectedShadowReceivers != ProjectedShadowReceivers[1])
-                       || !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v5 + 352LL))(v5));
-            if ( (BYTE1(*(_DWORD *)(v5 + 96)) & 1) == v8 && (((*(int *)(v5 + 96) >> 8) & 0x200) != 0) == (_BYTE)v6 )
-            {
-              v3 = (__int64)v90;
-            }
-            else
-            {
-              v3 = (__int64)v90;
-              v7 |= 0x10u;
-            }
-          }
-          goto LABEL_16;
-        case 15:
-          CVisual::UpdateBackdropVisualImageForWindowBackgroundTreatment(a1);
-          return 0LL;
-        default:
-          break;
-      }
+      CVisual::OnClipChanged((CVisual *)a1);
+LABEL_48:
+      v7 = 5;
+      goto LABEL_3;
     }
-    v7 = 5;
-LABEL_16:
-    v9 = *(_QWORD *)(v5 + 256);
-    v10 = 0;
-    if ( !v9 )
-      goto LABEL_30;
-    v11 = (*(__int64 (__fastcall **)(__int64, __int16 *))(*(_QWORD *)v9 + 240LL))(v9, v6);
-    v12 = *(_QWORD *)(v5 + 256);
-    v13 = 0;
-    v14 = 0;
-    v6 = 0LL;
-    v15 = (*(_BYTE *)(v5 + 102) ^ (32 * v11)) & 0x20;
-    v89 = 0LL;
-    *(_BYTE *)(v5 + 102) ^= v15;
-    Response[0] = 0;
-    if ( v12 )
+    if ( a2 == 5 )
     {
-      if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v12 + 56LL))(v12, 17LL) )
+      if ( (*(_QWORD *)(a1 + 456) - *(_QWORD *)(a1 + 448)) / 24LL )
+        detail::vector_facade<CDrawListCacheSet::ContentEntry,detail::buffer_impl<CDrawListCacheSet::ContentEntry,2,1,detail::liberal_expansion_policy>>::clear_region(
+          (__int64 *)(a1 + 448),
+          0LL,
+          (*(_QWORD *)(a1 + 456) - *(_QWORD *)(a1 + 448)) / 24LL);
+      v31 = *(_QWORD *)(a1 + 224);
+      if ( *(int *)v31 < 0 )
       {
-        v16 = *(_QWORD *)(v5 + 256);
-        if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v16 + 56LL))(v16, 203LL) )
+        v32 = *(unsigned int *)(v31 + 4);
+        v33 = (_BYTE *)(v31 + 8);
+        for ( i = 0; i < (unsigned int)v32; ++v33 )
         {
-          v13 = 1;
-          Response[0] = 1;
+          if ( *v33 == 1 )
+            break;
+          ++i;
         }
+        if ( i >= (unsigned int)v32 )
+          v35 = 0LL;
         else
+          v35 = (_QWORD ***)(v31 + v32 + 15 + 8LL * i - (((_BYTE)v32 + 15) & 7));
+        v36 = *v35;
+        if ( v36 )
         {
-          if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v16 + 56LL))(v16, 15LL) )
-          {
-            v14 = 1;
-          }
-          else
-          {
-            if ( *(_BYTE *)(v16 + 80) && !*(_QWORD *)(v16 + 72) )
-            {
-              LOBYTE(v17) = 1;
-              (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v16 + 320LL))(v16, v17);
-            }
-            v18 = *(_QWORD *)(v16 + 72);
-            if ( v18 )
-            {
-              v6 = *(__int16 **)(v18 + 208);
-              v13 = *(_BYTE *)(v18 + 198);
-              v10 = *(_BYTE *)(v18 + 196);
-              v14 = *(_BYTE *)(v18 + 197);
-              v89 = v6;
-              Response[0] = v13;
-              goto LABEL_25;
-            }
-          }
-          v13 = 0;
+          for ( j = *v36; j != v36; j = (_QWORD *)*j )
+            detail::vector_facade<CDrawListCacheSet::ContentEntry,detail::buffer_impl<CDrawListCacheSet::ContentEntry,2,1,detail::liberal_expansion_policy>>::clear(j - 20);
         }
       }
-      v6 = v89;
+      goto LABEL_40;
     }
-LABEL_25:
-    if ( dword_1803E3760 )
+    if ( a2 != 6 )
+      goto LABEL_48;
+    CVisual::ClearContentTreeDataCaches((CVisual *)a1);
+    v5 = 1;
+    goto LABEL_63;
+  }
+  v7 = 1;
+LABEL_3:
+  v8 = *(_QWORD *)(a1 + 248);
+  if ( v8 )
+  {
+    v9 = 0;
+    v10 = 0;
+    if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v8 + 56LL))(v8, 14LL) )
     {
-      if ( v10 != ((*(_BYTE *)(v5 + 102) & 4) != 0) )
+      v11 = *(_QWORD *)(a1 + 248);
+      if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v11 + 56LL))(v11, 202LL) )
       {
-        v70 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v97, "m_fIsBackdropBlur=%d", v10);
-        v71 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v98, "Visual-IsBackdropBlurFlagChanged");
-        DwmDbg::Backdrops::LogBrushEtwEvent(v71, v5, v70);
-        v6 = v89;
-        v13 = Response[0];
+        v9 = 1;
+        v10 = 0;
       }
-      v19 = (_BYTE *)(v5 + 272);
-      if ( v14 != ((*(_BYTE *)(v5 + 272) & 2) != 0) )
+      else
       {
-        v72 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v99, "m_fHasBlurredWallpaperBackdropInput=%d", v14);
-        v73 = DwmDbg::DbgString::DbgString(
-                (DwmDbg::DbgString *)v100,
-                "Visual-HasBlurredWallpaperBackdropInputFlagChanged");
-        DwmDbg::Backdrops::LogBrushEtwEvent(v73, v5, v72);
-        v6 = v89;
-        v13 = Response[0];
+        if ( *(_BYTE *)(v11 + 72) && !*(_QWORD *)(v11 + 64) )
+        {
+          LOBYTE(v12) = 1;
+          (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v11 + 336LL))(v11, v12);
+        }
+        v13 = *(_BYTE **)(v11 + 64);
+        v10 = 0;
+        if ( v13 )
+        {
+          v10 = v13[197];
+          LOBYTE(v3) = v13[196];
+          v9 = v13[198];
+          v84 = v10;
+        }
+      }
+    }
+    v14 = *(_BYTE *)(a1 + 94);
+    if ( v10 != ((v14 & 8) != 0) )
+      *(_BYTE *)(a1 + 94) = v14 ^ (v14 ^ (8 * v10)) & 8;
+    v15 = *(_BYTE *)(a1 + 264);
+    if ( (_BYTE)v3 != (v15 & 1) )
+    {
+      v71 = *(CVisual **)(a1 + 80);
+      if ( (_BYTE)v3 )
+      {
+        if ( v71 )
+        {
+          CVisual::PropagateBackdropUpdates(v71, 1, 0);
+          v15 = *(_BYTE *)(a1 + 264);
+        }
+        v15 |= 1u;
+      }
+      else
+      {
+        if ( v71 )
+        {
+          CVisual::PropagateBackdropUpdates(v71, -1, 0);
+          v15 = *(_BYTE *)(a1 + 264);
+        }
+        v15 &= ~1u;
+      }
+      *(_BYTE *)(a1 + 264) = v15;
+    }
+    if ( v9 != ((v15 & 2) != 0) )
+    {
+      v72 = *(CVisual **)(a1 + 80);
+      if ( v9 )
+      {
+        if ( v72 )
+        {
+          CVisual::PropagateBackdropUpdates(v72, 0, 1);
+          v15 = *(_BYTE *)(a1 + 264);
+        }
+        v73 = v15 | 2;
+      }
+      else
+      {
+        if ( v72 )
+        {
+          CVisual::PropagateBackdropUpdates(v72, 0, -1);
+          v15 = *(_BYTE *)(a1 + 264);
+        }
+        v73 = v15 & 0xFD;
+      }
+      *(_BYTE *)(a1 + 264) = v73;
+    }
+    v16 = *(_QWORD **)(a1 + 248);
+    if ( v16 == v4 )
+    {
+      v38 = (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v16 + 208LL))(v16) == 0;
+      v39 = v7 | 0x10;
+      if ( (BYTE1(*(_DWORD *)(a1 + 88)) & 1) == v38 )
+        v39 = v7;
+      v3 = 0LL;
+      v7 = v39;
+      if ( v38 && v5 == 1 )
+      {
+        v40 = (int (__fastcall **)(_QWORD *, GUID *, __int64 *))*v4;
+        v87 = 0LL;
+        if ( (*v40)(v4, &GUID_c155b649_2c5b_416a_b836_bbda56b2ec27, &v87) >= 0 )
+        {
+          CVisual::GetEffectiveSize((CVisual *)a1, &v88, &v89);
+          v51 = (FastRegion::Internal::CRgnData **)(*(__int64 (__fastcall **)(__int64, float *))(*(_QWORD *)v87 + 24LL))(
+                                                     v87,
+                                                     &v88);
+          if ( v51 )
+          {
+            FastRegion::Internal::CRgnData::BeginIterator(*v51, (struct FastRegion::CRegion::Iterator *)v93);
+            while ( (unsigned __int64)v95 < v94 )
+            {
+              v99 = (float)*v95;
+              v52 = (float)v95[2];
+              v98 = (float)*(int *)(v96 + 8LL * v97);
+              v53 = (float)*(int *)(v96 + 8LL * v97 + 4);
+              v101 = v52;
+              v100 = v53;
+              CVisual::AddAdditionalDirtyRect((CVisual *)a1);
+              FastRegion::Internal::CRgnData::StepIterator(v54, (struct FastRegion::CRegion::Iterator *)v93);
+            }
+            v7 = v39 & 0xFFFFFFFB;
+          }
+        }
+        if ( v87 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v87 + 16LL))(v87);
       }
     }
     else
     {
-      v19 = (_BYTE *)(v5 + 272);
+      v3 = 0LL;
     }
-    *(_BYTE *)(v5 + 102) &= ~4u;
-    *v19 ^= (*v19 ^ (2 * v14)) & 2;
-    *(_BYTE *)(v5 + 102) |= 4 * (v10 & 1);
-    if ( (v6 != 0LL) != (*v19 & 1) )
+  }
+  if ( v7 )
+  {
+    v17 = *(_QWORD *)(a1 + 24);
+    v18 = v7 | 0x10;
+    if ( (v7 & 1) == 0 )
+      v18 = v7;
+    v19 = !(v7 & 1);
+    if ( (v17 & 2) != 0 )
+      v17 = *(_QWORD *)(v17 & 0xFFFFFFFFFFFFFFFCuLL);
+    else
+      LODWORD(v17) = v17 & 1;
+    if ( (_DWORD)v17 )
     {
-      if ( dword_1803E3760 )
+      v74 = (unsigned int)v17;
+      do
       {
-        v74 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v101, "m_fHasBackdropInput=%d", v6 != 0LL);
-        v75 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v102, "Visual-HasBackdropInputFlagChanged");
-        DwmDbg::Backdrops::LogBrushEtwEvent(v75, v5, v74);
-        v6 = v89;
-        v13 = Response[0];
+        v75 = CPtrArrayBase::operator[](a1 + 24, v3);
+        if ( v75 != *(_QWORD *)(a1 + 80) )
+          (*(void (__fastcall **)(__int64, bool, __int64))(*(_QWORD *)v75 + 72LL))(v75, !(v7 & 1), a1);
+        v3 = (struct TransformParentData **)((char *)v3 + 1);
+        --v74;
       }
-      v67 = *(CVisual **)(v5 + 88);
-      if ( v6 )
-      {
-        if ( v67 )
-          CVisual::PropagateBackdropUpdates(v67, 1, 0);
-        *v19 |= 1u;
-      }
-      else
-      {
-        if ( v67 )
-          CVisual::PropagateBackdropUpdates(v67, -1, 0);
-        *v19 &= ~1u;
-        CVisual::ClearAllBackdropVisualImages((CVisual *)v5);
-      }
+      while ( v74 );
+      v3 = 0LL;
     }
-    if ( v13 != ((*v19 & 4) != 0) )
+    v20 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 168LL))(a1);
+    *(_BYTE *)(a1 + 88) |= v18;
+    v21 = v20;
+    if ( (v18 & 0xC) != 0 )
     {
-      if ( dword_1803E3760 )
-      {
-        v76 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v103, "m_fHasWindowBackdropInput=%d", v13);
-        v77 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)v104, "Visual-HasWindowBackdropInputFlagChanged");
-        DwmDbg::Backdrops::LogBrushEtwEvent(v77, v5, v76);
-        v13 = Response[0];
-      }
-      v68 = *(CVisual **)(v5 + 88);
-      if ( v13 )
-      {
-        if ( v68 )
-          CVisual::PropagateBackdropUpdates(v68, 0, 1);
-        *v19 |= 4u;
-      }
-      else
-      {
-        if ( v68 )
-          CVisual::PropagateBackdropUpdates(v68, 0, -1);
-        *v19 &= ~4u;
-      }
+      v18 = v18 & 0xFFFFFF73 | 0x80;
+      if ( v20 )
+        ++*(_DWORD *)(v20 + 28);
     }
-    v3 = (__int64)v90;
-    if ( *(int (__fastcall ****)(__int64, GUID *, __int64 *))(v5 + 256) == v90 && v4 == 1 )
+    if ( (v18 & 2) != 0 )
+      v18 = v18 & 0xFFFFFFBD | 0x40;
+    v22 = *(__int64 **)(a1 + 80);
+    if ( (*(_BYTE *)(a1 + 95) & 2) != 0 )
     {
-      v44 = *v90;
-      v92 = 0LL;
-      if ( (*v44)((__int64)v90, &GUID_c155b649_2c5b_416a_b836_bbda56b2ec27, &v92) >= 0 )
+      do
       {
-        CVisual::GetEffectiveSize((CVisual *)v5, &v93, &v94);
-        v58 = (FastRegion::Internal::CRgnData **)(*(__int64 (__fastcall **)(__int64, float *))(*(_QWORD *)v92 + 24LL))(
-                                                   v92,
-                                                   &v93);
-        if ( v58 )
+        if ( !v22 || (v18 & (char)v22[11]) == v18 )
+          break;
+        v23 = *v22;
+        *((_BYTE *)v22 + 88) |= v18;
+        v24 = (*(__int64 (__fastcall **)(__int64 *))(v23 + 168))(v22);
+        v25 = v24;
+        if ( v24 )
         {
-          FastRegion::Internal::CRgnData::BeginIterator(*v58, (struct FastRegion::CRegion::Iterator *)v105);
-          while ( (unsigned __int64)v107 < v106 )
+          if ( (v18 & 0x80u) != 0 && v24 != v21 )
+            ++*(_DWORD *)(v24 + 24);
+        }
+        else
+        {
+          v25 = v21;
+        }
+        v26 = v22[3];
+        if ( (v26 & 2) != 0 )
+          v26 = *(_QWORD *)(v26 & 0xFFFFFFFFFFFFFFFCuLL);
+        else
+          LODWORD(v26) = v26 & 1;
+        if ( (_DWORD)v26 )
+        {
+          v45 = 0LL;
+          v90 = 0LL;
+          v91 = (unsigned int)v26;
+          v46 = 16LL;
+          do
           {
-            v111 = (float)*v107;
-            v59 = (float)v107[2];
-            v110 = (float)*(int *)(v108 + 8LL * v109);
-            v60 = (float)*(int *)(v108 + 8LL * v109 + 4);
-            v113 = v59;
-            v112 = v60;
-            CVisual::AddAdditionalDirtyRect((CVisual *)v5);
-            FastRegion::Internal::CRgnData::StepIterator(v61, (struct FastRegion::CRegion::Iterator *)v105);
+            v47 = v22[3];
+            if ( (v47 & 2) != 0 )
+              v48 = *(_QWORD *)(v47 & 0xFFFFFFFFFFFFFFFCuLL);
+            else
+              v48 = v22[3] & 1;
+            if ( v45 >= v48 )
+            {
+              v49 = 0LL;
+            }
+            else if ( v48 == 1 )
+            {
+              v49 = v47 & 0xFFFFFFFFFFFFFFFCuLL;
+            }
+            else
+            {
+              _mm_lfence();
+              v49 = *(_QWORD *)((v22[3] & 0xFFFFFFFFFFFFFFFCuLL) + v46);
+            }
+            if ( v49 != v22[10] )
+            {
+              (*(void (__fastcall **)(unsigned __int64, BOOL, __int64 *))(*(_QWORD *)v49 + 72LL))(v49, v19, v22);
+              v45 = v90;
+            }
+            ++v45;
+            v46 += 8LL;
+            v50 = v91-- == 1;
+            v90 = v45;
           }
-          v7 &= ~4u;
+          while ( !v50 );
         }
+        v27 = v22;
+        v21 = v25;
+        v22 = (__int64 *)v22[10];
       }
-      wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>(&v92);
+      while ( (*((_BYTE *)v27 + 95) & 2) != 0 );
+      v3 = 0LL;
     }
-LABEL_30:
-    if ( v7 )
+    v4 = v92;
+  }
+  if ( v5 != 2 )
+  {
+LABEL_40:
+    if ( v4 )
     {
-      LODWORD(v89) = v4;
-      v20 = v7 | 0x10;
-      if ( (v7 & 1) == 0 )
-        v20 = v7;
-      v91 = !(v7 & 1);
-      v21 = *(_QWORD *)(v5 + 24);
-      *(_DWORD *)Response = v20;
-      if ( (v21 & 2) != 0 )
-        v21 = *(_QWORD *)(v21 & 0xFFFFFFFFFFFFFFFCuLL);
-      else
-        LODWORD(v21) = v21 & 1;
-      if ( (_DWORD)v21 )
+      v28 = *(_DWORD **)(a1 + 224);
+      if ( (*v28 & 0x1000000) != 0 )
       {
-        v78 = 0LL;
-        v79 = (unsigned int)v21;
-        do
+        v67 = (unsigned int)v28[1];
+        v68 = v28 + 2;
+        for ( k = 0; k < (unsigned int)v67; ++v68 )
         {
-          v80 = CPtrArrayBase::operator[](v5 + 24, v78);
-          if ( v80 != *(_QWORD *)(v5 + 88) )
-            (*(void (__fastcall **)(__int64, BOOL, __int64))(*(_QWORD *)v80 + 72LL))(v80, v91, v5);
-          ++v78;
-          --v79;
-        }
-        while ( v79 );
-        v20 = *(_DWORD *)Response;
-        v3 = (__int64)v90;
-      }
-      v22 = (*(__int64 (__fastcall **)(__int64, __int16 *))(*(_QWORD *)v5 + 160LL))(v5, v6);
-      *(_BYTE *)(v5 + 96) |= v20;
-      v23 = v22;
-      if ( (v20 & 0xC) != 0 )
-      {
-        v20 = v20 & 0xFFFFFF73 | 0x80;
-        *(_DWORD *)Response = v20;
-        if ( v22 )
-          ++*(_DWORD *)(v22 + 28);
-      }
-      if ( (v20 & 2) != 0 )
-      {
-        v20 = v20 & 0xFFFFFFBD | 0x40;
-        *(_DWORD *)Response = v20;
-      }
-      v24 = *(_QWORD *)(v5 + 88);
-      if ( (*(_BYTE *)(v5 + 103) & 1) != 0 )
-      {
-        do
-        {
-          if ( !v24 || (v20 & *(char *)(v24 + 96)) == v20 )
+          if ( *v68 == 8 )
             break;
-          *(_BYTE *)(v24 + 96) |= v20;
-          v25 = *(_QWORD *)(v24 + 24);
-          if ( (v25 & 2) != 0 )
-            v25 = *(_QWORD *)(v25 & 0xFFFFFFFFFFFFFFFCuLL);
-          else
-            LODWORD(v25) = v25 & 1;
-          v26 = (__int64 *)(v24 + 88);
-          if ( (_DWORD)v25 )
+          ++k;
+        }
+        if ( k < (unsigned int)v67 )
+          v3 = (struct TransformParentData **)((char *)v28 + 8LL * k - (((_BYTE)v67 + 15) & 7) + v67 + 15);
+        v70 = *v3;
+        if ( *v3 && v4 == *(_QWORD **)v70 )
+        {
+          CVisual::ManageTransformParentChildList((CVisual *)a1, v70);
+          CVisual::OnOuterTransformChanged((CVisual *)a1);
+        }
+      }
+    }
+    goto LABEL_42;
+  }
+  v41 = *(_QWORD *)(a1 + 232);
+  if ( v41 )
+  {
+    v85 = *(_QWORD **)(a1 + 232);
+    if ( *(int *)(v41 + 8) < 0 )
+    {
+      while ( 1 )
+      {
+        v76 = IsKernelDebuggerPresent();
+        strcpy(Response, "?");
+        v77 = v76;
+        if ( !v76 )
+        {
+          v78 = IsDebuggerPresent();
+          v79 = Response[0];
+          if ( v78 )
+            v79 = 103;
+          Response[0] = v79;
+        }
+        DbgPrintEx(
+          0x65u,
+          0,
+          "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
+          L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
+          word_1802CE8C0,
+          word_1802CE8C0,
+          "Function: ",
+          L"CMILCOMBase::InternalAddRef",
+          ", ",
+          L"onecoreuap\\windows\\dwm\\common\\shared\\milcom.cpp",
+          25);
+        if ( v77 )
+        {
+          DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", Response, 2u);
+        }
+        else
+        {
+          DbgPrintEx(
+            0x65u,
+            0,
+            "(No kernel debugger is present.) Respond with:\n"
+            "  g                    -- Go (continue)\n"
+            "  eb 0x%p 'p';g  -- terminate Process\n"
+            "  eb 0x%p 't';g  -- terminate Thread\n"
+            " or regular debugging.\n",
+            Response,
+            Response);
+          __debugbreak();
+        }
+        switch ( Response[0] )
+        {
+          case 'B':
+          case 'b':
+            __debugbreak();
+            goto LABEL_73;
+          case 'G':
+          case 'g':
+            goto LABEL_73;
+          case 'I':
+          case 'i':
+            DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+            continue;
+          case 'P':
+          case 'p':
+            CurrentProcess = GetCurrentProcess();
+            TerminateProcess(CurrentProcess, 0xC0000001);
+            goto LABEL_168;
+          case 'T':
+          case 't':
+            CurrentThread = GetCurrentThread();
+            TerminateThread(CurrentThread, 0xC0000001);
+            goto LABEL_168;
+          default:
+LABEL_168:
+            DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+            break;
+        }
+      }
+    }
+LABEL_73:
+    _InterlockedIncrement((volatile signed __int32 *)(v41 + 8));
+    v42 = v85;
+    if ( v4 == v85 )
+    {
+      *(_QWORD *)(a1 + 440) = 0LL;
+      v43 = *(_QWORD *)(a1 + 224);
+      if ( *(int *)v43 < 0 )
+      {
+        v55 = *(unsigned int *)(v43 + 4);
+        v56 = (_BYTE *)(v43 + 8);
+        for ( m = 0LL; (unsigned int)m < (unsigned int)v55; ++v56 )
+        {
+          if ( *v56 == 1 )
+            break;
+          m = (unsigned int)(m + 1);
+        }
+        if ( (unsigned int)m >= (unsigned int)v55 )
+          v58 = 0LL;
+        else
+          v58 = (_QWORD ***)(v55 + 15 + v43 + 8 * m - (((_BYTE)v55 + 15) & 7));
+        v59 = *v58;
+        if ( v59 )
+        {
+          v60 = *v59;
+          if ( *v59 != v59 )
           {
-            v55 = 0LL;
-            v95 = (unsigned int)v25;
             do
             {
-              v56 = CPtrArrayBase::operator[](v24 + 24, v55);
-              if ( v56 != *v26 )
-              {
-                (*(void (__fastcall **)(__int64, BOOL, __int64))(*(_QWORD *)v56 + 72LL))(v56, v91, v24);
-                v57 = v95;
-              }
-              ++v55;
-              v95 = v57 - 1;
+              *(v60 - 21) = 0LL;
+              v60 = (_QWORD *)*v60;
             }
-            while ( v57 != 1 );
-            v20 = *(_DWORD *)Response;
+            while ( v60 != v59 );
+            v42 = v85;
           }
-          v27 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v24 + 160LL))(v24);
-          if ( v27 && v23 != v27 )
-          {
-            if ( (v20 & 0x80u) != 0 )
-              ++*(_DWORD *)(v27 + 24);
-            v23 = v27;
-          }
-          v28 = v24;
-          v24 = *v26;
         }
-        while ( (*(_BYTE *)(v28 + 103) & 1) != 0 );
-        v5 = (__int64)v96;
-        v4 = (int)v89;
-        v3 = (__int64)v90;
       }
-    }
-    if ( v4 == 2 )
-    {
-      v40 = *(_QWORD *)(v5 + 240);
-      if ( v40 )
+      *(_QWORD *)(a1 + 560) = 0LL;
+      v44 = *(_QWORD *)(a1 + 224);
+      if ( *(int *)v44 < 0 )
       {
-        v89 = *(__int16 **)(v5 + 240);
-        if ( *(int *)(v40 + 8) < 0 && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
+        v61 = *(unsigned int *)(v44 + 4);
+        v62 = (_BYTE *)(v44 + 8);
+        for ( n = 0LL; (unsigned int)n < (unsigned int)v61; ++v62 )
         {
-          while ( 1 )
-          {
-            v81 = IsKernelDebuggerPresent();
-            strcpy(Response, "?");
-            v82 = v81;
-            if ( !v81 )
-            {
-              v83 = IsDebuggerPresent();
-              v84 = Response[0];
-              if ( v83 )
-                v84 = 103;
-              Response[0] = v84;
-            }
-            DbgPrintEx(
-              0x65u,
-              0,
-              "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-              L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
-              word_18033C310,
-              word_18033C310,
-              "Function: ",
-              L"CMILRefCountImpl::AddReference",
-              ", ",
-              L"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
-              23);
-            if ( v82 )
-            {
-              DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", Response, 2u);
-            }
-            else
-            {
-              DbgPrintEx(
-                0x65u,
-                0,
-                "(No kernel debugger is present.) Respond with:\n"
-                "  g                    -- Go (continue)\n"
-                "  eb 0x%p 'p';g  -- terminate Process\n"
-                "  eb 0x%p 't';g  -- terminate Thread\n"
-                " or regular debugging.\n",
-                Response,
-                Response);
-              __debugbreak();
-            }
-            v6 = _ImageBase;
-            switch ( Response[0] )
-            {
-              case 'B':
-              case 'b':
-                __debugbreak();
-                goto LABEL_71;
-              case 'G':
-              case 'g':
-                goto LABEL_71;
-              case 'I':
-              case 'i':
-                DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
-                continue;
-              case 'P':
-              case 'p':
-                CurrentProcess = GetCurrentProcess();
-                TerminateProcess(CurrentProcess, 0xC0000001);
-                goto LABEL_177;
-              case 'T':
-              case 't':
-                CurrentThread = GetCurrentThread();
-                TerminateThread(CurrentThread, 0xC0000001);
-                goto LABEL_177;
-              default:
-LABEL_177:
-                DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
-                break;
-            }
-          }
-        }
-LABEL_71:
-        _InterlockedIncrement((volatile signed __int32 *)(v40 + 8));
-        v41 = v89;
-        if ( (__int16 *)v3 == v89 )
-        {
-          *(_QWORD *)(v5 + 584) = 0LL;
-          v42 = *(_QWORD *)(v5 + 232);
-          if ( *(int *)v42 < 0 )
-          {
-            v45 = *(unsigned int *)(v42 + 4);
-            v46 = (_BYTE *)(v42 + 8);
-            for ( i = 0LL; (unsigned int)i < (unsigned int)v45; ++v46 )
-            {
-              if ( *v46 == 1 )
-                break;
-              i = (unsigned int)(i + 1);
-            }
-            if ( (unsigned int)i >= (unsigned int)v45 )
-              v48 = 0LL;
-            else
-              v48 = (__int16 **)(v45 + 15 + v42 + 8 * i - (((_BYTE)v45 + 15) & 7));
-            v6 = *v48;
-            if ( v6 )
-            {
-              v49 = *(__int16 **)v6;
-              if ( *(__int16 **)v6 != v6 )
-              {
-                do
-                {
-                  *((_QWORD *)v49 - 14) = 0LL;
-                  v49 = *(__int16 **)v49;
-                }
-                while ( v49 != v6 );
-                v41 = v89;
-              }
-            }
-          }
-          *(_BYTE *)(v5 + 497) = 1;
-          v43 = *(_QWORD *)(v5 + 232);
-          if ( *(int *)v43 < 0 )
-          {
-            v50 = *(unsigned int *)(v43 + 4);
-            v51 = (_BYTE *)(v43 + 8);
-            for ( j = 0LL; (unsigned int)j < (unsigned int)v50; ++v51 )
-            {
-              if ( *v51 == 1 )
-                break;
-              j = (unsigned int)(j + 1);
-            }
-            if ( (unsigned int)j >= (unsigned int)v50 )
-              v53 = 0LL;
-            else
-              v53 = (__int16 **)(v50 + 15 + v43 + 8 * j - (((_BYTE)v50 + 15) & 7));
-            v6 = *v53;
-            if ( v6 )
-            {
-              v54 = *(__int16 **)v6;
-              if ( *(__int16 **)v6 != v6 )
-              {
-                do
-                {
-                  *((_BYTE *)v54 - 199) = 1;
-                  v54 = *(__int16 **)v54;
-                }
-                while ( v54 != v6 );
-                v41 = v89;
-              }
-            }
-          }
-        }
-        if ( v41 )
-          (*(void (__fastcall **)(__int16 *, __int16 *))(*(_QWORD *)v41 + 16LL))(v41, v6);
-      }
-      if ( CVisual::GetTransform3DEffectNoRef((CVisual *)v5) )
-      {
-        v90 = 0LL;
-        Transform3DEffectNoRef = CVisual::GetTransform3DEffectNoRef((CVisual *)v5);
-        if ( v90 )
-          ((void (__fastcall *)(int (__fastcall ***)(__int64, GUID *, __int64 *)))(*v90)[2])(v90);
-        if ( (int)CMILCOMBaseT<IUnknown>::InternalQueryInterface(
-                    (__int64)Transform3DEffectNoRef,
-                    &GUID_00000000_0000_0000_c000_000000000046,
-                    &v90) >= 0
-          && (int (__fastcall ***)(__int64, GUID *, __int64 *))v3 == v90 )
-        {
-          CVisual::OnInnerTransformChanged((CVisual *)v5);
-        }
-        wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v90);
-      }
-    }
-    else if ( v3 )
-    {
-      v29 = *(_DWORD **)(v5 + 232);
-      if ( (*v29 & 0x1000000) != 0 )
-      {
-        v62 = (unsigned int)v29[1];
-        v63 = v29 + 2;
-        for ( k = 0LL; (unsigned int)k < (unsigned int)v62; ++v63 )
-        {
-          if ( *v63 == 8 )
+          if ( *v62 == 1 )
             break;
-          k = (unsigned int)(k + 1);
+          n = (unsigned int)(n + 1);
         }
-        if ( (unsigned int)k >= (unsigned int)v62 )
-          v65 = 0LL;
+        if ( (unsigned int)n >= (unsigned int)v61 )
+          v64 = 0LL;
         else
-          v65 = (_QWORD **)((char *)v29 + v62 + 8 * k - (((_BYTE)v62 + 15) & 7) + 15);
-        v66 = *v65;
-        if ( v66 && v3 == *v66 )
-          CVisual::OnOuterTransformChanged((CVisual *)v5);
+          v64 = (_QWORD ***)(v61 + 15 + v44 + 8 * n - (((_BYTE)v61 + 15) & 7));
+        v65 = *v64;
+        if ( v65 )
+        {
+          v66 = *v65;
+          if ( *v65 != v65 )
+          {
+            do
+            {
+              *(v66 - 6) = 0LL;
+              v66 = (_QWORD *)*v66;
+            }
+            while ( v66 != v65 );
+            v42 = v85;
+          }
+        }
       }
     }
-    return 0LL;
+    if ( v42 )
+      (*(void (__fastcall **)(_QWORD *))(*v42 + 16LL))(v42);
   }
-  v31 = (__int64 *)((char *)a1 + 352);
-  v32 = 0xAAAAAAAAAAAAAAABuLL * ((v31[1] - *v31) >> 3);
-  if ( v32 )
-    detail::vector_facade<CDrawListCacheSet::ContentEntry,detail::buffer_impl<CDrawListCacheSet::ContentEntry,2,1,detail::liberal_expansion_policy>>::clear_region(
-      v31,
-      0LL,
-      v32);
-  v33 = *(_QWORD *)(v5 + 232);
-  if ( *(int *)v33 < 0 )
+  if ( CVisual::GetTransform3DEffectNoRef((CVisual *)a1) )
   {
-    v34 = *(unsigned int *)(v33 + 4);
-    v35 = (_BYTE *)(v33 + 8);
-    v36 = 0LL;
-    for ( m = 0; m < (unsigned int)v34; ++v35 )
+    v86 = 0LL;
+    Transform3DEffectNoRef = CVisual::GetTransform3DEffectNoRef((CVisual *)a1);
+    if ( v86 )
+      (*(void (__fastcall **)(void *))(*(_QWORD *)v86 + 16LL))(v86);
+    if ( (int)CMILCOMBase::InternalQueryInterface(
+                Transform3DEffectNoRef,
+                &GUID_00000000_0000_0000_c000_000000000046,
+                &v86) >= 0
+      && v4 == v86 )
     {
-      if ( *v35 == 1 )
-        break;
-      ++m;
+      CVisual::OnInnerTransformChanged((CVisual *)a1);
     }
-    if ( m < (unsigned int)v34 )
-      v36 = (_QWORD ***)(v33 + v34 + 15 + 8LL * m - (((_BYTE)v34 + 15) & 7));
-    v38 = *v36;
-    if ( *v36 )
-    {
-      for ( n = *v38; n != v38; n = (_QWORD *)*n )
-        detail::vector_facade<CDrawListCacheSet::ContentEntry,detail::buffer_impl<CDrawListCacheSet::ContentEntry,2,1,detail::liberal_expansion_policy>>::clear(n - 43);
-    }
+    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v86);
   }
+LABEL_42:
+  v29 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 368LL))(a1);
+  *(_BYTE *)(a1 + 92) &= ~1u;
+  *(_BYTE *)(a1 + 92) |= v29 & 1;
   return 0LL;
 }

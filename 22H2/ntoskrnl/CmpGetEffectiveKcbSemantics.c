@@ -1,7 +1,12 @@
 /*
- * XREFs of CmpGetEffectiveKcbSemantics @ 0x1406D5810
+ * XREFs of CmpGetEffectiveKcbSemantics @ 0x1405EF510
  * Callers:
- *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1FF4C (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x14072B180 (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x14086DCC8 (CmSetKeyFlags.c)
  * Callees:
  *     <none>
  */

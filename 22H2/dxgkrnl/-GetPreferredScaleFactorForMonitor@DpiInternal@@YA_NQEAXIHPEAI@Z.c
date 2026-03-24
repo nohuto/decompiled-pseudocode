@@ -1,66 +1,60 @@
 /*
- * XREFs of ?GetPreferredScaleFactorForMonitor@DpiInternal@@YA_NQEAXIHPEAI@Z @ 0x1C01DC0A8
+ * XREFs of ?GetPreferredScaleFactorForMonitor@DpiInternal@@YA_NQEAXIHPEAI@Z @ 0x1C014CBB0
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01DAF30 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C014BAF4 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
  * Callees:
- *     MonitorGetPreferredScaleFactor @ 0x1C01DC15C (MonitorGetPreferredScaleFactor.c)
- *     ?IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z @ 0x1C01DC1F0 (-IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z.c)
+ *     MonitorGetPreferredScaleFactor @ 0x1C014CC64 (MonitorGetPreferredScaleFactor.c)
+ *     ?IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z @ 0x1C014CD58 (-IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z.c)
  */
 
-char __fastcall DpiInternal::GetPreferredScaleFactorForMonitor(DpiInternal *this, void *const a2, int a3, int *a4)
+char __fastcall DpiInternal::GetPreferredScaleFactorForMonitor(DpiInternal *this, void *const a2, int a3, _DWORD *a4)
 {
-  __int64 v5; // rsi
-  __int64 v8; // rdx
+  int v5; // ebx
+  __int64 v6; // rsi
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
   int PreferredScaleFactor; // eax
-  int v13; // ebx
-  _QWORD *v14; // rax
-  int v16; // eax
-  unsigned __int8 v17[4]; // [rsp+20h] [rbp-18h] BYREF
-  int v18[5]; // [rsp+24h] [rbp-14h] BYREF
+  __int64 v11; // rdx
+  _QWORD *v12; // rax
+  unsigned __int8 v14[4]; // [rsp+20h] [rbp-18h] BYREF
+  _DWORD v15[5]; // [rsp+24h] [rbp-14h] BYREF
 
-  v18[0] = 0;
-  v5 = (unsigned int)a2;
-  v17[0] = 0;
-  IsTargetEmergencySimulatedMonitor(this, (unsigned int)a2, v17);
-  if ( v17[0] )
+  v15[0] = 0;
+  v5 = 0;
+  v6 = (unsigned int)a2;
+  v14[0] = 0;
+  IsTargetEmergencySimulatedMonitor(this, (unsigned int)a2, v14);
+  if ( v14[0] )
   {
-    v16 = dword_1C01403E0;
-    if ( !dword_1C01403E0 )
+    v11 = (unsigned int)dword_1C00B2A84;
+    if ( !dword_1C00B2A84 )
     {
-      v13 = -1073741823;
-      goto LABEL_5;
+      v5 = -1073741823;
+      goto LABEL_7;
     }
   }
   else
   {
-    PreferredScaleFactor = MonitorGetPreferredScaleFactor(this, (unsigned int)v5, v18);
-    v13 = PreferredScaleFactor;
+    PreferredScaleFactor = MonitorGetPreferredScaleFactor(this, (unsigned int)v6, v15);
+    v11 = v15[0];
+    v5 = PreferredScaleFactor;
     if ( a3 )
     {
-      if ( PreferredScaleFactor < 0 )
-      {
-        dword_1C01403E0 = 0;
-LABEL_5:
-        v14 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
-        v14[3] = this;
-        v14[4] = v5;
-        v14[5] = v13;
-        *a4 = 0;
-        return 0;
-      }
-      v16 = v18[0];
-      dword_1C01403E0 = v18[0];
-    }
-    else
-    {
-      if ( PreferredScaleFactor < 0 )
-        goto LABEL_5;
-      v16 = v18[0];
+      v9 = 0LL;
+      if ( PreferredScaleFactor >= 0 )
+        v9 = v15[0];
+      dword_1C00B2A84 = v9;
     }
   }
-  *a4 = v16;
+  if ( v5 < 0 )
+  {
+LABEL_7:
+    v12 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v11);
+    v12[3] = this;
+    v12[4] = v6;
+    v12[5] = v5;
+    *a4 = 0;
+    return 0;
+  }
+  *a4 = v11;
   return 1;
 }

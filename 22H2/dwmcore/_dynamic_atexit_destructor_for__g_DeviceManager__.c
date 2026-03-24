@@ -1,12 +1,13 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__g_DeviceManager__ @ 0x180124620
+ * XREFs of _dynamic_atexit_destructor_for__g_DeviceManager__ @ 0x1800F91A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void dynamic_atexit_destructor_for__g_DeviceManager__()
+// attributes: thunk
+void __fastcall dynamic_atexit_destructor_for__g_DeviceManager__(CDeviceManager *a1)
 {
-  CDeviceManager::~CDeviceManager((CDeviceManager *)&g_DeviceManager);
+  CDeviceManager::~CDeviceManager(a1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OldDefragment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00EB87C
+ * XREFs of ?OldDefragment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C7CC4
  * Callers:
- *     ?Defragment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C00D5E64 (-Defragment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z.c)
+ *     ?Defragment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C00AEC0C (-Defragment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3C0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023FCC (McTemplateK0p_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_SEGMENT::OldDefragment(VIDMM_SEGMENT *this, __int64 a2, __int64 a3)
@@ -21,19 +21,19 @@ void __fastcall VIDMM_SEGMENT::OldDefragment(VIDMM_SEGMENT *this, __int64 a2, __
     v4 = (_QWORD *)*v3;
     if ( (_QWORD *)*v3 == v3 )
       break;
-    v5 = v4 - 50;
+    v5 = v4 - 49;
     LOBYTE(a3) = 1;
     LOBYTE(v7) = 0;
-    (*(void (__fastcall **)(_QWORD, _QWORD *, __int64, _QWORD, int, _QWORD))(*(_QWORD *)*(v4 - 35) + 48LL))(
-      *(v4 - 35),
-      v4 - 50,
+    (*(void (__fastcall **)(_QWORD, _QWORD *, __int64, _QWORD, int, _QWORD))(*(_QWORD *)*(v4 - 33) + 48LL))(
+      *(v4 - 33),
+      v4 - 49,
       a3,
       0LL,
       v7,
       0LL);
     if ( bTracingEnabled )
     {
-      if ( (byte_1C006E941 & 1) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         McTemplateK0p_EtwWriteTransfer(v6, &EventEvictAllocation, a3, v5);
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z @ 0x1800470F8
+ * XREFs of ?Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z @ 0x18009AD08
  * Callers:
- *     ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180046D88 (-Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ *     ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18009A92C (-Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,103 +12,121 @@ void __fastcall FastRegion::Internal::CStripe::Subtract(
         const struct FastRegion::Internal::CStripe *a3,
         const struct FastRegion::Internal::CStripe *a4)
 {
-  int *v5; // r9
+  char *v5; // r9
   char *v6; // r10
-  int *v7; // rdx
-  char *v8; // r8
-  _DWORD *v9; // rcx
+  char *v7; // rdx
+  char *v8; // rcx
+  char *v9; // r8
   int v10; // eax
   int v11; // r11d
-  int *v12; // rdx
+  _DWORD *v12; // rdx
   int v13; // eax
-  int v14; // eax
-  int v15; // r11d
-  int v16; // r11d
+  __int64 v14; // r8
+  unsigned __int64 v15; // rdx
+  signed __int64 v16; // r9
+  int v17; // eax
+  int v18; // r11d
+  int v19; // r11d
+  bool v20; // zf
 
   *(_DWORD *)this = *(_DWORD *)a4;
-  v5 = (int *)((char *)a2 + *((int *)a2 + 1));
+  v5 = (char *)a2 + *((int *)a2 + 1);
   v6 = (char *)a2 + *((int *)a2 + 3) + 8;
-  v7 = (int *)((char *)a3 + *((int *)a3 + 1));
-  v8 = (char *)a3 + *((int *)a3 + 3) + 8;
-  v9 = (_DWORD *)((char *)this + *((int *)this + 1));
-LABEL_2:
-  if ( v5 == (int *)v6 )
-    goto LABEL_13;
-  if ( v7 == (int *)v8 )
-    goto LABEL_21;
-LABEL_4:
-  v10 = *v5;
-  v11 = *v7;
-  if ( *v5 >= *v7 )
+  v7 = (char *)a3 + *((int *)a3 + 1);
+  v8 = (char *)this + *((int *)this + 1);
+  v9 = (char *)a3 + *((int *)a3 + 3) + 8;
+  if ( v5 != v6 && v7 != v9 )
   {
-    v12 = v7 + 1;
-    if ( v11 < v10 )
-      goto LABEL_24;
-    v13 = *v12;
-LABEL_7:
-    ++v5;
-    goto LABEL_8;
-  }
-  ++v5;
-  *v9++ = v10;
-  do
-  {
-    v14 = *v5;
-    v15 = *v7;
-    if ( *v5 < *v7 )
+    do
     {
-      *v9 = v14;
-      ++v5;
-      ++v9;
-      if ( v5 == (int *)v6 )
-        goto LABEL_13;
-      goto LABEL_4;
-    }
-    v12 = v7 + 1;
-    if ( v15 >= v14 )
-    {
-      *v9++ = v14;
-    }
-    else
-    {
-      *v9++ = v15;
-      v13 = *v12;
-LABEL_8:
-      if ( *v5 >= v13 )
+      v10 = *(_DWORD *)v5;
+      v11 = *(_DWORD *)v7;
+      if ( *(_DWORD *)v5 >= *(_DWORD *)v7 )
       {
-        v7 = v12 + 1;
-        if ( v13 < *v5 )
-        {
-          *v9 = v13;
-          goto LABEL_19;
-        }
-        ++v5;
-        goto LABEL_2;
+        v12 = v7 + 4;
+        if ( v11 < v10 )
+          goto LABEL_26;
+        v13 = *v12;
+LABEL_6:
+        v5 += 4;
+        goto LABEL_7;
       }
-    }
-    if ( ++v5 == (int *)v6 )
-      goto LABEL_13;
-LABEL_24:
-    v16 = *v5;
-    v13 = *v12;
-    if ( *v5 < *v12 )
-      goto LABEL_7;
-    v7 = v12 + 1;
-    if ( v13 < v16 )
-    {
-      if ( v7 == (int *)v8 )
+      v5 += 4;
+      *(_DWORD *)v8 = v10;
+      v8 += 4;
+      while ( 1 )
+      {
+        v17 = *(_DWORD *)v5;
+        v18 = *(_DWORD *)v7;
+        if ( *(_DWORD *)v5 < *(_DWORD *)v7 )
+        {
+          *(_DWORD *)v8 = v17;
+          v5 += 4;
+          v8 += 4;
+          v20 = v5 == v6;
+          goto LABEL_30;
+        }
+        v12 = v7 + 4;
+        if ( v18 < v17 )
+          break;
+        *(_DWORD *)v8 = v17;
+        v8 += 4;
+LABEL_25:
+        v5 += 4;
+        if ( v5 == v6 )
+          goto LABEL_10;
+LABEL_26:
+        v19 = *(_DWORD *)v5;
+        v13 = *v12;
+        if ( *(_DWORD *)v5 < *v12 )
+          goto LABEL_6;
+        v7 = (char *)(v12 + 1);
+        if ( v13 < v19 )
+          goto LABEL_29;
+        v5 += 4;
+        *(_DWORD *)v8 = v19;
+LABEL_18:
+        v8 += 4;
+        if ( v7 == v9 )
+          goto LABEL_10;
+      }
+      *(_DWORD *)v8 = v18;
+      v8 += 4;
+      v13 = *v12;
+LABEL_7:
+      if ( *(_DWORD *)v5 < v13 )
+        goto LABEL_25;
+      v7 = (char *)(v12 + 1);
+      if ( v13 < *(_DWORD *)v5 )
+      {
+        *(_DWORD *)v8 = v13;
+        goto LABEL_18;
+      }
+      v5 += 4;
+      if ( v5 == v6 )
         break;
-      goto LABEL_4;
+LABEL_29:
+      v20 = v7 == v9;
+LABEL_30:
+      ;
     }
-    ++v5;
-    *v9 = v16;
-LABEL_19:
-    ++v9;
+    while ( !v20 );
   }
-  while ( v7 != (int *)v8 );
-  while ( v5 != (int *)v6 )
-LABEL_21:
-    *v9++ = *v5++;
-LABEL_13:
-  *((_DWORD *)this + 3) = (_DWORD)v9 - ((_DWORD)this + 8);
+LABEL_10:
+  v14 = 0LL;
+  v15 = (unsigned __int64)(v6 - v5 + 3) >> 2;
+  if ( v5 > v6 )
+    v15 = 0LL;
+  if ( v15 )
+  {
+    v16 = v5 - v8;
+    do
+    {
+      ++v14;
+      *(_DWORD *)v8 = *(_DWORD *)&v8[v16];
+      v8 += 4;
+    }
+    while ( v14 != v15 );
+  }
+  *((_DWORD *)this + 3) = (_DWORD)v8 - ((_DWORD)this + 8);
 }

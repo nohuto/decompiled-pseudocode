@@ -1,5 +1,5 @@
 /*
- * XREFs of VfPoolIsInternalFree @ 0x14030B088
+ * XREFs of VfPoolIsInternalFree @ 0x14030B188
  * Callers:
  *     VfRemLockDeleteMemoryRange @ 0x140934768 (VfRemLockDeleteMemoryRange.c)
  *     VfCheckForLookaside @ 0x14093EF78 (VfCheckForLookaside.c)

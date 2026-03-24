@@ -1,46 +1,44 @@
 /*
- * XREFs of PoDestroyReasonContext @ 0x14032D130
+ * XREFs of PoDestroyReasonContext @ 0x14034BC54
  * Callers:
- *     NtCancelTimer @ 0x14032E090 (NtCancelTimer.c)
- *     NtSetTimerEx @ 0x14032E400 (NtSetTimerEx.c)
- *     ExpSetTimerObject @ 0x14032E684 (ExpSetTimerObject.c)
- *     ExpDeleteTimer @ 0x140360A70 (ExpDeleteTimer.c)
- *     PopPowerRequestCreateUserModeRequest @ 0x14036D81C (PopPowerRequestCreateUserModeRequest.c)
- *     NtSetTimer @ 0x1403B2290 (NtSetTimer.c)
- *     PoCreatePowerRequest @ 0x1403C6280 (PoCreatePowerRequest.c)
- *     PoRegisterSystemState @ 0x14058DD30 (PoRegisterSystemState.c)
- *     PopPowerRequestDelete @ 0x1407A6CA0 (PopPowerRequestDelete.c)
- *     NtSetThreadExecutionState @ 0x1407A92D0 (NtSetThreadExecutionState.c)
- *     PoCreateThermalRequest @ 0x14084ED90 (PoCreateThermalRequest.c)
- *     PoDeleteThermalRequest @ 0x140982CB0 (PoDeleteThermalRequest.c)
- *     PopPowerAggregatorInitialize @ 0x140B51BB0 (PopPowerAggregatorInitialize.c)
- *     PopInitializeHighPerfPowerRequest @ 0x140B72EA4 (PopInitializeHighPerfPowerRequest.c)
+ *     NtCancelTimer @ 0x140248470 (NtCancelTimer.c)
+ *     NtSetTimerEx @ 0x140248B10 (NtSetTimerEx.c)
+ *     ExpSetTimerObject @ 0x140248D90 (ExpSetTimerObject.c)
+ *     ExpDeleteTimer @ 0x14025FA00 (ExpDeleteTimer.c)
+ *     PopPowerRequestCleanUp @ 0x14034B808 (PopPowerRequestCleanUp.c)
+ *     NtSetTimer @ 0x140376410 (NtSetTimer.c)
+ *     PoRegisterSystemState @ 0x14056EE50 (PoRegisterSystemState.c)
+ *     PopPowerRequestCreateInfo @ 0x1406F73C0 (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x1406F8710 (NtSetThreadExecutionState.c)
+ *     PoCreatePowerRequest @ 0x140772400 (PoCreatePowerRequest.c)
+ *     PoCreateThermalRequest @ 0x14079AB80 (PoCreateThermalRequest.c)
+ *     PoDeleteThermalRequest @ 0x1408E2A20 (PoDeleteThermalRequest.c)
+ *     PopInitializeHighPerfPowerRequest @ 0x140A710FC (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     Feature_2932140347__private_IsEnabledDeviceUsage @ 0x140410994 (Feature_2932140347__private_IsEnabledDeviceUsage.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7528 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PoDestroyReasonContext(_QWORD *P, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall PoDestroyReasonContext(_QWORD *P)
 {
-  _QWORD *v4; // rbx
-  void *v5; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
 
-  v4 = P;
   if ( !*(_DWORD *)P )
   {
-    P = (_QWORD *)P[1];
-    if ( P )
-      ObfDereferenceObjectWithTag(P, 0x67446F50u);
+    v2 = (void *)P[1];
+    if ( v2 )
+      ObfDereferenceObjectWithTag(v2, 0x67446F50u);
   }
-  if ( (unsigned int)Feature_2932140347__private_IsEnabledDeviceUsage(P, a2, a3, a4) )
+  if ( (unsigned int)Feature_3401902395__private_IsEnabledDeviceUsage() )
   {
-    if ( *(_DWORD *)v4 )
+    if ( *(_DWORD *)P )
     {
-      v5 = (void *)v4[3];
-      if ( v5 )
-        ExFreePoolWithTag(v5, 0x78435250u);
+      v3 = (void *)P[3];
+      if ( v3 )
+        ExFreePoolWithTag(v3, 0x78435250u);
     }
   }
-  ExFreePoolWithTag(v4, 0x78435250u);
+  ExFreePoolWithTag(P, 0x78435250u);
 }

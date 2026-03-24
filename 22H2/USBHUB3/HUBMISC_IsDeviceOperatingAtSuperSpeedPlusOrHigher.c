@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher @ 0x1C0030DD0
+ * XREFs of HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher @ 0x1C002DC18
  * Callers:
- *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C007A55C (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
+ *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C00768D8 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
  * Callees:
  *     <none>
  */
@@ -28,38 +28,36 @@ bool __fastcall HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher(__int64 a1)
       v4 = *(_DWORD *)(v2 + 188) & 0xF;
       v5 = *(_QWORD *)(v2 + 224);
       v6 = 0LL;
-      if ( v3 )
+      if ( !v3 )
+        goto LABEL_7;
+      while ( 1 )
       {
-        while ( 1 )
-        {
-          v7 = *(_DWORD *)(v5 + 4 * v6);
-          if ( (v7 & 0xF) == v4 && (v7 & 0x80u) == 0 )
-            break;
-          if ( ++v6 >= v3 )
-          {
-            v8 = 0LL;
-LABEL_11:
-            while ( 1 )
-            {
-              v9 = *(_DWORD *)(v5 + 4 * v8);
-              if ( (v9 & 0xF) == v4 && (v9 & 0x80u) != 0 )
-                break;
-              if ( ++v8 >= v3 )
-                return v1;
-            }
-            return (v9 & 0xC000) != 0;
-          }
-        }
-        if ( (v7 & 0xC000) == 0 )
-          goto LABEL_10;
+        v7 = *(_DWORD *)(v5 + 4 * v6);
+        if ( (v7 & 0xF) == v4 && (v7 & 0x80u) == 0 )
+          break;
+        if ( ++v6 >= v3 )
+          goto LABEL_7;
+      }
+      if ( (v7 & 0xC000) != 0 )
+      {
         return 1;
       }
       else
       {
-LABEL_10:
+LABEL_7:
         v8 = 0LL;
         if ( v3 )
-          goto LABEL_11;
+        {
+          while ( 1 )
+          {
+            v9 = *(_DWORD *)(v5 + 4 * v8);
+            if ( (v9 & 0xF) == v4 && (v9 & 0x80u) != 0 )
+              break;
+            if ( ++v8 >= v3 )
+              return v1;
+          }
+          return (v9 & 0xC000) != 0;
+        }
       }
     }
   }

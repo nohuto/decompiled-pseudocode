@@ -7,7 +7,7 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiQueryAddressSpan(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, ULONG_PTR a4)

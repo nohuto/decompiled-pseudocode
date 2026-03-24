@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_ReturningHubStopFromSuspended @ 0x1C0020BE0
+ * XREFs of HUBDSM_ReturningHubStopFromSuspended @ 0x1C001E340
  * Callers:
  *     <none>
  * Callees:

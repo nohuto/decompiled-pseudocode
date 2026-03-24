@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x1400EFBF0
+ * XREFs of MiEmptyPteBins @ 0x1400EFC10
  * Callers:
  *     MiInsertCachedPte @ 0x1400344D0 (MiInsertCachedPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiCheckProcessorPteCache @ 0x14005CFB0 (MiCheckProcessorPteCache.c)
- *     MiAdjustPteBins @ 0x1400EFAE8 (MiAdjustPteBins.c)
+ *     MiAdjustPteBins @ 0x1400EFB08 (MiAdjustPteBins.c)
  * Callees:
- *     MiReplenishBitMap @ 0x1400EFDD0 (MiReplenishBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePteMappings @ 0x1402C389C (MiReleaseLargePteMappings.c)
+ *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePteMappings @ 0x1402C399C (MiReleaseLargePteMappings.c)
  */
 
 __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)

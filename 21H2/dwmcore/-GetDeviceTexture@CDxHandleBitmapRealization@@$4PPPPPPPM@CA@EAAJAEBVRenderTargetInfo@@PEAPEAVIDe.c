@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDeviceTexture@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x18010B850
+ * XREFs of ?GetDeviceTexture@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1800F8B10
  * Callers:
  *     <none>
  * Callees:

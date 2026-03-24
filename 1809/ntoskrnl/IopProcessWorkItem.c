@@ -6,10 +6,10 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
  *     PspRevertContainerImpersonation @ 0x14005B390 (PspRevertContainerImpersonation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     EtwTraceThreadWorkItem @ 0x140310660 (EtwTraceThreadWorkItem.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwTraceThreadWorkItem @ 0x140310760 (EtwTraceThreadWorkItem.c)
  */
 
 struct _KTHREAD *__fastcall IopProcessWorkItem(__int64 a1)

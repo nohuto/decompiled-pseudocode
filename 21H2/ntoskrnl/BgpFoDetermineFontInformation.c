@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFoDetermineFontInformation @ 0x140B55FC4
+ * XREFs of BgpFoDetermineFontInformation @ 0x140A96D5C
  * Callers:
- *     BgpBcInitializeCriticalMode @ 0x140B55C50 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFoGetTextMetrics @ 0x1403CAD78 (BgpFoGetTextMetrics.c)
- *     BgpFoGetFontHandle @ 0x140AABE98 (BgpFoGetFontHandle.c)
+ *     BgpFoGetTextMetrics @ 0x14039C78C (BgpFoGetTextMetrics.c)
+ *     BgpFoGetFontHandle @ 0x1409F334C (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall BgpFoDetermineFontInformation(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PnpEventInitSurpriseRemoved@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C00840D0
+ * XREFs of ?PnpEventInitSurpriseRemoved@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A8E0
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C002BFE4 (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
+ *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C007B4AC (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventInitSurpriseRemoved(FxPkgPnp *This, unsigned __int8 a2)

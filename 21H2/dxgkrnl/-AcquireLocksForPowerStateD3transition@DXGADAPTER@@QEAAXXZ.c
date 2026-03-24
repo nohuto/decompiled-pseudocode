@@ -1,96 +1,84 @@
 /*
- * XREFs of ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C01F1CA4
+ * XREFs of ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C020B294
  * Callers:
- *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C01B468C (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0121BB4 (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000A924 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C016E8D4 (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ?ReleaseCoreResource@DXGADAPTER@@AEAAXPEAD@Z @ 0x1C017ED90 (-ReleaseCoreResource@DXGADAPTER@@AEAAXPEAD@Z.c)
- *     ?TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C01F1E50 (-TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z.c)
- *     ?ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C01F2400 (-ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C0007514 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00E8CC8 (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ?ReleaseCoreResource@DXGADAPTER@@AEAAXPEAD@Z @ 0x1C00FDD00 (-ReleaseCoreResource@DXGADAPTER@@AEAAXPEAD@Z.c)
+ *     ?ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C020EB2C (-ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
+ *     ?TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C02170C8 (-TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z.c)
  */
 
 void __fastcall DXGADAPTER::AcquireLocksForPowerStateD3transition(DXGADAPTER *this)
 {
   __int64 v2; // rcx
   __int64 v3; // rdi
-  char *v4; // rcx
+  __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // rcx
 
-  v2 = *((_QWORD *)this + 350);
-  if ( !v2
-    || (unsigned __int8)ADAPTER_RENDER::TryAcquireDeviceLockForAllDevices(v2, 2LL)
-    && (unsigned __int8)ADAPTER_RENDER::TryAcquireDeviceLockForAllDevices(*((_QWORD *)this + 350), 1LL) )
+  KeEnterCriticalRegion();
+  if ( (unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)this + 104, 0LL) )
   {
-    DXGADAPTER::AcquireCoreResourceExclusive((__int64)this, 2u, 1);
-    if ( DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this) )
+    *((_QWORD *)this + 14) = KeGetCurrentThread();
+    v2 = *((_QWORD *)this + 338);
+    if ( !v2
+      || (unsigned __int8)ADAPTER_RENDER::TryAcquireDeviceLockForAllDevices(v2, 2LL)
+      && (unsigned __int8)ADAPTER_RENDER::TryAcquireDeviceLockForAllDevices(*((_QWORD *)this + 338), 1LL) )
     {
-      v3 = *((_QWORD *)this + 350);
-      if ( !v3 )
-        goto LABEL_19;
-      if ( DXGADAPTER::IsDxgmms2(this) )
-        goto LABEL_28;
-      if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(v3 + 16)) )
+      DXGADAPTER::AcquireCoreResourceExclusive((__int64)this, 2u, 1);
+      if ( DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this) )
       {
-        WdLogSingleEntry1(1LL, 4418LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"IsCoreResourceExclusiveOwner()",
-          4418LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-      if ( !*(_QWORD *)(v3 + 1232) )
-      {
-LABEL_28:
-        if ( !(*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 350) + 648LL) + 8LL)
-                                                        + 1088LL))(*(_QWORD *)(*((_QWORD *)this + 350) + 656LL))
-          && !(*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 350) + 624LL) + 8LL)
-                                                        + 928LL))(*(_QWORD *)(*((_QWORD *)this + 350) + 632LL))
-          && !*((_BYTE *)this + 2742) )
+        v3 = *((_QWORD *)this + 338);
+        if ( !v3 )
+          goto LABEL_15;
+        if ( !DXGADAPTER::IsDxgmms2(this) )
         {
-LABEL_19:
-          KeEnterCriticalRegion();
-          if ( (unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)this + 104, 0LL) )
+          if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(v3 + 16)) )
           {
-            *((_QWORD *)this + 14) = KeGetCurrentThread();
-            v4 = (char *)this + 104;
-            if ( !*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 27) + 64LL) + 4088LL) )
-            {
-              *((_DWORD *)this + 40) = 1;
-              *((_QWORD *)this + 14) = 0LL;
-              ExReleasePushLockExclusiveEx(v4, 0LL);
-              KeLeaveCriticalRegion();
-              v5 = *((_QWORD *)this + 350);
-              if ( v5 )
-              {
-                *(_QWORD *)(v5 + 32) = 0LL;
-                ExReleasePushLockExclusiveEx(v5 + 24, 0LL);
-                KeLeaveCriticalRegion();
-                v6 = *((_QWORD *)this + 350);
-                *(_QWORD *)(v6 + 56) = 0LL;
-                ExReleasePushLockExclusiveEx(v6 + 48, 0LL);
-                KeLeaveCriticalRegion();
-              }
-              return;
-            }
-            *((_QWORD *)this + 14) = 0LL;
-            ExReleasePushLockExclusiveEx(v4, 0LL);
+            v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+            *(_QWORD *)(v6 + 24) = 4428LL;
+            WdLogEvent5_WdAssertion(v6);
           }
-          KeLeaveCriticalRegion();
+          if ( *(_QWORD *)(v3 + 1208) )
+            goto LABEL_14;
+        }
+        if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 338) + 640LL) + 8LL)
+                                                       + 1080LL))(*(_QWORD *)(*((_QWORD *)this + 338) + 648LL))
+          || (*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 338) + 616LL) + 8LL)
+                                                       + 928LL))(*(_QWORD *)(*((_QWORD *)this + 338) + 624LL))
+          || *((_BYTE *)this + 2646) )
+        {
+LABEL_14:
+          DXGADAPTER::ReleaseCoreResource(this, 0LL);
+        }
+        else
+        {
+LABEL_15:
+          v7 = *((_QWORD *)this + 338);
+          *((_DWORD *)this + 40) = 1;
+          if ( v7 )
+          {
+            *(_QWORD *)(v7 + 32) = 0LL;
+            ExReleasePushLockExclusiveEx(v7 + 24, 0LL);
+            KeLeaveCriticalRegion();
+            v8 = *((_QWORD *)this + 338);
+            *(_QWORD *)(v8 + 56) = 0LL;
+            ExReleasePushLockExclusiveEx(v8 + 48, 0LL);
+            KeLeaveCriticalRegion();
+          }
         }
       }
     }
+    if ( *((_DWORD *)this + 40) != 1 )
+      DXGADAPTER::ReleaseLocksForPowerStateD3transition(this);
+    *((_QWORD *)this + 14) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)this + 104, 0LL);
   }
-  if ( DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this) )
-    DXGADAPTER::ReleaseCoreResource(this, 0LL);
-  DXGADAPTER::ReleaseLocksForPowerStateD3transition(this);
+  KeLeaveCriticalRegion();
 }

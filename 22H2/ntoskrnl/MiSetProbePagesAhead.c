@@ -1,207 +1,120 @@
 /*
- * XREFs of MiSetProbePagesAhead @ 0x140236FB0
+ * XREFs of MiSetProbePagesAhead @ 0x140280038
  * Callers:
- *     MiProbeAndLockPacket @ 0x140236240 (MiProbeAndLockPacket.c)
- *     MiProbeLeafFrame @ 0x1403D4FA4 (MiProbeLeafFrame.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MiProbeLeafFrame @ 0x14027DEC0 (MiProbeLeafFrame.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14028026C (MiLegitimatePageForDriversToMap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
  */
 
 char __fastcall MiSetProbePagesAhead(__int64 a1)
 {
-  unsigned __int64 CurrentThread; // rax
-  unsigned __int64 v3; // rdi
-  __int64 v4; // rdx
-  BOOL v5; // r15d
-  int v6; // r12d
-  __int64 v7; // rbp
-  unsigned __int64 i; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  _QWORD *v11; // rcx
-  __int64 v12; // rsi
-  __int64 v13; // rdx
-  __int64 *v14; // r14
+  __int64 v2; // rax
+  int v3; // r12d
+  __int64 v4; // rbx
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // r14
+  __int64 v7; // rsi
+  unsigned __int64 v8; // rbx
+  signed __int64 v9; // rdx
+  _QWORD *v10; // rcx
+  signed __int64 v11; // r15
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // rdx
+  unsigned __int64 v14; // r8
   unsigned __int64 v15; // rcx
   __int64 v16; // rcx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r8
-  unsigned __int64 v20; // rdx
-  unsigned __int64 v21; // r8
-  char v22; // cl
-  __int64 v24; // [rsp+60h] [rbp+8h] BYREF
-  int v25; // [rsp+68h] [rbp+10h] BYREF
-  unsigned __int64 v26; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v18; // [rsp+50h] [rbp+8h] BYREF
 
-  LOBYTE(CurrentThread) = *(_DWORD *)(a1 + 72) & 0xF;
-  if ( (_BYTE)CurrentThread == 1 )
+  LOBYTE(v2) = *(_DWORD *)(a1 + 64) & 0xF;
+  if ( (_BYTE)v2 == 1 )
   {
-    v3 = *(_QWORD *)(a1 + 48);
-    v26 = v3;
-    CurrentThread = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v26) >> 12) & 0xFFFFFFFFFFLL;
-    if ( CurrentThread > qword_140C65CA0 )
+    v3 = *(_DWORD *)(a1 + 88);
+    if ( v3 != 3 )
     {
-      v5 = 0;
-    }
-    else
-    {
-      v4 = *(_QWORD *)(48 * CurrentThread - 0x21FFFFFFFFD8LL);
-      LOBYTE(CurrentThread) = 1;
-      v5 = (v4 & 0x40000000000000LL) != 0;
-    }
-    v6 = *(_DWORD *)(a1 + 96);
-    if ( v6 != 3 )
-    {
-      v7 = 0LL;
-      v26 = v3 & 0xF0F0000000000FFFuLL;
-      for ( i = *(_QWORD *)(a1 + 24) + 8LL; (i & 0xFFF) != 0 && i <= *(_QWORD *)(a1 + 32); i += 8LL )
+      v4 = *(_QWORD *)(a1 + 40);
+      v18 = v4;
+      v5 = 6 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v18) >> 12) & 0xFFFFFFFFFLL);
+      LOBYTE(v2) = 40;
+      if ( ((*(_QWORD *)(8 * v5 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
       {
-        v9 = *(_QWORD *)i;
-        LOBYTE(CurrentThread) = 0;
-        if ( i >= 0xFFFFF6FB7DBED000uLL )
+        v6 = *(_QWORD *)(a1 + 16);
+        v7 = 0LL;
+        v8 = v4 & 0xF0FF000000000FFFuLL;
+        while ( 1 )
         {
-          LOBYTE(CurrentThread) = -8;
-          if ( i <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0x600000) != 0 )
-          {
-            CurrentThread = (unsigned __int64)KeGetCurrentThread();
-            if ( *(_BYTE *)(*(_QWORD *)(CurrentThread + 184) + 912LL) != 1
-              && (v9 & 1) != 0
-              && ((v9 & 0x20) == 0 || (v9 & 0x42) == 0) )
-            {
-              CurrentThread = (unsigned __int64)KeGetCurrentThread();
-              v18 = *(_QWORD *)(*(_QWORD *)(CurrentThread + 184) + 1928LL);
-              if ( v18 )
-              {
-                CurrentThread = *(_QWORD *)(v18 + 8 * ((i >> 3) & 0x1FF));
-                v19 = v9 | 0x20;
-                if ( (CurrentThread & 0x20) == 0 )
-                  v19 = *(_QWORD *)i;
-                v9 = v19;
-                if ( (CurrentThread & 0x42) != 0 )
-                  v9 = v19 | 0x42;
-              }
-            }
-          }
-        }
-        v24 = v9;
-        if ( (v9 & 0xF0F0000000000FFFuLL) != v26 )
-          break;
-        CurrentThread = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v24) >> 12) & 0xFFFFFFFFFFLL;
-        if ( CurrentThread <= qword_140C65CA0
-          && (v10 = 48 * CurrentThread,
-              LOBYTE(CurrentThread) = 40,
-              (*(_QWORD *)(v10 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0) )
-        {
-          if ( !v5 )
+          v6 += 8LL;
+          if ( (v6 & 0xFFF) == 0 )
             break;
-          v11 = (_QWORD *)qword_140C69988;
-          v12 = v10 - 0x220000000000LL;
-          if ( qword_140C69988 )
+          if ( v6 > *(_QWORD *)(a1 + 24) )
+            break;
+          v18 = MI_READ_PTE_LOCK_FREE(v6);
+          LOBYTE(v2) = v18;
+          if ( (v18 & 0xF0FF000000000FFFuLL) != v8 )
+            break;
+          v9 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v18) >> 12) & 0xFFFFFFFFFLL);
+          LOBYTE(v2) = 40;
+          if ( ((*(_QWORD *)(v9 - 0x57FFFFFFFD8LL) >> 50) & 1) == 0 )
+            break;
+          v10 = (_QWORD *)qword_140C4EE80;
+          v11 = v9 - 0x58000000000LL;
+          if ( qword_140C4EE80 && ((*(_QWORD *)(v11 + 40) >> 60) & 7) == 1 )
           {
-            if ( ((*(_QWORD *)(v12 + 40) >> 60) & 7) == 1 )
+            v12 = (__int64)((unsigned __int128)(v9 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
+            v13 = (v12 >> 63) + v12;
+            while ( v10 )
             {
-              v20 = 0xAAAAAAAAAAAAAAABuLL * (v10 >> 4);
-              if ( qword_140C69988 )
+              v14 = v10[3];
+              if ( v13 < v14 )
               {
-                do
-                {
-                  v21 = v11[3];
-                  if ( v20 >= v21 )
-                  {
-                    LOBYTE(CurrentThread) = v20 - v21;
-                    if ( v20 - v21 < v11[4] )
-                      goto LABEL_23;
-                    v11 = (_QWORD *)v11[1];
-                  }
-                  else
-                  {
-                    v11 = (_QWORD *)*v11;
-                  }
-                }
-                while ( v11 );
+                v10 = (_QWORD *)*v10;
+              }
+              else
+              {
+                LOBYTE(v2) = v13 - v14;
+                if ( v13 - v14 < v10[4] )
+                  goto LABEL_26;
+                v10 = (_QWORD *)v10[1];
               }
             }
           }
-          LOBYTE(CurrentThread) = v12;
-          v13 = *(_QWORD *)(v12 + 40);
-          v14 = (__int64 *)(v12 + 40);
-          if ( v13 >= 0 )
+          LODWORD(v2) = MiLegitimatePageForDriversToMap(v11);
+          if ( (int)v2 < 0 )
+            break;
+          if ( !v3 )
           {
-            if ( (v13 & 0x10000000000LL) != 0 )
+            v15 = *(_QWORD *)(v11 + 40);
+            if ( ((v15 >> 60) & 7) != 1 && (v15 & 0x1000000000LL) == 0 )
             {
-              LODWORD(v24) = 0;
-              v25 = 0;
-              LODWORD(CurrentThread) = MiGetPfnPageSizeIndexUnsynchronized(v12, &v24, &v25);
-              if ( (_DWORD)CurrentThread == 3 || (_DWORD)v24 != 6 )
+              v2 = *(_QWORD *)(v11 + 8);
+              if ( v2 > 0 )
                 break;
             }
-            else
+            LODWORD(v2) = MI_PFN_IS_PROTO(v11);
+            if ( (_DWORD)v2 )
             {
-              v15 = (__int64)(*(_QWORD *)(v12 + 8) << 25) >> 16;
-              LOBYTE(CurrentThread) = 0;
-              if ( v15 >= 0xFFFFF68000000000uLL )
-              {
-                LOBYTE(CurrentThread) = -1;
-                if ( v15 <= 0xFFFFF6FFFFFFFFFFuLL )
-                {
-                  LOBYTE(CurrentThread) = -2;
-                  if ( (v13 & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL )
-                  {
-                    v22 = *(_BYTE *)(v12 + 34);
-                    if ( ((v22 & 0x20) == 0
-                       || (*(_QWORD *)(v12 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0
-                       || !*(_WORD *)(v12 + 32))
-                      && (v22 & 8) == 0 )
-                    {
-                      CurrentThread = (*(_QWORD *)v12 >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
-                      if ( CurrentThread != 0xFFFF800000000030uLL )
-                        break;
-                    }
-                  }
-                }
-              }
-            }
-          }
-          if ( !v6 )
-          {
-            v16 = *v14;
-            LOBYTE(CurrentThread) = ((unsigned __int64)*v14 >> 60) & 7;
-            if ( (_BYTE)CurrentThread != 1 && (v16 & 0x10000000000LL) == 0 )
-            {
-              CurrentThread = *(_QWORD *)(v12 + 8);
-              if ( (CurrentThread & 0x8000000000000000uLL) == 0LL )
-              {
-                if ( CurrentThread )
-                  break;
-              }
-            }
-            if ( v16 < 0 )
-            {
-              LODWORD(CurrentThread) = *(_DWORD *)(a1 + 72);
-              if ( (CurrentThread & 0x10) != 0 )
+              LODWORD(v2) = *(_DWORD *)(a1 + 64);
+              if ( (v2 & 0x10) != 0 )
                 break;
             }
           }
+          ++v7;
         }
-        else if ( v5 )
+LABEL_26:
+        if ( v7 )
         {
-          break;
+          v16 = *(_QWORD *)(a1 + 16) << 25;
+          *(_QWORD *)(a1 + 160) = -1LL;
+          v16 >>= 16;
+          *(_QWORD *)(a1 + 144) = v16;
+          v2 = (v7 << 12) + v16 + 4095;
+          *(_DWORD *)(a1 + 64) |= 0x20u;
+          *(_QWORD *)(a1 + 152) = v2;
         }
-        ++v7;
-      }
-LABEL_23:
-      if ( v7 )
-      {
-        v17 = (__int64)(*(_QWORD *)(a1 + 24) << 25) >> 16;
-        *(_QWORD *)(a1 + 152) = v17;
-        *(_QWORD *)(a1 + 168) = -1LL;
-        CurrentThread = v17 + (v7 << 12) + 4095;
-        *(_DWORD *)(a1 + 72) |= 0x20u;
-        *(_QWORD *)(a1 + 160) = CurrentThread;
       }
     }
   }
-  return CurrentThread;
+  return v2;
 }

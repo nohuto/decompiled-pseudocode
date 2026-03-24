@@ -1,49 +1,44 @@
 /*
- * XREFs of CmpDoQueueLateUnloadWorker @ 0x140752244
+ * XREFs of CmpDoQueueLateUnloadWorker @ 0x1406EB3EC
  * Callers:
- *     CmReleaseLoadKeyContext @ 0x140692BE4 (CmReleaseLoadKeyContext.c)
- *     CmpDelayDerefKeyControlBlock @ 0x1406D8750 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x1406DB3F0 (CmpDeleteKeyObject.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7F40 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E9B8 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDoFlushNextHive @ 0x140752430 (CmpDoFlushNextHive.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076B020 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140648D30 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406778F0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmReleaseLoadKeyContext @ 0x1406EADC0 (CmReleaseLoadKeyContext.c)
+ *     CmpDoFlushNextHive @ 0x1406EB100 (CmpDoFlushNextHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmpReferenceHive @ 0x14076AA9C (CmpReferenceHive.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     CmWorkerEngineQueueWorkItem @ 0x14069D694 (CmWorkerEngineQueueWorkItem.c)
  */
 
-signed __int32 __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)
+char __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)
 {
-  unsigned __int64 *v1; // rbx
-  __int64 v3; // rax
-  __int64 v4; // rsi
-  WORK_QUEUE_TYPE v6; // r8d
+  volatile signed __int64 *v1; // rdi
+  signed __int64 v3; // rsi
+  char v4; // al
 
-  v1 = (unsigned __int64 *)(a1 + 1680);
-  v3 = KeAbPreAcquire(a1 + 1680, 0LL);
-  v4 = v3;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v1, v3, (__int64)v1);
-  if ( v4 )
-    *(_BYTE *)(v4 + 18) = 1;
-  *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4236), 1u) & 0x7F) + 4240) = 19;
-  if ( **(_QWORD **)(a1 + 2936) == 2LL )
+  v1 = (volatile signed __int64 *)(a1 + 1672);
+  v3 = a1 + 2952;
+  ExAcquirePushLockExclusiveEx(a1 + 1672, 0LL);
+  *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 19;
+  if ( **(_QWORD **)(a1 + 2928) == 2LL && !*(_QWORD *)(a1 + 2944) )
   {
-    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4236), 1u) & 0x7F) + 4240) = 20;
-    if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 4800), 1, 0) )
+    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 20;
+    if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2944), v3, 0LL) )
     {
-      *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4236), 1u) & 0x7F) + 4240) = 21;
+      *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 21;
+      *(_DWORD *)(v3 + 16) = 1;
+      *(_QWORD *)(v3 + 24) = CmpLateUnloadHiveWorker;
+      *(_QWORD *)(v3 + 32) = a1;
       CmpReferenceHive(a1);
-      ExQueueWorkItem(*(PWORK_QUEUE_ITEM *)(a1 + 4816), v6);
+      CmWorkerEngineQueueWorkItem((_QWORD *)v3);
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v1);
+  v4 = _InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
+    ExfTryToWakePushLock(v1);
   return KeAbPostRelease((ULONG_PTR)v1);
 }

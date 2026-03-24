@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetPagePrivilege @ 0x1400B2A50
+ * XREFs of MiGetPagePrivilege @ 0x1400B2A70
  * Callers:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
@@ -8,20 +8,20 @@
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiRevertValidPte @ 0x1400B2340 (MiRevertValidPte.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
- *     MiWsleFree @ 0x1400B2C50 (MiWsleFree.c)
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB74 (MiReferencePageForModifiedWrite.c)
- *     MiPageMightBeZero @ 0x14012587C (MiPageMightBeZero.c)
- *     MiTradeActivePage @ 0x14012DF04 (MiTradeActivePage.c)
- *     MiDbgWriteCheck @ 0x1402BB284 (MiDbgWriteCheck.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
+ *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
+ *     MiPageMightBeZero @ 0x14012589C (MiPageMightBeZero.c)
+ *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
+ *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPagePrivilege(__int64 BugCheckParameter2, int a2, unsigned __int64 *a3)

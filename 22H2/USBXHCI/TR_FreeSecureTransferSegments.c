@@ -1,15 +1,15 @@
 /*
- * XREFs of TR_FreeSecureTransferSegments @ 0x1C00417F0
+ * XREFs of TR_FreeSecureTransferSegments @ 0x1C003F2DC
  * Callers:
- *     TR_Disable_Internal @ 0x1C0008074 (TR_Disable_Internal.c)
- *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0039DC0 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
- *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C003A080 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D000 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     TR_Disable_Internal @ 0x1C000A330 (TR_Disable_Internal.c)
+ *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0037F10 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
+ *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C00381D0 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall TR_FreeSecureTransferSegments(_QWORD *a1)
@@ -56,7 +56,7 @@ char __fastcall TR_FreeSecureTransferSegments(_QWORD *a1)
           v7,
           14,
           28,
-          (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           v12);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v8, v9, v10);

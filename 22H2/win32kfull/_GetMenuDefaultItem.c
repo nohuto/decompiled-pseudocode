@@ -1,71 +1,73 @@
 /*
- * XREFs of _GetMenuDefaultItem @ 0x1C024C768
+ * XREFs of _GetMenuDefaultItem @ 0x1C025DB9C
  * Callers:
- *     xxxMNDoubleClick @ 0x1C02179AC (xxxMNDoubleClick.c)
- *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0221D74 (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     _GetMenuDefaultItem @ 0x1C024C768 (_GetMenuDefaultItem.c)
+ *     xxxMNDoubleClick @ 0x1C0237DB8 (xxxMNDoubleClick.c)
+ *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C023EF0C (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     _GetMenuDefaultItem @ 0x1C025DB9C (_GetMenuDefaultItem.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     _GetMenuDefaultItem @ 0x1C024C768 (_GetMenuDefaultItem.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     _GetMenuDefaultItem @ 0x1C025DB9C (_GetMenuDefaultItem.c)
  */
 
 __int64 __fastcall GetMenuDefaultItem(__int64 a1, unsigned int a2, unsigned int a3)
 {
-  __int64 v6; // rax
+  signed int v6; // edi
   _QWORD *v7; // rsi
-  signed int v8; // ebx
-  int v9; // ebp
-  int v10; // ecx
-  unsigned int MenuDefaultItem; // edi
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  _QWORD v15[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-18h]
+  int v8; // ebp
+  int v9; // ecx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  unsigned int MenuDefaultItem; // ebx
+  _QWORD v14[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-28h]
 
-  SmartObjStackRefBase<tagMENU>::Init(v15, 0LL);
-  v6 = *(_QWORD *)(a1 + 40);
-  v16 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v14, 0LL);
+  v15 = 0LL;
+  v6 = 0;
   v7 = *(_QWORD **)(a1 + 88);
-  v8 = 0;
-  v9 = *(_DWORD *)(v6 + 44);
-  if ( v9 <= 0 )
-    goto LABEL_5;
-  while ( 1 )
+  v8 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 44LL);
+  if ( v8 <= 0 )
   {
-    v10 = *(_DWORD *)(*v7 + 4LL);
-    if ( (v10 & 0x1000) != 0 && ((v10 & 3) == 0 || (a3 & 1) != 0) )
-      break;
-    ++v8;
-    v7 += 12;
-    if ( v8 >= v9 )
-      goto LABEL_5;
-  }
-  if ( (a3 & 2) == 0 )
-    goto LABEL_12;
-  v13 = v7[2];
-  if ( !v13 )
-    goto LABEL_12;
-  SmartObjStackRefBase<tagMENU>::operator=(v15, v13);
-  v14 = v16;
-  if ( !v16 )
-    v14 = *(_QWORD *)v15[0];
-  MenuDefaultItem = GetMenuDefaultItem(v14, a2, a3);
-  if ( MenuDefaultItem == -1 )
-  {
-LABEL_12:
-    if ( v8 < v9 )
-    {
-      if ( !a2 )
-        v8 = *(_DWORD *)(*v7 + 8LL);
-      MenuDefaultItem = v8;
-      goto LABEL_6;
-    }
-LABEL_5:
+LABEL_15:
     MenuDefaultItem = -1;
   }
-LABEL_6:
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v15);
+  else
+  {
+    while ( 1 )
+    {
+      v9 = *(_DWORD *)(*v7 + 4LL);
+      if ( (v9 & 0x1000) != 0 && ((v9 & 3) == 0 || (a3 & 1) != 0) )
+        break;
+      ++v6;
+      v7 += 12;
+      if ( v6 >= v8 )
+        goto LABEL_11;
+    }
+    if ( (a3 & 2) != 0 )
+    {
+      v10 = v7[2];
+      if ( v10 )
+      {
+        SmartObjStackRefBase<tagMENU>::operator=(v14, v10);
+        v11 = v15;
+        if ( !v15 )
+          v11 = *(_QWORD *)v14[0];
+        MenuDefaultItem = GetMenuDefaultItem(v11, a2, a3);
+        if ( MenuDefaultItem != -1 )
+          goto LABEL_16;
+      }
+    }
+LABEL_11:
+    if ( v6 >= v8 )
+      goto LABEL_15;
+    if ( a2 )
+      MenuDefaultItem = v6;
+    else
+      MenuDefaultItem = *(_DWORD *)(*v7 + 8LL);
+  }
+LABEL_16:
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v14);
   return MenuDefaultItem;
 }

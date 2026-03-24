@@ -1,8 +1,8 @@
 /*
- * XREFs of PsTerminateVsmEnclave @ 0x14088E45C
+ * XREFs of PsTerminateVsmEnclave @ 0x14088E43C
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     MiTerminateEnclave @ 0x14085A740 (MiTerminateEnclave.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     MiTerminateEnclave @ 0x14085A720 (MiTerminateEnclave.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
@@ -11,9 +11,9 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PsTerminateVsmEnclave(__int64 a1, int a2)

@@ -1,62 +1,75 @@
 /*
- * XREFs of ?Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z @ 0x1C008C6C8
+ * XREFs of ?Init@VIDMM_DEVICE@@QEAAJ_NPEAVVIDMM_PROCESS@@@Z @ 0x1C0081728
  * Callers:
- *     VidMmInitDevice @ 0x1C0002500 (VidMmInitDevice.c)
- *     ?InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z @ 0x1C008F390 (-InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z.c)
- *     ?InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00C1D14 (-InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     VidMmInitDevice @ 0x1C0012030 (VidMmInitDevice.c)
+ *     ?InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z @ 0x1C00834DC (-InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z.c)
+ *     ?InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C0096D08 (-InitPagingProcess@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0003968 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0005F38 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005FB8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z @ 0x1C008CA28 (-Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z.c)
- *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C008F734 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00013FC (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C00016E0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C00122A4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z @ 0x1C0081A7C (-Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z.c)
+ *     ?OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00827A4 (-OpenAdapter@VIDMM_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
  */
 
-__int64 __fastcall VIDMM_DEVICE::Init(VIDMM_DEVICE *this, char a2, struct VIDMM_PROCESS *a3)
+__int64 __fastcall VIDMM_DEVICE::Init(VIDMM_DEVICE *this, __int64 a2, struct VIDMM_PROCESS *a3)
 {
+  char v4; // r15
   __int64 v6; // rcx
   VIDMM_PROCESS *v7; // rcx
-  int v8; // r15d
-  __int64 v9; // rax
-  __int64 v10; // rax
-  unsigned int i; // r8d
-  __int64 v12; // rcx
-  _QWORD *v13; // rdx
-  unsigned __int64 v14; // rbp
-  __int64 v15; // rax
-  bool v16; // cf
-  __int64 v17; // rax
-  __int64 v18; // rax
-  __int64 v19; // rsi
-  unsigned __int64 v20; // rbp
-  __int64 v21; // rax
-  __int64 v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // rsi
-  unsigned int v25; // esi
-  __int64 v26; // r14
+  __int64 v8; // rcx
+  int v9; // ebp
+  SIZE_T v10; // rax
+  PVOID v11; // rax
+  __int64 i; // r8
+  __int64 v13; // rcx
+  _QWORD *v14; // rdx
+  unsigned __int64 v15; // rbp
+  __int64 v16; // rax
+  bool v17; // cf
+  SIZE_T v18; // rax
+  char *v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  char *v23; // rsi
+  unsigned __int64 v24; // rbp
+  __int64 v25; // rax
+  SIZE_T v26; // rax
+  char *v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  char *v31; // rsi
+  unsigned int v32; // esi
+  __int64 v33; // r14
   __int64 result; // rax
-  __int64 v28; // rax
-  __int64 v29; // rbx
-  unsigned __int64 v30; // rbp
-  __int64 v31; // rax
-  __int64 v32; // rax
-  __int64 v33; // rax
-  __int64 v34; // rsi
   __int64 v35; // rax
-  __int64 v36; // rcx
-  __int64 v37; // rcx
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  int v40; // [rsp+20h] [rbp-58h]
-  int v41; // [rsp+20h] [rbp-58h]
+  __int64 v36; // rbx
+  unsigned __int64 v37; // rbp
+  __int64 v38; // rax
+  SIZE_T v39; // rax
+  char *v40; // rax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  char *v44; // rsi
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // rax
+  __int64 v48; // rax
+  __int64 v49; // rax
+  int v50; // [rsp+20h] [rbp-28h]
+  int v51; // [rsp+20h] [rbp-28h]
 
+  v4 = a2;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v35 = WdLogNewEntry5_WdTrace(this);
-    *(_QWORD *)(v35 + 24) = this;
-    *(_QWORD *)(v35 + 32) = *(_QWORD *)this;
+    v45 = WdLogNewEntry5_WdTrace(this);
+    *(_QWORD *)(v45 + 24) = this;
+    *(_QWORD *)(v45 + 32) = *(_QWORD *)this;
   }
   if ( a3 )
   {
@@ -76,169 +89,175 @@ __int64 __fastcall VIDMM_DEVICE::Init(VIDMM_DEVICE *this, char a2, struct VIDMM_
   *((_QWORD *)this + 1) = v7;
   if ( !v7 )
   {
-    WdLogSingleEntry1(1LL, 390LL);
-    DxgkLogInternalTriageEvent(v36, 0x40000LL);
+    v46 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v46 + 24) = 368LL;
+    WdLogEvent5_WdAssertion(v46);
     return 3221225473LL;
   }
   if ( *((_QWORD *)this + 3) )
   {
-    v8 = VIDMM_PROCESS::OpenAdapter(v7, *(struct VIDMM_GLOBAL **)this);
-    if ( v8 < 0 )
+    v9 = VIDMM_PROCESS::OpenAdapter(v7, *(struct VIDMM_GLOBAL **)this);
+    if ( v9 < 0 )
     {
-      _InterlockedAdd(&dword_1C0076798, 1u);
-      WdLogSingleEntry1(6LL, 406LL);
-      DxgkLogInternalTriageEvent(v37, 262145LL);
-      return (unsigned int)v8;
+      _InterlockedAdd(&dword_1C0050688, 1u);
+      v47 = WdLogNewEntry5_WdLowResource(v8);
+      *(_QWORD *)(v47 + 24) = 384LL;
+      WdLogEvent5_WdLowResource(v47);
+      return (unsigned int)v9;
     }
-    *((_BYTE *)this + 58) |= 1u;
+    *((_BYTE *)this + 50) |= 1u;
     *((_QWORD *)this + 2) = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 16LL)
-                                      + 8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 24LL) + 240LL));
+                                      + 8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)this + 24LL) + 232LL));
   }
-  v9 = 56LL * *((unsigned int *)this + 16);
-  if ( !is_mul_ok(*((unsigned int *)this + 16), 0x38uLL) )
-    v9 = -1LL;
-  v10 = operator new[](v9, 0x30326956u, 256LL);
-  *((_QWORD *)this + 5) = v10;
-  if ( !v10 )
+  v10 = 56LL * *((unsigned int *)this + 14);
+  if ( !is_mul_ok(*((unsigned int *)this + 14), 0x38uLL) )
+    v10 = -1LL;
+  v11 = operator new[](v10, 0x30326956u, PagedPool);
+  *((_QWORD *)this + 5) = v11;
+  if ( !v11 )
   {
-    _InterlockedAdd(&dword_1C007679C, 1u);
-    WdLogSingleEntry1(6LL, 423LL);
-    v38 = 262145LL;
-LABEL_61:
-    DxgkLogInternalTriageEvent(v39, v38);
+    _InterlockedAdd(&dword_1C005068C, 1u);
+    v48 = WdLogNewEntry5_WdLowResource(0LL);
+    *(_QWORD *)(v48 + 24) = 401LL;
+    WdLogEvent5_WdLowResource(v48);
     return 3221225495LL;
   }
-  for ( i = 0; i < *((_DWORD *)this + 16); *v13 = v13 )
+  memset(v11, 0, 56LL * *((unsigned int *)this + 14));
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 14); *v14 = v14 )
   {
-    v12 = 56LL * i++;
-    v13 = (_QWORD *)(v12 + *((_QWORD *)this + 5) + 32LL);
-    v13[1] = v13;
+    v13 = 56LL * (unsigned int)i;
+    i = (unsigned int)(i + 1);
+    v14 = (_QWORD *)(v13 + *((_QWORD *)this + 5) + 32LL);
+    v14[1] = v14;
   }
   if ( !*((_QWORD *)this + 3) && a3 )
     goto LABEL_38;
-  v14 = *((unsigned int *)this + 17);
-  v15 = 176 * v14;
-  if ( !is_mul_ok(v14, 0xB0uLL) )
-    v15 = -1LL;
-  v16 = __CFADD__(v15, 8LL);
-  v17 = v15 + 8;
-  if ( v16 )
-    v17 = -1LL;
-  v18 = operator new[](v17, 0x38346956u, 256LL);
-  if ( v18 )
+  v15 = *((unsigned int *)this + 15);
+  v16 = 176 * v15;
+  if ( !is_mul_ok(v15, 0xB0uLL) )
+    v16 = -1LL;
+  v17 = __CFADD__(v16, 8LL);
+  v18 = v16 + 8;
+  if ( v17 )
+    v18 = -1LL;
+  v19 = (char *)operator new(v18, 0x38346956u, i, PagedPool);
+  if ( v19 )
   {
-    v19 = v18 + 8;
-    *(_QWORD *)v18 = v14;
+    v23 = v19 + 8;
+    *(_QWORD *)v19 = v15;
     `vector constructor iterator'(
-      (char *)(v18 + 8),
+      v19 + 8,
       176LL,
-      (unsigned int)v14,
+      (unsigned int)v15,
       (void (__fastcall *)(char *))VIDMM_DEVICE_PAGING_QUEUE::VIDMM_DEVICE_PAGING_QUEUE);
   }
   else
   {
-    v19 = 0LL;
+    v23 = 0LL;
   }
-  *((_QWORD *)this + 10) = v19;
-  if ( !v19 )
+  *((_QWORD *)this + 9) = v23;
+  if ( !v23 )
   {
-    WdLogSingleEntry1(1LL, 448LL);
+    v49 = WdLogNewEntry5_WdAssertion(v21, v20, v22);
+    *(_QWORD *)(v49 + 24) = 427LL;
     goto LABEL_60;
   }
-  v20 = *((unsigned int *)this + 17);
-  v21 = 176 * v20;
-  if ( !is_mul_ok(v20, 0xB0uLL) )
-    v21 = -1LL;
-  v16 = __CFADD__(v21, 8LL);
-  v22 = v21 + 8;
-  if ( v16 )
-    v22 = -1LL;
-  v23 = operator new[](v22, 0x38346956u, 256LL);
-  if ( v23 )
+  v24 = *((unsigned int *)this + 15);
+  v25 = 176 * v24;
+  if ( !is_mul_ok(v24, 0xB0uLL) )
+    v25 = -1LL;
+  v17 = __CFADD__(v25, 8LL);
+  v26 = v25 + 8;
+  if ( v17 )
+    v26 = -1LL;
+  v27 = (char *)operator new(v26, 0x38346956u, v22, PagedPool);
+  if ( v27 )
   {
-    v24 = v23 + 8;
-    *(_QWORD *)v23 = v20;
+    v31 = v27 + 8;
+    *(_QWORD *)v27 = v24;
     `vector constructor iterator'(
-      (char *)(v23 + 8),
+      v27 + 8,
       176LL,
-      (unsigned int)v20,
+      (unsigned int)v24,
       (void (__fastcall *)(char *))VIDMM_DEVICE_PAGING_QUEUE::VIDMM_DEVICE_PAGING_QUEUE);
   }
   else
   {
-    v24 = 0LL;
+    v31 = 0LL;
   }
-  *((_QWORD *)this + 11) = v24;
-  if ( !v24 )
+  *((_QWORD *)this + 10) = v31;
+  if ( !v31 )
   {
-    WdLogSingleEntry1(1LL, 455LL);
+    v49 = WdLogNewEntry5_WdAssertion(v29, v28, v30);
+    *(_QWORD *)(v49 + 24) = 434LL;
     goto LABEL_60;
   }
   if ( (*(_DWORD *)(*((_QWORD *)this + 1) + 96LL) & 2) != 0 )
   {
-    v30 = *((unsigned int *)this + 17);
-    v31 = 176 * v30;
-    if ( !is_mul_ok(v30, 0xB0uLL) )
-      v31 = -1LL;
-    v16 = __CFADD__(v31, 8LL);
-    v32 = v31 + 8;
-    if ( v16 )
-      v32 = -1LL;
-    v33 = operator new[](v32, 0x38346956u, 256LL);
-    if ( v33 )
+    v37 = *((unsigned int *)this + 15);
+    v38 = 176 * v37;
+    if ( !is_mul_ok(v37, 0xB0uLL) )
+      v38 = -1LL;
+    v17 = __CFADD__(v38, 8LL);
+    v39 = v38 + 8;
+    if ( v17 )
+      v39 = -1LL;
+    v40 = (char *)operator new(v39, 0x38346956u, v30, PagedPool);
+    if ( v40 )
     {
-      v34 = v33 + 8;
-      *(_QWORD *)v33 = v30;
+      v44 = v40 + 8;
+      *(_QWORD *)v40 = v37;
       `vector constructor iterator'(
-        (char *)(v33 + 8),
+        v40 + 8,
         176LL,
-        (unsigned int)v30,
+        (unsigned int)v37,
         (void (__fastcall *)(char *))VIDMM_DEVICE_PAGING_QUEUE::VIDMM_DEVICE_PAGING_QUEUE);
     }
     else
     {
-      v34 = 0LL;
+      v44 = 0LL;
     }
-    *((_QWORD *)this + 12) = v34;
-    if ( !v34 )
+    *((_QWORD *)this + 11) = v44;
+    if ( !v44 )
     {
-      WdLogSingleEntry1(1LL, 471LL);
+      v49 = WdLogNewEntry5_WdAssertion(v42, v41, v43);
+      *(_QWORD *)(v49 + 24) = 450LL;
 LABEL_60:
-      v38 = 0x40000LL;
-      goto LABEL_61;
+      WdLogEvent5_WdAssertion(v49);
+      return 3221225495LL;
     }
   }
-  v25 = 0;
-  if ( *((_DWORD *)this + 17) )
+  v32 = 0;
+  if ( *((_DWORD *)this + 15) )
   {
     while ( 1 )
     {
-      v26 = 176LL * v25;
-      LOBYTE(v40) = a2;
-      result = VIDMM_DEVICE_PAGING_QUEUE::Initialize(v26 + *((_QWORD *)this + 10), this, v25, 1LL, v40);
+      v33 = 176LL * v32;
+      LOBYTE(v50) = v4;
+      result = VIDMM_DEVICE_PAGING_QUEUE::Initialize(v33 + *((_QWORD *)this + 9), this, v32, 1LL, v50);
       if ( (int)result < 0 )
         break;
-      LOBYTE(v41) = a2;
-      result = VIDMM_DEVICE_PAGING_QUEUE::Initialize(v26 + *((_QWORD *)this + 11), this, v25, 2LL, v41);
+      LOBYTE(v51) = v4;
+      result = VIDMM_DEVICE_PAGING_QUEUE::Initialize(v33 + *((_QWORD *)this + 10), this, v32, 2LL, v51);
       if ( (int)result < 0 )
         break;
-      v28 = *((_QWORD *)this + 12);
-      if ( v28 )
+      v35 = *((_QWORD *)this + 11);
+      if ( v35 )
       {
-        LOBYTE(v40) = a2;
-        result = VIDMM_DEVICE_PAGING_QUEUE::Initialize(v28 + v26, this, v25, 3LL, v40);
+        LOBYTE(v50) = v4;
+        result = VIDMM_DEVICE_PAGING_QUEUE::Initialize(v33 + v35, this, v32, 3LL, v50);
         if ( (int)result < 0 )
           break;
       }
-      if ( ++v25 >= *((_DWORD *)this + 17) )
+      if ( ++v32 >= *((_DWORD *)this + 15) )
         goto LABEL_38;
     }
   }
   else
   {
 LABEL_38:
-    v29 = MEMORY[0xFFFFF78000000320];
-    *((_QWORD *)this + 29) = qword_1C0076508 + v29 * KeQueryTimeIncrement();
+    v36 = MEMORY[0xFFFFF78000000320];
+    *((_QWORD *)this + 28) = qword_1C0050458 + v36 * KeQueryTimeIncrement();
     return 0LL;
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetGeometryBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@ULocalRenderingHPC@CoordinateSpace@@@@@Z @ 0x180224F10
+ * XREFs of ?GetGeometryBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@ULocalRenderingHPC@CoordinateSpace@@@@@Z @ 0x1801D6960
  * Callers:
  *     <none>
  * Callees:
- *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x180114510 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
+ *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D6BA0 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
  */
 
 void __fastcall CMeshGeometry2D::GetGeometryBounds(__int64 a1, _OWORD *a2)
@@ -18,12 +18,12 @@ void __fastcall CMeshGeometry2D::GetGeometryBounds(__int64 a1, _OWORD *a2)
   __int64 v11; // rdx
   float v12; // xmm1_4
 
-  if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
+  if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
   {
     VertexCount = CMeshGeometry2D::GetVertexCount((CMeshGeometry2D *)a1);
     if ( VertexCount )
     {
-      v5 = *(float **)(a1 + 128);
+      v5 = *(float **)(a1 + 120);
       v6 = *v5;
       v7 = v5[1];
       v8 = *v5;
@@ -56,11 +56,11 @@ void __fastcall CMeshGeometry2D::GetGeometryBounds(__int64 a1, _OWORD *a2)
       v9 = 0.0;
       v6 = 0.0;
     }
-    *(float *)(a1 + 96) = v6;
-    *(float *)(a1 + 92) = v9;
-    *(float *)(a1 + 100) = v7;
-    *(float *)(a1 + 88) = v8;
-    *(_DWORD *)(a1 + 80) &= ~1u;
+    *(float *)(a1 + 88) = v6;
+    *(float *)(a1 + 84) = v9;
+    *(float *)(a1 + 92) = v7;
+    *(float *)(a1 + 80) = v8;
+    *(_DWORD *)(a1 + 72) &= ~1u;
   }
-  *a2 = *(_OWORD *)(a1 + 88);
+  *a2 = *(_OWORD *)(a1 + 80);
 }

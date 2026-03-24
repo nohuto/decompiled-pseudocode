@@ -1,60 +1,59 @@
 /*
- * XREFs of VfIrpLogRecordEvent @ 0x140ADD8FC
+ * XREFs of VfIrpLogRecordEvent @ 0x1409E38A8
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD3B14 (IovUtilIsDeviceObjectMarked.c)
- *     VfMajorBuildIrpLogEntry @ 0x140AD3F14 (VfMajorBuildIrpLogEntry.c)
- *     ViIrpLogDatabaseFindPointer @ 0x140ADDF58 (ViIrpLogDatabaseFindPointer.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A5C (IovUtilIsDeviceObjectMarked.c)
+ *     VfMajorBuildIrpLogEntry @ 0x1409D79D0 (VfMajorBuildIrpLogEntry.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x1409E3F08 (ViIrpLogDatabaseFindPointer.c)
  */
 
 __int64 __fastcall VfIrpLogRecordEvent(__int16 a1, _DWORD *a2, __int64 a3)
 {
   __int64 result; // rax
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   unsigned __int64 v7; // rdi
   __int64 Pointer; // rax
   _DWORD *v9; // rbp
-  __int64 v10; // rbx
+  unsigned int *v10; // rbx
   _QWORD *v11; // rcx
-  int v12; // eax
+  unsigned int v12; // eax
   _QWORD *v13; // rax
   __int64 v14; // rdx
-  int v15; // eax
-  _DWORD *v16; // rsi
-  unsigned int v17; // edx
-  __int64 v18; // rcx
+  unsigned int v15; // eax
+  unsigned int v16; // edx
+  __int64 v17; // rcx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  bool v21; // zf
-  _DWORD *v22; // [rsp+20h] [rbp-68h] BYREF
-  __int128 v23; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v24; // [rsp+40h] [rbp-48h]
-  __int64 v25; // [rsp+50h] [rbp-38h]
+  bool v20; // zf
+  _DWORD *v21; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v22; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v23; // [rsp+40h] [rbp-48h]
+  __int64 v24; // [rsp+50h] [rbp-38h]
 
-  v22 = 0LL;
+  v21 = 0LL;
   result = 0LL;
-  v23 = 0LL;
   v24 = 0LL;
-  v25 = 0LL;
+  v22 = 0LL;
+  v23 = 0LL;
   if ( (a1 & 0x400) == 0 )
     return result;
   if ( ViIrpLogDdiLock != 2 && !_InterlockedCompareExchange(&ViIrpLogDdiLock, 1, 0) )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 0x20uLL, 0x77496656u);
-    if ( Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77496656u);
+    if ( PoolWithTag )
     {
-      Pool2->List.Flink = 0LL;
-      Pool2->WorkerRoutine = (void (__fastcall *)(void *))ViIrpLogExposeWmiCallback;
-      Pool2->Parameter = Pool2;
-      ExQueueWorkItem(Pool2, DelayedWorkQueue);
+      PoolWithTag->List.Flink = 0LL;
+      PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))ViIrpLogExposeWmiCallback;
+      PoolWithTag->Parameter = PoolWithTag;
+      ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
     }
     else
     {
@@ -64,51 +63,50 @@ __int64 __fastcall VfIrpLogRecordEvent(__int16 a1, _DWORD *a2, __int64 a3)
   v7 = KeAcquireSpinLockRaiseToDpc(&ViIrpLogDatabaseLock);
   if ( !(unsigned int)IovUtilIsDeviceObjectMarked((__int64)a2, 0) )
   {
-    Pointer = ViIrpLogDatabaseFindPointer(a2, &v22);
-    v9 = v22;
-    v10 = Pointer;
-    if ( !*v22 )
+    Pointer = ViIrpLogDatabaseFindPointer(a2, &v21);
+    v9 = v21;
+    v10 = (unsigned int *)Pointer;
+    if ( !*v21 )
     {
       if ( Pointer )
       {
 LABEL_14:
-        v15 = *(_DWORD *)(v10 + 24);
+        v15 = v10[6];
         if ( (v15 & 6) == 0 )
         {
-          v16 = (_DWORD *)(v10 + 36);
-          v17 = v15 == 1 ? *(_DWORD *)(v10 + 32) : *v16;
-          if ( (unsigned int)VfMajorBuildIrpLogEntry(a3, v17, v10 + 40 * ((unsigned int)*v16 + 1LL), (__int64)&v23) )
+          v16 = v15 == 1 ? v10[8] : v10[9];
+          if ( (unsigned int)VfMajorBuildIrpLogEntry(a3, v16, (__int64)&v10[10 * v10[9] + 10], (__int64)&v22) )
           {
-            v18 = 5 * ((unsigned int)*v16 + 1LL);
-            *(_OWORD *)(v10 + 8 * v18) = v23;
-            *(_OWORD *)(v10 + 8 * v18 + 16) = v24;
-            *(_QWORD *)(v10 + 8 * v18 + 32) = v25;
-            if ( ++*v16 == *(_DWORD *)(v10 + 32) )
+            v17 = 5 * (v10[9] + 1LL);
+            *(_OWORD *)&v10[2 * v17] = v22;
+            *(_OWORD *)&v10[2 * v17 + 4] = v23;
+            *(_QWORD *)&v10[2 * v17 + 8] = v24;
+            if ( ++v10[9] == v10[8] )
             {
-              *(_DWORD *)(v10 + 24) |= 1u;
-              *v16 = 0;
+              v10[6] |= 1u;
+              v10[9] = 0;
             }
           }
         }
         goto LABEL_21;
       }
-      v10 = ExAllocatePool2(64LL, 0x348uLL, 0x65496656u);
+      v10 = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x348uLL, 0x65496656u);
       if ( v10 )
       {
         ObfReferenceObject(a2);
-        *(_DWORD *)(v10 + 24) = 0;
+        v10[6] = 0;
         v11 = v9 + 2;
         *(_QWORD *)v10 = a2;
         v12 = a2[18];
-        *(_DWORD *)(v10 + 36) = 0;
-        *(_DWORD *)(v10 + 28) = v12;
-        v13 = (_QWORD *)(v10 + 8);
-        *(_DWORD *)(v10 + 32) = 20;
+        v10[9] = 0;
+        v10[7] = v12;
+        v13 = v10 + 2;
+        v10[8] = 20;
         v14 = *((_QWORD *)v9 + 1);
         if ( *(_DWORD **)(v14 + 8) != v9 + 2 )
           __fastfail(3u);
         *v13 = v14;
-        *(_QWORD *)(v10 + 16) = v11;
+        *((_QWORD *)v10 + 2) = v11;
         *(_QWORD *)(v14 + 8) = v13;
         *v11 = v13;
         goto LABEL_14;
@@ -116,22 +114,23 @@ LABEL_14:
     }
   }
 LABEL_21:
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ViIrpLogDatabaseLock);
+  KxReleaseSpinLock(&ViIrpLogDatabaseLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v7 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v21 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v21 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v7 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v20 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v20 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

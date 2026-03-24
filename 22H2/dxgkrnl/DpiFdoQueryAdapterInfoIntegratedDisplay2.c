@@ -1,116 +1,122 @@
 /*
- * XREFs of DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C039CB6C
+ * XREFs of DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C02CBCF0
  * Callers:
- *     DpiFdoCreateRelatedObjects @ 0x1C02110C8 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C0188434 (DpiFdoCreateRelatedObjects.c)
  * Callees:
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C019F070 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
- *     DxgkReleaseAdapterDdiSync @ 0x1C01F59A8 (DxgkReleaseAdapterDdiSync.c)
- *     DxgkAcquireAdapterDdiSync @ 0x1C01F59C8 (DxgkAcquireAdapterDdiSync.c)
- *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C02102F0 (DpiDxgkDdiQueryDeviceDescriptor.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C0133E18 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C0174BD0 (DxgkAcquireAdapterDdiSync.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C0174C50 (DxgkReleaseAdapterDdiSync.c)
+ *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0179350 (DpiDxgkDdiQueryDeviceDescriptor.c)
  */
 
 __int64 __fastcall DpiFdoQueryAdapterInfoIntegratedDisplay2(__int64 a1, __int64 a2)
 {
   __int64 v3; // r14
   int v5; // eax
-  __int64 v6; // r8
-  __int64 v7; // rbx
-  void *v8; // rax
-  __int64 v9; // rax
-  char v10; // cl
-  int v11; // eax
-  __int64 v12; // rcx
-  int v13; // edx
-  unsigned int v14; // eax
-  int v15; // eax
-  __int64 v16; // r8
-  unsigned int v18; // [rsp+20h] [rbp-39h] BYREF
-  int v19; // [rsp+24h] [rbp-35h]
-  __int64 v20; // [rsp+28h] [rbp-31h]
-  struct _DXGKARG_QUERYADAPTERINFO v21; // [rsp+30h] [rbp-29h] BYREF
-  struct _DXGKARG_QUERYADAPTERINFO v22; // [rsp+60h] [rbp+7h] BYREF
-  int v23; // [rsp+C0h] [rbp+67h] BYREF
-  int v24; // [rsp+C8h] [rbp+6Fh] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  void *v11; // rax
+  int v12; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  unsigned int v15; // ecx
+  int v16; // eax
+  __int64 v17; // r8
+  __int64 v18; // rax
+  unsigned int v20; // [rsp+20h] [rbp-39h] BYREF
+  int v21; // [rsp+24h] [rbp-35h]
+  __int64 v22; // [rsp+28h] [rbp-31h]
+  struct _DXGKARG_QUERYADAPTERINFO v23; // [rsp+30h] [rbp-29h] BYREF
+  struct _DXGKARG_QUERYADAPTERINFO v24; // [rsp+60h] [rbp+7h] BYREF
+  int v25; // [rsp+C0h] [rbp+67h] BYREF
+  int v26; // [rsp+C8h] [rbp+6Fh] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
-  v23 = *(_DWORD *)(a2 + 24);
+  v25 = *(_DWORD *)(a2 + 24);
   v5 = DpiAcquireCoreSyncAccessSafe(a1, 0);
-  v7 = v5;
+  v9 = v5;
   if ( v5 < 0 )
     goto LABEL_2;
-  *(_QWORD *)&v22.Type = 0LL;
-  v22.pInputData = &v23;
-  v8 = *(void **)(a2 + 104);
-  *(&v22.InputDataSize + 1) = 0;
-  v22.pOutputData = v8;
-  *(_OWORD *)&v22.OutputDataSize = 0LL;
-  v22.Type = DXGKQAITYPE_INTEGRATED_DISPLAY_DESCRIPTOR2;
-  v22.InputDataSize = 4;
-  v22.OutputDataSize = 128;
-  v7 = (int)DXGADAPTER::DdiQueryAdapterInfo(*(DXGADAPTER **)(v3 + 3912), &v22, v6);
+  *(_QWORD *)&v24.Type = 0LL;
+  v24.pInputData = &v25;
+  v11 = *(void **)(a2 + 104);
+  *(&v24.InputDataSize + 1) = 0;
+  v24.pOutputData = v11;
+  *(_OWORD *)&v24.OutputDataSize = 0LL;
+  v24.Type = DXGKQAITYPE_INTEGRATED_DISPLAY_DESCRIPTOR2;
+  v24.InputDataSize = 4;
+  v24.OutputDataSize = 128;
+  v9 = (int)DXGADAPTER::DdiQueryAdapterInfo(*(DXGADAPTER **)(v3 + 3896), &v24, v8);
   DpiReleaseCoreSyncAccessSafe(a1, 0);
-  if ( (int)v7 < 0 )
+  if ( (int)v9 < 0 )
     goto LABEL_2;
-  v9 = *(_QWORD *)(a2 + 104);
-  v10 = *(_BYTE *)(v9 + 123);
-  if ( v10 != 1 )
+  v6 = 1LL;
+  LOBYTE(v7) = *(_BYTE *)(*(_QWORD *)(a2 + 104) + 123LL);
+  if ( (_BYTE)v7 != 1 )
   {
-    v13 = *(_DWORD *)(a2 + 24);
-    if ( v10 != 2 )
+    if ( (_BYTE)v7 != 2 )
     {
-      WdLogSingleEntry2(2LL, *(unsigned __int8 *)(v9 + 123), *(unsigned int *)(a2 + 24));
-      LODWORD(v7) = -1073741811;
-      return (unsigned int)v7;
+      v18 = WdLogNewEntry5_WdError(v7, 1LL);
+      *(_QWORD *)(v18 + 24) = *(unsigned __int8 *)(*(_QWORD *)(a2 + 104) + 123LL);
+      *(_QWORD *)(v18 + 32) = *(unsigned int *)(a2 + 24);
+      WdLogEvent5_WdError(v18);
+      LODWORD(v9) = -1073741811;
+      return (unsigned int)v9;
     }
-    v14 = *(unsigned __int16 *)(a2 + 92);
-    *(_WORD *)(a2 + 96) = v14;
-    v18 = v14;
-    v19 = 0;
-    v20 = *(_QWORD *)(a2 + 120);
-    v21.pInputData = &v24;
-    v24 = v13;
-    v21.pOutputData = &v18;
+    v15 = *(unsigned __int16 *)(a2 + 92);
+    v26 = *(_DWORD *)(a2 + 24);
+    v21 = 0;
+    v22 = *(_QWORD *)(a2 + 120);
+    v23.pInputData = &v26;
+    *(_WORD *)(a2 + 96) = v15;
+    v20 = v15;
+    v23.pOutputData = &v20;
     *(_WORD *)(a2 + 94) = 0;
     *(_QWORD *)(a2 + 112) = 0LL;
-    *(_QWORD *)&v21.Type = 20LL;
-    *(_QWORD *)&v21.InputDataSize = 4LL;
-    *(_QWORD *)&v21.Flags.0 = 0LL;
-    HIDWORD(v21.hKmdProcessHandle) = 0;
-    v21.OutputDataSize = 16;
-    v15 = DpiAcquireCoreSyncAccessSafe(a1, 0);
-    v7 = v15;
-    if ( v15 < 0 )
+    *(_QWORD *)&v23.Type = 20LL;
+    *(_QWORD *)&v23.InputDataSize = 4LL;
+    *(_QWORD *)&v23.Flags.0 = 0LL;
+    HIDWORD(v23.hKmdProcessHandle) = 0;
+    v23.OutputDataSize = 16;
+    v16 = DpiAcquireCoreSyncAccessSafe(a1, 0);
+    v9 = v16;
+    if ( v16 < 0 )
       goto LABEL_2;
-    v7 = (int)DXGADAPTER::DdiQueryAdapterInfo(*(DXGADAPTER **)(v3 + 3912), &v21, v16);
+    v9 = (int)DXGADAPTER::DdiQueryAdapterInfo(*(DXGADAPTER **)(v3 + 3896), &v23, v17);
     DpiReleaseCoreSyncAccessSafe(a1, 0);
 LABEL_8:
-    if ( (int)v7 >= 0 )
-      return (unsigned int)v7;
+    if ( (int)v9 >= 0 )
+      return (unsigned int)v9;
     goto LABEL_2;
   }
-  v11 = *(unsigned __int16 *)(a2 + 92);
-  *(_WORD *)(a2 + 94) = v11;
+  v12 = *(unsigned __int16 *)(a2 + 92);
+  *(_WORD *)(a2 + 94) = v12;
   *(_QWORD *)(a2 + 120) = 0LL;
   *(_WORD *)(a2 + 96) = 0;
-  if ( (unsigned __int16)v11 >= 0x80u )
+  if ( (unsigned __int16)v12 >= 0x80u )
   {
-    v12 = *(_QWORD *)(v3 + 3912);
-    v19 = v11;
-    v20 = *(_QWORD *)(a2 + 112);
-    v18 = 0;
-    DxgkAcquireAdapterDdiSync(v12, 1);
-    v7 = (int)DpiDxgkDdiQueryDeviceDescriptor(
+    v13 = *(_QWORD *)(v3 + 3896);
+    v21 = v12;
+    v22 = *(_QWORD *)(a2 + 112);
+    v20 = 0;
+    DxgkAcquireAdapterDdiSync(v13, 1LL);
+    v9 = (int)DpiDxgkDdiQueryDeviceDescriptor(
                 *(_QWORD *)(v3 + 40),
                 *(_QWORD *)(v3 + 48),
                 *(unsigned int *)(a2 + 24),
-                &v18);
-    DxgkReleaseAdapterDdiSync(*(DXGADAPTER **)(v3 + 3912));
+                &v20);
+    DxgkReleaseAdapterDdiSync(*(DXGADAPTER **)(v3 + 3896), v14);
     goto LABEL_8;
   }
-  v7 = -1073741811LL;
+  v9 = -1073741811LL;
 LABEL_2:
-  WdLogSingleEntry1(2LL, v7);
-  return (unsigned int)v7;
+  v10 = WdLogNewEntry5_WdError(v7, v6);
+  *(_QWORD *)(v10 + 24) = v9;
+  WdLogEvent5_WdError(v10);
+  return (unsigned int)v9;
 }

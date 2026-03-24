@@ -1,8 +1,8 @@
 /*
- * XREFs of VidSchResetGPUTimeout @ 0x1C0105A1C
+ * XREFs of VidSchResetGPUTimeout @ 0x1C00CE2AC
  * Callers:
- *     VidSchiCheckHwProgress @ 0x1C00AE3E0 (VidSchiCheckHwProgress.c)
- *     VidSchRestartAdapter @ 0x1C0108320 (VidSchRestartAdapter.c)
+ *     VidSchiCheckHwProgress @ 0x1C007EFE0 (VidSchiCheckHwProgress.c)
+ *     VidSchRestartAdapter @ 0x1C00D1010 (VidSchRestartAdapter.c)
  * Callees:
  *     <none>
  */
@@ -14,19 +14,16 @@ void __fastcall VidSchResetGPUTimeout(__int64 a1)
   __int64 v4; // rcx
   __int64 v5; // rcx
 
-  for ( i = 0; i < *(_DWORD *)(a1 + 80); *(_DWORD *)(*(_QWORD *)v5 + 480LL) = 0 )
+  for ( i = 0; i < *(_DWORD *)(a1 + 72); *(_DWORD *)(*(_QWORD *)v5 + 440LL) &= ~2u )
   {
-    v3 = *(_QWORD *)(a1 + 632);
-    if ( i < *(_DWORD *)(a1 + 704) )
-      v3 += 8LL * i;
-    *(_DWORD *)(*(_QWORD *)v3 + 440LL) = 0;
-    v4 = *(_QWORD *)(a1 + 632) + 8LL * i;
-    if ( i >= *(_DWORD *)(a1 + 704) )
-      v4 = *(_QWORD *)(a1 + 632);
-    *(_DWORD *)(*(_QWORD *)v4 + 444LL) = 0;
-    v5 = *(_QWORD *)(a1 + 632) + 8LL * i;
-    if ( i >= *(_DWORD *)(a1 + 704) )
-      v5 = *(_QWORD *)(a1 + 632);
+    v3 = *(_QWORD *)(a1 + 624);
+    v4 = 8LL * i;
+    if ( i < *(_DWORD *)(a1 + 696) )
+      v3 += v4;
+    *(_DWORD *)(*(_QWORD *)v3 + 440LL) &= ~1u;
+    v5 = *(_QWORD *)(a1 + 624) + v4;
+    if ( i >= *(_DWORD *)(a1 + 696) )
+      v5 = *(_QWORD *)(a1 + 624);
     ++i;
   }
 }

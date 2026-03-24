@@ -1,12 +1,13 @@
 /*
- * XREFs of ?GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180010230
+ * XREFs of ?GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800B92D0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800102D4 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
- *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x180010390 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ @ 0x18011A36C (-ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?RealizeBitmaps@CPrimitiveGroupDrawListGenerator@@QEAAJPEBVCDrawingContext@@@Z @ 0x18004FD48 (-RealizeBitmaps@CPrimitiveGroupDrawListGenerator@@QEAAJPEBVCDrawingContext@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2_F@@PEAVCDrawListCache@@@Z @ 0x1800B9780 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2.c)
+ *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800BA658 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
+ *     ?ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ @ 0x1800EFE48 (-ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CPrimitiveGroup::GenerateDrawList(
@@ -16,27 +17,42 @@ __int64 __fastcall CPrimitiveGroup::GenerateDrawList(
         struct CDrawListCache *a4)
 {
   int v7; // ebx
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
+  int v9; // r9d
   int DrawList; // eax
-  unsigned int v10; // ecx
+  unsigned int v12; // [rsp+20h] [rbp-18h]
 
-  if ( !*((_QWORD *)this + 59) )
+  if ( !*((_QWORD *)this + 64) )
     return 0;
   v7 = CPrimitiveGroup::EnsureDrawListGenerator(this);
-  if ( v7 < 0 )
+  if ( v7 >= 0 )
   {
-    CPrimitiveGroup::ClearPrimitiveContent(this);
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x84u, 0LL);
-    return (unsigned int)v7;
-  }
-  DrawList = CPrimitiveGroupDrawListGenerator::GenerateDrawList(
-               *((CPrimitiveGroupDrawListGenerator **)this + 16),
-               a2,
-               a4);
-  v7 = DrawList;
-  if ( DrawList < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, DrawList, 0x87u, 0LL);
-  else
+    DrawList = CPrimitiveGroupDrawListGenerator::RealizeBitmaps(*((CPrimitiveGroupDrawListGenerator **)this + 21), a2);
+    v7 = DrawList;
+    if ( DrawList < 0 )
+    {
+      v12 = 136;
+      goto LABEL_9;
+    }
+    DrawList = CPrimitiveGroupDrawListGenerator::GenerateDrawList(
+                 *((CPrimitiveGroupDrawListGenerator **)this + 21),
+                 a2,
+                 0LL,
+                 a4);
+    v7 = DrawList;
+    if ( DrawList < 0 )
+    {
+      v12 = 137;
+LABEL_9:
+      v9 = DrawList;
+      goto LABEL_4;
+    }
     return 0;
+  }
+  CPrimitiveGroup::ClearPrimitiveContent(this);
+  v9 = v7;
+  v12 = 133;
+LABEL_4:
+  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v9, v12, 0LL);
   return (unsigned int)v7;
 }

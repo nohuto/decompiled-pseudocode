@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_InitializingResetCount @ 0x1C00084B0
+ * XREFs of HUBHSM_InitializingResetCount @ 0x1C00081A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of WNDOBJ_cEnumStart @ 0x1C0284B70
+ * XREFs of WNDOBJ_cEnumStart @ 0x1C0287FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
  */
 
 ULONG __stdcall WNDOBJ_cEnumStart(WNDOBJ *pwo, ULONG iType, ULONG iDirection, ULONG cLimit)

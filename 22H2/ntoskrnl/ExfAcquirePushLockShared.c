@@ -1,12 +1,12 @@
 /*
- * XREFs of ExfAcquirePushLockShared @ 0x1402FD020
+ * XREFs of ExfAcquirePushLockShared @ 0x140273520
  * Callers:
- *     ExpCovQueryInformation @ 0x140A0685C (ExpCovQueryInformation.c)
+ *     ExpCovQueryInformation @ 0x14095782C (ExpCovQueryInformation.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140273540 (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall ExfAcquirePushLockShared(__int64 a1)
 {
-  return ExfAcquirePushLockSharedEx(a1, 0LL, 0LL, a1);
+  return ExfAcquirePushLockSharedEx(a1, 0LL, a1);
 }

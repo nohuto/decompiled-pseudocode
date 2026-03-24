@@ -1,129 +1,134 @@
 /*
- * XREFs of ExpHpCompactionRoutine @ 0x140337930
+ * XREFs of ExpHpCompactionRoutine @ 0x14027B0D0
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHeapFromVA @ 0x1402AC3C0 (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     RtlpHpHeapCompact @ 0x140337B54 (RtlpHpHeapCompact.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
+ *     ExpHpCompactSessionPools @ 0x14026368C (ExpHpCompactSessionPools.c)
+ *     ExGetHeapFromVA @ 0x14027B2FC (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x1402C2790 (RtlpHpFreeHeap.c)
+ *     RtlpHpHeapCompact @ 0x14031D368 (RtlpHpHeapCompact.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall ExpHpCompactionRoutine(int a1)
 {
-  unsigned int v1; // r13d
-  int v2; // esi
-  int v3; // r12d
-  __int64 v4; // rbx
-  __int64 v5; // rdi
-  __int64 v6; // r14
-  __int64 v7; // r15
-  _QWORD *v8; // r12
-  _QWORD *v9; // rbx
-  unsigned __int64 v10; // rsi
-  __int64 v11; // rax
-  unsigned __int64 v12; // rdx
+  unsigned int v1; // r15d
+  int v2; // r13d
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // r14
+  __int64 v6; // rbx
+  __int64 v7; // rbp
+  __int64 v8; // rsi
+  _QWORD *v9; // r12
+  _QWORD *v10; // rbx
+  unsigned __int64 v11; // rdi
+  __int64 v12; // rax
+  unsigned __int64 v13; // rdx
   __int64 result; // rax
-  __int64 v14; // r9
-  unsigned __int64 v15; // rdx
+  __int64 v15; // rbx
+  __int64 v16; // r9
+  unsigned __int64 v17; // rdx
   _QWORD *p_Next; // rcx
-  unsigned __int64 v17; // rax
-  PSLIST_ENTRY v18; // rax
-  ULONG_PTR v19; // rsi
-  _DWORD *HeapFromVA; // rax
-  __int64 v21; // [rsp+30h] [rbp-58h]
-  __int64 v22; // [rsp+38h] [rbp-50h]
-  _OWORD v23[4]; // [rsp+40h] [rbp-48h]
+  unsigned __int64 v19; // rax
+  PSLIST_ENTRY v20; // rax
+  ULONG_PTR v21; // rdi
+  __int64 HeapFromVA; // rax
+  _OWORD v23[5]; // [rsp+30h] [rbp-58h]
   int v25; // [rsp+A0h] [rbp+18h]
+  __int64 v26; // [rsp+A8h] [rbp+20h]
 
   v1 = 0;
   v2 = a1;
+  v3 = a1;
   v23[0] = _mm_load_si128((const __m128i *)&_xmm);
-  v3 = *((_DWORD *)v23 + 2 * a1 + 1);
-  v4 = v3;
-  v21 = v3;
-  v5 = *((int *)v23 + 2 * a1);
-  v25 = v3;
-  v22 = v5;
-  if ( dword_140C74AA0 )
+  v4 = *((int *)v23 + 2 * a1);
+  v5 = *((int *)v23 + 2 * v3 + 1);
+  v25 = v4;
+  v6 = v5;
+  if ( dword_140C58090 )
   {
+    v26 = v4;
     do
     {
-      v6 = v5;
-      if ( v5 <= v4 )
+      v7 = v4;
+      if ( v4 <= v6 )
       {
         do
         {
-          v7 = qword_140C74AC0[1048 * v1 + v6];
-          v8 = *(_QWORD **)(v7 + 40);
-          if ( v8 )
+          v8 = qword_140C580C0[1048 * v1 + v7];
+          v9 = *(_QWORD **)(v8 + 40);
+          if ( v9 )
           {
-            v9 = 0LL;
-            v10 = ~*v8;
-            while ( v10 )
+            v10 = 0LL;
+            v11 = ~*v9;
+            while ( v11 )
             {
-              _BitScanForward64(&v17, v10);
-              v10 ^= 1LL << v17;
-              v18 = RtlpInterlockedFlushSList((PSLIST_HEADER)&v8[8 * (unsigned int)v17 + 8]);
-              if ( v9 )
+              _BitScanForward64(&v19, v11);
+              v11 ^= 1LL << v19;
+              v20 = RtlpInterlockedFlushSList((PSLIST_HEADER)&v9[8 * (unsigned int)v19 + 8]);
+              if ( v10 )
               {
                 while ( 1 )
                 {
-                  p_Next = &v18->Next;
-                  if ( !v18 )
+                  p_Next = &v20->Next;
+                  if ( !v20 )
                     break;
-                  v18 = v18->Next;
-                  *p_Next = v9;
-                  v9 = p_Next;
+                  v20 = v20->Next;
+                  *p_Next = v10;
+                  v10 = p_Next;
                 }
               }
               else
               {
-                v9 = &v18->Next;
+                v10 = &v20->Next;
               }
             }
             while ( 1 )
             {
-              v19 = (ULONG_PTR)v9;
-              if ( !v9 )
+              v21 = (ULONG_PTR)v10;
+              if ( !v10 )
                 break;
-              v9 = (_QWORD *)*v9;
-              HeapFromVA = (_DWORD *)ExGetHeapFromVA(v19);
-              RtlpHpFreeHeap(HeapFromVA, v19, 0);
+              v10 = (_QWORD *)*v10;
+              HeapFromVA = ExGetHeapFromVA(v21);
+              RtlpHpFreeHeap(HeapFromVA, v21, 0LL);
             }
-            v4 = v21;
+            v6 = v5;
           }
-          v11 = *(__int16 *)(v7 + 342);
-          v12 = *(_QWORD *)(v11 + v7 + 328) >> *(_BYTE *)(v7 + 331);
-          if ( v12 <= 8 )
-            v12 = 8LL;
-          if ( *(_QWORD *)(v11 + v7 + 336) + *(_QWORD *)(v11 + v7 + 344) > v12 )
-            RtlpHpHeapCompact(v7);
-          ++v6;
+          v12 = *(__int16 *)(v8 + 278);
+          v13 = *(_QWORD *)(v12 + v8 + 264) >> *(_BYTE *)(v8 + 267);
+          if ( v13 <= 8 )
+            v13 = 8LL;
+          if ( *(_QWORD *)(v12 + v8 + 272) + *(_QWORD *)(v12 + v8 + 280) > v13 )
+            RtlpHpHeapCompact(v8);
+          ++v7;
         }
-        while ( v6 <= v4 );
-        v5 = v22;
+        while ( v7 <= v6 );
+        v4 = v26;
       }
       ++v1;
     }
-    while ( v1 < dword_140C74AA0 );
-    v3 = v25;
+    while ( v1 < dword_140C58090 );
     v2 = a1;
+    LODWORD(v4) = v25;
   }
   result = 3LL;
-  if ( v3 >= 3 )
-    v3 = 3;
-  while ( v5 <= v3 )
+  v15 = (int)v4;
+  if ( (int)v5 >= 3 )
+    LODWORD(v5) = 3;
+  while ( v15 <= (int)v5 )
   {
-    v14 = qword_140CF7AC0[v5];
-    result = *(__int16 *)(v14 + 342);
-    v15 = *(_QWORD *)(result + v14 + 328) >> *(_BYTE *)(v14 + 331);
-    if ( v15 <= 8 )
-      v15 = 8LL;
-    if ( *(_QWORD *)(result + v14 + 336) + *(_QWORD *)(result + v14 + 344) > v15 )
-      result = RtlpHpHeapCompact(qword_140CF7AC0[v5]);
-    ++v5;
+    v16 = qword_140CDB0C0[v15];
+    result = *(__int16 *)(v16 + 278);
+    v17 = *(_QWORD *)(result + v16 + 264) >> *(_BYTE *)(v16 + 267);
+    if ( v17 <= 8 )
+      v17 = 8LL;
+    if ( *(_QWORD *)(result + v16 + 272) + *(_QWORD *)(result + v16 + 280) > v17 )
+      result = RtlpHpHeapCompact(qword_140CDB0C0[v15]);
+    ++v15;
   }
+  if ( !v2 )
+    result = ExpHpCompactSessionPools();
   if ( v2 == 1 )
     ExpHpGCScheduledNonPaged = 0;
   else

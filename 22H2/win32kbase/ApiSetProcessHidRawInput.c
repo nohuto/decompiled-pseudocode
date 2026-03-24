@@ -1,27 +1,41 @@
 /*
- * XREFs of ApiSetProcessHidRawInput @ 0x1C00E77E2
+ * XREFs of ApiSetProcessHidRawInput @ 0x1C01D01D0
  * Callers:
- *     RIMOnAsyncPnpWorkNotification @ 0x1C0179C70 (RIMOnAsyncPnpWorkNotification.c)
- *     rimProcessHidInput @ 0x1C01A4D04 (rimProcessHidInput.c)
- *     RIMProcessAnyPointerDeviceInput @ 0x1C01A7080 (RIMProcessAnyPointerDeviceInput.c)
+ *     rimProcessHidInput @ 0x1C017566C (rimProcessHidInput.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01784F4 (RIMProcessAnyPointerDeviceInput.c)
  * Callees:
- *     IsProcessHidRawInputSupported @ 0x1C0080084 (IsProcessHidRawInputSupported.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     IsProcessHidRawInputSupported @ 0x1C00B6B68 (IsProcessHidRawInputSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (__fastcall *__fastcall ApiSetProcessHidRawInput(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3))(_QWORD, _QWORD, _QWORD)
+__int64 (__fastcall *__fastcall ApiSetProcessHidRawInput(__int64 a1))(_QWORD)
 {
-  __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD); // rax
+  __int64 (__fastcall *result)(_QWORD); // rax
 
-  result = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))IsProcessHidRawInputSupported();
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      86,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  result = (__int64 (__fastcall *)(_QWORD))IsProcessHidRawInputSupported();
   if ( (int)result >= 0 )
   {
-    result = qword_1C02962A0;
-    if ( qword_1C02962A0 )
-      return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C02962A0(a1, a2, a3);
+    result = qword_1C0257010;
+    if ( qword_1C0257010 )
+      result = (__int64 (__fastcall *)(_QWORD))qword_1C0257010(a1);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      return (__int64 (__fastcall *)(_QWORD))WPP_RECORDER_SF_(
+                                               WPP_GLOBAL_Control->DeviceExtension,
+                                               5,
+                                               10,
+                                               87,
+                                               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
   return result;
 }

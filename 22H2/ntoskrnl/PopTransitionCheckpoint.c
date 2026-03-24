@@ -1,51 +1,55 @@
 /*
- * XREFs of PopTransitionCheckpoint @ 0x1406825AC
+ * XREFs of PopTransitionCheckpoint @ 0x1407761D8
  * Callers:
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x1406822E8 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PopGracefulShutdown @ 0x140AA0B20 (PopGracefulShutdown.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PoUserShutdownInitiated @ 0x140776090 (PoUserShutdownInitiated.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     PopGracefulShutdown @ 0x1409B10A0 (PopGracefulShutdown.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall PopTransitionCheckpoint(int a1, int a2)
+void __fastcall PopTransitionCheckpoint(__int64 a1, __int64 a2)
 {
+  int v2; // edi
+  int v3; // ebx
   __int64 CurrentServerSilo; // rax
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v6; // rdx
   _QWORD *v7; // rax
 
-  CurrentServerSilo = PsGetCurrentServerSilo();
+  v2 = a2;
+  v3 = a1;
+  CurrentServerSilo = PsGetCurrentServerSilo(a1, a2);
   if ( PsIsHostSilo(CurrentServerSilo) )
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&PopTransitionCheckpointLock);
-    if ( PopTransitionCheckpoints != &PopTransitionCheckpoints || a1 == 1 )
+    if ( PopTransitionCheckpoints != &PopTransitionCheckpoints || v3 == 1 )
     {
-      Pool2 = ExAllocatePool2(256LL, 40LL, 1346587472LL);
-      v6 = (_QWORD *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x50434B50u);
+      v6 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_DWORD *)(Pool2 + 16) = PopTransitionCheckpointsSequenceNumber;
-        *(_DWORD *)(Pool2 + 20) = a1;
-        *(_DWORD *)(Pool2 + 24) = a2;
-        *(_QWORD *)(Pool2 + 32) = MEMORY[0xFFFFF78000000008];
-        v7 = (_QWORD *)qword_140C3F6C8;
-        if ( *(PVOID **)qword_140C3F6C8 != &PopTransitionCheckpoints )
+        *((_DWORD *)PoolWithTag + 4) = PopTransitionCheckpointsSequenceNumber;
+        *((_DWORD *)PoolWithTag + 5) = v3;
+        *((_DWORD *)PoolWithTag + 6) = v2;
+        PoolWithTag[4] = MEMORY[0xFFFFF78000000008];
+        v7 = (_QWORD *)qword_140C25208;
+        if ( *(PVOID **)qword_140C25208 != &PopTransitionCheckpoints )
           __fastfail(3u);
         *v6 = &PopTransitionCheckpoints;
         v6[1] = v7;
         *v7 = v6;
-        qword_140C3F6C8 = (__int64)v6;
+        qword_140C25208 = (__int64)v6;
       }
       PopBsdTransitionLatestCheckpointSeqNumber = PopTransitionCheckpointsSequenceNumber++;
-      PopBsdTransitionLatestCheckpointId = a1;
-      PopBsdTransitionLatestCheckpointType = a2;
+      PopBsdTransitionLatestCheckpointId = v3;
+      PopBsdTransitionLatestCheckpointType = v2;
     }
-    PopReleaseRwLock(&PopTransitionCheckpointLock);
+    PopReleaseRwLock((ULONG_PTR)&PopTransitionCheckpointLock);
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of BgkDisplayStringEx @ 0x14027DA44
+ * XREFs of BgkDisplayStringEx @ 0x14027DB44
  * Callers:
- *     BgkDisplayString @ 0x14027D990 (BgkDisplayString.c)
- *     NtDisplayString @ 0x1408CDA40 (NtDisplayString.c)
+ *     BgkDisplayString @ 0x14027DA90 (BgkDisplayString.c)
+ *     NtDisplayString @ 0x1408CDA20 (NtDisplayString.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     HeadlessDispatch @ 0x1401860F0 (HeadlessDispatch.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14027DC28 (BgkpAcquireConsole.c)
+ *     HeadlessDispatch @ 0x140186110 (HeadlessDispatch.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14027DD28 (BgkpAcquireConsole.c)
  *     BgDisplayFade @ 0x14094E608 (BgDisplayFade.c)
  */
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAdjustTraceBuffers @ 0x14020C9C0
+ * XREFs of EtwpAdjustTraceBuffers @ 0x14031BBB0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpAdjustSiloTraceBuffers @ 0x140228540 (EtwpAdjustSiloTraceBuffers.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x14032ED38 (EtwpAdjustSiloTraceBuffers.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     PspGetNextSilo @ 0x140617F50 (PspGetNextSilo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void EtwpAdjustTraceBuffers()
@@ -42,7 +42,7 @@ void EtwpAdjustTraceBuffers()
       v1 = v3;
       KeGetCurrentThread()[1].WaitBlock[3].WaitListEntry.Blink = Blink;
     }
-    if ( dword_140C6B4D4 > 2 * (int)KeNumberProcessors_0 * dword_140C6B4D0 )
+    if ( dword_140C53D84 > 2 * (int)KeNumberProcessors_0 * dword_140C53D80 )
     {
       do
       {
@@ -51,9 +51,9 @@ void EtwpAdjustTraceBuffers()
           break;
         ExFreePoolWithTag(v7, 0);
       }
-      while ( _InterlockedDecrement(&dword_140C6B4D4) > 2 * (int)KeNumberProcessors_0 * dword_140C6B4D0 );
+      while ( _InterlockedDecrement(&dword_140C53D84) > 2 * (int)KeNumberProcessors_0 * dword_140C53D80 );
     }
-    if ( dword_140C6B4B4 > 2 * (int)KeNumberProcessors_0 * dword_140C6B4B0 )
+    if ( dword_140C53D64 > 2 * (int)KeNumberProcessors_0 * dword_140C53D60 )
     {
       do
       {
@@ -62,7 +62,7 @@ void EtwpAdjustTraceBuffers()
           break;
         ExFreePoolWithTag(v8, 0);
       }
-      while ( _InterlockedDecrement(&dword_140C6B4B4) > 2 * (int)KeNumberProcessors_0 * dword_140C6B4B0 );
+      while ( _InterlockedDecrement(&dword_140C53D64) > 2 * (int)KeNumberProcessors_0 * dword_140C53D60 );
     }
     _InterlockedExchange(&EtwpBufferAdjustmentActive, 0);
   }

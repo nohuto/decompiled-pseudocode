@@ -7,7 +7,7 @@
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     IoGetFileObjectGenericMapping @ 0x1406A2FD0 (IoGetFileObjectGenericMapping.c)
+ *     IoGetFileObjectGenericMapping @ 0x1406A2FB0 (IoGetFileObjectGenericMapping.c)
  *     ViInitializeLocalSystemDescriptor @ 0x14092647C (ViInitializeLocalSystemDescriptor.c)
  */
 

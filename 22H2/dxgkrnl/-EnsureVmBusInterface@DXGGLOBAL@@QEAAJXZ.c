@@ -1,127 +1,125 @@
 /*
- * XREFs of ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C0312BAC
+ * XREFs of ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C0269BA8
  * Callers:
- *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02B7EE4 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
- *     DxgkEnsureVmBusInterface @ 0x1C0315EBC (DxgkEnsureVmBusInterface.c)
+ *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C020E2FC (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
+ *     DxgkEnsureVmBusInterface @ 0x1C026C7E0 (DxgkEnsureVmBusInterface.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GDXG_GUEST_GLOBAL_VMBUS@@QEAAPEAXI@Z @ 0x1C0051C58 (--_GDXG_GUEST_GLOBAL_VMBUS@@QEAAPEAXI@Z.c)
- *     ??0DXG_VMBUS_CHANNEL_BASE@@QEAA@W4DXGKVMB_COMMANDCHANNELTYPE@@@Z @ 0x1C021A054 (--0DXG_VMBUS_CHANNEL_BASE@@QEAA@W4DXGKVMB_COMMANDCHANNELTYPE@@@Z.c)
- *     ?CreateGpadlFromMdl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_MDL@@PEAI@Z @ 0x1C0372620 (-CreateGpadlFromMdl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_MDL@@PEAI@Z.c)
- *     ?EnsureVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJXZ @ 0x1C03756FC (-EnsureVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_GDXG_GUEST_GLOBAL_VMBUS@@QEAAPEAXI@Z @ 0x1C0046514 (--_GDXG_GUEST_GLOBAL_VMBUS@@QEAAPEAXI@Z.c)
+ *     ??0DXG_VMBUS_CHANNEL_BASE@@QEAA@W4DXGKVMB_COMMANDCHANNELTYPE@@@Z @ 0x1C0195B64 (--0DXG_VMBUS_CHANNEL_BASE@@QEAA@W4DXGKVMB_COMMANDCHANNELTYPE@@@Z.c)
+ *     ?CreateGpadlFromMdl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_MDL@@PEAI@Z @ 0x1C0238644 (-CreateGpadlFromMdl@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_MDL@@PEAI@Z.c)
+ *     ?EnsureVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJXZ @ 0x1C023ADBC (-EnsureVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DXGGLOBAL::EnsureVmBusInterface(DXGGLOBAL *this)
 {
-  char *v1; // rbp
-  char v3; // r15
-  __int64 v4; // rcx
-  __int64 v5; // rcx
+  char *v1; // r14
+  char v3; // bp
+  struct VMBCHANNEL__ **v4; // rcx
+  PVOID v5; // rcx
+  __int64 v6; // rcx
   PMDL PagesForMdl; // rax
-  struct _MDL **v7; // r14
-  __int64 v8; // rsi
-  const wchar_t *v9; // r9
-  unsigned int v10; // esi
+  __int64 v8; // rdx
+  PMDL v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdi
   PVOID MappedSystemVa; // rax
-  int v12; // eax
-  __int64 v13; // r12
-  const wchar_t *v14; // r9
-  __int64 v15; // r13
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
   int GpadlFromMdl; // eax
-  _QWORD *v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  struct _MDL *v20; // rcx
+  _QWORD *v21; // rcx
 
-  v1 = (char *)this + 456;
+  v1 = (char *)this + 400;
   v3 = 0;
-  DXGPUSHLOCK::AcquireExclusive((DXGGLOBAL *)((char *)this + 456));
-  if ( *((_QWORD *)this + 214) )
-  {
-    v7 = (struct _MDL **)((char *)this + 1752);
-  }
+  DXGPUSHLOCK::AcquireExclusive((DXGGLOBAL *)((char *)this + 400));
+  v4 = (struct VMBCHANNEL__ **)*((_QWORD *)this + 197);
+  if ( v4 )
+    goto LABEL_16;
+  v3 = 1;
+  v5 = operator new[](0x40uLL, 0x4B677844u, PagedPool);
+  if ( v5 )
+    DXG_VMBUS_CHANNEL_BASE::DXG_VMBUS_CHANNEL_BASE((__int64)v5, 2);
   else
+    v6 = 0LL;
+  *((_QWORD *)this + 197) = v6;
+  if ( !v6 )
+    goto LABEL_9;
+  PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, 0LL, 0x1000uLL, MmNonCached, 0);
+  *((_QWORD *)this + 202) = PagesForMdl;
+  v9 = PagesForMdl;
+  if ( PagesForMdl )
   {
-    v3 = 1;
-    v4 = operator new[](0x48uLL, 0x4B677844u, 256LL);
-    if ( !v4 )
-    {
-      *((_QWORD *)this + 214) = 0LL;
-      v7 = (struct _MDL **)((char *)this + 1752);
-      v10 = -1073741801;
-      goto LABEL_19;
-    }
-    DXG_VMBUS_CHANNEL_BASE::DXG_VMBUS_CHANNEL_BASE(v4, 2);
-    *((_QWORD *)this + 214) = v5;
-    PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, 0LL, 0x808uLL, MmNonCached, 0);
-    v7 = (struct _MDL **)((char *)this + 1752);
-    *((_QWORD *)this + 219) = PagesForMdl;
-    if ( !PagesForMdl )
-    {
-      v8 = 5747LL;
-      WdLogSingleEntry1(2LL, 5747LL);
-      v9 = L"MmAllocatePagesForMdlEx failed";
-LABEL_5:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, v8, 0LL, 0LL, 0LL, 0LL);
-      v10 = -1073741801;
-      goto LABEL_19;
-    }
     if ( (PagesForMdl->MdlFlags & 5) != 0 )
       MappedSystemVa = PagesForMdl->MappedSystemVa;
     else
       MappedSystemVa = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, MmCached, 0LL, 0, 0x40000010u);
-    *((_QWORD *)this + 218) = MappedSystemVa;
+    *((_QWORD *)this + 201) = MappedSystemVa;
     if ( !MappedSystemVa )
     {
-      v8 = 5754LL;
-      WdLogSingleEntry1(2LL, 5754LL);
-      v9 = L"MmGetSystemAddressForMdlSafe failed";
-      goto LABEL_5;
+      v10 = WdLogNewEntry5_WdError(v9, v8);
+      *(_QWORD *)(v10 + 24) = 5386LL;
+      goto LABEL_8;
     }
+    v4 = (struct VMBCHANNEL__ **)*((_QWORD *)this + 197);
+LABEL_16:
+    v13 = DXG_GUEST_GLOBAL_VMBUS::EnsureVmBusChannel(v4);
+    v11 = v13;
+    if ( v13 >= 0 )
+    {
+      if ( *((_DWORD *)this + 401) )
+      {
+LABEL_22:
+        if ( (int)v11 >= 0 || !v3 )
+          goto LABEL_28;
+        goto LABEL_24;
+      }
+      GpadlFromMdl = DXG_GUEST_GLOBAL_VMBUS::CreateGpadlFromMdl(
+                       *((struct _KTHREAD ***)this + 197),
+                       *((struct _MDL **)this + 202),
+                       (unsigned int *)this + 401);
+      v11 = GpadlFromMdl;
+      if ( GpadlFromMdl >= 0 )
+        goto LABEL_28;
+      v16 = WdLogNewEntry5_WdError(v19, v18);
+      *(_QWORD *)(v16 + 32) = 5416LL;
+    }
+    else
+    {
+      v16 = WdLogNewEntry5_WdError(v15, v14);
+    }
+    *(_QWORD *)(v16 + 24) = v11;
+    WdLogEvent5_WdError(v16);
+    goto LABEL_22;
   }
-  v12 = DXG_GUEST_GLOBAL_VMBUS::EnsureVmBusChannel(*((DXG_GUEST_GLOBAL_VMBUS **)this + 214));
-  v10 = v12;
-  if ( v12 >= 0 )
+  v10 = WdLogNewEntry5_WdError(0LL, v8);
+  *(_QWORD *)(v10 + 24) = 5379LL;
+LABEL_8:
+  WdLogEvent5_WdError(v10);
+LABEL_9:
+  LODWORD(v11) = -1073741801;
+LABEL_24:
+  v20 = (struct _MDL *)*((_QWORD *)this + 202);
+  if ( v20 )
   {
-    if ( *((_DWORD *)this + 435) )
-      goto LABEL_23;
-    GpadlFromMdl = DXG_GUEST_GLOBAL_VMBUS::CreateGpadlFromMdl(
-                     *((DXG_GUEST_GLOBAL_VMBUS **)this + 214),
-                     *v7,
-                     (unsigned int *)this + 435);
-    v10 = GpadlFromMdl;
-    if ( GpadlFromMdl >= 0 )
-      goto LABEL_23;
-    v15 = 5784LL;
-    v13 = GpadlFromMdl;
-    WdLogSingleEntry2(2LL, GpadlFromMdl, 5784LL);
-    v14 = L"CreateGpadlFromMdl failed: 0x%I64x";
+    MmFreePagesFromMdl(v20);
+    *((_QWORD *)this + 201) = 0LL;
+    *((_QWORD *)this + 202) = 0LL;
   }
-  else
+  v21 = (_QWORD *)*((_QWORD *)this + 197);
+  if ( v21 )
   {
-    v13 = v12;
-    WdLogSingleEntry1(2LL, v12);
-    v14 = L"Failed to create global VM bus channel, returning 0x%I64x";
-    v15 = 0LL;
+    DXG_GUEST_GLOBAL_VMBUS::`scalar deleting destructor'(v21);
+    *((_QWORD *)this + 197) = 0LL;
   }
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v14, v13, v15, 0LL, 0LL, 0LL);
-  if ( !v3 )
-    goto LABEL_23;
-LABEL_19:
-  if ( *v7 )
-  {
-    MmFreePagesFromMdl(*v7);
-    *((_QWORD *)this + 218) = 0LL;
-    *v7 = 0LL;
-  }
-  v17 = (_QWORD *)*((_QWORD *)this + 214);
-  if ( v17 )
-  {
-    DXG_GUEST_GLOBAL_VMBUS::`scalar deleting destructor'(v17);
-    *((_QWORD *)this + 214) = 0LL;
-  }
-LABEL_23:
+LABEL_28:
   *((_QWORD *)v1 + 1) = 0LL;
   ExReleasePushLockExclusiveEx(v1, 0LL);
   KeLeaveCriticalRegion();
-  return v10;
+  return (unsigned int)v11;
 }

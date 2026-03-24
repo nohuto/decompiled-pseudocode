@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitCreationCommand@CSharedWritePrimitiveColorMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0239A10
+ * XREFs of ?EmitCreationCommand@CSharedWritePrimitiveColorMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F8BA0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle@@@Z @ 0x1C000FCA4 (-EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle.c)
+ *     ?EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle@@@Z @ 0x1C0062EA8 (-EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle.c)
  */
 
 char __fastcall DirectComposition::CSharedWritePrimitiveColorMarshaler::EmitCreationCommand(
@@ -12,6 +12,6 @@ char __fastcall DirectComposition::CSharedWritePrimitiveColorMarshaler::EmitCrea
 {
   return DirectComposition::CResourceMarshaler::EmitDuplicateHelper(
            (__int64)this,
-           a2,
-           *(_DWORD *)(*((_QWORD *)this + 10) + 24LL));
+           (__int64 *)a2,
+           *(_DWORD *)(*((_QWORD *)this + 9) + 24LL));
 }

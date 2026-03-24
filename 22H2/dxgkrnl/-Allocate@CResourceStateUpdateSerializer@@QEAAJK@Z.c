@@ -1,50 +1,49 @@
 /*
- * XREFs of ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C0088C4C
+ * XREFs of ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C006EC5C
  * Callers:
- *     ?PrepareCompTexOptimizedUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@PEAUFlipManagerObject@@@Z @ 0x1C00866D8 (-PrepareCompTexOptimizedUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPrese.c)
- *     ?PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@PEAUFlipManagerObject@@@Z @ 0x1C0086EA8 (-PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpd.c)
- *     ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C00874F0 (-PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@PEA_N@Z @ 0x1C006C978 (-PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpd.c)
+ *     ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C006CC68 (-PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CResourceStateUpdateSerializer::Allocate(CResourceStateUpdateSerializer *this, unsigned int a2)
+__int64 __fastcall CResourceStateUpdateSerializer::Allocate(CResourceStateUpdateSerializer *this, ULONG a2)
 {
   unsigned int v2; // r9d
-  __int64 v4; // rdx
+  unsigned int v3; // r10d
+  unsigned int v4; // r11d
   unsigned int v5; // r8d
-  unsigned int v6; // r10d
-  unsigned int v8; // edi
-  unsigned int v9; // r8d
+  signed int v8; // edi
+  unsigned int v9; // edx
   unsigned int v10; // ecx
-  unsigned int v11; // r9d
+  unsigned int v11; // r8d
   unsigned int v12; // ecx
-  unsigned int v13; // r8d
+  unsigned int v13; // edx
   unsigned int v14; // ecx
   unsigned int v15; // ecx
-  __int64 Pool2; // rax
+  PVOID PoolWithQuotaTag; // rax
   __int64 v17; // rcx
   __int64 v18; // r8
   __int64 v19; // rdx
   __int64 v20; // r8
 
   v2 = *((_DWORD *)this + 2);
-  v4 = 0xFFFFFFFFLL;
+  v3 = -1;
+  v4 = -1;
   v5 = v2 + *((_DWORD *)this + 15);
-  v6 = -1;
   if ( v5 >= v2 )
-    v6 = v2 + *((_DWORD *)this + 15);
+    v4 = v2 + *((_DWORD *)this + 15);
   v8 = v5 < v2 ? 0xC0000095 : 0;
-  *((_DWORD *)this + 2) = v6;
+  *((_DWORD *)this + 2) = v4;
   if ( v5 >= v2 )
   {
     v9 = -1;
-    v10 = v6 + *((_DWORD *)this + 17);
-    if ( v10 >= v6 )
+    v10 = v4 + *((_DWORD *)this + 17);
+    if ( v10 >= v4 )
       v9 = v10;
-    v8 = v10 < v6 ? 0xC0000095 : 0;
+    v8 = v10 < v4 ? 0xC0000095 : 0;
     *((_DWORD *)this + 2) = v9;
-    if ( v10 >= v6 )
+    if ( v10 >= v4 )
     {
       v11 = -1;
       v12 = v9 + *((_DWORD *)this + 14);
@@ -64,12 +63,19 @@ __int64 __fastcall CResourceStateUpdateSerializer::Allocate(CResourceStateUpdate
         {
           v15 = v13 + *((_DWORD *)this + 18);
           if ( v15 >= v13 )
-            v4 = v15;
+            v3 = v13 + *((_DWORD *)this + 18);
           v8 = v15 < v13 ? 0xC0000095 : 0;
-          *((_DWORD *)this + 2) = v4;
+          *((_DWORD *)this + 2) = v3;
           if ( v15 >= v13 )
           {
-            if ( !(_DWORD)v4 || (Pool2 = ExAllocatePool2(257LL, v4, a2), (*(_QWORD *)this = Pool2) != 0LL) )
+            if ( v3 )
+            {
+              PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v3, a2);
+              *(_QWORD *)this = PoolWithQuotaTag;
+              if ( !PoolWithQuotaTag )
+                v8 = -1073741801;
+            }
+            if ( v8 >= 0 )
             {
               v17 = *((unsigned int *)this + 16);
               v18 = *(_QWORD *)this + *((unsigned int *)this + 15);
@@ -81,14 +87,10 @@ __int64 __fastcall CResourceStateUpdateSerializer::Allocate(CResourceStateUpdate
               *((_QWORD *)this + 4) = v20;
               *((_QWORD *)this + 6) = v20 + v17;
             }
-            else
-            {
-              return (unsigned int)-1073741801;
-            }
           }
         }
       }
     }
   }
-  return v8;
+  return (unsigned int)v8;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspJobHasChildren @ 0x1407E6AD4
+ * XREFs of PspJobHasChildren @ 0x1405D91D4
  * Callers:
- *     PsInsertPermanentSiloContextEx @ 0x14077CF6C (PsInsertPermanentSiloContextEx.c)
- *     PspCreateSilo @ 0x1407E6988 (PspCreateSilo.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACC94 (PspConvertSiloToServerSilo.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140660CE4 (PsInsertPermanentSiloContextEx.c)
+ *     PspConvertSiloToServerSilo @ 0x1409060A4 (PspConvertSiloToServerSilo.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ char __fastcall PspJobHasChildren(__int64 a1)
   char v1; // dl
 
   v1 = 0;
-  if ( *(_DWORD *)(a1 + 212) || *(_QWORD *)(a1 + 1272) != a1 + 1272 )
+  if ( *(_DWORD *)(a1 + 212) || *(_QWORD *)(a1 + 1056) != a1 + 1056 )
     return 1;
   return v1;
 }

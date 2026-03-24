@@ -1,52 +1,52 @@
 /*
- * XREFs of ValidateArgTypes @ 0x1C00162B0
+ * XREFs of ValidateArgTypes @ 0x1C0009F50
  * Callers:
- *     DerefOf @ 0x1C000A880 (DerefOf.c)
- *     Package @ 0x1C00122B0 (Package.c)
- *     LogOp2 @ 0x1C0015E30 (LogOp2.c)
- *     IfElse @ 0x1C0015FE0 (IfElse.c)
- *     ExprOp2_64 @ 0x1C0016CF0 (ExprOp2_64.c)
- *     CreateXField @ 0x1C0018484 (CreateXField.c)
- *     Buffer @ 0x1C0018F50 (Buffer.c)
- *     Index @ 0x1C0019050 (Index.c)
- *     LNot @ 0x1C00191C0 (LNot.c)
- *     Release @ 0x1C001C1A0 (Release.c)
- *     Acquire @ 0x1C001C290 (Acquire.c)
- *     While @ 0x1C001C380 (While.c)
- *     ToInteger @ 0x1C001C4B0 (ToInteger.c)
- *     Load @ 0x1C0022220 (Load.c)
- *     OSInterface @ 0x1C0022310 (OSInterface.c)
- *     ResetSignal @ 0x1C0026970 (ResetSignal.c)
- *     Concat @ 0x1C0027500 (Concat.c)
- *     LogOp2_32 @ 0x1C00276D0 (LogOp2_32.c)
- *     ConcatenateResTemplate @ 0x1C00277F0 (ConcatenateResTemplate.c)
- *     MidString @ 0x1C0028D90 (MidString.c)
- *     ToHexStr @ 0x1C0028EF0 (ToHexStr.c)
- *     Wait @ 0x1C002A600 (Wait.c)
- *     ExprOp1_64 @ 0x1C002BDF0 (ExprOp1_64.c)
- *     Notify @ 0x1C00319E0 (Notify.c)
- *     Divide @ 0x1C0031B20 (Divide.c)
- *     ExprOp2_32 @ 0x1C0031BC2 (ExprOp2_32.c)
- *     Fatal @ 0x1C0069C60 (Fatal.c)
- *     SleepStall @ 0x1C0069CD0 (SleepStall.c)
- *     Unload @ 0x1C0069DD0 (Unload.c)
- *     ExprOp1_32 @ 0x1C0069F64 (ExprOp1_32.c)
- *     LoadTable @ 0x1C006A0B0 (LoadTable.c)
- *     Match_32 @ 0x1C006A5F8 (Match_32.c)
- *     Match_64 @ 0x1C006A71C (Match_64.c)
- *     ProcessLoadTable @ 0x1C006A9B0 (ProcessLoadTable.c)
- *     ToBuffer @ 0x1C006AEE0 (ToBuffer.c)
- *     ToDecStr @ 0x1C006AF60 (ToDecStr.c)
- *     ToString @ 0x1C006B340 (ToString.c)
+ *     LogOp2_32 @ 0x1C0002198 (LogOp2_32.c)
+ *     LogOp2 @ 0x1C0009AD0 (LogOp2.c)
+ *     IfElse @ 0x1C0009C70 (IfElse.c)
+ *     While @ 0x1C000AE00 (While.c)
+ *     Index @ 0x1C000B100 (Index.c)
+ *     Buffer @ 0x1C000B340 (Buffer.c)
+ *     DerefOf @ 0x1C000B440 (DerefOf.c)
+ *     ToInteger @ 0x1C000C110 (ToInteger.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
+ *     Package @ 0x1C0021320 (Package.c)
+ *     LNot @ 0x1C0021440 (LNot.c)
+ *     SleepStall @ 0x1C0021740 (SleepStall.c)
+ *     Acquire @ 0x1C0022CF0 (Acquire.c)
+ *     Release @ 0x1C0022E60 (Release.c)
+ *     Load @ 0x1C0024DC0 (Load.c)
+ *     OSInterface @ 0x1C0024EB0 (OSInterface.c)
+ *     Notify @ 0x1C00250D0 (Notify.c)
+ *     CreateXField @ 0x1C00291A8 (CreateXField.c)
+ *     ExprOp1_64 @ 0x1C002FC60 (ExprOp1_64.c)
+ *     Fatal @ 0x1C0068990 (Fatal.c)
+ *     ResetSignal @ 0x1C0068A00 (ResetSignal.c)
+ *     Unload @ 0x1C0068B90 (Unload.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C0068F10 (ConcatenateResTemplate.c)
+ *     Divide @ 0x1C0069240 (Divide.c)
+ *     ExprOp1_32 @ 0x1C00692E4 (ExprOp1_32.c)
+ *     ExprOp2_32 @ 0x1C0069428 (ExprOp2_32.c)
+ *     LoadTable @ 0x1C00695C0 (LoadTable.c)
+ *     Match_32 @ 0x1C0069AF8 (Match_32.c)
+ *     Match_64 @ 0x1C0069C1C (Match_64.c)
+ *     MidString @ 0x1C0069D60 (MidString.c)
+ *     ProcessLoadTable @ 0x1C006A1F0 (ProcessLoadTable.c)
+ *     ToBuffer @ 0x1C006A7D0 (ToBuffer.c)
+ *     ToDecStr @ 0x1C006A850 (ToDecStr.c)
+ *     ToHexStr @ 0x1C006AC20 (ToHexStr.c)
+ *     ToString @ 0x1C006AF40 (ToString.c)
+ *     Wait @ 0x1C006B120 (Wait.c)
  * Callees:
- *     ConvertToInteger @ 0x1C001C420 (ConvertToInteger.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
- *     ConvertToBuffer @ 0x1C006B518 (ConvertToBuffer.c)
- *     ConvertToDDBHandle @ 0x1C006B650 (ConvertToDDBHandle.c)
- *     ConvertToString @ 0x1C006B6E8 (ConvertToString.c)
+ *     ConvertToInteger @ 0x1C000C190 (ConvertToInteger.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     ConvertToBuffer @ 0x1C006B288 (ConvertToBuffer.c)
+ *     ConvertToDDBHandle @ 0x1C006B3C0 (ConvertToDDBHandle.c)
+ *     ConvertToString @ 0x1C006B458 (ConvertToString.c)
  */
 
 __int64 __fastcall ValidateArgTypes(__int64 a1, __int64 a2, char a3, _BYTE *a4)
@@ -90,7 +90,7 @@ __int64 __fastcall ValidateArgTypes(__int64 a1, __int64 a2, char a3, _BYTE *a4)
         AcpiDiagTraceAmlError(a1, 3222536200LL);
         ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
         v16 = 198;
-LABEL_64:
+LABEL_63:
         PrintDebugMessage(v16, v8, ObjectTypeName, 0, 0LL);
         v6 = -1072431096;
       }
@@ -116,7 +116,7 @@ LABEL_64:
             AcpiDiagTraceAmlError(a1, 3222536200LL);
             ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
             v16 = 193;
-            goto LABEL_64;
+            goto LABEL_63;
           }
           break;
         case 'C':
@@ -159,7 +159,7 @@ LABEL_64:
             AcpiDiagTraceAmlError(a1, 3222536200LL);
             ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
             v16 = 197;
-            goto LABEL_64;
+            goto LABEL_63;
           }
           break;
         case 'H':
@@ -180,7 +180,7 @@ LABEL_64:
             AcpiDiagTraceAmlError(a1, 3222536200LL);
             ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
             v16 = 196;
-            goto LABEL_64;
+            goto LABEL_63;
           }
           break;
         case 'O':
@@ -200,7 +200,7 @@ LABEL_64:
             AcpiDiagTraceAmlError(a1, 3222536200LL);
             ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
             v16 = 202;
-            goto LABEL_64;
+            goto LABEL_63;
           }
           break;
         case 'R':
@@ -210,7 +210,7 @@ LABEL_64:
             AcpiDiagTraceAmlError(a1, 3222536200LL);
             ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
             v16 = 203;
-            goto LABEL_64;
+            goto LABEL_63;
           }
           break;
         case 'T':
@@ -232,7 +232,7 @@ LABEL_64:
             AcpiDiagTraceAmlError(a1, 3222536200LL);
             ObjectTypeName = GetObjectTypeName((unsigned __int16)*v12);
             v16 = 205;
-            goto LABEL_64;
+            goto LABEL_63;
           }
           break;
         default:

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlValidateReparsePointBuffer @ 0x14011CB90
+ * XREFs of FsRtlValidateReparsePointBuffer @ 0x14011CBB0
  * Callers:
- *     IopValidateJunctionTarget @ 0x14081B6DC (IopValidateJunctionTarget.c)
+ *     IopValidateJunctionTarget @ 0x14081B6BC (IopValidateJunctionTarget.c)
  * Callees:
- *     RtlUShortAdd @ 0x14011CDFC (RtlUShortAdd.c)
+ *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
  */
 
 NTSTATUS __stdcall FsRtlValidateReparsePointBuffer(ULONG BufferLength, PREPARSE_DATA_BUFFER ReparseBuffer)

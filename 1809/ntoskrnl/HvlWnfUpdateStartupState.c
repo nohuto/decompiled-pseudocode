@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlWnfUpdateStartupState @ 0x140193E74
+ * XREFs of HvlWnfUpdateStartupState @ 0x140193E94
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 __int64 HvlWnfUpdateStartupState()

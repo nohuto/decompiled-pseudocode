@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_GetHubSymbolicLinkName @ 0x1C0019160
+ * XREFs of HUBPDO_GetHubSymbolicLinkName @ 0x1C0018C10
  * Callers:
- *     HUBPDO_GetHubName @ 0x1C0014F9C (HUBPDO_GetHubName.c)
+ *     HUBPDO_GetHubName @ 0x1C0014ADC (HUBPDO_GetHubName.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_GetHubSymbolicLinkName(__int64 a1, struct _UNICODE_STRING *a2)

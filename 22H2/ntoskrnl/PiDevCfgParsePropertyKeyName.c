@@ -1,72 +1,74 @@
 /*
- * XREFs of PiDevCfgParsePropertyKeyName @ 0x1405621BC
+ * XREFs of PiDevCfgParsePropertyKeyName @ 0x14036C938
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     PnpStringToDwordValue @ 0x1403CE1DC (PnpStringToDwordValue.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
+ *     RtlStringCchCopyNW @ 0x140371D50 (RtlStringCchCopyNW.c)
+ *     PnpStringToDwordValue @ 0x1403811DC (PnpStringToDwordValue.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
  */
 
-bool __fastcall PiDevCfgParsePropertyKeyName(unsigned __int16 *a1, GUID *a2, unsigned int *a3)
+bool __fastcall PiDevCfgParsePropertyKeyName(unsigned __int16 *a1, GUID *a2, _DWORD *a3)
 {
   bool v4; // cf
-  NTSTATUS v7; // ebx
-  const wchar_t *v8; // rdi
-  __int64 v9; // rbx
-  wchar_t *v10; // rax
-  __int64 v11; // rsi
-  char v12; // al
-  int v13; // ecx
-  UNICODE_STRING GuidString; // [rsp+20h] [rbp-68h] BYREF
+  unsigned __int16 v7; // ax
+  NTSTATUS v8; // ebx
+  const wchar_t *v9; // rdi
+  __int64 v10; // rbx
+  wchar_t *v11; // rax
+  wchar_t *v12; // rsi
+  char v13; // al
+  int v14; // ecx
+  UNICODE_STRING v16; // [rsp+20h] [rbp-68h] BYREF
   wchar_t pszDest[12]; // [rsp+30h] [rbp-58h] BYREF
 
   v4 = *a1 < 0x50u;
-  *(_DWORD *)(&GuidString.MaximumLength + 1) = 0;
+  *(_DWORD *)(&v16.MaximumLength + 1) = 0;
   if ( v4 )
-    goto LABEL_2;
-  GuidString.Buffer = (wchar_t *)*((_QWORD *)a1 + 1);
-  GuidString.MaximumLength = a1[1];
-  GuidString.Length = 76;
-  v7 = RtlGUIDFromString(&GuidString, a2);
-  if ( v7 < 0 )
-    return v7 >= 0;
+    goto LABEL_15;
+  v16.Buffer = (wchar_t *)*((_QWORD *)a1 + 1);
+  v7 = a1[1];
+  v16.Length = 76;
+  v16.MaximumLength = v7;
+  v8 = RtlGUIDFromString(&v16, a2);
+  if ( v8 < 0 )
+    return v8 >= 0;
   if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 76LL) != 44 )
-    goto LABEL_2;
-  v8 = (const wchar_t *)(*((_QWORD *)a1 + 1) + 78LL);
-  v9 = (*a1 >> 1) - 39;
-  if ( v8[v9] )
-    goto LABEL_2;
-  v10 = wcschr(v8, 0x2Cu);
-  v11 = (__int64)v10;
-  if ( v10 )
+    goto LABEL_15;
+  v9 = (const wchar_t *)(*((_QWORD *)a1 + 1) + 78LL);
+  v10 = (*a1 >> 1) - 39;
+  if ( v9[v10] )
+    goto LABEL_15;
+  v11 = wcschr(v9, 0x2Cu);
+  v12 = v11;
+  if ( v11 )
   {
-    v9 = v10 - v8;
-    v11 = (__int64)(v10 + 1);
+    v10 = v11 - v9;
+    v12 = v11 + 1;
   }
-  v7 = RtlStringCchCopyNW(pszDest, 0xBuLL, v8, (unsigned int)v9);
-  if ( v7 >= 0 )
+  v8 = RtlStringCchCopyNW(pszDest, 0xBuLL, v9, (unsigned int)v10);
+  if ( v8 >= 0 )
   {
-    if ( PnpStringToDwordValue((__int64)pszDest, &a2[1].Data1) )
+    if ( (unsigned __int8)PnpStringToDwordValue(pszDest, &a2[1]) )
     {
       if ( a3 )
       {
         *a3 = 1;
-        if ( v11 )
+        if ( v12 )
         {
-          v12 = PnpStringToDwordValue(v11, a3);
-          v13 = v7;
-          if ( !v12 )
-            v13 = -1073741823;
-          v7 = v13;
+          v13 = PnpStringToDwordValue(v12, a3);
+          v14 = v8;
+          if ( !v13 )
+            v14 = -1073741823;
+          v8 = v14;
         }
       }
-      return v7 >= 0;
+      return v8 >= 0;
     }
-LABEL_2:
-    v7 = -1073741823;
+LABEL_15:
+    v8 = -1073741823;
   }
-  return v7 >= 0;
+  return v8 >= 0;
 }

@@ -1,22 +1,21 @@
 /*
- * XREFs of HvlLpGetMachineCheckContext @ 0x140544820
+ * XREFs of HvlLpGetMachineCheckContext @ 0x1404F5220
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetLogicalProcessorProperty @ 0x140540F58 (HvlpGetLogicalProcessorProperty.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x1404F2B88 (HvlpGetLogicalProcessorProperty.c)
  */
 
-__int64 __fastcall HvlLpGetMachineCheckContext(ULONG a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall HvlLpGetMachineCheckContext(int a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
 {
-  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v9; // [rsp+30h] [rbp-18h]
+  _QWORD v9[408]; // [rsp+20h] [rbp-CC8h] BYREF
 
-  v8 = 0LL;
-  v9 = 0LL;
-  if ( (int)HvlpGetLogicalProcessorProperty(a1, 0, &v8) < 0 )
+  memset(v9, 0, 0xCB8uLL);
+  if ( (int)HvlpGetLogicalProcessorProperty(a1, 4, v9) < 0 )
     return 3221225473LL;
-  *a2 = v8;
-  *a3 = *((_QWORD *)&v8 + 1);
-  *a4 = v9;
+  *a2 = v9[0];
+  *a3 = v9[1];
+  *a4 = v9[2];
   return 0LL;
 }

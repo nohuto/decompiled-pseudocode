@@ -1,25 +1,25 @@
 /*
- * XREFs of NtManageHotPatch @ 0x140858470
+ * XREFs of NtManageHotPatch @ 0x140858450
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     RtlDuplicateUnicodeString @ 0x1406D3C20 (RtlDuplicateUnicodeString.c)
- *     MiLoadHotPatch @ 0x1408559F8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C58 (MiLoadHotPatchForUserSid.c)
- *     MiLogHotPatchManagement @ 0x140855FC4 (MiLogHotPatchManagement.c)
- *     MiQueryLoadedPatches @ 0x140857928 (MiQueryLoadedPatches.c)
- *     MiQueryProcessActivePatches @ 0x140857BB0 (MiQueryProcessActivePatches.c)
- *     MiUnloadHotPatch @ 0x140858218 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x1408582D0 (MiUnloadHotPatchForUserSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlDuplicateUnicodeString @ 0x1406D3C00 (RtlDuplicateUnicodeString.c)
+ *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
+ *     MiLogHotPatchManagement @ 0x140855FA4 (MiLogHotPatchManagement.c)
+ *     MiQueryLoadedPatches @ 0x140857908 (MiQueryLoadedPatches.c)
+ *     MiQueryProcessActivePatches @ 0x140857B90 (MiQueryProcessActivePatches.c)
+ *     MiUnloadHotPatch @ 0x1408581F8 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408582B0 (MiUnloadHotPatchForUserSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtManageHotPatch(int a1, volatile void *a2, unsigned int a3, _DWORD *a4)

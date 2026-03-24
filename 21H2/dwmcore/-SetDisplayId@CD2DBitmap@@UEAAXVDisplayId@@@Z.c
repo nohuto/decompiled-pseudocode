@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetDisplayId@CD2DBitmap@@UEAAXVDisplayId@@@Z @ 0x1800FC4D0
+ * XREFs of ?SetDisplayId@CD2DBitmap@@UEAAXVDisplayId@@@Z @ 0x1800E2620
  * Callers:
- *     ?SetDisplayId@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXVDisplayId@@@Z @ 0x180109BF0 (-SetDisplayId@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXVDisplayId@@@Z.c)
+ *     ?SetDisplayId@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXVDisplayId@@@Z @ 0x1800F83A0 (-SetDisplayId@CDeviceTextureTarget@@$4PPPPPPPM@BEI@EAAXVDisplayId@@@Z.c)
  * Callees:
  *     <none>
  */

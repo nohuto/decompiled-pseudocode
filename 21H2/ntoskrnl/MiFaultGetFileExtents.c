@@ -1,47 +1,43 @@
 /*
- * XREFs of MiFaultGetFileExtents @ 0x1405A7158
+ * XREFs of MiFaultGetFileExtents @ 0x1405483F0
  * Callers:
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
  * Callees:
- *     MiReleaseFaultCharges @ 0x140250924 (MiReleaseFaultCharges.c)
- *     MiRetainSubsection @ 0x140251340 (MiRetainSubsection.c)
- *     MiGetSharedProtos @ 0x140256DF8 (MiGetSharedProtos.c)
- *     MiDereferenceControlArea @ 0x14025E274 (MiDereferenceControlArea.c)
- *     MiFreeInPageSupportBlock @ 0x14027456C (MiFreeInPageSupportBlock.c)
- *     MiGetSessionIdForVa @ 0x1402CD940 (MiGetSessionIdForVa.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseFaultSynchronization @ 0x1405A7A00 (MiReleaseFaultSynchronization.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
+ *     MiReleaseFaultCharges @ 0x1402C8F9C (MiReleaseFaultCharges.c)
+ *     MiRetainSubsection @ 0x1402C9564 (MiRetainSubsection.c)
+ *     MiDereferenceControlArea @ 0x1402D38B8 (MiDereferenceControlArea.c)
+ *     MiFreeInPageSupportBlock @ 0x1402FC8DC (MiFreeInPageSupportBlock.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
+ *     MiReleaseFaultSynchronization @ 0x140548EC4 (MiReleaseFaultSynchronization.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  */
 
-__int64 __fastcall MiFaultGetFileExtents(__int64 a1, __int64 a2)
+__int64 __fastcall MiFaultGetFileExtents(__int64 a1, struct _SLIST_ENTRY *a2)
 {
-  ULONG_PTR v2; // rdi
+  ULONG_PTR Next; // rdi
   __int64 v5; // r14
-  unsigned int SessionIdForVa; // r15d
+  unsigned int SessionId; // eax
   unsigned int FileExtents; // ebx
 
-  v2 = *(_QWORD *)(a2 + 208);
-  v5 = *(_QWORD *)v2;
-  if ( (*(_BYTE *)(v2 + 34) & 2) != 0 )
+  Next = (ULONG_PTR)a2[13].Next;
+  v5 = *(_QWORD *)Next;
+  if ( (*(_BYTE *)(Next + 34) & 2) != 0 )
   {
-    SessionIdForVa = MiGetSessionIdForVa(a1, *(_QWORD *)(a2 + 224));
-    MiGetSharedProtos(v5, SessionIdForVa, v2);
+    SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+    MiGetSharedProtos(v5, SessionId, Next);
   }
-  else
-  {
-    SessionIdForVa = 0;
-  }
-  MiRetainSubsection((__int64 *)v2);
+  MiRetainSubsection((__int64 *)Next);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
   ++*(_QWORD *)(v5 + 40);
   ++*(_QWORD *)(v5 + 48);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
   MiReleaseFaultSynchronization(a1);
-  FileExtents = MiAllocateFileExtents(v2, 2, SessionIdForVa);
-  MiFreeInPageSupportBlock((PSLIST_ENTRY)a2);
+  FileExtents = MiAllocateFileExtents(Next, 2);
+  MiFreeInPageSupportBlock(a2);
   MiDereferenceControlArea(v5);
-  MiReleaseFaultCharges((__int64 *)v2);
+  MiReleaseFaultCharges((__int64 *)Next);
   return FileExtents;
 }

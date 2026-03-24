@@ -1,12 +1,13 @@
 /*
- * XREFs of RtlFindClearBitsAndSetEx @ 0x140210370
+ * XREFs of RtlFindClearBitsAndSetEx @ 0x1403423E0
  * Callers:
- *     ExpSaPageGroupAllocateMemory @ 0x14022397C (ExpSaPageGroupAllocateMemory.c)
- *     RtlpHpFixedVsAllocate @ 0x1403175B0 (RtlpHpFixedVsAllocate.c)
- *     MiObtainRelocationBits @ 0x1406AAE04 (MiObtainRelocationBits.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x1406AB290 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiObtainSessionVa @ 0x14030B904 (MiObtainSessionVa.c)
+ *     RtlpHpFixedVsAllocate @ 0x14032B0B0 (RtlpHpFixedVsAllocate.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x14039133C (ExpSaPageGroupAllocateMemory.c)
+ *     MiObtainRelocationBits @ 0x14066ADB4 (MiObtainRelocationBits.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1406C4F40 (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -16,14 +17,14 @@ unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsig
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // r10
   unsigned __int64 v10; // rbp
-  unsigned __int64 v11; // rdi
+  unsigned __int64 v11; // rsi
   unsigned __int64 *v12; // r8
   __int64 v13; // r9
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rbx
   __int64 v18; // rdx
-  unsigned __int64 *v19; // rsi
+  unsigned __int64 *v19; // rdi
   bool v20; // zf
   __int64 v21; // rax
   unsigned int v22; // r10d
@@ -35,13 +36,12 @@ unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsig
   unsigned int v28; // ecx
   unsigned int v29; // r9d
   __int64 v30; // rcx
-  unsigned __int64 *v31; // rax
-  __int64 v32; // rdx
-  unsigned __int64 *v33; // r9
-  unsigned __int64 v34; // rax
-  __int64 v35; // rcx
-  unsigned int v36; // eax
-  unsigned __int64 v37; // rcx
+  __int64 v31; // rdx
+  unsigned __int64 *v32; // r9
+  unsigned __int64 v33; // rax
+  __int64 v34; // rcx
+  unsigned int v35; // eax
+  unsigned __int64 v36; // rcx
 
   v3 = *a1;
   v5 = a1[1];
@@ -53,9 +53,9 @@ unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsig
     {
       if ( v9 - v8 + 1 < a2 )
       {
-LABEL_27:
+LABEL_26:
         v15 = -1LL;
-        goto LABEL_28;
+        goto LABEL_27;
       }
       v10 = v9 - a2 + 1;
       v11 = v5 + 8 * (v10 >> 6);
@@ -84,9 +84,9 @@ LABEL_27:
         {
           v15 = ((__int64)((__int64)v12 - v5) >> 3 << 6) - v28;
           if ( v15 > v10 )
-            goto LABEL_27;
-          v33 = &v12[(a2 - v28) >> 6];
-          while ( ++v12 != v33 )
+            goto LABEL_26;
+          v32 = &v12[(a2 - v28) >> 6];
+          while ( ++v12 != v32 )
           {
             if ( *v12 )
               goto LABEL_49;
@@ -102,17 +102,16 @@ LABEL_27:
           do
           {
 LABEL_49:
-            v31 = v12;
             if ( (unsigned __int64)v12 > v26 )
-              goto LABEL_27;
+              goto LABEL_26;
             ++v12;
           }
           while ( *v12 );
-          v20 = !_BitScanReverse64((unsigned __int64 *)&v32, *v31);
+          v20 = !_BitScanReverse64((unsigned __int64 *)&v31, *(v12 - 1));
           if ( v20 )
             v28 = 64;
           else
-            v28 = 63 - v32;
+            v28 = 63 - v31;
         }
       }
       if ( a2 >= 0x40 )
@@ -149,7 +148,7 @@ LABEL_25:
             }
           }
           if ( v12 == v19 )
-            goto LABEL_27;
+            goto LABEL_26;
           v20 = !_BitScanReverse64((unsigned __int64 *)&v25, v13);
           if ( v20 )
             v18 = 64LL;
@@ -160,7 +159,7 @@ LABEL_25:
         while ( 1 )
         {
           if ( (unsigned __int64)++v12 > v11 )
-            goto LABEL_27;
+            goto LABEL_26;
           v13 = *v12;
           if ( *v12 != -1LL )
           {
@@ -172,14 +171,14 @@ LABEL_25:
       while ( v13 == -1 )
       {
         if ( (unsigned __int64)++v12 > v11 )
-          goto LABEL_27;
+          goto LABEL_26;
         v13 = *v12;
       }
       _BitScanForward64(&v14, ~v13);
       v15 = v14 + ((__int64)((__int64)v12 - v5) >> 3 << 6);
 LABEL_10:
       if ( v15 > v10 )
-        goto LABEL_27;
+        goto LABEL_26;
 LABEL_11:
       if ( v15 != -1LL )
       {
@@ -187,7 +186,7 @@ LABEL_12:
         v16 = v15;
         goto LABEL_13;
       }
-LABEL_28:
+LABEL_27:
       if ( !v8 )
         goto LABEL_12;
       v24 = a2 + a3;
@@ -203,34 +202,34 @@ LABEL_28:
         while ( v13 < 0 )
         {
           if ( (unsigned __int64)++v12 > v11 )
-            goto LABEL_27;
+            goto LABEL_26;
           v13 = *v12;
         }
-        v20 = !_BitScanReverse64((unsigned __int64 *)&v35, v13);
+        v20 = !_BitScanReverse64((unsigned __int64 *)&v34, v13);
         if ( v20 )
-          v36 = 64;
+          v35 = 64;
         else
-          v36 = 63 - v35;
-        v15 = ((((__int64)((__int64)v12 - v5) >> 3) + 1) << 6) - v36;
+          v35 = 63 - v34;
+        v15 = ((((__int64)((__int64)v12 - v5) >> 3) + 1) << 6) - v35;
         if ( v15 > v10 )
-          goto LABEL_27;
-        v37 = a2 - v36;
-        if ( a2 == v36 )
+          goto LABEL_26;
+        v36 = a2 - v35;
+        if ( a2 == v35 )
           goto LABEL_11;
         v13 = *++v12;
-        if ( v37 >= 0x40 )
+        if ( v36 >= 0x40 )
           break;
 LABEL_58:
-        v20 = !_BitScanForward64(&v34, v13);
+        v20 = !_BitScanForward64(&v33, v13);
         if ( v20 )
-          v34 = 64LL;
-        if ( v34 >= v37 )
+          v33 = 64LL;
+        if ( v33 >= v36 )
           goto LABEL_11;
       }
       if ( !*v12 )
       {
-        v37 -= 64LL;
-        if ( !v37 )
+        v36 -= 64LL;
+        if ( !v36 )
           goto LABEL_11;
         v13 = *++v12;
         goto LABEL_58;
@@ -240,6 +239,6 @@ LABEL_58:
   v16 = v8 & 0xFFFFFFFFFFFFFFF8uLL;
 LABEL_13:
   if ( v16 != -1LL )
-    RtlSetBitsEx(a1, v16, a2);
+    RtlSetBitsEx((__int64)a1, v16, a2);
   return v16;
 }

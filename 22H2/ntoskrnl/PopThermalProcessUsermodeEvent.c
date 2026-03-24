@@ -1,37 +1,38 @@
 /*
- * XREFs of PopThermalProcessUsermodeEvent @ 0x14098AE78
+ * XREFs of PopThermalProcessUsermodeEvent @ 0x1408E7BE8
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopThermalEventTransitionDisableDeepSleep @ 0x14058F9D8 (PopThermalEventTransitionDisableDeepSleep.c)
- *     PopThermalWriteShutdownToRegistry @ 0x1405901B0 (PopThermalWriteShutdownToRegistry.c)
- *     PopDiagTraceUsermodeThermalEvent @ 0x140992124 (PopDiagTraceUsermodeThermalEvent.c)
- *     PopDiagTraceUsermodeTripPointExceeded @ 0x140992210 (PopDiagTraceUsermodeTripPointExceeded.c)
- *     PopSqmThermalUsermodeEvent @ 0x1409A0F0C (PopSqmThermalUsermodeEvent.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x14056F918 (PopThermalWriteShutdownToRegistry.c)
+ *     PopDiagTraceUsermodeThermalEvent @ 0x1408EBD30 (PopDiagTraceUsermodeThermalEvent.c)
+ *     PopDiagTraceUsermodeTripPointExceeded @ 0x1408EBE1C (PopDiagTraceUsermodeTripPointExceeded.c)
+ *     PopSqmThermalUsermodeEvent @ 0x1408F9DE4 (PopSqmThermalUsermodeEvent.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopThermalProcessUsermodeEvent(__int64 a1)
 {
   __int64 v2; // r9
   __int16 v3; // ax
-  _WORD v5[2]; // [rsp+30h] [rbp-18h] BYREF
-  int v6; // [rsp+34h] [rbp-14h]
-  __int64 v7; // [rsp+38h] [rbp-10h]
+  int v4; // ecx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  _WORD v8[2]; // [rsp+30h] [rbp-18h] BYREF
+  int v9; // [rsp+34h] [rbp-14h]
+  __int64 v10; // [rsp+38h] [rbp-10h]
 
-  v6 = 0;
+  v9 = 0;
   PopDiagTraceUsermodeThermalEvent();
-  PopThermalEventTransitionDisableDeepSleep(*(_DWORD *)a1);
   if ( *(_DWORD *)a1 )
   {
     if ( *(_DWORD *)a1 == 1 )
     {
       PopDiagTraceUsermodeTripPointExceeded(*(unsigned __int16 *)(a1 + 12), a1 + 14, *(unsigned int *)(a1 + 8), 0LL);
       PopSqmThermalUsermodeEvent(*(unsigned __int16 *)(a1 + 12), a1 + 14, *(_DWORD *)(a1 + 8), *(_DWORD *)(a1 + 4), 0);
-      PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalStateTransitionContext);
-      byte_140C3C812 = 1;
-      PopReleaseRwLock(&PopThermalStateTransitionContext);
+      PopAcquirePolicyLock(v4);
+      PopThermalHibernateInitiated = 1;
+      PopReleasePolicyLock(v6, v5);
     }
   }
   else
@@ -40,10 +41,10 @@ __int64 __fastcall PopThermalProcessUsermodeEvent(__int64 a1)
     PopDiagTraceUsermodeTripPointExceeded(*(unsigned __int16 *)(a1 + 12), a1 + 14, *(unsigned int *)(a1 + 8), v2);
     PopSqmThermalUsermodeEvent(*(unsigned __int16 *)(a1 + 12), a1 + 14, *(_DWORD *)(a1 + 8), *(_DWORD *)(a1 + 4), 1);
     v3 = 2 * *(_WORD *)(a1 + 12);
-    v7 = a1 + 14;
-    v5[0] = v3;
-    v5[1] = v3;
-    PopThermalWriteShutdownToRegistry((__int64)v5, (void *)(a1 + 4));
+    v10 = a1 + 14;
+    v8[0] = v3;
+    v8[1] = v3;
+    PopThermalWriteShutdownToRegistry((__int64)v8, (void *)(a1 + 4));
   }
   return 0LL;
 }

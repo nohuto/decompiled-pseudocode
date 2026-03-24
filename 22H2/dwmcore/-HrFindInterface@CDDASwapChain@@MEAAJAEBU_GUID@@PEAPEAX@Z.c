@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CDDASwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A33D0
+ * XREFs of ?HrFindInterface@CDDASwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802502F0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006C500 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CDDASwapChain::HrFindInterface(CDDASwapChain *this, const struct _GUID *a2, void **a3)
@@ -22,25 +22,26 @@ __int64 __fastcall CDDASwapChain::HrFindInterface(CDDASwapChain *this, const str
     if ( !v4 )
     {
       if ( this )
-        v4 = (char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8;
-      *a3 = v4;
-      return 0LL;
+        v4 = (char *)this + *(int *)(*((_QWORD *)this + 3) + 8LL) + 24;
+      goto LABEL_14;
     }
     v5 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_c1102d2e_5afc_41c9_a025_779b188b0abe.Data1;
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_c1102d2e_5afc_41c9_a025_779b188b0abe.Data1 )
       v5 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_c1102d2e_5afc_41c9_a025_779b188b0abe.Data4;
     if ( !v5 )
-      goto LABEL_14;
+      goto LABEL_13;
     v6 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_929900b3_03d9_46ba_bb99_5238ea008614.Data1;
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_929900b3_03d9_46ba_bb99_5238ea008614.Data1 )
       v6 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_929900b3_03d9_46ba_bb99_5238ea008614.Data4;
     if ( !v6 )
     {
+LABEL_13:
+      v4 = (char *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
 LABEL_14:
-      *a3 = this;
+      *a3 = v4;
       return 0LL;
     }
-    return 2147500034LL;
+    return CMILCOMBase::HrFindInterface(this, a2, a3);
   }
   return result;
 }

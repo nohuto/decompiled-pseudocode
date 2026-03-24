@@ -1,17 +1,17 @@
 /*
- * XREFs of ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C0291ACC
+ * XREFs of ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02940B8
  * Callers:
- *     ?GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02B45F4 (-GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     ?GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02B6398 (-GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
  * Callees:
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C0022858 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C026B168 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
- *     ?bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C0291848 (-bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z.c)
- *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C02918A8 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C00BCF78 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C026D3F8 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C0293E38 (-bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z.c)
+ *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C0293E94 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
  */
 
 struct HOBJ__ *__fastcall COLORTRANSFORMOBJ::hCreate(
@@ -26,11 +26,11 @@ struct HOBJ__ *__fastcall COLORTRANSFORMOBJ::hCreate(
         unsigned int a9)
 {
   struct HOBJ__ *v9; // rdi
-  __int64 v10; // rsi
+  __int64 v10; // r15
   __int64 v14; // rbx
-  struct OBJECT *Object; // r15
+  struct OBJECT *Object; // rsi
   int v16; // eax
-  __int64 (__fastcall *v17)(_QWORD, struct tagLOGCOLORSPACEW *, void *, _QWORD, void *, unsigned int, void *, unsigned int, _DWORD); // r10
+  __int64 (__fastcall *v17)(_QWORD, struct tagLOGCOLORSPACEW *, void *, _QWORD, void *, unsigned int, void *, unsigned int, _DWORD); // rax
   _QWORD v19[4]; // [rsp+50h] [rbp-99h] BYREF
   int v20; // [rsp+70h] [rbp-79h]
   _QWORD v21[2]; // [rsp+78h] [rbp-71h] BYREF
@@ -43,70 +43,69 @@ struct HOBJ__ *__fastcall COLORTRANSFORMOBJ::hCreate(
   v9 = 0LL;
   v10 = 0LL;
   v14 = *(_QWORD *)(*(_QWORD *)a2 + 48LL);
-  if ( v14 )
+  if ( !v14 )
+    return v9;
+  Object = (struct OBJECT *)AllocateObject(32LL, 14LL, 0LL);
+  if ( Object )
   {
-    Object = (struct OBJECT *)AllocateObject(32LL, 14LL);
-    if ( Object )
+    HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v25);
+    v9 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v25, Object, 0xEu, 2);
+    if ( v9 )
     {
-      HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v25);
-      v9 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v25, Object, 0xEu, 2);
-      if ( v9 )
+      *((_QWORD *)this + 4) = Object;
+      DLODCOBJ::DLODCOBJ((DLODCOBJ *)v21);
+      v20 = 1;
+      v24 = 0LL;
+      v23 = 0LL;
+      v21[0] = 0LL;
+      v16 = *(_DWORD *)(v14 + 40);
+      *(_OWORD *)&v19[1] = 0LL;
+      if ( (v16 & 1) != 0 )
       {
-        *((_QWORD *)this + 4) = Object;
-        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v21);
-        v20 = 1;
-        v24 = 0LL;
-        v23 = 0LL;
-        v21[0] = 0LL;
-        v16 = *(_DWORD *)(v14 + 40);
-        *(_OWORD *)&v19[1] = 0LL;
-        if ( (v16 & 1) != 0 )
-        {
-          v19[1] = *(_QWORD *)(v14 + 48);
-          v19[3] = v14;
-          GreAcquireSemaphore(v19[1]);
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v19[1], 11LL);
-        }
-        v17 = *(__int64 (__fastcall **)(_QWORD, struct tagLOGCOLORSPACEW *, void *, _QWORD, void *, unsigned int, void *, unsigned int, _DWORD))(v14 + 3176);
-        if ( v17 )
-        {
-          v10 = v17(*(_QWORD *)(v14 + 1768), a3, a4, a5, a6, a7, a8, a9, 0);
-          if ( v10 )
-          {
-            *(_QWORD *)(*((_QWORD *)this + 4) + 24LL) = v10;
-            XDCOBJ::bAddColorTransform(a2, v9);
-          }
-        }
-        else
-        {
-          EngSetLastError(0x57u);
-        }
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v19[1]);
-        if ( v21[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v21);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v22);
+        v19[1] = *(_QWORD *)(v14 + 48);
+        v19[3] = v14;
+        GreAcquireSemaphore(v19[1]);
+        EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v19[1], 11LL);
       }
-      if ( v26 )
-        _InterlockedDecrement((volatile signed __int32 *)(v26 + 12));
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v25);
-      if ( v9 )
-      {
-        if ( !v10 )
-        {
-          *(_QWORD *)(*((_QWORD *)this + 4) + 24LL) = 0LL;
-          COLORTRANSFORMOBJ::bDelete(this, a2, 0);
-          return 0LL;
-        }
-      }
+      v17 = *(__int64 (__fastcall **)(_QWORD, struct tagLOGCOLORSPACEW *, void *, _QWORD, void *, unsigned int, void *, unsigned int, _DWORD))(v14 + 3200);
+      if ( v17 )
+        v10 = v17(*(_QWORD *)(v14 + 1800), a3, a4, a5, a6, a7, a8, a9, 0);
       else
+        EngSetLastError(0x57u);
+      if ( v10 )
       {
-        FreeObject(Object, 14LL);
+        *(_QWORD *)(*((_QWORD *)this + 4) + 24LL) = v10;
+        XDCOBJ::bAddColorTransform(a2, v9);
       }
+      DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v19[1]);
+      if ( v21[0] )
+        DLODCOBJ::vUnlock((DLODCOBJ *)v21);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v22);
     }
-    else
-    {
-      EngSetLastError(8u);
-    }
+    if ( v26 )
+      _InterlockedDecrement((volatile signed __int32 *)(v26 + 12));
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v25);
   }
+  else
+  {
+    EngSetLastError(8u);
+  }
+  if ( !Object )
+    goto LABEL_22;
+  if ( v9 )
+  {
+    if ( !v10 )
+    {
+      *(_QWORD *)(*((_QWORD *)this + 4) + 24LL) = 0LL;
+      COLORTRANSFORMOBJ::bDelete(this, a2, 0);
+      v9 = 0LL;
+      Object = 0LL;
+    }
+LABEL_22:
+    if ( v9 )
+      return v9;
+  }
+  if ( Object )
+    FreeObject(Object, 14LL);
   return v9;
 }

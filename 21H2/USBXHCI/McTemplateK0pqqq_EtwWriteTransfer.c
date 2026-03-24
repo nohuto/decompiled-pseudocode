@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00355FC
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003535C
  * Callers:
- *     Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000C790 (Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled.c)
- *     Controller_WdfEvtDeviceD0Exit @ 0x1C000DD50 (Controller_WdfEvtDeviceD0Exit.c)
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0010230 (Controller_WdfEvtDeviceD0Entry.c)
- *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00149A0 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000A530 (Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled.c)
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000B4D0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00147B0 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

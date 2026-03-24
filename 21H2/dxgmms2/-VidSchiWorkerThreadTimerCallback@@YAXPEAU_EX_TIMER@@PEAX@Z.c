@@ -1,67 +1,61 @@
 /*
- * XREFs of ?VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0017440
+ * XREFs of ?VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0014E60
  * Callers:
  *     <none>
  * Callees:
- *     ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001757C (-VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3C0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     VidSchiCheckYieldExitCondition @ 0x1C0014F88 (VidSchiCheckYieldExitCondition.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023FCC (McTemplateK0p_EtwWriteTransfer.c)
  */
 
-void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, char *a2)
+void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, void *a2)
 {
-  LARGE_INTEGER v3; // rsi
-  char v4; // r8
+  LARGE_INTEGER v3; // rbp
+  char v4; // si
   __int64 v5; // rdi
   __int64 *v6; // rcx
   __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
-  union _LARGE_INTEGER v12; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
+  char v11; // [rsp+68h] [rbp+10h] BYREF
+  union _LARGE_INTEGER v12; // [rsp+70h] [rbp+18h] BYREF
 
   v12.QuadPart = 0LL;
   v3 = KeQueryPerformanceCounter(&v12);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a2 + 216, &LockHandle);
-  if ( v3.QuadPart >= *((_QWORD *)a2 + 24) )
+  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)a2 + 214, &LockHandle);
+  if ( v3.QuadPart >= *((_QWORD *)a2 + 23) )
   {
-    ExCancelTimer(*((_QWORD *)a2 + 23), 0LL);
-    if ( (byte_1C006E941 & 1) != 0 )
-      McTemplateK0p_EtwWriteTransfer(v9, &EventYieldCancelExpirationTimer, v10, *((_QWORD *)a2 + 2));
-    *((_QWORD *)a2 + 24) = 0LL;
+    ExCancelTimer(*((_QWORD *)a2 + 22), 0LL);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0p_EtwWriteTransfer(v8, &EventYieldCancelExpirationTimer, v9, *((_QWORD *)a2 + 2));
+    *((_QWORD *)a2 + 23) = 0LL;
   }
   else
   {
     v4 = 0;
     v5 = 0LL;
-    if ( *((_DWORD *)a2 + 20) )
+    if ( *((_DWORD *)a2 + 18) )
     {
       do
       {
-        v6 = (__int64 *)*((_QWORD *)a2 + 79);
-        if ( (unsigned int)v5 < *((_DWORD *)a2 + 176) )
+        v6 = (__int64 *)*((_QWORD *)a2 + 78);
+        if ( (unsigned int)v5 < *((_DWORD *)a2 + 174) )
           v6 += v5;
         v7 = *v6;
-        if ( *(_BYTE *)(v7 + 2024) )
-        {
-          v8 = *(_QWORD *)(v7 + 2000);
-          if ( v8 )
-          {
-            if ( v3.QuadPart > (unsigned __int64)(*(_QWORD *)(v7 + 2008) + v8) )
-            {
-              VidSchiStopNodeYield((struct _VIDSCH_NODE *)v7);
-              v4 = 1;
-            }
-          }
-        }
+        v11 = 0;
+        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))VidSchiCheckYieldExitCondition)(
+          v7,
+          (LARGE_INTEGER)v3.QuadPart,
+          &v11);
+        if ( v11 )
+          v4 = 1;
         v5 = (unsigned int)(v5 + 1);
       }
-      while ( (unsigned int)v5 < *((_DWORD *)a2 + 20) );
+      while ( (unsigned int)v5 < *((_DWORD *)a2 + 18) );
       if ( v4 )
       {
-        *((_QWORD *)a2 + 153) = MEMORY[0xFFFFF78000000320];
-        KeSetEvent((PRKEVENT)(a2 + 1192), 0, 0);
+        *((_QWORD *)a2 + 151) = MEMORY[0xFFFFF78000000320];
+        KeSetEvent((PRKEVENT)a2 + 49, 0, 0);
       }
     }
   }

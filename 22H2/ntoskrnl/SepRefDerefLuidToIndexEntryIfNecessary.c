@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRefDerefLuidToIndexEntryIfNecessary @ 0x1406B7AB4
+ * XREFs of SepRefDerefLuidToIndexEntryIfNecessary @ 0x140603C40
  * Callers:
- *     SepSetProcessUniqueAttribute @ 0x1406B7620 (SepSetProcessUniqueAttribute.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepSetProcessUniqueAttribute @ 0x140603B5C (SepSetProcessUniqueAttribute.c)
  * Callees:
- *     SepDereferenceLuidToIndexEntry @ 0x14034975C (SepDereferenceLuidToIndexEntry.c)
- *     SepReferenceLuidToIndexEntry @ 0x14034AFE8 (SepReferenceLuidToIndexEntry.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x140275A04 (SepDereferenceLuidToIndexEntry.c)
+ *     SepReferenceLuidToIndexEntry @ 0x1402D6D8C (SepReferenceLuidToIndexEntry.c)
  */
 
 signed __int64 __fastcall SepRefDerefLuidToIndexEntryIfNecessary(__int64 a1, char a2)

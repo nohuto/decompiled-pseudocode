@@ -2,13 +2,13 @@
  * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x140615538
  * Callers:
  *     NtReplyWaitReceivePortEx @ 0x140613CE0 (NtReplyWaitReceivePortEx.c)
- *     NtReplyPort @ 0x1406B2E10 (NtReplyPort.c)
+ *     NtReplyPort @ 0x1406B2DF0 (NtReplyPort.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2950 (KeReleaseSemaphoreEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     AlpcpAvailableBufferSize @ 0x140582068 (AlpcpAvailableBufferSize.c)
  *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
@@ -18,8 +18,8 @@
  *     AlpcpProbeAndCaptureMessageHeader @ 0x14061AE2C (AlpcpProbeAndCaptureMessageHeader.c)
  *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     AlpcpCaptureMessageData @ 0x1406A4228 (AlpcpCaptureMessageData.c)
- *     AlpcpValidateDataInformation @ 0x14084ABB8 (AlpcpValidateDataInformation.c)
+ *     AlpcpCaptureMessageData @ 0x1406A4208 (AlpcpCaptureMessageData.c)
+ *     AlpcpValidateDataInformation @ 0x14084AB98 (AlpcpValidateDataInformation.c)
  */
 
 __int64 __fastcall AlpcpReplyLegacySynchronousRequest(__int64 *a1, __int128 *a2, char a3)

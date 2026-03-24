@@ -1,37 +1,37 @@
 /*
- * XREFs of ExpGetPartitionTableInfo @ 0x1409FCC44
+ * XREFs of ExpGetPartitionTableInfo @ 0x1409508D8
  * Callers:
- *     ExpDiskEnumCallback @ 0x140412090 (ExpDiskEnumCallback.c)
- *     ExpFindDiskSignature @ 0x1409FC6CC (ExpFindDiskSignature.c)
+ *     ExpFindDiskSignature @ 0x140950250 (ExpFindDiskSignature.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)
 {
   NTSTATUS result; // eax
-  __int64 OutputBufferLength; // rsi
-  __int64 i; // rdx
+  SIZE_T OutputBufferLength; // rsi
+  SIZE_T i; // rdx
   NTSTATUS v6; // edi
-  void *OutputBuffer; // rbx
+  PVOID OutputBuffer; // rbx
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-9h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+17h] BYREF
   HANDLE FileHandle; // [rsp+D0h] [rbp+77h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 3u, 0x60u);
@@ -40,7 +40,7 @@ NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)
     LODWORD(OutputBufferLength) = 2352;
     for ( i = 2352LL; ; i = OutputBufferLength )
     {
-      OutputBuffer = (void *)ExAllocatePool2(64LL, i, 1920364101LL);
+      OutputBuffer = ExAllocatePoolWithTag(NonPagedPoolNx, i, 0x72766E45u);
       if ( !OutputBuffer )
       {
         ZwClose(FileHandle);

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C0082A50
+ * XREFs of ?Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C006AC60
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C0084C8C (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
- *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C0084DD8 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00118B4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BB60 (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BC14 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CFlipManager::Close(CFlipManager *this, struct _EPROCESS *a2, void *a3, __int64 a4)

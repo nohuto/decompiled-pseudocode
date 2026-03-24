@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vIFIMetricsToETM@@YAXPEAU_EXTTEXTMETRIC@@AEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_IFIMETRICS@@@Z @ 0x1C02B3514
+ * XREFs of ?vIFIMetricsToETM@@YAXPEAU_EXTTEXTMETRIC@@AEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_IFIMETRICS@@@Z @ 0x1C013F6E4
  * Callers:
- *     NtGdiGetETM @ 0x1C02D5D30 (NtGdiGetETM.c)
+ *     NtGdiGetETM @ 0x1C013F420 (NtGdiGetETM.c)
  * Callees:
- *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVXDCOBJ@@@Z @ 0x1C0083498 (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVXDCOBJ@@@Z.c)
- *     ?vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0085154 (-vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0113DB0 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C028D870 (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0099DF4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     ?vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C009A140 (-vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z.c)
+ *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z @ 0x1C009BFA8 (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVDCOBJ@@@Z.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C013FEDC (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall vIFIMetricsToETM(
@@ -19,9 +19,9 @@ void __fastcall vIFIMetricsToETM(
 {
   __int64 v8; // rdi
   int v9; // ebx
-  int v10; // ebx
+  int v10; // eax
   int v11; // eax
-  int v12; // eax
+  int v12; // ebx
   int v13; // eax
   __int64 v14; // r9
   __int64 v15; // rax
@@ -41,41 +41,41 @@ void __fastcall vIFIMetricsToETM(
   v9 = (*(_DWORD *)(*(_QWORD *)a2 + 324LL) + 8) >> 4;
   if ( (*(_DWORD *)(v8 + 48) & 0x3000010) != 0 )
   {
-    v11 = *(_DWORD *)(*(_QWORD *)a2 + 380LL);
-    if ( v11 == 0x80000000 )
+    v10 = *(_DWORD *)(*(_QWORD *)a2 + 380LL);
+    if ( v10 == 0x80000000 )
     {
       memset(v22, 0, sizeof(v22));
       v23 = 0;
-      EXFORMOBJ::EXFORMOBJ((EXFORMOBJ *)v21, (struct MATRIX *)v22, 8);
+      EXFORMOBJ::EXFORMOBJ((EXFORMOBJ *)v21, (struct MATRIX *)v22, 8u);
       RFONTOBJ::vSetNotionalToDevice(a2, (struct EXFORMOBJ *)v21);
-      v12 = *(__int16 *)(v8 + 56);
+      v11 = *(__int16 *)(v8 + 56);
       LODWORD(v19) = 0;
-      *((float *)&v19 + 1) = (float)v12;
+      *((float *)&v19 + 1) = (float)v11;
       if ( (*(_DWORD *)(v21[0] + 32LL) & 2) == 0 )
         EXFORMOBJ::bXform((EXFORMOBJ *)v21, (struct VECTORFL *)&v19, (struct VECTORFL *)&v19, 1uLL);
       v20 = 0.0;
       EFLOAT::eqLength(&v20, &v18, &v19);
       v18 = 0;
       bFToL(v20, &v18, 0);
-      v10 = v18;
+      v12 = v18;
     }
     else
     {
-      v10 = v9 - v11;
+      v12 = v9 - v10;
     }
   }
   else
   {
-    v10 = v9 - v24;
+    v12 = v9 - v24;
   }
   v19 = *(_QWORD *)(*(_QWORD *)a3 + 48LL);
   v13 = PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v19);
   v14 = v13;
-  v15 = v13 / 2 + 72LL * v10;
-  if ( v15 <= 0x7FFFFFFF )
-    LODWORD(v16) = (int)v15 / (int)v14;
-  else
+  v15 = v13 / 2 + 72LL * v12;
+  if ( v15 > 0x7FFFFFFF )
     v16 = v15 / v14;
+  else
+    LODWORD(v16) = (int)v15 / (int)v14;
   *((_WORD *)a1 + 2) = 0;
   *((_WORD *)a1 + 1) = 20 * v16;
   *((_WORD *)a1 + 3) = *(_WORD *)(v8 + 56);

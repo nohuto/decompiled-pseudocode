@@ -1,34 +1,50 @@
 /*
- * XREFs of ??1CWeakResourceReference@@MEAA@XZ @ 0x180099A50
+ * XREFs of ??1CWeakResourceReference@@MEAA@XZ @ 0x180065334
  * Callers:
- *     ??_ECWeakResourceReference@@MEAAPEAXI@Z @ 0x1800999F0 (--_ECWeakResourceReference@@MEAAPEAXI@Z.c)
+ *     ??_ECWeakResourceReference@@MEAAPEAXI@Z @ 0x1800652F0 (--_ECWeakResourceReference@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?erase@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@QEAA_KAEBQEBVCResource@@@Z @ 0x1800251F8 (-erase@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBV.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?erase@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@2@@Z @ 0x18004E0E4 (-erase@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBV.c)
+ *     ?equal_range@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@std@@V12@@2@AEBQEBVCResource@@@Z @ 0x18004F43C (-equal_range@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compar.c)
+ *     ?clear@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@QEAAXXZ @ 0x1801791AC (-clear@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBV.c)
  */
 
 void __fastcall CWeakResourceReference::~CWeakResourceReference(CWeakResourceReference *this)
 {
-  char *v1; // rdi
-  bool v3; // zf
-  __int64 v4; // rcx
+  _QWORD *v2; // rbx
+  _QWORD *i; // rax
+  __int64 v4; // r8
+  _QWORD *v5; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD *v6; // [rsp+28h] [rbp-10h]
+  __int64 v7; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = (char *)this + 16;
-  v3 = *((_QWORD *)this + 2) == 0LL;
   *(_QWORD *)this = &CWeakResourceReference::`vftable';
-  if ( !v3 )
+  if ( *((_QWORD *)this + 2) )
   {
-    std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::erase(
-      (__int64)this,
-      (__int64)this + 16);
-    *(_DWORD *)(*(_QWORD *)v1 + 32LL) &= ~8u;
+    v7 = *((_QWORD *)this + 2);
+    std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::equal_range(
+      (unsigned __int64)this,
+      &v5,
+      (const unsigned __int8 *)&v7);
+    v2 = v5;
+    for ( i = v5; i != v6; i = (_QWORD *)*i )
+      ;
+    if ( v5 == *(_QWORD **)qword_18034B488 && v6 == (_QWORD *)qword_18034B488 )
+    {
+      std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::clear();
+    }
+    else
+    {
+      while ( v2 != v6 )
+      {
+        v4 = (__int64)v2;
+        v2 = (_QWORD *)*v2;
+        std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::erase(
+          &CWeakResourceReference::s_weakReferenceMap,
+          (__int64)&v7,
+          v4);
+      }
+    }
+    *(_DWORD *)(*((_QWORD *)this + 2) + 32LL) &= ~8u;
   }
-  v4 = *((_QWORD *)this + 3);
-  if ( v4 )
-  {
-    std::_Deallocate<16,0>(v4, (*((_QWORD *)this + 5) - v4) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 3) = 0LL;
-    *((_QWORD *)this + 4) = 0LL;
-    *((_QWORD *)this + 5) = 0LL;
-  }
+  std::vector<CResource *>::_Tidy((char *)this + 24);
 }

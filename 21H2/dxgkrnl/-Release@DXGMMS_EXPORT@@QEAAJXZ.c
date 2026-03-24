@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Release@DXGMMS_EXPORT@@QEAAJXZ @ 0x1C0317F2C
+ * XREFs of ?Release@DXGMMS_EXPORT@@QEAAJXZ @ 0x1C0276C4C
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0308FE4 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268200 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall DXGMMS_EXPORT::Release(DXGMMS_EXPORT *this)

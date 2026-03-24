@@ -4,13 +4,13 @@
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B44 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140859178 (MiAllocateEnclaveVad.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
  * Callees:
  *     MiFindEmptyAddressRange @ 0x1405F2500 (MiFindEmptyAddressRange.c)
- *     MiFindEmptyAddressRangeDown @ 0x140698D70 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRangeDown @ 0x140698D50 (MiFindEmptyAddressRangeDown.c)
  */
 
 __int64 __fastcall MiSelectUserAddress(

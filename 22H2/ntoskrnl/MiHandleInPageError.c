@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHandleInPageError @ 0x140334FDC
+ * XREFs of MiHandleInPageError @ 0x1402FB5D4
  * Callers:
- *     MiHardFaultPageRelease @ 0x140334C08 (MiHardFaultPageRelease.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C334 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiFinishHardFault @ 0x140239200 (MiFinishHardFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FCB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
  * Callees:
- *     MiRestoreTransitionPte @ 0x14033501C (MiRestoreTransitionPte.c)
+ *     MiRestoreTransitionPte @ 0x1402FB620 (MiRestoreTransitionPte.c)
  */
 
 __int64 __fastcall MiHandleInPageError(ULONG_PTR a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiScaleViewportExtEx @ 0x1C02B5B00
+ * XREFs of NtGdiScaleViewportExtEx @ 0x1C02B79F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C014F598 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C012D378 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiScaleViewportExtEx(HDC a1, int a2, int a3, int a4, int a5, ULONG64 a6)

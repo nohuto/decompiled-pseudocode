@@ -1,142 +1,148 @@
 /*
- * XREFs of ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C009C1D0
+ * XREFs of ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0075E00
  * Callers:
- *     VidMmCreateProcess @ 0x1C0005530 (VidMmCreateProcess.c)
+ *     VidMmCreateProcess @ 0x1C00022F0 (VidMmCreateProcess.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00055A8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C00055CC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
- *     ?VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z @ 0x1C0005674 (-VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005FB8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ??0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z @ 0x1C009CC98 (--0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z.c)
- *     ??0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ @ 0x1C009CD08 (--0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ.c)
- *     ??0VIDMM_PROCESS_HEAP@@QEAA@XZ @ 0x1C0102C74 (--0VIDMM_PROCESS_HEAP@@QEAA@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z @ 0x1C000204C (-VidMmiOpenCurrentPartition@@YAJPEAVVIDMM_PROCESS@@PEAPEAUVIDMM_PARTITION@@@Z.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C000229C (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00022C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ??0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ @ 0x1C0078478 (--0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ.c)
+ *     ??0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z @ 0x1C0078A10 (--0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z.c)
+ *     ??0VIDMM_PROCESS_HEAP@@QEAA@XZ @ 0x1C00CA168 (--0VIDMM_PROCESS_HEAP@@QEAA@XZ.c)
  */
 
-__int64 __fastcall VIDMM_PROCESS::Init(struct VIDMM_PARTITION **this, struct DXGPROCESS *a2)
+__int64 __fastcall VIDMM_PROCESS::Init(struct _RTL_BALANCED_NODE **this, struct _RTL_BALANCED_NODE *a2)
 {
   unsigned int v2; // ebx
-  int v5; // eax
-  struct VIDMM_PARTITION *v6; // rcx
+  char v5; // al
+  struct _RTL_BALANCED_NODE *v6; // rcx
   VIDMM_PROCESS_FENCE_STORAGE *v7; // rax
-  VIDMM_PROCESS_FENCE_STORAGE *v8; // rax
-  int v9; // eax
-  void *v10; // rax
-  VIDMM_RECYCLE_HEAP_MGR *v11; // rax
-  struct _KPROCESS *v12; // rcx
-  int v13; // ebp
+  __int64 v8; // rcx
+  VIDMM_PROCESS_FENCE_STORAGE *v9; // rax
+  char v10; // al
+  PVOID v11; // rax
+  __int64 v12; // rcx
+  VIDMM_RECYCLE_HEAP_MGR *v13; // rax
+  struct _KPROCESS *v14; // rcx
+  int v15; // ebp
   DXGGLOBAL *Global; // rax
-  __int64 v15; // rax
-  unsigned __int64 MaximumGlobalAdapterCount; // kr00_8
-  __int64 v17; // rax
-  int v18; // eax
+  unsigned int MaximumAdapterCount; // ebp
+  SIZE_T v18; // rax
+  struct _RTL_BALANCED_NODE *v19; // rax
   __int64 v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // rax
-  VIDMM_PROCESS_HEAP *v23; // rax
-  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-48h] BYREF
+  int v21; // eax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  VIDMM_PROCESS_HEAP *v26; // rax
+  struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-48h] BYREF
 
   v2 = 0;
   if ( g_IsInternalReleaseOrDbg )
     *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = this;
-  v5 = *((_DWORD *)a2 + 106);
-  if ( (v5 & 0x100) != 0 )
+  v5 = BYTE3(a2[14].Right);
+  if ( (v5 & 0x20) != 0 )
   {
-    v6 = *(struct VIDMM_PARTITION **)(*((_QWORD *)a2 + 76) + 624LL);
+    v6 = *(struct _RTL_BALANCED_NODE **)(a2[20].ParentValue + 512);
   }
-  else if ( (v5 & 0x80u) != 0 )
+  else if ( (v5 & 0x10) != 0 )
   {
-    v6 = (struct VIDMM_PARTITION *)*((_QWORD *)a2 + 78);
+    v6 = a2[21].Children[1];
   }
   else
   {
-    v6 = (struct VIDMM_PARTITION *)*((_QWORD *)a2 + 7);
+    v6 = a2[2].Children[1];
   }
   *this = v6;
-  this[1] = *(struct VIDMM_PARTITION **)(*((_QWORD *)a2 + 8) + 80LL);
+  this[1] = *(struct _RTL_BALANCED_NODE **)(a2[2].ParentValue + 72);
   this[4] = a2;
-  v7 = (VIDMM_PROCESS_FENCE_STORAGE *)operator new(72LL, 0x34346956u, 64LL);
+  v7 = (VIDMM_PROCESS_FENCE_STORAGE *)operator new[](0x48uLL, 0x34346956u, (POOL_TYPE)512);
   if ( v7 )
-    v8 = VIDMM_PROCESS_FENCE_STORAGE::VIDMM_PROCESS_FENCE_STORAGE(v7, (struct VIDMM_PROCESS *)this);
+    v9 = VIDMM_PROCESS_FENCE_STORAGE::VIDMM_PROCESS_FENCE_STORAGE(v7, (struct VIDMM_PROCESS *)this);
   else
-    v8 = 0LL;
-  this[5] = v8;
-  if ( !v8 )
+    v9 = 0LL;
+  this[5] = (struct _RTL_BALANCED_NODE *)v9;
+  if ( !v9 )
   {
-    _InterlockedIncrement(&dword_1C00767F8);
-    WdLogSingleEntry1(6LL, 218LL);
+    _InterlockedIncrement(&dword_1C00506E8);
+    v23 = WdLogNewEntry5_WdLowResource(v8);
+    *(_QWORD *)(v23 + 24) = 218LL;
 LABEL_29:
-    DxgkLogInternalTriageEvent(v20, 262145LL);
+    WdLogEvent5_WdLowResource(v23);
     return 3221225495LL;
   }
-  v9 = *((_DWORD *)a2 + 106);
-  if ( (v9 & 0x100) != 0 )
+  v10 = BYTE3(a2[14].Right);
+  if ( (v10 & 0x20) != 0 )
   {
-    v21 = *(_QWORD *)(*((_QWORD *)a2 + 76) + 64LL);
-    if ( v21 )
-      v22 = *(_QWORD *)(v21 + 8);
+    v24 = *(_QWORD *)(a2[20].ParentValue + 64);
+    if ( v24 )
+      v25 = *(_QWORD *)(v24 + 8);
     else
-      v22 = 0LL;
-    this[3] = *(struct VIDMM_PARTITION **)(v22 + 24);
+      v25 = 0LL;
+    this[3] = *(struct _RTL_BALANCED_NODE **)(v25 + 24);
     goto LABEL_15;
   }
-  if ( !dword_1C0076478 && (v9 & 0x80) == 0 )
+  if ( !dword_1C00503C8 && (v10 & 0x10) == 0 )
   {
-    v23 = (VIDMM_PROCESS_HEAP *)operator new(320LL, 0x30316956u, 64LL);
-    if ( v23 )
+    v26 = (VIDMM_PROCESS_HEAP *)operator new[](0x140uLL, 0x30316956u, (POOL_TYPE)512);
+    if ( v26 )
     {
-      v11 = VIDMM_PROCESS_HEAP::VIDMM_PROCESS_HEAP(v23);
+      v13 = VIDMM_PROCESS_HEAP::VIDMM_PROCESS_HEAP(v26);
       goto LABEL_13;
     }
 LABEL_37:
-    v11 = 0LL;
+    v13 = 0LL;
     goto LABEL_13;
   }
-  v10 = (void *)operator new(1696LL, 0x30316956u, 64LL);
-  if ( !v10 )
-    goto LABEL_37;
-  v11 = VIDMM_RECYCLE_HEAP_MGR::VIDMM_RECYCLE_HEAP_MGR(v10);
-LABEL_13:
-  this[3] = v11;
+  v11 = operator new[](0x698uLL, 0x30316956u, (POOL_TYPE)512);
   if ( !v11 )
+    goto LABEL_37;
+  v13 = VIDMM_RECYCLE_HEAP_MGR::VIDMM_RECYCLE_HEAP_MGR(v11);
+LABEL_13:
+  this[3] = (struct _RTL_BALANCED_NODE *)v13;
+  if ( !v13 )
   {
-    _InterlockedIncrement(&dword_1C0076844);
-    WdLogSingleEntry1(6LL, 253LL);
+    _InterlockedIncrement(&dword_1C0050734);
+    v23 = WdLogNewEntry5_WdLowResource(v12);
+    *(_QWORD *)(v23 + 24) = 253LL;
     goto LABEL_29;
   }
-  v12 = *this;
+  v14 = (struct _KPROCESS *)*this;
   memset(&ApcState, 0, sizeof(ApcState));
-  KeStackAttachProcess(v12, &ApcState);
-  v13 = (*(__int64 (__fastcall **)(struct VIDMM_PARTITION *, struct VIDMM_PARTITION **))(*(_QWORD *)this[3] + 8LL))(
+  KeStackAttachProcess(v14, &ApcState);
+  v15 = ((__int64 (__fastcall *)(struct _RTL_BALANCED_NODE *, struct _RTL_BALANCED_NODE **))this[3]->Children[0]->Children[1])(
           this[3],
           this);
   KeUnstackDetachProcess(&ApcState);
-  if ( v13 < 0 )
-    return (unsigned int)v13;
+  if ( v15 < 0 )
+    return (unsigned int)v15;
 LABEL_15:
   Global = DXGGLOBAL::GetGlobal();
-  MaximumGlobalAdapterCount = (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(Global);
-  v15 = 8 * MaximumGlobalAdapterCount;
-  if ( !is_mul_ok(MaximumGlobalAdapterCount, 8uLL) )
-    v15 = -1LL;
-  v17 = operator new[](v15, 0x33316956u, 256LL);
-  this[2] = (struct VIDMM_PARTITION *)v17;
-  if ( !v17 )
+  MaximumAdapterCount = DXGGLOBAL::GetMaximumAdapterCount(Global);
+  v18 = 8LL * MaximumAdapterCount;
+  if ( !is_mul_ok(MaximumAdapterCount, 8uLL) )
+    v18 = -1LL;
+  v19 = (struct _RTL_BALANCED_NODE *)operator new[](v18, 0x33316956u, PagedPool);
+  this[2] = v19;
+  if ( !v19 )
   {
-    _InterlockedIncrement(&dword_1C00767E8);
-    WdLogSingleEntry1(6LL, 288LL);
+    _InterlockedIncrement(&dword_1C00506D8);
+    v23 = WdLogNewEntry5_WdLowResource(v20);
+    *(_QWORD *)(v23 + 24) = 288LL;
     goto LABEL_29;
   }
-  if ( (*((_DWORD *)a2 + 106) & 2) != 0 )
+  memset(v19, 0, 8LL * MaximumAdapterCount);
+  if ( BYTE1(a2[14].Right) )
   {
     *((_DWORD *)this + 24) |= 2u;
     g_pVidMmSystemProcess = (VIDMM_PROCESS *)this;
   }
-  v18 = VidMmiOpenCurrentPartition((struct VIDMM_PROCESS *)this, this + 36);
-  if ( v18 < 0 )
-    return (unsigned int)v18;
+  v21 = VidMmiOpenCurrentPartition((struct VIDMM_PROCESS *)this, this + 36);
+  if ( v21 < 0 )
+    return (unsigned int)v21;
   return v2;
 }

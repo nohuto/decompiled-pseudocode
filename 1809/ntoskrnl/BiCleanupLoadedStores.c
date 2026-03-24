@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCleanupLoadedStores @ 0x1407116D0
+ * XREFs of BiCleanupLoadedStores @ 0x1407116B0
  * Callers:
- *     BiOpenSystemStore @ 0x140712C24 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     wcstoul @ 0x140197CA0 (wcstoul.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     wcstoul @ 0x140197CC0 (wcstoul.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdForciblyUnloadStore @ 0x1406E173C (BcdForciblyUnloadStore.c)
- *     BiUnloadHiveByHandle @ 0x1406E17D0 (BiUnloadHiveByHandle.c)
- *     BiIsWinPEBoot @ 0x14071220C (BiIsWinPEBoot.c)
- *     BiIsSystemStore @ 0x1407127C8 (BiIsSystemStore.c)
- *     BiEnumerateSubKeys @ 0x140712944 (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x1407137A0 (BiOpenKey.c)
- *     BiCloseKey @ 0x140713910 (BiCloseKey.c)
- *     BiOpenKeyNonBcd @ 0x140714BF8 (BiOpenKeyNonBcd.c)
+ *     BcdForciblyUnloadStore @ 0x1406E171C (BcdForciblyUnloadStore.c)
+ *     BiUnloadHiveByHandle @ 0x1406E17B0 (BiUnloadHiveByHandle.c)
+ *     BiIsWinPEBoot @ 0x1407121EC (BiIsWinPEBoot.c)
+ *     BiIsSystemStore @ 0x1407127A8 (BiIsSystemStore.c)
+ *     BiEnumerateSubKeys @ 0x140712924 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
+ *     BiOpenKeyNonBcd @ 0x140714BD8 (BiOpenKeyNonBcd.c)
  */
 
 void __fastcall BiCleanupLoadedStores(char a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of NormBuffer__AppendEx @ 0x1405ED158
+ * XREFs of NormBuffer__AppendEx @ 0x14058DAF8
  * Callers:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1405ED0E8 (NormBuffer__AppendAndSortDecomposed.c)
- *     Normalization__NormalizeCharacter @ 0x1409BDBFC (Normalization__NormalizeCharacter.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x14058DA88 (NormBuffer__AppendAndSortDecomposed.c)
+ *     Normalization__NormalizeCharacter @ 0x140918590 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__Append @ 0x1405ED07C (NormBuffer__Append.c)
+ *     NormBuffer__Append @ 0x14058DA1C (NormBuffer__Append.c)
  */
 
 char __fastcall NormBuffer__AppendEx(__int64 a1, int a2, char a3, char a4)

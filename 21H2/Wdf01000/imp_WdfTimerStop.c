@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfTimerStop @ 0x1C00036A0
+ * XREFs of imp_WdfTimerStop @ 0x1C000D540
  * Callers:
  *     <none>
  * Callees:
- *     ?Stop@FxTimer@@QEAAEE@Z @ 0x1C0003728 (-Stop@FxTimer@@QEAAEE@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?Stop@FxTimer@@QEAAEE@Z @ 0x1C000D5C8 (-Stop@FxTimer@@QEAAEE@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 unsigned __int8 __fastcall imp_WdfTimerStop(
@@ -20,7 +20,7 @@ unsigned __int8 __fastcall imp_WdfTimerStop(
 
   pFxTimer = 0LL;
   if ( !Timer )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1028uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1028uLL);
   LOWORD(Offset) = 0;
   v5 = (FxTimer *)(~Timer & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Timer & 1) != 0 )
@@ -39,7 +39,7 @@ unsigned __int8 __fastcall imp_WdfTimerStop(
   }
   if ( !Wait )
     return FxTimer::Stop(v5, Wait);
-  if ( FxVerifierCheckIrqlLevel(v5->m_Globals, 0) >= 0 )
+  if ( (int)FxVerifierCheckIrqlLevel(v5->m_Globals, 0) >= 0 )
   {
     v5 = pFxTimer;
     return FxTimer::Stop(v5, Wait);

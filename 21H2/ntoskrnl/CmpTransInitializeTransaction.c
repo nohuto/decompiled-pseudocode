@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpTransInitializeTransaction @ 0x140741B7C
+ * XREFs of CmpTransInitializeTransaction @ 0x1407670BC
  * Callers:
- *     CmpTransSearchAddTrans @ 0x14067F520 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x140766E2C (CmpTransSearchAddTrans.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     CmpTransSearchAddTransFromRm @ 0x14067F2D4 (CmpTransSearchAddTransFromRm.c)
- *     CmpTransDereferenceTransaction @ 0x14067F788 (CmpTransDereferenceTransaction.c)
- *     CmpTransReferenceTransaction @ 0x14067F7A4 (CmpTransReferenceTransaction.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     CmpAccountForLogReservation @ 0x14074244C (CmpAccountForLogReservation.c)
- *     CmTmCreateEnlistment @ 0x1407428FC (CmTmCreateEnlistment.c)
- *     CmpStartRMLogs @ 0x140742980 (CmpStartRMLogs.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     CmpTransReferenceTransaction @ 0x1406A3280 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140766DB4 (CmpTransSearchAddTransFromRm.c)
+ *     CmpAccountForLogReservation @ 0x140767230 (CmpAccountForLogReservation.c)
+ *     CmTmCreateEnlistment @ 0x1407672E0 (CmTmCreateEnlistment.c)
+ *     CmpStartRMLogs @ 0x140767364 (CmpStartRMLogs.c)
  */
 
 __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)
@@ -74,7 +74,7 @@ __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)
     *(_DWORD *)(a1 + 48) = v3;
     --CmpTransactionInitializingCount;
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     _InterlockedOr(v11, 0);
     if ( CmpTransactionInitializingEvent )
       ExfUnblockPushLock(&CmpTransactionInitializingEvent, 0LL);
@@ -82,7 +82,7 @@ __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)
   }
   started = -1072103422;
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 LABEL_16:
   if ( v1 )
     CmpTransDereferenceTransaction(v1);

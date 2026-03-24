@@ -1,9 +1,9 @@
 /*
- * XREFs of rimPredictionPolicyUpdateStateAndApply @ 0x1C01B18C4
+ * XREFs of rimPredictionPolicyUpdateStateAndApply @ 0x1C017C110
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E70E4 (rimApplyPointerDevicePolicies.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0179080 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     ApiSetDoPrediction @ 0x1C0205C70 (ApiSetDoPrediction.c)
+ *     ApiSetDoPrediction @ 0x1C01CA598 (ApiSetDoPrediction.c)
  */
 
 __int64 __fastcall rimPredictionPolicyUpdateStateAndApply(__int64 a1, __int64 a2, int a3, int a4)
@@ -14,7 +14,7 @@ __int64 __fastcall rimPredictionPolicyUpdateStateAndApply(__int64 a1, __int64 a2
   int v8; // ecx
   int v9; // edx
 
-  if ( a4 || (*(_DWORD *)(a1 + 360) & 8) != 0 || (v5 = 1, (unsigned int)(*(_DWORD *)(a1 + 24) - 1) > 3) )
+  if ( a4 || (*(_DWORD *)(a1 + 312) & 8) != 0 || (v5 = 1, (unsigned int)(*(_DWORD *)(a1 + 24) - 1) > 3) )
     v5 = 0;
   v6 = (_DWORD *)(a2 + 2440);
   if ( v5 )

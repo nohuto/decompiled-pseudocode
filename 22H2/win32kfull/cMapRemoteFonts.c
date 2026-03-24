@@ -1,199 +1,193 @@
 /*
- * XREFs of cMapRemoteFonts @ 0x1C028BBA0
+ * XREFs of cMapRemoteFonts @ 0x1C028A208
  * Callers:
- *     GreAddFontMemResourceEx @ 0x1C028B7DC (GreAddFontMemResourceEx.c)
- *     NtGdiAddRemoteFontToDC @ 0x1C028B900 (NtGdiAddRemoteFontToDC.c)
+ *     GreAddFontMemResourceEx @ 0x1C0289E28 (GreAddFontMemResourceEx.c)
+ *     NtGdiAddRemoteFontToDC @ 0x1C0289F40 (NtGdiAddRemoteFontToDC.c)
  * Callees:
- *     ?MmMapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAXPEAPEAX_K2PEAT_LARGE_INTEGER@@PEA_KW4_SECTION_INHERIT@@KK4@Z @ 0x1C0079A68 (-MmMapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAXPEAPEAX_K2PEAT_LARGE_INTEGER@@PEA_KW4_SECTIO.c)
- *     Win32CreateSection @ 0x1C009E0EC (Win32CreateSection.c)
- *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0113620 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A7310 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?MmMapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAXPEAPEAX_K2PEAT_LARGE_INTEGER@@PEA_KW4_SECTION_INHERIT@@KK4@Z @ 0x1C00A8208 (-MmMapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAXPEAPEAX_K2PEAT_LARGE_INTEGER@@PEA_KW4_SECTIO.c)
+ *     Win32CreateSection @ 0x1C0122E70 (Win32CreateSection.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall cMapRemoteFonts(unsigned __int64 *a1, unsigned int a2, __int64 a3, int a4)
 {
   unsigned __int64 v6; // rsi
   unsigned __int64 v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  unsigned int v10; // r14d
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
+  unsigned int v8; // r14d
+  unsigned int v9; // r12d
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
   __int64 CurrentProcess; // rax
-  __int64 v15; // rdx
-  char *v16; // rcx
-  __int64 v17; // r8
-  _DWORD *v19; // r12
-  _DWORD *v20; // r15
-  __int64 v21; // rax
+  __int64 v14; // rdx
+  char *v15; // rcx
+  __int64 v16; // r8
+  _DWORD *v18; // r15
+  __int64 v19; // rax
+  _DWORD *v20; // rcx
+  _DWORD *v21; // rcx
   _DWORD *v22; // rcx
-  _DWORD *v23; // rcx
-  _DWORD *v24; // rcx
-  ULONG64 v25; // rcx
-  ULONG64 v26; // rdx
+  ULONG64 v23; // rcx
+  ULONG64 v24; // rdx
+  _DWORD *v25; // rcx
+  _DWORD *v26; // r8
   _DWORD *v27; // rcx
-  __int64 v28; // r8
-  _DWORD *v29; // rcx
-  unsigned int v30; // r15d
-  __int64 v31; // rax
-  __int64 v32; // rcx
-  unsigned __int64 v33; // r12
-  int v34; // ebx
-  __int64 v35; // r8
-  char *v36; // rbx
-  int v37; // ecx
-  union _LARGE_INTEGER *v38; // [rsp+20h] [rbp-C8h]
-  enum _SECTION_INHERIT v39; // [rsp+30h] [rbp-B8h]
-  unsigned int v40; // [rsp+38h] [rbp-B0h]
-  unsigned int v41; // [rsp+40h] [rbp-A8h]
+  __int64 v28; // rax
+  unsigned __int64 v29; // r15
+  int v30; // ebx
+  __int64 v31; // r8
+  char *v32; // rbx
+  int v33; // ecx
+  enum _SECTION_INHERIT v34; // [rsp+30h] [rbp-B8h]
+  unsigned int v35; // [rsp+38h] [rbp-B0h]
+  unsigned int v36; // [rsp+40h] [rbp-A8h]
   PVOID Object; // [rsp+58h] [rbp-90h] BYREF
-  int v43; // [rsp+60h] [rbp-88h]
-  void *v44; // [rsp+68h] [rbp-80h] BYREF
-  unsigned __int64 v45; // [rsp+70h] [rbp-78h] BYREF
-  int v46; // [rsp+78h] [rbp-70h]
-  unsigned __int64 v47; // [rsp+80h] [rbp-68h] BYREF
-  int v48; // [rsp+88h] [rbp-60h]
-  void *v49; // [rsp+90h] [rbp-58h]
-  union _LARGE_INTEGER v50; // [rsp+98h] [rbp-50h] BYREF
-  unsigned __int64 v51[8]; // [rsp+A8h] [rbp-40h] BYREF
+  int v38; // [rsp+60h] [rbp-88h]
+  unsigned int v39; // [rsp+64h] [rbp-84h]
+  void *v40; // [rsp+68h] [rbp-80h] BYREF
+  unsigned __int64 v41; // [rsp+70h] [rbp-78h] BYREF
+  int v42; // [rsp+78h] [rbp-70h]
+  int v43; // [rsp+7Ch] [rbp-6Ch]
+  void *v44; // [rsp+80h] [rbp-68h]
+  union _LARGE_INTEGER v45; // [rsp+88h] [rbp-60h] BYREF
+  unsigned __int64 v46[3]; // [rsp+90h] [rbp-58h] BYREF
+  _DWORD *v47; // [rsp+A8h] [rbp-40h]
 
   v6 = a2;
-  v48 = a4;
-  v46 = 0;
+  v43 = a4;
+  v42 = 0;
   v7 = *a1;
-  v47 = *a1;
+  v46[2] = *a1;
   *a1 = 0LL;
   if ( a2 - 12 > 0xFFFFFF4 )
     return 0LL;
   Object = 0LL;
-  v44 = 0LL;
+  v40 = 0LL;
   if ( !a3 )
     return 0LL;
-  memset_0((void *)a3, 0, 0x78uLL);
+  memset((void *)a3, 0, 0x78uLL);
   if ( a4 == 1 )
   {
     if ( (v7 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = *(_DWORD *)(v7 + 4);
-    if ( v10 > 3 || (unsigned int)v6 > 0x10000000 || v7 < 0x10000 || v7 > (unsigned __int64)MmHighestUserAddress )
+    v8 = *(_DWORD *)(v7 + 4);
+    if ( v8 > 3 || (unsigned int)v6 > 0x10000000 || v7 < 0x10000 || v7 > (unsigned __int64)MmHighestUserAddress )
       return 0LL;
-    if ( !v10 )
+    if ( !v8 )
     {
-      v46 = 1;
-      v10 = 2;
+      v42 = 1;
+      v8 = 2;
     }
   }
   else
   {
-    v10 = 1;
+    v8 = 1;
   }
-  if ( (unsigned int)v6 < ((4 * v10 + 15) & 0xFFFFFFF8) )
+  v9 = (4 * v8 + 15) & 0xFFFFFFF8;
+  v39 = v9;
+  if ( (unsigned int)v6 < v9 )
     return 0LL;
-  v51[0] = v6;
-  if ( (int)Win32CreateSection(&Object, v8, v9, (__int64)v51, (__int64)v38, 0x8000000) < 0 )
+  v46[1] = v6;
+  if ( (int)Win32CreateSection(&Object) < 0 )
     return 0LL;
-  v50.QuadPart = 0LL;
-  v45 = v6;
-  CurrentProcess = PsGetCurrentProcess(v12, v11, v13);
-  if ( (int)MmMapViewOfSection(Object, CurrentProcess, &v44, 0LL, v6, &v50, &v45, 2, 0x400000, 4) < 0 )
+  v45.QuadPart = 0LL;
+  v41 = v6;
+  CurrentProcess = PsGetCurrentProcess(v11, v10, v12);
+  if ( (int)MmMapViewOfSection(Object, CurrentProcess, &v40, 0LL, v41, &v45, &v41, 2, 0x400000, 4) < 0 )
   {
 LABEL_16:
     ObfDereferenceObject(Object);
     return 0LL;
   }
-  v19 = v44;
-  v49 = v44;
-  v20 = v44;
-  if ( (unsigned __int64)v44 > v7 )
+  v18 = v40;
+  v44 = v40;
+  v47 = v40;
+  if ( (unsigned __int64)v40 > v7 )
     goto LABEL_21;
-  v16 = (char *)v44 + v45;
-  if ( v7 < (unsigned __int64)v44 + v45 )
+  v15 = (char *)v40 + v41;
+  if ( v7 < (unsigned __int64)v40 + v41 )
   {
 LABEL_22:
-    v21 = PsGetCurrentProcess(v16, v15, v17);
-    MmUnmapViewOfSection(v21, v19);
+    v19 = PsGetCurrentProcess(v15, v14, v16);
+    MmUnmapViewOfSection(v19, v18);
     goto LABEL_16;
   }
-  if ( (unsigned __int64)v44 >= v7 )
+  if ( (unsigned __int64)v40 >= v7 )
   {
 LABEL_21:
-    if ( (unsigned __int64)v44 < v7 + v6 )
+    if ( (unsigned __int64)v40 < v7 + v6 )
       goto LABEL_22;
   }
   if ( a4 == 2 )
   {
     LODWORD(v6) = v6 - 16;
-    v44 = (char *)v44 + 16;
-    v22 = v19;
-    if ( (unsigned __int64)v19 >= MmUserProbeAddress )
+    v40 = (char *)v40 + 16;
+    v20 = v18;
+    if ( (unsigned __int64)v18 >= MmUserProbeAddress )
+      v20 = (_DWORD *)MmUserProbeAddress;
+    *v20 = 0;
+    v21 = v18 + 1;
+    if ( (unsigned __int64)(v18 + 1) >= MmUserProbeAddress )
+      v21 = (_DWORD *)MmUserProbeAddress;
+    *v21 = v8;
+    v22 = v18 + 2;
+    if ( (unsigned __int64)(v18 + 2) >= MmUserProbeAddress )
       v22 = (_DWORD *)MmUserProbeAddress;
-    *v22 = 0;
-    v23 = v19 + 1;
-    if ( (unsigned __int64)(v19 + 1) >= MmUserProbeAddress )
-      v23 = (_DWORD *)MmUserProbeAddress;
-    *v23 = v10;
-    v24 = v19 + 2;
-    if ( (unsigned __int64)(v19 + 2) >= MmUserProbeAddress )
-      v24 = (_DWORD *)MmUserProbeAddress;
-    *v24 = v6;
-    v43 = 1;
+    *v22 = v6;
+    v38 = 1;
   }
   if ( (_DWORD)v6 )
   {
-    v25 = v7 + (unsigned int)v6;
-    if ( v25 > MmUserProbeAddress || v25 < v7 )
+    v23 = v7 + (unsigned int)v6;
+    if ( v23 > MmUserProbeAddress || v23 < v7 )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  memmove(v44, (const void *)v7, (unsigned int)v6);
-  v43 = 1;
-  if ( v46 )
+  memmove(v40, (const void *)v7, (unsigned int)v6);
+  v38 = 1;
+  if ( v42 )
   {
-    v26 = MmUserProbeAddress;
-    v29 = v20;
-    if ( (unsigned __int64)v20 >= MmUserProbeAddress )
-      v29 = (_DWORD *)MmUserProbeAddress;
-    *v29 = 0;
-    v27 = v20 + 1;
-    if ( (unsigned __int64)(v20 + 1) >= MmUserProbeAddress )
+    v24 = MmUserProbeAddress;
+    v26 = v47;
+    v27 = v47;
+    if ( (unsigned __int64)v47 >= MmUserProbeAddress )
       v27 = (_DWORD *)MmUserProbeAddress;
-    *v27 = v10;
-    v30 = (4 * v10 + 15) & 0xFFFFFFF8;
+    *v27 = 0;
+    v25 = v26 + 1;
+    if ( (unsigned __int64)(v26 + 1) >= MmUserProbeAddress )
+      v25 = (_DWORD *)MmUserProbeAddress;
+    *v25 = v8;
   }
-  else
-  {
-    v30 = (4 * v10 + 15) & 0xFFFFFFF8;
-  }
-  v31 = PsGetCurrentProcess(v27, v26, v28);
-  if ( (int)MmUnmapViewOfSection(v31, v19) < 0 )
+  v28 = PsGetCurrentProcess(v25, v24, v26);
+  if ( (int)MmUnmapViewOfSection(v28, v18) < 0 )
     goto LABEL_16;
-  v44 = 0LL;
-  v45 = 0LL;
-  v50.QuadPart = 0LL;
-  v33 = 0LL;
-  v47 = 0LL;
-  v34 = -1073741823;
-  if ( UmfdHostLifeTimeManager::EnsureUmfdHost(v32) )
+  v40 = 0LL;
+  v41 = 0LL;
+  v45.QuadPart = 0LL;
+  v29 = 0LL;
+  v46[0] = 0LL;
+  v30 = -1073741823;
+  if ( UmfdHostLifeTimeManager::EnsureUmfdHost() )
   {
-    v34 = UmfdHostLifeTimeManager::MmMapViewOfSection(Object, &v44, v35, v45, &v50, &v45, v39, v40, v41, &v47);
-    v33 = v47;
+    v30 = UmfdHostLifeTimeManager::MmMapViewOfSection(Object, &v40, v31, v41, &v45, &v41, v34, v35, v36, v46);
+    v29 = v46[0];
   }
-  if ( v34 < 0 )
+  if ( v30 < 0 )
     goto LABEL_16;
-  v36 = (char *)v44;
-  *(_QWORD *)(a3 + 104) = v44;
-  *(_QWORD *)(a3 + 16) = &v36[v30];
-  v37 = v6 + 16;
-  if ( v48 != 2 )
-    v37 = v6;
-  *(_DWORD *)(a3 + 24) = v37 - v30;
-  *(_QWORD *)(a3 + 88) = v45;
+  v32 = (char *)v40;
+  *(_QWORD *)(a3 + 104) = v40;
+  *(_QWORD *)(a3 + 16) = &v32[v9];
+  v33 = v6 + 16;
+  if ( v43 != 2 )
+    v33 = v6;
+  *(_DWORD *)(a3 + 24) = v33 - v9;
+  *(_QWORD *)(a3 + 88) = v41;
   *(_DWORD *)(a3 + 96) = 0;
   *(_DWORD *)(a3 + 100) = 1;
   *(_QWORD *)(a3 + 32) = Object;
   *(_DWORD *)(a3 + 112) = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
-  *(_QWORD *)(a3 + 72) = v33;
-  *a1 = (unsigned __int64)v36;
-  return v10;
+  *(_QWORD *)(a3 + 72) = v29;
+  *a1 = (unsigned __int64)v32;
+  return v8;
 }

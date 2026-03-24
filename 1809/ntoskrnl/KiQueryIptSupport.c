@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiXSavesManagesIpt @ 0x140294954 (KiXSavesManagesIpt.c)
+ *     KiXSavesManagesIpt @ 0x140294A54 (KiXSavesManagesIpt.c)
  */
 
 __int64 __fastcall KiQueryIptSupport(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentProcess @ 0x1400F1310
+ * XREFs of PsGetCurrentProcess @ 0x1400F1330
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
@@ -13,16 +13,16 @@
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiIsPageTableLocked @ 0x14012D9FC (MiIsPageTableLocked.c)
- *     KiLockExtendedServiceTable @ 0x14019F848 (KiLockExtendedServiceTable.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
+ *     KiLockExtendedServiceTable @ 0x14019F868 (KiLockExtendedServiceTable.c)
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     PopAvlGetPowerRequestKey @ 0x1405891B4 (PopAvlGetPowerRequestKey.c)
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

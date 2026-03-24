@@ -1,243 +1,211 @@
 /*
- * XREFs of xxxGetScrollBarInfo @ 0x1C00C73CC
+ * XREFs of xxxGetScrollBarInfo @ 0x1C00629F0
  * Callers:
- *     NtUserGetScrollBarInfo @ 0x1C00C71F0 (NtUserGetScrollBarInfo.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     NtUserGetScrollBarInfo @ 0x1C0060B90 (NtUserGetScrollBarInfo.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     unsafe_cast_fnid_or_class_to_PSBWND @ 0x1C00C77B8 (unsafe_cast_fnid_or_class_to_PSBWND.c)
- *     GetWndSBDisableFlags @ 0x1C00C7848 (GetWndSBDisableFlags.c)
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     GetRect @ 0x1C00C7BD0 (GetRect.c)
- *     CalcSBStuff2 @ 0x1C00C7CF4 (CalcSBStuff2.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     Feature_Backport_ScrollbarApiCallsOnServerWindows__private_IsEnabledDeviceUsage @ 0x1C013CAD8 (Feature_Backport_ScrollbarApiCallsOnServerWindows__private_IsEnabledDeviceUsage.c)
- *     GetScrollbarObjectIdString @ 0x1C013D950 (GetScrollbarObjectIdString.c)
- *     WPP_RECORDER_AND_TRACE_SF_qsls @ 0x1C013D98C (WPP_RECORDER_AND_TRACE_SF_qsls.c)
- *     GetFnidString @ 0x1C013DE70 (GetFnidString.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     unsafe_cast_fnid_or_class_to_PSBWND @ 0x1C0062C1C (unsafe_cast_fnid_or_class_to_PSBWND.c)
+ *     CalcSBStuff2 @ 0x1C0063AB4 (CalcSBStuff2.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     GetRect @ 0x1C0063E88 (GetRect.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall xxxGetScrollBarInfo(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3)
+__int64 __fastcall xxxGetScrollBarInfo(unsigned __int64 a1, int a2, __int64 a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  unsigned int v8; // r13d
-  PDEVICE_OBJECT v9; // rdi
-  char v10; // r14
-  int v11; // edx
-  int v12; // r8d
-  __int64 v13; // rax
-  __int64 v14; // rdi
-  int v16; // r15d
-  ULONG_PTR v17; // r10
-  int v18; // r9d
-  int v19; // edx
-  int v20; // r11d
-  int v21; // r8d
-  char v22; // cl
-  ULONG_PTR v23; // rdi
-  __int64 v24; // rdx
-  int v25; // ecx
-  __int64 v26; // rdx
-  int v27; // edx
-  _DWORD *v28; // rax
-  int v29; // edx
-  int v30; // ecx
-  int v31; // eax
-  int v32; // ecx
-  int v33; // edx
-  __int128 v34; // [rsp+68h] [rbp-19h] BYREF
-  _BYTE v35[16]; // [rsp+78h] [rbp-9h] BYREF
-  int v36; // [rsp+88h] [rbp+7h]
-  int v37; // [rsp+8Ch] [rbp+Bh]
-  int v38; // [rsp+90h] [rbp+Fh]
-  int v39; // [rsp+94h] [rbp+13h]
-  int v40; // [rsp+9Ch] [rbp+1Bh]
-  int v41; // [rsp+A0h] [rbp+1Fh]
-  int v42; // [rsp+A8h] [rbp+27h]
-  int v43; // [rsp+ACh] [rbp+2Bh]
+  __int64 v6; // rax
+  int v7; // esi
+  __int64 v8; // r15
+  __int64 v9; // rcx
+  unsigned int v10; // r13d
+  bool v11; // zf
+  __int64 v12; // rcx
+  int v13; // ecx
+  int *v14; // rax
+  int v15; // r9d
+  int v16; // r8d
+  int v17; // r10d
+  int v18; // edx
+  __int64 v19; // rcx
+  char v20; // al
+  __int64 v22; // rcx
+  _DWORD *v23; // rax
+  int v24; // ecx
+  int v25; // eax
+  int v26; // ecx
+  int v27; // r8d
+  int v28; // r8d
+  __int128 v29; // [rsp+58h] [rbp-19h] BYREF
+  _DWORD v30[16]; // [rsp+68h] [rbp-9h] BYREF
 
-  memset_0(v35, 0, 0x40uLL);
-  if ( *(_DWORD *)a3 != 60 )
-    goto LABEL_66;
-  v8 = 1;
-  if ( (unsigned int)Feature_Backport_ScrollbarApiCallsOnServerWindows__private_IsEnabledDeviceUsage() )
+  memset(v30, 0, sizeof(v30));
+  if ( *(_DWORD *)a3 == 60 )
   {
-    v9 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x100) == 0
-      || (v10 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    v6 = unsafe_cast_fnid_or_class_to_PSBWND(a1);
+    LOBYTE(v7) = 0;
+    v8 = v6;
+    if ( a2 == -4 && !v6 )
     {
-      v10 = 0;
+      _InterlockedAdd(&glSendMessage, 1u);
+      return xxxSendTransformableMessageTimeout(a1, 0xEBu, 0LL, (struct _LARGE_STRING *)a3, 0, 0, 0LL, 1, 1);
     }
-    if ( v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    *(_OWORD *)(a3 + 36) = 0LL;
+    *(_QWORD *)(a3 + 52) = 0LL;
+    switch ( a2 )
     {
-      LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      GetFnidString(BugCheckParameter2, v6, v7);
-      GetScrollbarObjectIdString(a2);
-      LOBYTE(v11) = v10;
-      WPP_RECORDER_AND_TRACE_SF_qsls(v9->AttachedDevice, v11, v12, (_DWORD)gFullLog);
-    }
-    if ( a2 != -4 && (*(_BYTE *)(*(_QWORD *)(BugCheckParameter2 + 40) + 233LL) & 0x20) != 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 457LL);
-  }
-  v13 = unsafe_cast_fnid_or_class_to_PSBWND(BugCheckParameter2);
-  v14 = v13;
-  if ( a2 == -4 && !v13 )
-  {
-    _InterlockedAdd(&glSendMessage, 1u);
-    return xxxSendTransformableMessageTimeout(BugCheckParameter2, 0, 0, 0LL, 1, 1);
-  }
-  *(_OWORD *)(a3 + 36) = 0LL;
-  *(_QWORD *)(a3 + 52) = 0LL;
-  if ( a2 == -4 )
-  {
-    v16 = *(_DWORD *)(v13 + 12);
-    v8 = *(_DWORD *)(v13 + 8);
-    v34 = 0LL;
-    GetRect(BugCheckParameter2, &v34, 17LL);
-    CalcSBStuff2(v35, &v34, v14 + 16, *(unsigned int *)(v14 + 8));
-    v17 = BugCheckParameter2 + 40;
-LABEL_18:
-    v18 = v38;
-    v19 = v39;
-    goto LABEL_19;
-  }
-  if ( a2 == -5 )
-  {
-    v23 = BugCheckParameter2 + 40;
-    v24 = *(_QWORD *)(BugCheckParameter2 + 40);
-    if ( (*(_BYTE *)(v24 + 30) & 0x20) != 0 )
-    {
-      LOWORD(v25) = 0;
-      if ( (*(_BYTE *)(v24 + 16) & 2) == 0 )
-      {
-        *(_DWORD *)(a3 + 36) = 0x10000;
-        LOWORD(v25) = 0;
-      }
-    }
-    else
-    {
-      *(_DWORD *)(a3 + 36) |= 0x8000u;
-      v25 = *(_DWORD *)(a3 + 36);
-    }
-    goto LABEL_43;
-  }
-  if ( a2 != -6 )
-  {
-LABEL_66:
-    UserSetLastError(87LL);
-    return 0LL;
-  }
-  v23 = BugCheckParameter2 + 40;
-  v8 = 0;
-  v26 = *(_QWORD *)(BugCheckParameter2 + 40);
-  if ( (*(_BYTE *)(v26 + 30) & 0x10) == 0 )
-  {
-    *(_DWORD *)(a3 + 36) = 0x8000;
-    return 1LL;
-  }
-  LOWORD(v25) = 0;
-  if ( (*(_BYTE *)(v26 + 16) & 4) == 0 )
-  {
-    *(_DWORD *)(a3 + 36) = 0x10000;
-    goto LABEL_52;
-  }
-LABEL_43:
-  if ( (v25 & 0x8000) != 0 )
-    return 1LL;
-LABEL_52:
-  LOBYTE(v16) = GetWndSBDisableFlags(BugCheckParameter2, v8);
-  v17 = v23;
-  if ( (*(_DWORD *)(a3 + 36) & 0x10000) != 0 )
-    goto LABEL_18;
-  CalcSBStuff(BugCheckParameter2, v35, v8);
-  v17 = v23;
-  if ( (*(_BYTE *)(*(_QWORD *)v23 + 26LL) & 0x40) == 0 )
-    goto LABEL_18;
-  v27 = *(_DWORD *)(*(_QWORD *)v23 + 96LL) - *(_DWORD *)(*(_QWORD *)v23 + 88LL);
-  if ( !v8 )
-  {
-    v18 = v38;
-    v21 = v27 - v37;
-    v20 = v27 - v36;
-    v19 = v39;
-    goto LABEL_20;
-  }
-  v18 = v27 - v39;
-  v19 = v27 - v38;
+      case -4:
+        v7 = *(_DWORD *)(v6 + 12);
+        v10 = *(_DWORD *)(v6 + 8);
+        v29 = 0LL;
+        GetRect(a1, &v29, 17LL);
+        CalcSBStuff2(v30, &v29, v8 + 16, *(unsigned int *)(v8 + 8));
+        goto LABEL_18;
+      case -5:
+        v9 = *(_QWORD *)(a1 + 40);
+        v10 = 1;
+        if ( (*(_BYTE *)(v9 + 30) & 0x20) != 0 )
+        {
+          v11 = (*(_BYTE *)(v9 + 16) & 2) == 0;
+          goto LABEL_7;
+        }
+        goto LABEL_11;
+      case -6:
+        v12 = *(_QWORD *)(a1 + 40);
+        v10 = 0;
+        if ( (*(_BYTE *)(v12 + 30) & 0x10) != 0 )
+        {
+          v11 = (*(_BYTE *)(v12 + 16) & 4) == 0;
+LABEL_7:
+          if ( v11 )
+            *(_DWORD *)(a3 + 36) |= 0x10000u;
+LABEL_12:
+          v13 = *(_DWORD *)(a3 + 36);
+          if ( (v13 & 0x8000) != 0 )
+            return 1LL;
+          v14 = *(int **)(a1 + 152);
+          if ( v14 )
+          {
+            v7 = *v14;
+            if ( v10 )
+              v7 >>= 2;
+            LOBYTE(v7) = v7 & 3;
+          }
+          else
+          {
+            UserSetLastError(1447LL);
+            v13 = *(_DWORD *)(a3 + 36);
+          }
+          if ( (v13 & 0x10000) == 0 )
+          {
+            CalcSBStuff(a1, v30, v10);
+            v22 = *(_QWORD *)(a1 + 40);
+            if ( (*(_BYTE *)(v22 + 26) & 0x40) != 0 )
+            {
+              v28 = *(_DWORD *)(v22 + 96) - *(_DWORD *)(v22 + 88);
+              if ( !v10 )
+              {
+                v15 = v30[6];
+                v18 = v28 - v30[5];
+                v17 = v28 - v30[4];
+                v16 = v30[7];
+                goto LABEL_20;
+              }
+              v15 = v28 - v30[7];
+              v16 = v28 - v30[6];
 LABEL_19:
-  v20 = v37;
-  v21 = v36;
+              v17 = v30[5];
+              v18 = v30[4];
 LABEL_20:
-  if ( (v16 & 1) != 0 )
-  {
-    *(_DWORD *)(a3 + 40) |= 1u;
-    *(_DWORD *)(a3 + 44) |= 1u;
-  }
-  if ( (v16 & 2) != 0 )
-  {
-    *(_DWORD *)(a3 + 56) |= 1u;
-    *(_DWORD *)(a3 + 52) |= 1u;
-  }
-  if ( (v16 & 3) == 3 )
-    *(_DWORD *)(a3 + 36) |= 1u;
-  v22 = *(_BYTE *)(*(_QWORD *)v17 + 22LL);
-  if ( (v22 & 0x10) != 0 && (a2 != -5 || (v22 & 0x20) != 0) )
-  {
-    if ( (v22 & 1) != 0 )
-      *(_DWORD *)(a3 + 40) |= 8u;
-    if ( (*(_BYTE *)(*(_QWORD *)v17 + 22LL) & 2) != 0 )
-      *(_DWORD *)(a3 + 44) |= 8u;
-    if ( (*(_BYTE *)(*(_QWORD *)v17 + 22LL) & 4) != 0 )
-      *(_DWORD *)(a3 + 52) |= 8u;
-    if ( (*(_BYTE *)(*(_QWORD *)v17 + 22LL) & 8) != 0 )
-      *(_DWORD *)(a3 + 56) |= 8u;
-  }
-  if ( (*(_DWORD *)(a3 + 36) & 0x10000) == 0 )
-  {
-    if ( v8 )
-    {
-      *(_DWORD *)(a3 + 4) = v18;
-      *(_DWORD *)(a3 + 8) = v21;
-      *(_DWORD *)(a3 + 12) = v19;
-      *(_DWORD *)(a3 + 16) = v20;
+              if ( (v7 & 1) != 0 )
+              {
+                *(_DWORD *)(a3 + 40) |= 1u;
+                *(_DWORD *)(a3 + 44) |= 1u;
+              }
+              if ( (v7 & 2) != 0 )
+              {
+                *(_DWORD *)(a3 + 56) |= 1u;
+                *(_DWORD *)(a3 + 52) |= 1u;
+              }
+              if ( (v7 & 3) == 3 )
+                *(_DWORD *)(a3 + 36) |= 1u;
+              v19 = *(_QWORD *)(a1 + 40);
+              v20 = *(_BYTE *)(v19 + 22);
+              if ( (v20 & 0x10) != 0 && (a2 != -5 || (v20 & 0x20) != 0) )
+              {
+                if ( (v20 & 1) != 0 )
+                {
+                  *(_DWORD *)(a3 + 40) |= 8u;
+                  v19 = *(_QWORD *)(a1 + 40);
+                }
+                if ( (*(_BYTE *)(v19 + 22) & 2) != 0 )
+                {
+                  *(_DWORD *)(a3 + 44) |= 8u;
+                  v19 = *(_QWORD *)(a1 + 40);
+                }
+                if ( (*(_BYTE *)(v19 + 22) & 4) != 0 )
+                {
+                  *(_DWORD *)(a3 + 52) |= 8u;
+                  v19 = *(_QWORD *)(a1 + 40);
+                }
+                if ( (*(_BYTE *)(v19 + 22) & 8) != 0 )
+                  *(_DWORD *)(a3 + 56) |= 8u;
+              }
+              if ( (*(_DWORD *)(a3 + 36) & 0x10000) == 0 )
+              {
+                if ( v10 )
+                {
+                  *(_DWORD *)(a3 + 4) = v15;
+                  *(_DWORD *)(a3 + 8) = v18;
+                  *(_DWORD *)(a3 + 12) = v16;
+                  *(_DWORD *)(a3 + 16) = v17;
+                }
+                else
+                {
+                  *(_DWORD *)(a3 + 4) = v18;
+                  *(_DWORD *)(a3 + 8) = v15;
+                  *(_DWORD *)(a3 + 12) = v17;
+                  *(_DWORD *)(a3 + 16) = v16;
+                }
+                v23 = *(_DWORD **)(a1 + 40);
+                if ( a2 == -4 )
+                {
+                  v24 = v23[27];
+                  v25 = v23[26];
+                }
+                else
+                {
+                  v24 = v23[23];
+                  v25 = v23[22];
+                }
+                *(_DWORD *)(a3 + 4) += v25;
+                *(_DWORD *)(a3 + 12) += v25;
+                *(_DWORD *)(a3 + 16) += v24;
+                *(_DWORD *)(a3 + 8) += v24;
+                v26 = v30[9];
+                v27 = v30[12];
+                *(_DWORD *)(a3 + 20) = v30[9] - v18;
+                *(_DWORD *)(a3 + 24) = v30[13] - v18;
+                *(_DWORD *)(a3 + 28) = v27 - v18;
+                if ( v30[13] == v26 )
+                  *(_DWORD *)(a3 + 44) |= 0x8000u;
+                if ( v27 == v30[10] )
+                  *(_DWORD *)(a3 + 52) |= 0x8000u;
+              }
+              return 1LL;
+            }
+          }
+LABEL_18:
+          v15 = v30[6];
+          v16 = v30[7];
+          goto LABEL_19;
+        }
+LABEL_11:
+        *(_DWORD *)(a3 + 36) |= 0x8000u;
+        goto LABEL_12;
     }
-    else
-    {
-      *(_DWORD *)(a3 + 8) = v18;
-      v18 = v21;
-      *(_DWORD *)(a3 + 4) = v21;
-      *(_DWORD *)(a3 + 12) = v20;
-      *(_DWORD *)(a3 + 16) = v19;
-    }
-    v28 = *(_DWORD **)v17;
-    if ( a2 == -4 )
-    {
-      v29 = v28[27];
-      v30 = v28[26];
-    }
-    else
-    {
-      v29 = v28[23];
-      v30 = v28[22];
-    }
-    *(_DWORD *)(a3 + 12) += v30;
-    v31 = v30 + v18;
-    *(_DWORD *)(a3 + 16) += v29;
-    *(_DWORD *)(a3 + 8) += v29;
-    v32 = v40;
-    v33 = v42;
-    *(_DWORD *)(a3 + 4) = v31;
-    *(_DWORD *)(a3 + 20) = v32 - v21;
-    *(_DWORD *)(a3 + 24) = v43 - v21;
-    *(_DWORD *)(a3 + 28) = v33 - v21;
-    if ( v43 == v32 )
-      *(_DWORD *)(a3 + 44) |= 0x8000u;
-    if ( v33 == v41 )
-      *(_DWORD *)(a3 + 52) |= 0x8000u;
   }
-  return 1LL;
+  UserSetLastError(87LL);
+  return 0LL;
 }

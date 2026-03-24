@@ -1,23 +1,23 @@
 /*
- * XREFs of SdbpFindFirstIndexedWildCardTag @ 0x14075B48C
+ * XREFs of SdbpFindFirstIndexedWildCardTag @ 0x140759788
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x14075B6A4 (SdbGetDatabaseMatchEx.c)
- *     SdbpSearchDB @ 0x14075BB10 (SdbpSearchDB.c)
+ *     SdbGetDatabaseMatchEx @ 0x140759A08 (SdbGetDatabaseMatchEx.c)
+ *     SdbpSearchDB @ 0x14077E7B4 (SdbpSearchDB.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AslStringPatternMatchExA @ 0x1406AD17C (AslStringPatternMatchExA.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslStringUpcaseToMultiByteN @ 0x14075B0E4 (AslStringUpcaseToMultiByteN.c)
- *     SdbpKeyToAnsiString @ 0x14075B608 (SdbpKeyToAnsiString.c)
- *     SdbpGetIndex @ 0x14075B638 (SdbpGetIndex.c)
- *     SdbGetIndex @ 0x14075BCC0 (SdbGetIndex.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbGetStringTagPtr @ 0x140842A24 (SdbGetStringTagPtr.c)
- *     AslStringPatternMatchExW @ 0x140851068 (AslStringPatternMatchExW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
+ *     AslStringPatternMatchA @ 0x14075990C (AslStringPatternMatchA.c)
+ *     SdbpKeyToAnsiString @ 0x1407599D8 (SdbpKeyToAnsiString.c)
+ *     SdbpGetIndex @ 0x140759B94 (SdbpGetIndex.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbGetIndex @ 0x14075A670 (SdbGetIndex.c)
+ *     AslStringUpcaseToMultiByteN @ 0x14075A7D0 (AslStringUpcaseToMultiByteN.c)
  */
 
-__int64 __fastcall SdbpFindFirstIndexedWildCardTag(void *a1, __int64 a2, __int64 a3, const WCHAR *a4, unsigned int *a5)
+__int64 __fastcall SdbpFindFirstIndexedWildCardTag(void *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5)
 {
   unsigned int Index; // eax
   __int64 v8; // rdx
@@ -26,13 +26,15 @@ __int64 __fastcall SdbpFindFirstIndexedWildCardTag(void *a1, __int64 a2, __int64
   __int64 v11; // rdi
   unsigned int v13; // esi
   unsigned int FirstTag; // eax
-  __int64 StringTagPtr; // rax
-  unsigned int v16; // [rsp+34h] [rbp-CCh] BYREF
-  __int64 v17; // [rsp+38h] [rbp-C8h] BYREF
-  __int16 v18; // [rsp+40h] [rbp-C0h]
-  char v19[272]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v15; // r8
+  __int64 v16; // r9
+  unsigned __int16 *StringTagPtr; // rax
+  unsigned int v18; // [rsp+34h] [rbp-CCh] BYREF
+  __int64 v19; // [rsp+38h] [rbp-C8h] BYREF
+  __int16 v20; // [rsp+40h] [rbp-C0h]
+  _BYTE v21[272]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v16 = 0;
+  v18 = 0;
   Index = SdbGetIndex(a1);
   *a5 = Index;
   if ( !Index )
@@ -43,38 +45,38 @@ __int64 __fastcall SdbpFindFirstIndexedWildCardTag(void *a1, __int64 a2, __int64
   a5[5] = 0;
   *((_WORD *)a5 + 6) = 24587;
   *((_QWORD *)a5 + 4) = a4;
-  memset(v19, 0, 0x104uLL);
-  v17 = 0LL;
-  v18 = 0;
-  if ( (int)AslStringUpcaseToMultiByteN(v19, v8, a4) < 0 )
+  memset(v21, 0, 0x104uLL);
+  v19 = 0LL;
+  v20 = 0;
+  if ( (int)AslStringUpcaseToMultiByteN(v21, v8, a4) < 0 )
   {
     AslLogCallPrintf(1LL);
     return 0LL;
   }
-  v9 = SdbpGetIndex(a1, *a5, &v16);
+  v9 = SdbpGetIndex(a1, *a5, &v18);
   if ( !v9 )
   {
     AslLogCallPrintf(1LL);
     return 0LL;
   }
-  v10 = v16;
+  v10 = v18;
   v11 = 0LL;
-  if ( !v16 )
+  if ( !v18 )
     return 0LL;
   while ( 1 )
   {
-    SdbpKeyToAnsiString(*(_QWORD *)(v9 + 12 * v11), &v17);
-    LOBYTE(v18) = 42;
-    if ( (unsigned int)AslStringPatternMatchExA((char *)&v17, v19) )
+    SdbpKeyToAnsiString(*(_QWORD *)(v9 + 12 * v11), &v19);
+    LOBYTE(v20) = 42;
+    if ( (unsigned int)AslStringPatternMatchA(&v19, v21) )
     {
       v13 = *(_DWORD *)(v9 + 12 * v11 + 8);
       FirstTag = SdbFindFirstTag(a1, v13, *((unsigned __int16 *)a5 + 6));
       if ( FirstTag )
       {
-        StringTagPtr = SdbGetStringTagPtr(a1, FirstTag);
+        StringTagPtr = (unsigned __int16 *)SdbGetStringTagPtr((__int64)a1, FirstTag, v15, v16);
         if ( StringTagPtr )
         {
-          if ( (unsigned int)AslStringPatternMatchExW(StringTagPtr, *((_QWORD *)a5 + 4)) )
+          if ( (unsigned int)AslStringPatternMatchW(StringTagPtr, *((unsigned __int16 **)a5 + 4)) )
             break;
         }
       }

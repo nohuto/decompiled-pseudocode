@@ -1,31 +1,28 @@
 /*
- * XREFs of ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002EF3C
+ * XREFs of ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B46E4
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??0DataProviderRegistrarPrincipal@@QEAA@PEAVBamoConnection@dataprovider_AutoBamos@@@Z @ 0x18002F018 (--0DataProviderRegistrarPrincipal@@QEAA@PEAVBamoConnection@dataprovider_AutoBamos@@@Z.c)
- *     ?InitializeServer@DataProviderManager@@AEAAJXZ @ 0x18002F2F0 (-InitializeServer@DataProviderManager@@AEAAJXZ.c)
- *     ??0DataProviderManager@@AEAA@PEAUIMessageSession@@@Z @ 0x1800304A0 (--0DataProviderManager@@AEAA@PEAUIMessageSession@@@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18007E4F4 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Initialize@DataProviderManager@@AEAAJXZ @ 0x1800B45B0 (-Initialize@DataProviderManager@@AEAAJXZ.c)
+ *     ??0DataProviderManager@@AEAA@PEAUIMessageSession@@@Z @ 0x1800B477C (--0DataProviderManager@@AEAA@PEAUIMessageSession@@@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall DataProviderManager::Create(struct IMessageSession *a1, struct DataProviderManager **a2)
 {
   DataProviderManager *v4; // rax
-  DataProviderManager *v5; // rax
-  DataProviderManager *v6; // rdi
-  int v7; // eax
-  unsigned int v8; // ebx
-  DataProviderRegistrarPrincipal *v9; // rax
-  DataProviderRegistrarPrincipal *v10; // rax
-  __int64 v11; // rcx
-  DataProviderRegistrarPrincipal *v12; // rbx
-  __int64 v14; // rdx
+  CMILCOMBase *v5; // rax
+  struct DataProviderManager *v6; // rsi
+  struct dataprovider_AutoBamos::BamoConnection **v7; // rbx
+  int v8; // eax
+  unsigned int v9; // edi
+  __int64 v11; // r9
+  __int64 v12; // rdx
+  int v13; // [rsp+20h] [rbp-8h]
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
   *a2 = 0LL;
@@ -34,48 +31,36 @@ __int64 __fastcall DataProviderManager::Create(struct IMessageSession *a1, struc
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   v5 = DataProviderManager::DataProviderManager(v4, a1);
   v6 = v5;
+  v7 = (struct dataprovider_AutoBamos::BamoConnection **)v5;
   if ( v5 )
   {
-    CMILRefCountImpl::AddReference((DataProviderManager *)((char *)v5 + 8));
-    v7 = DataProviderManager::InitializeServer(v6);
-    v8 = v7;
-    if ( v7 >= 0 )
+    CMILCOMBase::InternalAddRef(v5);
+    v8 = DataProviderManager::Initialize(v7);
+    v9 = v8;
+    if ( v8 >= 0 )
     {
-      *(_QWORD *)(*((_QWORD *)v6 + 3) + 232LL) = v6;
-      v9 = (DataProviderRegistrarPrincipal *)DefaultHeap::AllocClear(0x40uLL);
-      if ( !v9 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v10 = DataProviderRegistrarPrincipal::DataProviderRegistrarPrincipal(
-              v9,
-              *((struct dataprovider_AutoBamos::BamoConnection **)v6 + 3));
-      v11 = *((_QWORD *)v6 + 4);
-      v12 = v10;
-      if ( v11 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11);
-      *((_QWORD *)v6 + 4) = v12;
-      *((_QWORD *)v12 + 7) = v6;
-      v8 = 0;
+      v7 = 0LL;
       *a2 = v6;
-      return v8;
+      v9 = 0;
+      goto LABEL_5;
     }
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x54,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
-      (const char *)(unsigned int)v7);
-    v14 = 64LL;
+    v11 = (unsigned int)v8;
+    v12 = 64LL;
   }
   else
   {
-    v8 = -2147024882;
-    v14 = 62LL;
+    v9 = -2147024882;
+    v12 = 62LL;
+    v11 = 2147942414LL;
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)v14,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
-    (const char *)v8);
-  if ( v6 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v6);
-  return v8;
+    (void *)v12,
+    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
+    (const char *)v11,
+    v13);
+LABEL_5:
+  if ( v7 )
+    CRenderTargetBitmap::Release((CRenderTargetBitmap *)v7);
+  return v9;
 }

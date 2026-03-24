@@ -1,24 +1,18 @@
 /*
- * XREFs of NvmSubsystemReset @ 0x1C0010C1C
+ * XREFs of NvmSubsystemReset @ 0x1C0010FB8
  * Callers:
- *     NVMeControllerReset @ 0x1C000E580 (NVMeControllerReset.c)
- *     NVMeControllerPanicResetActionWorkItem @ 0x1C001C700 (NVMeControllerPanicResetActionWorkItem.c)
+ *     NVMeControllerReset @ 0x1C000E684 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C0018290 (NVMeControllerPanicResetActionWorkItem.c)
  * Callees:
- *     IsNVMeResetComplete @ 0x1C000C160 (IsNVMeResetComplete.c)
+ *     <none>
  */
 
-bool __fastcall NvmSubsystemReset(__int64 a1)
+char __fastcall NvmSubsystemReset(__int64 a1)
 {
-  bool result; // al
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  *(_DWORD *)(*(_QWORD *)(a1 + 184) + 32LL) = 1314278757;
-  _InterlockedOr(v3, 0);
+  *(_DWORD *)(*(_QWORD *)(a1 + 160) + 32LL) = 1314278757;
+  _InterlockedOr(v2, 0);
   StorPortStallExecution(5000LL);
-  result = IsNVMeResetComplete(a1);
-  if ( result )
-    ++*(_DWORD *)(a1 + 4424);
-  else
-    ++*(_DWORD *)(a1 + 4428);
-  return result;
+  return 1;
 }

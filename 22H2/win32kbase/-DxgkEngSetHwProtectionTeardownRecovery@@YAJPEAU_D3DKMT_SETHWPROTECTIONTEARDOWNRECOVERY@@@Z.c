@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkEngSetHwProtectionTeardownRecovery@@YAJPEAU_D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY@@@Z @ 0x1C01690C0
+ * XREFs of ?DxgkEngSetHwProtectionTeardownRecovery@@YAJPEAU_D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY@@@Z @ 0x1C014A840
  * Callers:
  *     <none>
  * Callees:
- *     DCompositionForceRender @ 0x1C00CA5F4 (DCompositionForceRender.c)
+ *     DCompositionForceRender @ 0x1C00C4934 (DCompositionForceRender.c)
  */
 
 __int64 __fastcall DxgkEngSetHwProtectionTeardownRecovery(struct _D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY *a1)

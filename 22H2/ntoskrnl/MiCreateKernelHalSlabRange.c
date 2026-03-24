@@ -1,107 +1,103 @@
 /*
- * XREFs of MiCreateKernelHalSlabRange @ 0x140B49DA0
+ * XREFs of MiCreateKernelHalSlabRange @ 0x140A4F6A0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPageToNode @ 0x140617860 (MiPageToNode.c)
- *     MiCreateBootSlabEntries @ 0x140B49F68 (MiCreateBootSlabEntries.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSlabAllocator @ 0x1403597AC (MiGetSlabAllocator.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F52A8 (MiConvertEntireLargePageToSmall.c)
+ *     MiLockPageAtDpc @ 0x14054F85C (MiLockPageAtDpc.c)
+ *     MiComputeDriverProtection @ 0x1407A1DC0 (MiComputeDriverProtection.c)
+ *     MiCreateBootSlabEntries @ 0x140A4F8C0 (MiCreateBootSlabEntries.c)
  */
 
-__int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __int64 a2)
+__int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
-  unsigned __int64 v2; // rdi
-  unsigned __int64 v3; // rbp
-  ULONG_PTR v4; // r15
-  __int64 v5; // rbx
-  unsigned __int8 CurrentIrql; // si
-  __int64 v7; // rbx
-  __int64 v8; // r14
-  unsigned int v9; // ebx
-  __int64 result; // rax
+  int v5; // eax
+  int v6; // ecx
+  __int64 v7; // r13
+  __int64 SlabAllocator; // r12
+  unsigned __int64 v9; // rsi
+  unsigned __int64 v10; // r15
+  unsigned __int64 v11; // rbp
+  unsigned __int64 v12; // r14
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // r8
   _DWORD *SchedulerAssist; // r9
-  __int64 v12; // rdx
-  unsigned __int8 v13; // cl
+  unsigned __int8 CurrentIrql; // di
+  __int64 v18; // rbp
+  unsigned __int8 v19; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v15; // r9
-  int v16; // eax
-  bool v17; // zf
-  unsigned int v18; // eax
-  int v19; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v20; // [rsp+78h] [rbp+10h] BYREF
+  _DWORD *v21; // r9
+  int v22; // eax
+  bool v23; // zf
+  __int64 result; // rax
+  __int64 v25; // [rsp+60h] [rbp+8h] BYREF
 
-  v2 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
-  v3 = ((a2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
-  if ( v2 >= v3 )
+  v5 = MiComputeDriverProtection(0, a3);
+  v7 = (unsigned int)(v6 + 1);
+  if ( v5 == 24 )
+    LOBYTE(v5) = v6 + 1;
+  SlabAllocator = MiGetSlabAllocator((__int64)&MiSystemPartition, v6 + 1, v5);
+  v9 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
+  v10 = ((a2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
+  if ( v9 >= v10 )
     return 0LL;
+  v11 = (unsigned int)(v7 + 1);
   while ( 1 )
   {
-    v20 = MI_READ_PTE_LOCK_FREE(v2);
-    v4 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v20) >> 12) & 0xFFFFFFFFFFLL;
-    v5 = 48 * v4 - 0x220000000000LL;
-    if ( _bittest64((const signed __int64 *)(v5 + 40), 0x28u) )
+    v25 = MI_READ_PTE_LOCK_FREE(v9);
+    v12 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v25) >> 12) & 0xFFFFFFFFFLL;
+    v13 = 48 * v12 - 0x58000000000LL;
+    if ( (*(_QWORD *)(v13 + 40) & 0x1000000000LL) != 0 )
     {
-      MiConvertEntireLargePageToSmall(48 * v4 - 0x220000000000LL, 1, 0, 6, 0LL, 0LL, 0LL);
+      MiConvertEntireLargePageToSmall(48 * v12 - 0x58000000000LL, v7, 0LL, 6LL, 0LL, 0LL);
       CurrentIrql = KeGetCurrentIrql();
-      __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      __writecr8(v11);
+      if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v7) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( CurrentIrql == 2 )
-          LODWORD(v12) = 4;
-        else
-          v12 = (-1LL << (CurrentIrql + 1)) & 4;
-        SchedulerAssist[5] |= v12;
+        v14 = (-1LL << ((unsigned __int8)v7 + CurrentIrql)) & 4;
+        v15 = (unsigned int)v14 | SchedulerAssist[5];
+        SchedulerAssist[5] = v15;
       }
-      v7 = v5 + 24;
-      v8 = 512LL;
+      v18 = 512LL;
       do
       {
-        v19 = 0;
-        while ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0x3FuLL) )
-        {
-          do
-            KeYieldProcessorEx(&v19);
-          while ( *(__int64 *)v7 < 0 );
-        }
-        --*(_WORD *)(v7 + 8);
-        _InterlockedAnd64((volatile signed __int64 *)v7, 0x7FFFFFFFFFFFFFFFuLL);
-        v7 += 48LL;
-        --v8;
+        MiLockPageAtDpc(v13, v14, v15, (__int64)SchedulerAssist);
+        --*(_WORD *)(v13 + 32);
+        _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        v13 += 48LL;
+        v18 -= v7;
       }
-      while ( v8 );
+      while ( v18 );
+      v11 = 2LL;
       if ( KiIrqlFlags )
       {
-        v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v7) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v15 = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v17 = (v16 & v15[5]) == 0;
-          v15[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v19 = KeGetCurrentIrql();
+          if ( v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v21 = CurrentPrcb->SchedulerAssist;
+            v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + CurrentIrql));
+            v23 = (v22 & v21[5]) == 0;
+            v21[5] &= v22;
+            if ( v23 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
     }
-    v9 = *((_DWORD *)MiSearchNumaNodeTable(v4) + 2);
-    if ( v9 != *((_DWORD *)MiSearchNumaNodeTable(v4 + 511) + 2) )
-    {
-      v18 = MiPageToNode(v4 + 511);
-      KeBugCheckEx(0x1Au, 0x3030316uLL, v4, v9, v18);
-    }
-    result = MiCreateBootSlabEntries(qword_140C6B510 + 24448 + 25408LL * v9, v4, 512LL, 1LL);
+    result = MiCreateBootSlabEntries(SlabAllocator, v12, 512LL, (unsigned int)v7);
     if ( (int)result < 0 )
       break;
-    v2 += 8LL;
-    if ( v2 >= v3 )
+    v9 += 8LL;
+    if ( v9 >= v10 )
       return 0LL;
   }
   return result;

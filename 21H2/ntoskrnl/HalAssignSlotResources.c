@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAssignSlotResources @ 0x140908430
+ * XREFs of HalAssignSlotResources @ 0x1408641F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalAssignSlotResources(
@@ -17,7 +17,7 @@ __int64 __fastcall HalAssignSlotResources(
         __int64 a8)
 {
   if ( a5 == 5 )
-    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, int, int, int, __int64))off_140C01C20[0])(
+    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, int, int, int, __int64))off_140C005D0[0])(
              a1,
              a2,
              a3,

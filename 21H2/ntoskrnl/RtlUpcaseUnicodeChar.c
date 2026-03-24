@@ -1,37 +1,33 @@
 /*
- * XREFs of RtlUpcaseUnicodeChar @ 0x1407CD620
+ * XREFs of RtlUpcaseUnicodeChar @ 0x140601D90
  * Callers:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14021984C (AuthzBasepUnicodeStringFromOperandValue.c)
- *     towupper @ 0x1403E3180 (towupper.c)
- *     ObpUseSystemDeviceMap @ 0x140659150 (ObpUseSystemDeviceMap.c)
- *     PfpRpFileKeyUpdate @ 0x140675300 (PfpRpFileKeyUpdate.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1406915F0 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpAllocateDiffHiveEntry @ 0x14069175C (VrpAllocateDiffHiveEntry.c)
- *     VfUtilPrintCheckinString @ 0x140A81E94 (VfUtilPrintCheckinString.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14024EDC0 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     towupper @ 0x1403D3DD0 (towupper.c)
+ *     ObpUseSystemDeviceMap @ 0x1405CF1CC (ObpUseSystemDeviceMap.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1405D683C (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpAllocateDiffHiveEntry @ 0x1405D69AC (VrpAllocateDiffHiveEntry.c)
+ *     PfpRpFileKeyUpdate @ 0x140601860 (PfpRpFileKeyUpdate.c)
+ *     VfUtilPrintCheckinString @ 0x1409C6900 (VfUtilPrintCheckinString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     <none>
  */
 
 WCHAR __stdcall RtlUpcaseUnicodeChar(WCHAR SourceCharacter)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int64 v2; // r8
-  __int64 v4; // r9
-
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  if ( (unsigned int)v2 < 0x61 )
-    return v2;
-  if ( (unsigned int)v2 <= 0x7A )
-    return v2 - 32;
-  v4 = CurrentServerSiloGlobals[154];
-  if ( !v4 || (unsigned __int16)v2 < 0xC0u )
-    return v2;
-  return v2
-       + *(_WORD *)(v4
-                  + 2
-                  * ((v2 & 0xF)
-                   + *(unsigned __int16 *)(v4
-                                         + 2LL
-                                         * (((unsigned __int8)v2 >> 4)
-                                          + (unsigned int)*(unsigned __int16 *)(v4 + 2 * (v2 >> 8))))));
+  if ( SourceCharacter < 0x61u )
+    return SourceCharacter;
+  if ( SourceCharacter <= 0x7Au )
+    return SourceCharacter - 32;
+  if ( !Nls844UnicodeUpcaseTable || SourceCharacter < 0xC0u )
+    return SourceCharacter;
+  return SourceCharacter
+       + *(_WORD *)(Nls844UnicodeUpcaseTable
+                  + 2LL
+                  * ((SourceCharacter & 0xF)
+                   + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                       + 2LL
+                                                       * (((SourceCharacter >> 4) & 0xF)
+                                                        + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                                                            + 2
+                                                                                            * ((unsigned __int64)SourceCharacter >> 8))))));
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of ViLockContextPointer @ 0x140AC50BC
+ * XREFs of ViLockContextPointer @ 0x1409C856C
  * Callers:
- *     VfInsertContext @ 0x1405CE4D0 (VfInsertContext.c)
- *     VfRemoveContext @ 0x1405CE660 (VfRemoveContext.c)
- *     ViQueryObjectContext @ 0x140AC5104 (ViQueryObjectContext.c)
+ *     VfInsertContext @ 0x1405A0790 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x1405A0960 (VfRemoveContext.c)
+ *     ViQueryObjectContext @ 0x1409C85B4 (ViQueryObjectContext.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
  */
 
-char __fastcall ViLockContextPointer(signed __int64 *a1)
+char __fastcall ViLockContextPointer(signed __int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  signed __int64 v2; // rax
-  signed __int64 v3; // rtt
-  int v5; // [rsp+30h] [rbp+8h] BYREF
+  signed __int64 v5; // rax
+  signed __int64 v6; // rtt
+  int v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = 0;
+  v8 = 0;
   do
   {
     while ( 1 )
     {
       _m_prefetchw(a1);
-      v2 = *a1;
+      v5 = *a1;
       if ( (*a1 & 1) != 0 )
         break;
-      if ( !v2 )
-        return v2;
-      KeYieldProcessorEx(&v5);
+      if ( !v5 )
+        return v5;
+      KeYieldProcessorEx(&v8, a2, a3, a4);
     }
-    v3 = *a1;
+    v6 = *a1;
   }
-  while ( v3 != _InterlockedCompareExchange64(a1, v2 - 1, v2) );
-  LOBYTE(v2) = 1;
-  return v2;
+  while ( v6 != _InterlockedCompareExchange64(a1, v5 - 1, v5) );
+  LOBYTE(v5) = 1;
+  return v5;
 }

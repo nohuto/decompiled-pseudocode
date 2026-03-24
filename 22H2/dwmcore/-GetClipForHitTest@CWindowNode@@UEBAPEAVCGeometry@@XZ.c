@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetClipForHitTest@CWindowNode@@UEBAPEAVCGeometry@@XZ @ 0x1801078A0
+ * XREFs of ?GetClipForHitTest@CWindowNode@@UEBAPEAVCGeometry@@XZ @ 0x1800F0020
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CGeometry *__fastcall CWindowNode::GetClipForHitTest(CWindowNode *this)
 {
-  return (struct CGeometry *)*((_QWORD *)this + 99);
+  return (struct CGeometry *)*((_QWORD *)this + 97);
 }

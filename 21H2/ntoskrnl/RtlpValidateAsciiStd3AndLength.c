@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpValidateAsciiStd3AndLength @ 0x1409BBDD8
+ * XREFs of RtlpValidateAsciiStd3AndLength @ 0x140916758
  * Callers:
- *     RtlpNameprepAsciiRealWorker @ 0x1405ECB04 (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x14058D4B4 (RtlpNameprepAsciiRealWorker.c)
  * Callees:
- *     FindEmailAt @ 0x1405EC744 (FindEmailAt.c)
- *     ValidateStd3Range @ 0x1405ECE60 (ValidateStd3Range.c)
+ *     FindEmailAt @ 0x14058D0F4 (FindEmailAt.c)
+ *     ValidateStd3Range @ 0x14058D800 (ValidateStd3Range.c)
  */
 
 bool __fastcall RtlpValidateAsciiStd3AndLength(unsigned __int64 a1, int a2, char a3, char a4)

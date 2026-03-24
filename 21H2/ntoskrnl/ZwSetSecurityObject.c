@@ -1,17 +1,16 @@
 /*
- * XREFs of ZwSetSecurityObject @ 0x14041EDA0
+ * XREFs of ZwSetSecurityObject @ 0x1403FD8C0
  * Callers:
- *     BiZwSetSecurityObject @ 0x1403A7848 (BiZwSetSecurityObject.c)
- *     CmpApplyAdminSdOnHiveFiles @ 0x1404172B8 (CmpApplyAdminSdOnHiveFiles.c)
- *     DifZwSetSecurityObjectWrapper @ 0x140627A50 (DifZwSetSecurityObjectWrapper.c)
- *     CmpDoReDoSetEntireSecurityDescriptor @ 0x1406580FC (CmpDoReDoSetEntireSecurityDescriptor.c)
- *     PiDevCfgCopyDeviceKeys @ 0x140679ADC (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
- *     CmpDoReDoSetSecurityDescriptor @ 0x140925DFC (CmpDoReDoSetSecurityDescriptor.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D69A8 (SmKmStoreFileCreateForIoType.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
- *     IopApplySystemPartitionProt @ 0x140B4F514 (IopApplySystemPartitionProt.c)
+ *     BiZwSetSecurityObject @ 0x14039B5AC (BiZwSetSecurityObject.c)
+ *     CmpApplyAdminSdOnHiveFiles @ 0x1403F0488 (CmpApplyAdminSdOnHiveFiles.c)
+ *     CmpDoReDoSetEntireSecurityDescriptor @ 0x1405CD898 (CmpDoReDoSetEntireSecurityDescriptor.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140769CFC (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x1408821DC (CmpDoReDoSetSecurityDescriptor.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C48C (SmKmStoreFileCreateForIoType.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
+ *     IopApplySystemPartitionProt @ 0x140A8FEC0 (IopApplySystemPartitionProt.c)
  * Callees:
  *     <none>
  */

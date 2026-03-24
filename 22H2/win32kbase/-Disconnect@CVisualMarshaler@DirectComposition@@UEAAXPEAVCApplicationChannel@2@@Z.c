@@ -1,15 +1,14 @@
 /*
- * XREFs of ?Disconnect@CVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00AABA0
+ * XREFs of ?Disconnect@CVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00AD7F0
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessFirstPendingRemove@CVisualMarshaler@DirectComposition@@IEAAXPEAVCApplicationChannel@2@PEAX@Z @ 0x1C002BF80 (-ProcessFirstPendingRemove@CVisualMarshaler@DirectComposition@@IEAAXPEAVCApplicationChannel@2@PE.c)
+ *     ?DiscardPendingChildRemoves@CVisualMarshaler@DirectComposition@@IEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0061788 (-DiscardPendingChildRemoves@CVisualMarshaler@DirectComposition@@IEAAXPEAVCApplicationChannel@2@@.c)
  */
 
 void __fastcall DirectComposition::CVisualMarshaler::Disconnect(
         DirectComposition::CVisualMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  while ( *((_QWORD *)this + 25) )
-    DirectComposition::CVisualMarshaler::ProcessFirstPendingRemove(this, a2, 0LL);
+  DirectComposition::CVisualMarshaler::DiscardPendingChildRemoves(this, a2);
 }

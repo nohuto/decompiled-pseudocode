@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpReadLeapSecondData @ 0x1407342FC
+ * XREFs of ExpReadLeapSecondData @ 0x1407342DC
  * Callers:
- *     ExInitializeLeapSecondData @ 0x140733FE0 (ExInitializeLeapSecondData.c)
- *     ExpLeapSecondDataRegistryNotifyHandler @ 0x1408CD1B0 (ExpLeapSecondDataRegistryNotifyHandler.c)
+ *     ExInitializeLeapSecondData @ 0x140733FC0 (ExInitializeLeapSecondData.c)
+ *     ExpLeapSecondDataRegistryNotifyHandler @ 0x1408CD190 (ExpLeapSecondDataRegistryNotifyHandler.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x1401BA3D0 (ZwNotifyChangeKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExAcquireTimeRefreshLock @ 0x14066585C (ExAcquireTimeRefreshLock.c)
- *     ExReleaseTimeRefreshLock @ 0x1406BEC18 (ExReleaseTimeRefreshLock.c)
- *     EtwTraceLeapSecondDataUpdate @ 0x1407345CC (EtwTraceLeapSecondDataUpdate.c)
- *     ExpRefreshTimeZoneInformation @ 0x140734694 (ExpRefreshTimeZoneInformation.c)
- *     ExpParseAndUpdateLeapSecondData @ 0x1407355C0 (ExpParseAndUpdateLeapSecondData.c)
- *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x140735664 (ExpGetLeapSecondDataRegistryKeyHandle.c)
- *     EtwTraceLeapSecondDataParseFailure @ 0x1408B7C5C (EtwTraceLeapSecondDataParseFailure.c)
+ *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406BEBF8 (ExReleaseTimeRefreshLock.c)
+ *     EtwTraceLeapSecondDataUpdate @ 0x1407345AC (EtwTraceLeapSecondDataUpdate.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
+ *     ExpParseAndUpdateLeapSecondData @ 0x1407355A0 (ExpParseAndUpdateLeapSecondData.c)
+ *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x140735644 (ExpGetLeapSecondDataRegistryKeyHandle.c)
+ *     EtwTraceLeapSecondDataParseFailure @ 0x1408B7C3C (EtwTraceLeapSecondDataParseFailure.c)
  */
 
 void __fastcall ExpReadLeapSecondData(bool *a1, char a2)

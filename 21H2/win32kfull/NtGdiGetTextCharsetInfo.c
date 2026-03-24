@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetTextCharsetInfo @ 0x1C001C2D0
+ * XREFs of NtGdiGetTextCharsetInfo @ 0x1C009B5B0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetTextCharsetInfo @ 0x1C001C364 (GreGetTextCharsetInfo.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GreGetTextCharsetInfo @ 0x1C009B644 (GreGetTextCharsetInfo.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtGdiGetTextCharsetInfo(HDC a1, ULONG64 a2)

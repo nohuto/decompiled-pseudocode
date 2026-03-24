@@ -1,5 +1,5 @@
 /*
- * XREFs of CmQueryRegistryQuotaInformation @ 0x140706E00
+ * XREFs of CmQueryRegistryQuotaInformation @ 0x140706DE0
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:

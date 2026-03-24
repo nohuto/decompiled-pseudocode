@@ -1,11 +1,11 @@
 /*
- * XREFs of HvResetDirtyData @ 0x14070551C
+ * XREFs of HvResetDirtyData @ 0x140720CF4
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     HvStoreModifiedData @ 0x1407075E4 (HvStoreModifiedData.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     HvStoreModifiedData @ 0x140720430 (HvStoreModifiedData.c)
  * Callees:
- *     RtlClearAllBits @ 0x140290C30 (RtlClearAllBits.c)
- *     HvpResetPageProtection @ 0x140708588 (HvpResetPageProtection.c)
+ *     RtlClearAllBits @ 0x140361940 (RtlClearAllBits.c)
+ *     HvpResetPageProtection @ 0x1406BF1E4 (HvpResetPageProtection.c)
  */
 
 __int64 __fastcall HvResetDirtyData(ULONG_PTR a1)

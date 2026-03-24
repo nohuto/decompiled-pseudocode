@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpUnblockHiveWrites @ 0x1407F0908
+ * XREFs of CmpUnblockHiveWrites @ 0x1407F08E8
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x14063C020 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x1407F3A08 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BD0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x14063C000 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1407F39E8 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)

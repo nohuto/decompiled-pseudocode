@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000E6E0
+ * XREFs of HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000E2E0
  * Callers:
- *     HUBPDO_PublishBillboardDetails @ 0x1C007A2C4 (HUBPDO_PublishBillboardDetails.c)
+ *     HUBPDO_PublishBillboardDetails @ 0x1C0078DB0 (HUBPDO_PublishBillboardDetails.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_GetDeviceInterfacePath @ 0x1C00309D4 (HUBMISC_GetDeviceInterfacePath.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_GetDeviceInterfacePath @ 0x1C0030334 (HUBMISC_GetDeviceInterfacePath.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBFDO_CreateDeviceInterfaceForBillboard(
@@ -71,25 +71,25 @@ __int64 __fastcall HUBFDO_CreateDeviceInterfaceForBillboard(
         v11 = DeviceInterfacePath;
         if ( DeviceInterfacePath < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v12 = 73;
+          v12 = 69;
           goto LABEL_13;
         }
       }
       else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v12 = 72;
+        v12 = 68;
         goto LABEL_13;
       }
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v12 = 71;
+      v12 = 67;
       goto LABEL_13;
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v12 = 70;
+    v12 = 66;
 LABEL_13:
     LODWORD(v14) = DeviceInterfacePath;
     WPP_RECORDER_SF_d(
@@ -97,7 +97,7 @@ LABEL_13:
       2u,
       3u,
       v12,
-      (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+      (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
       v14);
   }
   return v11;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgkpVSyncPhaseTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C001CE20
+ * XREFs of ?DxgkpVSyncPhaseTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C00190F0
  * Callers:
  *     <none>
  * Callees:
@@ -17,6 +17,6 @@ void __fastcall DxgkpVSyncPhaseTimerDpc(
 
   v4 = *(_QWORD *)DeferredContext;
   v5 = DeferredContext[2];
-  if ( !_InterlockedExchange((volatile __int32 *)(*(_QWORD *)(*(_QWORD *)DeferredContext + 4024LL) + 4 * v5), 1) )
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(*(_QWORD *)(v4 + 4008) + 32 * v5), DelayedWorkQueue);
+  if ( !_InterlockedExchange((volatile __int32 *)(*(_QWORD *)(*(_QWORD *)DeferredContext + 3928LL) + 4 * v5), 1) )
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(*(_QWORD *)(v4 + 3912) + 32 * v5), DelayedWorkQueue);
 }

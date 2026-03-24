@@ -1,22 +1,24 @@
 /*
- * XREFs of ?HotKeyHelper@@YAPEAPEAUtagHOTKEYSTRUCT@@PEAUtagWND@@@Z @ 0x1C0012E10
+ * XREFs of ?HotKeyHelper@@YAPEAPEAUtagHOTKEYSTRUCT@@PEAUtagWND@@@Z @ 0x1C0111518
  * Callers:
- *     DWP_SetHotKey @ 0x1C0012D74 (DWP_SetHotKey.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
+ *     DWP_SetHotKey @ 0x1C0008230 (DWP_SetHotKey.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
  * Callees:
  *     <none>
  */
 
-struct tagWND ***__fastcall HotKeyHelper(struct tagWND *a1)
+struct tagHOTKEYSTRUCT **__fastcall HotKeyHelper(struct tagWND *a1)
 {
-  struct tagWND ***result; // rax
-  struct tagWND **v3; // rdx
+  __int64 v1; // rax
+  __int64 *v2; // rdx
 
-  for ( result = (struct tagWND ***)(SGDGetUserSessionState(a1) + 12720); ; result = (struct tagWND ***)(v3 + 2) )
+  v1 = gpHotKeyList;
+  v2 = &gpHotKeyList;
+  while ( v1 && *(struct tagWND **)v1 != a1 )
   {
-    v3 = *result;
-    if ( !*result || *v3 == a1 )
-      break;
+    v2 = (__int64 *)(v1 + 16);
+    v1 = *(_QWORD *)(v1 + 16);
   }
-  return result;
+  return (struct tagHOTKEYSTRUCT **)v2;
 }

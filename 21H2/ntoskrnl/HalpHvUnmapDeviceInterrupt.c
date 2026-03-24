@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvUnmapDeviceInterrupt @ 0x140A61970
+ * XREFs of HalpHvUnmapDeviceInterrupt @ 0x1409A7334
  * Callers:
- *     HalpInterruptUnmap @ 0x140908918 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x140761838 (HalpInterruptUnmap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvUnmapDeviceInterrupt(char a1, __int64 a2, __int64 a3)
@@ -18,5 +18,5 @@ __int64 __fastcall HalpHvUnmapDeviceInterrupt(char a1, __int64 a2, __int64 a3)
   v4 = 0x8000000000000000uLL;
   LOBYTE(v4) = a1;
   v6 = *(_QWORD *)(a3 + 40);
-  return ((__int64 (__fastcall *)(unsigned __int64, _DWORD *))qword_140C4C4B0)(v4, v5);
+  return ((__int64 (__fastcall *)(unsigned __int64, _DWORD *))qword_140C4A1B0)(v4, v5);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSharedSectionWrapper@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023ED50
+ * XREFs of ?IsOfType@CSharedSectionWrapper@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801ECAE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSharedSectionWrapper::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 170;
+  return a2 == 171;
 }

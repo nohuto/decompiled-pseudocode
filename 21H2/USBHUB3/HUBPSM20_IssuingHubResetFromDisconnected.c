@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_IssuingHubResetFromDisconnected @ 0x1C0010FD0
+ * XREFs of HUBPSM20_IssuingHubResetFromDisconnected @ 0x1C0010BC0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FEC0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
  */
 
 __int64 __fastcall HUBPSM20_IssuingHubResetFromDisconnected(__int64 a1)

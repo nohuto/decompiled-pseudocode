@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pqqpq_EtwWriteTransfer @ 0x1C0059948
+ * XREFs of McTemplateK0pqqpq_EtwWriteTransfer @ 0x1C004C48C
  * Callers:
- *     DxgkAddSurfaceToSwapChain @ 0x1C035B1F0 (DxgkAddSurfaceToSwapChain.c)
- *     DxgkRemoveSurfaceFromSwapChain @ 0x1C035CFA0 (DxgkRemoveSurfaceFromSwapChain.c)
+ *     DxgkAddSurfaceToSwapChain @ 0x1C02ADBD0 (DxgkAddSurfaceToSwapChain.c)
+ *     DxgkRemoveSurfaceFromSwapChain @ 0x1C02AF580 (DxgkRemoveSurfaceFromSwapChain.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqpq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

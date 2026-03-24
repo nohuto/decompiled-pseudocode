@@ -3,7 +3,7 @@
  * Callers:
  *     ExpWnfSubscribeWnfStateChange @ 0x14060F054 (ExpWnfSubscribeWnfStateChange.c)
  *     ExpWnfValidatePubSubPreconditions @ 0x14060FEEC (ExpWnfValidatePubSubPreconditions.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4EF0 (NtQueryWnfStateNameInformation.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)

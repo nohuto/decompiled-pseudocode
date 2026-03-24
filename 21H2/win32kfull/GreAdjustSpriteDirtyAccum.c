@@ -1,13 +1,13 @@
 /*
- * XREFs of GreAdjustSpriteDirtyAccum @ 0x1C008EBE0
+ * XREFs of GreAdjustSpriteDirtyAccum @ 0x1C00F29A8
  * Callers:
- *     RecreateRedirectionBitmap @ 0x1C008F778 (RecreateRedirectionBitmap.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F18E8 (RecreateRedirectionBitmap.c)
  * Callees:
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00EDC00 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ?GdiAdjustSpriteDirtyAccum@@YAHPEAUHDEV__@@PEAUHWND__@@PEAU_RECTL@@2PEAU_POINTL@@3@Z @ 0x1C0158BD0 (-GdiAdjustSpriteDirtyAccum@@YAHPEAUHDEV__@@PEAUHWND__@@PEAU_RECTL@@2PEAU_POINTL@@3@Z.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0017434 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?GdiAdjustSpriteDirtyAccum@@YAHPEAUHDEV__@@PEAUHWND__@@PEAU_RECTL@@2PEAU_POINTL@@3@Z @ 0x1C027E358 (-GdiAdjustSpriteDirtyAccum@@YAHPEAUHDEV__@@PEAUHWND__@@PEAU_RECTL@@2PEAU_POINTL@@3@Z.c)
  */
 
 __int64 __fastcall GreAdjustSpriteDirtyAccum(
@@ -23,57 +23,58 @@ __int64 __fastcall GreAdjustSpriteDirtyAccum(
   struct _RECTL *v10; // rbx
   __int64 *v11; // rsi
   __int64 v12; // rcx
-  char v14[8]; // [rsp+30h] [rbp-30h] BYREF
-  _QWORD v15[2]; // [rsp+38h] [rbp-28h] BYREF
-  _QWORD v16[3]; // [rsp+48h] [rbp-18h] BYREF
-  struct _RECTL *v17; // [rsp+B8h] [rbp+58h] BYREF
+  __int64 v13; // rdx
+  char v15[8]; // [rsp+30h] [rbp-30h] BYREF
+  _QWORD v16[2]; // [rsp+38h] [rbp-28h] BYREF
+  _QWORD v17[3]; // [rsp+48h] [rbp-18h] BYREF
+  struct _RECTL *v18; // [rsp+B8h] [rbp+58h] BYREF
 
-  v17 = a4;
+  v18 = a4;
   v6 = 0;
   v7 = a5;
   if ( g_pDwmState )
   {
     GreAcquireSemaphoreSharedInternal(ghsemDwmState);
     EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
-    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v17, a2);
-    v10 = v17;
-    if ( v17 )
+    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v18, a2);
+    v10 = v18;
+    if ( v18 )
     {
-      v11 = *(__int64 **)&v17[9].left;
-      PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v14, (struct _EX_PUSH_LOCK *)&v17[5].right);
+      v11 = *(__int64 **)&v18[10].right;
+      PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v15, (struct _EX_PUSH_LOCK *)&v18[5].right);
       if ( v11[10] )
       {
-        v17 = (struct _RECTL *)v11[10];
+        v18 = (struct _RECTL *)v11[10];
+        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v17);
+        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v17);
         RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v16);
         RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v16);
-        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v15);
-        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v15);
-        if ( v17 )
+        if ( v18 )
         {
-          if ( v16[0] )
+          if ( v17[0] )
           {
-            if ( v15[0] )
+            if ( v16[0] )
             {
-              if ( RGNOBJ::bOffset((RGNOBJ *)&v17, v7) )
+              if ( RGNOBJ::bOffset((RGNOBJ *)&v18, v7) )
               {
-                RGNOBJ::vSet((RGNOBJ *)v16, a3);
-                if ( RGNOBJ::bMerge((RGNOBJ *)v15, (struct RGNOBJ *)&v17, (struct RGNOBJ *)v16, 8u) )
+                RGNOBJ::vSet((RGNOBJ *)v17, a3);
+                if ( RGNOBJ::bMerge((RGNOBJ *)v16, (struct RGNOBJ *)&v18, (struct RGNOBJ *)v17, 8u) )
                 {
-                  RGNOBJ::vSwap((RGNOBJ *)v15, (struct RGNOBJ *)&v17);
+                  RGNOBJ::vSwap((RGNOBJ *)v16, (struct RGNOBJ *)&v18);
                   v6 = 1;
                   v12 = *v11;
-                  v11[10] = (__int64)v17;
+                  v11[10] = (__int64)v18;
                   EtwTraceLifetimeAccum(v12, 1LL);
                 }
               }
             }
           }
         }
-        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v15);
         RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v16);
+        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
       }
-      PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v14);
-      DEC_SHARE_REF_CNT(v10);
+      PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v15);
+      DEC_SHARE_REF_CNT(v10, v13);
     }
     EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
     GreReleaseSemaphoreInternal(ghsemDwmState);

@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpSnapshotTxOwnerArray @ 0x1407FC628
+ * XREFs of CmpSnapshotTxOwnerArray @ 0x1407FC608
  * Callers:
  *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
@@ -8,7 +8,7 @@
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

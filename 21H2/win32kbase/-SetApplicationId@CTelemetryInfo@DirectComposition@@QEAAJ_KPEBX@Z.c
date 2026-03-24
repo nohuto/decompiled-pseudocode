@@ -1,53 +1,47 @@
 /*
- * XREFs of ?SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C00AF298
+ * XREFs of ?SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C00991B8
  * Callers:
- *     NtDCompositionTelemetrySetApplicationId @ 0x1C00AFA10 (NtDCompositionTelemetrySetApplicationId.c)
+ *     NtDCompositionTelemetrySetApplicationId @ 0x1C005A8D0 (NtDCompositionTelemetrySetApplicationId.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CTelemetryInfo::SetApplicationId(
-        DirectComposition::CTelemetryInfo ***this,
+        DirectComposition::CTelemetryInfo *this,
         size_t a2,
         char *a3)
 {
   int v6; // r15d
-  __int64 Quota; // rbx
+  __int64 v7; // rbx
   int v8; // edi
   DirectComposition::CTelemetryInfo **v9; // rcx
 
   v6 = (a2 + 19) & 0xFFFFFFFC;
-  Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-            (NSInstrumentation::CLeakTrackingAllocator *)this,
-            260LL,
-            (unsigned int)(v6 + 20),
-            1869890372);
+  v7 = Win32AllocPoolWithQuota((unsigned int)(v6 + 20), 0x6F744344u);
   v8 = 0;
-  if ( !Quota )
+  if ( !v7 )
     v8 = -1073741801;
   if ( v8 >= 0 )
   {
-    *(_DWORD *)(Quota + 16) = v6;
-    *(_DWORD *)(Quota + 20) = v6;
-    *(_DWORD *)(Quota + 24) = 284;
-    *(_QWORD *)(Quota + 28) = a2;
+    *(_DWORD *)(v7 + 16) = v6;
+    *(_DWORD *)(v7 + 20) = v6;
+    *(_DWORD *)(v7 + 24) = 291;
+    *(_QWORD *)(v7 + 28) = a2;
     if ( &a3[a2] < a3 || (unsigned __int64)&a3[a2] > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove((void *)(Quota + 36), a3, a2);
-    v9 = this[7];
-    if ( *v9 != (DirectComposition::CTelemetryInfo *)(this + 6) )
+    memmove((void *)(v7 + 36), a3, a2);
+    v9 = (DirectComposition::CTelemetryInfo **)*((_QWORD *)this + 7);
+    if ( *v9 != (DirectComposition::CTelemetryInfo *)((char *)this + 48) )
       __fastfail(3u);
-    *(_QWORD *)Quota = this + 6;
-    *(_QWORD *)(Quota + 8) = v9;
-    *v9 = (DirectComposition::CTelemetryInfo *)Quota;
-    this[7] = (DirectComposition::CTelemetryInfo **)Quota;
-    Quota = 0LL;
+    *(_QWORD *)v7 = (char *)this + 48;
+    *(_QWORD *)(v7 + 8) = v9;
+    *v9 = (DirectComposition::CTelemetryInfo *)v7;
+    *((_QWORD *)this + 7) = v7;
+    v7 = 0LL;
   }
-  if ( Quota )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)Quota);
+  if ( v7 )
+    Win32FreePool(v7);
   return (unsigned int)v8;
 }

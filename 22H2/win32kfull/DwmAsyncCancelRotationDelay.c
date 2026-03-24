@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncCancelRotationDelay @ 0x1C026C5CC
+ * XREFs of DwmAsyncCancelRotationDelay @ 0x1C0273CF0
  * Callers:
- *     NtUserLayoutCompleted @ 0x1C00C5C40 (NtUserLayoutCompleted.c)
+ *     NtUserLayoutCompleted @ 0x1C011C250 (NtUserLayoutCompleted.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall DwmAsyncCancelRotationDelay(PVOID Object)
@@ -14,10 +14,10 @@ __int64 __fastcall DwmAsyncCancelRotationDelay(PVOID Object)
   int v6; // [rsp+48h] [rbp-10h]
 
   v2 = -1073741823;
-  IncrementDWMWindowUniqueness((__int64)Object);
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    v6 = 1073741943;
+    v6 = 1073741936;
     v5 = 0LL;
     memset(v4, 0, sizeof(v4));
     LODWORD(v4[0]) = 2883588;

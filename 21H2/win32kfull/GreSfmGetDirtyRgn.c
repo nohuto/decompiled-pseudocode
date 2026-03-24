@@ -1,11 +1,11 @@
 /*
- * XREFs of GreSfmGetDirtyRgn @ 0x1C00223E8
+ * XREFs of GreSfmGetDirtyRgn @ 0x1C00BCB28
  * Callers:
- *     NtGdiHLSurfGetInformation @ 0x1C00221E0 (NtGdiHLSurfGetInformation.c)
+ *     NtGdiHLSurfGetInformation @ 0x1C00BC920 (NtGdiHLSurfGetInformation.c)
  * Callees:
- *     ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C0022588 (-GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C015D33C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C00BCCC8 (-GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C016A05C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSfmGetDirtyRgn(
@@ -48,7 +48,7 @@ __int64 __fastcall GreSfmGetDirtyRgn(
         DirtyRgn = -1073741816;
       }
       if ( v14 )
-        DEC_SHARE_REF_CNT(v14);
+        DEC_SHARE_REF_CNT(v14, v13);
       UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v17);
     }
     else

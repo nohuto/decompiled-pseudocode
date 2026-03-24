@@ -1,7 +1,7 @@
 /*
- * XREFs of splitexp @ 0x1C00DDABC
+ * XREFs of splitexp @ 0x1C00CEB84
  * Callers:
- *     exp @ 0x1C00DD7F8 (exp.c)
+ *     exp @ 0x1C00CE8C8 (exp.c)
  * Callees:
  *     <none>
  */
@@ -27,8 +27,8 @@ double *__fastcall splitexp(double a1, double a2, double a3, double a4, double a
   v12 = (int)v11;
   v13 = (int)v11 & 0x1F;
   v14 = (double)(int)v11;
-  v15 = qword_1C0252520[v13];
-  v16 = qword_1C0252620[v13];
+  v15 = qword_1C02113D0[v13];
+  v16 = qword_1C02114D0[v13];
   *a6 = (v12 - (int)v13) / 32;
   v17 = (a1 - v14 * a4) * a2;
   *a7 = v15;

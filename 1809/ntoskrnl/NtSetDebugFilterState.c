@@ -1,7 +1,7 @@
 /*
- * XREFs of NtSetDebugFilterState @ 0x140740A30
+ * XREFs of NtSetDebugFilterState @ 0x140740A10
  * Callers:
- *     DbgSetDebugFilterState @ 0x140185D00 (DbgSetDebugFilterState.c)
+ *     DbgSetDebugFilterState @ 0x140185D20 (DbgSetDebugFilterState.c)
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  *     MiInitializeLoadedModuleList @ 0x1409CF350 (MiInitializeLoadedModuleList.c)
  * Callees:

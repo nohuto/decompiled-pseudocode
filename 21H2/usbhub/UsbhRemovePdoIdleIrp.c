@@ -1,5 +1,5 @@
 /*
- * XREFs of UsbhRemovePdoIdleIrp @ 0x1C0058110
+ * XREFs of UsbhRemovePdoIdleIrp @ 0x1C00597E0
  * Callers:
  *     <none>
  * Callees:

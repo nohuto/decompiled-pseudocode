@@ -1,40 +1,50 @@
 /*
- * XREFs of Isoch_CalculateBytesTransferred @ 0x1C0043914
+ * XREFs of Isoch_CalculateBytesTransferred @ 0x1C0040C80
  * Callers:
- *     Isoch_FindTrbMatch @ 0x1C0044230 (Isoch_FindTrbMatch.c)
+ *     Isoch_FindTrbMatch @ 0x1C00415C0 (Isoch_FindTrbMatch.c)
  * Callees:
- *     Isoch_ProcessSegment @ 0x1C0044614 (Isoch_ProcessSegment.c)
+ *     Isoch_ProcessSegment @ 0x1C00419A4 (Isoch_ProcessSegment.c)
  */
 
 __int64 __fastcall Isoch_CalculateBytesTransferred(int a1, __int64 a2, int a3)
 {
-  _QWORD *v5; // rbx
-  int v7; // eax
-  _QWORD *v8; // rsi
-  int v10; // [rsp+68h] [rbp+10h] BYREF
-  unsigned int v11; // [rsp+78h] [rbp+20h] BYREF
+  _QWORD *v5; // rdi
+  _QWORD *v7; // r9
+  int v8; // eax
+  _QWORD *v9; // rsi
+  int v11; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v12; // [rsp+78h] [rbp+20h] BYREF
 
-  v10 = 0;
   v11 = 0;
+  v12 = 0;
   v5 = *(_QWORD **)(a2 + 112);
-  v7 = *(_DWORD *)(a2 + 120);
-  if ( v5 != *(_QWORD **)(a2 + 96) )
+  v7 = *(_QWORD **)(a2 + 96);
+  v8 = *(_DWORD *)(a2 + 120);
+  if ( v5 != v7 )
   {
-    v8 = (_QWORD *)(a2 + 24);
-    while ( v5 != v8 )
+    v9 = (_QWORD *)(a2 + 24);
+    if ( v5 != (_QWORD *)(a2 + 24) )
     {
-      if ( (unsigned __int8)Isoch_ProcessSegment(a1, a2, a3, (_DWORD)v5, v7, (__int64)&v10, (__int64)&v11) )
-        goto LABEL_7;
-      v5 = (_QWORD *)*v5;
-      v7 = 0;
+      while ( !(unsigned __int8)Isoch_ProcessSegment(a1, a2, a3, (_DWORD)v5, v8, (__int64)&v11, (__int64)&v12) )
+      {
+        v5 = (_QWORD *)*v5;
+        v8 = 0;
+        if ( v5 == v9 )
+        {
+          v7 = *(_QWORD **)(a2 + 96);
+          goto LABEL_6;
+        }
+      }
+      goto LABEL_7;
     }
   }
-  v5 = *(_QWORD **)(a2 + 96);
-  if ( (unsigned __int8)Isoch_ProcessSegment(a1, a2, a3, (_DWORD)v5, v7, (__int64)&v10, (__int64)&v11) )
+LABEL_6:
+  v5 = v7;
+  if ( (unsigned __int8)Isoch_ProcessSegment(a1, a2, a3, (_DWORD)v7, v8, (__int64)&v11, (__int64)&v12) )
   {
 LABEL_7:
-    *(_DWORD *)(a2 + 120) = v10;
+    *(_DWORD *)(a2 + 120) = v11;
     *(_QWORD *)(a2 + 112) = v5;
   }
-  return v11;
+  return v12;
 }

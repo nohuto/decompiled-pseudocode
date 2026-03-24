@@ -1,82 +1,122 @@
 /*
- * XREFs of HvpApplyIncrementalLogFile @ 0x1407FE5D8
+ * XREFs of HvpApplyIncrementalLogFile @ 0x140881368
  * Callers:
- *     HvApplyLogFiles @ 0x1407FE0E4 (HvApplyLogFiles.c)
+ *     HvApplyLogFile @ 0x140881274 (HvApplyLogFile.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407FE728 (HvpIncrementalLogFileEnumeratorAdvance.c)
- *     HvpUpdateRecoveryVector @ 0x1407FEA88 (HvpUpdateRecoveryVector.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407FEC7C (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SymCryptMarvin32 @ 0x1403EB528 (SymCryptMarvin32.c)
+ *     CmpTraceHiveMountLogEntryApplied @ 0x14086ACB8 (CmpTraceHiveMountLogEntryApplied.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140873D8C (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpRecoverDataReadRoutine @ 0x140874730 (HvpRecoverDataReadRoutine.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x1408818B8 (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpIsMetadataArrayCoherent @ 0x140881934 (HvpIsMetadataArrayCoherent.c)
+ *     HvpReadLogEntryHeader @ 0x140881DEC (HvpReadLogEntryHeader.c)
+ *     HvpUpdateRecoveryVector @ 0x140881E48 (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvpApplyIncrementalLogFile(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        int a2,
+        unsigned int a3,
         __int64 a4,
-        ULONG_PTR BugCheckParameter2,
-        __int64 a6)
+        unsigned int *a5,
+        __int64 a6,
+        unsigned __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12,
+        unsigned int *a13)
 {
-  __int64 v6; // rax
+  unsigned int *v13; // r15
+  int v14; // r12d
+  unsigned int v17; // ebx
+  char v18; // r14
   __int64 result; // rax
-  _DWORD *v9; // rbx
-  _DWORD *v10; // r15
-  REGHANDLE v11; // r14
-  int v12; // eax
-  __int64 v13; // [rsp+30h] [rbp-49h] BYREF
-  int v14; // [rsp+38h] [rbp-41h] BYREF
-  int v15; // [rsp+40h] [rbp-39h] BYREF
-  _DWORD *v16; // [rsp+48h] [rbp-31h] BYREF
-  _DWORD v17[2]; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v18; // [rsp+58h] [rbp-21h]
-  __int64 v19; // [rsp+60h] [rbp-19h]
-  EVENT_DESCRIPTOR EventDescriptor; // [rsp+68h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp-1h] BYREF
-  int *v22; // [rsp+88h] [rbp+Fh]
-  int v23; // [rsp+90h] [rbp+17h]
-  int v24; // [rsp+94h] [rbp+1Bh]
+  unsigned __int64 Alignment; // r15
+  unsigned __int64 v21; // r15
+  bool v22; // zf
+  int v23; // [rsp+38h] [rbp-69h] BYREF
+  unsigned int v24; // [rsp+3Ch] [rbp-65h]
+  struct _LOOKASIDE_LIST_EX v25; // [rsp+40h] [rbp-61h] BYREF
 
-  v6 = *(_QWORD *)(a2 + 8);
-  LODWORD(v13) = 0;
-  v16 = 0LL;
-  v18 = v6;
-  v19 = *(_QWORD *)(a2 + 16);
-  v17[1] = *(_DWORD *)(a3 + 8);
-  v17[0] = 512;
+  v13 = a5;
+  v14 = 0;
+  v23 = 0;
+  v25.L.ListHead.Alignment = 0LL;
+  v17 = 512;
+  v25.L.ListHead.Region = a7;
+  *(_QWORD *)&v25.L.Depth = a10;
+  *(_QWORD *)&v25.L.FreeMisses = a11;
+  *(_QWORD *)&v25.L.Tag = a12;
+  v18 = 0;
+  v24 = a3;
+  *(_QWORD *)&v25.L.AllocateMisses = a5;
+  memset(&v25.L.48, 0, 40);
   while ( 1 )
   {
-    result = HvpIncrementalLogFileEnumeratorAdvance(v17, &v16);
-    if ( (_DWORD)result == -2147483622 )
+    result = HvpReadLogEntryHeader(v17, HvpRecoverDataReadRoutine, v13, &v25.L.48);
+    if ( (int)result < 0 )
       break;
+    if ( !(unsigned __int8)HvpIsLogEntryHeaderCoherent(&v25.L.48, v17, v24) || HIDWORD(v25.L.Free) != a2 )
+      goto LABEL_17;
+    result = HvpRecoverDataReadRoutine(v13, v17, HIDWORD(v25.L.Allocate), &v25);
     if ( (int)result < 0 )
-      return result;
-    v9 = v16;
-    v10 = v16 + 10;
-    result = HvpApplyLogEntryDataToFileBackedHive(BugCheckParameter2, v16[1] - (8 * v16[5] + 40), (__int64)&v13);
-    if ( (int)result < 0 )
-      return result;
-    *(_DWORD *)(a1 + 40) = v9[4];
-    if ( (v9[2] & 1) != 0 )
+      break;
+    Alignment = v25.L.ListHead.Alignment;
+    if ( !(unsigned __int8)HvpIsMetadataArrayCoherent(
+                             &v25.L.48,
+                             v25.L.ListHead.Alignment + 40,
+                             HIDWORD(v25.L.ListEntry.Flink)) )
+      goto LABEL_17;
+    SymCryptMarvin32(
+      HvSymcryptSeed,
+      (unsigned __int16 *)(Alignment + 40),
+      (unsigned int)(HIDWORD(v25.L.Allocate) - 40),
+      v25.L.Future);
+    if ( v25.L.ListEntry.Blink != *(struct _LIST_ENTRY **)v25.L.Future )
+      goto LABEL_17;
+    v21 = v25.L.ListHead.Alignment + 40;
+    HvpApplyLogEntryDataToFileBackedHive(
+      v25.L.ListHead.Region,
+      (__int64)&v25.L.48,
+      v25.L.ListHead.Alignment + 40,
+      v25.L.ListHead.Alignment + 40 + 8LL * HIDWORD(v25.L.ListEntry.Flink),
+      HIDWORD(v25.L.Allocate) - (8 * HIDWORD(v25.L.ListEntry.Flink) + 40),
+      &v23);
+    v22 = ((__int64)v25.L.FreeEx & 1) == 0;
+    *(_DWORD *)(a1 + 40) = v25.L.ListEntry.Flink;
+    if ( !v22 )
       *(_DWORD *)(a1 + 144) |= 1u;
-    v11 = EtwpRegTraceHandle;
-    v15 = v13;
-    v12 = v9[1];
-    EventDescriptor = (EVENT_DESCRIPTOR)REGISTRY_PERF_EVENT_HIVE_MOUNT_LOG_ENTRY_APPLIED;
-    v14 = v12;
-    if ( EtwEventEnabled(EtwpRegTraceHandle, &EventDescriptor) )
+    v18 = 1;
+    ++v14;
+    CmpTraceHiveMountLogEntryApplied(SHIDWORD(v25.L.Allocate), v23);
+    if ( *(_QWORD *)&v25.L.Depth )
+      HvpUpdateRecoveryVector(v21, HIDWORD(v25.L.ListEntry.Flink), *(_QWORD *)&v25.L.Depth);
+    v13 = *(unsigned int **)&v25.L.AllocateMisses;
+    ++a2;
+    v17 += HIDWORD(v25.L.Allocate);
+    if ( !v17 )
     {
-      UserData.Reserved = 0;
-      v24 = 0;
-      UserData.Ptr = (ULONGLONG)&v14;
-      UserData.Size = 4;
-      v22 = &v15;
-      v23 = 4;
-      EtwWrite(v11, &EventDescriptor, 0LL, 2u, &UserData);
+      result = 2147483674LL;
+      break;
     }
-    if ( a6 )
-      HvpUpdateRecoveryVector(v10, (unsigned int)v9[5], a6);
   }
-  return 1073741833LL;
+  if ( (_DWORD)result == -1073741801 || (_DWORD)result == -1073741670 || (_DWORD)result == -1073741492 )
+    return result;
+LABEL_17:
+  result = v18 != 0 ? 0x40000009 : 0;
+  if ( *(_QWORD *)&v25.L.FreeMisses )
+    **(_DWORD **)&v25.L.FreeMisses = a2;
+  if ( *(_QWORD *)&v25.L.Tag )
+    **(_DWORD **)&v25.L.Tag = v14;
+  if ( a13 )
+  {
+    if ( v18 )
+      *a13 = v17;
+    else
+      *a13 = 0;
+  }
+  return result;
 }

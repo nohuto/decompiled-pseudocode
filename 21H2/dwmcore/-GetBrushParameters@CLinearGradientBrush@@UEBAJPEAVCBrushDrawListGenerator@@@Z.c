@@ -1,42 +1,41 @@
 /*
- * XREFs of ?GetBrushParameters@CLinearGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x18003EEB0
+ * XREFs of ?GetBrushParameters@CLinearGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1801D2900
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800198A8 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetSize@CDrawListBitmap@@QEBA?AUD2D_SIZE_U@@XZ @ 0x18003F1D8 (-GetSize@CDrawListBitmap@@QEBA-AUD2D_SIZE_U@@XZ.c)
- *     ?InferVisualToTextureTransform@CGradientBrush@@IEBAJAEAY02$$CBUD2D_POINT_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x18003F220 (-InferVisualToTextureTransform@CGradientBrush@@IEBAJAEAY02$$CBUD2D_POINT_2F@@AEBV-$TMilRect_@MUM.c)
- *     ?GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18003F5F8 (-GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV-$TMilR.c)
- *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180040968 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0CDrawListBitmap@@QEAA@PEAVIBitmapResource@@@Z @ 0x180058350 (--0CDrawListBitmap@@QEAA@PEAVIBitmapResource@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMatrix3x3@@PEAPEAV1@@Z @ 0x180088C60 (-CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMat.c)
- *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x18008EEE4 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
- *     ??R?$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z @ 0x18008EF54 (--R-$default_delete@VCDrawListBrush@@@std@@QEBAXPEAVCDrawListBrush@@@Z.c)
- *     ?AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@@Z @ 0x18008EFF4 (-AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delet.c)
- *     ?FromD2D1InterpolationMode@InterpolationMode@@YA?AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z @ 0x1800B0B20 (-FromD2D1InterpolationMode@InterpolationMode@@YA-AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z.c)
- *     ??4CDrawListBitmap@@QEAAAEAV0@$$QEAV0@@Z @ 0x1800BCC70 (--4CDrawListBitmap@@QEAAAEAV0@$$QEAV0@@Z.c)
- *     ??_ECSurfaceDrawListBrush@@UEAAPEAXI@Z @ 0x1800D04C0 (--_ECSurfaceDrawListBrush@@UEAAPEAXI@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007474 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B590 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMatrix3x3@@PEAPEAV1@@Z @ 0x18004FF64 (-CreateWithTextureTransform@CSurfaceDrawListBrush@@SAJAEBVCDrawListBitmap@@USamplerMode@@AEBVMat.c)
+ *     ?Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapResource@@PEBVCDrawingContext@@_N@Z @ 0x180051AF0 (-Initialize@CDrawListBitmap@@QEAAJPEAVIBitmapResource@@PEBVCDrawingContext@@_N@Z.c)
+ *     ??_ECSurfaceDrawListBrush@@UEAAPEAXI@Z @ 0x180054550 (--_ECSurfaceDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?FromD2D1InterpolationMode@InterpolationMode@@YA?AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z @ 0x180056260 (-FromD2D1InterpolationMode@InterpolationMode@@YA-AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800563A4 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetSize@CDrawListBitmap@@QEBA?AUD2D_SIZE_U@@XZ @ 0x180056958 (-GetSize@CDrawListBitmap@@QEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@@Z @ 0x18009463C (-AttachInput@CBrushDrawListGenerator@@QEAAXI$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delet.c)
+ *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x1800948A8 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801E6FB4 (-GetCurrentSurface@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAVIBitmapResource@@PEAV-$TMilR.c)
+ *     ?InferVisualToTextureTransform@CGradientBrush@@IEBAJAEAY02$$CBUD2D_POINT_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1801E7208 (-InferVisualToTextureTransform@CGradientBrush@@IEBAJAEAY02$$CBUD2D_POINT_2F@@AEBV-$TMilRect_@MUM.c)
  */
 
 __int64 __fastcall CLinearGradientBrush::GetBrushParameters(
         CLinearGradientBrush *this,
-        struct CBrushDrawListGenerator *a2)
+        const struct CDrawingContext **a2)
 {
   int CurrentSurface; // eax
-  unsigned int v5; // ecx
+  __int64 v5; // rcx
   int v6; // ebx
-  CDrawListBitmap *v7; // rax
-  bool v8; // zf
-  float *v9; // rdx
-  float v10; // xmm2_4
-  float v11; // xmm3_4
-  float v12; // xmm1_4
-  float v13; // xmm4_4
-  float v14; // xmm0_4
+  bool v7; // zf
+  float *v8; // rdx
+  float v9; // xmm4_4
+  float v10; // xmm3_4
+  float v11; // xmm5_4
+  float v12; // xmm6_4
+  float v13; // xmm2_4
+  float v14; // xmm1_4
   __int64 v15; // rcx
   unsigned int v16; // ecx
   float *v17; // rax
@@ -45,158 +44,166 @@ __int64 __fastcall CLinearGradientBrush::GetBrushParameters(
   struct D2D_SIZE_U Size; // rax
   int v21; // ecx
   CSurfaceDrawListBrush *v22; // rcx
-  CSurfaceDrawListBrush *v23; // rax
-  __int64 v24; // rcx
-  unsigned int v26; // [rsp+28h] [rbp-89h]
-  _BYTE v27[16]; // [rsp+38h] [rbp-79h] BYREF
-  struct IBitmapResource *v28; // [rsp+48h] [rbp-69h] BYREF
-  CSurfaceDrawListBrush *v29; // [rsp+50h] [rbp-61h] BYREF
-  __int128 v30; // [rsp+58h] [rbp-59h] BYREF
-  char v31; // [rsp+68h] [rbp-49h]
-  CSurfaceDrawListBrush **v32; // [rsp+70h] [rbp-41h] BYREF
-  CSurfaceDrawListBrush *v33; // [rsp+78h] [rbp-39h] BYREF
-  float v34; // [rsp+80h] [rbp-31h]
-  float v35; // [rsp+84h] [rbp-2Dh]
-  __int128 v36; // [rsp+88h] [rbp-29h] BYREF
-  _DWORD v37[5]; // [rsp+98h] [rbp-19h] BYREF
-  float v38; // [rsp+ACh] [rbp-5h]
-  float v39; // [rsp+B0h] [rbp-1h] BYREF
-  float v40; // [rsp+B4h] [rbp+3h]
-  float v41; // [rsp+B8h] [rbp+7h]
-  float v42; // [rsp+BCh] [rbp+Bh]
-  float v43; // [rsp+C0h] [rbp+Fh]
-  float v44; // [rsp+C4h] [rbp+13h]
-  int v45; // [rsp+C8h] [rbp+17h]
-  float v46; // [rsp+CCh] [rbp+1Bh]
-  int v47; // [rsp+D0h] [rbp+1Fh]
+  unsigned int v23; // r8d
+  CSurfaceDrawListBrush *v24; // rax
+  __int64 v25; // rcx
+  unsigned int v26; // r8d
+  unsigned int v28; // [rsp+28h] [rbp-99h]
+  __int16 v29; // [rsp+38h] [rbp-89h] BYREF
+  char v30; // [rsp+3Ah] [rbp-87h]
+  struct IBitmapResource *v31; // [rsp+48h] [rbp-79h] BYREF
+  CSurfaceDrawListBrush *v32; // [rsp+50h] [rbp-71h] BYREF
+  __int128 v33; // [rsp+58h] [rbp-69h] BYREF
+  __int64 v34; // [rsp+68h] [rbp-59h]
+  int v35; // [rsp+70h] [rbp-51h]
+  __int64 v36; // [rsp+74h] [rbp-4Dh]
+  int v37; // [rsp+7Ch] [rbp-45h]
+  char v38; // [rsp+80h] [rbp-41h]
+  CSurfaceDrawListBrush **v39; // [rsp+88h] [rbp-39h] BYREF
+  CSurfaceDrawListBrush *v40; // [rsp+90h] [rbp-31h] BYREF
+  float v41; // [rsp+98h] [rbp-29h]
+  float v42; // [rsp+9Ch] [rbp-25h]
+  __int128 v43; // [rsp+A0h] [rbp-21h] BYREF
+  _DWORD v44[5]; // [rsp+B0h] [rbp-11h] BYREF
+  float v45; // [rsp+C4h] [rbp+3h]
+  float v46; // [rsp+C8h] [rbp+7h] BYREF
+  float v47; // [rsp+CCh] [rbp+Bh]
+  float v48; // [rsp+D0h] [rbp+Fh]
+  float v49; // [rsp+D4h] [rbp+13h]
+  float v50; // [rsp+D8h] [rbp+17h]
+  float v51; // [rsp+DCh] [rbp+1Bh]
+  int v52; // [rsp+E0h] [rbp+1Fh]
+  float v53; // [rsp+E4h] [rbp+23h]
+  int v54; // [rsp+E8h] [rbp+27h]
 
-  v29 = 0LL;
-  v28 = 0LL;
-  v31 = 0;
-  v30 = 0LL;
+  v32 = 0LL;
+  v35 = 0;
+  v31 = 0LL;
   v36 = 0LL;
-  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v28);
+  v33 = 0LL;
+  v37 = 0;
+  v34 = 0LL;
+  v38 = 0;
+  v43 = 0LL;
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v31);
   CurrentSurface = CGradientBrush::GetCurrentSurface(this);
   v6 = CurrentSurface;
   if ( CurrentSurface < 0 )
   {
-    v26 = 123;
-    goto LABEL_21;
+    v28 = 123;
+    goto LABEL_20;
   }
-  v7 = CDrawListBitmap::CDrawListBitmap((CDrawListBitmap *)&v32, v28);
-  CDrawListBitmap::operator=(&v30, v7);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v33);
-  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>(&v32);
-  CBrushDrawListGenerator::Reset(a2);
-  v8 = *((_DWORD *)this + 39) == 1;
-  v9 = (float *)((char *)a2 + 8);
-  v10 = *((float *)this + 58);
-  v11 = *((float *)this + 59);
-  v12 = *((float *)this + 60);
-  v13 = *((float *)this + 61);
-  v39 = v10;
-  v40 = v11;
-  v41 = v12;
-  v42 = v13;
-  if ( v8 )
+  CurrentSurface = CDrawListBitmap::Initialize((CDrawListBitmap *)&v33, v31, *a2);
+  v6 = CurrentSurface;
+  if ( CurrentSurface < 0 )
   {
-    v14 = *((float *)a2 + 3);
-    v10 = v10 * *v9;
-    v12 = v12 * *v9;
-    v11 = v11 * v14;
-    v39 = v10;
-    v40 = v11;
-    v42 = v14 * v13;
-    v13 = v14 * v13;
-    v41 = v12;
+    v28 = 126;
+    goto LABEL_20;
   }
-  v15 = *((_QWORD *)this + 27);
-  v43 = v10 - (float)(v13 - v11);
-  v44 = (float)(v12 - v10) + v11;
+  CBrushDrawListGenerator::Reset((CBrushDrawListGenerator *)a2);
+  v7 = *((_DWORD *)this + 27) == 1;
+  v8 = (float *)(a2 + 1);
+  v9 = *((float *)this + 46);
+  v10 = *((float *)this + 48);
+  v11 = *((float *)this + 49);
+  v12 = *((float *)this + 47);
+  v46 = v9;
+  v48 = v10;
+  v49 = v11;
+  v47 = v12;
+  if ( v7 )
+  {
+    v9 = v9 * *v8;
+    v13 = *v8 * v10;
+    v14 = *((float *)a2 + 3) * v11;
+    v12 = *((float *)a2 + 3) * v12;
+    v47 = v12;
+    v10 = v13;
+    v46 = v9;
+    v48 = v13;
+    v11 = v14;
+    v49 = v14;
+  }
+  v15 = *((_QWORD *)this + 21);
+  v50 = v9 - (float)(v11 - v12);
+  v51 = (float)(v10 - v9) + v12;
   if ( v15 )
   {
-    (*(void (__fastcall **)(__int64, float *, CSurfaceDrawListBrush ***))(*(_QWORD *)v15 + 208LL))(v15, v9, &v32);
+    (*(void (__fastcall **)(__int64, float *, CSurfaceDrawListBrush ***))(*(_QWORD *)v15 + 224LL))(v15, v8, &v39);
     v16 = 0;
-    v17 = &v39;
+    v17 = &v46;
     do
     {
       ++v16;
-      v18 = (float)(*((float *)&v32 + 1) * *v17) + (float)(*((float *)&v33 + 1) * v17[1]);
-      *v17 = (float)((float)(*(float *)&v33 * v17[1]) + (float)(*(float *)&v32 * *v17)) + v34;
-      v17[1] = v18 + v35;
+      v18 = (float)(*((float *)&v39 + 1) * *v17) + (float)(*((float *)&v40 + 1) * v17[1]);
+      *v17 = (float)((float)(*(float *)&v40 * v17[1]) + (float)(*(float *)&v39 * *v17)) + v41;
+      v17[1] = v18 + v42;
       v17 += 2;
     }
     while ( v16 < 3 );
   }
-  CurrentSurface = CGradientBrush::InferVisualToTextureTransform(this, &v39, &v36, v37);
+  CurrentSurface = CGradientBrush::InferVisualToTextureTransform(this, &v46, &v43, v44);
   v6 = CurrentSurface;
   if ( CurrentSurface < 0 )
   {
-    v26 = 164;
-LABEL_21:
-    MilInstrumentationCheckHR_MaybeFailFast(
-      v5,
-      &`CBitmapRenderStrategy::GetLayoutParameters'::`2'::MILINSTRUMENTATIONHRESULTLIST,
-      2u,
-      CurrentSurface,
-      v26,
-      0LL);
-    goto LABEL_22;
+    v28 = 165;
+LABEL_20:
+    MilInstrumentationCheckHR_MaybeFailFast(v5, &dword_180304F70, 2u, CurrentSurface, v28, 0LL);
+    goto LABEL_21;
   }
-  v19 = *((float *)&v36 + 1) + 0.5;
-  Size = CDrawListBitmap::GetSize((CDrawListBitmap *)&v30);
-  v33 = 0LL;
-  v40 = 0.0;
+  v19 = *((float *)&v43 + 1) + 0.5;
+  Size = CDrawListBitmap::GetSize((CDrawListBitmap *)&v33, &v43);
+  v40 = 0LL;
+  v47 = 0.0;
   v21 = *(_DWORD *)(*(_QWORD *)&Size + 4LL);
-  v37[1] = 0;
-  v37[3] = 0;
-  v41 = 0.0;
-  v43 = 0.0;
-  v44 = 0.0;
-  v32 = &v29;
-  LOBYTE(v34) = 1;
-  v47 = (int)FLOAT_1_0;
-  v39 = *(float *)v37;
-  v42 = *(float *)&v37[2];
-  v38 = v19 / (float)v21;
-  v46 = v38;
-  v45 = v37[4];
-  v27[0] = InterpolationMode::FromD2D1InterpolationMode(1LL);
-  v27[1] = *((_BYTE *)this + 152);
-  v27[2] = 1;
-  v6 = CSurfaceDrawListBrush::CreateWithTextureTransform(&v30, v27, &v39, &v33);
-  if ( LOBYTE(v34) )
+  v44[1] = 0;
+  v44[3] = 0;
+  v48 = 0.0;
+  v50 = 0.0;
+  v51 = 0.0;
+  v39 = &v32;
+  LOBYTE(v41) = 1;
+  v54 = (int)FLOAT_1_0;
+  v46 = *(float *)v44;
+  v49 = *(float *)&v44[2];
+  v45 = v19 / (float)v21;
+  v53 = v45;
+  v52 = v44[4];
+  LOBYTE(v29) = InterpolationMode::FromD2D1InterpolationMode(1);
+  HIBYTE(v29) = *((_BYTE *)this + 104);
+  v30 = 1;
+  v6 = CSurfaceDrawListBrush::CreateWithTextureTransform(
+         (struct CSurfaceDrawListBrush *)&v33,
+         &v29,
+         (__int64)&v46,
+         &v40);
+  if ( LOBYTE(v41) )
   {
-    v22 = *v32;
-    *v32 = v33;
+    v22 = *v39;
+    *v39 = v40;
     if ( v22 )
-      CSurfaceDrawListBrush::`vector deleting destructor'(v22, 1u);
+      CSurfaceDrawListBrush::`vector deleting destructor'(v22, 1, v23);
   }
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(
-      (unsigned int)v22,
-      &`CBitmapRenderStrategy::GetLayoutParameters'::`2'::MILINSTRUMENTATIONHRESULTLIST,
-      2u,
-      v6,
-      0xB5u,
-      0LL);
-LABEL_22:
-    CBrushDrawListGenerator::Reset(a2);
-    goto LABEL_15;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v22, &dword_180304F70, 2u, v6, 0xB6u, 0LL);
+LABEL_21:
+    CBrushDrawListGenerator::Reset((CBrushDrawListGenerator *)a2);
+    goto LABEL_22;
   }
-  v23 = v29;
-  v29 = 0LL;
-  *(_QWORD *)&v36 = v23;
-  CBrushDrawListGenerator::AttachInput(a2, 0LL, &v36);
-  if ( (_QWORD)v36 )
-    std::default_delete<CDrawListBrush>::operator()(v24, v36);
+  v24 = v32;
+  v32 = 0LL;
+  *(_QWORD *)&v43 = v24;
+  CBrushDrawListGenerator::AttachInput((__int64)a2, 0, &v43);
+  if ( (_QWORD)v43 )
+    std::default_delete<CShape>::operator()(v25, (__int64 (__fastcall ***)(_QWORD, __int64))v43);
+  *((_DWORD *)a2 + 4) = 128;
   v6 = 0;
-LABEL_15:
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v30 + 8);
-  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>(&v30);
-  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v28);
-  if ( v29 )
-    CSurfaceDrawListBrush::`vector deleting destructor'(v29, 1u);
+LABEL_22:
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v33 + 8);
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v33);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v31);
+  if ( v32 )
+    CSurfaceDrawListBrush::`vector deleting destructor'(v32, 1, v26);
   return (unsigned int)v6;
 }

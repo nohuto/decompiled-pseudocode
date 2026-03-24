@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart @ 0x1C0011920
+ * XREFs of HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart @ 0x1C0011510
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_AcquirePortPowerReference @ 0x1C000FA08 (HUBMUX_AcquirePortPowerReference.c)
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FEC0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMUX_AcquirePortPowerReference @ 0x1C000F5EC (HUBMUX_AcquirePortPowerReference.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
  */
 
 __int64 __fastcall HUBPSM20_IssuingHubResetOnControlTransferFailureOnStart(__int64 a1)

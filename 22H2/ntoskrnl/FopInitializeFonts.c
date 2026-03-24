@@ -1,16 +1,16 @@
 /*
- * XREFs of FopInitializeFonts @ 0x140B9DF5C
+ * XREFs of FopInitializeFonts @ 0x140A95F14
  * Callers:
- *     BgpFoInitialize @ 0x140B9E09C (BgpFoInitialize.c)
+ *     BgpFoInitialize @ 0x140A95E18 (BgpFoInitialize.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140387014 (FioFwReadUlongAtOffset.c)
- *     memset @ 0x140435400 (memset.c)
- *     FopFreeFontData @ 0x140AED2D8 (FopFreeFontData.c)
- *     BgpRasInitializeRasterizer @ 0x140B9D144 (BgpRasInitializeRasterizer.c)
- *     FopGetTableOffsetAndSize @ 0x140B9D8D8 (FopGetTableOffsetAndSize.c)
- *     FopReadMappingTable @ 0x140B9DAAC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x140B9DC7C (FopValidateFontNameTable.c)
+ *     BgpFwAllocateMemory @ 0x14039BE84 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x1403AC61C (FioFwReadUlongAtOffset.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     FopFreeFontData @ 0x1409F4294 (FopFreeFontData.c)
+ *     FopReadMappingTable @ 0x140A96050 (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x140A96228 (FopValidateFontNameTable.c)
+ *     BgpRasInitializeRasterizer @ 0x140A96518 (BgpRasInitializeRasterizer.c)
+ *     FopGetTableOffsetAndSize @ 0x140A968C8 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall FopInitializeFonts(__int64 a1)
@@ -18,12 +18,13 @@ __int64 __fastcall FopInitializeFonts(__int64 a1)
   int v1; // esi
   int v2; // ebp
   unsigned int i; // r14d
-  void *Memory; // rax
-  __int64 v6; // rbx
-  unsigned int v7; // ecx
+  _QWORD *Memory; // rax
+  _QWORD *v6; // rbx
+  unsigned int v7; // edx
   int v8; // eax
-  __int64 *v9; // rcx
-  unsigned __int32 v11; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v9; // rcx
+  _QWORD *v10; // rcx
+  unsigned int v12; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = 0;
   v2 = 0;
@@ -31,8 +32,8 @@ __int64 __fastcall FopInitializeFonts(__int64 a1)
   {
     for ( i = 12; ; i += 4 )
     {
-      Memory = (void *)BgpFwAllocateMemory(0x80uLL);
-      v6 = (__int64)Memory;
+      Memory = (_QWORD *)BgpFwAllocateMemory(0x80uLL);
+      v6 = Memory;
       if ( Memory )
         break;
 LABEL_11:
@@ -40,37 +41,38 @@ LABEL_11:
         return v1 == 0 ? 0xC000007B : 0;
     }
     memset(Memory, 0, 0x80uLL);
-    *(_QWORD *)(v6 + 16) = a1;
-    *(_QWORD *)(v6 + 112) = v6 + 104;
-    *(_QWORD *)(v6 + 104) = v6 + 104;
+    v6[2] = a1;
     v7 = 0;
-    *(_DWORD *)(v6 + 40) = v2;
+    v6[14] = v6 + 13;
+    v6[13] = v6 + 13;
+    *((_DWORD *)v6 + 10) = v2;
     v8 = *(_DWORD *)(a1 + 32);
-    v11 = 0;
+    v12 = 0;
     if ( (v8 & 1) != 0 )
     {
-      if ( (int)FioFwReadUlongAtOffset(*(_QWORD *)(a1 + 16), i, &v11) < 0 )
+      if ( (int)FioFwReadUlongAtOffset(*(_QWORD *)(a1 + 16), i, &v12) < 0 )
       {
 LABEL_13:
-        FopFreeFontData((_QWORD *)v6);
+        FopFreeFontData(v6);
         goto LABEL_11;
       }
-      v7 = v11;
+      v7 = v12;
     }
-    v11 = 0;
-    *(_DWORD *)(v6 + 44) = v7;
-    if ( (int)FopGetTableOffsetAndSize(*(_QWORD *)(a1 + 16), v7, 1668112752, (unsigned __int32 *)(v6 + 48), &v11) >= 0
-      && (int)FopValidateFontNameTable(*(_QWORD *)(a1 + 16), *(_DWORD *)(v6 + 44), (__int64 *)(v6 + 32)) >= 0
-      && (int)FopReadMappingTable(*(_QWORD *)(a1 + 16), *(unsigned int *)(v6 + 48), (__int64 *)(v6 + 24)) >= 0
+    *((_DWORD *)v6 + 11) = v7;
+    v9 = *(_QWORD *)(a1 + 16);
+    v12 = 0;
+    if ( (int)FopGetTableOffsetAndSize(v9, v7, 1668112752, (int)v6 + 48, (__int64)&v12) >= 0
+      && (int)FopValidateFontNameTable(*(_QWORD *)(a1 + 16), *((unsigned int *)v6 + 11), v6 + 4) >= 0
+      && (int)FopReadMappingTable(*(_QWORD *)(a1 + 16), *((unsigned int *)v6 + 12), v6 + 3) >= 0
       && (int)BgpRasInitializeRasterizer(v6) >= 0 )
     {
-      v9 = *(__int64 **)(a1 + 48);
-      if ( *v9 != a1 + 40 )
+      v10 = *(_QWORD **)(a1 + 48);
+      if ( *v10 != a1 + 40 )
         __fastfail(3u);
-      *(_QWORD *)v6 = a1 + 40;
+      *v6 = a1 + 40;
       ++v1;
-      *(_QWORD *)(v6 + 8) = v9;
-      *v9 = v6;
+      v6[1] = v10;
+      *v10 = v6;
       *(_QWORD *)(a1 + 48) = v6;
       goto LABEL_11;
     }

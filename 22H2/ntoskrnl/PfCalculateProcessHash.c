@@ -1,15 +1,14 @@
 /*
- * XREFs of PfCalculateProcessHash @ 0x140761120
+ * XREFs of PfCalculateProcessHash @ 0x14062ED30
  * Callers:
- *     PfProcessCreateNotification @ 0x140760974 (PfProcessCreateNotification.c)
- *     PfSnBeginAppLaunch @ 0x140760A08 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x14097F8F0 (PfSnOperationProcess.c)
- *     PfSnSetAltPrefetchParam @ 0x14097FAA8 (PfSnSetAltPrefetchParam.c)
+ *     PfProcessCreateNotification @ 0x14062E8B4 (PfProcessCreateNotification.c)
+ *     PfSnBeginAppLaunch @ 0x14062E94C (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x1406A51B8 (PfSnOperationProcess.c)
  * Callees:
- *     PfpLogApplicationEvent @ 0x1402FA074 (PfpLogApplicationEvent.c)
- *     PsGetAllocatedFullProcessImageName @ 0x140742CB8 (PsGetAllocatedFullProcessImageName.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PfpLogApplicationEvent @ 0x14026E010 (PfpLogApplicationEvent.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x14062F20C (PsGetAllocatedFullProcessImageName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfCalculateProcessHash(__int64 a1, unsigned __int64 a2)
@@ -43,7 +42,7 @@ __int64 __fastcall PfCalculateProcessHash(__int64 a1, unsigned __int64 a2)
     v7 = -1073741275;
     return v7 & (unsigned int)-(v2 != 0LL);
   }
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageName(a1, (__int64 *)&DestinationString);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageName(a1, &DestinationString);
   v6 = DestinationString;
   v7 = AllocatedFullProcessImageName;
   if ( AllocatedFullProcessImageName >= 0 )

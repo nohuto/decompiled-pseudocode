@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetupHighPerfPowerRequest @ 0x140864980
+ * XREFs of PopSetupHighPerfPowerRequest @ 0x1407D4A40
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PpmEndHighPerfRequest @ 0x14025DC0C (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x1403690D0 (PpmBeginHighPerfRequest.c)
- *     PpmReinitializeHeteroEngine @ 0x140848BE8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmEndHighPerfRequest @ 0x1403A6C60 (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A79D0 (PpmBeginHighPerfRequest.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407B9AE8 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 PopSetupHighPerfPowerRequest()

@@ -4,8 +4,8 @@
  *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
  *     MiConvertStaticSubsections @ 0x14007BCD4 (MiConvertStaticSubsections.c)
  *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED64 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiRemoveSystemCacheReferences @ 0x1402ABFDC (MiRemoveSystemCacheReferences.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED84 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiRemoveSystemCacheReferences @ 0x1402AC0DC (MiRemoveSystemCacheReferences.c)
  * Callees:
  *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
  *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)

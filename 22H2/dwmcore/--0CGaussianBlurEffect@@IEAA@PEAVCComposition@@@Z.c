@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CGaussianBlurEffect@@IEAA@PEAVCComposition@@@Z @ 0x1801C0AC8
+ * XREFs of ??0CGaussianBlurEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A5C4
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x1801C0A14 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A520 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CGaussianBlurEffect *__fastcall CGaussianBlurEffect::CGaussianBlurEffect(
@@ -14,10 +14,10 @@ CGaussianBlurEffect *__fastcall CGaussianBlurEffect::CGaussianBlurEffect(
   CGaussianBlurEffect *result; // rax
 
   CFilterEffect::CFilterEffect(this, a2);
-  *((_DWORD *)v2 + 45) = 0;
-  *((_DWORD *)v2 + 46) = 0;
+  *((_DWORD *)v2 + 39) = 0;
+  *((_DWORD *)v2 + 40) = 0;
   result = v2;
   *(_QWORD *)v2 = &CGaussianBlurEffect::`vftable';
-  *((_DWORD *)v2 + 44) = 1077936128;
+  *((_DWORD *)v2 + 38) = 1077936128;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInvalidateAllHigherLayerKcbs @ 0x1407F9FA4
+ * XREFs of CmpInvalidateAllHigherLayerKcbs @ 0x1407F9F84
  * Callers:
  *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 PVOID __fastcall CmpInvalidateAllHigherLayerKcbs(__int64 a1, int a2, int a3)

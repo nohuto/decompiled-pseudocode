@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceFxDeviceAccounting @ 0x1402E084C
+ * XREFs of PopDiagTraceFxDeviceAccounting @ 0x1402E094C
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x1402D9C5C (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1402D9D5C (PopFxStopDeviceAccounting.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopDiagQueryDevicePropertyString @ 0x1408704C8 (PopDiagQueryDevicePropertyString.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408704A8 (PopDiagQueryDevicePropertyString.c)
  */
 
 void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3, ...)
@@ -123,7 +123,7 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
           v46[1] = 0;
           v48 = 2LL;
           v50[1] = 0;
-          TlgWrite(&pCallbackContext, &unk_140370933, 0LL, 0LL, 0xFu, &pData);
+          TlgWrite(&pCallbackContext, &unk_140370801, 0LL, 0LL, 0xFu, &pData);
         }
         if ( v7 )
           ExFreePoolWithTag(Buffer, 0x67696450u);

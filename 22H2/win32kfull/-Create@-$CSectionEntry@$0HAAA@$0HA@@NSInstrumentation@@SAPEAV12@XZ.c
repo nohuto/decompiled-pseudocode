@@ -1,25 +1,25 @@
 /*
- * XREFs of ?Create@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0228C4C
+ * XREFs of ?Create@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0243D60
  * Callers:
- *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C02288DC (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C0243A1C (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
  * Callees:
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01BDFD0 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
- *     ?Initialize@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ @ 0x1C02290DC (-Initialize@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ.c)
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01E8768 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?Initialize@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ @ 0x1C02441D8 (-Initialize@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ.c)
  */
 
 _QWORD *NSInstrumentation::CSectionEntry<28672,112>::Create()
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v1; // rbx
 
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 40LL, 1869834581LL);
-  v1 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x28uLL, 0x6F736955u);
+  v1 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
-  Pool2[2] = 0LL;
-  Pool2[3] = 0LL;
-  Pool2[4] = 0LL;
-  if ( !(unsigned __int8)NSInstrumentation::CSectionEntry<28672,112>::Initialize(Pool2) )
+  PoolWithTag[2] = 0LL;
+  PoolWithTag[3] = 0LL;
+  PoolWithTag[4] = 0LL;
+  if ( !(unsigned __int8)NSInstrumentation::CSectionEntry<28672,112>::Initialize(PoolWithTag) )
   {
     NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v1);
     ExFreePoolWithTag(v1, 0);

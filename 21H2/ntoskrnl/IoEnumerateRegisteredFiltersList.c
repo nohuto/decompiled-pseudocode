@@ -1,13 +1,13 @@
 /*
- * XREFs of IoEnumerateRegisteredFiltersList @ 0x1406DFB70
+ * XREFs of IoEnumerateRegisteredFiltersList @ 0x14076C8C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopGetFsRegistrationInProgress @ 0x140557FF8 (IopGetFsRegistrationInProgress.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     IopGetFsRegistrationInProgress @ 0x1405067F0 (IopGetFsRegistrationInProgress.c)
  */
 
 NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
@@ -55,6 +55,6 @@ NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
   }
   ExReleaseResourceLite(&IopDatabaseResource);
 LABEL_8:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return i;
 }

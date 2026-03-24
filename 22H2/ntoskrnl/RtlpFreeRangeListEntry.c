@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFreeRangeListEntry @ 0x140817C48
+ * XREFs of RtlpFreeRangeListEntry @ 0x140760C88
  * Callers:
- *     RtlpDeleteFromMergedRange @ 0x140816B64 (RtlpDeleteFromMergedRange.c)
- *     RtlAddRange @ 0x140816E70 (RtlAddRange.c)
- *     RtlpAddIntersectingRanges @ 0x14081703C (RtlpAddIntersectingRanges.c)
- *     RtlDeleteRange @ 0x1408179D0 (RtlDeleteRange.c)
- *     RtlDeleteOwnersRanges @ 0x140817AA0 (RtlDeleteOwnersRanges.c)
- *     RtlpDeleteRangeListEntry @ 0x140817BE8 (RtlpDeleteRangeListEntry.c)
+ *     RtlDeleteRange @ 0x140760A20 (RtlDeleteRange.c)
+ *     RtlDeleteOwnersRanges @ 0x140760AD0 (RtlDeleteOwnersRanges.c)
+ *     RtlpDeleteRangeListEntry @ 0x140760C28 (RtlpDeleteRangeListEntry.c)
+ *     RtlAddRange @ 0x140763A30 (RtlAddRange.c)
+ *     RtlpAddIntersectingRanges @ 0x1407BD144 (RtlpAddIntersectingRanges.c)
+ *     RtlpDeleteFromMergedRange @ 0x1407C5BE4 (RtlpDeleteFromMergedRange.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RtlpFreeRangeListEntry(PVOID Entry)

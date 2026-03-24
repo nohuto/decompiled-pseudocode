@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCopyKeyPartial @ 0x1406FF8E0
+ * XREFs of CmpCopyKeyPartial @ 0x1406FF8C0
  * Callers:
  *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x140802918 (CmpLoadHiveVolatile.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140804024 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140804004 (CmpLightWeightPrepareAddKeyUoW.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
  *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     CmpCopyCell @ 0x140695738 (CmpCopyCell.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1406FFD24 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD54 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpCopyValue @ 0x1407FD3A4 (CmpCopyValue.c)
+ *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x1406FFD04 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD34 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
  */
 
 __int64 __fastcall CmpCopyKeyPartial(

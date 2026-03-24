@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmValidateDevicePanelName @ 0x14082B998
+ * XREFs of _CmValidateDevicePanelName @ 0x1407B00B8
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x14082B900 (_PnpDispatchDevicePanel.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x140A66770 (_CmGetDevicePanelRegKeyPath.c)
+ *     _PnpDispatchDevicePanel @ 0x1407B0020 (_PnpDispatchDevicePanel.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x140978630 (_CmGetDevicePanelRegKeyPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _CmSplitDevicePanelId @ 0x14082D10C (_CmSplitDevicePanelId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _CmSplitDevicePanelId @ 0x1407B0118 (_CmSplitDevicePanelId.c)
  */
 
 __int64 __fastcall CmValidateDevicePanelName(__int64 a1, const wchar_t *a2)

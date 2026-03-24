@@ -1,11 +1,11 @@
 /*
- * XREFs of DCompositionSessionInitialize @ 0x1C005AAB0
+ * XREFs of DCompositionSessionInitialize @ 0x1C00AD340
  * Callers:
  *     <none>
  * Callees:
- *     ?Initialize@CMaterialPropertiesTable@DirectComposition@@SAJXZ @ 0x1C005AAD8 (-Initialize@CMaterialPropertiesTable@DirectComposition@@SAJXZ.c)
- *     ?OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ @ 0x1C005ABC4 (-OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ.c)
- *     ?OnSessionCreation@CConnection@DirectComposition@@SAJH@Z @ 0x1C005ACC4 (-OnSessionCreation@CConnection@DirectComposition@@SAJH@Z.c)
+ *     ?Initialize@CMaterialPropertiesTable@DirectComposition@@SAJXZ @ 0x1C00AD368 (-Initialize@CMaterialPropertiesTable@DirectComposition@@SAJXZ.c)
+ *     ?OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ @ 0x1C00AD428 (-OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ.c)
+ *     ?OnSessionCreation@CConnection@DirectComposition@@SAJH@Z @ 0x1C00AD500 (-OnSessionCreation@CConnection@DirectComposition@@SAJH@Z.c)
  */
 
 __int64 __fastcall DCompositionSessionInitialize(int a1)

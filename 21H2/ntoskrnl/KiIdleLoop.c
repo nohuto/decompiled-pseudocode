@@ -1,19 +1,19 @@
 /*
- * XREFs of KiIdleLoop @ 0x140424300
+ * XREFs of KiIdleLoop @ 0x140402950
  * Callers:
- *     KiSystemStartup @ 0x140A47010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x14098F010 (KiSystemStartup.c)
  * Callees:
- *     KiQuantumEnd @ 0x14028FFD0 (KiQuantumEnd.c)
- *     KiRetireDpcList @ 0x1402A8980 (KiRetireDpcList.c)
- *     PoIdle @ 0x140305BD0 (PoIdle.c)
- *     KiIdleSchedule @ 0x140343C60 (KiIdleSchedule.c)
- *     HvlNotifyLongSpinWait @ 0x14039D930 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x14039EA10 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     SwapContext @ 0x140428D90 (SwapContext.c)
- *     KzSetIrqlUnsafe @ 0x140569E70 (KzSetIrqlUnsafe.c)
+ *     PoIdle @ 0x140221ED0 (PoIdle.c)
+ *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
+ *     KiIdleSchedule @ 0x140256BD0 (KiIdleSchedule.c)
+ *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
+ *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
+ *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
  */
 
-void __fastcall __noreturn KiIdleLoop(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KPRCB *CurrentPrcb; // rbx
   _KTHREAD *IdleThread; // rdi
@@ -35,13 +35,13 @@ void __fastcall __noreturn KiIdleLoop(__int64 a1, unsigned __int64 a2, __int64 a
         _mm_pause();
       _enable();
       _disable();
-      if ( (CurrentPrcb->DpcRequestSummary & 0xBF) != 0 )
+      if ( (CurrentPrcb->DpcRequestSummary & 0x3F) != 0 )
         KiRetireDpcList((__int64)CurrentPrcb);
       if ( CurrentPrcb->QuantumEnd )
       {
         CurrentPrcb->QuantumEnd = 0;
         _enable();
-        KiQuantumEnd(a1, a2, a3);
+        KiQuantumEnd(a1, a2, a3, a4);
         _disable();
       }
       _InterlockedOr8((volatile signed __int8 *)&CurrentPrcb->IdleHalt, 1u);
@@ -91,7 +91,7 @@ void __fastcall __noreturn KiIdleLoop(__int64 a1, unsigned __int64 a2, __int64 a
       if ( KiIdleSchedule((__int64)CurrentPrcb, a2, a3, a4) )
       {
 LABEL_33:
-        CurrentPrcb->InterruptRequest |= (CurrentPrcb->DpcRequestSummary & 0xAF) != 0;
+        CurrentPrcb->InterruptRequest |= (CurrentPrcb->DpcRequestSummary & 0x2F) != 0;
         if ( (_BYTE)KeSmapEnabled )
           __asm { stac }
         SwapContext(1LL);
@@ -101,7 +101,7 @@ LABEL_33:
     }
     else
     {
-      if ( (CurrentPrcb->DpcRequestSummary & 0xBF) == 0 )
+      if ( (CurrentPrcb->DpcRequestSummary & 0x3F) == 0 )
       {
         if ( (_BYTE)KeSmapEnabled )
           __asm { stac }

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x14067C3A4
+ * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x14071CF7C
  * Callers:
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
- *     CmpDestroyHive @ 0x14065A7E0 (CmpDestroyHive.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpVERemoveHiveFromSIDMappingTable(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall CmpVERemoveHiveFromSIDMappingTable(__int64 a1)
   _QWORD *v3; // rax
   __int64 v4; // rbx
 
-  if ( (*(_DWORD *)(a1 + 4112) & 2) != 0 )
+  if ( (*(_DWORD *)(a1 + 4152) & 2) != 0 )
   {
     ExAcquireFastMutex(&CmpSIDMappingLock);
     v2 = 0;

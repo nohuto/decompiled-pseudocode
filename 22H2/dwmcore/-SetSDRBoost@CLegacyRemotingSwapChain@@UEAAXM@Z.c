@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetSDRBoost@CLegacyRemotingSwapChain@@UEAAXM@Z @ 0x1802A40C0
+ * XREFs of ?SetSDRBoost@CLegacyRemotingSwapChain@@UEAAXM@Z @ 0x1802520F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CLegacyRemotingSwapChain::SetSDRBoost(CLegacyRemotingSwapChain *this, float a2)
 {
-  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 10) + 40LL))(*((_QWORD *)this + 10));
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 4) + 40LL))(*((_QWORD *)this + 4));
 }

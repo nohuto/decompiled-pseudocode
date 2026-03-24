@@ -1,101 +1,101 @@
 /*
- * XREFs of PoInitHiberServices @ 0x14080406C
+ * XREFs of PoInitHiberServices @ 0x14079AED8
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080CEA0 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079A330 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExIsSoftBoot @ 0x140374280 (ExIsSoftBoot.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     PopAcquireTransitionLock @ 0x140802E90 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x140802F44 (PopReleaseTransitionLock.c)
- *     PopBcdClearPendingResume @ 0x1408041B8 (PopBcdClearPendingResume.c)
- *     PopHibernateEvaluation @ 0x140804218 (PopHibernateEvaluation.c)
- *     PopBcdEstablishResumeObject @ 0x140804514 (PopBcdEstablishResumeObject.c)
- *     BcdCloseStore @ 0x140805378 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x14080561C (BcdOpenStore.c)
- *     BiDeleteElement @ 0x140805C00 (BiDeleteElement.c)
- *     BcdCloseObject @ 0x140807480 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
- *     PopInitializeHibernateGlobals @ 0x1408627D8 (PopInitializeHibernateGlobals.c)
- *     PopTraceHibernatePolicyUpdate @ 0x140863C5C (PopTraceHibernatePolicyUpdate.c)
- *     BcdFlushStore @ 0x140A5C298 (BcdFlushStore.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ExIsSoftBoot @ 0x14039AD70 (ExIsSoftBoot.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopBcdClearPendingResume @ 0x140781C60 (PopBcdClearPendingResume.c)
+ *     PopBcdEstablishResumeObject @ 0x140782180 (PopBcdEstablishResumeObject.c)
+ *     PopAcquireTransitionLock @ 0x14078D978 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14078D9D4 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x14079B350 (PopEnableHiberFile.c)
+ *     PoDisableSleepStates @ 0x1408E3C70 (PoDisableSleepStates.c)
+ *     PoShutdownBugCheck @ 0x1408E7610 (PoShutdownBugCheck.c)
+ *     PopBcdClose @ 0x1408F589C (PopBcdClose.c)
+ *     PopBcdOpen @ 0x1408F58B4 (PopBcdOpen.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
+ *     EmClientQueryRuleState @ 0x1409900E0 (EmClientQueryRuleState.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 (*PoInitHiberServices())(void)
+void PoInitHiberServices()
 {
-  int v0; // eax
-  int v1; // ecx
-  unsigned int v2; // ebx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rbx
-  __int64 (*result)(void); // rax
-  int v11; // eax
-  __int64 v12; // rbx
-  char v13; // [rsp+40h] [rbp+10h] BYREF
-  __int64 v14; // [rsp+48h] [rbp+18h] BYREF
-  __int64 v15; // [rsp+50h] [rbp+20h] BYREF
+  _DWORD *v0; // rsi
+  bool v1; // di
+  int v2; // eax
+  __int64 v3; // rbx
+  _DWORD *PoolWithTag; // rax
+  unsigned int v5; // r14d
+  __int64 v6; // rbx
+  int v7; // ecx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  char v12; // [rsp+78h] [rbp+48h] BYREF
+  __int64 v13; // [rsp+80h] [rbp+50h] BYREF
 
-  v14 = 0LL;
-  v13 = 0;
+  v13 = 0LL;
   RtlInitUnicodeString(&PoHiberFileRoot, L"\\OSDataRoot");
-  PopInitializeHibernateGlobals();
-  v0 = PopHiberFileTypeReg;
-  if ( PopHiberFileTypeReg != -1 || (v0 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
-    PopHiberFileType = v0;
-  PopAcquireTransitionLock(2);
-  PopAcquirePolicyLock(v1);
-  v2 = PopAllowHibernateReg;
-  LOBYTE(v3) = 1;
-  LOBYTE(v4) = 1;
-  PopHibernateEvaluation(v4, v3, &v13);
-  PopReleasePolicyLock(v6, v5, v7);
-  PopReleaseTransitionLock(2);
-  LOBYTE(v8) = v13;
-  PopTraceHibernatePolicyUpdate(v2, v8);
-  if ( !ExIsSoftBoot() && (v13 || !PopHiberBootOptimizationEnabledReg) && (int)BcdOpenStore(0LL, 2LL, &v14) >= 0 )
+  v0 = 0LL;
+  if ( PopHiberEnabledReg == -1 )
+    v1 = (unsigned int)(PopHiberEnabledDefaultReg - 1) > 0xFFFFFFFD;
+  else
+    v1 = PopHiberEnabledReg == 0;
+  v2 = PopHiberFileTypeReg;
+  if ( PopHiberFileTypeReg != -1 || (v2 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
+    PopHiberFileType = v2;
+  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &v12);
+  if ( !ExIsSoftBoot() && (int)PopBcdOpen(&v13) >= 0 )
   {
-    v9 = v14;
-    PopBcdEstablishResumeObject(v14, 0LL);
-    PopBcdClearPendingResume(v9);
-    BcdCloseStore(v9);
+    v3 = v13;
+    PopBcdEstablishResumeObject(v13, 0LL);
+    PopBcdClearPendingResume(v3);
+    PopBcdClose(v3);
   }
-  if ( (int)ExSubscribeWnfStateChange(
-              (__int64)&PopHibernatePolicyWnfSubscription,
-              (__int64)&WNF_PO_HIBERNATE_POLICY_CHANGE,
-              1,
-              0,
-              (__int64)PopWnfHibernatePolicyCallback,
-              (__int64)&PopAllowHibernateReg) < 0 )
-    PopHibernatePolicyWnfSubscription = 0LL;
-  v15 = -1LL;
-  v14 = -1LL;
-  if ( byte_140D53289 )
+  if ( (unsigned int)ZwQuerySystemInformation(112LL, 0LL) == -1073741789 )
   {
-    v11 = BcdOpenStore(0LL, 2LL, &v15);
-    v12 = v15;
-    if ( v11 >= 0 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0LL, 0x72626968u);
+    v0 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      if ( (int)BcdOpenObject(v15, &GUID_CURRENT_BOOT_ENTRY, &v14) >= 0 )
+      if ( (int)ZwQuerySystemInformation(112LL, (__int64)PoolWithTag) >= 0 && *(_BYTE *)v0 && v0[1] != -1 )
       {
-        BiDeleteElement(v14, 620757338LL);
-        BcdFlushStore(v12);
+        v1 = 1;
+        PoDisableSleepStates(2LL, 8LL, &v12);
       }
-      if ( v14 != -1 )
-        BcdCloseObject(v14);
     }
-    if ( v12 != -1 )
-      BcdCloseStore(v12);
   }
-  result = qword_140C6B018;
-  if ( qword_140C6B018 )
-    return (__int64 (*)(void))qword_140C6B018();
-  return result;
+  v5 = 0;
+  v6 = 0LL;
+  do
+  {
+    if ( *(_DWORD *)((char *)&PopHiberForceDisabledReg + v6) )
+    {
+      v1 = 1;
+      if ( (int)PoDisableSleepStates(*(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v6), 8LL, &v12) < 0 )
+      {
+        LOBYTE(v11) = 1;
+        PoShutdownBugCheck(v11, 160LL, 272LL, 0LL, 0LL, 0LL);
+      }
+    }
+    ++v5;
+    v6 += 4LL;
+  }
+  while ( v5 < 2 );
+  PopAcquireTransitionLock(2);
+  PopAcquirePolicyLock(v7);
+  LOBYTE(v8) = !v1;
+  PopEnableHiberFile(v8, 0LL);
+  PopReleasePolicyLock(v10, v9);
+  PopReleaseTransitionLock(2);
+  if ( qword_140C543C8 )
+    qword_140C543C8();
+  if ( v0 )
+    ExFreePoolWithTag(v0, 0x72626968u);
 }

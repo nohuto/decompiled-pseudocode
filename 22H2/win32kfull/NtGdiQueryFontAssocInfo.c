@@ -1,98 +1,70 @@
 /*
- * XREFs of NtGdiQueryFontAssocInfo @ 0x1C00ABF60
+ * XREFs of NtGdiQueryFontAssocInfo @ 0x1C01143A0
  * Callers:
  *     <none>
  * Callees:
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0076E28 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C010CB90 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093A30 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B920 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiQueryFontAssocInfo(HDC a1)
 {
-  unsigned int v2; // ebx
-  __int64 v3; // rdi
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  char v7; // cl
-  _DWORD *v8; // rdx
-  _QWORD v9[2]; // [rsp+30h] [rbp-19h] BYREF
-  _BYTE v10[32]; // [rsp+40h] [rbp-9h] BYREF
-  _BYTE v11[64]; // [rsp+60h] [rbp+17h] BYREF
-  __int64 v12; // [rsp+B0h] [rbp+67h] BYREF
-  struct LFONT *v13; // [rsp+B8h] [rbp+6Fh] BYREF
+  unsigned int v1; // ebx
+  char v3; // cl
+  _QWORD v4[2]; // [rsp+20h] [rbp-30h] BYREF
+  _BYTE v5[32]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v6; // [rsp+60h] [rbp+10h] BYREF
+  struct LFONT *v7; // [rsp+68h] [rbp+18h] BYREF
 
-  v2 = 0;
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
+  v1 = 0;
   if ( !a1 )
-    return *(unsigned int *)(v3 + 18736);
-  DCOBJ::DCOBJ((DCOBJ *)v9, a1);
-  if ( v9[0] )
+    return fFontAssocStatus;
+  DCOBJ::DCOBJ((DCOBJ *)v4, a1);
+  if ( v4[0] )
   {
-    v6 = SGDGetSessionState(v5);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v11, *(struct Gre::Full::SESSION_GLOBALS **)(v6 + 32));
-    LODWORD(v13) = 4;
-    HIDWORD(v13) = *(unsigned __int16 *)(v9[0] + 12LL);
-    v12 = 0LL;
-    if ( (unsigned int)RFONTOBJ::bInit((RFONTOBJ *)&v12, (struct XDCOBJ *)v9, 0, 2u, (const struct RFONTOBJ::Tag *)&v13) )
-      GreAcquireSemaphore(*(_QWORD *)(v12 + 504));
-    if ( !v12 )
-      goto LABEL_19;
-    v7 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v12 + 120) + 32LL) + 44LL);
-    if ( ((v7 + 0x80) & 0xF6) == 0 && v7 != -119 || v7 == -122 )
+    v6 = 0LL;
+    if ( (unsigned int)RFONTOBJ::bInit((RFONTOBJ *)&v6, (struct XDCOBJ *)v4, 0, 2u) )
+      GreAcquireSemaphore(*(_QWORD *)(v6 + 504));
+    if ( v6 )
     {
-      v2 = 2;
-LABEL_19:
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v12);
-      EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v11);
-      DCOBJ::~DCOBJ((DCOBJ *)v9);
-      return v2;
-    }
-    if ( v7 )
-    {
-      v8 = (_DWORD *)(v3 + 18736);
-      if ( v7 != -1 )
-        goto LABEL_14;
-      if ( (*(_DWORD *)(v3 + 18736) & 1) == 0 )
-        goto LABEL_25;
-    }
-    else
-    {
-      v8 = (_DWORD *)(v3 + 18736);
-      if ( (*(_DWORD *)(v3 + 18736) & 2) == 0 )
+      v3 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v6 + 120) + 32LL) + 44LL);
+      if ( (((v3 + 0x80) & 0xF6) != 0 || v3 == -119) && v3 != -122 )
       {
-LABEL_14:
-        if ( v7 != 2 || (*v8 & 4) == 0 )
-          goto LABEL_25;
+        if ( !v3 && (fFontAssocStatus & 2) != 0
+          || v3 == -1 && (fFontAssocStatus & 1) != 0
+          || v3 == 2 && (fFontAssocStatus & 4) != 0 )
+        {
+          LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v7, *(struct HLFONT__ **)(v4[0] + 1752LL), 0LL);
+          if ( v7 )
+          {
+            if ( (*((_BYTE *)v7 + 301) & 0x40) != 0 )
+            {
+              DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v7);
+            }
+            else
+            {
+              DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v7);
+              v1 = 1;
+            }
+          }
+        }
+      }
+      else
+      {
+        v1 = 2;
       }
     }
-    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v13, *(struct HLFONT__ **)(v9[0] + 1744LL), 0LL);
-    if ( v13 )
-    {
-      if ( (*((_BYTE *)v13 + 301) & 0x40) == 0 )
-      {
-        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v13);
-        v2 = 1;
-        goto LABEL_19;
-      }
-      if ( v13 )
-        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v13);
-    }
-LABEL_25:
-    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v12);
-    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v11);
-    if ( v9[0] )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v9);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v10);
-    return 0LL;
+    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v6);
   }
-  EngSetLastError(6u);
-  DCOBJ::~DCOBJ((DCOBJ *)v9);
-  return 0LL;
+  else
+  {
+    EngSetLastError(6u);
+  }
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v4);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v5);
+  return v1;
 }

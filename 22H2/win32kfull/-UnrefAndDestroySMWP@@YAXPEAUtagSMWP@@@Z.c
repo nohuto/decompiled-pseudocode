@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UnrefAndDestroySMWP@@YAXPEAUtagSMWP@@@Z @ 0x1C01A6310
+ * XREFs of ?UnrefAndDestroySMWP@@YAXPEAUtagSMWP@@@Z @ 0x1C01CFF30
  * Callers:
  *     <none>
  * Callees:
- *     DestroySMWP @ 0x1C00A1B10 (DestroySMWP.c)
+ *     DestroySMWP @ 0x1C006F450 (DestroySMWP.c)
  */
 
 void __fastcall UnrefAndDestroySMWP(struct tagSMWP *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?InDxEnabled@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000BEE0
+ * XREFs of ?InDxEnabled@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000DE20
  * Callers:
  *     <none>
  * Callees:

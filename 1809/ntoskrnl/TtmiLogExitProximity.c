@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogExitProximity @ 0x140883F1C
+ * XREFs of TtmiLogExitProximity @ 0x140883EFC
  * Callers:
- *     TtmpExitProximity @ 0x14087F19C (TtmpExitProximity.c)
+ *     TtmpExitProximity @ 0x14087F17C (TtmpExitProximity.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
@@ -55,7 +55,7 @@ char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
       v18 = 4;
       v21 = 4;
       v24 = 1;
-      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_14037239B, 0LL, 0LL, 6u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_1403725AE, 0LL, 0LL, 6u, &pData);
     }
   }
   return (char)v3;

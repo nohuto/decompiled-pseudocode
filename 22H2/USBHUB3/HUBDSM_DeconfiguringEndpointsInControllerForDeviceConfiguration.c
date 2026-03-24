@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration @ 0x1C0023B50
+ * XREFs of HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration @ 0x1C0021370
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C00267C8 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0023E38 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration(__int64 a1)

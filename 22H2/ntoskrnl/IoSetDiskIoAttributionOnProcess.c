@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetDiskIoAttributionOnProcess @ 0x140366F48
+ * XREFs of IoSetDiskIoAttributionOnProcess @ 0x140252E40
  * Callers:
- *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
- *     PspProcessDelete @ 0x1407615C0 (PspProcessDelete.c)
- *     PspSetJobIoAttributionProcessCallback @ 0x1407E1FA0 (PspSetJobIoAttributionProcessCallback.c)
+ *     PspProcessDelete @ 0x140613B20 (PspProcessDelete.c)
+ *     PspSetJobIoAttributionProcessCallback @ 0x1406A3D50 (PspSetJobIoAttributionProcessCallback.c)
+ *     PspEstablishJobHierarchy @ 0x14071EDDC (PspEstablishJobHierarchy.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14020C898 (IoDiskIoAttributionDereference.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     IoDiskIoAttributionDereference @ 0x1402E06F4 (IoDiskIoAttributionDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)
@@ -33,16 +33,19 @@ void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)
     ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v6);

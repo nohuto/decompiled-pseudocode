@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDrainControlAreaWrites @ 0x1402198E4
+ * XREFs of MiDrainControlAreaWrites @ 0x14027842C
  * Callers:
- *     MiDestroySection @ 0x14020184C (MiDestroySection.c)
- *     MiPrepareSegmentForDeletion @ 0x14021980C (MiPrepareSegmentForDeletion.c)
+ *     MiPrepareSegmentForDeletion @ 0x140278384 (MiPrepareSegmentForDeletion.c)
+ *     MiDestroySection @ 0x14037EADC (MiDestroySection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiDrainControlAreaWrites(__int64 a1, KIRQL a2)
@@ -44,16 +44,19 @@ void __fastcall MiDrainControlAreaWrites(__int64 a1, KIRQL a2)
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v8 = ~(unsigned __int16)(-1LL << (a2 + 1));
-          v3 = (v8 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v8;
-          if ( v3 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v8 = ~(unsigned __int16)(-1LL << (a2 + 1));
+            v3 = (v8 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v8;
+            if ( v3 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(a2);

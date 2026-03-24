@@ -1,5 +1,5 @@
 /*
- * XREFs of ?LockShared@tagObjLock@@QEBAXXZ @ 0x1C0145FC0
+ * XREFs of ?LockShared@tagObjLock@@QEBAXXZ @ 0x1C0117560
  * Callers:
  *     <none>
  * Callees:

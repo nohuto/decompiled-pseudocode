@@ -3,14 +3,14 @@
  * Callers:
  *     EtwpSwitchBuffer @ 0x140014FB8 (EtwpSwitchBuffer.c)
  *     EtwpFlushActiveBuffers @ 0x1405C2178 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1408BE038 (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x1408BE018 (EtwpBufferingModeFlush.c)
  * Callees:
  *     EtwpEnqueueAvailableBuffer @ 0x1400153E0 (EtwpEnqueueAvailableBuffer.c)
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     EtwpCompressionDpc @ 0x140314E40 (EtwpCompressionDpc.c)
- *     EtwpReenableCompression @ 0x14031560C (EtwpReenableCompression.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwpCompressionDpc @ 0x140314F40 (EtwpCompressionDpc.c)
+ *     EtwpReenableCompression @ 0x14031570C (EtwpReenableCompression.c)
  */
 
 char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, __int64 a2)

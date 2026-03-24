@@ -1,8 +1,8 @@
 /*
  * XREFs of CmpCreateChild @ 0x1405AB7A4
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmpDoBuildVirtualStack @ 0x1407F2A38 (CmpDoBuildVirtualStack.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1407F2A18 (CmpDoBuildVirtualStack.c)
  * Callees:
  *     CmpTransEnlistUowInCmTrans @ 0x14000FB08 (CmpTransEnlistUowInCmTrans.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,10 +10,10 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     CmpTransEnlistUowInKcb @ 0x14010EE88 (CmpTransEnlistUowInKcb.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     CmpTransEnlistUowInKcb @ 0x14010EEA8 (CmpTransEnlistUowInKcb.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
  *     CmpGetEffectiveCellType @ 0x1405812FC (CmpGetEffectiveCellType.c)
@@ -39,16 +39,16 @@
  *     CmpReportNotifyForKcbStack @ 0x1405DC11C (CmpReportNotifyForKcbStack.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpIsKeyStackDeleted @ 0x140644670 (CmpIsKeyStackDeleted.c)
- *     CmpRecordParseFailure @ 0x140698280 (CmpRecordParseFailure.c)
- *     CmpNameSize @ 0x1406A54B4 (CmpNameSize.c)
- *     SeDeassignSecurity @ 0x1406ADBB0 (SeDeassignSecurity.c)
- *     CmpIsSystemEntity @ 0x1406B1FF4 (CmpIsSystemEntity.c)
- *     CmAddLogForAction @ 0x1406BCEFC (CmAddLogForAction.c)
- *     CmpAllocateUnitOfWork @ 0x1406C76BC (CmpAllocateUnitOfWork.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF688 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpLogUnsupportedOperation @ 0x1407FA064 (CmpLogUnsupportedOperation.c)
- *     CmpSnapshotTxOwnerArray @ 0x1407FC628 (CmpSnapshotTxOwnerArray.c)
+ *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
+ *     CmpRecordParseFailure @ 0x140698260 (CmpRecordParseFailure.c)
+ *     CmpNameSize @ 0x1406A5494 (CmpNameSize.c)
+ *     SeDeassignSecurity @ 0x1406ADB90 (SeDeassignSecurity.c)
+ *     CmpIsSystemEntity @ 0x1406B1FD4 (CmpIsSystemEntity.c)
+ *     CmAddLogForAction @ 0x1406BCEDC (CmAddLogForAction.c)
+ *     CmpAllocateUnitOfWork @ 0x1406C769C (CmpAllocateUnitOfWork.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpLogUnsupportedOperation @ 0x1407FA044 (CmpLogUnsupportedOperation.c)
+ *     CmpSnapshotTxOwnerArray @ 0x1407FC608 (CmpSnapshotTxOwnerArray.c)
  */
 
 __int64 __fastcall CmpCreateChild(

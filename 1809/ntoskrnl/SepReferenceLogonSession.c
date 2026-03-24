@@ -2,9 +2,9 @@
  * XREFs of SepReferenceLogonSession @ 0x1405BD6F4
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
- *     SepDuplicateLogonSessionReference @ 0x14013A900 (SepDuplicateLogonSessionReference.c)
- *     SepLinkLogonSessions @ 0x140176DF8 (SepLinkLogonSessions.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
+ *     SepDuplicateLogonSessionReference @ 0x14013A920 (SepDuplicateLogonSessionReference.c)
+ *     SepLinkLogonSessions @ 0x140176E18 (SepLinkLogonSessions.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     SepReferenceLogonSessionSilo @ 0x1405BD728 (SepReferenceLogonSessionSilo.c)

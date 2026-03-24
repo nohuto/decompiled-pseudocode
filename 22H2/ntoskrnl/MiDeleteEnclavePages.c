@@ -1,88 +1,83 @@
 /*
- * XREFs of MiDeleteEnclavePages @ 0x140AAD528
+ * XREFs of MiDeleteEnclavePages @ 0x1409B0CA0
  * Callers:
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140AAD300 (MiDeleteAllHardwareEnclaves.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x1409B0B00 (MiDeleteAllHardwareEnclaves.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeRemoveEnclavePage @ 0x140570740 (KeRemoveEnclavePage.c)
- *     MiDeleteEnclavePage @ 0x140647E90 (MiDeleteEnclavePage.c)
- *     PsDeleteVsmEnclave @ 0x1409B74B8 (PsDeleteVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x140AAD770 (MiReturnReservedEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x140AAD7C8 (MiTerminateHardwareEnclave.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeRemoveEnclavePage @ 0x140515330 (KeRemoveEnclavePage.c)
+ *     MiDeleteEnclavePage @ 0x14054A380 (MiDeleteEnclavePage.c)
+ *     PsDeleteVsmEnclave @ 0x14090DDA4 (PsDeleteVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x1409B0EA0 (MiReturnReservedEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x1409B0F04 (MiTerminateHardwareEnclave.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2)
+char __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2)
 {
   int v2; // eax
-  _QWORD *v4; // rsi
-  int v5; // eax
-  void *v6; // rcx
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 v8; // rax
-  signed __int8 v9; // cf
-  __int64 v10; // rbp
-  __int64 v11; // rdx
-  _QWORD *v12; // rax
-  _QWORD *v14; // rdx
+  _QWORD *v4; // rdx
+  _QWORD *v5; // rsi
+  int v6; // eax
+  void *v7; // rcx
+  struct _KTHREAD *CurrentThread; // rsi
+  _QWORD *v9; // rdi
+  __int64 v10; // rdx
+  _QWORD *v11; // rax
 
   v2 = *(_DWORD *)(a2 + 64);
-  if ( (v2 & 1) != 0 )
+  if ( (v2 & 1) == 0 || *(_QWORD *)(a2 + 120) )
   {
-    v4 = (_QWORD *)(a2 + 120);
-    if ( *(_QWORD *)(a2 + 120) )
+    if ( (v2 & 4) != 0 )
+    {
+      _InterlockedAdd((volatile signed __int32 *)(*(_QWORD *)(a1 + 1680) + 296LL), 0xFFFFFFFF);
+      v2 = *(_DWORD *)(a2 + 64);
+    }
+    if ( (v2 & 1) != 0 )
     {
       if ( (v2 & 8) == 0 )
         MiTerminateHardwareEnclave(a1, a2);
-      if ( (MI_READ_PTE_LOCK_FREE(*(_QWORD *)(a2 + 80)) & 1) != 0 )
+      v5 = *(_QWORD **)(a2 + 80);
+      if ( (MI_READ_PTE_LOCK_FREE((unsigned __int64)v5) & 1) != 0 )
       {
-        v5 = KeRemoveEnclavePage();
-        if ( (int)(v5 + 0x80000000) >= 0 && v5 != -1073741795 )
-          KeBugCheckEx(0x1Au, 0x18011544uLL, *(_QWORD *)(a2 + 80), v5, 0LL);
+        v6 = KeRemoveEnclavePage();
+        if ( v6 < 0 )
+          KeBugCheckEx(0x1Au, 0x18011544uLL, *(_QWORD *)(a2 + 80), v6, 0LL);
         MiDeleteEnclavePage(*(_QWORD *)(a2 + 80), 0);
+        v5 = *(_QWORD **)(a2 + 80);
       }
-      MiReleasePtes((__int64)&qword_140C69A40, *(__int64 **)(a2 + 80), 1u);
-      v6 = *(void **)(a2 + 88);
-      if ( v6 )
-        ExFreePoolWithTag(v6, 0);
+      MiReleasePtes((__int64)&qword_140C4EF40, v5, 1u);
+      v7 = *(void **)(a2 + 88);
+      if ( v7 )
+        ExFreePoolWithTag(v7, 0);
       MiReturnReservedEnclavePages(a2, -1LL);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v8 = KeAbPreAcquire((__int64)&qword_140C699C0, 0LL);
-      v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C699C0, 0LL);
-      v10 = v8;
-      if ( v9 )
-        ExfAcquirePushLockExclusiveEx(&qword_140C699C0, v8, (__int64)&qword_140C699C0);
-      if ( v10 )
-        *(_BYTE *)(v10 + 18) = 1;
-      v11 = *v4;
-      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v12 = (_QWORD *)v4[1], (_QWORD *)*v12 != v4) )
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EEB8, 0LL);
+      v9 = (_QWORD *)(a2 + 120);
+      v10 = *v9;
+      if ( *(_QWORD **)(*v9 + 8LL) != v9 || (v11 = (_QWORD *)v9[1], (_QWORD *)*v11 != v9) )
         __fastfail(3u);
-      *v12 = v11;
-      *(_QWORD *)(v11 + 8) = v12;
-      *v4 = 0LL;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C699C0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C699C0);
-      KeAbPostRelease((ULONG_PTR)&qword_140C699C0);
-      if ( CurrentThread->SpecialApcDisable++ == -1
-        && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      *v11 = v10;
+      *(_QWORD *)(v10 + 8) = v11;
+      *v9 = 0LL;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EEB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4EEB8);
+      KeAbPostRelease((ULONG_PTR)&qword_140C4EEB8);
+      LOBYTE(v2) = KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    }
+    else
+    {
+      v4 = *(_QWORD **)(a2 + 72);
+      if ( v4 )
+        LOBYTE(v2) = PsDeleteVsmEnclave(a1, v4);
     }
   }
-  else
-  {
-    v14 = *(_QWORD **)(a2 + 72);
-    if ( v14 )
-      PsDeleteVsmEnclave(a1, v14);
-  }
+  return v2;
 }

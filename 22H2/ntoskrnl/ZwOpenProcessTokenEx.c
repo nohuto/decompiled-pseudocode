@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenProcessTokenEx @ 0x14041ACA0
+ * XREFs of ZwOpenProcessTokenEx @ 0x1403FA020
  * Callers:
- *     DifZwOpenProcessTokenExWrapper @ 0x1405F20E0 (DifZwOpenProcessTokenExWrapper.c)
- *     RtlAcquirePrivilege @ 0x1407D310C (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x1407D32DC (RtlImpersonateSelfEx.c)
- *     BiAdjustPrivilege @ 0x14080870C (BiAdjustPrivilege.c)
- *     RtlpIsAppContainer @ 0x1409BD33C (RtlpIsAppContainer.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A42C (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlAcquirePrivilege @ 0x14069434C (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelfEx @ 0x140694588 (RtlImpersonateSelfEx.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072E318 (_SysCtxRegOpenCurrentUserKey.c)
+ *     BiAdjustPrivilege @ 0x140785C10 (BiAdjustPrivilege.c)
+ *     RtlpIsAppContainer @ 0x140914C78 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */

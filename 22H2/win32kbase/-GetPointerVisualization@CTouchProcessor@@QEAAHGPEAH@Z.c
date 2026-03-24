@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPointerVisualization@CTouchProcessor@@QEAAHGPEAH@Z @ 0x1C01CBD50
+ * XREFs of ?GetPointerVisualization@CTouchProcessor@@QEAAHGPEAH@Z @ 0x1C0195660
  * Callers:
  *     <none>
  * Callees:
- *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C00B9740 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
- *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C00E3E58 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
- *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C01B9698 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
+ *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C00CCCC0 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
+ *     ??1CInpLockGuardShared@@QEAA@XZ @ 0x1C0187434 (--1CInpLockGuardShared@@QEAA@XZ.c)
+ *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C018E2A4 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerVisualization(
@@ -15,22 +15,20 @@ __int64 __fastcall CTouchProcessor::GetPointerVisualization(
 {
   unsigned int v6; // esi
   struct CInputPointerNode *NodeById; // rax
-  _DWORD *v8; // rcx
-  CInpLockGuard *v10; // [rsp+20h] [rbp-18h] BYREF
-  int v11; // [rsp+28h] [rbp-10h]
+  int v8; // eax
+  CInpLockGuard *v10[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = 1;
-  CInpLockGuardShared::CInpLockGuardShared((CInpLockGuardShared *)&v10, (struct CInpLockGuard *)(this + 4), 1);
+  CInpLockGuardShared::CInpLockGuardShared((CInpLockGuardShared *)v10, (struct CInpLockGuard *)(this + 5), 1);
   NodeById = CTouchProcessor::FindNodeById(this, a2, 0, 0);
   if ( NodeById )
   {
-    v8 = (_DWORD *)((char *)NodeById + 300);
     if ( a3 )
-      *a3 = (*v8 & 0x200u) >> 9;
-    if ( (*v8 & 0x80u) == 0 && (*v8 & 0x100) == 0 )
+      *a3 = (*((_DWORD *)NodeById + 70) & 0x200u) >> 9;
+    v8 = *((_DWORD *)NodeById + 70);
+    if ( (v8 & 0x80u) == 0 && (v8 & 0x100) == 0 )
       v6 = 0;
   }
-  if ( !v11 )
-    CInpLockGuard::UnLock(v10);
+  CInpLockGuardShared::~CInpLockGuardShared(v10);
   return v6;
 }

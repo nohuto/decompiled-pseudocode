@@ -1,11 +1,12 @@
 /*
- * XREFs of PopSetupHighPerfPowerRequest @ 0x140822BE4
+ * XREFs of PopSetupHighPerfPowerRequest @ 0x1407D4960
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     PpmPerfClearBootOverrides @ 0x14036D1E4 (PpmPerfClearBootOverrides.c)
- *     PpmEndHighPerfRequest @ 0x14036E4A0 (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x14036E924 (PpmBeginHighPerfRequest.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PpmEndHighPerfRequest @ 0x1403A6560 (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A72D0 (PpmBeginHighPerfRequest.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407BA2A8 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 PopSetupHighPerfPowerRequest()
@@ -25,6 +26,11 @@ __int64 PopSetupHighPerfPowerRequest()
   {
     v0 = 0;
   }
-  PpmPerfClearBootOverrides();
+  PpmPerfBootHeteroPolicyOverrideEnabled = 0;
+  if ( PopHeteroSystem )
+  {
+    PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
+    PpmReinitializeHeteroEngine(0);
+  }
   return (unsigned int)v0;
 }

@@ -1,76 +1,74 @@
 /*
- * XREFs of ?CalculateValueWorker@CScrollAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180264DE0
+ * XREFs of ?CalculateValueWorker@CScrollAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180203760
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?PushConstant@CExpressionValueStack@@QEAAJM@Z @ 0x1802610A0 (-PushConstant@CExpressionValueStack@@QEAAJM@Z.c)
- *     ?CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@Z @ 0x180264D60 (-CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@.c)
- *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026500C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?PushConstant@CExpressionValueStack@@QEAAJM@Z @ 0x18020006C (-PushConstant@CExpressionValueStack@@QEAAJM@Z.c)
+ *     ?CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@Z @ 0x1802036E0 (-CalculateValueForState@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@PEAM@.c)
+ *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x180203938 (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
  */
 
 __int64 __fastcall CScrollAnimation::CalculateValueWorker(
         CScrollAnimation *this,
         struct CExpressionValueStack *a2,
-        __int64 a3,
+        wchar_t *a3,
         bool *a4)
 {
-  char *v4; // r14
-  __int64 v5; // rsi
-  int v6; // eax
-  int v11; // eax
-  __int64 v12; // rcx
-  unsigned int v13; // ebx
+  __int64 v4; // rsi
+  int v5; // eax
+  int v10; // eax
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
   struct CInteractionTracker *InteractionTracker; // rax
-  int v15; // eax
-  __int64 v16; // rcx
-  int v17; // eax
-  __int64 v18; // rcx
-  float v20; // [rsp+60h] [rbp+8h] BYREF
-  float v21; // [rsp+68h] [rbp+10h] BYREF
+  int v14; // eax
+  __int64 v15; // rcx
+  int v16; // eax
+  __int64 v17; // rcx
+  float v19; // [rsp+60h] [rbp+8h] BYREF
+  float v20; // [rsp+68h] [rbp+10h] BYREF
 
   *a4 = 0;
-  v4 = (char *)this + 400;
-  v5 = 0LL;
-  v6 = *((_DWORD *)this + 106) - 1;
-  *((_QWORD *)this + 47) = a2;
-  *((_QWORD *)this + 48) = a3;
-  v20 = 0.0;
-  if ( v6 <= 0 )
+  v4 = 0LL;
+  v5 = *((_DWORD *)this + 100) - 1;
+  v19 = 0.0;
+  *((_QWORD *)this + 44) = a2;
+  *((_QWORD *)this + 45) = a3;
+  if ( v5 <= 0 )
   {
 LABEL_4:
-    *((_DWORD *)v4 + 6) = 0;
-    DynArrayImpl<0>::ShrinkToSize((__int64)v4, 4u);
+    *((_DWORD *)this + 100) = 0;
+    DynArrayImpl<0>::ShrinkToSize((__int64)this + 376, 4u);
     InteractionTracker = CScrollAnimation::GetInteractionTracker(this);
-    v15 = CScrollAnimation::CalculateValueForState(this, a2, a3, *((_DWORD *)InteractionTracker + 44), &v20);
-    v13 = v15;
-    if ( v15 < 0 )
+    v14 = CScrollAnimation::CalculateValueForState(this, a2, a3, *((_DWORD *)InteractionTracker + 42), &v19);
+    v12 = v14;
+    if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x102u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x102u, 0LL);
     }
     else
     {
-      v17 = CExpressionValueStack::PushConstant(a2, v20);
-      v13 = v17;
-      if ( v17 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x10Eu, 0LL);
+      v16 = CExpressionValueStack::PushConstant(a2, v19);
+      v12 = v16;
+      if ( v16 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x10Eu, 0LL);
     }
   }
   else
   {
     while ( 1 )
     {
-      v11 = CScrollAnimation::CalculateValueForState(this, a2, a3, *(_DWORD *)(*(_QWORD *)v4 + 4 * v5), &v21);
-      v13 = v11;
-      if ( v11 < 0 )
+      v10 = CScrollAnimation::CalculateValueForState(this, a2, a3, *(_DWORD *)(*((_QWORD *)this + 47) + 4 * v4), &v20);
+      v12 = v10;
+      if ( v10 < 0 )
         break;
-      v5 = (unsigned int)(v5 + 1);
-      if ( (int)v5 >= *((_DWORD *)this + 106) - 1 )
+      v4 = (unsigned int)(v4 + 1);
+      if ( (int)v4 >= *((_DWORD *)this + 100) - 1 )
         goto LABEL_4;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xF9u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xF9u, 0LL);
   }
-  *a4 = *((_BYTE *)this + 368) & 1;
-  return v13;
+  *a4 = *((_BYTE *)this + 344) & 1;
+  return v12;
 }

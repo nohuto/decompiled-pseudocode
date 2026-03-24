@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetJobServerSilo @ 0x14036E7B0
+ * XREFs of PsGetJobServerSilo @ 0x140201820
  * Callers:
- *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616CE0 (NtQueryInformationJobObject.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020C010 (PsGetEffectiveServerSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140361880 (PsGetEffectiveServerSilo.c)
  */
 
-__int64 __fastcall PsGetJobServerSilo(__int64 a1, __int64 *a2)
+__int64 __fastcall PsGetJobServerSilo(__int64 a1, _QWORD *a2)
 {
   if ( a1 )
   {
-    *a2 = PsGetEffectiveServerSilo(a1);
+    *a2 = PsGetEffectiveServerSilo();
     return 0LL;
   }
   else

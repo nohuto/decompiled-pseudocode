@@ -1,9 +1,9 @@
 /*
- * XREFs of XmBsfOp @ 0x1405366C0
+ * XREFs of XmBsfOp @ 0x1404E69E0
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403A2E60 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmBsfOp(__int64 a1)

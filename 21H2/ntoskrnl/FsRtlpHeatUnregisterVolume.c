@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpHeatUnregisterVolume @ 0x14092FCDC
+ * XREFs of FsRtlpHeatUnregisterVolume @ 0x14088D260
  * Callers:
- *     FsRtlHeatUninit @ 0x14092FB20 (FsRtlHeatUninit.c)
+ *     FsRtlHeatUninit @ 0x14088D0B0 (FsRtlHeatUninit.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlpHeatUnregisterVolume(_QWORD *a1)

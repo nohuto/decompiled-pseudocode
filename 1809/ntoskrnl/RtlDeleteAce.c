@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDeleteAce @ 0x1406CC670
+ * XREFs of RtlDeleteAce @ 0x1406CC650
  * Callers:
- *     SepRemoveAceFromTokenDefaultDacl @ 0x1401399AC (SepRemoveAceFromTokenDefaultDacl.c)
+ *     SepRemoveAceFromTokenDefaultDacl @ 0x1401399CC (SepRemoveAceFromTokenDefaultDacl.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
  *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
  */

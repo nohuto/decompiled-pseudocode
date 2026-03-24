@@ -1,15 +1,13 @@
 /*
- * XREFs of ?Update@CNaturalAnimationScalarForceAdapater@@UEAAMMPEAVCExpressionValueStack@@_K@Z @ 0x1802673A0
+ * XREFs of ?Update@CNaturalAnimationScalarForceAdapater@@UEAAMMPEAVCExpressionValueStack@@_K@Z @ 0x180216300
  * Callers:
  *     <none>
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 float __fastcall CNaturalAnimationScalarForceAdapater::Update(
@@ -18,78 +16,75 @@ float __fastcall CNaturalAnimationScalarForceAdapater::Update(
         struct CExpressionValueStack *a3,
         __int64 a4)
 {
-  __int64 v4; // rax
-  __int64 v7; // rcx
+  _QWORD *v5; // rcx
+  float v7; // xmm6_4
   int v8; // eax
   __int64 v9; // rax
   int v10; // ecx
-  unsigned __int8 v11; // al
-  unsigned int v12; // edx
-  CExpressionValue *v13; // rax
-  float *v14; // rbx
-  float result; // xmm0_4
-  unsigned __int8 IsEnabled; // al
-  unsigned int v17; // edx
-  CExpressionValue *v18; // rax
-  float *v19; // rbx
-  _BYTE v20[80]; // [rsp+30h] [rbp-58h] BYREF
-  const void *retaddr; // [rsp+88h] [rbp+0h]
-  char v22; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v11; // rax
+  CExpressionValue *v12; // rax
+  float *v13; // rbx
+  __int64 v14; // rax
+  CExpressionValue *v15; // rax
+  float *v16; // rbx
+  _BYTE v18[96]; // [rsp+30h] [rbp-68h] BYREF
+  const void *retaddr; // [rsp+98h] [rbp+0h]
+  char v20; // [rsp+A0h] [rbp+8h] BYREF
 
-  v4 = *((_QWORD *)this + 4);
-  if ( v4 )
-    v7 = *(_QWORD *)(v4 + 16);
-  else
-    v7 = 0LL;
-  v8 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, __int64, char *))(*(_QWORD *)v7 + 256LL))(
-         v7,
+  v5 = (_QWORD *)*((_QWORD *)this + 5);
+  v7 = 0.0;
+  if ( v5 )
+    v5 = (_QWORD *)v5[2];
+  v8 = (*(__int64 (__fastcall **)(_QWORD *, struct CExpressionValueStack *, __int64, char *))(*v5 + 256LL))(
+         v5,
          a3,
          a4,
-         &v22);
+         &v20);
   if ( v8 < 0 )
     ModuleFailFastForHRESULT(v8, retaddr);
-  v9 = *((_QWORD *)this + 4);
-  if ( v9 )
-    v9 = *(_QWORD *)(v9 + 16);
-  v10 = *(_DWORD *)(v9 + 152);
-  if ( v10 == 18 )
+  if ( v8 != 1 )
   {
-    IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v17 = *((_DWORD *)a3 + 4) - 1;
-    if ( IsEnabled && v17 >= *((_DWORD *)a3 + 12) )
+    v9 = *((_QWORD *)this + 5);
+    if ( v9 )
+      v9 = *(_QWORD *)(v9 + 16);
+    v10 = *(_DWORD *)(v9 + 144);
+    if ( v10 == 18 )
     {
-      v18 = CExpressionValue::CExpressionValue((CExpressionValue *)v20);
-      v19 = (float *)&CExpressionValueStack::s_emptyValue;
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v18);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v20);
+      v14 = (unsigned int)(*((_DWORD *)a3 + 4) - 1);
+      if ( (unsigned int)v14 < *((_DWORD *)a3 + 12) )
+      {
+        v16 = (float *)(*((_QWORD *)a3 + 3) + 80 * v14);
+      }
+      else
+      {
+        v15 = CExpressionValue::CExpressionValue((CExpressionValue *)v18);
+        v16 = (float *)&CExpressionValueStack::s_emptyValue;
+        CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v15);
+        CExpressionValue::~CExpressionValue((CExpressionValue *)v18);
+      }
+      v7 = *v16;
     }
     else
     {
-      v19 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)a3 + 3, v17);
+      if ( v10 != 35 )
+        ModuleFailFastForHRESULT(-2147467259, retaddr);
+      v11 = (unsigned int)(*((_DWORD *)a3 + 4) - 1);
+      if ( (unsigned int)v11 < *((_DWORD *)a3 + 12) )
+      {
+        v13 = (float *)(*((_QWORD *)a3 + 3) + 80 * v11);
+      }
+      else
+      {
+        v12 = CExpressionValue::CExpressionValue((CExpressionValue *)v18);
+        v13 = (float *)&CExpressionValueStack::s_emptyValue;
+        CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v12);
+        CExpressionValue::~CExpressionValue((CExpressionValue *)v18);
+      }
+      v7 = *v13;
+      if ( *((_DWORD *)this + 6) )
+        v7 = v13[1];
     }
-    result = *v19;
+    --*((_DWORD *)a3 + 4);
   }
-  else
-  {
-    if ( v10 != 35 )
-      ModuleFailFastForHRESULT(-2147467259, retaddr);
-    v11 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v12 = *((_DWORD *)a3 + 4) - 1;
-    if ( v11 && v12 >= *((_DWORD *)a3 + 12) )
-    {
-      v13 = CExpressionValue::CExpressionValue((CExpressionValue *)v20);
-      v14 = (float *)&CExpressionValueStack::s_emptyValue;
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v13);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v20);
-    }
-    else
-    {
-      v14 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)a3 + 3, v12);
-    }
-    result = *v14;
-    if ( *((_DWORD *)this + 4) )
-      result = v14[1];
-  }
-  --*((_DWORD *)a3 + 4);
-  return result;
+  return v7;
 }

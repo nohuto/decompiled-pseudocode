@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C0097B14
+ * XREFs of ?IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00EAF08
  * Callers:
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ _BOOL8 __fastcall IsWindowComposedOnDesktop(struct tagWND *const a1, struct tagD
   if ( v2 )
   {
     if ( v2 == a2 )
-      return (*(_BYTE *)(*((_QWORD *)a1 + 5) + 232LL) & 2) != 0;
+      return (*(_BYTE *)(*((_QWORD *)a1 + 5) + 232LL) & 0x20) != 0;
   }
   return result;
 }

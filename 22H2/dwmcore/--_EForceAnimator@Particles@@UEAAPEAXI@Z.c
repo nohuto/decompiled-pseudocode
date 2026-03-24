@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_EForceAnimator@Particles@@UEAAPEAXI@Z @ 0x180244030
+ * XREFs of ??_EForceAnimator@Particles@@UEAAPEAXI@Z @ 0x1801DE900
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 Particles::ForceAnimator *__fastcall Particles::ForceAnimator::`vector deleting destructor'(

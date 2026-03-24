@@ -1,22 +1,21 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x1403A0778
+ * XREFs of MiDemoteLargeFreePage @ 0x1402EF04C
  * Callers:
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MiInsertDemotedPages @ 0x1402EA178 (MiInsertDemotedPages.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     MiInsertDemotedPages @ 0x1402EF170 (MiInsertDemotedPages.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1402EF1FC (MiTryUnlinkNodeLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3, char a4, __int64 a5)
 {
   unsigned __int8 CurrentIrql; // bl
   __int64 v9; // rsi
-  __int64 v10; // rbp
-  int v11; // eax
-  __int64 v12; // rbp
-  __int64 result; // rax
+  _QWORD *v10; // rax
+  __int64 v11; // r9
+  __int64 v12; // r14
   unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -25,19 +24,20 @@ __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3
 
   CurrentIrql = KeGetCurrentIrql();
   v9 = a2 & ~(MiLargePageSizes[a3] - 1);
-  v10 = 25408LL * *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((48 * v9) >> 4)) + 2);
-  v11 = 320;
-  v12 = *(_QWORD *)(a1 + 16) + v10;
-  if ( CurrentIrql < 2u && (a4 & 8) == 0 && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
-    v11 = 448;
-  result = MiTryUnlinkNodeLargePages(a1, v9, a3, 1LL, v11, a5, 0LL);
-  if ( result )
+  v10 = MiSearchNumaNodeTable(48 * v9 / 48);
+  v11 = 40LL;
+  v12 = *(_QWORD *)(a1 + 16) + 4544LL * *((unsigned int *)v10 + 2);
+  if ( CurrentIrql < 2u && (a4 & 8) == 0 )
+    v11 = 56LL;
+  if ( !(unsigned int)MiTryUnlinkNodeLargePage(a1, v9, a3, v11, a5) )
+    return 0LL;
+  MiInsertDemotedPages(v12, 48 * v9, a3, a3 + 1, 0LL);
+  if ( KiIrqlFlags )
   {
-    MiInsertDemotedPages(v12, result, a3, a3 + 1, 0LL);
-    if ( KiIrqlFlags )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -48,8 +48,7 @@ __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    __writecr8(CurrentIrql);
-    return 1LL;
   }
-  return result;
+  __writecr8(CurrentIrql);
+  return 1LL;
 }

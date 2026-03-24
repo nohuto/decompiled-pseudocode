@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetAlphaMode@CCompSwapChain@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180294900
+ * XREFs of ?SetAlphaMode@CCompSwapChain@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180251B70
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompSwapChain::SetAlphaMode(CCompSwapChain *this, unsigned int a2)
@@ -13,16 +13,16 @@ void __fastcall CCompSwapChain::SetAlphaMode(CCompSwapChain *this, unsigned int 
   __int64 v5; // rcx
   __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_DWORD *)this + 32) != a2 )
+  if ( *((_DWORD *)this + 17) != a2 )
   {
     v6 = 0LL;
-    *((_DWORD *)this + 32) = a2;
-    if ( (***((int (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 10))(
-           *((_QWORD *)this + 10),
+    *((_DWORD *)this + 17) = a2;
+    if ( (***((int (__fastcall ****)(_QWORD, GUID *, __int64 *))this + 4))(
+           *((_QWORD *)this + 4),
            &GUID_7652c85a_0df5_4567_bcdd_8176a332b99b,
            &v6) >= 0 )
       (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v6 + 72LL))(v6, a2);
-    v4 = *((_QWORD *)this + 12);
+    v4 = *((_QWORD *)this + 5);
     if ( v4 )
     {
       v5 = v4 + *(int *)(*(_QWORD *)(v4 + 8) + 24LL) + 8LL;

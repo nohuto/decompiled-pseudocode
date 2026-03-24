@@ -1,25 +1,31 @@
 /*
- * XREFs of VerifierKeReleaseQueuedSpinLock @ 0x140AD0880
+ * XREFs of VerifierKeReleaseQueuedSpinLock @ 0x1409D34E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC15B0 (VfKeIrqlTransitionReserveLogEntry.c)
- *     VfKeIrqlLogLower @ 0x140AD6C84 (VfKeIrqlLogLower.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViKeIrqlLogCommon @ 0x1409DC0DC (ViKeIrqlLogCommon.c)
+ *     ViKeLowerIrqlSanityChecks @ 0x1409DC148 (ViKeLowerIrqlSanityChecks.c)
  */
 
-__int64 __fastcall VerifierKeReleaseQueuedSpinLock(__int64 a1, char a2)
+__int64 __fastcall VerifierKeReleaseQueuedSpinLock(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  char *v2; // rbx
-  __int64 v3; // r9
-  __int64 result; // rax
+  char v2; // di
+  ULONG_PTR v3; // rsi
+  unsigned __int8 CurrentIrql; // bl
+  __int64 v5; // rbx
+  __int64 v6; // rdx
 
-  v2 = 0LL;
-  v3 = a1;
-  if ( (VfRuleClasses & 2) != 0 )
-    v2 = VfKeIrqlTransitionReserveLogEntry(KeGetCurrentIrql(), a2);
-  result = ((__int64 (__fastcall *)(__int64))pXdvKeReleaseQueuedSpinLock)(v3);
-  if ( (VfRuleClasses & 2) != 0 )
-    return VfKeIrqlLogLower(v2);
-  return result;
+  v2 = a2;
+  v3 = BugCheckParameter3;
+  CurrentIrql = KeGetCurrentIrql();
+  if ( KernelVerifier && (MmVerifierData & 0x800) != 0 && CurrentIrql < 2u )
+    VerifierBugCheckIfAppropriate(0xC4u, 0x36uLL, CurrentIrql, BugCheckParameter3, (unsigned __int8)a2);
+  LOBYTE(a2) = v2;
+  LOBYTE(BugCheckParameter3) = CurrentIrql;
+  v5 = ViKeLowerIrqlSanityChecks(BugCheckParameter3, a2);
+  LOBYTE(v6) = v2;
+  ((void (__fastcall *)(ULONG_PTR, __int64))pXdvKeReleaseQueuedSpinLock)(v3, v6);
+  return ViKeIrqlLogCommon(v5, 1LL);
 }

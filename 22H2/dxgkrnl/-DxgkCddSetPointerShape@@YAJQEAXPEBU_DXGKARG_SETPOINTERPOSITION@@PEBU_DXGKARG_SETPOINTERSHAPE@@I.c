@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DxgkCddSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIH@Z @ 0x1C01F25D0
+ * XREFs of ?DxgkCddSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIH@Z @ 0x1C011FC20
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHHH@Z @ 0x1C01F2650 (-DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH@Z @ 0x1C011FCA0 (-DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH.c)
  */
 
 __int64 __fastcall DxgkCddSetPointerShape(
-        void *const a1,
+        struct DXGADAPTER *a1,
         const struct _DXGKARG_SETPOINTERPOSITION *a2,
         const struct _DXGKARG_SETPOINTERSHAPE *a3,
         unsigned int a4,
@@ -17,9 +17,9 @@ __int64 __fastcall DxgkCddSetPointerShape(
 {
   struct DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL::GetGlobal();
-  if ( Global && *((_BYTE *)Global + 1616) )
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, (__int64)a2);
+  if ( Global && *((_BYTE *)Global + 1488) )
     return 3221225659LL;
   else
-    return DxgkSetPointerShape(a1, a2, a3, a4, a5, a6, 0, 0);
+    return DxgkSetPointerShape(a1, a2, a3, a4, a5, a6, 0);
 }

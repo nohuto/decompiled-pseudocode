@@ -1,28 +1,28 @@
 /*
- * XREFs of IopConnectInterrupt @ 0x14071076C
+ * XREFs of IopConnectInterrupt @ 0x14071074C
  * Callers:
- *     IoConnectInterruptEx @ 0x1407104F0 (IoConnectInterruptEx.c)
- *     IopConnectMessageBasedInterrupt @ 0x1407534A0 (IopConnectMessageBasedInterrupt.c)
- *     IopConnectLineBasedInterrupt @ 0x14075A5C0 (IopConnectLineBasedInterrupt.c)
- *     IopConnectInterruptFullySpecified @ 0x14075CF34 (IopConnectInterruptFullySpecified.c)
+ *     IoConnectInterruptEx @ 0x1407104D0 (IoConnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140753480 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x14075A5A0 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x14075CF14 (IopConnectInterruptFullySpecified.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeGetProcessorIndexFromNumber @ 0x1400A7450 (KeGetProcessorIndexFromNumber.c)
- *     KeVerifyGroupAffinity @ 0x14016B70C (KeVerifyGroupAffinity.c)
- *     KeFreeInterrupt @ 0x14016D278 (KeFreeInterrupt.c)
- *     KeInitializeInterruptEx @ 0x14016D8C8 (KeInitializeInterruptEx.c)
- *     KeAllocateInterrupt @ 0x14016DA08 (KeAllocateInterrupt.c)
- *     PnpTraceInterruptUsage @ 0x14016DABC (PnpTraceInterruptUsage.c)
- *     KeConnectInterrupt @ 0x14016DB20 (KeConnectInterrupt.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeGetProcessorIndexFromNumber @ 0x1400A7470 (KeGetProcessorIndexFromNumber.c)
+ *     KeVerifyGroupAffinity @ 0x14016B72C (KeVerifyGroupAffinity.c)
+ *     KeFreeInterrupt @ 0x14016D298 (KeFreeInterrupt.c)
+ *     KeInitializeInterruptEx @ 0x14016D8E8 (KeInitializeInterruptEx.c)
+ *     KeAllocateInterrupt @ 0x14016DA28 (KeAllocateInterrupt.c)
+ *     PnpTraceInterruptUsage @ 0x14016DADC (PnpTraceInterruptUsage.c)
+ *     KeConnectInterrupt @ 0x14016DB40 (KeConnectInterrupt.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopDestroyActiveConnectBlock @ 0x140710B7C (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x140710C6C (IopInitializeActiveConnectBlock.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x140755E14 (IopAcquireReleaseConnectLockInternal.c)
- *     IopAllocatePassiveInterruptBlock @ 0x140827490 (IopAllocatePassiveInterruptBlock.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1408275E8 (IopDestroyPassiveInterruptBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x140710B5C (IopDestroyActiveConnectBlock.c)
+ *     IopInitializeActiveConnectBlock @ 0x140710C4C (IopInitializeActiveConnectBlock.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x140755DF4 (IopAcquireReleaseConnectLockInternal.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x140827470 (IopAllocatePassiveInterruptBlock.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1408275C8 (IopDestroyPassiveInterruptBlock.c)
  */
 
 __int64 __fastcall IopConnectInterrupt(

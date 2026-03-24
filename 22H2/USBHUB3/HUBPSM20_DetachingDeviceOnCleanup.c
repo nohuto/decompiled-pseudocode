@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_DetachingDeviceOnCleanup @ 0x1C0011B90
+ * XREFs of HUBPSM20_DetachingDeviceOnCleanup @ 0x1C0010770
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_DetachDevice @ 0x1C0031060 (HUBMISC_DetachDevice.c)
+ *     HUBMISC_DetachDevice @ 0x1C002DE98 (HUBMISC_DetachDevice.c)
  */
 
 __int64 __fastcall HUBPSM20_DetachingDeviceOnCleanup(__int64 a1)

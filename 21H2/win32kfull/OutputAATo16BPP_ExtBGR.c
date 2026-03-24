@@ -1,5 +1,5 @@
 /*
- * XREFs of OutputAATo16BPP_ExtBGR @ 0x1C02612C0
+ * XREFs of OutputAATo16BPP_ExtBGR @ 0x1C0264430
  * Callers:
  *     <none>
  * Callees:

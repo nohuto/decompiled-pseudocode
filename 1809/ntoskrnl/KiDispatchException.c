@@ -1,13 +1,13 @@
 /*
  * XREFs of KiDispatchException @ 0x1400A2F50
  * Callers:
- *     KiInitializeUserApc @ 0x140128684 (KiInitializeUserApc.c)
- *     KiExceptionDispatch @ 0x1401CFD80 (KiExceptionDispatch.c)
- *     KiFastFailDispatch @ 0x1401D01C0 (KiFastFailDispatch.c)
- *     KiRaiseException @ 0x14029A0B0 (KiRaiseException.c)
- *     KiParkUmsThread @ 0x14029D5C0 (KiParkUmsThread.c)
+ *     KiInitializeUserApc @ 0x1401286A4 (KiInitializeUserApc.c)
+ *     KiExceptionDispatch @ 0x1401CFE80 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x1401D02C0 (KiFastFailDispatch.c)
+ *     KiRaiseException @ 0x14029A1B0 (KiRaiseException.c)
+ *     KiParkUmsThread @ 0x14029D6C0 (KiParkUmsThread.c)
  *     PspInitializeThunkContext @ 0x1406207DC (PspInitializeThunkContext.c)
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
  * Callees:
  *     RtlDispatchException @ 0x1400A0F40 (RtlDispatchException.c)
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
@@ -16,19 +16,19 @@
  *     KeContextFromKframes @ 0x1400A2878 (KeContextFromKframes.c)
  *     KdTrap @ 0x1400A33EC (KdTrap.c)
  *     KiPreprocessFault @ 0x1400A3490 (KiPreprocessFault.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     KeCopyExceptionRecord @ 0x14013B8C4 (KeCopyExceptionRecord.c)
- *     KiSetupForInstrumentationReturn @ 0x14013F97C (KiSetupForInstrumentationReturn.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwTerminateProcess @ 0x1401B86F0 (ZwTerminateProcess.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeContextToKframes @ 0x1401BBCD0 (KeContextToKframes.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiTpHandleTrap @ 0x14029C0C4 (KiTpHandleTrap.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     KeCopyExceptionRecord @ 0x14013B8E4 (KeCopyExceptionRecord.c)
+ *     KiSetupForInstrumentationReturn @ 0x14013F99C (KiSetupForInstrumentationReturn.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x1401B8710 (ZwTerminateProcess.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeContextToKframes @ 0x1401BBCF0 (KeContextToKframes.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiTpHandleTrap @ 0x14029C1C4 (KiTpHandleTrap.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     DbgkForwardException @ 0x1406D68FC (DbgkForwardException.c)
+ *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
  *     KdIsThisAKdTrap @ 0x140915008 (KdIsThisAKdTrap.c)
  */
 
@@ -116,7 +116,7 @@ int __fastcall KiDispatchException(
         || (unsigned int)(ExceptionRecord->ExceptionCode + 1073741819) <= 1)
        && ExceptionRecord->ExceptionInformation[1] <= 0x7FFFFFFF0000LL) )
     {
-      LODWORD(CurrentThread) = ((__int64 (__fastcall *)(PEXCEPTION_RECORD, __int64, __int64, _QWORD, char))xmmword_14040E300)(
+      LODWORD(CurrentThread) = ((__int64 (__fastcall *)(PEXCEPTION_RECORD, __int64, __int64, _QWORD, char))xmmword_14040E2E0)(
                                  ExceptionRecord,
                                  v33,
                                  a3,

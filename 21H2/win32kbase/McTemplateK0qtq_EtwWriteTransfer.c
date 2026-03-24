@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qtq_EtwWriteTransfer @ 0x1C01516C0
+ * XREFs of McTemplateK0qtq_EtwWriteTransfer @ 0x1C01270B8
  * Callers:
- *     EtwTraceSmoothRotationStart @ 0x1C014E5D0 (EtwTraceSmoothRotationStart.c)
+ *     EtwTraceSmoothRotationStart @ 0x1C01239C0 (EtwTraceSmoothRotationStart.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qtq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, char a6)

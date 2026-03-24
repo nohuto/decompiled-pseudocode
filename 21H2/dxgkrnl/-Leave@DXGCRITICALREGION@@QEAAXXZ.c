@@ -1,30 +1,25 @@
 /*
- * XREFs of ?Leave@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0026D60
+ * XREFs of ?Leave@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0021DF8
  * Callers:
- *     ??1DXGCRITICALREGION@@QEAA@XZ @ 0x1C00433D8 (--1DXGCRITICALREGION@@QEAA@XZ.c)
- *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0203930 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02BCC18 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z @ 0x1C02BCEF0 (-PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z.c)
- *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02BDA44 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C3330 (-Destroy@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ??1DXGCRITICALREGION@@QEAA@XZ @ 0x1C0036FF4 (--1DXGCRITICALREGION@@QEAA@XZ.c)
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0189BF8 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020E358 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z @ 0x1C020E5A0 (-PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z.c)
+ *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020F040 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02155D0 (-Destroy@ADAPTER_RENDER@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-void __fastcall DXGCRITICALREGION::Leave(DXGCRITICALREGION *this)
+void __fastcall DXGCRITICALREGION::Leave(DXGCRITICALREGION *this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
+  __int64 v3; // rax
 
   if ( !*((_BYTE *)this + 1) )
   {
-    WdLogSingleEntry1(1LL, 688LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(v3, v2, v4, 0, 2, -1, (__int64)L"m_Entered", 688LL, 0LL, 0LL, 0LL, 0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 877LL;
+    WdLogEvent5_WdAssertion(v3);
   }
   *((_BYTE *)this + 1) = 0;
   KeLeaveCriticalRegion();

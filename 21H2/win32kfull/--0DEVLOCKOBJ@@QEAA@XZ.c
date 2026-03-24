@@ -1,19 +1,20 @@
 /*
- * XREFs of ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C008AE30
+ * XREFs of ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00A9BEC
  * Callers:
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0034690 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
- *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C0042444 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
- *     NtGdiGetPixel @ 0x1C008A200 (NtGdiGetPixel.c)
- *     GreGetDIBColorTable @ 0x1C008A670 (GreGetDIBColorTable.c)
- *     GreExtTextOutRect @ 0x1C008AD4C (GreExtTextOutRect.c)
- *     NtGdiSetPixel @ 0x1C012EFA0 (NtGdiSetPixel.c)
- *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C013D690 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
- *     GreGetRandomRgn @ 0x1C014B3A0 (GreGetRandomRgn.c)
- *     ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C027916C (--0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
- *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B4434 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
- *     GreSetDIBColorTable @ 0x1C02B6140 (GreSetDIBColorTable.c)
+ *     GreSetDeviceGammaRamp @ 0x1C0028868 (GreSetDeviceGammaRamp.c)
+ *     GreGetRandomRgn @ 0x1C0042BB0 (GreGetRandomRgn.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EFE0 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C00A8FFC (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     GreGetDIBColorTable @ 0x1C00A9A60 (GreGetDIBColorTable.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C00B3410 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     NtGdiGetPixel @ 0x1C01093E0 (NtGdiGetPixel.c)
+ *     GreGetDeviceGammaRamp @ 0x1C011DFF4 (GreGetDeviceGammaRamp.c)
+ *     NtGdiSetPixel @ 0x1C0155DE0 (NtGdiSetPixel.c)
+ *     ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C027B5C0 (--0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B61D8 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
+ *     GreSetDIBColorTable @ 0x1C02B7FE0 (GreSetDIBColorTable.c)
  * Callees:
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
  */
 
 DEVLOCKOBJ *__fastcall DEVLOCKOBJ::DEVLOCKOBJ(DEVLOCKOBJ *this)

@@ -1,25 +1,24 @@
 /*
- * XREFs of SiGetDriveLayoutInformation @ 0x140A5F628
+ * XREFs of SiGetDriveLayoutInformation @ 0x14077AC0C
  * Callers:
- *     SiFindSystemPartition @ 0x140A5F444 (SiFindSystemPartition.c)
- *     SiGetEfiSystemDevice @ 0x140A5FAB0 (SiGetEfiSystemDevice.c)
- *     SiGetBiosSystemPartition @ 0x140A604C4 (SiGetBiosSystemPartition.c)
+ *     SiGetBiosSystemPartition @ 0x14077AAD4 (SiGetBiosSystemPartition.c)
+ *     SiFindSystemPartition @ 0x1409736B8 (SiFindSystemPartition.c)
+ *     SiGetEfiSystemDevice @ 0x140973C20 (SiGetEfiSystemDevice.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     SiOpenDevice @ 0x1407C0764 (SiOpenDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     SiOpenDevice @ 0x140687F44 (SiOpenDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetDriveLayoutInformation(const WCHAR *a1, _QWORD *a2)
 {
   NTSTATUS v3; // ebx
   ULONG OutputBufferLength; // esi
-  __int64 i; // rdx
-  void *OutputBuffer; // rax
-  void *v7; // rdi
-  NTSTATUS v8; // eax
+  PVOID OutputBuffer; // rax
+  void *v6; // rdi
+  NTSTATUS v7; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
   HANDLE FileHandle; // [rsp+80h] [rbp+18h] BYREF
 
@@ -29,38 +28,52 @@ __int64 __fastcall SiGetDriveLayoutInformation(const WCHAR *a1, _QWORD *a2)
   if ( v3 >= 0 )
   {
     OutputBufferLength = 18480;
-    for ( i = 18480LL; ; i = OutputBufferLength )
+    OutputBuffer = ExAllocatePoolWithTag(PagedPool, 0x4830uLL, 0x4B505953u);
+    v6 = OutputBuffer;
+    if ( OutputBuffer )
     {
-      OutputBuffer = (void *)ExAllocatePool2(256LL, i, 1263556947LL);
-      v7 = OutputBuffer;
-      if ( !OutputBuffer )
+      while ( 1 )
       {
-        v3 = -1073741670;
-        goto LABEL_10;
+        v7 = ZwDeviceIoControlFile(
+               FileHandle,
+               0LL,
+               0LL,
+               0LL,
+               &IoStatusBlock,
+               0x70050u,
+               0LL,
+               0,
+               OutputBuffer,
+               OutputBufferLength);
+        v3 = v7;
+        if ( v7 != -1073741789 )
+          break;
+        ExFreePoolWithTag(v6, 0);
+        OutputBufferLength += 9216;
+        OutputBuffer = ExAllocatePoolWithTag(PagedPool, OutputBufferLength, 0x4B505953u);
+        v6 = OutputBuffer;
+        if ( !OutputBuffer )
+        {
+          v3 = -1073741670;
+          goto LABEL_6;
+        }
       }
-      v8 = ZwDeviceIoControlFile(
-             FileHandle,
-             0LL,
-             0LL,
-             0LL,
-             &IoStatusBlock,
-             0x70050u,
-             0LL,
-             0,
-             OutputBuffer,
-             OutputBufferLength);
-      v3 = v8;
-      if ( v8 != -1073741789 )
-        break;
-      ExFreePoolWithTag(v7, 0);
-      OutputBufferLength += 9216;
+      if ( v7 < 0 )
+        goto LABEL_13;
+      *a2 = v6;
+LABEL_6:
+      if ( v3 >= 0 )
+        goto LABEL_7;
+LABEL_13:
+      if ( v6 )
+        ExFreePoolWithTag(v6, 0);
     }
-    if ( v8 < 0 )
-      ExFreePoolWithTag(v7, 0);
     else
-      *a2 = v7;
+    {
+      v3 = -1073741670;
+    }
   }
-LABEL_10:
+LABEL_7:
   if ( FileHandle )
     ZwClose(FileHandle);
   return (unsigned int)v3;

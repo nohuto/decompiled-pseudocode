@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddTargets@CCompositionLight@@AEAAJPEAVCResourceTable@@IPEBXIW4LightBehavior@@@Z @ 0x18001509C
+ * XREFs of ?AddTargets@CCompositionLight@@AEAAJPEAVCResourceTable@@IPEBXIW4LightBehavior@@@Z @ 0x1800C11D0
  * Callers:
- *     ?ProcessAddTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_ADDTARGETS@@PEBXI@Z @ 0x18001507C (-ProcessAddTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_AD.c)
- *     ?ProcessAddExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_ADDEXCLUSIONS@@PEBXI@Z @ 0x180200B38 (-ProcessAddExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT.c)
+ *     ?ProcessAddTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_ADDTARGETS@@PEBXI@Z @ 0x1800C1158 (-ProcessAddTargets@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_AD.c)
+ *     ?ProcessAddExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_ADDEXCLUSIONS@@PEBXI@Z @ 0x1801F4B04 (-ProcessAddExclusions@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT.c)
  * Callees:
- *     ?AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z @ 0x180015150 (-AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z @ 0x1800C1348 (-AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionLight::AddTargets(
@@ -21,10 +21,10 @@ __int64 __fastcall CCompositionLight::AddTargets(
   unsigned int v6; // ebx
   unsigned int v7; // edi
   struct CResource *ResourceWithoutType; // rax
-  unsigned int v13; // ecx
+  __int64 v13; // rcx
   struct CResource *v14; // rbx
   int v15; // eax
-  unsigned int v16; // ecx
+  __int64 v16; // rcx
 
   v6 = 0;
   v7 = 0;
@@ -45,7 +45,7 @@ __int64 __fastcall CCompositionLight::AddTargets(
       v6 = v15;
       if ( v15 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xA8u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xA1u, 0LL);
         return v6;
       }
       ++v7;
@@ -54,7 +54,7 @@ __int64 __fastcall CCompositionLight::AddTargets(
         return v6;
     }
     v6 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2003303421, 0xA4u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2003303421, 0x9Du, 0LL);
   }
   return v6;
 }

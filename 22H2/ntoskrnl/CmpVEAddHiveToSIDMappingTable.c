@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpVEAddHiveToSIDMappingTable @ 0x1407E43D0
+ * XREFs of CmpVEAddHiveToSIDMappingTable @ 0x1406A4C74
  * Callers:
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmpAddStringToMapping @ 0x1407E4470 (CmpAddStringToMapping.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     CmpAddStringToMapping @ 0x1406A4D14 (CmpAddStringToMapping.c)
  */
 
 __int64 __fastcall CmpVEAddHiveToSIDMappingTable(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpVEAddHiveToSIDMappingTable(__int64 a1, __int64 a2)
   result = CmpAddStringToMapping(&DestinationString, a1);
   if ( (int)result >= 0 )
   {
-    *(_DWORD *)(a1 + 4112) |= 2u;
+    *(_DWORD *)(a1 + 4152) |= 2u;
     return 0LL;
   }
   return result;

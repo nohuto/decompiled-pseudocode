@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UnlinkAndFreeEntry@@YAXPEAUtagINPUTTRANSFORMENTRY@@@Z @ 0x1C01EFE84
+ * XREFs of ?UnlinkAndFreeEntry@@YAXPEAUtagINPUTTRANSFORMENTRY@@@Z @ 0x1C01F57F0
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
  *     <none>
  */

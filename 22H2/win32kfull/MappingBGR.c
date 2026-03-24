@@ -1,7 +1,8 @@
 /*
- * XREFs of MappingBGR @ 0x1C0262CAC
+ * XREFs of MappingBGR @ 0x1C026B60C
  * Callers:
- *     GetFixupScan @ 0x1C0158C70 (GetFixupScan.c)
+ *     GetFixupScan @ 0x1C00C7690 (GetFixupScan.c)
+ *     RepDIB_CY @ 0x1C013A930 (RepDIB_CY.c)
  * Callees:
  *     <none>
  */

@@ -3,10 +3,10 @@
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MiIsSubsectionClean @ 0x1402A2594 (MiIsSubsectionClean.c)
- *     MiPurgeSubsection @ 0x1402A2B28 (MiPurgeSubsection.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B68A8 (MiPurgeFileOnlyPfn.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MiIsSubsectionClean @ 0x1402A2694 (MiIsSubsectionClean.c)
+ *     MiPurgeSubsection @ 0x1402A2C28 (MiPurgeSubsection.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
  * Callees:
  *     MiChargePartitionResidentAvailable @ 0x140022F3C (MiChargePartitionResidentAvailable.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -18,7 +18,7 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckProtoPtePageState(ULONG_PTR a1, unsigned __int8 *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopInitCrashDumpRegCallback @ 0x140B219F0
+ * XREFs of IopInitCrashDumpRegCallback @ 0x140A67640
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     IoCreateFile @ 0x1406CAD00 (IoCreateFile.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     IopInitializeCrashDump @ 0x14084BE78 (IopInitializeCrashDump.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     IoCreateFile @ 0x14060B1D0 (IoCreateFile.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     IopInitializeCrashDump @ 0x1407B77E8 (IopInitializeCrashDump.c)
  */
 
 __int64 __fastcall IopInitCrashDumpRegCallback(__int64 a1, __int64 a2, const WCHAR *a3, int a4, __int64 a5, _BYTE *a6)
@@ -21,9 +21,9 @@ __int64 __fastcall IopInitCrashDumpRegCallback(__int64 a1, __int64 a2, const WCH
   HANDLE FileHandle; // [rsp+F0h] [rbp+67h] BYREF
 
   FileHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v6 = a6;
-  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
   if ( a6 )

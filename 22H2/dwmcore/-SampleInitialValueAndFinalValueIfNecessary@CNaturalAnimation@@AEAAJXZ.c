@@ -1,15 +1,14 @@
 /*
- * XREFs of ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x18023DB78
+ * XREFs of ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D89C0
  * Callers:
- *     ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x18023E37C (-SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ *     ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D9180 (-SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800C22B0 (-ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x18021738C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800AD3B4 (-ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z @ 0x1801B149C (-ApplyMaskToValue@CExpressionValue@@QEAAJPEAVSubchannelMaskInfo@@@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::SampleInitialValueAndFinalValueIfNecessary(CNaturalAnimation *this)
@@ -19,104 +18,112 @@ __int64 __fastcall CNaturalAnimation::SampleInitialValueAndFinalValueIfNecessary
   __int64 v4; // rcx
   unsigned int v5; // edi
   __int64 v6; // rdx
-  char v7; // cl
-  int v8; // eax
-  char v9; // al
-  int v10; // xmm0_4
-  int v11; // xmm1_4
-  char v12; // al
-  int v13; // xmm0_4
-  unsigned int v15; // [rsp+20h] [rbp-19h]
-  __int64 v16; // [rsp+30h] [rbp-9h] BYREF
-  int v17; // [rsp+38h] [rbp-1h]
-  __int64 v18; // [rsp+70h] [rbp+37h] BYREF
-  int v19; // [rsp+78h] [rbp+3Fh]
-  char v20; // [rsp+7Ch] [rbp+43h]
+  __int64 v7; // rcx
+  char v8; // cl
+  int v9; // eax
+  char v10; // al
+  int v11; // xmm0_4
+  int v12; // xmm1_4
+  char v13; // al
+  int v14; // xmm0_4
+  __int64 v15; // rcx
+  unsigned int v17; // [rsp+20h] [rbp-19h]
+  __int64 v18; // [rsp+30h] [rbp-9h] BYREF
+  int v19; // [rsp+38h] [rbp-1h]
+  __int64 v20; // [rsp+70h] [rbp+37h]
+  int v21; // [rsp+78h] [rbp+3Fh]
+  char v22; // [rsp+7Ch] [rbp+43h]
 
-  if ( (*((_BYTE *)this + 588) & 0x30) == 0x30 )
+  if ( (*((_BYTE *)this + 564) & 0x30) == 0x30 )
     return 0;
-  memset_0(&v16, 0, 0x40uLL);
-  v18 = 0LL;
-  v19 = 18;
-  v20 = 0;
+  memset_0(&v18, 0, 0x40uLL);
+  v20 = 0LL;
+  v21 = 18;
+  v22 = 0;
   v2 = CBaseExpression::ResolveTargetNoRef(this);
-  v3 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, __int64 *))(*(_QWORD *)v2 + 136LL))(
+  v3 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, __int64 *))(*(_QWORD *)v2 + 144LL))(
          v2,
-         *((unsigned int *)this + 48),
-         &v16);
+         *((unsigned int *)this + 46),
+         &v18);
   v5 = v3;
   if ( v3 < 0 )
   {
-    v15 = 691;
+    v17 = 685;
     goto LABEL_7;
   }
-  v6 = *((_QWORD *)this + 25);
-  if ( !v6
-    || !*(_BYTE *)(v6 + 4)
-    || (v3 = CExpressionValue::ApplyMaskToValue((CExpressionValue *)&v16, (struct SubchannelMaskInfo *)v6),
-        v5 = v3,
-        v3 >= 0) )
+  v6 = *((_QWORD *)this + 24);
+  if ( v6 )
   {
-    if ( *((_DWORD *)this + 38) != 17 )
+    if ( *(_BYTE *)(v6 + 4) )
     {
-      switch ( *((_DWORD *)this + 38) )
+      v3 = CExpressionValue::ApplyMaskToValue((CExpressionValue *)&v18, (struct SubchannelMaskInfo *)v6);
+      v5 = v3;
+      if ( v3 < 0 )
       {
-        case 0x12:
-          v12 = *((_BYTE *)this + 588);
-          v13 = v16;
-          if ( (v12 & 0x10) == 0 )
-            *((_DWORD *)this + 84) = v16;
-          if ( (v12 & 0x20) == 0 )
-            *((_DWORD *)this + 90) = v13;
-          break;
-        case 0x23:
-          v9 = *((_BYTE *)this + 588);
-          v10 = HIDWORD(v16);
-          v11 = v16;
-          if ( (v9 & 0x10) == 0 )
-          {
-            *((_DWORD *)this + 84) = v16;
-            *((_DWORD *)this + 85) = v10;
-          }
-          if ( (v9 & 0x20) == 0 )
-          {
-            *((_DWORD *)this + 90) = v11;
-            *((_DWORD *)this + 91) = v10;
-          }
-          break;
-        case 0x34:
-          v7 = *((_BYTE *)this + 588);
-          v8 = v17;
-          if ( (v7 & 0x10) == 0 )
-          {
-            *((_QWORD *)this + 42) = v16;
-            *((_DWORD *)this + 86) = v8;
-          }
-          if ( (v7 & 0x20) == 0 )
-          {
-            *((_QWORD *)this + 45) = v16;
-            *((_DWORD *)this + 92) = v8;
-          }
-          break;
-        default:
-          v5 = -2147024809;
-          MilInstrumentationCheckHR_MaybeFailFast(
-            (unsigned int)(*((_DWORD *)this + 38) - 35),
-            0LL,
-            0,
-            -2147024809,
-            0x2EDu,
-            0LL);
-          goto LABEL_8;
+        v17 = 696;
+LABEL_7:
+        MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, v17, 0LL);
+        goto LABEL_8;
       }
     }
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v18);
-    return 0;
   }
-  v15 = 702;
-LABEL_7:
-  MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, v15, 0LL);
+  switch ( *((_DWORD *)this + 36) )
+  {
+    case 0x11:
+LABEL_27:
+      v15 = v20;
+      if ( v20 )
+      {
+        v20 = 0LL;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
+      }
+      return 0;
+    case 0x12:
+      v13 = *((_BYTE *)this + 564);
+      v14 = v18;
+      if ( (v13 & 0x10) == 0 )
+        *((_DWORD *)this + 78) = v18;
+      if ( (v13 & 0x20) == 0 )
+        *((_DWORD *)this + 84) = v14;
+      goto LABEL_27;
+    case 0x23:
+      v10 = *((_BYTE *)this + 564);
+      v11 = HIDWORD(v18);
+      v12 = v18;
+      if ( (v10 & 0x10) == 0 )
+      {
+        *((_DWORD *)this + 78) = v18;
+        *((_DWORD *)this + 79) = v11;
+      }
+      if ( (v10 & 0x20) == 0 )
+      {
+        *((_DWORD *)this + 84) = v12;
+        *((_DWORD *)this + 85) = v11;
+      }
+      goto LABEL_27;
+    case 0x34:
+      v8 = *((_BYTE *)this + 564);
+      v9 = v19;
+      if ( (v8 & 0x10) == 0 )
+      {
+        *((_QWORD *)this + 39) = v18;
+        *((_DWORD *)this + 80) = v9;
+      }
+      if ( (v8 & 0x20) == 0 )
+      {
+        *((_QWORD *)this + 42) = v18;
+        *((_DWORD *)this + 86) = v9;
+      }
+      goto LABEL_27;
+  }
+  v5 = -2147024809;
+  MilInstrumentationCheckHR_MaybeFailFast((unsigned int)(*((_DWORD *)this + 36) - 35), 0LL, 0, -2147024809, 0x2E7u, 0LL);
 LABEL_8:
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v18);
+  v7 = v20;
+  if ( v20 )
+  {
+    v20 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  }
   return v5;
 }

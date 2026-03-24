@@ -1,16 +1,16 @@
 /*
- * XREFs of MmCreateMdl @ 0x1402411C0
+ * XREFs of MmCreateMdl @ 0x1402FD210
  * Callers:
- *     MiPfAllocateMdls @ 0x1406F4A80 (MiPfAllocateMdls.c)
- *     SmKmStoreFileWriteHeader @ 0x1409D7390 (SmKmStoreFileWriteHeader.c)
- *     MiLockRetpolineStubs @ 0x140B52090 (MiLockRetpolineStubs.c)
+ *     MiPfAllocateMdls @ 0x1406E8CA0 (MiPfAllocateMdls.c)
+ *     SmKmStoreFileWriteHeader @ 0x14092CE74 (SmKmStoreFileWriteHeader.c)
+ *     MiLockRetpolineStubs @ 0x140A92540 (MiLockRetpolineStubs.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
  */
 
 PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)
 {
-  PMDL Pool; // r9
+  struct _MDL *Pool; // r9
   __int16 v6; // di
   PMDL result; // rax
 
@@ -20,7 +20,10 @@ PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)
   v6 = (__int16)Base;
   if ( !MemoryDescriptorList )
   {
-    Pool = (PMDL)MiAllocatePool(64LL, 8 * ((((unsigned __int16)Base & 0xFFF) + Length + 4095) >> 12) + 48, 1818520909LL);
+    Pool = (struct _MDL *)MiAllocatePool(
+                            64,
+                            8 * ((((unsigned __int16)Base & 0xFFF) + Length + 4095) >> 12) + 48,
+                            0x6C646D4Du);
     if ( !Pool )
       return 0LL;
   }

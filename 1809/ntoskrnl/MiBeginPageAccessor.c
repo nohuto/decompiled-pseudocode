@@ -2,13 +2,13 @@
  * XREFs of MiBeginPageAccessor @ 0x140064A20
  * Callers:
  *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     MiGetSinglePageToZero @ 0x1402C1818 (MiGetSinglePageToZero.c)
+ *     MiGetSinglePageToZero @ 0x1402C1918 (MiGetSinglePageToZero.c)
  * Callees:
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExpAcquireSpinLockExclusive @ 0x1400BC680 (ExpAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)

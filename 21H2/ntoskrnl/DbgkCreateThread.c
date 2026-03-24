@@ -1,159 +1,160 @@
 /*
- * XREFs of DbgkCreateThread @ 0x140702604
+ * XREFs of DbgkCreateThread @ 0x140647420
  * Callers:
- *     PspUserThreadStartup @ 0x140702420 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x140646E40 (PspUserThreadStartup.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmGetFileObjectForSection @ 0x14066BA80 (MmGetFileObjectForSection.c)
- *     PsWow64GetProcessNtdllType @ 0x140672A7C (PsWow64GetProcessNtdllType.c)
- *     PsReferenceProcessFilePointer @ 0x140673AD0 (PsReferenceProcessFilePointer.c)
- *     PsQuerySystemDllInfo @ 0x1406AD624 (PsQuerySystemDllInfo.c)
- *     PsCallImageNotifyRoutines @ 0x1406F84B0 (PsCallImageNotifyRoutines.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     PspReferenceSystemDll @ 0x140757130 (PspReferenceSystemDll.c)
- *     DbgkSendSystemDllMessages @ 0x140927394 (DbgkSendSystemDllMessages.c)
- *     DbgkpPostModuleMessages @ 0x140928158 (DbgkpPostModuleMessages.c)
- *     DbgkpSendApiMessage @ 0x14092A070 (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x14092AAC4 (DbgkpSectionToFileHandle.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsReferenceProcessFilePointer @ 0x140604BE0 (PsReferenceProcessFilePointer.c)
+ *     PsWow64GetProcessNtdllType @ 0x140611C4C (PsWow64GetProcessNtdllType.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
+ *     PsQuerySystemDllInfo @ 0x14064E8DC (PsQuerySystemDllInfo.c)
+ *     PspReferenceSystemDll @ 0x140712A44 (PspReferenceSystemDll.c)
+ *     DbgkSendSystemDllMessages @ 0x1408844DC (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostModuleMessages @ 0x1408852A0 (DbgkpPostModuleMessages.c)
+ *     DbgkpSendApiMessage @ 0x140887154 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140887B94 (DbgkpSectionToFileHandle.c)
  */
 
-__int64 __fastcall DbgkCreateThread(_QWORD *a1)
+void __fastcall DbgkCreateThread(_QWORD *a1)
 {
   __int64 v2; // rdi
-  __int64 result; // rax
-  char v4; // r12
-  __int64 v5; // rax
-  int i; // r14d
-  __int64 v7; // r15
-  __int64 v8; // rax
-  __int64 v9; // r13
-  void *FileObjectForSection; // rax
-  __int16 v11; // ax
-  char v12; // al
-  __int64 v13; // rax
-  char v14; // [rsp+20h] [rbp-1A8h]
-  PVOID Object; // [rsp+28h] [rbp-1A0h] BYREF
-  int v16; // [rsp+30h] [rbp-198h]
-  __int64 v17; // [rsp+38h] [rbp-190h]
-  _QWORD *v18; // [rsp+40h] [rbp-188h]
-  __int128 v19; // [rsp+48h] [rbp-180h] BYREF
-  __int128 v20; // [rsp+58h] [rbp-170h]
-  __int128 v21; // [rsp+68h] [rbp-160h]
-  __int64 v22; // [rsp+78h] [rbp-150h]
-  __int64 v23; // [rsp+80h] [rbp-148h]
-  _QWORD v24[34]; // [rsp+90h] [rbp-138h] BYREF
+  __int64 v3; // rax
+  signed __int32 v4; // eax
+  char v5; // r12
+  __int64 v6; // rax
+  int i; // esi
+  __int64 SystemDllInfo; // rax
+  __int64 v9; // r15
+  __int64 v10; // rax
+  struct _DMA_ADAPTER *v11; // r13
+  unsigned __int64 v12; // rax
+  struct _DMA_ADAPTER *v13; // rax
+  __int16 v14; // ax
+  __int64 v15; // rax
+  bool v16; // [rsp+20h] [rbp-1B8h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+28h] [rbp-1B0h] BYREF
+  signed __int32 v18; // [rsp+30h] [rbp-1A8h]
+  __int64 v19; // [rsp+38h] [rbp-1A0h]
+  _QWORD *v20; // [rsp+40h] [rbp-198h]
+  __int128 v21; // [rsp+48h] [rbp-190h] BYREF
+  __int128 v22; // [rsp+58h] [rbp-180h]
+  __int128 v23; // [rsp+68h] [rbp-170h]
+  __int64 v24; // [rsp+78h] [rbp-160h]
+  __int64 v25; // [rsp+80h] [rbp-158h]
+  _QWORD v26[34]; // [rsp+90h] [rbp-148h] BYREF
 
-  v18 = a1;
-  memset(v24, 0, sizeof(v24));
+  v20 = a1;
+  memset(v26, 0, sizeof(v26));
   v2 = a1[23];
-  v17 = v2;
-  if ( !*(_QWORD *)(v2 + 1408)
-    || ((v11 = *(_WORD *)(v2 + 2412), v11 == 332) || v11 == 452 ? (v12 = 1) : (v12 = 0), v14 = 1, !v12) )
+  v19 = v2;
+  v3 = *(_QWORD *)(v2 + 1408);
+  v16 = 0;
+  if ( v3 )
   {
-    v14 = 0;
+    v14 = *(_WORD *)(v3 + 8);
+    if ( v14 == 332 || v14 == 452 )
+      v16 = 1;
   }
   _m_prefetchw((const void *)(v2 + 1124));
-  result = (unsigned int)_InterlockedOr((volatile signed __int32 *)(v2 + 1124), 0x400001u);
-  v4 = result;
-  v16 = result;
-  if ( (result & 0x400000) == 0 && ((PspNotifyEnableMask & 1) != 0 || (PerfGlobalGroupMask[0] & 4) != 0) )
+  v4 = _InterlockedOr((volatile signed __int32 *)(v2 + 1124), 0x400001u);
+  v5 = v4;
+  v18 = v4;
+  if ( (v4 & 0x400000) == 0 && ((PspNotifyEnableMask & 1) != 0 || (PerfGlobalGroupMask & 4) != 0) )
   {
-    v19 = 0LL;
-    v20 = 0LL;
     v21 = 0LL;
     v22 = 0LL;
-    Object = 0LL;
-    BYTE8(v19) = 3;
-    *(_QWORD *)&v20 = *(_QWORD *)(v2 + 1312);
-    *(_QWORD *)&v21 = 0LL;
-    v5 = RtlImageNtHeader(v20);
-    if ( v5 )
-      *(_QWORD *)&v21 = *(unsigned int *)(v5 + 80);
-    DWORD2(v20) = 0;
-    DWORD2(v21) = 0;
-    PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)v2, (__int64 *)&Object);
-    PsCallImageNotifyRoutines(*(unsigned __int16 **)(v2 + 1472), v2, (__int64)&v19, (__int64)Object);
-    result = ObfDereferenceObject(Object);
+    v23 = 0LL;
+    v24 = 0LL;
+    DmaAdapter = 0LL;
+    BYTE8(v21) = 3;
+    *(_QWORD *)&v22 = *(_QWORD *)(v2 + 1312);
+    *(_QWORD *)&v23 = 0LL;
+    v6 = RtlImageNtHeader(v22);
+    if ( v6 )
+      *(_QWORD *)&v23 = *(unsigned int *)(v6 + 80);
+    DWORD2(v22) = 0;
+    DWORD2(v23) = 0;
+    PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)v2, (ULONG_PTR *)&DmaAdapter);
+    PsCallImageNotifyRoutines(*(unsigned __int16 **)(v2 + 1472), v2, (__int64)&v21, (__int64)DmaAdapter);
+    HalPutDmaAdapter(DmaAdapter);
     for ( i = 0; ; ++i )
     {
-      LODWORD(Object) = i;
+      LODWORD(DmaAdapter) = i;
       if ( i >= 6 )
         break;
-      result = (__int64)PsQuerySystemDllInfo(i);
-      v7 = result;
-      v23 = result;
-      if ( result )
+      SystemDllInfo = PsQuerySystemDllInfo((unsigned int)i);
+      v9 = SystemDllInfo;
+      v25 = SystemDllInfo;
+      if ( SystemDllInfo
+        && (i <= 0
+         || *(_WORD *)(SystemDllInfo + 2) && *(_QWORD *)(v2 + 1408) && i == (unsigned int)PsWow64GetProcessNtdllType(v2)) )
       {
-        if ( i <= 0
-          || (*(_DWORD *)result & 8) != 0
-          && *(_QWORD *)(v2 + 1408)
-          && (result = PsWow64GetProcessNtdllType(v2), i == (_DWORD)result) )
+        DWORD2(v21) = 3;
+        *(_QWORD *)&v22 = *(_QWORD *)(v9 + 24);
+        *(_QWORD *)&v23 = 0LL;
+        v10 = RtlImageNtHeader(*(_QWORD *)(v9 + 24));
+        if ( v10 )
+          *(_QWORD *)&v23 = *(unsigned int *)(v10 + 80);
+        DWORD2(v22) = 0;
+        DWORD2(v23) = 0;
+        v11 = (struct _DMA_ADAPTER *)PspReferenceSystemDll(v9 - 16);
+        v12 = MiSectionControlArea((__int64)v11);
+        v13 = (struct _DMA_ADAPTER *)MiReferenceControlAreaFile(v12);
+        DmaAdapter = v13;
+        if ( v11 )
         {
-          DWORD2(v19) = 3;
-          *(_QWORD *)&v20 = *(_QWORD *)(v7 + 24);
-          *(_QWORD *)&v21 = 0LL;
-          v8 = RtlImageNtHeader(*(_QWORD *)(v7 + 24));
-          if ( v8 )
-            *(_QWORD *)&v21 = *(unsigned int *)(v8 + 80);
-          DWORD2(v20) = 0;
-          DWORD2(v21) = 0;
-          v9 = PspReferenceSystemDll(*(_QWORD *)(v7 - 8));
-          FileObjectForSection = (void *)MmGetFileObjectForSection(v9);
-          Object = FileObjectForSection;
-          if ( v9 )
-          {
-            ObFastDereferenceObject(*(signed __int64 **)(v7 - 8), v9, 0x64537350u);
-            FileObjectForSection = Object;
-          }
-          PsCallImageNotifyRoutines((unsigned __int16 *)(v7 + 8), v2, (__int64)&v19, (__int64)FileObjectForSection);
-          result = ObfDereferenceObject(Object);
+          ObFastDereferenceObject((signed __int64 *)(v9 - 16), v11);
+          v13 = DmaAdapter;
         }
+        PsCallImageNotifyRoutines((unsigned __int16 *)(v9 + 8), v2, (__int64)&v21, (__int64)v13);
+        HalPutDmaAdapter(DmaAdapter);
       }
     }
   }
   if ( *(_QWORD *)(v2 + 1400) )
   {
-    if ( (v4 & 1) != 0 )
+    if ( (v5 & 1) != 0 )
     {
-      if ( (a1[172] & 4) == 0 )
+      if ( (a1[162] & 4) == 0 )
       {
-        memset(v24, 0, 0x40uLL);
-        v24[7] = a1[164];
-        v24[0] = 0x800400018LL;
-        LODWORD(v24[5]) = 1;
+        memset(v26, 0, 0x40uLL);
+        v26[7] = a1[154];
+        v26[0] = 0x800400018LL;
+        LODWORD(v26[5]) = 1;
         DbgkpSendApiMessage((PVOID)v2);
       }
     }
     else
     {
-      memset(v24, 0, 0x60uLL);
-      v24[7] = DbgkpSectionToFileHandle(*(_QWORD *)(v2 + 1304));
-      v24[8] = *(_QWORD *)(v2 + 1312);
-      v24[11] = 0LL;
-      v24[9] = 0LL;
-      v13 = RtlImageNtHeader(*(_QWORD *)(v2 + 1312));
-      if ( v13 )
+      memset(v26, 0, 0x60uLL);
+      v26[7] = DbgkpSectionToFileHandle(*(_QWORD *)(v2 + 1304));
+      v26[8] = *(_QWORD *)(v2 + 1312);
+      v26[11] = 0LL;
+      v26[9] = 0LL;
+      v15 = RtlImageNtHeader(*(_QWORD *)(v2 + 1312));
+      if ( v15 )
       {
-        if ( v14 )
-          v24[11] = (unsigned int)(*(_DWORD *)(v13 + 40) + *(_DWORD *)(v13 + 52));
+        if ( v16 )
+          v26[11] = (unsigned int)(*(_DWORD *)(v15 + 40) + *(_DWORD *)(v15 + 52));
         else
-          v24[11] = *(_QWORD *)(v13 + 48) + *(unsigned int *)(v13 + 40);
-        v24[9] = *(_QWORD *)(v13 + 12);
+          v26[11] = *(_QWORD *)(v15 + 48) + *(unsigned int *)(v15 + 40);
+        v26[9] = *(_QWORD *)(v15 + 12);
       }
-      v24[0] = 0x800600038LL;
-      LODWORD(v24[5]) = 2;
+      v26[0] = 0x800600038LL;
+      LODWORD(v26[5]) = 2;
       DbgkpSendApiMessage((PVOID)v2);
-      if ( v24[7] )
-        ObCloseHandle((HANDLE)v24[7], 0);
+      if ( v26[7] )
+        ObCloseHandle((HANDLE)v26[7], 0);
       DbgkSendSystemDllMessages(0LL);
     }
-    result = *((unsigned int *)a1 + 345);
-    if ( (result & 0x10) != 0 )
-      return DbgkpPostModuleMessages((PVOID)v2, a1, 0LL);
+    if ( (*((_DWORD *)a1 + 325) & 0x10) != 0 )
+      DbgkpPostModuleMessages((PVOID)v2, a1, 0LL);
   }
-  return result;
 }

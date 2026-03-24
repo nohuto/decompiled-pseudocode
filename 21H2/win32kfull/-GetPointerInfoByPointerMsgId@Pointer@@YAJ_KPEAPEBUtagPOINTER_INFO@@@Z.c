@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C016E3AC
+ * XREFs of ?GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0243878
  * Callers:
- *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C023F024 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
- *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024CDC0 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
+ *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0243814 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
+ *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024F888 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
  * Callees:
  *     <none>
  */

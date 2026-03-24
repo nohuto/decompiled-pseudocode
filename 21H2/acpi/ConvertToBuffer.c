@@ -1,14 +1,14 @@
 /*
- * XREFs of ConvertToBuffer @ 0x1C006B518
+ * XREFs of ConvertToBuffer @ 0x1C006B288
  * Callers:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     Concat @ 0x1C0027500 (Concat.c)
- *     ToBuffer @ 0x1C006AEE0 (ToBuffer.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
+ *     ToBuffer @ 0x1C006A7D0 (ToBuffer.c)
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     IsCompatableDSDTRevision @ 0x1C0019BAC (IsCompatableDSDTRevision.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ConvertToBuffer(__int64 a1, __int64 a2)
@@ -16,14 +16,14 @@ __int64 __fastcall ConvertToBuffer(__int64 a1, __int64 a2)
   unsigned int v2; // ebx
   unsigned __int16 v5; // ax
   unsigned int v6; // esi
-  _SLIST_ENTRY *v7; // rax
+  _BYTE *v7; // rax
   unsigned __int64 v8; // rdi
   unsigned int v9; // esi
-  _SLIST_ENTRY *v10; // rax
+  _BYTE *v10; // rax
   __int64 v11; // rcx
   __int128 v13; // [rsp+20h] [rbp-38h]
   __int128 v14; // [rsp+30h] [rbp-28h]
-  _SLIST_ENTRY *v15; // [rsp+40h] [rbp-18h]
+  _BYTE *v15; // [rsp+40h] [rbp-18h]
 
   v2 = 0;
   v13 = 0LL;
@@ -44,15 +44,14 @@ __int64 __fastcall ConvertToBuffer(__int64 a1, __int64 a2)
       v9 = 4;
     }
     DWORD2(v14) = v9;
-    v10 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v9);
+    v10 = (_BYTE *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v9);
     v15 = v10;
     if ( v10 )
     {
       v11 = v9;
       do
       {
-        LOBYTE(v10->Next) = v8;
-        v10 = (_SLIST_ENTRY *)((char *)v10 + 1);
+        *v10++ = v8;
         v8 >>= 8;
         --v11;
       }
@@ -74,7 +73,7 @@ LABEL_15:
       return v2;
     }
     DWORD2(v14) = *(_DWORD *)(a1 + 24);
-    v7 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v6);
+    v7 = (_BYTE *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, v6);
     v15 = v7;
     if ( v7 )
     {

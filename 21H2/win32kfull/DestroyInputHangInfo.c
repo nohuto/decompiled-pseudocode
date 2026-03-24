@@ -1,5 +1,5 @@
 /*
- * XREFs of DestroyInputHangInfo @ 0x1C011E540
+ * XREFs of DestroyInputHangInfo @ 0x1C0132230
  * Callers:
  *     <none>
  * Callees:
@@ -10,11 +10,11 @@ __int64 __fastcall DestroyInputHangInfo(__int64 a1)
 {
   _QWORD *v1; // rbx
   unsigned int v2; // edi
-  _QWORD *v3; // rcx
+  void *v3; // rcx
 
-  v1 = *(_QWORD **)(a1 + 1184);
+  v1 = *(_QWORD **)(a1 + 1160);
   v2 = 0;
-  *(_QWORD *)(a1 + 1184) = 0LL;
+  *(_QWORD *)(a1 + 1160) = 0LL;
   if ( v1 )
   {
     v2 = 1;

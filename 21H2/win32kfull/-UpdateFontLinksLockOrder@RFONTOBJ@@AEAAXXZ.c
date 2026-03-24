@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UpdateFontLinksLockOrder@RFONTOBJ@@AEAAXXZ @ 0x1C02A6348
+ * XREFs of ?UpdateFontLinksLockOrder@RFONTOBJ@@AEAAXXZ @ 0x1C00E8E10
  * Callers:
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C015154C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A5B8C (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7DFC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A79B8 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall RFONTOBJ::UpdateFontLinksLockOrder(RFONTOBJ *this)
@@ -62,7 +62,7 @@ void __fastcall RFONTOBJ::UpdateFontLinksLockOrder(RFONTOBJ *this)
     }
     while ( v10 );
     v12 = v5;
-    qsort(&Base, v5, 0x10uLL, (int (__cdecl *)(const void *, const void *))RFONTOBJ::AddressMap::Compare);
+    qsort(&Base, v5, 0x10uLL, RFONTOBJ::AddressMap::Compare);
     if ( v5 )
     {
       v13 = v17;

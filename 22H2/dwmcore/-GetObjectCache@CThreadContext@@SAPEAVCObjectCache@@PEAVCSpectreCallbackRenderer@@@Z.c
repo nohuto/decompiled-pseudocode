@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCSpectreCallbackRenderer@@@Z @ 0x180271D94
+ * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCSpectreCallbackRenderer@@@Z @ 0x180210A3C
  * Callers:
- *     ??_GCSpectreCallbackRenderer@@UEAAPEAXI@Z @ 0x1801FDB24 (--_GCSpectreCallbackRenderer@@UEAAPEAXI@Z.c)
- *     ?Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@PEAPEAV1@@Z @ 0x1801FDBB0 (-Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@.c)
+ *     ??_GCSpectreCallbackRenderer@@UEAAPEAXI@Z @ 0x18019EB88 (--_GCSpectreCallbackRenderer@@UEAAPEAXI@Z.c)
+ *     ?Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@PEAPEAV1@@Z @ 0x18019EC00 (-Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@.c)
  * Callees:
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180078B70 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CSpectreCallbackRenderer *a1)
@@ -18,5 +18,5 @@ struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CSpectreCa
   Current = CThreadContext::GetCurrent(&v4);
   if ( Current < 0 )
     ModuleFailFastForHRESULT(Current, retaddr);
-  return (struct CThreadContext *)((char *)v4 + 80);
+  return (struct CThreadContext *)((char *)v4 + 40);
 }

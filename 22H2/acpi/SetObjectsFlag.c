@@ -1,10 +1,10 @@
 /*
- * XREFs of SetObjectsFlag @ 0x1C004FE80
+ * XREFs of SetObjectsFlag @ 0x1C0066F80
  * Callers:
- *     AMLIFinalizeObject @ 0x1C0048054 (AMLIFinalizeObject.c)
- *     SetObjectsFlag @ 0x1C004FE80 (SetObjectsFlag.c)
+ *     AMLIFinalizeObject @ 0x1C006344C (AMLIFinalizeObject.c)
+ *     SetObjectsFlag @ 0x1C0066F80 (SetObjectsFlag.c)
  * Callees:
- *     SetObjectsFlag @ 0x1C004FE80 (SetObjectsFlag.c)
+ *     SetObjectsFlag @ 0x1C0066F80 (SetObjectsFlag.c)
  */
 
 __int64 __fastcall SetObjectsFlag(__int64 a1)

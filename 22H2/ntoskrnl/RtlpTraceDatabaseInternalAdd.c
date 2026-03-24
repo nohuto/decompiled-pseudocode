@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalAdd @ 0x1405B16D0
+ * XREFs of RtlpTraceDatabaseInternalAdd @ 0x14058EBE8
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x1405B12B0 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseAdd @ 0x14058E7A0 (RtlTraceDatabaseAdd.c)
  * Callees:
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlpTraceDatabaseAllocate @ 0x1405B16A8 (RtlpTraceDatabaseAllocate.c)
- *     RtlpTraceDatabaseInternalFind @ 0x1405B1894 (RtlpTraceDatabaseInternalFind.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlpTraceDatabaseAllocate @ 0x14058EBC0 (RtlpTraceDatabaseAllocate.c)
+ *     RtlpTraceDatabaseInternalFind @ 0x14058EDA4 (RtlpTraceDatabaseInternalFind.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const void *a3, _QWORD *a4)
 {
   __int64 v5; // rsi
   __int64 v8; // rax
-  __int64 v10; // rdx
+  _QWORD *v10; // rdx
   unsigned __int64 v11; // rbp
   unsigned __int64 v12; // rax
-  __int64 v13; // rax
+  _QWORD *v13; // rax
   __int64 v14; // r14
   unsigned int v15; // eax
   unsigned int v16; // ecx
@@ -37,13 +37,13 @@ char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const 
       ++*(_QWORD *)(a1 + 144);
       return 1;
     }
-    v10 = *(_QWORD *)(a1 + 16);
+    v10 = *(_QWORD **)(a1 + 16);
     v11 = 8 * v5 + 56;
-    if ( v11 > *(_QWORD *)(v10 + 40) - *(_QWORD *)(v10 + 48) )
+    if ( v11 > v10[5] - v10[6] )
     {
       v12 = *(_QWORD *)(a1 + 24);
       if ( v12 && *(_QWORD *)(a1 + 32) > v12
-        || (v13 = RtlpTraceDatabaseAllocate(4096LL, *(_DWORD *)(a1 + 4), *(unsigned int *)(a1 + 8)), (v10 = v13) == 0) )
+        || (v13 = RtlpTraceDatabaseAllocate(0x1000uLL, *(_DWORD *)(a1 + 4), *(_DWORD *)(a1 + 8)), (v10 = v13) == 0LL) )
       {
 LABEL_11:
         if ( a4 )
@@ -51,19 +51,19 @@ LABEL_11:
         return 0;
       }
       *(_DWORD *)v13 = -1412580421;
-      *(_QWORD *)(v13 + 8) = a1;
-      *(_QWORD *)(v13 + 24) = 4096LL;
-      *(_QWORD *)(v13 + 32) = v13;
-      *(_QWORD *)(v13 + 40) = v13 + 4096;
-      *(_QWORD *)(v13 + 48) = v13 + 56;
-      *(_QWORD *)(v13 + 16) = *(_QWORD *)(a1 + 16);
+      v13[1] = a1;
+      v13[3] = 4096LL;
+      v13[4] = v13;
+      v13[5] = v13 + 512;
+      v13[6] = v13 + 7;
+      v13[2] = *(_QWORD *)(a1 + 16);
       *(_QWORD *)(a1 + 32) += 4096LL;
       *(_QWORD *)(a1 + 16) = v13;
     }
-    v14 = *(_QWORD *)(v10 + 48);
-    if ( v11 <= *(_QWORD *)(v10 + 40) - v14 )
+    v14 = v10[6];
+    if ( v11 <= v10[5] - v14 )
     {
-      *(_QWORD *)(v10 + 48) = v14 + v11;
+      v10[6] = v14 + v11;
       *(_DWORD *)v14 = -1412584790;
       *(_DWORD *)(v14 + 8) = v5;
       *(_DWORD *)(v14 + 4) = 1;

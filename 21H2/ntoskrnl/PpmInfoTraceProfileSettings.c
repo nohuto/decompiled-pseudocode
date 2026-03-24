@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInfoTraceProfileSettings @ 0x140997A1C
+ * XREFs of PpmInfoTraceProfileSettings @ 0x1408F0950
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmEventTraceProfileSetting @ 0x14085490C (PpmEventTraceProfileSetting.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmEventTraceProfileSetting @ 0x1407C5394 (PpmEventTraceProfileSetting.c)
  */
 
 char PpmInfoTraceProfileSettings()
@@ -28,12 +28,12 @@ char PpmInfoTraceProfileSettings()
   for ( i = 0; ; i = v11 + 1 )
   {
     v11 = i;
-    v2 = (char *)&unk_140D05FD8;
+    v2 = (char *)&unk_140CFBB58;
     v3 = v0 + 5;
-    v12 = 54LL;
+    v12 = 53LL;
     do
     {
-      v4 = v0 + 539;
+      v4 = v0 + 347;
       v5 = 1LL << v2[12];
       v6 = (__int128 *)*((_QWORD *)v2 - 2);
       v7 = 0;
@@ -73,7 +73,7 @@ char PpmInfoTraceProfileSettings()
     while ( v12 );
     if ( v11 == PpmProfileCount )
       break;
-    v0 = (__int64 *)(PpmProfiles + 8624LL * v11);
+    v0 = (__int64 *)(PpmProfiles + 5552LL * v11);
   }
   return (char)v6;
 }

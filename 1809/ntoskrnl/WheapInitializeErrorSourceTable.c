@@ -3,11 +3,11 @@
  * Callers:
  *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
  * Callees:
- *     WheapAddErrorSource @ 0x14017D1BC (WheapAddErrorSource.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     WheapAddErrorSource @ 0x14017D1DC (WheapAddErrorSource.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WheapInitializeErrorSource @ 0x140727DB8 (WheapInitializeErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x140727D98 (WheapInitializeErrorSource.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int *a2)

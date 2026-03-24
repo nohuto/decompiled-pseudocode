@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpLegacyWorkerInitialization @ 0x1403D4DFC
+ * XREFs of ExpLegacyWorkerInitialization @ 0x1403C6C80
  * Callers:
- *     ExpWorkerInitialization @ 0x140B240EC (ExpWorkerInitialization.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
  *     <none>
  */
@@ -11,9 +11,9 @@ __int64 ExpLegacyWorkerInitialization()
   int v0; // ecx
   int v1; // edx
   int v2; // eax
-  unsigned __int16 *v3; // rax
+  __int64 v3; // rax
   ULONG_PTR v4; // rax
-  unsigned __int16 *v5; // rax
+  __int64 v5; // rax
   __int64 result; // rax
 
   v0 = ExpAdditionalCriticalWorkerThreads;
@@ -29,21 +29,23 @@ __int64 ExpLegacyWorkerInitialization()
     ExpAdditionalDelayedWorkerThreads = 100;
   }
   v2 = 5;
-  if ( (_BYTE)dword_140D051DC )
+  if ( (_BYTE)dword_140CFB19C )
     v2 = 10;
   ExCriticalWorkerThreads = v0 + v2;
   ExDelayedWorkerThreads = v1 + 7;
   v3 = 0LL;
   if ( (_UNKNOWN *)KeNodeBlock[0] != &KiNodeInit )
-    v3 = (unsigned __int16 *)KeNodeBlock[0];
-  v4 = **(_QWORD **)(*(_QWORD *)(*((_QWORD *)PspSystemPartition + 2) + 8LL) + 8LL * *v3);
+    v3 = KeNodeBlock[0];
+  v4 = **(_QWORD **)(*(_QWORD *)(*((_QWORD *)PspSystemPartition + 2) + 8LL) + 8LL * *(unsigned __int16 *)(v3 + 146));
   if ( (v4 & 1) != 0 )
     v4 = 0LL;
   ExWorkerQueue = v4;
   v5 = 0LL;
   if ( (_UNKNOWN *)KeNodeBlock[0] != &KiNodeInit )
-    v5 = (unsigned __int16 *)KeNodeBlock[0];
-  result = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)PspSystemPartition + 2) + 8LL) + 8LL * *v5) + 8LL);
+    v5 = KeNodeBlock[0];
+  result = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)PspSystemPartition + 2) + 8LL)
+                                 + 8LL * *(unsigned __int16 *)(v5 + 146))
+                     + 8LL);
   if ( (result & 1) != 0 )
     result = 0LL;
   IoWorkerQueue = result;

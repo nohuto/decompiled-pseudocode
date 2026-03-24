@@ -1,8 +1,8 @@
 /*
- * XREFs of ObpInsertDirectoryEntry @ 0x1406A504C
+ * XREFs of ObpInsertDirectoryEntry @ 0x1406A502C
  * Callers:
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)

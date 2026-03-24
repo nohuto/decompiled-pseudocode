@@ -1,22 +1,24 @@
 /*
- * XREFs of EtwpFindGuidEntryByGuid @ 0x1406BF870
+ * XREFs of EtwpFindGuidEntryByGuid @ 0x1405EB9B0
  * Callers:
- *     NtTraceEvent @ 0x1402577C0 (NtTraceEvent.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1406BF740 (EtwpFindOrCreateGuidEntry.c)
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
- *     EtwpAddGuidEntry @ 0x140781D88 (EtwpAddGuidEntry.c)
- *     EtwpGetTraceGuidInfo @ 0x140853498 (EtwpGetTraceGuidInfo.c)
- *     EtwpGetTraceGroupInfo @ 0x1408A7852 (EtwpGetTraceGroupInfo.c)
- *     EtwpBufferingModeFlush @ 0x1408A7F08 (EtwpBufferingModeFlush.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E7580 (EtwpNotifyDisallowedGuidChange.c)
- *     SendCaptureStateNotificationsWorker @ 0x1409ECE80 (SendCaptureStateNotificationsWorker.c)
+ *     NtTraceEvent @ 0x14025C4C0 (NtTraceEvent.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BC360 (EtwpAddRegEntryToGroup.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
+ *     EtwpAddGuidEntry @ 0x140717450 (EtwpAddGuidEntry.c)
+ *     EtwpGetTraceGuidInfo @ 0x14072EB7C (EtwpGetTraceGuidInfo.c)
+ *     EtwpRegisterProvider @ 0x140762340 (EtwpRegisterProvider.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933C54 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933F3C (EtwpDisallowedGuidRemoval.c)
+ *     EtwpGetTraceGroupInfo @ 0x1409347A4 (EtwpGetTraceGroupInfo.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093F990 (SendCaptureStateNotificationsWorker.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     EtwpReferenceGuidEntry @ 0x1406BF964 (EtwpReferenceGuidEntry.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
  */
 
 _QWORD *__fastcall EtwpFindGuidEntryByGuid(__int64 a1, _DWORD *a2, int a3)

@@ -2,10 +2,10 @@
  * XREFs of CmpHiveInitialize @ 0x1405A717C
  * Callers:
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65F8 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
  * Callees:
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpInitSecurityCache @ 0x1405A7210 (CmpInitSecurityCache.c)
  *     HvHiveInitialize @ 0x1405A724C (HvHiveInitialize.c)
  */

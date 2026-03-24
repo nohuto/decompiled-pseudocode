@@ -1,58 +1,26 @@
 /*
- * XREFs of ?VerifyLockHeldIfOffThread@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEBAXXZ @ 0x1800F4A7C
+ * XREFs of ?VerifyLockHeldIfOffThread@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEBAXXZ @ 0x1800DEB9C
  * Callers:
- *     ?GetUniqueId@BamoDataProviderProxy@@UEAAAEBU_LUID@@XZ @ 0x1800F4A50 (-GetUniqueId@BamoDataProviderProxy@@UEAAAEBU_LUID@@XZ.c)
- *     ?GetUniqueId@BamoDataSourceProxy@@UEAAAEBU_LUID@@XZ @ 0x1801BCA10 (-GetUniqueId@BamoDataSourceProxy@@UEAAAEBU_LUID@@XZ.c)
+ *     ?GetUniqueId@BamoDataSourceProxy@@UEAAAEBU_LUID@@XZ @ 0x1800DEB70 (-GetUniqueId@BamoDataSourceProxy@@UEAAAEBU_LUID@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180195110 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
  */
 
 void __fastcall Microsoft::BamoImpl::BaseBamoConnectionImpl::VerifyLockHeldIfOffThread(
         Microsoft::BamoImpl::BaseBamoConnectionImpl *this)
 {
-  DWORD CurrentThreadId; // edi
+  DWORD CurrentThreadId; // eax
   const char *v3; // r9
-  int v4; // eax
-  int v5; // eax
-  const char *v6; // r9
-  int v7; // [rsp+20h] [rbp-8h]
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
-  int v9; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_QWORD *)this + 8) )
+  CurrentThreadId = GetCurrentThreadId();
+  if ( *((_DWORD *)this + 42) != CurrentThreadId && *((_DWORD *)this + 6) != CurrentThreadId )
   {
-    CurrentThreadId = GetCurrentThreadId();
-    if ( *((_DWORD *)this + 46) != CurrentThreadId )
-    {
-      v4 = *((_DWORD *)this + 6);
-      if ( v4 )
-      {
-        if ( v4 != CurrentThreadId )
-          wil::details::in1diag3::_FailFast_Unexpected(
-            retaddr,
-            (void *)0x885,
-            (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
-            v3);
-      }
-      else
-      {
-        v5 = (*(__int64 (__fastcall **)(_QWORD, int *))(**((_QWORD **)this + 7) + 88LL))(*((_QWORD *)this + 7), &v9);
-        if ( v5 < 0 )
-          wil::details::in1diag3::FailFast_Hr(
-            retaddr,
-            (void *)0x88F,
-            (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
-            (const char *)(unsigned int)v5,
-            v7);
-        if ( CurrentThreadId != v9 )
-          wil::details::in1diag3::_FailFast_Unexpected(
-            retaddr,
-            (void *)0x891,
-            (unsigned int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
-            v6);
-      }
-    }
+    wil::details::in1diag3::_FailFast_Unexpected(
+      retaddr,
+      (void *)0x63D,
+      (unsigned int)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoConnection.inl",
+      v3);
+    JUMPOUT(0x18014B386LL);
   }
 }

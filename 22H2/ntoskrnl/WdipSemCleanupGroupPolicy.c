@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemCleanupGroupPolicy @ 0x140834448
+ * XREFs of WdipSemCleanupGroupPolicy @ 0x140793F58
  * Callers:
- *     WdipSemCleanStart @ 0x1408315A0 (WdipSemCleanStart.c)
- *     WdipSemLoadGroupPolicy @ 0x14083160C (WdipSemLoadGroupPolicy.c)
+ *     WdipSemCleanStart @ 0x140793EEC (WdipSemCleanStart.c)
+ *     WdipSemLoadGroupPolicy @ 0x140794080 (WdipSemLoadGroupPolicy.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void WdipSemCleanupGroupPolicy()

@@ -1,98 +1,83 @@
 /*
- * XREFs of ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0384590
+ * XREFs of ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0246340
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B894 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUD.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z @ 0x1C030CEBC (-ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z.c)
- *     MapGpadl @ 0x1C0395FB0 (MapGpadl.c)
- *     UnmapGpadl @ 0x1C03962B0 (UnmapGpadl.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00406AC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEDEVICE@@@@YAPEAUDXGKVMB_COMMAND_CREATEDEVICE@@PEAUD.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     MapGpadl @ 0x1C0251E00 (MapGpadl.c)
+ *     UnmapGpadl @ 0x1C0252010 (UnmapGpadl.c)
+ *     ?ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z @ 0x1C0264260 (-ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusReadDriverStoreFile(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
-  union _LARGE_INTEGER *v4; // rsi
-  struct _KTHREAD **v5; // rdx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // bl
   __int64 v6; // rax
-  union _LARGE_INTEGER *v7; // rcx
-  LONG *p_HighPart; // rdx
-  _QWORD *v9; // r11
-  ULONG *v10; // r14
-  PMDL v11; // r10
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rax
-  PVOID MappedSystemVa; // rdx
-  PVOID v15; // rax
-  _BYTE v17[8]; // [rsp+50h] [rbp-30h] BYREF
-  DXGPUSHLOCK *v18; // [rsp+58h] [rbp-28h]
-  int v19; // [rsp+60h] [rbp-20h]
-  _BYTE v20[8]; // [rsp+68h] [rbp-18h] BYREF
-  DXGPUSHLOCK *v21; // [rsp+70h] [rbp-10h]
-  int v22; // [rsp+78h] [rbp-8h]
-  int CurrentFile; // [rsp+B0h] [rbp+30h] BYREF
-  PMDL MemoryDescriptorList; // [rsp+B8h] [rbp+38h] BYREF
+  __int64 v7; // rsi
+  struct _KTHREAD **v8; // rdx
+  __int64 v9; // rax
+  PMDL v10; // r10
+  unsigned __int64 v11; // rdx
+  unsigned __int64 v12; // rax
+  PVOID MappedSystemVa; // rax
+  _BYTE v15[8]; // [rsp+30h] [rbp-30h] BYREF
+  DXGPUSHLOCK *v16; // [rsp+38h] [rbp-28h]
+  int v17; // [rsp+40h] [rbp-20h]
+  _BYTE v18[8]; // [rsp+48h] [rbp-18h] BYREF
+  DXGPUSHLOCK *v19; // [rsp+50h] [rbp-10h]
+  int v20; // [rsp+58h] [rbp-8h]
+  int CurrentFile; // [rsp+80h] [rbp+20h] BYREF
+  PMDL MemoryDescriptorList; // [rsp+88h] [rbp+28h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v20, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v21);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v22 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v18, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v19);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v20 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    WdLogSingleEntry1(2LL, 5872LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      5872LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 5151LL;
+    WdLogEvent5_WdError(v6);
     goto LABEL_20;
   }
-  v4 = (union _LARGE_INTEGER *)CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
-  if ( !v4 )
+  v7 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
+  if ( !v7 )
     goto LABEL_20;
-  v5 = (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 56LL);
+  v8 = (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 56LL);
   MemoryDescriptorList = 0LL;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v17, v5, 0);
-  DXGPUSHLOCK::AcquireExclusive(v18);
-  v6 = *((_QWORD *)a1 + 10);
-  v19 = 2;
-  if ( !*(_QWORD *)(v6 + 336) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, v8, 0);
+  DXGPUSHLOCK::AcquireExclusive(v16);
+  v9 = *((_QWORD *)a1 + 5);
+  v17 = 2;
+  if ( !*(_QWORD *)(v9 + 312) )
   {
     CurrentFile = -1073741811;
-    v7 = v4 + 4;
-    p_HighPart = &v4[4].HighPart;
-    v9 = (_QWORD *)((char *)a1 + 96);
 LABEL_16:
-    v11 = MemoryDescriptorList;
+    v10 = MemoryDescriptorList;
     goto LABEL_17;
   }
-  v10 = (ULONG *)&v4[4];
-  CurrentFile = MapGpadl(*((_QWORD *)a1 + 12), (unsigned int)v4[4].HighPart, v4[4].LowPart, &MemoryDescriptorList);
-  v7 = v4 + 4;
-  p_HighPart = &v4[4].HighPart;
-  v9 = (_QWORD *)((char *)a1 + 96);
+  CurrentFile = MapGpadl(
+                  *((_QWORD *)a1 + 7),
+                  *(unsigned int *)(v7 + 36),
+                  *(unsigned int *)(v7 + 32),
+                  &MemoryDescriptorList);
   if ( CurrentFile < 0 )
     goto LABEL_16;
-  v11 = MemoryDescriptorList;
-  v12 = *v10;
-  if ( (unsigned int)v12 > MemoryDescriptorList->ByteCount )
+  v10 = MemoryDescriptorList;
+  v11 = *(unsigned int *)(v7 + 32);
+  if ( (unsigned int)v11 > MemoryDescriptorList->ByteCount )
     goto LABEL_17;
-  v13 = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 336LL) + 1584LL);
-  v7 = v4 + 4;
-  if ( v12 > v13 || v4[3].QuadPart > v13 - v12 )
+  v12 = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 312LL) + 1584LL);
+  if ( v11 > v12 || *(_QWORD *)(v7 + 24) > v12 - v11 )
     goto LABEL_17;
   if ( (MemoryDescriptorList->MdlFlags & 5) != 0 )
   {
@@ -100,33 +85,26 @@ LABEL_16:
   }
   else
   {
-    v15 = MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 0, 0x40000010u);
-    v11 = MemoryDescriptorList;
-    MappedSystemVa = v15;
+    MappedSystemVa = MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 0, 0x40000010u);
+    v10 = MemoryDescriptorList;
   }
   if ( MappedSystemVa )
   {
     CurrentFile = CDriverStoreCopy::ReadCurrentFile(
-                    *(const WCHAR **)(*((_QWORD *)a1 + 10) + 336LL),
+                    *(CDriverStoreCopy **)(*((_QWORD *)a1 + 5) + 312LL),
                     MappedSystemVa,
-                    v4[3],
-                    *v10);
-    v7 = v4 + 4;
-    p_HighPart = &v4[4].HighPart;
-    v9 = (_QWORD *)((char *)a1 + 96);
+                    *(_QWORD *)(v7 + 24),
+                    *(_DWORD *)(v7 + 32));
     goto LABEL_16;
   }
   CurrentFile = -1073741801;
-  v7 = v4 + 4;
-  p_HighPart = &v4[4].HighPart;
-  v9 = (_QWORD *)((char *)a1 + 96);
 LABEL_17:
-  if ( v11 )
-    UnmapGpadl(*v9, (unsigned int)*p_HighPart, v7->LowPart, v11);
-  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), &CurrentFile, 4u);
-  v3 = 1;
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v17);
+  if ( v10 )
+    UnmapGpadl(*((_QWORD *)a1 + 7), *(unsigned int *)(v7 + 36), *(unsigned int *)(v7 + 32));
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), &CurrentFile, 4u);
+  v5 = 1;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
 LABEL_20:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v20);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v18);
+  return v5;
 }

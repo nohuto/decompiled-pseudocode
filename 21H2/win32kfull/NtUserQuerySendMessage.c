@@ -1,46 +1,48 @@
 /*
- * XREFs of NtUserQuerySendMessage @ 0x1C01FB580
+ * XREFs of NtUserQuerySendMessage @ 0x1C0200850
  * Callers:
  *     <none>
  * Callees:
- *     _QuerySendMessage @ 0x1C021942C (_QuerySendMessage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _QuerySendMessage @ 0x1C021E40C (_QuerySendMessage.c)
  */
 
-__int64 __fastcall NtUserQuerySendMessage(_OWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserQuerySendMessage(_OWORD *a1)
 {
-  _OWORD *v3; // rdi
-  __int64 v4; // rax
-  ULONG64 v5; // rcx
-  int v6; // ebx
-  __int128 v8; // [rsp+28h] [rbp-40h] BYREF
-  __int128 v9; // [rsp+38h] [rbp-30h]
-  __int128 v10; // [rsp+48h] [rbp-20h]
+  __int64 v2; // rbx
+  __int64 v3; // rcx
+  int v4; // ebx
+  __int128 v6; // [rsp+28h] [rbp-40h] BYREF
+  __int128 v7; // [rsp+38h] [rbp-30h]
+  __int128 v8; // [rsp+48h] [rbp-20h]
 
-  v3 = a1;
+  v6 = 0LL;
+  v7 = 0LL;
   v8 = 0LL;
-  v9 = 0LL;
-  v10 = 0LL;
-  v4 = EnterSharedCrit(a1, a2, a3);
-  if ( *(_QWORD *)(v4 + 512) )
+  v2 = EnterSharedCrit(0LL, 1LL);
+  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9221);
+  if ( *(_QWORD *)(v2 + 512) )
   {
-    v6 = QuerySendMessage(v4, &v8);
-    if ( v6 && v3 )
+    v4 = QuerySendMessage(v2, &v6);
+    if ( v4 && a1 )
     {
-      *((_QWORD *)&v9 + 1) &= -(__int64)(*((_QWORD *)&v9 + 1) < (unsigned __int64)MmSystemRangeStart);
+      v3 = *((_QWORD *)&v7 + 1);
+      if ( *((_QWORD *)&v7 + 1) > MmUserProbeAddress )
+        v3 = 0LL;
+      *((_QWORD *)&v7 + 1) = v3;
+      HIDWORD(v6) = 0;
       HIDWORD(v8) = 0;
-      HIDWORD(v10) = 0;
-      v5 = MmUserProbeAddress;
-      if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-        v3 = (_OWORD *)MmUserProbeAddress;
-      *v3 = v8;
-      v3[1] = v9;
-      v3[2] = v10;
+      if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+        a1 = (_OWORD *)MmUserProbeAddress;
+      *a1 = v6;
+      a1[1] = v7;
+      a1[2] = v8;
     }
   }
   else
   {
-    v6 = 0;
+    v4 = 0;
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

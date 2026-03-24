@@ -1,24 +1,25 @@
 /*
- * XREFs of MiInSwapStore @ 0x1406816C4
+ * XREFs of MiInSwapStore @ 0x1406FAF88
  * Callers:
- *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x140350CF4 (MmInSwapWorkingSet.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     MiGetProcessPartition @ 0x140275574 (MiGetProcessPartition.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     MiInSwapStoreContextDereference @ 0x1406818E8 (MiInSwapStoreContextDereference.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     MiGetProcessPartition @ 0x14021AD00 (MiGetProcessPartition.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KeQueryPriorityThread @ 0x1402682A0 (KeQueryPriorityThread.c)
+ *     ExQueueWorkItemToPartition @ 0x140277F2C (ExQueueWorkItemToPartition.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     MiInSwapStoreContextDereference @ 0x1406FB118 (MiInSwapStoreContextDereference.c)
  */
 
 __int64 __fastcall MiInSwapStore(PVOID Object)
 {
   char *Pool; // rax
-  char *v3; // rbx
+  char *v3; // rdi
   __int64 ProcessPartition; // rax
   int v5; // r8d
+  int v6; // edx
 
   Pool = (char *)MiAllocatePool(64, 0x48uLL, 0x73536D4Du);
   v3 = Pool;
@@ -33,7 +34,10 @@ __int64 __fastcall MiInSwapStore(PVOID Object)
   *((_DWORD *)v3 + 16) = 2;
   KeQueryPriorityThread(KeGetCurrentThread());
   ProcessPartition = MiGetProcessPartition((__int64)Object);
-  ExQueueWorkItemToPartition(v3, v5 + 32, 0xFFFFFFFF, *(_QWORD *)(ProcessPartition + 200));
+  v6 = v5 + 1;
+  if ( v5 >= 15 )
+    v6 = v5;
+  ExQueueWorkItemToPartition(v3, v6 + 32, 0xFFFFFFFF, *(_QWORD *)(ProcessPartition + 176));
   KeWaitForSingleObject(v3 + 40, WrKernel, 0, 0, (PLARGE_INTEGER)&Mi30Milliseconds);
   MiInSwapStoreContextDereference(v3);
   return 0LL;

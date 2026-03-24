@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipTranslatePDOInstanceNames @ 0x14070AB64
+ * XREFs of WmipTranslatePDOInstanceNames @ 0x14070AB44
  * Callers:
  *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     IoGetDeviceInstanceName @ 0x14016D200 (IoGetDeviceInstanceName.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IoGetDeviceInstanceName @ 0x14016D220 (IoGetDeviceInstanceName.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  */
 

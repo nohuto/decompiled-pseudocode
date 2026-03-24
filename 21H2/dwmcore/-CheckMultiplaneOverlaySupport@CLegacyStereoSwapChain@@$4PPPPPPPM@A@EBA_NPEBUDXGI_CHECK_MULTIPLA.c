@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x180109D10
+ * XREFs of ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1800F7950
  * Callers:
  *     <none>
  * Callees:

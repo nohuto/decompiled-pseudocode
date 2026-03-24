@@ -2,14 +2,14 @@
  * XREFs of KiEnableKvaShadowing @ 0x140572BD8
  * Callers:
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
- *     KxInitializeProcessorState @ 0x140729E24 (KxInitializeProcessorState.c)
+ *     KxInitializeProcessorState @ 0x140729E04 (KxInitializeProcessorState.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KiSetAddressPolicy @ 0x1400BA120 (KiSetAddressPolicy.c)
- *     HvlRescindEnlightenments @ 0x14013BB3C (HvlRescindEnlightenments.c)
- *     KiInitializeDescriptorIst @ 0x14017E444 (KiInitializeDescriptorIst.c)
- *     KiIsKvaLeakSimulated @ 0x14017E490 (KiIsKvaLeakSimulated.c)
- *     KiIsKvaShadowDisabled @ 0x14017E4A4 (KiIsKvaShadowDisabled.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KiSetAddressPolicy @ 0x1400BA140 (KiSetAddressPolicy.c)
+ *     HvlRescindEnlightenments @ 0x14013BB5C (HvlRescindEnlightenments.c)
+ *     KiInitializeDescriptorIst @ 0x14017E464 (KiInitializeDescriptorIst.c)
+ *     KiIsKvaLeakSimulated @ 0x14017E4B0 (KiIsKvaLeakSimulated.c)
+ *     KiIsKvaShadowDisabled @ 0x14017E4C4 (KiIsKvaShadowDisabled.c)
  *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
  *     KiInitializeIdt @ 0x140572E58 (KiInitializeIdt.c)
  */

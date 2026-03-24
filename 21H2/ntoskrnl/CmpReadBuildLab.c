@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpReadBuildLab @ 0x140911D28
+ * XREFs of CmpReadBuildLab @ 0x14086BE14
  * Callers:
- *     CmpRecordShutdownStopTime @ 0x140911EA8 (CmpRecordShutdownStopTime.c)
+ *     CmpRecordShutdownStopTime @ 0x14086BF90 (CmpRecordShutdownStopTime.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall CmpReadBuildLab(_QWORD *a1, ULONG *a2)
@@ -25,22 +25,23 @@ __int64 __fastcall CmpReadBuildLab(_QWORD *a1, ULONG *a2)
   ULONG ResultLength; // [rsp+B0h] [rbp+30h] BYREF
   ULONG v14; // [rsp+B8h] [rbp+38h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   v14 = 0;
   ResultLength = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  TransientPoolWithTag = 0LL;
   DestinationString = 0LL;
+  TransientPoolWithTag = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS NT\\CURRENTVERSION");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v5 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v5 >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, L"BuildLabEx");
+    RtlInitUnicodeString(&DestinationString, L"BuildLab");
     v5 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
     if ( v5 == -1073741789 )
     {

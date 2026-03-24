@@ -3,8 +3,8 @@
  * Callers:
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  * Callees:
- *     PopGetNextTable @ 0x1401441B0 (PopGetNextTable.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PopGetNextTable @ 0x1401441D0 (PopGetNextTable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PopAddPagesToCompressedPageSet @ 0x14056AC20 (PopAddPagesToCompressedPageSet.c)
  *     PopCountDataAsProduced @ 0x14056AD44 (PopCountDataAsProduced.c)
  */

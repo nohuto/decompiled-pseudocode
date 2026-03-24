@@ -1,7 +1,7 @@
 /*
- * XREFs of ClientI_WMsgkSendMessage @ 0x1C00597CC
+ * XREFs of ClientI_WMsgkSendMessage @ 0x1C0074D4C
  * Callers:
- *     WmsgpPostMessage @ 0x1C02C8008 (WmsgpPostMessage.c)
+ *     WmsgpPostMessage @ 0x1C027F2F0 (WmsgpPostMessage.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PrepareToRemove@DXGADAPTER@@QEAAXXZ @ 0x1C02BCB2C
+ * XREFs of ?PrepareToRemove@DXGADAPTER@@QEAAXXZ @ 0x1C020E26C
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
  * Callees:
- *     ?DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z @ 0x1C0029BC4 (-DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C01BB044 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z @ 0x1C003CAD0 (-DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C013D324 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
  */
 
 void __fastcall DXGADAPTER::PrepareToRemove(DXGADAPTER *this)
@@ -13,13 +13,13 @@ void __fastcall DXGADAPTER::PrepareToRemove(DXGADAPTER *this)
   struct _KTIMER *v3; // rdi
   __int64 v4; // rcx
 
-  v1 = *((_QWORD *)this + 363) == 0LL;
+  v1 = *((_QWORD *)this + 351) == 0LL;
   *((_DWORD *)this + 50) = 5;
   if ( !v1 )
   {
-    v3 = (struct _KTIMER *)((char *)this + 3448);
-    *((_BYTE *)this + 3334) = 1;
-    if ( !KeCancelTimer((PKTIMER)((char *)this + 3448)) )
+    v3 = (struct _KTIMER *)((char *)this + 3352);
+    *((_BYTE *)this + 3238) = 1;
+    if ( !KeCancelTimer((PKTIMER)((char *)this + 3352)) )
     {
       KeFlushQueuedDpcs();
       if ( !KeCancelTimer(v3) )
@@ -28,11 +28,11 @@ void __fastcall DXGADAPTER::PrepareToRemove(DXGADAPTER *this)
     if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 27) + 64LL) + 40LL) + 28LL) >= 0x3008u )
     {
       DXGADAPTER::DdiPowerRuntimeControlRequest(this, &GUID_DXGKDDI_POWER_MANAGEMENT_STOPPED, 0LL, 0LL, 0LL, 0LL, 0LL);
-      *((_BYTE *)this + 3337) = 0;
+      *((_BYTE *)this + 3241) = 0;
     }
-    *((_DWORD *)this + 894) = 0;
+    *((_DWORD *)this + 870) = 0;
   }
-  v4 = *((_QWORD *)this + 350);
+  v4 = *((_QWORD *)this + 338);
   if ( v4 )
-    ADAPTER_RENDER::FlushScheduler(v4, 5u, 0xFFFFFFFF, 0);
+    ADAPTER_RENDER::FlushScheduler(v4, 5, 0xFFFFFFFF, 0);
 }

@@ -1,126 +1,226 @@
 /*
- * XREFs of ?Initialize@CComputeScribbleFramebuffer@@AEAAJXZ @ 0x180204FD4
+ * XREFs of ?Initialize@CComputeScribbleFramebuffer@@AEAAJXZ @ 0x1801A6140
  * Callers:
- *     ?Create@CComputeScribbleFramebuffer@@SAJPEAVCD3DDevice@@PEAUID3D12Resource@@IPEAPEAV1@@Z @ 0x180204C88 (-Create@CComputeScribbleFramebuffer@@SAJPEAVCD3DDevice@@PEAUID3D12Resource@@IPEAPEAV1@@Z.c)
+ *     ?Create@CComputeScribbleFramebuffer@@SAJPEAVCD3DDevice@@PEAUID3D12Resource@@IPEAPEAV1@@Z @ 0x1801A5F14 (-Create@CComputeScribbleFramebuffer@@SAJPEAVCD3DDevice@@PEAUID3D12Resource@@IPEAPEAV1@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1CComputeScribbleSynchronizer@@QEAA@XZ @ 0x18020493C (--1CComputeScribbleSynchronizer@@QEAA@XZ.c)
- *     ?Create@CComputeScribbleSynchronizer@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z @ 0x18020A1F4 (-Create@CComputeScribbleSynchronizer@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800B0938 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$in.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18014D44C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z @ 0x18023EC28 (-CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z.c)
  */
 
 __int64 __fastcall CComputeScribbleFramebuffer::Initialize(CComputeScribbleFramebuffer *this)
 {
   __int64 v1; // rdi
-  __int64 (__fastcall *v3)(__int64, GUID *, _QWORD **); // rbx
-  int v4; // eax
-  unsigned int v5; // ebx
-  __int64 v6; // rdx
-  _QWORD *v7; // rbx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  __int64 (__fastcall *v10)(_QWORD *, __int64, GUID *, char *); // rdi
-  _QWORD *v11; // rbx
+  __int64 (__fastcall *v3)(__int64, GUID *, __int64 *); // rbx
+  int SharedFence; // eax
+  unsigned __int64 v5; // r8
+  signed int LastErrorFailHr; // ebx
+  __int64 v7; // rdx
+  CD3DDevice *v8; // rdi
+  __int64 v9; // rcx
+  unsigned __int64 v10; // r8
+  CD3DDevice *v11; // rdi
   __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 (__fastcall *v14)(_QWORD *, _QWORD, __int64, _QWORD, _QWORD, GUID *, char *); // r15
-  unsigned int v15; // edx
-  struct CD3DDevice *v16; // rcx
-  int v17; // edi
-  struct CComputeScribbleSynchronizer *v18; // rdx
-  CComputeScribbleSynchronizer *v19; // rbx
-  CComputeScribbleSynchronizer **v21; // [rsp+40h] [rbp-20h]
-  struct CComputeScribbleSynchronizer *v22; // [rsp+48h] [rbp-18h] BYREF
-  char v23; // [rsp+50h] [rbp-10h]
-  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+18h]
-  _QWORD *v25; // [rsp+80h] [rbp+20h] BYREF
+  __int64 v13; // rdx
+  wil::details *v14; // rcx
+  wil::details *Event; // rbx
+  __int64 v16; // r8
+  const char *v17; // r9
+  unsigned __int64 v18; // r9
+  __int64 v19; // rbx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 (__fastcall *v22)(__int64, __int64, GUID *, char *); // rdi
+  __int64 v23; // rbx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  __int64 (__fastcall *v26)(__int64, _QWORD, __int64, _QWORD, _QWORD, GUID *, char *); // r15
+  __int64 v27; // rbx
+  __int64 (__fastcall *v28)(__int64, _QWORD, __int64, GUID *, char *); // rsi
+  __int64 v29; // rdx
+  wil::details *v30; // rcx
+  wil::details *v31; // rbx
+  __int64 v32; // r8
+  const char *v33; // r9
+  unsigned __int64 v34; // r8
+  __int64 v35; // rcx
+  CD3DDevice *v36; // rbx
+  const char *v38; // [rsp+40h] [rbp-10h] BYREF
+  int v39; // [rsp+48h] [rbp-8h]
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+18h]
+  __int64 *v41; // [rsp+70h] [rbp+20h] BYREF
 
   v1 = *((_QWORD *)this + 3);
-  v25 = 0LL;
-  v3 = *(__int64 (__fastcall **)(__int64, GUID *, _QWORD **))(*(_QWORD *)v1 + 56LL);
-  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v25);
-  v4 = v3(v1, &GUID_189819f1_1db6_4b57_be54_1821339b85f7, &v25);
-  v5 = v4;
-  if ( v4 < 0 )
+  v41 = 0LL;
+  v3 = *(__int64 (__fastcall **)(__int64, GUID *, __int64 *))(*(_QWORD *)v1 + 56LL);
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v41);
+  SharedFence = v3(v1, &GUID_189819f1_1db6_4b57_be54_1821339b85f7, (__int64 *)&v41);
+  LastErrorFailHr = SharedFence;
+  if ( SharedFence < 0 )
   {
-    v6 = 62LL;
-LABEL_7:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v6,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribbleframebuffer.cpp",
-      (const char *)(unsigned int)v4);
-    goto LABEL_20;
+    v7 = 63LL;
+LABEL_37:
+    v18 = (unsigned int)SharedFence;
+    goto LABEL_38;
   }
-  v7 = v25;
-  v8 = *((_QWORD *)this + 4);
-  v9 = *v25;
-  *((_QWORD *)this + 4) = 0LL;
-  v10 = *(__int64 (__fastcall **)(_QWORD *, __int64, GUID *, char *))(v9 + 72);
-  if ( v8 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
-  v4 = v10(v7, 2LL, &GUID_6102dee4_af59_4b09_b999_b44d73f09b24, (char *)this + 32);
-  v5 = v4;
-  if ( v4 < 0 )
+  v8 = (CD3DDevice *)*((_QWORD *)this + 2);
+  v9 = *((_QWORD *)this + 9);
+  *((_QWORD *)this + 9) = 0LL;
+  if ( v9 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 8LL))(v9);
+  v39 = 10;
+  v38 = "PostRender";
+  SharedFence = CD3DDevice::CreateSharedFence(
+                  v8,
+                  (const struct CResourceTag *)&v38,
+                  v5,
+                  (struct CSharedFence **)this + 9);
+  LastErrorFailHr = SharedFence;
+  if ( SharedFence < 0 )
   {
-    v6 = 67LL;
-    goto LABEL_7;
+    v7 = 69LL;
+    goto LABEL_37;
   }
-  v11 = v25;
-  v12 = *((_QWORD *)this + 5);
-  v13 = *v25;
-  *((_QWORD *)this + 5) = 0LL;
-  v14 = *(__int64 (__fastcall **)(_QWORD *, _QWORD, __int64, _QWORD, _QWORD, GUID *, char *))(v13 + 96);
+  v11 = (CD3DDevice *)*((_QWORD *)this + 2);
+  v12 = *((_QWORD *)this + 10);
+  *((_QWORD *)this + 10) = 0LL;
   if ( v12 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
-  v4 = v14(v11, 0LL, 2LL, *((_QWORD *)this + 4), 0LL, &GUID_5b160d0f_ac1b_4185_8ba8_b3ae42a5a455, (char *)this + 40);
-  v5 = v4;
-  if ( v4 < 0 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
+  v39 = 12;
+  v38 = "PostScribble";
+  SharedFence = CD3DDevice::CreateSharedFence(
+                  v11,
+                  (const struct CResourceTag *)&v38,
+                  v10,
+                  (struct CSharedFence **)this + 10);
+  LastErrorFailHr = SharedFence;
+  if ( SharedFence < 0 )
   {
-    v6 = 74LL;
-    goto LABEL_7;
+    v7 = 74LL;
+    goto LABEL_37;
   }
-  v4 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 5) + 72LL))(*((_QWORD *)this + 5));
-  v5 = v4;
-  if ( v4 < 0 )
+  Event = (wil::details *)CreateEventExW(0LL, 0LL, 1u, 0x1F0003u);
+  if ( Event )
   {
-    v6 = 77LL;
-    goto LABEL_7;
-  }
-  v15 = *((_DWORD *)this + 61);
-  v16 = (struct CD3DDevice *)*((_QWORD *)this + 2);
-  v22 = 0LL;
-  v21 = (CComputeScribbleSynchronizer **)((char *)this + 48);
-  v23 = 1;
-  v17 = CComputeScribbleSynchronizer::Create(v16, v15, &v22);
-  if ( v23 )
-  {
-    v18 = v22;
-    v19 = *v21;
-    *v21 = v22;
-    if ( v19 )
-    {
-      CComputeScribbleSynchronizer::~CComputeScribbleSynchronizer(v19, v18);
-      operator delete(v19);
-    }
-  }
-  if ( v17 >= 0 )
-  {
-    v5 = 0;
+    GetLastError();
+    wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::reset(
+      (wil::details **)this + 11,
+      Event);
+    LastErrorFailHr = 0;
   }
   else
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x56,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribbleframebuffer.cpp",
-      (const char *)(unsigned int)v17);
-    v5 = v17;
+    LastErrorFailHr = wil::details::GetLastErrorFailHr(v14, v13, v16, v17);
   }
-LABEL_20:
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v25);
-  return v5;
+  if ( LastErrorFailHr >= 0 )
+  {
+    v19 = (__int64)v41;
+    v20 = *((_QWORD *)this + 4);
+    v21 = *v41;
+    *((_QWORD *)this + 4) = 0LL;
+    v22 = *(__int64 (__fastcall **)(__int64, __int64, GUID *, char *))(v21 + 72);
+    if ( v20 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
+    SharedFence = v22(v19, 2LL, &GUID_6102dee4_af59_4b09_b999_b44d73f09b24, (char *)this + 32);
+    LastErrorFailHr = SharedFence;
+    if ( SharedFence < 0 )
+    {
+      v7 = 81LL;
+      goto LABEL_37;
+    }
+    v23 = (__int64)v41;
+    v24 = *((_QWORD *)this + 5);
+    v25 = *v41;
+    *((_QWORD *)this + 5) = 0LL;
+    v26 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, _QWORD, GUID *, char *))(v25 + 96);
+    if ( v24 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v24 + 16LL))(v24);
+    SharedFence = v26(
+                    v23,
+                    0LL,
+                    2LL,
+                    *((_QWORD *)this + 4),
+                    0LL,
+                    &GUID_5b160d0f_ac1b_4185_8ba8_b3ae42a5a455,
+                    (char *)this + 40);
+    LastErrorFailHr = SharedFence;
+    if ( SharedFence < 0 )
+    {
+      v7 = 88LL;
+      goto LABEL_37;
+    }
+    SharedFence = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 5) + 72LL))(*((_QWORD *)this + 5));
+    LastErrorFailHr = SharedFence;
+    if ( SharedFence < 0 )
+    {
+      v7 = 91LL;
+      goto LABEL_37;
+    }
+    v27 = (__int64)v41;
+    v28 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, GUID *, char *))(*v41 + 288);
+    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 6);
+    SharedFence = v28(v27, 0LL, 1LL, &GUID_0a753dcf_c4d8_4b91_adf6_be5a60d95a76, (char *)this + 48);
+    LastErrorFailHr = SharedFence;
+    if ( SharedFence < 0 )
+    {
+      v7 = 100LL;
+      goto LABEL_37;
+    }
+    v31 = (wil::details *)CreateEventExW(0LL, 0LL, 1u, 0x1F0003u);
+    if ( v31 )
+    {
+      GetLastError();
+      wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::reset(
+        (wil::details **)this + 7,
+        v31);
+      LastErrorFailHr = 0;
+    }
+    else
+    {
+      LastErrorFailHr = wil::details::GetLastErrorFailHr(v30, v29, v32, v33);
+    }
+    if ( LastErrorFailHr >= 0 )
+    {
+      v35 = *((_QWORD *)this + 27);
+      v36 = (CD3DDevice *)*((_QWORD *)this + 2);
+      *((_QWORD *)this + 27) = 0LL;
+      if ( v35 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v35 + 8LL))(v35);
+      v39 = 8;
+      v38 = "PostCopy";
+      SharedFence = CD3DDevice::CreateSharedFence(
+                      v36,
+                      (const struct CResourceTag *)&v38,
+                      v34,
+                      (struct CSharedFence **)this + 27);
+      LastErrorFailHr = SharedFence;
+      if ( SharedFence >= 0 )
+      {
+        LastErrorFailHr = 0;
+        goto LABEL_40;
+      }
+      v7 = 107LL;
+      goto LABEL_37;
+    }
+    v18 = (unsigned int)LastErrorFailHr;
+    v7 = 102LL;
+  }
+  else
+  {
+    v18 = (unsigned int)LastErrorFailHr;
+    v7 = 76LL;
+  }
+LABEL_38:
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)v7,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribbleframebuffer.cpp",
+    (const char *)v18);
+LABEL_40:
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v41);
+  return (unsigned int)LastErrorFailHr;
 }

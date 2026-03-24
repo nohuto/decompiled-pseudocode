@@ -1,15 +1,15 @@
 /*
- * XREFs of FinishStockFontInit @ 0x1C00C81E0
+ * XREFs of FinishStockFontInit @ 0x1C00E4810
  * Callers:
- *     FinishStockFontReinit @ 0x1C00C8A00 (FinishStockFontReinit.c)
- *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00EE480 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     FinishStockFontReinit @ 0x1C00E5160 (FinishStockFontReinit.c)
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0134720 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
  * Callees:
- *     GreCreateFontIndirectW @ 0x1C00131E4 (GreCreateFontIndirectW.c)
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0013268 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C001EC98 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00C5360 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00C83A0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
- *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00C86C0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B9B0 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1DA4 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     GreCreateFontIndirectW @ 0x1C00BA190 (GreCreateFontIndirectW.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E411C (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E49D0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00E4CF0 (-bSetStockFont@@YAHPEAXHH@Z.c)
  */
 
 void __fastcall FinishStockFontInit(unsigned int c)
@@ -24,38 +24,39 @@ void __fastcall FinishStockFontInit(unsigned int c)
   struct PFF *v9; // r15
   __int64 i; // rsi
   __int64 v11; // rdi
-  INT a[4]; // [rsp+40h] [rbp-29h] BYREF
-  __int128 v13; // [rsp+50h] [rbp-19h]
-  __int128 v14; // [rsp+60h] [rbp-9h]
-  __int128 v15; // [rsp+70h] [rbp+7h]
-  __int128 v16; // [rsp+80h] [rbp+17h]
-  __int64 v17; // [rsp+90h] [rbp+27h]
-  int v18; // [rsp+98h] [rbp+2Fh]
-  __int64 v19; // [rsp+D8h] [rbp+6Fh] BYREF
-  struct PFF *v20; // [rsp+E0h] [rbp+77h] BYREF
-  struct _FONTHASH **v21; // [rsp+E8h] [rbp+7Fh] BYREF
+  struct _FONTHASH **v12; // [rsp+40h] [rbp-39h] BYREF
+  INT a[4]; // [rsp+50h] [rbp-29h] BYREF
+  __int128 v14; // [rsp+60h] [rbp-19h]
+  __int128 v15; // [rsp+70h] [rbp-9h]
+  __int128 v16; // [rsp+80h] [rbp+7h]
+  __int128 v17; // [rsp+90h] [rbp+17h]
+  __int64 v18; // [rsp+A0h] [rbp+27h]
+  int v19; // [rsp+A8h] [rbp+2Fh]
+  unsigned int v20; // [rsp+E8h] [rbp+6Fh] BYREF
+  struct PFF *v21; // [rsp+F0h] [rbp+77h] BYREF
+  __int64 v22; // [rsp+F8h] [rbp+7Fh] BYREF
 
   if ( UmfdHostLifeTimeManager::s_SessionRasterizerInitialized
     || UmfdHostLifeTimeManager::IsCurrentProcessUmfdHost()
     || UmfdHostLifeTimeManager::s_CsrssAddInitialFontsThread == KeGetCurrentThread() )
   {
-    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v19, (struct HLFONT__ *)gahStockObjects[17], 0LL);
-    v2 = v19;
-    if ( v19 )
+    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v22, (struct HLFONT__ *)gahStockObjects[17], 0LL);
+    v2 = v22;
+    if ( v22 )
     {
-      *(_DWORD *)(v19 + 276) = -((c * *(_DWORD *)(v19 + 276) + 36) / 0x48);
+      *(_DWORD *)(v22 + 276) = -((c * *(_DWORD *)(v22 + 276) + 36) / 0x48);
       v3 = *(_OWORD *)(v2 + 292);
       v4 = *(_OWORD *)(v2 + 308);
-      v18 = *(_DWORD *)(v2 + 364);
+      v19 = *(_DWORD *)(v2 + 364);
       v5 = *(__m128i *)(v2 + 276);
-      v13 = v3;
+      v14 = v3;
       v6 = *(_OWORD *)(v2 + 324);
-      v14 = v4;
+      v15 = v4;
       v7 = *(_OWORD *)(v2 + 340);
-      v15 = v6;
-      v17 = *(_QWORD *)(v2 + 356);
+      v16 = v6;
+      v18 = *(_QWORD *)(v2 + 356);
       *(_QWORD *)&a[2] = v5.m128i_i64[1];
-      v16 = v7;
+      v17 = v7;
       a[0] = EngMulDiv(_mm_cvtsi128_si32(v5), 96, c);
       a[1] = EngMulDiv(v5.m128i_i32[1], 96, c);
       gahStockObjects96[17] = (void *)GreCreateFontIndirectW((__int64)a, 8u);
@@ -69,7 +70,7 @@ void __fastcall FinishStockFontInit(unsigned int c)
     }
     else
     {
-      if ( (dword_1C0335DA0 & 2) != 0 )
+      if ( (dword_1C033ABE0 & 2) != 0 )
         FinishStockFontInitInternal(
           L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize\\LargeFont",
           0);
@@ -78,26 +79,26 @@ void __fastcall FinishStockFontInit(unsigned int c)
     FinishStockFontInitInternal(
       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize\\SmallFont",
       v8);
-    v20 = 0LL;
-    LODWORD(v19) = 0;
-    v21 = gpPFTPublic;
+    v21 = 0LL;
+    v20 = 0;
+    v12 = gpPFTPublic;
     if ( !gppfeMapperDefault )
     {
       if ( (unsigned int)PUBLIC_PFTOBJ::bLoadAFont(
-                           (PUBLIC_PFTOBJ *)&v21,
+                           (PUBLIC_PFTOBJ *)&v12,
                            L"\\SystemRoot\\System32\\winsrv.dll",
-                           (unsigned int *)&v19,
-                           2u,
                            &v20,
+                           2u,
+                           &v21,
                            0LL,
                            0) )
       {
-        if ( (_DWORD)v19 )
+        if ( v20 )
         {
-          v9 = v20;
-          if ( v20 )
+          v9 = v21;
+          if ( v21 )
           {
-            for ( i = 0LL; (unsigned int)i < (unsigned int)v19; i = (unsigned int)(i + 1) )
+            for ( i = 0LL; (unsigned int)i < v20; i = (unsigned int)(i + 1) )
             {
               if ( gppfeMapperDefault )
                 break;

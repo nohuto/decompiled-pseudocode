@@ -1,103 +1,106 @@
 /*
- * XREFs of ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01B5044
+ * XREFs of ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C0182920
  * Callers:
- *     NtUserReportInertia @ 0x1C000E690 (NtUserReportInertia.c)
- *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C01BB208 (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
- *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C01CF30C (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
- *     ?ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C01CFA8C (-ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z.c)
- *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01E1C04 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
- *     ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01E1FE0 (-QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z.c)
+ *     NtUserReportInertia @ 0x1C0004160 (NtUserReportInertia.c)
+ *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C0188A54 (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
+ *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C0198CF0 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
+ *     ?ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C0199240 (-ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z.c)
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z @ 0x1C019BBCC (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z.c)
+ *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01A8C94 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
+ *     ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01A8F40 (-QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z.c)
  * Callees:
- *     ValidateHwndEx @ 0x1C0045FD0 (ValidateHwndEx.c)
- *     HMAssignmentLock @ 0x1C004FF50 (HMAssignmentLock.c)
- *     INPUTDEST_FROM_PWND @ 0x1C0052FA0 (INPUTDEST_FROM_PWND.c)
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ValidateHbwnd @ 0x1C012FDB0 (ValidateHbwnd.c)
- *     INPUTDEST_FROM_BASEWND @ 0x1C01B5B44 (INPUTDEST_FROM_BASEWND.c)
+ *     HMAssignmentLock @ 0x1C0031780 (HMAssignmentLock.c)
+ *     ValidateHwndEx @ 0x1C0039A90 (ValidateHwndEx.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C009F310 (INPUTDEST_FROM_PWND.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ValidateHbwnd @ 0x1C0115590 (ValidateHbwnd.c)
+ *     INPUTDEST_FROM_BASEWND @ 0x1C0183094 (INPUTDEST_FROM_BASEWND.c)
  */
 
-__int64 *__fastcall CInputDest::CInputDest(__int64 *a1, __int64 a2, int a3, int a4)
+__m128i *__fastcall CInputDest::CInputDest(__m128i *a1, unsigned __int64 a2, int a3, int a4)
 {
-  __int64 v8; // rax
-  __m128i *v9; // rax
-  __m128i v10; // xmm1
-  __int64 v11; // rax
-  __int64 *result; // rax
-  __m128i v13; // [rsp+30h] [rbp-D0h]
-  __m128i v14; // [rsp+40h] [rbp-C0h]
-  __m128i v15; // [rsp+50h] [rbp-B0h]
-  __m128i v16; // [rsp+60h] [rbp-A0h]
-  __m128i v17; // [rsp+70h] [rbp-90h]
-  __m128i v18; // [rsp+80h] [rbp-80h]
-  __int64 *v19[2]; // [rsp+90h] [rbp-70h] BYREF
-  _OWORD v20[7]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __m128i *v10; // rax
+  __m128i v11; // xmm7
+  __m128i v12; // xmm8
+  __m128i v13; // xmm9
+  __m128i v14; // xmm10
+  __m128i v15; // xmm11
+  __m128i v16; // xmm6
+  __m128i v17; // xmm12
+  __int64 v18; // rax
+  __m128i *result; // rax
+  __int128 v20; // [rsp+20h] [rbp-E8h] BYREF
+  __int64 v21; // [rsp+30h] [rbp-D8h]
+  _OWORD v22[14]; // [rsp+38h] [rbp-D0h] BYREF
 
   memset(a1, 0, 0x70uLL);
-  *((_BYTE *)a1 + 112) = 0;
-  memset(v20, 0, sizeof(v20));
+  a1[7].m128i_i8[0] = 0;
+  memset(v22, 0, 0x70uLL);
   if ( a3 == 2 )
   {
     if ( a4 == 2 )
     {
-      v8 = ValidateHwndEx(a2, 1, 0);
+      v9 = ValidateHwndEx(a2, 1, 0);
     }
     else
     {
       if ( a4 != 1 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 246);
-      v8 = HMValidateHandleNoSecure(a2, 1);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 252);
+      v9 = HMValidateHandleNoSecure(a2, 1);
     }
-    v9 = (__m128i *)INPUTDEST_FROM_PWND(v20, v8);
+    v10 = (__m128i *)INPUTDEST_FROM_PWND(v22, v9);
 LABEL_8:
-    v10 = v9[5];
-    v13 = *v9;
-    v14 = v9[1];
-    v15 = v9[2];
-    v16 = v9[3];
-    v17 = v9[4];
-    v18 = v9[6];
+    v11 = *v10;
+    v12 = v10[1];
+    v13 = v10[2];
+    v14 = v10[3];
+    v15 = v10[4];
+    v16 = v10[5];
+    v17 = v10[6];
     goto LABEL_17;
   }
   if ( a3 == 1 )
   {
     if ( a4 == 2 )
     {
-      v11 = ValidateHbwnd(a2);
+      v18 = ValidateHbwnd(a2, v8);
     }
     else
     {
       if ( a4 != 1 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 260);
-      v11 = HMValidateHandleNoSecure(a2, 23);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 266);
+      v18 = HMValidateHandleNoSecure(a2, 23);
     }
-    v9 = (__m128i *)INPUTDEST_FROM_BASEWND(v20, v11);
+    v10 = (__m128i *)INPUTDEST_FROM_BASEWND(v22, v18);
     goto LABEL_8;
   }
-  v10 = (__m128i)v20[5];
-  v18 = (__m128i)v20[6];
-  v17 = (__m128i)v20[4];
-  v16 = (__m128i)v20[3];
-  v15 = (__m128i)v20[2];
-  v14 = (__m128i)v20[1];
-  v13 = (__m128i)v20[0];
+  v17 = (__m128i)v22[6];
+  v16 = (__m128i)v22[5];
+  v15 = (__m128i)v22[4];
+  v14 = (__m128i)v22[3];
+  v13 = (__m128i)v22[2];
+  v12 = (__m128i)v22[1];
+  v11 = (__m128i)v22[0];
 LABEL_17:
-  if ( _mm_cvtsi128_si32(_mm_srli_si128(v10, 12)) )
+  if ( _mm_cvtsi128_si32(_mm_srli_si128(v16, 12)) )
   {
-    if ( !v10.m128i_i64[0] )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 272);
-    v19[1] = (__int64 *)v10.m128i_i64[0];
-    v19[0] = a1 + 10;
-    HMAssignmentLock(v19, 0);
+    if ( !v16.m128i_i64[0] )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 278);
+    v21 = v16.m128i_i64[0];
+    *((_QWORD *)&v20 + 1) = a1 + 5;
+    HMAssignmentLock((__int64 **)&v20 + 1);
   }
   result = a1;
-  *(__m128i *)a1 = v13;
-  *((__m128i *)a1 + 1) = v14;
-  *((__m128i *)a1 + 2) = v15;
-  *((__m128i *)a1 + 3) = v16;
-  *((__m128i *)a1 + 4) = v17;
-  *((__m128i *)a1 + 5) = v10;
-  *((__m128i *)a1 + 6) = v18;
+  *a1 = v11;
+  a1[1] = v12;
+  a1[2] = v13;
+  a1[3] = v14;
+  a1[4] = v15;
+  a1[5] = v16;
+  a1[6] = v17;
   return result;
 }

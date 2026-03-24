@@ -1,9 +1,9 @@
 /*
- * XREFs of KeIsUserCetAllowed @ 0x1402A08A8
+ * XREFs of KeIsUserCetAllowed @ 0x1402E98D8
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

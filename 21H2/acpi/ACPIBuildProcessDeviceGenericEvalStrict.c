@@ -1,18 +1,18 @@
 /*
- * XREFs of ACPIBuildProcessDeviceGenericEvalStrict @ 0x1C000E8F0
+ * XREFs of ACPIBuildProcessDeviceGenericEvalStrict @ 0x1C001F290
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     WPP_RECORDER_SF_LLqss @ 0x1C000E000 (WPP_RECORDER_SF_LLqss.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0020B00 (WPP_RECORDER_SF_LLqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDeviceGenericEvalStrict(__int64 a1)
 {
   __int64 v1; // rax
-  unsigned int v2; // r12d
+  unsigned int v2; // r14d
   _QWORD *v3; // r15
   int v5; // ebp
   __int64 *v6; // rbx
@@ -21,8 +21,8 @@ __int64 __fastcall ACPIBuildProcessDeviceGenericEvalStrict(__int64 a1)
   __int64 v9; // rax
   __int64 *v10; // rbx
   __int64 *v11; // rax
-  volatile signed __int32 *v12; // rbx
-  volatile signed __int32 *v13; // rcx
+  ULONG_PTR v12; // rbx
+  __int64 v13; // rcx
   __int64 v14; // rdx
   void *v15; // rcx
   void *v16; // r8
@@ -36,8 +36,8 @@ __int64 __fastcall ACPIBuildProcessDeviceGenericEvalStrict(__int64 a1)
   v3 = *(_QWORD **)(a1 + 40);
   v5 = 0;
   if ( (unsigned int)v1 >= 0x22 )
-    KeBugCheckEx(0xA3u, 1uLL, 0x1012D1uLL, 0LL, 0LL);
-  v6 = (__int64 *)v3[95];
+    KeBugCheckEx(0xA3u, 1uLL, 0x1012E3uLL, 0LL, 0LL);
+  v6 = (__int64 *)v3[90];
   v7 = AcpiBuildDevicePowerNameLookup[v1];
   v8 = ExAcquireSpinLockShared(&ACPINamespaceLock);
   v9 = *v6;
@@ -46,63 +46,70 @@ __int64 __fastcall ACPIBuildProcessDeviceGenericEvalStrict(__int64 a1)
   if ( v11 == v10 )
   {
 LABEL_5:
-    ExReleaseSpinLockShared(&ACPINamespaceLock, v8);
-LABEL_6:
-    v12 = 0LL;
-    goto LABEL_7;
+    v10 = 0LL;
   }
-  while ( v7 != *((_DWORD *)v10 + 10) )
+  else
   {
-    v10 = (__int64 *)*v10;
-    if ( v11 == v10 )
-      goto LABEL_5;
+    while ( v7 != *((_DWORD *)v10 + 10) )
+    {
+      v10 = (__int64 *)*v10;
+      if ( v11 == v10 )
+        goto LABEL_5;
+    }
   }
   ExReleaseSpinLockShared(&ACPINamespaceLock, v8);
-  if ( !v10 )
-    goto LABEL_6;
-  v12 = (volatile signed __int32 *)(v10 + 15);
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
-  if ( (gdwfAMLI & 4) != 0 )
-    _InterlockedIncrement(v12 + 2);
-LABEL_7:
+  if ( v10 )
+  {
+    v12 = (ULONG_PTR)(v10 + 15);
+    dword_1C0082908 = 0;
+    pszDest = 0;
+    if ( (gdwfAMLI & 4) != 0 )
+      _InterlockedIncrement((volatile signed __int32 *)(v12 + 8));
+  }
+  else
+  {
+    v12 = 0LL;
+  }
   *(_OWORD *)(a1 + 80) = 0LL;
   *(_OWORD *)(a1 + 96) = 0LL;
   *(_QWORD *)(a1 + 112) = 0LL;
-  v13 = *(volatile signed __int32 **)(a1 + 56);
+  v13 = *(_QWORD *)(a1 + 56);
   *(_DWORD *)(a1 + 32) = *(_DWORD *)(a1 + 28) + 1;
   if ( v13 )
     AMLIDereferenceHandleEx(v13);
   *(_QWORD *)(a1 + 56) = v12;
   if ( v12 )
   {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
-      _InterlockedIncrement(v12 + 2);
-    v5 = AMLIAsyncEvalObject((_DWORD)v12, (int)a1 + 80, 0, 0, (__int64)ACPIBuildCompleteMustSucceed, a1);
+      _InterlockedIncrement((volatile signed __int32 *)(v12 + 8));
+    v5 = AMLIAsyncEvalObject((__int64 *)v12, a1 + 80, 0, 0LL, ACPIBuildCompleteMustSucceed, a1);
   }
   v14 = v3[1];
-  v15 = &unk_1C006FB8B;
-  v16 = &unk_1C006FB8B;
+  v15 = &unk_1C00701BA;
+  v16 = &unk_1C00701BA;
   if ( (v14 & 0x200000000000LL) != 0 )
   {
-    v15 = (void *)v3[76];
+    v15 = (void *)v3[71];
     if ( (v14 & 0x400000000000LL) != 0 )
-      v16 = (void *)v3[77];
+      v16 = (void *)v3[72];
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v14) = 4;
     WPP_RECORDER_SF_LLqss(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      4u,
-      (__int64)v16,
-      0x1Cu,
+      WPP_GLOBAL_Control->DeviceExtension,
+      v14,
+      (_DWORD)v16,
+      28,
       BugCheckParameter4,
       *(_DWORD *)(a1 + 28) - 3,
       v5,
       (char)v3,
       (__int64)v15,
       (__int64)v16);
+  }
   if ( v5 != 259 )
   {
     v17 = *(_DWORD *)(a1 + 32);
@@ -118,7 +125,7 @@ LABEL_7:
         *(_DWORD *)(a1 + 48) = v5;
         if ( v12 )
           v2 = *(_DWORD *)(*(_QWORD *)v12 + 40LL);
-        KeBugCheckEx(0xA5u, 3uLL, (ULONG_PTR)v12, v5, v2);
+        KeBugCheckEx(0xA5u, 3uLL, v12, v5, v2);
       }
       *(_DWORD *)(a1 + 32) = 2;
       _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), v17, 1);

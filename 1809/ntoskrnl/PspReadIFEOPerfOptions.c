@@ -1,16 +1,16 @@
 /*
- * XREFs of PspReadIFEOPerfOptions @ 0x1406BB1D0
+ * XREFs of PspReadIFEOPerfOptions @ 0x1406BB1B0
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
- *     RtlQueryImageFileKeyOption @ 0x1406BB3C0 (RtlQueryImageFileKeyOption.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BB3A0 (RtlQueryImageFileKeyOption.c)
  */
 
 void __fastcall PspReadIFEOPerfOptions(HANDLE KeyHandle, __int64 a2)

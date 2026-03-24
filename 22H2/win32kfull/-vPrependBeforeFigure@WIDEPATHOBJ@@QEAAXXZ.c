@@ -1,15 +1,15 @@
 /*
- * XREFs of ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F3214
+ * XREFs of ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0141970
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C015DC7A (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall WIDEPATHOBJ::vPrependBeforeFigure(WIDEPATHOBJ *this)
 {
-  __int64 v1; // rbx
-  __int64 v3; // r9
+  __int64 v1; // r10
+  __int64 v3; // r8
   __int64 v4; // rdx
   int i; // eax
   __int64 v6; // rcx

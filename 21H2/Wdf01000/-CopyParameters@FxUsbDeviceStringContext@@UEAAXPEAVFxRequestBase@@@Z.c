@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CopyParameters@FxUsbDeviceStringContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C007C250
+ * XREFs of ?CopyParameters@FxUsbDeviceStringContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C006FAD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 void __fastcall FxUsbDeviceStringContext::CopyParameters(FxUsbDeviceStringContext *this, FxRequestBase *Request)

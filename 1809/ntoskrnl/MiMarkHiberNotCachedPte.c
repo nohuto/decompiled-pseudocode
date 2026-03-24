@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkHiberNotCachedPte(__int64 a1, unsigned __int64 a2)

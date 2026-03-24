@@ -1,7 +1,7 @@
 /*
- * XREFs of _o__configure_narrow_argv_0 @ 0x1801017F6
+ * XREFs of _o__configure_narrow_argv_0 @ 0x1800E80F6
  * Callers:
- *     __scrt_dllmain_after_initialize_c @ 0x180100850 (__scrt_dllmain_after_initialize_c.c)
+ *     __scrt_dllmain_after_initialize_c @ 0x1800E7020 (__scrt_dllmain_after_initialize_c.c)
  * Callees:
  *     <none>
  */

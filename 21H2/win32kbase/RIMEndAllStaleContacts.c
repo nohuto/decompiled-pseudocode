@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMEndAllStaleContacts @ 0x1C00E704A
+ * XREFs of RIMEndAllStaleContacts @ 0x1C0178238
  * Callers:
- *     RIMOnTimerNotification @ 0x1C01857B0 (RIMOnTimerNotification.c)
+ *     RIMOnTimerNotification @ 0x1C0157890 (RIMOnTimerNotification.c)
  * Callees:
- *     rimEndPointerDeviceStaleContacts @ 0x1C01AF120 (rimEndPointerDeviceStaleContacts.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179BD0 (rimEndPointerDeviceStaleContacts.c)
  */
 
 __int64 __fastcall RIMEndAllStaleContacts(__int64 a1)

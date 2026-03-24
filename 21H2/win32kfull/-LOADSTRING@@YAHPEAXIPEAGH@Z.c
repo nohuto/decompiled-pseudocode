@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C010AEE0
+ * XREFs of ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C0120E84
  * Callers:
- *     InitializeScripts @ 0x1C03901B0 (InitializeScripts.c)
+ *     InitializeScripts @ 0x1C03931F0 (InitializeScripts.c)
  * Callees:
- *     pvFindResource @ 0x1C00EE1AC (pvFindResource.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     pvFindResource @ 0x1C0102F7C (pvFindResource.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall LOADSTRING(__int64 a1, unsigned int a2, unsigned __int16 *a3, int a4)
@@ -21,39 +21,38 @@ __int64 __fastcall LOADSTRING(__int64 a1, unsigned int a2, unsigned __int16 *a3,
   v6 = a2;
   Resource = (unsigned __int16 *)pvFindResource(a1, 0xFFFFFFFFFFFFFFFFuLL, (a2 >> 4) + 1, 6, (int *)&v13);
   LODWORD(v8) = 0;
-  if ( Resource )
+  if ( !Resource )
   {
-    v9 = v6 & 0xF;
-    v10 = &Resource[(unsigned __int64)v13 >> 1];
-    while ( Resource < v10 )
-    {
-      v8 = *Resource;
-      v11 = v9;
-      ++Resource;
-      --v9;
-      if ( !v11 )
-        break;
-      Resource += v8;
-    }
+LABEL_11:
     if ( a3 )
-    {
-      if ( Resource >= v10 )
-      {
-        LODWORD(v8) = 0;
-      }
-      else
-      {
-        if ( a4 - 1 <= (int)v8 )
-          LODWORD(v8) = a4 - 1;
-        memmove(a3, Resource, 2LL * (int)v8);
-      }
-      goto LABEL_12;
-    }
+      a3[(int)v8] = 0;
+    return (unsigned int)v8;
   }
-  else if ( a3 )
+  v9 = v6 & 0xF;
+  v10 = &Resource[(unsigned __int64)v13 >> 1];
+  while ( Resource < v10 )
   {
-LABEL_12:
-    a3[(int)v8] = 0;
+    v8 = *Resource;
+    v11 = v9;
+    ++Resource;
+    --v9;
+    if ( !v11 )
+      break;
+    Resource += v8;
+  }
+  if ( a3 )
+  {
+    if ( Resource >= v10 )
+    {
+      LODWORD(v8) = 0;
+    }
+    else
+    {
+      if ( a4 - 1 <= (int)v8 )
+        LODWORD(v8) = a4 - 1;
+      memmove(a3, Resource, 2LL * (int)v8);
+    }
+    goto LABEL_11;
   }
   return (unsigned int)v8;
 }

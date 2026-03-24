@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CitpDPCalcInit@@YAXPEAU_CIT_DP_CALC_CONTEXT@@NN@Z @ 0x1C023F3C4
+ * XREFs of ?CitpDPCalcInit@@YAXPEAU_CIT_DP_CALC_CONTEXT@@NN@Z @ 0x1C01FD6FC
  * Callers:
- *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C023F4AC (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C01FD7E4 (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  * Callees:
- *     exp @ 0x1C00DD7F8 (exp.c)
- *     log @ 0x1C00DDBE8 (log.c)
+ *     exp @ 0x1C00CE8C8 (exp.c)
+ *     log @ 0x1C00CECB0 (log.c)
  */
 
 void __fastcall CitpDPCalcInit(struct _CIT_DP_CALC_CONTEXT *a1, double a2, double a3)

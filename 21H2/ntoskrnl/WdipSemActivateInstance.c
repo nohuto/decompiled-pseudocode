@@ -1,22 +1,22 @@
 /*
- * XREFs of WdipSemActivateInstance @ 0x14081CB98
+ * XREFs of WdipSemActivateInstance @ 0x1407898AC
  * Callers:
- *     WdipSemEnableScenario @ 0x1406E6B08 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140815DC8 (WdipSemDisableScenario.c)
+ *     WdipSemDisableScenario @ 0x140789350 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407895DC (WdipSemEnableScenario.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-void __fastcall WdipSemActivateInstance(__int64 a1)
+_QWORD *__fastcall WdipSemActivateInstance(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C16818, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C1A578, 0LL);
   *(_DWORD *)(a1 + 44) = 0;
-  ExReleasePushLockEx((ULONG_PTR)&qword_140C16818, 0LL);
-  KeLeaveCriticalRegion();
+  ExReleasePushLockEx((ULONG_PTR)&qword_140C1A578, 0LL);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

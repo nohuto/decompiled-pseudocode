@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmClassSubkeyCallback @ 0x14084C530
+ * XREFs of _CmClassSubkeyCallback @ 0x1407BD170
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _CmValidateInstallerClassName @ 0x1407871A0 (_CmValidateInstallerClassName.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _CmValidateInstallerClassName @ 0x140645BCC (_CmValidateInstallerClassName.c)
  */
 
 __int64 __fastcall CmClassSubkeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, unsigned int *a4)

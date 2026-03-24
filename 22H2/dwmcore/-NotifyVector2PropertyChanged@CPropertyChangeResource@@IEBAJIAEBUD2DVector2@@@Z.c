@@ -1,13 +1,14 @@
 /*
- * XREFs of ?NotifyVector2PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector2@@@Z @ 0x180097E78
+ * XREFs of ?NotifyVector2PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector2@@@Z @ 0x1800660D8
  * Callers:
- *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x180023950 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
- *     ?SetRelativeSize@CVisual@@QEAAXMM@Z @ 0x180039E30 (-SetRelativeSize@CVisual@@QEAAXMM@Z.c)
- *     ?NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x180096994 (-NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?SetSize@CVisual@@QEAAXMM@Z @ 0x180097BF4 (-SetSize@CVisual@@QEAAXMM@Z.c)
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097D88 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?SetSize@CVisual@@QEAAXMM@Z @ 0x180065F98 (-SetSize@CVisual@@QEAAXMM@Z.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800662B4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?SetRelativeSize@CVisual@@QEAAXMM@Z @ 0x180067944 (-SetRelativeSize@CVisual@@QEAAXMM@Z.c)
+ *     ?NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BCF70 (-NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x1800C7640 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800661A4 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::NotifyVector2PropertyChanged(
@@ -15,47 +16,45 @@ __int64 __fastcall CPropertyChangeResource::NotifyVector2PropertyChanged(
         unsigned int a2,
         const struct D2DVector2 *a3)
 {
-  __int64 v3; // r10
-  unsigned int v4; // ebx
-  int v6; // eax
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  int v11; // eax
-  unsigned int v12; // ecx
-  _QWORD v13[3]; // [rsp+40h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
+  int v4; // ebx
+  __int64 v5; // rcx
+  int v6; // r10d
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // r11
+  unsigned int v11; // ecx
+  __int64 v12; // xmm0_8
+  __int64 v13; // rcx
+  _QWORD v14[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+78h] [rbp+20h] BYREF
 
-  v3 = *((_QWORD *)this + 6);
   v4 = 0;
-  if ( v3 )
+  if ( CPropertyChangeResource::ShouldNotify(this, a2) )
   {
-    if ( *(_DWORD *)(v3 + 76) )
-    {
-      if ( *((_DWORD *)this + 16) )
-      {
-        v6 = *((_DWORD *)this + 18);
-        if ( _bittest(&v6, a2) )
-        {
-          v8 = *((_QWORD *)this + 2);
-          v14 = *(_QWORD *)a3;
-          v9 = *(_QWORD *)(v8 + 1240);
-          v13[0] = *(unsigned int *)(v3 + 76);
-          v10 = *(_QWORD *)(v9 + 40);
-          v13[1] = *((unsigned int *)this + 16);
-          v11 = CoreUICallSend(v10, v13, 2LL, 14LL, 2, &unk_18033C4CD, a2, &v14);
-          v4 = v11;
-          if ( v11 == -2018375675 )
-          {
-            return 0;
-          }
-          else if ( v11 < 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x11Du, 0LL);
-          }
-        }
-      }
-    }
+    v8 = *(unsigned int *)(v5 + 56);
+    v9 = *(_QWORD *)(v5 + 48);
+    v10 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 1080LL) + 48LL);
+    if ( v9 )
+      v11 = *(_DWORD *)(v9 + 68);
+    else
+      v11 = 0;
+    v12 = *(_QWORD *)a3;
+    v14[0] = v11;
+    v14[1] = v8;
+    v15 = v12;
+    v4 = ((__int64 (__fastcall *)(__int64, _QWORD *, __int64, __int64, __int16, void *, int, __int64 *))CoreUICallSend)(
+           v10,
+           v14,
+           2LL,
+           13LL,
+           2,
+           &unk_1802CE79F,
+           v6,
+           &v15);
+    if ( v4 == -2018375675 )
+      v4 = 0;
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v4, 0x11Du, 0LL);
   }
-  return v4;
+  return (unsigned int)v4;
 }

@@ -1,313 +1,241 @@
 /*
- * XREFs of CmpGetNameControlBlock @ 0x1407C3E50
+ * XREFs of CmpGetNameControlBlock @ 0x1405EFC10
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpUnlockNameHashEntry @ 0x1406E717C (CmpUnlockNameHashEntry.c)
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     CmpUnlockNameHashEntry @ 0x1405EFE60 (CmpUnlockNameHashEntry.c)
+ *     CmpLockNameHashEntryExclusive @ 0x1405EFF6C (CmpLockNameHashEntryExclusive.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
  */
 
-unsigned __int16 *__fastcall CmpGetNameControlBlock(__m128i *a1, unsigned int *a2)
+unsigned __int8 *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2)
 {
-  bool v2; // bp
-  unsigned int v4; // ebx
-  int v5; // r8d
-  __int64 v6; // rdi
-  unsigned __int16 v7; // r14
-  unsigned int v8; // r10d
-  unsigned __int16 v9; // dx
-  unsigned __int16 v10; // r11
-  unsigned __int16 v11; // dx
-  __int64 v12; // r9
-  __int64 v13; // r15
-  __int64 v14; // r13
-  unsigned __int16 *v15; // r12
-  unsigned int v16; // ebp
-  unsigned int v17; // r14d
-  unsigned __int16 *TransientPoolWithTag; // rax
-  int v19; // eax
-  _BYTE *v20; // r10
-  __int64 v21; // r11
-  unsigned __int16 v22; // dx
-  char *v23; // rcx
-  int v24; // eax
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v27; // dx
-  _QWORD *v28; // rax
-  unsigned __int16 v29; // dx
-  int v30; // ecx
-  unsigned __int16 *v31; // r15
-  unsigned __int16 *v32; // r14
-  unsigned __int16 v33; // bp
-  unsigned __int16 v34; // r11
-  unsigned __int16 v35; // dx
-  int v36; // r10d
-  int v37; // ecx
-  _QWORD *v38; // rax
-  unsigned __int16 v39; // dx
-  int v40; // r10d
-  unsigned int v41; // edx
-  unsigned int v42; // ecx
-  _QWORD *v43; // rax
-  unsigned __int16 v44; // dx
-  unsigned int v45; // ebp
-  __int64 v46; // r10
-  unsigned __int16 v47; // dx
-  _QWORD *v48; // rax
-  unsigned __int16 v49; // dx
-  unsigned __int16 v50; // [rsp+70h] [rbp+8h]
-  char v51; // [rsp+80h] [rbp+18h]
-  __int64 v52; // [rsp+88h] [rbp+20h]
+  unsigned int v3; // ebx
+  unsigned int v4; // r11d
+  char v5; // r15
+  unsigned __int16 v6; // r14
+  unsigned __int16 *v7; // r9
+  __int64 v8; // r10
+  unsigned __int16 v9; // ax
+  struct _LOOKASIDE_LIST_EX *v10; // r9
+  __int64 v11; // rdi
+  __int64 v12; // rbp
+  unsigned __int8 *v13; // rsi
+  bool v14; // cl
+  unsigned int v15; // eax
+  int v16; // r14d
+  int v17; // eax
+  unsigned int v18; // ebp
+  unsigned int v19; // r14d
+  unsigned __int8 *TransientPoolWithTag; // rax
+  int v21; // eax
+  _BYTE *v22; // r9
+  __int64 v23; // r10
+  unsigned __int16 v24; // ax
+  _QWORD *v25; // rcx
+  int v26; // eax
+  unsigned int v28; // r15d
+  int v29; // r11d
+  __int64 v30; // r10
+  unsigned int Alignment_low; // eax
+  int v32; // ecx
+  unsigned int v33; // ebp
+  __int64 v34; // r9
+  unsigned __int16 v35; // ax
+  char v36; // [rsp+60h] [rbp+8h]
+  unsigned __int16 v37; // [rsp+68h] [rbp+10h]
+  bool v38; // [rsp+70h] [rbp+18h]
 
-  v2 = 0;
+  v38 = 0;
   if ( a2 )
-    v4 = *a2;
+    v3 = *a2;
   else
-    v4 = CmpHashUnicodeComponent(a1);
-  v5 = a1->m128i_u16[0];
-  v6 = 0LL;
-  v51 = 1;
-  v7 = (unsigned __int16)v5 >> 1;
-  v8 = 0;
-  v50 = (unsigned __int16)v5 >> 1;
-  if ( (v5 & 0xFFFFFFFE) != 0 )
+    v3 = CmpHashUnicodeComponent(a1);
+  v4 = *a1;
+  v5 = 1;
+  v36 = 1;
+  v6 = (unsigned __int16)v4 >> 1;
+  v37 = (unsigned __int16)v4 >> 1;
+  if ( v4 >> 1 )
   {
+    v7 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+    v8 = v4 >> 1;
     do
     {
-      v9 = *(_WORD *)(a1->m128i_i64[1] + 2LL * v8);
-      if ( v9 >= 0x61u )
+      v9 = *v7;
+      if ( *v7 >= 0x61u )
       {
         if ( v9 > 0x7Au )
+          v9 = NLS_UPCASE(v9);
+        else
+          v9 -= 32;
+      }
+      if ( v9 > 0xFFu )
+      {
+        v6 = v4;
+        v5 = 0;
+      }
+      ++v7;
+      --v8;
+    }
+    while ( v8 );
+    v37 = v6;
+    v36 = v5;
+  }
+  CmpLockNameHashEntryExclusive(v3);
+  v11 = 0LL;
+  v12 = *((_QWORD *)CmpNameCacheTable
+        + 2
+        * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027
+                                                                                                * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF)
+        + 1);
+  if ( v12 )
+  {
+    while ( 1 )
+    {
+      v13 = (unsigned __int8 *)(v12 - 8);
+      if ( v3 == *(_DWORD *)v12 && (v15 = *((unsigned __int16 *)v13 + 12), v6 == (_WORD)v15) )
+      {
+        v16 = *(_DWORD *)v13;
+        v14 = 1;
+        if ( (*(_DWORD *)v13 & 1) != 0 )
         {
-          CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-          v11 = NLS_UPCASE(CurrentServerSiloGlobals[154], v27);
+          v17 = CmpCompareCompressedName((__int64)a1, v13 + 26, v37, 2);
+          v14 = v17 == 0;
+          v38 = v17 == 0;
+          if ( !v17 )
+            goto LABEL_20;
+          v6 = v37;
         }
         else
         {
-          v10 = v5;
-          v11 = v9 - 32;
-        }
-        if ( v11 > 0xFFu )
-        {
-          v7 = v10;
-          v51 = 0;
+          v10 = (struct _LOOKASIDE_LIST_EX *)*((_QWORD *)a1 + 1);
+          v28 = v15 >> 1;
+          v29 = 0;
+          if ( !(v15 >> 1) )
+          {
+LABEL_20:
+            if ( (v16 & 0xFFFFFFFE) == 0xFFFFFFFE )
+              v13 = 0LL;
+            else
+              *(_DWORD *)v13 = v16 + 2;
+LABEL_22:
+            if ( !v14 )
+            {
+              v5 = v36;
+              v6 = v37;
+              break;
+            }
+LABEL_31:
+            CmpUnlockNameHashEntry(v3);
+            return v13;
+          }
+          v30 = v13 + 26 - (unsigned __int8 *)v10;
+          while ( 1 )
+          {
+            Alignment_low = LOWORD(v10->L.ListHead.Alignment);
+            if ( Alignment_low >= 0x61 )
+              v32 = Alignment_low <= 0x7A ? Alignment_low - 32 : NLS_UPCASE(Alignment_low);
+            else
+              v32 = LOWORD(v10->L.ListHead.Alignment);
+            if ( v32 != *(unsigned __int16 *)((char *)&v10->L.ListHead.Alignment + v30) )
+              break;
+            v10 = (struct _LOOKASIDE_LIST_EX *)((char *)v10 + 2);
+            if ( ++v29 >= v28 )
+            {
+              v14 = 1;
+              goto LABEL_20;
+            }
+          }
+          v6 = v37;
+          v14 = 0;
+          v38 = 0;
         }
       }
       else
       {
-        v10 = v5;
+        v14 = v38;
       }
-      ++v8;
-      LOWORD(v5) = v10;
-    }
-    while ( v8 < v10 >> 1 );
-    v50 = v7;
-  }
-  v52 = 16LL
-      * (((unsigned __int16)(-30045 * (v4 ^ (v4 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v4 ^ (v4 >> 9))) >> 9)) & 0x7FF);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)CmpNameCacheTable + v52, 0LL);
-  v13 = v52;
-  v14 = *(_QWORD *)((char *)CmpNameCacheTable + v52 + 8);
-  if ( v14 )
-  {
-    v12 = 65504LL;
-    while ( 1 )
-    {
-      v15 = (unsigned __int16 *)(v14 - 8);
-      if ( v4 == *(_DWORD *)v14 )
-      {
-        v30 = v15[12];
-        if ( v7 == (_WORD)v30 )
-        {
-          v31 = v15 + 13;
-          v32 = (unsigned __int16 *)a1->m128i_i64[1];
-          v2 = 1;
-          if ( (*(_DWORD *)v15 & 1) != 0 )
-          {
-            v33 = (unsigned __int16)a1->m128i_i16[0] >> 1;
-            v34 = v50;
-            if ( v33 )
-            {
-              while ( v34 )
-              {
-                v35 = *v32++;
-                v36 = *(unsigned __int8 *)v31;
-                v31 = (unsigned __int16 *)((char *)v31 + 1);
-                if ( v35 != (_WORD)v36 )
-                {
-                  if ( v35 >= 0x61u )
-                  {
-                    if ( v35 > 0x7Au )
-                    {
-                      v38 = PsGetCurrentServerSiloGlobals();
-                      v35 = NLS_UPCASE(v38[154], v39);
-                      v12 = 65504LL;
-                    }
-                    else
-                    {
-                      v35 -= 32;
-                    }
-                  }
-                  v37 = v35 - v36;
-                  if ( v35 != v36 )
-                    goto LABEL_37;
-                }
-                --v34;
-                if ( !--v33 )
-                  break;
-              }
-            }
-            v37 = v33 - v34;
-LABEL_37:
-            v2 = v37 == 0;
-            if ( !v37 )
-            {
-LABEL_38:
-              if ( (*(_DWORD *)v15 & 0xFFFFFFFE) == 0xFFFFFFFE )
-                v15 = 0LL;
-              else
-                *(_DWORD *)v15 += 2;
-LABEL_16:
-              if ( !v2 )
-              {
-                v13 = v52;
-                v7 = v50;
-                break;
-              }
-LABEL_25:
-              ExReleasePushLockEx((ULONG_PTR)CmpNameCacheTable + v52, 0LL);
-              return v15;
-            }
-          }
-          else
-          {
-            v40 = 0;
-            if ( (v30 & 0xFFFFFFFE) == 0 )
-              goto LABEL_38;
-            while ( 1 )
-            {
-              v41 = *v32;
-              if ( v41 >= 0x61 )
-              {
-                if ( v41 <= 0x7A )
-                {
-                  v42 = v41 - 32;
-                }
-                else
-                {
-                  v43 = PsGetCurrentServerSiloGlobals();
-                  v42 = NLS_UPCASE(v43[154], v44);
-                }
-              }
-              else
-              {
-                v42 = *v32;
-              }
-              if ( v42 != *v31 )
-                break;
-              ++v32;
-              ++v31;
-              if ( ++v40 >= (unsigned int)(v15[12] >> 1) )
-                goto LABEL_38;
-            }
-            v2 = 0;
-            v12 = 65504LL;
-          }
-          v7 = v50;
-        }
-      }
-      v14 = *(_QWORD *)(v14 + 8);
-      if ( !v14 )
-        goto LABEL_16;
+      v12 = *(_QWORD *)(v12 + 8);
+      if ( !v12 )
+        goto LABEL_22;
     }
   }
-  v16 = v7;
-  v17 = v7 + 26;
-  TransientPoolWithTag = (unsigned __int16 *)CmpAllocateTransientPoolWithTag(
-                                               PagedPool,
-                                               v17,
-                                               0x624E4D43u,
-                                               (PLOOKASIDE_LIST_EX)v12);
-  v15 = TransientPoolWithTag;
+  v18 = v6;
+  v19 = v6 + 26;
+  TransientPoolWithTag = (unsigned __int8 *)CmpAllocateTransientPoolWithTag(PagedPool, v19, 0x624E4D43u, v10);
+  v13 = TransientPoolWithTag;
   if ( TransientPoolWithTag )
   {
-    memset(TransientPoolWithTag, 0, v17);
-    v19 = *(_DWORD *)v15;
-    if ( v51 )
+    memset(TransientPoolWithTag, 0, v19);
+    v21 = *(_DWORD *)v13;
+    if ( v5 )
     {
-      *(_DWORD *)v15 = v19 | 1;
-      if ( v16 )
+      *(_DWORD *)v13 = v21 | 1;
+      if ( v18 )
       {
-        v20 = v15 + 13;
-        v21 = v16;
+        v22 = v13 + 26;
+        v23 = v18;
         do
         {
-          v22 = *(_WORD *)(v6 * 2 + a1->m128i_i64[1]);
-          if ( v22 >= 0x61u )
+          v24 = *(_WORD *)(v11 + *((_QWORD *)a1 + 1));
+          if ( v24 >= 0x61u )
           {
-            if ( v22 > 0x7Au )
-            {
-              v28 = PsGetCurrentServerSiloGlobals();
-              LOBYTE(v22) = NLS_UPCASE(v28[154], v29);
-            }
+            if ( v24 > 0x7Au )
+              LOBYTE(v24) = NLS_UPCASE(v24);
             else
-            {
-              LOBYTE(v22) = v22 - 32;
-            }
+              LOBYTE(v24) = v24 - 32;
           }
-          *v20 = v22;
-          ++v6;
-          ++v20;
-          --v21;
+          *v22 = v24;
+          v11 += 2LL;
+          ++v22;
+          --v23;
         }
-        while ( v21 );
+        while ( v23 );
       }
     }
     else
     {
-      v45 = v16 >> 1;
-      *(_DWORD *)v15 = v19 & 0xFFFFFFFE;
-      if ( v45 )
+      v33 = v18 >> 1;
+      *(_DWORD *)v13 = v21 & 0xFFFFFFFE;
+      if ( v33 )
       {
-        v46 = v45;
+        v34 = v33;
         do
         {
-          v47 = *(_WORD *)(v6 * 2 + a1->m128i_i64[1]);
-          if ( v47 >= 0x61u )
+          v35 = *(_WORD *)(v11 + *((_QWORD *)a1 + 1));
+          if ( v35 >= 0x61u )
           {
-            if ( v47 <= 0x7Au )
-            {
-              v47 -= 32;
-            }
+            if ( v35 <= 0x7Au )
+              v35 -= 32;
             else
-            {
-              v48 = PsGetCurrentServerSiloGlobals();
-              v47 = NLS_UPCASE(v48[154], v49);
-            }
+              v35 = NLS_UPCASE(v35);
           }
-          v15[v6 + 13] = v47;
-          ++v6;
-          --v46;
+          *(_WORD *)&v13[v11 + 26] = v35;
+          v11 += 2LL;
+          --v34;
         }
-        while ( v46 );
+        while ( v34 );
       }
     }
-    v23 = (char *)CmpNameCacheTable;
-    v24 = *(_DWORD *)v15 & 1 | 2;
-    *((_DWORD *)v15 + 2) = v4;
-    *(_DWORD *)v15 = v24;
-    v15[12] = v50;
-    *((_QWORD *)v15 + 2) = *(_QWORD *)&v23[v13 + 8];
-    *(_QWORD *)&v23[v13 + 8] = v15 + 4;
-    goto LABEL_25;
+    v25 = CmpNameCacheTable;
+    v26 = *(_DWORD *)v13 & 1 | 2;
+    *((_DWORD *)v13 + 2) = v3;
+    *(_DWORD *)v13 = v26;
+    *((_WORD *)v13 + 12) = v37;
+    *((_QWORD *)v13 + 2) = v25[2
+                             * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF)
+                             + 1];
+    v25[2
+      * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF)
+      + 1] = v13 + 8;
+    goto LABEL_31;
   }
-  CmpUnlockNameHashEntry(v4);
+  CmpUnlockNameHashEntry(v3);
   return 0LL;
 }

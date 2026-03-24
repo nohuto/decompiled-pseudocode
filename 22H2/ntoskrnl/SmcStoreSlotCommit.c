@@ -1,29 +1,29 @@
 /*
- * XREFs of SmcStoreSlotCommit @ 0x1409DBB50
+ * XREFs of SmcStoreSlotCommit @ 0x14092E408
  * Callers:
- *     SmcStoreCreate @ 0x1409DB304 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DBA0 (SmcStoreCreate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
-void __fastcall SmcStoreSlotCommit(__int64 a1, __int64 a2, int a3, int a4)
+void __fastcall SmcStoreSlotCommit(__int64 a1, __int64 a2, int a3, unsigned __int8 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v5; // r14
+  volatile signed __int64 *v8; // rbp
 
   CurrentThread = KeGetCurrentThread();
-  v5 = (volatile signed __int64 *)(a1 + 160);
   --CurrentThread->KernelApcDisable;
+  v8 = (volatile signed __int64 *)(a1 + 160);
   ExAcquirePushLockExclusiveEx(a1 + 160, 0LL);
   *(_DWORD *)(a2 + 4) &= ~4u;
   *(_DWORD *)a2 = a3;
   _InterlockedExchange64((volatile __int64 *)(a2 + 16), 0LL);
-  *(_DWORD *)(a2 + 4) ^= (*(_DWORD *)(a2 + 4) ^ a4) & 3;
-  if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v5);
-  KeAbPostRelease((ULONG_PTR)v5);
+  *(_DWORD *)(a2 + 4) ^= (a4 ^ (unsigned __int8)*(_DWORD *)(a2 + 4)) & 3;
+  if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v8);
+  KeAbPostRelease((ULONG_PTR)v8);
   KeLeaveCriticalRegion();
 }

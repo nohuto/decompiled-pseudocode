@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C009F174
+ * XREFs of ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C006C670
  * Callers:
- *     RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C009F0E8 (RIMPopulateExtendedKeyboardDeviceProperties.c)
- *     ?PopulateMouseProperties@@YAXPEAURIMDEV@@PEAX1@Z @ 0x1C00DC500 (-PopulateMouseProperties@@YAXPEAURIMDEV@@PEAX1@Z.c)
- *     ?PopulatePTPProperties@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAX1@Z @ 0x1C01A025C (-PopulatePTPProperties@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAX1@Z.c)
+ *     RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C006BFB8 (RIMPopulateExtendedKeyboardDeviceProperties.c)
+ *     ?PopulateMouseProperties@@YAXPEAURIMDEV@@PEAX1@Z @ 0x1C00CC718 (-PopulateMouseProperties@@YAXPEAURIMDEV@@PEAX1@Z.c)
+ *     ?PopulatePTPProperties@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAX1@Z @ 0x1C016BAD4 (-PopulatePTPProperties@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAX1@Z.c)
  * Callees:
- *     RIMRegQueryDWordFromKey @ 0x1C00D510C (RIMRegQueryDWordFromKey.c)
+ *     RIMRegQueryDWordFromKey @ 0x1C006C6EC (RIMRegQueryDWordFromKey.c)
  */
 
 bool __fastcall ReadDevicePropertyFromRegistry(const unsigned __int16 *a1, void *a2, void *a3, int a4, int *a5)

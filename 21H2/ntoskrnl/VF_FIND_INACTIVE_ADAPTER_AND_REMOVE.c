@@ -1,11 +1,11 @@
 /*
- * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140A83FCC
+ * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x1409CA414
  * Callers:
- *     VfGetDmaAdapter @ 0x140A85B10 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
@@ -22,7 +22,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_
   struct _LIST_ENTRY *Blink; // rcx
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140D575A0);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140D4A088);
   for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
     if ( i[1].Blink == a1 && (SHIDWORD(i[2].Flink) <= 0 || LOBYTE(i[2].Flink) == 1) )
@@ -37,7 +37,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_
       break;
     }
   }
-  KxReleaseSpinLock(&qword_140D575A0);
+  KxReleaseSpinLock(&qword_140D4A088);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

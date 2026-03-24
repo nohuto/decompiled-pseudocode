@@ -3,12 +3,12 @@
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvpDropPagedBins @ 0x1407365B4 (HvpDropPagedBins.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14073CFFC (HvpBuildMapForMemoryBackedHive.c)
- *     HvpAddDummyBinToHive @ 0x1407F7720 (HvpAddDummyBinToHive.c)
- *     HvpMapHiveImage @ 0x1407F796C (HvpMapHiveImage.c)
+ *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x14073CFDC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpAddDummyBinToHive @ 0x1407F7700 (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x1407F794C (HvpMapHiveImage.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  */
 

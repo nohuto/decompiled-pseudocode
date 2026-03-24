@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlTraceDatabaseAdd @ 0x1405EDE20
+ * XREFs of RtlTraceDatabaseAdd @ 0x14058E860
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1405EE200 (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x1405EE268 (RtlpTraceDatabaseInternalAdd.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x1405EE4E0 (RtlpTraceDatabaseReleaseLock.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x14058EC40 (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x14058ECA8 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x14058EF18 (RtlpTraceDatabaseReleaseLock.c)
  */
 
 char __fastcall RtlTraceDatabaseAdd(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

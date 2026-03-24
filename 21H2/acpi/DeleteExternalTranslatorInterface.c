@@ -1,8 +1,8 @@
 /*
- * XREFs of DeleteExternalTranslatorInterface @ 0x1C00AE23C
+ * XREFs of DeleteExternalTranslatorInterface @ 0x1C00AF5EC
  * Callers:
- *     AcpiExternalInterfaceUnload @ 0x1C00ADD70 (AcpiExternalInterfaceUnload.c)
- *     NotifyExternalTranslationInterfaceChange @ 0x1C00AE4B0 (NotifyExternalTranslationInterfaceChange.c)
+ *     AcpiExternalInterfaceUnload @ 0x1C00AF120 (AcpiExternalInterfaceUnload.c)
+ *     NotifyExternalTranslationInterfaceChange @ 0x1C00AF860 (NotifyExternalTranslationInterfaceChange.c)
  * Callees:
  *     <none>
  */

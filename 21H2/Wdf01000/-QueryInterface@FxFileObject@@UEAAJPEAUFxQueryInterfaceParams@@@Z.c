@@ -1,12 +1,12 @@
 /*
- * XREFs of ?QueryInterface@FxFileObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0010E10
+ * XREFs of ?QueryInterface@FxFileObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C00532E0
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0010EB0 (-QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z.c)
+ *     ?QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C00194D0 (-QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z.c)
  */
 
-int __fastcall FxFileObject::QueryInterface(FxFileObject *this, FxQueryInterfaceParams *Params)
+__int64 __fastcall FxFileObject::QueryInterface(FxFileObject *this, FxQueryInterfaceParams *Params)
 {
   unsigned __int16 Type; // ax
 
@@ -18,5 +18,5 @@ int __fastcall FxFileObject::QueryInterface(FxFileObject *this, FxQueryInterface
     this = (FxFileObject *)((unsigned __int64)&this->IFxHasCallbacks & -(__int64)(this != 0LL));
   }
   *Params->Object = this;
-  return 0;
+  return 0LL;
 }

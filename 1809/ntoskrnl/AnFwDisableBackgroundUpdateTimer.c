@@ -14,10 +14,10 @@ BOOLEAN AnFwDisableBackgroundUpdateTimer()
 {
   BOOLEAN result; // al
 
-  if ( byte_1404DC881 )
+  if ( byte_1404DC871 )
   {
-    result = KeCancelTimer(&stru_1404E0B80);
-    byte_1404DC881 = 0;
+    result = KeCancelTimer(&stru_1404E0B40);
+    byte_1404DC871 = 0;
   }
   return result;
 }

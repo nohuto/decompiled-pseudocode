@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x180256AD8
+ * XREFs of ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800187CC
  * Callers:
- *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x18004ECF0 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABFB4 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x18004F554 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
- *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x18004F7F8 (-Play@KeyframeSequence@@QEAAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC518 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800AC58C (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall KeyframeSequence::Repeat(KeyframeSequence *this, int a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhSshBusBusy @ 0x1C0030D38
+ * XREFs of UsbhSshBusBusy @ 0x1C00320E0
  * Callers:
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
- *     Usbh_BS_BusRun @ 0x1C00102A0 (Usbh_BS_BusRun.c)
- *     UsbhHubSSH_PnpStart @ 0x1C0058560 (UsbhHubSSH_PnpStart.c)
- *     UsbhHubSSH_PnpStop @ 0x1C0058680 (UsbhHubSSH_PnpStop.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     Usbh_BS_BusRun @ 0x1C0003180 (Usbh_BS_BusRun.c)
+ *     UsbhHubSSH_PnpStart @ 0x1C0059C30 (UsbhHubSSH_PnpStart.c)
+ *     UsbhHubSSH_PnpStop @ 0x1C0059D50 (UsbhHubSSH_PnpStop.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 void __fastcall UsbhSshBusBusy(__int64 a1, __int64 a2)

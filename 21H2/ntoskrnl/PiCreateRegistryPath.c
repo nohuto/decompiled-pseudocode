@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCreateRegistryPath @ 0x140943E3C
+ * XREFs of PiCreateRegistryPath @ 0x14089F0F4
  * Callers:
- *     PiCreateDriverRedirectedStateKey @ 0x1406DF254 (PiCreateDriverRedirectedStateKey.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1407C4A84 (PiCreateDriverRedirectedStateKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PnpConcatenateUnicodeStrings @ 0x1407690BC (PnpConcatenateUnicodeStrings.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140749024 (PnpConcatenateUnicodeStrings.c)
  */
 
 __int64 __fastcall PiCreateRegistryPath(UNICODE_STRING *SourceString, __int64 a2, void *a3, HANDLE *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall PiCreateRegistryPath(UNICODE_STRING *SourceString, __int64 a2
   HANDLE KeyHandle; // [rsp+B0h] [rbp+30h] BYREF
 
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( SourceString
@@ -107,7 +107,7 @@ LABEL_7:
     v8 = -1073741811;
   }
 LABEL_21:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   return (unsigned int)v8;

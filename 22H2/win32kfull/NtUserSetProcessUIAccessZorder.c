@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserSetProcessUIAccessZorder @ 0x1C01DC880
+ * XREFs of NtUserSetProcessUIAccessZorder @ 0x1C02023E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,26 +8,17 @@
 
 __int64 NtUserSetProcessUIAccessZorder()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
-  __int64 v3; // r9
+  __int64 v0; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
-  EnterCrit(0LL, 0LL);
-  if ( (int)RtlQueryElevationFlags(&v6) >= 0 && (v6 & 1) == 0 )
+  v3 = 0;
+  EnterCrit(0LL, 1LL);
+  if ( (int)RtlQueryElevationFlags(&v3) >= 0 && (v3 & 1) == 0 )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v1);
-    if ( CurrentProcessWin32Process )
-    {
-      v1 = -*(_QWORD *)CurrentProcessWin32Process;
-      v0 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      CurrentProcessWin32Process &= v0;
-    }
-    *(_DWORD *)(CurrentProcessWin32Process + 816) |= 2u;
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v0);
+    *(_DWORD *)(CurrentProcessWin32Process + 820) |= 2u;
   }
-  UserSessionSwitchLeaveCrit(v1, v0, v2, v3);
+  UserSessionSwitchLeaveCrit(v0);
   return 1LL;
 }

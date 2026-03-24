@@ -1,9 +1,9 @@
 /*
- * XREFs of XmPushImmediate @ 0x140535570
+ * XREFs of XmPushImmediate @ 0x1404E5890
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmGetImmediateSourceValue @ 0x1403A3060 (XmGetImmediateSourceValue.c)
+ *     XmGetImmediateSourceValue @ 0x140396FC0 (XmGetImmediateSourceValue.c)
  */
 
 __int64 __fastcall XmPushImmediate(__int64 a1)

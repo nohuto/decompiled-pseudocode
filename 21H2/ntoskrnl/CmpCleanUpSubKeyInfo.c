@@ -1,34 +1,31 @@
 /*
- * XREFs of CmpCleanUpSubKeyInfo @ 0x14071B5A0
+ * XREFs of CmpCleanUpSubKeyInfo @ 0x14066A0AC
  * Callers:
- *     CmpCreateTombstone @ 0x14053FB50 (CmpCreateTombstone.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmpInvalidateSubtreeWorker @ 0x1406E8680 (CmpInvalidateSubtreeWorker.c)
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14071B4A0 (CmpRebuildKcbCacheFromNode.c)
- *     CmRestoreKey @ 0x14090C34C (CmRestoreKey.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x1409237B4 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpCreateTombstone @ 0x1404ED55C (CmpCreateTombstone.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x140669FA4 (CmpRebuildKcbCacheFromNode.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140771FC0 (CmpInvalidateSubtreeWorker.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ECD4 (CmpLightWeightCommitDeleteKeyUoW.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int16 __fastcall CmpCleanUpSubKeyInfo(__int64 a1, char a2)
 {
   int v3; // eax
   __int16 result; // ax
-  ULONG_PTR v6; // rdx
-  ULONG_PTR v7; // rcx
-  __int64 CellFlat; // rax
-  __int64 v9; // rcx
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rax
+  int v8; // [rsp+30h] [rbp+8h] BYREF
+  int v9; // [rsp+34h] [rbp+Ch]
 
-  v10 = 0xFFFFFFFFLL;
+  v8 = -1;
+  v9 = 0;
   v3 = *(_DWORD *)(a1 + 8);
   if ( (v3 & 7) != 0 )
   {
@@ -43,18 +40,13 @@ __int16 __fastcall CmpCleanUpSubKeyInfo(__int64 a1, char a2)
     v6 = *(unsigned int *)(a1 + 40);
     if ( (_DWORD)v6 != -1 )
     {
-      v7 = *(_QWORD *)(a1 + 32);
-      if ( (*(_BYTE *)(v7 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(v7, v6, &v10);
-      else
-        CellFlat = HvpGetCellPaged(v7);
+      v7 = (*(__int64 (__fastcall **)(_QWORD, __int64, int *))(*(_QWORD *)(a1 + 32) + 8LL))(
+             *(_QWORD *)(a1 + 32),
+             v6,
+             &v8);
       *(_WORD *)(a1 + 8) &= ~0x40u;
-      v9 = *(_QWORD *)(a1 + 32);
-      *(_DWORD *)(a1 + 112) = *(_DWORD *)(CellFlat + 20) + *(_DWORD *)(CellFlat + 24);
-      if ( (*(_BYTE *)(v9 + 140) & 1) != 0 )
-        return HvpReleaseCellFlat(v9, &v10);
-      else
-        return HvpReleaseCellPaged(v9, &v10);
+      *(_DWORD *)(a1 + 112) = *(_DWORD *)(v7 + 20) + *(_DWORD *)(v7 + 24);
+      return (*(__int64 (__fastcall **)(_QWORD, int *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v8);
     }
   }
   return result;

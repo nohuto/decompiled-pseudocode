@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x140112010
+ * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x140112030
  * Callers:
  *     MiComputeFlushRange @ 0x14002015C (MiComputeFlushRange.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x140111F00 (MmDoesFileHaveUserWritableReferences.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x140111F20 (MmDoesFileHaveUserWritableReferences.c)
  * Callees:
  *     <none>
  */

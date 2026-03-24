@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCreateSecurityDescriptorPerType @ 0x14076BAD0
+ * XREFs of IopCreateSecurityDescriptorPerType @ 0x140719678
  * Callers:
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B9AC (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1407195A0 (IopCreateDefaultDeviceSecurityDescriptor.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140736AB0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlAddMandatoryAce @ 0x1407F33F0 (RtlAddMandatoryAce.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddMandatoryAce @ 0x1406D44E0 (RtlAddMandatoryAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
@@ -25,9 +25,11 @@ NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
   int v12; // edx
   int v13; // edx
   unsigned __int16 v14; // bp
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   __int64 v16; // r15
-  int v17; // ecx
+  __int64 v17; // rdx
+  int v18; // ecx
+  __int64 v19; // [rsp+20h] [rbp-28h]
 
   v4 = 0;
   v8 = a2 - 1;
@@ -66,22 +68,22 @@ LABEL_4:
   if ( v4 == 1 )
   {
     v14 = 4 * (*((unsigned __int8 *)SeLowMandatorySid + 1) + 6);
-    Pool2 = (ACL *)ExAllocatePool2(256LL, v14, 1699966793LL);
-    v16 = (__int64)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v14, 0x65536F49u);
+    v16 = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
       return -1073741670;
-    RtlCreateAcl(Pool2, v14, 2u);
-    RtlAddMandatoryAce(v16, 2LL, 0LL, SeLowMandatorySid, 17, 1);
+    RtlCreateAcl(PoolWithTag, v14, 2u);
+    RtlAddMandatoryAce(v16, v17, 0, (__int64)SeLowMandatorySid, v19, 1);
     RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, v16, 0);
     *a3 = v16;
   }
   result = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);
   if ( a4 )
   {
-    v17 = *a4 | 4;
-    *a4 = v17;
+    v18 = *a4 | 4;
+    *a4 = v18;
     if ( v4 )
-      *a4 = v17 | 0x10;
+      *a4 = v18 | 0x10;
   }
   return result;
 }

@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ViRemoveChannelWcb @ 0x14030A278 (ViRemoveChannelWcb.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ViRemoveChannelWcb @ 0x14030A378 (ViRemoveChannelWcb.c)
  *     SUBTRACT_MAP_REGISTERS @ 0x140929580 (SUBTRACT_MAP_REGISTERS.c)
  *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
  *     ViFreeMapRegisterFile @ 0x14092D524 (ViFreeMapRegisterFile.c)

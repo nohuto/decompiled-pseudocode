@@ -1,20 +1,23 @@
 /*
- * XREFs of CiSchedulerSetTaskIndexThreadTag @ 0x1C0002920
+ * XREFs of CiSchedulerSetTaskIndexThreadTag @ 0x1C0001010
  * Callers:
- *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0001170 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerProcessDeadlines @ 0x1C0001F40 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerWait @ 0x1C00021A0 (CiSchedulerWait.c)
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002A80 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002B50 (CiSchedulerCancelTaskIndexYield.c)
  * Callees:
- *     CiSystemUpdateThreadTag @ 0x1C0002970 (CiSystemUpdateThreadTag.c)
+ *     CiSystemUpdateThreadTag @ 0x1C0001B10 (CiSystemUpdateThreadTag.c)
  */
 
 __int64 __fastcall CiSchedulerSetTaskIndexThreadTag(__int64 a1, unsigned int a2)
 {
   _QWORD *v2; // rbx
-  _QWORD *v3; // rdi
+  _QWORD *i; // rdi
   __int64 result; // rax
 
   v2 = *(_QWORD **)(a1 + 32);
-  v3 = (_QWORD *)(a1 + 32);
-  for ( *(_DWORD *)(a1 + 188) = a2; v2 != v3; v2 = (_QWORD *)*v2 )
+  for ( i = (_QWORD *)(a1 + 32); v2 != i; v2 = (_QWORD *)*v2 )
     result = CiSystemUpdateThreadTag(v2 - 10, a2);
   return result;
 }

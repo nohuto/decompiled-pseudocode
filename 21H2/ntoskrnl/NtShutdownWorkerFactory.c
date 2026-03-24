@@ -1,17 +1,17 @@
 /*
- * XREFs of NtShutdownWorkerFactory @ 0x1402D3310
+ * XREFs of NtShutdownWorkerFactory @ 0x1402C9E60
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExpShutdownWorkerFactory @ 0x1402D3E44 (ExpShutdownWorkerFactory.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x1409F8660 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExpShutdownWorkerFactory @ 0x14027F9D8 (ExpShutdownWorkerFactory.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSystemExceptionFilter @ 0x1407D4F10 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2)
@@ -43,12 +43,12 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
   if ( v4 >= 0 )
   {
     v5 = Object;
-    ExpShutdownWorkerFactory(Object);
+    ExpShutdownWorkerFactory((char *)Object);
     ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v5 + 13);
-    _InterlockedExchangeAdd(a2, *((_DWORD *)v5 + 98));
+    _InterlockedExchangeAdd(a2, *((_DWORD *)v5 + 74));
     v6 = Object;
     KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
-    v6[98] = 0;
+    v6[74] = 0;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )

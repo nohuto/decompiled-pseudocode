@@ -1,19 +1,20 @@
 /*
- * XREFs of ?DeInitialize@SfmTokenArray@@QEAAXXZ @ 0x1C00B2190
+ * XREFs of ?DeInitialize@SfmTokenArray@@QEAAXXZ @ 0x1C00A1CA0
  * Callers:
- *     GreSfmDwmShutdown @ 0x1C00B20F0 (GreSfmDwmShutdown.c)
+ *     GreSfmDwmShutdown @ 0x1C00A1BF0 (GreSfmDwmShutdown.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
-void __fastcall SfmTokenArray::DeInitialize(char **this)
+void __fastcall SfmTokenArray::DeInitialize(SfmTokenArray *this)
 {
-  if ( *this )
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)this;
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      *this);
-    *this = 0LL;
+    Win32FreePool(v2);
+    *(_QWORD *)this = 0LL;
   }
   *((_DWORD *)this + 3) = 0;
   *((_DWORD *)this + 4) = 0;

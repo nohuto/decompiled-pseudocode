@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xqppq_EtwWriteTransfer @ 0x1C0058108
+ * XREFs of McTemplateK0xqppq_EtwWriteTransfer @ 0x1C004F8A8
  * Callers:
- *     ?AddMapping@HOSTVMMONITORMAPPING@@QEAAJPEAUHOST_VMMONITOR_MAPPING@1@@Z @ 0x1C005790C (-AddMapping@HOSTVMMONITORMAPPING@@QEAAJPEAUHOST_VMMONITOR_MAPPING@1@@Z.c)
+ *     ?AddMapping@REMOTEVSYNCMAPPING@@QEAAJPEAUREMOTE_VYSNC_MAPPING@1@@Z @ 0x1C004F390 (-AddMapping@REMOTEVSYNCMAPPING@@QEAAJPEAUREMOTE_VYSNC_MAPPING@1@@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0xqppq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -52,5 +52,5 @@ NTSTATUS McTemplateK0xqppq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, 
   va_copy(v11, va3);
   va_copy(v13, va4);
   v14 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &RemoteMonitorAddMapping, a3, 6u, &v4);
+  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &RemoteVSyncAddMapping, a3, 6u, &v4);
 }

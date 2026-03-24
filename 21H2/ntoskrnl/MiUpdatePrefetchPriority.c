@@ -1,92 +1,136 @@
 /*
- * XREFs of MiUpdatePrefetchPriority @ 0x1402464E0
+ * XREFs of MiUpdatePrefetchPriority @ 0x14026E760
  * Callers:
- *     MiValidFault @ 0x140291FC0 (MiValidFault.c)
- *     MiPrefetchJumpVad @ 0x140594ABC (MiPrefetchJumpVad.c)
+ *     MiValidFault @ 0x140209750 (MiValidFault.c)
+ *     MiPrefetchJumpVad @ 0x1405394CC (MiPrefetchJumpVad.c)
  * Callees:
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiUpdatePfnPriority @ 0x14027428C (MiUpdatePfnPriority.c)
- *     MiUnlockVadTree @ 0x1402806E0 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1402ED128 (MiLockVadTree.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x1403126F0 (MiLocateAddress.c)
- *     MiLockTransitionLeafPageEx @ 0x140315D60 (MiLockTransitionLeafPageEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiUpdatePfnPriority @ 0x140270DA4 (MiUpdatePfnPriority.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
  */
 
 char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
+  unsigned __int64 v4; // rsi
   unsigned int v5; // edi
-  ULONG_PTR v6; // rbx
-  unsigned __int64 v7; // rax
-  __int64 v8; // rcx
-  __int64 v9; // rbx
-  __int64 v10; // rcx
-  __int64 Address; // rax
+  ULONG_PTR v6; // r9
+  unsigned __int64 v7; // rbx
+  __int64 CurrentThread; // rax
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rbx
   __int64 v12; // rdx
-  int v14; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v15; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v13; // rbx
+  __int64 v14; // rcx
+  __int64 v15; // r9
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  int v20; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v21; // [rsp+48h] [rbp+10h] BYREF
 
+  v4 = a2;
   v5 = *(_DWORD *)(a1 + 80) & 7;
   v6 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v7 = MI_READ_PTE_LOCK_FREE(v6);
-  v15 = v7;
-  if ( (v7 & 1) != 0 )
+  v7 = *(_QWORD *)v6;
+  LOBYTE(CurrentThread) = 0;
+  if ( v6 >= 0xFFFFF6FB7DBED000uLL )
   {
-    v7 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v15) >> 12) & 0xFFFFFFFFFFLL;
-    if ( v7 > qword_140C50840 )
-      return v7;
-    v8 = 6 * v7;
-    v7 = (*(_QWORD *)(48 * v7 - 0x21FFFFFFFFD8LL) >> 54) & 1LL;
-    if ( !(_DWORD)v7 )
-      return v7;
-    v9 = 8 * v8 - 0x220000000000LL;
-    LODWORD(v7) = *(_BYTE *)(v9 + 35) & 7;
-    if ( (_DWORD)v7 == v5 )
-      return v7;
-    if ( a3 )
+    LOBYTE(CurrentThread) = -8;
+    if ( v6 <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0xC00000) != 0 )
     {
-      LOBYTE(v7) = *(_DWORD *)(a3 + 48) & 0x70;
-      if ( (_BYTE)v7 == 16 )
-        return v7;
-    }
-    else if ( *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28] + 296) )
-    {
-      MiLockVadTree(1LL);
-      Address = MiLocateAddress(a2);
-      if ( !Address || (*(_DWORD *)(Address + 48) & 0x70) == 0x10 )
+      CurrentThread = (__int64)KeGetCurrentThread();
+      if ( *(_BYTE *)(*(_QWORD *)(CurrentThread + 184) + 912LL) != 1
+        && (v7 & 1) != 0
+        && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
       {
-        LOBYTE(v12) = 17;
-        LOBYTE(v7) = MiUnlockVadTree(1LL, v12);
-        return v7;
+        CurrentThread = (__int64)KeGetCurrentThread();
+        a2 = *(_QWORD *)(*(_QWORD *)(CurrentThread + 184) + 1928LL);
+        if ( a2 )
+        {
+          CurrentThread = *(_QWORD *)(a2 + 8 * ((v6 >> 3) & 0x1FF));
+          a2 = v7 | 0x20;
+          if ( (CurrentThread & 0x20) == 0 )
+            a2 = *(_QWORD *)v6;
+          v7 = a2;
+          if ( (CurrentThread & 0x42) != 0 )
+            v7 = a2 | 0x42;
+        }
       }
-      LOBYTE(v12) = 17;
-      MiUnlockVadTree(1LL, v12);
-    }
-    v14 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) )
-    {
-      do
-        KeYieldProcessorEx(&v14);
-      while ( *(__int64 *)(v9 + 24) < 0 );
     }
   }
-  else
+  v21 = v7;
+  if ( (v7 & 1) == 0 )
   {
     if ( !v7 )
-      return v7;
+      return CurrentThread;
     if ( (v7 & 0x400) != 0 )
-      return v7;
+      return CurrentThread;
     if ( (v7 & 0x800) == 0 )
-      return v7;
-    v7 = MiLockTransitionLeafPageEx(v6);
-    v9 = v7;
-    if ( !v7 )
-      return v7;
+      return CurrentThread;
+    CurrentThread = MiLockTransitionLeafPage(v6);
+    v13 = CurrentThread;
+    if ( !CurrentThread )
+      return CurrentThread;
+    goto LABEL_10;
   }
-  if ( (unsigned int)MiGetPfnPriority(v9) != v5 )
-    MiUpdatePfnPriority(v10, v5, 0LL);
-  LOBYTE(v7) = -1;
-  _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  return v7;
+  if ( (unsigned int)MiPteInShadowRange(&v21, a2)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v17 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v21 >> 3) & 0x1FF));
+      v18 = v7 | 0x20;
+      if ( (v17 & 0x20) == 0 )
+        v18 = v7;
+      v7 = v18;
+      if ( (v17 & 0x42) != 0 )
+        v7 = v18 | 0x42;
+    }
+  }
+  v11 = (v7 >> 12) & 0xFFFFFFFFFLL;
+  CurrentThread = *(_QWORD *)(48 * v11 - 0x57FFFFFFFD8LL);
+  v12 = 0x4000000000000LL;
+  if ( (CurrentThread & 0x4000000000000LL) != 0 )
+  {
+    v13 = 48 * v11 - 0x58000000000LL;
+    LODWORD(CurrentThread) = *(_BYTE *)(v13 + 35) & 7;
+    if ( (_DWORD)CurrentThread != v5 )
+    {
+      if ( a3 )
+      {
+        LOBYTE(CurrentThread) = *(_DWORD *)(a3 + 48) & 0x70;
+        if ( (_BYTE)CurrentThread == 16 )
+          return CurrentThread;
+      }
+      else if ( *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 304) )
+      {
+        CurrentThread = (__int64)MiLocateAddress(v4);
+        if ( !CurrentThread )
+          return CurrentThread;
+        LOBYTE(CurrentThread) = *(_DWORD *)(CurrentThread + 48) & 0x70;
+        if ( (_BYTE)CurrentThread == 16 )
+          return CurrentThread;
+      }
+      v20 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
+      {
+        do
+          KeYieldProcessorEx(&v20, v12, v9, v10);
+        while ( *(__int64 *)(v13 + 24) < 0 );
+      }
+LABEL_10:
+      if ( (unsigned int)MiGetPfnPriority(v13) != v5 )
+        MiUpdatePfnPriority(v14, v5, 0LL, v15);
+      LOBYTE(CurrentThread) = -1;
+      _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    }
+  }
+  return CurrentThread;
 }

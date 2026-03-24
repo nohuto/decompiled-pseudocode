@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006E13C
+ * XREFs of ?PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C005F12C
  * Callers:
- *     DxgPresentDisplayOnlyProgressCB @ 0x1C0049070 (DxgPresentDisplayOnlyProgressCB.c)
- *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C006DF1C (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     DxgPresentDisplayOnlyProgressCB @ 0x1C00427D0 (DxgPresentDisplayOnlyProgressCB.c)
+ *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C005EEF8 (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     ?PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006E0C4 (-PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z.c)
+ *     ?PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C005F0C4 (-PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z.c)
  */
 
 void __fastcall DXGDODPRESENT::PresentDisplayOnlySetProgress(
@@ -19,6 +19,6 @@ void __fastcall DXGDODPRESENT::PresentDisplayOnlySetProgress(
   {
     v3 = *((_QWORD *)this + 1);
     if ( v3 )
-      BLTQUEUE::PresentDisplayOnlySetProgress((BLTQUEUE *)(v3 + 2920 * VidPnSourceId), a2);
+      BLTQUEUE::PresentDisplayOnlySetProgress((struct _KEVENT *)(v3 + 2904 * VidPnSourceId), a2);
   }
 }

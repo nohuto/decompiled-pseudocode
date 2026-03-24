@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpAllocateKeyNameEntry @ 0x1403A1D10
+ * XREFs of EtwpAllocateKeyNameEntry @ 0x1403C4F30
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpAllocateKeyNameEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall EtwpAllocateKeyNameEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  return ExAllocatePool2(256LL, ByteSize, 1953985605LL);
+  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x74777445u);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpWnfEnumerateScopeInstances @ 0x1406ABAB8
+ * XREFs of ExpWnfEnumerateScopeInstances @ 0x1406ABA98
  * Callers:
- *     NtDeleteWnfStateName @ 0x1406AB300 (NtDeleteWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x1406AB2E0 (NtDeleteWnfStateName.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
@@ -11,7 +11,7 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(unsigned int a1, struct _EX_RUNDOWN_REF *a2)

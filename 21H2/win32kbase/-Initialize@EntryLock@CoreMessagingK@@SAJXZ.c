@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Initialize@EntryLock@CoreMessagingK@@SAJXZ @ 0x1C00AAB44
+ * XREFs of ?Initialize@EntryLock@CoreMessagingK@@SAJXZ @ 0x1C00740A0
  * Callers:
- *     CoreMsgInitialize @ 0x1C00A9F00 (CoreMsgInitialize.c)
+ *     CoreMsgInitialize @ 0x1C0074028 (CoreMsgInitialize.c)
  * Callees:
  *     <none>
  */
 
 __int64 CoreMessagingK::EntryLock::Initialize(void)
 {
-  struct _KMUTANT *Pool2; // rax
+  struct _KMUTANT *PoolWithTag; // rax
   unsigned int v1; // ebx
 
-  Pool2 = (struct _KMUTANT *)ExAllocatePool2(66LL, 56LL);
+  PoolWithTag = (struct _KMUTANT *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x4C454D43u);
   v1 = 0;
-  if ( Pool2 )
+  if ( PoolWithTag )
   {
-    Mutex = Pool2;
-    KeInitializeMutex(Pool2, 0);
+    P = PoolWithTag;
+    KeInitializeMutex(PoolWithTag, 0);
     CoreMessagingK::EntryLock::s_Initialized = 1;
   }
   else

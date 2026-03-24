@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddSegments@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z @ 0x1C0218E9C
+ * XREFs of ?AddSegments@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z @ 0x1C01E2C24
  * Callers:
- *     ?SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0219370 (-SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
+ *     ?SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E30B0 (-SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
  * Callees:
- *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0016048 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0029644 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericInkMarshaler::AddSegments(
@@ -18,19 +18,19 @@ __int64 __fastcall DirectComposition::CGenericInkMarshaler::AddSegments(
 
   if ( !a2 )
     return 3221225485LL;
-  v8 = *((_QWORD *)this + 18);
+  v8 = *((_QWORD *)this + 17);
   if ( !v8 || a3 % v8 )
     return 3221225485LL;
   v9 = DirectComposition::CDCompDynamicArrayBase::Grow(
-         (DirectComposition::CGenericInkMarshaler *)((char *)this + 104),
+         (DirectComposition::CGenericInkMarshaler *)((char *)this + 96),
          a3,
          0x69674344u);
   if ( v9 >= 0 )
   {
     memmove(
-      (void *)(*((_QWORD *)this + 13) + *((_QWORD *)this + 17) * (*((_QWORD *)this + 16) - a3)),
+      (void *)(*((_QWORD *)this + 12) + *((_QWORD *)this + 16) * (*((_QWORD *)this + 15) - a3)),
       a2,
-      a3 * *((_QWORD *)this + 17));
+      a3 * *((_QWORD *)this + 16));
     *a4 = 1;
   }
   return (unsigned int)v9;

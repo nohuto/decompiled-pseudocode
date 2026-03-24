@@ -1,7 +1,7 @@
 /*
- * XREFs of ?BlockRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1C0033104
+ * XREFs of ?BlockRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1C0028E94
  * Callers:
- *     ?Init@VIDMM_MEMORY_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C00B9FF0 (-Init@VIDMM_MEMORY_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
+ *     ?Init@VIDMM_MEMORY_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C00C3720 (-Init@VIDMM_MEMORY_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,23 +10,28 @@ __int64 __fastcall VIDMM_CPU_HOST_APERTURE::BlockRange(
         VIDMM_CPU_HOST_APERTURE *this,
         struct VIDMM_CPU_HOST_APERTURE_RANGE *a2)
 {
-  int v2; // eax
-  __int64 v4; // r10
-  __int64 v5; // rdx
-  int v6; // r9d
+  int v3; // ecx
+  int v5; // r9d
+  __int64 v6; // r10
+  int v7; // edx
   __int64 result; // rax
 
-  v2 = *(_DWORD *)a2;
-  v4 = *((unsigned int *)a2 + 1);
-  v5 = *((_QWORD *)this + 5);
-  v6 = v4 - v2 + 1;
-  if ( v2 == *((_DWORD *)this + 16) )
-    *((_DWORD *)this + 16) = *(_DWORD *)(v5 + 4 * v4);
+  v3 = *(_DWORD *)a2;
+  v5 = *((_DWORD *)a2 + 1) - *(_DWORD *)a2 + 1;
+  v6 = *((_QWORD *)this + 5);
+  v7 = *(_DWORD *)(v6 + 4LL * *((unsigned int *)a2 + 1));
+  if ( v3 == *((_DWORD *)this + 16) )
+  {
+    *((_DWORD *)this + 16) = v7;
+  }
   else
-    *(_DWORD *)(v5 + 4LL * (unsigned int)(v2 - 1)) = *(_DWORD *)(v5 + 4 * v4);
-  *(_DWORD *)(*((_QWORD *)this + 5) + 4LL * *((unsigned int *)a2 + 1)) = v6;
+  {
+    *(_DWORD *)(v6 + 4LL * (unsigned int)(v3 - 1)) = v7;
+    v6 = *((_QWORD *)this + 5);
+  }
+  *(_DWORD *)(v6 + 4LL * *((unsigned int *)a2 + 1)) = v5;
   result = 0LL;
-  *((_DWORD *)this + 15) -= v6;
-  *((_DWORD *)this + 17) = v6;
+  *((_DWORD *)this + 15) -= v5;
+  *((_DWORD *)this + 17) = v5;
   return result;
 }

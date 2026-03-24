@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x1402234C0
+ * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x140285900
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1402D56AC (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     AlpcpQueueIoCompletion @ 0x1402F6750 (AlpcpQueueIoCompletion.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140287B04 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx
   int v3; // r14d
-  int v6; // r15d
+  __int64 v6; // r15
   int v7; // eax
   int v8; // eax
   __int64 v9; // rax
@@ -26,14 +26,14 @@ __int64 __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
   _DWORD *SchedulerAssist; // r9
   bool v14; // zf
   void *v15; // rdi
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-38h] BYREF
 
   v2 = a2[2];
   memset(&LockHandle, 0, sizeof(LockHandle));
   v3 = 0;
   while ( 1 )
   {
-    v6 = 0;
+    v6 = 0LL;
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)v2, &LockHandle);
     v7 = *(_DWORD *)(v2 + 16);
     if ( v7 )
@@ -45,7 +45,7 @@ __int64 __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
       v8 = *(_DWORD *)(v2 + 20);
       if ( v8 )
       {
-        v6 = -1;
+        v6 = -1LL;
         *(_DWORD *)(v2 + 20) = v8 - 1;
       }
       else
@@ -85,7 +85,7 @@ __int64 __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
     if ( (unsigned __int8)ObReferenceObjectSafeWithTag(*(_QWORD *)(v2 + 40), 1953261124LL) )
     {
       v15 = *(void **)(v2 + 40);
-      AlpcpQueueIoCompletion((_DWORD)v15, *(_QWORD *)(v2 + 48), v6, a1, 0);
+      IoSetIoCompletionEx2((__int64)v15, *(_QWORD *)(v2 + 48), v6, 0, 0LL, 0, a1, 0);
       result = ObfDereferenceObjectWithTag(v15, 0x746C6644u);
       break;
     }

@@ -1,8 +1,9 @@
 /*
- * XREFs of RECTFromSIZERECT @ 0x1C009C78C
+ * XREFs of RECTFromSIZERECT @ 0x1C0102CAC
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     xxxCheckFullScreen @ 0x1C009687C (xxxCheckFullScreen.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     xxxCheckFullScreen @ 0x1C007C55C (xxxCheckFullScreen.c)
+ *     ?ExtendArrangedRectangleByFrameMargin@@YAXPEAUtagWND@@PEAUtagSIZERECT@@@Z @ 0x1C01CF83C (-ExtendArrangedRectangleByFrameMargin@@YAXPEAUtagWND@@PEAUtagSIZERECT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +28,7 @@ __int64 __fastcall RECTFromSIZERECT(_DWORD *a1, _DWORD *a2)
       v6 = 0x7FFFFFFF;
     a1[2] = v6;
   }
-  v4 = a2[1] + a2[3];
+  v4 = a2[3] + a2[1];
   a1[3] = v4;
   result = a2[1] >> 31;
   if ( (unsigned int)v4 >> 31 != (_DWORD)result )

@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlUninitializeOplock @ 0x14023A260
+ * XREFs of FsRtlUninitializeOplock @ 0x1402AEF00
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpClearOwner @ 0x140240DB4 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x14024A390 (FsRtlpModifyThreadPriorities.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     FsRtlpOplockDequeueRH @ 0x1402A386C (FsRtlpOplockDequeueRH.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlpOplockDequeueRH @ 0x140356AA0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlUninitializeOplock(POPLOCK Oplock)
@@ -29,16 +29,16 @@ void __stdcall FsRtlUninitializeOplock(POPLOCK Oplock)
   PFAST_MUTEX v8; // rsi
   __int64 v9; // rbx
   __int64 v10; // rcx
-  void *v11; // rcx
-  _QWORD *v12; // r11
-  __int64 v13; // rcx
-  _QWORD *v14; // rax
-  char *v15; // rbx
-  __int64 v16; // rsi
-  __int64 v17; // rdx
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rsi
+  char *v13; // rbx
+  __int64 v14; // rsi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  _QWORD *v17; // r10
   __int64 v18; // rcx
-  _QWORD *v19; // rcx
-  _QWORD *v20; // rsi
+  _QWORD *v19; // rax
+  void *v20; // rcx
   void *v21; // rcx
 
   v1 = (char *)*Oplock;
@@ -52,22 +52,22 @@ void __stdcall FsRtlUninitializeOplock(POPLOCK Oplock)
       v3 = (char *)*((_QWORD *)v1 + 11);
       if ( v3 == v1 + 88 )
         break;
-      v19 = *(_QWORD **)v3;
-      if ( *((_QWORD **)v3 + 1) != v2 || (char *)v19[1] != v3 )
-LABEL_36:
+      v11 = *(_QWORD **)v3;
+      if ( *((_QWORD **)v3 + 1) != v2 || (char *)v11[1] != v3 )
+LABEL_30:
         __fastfail(3u);
-      *v2 = v19;
-      v19[1] = v2;
-      v20 = (_QWORD *)*((_QWORD *)v3 + 2);
-      if ( v20 )
+      *v2 = v11;
+      v11[1] = v2;
+      v12 = (_QWORD *)*((_QWORD *)v3 + 2);
+      if ( v12 )
       {
-        *((_BYTE *)v20 + 69) = KeAcquireQueuedSpinLock(7uLL);
-        _InterlockedExchange64(v20 + 13, 0LL);
-        KeReleaseQueuedSpinLock(7uLL, *((_BYTE *)v20 + 69));
-        v20[7] = 0LL;
-        v20 = (_QWORD *)*((_QWORD *)v3 + 2);
+        *((_BYTE *)v12 + 69) = KeAcquireQueuedSpinLock(7uLL);
+        _InterlockedExchange64(v12 + 13, 0LL);
+        KeReleaseQueuedSpinLock(7uLL, *((_BYTE *)v12 + 69));
+        v12[7] = 0LL;
+        v12 = (_QWORD *)*((_QWORD *)v3 + 2);
       }
-      (*((void (__fastcall **)(_QWORD, _QWORD *))v3 + 3))(*((_QWORD *)v3 + 4), v20);
+      (*((void (__fastcall **)(_QWORD, _QWORD *))v3 + 3))(*((_QWORD *)v3 + 4), v12);
       ExFreePoolWithTag(v3, 0);
     }
     while ( 1 )
@@ -76,32 +76,32 @@ LABEL_36:
       v5 = (char *)*((_QWORD *)v1 + 5);
       if ( v5 == v1 + 40 )
         break;
-      v15 = v5 - 168;
-      v16 = *((_QWORD *)v5 + 2);
-      v17 = *(_QWORD *)v5;
-      if ( *((_QWORD **)v5 + 1) != v4 || *(char **)(v17 + 8) != v5 )
-        goto LABEL_36;
-      *v4 = v17;
-      *(_QWORD *)(v17 + 8) = v4;
-      v15[69] = KeAcquireQueuedSpinLock(7uLL);
-      _InterlockedExchange64((volatile __int64 *)v15 + 13, 0LL);
-      KeReleaseQueuedSpinLock(7uLL, v15[69]);
-      ObfDereferenceObjectWithTag(*(PVOID *)(v16 + 48), 0x746C6644u);
-      if ( *(_DWORD *)(v16 + 24) == 590400 )
+      v13 = v5 - 168;
+      v14 = *((_QWORD *)v5 + 2);
+      v15 = *(_QWORD *)v5;
+      if ( *((_QWORD **)v5 + 1) != v4 || *(char **)(v15 + 8) != v5 )
+        goto LABEL_30;
+      *v4 = v15;
+      *(_QWORD *)(v15 + 8) = v4;
+      v13[69] = KeAcquireQueuedSpinLock(7uLL);
+      _InterlockedExchange64((volatile __int64 *)v13 + 13, 0LL);
+      KeReleaseQueuedSpinLock(7uLL, v13[69]);
+      ObfDereferenceObjectWithTag(*(PVOID *)(v14 + 48), 0x746C6644u);
+      if ( *(_DWORD *)(v14 + 24) == 590400 )
       {
-        v18 = *((_QWORD *)v15 + 3);
-        *(_OWORD *)v18 = 0LL;
-        *(_QWORD *)(v18 + 16) = 0LL;
-        *(_DWORD *)v18 = 1572865;
-        *(_DWORD *)(v18 + 4) = (*((_DWORD *)v1 + 36) >> 12) & 7;
-        *((_QWORD *)v15 + 7) = 24LL;
+        v16 = *((_QWORD *)v13 + 3);
+        *(_OWORD *)v16 = 0LL;
+        *(_QWORD *)(v16 + 16) = 0LL;
+        *(_DWORD *)v16 = 1572865;
+        *(_DWORD *)(v16 + 4) = (*((_DWORD *)v1 + 36) >> 12) & 7;
+        *((_QWORD *)v13 + 7) = 24LL;
       }
       else
       {
-        *((_QWORD *)v15 + 7) = 8LL;
+        *((_QWORD *)v13 + 7) = 8LL;
       }
-      *((_DWORD *)v15 + 12) = 0;
-      IofCompleteRequest((PIRP)v15, 1);
+      *((_DWORD *)v13 + 12) = 0;
+      IofCompleteRequest((PIRP)v13, 1);
     }
     while ( 1 )
     {
@@ -111,12 +111,12 @@ LABEL_36:
       if ( (*((_DWORD *)v1 + 36) & 0x10000) != 0 && *((_QWORD *)v6 + 7) )
       {
         FsRtlpOplockDequeueRH(*((_QWORD *)v1 + 7));
-        v13 = *v12;
-        v14 = (_QWORD *)v12[1];
-        if ( *(_QWORD **)(*v12 + 8LL) != v12 || (_QWORD *)*v14 != v12 )
-          goto LABEL_36;
-        *v14 = v13;
-        *(_QWORD *)(v13 + 8) = v14;
+        v18 = *v17;
+        v19 = (_QWORD *)v17[1];
+        if ( *(_QWORD **)(*v17 + 8LL) != v17 || (_QWORD *)*v19 != v17 )
+          goto LABEL_30;
+        *v19 = v18;
+        *(_QWORD *)(v18 + 8) = v19;
         if ( *((char **)v1 + 15) == v1 + 120 )
           *((_DWORD *)v1 + 36) &= 0xFFFCFFFF;
         if ( *((_QWORD *)v6 + 5) )
@@ -162,9 +162,9 @@ LABEL_36:
       v8->OldIrql = 0;
       IofCompleteRequest((PIRP)v8, 1);
       *(_QWORD *)v1 = 0LL;
-      v11 = (void *)*((_QWORD *)v1 + 1);
-      if ( v11 )
-        ObfDereferenceObjectWithTag(v11, 0x746C6644u);
+      v20 = (void *)*((_QWORD *)v1 + 1);
+      if ( v20 )
+        ObfDereferenceObjectWithTag(v20, 0x746C6644u);
       FsRtlpModifyThreadPriorities(v1, 0LL, 0LL);
       FsRtlpClearOwner(v1, 0LL);
     }

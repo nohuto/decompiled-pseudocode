@@ -1,22 +1,22 @@
 /*
- * XREFs of GetPrintableOperandValue @ 0x1409D401C
+ * XREFs of GetPrintableOperandValue @ 0x1406EC05C
  * Callers:
- *     GetPrintableOperandValue @ 0x1409D401C (GetPrintableOperandValue.c)
- *     LocalpGetStringForCondition @ 0x1409D6524 (LocalpGetStringForCondition.c)
+ *     LocalpGetStringForCondition @ 0x1406EBBE8 (LocalpGetStringForCondition.c)
+ *     GetPrintableOperandValue @ 0x1406EC05C (GetPrintableOperandValue.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     LocalGetStringForSid @ 0x14069D410 (LocalGetStringForSid.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     SddlpReAlloc @ 0x1409D2A90 (SddlpReAlloc.c)
- *     GetPrintableOperandValue @ 0x1409D401C (GetPrintableOperandValue.c)
- *     ULongAddStringSize @ 0x1409D6B40 (ULongAddStringSize.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ULongAddStringSize @ 0x1406EBFB8 (ULongAddStringSize.c)
+ *     GetPrintableOperandValue @ 0x1406EC05C (GetPrintableOperandValue.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     LocalGetStringForSid @ 0x140926130 (LocalGetStringForSid.c)
+ *     SddlpReAlloc @ 0x140926A3C (SddlpReAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall GetPrintableOperandValue(
-        unsigned __int8 *a1,
+        char *a1,
         int a2,
         __int64 a3,
         unsigned int *a4,
@@ -25,389 +25,359 @@ __int64 __fastcall GetPrintableOperandValue(
         __int64 a7,
         char a8)
 {
-  unsigned int StringForSid; // edi
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v17; // ecx
-  int v18; // ecx
-  int v19; // ecx
-  unsigned int v20; // r13d
-  __int64 v21; // r9
-  __int64 v22; // r13
-  __int64 v23; // rax
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rsi
-  wchar_t *v26; // rax
-  unsigned int v27; // ecx
-  _WORD *v28; // rax
-  unsigned int v29; // ecx
-  unsigned int v30; // r8d
-  __int64 v31; // r9
-  unsigned __int8 *v32; // r10
-  _WORD *v33; // r8
-  SIZE_T v34; // rax
-  __int64 v35; // rcx
-  wchar_t *v36; // rax
-  unsigned int v37; // edx
-  unsigned __int64 v38; // rcx
-  unsigned int v39; // r13d
-  unsigned __int64 v40; // rax
-  unsigned __int64 v41; // rax
-  unsigned __int64 v42; // r14
-  _WORD *v43; // rax
-  unsigned int v44; // r11d
-  __int64 v45; // rbx
-  int v46; // r9d
-  __int64 v47; // rax
-  unsigned __int64 v48; // r8
-  unsigned int v49; // r13d
-  _WORD *v50; // rax
-  unsigned __int64 v51; // rbx
-  unsigned __int8 v52; // r13
-  unsigned __int8 v53; // r14
-  wchar_t *v54; // rax
-  wchar_t *v55; // rcx
-  __int16 v56; // ax
-  wchar_t *v57; // rdx
-  __int64 v58; // rbx
-  wchar_t v59; // ax
-  wchar_t *v60; // rax
-  wchar_t v61; // ax
-  wchar_t v62; // ax
-  __int64 v63; // r9
-  int v65; // [rsp+20h] [rbp-D1h]
-  PVOID P; // [rsp+40h] [rbp-B1h] BYREF
-  unsigned int v67; // [rsp+48h] [rbp-A9h] BYREF
-  unsigned int v68; // [rsp+4Ch] [rbp-A5h]
-  unsigned int v69; // [rsp+50h] [rbp-A1h]
-  unsigned int v70; // [rsp+54h] [rbp-9Dh]
-  __int64 v71; // [rsp+58h] [rbp-99h]
-  __int64 v72; // [rsp+60h] [rbp-91h]
-  int v73[2]; // [rsp+68h] [rbp-89h]
-  SIZE_T v74; // [rsp+70h] [rbp-81h]
-  __int64 v75; // [rsp+78h] [rbp-79h]
-  wchar_t pszFormat[8]; // [rsp+80h] [rbp-71h] BYREF
-  _BYTE Sid[80]; // [rsp+90h] [rbp-61h] BYREF
+  unsigned int PrintableOperandValue; // edi
+  unsigned __int8 v13; // al
+  unsigned int v14; // r13d
+  _WORD *v15; // rax
+  unsigned __int64 v16; // rbx
+  unsigned int v18; // r12d
+  __int64 v19; // r12
+  __int64 v20; // rax
+  unsigned __int64 v21; // rax
+  unsigned __int64 v22; // rbx
+  wchar_t *v23; // rax
+  unsigned int v24; // r13d
+  _WORD *v25; // rax
+  unsigned int v26; // ecx
+  unsigned int v27; // r8d
+  __int64 v28; // rdx
+  char *v29; // r10
+  unsigned int v30; // ecx
+  _WORD *v31; // r8
+  size_t v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  unsigned __int64 v35; // rcx
+  unsigned int v36; // r12d
+  unsigned __int64 v37; // rax
+  unsigned __int64 v38; // rax
+  unsigned __int64 v39; // rbx
+  _WORD *v40; // rax
+  unsigned int v41; // r11d
+  __int64 v42; // r13
+  int v43; // r9d
+  __int64 v44; // rax
+  unsigned __int64 v45; // r8
+  __int64 v46; // r13
+  char v47; // r12
+  char v48; // bl
+  __int64 v49; // rax
+  wchar_t *v50; // r10
+  __int16 v51; // ax
+  wchar_t *v52; // rdx
+  __int64 v53; // rcx
+  wchar_t v54; // ax
+  wchar_t *v55; // rax
+  __int64 v56; // r9
+  wchar_t v57; // ax
+  wchar_t v58; // ax
+  int v59; // [rsp+20h] [rbp-E0h]
+  unsigned int v60; // [rsp+40h] [rbp-C0h]
+  PVOID P; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v62; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v63; // [rsp+54h] [rbp-ACh]
+  unsigned int v64; // [rsp+58h] [rbp-A8h]
+  __int64 v65; // [rsp+60h] [rbp-A0h]
+  __int64 v66; // [rsp+68h] [rbp-98h]
+  __int64 v67; // [rsp+70h] [rbp-90h]
+  int v68[2]; // [rsp+78h] [rbp-88h]
+  __int64 i; // [rsp+80h] [rbp-80h]
+  wchar_t pszFormat[12]; // [rsp+88h] [rbp-78h] BYREF
+  _BYTE Sid1[80]; // [rsp+A0h] [rbp-60h] BYREF
 
-  *(_QWORD *)v73 = a5;
-  v72 = a6;
-  v75 = a7;
-  StringForSid = 0;
+  v67 = a6;
+  v66 = a7;
+  *(_QWORD *)v68 = a5;
+  PrintableOperandValue = 0;
   P = 0LL;
-  v67 = 0;
+  v62 = 0;
   if ( a1 && a3 && a2 )
   {
     *a4 = 1;
-    v13 = *a1 - 1;
-    if ( v13 )
+    v13 = *a1;
+    if ( !*a1 )
     {
-      v14 = v13 - 1;
-      if ( v14 )
+LABEL_92:
+      PrintableOperandValue = 1336;
+      goto LABEL_12;
+    }
+    if ( v13 > 4u )
+    {
+      switch ( v13 )
       {
-        v15 = v14 - 1;
-        if ( v15 )
-        {
-          v16 = v15 - 1;
-          if ( v16 )
+        case 0x10u:
+          if ( (unsigned int)(a2 - 1) >= 4 )
           {
-            v17 = v16 - 12;
-            if ( v17 )
-            {
-              v18 = v17 - 8;
-              if ( v18 )
-              {
-                v19 = v18 - 56;
-                if ( v19 )
-                {
-                  if ( v19 == 1 && (unsigned int)(a2 - 1) >= 4 )
-                  {
-                    v20 = *(_DWORD *)(a1 + 1);
-                    *a4 = 5;
-                    if ( v20 <= 0x44 && a2 - 5 >= v20 )
-                    {
-                      memmove(Sid, a1 + 5, v20);
-                      StringForSid = LocalGetStringForSid(Sid, (wchar_t **)&P, *(__int64 *)v73, v21, v65, a8);
-                      if ( StringForSid )
-                        goto LABEL_93;
-                      *a4 += v20;
-                      v22 = -1LL;
-                      do
-                        ++v22;
-                      while ( *((_WORD *)P + v22) );
-                      v23 = (unsigned int)(v22 + 6);
-                      if ( (unsigned int)v23 < (unsigned int)v22 || (v24 = 2 * v23, v24 > 0xFFFFFFFF) )
-                      {
-LABEL_24:
-                        StringForSid = 534;
-                        goto LABEL_93;
-                      }
-                      v25 = (unsigned int)v24;
-                      v26 = (wchar_t *)SddlpAlloc((unsigned int)v24);
-                      *(_QWORD *)a3 = v26;
-                      if ( v26 )
-                      {
-                        if ( RtlStringCchPrintfW(v26, v25 >> 1, L"SID(%ls)", P) >= 0 )
-                          goto LABEL_93;
-                        goto LABEL_76;
-                      }
-LABEL_50:
-                      StringForSid = 8;
-                      goto LABEL_93;
-                    }
-                  }
-                }
-                else if ( (unsigned int)(a2 - 1) >= 4 )
-                {
-                  v69 = *(_DWORD *)(a1 + 1);
-                  v27 = v69;
-                  *a4 = 5;
-                  if ( v27 )
-                  {
-                    if ( a2 - 5 >= v27 )
-                    {
-                      v71 = 6LL;
-                      v28 = SddlpAlloc(6uLL);
-                      *(_QWORD *)a3 = v28;
-                      if ( v28 )
-                      {
-                        *v28 = 123;
-                        v29 = 0;
-                        v30 = *a4;
-                        v70 = v30;
-                        v31 = v30;
-                        v68 = 0;
-                        while ( 1 )
-                        {
-                          v32 = &a1[v31 + v29];
-                          if ( *v32 == 80 )
-                            break;
-                          StringForSid = GetPrintableOperandValue(
-                                           (_DWORD)v32,
-                                           a2 - v29 - v30,
-                                           (unsigned int)&P,
-                                           (_DWORD)a4,
-                                           *(__int64 *)v73,
-                                           v72,
-                                           v75,
-                                           a8);
-                          if ( StringForSid )
-                            goto LABEL_93;
-                          v68 += *a4;
-                          if ( (int)ULongAddStringSize((unsigned int)v71, P, &v67) < 0 || v67 + 4 < v67 )
-                            goto LABEL_24;
-                          v33 = *(_WORD **)a3;
-                          v34 = v67 + 4;
-                          v35 = -1LL;
-                          v74 = v34;
-                          v67 += 4;
-                          do
-                            ++v35;
-                          while ( v33[v35] );
-                          v36 = (wchar_t *)SddlpReAlloc(2 * v35, v34, v33);
-                          *(_QWORD *)a3 = v36;
-                          if ( !v36 )
-                            goto LABEL_50;
-                          if ( RtlStringCchPrintfW(
-                                 &v36[((unsigned __int64)(unsigned int)v71 >> 1) - 2],
-                                 (unsigned __int64)(unsigned int)(v74 - v71 + 4) >> 1,
-                                 L"%ls, ",
-                                 P) < 0 )
-                            goto LABEL_76;
-                          if ( P )
-                            ExFreePoolWithTag(P, 0);
-                          v37 = v69;
-                          v29 = v68;
-                          v30 = v70;
-                          v71 = (unsigned int)v74;
-                          v31 = v70;
-                          P = 0LL;
-                          if ( v69 <= v68 )
-                          {
-                            v38 = (unsigned __int64)(unsigned int)v74 >> 1;
-                            *(_WORD *)(*(_QWORD *)a3 + 2 * v38 - 8) = 125;
-                            *(_WORD *)(*(_QWORD *)a3 + 2 * v38 - 6) = 0;
-                            *a4 = v37 + v70;
-                            goto LABEL_93;
-                          }
-                        }
-                        StringForSid = 1336;
-                        goto LABEL_93;
-                      }
-                      goto LABEL_50;
-                    }
-                  }
-                }
-                return 1336;
-              }
-              if ( (unsigned int)(a2 - 1) >= 4 )
-              {
-                v39 = *(_DWORD *)(a1 + 1);
-                *a4 = 5;
-                if ( a2 - 5 >= v39 )
-                {
-                  if ( v39 )
-                  {
-                    v40 = 2LL * v39;
-                    if ( v40 <= 0xFFFFFFFF && (int)v40 + 2 >= (unsigned int)v40 )
-                    {
-                      v41 = 2LL * (unsigned int)(v40 + 2);
-                      if ( v41 <= 0xFFFFFFFF )
-                      {
-                        v42 = (unsigned int)v41;
-                        v43 = SddlpAlloc((unsigned int)v41);
-                        *(_QWORD *)a3 = v43;
-                        if ( v43 )
-                        {
-                          *v43 = 35;
-                          v44 = 0;
-                          v45 = 0LL;
-                          do
-                          {
-                            v46 = 2 * v44;
-                            v47 = v45 + *a4;
-                            ++v44;
-                            ++v45;
-                            v48 = a1[v47];
-                            *(_WORD *)(*(_QWORD *)a3 + 2LL * (unsigned int)(v46 + 1)) = a0123456789abcd[v48 >> 4];
-                            *(_WORD *)(*(_QWORD *)a3 + 2LL * (unsigned int)(v46 + 2)) = a0123456789abcd[v48 & 0xF];
-                          }
-                          while ( v44 < v39 );
-                          StringForSid = 0;
-                          *(_WORD *)(*(_QWORD *)a3 + 2 * (v42 >> 1) - 2) = 0;
-                          *a4 += v39;
-                          goto LABEL_93;
-                        }
-                        goto LABEL_50;
-                      }
-                    }
-                    return 534;
-                  }
-                }
-              }
-              return 1336;
-            }
-            if ( (unsigned int)(a2 - 1) < 4 )
-              return 1336;
-            v49 = *(_DWORD *)(a1 + 1);
+            v14 = *(_DWORD *)(a1 + 1);
             *a4 = 5;
-            if ( a2 - 5 < v49 )
-              return 1336;
-            if ( v49 + 6 < v49 )
-              return 534;
-            v50 = SddlpAlloc(v49 + 6);
-            *(_QWORD *)a3 = v50;
-            if ( v50 )
+            if ( a2 - 5 >= v14 )
             {
-              *v50 = 34;
-              memmove((void *)(*(_QWORD *)a3 + 2LL), &a1[*a4], v49);
-              v51 = (unsigned __int64)v49 >> 1;
-              *(_WORD *)(*(_QWORD *)a3 + 2 * v51 + 2) = 34;
-              *(_WORD *)(*(_QWORD *)a3 + 2 * v51 + 4) = 0;
-              *a4 += v49;
-              goto LABEL_93;
+              if ( v14 + 6 >= v14 )
+              {
+                v15 = (_WORD *)SddlpAlloc(v14 + 6);
+                *(_QWORD *)a3 = v15;
+                if ( v15 )
+                {
+                  *v15 = 34;
+                  memmove((void *)(*(_QWORD *)a3 + 2LL), &a1[*a4], v14);
+                  v16 = (unsigned __int64)v14 >> 1;
+                  *(_WORD *)(*(_QWORD *)a3 + 2 * v16 + 2) = 34;
+                  *(_WORD *)(*(_QWORD *)a3 + 2 * v16 + 4) = 0;
+                  *a4 += v14;
+                  goto LABEL_12;
+                }
+                break;
+              }
+              return 534;
             }
-LABEL_62:
-            StringForSid = 8;
-            goto LABEL_93;
           }
-        }
+          return 1336;
+        case 0x18u:
+          if ( (unsigned int)(a2 - 1) < 4 )
+            return 1336;
+          v36 = *(_DWORD *)(a1 + 1);
+          *a4 = 5;
+          if ( a2 - 5 < v36 || !v36 )
+            return 1336;
+          v37 = 2LL * v36;
+          if ( v37 > 0xFFFFFFFF )
+            return 534;
+          if ( (int)v37 + 2 < (unsigned int)v37 )
+            return 534;
+          v38 = 2LL * (unsigned int)(v37 + 2);
+          if ( v38 > 0xFFFFFFFF )
+            return 534;
+          v39 = (unsigned int)v38;
+          v40 = (_WORD *)SddlpAlloc((unsigned int)v38);
+          *(_QWORD *)a3 = v40;
+          if ( v40 )
+          {
+            v41 = 0;
+            *v40 = 35;
+            v42 = 0LL;
+            do
+            {
+              v43 = 2 * v41;
+              v44 = v42 + *a4;
+              ++v41;
+              ++v42;
+              v45 = (unsigned __int8)a1[v44];
+              *(_WORD *)(*(_QWORD *)a3 + 2LL * (unsigned int)(v43 + 1)) = a0123456789abcd[v45 >> 4];
+              *(_WORD *)(*(_QWORD *)a3 + 2LL * (unsigned int)(v43 + 2)) = a0123456789abcd[v45 & 0xF];
+            }
+            while ( v41 < v36 );
+            PrintableOperandValue = 0;
+            *(_WORD *)(*(_QWORD *)a3 + 2 * (v39 >> 1) - 2) = 0;
+            *a4 += v36;
+            goto LABEL_12;
+          }
+          break;
+        case 0x50u:
+          if ( (unsigned int)(a2 - 1) < 4 )
+            return 1336;
+          v24 = *(_DWORD *)(a1 + 1);
+          *a4 = 5;
+          if ( !v24 || a2 - 5 < v24 )
+            return 1336;
+          v65 = 6LL;
+          v25 = (_WORD *)SddlpAlloc(6uLL);
+          *(_QWORD *)a3 = v25;
+          if ( v25 )
+          {
+            *v25 = 123;
+            v26 = 0;
+            v27 = *a4;
+            v60 = *a4;
+            v63 = 0;
+            v28 = v27;
+            for ( i = v27; ; v28 = i )
+            {
+              v29 = &a1[v28 + v26];
+              if ( *v29 == 80 )
+                break;
+              PrintableOperandValue = GetPrintableOperandValue(
+                                        (_DWORD)v29,
+                                        a2 - v26 - v27,
+                                        (unsigned int)&P,
+                                        (_DWORD)a4,
+                                        *(__int64 *)v68,
+                                        v67,
+                                        v66,
+                                        a8);
+              if ( PrintableOperandValue )
+                goto LABEL_12;
+              v63 += *a4;
+              if ( (int)ULongAddStringSize(v65, (__int64)P, (int *)&v62) < 0 )
+                goto LABEL_30;
+              v30 = v62 + 4;
+              v64 = v62 + 4;
+              if ( v62 + 4 < v62 )
+                goto LABEL_30;
+              v31 = *(_WORD **)a3;
+              v62 += 4;
+              v32 = v30;
+              v33 = -1LL;
+              do
+                ++v33;
+              while ( v31[v33] );
+              v34 = SddlpReAlloc(2 * v33, v32, v31);
+              *(_QWORD *)a3 = v34;
+              if ( !v34 )
+                goto LABEL_64;
+              if ( RtlStringCchPrintfW(
+                     (NTSTRSAFE_PWSTR)(v34 + 2 * (((unsigned __int64)(unsigned int)v65 >> 1) - 2)),
+                     (unsigned __int64)(v64 - (unsigned int)v65 + 4) >> 1,
+                     L"%ls, ",
+                     P) < 0 )
+                goto LABEL_28;
+              if ( P )
+                ExFreePoolWithTag(P, 0);
+              v26 = v63;
+              v27 = v60;
+              P = 0LL;
+              v65 = v64;
+              if ( v24 <= v63 )
+              {
+                v35 = (unsigned __int64)v64 >> 1;
+                *(_WORD *)(*(_QWORD *)a3 + 2 * v35 - 8) = 125;
+                *(_WORD *)(*(_QWORD *)a3 + 2 * v35 - 6) = 0;
+                *a4 = v60 + v24;
+                goto LABEL_12;
+              }
+            }
+            goto LABEL_92;
+          }
+          break;
+        case 0x51u:
+          if ( (unsigned int)(a2 - 1) < 4 )
+            return 1336;
+          v18 = *(_DWORD *)(a1 + 1);
+          *a4 = 5;
+          if ( v18 > 0x44 || a2 - 5 < v18 )
+            return 1336;
+          memmove(Sid1, a1 + 5, v18);
+          PrintableOperandValue = LocalGetStringForSid(Sid1, v59, a8);
+          if ( PrintableOperandValue )
+            goto LABEL_12;
+          *a4 += v18;
+          v19 = -1LL;
+          do
+            ++v19;
+          while ( *((_WORD *)P + v19) );
+          v20 = (unsigned int)(v19 + 6);
+          if ( (unsigned int)v20 < (unsigned int)v19 || (v21 = 2 * v20, v21 > 0xFFFFFFFF) )
+          {
+LABEL_30:
+            PrintableOperandValue = 534;
+            goto LABEL_12;
+          }
+          v22 = (unsigned int)v21;
+          v23 = (wchar_t *)SddlpAlloc((unsigned int)v21);
+          *(_QWORD *)a3 = v23;
+          if ( !v23 )
+            break;
+          if ( RtlStringCchPrintfW(v23, v22 >> 1, L"SID(%ls)", P) >= 0 )
+            goto LABEL_12;
+LABEL_28:
+          PrintableOperandValue = 50;
+          goto LABEL_12;
+        default:
+          goto LABEL_92;
       }
+LABEL_64:
+      PrintableOperandValue = 8;
+      goto LABEL_12;
     }
     if ( (unsigned int)(a2 - 1) < 0xA )
       return 1336;
-    v52 = a1[9];
-    v53 = a1[10];
-    v72 = *(_QWORD *)(a1 + 1);
-    v54 = (wchar_t *)SddlpAlloc(0x40uLL);
-    *(_QWORD *)a3 = v54;
-    v55 = v54;
-    if ( !v54 )
-      goto LABEL_62;
-    if ( v52 == 1 )
+    v46 = *(_QWORD *)(a1 + 1);
+    v47 = a1[9];
+    v48 = a1[10];
+    v49 = SddlpAlloc(0x40uLL);
+    *(_QWORD *)a3 = v49;
+    v50 = (wchar_t *)v49;
+    if ( !v49 )
+      goto LABEL_64;
+    if ( v47 == 1 )
     {
-      v56 = 43;
+      v51 = 43;
     }
     else
     {
-      if ( v52 != 2 )
-        goto LABEL_68;
-      v56 = 45;
-    }
-    *v55++ = v56;
+      if ( v47 != 2 )
+      {
 LABEL_68:
-    v57 = pszFormat;
-    v58 = 8LL;
-    if ( v53 == 1 )
-    {
-      *v55++ = 48;
-      do
-      {
-        if ( v58 == -2147483638 )
-          break;
-        v59 = *(wchar_t *)((char *)v57 + (char *)L"%I64o" - (char *)pszFormat);
-        if ( !v59 )
-          break;
-        *v57++ = v59;
-        --v58;
-      }
-      while ( v58 );
-    }
-    else if ( v53 == 3 )
-    {
-      *(_DWORD *)v55 = 7864368;
-      v55 += 2;
-      do
-      {
-        if ( v58 == -2147483638 )
-          break;
-        v61 = *(wchar_t *)((char *)v57 + (char *)L"%I64x" - (char *)pszFormat);
-        if ( !v61 )
-          break;
-        *v57++ = v61;
-        --v58;
-      }
-      while ( v58 );
-    }
-    else
-    {
-      do
-      {
-        if ( v58 == -2147483638 )
-          break;
-        v62 = *(wchar_t *)((char *)v57 + (char *)L"%I64u" - (char *)pszFormat);
-        if ( !v62 )
-          break;
-        *v57++ = v62;
-        --v58;
-      }
-      while ( v58 );
-    }
-    v60 = v57 - 1;
-    if ( v58 )
-      v60 = v57;
-    *v60 = 0;
-    if ( v58 )
-    {
-      if ( !v72 && v53 == 1 )
-        goto LABEL_92;
-      v63 = -v72;
-      if ( v52 != 2 )
-        v63 = v72;
-      if ( RtlStringCchPrintfW(v55, 32 - (((__int64)v55 - *(_QWORD *)a3) >> 1), pszFormat, v63) >= 0 )
-      {
-LABEL_92:
+        v52 = pszFormat;
+        v53 = 8LL;
+        if ( v48 == 1 )
+        {
+          *v50++ = 48;
+          do
+          {
+            if ( v53 == -2147483638 )
+              break;
+            v54 = *(wchar_t *)((char *)v52 + (char *)L"%I64o" - (char *)pszFormat);
+            if ( !v54 )
+              break;
+            *v52++ = v54;
+            --v53;
+          }
+          while ( v53 );
+        }
+        else if ( v48 == 3 )
+        {
+          *(_DWORD *)v50 = 7864368;
+          v50 += 2;
+          do
+          {
+            if ( v53 == -2147483638 )
+              break;
+            v57 = *(wchar_t *)((char *)v52 + (char *)L"%I64x" - (char *)pszFormat);
+            if ( !v57 )
+              break;
+            *v52++ = v57;
+            --v53;
+          }
+          while ( v53 );
+        }
+        else
+        {
+          do
+          {
+            if ( v53 == -2147483638 )
+              break;
+            v58 = *(wchar_t *)((char *)v52 + (char *)L"%I64u" - (char *)pszFormat);
+            if ( !v58 )
+              break;
+            *v52++ = v58;
+            --v53;
+          }
+          while ( v53 );
+        }
+        v55 = v52 - 1;
+        if ( v53 )
+          v55 = v52;
+        *v55 = 0;
+        if ( !v53 )
+          goto LABEL_28;
+        if ( v46 || v48 != 1 )
+        {
+          v56 = -v46;
+          if ( v47 != 2 )
+            v56 = v46;
+          if ( RtlStringCchPrintfW(v50, 32 - (((__int64)v50 - *(_QWORD *)a3) >> 1), pszFormat, v56) < 0 )
+            goto LABEL_28;
+        }
         *a4 += 10;
-LABEL_93:
+LABEL_12:
         if ( P )
           ExFreePoolWithTag(P, 0);
-        return StringForSid;
+        return PrintableOperandValue;
       }
+      v51 = 45;
     }
-LABEL_76:
-    StringForSid = 50;
-    goto LABEL_93;
+    *v50++ = v51;
+    goto LABEL_68;
   }
   return 87LL;
 }

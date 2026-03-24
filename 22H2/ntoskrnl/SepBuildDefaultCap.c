@@ -1,38 +1,38 @@
 /*
- * XREFs of SepBuildDefaultCap @ 0x14085A4D4
+ * XREFs of SepBuildDefaultCap @ 0x1407CCBA4
  * Callers:
- *     SepRmDbInitialization @ 0x140B6DDC4 (SepRmDbInitialization.c)
+ *     SepRmDbInitialization @ 0x140A6E540 (SepRmDbInitialization.c)
  * Callees:
- *     SepBuildDefaultCape @ 0x1403ACAB4 (SepBuildDefaultCape.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SepBuildDefaultCape @ 0x1403CA85C (SepBuildDefaultCape.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SepBuildDefaultCap()
 {
   int v0; // ebx
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   __int128 v2; // xmm0
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
 
   P = 0LL;
-  v0 = SepBuildDefaultCape((__int64 *)&P);
+  v0 = SepBuildDefaultCape(&P);
   if ( v0 >= 0 )
   {
-    Pool2 = ExAllocatePool2(256LL, 72LL, 1884513619LL);
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x70536553u);
+    if ( PoolWithTag )
     {
-      *(_QWORD *)Pool2 = 0LL;
-      *(_QWORD *)(Pool2 + 8) = 0LL;
-      *(_QWORD *)(Pool2 + 16) = 0LL;
-      *(_QWORD *)(Pool2 + 32) = 0LL;
+      *(_QWORD *)PoolWithTag = 0LL;
+      *((_QWORD *)PoolWithTag + 1) = 0LL;
+      *((_QWORD *)PoolWithTag + 2) = 0LL;
+      *((_QWORD *)PoolWithTag + 4) = 0LL;
       v2 = DefaultCapName;
-      *(_QWORD *)(Pool2 + 24) = 0LL;
-      *(_OWORD *)(Pool2 + 40) = v2;
-      *(_DWORD *)(Pool2 + 56) = 1;
-      *(_DWORD *)(Pool2 + 60) = 1;
-      *(_QWORD *)(Pool2 + 64) = P;
-      SepRmDefaultCap = Pool2;
+      *((_QWORD *)PoolWithTag + 3) = 0LL;
+      *((_DWORD *)PoolWithTag + 14) = 1;
+      *(_OWORD *)(PoolWithTag + 40) = v2;
+      *((_DWORD *)PoolWithTag + 15) = 1;
+      *((_QWORD *)PoolWithTag + 8) = P;
+      SepRmDefaultCap = (__int64)PoolWithTag;
       return (unsigned int)v0;
     }
     v0 = -1073741670;

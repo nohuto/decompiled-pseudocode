@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceWorkingSetSwap @ 0x1407B7758
+ * XREFs of EtwTraceWorkingSetSwap @ 0x1406FB2BC
  * Callers:
- *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x140341B10 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x140652CBC (MmOutSwapVirtualAddresses.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x140A43240 (MiInSwapSharedWorkingSetWorker.c)
- *     MmInSwapVirtualAddresses @ 0x140A434D0 (MmInSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403504CC (MmOutSwapVirtualAddresses.c)
+ *     MmInSwapWorkingSet @ 0x140350CF4 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x140350FC0 (MmOutSwapWorkingSet.c)
+ *     MmInSwapVirtualAddresses @ 0x1407349E0 (MmInSwapVirtualAddresses.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x1408D9B50 (MiInSwapSharedWorkingSetWorker.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     PsGetProcessId @ 0x1403446B0 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3)
@@ -53,7 +53,7 @@ BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3
       v12 = a3;
       v9 = KERNEL_MEM_EVENT_WS_INSWAP_START;
       if ( (a2 & 1) == 0 )
-        v9 = KERNEL_MEM_EVENT_WS_OUTSWAP_START;
+        v9 = (__int64 *)&KERNEL_MEM_EVENT_WS_OUTSWAP_START;
     }
     else
     {
@@ -66,7 +66,7 @@ BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3
       {
         v17 = 0;
         v20 = 0;
-        v9 = (__int64 *)&KERNEL_MEM_EVENT_WS_OUTSWAP_STOP;
+        v9 = KERNEL_MEM_EVENT_WS_OUTSWAP_STOP;
         v23 = 0;
         v26 = 0;
         v18 = a3 + 8;

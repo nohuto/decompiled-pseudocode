@@ -1,28 +1,30 @@
 /*
- * XREFs of MonitorCleanupGlobal @ 0x1C006BB94
+ * XREFs of MonitorCleanupGlobal @ 0x1C005DFCC
  * Callers:
- *     DxgkUnload @ 0x1C030A890 (DxgkUnload.c)
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DxgkUnload @ 0x1C0261ED0 (DxgkUnload.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     ?DeleteGlobalCache@EDIDCACHE@DxgMonitor@@SAXXZ @ 0x1C03C55C4 (-DeleteGlobalCache@EDIDCACHE@DxgMonitor@@SAXXZ.c)
- *     ?DestroyStaticUSB4Class@MONITOR_MGR@@SAXXZ @ 0x1C03C7390 (-DestroyStaticUSB4Class@MONITOR_MGR@@SAXXZ.c)
- *     ?MonitorCleanupAdditionalTiming@@YAXXZ @ 0x1C03C8B20 (-MonitorCleanupAdditionalTiming@@YAXXZ.c)
+ *     ?MonitorCleanupAdditionalTiming@@YAXXZ @ 0x1C02F8CF0 (-MonitorCleanupAdditionalTiming@@YAXXZ.c)
  */
 
-__int64 __fastcall MonitorCleanupGlobal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MonitorCleanupGlobal(__int64 a1, __int64 a2)
 {
-  KIRQL v4; // al
+  KIRQL v2; // al
   struct _LIST_ENTRY *Flink; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
 
-  WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
+  WdLogNewEntry5_WdTrace(a1, a2);
   IoUnregisterPlugPlayNotification(MONITOR_MGR::_pInterfaceNotificationHandle);
-  v4 = KeAcquireSpinLockRaiseToDpc(&MONITOR_MGR::_MonitorPendingEventTraceLock);
+  v2 = KeAcquireSpinLockRaiseToDpc(&MONITOR_MGR::_MonitorPendingEventTraceLock);
   Flink = MONITOR_MGR::_MonitorPendingEventTraceHead.Flink;
-  KeReleaseSpinLock(&MONITOR_MGR::_MonitorPendingEventTraceLock, v4);
+  KeReleaseSpinLock(&MONITOR_MGR::_MonitorPendingEventTraceLock, v2);
   if ( Flink != &MONITOR_MGR::_MonitorPendingEventTraceHead )
-    WdLogSingleEntry0(2LL);
-  MONITOR_MGR::DestroyStaticUSB4Class();
+  {
+    v6 = WdLogNewEntry5_WdError(v5, v4);
+    WdLogEvent5_WdError(v6);
+  }
   MonitorCleanupAdditionalTiming();
-  DxgMonitor::EDIDCACHE::DeleteGlobalCache();
   return 0LL;
 }

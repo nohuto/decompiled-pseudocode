@@ -1,16 +1,18 @@
 /*
- * XREFs of DxgkNotifySharedPowerGraphicsPowerTransition @ 0x1C0316124
+ * XREFs of DxgkNotifySharedPowerGraphicsPowerTransition @ 0x1C026C9E4
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C021E730 (DpiPowerArbiterThread.c)
+ *     DpiPowerArbiterThread @ 0x1C019C8E0 (DpiPowerArbiterThread.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?NotifySharedPowerGraphicsPowerTransition@DXGGLOBAL@@QEAAXQEAXW4_DEVICE_POWER_STATE@@E@Z @ 0x1C0313880 (-NotifySharedPowerGraphicsPowerTransition@DXGGLOBAL@@QEAAXQEAXW4_DEVICE_POWER_STATE@@E@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?NotifySharedPowerGraphicsPowerTransition@DXGGLOBAL@@QEAAXQEAXW4_DEVICE_POWER_STATE@@E@Z @ 0x1C026A7BC (-NotifySharedPowerGraphicsPowerTransition@DXGGLOBAL@@QEAAXQEAXW4_DEVICE_POWER_STATE@@E@Z.c)
  */
 
-void __fastcall DxgkNotifySharedPowerGraphicsPowerTransition(__int64 *a1, unsigned int a2, char a3)
+void __fastcall DxgkNotifySharedPowerGraphicsPowerTransition(__int64 *a1, __int64 a2, char a3)
 {
+  unsigned int v4; // edi
   DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL::GetGlobal();
-  DXGGLOBAL::NotifySharedPowerGraphicsPowerTransition(Global, a1, a2, a3);
+  v4 = a2;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  DXGGLOBAL::NotifySharedPowerGraphicsPowerTransition(Global, a1, v4, a3);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_FillEntry@CDS_JOURNAL@@CAXPEAU_ENTRY@1@AEBUD3DKMT_AUGMENT_CDSJ@@PEAVDXGADAPTER@@@Z @ 0x1C03BFD20
+ * XREFs of ?_FillEntry@CDS_JOURNAL@@CAXPEAU_ENTRY@1@AEBUD3DKMT_AUGMENT_CDSJ@@PEAVDXGADAPTER@@@Z @ 0x1C014FE00
  * Callers:
- *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BE948 (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
- *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BEA24 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
- *     ?FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@@_N2PEAVDXGADAPTER@@@Z @ 0x1C03BF28C (-FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@.c)
+ *     ?FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@@_N2PEAVDXGADAPTER@@@Z @ 0x1C014FD6C (-FillPathDescriptor@CDS_JOURNAL@@SAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBUD3DKMT_AUGMENT_CDSJ@.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C0150390 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C02F121C (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
  * Callees:
- *     ?IsUnspecifiedFrequency@@YA_NAEBU_D3DDDI_RATIONAL@@@Z @ 0x1C00169A8 (-IsUnspecifiedFrequency@@YA_NAEBU_D3DDDI_RATIONAL@@@Z.c)
+ *     <none>
  */
 
 void __fastcall CDS_JOURNAL::_FillEntry(
@@ -13,103 +13,76 @@ void __fastcall CDS_JOURNAL::_FillEntry(
         const struct D3DKMT_AUGMENT_CDSJ *a2,
         struct DXGADAPTER *a3)
 {
-  struct CDS_JOURNAL::_ENTRY *v3; // r9
-  const struct D3DKMT_AUGMENT_CDSJ *v4; // r10
-  _DWORD *v5; // r8
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rax
+  int v6; // eax
+  int v7; // eax
+  int v8; // eax
   int v9; // eax
-  __int64 v10; // rcx
+  int v10; // eax
   int v11; // eax
-  __int64 v12; // rcx
-  int v13; // eax
-  __int64 v14; // rcx
-  int v15; // eax
-  __int64 v16; // rcx
-  int v17; // eax
-  __int64 v18; // rcx
-  __int64 v19; // r11
-  _QWORD *v20; // rcx
-  __int64 v21; // r11
-  __int64 v22; // rcx
-  int v23; // eax
-  __int64 v24; // [rsp+40h] [rbp+18h]
+  int v12; // eax
 
-  v3 = a1;
   *((_DWORD *)a1 + 4) = *(_DWORD *)a2;
-  v4 = a2;
   *(_QWORD *)((char *)a1 + 20) = *(_QWORD *)((char *)a2 + 4);
-  v5 = (_DWORD *)((char *)a1 + 44);
   *((_DWORD *)a1 + 7) = *((_DWORD *)a2 + 3);
   *((_DWORD *)a1 + 8) = *((_DWORD *)a2 + 4);
   *((_DWORD *)a1 + 9) = *((_DWORD *)a2 + 5);
   *((_DWORD *)a1 + 10) = *((_DWORD *)a2 + 6);
-  v6 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v6 + 72) & 0x20) != 0 )
+  v4 = *((_QWORD *)a2 + 4);
+  if ( (*(_DWORD *)(v4 + 72) & 0x20) != 0 )
   {
-    v7 = *(_QWORD *)(v6 + 76);
-    *v5 |= 0x20u;
-    *((_QWORD *)v3 + 6) = v7;
+    v5 = *(_QWORD *)(v4 + 76);
+    *((_DWORD *)a1 + 11) |= 0x20u;
+    *((_QWORD *)a1 + 6) = v5;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v8 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v8 + 72) & 0x80u) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x80u) != 0 )
   {
-    v9 = *(_DWORD *)(v8 + 84);
-    *v5 |= 0x80u;
-    *((_DWORD *)v3 + 14) = v9;
+    v6 = *(_DWORD *)(v4 + 84);
+    *((_DWORD *)a1 + 11) |= 0x80u;
+    *((_DWORD *)a1 + 14) = v6;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v10 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v10 + 72) & 0x20000000) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x20000000) != 0 )
   {
-    v11 = *(_DWORD *)(v10 + 88);
-    *v5 |= 0x20000000u;
-    *((_DWORD *)v3 + 15) = v11;
+    v12 = *(_DWORD *)(v4 + 88);
+    *((_DWORD *)a1 + 11) |= 0x20000000u;
+    *((_DWORD *)a1 + 15) = v12;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v12 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v12 + 72) & 0x40000) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x40000) != 0 )
   {
-    v13 = *(_DWORD *)(v12 + 168);
-    *v5 |= 0x40000u;
-    *((_DWORD *)v3 + 16) = v13;
+    v7 = *(_DWORD *)(v4 + 168);
+    *((_DWORD *)a1 + 11) |= 0x40000u;
+    *((_DWORD *)a1 + 16) = v7;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v14 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v14 + 72) & 0x80000) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x80000) != 0 )
   {
-    v15 = *(_DWORD *)(v14 + 172);
-    *v5 |= 0x80000u;
-    *((_DWORD *)v3 + 17) = v15;
+    v8 = *(_DWORD *)(v4 + 172);
+    *((_DWORD *)a1 + 11) |= 0x80000u;
+    *((_DWORD *)a1 + 17) = v8;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v16 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v16 + 72) & 0x100000) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x100000) != 0 )
   {
-    v17 = *(_DWORD *)(v16 + 176);
-    *v5 |= 0x100000u;
-    *((_DWORD *)v3 + 18) = v17;
+    v9 = *(_DWORD *)(v4 + 176);
+    *((_DWORD *)a1 + 11) |= 0x100000u;
+    *((_DWORD *)a1 + 18) = v9;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v18 = *((_QWORD *)a2 + 4);
-  if ( (*(_DWORD *)(v18 + 72) & 0x400000) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x400000) != 0 )
   {
-    LODWORD(v24) = *(_DWORD *)(v18 + 184);
-    HIDWORD(v24) = 1;
-    *((_QWORD *)v3 + 10) = v24;
-    v19 = *((_QWORD *)a2 + 4);
-    if ( *(_DWORD *)(v19 + 64) == 67175425
-      && *(_WORD *)(v19 + 68) == 220
-      && *(_WORD *)(v19 + 70) == 24
-      && !IsUnspecifiedFrequency((const struct _D3DDDI_RATIONAL *)(v19 + 220))
-      && *(_DWORD *)v20
-      && *(_DWORD *)(v21 + 224) )
-    {
-      *((_QWORD *)v3 + 10) = *v20;
-    }
-    *v5 |= 0x400000u;
+    v10 = *(_DWORD *)(v4 + 184);
+    *((_DWORD *)a1 + 11) |= 0x400000u;
+    *((_DWORD *)a1 + 19) = v10;
+    v4 = *((_QWORD *)a2 + 4);
   }
-  v22 = *((_QWORD *)v4 + 4);
-  if ( (*(_DWORD *)(v22 + 72) & 0x200000) != 0 )
+  if ( (*(_DWORD *)(v4 + 72) & 0x200000) != 0 )
   {
-    v23 = *(_DWORD *)(v22 + 180);
-    *v5 |= 0x200000u;
-    *((_DWORD *)v3 + 19) = v23;
+    v11 = *(_DWORD *)(v4 + 180);
+    *((_DWORD *)a1 + 11) |= 0x200000u;
+    *((_DWORD *)a1 + 20) = v11;
   }
 }

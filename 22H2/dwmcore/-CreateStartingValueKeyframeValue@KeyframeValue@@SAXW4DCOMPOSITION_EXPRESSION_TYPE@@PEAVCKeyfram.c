@@ -1,32 +1,38 @@
 /*
- * XREFs of ?CreateStartingValueKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@PEAPEAV1@@Z @ 0x1800F6164
+ * XREFs of ?CreateStartingValueKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@PEAPEAV1@@Z @ 0x1800A9998
  * Callers:
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
  * Callees:
- *     ??2KeyframeValue@@SAPEAX_K@Z @ 0x18003896C (--2KeyframeValue@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ??2CSolidColorLegacyMilBrush@@KAPEAX_K@Z @ 0x1800AC680 (--2CSolidColorLegacyMilBrush@@KAPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8D94 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-_QWORD *__fastcall KeyframeValue::CreateStartingValueKeyframeValue(int a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall KeyframeValue::CreateStartingValueKeyframeValue(unsigned __int64 a1, __int64 a2, _QWORD *a3)
 {
-  _QWORD *result; // rax
-  _QWORD *v7; // rbx
+  int v5; // ebp
+  _DWORD *v6; // rax
+  _DWORD *v7; // rbx
+  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  result = KeyframeValue::operator new();
-  v7 = result;
-  if ( result )
+  v5 = a1;
+  v6 = CSolidColorLegacyMilBrush::operator new(a1);
+  v7 = v6;
+  if ( v6 )
   {
-    *((_DWORD *)result + 2) = 0;
-    *result = &KeyframeValue::`vftable';
-    result = (_QWORD *)CMILRefCountImpl::AddReference((CMILRefCountImpl *)(result + 1));
+    v6[2] = 0;
+    *(_QWORD *)v6 = &KeyframeValue::`vftable';
   }
   else
   {
     v7 = 0LL;
   }
-  v7[3] = a2;
-  *((_DWORD *)v7 + 4) = a1;
-  *((_DWORD *)v7 + 5) = 3;
+  if ( v7 )
+    (**(void (__fastcall ***)(_DWORD *))v7)(v7);
+  v9 = 0LL;
+  v7[5] = 3;
+  *((_QWORD *)v7 + 3) = a2;
+  v7[4] = v5;
   *a3 = v7;
-  return result;
+  return Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v9);
 }

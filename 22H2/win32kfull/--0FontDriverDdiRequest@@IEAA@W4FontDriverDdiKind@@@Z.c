@@ -1,22 +1,21 @@
 /*
- * XREFs of ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C007EF30
+ * XREFs of ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C00FDCD4
  * Callers:
- *     UmfdQueryFontTree @ 0x1C007B900 (UmfdQueryFontTree.c)
- *     UmfdUnloadFontFileInternal @ 0x1C007C648 (UmfdUnloadFontFileInternal.c)
- *     UmfdQueryAdvanceWidths @ 0x1C007E0A0 (UmfdQueryAdvanceWidths.c)
- *     UmfdQueryTrueTypeTable @ 0x1C007EC10 (UmfdQueryTrueTypeTable.c)
- *     UmfdLoadFontFile @ 0x1C007ECF0 (UmfdLoadFontFile.c)
- *     UmfdQueryFontFile @ 0x1C007EEA0 (UmfdQueryFontFile.c)
- *     UmfdDestroyFont @ 0x1C00B38B0 (UmfdDestroyFont.c)
- *     UmfdTrueTypeFreeGlyphset @ 0x1C00B87C4 (UmfdTrueTypeFreeGlyphset.c)
- *     UmfdDrvFreeInternal @ 0x1C0306060 (UmfdDrvFreeInternal.c)
- *     UmfdEscape @ 0x1C03060C0 (UmfdEscape.c)
- *     UmfdFontManagement @ 0x1C0306170 (UmfdFontManagement.c)
- *     UmfdGetTrueTypeFile @ 0x1C0306230 (UmfdGetTrueTypeFile.c)
- *     UmfdQueryGlyphAttrs @ 0x1C03062B0 (UmfdQueryGlyphAttrs.c)
- *     UmfdQueryTrueTypeOutline @ 0x1C0306350 (UmfdQueryTrueTypeOutline.c)
+ *     UmfdDestroyFont @ 0x1C009CE90 (UmfdDestroyFont.c)
+ *     UmfdTrueTypeFreeGlyphset @ 0x1C009F498 (UmfdTrueTypeFreeGlyphset.c)
+ *     UmfdLoadFontFile @ 0x1C00FD9A0 (UmfdLoadFontFile.c)
+ *     UmfdQueryFontFile @ 0x1C00FDAE0 (UmfdQueryFontFile.c)
+ *     UmfdQueryFont @ 0x1C00FDB70 (UmfdQueryFont.c)
+ *     UmfdQueryFontTree @ 0x1C00FDC20 (UmfdQueryFontTree.c)
+ *     UmfdUnloadFontFileInternal @ 0x1C00FDDA8 (UmfdUnloadFontFileInternal.c)
+ *     UmfdQueryTrueTypeOutline @ 0x1C0150540 (UmfdQueryTrueTypeOutline.c)
+ *     UmfdDrvFreeInternal @ 0x1C02DE200 (UmfdDrvFreeInternal.c)
+ *     UmfdEscape @ 0x1C02DE260 (UmfdEscape.c)
+ *     UmfdFontManagement @ 0x1C02DE310 (UmfdFontManagement.c)
+ *     UmfdGetTrueTypeFile @ 0x1C02DE3D0 (UmfdGetTrueTypeFile.c)
+ *     UmfdQueryGlyphAttrs @ 0x1C02DE450 (UmfdQueryGlyphAttrs.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FontDriverDdiRequest::FontDriverDdiRequest(__int64 a1, int a2)

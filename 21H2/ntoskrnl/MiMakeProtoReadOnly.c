@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeProtoReadOnly @ 0x140595FBC
+ * XREFs of MiMakeProtoReadOnly @ 0x14053A898
  * Callers:
- *     MiResolveTransitionFault @ 0x140325B30 (MiResolveTransitionFault.c)
- *     MiMakeFaultPfnActive @ 0x140339240 (MiMakeFaultPfnActive.c)
+ *     MiResolveTransitionFault @ 0x140216790 (MiResolveTransitionFault.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)
@@ -18,6 +18,7 @@ char __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)
   unsigned __int64 v7; // rbx
   int v8; // esi
   struct _KTHREAD *CurrentThread; // rax
+  __int64 v10; // r8
 
   v4 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
   v5 = *(_BYTE *)(a2 + 34) >> 6;
@@ -43,7 +44,7 @@ char __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)
     if ( (_DWORD)CurrentThread )
     {
       v8 = 1;
-      if ( HIBYTE(word_140C51864) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_13;
     }
     else
@@ -61,6 +62,6 @@ char __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)
 LABEL_13:
   *a1 = v7;
   if ( v8 )
-    LOBYTE(CurrentThread) = MiWritePteShadow((__int64)a1, v7);
+    LOBYTE(CurrentThread) = MiWritePteShadow((__int64)a1, v7, v10);
   return (char)CurrentThread;
 }

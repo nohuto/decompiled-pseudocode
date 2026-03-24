@@ -1,12 +1,12 @@
 /*
- * XREFs of TR_InitializeTransferRing @ 0x1C00013FC
+ * XREFs of TR_InitializeTransferRing @ 0x1C0005758
  * Callers:
- *     TR_Enable_Internal @ 0x1C0001298 (TR_Enable_Internal.c)
- *     Endpoint_InitializeTransferRing @ 0x1C0010180 (Endpoint_InitializeTransferRing.c)
- *     Endpoint_ControlEndpointResetCompletion @ 0x1C0037F40 (Endpoint_ControlEndpointResetCompletion.c)
+ *     TR_Enable_Internal @ 0x1C00055F4 (TR_Enable_Internal.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C00102D0 (Endpoint_InitializeTransferRing.c)
+ *     Endpoint_ControlEndpointResetCompletion @ 0x1C00195F0 (Endpoint_ControlEndpointResetCompletion.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
- *     TR_InitializeTransferSegment @ 0x1C003FC2C (TR_InitializeTransferSegment.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     TR_InitializeTransferSegment @ 0x1C003F418 (TR_InitializeTransferSegment.c)
  */
 
 __int64 __fastcall TR_InitializeTransferRing(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAlphaDescriptor@CColorMatrixEffect@@MEAA?AW4FilterEffectOpacity@CFilterEffect@@XZ @ 0x1801C4190
+ * XREFs of ?GetAlphaDescriptor@CColorMatrixEffect@@MEAA?AW4FilterEffectOpacity@CFilterEffect@@XZ @ 0x18016E1E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 __fastcall CColorMatrixEffect::GetAlphaDescriptor(__int64 a1)
 {
-  return *(float *)(a1 + 236) != 0.0 || *(float *)(a1 + 252) != 1.0;
+  return *(float *)(a1 + 212) != 0.0 || *(float *)(a1 + 228) != 1.0;
 }

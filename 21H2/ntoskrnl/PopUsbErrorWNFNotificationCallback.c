@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUsbErrorWNFNotificationCallback @ 0x140995780
+ * XREFs of PopUsbErrorWNFNotificationCallback @ 0x1408EDE50
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopBatteryQueueWork @ 0x14036972C (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407EEE10 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopBatteryQueueWork @ 0x14039AABC (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)
@@ -26,15 +26,15 @@ __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)
     if ( v5 == 12 )
     {
       v2 = v7[2] == 1;
-      PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C22B48);
-      byte_140C22B44 = v2;
+      PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C237C8);
+      byte_140C237C4 = v2;
       if ( v2 )
-        v3 = dword_140C22B40 == 0;
+        v3 = dword_140C237C0 == 0;
       else
-        v3 = dword_140C22B40 == 1;
+        v3 = dword_140C237C0 == 1;
       if ( v3 )
         PopBatteryQueueWork(0x40u);
-      PopReleaseRwLock((ULONG_PTR)&xmmword_140C22B48);
+      PopReleaseRwLock((ULONG_PTR)&xmmword_140C237C8);
     }
     else
     {

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAJI@Z @ 0x1C0014068
+ * XREFs of ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAJI@Z @ 0x1C005F93C
  * Callers:
- *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C0014D9C (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C005CF20 (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C00143F4 (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C005FC8C (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::ReleaseResource(
@@ -15,33 +15,37 @@ __int64 __fastcall DirectComposition::CApplicationChannel::ReleaseResource(
 {
   unsigned int v2; // ebx
   unsigned __int64 v3; // r8
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  struct DirectComposition::CResourceMarshaler *v8; // rdi
-  struct DirectComposition::CResourceMarshaler *v10; // rsi
+  struct DirectComposition::CResourceMarshaler *v6; // rdi
+  struct DirectComposition::CResourceMarshaler *v8; // rsi
 
   v2 = 0;
   v3 = a2 - 1;
-  if ( a2
-    && v3 < *((_QWORD *)this + 10)
-    && (_mm_lfence(),
-        v6 = *((_QWORD *)this + 7),
-        v7 = v3 * *((_QWORD *)this + 11),
-        (v8 = *(struct DirectComposition::CResourceMarshaler **)(v7 + v6)) != 0LL) )
+  if ( a2 && v3 < *((_QWORD *)this + 10) )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v8 + 96LL))(*(_QWORD *)(v7 + v6), 195LL) )
+    _mm_lfence();
+    v6 = *(struct DirectComposition::CResourceMarshaler **)(v3 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( v6 )
+  {
+    if ( (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v6 + 96LL))(
+           v6,
+           195LL) )
     {
-      v10 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)v8 + 25);
-      if ( v10 )
+      v8 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)v6 + 24);
+      if ( v8 )
       {
-        if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)v10 + 200LL))(*((_QWORD *)v8 + 25)) )
-          DirectComposition::CApplicationChannel::ReleaseResource(this, v10);
+        if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)v8 + 200LL))(*((_QWORD *)v6 + 24)) )
+          DirectComposition::CApplicationChannel::ReleaseResource(this, v8);
       }
     }
     DirectComposition::CLinearObjectTableBase::ReleaseHandle(
       (DirectComposition::CApplicationChannel *)((char *)this + 56),
       a2);
-    DirectComposition::CApplicationChannel::ReleaseResource(this, v8);
+    DirectComposition::CApplicationChannel::ReleaseResource(this, v6);
   }
   else
   {

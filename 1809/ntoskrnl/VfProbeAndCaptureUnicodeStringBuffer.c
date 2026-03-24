@@ -1,10 +1,10 @@
 /*
  * XREFs of VfProbeAndCaptureUnicodeStringBuffer @ 0x140925E80
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  *     VfProbeAndCaptureUnicodeString @ 0x140925E48 (VfProbeAndCaptureUnicodeString.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

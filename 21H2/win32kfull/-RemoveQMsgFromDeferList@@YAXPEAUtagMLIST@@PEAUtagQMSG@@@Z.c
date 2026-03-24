@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C0002FC8
+ * XREFs of ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000779C
  * Callers:
- *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C00AD9D0 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
- *     DestroyThreadsMessages @ 0x1C00F6000 (DestroyThreadsMessages.c)
- *     FreeMessageList @ 0x1C00F60B0 (FreeMessageList.c)
- *     MergeDeferredMessagesOfThreadOnQueue @ 0x1C0101550 (MergeDeferredMessagesOfThreadOnQueue.c)
+ *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C0012504 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     DestroyThreadsMessages @ 0x1C00C16B0 (DestroyThreadsMessages.c)
+ *     FreeMessageList @ 0x1C010D820 (FreeMessageList.c)
+ *     MergeDeferredMessagesOfThreadOnQueue @ 0x1C011C31C (MergeDeferredMessagesOfThreadOnQueue.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetFlags@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_SETFLAGS@@@Z @ 0x1802AB4A4
+ * XREFs of ?ProcessSetFlags@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_SETFLAGS@@@Z @ 0x180259418
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicInteropTexture::ProcessSetFlags(
@@ -16,14 +16,14 @@ __int64 __fastcall CHolographicInteropTexture::ProcessSetFlags(
   __int64 v5; // rax
 
   v3 = *((_DWORD *)a3 + 2);
-  v4 = *((_DWORD *)this + 59) ^ v3;
-  *((_DWORD *)this + 59) = v3;
+  v4 = *((_DWORD *)this + 55) ^ v3;
+  *((_DWORD *)this + 55) = v3;
   if ( (v4 & 1) != 0 && (v3 & 1) == 0 )
   {
     v5 = *((_QWORD *)this + 2);
-    *((_BYTE *)this + 240) = 1;
-    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(v5 + 656) + 32LL))(
-      *(_QWORD *)(v5 + 656),
+    *((_BYTE *)this + 224) = 1;
+    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(v5 + 504) + 96LL))(
+      *(_QWORD *)(v5 + 504),
       0LL,
       0x8000LL);
   }

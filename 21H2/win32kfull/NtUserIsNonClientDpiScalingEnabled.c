@@ -1,61 +1,57 @@
 /*
- * XREFs of NtUserIsNonClientDpiScalingEnabled @ 0x1C00E1490
+ * XREFs of NtUserIsNonClientDpiScalingEnabled @ 0x1C00F9BA0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtUserIsNonClientDpiScalingEnabled(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserIsNonClientDpiScalingEnabled(__int64 a1)
 {
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // rsi
-  __int64 *ThreadWin32Thread; // rax
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  _QWORD *v5; // rdi
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rax
+  __int64 v9; // rdx
   __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // rax
-  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-18h]
 
-  v15 = 0LL;
-  v16 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  v4 = ValidateHwnd(a1);
-  v6 = 0LL;
-  v7 = v4;
-  if ( v4 )
+  v13 = 0LL;
+  v12 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v2 = ValidateHwnd(a1);
+  v4 = 0LL;
+  v5 = (_QWORD *)v2;
+  if ( v2 )
   {
-    v8 = 0LL;
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( ThreadWin32Thread )
-      v8 = *ThreadWin32Thread;
-    *(_QWORD *)&v15 = *(_QWORD *)(v8 + 416);
-    *(_QWORD *)(v8 + 416) = &v15;
-    *((_QWORD *)&v15 + 1) = v7;
-    HMLockObject(v7);
-    if ( (*(_DWORD *)(v7 + 320) & 0x80000) != 0 )
+    *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v12;
+    *((_QWORD *)&v12 + 1) = v2;
+    HMLockObject(v2);
+    v7 = v5[5];
+    if ( (*(_DWORD *)(v7 + 288) & 0xF) == 2 )
     {
-      v13 = *(_QWORD *)(v7 + 104);
-      if ( v13 )
+      v8 = v5[13];
+      if ( v8 )
       {
-        v11 = *(_QWORD *)(v7 + 24);
-        if ( v11 )
+        v9 = v5[3];
+        v6 = 0LL;
+        if ( v9 )
         {
-          v11 = *(_QWORD *)(v11 + 8);
-          if ( v11 )
-          {
-            if ( v13 == *(_QWORD *)(v11 + 24) )
-              v6 = 1LL;
-          }
+          v10 = *(_QWORD *)(v9 + 8);
+          if ( v10 )
+            v6 = *(_QWORD *)(v10 + 24);
         }
+        if ( v8 == v6 && (*(_DWORD *)(v7 + 232) & 0x10000000) != 0 )
+          v4 = 1LL;
       }
     }
-    ThreadUnlock1(v11, v10, v12);
+    ThreadUnlock1(v6);
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

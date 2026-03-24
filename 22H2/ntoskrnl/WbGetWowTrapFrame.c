@@ -1,23 +1,23 @@
 /*
- * XREFs of WbGetWowTrapFrame @ 0x140A4DA28
+ * XREFs of WbGetWowTrapFrame @ 0x140963B2C
  * Callers:
- *     WbGetTrapFrame @ 0x1407632EC (WbGetTrapFrame.c)
+ *     WbGetTrapFrame @ 0x1406C60A0 (WbGetTrapFrame.c)
  * Callees:
- *     PspWow64GetContextThread @ 0x1407A069C (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x14067A4EC (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)
+__int64 __fastcall WbGetWowTrapFrame(unsigned int *a1, __int64 a2)
 {
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v4; // rax
   __int16 v5; // si
-  int v6; // ecx
+  int v6; // eax
   int v7; // r8d
   int ContextThread; // edx
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( !Process[1].Affinity.StaticBitmap[30] )
+  v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( !v4 )
     return (unsigned int)-1073741637;
-  v5 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+  v5 = *(_WORD *)(v4 + 8);
   if ( !v5 )
     return (unsigned int)-1073741637;
   if ( v5 == 332 )
@@ -32,19 +32,19 @@ __int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)
   v7 = 416;
 LABEL_7:
   a1[12] = v6;
-  ContextThread = PspWow64GetContextThread(KeGetCurrentThread(), a1 + 12, v7, 0);
+  ContextThread = PspWow64GetContextThread((__int64)KeGetCurrentThread(), a1 + 12, v7, 0);
   if ( ContextThread >= 0 )
   {
     if ( v5 == 332 )
     {
-      *(_QWORD *)(a2 + 8) = (unsigned int)a1[58];
-      *(_QWORD *)a2 = (unsigned int)a1[61];
+      *(_QWORD *)(a2 + 8) = a1[58];
+      *(_QWORD *)a2 = a1[61];
       *(_DWORD *)(a2 + 16) = a1[60];
     }
     else
     {
-      *(_QWORD *)(a2 + 8) = (unsigned int)a1[28];
-      *(_QWORD *)a2 = (unsigned int)a1[26];
+      *(_QWORD *)(a2 + 8) = a1[28];
+      *(_QWORD *)a2 = a1[26];
       *(_DWORD *)(a2 + 16) = a1[29];
     }
   }

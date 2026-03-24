@@ -1,14 +1,14 @@
 /*
- * XREFs of PsDereferenceVsmEnclave @ 0x1408A61A4
+ * XREFs of PsDereferenceVsmEnclave @ 0x14090DEF0
  * Callers:
- *     MiCanDeleteEnclave @ 0x1406471B8 (MiCanDeleteEnclave.c)
- *     PsCallEnclave @ 0x1409B68B0 (PsCallEnclave.c)
- *     PsDeleteVsmEnclave @ 0x1409B74B8 (PsDeleteVsmEnclave.c)
- *     MiInitializeVsmEnclave @ 0x140A3E010 (MiInitializeVsmEnclave.c)
- *     MiTerminateEnclave @ 0x140A3E960 (MiTerminateEnclave.c)
+ *     MiCanDeleteEnclave @ 0x1405495A8 (MiCanDeleteEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x1408D30E8 (MiInitializeVsmEnclave.c)
+ *     MiTerminateEnclave @ 0x1408D3BA8 (MiTerminateEnclave.c)
+ *     PsCallEnclave @ 0x14090D220 (PsCallEnclave.c)
+ *     PsDeleteVsmEnclave @ 0x14090DDA4 (PsDeleteVsmEnclave.c)
  * Callees:
- *     VslCloseSecureHandle @ 0x14054D970 (VslCloseSecureHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     VslCloseSecureHandle @ 0x1404FDF40 (VslCloseSecureHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PsDereferenceVsmEnclave(PVOID P)
@@ -32,21 +32,15 @@ void __fastcall PsDereferenceVsmEnclave(PVOID P)
     if ( *((_BYTE *)P + 76) )
     {
       v5 = (_QWORD *)*((_QWORD *)P + 13);
-      if ( v5 )
+      while ( v5 )
       {
-        do
+        v6 = (_QWORD *)*v5;
+        if ( *v5 || (v6 = (_QWORD *)v5[1]) != 0LL )
         {
-          while ( 1 )
-          {
-            v6 = (_QWORD *)*v5;
-            if ( !*v5 )
-            {
-              v6 = (_QWORD *)v5[1];
-              if ( !v6 )
-                break;
-            }
-            v5 = v6;
-          }
+          v5 = v6;
+        }
+        else
+        {
           v7 = (_QWORD *)(v5[2] & 0xFFFFFFFFFFFFFFFCuLL);
           if ( v7 )
           {
@@ -58,7 +52,6 @@ void __fastcall PsDereferenceVsmEnclave(PVOID P)
           ExFreePoolWithTag(v5, 0);
           v5 = v7;
         }
-        while ( v7 );
       }
     }
     v8 = (void *)*((_QWORD *)P + 15);

@@ -1,107 +1,99 @@
 /*
- * XREFs of MiZeroPhysicalPage @ 0x1402359C4
+ * XREFs of MiZeroPhysicalPage @ 0x1402E6380
  * Callers:
- *     MiGetLargePage @ 0x140267060 (MiGetLargePage.c)
- *     MiZeroLargePage @ 0x14026A28C (MiZeroLargePage.c)
- *     MiPfPutPagesInTransition @ 0x1402715A0 (MiPfPutPagesInTransition.c)
- *     MiIssueHardFault @ 0x14027A1F0 (MiIssueHardFault.c)
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiGetPageTablePages @ 0x14027D03C (MiGetPageTablePages.c)
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiGetPageChain @ 0x140323D70 (MiGetPageChain.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
- *     MiPerformFinalZeroing @ 0x1405ADCD4 (MiPerformFinalZeroing.c)
- *     MiZeroAndConvertPage @ 0x1405B05D0 (MiZeroAndConvertPage.c)
- *     MiZeroWithSystemPtes @ 0x1405B2A90 (MiZeroWithSystemPtes.c)
- *     MiComputeOptimalZeroPath @ 0x140B088E4 (MiComputeOptimalZeroPath.c)
- *     MiInitializeCacheFlushing @ 0x140B08B40 (MiInitializeCacheFlushing.c)
+ *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiZeroAndConvertPage @ 0x1402B70D0 (MiZeroAndConvertPage.c)
+ *     MiZeroLargePage @ 0x1402B71F8 (MiZeroLargePage.c)
+ *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
+ *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiZeroWithSystemPtes @ 0x1403F5238 (MiZeroWithSystemPtes.c)
+ *     MiPerformFinalZeroing @ 0x14054F348 (MiPerformFinalZeroing.c)
+ *     MiComputeOptimalZeroPath @ 0x140A548A8 (MiComputeOptimalZeroPath.c)
+ *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiFillPhysicalPages @ 0x140235AAC (MiFillPhysicalPages.c)
- *     MiChangePageAttribute @ 0x140267E78 (MiChangePageAttribute.c)
- *     MiMakeProtectionPfnCompatible @ 0x14026C61C (MiMakeProtectionPfnCompatible.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     KeZeroPages @ 0x140424F50 (KeZeroPages.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiFillPhysicalPages @ 0x1402E6470 (MiFillPhysicalPages.c)
+ *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     KeZeroPages @ 0x140402DB0 (KeZeroPages.c)
  */
 
-__int64 __fastcall MiZeroPhysicalPage(ULONG_PTR BugCheckParameter2, char a2, int a3)
+unsigned __int64 __fastcall MiZeroPhysicalPage(ULONG_PTR BugCheckParameter2, char a2, __int64 a3, unsigned __int64 a4)
 {
-  ULONG_PTR v6; // r14
-  __int64 v7; // rsi
-  unsigned int v8; // ebp
-  __int64 v9; // rdi
-  char v10; // cl
-  __int64 result; // rax
+  int v4; // r12d
+  __int64 v7; // rbp
+  __int64 v8; // rdi
+  unsigned int v9; // esi
+  ULONG_PTR v10; // r14
+  char v11; // cl
+  unsigned __int64 result; // rax
   int ProtectionPfnCompatible; // eax
   __int64 ValidPte; // rbx
-  int v14; // r15d
-  int v15; // eax
-  __int64 v16; // r11
-  bool v17; // zf
+  __int64 v15; // rdx
+  __int64 v16; // r8
 
-  v6 = 48 * BugCheckParameter2 - 0x220000000000LL;
-  v7 = *(unsigned __int8 *)(v6 + 34) >> 6;
-  v8 = *(unsigned __int8 *)(v6 + 34) >> 6;
+  v4 = a3;
+  v7 = 48 * BugCheckParameter2 - 0x58000000000LL;
+  v8 = *(unsigned __int8 *)(v7 + 34) >> 6;
+  v9 = *(unsigned __int8 *)(v7 + 34) >> 6;
   if ( (a2 & 2) == 0 )
   {
-    v8 = dword_140C507D8[4 * v7 + a3];
-    if ( v8 != (_DWORD)v7 )
-      MiChangePageAttribute(48 * BugCheckParameter2 - 0x220000000000LL, v8, 0LL);
+    v9 = dword_140C4DF98[4 * v8 + (int)a3];
+    if ( v9 != (_DWORD)v8 )
+      MiChangePageAttribute(48 * BugCheckParameter2 - 0x58000000000LL, v9, 0LL);
   }
-  v9 = 0LL;
-  v10 = -2;
+  v10 = 0LL;
+  v11 = -2;
   if ( !KeGetCurrentPrcb()->HyperPte )
-    v10 = a2;
-  if ( (v10 & 1) != 0 )
+    v11 = a2;
+  if ( (v11 & 1) != 0 )
   {
-    v9 = MiReservePtes(&qword_140C534C0, 1LL);
-    if ( v9 )
+    v10 = MiReservePtes((__int64)&qword_140C4EF40, 1u, a3, a4);
+    if ( v10 )
     {
-      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4LL, v6);
-      ValidPte = MiMakeValidPte(v9, BugCheckParameter2, ProtectionPfnCompatible | 0xA0000000);
-      v14 = 0;
-      v15 = MiPteInShadowRange(v9);
-      v16 = 4096LL;
-      if ( v15 )
+      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, v7);
+      ValidPte = MiMakeValidPte(v10, BugCheckParameter2, ProtectionPfnCompatible | 0xA0000000);
+      if ( (unsigned int)MiPteInShadowRange(v10, v15) )
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          v14 = 1;
-          if ( !HIBYTE(word_140C51864) )
-          {
-            v17 = (ValidPte & 1) == 0;
-            goto LABEL_21;
-          }
-        }
-        else if ( ((unsigned int)v16 & HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink)) != 0 )
-        {
-          v17 = (ValidPte & 1) == 0;
-LABEL_21:
-          if ( !v17 )
+          if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
             ValidPte |= 0x8000000000000000uLL;
+          *(_QWORD *)v10 = ValidPte;
+          MiWritePteShadow(v10, ValidPte, v16);
+          goto LABEL_25;
+        }
+        if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+          && (ValidPte & 1) != 0 )
+        {
+          ValidPte |= 0x8000000000000000uLL;
         }
       }
-      *(_QWORD *)v9 = ValidPte;
-      if ( v14 )
-        MiWritePteShadow(v9, ValidPte);
-      KeZeroPages(v9 << 25 >> 16, v16);
-      result = MiReleasePtes(&qword_140C534C0, v9, 1LL);
+      *(_QWORD *)v10 = ValidPte;
+LABEL_25:
+      KeZeroPages((__int64)(v10 << 25) >> 16, 4096LL, v16);
+      result = MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)v10, 1u);
       goto LABEL_10;
     }
   }
   if ( KeGetCurrentPrcb()->HyperPte )
-    v9 = 1LL;
+    v10 = 1LL;
   result = MiFillPhysicalPages(BugCheckParameter2);
 LABEL_10:
-  if ( v8 != (_DWORD)v7 && v8 != a3 )
+  if ( v9 != (_DWORD)v8 && v9 != v4 )
   {
-    if ( v9 )
-      return MiChangePageAttribute(v6, (unsigned int)v7, 0LL);
+    if ( v10 )
+      return MiChangePageAttribute(v7, (unsigned int)v8, 0LL);
   }
   return result;
 }

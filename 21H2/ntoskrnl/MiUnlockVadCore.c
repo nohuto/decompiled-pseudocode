@@ -1,12 +1,11 @@
 /*
- * XREFs of MiUnlockVadCore @ 0x1403106A4
+ * XREFs of MiUnlockVadCore @ 0x1402B2DA0
  * Callers:
- *     MiCaptureWriteWatchDirtyBit @ 0x1402358D4 (MiCaptureWriteWatchDirtyBit.c)
- *     MiMoveDirtyBitsToPfns @ 0x14028E8E0 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1402CF630 (NtGetWriteWatch.c)
- *     MiSetVadDeleted @ 0x14030FC20 (MiSetVadDeleted.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14025B15C (MiCaptureWriteWatchDirtyBit.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockVadCore(__int64 a1, unsigned __int8 a2)

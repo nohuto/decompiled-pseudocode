@@ -1,73 +1,60 @@
 /*
- * XREFs of HalpTimerSwitchToNormalClock @ 0x140508674
+ * XREFs of HalpTimerSwitchToNormalClock @ 0x1404BF5B8
  * Callers:
- *     HalpTimerClockArm @ 0x1403375C0 (HalpTimerClockArm.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x14051E910 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockArm @ 0x14024D550 (HalpTimerClockArm.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D4710 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerClockArm @ 0x1403375C0 (HalpTimerClockArm.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeGetClockTimerResolution @ 0x14056F930 (KeGetClockTimerResolution.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpTimerClockArm @ 0x14024D550 (HalpTimerClockArm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerSwitchToNormalClock(char a1)
 {
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  __int64 v4; // rdx
   struct _KPRCB *CurrentPrcb; // rbx
   __int64 InternalData; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r9
-  unsigned __int8 v9; // al
-  struct _KPRCB *v10; // r9
-  _DWORD *v11; // r8
-  int v12; // eax
-  bool v13; // zf
+  __int64 v6; // rdx
+  __int64 v7; // r9
+  unsigned __int8 v8; // al
+  struct _KPRCB *v9; // r9
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
   __int64 result; // rax
-  char v15; // [rsp+50h] [rbp+8h] BYREF
-  unsigned int v16; // [rsp+58h] [rbp+10h] BYREF
-  int v17; // [rsp+60h] [rbp+18h] BYREF
-  unsigned __int64 v18; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
-  v18 = 0LL;
-  v17 = 0;
-  v16 = 0;
-  v15 = 0;
+  v14 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v4) = 0x8000;
-    else
-      v4 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v4;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   CurrentPrcb = KeGetCurrentPrcb();
   InternalData = HalpTimerGetInternalData(HalpAlwaysOnTimer);
-  (*(void (__fastcall **)(__int64))(v7 + 136))(InternalData);
+  (*(void (__fastcall **)(__int64))(v6 + 136))(InternalData);
   CurrentPrcb->PendingTickFlags &= ~2u;
-  if ( a1 )
-  {
-    KeGetClockTimerResolution(&v16, &v17, &v15);
-    if ( !v15 )
-      HalpTimerClockArm(0, v16, &v18, v8);
-  }
+  if ( a1 && HalpTimerClockStatePeriodic )
+    HalpTimerClockArm(0, (unsigned int)KiLastRequestedTimeIncrement, (__int64)&v14, v7);
   if ( KiIrqlFlags )
   {
-    v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v10 = KeGetCurrentPrcb();
-      v11 = v10->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v13 = (v12 & v11[5]) == 0;
-      v11[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(v10);
+      v8 = KeGetCurrentIrql();
+      if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+      {
+        v9 = KeGetCurrentPrcb();
+        v10 = v9->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v12 = (v11 & v10[5]) == 0;
+        v10[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)v9);
+      }
     }
   }
   result = CurrentIrql;

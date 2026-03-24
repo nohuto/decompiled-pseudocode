@@ -3,11 +3,11 @@
  * Callers:
  *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1400F4CBC (KsepPoolAllocatePaged.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     RtlAssert @ 0x1402EF760 (RtlAssert.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SdbInitDatabaseInMemory @ 0x1405A21DC (SdbInitDatabaseInMemory.c)
  */

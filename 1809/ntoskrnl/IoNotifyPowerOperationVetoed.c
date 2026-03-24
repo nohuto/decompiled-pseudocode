@@ -1,9 +1,9 @@
 /*
- * XREFs of IoNotifyPowerOperationVetoed @ 0x140825CA0
+ * XREFs of IoNotifyPowerOperationVetoed @ 0x140825C80
  * Callers:
  *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
  * Callees:
- *     PnpSetPowerVetoEvent @ 0x1408335AC (PnpSetPowerVetoEvent.c)
+ *     PnpSetPowerVetoEvent @ 0x14083358C (PnpSetPowerVetoEvent.c)
  */
 
 __int64 __fastcall IoNotifyPowerOperationVetoed(__int64 a1, __int64 a2, __int64 a3)

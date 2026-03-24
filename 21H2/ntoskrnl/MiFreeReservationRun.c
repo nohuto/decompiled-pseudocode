@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeReservationRun @ 0x1406EC2D4
+ * XREFs of MiFreeReservationRun @ 0x140645CA8
  * Callers:
- *     MiFreeWorkingSetSwapContext @ 0x1406EC158 (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x1406EC288 (MiFreeReservationRuns.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140710620 (MiFreeWorkingSetSwapContext.c)
+ *     MiFreeReservationRuns @ 0x1407106D0 (MiFreeReservationRuns.c)
  * Callees:
- *     MiGetPageFileHigh @ 0x14025ECDC (MiGetPageFileHigh.c)
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     MiUpdatePageFileHighInPte @ 0x14033B6A0 (MiUpdatePageFileHighInPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiGetPageFileHigh @ 0x1402D2A3C (MiGetPageFileHigh.c)
  */
 
 void __fastcall MiFreeReservationRun(__int64 a1, __int64 a2)

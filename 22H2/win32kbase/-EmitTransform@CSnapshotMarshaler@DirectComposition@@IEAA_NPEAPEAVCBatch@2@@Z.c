@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitTransform@CSnapshotMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0223C08
+ * XREFs of ?EmitTransform@CSnapshotMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9C28
  * Callers:
- *     ?EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0223D60 (-EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9D80 (-EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 char __fastcall DirectComposition::CSnapshotMarshaler::EmitTransform(
@@ -24,8 +24,8 @@ char __fastcall DirectComposition::CSnapshotMarshaler::EmitTransform(
     *(_DWORD *)v6 = 76;
     v4 = v3 + 4;
     memset(v3 + 4, 0, 0x48uLL);
-    *(_DWORD *)v4 = 355;
-    *((_DWORD *)v4 + 1) = *((_DWORD *)this + 8);
+    *(_DWORD *)v4 = 370;
+    *((_DWORD *)v4 + 1) = *((_DWORD *)this + 6);
     *(_OWORD *)(v4 + 8) = *(_OWORD *)((char *)this + 76);
     *(_OWORD *)(v4 + 24) = *(_OWORD *)((char *)this + 92);
     *(_OWORD *)(v4 + 40) = *(_OWORD *)((char *)this + 108);

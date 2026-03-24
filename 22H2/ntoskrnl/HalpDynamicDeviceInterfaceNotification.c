@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpDynamicDeviceInterfaceNotification @ 0x140933870
+ * XREFs of HalpDynamicDeviceInterfaceNotification @ 0x140864910
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
  */
 
 __int64 __fastcall HalpDynamicDeviceInterfaceNotification(char *NotificationStructure, PVOID Context)
 {
   int v2; // ebx
   __int64 v3; // rax
-  void *v4; // rcx
+  struct _DMA_ADAPTER *v4; // rcx
   __int64 v5; // rax
   PDEVICE_OBJECT v6; // rbx
   PDEVICE_OBJECT DeviceObject; // [rsp+40h] [rbp+8h] BYREF
@@ -40,16 +40,16 @@ __int64 __fastcall HalpDynamicDeviceInterfaceNotification(char *NotificationStru
       *(&HalpDynamicDevices + v5) = DeviceObject;
       KeSetEvent(&HalpDynamicDeviceInterfaceLock, 0, 0);
       ObfReferenceObject(v6);
-      ObfDereferenceObject(FileObject);
+      HalPutDmaAdapter((PADAPTER_OBJECT)FileObject);
     }
   }
   else
   {
     KeWaitForSingleObject(&HalpDynamicDeviceInterfaceLock, WrExecutive, 0, 0, 0LL);
-    v4 = *(&HalpDynamicDevices + v2);
+    v4 = (struct _DMA_ADAPTER *)*(&HalpDynamicDevices + v2);
     if ( v4 )
     {
-      ObfDereferenceObject(v4);
+      HalPutDmaAdapter(v4);
       *(&HalpDynamicDevices + v2) = 0LL;
     }
     KeSetEvent(&HalpDynamicDeviceInterfaceLock, 0, 0);

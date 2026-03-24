@@ -1,24 +1,24 @@
 /*
- * XREFs of ?HasInputDispatcherObjects@LegacyInputDispatcher@@AEBA_NXZ @ 0x1C00B7C94
+ * XREFs of ?HasInputDispatcherObjects@LegacyInputDispatcher@@AEBA_NXZ @ 0x1C0049250
  * Callers:
- *     ?PurgeInputDispatcherObjects@LegacyInputDispatcher@@QEAAXXZ @ 0x1C00B7AE0 (-PurgeInputDispatcherObjects@LegacyInputDispatcher@@QEAAXXZ.c)
- *     ?RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z @ 0x1C00B7B60 (-RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z.c)
- *     ?Dispatch@LegacyInputDispatcher@@QEBAJI@Z @ 0x1C00B7C14 (-Dispatch@LegacyInputDispatcher@@QEBAJI@Z.c)
+ *     ?Dispatch@LegacyInputDispatcher@@QEBAJI@Z @ 0x1C00491C4 (-Dispatch@LegacyInputDispatcher@@QEBAJI@Z.c)
+ *     ?RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z @ 0x1C00A9FE0 (-RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z.c)
+ *     ?PurgeInputDispatcherObjects@LegacyInputDispatcher@@QEAAXXZ @ 0x1C00B6E90 (-PurgeInputDispatcherObjects@LegacyInputDispatcher@@QEAAXXZ.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-bool __fastcall LegacyInputDispatcher::HasInputDispatcherObjects(LegacyInputDispatcher *this, __int64 a2, __int64 a3)
+bool __fastcall LegacyInputDispatcher::HasInputDispatcherObjects(LegacyInputDispatcher *this)
 {
-  unsigned int v3; // eax
-  unsigned int v5; // edx
+  unsigned int v1; // eax
+  unsigned int v3; // edx
 
-  v3 = *((_DWORD *)this + 10);
-  v5 = v3;
-  if ( v3 >= *((_DWORD *)this + 13) && v3 != 64 )
+  v1 = *((_DWORD *)this + 10);
+  v3 = v1;
+  if ( v1 >= *((_DWORD *)this + 13) && v1 != 64 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, v3, a3);
-    v5 = *((_DWORD *)this + 10);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3129LL);
+    v3 = *((_DWORD *)this + 10);
   }
-  return v5 != 64;
+  return v3 != 64;
 }

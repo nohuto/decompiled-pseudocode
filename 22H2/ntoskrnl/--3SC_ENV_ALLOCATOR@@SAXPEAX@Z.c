@@ -1,9 +1,9 @@
 /*
- * XREFs of ??3SC_ENV_ALLOCATOR@@SAXPEAX@Z @ 0x1406751A0
+ * XREFs of ??3SC_ENV_ALLOCATOR@@SAXPEAX@Z @ 0x1405C6790
  * Callers:
- *     ??_ENT_DISK@@UEAAPEAXI@Z @ 0x140940370 (--_ENT_DISK@@UEAAPEAXI@Z.c)
+ *     ??_ENT_DISK@@UEAAPEAXI@Z @ 0x14088D7E0 (--_ENT_DISK@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEFD0 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14069ABC0 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 void __fastcall SC_ENV_ALLOCATOR::operator delete(void *a1)

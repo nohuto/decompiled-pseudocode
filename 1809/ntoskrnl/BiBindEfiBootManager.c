@@ -1,21 +1,21 @@
 /*
- * XREFs of BiBindEfiBootManager @ 0x1408F1F8C
+ * XREFs of BiBindEfiBootManager @ 0x1408F1F6C
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1408F23EC (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiNamespaceObjects @ 0x1408F23CC (BiBindEfiNamespaceObjects.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BcdCreateObject @ 0x1408F0808 (BcdCreateObject.c)
- *     BcdDeleteObject @ 0x1408F08A0 (BcdDeleteObject.c)
- *     BiQueryBootEntryOrder @ 0x1408F4304 (BiQueryBootEntryOrder.c)
- *     BiQueryBootOptions @ 0x1408F43D8 (BiQueryBootOptions.c)
- *     BiTranslateBootEntryId @ 0x1408F463C (BiTranslateBootEntryId.c)
- *     BiTranslateBootOrder @ 0x1408F469C (BiTranslateBootOrder.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BcdCreateObject @ 0x1408F07E8 (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x1408F0880 (BcdDeleteObject.c)
+ *     BiQueryBootEntryOrder @ 0x1408F42E4 (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x1408F43B8 (BiQueryBootOptions.c)
+ *     BiTranslateBootEntryId @ 0x1408F461C (BiTranslateBootEntryId.c)
+ *     BiTranslateBootOrder @ 0x1408F467C (BiTranslateBootOrder.c)
  */
 
 __int64 __fastcall BiBindEfiBootManager(__int64 a1, __int64 a2)

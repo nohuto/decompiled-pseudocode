@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vPaintPathEnumRow@@YAXJPEAU_ROW@@KPEAX@Z @ 0x1C014C420
+ * XREFs of ?vPaintPathEnumRow@@YAXJPEAU_ROW@@KPEAX@Z @ 0x1C015BB90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vPaintPathEnumRow(unsigned int a1, struct _ROW *a2, unsigned int a3, _DWORD *a4)

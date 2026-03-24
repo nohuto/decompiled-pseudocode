@@ -1,5 +1,5 @@
 /*
- * XREFs of ExfWaitForRundownProtectionRelease @ 0x14010C420
+ * XREFs of ExfWaitForRundownProtectionRelease @ 0x14010C440
  * Callers:
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  * Callees:

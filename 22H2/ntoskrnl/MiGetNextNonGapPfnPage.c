@@ -1,142 +1,148 @@
 /*
- * XREFs of MiGetNextNonGapPfnPage @ 0x14038D410
+ * XREFs of MiGetNextNonGapPfnPage @ 0x1403B93A0
  * Callers:
- *     MiFreedUnusedPfnPagesWorker @ 0x14038D19C (MiFreedUnusedPfnPagesWorker.c)
- *     MiGetFileOnlyRanges @ 0x14061AD04 (MiGetFileOnlyRanges.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x1403B90F8 (MiFreedUnusedPfnPagesWorker.c)
+ *     MiGetFileOnlyRanges @ 0x14052E254 (MiGetFileOnlyRanges.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiGetNextPageTable @ 0x14028DEA0 (MiGetNextPageTable.c)
+ *     MiGetLeafVa @ 0x1402AD4F0 (MiGetLeafVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     MiPfnDatabaseVaIsUnique @ 0x14052EACC (MiPfnDatabaseVaIsUnique.c)
  */
 
-__int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64 *a2, __int8 a3, int a4)
+__int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64 *a2, char a3, int a4)
 {
-  unsigned __int64 v4; // rbx
-  unsigned __int64 v5; // rdi
+  unsigned __int64 v4; // rdi
+  unsigned __int64 v5; // rbx
   unsigned __int64 v6; // rsi
-  unsigned __int64 v7; // r13
+  unsigned __int64 v7; // r12
+  unsigned __int64 v8; // rsi
+  unsigned int v9; // r13d
   char *AnyMultiplexedVm; // rax
-  unsigned __int64 v9; // r14
-  unsigned __int64 v10; // r15
-  unsigned __int64 i; // r12
+  unsigned __int64 v11; // rbp
+  unsigned __int64 v12; // r14
+  unsigned __int64 i; // r15
   unsigned __int64 NextPageTable; // rax
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rdx
-  unsigned __int64 LeafVa; // r12
-  __int64 v16; // rsi
-  __int64 v17; // r15
-  unsigned int v19; // [rsp+30h] [rbp-48h] BYREF
-  int v20; // [rsp+34h] [rbp-44h]
-  char *v21; // [rsp+38h] [rbp-40h]
+  unsigned __int64 v15; // rcx
+  __int64 v16; // rdx
+  unsigned __int64 LeafVa; // r15
+  __int64 v18; // rsi
+  __int64 v19; // r14
+  unsigned __int64 v21; // r9
+  __int64 v22; // r11
+  __int64 v23; // r10
+  unsigned __int64 v24; // r9
+  unsigned int v25; // [rsp+30h] [rbp-58h] BYREF
+  char *v26; // [rsp+38h] [rbp-50h]
 
   v4 = *a1;
   v5 = 0LL;
-  v19 = 0;
+  v25 = 0;
   if ( !v4 )
     v4 = (((unsigned __int64)MmPfnDatabase >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( *a2 )
   {
     v6 = v4 + 8 * (*a2 >> 12);
     v7 = (__int64)(v6 << 25) >> 16;
-LABEL_5:
-    v6 -= 8LL;
-    goto LABEL_6;
   }
-  v7 = 48 * qword_140C65CA0 - 0x21FFFFFFFFD0LL;
-  v6 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( ((v7 >> 9) & 0xFF8) == 0 )
-    goto LABEL_5;
-LABEL_6:
-  v20 = a4 != 0 ? 7 : 3;
+  else
+  {
+    v7 = 0xFFFFFD8000000000uLL;
+    v6 = 0xFFFFF6FEC0000000uLL;
+  }
+  v8 = v6 - 8;
+  v9 = a4 != 0 ? 7 : 3;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  v21 = AnyMultiplexedVm;
-  v9 = 0LL;
-  v10 = 0LL;
+  v26 = AnyMultiplexedVm;
+  v11 = 0LL;
+  v12 = 0LL;
   i = 0LL;
-  if ( v4 > v6 )
-    goto LABEL_19;
-LABEL_7:
-  if ( v9 )
+  if ( v4 <= v8 )
   {
-    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v9);
-    v9 = 0LL;
-  }
-  NextPageTable = MiGetNextPageTable(v4, v6, 0LL, a3, v20, &v19);
-  v4 = NextPageTable;
-  if ( !NextPageTable )
-    goto LABEL_25;
-  if ( !a4 )
-    v9 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v13 = NextPageTable;
-  if ( !v19 )
-  {
-    while ( (*(_QWORD *)v13 & 1) == 0
-         || qword_140C69858 != (PVOID)qword_140C69860
-         && (PVOID)((*(_QWORD *)v13 >> 12) & 0xFFFFFFFFFFLL) == qword_140C69858 )
+    while ( 2 )
     {
-      v13 += 8LL;
-      if ( v13 > v6 )
+      if ( v11 )
       {
-        v4 = v13;
-        goto LABEL_25;
+        MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v11);
+        v11 = 0LL;
       }
-      if ( (v13 & 0xFFF) == 0 )
+      NextPageTable = MiGetNextPageTable(v4, v8, 0LL, a3, v9, &v25);
+      v4 = NextPageTable;
+      if ( NextPageTable )
       {
-        AnyMultiplexedVm = v21;
-        v4 = v13;
-        goto LABEL_7;
+        if ( !a4 )
+          v11 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        if ( v25 )
+        {
+          v12 = NextPageTable;
+          v15 = NextPageTable;
+          v16 = v25;
+          do
+          {
+            if ( v11 )
+              v11 = ((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            v15 = ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            --v16;
+          }
+          while ( v16 );
+          LeafVa = MiGetLeafVa(v15 + 8);
+          i = LeafVa - MiGetLeafVa(v4);
+          AnyMultiplexedVm = v26;
+          v18 = (__int64)(v8 - v4) >> 3;
+          if ( i >> 12 > v18 + 1 )
+            i = (v18 + 1) << 12;
+        }
+        else
+        {
+          v21 = NextPageTable;
+          while ( !(unsigned int)MiPfnDatabaseVaIsUnique(v21) )
+          {
+            v21 += 8LL;
+            if ( v21 > v8 || (v21 & v22) == 0 )
+              goto LABEL_32;
+          }
+          v12 = v21;
+          if ( v21 )
+          {
+            for ( i = 4096LL; ; i += v23 )
+            {
+              v24 = v21 + 8;
+              if ( v24 > v8 || (v24 & v22) == 0 || !(unsigned int)MiPfnDatabaseVaIsUnique(v24) )
+                break;
+            }
+            goto LABEL_40;
+          }
+LABEL_32:
+          AnyMultiplexedVm = v26;
+          v4 = v21;
+          if ( v21 <= v8 )
+            continue;
+        }
       }
+      else
+      {
+LABEL_40:
+        AnyMultiplexedVm = v26;
+      }
+      break;
     }
-    v10 = v13;
-    for ( i = 4096LL; ; i += 4096LL )
-    {
-      v13 += 8LL;
-      if ( v13 > v6
-        || (v13 & 0xFFF) == 0
-        || (*(_QWORD *)v13 & 1) == 0
-        || qword_140C69858 != (PVOID)qword_140C69860
-        && (PVOID)((*(_QWORD *)v13 >> 12) & 0xFFFFFFFFFFLL) == qword_140C69858 )
-      {
-        break;
-      }
-    }
-LABEL_25:
-    AnyMultiplexedVm = v21;
-    goto LABEL_19;
   }
-  v10 = NextPageTable;
-  v14 = v19;
-  do
+  if ( v11 )
+    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v11);
+  if ( v12 )
   {
-    if ( v9 )
-      v9 = ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v13 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    --v14;
-  }
-  while ( v14 );
-  LeafVa = MiGetLeafVa(v13 + 8);
-  i = LeafVa - MiGetLeafVa(v4);
-  AnyMultiplexedVm = v21;
-  v16 = (__int64)(v6 - v4) >> 3;
-  if ( i >> 12 > v16 + 1 )
-    i = (v16 + 1) << 12;
-LABEL_19:
-  if ( v9 )
-    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v9);
-  if ( v10 )
-  {
-    v4 = v10 + 8 * (i >> 12);
-    v17 = (__int64)(v10 << 25) >> 16;
-    v5 = v7 - v17;
-    if ( i + v17 <= v7 )
+    v4 = v12 + 8 * (i >> 12);
+    v19 = (__int64)(v12 << 25) >> 16;
+    v5 = v7 - v19;
+    if ( i + v19 <= v7 )
       v5 = i;
   }
   else
   {
-    v17 = 0LL;
+    v19 = 0LL;
   }
   *a2 = v5;
   *a1 = v4;
-  return v17;
+  return v19;
 }

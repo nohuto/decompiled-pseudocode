@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciCheckAmdK8 @ 0x14033F450
+ * XREFs of HalpPciCheckAmdK8 @ 0x1403094DC
  * Callers:
- *     HalpPciAccessMmConfigSpace @ 0x14033F334 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPciAccessMmConfigSpace @ 0x1403093C0 (HalpPciAccessMmConfigSpace.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpPciCheckAmdK8(__int16 a1, char a2, char a3)
@@ -35,7 +35,5 @@ LABEL_5:
   {
     return 0;
   }
-  if ( a1 || a2 )
-    return 0;
-  return (a3 & 0x1Fu) >= 0x18;
+  return !a1 && !a2 && (a3 & 0x1Fu) >= 0x18;
 }

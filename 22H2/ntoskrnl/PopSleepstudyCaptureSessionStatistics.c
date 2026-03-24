@@ -1,80 +1,57 @@
 /*
- * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x140878A34
+ * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x1408FA218
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140775738 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     SshSessionManagerTraceCsEnterReason @ 0x1408788A8 (SshSessionManagerTraceCsEnterReason.c)
- *     SshSessionManagerTraceCsExitReason @ 0x1409A188C (SshSessionManagerTraceCsExitReason.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  */
 
-struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(
-        __int64 a1,
-        _QWORD *a2,
-        __int64 a3,
-        __int64 a4,
-        _QWORD *a5)
+struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
-  __int64 v8; // rax
-  char *v10; // r10
-  char *v11; // r11
-  int v12; // r9d
-  char *v13; // r8
-  unsigned __int64 v14; // rdx
-  _DWORD *v15; // rbx
+  __int64 v7; // rax
+  unsigned int i; // r9d
+  char *v9; // r8
+  unsigned __int64 v10; // rdx
 
   PopWdiCurrentScenario = (__int64)a2;
   PopWdiCurrentScenarioInstanceId = a3;
-  memset(a5, 0, 0x150uLL);
-  v8 = *a2 - *(_QWORD *)&NullGuid.Data1;
+  memset((void *)a4, 0, 0x148uLL);
+  v7 = *a2 - *(_QWORD *)&NullGuid.Data1;
   if ( *a2 == *(_QWORD *)&NullGuid.Data1 )
-    v8 = a2[1] - *(_QWORD *)NullGuid.Data4;
-  if ( v8 )
+    v7 = a2[1] - *(_QWORD *)NullGuid.Data4;
+  if ( !v7 )
   {
-    SshSessionManagerTraceCsEnterReason((__int64)&unk_140C3BD10 + 104 * (unsigned int)dword_140C3BD08);
-    goto LABEL_5;
+    for ( i = 1; i <= 2; ++i )
+    {
+      v9 = (char *)&unk_140C1E518 + 96 * (((unsigned __int8)dword_140C1E510 - (unsigned __int8)i) & 7);
+      v10 = (*((_QWORD *)v9 + 3) - *((_QWORD *)v9 + 2)) / 0xAuLL;
+      if ( *(_DWORD *)v9 == 2 )
+      {
+        *(_BYTE *)(a4 + 272) = 1;
+        *(_QWORD *)(a4 + 304) = v10;
+        *(_DWORD *)(a4 + 312) = *((_DWORD *)v9 + 10);
+        *(_DWORD *)(a4 + 320) = *((_DWORD *)v9 + 12);
+        *(_DWORD *)(a4 + 316) = *((_DWORD *)v9 + 11);
+        *(_DWORD *)(a4 + 324) = *((_DWORD *)v9 + 13);
+      }
+      else if ( *(_DWORD *)v9 == 1 )
+      {
+        *(_QWORD *)(a4 + 280) = v10;
+        *(_DWORD *)(a4 + 288) = *((_DWORD *)v9 + 10);
+        *(_DWORD *)(a4 + 296) = *((_DWORD *)v9 + 12);
+        *(_DWORD *)(a4 + 292) = *((_DWORD *)v9 + 11);
+        *(_DWORD *)(a4 + 300) = *((_DWORD *)v9 + 13);
+        break;
+      }
+    }
   }
-  v10 = 0LL;
-  v11 = 0LL;
-  v12 = 1;
-  while ( 1 )
-  {
-    v13 = (char *)&unk_140C3BD10 + 104 * (((unsigned __int8)dword_140C3BD08 - (unsigned __int8)v12) & 7);
-    v14 = (*((_QWORD *)v13 + 3) - *((_QWORD *)v13 + 2)) / 0xAuLL;
-    if ( *(_DWORD *)v13 != 2 )
-      break;
-    *((_BYTE *)a5 + 272) = 1;
-    v11 = v13;
-    a5[38] = v14;
-    *((_DWORD *)a5 + 78) = *((_DWORD *)v13 + 10);
-    *((_DWORD *)a5 + 80) = *((_DWORD *)v13 + 12);
-    *((_DWORD *)a5 + 79) = *((_DWORD *)v13 + 11);
-    *((_DWORD *)a5 + 81) = *((_DWORD *)v13 + 13);
-LABEL_11:
-    if ( (unsigned int)++v12 > 2 )
-      goto LABEL_12;
-  }
-  if ( *(_DWORD *)v13 != 1 )
-    goto LABEL_11;
-  a5[35] = v14;
-  v10 = v13;
-  *((_DWORD *)a5 + 72) = *((_DWORD *)v13 + 10);
-  *((_DWORD *)a5 + 74) = *((_DWORD *)v13 + 12);
-  *((_DWORD *)a5 + 73) = *((_DWORD *)v13 + 11);
-  *((_DWORD *)a5 + 75) = *((_DWORD *)v13 + 13);
-LABEL_12:
-  v15 = (_DWORD *)((char *)&unk_140C3BD10 + 104 * (unsigned int)dword_140C3BD08);
-  SshSessionManagerTraceCsExitReason(v10, v11, v15);
-  if ( *v15 == 3 && qword_140C6B0A8 )
-    qword_140C6B0A8();
-LABEL_5:
-  PopReleaseRwLock(&PopSleepstudySessionLock);
-  PopCaptureSleepStudyStatistics(a2, a3, a4, a5);
-  if ( qword_140C6B060 )
-    qword_140C6B060(a2, a3);
+  PopReleaseRwLock((ULONG_PTR)&PopSleepstudySessionLock);
+  PopCaptureSleepStudyStatistics(a2, a3, a4);
+  if ( qword_140C54410 )
+    qword_140C54410(a2, a3);
   return PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
 }

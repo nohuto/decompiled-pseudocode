@@ -1,17 +1,17 @@
 /*
- * XREFs of MiScrubProcessPhysicalPages @ 0x14097D7F8
+ * XREFs of MiScrubProcessPhysicalPages @ 0x1408D6640
  * Callers:
- *     MiScrubProcesses @ 0x140983B80 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x14030ACF0 (RtlFindSetBitsEx.c)
- *     MiGetAwePageSize @ 0x1405AAF90 (MiGetAwePageSize.c)
- *     MiLockAwePagesExclusive @ 0x1405AB970 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x1405AB9B8 (MiLockAweVadsExclusive.c)
- *     MiScrubAwePage @ 0x1405AC670 (MiScrubAwePage.c)
- *     MiUnlockAwePagesExclusive @ 0x1405AC8D4 (MiUnlockAwePagesExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1405AC950 (MiUnlockAweVadsExclusive.c)
- *     MiMakePageBad @ 0x1405C4E28 (MiMakePageBad.c)
- *     MiScrubInterrupted @ 0x1405C4F88 (MiScrubInterrupted.c)
+ *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
+ *     ExGetCallBackBlockRoutine @ 0x140382160 (ExGetCallBackBlockRoutine.c)
+ *     MiLockAwePagesExclusive @ 0x14054CFB8 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
+ *     MiScrubAwePage @ 0x14054DD3C (MiScrubAwePage.c)
+ *     MiUnlockAwePagesExclusive @ 0x14054DFA0 (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
+ *     MiMakePageBad @ 0x140563934 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x140563A58 (MiScrubInterrupted.c)
  */
 
 char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
@@ -20,48 +20,59 @@ char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
   _KPROCESS *Process; // rbx
   unsigned __int64 v4; // rax
   __int64 v5; // rbx
-  unsigned __int64 v6; // rsi
-  unsigned __int64 AwePageSize; // r15
+  unsigned __int64 v6; // r14
+  unsigned __int64 v7; // rsi
   __int64 v8; // rcx
+  BOOL v9; // eax
   unsigned __int64 SetBits; // rax
-  unsigned __int64 v10; // rbp
-  unsigned __int64 v11; // r14
-  ULONG_PTR i; // rsi
+  _DWORD *v11; // r9
+  unsigned __int64 v12; // rbp
+  __int64 v13; // r14
+  ULONG_PTR v14; // rsi
+  unsigned __int64 i; // r15
+  __int64 v16; // r8
+  _DWORD *v17; // r9
+  unsigned __int64 v19; // [rsp+58h] [rbp+10h]
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
   MiLockAweVadsExclusive((__int64)CurrentThread);
-  v4 = Process[1].ActiveProcessors.StaticBitmap[28];
-  v5 = *(_QWORD *)(v4 + 376);
+  v4 = Process[1].ActiveProcessorsPadding[8];
+  v5 = *(_QWORD *)(v4 + 392);
   if ( v5 )
   {
-    v6 = 0LL;
-    AwePageSize = MiGetAwePageSize(*(_QWORD *)(v4 + 376));
+    v19 = ExGetCallBackBlockRoutine(*(_QWORD *)(v4 + 392));
+    v6 = v19;
+    v7 = 0LL;
     MiLockAwePagesExclusive(v8, (__int64)CurrentThread);
-    do
+    v9 = MiScrubInterrupted(a1);
+    while ( !v9 )
     {
-      if ( MiScrubInterrupted(a1) )
+      SetBits = RtlFindSetBitsEx((unsigned __int64 *)(v5 + 16), 1uLL, v7);
+      v12 = SetBits;
+      if ( SetBits < v7 || SetBits == -1LL )
         break;
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)(v5 + 24), 1uLL, v6);
-      v10 = SetBits;
-      if ( SetBits < v6 || SetBits == -1LL )
-        break;
-      v11 = 0LL;
-      for ( i = SetBits * AwePageSize; v11 < AwePageSize; ++v11 )
+      v13 = SetBits * v6;
+      v14 = 48 * v13 - 0x58000000000LL;
+      for ( i = 0LL; i < v19; ++i )
       {
-        if ( (int)MiScrubAwePage(a1, i, v5) < 0 )
-          MiMakePageBad(i, 1);
+        if ( (int)MiScrubAwePage(a1, v13, (_DWORD *)v5, v11) < 0 )
+          MiMakePageBad(v14, 1LL, v16, v17);
         MiUnlockAwePagesExclusive(v5, (__int64)CurrentThread);
         MiUnlockAweVadsExclusive((__int64)CurrentThread);
-        ++i;
+        ++v13;
+        v14 += 48LL;
         MiLockAweVadsExclusive((__int64)CurrentThread);
         MiLockAwePagesExclusive(v5, (__int64)CurrentThread);
-        if ( !_bittest64(*(const signed __int64 **)(v5 + 32), v10) )
+        if ( !_bittest64(*(const signed __int64 **)(v5 + 24), v12) )
           break;
       }
-      v6 = v10 + 1;
+      v7 = v12 + 1;
+      if ( v12 + 1 >= *(_QWORD *)(v5 + 16) )
+        break;
+      v9 = MiScrubInterrupted(a1);
+      v6 = v19;
     }
-    while ( v10 + 1 < *(_QWORD *)(v5 + 24) );
     MiUnlockAwePagesExclusive(v5, (__int64)CurrentThread);
   }
   return MiUnlockAweVadsExclusive((__int64)CurrentThread);

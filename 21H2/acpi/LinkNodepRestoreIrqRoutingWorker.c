@@ -1,13 +1,13 @@
 /*
- * XREFs of LinkNodepRestoreIrqRoutingWorker @ 0x1C006C300
+ * XREFs of LinkNodepRestoreIrqRoutingWorker @ 0x1C006C060
  * Callers:
- *     LinkNodeRestoreHardwareState @ 0x1C006C22C (LinkNodeRestoreHardwareState.c)
+ *     LinkNodeRestoreHardwareState @ 0x1C006BF7C (LinkNodeRestoreHardwareState.c)
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     LinkNodepRunSrsAsync @ 0x1C006C470 (LinkNodepRunSrsAsync.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     LinkNodepRunSrsAsync @ 0x1C006C1D0 (LinkNodepRunSrsAsync.c)
  */
 
 __int64 __fastcall LinkNodepRestoreIrqRoutingWorker(__int64 a1, unsigned int a2, __int64 a3, char *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall LinkNodepRestoreIrqRoutingWorker(__int64 a1, unsigned int a2,
   __int64 v10; // rdx
   bool v11; // zf
   __int64 *v12; // rax
-  volatile signed __int32 *v13; // rbp
+  __int64 v13; // rbp
   __int64 v14; // rax
   KIRQL v15; // dl
 
@@ -34,13 +34,13 @@ __int64 __fastcall LinkNodepRestoreIrqRoutingWorker(__int64 a1, unsigned int a2,
     {
       v10 = *(unsigned int *)(v9 + 32);
       *((_DWORD *)a4 + 2) = v10;
-      a2 = LinkNodepRunSrsAsync(*(_QWORD *)(v9 + 600), v10, LinkNodepRestoreIrqRoutingWorker, a4);
+      a2 = LinkNodepRunSrsAsync(*(_QWORD *)(v9 + 560), v10, LinkNodepRestoreIrqRoutingWorker, a4);
       v11 = a2 == 259;
     }
     else
     {
-      v12 = AMLIGetNamedChild(*(__int64 **)(v9 + 600), 1397310559);
-      v13 = (volatile signed __int32 *)v12;
+      v12 = AMLIGetNamedChild(*(__int64 **)(v9 + 560), 1397310559);
+      v13 = (__int64)v12;
       if ( !v12 )
         goto LABEL_8;
       a2 = AMLIAsyncEvalObject(v12, 0LL, 0, 0LL, LinkNodepRestoreIrqRoutingWorker, a4);

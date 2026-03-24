@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C0079C54
+ * XREFs of ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C00A8B64
  * Callers:
- *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077730 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     EngMapFontFileFDInternal @ 0x1C00794EC (EngMapFontFileFDInternal.c)
- *     EngUnmapFontFileFD @ 0x1C0114080 (EngUnmapFontFileFD.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4E0C (EngMapFontFileFDInternal.c)
+ *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7F20 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011D6F0 (EngUnmapFontFileFD.c)
  * Callees:
- *     ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00799B0 (-MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z.c)
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00A73BC (-MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
  */
 
 void __fastcall vUnmapFileFD(struct _FILEVIEW *a1, char a2)

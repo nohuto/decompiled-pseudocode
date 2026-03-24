@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SupportsAnyPointerType@CInteractionProcessor@@QEBAHXZ @ 0x18018F0E4
+ * XREFs of ?SupportsAnyPointerType@CInteractionProcessor@@QEBAHXZ @ 0x18022F60C
  * Callers:
- *     ?IsStrictlyHoverPointerSource@CInteraction@@QEBA_NXZ @ 0x1801830BC (-IsStrictlyHoverPointerSource@CInteraction@@QEBA_NXZ.c)
+ *     ?IsStrictlyHoverPointerSource@CInteraction@@QEBA_NXZ @ 0x180234AF0 (-IsStrictlyHoverPointerSource@CInteraction@@QEBA_NXZ.c)
  * Callees:
- *     ?SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z @ 0x1800DFF30 (-SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z.c)
+ *     ?SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z @ 0x1800C9AA0 (-SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z.c)
  */
 
 __int64 __fastcall CInteractionProcessor::SupportsAnyPointerType(CInteractionProcessor *this)

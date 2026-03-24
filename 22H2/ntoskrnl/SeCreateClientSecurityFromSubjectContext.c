@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1407E63B0
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1406A1230
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     SepCreateClientSecurityEx @ 0x14071D960 (SepCreateClientSecurityEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     RtlSidDominatesForTrust @ 0x140346DF0 (RtlSidDominatesForTrust.c)
+ *     SepCreateClientSecurityEx @ 0x1406D6F20 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
@@ -15,43 +15,45 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
         BOOLEAN ServerIsRemote,
         PSECURITY_CLIENT_CONTEXT ClientContext)
 {
-  PACCESS_TOKEN ClientToken; // rbx
+  struct _DMA_ADAPTER *ClientToken; // rbx
   __int64 v5; // r14
-  unsigned __int8 v6; // r15
-  int v11; // ebp
+  char v6; // r15
+  int v11; // r8d
+  int v12; // ebp
   NTSTATUS ClientSecurity; // edi
-  __int64 v14; // r11
-  char v15; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v15; // r11
+  char v16; // [rsp+90h] [rbp+8h] BYREF
 
-  ClientToken = SubjectContext->ClientToken;
+  ClientToken = (struct _DMA_ADAPTER *)SubjectContext->ClientToken;
   v5 = 0LL;
   v6 = 0;
-  v15 = 0;
+  v16 = 0;
   if ( !ClientToken )
-    ClientToken = SubjectContext->PrimaryToken;
-  ObfReferenceObjectWithTag(ClientToken, 0x63436553u);
+    ClientToken = (struct _DMA_ADAPTER *)SubjectContext->PrimaryToken;
+  ObfReferenceObject(ClientToken);
   if ( SubjectContext->ClientToken )
   {
-    v11 = 2;
+    v12 = 2;
     RtlSidDominatesForTrust(
       *((_QWORD *)SubjectContext->PrimaryToken + 138),
       *((_QWORD *)SubjectContext->ClientToken + 138),
-      &v15);
-    if ( !v15 )
+      &v16);
+    if ( !v16 )
     {
       v6 = 1;
-      v5 = v14;
+      v5 = v15;
     }
   }
   else
   {
-    v11 = 1;
+    v12 = 1;
   }
+  LOBYTE(v11) = ServerIsRemote;
   ClientSecurity = SepCreateClientSecurityEx(
-                     (__int64)ClientToken,
-                     (__int64)ClientSecurityQos,
-                     ServerIsRemote,
+                     (_DWORD)ClientToken,
+                     (_DWORD)ClientSecurityQos,
                      v11,
+                     v12,
                      0,
                      SubjectContext->ImpersonationLevel,
                      0,
@@ -60,6 +62,6 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
                      v5,
                      (__int64)ClientContext);
   if ( ClientSecurity < 0 || !ClientSecurityQos->ContextTrackingMode )
-    ObfDereferenceObjectWithTag(ClientToken, 0x63436553u);
+    HalPutDmaAdapter(ClientToken);
   return ClientSecurity;
 }

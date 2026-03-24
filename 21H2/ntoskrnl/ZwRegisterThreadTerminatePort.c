@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRegisterThreadTerminatePort @ 0x14041E640
+ * XREFs of ZwRegisterThreadTerminatePort @ 0x1403FD180
  * Callers:
  *     <none>
  * Callees:

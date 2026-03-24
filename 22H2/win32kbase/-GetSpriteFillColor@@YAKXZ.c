@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetSpriteFillColor@@YAKXZ @ 0x1C003668C
+ * XREFs of ?GetSpriteFillColor@@YAKXZ @ 0x1C00C7470
  * Callers:
- *     xxxInitProcessInfo @ 0x1C0036A38 (xxxInitProcessInfo.c)
+ *     xxxInitProcessInfo @ 0x1C00B8BC4 (xxxInitProcessInfo.c)
  * Callees:
- *     ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0036928 (-RtlStringCchCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00369B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0010F04 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00C2E14 (-RtlStringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 GetSpriteFillColor(void)
@@ -14,76 +14,80 @@ __int64 GetSpriteFillColor(void)
   unsigned int v0; // edi
   __int64 v1; // rdx
   __int64 v2; // rcx
-  __int64 v3; // r8
   __int64 CurrentProcess; // rax
-  ULONG64 v5; // r8
-  int v6; // ecx
-  WCHAR *v7; // rdx
-  ULONG64 v8; // r8
+  ULONG64 v4; // r8
+  int v5; // r14d
+  ULONG64 v6; // r15
+  ULONG64 v7; // rcx
+  _BYTE **v8; // rax
   int v9; // eax
-  const unsigned __int16 *v10; // r8
-  const unsigned __int16 *v11; // rcx
-  int v12; // eax
-  void *KeyHandle; // [rsp+30h] [rbp-2A8h] BYREF
-  ULONG ResultLength[2]; // [rsp+38h] [rbp-2A0h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-298h] BYREF
-  const unsigned __int16 *v17; // [rsp+50h] [rbp-288h]
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-280h] BYREF
-  _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-248h] BYREF
-  int v20; // [rsp+94h] [rbp-244h]
-  int v21; // [rsp+98h] [rbp-240h]
-  unsigned int v22; // [rsp+9Ch] [rbp-23Ch]
-  WCHAR SourceString[264]; // [rsp+B0h] [rbp-228h] BYREF
+  size_t *v10; // r8
+  size_t *v11; // rcx
+  int v13; // [rsp+30h] [rbp-2B8h]
+  ULONG ResultLength; // [rsp+3Ch] [rbp-2ACh] BYREF
+  void *KeyHandle; // [rsp+40h] [rbp-2A8h] BYREF
+  size_t *v16; // [rsp+48h] [rbp-2A0h]
+  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-298h] BYREF
+  __int128 v18; // [rsp+60h] [rbp-288h]
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-278h] BYREF
+  char KeyValueInformation[4]; // [rsp+A8h] [rbp-240h] BYREF
+  int v21; // [rsp+ACh] [rbp-23Ch]
+  int v22; // [rsp+B0h] [rbp-238h]
+  unsigned int v23; // [rsp+B4h] [rbp-234h]
+  WCHAR SourceString[264]; // [rsp+C0h] [rbp-228h] BYREF
 
   v0 = 0;
   RtlStringCchCopyW(
     SourceString,
     0x104uLL,
-    L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\");
-  v17 = 0LL;
-  CurrentProcess = PsGetCurrentProcess(v2, v1, v3);
-  v5 = *(_QWORD *)(PsGetProcessPeb(CurrentProcess) + 32) + 96LL;
-  if ( v5 >= MmUserProbeAddress )
-    v5 = MmUserProbeAddress;
-  v6 = *(_DWORD *)v5;
-  LODWORD(KeyHandle) = v6;
-  *(_DWORD *)&DestinationString.Length = v6;
-  v7 = *(WCHAR **)(v5 + 8);
-  DestinationString.Buffer = v7;
-  if ( ((unsigned __int8)v7 & 1) != 0 )
-    ExRaiseDatatypeMisalignment();
-  v8 = (ULONG64)v7 + (unsigned __int16)v6 + 2;
-  if ( v8 <= (unsigned __int64)v7 || v8 >= MmUserProbeAddress )
-    ExRaiseAccessViolation();
-  if ( (unsigned __int16)v6 > WORD1(KeyHandle) )
-  {
-    if ( (v6 & 1) == 0 )
-      goto LABEL_16;
-    goto LABEL_15;
-  }
+    (size_t *)L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\");
+  v18 = 0LL;
+  v16 = 0LL;
+  CurrentProcess = PsGetCurrentProcess(v2, v1);
+  v4 = *(_QWORD *)(PsGetProcessPeb(CurrentProcess) + 32) + 96LL;
+  if ( v4 >= MmUserProbeAddress )
+    v4 = MmUserProbeAddress;
+  v5 = *(_DWORD *)v4;
+  v13 = *(_DWORD *)v4;
+  LODWORD(v18) = *(_DWORD *)v4;
+  v6 = *(_QWORD *)(v4 + 8);
+  *((_QWORD *)&v18 + 1) = v6;
   if ( (v6 & 1) != 0 )
+    ExRaiseDatatypeMisalignment();
+  v7 = v6 + (unsigned __int16)v5 + 2LL;
+  v8 = (_BYTE **)MmUserProbeAddress;
+  if ( v7 >= MmUserProbeAddress || (unsigned __int16)v5 > HIWORD(v13) )
+    goto LABEL_9;
+  if ( (v5 & 1) != 0 )
+    goto LABEL_10;
+  if ( v7 <= v6 )
   {
-LABEL_15:
-    LODWORD(KeyHandle) = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 378LL);
-LABEL_16:
-    ExRaiseAccessViolation();
+LABEL_9:
+    if ( (v5 & 1) == 0 )
+    {
+LABEL_11:
+      **v8 = 0;
+      goto LABEL_12;
+    }
+LABEL_10:
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 645LL);
+    v8 = (_BYTE **)MmUserProbeAddress;
+    goto LABEL_11;
   }
-  v9 = (unsigned __int16)v6;
-  v10 = (WCHAR *)((char *)v7 + (unsigned __int16)v6);
-  v17 = v10;
+LABEL_12:
+  v9 = (unsigned __int16)v5;
+  v10 = (size_t *)(v6 + (unsigned __int16)v5);
+  v16 = v10;
   while ( v9 )
   {
-    v11 = v10 - 1;
-    if ( *(v10 - 1) == 92 )
+    v11 = (size_t *)((char *)v10 - 2);
+    if ( *((_WORD *)v10 - 1) == 92 )
       break;
-    --v10;
-    v17 = v11;
+    v10 = (size_t *)((char *)v10 - 2);
+    v16 = v11;
     v9 -= 2;
   }
-  v12 = RtlStringCchCatW(SourceString, 0x104uLL, v10);
-  ResultLength[1] = v12;
-  if ( v12 >= 0 )
+  if ( (int)RtlStringCchCatW(SourceString, 260LL, v10) >= 0 )
   {
     DestinationString = 0LL;
     *(&ObjectAttributes.Length + 1) = 0;
@@ -97,7 +101,7 @@ LABEL_16:
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      ResultLength[0] = 0;
+      ResultLength = 0;
       RtlInitUnicodeString(&DestinationString, L"SpriteFillColor");
       if ( ZwQueryValueKey(
              KeyHandle,
@@ -105,11 +109,11 @@ LABEL_16:
              KeyValuePartialInformation,
              KeyValueInformation,
              0x14u,
-             ResultLength) >= 0
-        && v20 == 4
-        && v21 == 4 )
+             &ResultLength) >= 0
+        && v21 == 4
+        && v22 == 4 )
       {
-        v0 = v22;
+        v0 = v23;
       }
       ZwClose(KeyHandle);
     }

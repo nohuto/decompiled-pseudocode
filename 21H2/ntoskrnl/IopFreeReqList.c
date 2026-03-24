@@ -1,14 +1,14 @@
 /*
- * XREFs of IopFreeReqList @ 0x14082045C
+ * XREFs of IopFreeReqList @ 0x140753068
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1405611AC (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081FECC (PnpFreeResourceRequirementsForAssignTable.c)
- *     IopAllocateBootResourcesInternal @ 0x140820308 (IopAllocateBootResourcesInternal.c)
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
- *     IopQueryConflictListInternal @ 0x14095F29C (IopQueryConflictListInternal.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1403BDF0C (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140753010 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopAllocateBootResourcesInternal @ 0x1407B46D0 (IopAllocateBootResourcesInternal.c)
+ *     IopQueryConflictListInternal @ 0x1408B98EC (IopQueryConflictListInternal.c)
  * Callees:
- *     IopFreeReqAlternative @ 0x1408204B4 (IopFreeReqAlternative.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IopFreeReqAlternative @ 0x1407530C0 (IopFreeReqAlternative.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeReqList(_QWORD *P)

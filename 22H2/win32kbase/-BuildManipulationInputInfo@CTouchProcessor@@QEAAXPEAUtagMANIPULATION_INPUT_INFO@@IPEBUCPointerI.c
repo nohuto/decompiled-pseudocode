@@ -1,19 +1,17 @@
 /*
- * XREFs of ?BuildManipulationInputInfo@CTouchProcessor@@QEAAXPEAUtagMANIPULATION_INPUT_INFO@@IPEBUCPointerInputFrame@@@Z @ 0x1C01BACC0
+ * XREFs of ?BuildManipulationInputInfo@CTouchProcessor@@QEAAXPEAUtagMANIPULATION_INPUT_INFO@@IPEBUCPointerInputFrame@@@Z @ 0x1C0188590
  * Callers:
- *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTEROP_CALLBACK@@@Z @ 0x1C01C2E20 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTE.c)
+ *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z @ 0x1C018E9D0 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z.c)
  * Callees:
- *     ApiSetAddMagnificationOutputTransform @ 0x1C005880C (ApiSetAddMagnificationOutputTransform.c)
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
- *     ?GetUserWindow@CInputDest@@QEBAPEAUtagWND@@XZ @ 0x1C00D4174 (-GetUserWindow@CInputDest@@QEBAPEAUtagWND@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     GetPointerInfoSize @ 0x1C00DFE3A (GetPointerInfoSize.c)
- *     ?GetInputProcessContext@CTouchProcessor@@AEAAPEAUtagPROCESSINFO@@PEAX@Z @ 0x1C00E4100 (-GetInputProcessContext@CTouchProcessor@@AEAAPEAUtagPROCESSINFO@@PEAX@Z.c)
- *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C00E47EE (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
- *     ?CalcManipulationInputInfoSize@CTouchProcessor@@AEAAKK@Z @ 0x1C01BB0A0 (-CalcManipulationInputInfoSize@CTouchProcessor@@AEAAKK@Z.c)
- *     ?CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z @ 0x1C01BFD5C (-CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z.c)
- *     ConvertPointCoordinates @ 0x1C01EFC28 (ConvertPointCoordinates.c)
+ *     ApiSetAddMagnificationOutputTransform @ 0x1C0045258 (ApiSetAddMagnificationOutputTransform.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     GetPointerInfoSize @ 0x1C0128CCC (GetPointerInfoSize.c)
+ *     ?CalcManipulationInputInfoSize@CTouchProcessor@@AEAAKK@Z @ 0x1C01888B0 (-CalcManipulationInputInfoSize@CTouchProcessor@@AEAAKK@Z.c)
+ *     ?CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z @ 0x1C018C2E4 (-CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z.c)
+ *     ?GetInputProcessContext@CTouchProcessor@@AEAAPEAUtagPROCESSINFO@@PEAX@Z @ 0x1C0191A80 (-GetInputProcessContext@CTouchProcessor@@AEAAPEAUtagPROCESSINFO@@PEAX@Z.c)
+ *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C01967C0 (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
+ *     ConvertPointCoordinates @ 0x1C01B3830 (ConvertPointCoordinates.c)
  */
 
 void __fastcall CTouchProcessor::BuildManipulationInputInfo(
@@ -29,106 +27,66 @@ void __fastcall CTouchProcessor::BuildManipulationInputInfo(
   size_t v11; // r12
   unsigned int PointerInfoSize; // eax
   struct tagPROCESSINFO *InputProcessContext; // rax
-  int v14; // eax
+  int v14; // ecx
   unsigned int v15; // ebp
-  __int64 v16; // rsi
-  _QWORD *v17; // r14
-  __int128 v18; // xmm1
-  __int128 v19; // xmm2
-  __int64 v20; // rcx
-  int v21; // edx
-  int v22; // r13d
-  int v23; // edx
-  __int64 v24; // rcx
-  struct tagWND *UserWindow; // rax
-  BOOL v26; // ecx
-  __int64 v27; // rax
-  __int64 v28; // rax
-  unsigned int v29; // [rsp+80h] [rbp+8h]
+  __int64 v16; // rdx
+  __int64 v17; // rsi
+  _QWORD *v18; // r14
+  __int64 v19; // rcx
+  int v20; // edx
 
-  v29 = CTouchProcessor::CountMTNodesReadyForRouting(this, a4);
-  v7 = v29;
-  if ( a3 < CTouchProcessor::CalcManipulationInputInfoSize(v8, v29) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 16964);
-  if ( a3 >= CTouchProcessor::CalcManipulationInputInfoSize(v9, v29) )
+  v7 = CTouchProcessor::CountMTNodesReadyForRouting(this, a4);
+  if ( a3 < CTouchProcessor::CalcManipulationInputInfoSize(v8, v7) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 16350);
+  if ( a3 >= CTouchProcessor::CalcManipulationInputInfoSize(v9, v7) )
   {
     v11 = 0LL;
     if ( *((_DWORD *)a4 + 12) )
     {
-      PointerInfoSize = GetPointerInfoSize(*(_DWORD *)(*((_QWORD *)a4 + 30) + 168LL));
+      PointerInfoSize = GetPointerInfoSize(*(_DWORD *)(*((_QWORD *)a4 + 17) + 168LL));
       v11 = PointerInfoSize;
       if ( !PointerInfoSize )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 16974);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 16360);
     }
     InputProcessContext = CTouchProcessor::GetInputProcessContext(v10, *((void **)a4 + 8));
     if ( InputProcessContext )
       v14 = *((_DWORD *)InputProcessContext + 14);
     else
       v14 = 0;
-    *((_DWORD *)a2 + 36) = v14;
+    *((_DWORD *)a2 + 10) = v14;
     v15 = 0;
-    *((_DWORD *)a2 + 37) = 0;
-    if ( *((_DWORD *)a4 + 12) )
+    *((_DWORD *)a2 + 11) = 0;
+    for ( LODWORD(v16) = 0; v15 < *((_DWORD *)a4 + 12); ++v15 )
     {
-      do
+      v17 = *((_QWORD *)a4 + 17) + 480LL * v15;
+      if ( (unsigned int)CPointerInfoNode::IsForManipulationThread((CPointerInfoNode *)v17) )
       {
-        v16 = *((_QWORD *)a4 + 30) + 480LL * v15;
-        if ( CPointerInfoNode::IsForManipulationThread((CPointerInfoNode *)v16) )
-        {
-          v17 = (_QWORD *)((char *)a2 + 240 * *((unsigned int *)a2 + 37) + 160);
-          memmove(v17, (const void *)(v16 + 168), v11);
-          v18 = *(_OWORD *)(v16 + 400);
-          v19 = *(_OWORD *)(v16 + 416);
-          v20 = 240LL * *((unsigned int *)a2 + 37);
-          *(_OWORD *)((char *)a2 + v20 + 304) = *(_OWORD *)(v16 + 384);
-          *(_OWORD *)((char *)a2 + v20 + 320) = v18;
-          *(_OWORD *)((char *)a2 + v20 + 336) = v19;
-          if ( (*(_DWORD *)(v16 + 4) & 0x80u) == 0 )
-            v21 = 0;
-          else
-            v21 = *(_DWORD *)(v16 + 348);
-          *((_DWORD *)a2 + 60 * *((unsigned int *)a2 + 37) + 88) = v21;
-          *((_QWORD *)a2 + 30 * *((unsigned int *)a2 + 37) + 45) = *(_QWORD *)(v16 + 448);
-          *((_DWORD *)a2 + 60 * *((unsigned int *)a2 + 37) + 92) = *(_DWORD *)(v16 + 456);
-          v22 = *(_DWORD *)v17;
-          v17[3] = 0LL;
-          if ( (unsigned int)ApiSetAddMagnificationOutputTransform((__int64)(v17 + 4)) && v22 != 5 )
-            ConvertPointCoordinates(v17[4]);
-          if ( (unsigned int)ApiSetAddMagnificationOutputTransform((__int64)(v17 + 6)) && v22 != 5 )
-            ConvertPointCoordinates(v17[6]);
-          ++*((_DWORD *)a2 + 37);
-        }
-        ++v15;
+        v18 = (_QWORD *)((char *)a2 + 240 * v16);
+        memmove(v18 + 7, (const void *)(v17 + 168), v11);
+        v19 = 240LL * *((unsigned int *)a2 + 11);
+        *(_OWORD *)((char *)a2 + v19 + 200) = *(_OWORD *)(v17 + 384);
+        *(_OWORD *)((char *)a2 + v19 + 216) = *(_OWORD *)(v17 + 400);
+        *(_OWORD *)((char *)a2 + v19 + 232) = *(_OWORD *)(v17 + 416);
+        if ( (*(_DWORD *)(v17 + 4) & 0x80u) == 0 )
+          v20 = 0;
+        else
+          v20 = *(_DWORD *)(v17 + 348);
+        *((_DWORD *)a2 + 60 * *((unsigned int *)a2 + 11) + 62) = v20;
+        *((_QWORD *)a2 + 30 * *((unsigned int *)a2 + 11) + 32) = *(_QWORD *)(v17 + 448);
+        *((_DWORD *)a2 + 60 * *((unsigned int *)a2 + 11) + 66) = *(_DWORD *)(v17 + 456);
+        v18[10] = 0LL;
+        if ( (unsigned int)ApiSetAddMagnificationOutputTransform((__int64)(v18 + 11)) )
+          ConvertPointCoordinates(v18[11]);
+        if ( (unsigned int)ApiSetAddMagnificationOutputTransform((__int64)(v18 + 13)) )
+          ConvertPointCoordinates(v18[13]);
+        LODWORD(v16) = ++*((_DWORD *)a2 + 11);
       }
-      while ( v15 < *((_DWORD *)a4 + 12) );
-      v7 = v29;
     }
-    if ( *((_DWORD *)a2 + 37) != v7 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 17040);
+    if ( (_DWORD)v16 != v7 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 16423);
     *(_OWORD *)a2 = *(_OWORD *)((char *)a4 + 72);
     *((_OWORD *)a2 + 1) = *(_OWORD *)((char *)a4 + 88);
-    *((_OWORD *)a2 + 2) = *(_OWORD *)((char *)a4 + 104);
-    *((_OWORD *)a2 + 3) = *(_OWORD *)((char *)a4 + 120);
-    *((_OWORD *)a2 + 4) = *(_OWORD *)((char *)a4 + 136);
-    *((_OWORD *)a2 + 5) = *(_OWORD *)((char *)a4 + 152);
-    *((_OWORD *)a2 + 6) = *(_OWORD *)((char *)a4 + 168);
-    *((_OWORD *)a2 + 7) = *(_OWORD *)((char *)a4 + 184);
-    *((_OWORD *)a2 + 8) = *(_OWORD *)((char *)a4 + 200);
-    v23 = *((_DWORD *)a2 + 38) ^ (*((_DWORD *)a2 + 38) ^ (*((int *)a4 + 57) >> 8)) & 1;
-    *((_DWORD *)a2 + 38) = v23;
-    v24 = *((_QWORD *)a4 + 30);
-    v26 = *(_DWORD *)(v24 + 168) == 3
-       && (UserWindow = CInputDest::GetUserWindow((CInputDest *)(v24 + 352))) != 0LL
-       && *(_QWORD *)(*((_QWORD *)UserWindow + 2) + 1336LL) != 0LL;
-    *((_DWORD *)a2 + 38) = (2 * v26) | v23 & 0xFFFFFFFD;
-    v27 = HMValidateHandleNoSecure(*((_QWORD *)a4 + 8), 19);
-    if ( v27 )
-    {
-      v28 = *(_QWORD *)(v27 + 472);
-      if ( v28 )
-        *((_DWORD *)a2 + 39) = *(_DWORD *)(v28 + 956);
-      else
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 17059);
-    }
+    *((_QWORD *)a2 + 4) = *((_QWORD *)a4 + 13);
+    *((_DWORD *)a2 + 12) = -__CFSHR__(*((_DWORD *)a4 + 31), 9);
   }
 }

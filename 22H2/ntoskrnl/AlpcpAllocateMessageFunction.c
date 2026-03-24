@@ -1,28 +1,28 @@
 /*
- * XREFs of AlpcpAllocateMessageFunction @ 0x1407CBF40
+ * XREFs of AlpcpAllocateMessageFunction @ 0x140688500
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExCreateHandleEx @ 0x140740974 (ExCreateHandleEx.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140978EDC (AlpcpAllocateMessageFromExtendedTables.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExCreateHandleEx @ 0x140664860 (ExCreateHandleEx.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1408C2E20 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall AlpcpAllocateMessageFunction(__int64 a1, __int64 a2, __int64 a3)
+PVOID __fastcall AlpcpAllocateMessageFunction(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
 {
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   void *v4; // rbx
   __int64 v5; // rdi
   __int64 Handle; // rax
 
-  Pool2 = ExAllocatePool2(256LL, a2, a3);
-  v4 = (void *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PoolType, NumberOfBytes, Tag);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
     return v4;
-  v5 = Pool2 + 48;
-  memset((void *)(Pool2 + 48), 0, 0x118uLL);
+  v5 = (__int64)(PoolWithTag + 48);
+  memset(PoolWithTag + 48, 0, 0x118uLL);
   Handle = ExCreateHandleEx(AlpcMessageTable, v5, 0, 0, 0LL);
   if ( Handle || (Handle = AlpcpAllocateMessageFromExtendedTables(v5)) != 0 )
   {

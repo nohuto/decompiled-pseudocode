@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceBeginPointerMessageGeneration @ 0x1C0138C20
+ * XREFs of EtwTraceBeginPointerMessageGeneration @ 0x1C0121CC0
  * Callers:
- *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C01C48FC (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
+ *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C018FB6C (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
  * Callees:
- *     McTemplateK0hh_EtwWriteTransfer @ 0x1C013C66C (McTemplateK0hh_EtwWriteTransfer.c)
+ *     McTemplateK0hh_EtwWriteTransfer @ 0x1C01257B0 (McTemplateK0hh_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceBeginPointerMessageGeneration(__int64 a1, __int16 a2, __int64 a3)

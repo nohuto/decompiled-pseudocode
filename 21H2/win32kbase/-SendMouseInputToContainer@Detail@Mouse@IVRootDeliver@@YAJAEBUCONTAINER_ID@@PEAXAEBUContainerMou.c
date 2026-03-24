@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SendMouseInputToContainer@Detail@Mouse@IVRootDeliver@@YAJAEBUCONTAINER_ID@@PEAXAEBUContainerMouseInput@@@Z @ 0x1C01F4A2C
+ * XREFs of ?SendMouseInputToContainer@Detail@Mouse@IVRootDeliver@@YAJAEBUCONTAINER_ID@@PEAXAEBUContainerMouseInput@@@Z @ 0x1C01BBA6C
  * Callers:
- *     ?SendMouseInput@Mouse@IVRootDeliver@@YAJAEAUCONTAINER_ID@@AEAUContainerMouseInput@@@Z @ 0x1C01F491C (-SendMouseInput@Mouse@IVRootDeliver@@YAJAEAUCONTAINER_ID@@AEAUContainerMouseInput@@@Z.c)
+ *     ?SendMouseInput@Mouse@IVRootDeliver@@YAJAEAUCONTAINER_ID@@AEAUContainerMouseInput@@@Z @ 0x1C01BB8C4 (-SendMouseInput@Mouse@IVRootDeliver@@YAJAEAUCONTAINER_ID@@AEAUContainerMouseInput@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0043E30 (RawInputManagerDeviceObjectResolveHandle.c)
- *     IsTouchpadDevice @ 0x1C00E8F60 (IsTouchpadDevice.c)
- *     ?ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z @ 0x1C01F0028 (-ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z.c)
- *     ?SerializeContainerMouseInput@Detail@Mouse@IVRootDeliver@@YAJAEAVCIVMouseSerializer@@AEBU_UNICODE_STRING@@_NAEBUContainerMouseInput@@@Z @ 0x1C01F5F98 (-SerializeContainerMouseInput@Detail@Mouse@IVRootDeliver@@YAJAEAVCIVMouseSerializer@@AEBU_UNICOD.c)
- *     ??0CIVSerializer@@QEAA@W4IVPacketType@@KK@Z @ 0x1C01FCDFC (--0CIVSerializer@@QEAA@W4IVPacketType@@KK@Z.c)
- *     ??1CIVSerializer@@UEAA@XZ @ 0x1C01FCFCC (--1CIVSerializer@@UEAA@XZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0057C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     IsTouchpadDevice @ 0x1C01AEB20 (IsTouchpadDevice.c)
+ *     ??0CIVSerializer@@QEAA@_K@Z @ 0x1C01B3CF4 (--0CIVSerializer@@QEAA@_K@Z.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3D5C (--1CIVSerializer@@QEAA@XZ.c)
+ *     ?ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z @ 0x1C01BA3D8 (-ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z.c)
+ *     ?SerializeContainerMouseInput@Detail@Mouse@IVRootDeliver@@YAJAEAUCIVSerializer@@AEBU_UNICODE_STRING@@_NAEBUContainerMouseInput@@@Z @ 0x1C01BCCE4 (-SerializeContainerMouseInput@Detail@Mouse@IVRootDeliver@@YAJAEAUCIVSerializer@@AEBU_UNICODE_STR.c)
  */
 
 __int64 __fastcall IVRootDeliver::Mouse::Detail::SendMouseInputToContainer(
@@ -20,159 +20,141 @@ __int64 __fastcall IVRootDeliver::Mouse::Detail::SendMouseInputToContainer(
         const struct ContainerMouseInput *a4)
 {
   char *v5; // rdi
-  const struct _UNICODE_STRING *v7; // r8
-  int v8; // r12d
-  char v9; // bl
+  PVOID v7; // rbx
+  const struct _UNICODE_STRING *v8; // r8
+  int v9; // edi
   int v10; // edx
-  unsigned int v11; // ebx
-  char v12; // r14
-  int v13; // edx
-  char v14; // bl
-  void *v15; // r8
-  __int64 v16; // rcx
-  int v17; // eax
-  int v18; // r8d
-  char v19; // bl
-  int v20; // edx
-  const struct ContainerMouseInput *v22; // [rsp+20h] [rbp-49h]
-  struct _UNICODE_STRING v23; // [rsp+50h] [rbp-19h] BYREF
-  _QWORD v24[12]; // [rsp+60h] [rbp-9h] BYREF
-  char *v26; // [rsp+E8h] [rbp+7Fh] BYREF
+  unsigned int v11; // r14d
+  char v12; // r15
+  int v13; // eax
+  PDEVICE_OBJECT v14; // rcx
+  int v15; // r9d
+  unsigned __int64 v16; // rcx
+  _QWORD *v17; // rcx
+  struct _ETHREAD *CurrentThread; // r9
+  unsigned int v19; // edx
+  int v20; // eax
+  struct ContainerMouseInput *v22; // [rsp+28h] [rbp-39h]
+  struct CONTAINER_ID *v23; // [rsp+30h] [rbp-31h]
+  struct _UNICODE_STRING v24; // [rsp+48h] [rbp-19h] BYREF
+  void *v25; // [rsp+58h] [rbp-9h] BYREF
+  unsigned int v26[2]; // [rsp+60h] [rbp-1h]
+  __int64 v27; // [rsp+68h] [rbp+7h]
+  PVOID Object; // [rsp+E0h] [rbp+7Fh] BYREF
 
-  v26 = 0LL;
-  v5 = 0LL;
-  v23 = 0LL;
-  CIVSerializer::CIVSerializer(v24, 4LL, a3, a4);
-  v24[0] = &CIVGenericSerializer::`vftable';
-  if ( !v24[2] )
+  v5 = (char *)a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v8 = -1073741801;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-      || (v9 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
-    {
-      v9 = 0;
-    }
-    if ( v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v10 = 13;
-      LOBYTE(v10) = v9;
-      LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v10,
-        (_DWORD)v7,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        2,
-        12,
-        13,
-        (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids,
-        23);
-    }
-    goto LABEL_44;
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)a2,
+      12,
+      15,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+  }
+  v7 = 0LL;
+  v24 = 0LL;
+  Object = 0LL;
+  CIVSerializer::CIVSerializer((CIVSerializer *)&v25, 56LL);
+  if ( !v27 )
+  {
+    v9 = -1073741801;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_31;
+    WPP_RECORDER_SF_d(
+      (_DWORD)gBaseLog,
+      2,
+      12,
+      16,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+      -1073741801);
+    goto LABEL_27;
   }
   v11 = 0;
   v12 = *(_BYTE *)(*(_QWORD *)a3 + 32LL);
-  if ( a2 )
+  if ( !v5 )
   {
-    v8 = RawInputManagerDeviceObjectResolveHandle((char *)a2, 3u, 0, (PVOID *)&v26);
-    if ( v8 < 0 )
+LABEL_18:
+    LOBYTE(v8) = v12;
+    v9 = IVRootDeliver::Mouse::Detail::SerializeContainerMouseInput(
+           (IVRootDeliver::Mouse::Detail *)&v25,
+           &v24,
+           v8,
+           a3,
+           v22);
+    if ( v7 )
     {
-      v14 = 1;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-        || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
-      {
-        LOBYTE(v13) = 0;
-      }
-      v15 = &WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids;
-      if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v15) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v13,
-          (_DWORD)v15,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          2,
-          12,
-          14,
-          (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids,
-          v8);
-        v15 = &WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids;
-      }
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-        || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-      {
-        LOBYTE(v13) = 0;
-      }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        v14 = 0;
-      if ( (_BYTE)v13 || v14 )
-      {
-        LOBYTE(v15) = v14;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v13,
-          (_DWORD)v15,
-          WPP_GLOBAL_Control->DeviceExtension,
-          5,
-          12,
-          15,
-          (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids);
-      }
-      goto LABEL_44;
+      ObfDereferenceObject(v7);
+      v7 = 0LL;
+      Object = 0LL;
     }
-    v5 = v26;
+    if ( v9 >= 0 )
+    {
+      v17 = v25;
+      CurrentThread = KeGetCurrentThread();
+      v19 = v26[0];
+      *((_DWORD *)v25 + 1) = 1;
+      v17[1] = 4LL;
+      *(_DWORD *)v17 = v19 - 16;
+      v20 = ivrIVSend(v17, v19, CurrentThread, CurrentThread, v11, this);
+      v9 = v20;
+      if ( v20 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v7 = Object;
+      }
+      else
+      {
+        LODWORD(v23) = v20;
+        LOBYTE(v10) = 2;
+        WPP_RECORDER_SF_d((_DWORD)gBaseLog, v10, 12, 19, (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids, v23);
+        v7 = Object;
+      }
+    }
+    if ( v7 )
+      ObfDereferenceObject(v7);
+LABEL_27:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v14 = WPP_GLOBAL_Control;
+      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      {
+        v15 = 20;
+        goto LABEL_30;
+      }
+    }
+    goto LABEL_31;
+  }
+  v13 = RawInputManagerDeviceObjectResolveHandle(v5, 3u, 0, &Object);
+  v9 = v13;
+  if ( v13 >= 0 )
+  {
+    v7 = Object;
     v16 = 0LL;
-    v23 = *(struct _UNICODE_STRING *)(v26 + 296);
-    if ( v26 != (char *)-88LL )
-      v16 = *((_QWORD *)v26 + 11);
+    v24 = *(struct _UNICODE_STRING *)((char *)Object + 296);
+    if ( Object != (PVOID)-88LL )
+      v16 = *((_QWORD *)Object + 11);
     if ( v12 && IsTouchpadDevice(v16) )
       v11 = 2;
+    goto LABEL_18;
   }
-  LOBYTE(v7) = v12;
-  v8 = IVRootDeliver::Mouse::Detail::SerializeContainerMouseInput(
-         (IVRootDeliver::Mouse::Detail *)v24,
-         &v23,
-         v7,
-         a3,
-         v22);
-  if ( v5 )
-    ObfDereferenceObject(v5);
-  if ( v8 >= 0 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v17 = ivrIVSend((const struct CIVSerializer *)v24, v11, this);
-    v8 = v17;
-    if ( v17 < 0 )
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, 2, 12, 17, (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids, v13);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-        || (v19 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
+      v14 = WPP_GLOBAL_Control;
+      v10 = 0;
+      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
-        v19 = 0;
-      }
-      if ( v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v20 = 16;
-        LOBYTE(v20) = v19;
-        LOBYTE(v18) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v20,
-          v18,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          2,
-          12,
-          16,
-          (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids,
-          v17);
+        v15 = 18;
+LABEL_30:
+        LOBYTE(v10) = 5;
+        WPP_RECORDER_SF_(v14->DeviceExtension, v10, 12, v15, (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
       }
     }
   }
-LABEL_44:
-  v24[0] = &CIVGenericSerializer::`vftable';
-  CIVSerializer::~CIVSerializer((CIVSerializer *)v24);
-  return (unsigned int)v8;
+LABEL_31:
+  CIVSerializer::~CIVSerializer((CIVSerializer *)&v25);
+  return (unsigned int)v9;
 }

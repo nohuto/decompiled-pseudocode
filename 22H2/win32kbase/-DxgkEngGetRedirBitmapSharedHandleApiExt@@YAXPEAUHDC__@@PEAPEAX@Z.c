@@ -1,16 +1,22 @@
 /*
- * XREFs of ?DxgkEngGetRedirBitmapSharedHandleApiExt@@YAXPEAUHDC__@@PEAPEAX@Z @ 0x1C00E0590
+ * XREFs of ?DxgkEngGetRedirBitmapSharedHandleApiExt@@YAXPEAUHDC__@@PEAPEAX@Z @ 0x1C014A0E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DxgkEngGetRedirBitmapSharedHandleApiExt(HDC a1, void **a2)
 {
-  if ( qword_1C0294530 && (int)qword_1C0294530() >= 0 )
+  int v4; // eax
+
+  if ( qword_1C0255120 )
+    v4 = qword_1C0255120();
+  else
+    v4 = -1073741637;
+  if ( v4 >= 0 )
   {
-    if ( qword_1C0294538 )
-      qword_1C0294538(a1, a2);
+    if ( qword_1C0255128 )
+      qword_1C0255128(a1, a2);
   }
 }

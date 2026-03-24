@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpQueryIdFdo @ 0x1408614B0
+ * XREFs of HalpQueryIdFdo @ 0x1407D1728
  * Callers:
- *     HalpDispatchPnp @ 0x14081A830 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryIdFdo(__int64 a1, int a2, _QWORD *a3)
@@ -13,7 +13,7 @@ __int64 __fastcall HalpQueryIdFdo(__int64 a1, int a2, _QWORD *a3)
   const wchar_t *v5; // rax
   unsigned int v6; // eax
   unsigned __int64 v7; // rdi
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   _WORD *v9; // rsi
   __int64 result; // rax
 
@@ -35,11 +35,11 @@ __int64 __fastcall HalpQueryIdFdo(__int64 a1, int a2, _QWORD *a3)
   v6 = 4;
 LABEL_6:
   v7 = v6;
-  Pool2 = (_WORD *)ExAllocatePool2(256LL, v6 + 2LL, 1886150984LL);
-  v9 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6 + 2LL, 0x206C6148u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memmove(Pool2, v4, (unsigned int)v7);
+  memmove(PoolWithTag, v4, (unsigned int)v7);
   result = 0LL;
   v9[v7 >> 1] = 0;
   *a3 = v9;

@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhIoctlGetHubInformationEx @ 0x1C003EBB8
+ * XREFs of UsbhIoctlGetHubInformationEx @ 0x1C003FDA4
  * Callers:
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAcquireApiLock @ 0x1C003D610 (UsbhAcquireApiLock.c)
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhIoctlValidateParameters @ 0x1C0040958 (UsbhIoctlValidateParameters.c)
- *     UsbhReleaseApiLock @ 0x1C0040CE8 (UsbhReleaseApiLock.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireApiLock @ 0x1C003E7F0 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041B64 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C0041F04 (UsbhReleaseApiLock.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhIoctlGetHubInformationEx(__int64 a1, PIRP Irp, __int64 a3)
@@ -25,10 +25,11 @@ __int64 __fastcall UsbhIoctlGetHubInformationEx(__int64 a1, PIRP Irp, __int64 a3
   unsigned int v10; // ebx
   unsigned int v11; // ebp
   __int64 v13; // [rsp+28h] [rbp-60h]
-  char v14; // [rsp+98h] [rbp+10h] BYREF
-  int v15; // [rsp+A0h] [rbp+18h] BYREF
+  int v14; // [rsp+48h] [rbp-40h]
+  char v15; // [rsp+98h] [rbp+10h] BYREF
+  int v16; // [rsp+A0h] [rbp+18h] BYREF
 
-  v14 = 0;
+  v15 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
@@ -36,7 +37,7 @@ __int64 __fastcall UsbhIoctlGetHubInformationEx(__int64 a1, PIRP Irp, __int64 a3
       2u,
       0x18u,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
-  v15 = 277;
+  v16 = 277;
   v6 = FdoExt(a1);
   MasterIrp = Irp->AssociatedIrp.MasterIrp;
   v8 = *(unsigned int *)(a3 + 8);
@@ -49,7 +50,7 @@ __int64 __fastcall UsbhIoctlGetHubInformationEx(__int64 a1, PIRP Irp, __int64 a3
       2u,
       0x19u,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
-  v10 = UsbhAcquireApiLock(a1, 0xF00D0013, &v14);
+  v10 = UsbhAcquireApiLock(a1, 0xF00D0013, &v15);
   v11 = v10 >> 30;
   if ( v10 >> 30 != 3 )
   {
@@ -71,8 +72,8 @@ __int64 __fastcall UsbhIoctlGetHubInformationEx(__int64 a1, PIRP Irp, __int64 a3
         *(_LIST_ENTRY *)((char *)&MasterIrp->ThreadListEntry + 6) = *(_LIST_ENTRY *)(v9 + 742);
         *(_IO_STATUS_BLOCK *)((char *)&MasterIrp->IoStatus + 6) = *(_IO_STATUS_BLOCK *)(v9 + 746);
         *(_DWORD *)&MasterIrp->ApcEnvironment = v9[750];
-        WORD1(MasterIrp->IoRingContext) = *((_WORD *)v9 + 1502);
-        BYTE4(MasterIrp->IoRingContext) = *((_BYTE *)v9 + 3006);
+        WORD1(MasterIrp->UserIosb) = *((_WORD *)v9 + 1502);
+        BYTE4(MasterIrp->UserIosb) = *((_BYTE *)v9 + 3006);
       }
       Irp->IoStatus.Information = 77LL;
     }
@@ -90,8 +91,11 @@ __int64 __fastcall UsbhIoctlGetHubInformationEx(__int64 a1, PIRP Irp, __int64 a3
       v13);
   }
   if ( v11 == 3 && !Usb_Disconnected(v10) )
-    UsbhException(a1, 0, 91, (int)&v15, 4, v10, 0, usbfile_ioctl_c, 799, 0);
-  if ( v14 )
+  {
+    LOBYTE(v14) = 0;
+    UsbhException(a1, 0, 91, (int)&v16, 4, v10, 0, usbfile_ioctl_c, 799, v14);
+  }
+  if ( v15 )
     UsbhReleaseApiLock(a1, 4027383827LL);
   UsbhIoctlTraceOutput(a1, Irp);
   Irp->IoStatus.Status = v10;

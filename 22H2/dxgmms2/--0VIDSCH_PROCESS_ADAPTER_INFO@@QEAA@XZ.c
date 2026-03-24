@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0VIDSCH_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C0004A80
+ * XREFs of ??0VIDSCH_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C0011530
  * Callers:
- *     VidSchiOpenProcessAdapterInfo @ 0x1C00905CC (VidSchiOpenProcessAdapterInfo.c)
+ *     VidSchiOpenProcessAdapterInfo @ 0x1C007F514 (VidSchiOpenProcessAdapterInfo.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 VIDSCH_PROCESS_ADAPTER_INFO *__fastcall VIDSCH_PROCESS_ADAPTER_INFO::VIDSCH_PROCESS_ADAPTER_INFO(

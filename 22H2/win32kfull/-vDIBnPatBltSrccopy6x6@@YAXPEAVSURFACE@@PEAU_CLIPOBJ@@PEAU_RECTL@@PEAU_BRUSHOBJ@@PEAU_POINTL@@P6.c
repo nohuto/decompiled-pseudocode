@@ -1,14 +1,13 @@
 /*
- * XREFs of ?vDIBnPatBltSrccopy6x6@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@P6AXPEAU_PATBLTFRAME@@H@Z@Z @ 0x1C02E57D0
+ * XREFs of ?vDIBnPatBltSrccopy6x6@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@P6AXPEAU_PATBLTFRAME@@H@Z@Z @ 0x1C02C5878
  * Callers:
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0003828 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?vPatCpyRect1_6x6@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02E5B30 (-vPatCpyRect1_6x6@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE400 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?vPatCpyRect1_6x6@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C5B84 (-vPatCpyRect1_6x6@@YAXPEAU_PATBLTFRAME@@H@Z.c)
  */
 
 void __fastcall vDIBnPatBltSrccopy6x6(
@@ -22,7 +21,7 @@ void __fastcall vDIBnPatBltSrccopy6x6(
   LONG y; // ecx
   int v11; // ebx
   unsigned int v12; // edx
-  LONG *v13; // rcx
+  int *v13; // rcx
   LONG v14; // eax
   LONG v15; // eax
   LONG v16; // eax
@@ -30,24 +29,21 @@ void __fastcall vDIBnPatBltSrccopy6x6(
   LONG right; // ecx
   LONG top; // r8d
   LONG bottom; // r9d
-  _QWORD v21[2]; // [rsp+38h] [rbp-1F0h] BYREF
-  int v22; // [rsp+48h] [rbp-1E0h]
-  _BYTE v23[12]; // [rsp+4Ch] [rbp-1DCh] BYREF
-  int v24; // [rsp+58h] [rbp-1D0h]
-  int v25; // [rsp+5Ch] [rbp-1CCh]
-  __int128 v26; // [rsp+60h] [rbp-1C8h]
-  struct _CLIPOBJ *v27; // [rsp+70h] [rbp-1B8h]
-  struct _RECTL *v28; // [rsp+78h] [rbp-1B0h]
-  void (__fastcall *v29)(struct _PATBLTFRAME *, int); // [rsp+80h] [rbp-1A8h]
-  unsigned int v30; // [rsp+90h] [rbp-198h] BYREF
-  __m128i rclBounds; // [rsp+94h] [rbp-194h] BYREF
+  _QWORD v21[2]; // [rsp+38h] [rbp-1D0h] BYREF
+  int v22; // [rsp+48h] [rbp-1C0h]
+  _BYTE v23[12]; // [rsp+4Ch] [rbp-1BCh] BYREF
+  int v24; // [rsp+58h] [rbp-1B0h]
+  int v25; // [rsp+5Ch] [rbp-1ACh]
+  __int128 v26; // [rsp+60h] [rbp-1A8h]
+  struct _CLIPOBJ *v27; // [rsp+70h] [rbp-198h]
+  struct _RECTL *v28; // [rsp+78h] [rbp-190h]
+  int v29[84]; // [rsp+80h] [rbp-188h] BYREF
 
   v27 = a2;
   v28 = a3;
-  v29 = vPatCpyRect1_6x6;
   memset(v23, 0, sizeof(v23));
   v26 = 0LL;
-  memset_0(&v30, 0, 0x144uLL);
+  memset(v29, 0, 0x144uLL);
   v21[0] = *((_QWORD *)a1 + 10);
   v22 = *((_DWORD *)a1 + 22);
   v21[1] = *((_QWORD *)a4[1].pvRbrush + 4);
@@ -65,26 +61,26 @@ void __fastcall vDIBnPatBltSrccopy6x6(
   {
     if ( a2->iDComplexity == 1 )
     {
-      rclBounds = (__m128i)a2->rclBounds;
-      left = _mm_cvtsi128_si32(rclBounds);
+      *(RECTL *)&v29[1] = a2->rclBounds;
+      left = _mm_cvtsi128_si32(*(__m128i *)&v29[1]);
       if ( left <= a3->left )
         left = a3->left;
-      rclBounds.m128i_i32[0] = left;
-      right = rclBounds.m128i_i32[2];
-      if ( rclBounds.m128i_i32[2] >= a3->right )
+      v29[1] = left;
+      right = v29[3];
+      if ( v29[3] >= a3->right )
         right = a3->right;
-      rclBounds.m128i_i32[2] = right;
-      top = rclBounds.m128i_i32[1];
-      if ( rclBounds.m128i_i32[1] <= a3->top )
+      v29[3] = right;
+      top = v29[2];
+      if ( v29[2] <= a3->top )
         top = a3->top;
-      rclBounds.m128i_i32[1] = top;
-      bottom = rclBounds.m128i_i32[3];
-      if ( rclBounds.m128i_i32[3] >= a3->bottom )
+      v29[2] = top;
+      bottom = v29[4];
+      if ( v29[4] >= a3->bottom )
         bottom = a3->bottom;
-      rclBounds.m128i_i32[3] = bottom;
+      v29[4] = bottom;
       if ( left < right && top < bottom )
       {
-        *(_QWORD *)&v23[4] = &rclBounds;
+        *(_QWORD *)&v23[4] = &v29[1];
         vPatCpyRect1_6x6((struct _PATBLTFRAME *)v21, 1);
       }
     }
@@ -93,12 +89,12 @@ void __fastcall vDIBnPatBltSrccopy6x6(
       XCLIPOBJ::cEnumStart((XCLIPOBJ *)a2, 0, 0, 4u, 0x14u);
       do
       {
-        v11 = XCLIPOBJ::bEnum((XCLIPOBJ *)a2, 0x144u, (char *)&v30, 0LL);
-        if ( v30 - 1 <= 0x13 )
+        v11 = XCLIPOBJ::bEnum((XCLIPOBJ *)a2, 0x144u, (char *)v29, 0LL);
+        if ( (unsigned int)(v29[0] - 1) <= 0x13 )
         {
           v12 = 0;
-          v13 = &rclBounds.m128i_i32[1];
-          while ( v12 < v30 )
+          v13 = &v29[2];
+          while ( v12 < v29[0] )
           {
             if ( *(v13 - 1) < a3->left )
               *(v13 - 1) = a3->left;
@@ -114,8 +110,8 @@ void __fastcall vDIBnPatBltSrccopy6x6(
             ++v12;
             v13 += 4;
           }
-          *(_QWORD *)&v23[4] = &rclBounds;
-          vPatCpyRect1_6x6((struct _PATBLTFRAME *)v21, v30);
+          *(_QWORD *)&v23[4] = &v29[1];
+          vPatCpyRect1_6x6((struct _PATBLTFRAME *)v21, v29[0]);
         }
       }
       while ( v11 );

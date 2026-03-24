@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetProcessFreezeStateCallback @ 0x1402536E0
+ * XREFs of PspSetProcessFreezeStateCallback @ 0x1402C5460
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExpTimerPause @ 0x14025298C (ExpTimerPause.c)
- *     ExpTimerResume @ 0x14025383C (ExpTimerResume.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PspRequestProcessExecutionState @ 0x140683844 (PspRequestProcessExecutionState.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExpTimerResume @ 0x1402C55BC (ExpTimerResume.c)
+ *     ExpTimerPause @ 0x1402C7A34 (ExpTimerPause.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
  */
 
 __int64 __fastcall PspSetProcessFreezeStateCallback(__int64 a1, unsigned int *a2)
@@ -26,14 +26,14 @@ __int64 __fastcall PspSetProcessFreezeStateCallback(__int64 a1, unsigned int *a2
   int v14; // eax
   bool v15; // zf
   KIRQL v16; // [rsp+60h] [rbp+8h]
-  unsigned __int64 v17; // [rsp+68h] [rbp+10h]
+  __int64 v17; // [rsp+68h] [rbp+10h]
 
   v2 = *(_QWORD *)(a1 + 1296);
   if ( (*(_DWORD *)(a1 + 1124) & 0x40000008) == 0
     && (*(_DWORD *)(a1 + 1124) & 0x4000000) != 0
-    && (*(_DWORD *)(v2 + 1512) & 0x40000) != 0
+    && (*(_DWORD *)(v2 + 1320) & 0x40000) != 0
     && (**(_DWORD **)a2 & 1) != 0
-    && *(_DWORD *)(v2 + 1048) <= 1u )
+    && *(_DWORD *)(v2 + 856) <= 1u )
   {
     v5 = (KSPIN_LOCK *)(a1 + 2440);
     v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 2440));
@@ -48,7 +48,7 @@ __int64 __fastcall PspSetProcessFreezeStateCallback(__int64 a1, unsigned int *a2
         v9 = v7 - 36;
         if ( *(_BYTE *)(*(_QWORD *)a2 + 4LL) )
         {
-          ExpTimerPause((__int64)(v7 - 36), v8, v17, 0);
+          ExpTimerPause(v7 - 36, v8, v17, 0LL);
         }
         else
         {

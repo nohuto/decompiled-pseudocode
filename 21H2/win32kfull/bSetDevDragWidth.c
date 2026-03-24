@@ -1,9 +1,9 @@
 /*
- * XREFs of bSetDevDragWidth @ 0x1C00C8184
+ * XREFs of bSetDevDragWidth @ 0x1C00DB7BC
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00C77B4 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C020EBC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00DB810 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
+ *     xxxMoveSize @ 0x1C0212874 (xxxMoveSize.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall bSetDevDragWidth(__int64 a1, int a2)
 
   v4 = a1;
   SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v5, (struct PDEVOBJ *)&v4);
-  *(_DWORD *)(v4 + 1248) = a2;
+  *(_DWORD *)(v4 + 1256) = a2;
   SPRITELOCK::~SPRITELOCK((SPRITELOCK *)&v5);
   return 1LL;
 }

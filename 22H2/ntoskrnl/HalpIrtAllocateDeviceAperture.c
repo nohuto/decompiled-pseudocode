@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIrtAllocateDeviceAperture @ 0x140934750
+ * XREFs of HalpIrtAllocateDeviceAperture @ 0x140865880
  * Callers:
- *     HalpIrtAllocateIndex @ 0x140820818 (HalpIrtAllocateIndex.c)
- *     HalpIrtInitializeDeviceApertures @ 0x140934A94 (HalpIrtInitializeDeviceApertures.c)
+ *     HalpIrtAllocateIndex @ 0x1408659D4 (HalpIrtAllocateIndex.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140865F2C (HalpIrtInitializeDeviceApertures.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     HalpIrtExtendApertureRange @ 0x1409348A0 (HalpIrtExtendApertureRange.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     HalpIrtExtendApertureRange @ 0x140865C4C (HalpIrtExtendApertureRange.c)
  */
 
 __int64 __fastcall HalpIrtAllocateDeviceAperture(int a1, int a2, int a3, int a4, _DWORD *a5)
 {
-  int v9; // ebp
+  int v9; // esi
   int v10; // edi
   __int64 i; // rbx
   __int64 v12; // rax
@@ -38,13 +38,14 @@ LABEL_4:
       i = HalpIrtFreeDeviceAperturesHead;
       if ( (__int64 *)HalpIrtFreeDeviceAperturesHead != &HalpIrtFreeDeviceAperturesHead )
         break;
-      ExReleaseFastMutex(&HalpIrtLock);
+      KeReleaseGuardedMutex(&HalpIrtLock);
       if ( v9 )
-        return (unsigned int)-1073741670;
-      v10 = HalpIrtExtendApertureRange();
+        v10 = -1073741670;
+      else
+        v10 = HalpIrtExtendApertureRange();
       if ( v10 < 0 )
         return (unsigned int)v10;
-      v9 = 1;
+      ++v9;
       ExAcquireFastMutex(&HalpIrtLock);
     }
     v12 = *(_QWORD *)HalpIrtFreeDeviceAperturesHead;
@@ -65,7 +66,7 @@ LABEL_4:
     *(_QWORD *)(v13 + 8) = i;
     HalpIrtAllocatedDeviceAperturesHead = i;
   }
-  ExReleaseFastMutex(&HalpIrtLock);
+  KeReleaseGuardedMutex(&HalpIrtLock);
   *a5 = *(_DWORD *)(i + 16);
   return (unsigned int)v10;
 }

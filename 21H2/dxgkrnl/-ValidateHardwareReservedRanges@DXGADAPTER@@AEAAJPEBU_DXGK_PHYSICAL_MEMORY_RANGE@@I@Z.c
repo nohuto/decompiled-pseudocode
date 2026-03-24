@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ValidateHardwareReservedRanges@DXGADAPTER@@AEAAJPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@I@Z @ 0x1C0219424
+ * XREFs of ?ValidateHardwareReservedRanges@DXGADAPTER@@AEAAJPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@I@Z @ 0x1C0210044
  * Callers:
- *     ?CreatePhysicalObjectsForHardwareReservedRanges@DXGADAPTER@@AEAAJPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@I@Z @ 0x1C0219344 (-CreatePhysicalObjectsForHardwareReservedRanges@DXGADAPTER@@AEAAJPEBU_DXGK_PHYSICAL_MEMORY_RANGE.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01845A8 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DXGADAPTER::ValidateHardwareReservedRanges(
@@ -12,100 +12,80 @@ __int64 __fastcall DXGADAPTER::ValidateHardwareReservedRanges(
         unsigned int a3)
 {
   unsigned int v5; // ebx
-  PPHYSICAL_MEMORY_RANGE PhysicalMemoryRanges; // rdi
-  unsigned int v7; // ecx
-  unsigned __int64 QuadPart; // rsi
-  __int64 v9; // r15
-  unsigned __int64 v10; // rbp
-  LARGE_INTEGER NumberOfBytes; // rax
-  int v12; // r8d
   PHYSICAL_ADDRESS *p_BaseAddress; // rdx
-  unsigned __int64 v14; // r15
-  unsigned __int64 v15; // r13
+  __int64 v7; // rcx
+  PPHYSICAL_MEMORY_RANGE PhysicalMemoryRanges; // rsi
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
+  __int64 v13; // rcx
+  LARGE_INTEGER BaseAddress; // rdi
+  LARGE_INTEGER NumberOfBytes; // r15
+  LARGE_INTEGER v16; // rbp
+  LARGE_INTEGER v17; // rax
+  int v18; // r8d
+  LARGE_INTEGER v19; // r15
+  LARGE_INTEGER v20; // r13
+  _QWORD *v21; // rax
 
   v5 = 0;
   PhysicalMemoryRanges = MmGetPhysicalMemoryRanges();
   if ( PhysicalMemoryRanges )
   {
-    v7 = 0;
+    v13 = 0LL;
     if ( a3 )
     {
       while ( 1 )
       {
-        QuadPart = a2->BaseAddress.QuadPart;
-        v9 = a2->NumberOfBytes.QuadPart;
-        v10 = v9 + a2->BaseAddress.QuadPart;
-        if ( v10 < a2->BaseAddress.QuadPart )
+        BaseAddress = a2->BaseAddress;
+        NumberOfBytes = a2->NumberOfBytes;
+        v16.QuadPart = NumberOfBytes.QuadPart + a2->BaseAddress.QuadPart;
+        if ( v16.QuadPart < (unsigned __int64)a2->BaseAddress.QuadPart )
         {
-          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))WdLogSingleEntry2)(
-            2LL,
-            (LARGE_INTEGER)a2->BaseAddress.QuadPart,
-            (LARGE_INTEGER)a2->NumberOfBytes.QuadPart);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Driver reserved memory range overflow. BaseAddress=0x%I64x, Size=%I64u",
-            QuadPart,
-            v9,
-            0LL,
-            0LL,
-            0LL);
+          v21 = (_QWORD *)WdLogNewEntry5_WdError(v13, p_BaseAddress);
+          v21[4] = NumberOfBytes.QuadPart;
           goto LABEL_14;
         }
-        NumberOfBytes = PhysicalMemoryRanges->NumberOfBytes;
-        v12 = 0;
-        if ( NumberOfBytes.QuadPart )
+        v17 = PhysicalMemoryRanges->NumberOfBytes;
+        v18 = 0;
+        if ( v17.QuadPart )
           break;
-LABEL_8:
-        ++v7;
+LABEL_10:
+        v13 = (unsigned int)(v13 + 1);
         ++a2;
-        if ( v7 >= a3 )
-          goto LABEL_9;
+        if ( (unsigned int)v13 >= a3 )
+          goto LABEL_15;
       }
       p_BaseAddress = &PhysicalMemoryRanges->BaseAddress;
       while ( 1 )
       {
-        v14 = p_BaseAddress->QuadPart;
-        v15 = NumberOfBytes.QuadPart + p_BaseAddress->QuadPart;
-        if ( QuadPart < v15 && v10 > v14 )
+        v19 = *p_BaseAddress;
+        v20.QuadPart = v17.QuadPart + p_BaseAddress->QuadPart;
+        if ( BaseAddress.QuadPart < (unsigned __int64)v20.QuadPart && v16.QuadPart > (unsigned __int64)v19.QuadPart )
           break;
-        p_BaseAddress = &PhysicalMemoryRanges[++v12].BaseAddress;
-        NumberOfBytes = p_BaseAddress[1];
-        if ( !NumberOfBytes.QuadPart )
-          goto LABEL_8;
+        p_BaseAddress = &PhysicalMemoryRanges[++v18].BaseAddress;
+        v17 = p_BaseAddress[1];
+        if ( !v17.QuadPart )
+          goto LABEL_10;
       }
-      WdLogSingleEntry4(2LL, QuadPart, v10, p_BaseAddress->QuadPart, NumberOfBytes.QuadPart + p_BaseAddress->QuadPart);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Driver hardware reserved range cannot intersect a physical range of memory in Mm",
-        QuadPart,
-        v10,
-        v14,
-        v15,
-        0LL);
+      v21 = (_QWORD *)WdLogNewEntry5_WdError(v13, p_BaseAddress);
+      v21[4] = v16.QuadPart;
+      v21[5] = v19.QuadPart;
+      v21[6] = v20.QuadPart;
 LABEL_14:
+      v21[3] = BaseAddress.QuadPart;
+      WdLogEvent5_WdError(v21);
       v5 = -1073741811;
     }
-LABEL_9:
+LABEL_15:
     ExFreePoolWithTag(PhysicalMemoryRanges, 0);
     return v5;
   }
   else
   {
-    WdLogSingleEntry1(6LL, 10868LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Couldn't allocate buffer to query system memory size",
-      10868LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdLowResource(v7, p_BaseAddress, v9, v10);
+    *(_QWORD *)(v11 + 24) = 10335LL;
+    WdLogEvent5_WdLowResource(v11);
     return 3221225495LL;
   }
 }

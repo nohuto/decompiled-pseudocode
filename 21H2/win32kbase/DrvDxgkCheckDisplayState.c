@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDxgkCheckDisplayState @ 0x1C017406C
+ * XREFs of DrvDxgkCheckDisplayState @ 0x1C0147054
  * Callers:
- *     xxxDisplayDiagBlackScreenDetected @ 0x1C014A580 (xxxDisplayDiagBlackScreenDetected.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C011E9D0 (xxxDisplayDiagBlackScreenDetected.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvDxgkCheckDisplayState(int a1, int a2, __int64 a3, __int64 a4, __int128 *a5, int a6)
@@ -51,5 +51,5 @@ LABEL_13:
   v11[1] = a2;
   v12 = a3;
   v13 = a4;
-  return ((__int64 (__fastcall *)(_DWORD *))qword_1C0296948)(v11);
+  return ((__int64 (__fastcall *)(_DWORD *))qword_1C0251B78)(v11);
 }

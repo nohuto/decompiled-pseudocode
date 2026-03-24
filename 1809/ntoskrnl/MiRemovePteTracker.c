@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemovePteTracker @ 0x1402CDC10
+ * XREFs of MiRemovePteTracker @ 0x1402CDD10
  * Callers:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
- *     MmFreeMappingAddress @ 0x1406FC4D0 (MmFreeMappingAddress.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     MmFreeMappingAddress @ 0x1406FC4B0 (MmFreeMappingAddress.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)

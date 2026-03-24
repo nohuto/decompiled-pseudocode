@@ -1,10 +1,10 @@
 /*
- * XREFs of MiZeroAndFlushPtes @ 0x14012335C
+ * XREFs of MiZeroAndFlushPtes @ 0x14012337C
  * Callers:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
- *     MmMapMdl @ 0x1402AD760 (MmMapMdl.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     MmMapMdl @ 0x1402AD860 (MmMapMdl.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
@@ -13,15 +13,15 @@
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121464 (MiInsertLargeTbFlushEntry.c)
- *     MiDereferenceIoPages @ 0x140123614 (MiDereferenceIoPages.c)
- *     MiReplicatePteChange @ 0x140174EF4 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
+ *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
+ *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiZeroAndFlushPtes(unsigned __int64 a1, unsigned __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of safe_cast_fnid_to_PSWITCHWND @ 0x1C01D0578
+ * XREFs of safe_cast_fnid_to_PSWITCHWND @ 0x1C01D4860
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01ED460 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
- *     xxxNextWindow @ 0x1C01EE910 (xxxNextWindow.c)
- *     xxxOldNextWindow @ 0x1C01EF0A8 (xxxOldNextWindow.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01F2BE0 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     xxxNextWindow @ 0x1C01F412C (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01F4970 (xxxOldNextWindow.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall safe_cast_fnid_to_PSWITCHWND(__int64 a1)
@@ -17,15 +17,15 @@ __int64 __fastcall safe_cast_fnid_to_PSWITCHWND(__int64 a1)
   if ( !a1 )
     return 0LL;
   v2 = *(_QWORD *)(a1 + 40);
-  if ( _bittest16((const signed __int16 *)(v2 + 42), 0xCu) )
+  if ( (*(_WORD *)(v2 + 42) & 0x1000) != 0 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1110);
     v2 = *(_QWORD *)(a1 + 40);
   }
   v3 = *(_WORD *)(v2 + 42);
   if ( (v3 & 0x1000) != 0 || (v3 & 0x2FFF) != 0x2A0 )
     return 0LL;
-  if ( *(_DWORD *)(v2 + 248) )
+  if ( *(_DWORD *)(v2 + 252) )
     return *(_QWORD *)(a1 + 280);
   return *(_QWORD *)(v2 + 296);
 }

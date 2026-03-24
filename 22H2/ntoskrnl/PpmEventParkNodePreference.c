@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventParkNodePreference @ 0x14059AE4C
+ * XREFs of PpmEventParkNodePreference @ 0x140579E08
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14059C694 (PpmParkComputeUnparkMask.c)
+ *     PpmParkComputeUnparkMask @ 0x14057D02C (PpmParkComputeUnparkMask.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char PpmEventParkNodePreference(__int16 a1, __int64 a2, char a3, ...)

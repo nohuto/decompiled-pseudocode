@@ -1,13 +1,12 @@
 /*
- * XREFs of HalpPutAcpiHacksInRegistry @ 0x14081E700
+ * XREFs of HalpPutAcpiHacksInRegistry @ 0x1407AE2A0
  * Callers:
- *     HaliInitPowerManagement @ 0x14081E1F0 (HaliInitPowerManagement.c)
+ *     HaliInitPowerManagement @ 0x1407AE1A0 (HaliInitPowerManagement.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
 int HalpPutAcpiHacksInRegistry()
@@ -28,26 +27,25 @@ int HalpPutAcpiHacksInRegistry()
 
   KeyHandle = 0LL;
   Disposition = 0;
-  memset(&ObjectAttributes.Attributes + 1, 0, 20);
   Handle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  ObjectAttributes.RootDirectory = 0LL;
   v2[1] = L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\Control\\HAL";
   v3[1] = L"CStateHacks";
   ValueName.Buffer = L"Piix4";
   v5.Buffer = L"440BX";
   v6.Buffer = L"Piix4Slot";
   v7.Buffer = L"Piix4DevActB";
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v2;
   v2[0] = 7209068LL;
   v3[0] = 1572886LL;
   *(_QWORD *)&ValueName.Length = 786442LL;
   *(_QWORD *)&v5.Length = 786442LL;
   *(_QWORD *)&v6.Length = 1310738LL;
   *(_QWORD *)&v7.Length = 1703960LL;
-  KeWaitForSingleObject(&HalpPiix4Detected, Executive, 0, 0, 0LL);
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v2;
-  ObjectAttributes.Attributes = 64;
   ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01E15B0
+ * XREFs of ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01A9010
  * Callers:
- *     ?StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z @ 0x1C01D7A9C (-StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z.c)
- *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01DD958 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
- *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C01DDFF8 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
- *     ?ProcessInput@CPTPProcessor@@QEAAXPEAX0KHH@Z @ 0x1C01DF13C (-ProcessInput@CPTPProcessor@@QEAAXPEAX0KHH@Z.c)
- *     ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01FAB28 (-HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA-AW4InertiaEndSuppressionResult@2@_K@Z.c)
+ *     ?StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z @ 0x1C019F008 (-StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z.c)
+ *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01A55D0 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
+ *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C01A5AE4 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
+ *     ?ProcessInput@CPTPProcessor@@QEAAXPEAX0HHH@Z @ 0x1C01A6E40 (-ProcessInput@CPTPProcessor@@QEAAXPEAX0HHH@Z.c)
+ *     ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01C05E4 (-HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA-AW4InertiaEndSuppressionResult@2@_K@Z.c)
  * Callees:
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0038C0C (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C00E7B66 (-HasDelegationThread@CInputDest@@QEBA_NXZ.c)
- *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01B8A54 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
- *     ?ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z @ 0x1C01E18E0 (-ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z.c)
- *     ApiSetEditionQueryInertiaWorker @ 0x1C020B038 (ApiSetEditionQueryInertiaWorker.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0042894 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01829F0 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
+ *     ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C0182DA4 (-HasDelegationThread@CInputDest@@QEBA_NXZ.c)
+ *     ?ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z @ 0x1C01A9264 (-ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z.c)
+ *     ApiSetEditionQueryInertiaWorker @ 0x1C01CD8D0 (ApiSetEditionQueryInertiaWorker.c)
  */
 
 __int64 __fastcall CInertiaManager::QueryInertia(__int64 a1, __int64 a2, int a3)

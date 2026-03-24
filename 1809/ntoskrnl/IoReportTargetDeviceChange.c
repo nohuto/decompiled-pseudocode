@@ -1,14 +1,14 @@
 /*
- * XREFs of IoReportTargetDeviceChange @ 0x1406FF660
+ * XREFs of IoReportTargetDeviceChange @ 0x1406FF640
  * Callers:
  *     FsRtlNotifyVolumeEventEx @ 0x1405A2BD0 (FsRtlNotifyVolumeEventEx.c)
- *     NtSetVolumeInformationFile @ 0x1406FF290 (NtSetVolumeInformationFile.c)
+ *     NtSetVolumeInformationFile @ 0x1406FF270 (NtSetVolumeInformationFile.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     PnpSetCustomTargetEvent @ 0x14058FCD4 (PnpSetCustomTargetEvent.c)
  */
 

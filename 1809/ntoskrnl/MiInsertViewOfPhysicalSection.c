@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertViewOfPhysicalSection @ 0x14018CC74
+ * XREFs of MiInsertViewOfPhysicalSection @ 0x14018CC94
  * Callers:
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -10,13 +10,13 @@
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE60 (MiInsertPhysicalPteMapping.c)
- *     MiInsertVad @ 0x14011014C (MiInsertVad.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
+ *     MiInsertVad @ 0x14011016C (MiInsertVad.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiInsertViewOfPhysicalSection(__int64 a1, __int64 a2)

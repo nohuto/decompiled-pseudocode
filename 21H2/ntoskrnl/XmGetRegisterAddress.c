@@ -1,10 +1,10 @@
 /*
- * XREFs of XmGetRegisterAddress @ 0x1403A343C
+ * XREFs of XmGetRegisterAddress @ 0x140397398
  * Callers:
- *     XmMoveRegImmediate @ 0x1403A2920 (XmMoveRegImmediate.c)
- *     XmMoveGeneral @ 0x1403A2980 (XmMoveGeneral.c)
- *     XmGroup1General @ 0x1403A2EE0 (XmGroup1General.c)
- *     XmEvaluateAddressSpecifier @ 0x1403A30B4 (XmEvaluateAddressSpecifier.c)
+ *     XmMoveRegImmediate @ 0x140396880 (XmMoveRegImmediate.c)
+ *     XmMoveGeneral @ 0x1403968E0 (XmMoveGeneral.c)
+ *     XmGroup1General @ 0x140396E40 (XmGroup1General.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
  * Callees:
  *     <none>
  */

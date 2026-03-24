@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C021EF20
+ * XREFs of ?SetIntegerProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009F450
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0099660 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
+ *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009E600 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
  */
 
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetIntegerProperty(
@@ -13,41 +13,28 @@ __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetIntegerPropert
         __int64 a4,
         bool *a5)
 {
-  unsigned int v5; // r10d
+  __int64 result; // rax
 
-  v5 = 0;
+  result = 0LL;
   *a5 = 0;
-  switch ( a3 )
+  if ( a3 == 20 )
   {
-    case 20:
-      if ( !*((_BYTE *)this + 152) && !*((_BYTE *)this + 153) && a4 )
-      {
-        *((_BYTE *)this + 152) = 1;
-        *a5 = 1;
-        *((_DWORD *)this + 4) &= ~0x800u;
-        return v5;
-      }
-      return (unsigned int)-1073741811;
-    case 21:
-      if ( !*((_BYTE *)this + 153) && !*((_BYTE *)this + 152) && a4 )
-      {
-        *((_BYTE *)this + 153) = 1;
-        *a5 = 1;
-        *(_OWORD *)((char *)this + 104) = 0LL;
-        *((_DWORD *)this + 4) &= 0xFFFFA7FF;
-        return v5;
-      }
-      return (unsigned int)-1073741811;
-    case 22:
-      if ( *((_BYTE *)this + 154) != (a4 != 0) )
-      {
-        *((_BYTE *)this + 154) = a4 != 0;
-        *a5 = 1;
-        *((_DWORD *)this + 4) &= ~0x800u;
-      }
-      break;
-    default:
-      return (unsigned int)DirectComposition::CPropertyChangeResourceMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
+    if ( !*((_BYTE *)this + 144) && !*((_BYTE *)this + 145) && a4 )
+    {
+      *((_BYTE *)this + 144) = 1;
+      *a5 = 1;
+      *((_DWORD *)this + 4) &= ~0x800u;
+      return result;
+    }
+    return 3221225485LL;
   }
-  return v5;
+  if ( a3 != 21 )
+    return DirectComposition::CPropertyChangeResourceMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
+  if ( *((_BYTE *)this + 145) || *((_BYTE *)this + 144) || !a4 )
+    return 3221225485LL;
+  *((_BYTE *)this + 145) = 1;
+  *a5 = 1;
+  *((_OWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 4) &= 0xFFFFA7FF;
+  return result;
 }

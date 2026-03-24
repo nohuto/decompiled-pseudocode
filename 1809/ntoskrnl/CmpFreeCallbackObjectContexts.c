@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeCallbackObjectContexts @ 0x1407EB564
+ * XREFs of CmpFreeCallbackObjectContexts @ 0x1407EB544
  * Callers:
- *     CmpDeleteKeyObject @ 0x14063F520 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

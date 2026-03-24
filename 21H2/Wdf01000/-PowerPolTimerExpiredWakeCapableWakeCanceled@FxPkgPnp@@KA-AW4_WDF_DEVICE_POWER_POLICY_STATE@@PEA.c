@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerPolTimerExpiredWakeCapableWakeCanceled@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000C020
+ * XREFs of ?PowerPolTimerExpiredWakeCapableWakeCanceled@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000DF80
  * Callers:
  *     <none>
  * Callees:

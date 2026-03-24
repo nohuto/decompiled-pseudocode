@@ -1,33 +1,33 @@
 /*
- * XREFs of MmCreateProcessAddressSpace @ 0x140705F00
+ * XREFs of MmCreateProcessAddressSpace @ 0x1406FDDB4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiDeleteProcessShadow @ 0x14029160C (MiDeleteProcessShadow.c)
- *     PsGetDefaultWsMaximum @ 0x1402918F0 (PsGetDefaultWsMaximum.c)
- *     KeMakeKernelDirectoryTableBase @ 0x140291900 (KeMakeKernelDirectoryTableBase.c)
- *     RtlRandomEx @ 0x140292480 (RtlRandomEx.c)
- *     PsChargeProcessQuota @ 0x1402924A8 (PsChargeProcessQuota.c)
- *     MiMakePartitionActive @ 0x1402924E0 (MiMakePartitionActive.c)
- *     MiSetProcessPartitionId @ 0x140292578 (MiSetProcessPartitionId.c)
- *     MiSyncSystemPdes @ 0x140292588 (MiSyncSystemPdes.c)
- *     MiCreateNewProcessTopLevelMappings @ 0x1402925FC (MiCreateNewProcessTopLevelMappings.c)
- *     MiInsertNewProcess @ 0x14029266C (MiInsertNewProcess.c)
- *     MiReturnResident @ 0x140292CF0 (MiReturnResident.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiCheckWsLimits @ 0x1402E9FD0 (MiCheckWsLimits.c)
- *     PsReturnProcessQuota @ 0x1402EA0CC (PsReturnProcessQuota.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiAllocateProcessShadow @ 0x14070615C (MiAllocateProcessShadow.c)
- *     MiAllocateTopLevelPage @ 0x140706244 (MiAllocateTopLevelPage.c)
- *     MiJoinSession @ 0x140706480 (MiJoinSession.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MiDeleteProcessShadow @ 0x140285DE8 (MiDeleteProcessShadow.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiReturnResident @ 0x1402E9FEC (MiReturnResident.c)
+ *     PsReturnProcessQuota @ 0x1402EA088 (PsReturnProcessQuota.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     MiCheckWsLimits @ 0x1403173DC (MiCheckWsLimits.c)
+ *     MiSyncSystemPdes @ 0x14035586C (MiSyncSystemPdes.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1403558E0 (KeMakeKernelDirectoryTableBase.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x1403558F8 (MiCreateNewProcessTopLevelMappings.c)
+ *     MiInsertNewProcess @ 0x140355B48 (MiInsertNewProcess.c)
+ *     PsChargeProcessQuota @ 0x140357284 (PsChargeProcessQuota.c)
+ *     PsGetDefaultWsMaximum @ 0x1403572BC (PsGetDefaultWsMaximum.c)
+ *     RtlRandomEx @ 0x1403572D0 (RtlRandomEx.c)
+ *     MiSetProcessPartitionId @ 0x1403572F8 (MiSetProcessPartitionId.c)
+ *     MiMakePartitionActive @ 0x140357308 (MiMakePartitionActive.c)
+ *     MiAllocateProcessShadow @ 0x1406FE00C (MiAllocateProcessShadow.c)
+ *     MiAllocateTopLevelPage @ 0x1406FE0F4 (MiAllocateTopLevelPage.c)
+ *     MiJoinSession @ 0x1406FE290 (MiJoinSession.c)
  */
 
 char __fastcall MmCreateProcessAddressSpace(
@@ -43,47 +43,51 @@ char __fastcall MmCreateProcessAddressSpace(
   __int64 v9; // rdi
   __int16 *v10; // rbx
   __int64 v11; // rdx
-  __int64 v12; // rdx
-  ULONG_PTR v13; // rbp
+  __int64 v12; // r9
+  __int64 v13; // rdx
   __int64 v14; // r8
+  unsigned __int64 v15; // r9
+  ULONG_PTR v16; // rbp
+  __int64 v17; // r8
+  __int64 v18; // r8
   __int64 TopLevelPage; // rax
-  __int64 v16; // rdx
-  __int64 v17; // rsi
-  unsigned __int64 v18; // rbx
-  int v19; // r15d
-  __int64 v20; // r8
-  unsigned __int64 v22; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v24; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v20; // rdx
+  __int64 v21; // rsi
+  __int64 v22; // r9
+  unsigned __int64 v23; // rbx
+  int v24; // r15d
+  __int64 v25; // r8
+  __int64 v27; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v28; // [rsp+78h] [rbp+10h] BYREF
+  unsigned __int64 v29; // [rsp+80h] [rbp+18h] BYREF
 
-  v24 = a3;
-  v23 = 0LL;
+  v29 = a3;
+  v28 = 0LL;
   v7 = PspMinimumWorkingSet;
   v8 = a3;
   v9 = a6;
-  v22 = PspMinimumWorkingSet;
+  v27 = PspMinimumWorkingSet;
   if ( a1 )
     v10 = **(__int16 ***)(a6 + 2520);
   else
-    v10 = (__int16 *)MiSystemPartition;
-  if ( !(unsigned int)MiMakePartitionActive((unsigned __int64)v10) )
+    v10 = (__int16 *)&MiSystemPartition;
+  if ( !(unsigned int)MiMakePartitionActive((__int64)v10) )
     return 0;
   MiSetProcessPartitionId(v9, *v10);
-  *(_DWORD *)(v9 + 2876) = 1;
-  if ( !(unsigned int)MiChargeCommit((unsigned __int64)v10, 4uLL, 0LL) )
+  if ( !(unsigned int)MiChargeCommit((__int64)v10, 4uLL, 0) )
     return 0;
   *(_DWORD *)(v9 + 1664) = (unsigned __int16)RtlRandomEx(&Seed);
-  *(_QWORD *)(v9 + 2352) = 0LL;
   *(_QWORD *)(v9 + 2368) = v9 + 2360;
   *(_QWORD *)(v9 + 2360) = v9 + 2360;
+  *(_QWORD *)(v9 + 2352) = 0LL;
   if ( v8 != PsGetDefaultWsMaximum() )
   {
-    MiCheckWsLimits(v9 + 1664, (__int64 *)&v22, &v24, a4, 1);
-    v8 = v24;
-    v7 = v22;
+    MiCheckWsLimits(v9 + 1664, (unsigned __int64 *)&v27, &v29, a4, 1);
+    v8 = v29;
+    v7 = v27;
   }
   *(_QWORD *)(v9 + 1776) = v7;
-  *(_QWORD *)(v9 + 1784) = v8;
+  *(_QWORD *)(v9 + 1816) = v8;
   if ( (a4 & 1) != 0 )
     *(_BYTE *)(v9 + 1848) |= 0x40u;
   if ( (int)PsChargeProcessQuota((struct _KPROCESS *)v9, v11, v7) < 0 )
@@ -92,14 +96,14 @@ LABEL_26:
     MiReturnCommit((__int64)v10, 4LL);
     return 0;
   }
-  if ( !(unsigned int)MiChargeResident(v10, v7, 0LL) )
+  if ( !(unsigned int)MiChargeResident((ULONG_PTR *)v10, v7, 0LL, v12) )
   {
 LABEL_25:
-    PsReturnProcessQuota(v9, v12, v7);
+    PsReturnProcessQuota(v9, v13, v7);
     goto LABEL_26;
   }
-  v13 = MiReservePtes((__int64)&qword_140C69A40, 1u);
-  if ( !v13 )
+  v16 = MiReservePtes((__int64)&qword_140C4EF40, 1u, v14, v15);
+  if ( !v16 )
   {
 LABEL_24:
     MiReturnResident((__int64)v10, v7);
@@ -108,39 +112,39 @@ LABEL_24:
   if ( (int)MiAllocateProcessShadow(v9, a5) < 0 )
   {
 LABEL_23:
-    MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)v13, 1u);
+    MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)v16, 1u);
     goto LABEL_24;
   }
-  if ( !(unsigned int)MiJoinSession(&v23) )
+  if ( !(unsigned int)MiJoinSession(&v28) )
   {
-    MiDeleteProcessShadow(v9, 0);
+    MiDeleteProcessShadow(v9, 0, v17);
     goto LABEL_23;
   }
-  v14 = a5;
+  v18 = a5;
   *(_QWORD *)(v9 + 1608) = 4LL;
-  TopLevelPage = MiAllocateTopLevelPage(v9, v13, v14);
-  v16 = v23;
-  v17 = TopLevelPage;
-  if ( v23 )
+  TopLevelPage = MiAllocateTopLevelPage(v9, v16, v18);
+  v20 = v28;
+  v21 = TopLevelPage;
+  if ( v28 )
   {
-    *(_QWORD *)(v9 + 1368) = v23;
+    *(_QWORD *)(v9 + 1368) = v28;
     _InterlockedOr((volatile signed __int32 *)(v9 + 1124), 0x10000u);
-    v16 = v23;
+    v20 = v28;
   }
-  MiInsertNewProcess((_QWORD *)v9, v16);
-  MiCreateNewProcessTopLevelMappings(v9, (__int64)(v13 << 25) >> 16);
-  v18 = MiMakeValidPte(0LL, v17, 2415919110LL) & 0xFFFFFFFFFFFFFEFFuLL;
-  v19 = 0;
-  if ( !MiPteInShadowRange(((__int64)(v13 << 25) >> 16) + 3944) )
+  MiInsertNewProcess((_QWORD *)v9, v20);
+  MiCreateNewProcessTopLevelMappings(v9, (__int64)(v16 << 25) >> 16);
+  v23 = MiMakeValidPte(0LL, v21, 2415919110LL, v22) & 0xFFFFFFFFFFFFFEFFuLL;
+  v24 = 0;
+  if ( !MiPteInShadowRange(((__int64)(v16 << 25) >> 16) + 3944) )
     goto LABEL_17;
-  if ( MiPteHasShadow() )
+  if ( (unsigned int)MiPteHasShadow() )
   {
-    v19 = 1;
-    if ( !HIBYTE(word_140C66DFC) )
+    v24 = 1;
+    if ( !HIBYTE(word_140C4E008) )
     {
 LABEL_31:
-      if ( (v18 & 1) != 0 )
-        v18 |= 0x8000000000000000uLL;
+      if ( (v23 & 1) != 0 )
+        v23 |= 0x8000000000000000uLL;
     }
   }
   else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
@@ -148,11 +152,11 @@ LABEL_31:
     goto LABEL_31;
   }
 LABEL_17:
-  *(_QWORD *)(((__int64)(v13 << 25) >> 16) + 0xF68) = v18;
-  if ( v19 )
-    MiWritePteShadow(((__int64)(v13 << 25) >> 16) + 3944, v18, v20);
-  *(_QWORD *)(v9 + 40) = KeMakeKernelDirectoryTableBase(v17 << 12);
+  *(_QWORD *)(((__int64)(v16 << 25) >> 16) + 0xF68) = v23;
+  if ( v24 )
+    MiWritePteShadow(((__int64)(v16 << 25) >> 16) + 3944, v23, v25);
+  *(_QWORD *)(v9 + 40) = KeMakeKernelDirectoryTableBase(v21 << 12);
   MiSyncSystemPdes(v9);
-  MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)v13, 1u);
+  MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)v16, 1u);
   return 1;
 }

@@ -1,30 +1,25 @@
 /*
- * XREFs of GetCaptionHeight @ 0x1C00ECE00
+ * XREFs of GetCaptionHeight @ 0x1C0047254
  * Callers:
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
- *     xxxCalcClientRect @ 0x1C010ACC0 (xxxCalcClientRect.c)
- *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C01ED858 (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
- *     xxxMenuBarDraw @ 0x1C0235E48 (xxxMenuBarDraw.c)
- *     xxxMNRecomputeBarIfNeeded @ 0x1C0239120 (xxxMNRecomputeBarIfNeeded.c)
+ *     xxxCalcClientRect @ 0x1C004A800 (xxxCalcClientRect.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     xxxInitializeMoveSizeData @ 0x1C021184C (xxxInitializeMoveSizeData.c)
+ *     xxxMenuBarDraw @ 0x1C024CF54 (xxxMenuBarDraw.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C024E7B4 (xxxMNRecomputeBarIfNeeded.c)
  * Callees:
- *     GetDpiCacheSlot @ 0x1C00EDB50 (GetDpiCacheSlot.c)
- *     GetWindowDpiLastNotify @ 0x1C00F0740 (GetWindowDpiLastNotify.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01BF5AC (_EnsureDpiDepSysMetCacheForPlateau.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C618 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
  */
 
 __int64 __fastcall GetCaptionHeight(__int64 a1)
 {
   __int64 v2; // rcx
-  unsigned int v3; // r10d
+  unsigned int v3; // eax
   int v4; // r8d
-  unsigned int v5; // r10d
-  __int64 v6; // rbx
-  unsigned int v7; // r10d
-  __int64 result; // rax
+  unsigned int WindowDpiLastNotify; // eax
+  __int64 v6; // rcx
+  __int64 v8; // rax
   __int64 v9; // rax
-  unsigned int WindowDpiLastNotify; // r10d
-  __int64 v11; // rax
 
   v2 = *(_QWORD *)(a1 + 40);
   if ( (*(_BYTE *)(v2 + 16) & 8) == 0 )
@@ -37,13 +32,13 @@ __int64 __fastcall GetCaptionHeight(__int64 a1)
     {
       WindowDpiLastNotify = (v3 >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v2 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v2 + 232) & 0x8000000) != 0 )
     {
       WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
     }
     else if ( (v3 & 0xF) == 0
-           && (v11 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) != 0
-           && (*(_DWORD *)(**(_QWORD **)(v11 + 8) + 64LL) & 1) != 0 )
+           && (v9 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) != 0
+           && (*(_DWORD *)(**(_QWORD **)(v9 + 8) + 64LL) & 1) != 0 )
     {
       WindowDpiLastNotify = 96;
     }
@@ -51,37 +46,29 @@ __int64 __fastcall GetCaptionHeight(__int64 a1)
     {
       WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 284LL);
     }
-    return GetDpiDependentMetric(22LL, WindowDpiLastNotify);
+    v6 = 22LL;
   }
   else
   {
     if ( v4 == 3 )
     {
-      v5 = (v3 >> 8) & 0x1FF;
+      WindowDpiLastNotify = (v3 >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v2 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v2 + 232) & 0x8000000) != 0 )
     {
-      v5 = GetWindowDpiLastNotify(a1);
+      WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
     }
     else if ( (v3 & 0xF) == 0
-           && (v9 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) != 0
-           && (*(_DWORD *)(**(_QWORD **)(v9 + 8) + 64LL) & 1) != 0 )
+           && (v8 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) != 0
+           && (*(_DWORD *)(**(_QWORD **)(v8 + 8) + 64LL) & 1) != 0 )
     {
-      v5 = 96;
+      WindowDpiLastNotify = 96;
     }
     else
     {
-      v5 = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 284LL);
+      WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 284LL);
     }
-    v6 = 120LL * (int)GetDpiCacheSlot(v5);
-    result = *(unsigned int *)(v6 + gpsi + 2292);
-    if ( (_DWORD)result == -1 )
-    {
-      EnsureDpiDepSysMetCacheForPlateau(v7);
-      result = *(unsigned int *)(v6 + gpsi + 2292);
-      if ( (_DWORD)result == -1 )
-        return 0LL;
-    }
+    v6 = 2LL;
   }
-  return result;
+  return GetDpiDependentMetric(v6, WindowDpiLastNotify);
 }

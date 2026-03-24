@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Add@?$CMap@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@V?$CMapEqualHelper@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@@@@QEAAHAEBIAEBV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x1800274D0
+ * XREFs of ?Add@?$CMap@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@V?$CMapEqualHelper@IV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@@@@QEAAHAEBIAEBV?$com_ptr_t@UID3D11VertexShader@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x180045F60
  * Callers:
- *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180026108 (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
+ *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180045A2C (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004610C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMap<unsigned int,wil::com_ptr_t<ID3D11VertexShader,wil::err_returncode_policy>,CMapEqualHelper<unsigned int,wil::com_ptr_t<ID3D11VertexShader,wil::err_returncode_policy>>>::Add(
@@ -14,32 +14,37 @@ __int64 __fastcall CMap<unsigned int,wil::com_ptr_t<ID3D11VertexShader,wil::err_
 {
   void *v6; // rax
   void *v7; // rcx
-  void *v8; // rax
-  __int64 v9; // rdx
-  _DWORD *v10; // rcx
-  __int64 *v11; // rdx
-  __int64 v12; // rcx
+  char *v8; // rax
+  char *v9; // rcx
+  __int64 v10; // rdx
+  _DWORD *v11; // r8
+  char *v12; // rdx
+  __int64 v13; // rcx
 
   v6 = DefaultHeap::Realloc(*(void **)a1, 4LL * (*(_DWORD *)(a1 + 16) + 1));
   if ( !v6 )
     return 0LL;
   v7 = *(void **)(a1 + 8);
   *(_QWORD *)a1 = v6;
-  v8 = DefaultHeap::Realloc(v7, 8LL * (*(_DWORD *)(a1 + 16) + 1));
+  v8 = (char *)DefaultHeap::Realloc(v7, 8LL * (*(_DWORD *)(a1 + 16) + 1));
+  v9 = v8;
   if ( !v8 )
     return 0LL;
-  v9 = *(int *)(a1 + 16);
+  v10 = *(int *)(a1 + 16);
   *(_QWORD *)(a1 + 8) = v8;
-  v10 = (_DWORD *)(*(_QWORD *)a1 + 4 * v9);
-  if ( v10 )
-    *v10 = *a2;
-  v11 = (__int64 *)(*(_QWORD *)(a1 + 8) + 8 * v9);
+  v11 = (_DWORD *)(*(_QWORD *)a1 + 4 * v10);
   if ( v11 )
   {
-    v12 = *a3;
-    *v11 = *a3;
-    if ( v12 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
+    *v11 = *a2;
+    v9 = *(char **)(a1 + 8);
+  }
+  v12 = &v9[8 * v10];
+  if ( v12 )
+  {
+    v13 = *a3;
+    *(_QWORD *)v12 = *a3;
+    if ( v13 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 8LL))(v13);
   }
   ++*(_DWORD *)(a1 + 16);
   return 1LL;

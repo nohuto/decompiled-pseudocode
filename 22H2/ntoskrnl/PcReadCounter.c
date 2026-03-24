@@ -1,5 +1,5 @@
 /*
- * XREFs of PcReadCounter @ 0x14051C1F0
+ * XREFs of PcReadCounter @ 0x1404D2460
  * Callers:
  *     <none>
  * Callees:

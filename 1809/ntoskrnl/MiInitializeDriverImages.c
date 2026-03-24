@@ -5,9 +5,9 @@
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
- *     MiSystemVaToDynamicBitmap @ 0x1400F71E0 (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x14017E8C0 (MiBuildDynamicRegion.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1400F7200 (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  *     MiMarkBootImagesNonPaged @ 0x1409B7ABC (MiMarkBootImagesNonPaged.c)

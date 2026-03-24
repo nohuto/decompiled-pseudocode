@@ -1,9 +1,9 @@
 /*
- * XREFs of vQueryRegistryForNumberOfBuckets @ 0x1C03B4D04
+ * XREFs of vQueryRegistryForNumberOfBuckets @ 0x1C0393B4C
  * Callers:
- *     bInitFontTables @ 0x1C03B4BD0 (bInitFontTables.c)
+ *     bInitFontTables @ 0x1C0393A40 (bInitFontTables.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall vQueryRegistryForNumberOfBuckets(unsigned int *a1, _DWORD *a2)

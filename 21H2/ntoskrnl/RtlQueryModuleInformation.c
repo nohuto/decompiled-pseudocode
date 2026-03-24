@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryModuleInformation @ 0x1406C6410
+ * XREFs of RtlQueryModuleInformation @ 0x140788190
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlQueryModuleInformation(unsigned int *a1, int a2, __int64 a3)
@@ -27,20 +27,21 @@ __int64 __fastcall RtlQueryModuleInformation(unsigned int *a1, int a2, __int64 a
   __int128 v18; // xmm1
   _BYTE P[304]; // [rsp+30h] [rbp-168h] BYREF
 
-  memset(P, 0, 0x12CuLL);
+  memset(P, 0, sizeof(P));
   v6 = 0;
   if ( a2 == 272 )
   {
     result = (a3 & 7) != 0 ? 0xC00000F1 : 0;
-    if ( (a3 & 7) != 0 )
-      return result;
+    goto LABEL_3;
   }
-  else
+  if ( a2 != 8 )
+    return 3221225712LL;
+  if ( (a3 & 7) != 0 )
   {
-    if ( a2 != 8 )
-      return 3221225712LL;
-    if ( (a3 & 7) != 0 )
-      return 3221225713LL;
+    result = 3221225713LL;
+LABEL_3:
+    if ( (int)result < 0 )
+      return result;
   }
   PoolWithQuotaTag = (unsigned int *)P;
   while ( 1 )
@@ -53,7 +54,7 @@ __int64 __fastcall RtlQueryModuleInformation(unsigned int *a1, int a2, __int64 a
     {
       v10 = 0;
       v11 = 14510024 * a2;
-LABEL_13:
+LABEL_14:
       *a1 = v11;
       break;
     }
@@ -104,7 +105,7 @@ LABEL_13:
         }
         while ( v6 < *PoolWithQuotaTag );
       }
-      goto LABEL_13;
+      goto LABEL_14;
     }
     if ( PoolWithQuotaTag != (unsigned int *)P )
       ExFreePoolWithTag(PoolWithQuotaTag, 0);

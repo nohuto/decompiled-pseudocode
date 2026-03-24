@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwAlpcCancelMessage @ 0x14041C660
+ * XREFs of ZwAlpcCancelMessage @ 0x1403FB2A0
  * Callers:
- *     PopUmpoProcessMessage @ 0x1407EFC00 (PopUmpoProcessMessage.c)
- *     SshpAlpcProcessAlpcMessage @ 0x14081AFCC (SshpAlpcProcessAlpcMessage.c)
+ *     PopUmpoProcessMessage @ 0x14067A514 (PopUmpoProcessMessage.c)
  * Callees:
  *     <none>
  */

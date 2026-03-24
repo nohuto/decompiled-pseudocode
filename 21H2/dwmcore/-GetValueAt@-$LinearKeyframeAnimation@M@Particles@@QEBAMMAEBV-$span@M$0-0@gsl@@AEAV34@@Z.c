@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x18022A734
+ * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x1801DBA20
  * Callers:
- *     ?AnimateSingle@?$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x180229F90 (-AnimateSingle@-$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV-$span@M$0-0@gsl@@00@Z.c)
+ *     ?AnimateSingle@?$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x1801DB290 (-AnimateSingle@-$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV-$span@M$0-0@gsl@@00@Z.c)
  * Callees:
- *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z @ 0x18022A5DC (-FindFirstFrameIndex@-$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z.c)
+ *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z @ 0x1801DB8A4 (-FindFirstFrameIndex@-$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z.c)
  */
 
 float __fastcall Particles::LinearKeyframeAnimation<float>::GetValueAt(__int64 a1, float a2, __int64 a3, __int64 a4)

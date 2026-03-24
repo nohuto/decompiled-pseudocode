@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSetInformationVirtualMemory @ 0x1401BB450
+ * XREFs of ZwSetInformationVirtualMemory @ 0x1401BB470
  * Callers:
  *     CmSiPrefetchVirtualMemoryRange @ 0x14000F060 (CmSiPrefetchVirtualMemoryRange.c)
- *     PspMapSystemDll @ 0x1406779CC (PspMapSystemDll.c)
+ *     PspMapSystemDll @ 0x1406779AC (PspMapSystemDll.c)
  * Callees:
  *     <none>
  */

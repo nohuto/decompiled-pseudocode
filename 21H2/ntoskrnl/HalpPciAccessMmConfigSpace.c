@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPciAccessMmConfigSpace @ 0x14023AC88
+ * XREFs of HalpPciAccessMmConfigSpace @ 0x1402B1C70
  * Callers:
- *     HalpPCIConfig @ 0x14023AB60 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x1402B1B20 (HalpPCIConfig.c)
  * Callees:
- *     HalpPciGetMmConfigPhysicalAddress @ 0x14023AD38 (HalpPciGetMmConfigPhysicalAddress.c)
- *     HalpPciCheckAmdK8 @ 0x14023ADA4 (HalpPciCheckAmdK8.c)
- *     HalpPCIPerformConfigAccess @ 0x14023AE58 (HalpPCIPerformConfigAccess.c)
- *     HalpPciMapMmConfigPhysicalAddress @ 0x14023AEE0 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     HalpPciGetMmConfigPhysicalAddress @ 0x1402B1D20 (HalpPciGetMmConfigPhysicalAddress.c)
+ *     HalpPciCheckAmdK8 @ 0x1402B1D8C (HalpPciCheckAmdK8.c)
+ *     HalpPCIPerformConfigAccess @ 0x1402B1E40 (HalpPCIPerformConfigAccess.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x1402B1EC8 (HalpPciMapMmConfigPhysicalAddress.c)
  */
 
 char __fastcall HalpPciAccessMmConfigSpace(unsigned __int16 a1, char a2, __int64 a3, int a4, int a5, int a6, int a7)
@@ -28,10 +28,10 @@ char __fastcall HalpPciAccessMmConfigSpace(unsigned __int16 a1, char a2, __int64
   if ( !MmConfigPhysicalAddress )
     return 0;
   v13 = HalpPciMapMmConfigPhysicalAddress(MmConfigPhysicalAddress);
-  v14 = HalpPciMmConfigReadHandlers;
+  v14 = &HalpPciMmConfigReadHandlers;
   v17 = a6;
   if ( a7 )
-    v14 = HalpPciMmConfigWriteHandlers;
+    v14 = &HalpPciMmConfigWriteHandlers;
   HalpPCIPerformConfigAccess((_DWORD)v14, v13, a4, a5, v17);
   _InterlockedOr(v16, 0);
   return 1;

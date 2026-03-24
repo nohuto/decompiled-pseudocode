@@ -1,8 +1,8 @@
 /*
- * XREFs of HUBID_GetUnknownId @ 0x1C001BB64
+ * XREFs of HUBID_GetUnknownId @ 0x1C001B61C
  * Callers:
- *     HUBID_BuildHardwareID @ 0x1C001BBEC (HUBID_BuildHardwareID.c)
- *     HUBID_BuildCompatibleID @ 0x1C001C3D0 (HUBID_BuildCompatibleID.c)
+ *     HUBID_BuildHardwareID @ 0x1C001B6A4 (HUBID_BuildHardwareID.c)
+ *     HUBID_BuildCompatibleID @ 0x1C001BE8C (HUBID_BuildCompatibleID.c)
  * Callees:
  *     <none>
  */

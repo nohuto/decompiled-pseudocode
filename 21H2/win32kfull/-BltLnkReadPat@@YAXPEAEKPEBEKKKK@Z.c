@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkReadPat@@YAXPEAEKPEBEKKKK@Z @ 0x1C0124F60
+ * XREFs of ?BltLnkReadPat@@YAXPEAEKPEBEKKKK@Z @ 0x1C00C8E10
  * Callers:
  *     <none>
  * Callees:

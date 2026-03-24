@@ -1,27 +1,35 @@
 /*
- * XREFs of ??1?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x18010EB34
+ * XREFs of ??1?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x1800E6320
  * Callers:
- *     _dynamic_atexit_destructor_for__CManipulationManager::s_InputQueue__ @ 0x180124270 (_dynamic_atexit_destructor_for__CManipulationManager--s_InputQueue__.c)
+ *     _dynamic_atexit_destructor_for__CManipulationManager::s_InputQueue__ @ 0x1800F9140 (_dynamic_atexit_destructor_for__CManipulationManager--s_InputQueue__.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?Remove@?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA?AV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@_NPEAI@Z @ 0x1801A0A0C (-Remove@-$CQueue@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA-AV-$ComPtr@VCManipulation.c)
+ *     ?Remove@?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA?AV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@_NPEAI@Z @ 0x1800E6370 (-Remove@-$CQueue@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA-AV-$ComPtr@VCManipulation.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::~CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>(
-        __int64 a1,
+        _QWORD *a1,
         __int64 a2,
         __int64 a3)
 {
-  bool v4; // bl
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  bool v3; // bl
+  __int64 v4; // rax
+  _QWORD *v5; // [rsp+30h] [rbp+8h] BYREF
 
+  v5 = a1;
   do
   {
     LOBYTE(a3) = 1;
     CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Remove(a1, &v5, a3, 0LL);
-    v4 = v5 != 0;
-    Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease(&v5);
+    a1 = v5;
+    v3 = v5 != 0LL;
+    if ( v5 )
+    {
+      v4 = *v5;
+      v5 = 0LL;
+      (*(void (__fastcall **)(_QWORD *))(v4 + 8))(a1);
+    }
   }
-  while ( v4 );
-  DeleteCriticalSection((LPCRITICAL_SECTION)(a1 + 24));
+  while ( v3 );
+  DeleteCriticalSection(&stru_18034B548);
 }

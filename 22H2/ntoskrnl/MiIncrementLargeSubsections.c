@@ -1,26 +1,26 @@
 /*
- * XREFs of MiIncrementLargeSubsections @ 0x14063D9C8
+ * XREFs of MiIncrementLargeSubsections @ 0x1405413C0
  * Callers:
- *     MiReferenceDataSubsections @ 0x140211CC8 (MiReferenceDataSubsections.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiCloneLargeFileOnlyVad @ 0x140A336F4 (MiCloneLargeFileOnlyVad.c)
+ *     MiReferenceDataSubsections @ 0x14027D7AC (MiReferenceDataSubsections.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiCloneLargeFileOnlyVad @ 0x1408CFD00 (MiCloneLargeFileOnlyVad.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiBuildWakeList @ 0x1402893C4 (MiBuildWakeList.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDecrementLargeSubsections @ 0x14063C764 (MiDecrementLargeSubsections.c)
- *     MiEnableLargeSubsection @ 0x14063CE70 (MiEnableLargeSubsection.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402D7A34 (MiReleaseControlAreaWaiters.c)
+ *     MiBuildWakeList @ 0x1402D7C30 (MiBuildWakeList.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementLargeSubsections @ 0x140540350 (MiDecrementLargeSubsections.c)
+ *     MiEnableLargeSubsection @ 0x1405408EC (MiEnableLargeSubsection.c)
  */
 
 __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
 {
   __int64 v2; // rdi
   unsigned int v4; // esi
-  __int64 *v5; // r13
-  volatile LONG *v6; // rbx
+  __int64 *v5; // r12
+  volatile LONG *v6; // r13
   unsigned __int64 v7; // r14
   int v8; // eax
   int v9; // eax
@@ -30,7 +30,7 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
   int v13; // edx
   bool v14; // zf
   int v15; // eax
-  unsigned __int8 v16; // cl
+  unsigned __int8 v16; // al
   struct _KPRCB *v17; // r10
   _DWORD *v18; // r9
   int v19; // edx
@@ -41,23 +41,21 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
   struct _KPRCB *v24; // r9
   _DWORD *v25; // r8
   int v26; // eax
-  __int64 v28; // [rsp+20h] [rbp-30h]
-  __int64 v29; // [rsp+28h] [rbp-28h] BYREF
-  int v30; // [rsp+30h] [rbp-20h]
-  int v31; // [rsp+34h] [rbp-1Ch]
-  _DWORD v32[2]; // [rsp+38h] [rbp-18h] BYREF
-  _QWORD v33[2]; // [rsp+40h] [rbp-10h] BYREF
-  char v35; // [rsp+A0h] [rbp+50h]
-  volatile LONG *SpinLock; // [rsp+A8h] [rbp+58h]
+  __int64 v28; // [rsp+20h] [rbp-30h] BYREF
+  int v29; // [rsp+28h] [rbp-28h]
+  int v30; // [rsp+2Ch] [rbp-24h]
+  _DWORD v31[2]; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD v32[3]; // [rsp+38h] [rbp-18h] BYREF
+  char v34; // [rsp+A0h] [rbp+50h]
+  __int64 v35; // [rsp+A8h] [rbp+58h]
 
   v2 = (__int64)a1;
-  v28 = *a1;
+  v35 = *a1;
   v4 = 0;
   v5 = 0LL;
   v6 = (volatile LONG *)(*a1 + 72);
-  SpinLock = v6;
   v7 = ExAcquireSpinLockExclusive(v6);
-  v35 = v7 + 1;
+  v34 = v7 + 1;
   while ( 1 )
   {
     v8 = *(_DWORD *)(v2 + 48) >> 30;
@@ -70,31 +68,34 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
       break;
     if ( v9 == 1 )
     {
-      v31 = 0;
-      v32[1] = 0;
-      v33[1] = v33;
-      v33[0] = v33;
-      v29 = *(_QWORD *)(v28 + 80);
-      *(_QWORD *)(v28 + 80) = &v29;
-      v32[0] = 393479;
-      v30 = 512;
+      v30 = 0;
+      v31[1] = 0;
+      v32[1] = v32;
+      v32[0] = v32;
+      v28 = *(_QWORD *)(v35 + 80);
+      *(_QWORD *)(v35 + 80) = &v28;
+      v31[0] = 393479;
+      v29 = 512;
       ExReleaseSpinLockExclusiveFromDpcLevel(v6);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v13 = ~(unsigned __int16)(-1LL << v35);
-          v14 = (v13 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v13;
-          if ( v14 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v13 = ~(unsigned __int16)(-1LL << v34);
+            v14 = (v13 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v13;
+            if ( v14 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(v7);
-      KeWaitForGate((__int64)v32, 19, 0);
+      KeWaitForGate((__int64)v31, 19);
     }
     else
     {
@@ -105,22 +106,25 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
         ExReleaseSpinLockExclusiveFromDpcLevel(v6);
         if ( KiIrqlFlags )
         {
-          v16 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v17 = KeGetCurrentPrcb();
-            v18 = v17->SchedulerAssist;
-            v19 = ~(unsigned __int16)(-1LL << v35);
-            v14 = (v19 & v18[5]) == 0;
-            v18[5] &= v19;
-            if ( v14 )
-              KiRemoveSystemWorkPriorityKick((__int64)v17);
+            v16 = KeGetCurrentIrql();
+            if ( v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+            {
+              v17 = KeGetCurrentPrcb();
+              v18 = v17->SchedulerAssist;
+              v19 = ~(unsigned __int16)(-1LL << v34);
+              v14 = (v19 & v18[5]) == 0;
+              v18[5] &= v19;
+              if ( v14 )
+                KiRemoveSystemWorkPriorityKick((__int64)v17);
+            }
           }
         }
         __writecr8(v7);
         v20 = MiEnableLargeSubsection(v2);
-        ExAcquireSpinLockExclusive(SpinLock);
-        v21 = MiBuildWakeList(v28, 512);
+        ExAcquireSpinLockExclusive(v6);
+        v21 = MiBuildWakeList(v35, 512);
         MiReleaseControlAreaWaiters(v21);
         if ( !v20 )
         {
@@ -129,7 +133,6 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
           goto LABEL_34;
         }
         ++*(_DWORD *)(v2 + 108);
-        v6 = SpinLock;
       }
       v5 = (__int64 *)v2;
       if ( a2 )
@@ -146,19 +149,22 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
   }
   v4 = -1;
 LABEL_34:
-  ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
+  ExReleaseSpinLockExclusiveFromDpcLevel(v6);
   if ( KiIrqlFlags )
   {
-    v23 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v23 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v24 = KeGetCurrentPrcb();
-      v25 = v24->SchedulerAssist;
-      v26 = ~(unsigned __int16)(-1LL << v35);
-      v14 = (v26 & v25[5]) == 0;
-      v25[5] &= v26;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick((__int64)v24);
+      v23 = KeGetCurrentIrql();
+      if ( v23 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v23 >= 2u )
+      {
+        v24 = KeGetCurrentPrcb();
+        v25 = v24->SchedulerAssist;
+        v26 = ~(unsigned __int16)(-1LL << v34);
+        v14 = (v26 & v25[5]) == 0;
+        v25[5] &= v26;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)v24);
+      }
     }
   }
   __writecr8(v7);

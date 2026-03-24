@@ -1,27 +1,27 @@
 /*
- * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140A5F114
+ * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140973384
  * Callers:
- *     BiCreateEfiEntry @ 0x140A5DE50 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x140971320 (BiCreateEfiEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsupr @ 0x1403D9710 (_wcsupr.c)
- *     wcsstr @ 0x1403DB540 (wcsstr.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     BcdQueryObject @ 0x14080447C (BcdQueryObject.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408081F8 (BiGetObjectReferenceFromEfiEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsupr @ 0x1403D1CF0 (_wcsupr.c)
+ *     wcsstr @ 0x1403D3A90 (wcsstr.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     BcdQueryObject @ 0x140783204 (BcdQueryObject.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972388 (BiGetObjectReferenceFromEfiEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
 {
   int ObjectReferenceFromEfiEntry; // ebx
   __int64 v5; // rax
-  size_t v6; // rbx
-  wchar_t *Pool2; // rax
+  SIZE_T v6; // rbx
+  wchar_t *PoolWithTag; // rax
   wchar_t *v8; // rsi
   wchar_t *v9; // rdi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
@@ -43,11 +43,11 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
       if ( v5 )
       {
         v6 = (unsigned int)(*(_DWORD *)(a1 + 40) - 20);
-        Pool2 = (wchar_t *)ExAllocatePool2(258LL, v6, 1262764866LL);
-        v8 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v6, 0x4B444342u);
+        v8 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, (const void *)(a1 + 48), v6);
+          memmove(PoolWithTag, (const void *)(a1 + 48), v6);
           wcsupr(v8);
           v9 = wcsstr(v8, L"BCDOBJECT=");
           if ( v9 )
@@ -60,7 +60,7 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
                 (void *)(a1 + 68 + 2 * ((unsigned __int64)(v9 - v8) >> 1)),
                 DestinationString.Buffer,
                 DestinationString.Length);
-              RtlFreeUnicodeString(&DestinationString);
+              RtlFreeAnsiString(&DestinationString);
             }
           }
           else

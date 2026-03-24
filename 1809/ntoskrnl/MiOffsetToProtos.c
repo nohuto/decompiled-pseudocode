@@ -1,27 +1,27 @@
 /*
- * XREFs of MiOffsetToProtos @ 0x1400AF810
+ * XREFs of MiOffsetToProtos @ 0x1400AF830
  * Callers:
  *     MiReferenceDataSubsections @ 0x140026658 (MiReferenceDataSubsections.c)
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
  *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
  *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
- *     MmMapViewInSystemCache @ 0x1400AD910 (MmMapViewInSystemCache.c)
- *     MiDereferenceDataSubsections @ 0x1402C48F8 (MiDereferenceDataSubsections.c)
+ *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
+ *     MiDereferenceDataSubsections @ 0x1402C49F8 (MiDereferenceDataSubsections.c)
  *     MiAddMappedPtes @ 0x1405DF500 (MiAddMappedPtes.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  *     MmHardFaultBytesRequired @ 0x140638920 (MmHardFaultBytesRequired.c)
- *     MiLogRelocationRva @ 0x14064B1AC (MiLogRelocationRva.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
- *     MiScanRelocationPage @ 0x1406506A0 (MiScanRelocationPage.c)
+ *     MiLogRelocationRva @ 0x14064B18C (MiLogRelocationRva.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiScanRelocationPage @ 0x140650680 (MiScanRelocationPage.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpTryAcquireSpinLockShared @ 0x1400AFC00 (ExpTryAcquireSpinLockShared.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7780 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiLocatePagefileSubsection @ 0x140119D28 (MiLocatePagefileSubsection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C064 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C1A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockShared @ 0x1400AFC20 (ExpTryAcquireSpinLockShared.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiOffsetToProtos(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)

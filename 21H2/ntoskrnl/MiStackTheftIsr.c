@@ -1,13 +1,13 @@
 /*
- * XREFs of MiStackTheftIsr @ 0x140590E20
+ * XREFs of MiStackTheftIsr @ 0x140536460
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeFlushSingleCurrentTb @ 0x1403AD304 (KeFlushSingleCurrentTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiCopyKstack @ 0x140590A18 (MiCopyKstack.c)
- *     MiSwitchKstackPages @ 0x140591040 (MiSwitchKstackPages.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyKstack @ 0x140535C50 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x14053666C (MiSwitchKstackPages.c)
  */
 
 ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -21,16 +21,16 @@ ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument, __int64 a2, __int64 a3,
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
-  signed __int32 v14; // eax
-  unsigned int v15; // ebx
-  unsigned __int8 v16; // al
+  char v14; // al
+  signed __int32 v15; // eax
+  unsigned int v16; // ebx
+  signed __int32 v17; // eax
+  unsigned __int8 v18; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v18; // r8
-  int v19; // eax
-  bool v20; // zf
+  _DWORD *v20; // r8
+  int v21; // eax
+  bool v22; // zf
   ULONG_PTR result; // rax
-  signed __int32 v22; // eax
-  unsigned int v23; // ebx
   int v24; // [rsp+60h] [rbp+8h] BYREF
   int v25; // [rsp+68h] [rbp+10h] BYREF
   int v26; // [rsp+70h] [rbp+18h] BYREF
@@ -45,64 +45,60 @@ ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument, __int64 a2, __int64 a3,
     a3 = (unsigned int)a2 | SchedulerAssist[5];
     SchedulerAssist[5] = a3;
   }
+  v25 = 0;
   v7 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
   v8 = ~v7 & 0x80000000;
   if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v25 = 0;
     while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v8 )
       KeYieldProcessorEx(&v25, a2, a3, (__int64)SchedulerAssist);
-    v22 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
-    v23 = ~v22 & 0x80000000;
-    if ( (v22 & 0x7FFFFFFF) != 0 )
-    {
-      v26 = 0;
-      while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v23 )
-        KeYieldProcessorEx(&v26, a2, a3, (__int64)SchedulerAssist);
-    }
-    else
-    {
-      *(_DWORD *)(Argument + 72) = v23 | *(_DWORD *)(Argument + 76);
-    }
+    v26 = 0;
+    v17 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
+    v16 = ~v17 & 0x80000000;
+    if ( (v17 & 0x7FFFFFFF) == 0 )
+      goto LABEL_7;
+    while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v16 )
+      KeYieldProcessorEx(&v26, a2, a3, (__int64)SchedulerAssist);
   }
   else
   {
     *(_DWORD *)(Argument + 72) = v8 | *(_DWORD *)(Argument + 76);
-    v9 = 48LL * *(_QWORD *)Argument - 0x220000000000LL;
-    v10 = 48LL * *(_QWORD *)(Argument + 8) - 0x220000000000LL;
+    v9 = 48LL * *(_QWORD *)Argument - 0x58000000000LL;
+    v10 = 48LL * *(_QWORD *)(Argument + 8) - 0x58000000000LL;
     MiCopyKstack(v10, v9, *(_QWORD *)(Argument + 16));
     KeFlushSingleCurrentTb(v4, 0);
     MiSwitchKstackPages(v10, v9);
     *(_QWORD *)(v9 + 40) &= ~0x8000000000000000uLL;
     *(_BYTE *)(v9 + 34) &= 0xC7u;
-    *(_BYTE *)(v9 + 35) &= ~0x20u;
-    v14 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
-    v15 = ~v14 & 0x80000000;
-    if ( (v14 & 0x7FFFFFFF) != 0 )
+    v14 = *(_BYTE *)(v9 + 35) & 0xDF;
+    v24 = 0;
+    *(_BYTE *)(v9 + 35) = v14;
+    v15 = _InterlockedDecrement((volatile signed __int32 *)(Argument + 72));
+    v16 = ~v15 & 0x80000000;
+    if ( (v15 & 0x7FFFFFFF) == 0 )
     {
-      v24 = 0;
-      while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v15 )
-        KeYieldProcessorEx(&v24, v11, v12, v13);
+LABEL_7:
+      *(_DWORD *)(Argument + 72) = v16 | *(_DWORD *)(Argument + 76);
+      goto LABEL_17;
     }
-    else
-    {
-      *(_DWORD *)(Argument + 72) = v15 | *(_DWORD *)(Argument + 76);
-    }
+    while ( (*(_DWORD *)(Argument + 72) & 0x80000000) != v16 )
+      KeYieldProcessorEx(&v24, v11, v12, v13);
   }
+LABEL_17:
   KeFlushSingleCurrentTb(v4, 0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v16 = KeGetCurrentIrql();
-      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      v18 = KeGetCurrentIrql();
+      if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v18 = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v20 = (v19 & v18[5]) == 0;
-        v18[5] &= v19;
-        if ( v20 )
+        v20 = CurrentPrcb->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v22 = (v21 & v20[5]) == 0;
+        v20[5] &= v21;
+        if ( v22 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }

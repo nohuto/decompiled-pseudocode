@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEtProcessEnumSnapshotCallback @ 0x1407A5B90
+ * XREFs of PopEtProcessEnumSnapshotCallback @ 0x140618FC0
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407A5B90 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140618FC0 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopEtIsrDpcQuery @ 0x1406BE584 (PopEtIsrDpcQuery.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407A5B90 (PopEtProcessEnumSnapshotCallback.c)
- *     PopEtProcessSnapshotUpdate @ 0x1407A5C98 (PopEtProcessSnapshotUpdate.c)
- *     PsQueryProcessEnergyValues @ 0x1407A8280 (PsQueryProcessEnergyValues.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsQueryProcessEnergyValues @ 0x1405E92D0 (PsQueryProcessEnergyValues.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140618FC0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1406190C8 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtIsrDpcQuery @ 0x1406A1A10 (PopEtIsrDpcQuery.c)
  */
 
 __int64 __fastcall PopEtProcessEnumSnapshotCallback(_QWORD *a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall PopEtProcessEnumSnapshotCallback(_QWORD *a1, __int64 a2)
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx(v5, 0LL);
     if ( a1 == PsIdleProcess )
-      PopEtIsrDpcQuery((__int64)a1, v7);
+      PopEtIsrDpcQuery(a1, v7);
     else
       PsQueryProcessEnergyValues(a1, v7);
     PopEtProcessSnapshotUpdate(a2);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000CEA0
+ * XREFs of ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000F270
  * Callers:
  *     <none>
  * Callees:
- *     TR_ReclaimTransfers @ 0x1C000BD60 (TR_ReclaimTransfers.c)
+ *     TR_ReclaimTransfers @ 0x1C000BC5C (TR_ReclaimTransfers.c)
  */
 
 __int64 __fastcall ESM_ReclaimingTransfersAfterEndpointStop(__int64 a1)

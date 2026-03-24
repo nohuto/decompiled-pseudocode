@@ -1,32 +1,36 @@
 /*
- * XREFs of EmpParseStrings @ 0x140B0CB80
+ * XREFs of EmpParseStrings @ 0x140A4689C
  * Callers:
- *     EmpParseInfDatabase @ 0x140B0B9A8 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x14024F6E4 (RtlStringCchCopyA.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     EmpInfParseGetSectionLineCount @ 0x140B0CD58 (EmpInfParseGetSectionLineCount.c)
- *     CmpGetSectionLineIndex @ 0x140B0D2E8 (CmpGetSectionLineIndex.c)
+ *     RtlStringCchCopyA @ 0x1402C8734 (RtlStringCchCopyA.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140A46A88 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140A46FF4 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpParseStrings(__int64 a1)
 {
   NTSTATUS v2; // ebx
   unsigned int SectionLineCount; // eax
-  unsigned int v4; // esi
-  _BYTE *v5; // rdi
-  unsigned int v6; // edi
+  unsigned int v4; // ebp
+  _BYTE *v5; // rsi
+  PVOID PoolWithTag; // rax
+  unsigned int v7; // edi
   __int64 SectionLineIndex; // rax
-  const char *v8; // r14
-  __int64 v9; // rdx
-  char *Pool2; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r10
-  __int64 v13; // r11
-  _QWORD *v15; // rcx
-  __int64 v16; // r8
-  signed __int64 v17; // rdx
+  const char *v9; // rsi
+  __int64 v10; // rdx
+  char *v11; // rax
+  __int64 v12; // r14
+  PVOID *v13; // r12
+  __int64 v14; // rdx
+  PVOID v16; // rax
+  _QWORD *v17; // rdi
+  unsigned int v18; // r14d
+  __int64 v19; // rdx
+  signed __int64 v20; // rcx
 
   v2 = 0;
   SectionLineCount = EmpInfParseGetSectionLineCount(a1, "Strings");
@@ -36,59 +40,68 @@ __int64 __fastcall EmpParseStrings(__int64 a1)
   v5 = EmpStringTable;
   if ( !EmpStringTable )
   {
-    EmpStringTable = (PVOID)ExAllocatePool2(256LL, 8LL * SectionLineCount, 0x74694D45u);
-    if ( EmpStringTable )
-      goto LABEL_4;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * SectionLineCount, 0x74694D45u);
+    EmpStringTable = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 8LL * v4);
+      goto LABEL_5;
+    }
     return (unsigned int)-1073741670;
   }
-  EmpStringTable = (PVOID)ExAllocatePool2(256LL, 8LL * (SectionLineCount + EmpNumberOfStrings), 0x74694D45u);
-  v15 = EmpStringTable;
-  if ( !EmpStringTable )
+  v16 = ExAllocatePoolWithTag(PagedPool, 8LL * (SectionLineCount + EmpNumberOfStrings), 0x74694D45u);
+  EmpStringTable = v16;
+  v17 = v16;
+  if ( !v16 )
     return (unsigned int)-1073741670;
-  if ( EmpNumberOfStrings )
+  v18 = EmpNumberOfStrings;
+  memset(v16, 0, 8LL * (EmpNumberOfStrings + v4));
+  if ( v18 )
   {
-    v16 = (unsigned int)EmpNumberOfStrings;
-    v17 = v5 - (_BYTE *)EmpStringTable;
+    v19 = v18;
+    v20 = v5 - (_BYTE *)v17;
     do
     {
-      *v15 = *(_QWORD *)((char *)v15 + v17);
-      ++v15;
-      --v16;
+      *v17 = *(_QWORD *)((char *)v17 + v20);
+      ++v17;
+      --v19;
     }
-    while ( v16 );
+    while ( v19 );
   }
   ExFreePoolWithTag(v5, 0x74694D45u);
-LABEL_4:
-  v6 = 0;
-  while ( v6 < v4 )
+LABEL_5:
+  v7 = 0;
+  while ( v7 < v4 )
   {
-    SectionLineIndex = CmpGetSectionLineIndex(a1, "Strings", v6, 0LL);
-    v8 = (const char *)SectionLineIndex;
+    SectionLineIndex = CmpGetSectionLineIndex(a1, "Strings", v7, 0LL);
+    v9 = (const char *)SectionLineIndex;
     if ( SectionLineIndex )
     {
-      v9 = -1LL;
+      v10 = -1LL;
       do
-        ++v9;
-      while ( *(_BYTE *)(SectionLineIndex + v9) );
-      Pool2 = (char *)ExAllocatePool2(256LL, v9 + 1, 0x74694D45u);
-      *((_QWORD *)EmpStringTable + (unsigned int)EmpNumberOfStrings) = Pool2;
-      if ( !Pool2 )
+        ++v10;
+      while ( *(_BYTE *)(SectionLineIndex + v10) );
+      v11 = (char *)ExAllocatePoolWithTag(PagedPool, v10 + 1, 0x74694D45u);
+      v12 = (unsigned int)EmpNumberOfStrings;
+      v13 = (PVOID *)EmpStringTable;
+      *((_QWORD *)EmpStringTable + (unsigned int)EmpNumberOfStrings) = v11;
+      if ( !v11 )
         return (unsigned int)-1073741670;
-      v11 = -1LL;
+      v14 = -1LL;
       do
-        ++v11;
-      while ( v8[v11] );
-      v2 = RtlStringCchCopyA(Pool2, v11 + 1, v8);
+        ++v14;
+      while ( v9[v14] );
+      v2 = RtlStringCchCopyA(v11, v14 + 1, v9);
       if ( v2 < 0 )
       {
-        ExFreePoolWithTag(*(PVOID *)(v13 + 8 * v12), 0x74694D45u);
+        ExFreePoolWithTag(v13[v12], 0x74694D45u);
         v2 = 0;
       }
       else
       {
         ++EmpNumberOfStrings;
       }
-      ++v6;
+      ++v7;
     }
   }
   return (unsigned int)v2;

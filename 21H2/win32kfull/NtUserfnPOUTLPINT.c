@@ -1,10 +1,9 @@
 /*
- * XREFs of NtUserfnPOUTLPINT @ 0x1C0203A90
+ * XREFs of NtUserfnPOUTLPINT @ 0x1C0206B30
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnPOUTLPINT(
@@ -15,7 +14,6 @@ __int64 __fastcall NtUserfnPOUTLPINT(
         __int64 a5,
         char a6)
 {
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( a3 > 0x3FFFFFFFFFFFFFFFLL )
     ExRaiseAccessViolation();
   ProbeForWrite(a4, 4 * a3, 4u);

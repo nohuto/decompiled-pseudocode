@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CCommonRegistryData::MegaRectSearchCount__ @ 0x180003820
+ * XREFs of _dynamic_initializer_for__CCommonRegistryData::MegaRectSearchCount__ @ 0x180003000
  * Callers:
  *     <none>
  * Callees:
- *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x180025D7C (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
+ *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x1800B2ED4 (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
  */
 
 __int64 dynamic_initializer_for__CCommonRegistryData::MegaRectSearchCount__()

@@ -11,10 +11,10 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiFillSessionWorkingSetEntry @ 0x140134604 (MiFillSessionWorkingSetEntry.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiFillSessionWorkingSetEntry @ 0x140134624 (MiFillSessionWorkingSetEntry.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeIsAppContainerOrIdentifyLevelContext @ 0x140588B1C (SeIsAppContainerOrIdentifyLevelContext.c)
  *     MmGetSessionGlobalVA @ 0x1405B12A8 (MmGetSessionGlobalVA.c)
  *     ExGetNextProcess @ 0x1405B2188 (ExGetNextProcess.c)
@@ -23,7 +23,7 @@
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     PsQueryProcessAttributes @ 0x1406258FC (PsQueryProcessAttributes.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     SmProcessQueryStoreStats @ 0x1408AB254 (SmProcessQueryStoreStats.c)
+ *     SmProcessQueryStoreStats @ 0x1408AB234 (SmProcessQueryStoreStats.c)
  */
 
 __int64 __fastcall PfpPrivSourceEnum(unsigned __int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)

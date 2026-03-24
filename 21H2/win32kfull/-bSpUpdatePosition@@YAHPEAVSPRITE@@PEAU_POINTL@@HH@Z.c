@@ -1,40 +1,40 @@
 /*
- * XREFs of ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00B7030
+ * XREFs of ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F0D0C
  * Callers:
- *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0049AEC (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
- *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00857A4 (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00B56F4 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00B604C (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00B7030 (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C0119AE4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
- *     ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027C278 (-GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z.c)
- *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027C8A0 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C027F464 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
- *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C027F62C (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
- *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C027FA4C (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
- *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C027FE40 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
+ *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C0074D3C (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED954 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C00EE6F4 (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
+ *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00EFA8C (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F0D0C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C012C7A4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
+ *     ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027E8B0 (-GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z.c)
+ *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027EEE0 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C0281908 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
+ *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C0281AD0 (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
+ *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C0281F18 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
+ *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C0282300 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?SpBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0031540 (-SpBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHO.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     GreClientRgnUpdatedStable @ 0x1C0049624 (GreClientRgnUpdatedStable.c)
- *     GreClientRgnUpdated @ 0x1C00496B4 (GreClientRgnUpdated.c)
- *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C0086018 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
- *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00B589C (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
- *     ?vSpOrderInY@@YAXPEAVSPRITE@@@Z @ 0x1C00B5AD4 (-vSpOrderInY@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C00B67C4 (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
- *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B69FC (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00B7030 (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
- *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B793C (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C00B7E14 (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
- *     ?vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C0119B68 (-vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z.c)
- *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C0155234 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0155444 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
- *     ?vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0155668 (-vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0155D28 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?vSpCheckForWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@1@Z @ 0x1C028021C (-vSpCheckForWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@1@Z.c)
+ *     GreClientRgnUpdatedStable @ 0x1C00715C4 (GreClientRgnUpdatedStable.c)
+ *     GreClientRgnUpdated @ 0x1C00750B0 (GreClientRgnUpdated.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?SpBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0096EF0 (-SpBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHO.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00ED5B0 (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00EDAE4 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
+ *     ?vSpOrderInY@@YAXPEAVSPRITE@@@Z @ 0x1C00EDFCC (-vSpOrderInY@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00EE310 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C00F05F4 (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
+ *     ?vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F0830 (-vSpComputeSpriteRanges@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F0D0C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C00F1020 (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
+ *     ?vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C012C828 (-vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z @ 0x1C0164404 (-vSpRedrawArea@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0282870 (-vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpCheckForWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@1@Z @ 0x1C0282A20 (-vSpCheckForWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@1@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0284204 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C02845D0 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -50,87 +50,88 @@ __int64 __fastcall bSpUpdatePosition(struct SPRITE *a1, struct _POINTL *a2, int 
   int v13; // eax
   int v14; // edx
   int v15; // ecx
-  int v17; // esi
-  int v18; // edi
-  struct _SURFOBJ *v19; // r11
-  int v20; // r9d
-  int v21; // r8d
+  struct REGION *v17; // rdx
+  struct _XLATEOBJ *v18; // rsi
+  _QWORD *v19; // r10
+  __int64 v20; // r9
+  __int64 v21; // rcx
+  int v22; // r8d
+  _QWORD *v23; // rdi
+  _QWORD *v24; // rax
+  int v25; // ecx
+  __int64 v26; // rax
+  __int64 v27; // rbx
+  struct _SURFOBJ *v28; // rdx
+  int v29; // ecx
+  __int64 v30; // rdx
+  int v31; // esi
+  int v32; // edi
+  struct _SURFOBJ *v33; // r11
+  int v34; // ebx
+  int v35; // r10d
+  int v36; // r8d
+  int v37; // eax
+  int v38; // ecx
+  int v39; // eax
+  int v40; // ecx
+  int v41; // r9d
+  int v42; // r8d
   struct _SURFOBJ *Surface; // rax
-  struct _SURFOBJ *v23; // rbx
+  struct _SURFOBJ *v44; // rbx
   LONG left; // ecx
   LONG top; // edx
-  struct _POINTL v26; // rax
-  struct _RECTL v27; // xmm0
-  int v28; // edx
-  int v29; // ecx
-  struct _POINTL v30; // r8
-  int v31; // eax
-  bool v32; // r13
-  LONG v33; // r14d
-  LONG v34; // eax
-  bool v35; // zf
-  __int64 v36; // rax
-  LONG v37; // ecx
-  struct _POINTL *v38; // rdx
-  int v39; // ebx
-  int v40; // r8d
-  int v41; // r10d
-  int v42; // ecx
-  int v43; // eax
-  int v44; // ecx
-  __int64 v45; // rdi
-  struct REGION *v46; // rdx
-  struct _XLATEOBJ *v47; // rsi
-  _QWORD *v48; // r10
-  __int64 v49; // r9
-  __int64 v50; // rcx
-  int v51; // r8d
-  _QWORD *v52; // rdi
-  _QWORD *v53; // rax
-  int v54; // ecx
-  __int64 v55; // rax
-  __int64 v56; // rbx
-  struct _SURFOBJ *v57; // rdx
-  int v58; // ecx
-  int v59; // eax
-  __int64 v60; // rsi
-  __int64 v61; // rbx
-  struct _POINTL v62; // rax
-  unsigned int v63; // r8d
-  unsigned int v64; // edx
-  struct SPRITE **v65; // rcx
-  int v66; // eax
-  int v67; // [rsp+20h] [rbp-E0h]
-  struct _POINTL v68; // [rsp+60h] [rbp-A0h] BYREF
-  int v69; // [rsp+68h] [rbp-98h]
-  struct _POINTL v70; // [rsp+70h] [rbp-90h] BYREF
-  int v71; // [rsp+78h] [rbp-88h]
-  struct _CLIPOBJ *v72; // [rsp+80h] [rbp-80h] BYREF
-  struct _POINTL v73; // [rsp+88h] [rbp-78h] BYREF
-  int v74; // [rsp+90h] [rbp-70h]
-  __int64 v75; // [rsp+98h] [rbp-68h] BYREF
-  int v76; // [rsp+A0h] [rbp-60h]
-  struct _POINTL *v77; // [rsp+A8h] [rbp-58h]
-  struct _CLIPOBJ *v78; // [rsp+B0h] [rbp-50h]
+  struct _POINTL v47; // rax
+  struct _RECTL v48; // xmm0
+  int v49; // edx
+  int v50; // ecx
+  struct _POINTL v51; // r8
+  int v52; // eax
+  bool v53; // bl
+  __int64 v54; // rsi
+  __int64 v55; // r13
+  __int64 v56; // rdi
+  struct _POINTL v57; // rax
+  LONG v58; // r14d
+  LONG v59; // eax
+  bool v60; // zf
+  __int64 v61; // rax
+  unsigned int v62; // r8d
+  unsigned int v63; // edx
+  struct SPRITE **v64; // rcx
+  LONG v65; // ecx
+  struct _POINTL *v66; // rdx
+  int v67; // eax
+  int v68; // [rsp+20h] [rbp-E0h]
+  struct _POINTL v69; // [rsp+60h] [rbp-A0h] BYREF
+  int v70; // [rsp+68h] [rbp-98h]
+  struct _POINTL v71; // [rsp+70h] [rbp-90h] BYREF
+  int v72; // [rsp+78h] [rbp-88h]
+  struct _CLIPOBJ *v73; // [rsp+80h] [rbp-80h] BYREF
+  struct _POINTL v74; // [rsp+88h] [rbp-78h] BYREF
+  int v75; // [rsp+90h] [rbp-70h]
+  struct _POINTL *v76; // [rsp+98h] [rbp-68h]
+  __int64 v77; // [rsp+A0h] [rbp-60h] BYREF
+  int v78; // [rsp+A8h] [rbp-58h]
+  struct _CLIPOBJ *v79; // [rsp+B0h] [rbp-50h]
   struct _RECTL si128; // [rsp+B8h] [rbp-48h] BYREF
-  struct _RECTL v80; // [rsp+C8h] [rbp-38h] BYREF
-  _BYTE v81[4]; // [rsp+E0h] [rbp-20h] BYREF
-  char v82[52]; // [rsp+E4h] [rbp-1Ch] BYREF
-  __int64 v83; // [rsp+118h] [rbp+18h]
-  __int64 v84; // [rsp+130h] [rbp+30h]
-  int v85; // [rsp+138h] [rbp+38h]
-  int v86; // [rsp+160h] [rbp+60h]
-  __int64 v87; // [rsp+170h] [rbp+70h]
+  struct _RECTL v81; // [rsp+C8h] [rbp-38h] BYREF
+  _BYTE v82[4]; // [rsp+E0h] [rbp-20h] BYREF
+  char v83[52]; // [rsp+E4h] [rbp-1Ch] BYREF
+  __int64 v84; // [rsp+118h] [rbp+18h]
+  __int64 v85; // [rsp+130h] [rbp+30h]
+  int v86; // [rsp+138h] [rbp+38h]
+  int v87; // [rsp+160h] [rbp+60h]
+  __int64 v88; // [rsp+170h] [rbp+70h]
 
   v4 = (struct _CLIPOBJ *)*((_QWORD *)a1 + 14);
   v5 = 1;
   v6 = (_QWORD **)*((_QWORD *)a1 + 2);
-  v76 = 1;
-  v78 = v4;
+  v78 = 1;
+  v79 = v4;
   v8 = a2;
-  v71 = a4;
-  v77 = a2;
-  v80 = 0LL;
+  v72 = a4;
+  v76 = a2;
+  v81 = 0LL;
   if ( a2 )
   {
     *((struct _POINTL *)a1 + 14) = *a2;
@@ -157,8 +158,8 @@ __int64 __fastcall bSpUpdatePosition(struct SPRITE *a1, struct _POINTL *a2, int 
   }
   v14 = *(_DWORD *)a1;
   v15 = *(_DWORD *)a1 & 0x20;
-  v69 = *(_DWORD *)a1;
-  LODWORD(v75) = v15;
+  v70 = *(_DWORD *)a1;
+  LODWORD(v77) = v15;
   if ( v13 == v15 )
   {
     if ( si128.left == *((_DWORD *)a1 + 20)
@@ -170,65 +171,58 @@ __int64 __fastcall bSpUpdatePosition(struct SPRITE *a1, struct _POINTL *a2, int 
         vSpCheckForWndobjOverlap((struct _SPRITESTATE *)v6, (struct _RECTL *)a1 + 5, (struct _RECTL *)a1 + 5);
       goto LABEL_11;
     }
-    v14 = v69;
+    v14 = v70;
   }
   if ( v15 )
   {
     *(_DWORD *)a1 = v14 & 0xFFFFFFDF;
     --*((_DWORD *)v6 + 14);
   }
-  if ( *((_QWORD *)a1 + 20) )
+  if ( !*((_QWORD *)a1 + 20) )
   {
     if ( !a3 )
+      goto LABEL_53;
+LABEL_25:
+    v85 = 0LL;
+    v86 = 0;
+    v88 = 0LL;
+    v84 = 0LL;
+    v17 = (struct REGION *)*((_QWORD *)a1 + 23);
+    v87 = 1;
+    if ( v17 )
     {
-      vSpRedrawUncoveredArea(a1, &si128);
-      goto LABEL_24;
+      XCLIPOBJ::vSetup((XCLIPOBJ *)v82, v17, (struct SPRITE *)((char *)a1 + 80), 0);
+      v73 = (struct _CLIPOBJ *)v82;
+      if ( ERECTL::bEmpty((ERECTL *)v83) )
+        goto LABEL_53;
     }
-  }
-  else if ( !a3 )
-  {
-    goto LABEL_24;
-  }
-  v84 = 0LL;
-  v85 = 0;
-  v87 = 0LL;
-  v83 = 0LL;
-  v46 = (struct REGION *)*((_QWORD *)a1 + 23);
-  v86 = 1;
-  if ( v46 )
-  {
-    XCLIPOBJ::vSetup((XCLIPOBJ *)v81, v46, (struct SPRITE *)((char *)a1 + 80), 0);
-    v72 = (struct _CLIPOBJ *)v81;
-    if ( ERECTL::bEmpty((ERECTL *)v82) )
-      goto LABEL_24;
-  }
-  else
-  {
-    v72 = 0LL;
-  }
-  if ( *((_QWORD *)a1 + 16) )
-  {
+    else
+    {
+      v73 = 0LL;
+    }
+    if ( !*((_QWORD *)a1 + 16) )
+      goto LABEL_53;
     if ( *((_DWORD *)a1 + 56) == 3 && !*((_BYTE *)a1 + 231) || *((_DWORD *)a1 + 1) == 1 )
     {
       vSpRedrawArea((struct _SPRITESTATE *)v6, (struct _RECTL *)a1 + 5, 1);
-      goto LABEL_94;
+      goto LABEL_52;
     }
     vSpDirectDriverAccess((struct _SPRITESTATE *)v6, 0);
-    v73 = 0LL;
-    v47 = 0LL;
-    v48 = v6[4];
-    v49 = *((_QWORD *)a1 + 18);
-    v50 = v48[13];
-    v51 = *(_DWORD *)(*((_QWORD *)a1 + 16) + 72LL);
-    v68 = 0LL;
-    if ( *((_DWORD *)v48 + 18) != v51 || (*(_DWORD *)a1 & 0x40) != 0 )
+    v74 = 0LL;
+    v18 = 0LL;
+    v19 = v6[4];
+    v20 = *((_QWORD *)a1 + 18);
+    v21 = v19[13];
+    v22 = *(_DWORD *)(*((_QWORD *)a1 + 16) + 72LL);
+    v69 = 0LL;
+    if ( *((_DWORD *)v19 + 18) != v22 || (*(_DWORD *)a1 & 0x40) != 0 )
     {
       if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
-                            (__int64 *)&v68,
+                            (__int64 *)&v69,
                             0LL,
                             0,
-                            v49,
-                            v50,
+                            v20,
+                            v21,
                             (__int64)ppalDefault,
                             (__int64)ppalDefault,
                             0,
@@ -236,129 +230,132 @@ __int64 __fastcall bSpUpdatePosition(struct SPRITE *a1, struct _POINTL *a2, int 
                             0,
                             0) )
       {
-LABEL_93:
+LABEL_51:
         vSpDirectDriverAccess((struct _SPRITESTATE *)v6, 1);
-        EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v68);
-        SURFREFVIEW::bUnMap((SURFREFVIEW *)&v73);
-LABEL_94:
+        EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v69, v30);
+        SURFREFVIEW::bUnMap((SURFREFVIEW *)&v74);
+LABEL_52:
         GreClientRgnUpdated(0);
         GreClientRgnUpdatedStable();
-        goto LABEL_24;
+        goto LABEL_53;
       }
-      v47 = (struct _XLATEOBJ *)v68;
+      v18 = (struct _XLATEOBJ *)v69;
     }
-    if ( SURFREFVIEW::bMap((SURFREFVIEW *)&v73, *((struct _SURFOBJ **)a1 + 16)) )
+    if ( SURFREFVIEW::bMap((SURFREFVIEW *)&v74, *((struct _SURFOBJ **)a1 + 16)) )
     {
-      v52 = 0LL;
-      v70.x = *((_DWORD *)a1 + 20) - (_DWORD)v4;
-      v70.y = *((_DWORD *)a1 + 21) - HIDWORD(v78);
-      v53 = v6[4];
-      if ( v53 )
+      v23 = 0LL;
+      v71.x = *((_DWORD *)a1 + 20) - (_DWORD)v4;
+      v71.y = *((_DWORD *)a1 + 21) - HIDWORD(v79);
+      v24 = v6[4];
+      if ( v24 )
       {
-        v54 = *((_DWORD *)v53 + 22);
-        if ( (v54 & 0x80004000) != 0 && (v54 & 0x200) == 0 )
+        v25 = *((_DWORD *)v24 + 22);
+        if ( (v25 & 0x80004000) != 0 && (v25 & 0x200) == 0 )
         {
-          v52 = v53 - 3;
-          GreLockDisplayDevice(v53[3]);
+          v23 = v24 - 3;
+          GreLockDisplayDevice(v24[3]);
         }
       }
-      v55 = *((_QWORD *)a1 + 16);
-      v56 = 0LL;
-      v57 = (struct _SURFOBJ *)v55;
-      if ( v55 )
+      v26 = *((_QWORD *)a1 + 16);
+      v27 = 0LL;
+      v28 = (struct _SURFOBJ *)v26;
+      if ( v26 )
       {
-        v58 = *(_DWORD *)(v55 + 88);
-        if ( (v58 & 0x80004000) != 0 && (v58 & 0x200) == 0 )
+        v29 = *(_DWORD *)(v26 + 88);
+        if ( (v29 & 0x80004000) != 0 && (v29 & 0x200) == 0 )
         {
-          v56 = v55 - 24;
-          GreLockDisplayDevice(*(_QWORD *)(v55 - 24 + 48));
-          v57 = (struct _SURFOBJ *)*((_QWORD *)a1 + 16);
+          v27 = v26 - 24;
+          GreLockDisplayDevice(*(_QWORD *)(v26 - 24 + 48));
+          v28 = (struct _SURFOBJ *)*((_QWORD *)a1 + 16);
         }
       }
-      SpBitBlt((struct _SURFOBJ *)v6[4], v57, 0LL, v72, v47, (struct _RECTL *)a1 + 5, &v70, 0LL, 0LL, 0LL, 0xCCCCu);
-      if ( v56 )
-        GreUnlockDisplayDevice(*(_QWORD *)(v56 + 48));
-      if ( v52 )
-        GreUnlockDisplayDevice(v52[6]);
-      v8 = v77;
+      SpBitBlt((struct _SURFOBJ *)v6[4], v28, 0LL, v73, v18, (struct _RECTL *)a1 + 5, &v71, 0LL, 0LL, 0LL, 0xCCCCu);
+      if ( v27 )
+        GreUnlockDisplayDevice(*(_QWORD *)(v27 + 48));
+      if ( v23 )
+        GreUnlockDisplayDevice(v23[6]);
+      v8 = v76;
     }
-    goto LABEL_93;
+    goto LABEL_51;
   }
-LABEL_24:
-  v17 = si128.bottom - si128.top;
-  v18 = si128.right - si128.left;
+  if ( a3 )
+    goto LABEL_25;
+  vSpRedrawUncoveredArea(a1, &si128);
+LABEL_53:
+  v31 = si128.bottom - si128.top;
+  v32 = si128.right - si128.left;
   if ( si128.right == si128.left )
   {
-    if ( v71 == 1 && !*((_DWORD *)v6 + 14) && *((_DWORD *)v6 + 270) )
+    if ( v72 == 1 && *((_DWORD *)v6 + 14) == v32 && *((_DWORD *)v6 + 270) != v32 )
       vSpUnhook((struct _SPRITESTATE *)v6);
   }
   else
   {
     *(_DWORD *)a1 |= 0x20u;
     ++*((_DWORD *)v6 + 14);
-    if ( v71 == 1 && !*((_DWORD *)v6 + 270) )
+    if ( v72 == 1 && !*((_DWORD *)v6 + 270) )
       vSpHook((struct _SPRITESTATE *)v6);
-    v19 = (struct _SURFOBJ *)*((_QWORD *)a1 + 20);
-    if ( v19 && v18 <= v19->sizlBitmap.cx && v17 <= v19->sizlBitmap.cy )
+    v33 = (struct _SURFOBJ *)*((_QWORD *)a1 + 20);
+    if ( v33 && v32 <= v33->sizlBitmap.cx && v31 <= v33->sizlBitmap.cy )
     {
       if ( si128.left < *((_DWORD *)a1 + 20)
         || si128.top < *((_DWORD *)a1 + 21)
         || si128.right > *((_DWORD *)a1 + 22)
         || si128.bottom > *((_DWORD *)a1 + 23) )
       {
-        v39 = *((_DWORD *)a1 + 52);
-        v40 = 0;
-        v41 = 0;
-        if ( si128.left >= v39 )
+        v34 = *((_DWORD *)a1 + 52);
+        v35 = 0;
+        v36 = 0;
+        if ( si128.left >= v34 )
         {
-          v59 = *((_DWORD *)a1 + 54);
-          if ( si128.right > v59 )
-            v40 = si128.right - v59;
+          v37 = *((_DWORD *)a1 + 54);
+          if ( si128.right > v37 )
+            v35 = si128.right - v37;
         }
         else
         {
-          v40 = si128.left - v39;
+          v35 = si128.left - v34;
         }
-        v42 = *((_DWORD *)a1 + 53);
-        v43 = *((_DWORD *)a1 + 55);
-        if ( si128.top >= v42 )
+        v38 = *((_DWORD *)a1 + 53);
+        v39 = *((_DWORD *)a1 + 55);
+        if ( si128.top >= v38 )
         {
-          if ( si128.bottom > v43 )
-            v41 = si128.bottom - v43;
+          if ( si128.bottom > v39 )
+            v36 = si128.bottom - v39;
         }
         else
         {
-          v41 = si128.top - v42;
+          v36 = si128.top - v38;
         }
-        *((_DWORD *)a1 + 54) += v40;
-        v44 = v41 + v42;
-        *((_DWORD *)a1 + 52) = v39 + v40;
-        *((_DWORD *)a1 + 53) = v44;
-        *((_DWORD *)a1 + 55) = v41 + v43;
-        *((_DWORD *)a1 + 42) = -(v39 + v40);
-        *((_DWORD *)a1 + 43) = -v44;
+        *((_DWORD *)a1 + 54) += v35;
+        v40 = v36 + v38;
+        *((_DWORD *)a1 + 52) = v34 + v35;
+        *((_DWORD *)a1 + 53) = v40;
+        *((_DWORD *)a1 + 55) = v36 + v39;
+        *((_DWORD *)a1 + 42) = -(v34 + v35);
+        *((_DWORD *)a1 + 43) = -v40;
         vSpSmallUnderlayCopy(
           a1,
           (struct _POINTL *)a1 + 21,
-          v19,
+          v33,
           (struct _POINTL *)a1 + 21,
-          v19,
-          v40,
-          v41,
+          v33,
+          v35,
+          v36,
           &si128,
           (struct _RECTL *)a1 + 5);
       }
     }
     else
     {
-      v20 = v17;
-      v21 = v18;
-      if ( v17 <= *((_DWORD *)a1 + 45) )
-        v20 = *((_DWORD *)a1 + 45);
-      if ( v18 <= *((_DWORD *)a1 + 44) )
-        v21 = *((_DWORD *)a1 + 44);
-      Surface = psoSpCreateSurface((struct _SPRITESTATE *)v6, 0, v21, v20, v67);
-      v23 = Surface;
+      v41 = v31;
+      v42 = v32;
+      if ( v31 <= *((_DWORD *)a1 + 45) )
+        v41 = *((_DWORD *)a1 + 45);
+      if ( v32 <= *((_DWORD *)a1 + 44) )
+        v42 = *((_DWORD *)a1 + 44);
+      Surface = psoSpCreateSurface((struct _SPRITESTATE *)v6, 0, v42, v41, v68);
+      v44 = Surface;
       if ( !Surface )
       {
         v5 = 0;
@@ -366,14 +363,14 @@ LABEL_24:
         goto LABEL_11;
       }
       Surface->fjBitmap |= 4u;
-      v68.x = -si128.left;
-      v68.y = -si128.top;
-      if ( v18 > 128 || v17 > 128 )
-        vSpBigUnderlayCopy((struct _SPRITESTATE *)v6, &v68, Surface, &si128);
+      v69.x = -si128.left;
+      v69.y = -si128.top;
+      if ( v32 > 128 || v31 > 128 )
+        vSpBigUnderlayCopy((struct _SPRITESTATE *)v6, &v69, Surface, &si128);
       else
         vSpSmallUnderlayCopy(
           a1,
-          &v68,
+          &v69,
           Surface,
           (struct _POINTL *)a1 + 21,
           *((struct _SURFOBJ **)a1 + 20),
@@ -384,147 +381,145 @@ LABEL_24:
       vSpDeleteSurface(*((struct _SURFOBJ **)a1 + 20));
       left = si128.left;
       top = si128.top;
-      v26 = v68;
+      v47 = v69;
       *((_DWORD *)a1 + 52) = si128.left;
-      *((struct _POINTL *)a1 + 21) = v26;
-      *((_QWORD *)a1 + 20) = v23;
+      *((struct _POINTL *)a1 + 21) = v47;
+      *((_QWORD *)a1 + 20) = v44;
       *((_DWORD *)a1 + 53) = top;
-      *((_DWORD *)a1 + 54) = v23->sizlBitmap.cx + left;
-      *((_DWORD *)a1 + 55) = top + v23->sizlBitmap.cy;
+      *((_DWORD *)a1 + 54) = v44->sizlBitmap.cx + left;
+      *((_DWORD *)a1 + 55) = top + v44->sizlBitmap.cy;
     }
   }
-  v70 = 0LL;
-  v27 = (struct _RECTL)*((_OWORD *)a1 + 5);
-  v28 = *(_DWORD *)a1;
-  v29 = v75 != 0;
-  v30 = (struct _POINTL)*((_QWORD *)a1 + 24);
-  v31 = (*(_DWORD *)a1 >> 5) & 1;
-  v68 = v30;
-  v80 = v27;
+  v71 = 0LL;
+  v48 = (struct _RECTL)*((_OWORD *)a1 + 5);
+  v49 = *(_DWORD *)a1;
+  v50 = v77 != 0;
+  v51 = (struct _POINTL)*((_QWORD *)a1 + 24);
+  v52 = (*(_DWORD *)a1 >> 5) & 1;
+  v69 = v51;
+  v81 = v48;
   *((struct _RECTL *)a1 + 5) = si128;
-  if ( v31 != v29 )
+  if ( v52 != v50 )
   {
-    v32 = (v69 & 0x20) == 0 && (v28 & 0x20) != 0;
-    if ( v30 )
-      goto LABEL_39;
-    v45 = *((_QWORD *)a1 + 1);
-    if ( !v45 )
-      goto LABEL_50;
-    if ( !v32 )
-      goto LABEL_50;
-    v60 = 0LL;
-    if ( !*(_DWORD *)(v45 + 20) )
-      goto LABEL_50;
+    v53 = (v70 & 0x20) == 0 && (v49 & 0x20) != 0;
+    if ( v51 )
+      goto LABEL_103;
+    v54 = *((_QWORD *)a1 + 1);
+    if ( !v54 )
+      goto LABEL_126;
+    if ( !v53 )
+      goto LABEL_126;
+    v55 = 0LL;
+    if ( !*(_DWORD *)(v54 + 20) )
+      goto LABEL_126;
     while ( 1 )
     {
-      v61 = *(_QWORD *)(v45 + 8 * v60 + 24);
-      if ( (struct SPRITE *)v61 != a1 )
+      v56 = *(_QWORD *)(v54 + 8 * v55 + 24);
+      if ( (struct SPRITE *)v56 != a1 )
       {
-        v75 = *(_QWORD *)(v61 + 192);
-        if ( v75 )
+        v77 = *(_QWORD *)(v56 + 192);
+        if ( v77 )
         {
-          RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v73);
-          if ( *(_QWORD *)&v73 && RGNOBJ::bCopy((RGNOBJ *)&v73, (struct RGNOBJ *)&v75) )
+          RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v74);
+          if ( *(_QWORD *)&v74 && RGNOBJ::bCopy((RGNOBJ *)&v74, (struct RGNOBJ *)&v77) )
           {
-            LODWORD(v72) = -*(_DWORD *)(v61 + 112);
-            HIDWORD(v72) = -*(_DWORD *)(v61 + 116);
-            RGNOBJ::bOffset((RGNOBJ *)&v73, (struct _POINTL *)&v72);
-            v35 = v74 == 1;
-            v62 = v73;
-            *((struct _POINTL *)a1 + 24) = v73;
-            v68 = v62;
-            if ( v35 )
-              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v73);
-LABEL_39:
-            if ( v68 )
+            LODWORD(v73) = -*(_DWORD *)(v56 + 112);
+            HIDWORD(v73) = -*(_DWORD *)(v56 + 116);
+            RGNOBJ::bOffset((RGNOBJ *)&v74, (struct _POINTL *)&v73);
+            v60 = v75 == 1;
+            v57 = v74;
+            *((struct _POINTL *)a1 + 24) = v74;
+            v69 = v57;
+            if ( v60 )
+              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v74);
+LABEL_103:
+            if ( v69 )
             {
-              if ( v32 )
-              {
-                v33 = v77->x;
-                v34 = v77->y;
-              }
+              if ( v53 )
+                v58 = v76->x;
               else
+                v58 = -(int)v4;
+              v71.x = v58;
+              if ( v53 )
+                v59 = v76->y;
+              else
+                v59 = -HIDWORD(v79);
+              v71.y = v59;
+              if ( !v58 )
               {
-                v33 = -(int)v4;
-                v34 = -HIDWORD(v78);
+                v60 = v59 == 0;
+                goto LABEL_124;
               }
-              v70.y = v34;
-              v70.x = v33;
-              if ( !v33 )
-              {
-                v35 = v34 == 0;
-                goto LABEL_133;
-              }
-              goto LABEL_49;
+              goto LABEL_125;
             }
-            goto LABEL_50;
+            goto LABEL_126;
           }
-          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v73);
-          if ( v74 == 1 )
-            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v73);
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v74);
+          if ( v75 == 1 )
+            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v74);
         }
       }
-      v60 = (unsigned int)(v60 + 1);
-      if ( (unsigned int)v60 >= *(_DWORD *)(v45 + 20) )
-        goto LABEL_39;
+      v55 = (unsigned int)(v55 + 1);
+      if ( (unsigned int)v55 >= *(_DWORD *)(v54 + 20) )
+        goto LABEL_103;
     }
   }
-  if ( !*(_QWORD *)&v30 || ((unsigned __int8)v69 & (unsigned __int8)v28 & 0x20) == 0 )
-    goto LABEL_50;
-  v36 = *((_QWORD *)a1 + 1);
-  if ( v36 )
+  if ( !*(_QWORD *)&v51 || ((unsigned __int8)v70 & (unsigned __int8)v49 & 0x20) == 0 )
+    goto LABEL_126;
+  v61 = *((_QWORD *)a1 + 1);
+  if ( v61 )
   {
-    v63 = *(_DWORD *)(v36 + 20);
-    v64 = 0;
-    if ( v63 )
+    v62 = *(_DWORD *)(v61 + 20);
+    v63 = 0;
+    if ( v62 )
     {
-      v65 = (struct SPRITE **)(v36 + 24);
-      while ( *v65 == a1 || (*(_DWORD *)*v65 & 0x20) == 0 )
+      v64 = (struct SPRITE **)(v61 + 24);
+      while ( *v64 == a1 || (*(_DWORD *)*v64 & 0x20) == 0 )
       {
+        ++v63;
         ++v64;
-        ++v65;
-        if ( v64 >= v63 )
-          goto LABEL_47;
+        if ( v63 >= v62 )
+          goto LABEL_121;
       }
-      v72 = v4;
-      RGNOBJ::vSet((RGNOBJ *)&v68, (struct _RECTL *)a1 + 6);
-      RGNOBJ::bOffset((RGNOBJ *)&v68, (struct _POINTL *)&v72);
+      v73 = v4;
+      RGNOBJ::vSet((RGNOBJ *)&v69, (struct _RECTL *)a1 + 6);
+      RGNOBJ::bOffset((RGNOBJ *)&v69, (struct _POINTL *)&v73);
     }
   }
-LABEL_47:
-  if ( v68 )
+LABEL_121:
+  if ( v69 )
   {
-    v37 = v8->y - HIDWORD(v78);
-    v70.x = v8->x - (_DWORD)v4;
-    v70.y = v37;
-    if ( v70.x )
-      goto LABEL_49;
-    v35 = v37 == 0;
-LABEL_133:
-    if ( !v35 )
-LABEL_49:
-      RGNOBJ::bOffset((RGNOBJ *)&v68, &v70);
+    v65 = v8->y - HIDWORD(v79);
+    v71.x = v8->x - (_DWORD)v4;
+    v71.y = v65;
+    if ( v71.x )
+      goto LABEL_125;
+    v60 = v65 == 0;
+LABEL_124:
+    if ( !v60 )
+LABEL_125:
+      RGNOBJ::bOffset((RGNOBJ *)&v69, &v71);
   }
-LABEL_50:
+LABEL_126:
   *((_DWORD *)v6 + 29) = 0;
   ++giSpriteUniqueness;
   vSpOrderInY(a1);
   if ( gpto )
-    vSpCheckForWndobjOverlap((struct _SPRITESTATE *)v6, &si128, &v80);
+    vSpCheckForWndobjOverlap((struct _SPRITESTATE *)v6, &si128, &v81);
   if ( !*((_DWORD *)v6 + 29) )
     vSpComputeSpriteRanges((struct _SPRITESTATE *)v6);
-  vSpRemoveAllSpriteOverlapPresents(*v6, v38);
-  v5 = v76;
+  vSpRemoveAllSpriteOverlapPresents(*v6, v66);
+  v5 = v78;
 LABEL_11:
-  if ( v71 == 1 )
+  if ( v72 == 1 )
   {
-    v66 = *((_DWORD *)v6 + 270);
+    v67 = *((_DWORD *)v6 + 270);
     if ( *((_DWORD *)v6 + 14) )
     {
-      if ( !v66 )
+      if ( !v67 )
         vSpHook((struct _SPRITESTATE *)v6);
     }
-    else if ( v66 )
+    else if ( v67 )
     {
       vSpUnhook((struct _SPRITESTATE *)v6);
     }

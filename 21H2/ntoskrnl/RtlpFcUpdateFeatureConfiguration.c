@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x1409BF744
+ * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x14091A4E4
  * Callers:
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140922DB4 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpFcApplyUpdateAndAddFeature @ 0x1409BF0F8 (RtlpFcApplyUpdateAndAddFeature.c)
- *     RtlpFcAreSortedFeatureUpdatesValid @ 0x1409BF178 (RtlpFcAreSortedFeatureUpdatesValid.c)
- *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409BF208 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
- *     RtlpFcCompareFeatureToUpdate @ 0x1409BF48C (RtlpFcCompareFeatureToUpdate.c)
- *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409BF530 (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpFcApplyUpdateAndAddFeature @ 0x140919BF8 (RtlpFcApplyUpdateAndAddFeature.c)
+ *     RtlpFcAreSortedFeatureUpdatesValid @ 0x140919C78 (RtlpFcAreSortedFeatureUpdatesValid.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140919D28 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x140919FBC (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14091A060 (RtlpFcCreateAndAddFeatureFromUpdate.c)
  */
 
-__int64 __fastcall RtlpFcUpdateFeatureConfiguration(
+NTSTATUS __fastcall RtlpFcUpdateFeatureConfiguration(
         _DWORD *a1,
         __int64 a2,
         _DWORD *a3,
@@ -20,7 +20,7 @@ __int64 __fastcall RtlpFcUpdateFeatureConfiguration(
         void *a5,
         size_t *a6)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v10; // rsi
   size_t v11; // r8
   unsigned __int64 v12; // rbx
@@ -41,9 +41,9 @@ __int64 __fastcall RtlpFcUpdateFeatureConfiguration(
   Size = 0LL;
   qsort(a3, a4, 0x20uLL, (int (__cdecl *)(const void *, const void *))RtlpFcCompareUpdates);
   if ( !RtlpFcAreSortedFeatureUpdatesValid(a3, a4) )
-    return 3221225485LL;
-  result = RtlpFcCalculateRequiredSizeForNewFeatureTable(a1, (__int64)a3, a4, (__int64 *)&Size);
-  if ( (int)result >= 0 )
+    return -1073741811;
+  result = RtlpFcCalculateRequiredSizeForNewFeatureTable(a1, (__int64)a3, a4, &Size);
+  if ( result >= 0 )
   {
     if ( !Size )
     {
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpFcUpdateFeatureConfiguration(
     if ( Size > *a6 )
     {
       *a6 = Size;
-      return 2147483653LL;
+      return -2147483643;
     }
     v10 = a5;
     memset(a5, 0, Size);
@@ -141,7 +141,7 @@ LABEL_18:
       }
       while ( v24 );
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

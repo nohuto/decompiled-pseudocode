@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PostInertiaMessage@Inertia@InputTraceLogging@@SAXIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@@Z @ 0x1C00D51F4
+ * XREFs of ?PostInertiaMessage@Inertia@InputTraceLogging@@SAXIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@@Z @ 0x1C00CD78C
  * Callers:
- *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01E1C04 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
+ *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01A8C94 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U1@U?$_tlgWrapperByVal@$07@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@43AEBU?$_tlgWrapperByVal@$07@@4444@Z @ 0x1C00019C0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U1@U-$_tlgWrapperByVal@$07@@U2@U2@U2@U2@@-.c)
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ?InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z @ 0x1C01E1BAC (-InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U1@U?$_tlgWrapperByVal@$07@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@43AEBU?$_tlgWrapperByVal@$07@@4444@Z @ 0x1C0001180 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U1@U-$_tlgWrapperByVal@$07@@U2@U2@U2@U2@@-.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z @ 0x1C01A8C3C (-InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z.c)
  */
 
 void __fastcall InputTraceLogging::Inertia::PostInertiaMessage(
@@ -31,7 +31,7 @@ void __fastcall InputTraceLogging::Inertia::PostInertiaMessage(
   __int64 v18; // [rsp+98h] [rbp+4Fh] BYREF
   __int64 v19; // [rsp+C8h] [rbp+7Fh] BYREF
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 2LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 2LL) )
   {
     v4 = *(_DWORD *)(v3 + 184);
     LODWORD(v19) = -__CFSHR__(v4, 4);
@@ -58,8 +58,8 @@ void __fastcall InputTraceLogging::Inertia::PostInertiaMessage(
     }
     v18 = (__int64)v10;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (int)&dword_1C0289810,
-      (int)&dword_1C025D938,
+      (int)&dword_1C024AA90,
+      (int)&dword_1C021EB4C,
       v7,
       v9,
       (void **)&v18,

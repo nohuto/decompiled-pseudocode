@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentInterval@CDxHandleBitmapRealization@@UEBAIXZ @ 0x180108CD0
+ * XREFs of ?GetPresentInterval@CDxHandleBitmapRealization@@UEBAIXZ @ 0x1800E3800
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetPresentInterval(CDxHandleBitmapRealization *this)
 {
-  return *((unsigned int *)this - 65);
+  return *((unsigned int *)this - 57);
 }

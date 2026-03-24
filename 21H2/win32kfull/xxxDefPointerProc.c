@@ -1,11 +1,11 @@
 /*
- * XREFs of xxxDefPointerProc @ 0x1C023F5B4
+ * XREFs of xxxDefPointerProc @ 0x1C0243C00
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
  * Callees:
- *     SetMiPPromotion @ 0x1C01DCFDC (SetMiPPromotion.c)
- *     xxxPromotePointerToMouse @ 0x1C01EB108 (xxxPromotePointerToMouse.c)
+ *     SetMiPPromotion @ 0x1C01E21CC (SetMiPPromotion.c)
+ *     xxxPromotePointerToMouse @ 0x1C01F0664 (xxxPromotePointerToMouse.c)
  */
 
 __int64 __fastcall xxxDefPointerProc(__int64 a1, int a2, unsigned __int16 a3, unsigned __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall xxxDefPointerProc(__int64 a1, int a2, unsigned __int16 a3, un
   }
   else if ( a4 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {
-    xxxPromotePointerToMouse(a3);
+    xxxPromotePointerToMouse(a3, 0x10000000u);
   }
   else
   {

@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0059728
+ * XREFs of ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0036AA0
  * Callers:
- *     imp_WdfDmaTransactionInitialize @ 0x1C0054510 (imp_WdfDmaTransactionInitialize.c)
- *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C0054730 (imp_WdfDmaTransactionInitializeUsingRequest.c)
+ *     imp_WdfDmaTransactionInitialize @ 0x1C0030590 (imp_WdfDmaTransactionInitialize.c)
+ *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C00307F0 (imp_WdfDmaTransactionInitializeUsingRequest.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?InitializeTransferContext@FxDmaEnabler@@QEAAXPEAXW4_WDF_DMA_DIRECTION@@@Z @ 0x1C0037DAC (-InitializeTransferContext@FxDmaEnabler@@QEAAXPEAXW4_WDF_DMA_DIRECTION@@@Z.c)
- *     WPP_IFR_SF_ql @ 0x1C0053CE8 (WPP_IFR_SF_ql.c)
- *     ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C0059930 (-PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ.c)
- *     ?ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C0059C18 (-ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     WPP_IFR_SF_ql @ 0x1C002FAEC (WPP_IFR_SF_ql.c)
+ *     ?InitializeTransferContext@FxDmaEnabler@@QEAAXPEAXW4_WDF_DMA_DIRECTION@@@Z @ 0x1C00324C4 (-InitializeTransferContext@FxDmaEnabler@@QEAAXPEAXW4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C0036CA4 (-PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ.c)
+ *     ?ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C0036F8C (-ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 __int64 __fastcall FxDmaTransactionBase::Initialize(
@@ -30,13 +30,14 @@ __int64 __fastcall FxDmaTransactionBase::Initialize(
   const void *ObjectHandleUnchecked; // rax
   int _a2; // edx
   unsigned __int64 v15; // rax
-  FxDmaEnabler *m_DmaEnabler; // r9
+  FxDmaEnabler *m_DmaEnabler; // rdx
   __int64 v17; // rax
   _FxDmaDescription *v18; // rax
   FxDmaEnabler *v19; // rcx
+  FxDmaEnabler *v20; // rcx
   unsigned __int64 m_MaximumLength; // rcx
-  signed int v21; // edi
-  const void *v22; // rax
+  signed int v22; // edi
+  const void *v23; // rax
 
   m_Globals = this->m_Globals;
   if ( m_Globals->FxVerboseOn )
@@ -58,6 +59,7 @@ __int64 __fastcall FxDmaTransactionBase::Initialize(
   else
     v17 = 184LL;
   v18 = (_FxDmaDescription *)((char *)m_DmaEnabler + v17);
+  v19 = this->m_DmaEnabler;
   this->m_AdapterInfo = v18;
   this->m_MaxFragmentLength = v18->MaximumFragmentLength;
   this->m_StartOffset = Offset;
@@ -68,27 +70,27 @@ __int64 __fastcall FxDmaTransactionBase::Initialize(
   this->m_StartMdl = Mdl;
   this->m_CurrentFragmentMdl = Mdl;
   this->m_DmaAcquiredFunction.Method.ProgramDma = ProgramDmaFunction;
-  if ( FxDmaEnabler::GetDmaDescription(m_DmaEnabler, WdfDmaDirectionReadFromDevice)->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
-    FxDmaEnabler::InitializeTransferContext(v19, this->m_TransferContext, DmaDirection);
+  if ( FxDmaEnabler::GetDmaDescription(v19, WdfDmaDirectionReadFromDevice)->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
+    FxDmaEnabler::InitializeTransferContext(v20, this->m_TransferContext, DmaDirection);
   if ( this->m_RequireSingleTransfer )
   {
     m_MaximumLength = this->m_DmaEnabler->m_MaximumLength;
     if ( this->m_MaxFragmentLength < m_MaximumLength )
       this->m_MaxFragmentLength = m_MaximumLength;
-    v21 = FxDmaTransactionBase::PrepareForSingleTransfer(this);
-    if ( v21 < 0 )
+    v22 = FxDmaTransactionBase::PrepareForSingleTransfer(this);
+    if ( v22 < 0 )
       goto LABEL_17;
   }
-  v21 = this->InitializeResources(this);
-  if ( v21 < 0 )
+  v22 = this->InitializeResources(this);
+  if ( v22 < 0 )
 LABEL_17:
     FxDmaTransactionBase::ReleaseForReuse(this, 0);
   else
     this->m_State = FxDmaTransactionStateInitialized;
   if ( m_Globals->FxVerboseOn )
   {
-    v22 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-    WPP_IFR_SF_qL(m_Globals, 5u, 0xFu, 0xDu, WPP_FxDmaTransactionBase_cpp_Traceguids, v22, v21);
+    v23 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+    WPP_IFR_SF_qL(m_Globals, 5u, 0xFu, 0xDu, WPP_FxDmaTransactionBase_cpp_Traceguids, v23, v22);
   }
-  return (unsigned int)v21;
+  return (unsigned int)v22;
 }

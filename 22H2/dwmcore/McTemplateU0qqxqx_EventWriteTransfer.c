@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0qqxqx_EventWriteTransfer @ 0x18012E076
+ * XREFs of McTemplateU0qqxqx_EventWriteTransfer @ 0x180173E78
  * Callers:
- *     ?Channel_CreateResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@@Z @ 0x18009C4EC (-Channel_CreateResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCM.c)
+ *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800A22C4 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qqxqx_EventWriteTransfer(
+ULONG __fastcall McTemplateU0qqxqx_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -16,7 +16,7 @@ __int64 __fastcall McTemplateU0qqxqx_EventWriteTransfer(
         char a6,
         char a7)
 {
-  _BYTE v8[16]; // [rsp+30h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+30h] [rbp-31h] BYREF
   int *v9; // [rsp+40h] [rbp-21h]
   __int64 v10; // [rsp+48h] [rbp-19h]
   int *v11; // [rsp+50h] [rbp-11h]
@@ -43,9 +43,9 @@ __int64 __fastcall McTemplateU0qqxqx_EventWriteTransfer(
   v17 = &a7;
   v18 = 8LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_DCOMPEVENT_RESOURCE,
            a3,
-           6LL,
-           v8);
+           6u,
+           &v8);
 }

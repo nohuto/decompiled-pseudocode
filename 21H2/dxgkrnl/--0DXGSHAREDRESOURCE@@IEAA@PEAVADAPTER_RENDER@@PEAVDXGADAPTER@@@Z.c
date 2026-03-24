@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DXGSHAREDRESOURCE@@IEAA@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@@Z @ 0x1C0189420
+ * XREFs of ??0DXGSHAREDRESOURCE@@IEAA@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@@Z @ 0x1C0112824
  * Callers:
- *     ?CreateSharedResource@DXGSHAREDRESOURCE@@SAPEAV1@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@E@Z @ 0x1C0189364 (-CreateSharedResource@DXGSHAREDRESOURCE@@SAPEAV1@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@E@Z.c)
+ *     ?CreateSharedResource@DXGSHAREDRESOURCE@@SAPEAV1@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@E@Z @ 0x1C0112744 (-CreateSharedResource@DXGSHAREDRESOURCE@@SAPEAV1@PEAVADAPTER_RENDER@@PEAVDXGADAPTER@@E@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,10 +21,10 @@ DXGSHAREDRESOURCE *__fastcall DXGSHAREDRESOURCE::DXGSHAREDRESOURCE(
   *((_QWORD *)this + 4) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 12) = 0;
-  *((_DWORD *)this + 13) = 64;
+  *((_DWORD *)this + 13) = 53;
   *((_DWORD *)this + 16) = 0;
   *((_DWORD *)this + 17) = 1;
-  CurrentProcessSessionId = PsGetCurrentProcessSessionId();
+  CurrentProcessSessionId = PsGetCurrentProcessSessionId(this, a2);
   *((_QWORD *)this + 10) = a2;
   *((_DWORD *)this + 18) = CurrentProcessSessionId;
   *((_QWORD *)this + 21) = (char *)this + 160;

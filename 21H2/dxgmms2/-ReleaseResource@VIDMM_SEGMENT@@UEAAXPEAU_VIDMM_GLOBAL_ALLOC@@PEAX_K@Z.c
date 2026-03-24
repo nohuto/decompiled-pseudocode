@@ -1,14 +1,13 @@
 /*
- * XREFs of ?ReleaseResource@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_K@Z @ 0x1C00A3E50
+ * XREFs of ?ReleaseResource@VIDMM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAX_K@Z @ 0x1C0087D50
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?NotifyMemorySegmentIdle@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C002DE74 (-NotifyMemorySegmentIdle@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z.c)
- *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C002EDC8 (McTemplateK0pqx_EtwWriteTransfer.c)
- *     ?DecrementBytesCommitted@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION@@_K@Z @ 0x1C00A0F44 (-DecrementBytesCommitted@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION@@_K@Z.c)
- *     ?Free@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z @ 0x1C00A3F98 (-Free@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?NotifyMemorySegmentIdle@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C0023BFC (-NotifyMemorySegmentIdle@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z.c)
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C0024C84 (McTemplateK0pqx_EtwWriteTransfer.c)
+ *     ?DecrementBytesCommitted@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION@@_K@Z @ 0x1C0073CCC (-DecrementBytesCommitted@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION@@_K@Z.c)
+ *     ?Free@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z @ 0x1C0087E80 (-Free@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z.c)
  */
 
 void __fastcall VIDMM_SEGMENT::ReleaseResource(
@@ -22,48 +21,51 @@ void __fastcall VIDMM_SEGMENT::ReleaseResource(
   __int64 v9; // rcx
   bool v10; // zf
   __int64 v11; // rcx
-  _QWORD *v12; // rax
-  __int64 v13; // rcx
-  __int64 v14; // rcx
+  __int64 v12; // rcx
+  unsigned __int64 v13; // rdx
+  _QWORD *v14; // rax
   __int64 v15; // rcx
-  _QWORD *v16; // rax
-  unsigned __int64 v17; // rbp
-  VIDMM_GLOBAL *v18; // rcx
-  __int64 v19; // rcx
-  unsigned __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // [rsp+20h] [rbp-48h]
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  _QWORD *v19; // rax
+  unsigned __int64 v20; // rbp
+  VIDMM_GLOBAL *v21; // rcx
+  __int64 v22; // rax
+  unsigned __int64 v23; // rcx
+  __int64 v24; // rax
 
   v6 = a2;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v12 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
-    v12[3] = v6;
-    v12[4] = a3;
-    v12[5] = a4;
+    v14 = (_QWORD *)WdLogNewEntry5_WdTrace(this);
+    v14[3] = v6;
+    v14[4] = a3;
+    v14[5] = a4;
   }
   if ( v6 )
   {
-    if ( *((_DWORD *)v6 + 28) != 1 )
+    if ( *((_DWORD *)v6 + 30) != 1 )
     {
       VIDMM_SEGMENT::DecrementBytesCommitted(
         (VIDMM_SEGMENT *)this,
-        **((struct VIDMM_PARTITION ***)v6 + 63),
+        **((struct VIDMM_PARTITION ***)v6 + 62),
         *((_QWORD *)v6 + 2));
       --*((_DWORD *)this + 80);
       if ( ((_DWORD)this[10] & 0x1001) != 0 )
       {
-        v13 = *((_QWORD *)v6 + 64);
-        if ( !v13 || _InterlockedExchangeAdd((volatile signed __int32 *)(v13 + 44), 0xFFFFFFFF) == 1 )
+        v15 = *((_QWORD *)v6 + 63);
+        if ( !v15 || _InterlockedExchangeAdd((volatile signed __int32 *)(v15 + 44), 0xFFFFFFFF) == 1 )
         {
+          v16 = **((_QWORD **)v6 + 62);
           a2 = (struct _VIDMM_GLOBAL_ALLOC *)_InterlockedExchangeAdd64(
-                                               (volatile signed __int64 *)(**((_QWORD **)v6 + 63) + 56LL),
+                                               (volatile signed __int64 *)(v16 + 56),
                                                -*((_QWORD *)v6 + 2));
           if ( (unsigned __int64)a2 < *((_QWORD *)v6 + 2) )
           {
-            WdLogSingleEntry1(1LL, 1923LL);
-            HIDWORD(v22) = 0;
-            DxgkLogInternalTriageEvent(v14, 0x40000LL);
+            v17 = WdLogNewEntry5_WdAssertion(v16, a2, a3);
+            *(_QWORD *)(v17 + 24) = 1912LL;
+            WdLogEvent5_WdAssertion(v17);
           }
         }
       }
@@ -76,70 +78,79 @@ void __fastcall VIDMM_SEGMENT::ReleaseResource(
     v8 = this[28];
     if ( v8 < (VIDMM_GLOBAL *)((char *)v8 - a4) )
     {
-      WdLogSingleEntry1(1LL, 1948LL);
-      HIDWORD(v22) = 0;
-      DxgkLogInternalTriageEvent(v15, 0x40000LL);
+      v18 = WdLogNewEntry5_WdAssertion(v8, a2, a3);
+      *(_QWORD *)(v18 + 24) = 1937LL;
+      WdLogEvent5_WdAssertion(v18);
       v8 = this[28];
     }
     --*((_DWORD *)this + 81);
     v9 = (__int64)v8 - a4;
     v10 = bTracingEnabled == 0;
     this[28] = (VIDMM_GLOBAL *)v9;
-    if ( !v10 && (byte_1C006E941 & 1) != 0 )
-    {
-      LODWORD(v22) = *((_DWORD *)this + 4) + 1;
-      McTemplateK0pqx_EtwWriteTransfer(v9, &TotalBytesResidentInSegment, (__int64)a3, *((_QWORD *)this[1] + 3), v22, v9);
-    }
-    if ( !v6 || _bittest((const signed __int32 *)v6 + 18, 9u) )
+    if ( !v10 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0pqx_EtwWriteTransfer(
+        v9,
+        &TotalBytesResidentInSegment,
+        (__int64)a3,
+        *((_QWORD *)this[1] + 3),
+        *((_DWORD *)this + 4) + 1,
+        v9);
+    if ( !v6 || (*((_DWORD *)v6 + 20) & 0x200) != 0 )
     {
       if ( g_IsInternalReleaseOrDbg )
       {
-        v16 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, a2, a3, a4);
-        v16[3] = a4;
-        v16[4] = this[55];
-        v16[5] = v6;
+        v19 = (_QWORD *)WdLogNewEntry5_WdTrace(v9);
+        v19[3] = a4;
+        v19[4] = this[55];
+        v19[5] = v6;
       }
       this[55] = (VIDMM_GLOBAL *)((char *)this[55] - a4);
       if ( v6 )
-        *((_DWORD *)v6 + 18) &= ~0x200u;
+        *((_DWORD *)v6 + 20) &= ~0x200u;
       *((_BYTE *)this + 448) = 0;
     }
-    if ( *((_DWORD *)this + 92) != -1 && v6 && !_bittest((const signed __int32 *)v6 + 17, 9u) )
+    if ( *((_DWORD *)this + 92) != -1 && v6 && (*((_DWORD *)v6 + 19) & 0x200) == 0 )
     {
-      v17 = (unsigned __int64)this[29];
-      v18 = (VIDMM_GLOBAL *)v17;
-      if ( v17 < a4 )
+      v20 = (unsigned __int64)this[29];
+      v21 = (VIDMM_GLOBAL *)v20;
+      if ( v20 < a4 )
       {
-        WdLogSingleEntry1(1LL, 1982LL);
-        DxgkLogInternalTriageEvent(v19, 0x40000LL);
-        v18 = this[29];
+        v22 = WdLogNewEntry5_WdAssertion(v20, a2, a3);
+        *(_QWORD *)(v22 + 24) = 1971LL;
+        WdLogEvent5_WdAssertion(v22);
+        v21 = this[29];
       }
-      v20 = (unsigned __int64)v18 - a4;
-      this[29] = (VIDMM_GLOBAL *)v20;
-      if ( v17 > qword_1C006E508 && v20 <= qword_1C006E508 )
+      v23 = (unsigned __int64)v21 - a4;
+      this[29] = (VIDMM_GLOBAL *)v23;
+      if ( v20 > qword_1C0050498 && v23 <= qword_1C0050498 )
       {
-        (*((void (__fastcall **)(_QWORD, _QWORD))this[1] + 5013))(
-          *((_QWORD *)this[1] + 5019),
+        (*((void (__fastcall **)(_QWORD, _QWORD))this[1] + 5012))(
+          *((_QWORD *)this[1] + 5018),
           *((unsigned int *)this + 92));
-        v20 = (unsigned __int64)this[29];
+        v23 = (unsigned __int64)this[29];
       }
-      if ( !v20 )
+      if ( !v23 )
         VIDMM_GLOBAL::NotifyMemorySegmentIdle(this[1], (struct VIDMM_SEGMENT *)this);
     }
     if ( ((_DWORD)this[10] & 0x1001) != 0 )
     {
-      v11 = *((_QWORD *)v6 + 64);
-      if ( (!v11 || _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 40), 0xFFFFFFFF) == 1)
-        && _InterlockedExchangeAdd64((volatile signed __int64 *)(**((_QWORD **)v6 + 63) + 64LL), -(__int64)a4) < a4 )
+      v11 = *((_QWORD *)v6 + 63);
+      if ( !v11 || _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 40), 0xFFFFFFFF) == 1 )
       {
-        WdLogSingleEntry1(1LL, 2008LL);
-        DxgkLogInternalTriageEvent(v21, 0x40000LL);
+        v12 = **((_QWORD **)v6 + 62);
+        v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + 64), -(__int64)a4);
+        if ( v13 < a4 )
+        {
+          v24 = WdLogNewEntry5_WdAssertion(v12, v13, a3);
+          *(_QWORD *)(v24 + 24) = 1997LL;
+          WdLogEvent5_WdAssertion(v24);
+        }
       }
-      *((_QWORD *)this[1] + 5026) -= a4;
+      *((_QWORD *)this[1] + 5025) -= a4;
     }
   }
   else
   {
-    *((_DWORD *)v6 + 18) &= ~0x200u;
+    *((_DWORD *)v6 + 20) &= ~0x200u;
   }
 }

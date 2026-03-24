@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeRegistryPageRange @ 0x140B19724
+ * XREFs of MiFreeRegistryPageRange @ 0x140A4CD08
  * Callers:
- *     MmFreeLoaderBlock @ 0x140B190F0 (MmFreeLoaderBlock.c)
+ *     MmFreeLoaderBlock @ 0x140A4C7D0 (MmFreeLoaderBlock.c)
  * Callees:
- *     MiDecrementShareCount @ 0x140273FD0 (MiDecrementShareCount.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiFreeRegistryPageRange(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiFreeRegistryPageRange(__int64 a1, __int64 a2)
   v7 = result;
   if ( v4 )
   {
-    v8 = 48 * v5 - 0x21FFFFFFFFE8LL;
+    v8 = 48 * v5 - 0x57FFFFFFFE8LL;
     do
     {
       v10 = 0;
@@ -36,7 +36,7 @@ __int64 __fastcall MiFreeRegistryPageRange(__int64 a1, __int64 a2)
       v9 = *(_BYTE *)(v8 + 10) | 0x10;
       *(_QWORD *)(v8 - 8) = v7;
       *(_BYTE *)(v8 + 10) = v9;
-      MiDecrementShareCount(v8 - 24, v4, v5, v6);
+      MiDecrementShareCount(v8 - 24);
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)v8, 0x7FFFFFFFFFFFFFFFuLL);
       v8 += 48LL;

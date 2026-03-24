@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCbCopyNExW @ 0x14024AB14
+ * XREFs of RtlStringCbCopyNExW @ 0x1402CAA50
  * Callers:
- *     _CmGetDeviceRegPropWorker @ 0x14077CF10 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1406415EC (_CmGetDeviceRegPropWorker.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x14024AB88 (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW_2 @ 0x1402CAAF4 (RtlStringCopyWorkerW_2.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyNExW(
@@ -15,30 +15,48 @@ NTSTATUS __stdcall RtlStringCbCopyNExW(
         size_t *pcbRemaining,
         ULONG dwFlags)
 {
-  size_t v8; // rbx
-  size_t v10; // r9
-  NTSTATUS result; // eax
-  size_t v12; // [rsp+48h] [rbp+10h] BYREF
+  size_t v7; // rbx
+  int v9; // r10d
+  size_t v11; // r9
+  size_t v13; // [rsp+48h] [rbp+10h] BYREF
 
-  v8 = cbDest >> 1;
+  v7 = cbDest >> 1;
+  v9 = 0;
   if ( (cbDest >> 1) - 1 > 0x7FFFFFFE )
-    return -1073741811;
-  v10 = cbToCopy >> 1;
-  if ( v10 >= 0x7FFFFFFF )
+    v9 = -1073741811;
+  if ( v9 >= 0 )
   {
-    result = -1073741811;
-    *pszDest = 0;
+    v11 = cbToCopy >> 1;
+    if ( v11 >= 0x7FFFFFFF )
+    {
+      v9 = -1073741811;
+      if ( v7 )
+        *pszDest = 0;
+    }
+    else
+    {
+      v9 = 0;
+      if ( v7 )
+      {
+        v9 = RtlStringCopyWorkerW_2(pszDest, cbDest >> 1, &v13, pszSrc, v11);
+        if ( v9 < 0 )
+        {
+LABEL_14:
+          if ( cbDest && v7 )
+            *pszDest = 0;
+          return v9;
+        }
+      }
+      else
+      {
+        if ( !v11 || !*pszSrc )
+          return v9;
+        v9 = pszDest != 0LL ? -2147483643 : -1073741811;
+      }
+    }
+    if ( v9 >= 0 )
+      return v9;
+    goto LABEL_14;
   }
-  else
-  {
-    result = RtlStringCopyWorkerW(pszDest, cbDest >> 1, &v12, pszSrc, v10);
-    if ( result >= 0 )
-      return result;
-  }
-  if ( cbDest )
-  {
-    if ( v8 )
-      *pszDest = 0;
-  }
-  return result;
+  return v9;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C02FD3B8
+ * XREFs of ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C0149360
  * Callers:
- *     EngStrokePath @ 0x1C000D350 (EngStrokePath.c)
- *     EngLineTo @ 0x1C028D530 (EngLineTo.c)
+ *     EngStrokePath @ 0x1C0148F20 (EngStrokePath.c)
+ *     EngLineTo @ 0x1C0149240 (EngLineTo.c)
  * Callees:
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0091438 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C02FBF20 (-vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CF858 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C01495C0 (-vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall vSolidLine(
@@ -16,31 +16,31 @@ void __fastcall vSolidLine(
         struct _CLIPOBJ *a4,
         unsigned int a5)
 {
-  int v5; // r14d
-  struct _RECTL *v7; // r13
-  unsigned __int8 *v8; // r10
-  struct _W32KCDD_ENG_CALLBACKS *v10; // r9
-  int v11; // r8d
-  struct _PATHOBJ *v12; // r15
+  unsigned int v5; // edi
+  unsigned __int8 *v6; // r10
+  struct _W32KCDD_ENG_CALLBACKS *v8; // r9
+  int v10; // r8d
+  struct _PATHOBJ *v11; // r15
+  struct _RECTL *v12; // r13
   unsigned int v13; // ebx
-  int v14; // ebx
-  unsigned int v15; // ebx
+  unsigned int v14; // edi
   RECTL rclBounds; // xmm0
-  int v17; // ecx
+  int v16; // ecx
   LONG right; // eax
   LONG bottom; // eax
-  unsigned int v20; // r14d
-  struct _PATHOBJ v21; // rcx
-  int v22; // r12d
-  ULONG count; // eax
-  ULONG v24; // edi
-  char flags; // r8
-  POINTFIX *pptfx; // rdx
-  POINTFIX *v27; // rsi
-  POINTFIX *v28; // rcx
-  unsigned __int8 *v29; // r12
+  struct _PATHOBJ v19; // rcx
+  int v20; // r12d
+  int v21; // eax
+  int v22; // esi
+  char v23; // r8
+  struct _POINTFIX *v24; // rdx
+  struct _POINTFIX *v25; // r14
+  struct _POINTFIX *v26; // rcx
+  unsigned __int8 *v27; // r12
+  int v28; // ebx
+  unsigned int v29; // ebx
   int v30; // [rsp+40h] [rbp-81h]
-  struct _PATHDATA v31; // [rsp+48h] [rbp-79h] BYREF
+  struct _POINTFIX *v31[2]; // [rsp+48h] [rbp-79h] BYREF
   int v32; // [rsp+58h] [rbp-69h]
   struct _W32KCDD_ENG_CALLBACKS *v33; // [rsp+60h] [rbp-61h]
   unsigned __int8 *v34; // [rsp+68h] [rbp-59h]
@@ -62,120 +62,124 @@ void __fastcall vSolidLine(
   LONG v50; // [rsp+CCh] [rbp+Bh]
 
   v5 = *((_DWORD *)a1 + 24);
+  v6 = (unsigned __int8 *)*((_QWORD *)a1 + 10);
+  v8 = (struct _W32KCDD_ENG_CALLBACKS *)*((_QWORD *)a1 + 79);
+  v10 = *((_DWORD *)a1 + 22);
+  v33 = v8;
+  v11 = a2;
+  v37 = a2;
+  v12 = 0LL;
   v36 = 0LL;
   v35 = 0LL;
-  v7 = 0LL;
-  v8 = (unsigned __int8 *)*((_QWORD *)a1 + 10);
-  v10 = (struct _W32KCDD_ENG_CALLBACKS *)*((_QWORD *)a1 + 79);
-  v11 = *((_DWORD *)a1 + 22);
-  v12 = a2;
-  v37 = a2;
-  v30 = v11;
-  v34 = v8;
-  v33 = v10;
-  v31 = 0LL;
+  v30 = v10;
+  v34 = v6;
+  *(_OWORD *)v31 = 0LL;
   switch ( v5 )
   {
-    case 1:
+    case 1u:
       v13 = -(a5 != 0);
-      goto LABEL_15;
-    case 2:
-      v15 = (16 * a5) | a5;
-      goto LABEL_12;
-    case 3:
-      v15 = a5;
-LABEL_12:
-      v14 = (v15 << 8) | v15;
-      goto LABEL_13;
-    case 4:
-      v14 = a5;
-LABEL_13:
-      v13 = (v14 << 16) | v14;
-      goto LABEL_15;
-  }
-  if ( (unsigned int)(v5 - 5) >= 2 )
-  {
-    if ( (unsigned int)bUMPDSecurityGateEx() )
-      return;
-    v11 = v30;
-    v8 = v34;
-    v10 = v33;
-  }
-  v13 = a5;
-LABEL_15:
-  if ( a4 && a4->iDComplexity == 1 )
-  {
-    v7 = &v38;
-    rclBounds = a4->rclBounds;
-    left = a4->rclBounds.left;
-    v43 = left;
-    v48 = left;
-    v17 = 1 - a4->rclBounds.top;
-    top = a4->rclBounds.top;
-    right = a4->rclBounds.right;
-    v46 = v17;
-    v49 = v17;
-    v42 = right;
-    v45 = right;
-    v50 = right;
-    bottom = a4->rclBounds.bottom;
-    v44 = 1 - bottom;
-    v47 = 1 - bottom;
-    v38 = rclBounds;
-    v41 = bottom;
-  }
-  v20 = v5 - 1;
-  if ( v12 )
-  {
-    v21 = v12[1];
-    v12->fl &= ~8u;
-    *(_QWORD *)(*(_QWORD *)&v21 + 72LL) = *(_QWORD *)(*(_QWORD *)&v21 + 32LL);
-    do
-    {
-      v22 = EPATHOBJ::bEnum((EPATHOBJ *)v12, &v31);
-      v32 = v22;
-      count = v31.count;
-      v24 = v31.count;
-      if ( !v31.count )
-        break;
-      flags = v31.flags;
-      pptfx = v31.pptfx;
-      if ( (v31.flags & 1) != 0 )
+      goto LABEL_8;
+    case 2u:
+      v29 = (16 * a5) | a5;
+      goto LABEL_35;
+    case 3u:
+      v29 = a5;
+LABEL_35:
+      v28 = (v29 << 8) | v29;
+      goto LABEL_36;
+    case 4u:
+      v28 = a5;
+LABEL_36:
+      v13 = (v28 << 16) | v28;
+LABEL_8:
+      if ( a4 && a4->iDComplexity == 1 )
       {
-        v27 = v31.pptfx + 1;
-        v36 = *v31.pptfx;
-        v24 = v31.count - 1;
-        v28 = v31.pptfx;
+        v12 = &v38;
+        rclBounds = a4->rclBounds;
+        left = a4->rclBounds.left;
+        v43 = left;
+        v48 = left;
+        v16 = 1 - a4->rclBounds.top;
+        top = a4->rclBounds.top;
+        right = a4->rclBounds.right;
+        v46 = v16;
+        v49 = v16;
+        v42 = right;
+        v45 = right;
+        v50 = right;
+        bottom = a4->rclBounds.bottom;
+        v44 = 1 - bottom;
+        v47 = 1 - bottom;
+        v38 = rclBounds;
+        v41 = bottom;
+      }
+      v14 = v5 - 1;
+      if ( v11 )
+      {
+        v19 = v11[1];
+        v11->fl &= ~8u;
+        *(_QWORD *)(*(_QWORD *)&v19 + 72LL) = *(_QWORD *)(*(_QWORD *)&v19 + 32LL);
+        do
+        {
+          v20 = EPATHOBJ::bEnum((EPATHOBJ *)v11, (struct _PATHDATA *)v31);
+          v32 = v20;
+          v21 = HIDWORD(v31[0]);
+          v22 = HIDWORD(v31[0]);
+          if ( !HIDWORD(v31[0]) )
+            break;
+          v23 = (char)v31[0];
+          v24 = v31[1];
+          if ( ((__int64)v31[0] & 1) != 0 )
+          {
+            v25 = v31[1] + 1;
+            v36 = *v31[1];
+            v22 = HIDWORD(v31[0]) - 1;
+            v26 = v31[1];
+          }
+          else
+          {
+            v26 = &v35;
+            v25 = v31[1];
+          }
+          if ( v22 )
+          {
+            v27 = v34;
+            do
+            {
+              vDrawLine(v26, v25, v27, v30, v13, v12, v14, v33);
+              v26 = v25++;
+              --v22;
+            }
+            while ( v22 );
+            v24 = v31[1];
+            v21 = HIDWORD(v31[0]);
+            v23 = (char)v31[0];
+            v11 = v37;
+            v20 = v32;
+          }
+          v35 = v24[v21 - 1];
+          if ( (v23 & 8) != 0 )
+            vDrawLine(&v35, &v36, v34, v30, v13, v12, v14, v33);
+        }
+        while ( v20 );
       }
       else
       {
-        v28 = &v35;
-        v27 = v31.pptfx;
+        vDrawLine(a3, a3 + 1, v6, v10, v13, v12, v14, v8);
       }
-      if ( v24 )
-      {
-        v29 = v34;
-        do
-        {
-          vDrawLine(v28, v27, v29, v30, v13, v7, v20, (struct _POINTFIX *)v33);
-          v28 = v27++;
-          --v24;
-        }
-        while ( v24 );
-        pptfx = v31.pptfx;
-        count = v31.count;
-        flags = v31.flags;
-        v12 = v37;
-        v22 = v32;
-      }
-      v35 = pptfx[count - 1];
-      if ( (flags & 8) != 0 )
-        vDrawLine(&v35, &v36, v34, v30, v13, v7, v20, (struct _POINTFIX *)v33);
-    }
-    while ( v22 );
+      return;
   }
-  else
+  if ( v5 > 4 && v5 <= 6 )
+    goto LABEL_7;
+  if ( !bUMPDSecurityGateEx() )
   {
-    vDrawLine(a3, a3 + 1, v8, v11, v13, v7, v20, (struct _POINTFIX *)v10);
+    v10 = v30;
+    v6 = v34;
+    v8 = v33;
+LABEL_7:
+    v13 = a5;
+    goto LABEL_8;
   }
+  if ( gfUMPDDebug )
+    DbgPrint("clientcore\\windows\\core\\ntgdi\\gre\\windows\\solline.cxx:%d:vSolidLine:Invalid surface format.\n", 178);
 }

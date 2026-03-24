@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetStereoContext@CDeviceTextureTarget@@UEAAXW4StereoContext@@@Z @ 0x180108710
+ * XREFs of ?SetStereoContext@CDeviceTextureTarget@@UEAAXW4StereoContext@@@Z @ 0x1800E26F0
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhWmiResetOvercurrent @ 0x1C0049D50
+ * XREFs of UsbhWmiResetOvercurrent @ 0x1C004B120
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhOvercurrentResetWorker @ 0x1C002F330 (UsbhOvercurrentResetWorker.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhOvercurrentResetWorker @ 0x1C0030700 (UsbhOvercurrentResetWorker.c)
  */
 
 __int64 __fastcall UsbhWmiResetOvercurrent(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

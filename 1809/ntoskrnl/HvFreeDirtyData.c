@@ -3,7 +3,7 @@
  * Callers:
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     HvFoldBackDirtyData @ 0x1407FAC88 (HvFoldBackDirtyData.c)
+ *     HvFoldBackDirtyData @ 0x1407FAC68 (HvFoldBackDirtyData.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

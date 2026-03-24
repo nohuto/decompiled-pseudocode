@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpReferenceStackLookasideList @ 0x1409E591C
+ * XREFs of EtwpReferenceStackLookasideList @ 0x140935920
  * Callers:
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpInitializeClassicStackTracing @ 0x1409E581C (EtwpInitializeClassicStackTracing.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpInitializeStackTracing @ 0x1409357BC (EtwpInitializeStackTracing.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 EtwpReferenceStackLookasideList()
+struct _SLIST_ENTRY *EtwpReferenceStackLookasideList()
 {
   int v0; // ebx
-  __int64 result; // rax
+  struct _SLIST_ENTRY *result; // rax
 
-  v0 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C5A6C0);
+  v0 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C53D80);
   do
   {
-    result = ExAllocatePool2(64LL, 2080LL, 1819767877LL);
+    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x820uLL, 0x6C777445u);
     if ( !result )
       break;
-    RtlpInterlockedPushEntrySList(&EtwpStackLookAsideList, (PSLIST_ENTRY)result);
-    result = (unsigned int)_InterlockedIncrement(&dword_140C5A6C4);
+    RtlpInterlockedPushEntrySList(&EtwpStackLookAsideList, result);
+    result = (struct _SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C53D84);
   }
   while ( (int)result < v0 );
   return result;

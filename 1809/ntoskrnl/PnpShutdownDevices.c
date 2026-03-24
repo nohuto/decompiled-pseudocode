@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpShutdownDevices @ 0x140823020
+ * XREFs of PnpShutdownDevices @ 0x140823000
  * Callers:
  *     IoShutdownSystem @ 0x140577C68 (IoShutdownSystem.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpCreateDeviceEventEntry @ 0x1406C6920 (PnpCreateDeviceEventEntry.c)
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x1406EEE0C (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
- *     PipSetDevNodeUserFlags @ 0x14070E260 (PipSetDevNodeUserFlags.c)
+ *     PnpCreateDeviceEventEntry @ 0x1406C6900 (PnpCreateDeviceEventEntry.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x1406EEDEC (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PipSetDevNodeUserFlags @ 0x14070E240 (PipSetDevNodeUserFlags.c)
  */
 
 __int64 PnpShutdownDevices()

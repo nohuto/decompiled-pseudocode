@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataParseFailure @ 0x1409E29E8
+ * XREFs of EtwTraceLeapSecondDataParseFailure @ 0x140936544
  * Callers:
- *     ExpReadLeapSecondData @ 0x140857F38 (ExpReadLeapSecondData.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     ExpReadLeapSecondData @ 0x1407A91B8 (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceLeapSecondDataParseFailure(int a1)
@@ -22,13 +22,13 @@ void __fastcall EtwTraceLeapSecondDataParseFailure(int a1)
   int v8; // [rsp+90h] [rbp+10h] BYREF
 
   v8 = a1;
-  if ( (unsigned int)dword_140C043E0 > 5 && tlgKeywordOn((__int64)&dword_140C043E0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
   {
     v7 = 0;
     v5 = &v2;
     v2 = v1;
     v6 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043E0, (unsigned __int8 *)byte_140035238, 0LL, 0LL, 3u, &v4);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, (unsigned __int8 *)&dword_14002CA3C, 0LL, 0LL, 3u, &v4);
   }
   if ( EtwKernelProvRegHandle )
   {

@@ -1,10 +1,10 @@
 /*
  * XREFs of MmFreeVirtualMemory @ 0x1405EF4F0
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  *     NtFreeVirtualMemory @ 0x1405EFA50 (NtFreeVirtualMemory.c)
- *     PspDeleteUserStack @ 0x1406CB090 (PspDeleteUserStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x14088B5E0 (PspFreeCurrentThreadUserShadowStack.c)
+ *     PspDeleteUserStack @ 0x1406CB070 (PspDeleteUserStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x14088B5C0 (PspFreeCurrentThreadUserShadowStack.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -14,14 +14,14 @@
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     MiDecommitRegion @ 0x1405EC220 (MiDecommitRegion.c)
  *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
- *     MiCoalescePlaceholderAllocations @ 0x140851A18 (MiCoalescePlaceholderAllocations.c)
- *     MiDecommitEnclavePages @ 0x14085A074 (MiDecommitEnclavePages.c)
- *     MiFreeEnclaveModules @ 0x14085A1F0 (MiFreeEnclaveModules.c)
- *     PerfInfoLogVirtualFree @ 0x1408B91B0 (PerfInfoLogVirtualFree.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
+ *     MiDecommitEnclavePages @ 0x14085A054 (MiDecommitEnclavePages.c)
+ *     MiFreeEnclaveModules @ 0x14085A1D0 (MiFreeEnclaveModules.c)
+ *     PerfInfoLogVirtualFree @ 0x1408B9190 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MmFreeVirtualMemory(

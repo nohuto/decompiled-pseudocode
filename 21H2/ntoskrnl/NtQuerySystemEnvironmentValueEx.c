@@ -1,20 +1,20 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1406DC9F0
+ * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1406C0810
  * Callers:
  *     <none>
  * Callees:
- *     RtlCheckTokenMembershipEx @ 0x1402E0CA0 (RtlCheckTokenMembershipEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PsIsProcessAppContainer @ 0x1406C9928 (PsIsProcessAppContainer.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406DCAC0 (ExGetFirmwareEnvironmentVariable.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC784 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x1409FCB38 (ExpGetFirmwareEnvironmentVariable.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlCheckTokenMembershipEx @ 0x14027F450 (RtlCheckTokenMembershipEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     PsIsProcessAppContainer @ 0x1406AD854 (PsIsProcessAppContainer.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406C08E0 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950400 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x1409507B4 (ExpGetFirmwareEnvironmentVariable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtQuerySystemEnvironmentValueEx(
@@ -27,12 +27,12 @@ __int64 __fastcall NtQuerySystemEnvironmentValueEx(
   BOOLEAN v10; // bl
   int v11; // eax
   char v12; // cl
-  __int64 v13; // rbx
-  unsigned __int16 v14; // cx
-  size_t v15; // rdi
-  char *v16; // rcx
-  __int64 v17; // rcx
-  unsigned int v18; // eax
+  unsigned __int16 v13; // cx
+  size_t v14; // rdi
+  char *v15; // rcx
+  __int64 v16; // rcx
+  unsigned int v17; // eax
+  __int64 v18; // rcx
   _WORD *PoolWithTag; // rax
   _WORD *v20; // rbx
   unsigned int FirmwareEnvironmentVariable; // edi
@@ -53,7 +53,7 @@ __int64 __fastcall NtQuerySystemEnvironmentValueEx(
   v10 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
   if ( !v10 )
   {
-    if ( PsIsProcessAppContainer((__int64)KeGetCurrentThread()->ApcState.Process) )
+    if ( PsIsProcessAppContainer(KeGetCurrentThread()->ApcState.Process) )
       v10 = ExpFirmwareAccessAppContainerCheck(1LL);
     if ( !v10 )
     {
@@ -67,51 +67,51 @@ __int64 __fastcall NtQuerySystemEnvironmentValueEx(
         return 3221225569LL;
     }
   }
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   if ( ((unsigned __int8)a1 & 3) != 0 )
     goto LABEL_35;
-  v13 = 0x7FFFFFFF0000LL;
   *(_OWORD *)Src = *a1;
-  v14 = _mm_cvtsi128_si32(*(__m128i *)Src);
-  if ( !v14 )
+  v13 = _mm_cvtsi128_si32(*(__m128i *)Src);
+  if ( !v13 )
     return 3221225477LL;
   if ( ((__int64)Src[1] & 1) != 0 )
     ExRaiseDatatypeMisalignment();
-  v15 = v14;
-  v16 = (char *)Src[1] + v14;
-  if ( (unsigned __int64)v16 > 0x7FFFFFFF0000LL || v16 < Src[1] )
+  v14 = v13;
+  v15 = (char *)Src[1] + v13;
+  if ( (unsigned __int64)v15 > 0x7FFFFFFF0000LL || v15 < Src[1] )
     MEMORY[0x7FFFFFFF0000] = 0;
   if ( ((unsigned __int8)a2 & 3) != 0 )
 LABEL_35:
     ExRaiseDatatypeMisalignment();
-  v17 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-    v17 = (__int64)a4;
-  *(_DWORD *)v17 = *(_DWORD *)v17;
-  v18 = *a4;
+  v16 = (__int64)a4;
+  if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v16 = 0x7FFFFFFF0000LL;
+  *(_DWORD *)v16 = *(_DWORD *)v16;
+  v17 = *a4;
   v23 = *a4;
   if ( !a3 )
   {
     v23 = 0;
-    v18 = 0;
+    v17 = 0;
   }
-  if ( v18 )
-    ProbeForWrite(a3, v18, 1u);
+  if ( v17 )
+    ProbeForWrite(a3, v17, 1u);
   if ( a5 )
   {
-    if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-      v13 = (__int64)a5;
-    *(_DWORD *)v13 = *(_DWORD *)v13;
+    v18 = (__int64)a5;
+    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+      v18 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v18 = *(_DWORD *)v18;
   }
   v27 = *a2;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v15 + 2, 0x72766E45u);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v14 + 2, 0x72766E45u);
   v20 = PoolWithTag;
   P = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
-  memmove(PoolWithTag, Src[1], v15);
-  v20[v15 >> 1] = 0;
+  memmove(PoolWithTag, Src[1], v14);
+  v20[v14 >> 1] = 0;
   FirmwareEnvironmentVariable = ExpGetFirmwareEnvironmentVariable(
                                   (_DWORD)v20,
                                   (unsigned int)&v27,

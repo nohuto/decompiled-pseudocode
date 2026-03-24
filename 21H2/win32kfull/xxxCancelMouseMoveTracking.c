@@ -1,61 +1,61 @@
 /*
- * XREFs of xxxCancelMouseMoveTracking @ 0x1C00A184C
+ * XREFs of xxxCancelMouseMoveTracking @ 0x1C002D9FC
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
- *     xxxCapture @ 0x1C00AA7F8 (xxxCapture.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
+ *     xxxCapture @ 0x1C00C062C (xxxCapture.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
- *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C010D388 (safe_cast_fnid_to_PTOOLTIPWND.c)
- *     xxxResetTooltip @ 0x1C0118B6C (xxxResetTooltip.c)
- *     xxxHotTrack @ 0x1C011F23C (xxxHotTrack.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     xxxResetTooltip @ 0x1C002B3FC (xxxResetTooltip.c)
+ *     xxxHotTrack @ 0x1C002B484 (xxxHotTrack.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C0030A88 (safe_cast_fnid_to_PTOOLTIPWND.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
-void __fastcall xxxCancelMouseMoveTracking(__int16 a1, __int64 a2, unsigned int a3, __int16 a4)
+__int64 __fastcall xxxCancelMouseMoveTracking(__int16 a1, __int64 a2, int a3, __int16 a4)
 {
-  char v8; // bl
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  _QWORD *v11; // rax
-  _QWORD *v12; // r14
+  __int64 result; // rax
+  char v9; // bl
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  struct tagTOOLTIPWND *v12; // r14
   __int64 v13; // r15
   __int64 ThreadWin32Thread; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  _QWORD v18[4]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v15; // rcx
+  _QWORD v16[4]; // [rsp+30h] [rbp-38h] BYREF
 
+  result = 1024LL;
   if ( (a1 & 0x400) != 0 && (a4 & 0x400) != 0 )
-    xxxHotTrack(a2, a3, 0LL);
+    result = xxxHotTrack((struct tagWND *)a2, a3, 0);
   if ( (a1 & 0x200) != 0 && (a4 & 0x300) != 0 )
   {
-    v9 = *(_QWORD *)(a2 + 24);
-    v10 = 0LL;
-    if ( v9 )
-      v10 = *(_QWORD *)(v9 + 112);
-    v11 = (_QWORD *)safe_cast_fnid_to_PTOOLTIPWND(v10);
-    v12 = v11;
-    if ( v11 )
+    v10 = *(_QWORD *)(a2 + 24);
+    v11 = 0LL;
+    if ( v10 )
+      v11 = *(_QWORD *)(v10 + 112);
+    result = safe_cast_fnid_to_PTOOLTIPWND(v11);
+    v12 = (struct tagTOOLTIPWND *)result;
+    if ( result )
     {
-      v13 = *v11;
-      if ( *v11 )
+      v13 = *(_QWORD *)result;
+      if ( *(_QWORD *)result )
       {
-        v18[2] = 0LL;
-        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-        v18[0] = *(_QWORD *)(ThreadWin32Thread + 416);
-        *(_QWORD *)(ThreadWin32Thread + 416) = v18;
-        v18[1] = v13;
+        v16[2] = 0LL;
+        ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+        v16[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+        *(_QWORD *)(ThreadWin32Thread + 416) = v16;
+        v16[1] = v13;
         HMLockObject(v13);
         xxxResetTooltip(v12);
-        ThreadUnlock1(v16, v15, v17);
+        result = ThreadUnlock1(v15);
       }
     }
   }
-  v8 = a4 & a1;
-  if ( v8 < 0 )
-    PostMessage(a2, 675 - (unsigned int)(a3 != 1), 0LL);
-  if ( (v8 & 0x40) != 0 )
-    FindTimer(a2, 65530, 2, 1, 0LL);
+  v9 = a4 & a1;
+  if ( v9 < 0 )
+    result = PostMessage(a2, 675 - (unsigned int)(a3 != 1), 0LL, 0LL);
+  if ( (v9 & 0x40) != 0 )
+    return FindTimer(a2, 65530LL, 2u, 1, 0LL);
+  return result;
 }

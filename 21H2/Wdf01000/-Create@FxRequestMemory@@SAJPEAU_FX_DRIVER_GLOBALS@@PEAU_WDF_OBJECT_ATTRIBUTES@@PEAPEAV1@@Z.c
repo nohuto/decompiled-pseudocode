@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Create@FxRequestMemory@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C006AE20
+ * XREFs of ?Create@FxRequestMemory@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0055810
  * Callers:
- *     ?ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C0067CC0 (-ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
- *     ?ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C0067F58 (-ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
+ *     ?ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C004E398 (-ProbeAndLockForRead@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
+ *     ?ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C004E634 (-ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
  * Callees:
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ??0FxRequestMemory@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C006ACD8 (--0FxRequestMemory@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ??0FxRequestMemory@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00556C8 (--0FxRequestMemory@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall FxRequestMemory::Create(
@@ -15,14 +15,19 @@ __int64 __fastcall FxRequestMemory::Create(
 {
   FxRequestMemory *v5; // rax
   FxRequestMemory *v6; // rax
-  FxPoolTypeOrPoolFlags v8; // [rsp+40h] [rbp-18h] BYREF
 
-  *(_QWORD *)&v8.UsePoolType = 0LL;
-  v8.u.PoolFlags = 64LL;
-  v5 = (FxRequestMemory *)FxObjectHandleAllocCommon(DriverGlobals, &v8, 0x98uLL, 0, 0LL, 0, FxObjectTypeExternal);
-  if ( !v5 )
-    return 3221225626LL;
-  FxRequestMemory::FxRequestMemory(v5, DriverGlobals);
+  v5 = (FxRequestMemory *)FxObjectHandleAlloc(
+                            DriverGlobals,
+                            ExDefaultNonPagedPoolType,
+                            0x98uLL,
+                            0,
+                            0LL,
+                            0,
+                            FxObjectTypeExternal);
+  if ( v5 )
+    FxRequestMemory::FxRequestMemory(v5, DriverGlobals);
+  else
+    v6 = 0LL;
   if ( !v6 )
     return 3221225626LL;
   *a3 = v6;

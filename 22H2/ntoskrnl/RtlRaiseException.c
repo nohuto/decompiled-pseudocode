@@ -1,27 +1,26 @@
 /*
- * XREFs of RtlRaiseException @ 0x14030D3B0
+ * XREFs of RtlRaiseException @ 0x14033D230
  * Callers:
- *     RaiseException @ 0x1403DD870 (RaiseException.c)
- *     HvlpGetRegister128 @ 0x140548CF0 (HvlpGetRegister128.c)
- *     HvlpGetRegister64 @ 0x140548D80 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140548ED0 (HvlpSetRegister64.c)
- *     KiStallBugcheckThread @ 0x14057B648 (KiStallBugcheckThread.c)
- *     RtlpAllocateHeapRaiseException @ 0x1405ABBE0 (RtlpAllocateHeapRaiseException.c)
+ *     RaiseException @ 0x1403D5CE0 (RaiseException.c)
+ *     HvlpGetRegister128 @ 0x1404F9E00 (HvlpGetRegister128.c)
+ *     HvlpGetRegister64 @ 0x1404F9E90 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404F9F80 (HvlpSetRegister64.c)
+ *     RtlpAllocateHeapRaiseException @ 0x140589348 (RtlpAllocateHeapRaiseException.c)
  * Callees:
- *     RtlDispatchException @ 0x1402A3CA0 (RtlDispatchException.c)
- *     RtlLookupFunctionEntry @ 0x1402A5370 (RtlLookupFunctionEntry.c)
- *     RtlVirtualUnwind @ 0x14030D4E0 (RtlVirtualUnwind.c)
- *     RtlGetExtendedContextLength2 @ 0x14030D5B0 (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x14030D6A0 (RtlInitializeExtendedContext2.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwRaiseException @ 0x14041D4E0 (ZwRaiseException.c)
- *     RtlpCaptureContext2 @ 0x140428A50 (RtlpCaptureContext2.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     RtlDispatchException @ 0x14033E580 (RtlDispatchException.c)
+ *     RtlVirtualUnwind @ 0x14033E9D0 (RtlVirtualUnwind.c)
+ *     RtlLookupFunctionEntry @ 0x14033F110 (RtlLookupFunctionEntry.c)
+ *     RtlGetExtendedContextLength2 @ 0x14033F5D0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x14033FFD0 (RtlInitializeExtendedContext2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwRaiseException @ 0x1403FC720 (ZwRaiseException.c)
+ *     RtlpCaptureContext2 @ 0x140407210 (RtlpCaptureContext2.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
  */
 
-char __fastcall RtlRaiseException(
-        ULONG_PTR a1,
+__int64 __fastcall RtlRaiseException(
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -44,46 +43,45 @@ char __fastcall RtlRaiseException(
         __int64 a21,
         __int64 a22,
         __int64 a23,
-        unsigned __int64 a24)
+        __int64 a24)
 {
-  int v25; // ebx
-  unsigned __int64 v26; // rcx
-  unsigned __int64 v27; // rcx
+  unsigned __int64 v25; // r8
+  unsigned __int64 v26; // r8
+  void *v27; // rsp
   void *v28; // rsp
-  void *v29; // rsp
-  unsigned int v30; // ebx
-  unsigned int *v31; // rax
-  char result; // al
-  unsigned int v33; // [rsp+40h] [rbp+0h] BYREF
-  __int64 v34; // [rsp+48h] [rbp+8h] BYREF
-  __int64 v35; // [rsp+50h] [rbp+10h] BYREF
-  __int64 v36; // [rsp+58h] [rbp+18h] BYREF
+  unsigned int v29; // edi
+  __int64 v30; // rdx
+  __int64 v31; // r8
+  __int64 v32; // rax
+  __int64 result; // rax
+  unsigned int v34; // [rsp+40h] [rbp+0h] BYREF
+  __int64 v35; // [rsp+48h] [rbp+8h] BYREF
+  __int64 v36; // [rsp+50h] [rbp+10h] BYREF
+  __int64 v37; // [rsp+58h] [rbp+18h] BYREF
 
-  v33 = 0;
-  v35 = 0LL;
+  v34 = 0;
   v36 = 0LL;
-  v34 = 0LL;
-  *(_DWORD *)(a1 + 4) |= 0x80u;
-  v25 = (_BYTE)KiKernelCetEnabled != 0 ? 0x80 : 0;
-  RtlGetExtendedContextLength2((unsigned int)(v25 + 1048587), &v33, 0LL);
-  v26 = v33 + 15LL;
-  if ( v26 <= v33 )
-    v26 = 0xFFFFFFFFFFFFFF0LL;
-  v27 = v26 & 0xFFFFFFFFFFFFFFF0uLL;
-  v28 = alloca(v27);
-  v29 = alloca(v27);
-  v30 = RtlInitializeExtendedContext2(&v33, (unsigned int)(v25 + 1048587), &v33, 0LL);
-  RtlpCaptureContext2(&v33);
-  v31 = RtlLookupFunctionEntry(a24, &v34, 0LL);
-  if ( !v31 )
+  v37 = 0LL;
+  v35 = 0LL;
+  RtlGetExtendedContextLength2(1048587LL, &v34, 0LL);
+  v25 = v34 + 15LL;
+  if ( v25 <= v34 )
+    v25 = 0xFFFFFFFFFFFFFF0LL;
+  v26 = v25 & 0xFFFFFFFFFFFFFFF0uLL;
+  v27 = alloca(v26);
+  v28 = alloca(v26);
+  v29 = RtlInitializeExtendedContext2(&v34, 1048587LL, &v34, 0LL);
+  RtlpCaptureContext2(&v34, v30, v31);
+  v32 = RtlLookupFunctionEntry(a24, &v35, 0LL);
+  if ( !v32 )
 LABEL_6:
-    RtlRaiseStatus(v30);
-  RtlVirtualUnwind(0, v34, a24, (_DWORD)v31, (__int64)&v33, (__int64)&v36, (__int64)&v35, 0LL);
+    RtlRaiseStatus(v29);
+  RtlVirtualUnwind(0, v35, a24, v32, (__int64)&v34, (__int64)&v37, (__int64)&v36, 0LL);
   *(_QWORD *)(a1 + 16) = a24;
-  result = RtlDispatchException(a1, (__int64)&v33);
-  if ( !result )
+  result = RtlDispatchException(a1, &v34);
+  if ( !(_BYTE)result )
   {
-    v30 = ZwRaiseException(a1, &v33, 0LL);
+    v29 = ZwRaiseException(a1, &v34, 0LL);
     goto LABEL_6;
   }
   return result;

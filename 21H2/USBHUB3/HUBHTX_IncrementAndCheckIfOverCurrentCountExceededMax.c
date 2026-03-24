@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBHTX_IncrementAndCheckIfOverCurrentCountExceededMax @ 0x1C0006CD0
+ * XREFs of HUBHTX_IncrementAndCheckIfOverCurrentCountExceededMax @ 0x1C0006A2C
  * Callers:
- *     HUBPSM30_CheckingIfPersistentOvercurrent @ 0x1C0010A80 (HUBPSM30_CheckingIfPersistentOvercurrent.c)
+ *     HUBPSM30_CheckingIfPersistentOvercurrent @ 0x1C0010670 (HUBPSM30_CheckingIfPersistentOvercurrent.c)
  * Callees:
  *     <none>
  */

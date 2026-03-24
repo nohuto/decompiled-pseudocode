@@ -1,132 +1,132 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x14076DFF0
+ * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x14073A964
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x1407894A8 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _CmSetDeviceRegProp @ 0x14076FE20 (_CmSetDeviceRegProp.c)
- *     _PnpStringFromGuid @ 0x140773030 (_PnpStringFromGuid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
+ *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
  */
 
-__int64 __fastcall CmSetDeviceMappedPropertyFromRegProp(
+NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
         int a1,
         int a2,
         int a3,
         __int64 a4,
         unsigned int a5,
-        __int64 a6,
+        int *a6,
         unsigned int a7)
 {
   DEVPROPKEY **v7; // r10
   int v8; // esi
   unsigned int v9; // ebx
-  int v14; // r9d
-  DEVPROPKEY *v15; // r11
-  DEVPROPKEY **v16; // rdx
-  __int64 v17; // r8
-  int v18; // r8d
-  int v19; // ebx
-  int v20; // edi
-  __int64 result; // rax
-  _BYTE *v22; // rax
-  int v23; // ecx
-  int *v24; // rax
-  int v25; // ecx
+  int v12; // ecx
+  int v15; // r9d
+  DEVPROPKEY *v16; // r11
+  DEVPROPKEY **v17; // rdx
+  __int64 v18; // r8
+  int v19; // r8d
+  int v20; // ebx
+  int v21; // edi
+  NTSTATUS result; // eax
+  wchar_t *v23; // rax
+  int v24; // ecx
+  int *v25; // rax
   __int64 v26; // [rsp+28h] [rbp-B0h]
   int v27; // [rsp+30h] [rbp-A8h]
   int v28; // [rsp+40h] [rbp-98h] BYREF
-  _BYTE v29[80]; // [rsp+50h] [rbp-88h] BYREF
+  wchar_t v29[40]; // [rsp+50h] [rbp-88h] BYREF
 
   v28 = 0;
   v7 = &CmDeviceRegPropMap;
   v8 = *(_DWORD *)(a4 + 16);
   v9 = 0;
-  v14 = 1;
+  v12 = (int)a6;
+  v15 = 1;
   do
   {
-    v15 = *v7;
-    v16 = v7;
+    v16 = *v7;
+    v17 = v7;
     if ( v8 == (*v7)->pid )
     {
-      v17 = *(_QWORD *)a4 - *(_QWORD *)&v15->fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&v15->fmtid.Data1 )
-        v17 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v15->fmtid.Data4;
-      if ( !v17 )
+      v18 = *(_QWORD *)a4 - *(_QWORD *)&v16->fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&v16->fmtid.Data1 )
+        v18 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v16->fmtid.Data4;
+      if ( !v18 )
         break;
     }
-    v16 = 0LL;
+    v17 = 0LL;
     ++v9;
     v7 += 3;
   }
   while ( v9 < 0x21 );
-  if ( !v16 )
-    return 3221226032LL;
-  v18 = *((_DWORD *)v16 + 2);
-  v19 = *((_DWORD *)v16 + 3);
-  if ( a5 != v18 )
+  if ( !v17 )
+    return -1073741264;
+  v19 = *((_DWORD *)v17 + 2);
+  v20 = *((_DWORD *)v17 + 3);
+  if ( a5 != v19 )
   {
     if ( a5 == 25 )
     {
-      if ( v18 != 18 )
-        return 3221225485LL;
+      if ( v19 != 18 )
+        return -1073741811;
     }
     else if ( a5 >= 2 )
     {
-      return 3221225485LL;
+      return -1073741811;
     }
   }
-  v20 = *((_DWORD *)v16 + 4);
-  if ( v19 != 9 )
+  v21 = *((_DWORD *)v17 + 4);
+  if ( v20 != 9 )
   {
-    if ( v19 == 25 )
-      return 3221225659LL;
-    if ( v19 == 27 )
+    if ( v20 == 25 )
+      return -1073741637;
+    if ( v20 == 27 )
     {
       if ( a6 )
       {
         if ( !a7 )
-          return 3221225485LL;
+          return -1073741811;
         if ( *(_BYTE *)a6 != 0xFF )
         {
           if ( *(_BYTE *)a6 )
-            return 3221225485LL;
-          v14 = 0;
+            return -1073741811;
+          v15 = 0;
         }
-        v28 = v14;
-        v24 = &v28;
-        v25 = 4;
+        v28 = v15;
+        v25 = &v28;
+        v12 = 4;
       }
       else
       {
-        v24 = 0LL;
-        v25 = 0;
+        v25 = 0LL;
       }
-      return CmSetDeviceRegProp(a1, a2, a3, 27, v20, (__int64)v24, v25, 0);
+      return CmSetDeviceRegProp(a1, a2, a3, 27, v21, (__int64)v25, v12, 0);
     }
-    if ( v19 != 37 )
+    if ( v20 != 37 )
     {
-      v27 = a6 != 0 ? a7 : 0;
-      v26 = a6 & -(__int64)(a6 != 0);
-      return CmSetDeviceRegProp(a1, a2, a3, v19, v20, v26, v27, 0);
+      v27 = a6 != 0LL ? a7 : 0;
+      v26 = (unsigned __int64)a6 & -(__int64)(a6 != 0LL);
+      return CmSetDeviceRegProp(a1, a2, a3, v20, v21, v26, v27, 0);
     }
   }
   if ( !a6 )
   {
-    v22 = 0LL;
-    v23 = 0;
+    v23 = 0LL;
+    v24 = 0;
     goto LABEL_21;
   }
   if ( a7 < 0x10 )
-    return 3221225485LL;
+    return -1073741811;
   result = PnpStringFromGuid(a6, v29);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v22 = v29;
-    v23 = 78;
+    v23 = v29;
+    v24 = 78;
 LABEL_21:
-    v27 = v23;
-    v26 = (__int64)v22;
-    return CmSetDeviceRegProp(a1, a2, a3, v19, v20, v26, v27, 0);
+    v27 = v24;
+    v26 = (__int64)v23;
+    return CmSetDeviceRegProp(a1, a2, a3, v20, v21, v26, v27, 0);
   }
   return result;
 }

@@ -1,96 +1,97 @@
 /*
- * XREFs of VidSchiUpdateCurrentIsrFrameTime @ 0x1C003CB68
+ * XREFs of VidSchiUpdateCurrentIsrFrameTime @ 0x1C0032238
  * Callers:
- *     VidSchiProcessIsrCompletedPacket @ 0x1C000F230 (VidSchiProcessIsrCompletedPacket.c)
- *     VidSchiExecuteMmIoFlipAtISR @ 0x1C003A750 (VidSchiExecuteMmIoFlipAtISR.c)
- *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C00416F4 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     VidSchiProcessIsrCompletedPacket @ 0x1C000E3C0 (VidSchiProcessIsrCompletedPacket.c)
+ *     VidSchiExecuteMmIoFlipAtISR @ 0x1C00150D0 (VidSchiExecuteMmIoFlipAtISR.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall VidSchiUpdateCurrentIsrFrameTime(__int64 a1, __int64 a2, char a3)
+LARGE_INTEGER __fastcall VidSchiUpdateCurrentIsrFrameTime(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // rbx
-  LARGE_INTEGER PerformanceCounter; // rax
-  BOOL v7; // esi
+  LARGE_INTEGER result; // rax
+  BOOL v6; // esi
   LARGE_INTEGER v9; // r9
   signed __int64 v10; // rax
   __int64 v11; // r10
   unsigned __int64 v12; // r8
   LONGLONG v13; // rcx
-  unsigned int v14; // eax
-  __int64 v15; // rcx
-  __int128 v17; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+40h] [rbp-38h]
-  int v19; // [rsp+48h] [rbp-30h]
+  __int64 v14; // rcx
+  union _LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v16; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-30h]
+  int v18; // [rsp+50h] [rbp-28h]
 
   v3 = 0LL;
-  PerformanceCounter.LowPart = _InterlockedExchange((volatile __int32 *)(a2 + 44260), 0);
-  v7 = a3 != 0;
+  PerformanceFrequency.QuadPart = 0LL;
+  result.QuadPart = (unsigned int)_InterlockedExchange((volatile __int32 *)(a2 + 33232), 0);
+  v6 = a3 != 0;
   v9.QuadPart = 0LL;
-  if ( !PerformanceCounter.LowPart )
+  if ( result.LowPart )
+  {
+    v9 = KeQueryPerformanceCounter(&PerformanceFrequency);
+    if ( !*(_QWORD *)(a2 + 33224) )
+      *(union _LARGE_INTEGER *)(a2 + 33224) = PerformanceFrequency;
+    v10 = _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 33248), 0LL, 0LL);
+    v11 = *(_QWORD *)(a2 + 33168);
+    v12 = v10;
+    LODWORD(v13) = v6;
+    result.QuadPart = v9.QuadPart - v11;
+    if ( v12 )
+    {
+      if ( result.QuadPart > v12 )
+      {
+        result.QuadPart /= v12;
+        v13 = (v9.QuadPart - v11) / v12;
+        if ( !a3 )
+        {
+          if ( !result.LowPart )
+            return result;
+          v9.QuadPart = v11 + v12 * result.QuadPart;
+        }
+      }
+    }
+  }
+  else
   {
     LODWORD(v13) = a3 != 0;
     if ( a3 )
     {
-      PerformanceCounter = KeQueryPerformanceCounter(0LL);
-      v9 = PerformanceCounter;
-      LODWORD(v13) = v7;
+      result = KeQueryPerformanceCounter(&PerformanceFrequency);
+      LODWORD(v13) = v6;
+      v9 = result;
+      if ( !*(_QWORD *)(a2 + 33224) )
+      {
+        result = PerformanceFrequency;
+        *(union _LARGE_INTEGER *)(a2 + 33224) = PerformanceFrequency;
+      }
     }
-LABEL_9:
-    if ( !(_DWORD)v13 )
-      return PerformanceCounter.LowPart;
-    goto LABEL_10;
   }
-  v9 = KeQueryPerformanceCounter(0LL);
-  v10 = _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 44272), 0LL, 0LL);
-  v11 = *(_QWORD *)(a2 + 44144);
-  v12 = v10;
-  LODWORD(v13) = v7;
-  PerformanceCounter.QuadPart = v9.QuadPart - v11;
-  if ( !v12 )
-    goto LABEL_9;
-  if ( PerformanceCounter.QuadPart <= v12 )
-    goto LABEL_9;
-  PerformanceCounter.QuadPart /= v12;
-  v13 = (v9.QuadPart - v11) / v12;
-  if ( a3 )
-    goto LABEL_9;
-  if ( !PerformanceCounter.LowPart )
-    return PerformanceCounter.LowPart;
-  v9.QuadPart = v11 + v12 * PerformanceCounter.QuadPart;
-LABEL_10:
-  *(_QWORD *)(a2 + 44152) += (unsigned int)v13;
-  v14 = *(_DWORD *)(a2 + 44256) + 1;
-  *(_DWORD *)(a2 + 44256) = v14;
-  if ( v14 < *(_DWORD *)(a2 + 82932) )
+  if ( (_DWORD)v13 )
   {
-    LOBYTE(PerformanceCounter.LowPart) = 1;
+    result.QuadPart = (unsigned int)v13;
+    *(_QWORD *)(a2 + 33176) += (unsigned int)v13;
+    *(LARGE_INTEGER *)(a2 + 33168) = v9;
+    if ( *(_BYTE *)(a2 + 8) )
+    {
+      if ( !*(_BYTE *)(a1 + 148) )
+      {
+        v14 = *(_QWORD *)(a1 + 8);
+        v17 = 0LL;
+        v18 = 0;
+        v16 = 0LL;
+        result.QuadPart = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, __int128 *))DxgCoreInterface[60])(
+                            v14,
+                            0LL,
+                            0LL,
+                            &v16);
+        if ( (result.LowPart & 0x80000000) == 0 )
+          v3 = *((_QWORD *)&v16 + 1);
+        *(_QWORD *)(a2 + 33184) = v3;
+      }
+    }
   }
-  else
-  {
-    *(_DWORD *)(a2 + 44168) += v13;
-    LOBYTE(PerformanceCounter.LowPart) = 0;
-    *(_DWORD *)(a2 + 44256) = 0;
-    *(LARGE_INTEGER *)(a2 + 44160) = v9;
-  }
-  *(_BYTE *)(a2 + 44184) = PerformanceCounter.LowPart;
-  *(LARGE_INTEGER *)(a2 + 44144) = v9;
-  if ( *(_BYTE *)(a2 + 8) && !*(_BYTE *)(a1 + 156) )
-  {
-    v15 = *(_QWORD *)(a1 + 8);
-    v18 = 0LL;
-    v19 = 0;
-    v17 = 0LL;
-    PerformanceCounter.LowPart = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, __int128 *))DxgCoreInterface[61])(
-                                   v15,
-                                   0LL,
-                                   0LL,
-                                   &v17);
-    if ( (PerformanceCounter.LowPart & 0x80000000) == 0 )
-      v3 = *((_QWORD *)&v17 + 1);
-    *(_QWORD *)(a2 + 44176) = v3;
-  }
-  return PerformanceCounter.LowPart;
+  return result;
 }

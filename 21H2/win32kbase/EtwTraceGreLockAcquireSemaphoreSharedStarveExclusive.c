@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive @ 0x1C00D4730
+ * XREFs of EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive @ 0x1C00C5040
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(int a1, __int64 a2, int a3)

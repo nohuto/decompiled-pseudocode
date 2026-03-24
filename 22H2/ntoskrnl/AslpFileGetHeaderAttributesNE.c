@@ -1,24 +1,24 @@
 /*
- * XREFs of AslpFileGetHeaderAttributesNE @ 0x140A586E4
+ * XREFs of AslpFileGetHeaderAttributesNE @ 0x14096B2E4
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407592F8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2904 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140759400 (AslFileMappingEnsure.c)
- *     AslStringXmlSanitize @ 0x140759A90 (AslStringXmlSanitize.c)
- *     AslpFileGet16BitDescription @ 0x140A57B98 (AslpFileGet16BitDescription.c)
- *     AslpFileGet16BitModuleName @ 0x140A57C7C (AslpFileGet16BitModuleName.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B2D08 (AslFileMappingEnsure.c)
+ *     AslStringXmlSanitize @ 0x1407B3190 (AslStringXmlSanitize.c)
+ *     AslpFileGet16BitDescription @ 0x14096A794 (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitModuleName @ 0x14096A878 (AslpFileGet16BitModuleName.c)
  */
 
 __int64 __fastcall AslpFileGetHeaderAttributesNE(__int64 a1, __int64 a2)
 {
   int v4; // edi
   __int64 v6; // rbp
-  wchar_t *v7; // r15
+  __int64 v7; // rcx
   __int64 v8; // rax
-  wchar_t *v9; // rsi
-  wchar_t *v10; // [rsp+70h] [rbp+18h] BYREF
-  wchar_t *v11; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v9; // rcx
+  wchar_t *v10; // [rsp+60h] [rbp+18h] BYREF
+  wchar_t *v11; // [rsp+68h] [rbp+20h] BYREF
 
   v10 = 0LL;
   v11 = 0LL;
@@ -49,7 +49,6 @@ LABEL_5:
   }
   else
   {
-    v7 = v10;
     v4 = AslStringXmlSanitize(v10);
     if ( v4 < 0 )
       goto LABEL_2;
@@ -57,21 +56,20 @@ LABEL_5:
     v8 = -1LL;
     do
       ++v8;
-    while ( v7[v8] );
+    while ( *(_WORD *)(v7 + 2 * v8) );
     *(_DWORD *)(a1 + 664) |= 5u;
     *(_QWORD *)(a1 + 648) = v8;
     *(_QWORD *)(a1 + 656) = v7;
   }
   if ( (int)AslpFileGet16BitModuleName(&v11, a2) < 0 )
     goto LABEL_5;
-  v9 = v11;
   v4 = AslStringXmlSanitize(v11);
   if ( v4 >= 0 )
   {
     *(_DWORD *)(a1 + 672) = 4;
     do
       ++v6;
-    while ( v9[v6] );
+    while ( *(_WORD *)(v9 + 2 * v6) );
     *(_DWORD *)(a1 + 696) |= 5u;
     *(_QWORD *)(a1 + 680) = v6;
     *(_QWORD *)(a1 + 688) = v9;

@@ -1,81 +1,78 @@
 /*
- * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800F6774
+ * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800AD744
  * Callers:
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18007D878 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4R.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180071B10 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800A0404 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4R.c)
  * Callees:
- *     ?EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ @ 0x180028470 (-EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002890C (--1-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclusive@.c)
- *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800294C4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
- *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x18002A290 (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@detai.c)
+ *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1800ADC04 (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@detai.c)
+ *     ?EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ @ 0x1800AE580 (-EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ.c)
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800AF1E4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
  */
 
 signed __int32 *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::GetCachedFeatureEnabledState(
         volatile signed __int32 *a1,
-        signed __int32 *a2,
-        __int64 a3,
-        int *a4)
+        signed __int32 *a2)
 {
-  volatile signed __int32 v4; // eax
-  int v8; // esi
-  signed __int32 v9; // eax
-  int v10; // r8d
-  signed __int32 v11; // r9d
-  signed __int32 v12; // edx
-  int v13; // r8d
-  int v14; // [rsp+20h] [rbp-10h] BYREF
-  volatile signed __int32 *v15; // [rsp+28h] [rbp-8h]
-  int i; // [rsp+60h] [rbp+30h] BYREF
-  __int64 v17; // [rsp+68h] [rbp+38h] BYREF
-  RTL_SRWLOCK *v18; // [rsp+70h] [rbp+40h] BYREF
+  volatile signed __int32 v2; // eax
+  unsigned int v6; // esi
+  signed __int32 v7; // eax
+  int v8; // r8d
+  signed __int32 v9; // r9d
+  signed __int32 v10; // edx
+  int v11; // r8d
+  int v12; // [rsp+20h] [rbp-18h] BYREF
+  volatile signed __int32 *v13; // [rsp+28h] [rbp-10h]
+  int i; // [rsp+40h] [rbp+8h] BYREF
+  int v15; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = *a1;
+  v2 = *a1;
   *a2 = *a1;
-  if ( (v4 & 3) != 3 )
+  if ( (v2 & 6) != 6 )
   {
-    v8 = dword_1803D3544;
-    if ( !dword_1803D3544 )
-      v8 = wil::details::EnabledStateManager::EnsureSubscribedToFeatureConfigurationChangesImpl((wil::details::EnabledStateManager *)&wil::details::g_enabledStateManager);
-    wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::GetCurrentFeatureEnabledState(
-      (__int64)a1,
-      &v17,
-      (__int64)&i,
-      a4);
-    v9 = *a2;
-    v10 = v8 != 0 ? i : 0;
-    for ( i = v10; ; v10 = i )
+    v6 = dword_180347514;
+    if ( !dword_180347514 )
+      v6 = wil::details::EnabledStateManager::EnsureSubscribedToFeatureConfigurationChangesImpl((wil::details::EnabledStateManager *)&wil::details::g_enabledStateManager);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_StereoscopicUwp>::GetCurrentFeatureEnabledState(a1, &v15, &i);
+    v7 = *a2;
+    v8 = v6 != 0 ? i : 0;
+    for ( i = v8; ; v8 = i )
     {
-      *a2 = v9;
-      v11 = v9;
-      v12 = v9;
-      if ( v10 && (v9 & 1) == 0 )
+      *a2 = v7;
+      v9 = v7;
+      v10 = v7;
+      if ( v8 && (v7 & 2) == 0 )
       {
-        v12 = v9 ^ ((unsigned __int16)v17 ^ (unsigned __int16)v9) & 0x278 | 1;
-        *a2 = v12;
+        v10 = v7 ^ ((unsigned __int16)v15 ^ (unsigned __int16)v7) & 0x9C1 | 2;
+        *a2 = v10;
       }
-      v13 = v9 & 2;
-      if ( (v9 & 2) == 0 )
+      v11 = v7 & 4;
+      if ( (v7 & 4) == 0 )
       {
-        v12 = ((unsigned __int16)v17 ^ (unsigned __int16)v12) & 0x100 ^ v12 | 2;
-        *a2 = v12;
+        v10 = ((unsigned __int16)v15 ^ (unsigned __int16)v10) & 0x400 ^ v10 | 4;
+        *a2 = v10;
       }
-      v9 = _InterlockedCompareExchange(a1, v12, v9);
-      if ( v11 == v9 )
+      v7 = _InterlockedCompareExchange(a1, v10, v7);
+      if ( v9 == v7 )
         break;
     }
-    if ( !v13 && wil::details::g_enabledStateManager )
+    if ( !v11 && wil::details::g_enabledStateManager )
     {
       AcquireSRWLockExclusive(&SRWLock);
-      v18 = &SRWLock;
-      if ( !v8
-        || v8 != dword_1803D3544
-        || (v14 = 0, v15 = a1, !wil::details_abi::heap_buffer::push_back((void **)&xmmword_1803D3578, &v14, 0x10uLL)) )
+      if ( !v6
+        || v6 != dword_180347514
+        || (v12 = 0,
+            v13 = a1,
+            !wil::details_abi::heap_buffer::push_back(
+               (wil::details_abi::heap_buffer *)&xmmword_180347548,
+               &v12,
+               0x10uLL)) )
       {
-        _InterlockedAnd(a1, 0xFFFFFDF8);
+        _InterlockedAnd(a1, 0xFFFFF7C1);
       }
-      wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>(&v18);
+      ReleaseSRWLockExclusive(&SRWLock);
     }
-    if ( (*(_BYTE *)a2 & 1) == 0 )
-      *a2 ^= ((unsigned __int16)v17 ^ (unsigned __int16)*a2) & 0x278;
+    if ( (*(_BYTE *)a2 & 2) == 0 )
+      *a2 ^= ((unsigned __int16)v15 ^ (unsigned __int16)*a2) & 0x9C1;
   }
   return a2;
 }

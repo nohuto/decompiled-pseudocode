@@ -3,9 +3,9 @@
  * Callers:
  *     SessionIsInteractive @ 0x140001FF8 (SessionIsInteractive.c)
  *     SeQuerySessionIdTokenEx @ 0x140596110 (SeQuerySessionIdTokenEx.c)
- *     SeQueryServerSiloToken @ 0x1406C5520 (SeQueryServerSiloToken.c)
- *     PsIsServiceSession @ 0x1406CEEA0 (PsIsServiceSession.c)
- *     EtwWmitraceWorker @ 0x1408BD7A0 (EtwWmitraceWorker.c)
+ *     SeQueryServerSiloToken @ 0x1406C5500 (SeQueryServerSiloToken.c)
+ *     PsIsServiceSession @ 0x1406CEE80 (PsIsServiceSession.c)
+ *     EtwWmitraceWorker @ 0x1408BD780 (EtwWmitraceWorker.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)

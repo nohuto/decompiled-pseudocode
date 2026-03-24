@@ -1,20 +1,20 @@
 /*
- * XREFs of Simulator_CallbackWorker @ 0x1C0048FD0
+ * XREFs of Simulator_CallbackWorker @ 0x1C0063910
  * Callers:
  *     <none>
  * Callees:
- *     AMLIResumeInterpreter @ 0x1C0048D4C (AMLIResumeInterpreter.c)
- *     Simulator_DuplicateObjData @ 0x1C0049170 (Simulator_DuplicateObjData.c)
- *     Simulator_EvaluateNode @ 0x1C00491C0 (Simulator_EvaluateNode.c)
- *     Simulator_GetChildNode @ 0x1C00492E4 (Simulator_GetChildNode.c)
- *     Simulator_GetSiblingNode @ 0x1C004934C (Simulator_GetSiblingNode.c)
- *     Simulator_NotifyNode @ 0x1C0049498 (Simulator_NotifyNode.c)
- *     Simulator_PauseInterpreter @ 0x1C004952C (Simulator_PauseInterpreter.c)
- *     Simulator_RemoveNode @ 0x1C00498F0 (Simulator_RemoveNode.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     AMLIResumeInterpreter @ 0x1C0063690 (AMLIResumeInterpreter.c)
+ *     Simulator_DuplicateObjData @ 0x1C0063AB0 (Simulator_DuplicateObjData.c)
+ *     Simulator_EvaluateNode @ 0x1C0063B00 (Simulator_EvaluateNode.c)
+ *     Simulator_GetChildNode @ 0x1C0063C18 (Simulator_GetChildNode.c)
+ *     Simulator_GetSiblingNode @ 0x1C0063C7C (Simulator_GetSiblingNode.c)
+ *     Simulator_NotifyNode @ 0x1C0063DC8 (Simulator_NotifyNode.c)
+ *     Simulator_PauseInterpreter @ 0x1C0063E5C (Simulator_PauseInterpreter.c)
+ *     Simulator_RemoveNode @ 0x1C0064220 (Simulator_RemoveNode.c)
  */
 
-void __fastcall Simulator_CallbackWorker(PVOID CallbackContext, _DWORD *Argument1, PVOID Argument2)
+void __fastcall Simulator_CallbackWorker(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
   int v4; // ecx
   int v5; // ecx
@@ -27,22 +27,22 @@ void __fastcall Simulator_CallbackWorker(PVOID CallbackContext, _DWORD *Argument
   int v12; // ecx
   __int64 v13; // rax
 
-  if ( Argument1 && *Argument1 == 2 )
+  if ( Argument1 && *(_DWORD *)Argument1 == 2 )
   {
-    v4 = Argument1[1];
+    v4 = *((_DWORD *)Argument1 + 1);
     if ( v4 > 12 )
     {
       v10 = v4 - 13;
       if ( !v10 )
       {
-        FreeDataBuffs(*((_QWORD *)Argument1 + 3), (unsigned int)Argument1[4]);
+        FreeDataBuffs(*((_QWORD *)Argument1 + 3), *((_DWORD *)Argument1 + 4));
         goto LABEL_26;
       }
       v11 = v10 - 1;
       if ( !v11 )
       {
         v13 = gpnsNameSpaceRoot;
-        Argument1[18] = 0;
+        *((_DWORD *)Argument1 + 18) = 0;
         *((_QWORD *)Argument1 + 3) = v13;
         return;
       }
@@ -80,11 +80,11 @@ void __fastcall Simulator_CallbackWorker(PVOID CallbackContext, _DWORD *Argument
               {
                 AMLIResumeInterpreter();
 LABEL_26:
-                Argument1[18] = 0;
+                *((_DWORD *)Argument1 + 18) = 0;
                 return;
               }
 LABEL_21:
-              Argument1[18] = -1073741811;
+              *((_DWORD *)Argument1 + 18) = -1073741811;
               return;
             }
             SiblingNode = Simulator_PauseInterpreter(v8, Argument1, Argument2);
@@ -104,6 +104,6 @@ LABEL_21:
         SiblingNode = Simulator_RemoveNode(Argument1, Argument1, Argument2);
       }
     }
-    Argument1[18] = SiblingNode;
+    *((_DWORD *)Argument1 + 18) = SiblingNode;
   }
 }

@@ -1,234 +1,232 @@
 /*
- * XREFs of USBD_ValidateConfigurationDescriptorInternal @ 0x1C0031884
+ * XREFs of USBD_ValidateConfigurationDescriptorInternal @ 0x1C0032B14
  * Callers:
- *     UsbhValidateConfigurationDescriptor @ 0x1C0051D20 (UsbhValidateConfigurationDescriptor.c)
+ *     UsbhValidateConfigurationDescriptor @ 0x1C0053370 (UsbhValidateConfigurationDescriptor.c)
  * Callees:
- *     memset @ 0x1C001F800 (memset.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall USBD_ValidateConfigurationDescriptorInternal(
-        unsigned __int16 *a1,
+        unsigned __int8 *a1,
         unsigned int a2,
         __int64 a3,
         unsigned __int8 **a4)
 {
-  unsigned __int8 *v4; // r14
-  unsigned __int8 *v5; // rbp
+  unsigned __int8 **v4; // rsi
   int v6; // ebx
-  __int16 v7; // r13
-  unsigned __int8 *v8; // rdi
-  unsigned __int8 *v9; // r12
-  unsigned int v10; // ecx
-  int v11; // edx
-  char *Pool2; // r15
-  _BYTE *v14; // r10
+  __int16 v7; // r12
+  _BYTE *PoolWithTag; // r14
+  PVOID v9; // r13
+  unsigned __int8 *v10; // rdi
+  unsigned __int8 *v11; // r15
+  unsigned int v12; // ecx
+  int v13; // edx
+  __int64 result; // rax
   unsigned __int8 *v15; // rsi
-  unsigned __int8 *v16; // r8
+  unsigned __int64 v16; // r8
   __int64 v17; // rdx
   int v18; // ecx
   __int64 v19; // rcx
   __int64 v20; // rdx
-  __int64 v21; // r12
-  __int64 v22; // r13
+  __int64 v21; // r15
+  __int64 v22; // r12
   __int64 v23; // rax
-  unsigned __int64 v24; // [rsp+20h] [rbp-48h]
-  _BYTE *P; // [rsp+70h] [rbp+8h]
-  char v26; // [rsp+80h] [rbp+18h]
-  unsigned __int8 **v27; // [rsp+88h] [rbp+20h]
-  __int16 v29; // [rsp+90h] [rbp+28h]
+  unsigned __int64 v24; // [rsp+60h] [rbp+8h]
+  char v25; // [rsp+70h] [rbp+18h]
+  __int16 v28; // [rsp+80h] [rbp+28h]
 
-  v27 = a4;
-  v4 = 0LL;
-  v5 = (unsigned __int8 *)a1;
-  v29 = 0;
+  v4 = a4;
+  v28 = 0;
   v6 = 0;
   v7 = 0;
-  v8 = 0LL;
-  v26 = 1;
-  if ( a1 && a2 >= 9 && a4 )
+  PoolWithTag = 0LL;
+  v9 = 0LL;
+  v10 = 0LL;
+  v25 = 1;
+  if ( !a1 || a2 < 9 || !a4 )
+    return 3221237760LL;
+  if ( *a1 >= 9u )
   {
-    if ( *(_BYTE *)a1 >= 9u )
+    if ( a1[1] == 2 )
     {
-      if ( *((_BYTE *)a1 + 1) == 2 )
+      v11 = a1 + 2;
+      v12 = *((unsigned __int16 *)a1 + 1);
+      if ( v12 > a2 || (v13 = a1[4], v12 < 9 * (v13 + 1)) )
       {
-        v9 = (unsigned __int8 *)(a1 + 1);
-        v10 = a1[1];
-        if ( v10 > a2 || (v11 = v5[4], v10 < 9 * (v11 + 1)) )
-        {
-          v6 = -1072693242;
-          v5 = v9;
-        }
-        else
-        {
-          if ( !(_BYTE)v11 )
-          {
-LABEL_15:
-            *a4 = v4;
-            return (unsigned int)v6;
-          }
-          Pool2 = (char *)ExAllocatePool2(64LL, 516LL, 1112885333LL);
-          if ( Pool2 )
-          {
-            P = (_BYTE *)ExAllocatePool2(64LL, 256LL, 1112885333LL);
-            v14 = P;
-            if ( P )
-            {
-              v15 = v5 + 9;
-              v16 = &v5[*(unsigned __int16 *)v9];
-              v24 = (unsigned __int64)v16;
-              while ( v15 < v16 )
-              {
-                if ( (unsigned __int64)(v16 - v15) < 2 )
-                {
-                  v6 = -1072693248;
-                  goto LABEL_63;
-                }
-                v17 = *v15;
-                if ( &v15[v17] > v16 )
-                  goto LABEL_61;
-                switch ( v15[1] )
-                {
-                  case 4u:
-                    if ( (_BYTE)v17 != 9 )
-                    {
-LABEL_61:
-                      v6 = -1072693247;
-                      goto LABEL_63;
-                    }
-                    v20 = v15[2];
-                    v21 = v15[3];
-                    if ( v26 )
-                    {
-                      if ( (_BYTE)v21 )
-                        goto LABEL_40;
-                      *Pool2 = v20;
-                      *(_WORD *)(Pool2 + 1) = 256;
-                      ++v7;
-                      Pool2[514] = v15[4];
-                      Pool2[515] = 0;
-                      v14[v20] = 1;
-                      v29 = v7;
-                      v26 = 0;
-                    }
-                    else
-                    {
-                      if ( (_BYTE)v20 == *Pool2 )
-                      {
-                        v22 = v15[3];
-                        if ( Pool2[v21 + 2] == 1 || (unsigned __int8)Pool2[1] >= (unsigned __int8)v21 )
-                        {
-LABEL_40:
-                          v6 = -1072693245;
-                          v8 = v15 + 3;
-                          goto LABEL_53;
-                        }
-                      }
-                      else
-                      {
-                        if ( v14[v20] == 1 || (unsigned __int8)*Pool2 > (unsigned __int8)v20 )
-                        {
-                          v6 = -1072693245;
-                          v8 = v15 + 2;
-                          goto LABEL_53;
-                        }
-                        if ( (_BYTE)v21 )
-                          goto LABEL_40;
-                        v14[v20] = 1;
-                        *Pool2 = v20;
-                        v29 = v7 + 1;
-                        memset(Pool2 + 2, 0, 0x100uLL);
-                        v22 = v21;
-                      }
-                      if ( Pool2[515] != Pool2[514] )
-                      {
-                        v6 = -1072693240;
-                        goto LABEL_63;
-                      }
-                      memset(Pool2 + 258, 0, 0x100uLL);
-                      v16 = (unsigned __int8 *)v24;
-                      v14 = P;
-                      Pool2[515] = 0;
-                      Pool2[514] = v15[4];
-                      Pool2[v22 + 2] = 1;
-                      v7 = v29;
-                      Pool2[1] = v21;
-                    }
-                    break;
-                  case 5u:
-                    if ( (_BYTE)v17 != 7 )
-                      goto LABEL_61;
-                    if ( v26 )
-                    {
-                      v6 = -1072693244;
-                      goto LABEL_63;
-                    }
-                    v19 = v15[2];
-                    if ( Pool2[v19 + 258] )
-                    {
-                      v6 = -1072693239;
-                      v8 = v15 + 2;
-                      goto LABEL_53;
-                    }
-                    Pool2[v19 + 258] = 1;
-                    ++Pool2[515];
-                    break;
-                  case 0xBu:
-                    if ( (_BYTE)v17 != 8
-                      || (v18 = v15[3], v18 + (unsigned int)v15[2] > 0x100)
-                      || (unsigned __int8)v18 > v5[4]
-                      || !(_BYTE)v18 )
-                    {
-                      v6 = -1072693243;
-LABEL_63:
-                      v8 = v15;
-                      goto LABEL_53;
-                    }
-                    break;
-                }
-                v23 = *v15;
-                if ( !(_BYTE)v23 )
-                  break;
-                v15 += v23;
-              }
-              if ( v7 == v5[4] )
-                goto LABEL_53;
-              v6 = -1072693241;
-            }
-            else
-            {
-              v6 = -1073737728;
-            }
-            v8 = v5;
-LABEL_53:
-            v5 = v8;
-            ExFreePoolWithTag(Pool2, 0);
-            if ( P )
-              ExFreePoolWithTag(P, 0);
-            if ( v6 >= 0 )
-            {
-              a4 = v27;
-              goto LABEL_15;
-            }
-          }
-          else
-          {
-            v6 = -1073737728;
-          }
-          a4 = v27;
-        }
+        v6 = -1072693242;
+        v10 = v11;
       }
       else
       {
-        v6 = -1072693246;
-        v5 = (unsigned __int8 *)a1 + 1;
+        if ( !(_BYTE)v13 )
+          goto LABEL_13;
+        PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x204uLL, 0x42554855u);
+        if ( !PoolWithTag )
+        {
+          v6 = -1073737728;
+          v10 = a1;
+          goto LABEL_13;
+        }
+        v9 = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x100uLL, 0x42554855u);
+        if ( v9 )
+        {
+          memset(PoolWithTag, 0, 0x204uLL);
+          memset(v9, 0, 0x100uLL);
+          v15 = a1 + 9;
+          v16 = (unsigned __int64)&a1[*(unsigned __int16 *)v11];
+          v24 = v16;
+          if ( (unsigned __int64)(a1 + 9) < v16 )
+          {
+            while ( 1 )
+            {
+              if ( v16 - (unsigned __int64)v15 < 2 )
+              {
+                v6 = -1072693248;
+                goto LABEL_29;
+              }
+              v17 = *v15;
+              if ( (unsigned __int64)&v15[v17] > v16 )
+                goto LABEL_59;
+              switch ( v15[1] )
+              {
+                case 4u:
+                  if ( (_BYTE)v17 != 9 )
+                  {
+LABEL_59:
+                    v6 = -1072693247;
+                    goto LABEL_29;
+                  }
+                  v20 = v15[2];
+                  v21 = v15[3];
+                  if ( v25 )
+                  {
+                    if ( (_BYTE)v21 )
+                      goto LABEL_46;
+                    *PoolWithTag = v20;
+                    *(_WORD *)(PoolWithTag + 1) = 256;
+                    ++v7;
+                    PoolWithTag[514] = v15[4];
+                    PoolWithTag[515] = 0;
+                    *((_BYTE *)v9 + v20) = 1;
+                    v28 = v7;
+                    v25 = 0;
+                  }
+                  else
+                  {
+                    if ( (_BYTE)v20 == *PoolWithTag )
+                    {
+                      v22 = v15[3];
+                      if ( PoolWithTag[v21 + 2] == 1 || PoolWithTag[1] >= (unsigned __int8)v21 )
+                      {
+LABEL_46:
+                        v6 = -1072693245;
+                        v10 = v15 + 3;
+                        goto LABEL_30;
+                      }
+                    }
+                    else
+                    {
+                      if ( *((_BYTE *)v9 + v20) == 1 || *PoolWithTag > (unsigned __int8)v20 )
+                      {
+                        v6 = -1072693245;
+                        v10 = v15 + 2;
+                        goto LABEL_30;
+                      }
+                      if ( (_BYTE)v21 )
+                        goto LABEL_46;
+                      *((_BYTE *)v9 + v20) = 1;
+                      *PoolWithTag = v20;
+                      v28 = v7 + 1;
+                      memset(PoolWithTag + 2, 0, 0x100uLL);
+                      v22 = v21;
+                    }
+                    if ( PoolWithTag[515] != PoolWithTag[514] )
+                    {
+                      v6 = -1072693240;
+                      goto LABEL_29;
+                    }
+                    memset(PoolWithTag + 258, 0, 0x100uLL);
+                    v16 = v24;
+                    PoolWithTag[515] = 0;
+                    PoolWithTag[514] = v15[4];
+                    PoolWithTag[v22 + 2] = 1;
+                    v7 = v28;
+                    PoolWithTag[1] = v21;
+                  }
+                  break;
+                case 5u:
+                  if ( (_BYTE)v17 != 7 )
+                    goto LABEL_59;
+                  if ( v25 )
+                  {
+                    v6 = -1072693244;
+                    goto LABEL_29;
+                  }
+                  v19 = v15[2];
+                  if ( PoolWithTag[v19 + 258] )
+                  {
+                    v6 = -1072693239;
+                    v10 = v15 + 2;
+                    goto LABEL_30;
+                  }
+                  PoolWithTag[v19 + 258] = 1;
+                  ++PoolWithTag[515];
+                  break;
+                case 0xBu:
+                  if ( (_BYTE)v17 != 8
+                    || (v18 = v15[3], v18 + (unsigned int)v15[2] > 0x100)
+                    || (unsigned __int8)v18 > a1[4]
+                    || !(_BYTE)v18 )
+                  {
+                    v6 = -1072693243;
+LABEL_29:
+                    v10 = v15;
+                    goto LABEL_30;
+                  }
+                  break;
+              }
+              v23 = *v15;
+              if ( (_BYTE)v23 )
+              {
+                v15 += v23;
+                if ( (unsigned __int64)v15 < v16 )
+                  continue;
+              }
+              break;
+            }
+          }
+          if ( v7 != a1[4] )
+          {
+            v6 = -1072693241;
+            v10 = a1;
+          }
+LABEL_30:
+          v4 = a4;
+        }
+        else
+        {
+          v10 = a1;
+          v6 = -1073737728;
+        }
       }
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      if ( v9 )
+        ExFreePoolWithTag(v9, 0);
+      goto LABEL_13;
     }
-    else
-    {
-      v6 = -1072693247;
-    }
-    v4 = v5;
-    goto LABEL_15;
+    v6 = -1072693246;
+    v10 = a1 + 1;
   }
-  return 3221237760LL;
+  else
+  {
+    v6 = -1072693247;
+    v10 = a1;
+  }
+LABEL_13:
+  result = (unsigned int)v6;
+  if ( v6 >= 0 )
+    v10 = 0LL;
+  *v4 = v10;
+  return result;
 }

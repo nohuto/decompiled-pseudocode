@@ -1,77 +1,52 @@
 /*
- * XREFs of RIMDirectStopDeviceClassNotifications @ 0x1C0048450
+ * XREFs of RIMDirectStopDeviceClassNotifications @ 0x1C0052BE0
  * Callers:
- *     ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C00496B0 (-HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ.c)
+ *     ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C0056410 (-HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     RawInputManagerObjectResolveHandle @ 0x1C0043EC0 (RawInputManagerObjectResolveHandle.c)
- *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C0044CE0 (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C00541A0 (RawInputManagerObjectResolveHandle.c)
+ *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C005441C (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMDirectStopDeviceClassNotifications(char *a1)
+__int64 __fastcall RIMDirectStopDeviceClassNotifications(__int64 a1)
 {
-  bool v2; // dl
-  int v3; // edx
-  int v4; // esi
-  int v5; // r8d
-  _BYTE *v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  unsigned int i; // edi
-  int v11; // eax
-  PVOID Object; // [rsp+78h] [rbp+10h] BYREF
+  int v2; // edx
+  int v3; // ebx
+  _BYTE *v4; // rdi
+  unsigned int i; // esi
+  int v6; // eax
+  PVOID Object; // [rsp+68h] [rbp+10h] BYREF
 
   Object = 0LL;
-  v2 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      120,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids);
-  v4 = RawInputManagerObjectResolveHandle(a1, 3u, 0, &Object);
-  if ( v4 >= 0 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 111, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
+  v3 = RawInputManagerObjectResolveHandle(a1, 3LL, 0LL, &Object);
+  if ( v3 >= 0 )
   {
-    v6 = Object;
+    v4 = Object;
     RIMLockExclusive((__int64)Object + 104);
-    if ( v6[81] )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v8, v7, v9);
+    if ( v4[81] )
+    {
+      LODWORD(Object) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 3493LL);
+    }
     for ( i = 0; i <= 2; ++i )
     {
-      v11 = RIMUnRegisterForInputDeviceTypeClassNotifications((__int64)v6, i);
-      v4 = v11;
+      v6 = RIMUnRegisterForInputDeviceTypeClassNotifications(v4, i);
+      v3 = v6;
     }
-    *((_QWORD *)v6 + 14) = 0LL;
-    ExReleasePushLockExclusiveEx(v6 + 104, 0LL);
+    *((_QWORD *)v4 + 14) = 0LL;
+    ExReleasePushLockExclusiveEx(v4 + 104, 0LL);
     KeLeaveCriticalRegion();
-    ObfDereferenceObject(v6);
+    ObfDereferenceObject(v4);
   }
-  LOBYTE(v3) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v3,
-      v5,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      121,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids,
-      v4);
+    LOBYTE(v2) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v2, 1, 112, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, v3);
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

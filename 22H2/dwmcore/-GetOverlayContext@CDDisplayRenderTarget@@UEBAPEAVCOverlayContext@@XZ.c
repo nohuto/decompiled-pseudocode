@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOverlayContext@CDDisplayRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x180105D80
+ * XREFs of ?GetOverlayContext@CDDisplayRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x1800E1F70
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct COverlayContext *__fastcall CDDisplayRenderTarget::GetOverlayContext(CDDisplayRenderTarget *this)
 {
-  return (CDDisplayRenderTarget *)((char *)this + 48);
+  return (CDDisplayRenderTarget *)((char *)this + 40);
 }

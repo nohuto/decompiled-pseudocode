@@ -1,301 +1,278 @@
 /*
- * XREFs of NtGdiGetCharacterPlacementW @ 0x1C02C2630
+ * XREFs of NtGdiGetCharacterPlacementW @ 0x1C02AE020
  * Callers:
  *     <none>
  * Callees:
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?GreGetCharacterPlacementW@@YAKPEAUHDC__@@PEAGKKPEAUtagGCP_RESULTSW@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C02D72B0 (-GreGetCharacterPlacementW@@YAKPEAUHDC__@@PEAGKKPEAUtagGCP_RESULTSW@@KW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     GreGetCharacterPlacementW @ 0x1C02BB890 (GreGetCharacterPlacementW.c)
  */
 
-__int64 __fastcall NtGdiGetCharacterPlacementW(__int64 a1, const void *a2, int a3, int a4, ULONG64 a5, int a6)
+__int64 __fastcall NtGdiGetCharacterPlacementW(HDC a1, const void *a2, int a3, int a4, __m128i *a5, int a6)
 {
   int v7; // r12d
-  unsigned int v8; // edi
-  __int64 v9; // r13
-  __int64 v10; // rsi
-  const void *v11; // r10
-  _BYTE *v12; // rdx
-  int v13; // eax
-  __int64 v14; // rcx
-  int v15; // eax
-  char *v16; // r14
-  __int64 v18; // rax
+  int v8; // ebx
+  unsigned int v9; // edi
+  __int64 v10; // r15
+  __int64 v11; // rsi
+  const void *v12; // r10
+  _BYTE *v13; // rdx
+  int v14; // eax
+  __int64 v15; // rcx
+  int v16; // eax
+  char *v17; // r14
   __int64 v19; // rax
   __int64 v20; // rax
   __int64 v21; // rax
   __int64 v22; // rax
   __int64 v23; // rax
-  size_t v24; // r8
-  ULONG64 v25; // rcx
-  __int64 v26; // rcx
+  __int64 v24; // rax
+  size_t v25; // r8
+  ULONG64 v26; // rcx
   __int64 v27; // rax
   void *v28; // rcx
-  __int64 v29; // rax
-  size_t v30; // r12
-  __int64 v31; // rcx
-  __int64 v32; // r15
-  _BYTE **v33; // rdi
-  size_t v34; // r8
+  size_t v29; // r12
+  __int64 v30; // r13
+  __int64 v31; // rdi
+  const void *v32; // rdx
+  const void *v33; // rdx
+  const void *v34; // rdx
   const void *v35; // rdx
-  char *v36; // rcx
+  const void *v36; // rdx
   const void *v37; // rdx
-  const void *v38; // rdx
-  const void *v39; // rdx
-  const void *v40; // rdx
-  const void *v41; // rdx
-  char *v42; // rcx
-  __int64 v43; // rdx
-  __int64 v44; // r8
-  int v45; // eax
-  int CharacterPlacementW; // [rsp+44h] [rbp-E4h]
-  unsigned int v47; // [rsp+48h] [rbp-E0h]
-  unsigned int v48; // [rsp+4Ch] [rbp-DCh]
-  unsigned int v49; // [rsp+50h] [rbp-D8h]
-  unsigned int v50; // [rsp+54h] [rbp-D4h]
-  unsigned int v51; // [rsp+58h] [rbp-D0h]
-  unsigned int v52; // [rsp+5Ch] [rbp-CCh]
-  void *v53[2]; // [rsp+70h] [rbp-B8h] BYREF
-  void *v54[2]; // [rsp+80h] [rbp-A8h]
-  void *v55[2]; // [rsp+90h] [rbp-98h]
-  void *v56[2]; // [rsp+A0h] [rbp-88h]
-  __int64 v57; // [rsp+B0h] [rbp-78h]
-  __int64 v58; // [rsp+B8h] [rbp-70h]
-  _BYTE v59[104]; // [rsp+C0h] [rbp-68h] BYREF
+  int CharacterPlacementW; // [rsp+34h] [rbp-B4h]
+  unsigned int v39; // [rsp+38h] [rbp-B0h]
+  unsigned int v40; // [rsp+3Ch] [rbp-ACh]
+  unsigned int v41; // [rsp+40h] [rbp-A8h]
+  unsigned int v42; // [rsp+44h] [rbp-A4h]
+  unsigned int v43; // [rsp+48h] [rbp-A0h]
+  unsigned int v44; // [rsp+4Ch] [rbp-9Ch]
+  __m128i v45[4]; // [rsp+60h] [rbp-88h] BYREF
+  unsigned __int16 *v46; // [rsp+A0h] [rbp-48h]
+  __int64 v47; // [rsp+A8h] [rbp-40h]
 
   v7 = a3;
-  CharacterPlacementW = 0;
   v8 = 0;
-  v47 = 0;
-  v48 = 0;
-  v49 = 0;
-  v50 = 0;
-  v51 = 0;
-  v52 = 0;
-  v9 = 0LL;
-  v57 = 0LL;
+  CharacterPlacementW = 0;
+  v9 = 0;
+  v39 = 0;
+  v40 = 0;
+  v41 = 0;
+  v42 = 0;
+  v43 = 0;
+  v44 = 0;
   v10 = 0LL;
-  memset_0(v53, 0, 0x40uLL);
+  v47 = 0LL;
+  v11 = 0LL;
+  memset(v45, 0, sizeof(v45));
   if ( v7 < 0 )
     return 0LL;
   if ( a4 < -1 )
     return 0LL;
-  v11 = a2;
+  v12 = a2;
   if ( !a2 )
     return 0LL;
   if ( a5 )
   {
-    if ( (a5 & 3) != 0 )
+    if ( ((unsigned __int8)a5 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v12 = (_BYTE *)a5;
-    if ( a5 >= MmUserProbeAddress )
-      v12 = (_BYTE *)MmUserProbeAddress;
-    *v12 = *v12;
-    v12[63] = v12[63];
-    *(_OWORD *)v53 = *(_OWORD *)a5;
-    *(_OWORD *)v54 = *(_OWORD *)(a5 + 16);
-    *(_OWORD *)v55 = *(_OWORD *)(a5 + 32);
-    *(_OWORD *)v56 = *(_OWORD *)(a5 + 48);
+    v13 = a5;
+    if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+      v13 = (_BYTE *)MmUserProbeAddress;
+    *v13 = *v13;
+    v13[63] = v13[63];
+    v45[0] = *a5;
+    v45[1] = a5[1];
+    v45[2] = a5[2];
+    v45[3] = a5[3];
     v7 = a3;
-    v13 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)v56, 8));
-    if ( a3 > v13 )
-      v7 = v13;
+    v14 = _mm_cvtsi128_si32(_mm_srli_si128(v45[3], 8));
+    if ( a3 > v14 )
+      v7 = v14;
   }
   if ( (unsigned int)v7 > 0x9C4000 )
     return 0LL;
-  v14 = (unsigned int)(2 * v7);
-  v15 = 4 * v7;
+  v15 = (unsigned int)(2 * v7);
+  v16 = 4 * v7;
   if ( a5 )
   {
-    v8 = 64;
-    if ( v53[1] )
+    v9 = 64;
+    if ( v45[0].m128i_i64[1] )
     {
-      v47 = 64;
-      v8 = ((v14 + 3) & 0xFFFFFFFC) + 64;
-      if ( (((_DWORD)v14 + 3) & 0xFFFFFFFC) >= 0xFFFFFFC0 )
+      v39 = 64;
+      v9 = ((v15 + 3) & 0xFFFFFFFC) + 64;
+      if ( (((_DWORD)v15 + 3) & 0xFFFFFFFC) >= 0xFFFFFFC0 )
         return 0LL;
     }
-    if ( v54[0] )
+    if ( v45[1].m128i_i64[0] )
     {
-      v48 = v8;
-      v8 += v15;
-      if ( v8 < v48 )
+      v40 = v9;
+      v9 += v16;
+      if ( v9 < v40 )
         return 0LL;
     }
-    v16 = (char *)v54[1];
-    if ( v54[1] )
+    v17 = (char *)v45[1].m128i_i64[1];
+    if ( v45[1].m128i_i64[1] )
     {
-      v49 = v8;
-      v8 += v15;
-      if ( v8 < v49 )
+      v41 = v9;
+      v9 += v16;
+      if ( v9 < v41 )
         return 0LL;
     }
-    if ( v55[0] )
+    if ( v45[2].m128i_i64[0] )
     {
-      v50 = v8;
-      v8 += v15;
-      if ( v8 < v50 )
+      v42 = v9;
+      v9 += v16;
+      if ( v9 < v42 )
         return 0LL;
     }
-    if ( v55[1] )
+    if ( v45[2].m128i_i64[1] )
     {
-      v51 = v8;
-      v8 += (v7 + 3) & 0xFFFFFFFC;
-      if ( v8 < v51 )
+      v43 = v9;
+      v9 += (v7 + 3) & 0xFFFFFFFC;
+      if ( v9 < v43 )
         return 0LL;
     }
-    if ( v56[0] )
+    if ( v45[3].m128i_i64[0] )
     {
-      v52 = v8;
-      v8 += v14;
-      if ( v8 < v52 )
+      v44 = v9;
+      v9 += v15;
+      if ( v9 < v44 )
         return 0LL;
     }
   }
   else
   {
-    v16 = (char *)v54[1];
+    v17 = (char *)v45[1].m128i_i64[1];
   }
-  if ( v8 <= 40960000 - (int)v14 )
+  if ( v9 <= 40960000 - (int)v15 )
   {
-    v10 = AllocFreeTmpBuffer(v8 + (unsigned int)v14);
-    v14 = (unsigned int)(2 * v7);
-    v11 = a2;
+    v11 = AllocFreeTmpBuffer(v9 + (unsigned int)v15);
+    v15 = (unsigned int)(2 * v7);
+    v12 = a2;
   }
-  if ( v10 )
+  if ( v11 )
   {
-    v58 = v10 + v8;
+    v46 = (unsigned __int16 *)(v11 + v9);
     if ( a5 )
     {
-      v9 = v10;
-      v57 = v10;
-      if ( v53[1] )
-        v18 = v10 + v47;
-      else
-        v18 = 0LL;
-      *(_QWORD *)(v10 + 8) = v18;
-      if ( v54[0] )
-        v19 = v10 + v48;
+      v10 = v11;
+      v47 = v11;
+      if ( v45[0].m128i_i64[1] )
+        v19 = v11 + v39;
       else
         v19 = 0LL;
-      *(_QWORD *)(v10 + 16) = v19;
-      if ( v16 )
-        v20 = v10 + v49;
+      *(_QWORD *)(v11 + 8) = v19;
+      if ( v45[1].m128i_i64[0] )
+        v20 = v11 + v40;
       else
         v20 = 0LL;
-      *(_QWORD *)(v10 + 24) = v20;
-      if ( v55[0] )
-        v21 = v10 + v50;
+      *(_QWORD *)(v11 + 16) = v20;
+      if ( v17 )
+        v21 = v11 + v41;
       else
         v21 = 0LL;
-      *(_QWORD *)(v10 + 32) = v21;
-      if ( v55[1] )
-        v22 = v10 + v51;
+      *(_QWORD *)(v11 + 24) = v21;
+      if ( v45[2].m128i_i64[0] )
+        v22 = v11 + v42;
       else
         v22 = 0LL;
-      *(_QWORD *)(v10 + 40) = v22;
-      if ( v56[0] )
-        v23 = v10 + v52;
+      *(_QWORD *)(v11 + 32) = v22;
+      if ( v45[2].m128i_i64[1] )
+        v23 = v11 + v43;
       else
         v23 = 0LL;
-      *(_QWORD *)(v10 + 48) = v23;
-      *(_DWORD *)v10 = v8;
-      *(_DWORD *)(v10 + 56) = v7;
+      *(_QWORD *)(v11 + 40) = v23;
+      if ( v45[3].m128i_i64[0] )
+        v24 = v11 + v44;
+      else
+        v24 = 0LL;
+      *(_QWORD *)(v11 + 48) = v24;
+      *(_DWORD *)v11 = v9;
+      *(_DWORD *)(v11 + 56) = v7;
     }
-    v24 = (unsigned int)v14;
-    v25 = (ULONG64)v11 + v14;
-    if ( v25 < (unsigned __int64)v11 || v25 > MmUserProbeAddress )
+    v25 = (unsigned int)v15;
+    v26 = (ULONG64)v12 + v15;
+    if ( v26 < (unsigned __int64)v12 || v26 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove((void *)(v10 + v8), v11, v24);
-    if ( (a6 & 0x200000) != 0 && a5 && v16 )
+    memmove((void *)(v11 + v9), v12, v25);
+    if ( (a6 & 0x200000) != 0 && a5 && v17 )
     {
       v27 = (unsigned int)(4 * v7);
-      v28 = *(void **)(v9 + 24);
-      if ( &v16[v27] < v16 || (unsigned __int64)&v16[v27] > MmUserProbeAddress )
+      v28 = *(void **)(v10 + 24);
+      if ( &v17[v27] < v17 || (unsigned __int64)&v17[v27] > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      memmove(v28, v16, (unsigned int)(4 * v7));
+      memmove(v28, v17, (unsigned int)(4 * v7));
     }
-    v29 = SGDGetSessionState(v26);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v59, *(struct Gre::Full::SESSION_GLOBALS **)(v29 + 32));
-    CharacterPlacementW = GreGetCharacterPlacementW(a1, v58, (unsigned int)v7, (unsigned int)a4, v9, a6);
+    CharacterPlacementW = GreGetCharacterPlacementW(a1, v46, v10, a6);
     if ( CharacterPlacementW && a5 )
     {
-      *(_DWORD *)(a5 + 60) = *(_DWORD *)(v9 + 60);
-      v30 = *(int *)(v9 + 56);
-      *(_DWORD *)(a5 + 56) = v30;
-      v31 = (unsigned int)(2 * v30);
-      v32 = (unsigned int)(4 * v30);
-      v33 = (_BYTE **)MmUserProbeAddress;
-      if ( v53[1] )
+      a5[3].m128i_i32[3] = *(_DWORD *)(v10 + 60);
+      v29 = *(int *)(v10 + 56);
+      a5[3].m128i_i32[2] = v29;
+      v30 = (unsigned int)(2 * v29);
+      v31 = (unsigned int)(4 * v29);
+      if ( v45[0].m128i_i64[1] )
       {
-        v34 = (unsigned int)v31;
-        v35 = *(const void **)(v9 + 8);
-        v36 = (char *)v53[1] + v31;
-        if ( (unsigned __int64)v36 > MmUserProbeAddress || v36 <= v53[1] )
+        v32 = *(const void **)(v10 + 8);
+        if ( v45[0].m128i_i64[1] + v30 > MmUserProbeAddress
+          || (unsigned __int64)(v45[0].m128i_i64[1] + v30) <= v45[0].m128i_i64[1] )
         {
           *(_BYTE *)MmUserProbeAddress = 0;
-          v33 = (_BYTE **)MmUserProbeAddress;
         }
-        memmove(v53[1], v35, v34);
+        memmove((void *)v45[0].m128i_i64[1], v32, (unsigned int)v30);
       }
-      if ( v54[0] )
+      if ( v45[1].m128i_i64[0] )
       {
-        v37 = *(const void **)(v9 + 16);
-        if ( (char *)v54[0] + v32 > *v33 || (char *)v54[0] + v32 <= v54[0] )
+        v33 = *(const void **)(v10 + 16);
+        if ( v31 + v45[1].m128i_i64[0] > MmUserProbeAddress
+          || (unsigned __int64)(v31 + v45[1].m128i_i64[0]) <= v45[1].m128i_i64[0] )
         {
-          **v33 = 0;
-          v33 = (_BYTE **)MmUserProbeAddress;
+          *(_BYTE *)MmUserProbeAddress = 0;
         }
-        memmove(v54[0], v37, (unsigned int)(4 * v30));
+        memmove((void *)v45[1].m128i_i64[0], v33, (unsigned int)(4 * v29));
       }
-      if ( v16 )
+      if ( v17 )
       {
-        v38 = *(const void **)(v9 + 24);
-        if ( &v16[v32] > *v33 || &v16[v32] <= v16 )
+        v34 = *(const void **)(v10 + 24);
+        if ( (unsigned __int64)&v17[v31] > MmUserProbeAddress || &v17[v31] <= v17 )
+          *(_BYTE *)MmUserProbeAddress = 0;
+        memmove(v17, v34, (unsigned int)(4 * v29));
+      }
+      if ( v45[2].m128i_i64[0] )
+      {
+        v35 = *(const void **)(v10 + 32);
+        if ( v31 + v45[2].m128i_i64[0] > MmUserProbeAddress
+          || (unsigned __int64)(v31 + v45[2].m128i_i64[0]) <= v45[2].m128i_i64[0] )
         {
-          **v33 = 0;
-          v33 = (_BYTE **)MmUserProbeAddress;
+          *(_BYTE *)MmUserProbeAddress = 0;
         }
-        memmove(v16, v38, (unsigned int)(4 * v30));
+        memmove((void *)v45[2].m128i_i64[0], v35, (unsigned int)(4 * v29));
       }
-      if ( v55[0] )
+      if ( v45[2].m128i_i64[1] )
       {
-        v39 = *(const void **)(v9 + 32);
-        if ( (char *)v55[0] + v32 > *v33 || (char *)v55[0] + v32 <= v55[0] )
+        v36 = *(const void **)(v10 + 40);
+        if ( v29 + v45[2].m128i_i64[1] > MmUserProbeAddress || v29 + v45[2].m128i_i64[1] <= v45[2].m128i_i64[1] )
+          *(_BYTE *)MmUserProbeAddress = 0;
+        memmove((void *)v45[2].m128i_i64[1], v36, v29);
+      }
+      if ( v45[3].m128i_i64[0] )
+      {
+        v37 = *(const void **)(v10 + 48);
+        if ( v45[3].m128i_i64[0] + v30 > MmUserProbeAddress
+          || (unsigned __int64)(v45[3].m128i_i64[0] + v30) <= v45[3].m128i_i64[0] )
         {
-          **v33 = 0;
-          v33 = (_BYTE **)MmUserProbeAddress;
+          *(_BYTE *)MmUserProbeAddress = 0;
         }
-        memmove(v55[0], v39, (unsigned int)(4 * v30));
+        memmove((void *)v45[3].m128i_i64[0], v37, (unsigned int)v30);
       }
-      if ( v55[1] )
-      {
-        v40 = *(const void **)(v9 + 40);
-        if ( (char *)v55[1] + v30 > *v33 || (char *)v55[1] + v30 <= v55[1] )
-        {
-          **v33 = 0;
-          v33 = (_BYTE **)MmUserProbeAddress;
-        }
-        memmove(v55[1], v40, v30);
-      }
-      if ( v56[0] )
-      {
-        v41 = *(const void **)(v9 + 48);
-        v42 = (char *)v56[0] + (unsigned int)(2 * v30);
-        if ( v42 > *v33 || v42 <= v56[0] )
-          **v33 = 0;
-        memmove(v56[0], v41, (unsigned int)(2 * v30));
-      }
+      v8 = 1;
     }
-    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v59);
-    FreeTmpBuffer(v10, v43, v44);
-    v45 = 1;
+    else
+    {
+      v8 = 1;
+    }
+    FreeTmpBuffer(v11);
   }
-  else
-  {
-    v45 = 0;
-  }
-  return CharacterPlacementW & (unsigned int)-(v45 != 0);
+  return CharacterPlacementW & (unsigned int)-(v8 != 0);
 }

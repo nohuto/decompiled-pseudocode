@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumer @ 0x140682118
+ * XREFs of EtwpRealtimeDisconnectConsumer @ 0x14069BCE8
  * Callers:
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140682094 (EtwpRealtimeDisconnectConsumerByHandle.c)
- *     EtwpCloseRealTimeConnectionObject @ 0x140682100 (EtwpCloseRealTimeConnectionObject.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x14069B834 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpCloseRealTimeConnectionObject @ 0x14069B8A0 (EtwpCloseRealTimeConnectionObject.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpSynchronizeWithLogger @ 0x1407F5FE0 (EtwpSynchronizeWithLogger.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     EtwpSynchronizeWithLogger @ 0x14069BD8C (EtwpSynchronizeWithLogger.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax
   __int64 v5; // rsi
-  __int64 *v6; // rbx
+  ULONG_PTR v6; // rbx
   unsigned int v7; // ebx
   __int64 v8; // rdx
 
@@ -30,9 +30,9 @@ __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1, __int64 a2, __int6
     v5 = v4;
     if ( v4 )
     {
-      v6 = (__int64 *)(v4 + 688);
-      ExAcquirePushLockExclusiveEx(v4 + 688, 0LL);
-      *(_QWORD *)(v5 + 352) = a1;
+      v6 = v4 + 704;
+      ExAcquirePushLockExclusiveEx(v4 + 704, 0LL);
+      *(_QWORD *)(v5 + 368) = a1;
       ExReleasePushLockEx(v6, 0LL);
       v7 = EtwpSynchronizeWithLogger(v5, 16LL);
       EtwpSynchronizeWithLogger(v5, 4LL);

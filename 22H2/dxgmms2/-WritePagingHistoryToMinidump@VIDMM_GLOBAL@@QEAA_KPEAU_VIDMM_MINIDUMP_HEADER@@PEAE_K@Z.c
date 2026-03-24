@@ -1,7 +1,7 @@
 /*
- * XREFs of ?WritePagingHistoryToMinidump@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K@Z @ 0x1C00F529C
+ * XREFs of ?WritePagingHistoryToMinidump@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K@Z @ 0x1C00BF3A4
  * Callers:
- *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00E4838 (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
+ *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00AFC1C (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,21 +19,21 @@ __int64 __fastcall VIDMM_GLOBAL::WritePagingHistoryToMinidump(
   __int64 v10; // rcx
   __int128 v11; // xmm0
 
-  v4 = *((_DWORD *)this + 1972);
+  v4 = *((_DWORD *)this + 1970);
   v7 = 0;
   do
   {
     if ( !v4 )
     {
-      if ( !*((_DWORD *)this + 1973) )
+      if ( !*((_DWORD *)this + 1971) )
         break;
-      v4 = *((_DWORD *)this + 1968);
+      v4 = *((_DWORD *)this + 1966);
     }
     --v4;
     if ( a4 < 0x168 )
       break;
     v8 = a3;
-    v9 = 360LL * v4 + *((_QWORD *)this + 985);
+    v9 = 360LL * v4 + *((_QWORD *)this + 984);
     v10 = 2LL;
     do
     {
@@ -62,7 +62,7 @@ __int64 __fastcall VIDMM_GLOBAL::WritePagingHistoryToMinidump(
     *((_OWORD *)v8 + 5) = *(_OWORD *)(v9 + 80);
     *((_QWORD *)v8 + 12) = *(_QWORD *)(v9 + 96);
   }
-  while ( v4 != *((_DWORD *)this + 1972) );
-  *((_DWORD *)a2 + 329) = v7;
+  while ( v4 != *((_DWORD *)this + 1970) );
+  *((_DWORD *)a2 + 319) = v7;
   return 360LL * v7;
 }

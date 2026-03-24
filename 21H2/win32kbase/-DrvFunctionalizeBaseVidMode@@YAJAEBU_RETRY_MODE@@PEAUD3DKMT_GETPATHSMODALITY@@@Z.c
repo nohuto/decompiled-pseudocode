@@ -1,68 +1,77 @@
 /*
- * XREFs of ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01710F8
+ * XREFs of ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0144184
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0065F30 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C0019050 (DrvSetDisplayConfig.c)
  * Callees:
- *     ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C00C3D64 (-GetCcdRawmodeFlag@@YAIXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C00B3D5C (-GetCcdRawmodeFlag@@YAIXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvFunctionalizeBaseVidMode(const struct _RETRY_MODE *a1, struct D3DKMT_GETPATHSMODALITY *a2)
 {
-  unsigned int v2; // ebx
-  int v5; // eax
-  __int64 v6; // rax
-  unsigned __int64 v7; // rax
-  __int64 (__fastcall *v8)(_QWORD, struct D3DKMT_GETPATHSMODALITY *); // rbx
-  int CcdRawmodeFlag; // eax
+  unsigned int v2; // edi
+  __int64 v5; // rax
+  int v6; // eax
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  unsigned __int64 v9; // rax
+  unsigned int CcdRawmodeFlag; // eax
+  __int64 v11; // rcx
 
   v2 = 0;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  v5 = *((_DWORD *)a1 + 1);
-  if ( v5 == -1 )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(a1, 0LL);
+    WdLogEvent5_WdAssertion(v5);
+  }
+  v6 = *((_DWORD *)a1 + 1);
+  if ( v6 == -1 )
   {
     if ( *((_DWORD *)a1 + 2) == -1 )
     {
       if ( *((_WORD *)a2 + 10) )
       {
-        v6 = *((_QWORD *)a2 + 7);
+        v7 = *((_QWORD *)a2 + 6);
         do
         {
           ++v2;
-          v6 &= 0xFFFFFBFFFE7CFE78uLL;
+          v7 &= 0xFFFFFBFFFF7CFE78uLL;
+          *((_QWORD *)a2 + 6) = v7;
         }
         while ( v2 < *((unsigned __int16 *)a2 + 10) );
-        *((_QWORD *)a2 + 7) = v6;
       }
       goto LABEL_14;
     }
   }
-  else if ( !v5 )
+  else if ( !v6 )
   {
     goto LABEL_14;
   }
   if ( *((_DWORD *)a1 + 2) )
   {
     if ( *((_WORD *)a2 + 10) != 1 )
-      WdLogSingleEntry0(1LL);
-    v7 = *((_QWORD *)a2 + 7) & 0xFFFFFBFFFE7EFF7CuLL;
-    *((_BYTE *)a2 + 184) = 0;
-    *((_DWORD *)a2 + 47) = 1;
-    *((_QWORD *)a2 + 7) = v7 | 0x20304;
-    *((_DWORD *)a2 + 34) = 9;
-    *((_DWORD *)a2 + 52) = *((_DWORD *)a1 + 1);
-    *((_DWORD *)a2 + 53) = *((_DWORD *)a1 + 2);
+    {
+      v8 = WdLogNewEntry5_WdAssertion(0xFFFFFFFFLL, a2);
+      WdLogEvent5_WdAssertion(v8);
+    }
+    v9 = *((_QWORD *)a2 + 6) & 0xFFFFFBFFFF7EFF7CuLL;
+    *((_BYTE *)a2 + 176) = 0;
+    *((_DWORD *)a2 + 45) = 1;
+    *((_QWORD *)a2 + 6) = v9 | 0x20304;
+    *((_DWORD *)a2 + 32) = 9;
+    *((_DWORD *)a2 + 50) = *((_DWORD *)a1 + 1);
+    *((_DWORD *)a2 + 51) = *((_DWORD *)a1 + 2);
+    *((_DWORD *)a2 + 36) = *((_DWORD *)a1 + 1);
+    *((_DWORD *)a2 + 37) = *((_DWORD *)a1 + 2);
     *((_DWORD *)a2 + 38) = *((_DWORD *)a1 + 1);
     *((_DWORD *)a2 + 39) = *((_DWORD *)a1 + 2);
-    *((_DWORD *)a2 + 40) = *((_DWORD *)a1 + 1);
-    *((_DWORD *)a2 + 41) = *((_DWORD *)a1 + 2);
-    *((_DWORD *)a2 + 43) = 21;
-    *((_DWORD *)a2 + 42) = 0;
-    *((_QWORD *)a2 + 22) = 0LL;
+    *((_DWORD *)a2 + 41) = 21;
+    *((_DWORD *)a2 + 40) = 0;
+    *((_QWORD *)a2 + 21) = 0LL;
   }
 LABEL_14:
-  v8 = (__int64 (__fastcall *)(_QWORD, struct D3DKMT_GETPATHSMODALITY *))qword_1C02966F8;
   CcdRawmodeFlag = GetCcdRawmodeFlag();
-  return v8(CcdRawmodeFlag | 0x8000u, a2);
+  v11 = CcdRawmodeFlag;
+  LODWORD(v11) = CcdRawmodeFlag | 0x8000;
+  return ((__int64 (__fastcall *)(__int64, struct D3DKMT_GETPATHSMODALITY *))qword_1C0251908)(v11, a2);
 }

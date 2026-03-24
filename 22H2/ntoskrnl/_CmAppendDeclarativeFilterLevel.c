@@ -1,32 +1,26 @@
 /*
- * XREFs of _CmAppendDeclarativeFilterLevel @ 0x140A670AC
+ * XREFs of _CmAppendDeclarativeFilterLevel @ 0x140979590
  * Callers:
- *     _CmAppendDeclarativeDefaultFilters @ 0x140A66FC4 (_CmAppendDeclarativeDefaultFilters.c)
- *     _CmGetDeclarativeFilterList @ 0x140A67C80 (_CmGetDeclarativeFilterList.c)
+ *     _CmAppendDeclarativeDefaultFilters @ 0x1409794A8 (_CmAppendDeclarativeDefaultFilters.c)
+ *     _CmGetDeclarativeFilterList @ 0x140979C14 (_CmGetDeclarativeFilterList.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpMultiSzAppend @ 0x14083B05C (_PnpMultiSzAppend.c)
- *     _PnpCtxRegEnumValue @ 0x140877E74 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877FDC (_PnpCtxRegQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F9CD4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F9E0C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpMultiSzAppend @ 0x14097C23C (_PnpMultiSzAppend.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmAppendDeclarativeFilterLevel(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        wchar_t *a4,
-        unsigned int a5,
-        _DWORD *a6)
+__int64 __fastcall CmAppendDeclarativeFilterLevel(__int64 a1, __int64 a2, __int64 a3, wchar_t *a4, int a5, _DWORD *a6)
 {
-  ULONG v6; // r14d
+  ULONG v6; // esi
   wchar_t *v7; // r15
   unsigned int v8; // ebx
-  int v9; // edi
-  void *Pool2; // rsi
-  unsigned int v11; // r13d
+  int v9; // r14d
+  PVOID PoolWithTag; // rdi
+  int v11; // r13d
   __int64 v12; // rcx
   int v13; // eax
   __int64 v14; // rcx
@@ -34,8 +28,8 @@ __int64 __fastcall CmAppendDeclarativeFilterLevel(
   int v16; // eax
   char v17; // al
   HANDLE Handle; // [rsp+40h] [rbp-10h] BYREF
-  wchar_t *v20; // [rsp+48h] [rbp-8h] BYREF
-  unsigned int v21; // [rsp+80h] [rbp+30h] BYREF
+  wchar_t *v20; // [rsp+48h] [rbp-8h]
+  int v21; // [rsp+80h] [rbp+30h] BYREF
   ULONG v22; // [rsp+98h] [rbp+48h] BYREF
 
   v6 = 0;
@@ -46,7 +40,7 @@ __int64 __fastcall CmAppendDeclarativeFilterLevel(
   v22 = 0;
   v9 = 0;
   *a6 = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v21 = 0;
   v11 = 0;
   if ( a1 )
@@ -58,33 +52,34 @@ __int64 __fastcall CmAppendDeclarativeFilterLevel(
   {
     v8 = v13;
   }
-  else if ( !v7 || (v11 = v21 + 1, (Pool2 = (void *)ExAllocatePool2(256LL, 2LL * (v21 + 1), 1380994640LL)) != 0LL) )
+  else if ( !v7
+         || (v11 = v21 + 1,
+             (PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * (unsigned int)(v21 + 1), 0x52504E50u)) != 0LL) )
   {
     if ( v22 )
     {
       do
       {
         v21 = v11;
-        v16 = PnpCtxRegEnumValue(v15, Handle, v6, Pool2, &v21, 0LL, 0LL, 0LL);
+        v16 = PnpCtxRegEnumValue(v15, Handle, v6, PoolWithTag, &v21, 0LL, 0LL, 0LL);
         v15 = 3221225507LL;
         if ( v16 == -1073741789 )
         {
-          v9 += v21;
           v8 = -1073741789;
         }
-        else
+        else if ( v16 < 0 )
         {
-          if ( v16 < 0 )
-          {
-            v8 = v16;
-            break;
-          }
-          v9 += v21;
+          v8 = v16;
+          break;
+        }
+        v9 += v21;
+        if ( v16 >= 0 )
+        {
           if ( v7 )
           {
             v21 = a5;
             ++v9;
-            v17 = PnpMultiSzAppend(v7, &v21, (const wchar_t *)Pool2, &v20);
+            v17 = PnpMultiSzAppend(v7);
             v7 = v20;
             if ( !v17 )
               v8 = -1073741789;
@@ -95,8 +90,8 @@ __int64 __fastcall CmAppendDeclarativeFilterLevel(
       while ( v6 < v22 );
     }
     *a6 = 2 * v9;
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {

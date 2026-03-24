@@ -1,9 +1,9 @@
 /*
- * XREFs of ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801FFA90
+ * XREFs of ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801A1230
  * Callers:
- *     ApplyEdgeFlags @ 0x1801FFE68 (ApplyEdgeFlags.c)
+ *     ApplyEdgeFlags @ 0x1801A18E8 (ApplyEdgeFlags.c)
  * Callees:
- *     <none>
+ *     _o_ceil_0 @ 0x1800E7EC0 (_o_ceil_0.c)
  */
 
 float __fastcall ApplyEdgeFlagsWorker_3_1_2_(char a1, float a2, float a3)
@@ -29,5 +29,6 @@ float __fastcall ApplyEdgeFlagsWorker_3_1_2_(char a1, float a2, float a3)
   {
     a2 = a2 - a3;
   }
-  return (float)(((int)(float)(a2 * 256.0) + 127) >> 8);
+  o_ceil_0();
+  return (float)(int)(a2 - 0.5);
 }

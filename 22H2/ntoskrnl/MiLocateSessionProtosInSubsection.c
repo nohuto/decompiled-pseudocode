@@ -1,8 +1,9 @@
 /*
- * XREFs of MiLocateSessionProtosInSubsection @ 0x14033E8A0
+ * XREFs of MiLocateSessionProtosInSubsection @ 0x1403284C8
  * Callers:
- *     MiDereferenceSubsectionProtos @ 0x1407B6248 (MiDereferenceSubsectionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1407B62B0 (MiCreatePerSessionProtos.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1403A5B8C (MiGetSharedProtosAtDpcLevel.c)
+ *     MiDereferenceSubsectionProtos @ 0x14069F6BC (MiDereferenceSubsectionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14069F724 (MiCreatePerSessionProtos.c)
  * Callees:
  *     <none>
  */
@@ -25,5 +26,5 @@ __int64 *__fastcall MiLocateSessionProtosInSubsection(__int64 a1, unsigned int a
       result = (__int64 *)*result;
     }
   }
-  return result;
+  return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SendAckProxyReference@BamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAXI_N@Z @ 0x180197AB0
+ * XREFs of ?SendAckProxyReference@BamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAXI_N@Z @ 0x180166B80
  * Callers:
  *     <none>
  * Callees:
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180195110 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18016479C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 void __fastcall BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl::SendAckProxyReference(
@@ -12,20 +12,21 @@ void __fastcall BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl::SendAckPr
   __int64 v1; // r9
   __int64 v2; // r10
   int v3; // eax
-  int v4; // [rsp+20h] [rbp-38h]
-  _QWORD v5[3]; // [rsp+40h] [rbp-18h] BYREF
+  _QWORD v4[3]; // [rsp+40h] [rbp-18h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
 
   v1 = *(_QWORD *)(*((_QWORD *)this + 3) + 32LL);
-  v5[0] = *((unsigned int *)this + 9);
-  v2 = *(_QWORD *)(v1 + 72);
-  v5[1] = *((unsigned int *)this + 10);
-  v3 = CoreUICallSend(v2, v5, 2LL, 1LL, 4, &unk_18034586D);
+  v4[0] = *((unsigned int *)this + 9);
+  v2 = *(_QWORD *)(v1 + 64);
+  v4[1] = *((unsigned int *)this + 10);
+  v3 = CoreUICallSend(v2, v4, 2LL, 1LL, 4, &unk_1802DA375);
   if ( v3 < 0 )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      5136LL,
-      (__int64)"onecoreuap\\Windows\\DWM\\dwmcore\\diagnosticcallbacks\\objfre\\amd64\\diagnosticcallbacks.bamo.h",
-      (const char *)(unsigned int)v3,
-      v4);
+      (void *)0x11B7,
+      (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\diagnosticcallbacks\\objfre\\amd64\\diagnosticcallbacks.bamo.h",
+      (const char *)(unsigned int)v3);
+    __debugbreak();
+  }
 }

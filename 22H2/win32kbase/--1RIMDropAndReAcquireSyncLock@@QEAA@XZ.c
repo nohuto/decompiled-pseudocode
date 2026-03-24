@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1RIMDropAndReAcquireSyncLock@@QEAA@XZ @ 0x1C006EC64
+ * XREFs of ??1RIMDropAndReAcquireSyncLock@@QEAA@XZ @ 0x1C00B7040
  * Callers:
- *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C006F340 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
- *     RIMDeviceIoControl @ 0x1C0070F20 (RIMDeviceIoControl.c)
+ *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C0049F30 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
+ *     RIMDeviceIoControl @ 0x1C0052E70 (RIMDeviceIoControl.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
 void __fastcall RIMDropAndReAcquireSyncLock::~RIMDropAndReAcquireSyncLock(PVOID *this)

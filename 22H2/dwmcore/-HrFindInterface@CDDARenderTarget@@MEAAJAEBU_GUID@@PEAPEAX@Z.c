@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180131940
+ * XREFs of ?HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180198EB0
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180100FF0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800E50A0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CDDARenderTarget::HrFindInterface(CDDARenderTarget *this, const struct _GUID *a2, void **a3)
@@ -23,7 +23,7 @@ __int64 __fastcall CDDARenderTarget::HrFindInterface(CDDARenderTarget *this, con
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 144) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 136) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

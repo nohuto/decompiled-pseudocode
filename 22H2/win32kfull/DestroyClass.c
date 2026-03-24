@@ -1,48 +1,41 @@
 /*
- * XREFs of DestroyClass @ 0x1C00EAB74
+ * XREFs of DestroyClass @ 0x1C0078FA0
  * Callers:
- *     ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C00135D0 (-ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z.c)
- *     DereferenceClass @ 0x1C001F550 (DereferenceClass.c)
- *     FinalUserInit @ 0x1C003E45C (FinalUserInit.c)
- *     DestroyClass @ 0x1C00EAB74 (DestroyClass.c)
- *     DestroyProcessesClasses @ 0x1C00EBC40 (DestroyProcessesClasses.c)
- *     _UnregisterClass @ 0x1C00F01B0 (_UnregisterClass.c)
+ *     _UnregisterClass @ 0x1C0069788 (_UnregisterClass.c)
+ *     DestroyClass @ 0x1C0078FA0 (DestroyClass.c)
+ *     DereferenceClass @ 0x1C0079BB0 (DereferenceClass.c)
+ *     FinalUserInit @ 0x1C00E4FC8 (FinalUserInit.c)
+ *     ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C010F370 (-ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z.c)
+ *     DestroyProcessesClasses @ 0x1C0115D00 (DestroyProcessesClasses.c)
+ *     _WOWCleanup @ 0x1C0227760 (_WOWCleanup.c)
+ *     _WOWModuleUnload @ 0x1C0227890 (_WOWModuleUnload.c)
  * Callees:
- *     ?UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z @ 0x1C0013FF0 (-UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z.c)
- *     ?Free@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00991C4 (-Free@-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAXPEAX@Z.c)
- *     ?IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z @ 0x1C00EA67C (-IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z.c)
- *     ?DestroyClassBrush@@YAXAEBV?$SmartObjStackRef@UtagCLS@@@@@Z @ 0x1C00EA8C8 (-DestroyClassBrush@@YAXAEBV-$SmartObjStackRef@UtagCLS@@@@@Z.c)
- *     DestroyClass @ 0x1C00EAB74 (DestroyClass.c)
- *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C00EAEF8 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
- *     DestroyClassSmIcon @ 0x1C00EB5B0 (DestroyClassSmIcon.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C0078D28 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     DestroyClass @ 0x1C0078FA0 (DestroyClass.c)
+ *     ?IsClassAtomPinned@@YA_NG@Z @ 0x1C00791E8 (-IsClassAtomPinned@@YA_NG@Z.c)
+ *     ?IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z @ 0x1C0079960 (-IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?DestroyClassBrush@@YAXAEBV?$SmartObjStackRef@UtagCLS@@@@@Z @ 0x1C00FC2A4 (-DestroyClassBrush@@YAXAEBV-$SmartObjStackRef@UtagCLS@@@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00FF480 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     ?ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z @ 0x1C010BC3C (-ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z.c)
+ *     DestroyClassSmIcon @ 0x1C010E350 (DestroyClassSmIcon.c)
+ *     ?UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z @ 0x1C01319C4 (-UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z.c)
  */
 
 __int64 __fastcall DestroyClass(struct tagPROCESSINFO *a1, struct _CALLPROCDATA ***a2)
 {
   struct _CALLPROCDATA **v2; // rbx
-  unsigned __int16 v4; // dx
-  __int64 v5; // rdx
-  unsigned __int16 v6; // dx
-  __int64 v7; // rdx
-  unsigned __int64 v8; // rcx
-  struct _CALLPROCDATA *v9; // rdx
+  unsigned __int16 v4; // cx
+  unsigned __int16 v5; // cx
+  unsigned __int64 v6; // rcx
+  struct _CALLPROCDATA *v7; // rdx
+  __int64 ThreadWin32Thread; // rdi
+  _QWORD *v9; // rcx
   __int64 v10; // rdi
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v12; // rdi
-  __int64 *v13; // rax
-  _QWORD *v14; // rax
-  __int64 v15; // rdi
-  __int64 *v16; // rax
-  __int64 v17; // rdi
-  __int64 *v18; // rax
-  _QWORD *v19; // rax
-  struct _CALLPROCDATA *v20; // rdx
-  bool v21; // zf
-  struct _CALLPROCDATA *v23; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v24; // [rsp+28h] [rbp-18h] BYREF
-  struct _CALLPROCDATA *v25; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v26; // [rsp+38h] [rbp-8h] BYREF
-  struct _CALLPROCDATA *v27; // [rsp+58h] [rbp+18h] BYREF
+  _QWORD *v11; // rcx
+  __int64 v13[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v14[3]; // [rsp+30h] [rbp-18h] BYREF
+  struct tagDESKTOP *v15; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = *a2;
   *a2 = (struct _CALLPROCDATA **)**a2;
@@ -50,81 +43,43 @@ __int64 __fastcall DestroyClass(struct tagPROCESSINFO *a1, struct _CALLPROCDATA 
   {
     while ( v2[8] )
       DestroyClass(a1);
-    v4 = *(_WORD *)v2[1];
-    if ( (v4 < gatomFirstPinned || v4 > gatomLastPinned) && v4 >= 0xC000u && !IsClassAtomRegistered(a1, v4) )
-      UserDeleteAtom(*(unsigned __int16 *)v2[1], v5);
-    v6 = *((_WORD *)v2[1] + 1);
-    if ( (v6 < gatomFirstPinned || v6 > gatomLastPinned || v6 >= 0xC000u) && !IsClassAtomRegistered(a1, v6) )
-      UserDeleteAtom(*((unsigned __int16 *)v2[1] + 1), v7);
-    v8 = (unsigned __int64)v2[12];
-    if ( (v8 & 0xFFFFFFFFFFFF0000uLL) != 0 )
-      Win32FreePool((void *)v8);
-    v9 = v2[5];
+    if ( !IsClassAtomPinned(*(_WORD *)v2[1]) && v4 >= 0xC000u && !IsClassAtomRegistered(a1, v4) )
+      UserDeleteAtom(*(unsigned __int16 *)v2[1]);
+    if ( (!IsClassAtomPinned(*((_WORD *)v2[1] + 1)) || v5 >= 0xC000u) && !IsClassAtomRegistered(a1, v5) )
+      UserDeleteAtom(*((unsigned __int16 *)v2[1] + 1));
+    v6 = (unsigned __int64)v2[12];
+    if ( (v6 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+      Win32FreePool((void *)v6);
+    v7 = v2[5];
+    if ( v7 )
+      DestroyCacheDC(0LL, *((_QWORD *)v7 + 1));
+    SmartObjStackRefBase<tagCLS>::Init(v13, v2);
+    DestroyClassBrush(v13);
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v13);
+    v9 = *(_QWORD **)(ThreadWin32Thread + 1472);
     if ( v9 )
-      DestroyCacheDC(0LL, *((_QWORD *)v9 + 1));
-    v10 = 0LL;
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( ThreadWin32Thread )
-      v10 = *ThreadWin32Thread;
-    v23 = (struct _CALLPROCDATA *)gSmartObjNullRef;
-    v23 = v2[16];
-    ++*((_DWORD *)v2[16] + 2);
-    v24 = *(_QWORD *)(v10 + 1512);
-    *(_QWORD *)(v10 + 1512) = &v24;
-    DestroyClassBrush((__int64)&v23);
-    v12 = 0LL;
-    v13 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v13 )
-      v12 = *v13;
-    SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v23);
-    v14 = *(_QWORD **)(v12 + 1512);
-    if ( v14 )
-      *(_QWORD *)(v12 + 1512) = *v14;
+      *(_QWORD *)(ThreadWin32Thread + 1472) = *v9;
   }
-  v15 = 0LL;
-  v16 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( v16 )
-    v15 = *v16;
-  v25 = (struct _CALLPROCDATA *)gSmartObjNullRef;
-  v25 = v2[16];
-  ++*((_DWORD *)v2[16] + 2);
-  v26 = *(_QWORD *)(v15 + 1512);
-  *(_QWORD *)(v15 + 1512) = &v26;
-  DestroyClassSmIcon(&v25);
-  v17 = 0LL;
-  v18 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( v18 )
-    v17 = *v18;
-  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(&v25);
-  v19 = *(_QWORD **)(v17 + 1512);
-  if ( v19 )
-    *(_QWORD *)(v17 + 1512) = *v19;
+  SmartObjStackRefBase<tagCLS>::Init(v14, v2);
+  DestroyClassSmIcon(v14);
+  v10 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  SmartObjStackRefBase<tagCLS>::DecrementCountAndTryFree(v14);
+  v11 = *(_QWORD **)(v10 + 1472);
+  if ( v11 )
+    *(_QWORD *)(v10 + 1472) = *v11;
   HMAssignmentUnlock(v2 + 10);
   *((_QWORD *)v2[1] + 7) = 0LL;
   HMAssignmentUnlock(v2 + 14);
   HMAssignmentUnlock(v2 + 11);
   if ( v2[6] )
     UnlockAndFreeCPDs(v2 + 6);
-  v27 = v2[4];
+  v15 = v2[4];
   v2[4] = 0LL;
-  if ( v27 )
-    RtlFreeHeap(*((PVOID *)v27 + 17), 0, v2[13]);
+  if ( v15 )
+    RtlFreeHeap(*((PVOID *)v15 + 16), 0, v2[13]);
   else
     Win32FreePool(v2[13]);
-  if ( v27 )
-    RtlFreeHeap(*((PVOID *)v27 + 17), 0, v2[1]);
-  else
-    Win32FreePool(v2[1]);
-  v20 = v2[16];
-  if ( v20 )
-  {
-    *(_QWORD *)v20 = 0LL;
-    v21 = *((_DWORD *)v20 + 2) == 0;
-    *((_BYTE *)v20 + 12) = 1;
-    if ( v21 )
-      Win32FreeToPagedLookasideList(gpStackRefLookAside, v20);
-  }
-  if ( *gpUserTypeIsolation )
-    NSInstrumentation::CTypeIsolation<36864,144>::Free((__int64)*gpUserTypeIsolation, v2);
-  return UnlockObjectAssignment(&v27);
+  ClassFree(v15, (struct tagCLS *)v2);
+  return UnlockObjectAssignment(&v15);
 }

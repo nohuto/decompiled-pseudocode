@@ -1,10 +1,10 @@
 /*
- * XREFs of _exception_enabled @ 0x1403DD2FC
+ * XREFs of _exception_enabled @ 0x1403D577C
  * Callers:
- *     _handle_error @ 0x1403DD3C0 (_handle_error.c)
- *     _handle_errorf @ 0x1403DD4FC (_handle_errorf.c)
+ *     _handle_error @ 0x1403D5840 (_handle_error.c)
+ *     _handle_errorf @ 0x1403D597C (_handle_errorf.c)
  * Callees:
- *     _set_statfp @ 0x1403DDCD0 (_set_statfp.c)
+ *     _set_statfp @ 0x1403D6168 (_set_statfp.c)
  */
 
 _BOOL8 __fastcall exception_enabled(char a1, __int16 a2)

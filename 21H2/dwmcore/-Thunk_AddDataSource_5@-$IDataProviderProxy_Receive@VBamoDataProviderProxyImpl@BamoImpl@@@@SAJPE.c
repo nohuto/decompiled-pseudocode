@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Thunk_AddDataSource_5@?$IDataProviderProxy_Receive@VBamoDataProviderProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801E0580
+ * XREFs of ?Thunk_AddDataSource_5@?$IDataProviderProxy_Receive@VBamoDataProviderProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x180194350
  * Callers:
  *     <none>
  * Callees:

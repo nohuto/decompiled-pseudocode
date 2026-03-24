@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentRenderTargetInfo@CDrawingContext@@UEBAAEBVRenderTargetInfo@@XZ @ 0x180105760
+ * XREFs of ?GetCurrentRenderTargetInfo@CDrawingContext@@UEBAAEBVRenderTargetInfo@@XZ @ 0x1800E2250
  * Callers:
  *     <none>
  * Callees:

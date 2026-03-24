@@ -1,95 +1,87 @@
 /*
- * XREFs of ?ReleaseAllReferences@CKeyframeAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C002D060
+ * XREFs of ?ReleaseAllReferences@CKeyframeAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C009C460
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?ReleasePathDataResources@CKeyframeAnimationMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0030214 (-ReleasePathDataResources@CKeyframeAnimationMarshaler@DirectComposition@@AEAAXPEAVCApplicationCh.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseAllReferences@CBaseExpressionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0060EC0 (-ReleaseAllReferences@CBaseExpressionMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2.c)
  */
 
 void __fastcall DirectComposition::CKeyframeAnimationMarshaler::ReleaseAllReferences(
         DirectComposition::CKeyframeAnimationMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)
 {
-  __int64 v3; // rdx
-  __int64 v5; // rsi
-  PVOID v6; // rax
+  __int64 v4; // rcx
+  struct DirectComposition::CResourceMarshaler *v5; // rdx
+  __int64 v6; // rdx
   struct DirectComposition::CResourceMarshaler *v7; // rdx
-  struct DirectComposition::CResourceMarshaler *v8; // rdx
-  struct DirectComposition::CResourceMarshaler *v9; // rdx
-  unsigned int j; // esi
-  void *v11; // rdx
-  unsigned int i; // esi
-  void *v13; // rdx
-  _QWORD Buffer[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // rcx
+  unsigned int v9; // esi
+  unsigned int v10; // edx
+  __int64 v11; // rcx
+  __int64 v12; // rcx
 
-  v3 = *((_QWORD *)this + 9);
-  if ( v3 )
+  DirectComposition::CBaseExpressionMarshaler::ReleaseAllReferences(this, a2);
+  v4 = *((_QWORD *)this + 24);
+  if ( v4 )
   {
-    --*(_DWORD *)(v3 + 8);
-    v5 = *(_QWORD *)(v3 + 16);
-    if ( !*(_DWORD *)(v3 + 8) )
+    v9 = 0;
+    if ( *((_DWORD *)this + 50) )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)v3);
-      if ( v5 )
-      {
-        Buffer[0] = v5;
-        Buffer[1] = 0LL;
-        v6 = RtlLookupElementGenericTable((PRTL_GENERIC_TABLE)((char *)a2 + 264), Buffer);
-        if ( v6 )
-          RtlDeleteElementGenericTable((PRTL_GENERIC_TABLE)((char *)a2 + 264), v6);
-        *(_DWORD *)(v5 + 16) &= ~4u;
-      }
+      do
+        DirectComposition::CApplicationChannel::ReleaseResource(
+          a2,
+          *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 24) + 8LL * v9++));
+      while ( v9 < *((_DWORD *)this + 50) );
+      v4 = *((_QWORD *)this + 24);
     }
-    *((_QWORD *)this + 9) = 0LL;
+    Win32FreePool(v4);
+    *((_QWORD *)this + 24) = 0LL;
+    *((_QWORD *)this + 25) = 0LL;
   }
-  if ( *((_QWORD *)this + 13) )
+  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
+  if ( v5 )
   {
-    for ( i = 0; i < *((_DWORD *)this + 29); ++i )
-      DirectComposition::CApplicationChannel::ReleaseResource(
-        a2,
-        *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 13) + 8LL * i));
-    v13 = (void *)*((_QWORD *)this + 13);
-    if ( v13 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v13);
-    *((_QWORD *)this + 13) = 0LL;
-    *((_QWORD *)this + 14) = 0LL;
-  }
-  if ( *((_QWORD *)this + 18) )
-  {
-    for ( j = 0; j < *((_DWORD *)this + 59); ++j )
-      DirectComposition::CApplicationChannel::ReleaseResource(
-        a2,
-        *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 18) + 8LL * j));
-    v11 = (void *)*((_QWORD *)this + 18);
-    if ( v11 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v11);
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, v5);
+    *((_QWORD *)this + 16) = 0LL;
     *((_QWORD *)this + 18) = 0LL;
-    *(_QWORD *)((char *)this + 236) = 0LL;
+    *((_QWORD *)this + 17) = 0LL;
+    *((_DWORD *)this + 38) = 0;
   }
-  v7 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
+  v6 = *((_QWORD *)this + 38);
+  if ( v6 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(
+      a2,
+      (struct DirectComposition::CResourceMarshaler *)(v6 + 16));
+    *((_QWORD *)this + 38) = 0LL;
+  }
+  v7 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 20);
   if ( v7 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v7);
-    *((_QWORD *)this + 16) = 0LL;
-    *((_QWORD *)this + 26) = 0LL;
-    *((_QWORD *)this + 25) = 0LL;
-    *((_DWORD *)this + 58) = 0;
+    *((_QWORD *)this + 20) = 0LL;
+    *((_QWORD *)this + 21) = 0LL;
+    *((_QWORD *)this + 22) = 0LL;
   }
-  v8 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 20);
+  v8 = *((_QWORD *)this + 26);
   if ( v8 )
   {
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, v8);
-    *((_QWORD *)this + 20) = 0LL;
-  }
-  v9 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 17);
-  if ( v9 )
-  {
-    DirectComposition::CApplicationChannel::ReleaseResource(a2, v9);
-    *((_QWORD *)this + 17) = 0LL;
+    v10 = 0;
+    if ( *((_DWORD *)this + 54) )
+    {
+      do
+      {
+        v11 = v10++;
+        v12 = *(_QWORD *)(*((_QWORD *)this + 26) + 16 * v11);
+        --*(_DWORD *)(v12 + 20);
+      }
+      while ( v10 < *((_DWORD *)this + 54) );
+      v8 = *((_QWORD *)this + 26);
+    }
+    Win32FreePool(v8);
+    *((_QWORD *)this + 26) = 0LL;
     *((_QWORD *)this + 27) = 0LL;
-    *((_QWORD *)this + 28) = 0LL;
   }
-  DirectComposition::CKeyframeAnimationMarshaler::ReleasePathDataResources(this, a2);
 }

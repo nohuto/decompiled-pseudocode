@@ -1,7 +1,7 @@
 /*
- * XREFs of BapdpParseEventParts @ 0x14037416C
+ * XREFs of BapdpParseEventParts @ 0x14039AC6C
  * Callers:
- *     BapdWriteEtwEvents @ 0x140373E08 (BapdWriteEtwEvents.c)
+ *     BapdWriteEtwEvents @ 0x14039A928 (BapdWriteEtwEvents.c)
  * Callees:
  *     <none>
  */

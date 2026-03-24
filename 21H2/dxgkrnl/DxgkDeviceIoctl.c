@@ -1,297 +1,225 @@
 /*
- * XREFs of DxgkDeviceIoctl @ 0x1C0050460
+ * XREFs of DxgkDeviceIoctl @ 0x1C0044460
  * Callers:
  *     <none>
  * Callees:
- *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C002B26C (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
- *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C002B714 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?CheckTokenForVMGroupMembership@@YAJXZ @ 0x1C004FDA0 (-CheckTokenForVMGroupMembership@@YAJXZ.c)
- *     ?CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C006C45C (-CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z @ 0x1C0189DE4 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z.c)
- *     ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0336764 (-InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z.c)
- *     ?InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALMACHINE@@@Z @ 0x1C033693C (-InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALM.c)
- *     ?ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0336E18 (-ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
- *     ?SetVmGuid@DXGVIRTUALMACHINE@@QEAAXPEBU_GUID@@@Z @ 0x1C033780C (-SetVmGuid@DXGVIRTUALMACHINE@@QEAAXPEBU_GUID@@@Z.c)
- *     ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C03515D4 (-IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C0002AC0 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0004488 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?CheckTokenForVMGroupMembership@@YAJXZ @ 0x1C0043E1C (-CheckTokenForVMGroupMembership@@YAJXZ.c)
+ *     ?CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C005E860 (-CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z @ 0x1C0117234 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z.c)
+ *     ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0285624 (-InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z.c)
+ *     ?InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALMACHINE@@@Z @ 0x1C0285778 (-InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALM.c)
+ *     ?ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0285BD4 (-ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
+ *     ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C02B587C (-IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
  */
 
-__int64 __fastcall DxgkDeviceIoctl(__int64 a1, IRP *a2)
+__int64 __fastcall DxgkDeviceIoctl(__int64 a1, IRP *a2, __int64 a3)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  DWORD LowPart; // ecx
-  ULONG Length; // r12d
-  ULONG Options; // r14d
-  __int64 v7; // rdi
-  DXGVIRTUALMACHINE **v8; // rsi
-  DxgkCompositionObject *v9; // r15
-  struct _GUID *v10; // rax
-  NTSTATUS v11; // eax
-  int v12; // edx
-  int v13; // ecx
-  int v14; // r8d
-  DXGVIRTUALMACHINE ***Current; // rax
-  int v16; // eax
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
-  int v20; // eax
-  int v21; // eax
-  int v22; // edx
-  int v23; // ecx
-  int v24; // r8d
-  int v25; // eax
-  int v26; // edx
-  int v27; // ecx
-  int v28; // r8d
-  int v29; // ecx
-  int v30; // edx
-  int v31; // ecx
-  int v32; // r8d
-  int v33; // edx
-  int v34; // ecx
-  int v35; // r8d
-  bool v36; // r8
+  __int64 LowPart; // rsi
+  void **UserBuffer; // r12
+  __int64 Length; // rcx
+  ULONG64 Parameters; // rdx
+  ULONG Options; // r13d
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  DXGVIRTUALMACHINE **v12; // rsi
+  DxgkCompositionObject *v13; // r14
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int128 *v19; // rax
+  __int128 v20; // xmm6
+  NTSTATUS v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  struct DXGPROCESS *Current; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  char v32; // al
+  int v33; // eax
+  DXGVIRTUALMACHINE *v34; // r13
+  int v35; // eax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // rax
+  bool v42; // r8
   int Handle; // eax
-  void **v38; // rdx
-  DXGVIRTUALMACHINE *Parameters; // [rsp+68h] [rbp-70h] BYREF
-  void *v41[3]; // [rsp+70h] [rbp-68h] BYREF
-  struct _GUID v42; // [rsp+88h] [rbp-50h] BYREF
-  unsigned int v43; // [rsp+F0h] [rbp+18h]
-  PVOID Address; // [rsp+F8h] [rbp+20h]
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // r8
+  __int64 v47; // rax
+  void *v49[2]; // [rsp+48h] [rbp-70h] BYREF
+  ULONG64 v50; // [rsp+58h] [rbp-60h]
+  __int64 v51; // [rsp+60h] [rbp-58h]
+  _OWORD v52[2]; // [rsp+68h] [rbp-50h] BYREF
+  unsigned int v53; // [rsp+D0h] [rbp+18h]
+  struct DXGPROCESS *v54; // [rsp+D8h] [rbp+20h] BYREF
 
-  v43 = 0;
+  v53 = 0;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-  Address = a2->UserBuffer;
-  v41[1] = Address;
+  UserBuffer = (void **)a2->UserBuffer;
+  v49[1] = UserBuffer;
   Length = CurrentStackLocation->Parameters.Read.Length;
-  Parameters = (DXGVIRTUALMACHINE *)CurrentStackLocation->Parameters.CreatePipe.Parameters;
+  LODWORD(v54) = CurrentStackLocation->Parameters.Read.Length;
+  Parameters = (ULONG64)CurrentStackLocation->Parameters.CreatePipe.Parameters;
+  v50 = Parameters;
   Options = CurrentStackLocation->Parameters.Create.Options;
-  if ( LowPart != 2310147 )
+  if ( (_DWORD)LowPart != 2310147 )
   {
-    LODWORD(v7) = -1073741808;
-    WdLogSingleEntry2(3LL, LowPart, -1073741808LL);
-    goto LABEL_57;
+    v10 = WdLogNewEntry5_WdWarning(Length, Parameters, a3);
+    *(_QWORD *)(v10 + 24) = LowPart;
+    LODWORD(v11) = -1073741808;
+    *(_QWORD *)(v10 + 32) = -1073741808LL;
+    WdLogEvent5_WdWarning(v10);
+    goto LABEL_45;
   }
-  v8 = 0LL;
-  v9 = 0LL;
-  v41[0] = 0LL;
-  v42 = 0LL;
+  v12 = 0LL;
+  v51 = 0LL;
+  v13 = 0LL;
+  v49[0] = 0LL;
+  v52[0] = 0LL;
   if ( !DXGVAILOBJECT::IsFeatureEnabled() )
   {
-    WdLogSingleEntry1(3LL, 889LL);
-    LODWORD(v7) = -1073741637;
-    goto LABEL_57;
+    v17 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    *(_QWORD *)(v17 + 24) = 877LL;
+    WdLogEvent5_WdWarning(v17);
+    LODWORD(v11) = -1073741637;
+    goto LABEL_45;
   }
   if ( Options != 16 )
   {
-    WdLogSingleEntry1(3LL, 896LL);
+    v18 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    *(_QWORD *)(v18 + 24) = 884LL;
 LABEL_7:
-    LODWORD(v7) = -1073741306;
-    goto LABEL_57;
+    WdLogEvent5_WdWarning(v18);
+    LODWORD(v11) = -1073741306;
+    goto LABEL_45;
   }
-  if ( Length != 8 )
+  if ( (_DWORD)v54 != 8 )
   {
-    WdLogSingleEntry1(3LL, 903LL);
+    v18 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+    *(_QWORD *)(v18 + 24) = 891LL;
     goto LABEL_7;
   }
-  v10 = (struct _GUID *)Parameters;
-  if ( (unsigned __int64)Parameters >= MmUserProbeAddress )
-    v10 = (struct _GUID *)MmUserProbeAddress;
-  v42 = *v10;
-  ProbeForWrite(Address, 8uLL, 1u);
-  v11 = CheckTokenForVMGroupMembership();
-  v7 = v11;
-  if ( v11 < 0 )
+  v19 = (__int128 *)v50;
+  if ( v50 >= MmUserProbeAddress )
+    v19 = (__int128 *)MmUserProbeAddress;
+  v20 = *v19;
+  v52[0] = *v19;
+  ProbeForWrite(UserBuffer, 8uLL, 1u);
+  v21 = CheckTokenForVMGroupMembership();
+  v11 = v21;
+  if ( v21 < 0 )
   {
-    WdLogSingleEntry1(2LL, v11);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v13,
-          v12,
-          v14,
-          0LL,
-          0,
-          -1,
-          L"CheckTokenForVMGroupMembership failed: 0x%I64x",
-          v7,
-          0LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v24 = WdLogNewEntry5_WdError(v23, v22);
+    *(_QWORD *)(v24 + 24) = v11;
+    WdLogEvent5_WdError(v24);
   }
-  if ( (int)v7 >= 0 )
+  if ( (int)v11 < 0 )
+    goto LABEL_43;
+  Current = DXGPROCESS::GetCurrent();
+  v54 = Current;
+  if ( Current )
   {
-    Current = (DXGVIRTUALMACHINE ***)DXGPROCESS::GetCurrent();
-    Parameters = (DXGVIRTUALMACHINE *)Current;
-    if ( Current )
+    LOBYTE(v27) = *((_BYTE *)Current + 347);
+    if ( (v27 & 0x10) != 0 )
     {
-      v29 = *((_DWORD *)Current + 106);
-      if ( (v29 & 0x80) != 0 )
-      {
-        if ( (v29 & 0x100) != 0 )
-          v8 = Current[76];
-        else
-          v8 = (DXGVIRTUALMACHINE **)((unsigned __int64)Current & -(__int64)((v29 & 0x80u) != 0));
-        LODWORD(v7) = 0;
-        goto LABEL_43;
-      }
-      LODWORD(v7) = -1073741811;
-      WdLogSingleEntry1(2LL, -1073741811LL);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v31,
-          v30,
-          v32,
-          0LL,
-          0,
-          -1,
-          L"Process is belonging to VM group, but not VMWP or VMMEM : 0x%I64x",
-          -1073741811LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+      if ( (v27 & 0x20) != 0 )
+        v12 = (DXGVIRTUALMACHINE **)*((_QWORD *)Current + 62);
+      else
+        v12 = (DXGVIRTUALMACHINE **)Current;
+      LODWORD(v11) = 0;
+      goto LABEL_33;
     }
-    else
+    v31 = WdLogNewEntry5_WdError(v27, v26);
+    v11 = -1073741811LL;
+    goto LABEL_31;
+  }
+  v28 = DXGPROCESS::CreateDxgProcess(&v54, 0LL, 0LL, 1u, 0LL, 0LL);
+  v11 = v28;
+  if ( v28 < 0
+    || ((v32 = *((_BYTE *)v54 + 347), (v32 & 0x20) == 0)
+      ? (v12 = (DXGVIRTUALMACHINE **)((unsigned __int64)v54 & -(__int64)((v32 & 0x10) != 0)))
+      : (v12 = (DXGVIRTUALMACHINE **)*((_QWORD *)v54 + 62)),
+        v33 = DXGPROCESSVMWP::InitializeVmwpProcess((DXGPROCESSVMWP *)v12, 0LL, 0LL, 0LL, 0LL, 0, 0LL),
+        v11 = v33,
+        v33 < 0) )
+  {
+    v31 = WdLogNewEntry5_WdError(v30, v29);
+LABEL_31:
+    *(_QWORD *)(v31 + 24) = v11;
+    WdLogEvent5_WdError(v31);
+    goto LABEL_32;
+  }
+  v34 = v12[62];
+  v35 = DXGVIRTUALMACHINE::InitializeVirtualMachine(v34, 0LL, 1u);
+  v11 = v35;
+  if ( v35 < 0 )
+  {
+    v38 = WdLogNewEntry5_WdError(v37, v36);
+    *(_QWORD *)(v38 + 24) = v11;
+    WdLogEvent5_WdError(v38);
+  }
+  *(_OWORD *)((char *)v34 + 248) = v20;
+LABEL_32:
+  if ( (int)v11 >= 0 )
+  {
+LABEL_33:
+    DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+      (DXGAUTOPUSHLOCKEXCLUSIVE *)v52,
+      (DXGVIRTUALMACHINE *)((char *)v12[62] + 64));
+    v13 = DXGVIRTUALMACHINE::ReferenceVailObject(v12[62]);
+    if ( !v13 )
     {
-      v16 = DXGPROCESS::CreateDxgProcess(&Parameters, 0LL, 0LL, 1u, 0LL);
-      v7 = v16;
-      if ( v16 >= 0 )
+      LODWORD(v11) = -1073741275;
+      v41 = WdLogNewEntry5_WdAssertion(v40, v39);
+      *(_QWORD *)(v41 + 24) = -1073741275LL;
+      *(_QWORD *)(v41 + 32) = 975LL;
+      WdLogEvent5_WdAssertion(v41);
+    }
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v52);
+    if ( (int)v11 >= 0 )
+    {
+      Handle = DxgkCompositionObject::CreateHandle(v13, 0xC0060000, v42, 1, v49);
+      v11 = Handle;
+      if ( Handle >= 0 )
       {
-        v20 = *((_DWORD *)Parameters + 106);
-        if ( (v20 & 0x100) != 0 )
-          v8 = (DXGVIRTUALMACHINE **)*((_QWORD *)Parameters + 76);
-        else
-          v8 = (DXGVIRTUALMACHINE **)((unsigned __int64)Parameters & -(__int64)((v20 & 0x80u) != 0));
-        v21 = DXGPROCESSVMWP::InitializeVmwpProcess((DXGPROCESSVMWP *)v8, 0LL, 0LL, 0LL, 0LL, 0, 0LL);
-        v7 = v21;
-        if ( v21 >= 0 )
-        {
-          Parameters = v8[76];
-          v25 = DXGVIRTUALMACHINE::InitializeVirtualMachine(Parameters, 0LL, 1u);
-          v7 = v25;
-          if ( v25 < 0 )
-          {
-            WdLogSingleEntry1(2LL, v25);
-            if ( bTracingEnabled )
-            {
-              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-                McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                  v27,
-                  v26,
-                  v28,
-                  0LL,
-                  0,
-                  -1,
-                  L"Failed to initalize virtual machine : 0x%I64x",
-                  v7,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-            }
-          }
-          DXGVIRTUALMACHINE::SetVmGuid(Parameters, &v42);
-        }
-        else
-        {
-          WdLogSingleEntry1(2LL, v21);
-          if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v23,
-              v22,
-              v24,
-              0LL,
-              0,
-              -1,
-              L"DXGPROCESS::InitializeVmwpProcess failed: : 0x%I64x",
-              v7,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
+        v53 = 8;
       }
       else
       {
-        WdLogSingleEntry1(2LL, v16);
-        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v18,
-            v17,
-            v19,
-            0LL,
-            0,
-            -1,
-            L"DXGPROCESS::CreateDxgProcess failed: : 0x%I64x",
-            v7,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+        v47 = WdLogNewEntry5_WdWarning(v45, v44, v46);
+        *(_QWORD *)(v47 + 24) = v11;
+        WdLogEvent5_WdWarning(v47);
       }
-    }
-    if ( (int)v7 >= 0 )
-    {
-LABEL_43:
-      DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
-        (DXGAUTOPUSHLOCKEXCLUSIVE *)&v42,
-        (struct _KTHREAD **)v8[76] + 8);
-      v9 = DXGVIRTUALMACHINE::ReferenceVailObject(v8[76]);
-      if ( !v9 )
+      if ( (int)v11 >= 0 )
       {
-        LODWORD(v7) = -1073741275;
-        WdLogSingleEntry2(1LL, -1073741275LL, 987LL);
-        if ( bTracingEnabled )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v34,
-              v33,
-              v35,
-              0LL,
-              2,
-              -1,
-              L"Failed to find Vail object: 0xI64x",
-              -1073741275LL,
-              987LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
-      }
-      DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)&v42);
-      if ( (int)v7 >= 0 )
-      {
-        Handle = DxgkCompositionObject::CreateHandle(v9, 0xC0060000, v36, 1, v41);
-        LODWORD(v7) = Handle;
-        if ( Handle >= 0 )
-          v43 = 8;
-        else
-          WdLogSingleEntry1(3LL, Handle);
-        if ( (int)v7 >= 0 )
-        {
-          v38 = (void **)Address;
-          if ( (unsigned __int64)Address >= MmUserProbeAddress )
-            v38 = (void **)MmUserProbeAddress;
-          *v38 = v41[0];
-        }
+        if ( (unsigned __int64)UserBuffer >= MmUserProbeAddress )
+          UserBuffer = (void **)MmUserProbeAddress;
+        *UserBuffer = v49[0];
       }
     }
   }
-  if ( v9 )
-    ObfDereferenceObject(v9);
-LABEL_57:
-  a2->IoStatus.Information = v43;
-  a2->IoStatus.Status = v7;
+LABEL_43:
+  if ( v13 )
+    ObfDereferenceObject(v13);
+LABEL_45:
+  a2->IoStatus.Information = v53;
+  a2->IoStatus.Status = v11;
   IofCompleteRequest(a2, 0);
-  return (unsigned int)v7;
+  return (unsigned int)v11;
 }

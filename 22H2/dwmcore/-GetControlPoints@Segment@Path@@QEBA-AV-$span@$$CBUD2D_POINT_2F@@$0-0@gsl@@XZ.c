@@ -1,30 +1,30 @@
 /*
- * XREFs of ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x1800D48AC
+ * XREFs of ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x18021F8C8
  * Callers:
- *     ?UpdateCurrentEndPoint@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x1800157D8 (-UpdateCurrentEndPoint@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
- *     ??Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ @ 0x1800D47F8 (--Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ.c)
- *     ??Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ @ 0x1800D484C (--Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ.c)
- *     ?GetControlPointsForModification@Segment@Path@@QEAA?AV?$span@UD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x180280718 (-GetControlPointsForModification@Segment@Path@@QEAA-AV-$span@UD2D_POINT_2F@@$0-0@gsl@@XZ.c)
+ *     ?GetControlPointsForModification@Segment@Path@@QEAA?AV?$span@UD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x18021F950 (-GetControlPointsForModification@Segment@Path@@QEAA-AV-$span@UD2D_POINT_2F@@$0-0@gsl@@XZ.c)
+ *     ?GetEndPoint@Segment@Path@@QEBA?AUD2D_POINT_2F@@XZ @ 0x18021F9A4 (-GetEndPoint@Segment@Path@@QEBA-AUD2D_POINT_2F@@XZ.c)
+ *     ??Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ @ 0x180220574 (--Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ.c)
+ *     ??Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ @ 0x1802205A4 (--Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 _QWORD *__fastcall Path::Segment::GetControlPoints(_BYTE *a1, _QWORD *a2)
 {
-  void *retaddr; // [rsp+28h] [rbp+0h]
+  const void *retaddr; // [rsp+28h] [rbp+0h]
 
   switch ( *a1 )
   {
     case 0:
-      goto LABEL_10;
+      goto LABEL_12;
     case 1:
       *a2 = 0LL;
       a2[1] = 0LL;
       return a2;
     case 2:
     case 3:
-LABEL_10:
+LABEL_12:
       *a2 = 1LL;
       break;
     case 4:
@@ -34,13 +34,13 @@ LABEL_10:
       *a2 = 3LL;
       break;
     default:
-      ModuleFailFastForHRESULT(2147942487LL, retaddr);
+      ModuleFailFastForHRESULT(-2147024809, retaddr);
   }
   a2[1] = a1 + 8;
   if ( a1 == (_BYTE *)-8LL )
   {
-    gsl::details::terminate((gsl::details *)0xFFFFFFFFFFFFFFF8LL);
-    JUMPOUT(0x1800D491ALL);
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
   }
   return a2;
 }

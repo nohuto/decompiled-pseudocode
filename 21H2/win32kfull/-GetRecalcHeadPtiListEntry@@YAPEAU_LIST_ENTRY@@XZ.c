@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C00A9230
+ * XREFs of ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C0011D8C
  * Callers:
- *     zzzReattachThreads @ 0x1C00A8E58 (zzzReattachThreads.c)
- *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C00A918C (-zzzRecalcThreadAttachment@@YAXXZ.c)
- *     ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C00A924C (-zzzRecalc2@@YAXPEAUtagQ@@@Z.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C0011CEC (-zzzRecalcThreadAttachment@@YAXXZ.c)
+ *     ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C0011DA8 (-zzzRecalc2@@YAXPEAUtagQ@@@Z.c)
  * Callees:
  *     <none>
  */

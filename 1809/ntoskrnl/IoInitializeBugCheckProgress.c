@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeBugCheckProgress @ 0x14027FED4
+ * XREFs of IoInitializeBugCheckProgress @ 0x14027FFD4
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeFrozenProcessorCount @ 0x140297224 (KeFrozenProcessorCount.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeFrozenProcessorCount @ 0x140297324 (KeFrozenProcessorCount.c)
  */
 
 __int64 __fastcall IoInitializeBugCheckProgress(int a1, __int64 a2)

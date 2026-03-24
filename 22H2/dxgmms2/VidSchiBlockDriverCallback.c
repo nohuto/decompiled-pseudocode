@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchiBlockDriverCallback @ 0x1C010A02C
+ * XREFs of VidSchiBlockDriverCallback @ 0x1C00D2FA4
  * Callers:
- *     VidSchiReportHwHang @ 0x1C0047458 (VidSchiReportHwHang.c)
- *     VidSchFlushAdapter @ 0x1C01070F0 (VidSchFlushAdapter.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
- *     VidSchPrepareForRecovery @ 0x1C0109E40 (VidSchPrepareForRecovery.c)
- *     VidSchQueryDmaData @ 0x1C0109E6C (VidSchQueryDmaData.c)
- *     VidSchQueryDmaHeader @ 0x1C0109F60 (VidSchQueryDmaHeader.c)
+ *     VidSchiReportHwHang @ 0x1C003D024 (VidSchiReportHwHang.c)
+ *     VidSchFlushAdapter @ 0x1C00CFF30 (VidSchFlushAdapter.c)
+ *     VidSchTerminateAdapter @ 0x1C00D1620 (VidSchTerminateAdapter.c)
+ *     VidSchPrepareForRecovery @ 0x1C00D2DA0 (VidSchPrepareForRecovery.c)
+ *     VidSchQueryDmaData @ 0x1C00D2DCC (VidSchQueryDmaData.c)
+ *     VidSchQueryDmaHeader @ 0x1C00D2EC0 (VidSchQueryDmaHeader.c)
  * Callees:
  *     <none>
  */

@@ -1,24 +1,24 @@
 /*
- * XREFs of PsOpenThread @ 0x1406634A0
+ * XREFs of PsOpenThread @ 0x140625D00
  * Callers:
- *     NtOpenThread @ 0x140663470 (NtOpenThread.c)
- *     NtAlpcOpenSenderThread @ 0x140663910 (NtAlpcOpenSenderThread.c)
+ *     NtOpenThread @ 0x140625CD0 (NtOpenThread.c)
+ *     NtAlpcOpenSenderThread @ 0x1406ACA40 (NtAlpcOpenSenderThread.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetThreadId @ 0x140230790 (PsGetThreadId.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsLookupProcessThreadByCid @ 0x140663880 (PsLookupProcessThreadByCid.c)
- *     SeCreateAccessState @ 0x14071F140 (SeCreateAccessState.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     PsLookupThreadByThreadId @ 0x1407A7D90 (PsLookupThreadByThreadId.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     PsGetThreadId @ 0x1402B62E0 (PsGetThreadId.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsLookupThreadByThreadId @ 0x140625630 (PsLookupThreadByThreadId.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
+ *     PsLookupProcessThreadByCid @ 0x14069F110 (PsLookupProcessThreadByCid.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsOpenThread(
@@ -37,54 +37,59 @@ __int64 __fastcall PsOpenThread(
   KPROCESSOR_MODE AccessMode; // r15
   NTSTATUS v16; // edi
   KPROCESSOR_MODE v17; // dl
-  char v19; // [rsp+42h] [rbp-2F6h] BYREF
-  KPROCESSOR_MODE v20; // [rsp+43h] [rbp-2F5h] BYREF
-  unsigned int v21; // [rsp+48h] [rbp-2F0h] BYREF
-  unsigned int v22; // [rsp+50h] [rbp-2E8h] BYREF
-  unsigned int v23; // [rsp+58h] [rbp-2E0h] BYREF
-  PETHREAD Thread; // [rsp+60h] [rbp-2D8h] BYREF
-  _QWORD *v25; // [rsp+68h] [rbp-2D0h] BYREF
-  HANDLE ThreadId[2]; // [rsp+70h] [rbp-2C8h] BYREF
-  ULONG HandleAttributes; // [rsp+80h] [rbp-2B8h]
-  HANDLE Handle; // [rsp+88h] [rbp-2B0h] BYREF
-  __int64 v29; // [rsp+90h] [rbp-2A8h] BYREF
-  struct _ACCESS_STATE PassedAccessState; // [rsp+A0h] [rbp-298h] BYREF
-  _BYTE v31[224]; // [rsp+140h] [rbp-1F8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+220h] [rbp-118h] BYREF
-  int *v33; // [rsp+230h] [rbp-108h]
-  __int64 v34; // [rsp+238h] [rbp-100h]
-  int *v35; // [rsp+240h] [rbp-F8h]
-  __int64 v36; // [rsp+248h] [rbp-F0h]
-  unsigned int *v37; // [rsp+250h] [rbp-E8h]
-  __int64 v38; // [rsp+258h] [rbp-E0h]
-  struct _EVENT_DATA_DESCRIPTOR v39; // [rsp+260h] [rbp-D8h] BYREF
-  unsigned int *v40; // [rsp+280h] [rbp-B8h]
-  __int64 v41; // [rsp+288h] [rbp-B0h]
-  int *v42; // [rsp+290h] [rbp-A8h]
-  __int64 v43; // [rsp+298h] [rbp-A0h]
-  int *v44; // [rsp+2A0h] [rbp-98h]
-  __int64 v45; // [rsp+2A8h] [rbp-90h]
-  _QWORD **v46; // [rsp+2B0h] [rbp-88h]
-  __int64 v47; // [rsp+2B8h] [rbp-80h]
-  char *v48; // [rsp+2C0h] [rbp-78h]
-  __int64 v49; // [rsp+2C8h] [rbp-70h]
-  KPROCESSOR_MODE *v50; // [rsp+2D0h] [rbp-68h]
-  __int64 v51; // [rsp+2D8h] [rbp-60h]
-  __int64 *v52; // [rsp+2E0h] [rbp-58h]
-  __int64 v53; // [rsp+2E8h] [rbp-50h]
+  char v19; // [rsp+42h] [rbp-306h] BYREF
+  KPROCESSOR_MODE v20; // [rsp+43h] [rbp-305h] BYREF
+  PETHREAD Thread; // [rsp+48h] [rbp-300h] BYREF
+  HANDLE ThreadId[2]; // [rsp+50h] [rbp-2F8h] BYREF
+  ULONG HandleAttributes; // [rsp+60h] [rbp-2E8h]
+  unsigned int v24; // [rsp+64h] [rbp-2E4h] BYREF
+  int v25; // [rsp+68h] [rbp-2E0h] BYREF
+  unsigned int v26; // [rsp+6Ch] [rbp-2DCh] BYREF
+  ULONG v27; // [rsp+70h] [rbp-2D8h] BYREF
+  int v28; // [rsp+78h] [rbp-2D0h] BYREF
+  int v29; // [rsp+80h] [rbp-2C8h] BYREF
+  unsigned int v30; // [rsp+88h] [rbp-2C0h] BYREF
+  NTSTATUS v31; // [rsp+90h] [rbp-2B8h] BYREF
+  HANDLE Handle; // [rsp+98h] [rbp-2B0h] BYREF
+  _QWORD *v33; // [rsp+A0h] [rbp-2A8h]
+  __int64 v34; // [rsp+A8h] [rbp-2A0h] BYREF
+  struct _ACCESS_STATE PassedAccessState; // [rsp+B0h] [rbp-298h] BYREF
+  _BYTE v36[224]; // [rsp+150h] [rbp-1F8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+230h] [rbp-118h] BYREF
+  int *v38; // [rsp+240h] [rbp-108h]
+  __int64 v39; // [rsp+248h] [rbp-100h]
+  int *v40; // [rsp+250h] [rbp-F8h]
+  __int64 v41; // [rsp+258h] [rbp-F0h]
+  NTSTATUS *v42; // [rsp+260h] [rbp-E8h]
+  __int64 v43; // [rsp+268h] [rbp-E0h]
+  struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+270h] [rbp-D8h] BYREF
+  unsigned int *v45; // [rsp+290h] [rbp-B8h]
+  __int64 v46; // [rsp+298h] [rbp-B0h]
+  int *v47; // [rsp+2A0h] [rbp-A8h]
+  __int64 v48; // [rsp+2A8h] [rbp-A0h]
+  int *v49; // [rsp+2B0h] [rbp-98h]
+  __int64 v50; // [rsp+2B8h] [rbp-90h]
+  ULONG *v51; // [rsp+2C0h] [rbp-88h]
+  __int64 v52; // [rsp+2C8h] [rbp-80h]
+  char *v53; // [rsp+2D0h] [rbp-78h]
+  __int64 v54; // [rsp+2D8h] [rbp-70h]
+  KPROCESSOR_MODE *v55; // [rsp+2E0h] [rbp-68h]
+  __int64 v56; // [rsp+2E8h] [rbp-60h]
+  __int64 *v57; // [rsp+2F0h] [rbp-58h]
+  __int64 v58; // [rsp+2F8h] [rbp-50h]
 
-  v25 = (_QWORD *)a1;
+  v33 = (_QWORD *)a1;
   Handle = 0LL;
   Thread = 0LL;
   *(_OWORD *)ThreadId = 0LL;
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
-  memset(v31, 0, sizeof(v31));
+  memset(v36, 0, sizeof(v36));
   v10 = 0;
   if ( a5 )
   {
-    v11 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v11 = a1;
+    v11 = a1;
+    if ( a1 >= 0x7FFFFFFF0000LL )
+      v11 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v11 = *(_QWORD *)v11;
     if ( (a3 & 3) == 0 )
     {
@@ -129,7 +134,7 @@ LABEL_11:
   {
     while ( 1 )
     {
-      v16 = SeCreateAccessState(&PassedAccessState, v31, a2, (char *)PsThreadType + 76);
+      v16 = SeCreateAccessState(&PassedAccessState, v36, a2, (char *)PsThreadType + 76);
       if ( v16 < 0 )
         break;
       if ( (v13 & 0x400) == 0 || (v17 = 1, v10) )
@@ -163,40 +168,40 @@ LABEL_27:
       v16 = ObOpenObjectByPointer(Thread, v13, &PassedAccessState, 0, (POBJECT_TYPE)PsThreadType, AccessMode, &Handle);
       SepDeleteAccessState((__int64)&PassedAccessState);
       SeReleaseSubjectContext(&PassedAccessState.SubjectSecurityContext);
-      ObfDereferenceObject(Thread);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Thread);
       if ( v16 >= 0 )
       {
-        *v25 = Handle;
-        if ( v10 && (unsigned int)dword_140C03048 > 5 && tlgKeywordOn((__int64)&dword_140C03048, 0x400000000000LL) )
+        *v33 = Handle;
+        if ( v10 && (unsigned int)dword_140C01AB0 > 5 && tlgKeywordOn((__int64)&dword_140C01AB0, 0x400000000000LL) )
         {
-          v21 = (unsigned int)PsGetThreadId(Thread);
-          v40 = &v21;
-          v41 = 4LL;
-          v22 = (unsigned int)ThreadId[0];
-          v42 = (int *)&v22;
-          v43 = 4LL;
-          v23 = a2;
-          v44 = (int *)&v23;
-          v45 = 4LL;
-          LODWORD(v25) = v13;
-          v46 = &v25;
-          v47 = 4LL;
+          v24 = (unsigned int)PsGetThreadId(Thread);
+          v45 = &v24;
+          v46 = 4LL;
+          v25 = (int)ThreadId[0];
+          v47 = &v25;
+          v48 = 4LL;
+          v26 = a2;
+          v49 = (int *)&v26;
+          v50 = 4LL;
+          v27 = v13;
+          v51 = &v27;
+          v52 = 4LL;
           v19 = a5;
-          v48 = &v19;
-          v49 = 1LL;
+          v53 = &v19;
+          v54 = 1LL;
           v20 = AccessMode;
-          v50 = &v20;
-          v51 = 1LL;
-          v29 = 0x1000000LL;
-          v52 = &v29;
-          v53 = 8LL;
+          v55 = &v20;
+          v56 = 1LL;
+          v34 = 0x1000000LL;
+          v57 = &v34;
+          v58 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C03048,
-            (unsigned __int8 *)word_140034112,
+            (__int64)&dword_140C01AB0,
+            (unsigned __int8 *)byte_14002C243,
             0LL,
             0LL,
             9u,
-            &v39);
+            &v44);
         }
         break;
       }
@@ -205,18 +210,18 @@ LABEL_27:
       v10 = 1;
     }
   }
-  v21 = v16;
-  v22 = a2;
-  v23 = (unsigned int)ThreadId[1];
-  LODWORD(v25) = ThreadId[0];
-  UserData.Ptr = (ULONGLONG)&v25;
+  v31 = v16;
+  v30 = a2;
+  v29 = (int)ThreadId[1];
+  v28 = (int)ThreadId[0];
+  UserData.Ptr = (ULONGLONG)&v28;
   *(_QWORD *)&UserData.Size = 4LL;
-  v33 = (int *)&v23;
-  v34 = 4LL;
-  v35 = (int *)&v22;
-  v36 = 4LL;
-  v37 = &v21;
-  v38 = 4LL;
+  v38 = &v29;
+  v39 = 4LL;
+  v40 = (int *)&v30;
+  v41 = 4LL;
+  v42 = &v31;
+  v43 = 4LL;
   EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_OPENTHREAD, 0LL, 4u, &UserData);
   return (unsigned int)v16;
 }

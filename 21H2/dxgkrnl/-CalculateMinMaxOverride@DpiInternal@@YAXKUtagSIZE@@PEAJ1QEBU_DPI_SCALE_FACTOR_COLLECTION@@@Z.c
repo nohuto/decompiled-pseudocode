@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C001DCE8
+ * XREFs of ?CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C0019F08
  * Callers:
- *     ?FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@H@Z @ 0x1C001980C (-FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DP.c)
+ *     ?FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@H@Z @ 0x1C000C074 (-FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DP.c)
  * Callees:
- *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C001DDB8 (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
+ *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0019FD8 (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
  */
 
 void __fastcall DpiInternal::CalculateMinMaxOverride(

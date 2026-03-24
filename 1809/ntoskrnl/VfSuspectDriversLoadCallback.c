@@ -4,8 +4,8 @@
  *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
- *     VfTargetDriversAdd @ 0x1400F5584 (VfTargetDriversAdd.c)
- *     VfTargetDriversRemove @ 0x14016C1C0 (VfTargetDriversRemove.c)
+ *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
  *     VfUtilPrintCheckinString @ 0x140926214 (VfUtilPrintCheckinString.c)
@@ -158,13 +158,13 @@ LABEL_37:
     Entry = (__int64)VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
     if ( !Entry )
       goto LABEL_45;
-    v15 = (__int64 *)qword_14040D7A8;
-    if ( *(__int64 **)qword_14040D7A8 != &VfSuspectDriversList )
+    v15 = (__int64 *)qword_14040D778;
+    if ( *(__int64 **)qword_14040D778 != &VfSuspectDriversList )
       __fastfail(3u);
     *(_QWORD *)Entry = &VfSuspectDriversList;
     *(_QWORD *)(Entry + 8) = v15;
     *v15 = Entry;
-    qword_14040D7A8 = Entry;
+    qword_14040D778 = Entry;
     goto LABEL_44;
   }
 LABEL_57:

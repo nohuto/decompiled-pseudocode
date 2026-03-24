@@ -1,65 +1,46 @@
 /*
- * XREFs of ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01CDA78
+ * XREFs of ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01976C0
  * Callers:
- *     ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C01E2CC0 (-OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
+ *     ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C00B4C30 (-OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z @ 0x1C01CD228 (-IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z.c)
- *     ApiSetEditionCreateEdgePalmRejectionZones @ 0x1C0205D68 (ApiSetEditionCreateEdgePalmRejectionZones.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z @ 0x1C0197050 (-IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z.c)
+ *     ApiSetEditionCreateEdgePalmRejectionZones @ 0x1C01CAC44 (ApiSetEditionCreateEdgePalmRejectionZones.c)
  */
 
-void __fastcall CTouchProcessor::OnRimDeviceOpened(CTouchProcessor *this, void *a2)
+void __fastcall CTouchProcessor::OnRimDeviceOpened(CTouchProcessor *this, unsigned __int64 a2)
 {
-  void *v2; // rdi
-  CTouchProcessor *v3; // rcx
-  char v4; // bl
-  char v5; // r8
-  int v6; // eax
-  int v7; // edx
+  unsigned __int64 v2; // rbx
+  int v3; // edx
 
   v2 = a2;
-  v3 = (CTouchProcessor *)WPP_GLOBAL_Control;
-  v4 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a2) = 0;
+    this = (CTouchProcessor *)WPP_GLOBAL_Control;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(a2) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        a2,
+        7,
+        329,
+        (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+    }
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (v5 = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    v5 = 0;
-  }
-  if ( (_BYTE)a2 || v5 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      v5,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      4,
-      332,
-      (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
-  LOBYTE(v6) = CTouchProcessor::IsTouchDevice(v3, v2);
-  if ( v6 )
+  if ( CTouchProcessor::IsTouchDevice(this, v2) )
     ApiSetEditionCreateEdgePalmRejectionZones(v2);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 8) == 0
-    || (LOBYTE(v7) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v7) = 0;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v3) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v3,
+        7,
+        330,
+        (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+    }
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v4 = 0;
-  if ( (_BYTE)v7 || v4 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v7,
-      v4,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      4,
-      333,
-      (__int64)&WPP_2c5ea56a6e6f31fa38ff36b2483c7d67_Traceguids);
 }

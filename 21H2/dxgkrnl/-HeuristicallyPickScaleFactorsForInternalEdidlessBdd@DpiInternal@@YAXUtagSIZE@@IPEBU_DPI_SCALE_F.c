@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@DpiInternal@@YAXUtagSIZE@@IPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@@Z @ 0x1C004F2EC
+ * XREFs of ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@DpiInternal@@YAXUtagSIZE@@IPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@@Z @ 0x1C004BA48
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01D4AE8 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0145660 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
  * Callees:
- *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C001DDB8 (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
+ *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0019FD8 (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
  */
 
 void __fastcall DpiInternal::HeuristicallyPickScaleFactorsForInternalEdidlessBdd(

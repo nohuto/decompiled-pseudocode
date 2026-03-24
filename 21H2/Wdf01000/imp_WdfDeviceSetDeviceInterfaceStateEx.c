@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDeviceSetDeviceInterfaceStateEx @ 0x1C006FDF0
+ * XREFs of imp_WdfDeviceSetDeviceInterfaceStateEx @ 0x1C001BAE0
  * Callers:
  *     <none>
  * Callees:
- *     WdfDeviceSetDeviceInterfaceStateWorker @ 0x1C00343A8 (WdfDeviceSetDeviceInterfaceStateWorker.c)
+ *     WdfDeviceSetDeviceInterfaceStateWorker @ 0x1C001B960 (WdfDeviceSetDeviceInterfaceStateWorker.c)
  */
 
 void __fastcall imp_WdfDeviceSetDeviceInterfaceStateEx(
@@ -11,7 +11,7 @@ void __fastcall imp_WdfDeviceSetDeviceInterfaceStateEx(
         WDFDEVICE__ *Device,
         const _GUID *InterfaceClassGUID,
         const _UNICODE_STRING *RefString,
-        BOOLEAN IsInterfaceEnabled)
+        unsigned __int8 IsInterfaceEnabled)
 {
   WdfDeviceSetDeviceInterfaceStateWorker(
     DriverGlobals,

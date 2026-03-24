@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIsCapabilitySid @ 0x14022A824
+ * XREFs of SepIsCapabilitySid @ 0x14030DAAC
  * Callers:
- *     SepMaximumAccessCheck @ 0x14022A180 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheckEx @ 0x14022AB08 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x140233520 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x1403CD610 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x1402D1160 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x1402D1A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1403743A4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1403744CC (SepNormalAccessCheckEx.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
  */
 
 bool __fastcall SepIsCapabilitySid(__int64 a1)

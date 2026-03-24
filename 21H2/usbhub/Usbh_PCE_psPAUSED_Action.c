@@ -1,23 +1,23 @@
 /*
- * XREFs of Usbh_PCE_psPAUSED_Action @ 0x1C001BF60
+ * XREFs of Usbh_PCE_psPAUSED_Action @ 0x1C00195F0
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     UsbhRefPdo @ 0x1C0002030 (UsbhRefPdo.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhFreePortChangeQueueObject @ 0x1C000D6AC (UsbhFreePortChangeQueueObject.c)
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     UsbhSignalSyncDeviceResetPdo @ 0x1C000F168 (UsbhSignalSyncDeviceResetPdo.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhFlushPortChangeQueue @ 0x1C001D610 (UsbhFlushPortChangeQueue.c)
- *     UsbhSignalDriverResetEvent @ 0x1C001DF64 (UsbhSignalDriverResetEvent.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhSignalPauseEvent @ 0x1C0034938 (UsbhSignalPauseEvent.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
+ *     UsbhRefPdo @ 0x1C0002310 (UsbhRefPdo.c)
+ *     UsbhFlushPortChangeQueue @ 0x1C0002580 (UsbhFlushPortChangeQueue.c)
+ *     UsbhFreePortChangeQueueObject @ 0x1C0002648 (UsbhFreePortChangeQueueObject.c)
+ *     UsbhSignalPauseEvent @ 0x1C00027A0 (UsbhSignalPauseEvent.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C001518C (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0017FEC (UsbhSignalDriverResetEvent.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
  */
 
 void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
   KIRQL v8; // al
   __int64 v9; // r8
   KIRQL v10; // r13
-  unsigned __int16 v11; // r9
+  __int64 v11; // r9
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // r8
@@ -105,7 +105,7 @@ void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
   v9 = *(unsigned __int16 *)(a2 + 4);
   v10 = v8;
   *(_DWORD *)(a2 + 448) = 1;
-  v11 = v9;
+  v11 = (unsigned __int16)v9;
   if ( (UsbhLogMask & 0x10) != 0 )
   {
     v12 = *(_QWORD *)(a1 + 64);
@@ -118,7 +118,7 @@ void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
       *(_QWORD *)(v13 + 8) = 0LL;
       *(_QWORD *)(v13 + 16) = 19LL;
       *(_QWORD *)(v13 + 24) = v9;
-      v11 = *(_WORD *)(a2 + 4);
+      v11 = *(unsigned __int16 *)(a2 + 4);
     }
   }
   v14 = *(int *)(a2 + 12);
@@ -131,7 +131,7 @@ void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
           + 32LL
           * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v15 + 880)) & *(_DWORD *)(v15 + 884));
       *(_DWORD *)v16 = 724267376;
-      *(_QWORD *)(v16 + 24) = v11;
+      *(_QWORD *)(v16 + 24) = (unsigned __int16)v11;
       *(_QWORD *)(v16 + 8) = 0LL;
       *(_QWORD *)(v16 + 16) = v14;
     }
@@ -148,7 +148,7 @@ void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
   v19 = *(_DWORD *)(a2 + 12);
   if ( v19 != 12 && (v19 < 5 || v19 > 6 && v19 != 16) )
   {
-    UsbhFlushPortChangeQueue(a1, a2);
+    UsbhFlushPortChangeQueue(a1, a2, v14, v11);
     v47 = v19 - 10;
     if ( v47 )
     {
@@ -268,8 +268,8 @@ void __fastcall Usbh_PCE_psPAUSED_Action(__int64 a1, __int64 a2, __int64 a3)
       *(_QWORD *)(v37 + 24) = 1884308559LL;
     }
   }
-  v38 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-  WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))&WPP_MAIN_CB.Dpc.DeferredContext;
+  v38 = KeAcquireSpinLockRaiseToDpc(&HubG);
+  qword_1C006C500 = (__int64)&dword_1C006C508;
   if ( (UsbhLogMask & 8) != 0 )
   {
     v39 = *(_QWORD *)(a1 + 64);
@@ -318,8 +318,8 @@ LABEL_76:
     }
   }
 LABEL_48:
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v38);
+  qword_1C006C500 = 0LL;
+  KeReleaseSpinLock(&HubG, v38);
   if ( (UsbhLogMask & 0x200) != 0 )
   {
     v45 = *(_QWORD *)(a1 + 64);

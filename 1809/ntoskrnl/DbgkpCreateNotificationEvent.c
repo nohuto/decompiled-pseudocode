@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkpCreateNotificationEvent @ 0x140727AD8
+ * XREFs of DbgkpCreateNotificationEvent @ 0x140727AB8
  * Callers:
- *     DbgkpInitializePhase1SiloState @ 0x140727A9C (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x140727A7C (DbgkpInitializePhase1SiloState.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE00 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE20 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
  */
 
 NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)

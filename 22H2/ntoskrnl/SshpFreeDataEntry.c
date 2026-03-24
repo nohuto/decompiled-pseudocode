@@ -1,13 +1,13 @@
 /*
- * XREFs of SshpFreeDataEntry @ 0x1409A17B8
+ * XREFs of SshpFreeDataEntry @ 0x1408FAC68
  * Callers:
- *     SleepstudyHelperCreateBlockerData @ 0x1409A1D80 (SleepstudyHelperCreateBlockerData.c)
- *     SleepstudyHelperDestroyBlockerData @ 0x1409A1F10 (SleepstudyHelperDestroyBlockerData.c)
- *     SleepstudyHelperDestroyLibrary @ 0x1409A1F40 (SleepstudyHelperDestroyLibrary.c)
+ *     SleepstudyHelperCreateBlockerData @ 0x1408FB810 (SleepstudyHelperCreateBlockerData.c)
+ *     SleepstudyHelperDestroyBlockerData @ 0x1408FB9B0 (SleepstudyHelperDestroyBlockerData.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1408FB9E0 (SleepstudyHelperDestroyLibrary.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D18C (SSHSupportReleasePushLockExclusive.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x140322E08 (SSHSupportReleasePushLockExclusive.c)
  */
 
 void __fastcall SshpFreeDataEntry(_QWORD *a1)
@@ -22,7 +22,7 @@ void __fastcall SshpFreeDataEntry(_QWORD *a1)
     __fastfail(3u);
   *v3 = v2;
   *(_QWORD *)(v2 + 8) = v3;
-  SSHSupportReleasePushLockExclusive((volatile signed __int64 *)(a1[2] + 16LL));
+  SSHSupportReleasePushLockExclusive(a1[2] + 16LL);
   for ( i = 0; i < *((_DWORD *)a1 + 10); ++i )
     CmpFreeTransientPoolWithTag((void *)a1[4 * i + 7], *(_DWORD *)(a1[2] + 24LL));
   CmpFreeTransientPoolWithTag(a1, *(_DWORD *)(a1[2] + 24LL));

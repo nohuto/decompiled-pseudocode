@@ -1,11 +1,11 @@
 /*
- * XREFs of EngQueryW32kCddInterface @ 0x1C00BD920
+ * XREFs of EngQueryW32kCddInterface @ 0x1C00AAEA0
  * Callers:
  *     <none>
  * Callees:
- *     UserIsWddmConnectedSession @ 0x1C0071CE0 (UserIsWddmConnectedSession.c)
- *     ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00BDAAC (-GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z.c)
- *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00C5210 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
+ *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C0015C00 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
+ *     UserIsWddmConnectedSession @ 0x1C001DEB0 (UserIsWddmConnectedSession.c)
+ *     ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00AB02C (-GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z.c)
  */
 
 __int64 __fastcall EngQueryW32kCddInterface(void *a1, _QWORD *a2, __int64 a3, _QWORD *a4, _DWORD *a5, _QWORD *a6)
@@ -39,7 +39,7 @@ __int64 __fastcall EngQueryW32kCddInterface(void *a1, _QWORD *a2, __int64 a3, _Q
   v11[13] = W32kCddSetDeviceBitmapAdapterLuid;
   if ( !(unsigned int)UserIsWddmConnectedSession() )
   {
-    if ( (unsigned int)IsCddCddRemoteSessionFilteringAllowed()
+    if ( IsCddCddRemoteSessionFilteringAllowed()
       && ((*((_DWORD *)GraphicsDeviceFromDevObjHandle + 40) & 0x4000000) != 0 || gbForceCddRemoteSessionBitmapSupport) )
     {
       v14 = *((_QWORD *)GraphicsDeviceFromDevObjHandle + 35);
@@ -64,11 +64,11 @@ LABEL_6:
     v13 = *(_QWORD *)(a3 + 112);
     if ( v13 )
     {
-      a2[328] = v13;
-      a2[329] = *(_QWORD *)(a3 + 128);
-      a2[330] = *(_QWORD *)(a3 + 152);
-      a2[331] = *(_QWORD *)(a3 + 136);
-      a2[332] = *(_QWORD *)(a3 + 144);
+      a2[331] = v13;
+      a2[332] = *(_QWORD *)(a3 + 128);
+      a2[333] = *(_QWORD *)(a3 + 152);
+      a2[334] = *(_QWORD *)(a3 + 136);
+      a2[335] = *(_QWORD *)(a3 + 144);
     }
     else
     {

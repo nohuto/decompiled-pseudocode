@@ -1,8 +1,8 @@
 /*
- * XREFs of ?RestoreAnyFlagsModifiedBeforeCallingBML@CCD_TOPOLOGY@@QEAAHPEBU_LUID@@@Z @ 0x1C03A9E54
+ * XREFs of ?RestoreAnyFlagsModifiedBeforeCallingBML@CCD_TOPOLOGY@@QEAAHPEBU_LUID@@@Z @ 0x1C02EB4A0
  * Callers:
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C01B5124 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
- *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03A9374 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C013AEF4 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C02EA94C (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -24,16 +24,16 @@ __int64 __fastcall CCD_TOPOLOGY::RestoreAnyFlagsModifiedBeforeCallingBML(CCD_TOP
     do
     {
       v7 = v2;
-      v8 = 296LL * v6;
-      if ( *(_DWORD *)(v8 + v2 + 72) == a2->LowPart && *(_DWORD *)(v8 + v2 + 76) == a2->HighPart )
+      v8 = 272LL * v6;
+      if ( *(_DWORD *)(v8 + v2 + 64) == a2->LowPart && *(_DWORD *)(v8 + v2 + 68) == a2->HighPart )
       {
-        v9 = *(_QWORD *)(v8 + v2 + 56);
+        v9 = *(_QWORD *)(v8 + v2 + 48);
         if ( (v9 & 0x10000000000000LL) != 0 )
         {
-          *(_QWORD *)(v8 + v2 + 56) = v9 & 0xFFFFFFFFFFFFFEFEuLL;
+          *(_QWORD *)(v8 + v2 + 48) = v9 & 0xFFFFFFFFFFFFFEFEuLL;
           v3 = 1;
-          *(_QWORD *)(v8 + *((_QWORD *)this + 8) + 64) &= 0xFFFFFFFFFFFFFEFEuLL;
-          *(_QWORD *)(v8 + *((_QWORD *)this + 8) + 56) &= ~0x10000000000000uLL;
+          *(_QWORD *)(v8 + *((_QWORD *)this + 8) + 56) &= 0xFFFFFFFFFFFFFEFEuLL;
+          *(_QWORD *)(v8 + *((_QWORD *)this + 8) + 48) &= ~0x10000000000000uLL;
           v7 = *((_QWORD *)this + 8);
         }
       }

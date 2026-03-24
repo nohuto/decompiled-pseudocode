@@ -1,10 +1,10 @@
 /*
- * XREFs of PpProfileBeginHardwareProfileTransition @ 0x14094FB70
+ * XREFs of PpProfileBeginHardwareProfileTransition @ 0x1408AB378
  * Callers:
- *     PipProcessStartPhase1 @ 0x1407491FC (PipProcessStartPhase1.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase1 @ 0x14073DE6C (PipProcessStartPhase1.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall PpProfileBeginHardwareProfileTransition(char a1)

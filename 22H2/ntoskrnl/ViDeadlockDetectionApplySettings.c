@@ -1,27 +1,25 @@
 /*
- * XREFs of ViDeadlockDetectionApplySettings @ 0x140AD9D8C
+ * XREFs of ViDeadlockDetectionApplySettings @ 0x1409DF26C
  * Callers:
- *     ViDeadlockPluginUnload @ 0x1405D18A0 (ViDeadlockPluginUnload.c)
- *     VfDeadlockInitialize @ 0x140AD847C (VfDeadlockInitialize.c)
- *     VfDeadlockPluginEntry @ 0x140AD88C8 (VfDeadlockPluginEntry.c)
- *     VfSettingsCheckForChanges @ 0x140ADBDA4 (VfSettingsCheckForChanges.c)
+ *     VfDeadlockInitialize @ 0x1409DDEF0 (VfDeadlockInitialize.c)
+ *     VfSettingsCheckForChanges @ 0x1409E048C (VfSettingsCheckForChanges.c)
  * Callees:
- *     ViLowerIrql @ 0x1405D1B48 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1BC0 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockDetectionLock @ 0x140AD9DD8 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD9E10 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockEmptyDatabase @ 0x140AD9E40 (ViDeadlockEmptyDatabase.c)
+ *     ViLowerIrql @ 0x1405A23F8 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405A2470 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2BC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x1409DF2F4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockEmptyDatabase @ 0x1409DF324 (ViDeadlockEmptyDatabase.c)
  */
 
-__int64 __fastcall ViDeadlockDetectionApplySettings(int a1)
+__int64 ViDeadlockDetectionApplySettings()
 {
-  unsigned __int8 v1; // bl
+  unsigned __int8 v0; // bl
 
-  if ( !a1 )
+  if ( (MmVerifierData & 0x20) == 0 )
     return ViDeadlockEmptyDatabase();
-  v1 = ViRaiseIrqlToDpcLevel();
+  v0 = ViRaiseIrqlToDpcLevel();
   ViDeadlockDetectionLock(1LL);
   ViDeadlockDetectionEnabled = 1;
   ViDeadlockDetectionUnlock(1LL);
-  return ViLowerIrql(v1);
+  return ViLowerIrql(v0);
 }

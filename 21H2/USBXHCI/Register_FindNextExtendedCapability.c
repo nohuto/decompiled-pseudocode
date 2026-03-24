@@ -1,9 +1,9 @@
 /*
- * XREFs of Register_FindNextExtendedCapability @ 0x1C0018848
+ * XREFs of Register_FindNextExtendedCapability @ 0x1C00198A0
  * Callers:
- *     RootHub_PrepareHardware @ 0x1C006F968 (RootHub_PrepareHardware.c)
+ *     RootHub_PrepareHardware @ 0x1C006F400 (RootHub_PrepareHardware.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
  */
 
 unsigned int *__fastcall Register_FindNextExtendedCapability(__int64 a1, unsigned int *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqFreeGenericTableEntry @ 0x1406CED10
+ * XREFs of PiDqFreeGenericTableEntry @ 0x1406CECF0
  * Callers:
  *     <none>
  * Callees:

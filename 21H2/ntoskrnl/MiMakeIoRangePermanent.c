@@ -1,140 +1,210 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x140591814
+ * XREFs of MiMakeIoRangePermanent @ 0x140536BB8
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x140591A10 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x140536E90 (MiMakeIoRangePermanentDpc.c)
  * Callees:
- *     MiUnlockIoPfnTree @ 0x140216544 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1402165BC (MiLockIoPfnTree.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14026A230 (MiFlushEntireTbDueToAttributeChange.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     MiRemoveUnmappedIoNode @ 0x140297F50 (MiRemoveUnmappedIoNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
 {
-  unsigned __int64 v1; // r14
-  bool v2; // bl
-  int v4; // r13d
-  unsigned __int64 v5; // rdi
-  int v6; // esi
-  char v7; // r12
-  unsigned __int64 v8; // rdi
-  _QWORD *v9; // rdx
+  unsigned __int64 v1; // rdi
+  int v3; // r14d
+  int v4; // r12d
+  unsigned __int64 v5; // rbx
+  KIRQL v6; // r15
+  unsigned __int64 v7; // rbx
+  _QWORD *v8; // rcx
   bool i; // zf
-  unsigned __int64 v11; // r9
-  _QWORD *v12; // rax
-  unsigned __int64 v13; // r8
-  unsigned __int16 *v14; // rsi
-  unsigned __int16 *v15; // r15
-  unsigned __int16 v16; // ax
-  __int64 v17; // rax
-  _QWORD *v18; // rdx
-  _QWORD *v19; // rax
+  unsigned __int64 v10; // rax
+  _QWORD *v11; // rax
+  __int64 v12; // r9
+  __int64 v13; // rdx
+  _WORD *v14; // rcx
+  __int64 v15; // rax
+  unsigned __int64 v16; // rax
+  _QWORD *v17; // rsi
+  __int64 v18; // rcx
+  _QWORD *v19; // rdx
+  bool v20; // r8
+  unsigned __int64 v21; // rcx
+  _QWORD *v22; // rax
+  unsigned __int64 v23; // rax
+  unsigned __int64 v24; // rcx
+  _QWORD *v25; // rdx
+  bool v26; // r8
+  _QWORD *v27; // rax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v31; // eax
+  PVOID v32; // rbx
+  KIRQL v34; // [rsp+60h] [rbp+8h]
+  PVOID P; // [rsp+70h] [rbp+18h] BYREF
 
   v1 = *(_QWORD *)(a1 + 24);
-  v2 = 0;
+  v3 = 0;
   v4 = *(_DWORD *)(a1 + 40);
   v5 = *(_QWORD *)(a1 + 32) - v1;
-  v6 = 0;
-  v7 = 0;
-  MiLockIoPfnTree(6);
-  v8 = v5 + 1;
-  if ( !v8 )
+  P = 0LL;
+  v34 = ExAcquireSpinLockExclusive(&dword_140C4EC40);
+  v6 = v34;
+  v7 = v5 + 1;
+  if ( !v7 )
   {
-LABEL_28:
-    v18 = (_QWORD *)qword_140C53158;
-    if ( qword_140C53158 )
+LABEL_32:
+    v25 = (_QWORD *)qword_140C4ECA0;
+    v26 = 0;
+    if ( qword_140C4ECA0 )
     {
       while ( 1 )
       {
-        if ( *(_QWORD *)(a1 + 32) >= v18[3] )
+        if ( *(_QWORD *)(a1 + 32) < v25[3] )
         {
-          if ( *(_QWORD *)(a1 + 24) <= v18[4] )
-          {
-            ++dword_140C531A4;
-            v6 = -1073741800;
-            goto LABEL_32;
-          }
-          v19 = (_QWORD *)v18[1];
-          if ( !v19 )
-          {
-            v2 = 1;
+          v27 = (_QWORD *)*v25;
+          if ( !*v25 )
             break;
-          }
         }
         else
         {
-          v19 = (_QWORD *)*v18;
-          if ( !*v18 )
+          if ( *(_QWORD *)(a1 + 24) <= v25[4] )
+          {
+            ++dword_140C4EC98;
+            v3 = -1073741800;
+            goto LABEL_38;
+          }
+          v27 = (_QWORD *)v25[1];
+          if ( !v27 )
+          {
+            v26 = 1;
             break;
+          }
         }
-        v18 = v19;
+        v25 = v27;
       }
     }
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C53158, (unsigned __int64)v18, v2, (_QWORD *)a1);
-    goto LABEL_32;
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4ECA0, (unsigned __int64)v25, v26, (_QWORD *)a1);
+    goto LABEL_38;
   }
   do
   {
-    v9 = (_QWORD *)*((_QWORD *)&xmmword_140C53100 + 1);
-    for ( i = *((_QWORD *)&xmmword_140C53100 + 1) == 0LL; ; i = v12 == 0LL )
+    v8 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC48 + 1);
+    for ( i = *((_QWORD *)&xmmword_140C4EC48 + 1) == 0LL; !i; i = v11 == 0LL )
     {
-      if ( i )
+      v10 = v8[5];
+      if ( v1 < v10 )
       {
-        v17 = v8;
-        if ( 512 - (v1 & 0x1FF) <= v8 )
-          v17 = 512 - (v1 & 0x1FF);
-        v8 -= v17;
-        v1 += v17;
-        goto LABEL_24;
+        v11 = (_QWORD *)*v8;
       }
-      v11 = v9[3];
-      if ( v1 < v11 )
+      else
       {
-        v12 = (_QWORD *)*v9;
-        goto LABEL_8;
+        if ( v1 < v10 + 512 )
+        {
+          v12 = v8[6];
+          v13 = (v1 & 0xFFFFFFFFFLL) - v10;
+          v14 = (_WORD *)(v12 + 2 * v13);
+          if ( v1 + v7 <= v10 + 512 )
+            v15 = 2 * (v7 + v13);
+          else
+            v15 = 1024LL;
+          while ( (unsigned __int64)v14 < v12 + v15 )
+          {
+            if ( (*v14 & 0x3FFF) != 0 )
+            {
+              if ( (unsigned __int16)*v14 >> 14 != v4 )
+              {
+                ++dword_140C4EC94;
+                v3 = -1073741800;
+                v7 = 0LL;
+                goto LABEL_30;
+              }
+            }
+            else
+            {
+              *v14 = 0x4000;
+            }
+            ++v14;
+            ++v1;
+            --v7;
+          }
+          goto LABEL_30;
+        }
+        v11 = (_QWORD *)v8[1];
       }
-      if ( v1 < v11 + 512 )
-        break;
-      v12 = (_QWORD *)v9[1];
-LABEL_8:
-      v9 = v12;
+      v8 = v11;
     }
-    v13 = (v1 & ((1LL << ((unsigned __int8)dword_140C50720 - 12)) - 1)) - v11;
-    v14 = (unsigned __int16 *)v9 + v13 + 40;
-    if ( v1 + v8 <= v11 + 512 )
-      v15 = (unsigned __int16 *)v9 + v8 + v13 + 40;
-    else
-      v15 = (unsigned __int16 *)(v9 + 138);
-    while ( v14 < v15 )
+    v16 = MiRemoveUnmappedIoNode((unsigned __int64 *)&qword_140C4EC58, v1);
+    v17 = (_QWORD *)v16;
+    if ( !v16 )
     {
-      v16 = *v14;
-      if ( *v14 >> 14 != v4 )
-      {
-        if ( (v16 & 0x3FFF) != 0 )
-        {
-          ++dword_140C531A0;
-          v6 = -1073741800;
-          goto LABEL_27;
-        }
-        if ( (v16 & 0xC000) != 0xC000 && !v7 )
-        {
-          MiFlushEntireTbDueToAttributeChange();
-          v7 = 1;
-        }
-        *v14 = (_WORD)v4 << 14;
-      }
-      ++v14;
-      ++v1;
-      --v8;
+      v18 = v1 & 0x1FF;
+      goto LABEL_27;
     }
-LABEL_24:
-    v6 = 0;
-  }
-  while ( v8 );
+    v19 = P;
+    v20 = 0;
+    v21 = *(_QWORD *)(v16 + 40);
+    if ( !P )
+      goto LABEL_26;
+    while ( v21 < v19[5] )
+    {
+      v22 = (_QWORD *)*v19;
+      if ( !*v19 )
+        goto LABEL_26;
+LABEL_47:
+      v19 = v22;
+    }
+    v22 = (_QWORD *)v19[1];
+    if ( v22 )
+      goto LABEL_47;
+    v20 = 1;
+LABEL_26:
+    RtlAvlInsertNodeEx((unsigned __int64 *)&P, (unsigned __int64)v19, v20, v17);
+    v18 = (v1 & 0xFFFFFFFFFLL) - v17[5];
 LABEL_27:
-  if ( v6 >= 0 )
-    goto LABEL_28;
-LABEL_32:
-  MiUnlockIoPfnTree(0x11u, 6);
-  return (unsigned int)v6;
+    v23 = 512 - v18;
+    v24 = v7;
+    if ( v23 <= v7 )
+      v24 = v23;
+    v7 -= v24;
+    v1 += v24;
+LABEL_30:
+    ;
+  }
+  while ( v7 );
+  v6 = v34;
+  if ( v3 >= 0 )
+    goto LABEL_32;
+LABEL_38:
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC40);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v31 = ~(unsigned __int16)(-1LL << (v6 + 1));
+        i = (v31 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v31;
+        if ( i )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(v6);
+  while ( P )
+  {
+    v32 = P;
+    RtlAvlRemoveNode((unsigned __int64 *)&P, (unsigned __int64 *)P);
+    ExFreePoolWithTag(v32, 0);
+  }
+  return (unsigned int)v3;
 }

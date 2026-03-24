@@ -1,104 +1,102 @@
 /*
- * XREFs of MiSignalLargePageRebuild @ 0x14021D444
+ * XREFs of MiSignalLargePageRebuild @ 0x14033BFF0
  * Callers:
- *     MiWorkingSetManager @ 0x14021D610 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x14033BC70 (MiWorkingSetManager.c)
  * Callees:
- *     MiPageCombiningActive @ 0x14021AB7C (MiPageCombiningActive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiNodeLargeFreeZeroPages @ 0x1402D75E0 (MiNodeLargeFreeZeroPages.c)
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeLargePageRebuild @ 0x14065E28C (MiWakeLargePageRebuild.c)
+ *     MiPageCombiningActive @ 0x140283EA0 (MiPageCombiningActive.c)
+ *     MiNodeFreeZeroPages @ 0x140299324 (MiNodeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1402994C0 (MiNodeLargeFreeZeroPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     MiWakeLargePageRebuild @ 0x14038CF00 (MiWakeLargePageRebuild.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall MiSignalLargePageRebuild(__int64 a1)
+__int64 __fastcall MiSignalLargePageRebuild(__int64 a1)
 {
-  int v1; // eax
+  __int64 result; // rax
   unsigned __int8 CurrentIrql; // si
   unsigned int i; // ebx
   __int64 v5; // rdi
-  volatile LONG *v6; // r15
-  bool v7; // zf
+  bool v6; // zf
+  unsigned __int64 v7; // r12
+  unsigned int v8; // r13d
+  unsigned __int64 v9; // r14
+  unsigned int v10; // r15d
   _DWORD *SchedulerAssist; // r9
-  __int64 v9; // rdx
-  unsigned __int64 v10; // r12
-  unsigned int v11; // r13d
-  unsigned __int64 v12; // r14
-  unsigned int v13; // r15d
-  int v14; // eax
-  unsigned __int8 v15; // al
+  unsigned __int8 v12; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
+  _DWORD *v14; // r8
+  int v15; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 4);
-  if ( (v1 & 0x10) == 0 )
+  result = *(unsigned int *)(a1 + 4);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( (result & 0x20) == 0 )
   {
-    LOBYTE(v1) = MiPageCombiningActive(a1);
-    if ( !v1 )
+    result = MiPageCombiningActive(a1);
+    if ( (_DWORD)result != 1 )
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( CurrentIrql == 2 )
-          LODWORD(v9) = 4;
-        else
-          v9 = (-1LL << (CurrentIrql + 1)) & 4;
-        SchedulerAssist[5] |= v9;
+        SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
       for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
       {
-        v5 = *(_QWORD *)(a1 + 16) + 25408LL * i;
-        v6 = (volatile LONG *)(v5 + 23104);
-        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v5 + 23104));
+        LockHandle.LockQueue.Next = 0LL;
+        v5 = *(_QWORD *)(a1 + 16) + 4544LL * i;
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 4328);
+        KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v5 + 4328));
         if ( !*(_BYTE *)(v5 + 3249) )
         {
-          v7 = (*(_BYTE *)(v5 + 3248))-- == 1;
-          if ( v7 )
+          v6 = (*(_BYTE *)(v5 + 3248))-- == 1;
+          if ( v6 )
           {
-            v10 = 0LL;
-            v11 = 0;
-            v12 = (-(__int64)(*(_BYTE *)(v5 + 3251) != 0) & 0xFFFFFFFFFFFFE100uLL) + 0x2000;
+            v7 = 0LL;
+            v8 = 0;
+            v9 = (-(__int64)(*(_BYTE *)(v5 + 3251) != 0) & 0xFFFFFFFFFFFFE100uLL) + 0x2000;
             if ( MmNumberOfChannels )
             {
-              v13 = MmNumberOfChannels;
+              v10 = MmNumberOfChannels;
               do
-                v10 += MiNodeFreeZeroPages(v5, v11++, 0LL);
-              while ( v11 < v13 );
-              v6 = (volatile LONG *)(v5 + 23104);
+                v7 += MiNodeFreeZeroPages(v5, v8++, 0);
+              while ( v8 < v10 );
             }
-            if ( v10 < v12
+            if ( v7 < v9
               || (MiFlags & 0x30) == 0
-              || (unsigned __int64)MiNodeLargeFreeZeroPages(v5, 4LL, 2LL) >> 3 >= v10
-              || (v14 = MiWakeLargePageRebuild(a1, i, 1LL)) == 0 )
+              || (unsigned __int64)MiNodeLargeFreeZeroPages((_QWORD *)v5, 4u, 2) >> 3 >= v7
+              || !(unsigned int)MiWakeLargePageRebuild(a1, i, 1LL) )
             {
               *(_BYTE *)(v5 + 3250) = 8;
               *(_BYTE *)(v5 + 3248) = 8;
             }
           }
         }
-        ExReleaseSpinLockExclusiveFromDpcLevel(v6);
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       }
       if ( KiIrqlFlags )
       {
-        v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v17 = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v7 = (v18 & v17[5]) == 0;
-          v17[5] &= v18;
-          if ( v7 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v12 = KeGetCurrentIrql();
+          if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v14 = CurrentPrcb->SchedulerAssist;
+            v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v6 = (v15 & v14[5]) == 0;
+            v14[5] &= v15;
+            if ( v6 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
-      LOBYTE(v1) = CurrentIrql;
+      result = CurrentIrql;
       __writecr8(CurrentIrql);
     }
   }
-  return v1;
+  return result;
 }

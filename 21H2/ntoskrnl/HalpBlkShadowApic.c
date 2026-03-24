@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkShadowApic @ 0x140B4D1B8
+ * XREFs of HalpBlkShadowApic @ 0x140A8E008
  * Callers:
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140B4D124 (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpBlkAddVirtualMapping @ 0x140B4CCF8 (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkAddVirtualMapping @ 0x140A8DB4C (HalpBlkAddVirtualMapping.c)
  */
 
 __int64 HalpBlkShadowApic()

@@ -1,26 +1,22 @@
 /*
- * XREFs of ?iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C0279E28
+ * XREFs of ?iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027C2B8
  * Callers:
- *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C013D690 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C00A8FFC (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?fBlockExtEscape@@YAHAEAVDCOBJ@@@Z @ 0x1C013DBEC (-fBlockExtEscape@@YAHAEAVDCOBJ@@@Z.c)
- *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C013DC30 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C02837E0 (-vForceClientRgnUpdate@@YAXXZ.c)
- *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A4808 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C00A73C8 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?fBlockExtEscape@@YAHAEAVDCOBJ@@@Z @ 0x1C00A95F0 (-fBlockExtEscape@@YAHAEAVDCOBJ@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0286C34 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A6DE0 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
  */
 
-__int64 __fastcall iWndObjSetupExtEscape(
-        struct DCOBJ *a1,
-        unsigned int a2,
-        unsigned int a3,
-        void *a4,
-        unsigned int a5,
-        void *a6)
+__int64 __fastcall iWndObjSetupExtEscape(struct DCOBJ *a1, __int64 a2, __int64 a3, void *a4, unsigned int a5, void *a6)
 {
+  unsigned int v7; // r14d
+  unsigned int v8; // r15d
   __int64 v11; // r8
   __int64 v12; // rax
   HDEV v13; // rbx
@@ -34,9 +30,11 @@ __int64 __fastcall iWndObjSetupExtEscape(
   _BYTE v21[64]; // [rsp+80h] [rbp-58h] BYREF
   HDEV v22; // [rsp+E0h] [rbp+8h] BYREF
 
+  v7 = a3;
+  v8 = a2;
   if ( *(_QWORD *)(*(_QWORD *)a1 + 496LL) )
   {
-    UserEnterUserCritSec();
+    UserEnterUserCritSec(a1, a2, a3);
     DLODCOBJ::DLODCOBJ((DLODCOBJ *)v20);
     DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v19, a1, 0);
     if ( (unsigned int)fBlockExtEscape(a1) )
@@ -54,17 +52,17 @@ __int64 __fastcall iWndObjSetupExtEscape(
       v15 = (struct _SURFOBJ *)v14;
       if ( DeviceHdev )
       {
-        if ( *(_QWORD *)(*(_QWORD *)a1 + 496LL) == *((_QWORD *)v13 + 316) )
-          v15 = (struct _SURFOBJ *)((*((_QWORD *)DeviceHdev + 316) + 24LL) & ((unsigned __int128)-(__int128)*((unsigned __int64 *)DeviceHdev + 316) >> 64));
+        if ( *(_QWORD *)(*(_QWORD *)a1 + 496LL) == *((_QWORD *)v13 + 319) )
+          v15 = (struct _SURFOBJ *)((*((_QWORD *)DeviceHdev + 319) + 24LL) & ((unsigned __int128)-(__int128)*((unsigned __int64 *)DeviceHdev + 319) >> 64));
         else
           v15 = (struct _SURFOBJ *)v14;
         v13 = DeviceHdev;
         v22 = DeviceHdev;
       }
     }
-    if ( *((_QWORD *)v13 + 357) )
+    if ( *((_QWORD *)v13 + 360) )
     {
-      v17 = PDEVOBJ::Escape((PDEVOBJ *)&v22, v15, a2, a3, a4, a5, a6);
+      v17 = PDEVOBJ::Escape((PDEVOBJ *)&v22, v15, v8, v7, a4, a5, a6);
       if ( gbWndobjUpdate )
       {
         gbWndobjUpdate = 0;

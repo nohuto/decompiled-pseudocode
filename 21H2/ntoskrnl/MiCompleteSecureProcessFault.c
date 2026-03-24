@@ -1,119 +1,102 @@
 /*
- * XREFs of MiCompleteSecureProcessFault @ 0x1405A6E74
+ * XREFs of MiCompleteSecureProcessFault @ 0x140548184
  * Callers:
- *     MiAllocateWsle @ 0x140322F10 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x14045C52A (MiValidVirtualizationFault.c)
+ *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x140548F5C (MiValidVirtualizationFault.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140268408 (MiReleaseFreshPage.c)
- *     MiAbortCombineScan @ 0x140268998 (MiAbortCombineScan.c)
- *     MiMarkPfnVerified @ 0x14026C644 (MiMarkPfnVerified.c)
- *     MiIsPfnFromSlabAllocation @ 0x140277C50 (MiIsPfnFromSlabAllocation.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     MiGetPfnChannel @ 0x1402E8990 (MiGetPfnChannel.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402E89B0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiTradeActivePage @ 0x1402EA95C (MiTradeActivePage.c)
- *     MiGetSlabPage @ 0x1402EB440 (MiGetSlabPage.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCaptureDirtyBitToPfn @ 0x14033C2A0 (MiCaptureDirtyBitToPfn.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiTradeActivePage @ 0x1402B65F0 (MiTradeActivePage.c)
+ *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
+ *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14030FB10 (MiCaptureDirtyBitToPfn.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiCompleteSecureProcessFault(__m128i **a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiCompleteSecureProcessFault(__int64 *a1, __int64 *a2, __int64 *a3)
 {
-  __m128i *v4; // rsi
-  __int64 v6; // r12
-  unsigned __int64 v7; // r15
-  unsigned __int64 v8; // rbp
-  int v10; // ebx
-  int PfnChannel; // eax
-  _QWORD *v12; // r13
+  __int64 v3; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // r15
+  unsigned __int64 v11; // rbp
+  __int64 v12; // r8
+  unsigned __int64 v13; // rdi
   __int64 SlabPage; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __m128i *v17; // rbx
-  __int64 v18; // rax
-  unsigned __int64 v19; // rax
-  __m128i **v20; // [rsp+70h] [rbp+8h] BYREF
-  _QWORD *v21; // [rsp+78h] [rbp+10h]
-  int v22; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v15; // r9
+  __int64 v16; // rsi
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  unsigned __int64 v22; // rax
+  int v23; // [rsp+28h] [rbp-30h]
+  int v24; // [rsp+60h] [rbp+8h] BYREF
+  int v25; // [rsp+78h] [rbp+20h] BYREF
 
-  v21 = (_QWORD *)a2;
-  v20 = a1;
-  v4 = *a1;
-  if ( (*a1)[2].m128i_i64[1] >= 0 )
+  v3 = *a1;
+  if ( !MI_PFN_IS_PROTO(*a1) )
   {
-    v22 = 0;
-    while ( _interlockedbittestandset64(&v4[1].m128i_i32[2], 0x3FuLL) )
+    v24 = 0;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v3 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v22, a2, a3, a4);
-      while ( v4[1].m128i_i64[1] < 0 );
+        KeYieldProcessorEx(&v24, v7, v8, v9);
+      while ( *(__int64 *)(v3 + 24) < 0 );
     }
-    v6 = *(_QWORD *)(qword_140C51F48 + 8 * (((unsigned __int64)v4[2].m128i_i64[1] >> 43) & 0x3FF));
-    v7 = v4->m128i_i64[1] | 0x8000000000000000uLL;
-    v8 = (__int64)(v7 << 25) >> 16;
-    if ( (v4[2].m128i_i8[2] & 8) != 0 )
+    v10 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v3 + 40) >> 39) & 0x3FFLL));
+    v11 = *(_QWORD *)(v3 + 8) | 0x8000000000000000uLL;
+    v12 = 0x7FFFFFFFFFFFFFFFLL;
+    v13 = (__int64)(v11 << 25) >> 16;
+    if ( (*(_DWORD *)(v10 + 4) & 8) != 0 && !MiIsPfnFromSlabAllocation(v3) && v13 < 0xFFFF800000000000uLL )
     {
-      *(_DWORD *)(a3 + 56) |= 0x40u;
-      _InterlockedAnd64(&v4[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
-      return 0LL;
-    }
-    if ( (*(_DWORD *)(v6 + 4) & 8) != 0 && !MiIsPfnFromSlabAllocation((__int64)v4) && v8 < 0xFFFF800000000000uLL )
-    {
-      _InterlockedAnd64(&v4[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
-      v10 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)v4[0x22000000000LL].m128i_i64 >> 4)) + 2);
-      PfnChannel = MiGetPfnChannel((__int64)v4);
-      v12 = (_QWORD *)(a3 + 48);
-      SlabPage = MiGetSlabPage(
-                   v6,
-                   2,
-                   (PfnChannel << byte_140C506CD) | dword_140C50738 & (-1431655765
-                                                                     * ((__int64)v4[0x22000000000LL].m128i_i64 >> 4)) | (v10 << byte_140C506CC),
-                   0,
-                   v12,
-                   0);
+      _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), v12);
+      SlabPage = MiGetSlabPage(v10, 0x18u, 0, a3, 0);
       if ( SlabPage == -1 )
       {
-        if ( *v12 )
+        if ( *a3 )
           return 0LL;
       }
       else
       {
-        v17 = (__m128i *)(48 * SlabPage - 0x220000000000LL);
-        if ( (unsigned int)MiTradeActivePage(v4, v17, v8, 1u, 0, 0) )
+        v16 = 48 * SlabPage - 0x58000000000LL;
+        if ( (unsigned int)MiTradeActivePage(v3, v16, v13, 1u, 0, v23) )
         {
-          v4[1].m128i_i64[0] = ZeroPte;
-          MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)&v4[1]);
-          MiReleaseFreshPage((__int64)v4);
-          v4 = v17;
-          v18 = MI_READ_PTE_LOCK_FREE(v7);
-          *v21 = v18;
-          *v20 = v17;
+          *(_QWORD *)(v3 + 16) = ZeroPte;
+          MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v3 + 16));
+          MiReleaseFreshPage(v3, v19, v20);
+          v3 = v16;
+          *a2 = MI_READ_PTE_LOCK_FREE(v11);
+          *a1 = v16;
         }
         else
         {
-          MiReleaseFreshPage((__int64)v17);
+          MiReleaseFreshPage(v16, v17, v18);
         }
       }
-      LODWORD(v20) = 0;
-      while ( _interlockedbittestandset64(&v4[1].m128i_i32[2], 0x3FuLL) )
+      v25 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v3 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v20, v14, v15, v16);
-        while ( v4[1].m128i_i64[1] < 0 );
+          KeYieldProcessorEx(&v25, v7, v12, v15);
+        while ( *(__int64 *)(v3 + 24) < 0 );
       }
     }
-    if ( (((unsigned __int64)v4[2].m128i_i64[1] >> 60) & 7) != 3 )
+    if ( ((*(_QWORD *)(v3 + 40) >> 60) & 7) != 3 )
     {
-      MiAbortCombineScan((__int64)v4);
-      MiMarkPfnVerified((ULONG_PTR)v4, 4);
+      MiAbortCombineScan(v3, v7, v12);
+      MiMarkPfnVerified(v3, 4);
     }
-    v19 = MiCaptureDirtyBitToPfn((__int64)v4);
-    _InterlockedAnd64(&v4[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
-    if ( v19 )
-      MiReleasePageFileInfo(v6, v19, 1);
+    v22 = MiCaptureDirtyBitToPfn(v3);
+    _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( v22 )
+      MiReleasePageFileInfo(v10, v22, 1);
   }
   return 1LL;
 }

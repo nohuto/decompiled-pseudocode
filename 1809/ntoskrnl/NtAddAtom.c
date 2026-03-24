@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAddAtom @ 0x1408D7160
+ * XREFs of NtAddAtom @ 0x1408D7140
  * Callers:
  *     <none>
  * Callees:
- *     NtAddAtomEx @ 0x1406AC980 (NtAddAtomEx.c)
+ *     NtAddAtomEx @ 0x1406AC960 (NtAddAtomEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

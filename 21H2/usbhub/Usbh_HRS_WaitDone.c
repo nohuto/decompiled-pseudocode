@@ -1,12 +1,12 @@
 /*
- * XREFs of Usbh_HRS_WaitDone @ 0x1C003D518
+ * XREFs of Usbh_HRS_WaitDone @ 0x1C003E6F8
  * Callers:
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhReleaseResetLock @ 0x1C0031400 (UsbhReleaseResetLock.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhReleaseResetLock @ 0x1C0032678 (UsbhReleaseResetLock.c)
  */
 
 __int64 __fastcall Usbh_HRS_WaitDone(__int64 a1, int a2)

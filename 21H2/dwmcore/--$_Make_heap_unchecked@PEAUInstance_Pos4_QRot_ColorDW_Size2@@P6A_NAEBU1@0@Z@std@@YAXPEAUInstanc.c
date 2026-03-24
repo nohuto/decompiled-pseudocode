@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$_Make_heap_unchecked@PEAUInstance_Pos4_QRot_ColorDW_Size2@@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos4_QRot_ColorDW_Size2@@0P6A_NAEBU1@1@Z@Z @ 0x1801EFCF8
+ * XREFs of ??$_Make_heap_unchecked@PEAUInstance_Pos4_QRot_ColorDW_Size2@@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos4_QRot_ColorDW_Size2@@0P6A_NAEBU1@1@Z@Z @ 0x1801A94C0
  * Callers:
- *     ??$_Sort_unchecked@PEAUInstance_Pos4_QRot_ColorDW_Size2@@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos4_QRot_ColorDW_Size2@@0_JP6A_NAEBU1@2@Z@Z @ 0x1801F04D4 (--$_Sort_unchecked@PEAUInstance_Pos4_QRot_ColorDW_Size2@@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos.c)
+ *     ??$_Sort_unchecked@PEAUInstance_Pos4_QRot_ColorDW_Size2@@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos4_QRot_ColorDW_Size2@@0_JP6A_NAEBU1@2@Z@Z @ 0x1801A9C78 (--$_Sort_unchecked@PEAUInstance_Pos4_QRot_ColorDW_Size2@@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos.c)
  * Callees:
- *     ??$_Pop_heap_hole_by_index@PEAUInstance_Pos4_QRot_ColorDW_Size2@@U1@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos4_QRot_ColorDW_Size2@@_J1$$QEAU1@P6A_NAEBU1@3@Z@Z @ 0x1801F021C (--$_Pop_heap_hole_by_index@PEAUInstance_Pos4_QRot_ColorDW_Size2@@U1@P6A_NAEBU1@0@Z@std@@YAXPEAUI.c)
+ *     ??$_Pop_heap_hole_by_index@PEAUInstance_Pos4_QRot_ColorDW_Size2@@U1@P6A_NAEBU1@0@Z@std@@YAXPEAUInstance_Pos4_QRot_ColorDW_Size2@@_J1$$QEAU1@P6A_NAEBU1@3@Z@Z @ 0x1801A997C (--$_Pop_heap_hole_by_index@PEAUInstance_Pos4_QRot_ColorDW_Size2@@U1@P6A_NAEBU1@0@Z@std@@YAXPEAUI.c)
  */
 
 __int64 __fastcall std::_Make_heap_unchecked<Instance_Pos4_QRot_ColorDW_Size2 *,bool (*)(Instance_Pos4_QRot_ColorDW_Size2 const &,Instance_Pos4_QRot_ColorDW_Size2 const &)>(
@@ -11,37 +11,39 @@ __int64 __fastcall std::_Make_heap_unchecked<Instance_Pos4_QRot_ColorDW_Size2 *,
         __int64 a2,
         __int64 a3)
 {
-  __int64 result; // rax
+  __int64 v3; // rdx
   int v5; // ebp
-  signed __int64 v6; // rsi
-  __int64 v7; // rdi
-  _OWORD *v8; // rbx
-  __int128 v9; // xmm1
-  _OWORD v10[3]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 result; // rax
+  __int64 v7; // rsi
+  __int64 v8; // rdi
+  _OWORD *v9; // rbx
+  __int128 v10; // xmm1
+  _OWORD v11[3]; // [rsp+30h] [rbp-38h] BYREF
 
-  result = 0xAAAAAAAAAAAAAAABuLL;
+  v3 = (unsigned __int128)((a2 - a1) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
   v5 = a1;
-  v6 = 0xAAAAAAAAAAAAAAABuLL * ((a2 - a1) >> 4);
-  v7 = v6 >> 1;
-  if ( v6 >> 1 > 0 )
+  result = (unsigned __int64)v3 >> 63;
+  v7 = ((unsigned __int64)v3 >> 63) + (v3 >> 3);
+  v8 = v7 >> 1;
+  if ( v7 >> 1 > 0 )
   {
-    v8 = (_OWORD *)(a1 + 48 * v7);
+    v9 = (_OWORD *)(a1 + 48 * v8);
     do
     {
-      v8 -= 3;
-      v9 = v8[1];
-      --v7;
-      v10[0] = *v8;
-      v10[2] = v8[2];
-      v10[1] = v9;
+      v9 -= 3;
+      v10 = v9[1];
+      --v8;
+      v11[0] = *v9;
+      v11[2] = v9[2];
+      v11[1] = v10;
       result = std::_Pop_heap_hole_by_index<Instance_Pos4_QRot_ColorDW_Size2 *,Instance_Pos4_QRot_ColorDW_Size2,bool (*)(Instance_Pos4_QRot_ColorDW_Size2 const &,Instance_Pos4_QRot_ColorDW_Size2 const &)>(
                  v5,
+                 v8,
                  v7,
-                 v6,
-                 (unsigned int)v10,
+                 (unsigned int)v11,
                  a3);
     }
-    while ( v7 > 0 );
+    while ( v8 > 0 );
   }
   return result;
 }

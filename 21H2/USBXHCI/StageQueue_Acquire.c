@@ -1,8 +1,8 @@
 /*
- * XREFs of StageQueue_Acquire @ 0x1C000ED90
+ * XREFs of StageQueue_Acquire @ 0x1C000D158
  * Callers:
- *     Bulk_Stage_Acquire @ 0x1C000ECDC (Bulk_Stage_Acquire.c)
- *     Isoch_Stage_Acquire @ 0x1C0042E98 (Isoch_Stage_Acquire.c)
+ *     Bulk_Stage_Acquire @ 0x1C000D0A4 (Bulk_Stage_Acquire.c)
+ *     Isoch_Stage_Acquire @ 0x1C0042478 (Isoch_Stage_Acquire.c)
  * Callees:
  *     <none>
  */

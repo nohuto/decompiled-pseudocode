@@ -1,30 +1,30 @@
 /*
- * XREFs of NewGlobalHeap @ 0x1C0022190
+ * XREFs of NewGlobalHeap @ 0x1C0024270
  * Callers:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall NewGlobalHeap(_QWORD *a1)
 {
   unsigned int v2; // esi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v4; // rdi
   __int64 v5; // rbx
 
   v2 = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, (unsigned int)gdwGlobalHeapBlkSize, 1215065409LL);
-  *a1 = Pool2;
-  v4 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)gdwGlobalHeapBlkSize, 0x486C6D41u);
+  *a1 = PoolWithTag;
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v5 = (unsigned int)gdwGlobalHeapBlkSize;
-    memset(Pool2, 0, (unsigned int)gdwGlobalHeapBlkSize);
+    memset(PoolWithTag, 0, (unsigned int)gdwGlobalHeapBlkSize);
     *(_DWORD *)v4 = 1346454856;
     v4[1] = (char *)v4 + v5;
     v4[4] = v4 + 7;

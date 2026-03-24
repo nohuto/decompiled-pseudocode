@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqqtq_EtwWriteTransfer @ 0x1C015112C
+ * XREFs of McTemplateK0qqqtq_EtwWriteTransfer @ 0x1C0126B24
  * Callers:
- *     EtwTraceTouchPadAAP @ 0x1C014E860 (EtwTraceTouchPadAAP.c)
+ *     EtwTraceTouchPadAAP @ 0x1C0123C20 (EtwTraceTouchPadAAP.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqtq_EtwWriteTransfer(

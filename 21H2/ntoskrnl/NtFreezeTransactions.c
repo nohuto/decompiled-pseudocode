@@ -1,5 +1,5 @@
 /*
- * XREFs of NtFreezeTransactions @ 0x1403DFB00
+ * XREFs of NtFreezeTransactions @ 0x1403D0800
  * Callers:
  *     <none>
  * Callees:

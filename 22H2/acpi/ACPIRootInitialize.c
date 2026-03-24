@@ -1,247 +1,191 @@
 /*
- * XREFs of ACPIRootInitialize @ 0x1C0093778
+ * XREFs of ACPIRootInitialize @ 0x1C0097FAC
  * Callers:
- *     ACPITableLoad @ 0x1C003F190 (ACPITableLoad.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _ACPIInternalError @ 0x1C0001B74 (_ACPIInternalError.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C002D5B4 (ACPIInitReferenceDeviceExtension.c)
- *     ACPIInternalSetDeviceInterface @ 0x1C002EF2C (ACPIInternalSetDeviceInterface.c)
- *     ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C003C91C (ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice.c)
- *     ACPIEvaluateDsmEmcaMethodOnRootBus @ 0x1C003CA68 (ACPIEvaluateDsmEmcaMethodOnRootBus.c)
- *     ACPIFixedFeatureButtonInitialize @ 0x1C003CBC8 (ACPIFixedFeatureButtonInitialize.c)
- *     ACPIRootDeviceNotifyPepDiscoverDevice @ 0x1C003CE9C (ACPIRootDeviceNotifyPepDiscoverDevice.c)
- *     ACPIVerifyUSB4Presence @ 0x1C003D87C (ACPIVerifyUSB4Presence.c)
- *     IsHypervisorLpiCapable @ 0x1C003DA7C (IsHypervisorLpiCapable.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C00483D8 (AMLIGetNameSpaceObject.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
- *     AMLISetNSObjectContext @ 0x1C0048EAC (AMLISetNSObjectContext.c)
- *     HviGetHypervisorFeatures @ 0x1C005ED30 (HviGetHypervisorFeatures.c)
- *     ACPIAmliEvaluateOsc @ 0x1C007C7E8 (ACPIAmliEvaluateOsc.c)
- *     ACPIPccLegacyInitialize @ 0x1C00897B8 (ACPIPccLegacyInitialize.c)
- *     OSCreateHandle @ 0x1C008DB64 (OSCreateHandle.c)
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
- *     OSReadRegValue @ 0x1C008E6B0 (OSReadRegValue.c)
- *     OSWriteRegValue @ 0x1C008EC40 (OSWriteRegValue.c)
- *     ACPIEvaluateOscMethodOnRootBus @ 0x1C0093590 (ACPIEvaluateOscMethodOnRootBus.c)
- *     ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C00935F8 (ACPIEvaluateOscWheaMethodOnRootBus.c)
- *     ACPIWriteOscSupportToRegistry @ 0x1C0094AB0 (ACPIWriteOscSupportToRegistry.c)
- *     IsHypervisorCpcCapable @ 0x1C0094BA8 (IsHypervisorCpcCapable.c)
+ *     AMLISetNSObjectContext @ 0x1C0002778 (AMLISetNSObjectContext.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIEvaluateDsmEmcaMethodOnRootBus @ 0x1C0010534 (ACPIEvaluateDsmEmcaMethodOnRootBus.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     ACPIRootDeviceNotifyPepDiscoverDevice @ 0x1C002A59C (ACPIRootDeviceNotifyPepDiscoverDevice.c)
+ *     ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C002A884 (ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice.c)
+ *     ACPIFixedFeatureButtonInitialize @ 0x1C0031290 (ACPIFixedFeatureButtonInitialize.c)
+ *     IsHypervisorLpiCapable @ 0x1C00319D0 (IsHypervisorLpiCapable.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _ACPIInternalError @ 0x1C004F5D4 (_ACPIInternalError.c)
+ *     ACPIWriteOscSupportToRegistry @ 0x1C0096C6C (ACPIWriteOscSupportToRegistry.c)
+ *     OSCreateHandle @ 0x1C0096D28 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C0096E28 (OSWriteRegValue.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00982D0 (ACPIPccLegacyInitialize.c)
+ *     ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C0098640 (ACPIEvaluateOscWheaMethodOnRootBus.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C009A3A0 (ACPIAmliEvaluateOsc.c)
+ *     ACPIEvaluateOscMethodOnRootBus @ 0x1C00B4F44 (ACPIEvaluateOscMethodOnRootBus.c)
+ *     IsHypervisorCpcCapable @ 0x1C00B54B0 (IsHypervisorCpcCapable.c)
  */
 
 __int64 ACPIRootInitialize()
 {
-  unsigned __int16 v0; // r15
-  unsigned int v1; // r12d
-  int v2; // edi
-  int v3; // r14d
-  unsigned int v4; // r13d
-  int v5; // edx
-  __int64 v6; // rbx
-  __int64 *v7; // rcx
-  volatile signed __int32 *v8; // rbx
-  __int64 *v9; // rsi
-  __int64 v10; // rdx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  bool v16; // al
-  bool v17; // bl
-  unsigned __int16 v18; // si
-  unsigned __int16 v19; // bx
-  USHORT ActiveGroupCount; // ax
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  unsigned int v26; // ebx
-  _QWORD *v27; // rcx
-  __int64 v28; // r8
-  int v29; // r9d
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // rcx
-  unsigned __int8 v33; // al
-  bool v34; // cc
-  _QWORD *v35; // rax
-  HANDLE Handle; // [rsp+30h] [rbp-50h] BYREF
-  int v38; // [rsp+38h] [rbp-48h] BYREF
-  int v39[4]; // [rsp+40h] [rbp-40h] BYREF
-  int v40[4]; // [rsp+50h] [rbp-30h] BYREF
-  __int64 Data; // [rsp+60h] [rbp-20h] BYREF
-  _BYTE v42[8]; // [rsp+68h] [rbp-18h] BYREF
+  unsigned int v0; // edi
+  int v1; // esi
+  int v2; // r12d
+  __int64 v3; // rbx
+  __int64 *v4; // rcx
+  __int64 *v5; // rbx
+  __int64 *v6; // r14
+  int v7; // edx
+  int v8; // ecx
+  int v9; // r8d
+  int v10; // r9d
+  bool v11; // al
+  bool v12; // bl
+  USHORT HighestNodeNumber; // ax
+  __int64 v14; // rcx
+  USHORT v15; // bx
+  USHORT v16; // r14
+  unsigned __int16 v17; // r15
+  int v18; // r8d
+  __int64 v19; // rcx
+  int v20; // r8d
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  unsigned __int8 v24; // al
+  bool v25; // cc
+  _QWORD *v26; // rax
+  USHORT Count[2]; // [rsp+30h] [rbp-50h] BYREF
+  _DWORD v29[3]; // [rsp+34h] [rbp-4Ch] BYREF
+  HANDLE Handle[2]; // [rsp+40h] [rbp-40h] BYREF
+  int v31[4]; // [rsp+50h] [rbp-30h] BYREF
+  __int128 Data; // [rsp+60h] [rbp-20h] BYREF
 
+  v29[0] = 0;
+  Count[0] = 0;
+  *(_QWORD *)v31 = 0LL;
   v0 = 0;
-  v38 = 0;
   Data = 0LL;
-  v42[0] = 0;
-  *(_QWORD *)v39 = 0LL;
   v1 = 0;
-  Usb4ControlGranted = 0;
   v2 = 0;
-  v3 = 0;
-  LOBYTE(v4) = 0;
-  if ( (int)AMLIGetNameSpaceObject("\\_SB", 0LL, (__int64)v39, 0) < 0 )
+  if ( (int)AMLIGetNameSpaceObject("\\_SB", 0LL, (unsigned __int64 *)v31, 0) < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v5) = 2;
       WPP_RECORDER_SF_(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v5,
-        22,
-        30,
-        (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids);
-    }
-    ACPIInternalError(0x110B98uLL);
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x16u,
+        0x1Du,
+        (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids);
+    ACPIInternalError(0x110ACCuLL);
   }
   ACPIInitReferenceDeviceExtension(RootDeviceExtension);
-  v6 = *(_QWORD *)v39;
-  v7 = *(__int64 **)v39;
-  *(_QWORD *)(RootDeviceExtension + 760) = *(_QWORD *)v39;
-  AMLISetNSObjectContext(v7, RootDeviceExtension);
+  v3 = *(_QWORD *)v31;
+  v4 = *(__int64 **)v31;
+  *(_QWORD *)(RootDeviceExtension + 720) = *(_QWORD *)v31;
+  AMLISetNSObjectContext(v4, RootDeviceExtension);
   ACPIRootDeviceNotifyPepDiscoverDevice();
   ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice();
   ACPIFixedFeatureButtonInitialize();
-  v8 = (volatile signed __int32 *)AMLIGetParent(v6);
-  v9 = AMLIGetNamedChild(v8, 1229867359);
-  AMLIDereferenceHandleEx(v8, v10);
-  if ( v9 )
+  v5 = (__int64 *)AMLIGetParent(v3);
+  v6 = AMLIGetNamedChild(v5, 1229867359);
+  AMLIDereferenceHandleEx((__int64)v5);
+  if ( v6 )
   {
-    AMLIAsyncEvalObject(v9, 0LL, 0, 0LL, 0LL, 0LL);
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v9, v15);
+    AMLIAsyncEvalObject(v6, 0LL, 0, 0LL, 0LL, 0LL);
+    AMLIDereferenceHandleEx((__int64)v6);
   }
   if ( (AcpiOverrideAttributes & 0x4000) == 0 )
   {
-    v39[0] = 0;
-    if ( !(unsigned int)ACPIEvaluateOscWheaMethodOnRootBus(v12, v11, v13, v14, v39) )
-      v2 = 1;
+    v31[0] = 0;
+    if ( !(unsigned int)ACPIEvaluateOscWheaMethodOnRootBus(v8, v7, v9, v10, (__int64)v31) )
+      v1 = 1;
   }
-  ACPIPccLegacyInitialize(v12);
-  v16 = IsHypervisorLpiCapable();
-  *(_OWORD *)v40 = 0LL;
-  v17 = v16;
-  HviGetHypervisorFeatures();
-  if ( (*(_QWORD *)v40 & 0x100000000000LL) != 0 )
+  ACPIPccLegacyInitialize();
+  v11 = IsHypervisorLpiCapable();
+  *(_OWORD *)v31 = 0LL;
+  v12 = v11;
+  HviGetHypervisorFeatures(v31);
+  if ( (*(_QWORD *)v31 & 0x100000000000LL) != 0 )
   {
     if ( !(unsigned __int8)IsHypervisorCpcCapable() )
       AcpiRootFeaturesSupported &= 0xFFFEEF9F;
-    if ( !v17 )
+    if ( !v12 )
       AcpiRootFeaturesSupported &= ~1u;
-    v38 |= 1u;
+    v29[0] |= 1u;
   }
-  v18 = KeQueryHighestNodeNumber() + 1;
-  v19 = 0;
-  if ( v18 )
+  HighestNodeNumber = KeQueryHighestNodeNumber();
+  v15 = 0;
+  v16 = HighestNodeNumber + 1;
+  v17 = 0;
+  if ( HighestNodeNumber != 0xFFFF )
   {
     do
     {
-      if ( (unsigned int)KeQueryNodeActiveProcessorCount(v19) )
-        ++v0;
-      ++v19;
+      KeQueryNodeActiveAffinity(v15, 0LL, Count);
+      if ( Count[0] )
+        ++v17;
+      ++v15;
     }
-    while ( v19 < v18 );
-    v3 = 0;
+    while ( v15 < v16 );
+    v2 = 0;
+    if ( v17 > 1u )
+      AcpiRootFeaturesSupported &= ~0x1000u;
   }
-  ActiveGroupCount = KeQueryActiveGroupCount();
-  if ( v0 > 1u || ActiveGroupCount > 1u )
-    AcpiRootFeaturesSupported &= ~0x1000u;
-  LODWORD(Handle) = 4;
-  *(_QWORD *)v40 = 0LL;
-  v39[0] = 0;
-  if ( (int)OSOpenHandle(
-              "\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters",
-              0LL,
-              (__int64)v40) >= 0
-    && (int)OSReadRegValue("USB4OSNativeCMPresent", *(void **)v40, v39, (unsigned int *)&Handle) >= 0 )
+  if ( !(unsigned int)ACPIEvaluateOscMethodOnRootBus(v14, 0LL) )
   {
-    if ( v39[0] )
-      AcpiRootFeaturesSupported |= 0x40000u;
-    else
-      AcpiRootFeaturesSupported &= ~0x40000u;
-  }
-  if ( (AcpiOverrideAttributes & 0x8000000) != 0 )
-    AcpiRootFeaturesSupported &= ~0x200000u;
-  if ( !(unsigned int)ACPIEvaluateOscMethodOnRootBus(v21, 0, v22) )
-  {
-    v26 = ((unsigned int)AcpiRootFeaturesSupported >> 4) & 1;
-    AcpiRootFeaturesGranted = AcpiRootFeaturesSupported;
-    if ( v26 )
-      v2 = 1;
+    v0 = ((unsigned int)AcpiRootFeaturesSupported >> 4) & 1;
+    if ( v0 )
+      v1 = 1;
     if ( (AcpiRootFeaturesSupported & 0x20) != 0 )
     {
-      LOBYTE(v24) = -(AcpiRootFeaturesSupported & 0x40);
-      v3 = ((AcpiRootFeaturesSupported & 0x40) != 0) + 1;
+      v2 = 2;
+      if ( (AcpiRootFeaturesSupported & 0x40) == 0 )
+        v2 = 1;
     }
-    if ( (AcpiRootFeaturesSupported & 0x40000) != 0 )
-    {
-      if ( (int)ACPIVerifyUSB4Presence(v24, v23, v25) < 0 )
-      {
-        Usb4ControlGranted = 0;
-        Usb4ControlRetained = 0;
-      }
-      else
-      {
-        Usb4ControlGranted = 1;
-        Usb4ControlRetained = 1;
-      }
-    }
-    v1 = v26;
-    v4 = ((unsigned int)AcpiRootFeaturesSupported >> 19) & 1;
-    if ( (AcpiRootFeaturesSupported & 0x200000) != 0 && (AcpiOverrideAttributes & 0x8000000) == 0 )
-      AcpiPrmSupportGranted = 1;
   }
-  v27 = *(_QWORD **)(RootDeviceExtension + 760);
-  *(_OWORD *)v40 = SB_OSC_IOV_UUID;
-  ACPIAmliEvaluateOsc(v27, (__int64)v40, v25, 1u, &v38);
-  Handle = 0LL;
-  *(_OWORD *)v40 = SB_OSC_VSM_UUID;
-  ACPIAmliEvaluateOsc(*(_QWORD **)(RootDeviceExtension + 760), (__int64)v40, v28, 2u, &Handle);
-  ACPIWriteOscSupportToRegistry(v2, v1, v3, v29, v4, AcpiPrmSupportGranted);
-  if ( v2 )
+  v19 = *(_QWORD *)(RootDeviceExtension + 720);
+  *(_OWORD *)Handle = SB_OSC_IOV_UUID;
+  ACPIAmliEvaluateOsc(v19, (int)Handle, v18, 1, v29);
+  Handle[0] = 0LL;
+  *(_OWORD *)v31 = SB_OSC_VSM_UUID;
+  ACPIAmliEvaluateOsc(*(_QWORD *)(RootDeviceExtension + 720), (int)v31, v20, 2, Handle);
+  ACPIWriteOscSupportToRegistry(v1, v0, v2);
+  if ( v1 )
   {
-    ACPIEvaluateDsmEmcaMethodOnRootBus(v30, (__int64)&Data);
-    Handle = 0LL;
-    if ( (int)OSCreateHandle("\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters", 0LL, &Handle) >= 0 )
+    ACPIEvaluateDsmEmcaMethodOnRootBus(v22, (__int64)&Data);
+    Handle[0] = 0LL;
+    if ( (int)OSCreateHandle("\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters", 0LL, Handle) >= 0 )
     {
-      OSWriteRegValue("EMcaLoggingSupport", Handle, &Data, 1u);
-      OSWriteRegValue("EMcaL1DirectoryBase", Handle, v42, 8u);
-      if ( Handle )
-        ZwClose(Handle);
+      OSWriteRegValue("EMcaLoggingSupport", Handle[0], &Data, 1u);
+      OSWriteRegValue("EMcaL1DirectoryBase", Handle[0], (char *)&Data + 8, 8u);
+      if ( Handle[0] )
+        ZwClose(Handle[0]);
     }
   }
   AcpiInterruptCombiningSupported = 0;
-  v32 = *((_QWORD *)AcpiInformation + 1);
-  v33 = *(_BYTE *)(v32 + 8);
-  v34 = v33 <= 6u;
-  if ( v33 == 6 )
+  v23 = *((_QWORD *)AcpiInformation + 1);
+  v24 = *(_BYTE *)(v23 + 8);
+  v25 = v24 <= 6u;
+  if ( v24 == 6 )
   {
-    if ( *(_BYTE *)(v32 + 131) >= 2u )
-    {
-LABEL_51:
-      AcpiRootFeaturesSupported |= 0x2000u;
-      ACPIEvaluateOscMethodOnRootBus(v32, 1u, v31);
-      AcpiInterruptCombiningSupported = (AcpiRootFeaturesSupported & 0x2000) != 0;
-      goto LABEL_52;
-    }
-    v34 = 1;
+    if ( *(_BYTE *)(v23 + 131) >= 2u )
+      goto LABEL_38;
+    v25 = 1;
   }
-  if ( !v34 )
-    goto LABEL_51;
-LABEL_52:
-  v35 = (_QWORD *)(RootDeviceExtension + 864);
-  *(_QWORD *)(RootDeviceExtension + 872) = RootDeviceExtension + 864;
-  *v35 = v35;
-  KeInitializeEvent((PRKEVENT)(RootDeviceExtension + 904), SynchronizationEvent, 1u);
-  Usb4FeatureControlPushLock = 0LL;
-  AcpiUsb4FeatureControlGranted = 0;
-  ACPIInternalSetDeviceInterface(*(PDEVICE_OBJECT *)(RootDeviceExtension + 784), &GUID_ACPI_ROOT_DEVICE_UUID);
+  if ( !v25 )
+  {
+LABEL_38:
+    AcpiRootFeaturesSupported |= 0x2000u;
+    LOBYTE(v21) = 1;
+    ACPIEvaluateOscMethodOnRootBus(v23, v21);
+    AcpiInterruptCombiningSupported = (AcpiRootFeaturesSupported & 0x2000) != 0;
+  }
+  v26 = (_QWORD *)(RootDeviceExtension + 824);
+  *(_QWORD *)(RootDeviceExtension + 832) = RootDeviceExtension + 824;
+  *v26 = v26;
+  KeInitializeEvent((PRKEVENT)(RootDeviceExtension + 864), SynchronizationEvent, 1u);
   return 0LL;
 }

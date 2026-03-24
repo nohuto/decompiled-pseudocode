@@ -1,12 +1,13 @@
 /*
- * XREFs of ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0062EA8
+ * XREFs of ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C00205AC
  * Callers:
- *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C001B6EC (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
- *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C001BE28 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C001C600 (-bCompute@DC@@QEAAHXZ.c)
- *     ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C0062E78 (-vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00CBE2C (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C0169B38 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00204F8 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C0020530 (-vUpdateScaledRegions@DC@@QEAAXXZ.c)
+ *     ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C002057C (-vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z.c)
+ *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C003A2D8 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003AB70 (-bCompute@DC@@QEAAHXZ.c)
+ *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C003BA68 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C013C704 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
  * Callees:
  *     <none>
  */

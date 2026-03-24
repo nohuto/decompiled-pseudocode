@@ -1,14 +1,14 @@
 /*
- * XREFs of ?IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry@1@PEBUReceiverEntry@1@M@Z @ 0x180008A18
+ * XREFs of ?IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry@1@PEBUReceiverEntry@1@M@Z @ 0x180009868
  * Callers:
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004FF4 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A740 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
  * Callees:
- *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x180008440 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
- *     ??0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z @ 0x180008BDC (--0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z.c)
- *     ??0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z @ 0x180008C38 (--0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z.c)
- *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180008CA8 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A24 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ??0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z @ 0x180009EDC (--0CVisualDepthGeometry@@QEAA@AEBUfloat2@Numerics@Foundation@Windows@@AEBVCMILMatrix@@@Z.c)
+ *     ??0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z @ 0x180009F38 (--0CVisualDepthGeometry@@QEAA@PEAVCVisual@@AEBVCMILMatrix@@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z @ 0x1800BF5F8 (-GetEffectiveSize@CVisual@@QEBA_NPEAM0@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 bool __fastcall CProjectedShadowScene::IsCasterInBetweenLightAndReceiver(
@@ -37,18 +37,17 @@ bool __fastcall CProjectedShadowScene::IsCasterInBetweenLightAndReceiver(
   _BYTE v24[32]; // [rsp+1D8h] [rbp+D0h] BYREF
   int v25; // [rsp+1F8h] [rbp+F0h]
 
-  CVisual::GetEffectiveSize(*(CVisual **)(*(_QWORD *)a3 + 64LL), &v14, v15);
-  v17 = 5888;
+  CVisual::GetEffectiveSize(*(CVisual **)(*(_QWORD *)a3 + 56LL), &v14, v15);
   v8 = *(_DWORD *)(v7 + 96);
+  v17 = 15700;
   LODWORD(v16) = a5 ^ _xmm;
   *(_QWORD *)((char *)&v16 + 4) = a5 ^ (unsigned __int64)(unsigned int)_xmm;
+  v19 = v8;
   v14 = v14 + (float)(*(float *)&a5 + *(float *)&a5);
   v15[0] = v15[0] + (float)(*(float *)&a5 + *(float *)&a5);
   v9 = *(_OWORD *)(v7 + 32);
-  LOBYTE(v17) = 84;
   HIDWORD(v16) = (_DWORD)FLOAT_1_0;
   v10 = *(_OWORD *)(v7 + 48);
-  v19 = v8;
   v18[0] = v9;
   v11 = *(_OWORD *)(v7 + 64);
   v18[1] = v10;
@@ -64,7 +63,7 @@ bool __fastcall CProjectedShadowScene::IsCasterInBetweenLightAndReceiver(
   CMILMatrix::Multiply((CMILMatrix *)v20, (const struct CProjectedShadowScene::CasterEntry *)((char *)a3 + 16));
   CVisualDepthGeometry::CVisualDepthGeometry(
     (CVisualDepthGeometry *)v22,
-    *(struct CVisual **)(*(_QWORD *)a4 + 64LL),
+    *(struct CVisual **)(*(_QWORD *)a4 + 56LL),
     (const struct CMILMatrix *)v18);
   CVisualDepthGeometry::CVisualDepthGeometry(
     (CVisualDepthGeometry *)v24,

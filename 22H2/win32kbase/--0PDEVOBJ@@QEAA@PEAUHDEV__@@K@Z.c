@@ -1,224 +1,211 @@
 /*
- * XREFs of ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C01545DC
+ * XREFs of ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C013D500
  * Callers:
- *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0160E9C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0143FF4 (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003881C (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0049D88 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1DLODCOBJ@@QEAA@XZ @ 0x1C0049DDC (--1DLODCOBJ@@QEAA@XZ.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C005F78C (-vLock@DEVLOCKOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     GreDeleteSemaphore @ 0x1C0077EE0 (GreDeleteSemaphore.c)
- *     GreCreateSemaphoreInternal @ 0x1C0077FFC (GreCreateSemaphoreInternal.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C00A9C04 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
- *     ?Allocate@PDEV@@SAPEAV1@H@Z @ 0x1C00C0900 (-Allocate@PDEV@@SAPEAV1@H@Z.c)
- *     ?Free@PDEV@@SAXPEAV1@H@Z @ 0x1C00C4260 (-Free@PDEV@@SAXPEAV1@H@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     GreReleaseSemaphoreInternal @ 0x1C003A0E0 (GreReleaseSemaphoreInternal.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003C518 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     GreDeleteSemaphore @ 0x1C005C290 (GreDeleteSemaphore.c)
+ *     GreCreateSemaphoreInternal @ 0x1C005C364 (GreCreateSemaphoreInternal.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C007ED80 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?Allocate@PDEV@@SAPEAV1@H@Z @ 0x1C00807A0 (-Allocate@PDEV@@SAPEAV1@H@Z.c)
+ *     ?Free@PDEV@@SAXPEAV1@H@Z @ 0x1C00B05F0 (-Free@PDEV@@SAXPEAV1@H@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ??0DEVLOCKOBJ@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C013D4C4 (--0DEVLOCKOBJ@@QEAA@AEAVPDEVOBJ@@@Z.c)
  */
 
-PDEVOBJ *__fastcall PDEVOBJ::PDEVOBJ(PDEVOBJ *this, char *a2, unsigned int a3)
+PDEVOBJ *__fastcall PDEVOBJ::PDEVOBJ(PDEVOBJ *this, char *a2)
 {
-  char v3; // r12
-  struct PDEV *v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rbx
-  HDEV v9; // rax
-  _OWORD *v10; // rcx
-  __int128 v11; // xmm1
-  __int64 v12; // rdx
-  HDEV v13; // rcx
-  _OWORD *v14; // rax
-  __int128 v15; // xmm1
-  __int64 v16; // rax
-  __int64 v17; // rax
-  size_t v18; // r14
-  __int64 v19; // rcx
+  struct PDEV *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rbx
+  HDEV v8; // rax
+  _OWORD *v9; // rcx
+  __int128 v10; // xmm1
+  HDEV v11; // rcx
+  _OWORD *v12; // rax
+  __int128 v13; // xmm1
+  __int64 v14; // rax
+  __int64 v15; // rax
+  unsigned int v16; // ebp
+  void *v17; // rcx
+  __int64 v18; // rdx
+  void *v19; // rcx
   void *v20; // rcx
-  __int64 v21; // rdx
+  void *v21; // rcx
   __int64 v22; // rdx
   HDEV v23; // rcx
   _OWORD *v24; // rax
   __int128 v25; // xmm1
   __int64 v26; // rcx
   __int64 v27; // rax
-  unsigned int v28; // eax
-  size_t v29; // r13
-  NSInstrumentation::CLeakTrackingAllocator *v30; // r15
-  int v31; // eax
-  __int64 Pool2; // r14
-  _QWORD *v33; // rax
-  __int64 v34; // r10
-  unsigned int v35; // r11d
-  void *v36; // rcx
+  unsigned int v28; // ebp
+  void *v29; // rcx
   __int64 SemaphoreInternal; // rax
-  __int64 v38; // rdx
-  signed __int32 v39; // ett
-  __int64 v40; // rcx
-  signed __int32 v41; // ett
-  _QWORD *v42; // rax
-  __int64 v43; // rbx
-  __int64 v44; // rdx
-  struct _ERESOURCE *v45; // rcx
-  __int64 v46; // rcx
-  _QWORD *v47; // rax
-  struct _ERESOURCE *v48; // rcx
-  char *v49; // rdx
-  char *v50; // rdx
-  char *v52; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v53[2]; // [rsp+30h] [rbp-D0h] BYREF
-  struct _ERESOURCE v54; // [rsp+40h] [rbp-C0h] BYREF
-  PVOID BackTrace[28]; // [rsp+B0h] [rbp-50h] BYREF
-  unsigned __int64 v56; // [rsp+1A0h] [rbp+A0h] BYREF
-  __int64 v57; // [rsp+1A8h] [rbp+A8h] BYREF
-  unsigned int v58; // [rsp+1B0h] [rbp+B0h] BYREF
-  __int64 v59; // [rsp+1B8h] [rbp+B8h] BYREF
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  signed __int32 v33; // ett
+  signed __int32 v34; // ett
+  _QWORD *v35; // rax
+  int v36; // r8d
+  _QWORD *v37; // rax
+  __int64 v38; // rcx
+  _BYTE v40[112]; // [rsp+20h] [rbp-88h] BYREF
+  char *v41; // [rsp+B0h] [rbp+8h] BYREF
 
-  v58 = a3;
-  v3 = 0;
-  v52 = a2;
+  v41 = a2;
   *(_QWORD *)this = 0LL;
   if ( a2 && (*((_DWORD *)a2 + 10) & 1) != 0 )
   {
-    DLODCOBJ::DLODCOBJ((DLODCOBJ *)&v54.SharedWaiters);
-    DEVLOCKOBJ::vLock((DEVLOCKOBJ *)&v54, (struct PDEVOBJ *)&v52);
-    v6 = PDEV::Allocate(0LL);
-    *(_QWORD *)this = v6;
-    if ( !v6 )
+    DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v40, (struct PDEVOBJ *)&v41);
+    v4 = PDEV::Allocate(0);
+    *(_QWORD *)this = v4;
+    if ( !v4 )
     {
-LABEL_65:
-      DEVLOCKOBJ::vDestructor(&v54);
-      DLODCOBJ::~DLODCOBJ((DLODCOBJ *)&v54.SharedWaiters);
+LABEL_54:
+      DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v40);
       return this;
     }
-    v7 = 2LL;
-    *((_QWORD *)v6 + 220) = *((_QWORD *)a2 + 220);
+    v5 = 2LL;
+    *((_QWORD *)v4 + 224) = *((_QWORD *)a2 + 224);
+    v6 = 2LL;
     *(_QWORD *)(*(_QWORD *)this + 24LL) = *(_QWORD *)this;
-    *(_DWORD *)(*(_QWORD *)this + 1752LL) = 1348756854;
-    v8 = *(_QWORD *)this;
-    *(_QWORD *)(*(_QWORD *)this + 1696LL) = *((_QWORD *)a2 + 212);
-    *(_QWORD *)(*(_QWORD *)this + 1704LL) = *((_QWORD *)a2 + 213);
-    *(_QWORD *)(*(_QWORD *)this + 1712LL) = *((_QWORD *)a2 + 214);
-    *(_QWORD *)(*(_QWORD *)this + 1720LL) = *((_QWORD *)a2 + 215);
+    *(_DWORD *)(*(_QWORD *)this + 1784LL) = 1348756854;
+    v7 = *(_QWORD *)this;
     *(_QWORD *)(*(_QWORD *)this + 1728LL) = *((_QWORD *)a2 + 216);
     *(_QWORD *)(*(_QWORD *)this + 1736LL) = *((_QWORD *)a2 + 217);
     *(_QWORD *)(*(_QWORD *)this + 1744LL) = *((_QWORD *)a2 + 218);
+    *(_QWORD *)(*(_QWORD *)this + 1752LL) = *((_QWORD *)a2 + 219);
+    *(_QWORD *)(*(_QWORD *)this + 1760LL) = *((_QWORD *)a2 + 220);
     *(_QWORD *)(*(_QWORD *)this + 1768LL) = *((_QWORD *)a2 + 221);
     *(_QWORD *)(*(_QWORD *)this + 1776LL) = *((_QWORD *)a2 + 222);
-    *(_QWORD *)(*(_QWORD *)this + 1784LL) = *((_QWORD *)a2 + 223);
-    v9 = (HDEV)(a2 + 1792);
-    v10 = (_OWORD *)(*(_QWORD *)this + 1792LL);
+    *(_QWORD *)(*(_QWORD *)this + 1800LL) = *((_QWORD *)a2 + 225);
+    *(_QWORD *)(*(_QWORD *)this + 1808LL) = *((_QWORD *)a2 + 226);
+    *(_QWORD *)(*(_QWORD *)this + 1816LL) = *((_QWORD *)a2 + 227);
+    v8 = (HDEV)(a2 + 1824);
+    v9 = (_OWORD *)(*(_QWORD *)this + 1824LL);
     do
     {
-      *v10 = *(_OWORD *)v9;
-      v10[1] = *((_OWORD *)v9 + 1);
-      v10[2] = *((_OWORD *)v9 + 2);
-      v10[3] = *((_OWORD *)v9 + 3);
-      v10[4] = *((_OWORD *)v9 + 4);
-      v10[5] = *((_OWORD *)v9 + 5);
-      v10[6] = *((_OWORD *)v9 + 6);
-      v10 += 8;
-      v11 = *((_OWORD *)v9 + 7);
-      v9 += 32;
-      *(v10 - 1) = v11;
-      --v7;
+      *v9 = *(_OWORD *)v8;
+      v9[1] = *((_OWORD *)v8 + 1);
+      v9[2] = *((_OWORD *)v8 + 2);
+      v9[3] = *((_OWORD *)v8 + 3);
+      v9[4] = *((_OWORD *)v8 + 4);
+      v9[5] = *((_OWORD *)v8 + 5);
+      v9[6] = *((_OWORD *)v8 + 6);
+      v9 += 8;
+      v10 = *((_OWORD *)v8 + 7);
+      v8 += 32;
+      *(v9 - 1) = v10;
+      --v6;
     }
-    while ( v7 );
-    v12 = 2LL;
-    *v10 = *(_OWORD *)v9;
-    v10[1] = *((_OWORD *)v9 + 1);
-    v10[2] = *((_OWORD *)v9 + 2);
-    *((_QWORD *)v10 + 6) = *((_QWORD *)v9 + 6);
-    v13 = (HDEV)(a2 + 2104);
-    v14 = (_OWORD *)(*(_QWORD *)this + 2104LL);
+    while ( v6 );
+    *v9 = *(_OWORD *)v8;
+    v9[1] = *((_OWORD *)v8 + 1);
+    v9[2] = *((_OWORD *)v8 + 2);
+    *((_QWORD *)v9 + 6) = *((_QWORD *)v8 + 6);
+    v11 = (HDEV)(a2 + 2136);
+    v12 = (_OWORD *)(*(_QWORD *)this + 2136LL);
     do
     {
-      *v14 = *(_OWORD *)v13;
-      v14[1] = *((_OWORD *)v13 + 1);
-      v14[2] = *((_OWORD *)v13 + 2);
-      v14[3] = *((_OWORD *)v13 + 3);
-      v14[4] = *((_OWORD *)v13 + 4);
-      v14[5] = *((_OWORD *)v13 + 5);
-      v14[6] = *((_OWORD *)v13 + 6);
-      v14 += 8;
-      v15 = *((_OWORD *)v13 + 7);
-      v13 += 32;
-      *(v14 - 1) = v15;
-      --v12;
+      *v12 = *(_OWORD *)v11;
+      v12[1] = *((_OWORD *)v11 + 1);
+      v12[2] = *((_OWORD *)v11 + 2);
+      v12[3] = *((_OWORD *)v11 + 3);
+      v12[4] = *((_OWORD *)v11 + 4);
+      v12[5] = *((_OWORD *)v11 + 5);
+      v12[6] = *((_OWORD *)v11 + 6);
+      v12 += 8;
+      v13 = *((_OWORD *)v11 + 7);
+      v11 += 32;
+      *(v12 - 1) = v13;
+      --v5;
     }
-    while ( v12 );
-    *v14 = *(_OWORD *)v13;
-    v14[1] = *((_OWORD *)v13 + 1);
-    v14[2] = *((_OWORD *)v13 + 2);
-    v14[3] = *((_OWORD *)v13 + 3);
-    v16 = *(_QWORD *)this;
-    *(_OWORD *)(v16 + 2424) = *(_OWORD *)(a2 + 2424);
-    *(_OWORD *)(v16 + 2440) = *(_OWORD *)(a2 + 2440);
-    *(_OWORD *)(v16 + 2456) = *(_OWORD *)(a2 + 2456);
-    *(_OWORD *)(v16 + 2472) = *(_OWORD *)(a2 + 2472);
-    *(_OWORD *)(v16 + 2488) = *(_OWORD *)(a2 + 2488);
-    *(_OWORD *)(v16 + 2504) = *(_OWORD *)(a2 + 2504);
-    *(_QWORD *)(*(_QWORD *)this + 2536LL) = *((_QWORD *)a2 + 317);
-    *(_QWORD *)(*(_QWORD *)this + 2544LL) = *((_QWORD *)a2 + 318);
-    *(_QWORD *)(*(_QWORD *)this + 2552LL) = *((_QWORD *)a2 + 319);
+    while ( v5 );
+    *v12 = *(_OWORD *)v11;
+    v12[1] = *((_OWORD *)v11 + 1);
+    v12[2] = *((_OWORD *)v11 + 2);
+    v12[3] = *((_OWORD *)v11 + 3);
+    v14 = *(_QWORD *)this;
+    *(_OWORD *)(v14 + 2456) = *(_OWORD *)(a2 + 2456);
+    *(_OWORD *)(v14 + 2472) = *(_OWORD *)(a2 + 2472);
+    *(_OWORD *)(v14 + 2488) = *(_OWORD *)(a2 + 2488);
+    *(_OWORD *)(v14 + 2504) = *(_OWORD *)(a2 + 2504);
+    *(_OWORD *)(v14 + 2520) = *(_OWORD *)(a2 + 2520);
+    *(_OWORD *)(v14 + 2536) = *(_OWORD *)(a2 + 2536);
     *(_QWORD *)(*(_QWORD *)this + 2560LL) = *((_QWORD *)a2 + 320);
-    *(_QWORD *)(*(_QWORD *)this + 2624LL) = *((_QWORD *)a2 + 328);
-    *(_QWORD *)(*(_QWORD *)this + 2632LL) = *((_QWORD *)a2 + 329);
+    *(_QWORD *)(*(_QWORD *)this + 2568LL) = *((_QWORD *)a2 + 321);
+    *(_QWORD *)(*(_QWORD *)this + 2576LL) = *((_QWORD *)a2 + 322);
+    *(_QWORD *)(*(_QWORD *)this + 2584LL) = *((_QWORD *)a2 + 323);
+    *(_DWORD *)(*(_QWORD *)this + 2644LL) = *((_DWORD *)a2 + 661);
     *(_QWORD *)(*(_QWORD *)this + 2648LL) = *((_QWORD *)a2 + 331);
     *(_QWORD *)(*(_QWORD *)this + 2656LL) = *((_QWORD *)a2 + 332);
-    *(_QWORD *)(*(_QWORD *)this + 2640LL) = *((_QWORD *)a2 + 330);
+    *(_QWORD *)(*(_QWORD *)this + 2672LL) = *((_QWORD *)a2 + 334);
+    *(_QWORD *)(*(_QWORD *)this + 2680LL) = *((_QWORD *)a2 + 335);
+    *(_QWORD *)(*(_QWORD *)this + 2664LL) = *((_QWORD *)a2 + 333);
     *(_DWORD *)(*(_QWORD *)this + 3552LL) = *((_DWORD *)a2 + 888);
     *(_QWORD *)(*(_QWORD *)this + 3560LL) = 0LL;
-    v17 = *((_QWORD *)a2 + 321);
-    if ( v17 )
+    v15 = *((_QWORD *)a2 + 324);
+    if ( v15 )
     {
-      v18 = *(unsigned __int16 *)(v17 + 68) + (unsigned int)*(unsigned __int16 *)(v17 + 70);
-      if ( (_DWORD)v18 )
-        v19 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                gpLeakTrackingAllocator,
-                260LL,
-                (unsigned int)v18,
-                0x76656447u);
-      else
-        v19 = 0LL;
-      *(_QWORD *)(*(_QWORD *)this + 2568LL) = v19;
-      v20 = *(void **)(*(_QWORD *)this + 2568LL);
-      if ( !v20 )
-        goto LABEL_58;
-      memmove(v20, *((const void **)a2 + 321), v18);
+      v16 = *(unsigned __int16 *)(v15 + 68) + *(unsigned __int16 *)(v15 + 70);
+      *(_QWORD *)(*(_QWORD *)this + 2592LL) = PALLOCMEM2(v16, 1986356295LL, 0);
+      v17 = *(void **)(*(_QWORD *)this + 2592LL);
+      if ( !v17 )
+        goto LABEL_39;
+      memmove(v17, *((const void **)a2 + 324), v16);
     }
-    v21 = 1448LL;
+    v18 = 1456LL;
     *(_DWORD *)(*(_QWORD *)this + 44LL) = *((_DWORD *)a2 + 11);
-    *(_QWORD *)(*(_QWORD *)this + 64LL) = *((_QWORD *)a2 + 8);
-    *(_QWORD *)(*(_QWORD *)this + 1424LL) = *((_QWORD *)a2 + 178);
+    *(_QWORD *)(*(_QWORD *)this + 72LL) = *((_QWORD *)a2 + 9);
     *(_QWORD *)(*(_QWORD *)this + 1432LL) = *((_QWORD *)a2 + 179);
     *(_QWORD *)(*(_QWORD *)this + 1440LL) = *((_QWORD *)a2 + 180);
-    *(_QWORD *)(*(_QWORD *)this + 2528LL) = *((_QWORD *)a2 + 316);
+    *(_QWORD *)(*(_QWORD *)this + 1448LL) = *((_QWORD *)a2 + 181);
+    *(_QWORD *)(*(_QWORD *)this + 2552LL) = *((_QWORD *)a2 + 319);
     do
     {
-      *(_QWORD *)(v21 + *(_QWORD *)this) = *(_QWORD *)&a2[v21];
-      v21 += 8LL;
+      *(_QWORD *)(v18 + *(_QWORD *)this) = *(_QWORD *)&a2[v18];
+      v18 += 8LL;
     }
-    while ( v21 < 1496 );
+    while ( v18 < 1504 );
+    *(_QWORD *)(*(_QWORD *)this + 1504LL) = *((_QWORD *)a2 + 188);
+    if ( *((_QWORD *)a2 + 211) )
+    {
+      *(_QWORD *)(*(_QWORD *)this + 1688LL) = PALLOCMEM2(0x600uLL, 1835231559LL, 0);
+      v19 = *(void **)(*(_QWORD *)this + 1688LL);
+      if ( !v19 )
+        goto LABEL_39;
+      memmove(v19, *((const void **)a2 + 211), 0x600uLL);
+    }
+    if ( *((_QWORD *)a2 + 212) )
+    {
+      *(_QWORD *)(*(_QWORD *)this + 1696LL) = PALLOCMEM2(0x600uLL, 1634167111LL, 0);
+      v20 = *(void **)(*(_QWORD *)this + 1696LL);
+      if ( !v20 )
+        goto LABEL_39;
+      memmove(v20, *((const void **)a2 + 212), 0x600uLL);
+    }
+    if ( *((_QWORD *)a2 + 213) )
+    {
+      *(_QWORD *)(*(_QWORD *)this + 1704LL) = PALLOCMEM2(0x600uLL, 1735354695LL, 0);
+      v21 = *(void **)(*(_QWORD *)this + 1704LL);
+      if ( !v21 )
+        goto LABEL_39;
+      memmove(v21, *((const void **)a2 + 213), 0x600uLL);
+    }
     v22 = 6LL;
-    *(_QWORD *)(*(_QWORD *)this + 1496LL) = *((_QWORD *)a2 + 187);
-    *(_QWORD *)(*(_QWORD *)this + 1688LL) = *((_QWORD *)a2 + 211);
-    *(_QWORD *)(*(_QWORD *)this + 2576LL) = *((_QWORD *)a2 + 322);
-    *(_DWORD *)(*(_QWORD *)this + 2584LL) = *((_DWORD *)a2 + 646);
-    *(_DWORD *)(*(_QWORD *)this + 2588LL) = *((_DWORD *)a2 + 647);
-    v23 = (HDEV)(a2 + 2664);
-    v24 = (_OWORD *)(*(_QWORD *)this + 2664LL);
+    *(_QWORD *)(*(_QWORD *)this + 1720LL) = *((_QWORD *)a2 + 215);
+    *(_QWORD *)(*(_QWORD *)this + 2600LL) = *((_QWORD *)a2 + 325);
+    *(_DWORD *)(*(_QWORD *)this + 2608LL) = *((_DWORD *)a2 + 652);
+    *(_DWORD *)(*(_QWORD *)this + 2612LL) = *((_DWORD *)a2 + 653);
+    v23 = (HDEV)(a2 + 2688);
+    v24 = (_OWORD *)(*(_QWORD *)this + 2688LL);
     do
     {
       *v24 = *(_OWORD *)v23;
@@ -239,186 +226,120 @@ LABEL_65:
     v24[1] = *((_OWORD *)v23 + 1);
     v24[2] = *((_OWORD *)v23 + 2);
     v24[3] = *((_OWORD *)v23 + 3);
-    if ( *((_DWORD *)a2 + 290) )
+    if ( *((_DWORD *)a2 + 292) )
     {
-      *(_QWORD *)(*(_QWORD *)this + 2776LL) = *((_QWORD *)a2 + 160);
-      *(_QWORD *)(*(_QWORD *)this + 2784LL) = *((_QWORD *)a2 + 161);
-      *(_QWORD *)(*(_QWORD *)this + 2808LL) = *((_QWORD *)a2 + 163);
-      *(_QWORD *)(*(_QWORD *)this + 2816LL) = *((_QWORD *)a2 + 164);
-      *(_QWORD *)(*(_QWORD *)this + 2824LL) = *((_QWORD *)a2 + 165);
+      *(_QWORD *)(*(_QWORD *)this + 2800LL) = *((_QWORD *)a2 + 161);
+      *(_QWORD *)(*(_QWORD *)this + 2808LL) = *((_QWORD *)a2 + 162);
+      *(_QWORD *)(*(_QWORD *)this + 2832LL) = *((_QWORD *)a2 + 164);
+      *(_QWORD *)(*(_QWORD *)this + 2840LL) = *((_QWORD *)a2 + 165);
       *(_QWORD *)(*(_QWORD *)this + 2848LL) = *((_QWORD *)a2 + 166);
-      *(_QWORD *)(*(_QWORD *)this + 2912LL) = *((_QWORD *)a2 + 167);
-      *(_QWORD *)(*(_QWORD *)this + 3256LL) = *((_QWORD *)a2 + 168);
-      *(_QWORD *)(*(_QWORD *)this + 3232LL) = *((_QWORD *)a2 + 169);
-      *(_QWORD *)(*(_QWORD *)this + 3224LL) = *((_QWORD *)a2 + 170);
-      *(_QWORD *)(*(_QWORD *)this + 3208LL) = *((_QWORD *)a2 + 171);
-      *(_QWORD *)(*(_QWORD *)this + 3216LL) = *((_QWORD *)a2 + 173);
-      *(_QWORD *)(*(_QWORD *)this + 2984LL) = *((_QWORD *)a2 + 172);
-      *(_QWORD *)(*(_QWORD *)this + 3384LL) = *((_QWORD *)a2 + 174);
+      *(_QWORD *)(*(_QWORD *)this + 2872LL) = *((_QWORD *)a2 + 167);
+      *(_QWORD *)(*(_QWORD *)this + 2936LL) = *((_QWORD *)a2 + 168);
+      *(_QWORD *)(*(_QWORD *)this + 3280LL) = *((_QWORD *)a2 + 169);
+      *(_QWORD *)(*(_QWORD *)this + 3256LL) = *((_QWORD *)a2 + 170);
+      *(_QWORD *)(*(_QWORD *)this + 3248LL) = *((_QWORD *)a2 + 171);
+      *(_QWORD *)(*(_QWORD *)this + 3232LL) = *((_QWORD *)a2 + 172);
+      *(_QWORD *)(*(_QWORD *)this + 3240LL) = *((_QWORD *)a2 + 174);
+      *(_QWORD *)(*(_QWORD *)this + 3008LL) = *((_QWORD *)a2 + 173);
+      *(_QWORD *)(*(_QWORD *)this + 3408LL) = *((_QWORD *)a2 + 175);
     }
     v26 = *((_QWORD *)a2 + 445);
-    if ( !v26 )
+    if ( v26 )
     {
-LABEL_49:
-      PDEV::InitializeClientReferenceCount(*(PDEV **)this);
-      *(_DWORD *)(*(_QWORD *)this + 12LL) = 1;
-      *(_DWORD *)(*(_QWORD *)this + 40LL) = *((_DWORD *)a2 + 10) & 0x60001;
-      SemaphoreInternal = GreCreateSemaphoreInternal(0);
-      *(_QWORD *)(*(_QWORD *)this + 48LL) = SemaphoreInternal;
-      if ( SemaphoreInternal )
+      v27 = -1LL;
+      do
+        ++v27;
+      while ( *(_WORD *)(v26 + 2 * v27) );
+      v28 = 2 * v27 + 2;
+      *(_QWORD *)(*(_QWORD *)this + 3560LL) = PALLOCMEM2(v28, 1886221639LL, 1);
+      v29 = *(void **)(*(_QWORD *)this + 3560LL);
+      if ( v29 )
+        memmove(v29, *((const void **)a2 + 445), v28);
+    }
+    PDEV::InitializeClientReferenceCount(*(PDEV **)this);
+    *(_DWORD *)(*(_QWORD *)this + 12LL) = 1;
+    *(_DWORD *)(*(_QWORD *)this + 40LL) = *((_DWORD *)a2 + 10) & 0x60001;
+    SemaphoreInternal = GreCreateSemaphoreInternal(0);
+    *(_QWORD *)(*(_QWORD *)this + 48LL) = SemaphoreInternal;
+    if ( SemaphoreInternal )
+    {
+      v31 = GreCreateSemaphoreInternal(0);
+      *(_QWORD *)(*(_QWORD *)this + 56LL) = v31;
+      if ( v31 )
       {
-        v38 = *(_QWORD *)this;
+        v32 = *(_QWORD *)this;
         _m_prefetchw((const void *)(*(_QWORD *)this + 40LL));
         do
-          v39 = *(_DWORD *)(v38 + 40);
-        while ( v39 != _InterlockedCompareExchange((volatile signed __int32 *)(v38 + 40), v39 & 0xFFFFFFBF, v39) );
+          v33 = *(_DWORD *)(v32 + 40);
+        while ( v33 != _InterlockedCompareExchange((volatile signed __int32 *)(v32 + 40), v33 & 0xFFFFFFBF, v33) );
         *(_DWORD *)(*(_QWORD *)this + 3568LL) = 0;
-        *(_QWORD *)(*(_QWORD *)this + 56LL) = GreCreateSemaphoreInternal(0);
-        if ( *(_QWORD *)(*(_QWORD *)this + 56LL) )
+        *(_QWORD *)(*(_QWORD *)this + 64LL) = GreCreateSemaphoreInternal(0);
+        if ( *(_QWORD *)(*(_QWORD *)this + 64LL) )
         {
-          _m_prefetchw((const void *)(v8 + 40));
+          _m_prefetchw((const void *)(v7 + 40));
           do
-          {
-            v40 = *(unsigned int *)(v8 + 40);
-            LODWORD(v40) = v40 | 0x80000;
-            v41 = *(_DWORD *)(v8 + 40);
-          }
-          while ( v41 != _InterlockedCompareExchange((volatile signed __int32 *)(v8 + 40), v40, v41) );
-          v42 = (_QWORD *)(*(_QWORD *)this + 2600LL);
-          v42[1] = v42;
-          *v42 = v42;
-          v43 = *(_QWORD *)(SGDGetSessionState(v40) + 24);
-          EngAcquireSemaphore(*(HSEMAPHORE *)(v43 + 8));
-          EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v43 + 8), 16);
-          **(_QWORD **)this = *(_QWORD *)(v43 + 6080);
-          v44 = *(_QWORD *)(v43 + 8);
-          *(_QWORD *)(v43 + 6080) = *(_QWORD *)this;
-          EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", v44);
-          v45 = *(struct _ERESOURCE **)(v43 + 8);
-          if ( v45 )
-          {
-            ExReleaseResourceAndLeaveCriticalRegion(v45);
-            PsLeavePriorityRegion(v46);
-          }
-          v47 = (_QWORD *)(*(_QWORD *)this + 3504LL);
-          v47[1] = v47;
-          *v47 = v47;
-          goto LABEL_65;
+            v34 = *(_DWORD *)(v7 + 40);
+          while ( v34 != _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 40), v34 | 0x80000, v34) );
+          v35 = (_QWORD *)(*(_QWORD *)this + 2624LL);
+          v35[1] = v35;
+          *v35 = v35;
+          EngAcquireSemaphore(ghsemDriverMgmt);
+          EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
+          **(_QWORD **)this = gppdevList;
+          gppdevList = *(struct PDEV **)this;
+          EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v36);
+          GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
+          v37 = (_QWORD *)(*(_QWORD *)this + 3528LL);
+          v37[1] = v37;
+          *v37 = v37;
+          goto LABEL_54;
         }
       }
-LABEL_58:
-      v48 = *(struct _ERESOURCE **)(*(_QWORD *)this + 48LL);
-      if ( v48 )
-        GreDeleteSemaphore(v48);
-      v49 = *(char **)(*(_QWORD *)this + 3560LL);
-      if ( v49 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v49);
-        *(_QWORD *)(*(_QWORD *)this + 3560LL) = 0LL;
-      }
-      v50 = *(char **)(*(_QWORD *)this + 2568LL);
-      if ( v50 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v50);
-      PDEV::Free(*(struct PDEV **)this);
-      *(_QWORD *)this = 0LL;
-      goto LABEL_65;
     }
-    v27 = -1LL;
-    do
-      ++v27;
-    while ( *(_WORD *)(v26 + 2 * v27) );
-    v28 = 2 * v27 + 2;
-    v29 = v28;
-    if ( v28 )
+LABEL_39:
+    v38 = *(_QWORD *)this;
+    if ( *(_QWORD *)(*(_QWORD *)this + 56LL) )
     {
-      v30 = gpLeakTrackingAllocator;
-      v58 = 1886221639;
-      v57 = 260LL;
-      v59 = v28;
-      v31 = *(_DWORD *)gpLeakTrackingAllocator;
-      if ( !*(_DWORD *)gpLeakTrackingAllocator )
-      {
-        Pool2 = ExAllocatePool2(260LL, (unsigned int)v29, 1886221639LL);
-        if ( Pool2 )
-          _InterlockedIncrement64((volatile signed __int64 *)v30 + 14);
-        goto LABEL_47;
-      }
-      if ( v31 == 1 )
-      {
-        if ( NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x706D7547u)
-          && v29 + 16 >= v29 )
-        {
-          v33 = (_QWORD *)ExAllocatePool2(v57 & 0xFFFFFFFFFFFFFFFDuLL, v29 + 16, v58);
-          Pool2 = (__int64)v33;
-          if ( !v33
-            || (_InterlockedIncrement64((volatile signed __int64 *)v30 + 14),
-                *v33 = 1886221639LL,
-                Pool2 = (__int64)(v33 + 2),
-                v33 == (_QWORD *)-16LL) )
-          {
-            NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-              *((NSInstrumentation::CPointerHashTable **)v30 + 1),
-              (const void *)0x706D7547);
-          }
-          goto LABEL_47;
-        }
-      }
-      else if ( v31 == 2 )
-      {
-        v56 = 0LL;
-        if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x706D7547u, &v56) )
-        {
-          v53[0] = &v57;
-          v53[1] = &v58;
-          Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                    (__int64)v30,
-                    (__int64)v53,
-                    &v59);
-          goto LABEL_47;
-        }
-        if ( v29 < 0x1000 || (v29 & 0xFFF) != 0 )
-        {
-          v34 += 16LL;
-          v3 = 1;
-          v59 = v34;
-        }
-        Pool2 = ExAllocatePool2(260LL, v34, v35);
-        if ( Pool2 )
-        {
-          _InterlockedIncrement64((volatile signed __int64 *)v30 + 16);
-          NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-          if ( v3 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-          {
-            if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                    v30,
-                                    Pool2,
-                                    v56,
-                                    BackTrace) )
-            {
-              Pool2 += 16LL;
-              goto LABEL_47;
-            }
-          }
-          else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                       v30,
-                                       Pool2,
-                                       v56,
-                                       BackTrace) )
-          {
-            goto LABEL_47;
-          }
-          _InterlockedIncrement64((volatile signed __int64 *)v30 + 17);
-          _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-        }
-      }
+      GreDeleteSemaphore(*(PERESOURCE *)(*(_QWORD *)this + 56LL));
+      v38 = *(_QWORD *)this;
     }
-    Pool2 = 0LL;
-LABEL_47:
-    *(_QWORD *)(*(_QWORD *)this + 3560LL) = Pool2;
-    v36 = *(void **)(*(_QWORD *)this + 3560LL);
-    if ( v36 )
-      memmove(v36, *((const void **)a2 + 445), v29);
-    goto LABEL_49;
+    if ( *(_QWORD *)(v38 + 48) )
+    {
+      GreDeleteSemaphore(*(PERESOURCE *)(v38 + 48));
+      v38 = *(_QWORD *)this;
+    }
+    if ( *(_QWORD *)(v38 + 3560) )
+    {
+      Win32FreePool(*(_QWORD *)(v38 + 3560));
+      *(_QWORD *)(*(_QWORD *)this + 3560LL) = 0LL;
+      v38 = *(_QWORD *)this;
+    }
+    if ( *(_QWORD *)(v38 + 2592) )
+    {
+      Win32FreePool(*(_QWORD *)(v38 + 2592));
+      v38 = *(_QWORD *)this;
+    }
+    if ( *(_QWORD *)(v38 + 1688) )
+    {
+      Win32FreePool(*(_QWORD *)(v38 + 1688));
+      *(_QWORD *)(*(_QWORD *)this + 1688LL) = 0LL;
+      v38 = *(_QWORD *)this;
+    }
+    if ( *(_QWORD *)(v38 + 1696) )
+    {
+      Win32FreePool(*(_QWORD *)(v38 + 1696));
+      *(_QWORD *)(*(_QWORD *)this + 1696LL) = 0LL;
+      v38 = *(_QWORD *)this;
+    }
+    if ( *(_QWORD *)(v38 + 1704) )
+    {
+      Win32FreePool(*(_QWORD *)(v38 + 1704));
+      *(_QWORD *)(*(_QWORD *)this + 1704LL) = 0LL;
+      v38 = *(_QWORD *)this;
+    }
+    PDEV::Free((struct PDEV *)v38);
+    *(_QWORD *)this = 0LL;
+    goto LABEL_54;
   }
   return this;
 }

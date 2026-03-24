@@ -1,148 +1,143 @@
 /*
- * XREFs of MmStoreRegister @ 0x140834954
+ * XREFs of MmStoreRegister @ 0x1407B6B30
  * Callers:
- *     SmFirstTimeInit @ 0x1407B82C4 (SmFirstTimeInit.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x140352B08 (-SmFirstTimeInit@@YAJKK@Z.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     RtlClearAllBits @ 0x140290C30 (RtlClearAllBits.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiMoveModifiedPagesToCompressList @ 0x140394B34 (MiMoveModifiedPagesToCompressList.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140772B10 (PsCreateSystemThreadEx.c)
- *     MiCreatePagefile @ 0x1408355E4 (MiCreatePagefile.c)
- *     MiInsertPageFileInList @ 0x140835BE0 (MiInsertPageFileInList.c)
- *     MmStoreCheckPagefiles @ 0x140835EC4 (MmStoreCheckPagefiles.c)
- *     MiDeletePagefile @ 0x140A32870 (MiDeletePagefile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     RtlClearAllBits @ 0x140361940 (RtlClearAllBits.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406FDA60 (PsCreateSystemThreadEx.c)
+ *     MiInsertPageFileInList @ 0x1407B7790 (MiInsertPageFileInList.c)
+ *     MiCreatePagefile @ 0x1407B7A10 (MiCreatePagefile.c)
+ *     MmStoreCheckPagefiles @ 0x1407B7EC0 (MmStoreCheckPagefiles.c)
+ *     MiDeletePagefile @ 0x1408D04DC (MiDeletePagefile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 v6; // rdi
-  int v7; // eax
   char *Pool; // rax
-  _DWORD *v9; // rbx
-  struct _KEVENT *v10; // rbp
-  _DWORD *v11; // r15
-  int SystemThread; // esi
-  RTL_BITMAP *v13; // rax
-  RTL_BITMAP *v14; // r14
-  unsigned int v15; // edx
-  unsigned __int64 v16; // r9
-  __int64 *v17; // r8
-  __int64 v18; // r10
-  __int64 v19; // rax
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // r9
+  __int64 v7; // rdi
+  int SystemThread; // ebx
+  RTL_BITMAP *v9; // rax
+  RTL_BITMAP *v10; // rsi
+  unsigned __int64 v11; // rdx
+  __int64 *v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rax
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v16; // rdx
+  __int64 v17; // r9
   __int64 Pagefile; // rax
-  _WORD *v23; // rsi
-  int inserted; // ebx
-  int v25; // eax
-  PVOID Object; // [rsp+50h] [rbp-38h] BYREF
-  HANDLE Handle; // [rsp+90h] [rbp+8h] BYREF
+  _WORD *v19; // rbp
+  int v20; // eax
+  HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
+  PVOID Object; // [rsp+58h] [rbp-20h] BYREF
 
   Handle = 0LL;
-  v6 = *a1;
-  v7 = *(_DWORD *)(*a1 + 4);
-  *(_DWORD *)(*a1 + 1196) = 1;
-  if ( (v7 & 0x80u) != 0 )
-    return 3221225659LL;
-  if ( !(unsigned int)MmStoreCheckPagefiles(a1) )
+  dword_140C5120C = 1;
+  if ( !(unsigned int)MmStoreCheckPagefiles() )
     return 3221225799LL;
   Pool = (char *)MiAllocatePool(64, 0x28uLL, 0x70546D4Du);
-  v9 = Pool;
+  v7 = (__int64)Pool;
   if ( !Pool )
     return 3221225626LL;
-  v10 = (struct _KEVENT *)(Pool + 8);
-  *(_QWORD *)Pool = v6;
+  *(_QWORD *)Pool = &MiSystemPartition;
   KeInitializeEvent((PRKEVENT)(Pool + 8), NotificationEvent, 0);
-  v11 = v9 + 8;
-  v9[8] = 0;
+  *(_DWORD *)(v7 + 32) = 0;
   SystemThread = PsCreateSystemThreadEx(
                    (__int64)&Handle,
                    0x1FFFFF,
                    0LL,
-                   *(_QWORD *)(*(_QWORD *)(v6 + 200) + 120LL),
+                   0LL,
                    0LL,
                    (__int64)MiStoreEvictThread,
-                   (__int64)v9,
+                   v7,
                    0LL,
                    0LL);
-  if ( SystemThread >= 0 )
+  if ( SystemThread < 0 )
   {
-    v13 = (RTL_BITMAP *)MiAllocatePool(
-                          64,
-                          8 * (((unsigned int)dword_140D1D1DC >> 6) + ((dword_140D1D1DC & 0x3F) != 0) + 2),
-                          0x20206D4Du);
-    v14 = v13;
-    if ( v13 )
+    ExFreePoolWithTag((PVOID)v7, 0);
+  }
+  else
+  {
+    v9 = (RTL_BITMAP *)MiAllocatePool(
+                         64,
+                         8 * (((unsigned int)dword_140CFB18C >> 6) + ((dword_140CFB18C & 0x3F) != 0) + 2),
+                         0x20206D4Du);
+    v10 = v9;
+    if ( v9 )
     {
-      v13->SizeOfBitMap = dword_140D1D1DC;
-      v13->Buffer = &v13[1].SizeOfBitMap;
-      RtlClearAllBits(v13);
-      v15 = *(_DWORD *)(v6 + 17048);
-      v16 = 0LL;
-      if ( v15 )
+      v9->SizeOfBitMap = dword_140CFB18C;
+      v9->Buffer = &v9[1].SizeOfBitMap;
+      RtlClearAllBits(v9);
+      v11 = 0LL;
+      if ( Count )
       {
-        v17 = (__int64 *)(v6 + 17056);
-        v18 = v15;
+        v12 = (__int64 *)&unk_140C528A0;
+        v13 = Count;
         do
         {
-          v19 = *v17++;
-          v20 = *(_QWORD *)(v19 + 8);
-          if ( v16 >= v20 )
-            v20 = v16;
-          v16 = v20;
-          --v18;
+          v14 = *v12;
+          v15 = v11;
+          ++v12;
+          v11 = *(_QWORD *)(v14 + 8);
+          if ( v15 >= v11 )
+            v11 = v15;
+          --v13;
         }
-        while ( v18 );
+        while ( v13 );
       }
-      v21 = qword_140C6F790 + v16;
-      if ( !v15 )
-        v21 *= 2LL;
-      if ( v21 > 0xFFFFFFF )
-        v21 = 0xFFFFFFFLL;
-      Pagefile = MiCreatePagefile(v6, 0, 0, v21, v21, 0LL, 0, 2);
-      v23 = (_WORD *)Pagefile;
+      v16 = qword_140C52890 + v11;
+      v17 = 0xFFFFFFFLL;
+      if ( v16 <= 0xFFFFFFF )
+        v17 = v16;
+      Pagefile = MiCreatePagefile((unsigned int)&MiSystemPartition, 0, 0, v17, v17, 0LL, 0, 2);
+      v19 = (_WORD *)Pagefile;
       if ( Pagefile )
       {
-        inserted = MiInsertPageFileInList(Pagefile);
-        if ( inserted >= 0 )
+        SystemThread = MiInsertPageFileInList(Pagefile);
+        if ( SystemThread < 0 )
+        {
+          *(_DWORD *)(v7 + 32) = 1;
+        }
+        else
         {
           Object = 0LL;
-          *(_QWORD *)(v6 + 1336) = v14;
-          *(_DWORD *)(v6 + 1196) = 254;
-          v25 = v23[102] & 0xF;
-          *(_QWORD *)(v6 + 1344) = a4;
-          *(_DWORD *)(v6 + 1188) = v25;
+          qword_140C51278 = (__int64)v10;
+          dword_140C5120C = 254;
+          v20 = v19[102] & 0xF;
+          qword_140C51280 = a3;
+          dword_140C51204 = v20;
           ObReferenceObjectByHandle(Handle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
-          *(_QWORD *)(v6 + 1232) = Object;
-          *(_DWORD *)(v6 + 1356) = a5;
-          *(_DWORD *)(v6 + 1192) = 1;
-          MiMoveModifiedPagesToCompressList(v6);
-          inserted = 0;
-LABEL_18:
-          KeSetEvent(v10, 0, 0);
-          ObCloseHandle(Handle, 0);
-          return (unsigned int)inserted;
+          v10 = 0LL;
+          v19 = 0LL;
+          qword_140C51228 = (__int64)Object;
+          dword_140C51288 = a4;
+          SystemThread = 0;
+          dword_140C51208 = 1;
         }
       }
       else
       {
-        inserted = -1073741670;
+        *(_DWORD *)(v7 + 32) = 1;
+        SystemThread = -1073741670;
       }
-      *v11 = 1;
-      ExFreePoolWithTag(v14, 0);
-      if ( v23 )
-        MiDeletePagefile(v23);
-      goto LABEL_18;
+      if ( v10 )
+        ExFreePoolWithTag(v10, 0);
+      if ( v19 )
+        MiDeletePagefile(v19);
     }
-    *v11 = 1;
-    inserted = -1073741670;
-    goto LABEL_18;
+    else
+    {
+      *(_DWORD *)(v7 + 32) = 1;
+      SystemThread = -1073741670;
+    }
+    KeSetEvent((PRKEVENT)(v7 + 8), 0, 0);
+    ObCloseHandle(Handle, 0);
   }
-  ExFreePoolWithTag(v9, 0);
   return (unsigned int)SystemThread;
 }

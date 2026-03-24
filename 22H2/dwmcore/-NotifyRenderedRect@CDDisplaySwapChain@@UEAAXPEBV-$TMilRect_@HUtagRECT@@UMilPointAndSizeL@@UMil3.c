@@ -1,15 +1,15 @@
 /*
- * XREFs of ?NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18028B450
+ * XREFs of ?NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18023A370
  * Callers:
- *     ?NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1801E8508 (-NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
+ *     ?NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x18018C274 (-NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
  * Callees:
- *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x1800468F0 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047C6C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x180047F2C (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18003A708 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003A850 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B858 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall CDDisplaySwapChain::NotifyRenderedRect(__int64 a1, const struct tagRECT *a2)
@@ -30,21 +30,19 @@ void __fastcall CDDisplaySwapChain::NotifyRenderedRect(__int64 a1, const struct 
   void *v17[10]; // [rsp+30h] [rbp-68h] BYREF
   const void *retaddr; // [rsp+98h] [rbp+0h]
 
-  v4 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 128) + 8LL) + 16LL)
-                                            + *(_QWORD *)(a1 + 128)
+  v4 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 160) + 8LL) + 16LL)
+                                            + *(_QWORD *)(a1 + 160)
                                             + 8LL);
   (**v4)(v4, &v15);
-  v5 = (_DWORD **)(a1 + 136);
+  v5 = (_DWORD **)(a1 + 232);
   if ( a2 )
   {
     FastRegion::CRegion::CRegion((FastRegion::CRegion *)v17, a2);
-    v6 = FastRegion::CRegion::Union(
-           (const struct FastRegion::Internal::CRgnData **)(a1 + 136),
-           (const struct FastRegion::Internal::CRgnData **)v17);
+    v6 = FastRegion::CRegion::Union((void **)(a1 + 232), (const struct FastRegion::Internal::CRgnData **)v17);
     if ( v6 < 0 )
       ModuleFailFastForHRESULT(v6, retaddr);
-    v7 = *(const struct FastRegion::Internal::CRgnData ****)(a1 + 456);
-    v8 = *(const struct FastRegion::Internal::CRgnData ****)(a1 + 464);
+    v7 = *(const struct FastRegion::Internal::CRgnData ****)(a1 + 304);
+    v8 = *(const struct FastRegion::Internal::CRgnData ****)(a1 + 312);
     while ( v7 != v8 )
     {
       v9 = FastRegion::CRegion::Subtract(*v7, (const struct FastRegion::Internal::CRgnData **)v17);
@@ -75,8 +73,8 @@ void __fastcall CDDisplaySwapChain::NotifyRenderedRect(__int64 a1, const struct 
       v12[6] = 16;
       v12[5] = v11;
     }
-    v13 = *(_DWORD ****)(a1 + 464);
-    for ( i = *(_DWORD ****)(a1 + 456); i != v13; ++i )
+    v13 = *(_DWORD ****)(a1 + 312);
+    for ( i = *(_DWORD ****)(a1 + 304); i != v13; ++i )
       ***i = 0;
   }
 }

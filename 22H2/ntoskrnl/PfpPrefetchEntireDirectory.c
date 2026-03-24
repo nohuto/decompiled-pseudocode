@@ -1,66 +1,61 @@
 /*
- * XREFs of PfpPrefetchEntireDirectory @ 0x14075EDDC
+ * XREFs of PfpPrefetchEntireDirectory @ 0x140632798
  * Callers:
- *     PfSnPrefetchMetadata @ 0x14075EAF4 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x1406324B0 (PfSnPrefetchMetadata.c)
  * Callees:
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
- *     IopQueryXxxInformation @ 0x14075D79C (IopQueryXxxInformation.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x140633A38 (IopQueryXxxInformation.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  */
 
-__int64 __fastcall PfpPrefetchEntireDirectory(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 PfpPrefetchEntireDirectory(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4, __int64 a5, ...)
 {
-  __int64 v9; // r9
-  __int64 v10; // r8
-  int v11; // eax
-  __int64 v12; // rsi
-  int v13; // edi
-  _QWORD *v14; // rdi
-  __int64 v16; // [rsp+68h] [rbp-9h] BYREF
-  __int64 v17[2]; // [rsp+70h] [rbp-1h] BYREF
-  HANDLE Handle; // [rsp+80h] [rbp+Fh] BYREF
-  PVOID Object[2]; // [rsp+88h] [rbp+17h]
-  __int64 v20; // [rsp+98h] [rbp+27h]
+  __int64 v8; // r9
+  __int64 v9; // r8
+  int v10; // eax
+  __int64 v11; // rsi
+  int v12; // edi
+  PADAPTER_OBJECT v13; // rdi
+  size_t Size; // [rsp+40h] [rbp-31h]
+  SIZE_T Length; // [rsp+50h] [rbp-21h]
+  __int64 v17; // [rsp+68h] [rbp-9h] BYREF
+  __int64 v18[2]; // [rsp+70h] [rbp-1h] BYREF
+  int v19[2]; // [rsp+80h] [rbp+Fh] BYREF
+  PADAPTER_OBJECT DmaAdapter[2]; // [rsp+88h] [rbp+17h]
+  __int64 v21; // [rsp+98h] [rbp+27h]
+  va_list va; // [rsp+F0h] [rbp+7Fh] BYREF
 
-  v16 = 0LL;
-  v9 = *(_QWORD *)(a5 + 8);
-  v10 = *(_QWORD *)(a5 + 16);
-  Handle = 0LL;
-  v20 = 0x200000000LL;
-  *(_OWORD *)v17 = 0LL;
-  *(_OWORD *)Object = 0LL;
-  v11 = PfpOpenHandleCreate((__int64)&Handle, a1, v10, v9, 1048577, 0x4021u, 0, a2);
-  v12 = v20;
-  v13 = v11;
-  if ( v11 >= 0 )
+  va_start(va, a5);
+  v17 = 0LL;
+  v8 = *(_QWORD *)(a5 + 8);
+  v9 = *(_QWORD *)(a5 + 16);
+  *(_QWORD *)v19 = 0LL;
+  v21 = 0x200000000LL;
+  *(_OWORD *)v18 = 0LL;
+  *(_OWORD *)DmaAdapter = 0LL;
+  v10 = PfpOpenHandleCreate((unsigned int)v19, a1, v9, v8, 1048577, 16417, 0, a2);
+  v11 = v21;
+  v12 = v10;
+  if ( v10 >= 0 )
   {
     if ( a4 )
     {
-      v14 = Object[0];
-      if ( (int)IopQueryXxxInformation((struct _FILE_OBJECT *)Object[0], 6, 8u, 0, (struct _IRP *)&v16, &a6, 1) >= 0 )
+      v13 = DmaAdapter[0];
+      if ( (int)IopQueryXxxInformation(DmaAdapter[0], (__int64)&v17, (__int64)va, 1) >= 0 )
       {
-        *(_QWORD *)(a4 + 12) = v16;
-        *(_QWORD *)a4 = v14[3];
-        *(_DWORD *)(a4 + 8) = v12;
+        *(_QWORD *)(a4 + 12) = v17;
+        *(_QWORD *)a4 = v13[1].DmaOperations;
+        *(_DWORD *)(a4 + 8) = v11;
       }
     }
-    v13 = IopXxxControlFile(
-            Handle,
-            0LL,
-            0LL,
-            0LL,
-            (struct _IO_STATUS_BLOCK *)v17,
-            0x90120u,
-            (char *)a3,
-            8 * *(_DWORD *)(a3 + 4) + 16,
-            0LL,
-            0,
-            0);
-    if ( v13 >= 0 )
-      v13 = 0;
+    LODWORD(Length) = 0;
+    LODWORD(Size) = 8 * a3[1] + 16;
+    v12 = IopXxxControlFile(v19[0], (__int64)v18, 590112, a3, Size, 0LL, Length, 0);
+    if ( v12 >= 0 )
+      v12 = 0;
   }
-  if ( (v12 & 0x400000000LL) != 0 )
-    PfpOpenHandleClose((__int64)&Handle, a1);
-  return (unsigned int)v13;
+  if ( (v11 & 0x400000000LL) != 0 )
+    PfpOpenHandleClose(v19, a1);
+  return (unsigned int)v12;
 }

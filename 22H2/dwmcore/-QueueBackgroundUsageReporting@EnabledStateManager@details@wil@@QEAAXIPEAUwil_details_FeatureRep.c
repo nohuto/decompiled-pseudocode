@@ -1,14 +1,14 @@
 /*
- * XREFs of ?QueueBackgroundUsageReporting@EnabledStateManager@details@wil@@QEAAXIPEAUwil_details_FeatureReportingCache@@@Z @ 0x1800B0088
+ * XREFs of ?QueueBackgroundUsageReporting@EnabledStateManager@details@wil@@QEAAXIPEAUwil_details_FeatureReportingCache@@@Z @ 0x1800AFCCC
  * Callers:
- *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_KE@Z @ 0x180039454 (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
+ *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1800EB200 (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
  * Callees:
- *     ?ProcessShutdownInProgress@wil@@YA_NXZ @ 0x1800B0174 (-ProcessShutdownInProgress@wil@@YA_NXZ.c)
- *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800FA0F4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAU_TP_TIMER@@P6AXPEAU1@@Z$1?Destroy@?$DestroyThreadPoolTimer@USystemThreadPoolMethods@details@wil@@$0A@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_TP_TIMER@@@Z @ 0x180102EF4 (-reset@-$unique_storage@U-$resource_policy@PEAU_TP_TIMER@@P6AXPEAU1@@Z$1-Destroy@-$DestroyThread.c)
- *     ?EnsureCoalescedTimer_SetTimer@details@wil@@YAXAEAV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_TP_TIMER@@P6AXPEAU1@@Z$1?Destroy@?$DestroyThreadPoolTimer@USystemThreadPoolMethods@details@wil@@$0A@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@2@AEA_N_J@Z @ 0x180102F3C (-EnsureCoalescedTimer_SetTimer@details@wil@@YAXAEAV-$unique_any_t@V-$unique_storage@U-$resource_.c)
- *     ??0last_error_context@wil@@QEAA@XZ @ 0x180197D48 (--0last_error_context@wil@@QEAA@XZ.c)
- *     ??1last_error_context@wil@@QEAA@XZ @ 0x1801981E8 (--1last_error_context@wil@@QEAA@XZ.c)
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800AF664 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
+ *     ?ProcessShutdownInProgress@wil@@YA_NXZ @ 0x1800AFF2C (-ProcessShutdownInProgress@wil@@YA_NXZ.c)
+ *     ?EnsureCoalescedTimer_SetTimer@details@wil@@YAXAEAV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAU_TP_TIMER@@P6AXPEAU1@@Z$1?Destroy@?$DestroyThreadPoolTimer@USystemThreadPoolMethods@details@wil@@$0A@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@@2@AEA_N_J@Z @ 0x1800D9A48 (-EnsureCoalescedTimer_SetTimer@details@wil@@YAXAEAV-$unique_any_t@V-$unique_storage@U-$resource_.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAU_TP_TIMER@@P6AXPEAU1@@Z$1?Destroy@?$DestroyThreadPoolTimer@USystemThreadPoolMethods@details@wil@@$0A@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_TP_TIMER@@@Z @ 0x1800D9A90 (-reset@-$unique_storage@U-$resource_policy@PEAU_TP_TIMER@@P6AXPEAU1@@Z$1-Destroy@-$DestroyThread.c)
+ *     ??0last_error_context@wil@@QEAA@XZ @ 0x18014CAC8 (--0last_error_context@wil@@QEAA@XZ.c)
+ *     ??1last_error_context@wil@@QEAA@XZ @ 0x18014CB9C (--1last_error_context@wil@@QEAA@XZ.c)
  */
 
 void __fastcall wil::details::EnabledStateManager::QueueBackgroundUsageReporting(
@@ -26,14 +26,14 @@ void __fastcall wil::details::EnabledStateManager::QueueBackgroundUsageReporting
     AcquireSRWLockExclusive(pv + 1);
     v7 = a2;
     v8 = a3;
-    wil::details_abi::heap_buffer::push_back((wil::details_abi::heap_buffer *)&pv[6], &v7, 0x10uLL);
+    wil::details_abi::heap_buffer::push_back(&pv[6].Ptr, &v7, 0x10uLL);
     if ( !LOBYTE(pv[3].Ptr) )
     {
       if ( !pv[2].Ptr )
       {
         wil::last_error_context::last_error_context((wil::last_error_context *)&v9);
         ThreadpoolTimer = CreateThreadpoolTimer(
-                            _lambda_0374aa0a5d1201b2358c6bce99369c58_::_lambda_invoker_cdecl_,
+                            lambda_0374aa0a5d1201b2358c6bce99369c58_::_lambda_invoker_cdecl_,
                             pv,
                             0LL);
         wil::details::unique_storage<wil::details::resource_policy<_TP_TIMER *,void (*)(_TP_TIMER *),&public: static void wil::details::DestroyThreadPoolTimer<wil::details::SystemThreadPoolMethods,0>::Destroy(_TP_TIMER *),wistd::integral_constant<unsigned __int64,0>,_TP_TIMER *,_TP_TIMER *,0,std::nullptr_t>>::reset(

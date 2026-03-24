@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIsPackageSid @ 0x140654260
+ * XREFs of RtlIsPackageSid @ 0x140654240
  * Callers:
- *     ObpVerifyAccessToBoundaryEntry @ 0x140654070 (ObpVerifyAccessToBoundaryEntry.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140654050 (ObpVerifyAccessToBoundaryEntry.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  */
 
 bool __fastcall RtlIsPackageSid(__int64 a1)

@@ -1,68 +1,61 @@
 /*
- * XREFs of ?StDmUpdateRegionLazyCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KK@Z @ 0x1405C7914
+ * XREFs of ?StDmUpdateRegionLazyCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KK@Z @ 0x14059C594
  * Callers:
- *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x1405C6370 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x1405C8C34 (-StMapAndLockRegion@-$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z.c)
- *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C941C (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034DAEC (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x14034EEC0 (-StMapAndLockRegion@-$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z.c)
  * Callees:
- *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C666C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14026D17C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
  */
 
 void __fastcall ST_STORE<SM_TRAITS>::StDmUpdateRegionLazyCleanup(__int64 a1, unsigned int a2, int a3)
 {
-  char v3; // r11
-  unsigned __int64 v5; // r9
-  const signed __int64 *v6; // rdx
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // r9
-  unsigned int v9; // ecx
-  volatile signed __int32 *v10; // r8
-  int v11; // r11d
-  unsigned __int64 v12; // rax
+  signed __int64 *v3; // r10
+  __int64 v5; // r11
+  unsigned int v6; // ecx
+  volatile signed __int32 *v7; // r8
+  int v8; // ebx
+  unsigned __int64 v9; // rax
 
-  v3 = a2;
-  v5 = a2;
-  v6 = *(const signed __int64 **)(a1 + 848);
+  v3 = *(signed __int64 **)(a1 + 848);
   if ( a3 )
   {
-    if ( _bittest64(v6, v5) )
+    if ( _bittest64(v3, a2) )
     {
-      v7 = (unsigned __int64)(unsigned int)v5 >> 5;
-      v8 = v5 & 0x1F;
-      LOBYTE(v9) = 1;
-      v10 = (volatile signed __int32 *)v6 + v7;
-      if ( v8 + 1 > 0x20 )
+      v5 = a2 & 0x1F;
+      LOBYTE(v6) = 1;
+      v7 = (volatile signed __int32 *)v3 + ((unsigned __int64)a2 >> 5);
+      if ( (unsigned __int64)(v5 + 1) > 0x20 )
       {
-        v11 = v3 & 0x1F;
-        if ( !v11 )
+        v8 = a2 & 0x1F;
+        if ( (a2 & 0x1F) == 0 )
           goto LABEL_10;
-        _InterlockedAnd(v10++, ~(((1 << (32 - v11)) - 1) << v8));
-        v9 = 1 - (32 - v11);
-        if ( v9 >= 0x20 )
+        _InterlockedAnd(v7++, ~(((1 << (32 - v8)) - 1) << v5));
+        v6 = 1 - (32 - v8);
+        if ( v6 >= 0x20 )
         {
-          v12 = (unsigned __int64)v9 >> 5;
+          v9 = (unsigned __int64)v6 >> 5;
           do
           {
-            *v10 = 0;
-            v9 -= 32;
-            ++v10;
-            --v12;
+            *v7 = 0;
+            v6 -= 32;
+            ++v7;
+            --v9;
           }
-          while ( v12 );
+          while ( v9 );
         }
-        if ( v9 )
+        if ( v6 )
 LABEL_10:
-          _InterlockedAnd(v10, -1 << v9);
+          _InterlockedAnd(v7, -1 << v6);
       }
       else
       {
-        _InterlockedAnd(v10, ~(1 << v8));
+        _InterlockedAnd(v7, ~(1 << v5));
       }
       ST_STORE<SM_TRAITS>::StDmLazyWorkItemQueue(a1, a1 + 864);
     }
   }
   else
   {
-    *((_BYTE *)v6 + (v5 >> 3)) |= 1 << (v3 & 7);
+    _bittestandset((signed __int32 *)v3, a2);
   }
 }

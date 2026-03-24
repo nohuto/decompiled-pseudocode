@@ -1,10 +1,10 @@
 /*
  * XREFs of VfIoInitializeIrp @ 0x140930428
  * Callers:
- *     IoReuseIrp @ 0x1400DF770 (IoReuseIrp.c)
+ *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
  *     IovInitializeIrp @ 0x140924270 (IovInitializeIrp.c)
  * Callees:
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
  *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
  */

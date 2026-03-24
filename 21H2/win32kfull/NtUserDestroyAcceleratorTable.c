@@ -1,19 +1,19 @@
 /*
- * XREFs of NtUserDestroyAcceleratorTable @ 0x1C0110790
+ * XREFs of NtUserDestroyAcceleratorTable @ 0x1C0126660
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
  */
 
-__int64 __fastcall NtUserDestroyAcceleratorTable(__int64 a1)
+__int64 __fastcall NtUserDestroyAcceleratorTable(unsigned __int64 a1)
 {
   __int64 v2; // rax
   __int64 v3; // rcx
   __int64 v4; // rbx
   __int64 v5; // rdi
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = HMValidateHandle(a1, 8u);
   v4 = 0LL;
   v5 = v2;

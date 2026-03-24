@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDereferencePageRunsEx @ 0x14012B5D8
+ * XREFs of MiDereferencePageRunsEx @ 0x14012B5F8
  * Callers:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiDereferencePageRuns @ 0x140141AB0 (MiDereferencePageRuns.c)
- *     MiFinishResume @ 0x1401518F0 (MiFinishResume.c)
- *     MiZeroBootLargePages @ 0x140192534 (MiZeroBootLargePages.c)
- *     MiRebuildLargePage @ 0x1402CE2E4 (MiRebuildLargePage.c)
- *     MiDeletePartitionResources @ 0x1402D0EAC (MiDeletePartitionResources.c)
- *     MiUpdatePartitionMemory @ 0x1402D2AD0 (MiUpdatePartitionMemory.c)
+ *     MiDereferencePageRuns @ 0x140141AD0 (MiDereferencePageRuns.c)
+ *     MiFinishResume @ 0x140151910 (MiFinishResume.c)
+ *     MiZeroBootLargePages @ 0x140192554 (MiZeroBootLargePages.c)
+ *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
+ *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
+ *     MiUpdatePartitionMemory @ 0x1402D2BD0 (MiUpdatePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

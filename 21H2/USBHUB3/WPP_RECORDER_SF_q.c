@@ -1,17 +1,16 @@
 /*
- * XREFs of WPP_RECORDER_SF_q @ 0x1C0013D04
+ * XREFs of WPP_RECORDER_SF_q @ 0x1C001373C
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C00173D0 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
- *     HUBPDO_EvtDeviceProcessQueryInterfaceRequest @ 0x1C0019200 (HUBPDO_EvtDeviceProcessQueryInterfaceRequest.c)
- *     HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C0021C00 (HUBDSM_WaitingForD0EntryOnHwWake.c)
- *     HUBUCX_UCXIoctlComplete @ 0x1C00234D0 (HUBUCX_UCXIoctlComplete.c)
- *     HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C00244F8 (HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl.c)
- *     HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C0027D40 (HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability.c)
- *     HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped @ 0x1C002A944 (HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped.c)
- *     HUBMISC_GetGenericErrorResponseOnDescriptorFailure @ 0x1C002A9C0 (HUBMISC_GetGenericErrorResponseOnDescriptorFailure.c)
- *     TUNNEL_EvtIoTargetRemoveComplete @ 0x1C00888D0 (TUNNEL_EvtIoTargetRemoveComplete.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceProcessQueryInterfaceRequest @ 0x1C0018CB0 (HUBPDO_EvtDeviceProcessQueryInterfaceRequest.c)
+ *     HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C00217B0 (HUBDSM_WaitingForD0EntryOnHwWake.c)
+ *     HUBUCX_UCXIoctlComplete @ 0x1C0023080 (HUBUCX_UCXIoctlComplete.c)
+ *     HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C00240B8 (HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl.c)
+ *     HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C0027890 (HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability.c)
+ *     HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped @ 0x1C002A27C (HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped.c)
+ *     HUBMISC_GetGenericErrorResponseOnDescriptorFailure @ 0x1C002A2F8 (HUBMISC_GetGenericErrorResponseOnDescriptorFailure.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_q(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)

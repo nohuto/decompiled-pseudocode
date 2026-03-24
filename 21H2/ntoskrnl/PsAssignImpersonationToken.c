@@ -1,12 +1,11 @@
 /*
- * XREFs of PsAssignImpersonationToken @ 0x1407AF0C0
+ * XREFs of PsAssignImpersonationToken @ 0x14065ADD0
  * Callers:
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     PsRevertThreadToSelf @ 0x1407AF180 (PsRevertThreadToSelf.c)
- *     PsImpersonateClient @ 0x1407AF1B0 (PsImpersonateClient.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall PsAssignImpersonationToken(PETHREAD Thread, HANDLE Token)
@@ -15,28 +14,28 @@ NTSTATUS __stdcall PsAssignImpersonationToken(PETHREAD Thread, HANDLE Token)
   NTSTATUS v4; // ebx
   NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // r9
-  PVOID v7; // rsi
-  PVOID Tokena; // [rsp+48h] [rbp+10h] BYREF
+  struct _DMA_ADAPTER *v7; // rsi
+  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   if ( !Token )
   {
-    PsRevertThreadToSelf(Thread);
+    PsImpersonateClient(Thread, 0LL, 0, 0, SecurityImpersonation);
     return 0;
   }
   PreviousMode = CurrentThread->PreviousMode;
-  Tokena = 0LL;
-  result = ObReferenceObjectByHandle(Token, 4u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Tokena, 0LL);
+  Object = 0LL;
+  result = ObReferenceObjectByHandle(Token, 4u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
-    v7 = Tokena;
-    if ( *((_DWORD *)Tokena + 48) != 2 )
+    v7 = (struct _DMA_ADAPTER *)Object;
+    if ( *((_DWORD *)Object + 48) != 2 )
     {
-      ObfDereferenceObject(Tokena);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
       return -1073741656;
     }
-    v4 = PsImpersonateClient(Thread, Tokena, 0, 0, *((SECURITY_IMPERSONATION_LEVEL *)Tokena + 49));
-    ObfDereferenceObject(v7);
+    v4 = PsImpersonateClient(Thread, Object, 0, 0, *((SECURITY_IMPERSONATION_LEVEL *)Object + 49));
+    HalPutDmaAdapter(v7);
     return v4;
   }
   return result;

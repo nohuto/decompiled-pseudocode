@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIThermalStopZone @ 0x1C0041F74
+ * XREFs of ACPIThermalStopZone @ 0x1C0060294
  * Callers:
- *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
- *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
- *     AcpiThermalDeviceTargetChange @ 0x1C0042640 (AcpiThermalDeviceTargetChange.c)
- *     ACPIBusIrpStopDevice @ 0x1C0081910 (ACPIBusIrpStopDevice.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C004DC10 (ACPIBusIrpSurpriseRemoval.c)
+ *     AcpiThermalDeviceTargetChange @ 0x1C0060610 (AcpiThermalDeviceTargetChange.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
  * Callees:
- *     ACPIThermalLoopEx @ 0x1C0041110 (ACPIThermalLoopEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
  */
 
 NTSTATUS __fastcall ACPIThermalStopZone(__int64 a1)

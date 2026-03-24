@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C0291450
+ * XREFs of ??$GetDDIOBJ@U_CLIPOBJ@@@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU1@@Z @ 0x1C0293900
  * Callers:
- *     ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C016EE38 (-GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z.c)
- *     NtGdiCLIPOBJ_bEnum @ 0x1C02B0D80 (NtGdiCLIPOBJ_bEnum.c)
- *     NtGdiCLIPOBJ_cEnumStart @ 0x1C02B0EC0 (NtGdiCLIPOBJ_cEnumStart.c)
+ *     ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C0293B60 (-GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z.c)
+ *     NtGdiCLIPOBJ_bEnum @ 0x1C02B2380 (NtGdiCLIPOBJ_bEnum.c)
+ *     NtGdiCLIPOBJ_cEnumStart @ 0x1C02B24D0 (NtGdiCLIPOBJ_cEnumStart.c)
  * Callees:
  *     <none>
  */
@@ -23,16 +23,16 @@ unsigned __int64 __fastcall UMPDOBJ::GetDDIOBJ<_CLIPOBJ>(__int64 a1, __int64 a2)
       ++gdwUMPDUnmatchedUMPointers;
       if ( gfUMPDDebug )
         DbgPrint(
-          "onecoreuap\\restricted\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
-          771);
+          "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
+          795);
     }
   }
   if ( (*(_DWORD *)(a1 + 412) & 0x100) != 0 && v3 && v3 < (unsigned __int64)MmSystemRangeStart )
   {
     if ( gfUMPDDebug )
       DbgPrint(
-        "onecoreuap\\restricted\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
-        776);
+        "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
+        800);
     return 0LL;
   }
   return v3;

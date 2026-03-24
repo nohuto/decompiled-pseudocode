@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PresentAllowedTearing@CFlipToken@@UEBA_NXZ @ 0x1C00206C0
+ * XREFs of ?PresentAllowedTearing@CFlipToken@@UEBA_NXZ @ 0x1C001BAB0
  * Callers:
  *     <none>
  * Callees:

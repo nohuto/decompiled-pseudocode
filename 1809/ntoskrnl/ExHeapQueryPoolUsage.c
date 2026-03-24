@@ -1,7 +1,7 @@
 /*
- * XREFs of ExHeapQueryPoolUsage @ 0x1400EF3E0
+ * XREFs of ExHeapQueryPoolUsage @ 0x1400EF400
  * Callers:
- *     ExQueryPoolUsage @ 0x1400F0E04 (ExQueryPoolUsage.c)
+ *     ExQueryPoolUsage @ 0x1400F0E24 (ExQueryPoolUsage.c)
  * Callees:
  *     <none>
  */

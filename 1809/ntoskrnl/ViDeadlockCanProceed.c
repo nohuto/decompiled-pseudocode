@@ -6,7 +6,7 @@
  *     VfDeadlockInitializeResource @ 0x14093C0E0 (VfDeadlockInitializeResource.c)
  *     VfDeadlockReleaseResource @ 0x14093C260 (VfDeadlockReleaseResource.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
  *     ViDeadlockCheckStackLimits @ 0x14093D0B4 (ViDeadlockCheckStackLimits.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprLogFailureEvent @ 0x140952A54
+ * XREFs of PnprLogFailureEvent @ 0x1408ADFF8
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140950E30 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnprLogFailureEvent(__int64 a1, __int64 a2, int a3)
@@ -58,8 +58,8 @@ NTSTATUS __fastcall PnprLogFailureEvent(__int64 a1, __int64 a2, int a3)
   v20 = 2LL;
   if ( PnprContext )
   {
-    v7 = *(_DWORD *)(PnprContext + 33276);
-    v8 = *(_DWORD *)(PnprContext + 33272);
+    v7 = *(_DWORD *)(PnprContext + 20988);
+    v8 = *(_DWORD *)(PnprContext + 20984);
   }
   else
   {

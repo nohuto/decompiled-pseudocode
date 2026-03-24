@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIIrpInvokeDispatchRoutine @ 0x1C007BED0
+ * XREFs of ACPIIrpInvokeDispatchRoutine @ 0x1C00A19F4
  * Callers:
- *     ACPIBusIrpEject @ 0x1C007EA20 (ACPIBusIrpEject.c)
- *     ACPIBusIrpQueryCapabilities @ 0x1C007EE70 (ACPIBusIrpQueryCapabilities.c)
- *     ACPIBusIrpQueryPnpDeviceState @ 0x1C0080800 (ACPIBusIrpQueryPnpDeviceState.c)
- *     ACPIBusIrpSetLock @ 0x1C00814D0 (ACPIBusIrpSetLock.c)
+ *     ACPIBusIrpQueryPnpDeviceState @ 0x1C00A19A0 (ACPIBusIrpQueryPnpDeviceState.c)
+ *     ACPIBusIrpQueryCapabilities @ 0x1C00A19D0 (ACPIBusIrpQueryCapabilities.c)
+ *     ACPIBusIrpEject @ 0x1C00ADD60 (ACPIBusIrpEject.c)
+ *     ACPIBusIrpSetLock @ 0x1C00AE020 (ACPIBusIrpSetLock.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIIrpInvokeDispatchRoutine(
@@ -19,7 +19,7 @@ __int64 __fastcall ACPIIrpInvokeDispatchRoutine(
 {
   __int64 DeviceExtension; // rsi
   int Status; // eax
-  int v10; // ebx
+  unsigned int v10; // ebx
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   Status = a2->IoStatus.Status;
@@ -27,14 +27,13 @@ __int64 __fastcall ACPIIrpInvokeDispatchRoutine(
   if ( Status < 0 )
   {
     if ( Status != -1073741637 )
-      goto LABEL_6;
+      goto LABEL_4;
+    goto LABEL_3;
   }
-  else if ( !a5 )
-  {
-    goto LABEL_6;
-  }
-  v10 = a4(a1, a2, 0LL, 0LL);
-LABEL_6:
+  if ( a5 )
+LABEL_3:
+    v10 = a4(a1, a2, 0LL, 0LL);
+LABEL_4:
   if ( v10 != 259 )
   {
     if ( (*(_DWORD *)(DeviceExtension + 8) & 0x20) != 0 )
@@ -46,13 +45,12 @@ LABEL_6:
     }
     else
     {
-      if ( v10 == -1073741637 )
-        return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
-      a2->IoStatus.Status = v10;
-      if ( v10 >= 0 )
-        return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+      if ( v10 != -1073741637 )
+        a2->IoStatus.Status = v10;
+      if ( (int)(v10 + 0x80000000) < 0 || v10 == -1073741637 )
+        return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
     }
     IofCompleteRequest(a2, 0);
   }
-  return (unsigned int)v10;
+  return v10;
 }

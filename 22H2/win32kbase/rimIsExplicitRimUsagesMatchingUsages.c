@@ -1,11 +1,11 @@
 /*
- * XREFs of rimIsExplicitRimUsagesMatchingUsages @ 0x1C007FE10
+ * XREFs of rimIsExplicitRimUsagesMatchingUsages @ 0x1C0058A7C
  * Callers:
- *     rimFindReferencedRimObj @ 0x1C0006280 (rimFindReferencedRimObj.c)
- *     RIMCreateHidDesc @ 0x1C007EF3C (RIMCreateHidDesc.c)
- *     rimCheckForExplicitRimConflictInProcess @ 0x1C007FD34 (rimCheckForExplicitRimConflictInProcess.c)
- *     RIMIDECreateHIDDesc @ 0x1C019399C (RIMIDECreateHIDDesc.c)
- *     RIMIDEIsCompatibleDevice @ 0x1C0197018 (RIMIDEIsCompatibleDevice.c)
+ *     RIMCreateHidDesc @ 0x1C00582E8 (RIMCreateHidDesc.c)
+ *     rimAnyExplicitRimUsagesMatchingUsages @ 0x1C00589D8 (rimAnyExplicitRimUsagesMatchingUsages.c)
+ *     rimFindReferencedRimObj @ 0x1C015274C (rimFindReferencedRimObj.c)
+ *     RIMIDECreateHIDDesc @ 0x1C016740C (RIMIDECreateHIDDesc.c)
+ *     RIMIDEIsCompatibleDevice @ 0x1C0169AC8 (RIMIDEIsCompatibleDevice.c)
  * Callees:
  *     <none>
  */

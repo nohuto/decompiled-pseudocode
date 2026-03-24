@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReportVidMmState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E70BC
+ * XREFs of ?ReportVidMmState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1D64
  * Callers:
- *     VidMmReportVidMmState @ 0x1C002D2D0 (VidMmReportVidMmState.c)
+ *     VidMmReportVidMmState @ 0x1C0022FA0 (VidMmReportVidMmState.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0091AD8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0088380 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::ReportVidMmState(VIDMM_GLOBAL *this)

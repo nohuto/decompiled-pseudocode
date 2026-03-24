@@ -1,28 +1,27 @@
 /*
- * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C0088D80
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B63B0
  * Callers:
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C003D428 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
- *     GreGradientFill @ 0x1C0087BF0 (GreGradientFill.c)
- *     GreGetAppClipBox @ 0x1C00889A8 (GreGetAppClipBox.c)
- *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C0088D44 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
- *     ?Trg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C008A0A8 (-Trg@BLTRECORD@@QEAAHHHHH@Z.c)
- *     ?Src@BLTRECORD@@QEAAHHHHH@Z @ 0x1C008A0F0 (-Src@BLTRECORD@@QEAAHHHHH@Z.c)
- *     NtGdiGetPixel @ 0x1C008A200 (NtGdiGetPixel.c)
- *     GreGetBoundsRect @ 0x1C008B388 (GreGetBoundsRect.c)
- *     GreSetBoundsRect @ 0x1C008BB64 (GreSetBoundsRect.c)
- *     NtGdiSetPixel @ 0x1C012EFA0 (NtGdiSetPixel.c)
- *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C0137FE4 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
- *     ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C02917A4 (-Msk@BLTRECORD@@QEAAHHHHH@Z.c)
- *     NtGdiPtVisible @ 0x1C029E1B0 (NtGdiPtVisible.c)
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
- *     XFORMOBJ_bApplyXform @ 0x1C02BE010 (XFORMOBJ_bApplyXform.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087D58 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     GreGetAppClipBox @ 0x1C00B6A6C (GreGetAppClipBox.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C00B7A24 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
+ *     GreGetBoundsRect @ 0x1C00FC958 (GreGetBoundsRect.c)
+ *     NtGdiGetPixel @ 0x1C01093E0 (NtGdiGetPixel.c)
+ *     ?Trg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C010A03C (-Trg@BLTRECORD@@QEAAHHHHH@Z.c)
+ *     ?Src@BLTRECORD@@QEAAHHHHH@Z @ 0x1C010A084 (-Src@BLTRECORD@@QEAAHHHHH@Z.c)
+ *     GreSetBoundsRect @ 0x1C0111294 (GreSetBoundsRect.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C01454C4 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     NtGdiSetPixel @ 0x1C0155DE0 (NtGdiSetPixel.c)
+ *     ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C0293D34 (-Msk@BLTRECORD@@QEAAHHHHH@Z.c)
+ *     NtGdiPtVisible @ 0x1C029F8F0 (NtGdiPtVisible.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
+ *     XFORMOBJ_bApplyXform @ 0x1C02BF690 (XFORMOBJ_bApplyXform.c)
  * Callees:
- *     bCvtPts1 @ 0x1C0089370 (bCvtPts1.c)
+ *     bCvtPts1 @ 0x1C0084CF0 (bCvtPts1.c)
  */
 
 __int64 __fastcall EXFORMOBJ::bXform(EXFORMOBJ *this, struct _POINTL *a2, __int64 a3)
 {
-  __int64 v3; // rcx
+  unsigned __int64 v3; // rcx
   unsigned int v4; // ecx
   int v6; // eax
 

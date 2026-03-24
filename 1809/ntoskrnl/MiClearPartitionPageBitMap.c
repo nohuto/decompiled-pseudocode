@@ -1,7 +1,7 @@
 /*
- * XREFs of MiClearPartitionPageBitMap @ 0x1402D09C8
+ * XREFs of MiClearPartitionPageBitMap @ 0x1402D0AC8
  * Callers:
- *     MiInsertPartitionPages @ 0x1402D1AA4 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x1402D1BA4 (MiInsertPartitionPages.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,13 +11,13 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiActOnPartitionNodePages @ 0x1402D0018 (MiActOnPartitionNodePages.c)
- *     MiFreePartitionTree @ 0x1402D1894 (MiFreePartitionTree.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
+ *     MiFreePartitionTree @ 0x1402D1994 (MiFreePartitionTree.c)
  */
 
 __int64 __fastcall MiClearPartitionPageBitMap(__int64 a1, _QWORD **a2)

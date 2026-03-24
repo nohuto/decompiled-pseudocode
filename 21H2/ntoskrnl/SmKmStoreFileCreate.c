@@ -1,22 +1,22 @@
 /*
- * XREFs of SmKmStoreFileCreate @ 0x1409D64F8
+ * XREFs of SmKmStoreFileCreate @ 0x14092BFDC
  * Callers:
- *     SmcCacheStart @ 0x1409D7D54 (SmcCacheStart.c)
+ *     SmcCacheStart @ 0x14092D830 (SmcCacheStart.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x1402A0800 (IoSetThreadHardErrorMode.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041C080 (ZwQueryVolumeInformationFile.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IoRegisterPlugPlayNotification @ 0x140768390 (IoRegisterPlugPlayNotification.c)
- *     SmKmFileInfoCleanup @ 0x1409D57BC (SmKmFileInfoCleanup.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D69A8 (SmKmStoreFileCreateForIoType.c)
- *     SmKmStoreFileDelete @ 0x1409D6C58 (SmKmStoreFileDelete.c)
- *     SmKmStoreFileGetExtents @ 0x1409D6CF4 (SmKmStoreFileGetExtents.c)
- *     SmKmStoreFileOpenVolume @ 0x1409D71F0 (SmKmStoreFileOpenVolume.c)
- *     SmKmStoreFileWriteHeader @ 0x1409D7390 (SmKmStoreFileWriteHeader.c)
+ *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FACC0 (ZwQueryVolumeInformationFile.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
+ *     SmKmFileInfoCleanup @ 0x14092B278 (SmKmFileInfoCleanup.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C48C (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileDelete @ 0x14092C73C (SmKmStoreFileDelete.c)
+ *     SmKmStoreFileGetExtents @ 0x14092C7D8 (SmKmStoreFileGetExtents.c)
+ *     SmKmStoreFileOpenVolume @ 0x14092CCD4 (SmKmStoreFileOpenVolume.c)
+ *     SmKmStoreFileWriteHeader @ 0x14092CE74 (SmKmStoreFileWriteHeader.c)
  */
 
 __int64 __fastcall SmKmStoreFileCreate(

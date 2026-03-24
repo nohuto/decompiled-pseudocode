@@ -1,59 +1,58 @@
 /*
- * XREFs of PopWriteHiberImage @ 0x140AA595C
+ * XREFs of PopWriteHiberImage @ 0x140994454
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopGetNextTable @ 0x14058EC74 (PopGetNextTable.c)
- *     PopAddPagesToCompressedPageSet @ 0x140AA1974 (PopAddPagesToCompressedPageSet.c)
- *     PopCountDataAsProduced @ 0x140AA21E4 (PopCountDataAsProduced.c)
- *     PopHiberCheckForDebugBreak @ 0x140AA2F14 (PopHiberCheckForDebugBreak.c)
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
+ *     PopGetNextTable @ 0x140383750 (PopGetNextTable.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
+ *     PopAddPagesToCompressedPageSet @ 0x140994BD4 (PopAddPagesToCompressedPageSet.c)
+ *     PopCountDataAsProduced @ 0x140994CFC (PopCountDataAsProduced.c)
+ *     PopHiberCheckForDebugBreak @ 0x140994FFC (PopHiberCheckForDebugBreak.c)
  */
 
-char __fastcall PopWriteHiberImage(ULONG_PTR BugCheckParameter3, char a2)
+__int64 __fastcall PopWriteHiberImage(ULONG_PTR BugCheckParameter3, char a2)
 {
-  void *v4; // r13
-  __int64 v5; // rbp
-  int v6; // esi
-  void *v7; // rdi
-  char v8; // r15
-  __int64 NextTable; // rax
-  unsigned int v11[4]; // [rsp+40h] [rbp-178h] BYREF
-  const void *v12[22]; // [rsp+50h] [rbp-168h] BYREF
-  _BYTE v13[128]; // [rsp+100h] [rbp-B8h] BYREF
+  __int64 v4; // rbp
+  int v5; // esi
+  __int64 v6; // rdi
+  char v7; // r15
+  __int64 result; // rax
+  int v9; // [rsp+20h] [rbp-198h]
+  _DWORD v10[4]; // [rsp+40h] [rbp-178h] BYREF
+  _QWORD v11[22]; // [rsp+50h] [rbp-168h] BYREF
+  _BYTE v12[128]; // [rsp+100h] [rbp-B8h] BYREF
 
-  memset(v12, 0, sizeof(v12));
-  v4 = qword_140C3D098;
-  v5 = *(_QWORD *)(BugCheckParameter3 + 264);
-  v6 = 0;
-  v11[0] = 0;
-  v7 = 0LL;
+  memset(v11, 0, sizeof(v11));
+  v4 = *(_QWORD *)(BugCheckParameter3 + 264);
+  v5 = 0;
+  v10[0] = 0;
+  v6 = 0LL;
   do
   {
     PopHiberCheckForDebugBreak();
-    v8 = PopRequestWrite(BugCheckParameter3, (__int64)v4, 1);
-    if ( !v7 )
+    v7 = PopRequestWrite(BugCheckParameter3);
+    if ( !v6 )
     {
-      NextTable = PopGetNextTable(BugCheckParameter3, v11, (__int64)v13, (__int64)v12, a2, *(_QWORD *)(v5 + 8));
-      v6 = NextTable;
-      if ( !NextTable )
+      result = PopGetNextTable(
+                 BugCheckParameter3,
+                 (unsigned __int64)v10,
+                 (__int64)v12,
+                 (__int64)v11,
+                 a2,
+                 *(_QWORD *)(v4 + 8));
+      v5 = result;
+      if ( !result )
         continue;
-      *(_QWORD *)(v5 + 56) += NextTable;
-      v7 = (void *)PopAddPagesToCompressedPageSet(
-                     BugCheckParameter3,
-                     v5,
-                     v11,
-                     v12[3],
-                     a2,
-                     NextTable,
-                     (__int64)PopCompressCallback);
+      *(_QWORD *)(v4 + 56) += result;
+      LOBYTE(v9) = a2;
+      v6 = PopAddPagesToCompressedPageSet(BugCheckParameter3, v4, v10, v11[3], v9, result, PopCompressCallback);
     }
-    LOBYTE(NextTable) = PopCountDataAsProduced(v5, v7, v11, v13, v6, 1u);
-    if ( (_BYTE)NextTable )
-      v7 = 0LL;
+    result = PopCountDataAsProduced(v4, v6, v10, v12, v5, 1);
+    if ( (_BYTE)result )
+      v6 = 0LL;
   }
-  while ( !v8 );
-  return NextTable;
+  while ( !v7 );
+  return result;
 }

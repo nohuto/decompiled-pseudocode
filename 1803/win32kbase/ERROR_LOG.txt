@@ -1,3 +1,3 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001C6A1ABAD80>) 
- 
+[EXCEPTION] SendMessageTo @ 0x1C0055E90: Hex-Rays returned no pseudocode for 0x1C0055E90
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0055E90'), <traceback object at 0x000002763934CD00>)
+

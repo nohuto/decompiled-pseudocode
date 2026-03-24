@@ -1,58 +1,52 @@
 /*
- * XREFs of xxxAddShadow @ 0x1C012DDE0
+ * XREFs of xxxAddShadow @ 0x1C013DECC
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0043774 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E958 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
  * Callees:
- *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C001F3A8 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C006D740 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     xxxInheritWindowMonitor @ 0x1C0075834 (xxxInheritWindowMonitor.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C0081DAC (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C012E0FC (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036D90 (zzzSetWindowCompositionCloak.c)
+ *     GetWindowCloakState @ 0x1C004DC0C (GetWindowCloakState.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C878 (xxxInheritWindowMonitor.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00BC1E8 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C013E1FC (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxAddShadow(struct tagWND *a1)
 {
   __int64 v2; // rax
-  __int64 v3; // r14
+  __int64 v3; // rdi
   __int64 v4; // rcx
-  int v5; // r15d
+  int v5; // esi
   __int64 v6; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  int v8; // r12d
-  unsigned int v9; // ebx
-  ShellWindowManagement *Window; // rbx
-  struct tagWND *v11; // rcx
+  int v8; // r14d
+  __int64 v9; // rax
+  struct tagWND *Window; // rsi
   __int64 ThreadWin32Thread; // rax
-  __int64 v13; // rdx
+  struct tagWND *v12; // rcx
+  __int64 v13; // rax
   __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // rax
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // [rsp+98h] [rbp-29h] BYREF
-  struct tagWND *v22; // [rsp+A0h] [rbp-21h]
-  __int128 v23; // [rsp+A8h] [rbp-19h] BYREF
-  __int64 v24; // [rsp+B8h] [rbp-9h]
-  __int64 v25[3]; // [rsp+C0h] [rbp-1h] BYREF
-  __int128 v26; // [rsp+D8h] [rbp+17h] BYREF
-  __int64 v27; // [rsp+E8h] [rbp+27h]
+  __int64 v15; // rax
+  __int64 v17; // rcx
+  _QWORD v18[2]; // [rsp+98h] [rbp-29h] BYREF
+  _QWORD v19[2]; // [rsp+A8h] [rbp-19h] BYREF
+  __int128 v20; // [rsp+B8h] [rbp-9h] BYREF
+  __int64 v21; // [rsp+C8h] [rbp+7h]
+  _QWORD v22[3]; // [rsp+D0h] [rbp+Fh] BYREF
+  _QWORD v23[4]; // [rsp+E8h] [rbp+27h] BYREF
 
-  v27 = 0LL;
-  v24 = 0LL;
-  v26 = 0LL;
-  v23 = 0LL;
+  v21 = 0LL;
+  v23[2] = 0LL;
+  v20 = 0LL;
   if ( gbDisableAlpha )
     return 0LL;
   if ( gcOverlays )
@@ -67,7 +61,7 @@ __int64 __fastcall xxxAddShadow(struct tagWND *a1)
   v3 = v2;
   if ( !v2 )
     return 0LL;
-  PushW32ThreadLock(v2, &v23, (__int64)Win32FreePool);
+  PushW32ThreadLock(v2, &v20, (__int64)Win32FreePool);
   v4 = *((_QWORD *)a1 + 5);
   v5 = *(_BYTE *)(v4 + 24) & 8 | 0x800A0;
   if ( !PsGetCurrentProcessWin32Process(v4)
@@ -77,61 +71,65 @@ __int64 __fastcall xxxAddShadow(struct tagWND *a1)
   {
     v8 = 0;
   }
-  v9 = *(_DWORD *)(*((_QWORD *)a1 + 5) + 236LL);
-  SmartObjStackRefBase<tagMENU>::Init(v25, 0LL);
-  v25[2] = 0LL;
-  Window = (ShellWindowManagement *)xxxCreateWindowEx(
-                                      v5,
-                                      (wchar_t *)(unsigned __int16)gatomShadow,
-                                      (unsigned __int16)gatomShadow,
-                                      0LL,
-                                      0x80000000,
-                                      0,
-                                      0,
-                                      0,
-                                      0,
-                                      0LL,
-                                      (__int64)v25,
-                                      hModuleWin,
-                                      0LL,
-                                      v9,
-                                      0xA00u,
-                                      v8,
-                                      0LL);
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v25);
+  SmartObjStackRefBase<tagMENU>::Init(v22, 0LL);
+  v9 = *((_QWORD *)a1 + 5);
+  v22[2] = 0LL;
+  Window = (struct tagWND *)xxxCreateWindowEx(
+                              v5,
+                              (wchar_t *)(unsigned __int16)gatomShadow,
+                              (unsigned __int16)gatomShadow,
+                              0LL,
+                              0x80000000,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0LL,
+                              (__int64)v22,
+                              hModuleWin,
+                              0LL,
+                              *(_DWORD *)(v9 + 236),
+                              2560,
+                              v8,
+                              0LL);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v22);
   if ( !Window || *(char *)(*((_QWORD *)a1 + 5) + 19LL) < 0 )
   {
 LABEL_20:
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v23);
+    PopAndFreeAlwaysW32ThreadLock((__int64)&v20);
     return 0LL;
   }
-  ThreadLock((__int64)Window, (__int64 *)&v26);
-  xxxInheritWindowMonitor(Window, a1, 1);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v23[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v23;
+  v23[1] = Window;
+  HMLockObject(Window);
+  xxxInheritWindowMonitor(Window, (__int64 *)a1, 1);
   ++gdwDeferWinEvent;
-  if ( *(char *)(*((_QWORD *)a1 + 5) + 19LL) < 0 || FindShadow(a1) || !zzzApplyShadow(v11, Window) )
+  if ( *(char *)(*((_QWORD *)a1 + 5) + 19LL) < 0 || FindShadow(a1) || !zzzApplyShadow(v12, Window) )
   {
     zzzEndDeferWinEventNotify();
-    xxxDestroyWindow(Window);
-    ThreadUnlock1(v19, v18, v20);
+    xxxDestroyWindow((unsigned __int64)Window);
+    ThreadUnlock1(v17);
     goto LABEL_20;
   }
   *(_QWORD *)(v3 + 16) = gpshadowFirst;
   gpshadowFirst = (struct tagSHADOW *)v3;
-  v21 = v3;
-  v22 = a1;
-  HMAssignmentLock(&v21, 0LL);
-  v22 = Window;
-  v21 = v3 + 8;
-  HMAssignmentLock(&v21, 0LL);
+  v18[0] = v3;
+  v18[1] = a1;
+  HMAssignmentLock(v18);
+  v19[1] = Window;
+  v19[0] = v3 + 8;
+  HMAssignmentLock(v19);
   if ( (unsigned int)GetWindowCloakState(a1) )
-    zzzSetWindowCompositionCloak(*(struct tagWND **)(v3 + 8), 0LL, 1u);
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  *(_QWORD *)(ThreadWin32Thread + 16) = v23;
-  PushW32ThreadLock(v3, &v23, (__int64)RemoveShadow);
+    zzzSetWindowCompositionCloak(*(_QWORD *)(v3 + 8), 0LL, 1u);
+  v13 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  *(_QWORD *)(v13 + 16) = v20;
+  PushW32ThreadLock(v3, &v20, (__int64)RemoveShadow);
   zzzEndDeferWinEventNotify();
   xxxSetWindowPos(Window, (__int64)a1, 0LL, 0LL, 0, 0, 83);
-  ThreadUnlock1(v14, v13, v15);
-  v16 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  *(_QWORD *)(v16 + 16) = v23;
+  ThreadUnlock1(v14);
+  v15 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  *(_QWORD *)(v15 + 16) = v20;
   return 1LL;
 }

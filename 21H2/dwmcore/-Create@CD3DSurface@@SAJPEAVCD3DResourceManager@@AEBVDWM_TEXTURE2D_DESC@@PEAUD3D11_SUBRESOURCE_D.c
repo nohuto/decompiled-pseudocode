@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Create@CD3DSurface@@SAJPEAVCD3DResourceManager@@AEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAV1@@Z @ 0x18028C390
+ * XREFs of ?Create@CD3DSurface@@SAJPEAVCD3DResourceManager@@AEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAV1@@Z @ 0x18024A8EC
  * Callers:
- *     ?EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x18020CF3C (-EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
+ *     ?EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ @ 0x1801BA3FC (-EnsureMipmapSurface@CCompositionMipmapSurface@@AEAAJXZ.c)
  * Callees:
- *     ?CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Texture2D@@@Z @ 0x18006A66C (-CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D1.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1@@Z @ 0x18028C458 (-CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1.c)
+ *     ?CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Texture2D@@@Z @ 0x18003AB0C (-CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D1.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1@@Z @ 0x18024A9A8 (-CreateViewOfTexture@CD3DSurface@@SAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@PEAIIPEAPEAV1.c)
  */
 
 __int64 __fastcall CD3DSurface::Create(
@@ -32,14 +32,14 @@ __int64 __fastcall CD3DSurface::Create(
   v11 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_18038D950, 10LL, v6, 0x47u);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_180307020, 0xAu, v6, 0x47u, 0LL);
   }
   else
   {
     ViewOfTexture = CD3DSurface::CreateViewOfTexture((struct CD3DResourceManager *)a1, v15, v8, v9, a4);
     v11 = ViewOfTexture;
     if ( ViewOfTexture < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v13, &dword_18038D950, 10LL, ViewOfTexture, 0x4Du);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, &dword_180307020, 0xAu, ViewOfTexture, 0x4Du, 0LL);
   }
   if ( v10 )
     ((void (__fastcall *)(struct ID3D11Texture2D *))v10->lpVtbl->Release)(v10);

@@ -1,27 +1,26 @@
 /*
- * XREFs of ExpTryAcquireFannedOutPushLockExclusive @ 0x1403CED0C
+ * XREFs of ExpTryAcquireFannedOutPushLockExclusive @ 0x140390CEC
  * Callers:
- *     ExTryAcquireAutoExpandPushLockExclusive @ 0x1403CEC40 (ExTryAcquireAutoExpandPushLockExclusive.c)
+ *     ExTryAcquireAutoExpandPushLockExclusive @ 0x140390A70 (ExTryAcquireAutoExpandPushLockExclusive.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
  */
 
 char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned __int64 a1)
 {
   char v2; // bl
   ULONG MaximumProcessorCount; // r9d
-  unsigned int v4; // edi
+  __int64 v4; // rdi
   unsigned int v5; // ebp
   unsigned int v6; // esi
-  unsigned int v7; // ecx
-  unsigned int v9; // ecx
+  unsigned int v7; // eax
+  unsigned int v9; // eax
   volatile signed __int64 *v10; // rcx
-  char v11; // al
 
   v2 = 0;
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  v4 = 0;
+  LODWORD(v4) = 0;
   if ( !MaximumProcessorCount )
     return 1;
   v5 = ((unsigned int)a1 >> 13) & 0x3FFFF;
@@ -30,7 +29,8 @@ char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned __int64 a1)
   {
     _BitScanReverse(&v7, v5);
     if ( _interlockedbittestandset64(
-           (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * v4) + 8LL * (v7 - 2))
+           (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * (unsigned int)v4)
+                                                             + 8LL * (v7 - 2))
                                                  + 8LL * (v5 ^ (1 << v7))
                                                  + 8)
                                      + 8LL * v6),
@@ -38,18 +38,19 @@ char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned __int64 a1)
     {
       break;
     }
-    if ( ++v4 >= MaximumProcessorCount )
+    LODWORD(v4) = v4 + 1;
+    if ( (unsigned int)v4 >= MaximumProcessorCount )
       return 1;
   }
-  while ( v4 )
+  while ( (_DWORD)v4 )
   {
     _BitScanReverse(&v9, v5);
-    v10 = (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * --v4) + 8LL * (v9 - 2))
+    v4 = (unsigned int)(v4 - 1);
+    v10 = (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8 * v4) + 8LL * (v9 - 2))
                                                 + 8LL * (v5 ^ (1 << v9))
                                                 + 8)
                                     + 8LL * v6);
-    v11 = _InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v11 & 2) != 0 && (v11 & 4) == 0 )
+    if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v10);
   }
   return v2;

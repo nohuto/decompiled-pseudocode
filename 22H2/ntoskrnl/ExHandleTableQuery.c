@@ -1,7 +1,8 @@
 /*
- * XREFs of ExHandleTableQuery @ 0x140742BB0
+ * XREFs of ExHandleTableQuery @ 0x140619330
  * Callers:
- *     ObGetProcessHandleCount @ 0x140742AE8 (ObGetProcessHandleCount.c)
+ *     ExpCopyProcessInfo @ 0x140618E80 (ExpCopyProcessInfo.c)
+ *     ObGetProcessHandleCount @ 0x1406976DC (ObGetProcessHandleCount.c)
  * Callees:
  *     <none>
  */

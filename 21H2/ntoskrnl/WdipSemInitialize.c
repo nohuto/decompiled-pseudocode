@@ -1,16 +1,16 @@
 /*
- * XREFs of WdipSemInitialize @ 0x14083F51C
+ * XREFs of WdipSemInitialize @ 0x140799008
  * Callers:
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     WdipSemCleanStart @ 0x14083F570 (WdipSemCleanStart.c)
- *     WdipSemInitializeGlobalState @ 0x140840FF8 (WdipSemInitializeGlobalState.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     WdipSemCleanStart @ 0x14079905C (WdipSemCleanStart.c)
+ *     WdipSemInitializeGlobalState @ 0x14079AAF4 (WdipSemInitializeGlobalState.c)
  */
 
-char WdipSemInitialize()
+_QWORD *WdipSemInitialize()
 {
   struct _KTHREAD *CurrentThread; // rax
 
@@ -20,5 +20,5 @@ char WdipSemInitialize()
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&WdipSemPushLock, 0LL);
   WdipSemCleanStart();
   ExReleasePushLockEx((ULONG_PTR)&WdipSemPushLock, 0LL);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

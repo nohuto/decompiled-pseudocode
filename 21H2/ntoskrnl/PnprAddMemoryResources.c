@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddMemoryResources @ 0x140951944
+ * XREFs of PnprAddMemoryResources @ 0x1408ACE64
  * Callers:
- *     PnprAddDeviceResources @ 0x1409518C0 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1408ACDE0 (PnprAddDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x140388BD0 (RtlCmDecodeMemIoResource.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlCmDecodeMemIoResource @ 0x1402D14F0 (RtlCmDecodeMemIoResource.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddMemoryResources(__int64 a1, void **a2)
@@ -18,14 +18,14 @@ __int64 __fastcall PnprAddMemoryResources(__int64 a1, void **a2)
   __int64 v7; // rcx
   int v8; // eax
   int v9; // eax
-  unsigned int v10; // r12d
-  _DWORD *v11; // rsi
-  __int64 v12; // rdi
-  unsigned int v13; // r13d
-  unsigned int *Pool2; // rax
-  unsigned int *v15; // r13
-  ULONGLONG v16; // rax
-  unsigned int v17; // edi
+  unsigned int v10; // edi
+  unsigned int v12; // r15d
+  _DWORD *v13; // rsi
+  __int64 v14; // rdi
+  unsigned int v15; // r13d
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v17; // r13
+  ULONGLONG v18; // rax
   __int64 v19; // rcx
   int v20; // eax
   int v21; // eax
@@ -45,22 +45,21 @@ __int64 __fastcall PnprAddMemoryResources(__int64 a1, void **a2)
   if ( !v6 )
   {
     v7 = PnprContext;
-    v8 = *(_DWORD *)(PnprContext + 33272);
+    v8 = *(_DWORD *)(PnprContext + 20984);
     if ( !v8 )
-      v8 = 631;
-    *(_DWORD *)(PnprContext + 33272) = v8;
-    v9 = *(_DWORD *)(v7 + 33276);
+      v8 = 632;
+    *(_DWORD *)(PnprContext + 20984) = v8;
+    v9 = *(_DWORD *)(v7 + 20988);
     if ( !v9 )
       v9 = 6;
-    *(_DWORD *)(v7 + 33276) = v9;
-    *a2 = v3;
-    return 0;
+    *(_DWORD *)(v7 + 20988) = v9;
+    goto LABEL_10;
   }
-  v10 = 0;
-  v11 = v6 + 1;
+  v12 = 0;
+  v13 = v6 + 1;
   if ( !*v6 )
   {
-LABEL_21:
+LABEL_10:
     *a2 = v3;
     if ( v3 != v4 )
       ExFreePoolWithTag(v4, 0x51706E50u);
@@ -68,61 +67,61 @@ LABEL_21:
   }
   while ( 1 )
   {
-    v12 = 0LL;
-    if ( v11[3] )
+    v14 = 0LL;
+    if ( v13[3] )
       break;
-LABEL_20:
-    ++v10;
-    v11 = (_DWORD *)((char *)v11 + (unsigned int)(v12 + 36));
-    if ( v10 >= *v6 )
-      goto LABEL_21;
+LABEL_24:
+    ++v12;
+    v13 = (_DWORD *)((char *)v13 + (unsigned int)(v14 + 36));
+    if ( v12 >= *v6 )
+      goto LABEL_10;
   }
   while ( 1 )
   {
-    Descriptor = (PCM_PARTIAL_RESOURCE_DESCRIPTOR)&v11[4 * v12 + 4 + v12];
+    Descriptor = (PCM_PARTIAL_RESOURCE_DESCRIPTOR)&v13[4 * v14 + 4 + v14];
     if ( ((Descriptor->Type - 3) & 0xFB) == 0 )
       break;
-LABEL_19:
-    v12 = (unsigned int)(v12 + 1);
-    if ( (unsigned int)v12 >= v11[3] )
-      goto LABEL_20;
+LABEL_23:
+    v14 = (unsigned int)(v14 + 1);
+    if ( (unsigned int)v14 >= v13[3] )
+      goto LABEL_24;
   }
-  v13 = v3[1];
-  if ( v13 != *v3 )
+  v15 = v3[1];
+  if ( v15 != *v3 )
   {
-LABEL_18:
-    v16 = RtlCmDecodeMemIoResource(Descriptor, &Start);
+LABEL_22:
+    v18 = RtlCmDecodeMemIoResource(Descriptor, &Start);
     *(_QWORD *)&v3[4 * v3[1] + 4] = Start;
-    *(_QWORD *)&v3[4 * v3[1] + 6] = v16;
-    *((_QWORD *)v3 + 1) += v16;
+    *(_QWORD *)&v3[4 * v3[1] + 6] = v18;
+    *((_QWORD *)v3 + 1) += v18;
     ++v3[1];
-    goto LABEL_19;
+    goto LABEL_23;
   }
-  v22 = v13 + 4;
-  Pool2 = (unsigned int *)ExAllocatePool2(64LL, 16 * (v13 + 5), 1366322768LL);
-  v24 = Pool2;
-  if ( Pool2 )
+  v22 = v15 + 4;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, 16 * (v15 + 5), 0x51706E50u);
+  v24 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, v3, 16 * (v13 + 1));
-    v15 = v24;
+    memmove(PoolWithTag, v3, 16 * (v15 + 1));
+    v17 = v24;
     *v24 = v22;
     if ( v3 != v4 )
       ExFreePoolWithTag(v3, 0x51706E50u);
-    v3 = v15;
-    goto LABEL_18;
+    v3 = v17;
+    goto LABEL_22;
   }
   v19 = PnprContext;
-  v17 = -1073741670;
-  v20 = *(_DWORD *)(PnprContext + 33272);
+  v10 = -1073741670;
+  v20 = *(_DWORD *)(PnprContext + 20984);
   if ( !v20 )
-    v20 = 671;
-  *(_DWORD *)(PnprContext + 33272) = v20;
-  v21 = *(_DWORD *)(v19 + 33276);
+    v20 = 672;
+  *(_DWORD *)(PnprContext + 20984) = v20;
+  v21 = *(_DWORD *)(v19 + 20988);
   if ( !v21 )
     v21 = 10;
-  *(_DWORD *)(v19 + 33276) = v21;
+  *(_DWORD *)(v19 + 20988) = v21;
   *a2 = v4;
   if ( v3 != v4 )
     ExFreePoolWithTag(v3, 0x51706E50u);
-  return v17;
+  return v10;
 }

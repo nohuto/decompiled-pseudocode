@@ -1,11 +1,10 @@
 /*
- * XREFs of MiAllocateSecureImageActivePatch @ 0x140A3488C
+ * XREFs of MiAllocateSecureImageActivePatch @ 0x1408C8DA8
  * Callers:
- *     MiLoadHotPatch @ 0x140A37FD0 (MiLoadHotPatch.c)
- *     MmRegisterHotPatches @ 0x140B74A30 (MmRegisterHotPatches.c)
+ *     MiLoadHotPatch @ 0x1408CAC20 (MiLoadHotPatch.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
  */
 
 UNICODE_STRING *__fastcall MiAllocateSecureImageActivePatch(PCUNICODE_STRING SourceString)

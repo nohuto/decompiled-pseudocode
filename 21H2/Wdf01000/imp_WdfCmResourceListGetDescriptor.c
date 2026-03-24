@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfCmResourceListGetDescriptor @ 0x1C00310F0
+ * XREFs of imp_WdfCmResourceListGetDescriptor @ 0x1C005C590
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0014B44 (-FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0061964 (-FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z.c)
  */
 
 _CM_PARTIAL_RESOURCE_DESCRIPTOR *__fastcall imp_WdfCmResourceListGetDescriptor(
@@ -17,31 +17,35 @@ _CM_PARTIAL_RESOURCE_DESCRIPTOR *__fastcall imp_WdfCmResourceListGetDescriptor(
   char *v4; // rdi
   FxCmResList *v5; // rsi
   unsigned __int8 v6; // r8
-  _LIST_ENTRY **Entry; // rax
+  FxCollectionEntry *Entry; // rax
   unsigned __int8 v8; // r8
-  _LIST_ENTRY *v9; // rbx
-  int Blink; // ecx
+  FxObject *m_Object; // rbx
+  int m_Globals; // ecx
   unsigned __int8 PreviousIrql; // [rsp+30h] [rbp+8h] BYREF
   FxCmResList *pList; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = 0LL;
   pList = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)List, 0x1036u, (void **)&pList);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)List,
+    0x1036u,
+    (void **)&pList);
   v5 = pList;
   PreviousIrql = 0;
   FxNonPagedObject::Lock(pList, &PreviousIrql, v6);
   Entry = FxCollectionInternal::FindEntry(&v5->FxCollectionInternal, Index);
   if ( Entry )
-    v9 = *Entry;
+    m_Object = Entry->m_Object;
   else
-    v9 = 0LL;
+    m_Object = 0LL;
   FxNonPagedObject::Unlock(v5, PreviousIrql, v8);
-  if ( v9 )
+  if ( m_Object )
   {
-    Blink = (int)v9[7].Blink;
-    v4 = (char *)&v9[7].Blink + 4;
-    *(_LIST_ENTRY *)((char *)v9 + 124) = *(_LIST_ENTRY *)((char *)v9 + 104);
-    HIDWORD(v9[8].Blink) = Blink;
+    m_Globals = (int)m_Object[1].m_Globals;
+    v4 = (char *)&m_Object[1].m_Globals + 4;
+    *(_OWORD *)((char *)&m_Object[1].m_Globals + 4) = *(_OWORD *)&m_Object[1].__vftable;
+    HIDWORD(m_Object[1].m_ChildListHead.Flink) = m_Globals;
   }
   return (_CM_PARTIAL_RESOURCE_DESCRIPTOR *)v4;
 }

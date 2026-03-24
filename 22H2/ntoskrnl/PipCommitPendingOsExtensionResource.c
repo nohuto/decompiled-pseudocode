@@ -1,27 +1,27 @@
 /*
- * XREFs of PipCommitPendingOsExtensionResource @ 0x140B95B80
+ * XREFs of PipCommitPendingOsExtensionResource @ 0x140A90B40
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCreateKey @ 0x1407983D0 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140812FDC (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegOpenKey @ 0x140814D40 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x140814D7C (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegCloseKey @ 0x140876DE4 (_PnpCtxRegCloseKey.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14087E7E4 (PiDevCfgCopyDeviceKeys.c)
- *     _PnpCtxRegDeleteKey @ 0x140A60B7C (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegCreateKey @ 0x1406B4340 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1406B4684 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1406B95FC (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x14076931C (PiDevCfgCopyDeviceKeys.c)
+ *     _PnpCtxRegDeleteTree @ 0x1407AC568 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C4404 (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegDeleteKey @ 0x14097491C (_PnpCtxRegDeleteKey.c)
  */
 
-__int64 __fastcall PipCommitPendingOsExtensionResource(__int64 a1, void *a2, void *a3)
+__int64 __fastcall PipCommitPendingOsExtensionResource(const WCHAR *a1, char *a2, void *a3)
 {
   __int64 v6; // rcx
   int CachedContextBaseKey; // ebx
   __int64 v8; // r8
   __int64 v10; // [rsp+40h] [rbp-30h] BYREF
-  void *v11; // [rsp+48h] [rbp-28h]
-  void *v12; // [rsp+50h] [rbp-20h]
-  void *v13; // [rsp+58h] [rbp-18h] BYREF
+  void *v11; // [rsp+48h] [rbp-28h] BYREF
+  void *v12; // [rsp+50h] [rbp-20h] BYREF
+  char *v13; // [rsp+58h] [rbp-18h] BYREF
   void *v14; // [rsp+60h] [rbp-10h] BYREF
 
   v10 = 0LL;
@@ -37,9 +37,9 @@ __int64 __fastcall PipCommitPendingOsExtensionResource(__int64 a1, void *a2, voi
       CachedContextBaseKey = PnpCtxRegOpenKey(
                                *(__int64 *)&PiPnpRtlCtx,
                                v10,
-                               (__int64)L"Control\\PendingDriverOperations\\OsExtensionDatabase",
+                               (int)L"Control\\PendingDriverOperations\\OsExtensionDatabase",
                                0,
-                               0x2001Fu,
+                               131103,
                                (__int64)&v13);
       if ( CachedContextBaseKey < 0 )
         goto LABEL_14;
@@ -47,25 +47,41 @@ __int64 __fastcall PipCommitPendingOsExtensionResource(__int64 a1, void *a2, voi
     }
     if ( !a3 )
     {
-      CachedContextBaseKey = PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (__int64)a2, a1, 0, 0x20019u, (__int64)&v14);
+      CachedContextBaseKey = PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (int)a2, (int)a1, 0, 131097, (__int64)&v14);
       if ( CachedContextBaseKey < 0 )
         goto LABEL_14;
       a3 = v14;
     }
-    CachedContextBaseKey = PnpCtxRegCreateKey(*(__int64 *)&PiPnpRtlCtx, v10);
+    CachedContextBaseKey = PnpCtxRegCreateKey(
+                             *(__int64 *)&PiPnpRtlCtx,
+                             v10,
+                             (__int64)L"Control\\OsExtensionDatabase",
+                             0,
+                             0x20006u,
+                             0LL,
+                             (__int64)&v12,
+                             0LL);
     if ( CachedContextBaseKey >= 0 )
     {
-      CachedContextBaseKey = PnpCtxRegCreateKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v12);
+      CachedContextBaseKey = PnpCtxRegCreateKey(
+                               *(__int64 *)&PiPnpRtlCtx,
+                               (__int64)v12,
+                               (__int64)a1,
+                               0,
+                               0x20006u,
+                               0LL,
+                               (__int64)&v11,
+                               0LL);
       if ( CachedContextBaseKey >= 0 )
       {
         CachedContextBaseKey = PiDevCfgCopyDeviceKeys(a3, v11, v8, 0LL);
         if ( CachedContextBaseKey >= 0 )
         {
-          CachedContextBaseKey = PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, (__int64)a2, a1);
+          CachedContextBaseKey = PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, a2, a1);
           if ( CachedContextBaseKey >= 0 )
           {
             LODWORD(v10) = 0;
-            if ( (unsigned int)PnpCtxRegEnumKey(v6, a2) == -2147483622 )
+            if ( (unsigned int)PnpCtxRegEnumKey(v6, a2, 0, 0LL, (unsigned int *)&v10) == -2147483622 )
               PnpCtxRegDeleteKey(*(__int64 *)&PiPnpRtlCtx, a2, 0LL);
           }
         }

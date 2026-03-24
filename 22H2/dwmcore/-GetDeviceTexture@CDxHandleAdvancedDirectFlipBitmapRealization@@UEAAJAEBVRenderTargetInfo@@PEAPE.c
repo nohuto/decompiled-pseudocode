@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetDeviceTexture@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1802B2374
+ * XREFs of ?GetDeviceTexture@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180263B98
  * Callers:
- *     ?GetDeviceTexture@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180122A80 (-GetDeviceTexture@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTarge.c)
+ *     ?GetDeviceTexture@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1800F8610 (-GetDeviceTexture@CDxHandleAdvancedDirectFlipBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTarge.c)
  * Callees:
- *     ?GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033BB4 (-GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
- *     ?GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033DC0 (-GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x1802B28B8 (-UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180063EB4 (-GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
+ *     ?GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1800640B0 (-GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ @ 0x180264054 (-UpdateDecodeBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetDeviceTexture(
@@ -15,48 +15,43 @@ __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::GetDeviceTextur
         const struct RenderTargetInfo *a2,
         struct IDeviceTexture **a3)
 {
-  int updated; // eax
+  int v6; // eax
   __int64 v7; // rcx
-  unsigned int DeviceTexture; // ebx
-  __int64 v9; // r9
+  unsigned int v8; // ebx
+  int updated; // eax
   __int64 v10; // rcx
-  unsigned int v12; // [rsp+20h] [rbp-18h]
+  int DeviceTexture; // eax
+  __int64 v12; // rcx
 
   *a3 = 0LL;
   if ( (**((unsigned __int8 (__fastcall ***)(char *))this - 14))((char *)this - 112) )
   {
-    updated = CDxHandleAdvancedDirectFlipBitmapRealization::UpdateDecodeBitmap((CDxHandleAdvancedDirectFlipBitmapRealization *)((char *)this - 512));
-    DeviceTexture = updated;
+    updated = CDxHandleAdvancedDirectFlipBitmapRealization::UpdateDecodeBitmap((CDxHandleAdvancedDirectFlipBitmapRealization *)((char *)this - 480));
+    v8 = updated;
     if ( updated < 0 )
     {
-      v12 = 89;
-      goto LABEL_11;
-    }
-    v10 = *((_QWORD *)this - 28);
-    if ( *(_BYTE *)(v10 + 152) )
-    {
-      DeviceTexture = CRenderTargetBitmap::GetDeviceTexture((CRenderTargetBitmap *)(v10 + 240), a2, a3, v9);
-      if ( (DeviceTexture & 0x80000000) == 0 )
-        return DeviceTexture;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, updated, 0x7Bu, 0LL);
     }
     else
     {
-      *a3 = 0LL;
-      DeviceTexture = -2003292412;
+      DeviceTexture = CRenderTargetBitmap::GetDeviceTexture(
+                        (CRenderTargetBitmap *)(*((_QWORD *)this - 28) + 240LL),
+                        a2,
+                        a3);
+      v8 = DeviceTexture;
+      if ( DeviceTexture < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, DeviceTexture, 0x7Eu, 0LL);
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, DeviceTexture, 0x5Cu, 0LL);
-    return DeviceTexture;
   }
-  updated = CDxHandleBitmapRealization::GetDeviceTexture(
-              (CDxHandleAdvancedDirectFlipBitmapRealization *)((char *)this - 48),
-              a2,
-              a3);
-  DeviceTexture = updated;
-  if ( updated < 0 )
+  else
   {
-    v12 = 85;
-LABEL_11:
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, updated, v12, 0LL);
+    v6 = CDxHandleBitmapRealization::GetDeviceTexture(
+           (CDxHandleAdvancedDirectFlipBitmapRealization *)((char *)this - 48),
+           a2,
+           a3);
+    v8 = v6;
+    if ( v6 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x77u, 0LL);
   }
-  return DeviceTexture;
+  return v8;
 }

@@ -1,165 +1,207 @@
 /*
- * XREFs of GreExtCreateRegion @ 0x1C007C890
+ * XREFs of GreExtCreateRegion @ 0x1C0024210
  * Callers:
- *     NtGdiExtCreateRegion @ 0x1C007C780 (NtGdiExtCreateRegion.c)
+ *     NtGdiExtCreateRegion @ 0x1C0023AD0 (NtGdiExtCreateRegion.c)
  * Callees:
- *     vConvertXformToMatrix @ 0x1C0001B20 (vConvertXformToMatrix.c)
- *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0039770 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E0F4 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?iComplexity@RGNCOREOBJ@@QEBAJXZ @ 0x1C0044530 (-iComplexity@RGNCOREOBJ@@QEBAJXZ.c)
- *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C0047CB0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C004C7D0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C007CEAC (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C007D19C (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     ?vTighten@RGNOBJ@@QEAAXXZ @ 0x1C007E640 (-vTighten@RGNOBJ@@QEAAXXZ.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0152CD0 (--0PATHMEMOBJ@@QEAA@XZ.c)
- *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0154170 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
- *     ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156700 (-bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
- *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C0157418 (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
- *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0157530 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0023260 (--0PATHMEMOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0023350 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C0023C94 (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0024F80 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
+ *     vConvertXformToMatrix @ 0x1C0025010 (vConvertXformToMatrix.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0025620 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0026170 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     ?vTighten@RGNOBJ@@QEAAXXZ @ 0x1C0026740 (-vTighten@RGNOBJ@@QEAAXXZ.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002CE60 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0031758 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCF60 (-bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C00BDCFC (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-HRGN __fastcall GreExtCreateRegion(float *a1, unsigned int a2, struct _RECTL *a3)
+HRGN __fastcall GreExtCreateRegion(__int64 a1, unsigned int a2, struct _RECTL *a3)
 {
   unsigned int right; // ebx
-  __int64 v6; // rsi
-  PVOID v7; // rcx
-  _DWORD *v8; // rbx
-  HRGN v9; // rdi
-  HRGN v10; // rdi
-  int v12; // edi
-  PVOID Entry; // [rsp+20h] [rbp-99h] BYREF
-  PVOID v14; // [rsp+28h] [rbp-91h] BYREF
-  PVOID v15; // [rsp+30h] [rbp-89h] BYREF
-  __m128 *v16; // [rsp+38h] [rbp-81h] BYREF
-  int v17; // [rsp+44h] [rbp-75h]
-  _BYTE v18[8]; // [rsp+50h] [rbp-69h] BYREF
-  __int64 v19; // [rsp+58h] [rbp-61h]
-  _QWORD v20[4]; // [rsp+A0h] [rbp-19h] BYREF
-  int v21; // [rsp+C0h] [rbp+7h]
-  __m128 v22; // [rsp+D0h] [rbp+17h] BYREF
-  __int128 v23; // [rsp+E0h] [rbp+27h]
-  int v24; // [rsp+F0h] [rbp+37h]
+  HRGN v6; // rdi
+  int v7; // ebx
+  REGION *v8; // rsi
+  REGION *v9; // r14
+  HRGN v10; // rbx
+  HRGN v12; // rbx
+  REGION *v13; // rcx
+  REGION *v14; // [rsp+20h] [rbp-99h] BYREF
+  int v15; // [rsp+28h] [rbp-91h]
+  REGION *v16; // [rsp+30h] [rbp-89h] BYREF
+  int v17; // [rsp+38h] [rbp-81h]
+  int v18; // [rsp+3Ch] [rbp-7Dh]
+  __int64 v19; // [rsp+40h] [rbp-79h] BYREF
+  int v20; // [rsp+48h] [rbp-71h]
+  _BYTE v21[8]; // [rsp+50h] [rbp-69h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-61h]
+  _BYTE v23[32]; // [rsp+A0h] [rbp-19h] BYREF
+  int v24; // [rsp+C0h] [rbp+7h]
+  __m128 v25; // [rsp+D0h] [rbp+17h] BYREF
+  __int128 v26; // [rsp+E0h] [rbp+27h]
+  int v27; // [rsp+F0h] [rbp+37h]
 
   right = a3->right;
-  if ( a3->left == 32 && right <= 0xFFFFFFD && 16 * (right + 2) <= a2 )
+  if ( a3->left != 32 || right > 0xFFFFFFD || 16 * (right + 2) > a2 )
+    return 0LL;
+  v6 = 0LL;
+  v14 = 0LL;
+  v15 = 0;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v14, 0x70u);
+  if ( !v14 )
   {
-    v6 = 0LL;
-    Entry = 0LL;
-    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&Entry, 0x70u);
-    v7 = Entry;
-    if ( Entry )
+    v13 = 0LL;
+LABEL_43:
+    REGION::vDeleteREGION(v13);
+    v8 = 0LL;
+    EngSetLastError(8u);
+    goto LABEL_33;
+  }
+  if ( !(unsigned int)RGNOBJ::bSet((RGNOBJ *)&v14, right, a3 + 2) )
+  {
+    v13 = v14;
+    goto LABEL_43;
+  }
+  if ( !a1 || (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v14) == 1 )
+  {
+    RGNOBJ::vTighten((RGNOBJ *)&v14);
+    v8 = v14;
+    if ( (((*((_DWORD *)v14 + 24) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+      || (((*((_DWORD *)v14 + 27) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+      || (((*((_DWORD *)v14 + 26) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+      || (((*((_DWORD *)v14 + 25) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0 )
     {
-      if ( (unsigned int)RGNOBJ::bSet((RGNOBJ *)&Entry, right, a3 + 2) )
+      REGION::vDeleteREGION(v14);
+      v12 = 0LL;
+    }
+    else
+    {
+      v12 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v14);
+      if ( v12 )
       {
-        v8 = Entry;
-        if ( !a1
-          || (v16 = (__m128 *)(((unsigned __int64)Entry + 24) & ((unsigned __int128)-(__int128)(unsigned __int64)Entry >> 64)),
-              (unsigned int)RGNCOREOBJ::iComplexity((RGNCOREOBJ *)&v16) == 1) )
-        {
-          RGNOBJ::vTighten((RGNOBJ *)&Entry);
-          if ( (((v8[14] & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-            || (((v8[17] & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-            || (((v8[16] & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-            || (((v8[15] & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0 )
-          {
-            REGION::vDeleteREGION((unsigned __int64)v8);
-            return 0LL;
-          }
-          else
-          {
-            v9 = RGNOBJ::hrgnAssociate((RGNOBJ *)&Entry);
-            if ( !v9 )
-              REGION::vDeleteREGION((unsigned __int64)v8);
-          }
-          return v9;
-        }
-        v22 = 0LL;
-        v24 = 0;
-        v23 = 0LL;
-        vConvertXformToMatrix(a1, v22.m128_f32);
-        DWORD2(v23) *= 16;
-        HIDWORD(v23) *= 16;
-        v16 = &v22;
-        v17 = 0;
-        v22 = _mm_mul_ps(v22, (__m128)_xmm);
-        *((float *)&v23 + 1) = *((float *)&v23 + 1) * 16.0;
-        *(float *)&v23 = *(float *)&v23 * 16.0;
-        EXFORMOBJ::vComputeAccelFlags((float **)&v16, 8);
-        if ( (v24 & 0x43) == 0x43 )
-        {
-          RGNOBJ::vTighten((RGNOBJ *)&Entry);
-          if ( ((v8[14] & 0xF8000000) == 0 || (v8[14] & 0xF8000000) == -134217728)
-            && ((v8[17] & 0xF8000000) == 0 || (v8[17] & 0xF8000000) == -134217728)
-            && ((v8[16] & 0xF8000000) == 0 || (v8[16] & 0xF8000000) == -134217728)
-            && ((v8[15] & 0xF8000000) == 0 || (v8[15] & 0xF8000000) == -134217728) )
-          {
-            v10 = RGNOBJ::hrgnAssociate((RGNOBJ *)&Entry);
-            if ( !v10 )
-              REGION::vDeleteREGION((unsigned __int64)v8);
-            return v10;
-          }
-          REGION::vDeleteREGION((unsigned __int64)v8);
-          return (HRGN)v6;
-        }
-        PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v18);
+LABEL_32:
+        v6 = v12;
+        goto LABEL_33;
+      }
+      REGION::vDeleteREGION(v8);
+    }
+    v8 = 0LL;
+    goto LABEL_32;
+  }
+  v25 = 0LL;
+  v27 = 0;
+  v26 = 0LL;
+  vConvertXformToMatrix(a1, &v25);
+  DWORD2(v26) *= 16;
+  HIDWORD(v26) *= 16;
+  v16 = (REGION *)&v25;
+  v18 = 0;
+  v25 = _mm_mul_ps(v25, (__m128)_xmm);
+  *((float *)&v26 + 1) = *((float *)&v26 + 1) * 16.0;
+  *(float *)&v26 = *(float *)&v26 * 16.0;
+  EXFORMOBJ::vComputeAccelFlags((EXFORMOBJ *)&v16, 8u);
+  if ( (v27 & 0x43) != 0x43 )
+  {
+    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v21);
+    if ( v22 )
+    {
+      v7 = RGNOBJ::bCreate((RGNOBJ *)&v14, (struct EPATHOBJ *)v21, (struct EXFORMOBJ *)&v16);
+      REGION::vDeleteREGION(v14);
+      v8 = 0LL;
+      if ( v7 )
+      {
+        v19 = 0LL;
+        v20 = 0;
+        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v19, (struct EPATHOBJ *)v21, 1u, 0LL);
+        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v19);
         if ( !v19 )
         {
           EngSetLastError(8u);
-          REGION::vDeleteREGION((unsigned __int64)v8);
-LABEL_31:
           v10 = 0LL;
-          goto LABEL_45;
+LABEL_21:
+          RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v19);
+          goto LABEL_22;
         }
-        v12 = RGNOBJ::bCreate((RGNOBJ *)&Entry, (struct EPATHOBJ *)v18, (struct EXFORMOBJ *)&v16);
-        REGION::vDeleteREGION((unsigned __int64)v8);
-        if ( !v12 )
-          goto LABEL_31;
-        v15 = 0LL;
-        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v15, (struct EPATHOBJ *)v18, 1u, 0LL);
-        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v15);
-        if ( v15 && (v14 = 0LL, RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v14, 0x70u), v14) )
+        v16 = 0LL;
+        v17 = 0;
+        RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v16, 0x70u);
+        v9 = v16;
+        if ( v16 )
         {
-          RGNMEMOBJ::iReduce((RGNMEMOBJ *)&v14, (struct RGNOBJ *)&v15);
-          RGNOBJ::vTighten((RGNOBJ *)&v14);
-          if ( ((*((_DWORD *)v14 + 14) & 0xF8000000) == 0 || (*((_DWORD *)v14 + 14) & 0xF8000000) == -134217728)
-            && ((*((_DWORD *)v14 + 17) & 0xF8000000) == 0 || (*((_DWORD *)v14 + 17) & 0xF8000000) == -134217728)
-            && ((*((_DWORD *)v14 + 16) & 0xF8000000) == 0 || (*((_DWORD *)v14 + 16) & 0xF8000000) == -134217728)
-            && ((*((_DWORD *)v14 + 15) & 0xF8000000) == 0 || (*((_DWORD *)v14 + 15) & 0xF8000000) == -134217728) )
+          RGNMEMOBJ::iReduce((RGNMEMOBJ *)&v16, (struct RGNOBJ *)&v19);
+          RGNOBJ::vTighten((RGNOBJ *)&v16);
+          v9 = v16;
+          if ( (((*((_DWORD *)v16 + 24) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
+            && (((*((_DWORD *)v16 + 27) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
+            && (((*((_DWORD *)v16 + 26) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
+            && (((*((_DWORD *)v16 + 25) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0 )
           {
-            v10 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v14);
+            v10 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v16);
             if ( !v10 )
             {
-              REGION::vDeleteREGION((unsigned __int64)v14);
-              v14 = 0LL;
+              REGION::vDeleteREGION(v9);
+              v9 = 0LL;
             }
-            goto LABEL_44;
+            goto LABEL_19;
           }
-          REGION::vDeleteREGION((unsigned __int64)v14);
-          v14 = 0LL;
+          REGION::vDeleteREGION(v16);
+          v9 = 0LL;
         }
         else
         {
           EngSetLastError(8u);
         }
         v10 = 0LL;
-LABEL_44:
-        RGNMEMOBJTMP::~RGNMEMOBJTMP(&v15);
-LABEL_45:
-        EPATHOBJ::vUnlock((EPATHOBJ *)v18);
-        if ( v21 )
-          PopThreadGuardedObject(v20);
-        return v10;
+LABEL_19:
+        if ( v17 == 1 )
+          REGION::vDeleteREGION(v9);
+        goto LABEL_21;
       }
-      v7 = Entry;
     }
-    REGION::vDeleteREGION((unsigned __int64)v7);
-    EngSetLastError(8u);
-    return (HRGN)v6;
+    else
+    {
+      EngSetLastError(8u);
+      REGION::vDeleteREGION(v14);
+      v8 = 0LL;
+    }
+    v10 = 0LL;
+LABEL_22:
+    EPATHOBJ::vUnlock((EPATHOBJ *)v21);
+    if ( v24 )
+    {
+      PopThreadGuardedObject(v23);
+      v24 = 0;
+    }
+    goto LABEL_24;
   }
-  return 0LL;
+  RGNOBJ::vTighten((RGNOBJ *)&v14);
+  v8 = v14;
+  if ( (((*((_DWORD *)v14 + 24) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
+    && (((*((_DWORD *)v14 + 27) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
+    && (((*((_DWORD *)v14 + 26) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
+    && (((*((_DWORD *)v14 + 25) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0 )
+  {
+    v10 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v14);
+    if ( !v10 )
+    {
+      REGION::vDeleteREGION(v8);
+      v8 = 0LL;
+    }
+    goto LABEL_24;
+  }
+  REGION::vDeleteREGION(v14);
+  v8 = 0LL;
+LABEL_33:
+  v10 = v6;
+LABEL_24:
+  if ( v15 == 1 )
+    REGION::vDeleteREGION(v8);
+  return v10;
 }

@@ -1,21 +1,27 @@
 /*
- * XREFs of IopCreateVpb @ 0x140874D70
+ * XREFs of IopCreateVpb @ 0x140781300
  * Callers:
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
- *     IoVerifyVolume @ 0x140947760 (IoVerifyVolume.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
+ *     IoVerifyVolume @ 0x140893F30 (IoVerifyVolume.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopCreateVpb(__int64 a1)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v3; // rbx
+  __int64 result; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 96LL, 543322198LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x20627056u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_DWORD *)Pool2 = 6291466;
-  *(_QWORD *)(Pool2 + 16) = a1;
-  *(_QWORD *)(a1 + 56) = Pool2;
-  return 0LL;
+  memset(PoolWithTag, 0, 0x60uLL);
+  *(_DWORD *)v3 = 6291466;
+  result = 0LL;
+  v3[2] = a1;
+  *(_QWORD *)(a1 + 56) = v3;
+  return result;
 }

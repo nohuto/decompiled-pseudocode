@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventRegister_EtwRegister @ 0x1C00603C8
+ * XREFs of McGenEventRegister_EtwRegister @ 0x1C00423B8
  * Callers:
- *     FxLibraryCommonRegisterClient @ 0x1C0028820 (FxLibraryCommonRegisterClient.c)
+ *     FxLibraryCommonRegisterClient @ 0x1C0041AE4 (FxLibraryCommonRegisterClient.c)
  * Callees:
  *     <none>
  */

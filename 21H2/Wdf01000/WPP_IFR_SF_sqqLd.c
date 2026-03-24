@@ -1,13 +1,13 @@
 /*
- * XREFs of WPP_IFR_SF_sqqLd @ 0x1C0086298
+ * XREFs of WPP_IFR_SF_sqqLd @ 0x1C007D094
  * Callers:
- *     ?InvokeCxCallback@FxPnpDeviceD0Entry@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085960 (-InvokeCxCallback@FxPnpDeviceD0Entry@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallback.c)
- *     ?InvokeCxCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085A10 (-InvokeCxCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
- *     ?InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085AC0 (-InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackS.c)
- *     ?InvokeCxCallback@FxPnpDeviceD0ExitPreHwDisabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085B70 (-InvokeCxCallback@FxPnpDeviceD0ExitPreHwDisabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxIn.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C001BCD0 (-InvokeCxCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0ExitPreHwDisabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C001BD80 (-InvokeCxCallback@FxPnpDeviceD0ExitPreHwDisabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxIn.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0Entry@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CAF0 (-InvokeCxCallback@FxPnpDeviceD0Entry@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallback.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CBA0 (-InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackS.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_sqqLd(

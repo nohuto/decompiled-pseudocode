@@ -1,5 +1,5 @@
 /*
- * XREFs of WheapInitializeInUsePageOfflineNotifications @ 0x140759C98
+ * XREFs of WheapInitializeInUsePageOfflineNotifications @ 0x140759C78
  * Callers:
  *     WheaInitializeServices @ 0x1409D8438 (WheaInitializeServices.c)
  * Callees:

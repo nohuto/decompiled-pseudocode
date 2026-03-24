@@ -1,9 +1,9 @@
 /*
  * XREFs of PipDmgInitPhaseZero @ 0x1409C8558
  * Callers:
- *     PiDmaGuardInitialize @ 0x140181CC8 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x140181CE8 (PiDmaGuardInitialize.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 PipDmgInitPhaseZero()

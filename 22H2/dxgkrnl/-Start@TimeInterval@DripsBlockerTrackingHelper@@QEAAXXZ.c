@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C0230426
+ * XREFs of ?Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C02C40F8
  * Callers:
- *     ?SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C022FC54 (-SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z.c)
- *     ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C03048B4 (-EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z.c)
+ *     ?SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02BFC08 (-SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z.c)
+ *     ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02C111C (-EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z.c)
  * Callees:
  *     <none>
  */

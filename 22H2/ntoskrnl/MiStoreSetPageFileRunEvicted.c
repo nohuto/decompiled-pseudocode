@@ -1,29 +1,25 @@
 /*
- * XREFs of MiStoreSetPageFileRunEvicted @ 0x14065CA3C
+ * XREFs of MiStoreSetPageFileRunEvicted @ 0x14031CF70
  * Callers:
- *     MiStoreEvictThread @ 0x1403A7F20 (MiStoreEvictThread.c)
+ *     MiStoreEvictPageFile @ 0x14031CD88 (MiStoreEvictPageFile.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiStoreSetPageFileRunEvicted(__int64 a1, ULONG a2, unsigned int a3)
+__int64 __fastcall MiStoreSetPageFileRunEvicted(__int64 a1, ULONG a2, unsigned int a3)
 {
-  volatile LONG *v3; // r14
+  volatile LONG *v3; // rdi
   __int64 v4; // rbp
-  unsigned __int64 v7; // rsi
+  unsigned __int64 v7; // r14
   __int64 v8; // rcx
-  __int64 v9; // rcx
-  BOOL v10; // ebx
-  unsigned __int8 CurrentIrql; // al
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v14; // eax
-  bool v15; // zf
+  bool v12; // zf
 
   v3 = (volatile LONG *)(a1 + 232);
   v4 = a3;
@@ -32,27 +28,26 @@ void __fastcall MiStoreSetPageFileRunEvicted(__int64 a1, ULONG a2, unsigned int 
   v8 = *(_QWORD *)(a1 + 112);
   *(_DWORD *)(a1 + 200) -= v4;
   RtlClearBits((PRTL_BITMAP)(v8 + 8), a2, v4);
-  v9 = *(_QWORD *)(a1 + 24);
-  v10 = 0;
-  if ( !v9 )
-    v10 = (*(_BYTE *)(a1 + 206) & 1) != 0;
-  *(_QWORD *)(a1 + 24) = v9 + v4;
+  *(_QWORD *)(a1 + 24) += v4;
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v7 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);
-  if ( v10 )
-    KeSetEvent((PRKEVENT)(*(_QWORD *)(a1 + 248) + 920LL), 0, 0);
+  return result;
 }

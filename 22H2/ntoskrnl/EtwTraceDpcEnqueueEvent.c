@@ -1,41 +1,42 @@
 /*
- * XREFs of EtwTraceDpcEnqueueEvent @ 0x1405FCB7C
+ * XREFs of EtwTraceDpcEnqueueEvent @ 0x1405A7664
  * Callers:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-KDEFERRED_ROUTINE *__fastcall EtwTraceDpcEnqueueEvent(__int64 a1, KDEFERRED_ROUTINE *a2, int a3, int a4, int a5, char a6, __int64 a7)
+void __fastcall EtwTraceDpcEnqueueEvent(
+        __int64 a1,
+        void (__fastcall *a2)(struct _KDPC *Dpc, PVOID DeferredContext, unsigned int *SystemArgument1, PVOID SystemArgument2),
+        int a3,
+        int a4,
+        int a5,
+        char a6)
 {
-  KDEFERRED_ROUTINE *result; // rax
-  __int64 v8; // [rsp+30h] [rbp-40h] BYREF
-  int v9; // [rsp+38h] [rbp-38h]
-  int v10; // [rsp+3Ch] [rbp-34h]
-  int v11; // [rsp+40h] [rbp-30h]
-  char v12; // [rsp+44h] [rbp-2Ch]
-  __int16 v13; // [rsp+45h] [rbp-2Bh]
-  char v14; // [rsp+47h] [rbp-29h]
-  __int64 v15; // [rsp+48h] [rbp-28h]
-  _QWORD v16[2]; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-30h] BYREF
+  int v7; // [rsp+38h] [rbp-28h]
+  int v8; // [rsp+3Ch] [rbp-24h]
+  int v9; // [rsp+40h] [rbp-20h]
+  char v10; // [rsp+44h] [rbp-1Ch]
+  __int16 v11; // [rsp+45h] [rbp-1Bh]
+  char v12; // [rsp+47h] [rbp-19h]
+  _QWORD v13[2]; // [rsp+48h] [rbp-18h] BYREF
 
-  result = EtwpStackWalkDpc;
-  v13 = 0;
-  v14 = 0;
+  v11 = 0;
+  v12 = 0;
   if ( a2 != EtwpStackWalkDpc )
   {
-    v11 = a5;
-    v12 = a6;
-    v13 = 0;
-    v14 = 0;
-    v15 = a7;
-    v8 = a1;
-    v9 = a3;
-    v10 = a4;
-    v16[0] = &v8;
-    v16[1] = 32LL;
-    return (KDEFERRED_ROUTINE *)EtwTraceKernelEvent((int)v16, 1, 0x20040000u, 3940, 5250562);
+    v9 = a5;
+    v10 = a6;
+    v11 = 0;
+    v12 = 0;
+    v6 = a1;
+    v7 = a3;
+    v8 = a4;
+    v13[0] = &v6;
+    v13[1] = 24LL;
+    EtwTraceKernelEvent((__int64)v13, 1u, 0x20040000u, 0xF64u, 0x501E02u);
   }
-  return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?RemoveElement@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAXPEAVCAnimationSourceMapEntry@@@Z @ 0x18006F2D4
+ * XREFs of ?RemoveElement@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAXPEAVCAnimationSourceMapEntry@@@Z @ 0x180065240
  * Callers:
- *     ??1CResource@@MEAA@XZ @ 0x180049CEC (--1CResource@@MEAA@XZ.c)
- *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x18006FED8 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
+ *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x180065328 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A0EAC (--1CResource@@MEAA@XZ.c)
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
  */
 
 void __fastcall CGenericTableMap<unsigned int,CAnimationSourceMapEntry>::RemoveElement(
         PRTL_GENERIC_TABLE Table,
-        void **Buffer)
+        char *Buffer)
 {
-  DynArrayImpl<1>::~DynArrayImpl<1>(Buffer + 1);
+  DynArrayImpl<0>::~DynArrayImpl<0>(Buffer + 8);
   if ( !RtlDeleteElementGenericTable(Table, Buffer) )
     RaiseFailFastException(0LL, 0LL, 1u);
 }

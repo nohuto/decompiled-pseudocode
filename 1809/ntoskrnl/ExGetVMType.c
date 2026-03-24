@@ -1,14 +1,14 @@
 /*
- * XREFs of ExGetVMType @ 0x1408CEAEC
+ * XREFs of ExGetVMType @ 0x1408CEACC
  * Callers:
- *     ExpGetVMActivationStatus @ 0x140704088 (ExpGetVMActivationStatus.c)
- *     ExpIsRunningInWDAGContainer @ 0x1408CF290 (ExpIsRunningInWDAGContainer.c)
+ *     ExpGetVMActivationStatus @ 0x140704068 (ExpGetVMActivationStatus.c)
+ *     ExpIsRunningInWDAGContainer @ 0x1408CF270 (ExpIsRunningInWDAGContainer.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140176B90 (HviIsAnyHypervisorPresent.c)
- *     HviGetHypervisorFeatures @ 0x14017D6F0 (HviGetHypervisorFeatures.c)
- *     HviGetEnlightenmentInformation @ 0x14017D730 (HviGetEnlightenmentInformation.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x14017DBB0 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14017D710 (HviGetHypervisorFeatures.c)
+ *     HviGetEnlightenmentInformation @ 0x14017D750 (HviGetEnlightenmentInformation.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14017DBD0 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ExGetVMType(_DWORD *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpFormatConnectionRequest @ 0x1407162C8
+ * XREFs of AlpcpFormatConnectionRequest @ 0x1405E033C
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     AlpcpAllocateMessage @ 0x140716914 (AlpcpAllocateMessage.c)
- *     AlpcpValidateConnectionMessage @ 0x140717398 (AlpcpValidateConnectionMessage.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x14071822C (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpCaptureAttributes @ 0x1407390D0 (AlpcpCaptureAttributes.c)
- *     AlpcpMapLegacyPortView @ 0x1407B9EC0 (AlpcpMapLegacyPortView.c)
+ *     AlpcpAllocateMessage @ 0x1405E09E4 (AlpcpAllocateMessage.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x1405E0F88 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpValidateConnectionMessage @ 0x1405E1B94 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
+ *     AlpcpMapLegacyPortView @ 0x1406FFA18 (AlpcpMapLegacyPortView.c)
  */
 
 __int64 __fastcall AlpcpFormatConnectionRequest(
@@ -29,78 +29,87 @@ __int64 __fastcall AlpcpFormatConnectionRequest(
   unsigned __int16 *v11; // r14
   int v12; // r12d
   void *v13; // r15
+  ULONG_PTR *v15; // rbp
   __int64 result; // rax
-  int v16; // ebx
-  ULONG_PTR v17; // rdi
-  _WORD *v18; // rcx
-  __int16 v19; // ax
-  __int16 v20; // dx
-  int v21; // r9d
-  _QWORD *v22; // rax
-  __int64 v23; // rbp
-  ULONG_PTR v24; // rcx
-  ULONG_PTR v26; // [rsp+80h] [rbp+18h] BYREF
+  int v17; // ebx
+  ULONG_PTR v18; // rdi
+  _WORD *v19; // rcx
+  __int16 v20; // ax
+  __int16 v21; // dx
+  int v22; // r9d
+  _QWORD *v23; // rax
+  __int64 v24; // rbp
+  __int64 v25; // rax
+  ULONG_PTR v26; // rcx
+  ULONG_PTR BugCheckParameter2; // [rsp+80h] [rbp+18h] BYREF
 
   v10 = a9;
   v11 = a5;
   v12 = a4;
-  v26 = 0LL;
+  BugCheckParameter2 = 0LL;
   v13 = a3;
+  v15 = a1;
   if ( !a4
-    || (v22 = (_QWORD *)a3[2], LOBYTE(a3) = a9, result = AlpcpValidateConnectionMessage(*v22, a5, a3), (int)result >= 0) )
+    || (v23 = (_QWORD *)a3[2], LOBYTE(a3) = a9, result = AlpcpValidateConnectionMessage(*v23, a5, a3), (int)result >= 0) )
   {
-    result = AlpcpAllocateMessage(&v26, 0LL, 0LL);
-    v16 = result;
+    result = AlpcpAllocateMessage(&BugCheckParameter2, 0LL, 0LL);
+    v17 = result;
     if ( (int)result >= 0 )
     {
+      v18 = BugCheckParameter2;
       if ( v10 )
       {
-        v23 = a7;
-        if ( !a7 )
+        v24 = a7;
+        if ( a7 )
         {
-          *(_QWORD *)(v26 + 272) = 0LL;
-LABEL_6:
-          v18 = (_WORD *)v26;
-          *(_OWORD *)(v26 + 248) = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
-          v19 = *v11;
-          v18[120] = *v11;
-          v18[121] = v19 + 40;
-          v20 = v18[122] & 0xFF00 | 0xA;
-          v18[122] = v20;
-          if ( !KeGetCurrentThread()->PreviousMode )
-            v18[122] = v20 | v11[2] & 0x8000;
-          v21 = *v11;
-          v17 = v26;
-          if ( !(_WORD)v21 || (v16 = AlpcpSetupMessageDataForDeferredCopy(v26, v12, a2, v21, v10, a10), v16 >= 0) )
-          {
-            if ( v10 )
-            {
-              v24 = *(_QWORD *)(v17 + 144);
-              if ( v24 )
-              {
-                *a8 = v24;
-                AlpcpReferenceBlob(v24);
-              }
-            }
-            *a1 = v17;
-            return (unsigned int)v16;
-          }
-LABEL_22:
-          AlpcpUnlockMessage(v17);
-          return (unsigned int)v16;
+          v17 = AlpcpMapLegacyPortView(v13);
+          v25 = *(_QWORD *)(v24 + 24);
+          v15 = a1;
+          *(_QWORD *)(v18 + 272) = v25;
         }
-        v17 = v26;
-        v16 = AlpcpMapLegacyPortView(v13);
-        *(_QWORD *)(v17 + 272) = *(_QWORD *)(v23 + 24);
+        else
+        {
+          v15 = a1;
+          *(_QWORD *)(BugCheckParameter2 + 272) = 0LL;
+        }
       }
       else
       {
-        v17 = v26;
-        v16 = AlpcpCaptureAttributes(v13, a2, a6, v26, v26 + 104);
+        v17 = AlpcpCaptureAttributes(v13, a2, a6, BugCheckParameter2, BugCheckParameter2 + 104);
       }
-      if ( v16 < 0 )
+      if ( v17 < 0 )
         goto LABEL_22;
-      goto LABEL_6;
+      v19 = (_WORD *)BugCheckParameter2;
+      *(_OWORD *)(BugCheckParameter2 + 248) = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
+      v20 = *v11;
+      v19[120] = *v11;
+      v19[121] = v20 + 40;
+      v21 = v19[122] & 0xFF00 | 0xA;
+      v19[122] = v21;
+      if ( !KeGetCurrentThread()->PreviousMode )
+        v19[122] = v21 | v11[2] & 0x8000;
+      v22 = *v11;
+      v18 = BugCheckParameter2;
+      if ( (_WORD)v22
+        && (v17 = AlpcpSetupMessageDataForDeferredCopy(BugCheckParameter2, v12, a2, v22, v10, a10), v17 < 0) )
+      {
+LABEL_22:
+        AlpcpUnlockMessage(v18);
+      }
+      else
+      {
+        if ( v10 )
+        {
+          v26 = *(_QWORD *)(v18 + 144);
+          if ( v26 )
+          {
+            *a8 = v26;
+            AlpcpReferenceBlob(v26);
+          }
+        }
+        *v15 = v18;
+      }
+      return (unsigned int)v17;
     }
   }
   return result;

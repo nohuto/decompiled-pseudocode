@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipStartEndScenario @ 0x1406E6A98
+ * XREFs of WdipStartEndScenario @ 0x14078956C
  * Callers:
- *     WdiDispatchControl @ 0x1406E6A28 (WdiDispatchControl.c)
- *     EtwWriteStartScenario @ 0x14081C9F0 (EtwWriteStartScenario.c)
- *     EtwWriteEndScenario @ 0x14081CDA0 (EtwWriteEndScenario.c)
+ *     EtwWriteEndScenario @ 0x1407883D0 (EtwWriteEndScenario.c)
+ *     EtwWriteStartScenario @ 0x140788490 (EtwWriteStartScenario.c)
+ *     WdiDispatchControl @ 0x1407892E0 (WdiDispatchControl.c)
  * Callees:
- *     WdipSemEnableScenario @ 0x1406E6B08 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140815DC8 (WdipSemDisableScenario.c)
+ *     WdipSemDisableScenario @ 0x140789350 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407895DC (WdipSemEnableScenario.c)
  */
 
 __int64 __fastcall WdipStartEndScenario(__int64 a1, __int64 a2, unsigned __int16 *a3, int a4)

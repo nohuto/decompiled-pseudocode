@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasRenderingIntermediate@CDropShadow@@UEBA_NXZ @ 0x1800FB4F0
+ * XREFs of ?HasRenderingIntermediate@CDropShadow@@UEBA_NXZ @ 0x1800E2A80
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDropShadow::HasRenderingIntermediate(CDropShadow *this)
 {
-  return *((_BYTE *)this + 256);
+  return *((_BYTE *)this + 264);
 }

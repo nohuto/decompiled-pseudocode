@@ -1,26 +1,25 @@
 /*
- * XREFs of UnlockCaptureWindow @ 0x1C0102730
+ * XREFs of UnlockCaptureWindow @ 0x1C010B2B0
  * Callers:
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00A898C (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
- *     ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01DB90C (-CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
+ *     ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01E00E0 (-CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z.c)
  * Callees:
- *     UpdateRawMouseMode @ 0x1C00ABF48 (UpdateRawMouseMode.c)
+ *     UpdateRawMouseMode @ 0x1C00525A8 (UpdateRawMouseMode.c)
  */
 
 __int64 __fastcall UnlockCaptureWindow(__int64 a1)
 {
-  _QWORD *v2; // rcx
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
   __int64 result; // rax
+  _QWORD *v3; // rcx
+  __int64 v4; // rdx
 
-  v2 = (_QWORD *)(a1 + 104);
-  if ( *v2 )
+  result = gpsiLock;
+  v3 = (_QWORD *)(a1 + 104);
+  if ( *v3 )
   {
     --*(_DWORD *)(gpsi + 6992LL);
-    HMAssignmentUnlock(v2);
-    return UpdateRawMouseMode(a1, v3, v4, v5);
+    HMAssignmentUnlock(v3);
+    return UpdateRawMouseMode(a1, v4);
   }
   return result;
 }

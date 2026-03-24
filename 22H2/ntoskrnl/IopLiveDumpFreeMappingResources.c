@@ -1,33 +1,33 @@
 /*
- * XREFs of IopLiveDumpFreeMappingResources @ 0x14094E410
+ * XREFs of IopLiveDumpFreeMappingResources @ 0x14089814C
  * Callers:
- *     IopLiveDumpAllocateMappingResources @ 0x14094DE38 (IopLiveDumpAllocateMappingResources.c)
- *     IopLiveDumpReleaseResources @ 0x14094EEC8 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x140897EBC (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpReleaseResources @ 0x14089873C (IopLiveDumpReleaseResources.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmReleaseDumpHibernateResources @ 0x140A30B28 (MmReleaseDumpHibernateResources.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     MmReleaseDumpHibernateResources @ 0x140774230 (MmReleaseDumpHibernateResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpFreeMappingResources(__int64 a1)
 {
   unsigned int i; // edi
-  _QWORD *v3; // rsi
+  unsigned __int64 *v3; // rsi
   struct _MDL *v4; // rcx
 
-  if ( *(_QWORD *)(a1 + 896) )
+  if ( *(_QWORD *)(a1 + 792) )
   {
-    for ( i = 0; i < *(_DWORD *)(a1 + 888); ++i )
+    for ( i = 0; i < *(_DWORD *)(a1 + 784); ++i )
     {
-      v3 = (_QWORD *)(*(_QWORD *)(a1 + 896) + 16LL * i);
+      v3 = (unsigned __int64 *)(*(_QWORD *)(a1 + 792) + 16LL * i);
       if ( *v3 )
-        MmReleaseDumpHibernateResources(*v3, 0x10000LL);
+        MmReleaseDumpHibernateResources(*v3);
       v4 = (struct _MDL *)v3[1];
       if ( v4 )
         IoFreeMdl(v4);
     }
-    ExFreePoolWithTag(*(PVOID *)(a1 + 896), 0x706D644Cu);
-    *(_QWORD *)(a1 + 896) = 0LL;
-    *(_DWORD *)(a1 + 888) = 0;
+    ExFreePoolWithTag(*(PVOID *)(a1 + 792), 0x706D644Cu);
+    *(_QWORD *)(a1 + 792) = 0LL;
+    *(_DWORD *)(a1 + 784) = 0;
   }
 }

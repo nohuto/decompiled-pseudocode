@@ -1,122 +1,108 @@
 /*
- * XREFs of ?SendPendingCallbacks@CInteractionTracker@@AEAAXXZ @ 0x180132BF6
+ * XREFs of ?SendPendingCallbacks@CInteractionTracker@@AEAAXXZ @ 0x1801CB424
  * Callers:
- *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x180132B58 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x1801C9EB8 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
  * Callees:
- *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x180132E62 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?ShouldNotify@CInteractionTracker@@AEAA_NI@Z @ 0x1801334B0 (-ShouldNotify@CInteractionTracker@@AEAA_NI@Z.c)
- *     ?SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z @ 0x1802349D4 (-SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z.c)
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x1801CB6A8 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z @ 0x1801CBA58 (-SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z.c)
+ *     ?ShouldNotify@CInteractionTracker@@AEAA_NI@Z @ 0x1801CCC04 (-ShouldNotify@CInteractionTracker@@AEAA_NI@Z.c)
  */
 
 void __fastcall CInteractionTracker::SendPendingCallbacks(CInteractionTracker *this)
 {
   __int64 v2; // rcx
-  __int64 *v3; // rdi
-  bool v4; // si
-  __int64 v5; // r8
-  __int64 v6; // r9
+  bool v3; // di
+  __int64 v4; // r8
+  __int64 v5; // r9
+  char v6; // r10
   int v7; // eax
   char v8; // al
-  char v9; // r9
-  __int64 v10; // rax
-  int v11; // r8d
-  __int64 v12; // rdx
-  unsigned int v13; // edx
-  __int64 v14; // rsi
-  unsigned int v15; // ecx
+  __int64 v9; // rax
+  int v10; // r8d
+  __int64 v11; // rdx
+  unsigned int v12; // edx
+  __int64 v13; // rsi
+  unsigned int v14; // ecx
+  __int64 v15; // xmm0_8
   __int64 v16; // rax
   unsigned int v17; // ecx
-  __int64 v18; // xmm0_8
+  __int64 v18; // rax
   __int64 v19; // rax
-  int v20; // edx
-  __int64 v21; // rax
-  __int64 v22; // rax
-  __int64 v23; // [rsp+30h] [rbp-40h]
-  __int64 v24; // [rsp+50h] [rbp-20h] BYREF
-  int v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-8h]
+  __int64 v20; // [rsp+50h] [rbp-20h] BYREF
+  int v21; // [rsp+58h] [rbp-18h]
+  __int64 v22; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-8h]
 
   if ( CInteractionTracker::ShouldNotify(this, 0) )
   {
-    v3 = (__int64 *)(v2 + 480);
-    if ( !*(_DWORD *)(v2 + 504)
-      || (v4 = 1, *(_DWORD *)(*(_QWORD *)(v2 + 480) + 24LL * (unsigned int)(*(_DWORD *)(v2 + 504) - 1))) )
+    if ( !*(_DWORD *)(v2 + 496)
+      || (v3 = 1, *(_DWORD *)(*((_QWORD *)this + 59) + 24LL * (unsigned int)(*(_DWORD *)(v2 + 496) - 1))) )
     {
-      v4 = 0;
+      v3 = 0;
     }
-    CInteractionTracker::SendPendingStateChangeCallbacks(this, v4);
-    LOBYTE(v6) = *((_BYTE *)this + 540);
-    if ( (v6 & 6) != 0 )
+    CInteractionTracker::SendPendingStateChangeCallbacks(this, v3);
+    LOBYTE(v5) = *((_BYTE *)this + 532);
+    v6 = 0;
+    if ( (v5 & 6) != 0 )
     {
-      v7 = *((_DWORD *)this + 22);
-      LOBYTE(v6) = (v6 & 4) != 0;
-      v24 = *((_QWORD *)this + 10);
-      v25 = v7;
-      v8 = CInteractionTracker::SendValuesChangedCallbackIfNecessary(this, &v24, v5, v6);
-      *((_BYTE *)this + 540) &= 0xF9u;
-      v9 = v8;
-      if ( !v4 )
+      v7 = *((_DWORD *)this + 20);
+      LOBYTE(v5) = (v5 & 4) != 0;
+      v20 = *((_QWORD *)this + 9);
+      v21 = v7;
+      v8 = CInteractionTracker::SendValuesChangedCallbackIfNecessary(this, &v20, v4, v5);
+      *((_BYTE *)this + 532) &= 0xF9u;
+      v6 = v8;
+      if ( !v3 )
         return;
-      v10 = *v3;
-      v11 = *((_DWORD *)this + 22);
-      v12 = 3LL * (unsigned int)(*((_DWORD *)v3 + 6) - 1);
-      *(_QWORD *)(v10 + 8 * v12 + 4) = *((_QWORD *)this + 10);
-      *(_DWORD *)(v10 + 8 * v12 + 12) = v11;
-      *(_DWORD *)(*v3 + 24LL * (unsigned int)(*((_DWORD *)v3 + 6) - 1) + 16) = *((_DWORD *)this + 34);
+      v9 = *((_QWORD *)this + 59);
+      v10 = *((_DWORD *)this + 20);
+      v11 = 3LL * (unsigned int)(*((_DWORD *)this + 124) - 1);
+      *(_QWORD *)(v9 + 8 * v11 + 4) = *((_QWORD *)this + 9);
+      *(_DWORD *)(v9 + 8 * v11 + 12) = v10;
+      *(_DWORD *)(*((_QWORD *)this + 59) + 24LL * (unsigned int)(*((_DWORD *)this + 124) - 1) + 16) = *((_DWORD *)this + 32);
     }
-    else
-    {
-      v9 = 0;
-      if ( !v4 )
-        return;
-    }
-    if ( *((char *)this + 540) >= 0 && !v9 )
+    if ( v3 && *((char *)this + 532) >= 0 && !v6 )
       CInteractionTracker::SendPendingStateChangeCallbacks(this, 0);
   }
   else
   {
-    v13 = *((_DWORD *)this + 126);
-    v14 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 16) + 1240LL) + 40LL);
-    v15 = 0;
-    if ( v13 )
+    v12 = *((_DWORD *)this + 124);
+    v13 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 16) + 1080LL) + 48LL);
+    v14 = 0;
+    if ( v12 )
     {
-      while ( *(_DWORD *)(*((_QWORD *)this + 60) + 24LL * v15) )
+      while ( *(_DWORD *)(*((_QWORD *)this + 59) + 24LL * v14) )
       {
-        if ( ++v15 >= v13 )
+        if ( ++v14 >= v12 )
           goto LABEL_23;
       }
+      v15 = *((_QWORD *)this + 9);
+      v21 = *((_DWORD *)this + 20);
       v16 = *((_QWORD *)this + 6);
+      v20 = v15;
       if ( v16 )
-        v17 = *(_DWORD *)(v16 + 76);
+        v17 = *(_DWORD *)(v16 + 68);
       else
         v17 = 0;
-      v18 = *((_QWORD *)this + 10);
-      v25 = *((_DWORD *)this + 22);
-      v26 = v17;
-      v19 = *((unsigned int *)this + 16);
-      v24 = v18;
-      v27 = v19;
-      CoreUICallSend(v14, &v26, 2LL, 11LL, 0, &unk_18033C47F, &v24);
-      v20 = *((_DWORD *)this + 47);
-      v21 = *((_QWORD *)this + 6);
-      if ( v21 )
-        v22 = *(unsigned int *)(v21 + 76);
+      v22 = v17;
+      v23 = *((unsigned int *)this + 14);
+      CoreUICallSend(v13, &v22, 2LL, 8LL, 0, &unk_1802CE744);
+      v18 = *((_QWORD *)this + 6);
+      if ( v18 )
+        v19 = *(unsigned int *)(v18 + 68);
       else
-        v22 = 0LL;
-      v26 = v22;
-      v27 = *((unsigned int *)this + 16);
-      LODWORD(v23) = v20;
+        v19 = 0LL;
+      v22 = v19;
+      v23 = *((unsigned int *)this + 14);
       CoreUICallSend(
-        v14,
-        &v26,
+        v13,
+        &v22,
         2LL,
-        11LL,
+        8LL,
         3,
-        &Microsoft::CoreUI::MessageCall::DWMCoreCallbacks_g_parameters_nojTCorKGaq7usLSlUi67Vt3n6A,
-        v23);
+        &Microsoft::CoreUI::MessageCall::DWMCoreCallbacks_g_parameters_7Gt_wATPZFc_PkcSd78VpZYfR44);
     }
 LABEL_23:
-    *((_DWORD *)this + 126) = 0;
+    *((_DWORD *)this + 124) = 0;
   }
 }

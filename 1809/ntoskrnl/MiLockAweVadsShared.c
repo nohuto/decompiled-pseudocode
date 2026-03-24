@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockAweVadsShared @ 0x1402B1214
+ * XREFs of MiLockAweVadsShared @ 0x1402B1314
  * Callers:
- *     MiProtectAweRegion @ 0x1402B14BC (MiProtectAweRegion.c)
- *     NtMapUserPhysicalPages @ 0x1408513E0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x1408516D0 (NtMapUserPhysicalPagesScatter.c)
+ *     MiProtectAweRegion @ 0x1402B15BC (MiProtectAweRegion.c)
+ *     NtMapUserPhysicalPages @ 0x1408513C0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408516B0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
  *     ExAcquireAutoExpandPushLockShared @ 0x1400050F0 (ExAcquireAutoExpandPushLockShared.c)
- *     MiUnlockAweVadsShared @ 0x1402B1FE0 (MiUnlockAweVadsShared.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB11C (MiCopyOnWriteCheckConditions.c)
+ *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
  */
 
 ULONG_PTR __fastcall MiLockAweVadsShared(__int64 a1)

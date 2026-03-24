@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0012190
+ * XREFs of ?SetReferenceProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C005F7F0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetReferenceProperty(
@@ -20,8 +20,7 @@ __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetReferenceProper
   char v10; // al
   __int64 v11; // rcx
   struct DirectComposition::CResourceMarshaler **v12; // rsi
-  char v14; // al
-  bool v15; // zf
+  bool v14; // zf
 
   v5 = 0;
   *a5 = 0;
@@ -35,17 +34,17 @@ __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetReferenceProper
       v10 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
               a4,
               27LL);
-      v11 = 88LL;
+      v11 = 80LL;
       goto LABEL_6;
     }
-    v11 = 88LL;
-    goto LABEL_14;
+    v11 = 80LL;
+    goto LABEL_17;
   }
   v9 = 32;
   if ( !a4 )
   {
-    v11 = 80LL;
-LABEL_14:
+    v11 = 72LL;
+LABEL_17:
     v10 = 1;
     goto LABEL_6;
   }
@@ -54,20 +53,16 @@ LABEL_14:
          40LL)
     || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
          a4,
-         201LL)
-    || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
-         a4,
-         127LL)
-    || (v14 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+         200LL)
+    || (v14 = (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
                 a4,
-                69LL),
-        v15 = v14 == 0,
+                127LL) == 0,
         v10 = 0,
-        !v15) )
+        !v14) )
   {
     v10 = 1;
   }
-  v11 = 80LL;
+  v11 = 72LL;
 LABEL_6:
   v12 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v11);
   if ( !(DirectComposition::CSurfaceBrushMarshaler *)((char *)this + v11) || !v10 )

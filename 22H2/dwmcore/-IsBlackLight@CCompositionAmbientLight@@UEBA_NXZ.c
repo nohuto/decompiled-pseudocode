@@ -1,12 +1,15 @@
 /*
- * XREFs of ?IsBlackLight@CCompositionAmbientLight@@UEBA_NXZ @ 0x180019D70
+ * XREFs of ?IsBlackLight@CCompositionAmbientLight@@UEBA_NXZ @ 0x180018030
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall CCompositionAmbientLight::IsBlackLight(struct _D3DCOLORVALUE *this)
+bool __fastcall CCompositionAmbientLight::IsBlackLight(CCompositionAmbientLight *this)
 {
-  return CCompositionLight::IsBlackColor((CCompositionLight *)this, this + 16, this[17].r);
+  return CCompositionLight::IsBlackColor(
+           this,
+           (const struct _D3DCOLORVALUE *)((char *)this + 248),
+           *((float *)this + 66));
 }

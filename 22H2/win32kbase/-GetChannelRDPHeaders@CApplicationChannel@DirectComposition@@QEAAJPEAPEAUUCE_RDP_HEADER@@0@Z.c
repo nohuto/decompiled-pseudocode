@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetChannelRDPHeaders@CApplicationChannel@DirectComposition@@QEAAJPEAPEAUUCE_RDP_HEADER@@0@Z @ 0x1C008C30C
+ * XREFs of ?GetChannelRDPHeaders@CApplicationChannel@DirectComposition@@QEAAJPEAPEAUUCE_RDP_HEADER@@0@Z @ 0x1C007BEF4
  * Callers:
- *     ?RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C008BE20 (-RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z.c)
+ *     ?RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C007C228 (-RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z.c)
  * Callees:
- *     ?GetUserModeViewAtOffset@CBatchSharedMemoryPool@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C008C370 (-GetUserModeViewAtOffset@CBatchSharedMemoryPool@DirectComposition@@QEAAJ_KPEAPEAX@Z.c)
+ *     ?GetUserModeViewAtOffset@CBatchSharedMemoryPool@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C007C658 (-GetUserModeViewAtOffset@CBatchSharedMemoryPool@DirectComposition@@QEAAJ_KPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::GetChannelRDPHeaders(
@@ -13,17 +13,17 @@ __int64 __fastcall DirectComposition::CApplicationChannel::GetChannelRDPHeaders(
 {
   unsigned __int64 v5; // rdi
   __int64 result; // rax
-  __int64 v7; // rcx
+  __int64 v7; // rdx
 
-  v5 = *((_QWORD *)this + *((unsigned int *)this + 662) + 329);
+  v5 = *((_QWORD *)this + *((unsigned int *)this + 164) + 80);
   result = DirectComposition::CBatchSharedMemoryPool::GetUserModeViewAtOffset(
-             *((DirectComposition::CBatchSharedMemoryPool **)this + 328),
+             *((DirectComposition::CBatchSharedMemoryPool **)this + 79),
              v5,
              (void **)a3);
   if ( (int)result >= 0 )
   {
-    v7 = *(_QWORD *)(*((_QWORD *)this + 328) + 56LL);
-    ++*((_DWORD *)this + 662);
+    v7 = *(_QWORD *)(*((_QWORD *)this + 79) + 56LL);
+    ++*((_DWORD *)this + 164);
     *a2 = (struct UCE_RDP_HEADER *)(v5 + v7);
   }
   return result;

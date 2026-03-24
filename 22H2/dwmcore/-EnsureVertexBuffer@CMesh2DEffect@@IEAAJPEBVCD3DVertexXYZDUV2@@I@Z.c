@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x1802BEC90
+ * XREFs of ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x18026C724
  * Callers:
- *     ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x1802BF4D0 (-SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z.c)
+ *     ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x18026CE38 (-SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMesh2DEffect::EnsureVertexBuffer(
@@ -13,108 +13,106 @@ __int64 __fastcall CMesh2DEffect::EnsureVertexBuffer(
         const struct CD3DVertexXYZDUV2 *a2,
         unsigned int a3)
 {
-  _QWORD *v3; // rsi
-  __int64 v5; // rdi
+  _QWORD *v3; // r14
+  __int64 v5; // rsi
   __int64 v6; // rcx
-  int *v8; // rbx
-  int v9; // r8d
-  int v10; // eax
-  __int64 v11; // rcx
-  unsigned int v12; // ebx
-  int v13; // r9d
-  __int64 v14; // rcx
-  unsigned int v16; // [rsp+20h] [rbp-60h]
-  _DWORD v17[2]; // [rsp+40h] [rbp-40h] BYREF
-  const struct CD3DVertexXYZDUV2 *v18; // [rsp+48h] [rbp-38h]
-  int v19; // [rsp+50h] [rbp-30h]
-  void *v20; // [rsp+58h] [rbp-28h] BYREF
-  int v21; // [rsp+60h] [rbp-20h]
-  char **v22; // [rsp+68h] [rbp-18h]
-  int v23; // [rsp+70h] [rbp-10h]
-  int v24; // [rsp+74h] [rbp-Ch]
-  void *v25; // [rsp+B0h] [rbp+30h] BYREF
-  int v26; // [rsp+C8h] [rbp+48h]
-  unsigned int v27; // [rsp+CCh] [rbp+4Ch]
+  unsigned int v8; // r8d
+  int v9; // eax
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
+  int v12; // r9d
+  __int64 v13; // rcx
+  unsigned int v15; // [rsp+20h] [rbp-60h]
+  _DWORD v16[2]; // [rsp+40h] [rbp-40h] BYREF
+  const struct CD3DVertexXYZDUV2 *v17; // [rsp+48h] [rbp-38h]
+  int v18; // [rsp+50h] [rbp-30h]
+  void *v19; // [rsp+58h] [rbp-28h] BYREF
+  int v20; // [rsp+60h] [rbp-20h]
+  char **v21; // [rsp+68h] [rbp-18h]
+  int v22; // [rsp+70h] [rbp-10h]
+  int v23; // [rsp+74h] [rbp-Ch]
+  void *v24; // [rsp+B0h] [rbp+30h] BYREF
+  int v25; // [rsp+C8h] [rbp+48h]
+  unsigned int v26; // [rsp+CCh] [rbp+4Ch]
 
-  v26 = 0;
+  v25 = 0;
   v3 = (_QWORD *)((char *)this + 176);
   v5 = a3;
   v6 = *((_QWORD *)this + 22);
-  v27 = a3;
-  v8 = (int *)((char *)this + 184);
+  v26 = a3;
   if ( !v6 )
   {
 LABEL_9:
-    *v8 = 0;
-    v20 = &unk_1803C3450;
-    v11 = 0xFFFFFFFFLL;
-    v21 = 2304;
-    v22 = &off_1802D8070;
-    v23 = 4;
-    v24 = 32;
+    *((_DWORD *)this + 46) = 0;
+    v19 = &unk_180320CB0;
+    v10 = 0xFFFFFFFFLL;
+    v20 = 2304;
+    v21 = &off_180285430;
+    v22 = 4;
+    v23 = 32;
     if ( (unsigned __int64)(32 * v5) > 0xFFFFFFFF )
     {
+      v11 = -2147024362;
       v12 = -2147024362;
-      v13 = -2147024362;
-      v16 = 562;
+      v15 = 562;
       goto LABEL_15;
     }
-    v18 = a2;
-    v17[0] = 1;
-    v17[1] = 1;
-    v14 = *((_QWORD *)this + 17);
-    v19 = 32 * v5;
-    v10 = (*(__int64 (__fastcall **)(__int64, _DWORD *, _QWORD, void **, _QWORD *))(*(_QWORD *)v14 + 136LL))(
-            v14,
-            v17,
-            0LL,
-            &v20,
-            v3);
-    v12 = v10;
-    if ( v10 < 0 )
+    v18 = 32 * v5;
+    v16[0] = 1;
+    v16[1] = 1;
+    v13 = *((_QWORD *)this + 17);
+    v17 = a2;
+    v9 = (*(__int64 (__fastcall **)(__int64, _DWORD *, _QWORD, void **, _QWORD *))(*(_QWORD *)v13 + 136LL))(
+           v13,
+           v16,
+           0LL,
+           &v19,
+           v3);
+    v11 = v9;
+    if ( v9 < 0 )
     {
-      v16 = 578;
+      v15 = 578;
       goto LABEL_6;
     }
     goto LABEL_11;
   }
-  v9 = *v8;
-  if ( *v8 < (unsigned int)v5 )
+  v8 = *((_DWORD *)this + 46);
+  if ( v8 < (unsigned int)v5 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
     *v3 = 0LL;
     goto LABEL_9;
   }
-  v25 = 0LL;
-  v10 = (*(__int64 (__fastcall **)(__int64, void **, _QWORD))(*(_QWORD *)v6 + 24LL))(v6, &v25, (unsigned int)(32 * v9));
-  v12 = v10;
-  if ( v10 < 0 )
+  v24 = 0LL;
+  v9 = (*(__int64 (__fastcall **)(__int64, void **, _QWORD))(*(_QWORD *)v6 + 24LL))(v6, &v24, 32 * v8);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    v16 = 587;
+    v15 = 587;
     goto LABEL_6;
   }
-  memcpy_0(v25, a2, 32LL * (unsigned int)v5);
-  v10 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*v3 + 32LL))(*v3);
-  v12 = v10;
-  if ( v10 < 0 )
+  memcpy_0(v24, a2, 32LL * (unsigned int)v5);
+  v9 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*v3 + 32LL))(*v3);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    v16 = 595;
+    v15 = 595;
 LABEL_6:
-    v13 = v10;
+    v12 = v9;
 LABEL_15:
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v13, v16, 0LL);
-    return v12;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v12, v15, 0LL);
+    return v11;
   }
 LABEL_11:
-  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 16) + 88LL))(
-          *((_QWORD *)this + 16),
-          *v3,
-          4LL);
-  v12 = v10;
-  if ( v10 < 0 )
+  v9 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 16) + 88LL))(
+         *((_QWORD *)this + 16),
+         *v3,
+         4LL);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    v16 = 604;
+    v15 = 604;
     goto LABEL_6;
   }
-  return v12;
+  return v11;
 }

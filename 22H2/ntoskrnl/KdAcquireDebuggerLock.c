@@ -1,26 +1,22 @@
 /*
- * XREFs of KdAcquireDebuggerLock @ 0x1403B2EC0
+ * XREFs of KdAcquireDebuggerLock @ 0x140510A50
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
  */
 
 void __fastcall KdAcquireDebuggerLock(unsigned __int8 *a1)
 {
-  unsigned __int8 CurrentIrql; // r8
-  _DWORD *SchedulerAssist; // r10
-  __int64 v3; // rax
+  unsigned __int8 CurrentIrql; // r10
+  _DWORD *SchedulerAssist; // r9
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v3) = 4;
-    if ( CurrentIrql != 2 )
-      v3 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v3;
+    SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
   }
   *a1 = CurrentIrql;
   KxAcquireSpinLock(&KdDebuggerLock);

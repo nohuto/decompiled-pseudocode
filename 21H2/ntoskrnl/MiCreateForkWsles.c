@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateForkWsles @ 0x1405BA3BC
+ * XREFs of MiCreateForkWsles @ 0x140559DAC
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1409806C8 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D9060 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiCreateForkWsle @ 0x1405BA2B4 (MiCreateForkWsle.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiCreateForkWsle @ 0x140559C1C (MiCreateForkWsle.c)
  */
 
 void MiCreateForkWsles()
@@ -15,11 +15,11 @@ void MiCreateForkWsles()
   unsigned __int64 v1; // r14
   __int64 v2; // rcx
   unsigned __int64 v3; // rsi
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v5; // al
   unsigned __int8 v6; // di
 
-  v0 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
+  v0 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
   v1 = 0xFFFFF68000000000uLL;
   v2 = 3LL;
   v3 = 0xFFFFF6BFFFFFFFF8uLL;
@@ -30,9 +30,9 @@ void MiCreateForkWsles()
     --v2;
   }
   while ( v2 );
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)v0);
+  SharedVm = MiGetSharedVm((__int64)v0);
   v5 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
+  SharedVm[1] = 0;
   v6 = v5;
   MiCreateForkWsle((__int64)v0, v5, v1, v3, 3);
   MiUnlockWorkingSetExclusive((__int64)v0, v6);

@@ -1,10 +1,10 @@
 /*
- * XREFs of LookupAceFlagsInTable @ 0x140841E04
+ * XREFs of LookupAceFlagsInTable @ 0x1406ECF38
  * Callers:
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
- *     LocalConvertAclToString @ 0x14069D4D0 (LocalConvertAclToString.c)
+ *     LocalConvertAclToString @ 0x1406EC584 (LocalConvertAclToString.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a4)
@@ -15,7 +15,7 @@ wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a
   unsigned int v13; // ecx
 
   v4 = 0LL;
-  v5 = (char *)&unk_140C065A4;
+  v5 = (char *)&unk_140C01B24;
   for ( i = 0; i < 9; ++i )
   {
     if ( (a3 & *((_DWORD *)v5 - 1)) == a3 )
@@ -26,7 +26,7 @@ wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a
         while ( *(_BYTE *)(v13 + *(_QWORD *)(v5 + 4)) != a4 )
         {
           if ( ++v13 >= *(_DWORD *)v5 )
-            goto LABEL_10;
+            goto LABEL_7;
         }
       }
       if ( Str1
@@ -36,10 +36,10 @@ wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a
         break;
       }
     }
-LABEL_10:
+LABEL_7:
     v5 += 32;
   }
   if ( i < 9 )
-    return &(&off_140C06590)[4 * i];
+    return &(&off_140C01B10)[4 * i];
   return (wchar_t **)v4;
 }

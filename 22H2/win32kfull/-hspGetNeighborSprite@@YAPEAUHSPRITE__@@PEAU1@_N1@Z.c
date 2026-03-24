@@ -1,62 +1,52 @@
 /*
- * XREFs of ?hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z @ 0x1C00A71EC
+ * XREFs of ?hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z @ 0x1C0115830
  * Callers:
- *     ?hspCreateDwmSpriteObj@@YAPEAUHSPRITE__@@PEAUHWND__@@_KPEAUHDEV__@@H@Z @ 0x1C007CA2C (-hspCreateDwmSpriteObj@@YAPEAUHSPRITE__@@PEAUHWND__@@_KPEAUHDEV__@@H@Z.c)
- *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00CD42C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
- *     ?DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0133A6C (-DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C0134710 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
- *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C0135018 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
+ *     ?hspCreateDwmSpriteObj@@YAPEAUHSPRITE__@@PEAUHWND__@@_KPEAUHDEV__@@H@Z @ 0x1C0015E5C (-hspCreateDwmSpriteObj@@YAPEAUHSPRITE__@@PEAUHWND__@@_KPEAUHDEV__@@H@Z.c)
+ *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00BFB1C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
+ *     ?DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C00EB5DC (-DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C00EBA74 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C00EC250 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
  * Callees:
- *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00AE284 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C0017464 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
  */
 
-__int64 __fastcall hspGetNeighborSprite(Gre::Base *a1, char a2, char a3)
+__int64 __fastcall hspGetNeighborSprite(HSPRITE a1, char a2, char a3)
 {
-  struct Gre::Base::SESSION_GLOBALS *v6; // rax
-  struct Gre::Base::SESSION_GLOBALS *v7; // rsi
-  __int64 v8; // rbx
-  _QWORD *v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rax
-  _QWORD *v13; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v4; // rbx
+  __int64 v6; // r8
+  __int64 v7; // rax
+  char *v8; // rdx
+  _QWORD *v10; // [rsp+48h] [rbp+20h] BYREF
 
-  v6 = Gre::Base::Globals(a1);
-  v13 = 0LL;
-  v7 = v6;
-  DWMALTSPRITEREF::AltLockSpriteObj((DWMALTSPRITEREF *)&v13, (HSPRITE)a1);
-  v8 = 0LL;
-  if ( !v13 )
-    return v8;
-  if ( a2 )
-    v9 = (_QWORD *)v13[3];
-  else
-    v9 = (_QWORD *)v13[4];
-  if ( !a3 || (v10 = *((_QWORD *)v7 + 38) + 80LL, v9 == (_QWORD *)v10) )
+  v4 = 0LL;
+  v10 = 0LL;
+  DWMALTSPRITEREF::AltLockSpriteObj((DWMALTSPRITEREF *)&v10, a1);
+  if ( v10 )
   {
-LABEL_12:
-    if ( v9 == (_QWORD *)(*((_QWORD *)v7 + 38) + 80LL) )
-      goto LABEL_14;
-  }
-  else
-  {
-    while ( 1 )
+    if ( a2 )
+      v6 = v10[3];
+    else
+      v6 = v10[4];
+    if ( a3 && (struct DwmState *)v6 != (struct DwmState *)((char *)g_pDwmState + 80) )
     {
-      v11 = (__int64)(v9 + 3);
-      if ( !v9 )
-        v11 = 48LL;
-      if ( v13[6] == *(_QWORD *)v11 )
-        break;
-      if ( a2 )
-        v9 = (_QWORD *)*v9;
-      else
-        v9 = (_QWORD *)v9[1];
-      if ( v9 == (_QWORD *)v10 )
-        goto LABEL_12;
+      do
+      {
+        v7 = v6 + 24;
+        if ( !v6 )
+          v7 = 48LL;
+        if ( v10[6] == *(_QWORD *)v7 )
+          break;
+        v6 = a2 ? *(_QWORD *)v6 : *(_QWORD *)(v6 + 8);
+      }
+      while ( (struct DwmState *)v6 != (struct DwmState *)((char *)g_pDwmState + 80) );
     }
+    v8 = (char *)g_pDwmState + 80;
+    if ( (struct DwmState *)v6 != (struct DwmState *)((char *)g_pDwmState + 80) )
+    {
+      v8 = (char *)(v6 - 24);
+      v4 = *(_QWORD *)((v6 - 24) & -(__int64)(v6 != 0));
+    }
+    DEC_SHARE_REF_CNT(v10, v8);
   }
-  v8 = *(_QWORD *)((unsigned __int64)(v9 - 3) & -(__int64)(v9 != 0LL));
-LABEL_14:
-  if ( v13 )
-    DEC_SHARE_REF_CNT(v13);
-  return v8;
+  return v4;
 }

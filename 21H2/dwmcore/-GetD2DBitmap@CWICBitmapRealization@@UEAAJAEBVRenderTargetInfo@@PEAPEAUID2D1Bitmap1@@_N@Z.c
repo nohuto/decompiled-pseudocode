@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetD2DBitmap@CWICBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802A2AA0
+ * XREFs of ?GetD2DBitmap@CWICBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180263510
  * Callers:
  *     <none>
  * Callees:

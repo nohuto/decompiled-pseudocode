@@ -1,15 +1,15 @@
 /*
- * XREFs of _Init_thread_notify @ 0x1801011D8
+ * XREFs of _Init_thread_notify @ 0x1800E79E8
  * Callers:
- *     _Init_thread_footer @ 0x180101100 (_Init_thread_footer.c)
+ *     _Init_thread_footer @ 0x1800E7910 (_Init_thread_footer.c)
  * Callees:
  *     <none>
  */
 
 int Init_thread_notify()
 {
-  if ( qword_1803D2DE8 )
-    return qword_1803D2DE8(&unk_1803D2DA8);
+  if ( !hHandle )
+    return ((__int64 (__fastcall *)(void *))__ROR8__(qword_180346E98 ^ _security_cookie, _security_cookie & 0x3F))(&unk_180346E80);
   SetEvent(hHandle);
   return ResetEvent(hHandle);
 }

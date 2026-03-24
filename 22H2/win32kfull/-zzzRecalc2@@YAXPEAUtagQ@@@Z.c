@@ -1,34 +1,33 @@
 /*
- * XREFs of ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C005C4E0
+ * XREFs of ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C0011DA8
  * Callers:
- *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C005C014 (-zzzRecalcThreadAttachment@@YAXXZ.c)
+ *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C0011CEC (-zzzRecalcThreadAttachment@@YAXXZ.c)
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0025058 (zzzEndDeferWinEventNotify.c)
- *     ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C005C4B0 (-GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ.c)
- *     ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C005C5D4 (-GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z.c)
- *     ?IsPackedQueueRecalc@@YAHXZ @ 0x1C005C618 (-IsPackedQueueRecalc@@YAHXZ.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C0011D8C (-GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C0011E6C (-GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z.c)
+ *     ?zzzAddAttachment@@YAXPEAUtagTHREADINFO@@PEAUtagQ@@PEAH@Z @ 0x1C0011EB4 (-zzzAddAttachment@@YAXPEAUtagTHREADINFO@@PEAUtagQ@@PEAH@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DEA4 (zzzEndDeferWinEventNotify.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall zzzRecalc2(struct tagQ *a1)
 {
-  int v2; // r15d
   struct _LIST_ENTRY *RecalcHeadPtiListEntry; // r14
   struct _LIST_ENTRY *Flink; // rdi
   struct tagTHREADINFO *RecalcPtiFromListEntry; // rax
-  struct tagQ **v6; // rbp
+  struct tagTHREADINFO *v5; // rsi
   _QWORD *i; // rbx
-  struct tagQ **v8; // rsi
-  struct tagQ *v9; // rax
-  char v10; // [rsp+58h] [rbp+10h] BYREF
+  struct tagTHREADINFO *v7; // rcx
+  int v8; // [rsp+48h] [rbp+10h] BYREF
+  char v9; // [rsp+50h] [rbp+18h] BYREF
 
   ++gdwDeferWinEvent;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v10);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v9);
   do
   {
-    v2 = 0;
+    v8 = 0;
     RecalcHeadPtiListEntry = GetRecalcHeadPtiListEntry();
     Flink = RecalcHeadPtiListEntry->Flink;
     if ( RecalcHeadPtiListEntry->Flink == RecalcHeadPtiListEntry )
@@ -36,34 +35,28 @@ void __fastcall zzzRecalc2(struct tagQ *a1)
     do
     {
       RecalcPtiFromListEntry = GetRecalcPtiFromListEntry(Flink);
-      v6 = (struct tagQ **)RecalcPtiFromListEntry;
+      v5 = RecalcPtiFromListEntry;
       if ( RecalcPtiFromListEntry && *((struct tagQ **)RecalcPtiFromListEntry + 82) == a1 )
       {
         for ( i = (_QWORD *)gpai; i; i = (_QWORD *)*i )
         {
-          IsPackedQueueRecalc();
-          v8 = (struct tagQ **)i[1];
-          if ( v8 == v6 )
-            goto LABEL_18;
-          if ( (struct tagQ **)i[2] != v6 )
-            continue;
-          if ( v8 == v6 )
-LABEL_18:
-            v8 = (struct tagQ **)i[2];
-          if ( v8[82] != a1 )
+          v7 = (struct tagTHREADINFO *)i[1];
+          if ( v7 == v5 )
           {
-            v9 = tagTHREADINFO::AssignAttachQueue((tagTHREADINFO *)v8, a1);
-            if ( v9 )
-              zzzDestroyQueue(v9, v8);
-            v2 = 1;
+            v7 = (struct tagTHREADINFO *)i[2];
           }
+          else if ( (struct tagTHREADINFO *)i[2] != v5 )
+          {
+            continue;
+          }
+          zzzAddAttachment(v7, a1, &v8);
         }
       }
       Flink = Flink->Flink;
     }
     while ( Flink != RecalcHeadPtiListEntry );
   }
-  while ( v2 );
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v10);
+  while ( v8 );
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v9);
   zzzEndDeferWinEventNotify();
 }

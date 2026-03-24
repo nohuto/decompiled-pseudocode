@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlGetEnlightenmentInfo @ 0x140546B70
+ * XREFs of HvlGetEnlightenmentInfo @ 0x1404F5030
  * Callers:
  *     <none>
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140294CC0 (VslGetNestedPageProtectionFlags.c)
- *     VslGetSecurePciEnabled @ 0x1403DF160 (VslGetSecurePciEnabled.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140277400 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetSecurePciEnabled @ 0x1403CFC30 (VslGetSecurePciEnabled.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)
@@ -13,13 +13,13 @@ __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)
   __int64 result; // rax
   unsigned __int64 v3; // rcx
 
-  memset(a1, 0, 0x218uLL);
+  memset(a1, 0, 0x1F8uLL);
   *a1 = HvlEnlightenments;
   a1[1] = HvlHypervisorConnected != 0;
   a1[7] = HvlLongSpinCountMask;
   if ( (HvlEnlightenments & 0x40) != 0 )
     *((_QWORD *)a1 + 4) = HvlNotifyLongSpinWait;
-  if ( _bittest(&HvlEnlightenments, 8u) )
+  if ( (HvlEnlightenments & 0x100) != 0 )
     *((_QWORD *)a1 + 5) = HvlGetReferenceTimeUsingTscPage;
   if ( (HvlEnlightenments & 0x4000) != 0 )
     *((_QWORD *)a1 + 25) = HvlSendSyntheticClusterIpi;
@@ -48,7 +48,6 @@ __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)
   *((_QWORD *)a1 + 53) = HvlDmaDeleteDeviceDomain;
   *((_QWORD *)a1 + 58) = HvlDmaGetDmaGuardEnabled;
   *((_QWORD *)a1 + 62) = HvlSetRootFaultReportingReady;
-  *((_QWORD *)a1 + 64) = HvlUnblockDefaultDma;
   *((_QWORD *)a1 + 31) = HvlSvmGetSystemCapabilities;
   *((_QWORD *)a1 + 32) = HvlSvmGetDeviceCapabilities;
   *((_QWORD *)a1 + 33) = HvlSvmCreatePasidSpace;
@@ -73,9 +72,6 @@ __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)
   *((_QWORD *)a1 + 55) = HvlDmaUnmapDeviceLogicalRange;
   *((_QWORD *)a1 + 56) = HvlDmaMapDeviceSparsePages;
   *((_QWORD *)a1 + 57) = HvlDmaUnmapDeviceSparsePages;
-  *((_QWORD *)a1 + 63) = HvlDmaConfigureDeviceDomain;
-  *((_QWORD *)a1 + 65) = HvlDmaFlushDeviceDomain;
-  *((_QWORD *)a1 + 66) = HvlDmaFlushDeviceDomainVaList;
   if ( (HvlpRootFlags & 0x80u) != 0 )
   {
     *((_QWORD *)a1 + 14) = HvlQueryAssociatedProcessors;
@@ -90,7 +86,7 @@ __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)
     *((_QWORD *)a1 + 17) = HvlLpReadCpuid;
     *((_QWORD *)a1 + 18) = HvlLpWritebackInvalidate;
   }
-  if ( _bittest((const signed __int32 *)&HvlpRootFlags, 8u) )
+  if ( (HvlpRootFlags & 0x100) != 0 )
   {
     *((_QWORD *)a1 + 9) = HvlMapDeviceInterrupt;
     *((_QWORD *)a1 + 10) = HvlUnmapDeviceInterrupt;

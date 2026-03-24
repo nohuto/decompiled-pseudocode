@@ -1,29 +1,29 @@
 /*
- * XREFs of HalpIommuUpdatePageTableLevel @ 0x1403A98F8
+ * XREFs of HalpIommuUpdatePageTableLevel @ 0x1403A6BC4
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099B3C4 (HalpIommuInitializeAll.c)
  * Callees:
  *     <none>
  */
 
 void HalpIommuUpdatePageTableLevel()
 {
-  ULONG_PTR i; // rcx
+  __int64 i; // rcx
   unsigned int v1; // eax
-  int v2; // eax
+  unsigned int v2; // eax
 
   HalpIommuMaxPageTableDepth = 0;
   HalpIommuMinPageTableDepth = -1;
-  for ( i = HalpIommuList; (ULONG_PTR *)i != &HalpIommuList; i = *(_QWORD *)i )
+  for ( i = HalpIommuList; (__int64 *)i != &HalpIommuList; i = *(_QWORD *)i )
   {
-    v2 = *(_DWORD *)(i + 488);
-    if ( (v2 & 0x100) != 0 )
+    v1 = *(_DWORD *)(i + 456);
+    if ( (v1 & 0x100) != 0 )
     {
-      v1 = ((unsigned __int16)v2 >> 13) + 1;
-      if ( v1 > HalpIommuMaxPageTableDepth )
-        HalpIommuMaxPageTableDepth = v1;
-      if ( v1 < HalpIommuMinPageTableDepth )
-        HalpIommuMinPageTableDepth = v1;
+      v2 = ((v1 >> 12) & 7) + 1;
+      if ( v2 > HalpIommuMaxPageTableDepth )
+        HalpIommuMaxPageTableDepth = v2;
+      if ( v2 < HalpIommuMinPageTableDepth )
+        HalpIommuMinPageTableDepth = v2;
     }
   }
 }

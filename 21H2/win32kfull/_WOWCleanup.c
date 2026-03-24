@@ -1,9 +1,9 @@
 /*
- * XREFs of _WOWCleanup @ 0x1C0221850
+ * XREFs of _WOWCleanup @ 0x1C0227D20
  * Callers:
- *     NtUserWOWCleanup @ 0x1C0200820 (NtUserWOWCleanup.c)
+ *     NtUserWOWCleanup @ 0x1C0204830 (NtUserWOWCleanup.c)
  * Callees:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
  */
 
 __int64 __fastcall WOWCleanup(__int64 a1, int a2)
@@ -47,7 +47,7 @@ __int64 __fastcall WOWCleanup(__int64 a1, int a2)
     {
       v12 = *(unsigned __int8 *)(v9 + 24);
       if ( (_BYTE)v12
-        && (gahti[12 * v12 + 6] & 2) != 0
+        && (gahti[24 * v12 + 12] & 2) != 0
         && (struct tagPROCESSINFO *)v11[1] == v5
         && *(_DWORD *)(*v11 + 16LL) == a2
         && (_BYTE)v12 != 7

@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetJobIoAttribution @ 0x14068CB18
+ * XREFs of PspSetJobIoAttribution @ 0x14068CAF8
  * Callers:
  *     PspSetJobIoRateControl @ 0x140584F0C (PspSetJobIoRateControl.c)
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     IoStartDiskIoAttributionForContext @ 0x1401052A8 (IoStartDiskIoAttributionForContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1401052C8 (IoStartDiskIoAttributionForContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspIsSetJobIoAttribution @ 0x14068CD00 (PspIsSetJobIoAttribution.c)
- *     IoDiskIoAttributionAllocate @ 0x14068CD60 (IoDiskIoAttributionAllocate.c)
- *     PspRemoveIoAttribution @ 0x14068CE18 (PspRemoveIoAttribution.c)
+ *     PspIsSetJobIoAttribution @ 0x14068CCE0 (PspIsSetJobIoAttribution.c)
+ *     IoDiskIoAttributionAllocate @ 0x14068CD40 (IoDiskIoAttributionAllocate.c)
+ *     PspRemoveIoAttribution @ 0x14068CDF8 (PspRemoveIoAttribution.c)
  */
 
 __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsigned int a4)

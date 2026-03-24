@@ -1,23 +1,18 @@
 /*
- * XREFs of CmpRegUtilAllocateUnicodeString @ 0x1C03987CC
+ * XREFs of CmpRegUtilAllocateUnicodeString @ 0x1C02C5E14
  * Callers:
- *     CmRegUtilUcValueSetUcString @ 0x1C03985C4 (CmRegUtilUcValueSetUcString.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C02C5C0C (CmRegUtilUcValueSetUcString.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     <none>
  */
 
 __int64 __fastcall CmpRegUtilAllocateUnicodeString(__int64 a1, unsigned __int16 a2)
 {
-  __int64 v2; // rdi
   PVOID PoolWithTag; // rax
 
-  v2 = a2;
-  *(_WORD *)(a1 + 2) = a2 + 2;
   *(_WORD *)a1 = 0;
+  *(_WORD *)(a1 + 2) = a2 + 2;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, a2 + 2LL, 0x63557050u);
   *(_QWORD *)(a1 + 8) = PoolWithTag;
-  if ( !PoolWithTag )
-    return 3221225626LL;
-  memset(PoolWithTag, 0, v2 + 2);
-  return 0LL;
+  return PoolWithTag == 0LL ? 0xC000009A : 0;
 }

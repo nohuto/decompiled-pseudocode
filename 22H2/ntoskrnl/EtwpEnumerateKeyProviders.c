@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpEnumerateKeyProviders @ 0x14080B5F4
+ * XREFs of EtwpEnumerateKeyProviders @ 0x140797DFC
  * Callers:
- *     EtwpEnableKeyProviders @ 0x14083E864 (EtwpEnableKeyProviders.c)
+ *     EtwpEnableKeyProviders @ 0x140796F8C (EtwpEnableKeyProviders.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInsertElementGenericTableAvl @ 0x14031EA50 (RtlInsertElementGenericTableAvl.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     RtlNtStatusToDosError @ 0x1407AA930 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1407D4860 (RtlWriteRegistryValue.c)
- *     EtwpEnableAutoLoggerProvider @ 0x14080B754 (EtwpEnableAutoLoggerProvider.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14032DC80 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     RtlNtStatusToDosError @ 0x14066C040 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1406978F0 (RtlWriteRegistryValue.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140797F58 (EtwpEnableAutoLoggerProvider.c)
  */
 
 int __fastcall EtwpEnumerateKeyProviders(
@@ -24,10 +24,11 @@ int __fastcall EtwpEnumerateKeyProviders(
         int a8)
 {
   int result; // eax
-  ULONG v12; // ebx
-  int v13; // r12d
-  int v14; // eax
-  unsigned __int64 v15; // rcx
+  ULONG v11; // edi
+  int v12; // r13d
+  int v13; // ebx
+  unsigned __int64 v14; // rax
+  RTL_AVL_TABLE *v15; // rcx
   const WCHAR *v16; // rdx
   __int64 ValueData; // [rsp+30h] [rbp-50h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-48h] BYREF
@@ -37,8 +38,8 @@ int __fastcall EtwpEnumerateKeyProviders(
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ValueData = 0LL;
   KeyHandle = 0LL;
-  NewElement = 0;
   DestinationString = 0LL;
+  NewElement = 0;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   RtlInitUnicodeString(&DestinationString, a3);
   ObjectAttributes.RootDirectory = 0LL;
@@ -47,33 +48,37 @@ int __fastcall EtwpEnumerateKeyProviders(
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    v12 = 0;
-    v13 = a8;
-    while ( 1 )
+    v11 = 0;
+    v12 = a8;
+    do
     {
-      v14 = ZwEnumerateKey(KeyHandle, v12, KeyBasicInformation, KeyInformation, 0x11Eu, (PULONG)&ValueData + 1);
-      v15 = KeyInformation[3];
-      if ( v15 >= 0x108 )
+      v13 = ZwEnumerateKey(KeyHandle, v11, KeyBasicInformation, KeyInformation, 0x11Eu, (PULONG)&ValueData + 1);
+      v14 = KeyInformation[3];
+      if ( v14 >= 0x108 )
+        v13 = -2147483643;
+      if ( v13 < 0 )
       {
-        v14 = -2147483643;
-        goto LABEL_12;
+        if ( v13 != -2147483622 )
+        {
+          LODWORD(ValueData) = RtlNtStatusToDosError(v13);
+          if ( a4 )
+            v16 = a4;
+          else
+            v16 = a3;
+          RtlWriteRegistryValue(0, v16, L"EnableStatus", 4u, &ValueData, 4u);
+        }
       }
-      if ( v14 < 0 )
-        break;
-      *((_WORD *)KeyInformation + (v15 >> 1) + 8) = 0;
-      RtlInsertElementGenericTableAvl(Table, KeyInformation + 4, KeyInformation[3] + 2, &NewElement);
-      if ( NewElement )
-        EtwpEnableAutoLoggerProvider(a1, a2, KeyInformation + 4, a3, a4, v13, ValueData);
-      ++v12;
+      else
+      {
+        v15 = Table;
+        *((_WORD *)KeyInformation + (v14 >> 1) + 8) = 0;
+        RtlInsertElementGenericTableAvl(v15, KeyInformation + 4, KeyInformation[3] + 2, &NewElement);
+        if ( NewElement )
+          EtwpEnableAutoLoggerProvider(a1, a2, KeyInformation + 4, a3, a4, v12, ValueData);
+      }
+      ++v11;
     }
-    if ( v14 == -2147483622 )
-      return ZwClose(KeyHandle);
-LABEL_12:
-    LODWORD(ValueData) = RtlNtStatusToDosError(v14);
-    v16 = a4;
-    if ( !a4 )
-      v16 = a3;
-    RtlWriteRegistryValue(0, v16, L"EnableStatus", 4u, &ValueData, 4u);
+    while ( v13 >= 0 );
     return ZwClose(KeyHandle);
   }
   return result;

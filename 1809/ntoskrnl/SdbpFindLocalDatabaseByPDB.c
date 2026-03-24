@@ -1,7 +1,7 @@
 /*
- * XREFs of SdbpFindLocalDatabaseByPDB @ 0x14075D70C
+ * XREFs of SdbpFindLocalDatabaseByPDB @ 0x14075D6EC
  * Callers:
- *     SdbTagIDToTagRef @ 0x14075D6B4 (SdbTagIDToTagRef.c)
+ *     SdbTagIDToTagRef @ 0x14075D694 (SdbTagIDToTagRef.c)
  * Callees:
  *     <none>
  */

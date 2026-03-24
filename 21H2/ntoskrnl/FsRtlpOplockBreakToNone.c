@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlpOplockBreakToNone @ 0x140256F58
+ * XREFs of FsRtlpOplockBreakToNone @ 0x14036D3C8
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
- *     FsRtlOplockBreakToNoneEx @ 0x140542200 (FsRtlOplockBreakToNoneEx.c)
- *     FsRtlCheckUpperOplock @ 0x14092E2F0 (FsRtlCheckUpperOplock.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x1404F02B0 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlCheckUpperOplock @ 0x14088B8B0 (FsRtlCheckUpperOplock.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x140240DB4 (FsRtlpClearOwner.c)
- *     FsRtlpWaitOnIrp @ 0x140249470 (FsRtlpWaitOnIrp.c)
- *     FsRtlpModifyThreadPriorities @ 0x14024A390 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x14024C370 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpOplockKeysEqual @ 0x1402A6AB0 (FsRtlpOplockKeysEqual.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x140542AEC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x1402C7DD4 (FsRtlpOplockSendModernAppTermination.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlpOplockKeysEqual @ 0x140355AE0 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0B4C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x1404F0CF0 (FsRtlpWaitOnIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakToNone(
@@ -26,19 +26,19 @@ __int64 __fastcall FsRtlpOplockBreakToNone(
         int a5,
         __int64 a6,
         __int64 a7,
-        void (__fastcall *a8)(__int64, __int64),
+        __int64 a8,
         __int64 a9,
         __int64 a10,
-        void (__fastcall *a11)(__int128 *),
+        __int64 a11,
         _BYTE *a12,
-        _BYTE *a13)
+        __int64 a13)
 {
   __int64 v14; // r12
   unsigned int v17; // ebx
   int v18; // ecx
   __int64 v19; // r14
   __int64 v20; // rax
-  _QWORD *v21; // rcx
+  void *v21; // rcx
   unsigned int v22; // ecx
   _QWORD *i; // rsi
   int v24; // ecx
@@ -85,8 +85,8 @@ __int64 __fastcall FsRtlpOplockBreakToNone(
       *(_DWORD *)(a1 + 144) = *(_DWORD *)(a1 + 144) & 0x20 | 1;
       while ( 1 )
       {
-        v21 = *(_QWORD **)(a1 + 88);
-        if ( v21 == (_QWORD *)(a1 + 88) )
+        v21 = *(void **)(a1 + 88);
+        if ( v21 == (void *)(a1 + 88) )
           break;
         FsRtlpRemoveAndCompleteWaitingIrp(v21);
       }
@@ -113,7 +113,7 @@ __int64 __fastcall FsRtlpOplockBreakToNone(
     if ( (v18 & 0x80u) == 0 )
     {
 LABEL_14:
-      if ( (a4 & 8) == 0 && (unsigned __int8)FsRtlpOplockKeysEqual(*(_QWORD *)(a2 + 48), *(_QWORD *)(a1 + 8), 0LL) )
+      if ( (a4 & 8) == 0 && FsRtlpOplockKeysEqual(*(_QWORD *)(a2 + 48), *(_QWORD *)(a1 + 8), 0) )
         return v17;
       if ( (a4 & 1) != 0 )
         return 264;
@@ -123,7 +123,7 @@ LABEL_14:
         FsRtlpModifyThreadPriorities(a1, 0LL, a3);
         FsRtlpOplockSendModernAppTermination(a1, 0LL);
         *a12 = 0;
-        return (unsigned int)FsRtlpWaitOnIrp(a1, v14, a6, a7, a8, (char *)&v27, 0, a9, a10, a11, a13);
+        return (unsigned int)FsRtlpWaitOnIrp(a1, v14, a6, a7, a8, &v27, 0, a9, a10, a11, a13);
       }
       return (unsigned int)-1073739511;
     }

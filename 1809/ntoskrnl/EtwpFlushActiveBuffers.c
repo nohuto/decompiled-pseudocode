@@ -8,12 +8,12 @@
  *     EtwpEnqueueAvailableBuffer @ 0x1400153E0 (EtwpEnqueueAvailableBuffer.c)
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
  *     EtwpPrepareDirtyBuffer @ 0x140015598 (EtwpPrepareDirtyBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     EtwpWaitForBufferReferenceCount @ 0x1405C1CE0 (EtwpWaitForBufferReferenceCount.c)
  *     EtwpFlushBuffer @ 0x1405C1D14 (EtwpFlushBuffer.c)
  *     EtwpAdjustFreeBuffers @ 0x1405C1E48 (EtwpAdjustFreeBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x14065AE74 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x14065AE54 (EtwpRealtimeSendEmptyMarker.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)

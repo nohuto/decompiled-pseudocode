@@ -1,63 +1,69 @@
 /*
- * XREFs of ?ResetUndo@VIDMM_PROCESS_HEAP@@UEAAJPEAX@Z @ 0x1C01050B0
+ * XREFs of ?ResetUndo@VIDMM_PROCESS_HEAP@@UEAAJPEAX@Z @ 0x1C00CC390
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?GetAllocationInfo@VIDMM_PROCESS_HEAP@@AEAAJPEAU_VIDMM_PROCESS_HEAP_ALLOC@@PEA_KPEAPEAXPEAKPEAH@Z @ 0x1C0104760 (-GetAllocationInfo@VIDMM_PROCESS_HEAP@@AEAAJPEAU_VIDMM_PROCESS_HEAP_ALLOC@@PEA_KPEAPEAXPEAKPEAH@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetAllocationInfo@VIDMM_PROCESS_HEAP@@AEAAJPEAU_VIDMM_PROCESS_HEAP_ALLOC@@PEA_KPEAPEAXPEAKPEAH@Z @ 0x1C00CBA50 (-GetAllocationInfo@VIDMM_PROCESS_HEAP@@AEAAJPEAU_VIDMM_PROCESS_HEAP_ALLOC@@PEA_KPEAPEAXPEAKPEAH@.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_PROCESS_HEAP::ResetUndo(
         VIDMM_PROCESS_HEAP *this,
         struct _VIDMM_PROCESS_HEAP_ALLOC *a2,
-        __int64 a3,
-        __int64 a4)
+        __int64 a3)
 {
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  int AllocationInfo; // ebx
-  __int64 v9; // r8
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  int v11; // eax
-  unsigned int v13; // [rsp+70h] [rbp+28h] BYREF
-  int v14; // [rsp+78h] [rbp+30h] BYREF
-  unsigned __int64 v15; // [rsp+80h] [rbp+38h] BYREF
-  void *v16; // [rsp+88h] [rbp+40h] BYREF
+  __int64 *v3; // rax
+  __int64 v6; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  _QWORD *v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rbx
+  __int64 v12; // r8
+  NTSTATUS v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  ULONG Protect; // [rsp+60h] [rbp+28h] BYREF
+  int v18; // [rsp+68h] [rbp+30h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+38h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+40h] BYREF
 
-  v16 = 0LL;
-  v15 = 0LL;
-  v13 = 0;
-  v14 = 0;
-  if ( PsGetCurrentProcess(this, a2, a3, a4) != **((_QWORD **)this + 1) )
+  v3 = (__int64 *)*((_QWORD *)this + 1);
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
+  Protect = 0;
+  v6 = *v3;
+  v18 = 0;
+  if ( PsGetCurrentProcess(this, a2, a3) != v6 )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 30LL, 0LL, 0LL, 0LL);
+    v9 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v8, v7);
+    v9[5] = 0LL;
+    v9[6] = 0LL;
+    v9[7] = 0LL;
+    v9[3] = 270LL;
+    v9[4] = 30LL;
+    WdLogEvent5_WdCriticalError(v9);
   }
   if ( g_IsInternalReleaseOrDbg )
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v6) + 24) = a2;
-  AllocationInfo = VIDMM_PROCESS_HEAP::GetAllocationInfo(this, a2, &v15, &v16, &v13, &v14);
-  if ( AllocationInfo >= 0 )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v8) + 24) = a2;
+  LODWORD(v11) = VIDMM_PROCESS_HEAP::GetAllocationInfo(this, a2, &RegionSize, &BaseAddress, &Protect, &v18);
+  if ( (int)v11 >= 0 )
   {
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    v11 = (*(__int64 (__fastcall **)(__int64, void **, _QWORD, unsigned __int64 *, int, unsigned int))VirtualMemoryInterface)(
-            -1LL,
-            &v16,
-            0LL,
-            &v15,
-            0x1000000,
-            v13);
-    AllocationInfo = v11;
-    if ( v11 < 0 )
-      WdLogSingleEntry1(4LL, v11);
+    v13 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000000u, Protect);
+    v11 = v13;
+    if ( v13 < 0 )
+    {
+      v15 = WdLogNewEntry5_WdEvent(v10, v14);
+      *(_QWORD *)(v15 + 24) = v11;
+      WdLogEvent5_WdEvent(v15);
+    }
   }
-  if ( AllocationInfo == -1071775472 && bTracingEnabled && (byte_1C0076981 & 1) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v7, (__int64)&EventPerformanceWarning, v9, 18);
-  if ( v14 )
+  if ( (_DWORD)v11 == -1071775472 && bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v10, &EventPerformanceWarning, v12, 18);
+  if ( v18 )
     (*(void (__fastcall **)(VIDMM_PROCESS_HEAP *, struct _VIDMM_PROCESS_HEAP_ALLOC *))(*(_QWORD *)this + 64LL))(
       this,
       a2);
-  return (unsigned int)AllocationInfo;
+  return (unsigned int)v11;
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
  *     MiMarkProcessCfgBits @ 0x1405F47C4 (MiMarkProcessCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x1406513D4 (MiMarkPrivateImageCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1406513B4 (MiMarkPrivateImageCfgBits.c)
  * Callees:
  *     MiPopulateCfgBitMap @ 0x1405F6560 (MiPopulateCfgBitMap.c)
  */

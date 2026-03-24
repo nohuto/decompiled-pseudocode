@@ -1,16 +1,16 @@
 /*
- * XREFs of ?PowerDisableWakeAtBusOverload@FxPkgPdo@@EEAAXXZ @ 0x1C008DA80
+ * XREFs of ?PowerDisableWakeAtBusOverload@FxPkgPdo@@EEAAXXZ @ 0x1C008A6D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxPkgPdo::PowerDisableWakeAtBusOverload(FxPkgPdo *this)
 {
   FxObject *m_DeviceBase; // rcx
-  _LIST_ENTRY *Blink; // rax
+  __int64 v3; // rax
   unsigned __int64 ObjectHandleUnchecked; // rcx
   __int64 v5; // r8
   void (__fastcall *v6)(unsigned __int64); // rax
@@ -19,10 +19,10 @@ void __fastcall FxPkgPdo::PowerDisableWakeAtBusOverload(FxPkgPdo *this)
   {
     this->m_EnableWakeAtBusInvoked = 0;
     m_DeviceBase = this->m_DeviceBase;
-    Blink = m_DeviceBase[2].m_Globals[1].FxPoolFrameworks.NonPagedHead.Blink[55].Blink;
-    if ( Blink )
+    v3 = *((_QWORD *)m_DeviceBase[2].m_Globals[1].FxPoolFrameworks.PagedLock.m_Lock.Owner + 111);
+    if ( v3 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)&Blink[55].Blink);
+      _InterlockedDecrement((volatile signed __int32 *)(v3 + 872));
       m_DeviceBase = this->m_DeviceBase;
     }
     ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(m_DeviceBase);

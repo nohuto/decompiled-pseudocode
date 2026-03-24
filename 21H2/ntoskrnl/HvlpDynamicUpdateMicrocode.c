@@ -1,58 +1,58 @@
 /*
- * XREFs of HvlpDynamicUpdateMicrocode @ 0x140931378
+ * XREFs of HvlpDynamicUpdateMicrocode @ 0x14088E9AC
  * Callers:
- *     HvlUpdateMicrocodeDatabase @ 0x140931360 (HvlUpdateMicrocodeDatabase.c)
+ *     HvlUpdateMicrocodeDatabase @ 0x14088E910 (HvlUpdateMicrocodeDatabase.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14027C410 (MmBuildMdlForNonPagedPool.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     HvcallInitInputControl @ 0x1403731A0 (HvcallInitInputControl.c)
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x140459C2A (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHandleInsufficientMemory @ 0x1405438E8 (HvlpHandleInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
- *     HvlpLogMicrocodeUpdateStatus @ 0x140931064 (HvlpLogMicrocodeUpdateStatus.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     HvcallInitInputControl @ 0x140365D70 (HvcallInitInputControl.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F2068 (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FACD8 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14088E624 (HvlpLogMicrocodeUpdateStatus.c)
  */
 
-__int64 __fastcall HvlpDynamicUpdateMicrocode(void *a1, ULONG a2, char a3)
+__int64 __fastcall HvlpDynamicUpdateMicrocode(void *a1, ULONG a2)
 {
   struct _MDL *Mdl; // rax
-  struct _MDL *v7; // rdi
-  __int16 v9; // ax
-  __int64 v10; // rdx
-  __int16 v11; // cx
-  __int64 v12; // r8
-  int v13; // ebx
-  __int64 v14; // [rsp+30h] [rbp-58h] BYREF
-  void *v15; // [rsp+40h] [rbp-48h] BYREF
-  ULONG v16; // [rsp+48h] [rbp-40h]
-  BOOL v17; // [rsp+58h] [rbp-30h]
+  struct _MDL *v5; // rdi
+  __int16 v7; // ax
+  __int64 v8; // rdx
+  __int16 v9; // cx
+  __int64 v10; // r8
+  int v11; // ebx
+  __int64 v12; // [rsp+30h] [rbp-48h] BYREF
+  void *v13; // [rsp+40h] [rbp-38h] BYREF
+  ULONG v14; // [rsp+48h] [rbp-30h]
+  int v15; // [rsp+50h] [rbp-28h]
 
-  v14 = 0LL;
+  v12 = 0LL;
   Mdl = IoAllocateMdl(a1, a2, 0, 0, 0LL);
-  v7 = Mdl;
+  v5 = Mdl;
   if ( !Mdl )
     return 3221225626LL;
   MmBuildMdlForNonPagedPool(Mdl);
-  HvcallInitInputControl(7, &v14);
-  LODWORD(v14) = v14 | 0x10000;
-  v15 = a1;
-  v16 = a2;
-  v17 = a3 != 0;
+  HvcallInitInputControl(7, &v12);
+  LODWORD(v12) = v12 | 0x10000;
+  v15 = 0;
+  v13 = a1;
+  v14 = a2;
   while ( 1 )
   {
-    v9 = HvcallFastExtended(v14, (__int64)&v15, 0x20u, 0LL, 0);
-    if ( !HvlpHvStatusIsInsufficientMemory(v9) )
+    v7 = HvcallFastExtended(v12, (__int64)&v13, 0x18u, 0, 0);
+    if ( !HvlpHvStatusIsInsufficientMemory(v7) )
       break;
-    v13 = HvlpHandleInsufficientMemory(v11, v10, v12);
-    if ( v13 < 0 )
+    v11 = HvlpHandleInsufficientMemory(v9, v8, v10);
+    if ( v11 < 0 )
       goto LABEL_8;
   }
-  v13 = HvlpHvToNtStatus(v11);
+  v11 = HvlpHvToNtStatus(v9);
 LABEL_8:
-  IoFreeMdl(v7);
-  if ( v13 >= 0 )
+  IoFreeMdl(v5);
+  if ( v11 >= 0 )
     HvlpLogMicrocodeUpdateStatus();
-  return (unsigned int)v13;
+  return (unsigned int)v11;
 }

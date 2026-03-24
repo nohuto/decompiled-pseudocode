@@ -1,9 +1,9 @@
 /*
- * XREFs of VmSecureBackingMemory @ 0x1409D98E0
+ * XREFs of VmSecureBackingMemory @ 0x14092F190
  * Callers:
  *     <none>
  * Callees:
- *     MmSecureVirtualMemoryEx @ 0x1406A2440 (MmSecureVirtualMemoryEx.c)
+ *     MmSecureVirtualMemoryEx @ 0x14061FC20 (MmSecureVirtualMemoryEx.c)
  */
 
 __int64 __fastcall VmSecureBackingMemory(unsigned __int64 a1, __int64 a2)

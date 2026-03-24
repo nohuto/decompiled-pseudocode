@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpKeyEnumStackEntryAdvance @ 0x1407FF3A0
+ * XREFs of CmpKeyEnumStackEntryAdvance @ 0x1407FF380
  * Callers:
- *     CmpKeyEnumStackAdvanceInternal @ 0x1407FEF60 (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x1407FEF40 (CmpKeyEnumStackAdvanceInternal.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpDoFindSubKeyByNumber @ 0x1405D3470 (CmpDoFindSubKeyByNumber.c)
- *     CmpCompareKeysByName @ 0x1407F9704 (CmpCompareKeysByName.c)
+ *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryAdvance(__int64 *a1)

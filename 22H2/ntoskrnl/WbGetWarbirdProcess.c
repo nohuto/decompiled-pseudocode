@@ -1,93 +1,84 @@
 /*
- * XREFs of WbGetWarbirdProcess @ 0x140763B10
+ * XREFs of WbGetWarbirdProcess @ 0x1406C7E04
  * Callers:
- *     WbDispatchOperation @ 0x140763928 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x1406C7BE4 (WbDispatchOperation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     sub_140763D30 @ 0x140763D30 (sub_140763D30.c)
- *     sub_140763D68 @ 0x140763D68 (sub_140763D68.c)
- *     sub_140764214 @ 0x140764214 (sub_140764214.c)
- *     WbCreateWarbirdProcess @ 0x1407E7C1C (WbCreateWarbirdProcess.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140273540 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     sub_140667ED4 @ 0x140667ED4 (sub_140667ED4.c)
+ *     WbCreateWarbirdProcess @ 0x1406A559C (WbCreateWarbirdProcess.c)
+ *     sub_1406C7AB4 @ 0x1406C7AB4 (sub_1406C7AB4.c)
+ *     sub_1406C7DCC @ 0x1406C7DCC (sub_1406C7DCC.c)
  */
 
 __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
 {
-  _QWORD *v6; // rbx
+  _QWORD *v3; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v8; // rdi
+  __int64 v8; // rdi
   int v9; // edi
-  struct _KTHREAD *v10; // rax
-  bool v11; // zf
-  struct _KTHREAD *v13; // rax
-  __int64 v14; // rax
-  int v15; // r8d
-  signed __int8 v16; // cf
-  __int64 v17; // rdi
-  _QWORD *v18; // rsi
-  char v19; // bp
-  struct _KTHREAD *v20; // rax
-  _QWORD *v21; // [rsp+88h] [rbp+20h] BYREF
+  struct _KTHREAD *v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // r8
+  signed __int8 v14; // cf
+  __int64 v15; // rdi
+  _QWORD *v16; // r14
+  char v17; // si
+  _QWORD *v18; // [rsp+88h] [rbp+20h] BYREF
 
-  v6 = 0LL;
-  v21 = 0LL;
+  v3 = 0LL;
+  v18 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v8 = KeAbPreAcquire((__int64)&qword_140C70B28, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C70B28, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140C70B28, 0LL, v8, (__int64)&qword_140C70B28);
+  v8 = KeAbPreAcquire((ULONG_PTR)&qword_140C53DB8, 0LL, 0LL);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C53DB8, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(&qword_140C53DB8, v8, (ULONG_PTR)&qword_140C53DB8);
   if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
-  v9 = sub_140763D68(a1, &v21);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C70B28, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140C70B28);
-  KeAbPostRelease((ULONG_PTR)&qword_140C70B28);
-  v10 = KeGetCurrentThread();
-  v11 = v10->SpecialApcDisable++ == -1;
-  if ( v11 && ($C71981A45BEB2B45F82C232A7085991E *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
-    KiCheckForKernelApcDelivery();
+    *(_BYTE *)(v8 + 26) |= 1u;
+  v9 = sub_1406C7AB4(a1, &v18);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C53DB8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140C53DB8);
+  KeAbPostRelease((ULONG_PTR)&qword_140C53DB8);
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v9 == -1073741198 )
   {
     if ( !a2 )
-      goto LABEL_29;
-    v9 = WbCreateWarbirdProcess(a1, &v21);
+      goto LABEL_24;
+    v9 = WbCreateWarbirdProcess(a1, &v18);
     if ( v9 < 0 )
-      goto LABEL_29;
-    v13 = KeGetCurrentThread();
-    --v13->SpecialApcDisable;
-    v14 = KeAbPreAcquire((__int64)&qword_140C70B28, 0LL);
-    v16 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C70B28, 0LL);
-    v17 = v14;
-    if ( v16 )
-      ExfAcquirePushLockExclusiveEx(&qword_140C70B28, v14, (__int64)&qword_140C70B28);
-    if ( v17 )
-      *(_BYTE *)(v17 + 18) = 1;
-    v18 = v21;
-    v9 = sub_140764214((unsigned int)&dword_140C70B00, (_DWORD)v21, v15, *v21, 8, -1);
+      goto LABEL_24;
+    v11 = KeGetCurrentThread();
+    --v11->SpecialApcDisable;
+    v12 = KeAbPreAcquire((ULONG_PTR)&qword_140C53DB8, 0LL, 0LL);
+    v14 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C53DB8, 0LL);
+    v15 = v12;
+    if ( v14 )
+      ExfAcquirePushLockExclusiveEx(&qword_140C53DB8, v12, (ULONG_PTR)&qword_140C53DB8);
+    if ( v15 )
+      *(_BYTE *)(v15 + 26) |= 1u;
+    v16 = v18;
+    v9 = sub_140667ED4((__int64)&dword_140C53D90, (__int64)v18, v13, *v18, 8, -1);
     if ( v9 >= 0 )
-      _InterlockedAdd64(v18 + 29, 1uLL);
-    v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C70B28, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v19 & 2) != 0 && (v19 & 4) == 0 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C70B28);
-    KeAbPostRelease((ULONG_PTR)&qword_140C70B28);
-    v20 = KeGetCurrentThread();
-    v11 = v20->SpecialApcDisable++ == -1;
-    if ( v11 && ($C71981A45BEB2B45F82C232A7085991E *)v20->ApcState.ApcListHead[0].Flink != &v20->152 )
-      KiCheckForKernelApcDelivery();
+      _InterlockedIncrement64(v16 + 29);
+    v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C53DB8, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v17 & 2) != 0 && (v17 & 4) == 0 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C53DB8);
+    KeAbPostRelease((ULONG_PTR)&qword_140C53DB8);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }
   if ( v9 < 0 || !a3 )
   {
-LABEL_29:
-    v6 = v21;
-    goto LABEL_14;
+LABEL_24:
+    v3 = v18;
+    goto LABEL_11;
   }
-  *a3 = v21;
-LABEL_14:
-  sub_140763D30(v6);
+  *a3 = v18;
+LABEL_11:
+  sub_1406C7DCC((__int64)v3);
   return (unsigned int)v9;
 }

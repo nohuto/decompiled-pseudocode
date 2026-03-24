@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetSize@CVirtualMonitorCaptureRenderTarget@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800F9FE4
+ * XREFs of ?GetSize@CVirtualMonitorCaptureRenderTarget@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800E2174
  * Callers:
- *     ?GetSize@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x180106030 (-GetSize@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F50E0 (-GetSize@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
  * Callees:
  *     <none>
  */

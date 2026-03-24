@@ -1,12 +1,12 @@
 /*
- * XREFs of PpProfileQueryHardwareProfileChange @ 0x140963ED4
+ * XREFs of PpProfileQueryHardwareProfileChange @ 0x1408AB78C
  * Callers:
- *     PipProcessStartPhase1 @ 0x140791278 (PipProcessStartPhase1.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase1 @ 0x14073A30C (PipProcessStartPhase1.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140956AC8 (PnpRequestHwProfileChangeNotification.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14089FDE8 (PnpRequestHwProfileChangeNotification.c)
  */
 
 __int64 __fastcall PpProfileQueryHardwareProfileChange(char a1, int a2, _DWORD *a3, UNICODE_STRING *a4)
@@ -26,7 +26,7 @@ __int64 __fastcall PpProfileQueryHardwareProfileChange(char a1, int a2, _DWORD *
     if ( v10 )
       v9 = 1;
   }
-  ExReleaseFastMutex(&PiProfileDeviceListLock);
+  KeReleaseGuardedMutex(&PiProfileDeviceListLock);
   if ( a1 )
     return 0LL;
   if ( v9 )

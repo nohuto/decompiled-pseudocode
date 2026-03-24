@@ -1,15 +1,15 @@
 /*
- * XREFs of MiOrderTrimList @ 0x1402B3250
+ * XREFs of MiOrderTrimList @ 0x1402B3350
  * Callers:
  *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
  * Callees:
  *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     MiComputeAgeDistribution @ 0x140114418 (MiComputeAgeDistribution.c)
- *     MiUpdateClaimDistribution @ 0x140114580 (MiUpdateClaimDistribution.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiWorkingSetVeryLarge @ 0x1402A7E0C (MiWorkingSetVeryLarge.c)
+ *     MiComputeAgeDistribution @ 0x140114438 (MiComputeAgeDistribution.c)
+ *     MiUpdateClaimDistribution @ 0x1401145A0 (MiUpdateClaimDistribution.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiWorkingSetVeryLarge @ 0x1402A7F0C (MiWorkingSetVeryLarge.c)
  */
 
 __int64 __fastcall MiOrderTrimList(__int64 a1, unsigned int a2)

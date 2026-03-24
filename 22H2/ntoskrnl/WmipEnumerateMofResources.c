@@ -1,32 +1,32 @@
 /*
- * XREFs of WmipEnumerateMofResources @ 0x1407D6DB0
+ * XREFs of WmipEnumerateMofResources @ 0x14068B7E0
  * Callers:
- *     WmipIoControl @ 0x1407D66F0 (WmipIoControl.c)
+ *     WmipIoControl @ 0x14068B1D0 (WmipIoControl.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
  */
 
 __int64 __fastcall WmipEnumerateMofResources(unsigned int *a1, unsigned int a2, _DWORD *a3)
 {
-  unsigned __int64 v4; // rbx
+  unsigned __int64 v4; // rdi
   unsigned int v6; // r9d
-  __int64 v7; // r11
+  __int64 v7; // rbx
   _QWORD *v8; // rdx
   __int64 v9; // rax
   __int64 v10; // r10
   __int64 v11; // rcx
   _QWORD *v12; // r8
   unsigned __int64 v13; // rbp
-  __int64 v14; // rsi
-  unsigned __int64 v15; // r11
+  __int64 v14; // r14
+  unsigned __int64 v15; // rbx
   unsigned int v16; // r12d
-  _QWORD *v17; // rbx
+  _QWORD *v17; // rdi
   __int64 v18; // rax
   __int64 v19; // r15
   __int64 v20; // rax
-  __int64 v21; // rsi
+  __int64 v21; // r14
   __int64 v22; // rax
 
   v4 = a2;

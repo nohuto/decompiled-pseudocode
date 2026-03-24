@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenSection @ 0x14069C020
+ * XREFs of NtOpenSection @ 0x14069C000
  * Callers:
  *     <none>
  * Callees:

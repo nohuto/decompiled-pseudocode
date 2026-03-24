@@ -1,26 +1,25 @@
 /*
- * XREFs of HalSendSoftwareInterrupt @ 0x140342650
+ * XREFs of HalSendSoftwareInterrupt @ 0x140293E10
  * Callers:
- *     KiSendSoftwareInterrupt @ 0x14022BA48 (KiSendSoftwareInterrupt.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140340300 (KiFlushSoftwareInterruptBatch.c)
- *     KiProcessThreadWaitList @ 0x140340390 (KiProcessThreadWaitList.c)
+ *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x1402ADD00 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x140220210 (HalpInterruptSendIpi.c)
  */
 
 __int64 __fastcall HalSendSoftwareInterrupt(int a1, char a2)
 {
+  bool v2; // zf
   unsigned int v3; // edx
-  __int64 v5; // [rsp+20h] [rbp-28h] BYREF
-  int v6; // [rsp+28h] [rbp-20h]
-  __int64 v7; // [rsp+2Ch] [rbp-1Ch]
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-18h]
 
-  v7 = 0LL;
+  v6 = 0LL;
+  v2 = a2 == 1;
   v3 = 31;
-  v6 = a1;
-  v5 = 6LL;
-  if ( a2 != 1 )
+  v5 = 0LL;
+  DWORD2(v5) = a1;
+  LODWORD(v5) = 6;
+  if ( !v2 )
     v3 = 47;
-  return HalpInterruptSendIpi((int *)&v5, v3);
+  return HalpInterruptSendIpi(&v5, v3);
 }

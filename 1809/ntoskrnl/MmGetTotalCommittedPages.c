@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetTotalCommittedPages @ 0x1400F0CD8
+ * XREFs of MmGetTotalCommittedPages @ 0x1400F0CF8
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */

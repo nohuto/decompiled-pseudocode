@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRealtimeRestoreState @ 0x140853118
+ * XREFs of EtwpRealtimeRestoreState @ 0x1407C891C
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140773258 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14065F4C4 (EtwpRealtimeCreateLogfile.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140228144 (EtwpQueryUsedProcessorCount.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041A760 (ZwReadFile.c)
- *     ZwWriteFile @ 0x14041A7A0 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x1409E3B30 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14032EE60 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403F9AE0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1403F9B20 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x140939C6C (EtwpEventWriteTemplateBackingFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
@@ -38,7 +38,7 @@ NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
   IoStatusBlock = 0LL;
   memset(Buffer, 0, 0x48uLL);
   result = ZwQueryInformationFile(
-             *(HANDLE *)(a1 + 360),
+             *(HANDLE *)(a1 + 376),
              &IoStatusBlock,
              &FileInformation,
              0x18u,
@@ -49,7 +49,7 @@ NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
       return 0;
     if ( *((__int64 *)&FileInformation + 1) < 72 )
       return -1073741566;
-    v3 = *(void **)(a1 + 360);
+    v3 = *(void **)(a1 + 376);
     ByteOffset.QuadPart = 0LL;
     result = ZwReadFile(v3, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, &ByteOffset, 0LL);
     if ( result < 0 )
@@ -76,33 +76,33 @@ NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
       return -1073741566;
     if ( *((_QWORD *)&Buffer[3] + 1) < 0x48uLL )
       return -1073741566;
-    v5 = *(_QWORD *)(a1 + 416);
+    v5 = *(_QWORD *)(a1 + 432);
     if ( *((__int64 *)&Buffer[3] + 1) > v5
       || *(_QWORD *)&Buffer[4] > (unsigned __int64)v5
       || *((__int64 *)&FileInformation + 1) < *((__int64 *)&Buffer[3] + 1) )
     {
       return -1073741566;
     }
-    v6 = *(void **)(a1 + 360);
+    v6 = *(void **)(a1 + 376);
     LODWORD(Buffer[0]) = 0;
     result = ZwWriteFile(v6, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, &ByteOffset, 0LL);
     if ( result >= 0 )
     {
       v7 = *(_QWORD *)&Buffer[4];
-      v8 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 236));
+      v8 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 252));
       v9 = Buffer[1];
-      *(_DWORD *)(a1 + 424) = Buffer[2];
-      *(_QWORD *)(a1 + 392) = *((_QWORD *)&Buffer[2] + 1);
-      *(_QWORD *)(a1 + 384) = *(_QWORD *)&Buffer[3];
-      *(_QWORD *)(a1 + 400) = *((_QWORD *)&Buffer[3] + 1);
-      v10 = *(_QWORD *)(a1 + 416) - v7;
-      *(_QWORD *)(a1 + 408) = v7;
-      *(_OWORD *)(a1 + 432) = v9;
+      *(_DWORD *)(a1 + 440) = Buffer[2];
+      *(_QWORD *)(a1 + 408) = *((_QWORD *)&Buffer[2] + 1);
+      *(_QWORD *)(a1 + 400) = *(_QWORD *)&Buffer[3];
+      *(_QWORD *)(a1 + 416) = *((_QWORD *)&Buffer[3] + 1);
+      v10 = *(_QWORD *)(a1 + 432) - v7;
+      *(_QWORD *)(a1 + 424) = v7;
+      *(_OWORD *)(a1 + 448) = v9;
       if ( v10 <= v8 && *(int *)(a1 + 16) >= 0 )
       {
         _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
         if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
-          EtwpEventWriteTemplateBackingFile(v12, v11, v13, a1 + 136);
+          EtwpEventWriteTemplateBackingFile(v12, v11, v13, a1 + 152);
       }
       return 0;
     }

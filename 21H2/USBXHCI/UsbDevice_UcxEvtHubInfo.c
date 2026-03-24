@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbDevice_UcxEvtHubInfo @ 0x1C0018220
+ * XREFs of UsbDevice_UcxEvtHubInfo @ 0x1C0018BC0
  * Callers:
  *     <none>
  * Callees:
- *     Etw_DeviceUpdate @ 0x1C001850C (Etw_DeviceUpdate.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Etw_DeviceUpdate @ 0x1C0018E54 (Etw_DeviceUpdate.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbDevice_UcxEvtHubInfo(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall UsbDevice_UcxEvtHubInfo(__int64 a1, __int64 a2)
   v4 = (_DWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    *(_QWORD *)(*((_QWORD *)&v7[0] + 1) + 16LL),
-                   off_1C00612C0);
+                   off_1C00602C0);
   v4[35] = v3[6];
   v4[36] = v3[7];
   v5 = (unsigned int)v3[8];

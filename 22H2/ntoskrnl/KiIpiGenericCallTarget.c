@@ -1,12 +1,11 @@
 /*
- * XREFs of KiIpiGenericCallTarget @ 0x1403A5B10
+ * XREFs of KiIpiGenericCallTarget @ 0x1403A49A0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiIpiGenericCallTarget(
@@ -17,12 +16,10 @@ __int64 __fastcall KiIpiGenericCallTarget(
 {
   LARGE_INTEGER v7; // rax
   ULONG_PTR v8; // r9
-  signed __int32 v10[8]; // [rsp+0h] [rbp-48h] BYREF
-  LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp-18h] BYREF
-  int v12; // [rsp+68h] [rbp+20h] BYREF
+  signed __int32 v10[8]; // [rsp+0h] [rbp-38h] BYREF
+  LARGE_INTEGER PerformanceFrequency; // [rsp+58h] [rbp+20h] BYREF
 
   PerformanceFrequency.QuadPart = 0LL;
-  v12 = 0;
   _InterlockedDecrement(a4);
   while ( *a4 )
   {
@@ -38,7 +35,7 @@ __int64 __fastcall KiIpiGenericCallTarget(
           KeBugCheckEx(0x1DBu, PerformanceFrequency.QuadPart, v7.QuadPart, v8, 0LL);
       }
     }
-    KeYieldProcessorEx(&v12);
+    _mm_pause();
   }
   return a2(a3);
 }

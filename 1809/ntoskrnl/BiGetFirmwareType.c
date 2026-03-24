@@ -1,13 +1,13 @@
 /*
- * XREFs of BiGetFirmwareType @ 0x140713D2C
+ * XREFs of BiGetFirmwareType @ 0x140713D0C
  * Callers:
- *     BiExportStoreAlterationsToFirmware @ 0x1406E1964 (BiExportStoreAlterationsToFirmware.c)
- *     BcdGetSystemStorePath @ 0x140711AC4 (BcdGetSystemStorePath.c)
- *     BiOpenSystemStore @ 0x140712C24 (BiOpenSystemStore.c)
- *     BiIsLinkedToFirmwareVariable @ 0x140713CF8 (BiIsLinkedToFirmwareVariable.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x1406E1944 (BiExportStoreAlterationsToFirmware.c)
+ *     BcdGetSystemStorePath @ 0x140711AA4 (BcdGetSystemStorePath.c)
+ *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x140713CD8 (BiIsLinkedToFirmwareVariable.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
  */
 
 __int64 BiGetFirmwareType()

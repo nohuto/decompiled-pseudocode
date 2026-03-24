@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkpCreateNotificationEvent @ 0x14084ED68
+ * XREFs of DbgkpCreateNotificationEvent @ 0x1407CA510
  * Callers:
- *     DbgkpInitializePhase1SiloState @ 0x14084ED2C (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x1407CA4D4 (DbgkpInitializePhase1SiloState.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1402E0B30 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)

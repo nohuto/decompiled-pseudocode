@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ChangeVideoMemoryReservation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z @ 0x1C00E0B88
+ * XREFs of ?ChangeVideoMemoryReservation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z @ 0x1C00ACD58
  * Callers:
- *     VidMmChangeVideoMemoryReservation @ 0x1C002D030 (VidMmChangeVideoMemoryReservation.c)
+ *     VidMmChangeVideoMemoryReservation @ 0x1C0022C60 (VidMmChangeVideoMemoryReservation.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00017A4 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?ChangeVideoMemoryReservation@VIDMM_PROCESS@@QEAAJKKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z @ 0x1C00EEB38 (-ChangeVideoMemoryReservation@VIDMM_PROCESS@@QEAAJKKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00010B8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?ChangeVideoMemoryReservation@VIDMM_PROCESS@@QEAAJKKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z @ 0x1C00B89D8 (-ChangeVideoMemoryReservation@VIDMM_PROCESS@@QEAAJKKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@_K@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::ChangeVideoMemoryReservation(
@@ -16,25 +16,30 @@ __int64 __fastcall VIDMM_GLOBAL::ChangeVideoMemoryReservation(
         enum _D3DKMT_MEMORY_SEGMENT_GROUP a4,
         unsigned __int64 a5)
 {
-  struct _KTHREAD *v10; // rax
-  unsigned int v11; // ebx
-  _BYTE v12[8]; // [rsp+30h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v13; // [rsp+38h] [rbp-20h]
-  int v14; // [rsp+40h] [rbp-18h]
+  __int64 v6; // rbx
+  __int64 v9; // rax
+  struct _KTHREAD *v11; // rax
+  unsigned int v12; // ebx
+  _BYTE v13[8]; // [rsp+30h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v14; // [rsp+38h] [rbp-20h]
+  int v15; // [rsp+40h] [rbp-18h]
 
-  if ( a3 < *((_DWORD *)this + 1754) )
+  v6 = a3;
+  if ( a3 < *((_DWORD *)this + 1750) )
   {
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, this + 5134, 0);
-    DXGPUSHLOCK::AcquireShared(v13);
-    v10 = this[3];
-    v14 = 1;
-    v11 = VIDMM_PROCESS::ChangeVideoMemoryReservation(a2, *((_DWORD *)v10 + 60), a3, a4, a5);
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v12);
-    return v11;
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, this + 5130, 0);
+    DXGPUSHLOCK::AcquireShared(v14);
+    v11 = this[3];
+    v15 = 1;
+    v12 = VIDMM_PROCESS::ChangeVideoMemoryReservation(a2, *((_DWORD *)v11 + 58), v6, a4, a5);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
+    return v12;
   }
   else
   {
-    WdLogSingleEntry1(3LL, a3);
+    v9 = WdLogNewEntry5_WdWarning(this, a2);
+    *(_QWORD *)(v9 + 24) = v6;
+    WdLogEvent5_WdWarning(v9);
     return 3221225485LL;
   }
 }

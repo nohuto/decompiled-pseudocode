@@ -1,24 +1,24 @@
 /*
- * XREFs of VslCreateSecureProcess @ 0x140931900
+ * XREFs of VslCreateSecureProcess @ 0x14088F0B0
  * Callers:
- *     KeInitializeProcess @ 0x14070A268 (KeInitializeProcess.c)
- *     VslCreateEnclave @ 0x1409317A0 (VslCreateEnclave.c)
+ *     KeInitializeProcess @ 0x1406D62BC (KeInitializeProcess.c)
+ *     VslCreateEnclave @ 0x14088EF50 (VslCreateEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslCreateSecureProcess(__int64 a1, __int64 a2, _QWORD *a3)
+NTSTATUS __fastcall VslCreateSecureProcess(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v7[14]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v7, 0, 0x68uLL);
   v7[1] = a1;
   v7[2] = a2;
   result = VslpEnterIumSecureMode(2u, 6, 0, (__int64)v7);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
     *a3 = v7[2];
   return result;
 }

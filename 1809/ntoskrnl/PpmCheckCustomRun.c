@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmCheckCustomRun @ 0x140141B54
+ * XREFs of PpmCheckCustomRun @ 0x140141B74
  * Callers:
- *     PoLatencySensitivityHint @ 0x14013F310 (PoLatencySensitivityHint.c)
- *     PpmPerfLatencySensitivityHintWorker @ 0x14013FBB0 (PpmPerfLatencySensitivityHintWorker.c)
- *     PopIntSteerSetMode @ 0x140189470 (PopIntSteerSetMode.c)
- *     PpmCheckApplyParkConstraints @ 0x14018A1D8 (PpmCheckApplyParkConstraints.c)
- *     PpmCheckApplyResetNotification @ 0x1402E2D70 (PpmCheckApplyResetNotification.c)
- *     PpmParkSetLpiCap @ 0x1402E7EF0 (PpmParkSetLpiCap.c)
- *     PpmPerfReApplyStates @ 0x1406DCFF0 (PpmPerfReApplyStates.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140719BAC (PpmPerfUpdateDomainPolicy.c)
- *     PpmCheckApplyPerfConstraints @ 0x140875738 (PpmCheckApplyPerfConstraints.c)
+ *     PoLatencySensitivityHint @ 0x14013F330 (PoLatencySensitivityHint.c)
+ *     PpmPerfLatencySensitivityHintWorker @ 0x14013FBD0 (PpmPerfLatencySensitivityHintWorker.c)
+ *     PopIntSteerSetMode @ 0x140189490 (PopIntSteerSetMode.c)
+ *     PpmCheckApplyParkConstraints @ 0x14018A1F8 (PpmCheckApplyParkConstraints.c)
+ *     PpmCheckApplyResetNotification @ 0x1402E2E70 (PpmCheckApplyResetNotification.c)
+ *     PpmParkSetLpiCap @ 0x1402E7FF0 (PpmParkSetLpiCap.c)
+ *     PpmPerfReApplyStates @ 0x1406DCFD0 (PpmPerfReApplyStates.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140719B8C (PpmPerfUpdateDomainPolicy.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140875718 (PpmCheckApplyPerfConstraints.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     PpmCheckStart @ 0x14008B8E0 (PpmCheckStart.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmCheckCustomRun(int a1)

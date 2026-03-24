@@ -1,31 +1,23 @@
 /*
- * XREFs of DrvChangeD3RequestsState @ 0x1C00C2B38
+ * XREFs of DrvChangeD3RequestsState @ 0x1C00C48C4
  * Callers:
- *     PowerOnMonitor @ 0x1C0133F80 (PowerOnMonitor.c)
+ *     PowerOnMonitor @ 0x1C0078C80 (PowerOnMonitor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DrvChangeD3RequestsState(__int64 a1)
+__int64 __fastcall DrvChangeD3RequestsState(char a1, __int64 a2)
 {
-  char v1; // di
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v4; // rdx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 i; // rbx
+  wchar_t *i; // rbx
 
-  v1 = a1;
   if ( !gProtocolType )
   {
-    v5 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-    for ( i = *(_QWORD *)(v5 + 1264); i; i = *(_QWORD *)(i + 128) )
+    for ( i = gpGraphicsDeviceList; i; i = (wchar_t *)*((_QWORD *)i + 16) )
     {
-      if ( (*(_DWORD *)(i + 160) & 0x800000) != 0 )
+      if ( (*((_DWORD *)i + 40) & 0x800000) != 0 )
       {
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v6, v5);
-        LOBYTE(v4) = v1;
-        (*(void (__fastcall **)(_QWORD, __int64))(DxgkWin32kInterface + 664))(*(_QWORD *)(i + 232), v4);
+        LOBYTE(a2) = a1;
+        ((void (__fastcall *)(_QWORD, __int64))qword_1C0250B48)(*((_QWORD *)i + 30), a2);
       }
     }
   }

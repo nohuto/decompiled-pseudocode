@@ -1,17 +1,16 @@
 /*
- * XREFs of ExDestroyHandle @ 0x14073FFAC
+ * XREFs of ExDestroyHandle @ 0x14061A1D8
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     RtlpFreeHandleForAtom @ 0x14069ED40 (RtlpFreeHandleForAtom.c)
- *     RtlpInsertStringAtom @ 0x140715060 (RtlpInsertStringAtom.c)
- *     ObCloseHandleTableEntry @ 0x1407402D4 (ObCloseHandleTableEntry.c)
- *     PspThreadDelete @ 0x1407478D0 (PspThreadDelete.c)
- *     PspProcessDelete @ 0x1407615C0 (PspProcessDelete.c)
- *     AlpcpFreeMessageFunction @ 0x1407C6720 (AlpcpFreeMessageFunction.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspProcessDelete @ 0x140613B20 (PspProcessDelete.c)
+ *     AlpcpFreeMessageFunction @ 0x140616B30 (AlpcpFreeMessageFunction.c)
+ *     PspThreadDelete @ 0x140619D80 (PspThreadDelete.c)
+ *     RtlpFreeHandleForAtom @ 0x14068631C (RtlpFreeHandleForAtom.c)
+ *     RtlpInsertStringAtom @ 0x14068FC0C (RtlpInsertStringAtom.c)
  * Callees:
- *     ExSweepSingleHandle @ 0x1402BEAE8 (ExSweepSingleHandle.c)
- *     ExpFreeHandleTableEntry @ 0x1407408A8 (ExpFreeHandleTableEntry.c)
- *     ExpUpdateDebugInfo @ 0x1409F9308 (ExpUpdateDebugInfo.c)
+ *     ExSweepSingleHandle @ 0x140253EF4 (ExSweepSingleHandle.c)
+ *     ExpFreeHandleTableEntry @ 0x14061A23C (ExpFreeHandleTableEntry.c)
+ *     ExpUpdateDebugInfo @ 0x14094CE54 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExDestroyHandle(__int64 a1, __int64 a2, _QWORD *a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of GreGetRedirectionEvent @ 0x1C0121698
+ * XREFs of GreGetRedirectionEvent @ 0x1C0135E78
  * Callers:
- *     NtUserSignalRedirectionStartComplete @ 0x1C0121620 (NtUserSignalRedirectionStartComplete.c)
- *     NtUserWaitForRedirectionStartComplete @ 0x1C0200940 (NtUserWaitForRedirectionStartComplete.c)
+ *     NtUserSignalRedirectionStartComplete @ 0x1C0135E00 (NtUserSignalRedirectionStartComplete.c)
+ *     NtUserWaitForRedirectionStartComplete @ 0x1C0204920 (NtUserWaitForRedirectionStartComplete.c)
  * Callees:
  *     <none>
  */

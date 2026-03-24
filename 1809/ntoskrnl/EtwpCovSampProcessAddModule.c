@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCovSampProcessAddModule @ 0x1408C6EDC
+ * XREFs of EtwpCovSampProcessAddModule @ 0x1408C6EBC
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1408C6AD0 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1408C6AB0 (EtwpCovSampImageNotify.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408C748C (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408C746C (EtwpCovSampProcessRemoveModule.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessAddModule(PVOID **a1, PVOID *a2, __int64 a3, __int64 a4)

@@ -1,112 +1,105 @@
 /*
- * XREFs of NtDCompositionGetBatchId @ 0x1C00828D0
+ * XREFs of NtDCompositionGetBatchId @ 0x1C0079E40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtDCompositionGetBatchId(int a1, unsigned int a2, _DWORD *a3, __int64 a4)
+__int64 __fastcall NtDCompositionGetBatchId(int a1, int a2, _DWORD *a3)
 {
-  __int64 v5; // r8
-  __int64 v6; // r14
-  _DWORD *v7; // rdx
-  __int64 v8; // r12
-  int v9; // esi
-  __int64 v10; // rbx
-  __int64 v11; // rdi
+  _DWORD *v5; // rdx
+  _DWORD *v6; // rdi
+  int v7; // esi
+  __int64 v8; // rbx
+  __int64 v9; // r15
   __int64 CurrentProcessWin32Process; // rax
-  struct _ERESOURCE *v13; // rbx
-  struct _RTL_GENERIC_TABLE *v14; // rcx
-  _QWORD *v15; // rax
-  struct _ERESOURCE *v16; // rdi
-  int v17; // r13d
-  _BYTE Buffer[12]; // [rsp+28h] [rbp-50h] BYREF
-  int v20; // [rsp+34h] [rbp-44h]
+  struct _ERESOURCE *v11; // rbx
+  struct _RTL_GENERIC_TABLE *v12; // rcx
+  _QWORD *v13; // rax
+  struct _ERESOURCE *v14; // rdi
+  int v15; // r12d
+  int Buffer; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v18; // [rsp+3Ch] [rbp-4Ch]
+  int v19; // [rsp+44h] [rbp-44h]
 
-  v5 = a2;
+  if ( !a3 )
+    return (unsigned int)-1073741811;
+  v5 = a3;
+  if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+    v5 = (_DWORD *)MmUserProbeAddress;
+  *v5 = *v5;
   v6 = 0LL;
-  *(_QWORD *)Buffer = 0LL;
-  if ( a3 )
+  v7 = 0;
+  v8 = 0LL;
+  v9 = 0LL;
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(MmUserProbeAddress);
+  if ( CurrentProcessWin32Process )
+    v9 = *(_QWORD *)(CurrentProcessWin32Process + 256);
+  if ( v9 )
   {
-    v7 = a3;
-    if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-      v7 = (_DWORD *)MmUserProbeAddress;
-    *v7 = *v7;
+    v11 = *(struct _ERESOURCE **)(v9 + 8);
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite(v11, 1u);
+    v12 = *(struct _RTL_GENERIC_TABLE **)v9;
     v8 = 0LL;
-    v9 = 0;
-    v10 = 0LL;
-    v11 = 0LL;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(MmUserProbeAddress, v7, v5, a4);
-    if ( CurrentProcessWin32Process )
-      v11 = *(_QWORD *)(CurrentProcessWin32Process + 256);
-    if ( v11 )
+    Buffer = a1;
+    v18 = 0LL;
+    v19 = 0;
+    v13 = RtlLookupElementGenericTable(v12, &Buffer);
+    if ( v13 )
+      v8 = v13[1];
+    if ( v8 )
     {
-      v13 = *(struct _ERESOURCE **)(v11 + 8);
-      KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v13, 1u);
-      v14 = *(struct _RTL_GENERIC_TABLE **)v11;
-      v10 = 0LL;
-      *(_DWORD *)Buffer = a1;
-      *(_QWORD *)&Buffer[4] = 0LL;
-      v20 = 0;
-      v15 = RtlLookupElementGenericTable(v14, Buffer);
-      if ( v15 )
-        v10 = v15[1];
-      if ( v10 )
-        _InterlockedIncrement((volatile signed __int32 *)(v10 + 8));
-      else
-        v9 = -1073741790;
-      ExReleaseResourceLite(*(PERESOURCE *)(v11 + 8));
-      KeLeaveCriticalRegion();
+      _InterlockedIncrement((volatile signed __int32 *)(v8 + 8));
+      v6 = 0LL;
     }
     else
     {
-      v9 = -1073741823;
+      v7 = -1073741790;
     }
-    if ( v10 )
-    {
-      v16 = *(struct _ERESOURCE **)(v10 + 32);
-      KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v16, 1u);
-      v8 = v10;
-    }
-    if ( v9 >= 0 )
-    {
-      if ( (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v8 + 8LL))(v8) == 1 )
-      {
-        v6 = v8;
-      }
-      else
-      {
-        v9 = -1073741811;
-        (**(void (__fastcall ***)(__int64))v8)(v8);
-      }
-    }
-    if ( v9 >= 0 )
-    {
-      if ( a2 == 2 )
-      {
-        v17 = *(_DWORD *)(v6 + 384);
-      }
-      else if ( a2 )
-      {
-        if ( a2 == 1 )
-          v17 = *(_DWORD *)(v6 + 380);
-        else
-          v17 = 0;
-      }
-      else
-      {
-        v17 = *(_DWORD *)(v6 + 376);
-      }
-      (**(void (__fastcall ***)(__int64))v6)(v6);
-      *a3 = v17;
-    }
+    ExReleaseResourceLite(*(PERESOURCE *)(v9 + 8));
+    KeLeaveCriticalRegion();
   }
   else
   {
-    return (unsigned int)-1073741811;
+    v7 = -1073741823;
   }
-  return (unsigned int)v9;
+  if ( v8 )
+  {
+    v14 = *(struct _ERESOURCE **)(v8 + 32);
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite(v14, 1u);
+    v6 = (_DWORD *)v8;
+  }
+  if ( v7 >= 0 )
+  {
+    if ( (*(unsigned int (__fastcall **)(_DWORD *))(*(_QWORD *)v6 + 8LL))(v6) == 1 )
+      goto LABEL_16;
+    v7 = -1073741811;
+    (**(void (__fastcall ***)(_DWORD *))v6)(v6);
+  }
+  v6 = 0LL;
+LABEL_16:
+  if ( v7 >= 0 )
+  {
+    if ( a2 == 2 )
+    {
+      v15 = v6[96];
+    }
+    else if ( a2 )
+    {
+      if ( a2 == 1 )
+        v15 = v6[95];
+      else
+        v15 = 0;
+    }
+    else
+    {
+      v15 = v6[94];
+    }
+    (**(void (__fastcall ***)(_DWORD *))v6)(v6);
+    *a3 = v15;
+  }
+  return (unsigned int)v7;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA0C4
+ * XREFs of SeAdtRegistryValueChangedAuditAlarm @ 0x14091D39C
  * Callers:
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepQueryNameString @ 0x1407F555C (SepQueryNameString.c)
- *     SeExamineSacl @ 0x1408A6730 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A6BEA (SeExamineGlobalSacl.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     AdtpBuildRegistryValueString @ 0x140A5AC58 (AdtpBuildRegistryValueString.c)
- *     AdtpBuildReplacementString @ 0x140A5BFEC (AdtpBuildReplacementString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608B90 (SeAuditingWithTokenForSubcategory.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SepQueryNameString @ 0x14070F83C (SepQueryNameString.c)
+ *     SeExamineSacl @ 0x140921470 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140924A68 (SeExamineGlobalSacl.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     AdtpBuildRegistryValueString @ 0x14096D620 (AdtpBuildRegistryValueString.c)
+ *     AdtpBuildReplacementString @ 0x14096E9C0 (AdtpBuildReplacementString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeAdtRegistryValueChangedAuditAlarm(
@@ -28,285 +28,280 @@ void __fastcall SeAdtRegistryValueChangedAuditAlarm(
         __int64 a2,
         __int64 a3,
         unsigned __int16 *a4,
-        char *a5,
+        __int64 a5,
         unsigned __int64 a6,
         unsigned int *a7,
         int a8)
 {
-  unsigned __int16 *v9; // rdi
+  unsigned __int16 *v10; // rdi
   PACCESS_TOKEN ClientToken; // r15
   PACCESS_TOKEN PrimaryToken; // r13
-  PACCESS_TOKEN v12; // rdx
-  void *v13; // r8
-  __int16 v14; // cx
-  __int64 v15; // rax
+  PACCESS_TOKEN v13; // rdx
+  __int16 v14; // ax
+  void *v15; // r8
   ACL *v16; // rdx
-  __int64 v17; // rax
-  ACL *v18; // rcx
-  __int16 v19; // ax
-  void *v20; // r8
-  ACL *v21; // rdx
-  __int64 v22; // rax
-  int AllocatedFullProcessImageName; // eax
-  unsigned int v24; // ebx
-  unsigned int v25; // eax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
+  ACL *v17; // rcx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  __int16 v20; // ax
+  void *v21; // r8
+  ACL *v22; // rdx
+  __int64 v23; // rax
+  int NameString; // eax
+  unsigned int v25; // ebx
+  unsigned int v26; // eax
+  __int64 v27; // rdx
   __int64 v28; // rcx
+  __int64 v29; // rcx
   _KPROCESS *CurrentThreadProcess; // rax
   struct _LIST_ENTRY *Flink; // rbx
-  _QWORD *v31; // rax
-  __int64 v32; // rax
-  _QWORD **v33; // rax
-  __int64 v34; // rcx
-  int v35; // eax
+  _QWORD *v32; // rax
+  __int64 v33; // rax
+  _QWORD **v34; // rax
+  __int64 v35; // rcx
+  int v36; // eax
   bool IsKernelHandle; // al
-  unsigned int v37; // r8d
-  int v38; // r9d
-  unsigned int v39; // r10d
-  __int64 v40; // rcx
-  unsigned __int64 v41; // rcx
-  int v42; // eax
-  BOOLEAN GenerateAudit; // [rsp+40h] [rbp-C0h] BYREF
-  BOOLEAN GenerateAlarm; // [rsp+41h] [rbp-BFh] BYREF
-  char v45; // [rsp+42h] [rbp-BEh] BYREF
-  char v46[5]; // [rsp+43h] [rbp-BDh] BYREF
-  PVOID P; // [rsp+48h] [rbp-B8h]
-  PVOID v48; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING v49; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING v50; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v51; // [rsp+78h] [rbp-88h] BYREF
-  UNICODE_STRING v52; // [rsp+88h] [rbp-78h] BYREF
-  UNICODE_STRING v53; // [rsp+98h] [rbp-68h] BYREF
-  unsigned __int16 *v54; // [rsp+A8h] [rbp-58h]
-  UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+C0h] [rbp-40h] BYREF
-  _QWORD Src[132]; // [rsp+E0h] [rbp-20h] BYREF
-  char v58; // [rsp+500h] [rbp+400h] BYREF
-  char v59; // [rsp+520h] [rbp+420h] BYREF
-  char v60; // [rsp+540h] [rbp+440h] BYREF
+  unsigned __int64 v38; // r8
+  unsigned int v39; // r9d
+  int v40; // r10d
+  unsigned int v41; // r11d
+  __int64 v42; // rcx
+  unsigned __int64 v43; // rcx
+  int v44; // eax
+  BOOLEAN GenerateAudit[8]; // [rsp+48h] [rbp-C0h] BYREF
+  PVOID v46; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned __int16 *v47; // [rsp+58h] [rbp-B0h] BYREF
+  UNICODE_STRING v48; // [rsp+60h] [rbp-A8h] BYREF
+  UNICODE_STRING v49; // [rsp+70h] [rbp-98h] BYREF
+  __int128 v50; // [rsp+80h] [rbp-88h] BYREF
+  UNICODE_STRING v51; // [rsp+90h] [rbp-78h] BYREF
+  PVOID P[2]; // [rsp+A0h] [rbp-68h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+C0h] [rbp-48h] BYREF
+  _QWORD Src[132]; // [rsp+E8h] [rbp-20h] BYREF
+  char v56; // [rsp+508h] [rbp+400h] BYREF
+  char v57; // [rsp+528h] [rbp+420h] BYREF
+  char v58; // [rsp+548h] [rbp+440h] BYREF
 
-  v54 = a4;
   memset(Src, 0, 0x418uLL);
+  v47 = 0LL;
+  GenerateAudit[2] = 0;
+  v10 = 0LL;
+  GenerateAudit[3] = 0;
+  v51 = 0LL;
+  v46 = 0LL;
+  *(_OWORD *)P = 0LL;
+  GenerateAudit[1] = 0;
   v48 = 0LL;
-  v45 = 0;
-  v9 = 0LL;
-  v46[0] = 0;
-  v52 = 0LL;
-  P = 0LL;
-  v53 = 0LL;
-  GenerateAlarm = 0;
   v49 = 0LL;
   v50 = 0LL;
-  v51 = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   DestinationString = 0LL;
   SeCaptureSubjectContext(&SubjectContext);
   ClientToken = SubjectContext.ClientToken;
   PrimaryToken = SubjectContext.PrimaryToken;
-  v12 = SubjectContext.PrimaryToken;
+  v13 = SubjectContext.PrimaryToken;
   if ( SubjectContext.ClientToken )
-    v12 = SubjectContext.ClientToken;
-  GenerateAudit = SeAuditingWithTokenForSubcategory(118, (__int64)v12);
-  if ( GenerateAudit )
+    v13 = SubjectContext.ClientToken;
+  GenerateAudit[0] = SeAuditingWithTokenForSubcategory(118, (__int64)v13);
+  if ( GenerateAudit[0] )
   {
-    v13 = PrimaryToken;
+    v14 = *(_WORD *)(a2 + 2);
+    v15 = PrimaryToken;
     if ( ClientToken )
-      v13 = ClientToken;
-    v14 = *(_WORD *)(a2 + 2) & 0x8000;
-    if ( (*(_WORD *)(a2 + 2) & 0x10) != 0 )
-    {
-      if ( v14 )
-      {
-        v15 = *(unsigned int *)(a2 + 12);
-        if ( (_DWORD)v15 )
-          v16 = (ACL *)(a2 + v15);
-        else
-          v16 = 0LL;
-      }
-      else
-      {
-        v16 = *(ACL **)(a2 + 24);
-      }
-      if ( !v14 )
-      {
-        v18 = *(ACL **)(a2 + 24);
-        goto LABEL_18;
-      }
-      v17 = *(unsigned int *)(a2 + 12);
-      if ( (_DWORD)v17 )
-      {
-        v18 = (ACL *)(a2 + v17);
-        goto LABEL_18;
-      }
-    }
-    else
+      v15 = ClientToken;
+    if ( (v14 & 0x10) == 0 )
     {
       v16 = 0LL;
+LABEL_8:
+      v17 = 0LL;
+      goto LABEL_18;
     }
-    v18 = 0LL;
-LABEL_18:
-    SeExamineSacl(v18, v16, v13, 2u, 1u, &GenerateAudit, &GenerateAlarm);
-    RtlInitUnicodeString(&DestinationString, L"Key");
-    v19 = *(_WORD *)(a2 + 2);
-    v20 = PrimaryToken;
-    if ( ClientToken )
-      v20 = ClientToken;
-    if ( (v19 & 0x10) == 0 )
-      goto LABEL_21;
-    if ( v19 >= 0 )
+    if ( v14 >= 0 )
     {
-      v21 = *(ACL **)(a2 + 24);
+      v16 = *(ACL **)(a2 + 24);
     }
     else
     {
-      v22 = *(unsigned int *)(a2 + 12);
-      if ( !(_DWORD)v22 )
+      v18 = *(unsigned int *)(a2 + 12);
+      if ( (_DWORD)v18 )
+        v16 = (ACL *)(a2 + v18);
+      else
+        v16 = 0LL;
+    }
+    if ( v14 >= 0 )
+    {
+      v17 = *(ACL **)(a2 + 24);
+    }
+    else
+    {
+      v19 = *(unsigned int *)(a2 + 12);
+      if ( !(_DWORD)v19 )
+        goto LABEL_8;
+      v17 = (ACL *)(a2 + v19);
+    }
+LABEL_18:
+    SeExamineSacl(v17, v16, v15, 2u, 1u, GenerateAudit, &GenerateAudit[1]);
+    RtlInitUnicodeString(&DestinationString, L"Key");
+    v20 = *(_WORD *)(a2 + 2);
+    v21 = PrimaryToken;
+    if ( ClientToken )
+      v21 = ClientToken;
+    if ( (v20 & 0x10) == 0 )
+      goto LABEL_21;
+    if ( v20 >= 0 )
+    {
+      v22 = *(ACL **)(a2 + 24);
+    }
+    else
+    {
+      v23 = *(unsigned int *)(a2 + 12);
+      if ( !(_DWORD)v23 )
       {
 LABEL_21:
-        v21 = 0LL;
+        v22 = 0LL;
         goto LABEL_26;
       }
-      v21 = (ACL *)(a2 + v22);
+      v22 = (ACL *)(a2 + v23);
     }
 LABEL_26:
-    SeExamineGlobalSacl(&DestinationString, v21, v20, 2u, 1u, &GenerateAudit, &GenerateAlarm);
-    if ( !GenerateAudit )
-      goto LABEL_63;
+    SeExamineGlobalSacl(&DestinationString, v22, v21, 2u, 1u, GenerateAudit, &GenerateAudit[1]);
+    if ( !GenerateAudit[0] )
+      goto LABEL_52;
     if ( a5 )
     {
-      AllocatedFullProcessImageName = SepQueryNameString(a5, &v48);
-      if ( AllocatedFullProcessImageName < 0 )
-        goto LABEL_54;
-      if ( v48 )
-        v9 = (unsigned __int16 *)v48;
+      NameString = SepQueryNameString(a5, (PVOID *)&v47);
+      if ( NameString < 0 )
+        goto LABEL_43;
+      if ( v47 )
+        v10 = v47;
     }
-    v24 = 4096;
+    v25 = 4096;
     if ( a8 )
     {
-      v25 = a7[1];
-      v26 = 4096LL;
-      if ( v25 < 0x1000 )
-        v26 = v25;
-      AllocatedFullProcessImageName = AdtpBuildRegistryValueString(*a7, v26, *((_QWORD *)a7 + 1), &v52, &v45);
-      if ( AllocatedFullProcessImageName < 0 )
-        goto LABEL_54;
-      v27 = *a7 + 1872;
-      *(_DWORD *)&v49.Length = 1703936;
-      v49.Buffer = (wchar_t *)&v58;
-      AllocatedFullProcessImageName = AdtpBuildReplacementString(v27, &v49);
-      if ( AllocatedFullProcessImageName < 0 )
-        goto LABEL_54;
-      if ( a8 == 2 )
-      {
-        RtlInitUnicodeString(&v53, L"-");
-        RtlInitUnicodeString(&v50, L"-");
-LABEL_43:
-        LODWORD(v51) = 1703936;
-        *((_QWORD *)&v51 + 1) = &v60;
-        AllocatedFullProcessImageName = AdtpBuildReplacementString((unsigned int)(a8 + 1904), &v51);
-        if ( AllocatedFullProcessImageName >= 0 )
-        {
-          CurrentThreadProcess = PsGetCurrentThreadProcess();
-          Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-          AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
-          if ( AllocatedFullProcessImageName >= 0 )
-          {
-            LODWORD(Src[0]) = 3;
-            v31 = PrimaryToken;
-            LODWORD(Src[2]) = 524406;
-            if ( ClientToken )
-              v31 = ClientToken;
-            HIDWORD(Src[0]) = 4657;
-            LODWORD(Src[3]) = 4;
-            Src[7] = 0x2000000001LL;
-            v32 = v31[19];
-            Src[11] = 0x800000005LL;
-            HIDWORD(Src[3]) = 4 * *(unsigned __int8 *)(*(_QWORD *)v32 + 1LL) + 8;
-            v33 = (_QWORD **)PrimaryToken;
-            if ( ClientToken )
-            {
-              v33 = (_QWORD **)ClientToken;
-              PrimaryToken = ClientToken;
-            }
-            v34 = *v33[19];
-            Src[10] = &SeSubsystemName;
-            Src[12] = *((_QWORD *)PrimaryToken + 3);
-            Src[6] = v34;
-            if ( v9 )
-            {
-              v35 = *v9;
-              LODWORD(Src[15]) = 1;
-              HIDWORD(Src[15]) = v35 + 16;
-              Src[18] = v9;
-            }
-            Src[22] = v54;
-            LODWORD(Src[19]) = 1;
-            Src[23] = 0x80000000BLL;
-            HIDWORD(Src[19]) = *v54 + 16;
-            IsKernelHandle = ObpIsKernelHandle(a6, 0);
-            v41 = v40 ^ 0xFFFFFFFF80000000uLL;
-            LODWORD(Src[27]) = v38;
-            LODWORD(Src[31]) = v38;
-            if ( !IsKernelHandle )
-              v41 = a6;
-            HIDWORD(Src[27]) = (unsigned __int16)v51 + 16;
-            Src[24] = v41 & 0xFFFFFFFFFFFFFFFCuLL;
-            Src[30] = &v51;
-            Src[54] = P;
-            HIDWORD(Src[31]) = v49.Length + 16;
-            Src[34] = &v49;
-            LODWORD(Src[35]) = v38;
-            HIDWORD(Src[35]) = v52.Length + 16;
-            Src[38] = &v52;
-            LODWORD(Src[39]) = v38;
-            HIDWORD(Src[39]) = v50.Length + 16;
-            Src[42] = &v50;
-            LODWORD(Src[43]) = v38;
-            HIDWORD(Src[43]) = v53.Length + 16;
-            Src[46] = &v53;
-            v42 = *(unsigned __int16 *)P + 16;
-            Src[47] = __PAIR64__(v39, v37);
-            HIDWORD(Src[51]) = v42;
-            Src[48] = Flink;
-            LODWORD(Src[51]) = 2;
-            LODWORD(Src[1]) = 13;
-            SepAdtLogAuditRecord(Src);
-            goto LABEL_55;
-          }
-        }
-LABEL_54:
-        SepAuditFailed((unsigned int)AllocatedFullProcessImageName);
-LABEL_55:
-        if ( v45 )
-          ExFreePoolWithTag(v52.Buffer, 0);
-        if ( v46[0] )
-          ExFreePoolWithTag(v53.Buffer, 0);
-        if ( P )
-          ExFreePoolWithTag(P, 0);
-        if ( v48 )
-          ExFreePoolWithTag(v48, 0);
-        goto LABEL_63;
-      }
+      v26 = a7[1];
+      v27 = 4096LL;
+      if ( v26 < 0x1000 )
+        v27 = v26;
+      NameString = AdtpBuildRegistryValueString(*a7, v27, *((_QWORD *)a7 + 1), &v51, &GenerateAudit[2]);
+      if ( NameString < 0 )
+        goto LABEL_43;
+      v28 = *a7 + 1872;
+      v48.MaximumLength = 26;
+      v48.Buffer = (wchar_t *)&v56;
+      NameString = AdtpBuildReplacementString(v28, &v48);
+      if ( NameString < 0 )
+        goto LABEL_43;
     }
     else
     {
-      RtlInitUnicodeString(&v52, L"-");
+      RtlInitUnicodeString(&v51, L"-");
+      RtlInitUnicodeString(&v48, L"-");
+    }
+    if ( a8 == 2 )
+    {
+      RtlInitUnicodeString((PUNICODE_STRING)P, L"-");
       RtlInitUnicodeString(&v49, L"-");
     }
-    if ( a7[5] < 0x1000 )
-      v24 = a7[5];
-    AllocatedFullProcessImageName = AdtpBuildRegistryValueString(a7[4], v24, *((_QWORD *)a7 + 3), &v53, v46);
-    if ( AllocatedFullProcessImageName < 0 )
-      goto LABEL_54;
-    v28 = a7[4] + 1872;
-    *(_DWORD *)&v50.Length = 1703936;
-    v50.Buffer = (wchar_t *)&v59;
-    AllocatedFullProcessImageName = AdtpBuildReplacementString(v28, &v50);
-    if ( AllocatedFullProcessImageName < 0 )
-      goto LABEL_54;
-    goto LABEL_43;
+    else
+    {
+      if ( a7[5] < 0x1000 )
+        v25 = a7[5];
+      NameString = AdtpBuildRegistryValueString(a7[4], v25, *((_QWORD *)a7 + 3), P, &GenerateAudit[3]);
+      if ( NameString < 0 )
+        goto LABEL_43;
+      v29 = a7[4] + 1872;
+      v49.MaximumLength = 26;
+      v49.Buffer = (wchar_t *)&v57;
+      NameString = AdtpBuildReplacementString(v29, &v49);
+      if ( NameString < 0 )
+        goto LABEL_43;
+    }
+    WORD1(v50) = 26;
+    *((_QWORD *)&v50 + 1) = &v58;
+    NameString = AdtpBuildReplacementString((unsigned int)(a8 + 1904), &v50);
+    if ( NameString >= 0 )
+    {
+      CurrentThreadProcess = PsGetCurrentThreadProcess();
+      Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
+      NameString = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&v46);
+      if ( NameString >= 0 )
+      {
+        LODWORD(Src[0]) = 3;
+        v32 = PrimaryToken;
+        LODWORD(Src[2]) = 524406;
+        if ( ClientToken )
+          v32 = ClientToken;
+        HIDWORD(Src[0]) = 4657;
+        LODWORD(Src[3]) = 4;
+        Src[7] = 0x2000000001LL;
+        v33 = v32[19];
+        Src[11] = 0x800000005LL;
+        HIDWORD(Src[3]) = 4 * *(unsigned __int8 *)(*(_QWORD *)v33 + 1LL) + 8;
+        v34 = (_QWORD **)PrimaryToken;
+        if ( ClientToken )
+        {
+          v34 = (_QWORD **)ClientToken;
+          PrimaryToken = ClientToken;
+        }
+        v35 = *v34[19];
+        Src[10] = &SeSubsystemName;
+        Src[12] = *((_QWORD *)PrimaryToken + 3);
+        Src[6] = v35;
+        if ( v10 )
+        {
+          v36 = *v10;
+          LODWORD(Src[15]) = 1;
+          HIDWORD(Src[15]) = v36 + 16;
+          Src[18] = v10;
+        }
+        HIDWORD(Src[19]) = *a4 + 16;
+        LODWORD(Src[19]) = 1;
+        Src[22] = a4;
+        Src[23] = 0x80000000BLL;
+        IsKernelHandle = ObpIsKernelHandle(a6, 0);
+        v43 = v42 ^ 0xFFFFFFFF80000000uLL;
+        LODWORD(Src[27]) = v40;
+        LODWORD(Src[31]) = v40;
+        if ( !IsKernelHandle )
+          v43 = v38;
+        LODWORD(Src[35]) = v40;
+        LODWORD(Src[39]) = v40;
+        HIDWORD(Src[27]) = (unsigned __int16)v50 + 16;
+        Src[24] = v43 & 0xFFFFFFFFFFFFFFFCuLL;
+        Src[30] = &v50;
+        Src[54] = v46;
+        HIDWORD(Src[31]) = v48.Length + 16;
+        Src[34] = &v48;
+        LODWORD(Src[43]) = v40;
+        HIDWORD(Src[35]) = v51.Length + 16;
+        Src[38] = &v51;
+        Src[47] = __PAIR64__(v41, v39);
+        HIDWORD(Src[39]) = v49.Length + 16;
+        Src[42] = &v49;
+        HIDWORD(Src[43]) = LOWORD(P[0]) + 16;
+        Src[46] = P;
+        v44 = *(unsigned __int16 *)v46 + 16;
+        Src[48] = Flink;
+        HIDWORD(Src[51]) = v44;
+        LODWORD(Src[51]) = 2;
+        LODWORD(Src[1]) = 13;
+        SepAdtLogAuditRecord(Src);
+        goto LABEL_44;
+      }
+    }
+LABEL_43:
+    SepAuditFailed((unsigned int)NameString);
+LABEL_44:
+    if ( GenerateAudit[2] )
+      ExFreePoolWithTag(v51.Buffer, 0);
+    if ( GenerateAudit[3] )
+      ExFreePoolWithTag(P[1], 0);
+    if ( v46 )
+      ExFreePoolWithTag(v46, 0);
+    if ( v47 )
+      ExFreePoolWithTag(v47, 0);
   }
-LABEL_63:
+LABEL_52:
   SeReleaseSubjectContext(&SubjectContext);
 }

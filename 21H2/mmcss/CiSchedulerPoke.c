@@ -1,9 +1,9 @@
 /*
- * XREFs of CiSchedulerPoke @ 0x1C0002890
+ * XREFs of CiSchedulerPoke @ 0x1C0001800
  * Callers:
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
- *     CiSchedulerTerminate @ 0x1C000C934 (CiSchedulerTerminate.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
+ *     CiSchedulerTerminate @ 0x1C000CCF0 (CiSchedulerTerminate.c)
  * Callees:
  *     <none>
  */

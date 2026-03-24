@@ -1,18 +1,19 @@
 /*
- * XREFs of SdbpGetFirstIndexedRecord @ 0x14075B8A0
+ * XREFs of SdbpGetFirstIndexedRecord @ 0x140759CAC
  * Callers:
- *     SdbFindFirstStringIndexedTag @ 0x14075B7F4 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140759C00 (SdbFindFirstStringIndexedTag.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpGetMappedTagData @ 0x14075B988 (SdbpGetMappedTagData.c)
- *     SdbpBinarySearchFirst @ 0x14075BFBC (SdbpBinarySearchFirst.c)
- *     SdbpBinarySearchUnique @ 0x14075E0C8 (SdbpBinarySearchUnique.c)
- *     SdbGetTagDataSize @ 0x14079422C (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x140759E04 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x14075A340 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
+ *     SdbpBinarySearchFirst @ 0x14075A72C (SdbpBinarySearchFirst.c)
+ *     SdbpBinarySearchUnique @ 0x14077EB8C (SdbpBinarySearchUnique.c)
  */
 
-__int64 __fastcall SdbpGetFirstIndexedRecord(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall SdbpGetFirstIndexedRecord(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
+  unsigned int v6; // esi
   unsigned int v8; // r14d
   __int64 MappedTagData; // rax
   unsigned int v10; // ebx
@@ -22,9 +23,10 @@ __int64 __fastcall SdbpGetFirstIndexedRecord(__int64 a1, unsigned int a2, __int6
   _DWORD *v14; // r9
   int v16; // edx
 
-  if ( (unsigned __int16)SdbGetTagFromTagID() == 0x9801
-    && (v8 = (unsigned int)SdbGetTagDataSize(a1, a2) / 0xC,
-        MappedTagData = SdbpGetMappedTagData(a1, a2),
+  v6 = a2;
+  if ( (unsigned __int16)SdbGetTagFromTagID(a1, a2, a3, a4) == 0x9801
+    && (v8 = (unsigned int)SdbGetTagDataSize(a1, v6) / 0xC,
+        MappedTagData = SdbpGetMappedTagData(a1, v6),
         v10 = 0,
         (v11 = MappedTagData) != 0) )
   {

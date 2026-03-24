@@ -1,52 +1,76 @@
 /*
- * XREFs of ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0015228
+ * XREFs of ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0019664
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01DAF30 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
- *     ?_CreateTtmDevice@DXGMONITOR@@QEAAJXZ @ 0x1C0210540 (-_CreateTtmDevice@DXGMONITOR@@QEAAJXZ.c)
- *     ?TriggerMonitorTelemetry@DXGMONITOR@@UEBAXW4TELEMETRY_MONITOR_INVENTORY_TRIGGER@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021F3E0 (-TriggerMonitorTelemetry@DXGMONITOR@@UEBAXW4TELEMETRY_MONITOR_INVENTORY_TRIGGER@DxgMonitor@@PEAU.c)
+ *     MonitorGetMonitorDeviceInterfaceName @ 0x1C014CA9C (MonitorGetMonitorDeviceInterfaceName.c)
  * Callees:
- *     RtlUnicodeStringValidateSrcWorker @ 0x1C00152D0 (RtlUnicodeStringValidateSrcWorker.c)
+ *     <none>
  */
 
-NTSTATUS __fastcall RtlStringCchCopyUnicodeString(char *a1, __int64 a2, const struct _UNICODE_STRING *a3)
+__int64 __fastcall RtlStringCchCopyUnicodeString(char *a1, __int64 a2, const struct _UNICODE_STRING *a3)
 {
-  __int64 v3; // rdi
-  NTSTATUS result; // eax
-  size_t v6; // rcx
-  signed __int64 v7; // rdx
-  unsigned __int16 *v8; // rax
-  ULONG v9; // [rsp+20h] [rbp-18h]
-  size_t v10; // [rsp+48h] [rbp+10h] BYREF
-  wchar_t *v11; // [rsp+58h] [rbp+20h] BYREF
+  signed int v3; // r9d
+  unsigned __int64 Length; // rax
+  wchar_t *v6; // r11
+  unsigned __int64 v7; // r8
+  unsigned __int16 MaximumLength; // r10
+  wchar_t *Buffer; // rbx
+  __int64 v10; // r8
+  signed __int64 v11; // r11
+  unsigned __int16 *v12; // rax
 
-  v3 = a2;
+  v3 = 0;
   if ( (unsigned __int64)(a2 - 1) > 0x7FFE )
-    return -1073741811;
-  v11 = 0LL;
-  v10 = 0LL;
-  result = RtlUnicodeStringValidateSrcWorker(a3, &v11, &v10, (const size_t)a3, v9);
-  if ( result < 0 )
+    v3 = -1073741811;
+  if ( v3 >= 0 )
   {
+    Length = a3->Length;
+    v6 = 0LL;
+    v7 = 0LL;
+    v3 = 0;
+    if ( (Length & 1) != 0
+      || (MaximumLength = a3->MaximumLength, (MaximumLength & 1) != 0)
+      || (unsigned __int16)Length > MaximumLength
+      || MaximumLength == 0xFFFF )
+    {
+      v3 = -1073741811;
+    }
+    else
+    {
+      Buffer = a3->Buffer;
+      if ( !Buffer && ((_WORD)Length || MaximumLength) )
+      {
+        v3 = -1073741811;
+      }
+      else
+      {
+        v6 = Buffer;
+        v7 = Length >> 1;
+      }
+      if ( v3 >= 0 )
+      {
+        if ( a2 )
+        {
+          v10 = v7 - a2;
+          v11 = (char *)v6 - a1;
+          do
+          {
+            if ( !(v10 + a2) )
+              break;
+            *(_WORD *)a1 = *(_WORD *)&a1[v11];
+            a1 += 2;
+            --a2;
+          }
+          while ( a2 );
+        }
+        v12 = (unsigned __int16 *)(a1 - 2);
+        if ( a2 )
+          v12 = (unsigned __int16 *)a1;
+        v3 = a2 == 0 ? 0x80000005 : 0;
+        *v12 = 0;
+        return (unsigned int)v3;
+      }
+    }
     *(_WORD *)a1 = 0;
   }
-  else
-  {
-    v6 = v10 - v3;
-    v7 = (char *)v11 - a1;
-    do
-    {
-      if ( !(v6 + v3) )
-        break;
-      *(_WORD *)a1 = *(_WORD *)&a1[v7];
-      a1 += 2;
-      --v3;
-    }
-    while ( v3 );
-    v8 = (unsigned __int16 *)(a1 - 2);
-    if ( v3 )
-      v8 = (unsigned __int16 *)a1;
-    *v8 = 0;
-    return v3 == 0 ? 0x80000005 : 0;
-  }
-  return result;
+  return (unsigned int)v3;
 }

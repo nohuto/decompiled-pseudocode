@@ -1,47 +1,53 @@
 /*
- * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140750EA0
+ * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140724564
  * Callers:
- *     CmpDoReconcileNextHive @ 0x140750F50 (CmpDoReconcileNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140724450 (CmpDoReconcileNextHive.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407516C8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407239C0 (HvGetEffectiveLogSizeCapForHive.c)
  */
 
-bool __fastcall CmpIsHiveEligibleForLazyReconcile(__int64 a1)
+char __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
 {
   unsigned int EffectiveLogSizeCapForHive; // eax
-  unsigned int v3; // r10d
-  __int64 v4; // r11
-  int v5; // r9d
-  unsigned int v6; // edx
-  unsigned int v7; // eax
-  _BYTE *v8; // r8
+  unsigned int v2; // r10d
+  __int64 v3; // r11
+  int v4; // r8d
+  unsigned int v5; // ecx
+  unsigned int v6; // eax
+  __int64 v7; // rdx
   unsigned __int64 UnbiasedInterruptTime; // rax
-  __int64 v10; // r11
+  __int64 v9; // r11
 
-  if ( (*(_DWORD *)(a1 + 160) & 0x8001) != 0 || !*(_DWORD *)(a1 + 128) || CmpHoldLazyFlush )
+  if ( (a1[40] & 0x8001) != 0 || !a1[32] || CmpHoldLazyFlush )
     return 0;
   if ( !CmpUserPresent )
     return 1;
-  EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive();
-  if ( *(_DWORD *)(v4 + 180) >= EffectiveLogSizeCapForHive )
+  EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(a1);
+  if ( *(_DWORD *)(v3 + 176) >= EffectiveLogSizeCapForHive )
     return 1;
-  v5 = *(_DWORD *)(v4 + 168);
-  v6 = v3;
-  if ( v5 == 1 )
+  v4 = *(_DWORD *)(v3 + 164);
+  v5 = v2;
+  if ( v4 == 1 )
     return 1;
-  v7 = v3;
-  v8 = (_BYTE *)(v4 + 192);
+  v6 = v2;
+  v7 = v2;
   do
   {
-    if ( v7 != v5 && *v8 == (_BYTE)v3 )
-      ++v6;
+    if ( v6 != v4 && *(_BYTE *)(v7 + v3 + 188) == (_BYTE)v2 )
+      ++v5;
+    ++v6;
     ++v7;
-    ++v8;
   }
-  while ( v7 < 2 );
-  if ( !v6 )
+  while ( v6 < 2 );
+  if ( v5
+    && (UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(),
+        UnbiasedInterruptTime < *(_QWORD *)(v9 + 4184) + 10000000 * (unsigned __int64)(unsigned int)dword_140C004C0) )
+  {
+    return 0;
+  }
+  else
+  {
     return 1;
-  UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-  return UnbiasedInterruptTime >= *(_QWORD *)(v10 + 4144) + 10000000 * (unsigned __int64)(unsigned int)dword_140C02000;
+  }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCovQueryLoadedModule @ 0x140A03A08
+ * XREFs of ExpCovQueryLoadedModule @ 0x140957CDC
  * Callers:
- *     ExpCovQueryInfoCallBack @ 0x140A03480 (ExpCovQueryInfoCallBack.c)
+ *     ExpCovQueryInfoCallBack @ 0x140957750 (ExpCovQueryInfoCallBack.c)
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExpCovReadFriendlyName @ 0x140A03B84 (ExpCovReadFriendlyName.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpCovReadFriendlyName @ 0x140957E4C (ExpCovReadFriendlyName.c)
  */
 
 __int64 __fastcall ExpCovQueryLoadedModule(
@@ -19,7 +19,7 @@ __int64 __fastcall ExpCovQueryLoadedModule(
         unsigned int *a6)
 {
   __int64 v6; // rsi
-  __int64 v7; // r15
+  __int64 v7; // rbx
   int v11; // edi
   unsigned int v12; // edx
   size_t Length; // rbp
@@ -36,55 +36,61 @@ __int64 __fastcall ExpCovQueryLoadedModule(
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
   v11 = ExpCovReadFriendlyName(v6, a1 + 72, &UnicodeString);
-  if ( v11 < 0 )
-    goto LABEL_16;
-  v12 = *(_DWORD *)(a1 + 124);
-  if ( !a2 )
-    v12 -= *(_DWORD *)(v6 + 28);
-  if ( v12 >= 0xFFFFFFE0 || (Length = UnicodeString.Length, v14 = UnicodeString.Length + v12 + 32, v14 < 0x20) )
+  if ( v11 >= 0 )
   {
-    *a6 = -1;
-    goto LABEL_14;
+    v12 = *(_DWORD *)(a1 + 124);
+    if ( !a2 )
+      v12 -= *(_DWORD *)(v6 + 28);
+    Length = UnicodeString.Length;
+    if ( v12 < 0xFFFFFFE0 )
+    {
+      v14 = UnicodeString.Length + v12 + 32;
+      if ( v14 < 0x20 )
+        v14 = -1;
+    }
+    else
+    {
+      v14 = -1;
+    }
+    *a6 = v14;
+    if ( v14 == -1 )
+    {
+      DbgPrintEx(0x7Eu, 2u, "COV: Overflow when calculating RequiredLengthForCurrentModule for %wZ\n", v7);
+LABEL_10:
+      v11 = -1073741675;
+      goto LABEL_17;
+    }
+    v15 = *a5 + v14;
+    if ( v15 < *a5 )
+    {
+      DbgPrintEx(0x7Eu, 2u, "COV: Overflow when calculating total required length for %wZ\n", v7);
+      goto LABEL_10;
+    }
+    *a5 = v15;
+    if ( a3 >= v15 )
+    {
+      *(_DWORD *)a4 = v14;
+      *(_DWORD *)(a4 + 4) = 1;
+      *(_DWORD *)(a4 + 24) = v12;
+      v16 = v12;
+      memmove((void *)(a4 + 28), *(const void **)(a1 + 128), v12);
+      MaximumLength = UnicodeString.MaximumLength;
+      Buffer = UnicodeString.Buffer;
+      v19 = (void *)(v16 + a4 + 32);
+      *(_QWORD *)(a4 + 16) = v19;
+      *(_WORD *)(a4 + 8) = Length;
+      *(_WORD *)(a4 + 10) = MaximumLength;
+      memmove(v19, Buffer, Length);
+      if ( a2 )
+        memset((void *)(v6 + *(unsigned int *)(v6 + 32)), 0, *(unsigned int *)(v6 + 28));
+    }
+    else
+    {
+      v11 = -1073741820;
+    }
   }
-  *a6 = v14;
-  if ( v14 == -1 )
-  {
-LABEL_14:
-    DbgPrintEx(0x7Eu, 2u, "COV: Overflow when calculating RequiredLengthForCurrentModule for %wZ\n", v7);
-    goto LABEL_15;
-  }
-  v15 = *a5 + v14;
-  if ( v15 < *a5 )
-  {
-    DbgPrintEx(0x7Eu, 2u, "COV: Overflow when calculating total required length for %wZ\n", v7);
-LABEL_15:
-    v11 = -1073741675;
-    goto LABEL_16;
-  }
-  *a5 = v15;
-  if ( a3 >= v15 )
-  {
-    *(_DWORD *)a4 = v14;
-    *(_DWORD *)(a4 + 4) = 1;
-    *(_DWORD *)(a4 + 24) = v12;
-    v16 = v12;
-    memmove((void *)(a4 + 28), *(const void **)(a1 + 128), v12);
-    MaximumLength = UnicodeString.MaximumLength;
-    Buffer = UnicodeString.Buffer;
-    v19 = (void *)(v16 + a4 + 32);
-    *(_QWORD *)(a4 + 16) = v19;
-    *(_WORD *)(a4 + 8) = Length;
-    *(_WORD *)(a4 + 10) = MaximumLength;
-    memmove(v19, Buffer, Length);
-    if ( a2 )
-      memset((void *)(v6 + *(unsigned int *)(v6 + 32)), 0, *(unsigned int *)(v6 + 28));
-  }
-  else
-  {
-    v11 = -1073741820;
-  }
-LABEL_16:
+LABEL_17:
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)v11;
 }

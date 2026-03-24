@@ -1,7 +1,7 @@
 /*
- * XREFs of SepSecureBootGetPolicyValueByRef @ 0x1409CE000
+ * XREFs of SepSecureBootGetPolicyValueByRef @ 0x140924520
  * Callers:
- *     SeQuerySecureBootPolicyValue @ 0x140865150 (SeQuerySecureBootPolicyValue.c)
+ *     SeQuerySecureBootPolicyValue @ 0x1407D53A0 (SeQuerySecureBootPolicyValue.c)
  * Callees:
  *     <none>
  */

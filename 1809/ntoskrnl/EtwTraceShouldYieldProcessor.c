@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwTraceShouldYieldProcessor @ 0x14031040C
+ * XREFs of EtwTraceShouldYieldProcessor @ 0x14031050C
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
@@ -8,10 +8,10 @@
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
  *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceShouldYieldProcessor(int a1, int a2, int a3)

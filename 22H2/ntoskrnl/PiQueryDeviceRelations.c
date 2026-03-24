@@ -1,62 +1,60 @@
 /*
- * XREFs of PiQueryDeviceRelations @ 0x14084EC7C
+ * XREFs of PiQueryDeviceRelations @ 0x1408B40CC
  * Callers:
- *     PiControlQueryDeviceRelations @ 0x14084EB60 (PiControlQueryDeviceRelations.c)
+ *     PiControlQueryDeviceRelations @ 0x1408B3AC0 (PiControlQueryDeviceRelations.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PnpQueryDeviceRelations @ 0x140795430 (PnpQueryDeviceRelations.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     PnpQueryDeviceRelations @ 0x1407433D8 (PnpQueryDeviceRelations.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryDeviceRelations(__int64 a1, int a2, unsigned int *a3, _WORD *a4)
 {
-  unsigned int v7; // ebx
-  unsigned int v8; // esi
+  int v6; // ebx
+  unsigned int v7; // edi
+  int v8; // edx
   int v9; // edx
   int v10; // edx
-  int v11; // edx
-  int v12; // edi
+  int v12; // esi
   _QWORD *v13; // rax
-  unsigned int v14; // ebp
-  void *v15; // r13
-  __int64 v17; // r14
-  _QWORD *v18; // rax
-  unsigned int v19; // edi
-  unsigned int *Pool2; // rax
-  _DWORD *v21; // r8
+  void *v14; // r15
+  __int64 v15; // r14
+  _QWORD *v16; // rax
+  unsigned int v17; // esi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v19; // r8
+  unsigned int v20; // ebp
   __int64 **i; // r14
-  __int64 v23; // rdx
+  __int64 v22; // rdx
   int DeviceRelations; // eax
-  __int64 v25; // rdx
-  unsigned __int16 *v26; // rdi
-  int v27; // r9d
-  _WORD *v28; // r15
-  PVOID P; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD *v30; // [rsp+28h] [rbp-30h]
-  int v31; // [rsp+68h] [rbp+10h]
+  unsigned int v24; // ebp
+  __int64 v25; // r14
+  unsigned __int16 *v26; // rsi
+  int v27; // edx
+  _WORD *v28; // r12
+  PVOID P[7]; // [rsp+20h] [rbp-38h] BYREF
 
-  P = 0LL;
+  P[0] = 0LL;
+  v6 = 0;
   v7 = 0;
-  v31 = 0;
-  v8 = 0;
   if ( a2 )
   {
-    v9 = a2 - 1;
-    if ( v9 )
+    v8 = a2 - 1;
+    if ( v8 )
     {
-      v10 = v9 - 1;
-      if ( v10 )
+      v9 = v8 - 1;
+      if ( v9 )
       {
-        v11 = v10 - 1;
-        if ( v11 )
+        v10 = v9 - 1;
+        if ( v10 )
         {
-          if ( v11 != 1 )
+          if ( v10 != 1 )
             return 3221225485LL;
           v12 = 6;
         }
@@ -81,57 +79,54 @@ __int64 __fastcall PiQueryDeviceRelations(__int64 a1, int a2, unsigned int *a3, 
   }
   PpDevNodeLockTree(0);
   v13 = PnpDeviceObjectFromDeviceInstanceWithTag(a1, 0x43706E50u);
-  v14 = 0;
-  v30 = v13;
-  v15 = v13;
-  if ( v13 && (v17 = *(_QWORD *)(v13[39] + 40LL), (unsigned int)(*(_DWORD *)(v17 + 300) - 789) > 1) )
+  v14 = v13;
+  if ( v13 && (v15 = *(_QWORD *)(v13[39] + 40LL), (unsigned int)(*(_DWORD *)(v15 + 300) - 787) > 1) )
   {
     if ( v12 )
     {
-      DeviceRelations = PnpQueryDeviceRelations((__int64)v13, v12, 0LL, (__int64)&P);
-      v21 = P;
-      v7 = DeviceRelations;
-      v31 = DeviceRelations;
+      DeviceRelations = PnpQueryDeviceRelations((__int64)v13, v12, 0LL, (__int64)P);
+      v19 = P[0];
+      v6 = DeviceRelations;
       if ( DeviceRelations < 0 )
-        v21 = 0LL;
-      P = v21;
+        v19 = 0LL;
+      P[0] = v19;
     }
     else
     {
-      v18 = *(_QWORD **)(v17 + 8);
-      v19 = 0;
-      while ( v18 )
+      v16 = *(_QWORD **)(v15 + 8);
+      v17 = 0;
+      while ( v16 )
       {
-        v18 = (_QWORD *)*v18;
-        ++v19;
+        v16 = (_QWORD *)*v16;
+        ++v17;
       }
-      Pool2 = (unsigned int *)ExAllocatePool2(256LL, 8LL * v19 + 16, 538996816LL);
-      P = Pool2;
-      v21 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v17 + 16, 0x20207050u);
+      P[0] = PoolWithTag;
+      v19 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *Pool2 = v19;
-        for ( i = *(__int64 ***)(v17 + 8); i && v14 < v19; i = (__int64 **)*i )
+        *PoolWithTag = v17;
+        v20 = 0;
+        for ( i = *(__int64 ***)(v15 + 8); i && v20 < v17; i = (__int64 **)*i )
         {
           ObfReferenceObjectWithTag(i[4], 0x43706E50u);
-          v23 = v14++;
-          *((_QWORD *)P + v23 + 1) = i[4];
+          v22 = v20++;
+          *((_QWORD *)P[0] + v22 + 1) = i[4];
         }
-        v21 = P;
-        v14 = 0;
+        v19 = P[0];
       }
       else
       {
-        v7 = -1073741670;
-        v31 = -1073741670;
+        v6 = -1073741670;
       }
     }
-    if ( v21 && *v21 )
+    if ( v19 && *v19 )
     {
-      v8 = 2;
+      v24 = 0;
+      v7 = 2;
       do
       {
-        v25 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&v21[2 * v14 + 2] + 312LL) + 40LL);
+        v25 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)&v19[2 * v24 + 2] + 312LL) + 40LL);
         if ( v25 )
         {
           v26 = (unsigned __int16 *)(v25 + 40);
@@ -140,42 +135,50 @@ __int64 __fastcall PiQueryDeviceRelations(__int64 a1, int a2, unsigned int *a3, 
             v27 = *v26;
             if ( (unsigned __int16)v27 >= 2u )
             {
-              if ( a4 && *a3 >= (unsigned __int64)(v8 + v27) + 2 )
+              if ( a4 )
               {
+                if ( *a3 < (unsigned __int64)(v7 + v27) + 2 )
+                {
+                  v6 = -1073741789;
+                  goto LABEL_46;
+                }
                 memmove(a4, *(const void **)(v25 + 48), *v26);
                 v28 = &a4[(unsigned __int64)*v26 >> 1];
                 *v28 = 0;
                 a4 = v28 + 1;
-                v21 = P;
+                LOWORD(v27) = *(_WORD *)(v25 + 40);
+                v19 = P[0];
               }
-              v8 += *v26 + 2;
+              v7 += (unsigned __int16)v27 + 2;
             }
           }
         }
-        ObfDereferenceObjectWithTag(*(PVOID *)&v21[2 * v14 + 2], 0x43706E50u);
-        v21 = P;
-        ++v14;
+        ObfDereferenceObjectWithTag(*(PVOID *)&v19[2 * v24 + 2], 0x43706E50u);
+        v19 = P[0];
+        ++v24;
       }
-      while ( v14 < *(_DWORD *)P );
-      v7 = v31;
-      v15 = v30;
-      if ( a4 && *a3 >= 2 )
-        *a4 = 0;
-      if ( *a3 < v8 )
-        v7 = -1073741789;
+      while ( v24 < *(_DWORD *)P[0] );
+      if ( a4 )
+      {
+        if ( *a3 >= v7 )
+          *a4 = 0;
+        else
+          v6 = -1073741789;
+      }
     }
   }
   else
   {
-    v7 = -1073741810;
+    v6 = -1073741810;
   }
+LABEL_46:
   PpDevNodeUnlockTree(0);
-  if ( (int)(v7 + 0x80000000) >= 0 && v7 != -1073741789 )
-    v8 = 0;
-  *a3 = v8;
-  if ( P )
-    ExFreePoolWithTag(P, 0);
-  if ( v15 )
-    ObfDereferenceObjectWithTag(v15, 0x43706E50u);
-  return v7;
+  if ( v6 < 0 )
+    v7 = 0;
+  *a3 = v7;
+  if ( P[0] )
+    ExFreePoolWithTag(P[0], 0);
+  if ( v14 )
+    ObfDereferenceObjectWithTag(v14, 0x43706E50u);
+  return (unsigned int)v6;
 }

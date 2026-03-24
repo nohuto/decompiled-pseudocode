@@ -1,35 +1,35 @@
 /*
- * XREFs of FsRtlDoesDbcsContainWildCards @ 0x1408814B0
+ * XREFs of FsRtlDoesDbcsContainWildCards @ 0x14088C5A0
  * Callers:
- *     FsRtlIsFatDbcsLegal @ 0x140693FB0 (FsRtlIsFatDbcsLegal.c)
- *     FsRtlIsDbcsInExpression @ 0x14092F040 (FsRtlIsDbcsInExpression.c)
+ *     FsRtlIsFatDbcsLegal @ 0x1406A5E30 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsDbcsInExpression @ 0x14088C610 (FsRtlIsDbcsInExpression.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN __stdcall FsRtlDoesDbcsContainWildCards(PANSI_STRING Name)
 {
-  int v1; // edx
-  __int64 v2; // r8
+  unsigned int Length; // r8d
+  int v2; // edx
+  char *Buffer; // r9
+  __int64 v4; // rcx
 
-  v1 = 0;
+  Length = Name->Length;
+  v2 = 0;
   if ( !Name->Length )
     return 0;
+  Buffer = Name->Buffer;
   while ( 1 )
   {
-    v2 = Name->Buffer[v1];
-    if ( (unsigned __int8)v2 < 0x80u
-      || !(_BYTE)NlsMbOemCodePageTag
-      || !*((_WORD *)NlsOemLeadByteInfo + (unsigned __int8)v2) )
-    {
+    v4 = Buffer[v2];
+    if ( (unsigned __int8)v4 < 0x80u || !(_BYTE)NlsMbOemCodePageTag || !NlsOemLeadByteInfoTable[(unsigned __int8)v4] )
       break;
-    }
-    ++v1;
-LABEL_8:
-    if ( ++v1 >= (unsigned int)Name->Length )
+    ++v2;
+LABEL_9:
+    if ( ++v2 >= Length )
       return 0;
   }
-  if ( (v2 & 0x80u) != 0LL || (*((_BYTE *)qword_140015C50 + v2) & 8) == 0 )
-    goto LABEL_8;
+  if ( (v4 & 0x80u) != 0LL || (*((_BYTE *)qword_140011B50 + v4) & 8) == 0 )
+    goto LABEL_9;
   return 1;
 }

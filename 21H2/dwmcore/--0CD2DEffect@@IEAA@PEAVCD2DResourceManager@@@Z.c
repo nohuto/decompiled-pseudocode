@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18028DA54
+ * XREFs of ??0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x18024D474
  * Callers:
- *     ?Create@CD2DEffect@@SAJPEAVCD2DResourceManager@@PEAUID2D1Effect@@PEAPEAV1@@Z @ 0x18028DBAC (-Create@CD2DEffect@@SAJPEAVCD2DResourceManager@@PEAUID2D1Effect@@PEAPEAV1@@Z.c)
+ *     ?Create@CD2DEffect@@SAJPEAVCD2DResourceManager@@PEAUID2D1Effect@@PEAPEAV1@@Z @ 0x18024D5CC (-Create@CD2DEffect@@SAJPEAVCD2DResourceManager@@PEAUID2D1Effect@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18006AAC4 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
+ *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003A210 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
  */
 
 CD2DEffect *__fastcall CD2DEffect::CD2DEffect(CD2DEffect *this, struct CD2DResourceManager *a2)
@@ -18,7 +18,7 @@ CD2DEffect *__fastcall CD2DEffect::CD2DEffect(CD2DEffect *this, struct CD2DResou
   CD2DResource::CD2DResource(this, a2, 0);
   v3 = *((_QWORD *)this + 2);
   *(_QWORD *)this = &CD2DEffect::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(v3 + 4) + 16) = &CD2DEffect::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(v3 + 4) + 16) = &CD2DPrimitiveProperties::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CD2DEffect::`vftable'{for `IDeviceResource'};
   v4 = *(int *)(*((_QWORD *)this + 2) + 4LL);
   *(_DWORD *)((char *)this + v4 + 12) = v4 - 80;

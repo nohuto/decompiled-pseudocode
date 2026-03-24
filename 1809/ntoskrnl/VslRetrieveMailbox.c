@@ -1,11 +1,11 @@
 /*
- * XREFs of VslRetrieveMailbox @ 0x14027BD20
+ * XREFs of VslRetrieveMailbox @ 0x14027BE20
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 NTSTATUS __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3, __int64 a4, _QWORD *a5)

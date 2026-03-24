@@ -1,34 +1,30 @@
 /*
- * XREFs of ?WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0370400
+ * XREFs of ?WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0236EC0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C00261B0 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     ?IsWsl2Guest@DXGVIRTUALMACHINE@@QEBAEXZ @ 0x1C00266B4 (-IsWsl2Guest@DXGVIRTUALMACHINE@@QEBAEXZ.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::WriteVirtualFunctionConfig(
-        DXGK_VIRTUAL_GPU_PARAV *this,
+        DXGVIRTUALMACHINE **this,
         struct _DXGKARG_WRITEVIRTUALFUNCTIONCONFIG *a2)
 {
-  __int64 Offset; // r9
-  size_t Length; // r8
-  ULONG v5; // ecx
+  __int64 v4; // r9
+  __int64 Offset; // rcx
+  size_t Length; // rdx
 
-  Offset = a2->Offset;
-  if ( (unsigned int)Offset >= 0xD0 )
+  if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
   {
-    Length = a2->Length;
-    if ( (unsigned int)(Length + Offset) <= 0xD4 )
-      goto LABEL_6;
-  }
-  if ( (unsigned int)Offset >= 0xD4 )
-  {
-    v5 = a2->Length;
-    if ( v5 + (unsigned int)Offset <= 0xD8 )
+    if ( DXGVIRTUALMACHINE::IsWsl2Guest(this[13])
+      && (Offset = a2->Offset, (unsigned int)Offset >= 0xD0)
+      && (Length = a2->Length, (unsigned int)(Length + Offset) <= 0xD4)
+      || (Offset = a2->Offset, (unsigned int)Offset >= 0xD4)
+      && (Length = a2->Length, (unsigned int)(Length + Offset) <= 0xD8) )
     {
-      Length = v5;
-LABEL_6:
-      memmove((void *)(Offset + 184 + *((_QWORD *)this + 13)), a2->Data, Length);
+      memmove((void *)(Offset + v4 + 144), a2->Data, Length);
     }
   }
   return 0LL;

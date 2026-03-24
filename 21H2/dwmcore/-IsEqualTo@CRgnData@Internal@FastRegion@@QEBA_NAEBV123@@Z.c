@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x18000E688
+ * XREFs of ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x18017C57C
  * Callers:
- *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x180068E10 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
+ *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x18006D468 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
  * Callees:
  *     <none>
  */

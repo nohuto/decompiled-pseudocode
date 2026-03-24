@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     CcUnpinFileDataEx @ 0x140020910 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x1400AE2B0 (CcPinFileData.c)
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400B00E0 (CcMapAndRead.c)
+ *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1400B0100 (CcMapAndRead.c)
  */
 
 BOOLEAN __stdcall CcMapData(

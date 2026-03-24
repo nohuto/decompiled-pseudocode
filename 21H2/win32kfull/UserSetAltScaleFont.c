@@ -1,17 +1,17 @@
 /*
- * XREFs of UserSetAltScaleFont @ 0x1C00C5A80
+ * XREFs of UserSetAltScaleFont @ 0x1C00E4424
  * Callers:
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     SetIconMetrics @ 0x1C00C6CF4 (SetIconMetrics.c)
- *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C0158F68 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ *     SetIconMetrics @ 0x1C00E22C0 (SetIconMetrics.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01D6B7C (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
  * Callees:
- *     GreCreateFontIndirectW @ 0x1C00131E4 (GreCreateFontIndirectW.c)
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
+ *     GreCreateFontIndirectW @ 0x1C00BA190 (GreCreateFontIndirectW.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
-__int64 __fastcall UserSetAltScaleFont(HBRUSH a1, __int64 *a2)
+__int64 __fastcall UserSetAltScaleFont(HSURF a1, __int64 *a2)
 {
   int ObjectW; // eax
   unsigned int v5; // ebx

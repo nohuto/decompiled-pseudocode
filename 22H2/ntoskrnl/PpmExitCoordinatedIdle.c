@@ -1,22 +1,21 @@
 /*
- * XREFs of PpmExitCoordinatedIdle @ 0x1402C6CA0
+ * XREFs of PpmExitCoordinatedIdle @ 0x140223FC0
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     KdPowerTransitionEx @ 0x1403AD360 (KdPowerTransitionEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PpmExitCoordinatedIdleState @ 0x140462634 (PpmExitCoordinatedIdleState.c)
- *     PpmEventCoordinatedIdleTransition @ 0x140462C2A (PpmEventCoordinatedIdleTransition.c)
- *     KdCallPowerHandlers @ 0x1405673E4 (KdCallPowerHandlers.c)
- *     PpmUpdatePlatformIdleAccounting @ 0x14058668C (PpmUpdatePlatformIdleAccounting.c)
- *     PopIdleWakeNotifyWakeSource @ 0x14059DC7C (PopIdleWakeNotifyWakeSource.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KdCallPowerHandlers @ 0x140510AC4 (KdCallPowerHandlers.c)
+ *     KdPowerTransitionEx @ 0x140510F00 (KdPowerTransitionEx.c)
+ *     PpmExitCoordinatedIdleState @ 0x140565B48 (PpmExitCoordinatedIdleState.c)
+ *     PpmUpdatePlatformIdleAccounting @ 0x1405680F4 (PpmUpdatePlatformIdleAccounting.c)
+ *     PpmEventCoordinatedIdleTransition @ 0x1405792B0 (PpmEventCoordinatedIdleTransition.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x14057BC60 (PopIdleWakeNotifyWakeSource.c)
  */
 
 __int64 __fastcall PpmExitCoordinatedIdle(
         __int64 a1,
         __int64 a2,
-        char a3,
+        __int64 i,
         int a4,
         char a5,
         unsigned __int64 a6,
@@ -24,129 +23,144 @@ __int64 __fastcall PpmExitCoordinatedIdle(
         __int64 a8,
         int a9)
 {
-  __int64 v9; // rsi
-  unsigned int v10; // ebx
-  __int64 i; // r8
+  __int64 v9; // rdi
+  char v11; // bp
+  unsigned int v14; // esi
+  __int64 result; // rax
+  __int64 v16; // rdx
   __int64 v17; // r9
-  __int64 v18; // rdx
-  int v19; // eax
-  int v20; // edx
-  unsigned int v21; // r12d
-  __int64 v22; // r13
-  int v23; // r8d
-  int v24; // r10d
-  char v25; // cl
-  __int64 v26; // rdx
-  unsigned __int64 v27; // r9
-  __int64 v28; // r12
-  unsigned __int64 v29; // r13
-  _BYTE v30[4]; // [rsp+30h] [rbp-48h] BYREF
-  int v31; // [rsp+34h] [rbp-44h]
-  int v32; // [rsp+38h] [rbp-40h] BYREF
-  int v33; // [rsp+3Ch] [rbp-3Ch]
-  ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-38h]
+  __int64 v18; // r13
+  __int64 v19; // rax
+  __int64 v20; // r12
+  unsigned int v21; // ecx
+  char v22; // r10
+  int v23; // r11d
+  __int64 v24; // rdx
+  unsigned __int64 v25; // r9
+  __int64 v26; // r12
+  unsigned __int64 v27; // rax
+  _BYTE v28[4]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v29; // [rsp+34h] [rbp-34h]
+  __int64 v30; // [rsp+38h] [rbp-30h]
 
   v9 = 0LL;
-  v30[0] = 0;
-  v10 = -1;
-  v32 = -1;
+  v28[0] = 0;
+  v11 = i;
+  v14 = -1;
   if ( PpmPlatformStates )
   {
-    if ( !a3 )
+    if ( !(_BYTE)i )
     {
       for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a2 + 4); i = (unsigned int)(i + 1) )
       {
-        v17 = *(unsigned int *)(*(_QWORD *)(a2 + 16) + 4 * i);
-        v18 = PpmPlatformStates + 448 * v17;
-        if ( (*(_DWORD *)(v18 + 416) & 0x3000000) == 0x1000000 )
-          *(_DWORD *)(v18 + 416) = *(_DWORD *)(v18 + 416) & 0xFE000FFF | ((*(_DWORD *)(v18 + 416) & 0xFFF | 0x2000) << 12);
+        v16 = *(unsigned int *)(*(_QWORD *)(a2 + 16) + 4 * i);
+        v17 = PpmPlatformStates + 384 * v16;
+        if ( (*(_DWORD *)(v17 + 320) & 0x3000000) == 0x1000000 )
+          *(_DWORD *)(v17 + 320) = *(_DWORD *)(v17 + 320) & 0xFE000FFF | ((*(_DWORD *)(v17 + 320) & 0xFFF | 0x2000) << 12);
         if ( a5 )
-          ++*(_DWORD *)(1016 * v17 + *(_QWORD *)(PpmPlatformStates + 48) + 24);
+          ++*(_DWORD *)(1008 * v16 + *(_QWORD *)(PpmPlatformStates + 48) + 24);
       }
     }
-    v19 = *(_DWORD *)PpmPlatformStates;
+    LODWORD(v18) = *(_DWORD *)PpmPlatformStates;
     if ( *(_DWORD *)PpmPlatformStates )
     {
       do
       {
-        v20 = *(_DWORD *)(a1 + 36);
-        v21 = v19 - 1;
-        LOBYTE(v31) = 0;
-        v22 = PpmPlatformStates + 448LL * (unsigned int)(v19 - 1);
-        v33 = v19 - 1;
-        BugCheckParameter2 = (unsigned int)(v19 - 1);
-        if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)(v22 + 128), v20)
-          && (unsigned __int8)PpmExitCoordinatedIdleState(v22 + 416, v30) )
+        v19 = *(unsigned int *)(a1 + 36);
+        v18 = (unsigned int)(v18 - 1);
+        LOBYTE(v29) = 0;
+        v20 = 384 * v18 + PpmPlatformStates + 64;
+        v21 = KiProcessorIndexToNumberMappingTable[v19];
+        v30 = v20;
+        if ( ((*(_QWORD *)(v20 + 8 * ((unsigned __int64)v21 >> 6) + 72) >> (v21 & 0x3F)) & 1) != 0
+          && (unsigned __int8)PpmExitCoordinatedIdleState(v20 + 256, v28, i) )
         {
-          *(_DWORD *)(*(_QWORD *)(a2 + 16) + 4 * v9) = v21;
+          v22 = a5;
+          *(_DWORD *)(*(_QWORD *)(a2 + 16) + 4 * v9) = v18;
           v9 = (unsigned int)(v9 + 1);
-          if ( (_DWORD)v9 == 1 && *(_BYTE *)(v22 + 121) )
+          if ( (_DWORD)v9 == 1 && *(_BYTE *)(v20 + 57) )
           {
-            LOBYTE(v23) = v31;
-            v10 = v21;
-            v24 = a9;
-            if ( a3 )
+            v14 = v18;
+            if ( v11 )
             {
-              v25 = a5;
-              if ( a4 >= 0 && !a5 && v21 == PpmDripsStateIndex )
+              if ( a4 < 0 || a5 )
               {
-                v23 = (unsigned __int8)v31;
-                if ( a9 != 130 )
-                  v23 = v9;
-                v31 = v23;
+                v23 = a9;
+                i = v29;
               }
-              if ( *(_BYTE *)(v22 + 120) )
+              else
+              {
+                i = v29;
+                v23 = a9;
+                if ( (_DWORD)v18 == PpmDripsStateIndex && *(_BYTE *)(PpmPlatformStates + 56) )
+                {
+                  i = (unsigned __int8)v29;
+                  if ( a9 != 7 )
+                    i = 1LL;
+                  v29 = i;
+                }
+              }
+              if ( *(_BYTE *)(v20 + 56) )
               {
                 KdCallPowerHandlers(1LL);
-                LOBYTE(v26) = 1;
-                KdPowerTransitionEx(2147483649LL, v26);
-                LOBYTE(v23) = v31;
-                v25 = a5;
-                v24 = a9;
+                LOBYTE(v24) = 1;
+                KdPowerTransitionEx(2147483649LL, v24);
+                i = v29;
+                v22 = a5;
+                v23 = a9;
               }
-              if ( (PopSimulate & 0x100) != 0 && a4 >= 0 && !v25 && a7 && v21 == PpmDripsStateIndex )
-                KeBugCheckEx(0xA0u, 0x599uLL, BugCheckParameter2, 0LL, 0LL);
+              if ( (PopSimulate & 0x100) != 0 && a4 >= 0 && v22 && a7 && (_DWORD)v18 == PpmDripsStateIndex )
+                KeBugCheckEx(0xA0u, 0x257uLL, (unsigned int)v18, 0LL, 0LL);
+            }
+            else
+            {
+              i = v29;
+              v23 = a9;
             }
             *(_BYTE *)(PpmPlatformStates + 56) = 0;
           }
           else
           {
-            v24 = a9;
-            LOBYTE(v23) = v31;
+            v23 = a9;
+            i = v29;
           }
-          if ( !a5 )
+          if ( !v22 )
           {
-            v27 = *(_QWORD *)(v22 + 424);
-            v28 = *(_QWORD *)(PpmPlatformStates + 48) + 1016LL * v21;
-            if ( a6 >= v27 )
+            v25 = *(_QWORD *)(v30 + 264);
+            v26 = *(_QWORD *)(PpmPlatformStates + 48) + 1008LL * (unsigned int)v18;
+            if ( a6 >= v25 )
             {
-              v29 = a6 - v27;
-              *(_QWORD *)(v28 + 56) += a6 - v27;
+              v27 = a6 - v25;
+              *(_QWORD *)(v26 + 56) += a6 - v25;
             }
             else
             {
-              v29 = 0LL;
+              v27 = 0LL;
             }
-            if ( (_BYTE)v23 )
-              PopIdleWakeNotifyWakeSource(v10, v24, a8, v27, a6, (__int64)&v32);
-            if ( a4 < 0 && v30[0] )
+            v30 = v27;
+            if ( (_BYTE)i )
             {
-              ++*(_DWORD *)(v28 + 28);
+              PopIdleWakeNotifyWakeSource(v14, v23, a8, v25, a6);
+              v27 = v30;
+            }
+            if ( a4 < 0 && v28[0] )
+            {
+              ++*(_DWORD *)(v26 + 28);
             }
             else
             {
-              ++*(_DWORD *)(v28 + 32);
-              PpmUpdatePlatformIdleAccounting(v28 + 24, v29);
+              ++*(_DWORD *)(v26 + 32);
+              PpmUpdatePlatformIdleAccounting(v26 + 24, v27);
             }
           }
         }
-        v19 = v33;
       }
-      while ( v33 );
+      while ( (_DWORD)v18 );
     }
-    if ( a3 )
-      PpmEventCoordinatedIdleTransition(0LL, (unsigned int)v9, *(_QWORD *)(a2 + 16), &v32);
+    if ( v11 )
+      PpmEventCoordinatedIdleTransition(0LL, (unsigned int)v9, *(_QWORD *)(a2 + 16));
   }
+  result = v14;
   *(_DWORD *)(a2 + 4) = v9;
-  return v10;
+  return result;
 }

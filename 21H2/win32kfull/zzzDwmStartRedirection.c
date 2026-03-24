@@ -1,43 +1,50 @@
 /*
- * XREFs of zzzDwmStartRedirection @ 0x1C0098F14
+ * XREFs of zzzDwmStartRedirection @ 0x1C00E977C
  * Callers:
- *     NtUserDwmKernelStartup @ 0x1C0121980 (NtUserDwmKernelStartup.c)
+ *     NtUserDwmKernelStartup @ 0x1C0136150 (NtUserDwmKernelStartup.c)
  * Callees:
- *     CreateOrGetRedirectionBitmap @ 0x1C001F528 (CreateOrGetRedirectionBitmap.c)
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     zzzEnableDwmPointerSupport @ 0x1C0097F94 (zzzEnableDwmPointerSupport.c)
- *     DwmAsyncDesktopFree @ 0x1C0098654 (DwmAsyncDesktopFree.c)
- *     DwmNotifyChildrenAddRemove @ 0x1C00986F4 (DwmNotifyChildrenAddRemove.c)
- *     DwmAsyncDesktopCreate @ 0x1C0099104 (DwmAsyncDesktopCreate.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
- *     DeleteOrSetRedirectionBitmap @ 0x1C00B4214 (DeleteOrSetRedirectionBitmap.c)
- *     _GetProcessWindowStation @ 0x1C00CEC40 (_GetProcessWindowStation.c)
- *     GreDwmStartup @ 0x1C00D3840 (GreDwmStartup.c)
- *     bSetDevDragRect @ 0x1C010FE70 (bSetDevDragRect.c)
- *     GreDwmShutdown @ 0x1C011FFD8 (GreDwmShutdown.c)
- *     StopFade @ 0x1C01E26E0 (StopFade.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
+ *     bSetDevDragRect @ 0x1C0029500 (bSetDevDragRect.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C002979C (zzzEnableDwmPointerSupport.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BF148 (CreateOrGetRedirectionBitmap.c)
+ *     DwmAsyncDesktopCreate @ 0x1C00E96D4 (DwmAsyncDesktopCreate.c)
+ *     DwmAsyncDesktopFree @ 0x1C00E9BB4 (DwmAsyncDesktopFree.c)
+ *     DwmNotifyChildrenAddRemove @ 0x1C00E9C54 (DwmNotifyChildrenAddRemove.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF958 (DeleteOrSetRedirectionBitmap.c)
+ *     GreDwmShutdown @ 0x1C0134404 (GreDwmShutdown.c)
+ *     StopFade @ 0x1C01E8050 (StopFade.c)
  */
 
 __int64 zzzDwmStartRedirection()
 {
   __int64 ProcessWindowStation; // rdi
+  __int64 v1; // rdx
   int RedirectionBitmap; // r14d
   __int64 i; // rsi
-  void *v3; // rax
+  __int64 **v4; // rax
+  __int64 v5; // rbx
+  void *v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 j; // rbx
-  void *v5; // rbx
+  void *v10; // rbx
+  __int64 v12; // r9
   __int64 k; // rsi
-  __int64 v8; // rbx
-  void *v9; // rax
-  __int64 v10; // rdx
+  __int64 v14; // rdx
+  void *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // r9
   __int64 m; // rbx
-  __int64 v12; // rdx
-  _OWORD v13[2]; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-10h]
-  int v15; // [rsp+48h] [rbp-8h]
-  HSURF v16; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v19; // rdx
+  _OWORD v20[2]; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-10h]
+  int v22; // [rsp+48h] [rbp-8h]
+  HSURF v23; // [rsp+80h] [rbp+30h] BYREF
 
-  v16 = 0LL;
+  v23 = 0LL;
   ProcessWindowStation = GetProcessWindowStation(0LL);
   if ( !(unsigned int)IsDwmApiPortRegistered() || (*(_DWORD *)(ProcessWindowStation + 64) & 4) != 0 )
   {
@@ -45,22 +52,24 @@ __int64 zzzDwmStartRedirection()
   }
   else
   {
-    RedirectionBitmap = CreateOrGetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), 1, 0, &v16);
+    RedirectionBitmap = CreateOrGetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), 1, 0, &v23);
     if ( RedirectionBitmap >= 0 )
     {
-      *(_QWORD *)(ProcessWindowStation + 120) = v16;
+      *(_QWORD *)(ProcessWindowStation + 120) = v23;
       if ( grpdeskRitInput )
       {
         for ( i = *(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 40LL) + 16LL); i; i = *(_QWORD *)(i + 32) )
         {
-          v3 = (void *)ReferenceDwmApiPort();
-          DwmAsyncDesktopCreate(v3);
-          DwmNotifyChildrenAddRemove((struct tagDESKTOP *)i, 1);
+          v4 = *(__int64 ***)(i + 8);
+          v5 = **v4;
+          v6 = (void *)ReferenceDwmApiPort(*v4, v1);
+          DwmAsyncDesktopCreate(v6, v5);
+          DwmNotifyChildrenAddRemove((struct tagDESKTOP *)i);
         }
       }
       if ( gfade[2] )
         StopFade();
-      bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL));
+      bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL), 0LL, 0LL, 0);
       if ( (unsigned int)GreDwmStartup(*(_QWORD *)(gpDispInfo + 40LL)) )
       {
         zzzEnableDwmPointerSupport(1u, 0);
@@ -75,45 +84,44 @@ __int64 zzzDwmStartRedirection()
               for ( k = *(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 40LL) + 16LL); k; k = *(_QWORD *)(k + 32) )
               {
                 zzzDecomposeDesktop((struct tagDESKTOP *)k);
-                DwmNotifyChildrenAddRemove((struct tagDESKTOP *)k, 0);
-                v8 = ***(_QWORD ***)(k + 8);
-                v9 = (void *)ReferenceDwmApiPort();
-                DwmAsyncDesktopFree(v9, v8);
+                DwmNotifyChildrenAddRemove((struct tagDESKTOP *)k);
+                v15 = (void *)ReferenceDwmApiPort(**(_QWORD **)(k + 8), v14);
+                DwmAsyncDesktopFree(v15);
               }
-              v10 = *(_QWORD *)(ProcessWindowStation + 120);
-              if ( v10 )
-                DeleteOrSetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), v10, 1LL);
+              v16 = *(_QWORD *)(ProcessWindowStation + 120);
+              if ( v16 )
+                DeleteOrSetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), v16, 1LL, v12);
               GreDwmShutdown(*(_QWORD *)(gpDispInfo + 40LL));
-              bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL));
+              bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL), 0LL, 0LL, 0);
               break;
             }
           }
         }
-        v5 = (void *)ReferenceDwmApiPort();
-        if ( v5 )
+        v10 = (void *)ReferenceDwmApiPort(v8, v7);
+        if ( v10 )
         {
-          v15 = 1073741896;
-          v14 = 0LL;
-          memset(v13, 0, sizeof(v13));
-          LODWORD(v13[0]) = 2883588;
-          WORD2(v13[0]) = 0x8000;
-          LpcRequestPort(v5, v13);
-          ObfDereferenceObject(v5);
+          v22 = 1073741894;
+          v21 = 0LL;
+          memset(v20, 0, sizeof(v20));
+          LODWORD(v20[0]) = 2883588;
+          WORD2(v20[0]) = 0x8000;
+          LpcRequestPort(v10, v20);
+          ObfDereferenceObject(v10);
         }
         UnlockUpdatesForDwm();
         *(_DWORD *)(ProcessWindowStation + 64) |= 0x200u;
       }
       else
       {
-        bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL));
+        bSetDevDragRect(*(HDEV *)(gpDispInfo + 40LL), 0LL, 0LL, 0);
         if ( grpdeskRitInput )
         {
           for ( m = *(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 40LL) + 16LL); m; m = *(_QWORD *)(m + 32) )
-            DwmNotifyChildrenAddRemove((struct tagDESKTOP *)m, 0);
+            DwmNotifyChildrenAddRemove((struct tagDESKTOP *)m);
         }
-        v12 = *(_QWORD *)(ProcessWindowStation + 120);
-        if ( v12 )
-          DeleteOrSetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), v12, 1LL);
+        v19 = *(_QWORD *)(ProcessWindowStation + 120);
+        if ( v19 )
+          DeleteOrSetRedirectionBitmap(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL), v19, 1LL, v17);
       }
     }
   }

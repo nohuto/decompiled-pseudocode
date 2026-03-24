@@ -2,7 +2,7 @@
  * XREFs of MiVadIsCfgBitmap @ 0x140604D30
  * Callers:
  *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
- *     NtAreMappedFilesTheSame @ 0x140704CC0 (NtAreMappedFilesTheSame.c)
+ *     NtAreMappedFilesTheSame @ 0x140704CA0 (NtAreMappedFilesTheSame.c)
  * Callees:
  *     <none>
  */

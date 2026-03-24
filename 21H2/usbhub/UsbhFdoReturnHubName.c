@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhFdoReturnHubName @ 0x1C0030748
+ * XREFs of UsbhFdoReturnHubName @ 0x1C0031AF0
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhGetHubPdoName @ 0x1C002BD20 (UsbhGetHubPdoName.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhGetHubPdoName @ 0x1C002D13C (UsbhGetHubPdoName.c)
  */
 
 __int64 __fastcall UsbhFdoReturnHubName(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of TriagepVerifyDump @ 0x140B9D0D4
+ * XREFs of TriagepVerifyDump @ 0x140A95D6C
  * Callers:
- *     TriageGetLoaderEntry @ 0x1406798B8 (TriageGetLoaderEntry.c)
- *     MmTriageActiveInLastCrash @ 0x140B9A874 (MmTriageActiveInLastCrash.c)
- *     TriageGetBugcheckData @ 0x140B9CFE0 (TriageGetBugcheckData.c)
- *     TriageGetDriverCount @ 0x140B9D05C (TriageGetDriverCount.c)
+ *     TriageGetLoaderEntry @ 0x1405C9EBC (TriageGetLoaderEntry.c)
+ *     MmTriageActiveInLastCrash @ 0x140A9228C (MmTriageActiveInLastCrash.c)
+ *     TriageGetBugcheckData @ 0x140A95C78 (TriageGetBugcheckData.c)
+ *     TriageGetDriverCount @ 0x140A95CF4 (TriageGetDriverCount.c)
  * Callees:
- *     TriagepGetPageSize @ 0x140B9D0A0 (TriagepGetPageSize.c)
+ *     TriagepGetPageSize @ 0x140A95D38 (TriagepGetPageSize.c)
  */
 
 char __fastcall TriagepVerifyDump(_DWORD *a1)

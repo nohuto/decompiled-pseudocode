@@ -1,125 +1,126 @@
 /*
- * XREFs of ?ColorRgb@CExpressionValueStack@@QEAAJXZ @ 0x1800EBE80
+ * XREFs of ?ColorRgb@CExpressionValueStack@@QEAAJXZ @ 0x18001C0B8
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
  */
 
-__int64 __fastcall CExpressionValueStack::ColorRgb(CExpressionValueStack *this)
+__int64 __fastcall CExpressionValueStack::ColorRgb(unsigned __int64 this)
 {
-  char IsEnabled; // al
-  float *v3; // rdi
-  unsigned int v4; // edx
+  unsigned __int64 v1; // rdi
+  unsigned int v2; // edx
+  __int64 v3; // rax
+  float *v4; // rbx
   CExpressionValue *v5; // rax
-  float *v6; // rbp
-  char v7; // al
-  unsigned int v8; // edx
-  CExpressionValue *v9; // rax
-  float *v10; // r15
-  char v11; // al
-  unsigned int v12; // edx
+  float *v6; // rsi
+  __int64 v7; // rax
+  CExpressionValue *v8; // rax
+  float *v9; // r14
+  __int64 v10; // rax
+  CExpressionValue *v11; // rax
+  float *v12; // rbp
   CExpressionValue *v13; // rax
-  float *v14; // r14
-  char v15; // al
-  unsigned int v16; // edx
-  CExpressionValue *v17; // rax
-  unsigned int v18; // esi
-  float v19; // xmm2_4
-  float v20; // xmm5_4
-  float v21; // xmm0_4
-  float v22; // xmm4_4
-  unsigned int v24; // [rsp+20h] [rbp-78h]
-  _BYTE v25[80]; // [rsp+30h] [rbp-68h] BYREF
+  unsigned int v14; // r15d
+  float v15; // xmm2_4
+  float v16; // xmm5_4
+  float v17; // xmm0_4
+  float v18; // xmm4_4
+  unsigned int v20; // [rsp+20h] [rbp-78h]
+  _BYTE v21[80]; // [rsp+30h] [rbp-68h] BYREF
 
-  if ( *((_DWORD *)this + 4) < 4u )
+  v1 = this;
+  LODWORD(this) = *(_DWORD *)(this + 16);
+  if ( (unsigned int)this < 4 )
   {
-    v24 = 5303;
-LABEL_25:
-    v18 = -2147467259;
+    v20 = 5297;
+LABEL_21:
+    v14 = -2147467259;
     MilInstrumentationCheckHR_MaybeFailFast(
-      (__int64)this,
+      this,
       &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-      1LL,
+      1u,
       -2147467259,
-      v24);
-    return v18;
+      v20,
+      0LL);
+    return v14;
   }
-  IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-  v3 = (float *)&CExpressionValueStack::s_emptyValue;
-  v4 = *((_DWORD *)this + 4) - 4;
-  if ( IsEnabled && v4 >= *((_DWORD *)this + 12) )
+  v2 = *(_DWORD *)(v1 + 48);
+  v3 = (unsigned int)(this - 4);
+  v4 = (float *)&CExpressionValueStack::s_emptyValue;
+  if ( (unsigned int)v3 < v2 )
   {
-    v5 = CExpressionValue::CExpressionValue((CExpressionValue *)v25);
+    v6 = (float *)(*(_QWORD *)(v1 + 24) + 80 * v3);
+  }
+  else
+  {
+    v5 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
     CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v5);
-    CExpressionValue::~CExpressionValue((CExpressionValue *)v25);
+    CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
+    LODWORD(this) = *(_DWORD *)(v1 + 16);
     v6 = (float *)&CExpressionValueStack::s_emptyValue;
+    v2 = *(_DWORD *)(v1 + 48);
+  }
+  v7 = (unsigned int)(this - 3);
+  if ( (unsigned int)v7 < v2 )
+  {
+    v9 = (float *)(*(_QWORD *)(v1 + 24) + 80 * v7);
   }
   else
   {
-    v6 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v4);
+    v8 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
+    CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v8);
+    CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
+    LODWORD(this) = *(_DWORD *)(v1 + 16);
+    v9 = (float *)&CExpressionValueStack::s_emptyValue;
+    v2 = *(_DWORD *)(v1 + 48);
   }
-  v7 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-  v8 = *((_DWORD *)this + 4) - 3;
-  if ( v7 && v8 >= *((_DWORD *)this + 12) )
+  v10 = (unsigned int)(this - 2);
+  if ( (unsigned int)v10 < v2 )
   {
-    v9 = CExpressionValue::CExpressionValue((CExpressionValue *)v25);
-    CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v9);
-    CExpressionValue::~CExpressionValue((CExpressionValue *)v25);
-    v10 = (float *)&CExpressionValueStack::s_emptyValue;
+    v12 = (float *)(*(_QWORD *)(v1 + 24) + 80 * v10);
   }
   else
   {
-    v10 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v8);
+    v11 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
+    CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v11);
+    CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
+    LODWORD(this) = *(_DWORD *)(v1 + 16);
+    v12 = (float *)&CExpressionValueStack::s_emptyValue;
+    v2 = *(_DWORD *)(v1 + 48);
   }
-  v11 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-  v12 = *((_DWORD *)this + 4) - 2;
-  if ( v11 && v12 >= *((_DWORD *)this + 12) )
+  this = (unsigned int)(this - 1);
+  if ( (unsigned int)this < v2 )
   {
-    v13 = CExpressionValue::CExpressionValue((CExpressionValue *)v25);
+    v4 = (float *)(*(_QWORD *)(v1 + 24) + 80 * this);
+  }
+  else
+  {
+    v13 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
     CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v13);
-    CExpressionValue::~CExpressionValue((CExpressionValue *)v25);
-    v14 = (float *)&CExpressionValueStack::s_emptyValue;
-  }
-  else
-  {
-    v14 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v12);
-  }
-  v15 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled(&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-  v16 = *((_DWORD *)this + 4) - 1;
-  if ( v15 && v16 >= *((_DWORD *)this + 12) )
-  {
-    v17 = CExpressionValue::CExpressionValue((CExpressionValue *)v25);
-    CExpressionValue::operator=(&CExpressionValueStack::s_emptyValue, v17);
-    CExpressionValue::~CExpressionValue((CExpressionValue *)v25);
-  }
-  else
-  {
-    v3 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v16);
+    CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
   }
   if ( *((_DWORD *)v6 + 18) != 18
-    || *((_DWORD *)v10 + 18) != 18
-    || *((_DWORD *)v14 + 18) != 18
-    || (v18 = 0, *((_DWORD *)v3 + 18) != 18) )
+    || *((_DWORD *)v9 + 18) != 18
+    || *((_DWORD *)v12 + 18) != 18
+    || (v14 = 0, *((_DWORD *)v4 + 18) != 18) )
   {
-    v24 = 5321;
-    goto LABEL_25;
+    v20 = 5315;
+    goto LABEL_21;
   }
-  v19 = fminf(*v10, 255.0);
-  v20 = fminf(*v14, 255.0);
-  v21 = *v6;
-  v22 = fminf(*v3, 255.0);
+  v15 = fminf(*v9, 255.0);
+  v16 = fminf(*v12, 255.0);
+  v17 = *v6;
+  v18 = fminf(*v4, 255.0);
   *((_DWORD *)v6 + 18) = 70;
-  *v6 = fmaxf(v19, 0.0) / 255.0;
-  v6[1] = fmaxf(v20, 0.0) / 255.0;
-  v6[2] = fmaxf(v22, 0.0) / 255.0;
-  v6[3] = fmaxf(fminf(v21, 255.0), 0.0) / 255.0;
+  *v6 = fmaxf(v15, 0.0) / 255.0;
+  v6[1] = fmaxf(v16, 0.0) / 255.0;
+  v6[2] = fmaxf(v18, 0.0) / 255.0;
+  v6[3] = fmaxf(fminf(v17, 255.0), 0.0) / 255.0;
   *((_BYTE *)v6 + 76) = 1;
-  *((_DWORD *)this + 4) -= 3;
-  return v18;
+  *(_DWORD *)(v1 + 16) -= 3;
+  return v14;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of ?BitmapSource@CChannel@@UEAAJIPEAUIWICBitmap@@@Z @ 0x1800E9E90
+ * XREFs of ?BitmapSource@CChannel@@UEAAJIPEAUIWICBitmap@@@Z @ 0x1800D7F90
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CChannel::BitmapSource(CDataStreamWriter **this, unsigned int a2, struct IWICBitmap *a3)
+__int64 __fastcall CChannel::BitmapSource(CChannel *this, unsigned int a2, struct IWICBitmap *a3)
 {
   unsigned int v6; // ebx
   _DWORD v8[2]; // [rsp+20h] [rbp-18h] BYREF
   struct IWICBitmap *v9; // [rsp+28h] [rbp-10h]
   struct _RTL_CRITICAL_SECTION *v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v10 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  v10 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   CChannel::CheckHandle((__int64)this, a2, 11);
   if ( a3 )
     ((void (__fastcall *)(struct IWICBitmap *))a3->lpVtbl->AddRef)(a3);

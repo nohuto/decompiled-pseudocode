@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogSessionActivate @ 0x140884A48
+ * XREFs of TtmiLogSessionActivate @ 0x140884A28
  * Callers:
- *     TtmpActivateSessionWorker @ 0x1408806E8 (TtmpActivateSessionWorker.c)
+ *     TtmpActivateSessionWorker @ 0x1408806C8 (TtmpActivateSessionWorker.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionActivate()
@@ -27,7 +27,7 @@ void TtmiLogSessionActivate()
       v1 = ProcessSessionId;
       v3 = &v1;
       v4 = 4;
-      TlgWrite(&stru_14096D820, &unk_1403721BC, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_14096D820, &unk_14037238D, 0LL, 0LL, 3u, &pData);
     }
   }
 }

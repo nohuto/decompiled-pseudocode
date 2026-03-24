@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierMmCreateMirror @ 0x140A8F080
+ * XREFs of VerifierMmCreateMirror @ 0x1409D3690
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierMmCreateMirror()

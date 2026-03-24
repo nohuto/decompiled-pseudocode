@@ -1,28 +1,28 @@
 /*
- * XREFs of PopSaveHiberContextWrapper @ 0x140428590
+ * XREFs of PopSaveHiberContextWrapper @ 0x140406DC0
  * Callers:
  *     <none>
  * Callees:
- *     KeSaveStateForHibernate @ 0x14041F430 (KeSaveStateForHibernate.c)
- *     PopHiberCheckResume @ 0x140AA2F60 (PopHiberCheckResume.c)
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
+ *     KeSaveStateForHibernate @ 0x1403FE550 (KeSaveStateForHibernate.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
+ *     PopHiberCheckResume @ 0x140998890 (PopHiberCheckResume.c)
  */
 
-__int64 __fastcall PopSaveHiberContextWrapper(PVOID Address)
+__int64 __fastcall PopSaveHiberContextWrapper(ULONG_PTR BugCheckParameter3)
 {
-  PVOID v1; // rbp
+  ULONG_PTR v1; // rbp
   bool v2; // zf
   __int64 result; // rax
 
   if ( !__readgsdword(0x1A4u) )
   {
-    v1 = Address;
+    v1 = BugCheckParameter3;
     KeSaveStateForHibernate((__int64)&PoWakeState);
     v2 = (unsigned __int8)PopHiberCheckResume() == 0;
     result = 1073742484LL;
     if ( !v2 )
       return result;
-    Address = v1;
+    BugCheckParameter3 = v1;
   }
-  return PopSaveHiberContext(Address);
+  return PopSaveHiberContext(BugCheckParameter3);
 }

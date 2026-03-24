@@ -1,28 +1,29 @@
 /*
- * XREFs of ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0025E68
+ * XREFs of ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0067074
  * Callers:
- *     NtUserGetIconInfo @ 0x1C00240A0 (NtUserGetIconInfo.c)
- *     NtUserDrawIconEx @ 0x1C00BDC50 (NtUserDrawIconEx.c)
- *     NtUserGetIconSize @ 0x1C00FB970 (NtUserGetIconSize.c)
- *     NtUserGetCursorFrameInfo @ 0x1C014A720 (NtUserGetCursorFrameInfo.c)
+ *     NtUserDrawIconEx @ 0x1C0043E90 (NtUserDrawIconEx.c)
+ *     NtUserGetIconInfo @ 0x1C00672D0 (NtUserGetIconInfo.c)
+ *     NtUserGetIconSize @ 0x1C010F600 (NtUserGetIconSize.c)
+ *     NtUserGetCursorFrameInfo @ 0x1C0162370 (NtUserGetCursorFrameInfo.c)
  * Callees:
- *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C0025EA8 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
- *     GetDpiForSystem @ 0x1C006878C (GetDpiForSystem.c)
- *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C00A1F0C (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
- *     ?GetSizeForDpi@CCursorSizes@@QEBAII@Z @ 0x1C01083EC (-GetSizeForDpi@CCursorSizes@@QEBAII@Z.c)
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0024D48 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     GetDpiForSystem @ 0x1C0063CBC (GetDpiForSystem.c)
+ *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C00670B4 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
+ *     ?GetSizeForDpi@CCursorSizes@@QEBAII@Z @ 0x1C011C45C (-GetSizeForDpi@CCursorSizes@@QEBAII@Z.c)
  */
 
 struct tagCURSOR *__fastcall GetVirtualizedDpiCursor(struct tagCURSOR *a1)
 {
+  __int64 v2; // rcx
   struct tagCURSOR *result; // rax
   unsigned int DpiForSystem; // eax
-  CCursorSizes *v4; // rcx
-  unsigned int SizeForDpi; // eax
+  CCursorSizes *v5; // rcx
+  int SizeForDpi; // eax
 
   if ( !ShouldVirtualizeIconCursorSize(a1) )
     return a1;
-  DpiForSystem = GetDpiForSystem();
-  SizeForDpi = CCursorSizes::GetSizeForDpi(v4, DpiForSystem);
+  DpiForSystem = GetDpiForSystem(v2);
+  SizeForDpi = CCursorSizes::GetSizeForDpi(v5, DpiForSystem);
   result = FindDPICursor(a1, SizeForDpi);
   if ( !result )
     return a1;

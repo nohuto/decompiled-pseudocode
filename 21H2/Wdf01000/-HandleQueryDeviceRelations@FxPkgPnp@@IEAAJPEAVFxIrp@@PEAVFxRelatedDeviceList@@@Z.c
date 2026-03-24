@@ -1,16 +1,17 @@
 /*
- * XREFs of ?HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z @ 0x1C0088464
+ * XREFs of ?HandleQueryDeviceRelations@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAVFxRelatedDeviceList@@@Z @ 0x1C0080654
  * Callers:
- *     ?PnpQueryDeviceRelations@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0002D18 (-PnpQueryDeviceRelations@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
- *     ?PnpQueryDeviceRelations@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0002F18 (-PnpQueryDeviceRelations@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpQueryDeviceRelations@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0004568 (-PnpQueryDeviceRelations@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpQueryDeviceRelations@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0004A78 (-PnpQueryDeviceRelations@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018170 (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018234 (-LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     WPP_IFR_SF_qdd @ 0x1C005CC6C (WPP_IFR_SF_qdd.c)
- *     ?GetNextEntry@FxRelatedDeviceList@@QEAAPEAVFxRelatedDevice@@PEAV2@@Z @ 0x1C0091644 (-GetNextEntry@FxRelatedDeviceList@@QEAAPEAVFxRelatedDevice@@PEAV2@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010A9C (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0010B60 (-LockForEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     WPP_IFR_SF_qdd @ 0x1C003C938 (WPP_IFR_SF_qdd.c)
+ *     ?GetNextEntry@FxRelatedDeviceList@@QEAAPEAVFxRelatedDevice@@PEAV2@@Z @ 0x1C0091494 (-GetNextEntry@FxRelatedDeviceList@@QEAAPEAVFxRelatedDevice@@PEAV2@@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::HandleQueryDeviceRelations(FxPkgPnp *this, FxIrp *Irp, FxRelatedDeviceList *List)
@@ -24,14 +25,15 @@ __int64 __fastcall FxPkgPnp::HandleQueryDeviceRelations(FxPkgPnp *this, FxIrp *I
   _DWORD *Information; // rdi
   int v13; // ebx
   FxRelatedDevice *NextEntry; // rax
-  __int64 v15; // rdx
-  _DWORD *Pool2; // rbp
+  SIZE_T v15; // rbx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v17; // rbp
   __int64 i; // rbx
   unsigned __int8 m_Retries; // bl
   const void *_a1; // rax
-  bool v20; // bl
-  FxRelatedDevice *v21; // rbx
-  FxRelatedDevice *v22; // rax
+  bool v21; // bl
+  FxRelatedDevice *v22; // rbx
+  FxRelatedDevice *v23; // rax
   _DEVICE_OBJECT *m_DeviceObject; // rcx
   DEVICE_RELATION_TYPE Type; // [rsp+98h] [rbp+20h]
 
@@ -76,27 +78,29 @@ __int64 __fastcall FxPkgPnp::HandleQueryDeviceRelations(FxPkgPnp *this, FxIrp *I
   }
   v15 = 4LL;
 LABEL_17:
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v15, m_Globals->Tag);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v15, m_Globals->Tag);
+  v17 = PoolWithTag;
+  if ( PoolWithTag )
   {
+    memset(PoolWithTag, 0, v15);
     if ( Information && *Information )
-      memmove(Pool2, Information, 8LL * (unsigned int)(*Information - 1) + 16);
-    v21 = 0LL;
+      memmove(v17, Information, 8LL * (unsigned int)(*Information - 1) + 16);
+    v22 = 0LL;
     while ( 1 )
     {
-      v22 = FxRelatedDeviceList::GetNextEntry(List, v21);
-      v21 = v22;
-      if ( !v22 )
+      v23 = FxRelatedDeviceList::GetNextEntry(List, v22);
+      v22 = v23;
+      if ( !v23 )
         break;
-      m_DeviceObject = v22->m_DeviceObject;
-      if ( v22->m_State == RelatedDeviceStateNeedsReportPresent )
-        v22->m_State = RelatedDeviceStateReportedPresent;
-      *(_QWORD *)&Pool2[2 * *Pool2 + 2] = m_DeviceObject;
+      m_DeviceObject = v23->m_DeviceObject;
+      if ( v23->m_State == RelatedDeviceStateNeedsReportPresent )
+        v23->m_State = RelatedDeviceStateReportedPresent;
+      *(_QWORD *)&v17[2 * *v17 + 2] = m_DeviceObject;
       ObfReferenceObject(m_DeviceObject);
-      ++*Pool2;
+      ++*v17;
     }
     List->m_Retries = 0;
-    v20 = 0;
+    v21 = 0;
   }
   else
   {
@@ -110,15 +114,15 @@ LABEL_17:
     m_Retries = List->m_Retries;
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
     WPP_IFR_SF_qdd(m_Globals, 2u, 0xCu, 0x1Eu, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, _a1, Type, 0xC000009A);
-    v20 = m_Retries < 3u;
+    v21 = m_Retries < 3u;
   }
   FxTransactionedList::UnlockFromEnum(List, this->m_Globals);
   if ( Information )
     ExFreePoolWithTag(Information, 0);
-  if ( v20 )
+  if ( v21 )
     IoInvalidateDeviceRelations(this->m_DeviceBase->m_PhysicalDevice.m_DeviceObject, Type);
   result = v8;
   Irp->m_Irp->IoStatus.Status = v8;
-  Irp->m_Irp->IoStatus.Information = (unsigned __int64)Pool2;
+  Irp->m_Irp->IoStatus.Information = (unsigned __int64)v17;
   return result;
 }

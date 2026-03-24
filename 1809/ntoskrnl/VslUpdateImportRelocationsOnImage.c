@@ -1,10 +1,10 @@
 /*
- * XREFs of VslUpdateImportRelocationsOnImage @ 0x1401B3F1C
+ * XREFs of VslUpdateImportRelocationsOnImage @ 0x1401B3F3C
  * Callers:
- *     MiApplyImportOptimizationToBootDrivers @ 0x1409F6F30 (MiApplyImportOptimizationToBootDrivers.c)
+ *     MiApplyImportOptimizationToBootDrivers @ 0x1409F6F40 (MiApplyImportOptimizationToBootDrivers.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslUpdateImportRelocationsOnImage(__int64 a1)

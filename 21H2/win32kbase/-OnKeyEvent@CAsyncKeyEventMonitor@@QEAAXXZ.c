@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ @ 0x1C003EC84
+ * XREFs of ?OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ @ 0x1C004D99C
  * Callers:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
  * Callees:
- *     ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C00BBAEC (-ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z.c)
+ *     ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C00AB054 (-ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z.c)
  */
 
 void __fastcall CAsyncKeyEventMonitor::OnKeyEvent(CAsyncKeyEventMonitor *this)

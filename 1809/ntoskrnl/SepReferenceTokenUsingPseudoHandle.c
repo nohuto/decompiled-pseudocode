@@ -1,15 +1,15 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1400A8DF0
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1400A8D60 (SepReferenceTokenByHandle.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepReferenceTokenByHandle @ 0x1400A8D80 (SepReferenceTokenByHandle.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SepSidFromProcessProtection @ 0x1400ABACC (SepSidFromProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     SepSidFromProcessProtection @ 0x1400ABAEC (SepSidFromProcessProtection.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     PsReferenceImpersonationTokenEx @ 0x140631BA0 (PsReferenceImpersonationTokenEx.c)
- *     PsReferenceEffectiveToken @ 0x1406492D0 (PsReferenceEffectiveToken.c)
+ *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
  */
 
 __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, __int64 *a4)

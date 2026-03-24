@@ -1,42 +1,57 @@
 /*
- * XREFs of BiAcquireBcdSyncMutant @ 0x14081369C
+ * XREFs of BiAcquireBcdSyncMutant @ 0x140784938
  * Callers:
- *     BcdFlushStore @ 0x1408009E0 (BcdFlushStore.c)
- *     BcdQueryObject @ 0x140800A38 (BcdQueryObject.c)
- *     BiDeleteElement @ 0x14080271C (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x140803250 (BcdSetElementDataWithFlags.c)
- *     BcdForciblyUnloadStore @ 0x1408072C0 (BcdForciblyUnloadStore.c)
- *     BcdCloseStore @ 0x1408124A0 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x1408125C4 (BcdOpenStore.c)
- *     BcdOpenObject @ 0x140812B74 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140812D00 (BcdCloseObject.c)
- *     BcdGetElementDataWithFlags @ 0x140812D44 (BcdGetElementDataWithFlags.c)
- *     SepSecureBootCorrectBcd @ 0x1409CDCC8 (SepSecureBootCorrectBcd.c)
- *     BcdSetSystemStore @ 0x140A1CAC4 (BcdSetSystemStore.c)
- *     BcdCreateObject @ 0x140A1CB84 (BcdCreateObject.c)
- *     BcdDeleteObject @ 0x140A1CC1C (BcdDeleteObject.c)
- *     BcdEnumerateObjects @ 0x140A1CC78 (BcdEnumerateObjects.c)
+ *     BcdForciblyUnloadStore @ 0x1407792D8 (BcdForciblyUnloadStore.c)
+ *     BcdFlushStore @ 0x14077A294 (BcdFlushStore.c)
+ *     BcdCloseStore @ 0x140782414 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140782E48 (BcdOpenStore.c)
+ *     BiDeleteElement @ 0x14078319C (BiDeleteElement.c)
+ *     BcdQueryObject @ 0x140783304 (BcdQueryObject.c)
+ *     BcdOpenObject @ 0x140783A40 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783BCC (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140783FDC (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407841C0 (BcdGetElementDataWithFlags.c)
+ *     SepSecureBootCorrectBcd @ 0x1409241E8 (SepSecureBootCorrectBcd.c)
+ *     BcdCreateObject @ 0x14096EC18 (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x14096ECB0 (BcdDeleteObject.c)
+ *     BcdEnumerateObjects @ 0x14096ED0C (BcdEnumerateObjects.c)
  * Callees:
- *     ZwWaitForSingleObject @ 0x14041B7E0 (ZwWaitForSingleObject.c)
- *     BiGetCurrentBcdMutantHandle @ 0x1408136FC (BiGetCurrentBcdMutantHandle.c)
+ *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenMutant @ 0x1403FC840 (ZwOpenMutant.c)
  */
 
-NTSTATUS __fastcall BiAcquireBcdSyncMutant(char a1)
+int __fastcall BiAcquireBcdSyncMutant(char a1)
 {
-  NTSTATUS result; // eax
-  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
-  LARGE_INTEGER Timeout; // [rsp+40h] [rbp+18h] BYREF
+  HANDLE v1; // rcx
+  int result; // eax
+  HANDLE Handle; // [rsp+68h] [rbp+18h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+70h] [rbp+20h] BYREF
 
-  v2 = 0LL;
   if ( a1 )
     return 0;
-  result = BiGetCurrentBcdMutantHandle(&v2);
-  if ( result < 0 )
-    return result;
-  if ( v2 == -1 )
+  Handle = 0LL;
+  v1 = BcdMutantHandle;
+  if ( !BcdMutantHandle )
+  {
+    result = ZwOpenMutant((__int64)&Handle, 0x100000LL);
+    if ( result == -1073741772 )
+    {
+      _InterlockedCompareExchange64((volatile signed __int64 *)&BcdMutantHandle, -1LL, 0LL);
+    }
+    else
+    {
+      if ( result < 0 )
+        return result;
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&BcdMutantHandle, (signed __int64)Handle, 0LL) )
+        ZwClose(Handle);
+    }
+    v1 = BcdMutantHandle;
+  }
+  if ( v1 == (HANDLE)-1LL )
     return 0;
   Timeout.QuadPart = -600000000LL;
-  result = ZwWaitForSingleObject(BcdMutantHandle, 0, &Timeout);
+  result = ZwWaitForSingleObject(v1, 0, &Timeout);
   if ( result == 258 )
     return -1073741823;
   return result;

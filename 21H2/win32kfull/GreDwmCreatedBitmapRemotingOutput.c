@@ -1,11 +1,11 @@
 /*
- * XREFs of GreDwmCreatedBitmapRemotingOutput @ 0x1C015506C
+ * XREFs of GreDwmCreatedBitmapRemotingOutput @ 0x1C01641CC
  * Callers:
- *     NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C0155050 (NtGdiDwmCreatedBitmapRemotingOutput.c)
+ *     NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C01641B0 (NtGdiDwmCreatedBitmapRemotingOutput.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C0086CD0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     DrvModeChangeCompleteNotify @ 0x1C0155128 (DrvModeChangeCompleteNotify.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     DrvModeChangeCompleteNotify @ 0x1C0164288 (DrvModeChangeCompleteNotify.c)
  */
 
 void GreDwmCreatedBitmapRemotingOutput()

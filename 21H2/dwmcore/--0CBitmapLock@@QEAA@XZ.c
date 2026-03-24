@@ -1,47 +1,41 @@
 /*
- * XREFs of ??0CBitmapLock@@QEAA@XZ @ 0x18006EA24
+ * XREFs of ??0CBitmapLock@@QEAA@XZ @ 0x18003C1E8
  * Callers:
- *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x180020D10 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
- *     ?LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18006D370 (-LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
- *     ?HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NPEAUIUnknown@@@Z @ 0x18006EC34 (-HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NP.c)
- *     ??0CBitmapLockUnaligned@@QEAA@XZ @ 0x180271CFC (--0CBitmapLockUnaligned@@QEAA@XZ.c)
+ *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003B5E0 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
+ *     ?HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NPEAUIUnknown@@@Z @ 0x18003BEE4 (-HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NP.c)
+ *     ?LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003D960 (-LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
+ *     ??0CBitmapLockUnaligned@@QEAA@XZ @ 0x180218834 (--0CBitmapLockUnaligned@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
 
 CBitmapLock *__fastcall CBitmapLock::CBitmapLock(CBitmapLock *this, int a2)
 {
-  int *v3; // rax
-  __int64 v4; // rcx
+  __int64 v3; // rcx
   CBitmapLock *result; // rax
 
   if ( a2 )
-  {
-    v3 = (int *)&CBitmapLock::`vbtable';
-    *((_QWORD *)this + 1) = &CBitmapLock::`vbtable';
-  }
-  else
-  {
-    v3 = (int *)*((_QWORD *)this + 1);
-  }
-  *(_QWORD *)this = &IBitmapDest2::`vftable';
-  *(_QWORD *)((char *)this + v3[1] + 8) = &ILegacySwapChain::`vftable'{for `IUnknown'};
-  *((_DWORD *)this + 4) = 0;
-  InitializeCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
-  *(_QWORD *)this = &CBitmapLock::`vftable'{for `IPixelFormat'};
-  *((_QWORD *)this + 3) = &CBitmapLock::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &CBitmapLock::`vftable'{for `IUnknown'};
-  v4 = *(int *)(*((_QWORD *)this + 1) + 4LL);
+    *((_QWORD *)this + 3) = &CCompositionSurfaceBitmap::`vbtable';
+  *((_DWORD *)this + 2) = 0;
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
+  InitializeCriticalSection((LPCRITICAL_SECTION)this + 1);
+  *((_QWORD *)this + 2) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  *(_QWORD *)this = &CBitmapLock::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CBitmapLock::`vftable'{for `IPixelFormat'};
+  *((_QWORD *)this + 4) = &CBitmapLock::`vftable'{for `IWICBitmapLock'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &CBitmapLock::`vftable'{for `IUnknown'};
+  v3 = *(int *)(*((_QWORD *)this + 3) + 4LL);
   result = this;
-  *(_DWORD *)((char *)this + v4 + 4) = v4 - 144;
-  *((_WORD *)this + 36) = 0;
-  *((_QWORD *)this + 10) = 0LL;
-  *((_DWORD *)this + 22) = 0;
-  *((_DWORD *)this + 23) = 0;
+  *(_DWORD *)((char *)this + v3 + 20) = v3 - 136;
+  *((_WORD *)this + 40) = 0;
+  *((_QWORD *)this + 11) = 0LL;
   *((_DWORD *)this + 24) = 0;
   *((_DWORD *)this + 25) = 0;
   *((_DWORD *)this + 26) = 0;
   *((_DWORD *)this + 27) = 0;
-  *((_QWORD *)this + 17) = 0LL;
+  *((_DWORD *)this + 28) = 0;
+  *((_DWORD *)this + 29) = 0;
+  *((_QWORD *)this + 18) = 0LL;
   return result;
 }

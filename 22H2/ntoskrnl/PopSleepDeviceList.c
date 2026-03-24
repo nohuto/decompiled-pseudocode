@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSleepDeviceList @ 0x140590AA8
+ * XREFs of PopSleepDeviceList @ 0x1403832A4
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIsNotifyForDirectedPowerTransition @ 0x140590884 (PopIsNotifyForDirectedPowerTransition.c)
- *     PopIssueDirectedPowerTransition @ 0x14098BD90 (PopIssueDirectedPowerTransition.c)
- *     PopNotifyDevice @ 0x140AA738C (PopNotifyDevice.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x14038351C (PopIsNotifyForDirectedPowerTransition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIssueDirectedPowerTransition @ 0x1408F07A4 (PopIssueDirectedPowerTransition.c)
+ *     PopNotifyDevice @ 0x1409930F0 (PopNotifyDevice.c)
  */
 
 int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
@@ -96,7 +96,7 @@ int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
       LODWORD(v8) = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
       if ( *(int *)(a1 + 448) < 0 )
         break;
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C3CDB0 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23A30 + 1, &LockHandle);
       v9 = *v3;
       v10 = (_QWORD *)**v3;
       if ( (_QWORD **)(*v3)[1] == v3 && (_QWORD *)v10[1] == v9 )
@@ -112,26 +112,29 @@ int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
       *v9 = a1 + 432;
       *v11 = v9;
       *(_QWORD *)(a1 + 440) = v9;
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       OldIrql = LockHandle.OldIrql;
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v17 = (v16 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v16;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(OldIrql);
       --v2;
       ++v6;
-      LODWORD(v8) = PopIsNotifyForDirectedPowerTransition((__int64)v9)
+      LODWORD(v8) = (unsigned __int8)PopIsNotifyForDirectedPowerTransition(v9)
                   ? PopIssueDirectedPowerTransition(a1, v9)
                   : (unsigned int)PopNotifyDevice(a1, v9);
       if ( (PopSimulate & 0x80000) != 0 )

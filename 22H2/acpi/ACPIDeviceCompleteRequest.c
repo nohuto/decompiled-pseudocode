@@ -1,69 +1,70 @@
 /*
- * XREFs of ACPIDeviceCompleteRequest @ 0x1C001C97C
+ * XREFs of ACPIDeviceCompleteRequest @ 0x1C001EAE8
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C001E5E0 (ACPIDevicePowerDpc.c)
- *     ACPIDevicePowerProcessGenericPhase @ 0x1C001EC3C (ACPIDevicePowerProcessGenericPhase.c)
- *     ACPIDevicePowerProcessInvalid @ 0x1C001EDD0 (ACPIDevicePowerProcessInvalid.c)
- *     ACPIDevicePowerProcessPhase4 @ 0x1C002041C (ACPIDevicePowerProcessPhase4.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerProcessGenericPhase @ 0x1C0029294 (ACPIDevicePowerProcessGenericPhase.c)
+ *     ACPIDevicePowerProcessPhase4 @ 0x1C002B9D4 (ACPIDevicePowerProcessPhase4.c)
+ *     ACPIDevicePowerProcessInvalid @ 0x1C0050EC0 (ACPIDevicePowerProcessInvalid.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
- *     ACPIPowerScheduleDpc @ 0x1C0022734 (ACPIPowerScheduleDpc.c)
- *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447E0 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIPowerScheduleDpc @ 0x1C001CD7C (ACPIPowerScheduleDpc.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C0025774 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
  */
 
-void __fastcall ACPIDeviceCompleteRequest(_QWORD *Entry)
+void __fastcall ACPIDeviceCompleteRequest(struct _SLIST_ENTRY *Entry)
 {
   __int64 v1; // rdi
   const char *v2; // rax
-  void (__fastcall *v3)(__int64, _QWORD, _QWORD); // rbp
+  _SLIST_ENTRY *Next; // rbp
   char v4; // r8
   const char *v6; // rdx
   __int64 v7; // rcx
-  _QWORD **v8; // rsi
-  _QWORD *v9; // rax
-  _QWORD *v10; // rdx
-  __int64 v11; // r8
-  _QWORD *v12; // rcx
-  __int64 v13; // r8
-  _QWORD *v14; // rcx
-  _QWORD **v15; // rsi
-  _QWORD *v16; // rdx
-  __int64 v17; // rax
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rax
-  __int64 v20; // r8
-  _QWORD *v21; // rcx
-  int v22; // eax
-  KIRQL v23; // si
-  __int64 v24; // rcx
-  _QWORD *v25; // rax
-  _QWORD *v26; // rax
-  int v27; // ecx
-  KIRQL v28; // al
-  _QWORD *v29; // rdx
-  KIRQL v30; // r8
-  PVOID *v31; // rcx
-  _QWORD **v32; // rdx
-  PVOID *v33; // rax
-  __int64 v34; // rcx
+  struct _SLIST_ENTRY *v8; // rsi
+  _SLIST_ENTRY *v9; // rax
+  struct _SLIST_ENTRY *v10; // rsi
+  _SLIST_ENTRY *v11; // rdx
+  int v12; // eax
+  int v13; // ecx
+  KIRQL v14; // al
+  _SLIST_ENTRY *v15; // rdx
+  KIRQL v16; // r8
+  PVOID *v17; // rcx
+  struct _SLIST_ENTRY **p_Next; // rdx
+  PVOID *v19; // rax
+  __int64 v20; // rcx
+  _SLIST_ENTRY *v21; // rdx
+  _SLIST_ENTRY *v22; // rcx
+  _SLIST_ENTRY **v23; // r8
+  _SLIST_ENTRY *v24; // r8
+  _SLIST_ENTRY **v25; // rcx
+  _SLIST_ENTRY *v26; // rax
+  _SLIST_ENTRY **v27; // rcx
+  _SLIST_ENTRY *v28; // rax
+  _SLIST_ENTRY *v29; // r8
+  _SLIST_ENTRY **v30; // rcx
+  KIRQL v31; // si
+  _SLIST_ENTRY *v32; // rcx
+  struct _SLIST_ENTRY **v33; // rax
+  struct _SLIST_ENTRY **v34; // rax
   _QWORD *v35; // rax
   _QWORD *v36; // rcx
 
-  v1 = Entry[5];
-  v2 = (const char *)&unk_1C00622D0;
-  v3 = (void (__fastcall *)(__int64, _QWORD, _QWORD))Entry[24];
+  v1 = *((_QWORD *)&Entry[2].Next + 1);
+  v2 = (const char *)&unk_1C00701BA;
+  Next = Entry[12].Next;
   v4 = 0;
-  v6 = (const char *)&unk_1C00622D0;
+  v6 = (const char *)&unk_1C00701BA;
   if ( v1 )
   {
     v7 = *(_QWORD *)(v1 + 8);
     v4 = v1;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v2 = *(const char **)(v1 + 608);
+      v2 = *(const char **)(v1 + 568);
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = *(const char **)(v1 + 616);
+        v6 = *(const char **)(v1 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -72,157 +73,168 @@ void __fastcall ACPIDeviceCompleteRequest(_QWORD *Entry)
       4u,
       0xAu,
       0x12u,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       (char)Entry,
-      *((_DWORD *)Entry + 64),
+      (char)Entry[16].Next,
       v4,
       v2,
       v6);
-  if ( (Entry[6] & 0xFFFFFFFD) == 0 )
+  if ( ((__int64)Entry[3].Next & 0xFFFFFFFD) == 0 )
   {
-    v8 = (_QWORD **)(Entry + 8);
+    v8 = Entry + 4;
     while ( 1 )
     {
-      v9 = *v8;
-      if ( *v8 == v8 )
+      v9 = v8->Next;
+      if ( v8->Next == v8 )
         break;
-      v10 = v9 - 2;
-      v11 = *(v9 - 2);
-      if ( *(_QWORD **)(v11 + 8) != v9 - 2 )
-        goto LABEL_47;
-      v12 = (_QWORD *)v10[1];
-      if ( (_QWORD *)*v12 != v10 )
-        goto LABEL_47;
-      *v12 = v11;
-      *(_QWORD *)(v11 + 8) = v12;
-      v10[1] = v10;
-      *v10 = v10;
-      v13 = *v9;
-      if ( *(_QWORD **)(*v9 + 8LL) != v9 )
-        goto LABEL_47;
-      v14 = (_QWORD *)v9[1];
-      if ( (_QWORD *)*v14 != v9 )
-        goto LABEL_47;
-      *v14 = v13;
-      *(_QWORD *)(v13 + 8) = v14;
-      v9[1] = v9;
-      *v9 = v9;
-      ExFreeToNPagedLookasideList(&RequestDependencyLookAsideList, v10);
+      v21 = v9 - 1;
+      v22 = v9[-1].Next;
+      if ( *(&v22->Next + 1) != &v9[-1] )
+        goto LABEL_49;
+      v23 = (_SLIST_ENTRY **)*((_QWORD *)&v21->Next + 1);
+      if ( *v23 != v21 )
+        goto LABEL_49;
+      *v23 = v22;
+      *((_QWORD *)&v22->Next + 1) = v23;
+      *((_QWORD *)&v21->Next + 1) = v21;
+      v21->Next = v21;
+      v24 = v9->Next;
+      if ( *(&v9->Next->Next + 1) != v9 )
+        goto LABEL_49;
+      v25 = (_SLIST_ENTRY **)*((_QWORD *)&v9->Next + 1);
+      if ( *v25 != v9 )
+        goto LABEL_49;
+      *v25 = v24;
+      *((_QWORD *)&v24->Next + 1) = v25;
+      *((_QWORD *)&v9->Next + 1) = v9;
+      v9->Next = v9;
+      ExFreeToNPagedLookasideList(&RequestDependencyLookAsideList, v21);
     }
-    v15 = (_QWORD **)(Entry + 10);
+    v10 = Entry + 5;
     while ( 1 )
     {
-      v16 = *v15;
-      if ( *v15 == v15 )
+      v11 = v10->Next;
+      if ( v10->Next == v10 )
         break;
-      v17 = *v16;
-      if ( *(_QWORD **)(*v16 + 8LL) != v16 )
-        goto LABEL_47;
-      v18 = (_QWORD *)v16[1];
-      if ( (_QWORD *)*v18 != v16 )
-        goto LABEL_47;
-      *v18 = v17;
-      *(_QWORD *)(v17 + 8) = v18;
-      v19 = v16 + 2;
-      v16[1] = v16;
-      *v16 = v16;
-      v20 = v16[2];
-      if ( *(_QWORD **)(v20 + 8) != v16 + 2 )
-        goto LABEL_47;
-      v21 = (_QWORD *)v16[3];
-      if ( (_QWORD *)*v21 != v19 )
-        goto LABEL_47;
-      *v21 = v20;
-      *(_QWORD *)(v20 + 8) = v21;
-      v16[3] = v16 + 2;
-      *v19 = v19;
-      ExFreeToNPagedLookasideList(&RequestDependencyLookAsideList, v16);
+      v26 = v11->Next;
+      if ( *(&v11->Next->Next + 1) != v11 )
+        goto LABEL_49;
+      v27 = (_SLIST_ENTRY **)*((_QWORD *)&v11->Next + 1);
+      if ( *v27 != v11 )
+        goto LABEL_49;
+      *v27 = v26;
+      *((_QWORD *)&v26->Next + 1) = v27;
+      v28 = v11 + 1;
+      *((_QWORD *)&v11->Next + 1) = v11;
+      v11->Next = v11;
+      v29 = v11[1].Next;
+      if ( *(&v29->Next + 1) != &v11[1] )
+        goto LABEL_49;
+      v30 = (_SLIST_ENTRY **)*((_QWORD *)&v11[1].Next + 1);
+      if ( *v30 != v28 )
+        goto LABEL_49;
+      *v30 = v29;
+      *((_QWORD *)&v29->Next + 1) = v30;
+      *((_QWORD *)&v11[1].Next + 1) = v11 + 1;
+      v28->Next = v28;
+      ExFreeToNPagedLookasideList(&RequestDependencyLookAsideList, v11);
     }
-    v22 = *(_DWORD *)(v1 + 384);
-    if ( v22 )
+    v12 = *(_DWORD *)(v1 + 344);
+    if ( v12 )
     {
-      if ( !*((_BYTE *)Entry + 52) && *((int *)Entry + 64) < 0 )
+      if ( !BYTE4(Entry[3].Next) && SLODWORD(Entry[16].Next) < 0 )
       {
-        v23 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
-        Entry[13] = *(unsigned int *)(v1 + 384);
-        *((_BYTE *)Entry + 52) = 1;
-        v24 = *Entry;
-        if ( *(_QWORD **)(*Entry + 8LL) == Entry )
+        v31 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
+        *((_QWORD *)&Entry[6].Next + 1) = *(unsigned int *)(v1 + 344);
+        BYTE4(Entry[3].Next) = 1;
+        v32 = Entry->Next;
+        if ( *(&Entry->Next->Next + 1) == Entry )
         {
-          v25 = (_QWORD *)Entry[1];
-          if ( (_QWORD *)*v25 == Entry )
+          v33 = (struct _SLIST_ENTRY **)*((_QWORD *)&Entry->Next + 1);
+          if ( *v33 == Entry )
           {
-            *v25 = v24;
-            *(_QWORD *)(v24 + 8) = v25;
-            v26 = (_QWORD *)qword_1C006F1A8;
-            if ( *(__int64 **)qword_1C006F1A8 == &AcpiPowerQueueList )
+            *v33 = v32;
+            *((_QWORD *)&v32->Next + 1) = v33;
+            v34 = (struct _SLIST_ENTRY **)qword_1C0082108;
+            if ( *(__int64 **)qword_1C0082108 == &AcpiPowerQueueList )
             {
-              *Entry = &AcpiPowerQueueList;
-              Entry[1] = v26;
-              *v26 = Entry;
-              qword_1C006F1A8 = (__int64)Entry;
+              Entry->Next = (_SLIST_ENTRY *)&AcpiPowerQueueList;
+              *((_QWORD *)&Entry->Next + 1) = v34;
+              *v34 = Entry;
+              qword_1C0082108 = (__int64)Entry;
               ACPIPowerScheduleDpc();
-              KeReleaseSpinLock(&AcpiPowerQueueLock, v23);
+              KeReleaseSpinLock(&AcpiPowerQueueLock, v31);
               return;
             }
           }
         }
-LABEL_47:
-        __fastfail(3u);
+        goto LABEL_49;
       }
-      if ( v22 < *((_DWORD *)Entry + 26) )
-        *((_DWORD *)Entry + 64) = 0;
+      if ( v12 < *((_DWORD *)&Entry[6].Next + 2) )
+        LODWORD(Entry[16].Next) = 0;
     }
-    v27 = *((_DWORD *)Entry + 14);
-    if ( (v27 & 0x2000000) != 0 )
+    v13 = *((_DWORD *)&Entry[3].Next + 2);
+    if ( (v13 & 0x2000000) != 0 )
     {
-      *((_DWORD *)Entry + 14) = v27 & 0xFDFFFFFF;
+      *((_DWORD *)&Entry[3].Next + 2) = v13 & 0xFDFFFFFF;
       _InterlockedDecrement(&AcpiPowerCurrentPagingPathTransitions);
     }
   }
-  if ( v3 )
-    v3(v1, Entry[25], *((unsigned int *)Entry + 64));
-  v28 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
-  v29 = (_QWORD *)*Entry;
-  v30 = v28;
-  if ( *(_QWORD **)(*Entry + 8LL) != Entry )
-    goto LABEL_47;
-  v31 = (PVOID *)Entry[1];
-  if ( *v31 != Entry )
-    goto LABEL_47;
-  *v31 = v29;
-  v29[1] = v31;
-  v32 = (_QWORD **)Entry[2];
-  if ( v32[1] != Entry + 2 )
-    goto LABEL_47;
-  v33 = (PVOID *)Entry[3];
-  if ( *v33 != Entry + 2 )
-    goto LABEL_47;
-  *v33 = v32;
-  v32[1] = v33;
-  if ( *((_DWORD *)Entry + 12) != 4 )
+  if ( Next )
+    ((void (__fastcall *)(__int64, _QWORD, _QWORD))Next)(v1, *((_QWORD *)&Entry[12].Next + 1), LODWORD(Entry[16].Next));
+  v14 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerQueueLock);
+  v15 = Entry->Next;
+  v16 = v14;
+  if ( *(&Entry->Next->Next + 1) != Entry )
+    goto LABEL_49;
+  v17 = (PVOID *)*((_QWORD *)&Entry->Next + 1);
+  if ( *v17 != Entry )
+    goto LABEL_49;
+  *v17 = v15;
+  *((_QWORD *)&v15->Next + 1) = v17;
+  p_Next = &Entry[1].Next->Next;
+  if ( p_Next[1] != &Entry[1] )
+    goto LABEL_49;
+  v19 = (PVOID *)*((_QWORD *)&Entry[1].Next + 1);
+  if ( *v19 != &Entry[1] )
+    goto LABEL_49;
+  *v19 = p_Next;
+  p_Next[1] = (struct _SLIST_ENTRY *)v19;
+  if ( LODWORD(Entry[3].Next) == 4 )
+    goto LABEL_26;
+  v20 = *(_QWORD *)(v1 + 544);
+  if ( v20 == v1 + 544 )
   {
-    v34 = *(_QWORD *)(v1 + 584);
-    if ( v34 == v1 + 584 )
+    *(_QWORD *)(v1 + 536) = 0LL;
+    goto LABEL_26;
+  }
+  v35 = (_QWORD *)(v20 - 16);
+  v36 = (_QWORD *)qword_1C0082108;
+  if ( *(__int64 **)qword_1C0082108 != &AcpiPowerQueueList )
+LABEL_49:
+    __fastfail(3u);
+  *v35 = &AcpiPowerQueueList;
+  v35[1] = v36;
+  *v36 = v35;
+  qword_1C0082108 = (__int64)v35;
+  *(_QWORD *)(v1 + 536) = v35;
+LABEL_26:
+  KeReleaseSpinLock(&AcpiPowerQueueLock, v16);
+  if ( LODWORD(Entry[3].Next) == 2 )
+  {
+    ACPIDereferenceWaitWakePowerRequest(Entry);
+  }
+  else
+  {
+    ++dword_1C0082D5C;
+    if ( ExQueryDepthSList(&RequestLookAsideList) >= (unsigned __int16)word_1C0082D50 )
     {
-      *(_QWORD *)(v1 + 576) = 0LL;
+      ++dword_1C0082D60;
+      ((void (__fastcall *)(struct _SLIST_ENTRY *))qword_1C0082D78)(Entry);
     }
     else
     {
-      v35 = (_QWORD *)(v34 - 16);
-      v36 = (_QWORD *)qword_1C006F1A8;
-      if ( *(__int64 **)qword_1C006F1A8 != &AcpiPowerQueueList )
-        goto LABEL_47;
-      *v35 = &AcpiPowerQueueList;
-      v35[1] = v36;
-      *v36 = v35;
-      qword_1C006F1A8 = (__int64)v35;
-      *(_QWORD *)(v1 + 576) = v35;
+      ExpInterlockedPushEntrySList(&RequestLookAsideList, Entry);
     }
   }
-  KeReleaseSpinLock(&AcpiPowerQueueLock, v30);
-  if ( *((_DWORD *)Entry + 12) == 2 )
-    ACPIDereferenceWaitWakePowerRequest(Entry);
-  else
-    ExFreeToNPagedLookasideList(&RequestLookAsideList, Entry);
 }

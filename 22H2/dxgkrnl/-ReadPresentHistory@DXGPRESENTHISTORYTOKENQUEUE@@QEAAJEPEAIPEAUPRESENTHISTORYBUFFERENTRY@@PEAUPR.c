@@ -1,10 +1,9 @@
 /*
- * XREFs of ?ReadPresentHistory@DXGPRESENTHISTORYTOKENQUEUE@@QEAAJEPEAIPEAUPRESENTHISTORYBUFFERENTRY@@PEAUPRESENTHISTORYBITS@@@Z @ 0x1C0018B0C
+ * XREFs of ?ReadPresentHistory@DXGPRESENTHISTORYTOKENQUEUE@@QEAAJEPEAIPEAUPRESENTHISTORYBUFFERENTRY@@PEAUPRESENTHISTORYBITS@@@Z @ 0x1C0004910
  * Callers:
- *     DxgkGetPresentHistoryInternal @ 0x1C01EB820 (DxgkGetPresentHistoryInternal.c)
+ *     DxgkGetPresentHistoryInternal @ 0x1C0100460 (DxgkGetPresentHistoryInternal.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall DXGPRESENTHISTORYTOKENQUEUE::ReadPresentHistory(
@@ -14,140 +13,82 @@ __int64 __fastcall DXGPRESENTHISTORYTOKENQUEUE::ReadPresentHistory(
         struct PRESENTHISTORYBUFFERENTRY *a4,
         struct PRESENTHISTORYBITS *a5)
 {
-  unsigned int v5; // ebp
-  __int64 v8; // r12
-  unsigned int v9; // r15d
-  unsigned int v10; // eax
-  unsigned int v11; // r15d
-  int v13; // edx
-  int v14; // ecx
-  int v15; // r8d
-  int v16; // edx
-  int v17; // ecx
-  int v18; // r8d
-  int v19; // edx
-  int v20; // ecx
-  int v21; // r8d
-  unsigned int v22; // ebx
-  unsigned int v23; // eax
-  int v24; // edx
-  int v25; // r8d
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  unsigned int v10; // ebp
+  unsigned int v11; // eax
+  unsigned int v12; // r12d
+  unsigned int v13; // eax
+  unsigned int v14; // ecx
+  __int64 v15; // r12
+  __int64 v16; // r15
+  size_t v17; // r14
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v24; // [rsp+88h] [rbp+10h]
 
-  v5 = 0;
   if ( a3 && a4 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     KeAcquireInStackQueuedSpinLock(this, &LockHandle);
     if ( *((_DWORD *)this + 2) >= 0x800u )
     {
-      WdLogSingleEntry1(1LL, 237LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v14,
-            v13,
-            v15,
-            0,
-            2,
-            -1,
-            (__int64)L"m_PresentHistoryHead < D3DKMT_GETPRESENTHISTORY_MAXTOKENS",
-            237LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v19 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v19 + 24) = 237LL;
+      WdLogEvent5_WdAssertion(v19);
     }
     if ( *((_DWORD *)this + 3) >= 0x800u )
     {
-      WdLogSingleEntry1(1LL, 238LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v17,
-            v16,
-            v18,
-            0,
-            2,
-            -1,
-            (__int64)L"m_PresentHistoryTail < D3DKMT_GETPRESENTHISTORY_MAXTOKENS",
-            238LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v20 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v20 + 24) = 238LL;
+      WdLogEvent5_WdAssertion(v20);
     }
-    if ( *((_DWORD *)this + 4) >= 0x800u )
+    v10 = *((_DWORD *)this + 4);
+    if ( v10 >= 0x800 )
     {
-      WdLogSingleEntry1(1LL, 239LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v20,
-            v19,
-            v21,
-            0,
-            2,
-            -1,
-            (__int64)L"m_PresentHistoryRead < D3DKMT_GETPRESENTHISTORY_MAXTOKENS",
-            239LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v21 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v21 + 24) = 239LL;
+      WdLogEvent5_WdAssertion(v21);
+      v10 = *((_DWORD *)this + 4);
     }
-    v8 = *((unsigned int *)this + 4);
-    v9 = *((_DWORD *)this + 2);
-    v10 = *a3;
-    if ( v9 < (unsigned int)v8 )
+    v11 = *((_DWORD *)this + 2);
+    v12 = *a3;
+    if ( v11 < v10 )
     {
-      v22 = 2048 - v8;
-      v5 = *((_DWORD *)this + 2);
-      if ( 2048 - (int)v8 >= v10 )
-        v22 = *a3;
-      v23 = v10 - v22;
-      if ( v9 >= v23 )
-        v5 = v23;
-      v11 = v22;
+      v14 = *a3;
+      if ( 2048 - v10 < v12 )
+        v14 = 2048 - v10;
+      v15 = v12 - v14;
+      if ( v11 < (unsigned int)v15 )
+        v15 = v11;
     }
     else
     {
-      v11 = v9 - v8;
-      if ( v11 >= v10 )
-        v11 = *a3;
+      v13 = v11 - v10;
+      if ( v13 < v12 )
+        v12 = v13;
+      v14 = v12;
+      v15 = 0LL;
     }
-    memmove(a4, &this[v8 + 10], 8LL * v11);
-    memmove(a5, (char *)this + v8 + 16464, v11);
-    memmove((char *)a4 + 8 * v11, this + 10, 8LL * v5);
-    memmove((char *)a5 + v11, this + 2058, v5);
-    *((_DWORD *)this + 4) = ((_WORD)v11 + (_WORD)v8 + (_WORD)v5) & 0x7FF;
-    *a3 = v11 + v5;
+    v16 = v14;
+    v24 = v14;
+    v17 = 8LL * v14;
+    memmove(a4, &this[v10 + 10], v17);
+    memmove(a5, (char *)this + v10 + 16464, (unsigned int)v16);
+    memmove((char *)a4 + v17, this + 10, 8 * v15);
+    memmove((char *)a5 + v16, this + 2058, (unsigned int)v15);
+    *((_DWORD *)this + 4) = ((_WORD)v24 + (_WORD)v15 + (_WORD)v10) & 0x7FF;
+    *a3 = v15 + v24;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        (unsigned int)L"NULL pointer in pVidSchContext or other required pointer, returning 0x%I64x",
-        v24,
-        v25,
-        0,
-        0,
-        -1,
-        (__int64)L"NULL pointer in pVidSchContext or other required pointer, returning 0x%I64x",
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v22 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v22 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v22);
     return 3221225485LL;
   }
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
- *     MiSystemFault @ 0x1400E88E0 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
@@ -14,9 +14,9 @@
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
  *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
  *     MiCheckUserVirtualAddress @ 0x140098EA0 (MiCheckUserVirtualAddress.c)
- *     MiCreateSharedZeroPages @ 0x1401091A0 (MiCreateSharedZeroPages.c)
- *     MiExpandSharedZeroCluster @ 0x14010F6F0 (MiExpandSharedZeroCluster.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
+ *     MiExpandSharedZeroCluster @ 0x14010F710 (MiExpandSharedZeroCluster.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiResolveDemandZeroFault(unsigned __int64 *a1, unsigned __int64 a2, ULONG_PTR a3, int a4)

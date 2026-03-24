@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawVisual@CRenderDataBuilder@@UEAAJI@Z @ 0x1800FA930
+ * XREFs of ?DrawVisual@CRenderDataBuilder@@UEAAJI@Z @ 0x1800DAEC0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawVisual(CRenderDataBuilder *this, int a2)
@@ -14,7 +14,7 @@ __int64 __fastcall CRenderDataBuilder::DrawVisual(CRenderDataBuilder *this, int 
   unsigned int v6; // ebx
   __int64 v7; // rcx
 
-  v4 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 12, 0, 0LL);
+  v4 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 12, 0, 0LL);
   v6 = v4;
   if ( v4 < 0 )
   {
@@ -25,7 +25,7 @@ __int64 __fastcall CRenderDataBuilder::DrawVisual(CRenderDataBuilder *this, int 
     v7 = *((_QWORD *)this + 2) + *((unsigned int *)this + 10);
     *(_DWORD *)v7 = 12;
     *(_QWORD *)(v7 + 4) = 0LL;
-    *(_DWORD *)(v7 + 4) = 451;
+    *(_DWORD *)(v7 + 4) = 468;
     *(_DWORD *)(v7 + 8) = a2;
     *((_DWORD *)this + 10) += 12;
   }

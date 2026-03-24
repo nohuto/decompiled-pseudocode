@@ -1,93 +1,112 @@
 /*
- * XREFs of Controller_StopTimeTrackingForHandle @ 0x1C0032F20
+ * XREFs of Controller_StopTimeTrackingForHandle @ 0x1C0032EA0
  * Callers:
- *     Controller_EvtDeviceFileClose @ 0x1C00101E0 (Controller_EvtDeviceFileClose.c)
- *     Controller_UcxEvtStopTrackingForTimeSync @ 0x1C0034840 (Controller_UcxEvtStopTrackingForTimeSync.c)
+ *     Controller_EvtDeviceFileClose @ 0x1C0031590 (Controller_EvtDeviceFileClose.c)
+ *     Controller_UcxEvtStopTrackingForTimeSync @ 0x1C0034690 (Controller_UcxEvtStopTrackingForTimeSync.c)
  * Callees:
- *     DynamicLock_Release @ 0x1C0003E5C (DynamicLock_Release.c)
- *     DynamicLock_Acquire @ 0x1C0004248 (DynamicLock_Acquire.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_qq @ 0x1C001665C (WPP_RECORDER_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_IsHandlePresentInCollectionLocked @ 0x1C0032630 (Controller_IsHandlePresentInCollectionLocked.c)
- *     McTemplateK0pptqqqq_EtwWriteTransfer @ 0x1C0035430 (McTemplateK0pptqqqq_EtwWriteTransfer.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0016398 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pptqqqq_EtwWriteTransfer @ 0x1C0035190 (McTemplateK0pptqqqq_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall Controller_StopTimeTrackingForHandle(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall Controller_StopTimeTrackingForHandle(__int64 a1, __int64 a2, int a3, int a4)
 {
-  __int64 v3; // r14
-  char v6; // si
-  __int64 v8; // rbp
-  __int64 v9; // rcx
-  unsigned int *v10; // rbx
+  __int64 v4; // r14
+  char v5; // r13
+  char v7; // si
+  __int64 v9; // rbp
+  __int64 v10; // r12
+  unsigned int i; // ebx
+  int v12; // edx
+  int v13; // r8d
+  int v14; // r9d
+  __int64 v15; // rcx
+  unsigned int *v16; // rbx
   int Ulong; // eax
-  unsigned int v12; // ebx
-  int v13; // edx
-  int v14; // r8d
-  int v15; // r9d
+  unsigned int v18; // ebx
+  int v19; // edx
+  int v20; // r8d
+  int v21; // r9d
 
-  v3 = a1 + 608;
-  v6 = 0;
-  v8 = 0LL;
-  DynamicLock_Acquire(*(_QWORD *)(a1 + 616));
-  if ( Controller_IsHandlePresentInCollectionLocked(*(_QWORD *)(v3 + 24), a2) )
+  v4 = a1 + 608;
+  v5 = a3;
+  v7 = 0;
+  v9 = 0LL;
+  DynamicLock_Acquire(*(_QWORD *)(a1 + 616), a2, a3, a4);
+  v10 = *(_QWORD *)(v4 + 24);
+  for ( i = 0;
+        i < (*(unsigned int (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 112))(
+              WdfDriverGlobals,
+              v10);
+        ++i )
   {
-    v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+    if ( (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 144))(
            WdfDriverGlobals,
-           a2,
-           off_1C00613B0);
-    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 128))(
-      WdfDriverGlobals,
-      *(_QWORD *)(v3 + 24),
-      a2);
-    *(_BYTE *)(v8 + 48) = 0;
-    if ( !(*(unsigned int (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 112))(
-            WdfDriverGlobals,
-            *(_QWORD *)(v3 + 24)) )
+           v10,
+           i) == a2 )
     {
-      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64 (__fastcall *)(__int64, __int64), __int64))(WdfFunctions_01023 + 1144))(
+      v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+             WdfDriverGlobals,
+             a2,
+             off_1C00603B0);
+      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 128))(
         WdfDriverGlobals,
-        **(_QWORD **)(*(_QWORD *)(a1 + 128) + 40LL),
-        Interrupter_ClearBusEdgeInformationRoutineWithIsrSync,
-        v3);
-      v9 = *(_QWORD *)(a1 + 88);
-      v10 = *(unsigned int **)(v9 + 32);
-      Ulong = XilRegister_ReadUlong(v9, v10);
-      XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), v10, Ulong & 0xFFFFFBFF);
-      *(_BYTE *)v3 = 0;
+        *(_QWORD *)(v4 + 24),
+        a2);
+      *(_BYTE *)(v9 + 40) = 0;
+      if ( !(*(unsigned int (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 112))(
+              WdfDriverGlobals,
+              *(_QWORD *)(v4 + 24)) )
+      {
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64 (__fastcall *)(__int64, __int64), __int64))(WdfFunctions_01023 + 1144))(
+          WdfDriverGlobals,
+          **(_QWORD **)(*(_QWORD *)(a1 + 128) + 40LL),
+          Interrupter_ClearBusEdgeInformationRoutineWithIsrSync,
+          v4);
+        v15 = *(_QWORD *)(a1 + 88);
+        v16 = *(unsigned int **)(v15 + 32);
+        Ulong = XilRegister_ReadUlong(v15, v16);
+        XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), v16, Ulong & 0xFFFFFBFF);
+        *(_BYTE *)v4 = 0;
+      }
+      v18 = 0;
+      goto LABEL_11;
     }
-    v12 = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v12) = 2;
+    WPP_RECORDER_SF_qq(
+      *(_QWORD *)(a1 + 72),
+      v12,
+      4,
+      293,
+      (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
+      a2,
+      *(_QWORD *)(v4 + 24));
+  }
+  v18 = -1073741811;
+LABEL_11:
+  DynamicLock_Release(*(_QWORD *)(v4 + 8), v12, v13, v14);
+  if ( v9 )
+  {
+    v7 = *(_BYTE *)(v9 + 52);
+    v20 = *(_DWORD *)(v9 + 44);
+    v21 = *(_DWORD *)(v9 + 48);
   }
   else
   {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qq(
-        *(_QWORD *)(a1 + 72),
-        2u,
-        4u,
-        0x129u,
-        (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-        a2,
-        *(_QWORD *)(v3 + 24));
-    v12 = -1073741811;
-  }
-  DynamicLock_Release(*(_QWORD *)(v3 + 8));
-  if ( v8 )
-  {
-    v6 = *(_BYTE *)(v8 + 60);
-    v14 = *(_DWORD *)(v8 + 52);
-    v15 = *(_DWORD *)(v8 + 56);
-  }
-  else
-  {
-    v14 = 0;
-    v15 = 0;
+    v20 = 0;
+    v21 = 0;
   }
   ++*(_DWORD *)(a1 + 764);
-  *(_DWORD *)(a1 + 768) += v14;
-  *(_DWORD *)(a1 + 772) += v15;
+  *(_DWORD *)(a1 + 768) += v20;
+  *(_DWORD *)(a1 + 772) += v21;
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 0x10) != 0 )
-    McTemplateK0pptqqqq_EtwWriteTransfer(v6, v13, v14, *(_QWORD *)(a1 + 8), a2, a3, v6, v12, v14, v15);
-  return v12;
+    McTemplateK0pptqqqq_EtwWriteTransfer(v7, v19, v20, *(_QWORD *)(a1 + 8), a2, v5, v7, v18, v20, v21);
+  return v18;
 }

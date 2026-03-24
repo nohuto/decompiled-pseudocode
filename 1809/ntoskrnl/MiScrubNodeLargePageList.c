@@ -1,7 +1,7 @@
 /*
- * XREFs of MiScrubNodeLargePageList @ 0x1402CCA90
+ * XREFs of MiScrubNodeLargePageList @ 0x1402CCB90
  * Callers:
- *     MiScrubNodeLargePages @ 0x14085F714 (MiScrubNodeLargePages.c)
+ *     MiScrubNodeLargePages @ 0x14085F6F4 (MiScrubNodeLargePages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
@@ -12,15 +12,15 @@
  *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiRemoveFaultNode @ 0x1400F96A4 (MiRemoveFaultNode.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiPageListCollision @ 0x1401212A4 (MiPageListCollision.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7310 (MmMarkPhysicalMemoryAsBad.c)
- *     MiScrubPage @ 0x1402CF850 (MiScrubPage.c)
+ *     MiRemoveFaultNode @ 0x1400F96C4 (MiRemoveFaultNode.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiPageListCollision @ 0x1401212C4 (MiPageListCollision.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiScrubPage @ 0x1402CF950 (MiScrubPage.c)
  */
 
 __int64 __fastcall MiScrubNodeLargePageList(

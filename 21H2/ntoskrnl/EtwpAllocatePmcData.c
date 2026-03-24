@@ -1,31 +1,35 @@
 /*
- * XREFs of EtwpAllocatePmcData @ 0x1409E01E4
+ * XREFs of EtwpAllocatePmcData @ 0x140939700
  * Callers:
- *     EtwpUpdatePmcCounters @ 0x1409E1C60 (EtwpUpdatePmcCounters.c)
- *     EtwpUpdatePmcEvents @ 0x1409E1DB8 (EtwpUpdatePmcEvents.c)
+ *     EtwpUpdatePmcCounters @ 0x14093AF0C (EtwpUpdatePmcCounters.c)
+ *     EtwpUpdatePmcEvents @ 0x14093B040 (EtwpUpdatePmcEvents.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocatePmcData(__int64 a1)
 {
-  ULONG MaximumProcessorCount; // eax
-  _QWORD *Pool2; // rbx
-  __int64 v5; // rax
+  SIZE_T v2; // rsi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v4; // rbx
+  PVOID v6; // rax
 
-  MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 8 * MaximumProcessorCount + 24, 1484223557LL);
-  if ( !Pool2 )
+  v2 = 8 * KeQueryMaximumProcessorCountEx(0xFFFFu) + 24;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v2, 0x58777445u);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  v5 = ExAllocatePool2(64LL, 4LL * *(unsigned int *)((char *)&NlsMbCodePageTag + 5), 1484223557LL);
-  *Pool2 = v5;
-  if ( !v5 )
+  memset(PoolWithTag, 0, v2);
+  v6 = ExAllocatePoolWithTag(NonPagedPoolNx, 4LL * (unsigned int)EtwpMaxPmcCounter, 0x58777445u);
+  *v4 = v6;
+  if ( !v6 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v4, 0);
     return 3221225495LL;
   }
-  *(_QWORD *)(a1 + 1016) = Pool2;
+  *(_QWORD *)(a1 + 1000) = v4;
   return 0LL;
 }

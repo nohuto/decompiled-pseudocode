@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_InitializeHsm @ 0x1C007D8DC
+ * XREFs of HUBMISC_InitializeHsm @ 0x1C007C300
  * Callers:
- *     HUBFDO_EvtDeviceAdd @ 0x1C0074380 (HUBFDO_EvtDeviceAdd.c)
+ *     HUBFDO_EvtDeviceAdd @ 0x1C00732C0 (HUBFDO_EvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
@@ -116,20 +116,20 @@ __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
             2u,
             3u,
             0xDu,
-            (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+            (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
         return (unsigned int)-1073741670;
       }
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xCu, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xCu, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v6 = 10;
 LABEL_4:
-    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 2520), 2u, 3u, v6, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids, v4);
+    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 2520), 2u, 3u, v6, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v4);
   }
   return v5;
 }

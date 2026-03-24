@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpReparseToVirtualPath @ 0x140A19FB4
+ * XREFs of CmpReparseToVirtualPath @ 0x1406854AC
  * Callers:
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpVEExecuteCreateLogic @ 0x1407BA9F4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyRemapToVirtual @ 0x140A18024 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406852C0 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140685510 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmKeyBodyRemapToVirtual @ 0x14086F870 (CmKeyBodyRemapToVirtual.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     CmRealKCBToVirtualPath @ 0x140A186B8 (CmRealKCBToVirtualPath.c)
- *     CmpVirtualPathPresent @ 0x140A1A890 (CmpVirtualPathPresent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmRealKCBToVirtualPath @ 0x1406EB88C (CmRealKCBToVirtualPath.c)
+ *     CmpVirtualPathPresent @ 0x140870EA0 (CmpVirtualPathPresent.c)
  */
 
 char __fastcall CmpReparseToVirtualPath(__int64 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)
@@ -34,6 +34,6 @@ char __fastcall CmpReparseToVirtualPath(__int64 a1, __int64 a2, __int64 a3, UNIC
     v7 = 0;
   }
   if ( DestinationString.Buffer )
-    RtlFreeUnicodeString(&DestinationString);
+    RtlFreeAnsiString(&DestinationString);
   return v7;
 }

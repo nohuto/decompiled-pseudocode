@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiSetTargetAdjustedColorimetry @ 0x1C03982D0
+ * XREFs of DpiSetTargetAdjustedColorimetry @ 0x1C019FD50
  * Callers:
- *     ?SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z @ 0x1C01E4BC0 (-SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z.c)
+ *     ?_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z @ 0x1C016DBE4 (-_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z.c)
  * Callees:
- *     DpiFdoGetChildDescriptor @ 0x1C001E234 (DpiFdoGetChildDescriptor.c)
- *     DpiDxgkDdiSetTargetAdjustedColorimetry @ 0x1C0397174 (DpiDxgkDdiSetTargetAdjustedColorimetry.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A270 (DpiFdoGetChildDescriptor.c)
+ *     DpiDxgkDdiSetTargetAdjustedColorimetry @ 0x1C02D8B0C (DpiDxgkDdiSetTargetAdjustedColorimetry.c)
  */
 
 __int64 __fastcall DpiSetTargetAdjustedColorimetry(__int64 a1, int a2)
@@ -39,7 +39,11 @@ __int64 __fastcall DpiSetTargetAdjustedColorimetry(__int64 a1, int a2)
       v12[2] = *(_OWORD *)(v5 + 32);
       v12[1] = v8;
       v13 = v10;
-      return DpiDxgkDdiSetTargetAdjustedColorimetry(v7, v11, v9, (__int64)v12);
+      return ((__int64 (__fastcall *)(__int64, __int64, __int64, _OWORD *))DpiDxgkDdiSetTargetAdjustedColorimetry)(
+               v7,
+               v11,
+               v9,
+               v12);
     }
   }
   return result;

@@ -1,33 +1,34 @@
 /*
- * XREFs of HsaInitializeInterruptRemapping @ 0x140A99188
+ * XREFs of HsaInitializeInterruptRemapping @ 0x1409AA588
  * Callers:
- *     HsaInitializeIommu @ 0x140A99320 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x1409AA730 (HsaInitializeIommu.c)
  * Callees:
- *     RtlInitializeBitMap @ 0x14034E7A0 (RtlInitializeBitMap.c)
- *     HalpGetIrtEntryCount @ 0x14036EB6C (HalpGetIrtEntryCount.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     ExtEnvAllocateMemory @ 0x1403802B8 (ExtEnvAllocateMemory.c)
- *     ExtEnvInitializeSpinLock @ 0x1403B414C (ExtEnvInitializeSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExtEnvClearBits @ 0x14051F580 (ExtEnvClearBits.c)
+ *     RtlInitializeBitMap @ 0x14030A4E0 (RtlInitializeBitMap.c)
+ *     ExtEnvZeroMemory @ 0x14036D040 (ExtEnvZeroMemory.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpGetIrtEntryCount @ 0x1404D14A8 (HalpGetIrtEntryCount.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5030 (ExtEnvAllocateMemory.c)
+ *     ExtEnvClearBits @ 0x1404D52C4 (ExtEnvClearBits.c)
+ *     ExtEnvInitializeSpinLock @ 0x1404D5474 (ExtEnvInitializeSpinLock.c)
  */
 
 __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
 {
-  int v1; // ebx
+  int Memory; // edi
   int v3; // eax
   LARGE_INTEGER v4; // rax
   PVOID v5; // rax
   __int64 v6; // rcx
   RTL_BITMAP *v7; // rcx
   __int64 v8; // rcx
-  __int64 v9; // rax
+  char *v9; // rbx
   PULONG BitMapBuffer; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+48h] [rbp+20h] BYREF
+  void *v12; // [rsp+48h] [rbp+20h] BYREF
 
   v12 = 0LL;
-  v1 = 0;
+  Memory = 0;
   BitMapBuffer = 0LL;
   v3 = *(_DWORD *)(a1 + 176);
   if ( v3 )
@@ -47,25 +48,30 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
               (*((_QWORD *)&HsaSharedRemappingTable + 1) = v5) != 0LL) )
         {
           memset(v5, 0, (unsigned int)NumberOfBytes);
-          v1 = ExtEnvAllocateMemory(v6, 4 * ((unsigned int)(*(_DWORD *)(a1 + 180) + 31) >> 5), &BitMapBuffer);
-          if ( v1 >= 0 )
+          Memory = ExtEnvAllocateMemory(
+                     v6,
+                     4 * ((unsigned int)(*(_DWORD *)(a1 + 180) + 31) >> 5),
+                     (__int64 *)&BitMapBuffer);
+          if ( Memory >= 0 )
           {
             RtlInitializeBitMap((PRTL_BITMAP)(&NumberOfBytes + 1), BitMapBuffer, *(_DWORD *)(a1 + 180));
             ExtEnvClearBits(v7, 0, *(_DWORD *)(a1 + 180));
             HsaTotalDeviceApertures = (unsigned int)HalpGetIrtEntryCount() >> 9;
-            v1 = ExtEnvAllocateMemory(v8, 0x2000u, &v12);
-            if ( v1 >= 0 )
+            Memory = ExtEnvAllocateMemory(v8, 0x2400u, (__int64 *)&v12);
+            if ( Memory >= 0 )
             {
+              v9 = (char *)v12;
+              ExtEnvZeroMemory(v12, 0x2400uLL);
               ExtEnvInitializeSpinLock(HsaDeviceApertureLock);
-              v9 = v12;
               HsaAllocatedDeviceApertures = 128;
-              HsaDeviceApertureRanges[0] = v12;
-              *(_OWORD *)(v12 + 8) = HsaSharedRemappingTable;
+              HsaDeviceApertureRanges[0] = (__int64)v9;
+              *(_OWORD *)(v9 + 8) = HsaSharedRemappingTable;
               *(_OWORD *)(v9 + 24) = *(_OWORD *)&NumberOfBytes;
-              *(_QWORD *)(v9 + 40) = qword_140C5FD00;
-              *(_DWORD *)(v9 + 48) = 1;
-              *(_DWORD *)(v9 + 52) = -1;
-              *(_DWORD *)(v9 + 56) = 0;
+              *((_QWORD *)v9 + 5) = qword_140C489E0;
+              *((_DWORD *)v9 + 12) = 1;
+              *((_DWORD *)v9 + 13) = -1;
+              *((_DWORD *)v9 + 14) = 0;
+              *((_DWORD *)v9 + 15) = 0;
             }
           }
         }
@@ -80,5 +86,5 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
       return (unsigned int)-1073741637;
     }
   }
-  return (unsigned int)v1;
+  return (unsigned int)Memory;
 }

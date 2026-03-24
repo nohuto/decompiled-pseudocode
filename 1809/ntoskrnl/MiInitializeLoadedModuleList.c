@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     MiConstructLoaderEntry @ 0x140682490 (MiConstructLoaderEntry.c)
- *     MiLockdownSections @ 0x140682C04 (MiLockdownSections.c)
- *     NtSetDebugFilterState @ 0x140740A30 (NtSetDebugFilterState.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
+ *     MiLockdownSections @ 0x140682BE4 (MiLockdownSections.c)
+ *     NtSetDebugFilterState @ 0x140740A10 (NtSetDebugFilterState.c)
  *     MiBuildImportsForBootDrivers @ 0x1409CF458 (MiBuildImportsForBootDrivers.c)
  *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1409CF77C (RtlCreateInvertedFunctionTableCacheEntry.c)
  *     MiLocateKernelSections @ 0x1409CF80C (MiLocateKernelSections.c)

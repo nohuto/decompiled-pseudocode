@@ -1,12 +1,12 @@
 /*
- * XREFs of DpOpenSpbResource @ 0x1C03955F0
+ * XREFs of DpOpenSpbResource @ 0x1C02D6E10
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     RESOURCE_HUB_STRING_PRINTF @ 0x1C00663E0 (RESOURCE_HUB_STRING_PRINTF.c)
- *     RESOURCE_HUB_UNICODE_STRING_PRINTF @ 0x1C0066410 (RESOURCE_HUB_UNICODE_STRING_PRINTF.c)
- *     DpiCreateSpbResourceRecord @ 0x1C0395D90 (DpiCreateSpbResourceRecord.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000C518 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C00474E0 (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
+ *     DpiCreateSpbResourceRecord @ 0x1C02D76C8 (DpiCreateSpbResourceRecord.c)
  */
 
 __int64 __fastcall DpOpenSpbResource(
@@ -18,126 +18,159 @@ __int64 __fastcall DpOpenSpbResource(
         ULONG OpenOptions,
         _QWORD *a7)
 {
+  const UNICODE_STRING *v8; // r14
   int v9; // ebx
-  __int64 v11; // rbx
-  __int64 v13; // rsi
-  _DWORD *v14; // rdx
-  __int64 i; // rcx
-  unsigned int v16; // r9d
-  unsigned int v17; // r10d
+  __int64 v10; // rdi
+  _QWORD *v11; // rax
+  __int64 v12; // rbx
+  __int64 v14; // rsi
+  _DWORD *v15; // rdx
+  unsigned int v16; // r10d
+  unsigned int v17; // r11d
   _DWORD *v18; // rax
   unsigned __int16 Length; // ax
   __int64 v20; // rdx
-  NTSTATUS v21; // eax
-  int v22; // eax
-  int v23; // [rsp+34h] [rbp-8Dh]
-  struct _UNICODE_STRING Destination; // [rsp+38h] [rbp-89h] BYREF
-  void *FileHandle; // [rsp+48h] [rbp-79h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-71h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-69h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-39h] BYREF
-  unsigned __int16 v29[20]; // [rsp+98h] [rbp-29h] BYREF
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  NTSTATUS v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  int v31; // eax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  int v34; // [rsp+34h] [rbp-9Dh]
+  struct _UNICODE_STRING Destination; // [rsp+38h] [rbp-99h] BYREF
+  void *FileHandle; // [rsp+48h] [rbp-89h] BYREF
+  __int64 v37; // [rsp+50h] [rbp-81h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-79h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-49h] BYREF
+  wchar_t Dest[20]; // [rsp+98h] [rbp-39h] BYREF
 
   FileHandle = 0LL;
-  v26 = 0LL;
+  v37 = 0LL;
   Destination = 0LL;
+  v8 = a3;
   v9 = a2;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  v23 = HIDWORD(a2);
+  v10 = a1;
+  v34 = HIDWORD(a2);
   IoStatusBlock = 0LL;
-  if ( !KeGetCurrentIrql() )
+  if ( KeGetCurrentIrql() )
   {
-    if ( !a1
-      || (v13 = *(_QWORD *)(a1 + 64)) == 0
-      || *(_DWORD *)(v13 + 16) != 1953656900
-      || (unsigned int)(*(_DWORD *)(v13 + 20) - 2) > 1 )
-    {
-      WdLogSingleEntry1(3LL, a1);
-      return 3221225711LL;
-    }
-    v14 = *(_DWORD **)(v13 + 1288);
-    if ( !v14 )
-    {
-LABEL_38:
-      WdLogSingleEntry1(3LL, v23);
-      return 3221225712LL;
-    }
-    for ( i = 0LL; ; i = (unsigned int)(i + 1) )
-    {
-      if ( (unsigned int)i >= *v14 )
-        goto LABEL_38;
-      v16 = 0;
-      v17 = v14[9 * i + 4];
-      if ( v17 )
-        break;
-LABEL_17:
-      ;
-    }
-    v18 = &v14[9 * i + 8];
-    while ( *((_BYTE *)v18 - 12) != 0x84 || *(v18 - 1) != v9 || *v18 != v23 )
-    {
-      ++v16;
-      v18 += 5;
-      if ( v16 >= v17 )
-        goto LABEL_17;
-    }
-    if ( a3 )
-      Length = a3->Length;
-    else
-      Length = 0;
-    Destination.MaximumLength = Length + 80;
-    Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(Length + 80), 0x74727044u);
-    if ( !Destination.Buffer )
-    {
-      LODWORD(v11) = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
-      return (unsigned int)v11;
-    }
-    LODWORD(v11) = RESOURCE_HUB_STRING_PRINTF(v29, 0x22uLL, L"%0*I64x");
-    if ( (int)v11 >= 0 )
-      LODWORD(v11) = RESOURCE_HUB_UNICODE_STRING_PRINTF(
-                       (__int64)&Destination,
-                       L"%s%s",
-                       L"\\Device\\RESOURCE_HUB\\",
-                       v29);
-    if ( (int)v11 >= 0 )
-    {
-      if ( a3 )
-      {
-        if ( *a3->Buffer != 92 )
-          RtlAppendUnicodeToString(&Destination, L"\\");
-        RtlAppendUnicodeStringToString(&Destination, a3);
-      }
-      ObjectAttributes.RootDirectory = 0LL;
-      ObjectAttributes.ObjectName = &Destination;
-      ObjectAttributes.Length = 48;
-      ObjectAttributes.Attributes = 576;
-      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v21 = ZwOpenFile(&FileHandle, a4, &ObjectAttributes, &IoStatusBlock, ShareAccess, OpenOptions);
-      v11 = v21;
-      if ( v21 >= 0 )
-      {
-        v22 = DpiCreateSpbResourceRecord(v13, FileHandle, &v26);
-        v11 = v22;
-        if ( v22 >= 0 )
-        {
-          *a7 = v26;
-LABEL_36:
-          if ( Destination.Buffer )
-            ExFreePoolWithTag(Destination.Buffer, 0);
-          return (unsigned int)v11;
-        }
-      }
-      v20 = v11;
-    }
-    else
-    {
-      v20 = (int)v11;
-    }
-    WdLogSingleEntry1(2LL, v20);
-    goto LABEL_36;
+    v11 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    LODWORD(v12) = -1073741811;
+    v11[3] = 275LL;
+    v11[4] = 21LL;
+    v11[5] = -1073741811LL;
+    WdLogEvent5_WdCriticalError(v11);
+    return (unsigned int)v12;
   }
-  LODWORD(v11) = -1073741811;
-  WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
-  return (unsigned int)v11;
+  if ( a1
+    && (v14 = *(_QWORD *)(a1 + 64)) != 0
+    && *(_DWORD *)(v14 + 16) == 1953656900
+    && (unsigned int)(*(_DWORD *)(v14 + 20) - 2) <= 1 )
+  {
+    v15 = *(_DWORD **)(v14 + 1288);
+    LOBYTE(a3) = 0;
+    if ( v15 )
+    {
+      a1 = 0LL;
+      do
+      {
+        if ( (unsigned int)a1 >= *v15 )
+          break;
+        v16 = 0;
+        v17 = v15[9 * a1 + 4];
+        if ( v17 )
+        {
+          v18 = &v15[9 * a1 + 8];
+          while ( *((_BYTE *)v18 - 12) != 0x84 || *(v18 - 1) != v9 || *v18 != v34 )
+          {
+            ++v16;
+            v18 += 5;
+            if ( v16 >= v17 )
+              goto LABEL_19;
+          }
+          LOBYTE(a3) = 1;
+        }
+LABEL_19:
+        a1 = (unsigned int)(a1 + 1);
+      }
+      while ( !(_BYTE)a3 );
+      if ( (_BYTE)a3 )
+      {
+        if ( v8 )
+          Length = v8->Length;
+        else
+          Length = 0;
+        Destination.MaximumLength = Length + 80;
+        Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(Length + 80), 0x74727044u);
+        if ( !Destination.Buffer )
+        {
+          v24 = WdLogNewEntry5_WdLowResource(v21, v20, v22, v23);
+          LODWORD(v12) = -1073741801;
+          *(_QWORD *)(v24 + 24) = -1073741801LL;
+          WdLogEvent5_WdLowResource(v24);
+          return (unsigned int)v12;
+        }
+        LODWORD(v12) = RtlStringCbPrintfW(Dest, 0x22uLL, L"%0*I64x");
+        if ( (int)v12 >= 0 )
+          LODWORD(v12) = RtlUnicodeStringPrintf(&Destination, L"%s%s", L"\\Device\\RESOURCE_HUB\\", Dest);
+        if ( (int)v12 >= 0 )
+        {
+          if ( v8 )
+          {
+            if ( *v8->Buffer != 92 )
+              RtlAppendUnicodeToString(&Destination, L"\\");
+            RtlAppendUnicodeStringToString(&Destination, v8);
+          }
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.ObjectName = &Destination;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.Attributes = 576;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          v28 = ZwOpenFile(&FileHandle, a4, &ObjectAttributes, &IoStatusBlock, ShareAccess, OpenOptions);
+          v12 = v28;
+          if ( v28 >= 0 )
+          {
+            v31 = DpiCreateSpbResourceRecord(v14, FileHandle, &v37);
+            v12 = v31;
+            if ( v31 >= 0 )
+            {
+              *a7 = v37;
+LABEL_39:
+              if ( Destination.Buffer )
+                ExFreePoolWithTag(Destination.Buffer, 0);
+              return (unsigned int)v12;
+            }
+          }
+          v27 = WdLogNewEntry5_WdError(v30, v29);
+          *(_QWORD *)(v27 + 24) = v12;
+        }
+        else
+        {
+          v27 = WdLogNewEntry5_WdError(v26, v25);
+          *(_QWORD *)(v27 + 24) = (int)v12;
+        }
+        WdLogEvent5_WdError(v27);
+        goto LABEL_39;
+      }
+    }
+    v32 = WdLogNewEntry5_WdWarning(a1, v15, a3);
+    *(_QWORD *)(v32 + 24) = v34;
+    WdLogEvent5_WdWarning(v32);
+    return 3221225712LL;
+  }
+  else
+  {
+    v33 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+    *(_QWORD *)(v33 + 24) = v10;
+    WdLogEvent5_WdWarning(v33);
+    return 3221225711LL;
+  }
 }

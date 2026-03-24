@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReferenceAndStoreUIOwnerPwnd@CInputQueueProp@@QEAAXPEAUtagWND@@@Z @ 0x1C015743E
+ * XREFs of ?ReferenceAndStoreUIOwnerPwnd@CInputQueueProp@@QEAAXPEAUtagWND@@@Z @ 0x1C0240B34
  * Callers:
- *     ?SetCompositionInputWindowUIOwner@@YAHPEAUtagWND@@0@Z @ 0x1C01574BA (-SetCompositionInputWindowUIOwner@@YAHPEAUtagWND@@0@Z.c)
+ *     ?SetCompositionInputWindowUIOwner@@YAHPEAUtagWND@@0@Z @ 0x1C01D896C (-SetCompositionInputWindowUIOwner@@YAHPEAUtagWND@@0@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,23 +11,23 @@ void __fastcall CInputQueueProp::ReferenceAndStoreUIOwnerPwnd(CInputQueueProp *t
   char v4; // cl
   _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *((_BYTE *)this + 48);
-  if ( a2 == *((struct tagWND **)this + 2) )
+  v4 = *((_BYTE *)this + 40);
+  if ( a2 == *((struct tagWND **)this + 1) )
   {
-    if ( !v4 && *((_QWORD *)this + 5) )
-      HMAssignmentUnlock((char *)this + 40);
-    *((_QWORD *)this + 5) = a2;
-    *((_BYTE *)this + 48) = 1;
+    if ( !v4 && *((_QWORD *)this + 4) )
+      HMAssignmentUnlock((char *)this + 32);
+    *((_QWORD *)this + 4) = a2;
+    *((_BYTE *)this + 40) = 1;
   }
   else
   {
     if ( v4 )
     {
-      *((_QWORD *)this + 5) = 0LL;
-      *((_BYTE *)this + 48) = 0;
+      *((_QWORD *)this + 4) = 0LL;
+      *((_BYTE *)this + 40) = 0;
     }
-    v5[0] = (char *)this + 40;
+    v5[0] = (char *)this + 32;
     v5[1] = a2;
-    HMAssignmentLock(v5, 0LL);
+    HMAssignmentLock(v5);
   }
 }

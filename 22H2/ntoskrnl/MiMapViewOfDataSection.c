@@ -1,56 +1,58 @@
 /*
- * XREFs of MiMapViewOfDataSection @ 0x1407202F0
+ * XREFs of MiMapViewOfDataSection @ 0x140639820
  * Callers:
- *     MiMapViewOfSection @ 0x1407216D0 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x140639150 (MiMapViewOfSection.c)
  * Callees:
- *     MiDereferenceControlArea @ 0x14020B8B0 (MiDereferenceControlArea.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140214DB4 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiGetCommittedPages @ 0x1402197E0 (MiGetCommittedPages.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiLocatePagefileSubsection @ 0x140273720 (MiLocatePagefileSubsection.c)
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiReferenceVad @ 0x140275334 (MiReferenceVad.c)
- *     MiCheckPurgeAndUpMapCount @ 0x1402870D0 (MiCheckPurgeAndUpMapCount.c)
- *     MiInsertVad @ 0x140287B70 (MiInsertVad.c)
- *     MiGetControlAreaPtes @ 0x1402884F0 (MiGetControlAreaPtes.c)
- *     MiAddViewsForSection @ 0x140288650 (MiAddViewsForSection.c)
- *     MiLocateSubsectionNode @ 0x1402891A0 (MiLocateSubsectionNode.c)
- *     MiUnlockVad @ 0x140289B80 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C6B0 (MiLockVad.c)
- *     MiUpdateVadStartVpn @ 0x14029C7E8 (MiUpdateVadStartVpn.c)
- *     MiComputeContiguousSubsectionPte @ 0x14029C7FC (MiComputeContiguousSubsectionPte.c)
- *     LOCK_ADDRESS_SPACE @ 0x14029C82C (LOCK_ADDRESS_SPACE.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x14029C964 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiAweControlArea @ 0x1402A0D84 (MiAweControlArea.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiDereferenceExtendInfo @ 0x140366114 (MiDereferenceExtendInfo.c)
- *     MiDecrementLargeSubsections @ 0x14063C764 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x14063D9C8 (MiIncrementLargeSubsections.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x140660C8C (MiUnlockAndDereferenceNestedVad.c)
- *     MiFindPlaceholderVadToReplace @ 0x140660D70 (MiFindPlaceholderVadToReplace.c)
- *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiCommitVadMetadataBits @ 0x1406AE790 (MiCommitVadMetadataBits.c)
- *     MiIsVaRangeAvailable @ 0x1406AF7FC (MiIsVaRangeAvailable.c)
- *     MiInsertVadCharges @ 0x1406FA960 (MiInsertVadCharges.c)
- *     MiUnmapVad @ 0x14071F314 (MiUnmapVad.c)
- *     MiAdvanceVadHint @ 0x14071F9D0 (MiAdvanceVadHint.c)
- *     MiSelectUserAddress @ 0x14071FD30 (MiSelectUserAddress.c)
- *     MiReferenceFileObjectForMap @ 0x140720E88 (MiReferenceFileObjectForMap.c)
- *     MiInsertSharedCommitNode @ 0x140722090 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x140722410 (MiRemoveSharedCommitNode.c)
- *     MiAddSecureEntry @ 0x140746294 (MiAddSecureEntry.c)
- *     MiChargeSegmentCommit @ 0x140748518 (MiChargeSegmentCommit.c)
- *     MiSecureVad @ 0x1407BAFAC (MiSecureVad.c)
- *     MiLogMapFileEvent @ 0x1408AC522 (MiLogMapFileEvent.c)
- *     MiCreatePlaceholderStorage @ 0x140A47CA0 (MiCreatePlaceholderStorage.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140A47D68 (MiFinishPlaceholderVadReplacement.c)
- *     MiPreparePlaceholderVadReplacement @ 0x140A47E98 (MiPreparePlaceholderVadReplacement.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025A688 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiIsProcessCfgEnabled @ 0x14025A880 (MiIsProcessCfgEnabled.c)
+ *     MiReferenceVad @ 0x14025ABF0 (MiReferenceVad.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14027D05C (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiUnlockVad @ 0x140294CD8 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140294EE0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14029590C (LOCK_ADDRESS_SPACE.c)
+ *     MiAddViewsForSection @ 0x140295C70 (MiAddViewsForSection.c)
+ *     MiGetControlAreaPtes @ 0x14029657C (MiGetControlAreaPtes.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140296630 (MiCheckPurgeAndUpMapCount.c)
+ *     MiAweControlArea @ 0x1402966C8 (MiAweControlArea.c)
+ *     MiGetWsAndInsertVad @ 0x140296700 (MiGetWsAndInsertVad.c)
+ *     MiLockVad @ 0x140296DD8 (MiLockVad.c)
+ *     MiComputeContiguousSubsectionPte @ 0x140297130 (MiComputeContiguousSubsectionPte.c)
+ *     MiLocateSubsectionNode @ 0x140297160 (MiLocateSubsectionNode.c)
+ *     MiGetCommittedPages @ 0x140297350 (MiGetCommittedPages.c)
+ *     MiLocatePagefileSubsection @ 0x14029737C (MiLocatePagefileSubsection.c)
+ *     ExAllocatePoolMm @ 0x1402BBA40 (ExAllocatePoolMm.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MmGetCurrentProcessorColor @ 0x1402F4110 (MmGetCurrentProcessorColor.c)
+ *     MiDereferenceExtendInfo @ 0x140328F64 (MiDereferenceExtendInfo.c)
+ *     MiDereferenceControlArea @ 0x14032CAF8 (MiDereferenceControlArea.c)
+ *     MiDecrementLargeSubsections @ 0x140540350 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1405413C0 (MiIncrementLargeSubsections.c)
+ *     MiFindPlaceholderVadToReplace @ 0x140555134 (MiFindPlaceholderVadToReplace.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x14055BD10 (MiUnlockAndDereferenceNestedVad.c)
+ *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
+ *     MiCommitVadCfgBits @ 0x14061C0DC (MiCommitVadCfgBits.c)
+ *     MiIsVaRangeAvailable @ 0x14061DFF8 (MiIsVaRangeAvailable.c)
+ *     MiUnmapVad @ 0x14061E840 (MiUnmapVad.c)
+ *     MiSecureVad @ 0x14061FAD0 (MiSecureVad.c)
+ *     MiAddSecureEntry @ 0x14061FBE0 (MiAddSecureEntry.c)
+ *     MiChargeSegmentCommit @ 0x1406202F0 (MiChargeSegmentCommit.c)
+ *     MiRemoveSharedCommitNode @ 0x140638C00 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140638E70 (MiInsertSharedCommitNode.c)
+ *     MiReferenceFileObjectForMap @ 0x14063A360 (MiReferenceFileObjectForMap.c)
+ *     MiInsertVadCharges @ 0x14063A390 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x14063A680 (MiAdvanceVadHint.c)
+ *     MiFreePlaceholderStorage @ 0x1406A6748 (MiFreePlaceholderStorage.c)
+ *     MiLogMapFileEvent @ 0x1408C4798 (MiLogMapFileEvent.c)
+ *     MiCreatePlaceholderStorage @ 0x1408D8328 (MiCreatePlaceholderStorage.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x1408D83D8 (MiFinishPlaceholderVadReplacement.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x1408D8500 (MiPreparePlaceholderVadReplacement.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMapViewOfDataSection(
@@ -61,518 +63,520 @@ __int64 __fastcall MiMapViewOfDataSection(
         __int64 a5,
         int a6,
         int a7,
-        unsigned __int64 a8)
+        unsigned __int64 a8,
+        char *a9)
 {
-  int v8; // eax
-  __int64 v12; // rdx
-  __int64 *v13; // rcx
-  void *v14; // r10
-  __int64 v15; // r9
-  __int64 v16; // r13
-  int v17; // edx
-  int v18; // eax
-  unsigned __int64 v20; // rax
-  __int64 v21; // rdi
+  int v9; // eax
+  __int64 v13; // rdx
+  __int64 *v14; // rcx
+  void *v15; // r9
+  __int64 v16; // r8
+  unsigned __int64 v17; // r13
+  int v18; // edx
+  int v19; // eax
+  bool v20; // zf
+  unsigned __int64 v22; // rax
+  __int64 v23; // rdi
   struct _KTHREAD *CurrentThread; // r12
-  __int64 v23; // rax
-  unsigned __int64 v24; // rbx
-  unsigned __int64 v25; // rax
-  unsigned int inserted; // esi
-  unsigned __int64 v27; // rbx
-  bool v28; // si
-  ULONG_PTR SubsectionNode; // r9
-  unsigned __int64 v30; // rcx
-  unsigned __int64 v31; // rax
-  __int64 *v32; // rsi
-  __int64 v33; // rax
-  __int64 v34; // rbx
-  _DWORD *Pool; // rax
-  int v36; // ecx
-  unsigned int v37; // ecx
-  int v38; // eax
-  bool v39; // zf
-  int v40; // ecx
-  unsigned int v41; // edx
+  __int64 v25; // rax
+  unsigned __int64 v26; // rbx
+  unsigned __int64 v27; // rax
+  int inserted; // esi
+  struct _DMA_ADAPTER *v29; // rcx
+  unsigned __int64 v30; // rbx
+  bool v31; // si
+  __int64 *SubsectionNode; // r9
+  unsigned __int64 v33; // rcx
+  unsigned __int64 v34; // rax
+  __int64 v35; // rax
+  unsigned __int64 v36; // rsi
+  int v37; // eax
+  _DWORD *PoolMm; // rax
+  int v39; // ebx
+  unsigned int v40; // ecx
+  int v41; // eax
   int v42; // ecx
-  unsigned int v43; // eax
-  int v44; // ecx
-  unsigned __int64 v45; // rsi
-  unsigned __int64 v46; // r9
-  unsigned __int64 v47; // r10
-  __int64 v48; // rax
-  __int64 v49; // rsi
-  unsigned __int64 v50; // rcx
-  __int64 v51; // rsi
-  _DWORD *v52; // rax
-  __int64 v53; // rcx
-  unsigned __int64 v54; // rax
-  unsigned __int64 v55; // r8
-  __int64 *v56; // rax
-  void *v57; // rcx
-  __int64 v58; // rax
-  __int64 v59; // rsi
-  PVOID v60; // r14
-  volatile signed __int64 *v61; // rdi
-  int v62; // r8d
-  int v63; // r9d
-  int v64; // eax
-  PVOID v65; // rbx
-  PVOID v66; // r14
-  unsigned __int64 v67; // [rsp+50h] [rbp-89h] BYREF
-  ULONG_PTR v68; // [rsp+58h] [rbp-81h]
-  PVOID PlaceholderVadToReplace; // [rsp+60h] [rbp-79h]
-  int v70; // [rsp+68h] [rbp-71h]
-  int v71; // [rsp+6Ch] [rbp-6Dh]
-  unsigned __int64 v72; // [rsp+70h] [rbp-69h]
-  unsigned __int64 v73; // [rsp+78h] [rbp-61h]
-  unsigned __int64 ControlAreaPtes; // [rsp+80h] [rbp-59h]
-  __int64 v75; // [rsp+88h] [rbp-51h]
-  __int64 v76; // [rsp+90h] [rbp-49h]
-  unsigned __int64 v77; // [rsp+98h] [rbp-41h]
-  unsigned __int64 v78; // [rsp+A0h] [rbp-39h]
-  __int64 v79; // [rsp+A8h] [rbp-31h]
-  _QWORD *v80; // [rsp+B0h] [rbp-29h] BYREF
-  unsigned __int64 v81; // [rsp+B8h] [rbp-21h]
-  __int64 v82; // [rsp+C0h] [rbp-19h] BYREF
-  PVOID P; // [rsp+C8h] [rbp-11h]
-  unsigned __int64 v84; // [rsp+D0h] [rbp-9h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+D8h] [rbp-1h]
-  int PlaceholderStorage; // [rsp+128h] [rbp+4Fh] BYREF
-  unsigned __int64 *v87; // [rsp+130h] [rbp+57h]
-  unsigned __int64 *v88; // [rsp+138h] [rbp+5Fh]
+  int v43; // eax
+  unsigned int v44; // edx
+  int v45; // ecx
+  unsigned int v46; // eax
+  int v47; // ecx
+  unsigned __int64 v48; // r12
+  unsigned __int64 v49; // r10
+  __int64 v50; // r10
+  __int64 v51; // r10
+  unsigned __int64 v52; // rdx
+  unsigned __int64 v53; // r9
+  _DWORD *v54; // rsi
+  _DWORD *Pool; // rax
+  __int64 v56; // rcx
+  unsigned __int64 v57; // rax
+  unsigned __int64 v58; // r8
+  __int64 *v59; // rsi
+  __int64 v60; // r10
+  __int64 *v61; // rax
+  __int64 v62; // rcx
+  int v63; // r14d
+  int v64; // r9d
+  int v65; // eax
+  PVOID v66; // rbx
+  PVOID v67; // r14
+  PVOID v68; // r14
+  volatile signed __int64 *v69; // rdi
+  unsigned __int64 v70; // r12
+  __int64 v71; // [rsp+50h] [rbp-A1h]
+  __int64 *BugCheckParameter2; // [rsp+58h] [rbp-99h]
+  unsigned __int64 v73; // [rsp+60h] [rbp-91h] BYREF
+  PVOID PlaceholderVadToReplace; // [rsp+68h] [rbp-89h]
+  unsigned __int64 ControlAreaPtes; // [rsp+70h] [rbp-81h]
+  int v76; // [rsp+78h] [rbp-79h]
+  int v77; // [rsp+7Ch] [rbp-75h]
+  unsigned __int64 v78; // [rsp+80h] [rbp-71h]
+  __int64 v79; // [rsp+88h] [rbp-69h]
+  unsigned __int64 v80; // [rsp+90h] [rbp-61h]
+  unsigned __int64 v81; // [rsp+98h] [rbp-59h]
+  __int64 v82; // [rsp+A0h] [rbp-51h]
+  unsigned __int64 v83; // [rsp+A8h] [rbp-49h] BYREF
+  signed __int64 v84; // [rsp+B0h] [rbp-41h]
+  __int64 *v85; // [rsp+B8h] [rbp-39h]
+  __int64 v86; // [rsp+C0h] [rbp-31h] BYREF
+  unsigned __int64 v87; // [rsp+C8h] [rbp-29h]
+  __int64 v88; // [rsp+D0h] [rbp-21h] BYREF
+  PVOID P; // [rsp+D8h] [rbp-19h]
+  ULONG_PTR v90; // [rsp+E0h] [rbp-11h]
+  int PlaceholderStorage; // [rsp+138h] [rbp+47h] BYREF
+  unsigned __int64 *v92; // [rsp+140h] [rbp+4Fh]
+  unsigned __int64 *v93; // [rsp+148h] [rbp+57h]
 
-  v88 = a4;
-  v87 = a3;
-  v8 = *(_DWORD *)(a2 + 64);
-  v67 = 0LL;
-  v82 = 0LL;
-  v71 = 0;
-  if ( (v8 & 2) != 0 )
+  v93 = a4;
+  v92 = a3;
+  v9 = *(_DWORD *)(a2 + 60);
+  v73 = 0LL;
+  v83 = 0LL;
+  v88 = 0LL;
+  v77 = 0;
+  if ( (v9 & 2) != 0 )
     return 3221225485LL;
-  if ( (unsigned int)MiAweControlArea(a1) )
+  if ( MiAweControlArea(a1) )
     return 3221225485LL;
-  v15 = *v13;
-  v16 = *(_QWORD *)(v12 + 88);
-  v17 = *(_DWORD *)(v12 + 40);
-  v78 = (unsigned __int64)v14;
-  v75 = v15;
-  if ( (v17 & 0x2000) != 0 && *(void **)(a1 + 64) == v14 )
+  v16 = *v14;
+  v17 = *(_QWORD *)(v13 + 88);
+  v18 = *(_DWORD *)(v13 + 40);
+  v84 = (signed __int64)v15;
+  v82 = v16;
+  if ( (v18 & 0x2000) != 0 && *(void **)(a1 + 64) == v15 )
     return 3221225485LL;
-  v18 = v17 & 0x40000000;
-  if ( (v17 & 0x20000000) != 0 )
+  v19 = v18 & 0x40000000;
+  if ( (v18 & 0x20000000) == 0 )
   {
-    if ( v18 || (v17 & 0x2000) != 0 || a7 == 24 || (a7 & 0xFFFFFFF8) == 0x10 || (a7 & 5) == 5 )
-      return 3221225485LL;
-    if ( *(void **)(a1 + 64) == v14 )
-    {
-      if ( !_bittest16((const signed __int16 *)(v15 + 12), 0xCu) )
-        return 3221225485LL;
-    }
-    else if ( (*(_BYTE *)(a1 + 62) & 0xC) != 4 )
-    {
-      return 3221225485LL;
-    }
-  }
-  else if ( v18 && ((v17 & 0x2000) != 0 || *(void **)(v16 + 2240) == v14 && (*(_DWORD *)(a2 + 60) & 1) == 0) )
-  {
+    if ( !v19 || (v18 & 0x2000) == 0 && (*(void **)(v17 + 2240) != v15 || (*(_DWORD *)(a2 + 72) & 1) != 0) )
+      goto LABEL_20;
     return 3221225485LL;
   }
-  v20 = *(_QWORD *)(a2 + 16);
-  if ( v20 >= 0x200000 && ((v20 - 1) & *(_QWORD *)(a2 + 32)) != 0 || (v17 & 0x2000) != 0 && *a4 >= 0x10000000000LL )
+  if ( v19 || (v18 & 0x2000) != 0 || a7 == 24 || (a7 & 0xFFFFFFF8) == 0x10 || (a7 & 5) == 5 )
+    return 3221225485LL;
+  v20 = *(void **)(a1 + 64) == v15 ? (*(_WORD *)(v16 + 12) & 0x1000) == 0 : (*(_DWORD *)(a1 + 56) & 0x40000000) == 0;
+  if ( v20 )
+    return 3221225485LL;
+LABEL_20:
+  v22 = *(_QWORD *)(a2 + 16);
+  if ( v22 >= 0x200000 && ((v22 - 1) & *(_QWORD *)(a2 + 32)) != 0 || (v18 & 0x2000) != 0 && *a4 >= 0x10000000000LL )
     return 3221225503LL;
-  v21 = (__int64)v14;
+  v23 = (__int64)v15;
   CurrentThread = KeGetCurrentThread();
-  v23 = *(_QWORD *)(v16 + 1680) + 48LL;
-  PlaceholderVadToReplace = v14;
-  v76 = v23;
-  P = v14;
-  v70 = (int)v14;
+  v25 = *(_QWORD *)(v17 + 1680) + 48LL;
+  PlaceholderVadToReplace = v15;
+  v79 = v25;
+  P = v15;
+  v76 = (int)v15;
+  v71 = (__int64)CurrentThread;
   MiCheckPurgeAndUpMapCount(a1);
-  v24 = *a4;
-  v25 = v24 + *(_QWORD *)(a2 + 24);
-  v72 = v24 >> 12;
-  v73 = v25 >> 12;
+  v26 = *a4;
+  v27 = v26 + *(_QWORD *)(a2 + 24);
+  v78 = v26 >> 12;
+  v80 = v27 >> 12;
   ControlAreaPtes = MiGetControlAreaPtes(a1);
-  if ( v24 >> 12 < ControlAreaPtes )
+  if ( v26 >> 12 >= ControlAreaPtes )
   {
-    v27 = a8;
-    v28 = 0;
-    if ( *(_QWORD *)(a1 + 64) == v21 )
+    inserted = -1073741793;
+LABEL_27:
+    MiDereferenceControlArea(a1);
+    if ( v23 )
     {
-      v84 = v72;
-      v68 = (ULONG_PTR)MiLocatePagefileSubsection((unsigned int *)(a1 + 128), &v84);
-      SubsectionNode = v68;
-      if ( !v27 && a7 == 24 )
-        v28 = (*(_DWORD *)(a1 + 56) & 0x1000) != 0;
+      if ( *(__int64 *)(v23 + 120) < 0 )
+        MiDereferenceExtendInfo(v23, a1);
+      v29 = *(struct _DMA_ADAPTER **)(v23 + 128);
+      if ( v29 )
+        HalPutDmaAdapter(v29);
+      MiFreePlaceholderStorage(v23);
+      ExFreePoolWithTag((PVOID)v23, 0);
     }
-    else
-    {
-      SubsectionNode = (ULONG_PTR)MiLocateSubsectionNode(a1, *v88, 0);
-      v68 = SubsectionNode;
-    }
-    v30 = *(unsigned int *)(SubsectionNode + 36) | ((unsigned __int64)(*(_WORD *)(SubsectionNode + 32) & 0xFFC0) << 26);
-    v72 -= v30;
-    v31 = v73 - v30;
-    if ( v28 )
-      v31 = 1LL;
-    v73 = v31;
-    PlaceholderStorage = MiAddViewsForSection(SubsectionNode, v31, 8u);
+    if ( P )
+      ExFreePoolWithTag(P, 0);
+    return (unsigned int)inserted;
+  }
+  v30 = a8;
+  v31 = 0;
+  if ( *(_QWORD *)(a1 + 64) == v23 )
+  {
+    v83 = v78;
+    BugCheckParameter2 = (__int64 *)MiLocatePagefileSubsection((unsigned int *)(a1 + 128), &v83);
+    SubsectionNode = BugCheckParameter2;
+    if ( !v30 && a7 == 24 )
+      v31 = (*(_DWORD *)(a1 + 56) & 0x1000) != 0;
+  }
+  else
+  {
+    SubsectionNode = MiLocateSubsectionNode(a1, *v93, 0);
+    BugCheckParameter2 = SubsectionNode;
+  }
+  v33 = *((unsigned int *)SubsectionNode + 9) | ((unsigned __int64)((_WORD)SubsectionNode[4] & 0xFFC0) << 26);
+  v78 -= v33;
+  v34 = v80 - v33;
+  if ( v31 )
+    v34 = 1LL;
+  v80 = v34;
+  PlaceholderStorage = MiAddViewsForSection(SubsectionNode, v34, (_DWORD *)8, (__int64)SubsectionNode);
+  inserted = PlaceholderStorage;
+  if ( PlaceholderStorage < 0 )
+    goto LABEL_27;
+  v85 = (__int64 *)(BugCheckParameter2[1] + 8 * v78);
+  if ( *(_QWORD *)(a1 + 64) == v23 && v30 && MiGetCommittedPages((_QWORD *)a1) < ControlAreaPtes )
+  {
+    v35 = v23;
+    LOBYTE(v35) = (v30 & 0xFFF) != 0;
+    v84 = (v30 >> 12) + v35;
+  }
+  v86 = v23;
+  v36 = *(_QWORD *)(a5 + 24) << 12;
+  ControlAreaPtes = v36;
+  LOWORD(v37) = MmGetCurrentProcessorColor();
+  PoolMm = ExAllocatePoolMm(64, 0x88uLL, 0x20646156u, v37 | 0x80000000);
+  v23 = (__int64)PoolMm;
+  if ( !PoolMm )
+  {
+    inserted = -1073741670;
+LABEL_117:
+    MiRemoveViewsFromSectionWithPfn(BugCheckParameter2);
+    goto LABEL_27;
+  }
+  v39 = a7;
+  v40 = PoolMm[16] & 0xFBFFFFFF;
+  *((_QWORD *)PoolMm + 2) = -2LL;
+  *((_QWORD *)PoolMm + 10) = v85;
+  *((_QWORD *)PoolMm + 9) = BugCheckParameter2;
+  v41 = 0;
+  if ( a6 == 1 )
+    v41 = 0x4000000;
+  v42 = v41 | v40;
+  v43 = (*(_DWORD *)(v23 + 48) ^ (v39 << 7)) & 0xF80;
+  *(_DWORD *)(v23 + 64) = v42;
+  *(_DWORD *)(v23 + 48) ^= v43;
+  *(_DWORD *)(v23 + 48) ^= (*(_DWORD *)(v23 + 48) ^ (*(_DWORD *)(a2 + 52) << 12)) & 0x3F000;
+  if ( *(_DWORD *)(a2 + 52) )
+    *(_BYTE *)(*(_QWORD *)(v17 + 1680) + 352LL) = 1;
+  if ( *(_QWORD *)(a1 + 64) && (*(_DWORD *)(a2 + 40) & 0x20002000) == 0 )
+    *(_DWORD *)(v23 + 64) |= 0x2000000u;
+  *(_QWORD *)(v23 + 40) = 0LL;
+  v90 = v23 + 40;
+  *(_DWORD *)(v23 + 64) = ((__int64)*v93 >> 16) & 0xFFFFFF | *(_DWORD *)(v23 + 64) & 0xFF000000;
+  if ( (*(_DWORD *)(a2 + 60) & 0x4000000) != 0 )
+  {
+    PlaceholderStorage = MiCreatePlaceholderStorage(v23);
     inserted = PlaceholderStorage;
     if ( PlaceholderStorage < 0 )
-      goto LABEL_118;
-    v32 = (__int64 *)v68;
-    v79 = *(_QWORD *)(v68 + 8) + 8 * v72;
-    if ( *(_QWORD *)(a1 + 64) == v21 && v27 && MiGetCommittedPages((_QWORD *)a1) < ControlAreaPtes )
+      goto LABEL_117;
+    v36 = ControlAreaPtes;
+  }
+  *(_QWORD *)(v23 + 128) = MiReferenceFileObjectForMap(a5);
+  if ( (*(_DWORD *)(a2 + 40) & 0x20000000) != 0 )
+  {
+    if ( *(_QWORD *)(a1 + 64) )
     {
-      v33 = v21;
-      LOBYTE(v33) = (v27 & 0xFFF) != 0;
-      v78 = (v27 >> 12) + v33;
-    }
-    v80 = (_QWORD *)v21;
-    v34 = *(_QWORD *)(a5 + 24) << 12;
-    Pool = MiAllocatePool(64, 0x88uLL, 0x20646156u);
-    v21 = (__int64)Pool;
-    if ( !Pool )
-    {
-      inserted = -1073741670;
-LABEL_117:
-      MiRemoveViewsFromSectionWithPfn((__int64 *)v68);
-LABEL_118:
-      MiDereferenceControlArea(a1);
-      if ( v21 )
+      v44 = MiIncrementLargeSubsections(BugCheckParameter2, v80);
+      if ( v44 > 1 )
       {
-        if ( *(__int64 *)(v21 + 120) < 0 )
-          MiDereferenceExtendInfo(v21, a1);
-        v57 = *(void **)(v21 + 128);
-        if ( v57 )
-          ObfDereferenceObject(v57);
-        MiFreePlaceholderStorage(v21);
-        ExFreePoolWithTag((PVOID)v21, 0);
-      }
-      if ( P )
-        ExFreePoolWithTag(P, 0);
-      return inserted;
-    }
-    v36 = Pool[16];
-    *((_QWORD *)Pool + 2) = -2LL;
-    v37 = v36 & 0xFBFFFFFF;
-    *((_QWORD *)Pool + 10) = v79;
-    v38 = 0;
-    v39 = a6 == 1;
-    *(_QWORD *)(v21 + 72) = v32;
-    if ( v39 )
-      v38 = 0x4000000;
-    *(_DWORD *)(v21 + 64) = v38 | v37;
-    v40 = *(_DWORD *)(v21 + 48) ^ (*(_DWORD *)(v21 + 48) ^ (a7 << 7)) & 0xF80;
-    *(_DWORD *)(v21 + 48) = v40;
-    *(_DWORD *)(v21 + 48) = v40 ^ (v40 ^ (*(_DWORD *)(a2 + 52) << 12)) & 0x7F000;
-    if ( *(_DWORD *)(a2 + 52) )
-      *(_BYTE *)(*(_QWORD *)(v16 + 1680) + 340LL) = 1;
-    if ( *(_QWORD *)(a1 + 64) && (*(_DWORD *)(a2 + 40) & 0x20002000) == 0 )
-      *(_DWORD *)(v21 + 64) |= 0x2000000u;
-    *(_QWORD *)(v21 + 40) = 0LL;
-    BugCheckParameter2 = v21 + 40;
-    *(_DWORD *)(v21 + 64) = ((__int64)*v88 >> 16) & 0xFFFFFF | *(_DWORD *)(v21 + 64) & 0xFF000000;
-    if ( (*(_DWORD *)(a2 + 64) & 0x4000000) != 0 )
-    {
-      PlaceholderStorage = MiCreatePlaceholderStorage(v21);
-      inserted = PlaceholderStorage;
-      if ( PlaceholderStorage < 0 )
+        inserted = -1073741280;
         goto LABEL_117;
-      v32 = (__int64 *)v68;
-    }
-    *(_QWORD *)(v21 + 128) = MiReferenceFileObjectForMap(a5);
-    if ( (*(_DWORD *)(a2 + 40) & 0x20000000) != 0 )
-    {
-      if ( *(_QWORD *)(a1 + 64) )
-      {
-        v41 = MiIncrementLargeSubsections(v32, v73);
-        if ( v41 > 1 )
-        {
-          inserted = -1073741280;
-          goto LABEL_117;
-        }
-        v42 = *(_DWORD *)(v21 + 48);
-        v71 = 1;
-        v43 = v42 & 0xFFE7FFFF | 0x100000;
-        v44 = v42 | 0x180000;
-        if ( v41 == 1 )
-          v44 = v43;
-        *(_DWORD *)(v21 + 48) = v44;
       }
-      else
-      {
-        *(_DWORD *)(v21 + 48) = *(_DWORD *)(v21 + 48) & 0xFFE7FFFF | 0x100000;
-      }
-    }
-    LOCK_ADDRESS_SPACE((__int64)CurrentThread, v16);
-    if ( (*(_DWORD *)(v16 + 1124) & 0x20) != 0 )
-    {
-      inserted = -1073741558;
-      UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v16);
-      goto LABEL_115;
-    }
-    if ( (*(_DWORD *)(a2 + 60) & 1) != 0 )
-    {
-      v50 = *v87;
+      v45 = *(_DWORD *)(v23 + 48);
+      v77 = 1;
+      v46 = v45 & 0xFFF3FFFF | 0x80000;
+      v47 = v45 | 0xC0000;
+      if ( v44 == 1 )
+        v47 = v46;
+      *(_DWORD *)(v23 + 48) = v47;
     }
     else
     {
-      if ( !v34 )
-      {
-        PlaceholderStorage = MiSelectUserAddress(
-                               *(_DWORD *)(a2 + 40),
-                               *(_QWORD *)a2,
-                               *(_QWORD *)(a2 + 8),
-                               *(_QWORD *)(a2 + 24),
-                               *(_QWORD *)(a2 + 16),
-                               0LL,
-                               a7,
-                               0,
-                               &v80,
-                               &v67);
-        inserted = PlaceholderStorage;
-        if ( PlaceholderStorage >= 0 )
-        {
-          v45 = v67 - 1 + *(_QWORD *)(a2 + 24);
-          v77 = v45;
-          goto LABEL_66;
-        }
+      *(_DWORD *)(v23 + 48) = *(_DWORD *)(v23 + 48) & 0xFFF3FFFF | 0x80000;
+    }
+  }
+  LOCK_ADDRESS_SPACE((__int64)CurrentThread, v17);
+  if ( (*(_DWORD *)(v17 + 1124) & 0x20) != 0 )
+  {
+    inserted = -1073741558;
 LABEL_113:
-        UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v16);
-        if ( v70 )
-          MiRemoveSharedCommitNode(a1, v16, 0LL);
-        goto LABEL_115;
-      }
-      v50 = v34 + *v88;
-    }
-    v51 = *(_QWORD *)(a2 + 24) - 1LL;
-    v67 = v50;
-    v45 = v50 + v51;
-    v39 = (*(_DWORD *)(a2 + 64) & 0x4000000) == 0;
-    v77 = v45;
-    if ( v39 )
+    UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, v17);
+    if ( v76 == 1 )
+      MiRemoveSharedCommitNode((_QWORD *)a1, v17, 0);
+    if ( v77 )
     {
-      if ( !(unsigned int)MiIsVaRangeAvailable(v16, v50, v45 - v50 + 1, *(_QWORD *)a2, *(_QWORD *)(a2 + 8)) )
+      v61 = MiLocateSubsectionNode(a1, *(_QWORD *)(a2 + 32) + *v93 - 1, 0);
+      MiDecrementLargeSubsections(BugCheckParameter2, v61);
+    }
+    goto LABEL_117;
+  }
+  if ( (*(_DWORD *)(a2 + 72) & 1) != 0 )
+  {
+    v48 = *v92;
+LABEL_76:
+    v50 = *(_QWORD *)(a2 + 24) - 1LL;
+    v73 = v48;
+    v51 = v48 + v50;
+    v20 = (*(_DWORD *)(a2 + 60) & 0x4000000) == 0;
+    v81 = v51;
+    if ( v20 )
+    {
+      if ( !MiIsVaRangeAvailable(v17, v48, v51 - v48 + 1, *(_QWORD *)a2, *(_QWORD *)(a2 + 8)) )
       {
+        CurrentThread = (struct _KTHREAD *)v71;
         inserted = -1073741800;
-        UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v16);
-LABEL_115:
-        if ( v71 )
-        {
-          v56 = MiLocateSubsectionNode(a1, *(_QWORD *)(a2 + 32) + *v88 - 1, 0);
-          MiDecrementLargeSubsections((__int64 *)v68, v56);
-        }
-        goto LABEL_117;
-      }
-    }
-    else
-    {
-      PlaceholderVadToReplace = (PVOID)MiFindPlaceholderVadToReplace(v50, v45, *(_BYTE *)(a2 + 57), &PlaceholderStorage);
-      if ( !PlaceholderVadToReplace )
-      {
-        inserted = PlaceholderStorage;
         goto LABEL_113;
       }
     }
-LABEL_66:
-    ControlAreaPtes = v67 >> 12;
-    v81 = v45 >> 12;
-    MiUpdateVadStartVpn(v21, v67 >> 12);
-    *(_DWORD *)(v21 + 28) = v46;
-    *(_BYTE *)(v21 + 33) = BYTE4(v46);
-    if ( (*(_DWORD *)(a2 + 40) & 0x2000) != 0 )
+    else
     {
-      --CurrentThread->SpecialApcDisable;
-      v48 = KeAbPreAcquire((__int64)&qword_140C65650, 0LL);
-      v49 = v48;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140C65650, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&qword_140C65650, v48, (__int64)&qword_140C65650);
-      if ( v49 )
-        *(_BYTE *)(v49 + 18) = 1;
-      v45 = *(_QWORD *)(v75 + 32);
-      if ( v45 )
+      PlaceholderVadToReplace = (PVOID)MiFindPlaceholderVadToReplace(
+                                         v48,
+                                         v51,
+                                         *(_BYTE *)(a2 + 104),
+                                         &PlaceholderStorage);
+      if ( !PlaceholderVadToReplace )
       {
-        ++*(_DWORD *)(v45 + 8);
+        inserted = PlaceholderStorage;
+        CurrentThread = (struct _KTHREAD *)v71;
+        goto LABEL_113;
       }
-      else
-      {
-        v52 = MiAllocatePool(64, 0x10uLL, 0x78436D4Du);
-        v45 = (unsigned __int64)v52;
-        if ( !v52 )
-        {
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C65650, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C65650);
-          KeAbPostRelease((ULONG_PTR)&qword_140C65650);
-          v39 = CurrentThread->SpecialApcDisable++ == -1;
-          if ( v39
-            && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-          {
-            KiCheckForKernelApcDelivery();
-          }
-          inserted = -1073741670;
-          goto LABEL_111;
-        }
-        v53 = v75;
-        v52[2] = 1;
-        *(_QWORD *)v52 = _InterlockedCompareExchange64((volatile signed __int64 *)(v53 + 24), -1LL, -1LL);
-        *(_QWORD *)(v53 + 32) = v52;
-      }
-      v54 = *(_QWORD *)(a5 + 48);
-      if ( *(_QWORD *)v45 < v54 )
-        *(_QWORD *)v45 = v54;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C65650, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C65650);
-      KeAbPostRelease((ULONG_PTR)&qword_140C65650);
-      v39 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v39
-        && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
-      v46 = v81;
-      v47 = ControlAreaPtes;
-      *(_QWORD *)(v21 + 120) = v45;
-      LODWORD(v45) = v77;
+      v49 = v81;
     }
-    if ( (a7 & 5) == 5 )
+    goto LABEL_82;
+  }
+  if ( v36 )
+  {
+    v48 = v36 + *v93;
+    goto LABEL_76;
+  }
+  PlaceholderStorage = MiSelectUserAddress(
+                         *(_DWORD *)(a2 + 40),
+                         *(_QWORD *)a2,
+                         *(_QWORD *)(a2 + 8),
+                         *(_QWORD *)(a2 + 24),
+                         *(_QWORD *)(a2 + 16),
+                         0LL,
+                         v39,
+                         0,
+                         &v86,
+                         &v73);
+  inserted = PlaceholderStorage;
+  if ( PlaceholderStorage < 0 )
+    goto LABEL_113;
+  v48 = v73;
+  v49 = *(_QWORD *)(a2 + 24) + v73 - 1;
+  v81 = v49;
+LABEL_82:
+  v52 = v48 >> 12;
+  v53 = v49 >> 12;
+  *(_BYTE *)(v23 + 32) = v48 >> 44;
+  *(_BYTE *)(v23 + 33) = v49 >> 44;
+  *(_DWORD *)(v23 + 24) = v48 >> 12;
+  *(_DWORD *)(v23 + 28) = v49 >> 12;
+  v20 = (*(_DWORD *)(a2 + 40) & 0x2000) == 0;
+  ControlAreaPtes = v48 >> 12;
+  v87 = v49 >> 12;
+  if ( !v20 )
+  {
+    CurrentThread = (struct _KTHREAD *)v71;
+    --*(_WORD *)(v71 + 486);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4C990, 0LL);
+    v54 = *(_DWORD **)(v82 + 32);
+    if ( v54 )
     {
-      v55 = (*(unsigned int *)(v21 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 33) << 32))
-          - (*(unsigned int *)(v21 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32))
-          + 1;
-      *(_DWORD *)(v21 + 52) ^= (*(_DWORD *)(v21 + 52) ^ (*(_DWORD *)(v21 + 28) - *(_DWORD *)(v21 + 24) + 1)) & 0x7FFFFFFF;
-      *(_BYTE *)(v21 + 34) = v55 >> 31;
+      ++v54[2];
     }
-    *(_QWORD *)(v21 + 88) = MiComputeContiguousSubsectionPte(v68, v46 + v72 - v47);
-    if ( (*(_DWORD *)(a2 + 40) & 0x400000) != 0 || (*(_DWORD *)(a5 + 56) & 0x4000) != 0 )
+    else
     {
-      P = (PVOID)MiAddSecureEntry(v21, v67, v45, 0x80000000, 0);
-      if ( !P )
+      Pool = MiAllocatePool(64, 0x10uLL, 0x78436D4Du);
+      v54 = Pool;
+      if ( !Pool )
       {
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C990, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4C990);
+        KeAbPostRelease((ULONG_PTR)&qword_140C4C990);
+        KiLeaveGuardedRegionUnsafe(v71);
         inserted = -1073741670;
         goto LABEL_111;
       }
+      v56 = v82;
+      Pool[2] = 1;
+      *(_QWORD *)Pool = _InterlockedCompareExchange64((volatile signed __int64 *)(v56 + 24), -1LL, -1LL);
+      *(_QWORD *)(v56 + 32) = Pool;
     }
-    if ( (*(_DWORD *)(a2 + 40) & 0x20000000) != 0 )
+    v57 = *(_QWORD *)(a5 + 48);
+    if ( *(_QWORD *)v54 < v57 )
+      *(_QWORD *)v54 = v57;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C990, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4C990);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4C990);
+    KiLeaveGuardedRegionUnsafe(v71);
+    v52 = ControlAreaPtes;
+    v53 = v87;
+    v48 = v73;
+    *(_QWORD *)(v23 + 120) = v54;
+  }
+  if ( (a7 & 5) == 5 )
+  {
+    v58 = (*(unsigned int *)(v23 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v23 + 33) << 32))
+        - (*(unsigned int *)(v23 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v23 + 32) << 32))
+        + 1;
+    *(_DWORD *)(v23 + 52) ^= (*(_DWORD *)(v23 + 52) ^ (*(_DWORD *)(v23 + 28) - *(_DWORD *)(v23 + 24) + 1)) & 0x7FFFFFFF;
+    *(_BYTE *)(v23 + 34) = v58 >> 31;
+  }
+  v59 = BugCheckParameter2;
+  *(_QWORD *)(v23 + 88) = MiComputeContiguousSubsectionPte((__int64)BugCheckParameter2, v53 + v78 - v52);
+  if ( (*(_DWORD *)(a2 + 40) & 0x400000) != 0 || (*(_DWORD *)(a5 + 56) & 0x4000) != 0 )
+  {
+    P = MiAddSecureEntry(v23, v48, v60, 0x80000000, 0);
+    if ( !P )
     {
-      *(_DWORD *)(v21 + 48) = *(_DWORD *)(v21 + 48) & 0xFFFFFF8F | 0x50;
-      *(_DWORD *)(v21 + 64) |= 0x1000000u;
-    }
-    if ( !*(_QWORD *)(a1 + 64) )
-    {
-      inserted = MiInsertSharedCommitNode(a1, v16, 0LL);
-      if ( (inserted & 0x80000000) != 0 )
-        goto LABEL_111;
-      v70 = 1;
-    }
-    if ( v78 && !(unsigned int)MiChargeSegmentCommit(v68, v79, v78) )
-    {
-      inserted = -1073741523;
-      goto LABEL_111;
-    }
-    PlaceholderStorage = MiInsertVadCharges(v21, (struct _KPROCESS *)v16);
-    inserted = PlaceholderStorage;
-    if ( PlaceholderStorage < 0 )
-    {
+      inserted = -1073741670;
+LABEL_110:
+      CurrentThread = (struct _KTHREAD *)v71;
 LABEL_111:
       if ( PlaceholderVadToReplace )
         MiUnlockVad((__int64)CurrentThread, (__int64)PlaceholderVadToReplace);
       goto LABEL_113;
     }
-    if ( !*(_QWORD *)(a1 + 64) && *(int *)(a1 + 56) < 0 )
-      *(_DWORD *)(v21 + 48) = *(_DWORD *)(v21 + 48) & 0xFFE7FFFF | 0x80000;
-    if ( PlaceholderVadToReplace )
-    {
-      MiPreparePlaceholderVadReplacement(PlaceholderVadToReplace, v16, v76);
-      v58 = KeAbPreAcquire(v21 + 40, 0LL);
-      v59 = v58;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(v21 + 40), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v21 + 40), v58, v21 + 40);
-      if ( v59 )
-        *(_BYTE *)(v59 + 18) = 1;
-    }
-    else
-    {
-      MiLockVad((__int64)CurrentThread, v21);
-    }
-    MiInsertVad(v21, v16, 0);
-    if ( !*(_QWORD *)(a1 + 64) && !*(_QWORD *)(v75 + 56) )
-      *(_QWORD *)(v75 + 56) = v67;
-    if ( v80 )
-      MiAdvanceVadHint(ControlAreaPtes, v81, v80);
-    if ( ((a7 - 4) & 0xFFFFFFFD) == 0 && *(_QWORD *)(a1 + 64) )
-      _InterlockedIncrement((volatile signed __int32 *)(a1 + 92));
-    if ( (PerfGlobalGroupMask & 0x8000) != 0 )
-      MiLogMapFileEvent(v21, 1061LL);
-    inserted = 0;
-    PlaceholderStorage = 0;
-    if ( !*(_DWORD *)(a2 + 120) && !*(_QWORD *)(a2 + 72) )
-    {
-      v60 = PlaceholderVadToReplace;
-      if ( PlaceholderVadToReplace )
-      {
-        v61 = (volatile signed __int64 *)BugCheckParameter2;
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v61);
-        KeAbPostRelease((ULONG_PTR)v61);
-        UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v16);
-        inserted = PlaceholderStorage;
-        MiFinishPlaceholderVadReplacement(v60);
-        *v87 = v67;
-      }
-      else
-      {
-        MiUnlockVad((__int64)CurrentThread, v21);
-        UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v16);
-        *v87 = v67;
-      }
-      return inserted;
-    }
-    UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, v16);
-    MiReferenceVad(v21);
-    v62 = *(_DWORD *)(a2 + 120);
-    if ( v62 )
-    {
-      inserted = MiCommitVadMetadataBits(v21, 0LL, v62);
-      if ( (inserted & 0x80000000) != 0 )
-      {
-LABEL_161:
-        v65 = PlaceholderVadToReplace;
-        MiUnmapVad((unsigned int *)v21, (__int64)PlaceholderVadToReplace, 0);
-        if ( v65 )
-          MiFinishPlaceholderVadReplacement(v65);
-        return inserted;
-      }
-    }
-    if ( *(_QWORD *)(a2 + 72) )
-    {
-      v63 = *(_DWORD *)(a2 + 68);
-      if ( (unsigned int)(v63 - 1) > 1 && v63 != -2147483647 && v63 != 4 )
-      {
-        v64 = -1073741755;
-LABEL_160:
-        inserted = v64;
-        goto LABEL_161;
-      }
-      v64 = MiSecureVad(v21, v67, *(_QWORD *)(a2 + 24), v63, 0, (__int64)&v82);
-      if ( v64 < 0 )
-        goto LABEL_160;
-      **(_QWORD **)(a2 + 72) = qword_140C65B40 ^ v82 ^ v16;
-    }
-    v66 = PlaceholderVadToReplace;
-    if ( PlaceholderVadToReplace )
-    {
-      MiUnlockAndDereferenceNestedVad((PVOID)v21);
-      MiFinishPlaceholderVadReplacement(v66);
-    }
-    else
-    {
-      MiUnlockAndDereferenceVad((char *)v21);
-    }
-    *v87 = v67;
-    return inserted;
   }
-  inserted = -1073741793;
-  MiDereferenceControlArea(a1);
-  return inserted;
+  if ( (*(_DWORD *)(a2 + 40) & 0x20000000) != 0 )
+  {
+    *(_DWORD *)(v23 + 48) = *(_DWORD *)(v23 + 48) & 0xFFFFFF8F | 0x50;
+    v48 = v73;
+    *(_DWORD *)(v23 + 64) |= 0x1000000u;
+  }
+  if ( !*(_QWORD *)(a1 + 64) )
+  {
+    inserted = MiInsertSharedCommitNode((_QWORD *)a1, v17, 0);
+    if ( inserted < 0 )
+      goto LABEL_110;
+    v59 = BugCheckParameter2;
+    v76 = 1;
+  }
+  if ( v84 && !(unsigned int)MiChargeSegmentCommit(v59, v85, v84) )
+  {
+    inserted = -1073741523;
+    goto LABEL_110;
+  }
+  PlaceholderStorage = MiInsertVadCharges(v23, v17);
+  inserted = PlaceholderStorage;
+  if ( PlaceholderStorage < 0 )
+    goto LABEL_110;
+  v62 = v79;
+  if ( !*(_QWORD *)(a1 + 64) && *(int *)(a1 + 56) < 0 )
+  {
+    *(_DWORD *)(v23 + 48) = *(_DWORD *)(v23 + 48) & 0xFFF3FFFF | 0x40000;
+    ++*(_QWORD *)(v62 + 384);
+  }
+  if ( PlaceholderVadToReplace )
+  {
+    MiPreparePlaceholderVadReplacement(PlaceholderVadToReplace, v17, v62);
+    ExAcquirePushLockExclusiveEx(v23 + 40, 0LL);
+  }
+  else
+  {
+    MiLockVad(v71, v23);
+  }
+  MiGetWsAndInsertVad(v23);
+  if ( !*(_QWORD *)(a1 + 64) && !*(_QWORD *)(v82 + 56) )
+    *(_QWORD *)(v82 + 56) = v48;
+  if ( v86 )
+    MiAdvanceVadHint(ControlAreaPtes, v87);
+  if ( ((a7 - 4) & 0xFFFFFFFD) == 0 && *(_QWORD *)(a1 + 64) )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 92));
+    v48 = v73;
+  }
+  if ( (PerfGlobalGroupMask & 0x8000) != 0 )
+    MiLogMapFileEvent(v23, 1061LL);
+  inserted = 0;
+  PlaceholderStorage = 0;
+  v63 = a7 & 2;
+  if ( ((a7 & 2) == 0 || !MiIsProcessCfgEnabled()) && !*(_QWORD *)(a2 + 80) )
+  {
+    v68 = PlaceholderVadToReplace;
+    if ( PlaceholderVadToReplace )
+    {
+      v69 = (volatile signed __int64 *)v90;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v90, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v69);
+      KeAbPostRelease((ULONG_PTR)v69);
+      UNLOCK_ADDRESS_SPACE_UNORDERED(v71, v17);
+      v70 = v73;
+      inserted = PlaceholderStorage;
+      MiFinishPlaceholderVadReplacement(v68);
+      *v92 = v70;
+    }
+    else
+    {
+      MiUnlockVad(v71, v23);
+      UNLOCK_ADDRESS_SPACE(v71, v17);
+      *v92 = v48;
+    }
+    return (unsigned int)inserted;
+  }
+  UNLOCK_ADDRESS_SPACE_UNORDERED(v71, v17);
+  MiReferenceVad(v23);
+  if ( v63 )
+  {
+    if ( MiIsProcessCfgEnabled() )
+    {
+      inserted = MiCommitVadCfgBits(v23, 0LL, a9);
+      if ( inserted < 0 )
+      {
+LABEL_147:
+        v66 = PlaceholderVadToReplace;
+        MiUnmapVad(v23, (__int64)PlaceholderVadToReplace, 0);
+        if ( v66 )
+          MiFinishPlaceholderVadReplacement(v66);
+        return (unsigned int)inserted;
+      }
+    }
+  }
+  if ( *(_QWORD *)(a2 + 80) )
+  {
+    v64 = *(_DWORD *)(a2 + 76);
+    if ( (unsigned int)(v64 - 1) > 1 && v64 != -2147483647 && v64 != 4 )
+    {
+      v65 = -1073741755;
+LABEL_146:
+      inserted = v65;
+      goto LABEL_147;
+    }
+    v65 = MiSecureVad(v23, v48, *(_QWORD *)(a2 + 24), v64, 0, &v88);
+    if ( v65 < 0 )
+      goto LABEL_146;
+    **(_QWORD **)(a2 + 80) = qword_140C4DE50 ^ v88 ^ v17;
+  }
+  v67 = PlaceholderVadToReplace;
+  if ( PlaceholderVadToReplace )
+  {
+    MiUnlockAndDereferenceNestedVad((PVOID)v23);
+    MiFinishPlaceholderVadReplacement(v67);
+  }
+  else
+  {
+    MiUnlockAndDereferenceVad((char *)v23);
+  }
+  *v92 = v48;
+  return (unsigned int)inserted;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IoIs32bitProcess @ 0x1402DF4A0
+ * XREFs of IoIs32bitProcess @ 0x1402644F0
  * Callers:
- *     IoIsInitiator32bitProcess @ 0x14025D580 (IoIsInitiator32bitProcess.c)
- *     FsRtlGetMarkHandleInfo @ 0x140542128 (FsRtlGetMarkHandleInfo.c)
- *     EtwpGetScsiPassThroughCdb @ 0x14062EE14 (EtwpGetScsiPassThroughCdb.c)
- *     NtCopyFileChunk @ 0x1406588A0 (NtCopyFileChunk.c)
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
- *     WmipProbeWmiOpenGuidBlock @ 0x1406C39F4 (WmipProbeWmiOpenGuidBlock.c)
- *     WmipProbeAndCaptureGuidObjectAttributes @ 0x1406C3AAC (WmipProbeAndCaptureGuidObjectAttributes.c)
- *     PiDqDispatch @ 0x140776650 (PiDqDispatch.c)
- *     PiCMFastIoDeviceDispatch @ 0x14077BC30 (PiCMFastIoDeviceDispatch.c)
+ *     IoIsInitiator32bitProcess @ 0x14036CD40 (IoIsInitiator32bitProcess.c)
+ *     FsRtlGetMarkHandleInfo @ 0x1404F01D8 (FsRtlGetMarkHandleInfo.c)
+ *     EtwpGetScsiPassThroughCdb @ 0x1405A8AF4 (EtwpGetScsiPassThroughCdb.c)
+ *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
+ *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
+ *     PiCMFastIoDeviceDispatch @ 0x1406347E0 (PiCMFastIoDeviceDispatch.c)
+ *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x1406A857C (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x1406A8634 (WmipProbeAndCaptureGuidObjectAttributes.c)
  * Callees:
  *     <none>
  */
@@ -17,21 +17,26 @@
 BOOLEAN __stdcall IoIs32bitProcess(PIRP Irp)
 {
   PETHREAD Thread; // rdx
-  unsigned __int64 v2; // rax
-  _KPROCESS *Process; // rcx
-  __int16 v5; // dx
+  unsigned __int64 Process; // rax
+  __int64 v3; // rcx
+  unsigned __int64 v5; // rax
+  __int16 v6; // cx
   CCHAR ApcEnvironment; // al
-  __int16 v7; // cx
+  __int16 v8; // dx
 
   if ( !Irp )
   {
-    if ( KeGetCurrentThread()->PreviousMode != 1 )
-      return 0;
-    Process = KeGetCurrentThread()->ApcState.Process;
-    if ( !Process[1].Affinity.StaticBitmap[30] )
-      return 0;
-    v5 = WORD2(Process[2].Affinity.StaticBitmap[20]);
-    return v5 == 332 || v5 == 452;
+    if ( KeGetCurrentThread()->PreviousMode == 1 )
+    {
+      v5 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+      if ( v5 )
+      {
+        v6 = *(_WORD *)(v5 + 8);
+        if ( v6 == 332 || v6 == 452 )
+          return 1;
+      }
+    }
+    return 0;
   }
   if ( Irp->RequestorMode != 1 )
     return 0;
@@ -43,23 +48,24 @@ BOOLEAN __stdcall IoIs32bitProcess(PIRP Irp)
       ApcEnvironment = Irp->ApcEnvironment;
       if ( !ApcEnvironment )
       {
-        v2 = (unsigned __int64)Thread->Process;
+        Process = (unsigned __int64)Thread->Process;
         goto LABEL_5;
       }
       if ( ApcEnvironment == 1 )
       {
-        v2 = (unsigned __int64)Thread->ApcState.Process;
+        Process = (unsigned __int64)Thread->ApcState.Process;
         goto LABEL_5;
       }
     }
     return 0;
   }
-  v2 = Irp->Overlay.AllocationSize.QuadPart & 0xFFFFFFFFFFFFFFF9uLL;
+  Process = Irp->Overlay.AllocationSize.QuadPart & 0xFFFFFFFFFFFFFFF9uLL;
 LABEL_5:
-  if ( !v2 )
+  if ( !Process )
     return 0;
-  if ( !*(_QWORD *)(v2 + 1408) )
+  v3 = *(_QWORD *)(Process + 1408);
+  if ( !v3 )
     return 0;
-  v7 = *(_WORD *)(v2 + 2412);
-  return v7 == 332 || v7 == 452;
+  v8 = *(_WORD *)(v3 + 8);
+  return v8 == 332 || v8 == 452;
 }

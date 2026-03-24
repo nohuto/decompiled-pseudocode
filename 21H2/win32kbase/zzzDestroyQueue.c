@@ -1,159 +1,182 @@
 /*
- * XREFs of zzzDestroyQueue @ 0x1C0038C50
+ * XREFs of zzzDestroyQueue @ 0x1C011D460
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     IsFreeMessageListSupported @ 0x1C0019A1C (IsFreeMessageListSupported.c)
- *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C0019A48 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
- *     HMAssignmentUnlockWorker @ 0x1C0038F7C (HMAssignmentUnlockWorker.c)
- *     ApiSetEditionUpdateRawMouseMode @ 0x1C003A804 (ApiSetEditionUpdateRawMouseMode.c)
- *     ?UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ @ 0x1C003C7B0 (-UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C007FBC4 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C008AF34 (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
- *     RecalculateQueueInfo @ 0x1C008F670 (RecalculateQueueInfo.c)
- *     IsClearDelegationCaptureSupported @ 0x1C0097DBC (IsClearDelegationCaptureSupported.c)
- *     ?RemoveThreadFromQSharingLists@tagTHREADINFO@@QEAA_NPEAUtagQ@@@Z @ 0x1C009A268 (-RemoveThreadFromQSharingLists@tagTHREADINFO@@QEAA_NPEAUtagQ@@@Z.c)
- *     ApiSetEditionSystemGenerateMove @ 0x1C00B4EDC (ApiSetEditionSystemGenerateMove.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00067B0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     LockQCursor @ 0x1C00068B0 (LockQCursor.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002BAA0 (Win32FreeToPagedLookasideList.c)
+ *     HMAssignmentUnlock @ 0x1C0030630 (HMAssignmentUnlock.c)
+ *     ApiSetEditionUpdateRawMouseMode @ 0x1C0044E6C (ApiSetEditionUpdateRawMouseMode.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C0066C84 (WPP_RECORDER_SF_qqq.c)
+ *     RecalculateQueueInfo @ 0x1C0082520 (RecalculateQueueInfo.c)
+ *     FreeMessageList @ 0x1C0093D58 (FreeMessageList.c)
+ *     IsFreeMessageListSupported @ 0x1C0095194 (IsFreeMessageListSupported.c)
+ *     IsClearDelegationCaptureSupported @ 0x1C0098044 (IsClearDelegationCaptureSupported.c)
+ *     ClearDelegationCapture @ 0x1C0099194 (ClearDelegationCapture.c)
+ *     ApiSetEditionSystemGenerateMove @ 0x1C00A740C (ApiSetEditionSystemGenerateMove.c)
+ *     SetWakeBit @ 0x1C00B677C (SetWakeBit.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     xxxWindowEvent @ 0x1C01FC860 (xxxWindowEvent.c)
  */
 
-void __fastcall zzzDestroyQueue(struct tagQ *a1, tagTHREADINFO *this)
+__int64 (*__fastcall zzzDestroyQueue(__int64 a1, __int64 a2))(void)
 {
-  int v2; // ebp
+  int v4; // r15d
   int v5; // edx
-  NSInstrumentation::CLeakTrackingAllocator *v6; // rcx
-  tagTHREADINFO *v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rdx
-  __int64 v10; // rsi
-  __int64 v11; // r9
-  __int64 v12; // r8
-  __int64 v13; // r11
-  int v14; // r10d
+  __int64 v7; // rbp
+  _QWORD *v8; // r11
+  _QWORD *v9; // r10
+  _QWORD *v10; // r8
+  _QWORD *i; // r9
+  _QWORD *v12; // rdx
+  __int64 v13; // r14
+  __int16 v14; // si
   __int64 v15; // r14
-  int v16; // ecx
+  int v16; // esi
+  __int64 v17; // r8
+  __int64 v18; // xmm1_8
+  __int64 (*result)(void); // rax
+  __int64 v20; // rdx
+  int v21; // eax
+  int v22; // esi
+  int v23; // eax
+  __int128 v24; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+50h] [rbp-28h]
 
-  v2 = 0;
-  if ( this )
-    tagTHREADINFO::RemoveThreadFromQSharingLists(this, a1);
-  if ( tagQ::IsAnyThreadAttached(a1) )
+  v4 = 0;
+  CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)&v24, a1);
+  if ( (*(_DWORD *)(a1 + 392))-- == 1 )
   {
-    v7 = (tagTHREADINFO *)*((_QWORD *)a1 + 8);
-    if ( v7 == this )
+    if ( gpqForeground == a1 )
     {
-      LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      v20 = *(_QWORD *)(a1 + 112);
+      if ( v20 )
       {
-        LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_qqq(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v5,
-          (_DWORD)v7,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          19,
-          12,
-          (__int64)&WPP_ed79ecbb4a1f3750d196ff03f8980747_Traceguids,
-          (char)a1,
-          (char)gptiCurrent,
-          *((_QWORD *)a1 + 8));
-      }
-      *((_QWORD *)a1 + 8) = 0LL;
-    }
-    if ( this && (*((tagTHREADINFO **)a1 + 12) == this || *((tagTHREADINFO **)a1 + 11) == this) )
-    {
-      v9 = *((_QWORD *)a1 + 59);
-      v10 = 0LL;
-      v11 = 0LL;
-      v12 = 0LL;
-      while ( v9 )
-      {
-        if ( (*(_DWORD *)(v9 + 488) & 1) == 0 )
-        {
-          v13 = *((_QWORD *)this + 56);
-          v10 = v9;
-          v14 = *(_DWORD *)(v13 + 8);
-          if ( (v14 & 6) != 0 && (*(_BYTE *)(*(_QWORD *)(v9 + 448) + 16LL) & 6) != 0 )
-            v11 = v9;
-          if ( (v14 & 1) != 0 && (*(_BYTE *)(*(_QWORD *)(v9 + 448) + 16LL) & 1) != 0 )
-            v12 = v9;
-          if ( (*(_DWORD *)(v13 + 16) & 0x400) != 0 && (*(_DWORD *)(*(_QWORD *)(v9 + 448) + 16LL) & 0x400) != 0 )
-            v12 = v9;
-        }
-        v9 = *(_QWORD *)(v9 + 1488);
-      }
-      v15 = v10;
-      if ( v11 )
-        v15 = v11;
-      if ( v12 )
-        v10 = v12;
-      if ( qword_1C029BE50 && (int)qword_1C029BE50() >= 0 )
-      {
-        if ( v15 && qword_1C029BE58 )
-          qword_1C029BE58(v15, *(_DWORD *)(*((_QWORD *)this + 56) + 8LL) & 6);
-        if ( v10 )
-        {
-          if ( qword_1C029BE58 )
-          {
-            qword_1C029BE58(v10, *(_DWORD *)(*((_QWORD *)this + 56) + 8LL) & 1);
-            if ( qword_1C029BE58 )
-              qword_1C029BE58(v10, *(_DWORD *)(*((_QWORD *)this + 56) + 8LL) & 0x400);
-          }
-        }
-      }
-      if ( *((tagTHREADINFO **)a1 + 12) == this )
-        *((_QWORD *)a1 + 12) = v10;
-      if ( *((tagTHREADINFO **)a1 + 11) == this )
-      {
-        *((_QWORD *)a1 + 11) = v15;
-        ApiSetEditionUpdateRawMouseMode(a1, v9);
+        v21 = 49;
+        if ( gdwDeferWinEvent )
+          v21 = 51;
+        xxxWindowEvent(-2147483645, v20, 0, 6, v21);
       }
     }
-    RecalculateQueueInfo();
+    v22 = -1073741637;
+    if ( qword_1C0257130 )
+      v23 = qword_1C0257130();
+    else
+      v23 = -1073741637;
+    if ( v23 >= 0 && qword_1C0257138 )
+      qword_1C0257138(a1);
+    HMAssignmentUnlock((__int64 *)(a1 + 112));
+    HMAssignmentUnlock((__int64 *)(a1 + 120));
+    HMAssignmentUnlock((__int64 *)(a1 + 128));
+    if ( (int)IsClearDelegationCaptureSupported() >= 0 )
+      ClearDelegationCapture();
+    HMAssignmentUnlock((__int64 *)(a1 + 296));
+    LockQCursor(a1, 0LL);
+    if ( (int)IsFreeMessageListSupported() >= 0 )
+    {
+      CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)&v24, a1);
+      FreeMessageList(a1 + 24);
+    }
+    result = qword_1C0257150;
+    if ( qword_1C0257150 )
+    {
+      result = (__int64 (*)(void))qword_1C0257150();
+      v22 = (int)result;
+    }
+    if ( v22 >= 0 && gpqForeground == a1 )
+    {
+      result = (__int64 (*)(void))qword_1C0257158;
+      if ( qword_1C0257158 )
+        result = (__int64 (*)(void))qword_1C0257158(0LL);
+    }
+    if ( gpqForegroundPrev == a1 )
+      gpqForegroundPrev = 0LL;
+    if ( gpqCursor == (struct tagQ *)a1 )
+    {
+      gpqCursor = 0LL;
+      v4 = 1;
+    }
+    if ( *(_DWORD *)(a1 + 396) )
+      *(_DWORD *)(a1 + 388) |= 0x4000000u;
+    else
+      result = Win32FreeToPagedLookasideList((__int64)QLookaside, a1);
+    if ( v4 )
+      return (__int64 (*)(void))ApiSetEditionSystemGenerateMove(2u);
   }
   else
   {
-    if ( (struct tagQ *)gpqForeground == a1 )
+    if ( *(_QWORD *)(a1 + 64) == a2 )
     {
-      v8 = *((_QWORD *)a1 + 14);
-      if ( v8 )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v16 = 49;
-        if ( gdwDeferWinEvent )
-          v16 = 51;
-        if ( qword_1C029BE68 )
-          qword_1C029BE68(2147483651LL, v8, 0LL, 6LL, v16);
+        LOBYTE(v5) = 4;
+        WPP_RECORDER_SF_qqq(
+          (_DWORD)gBaseLog,
+          v5,
+          19,
+          17,
+          (__int64)&WPP_fd8c6326b31137ef50dc3f85fe1c9044_Traceguids,
+          a1,
+          (char)gptiCurrent,
+          *(_QWORD *)(a1 + 64));
+      }
+      *(_QWORD *)(a1 + 64) = 0LL;
+    }
+    if ( *(_QWORD *)(a1 + 96) == a2 || *(_QWORD *)(a1 + 88) == a2 )
+    {
+      v7 = 0LL;
+      v8 = 0LL;
+      v9 = 0LL;
+      v10 = (_QWORD *)(*(_QWORD *)(a2 + 456) + 168LL);
+      for ( i = (_QWORD *)*v10; i != v10; i = (_QWORD *)*i )
+      {
+        v12 = i - 93;
+        if ( (*(_DWORD *)(i - 32) & 1) == 0 && v12[54] == a1 )
+        {
+          v13 = *(_QWORD *)(a2 + 448);
+          v7 = (__int64)(i - 93);
+          v14 = *(_WORD *)(v13 + 6);
+          if ( (v14 & 6) != 0 && (*(_BYTE *)(v12[56] + 10LL) & 6) != 0 )
+            v8 = i - 93;
+          if ( (v14 & 1) != 0 && (*(_BYTE *)(v12[56] + 10LL) & 1) != 0 )
+            v9 = i - 93;
+          if ( (*(_WORD *)(v13 + 10) & 0x400) != 0 && (*(_WORD *)(v12[56] + 10LL) & 0x400) != 0 )
+            v9 = i - 93;
+        }
+      }
+      v15 = v7;
+      if ( v8 )
+        v15 = (__int64)v8;
+      if ( v9 )
+        v7 = (__int64)v9;
+      if ( qword_1C0257110 )
+        v16 = qword_1C0257110();
+      else
+        v16 = -1073741637;
+      if ( v16 >= 0 )
+      {
+        if ( v15 )
+          SetWakeBit(v15, *(_WORD *)(*(_QWORD *)(a2 + 448) + 6LL) & 6, (__int64)v10);
+        if ( v7 )
+        {
+          SetWakeBit(v7, *(_WORD *)(*(_QWORD *)(a2 + 448) + 6LL) & 1, (__int64)v10);
+          SetWakeBit(v7, *(_WORD *)(*(_QWORD *)(a2 + 448) + 6LL) & 0x400, v17);
+        }
+      }
+      v18 = *(_QWORD *)(a1 + 16);
+      v24 = *(_OWORD *)a1;
+      v25 = v18;
+      if ( *(_QWORD *)(a1 + 96) == a2 )
+        *(_QWORD *)(a1 + 96) = v7;
+      if ( *(_QWORD *)(a1 + 88) == a2 )
+      {
+        *(_QWORD *)(a1 + 88) = v15;
+        ApiSetEditionUpdateRawMouseMode(a1);
       }
     }
-    if ( qword_1C029BE70 && (int)qword_1C029BE70() >= 0 && qword_1C029BE78 )
-      qword_1C029BE78(a1);
-    tagQ::UnlockFocusWnd(a1);
-    HMAssignmentUnlockWorker((char *)a1 + 120);
-    HMAssignmentUnlockWorker((char *)a1 + 128);
-    if ( (int)IsClearDelegationCaptureSupported() >= 0 && qword_1C029BE48 )
-      qword_1C029BE48(a1);
-    HMAssignmentUnlockWorker((char *)a1 + 296);
-    if ( qword_1C029BE38 )
-      qword_1C029BE38(a1, 0LL);
-    if ( (int)IsFreeMessageListSupported() >= 0 && qword_1C029BE88 )
-      qword_1C029BE88((char *)a1 + 24);
-    if ( qword_1C029BE90 && (int)qword_1C029BE90() >= 0 && (struct tagQ *)gpqForeground == a1 && qword_1C029BE98 )
-      qword_1C029BE98(0LL);
-    if ( (struct tagQ *)gpqForegroundPrev == a1 )
-      gpqForegroundPrev = 0LL;
-    if ( gpqCursor == a1 )
-    {
-      gpqCursor = 0LL;
-      v2 = 1;
-    }
-    if ( *((_DWORD *)a1 + 98) )
-      *((_DWORD *)a1 + 97) |= 0x4000000u;
-    else
-      NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(v6, QLookaside, a1);
-    if ( v2 )
-      ApiSetEditionSystemGenerateMove(2LL);
+    return (__int64 (*)(void))RecalculateQueueInfo();
   }
+  return result;
 }

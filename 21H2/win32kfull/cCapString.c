@@ -1,21 +1,21 @@
 /*
- * XREFs of cCapString @ 0x1C0014ABC
+ * XREFs of cCapString @ 0x1C00BBE54
  * Callers:
- *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C000DBEC (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0011B90 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
- *     ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z @ 0x1C0012370 (-bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z.c)
- *     ?bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z @ 0x1C0012850 (-bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z.c)
- *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C0012B4C (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0013268 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
- *     hfontCreate @ 0x1C0013DE0 (hfontCreate.c)
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C0014850 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C001D360 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
- *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00F46C8 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
- *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00F9694 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
- *     vProcessEntry @ 0x1C0105DF8 (vProcessEntry.c)
- *     FontAssocDefaultRoutine @ 0x1C0295610 (FontAssocDefaultRoutine.c)
- *     ?bAttemptReload@PFFOBJ@@QEAAHXZ @ 0x1C02B9D30 (-bAttemptReload@PFFOBJ@@QEAAHXZ.c)
- *     QueryRegistryFontMapperFamilyFallbackListRoutine @ 0x1C0392770 (QueryRegistryFontMapperFamilyFallbackListRoutine.c)
+ *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C005FB50 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
+ *     ?bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z @ 0x1C00A03A4 (-bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A09FC (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1DA4 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1FB8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A3434 (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00BA340 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00BA778 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
+ *     ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z @ 0x1C00BBA10 (-bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z.c)
+ *     hfontCreate @ 0x1C00BBF00 (hfontCreate.c)
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010EA68 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     vProcessEntry @ 0x1C01193D8 (vProcessEntry.c)
+ *     FontAssocDefaultRoutine @ 0x1C0297BE0 (FontAssocDefaultRoutine.c)
+ *     ?bAttemptReload@PFFOBJ@@QEAAHXZ @ 0x1C02BB9C8 (-bAttemptReload@PFFOBJ@@QEAAHXZ.c)
+ *     QueryRegistryFontMapperFamilyFallbackListRoutine @ 0x1C0395690 (QueryRegistryFontMapperFamilyFallbackListRoutine.c)
  * Callees:
  *     <none>
  */

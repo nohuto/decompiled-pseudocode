@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CurrentRedrawRegionColor@CComposition@@QEAA?AU_D3DCOLORVALUE@@XZ @ 0x1801B4AB8
+ * XREFs of ?CurrentRedrawRegionColor@CComposition@@QEAA?AU_D3DCOLORVALUE@@XZ @ 0x1801554BC
  * Callers:
- *     ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x1801D3AE0 (-DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ.c)
+ *     ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x180174F4C (-DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,20 +10,23 @@ struct _D3DCOLORVALUE *__fastcall CComposition::CurrentRedrawRegionColor(
         CComposition *this,
         struct _D3DCOLORVALUE *__return_ptr retstr)
 {
-  struct CComposition *v2; // r8
-  __int64 v3; // rax
-  int *v4; // rcx
+  struct CComposition *v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // rax
+  __int128 v5; // xmm0
   struct _D3DCOLORVALUE *result; // rax
 
   v2 = g_pComposition;
-  v3 = *((_QWORD *)g_pComposition + 62);
-  v4 = (int *)((char *)g_pComposition + 1208);
-  if ( v3 != *((_QWORD *)g_pComposition + 152) )
+  v3 = *((_QWORD *)g_pComposition + 44);
+  v4 = *((unsigned int *)g_pComposition + 264);
+  if ( v3 != *((_QWORD *)g_pComposition + 133) )
   {
-    *((_QWORD *)g_pComposition + 152) = v3;
-    *v4 = ((unsigned __int8)*v4 + 1) & 3;
+    *((_QWORD *)g_pComposition + 133) = v3;
+    v4 = ((_BYTE)v4 + 1) & 3;
+    *((_DWORD *)v2 + 264) = v4;
   }
+  v5 = *((_OWORD *)v2 + v4 + 62);
   result = retstr;
-  *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)((char *)v2 + 16 * (unsigned int)*v4 + 1144);
+  *(_OWORD *)&retstr->r = v5;
   return result;
 }

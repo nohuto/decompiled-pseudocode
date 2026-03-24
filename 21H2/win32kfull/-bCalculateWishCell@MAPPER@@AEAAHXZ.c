@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C001E92C
+ * XREFs of ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C00631C4
  * Callers:
- *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C001D8F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
- *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C001EDA4 (-bGetFaceName@MAPPER@@AEAAHXZ.c)
- *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C013AE1C (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C00600F0 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C010007C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C014EC64 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
  */
 
 __int64 __fastcall MAPPER::bCalculateWishCell(MAPPER *this)
@@ -18,18 +18,18 @@ __int64 __fastcall MAPPER::bCalculateWishCell(MAPPER *this)
   int v7; // edi
   float v8; // xmm0_4
   int v9; // r12d
-  BOOL v10; // r10d
+  BOOL v10; // r9d
   bool v11; // cf
   bool v12; // zf
   float v13; // xmm0_4
-  int v14; // r10d
-  BOOL v15; // r9d
+  int v14; // r9d
+  BOOL v15; // r8d
   float v16; // xmm0_4
-  BOOL v17; // r11d
-  int v18; // r8d
-  int v19; // r13d
-  __int64 v20; // rcx
-  int v21; // r11d
+  BOOL v17; // r10d
+  int v18; // r11d
+  __int64 v19; // rcx
+  int v20; // eax
+  int v21; // r10d
   int v22; // eax
   int v23; // eax
   int v24; // eax
@@ -63,18 +63,18 @@ __int64 __fastcall MAPPER::bCalculateWishCell(MAPPER *this)
     v12 = v13 == 0.0;
     v16 = v26[3];
     v17 = !v11 && !v12;
-    v18 = v15 - v17;
-    v19 = (__PAIR64__(v16 < 0.0, 0.0) - LODWORD(v16)) >> 32;
-    v20 = *(_DWORD *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL) & 0x40;
+    v18 = (__PAIR64__(v16 < 0.0, 0.0) - LODWORD(v16)) >> 32;
+    v19 = *(_DWORD *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL) & 0x40;
     if ( (*(_DWORD *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL) & 0x40) == 0 )
-      v19 = (__PAIR64__(v16 > 0.0, LODWORD(v16)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+      v18 = (__PAIR64__(v16 > 0.0, LODWORD(v16)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+    v20 = v15 - v17;
     v21 = v17 - v15;
-    if ( (*(_DWORD *)(*(_QWORD *)(**(_QWORD **)this + 976LL) + 340LL) & 0x40) == 0 )
-      v21 = v18;
+    if ( !(_DWORD)v19 )
+      v21 = v20;
     if ( (v7 & 0x81000) == 0 )
     {
       if ( v4 != 900 * (v4 / 900)
-        || (v20 = (v21 + v14) | (v9 - v19) | ((unsigned __int8)v9 ^ (unsigned __int8)~(_BYTE)v14) & 1u) != 0 )
+        || (v19 = (v21 + v14) | (v9 - v18) | ((unsigned __int8)v9 ^ (unsigned __int8)~(_BYTE)v14) & 1u) != 0 )
       {
         v25 = v7 | 0x20;
 LABEL_25:
@@ -94,7 +94,7 @@ LABEL_25:
     if ( (v7 & 8) == 0 )
     {
       v27 = 0;
-      bFToL(v20, &v27, 0LL);
+      bFToL(v19, &v27, 0LL);
       v23 = v27;
       *((_DWORD *)this + 41) = v27;
       if ( v23 < 0 )
@@ -104,7 +104,7 @@ LABEL_25:
     if ( *(_DWORD *)(*((_QWORD *)this + 1) + 4LL) && (v7 & 0x10) == 0 )
     {
       v27 = 0;
-      bFToL(v20, &v27, 0LL);
+      bFToL(v19, &v27, 0LL);
       v24 = v27;
       *((_DWORD *)this + 42) = v27;
       if ( v24 < 0 )

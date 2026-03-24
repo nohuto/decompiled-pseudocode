@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedReadLegacyAnimationTriggerMarshaler @ 0x1C023A1C0
+ * XREFs of CreateSharedReadLegacyAnimationTriggerMarshaler @ 0x1C01F9080
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedReadLegacyAnimationTriggerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0239FF0 (-Create@CSharedReadLegacyAnimationTriggerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResour.c)
+ *     ?Create@CSharedReadLegacyAnimationTriggerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F8FA0 (-Create@CSharedReadLegacyAnimationTriggerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResour.c)
  */
 
 __int64 __fastcall CreateSharedReadLegacyAnimationTriggerMarshaler(

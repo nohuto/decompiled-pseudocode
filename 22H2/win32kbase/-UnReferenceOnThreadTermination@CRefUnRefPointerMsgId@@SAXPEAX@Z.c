@@ -1,19 +1,12 @@
 /*
- * XREFs of ?UnReferenceOnThreadTermination@CRefUnRefPointerMsgId@@SAXPEAX@Z @ 0x1C01E5120
+ * XREFs of ?UnReferenceOnThreadTermination@CRefUnRefPointerMsgId@@SAXPEAX@Z @ 0x1C00CDAB0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D89F0 (-UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     ?UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019FB70 (-UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
  */
 
-void __fastcall CRefUnRefPointerMsgId::UnReferenceOnThreadTermination(
-        unsigned __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall CRefUnRefPointerMsgId::UnReferenceOnThreadTermination(void *a1)
 {
-  __int64 v5; // rax
-
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  CTouchProcessor::UnreferenceMsgDataExternal(*(struct _KTHREAD ***)(v5 + 3424), a1, 8);
+  CTouchProcessor::UnreferenceMsgDataExternal(gpTouchProcessor, a1, 8LL);
 }

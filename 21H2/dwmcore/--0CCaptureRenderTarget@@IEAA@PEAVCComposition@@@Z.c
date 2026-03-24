@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019C514
+ * XREFs of ??0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016A204
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ??0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019D514 (--0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016B68C (--0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z @ 0x1801C0F98 (--0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z.c)
+ *     ??0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z @ 0x18018556C (--0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z.c)
  */
 
 CCaptureRenderTarget *__fastcall CCaptureRenderTarget::CCaptureRenderTarget(
@@ -21,35 +21,33 @@ CCaptureRenderTarget *__fastcall CCaptureRenderTarget::CCaptureRenderTarget(
 
   if ( a3 )
   {
-    *((_QWORD *)this + 10) = &CCaptureRenderTarget::`vbtable'{for `IVisualTreeClient'};
-    *((_QWORD *)this + 261) = &CInk::`vbtable'{for `IContent'};
-    *((_QWORD *)this + 264) = &CDDisplaySwapChain::`vbtable'{for `IDeviceResource'};
-    *((_QWORD *)this + 263) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
-    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 264) + 4LL) + 2112) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+    *((_QWORD *)this + 9) = &CCaptureRenderTarget::`vbtable'{for `IVisualTreeClient'};
+    *((_QWORD *)this + 265) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
+    *((_QWORD *)this + 268) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
+    *((_QWORD *)this + 267) = &IOverlayMonitorTarget::`vftable'{for `IRenderTarget'};
+    *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 268) + 4LL) + 2144) = &ILegacySwapChain::`vftable'{for `IUnknown'};
   }
   v9 = 26;
   v8 = "DWM Rendertarget (capture)";
   COffScreenRenderTarget::COffScreenRenderTarget(this, a2, (const struct CResourceTag *)&v8);
   *(_QWORD *)this = &CCaptureRenderTarget::`vftable'{for `COffScreenRenderTarget'};
-  *((_QWORD *)this + 9) = &CIndirectSwapchainRenderTarget::`vftable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 233) = &CCaptureRenderTarget::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 4LL) + 80) = &CCaptureRenderTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 8LL) + 80) = &CCaptureRenderTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 12LL) + 80) = &CCaptureRenderTarget::`vftable'{for `IRenderTarget'};
-  v4 = *(int *)(*((_QWORD *)this + 10) + 4LL);
-  *(_DWORD *)((char *)this + v4 + 76) = v4 - 1984;
-  v5 = *(int *)(*((_QWORD *)this + 10) + 8LL);
-  *(_DWORD *)((char *)this + v5 + 76) = v5 - 2000;
-  v6 = *(int *)(*((_QWORD *)this + 10) + 12LL);
+  *((_QWORD *)this + 8) = &CCaptureRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 235) = &CCaptureRenderTarget::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CCaptureRenderTarget::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 8LL) + 72) = &CCaptureRenderTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 72) = &CCaptureRenderTarget::`vftable'{for `IRenderTarget'};
+  v4 = *(int *)(*((_QWORD *)this + 9) + 4LL);
+  *(_DWORD *)((char *)this + v4 + 68) = v4 - 2024;
+  v5 = *(int *)(*((_QWORD *)this + 9) + 8LL);
+  *(_DWORD *)((char *)this + v5 + 68) = v5 - 2040;
+  v6 = *(int *)(*((_QWORD *)this + 9) + 12LL);
   result = this;
-  *(_DWORD *)((char *)this + v6 + 76) = v6 - 2024;
-  *((_QWORD *)this + 234) = 0LL;
-  *((_QWORD *)this + 238) = 0LL;
-  *((_QWORD *)this + 239) = 0LL;
+  *(_DWORD *)((char *)this + v6 + 68) = v6 - 2064;
+  *((_QWORD *)this + 236) = 0LL;
   *((_QWORD *)this + 240) = 0LL;
+  *((_QWORD *)this + 241) = 0LL;
   *((_QWORD *)this + 242) = 0LL;
   *((_QWORD *)this + 244) = 0LL;
-  *((_QWORD *)this + 245) = 0LL;
   *((_QWORD *)this + 246) = 0LL;
   *((_QWORD *)this + 247) = 0LL;
   *((_QWORD *)this + 248) = 0LL;
@@ -61,11 +59,14 @@ CCaptureRenderTarget *__fastcall CCaptureRenderTarget::CCaptureRenderTarget(
   *((_QWORD *)this + 254) = 0LL;
   *((_QWORD *)this + 255) = 0LL;
   *((_QWORD *)this + 256) = 0LL;
-  *(_WORD *)((char *)this + 1897) = 1;
-  *((_BYTE *)this + 140) = 0;
-  *(_QWORD *)((char *)this + 124) = 0LL;
-  *(_QWORD *)((char *)this + 132) = 0LL;
-  *((_DWORD *)this + 482) = -1;
-  *((_DWORD *)this + 438) = 0;
+  *((_QWORD *)this + 257) = 0LL;
+  *((_QWORD *)this + 258) = 0LL;
+  *((_QWORD *)this + 259) = 0LL;
+  *((_BYTE *)this + 1913) = 1;
+  *((_BYTE *)this + 128) = 0;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
+  *((_DWORD *)this + 486) = -1;
+  *((_DWORD *)this + 442) = 0;
   return result;
 }

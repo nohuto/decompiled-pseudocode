@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HasBufferedOutput@CInteraction@@UEAA_NIW4InputType@@@Z @ 0x18020C190
+ * XREFs of ?HasBufferedOutput@CInteraction@@UEAA_NIW4InputType@@@Z @ 0x1801C6110
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall CInteraction::HasBufferedOutput(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall CInteraction::HasBufferedOutput(__int64 a1)
 {
-  return CInteractionProcessor::HasBufferedOutput((CInteractionProcessor *)(a1 + 288), a2, a3);
+  return CInteractionProcessor::HasBufferedOutput(a1 + 344);
 }

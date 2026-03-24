@@ -1,48 +1,37 @@
 /*
- * XREFs of xxxCleanupThreadPointerInputInfo @ 0x1C009BA60
+ * XREFs of xxxCleanupThreadPointerInputInfo @ 0x1C00FD5D0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C0153382 (-UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z.c)
- *     ?FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01C5A18 (-FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z.c)
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F7D8C (-ForceCompletePendingPromotion@@YAXXZ.c)
- *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F8818 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     ?RemoveThreadPointerHookData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C00FD664 (-RemoveThreadPointerHookData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@@Z.c)
+ *     ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01F1074 (-UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02183F8 (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C0218E30 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall xxxCleanupThreadPointerInputInfo(__int64 a1)
 {
-  struct tagTHREADPOINTERDATA **v2; // rbx
-  struct tagTHREADPOINTERDATA *v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rbx
-  __int64 v6; // rax
+  struct tagTHREADPOINTERDATA **v2; // rdi
 
   if ( a1 == gptiManipulationThread )
   {
-    v6 = SGDGetUserSessionState(a1);
-    CTouchProcessor::CleanupManipulationThreadData(*(CTouchProcessor **)(v6 + 3424));
+    CTouchProcessor::CleanupManipulationThreadData(gpTouchProcessor);
     gptiManipulationThread = 0LL;
   }
-  v2 = (struct tagTHREADPOINTERDATA **)(a1 + 1128);
-  v3 = *(struct tagTHREADPOINTERDATA **)(a1 + 1152);
-  if ( v3 )
-  {
-    FreeThreadPointerHookData(v3);
-    *(_QWORD *)(a1 + 1152) = 0LL;
-  }
+  v2 = (struct tagTHREADPOINTERDATA **)(a1 + 1088);
+  RemoveThreadPointerHookData((struct tagTHREADINPUTPOINTERLIST *)(a1 + 1088));
   while ( *v2 != (struct tagTHREADPOINTERDATA *)v2 )
-    UnlinkAndFreeThreadPointerData((struct tagTHREADINPUTPOINTERLIST *)(a1 + 1128), *v2);
-  v5 = SGDGetUserSessionState(v3);
-  if ( a1 == *(_QWORD *)(v5 + 16312) )
+    UnlinkAndFreeThreadPointerData((struct tagTHREADINPUTPOINTERLIST *)(a1 + 1088), *v2);
+  if ( a1 == qword_1C0339BD0 )
   {
-    *(_QWORD *)(SGDGetUserSessionState(v4) + 16312) = 0LL;
-    if ( *(_QWORD *)(v5 + 16184) )
-      *(_DWORD *)(v5 + 16320) |= 1u;
+    qword_1C0339BD0 = 0LL;
+    if ( qword_1C0339B50 )
+      dword_1C0339BD8 |= 1u;
   }
-  if ( *(_WORD *)(SGDGetUserSessionState(v4) + 16280) )
+  if ( word_1C0339BB0 )
   {
-    if ( a1 == *(_QWORD *)(v5 + 16288) )
+    if ( a1 == qword_1C0339BB8 )
     {
       ForceCompletePendingPromotion();
       xxxProcessMousePromotionQueue();

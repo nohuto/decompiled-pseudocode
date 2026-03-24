@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDualRoleFeaturesSupported @ 0x1C0020190
+ * XREFs of HUBDSM_CheckingIfDualRoleFeaturesSupported @ 0x1C001FD80
  * Callers:
  *     <none>
  * Callees:

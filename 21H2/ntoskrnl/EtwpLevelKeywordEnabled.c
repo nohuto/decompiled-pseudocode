@@ -1,19 +1,21 @@
 /*
- * XREFs of EtwpLevelKeywordEnabled @ 0x1403031F0
+ * XREFs of EtwpLevelKeywordEnabled @ 0x140220B80
  * Callers:
- *     PpmPerfRecordUtility @ 0x14021BD70 (PpmPerfRecordUtility.c)
- *     PpmPerfSelectProcessorState @ 0x14021FD60 (PpmPerfSelectProcessorState.c)
- *     EtwpFailLogging @ 0x14022A6DC (EtwpFailLogging.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     EtwProviderEnabled @ 0x1402EDE50 (EtwProviderEnabled.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     KiIntSteerEtwEventEnabled @ 0x1403025F0 (KiIntSteerEtwEventEnabled.c)
- *     PpmPerfSnapDeliveredPerformance @ 0x140304CE0 (PpmPerfSnapDeliveredPerformance.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     EtwpFailLoggingOld @ 0x14041A870 (EtwpFailLoggingOld.c)
- *     EtwpDiskProvTraceDisk @ 0x14062EA90 (EtwpDiskProvTraceDisk.c)
- *     EtwWriteString @ 0x1406305E0 (EtwWriteString.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x14021FCD0 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
+ *     KiIntSteerEtwEventEnabled @ 0x140220B30 (KiIntSteerEtwEventEnabled.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
+ *     PpmPerfRecordUtility @ 0x1402893F0 (PpmPerfRecordUtility.c)
+ *     PpmPerfSelectProcessorState @ 0x14028E7D0 (PpmPerfSelectProcessorState.c)
+ *     EtwpFailLogging @ 0x14036CB24 (EtwpFailLogging.c)
+ *     EtwWriteString @ 0x1405A58E0 (EtwWriteString.c)
+ *     EtwpDiskProvTraceDisk @ 0x1405A855C (EtwpDiskProvTraceDisk.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIInitResetDeviceExtension @ 0x1C0056F0C
+ * XREFs of ACPIInitResetDeviceExtension @ 0x1C002CF60
  * Callers:
- *     ACPIInitDeleteChildDeviceList @ 0x1C002D08C (ACPIInitDeleteChildDeviceList.c)
- *     ACPIBusIrpRemoveDevice @ 0x1C004C350 (ACPIBusIrpRemoveDevice.c)
- *     ACPIDispatchIrpDepRemoveDevice @ 0x1C004CED0 (ACPIDispatchIrpDepRemoveDevice.c)
- *     ACPIFilterFastIoDetachCallback @ 0x1C0055B50 (ACPIFilterFastIoDetachCallback.c)
+ *     ACPIFilterFastIoDetachCallback @ 0x1C002CEB0 (ACPIFilterFastIoDetachCallback.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002D204 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIDispatchIrpDepRemoveDevice @ 0x1C004DF70 (ACPIDispatchIrpDepRemoveDevice.c)
  * Callees:
- *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C0007270 (ACPIInitDereferenceDeviceExtensionLocked.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     AcpiArblibFreeArbiterInstance @ 0x1C0049B1C (AcpiArblibFreeArbiterInstance.c)
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C004A950 (ACPIBuildProcessNotifyPepDeleteDevice.c)
- *     ACPIInternalInterruptPolarityCacheCleanup @ 0x1C00575A8 (ACPIInternalInterruptPolarityCacheCleanup.c)
- *     PnpiCleanupForceActiveBothInterrupts @ 0x1C005F510 (PnpiCleanupForceActiveBothInterrupts.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C00198D8 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIInternalInterruptPolarityCacheCleanup @ 0x1C002D168 (ACPIInternalInterruptPolarityCacheCleanup.c)
+ *     PnpiCleanupForceActiveBothInterrupts @ 0x1C002D1A0 (PnpiCleanupForceActiveBothInterrupts.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C00AD264 (AcpiArblibFreeArbiterInstance.c)
  */
 
 void __fastcall ACPIInitResetDeviceExtension(ULONG_PTR BugCheckParameter4)
@@ -19,23 +19,22 @@ void __fastcall ACPIInitResetDeviceExtension(ULONG_PTR BugCheckParameter4)
   struct _DEVICE_OBJECT *v2; // r12
   KIRQL v3; // r13
   __int64 v4; // rcx
-  void *v5; // rcx
-  void *v6; // r14
-  void *v7; // rsi
-  void *v8; // rdi
-  struct _DEVICE_OBJECT *v9; // rbp
-  __int64 v10; // r15
-  unsigned __int8 v11; // cf
+  void *v5; // r14
+  void *v6; // rsi
+  void *v7; // rdi
+  struct _DEVICE_OBJECT *v8; // rbp
+  __int64 v9; // r15
+  PVOID *v10; // rbx
+  void *v11; // rcx
   __int64 v12; // r8
   _QWORD *v13; // rcx
-  __int128 *v14; // rbx
-  __int128 v15; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-38h]
+  __int128 v14; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-38h]
 
+  v14 = 0LL;
   v15 = 0LL;
-  v16 = 0LL;
   v2 = 0LL;
-  ACPIBuildProcessNotifyPepDeleteDevice(BugCheckParameter4, 0);
+  ACPIBuildProcessNotifyPepDeleteDevice(BugCheckParameter4, 0LL);
   v3 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
   v4 = *(_QWORD *)(BugCheckParameter4 + 8);
@@ -43,40 +42,39 @@ void __fastcall ACPIInitResetDeviceExtension(ULONG_PTR BugCheckParameter4)
   {
     if ( (v4 & 0x20) != 0 )
     {
-      v5 = *(void **)(BugCheckParameter4 + 776);
-      if ( v5 )
-        ObfDereferenceObject(v5);
+      v11 = *(void **)(BugCheckParameter4 + 736);
+      if ( v11 )
+        ObfDereferenceObject(v11);
     }
     else
     {
-      v2 = *(struct _DEVICE_OBJECT **)(BugCheckParameter4 + 776);
+      v2 = *(struct _DEVICE_OBJECT **)(BugCheckParameter4 + 736);
     }
   }
   PnpiCleanupForceActiveBothInterrupts(BugCheckParameter4);
   ACPIInternalInterruptPolarityCacheCleanup(BugCheckParameter4);
-  v6 = *(void **)(BugCheckParameter4 + 688);
+  v5 = *(void **)(BugCheckParameter4 + 648);
+  if ( v5 )
+    *(_QWORD *)(BugCheckParameter4 + 648) = 0LL;
+  v6 = *(void **)(BugCheckParameter4 + 632);
   if ( v6 )
-    *(_QWORD *)(BugCheckParameter4 + 688) = 0LL;
-  v7 = *(void **)(BugCheckParameter4 + 672);
+    *(_QWORD *)(BugCheckParameter4 + 632) = 0LL;
+  v7 = *(void **)(BugCheckParameter4 + 640);
   if ( v7 )
-    *(_QWORD *)(BugCheckParameter4 + 672) = 0LL;
-  v8 = *(void **)(BugCheckParameter4 + 680);
-  if ( v8 )
-    *(_QWORD *)(BugCheckParameter4 + 680) = 0LL;
-  v9 = *(struct _DEVICE_OBJECT **)(BugCheckParameter4 + 768);
-  v10 = 3LL;
-  if ( !v9 )
-    goto LABEL_19;
-  v9->DeviceExtension = 0LL;
-  v11 = _bittest64((const signed __int64 *)(BugCheckParameter4 + 8), 0x25u);
-  *(_QWORD *)(BugCheckParameter4 + 768) = 0LL;
-  if ( v11 && *(_BYTE *)(BugCheckParameter4 + 184) )
+    *(_QWORD *)(BugCheckParameter4 + 640) = 0LL;
+  v8 = *(struct _DEVICE_OBJECT **)(BugCheckParameter4 + 728);
+  v9 = 3LL;
+  if ( !v8 )
+    goto LABEL_13;
+  v8->DeviceExtension = 0LL;
+  *(_QWORD *)(BugCheckParameter4 + 728) = 0LL;
+  if ( (*(_QWORD *)(BugCheckParameter4 + 8) & 0x2000000000LL) != 0 && *(_BYTE *)(BugCheckParameter4 + 184) )
   {
     v12 = 3LL;
     v13 = (_QWORD *)(BugCheckParameter4 + 192);
     do
     {
-      *(_QWORD *)((char *)v13 + (_QWORD)&v15 - BugCheckParameter4 - 192) = *v13;
+      *(_QWORD *)((char *)v13 + (_QWORD)&v14 - BugCheckParameter4 - 192) = *v13;
       *v13++ = 0LL;
       --v12;
     }
@@ -84,17 +82,17 @@ void __fastcall ACPIInitResetDeviceExtension(ULONG_PTR BugCheckParameter4)
   }
   if ( ACPIInitDereferenceDeviceExtensionLocked(BugCheckParameter4) )
   {
-    v7 = 0LL;
-    v8 = 0LL;
     v6 = 0LL;
+    v7 = 0LL;
+    v5 = 0LL;
   }
   else
   {
-LABEL_19:
-    *(_QWORD *)(BugCheckParameter4 + 776) = 0LL;
-    *(_QWORD *)(BugCheckParameter4 + 784) = 0LL;
-    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter4 + 1000), 0xFFFFFFFFFFFFFFBFuLL);
-    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter4 + 1000), 0xFFFFFFFFDFFFFFFFuLL);
+LABEL_13:
+    *(_QWORD *)(BugCheckParameter4 + 736) = 0LL;
+    *(_QWORD *)(BugCheckParameter4 + 744) = 0LL;
+    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter4 + 960), 0xFFFFFFFFFFFFFFBFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter4 + 960), 0xFFFFFFFFDFFFFFFFuLL);
     if ( (*(_BYTE *)(BugCheckParameter4 + 8) & 1) == 0 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter4 + 8), 0xFFFFFFFFFFFFFC00uLL);
@@ -104,23 +102,23 @@ LABEL_19:
   }
   KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
   KeReleaseSpinLock(&AcpiPowerLock, v3);
-  v14 = &v15;
+  v10 = (PVOID *)&v14;
   do
   {
-    if ( *(_QWORD *)v14 )
-      AcpiArblibFreeArbiterInstance(*(_BYTE **)v14);
-    v14 = (__int128 *)((char *)v14 + 8);
-    --v10;
+    if ( *v10 )
+      AcpiArblibFreeArbiterInstance(*v10);
+    ++v10;
+    --v9;
   }
-  while ( v10 );
+  while ( v9 );
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
   if ( v2 )
     IoDetachDevice(v2);
-  if ( v9 )
-    IoDeleteDevice(v9);
+  if ( v8 )
+    IoDeleteDevice(v8);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpInitializePhase0 @ 0x140B23400
+ * XREFs of DbgkpInitializePhase0 @ 0x140A6D4E0
  * Callers:
- *     DbgkInitialize @ 0x140B233CC (DbgkInitialize.c)
+ *     DbgkInitialize @ 0x140A6D4AC (DbgkInitialize.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     CmSiRWLockInitialize @ 0x1407F3B30 (CmSiRWLockInitialize.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
- *     DbgkpInitializePhase0SiloState @ 0x14084ED1C (DbgkpInitializePhase0SiloState.c)
- *     DbgkpGetServerSiloState @ 0x14084F044 (DbgkpGetServerSiloState.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmSiRWLockInitialize @ 0x140795710 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     DbgkpInitializePhase0SiloState @ 0x1407CA4C4 (DbgkpInitializePhase0SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x1407CA7EC (DbgkpGetServerSiloState.c)
  */
 
 void DbgkpInitializePhase0()
@@ -47,7 +47,7 @@ void DbgkpInitializePhase0()
     {
       if ( !DbgkpMaxModuleMsgs )
         DbgkpMaxModuleMsgs = 500;
-      v2 = &stru_140C5A870;
+      v2 = &stru_140C53F30;
       do
       {
         CmSiRWLockInitialize(v2);

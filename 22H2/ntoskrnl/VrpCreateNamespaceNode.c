@@ -1,165 +1,164 @@
 /*
- * XREFs of VrpCreateNamespaceNode @ 0x14077BD28
+ * XREFs of VrpCreateNamespaceNode @ 0x1405D34B4
  * Callers:
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14077B6E0 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A7215C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408828EC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     VrpCountPathComponents @ 0x14068D434 (VrpCountPathComponents.c)
- *     VrpGetNextToken @ 0x14068DA8C (VrpGetNextToken.c)
- *     VrpBuildKeyPath @ 0x14068DE10 (VrpBuildKeyPath.c)
- *     VrpStripTrailingCharacters @ 0x14068E650 (VrpStripTrailingCharacters.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     VrpFindBestMatchNamespaceNode @ 0x14077BF88 (VrpFindBestMatchNamespaceNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x1405D29C8 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpCountPathComponents @ 0x1405D4DCC (VrpCountPathComponents.c)
+ *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x1405D53E4 (VrpStripTrailingCharacters.c)
+ *     VrpBuildKeyPath @ 0x1405D5420 (VrpBuildKeyPath.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpCreateNamespaceNode(
         __int64 a1,
-        unsigned __int16 *a2,
+        const void **a2,
         void *a3,
-        unsigned __int16 *a4,
+        const void **a4,
         int a5,
         int a6,
-        __int64 *a7)
+        _QWORD *a7)
 {
-  int v7; // esi
+  int v7; // r13d
+  int v11; // r12d
   int v12; // ebx
-  __int64 Pool2; // rax
-  __int64 v14; // rdi
-  int v15; // eax
-  __int64 v16; // rax
-  void *v17; // rcx
-  unsigned __int16 v18; // ax
-  PVOID *v19; // rsi
-  void *v20; // rcx
-  unsigned __int16 v21; // ax
+  __int64 v13; // r9
+  char *PoolWithTag; // rax
+  char *v15; // rdi
+  int v16; // eax
+  PVOID v17; // rax
+  void *v18; // rcx
+  __int16 v19; // ax
+  PVOID v20; // rax
+  void *v21; // rcx
+  __int16 v22; // ax
+  _QWORD *v23; // rax
+  int v24; // ebx
   __int64 BestMatchNamespaceNode; // rax
-  __int64 v23; // r15
-  int v24; // eax
-  __int64 v25; // rbx
-  __int64 v26; // rdx
-  unsigned __int16 v27; // ax
-  int v28; // ebx
-  __int64 *v29; // rax
-  void *v31; // rcx
+  __int64 v27; // rsi
+  int v28; // eax
+  __int64 v29; // rbx
+  __int64 v30; // rdx
+  __int16 v31; // ax
   void *v32; // rcx
-  __int64 v33; // [rsp+20h] [rbp-30h] BYREF
+  void *v33; // rcx
+  void *v34; // rcx
+  __int64 v35; // [rsp+20h] [rbp-30h] BYREF
   UNICODE_STRING String1; // [rsp+28h] [rbp-28h] BYREF
   UNICODE_STRING Source; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v36; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v38; // [rsp+80h] [rbp+30h] BYREF
 
   v7 = a6;
+  v11 = a1;
   Source = 0LL;
-  v36 = 0LL;
+  v38 = 0LL;
   String1 = 0LL;
-  v33 = 0LL;
+  v35 = 0LL;
   if ( *(_DWORD *)(a1 + 84) )
     return (unsigned int)-1073741738;
   v12 = a5;
   if ( (a5 & 0xE0000007) != a5 )
     return (unsigned int)-1073741811;
   VrpStripTrailingCharacters(a2);
-  VrpStripTrailingCharacters(a4);
-  VrpGetNextToken(a2, &v36, (__int64)&String1);
+  VrpStripTrailingCharacters(v13);
+  VrpGetNextToken(a2, &v38, &String1);
   if ( !RtlEqualUnicodeString(&String1, &VrpRegistryString, 1u) )
     return (unsigned int)-1073741811;
-  VrpGetNextToken(a2, &v36, (__int64)&String1);
-  Pool2 = ExAllocatePool2(256LL, 72LL, 1734693462LL);
-  v14 = Pool2;
-  if ( !Pool2 )
+  VrpGetNextToken(a2, &v38, &String1);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x67655256u);
+  v15 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741670;
-  *(_DWORD *)(Pool2 + 56) = v12;
-  v15 = -1;
+  memset(PoolWithTag, 0, 0x48uLL);
+  *((_DWORD *)v15 + 14) = v12;
+  v16 = -1;
   if ( v7 )
-    v15 = v7;
-  *(_DWORD *)(v14 + 60) = v15;
-  v16 = ExAllocatePool2(256LL, a2[1], 1734693462LL);
-  *(_QWORD *)(v14 + 8) = v16;
-  v17 = (void *)v16;
-  if ( v16 )
+    v16 = v7;
+  *((_DWORD *)v15 + 15) = v16;
+  v17 = ExAllocatePoolWithTag(PagedPool, *((unsigned __int16 *)a2 + 1), 0x67655256u);
+  *((_QWORD *)v15 + 1) = v17;
+  v18 = v17;
+  if ( v17
+    && (v19 = *(_WORD *)a2,
+        *((_WORD *)v15 + 1) = *(_WORD *)a2,
+        *(_WORD *)v15 = v19,
+        memmove(v18, a2[1], *(unsigned __int16 *)a2),
+        v20 = ExAllocatePoolWithTag(PagedPool, *((unsigned __int16 *)a4 + 1), 0x67655256u),
+        *((_QWORD *)v15 + 4) = v20,
+        (v21 = v20) != 0LL) )
   {
-    v18 = *a2;
-    *(_WORD *)(v14 + 2) = *a2;
-    *(_WORD *)v14 = v18;
-    memmove(v17, *((const void **)a2 + 1), *a2);
-    v19 = (PVOID *)(v14 + 32);
-    v20 = (void *)ExAllocatePool2(256LL, a4[1], 1734693462LL);
-    *(_QWORD *)(v14 + 32) = v20;
-    if ( v20 )
+    v22 = *(_WORD *)a4;
+    *((_WORD *)v15 + 12) = *(_WORD *)a4;
+    *((_WORD *)v15 + 13) = v22;
+    memmove(v21, a4[1], *(unsigned __int16 *)a4);
+    *((_WORD *)v15 + 32) = VrpCountPathComponents(v15);
+    *((_WORD *)v15 + 33) = VrpCountPathComponents(v15 + 24);
+    VrpGetNextToken(a2, &v38, &String1);
+    if ( !String1.Length )
     {
-      v21 = *a4;
-      *(_WORD *)(v14 + 24) = *a4;
-      *(_WORD *)(v14 + 26) = v21;
-      memmove(v20, *((const void **)a4 + 1), *a4);
-      *(_WORD *)(v14 + 64) = VrpCountPathComponents(v14);
-      *(_WORD *)(v14 + 66) = VrpCountPathComponents(v14 + 24);
-      VrpGetNextToken(a2, &v36, (__int64)&String1);
-      if ( !String1.Length )
-      {
-LABEL_16:
-        if ( a3 )
-          ObfReferenceObjectWithTag(a3, 0x67655256u);
-        else
-          a3 = 0LL;
-        v29 = a7;
-        v28 = 0;
-        *(_QWORD *)(v14 + 16) = a3;
-        *v29 = v14;
-        return (unsigned int)v28;
-      }
-      BestMatchNamespaceNode = VrpFindBestMatchNamespaceNode(a1, v14, &v33);
-      v23 = BestMatchNamespaceNode;
-      if ( !BestMatchNamespaceNode || (v24 = *(_DWORD *)(BestMatchNamespaceNode + 56), (v24 & 4) != 0) )
-      {
-        v28 = -1073741811;
-      }
+LABEL_10:
+      if ( a3 )
+        ObfReferenceObjectWithTag(a3, 0x67655256u);
       else
-      {
-        v25 = v33;
-        *(_DWORD *)(v14 + 56) |= v24 & 2;
-        v26 = 0LL;
-        v36 = 0LL;
-        if ( v25 )
-        {
-          do
-          {
-            VrpGetNextToken((unsigned __int16 *)v14, &v36, (__int64)&String1);
-            --v25;
-          }
-          while ( v25 );
-          v26 = v36;
-        }
-        v27 = *(_WORD *)v14;
-        Source.Buffer = (wchar_t *)(*(_QWORD *)(v14 + 8) + 2 * v26);
-        Source.Length = v27 - 2 * v26;
-        Source.MaximumLength = Source.Length;
-        v28 = VrpBuildKeyPath((PCUNICODE_STRING)(v23 + 24), &Source, (PUNICODE_STRING)(v14 + 40));
-        if ( v28 >= 0 )
-          goto LABEL_16;
-      }
+        a3 = 0LL;
+      v23 = a7;
+      v24 = 0;
+      *((_QWORD *)v15 + 2) = a3;
+      *v23 = v15;
+      return (unsigned int)v24;
+    }
+    BestMatchNamespaceNode = VrpFindBestMatchNamespaceNode(v11, (int)v15, (__int64)&v35);
+    v27 = BestMatchNamespaceNode;
+    if ( !BestMatchNamespaceNode || (v28 = *(_DWORD *)(BestMatchNamespaceNode + 56), (v28 & 4) != 0) )
+    {
+      v24 = -1073741811;
     }
     else
     {
-      v28 = -1073741670;
+      v29 = v35;
+      *((_DWORD *)v15 + 14) |= v28 & 2;
+      v30 = 0LL;
+      v38 = 0LL;
+      if ( v29 )
+      {
+        do
+        {
+          VrpGetNextToken(v15, &v38, &String1);
+          --v29;
+        }
+        while ( v29 );
+        v30 = v38;
+      }
+      v31 = *(_WORD *)v15;
+      Source.Buffer = (wchar_t *)(*((_QWORD *)v15 + 1) + 2 * v30);
+      Source.Length = v31 - 2 * v30;
+      Source.MaximumLength = Source.Length;
+      v24 = VrpBuildKeyPath((PCUNICODE_STRING)(v27 + 24), &Source, (PUNICODE_STRING)(v15 + 40));
+      if ( v24 >= 0 )
+        goto LABEL_10;
     }
   }
   else
   {
-    v28 = -1073741670;
-    v19 = (PVOID *)(v14 + 32);
+    v24 = -1073741670;
   }
-  v31 = *(void **)(v14 + 8);
-  if ( v31 )
-    ExFreePoolWithTag(v31, 0x67655256u);
-  if ( *v19 )
-    ExFreePoolWithTag(*v19, 0x67655256u);
-  v32 = *(void **)(v14 + 48);
+  v32 = (void *)*((_QWORD *)v15 + 1);
   if ( v32 )
     ExFreePoolWithTag(v32, 0x67655256u);
-  ExFreePoolWithTag((PVOID)v14, 0x67655256u);
-  return (unsigned int)v28;
+  v33 = (void *)*((_QWORD *)v15 + 4);
+  if ( v33 )
+    ExFreePoolWithTag(v33, 0x67655256u);
+  v34 = (void *)*((_QWORD *)v15 + 6);
+  if ( v34 )
+    ExFreePoolWithTag(v34, 0x67655256u);
+  ExFreePoolWithTag(v15, 0x67655256u);
+  return (unsigned int)v24;
 }

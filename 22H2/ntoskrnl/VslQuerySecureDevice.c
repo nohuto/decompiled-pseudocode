@@ -1,17 +1,17 @@
 /*
- * XREFs of VslQuerySecureDevice @ 0x140859640
+ * XREFs of VslQuerySecureDevice @ 0x1407C8F70
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslQuerySecureDevice(__int64 a1, __int64 a2)
+NTSTATUS __fastcall VslQuerySecureDevice(__int64 a1, __int64 a2)
 {
   int v4; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v6[14]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v6, 0, 0x68uLL);
@@ -19,8 +19,8 @@ __int64 __fastcall VslQuerySecureDevice(__int64 a1, __int64 a2)
   v4 = *(_DWORD *)(a1 + 8);
   v6[1] = *(_QWORD *)a1;
   LODWORD(v6[2]) = v4;
-  result = VslpEnterIumSecureMode(2u, 67, 0, (__int64)v6);
-  if ( (int)result >= 0 )
+  result = VslpEnterIumSecureMode(2u, 65, 0, (__int64)v6);
+  if ( result >= 0 )
   {
     *(_WORD *)a2 = WORD2(v6[2]);
     *(_QWORD *)(a2 + 8) = v6[3];

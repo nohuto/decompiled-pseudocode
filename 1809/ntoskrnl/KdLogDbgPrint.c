@@ -4,8 +4,8 @@
  *     KdpPrint @ 0x140918224 (KdpPrint.c)
  *     KdpPrompt @ 0x140918398 (KdpPrompt.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
  */
 
@@ -28,7 +28,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
   __int64 v16; // [rsp+58h] [rbp+10h] BYREF
 
   result = KeGetCurrentPrcb();
-  if ( (struct _KPRCB *)qword_1404DCA78 == result )
+  if ( (struct _KPRCB *)qword_1404DCA38 == result )
   {
     _InterlockedIncrement(&KdPrintSkippedCount);
     return result;

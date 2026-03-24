@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpAllocateGenericTableEntry @ 0x1406CF2F0
+ * XREFs of PnpAllocateGenericTableEntry @ 0x1406CF2D0
  * Callers:
  *     <none>
  * Callees:

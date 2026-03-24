@@ -1,65 +1,56 @@
 /*
- * XREFs of PspDereferenceQuotaBlock @ 0x14069ECF4
+ * XREFs of PspDereferenceQuotaBlock @ 0x1406D91D0
  * Callers:
- *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     ObpFreeObject @ 0x1407298C0 (ObpFreeObject.c)
- *     PspProcessDelete @ 0x1407615C0 (PspProcessDelete.c)
- *     PspAssignProcessQuotaBlock @ 0x1407F8B1C (PspAssignProcessQuotaBlock.c)
+ *     PspProcessDelete @ 0x140613B20 (PspProcessDelete.c)
+ *     ObpFreeObject @ 0x14063DC40 (ObpFreeObject.c)
+ *     PspAssignProcessQuotaBlock @ 0x140690864 (PspAssignProcessQuotaBlock.c)
+ *     PsReturnSharedPoolQuota @ 0x1406D9184 (PsReturnSharedPoolQuota.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     PspRemoveQuotaBlock @ 0x1409AE13C (PspRemoveQuotaBlock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PspReturnResourceQuota @ 0x140318838 (PspReturnResourceQuota.c)
+ *     PspRemoveQuotaBlock @ 0x1409073F8 (PspRemoveQuotaBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PspDereferenceQuotaBlock(volatile signed __int32 *P)
+void __fastcall PspDereferenceQuotaBlock(volatile signed __int32 *P, __int64 a2, __int64 a3, _BOOL8 a4)
 {
-  signed int v2; // esi
-  char *v3; // r14
-  char *i; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r8
+  signed int v5; // esi
+  char *v6; // r14
+  char *v7; // rdi
+  __int64 v8; // r8
 
   if ( _InterlockedExchangeAdd(P + 128, 0xFFFFFFFF) == 1 )
   {
-    v2 = 0;
-    v3 = PspResourceFlags;
-    for ( i = (char *)(P + 18); ; i += 128 )
+    v5 = 0;
+    v6 = PspResourceFlags;
+    v7 = (char *)(P + 18);
+    do
     {
-      if ( (*v3 & 3) == 1 )
+      if ( (*v6 & 3) == 1 )
       {
-        v5 = *((_QWORD *)i + 1);
-        v6 = *((_QWORD *)i - 1);
-        if ( v6 + *(_QWORD *)i )
+        a2 = *((_QWORD *)v7 + 1);
+        a3 = *((_QWORD *)v7 - 1);
+        a4 = a2 != 0;
+        if ( a3 + *(_QWORD *)v7 )
         {
-          if ( v5 )
+          if ( a2 )
           {
-            v7 = _InterlockedExchange64((volatile __int64 *)i, 0LL);
-            v6 = _InterlockedExchange64((volatile __int64 *)i - 1, 0LL) + v7;
-          }
-          if ( v6 )
-          {
-LABEL_11:
-            PspReturnResourceQuota(v2, (__int64)(i - 72), v6, v5 != 0);
-            goto LABEL_12;
+            v8 = _InterlockedExchange64((volatile __int64 *)v7, 0LL);
+            a3 = _InterlockedExchange64((volatile __int64 *)v7 - 1, 0LL) + v8;
           }
         }
         else
         {
-          v6 = 0LL;
+          a3 = 0LL;
         }
-        if ( v5 )
-          goto LABEL_11;
+        if ( a3 || a2 )
+          PspReturnResourceQuota(v5, (__int64)(v7 - 72), a3, a4);
       }
-LABEL_12:
-      ++v2;
-      v3 += 8;
-      if ( v2 >= 4 )
-      {
-        PspRemoveQuotaBlock(P);
-        ExFreePoolWithTag((PVOID)P, 0);
-        return;
-      }
+      ++v5;
+      v7 += 128;
+      v6 += 8;
     }
+    while ( v5 < 4 );
+    PspRemoveQuotaBlock(P, a2, a3, a4);
+    ExFreePoolWithTag((PVOID)P, 0);
   }
 }

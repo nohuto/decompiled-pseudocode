@@ -1,165 +1,202 @@
 /*
- * XREFs of ExGetBigPoolInfo @ 0x140606FC0
+ * XREFs of ExGetBigPoolInfo @ 0x1405B369C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     EtwpPoolRunDown @ 0x1409EF5FC (EtwpPoolRunDown.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x14093E350 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x140949FB0 (ExGetSessionBigPoolInformation.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExGetHeapFromVA @ 0x1402AC3C0 (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     ExAllocateHeapPages @ 0x1403B955C (ExAllocateHeapPages.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExGetHeapFromVA @ 0x14027B2FC (ExGetHeapFromVA.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpFreeHeap @ 0x1402C2790 (RtlpHpFreeHeap.c)
+ *     ExAllocateHeapPages @ 0x140375EA8 (ExAllocateHeapPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
-__int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, unsigned int *a3)
+__int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigned int *a4)
 {
-  char *HeapPages; // rdi
-  unsigned __int64 v6; // rsi
-  __int64 v7; // r14
-  unsigned __int8 v8; // al
-  struct _KPRCB *v9; // r9
-  _DWORD *v10; // r8
-  int v11; // eax
-  bool v12; // zf
-  unsigned int v13; // edx
-  __int64 v14; // r8
-  _DWORD *v15; // rax
-  unsigned __int8 v17; // al
-  struct _KPRCB *v18; // r10
-  _DWORD *v19; // r9
-  int v20; // eax
-  _DWORD *v21; // rax
+  void *HeapPages; // rdi
+  unsigned __int64 v6; // r15
+  int v7; // eax
+  __int64 v8; // rdx
+  _DWORD *v9; // r12
+  KIRQL v10; // si
+  const void *v11; // rdx
+  unsigned __int8 v12; // al
+  struct _KPRCB *v13; // r9
+  _DWORD *v14; // r8
+  int v15; // eax
+  bool v16; // zf
+  unsigned int v17; // edx
+  __int64 v18; // r8
+  __int128 *v19; // rax
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r10
+  _DWORD *v23; // r9
+  int v24; // eax
+  __int128 *v25; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v25; // eax
-  _DWORD *HeapFromVA; // rax
-  unsigned int v27; // [rsp+30h] [rbp-48h]
-  unsigned int v28; // [rsp+34h] [rbp-44h]
-  char *i; // [rsp+38h] [rbp-40h]
-  _DWORD *v30; // [rsp+40h] [rbp-38h]
-  unsigned __int64 v31; // [rsp+80h] [rbp+8h]
+  int v29; // eax
+  __int128 *HeapFromVA; // rax
+  unsigned int v31; // [rsp+30h] [rbp-68h]
+  unsigned int v32; // [rsp+34h] [rbp-64h]
+  unsigned __int64 v33; // [rsp+38h] [rbp-60h]
+  unsigned __int64 v34; // [rsp+40h] [rbp-58h]
+  _DWORD *v35; // [rsp+48h] [rbp-50h]
+  _DWORD *v36; // [rsp+60h] [rbp-38h]
 
   HeapPages = 0LL;
-  v28 = 0;
-  v31 = 0LL;
-  v27 = 8;
-  v30 = a1 + 2;
+  v32 = 0;
+  v6 = 0LL;
+  v7 = 16;
+  v8 = 2LL;
+  if ( a3 == 1 )
+    v7 = 8;
+  v31 = v7;
+  v9 = a1;
+  if ( a3 != 1 )
+  {
+    v9 = a1 + 3;
+    v8 = 4LL;
+  }
+  v36 = &a1[v8];
   if ( a2 )
-    *a1 = 0;
+    *v9 = 0;
   while ( 1 )
   {
-    v6 = ExAcquireSpinLockExclusive(&ExpLargePoolTableLock);
-    if ( !PoolBigPageTable )
+    v10 = ExAcquireSpinLockExclusive(&ExpLargePoolTableLock);
+    if ( a3 == 1 )
+    {
+      v11 = (const void *)PoolBigPageTable;
+      v34 = PoolBigPageTableSize;
+    }
+    else
+    {
+      v11 = *(const void **)(qword_140C4DDE0 + 992);
+      v34 = *(_QWORD *)(qword_140C4DDE0 + 1000);
+    }
+    if ( !v11 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-          v12 = (v25 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v25;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v29 = ~(unsigned __int16)(-1LL << (v10 + 1));
+            v16 = (v29 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v29;
+            if ( v16 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
-      __writecr8(v6);
+      __writecr8(v10);
       if ( HeapPages )
       {
-        HeapFromVA = (_DWORD *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
-        RtlpHpFreeHeap(HeapFromVA, (unsigned __int64)HeapPages, 0, 0LL, 0LL);
+        HeapFromVA = (__int128 *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
+        RtlpHpFreeHeap(HeapFromVA, (__int64)HeapPages, 0);
       }
-      *a3 = 0;
+      *a4 = 0;
       return 0LL;
     }
-    if ( HeapPages && v31 >= PoolBigPageTableSize )
+    if ( HeapPages && v6 >= v34 )
       break;
-    v31 = PoolBigPageTableSize;
+    v6 = v34;
     ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
     if ( KiIrqlFlags )
     {
-      v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v17 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v18 = KeGetCurrentPrcb();
-        v19 = v18->SchedulerAssist;
-        v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-        v12 = (v20 & v19[5]) == 0;
-        v19[5] &= v20;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)v18);
+        v21 = KeGetCurrentIrql();
+        if ( v21 <= 0xFu && v10 <= 0xFu && v21 >= 2u )
+        {
+          v22 = KeGetCurrentPrcb();
+          v23 = v22->SchedulerAssist;
+          v24 = ~(unsigned __int16)(-1LL << (v10 + 1));
+          v16 = (v24 & v23[5]) == 0;
+          v23[5] &= v24;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick((__int64)v22);
+        }
       }
     }
-    __writecr8(v6);
+    __writecr8(v10);
     if ( HeapPages )
     {
-      v21 = (_DWORD *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
-      RtlpHpFreeHeap(v21, (unsigned __int64)HeapPages, 0, 0LL, 0LL);
+      v25 = (__int128 *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
+      RtlpHpFreeHeap(v25, (__int64)HeapPages, 0);
     }
-    HeapPages = ExAllocateHeapPages();
+    HeapPages = (void *)ExAllocateHeapPages();
     if ( !HeapPages )
       return 3221225626LL;
   }
-  v7 = 32 * PoolBigPageTableSize;
-  memmove(HeapPages, PoolBigPageTable, 32 * PoolBigPageTableSize);
+  memmove(HeapPages, v11, 24 * v34);
   ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
   if ( KiIrqlFlags )
   {
-    v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v8 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v9 = KeGetCurrentPrcb();
-      v10 = v9->SchedulerAssist;
-      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v12 = (v11 & v10[5]) == 0;
-      v10[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick((__int64)v9);
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && v10 <= 0xFu && v12 >= 2u )
+      {
+        v13 = KeGetCurrentPrcb();
+        v14 = v13->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << (v10 + 1));
+        v16 = (v15 & v14[5]) == 0;
+        v14[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick((__int64)v13);
+      }
     }
   }
-  __writecr8(v6);
-  for ( i = HeapPages; ; i += 32 )
+  __writecr8(v10);
+  v33 = (unsigned __int64)HeapPages;
+  v35 = v36;
+  while ( 1 )
   {
-    v13 = v27;
-    if ( i >= &HeapPages[v7] )
+    v17 = v31;
+    if ( v33 >= (unsigned __int64)HeapPages + 24 * v34 )
       break;
-    v14 = *(_QWORD *)i;
-    if ( (*(_QWORD *)i & 1) == 0 )
+    v18 = *(_QWORD *)v33;
+    if ( (*(_QWORD *)v33 & 1) == 0 )
     {
       if ( a2 )
-        ++*a1;
-      v27 += 24;
-      if ( v13 >= 0xFFFFFFE8 )
+        ++*v9;
+      v31 += 24;
+      if ( v17 >= 0xFFFFFFE8 )
       {
-        v28 = -1073741675;
+        v32 = -1073741675;
         break;
       }
-      if ( v27 <= a2 )
+      if ( v31 <= a2 )
       {
         if ( a2 )
         {
-          *(_QWORD *)v30 = v14;
-          if ( (*((_DWORD *)i + 3) & 0x100) == 0 )
-            *(_QWORD *)v30 = v14 | 1;
-          v30[4] = *((_DWORD *)i + 2);
-          *((_QWORD *)v30 + 1) = *((_QWORD *)i + 2);
-          v30 += 6;
+          *(_QWORD *)v35 = v18;
+          if ( a3 == 1 && (*(_DWORD *)(v33 + 12) & 0x100) == 0 )
+            *(_QWORD *)v35 = v18 | 1;
+          v35[4] = *(_DWORD *)(v33 + 8);
+          *((_QWORD *)v35 + 1) = *(_QWORD *)(v33 + 16);
+          v35 += 6;
         }
       }
       else
       {
-        v28 = -1073741820;
+        v32 = -1073741820;
       }
     }
+    v33 += 24LL;
   }
-  v15 = (_DWORD *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
-  RtlpHpFreeHeap(v15, (unsigned __int64)HeapPages, 0, 0LL, 0LL);
-  *a3 = v27;
-  return v28;
+  v19 = (__int128 *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
+  RtlpHpFreeHeap(v19, (__int64)HeapPages, 0);
+  *a4 = v31;
+  return v32;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiQueryFontAssocInfo @ 0x1C01091A0
+ * XREFs of NtGdiQueryFontAssocInfo @ 0x1C0114720
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C001EC98 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B9B0 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiQueryFontAssocInfo(HDC a1)
@@ -38,7 +38,7 @@ __int64 __fastcall NtGdiQueryFontAssocInfo(HDC a1)
           || v3 == -1 && (fFontAssocStatus & 1) != 0
           || v3 == 2 && (fFontAssocStatus & 4) != 0 )
         {
-          LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v7, *(struct HLFONT__ **)(v4[0] + 1744LL), 0LL);
+          LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v7, *(struct HLFONT__ **)(v4[0] + 1752LL), 0LL);
           if ( v7 )
           {
             if ( (*((_BYTE *)v7 + 301) & 0x40) != 0 )

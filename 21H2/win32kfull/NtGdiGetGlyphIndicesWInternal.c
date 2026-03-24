@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiGetGlyphIndicesWInternal @ 0x1C0100A40
+ * XREFs of NtGdiGetGlyphIndicesWInternal @ 0x1C01148E0
  * Callers:
- *     NtGdiGetGlyphIndicesW @ 0x1C0100A10 (NtGdiGetGlyphIndicesW.c)
+ *     NtGdiGetGlyphIndicesW @ 0x1C01148B0 (NtGdiGetGlyphIndicesW.c)
  * Callees:
- *     GreGetGlyphIndicesW @ 0x1C0100C28 (GreGetGlyphIndicesW.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreGetGlyphIndicesW @ 0x1C0114AC8 (GreGetGlyphIndicesW.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetGlyphIndicesWInternal(HDC a1, char *a2, int a3, char *a4, unsigned int a5, int a6)
@@ -25,7 +25,7 @@ __int64 __fastcall NtGdiGetGlyphIndicesWInternal(HDC a1, char *a2, int a3, char 
   if ( a3 < 0 )
     return 0xFFFFFFFFLL;
   if ( !a3 && !a2 && !a4 && !a5 )
-    return GreGetGlyphIndicesW(a1, 0LL, 0, 0, a6);
+    return GreGetGlyphIndicesW(a1, 0, a6);
   v10 = 0;
   if ( a5 <= 1 )
     v10 = a5;
@@ -49,7 +49,7 @@ __int64 __fastcall NtGdiGetGlyphIndicesWInternal(HDC a1, char *a2, int a3, char 
     GlyphIndicesW = v7;
     if ( (_DWORD)v7 != -1 )
     {
-      GlyphIndicesW = GreGetGlyphIndicesW(a1, (unsigned __int16 *)&v8[2 * v7], v7, v10, a6);
+      GlyphIndicesW = GreGetGlyphIndicesW(a1, v10, a6);
       if ( GlyphIndicesW != -1 )
       {
         v11 = 2LL * (int)v7;

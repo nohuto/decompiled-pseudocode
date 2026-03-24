@@ -1,7 +1,7 @@
 /*
- * XREFs of PepPromoteNextNotificationState @ 0x1C00B0810
+ * XREFs of PepPromoteNextNotificationState @ 0x1C00B1574
  * Callers:
- *     ACPIPepPowerSettingChangeCallback @ 0x1C00B0520 (ACPIPepPowerSettingChangeCallback.c)
+ *     ACPIPepPowerSettingChangeCallback @ 0x1C00B1260 (ACPIPepPowerSettingChangeCallback.c)
  * Callees:
  *     <none>
  */

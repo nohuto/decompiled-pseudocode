@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsFreeChunkRemove @ 0x1400BD300
+ * XREFs of RtlpHpVsFreeChunkRemove @ 0x1400BD320
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x1400BC830 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkCoalesce @ 0x1400BDBC0 (RtlpHpVsChunkCoalesce.c)
+ *     RtlpHpVsChunkSplit @ 0x1400BC850 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkCoalesce @ 0x1400BDBE0 (RtlpHpVsChunkCoalesce.c)
  * Callees:
- *     RtlpHpVsChunkComputeCost @ 0x1400BD5B0 (RtlpHpVsChunkComputeCost.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlpHpVsChunkComputeCost @ 0x1400BD5D0 (RtlpHpVsChunkComputeCost.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, __int64 a2, _DWORD *a3)

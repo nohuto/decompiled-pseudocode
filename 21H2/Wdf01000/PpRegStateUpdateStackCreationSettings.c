@@ -1,11 +1,11 @@
 /*
- * XREFs of PpRegStateUpdateStackCreationSettings @ 0x1C00BF0E8
+ * XREFs of PpRegStateUpdateStackCreationSettings @ 0x1C00BD978
  * Callers:
- *     IoDevObjCreateDeviceSecure @ 0x1C00BDF30 (IoDevObjCreateDeviceSecure.c)
+ *     IoDevObjCreateDeviceSecure @ 0x1C00BC7B0 (IoDevObjCreateDeviceSecure.c)
  * Callees:
- *     PiRegStateOpenClassKey @ 0x1C00BEBF4 (PiRegStateOpenClassKey.c)
- *     CmRegUtilCreateWstrKey @ 0x1C00BF3C0 (CmRegUtilCreateWstrKey.c)
- *     CmRegUtilWstrValueSetFullBuffer @ 0x1C00BF7F0 (CmRegUtilWstrValueSetFullBuffer.c)
+ *     PiRegStateOpenClassKey @ 0x1C00BD484 (PiRegStateOpenClassKey.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C00BDC50 (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilWstrValueSetFullBuffer @ 0x1C00BE07C (CmRegUtilWstrValueSetFullBuffer.c)
  */
 
 int __fastcall PpRegStateUpdateStackCreationSettings(
@@ -31,20 +31,20 @@ int __fastcall PpRegStateUpdateStackCreationSettings(
   if ( result >= 0 )
   {
     Handle = PiRegStateSysAllInherittedSecurityDescriptor;
-    if ( !HIDWORD(WPP_GLOBAL_WDF_Control.Dpc.DeferredRoutine) )
+    if ( PiRegStateDiscriptor == NOT_VALIDATED )
     {
       LOBYTE(v5) = 1;
       if ( (int)SeCaptureSecurityDescriptor(PiRegStateSysAllInherittedSecurityDescriptor, 0LL, 1LL, v5, &tempDescriptor) < 0 )
       {
-        HIDWORD(WPP_GLOBAL_WDF_Control.Dpc.DeferredRoutine) = 2;
+        PiRegStateDiscriptor = VALIDATED_UNSUCCESSFULLY;
       }
       else
       {
-        HIDWORD(WPP_GLOBAL_WDF_Control.Dpc.DeferredRoutine) = 1;
+        PiRegStateDiscriptor = VALIDATED_SUCCESSFULLY;
         ExFreePoolWithTag(tempDescriptor, 0);
       }
     }
-    if ( HIDWORD(WPP_GLOBAL_WDF_Control.Dpc.DeferredRoutine) != 1 )
+    if ( PiRegStateDiscriptor != VALIDATED_SUCCESSFULLY )
       Handle = 0LL;
     tempDescriptor = Handle;
     v7 = CmRegUtilCreateWstrKey(classKey, (wchar_t *)L"Properties", v4, v5, Handle, 0LL, &classPropertyKey);

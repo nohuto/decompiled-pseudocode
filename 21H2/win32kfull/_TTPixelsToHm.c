@@ -1,15 +1,15 @@
 /*
- * XREFs of _TTPixelsToHm @ 0x1C016E64A
+ * XREFs of _TTPixelsToHm @ 0x1C0260690
  * Callers:
- *     ?DoesPointSnapToBorder@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C02048AC (-DoesPointSnapToBorder@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z.c)
- *     ?TTSqm@@YAXUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C0204BEC (-TTSqm@@YAXUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z.c)
- *     TouchTargetChildTree @ 0x1C020718C (TouchTargetChildTree.c)
- *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025BC74 (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
- *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025C03C (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
- *     TouchTargetingBigTargetWindow @ 0x1C025C3A8 (TouchTargetingBigTargetWindow.c)
- *     TouchTargetingRankForRect @ 0x1C025CA20 (TouchTargetingRankForRect.c)
+ *     ?DoesPointSnapToBorder@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C0214F68 (-DoesPointSnapToBorder@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z.c)
+ *     ?TTSqm@@YAXUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C02152A4 (-TTSqm@@YAXUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z.c)
+ *     TouchTargetChildTree @ 0x1C021732C (TouchTargetChildTree.c)
+ *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025F04C (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
+ *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025F414 (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
+ *     TouchTargetingBigTargetWindow @ 0x1C025F680 (TouchTargetingBigTargetWindow.c)
+ *     TouchTargetingRankForRect @ 0x1C025FD60 (TouchTargetingRankForRect.c)
  * Callees:
- *     LongLongToLong @ 0x1C010EC34 (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C0158BB0 (LongLongToLong.c)
  */
 
 __int64 __fastcall TTPixelsToHm(int a1, int a2)

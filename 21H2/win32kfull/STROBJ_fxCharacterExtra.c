@@ -1,5 +1,5 @@
 /*
- * XREFs of STROBJ_fxCharacterExtra @ 0x1C028DF30
+ * XREFs of STROBJ_fxCharacterExtra @ 0x1C0290240
  * Callers:
  *     <none>
  * Callees:

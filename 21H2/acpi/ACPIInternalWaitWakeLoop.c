@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIInternalWaitWakeLoop @ 0x1C002F110
+ * XREFs of ACPIInternalWaitWakeLoop @ 0x1C0056400
  * Callers:
  *     <none>
  * Callees:

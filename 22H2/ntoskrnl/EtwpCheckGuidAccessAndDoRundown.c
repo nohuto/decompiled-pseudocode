@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCheckGuidAccessAndDoRundown @ 0x1409EE89C
+ * XREFs of EtwpCheckGuidAccessAndDoRundown @ 0x14093D79C
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x14078128C (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x1407166EC (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpCheckGuidAccess @ 0x140782074 (EtwpCheckGuidAccess.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EE9E4 (EtwpCheckLoggerAccessAndDoRundown.c)
- *     EtwpLogKernelTraceRundown @ 0x1409EED34 (EtwpLogKernelTraceRundown.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpCheckGuidAccess @ 0x140716B20 (EtwpCheckGuidAccess.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x14093D8D4 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogKernelTraceRundown @ 0x14093DC30 (EtwpLogKernelTraceRundown.c)
  */
 
 __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(
@@ -35,8 +35,6 @@ __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(
   v11 = result;
   if ( (int)result >= 0 )
   {
-    if ( a3 >= *(_DWORD *)(a1 + 16) )
-      return 3221225480LL;
     v12 = *((_DWORD *)a5 + 3);
     if ( v12 == -2147483647 )
     {
@@ -52,11 +50,11 @@ __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(
             ++v14;
             v15 += 4;
             if ( v14 >= a6 )
-              goto LABEL_12;
+              goto LABEL_10;
           }
           return 3221225485LL;
         }
-LABEL_12:
+LABEL_10:
         memmove(v19, *a5, v13);
         v16 = a6 - 1;
         v17 = (__int64)(a5 + 2);

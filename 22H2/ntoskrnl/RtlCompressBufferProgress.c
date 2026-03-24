@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCompressBufferProgress @ 0x1405B26B8
+ * XREFs of RtlCompressBufferProgress @ 0x1403836A0
  * Callers:
- *     PopAddPagesToCompressedPageSet @ 0x140AA1974 (PopAddPagesToCompressedPageSet.c)
+ *     PopAddPagesToCompressedPageSet @ 0x140994BD4 (PopAddPagesToCompressedPageSet.c)
  * Callees:
- *     RtlCompressBufferXpressHuffStandard @ 0x140372640 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressLzStandard @ 0x1403888E0 (RtlCompressBufferXpressLzStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1405B2874 (RtlCompressBufferXpressHuffMax.c)
- *     RtlCompressBufferXpressLzMax @ 0x1405B2FC8 (RtlCompressBufferXpressLzMax.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x1402DF970 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x140365750 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x140591084 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressLzMax @ 0x1405917A8 (RtlCompressBufferXpressLzMax.c)
  */
 
 __int64 __fastcall RtlCompressBufferProgress(
@@ -59,7 +59,7 @@ __int64 __fastcall RtlCompressBufferProgress(
                (__int64)a4,
                0x10000u,
                a6,
-               (unsigned __int8 *)((a7 + 7) & 0xFFFFFFFFFFFFFFF8uLL),
+               (_DWORD *)((a7 + 7) & 0xFFFFFFFFFFFFFFF8uLL),
                a8,
                a9,
                0x1000u);

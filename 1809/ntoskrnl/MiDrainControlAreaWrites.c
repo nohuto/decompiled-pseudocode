@@ -2,12 +2,12 @@
  * XREFs of MiDrainControlAreaWrites @ 0x140095968
  * Callers:
  *     MiPrepareSegmentForDeletion @ 0x1400958BC (MiPrepareSegmentForDeletion.c)
- *     MiDestroySection @ 0x14016979C (MiDestroySection.c)
+ *     MiDestroySection @ 0x1401697BC (MiDestroySection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiDrainControlAreaWrites(__int64 a1, KIRQL a2)

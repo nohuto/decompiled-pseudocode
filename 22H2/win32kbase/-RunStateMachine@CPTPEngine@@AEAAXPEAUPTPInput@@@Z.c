@@ -1,845 +1,797 @@
 /*
- * XREFs of ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C02028C8
+ * XREFs of ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6FCC
  * Callers:
- *     ?ProcessInput@CPTPEngine@@MEAAJPEAUPTPInput@@@Z @ 0x1C00E7170 (-ProcessInput@CPTPEngine@@MEAAJPEAUPTPInput@@@Z.c)
+ *     ?ProcessInput@CPTPEngine@@MEAAJPEAUPTPInput@@@Z @ 0x1C01C6BC0 (-ProcessInput@CPTPEngine@@MEAAJPEAUPTPInput@@@Z.c)
  * Callees:
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?IsTouchpadActive@CPTPEngine@@AEAAHXZ @ 0x1C00E70F0 (-IsTouchpadActive@CPTPEngine@@AEAAHXZ.c)
- *     ?SendEtwOutput@CBasePTPEngine@@IEAAXW4Action@Etw@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C00E7188 (-SendEtwOutput@CBasePTPEngine@@IEAAXW4Action@Etw@Payload@PTPTelemetryOutput@@TParameters@345@@Z.c)
- *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01FF118 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
- *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01FF470 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
- *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01FF674 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
- *     ?DoTPDiscreteButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@PEAH1@Z @ 0x1C02003EC (-DoTPDiscreteButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@PEAH1@Z.c)
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02008C8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
- *     ?FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z @ 0x1C02014E4 (-FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z.c)
- *     ?FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z @ 0x1C020162C (-FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z.c)
- *     ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C020190C (-HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z.c)
- *     ?MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z @ 0x1C0201B18 (-MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z.c)
- *     ?Process2FingerTap@CPTPEngine@@AEAAHPEAUPTPInput@@H@Z @ 0x1C0201C74 (-Process2FingerTap@CPTPEngine@@AEAAHPEAUPTPInput@@H@Z.c)
- *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C02024F0 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
- *     ?ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020282C (-ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
- *     ?SendInertiaOutput@CBasePTPEngine@@IEAAXW4Action@Inertia@Payload@PTPEngineOutput@@@Z @ 0x1C02039F8 (-SendInertiaOutput@CBasePTPEngine@@IEAAXW4Action@Inertia@Payload@PTPEngineOutput@@@Z.c)
- *     ?SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z @ 0x1C0203E58 (-SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z.c)
- *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C0203FF4 (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
- *     ?SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z @ 0x1C0204218 (-SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z.c)
- *     ?TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z @ 0x1C020442C (-TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z.c)
- *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KH@Z @ 0x1C02044A4 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KH@Z.c)
- *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C0204AD0 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
+ *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01C3904 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
+ *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01C3CC4 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01C3EF0 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ *     ?DoTPDiscreteButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@PEAH1@Z @ 0x1C01C4BD0 (-DoTPDiscreteButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@PEAH1@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C50D4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z @ 0x1C01C5B40 (-FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z.c)
+ *     ?FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z @ 0x1C01C5C9C (-FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z.c)
+ *     ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C01C5FB4 (-HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z.c)
+ *     ?IsTouchpadActive@CPTPEngine@@AEAAHXZ @ 0x1C01C61D4 (-IsTouchpadActive@CPTPEngine@@AEAAHXZ.c)
+ *     ?MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z @ 0x1C01C623C (-MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z.c)
+ *     ?Process2FingerTap@CPTPEngine@@AEAAHPEAUPTPInput@@H@Z @ 0x1C01C63B8 (-Process2FingerTap@CPTPEngine@@AEAAHPEAUPTPInput@@H@Z.c)
+ *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C01C6BD8 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
+ *     ?ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6F2C (-ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?SendEtwOutput@CBasePTPEngine@@IEAAXW4Action@Etw@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C01C8058 (-SendEtwOutput@CBasePTPEngine@@IEAAXW4Action@Etw@Payload@PTPTelemetryOutput@@TParameters@345@@Z.c)
+ *     ?SendInertiaOutput@CBasePTPEngine@@IEAAXW4Action@Inertia@Payload@PTPEngineOutput@@@Z @ 0x1C01C813C (-SendInertiaOutput@CBasePTPEngine@@IEAAXW4Action@Inertia@Payload@PTPEngineOutput@@@Z.c)
+ *     ?SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z @ 0x1C01C85A0 (-SendMouseUpIfPending@CPTPEngine@@AEAAXPEAI@Z.c)
+ *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C01C877C (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
+ *     ?SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z @ 0x1C01C88D8 (-SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z.c)
+ *     ?TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z @ 0x1C01C8B54 (-TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z.c)
+ *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z @ 0x1C01C8D08 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z.c)
+ *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C01C93A4 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
  */
 
 void __fastcall CPTPEngine::RunStateMachine(struct tagPOINT *this, struct PTPInput *a2)
 {
-  int v2; // r13d
-  int v3; // esi
-  int v4; // r15d
-  int v5; // r12d
+  int v2; // r14d
+  unsigned int v3; // r12d
+  int v4; // eax
+  struct PTPInput *v5; // rsi
   int v6; // edi
-  int v9; // eax
+  unsigned int v8; // r15d
   LONG x; // eax
-  unsigned int i; // edx
+  __int64 v10; // rdx
+  unsigned int v11; // r8d
   LONG v12; // eax
   int y; // ecx
   struct tagPOINT v14; // rax
   unsigned __int64 v15; // rax
-  LONG v16; // ecx
-  unsigned int v17; // eax
-  int v18; // ecx
-  char *v19; // r13
-  int v20; // edx
-  struct tagPOINT *v21; // rsi
-  unsigned int v22; // ecx
-  unsigned int v23; // r15d
-  int v24; // r12d
-  unsigned int v25; // eax
-  char *v26; // r13
-  unsigned int v27; // r10d
-  char *v28; // r8
-  __int64 v29; // rdx
-  LONG v30; // r9d
+  LONG v16; // r13d
+  int v17; // eax
+  int v18; // r13d
+  LONG v19; // eax
+  char *v20; // r13
+  __int128 v21; // xmm0
+  struct tagPOINT *v22; // r15
+  int v23; // r12d
+  unsigned int v24; // ecx
+  int v25; // r14d
+  unsigned int v26; // eax
+  BOOL v27; // eax
+  int v28; // ecx
+  unsigned int v29; // eax
+  int v30; // r14d
   LONG v31; // ecx
-  unsigned int *p_y; // r12
-  LONG v33; // eax
-  int v34; // r8d
-  int v35; // eax
-  int GestureAndMarkGesturingContactsAsNonResting; // r10d
-  int v37; // r9d
-  __int64 v38; // rax
-  int v39; // eax
-  LONG *v40; // r9
-  __int64 v41; // r10
-  int v42; // esi
-  unsigned int v43; // r9d
-  __int64 v44; // r15
-  int v45; // ecx
-  int v46; // r8d
+  char *v32; // r15
+  __int64 v33; // r14
+  LONG v34; // ecx
+  unsigned int v35; // edx
+  LONG v36; // eax
+  char *v37; // r13
+  LONG v38; // eax
+  LONG v39; // ecx
+  int GestureAndMarkGesturingContactsAsNonResting; // eax
+  __int64 v41; // r8
+  char v42; // dl
+  char v43; // al
+  int v44; // r12d
+  unsigned int v45; // r15d
+  struct tagPOINT v46; // rax
   char v47; // cl
-  CPTPEngine *j; // rax
+  CPTPEngine *i; // rax
   int v49; // edx
   unsigned int v50; // r15d
   int v51; // r8d
   unsigned int v52; // edx
-  struct tagPOINT *v53; // rsi
-  int v54; // eax
-  unsigned int v55; // ecx
-  struct CContactState *v56; // rdx
-  __int64 v57; // r10
+  struct tagPOINT *v53; // r14
+  int v54; // ecx
+  struct CContactState *v55; // rdx
+  __int64 v56; // r10
+  int v57; // edx
   LONG v58; // eax
-  LONG v59; // r13d
-  unsigned int v60; // r13d
-  unsigned int v61; // esi
-  unsigned int v62; // r11d
-  struct tagPOINT *v63; // r9
-  __int64 v64; // r12
-  struct tagPOINT *v65; // r10
-  __int64 v66; // r15
-  LONG v67; // edx
-  bool v68; // cl
-  bool v69; // al
-  unsigned __int64 v70; // r8
-  LONG v71; // eax
-  LONG v72; // eax
-  __int64 v73; // r15
-  LONG v74; // edx
-  BOOL v75; // r12d
-  int v76; // r13d
-  BOOL v77; // esi
-  LONG v78; // r8d
-  LONG v79; // ecx
-  int v80; // eax
-  char v81; // r9
-  char v82; // r15
+  unsigned int v59; // r13d
+  unsigned int v60; // r14d
+  unsigned int v61; // r10d
+  LONG *p_y; // r11
+  __int64 v63; // r12
+  struct tagPOINT *v64; // r9
+  __int64 v65; // r15
+  unsigned __int64 v66; // rcx
+  unsigned __int64 v67; // r8
+  LONG v68; // eax
+  LONG v69; // eax
+  LONG v70; // r8d
+  BOOL v71; // r14d
+  LONG v72; // ecx
+  int v73; // edx
+  char v74; // al
+  char v75; // r15
+  struct CContactState *v76; // r13
+  LONG v77; // edx
+  int v78; // r8d
+  int v79; // r14d
+  unsigned int v80; // r10d
+  char *v81; // r8
+  __int64 v82; // r9
   LONG v83; // ecx
-  int v84; // edx
-  int v85; // esi
-  bool v86; // zf
-  unsigned int v87; // r9d
-  char *v88; // rcx
-  __int64 v89; // r8
-  unsigned int v90; // edx
-  int v91; // ecx
-  int v92; // edx
-  unsigned int k; // edx
-  __int64 v94; // rcx
-  struct tagPOINT *v95; // rsi
-  signed int v96; // r10d
-  unsigned int v97; // [rsp+30h] [rbp-D0h]
-  int v98; // [rsp+34h] [rbp-CCh]
-  int v99; // [rsp+38h] [rbp-C8h]
-  int v100; // [rsp+3Ch] [rbp-C4h]
-  int v101; // [rsp+40h] [rbp-C0h]
-  unsigned int v102; // [rsp+44h] [rbp-BCh]
-  int v103; // [rsp+48h] [rbp-B8h]
-  unsigned int v104; // [rsp+4Ch] [rbp-B4h]
-  int v105; // [rsp+50h] [rbp-B0h]
-  __int128 v106; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v107; // [rsp+70h] [rbp-90h]
-  unsigned int v108; // [rsp+80h] [rbp-80h]
-  int v109; // [rsp+84h] [rbp-7Ch] BYREF
-  int v110; // [rsp+88h] [rbp-78h]
-  int v111; // [rsp+8Ch] [rbp-74h] BYREF
-  int v112; // [rsp+90h] [rbp-70h] BYREF
-  int v113; // [rsp+94h] [rbp-6Ch] BYREF
-  int v114; // [rsp+98h] [rbp-68h]
-  int v115; // [rsp+9Ch] [rbp-64h] BYREF
-  __int128 v116; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v117; // [rsp+B0h] [rbp-50h]
-  int v118; // [rsp+C0h] [rbp-40h]
-  int v119; // [rsp+C4h] [rbp-3Ch]
-  int v120; // [rsp+C8h] [rbp-38h]
-  unsigned int v121; // [rsp+D0h] [rbp-30h]
-  struct CContactState *v122; // [rsp+D8h] [rbp-28h]
-  __int64 v123; // [rsp+F0h] [rbp-10h]
-  __int128 v124; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v125; // [rsp+110h] [rbp+10h]
-  _OWORD v126[2]; // [rsp+120h] [rbp+20h]
-  __int64 v127; // [rsp+148h] [rbp+48h]
+  unsigned int v84; // ecx
+  int v85; // ecx
+  __int64 v86; // rdx
+  int v87; // edx
+  unsigned int v88; // r8d
+  __int64 v89; // rcx
+  int v90; // esi
+  unsigned int v91; // eax
+  unsigned int v92; // [rsp+30h] [rbp-D0h]
+  int v93; // [rsp+34h] [rbp-CCh]
+  int v94; // [rsp+38h] [rbp-C8h]
+  int v95; // [rsp+3Ch] [rbp-C4h]
+  __int128 v96; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v97; // [rsp+50h] [rbp-B0h]
+  unsigned int v98; // [rsp+64h] [rbp-9Ch]
+  int v99; // [rsp+68h] [rbp-98h] BYREF
+  int v100; // [rsp+6Ch] [rbp-94h]
+  int v101; // [rsp+70h] [rbp-90h]
+  int v102; // [rsp+74h] [rbp-8Ch] BYREF
+  int v103; // [rsp+78h] [rbp-88h] BYREF
+  int v104; // [rsp+7Ch] [rbp-84h] BYREF
+  int v105; // [rsp+80h] [rbp-80h]
+  int v106; // [rsp+84h] [rbp-7Ch]
+  int v107; // [rsp+88h] [rbp-78h]
+  int v108; // [rsp+8Ch] [rbp-74h] BYREF
+  __int128 v109; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v110; // [rsp+A0h] [rbp-60h]
+  struct CContactState *v111; // [rsp+B0h] [rbp-50h]
+  unsigned int v112; // [rsp+B8h] [rbp-48h]
+  int v113; // [rsp+BCh] [rbp-44h]
+  int v114; // [rsp+C0h] [rbp-40h]
+  unsigned int v115; // [rsp+C8h] [rbp-38h]
+  __int64 v116; // [rsp+E0h] [rbp-20h]
+  __int128 v117; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v118; // [rsp+100h] [rbp+0h]
+  _OWORD v119[2]; // [rsp+110h] [rbp+10h]
+  __int64 v120; // [rsp+138h] [rbp+38h]
+  unsigned int v121; // [rsp+190h] [rbp+90h]
+  int v123; // [rsp+1A0h] [rbp+A0h]
+  int v124; // [rsp+1A8h] [rbp+A8h]
 
   v2 = *((_DWORD *)a2 + 9);
-  v122 = 0LL;
   v3 = 0;
-  v114 = 0;
-  v4 = 0;
-  v97 = 0;
-  v5 = 0;
+  v4 = *((_DWORD *)a2 + 17) & 0x70;
+  v111 = 0LL;
+  v5 = a2;
+  v105 = 0;
   v6 = 1;
-  v111 = 0;
-  v112 = 0;
-  v113 = 0;
-  v109 = 0;
-  v115 = 0;
-  v101 = 0;
+  v121 = 0;
   v102 = 0;
-  v100 = 0;
-  v99 = 0;
+  v8 = 0;
   v103 = 0;
-  v9 = *((_DWORD *)a2 + 17) & 0x70;
-  v110 = v2;
-  this[455].x = v9;
+  v104 = 0;
+  v99 = 0;
+  v108 = 0;
+  v94 = 0;
+  v92 = 0;
+  v100 = v2;
+  v106 = 0;
+  v124 = 0;
+  v93 = 0;
+  v95 = 0;
+  this[443].x = v4;
   CPTPEngine::HandleButtonSuppressionAndPendingUps((CPTPEngine *)this, a2, v2);
   if ( !(unsigned int)CPTPEngine::IsTouchpadActive((CPTPEngine *)this) )
   {
-    v116 = 0LL;
-    v107 = 0LL;
-    v117 = 0LL;
-    CBasePTPEngine::SendTelemetryOutput(this, 8LL, &v116);
+    v109 = 0LL;
+    v97 = 0LL;
+    v110 = 0LL;
+    CBasePTPEngine::SendTelemetryOutput(this, 8LL, &v109);
   }
-  x = this[492].x;
+  x = this[479].x;
   if ( (x & 1) == 0 && (x & 2) == 0 && (x & 4) == 0 )
   {
-    for ( i = 0; i < 6; ++i )
+    v10 = 0LL;
+    v11 = 0;
+    do
     {
-      v12 = this[50 * i + 151].x;
+      if ( v11 >= 6 )
+        break;
+      v12 = this[49 * v11 + 145].x;
       if ( (v12 & 1) != 0 && (v12 & 0x80u) == 0 )
-        goto LABEL_23;
+        v10 = 1LL;
+      ++v11;
     }
-    if ( *((_DWORD *)a2 + 12) != this[453].x + this[454].x )
+    while ( !(_DWORD)v10 );
+    if ( !(_DWORD)v10 && *((_DWORD *)v5 + 12) != this[441].x + this[442].x )
     {
-      CBasePTPEngine::SendInertiaOutput(this, 0LL);
-      if ( *((_DWORD *)a2 + 10) )
-        this[492].x &= 0xFEFFDFFF;
+      CBasePTPEngine::SendInertiaOutput(this, v10);
+      if ( *((_DWORD *)v5 + 10) )
+        this[479].x &= 0xFEFFDFFF;
+      y = 0;
       if ( this[2].y )
-        y = this[57].y;
-      else
-        y = 0;
-      v14 = this[483];
-      if ( *(_QWORD *)&v14 && *((_QWORD *)a2 + 1) > *(unsigned __int64 *)&v14 && y > 0 )
+        y = this[51].y;
+      v14 = this[470];
+      if ( *(_QWORD *)&v14 && *((_QWORD *)v5 + 1) > *(unsigned __int64 *)&v14 && y > 0 )
         CPTPEngine::TPAAPSetCurtainState((CPTPEngine *)this, 1);
-      this[483] = *(struct tagPOINT *)a2;
-      v15 = *((_QWORD *)a2 + 2);
-      if ( v15 > *((_QWORD *)a2 + 1) )
+      this[470] = *(struct tagPOINT *)v5;
+      v15 = *((_QWORD *)v5 + 2);
+      if ( v15 > *((_QWORD *)v5 + 1) )
       {
-        v116 = v15;
-        v117 = *(_OWORD *)&_mm_unpackhi_pd((__m128d)0LL, (__m128d)0LL);
-        CBasePTPEngine::SendTelemetryOutput(this, 0LL, &v116);
+        v109 = v15;
+        v110 = *(_OWORD *)&_mm_unpackhi_pd((__m128d)0LL, (__m128d)0LL);
+        CBasePTPEngine::SendTelemetryOutput(this, 0LL, &v109);
       }
     }
   }
-LABEL_23:
-  v16 = this[455].x;
-  v119 = v16 & 0x10;
-  v118 = v119 != 0;
-  v105 = v16 & 0x40;
-  v120 = v16 & 0x20;
-  v17 = this[492].x & 0xFFFBFFFF;
-  v121 = (this[492].x & 0x40000u) >> 18;
-  v18 = this[455].y;
-  v98 = v18;
-  this[492].x = v17;
+  v16 = this[443].x;
+  v107 = v16 & 0x10;
+  v113 = v107 != 0;
+  v17 = v16 & 0x20;
+  v18 = v16 & 0x40;
+  v114 = v17;
+  v19 = this[479].x;
+  v101 = v18;
+  v115 = (v19 & 0x40000u) >> 18;
+  v123 = this[443].y;
+  this[479].x = v19 & 0xFFFBFFFF;
   if ( v2 )
-    goto LABEL_197;
-  this[454].x = 0;
-  v19 = (char *)a2 + 56;
-  v108 = 0;
-  v20 = v18;
-  if ( *((_DWORD *)a2 + 12) )
+    goto LABEL_185;
+  this[442].x = 0;
+  v20 = (char *)v5 + 56;
+  v98 = 0;
+  if ( *((_DWORD *)v5 + 12) )
   {
     do
     {
-      v104 = *((_DWORD *)v19 + 1) % this[2].x;
-      v21 = &this[50 * v104 + 151];
-      v22 = v21->x;
-      if ( (v21->x & 1) != 0 && ((v22 & 0x20000000) == 0 || (*((_DWORD *)v19 + 3) & 0x60000) == 0) )
+      v21 = *(_OWORD *)v20;
+      v112 = *((_DWORD *)v20 + 1) % this[2].x;
+      v22 = &this[49 * v112 + 145];
+      *(_OWORD *)&v22[37].x = v21;
+      *(_OWORD *)&v22[39].x = *((_OWORD *)v20 + 1);
+      *(_OWORD *)&v22[41].x = *((_OWORD *)v20 + 2);
+      *(_OWORD *)&v22[43].x = *((_OWORD *)v20 + 3);
+      *(_OWORD *)&v22[45].x = *((_OWORD *)v20 + 4);
+      *(_OWORD *)&v22[47].x = *((_OWORD *)v20 + 5);
+      v23 = *((_DWORD *)v20 + 3);
+      *((_DWORD *)v20 + 3) = v23 & 0xFFFFFF8F;
+      v24 = v22->x;
+      if ( (v22->x & 1) != 0 && ((v24 & 0x8000000) == 0 || (v23 & 0x60000) == 0) )
       {
-        v127 = 0LL;
-        v116 = 0LL;
-        v117 = 0LL;
-        CBasePTPEngine::SendTelemetryOutput(this, 11LL, &v116);
-        v22 = v21->x & 0xDFFFFFFE;
-        v21->x = v22;
+        v120 = 0LL;
+        v109 = 0LL;
+        v110 = 0LL;
+        CBasePTPEngine::SendTelemetryOutput(this, 11LL, &v109);
+        v24 = v22->x & 0xF7FFFFFE;
+        v22->x = v24;
       }
-      if ( (v22 & 0x20000000) == 0 )
+      if ( (v24 & 0x8000000) == 0 )
       {
-        v103 = 1;
-        v21->x = v22 | 0x20000000;
-        v21[10] = *(struct tagPOINT *)(v19 + 80);
-        v21[3] = *(struct tagPOINT *)(v19 + 40);
-        v21[19].x = *((_DWORD *)v19 + 1);
+        v24 |= 0x8000000u;
+        v95 = 1;
+        v22->x = v24;
+        v22[9] = *(struct tagPOINT *)(v20 + 80);
+        v22[2] = *(struct tagPOINT *)(v20 + 40);
+        v22[18].x = *((_DWORD *)v20 + 1);
       }
-      v23 = 0;
-      *(_OWORD *)&v21[38].x = *(_OWORD *)v19;
-      *(_OWORD *)&v21[40].x = *((_OWORD *)v19 + 1);
-      *(_OWORD *)&v21[42].x = *((_OWORD *)v19 + 2);
-      *(_OWORD *)&v21[44].x = *((_OWORD *)v19 + 3);
-      *(_OWORD *)&v21[46].x = *((_OWORD *)v19 + 4);
-      *(_OWORD *)&v21[48].x = *((_OWORD *)v19 + 5);
-      v24 = *((_DWORD *)v19 + 3);
-      *((_DWORD *)v19 + 3) = v24 & 0xFFFFFF8F;
-      if ( (v21->x & 1) == 0 )
+      v25 = 0;
+      if ( (v24 & 1) == 0 )
       {
-        v23 = ((v24 & 0xFFFFFF8F) >> 23) & 4;
-        if ( !PtInRect(&this[6], *((_QWORD *)v19 + 5))
-          && !(unsigned int)CPTPEngine::TPAAPShouldAllowNow((CPTPEngine *)this, a2, 0x40u, 0) )
+        v25 = (*((_DWORD *)v20 + 3) >> 23) & 4;
+        if ( !PtInRect(&this[6], *((_QWORD *)v20 + 5))
+          && !(unsigned int)CPTPEngine::TPAAPShouldAllowNow((CPTPEngine *)this, v5, 0x40u, 0, 0) )
         {
-          v23 |= 2u;
+          v25 |= 2u;
         }
-        if ( (this[33].y & 2) != 0
-          && !PtInRect(&this[486], *((_QWORD *)v19 + 5))
-          && (*(_QWORD *)a2 - *(_QWORD *)&v21[10] >= *(_QWORD *)&this[12]
-                                                   * (unsigned __int64)(unsigned int)this[28].y
-                                                   / 0x3E8
-           || *((_DWORD *)a2 + 12) == 1
+        if ( (this[27].y & 2) != 0
+          && !PtInRect(&this[473], *((_QWORD *)v20 + 5))
+          && (*(_QWORD *)v5 - *(_QWORD *)&v22[9] >= *(_QWORD *)&this[12]
+                                                  * (unsigned __int64)(unsigned int)this[22].y
+                                                  / 0x3E8
+           || *((_DWORD *)v5 + 12) == 1
            || !(unsigned int)CPTPEngine::FindContactToBreakSuperCurtains(
                                (CPTPEngine *)this,
-                               a2,
-                               (struct CContactState *)v21)) )
+                               v5,
+                               (struct CContactState *)v22)) )
         {
-          v23 |= 1u;
+          v25 |= 1u;
         }
-        if ( v23 || (v24 & 0x40000) != 0 )
-          *((_DWORD *)v19 + 3) = 0;
+        if ( v25 || (v23 & 0x40000) != 0 )
+          *((_DWORD *)v20 + 3) = 0;
       }
-      v21[37].y = v23;
-      if ( *((_DWORD *)v19 + 3) )
+      v22[36].y = v25;
+      if ( *((_DWORD *)v20 + 3) )
       {
         CPTPEngine::UpdateTPStateIndicator(
           (CPTPEngine *)this,
-          a2,
-          (struct CContactState *)v21,
-          (struct PTPEnginePointerNode *)v19,
-          &v109);
-        if ( (v21->x & 2) != 0 )
+          v5,
+          (struct CContactState *)v22,
+          (struct PTPEnginePointerNode *)v20,
+          &v99);
+        if ( (v22->x & 2) != 0 )
         {
-          ++v101;
-          *(_OWORD *)((char *)v126 + 8) = 0LL;
-          v102 = v104;
-          *(_QWORD *)&v126[0] = *(_QWORD *)a2;
-          v99 = 1;
-          v106 = v126[0];
-          v107 = *(_OWORD *)&_mm_unpackhi_pd(*(__m128d *)((char *)v126 + 8), *(__m128d *)((char *)v126 + 8));
-          CBasePTPEngine::SendTelemetryOutput(this, 3LL, &v106);
+          ++v94;
+          *(_OWORD *)((char *)v119 + 8) = 0LL;
+          v92 = v112;
+          *(_QWORD *)&v119[0] = *(_QWORD *)v5;
+          v124 = 1;
+          v96 = v119[0];
+          v97 = *(_OWORD *)&_mm_unpackhi_pd(*(__m128d *)((char *)v119 + 8), *(__m128d *)((char *)v119 + 8));
+          CBasePTPEngine::SendTelemetryOutput(this, 3LL, &v96);
+          if ( v22[1].y < this[471].y )
+          {
+            v27 = PtInRect(&this[6], *(_QWORD *)&v22[1]);
+            v28 = v93;
+            if ( v27 )
+              v28 = 1;
+            v93 = v28;
+          }
         }
-        else if ( this[455].y != 1 )
-        {
-          v21->y &= ~8u;
-        }
-        if ( (*((_DWORD *)v19 + 3) & 0x40000) == 0 )
-          ++v97;
+        v29 = v121 + 1;
+        if ( (*((_DWORD *)v20 + 3) & 0x40000) != 0 )
+          v29 = v121;
+        v121 = v29;
       }
-      else if ( (v24 & 0x2000006) != 0 )
+      else if ( (v23 & 0x2000006) != 0 )
       {
-        ++this[454].x;
+        ++this[442].x;
       }
       else
       {
-        v25 = v21->x;
-        if ( (v21->x & 1) != 0 )
+        v26 = v22->x;
+        if ( (v22->x & 1) != 0 )
         {
-          v123 = 0LL;
-          v124 = 0LL;
-          v125 = 0LL;
-          CBasePTPEngine::SendTelemetryOutput(this, 11LL, &v124);
-          v25 = v21->x & 0xFFFFFFFE;
+          v116 = 0LL;
+          v117 = 0LL;
+          v118 = 0LL;
+          CBasePTPEngine::SendTelemetryOutput(this, 11LL, &v117);
+          v26 = v22->x & 0xFFFFFFFE;
         }
-        v21->x = v25 & 0xDFFFFFFF;
+        v22->x = v26 & 0xF7FFFFFF;
       }
-      v19 += 96;
-      ++v108;
+      v20 += 96;
+      ++v98;
     }
-    while ( v108 < *((_DWORD *)a2 + 12) );
-    v20 = this[455].y;
-    v18 = v20;
-    v3 = v109;
-    v4 = v101;
-    v5 = v99;
+    while ( v98 < *((_DWORD *)v5 + 12) );
+    v3 = 0;
   }
-  this[453].x = 0;
-  v26 = (char *)a2 + 56;
-  v27 = 0;
-  if ( *((_DWORD *)a2 + 12) )
+  v30 = 0;
+  this[441].x = 0;
+  v31 = 0;
+  if ( *((_DWORD *)v5 + 12) )
   {
-    v28 = (char *)a2 + 68;
+    v32 = (char *)v5 + 68;
     do
     {
-      v29 = 50LL * (unsigned int)(*((_DWORD *)v28 - 2) % this[2].x);
-      v30 = this[v29 + 151].x;
-      if ( (v30 & 1) != 0 )
+      v33 = 49LL * (unsigned int)(*((_DWORD *)v32 - 2) % this[2].x);
+      v34 = this[v33 + 145].x;
+      LOBYTE(v35) = v34;
+      if ( (v34 & 0x8000000) != 0 && *(_QWORD *)&this[v33 + 192] != *(_QWORD *)v5 )
       {
-        v31 = this[v29 + 151].x;
-        if ( (*(_DWORD *)v28 & 0x40000) == 0 && (v30 & 0x80u) != 0 )
+        v116 = 0LL;
+        v96 = 0LL;
+        v97 = 0LL;
+        CBasePTPEngine::SendTelemetryOutput(this, 11LL, &v96);
+        v35 = this[v33 + 145].x & 0xF7FFFFFE;
+        this[v33 + 145].x = v35;
+        LOBYTE(v34) = v35;
+      }
+      if ( (v35 & 1) != 0 )
+      {
+        if ( (*(_DWORD *)v32 & 0x40000) == 0 && (v34 & 0x80u) != 0 )
+          ++this[441].x;
+        if ( v124 )
         {
-          ++this[453].x;
-          v31 = this[v29 + 151].x;
-        }
-        if ( v5 )
-        {
-          this[v29 + 157] = *(struct tagPOINT *)(v28 + 28);
-          this[v29 + 167] = *(struct tagPOINT *)a2;
-          this[v29 + 168].x = *((_DWORD *)a2 + 6);
-          this[v29 + 151].x = v31 & 0xFFF7FFFF;
+          this[v33 + 150] = *(struct tagPOINT *)(v32 + 28);
+          this[v33 + 160] = *(struct tagPOINT *)v5;
+          v36 = *((_DWORD *)v5 + 6);
+          this[v33 + 145].x &= ~0x20000u;
+          this[v33 + 161].x = v36;
         }
       }
-      v28 += 96;
-      ++v27;
+      v32 += 96;
+      ++v3;
     }
-    while ( v27 < *((_DWORD *)a2 + 12) );
-    v20 = this[455].y;
-    v18 = v20;
+    while ( v3 < *((_DWORD *)v5 + 12) );
+    v31 = this[441].x;
+    v30 = 0;
   }
-  p_y = (unsigned int *)&this[451].y;
-  this[453].y = v97 - this[453].x;
-  v33 = this[451].y;
-  if ( !v33 || v18 == 1 )
-  {
-    v34 = 0;
-    if ( !v33 )
-      v18 = v20;
-  }
-  else
-  {
-    v34 = 1;
-  }
-  v35 = v18;
-  if ( v97 < 2 || v18 == 3 || this[455].x || v34 )
-  {
-    v37 = v18;
-    if ( v97 < 2 )
-      goto LABEL_86;
-    GestureAndMarkGesturingContactsAsNonResting = 0;
-  }
-  else
+  v37 = (char *)v5 + 56;
+  v38 = v121 - v31;
+  this[441].y = v121 - v31;
+  if ( v121 < 2 )
+    goto LABEL_91;
+  v39 = this[443].y;
+  if ( v39 != 3 && !this[443].x )
   {
     GestureAndMarkGesturingContactsAsNonResting = CPTPEngine::FindGestureAndMarkGesturingContactsAsNonResting(
                                                     (CPTPEngine *)this,
-                                                    a2);
-    v100 = GestureAndMarkGesturingContactsAsNonResting;
-    v35 = this[455].y;
-    v37 = v35;
+                                                    v5);
+    v39 = this[443].y;
+    v106 = GestureAndMarkGesturingContactsAsNonResting;
+    v38 = this[441].y;
   }
-  v18 = v35;
-  if ( v35 == 2 )
+  if ( v39 == 2 )
   {
-    v38 = (unsigned int)this[451].x;
-    if ( (this[50 * v38 + 151].x & 0x4000000) != 0
-      || *(_QWORD *)a2 - *(_QWORD *)&this[50 * v38 + 164] < *(_QWORD *)&this[12]
-                                                          * (unsigned __int64)(unsigned int)this[49].y
-                                                          / 0x3E8 )
+    v41 = 49LL * (unsigned int)this[439].x;
+    if ( !__CFSHR__(this[v41 + 145].x, 8) || (v42 = 1, !v38) )
+      v42 = 0;
+    if ( !__CFSHR__(this[v41 + 145].x, 8) || (v43 = 1, this[v41 + 148].y < this[471].y) )
+      v43 = 0;
+    v44 = v124;
+    if ( v42 || v93 || v43 && v124 )
     {
-      v39 = v99;
-      v18 = 2;
-      if ( !v99 )
-        goto LABEL_87;
-      this[455].y = 1;
-      CPTPEngine::ResetDragThresholds((CPTPEngine *)this, a2);
-      v18 = this[455].y;
+      this[443].y = 1;
+      if ( v124 )
+        CPTPEngine::ResetDragThresholds((CPTPEngine *)this, v5);
+    }
+  }
+  else
+  {
+LABEL_91:
+    v44 = v124;
+  }
+  if ( (v95 || v44) && this[443].y == 1 )
+    CPTPEngine::ResetDragThresholds((CPTPEngine *)this, v5);
+  if ( v99 && *((_DWORD *)v5 + 12) == 1 )
+    CBasePTPEngine::SendInertiaOutput(this, 2LL);
+  if ( this[476].x && v94 )
+  {
+    if ( v94 == 1 && (this[53].x & 4) != 0 )
+    {
+      v45 = v92;
+      v46 = this[49 * v92 + 146];
+      if ( (int)((*(_QWORD *)&this[448] - v46.x) * (*(_QWORD *)&this[448] - v46.x)
+               + (HIDWORD(*(_QWORD *)&this[448]) - v46.y) * (HIDWORD(*(_QWORD *)&this[448]) - v46.y)) <= (unsigned __int64)(unsigned int)(this[24].x * this[24].x) )
+        v30 = 1;
     }
     else
     {
-      v18 = v37;
-      v100 = GestureAndMarkGesturingContactsAsNonResting;
+      v45 = v92;
     }
-  }
-LABEL_86:
-  v39 = v99;
-LABEL_87:
-  if ( (v103 || v39) && v18 == 1 )
-  {
-    CPTPEngine::ResetDragThresholds((CPTPEngine *)this, a2);
-    v40 = &this[151].y;
-    v41 = 6LL;
-    do
+    if ( this[477].x && !v30 )
+      this[479].x &= ~8u;
+    CPTPEngine::CancelMouseUpTimer((CPTPEngine *)this, v30 ^ 1);
+    if ( v30 )
     {
-      if ( (*(v40 - 1) & 1) != 0
-        && *(_QWORD *)a2 - *(_QWORD *)(v40 + 17) >= *(_QWORD *)&this[12]
-                                                  * (unsigned __int64)(unsigned int)this[28].x
-                                                  / 0x3E8 )
-      {
-        *v40 &= ~1u;
-      }
-      v40 += 100;
-      --v41;
-    }
-    while ( v41 );
-    p_y = (unsigned int *)&this[451].y;
-    v4 = v101;
-  }
-  if ( v3 && *((_DWORD *)a2 + 12) == 1 )
-    CBasePTPEngine::SendInertiaOutput(this, 2LL);
-  v42 = 0;
-  if ( !this[489].x || !v4 )
-    goto LABEL_112;
-  if ( v4 == 1 && this[489].y )
-  {
-    v43 = v102;
-    v44 = v102;
-    v45 = *(_QWORD *)&this[460] - *(_QWORD *)&this[50 * v102 + 153];
-    v46 = HIDWORD(*(_QWORD *)&this[460]) - HIDWORD(*(_QWORD *)&this[50 * v102 + 153]);
-    if ( v46 * v46 + v45 * v45 <= (unsigned __int64)(unsigned int)(this[30].x * this[30].x) )
-    {
-      v42 = 1;
-      goto LABEL_107;
+      this[439].y = this[477].x;
+      this[477].x = 0;
+      this[49 * v45 + 145].x |= 0x4000u;
     }
   }
-  else
-  {
-    v43 = v102;
-  }
-  v44 = v43;
-LABEL_107:
-  if ( this[490].x && !v42 )
-    this[492].x &= ~8u;
-  CPTPEngine::CancelMouseUpTimer((CPTPEngine *)this, v42 ^ 1);
-  if ( v42 )
-  {
-    *p_y = this[490].x;
-    this[490].x = 0;
-    this[50 * v44 + 151].x |= 0x4000u;
-  }
-LABEL_112:
-  if ( this[455].y == 1 && *p_y && this[453].y > 1u )
-    CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, p_y);
-  if ( this[489].x )
+  if ( this[443].y == 1 && this[439].y && this[441].y > 1u )
+    CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, (unsigned int *)&this[439].y);
+  if ( this[476].x )
   {
     v47 = 0;
-    for ( j = (CPTPEngine *)&this[151]; j != (CPTPEngine *)&this[451]; j = (CPTPEngine *)((char *)j + 400) )
+    for ( i = (CPTPEngine *)&this[145]; i != (CPTPEngine *)&this[439]; i = (CPTPEngine *)((char *)i + 392) )
     {
-      v49 = *(_DWORD *)j;
-      if ( (*(_DWORD *)j & 1) != 0 && (v49 & 0x80u) != 0 && (v49 & 4) != 0 )
+      v49 = *(_DWORD *)i;
+      if ( (*(_DWORD *)i & 1) != 0 && (v49 & 0x80u) != 0 && (v49 & 4) != 0 )
         v47 = 1;
     }
-    if ( this[453].y || v47 )
+    if ( this[441].y || v47 )
       CPTPEngine::CancelMouseUpTimer((CPTPEngine *)this, 1);
   }
-  if ( this[453].y > 2u )
-    this[492].x |= 0x100000u;
+  if ( this[441].y > 2u )
+    this[479].x |= 0x100000u;
   v50 = 0;
-  if ( *((_DWORD *)a2 + 12) )
+  if ( *((_DWORD *)v5 + 12) )
   {
-    while ( 1 )
-    {
-      v51 = *((_DWORD *)v26 + 3);
-      v52 = *((_DWORD *)v26 + 1) % this[2].x;
-      v53 = &this[50 * v52 + 151];
-      if ( v51 )
-        break;
-LABEL_161:
-      ++v50;
-      v26 += 96;
-      if ( v50 >= *((_DWORD *)a2 + 12) )
-        goto LABEL_162;
-    }
-    if ( (v53->x & 0x80000) != 0 && (this[455].y != 2 || v52 != this[451].x) )
-    {
-      v114 = 1;
-      v122 = (struct CContactState *)&this[50 * v52 + 151];
-    }
-    v54 = this[455].y;
-    if ( v54 == 2 && v52 == this[451].x )
-    {
-      v55 = v97;
-      if ( (v51 & 0x40000) == 0 )
-        goto LABEL_145;
-      this[492].x &= ~0x2000000u;
-      v54 = 1;
-      this[455].y = 1;
-      if ( !v97 )
-        goto LABEL_145;
-      CPTPEngine::ResetDragThresholds((CPTPEngine *)this, a2);
-      v56 = (struct CContactState *)&this[151];
-      v57 = 6LL;
-      do
-      {
-        if ( (*(_DWORD *)v56 & 1) != 0 )
-        {
-          CPTPEngine::SetContactRestingState((CPTPEngine *)this, v56, 1);
-          *((_DWORD *)v56 + 1) &= ~1u;
-        }
-        v56 = (struct CContactState *)((char *)v56 + 400);
-        --v57;
-      }
-      while ( v57 );
-      v54 = this[455].y;
-    }
-    v55 = v97;
-LABEL_145:
-    if ( *p_y )
-    {
-      if ( v54 == 5 && (*((_DWORD *)v26 + 3) & 0x40000) == 0 && v55 == 1 )
-      {
-        v58 = v53->x;
-        if ( (v53->x & 0x80u) != 0
-          && (v58 & 4) == 0
-          && (v58 & 0x2000) == 0
-          && (v58 & 0x4000) == 0
-          && (v58 & 0x8000) == 0 )
-        {
-          this[455].y = 1;
-          CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, p_y);
-        }
-      }
-      if ( *p_y && (*((_DWORD *)v26 + 3) & 0x40000) != 0 && (v53->x & 0x8000) != 0 )
-      {
-        this[455].y = 1;
-        CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, p_y);
-      }
-    }
-    if ( this[455].y == 2 )
-      this[492].x |= 0x2000000u;
-    goto LABEL_161;
-  }
-LABEL_162:
-  v59 = v97;
-  if ( (unsigned int)CPTPEngine::ProcessTapsFor3orMoreContacts((CPTPEngine *)this, a2, v97) )
-    goto LABEL_251;
-  v60 = this[454].x + v97;
-  if ( v60 > 1 && (this[492].x & 0x200000) == 0 && (v99 || v103) )
-  {
-    v61 = this[2].x;
-    if ( v61 )
-    {
-      v62 = 1;
-      v63 = this + 161;
-      v64 = v61;
-      do
-      {
-        if ( (v63[-10].x & 0x20000000) != 0 && (v63[27].y & 0xFFFFFFFB) == 0 && v62 < v61 )
-        {
-          v65 = &this[50 * v62 + 161];
-          v66 = v61 - v62;
-          do
-          {
-            v67 = v65[-10].x;
-            if ( (v67 & 0x20000000) != 0 && (v65[27].y & 0xFFFFFFFB) == 0 )
-            {
-              v68 = (v63[-10].x & 2) != 0 || *v63 == *(_QWORD *)a2;
-              v69 = (v67 & 2) != 0 || *v65 == *(_QWORD *)a2;
-              if ( v68 || v69 )
-              {
-                v70 = *(_QWORD *)v65 - *(_QWORD *)v63;
-                if ( *(_QWORD *)v65 <= *(_QWORD *)v63 )
-                  v70 = *(_QWORD *)v63 - *(_QWORD *)v65;
-                if ( v70 <= *(_QWORD *)&this[12] * (unsigned __int64)(unsigned int)this[28].y / 0x3E8 )
-                  this[492].x |= 0x200000u;
-              }
-            }
-            v65 += 50;
-            --v66;
-          }
-          while ( v66 );
-        }
-        v63 += 50;
-        ++v62;
-        --v64;
-      }
-      while ( v64 );
-    }
-  }
-  v71 = this[492].x;
-  if ( (v71 & 0x200000) != 0 && v60 == 1 )
-  {
-    v71 &= 0xFF9FFFFF;
-    this[492].x = v71;
-  }
-  if ( (v71 & 0x2000) != 0 && (unsigned int)CPTPEngine::Process2FingerTap((CPTPEngine *)this, a2, v118) )
-  {
-LABEL_250:
-    v59 = v97;
-LABEL_251:
-    v73 = 6LL;
-    goto LABEL_252;
-  }
-  v2 = v110;
-LABEL_197:
-  if ( !(unsigned int)CPTPEngine::DoTPButtonProcessing(this, a2, v2, v97, &v111)
-    || !(unsigned int)CPTPEngine::DoTPDiscreteButtonProcessing((CPTPEngine *)this, a2, &v112, &v113) )
-  {
-    goto LABEL_250;
-  }
-  if ( v2 )
-  {
-    v73 = 6LL;
-    goto LABEL_287;
-  }
-  if ( v111 || v112 || v113 )
-  {
-    v72 = this[455].y;
-    if ( v72 != 3 )
-    {
-      v73 = 6LL;
-      if ( v72 != 6 )
-        goto LABEL_242;
-    }
-  }
-  v74 = this[455].y;
-  v75 = this[451].y && v74 != 1;
-  v76 = v119;
-  v77 = !v119 && !v120 && !v105 && !v75 && v114;
-  v78 = this[453].y;
-  if ( v78 == 2 && (v79 = this[455].y, v74 = v79, v79 != 3) && (this[492].x & 0x2000000) == 0 && v77 && v100 )
-  {
-    v80 = 1;
-  }
-  else
-  {
-    v81 = 0;
-    v80 = 0;
-    v79 = v74;
-    if ( v78 != 2 || !v77 && !*((_DWORD *)a2 + 10) )
-      goto LABEL_226;
-  }
-  v81 = 1;
-LABEL_226:
-  v82 = 0;
-  if ( v79 != 3 && (v80 || v81) )
-  {
-    CPTPEngine::MarkRecentlyTrackedContactsAsNonResting((CPTPEngine *)this, a2, v122);
-    v78 = this[453].y;
-    if ( v78 == 2 )
-      v82 = 1;
-  }
-  v83 = this[455].y;
-  if ( v83 == 3 || v82 )
-  {
-    this[492].x &= ~0x2000000u;
-    v84 = 3;
-  }
-  else
-  {
-    v84 = 1;
-  }
-  if ( (unsigned int)(v78 - 3) <= 1 && v84 != 3 && v77 )
-  {
-    v73 = 6LL;
-    goto LABEL_244;
-  }
-  v73 = 6LL;
-  if ( v83 == 6 )
-  {
-LABEL_244:
-    CPTPEngine::MarkRecentlyTrackedContactsAsNonResting((CPTPEngine *)this, a2, v122);
-LABEL_245:
-    CPTPEngine::DoGestureProcessing((CPTPEngine *)this, a2, &v115);
-    goto LABEL_242;
-  }
-  if ( v84 != 1 )
-    goto LABEL_245;
-  if ( this[453].y >= 2u )
-  {
-    this[455].y = 1;
-LABEL_242:
-    v59 = v97;
-LABEL_252:
-    v85 = v98;
-    goto LABEL_253;
-  }
-  v85 = v98;
-  v86 = v76 == 0;
-  v59 = v97;
-  if ( v86 && !v75 )
-    CPTPEngine::DoTPMouseProcessing((__int64)this, (__int64 *)a2, v97, v98);
-LABEL_253:
-  v87 = 0;
-  if ( *((_DWORD *)a2 + 12) )
-  {
-    v88 = (char *)a2 + 68;
     do
     {
-      v89 = 50LL * (unsigned int)(*((_DWORD *)v88 - 2) % this[2].x);
-      if ( (this[v89 + 151].x & 1) != 0 && *(_DWORD *)v88 )
+      v51 = *((_DWORD *)v37 + 3);
+      v52 = *((_DWORD *)v37 + 1) % this[2].x;
+      v53 = &this[49 * v52 + 145];
+      if ( v51 )
       {
-        if ( (*(_DWORD *)v88 & 0x40000) != 0 )
+        if ( (v53->x & 0x20000) != 0 && (this[443].y != 2 || v52 != this[439].x) )
         {
-          if ( this[455].y == 2 && *((_DWORD *)v88 - 2) % this[2].x == this[451].x )
-            this[492].x &= ~0x2000000u;
-          v90 = this[v89 + 151].x & 0xFFFFFFFE;
-          this[v89 + 151].x = v90;
-          if ( (*(_DWORD *)v88 & 0x2000000) != 0 )
-            ++this[454].x;
+          v105 = 1;
+          v111 = (struct CContactState *)&this[49 * v52 + 145];
+        }
+        v54 = this[443].y;
+        if ( v54 == 2 && v52 == this[439].x && (v51 & 0x40000) != 0 )
+        {
+          this[479].x &= ~0x2000000u;
+          v54 = 1;
+          this[443].y = 1;
+          if ( v121 )
+          {
+            CPTPEngine::ResetDragThresholds((CPTPEngine *)this, v5);
+            v55 = (struct CContactState *)&this[145];
+            v56 = 6LL;
+            do
+            {
+              if ( (*(_DWORD *)v55 & 1) != 0 )
+              {
+                CPTPEngine::SetContactRestingState((CPTPEngine *)this, v55, 1);
+                *(_DWORD *)v55 &= ~0x40000000u;
+              }
+              v55 = (struct CContactState *)((char *)v55 + 392);
+              --v56;
+            }
+            while ( v56 );
+            v54 = this[443].y;
+          }
+        }
+        v57 = v54;
+        if ( this[439].y )
+        {
+          if ( v54 == 5 && (*((_DWORD *)v37 + 3) & 0x40000) == 0 && v121 == 1 )
+          {
+            v58 = v53->x;
+            if ( (v53->x & 0x80u) != 0 && (v58 & 4) == 0 && (v58 & 0x2000) == 0 && (v58 & 0x4000) == 0 )
+            {
+              this[443].y = 1;
+              CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, (unsigned int *)&this[439].y);
+              v57 = this[443].y;
+            }
+          }
+        }
+        if ( v57 == 2 )
+          this[479].x |= 0x2000000u;
+      }
+      ++v50;
+      v37 += 96;
+    }
+    while ( v50 < *((_DWORD *)v5 + 12) );
+    v44 = v124;
+  }
+  v8 = v121;
+  if ( !(unsigned int)CPTPEngine::ProcessTapsFor3orMoreContacts((CPTPEngine *)this, v5, v121) )
+  {
+    v59 = v121 + this[442].x;
+    if ( v59 > 1 && (this[479].x & 0x200000) == 0 )
+    {
+      if ( v44 )
+      {
+        v3 = 0;
+      }
+      else
+      {
+        v3 = 0;
+        if ( !v95 )
+          goto LABEL_179;
+      }
+      v60 = this[2].x;
+      if ( !v60 )
+      {
+LABEL_179:
+        v68 = this[479].x;
+        if ( (v68 & 0x200000) != 0 && v59 == 1 )
+        {
+          v68 &= 0xFF9FFFFF;
+          this[479].x = v68;
+        }
+        if ( (v68 & 0x2000) != 0 && (unsigned int)CPTPEngine::Process2FingerTap((CPTPEngine *)this, v5, v113) )
+          goto LABEL_248;
+        v18 = v101;
+        v2 = v100;
+LABEL_185:
+        if ( (unsigned int)CPTPEngine::DoTPButtonProcessing(this, v5, v2, v8, &v102)
+          && (unsigned int)CPTPEngine::DoTPDiscreteButtonProcessing((CPTPEngine *)this, v5, &v103, &v104) )
+        {
+          if ( v2 )
+            goto LABEL_274;
+          if ( !v102 && !v103 && !v104 || (v69 = this[443].y, v69 == 3) || v69 == 6 )
+          {
+            v70 = this[443].y;
+            if ( this[439].y && v70 != 1 )
+              v3 = 1;
+            v71 = !v107 && !v114 && !v18 && !v3 && v105;
+            v72 = this[441].y;
+            if ( v72 == 2 && v70 != 3 && (this[479].x & 0x2000000) == 0 && v71 && v106 )
+            {
+              v73 = 1;
+            }
+            else
+            {
+              v73 = 0;
+              v74 = 0;
+              if ( v72 != 2 )
+              {
+LABEL_213:
+                v75 = 0;
+                if ( v70 != 3 && (v73 || v74) )
+                {
+                  v76 = v111;
+                  CPTPEngine::MarkRecentlyTrackedContactsAsNonResting((CPTPEngine *)this, v5, v111);
+                  v72 = this[441].y;
+                  if ( v72 == 2 )
+                    v75 = 1;
+                }
+                else
+                {
+                  v76 = v111;
+                }
+                v77 = this[443].y;
+                if ( v77 == 3 || v75 )
+                {
+                  this[479].x &= ~0x2000000u;
+                  v78 = 3;
+                }
+                else
+                {
+                  v78 = 1;
+                }
+                if ( (unsigned int)(v72 - 3) <= 1 && v78 != 3 && v71 || v77 == 6 )
+                {
+                  CPTPEngine::MarkRecentlyTrackedContactsAsNonResting((CPTPEngine *)this, v5, v76);
+                  v78 = 6;
+                }
+                if ( v78 == 3 || v78 == 6 )
+                {
+                  CPTPEngine::DoGestureProcessing((CPTPEngine *)this, v5, &v108);
+                }
+                else
+                {
+                  if ( this[441].y < 2u )
+                  {
+                    v79 = v123;
+                    v8 = v121;
+                    if ( !v107 && !v3 )
+                      CPTPEngine::DoTPMouseProcessing((__int64)this, (__int64 *)v5, v121, v123);
+                    goto LABEL_234;
+                  }
+                  this[443].y = 1;
+                }
+                v8 = v121;
+                goto LABEL_233;
+              }
+            }
+            if ( v71 || (v74 = 0, *((_DWORD *)v5 + 10)) )
+              v74 = 1;
+            goto LABEL_213;
+          }
+        }
+LABEL_248:
+        v79 = v123;
+        goto LABEL_234;
+      }
+      v61 = 1;
+      p_y = &this[181].y;
+      v63 = v60;
+      do
+      {
+        if ( (*(p_y - 73) & 0x8000000) != 0 && (*p_y & 0xFFFFFFFB) == 0 && v61 < v60 )
+        {
+          v64 = &this[49 * v61 + 154];
+          v65 = v60 - v61;
+          do
+          {
+            if ( (v64[-9].x & 0x8000000) != 0 && (v64[27].y & 0xFFFFFFFB) == 0 )
+            {
+              v66 = *(_QWORD *)(p_y - 55);
+              v67 = *(_QWORD *)v64 - v66;
+              if ( *(_QWORD *)v64 <= v66 )
+                v67 = *(_QWORD *)(p_y - 55) - *(_QWORD *)v64;
+              if ( v67 <= *(_QWORD *)&this[12] * (unsigned __int64)(unsigned int)this[22].y / 0x3E8 )
+                this[479].x |= 0x200000u;
+            }
+            v64 += 49;
+            --v65;
+          }
+          while ( v65 );
+        }
+        p_y += 98;
+        ++v61;
+        --v63;
+      }
+      while ( v63 );
+      v5 = a2;
+      v8 = v121;
+    }
+    v3 = 0;
+    goto LABEL_179;
+  }
+LABEL_233:
+  v79 = v123;
+LABEL_234:
+  v80 = 0;
+  if ( *((_DWORD *)v5 + 12) )
+  {
+    v81 = (char *)v5 + 68;
+    do
+    {
+      v82 = 49LL * (unsigned int)(*((_DWORD *)v81 - 2) % this[2].x);
+      v83 = this[v82 + 145].x;
+      if ( (v83 & 1) != 0 && *(_DWORD *)v81 )
+      {
+        if ( (*(_DWORD *)v81 & 0x40000) != 0 )
+        {
+          if ( this[443].y == 2 && *((_DWORD *)v81 - 2) % this[2].x == this[439].x )
+          {
+            this[479].x &= ~0x2000000u;
+            v83 = this[v82 + 145].x;
+          }
+          v84 = v83 & 0xFFFFFFFE;
+          this[v82 + 145].x = v84;
+          if ( (*(_DWORD *)v81 & 0x2000000) != 0 )
+            ++this[442].x;
           else
-            this[v89 + 151].x = v90 & 0xDFFFFFFF;
+            this[v82 + 145].x = v84 & 0xF7FFFFFF;
         }
         else
         {
-          this[v89 + 162] = *(struct tagPOINT *)(v88 + 68);
-          this[v89 + 155] = *(struct tagPOINT *)(v88 + 28);
+          this[v82 + 155] = *(struct tagPOINT *)(v81 + 68);
+          this[v82 + 148] = *(struct tagPOINT *)(v81 + 28);
         }
       }
-      v88 += 96;
-      ++v87;
+      v81 += 96;
+      ++v80;
     }
-    while ( v87 < *((_DWORD *)a2 + 12) );
+    while ( v80 < *((_DWORD *)v5 + 12) );
   }
-  v91 = -__CFSHR__(this[492].x, 19);
-  if ( __CFSHR__(this[492].x, 19) != v121 )
+  v85 = -__CFSHR__(this[479].x, 19);
+  if ( __CFSHR__(this[479].x, 19) != v115 )
   {
-    LODWORD(v117) = 0;
-    v116 = 0LL;
-    v92 = 2;
-    if ( !v91 )
-      v92 = 3;
-    CBasePTPEngine::SendEtwOutput((__int64)this, v92, (__int64)&v116);
+    LODWORD(v110) = 0;
+    v109 = 0LL;
+    v86 = 2LL;
+    if ( !v85 )
+      v86 = 3LL;
+    CBasePTPEngine::SendEtwOutput(this, v86, &v109);
   }
-  if ( this[455].y != 2 )
-    this[492].x &= ~0x800000u;
-  for ( k = 0; k < 6; ++k )
-  {
-    if ( (this[50 * k + 151].x & 1) != 0 )
-      goto LABEL_283;
-  }
-  this[492].x &= 0xE78FFFFF;
-  v86 = this[451].y == 0;
-  this[455].y = 1;
-  if ( !v86 )
-    CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, (unsigned int *)&this[451].y);
-  if ( v85 == 2 )
-  {
-    v94 = 50LL * (unsigned int)this[451].x;
-    if ( (this[v94 + 151].x & 0x800) != 0
-      && (__int64)((unsigned __int64)(1000LL * (*(_QWORD *)&this[v94 + 162] - *(_QWORD *)&this[v94 + 164]))
-                 / *(_QWORD *)&this[12]) >= (unsigned int)this[68].x )
-    {
-      this[488] = this[v94 + 162];
-    }
-  }
-  v106 = *(unsigned __int64 *)a2;
-  v107 = *(_OWORD *)&_mm_unpackhi_pd((__m128d)0LL, (__m128d)0LL);
-  CBasePTPEngine::SendTelemetryOutput(this, 1LL, &v106);
-LABEL_283:
-  if ( v115 )
-  {
-    this[492].x &= 0xFF9FFFFF;
-    this[455].y = 1;
-    this[482] = *(struct tagPOINT *)a2;
-  }
-  this[452].x = v59;
-LABEL_287:
-  v95 = this + 151;
+  if ( this[443].y != 2 )
+    this[479].x &= ~0x800000u;
+  v87 = 0;
+  v88 = 0;
   do
   {
-    if ( (v95->x & 0x20000000) != 0 && *(_QWORD *)&v95[48] != *(_QWORD *)a2 )
-    {
-      v123 = 0LL;
-      v106 = 0LL;
-      v107 = 0LL;
-      CBasePTPEngine::SendTelemetryOutput(this, 11LL, &v106);
-      v95->x &= 0xDFFFFFFE;
-    }
-    v95 += 50;
-    --v73;
+    if ( v88 >= 6 )
+      break;
+    if ( (this[49 * v88 + 145].x & 1) != 0 )
+      v87 = 1;
+    ++v88;
   }
-  while ( v73 );
+  while ( !v87 );
+  if ( !v87 )
+  {
+    this[479].x &= 0xE78FFFFF;
+    this[443].y = 1;
+    if ( this[439].y )
+      CPTPEngine::SendMouseUpIfPending((CPTPEngine *)this, (unsigned int *)&this[439].y);
+    if ( v79 == 2 )
+    {
+      v89 = 49LL * (unsigned int)this[439].x;
+      if ( (this[v89 + 145].x & 0x800) != 0
+        && (__int64)((unsigned __int64)(1000LL * (*(_QWORD *)&this[v89 + 155] - *(_QWORD *)&this[v89 + 157]))
+                   / *(_QWORD *)&this[12]) >= (unsigned int)this[62].x )
+      {
+        this[475] = this[v89 + 155];
+      }
+    }
+    v96 = *(unsigned __int64 *)v5;
+    v97 = *(_OWORD *)&_mm_unpackhi_pd((__m128d)0LL, (__m128d)0LL);
+    CBasePTPEngine::SendTelemetryOutput(this, 1LL, &v96);
+  }
+  if ( v108 )
+  {
+    this[479].x &= 0xFF9FFFFF;
+    this[443].y = 1;
+    this[469] = *(struct tagPOINT *)v5;
+  }
+  this[440].x = v8;
+LABEL_274:
+  v90 = this[479].x;
   if ( (unsigned int)CPTPEngine::IsTouchpadActive((CPTPEngine *)this) )
   {
-    if ( (v96 & 1) != 0 || (v96 & 2) != 0 || (v96 & 4) != 0 || this[489].x || this[455].y != 1 )
-    {
+    if ( (v90 & 1) != 0 || (v90 & 2) != 0 || (v90 & 4) != 0 || this[476].x || this[443].y != 1 )
       v6 = 0;
-    }
-    else if ( v96 >= 0 )
+    v91 = v90;
+    if ( v6 )
     {
-      v123 = 0LL;
-      v106 = 0LL;
-      v107 = 0LL;
-      CBasePTPEngine::SendTelemetryOutput(this, 10LL, &v106);
-      v96 = this[492].x & 0xA78FFFFF | 0x40000000;
+      if ( v90 >= 0 )
+      {
+        v116 = 0LL;
+        v96 = 0LL;
+        v97 = 0LL;
+        CBasePTPEngine::SendTelemetryOutput(this, 10LL, &v96);
+        v91 = this[479].x & 0xA78FFFFF | 0x40000000;
+      }
     }
-    this[492].x = (v6 << 31) | v96 & 0x7FFFFFFF;
+    this[479].x = (v6 << 31) | v91 & 0x7FFFFFFF;
   }
   else
   {
-    v123 = 0LL;
-    v106 = 0LL;
-    this[492].x = v96 | 0x80000000;
-    v107 = 0LL;
-    CBasePTPEngine::SendTelemetryOutput(this, 9LL, &v106);
+    v116 = 0LL;
+    v96 = 0LL;
+    this[479].x = v90 | 0x80000000;
+    v97 = 0LL;
+    CBasePTPEngine::SendTelemetryOutput(this, 9LL, &v96);
   }
 }

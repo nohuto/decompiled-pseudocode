@@ -1,69 +1,81 @@
 /*
- * XREFs of ?DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z @ 0x1C01ECFD4
+ * XREFs of ?DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z @ 0x1C01B3F68
  * Callers:
- *     ?ivHandleMouseInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDC60 (-ivHandleMouseInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ *     ?ivHandleMouseInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8740 (-ivHandleMouseInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     Win32AllocPoolZInit @ 0x1C004F080 (Win32AllocPoolZInit.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ @ 0x1C01E7AC4 (-GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005B5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ @ 0x1C01AE2A0 (-GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ.c)
  */
 
 void __fastcall DeliverSynthesizedMouseInput(const struct _IVMouseInputPacket *a1, void *a2)
 {
-  unsigned int v2; // ebx
+  __int64 v2; // rbx
   __int64 v4; // r14
   __int64 v6; // rax
-  struct InputVirtualization::RootSynthesizedMouseList *v7; // rdi
-  _WORD *v8; // rcx
-  __int64 v9; // r8
-  _WORD *v10; // rdx
-  __int16 v11; // ax
+  int v7; // edx
+  struct InputVirtualization::RootSynthesizedMouseList *v8; // rdi
+  _WORD *v9; // rcx
+  __int64 v10; // r8
+  _WORD *v11; // rdx
+  __int16 v12; // ax
   struct InputVirtualization::RootSynthesizedMouseList *Instance; // rsi
-  struct InputVirtualization::RootSynthesizedMouseList **v13; // rax
+  struct InputVirtualization::RootSynthesizedMouseList **v14; // rax
 
-  v2 = *((_DWORD *)a1 + 8);
+  v2 = *((unsigned int *)a1 + 8);
   v4 = *((_QWORD *)a1 + 3);
-  v6 = Win32AllocPoolZInit((int)(28 * v2) + 36LL, 0x736D5649u);
-  v7 = (struct InputVirtualization::RootSynthesizedMouseList *)v6;
+  v6 = Win32AllocPool(28 * (int)v2 + 36LL, 0x736D5649u);
+  v8 = (struct InputVirtualization::RootSynthesizedMouseList *)v6;
   if ( v6 )
   {
     *(_QWORD *)(v6 + 16) = a2;
     *(_DWORD *)(v6 + 32) = v2;
     *(_QWORD *)(v6 + 24) = *((_QWORD *)a1 + 6);
-    if ( v2 )
+    if ( (_DWORD)v2 )
     {
-      v8 = (_WORD *)(v4 + 8);
-      v9 = v2;
-      v10 = (_WORD *)(v6 + 40);
+      v9 = (_WORD *)(v4 + 8);
+      v10 = v2;
+      v11 = (_WORD *)(v6 + 40);
       do
       {
-        *(v10 - 2) = *(v8 - 4);
-        *(v10 - 1) = *(v8 - 2);
-        v11 = *v8;
-        v8 += 24;
-        *v10 = v11;
-        v10 += 14;
-        *(v10 - 13) = *(v8 - 22);
-        *((_DWORD *)v10 - 6) = *((_DWORD *)v8 - 10);
-        *((_DWORD *)v10 - 5) = *((_DWORD *)v8 - 9);
-        *((_DWORD *)v10 - 4) = *((_DWORD *)v8 - 8);
-        *((_DWORD *)v10 - 3) = *((_DWORD *)v8 - 7);
-        *((_DWORD *)v10 - 2) = *((_DWORD *)v8 - 4);
-        --v9;
+        *(v11 - 2) = *(v9 - 4);
+        *(v11 - 1) = *(v9 - 2);
+        v12 = *v9;
+        v9 += 18;
+        *v11 = v12;
+        v11 += 14;
+        *(v11 - 13) = *(v9 - 16);
+        *((_DWORD *)v11 - 6) = *((_DWORD *)v9 - 7);
+        *((_DWORD *)v11 - 5) = *((_DWORD *)v9 - 6);
+        *((_DWORD *)v11 - 4) = *((_DWORD *)v9 - 5);
+        *((_DWORD *)v11 - 3) = *((_DWORD *)v9 - 4);
+        *((_DWORD *)v11 - 2) = *((_DWORD *)v9 - 3);
+        --v10;
       }
-      while ( v9 );
+      while ( v10 );
     }
     Instance = InputVirtualization::RootSynthesizedMouseList::GetInstance();
     CPushLock::AcquireLockExclusive((struct InputVirtualization::RootSynthesizedMouseList *)((char *)Instance + 16));
-    v13 = (struct InputVirtualization::RootSynthesizedMouseList **)*((_QWORD *)Instance + 1);
-    if ( *v13 != Instance )
+    v14 = (struct InputVirtualization::RootSynthesizedMouseList **)*((_QWORD *)Instance + 1);
+    if ( *v14 != Instance )
       __fastfail(3u);
-    *(_QWORD *)v7 = Instance;
-    *((_QWORD *)v7 + 1) = v13;
-    *v13 = v7;
-    *((_QWORD *)Instance + 1) = v7;
-    KeSetEvent((PRKEVENT)gpevtSynthesizedContainerMouseInput, 1, 0);
+    *(_QWORD *)v8 = Instance;
+    *((_QWORD *)v8 + 1) = v14;
+    *v14 = v8;
+    *((_QWORD *)Instance + 1) = v8;
+    KeSetEvent(gpevtSynthesizedContainerMouseInput, 1, 0);
     CPushLock::ReleaseLock((struct InputVirtualization::RootSynthesizedMouseList *)((char *)Instance + 16));
+  }
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v7) = 2;
+    WPP_RECORDER_SF_(
+      WPP_MAIN_CB.Queue.ListEntry.Flink,
+      v7,
+      12,
+      126,
+      (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
   }
 }

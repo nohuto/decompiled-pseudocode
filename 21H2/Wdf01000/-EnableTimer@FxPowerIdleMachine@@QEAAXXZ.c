@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EnableTimer@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0016F14
+ * XREFs of ?EnableTimer@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0019CF4
  * Callers:
- *     ?PowerPolStartedIdleCapable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00146B0 (-PowerPolStartedIdleCapable@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ *     ?PowerPolStartedIdleCapable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0019CD0 (-PowerPolStartedIdleCapable@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
  * Callees:
- *     ?ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z @ 0x1C0016824 (-ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z.c)
+ *     ?ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z @ 0x1C0006B20 (-ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z.c)
  */
 
 void __fastcall FxPowerIdleMachine::EnableTimer(FxPowerIdleMachine *this)

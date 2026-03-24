@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDisableTraceProviders @ 0x140795400
+ * XREFs of EtwpDisableTraceProviders @ 0x1406E0F28
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1406EDB48 (EtwpStopLoggerInstance.c)
+ *     EtwpStopLoggerInstance @ 0x1406C0144 (EtwpStopLoggerInstance.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     PsEnumProcesses @ 0x1406BF0AC (PsEnumProcesses.c)
- *     EtwpGetNextGuidEntry @ 0x1407969D0 (EtwpGetNextGuidEntry.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x140797054 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PsEnumProcesses @ 0x1406CE06C (PsEnumProcesses.c)
+ *     EtwpGetNextGuidEntry @ 0x1406E100C (EtwpGetNextGuidEntry.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406E1144 (EtwpClearSessionAndUnreferenceEntry.c)
  */
 
 LONG __fastcall EtwpDisableTraceProviders(__int64 a1, unsigned int a2)
@@ -25,7 +25,7 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, unsigned int a2)
   if ( a1 == EtwpHostSiloState )
     v4 = (_WORD *)0xFFFFF78000000380LL;
   else
-    v4 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 1320LL) + 550LL);
+    v4 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 1128LL) + 550LL);
   for ( i = EtwpGetNextGuidEntry(a1, 0LL, 0LL); ; i = EtwpGetNextGuidEntry(a1, v6, 0LL) )
   {
     v6 = i;

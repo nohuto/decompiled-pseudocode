@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmGetDeviceInterfaceSymbolicLinkName @ 0x14079446C
+ * XREFs of _CmGetDeviceInterfaceSymbolicLinkName @ 0x140745BC0
  * Callers:
- *     IopBuildGlobalSymbolicLinkString @ 0x1407940CC (IopBuildGlobalSymbolicLinkString.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x140745A34 (IopBuildGlobalSymbolicLinkString.c)
  * Callees:
- *     RtlStringCchCopyNExW @ 0x14022B880 (RtlStringCchCopyNExW.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     _CmValidateDeviceInterfaceName @ 0x1406CEA70 (_CmValidateDeviceInterfaceName.c)
+ *     RtlStringCchCopyNExW @ 0x14032E654 (RtlStringCchCopyNExW.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406BA7AC (_CmValidateDeviceInterfaceName.c)
  */
 
-int __fastcall CmGetDeviceInterfaceSymbolicLinkName(
+NTSTATUS __fastcall CmGetDeviceInterfaceSymbolicLinkName(
         __int64 a1,
-        __int64 a2,
+        const WCHAR *a2,
         wchar_t *a3,
         unsigned int a4,
         unsigned int *a5)
 {
   size_t v5; // rdi
-  int result; // eax
+  NTSTATUS result; // eax
   const wchar_t *v9; // rbx
   wchar_t *v10; // rax
   size_t v11; // rax
@@ -26,7 +26,7 @@ int __fastcall CmGetDeviceInterfaceSymbolicLinkName(
   result = CmValidateDeviceInterfaceName(a1, a2);
   if ( result >= 0 )
   {
-    v9 = (const wchar_t *)(a2 + 8);
+    v9 = a2 + 4;
     v10 = wcschr(v9, 0x5Cu);
     if ( v10 )
     {

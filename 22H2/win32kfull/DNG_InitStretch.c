@@ -1,7 +1,7 @@
 /*
- * XREFs of DNG_InitStretch @ 0x1C005372C
+ * XREFs of DNG_InitStretch @ 0x1C00CA5F4
  * Callers:
- *     RenderNineGridInternal @ 0x1C0052990 (RenderNineGridInternal.c)
+ *     RenderNineGridInternal @ 0x1C00C94E0 (RenderNineGridInternal.c)
  * Callees:
  *     <none>
  */

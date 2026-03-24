@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnableAccountingForProcess@DripsBlockerTrackingHelper@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C0304704
+ * XREFs of ?EnableAccountingForProcess@DripsBlockerTrackingHelper@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C02C0F44
  * Callers:
- *     ?EnableCoreDripsBlockerAccountingForProcess@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C02E62AC (-EnableCoreDripsBlockerAccountingForProcess@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z.c)
+ *     ?EnableCoreDripsBlockerAccountingForProcess@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z @ 0x1C02BF65C (-EnableCoreDripsBlockerAccountingForProcess@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C0304818 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
- *     ?PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z @ 0x1C0307644 (-PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02C1068 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
+ *     ?PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z @ 0x1C02C3E40 (-PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z.c)
  */
 
 void __fastcall DripsBlockerTrackingHelper::EnableAccountingForProcess(
@@ -14,10 +14,10 @@ void __fastcall DripsBlockerTrackingHelper::EnableAccountingForProcess(
         struct _EPROCESS *a3,
         bool a4)
 {
-  unsigned int v7; // esi
+  SIZE_T v7; // r14
+  unsigned int v8; // esi
   DripsBlockerTrackingHelper *i; // rbx
-  __int64 v9; // r14
-  SIZE_T v10; // rax
+  __int64 v10; // r14
   unsigned int j; // ebx
   SIZE_T Length; // [rsp+30h] [rbp-68h] BYREF
   _OWORD Source2[2]; // [rsp+38h] [rbp-60h] BYREF
@@ -27,28 +27,24 @@ void __fastcall DripsBlockerTrackingHelper::EnableAccountingForProcess(
   v14 = 0;
   memset(Source2, 0, sizeof(Source2));
   DripsBlockerTrackingHelper::PrepareDripsBlockerProcessName(this, 0LL, a3, (char *)Source2, 0x21u, &Length);
+  v7 = Length;
   if ( Length )
   {
-    v7 = 0;
-    for ( i = this; ; i = (DripsBlockerTrackingHelper *)((char *)i + 4720) )
+    v8 = 0;
+    for ( i = this;
+          !*((_BYTE *)i + 104)
+       || *(_QWORD *)i != a2
+       || RtlCompareMemory((char *)this + 4720 * v8 + 8, Source2, v7) != v7;
+          i = (DripsBlockerTrackingHelper *)((char *)i + 4720) )
     {
-      if ( *((_BYTE *)i + 104) )
-      {
-        if ( *(_QWORD *)i == a2 )
-        {
-          v9 = 4720LL * v7;
-          v10 = RtlCompareMemory((char *)this + v9 + 8, Source2, Length);
-          if ( v10 == Length )
-            break;
-        }
-      }
-      if ( ++v7 >= 0x40 )
+      if ( ++v8 >= 0x40 )
         return;
     }
-    for ( j = 0; j < *(_DWORD *)((char *)this + v9 + 44); ++j )
+    v10 = 4720LL * v8;
+    for ( j = 0; j < *(_DWORD *)((char *)this + v10 + 44); ++j )
     {
-      if ( *(_DWORD *)((char *)this + 72 * j + v9 + 144) )
-        DripsBlockerTrackingHelper::EnableEntryAccounting(this, v7, j, a4);
+      if ( *(_DWORD *)((char *)this + 72 * j + v10 + 144) )
+        DripsBlockerTrackingHelper::EnableEntryAccounting(this, v8, j, a4);
     }
   }
 }

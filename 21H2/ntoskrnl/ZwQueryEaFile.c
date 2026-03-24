@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryEaFile @ 0x14041E0E0
+ * XREFs of ZwQueryEaFile @ 0x1403FCC60
  * Callers:
- *     DifZwQueryEaFileWrapper @ 0x1406243B0 (DifZwQueryEaFileWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

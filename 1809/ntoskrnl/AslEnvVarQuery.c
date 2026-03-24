@@ -1,12 +1,12 @@
 /*
- * XREFs of AslEnvVarQuery @ 0x140722254
+ * XREFs of AslEnvVarQuery @ 0x140722234
  * Callers:
- *     AslEnvExpandStrings @ 0x1407220C8 (AslEnvExpandStrings.c)
+ *     AslEnvExpandStrings @ 0x1407220A8 (AslEnvExpandStrings.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     RtlGetNtSystemRoot @ 0x140682430 (RtlGetNtSystemRoot.c)
+ *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
  */
 
 __int64 __fastcall AslEnvVarQuery(

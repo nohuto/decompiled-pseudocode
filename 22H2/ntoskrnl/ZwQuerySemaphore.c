@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQuerySemaphore @ 0x14041D3A0
+ * XREFs of ZwQuerySemaphore @ 0x1403FC5E0
  * Callers:
  *     <none>
  * Callees:

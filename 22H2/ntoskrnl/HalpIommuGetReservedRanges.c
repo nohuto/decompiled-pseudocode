@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuGetReservedRanges @ 0x140518310
+ * XREFs of HalpIommuGetReservedRanges @ 0x1404C9754
  * Callers:
- *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x140512C48 (HalpDmaGetReservedRegionsForTranslateDomain.c)
+ *     HalpDmaAddReservedRangesToDomain @ 0x1404C4950 (HalpDmaAddReservedRangesToDomain.c)
  * Callees:
- *     IidAreIdsStrictlyEqual @ 0x140673DAC (IidAreIdsStrictlyEqual.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C62CC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuGetReservedRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
-  ULONG_PTR *i; // r11
+  __int64 *i; // r11
   unsigned int *v7; // rdi
   unsigned int v8; // ebp
   __int64 v9; // rbx
@@ -16,9 +16,9 @@ __int64 __fastcall HalpIommuGetReservedRanges(__int64 a1, _DWORD *a2, _QWORD *a3
 
   *a2 = 0;
   *a3 = 0LL;
-  for ( i = (ULONG_PTR *)HalpIommuList; i != &HalpIommuList; i = (ULONG_PTR *)*i )
+  for ( i = (__int64 *)HalpIommuList; i != &HalpIommuList; i = (__int64 *)*i )
   {
-    v7 = (unsigned int *)i[69];
+    v7 = (unsigned int *)i[66];
     if ( v7 )
     {
       v8 = *v7;

@@ -1,24 +1,24 @@
 /*
- * XREFs of PiGetDeviceRegistryProperty @ 0x140824738
+ * XREFs of PiGetDeviceRegistryProperty @ 0x140824718
  * Callers:
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     wcsstr @ 0x140197930 (wcsstr.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     wcsstr @ 0x140197950 (wcsstr.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpFindAlternateStringData @ 0x140587E34 (PnpFindAlternateStringData.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x1406EB4C0 (PnpDeviceObjectToDeviceInstance.c)
- *     RtlFormatMessageEx @ 0x1408913B4 (RtlFormatMessageEx.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1406EB4A0 (PnpDeviceObjectToDeviceInstance.c)
+ *     RtlFormatMessageEx @ 0x140891394 (RtlFormatMessageEx.c)
  */
 
 __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, wchar_t *a5, __int64 a6)

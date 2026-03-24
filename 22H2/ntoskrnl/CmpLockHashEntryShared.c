@@ -1,34 +1,28 @@
 /*
- * XREFs of CmpLockHashEntryShared @ 0x1407699EC
+ * XREFs of CmpLockHashEntryShared @ 0x14069E03C
  * Callers:
- *     CmpWalkOneLevel @ 0x1406DD8D0 (CmpWalkOneLevel.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1407697F0 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140765B90 (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x14076AA9C (CmpReferenceHive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
  */
 
-__int64 __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
+char __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
 {
   ULONG_PTR v2; // rbx
-  signed __int64 *v4; // rsi
-  unsigned __int64 v5; // rdi
-  __int64 result; // rax
+  char result; // al
 
   v2 = (unsigned int)BugCheckParameter4;
-  v4 = (signed __int64 *)(*(_QWORD *)(BugCheckParameter2 + 1648)
-                        + 24
-                        * ((unsigned int)(*(_DWORD *)(BugCheckParameter2 + 1656) - 1) & ((101027
-                                                                                        * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) >> 9))));
-  v5 = KeAbPreAcquire((__int64)v4, 0LL);
-  if ( _InterlockedCompareExchange64(v4, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v4, 0LL, v5, (__int64)v4);
-  if ( v5 )
-    *(_BYTE *)(v5 + 18) = 1;
+  ExAcquirePushLockSharedEx(
+    *(_QWORD *)(BugCheckParameter2 + 1640)
+  + 24
+  * ((unsigned int)(*(_DWORD *)(BugCheckParameter2 + 1648) - 1) & ((101027
+                                                                  * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) >> 9))),
+    0LL);
   result = CmpReferenceHive(BugCheckParameter2);
-  if ( !(_BYTE)result )
+  if ( !result )
     KeBugCheckEx(0x51u, 0x17uLL, BugCheckParameter2, 9uLL, v2);
   return result;
 }

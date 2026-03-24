@@ -1,16 +1,12 @@
 /*
- * XREFs of ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@A@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x180108C50
+ * XREFs of ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@A@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800F7420
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CLegacySwapChain::AddComputeScribbleInvalidRects(
-        __int64 a1,
-        __int64 a2,
-        const struct MilRectU *a3,
-        __int64 a4)
+__int64 __fastcall CLegacySwapChain::AddComputeScribbleInvalidRects(__int64 a1, __int64 a2, int *a3, __int64 a4)
 {
   return CLegacySwapChain::AddComputeScribbleInvalidRects(a1 - *(int *)(a1 - 4), a2, a3, a4);
 }

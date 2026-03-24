@@ -1,11 +1,11 @@
 /*
- * XREFs of KiHeadlessDisplayString @ 0x140567D6C
+ * XREFs of KiHeadlessDisplayString @ 0x1405185B8
  * Callers:
- *     KiBugCheckDebugBreak @ 0x1405672C0 (KiBugCheckDebugBreak.c)
- *     KiBugCheckProgress @ 0x140567390 (KiBugCheckProgress.c)
- *     KiDisplayBlueScreen @ 0x140567874 (KiDisplayBlueScreen.c)
+ *     KiBugCheckDebugBreak @ 0x140517E20 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckProgress @ 0x140517EF0 (KiBugCheckProgress.c)
+ *     KiDisplayBlueScreen @ 0x1405180C0 (KiDisplayBlueScreen.c)
  * Callees:
- *     HeadlessDispatch @ 0x1403C2310 (HeadlessDispatch.c)
+ *     HeadlessDispatch @ 0x1403AF760 (HeadlessDispatch.c)
  */
 
 __int64 __fastcall KiHeadlessDisplayString(__int64 a1, __int64 a2)

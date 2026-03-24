@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSendReliableJobNotification @ 0x1406A2200
+ * XREFs of PspSendReliableJobNotification @ 0x14068163C
  * Callers:
- *     PspEvaluateAndNotifyEmptyJob @ 0x140683DF0 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspJobNotificationWorker @ 0x1406E9850 (PspJobNotificationWorker.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140604FA0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobNotificationWorker @ 0x140681530 (PspJobNotificationWorker.c)
  * Callees:
- *     IoSetIoCompletionEx @ 0x14022A180 (IoSetIoCompletionEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     EtwTraceJobSendNotification @ 0x1409E2420 (EtwTraceJobSendNotification.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     IoSetIoCompletionEx @ 0x14028FFC0 (IoSetIoCompletionEx.c)
+ *     EtwTraceJobSendNotification @ 0x140935F7C (EtwTraceJobSendNotification.c)
  */
 
 __int64 __fastcall PspSendReliableJobNotification(PVOID Object, unsigned int a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PspSendReliableJobNotification(PVOID Object, unsigned int a2)
     if ( (_DWORD)v2 != 12 )
       v5 = 32776;
   }
-  LODWORD(result) = *((_DWORD *)Object + 378);
+  LODWORD(result) = *((_DWORD *)Object + 330);
   do
   {
     v7 = v5;
@@ -41,7 +41,7 @@ __int64 __fastcall PspSendReliableJobNotification(PVOID Object, unsigned int a2)
     if ( (result & 8) == 0 )
       v7 = v4;
     v9 = result;
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)Object + 378, result | v7, result);
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)Object + 330, result | v7, result);
   }
   while ( v9 != (_DWORD)result );
   if ( !v8 )
@@ -50,14 +50,14 @@ __int64 __fastcall PspSendReliableJobNotification(PVOID Object, unsigned int a2)
     if ( (PerfGlobalGroupMask & 0x80000) != 0 )
       EtwTraceJobSendNotification(Object, (unsigned int)v2);
     result = IoSetIoCompletionEx(
-               *((_QWORD *)Object + 69),
-               *((_QWORD *)Object + 70),
+               *((_QWORD *)Object + 57),
+               *((_QWORD *)Object + 58),
                0LL,
-               0,
+               0LL,
                v2,
                0,
-               *((_QWORD *)Object + 149));
-    _InterlockedIncrement64((volatile signed __int64 *)Object + 71);
+               *((_QWORD *)Object + 125));
+    _InterlockedIncrement64((volatile signed __int64 *)Object + 59);
   }
   return result;
 }

@@ -3,15 +3,15 @@
  * Callers:
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AlpcpReleasePushLockExclusive @ 0x140849950 (AlpcpReleasePushLockExclusive.c)
+ *     AlpcpReleasePushLockExclusive @ 0x140849930 (AlpcpReleasePushLockExclusive.c)
  */
 
 __int64 __fastcall AlpcAddHandleTableEntry(__int64 a1, _QWORD *a2)

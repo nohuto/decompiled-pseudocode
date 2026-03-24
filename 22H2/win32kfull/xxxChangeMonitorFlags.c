@@ -1,11 +1,11 @@
 /*
- * XREFs of xxxChangeMonitorFlags @ 0x1C00AC6D0
+ * XREFs of xxxChangeMonitorFlags @ 0x1C012802C
  * Callers:
- *     xxxEventWndProc @ 0x1C0021D80 (xxxEventWndProc.c)
- *     xxxCsDdeInitialize @ 0x1C00AC42C (xxxCsDdeInitialize.c)
- *     NtUserUpdateInstance @ 0x1C01DF5C0 (NtUserUpdateInstance.c)
+ *     xxxEventWndProc @ 0x1C0023B00 (xxxEventWndProc.c)
+ *     xxxCsDdeInitialize @ 0x1C0127D60 (xxxCsDdeInitialize.c)
+ *     NtUserUpdateInstance @ 0x1C0203C50 (NtUserUpdateInstance.c)
  * Callees:
- *     xxxCsEvent @ 0x1C000EA00 (xxxCsEvent.c)
+ *     xxxCsEvent @ 0x1C02467E8 (xxxCsEvent.c)
  */
 
 __int64 __fastcall xxxChangeMonitorFlags(__int64 a1, int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall xxxChangeMonitorFlags(__int64 a1, int a2)
     Src[0] = 0;
     Src[1] = 0x40000;
     Src[2] = MonitorFlags;
-    return xxxCsEvent(Src, 4u);
+    return xxxCsEvent(Src);
   }
   return result;
 }

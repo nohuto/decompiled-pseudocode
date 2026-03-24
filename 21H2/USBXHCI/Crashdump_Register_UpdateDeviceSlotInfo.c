@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_Register_UpdateDeviceSlotInfo @ 0x1C004BF98
+ * XREFs of Crashdump_Register_UpdateDeviceSlotInfo @ 0x1C004B518
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004A724 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
  *     <none>
  */

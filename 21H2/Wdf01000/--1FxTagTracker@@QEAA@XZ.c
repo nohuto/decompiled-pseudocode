@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1FxTagTracker@@QEAA@XZ @ 0x1C006E408
+ * XREFs of ??1FxTagTracker@@QEAA@XZ @ 0x1C005B4C0
  * Callers:
- *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C006CEBC (--_GFxTagTracker@@QEAAPEAXI@Z.c)
+ *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C0059B9C (--_GFxTagTracker@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00529E0 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??_GFxTagTrackingBlock@@QEAAPEAXI@Z @ 0x1C006E504 (--_GFxTagTrackingBlock@@QEAAPEAXI@Z.c)
- *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C006E530 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C002D6A4 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_GFxTagTrackingBlock@@QEAAPEAXI@Z @ 0x1C005B5BC (--_GFxTagTrackingBlock@@QEAAPEAXI@Z.c)
+ *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C005B5F0 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
  */
 
 void __fastcall FxTagTracker::~FxTagTracker(FxTagTracker *this)
@@ -54,6 +54,6 @@ void __fastcall FxTagTracker::~FxTagTracker(FxTagTracker *this)
     (char *)this->m_TagHistory,
     0x30uLL,
     0x19uLL,
-    (void (__fastcall *)(void *))FxTagTrackingBlock::~FxTagTrackingBlock);
+    (void (__fastcall *)(void *))FxTagHistory::~FxTagHistory);
   this->m_SpinLock.m_DbgFlagIsInitialized = 0;
 }

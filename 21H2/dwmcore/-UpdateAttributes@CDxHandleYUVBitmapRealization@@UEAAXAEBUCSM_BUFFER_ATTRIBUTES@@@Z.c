@@ -1,86 +1,78 @@
 /*
- * XREFs of ?UpdateAttributes@CDxHandleYUVBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1802A61B4
+ * XREFs of ?UpdateAttributes@CDxHandleYUVBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x180266608
  * Callers:
- *     ?UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x18010C8B0 (-UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     ?UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1800F92F0 (-UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
  * Callees:
- *     ?CalcDisplayRestriction@CBitmapRealization@@KA?AVDisplayId@@_NPEAUHMONITOR__@@@Z @ 0x180067D08 (-CalcDisplayRestriction@CBitmapRealization@@KA-AVDisplayId@@_NPEAUHMONITOR__@@@Z.c)
- *     ?IsEquivalentTo@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18006E1AC (-IsEquivalentTo@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAE.c)
- *     ?InvalidateDecodeBitmap@CBitmapRealization@@QEAAX_N@Z @ 0x1800D95E8 (-InvalidateDecodeBitmap@CBitmapRealization@@QEAAX_N@Z.c)
- *     ??8@YA_NAEBUtagRECT@@0@Z @ 0x1800DB680 (--8@YA_NAEBUtagRECT@@0@Z.c)
+ *     ?CalcDisplayRestriction@CBitmapRealization@@KA?AVDisplayId@@_NPEAUHMONITOR__@@@Z @ 0x180039390 (-CalcDisplayRestriction@CBitmapRealization@@KA-AVDisplayId@@_NPEAUHMONITOR__@@@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18003C6F4 (-IsEquivalentTo@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAE.c)
+ *     ?InvalidateDecodeBitmap@CBitmapRealization@@QEAAX_N@Z @ 0x1800CB4FC (-InvalidateDecodeBitmap@CBitmapRealization@@QEAAX_N@Z.c)
+ *     ??8@YA_NAEBUtagRECT@@0@Z @ 0x1800D4490 (--8@YA_NAEBUtagRECT@@0@Z.c)
  */
 
 void __fastcall CDxHandleYUVBitmapRealization::UpdateAttributes(
         CDxHandleYUVBitmapRealization *this,
         const struct CSM_BUFFER_ATTRIBUTES *a2)
 {
-  int v2; // r11d
+  int v2; // ebx
   _DWORD *v3; // rsi
-  char v4; // di
-  const struct CSM_BUFFER_ATTRIBUTES *v5; // r9
-  CDxHandleYUVBitmapRealization *v6; // r10
-  char v7; // bl
-  int v8; // ecx
-  int *v9; // rax
-  int v10; // ecx
-  char v11; // al
-  bool v12; // zf
-  int v13; // edx
-  int v14; // eax
-  _OWORD *v15; // rax
-  __int64 v16; // r10
-  __int128 v17; // [rsp+20h] [rbp-18h] BYREF
-  int v18; // [rsp+40h] [rbp+8h] BYREF
+  const struct CSM_BUFFER_ATTRIBUTES *v4; // r9
+  CDxHandleYUVBitmapRealization *v5; // r10
+  char v6; // di
+  int v7; // ecx
+  int *v8; // rax
+  int v9; // ecx
+  char v10; // al
+  bool v11; // zf
+  int v12; // edx
+  int v13; // eax
+  __int64 v14; // r10
+  char v15; // r11
+  __int128 v16; // [rsp+20h] [rbp-18h] BYREF
+  int v17; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *((_DWORD *)this - 58);
-  v3 = (_DWORD *)((char *)this - 364);
-  v4 = 0;
-  v5 = a2;
-  v6 = this;
-  v17 = *(_OWORD *)((char *)this - 364);
-  v7 = v2 != DisplayId::None && v2 != DisplayId::All;
-  v8 = *((_DWORD *)a2 + 34) & 1;
-  if ( v8 != (*((_DWORD *)v6 - 70) & 1) || *((_QWORD *)a2 + 1) != *((_QWORD *)v6 - 51) )
+  v3 = (_DWORD *)((char *)this - 336);
+  v4 = a2;
+  v5 = this;
+  v16 = *((_OWORD *)this - 21);
+  v6 = v2 != DisplayId::None && v2 != DisplayId::All;
+  v7 = *((_DWORD *)a2 + 29) & 1;
+  if ( v7 != (*((_DWORD *)v5 - 67) & 1) || *((_QWORD *)a2 + 1) != *((_QWORD *)v5 - 47) )
   {
-    v9 = CBitmapRealization::CalcDisplayRestriction(&v18, v8, *((_QWORD *)a2 + 1));
-    v10 = *v9;
-    *((_DWORD *)v6 - 58) = *v9;
-    v11 = v10 != DisplayId::None && v10 != DisplayId::All;
-    if ( v7 != v11 )
+    v8 = CBitmapRealization::CalcDisplayRestriction(&v17, v7, *((_QWORD *)a2 + 1));
+    v9 = *v8;
+    *((_DWORD *)v5 - 58) = *v8;
+    v10 = v9 != DisplayId::None && v9 != DisplayId::All;
+    if ( v6 != v10 )
     {
-      v12 = v11 == 0;
-      v13 = *((_DWORD *)g_pComposition + 108);
-      v14 = v13 + 1;
-      if ( v12 )
-        v14 = v13 - 1;
-      *((_DWORD *)g_pComposition + 108) = v14;
+      v11 = v10 == 0;
+      v12 = *((_DWORD *)g_pComposition + 70);
+      v13 = v12 + 1;
+      if ( v11 )
+        v13 = v12 - 1;
+      *((_DWORD *)g_pComposition + 70) = v13;
     }
   }
-  if ( v2 != *((_DWORD *)v6 - 58)
-    || *((_DWORD *)v5 + 17) != *((_DWORD *)v6 - 87)
-    || *((_DWORD *)v5 + 28) != *((_DWORD *)v6 - 76)
-    || *((_DWORD *)v5 + 29) != *((_DWORD *)v6 - 75)
-    || !operator==((_DWORD *)v5 + 30, (_DWORD *)v6 - 74) )
+  if ( v2 == *((_DWORD *)v5 - 58)
+    && *((_DWORD *)v4 + 16) == *((_DWORD *)v5 - 80)
+    && *((_DWORD *)v4 + 23) == *((_DWORD *)v5 - 73)
+    && *((_DWORD *)v4 + 24) == *((_DWORD *)v5 - 72) )
   {
-    v4 = 1;
+    operator==((_DWORD *)v4 + 25, (_DWORD *)v5 - 71);
   }
-  v15 = (_OWORD *)((char *)v6 - 416);
-  *v15 = *(_OWORD *)v5;
-  v15[1] = *((_OWORD *)v5 + 1);
-  v15[2] = *((_OWORD *)v5 + 2);
-  v15[3] = *((_OWORD *)v5 + 3);
-  v15[4] = *((_OWORD *)v5 + 4);
-  v15[5] = *((_OWORD *)v5 + 5);
-  v15[6] = *((_OWORD *)v5 + 6);
-  v15[7] = *((_OWORD *)v5 + 7);
-  v15[8] = *((_OWORD *)v5 + 8);
-  if ( TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IsEquivalentTo(&v17, v3) )
+  *((_OWORD *)v5 - 24) = *(_OWORD *)v4;
+  *((_OWORD *)v5 - 23) = *((_OWORD *)v4 + 1);
+  *((_OWORD *)v5 - 22) = *((_OWORD *)v4 + 2);
+  *((_OWORD *)v5 - 21) = *((_OWORD *)v4 + 3);
+  *((_OWORD *)v5 - 20) = *((_OWORD *)v4 + 4);
+  *((_OWORD *)v5 - 19) = *((_OWORD *)v4 + 5);
+  *((_OWORD *)v5 - 18) = *((_OWORD *)v4 + 6);
+  *((_QWORD *)v5 - 34) = *((_QWORD *)v4 + 14);
+  if ( !TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IsEquivalentTo(&v16, v3) )
   {
-    if ( !v4 )
-      return;
+    *(_BYTE *)(v14 - 200) = 0;
+    v15 = 1;
   }
-  else
-  {
-    *(_BYTE *)(v16 - 200) = 0;
-  }
-  CBitmapRealization::InvalidateDecodeBitmap((CBitmapRealization *)(v16 - 512), 0);
+  if ( v15 )
+    CBitmapRealization::InvalidateDecodeBitmap((CBitmapRealization *)(v14 - 480), 0);
 }

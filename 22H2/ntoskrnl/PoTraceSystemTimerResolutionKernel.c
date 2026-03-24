@@ -1,16 +1,14 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionKernel @ 0x140340704
+ * XREFs of PoTraceSystemTimerResolutionKernel @ 0x1402F0908
  * Callers:
- *     KiResetClockIntervalOneShot @ 0x1403405F8 (KiResetClockIntervalOneShot.c)
- *     KiSetClockIntervalOneShot @ 0x140340658 (KiSetClockIntervalOneShot.c)
- *     KiSetClockInterval @ 0x1403B1914 (KiSetClockInterval.c)
- *     ExSetTimerResolution @ 0x1403B46D0 (ExSetTimerResolution.c)
- *     KiResetClockInterval @ 0x14056FE84 (KiResetClockInterval.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1405700EC (KiSetClockIntervalToMinimumRequested.c)
+ *     KiCheckForTimerExpiration @ 0x1402247B0 (KiCheckForTimerExpiration.c)
+ *     KiSetClockInterval @ 0x1402F045C (KiSetClockInterval.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x1405208D4 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     ExSetTimerResolution @ 0x1405B22D0 (ExSetTimerResolution.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
@@ -28,7 +26,7 @@ char __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
   v12 = a2;
   v11 = a1;
   v3 = &POP_ETW_EVENT_KERNEL_STRS;
-  v4 = &POP_ETW_EVENT_KERNEL_STRS_INTERNAL;
+  v4 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_KERNEL_STRS_INTERNAL;
   if ( !a3 )
     v4 = &POP_ETW_EVENT_KERNEL_STRS;
   if ( PopDiagHandleRegistered )

@@ -1,452 +1,367 @@
 /*
- * XREFs of ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C001BAE0
+ * XREFs of ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C000ED3C
  * Callers:
- *     imp_WdfDeviceAssignS0IdleSettings @ 0x1C001B9F0 (imp_WdfDeviceAssignS0IdleSettings.c)
+ *     imp_WdfDeviceAssignS0IdleSettings @ 0x1C000E750 (imp_WdfDeviceAssignS0IdleSettings.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?PowerPolicyGetDeviceDeepestDeviceWakeState@FxPkgPnp@@IEAA?AW4_DEVICE_POWER_STATE@@W4_SYSTEM_POWER_STATE@@@Z @ 0x1C001B740 (-PowerPolicyGetDeviceDeepestDeviceWakeState@FxPkgPnp@@IEAA-AW4_DEVICE_POWER_STATE@@W4_SYSTEM_POW.c)
- *     ?PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z @ 0x1C001C1D0 (-PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z.c)
- *     ?UpdateWmiInstanceForS0Idle@FxPkgPnp@@AEAAJW4FxWmiInstanceAction@@@Z @ 0x1C001C20C (-UpdateWmiInstanceForS0Idle@FxPkgPnp@@AEAAJW4FxWmiInstanceAction@@@Z.c)
- *     ?UpdateIdleTimeoutStatus@IdleTimeoutManagement@@AEAA?AW4IdleTimeoutStatusUpdateResult@1@W4IdleTimeoutStatusFlag@1@@Z @ 0x1C001DCB8 (-UpdateIdleTimeoutStatus@IdleTimeoutManagement@@AEAA-AW4IdleTimeoutStatusUpdateResult@1@W4IdleTi.c)
- *     ?QueryForCapabilities@FxPkgPnp@@IEAAJXZ @ 0x1C0021D90 (-QueryForCapabilities@FxPkgPnp@@IEAAJXZ.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C003227C (-ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_DD @ 0x1C005A3C8 (WPP_IFR_SF_DD.c)
- *     WPP_IFR_SF_sd @ 0x1C005DA8C (WPP_IFR_SF_sd.c)
- *     WPP_IFR_SF_LLd @ 0x1C00892B0 (WPP_IFR_SF_LLd.c)
- *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C008A8C4 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?UpdateWmiInstanceForS0Idle@FxPkgPnp@@AEAAJW4FxWmiInstanceAction@@@Z @ 0x1C000E83C (-UpdateWmiInstanceForS0Idle@FxPkgPnp@@AEAAJW4FxWmiInstanceAction@@@Z.c)
+ *     ?PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z @ 0x1C000E878 (-PowerPolicySetS0IdleState@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_DD @ 0x1C0037BE8 (WPP_IFR_SF_DD.c)
+ *     WPP_IFR_SF_sd @ 0x1C003D75C (WPP_IFR_SF_sd.c)
+ *     ?RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z @ 0x1C003E404 (-RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z.c)
+ *     ?PowerPolicyGetDeviceDeepestDeviceWakeState@FxPkgPnp@@IEAA?AW4_DEVICE_POWER_STATE@@W4_SYSTEM_POWER_STATE@@@Z @ 0x1C0081D30 (-PowerPolicyGetDeviceDeepestDeviceWakeState@FxPkgPnp@@IEAA-AW4_DEVICE_POWER_STATE@@W4_SYSTEM_POW.c)
+ *     ?QueryForCapabilities@FxPkgPnp@@IEAAJXZ @ 0x1C0082234 (-QueryForCapabilities@FxPkgPnp@@IEAAJXZ.c)
+ *     WPP_IFR_SF_LLd @ 0x1C00837B0 (WPP_IFR_SF_LLd.c)
+ *     ?ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C0085208 (-ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z.c)
+ *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C0086780 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
+ *     ?UseSystemManagedIdleTimeout@IdleTimeoutManagement@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0088B58 (-UseSystemManagedIdleTimeout@IdleTimeoutManagement@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
 int __fastcall FxPkgPnp::PowerPolicySetS0IdleSettings(FxPkgPnp *this, _WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS *Settings)
 {
-  _WDF_TRI_STATE v2; // eax
-  FxPowerPolicyOwnerSettings *m_Owner; // r14
-  _WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS *v4; // rdi
+  unsigned __int8 MaximumLength_high; // r14
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
   unsigned __int8 v6; // r12
-  int DxState; // esi
-  FxPowerPolicyOwnerSettings *v8; // rax
-  unsigned __int8 Set; // r15
-  _WDF_POWER_POLICY_S0_IDLE_CAPABILITIES IdleCaps; // eax
-  signed int _a2; // eax
-  unsigned int v12; // r8d
-  unsigned int IdleTimeout; // r13d
-  _WDF_POWER_POLICY_S0_IDLE_USER_CONTROL UserControlOfIdleSettings; // eax
+  _DEVICE_POWER_STATE v7; // esi
+  bool v8; // zf
+  int v9; // edx
+  _FX_DRIVER_GLOBALS *v10; // rcx
+  _WDF_TRI_STATE v11; // eax
+  unsigned __int8 Set; // r13
   int result; // eax
-  IdleTimeoutManagement *p_m_TimeoutMgmt; // r12
-  FxPowerPolicyOwnerSettings *v17; // rcx
-  _WDF_POWER_POLICY_S0_IDLE_CAPABILITIES v18; // eax
-  int ExcludeD3Cold; // ecx
-  void (__fastcall *SetD3ColdSupport)(void *, unsigned __int8); // rax
-  _FX_DRIVER_GLOBALS *m_Globals; // r15
-  IdleTimeoutManagement::IdleTimeoutStatusUpdateResult updated; // eax
-  FxObject *v23; // r10
-  _FX_DRIVER_GLOBALS *v24; // rcx
-  _WDF_BIND_INFO *WdfBindInfo; // rcx
-  unsigned __int8 v26; // dl
-  volatile int m_IdleTimeoutStatus; // eax
-  bool v28; // zf
-  unsigned __int64 m_PoFxDeviceFlags; // rax
-  unsigned __int64 v30; // rax
-  _WDF_TRI_STATE PowerUpIdleDeviceOnSystemWake; // ecx
-  _FX_DRIVER_GLOBALS *v32; // rcx
+  _WDF_POWER_POLICY_S0_IDLE_CAPABILITIES IdleCaps; // eax
+  unsigned __int8 v15; // r8
+  _DEVICE_POWER_STATE _a2; // eax
+  unsigned __int8 v17; // dl
+  unsigned int v18; // r8d
   int inited; // eax
-  int v34; // r15d
-  __int32 v35; // eax
-  __int32 v36; // eax
-  int v37; // ebx
-  const void *ObjectHandleUnchecked; // rax
-  __int64 v39; // r10
-  const void *v40; // rax
-  __int64 v41; // r10
-  unsigned __int8 v42; // dl
-  unsigned __int8 v43; // cl
-  const char *v44; // rcx
-  unsigned __int16 v45; // r9
+  int v20; // r14d
+  _DEVICE_POWER_STATE DxState; // eax
+  unsigned int IdleTimeout; // r15d
+  _WDF_POWER_POLICY_S0_IDLE_USER_CONTROL UserControlOfIdleSettings; // eax
+  FxPowerPolicyOwnerSettings *m_Owner; // rax
+  FxWmiInstanceInternal *WmiInstance; // rcx
+  unsigned __int8 MaximumLength; // cl
+  _WDF_TRI_STATE PowerUpIdleDeviceOnSystemWake; // ecx
+  int v28; // edx
+  const char *v29; // rcx
+  _FX_DRIVER_GLOBALS *v30; // rcx
+  unsigned __int16 v31; // r9
+  FxPowerPolicyOwnerSettings *v32; // rcx
+  _WDF_POWER_POLICY_S0_IDLE_CAPABILITIES v33; // eax
   __int64 i; // rcx
-  const _GUID *traceGuid; // [rsp+20h] [rbp-E0h]
-  int _a3; // [rsp+38h] [rbp-C8h]
-  unsigned __int8 enabled; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int8 directedTransitions; // [rsp+41h] [rbp-BFh] BYREF
-  unsigned __int8 dfxChildrenOptional; // [rsp+42h] [rbp-BEh] BYREF
-  unsigned __int8 v52; // [rsp+43h] [rbp-BDh]
-  unsigned __int8 useWdfTimerForPofx; // [rsp+44h] [rbp-BCh] BYREF
-  unsigned __int8 v54; // [rsp+45h] [rbp-BBh]
-  _UNICODE_STRING valueName; // [rsp+48h] [rbp-B8h] BYREF
-  _UNICODE_STRING childrenOptionalName; // [rsp+58h] [rbp-A8h] BYREF
-  _UNICODE_STRING useWdfTimerForPofxName; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE useWdfTimerForPofxName_buffer[48]; // [rsp+78h] [rbp-88h] OVERLAPPED BYREF
-  __int64 v59; // [rsp+A8h] [rbp-58h]
-  wchar_t v60; // [rsp+B0h] [rbp-50h]
-  wchar_t childrenOptionalName_buffer[48]; // [rsp+C0h] [rbp-40h] BYREF
-  _OWORD v62[4]; // [rsp+120h] [rbp+20h] BYREF
-  wchar_t v63; // [rsp+160h] [rbp+60h]
+  _WDF_TRI_STATE ExcludeD3Cold; // ecx
+  unsigned __int8 v36; // dl
+  void (__fastcall *SetD3ColdSupport)(void *, unsigned __int8); // rax
+  const _GUID *traceGuid; // [rsp+28h] [rbp-E0h]
+  int enabled; // [rsp+40h] [rbp-C8h]
+  _UNICODE_STRING valueName; // [rsp+48h] [rbp-C0h] BYREF
+  _BYTE *v41; // [rsp+58h] [rbp-B0h]
+  _UNICODE_STRING ValueName; // [rsp+60h] [rbp-A8h] BYREF
+  _UNICODE_STRING v43; // [rsp+70h] [rbp-98h] BYREF
+  _UNICODE_STRING v44; // [rsp+80h] [rbp-88h] BYREF
+  _OWORD v45[2]; // [rsp+90h] [rbp-78h] BYREF
+  _BYTE valueName_buffer[64]; // [rsp+B0h] [rbp-58h] OVERLAPPED BYREF
+  _WORD childrenOptionalName_buffer[44]; // [rsp+F0h] [rbp-18h] OVERLAPPED BYREF
+  int v48; // [rsp+148h] [rbp+40h]
+  wchar_t v49; // [rsp+14Ch] [rbp+44h]
+  _OWORD v50[4]; // [rsp+158h] [rbp+50h] BYREF
+  wchar_t v51; // [rsp+198h] [rbp+90h]
 
-  v2 = Settings->Enabled;
-  m_Owner = this->m_PowerPolicyMachine.m_Owner;
-  v52 = 0;
-  v4 = Settings;
+  MaximumLength_high = 0;
+  m_Globals = this->m_Globals;
   v6 = 0;
-  DxState = 4;
-  if ( v2 == WdfTrue )
+  HIBYTE(valueName.Length) = 0;
+  v7 = PowerDeviceD3;
+  v8 = _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(
+         m_Globals,
+         FxLibraryGlobals.WdfDirectedPowerTransitionEnabled,
+         0x1Fu) == 0;
+  v11 = Settings->Enabled;
+  if ( !v8 )
+    v9 = 1;
+  *(_DWORD *)(&valueName.MaximumLength + 1) = v9;
+  LOBYTE(valueName.MaximumLength) = v9;
+  if ( v11 == WdfTrue )
   {
-    enabled = 1;
-    goto LABEL_4;
+    LOBYTE(valueName.Length) = 1;
   }
-  if ( v2 != WdfUseDefault )
+  else if ( v11 == WdfUseDefault )
   {
-    enabled = 0;
-LABEL_4:
-    v8 = m_Owner;
-    goto LABEL_5;
-  }
-  enabled = 1;
-  if ( KeGetCurrentIrql() )
-  {
-    WPP_IFR_SF_(this->m_Globals, 3u, 0xCu, 0x2Fu, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids);
+    LOBYTE(valueName.Length) = 1;
+    if ( KeGetCurrentIrql() )
+    {
+      WPP_IFR_SF_(v10, 3u, 0xCu, 0x2Fu, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids);
+    }
+    else
+    {
+      childrenOptionalName_buffer[0] = aWdfdefaultidle[28];
+      *(_OWORD *)&valueName_buffer[8] = *(_OWORD *)L"WdfDefaultIdleInWorkingState";
+      valueName.Buffer = (wchar_t *)3801144;
+      *(_OWORD *)&valueName_buffer[24] = *(_OWORD *)L"ltIdleInWorkingState";
+      v41 = &valueName_buffer[8];
+      *(_OWORD *)&valueName_buffer[40] = *(_OWORD *)L"WorkingState";
+      *(_QWORD *)&valueName_buffer[56] = *(_QWORD *)L"tate";
+      FxPkgPnp::ReadRegistryS0Idle(this, (const _UNICODE_STRING *)&valueName.Buffer, (unsigned __int8 *)&valueName);
+    }
   }
   else
   {
-    v60 = aWdfdefaultidle[28];
-    *(_OWORD *)useWdfTimerForPofxName_buffer = *(_OWORD *)L"WdfDefaultIdleInWorkingState";
-    *(_QWORD *)&valueName.Length = 3801144LL;
-    *(_OWORD *)&useWdfTimerForPofxName_buffer[16] = *(_OWORD *)L"ltIdleInWorkingState";
-    valueName.Buffer = (wchar_t *)useWdfTimerForPofxName_buffer;
-    *(_OWORD *)&useWdfTimerForPofxName_buffer[32] = *(_OWORD *)L"WorkingState";
-    v59 = *(_QWORD *)L"tate";
-    FxPkgPnp::ReadRegistryS0Idle(this, &valueName, &enabled);
+    LOBYTE(valueName.Length) = 0;
   }
-  v8 = this->m_PowerPolicyMachine.m_Owner;
-LABEL_5:
-  Set = v8->m_IdleSettings.Set;
-  v54 = Set;
+  Set = this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.Set;
   if ( !this->m_CapsQueried && !KeGetCurrentIrql() )
   {
     result = FxPkgPnp::QueryForCapabilities(this);
     if ( result < 0 )
       return result;
   }
-  IdleCaps = v4->IdleCaps;
+  IdleCaps = Settings->IdleCaps;
+  v15 = 1;
   if ( IdleCaps == IdleCannotWakeFromS0 )
   {
-    DxState = v4->DxState;
-    v52 = 0;
-    if ( DxState == 5 )
-      DxState = 4;
-    goto LABEL_12;
+    DxState = Settings->DxState;
+    HIBYTE(valueName.Length) = 0;
+    if ( DxState == PowerDeviceMaximum )
+      DxState = PowerDeviceD3;
+    v7 = DxState;
+    goto LABEL_34;
   }
-  if ( (unsigned int)(IdleCaps - 2) > 1 )
-    goto LABEL_12;
-  DxState = v4->DxState;
-  v52 = 1;
-  _a2 = FxPkgPnp::PowerPolicyGetDeviceDeepestDeviceWakeState(this, 1u);
-  if ( DxState == 5 )
+  if ( (unsigned int)(IdleCaps - 2) <= 1 )
   {
-    DxState = _a2;
-    if ( (unsigned int)(_a2 - 2) > 2 )
+    v7 = Settings->DxState;
+    HIBYTE(valueName.Length) = 1;
+    _a2 = FxPkgPnp::PowerPolicyGetDeviceDeepestDeviceWakeState(this, PowerSystemWorking);
+    if ( v7 == PowerDeviceMaximum )
     {
-LABEL_89:
-      WPP_IFR_SF_DD(
-        this->m_Globals,
-        (unsigned __int8)Settings,
-        0xCu,
-        0x30u,
-        (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
-        _a2,
-        -1073741101);
-      return -1073741101;
+      v7 = _a2;
+      if ( (unsigned int)(_a2 - 2) > 2 )
+      {
+LABEL_19:
+        WPP_IFR_SF_DD(this->m_Globals, v17, 0xCu, 0x30u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, _a2, -1073741101);
+        return -1073741101;
+      }
+      if ( _a2 > PowerDeviceD2 )
+      {
+        if ( Settings->IdleCaps == IdleUsbSelectiveSuspend )
+          goto LABEL_19;
+        goto LABEL_33;
+      }
     }
-    if ( _a2 > 3 )
+    else
     {
-      if ( v4->IdleCaps != IdleUsbSelectiveSuspend )
-        goto LABEL_12;
-      goto LABEL_89;
+      if ( v7 > _a2 )
+      {
+        WPP_IFR_SF_LLd(this->m_Globals, v17, v18, 0x31u, traceGuid, v7, _a2, enabled);
+        return -1073741101;
+      }
+      if ( v7 > PowerDeviceD2 )
+      {
+        if ( Settings->IdleCaps == IdleUsbSelectiveSuspend )
+        {
+          WPP_IFR_SF_DD(this->m_Globals, v17, 0xCu, 0x32u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, v7, -1073741101);
+          return -1073741101;
+        }
+LABEL_33:
+        v15 = 1;
+        goto LABEL_34;
+      }
     }
-    goto LABEL_80;
-  }
-  if ( DxState > _a2 )
-  {
-    WPP_IFR_SF_LLd(this->m_Globals, (unsigned __int8)Settings, v12, 0x31u, traceGuid, DxState, _a2, _a3);
-    return -1073741101;
-  }
-  if ( DxState <= 3 )
-  {
-LABEL_80:
-    if ( v4->IdleCaps == IdleUsbSelectiveSuspend )
+    if ( Settings->IdleCaps == IdleUsbSelectiveSuspend )
     {
       inited = FxPowerPolicyMachine::InitUsbSS(&this->m_PowerPolicyMachine);
-      v34 = inited;
+      v20 = inited;
       if ( inited < 0 )
       {
         WPP_IFR_SF_d(this->m_Globals, 2u, 0xCu, 0x33u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, inited);
-        return v34;
+        return v20;
       }
-      Set = v54;
+      MaximumLength_high = 0;
     }
-    goto LABEL_12;
+    goto LABEL_33;
   }
-  if ( v4->IdleCaps == IdleUsbSelectiveSuspend )
-  {
-    WPP_IFR_SF_DD(
-      this->m_Globals,
-      (unsigned __int8)Settings,
-      0xCu,
-      0x32u,
-      (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
-      DxState,
-      -1073741101);
-    return -1073741101;
-  }
-LABEL_12:
-  IdleTimeout = v4->IdleTimeout;
+LABEL_34:
+  IdleTimeout = Settings->IdleTimeout;
   if ( !IdleTimeout )
     IdleTimeout = 5000;
-  UserControlOfIdleSettings = v4->UserControlOfIdleSettings;
+  UserControlOfIdleSettings = Settings->UserControlOfIdleSettings;
   if ( UserControlOfIdleSettings == IdleAllowUserControl )
   {
     result = FxPkgPnp::UpdateWmiInstanceForS0Idle(this, AddInstance);
     if ( result < 0 )
       return result;
-    if ( v4->Enabled == WdfUseDefault )
+    if ( Settings->Enabled == WdfUseDefault )
     {
       if ( Set || KeGetCurrentIrql() )
       {
-        enabled = this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.Enabled;
+        LOBYTE(valueName.Length) = this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.Enabled;
       }
       else
       {
-        valueName.Buffer = (wchar_t *)useWdfTimerForPofxName_buffer;
-        wcscpy((wchar_t *)useWdfTimerForPofxName_buffer, L"IdleInWorkingState");
-        *(_QWORD *)&valueName.Length = 2490404LL;
-        FxPkgPnp::ReadRegistryS0Idle(this, &valueName, &enabled);
+        *(_DWORD *)valueName_buffer = *(_DWORD *)L"te";
+        *(_WORD *)&valueName_buffer[4] = aIdleinworkings[18];
+        ValueName.Buffer = (wchar_t *)v45;
+        v45[0] = *(_OWORD *)L"IdleInWorkingState";
+        *(_QWORD *)&ValueName.Length = 2490404LL;
+        v45[1] = *(_OWORD *)L"rkingState";
+        FxPkgPnp::ReadRegistryS0Idle(this, &ValueName, (unsigned __int8 *)&valueName);
       }
     }
+    v15 = 1;
     v6 = 1;
   }
   else if ( UserControlOfIdleSettings == IdleDoNotAllowUserControl )
   {
-    FxPkgPnp::UpdateWmiInstanceForS0Idle(this, RemoveInstance);
+    m_Owner = this->m_PowerPolicyMachine.m_Owner;
+    v6 = 0;
+    WmiInstance = m_Owner->m_IdleSettings.WmiInstance;
+    if ( WmiInstance )
+    {
+      FxWmiProvider::RemoveInstance(WmiInstance->m_Provider, m_Owner->m_IdleSettings.WmiInstance);
+      v15 = 1;
+    }
   }
   if ( !Set )
   {
     this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.Set = 1;
     this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.Overridable = v6;
   }
-  if ( v4->Size <= 0x1C )
-    goto LABEL_82;
+  if ( Settings->Size <= 0x1C )
+    goto LABEL_57;
   if ( !Set )
   {
-    if ( (unsigned int)(v4->IdleTimeoutType - 1) <= 1 )
+    if ( (unsigned int)(Settings->IdleTimeoutType - 1) <= 1 )
     {
-      p_m_TimeoutMgmt = &m_Owner->m_IdleSettings.m_TimeoutMgmt;
-      m_Globals = this->m_Globals;
-      if ( !FxLibraryGlobals.PoxRegisterDevice
-        || (updated = IdleTimeoutManagement::UpdateIdleTimeoutStatus(
-                        &m_Owner->m_IdleSettings.m_TimeoutMgmt,
-                        IdleTimeoutSystemManaged)) == IdleTimeoutStatusFlagsUpdated
-        || (v35 = updated - 1) == 0 )
+      result = IdleTimeoutManagement::UseSystemManagedIdleTimeout(
+                 &this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt,
+                 this->m_Globals);
+      if ( result < 0 )
+        return result;
+      HIBYTE(valueName.MaximumLength) = 0;
+      if ( KeGetCurrentIrql() )
       {
-        v24 = this->m_Globals;
-        if ( (p_m_TimeoutMgmt->m_IdleTimeoutStatus & 4) != 0 )
-        {
-          directedTransitions = m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported;
-        }
-        else
-        {
-          directedTransitions = FxLibraryGlobals.WdfDirectedPowerTransitionEnabled;
-          if ( v24->WdfBindInfo->Version.Minor >= 0x1F )
-            directedTransitions = 1;
-        }
-        WdfBindInfo = v24->WdfBindInfo;
-        v26 = FxLibraryGlobals.UseWdfTimerForPofx;
-        m_IdleTimeoutStatus = p_m_TimeoutMgmt->m_IdleTimeoutStatus;
-        dfxChildrenOptional = 0;
-        if ( WdfBindInfo->Version.Minor >= 0x21 )
-          v26 = 1;
-        useWdfTimerForPofx = v26;
-        if ( (m_IdleTimeoutStatus & 4) != 0 )
-        {
-          v43 = dfxChildrenOptional;
-          if ( (m_Owner->m_IdleSettings.m_TimeoutMgmt.m_PoFxDeviceFlags & 6) == 6 )
-            v43 = 1;
-          dfxChildrenOptional = v43;
-        }
-        if ( KeGetCurrentIrql() )
-        {
-          WPP_IFR_SF_(this->m_Globals, 3u, 0xCu, 0x34u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids);
-        }
-        else
-        {
-          v62[0] = *(_OWORD *)L"WdfDirectedPowerTransitionEnable";
-          v62[1] = *(_OWORD *)L"tedPowerTransitionEnable";
-          v63 = aWdfdirectedpow_0[32];
-          v62[2] = *(_OWORD *)L"TransitionEnable";
-          v62[3] = *(_OWORD *)L"onEnable";
-          valueName.Buffer = (wchar_t *)v62;
-          *(_QWORD *)&valueName.Length = 4325440LL;
-          FxPkgPnp::ReadRegistryS0Idle(this, &valueName, &directedTransitions);
-          wcscpy(childrenOptionalName_buffer, L"WdfDirectedPowerTransitionChildrenOptional");
-          *(_QWORD *)&childrenOptionalName.Length = 5636180LL;
-          childrenOptionalName.Buffer = childrenOptionalName_buffer;
-          FxPkgPnp::ReadRegistryS0Idle(this, &childrenOptionalName, &dfxChildrenOptional);
-          *(_DWORD *)&useWdfTimerForPofxName_buffer[40] = *(_DWORD *)L"x";
-          *(_OWORD *)useWdfTimerForPofxName_buffer = *(_OWORD *)L"WdfUseWdfTimerForPofx";
-          *(_QWORD *)&useWdfTimerForPofxName_buffer[32] = *(_QWORD *)L"rPofx";
-          *(_OWORD *)&useWdfTimerForPofxName_buffer[16] = *(_OWORD *)L"fTimerForPofx";
-          *(_QWORD *)&useWdfTimerForPofxName.Length = 2883626LL;
-          useWdfTimerForPofxName.Buffer = (wchar_t *)useWdfTimerForPofxName_buffer;
-          FxPkgPnp::ReadRegistryS0Idle(this, &useWdfTimerForPofxName, &useWdfTimerForPofx);
-        }
-        v28 = dfxChildrenOptional == 0;
-        m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported = directedTransitions;
-        m_PoFxDeviceFlags = m_Owner->m_IdleSettings.m_TimeoutMgmt.m_PoFxDeviceFlags;
-        if ( v28 )
-          v30 = m_PoFxDeviceFlags & 0xFFFFFFFFFFFFFFF9uLL;
-        else
-          v30 = m_PoFxDeviceFlags | 6;
-        Set = v54;
-        m_Owner->m_IdleSettings.m_TimeoutMgmt.m_PoFxDeviceFlags = v30;
-        m_Owner->m_IdleSettings.m_TimeoutMgmt.m_UseWdfTimerForPofx = useWdfTimerForPofx;
-        goto LABEL_26;
-      }
-      v36 = v35 - 1;
-      if ( v36 )
-      {
-        if ( v36 != 1 )
-          return -1073741595;
-        v37 = -1073741808;
-        ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(v23);
-        WPP_IFR_SF_qqd(
-          m_Globals,
-          2u,
-          0xCu,
-          0xBu,
-          WPP_PowerPolicyStateMachine_cpp_Traceguids,
-          ObjectHandleUnchecked,
-          *(const void **)(v39 + 144),
-          -1073741808);
+        WPP_IFR_SF_(this->m_Globals, 3u, 0xCu, 0x34u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids);
+        MaximumLength = *((_BYTE *)&valueName.MaximumLength + 2);
       }
       else
       {
-        v37 = -1073741808;
-        v40 = (const void *)FxObject::GetObjectHandleUnchecked(v23);
-        WPP_IFR_SF_qqd(
-          m_Globals,
-          v42,
-          0xCu,
-          0xAu,
-          WPP_PowerPolicyStateMachine_cpp_Traceguids,
-          v40,
-          *(const void **)(v41 + 144),
-          -1073741808);
+        v50[0] = *(_OWORD *)L"WdfDirectedPowerTransitionEnable";
+        v50[1] = *(_OWORD *)L"tedPowerTransitionEnable";
+        v51 = aWdfdirectedpow_0[32];
+        v50[2] = *(_OWORD *)L"TransitionEnable";
+        v50[3] = *(_OWORD *)L"onEnable";
+        v43.Buffer = (wchar_t *)v50;
+        *(_QWORD *)&v43.Length = 4325440LL;
+        FxPkgPnp::ReadRegistryS0Idle(this, &v43, (unsigned __int8 *)&valueName.MaximumLength);
+        *(_OWORD *)&childrenOptionalName_buffer[4] = *(_OWORD *)L"WdfDirectedPowerTransitionChildrenOptional";
+        v48 = *(_DWORD *)L"al";
+        *(_OWORD *)&childrenOptionalName_buffer[20] = *(_OWORD *)L"TransitionChildrenOptional";
+        *(_OWORD *)&childrenOptionalName_buffer[12] = *(_OWORD *)L"tedPowerTransitionChildrenOptional";
+        v49 = aWdfdirectedpow[42];
+        *(_OWORD *)&childrenOptionalName_buffer[36] = *(_OWORD *)L"enOptional";
+        *(_OWORD *)&childrenOptionalName_buffer[28] = *(_OWORD *)L"onChildrenOptional";
+        *(_QWORD *)&v44.Length = 5636180LL;
+        v44.Buffer = &childrenOptionalName_buffer[4];
+        FxPkgPnp::ReadRegistryS0Idle(this, &v44, (unsigned __int8 *)&valueName.MaximumLength + 1);
+        MaximumLength_high = HIBYTE(valueName.MaximumLength);
+        MaximumLength = valueName.MaximumLength;
       }
-      FxVerifierDbgBreakPoint(m_Globals);
-      return v37;
+      this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsSupported = MaximumLength;
+      this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt.m_DirectedTransitionsChildrenOptional = MaximumLength_high;
     }
-LABEL_82:
-    p_m_TimeoutMgmt = &m_Owner->m_IdleSettings.m_TimeoutMgmt;
-    goto LABEL_26;
-  }
-  p_m_TimeoutMgmt = &m_Owner->m_IdleSettings.m_TimeoutMgmt;
-  Settings = (_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS *)(m_Owner->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2);
-  if ( (unsigned int)(v4->IdleTimeoutType - 1) <= 1 != ((m_Owner->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2) != 0)
-    && FxLibraryGlobals.PoxRegisterDevice )
-  {
-    v44 = "should";
-    if ( !(_DWORD)Settings )
-      v44 = "should not";
-    WPP_IFR_SF_sd(
-      this->m_Globals,
-      m_Owner->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2,
-      0xCu,
-      0x35u,
-      (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids,
-      v44,
-      -1073741808);
-    FxVerifierDbgBreakPoint(this->m_Globals);
-    return -1073741808;
-  }
-LABEL_26:
-  if ( v4->IdleCaps != IdleCannotWakeFromS0 || v4->Size <= 0x18 )
-    goto LABEL_27;
-  PowerUpIdleDeviceOnSystemWake = v4->PowerUpIdleDeviceOnSystemWake;
-  if ( PowerUpIdleDeviceOnSystemWake )
-  {
-    if ( PowerUpIdleDeviceOnSystemWake != WdfTrue )
-      goto LABEL_27;
-    this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.PowerUpIdleDeviceOnSystemWake = 1;
-    v32 = this->m_Globals;
-    if ( !v32->FxVerboseOn )
-      goto LABEL_27;
-    v45 = 54;
-    goto LABEL_116;
-  }
-  this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.PowerUpIdleDeviceOnSystemWake = 0;
-  v32 = this->m_Globals;
-  if ( v32->FxVerboseOn )
-  {
-    v45 = 55;
-LABEL_116:
-    WPP_IFR_SF_(v32, 5u, 0xCu, v45, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids);
-  }
-LABEL_27:
-  v17 = this->m_PowerPolicyMachine.m_Owner;
-  if ( !v17->m_IdleSettings.UsbSSCapabilityKnown )
-  {
-    v18 = v4->IdleCaps;
-    if ( v18 == IdleUsbSelectiveSuspend )
+LABEL_57:
+    if ( Settings->IdleCaps == IdleCannotWakeFromS0 )
     {
-      for ( i = 0LL; i < 2; ++i )
-        *(&this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.UsbSSCapable + i) = 1;
-    }
-    else if ( v18 == IdleCanWakeFromS0 )
-    {
-      v17->m_IdleSettings.UsbSSCapabilityKnown = 1;
-    }
-  }
-  this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.WakeFromS0Capable = v52;
-  this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.DxState = DxState;
-  if ( (p_m_TimeoutMgmt->m_IdleTimeoutStatus & 2) == 0 || m_Owner->m_IdleSettings.m_TimeoutMgmt.m_UseWdfTimerForPofx )
-  {
-    this->m_PowerPolicyMachine.m_Owner->m_PowerIdleMachine.m_PowerTimeout = (_LARGE_INTEGER)(-10000LL * IdleTimeout);
-  }
-  else
-  {
-    if ( !Set )
-      this->m_PowerPolicyMachine.m_Owner->m_PowerIdleMachine.m_PowerTimeout = (_LARGE_INTEGER)-1LL;
-    if ( v4->IdleTimeoutType == SystemManagedIdleTimeoutWithHint )
-      this->m_PowerPolicyMachine.m_Owner->m_PoxInterface.m_NextIdleTimeoutHint = IdleTimeout;
-  }
-  if ( v4->Size > 0x1C )
-  {
-    ExcludeD3Cold = v4->ExcludeD3Cold;
-    if ( ExcludeD3Cold != 2 )
-    {
-      if ( ExcludeD3Cold )
-      {
-        if ( ExcludeD3Cold != 1 )
-          WPP_IFR_SF_d(this->m_Globals, 2u, 0xCu, 0x38u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, ExcludeD3Cold);
-        LOBYTE(Settings) = 0;
-      }
+      if ( Settings->Size <= 0x18 )
+        PowerUpIdleDeviceOnSystemWake = WdfUseDefault;
       else
+        PowerUpIdleDeviceOnSystemWake = Settings->PowerUpIdleDeviceOnSystemWake;
+      if ( PowerUpIdleDeviceOnSystemWake )
       {
-        LOBYTE(Settings) = 1;
+        if ( PowerUpIdleDeviceOnSystemWake != WdfTrue )
+          goto LABEL_73;
+        this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.PowerUpIdleDeviceOnSystemWake = 1;
+        v30 = this->m_Globals;
+        if ( !v30->FxVerboseOn )
+          goto LABEL_73;
+        v31 = 54;
+        goto LABEL_72;
       }
-      this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.D3ColdCapabilityKnown = 1;
-      this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.D3ColdSupported = (unsigned __int8)Settings;
-      SetD3ColdSupport = this->m_D3ColdInterface.SetD3ColdSupport;
-      if ( SetD3ColdSupport )
-        ((void (__fastcall *)(void *, _WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS *, __int64))SetD3ColdSupport)(
-          this->m_D3ColdInterface.Context,
-          Settings,
-          1LL);
+      this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.PowerUpIdleDeviceOnSystemWake = 0;
+      v30 = this->m_Globals;
+      if ( v30->FxVerboseOn )
+      {
+        v31 = 55;
+LABEL_72:
+        WPP_IFR_SF_(v30, 5u, 0xCu, v31, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids);
+      }
     }
+LABEL_73:
+    v32 = this->m_PowerPolicyMachine.m_Owner;
+    if ( !v32->m_IdleSettings.UsbSSCapabilityKnown )
+    {
+      v33 = Settings->IdleCaps;
+      if ( v33 == IdleUsbSelectiveSuspend )
+      {
+        for ( i = 0LL; i < 2; ++i )
+          *(&this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.UsbSSCapable + i) = 1;
+      }
+      else if ( v33 == IdleCanWakeFromS0 )
+      {
+        v32->m_IdleSettings.UsbSSCapabilityKnown = 1;
+      }
+    }
+    this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.WakeFromS0Capable = HIBYTE(valueName.Length);
+    this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.DxState = v7;
+    if ( (this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2) != 0 )
+    {
+      if ( !Set )
+        this->m_PowerPolicyMachine.m_Owner->m_PowerIdleMachine.m_PowerTimeout = (_LARGE_INTEGER)-1LL;
+      if ( Settings->IdleTimeoutType == SystemManagedIdleTimeoutWithHint )
+        this->m_PowerPolicyMachine.m_Owner->m_PoxInterface.m_NextIdleTimeoutHint = IdleTimeout;
+    }
+    else
+    {
+      this->m_PowerPolicyMachine.m_Owner->m_PowerIdleMachine.m_PowerTimeout = (_LARGE_INTEGER)(-10000LL * IdleTimeout);
+    }
+    if ( Settings->Size > 0x1C )
+    {
+      ExcludeD3Cold = Settings->ExcludeD3Cold;
+      if ( ExcludeD3Cold != WdfUseDefault )
+      {
+        if ( ExcludeD3Cold )
+        {
+          if ( ExcludeD3Cold != WdfTrue )
+            WPP_IFR_SF_d(this->m_Globals, 2u, 0xCu, 0x38u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, ExcludeD3Cold);
+          v36 = 0;
+        }
+        else
+        {
+          v36 = 1;
+        }
+        this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.D3ColdCapabilityKnown = 1;
+        this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.D3ColdSupported = v36;
+        SetD3ColdSupport = this->m_D3ColdInterface.SetD3ColdSupport;
+        if ( SetD3ColdSupport )
+          ((void (__fastcall *)(void *))SetD3ColdSupport)(this->m_D3ColdInterface.Context);
+      }
+    }
+    FxPkgPnp::PowerPolicySetS0IdleState(this, valueName.Length, v15);
+    return 0;
   }
-  FxPkgPnp::PowerPolicySetS0IdleState(this, enabled);
-  return 0;
+  v28 = this->m_PowerPolicyMachine.m_Owner->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2;
+  if ( (unsigned int)(Settings->IdleTimeoutType - 1) <= 1 == (v28 != 0) || !FxLibraryGlobals.PoxRegisterDevice )
+    goto LABEL_57;
+  v29 = "should";
+  if ( !v28 )
+    v29 = "should not";
+  WPP_IFR_SF_sd(this->m_Globals, v28, 0xCu, 0x35u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, v29, -1073741808);
+  FxVerifierDbgBreakPoint(this->m_Globals);
+  return -1073741808;
 }

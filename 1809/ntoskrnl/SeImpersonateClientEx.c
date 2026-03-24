@@ -1,9 +1,9 @@
 /*
- * XREFs of SeImpersonateClientEx @ 0x14069AF40
+ * XREFs of SeImpersonateClientEx @ 0x14069AF20
  * Callers:
- *     EtwpCreateLogFile @ 0x140699B1C (EtwpCreateLogFile.c)
- *     NtImpersonateThread @ 0x14069AE10 (NtImpersonateThread.c)
- *     SeImpersonateClient @ 0x1408A18E0 (SeImpersonateClient.c)
+ *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
+ *     NtImpersonateThread @ 0x14069ADF0 (NtImpersonateThread.c)
+ *     SeImpersonateClient @ 0x1408A18C0 (SeImpersonateClient.c)
  * Callees:
  *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
  */

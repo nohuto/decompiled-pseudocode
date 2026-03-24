@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaIsAutomaticDomain @ 0x140515358
+ * XREFs of HalpDmaIsAutomaticDomain @ 0x1404C4C50
  * Callers:
- *     HalGetAdapterV2 @ 0x140845A60 (HalGetAdapterV2.c)
- *     HalGetAdapterV3 @ 0x140845F30 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140764810 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x1407C33B0 (HalGetAdapterV3.c)
  * Callees:
- *     HalpDmaReferenceDomainObject @ 0x1403B2A28 (HalpDmaReferenceDomainObject.c)
- *     HalpDmaDereferenceDomainObject @ 0x140514E28 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A1414 (HalpDmaReferenceDomainObject.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
  */
 
 bool __fastcall HalpDmaIsAutomaticDomain(__int64 *BugCheckParameter3)
@@ -16,7 +16,7 @@ bool __fastcall HalpDmaIsAutomaticDomain(__int64 *BugCheckParameter3)
   v2 = 0;
   if ( (int)HalpDmaReferenceDomainObject((__int64)BugCheckParameter3) >= 0 )
   {
-    v3 = BugCheckParameter3[7];
+    v3 = BugCheckParameter3[9];
     HalpDmaDereferenceDomainObject(BugCheckParameter3);
     return v3 != 0;
   }

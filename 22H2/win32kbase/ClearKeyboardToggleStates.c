@@ -1,54 +1,51 @@
 /*
- * XREFs of ClearKeyboardToggleStates @ 0x1C00AA1B0
+ * XREFs of ClearKeyboardToggleStates @ 0x1C009A1B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 __fastcall ClearKeyboardToggleStates(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
+__int64 ClearKeyboardToggleStates()
 {
-  unsigned int v4; // edi
-  __int64 v5; // rbx
-  __int64 v6; // rax
-  __int64 i; // rbx
+  unsigned int v0; // r9d
+  __int64 v1; // r8
   __int64 result; // rax
-  unsigned int v9; // esi
-  __int64 v10; // rdi
-  int v11; // ebx
-  _BYTE v12[16]; // [rsp+20h] [rbp-28h]
+  unsigned int v3; // r9d
+  __int64 v4; // r8
+  unsigned __int64 v5; // rdx
+  _BYTE v6[16]; // [rsp+20h] [rbp-28h]
 
-  v4 = 0;
-  v5 = 0LL;
+  GetDomainLockRef(16);
+  v0 = 0;
+  v1 = 0LL;
   do
   {
-    v6 = SGDGetUserSessionState(a1, a2, a3, a4);
-    a2 = 1LL;
-    ++v4;
-    a3 = (unsigned __int64)(unsigned __int8)byte_1C024CCA0[v5] >> 2;
-    a1 = 2 * (byte_1C024CCA0[v5] & 3u) + 1;
-    LOBYTE(a2) = *(_BYTE *)(a3 + v6 + 13992) & (1 << (2 * (byte_1C024CCA0[v5] & 3) + 1));
-    v12[v5++] = a2;
+    ++v0;
+    v6[v1] = *((_BYTE *)&gafAsyncKeyState + ((unsigned __int64)byte_1C0211308[v1] >> 2)) & (1 << (2
+                                                                                                * (byte_1C0211308[v1] & 3)
+                                                                                                + 1));
+    ++v1;
   }
-  while ( v4 < 0xE );
-  for ( i = 0LL; i < 64; ++i )
-  {
-    result = SGDGetUserSessionState(a1, a2, a3, a4);
-    *(_BYTE *)(result + i + 13992) &= 0x55u;
-  }
-  v9 = 0;
-  v10 = 0LL;
+  while ( v0 < 0xE );
+  for ( result = 0LL; result < 64; result += 16LL )
+    *(__int128 *)((char *)&gafAsyncKeyState + result) = (__int128)_mm_and_si128(
+                                                                    _mm_loadu_si128((const __m128i *)((char *)&gafAsyncKeyState + result)),
+                                                                    (__m128i)_xmm);
+  v3 = 0;
+  v4 = 0LL;
   do
   {
-    if ( v12[v10] )
+    if ( v6[v4] )
     {
-      v11 = 1 << (2 * (byte_1C024CCA0[v10] & 3) + 1);
-      result = SGDGetUserSessionState(2 * (byte_1C024CCA0[v10] & 3u) + 1, a2, a3, a4);
-      *(_BYTE *)(result + ((unsigned __int64)(unsigned __int8)byte_1C024CCA0[v10] >> 2) + 13992) |= v11;
+      v5 = byte_1C0211308[v4];
+      result = 2 * (unsigned int)(v5 & 3) + 1;
+      *((_BYTE *)&gafAsyncKeyState + (v5 >> 2)) |= 1 << (2 * (v5 & 3) + 1);
     }
-    ++v9;
-    ++v10;
+    ++v3;
+    ++v4;
   }
-  while ( v9 < 0xE );
+  while ( v3 < 0xE );
   return result;
 }

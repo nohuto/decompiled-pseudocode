@@ -1,26 +1,26 @@
 /*
- * XREFs of MmInitSystemDll @ 0x140B76620
+ * XREFs of MmInitSystemDll @ 0x140A4B9EC
  * Callers:
- *     Phase1InitializationIoReady @ 0x140B532AC (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     PsQuerySystemDllInfo @ 0x14076F6C4 (PsQuerySystemDllInfo.c)
- *     PspReferenceSystemDll @ 0x1407A39B4 (PspReferenceSystemDll.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     PsQuerySystemDllInfo @ 0x1406C769C (PsQuerySystemDllInfo.c)
+ *     PspReferenceSystemDll @ 0x1406FD074 (PspReferenceSystemDll.c)
  */
 
-signed __int64 MmInitSystemDll()
+void MmInitSystemDll()
 {
-  signed __int64 result; // rax
-  signed __int64 v1; // rbx
+  __int64 SystemDllInfo; // rax
+  __int64 v1; // rbx
+  struct _DMA_ADAPTER *v2; // rax
 
-  result = (signed __int64)PsQuerySystemDllInfo(0);
-  v1 = result;
-  if ( result )
+  SystemDllInfo = PsQuerySystemDllInfo(0);
+  v1 = SystemDllInfo;
+  if ( SystemDllInfo )
   {
-    result = PspReferenceSystemDll(*(signed __int64 **)(result - 8));
-    qword_140C65B00 = *(_QWORD *)(v1 + 24);
-    if ( result )
-      return ObFastDereferenceObject(*(signed __int64 **)(v1 - 8), result, 0x64537350u);
+    v2 = (struct _DMA_ADAPTER *)PspReferenceSystemDll((signed __int64 *)(SystemDllInfo - 16));
+    qword_140C4DE10 = *(_QWORD *)(v1 + 24);
+    if ( v2 )
+      ObFastDereferenceObject((signed __int64 *)(v1 - 16), v2);
   }
-  return result;
 }

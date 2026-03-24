@@ -1,69 +1,59 @@
 /*
- * XREFs of HvpDropPagedBins @ 0x14083D244
+ * XREFs of HvpDropPagedBins @ 0x14079F728
  * Callers:
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvpPointMapEntriesToBuffer @ 0x14068CEA0 (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x14068D2B8 (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x1406D16F8 (HvpFreeBin.c)
- *     HvpMapEntryGetFreeBin @ 0x14079B740 (HvpMapEntryGetFreeBin.c)
- *     CmpReleaseGlobalQuota @ 0x14079CF18 (CmpReleaseGlobalQuota.c)
- *     MmFreeBootRegistry @ 0x14083D398 (MmFreeBootRegistry.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140AB44A4 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetCellMap @ 0x140AB44C0 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140AB451C (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140AB4534 (HvpGetBinContextInitialize.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x140709E4C (CmpReleaseGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072305C (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x1407249BC (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x140725BD0 (HvpFreeBin.c)
+ *     MmFreeBootRegistry @ 0x14079F85C (MmFreeBootRegistry.c)
  */
 
 __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
 {
-  int v2; // eax
+  unsigned int v1; // ebp
   unsigned int v3; // r14d
-  unsigned int v4; // ebp
   unsigned int i; // esi
   __int64 CellMap; // rax
-  __int64 v7; // rcx
-  _BYTE *v8; // r15
-  _DWORD *BinAddress; // r13
+  _BYTE *v6; // r13
+  __int64 v7; // r15
+  _DWORD *v8; // r15
   int Bin; // edi
-  __int64 v11; // rdx
-  __int64 v12; // rcx
   __int64 FreeBin; // rax
-  __int16 v15; // [rsp+70h] [rbp+8h] BYREF
-  void *v16; // [rsp+78h] [rbp+10h] BYREF
+  void *v12; // [rsp+60h] [rbp+8h] BYREF
 
-  v15 = 0;
-  HvpGetBinContextInitialize(&v15);
-  v2 = *(_DWORD *)(BugCheckParameter2 + 160);
-  v3 = 0;
-  v16 = 0LL;
-  if ( (v2 & 0x10) != 0 )
+  v12 = 0LL;
+  v1 = 0;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x10) != 0 )
   {
-    v4 = *(_DWORD *)(BugCheckParameter2 + 280);
-    if ( v4 )
+    v3 = *(_DWORD *)(BugCheckParameter2 + 272);
+    if ( v3 )
     {
-      for ( i = 0; i < v4; i += v3 )
+      for ( i = 0; i < v3; i += v1 )
       {
         CellMap = HvpGetCellMap(BugCheckParameter2, i);
-        v8 = (_BYTE *)CellMap;
+        v6 = (_BYTE *)CellMap;
         if ( !CellMap )
-          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, i, 0x145AuLL);
-        if ( (*(_BYTE *)(CellMap + 8) & 8) != 0 )
+          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, i, 0x1456uLL);
+        v7 = *(_QWORD *)(CellMap + 8);
+        if ( (v7 & 8) != 0 )
           break;
-        BinAddress = (_DWORD *)HvpMapEntryGetBinAddress(v7, CellMap, &v15);
-        v3 = BinAddress[2];
-        Bin = HvpAllocateBin(BugCheckParameter2, v3, 0, 0x35324D43u, (__int64 *)&v16);
+        v8 = (_DWORD *)(v7 & 0xFFFFFFFFFFFFFFF0uLL);
+        v1 = v8[2];
+        Bin = HvpAllocateBin(BugCheckParameter2, v1, 0, 0x35324D43u, (__int64 *)&v12);
         if ( Bin < 0 )
           goto LABEL_11;
-        memmove(v16, BinAddress, v3);
-        HvpMapEntryReleaseBinAddress(v12, v11, &v15);
-        FreeBin = HvpMapEntryGetFreeBin(v8);
-        HvpPointMapEntriesToBuffer(BugCheckParameter2, (__int64)v16, v3, i, 1, FreeBin);
-        v16 = 0LL;
-        CmpReleaseGlobalQuota(v3);
+        memmove(v12, v8, v1);
+        FreeBin = HvpMapEntryGetFreeBin(v6);
+        HvpPointMapEntriesToBuffer(BugCheckParameter2, (__int64)v12, v1, i, 1, FreeBin);
+        v12 = 0LL;
+        CmpReleaseGlobalQuota(v1);
       }
     }
     if ( _InterlockedExchangeAdd(&CmpPreloadedHivesCount, 0xFFFFFFFF) == 1 )
@@ -71,8 +61,8 @@ __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
     *(_DWORD *)(BugCheckParameter2 + 160) &= ~0x10u;
     Bin = 0;
 LABEL_11:
-    if ( v16 )
-      HvpFreeBin(BugCheckParameter2, v3, (__int64)v16);
+    if ( v12 )
+      HvpFreeBin(BugCheckParameter2, v1, (unsigned __int64)v12);
   }
   else
   {

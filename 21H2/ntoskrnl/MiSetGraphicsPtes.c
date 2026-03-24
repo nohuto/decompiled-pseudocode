@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetGraphicsPtes @ 0x14058C874
+ * XREFs of MiSetGraphicsPtes @ 0x14053463C
  * Callers:
- *     MmSetGraphicsPtes @ 0x14096B560 (MmSetGraphicsPtes.c)
+ *     MmSetGraphicsPtes @ 0x1408C6EB0 (MmSetGraphicsPtes.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     MiLockLowestValidPageTable @ 0x14027D6E0 (MiLockLowestValidPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWorkingSetIsContended @ 0x1403531F0 (MiWorkingSetIsContended.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
+ *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiSetGraphicsPtes(
@@ -33,29 +33,33 @@ __int64 __fastcall MiSetGraphicsPtes(
   unsigned __int64 valid; // r8
   unsigned __int64 v17; // r12
   unsigned __int64 v18; // rax
-  unsigned __int64 v20; // [rsp+20h] [rbp-48h]
-  unsigned __int64 v21; // [rsp+70h] [rbp+8h] BYREF
-  unsigned __int64 v22; // [rsp+78h] [rbp+10h]
-  unsigned __int64 v23; // [rsp+88h] [rbp+20h]
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  _DWORD *v21; // r9
+  unsigned __int64 v23; // [rsp+20h] [rbp-48h]
+  unsigned __int64 v24[8]; // [rsp+28h] [rbp-40h] BYREF
+  unsigned __int64 v25; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 v26; // [rsp+78h] [rbp+10h]
+  unsigned __int64 v27; // [rsp+88h] [rbp+20h]
 
-  v23 = a4;
+  v27 = a4;
   v6 = a3;
   v7 = 0;
   v8 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v20 = v8;
+  v23 = v8;
   v9 = a6;
   v10 = (((a2 + a1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL;
-  v21 = 0LL;
-  v22 = v10;
+  v25 = 0LL;
+  v26 = v10;
   a5 = a6 & 1;
   if ( (a6 & 1) != 0 && a3 )
   {
-    v6 = &v21;
-    v21 = *a3;
+    v6 = &v25;
+    v25 = *a3;
   }
-  v11 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  v12 = MiLockWorkingSetShared((__int64)v11);
-  v13 = v21;
+  v11 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
+  v12 = MiLockWorkingSetShared((__int64)v11, a2, 0xFFFFF68000000000uLL, (_DWORD *)0x7FFFFFFFF8LL);
+  v13 = v25;
   a6 = v12;
   v14 = (v9 & 2) == 0;
   while ( 1 )
@@ -69,20 +73,20 @@ LABEL_24:
   }
   while ( 1 )
   {
-    if ( (v15 & 0xFFFFFFFFFFFFF000uLL) + 4088 <= v22 )
+    if ( (v15 & 0xFFFFFFFFFFFFF000uLL) + 4088 <= v26 )
       v10 = (v15 & 0xFFFFFFFFFFFFF000uLL) + 4088;
-    valid = MiLockLowestValidPageTable((__int64)v11, v15, &v21);
-    v21 = valid;
+    valid = MiLockLowestValidPageTable((__int64)v11, v15, v24);
+    v25 = valid;
     if ( valid == ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
       break;
 LABEL_14:
     if ( v14 )
     {
 LABEL_15:
-      v18 = (((__int64)(v10 - v15) >> 3) + 1) / (v23 >> 12);
+      v18 = (((__int64)(v10 - v15) >> 3) + 1) / (v27 >> 12);
       if ( a5 )
       {
-        v13 += v23 * v18;
+        v13 += v27 * v18;
       }
       else if ( v6 )
       {
@@ -94,13 +98,13 @@ LABEL_19:
     if ( MiWorkingSetIsContended((__int64)v11) || KeShouldYieldProcessor() )
     {
       MiUnlockWorkingSetShared((__int64)v11, a6);
-      MiLockWorkingSetShared((__int64)v11);
+      MiLockWorkingSetShared((__int64)v11, v19, v20, v21);
     }
     v15 = v10 + 8;
-    v10 = v22;
-    if ( v15 > v22 )
+    v10 = v26;
+    if ( v15 > v26 )
     {
-      v8 = v20;
+      v8 = v23;
       goto LABEL_24;
     }
   }
@@ -114,12 +118,12 @@ LABEL_19:
     v17 += 8LL;
     if ( v17 > v10 )
     {
-      valid = v21;
+      valid = v25;
       goto LABEL_14;
     }
   }
   v7 = -1073741800;
-  MiUnlockPageTableInternal((__int64)v11, v21);
+  MiUnlockPageTableInternal((__int64)v11, v25);
 LABEL_27:
   MiUnlockWorkingSetShared((__int64)v11, a6);
   return v7;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpEnumerateCallback @ 0x1401385B0
+ * XREFs of ExpEnumerateCallback @ 0x1401385D0
  * Callers:
  *     <none>
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpEnumerateCallback(__int64 a1, _QWORD *a2)

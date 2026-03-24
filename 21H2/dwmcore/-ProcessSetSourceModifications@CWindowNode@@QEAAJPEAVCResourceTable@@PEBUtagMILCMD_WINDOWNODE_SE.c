@@ -1,14 +1,12 @@
 /*
- * XREFs of ?ProcessSetSourceModifications@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETSOURCEMODIFICATIONS@@@Z @ 0x180064954
+ * XREFs of ?ProcessSetSourceModifications@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETSOURCEMODIFICATIONS@@@Z @ 0x1800357E4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Convert_MilColorB_sRGB_To_MilColorF_scRGB@@YAXIAEAU_D3DCOLORVALUE@@@Z @ 0x1800187CC (-Convert_MilColorB_sRGB_To_MilColorF_scRGB@@YAXIAEAU_D3DCOLORVALUE@@@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x180062474 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ?SetColorKey@CGdiSpriteBitmap@@QEAAX_NAEBVCColorKey@@@Z @ 0x180062568 (-SetColorKey@CGdiSpriteBitmap@@QEAAX_NAEBVCColorKey@@@Z.c)
- *     ?IsNonEmpty@CColorKey@@QEBA_NXZ @ 0x180064B6C (-IsNonEmpty@CColorKey@@QEBA_NXZ.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800D18A0 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
+ *     ?Convert_MilColorB_sRGB_To_MilColorF_scRGB@@YAXIAEAU_D3DCOLORVALUE@@@Z @ 0x18001DA08 (-Convert_MilColorB_sRGB_To_MilColorF_scRGB@@YAXIAEAU_D3DCOLORVALUE@@@Z.c)
+ *     ?IsNonEmpty@CColorKey@@QEBA_NXZ @ 0x1800359EC (-IsNonEmpty@CColorKey@@QEBA_NXZ.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWindowNode::ProcessSetSourceModifications(
@@ -16,12 +14,12 @@ __int64 __fastcall CWindowNode::ProcessSetSourceModifications(
         struct CResourceTable *a2,
         const struct tagMILCMD_WINDOWNODE_SETSOURCEMODIFICATIONS *a3)
 {
-  int v4; // ecx
-  float *v6; // rbx
+  unsigned int v3; // edx
+  struct _D3DCOLORVALUE *v4; // rbx
+  __int128 v5; // xmm0
   __int128 v7; // xmm1
-  bool v8; // r10
-  bool v9; // zf
-  int v10; // eax
+  bool v9; // r10
+  bool v10; // zf
   int v11; // eax
   float v12; // xmm13_4
   float v13; // xmm12_4
@@ -32,84 +30,95 @@ __int64 __fastcall CWindowNode::ProcessSetSourceModifications(
   float v18; // xmm7_4
   float v19; // xmm6_4
   int v20; // eax
-  unsigned __int64 i; // r14
-  __int64 v23; // rcx
-  CGdiSpriteBitmap *v24; // rax
-  __int128 v25; // [rsp+28h] [rbp-89h] BYREF
-  __int128 v26; // [rsp+38h] [rbp-79h]
-  int v27; // [rsp+48h] [rbp-69h]
-  __int128 v28; // [rsp+70h] [rbp-41h]
+  __int64 v22; // rcx
+  __int64 i; // r14
+  __int64 v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int128 v27; // [rsp+28h] [rbp-79h] BYREF
+  __int128 v28; // [rsp+38h] [rbp-69h]
+  int v29; // [rsp+48h] [rbp-59h]
+  __int128 v30; // [rsp+70h] [rbp-31h]
 
-  v4 = *((_DWORD *)this + 219);
-  v6 = (float *)((char *)this + 824);
-  v7 = *(_OWORD *)((char *)this + 840);
-  v8 = (v4 & 2) != 0;
-  v9 = (*((_BYTE *)a3 + 8) & 2) == 0;
-  v10 = *((_DWORD *)this + 214);
-  v25 = *(_OWORD *)((char *)this + 824);
-  v27 = v10;
-  v26 = v7;
-  if ( v9 )
+  v3 = *((_DWORD *)this + 209);
+  v4 = (struct _D3DCOLORVALUE *)((char *)this + 784);
+  v5 = *((_OWORD *)this + 49);
+  v7 = *((_OWORD *)this + 50);
+  v9 = (v3 & 2) != 0;
+  v10 = (*((_BYTE *)a3 + 8) & 2) == 0;
+  v29 = *((_DWORD *)this + 204);
+  v27 = v5;
+  v28 = v7;
+  if ( v10 )
   {
-    *(_OWORD *)v6 = _xmm;
-    LOBYTE(v28) = 0;
-    v11 = v28;
-    *(_OWORD *)((char *)this + 840) = 0LL;
-    *((_DWORD *)this + 214) = v11;
+    *(_OWORD *)&v4->r = _xmm;
+    LOBYTE(v30) = 0;
+    v11 = v30;
+    *((_OWORD *)this + 50) = 0LL;
+    *((_DWORD *)this + 204) = v11;
   }
   else
   {
-    Convert_MilColorB_sRGB_To_MilColorF_scRGB(*((_DWORD *)a3 + 3), (struct _D3DCOLORVALUE *)((char *)this + 824));
-    Convert_MilColorB_sRGB_To_MilColorF_scRGB(*((_DWORD *)a3 + 4), (struct _D3DCOLORVALUE *)((char *)this + 840));
+    Convert_MilColorB_sRGB_To_MilColorF_scRGB(*((_DWORD *)a3 + 3), v4);
+    Convert_MilColorB_sRGB_To_MilColorF_scRGB(*((_DWORD *)a3 + 4), (struct _D3DCOLORVALUE *)this + 50);
     if ( (*((_BYTE *)a3 + 8) & 4) != 0 )
-      *((_BYTE *)this + 856) = 1;
-    v4 = *((_DWORD *)this + 219);
+      *((_BYTE *)this + 816) = 1;
+    v3 = *((_DWORD *)this + 209);
   }
-  v12 = *((float *)&v26 + 3);
-  v13 = *((float *)&v26 + 2);
-  v14 = *((float *)&v26 + 1);
-  v15 = *(float *)&v26;
-  v16 = *((float *)&v25 + 3);
-  v17 = *((float *)&v25 + 2);
-  v18 = *((float *)&v25 + 1);
-  v19 = *(float *)&v25;
-  *((_BYTE *)this + 917) = *((_BYTE *)a3 + 20) != 0;
-  if ( v8 != ((v4 & 2) != 0)
-    || (CColorKey::IsNonEmpty((CColorKey *)&v25) || CColorKey::IsNonEmpty((CWindowNode *)((char *)this + 824)))
-    && (v19 != *v6
-     || v18 != *((float *)this + 207)
-     || v17 != *((float *)this + 208)
-     || v16 != *((float *)this + 209)
-     || v15 != *((float *)this + 210)
-     || v14 != *((float *)this + 211)
-     || v13 != *((float *)this + 212)
-     || v12 != *((float *)this + 213)) )
+  v12 = *((float *)&v28 + 3);
+  v13 = *((float *)&v28 + 2);
+  v14 = *((float *)&v28 + 1);
+  v15 = *(float *)&v28;
+  v16 = *((float *)&v27 + 3);
+  v17 = *((float *)&v27 + 2);
+  v18 = *((float *)&v27 + 1);
+  v19 = *(float *)&v27;
+  *((_BYTE *)this + 919) = *((_BYTE *)a3 + 20) != 0;
+  if ( v9 != ((v3 & 2) != 0)
+    || (CColorKey::IsNonEmpty((CColorKey *)&v27) || CColorKey::IsNonEmpty((CColorKey *)v4))
+    && (v19 != v4->r
+     || v18 != v4->g
+     || v17 != v4->b
+     || v16 != v4->a
+     || v15 != v4[1].r
+     || v14 != v4[1].g
+     || v13 != v4[1].b
+     || v12 != v4[1].a) )
   {
-    for ( i = 0LL; i < CPtrArrayBase::GetCount((CWindowNode *)((char *)this + 800)); ++i )
+    v22 = *((_QWORD *)this + 90);
+    if ( v22 )
     {
-      v24 = (CGdiSpriteBitmap *)CPtrArrayBase::operator[](v23, i);
-      CGdiSpriteBitmap::SetColorKey(v24, (*((_DWORD *)this + 219) & 2) != 0, (CWindowNode *)((char *)this + 824));
+      v24 = v3 >> 1;
+      LOBYTE(v24) = v24 & 1;
+      (*(void (__fastcall **)(__int64, __int64, struct _D3DCOLORVALUE *))(*(_QWORD *)v22 + 64LL))(v22, v24, v4);
+    }
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 188); i = (unsigned int)(i + 1) )
+    {
+      v25 = *((_DWORD *)this + 209) >> 1;
+      LOBYTE(v25) = (*((_DWORD *)this + 209) & 2) != 0;
+      v26 = *(_QWORD *)(*((_QWORD *)this + 91) + 8 * i);
+      (*(void (__fastcall **)(__int64, __int64, struct _D3DCOLORVALUE *))(*(_QWORD *)v26 + 64LL))(v26, v25, v4);
     }
   }
-  if ( (CColorKey::IsNonEmpty((CWindowNode *)((char *)this + 824)) || CColorKey::IsNonEmpty((CColorKey *)&v25))
-    && (*v6 != v19
-     || *((float *)this + 207) != v18
-     || *((float *)this + 208) != v17
-     || *((float *)this + 209) != v16
-     || *((float *)this + 210) != v15
-     || *((float *)this + 211) != v14
-     || *((float *)this + 212) != v13
-     || *((float *)this + 213) != v12) )
+  if ( (CColorKey::IsNonEmpty((CColorKey *)v4) || CColorKey::IsNonEmpty((CColorKey *)&v27))
+    && (v4->r != v19
+     || v4->g != v18
+     || v4->b != v17
+     || v4->a != v16
+     || v4[1].r != v15
+     || v4[1].g != v14
+     || v4[1].b != v13
+     || v4[1].a != v12) )
   {
     v20 = *((_DWORD *)a3 + 2);
-    goto LABEL_9;
+    goto LABEL_12;
   }
   v20 = *((_DWORD *)a3 + 2);
-  if ( *((_DWORD *)this + 219) != v20 )
+  if ( *((_DWORD *)this + 209) != v20 )
   {
-LABEL_9:
-    *((_DWORD *)this + 219) = v20;
-    CVisual::PropagateFlags((__int64)this, 4u);
+LABEL_12:
+    *((_DWORD *)this + 209) = v20;
+    CVisual::PropagateFlags(this, 4LL);
   }
   return 0LL;
 }

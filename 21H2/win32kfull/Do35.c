@@ -1,7 +1,7 @@
 /*
- * XREFs of Do35 @ 0x1C0264BBC
+ * XREFs of Do35 @ 0x1C026760C
  * Callers:
- *     FastExpAA_CY @ 0x1C0266D60 (FastExpAA_CY.c)
+ *     FastExpAA_CY @ 0x1C02697C0 (FastExpAA_CY.c)
  * Callees:
  *     <none>
  */

@@ -1,77 +1,88 @@
 /*
- * XREFs of AslPathCombine @ 0x140A5515C
+ * XREFs of AslPathCombine @ 0x140968864
  * Callers:
- *     SdbpGetPathAppPatchPreRS3 @ 0x14066E180 (SdbpGetPathAppPatchPreRS3.c)
- *     SdbpGetPathCustomSdbPreRS3 @ 0x14066E310 (SdbpGetPathCustomSdbPreRS3.c)
- *     SdbpGetPathAppPatch @ 0x140A52CA0 (SdbpGetPathAppPatch.c)
- *     SdbpGetPathAppraiser @ 0x140A52DA0 (SdbpGetPathAppraiser.c)
- *     SdbpGetPathCustomSdb @ 0x140A52EF0 (SdbpGetPathCustomSdb.c)
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x140A57218 (AslEnvGetSysNativeDirPathForGuestBuf.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x140A5746C (AslEnvGetSystem32DirPathBuf.c)
+ *     SdbpGetPathAppPatchPreRS3 @ 0x1405C0790 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x1405C0910 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathAppPatch @ 0x140966FB0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetPathAppraiser @ 0x1409670A0 (SdbpGetPathAppraiser.c)
+ *     SdbpGetPathCustomSdb @ 0x1409671E0 (SdbpGetPathCustomSdb.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14096A334 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x14096A5A0 (AslEnvGetSystem32DirPathBuf.c)
  * Callees:
- *     RtlStringCchCatW @ 0x14022BCB4 (RtlStringCchCatW.c)
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x140372140 (RtlStringCchCatW.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathCombine(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, wchar_t *a3, size_t a4)
 {
   NTSTATUS v8; // ebx
   const wchar_t *v9; // r11
-  NTSTRSAFE_PCWSTR v10; // r11
-  const wchar_t *v11; // r15
-  unsigned int v12; // ebp
-  unsigned int v13; // eax
+  const wchar_t *v10; // r11
+  const wchar_t *v11; // r8
+  size_t v12; // rdx
+  const wchar_t *v13; // r15
+  unsigned int v14; // ebp
+  unsigned int v15; // eax
   size_t pcchLength[7]; // [rsp+30h] [rbp-38h] BYREF
-  size_t v15; // [rsp+88h] [rbp+20h] BYREF
+  size_t v17; // [rsp+88h] [rbp+20h] BYREF
 
   pcchLength[0] = 0LL;
-  v15 = 0LL;
+  v17 = 0LL;
   if ( !a4 )
     return 3221225507LL;
   v8 = RtlStringCchLengthW(pszSrc, 0x7FFFFFFFuLL, pcchLength);
   if ( v8 < 0 )
     goto LABEL_23;
-  v8 = RtlStringCchLengthW(v9, 0x7FFFFFFFuLL, &v15);
+  v8 = RtlStringCchLengthW(v9, 0x7FFFFFFFuLL, &v17);
   if ( v8 < 0 )
     goto LABEL_23;
   if ( pcchLength[0] )
   {
-    if ( v15 )
+    v11 = pszSrc;
+    v12 = a4;
+    if ( v17 )
     {
-      v11 = v10 + 1;
-      v12 = (pszSrc[pcchLength[0] - 1] == 92) + 1;
+      v13 = v10 + 1;
+      v14 = (pszSrc[pcchLength[0] - 1] == 92) + 1;
       if ( *v10 != 92 )
-        v12 = pszSrc[pcchLength[0] - 1] == 92;
-      if ( v12 <= 1 )
-        v11 = v10;
+        v14 = pszSrc[pcchLength[0] - 1] == 92;
+      if ( v14 <= 1 )
+        v13 = v10;
       v8 = RtlStringCchCopyW(a3, a4, pszSrc);
-      if ( v8 >= 0 )
+      if ( v8 < 0 )
+        goto LABEL_23;
+      v15 = v14 - 1;
+      if ( v14 <= 1 )
+        v15 = v14;
+      if ( !v15 )
       {
-        v13 = v12 - 1;
-        if ( v12 <= 1 )
-          v13 = v12;
-        if ( v13 || (v8 = RtlStringCchCatW(a3, a4, L"\\"), v8 >= 0) )
-        {
-          v8 = RtlStringCchCatW(a3, a4, v11);
-          if ( v8 >= 0 )
-            return 0;
-        }
+        v8 = RtlStringCchCatW(a3, a4, L"\\");
+        if ( v8 < 0 )
+          goto LABEL_23;
       }
+      v8 = RtlStringCchCatW(a3, a4, v13);
+      if ( v8 < 0 )
+        goto LABEL_23;
+      v8 = 0;
+LABEL_22:
+      if ( v8 >= 0 )
+        return (unsigned int)v8;
 LABEL_23:
       AslLogCallPrintf(1LL);
       return (unsigned int)v8;
     }
-    v10 = pszSrc;
-LABEL_11:
-    v8 = RtlStringCchCopyW(a3, a4, v10);
-    if ( v8 >= 0 )
-      return (unsigned int)v8;
-    goto LABEL_23;
+LABEL_9:
+    v8 = RtlStringCchCopyW(a3, v12, v11);
+    goto LABEL_22;
   }
-  if ( v15 )
-    goto LABEL_11;
+  if ( v17 )
+  {
+    v11 = v10;
+    v12 = a4;
+    goto LABEL_9;
+  }
   *a3 = 0;
   return 0;
 }

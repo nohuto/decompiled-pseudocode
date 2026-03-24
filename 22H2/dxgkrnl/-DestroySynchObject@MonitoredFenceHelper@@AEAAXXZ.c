@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DestroySynchObject@MonitoredFenceHelper@@AEAAXXZ @ 0x1C035DE34
+ * XREFs of ?DestroySynchObject@MonitoredFenceHelper@@AEAAXXZ @ 0x1C02BCBCC
  * Callers:
- *     ??1WorkloadInstancePair@DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C0059AB0 (--1WorkloadInstancePair@DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
- *     ?Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z @ 0x1C035EF10 (-Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z.c)
+ *     ??1WorkloadInstancePair@DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C004E0B0 (--1WorkloadInstancePair@DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
+ *     ?Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z @ 0x1C02BD718 (-Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z.c)
  * Callees:
- *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00487F0 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
+ *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00031B4 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall MonitoredFenceHelper::DestroySynchObject(MonitoredFenceHelper *this)

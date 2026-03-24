@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBootLogToFile @ 0x140933C14
+ * XREFs of IopBootLogToFile @ 0x140890EC4
  * Callers:
- *     IopBootLog @ 0x140748300 (IopBootLog.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
+ *     IopBootLog @ 0x140771A20 (IopBootLog.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
  */
 
 __int64 __fastcall IopBootLogToFile(PVOID *a1)
@@ -30,14 +30,14 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
   IoStatusBlock = 0LL;
   FileHandle = 0LL;
   Buffer = -257;
-  if ( !qword_140D3B028 )
+  if ( !qword_140D2D030 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D3B028[4], 1u);
-  v4 = qword_140D3B028;
-  if ( !qword_140D3B028[2].Buffer )
-    RtlInitUnicodeString(qword_140D3B028 + 2, L"\\SystemRoot\\ntbtlog.txt");
+  ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D2D030[4], 1u);
+  v4 = qword_140D2D030;
+  if ( !qword_140D2D030[2].Buffer )
+    RtlInitUnicodeString(qword_140D2D030 + 2, L"\\SystemRoot\\ntbtlog.txt");
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
@@ -46,8 +46,9 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
   v5 = ZwCreateFile(&FileHandle, 0x40000000u, &ObjectAttributes, &IoStatusBlock, 0LL, 0x80u, 1u, 3u, 0x64u, 0LL, 0);
   if ( v5 >= 0 )
   {
-    if ( IoStatusBlock.Information != 2
-      || (v5 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 2u, 0LL, 0LL), v5 >= 0) )
+    if ( IoStatusBlock.Information == 2 )
+      v5 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 2u, 0LL, 0LL);
+    if ( v5 >= 0 )
     {
       v6 = *(unsigned __int16 *)a1;
       ByteOffset.QuadPart = -1LL;
@@ -55,7 +56,7 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
     }
     ZwClose(FileHandle);
   }
-  ExReleaseResourceLite((PERESOURCE)&qword_140D3B028[4]);
+  ExReleaseResourceLite((PERESOURCE)&qword_140D2D030[4]);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return (unsigned int)v5;
 }

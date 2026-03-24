@@ -3,8 +3,8 @@
  * Callers:
  *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
  *     CmpConstructNameFromKeyNodes @ 0x1405D75E0 (CmpConstructNameFromKeyNodes.c)
- *     CmpDoWritethroughReparse @ 0x14063C100 (CmpDoWritethroughReparse.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1407F0C54 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpDoWritethroughReparse @ 0x14063C0E0 (CmpDoWritethroughReparse.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1407F0C34 (CmpConstructNameFromKcbNameBlocks.c)
  * Callees:
  *     <none>
  */

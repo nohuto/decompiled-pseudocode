@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x140324C00
+ * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x140324D00
  * Callers:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6F88 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6FA8 (AuthzBasepQuerySecurityAttributeAndValues.c)
  * Callees:
  *     SepCopyTokenIntegrity @ 0x140091E20 (SepCopyTokenIntegrity.c)
- *     AuthzBasepFindTokenAttribute @ 0x140324B8C (AuthzBasepFindTokenAttribute.c)
+ *     AuthzBasepFindTokenAttribute @ 0x140324C8C (AuthzBasepFindTokenAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)

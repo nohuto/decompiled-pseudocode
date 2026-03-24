@@ -1,39 +1,43 @@
 /*
- * XREFs of CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1E878
+ * XREFs of CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x14087519C
  * Callers:
- *     CmpTryAcquireIXLockWithRollbackPacket @ 0x140699E9C (CmpTryAcquireIXLockWithRollbackPacket.c)
+ *     CmpTryAcquireIXLockWithRollbackPacket @ 0x14076D8E0 (CmpTryAcquireIXLockWithRollbackPacket.c)
  * Callees:
- *     CmpAddUoWToRollbackPacket @ 0x140A1E424 (CmpAddUoWToRollbackPacket.c)
- *     CmpReserveRollbackPacketSpace @ 0x140A1E6C0 (CmpReserveRollbackPacketSpace.c)
+ *     CmpAddUoWToRollbackPacket @ 0x140874C20 (CmpAddUoWToRollbackPacket.c)
+ *     CmpReserveRollbackPacketSpace @ 0x140874FDC (CmpReserveRollbackPacketSpace.c)
  */
 
-__int64 __fastcall CmpSnapshotTxOwnerArrayToRollbackPacket(unsigned int *a1, unsigned int *a2)
+__int64 __fastcall CmpSnapshotTxOwnerArrayToRollbackPacket(
+        unsigned int *a1,
+        unsigned int *a2,
+        __int64 a3,
+        struct _LOOKASIDE_LIST_EX *a4)
 {
-  __int64 v2; // rbx
+  __int64 v4; // rbx
   __int64 result; // rax
-  __int64 v6; // rbp
+  __int64 v8; // rbp
 
-  v2 = *a1;
-  if ( !(_DWORD)v2 )
+  v4 = *a1;
+  if ( !(_DWORD)v4 )
     __fastfail(5u);
-  LODWORD(v2) = v2 & 0x7FFFFFFF;
-  result = CmpReserveRollbackPacketSpace(a2, v2);
+  LODWORD(v4) = v4 & 0x7FFFFFFF;
+  result = CmpReserveRollbackPacketSpace(a2, v4, a3, a4);
   if ( (int)result >= 0 )
   {
-    if ( (_DWORD)v2 == 1 )
+    if ( (_DWORD)v4 == 1 )
     {
       CmpAddUoWToRollbackPacket(a2, *((_QWORD *)a1 + 1));
     }
-    else if ( (_DWORD)v2 )
+    else if ( (_DWORD)v4 )
     {
-      v6 = 0LL;
+      v8 = 0LL;
       do
       {
-        CmpAddUoWToRollbackPacket(a2, *(_QWORD *)(*((_QWORD *)a1 + 1) + v6));
-        v6 += 8LL;
-        --v2;
+        CmpAddUoWToRollbackPacket(a2, *(_QWORD *)(*((_QWORD *)a1 + 1) + v8));
+        v8 += 8LL;
+        --v4;
       }
-      while ( v2 );
+      while ( v4 );
     }
     return 0LL;
   }

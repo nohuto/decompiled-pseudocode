@@ -1,14 +1,14 @@
 /*
- * XREFs of IopReleaseResources @ 0x140817F2C
+ * XREFs of IopReleaseResources @ 0x140752BBC
  * Callers:
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PnpReleaseResourcesInternal @ 0x140818910 (PnpReleaseResourcesInternal.c)
- *     IopAllocateBootResourcesInternal @ 0x140819298 (IopAllocateBootResourcesInternal.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     PnpReleaseResourcesInternal @ 0x140750784 (PnpReleaseResourcesInternal.c)
+ *     IopAllocateBootResourcesInternal @ 0x1407B6290 (IopAllocateBootResourcesInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopReleaseResources(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall IopReleaseResources(__int64 a1)
   int v4; // ecx
   void *v5; // rcx
 
-  PnpReleaseResourcesInternal();
+  PnpReleaseResourcesInternal((_QWORD *)a1);
   ExAcquireFastMutex(&PiResourceListLock);
   v2 = *(void **)(a1 + 416);
   if ( v2 )
@@ -32,7 +32,7 @@ void __fastcall IopReleaseResources(__int64 a1)
     ExFreePoolWithTag(v3, 0);
     *(_QWORD *)(a1 + 424) = 0LL;
   }
-  ExReleaseFastMutex(&PiResourceListLock);
+  KeReleaseGuardedMutex(&PiResourceListLock);
   v4 = *(_DWORD *)(a1 + 396);
   if ( (v4 & 0x10001) == 1 )
   {

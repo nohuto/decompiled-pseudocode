@@ -1,14 +1,14 @@
 /*
- * XREFs of rimReadSingleDigitizerToMonitorMappings @ 0x1C018ECEC
+ * XREFs of rimReadSingleDigitizerToMonitorMappings @ 0x1C0163BE0
  * Callers:
- *     RIMReadDigitizerToMonitorMappings @ 0x1C018FA50 (RIMReadDigitizerToMonitorMappings.c)
+ *     RIMReadDigitizerToMonitorMappings @ 0x1C016487C (RIMReadDigitizerToMonitorMappings.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00369B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AEFC4 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     wcsstr @ 0x1C00CE008 (wcsstr.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0010F04 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0068828 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     wcsstr @ 0x1C00C5558 (wcsstr.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 int __fastcall rimReadSingleDigitizerToMonitorMappings(
@@ -21,17 +21,16 @@ int __fastcall rimReadSingleDigitizerToMonitorMappings(
         unsigned __int16 *a7)
 {
   int v10; // edx
-  int v11; // r8d
-  wchar_t *v12; // rax
-  int v13; // r9d
-  const WCHAR *v14; // rdx
-  wchar_t v15; // cx
+  wchar_t *v11; // rax
+  const WCHAR *v12; // rdx
+  int v13; // r10d
+  signed __int64 v14; // r9
+  WCHAR v15; // ax
   _UNKNOWN **v16; // rax
-  PDEVICE_OBJECT v17; // rcx
-  __int16 v18; // r9
-  ULONG Length; // [rsp+40h] [rbp-C0h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
-  WCHAR SourceString[256]; // [rsp+60h] [rbp-A0h] BYREF
+  int v17; // r9d
+  ULONG Length; // [rsp+30h] [rbp-D0h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  WCHAR SourceString[256]; // [rsp+50h] [rbp-B0h] BYREF
 
   Length = 524;
   memset(SourceString, 0, sizeof(SourceString));
@@ -39,19 +38,11 @@ int __fastcall rimReadSingleDigitizerToMonitorMappings(
   memset(KeyValueInformation, 0, 0x20CuLL);
   if ( (int)RtlStringCchPrintfW(SourceString, 256LL, L"%d-", a3) < 0 )
   {
-    v17 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v10) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-    {
-      LOBYTE(v10) = 0;
-    }
     v16 = &WPP_RECORDER_INITIALIZED;
-    LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v18 = 15;
-      goto LABEL_39;
+      v17 = 16;
+      goto LABEL_19;
     }
   }
   else
@@ -60,32 +51,26 @@ int __fastcall rimReadSingleDigitizerToMonitorMappings(
     DestinationString.MaximumLength = 512;
     if ( RtlAppendUnicodeStringToString(&DestinationString, a1 + 13) < 0 )
     {
-      v17 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-        || (LOBYTE(v10) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-      {
-        LOBYTE(v10) = 0;
-      }
       v16 = &WPP_RECORDER_INITIALIZED;
-      LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v18 = 14;
-        goto LABEL_39;
+        v17 = 15;
+        goto LABEL_19;
       }
     }
     else
     {
-      v12 = wcsstr(DestinationString.Buffer, L"?");
-      if ( v12 )
+      v11 = wcsstr(DestinationString.Buffer, L"?");
+      if ( v11 )
       {
+        v12 = L"\\";
         v13 = 1;
-        v14 = L"\\";
+        v14 = (char *)v11 - (char *)L"\\";
         do
         {
-          v15 = *v14++;
-          *v12++ = v15;
+          v15 = *v12;
+          *(const WCHAR *)((char *)v12 + v14) = *v12;
+          ++v12;
           if ( !v15 )
             break;
           --v13;
@@ -106,46 +91,28 @@ int __fastcall rimReadSingleDigitizerToMonitorMappings(
           LODWORD(v16) = RtlStringCchCopyW(a7, 0x80uLL, (size_t *)(KeyValueInformation + 12));
           if ( (int)v16 < 0 )
           {
-            v17 = WPP_GLOBAL_Control;
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-              || (LOBYTE(v10) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-            {
-              LOBYTE(v10) = 0;
-            }
             v16 = &WPP_RECORDER_INITIALIZED;
-            LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
-              v18 = 12;
-LABEL_39:
-              LODWORD(v16) = WPP_RECORDER_AND_TRACE_SF_(
-                               v17->AttachedDevice,
-                               v10,
-                               v11,
+              v17 = 13;
+LABEL_19:
+              LOBYTE(v10) = 3;
+              LODWORD(v16) = WPP_RECORDER_SF_(
                                (_DWORD)gRimLog,
-                               3,
+                               v10,
                                1,
-                               v18,
-                               (__int64)&WPP_2aa4d20025f835b2fe1cb6898cbf8660_Traceguids);
+                               v17,
+                               (__int64)&WPP_516b30da09af3a4d670a255114438942_Traceguids);
             }
           }
         }
         else
         {
-          v17 = WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-            || (LOBYTE(v10) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-          {
-            LOBYTE(v10) = 0;
-          }
           v16 = &WPP_RECORDER_INITIALIZED;
-          LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            v18 = 13;
-            goto LABEL_39;
+            v17 = 14;
+            goto LABEL_19;
           }
         }
       }

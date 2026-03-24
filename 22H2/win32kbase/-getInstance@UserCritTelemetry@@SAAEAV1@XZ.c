@@ -1,32 +1,40 @@
 /*
- * XREFs of ?getInstance@UserCritTelemetry@@SAAEAV1@XZ @ 0x1C0053FD0
+ * XREFs of ?getInstance@UserCritTelemetry@@SAAEAV1@XZ @ 0x1C00376C0
  * Callers:
- *     EtwTraceAcquiredSharedUserCrit @ 0x1C0053C40 (EtwTraceAcquiredSharedUserCrit.c)
- *     EtwTraceReleaseUserCrit @ 0x1C0053D40 (EtwTraceReleaseUserCrit.c)
- *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C0053EC0 (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     NtUserVkKeyScanEx @ 0x1C000AAA0 (NtUserVkKeyScanEx.c)
+ *     DrvGetCurrentDpiInfo @ 0x1C0010864 (DrvGetCurrentDpiInfo.c)
+ *     DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C00116E0 (DxgkEngAcquireWin32kAndPDEVLocks.c)
+ *     ReferenceDwmApiPort @ 0x1C00165F0 (ReferenceDwmApiPort.c)
+ *     NtUserGetDC @ 0x1C0036B40 (NtUserGetDC.c)
+ *     NtUserReleaseDC @ 0x1C0036EF0 (NtUserReleaseDC.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserEnterUserCritSecShared @ 0x1C003D010 (UserEnterUserCritSecShared.c)
+ *     NtUserMapVirtualKeyEx @ 0x1C003E200 (NtUserMapVirtualKeyEx.c)
+ *     NtUserGetKeyboardLayout @ 0x1C003E7C0 (NtUserGetKeyboardLayout.c)
+ *     NtMITGetCursorUpdateHandle @ 0x1C00889A0 (NtMITGetCursorUpdateHandle.c)
+ *     NtUserCheckProcessSession @ 0x1C008A210 (NtUserCheckProcessSession.c)
+ *     UserReleaseDC @ 0x1C0092CC0 (UserReleaseDC.c)
+ *     NtUserGetDoubleClickTime @ 0x1C009D340 (NtUserGetDoubleClickTime.c)
+ *     UserGetDesktopIdForCurrentThread @ 0x1C009E490 (UserGetDesktopIdForCurrentThread.c)
+ *     ?DxgkEngEnterUserCrit@@YAXH@Z @ 0x1C00A3C30 (-DxgkEngEnterUserCrit@@YAXH@Z.c)
+ *     NtUserGetProcessDpiAwarenessContext @ 0x1C00A6E10 (NtUserGetProcessDpiAwarenessContext.c)
+ *     NtMITSetLastInputRecipient @ 0x1C012BA30 (NtMITSetLastInputRecipient.c)
+ *     NtUserGetSystemDpiForProcess @ 0x1C012FEA0 (NtUserGetSystemDpiForProcess.c)
+ *     NtUserIsMouseInPointerEnabled @ 0x1C0132380 (NtUserIsMouseInPointerEnabled.c)
+ *     W32pLkmdDataCollectionCallback @ 0x1C013B2A0 (W32pLkmdDataCollectionCallback.c)
+ *     ?ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z @ 0x1C01B9620 (-ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 struct UserCritTelemetry *UserCritTelemetry::getInstance(void)
 {
-  struct UserCritTelemetry *result; // rax
-
-  if ( (dword_1C0290960 & 1) != 0 )
-    return (struct UserCritTelemetry *)&unk_1C0290970;
-  dword_1C0290960 |= 1u;
-  memset(&unk_1C0290970, 0, 0x1128uLL);
-  word_1C0291A98 = 0;
-  byte_1C0291A9A = 0;
-  memset(&unk_1C0291AA0, 0, 0x168uLL);
-  qword_1C0291C50 = 0LL;
-  qword_1C0291C18 = 0LL;
-  qword_1C0291C30 = 0LL;
-  qword_1C0291C48 = 0LL;
-  result = (struct UserCritTelemetry *)&unk_1C0290970;
-  qword_1C0291C58 = 0LL;
-  xmmword_1C0291C08 = 0LL;
-  xmmword_1C0291C20 = 0LL;
-  xmmword_1C0291C38 = 0LL;
-  return result;
+  if ( (dword_1C0250F10 & 1) == 0 )
+  {
+    dword_1C0250F10 |= 1u;
+    memset(qword_1C0250F20, 0, 0x198uLL);
+    qword_1C02510B8 = 0LL;
+    qword_1C02510C0 = 0LL;
+  }
+  return (struct UserCritTelemetry *)qword_1C0250F20;
 }

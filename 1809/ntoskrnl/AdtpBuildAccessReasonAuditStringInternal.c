@@ -1,29 +1,29 @@
 /*
- * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x140326054
+ * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x140326154
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x140325AEC (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140325BEC (AdtpBuildAccessReasonAuditString.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
  *     RtlGetDaclSecurityDescriptor @ 0x140092330 (RtlGetDaclSecurityDescriptor.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     StringCchPrintfW @ 0x140134AE4 (StringCchPrintfW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140300C20 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     AdtpFormatPrefix @ 0x140326E90 (AdtpFormatPrefix.c)
- *     StringCchPrintfExW @ 0x140326F70 (StringCchPrintfExW.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     StringCchPrintfW @ 0x140134B04 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140300D20 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     AdtpFormatPrefix @ 0x140326F90 (AdtpFormatPrefix.c)
+ *     StringCchPrintfExW @ 0x140327070 (StringCchPrintfExW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlAddAce @ 0x1405CAE40 (RtlAddAce.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     AdtpBuildPrivilegeAuditString @ 0x1408EEFB4 (AdtpBuildPrivilegeAuditString.c)
- *     AdtpBuildAccessesString @ 0x1408EFECC (AdtpBuildAccessesString.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     AdtpBuildPrivilegeAuditString @ 0x1408EEF94 (AdtpBuildPrivilegeAuditString.c)
+ *     AdtpBuildAccessesString @ 0x1408EFEAC (AdtpBuildAccessesString.c)
  */
 
 __int64 __fastcall AdtpBuildAccessReasonAuditStringInternal(

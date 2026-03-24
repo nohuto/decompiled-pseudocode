@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0211530
+ * XREFs of ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E26B0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C021107C (-AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
- *     ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C0211700 (-SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
+ *     ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E21DC (-AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
+ *     ?SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E2880 (-SetSegments@CInkMarshaler@DirectComposition@@AEAAJIPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CInkMarshaler::SetBufferProperty(
@@ -19,7 +19,8 @@ __int64 __fastcall DirectComposition::CInkMarshaler::SetBufferProperty(
   unsigned int v7; // r8d
   unsigned int v8; // r8d
   unsigned int v9; // r8d
-  int v11; // eax
+  __int64 v10; // rax
+  int v12; // eax
 
   v6 = 0;
   *a6 = 0;
@@ -54,8 +55,18 @@ LABEL_21:
     v9 = v8 - 1;
     if ( v9 )
     {
-      if ( v9 == 2 && a4 && a5 == 36 && *((_QWORD *)this + 17) )
-        return (unsigned int)DirectComposition::CInkMarshaler::SetSegments(this, *((_DWORD *)this + 34) - 1, a4, 1u, a6);
+      if ( v9 == 2 )
+      {
+        if ( a4 )
+        {
+          if ( a5 == 36 )
+          {
+            v10 = *((_QWORD *)this + 17);
+            if ( v10 )
+              return (unsigned int)DirectComposition::CInkMarshaler::SetSegments(this, (int)v10 - 1, a4, 1u, a6);
+          }
+        }
+      }
     }
     else if ( a4 && a5 == 36 * (a5 / 0x24) )
     {
@@ -66,9 +77,9 @@ LABEL_21:
   if ( !a4 || a5 != 12 )
     return (unsigned int)-1073741811;
   *(_QWORD *)((char *)this + 100) = *(_QWORD *)a4;
-  v11 = *((_DWORD *)a4 + 2);
+  v12 = *((_DWORD *)a4 + 2);
   *((_DWORD *)this + 4) &= ~0x40u;
-  *((_DWORD *)this + 27) = v11;
+  *((_DWORD *)this + 27) = v12;
 LABEL_17:
   *a6 = 1;
   return v6;

@@ -1,17 +1,20 @@
 /*
- * XREFs of ?_QueryStringHash@CCD_SET_STRING_ID@@CAJAEBU_STRING@@PEAUD3DKMT_HASH@@@Z @ 0x1C017FD00
+ * XREFs of ?_QueryStringHash@CCD_SET_STRING_ID@@CAJAEBU_STRING@@PEAUD3DKMT_HASH@@@Z @ 0x1C0139524
  * Callers:
- *     ?SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C017D484 (-SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z.c)
- *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01827B0 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
- *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C0184658 (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z.c)
+ *     ?SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C01394D8 (-SetConnectivityHash@CCD_TOPOLOGY@@QEAAJAEBVCCD_SET_STRING_ID@@@Z.c)
+ *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C013F8EC (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
+ *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C0148B20 (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z.c)
  * Callees:
- *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C017FD98 (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
+ *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C01395BC (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
  */
 
 __int64 __fastcall CCD_SET_STRING_ID::_QueryStringHash(PCANSI_STRING SourceString, struct D3DKMT_HASH *a2)
 {
   NTSTATUS v4; // eax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   __int64 Md5Checksum; // rbx
+  __int64 v9; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *(_OWORD *)a2 = 0LL;
@@ -27,7 +30,10 @@ __int64 __fastcall CCD_SET_STRING_ID::_QueryStringHash(PCANSI_STRING SourceStrin
         RtlFreeUnicodeString(&DestinationString),
         (int)Md5Checksum < 0) )
   {
-    WdLogSingleEntry2(2LL, Md5Checksum, SourceString);
+    v9 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v9 + 24) = Md5Checksum;
+    *(_QWORD *)(v9 + 32) = SourceString;
+    WdLogEvent5_WdError(v9);
   }
   else
   {

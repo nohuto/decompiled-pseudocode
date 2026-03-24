@@ -1,43 +1,40 @@
 /*
- * XREFs of ?DwmHolographicDisplayAdd_@CompositorTracing@@QEAAXIAEBU_GUID@@@Z @ 0x1802A5028
+ * XREFs of ?DwmHolographicDisplayAdd_@CompositorTracing@@QEAAXIAEBU_GUID@@@Z @ 0x180252EC0
  * Callers:
- *     ?AddHolographicDisplay@CHolographicManager@@QEAA_NPEAVCHolographicDisplay@@@Z @ 0x1802A4A4C (-AddHolographicDisplay@CHolographicManager@@QEAA_NPEAVCHolographicDisplay@@@Z.c)
+ *     ?AddHolographicDisplay@CHolographicManager@@QEAA_NPEAVCHolographicDisplay@@@Z @ 0x1802528D0 (-AddHolographicDisplay@CHolographicManager@@QEAA_NPEAVCHolographicDisplay@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FB924 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB230 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 void __fastcall CompositorTracing::DwmHolographicDisplayAdd_(CompositorTracing *this, int a2, const struct _GUID *a3)
 {
-  _DWORD *v5; // rcx
-  __int64 v6; // rcx
-  ULONG v7; // r9d
-  int v8; // [rsp+30h] [rbp-68h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+40h] [rbp-58h] BYREF
-  int *v10; // [rsp+60h] [rbp-38h]
-  ULONG v11; // [rsp+68h] [rbp-30h]
-  int v12; // [rsp+6Ch] [rbp-2Ch]
-  const struct _GUID *v13; // [rsp+70h] [rbp-28h]
-  int v14; // [rsp+78h] [rbp-20h]
-  int v15; // [rsp+7Ch] [rbp-1Ch]
+  __int64 v5; // rcx
+  int v6; // [rsp+30h] [rbp-68h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+40h] [rbp-58h] BYREF
+  int *v8; // [rsp+60h] [rbp-38h]
+  int v9; // [rsp+68h] [rbp-30h]
+  int v10; // [rsp+6Ch] [rbp-2Ch]
+  const struct _GUID *v11; // [rsp+70h] [rbp-28h]
+  int v12; // [rsp+78h] [rbp-20h]
+  int v13; // [rsp+7Ch] [rbp-1Ch]
 
-  v5 = (_DWORD *)wil::details::static_lazy<CompositorTracing>::get(
-                   (__int64)this,
-                   (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)[1];
-  if ( *v5 > 4u )
+  v5 = *((_QWORD *)wil::details::static_lazy<CompositorTracing>::get(
+                     (__int64)this,
+                     _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)
+       + 1);
+  if ( *(_DWORD *)v5 > 4u
+    && (*(_QWORD *)(v5 + 16) & 0x400000000000LL) != 0
+    && (*(_QWORD *)(v5 + 24) & 0x400000000000LL) == *(_QWORD *)(v5 + 24) )
   {
-    if ( tlgKeywordOn((__int64)v5, 0x400000000000LL) )
-    {
-      v15 = 0;
-      v12 = 0;
-      v10 = &v8;
-      v11 = v7;
-      v8 = a2;
-      v13 = a3;
-      v14 = 16;
-      tlgWriteTransfer_EventWriteTransfer(v6, (unsigned __int8 *)dword_180382B85, 0LL, 0LL, v7, &v9);
-    }
+    v13 = 0;
+    v10 = 0;
+    v8 = &v6;
+    v9 = 4;
+    v6 = a2;
+    v11 = a3;
+    v12 = 16;
+    tlgWriteTransfer_EventWriteTransfer(v5, (unsigned __int8 *)dword_1802ED7E8, 0LL, 0LL, 4u, &v7);
   }
 }

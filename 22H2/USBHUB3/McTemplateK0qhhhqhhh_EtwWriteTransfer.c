@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C00024BC
+ * XREFs of McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C0001E7C
  * Callers:
- *     HUBHTX_Get20PortChangeEvent @ 0x1C0004C30 (HUBHTX_Get20PortChangeEvent.c)
- *     HUBHTX_GetPortLostChangeEvent @ 0x1C00052EC (HUBHTX_GetPortLostChangeEvent.c)
- *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
+ *     HUBHTX_Get20PortChangeEvent @ 0x1C00045EC (HUBHTX_Get20PortChangeEvent.c)
+ *     HUBHTX_GetPortLostChangeEvent @ 0x1C0004CE8 (HUBHTX_GetPortLostChangeEvent.c)
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C0004FF8 (HUBHTX_Get30PortChangeEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qhhhqhhh_EtwWriteTransfer(

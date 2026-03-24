@@ -1,39 +1,35 @@
 /*
- * XREFs of RtlpGetPolicyValueForSystemCapability @ 0x1407EF528
+ * XREFs of RtlpGetPolicyValueForSystemCapability @ 0x1409143A4
  * Callers:
- *     RtlpCapabilityCheckSystemCapability @ 0x1407EF4A0 (RtlpCapabilityCheckSystemCapability.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x140913CBC (RtlpCapabilityCheckSystemCapability.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpGetPolicyValueForSystemCapability(PCUNICODE_STRING Source, PUNICODE_STRING UnicodeString)
 {
-  void *Pool2; // r14
+  PVOID PoolWithQuotaTag; // r14
   unsigned __int16 v5; // bx
   wchar_t *StringRoutine; // rax
   wchar_t *v7; // r15
   int appended; // ebx
-  int LicenseValue; // eax
   UNICODE_STRING Destination; // [rsp+30h] [rbp-10h] BYREF
-  int v12; // [rsp+90h] [rbp+50h] BYREF
+  int v11; // [rsp+90h] [rbp+50h] BYREF
 
-  v12 = 0;
-  Pool2 = 0LL;
+  v11 = 0;
+  PoolWithQuotaTag = 0LL;
   Destination = 0LL;
   if ( !Source || !UnicodeString )
   {
     appended = -1073741811;
-LABEL_8:
-    if ( !UnicodeString )
-      goto LABEL_11;
-    goto LABEL_9;
+    goto LABEL_11;
   }
   v5 = Source->Length + 56;
   StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v5);
@@ -43,36 +39,33 @@ LABEL_8:
     memset(StringRoutine, 0, v5);
     Destination.MaximumLength = v5;
     Destination.Buffer = v7;
-    appended = RtlAppendUnicodeStringToString(&Destination, &stru_1400028A8);
-    if ( appended >= 0 )
+    appended = RtlAppendUnicodeStringToString(&Destination, &stru_140009A78);
+    if ( appended < 0 )
+      goto LABEL_12;
+    appended = RtlAppendUnicodeStringToString(&Destination, Source);
+    if ( appended < 0 )
+      goto LABEL_12;
+    appended = ZwQueryLicenseValue((__int64)&Destination, (__int64)&v11);
+    if ( appended == -1073741789 )
     {
-      appended = RtlAppendUnicodeStringToString(&Destination, Source);
+      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0LL, 0x62507452u);
+      appended = ZwQueryLicenseValue((__int64)&Destination, (__int64)&v11);
       if ( appended >= 0 )
-      {
-        LicenseValue = ZwQueryLicenseValue((__int64)&Destination, (__int64)&v12);
-        appended = LicenseValue;
-        if ( LicenseValue != -1073741789 )
-        {
-          if ( LicenseValue >= 0 )
-            goto LABEL_11;
-          goto LABEL_8;
-        }
-        Pool2 = (void *)ExAllocatePool2(65LL, 0LL, 1649439826LL);
-        appended = ZwQueryLicenseValue((__int64)&Destination, (__int64)&v12);
-        if ( appended >= 0 )
-          appended = -1073741823;
-      }
+        appended = -1073741823;
+      goto LABEL_12;
     }
-  }
-  else
-  {
-    appended = -1073741801;
-  }
-LABEL_9:
-  RtlFreeUnicodeString(UnicodeString);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
 LABEL_11:
-  RtlFreeUnicodeString(&Destination);
+    if ( appended >= 0 )
+      goto LABEL_16;
+    goto LABEL_12;
+  }
+  appended = -1073741801;
+LABEL_12:
+  if ( UnicodeString )
+    RtlFreeAnsiString(UnicodeString);
+  if ( PoolWithQuotaTag )
+    ExFreePoolWithTag(PoolWithQuotaTag, 0);
+LABEL_16:
+  RtlFreeAnsiString(&Destination);
   return (unsigned int)appended;
 }

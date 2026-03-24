@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z @ 0x1C016B940
+ * XREFs of ?DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z @ 0x1C0215D10
  * Callers:
  *     <none>
  * Callees:
- *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C000A1D4 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C00378B4 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
  */
 
 void __fastcall DxgkLatencyToleranceTimerNotification(KSPIN_LOCK *a1, __int64 a2)

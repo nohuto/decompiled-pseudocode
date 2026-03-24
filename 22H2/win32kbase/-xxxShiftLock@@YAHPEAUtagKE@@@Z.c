@@ -1,47 +1,31 @@
 /*
- * XREFs of ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C01EB250
+ * XREFs of ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C01B155C
  * Callers:
- *     xxxKELocaleProcs @ 0x1C00B042C (xxxKELocaleProcs.c)
+ *     xxxKELocaleProcs @ 0x1C009DDC8 (xxxKELocaleProcs.c)
  * Callees:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  */
 
-__int64 __fastcall xxxShiftLock(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxShiftLock(struct tagKE *a1)
 {
-  __int16 v4; // ax
-  __int64 v6; // rcx
-  __int64 v7; // rax
+  signed __int16 v2; // cx
 
-  v4 = *((_WORD *)a1 + 1);
-  if ( v4 < 0 )
-    return 1LL;
-  v6 = 255LL;
-  if ( (unsigned __int8)v4 == 20 )
+  v2 = *((_WORD *)a1 + 1);
+  if ( v2 >= 0 )
   {
-    v7 = SGDGetUserSessionState(255LL, a2, a3, a4);
-    LOBYTE(v7) = ~*(_BYTE *)(v7 + 13997);
-    return ((unsigned int)v7 >> 1) & 1;
+    if ( (unsigned __int8)v2 == 20 )
+    {
+      if ( (BYTE5(gafAsyncKeyState) & 2) != 0 )
+        return 0LL;
+    }
+    else if ( ((unsigned __int8)v2 == 16 || (unsigned __int16)((unsigned __int8)v2 - 160) <= 1u)
+           && (BYTE5(gafAsyncKeyState) & 2) != 0 )
+    {
+      xxxKeyEventEx(v2, *(unsigned __int8 *)a1, *((_DWORD *)a1 + 1), 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
+      xxxKeyEventEx(0x14u, 0x23Au, *((_DWORD *)a1 + 1), 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
+      xxxKeyEventEx(0x8014u, 0x23Au, *((_DWORD *)a1 + 1), 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
+      return 0LL;
+    }
   }
-  if ( (unsigned __int8)v4 != 16 )
-  {
-    v6 = 160LL;
-    if ( (unsigned __int16)((unsigned __int8)v4 - 160) > 1u )
-      return 1LL;
-  }
-  if ( (*(_BYTE *)(SGDGetUserSessionState(v6, a2, a3, a4) + 13997) & 2) == 0 )
-    return 1LL;
-  xxxKeyEventEx(
-    *((unsigned __int16 *)a1 + 1),
-    *(unsigned __int8 *)a1,
-    *((unsigned int *)a1 + 1),
-    0LL,
-    0LL,
-    0LL,
-    0,
-    0,
-    0LL,
-    0LL);
-  xxxKeyEventEx(20LL, 570LL, *((unsigned int *)a1 + 1), 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
-  xxxKeyEventEx(32788LL, 570LL, *((unsigned int *)a1 + 1), 0LL, 0LL, 0LL, 0, 0, 0LL, 0LL);
-  return 0LL;
+  return 1LL;
 }

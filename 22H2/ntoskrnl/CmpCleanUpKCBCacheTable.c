@@ -1,65 +1,65 @@
 /*
- * XREFs of CmpCleanUpKCBCacheTable @ 0x140699C14
+ * XREFs of CmpCleanUpKCBCacheTable @ 0x14066D23C
  * Callers:
- *     CmpEnumerateAllOpenSubKeys @ 0x140699ABC (CmpEnumerateAllOpenSubKeys.c)
- *     CmpRefreshHive @ 0x140A0C940 (CmpRefreshHive.c)
- *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x140A1F890 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x14066D0E4 (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x140875F50 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
+ *     CmpRefreshHive @ 0x14087D448 (CmpRefreshHive.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x14022D510 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpFreeKeyControlBlock @ 0x140699D40 (CmpFreeKeyControlBlock.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D85C0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpRemoveFromDelayedClose @ 0x14076C2C8 (CmpRemoveFromDelayedClose.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     CmpInitializeDelayDerefContext @ 0x1402D1878 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x1402D1890 (CmpDrainDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpFreeKeyControlBlock @ 0x14066D340 (CmpFreeKeyControlBlock.c)
+ *     CmpRemoveFromDelayedClose @ 0x14066D410 (CmpRemoveFromDelayedClose.c)
  */
 
-__int64 __fastcall CmpCleanUpKCBCacheTable(__int64 a1)
+__int64 __fastcall CmpCleanUpKCBCacheTable(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned int v1; // r14d
-  __int64 v2; // rbp
-  __int64 v3; // rsi
-  __int64 *v4; // rdi
+  unsigned int v4; // r14d
+  __int64 v5; // rbp
+  __int64 v6; // rsi
+  __int64 *v7; // rdi
   __int64 i; // rax
-  ULONG_PTR v7; // rbx
-  __int64 *v8; // rax
-  __int128 v9; // [rsp+20h] [rbp-68h] BYREF
-  _OWORD v10[3]; // [rsp+30h] [rbp-58h] BYREF
+  ULONG_PTR v10; // rbx
+  __int64 *v11; // rax
+  __int128 v12; // [rsp+20h] [rbp-68h] BYREF
+  _OWORD v13[3]; // [rsp+30h] [rbp-58h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 1656);
-  v2 = *(_QWORD *)(a1 + 1648);
-  memset(v10, 0, sizeof(v10));
-  v9 = 0LL;
-  CmpAttachToRegistryProcess(v10);
-  CmpInitializeDelayDerefContext(&v9);
-  v3 = 0LL;
-  if ( v1 )
+  v4 = *(_DWORD *)(a1 + 1648);
+  v5 = *(_QWORD *)(a1 + 1640);
+  memset(v13, 0, sizeof(v13));
+  v12 = 0LL;
+  CmpAttachToRegistryProcess((__int64)v13, a2, a3, a4);
+  CmpInitializeDelayDerefContext(&v12);
+  v6 = 0LL;
+  if ( v4 )
   {
-    v4 = (__int64 *)(v2 + 16);
+    v7 = (__int64 *)(v5 + 16);
     do
     {
-      for ( i = *v4; i; i = *v8 )
+      for ( i = *v7; i; i = *v11 )
       {
-        v7 = i - 16;
+        v10 = i - 16;
         if ( *(_QWORD *)(i - 16) )
         {
-          v8 = (__int64 *)(v7 + 24);
+          v11 = (__int64 *)(v10 + 24);
         }
         else
         {
           CmpRemoveFromDelayedClose(i - 16);
-          CmpCleanUpKcbCacheWithLock(v7);
-          if ( (*(_DWORD *)(v7 + 8) & 0x80000) != 0 )
-            CmpFreeKeyControlBlock(v7);
-          CmpDrainDelayDerefContext((_QWORD **)&v9);
-          v8 = (__int64 *)(v2 + 16 + 24 * v3);
+          CmpCleanUpKcbCacheWithLock(v10, (__int64)&v12);
+          if ( (*(_DWORD *)(v10 + 8) & 0x80000) != 0 )
+            CmpFreeKeyControlBlock(v10);
+          CmpDrainDelayDerefContext((_QWORD **)&v12);
+          v11 = (__int64 *)(v5 + 16 + 24 * v6);
         }
       }
-      v3 = (unsigned int)(v3 + 1);
-      v4 += 3;
+      v6 = (unsigned int)(v6 + 1);
+      v7 += 3;
     }
-    while ( (unsigned int)v3 < v1 );
+    while ( (unsigned int)v6 < v4 );
   }
-  return CmpDetachFromRegistryProcess(v10);
+  return KiUnstackDetachProcess((__int64)v13, 0);
 }

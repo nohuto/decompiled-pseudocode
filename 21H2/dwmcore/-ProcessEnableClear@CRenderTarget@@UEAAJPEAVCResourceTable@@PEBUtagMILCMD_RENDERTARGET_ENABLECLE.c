@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ProcessEnableClear@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_ENABLECLEAR@@@Z @ 0x1801A1AB0
+ * XREFs of ?ProcessEnableClear@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_ENABLECLEAR@@@Z @ 0x18016FEB0
  * Callers:
  *     <none>
  * Callees:
@@ -14,10 +14,10 @@ __int64 __fastcall CRenderTarget::ProcessEnableClear(
   char v3; // al
 
   v3 = *((_BYTE *)a3 + 8) != 0;
-  if ( *((_BYTE *)this + 140) != v3 )
+  if ( *((_BYTE *)this + 128) != v3 )
   {
-    *((_BYTE *)this + 140) = v3;
-    *((_BYTE *)this + 141) = 1;
+    *((_BYTE *)this + 128) = v3;
+    *((_BYTE *)this + 129) = 1;
   }
   return 0LL;
 }

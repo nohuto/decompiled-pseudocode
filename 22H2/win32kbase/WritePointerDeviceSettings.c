@@ -1,48 +1,43 @@
 /*
- * XREFs of WritePointerDeviceSettings @ 0x1C013F160
+ * XREFs of WritePointerDeviceSettings @ 0x1C0127B80
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
  * Callees:
- *     SetTouchInputStatus @ 0x1C013F130 (SetTouchInputStatus.c)
- *     WriteSettingValues @ 0x1C013F2A0 (WriteSettingValues.c)
+ *     WriteSettingValues @ 0x1C0127CB0 (WriteSettingValues.c)
  */
 
-__int64 __fastcall WritePointerDeviceSettings(int a1, _DWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall WritePointerDeviceSettings(int a1, _DWORD *a2, int a3)
 {
-  unsigned int v4; // ebx
-  int v5; // esi
+  unsigned int v3; // r9d
 
-  v4 = 0;
-  v5 = a3;
+  v3 = 0;
   if ( a1 == 147 )
   {
-    v4 = 1;
-    dword_1C02888BC = *a2 == 0;
-    dword_1C02888CC = a2[1];
-    dword_1C02888DC = a2[2];
-    dword_1C02888EC = a2[3];
-    dword_1C02888FC = a2[5];
-    dword_1C028890C = a2[6];
-    dword_1C028891C = a2[7];
-    dword_1C028892C = a2[8];
-    dword_1C028893C = a2[9];
-    dword_1C028894C = a2[10];
-    dword_1C028895C = a2[11];
-    dword_1C028896C = a2[12];
-    dword_1C028897C = a2[13];
-    dword_1C028898C = a2[14];
-    dword_1C028899C = a2[15];
-    SetTouchInputStatus((unsigned int)a2[7], (__int64)a2, a3, a4);
-    if ( !v5 || (v4 = WriteSettingValues(2LL, &gaTouchGestureSettings, 15LL)) != 0 )
+    v3 = 1;
+    dword_1C024985C = *a2 == 0;
+    dword_1C024986C = a2[1];
+    dword_1C024987C = a2[2];
+    dword_1C024988C = a2[3];
+    dword_1C024989C = a2[5];
+    dword_1C02498AC = a2[6];
+    dword_1C02498BC = a2[7];
+    dword_1C02498CC = a2[8];
+    dword_1C02498DC = a2[9];
+    dword_1C02498EC = a2[10];
+    dword_1C02498FC = a2[11];
+    dword_1C024990C = a2[12];
+    dword_1C024991C = a2[13];
+    RawInputManagerObject::bTouchInputAllowed = a2[7];
+    if ( !a3 || (v3 = WriteSettingValues(2LL, &gaTouchGestureSettings, 13LL)) != 0 )
     {
       if ( !gTouchMonitor )
         gTouchMonitor = 1;
-      dword_1C02888AC = a2[4];
-      if ( v5 )
-        v4 = WriteSettingValues(3LL, &gMultiTouchGetSettings, 1LL);
-      if ( v4 && !gMultiTouchMonitor )
+      dword_1C024984C = a2[4];
+      if ( a3 )
+        v3 = WriteSettingValues(3LL, &gMultiTouchGetSettings, 1LL);
+      if ( v3 && !gMultiTouchMonitor )
         gMultiTouchMonitor = 1;
     }
   }
-  return v4;
+  return v3;
 }

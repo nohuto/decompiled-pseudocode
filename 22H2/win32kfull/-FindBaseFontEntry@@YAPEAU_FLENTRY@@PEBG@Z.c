@@ -1,38 +1,38 @@
 /*
- * XREFs of ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C0082500
+ * XREFs of ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C00A1144
  * Callers:
- *     vLinkEudcPFEsWorker @ 0x1C0081920 (vLinkEudcPFEsWorker.c)
- *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C0081B40 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
- *     bDeleteFlEntry @ 0x1C029F7D0 (bDeleteFlEntry.c)
- *     NtGdiGetEudcTimeStampEx @ 0x1C02A0ED0 (NtGdiGetEudcTimeStampEx.c)
+ *     bAddFlEntry @ 0x1C00A0BA8 (bAddFlEntry.c)
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C00A37E0 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ *     vLinkEudcPFEsWorker @ 0x1C00A3B24 (vLinkEudcPFEsWorker.c)
+ *     bDeleteFlEntry @ 0x1C0298040 (bDeleteFlEntry.c)
+ *     NtGdiGetEudcTimeStampEx @ 0x1C02989B0 (NtGdiGetEudcTimeStampEx.c)
  * Callees:
  *     <none>
  */
 
 struct _FLENTRY *__fastcall FindBaseFontEntry(wchar_t *Str1)
 {
-  _QWORD *v2; // rsi
-  _QWORD *v3; // rbx
+  _WORD *i; // rbx
+  _WORD *v3; // rdi
   __int64 v4; // rdx
-  const wchar_t *v5; // rdx
-  const wchar_t *v6; // rcx
+  const wchar_t *v5; // rcx
+  const wchar_t *v6; // rdx
 
-  v2 = (_QWORD *)(*(_QWORD *)(SGDGetSessionState(Str1) + 32) + 13912LL);
-  v3 = (_QWORD *)*v2;
-  if ( (_QWORD *)*v2 == v2 )
-    return 0LL;
-  while ( 1 )
+  for ( i = off_1C032A378; ; i = *(_WORD **)i )
   {
-    v4 = 34LL;
-    if ( *((_WORD *)v3 + 16) != 64 )
-      v4 = 32LL;
-    v5 = (const wchar_t *)((char *)v3 + v4);
-    v6 = *Str1 == 64 ? Str1 + 1 : Str1;
-    if ( !_wcsicmp(v6, v5) )
+    v3 = 0LL;
+    if ( i == (_WORD *)&off_1C032A378 )
       break;
-    v3 = (_QWORD *)*v3;
-    if ( v3 == v2 )
-      return 0LL;
+    v4 = 17LL;
+    v3 = i;
+    if ( i[16] != 64 )
+      v4 = 16LL;
+    v5 = Str1;
+    v6 = &i[v4];
+    if ( *Str1 == 64 )
+      v5 = Str1 + 1;
+    if ( !_wcsicmp(v5, v6) )
+      break;
   }
   return (struct _FLENTRY *)v3;
 }

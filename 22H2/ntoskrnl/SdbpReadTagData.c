@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpReadTagData @ 0x1407579AC
+ * XREFs of SdbpReadTagData @ 0x140759730
  * Callers:
- *     SdbReadBinaryTag @ 0x140695430 (SdbReadBinaryTag.c)
- *     SdbReadDWORDTag @ 0x140755968 (SdbReadDWORDTag.c)
- *     SdbReadWORDTag @ 0x14075617C (SdbReadWORDTag.c)
- *     SdbpReadStringRef @ 0x140757948 (SdbpReadStringRef.c)
- *     SdbReadQWORDTag @ 0x14080B234 (SdbReadQWORDTag.c)
+ *     SdbReadBinaryTag @ 0x140755BB8 (SdbReadBinaryTag.c)
+ *     SdbpReadStringRef @ 0x140755F18 (SdbpReadStringRef.c)
+ *     SdbReadDWORDTag @ 0x140759584 (SdbReadDWORDTag.c)
+ *     SdbReadWORDTag @ 0x1407596BC (SdbReadWORDTag.c)
+ *     SdbReadQWORDTag @ 0x1407B3E60 (SdbReadQWORDTag.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetTagHeadSize @ 0x140742488 (SdbpGetTagHeadSize.c)
- *     SdbpReadMappedData @ 0x140742D9C (SdbpReadMappedData.c)
- *     SdbGetTagDataSize @ 0x1407580A0 (SdbGetTagDataSize.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpGetTagHeadSize @ 0x140759A58 (SdbpGetTagHeadSize.c)
+ *     SdbGetTagDataSize @ 0x140759B30 (SdbGetTagDataSize.c)
+ *     SdbpReadMappedData @ 0x140759C1C (SdbpReadMappedData.c)
  */
 
-__int64 __fastcall SdbpReadTagData(__int64 a1, __int64 a2, void *a3, unsigned int a4)
+__int64 __fastcall SdbpReadTagData(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v6; // esi
   unsigned int TagDataSize; // ebx

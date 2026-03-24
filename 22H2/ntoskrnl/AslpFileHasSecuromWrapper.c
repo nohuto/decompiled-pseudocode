@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpFileHasSecuromWrapper @ 0x140A58FC0
+ * XREFs of AslpFileHasSecuromWrapper @ 0x14096BB94
  * Callers:
- *     AslpFileGetExeWrapper @ 0x140A583F4 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExeWrapper @ 0x14096B000 (AslpFileGetExeWrapper.c)
  * Callees:
- *     strncmp @ 0x1403D8830 (strncmp.c)
+ *     strncmp @ 0x1403D0E40 (strncmp.c)
  */
 
 __int64 __fastcall AslpFileHasSecuromWrapper(__int64 a1)
 {
   unsigned int v1; // ebx
   __int64 v2; // rdi
-  unsigned int v4; // esi
+  unsigned int v4; // ebp
 
   v1 = 0;
   v2 = *(unsigned __int16 *)(a1 + 20) + a1 + 24;

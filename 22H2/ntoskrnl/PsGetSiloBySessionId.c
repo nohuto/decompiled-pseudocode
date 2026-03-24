@@ -1,28 +1,30 @@
 /*
- * XREFs of PsGetSiloBySessionId @ 0x140742388
+ * XREFs of PsGetSiloBySessionId @ 0x1406AD300
  * Callers:
- *     SessionIsInteractive @ 0x14032D28C (SessionIsInteractive.c)
- *     SeQuerySessionIdTokenEx @ 0x1407422E0 (SeQuerySessionIdTokenEx.c)
- *     SeQueryServerSiloToken @ 0x1407DEF60 (SeQueryServerSiloToken.c)
- *     PsIsServiceSession @ 0x1407E8C4C (PsIsServiceSession.c)
- *     EtwWmitraceWorker @ 0x1409EBA9C (EtwWmitraceWorker.c)
+ *     SessionIsInteractive @ 0x14034C240 (SessionIsInteractive.c)
+ *     SeQueryServerSiloToken @ 0x140693660 (SeQueryServerSiloToken.c)
+ *     PsIsServiceSession @ 0x1406A5008 (PsIsServiceSession.c)
+ *     SeQuerySessionIdTokenEx @ 0x1406AD220 (SeQuerySessionIdTokenEx.c)
+ *     EtwWmitraceWorker @ 0x14093C914 (EtwWmitraceWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1402C1E00 (MmGetSessionById.c)
+ *     MmGetSessionById @ 0x1402063D0 (MmGetSessionById.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-__int64 __fastcall PsGetSiloBySessionId(unsigned int a1, _QWORD *a2)
+__int64 __fastcall PsGetSiloBySessionId(
+        __int64 a1,
+        int (__fastcall **a2)(_DMA_ADAPTER *, _DEVICE_OBJECT *, _MDL *, void *, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, unsigned __int8, void *, unsigned int))
 {
-  _QWORD *SessionById; // rax
-  __int64 v4; // rbx
+  struct _DMA_ADAPTER *SessionById; // rax
+  int (__fastcall *BuildScatterGatherList)(_DMA_ADAPTER *, _DEVICE_OBJECT *, _MDL *, void *, unsigned int, void (__fastcall *)(_DEVICE_OBJECT *, _IRP *, _SCATTER_GATHER_LIST *, void *), void *, unsigned __int8, void *, unsigned int); // rbx
   __int64 result; // rax
 
-  SessionById = (_QWORD *)MmGetSessionById(a1);
+  SessionById = (struct _DMA_ADAPTER *)MmGetSessionById(a1, (__int64)a2);
   if ( !SessionById )
     return 3221226581LL;
-  v4 = *(_QWORD *)(SessionById[171] + 784LL);
-  ObfDereferenceObject(SessionById);
+  BuildScatterGatherList = SessionById[85].DmaOperations[3].BuildScatterGatherList;
+  HalPutDmaAdapter(SessionById);
   result = 0LL;
-  *a2 = v4;
+  *a2 = BuildScatterGatherList;
   return result;
 }

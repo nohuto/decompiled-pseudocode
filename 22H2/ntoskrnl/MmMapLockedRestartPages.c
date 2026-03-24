@@ -1,18 +1,18 @@
 /*
- * XREFs of MmMapLockedRestartPages @ 0x140A2B450
+ * XREFs of MmMapLockedRestartPages @ 0x1408C4B10
  * Callers:
  *     <none>
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiMapMdlCommon @ 0x1403A6DE0 (MiMapMdlCommon.c)
- *     MiReserveDriverPtes @ 0x140696DF0 (MiReserveDriverPtes.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiMapMdlCommon @ 0x1403C8614 (MiMapMdlCommon.c)
+ *     MiReserveDriverPtes @ 0x14075F694 (MiReserveDriverPtes.c)
  */
 
-__int64 __fastcall MmMapLockedRestartPages(_DWORD *a1, int a2, int a3, __int64 a4)
+__int64 __fastcall MmMapLockedRestartPages(_DWORD *a1, unsigned int a2, int a3, __int64 a4)
 {
   char *AnyMultiplexedVm; // rax
-  char v7; // r9
-  unsigned __int64 v8; // r10
+  unsigned __int64 v7; // rdx
+  _DWORD *v8; // r9
 
   if ( (a3 & 0xBFFFFFFF) != 0
     || (a4 & 0xFFFFFFFFFFDFFFFFuLL) != 0
@@ -21,5 +21,5 @@ __int64 __fastcall MmMapLockedRestartPages(_DWORD *a1, int a2, int a3, __int64 a
     return 0LL;
   }
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  return MiMapMdlCommon((__int64)a1, v8, (__int64)AnyMultiplexedVm, v7, a2);
+  return MiMapMdlCommon((__int64)a1, v7, (__int64)AnyMultiplexedVm, v8, a2);
 }

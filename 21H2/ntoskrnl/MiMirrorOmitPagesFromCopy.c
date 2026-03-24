@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMirrorOmitPagesFromCopy @ 0x14038F830
+ * XREFs of MiMirrorOmitPagesFromCopy @ 0x140385E5C
  * Callers:
- *     MiMirrorNodeLargePages @ 0x14038F3B8 (MiMirrorNodeLargePages.c)
- *     MiMirrorReduceBlackWrites @ 0x14038F620 (MiMirrorReduceBlackWrites.c)
- *     MiMirrorRemoveBlackChildPartitionPages @ 0x14058CEF0 (MiMirrorRemoveBlackChildPartitionPages.c)
- *     MiMirrorRemoveInactivePages @ 0x14058CF54 (MiMirrorRemoveInactivePages.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x140A6A8C0 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorNodeLargePages @ 0x14038590C (MiMirrorNodeLargePages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140385C70 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorRemoveBlackChildPartitionPages @ 0x140534D10 (MiMirrorRemoveBlackChildPartitionPages.c)
+ *     MiMirrorRemoveInactivePages @ 0x140534D74 (MiMirrorRemoveInactivePages.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x1409B0CD8 (MiRemoveEnclavePagesFromMirror.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x1402BEDD0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x1402CC7C0 (MiMapPageInHyperSpaceWorker.c)
- *     RtlClearBitsEx @ 0x14030BB30 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
  */
 
-__int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+char __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx
   unsigned __int64 v5; // rcx
@@ -20,7 +20,7 @@ __int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, un
   unsigned __int64 v7; // r8
   volatile signed __int32 *v8; // rdi
   unsigned int v9; // eax
-  __int64 result; // rax
+  int v10; // eax
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rax
   void *v13; // r8
@@ -30,7 +30,7 @@ __int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, un
   v5 = a3;
   v6 = a2;
   v7 = a2 & 0x1F;
-  v8 = (volatile signed __int32 *)(qword_140C52A28 + 4 * (a2 >> 5));
+  v8 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (a2 >> 5));
   if ( v7 + v5 > 0x20 )
   {
     if ( (a2 & 0x1F) != 0 )
@@ -69,9 +69,9 @@ LABEL_4:
   }
 LABEL_5:
   if ( *(_QWORD *)(a1 + 24) )
-    RtlClearBitsEx((__int64)&qword_140C52A10, v6, v3);
-  result = *(unsigned int *)(a1 + 32);
-  if ( (result & 0x20) != 0 && v3 )
+    RtlClearBitsEx((__int64)&qword_140C4E710, v6, v3);
+  v10 = *(_DWORD *)(a1 + 32);
+  if ( (v10 & 0x20) != 0 && v3 )
   {
     do
     {
@@ -87,11 +87,12 @@ LABEL_5:
       memset64(v13, 0xFFFFFFFEFFFFFFFEuLL, v14 >> 1);
       if ( (v14 & 1) != 0 )
         *((_DWORD *)v13 + v14 - 1) = -2;
-      result = MiUnmapPageInHyperSpaceWorker(v12, 0x11u);
+      LOBYTE(v14) = 17;
+      LOBYTE(v10) = MiUnmapPageInHyperSpaceWorker(v12, v14, 0);
       ++v6;
       --v3;
     }
     while ( v3 );
   }
-  return result;
+  return v10;
 }

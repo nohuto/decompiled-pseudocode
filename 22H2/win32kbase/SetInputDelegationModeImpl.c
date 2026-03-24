@@ -1,92 +1,61 @@
 /*
- * XREFs of SetInputDelegationModeImpl @ 0x1C01E8E9C
+ * XREFs of SetInputDelegationModeImpl @ 0x1C0096EEC
  * Callers:
- *     NtMITSetInputDelegationMode @ 0x1C0141F60 (NtMITSetInputDelegationMode.c)
+ *     NtMITSetInputDelegationMode @ 0x1C0096C10 (NtMITSetInputDelegationMode.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     DisableDelegation @ 0x1C00B8A90 (DisableDelegation.c)
- *     ApiSetEditionKeyboardInputDelegationChanged @ 0x1C00D56B4 (ApiSetEditionKeyboardInputDelegationChanged.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333@Z @ 0x1C01DB7E0 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPE.c)
- *     ?OverrideClip@CCursorClip@@QEAAX_N@Z @ 0x1C01DC1A4 (-OverrideClip@CCursorClip@@QEAAX_N@Z.c)
- *     ApiSetEditionInternalSetCursorPos @ 0x1C020688C (ApiSetEditionInternalSetCursorPos.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     DisableDelegation @ 0x1C00AA5D0 (DisableDelegation.c)
+ *     ApiSetEditionInternalSetCursorPos @ 0x1C00B1B74 (ApiSetEditionInternalSetCursorPos.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x1C01A1DE8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
+ *     ?OverrideClip@CCursorClip@@QEAAX_N@Z @ 0x1C01A2B6C (-OverrideClip@CCursorClip@@QEAAX_N@Z.c)
  */
 
-__int64 __fastcall SetInputDelegationModeImpl(CCursorClip *a1, __int64 a2, unsigned int a3, int a4)
+__int64 __fastcall SetInputDelegationModeImpl(int a1, int a2)
 {
-  int v6; // esi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  char v9; // di
-  unsigned int v10; // ebx
-  unsigned int v11; // esi
-  unsigned int v12; // edx
-  unsigned int v13; // ecx
-  int v15; // [rsp+40h] [rbp-18h] BYREF
-  int v16; // [rsp+44h] [rbp-14h] BYREF
-  __int64 v17; // [rsp+48h] [rbp-10h] BYREF
-  unsigned int v18; // [rsp+78h] [rbp+20h] BYREF
+  CCursorClip *v4; // rcx
+  char v5; // di
+  int v7; // r8d
+  int v8; // r9d
+  unsigned int v9; // ebx
+  int v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v11; // [rsp+50h] [rbp+18h] BYREF
 
-  v6 = (int)a1;
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 2LL) )
+  GetDomainLockRef(18);
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 2LL) )
   {
-    v18 = a3;
-    v15 = v7;
-    v16 = v6;
-    LODWORD(v17) = a4;
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0289810,
-      byte_1C025E1CE,
+    v10 = a1;
+    LODWORD(v11) = a2;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (unsigned int)&dword_1C024AA90,
+      (unsigned int)&unk_1C021EF52,
       v7,
       v8,
-      (__int64)&v17,
-      (__int64)&v16,
-      (__int64)&v15,
-      (__int64)&v18);
+      (__int64)&v11,
+      (__int64)&v10);
   }
-  if ( a4 )
+  if ( a2 )
   {
-    if ( (a4 & 2) != 0 )
+    if ( (a2 & 2) != 0 )
     {
-      if ( (*(&InputDelegation::CInputDelegationInfo::gInstance + 8) & 2) == 0 )
-      {
-        CCursorClip::OverrideClip(a1, 1u);
-        *(struct tagPOINT *)((char *)&InputDelegation::CInputDelegationInfo::gInstance + 12) = gptCursorAsync;
-      }
+      CCursorClip::OverrideClip(v4, 1);
+      *(&InputDelegation::CInputDelegationInfo::gInstance + 1) = gptCursorAsync;
     }
-    else if ( (*(&InputDelegation::CInputDelegationInfo::gInstance + 8) & 2) != 0 )
-    {
-      a4 |= 2u;
-    }
-    *(&InputDelegation::CInputDelegationInfo::gInstance + 2) = a4;
-    InputDelegation::CInputDelegationInfo::gInstance = v6;
-    if ( (a4 & 1) != 0 )
-    {
-      *(&InputDelegation::CInputDelegationInfo::gInstance + 1) = a3;
-      v12 = 1;
-      v13 = a3;
-LABEL_19:
-      ApiSetEditionKeyboardInputDelegationChanged(v13, v12);
-    }
+    *(&InputDelegation::CInputDelegationInfo::gInstance + 1) = a2;
+    InputDelegation::CInputDelegationInfo::gInstance = a1;
   }
   else
   {
-    v9 = *(&InputDelegation::CInputDelegationInfo::gInstance + 8);
-    if ( *(&InputDelegation::CInputDelegationInfo::gInstance + 2) )
+    v5 = *(&InputDelegation::CInputDelegationInfo::gInstance + 4);
+    if ( *(&InputDelegation::CInputDelegationInfo::gInstance + 1) )
     {
-      v10 = *(&InputDelegation::CInputDelegationInfo::gInstance + 3);
+      v9 = *(&InputDelegation::CInputDelegationInfo::gInstance + 2);
       v11 = *(&InputDelegation::CInputDelegationInfo::gInstance + 1);
-      v17 = *(_QWORD *)((char *)&InputDelegation::CInputDelegationInfo::gInstance + 12);
-      DisableDelegation(a1);
-      if ( (v9 & 2) != 0 )
-        ApiSetEditionInternalSetCursorPos(v10, HIDWORD(v17), 1LL);
-      if ( (v9 & 1) != 0 )
-      {
-        if ( gpqForeground )
-          *(_DWORD *)(gpqForeground + 396) |= 1u;
-        v12 = 0;
-        v13 = v11;
-        goto LABEL_19;
-      }
+      DisableDelegation();
+      if ( (v5 & 2) != 0 )
+        ApiSetEditionInternalSetCursorPos(v9, HIDWORD(v11), 1LL);
+      if ( (v5 & 1) != 0 )
+        *(_DWORD *)(gpqForeground + 388) |= 1u;
     }
   }
   return 1LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCopyName @ 0x14070AB00
+ * XREFs of CmpCopyName @ 0x140657770
  * Callers:
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmpAddValueKeyNew @ 0x140709FE8 (CmpAddValueKeyNew.c)
- *     CmpCreateHiveRootCell @ 0x14087495C (CmpCreateHiveRootCell.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpAddValueKeyTombstone @ 0x140A163B4 (CmpAddValueKeyTombstone.c)
- *     CmpCreateRootNode @ 0x140B3ABDC (CmpCreateRootNode.c)
+ *     CmpAddValueKeyNew @ 0x140657630 (CmpAddValueKeyNew.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x14078DAF0 (CmpCreateHiveRootCell.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpAddValueKeyTombstone @ 0x14086E53C (CmpAddValueKeyTombstone.c)
+ *     CmpCreateRootNode @ 0x140A5B0B4 (CmpCreateRootNode.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall CmpCopyName(_BYTE *a1, _QWORD *a2)

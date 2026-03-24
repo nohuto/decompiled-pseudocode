@@ -1,23 +1,31 @@
 /*
- * XREFs of ?Initialize@?$CSectionEntry@$0OAAAA@$0OAA@@NSInstrumentation@@AEAA_NXZ @ 0x1C00D205C
+ * XREFs of ?Initialize@?$CSectionEntry@$0OAAAA@$0OAA@@NSInstrumentation@@AEAA_NXZ @ 0x1C00C9190
  * Callers:
- *     ?Create@?$CSectionEntry@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00D1CE4 (-Create@-$CSectionEntry@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?Create@?$CSectionEntry@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00C8DAC (-Create@-$CSectionEntry@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@XZ.c)
  * Callees:
- *     ?PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z @ 0x1C008E664 (-PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z.c)
- *     ?PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z @ 0x1C008E6E4 (-PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z.c)
- *     ?Create@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C00D1C64 (-Create@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
+ *     ?PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z @ 0x1C00A1FE4 (-PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z.c)
+ *     ?PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z @ 0x1C00A202C (-PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z.c)
+ *     ?Create@?$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C00C8D30 (-Create@-$CSectionBitmapAllocator@$0OAAAA@$0OAA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
  */
 
-bool __fastcall NSInstrumentation::CSectionEntry<917504,3584>::Initialize(__int64 a1)
+bool __fastcall NSInstrumentation::CSectionEntry<917504,3584>::Initialize(PVOID *a1)
 {
   NSInstrumentation *Section; // rax
   void *v3; // rax
+  bool result; // al
 
   Section = (NSInstrumentation *)NSInstrumentation::PlatformCreateSection((NSInstrumentation *)0xE0000);
-  *(_QWORD *)(a1 + 16) = Section;
-  if ( !Section || NSInstrumentation::PlatformMapViewInSessionSpace(Section, (PVOID *)(a1 + 24), (void **)0xE0000) < 0 )
-    return 0;
-  v3 = NSInstrumentation::CSectionBitmapAllocator<917504,3584>::Create(*(_QWORD *)(a1 + 24));
-  *(_QWORD *)(a1 + 32) = v3;
-  return v3 != 0LL;
+  a1[2] = Section;
+  result = 0;
+  if ( Section )
+  {
+    if ( NSInstrumentation::PlatformMapViewInSessionSpace(Section, a1 + 3, (void **)0xE0000) >= 0 )
+    {
+      v3 = NSInstrumentation::CSectionBitmapAllocator<917504,3584>::Create((__int64)a1[3]);
+      a1[4] = v3;
+      if ( v3 )
+        return 1;
+    }
+  }
+  return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetRITWakeReason@@YAHPEAK@Z @ 0x1C010F0C8
+ * XREFs of ?GetRITWakeReason@@YAHPEAK@Z @ 0x1C000A558
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
  *     <none>
  */

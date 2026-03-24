@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSetDripsWatchdog @ 0x14087A070
+ * XREFs of PopSetDripsWatchdog @ 0x14087A050
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x14086F288 (PopPdcIdleResiliencyCallback.c)
- *     PopDripsWatchdogWorkerRoutine @ 0x140879C40 (PopDripsWatchdogWorkerRoutine.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14086F268 (PopPdcIdleResiliencyCallback.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x140879C20 (PopDripsWatchdogWorkerRoutine.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
- *     PopDripsWatchdogStartWatchdog @ 0x14086E94C (PopDripsWatchdogStartWatchdog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x14086E92C (PopDripsWatchdogStartWatchdog.c)
  */
 
 _QWORD *PopSetDripsWatchdog()
@@ -44,7 +44,7 @@ _QWORD *PopSetDripsWatchdog()
     }
     if ( !qword_1404C6778 )
     {
-      dword_1404C6760 = dword_140417864;
+      dword_1404C6760 = dword_140417944;
       qword_1404C6778 = v2;
     }
     if ( !qword_1404C6780 )

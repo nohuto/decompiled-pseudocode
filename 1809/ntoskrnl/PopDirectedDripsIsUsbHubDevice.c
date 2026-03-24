@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsIsUsbHubDevice @ 0x14087CCC0
+ * XREFs of PopDirectedDripsIsUsbHubDevice @ 0x14087CCA0
  * Callers:
- *     PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CD10 (PopDirectedDripsNotifyUsbDeviceStarted.c)
+ *     PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CCF0 (PopDirectedDripsNotifyUsbDeviceStarted.c)
  * Callees:
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  */

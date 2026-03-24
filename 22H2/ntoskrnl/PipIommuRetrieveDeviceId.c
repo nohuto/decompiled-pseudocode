@@ -1,58 +1,66 @@
 /*
- * XREFs of PipIommuRetrieveDeviceId @ 0x1408436C4
+ * XREFs of PipIommuRetrieveDeviceId @ 0x140765640
  * Callers:
- *     PiIommuAllocateExtension @ 0x14084359C (PiIommuAllocateExtension.c)
+ *     PiIommuAllocateExtension @ 0x14076553C (PiIommuAllocateExtension.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PipIommuValidateDeviceId @ 0x140843790 (PipIommuValidateDeviceId.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PipIommuValidateDeviceId @ 0x140765724 (PipIommuValidateDeviceId.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipIommuRetrieveDeviceId(__int64 a1, _QWORD *a2)
 {
-  void *Pool2; // rdi
-  unsigned int (__fastcall *v3)(_QWORD, _QWORD, _QWORD, __int64 *); // rax
-  int v6; // ebx
+  void *v2; // rbx
+  unsigned int (__fastcall *v3)(_QWORD, _QWORD, _QWORD, SIZE_T *); // rax
+  PVOID PoolWithTag; // rax
+  int v7; // edi
   __int64 result; // rax
-  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
 
-  v8 = 0LL;
-  Pool2 = 0LL;
-  v3 = *(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64 *))(a1 + 64);
-  if ( v3 )
+  NumberOfBytes = 0LL;
+  v2 = 0LL;
+  v3 = *(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD, SIZE_T *))(a1 + 64);
+  if ( !v3 )
   {
-    if ( v3(*(_QWORD *)(a1 + 8), 0LL, 0LL, &v8) == -1073741789 && v8 )
-    {
-      Pool2 = (void *)ExAllocatePool2(256LL, v8, 1685089872LL);
-      if ( Pool2 )
-      {
-        v6 = (*(__int64 (__fastcall **)(_QWORD, __int64, void *, _QWORD))(a1 + 64))(*(_QWORD *)(a1 + 8), v8, Pool2, 0LL);
-        if ( v6 < 0 )
-        {
-          ExFreePoolWithTag(Pool2, 0x64706E50u);
-          Pool2 = 0LL;
-        }
-        else
-        {
-          PipIommuValidateDeviceId(a1, Pool2, v8);
-        }
-      }
-      else
-      {
-        v6 = -1073741670;
-      }
-    }
-    else
-    {
-      v6 = -1073741823;
-    }
+    v7 = -1073741637;
+    goto LABEL_8;
   }
-  else
+  if ( v3(*(_QWORD *)(a1 + 8), 0LL, 0LL, &NumberOfBytes) != -1073741789 || !NumberOfBytes )
   {
-    v6 = -1073741637;
+    v7 = -1073741823;
+LABEL_7:
+    if ( v7 >= 0 )
+      goto LABEL_8;
+    goto LABEL_12;
   }
-  result = (unsigned int)v6;
-  *a2 = Pool2;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x64706E50u);
+  v2 = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+    v7 = -1073741670;
+    goto LABEL_8;
+  }
+  memset(PoolWithTag, 0, NumberOfBytes);
+  v7 = (*(__int64 (__fastcall **)(_QWORD, SIZE_T, void *, _QWORD))(a1 + 64))(
+         *(_QWORD *)(a1 + 8),
+         NumberOfBytes,
+         v2,
+         0LL);
+  if ( v7 >= 0 )
+  {
+    PipIommuValidateDeviceId(a1, v2, NumberOfBytes);
+    goto LABEL_7;
+  }
+LABEL_12:
+  if ( v2 )
+  {
+    ExFreePoolWithTag(v2, 0x64706E50u);
+    v2 = 0LL;
+  }
+LABEL_8:
+  result = (unsigned int)v7;
+  *a2 = v2;
   return result;
 }

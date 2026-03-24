@@ -1,10 +1,11 @@
 /*
- * XREFs of ViDeadlockAllocate @ 0x140AD96E4
+ * XREFs of ViDeadlockAllocate @ 0x1409DEB48
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD7DAC (VfDeadlockAcquireResource.c)
- *     VfDeadlockInitializeResource @ 0x140AD8738 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DDD34 (VfDeadlockBeforeCallDriver.c)
+ *     VfDeadlockInitializeResource @ 0x1409DE1C4 (VfDeadlockInitializeResource.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
  */
 
 PVOID __fastcall ViDeadlockAllocate(int a1)
@@ -12,7 +13,7 @@ PVOID __fastcall ViDeadlockAllocate(int a1)
   int v1; // ecx
   int v2; // ecx
   PVOID result; // rax
-  struct _PAGED_LOOKASIDE_LIST *v4; // rcx
+  struct _NPAGED_LOOKASIDE_LIST *v4; // rcx
 
   v1 = a1 - 1;
   if ( v1 )

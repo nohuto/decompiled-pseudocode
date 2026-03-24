@@ -1,30 +1,30 @@
 /*
- * XREFs of ?bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F1CF4
+ * XREFs of ?bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C0141860
  * Callers:
- *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C02F1AFC (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C0141678 (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
  * Callees:
- *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C015D84A (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z @ 0x1C015E29C (-vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z.c)
- *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C015E5A2 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
- *     ?vHalve@@YAXAEAVEVECTORFX@@@Z @ 0x1C02F2938 (-vHalve@@YAXAEAVEVECTORFX@@@Z.c)
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C0140788 (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0140904 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0141644 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
+ *     ?vHalve@@YAXAEAVEVECTORFX@@@Z @ 0x1C014194C (-vHalve@@YAXAEAVEVECTORFX@@@Z.c)
  */
 
 __int64 __fastcall WIDEPENOBJ::bThicken(WIDEPENOBJ *this, struct _POINTFIX *a2)
 {
-  int x; // r8d
+  int x; // r9d
   int y; // r11d
   int v5; // ebx
   int v6; // eax
-  int v7; // ecx
-  int v8; // edx
-  int v9; // r8d
+  int v7; // edx
+  int v8; // r9d
+  int v9; // ecx
   int v10; // r11d
-  struct _POINTFIX v11; // rax
-  FIX v12; // ebx
-  FIX v13; // esi
-  FIX v14; // r14d
-  int v15; // r8d
-  int v16; // edi
+  struct _POINTFIX v12; // rax
+  FIX v13; // ebx
+  FIX v14; // edi
+  FIX v15; // esi
+  int v16; // r8d
+  FIX v17; // r14d
   struct _POINTFIX v18; // [rsp+20h] [rbp-10h] BYREF
   struct _POINTFIX v19; // [rsp+28h] [rbp-8h] BYREF
   struct _POINTFIX v20; // [rsp+68h] [rbp+38h] BYREF
@@ -48,75 +48,75 @@ __int64 __fastcall WIDEPENOBJ::bThicken(WIDEPENOBJ *this, struct _POINTFIX *a2)
     v6 = -v19.y;
   if ( ((x | y | v5 | v6) & 0xFFFFF000) != 0 )
     return 0LL;
-  v7 = v19.x * v18.y;
-  v8 = v18.x * v19.y;
-  v9 = v18.x * v18.x + v18.y * v18.y;
+  v7 = v18.x * v19.y;
+  v8 = v18.x * v18.x + v18.y * v18.y;
+  v9 = v18.y * v19.x;
   v10 = v19.x * v19.x + v19.y * v19.y;
-  if ( v9 <= v10 )
+  if ( v8 > v10 )
   {
-    if ( 16LL * v10 < (v7 - v8) * (__int64)(v7 - v8) )
+    if ( 16LL * v8 < (v7 - v9) * (__int64)(v7 - v9) )
       return 0LL;
-    v11 = v19;
-    v9 = v19.x * v19.x + v19.y * v19.y;
+    v12 = v18;
   }
   else
   {
-    if ( 16LL * v9 < (v8 - v7) * (__int64)(v8 - v7) )
+    if ( 16LL * v10 < (v9 - v7) * (__int64)(v9 - v7) )
       return 0LL;
-    v11 = v18;
+    v12 = v19;
+    v8 = v19.x * v19.x + v19.y * v19.y;
   }
-  v21 = v11;
-  v12 = 8;
-  if ( v9 >= 64 )
+  v21 = v12;
+  v13 = 8;
+  if ( v8 >= 64 )
   {
-    v14 = v21.y;
-    v13 = v21.x;
+    v15 = v21.y;
+    v14 = v21.x;
   }
   else
   {
-    v13 = 8;
+    v14 = 8;
     v21 = (struct _POINTFIX)8LL;
-    v14 = 0;
+    v15 = 0;
   }
-  v20 = 0LL;
-  v15 = abs32(v14);
-  if ( v15 <= v13 )
+  v16 = abs32(v15);
+  if ( v16 <= v14 )
   {
-    v12 = -8;
-    goto LABEL_23;
-  }
-  if ( (int)abs32(v13) <= -v14 )
-  {
-    v16 = -8;
-    v20.x = -8;
-    v12 = 0;
-LABEL_24:
-    v20.y = v12;
-    goto LABEL_26;
-  }
-  if ( v15 <= -v13 )
-  {
-LABEL_23:
-    v16 = 0;
     v20.x = 0;
-    goto LABEL_24;
+    v17 = 0;
+    v20.y = -8;
+    goto LABEL_27;
   }
-  v16 = 8;
-  v20 = (struct _POINTFIX)8LL;
-  v12 = 0;
-LABEL_26:
-  if ( (unsigned int)WIDEPATHOBJ::bBeginFigure(this) )
+  if ( (int)abs32(v14) > -v15 )
   {
-    WIDEPATHOBJ::vAddPoint(this, &v21);
-    WIDEPATHOBJ::vAddPoint(this, &v20);
-    v21.x = -v13;
-    v21.y = -v14;
-    v20.x = -v16;
-    v20.y = -v12;
-    WIDEPATHOBJ::vAddPoint(this, &v21);
-    WIDEPATHOBJ::vAddPoint(this, &v20);
-    WIDEPATHOBJ::vEndFigure(this);
-    return 1LL;
+    if ( v16 <= -v14 )
+    {
+      v20.x = 0;
+      v17 = 0;
+      v20.y = 8;
+      v13 = -8;
+      goto LABEL_27;
+    }
+    v20.x = 8;
+    v17 = -8;
   }
-  return 0LL;
+  else
+  {
+    v20.x = -8;
+    v17 = 8;
+  }
+  v20.y = 0;
+  v13 = 0;
+LABEL_27:
+  if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(this) )
+    return 0LL;
+  WIDEPATHOBJ::vAddPoint(this, &v21);
+  WIDEPATHOBJ::vAddPoint(this, &v20);
+  v20.x = v17;
+  v21.x = -v14;
+  v21.y = -v15;
+  v20.y = v13;
+  WIDEPATHOBJ::vAddPoint(this, &v21);
+  WIDEPATHOBJ::vAddPoint(this, &v20);
+  WIDEPATHOBJ::vEndFigure(this);
+  return 1LL;
 }

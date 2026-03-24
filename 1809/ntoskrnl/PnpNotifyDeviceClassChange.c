@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpNotifyDeviceClassChange @ 0x14070A574
+ * XREFs of PnpNotifyDeviceClassChange @ 0x14070A554
  * Callers:
  *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
  * Callees:
@@ -9,12 +9,12 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1406FF0F8 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x140703774 (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x14070A700 (IopGetSessionIdFromSymbolicName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x1406FF0D8 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14070A6E0 (IopGetSessionIdFromSymbolicName.c)
  */
 
 __int64 __fastcall PnpNotifyDeviceClassChange(__int128 *a1, _DWORD *a2, __int64 a3)

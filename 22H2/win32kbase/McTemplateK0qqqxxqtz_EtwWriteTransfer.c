@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqqxxqtz_EtwWriteTransfer @ 0x1C0214780
+ * XREFs of McTemplateK0qqqxxqtz_EtwWriteTransfer @ 0x1C01E57D0
  * Callers:
- *     ?EnsureWriteableInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_N1PEBGPEAPEAVCInteractionMarshaler@2@@Z @ 0x1C0093174 (-EnsureWriteableInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_.c)
+ *     ?EnsureInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_NPEBGPEAPEAVCInteractionMarshaler@2@@Z @ 0x1C008412C (-EnsureInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_NPEBGPEAP.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqqxxqtz_EtwWriteTransfer(
@@ -47,7 +47,7 @@ NTSTATUS __fastcall McTemplateK0qqqxxqtz_EtwWriteTransfer(
   v34 = a4;
   v11 = a11;
   v17 = &v34;
-  v15 = 89;
+  v15 = 87;
   v19 = &a5;
   v21 = &a6;
   v23 = &a7;

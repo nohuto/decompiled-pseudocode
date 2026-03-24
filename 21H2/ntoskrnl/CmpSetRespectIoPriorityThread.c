@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSetRespectIoPriorityThread @ 0x1402A20D4
+ * XREFs of CmpSetRespectIoPriorityThread @ 0x14027F078
  * Callers:
- *     CmpDoFileWrite @ 0x140714594 (CmpDoFileWrite.c)
+ *     CmpDoFileWrite @ 0x1406715BC (CmpDoFileWrite.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ bool __fastcall CmpSetRespectIoPriorityThread(__int64 a1, char a2)
 {
   bool result; // al
 
-  result = (*(_DWORD *)(a1 + 1380) & 0x80) != 0;
-  *(_DWORD *)(a1 + 1380) ^= ((unsigned __int8)*(_DWORD *)(a1 + 1380) ^ (unsigned __int8)(a2 << 7)) & 0x80;
+  result = (*(_DWORD *)(a1 + 1300) & 0x80) != 0;
+  *(_DWORD *)(a1 + 1300) ^= ((unsigned __int8)*(_DWORD *)(a1 + 1300) ^ (unsigned __int8)(a2 << 7)) & 0x80;
   return result;
 }

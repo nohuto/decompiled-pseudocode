@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StopFilterKeysTimers@@YAXXZ @ 0x1C01B9790
+ * XREFs of ?StopFilterKeysTimers@@YAXXZ @ 0x1C01839C0
  * Callers:
- *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C01656A0 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138644 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
  * Callees:
- *     ApiSetEditionKillAccessibilityTimer @ 0x1C0209254 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C01CC6B0 (ApiSetEditionKillAccessibilityTimer.c)
  */
 
 void __fastcall StopFilterKeysTimers(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpReleaseBootResourcesForFilteredRequirements @ 0x140180A58
+ * XREFs of PnpReleaseBootResourcesForFilteredRequirements @ 0x140180A78
  * Callers:
- *     IopReleaseFilteredBootResources @ 0x14072D9A8 (IopReleaseFilteredBootResources.c)
+ *     IopReleaseFilteredBootResources @ 0x14072D988 (IopReleaseFilteredBootResources.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopFreeReqList @ 0x14072E710 (IopFreeReqList.c)
- *     IopResourceRequirementsListToReqList @ 0x14072EE94 (IopResourceRequirementsListToReqList.c)
- *     IopCallArbiter @ 0x14072F950 (IopCallArbiter.c)
- *     PnpCmResourcesToIoResources @ 0x14072FEF4 (PnpCmResourcesToIoResources.c)
+ *     IopFreeReqList @ 0x14072E6F0 (IopFreeReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x14072EE74 (IopResourceRequirementsListToReqList.c)
+ *     IopCallArbiter @ 0x14072F930 (IopCallArbiter.c)
+ *     PnpCmResourcesToIoResources @ 0x14072FED4 (PnpCmResourcesToIoResources.c)
  */
 
 __int64 __fastcall PnpReleaseBootResourcesForFilteredRequirements(__int64 *a1)

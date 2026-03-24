@@ -1,52 +1,36 @@
 /*
- * XREFs of SetMouseTrails @ 0x1C005B9A8
+ * XREFs of SetMouseTrails @ 0x1C0029694
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     SetPointer @ 0x1C005CFA0 (SetPointer.c)
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     SetPointer @ 0x1C002A420 (SetPointer.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
  */
 
 __int64 __fastcall SetMouseTrails(int a1)
 {
-  __int64 v2; // rcx
-  int v3; // ebx
-  __int64 v4; // rcx
   __int64 result; // rax
-  __int64 v6; // rbx
-  __int64 v7; // rcx
-  _BOOL8 v8; // rcx
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  __int64 v11; // rcx
 
   SetPointer(0LL);
-  v3 = a1 - 1;
-  if ( !a1 )
-    v3 = 0;
-  *(_DWORD *)(SGDGetUserSessionState(v2) + 15936) = v3;
+  LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = a1 != 0 ? a1 - 1 : 0;
   SetPointer(1LL);
   result = gProtocolType;
   if ( !gProtocolType )
   {
-    v6 = *(_QWORD *)(SGDGetUserSessionState(v4) + 15944);
-    v8 = *(_DWORD *)(SGDGetUserSessionState(v7) + 15936) != 0;
-    result = v6 != 0;
-    if ( v8 != (_DWORD)result )
+    result = LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) != 0;
+    if ( (_DWORD)result != (WPP_MAIN_CB.Dpc.DeferredContext != 0LL) )
     {
-      if ( *(_DWORD *)(SGDGetUserSessionState(v8) + 15936) )
+      if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
       {
         return PostMessage(*(_QWORD *)(*(_QWORD *)(gTermIO[2] + 464LL) + 24LL), 1025LL, 0LL, 0LL);
       }
       else
       {
-        v10 = SGDGetUserSessionState(v9);
-        FindTimer(0LL, *(_QWORD *)(v10 + 15944), 4u, 1, 0LL);
-        result = SGDGetUserSessionState(v11);
-        *(_QWORD *)(result + 15944) = 0LL;
+        result = FindTimer(0LL, (__int64)WPP_MAIN_CB.Dpc.DeferredContext, 4u, 1, 0LL);
+        WPP_MAIN_CB.Dpc.DeferredContext = 0LL;
       }
     }
   }

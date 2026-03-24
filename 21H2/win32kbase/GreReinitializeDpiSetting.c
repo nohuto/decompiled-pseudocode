@@ -1,5 +1,5 @@
 /*
- * XREFs of GreReinitializeDpiSetting @ 0x1C0175430
+ * XREFs of GreReinitializeDpiSetting @ 0x1C0148380
  * Callers:
  *     <none>
  * Callees:

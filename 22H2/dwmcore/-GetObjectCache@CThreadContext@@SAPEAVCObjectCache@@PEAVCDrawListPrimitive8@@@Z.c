@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180030664
+ * XREFs of ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180057E14
  * Callers:
- *     ??_E?$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z @ 0x180030610 (--_E-$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z.c)
- *     PrimitiveStorage::Alloc_16_ @ 0x18005BD50 (PrimitiveStorage--Alloc_16_.c)
+ *     PrimitiveStorage::Alloc_16_ @ 0x180055F10 (PrimitiveStorage--Alloc_16_.c)
+ *     ??_E?$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z @ 0x180059120 (--_E-$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180078B70 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CDrawListPrimitive8 *a1)
@@ -18,5 +18,5 @@ struct CObjectCache *__fastcall CThreadContext::GetObjectCache(struct CDrawListP
   Current = CThreadContext::GetCurrent(&v4);
   if ( Current < 0 )
     ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-  return (struct CThreadContext *)((char *)v4 + 224);
+  return (struct CThreadContext *)((char *)v4 + 120);
 }

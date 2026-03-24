@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSharedSectionWrapperMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0238810
+ * XREFs of ?SetIntegerProperty@CSharedSectionWrapperMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F8050
  * Callers:
  *     <none>
  * Callees:
@@ -23,11 +23,11 @@ __int64 __fastcall DirectComposition::CSharedSectionWrapperMarshaler::SetInteger
   {
     if ( v6 != 1 )
       return 3221225485LL;
-    *((_DWORD *)this + 19) = a4;
+    *((_DWORD *)this + 17) = a4;
   }
   else
   {
-    *((_DWORD *)this + 18) = a4;
+    *((_DWORD *)this + 16) = a4;
   }
   *((_DWORD *)this + 4) &= ~0x20u;
   *a5 = 1;

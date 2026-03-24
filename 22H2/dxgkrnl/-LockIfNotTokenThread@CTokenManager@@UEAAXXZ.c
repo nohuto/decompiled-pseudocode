@@ -1,13 +1,13 @@
 /*
- * XREFs of ?LockIfNotTokenThread@CTokenManager@@UEAAXXZ @ 0x1C00177E0
+ * XREFs of ?LockIfNotTokenThread@CTokenManager@@UEAAXXZ @ 0x1C0063E30
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00121F0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012E50 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
  */
 
 void __fastcall CTokenManager::LockIfNotTokenThread(CTokenManager *this)
 {
-  if ( KeGetCurrentThread() != *((struct _KTHREAD **)this + 4) )
+  if ( KeGetCurrentThread() != *((struct _KTHREAD **)this + 3) )
     CTokenManager::AcquireTokenManagerLock(this);
 }

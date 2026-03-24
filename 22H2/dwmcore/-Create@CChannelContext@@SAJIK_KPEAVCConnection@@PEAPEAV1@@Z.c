@@ -1,17 +1,17 @@
 /*
- * XREFs of ?Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z @ 0x1800AAFFC
+ * XREFs of ?Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z @ 0x180034C18
  * Callers:
- *     ?OpenChannel@CComposition@@IEAAJIK_K@Z @ 0x1800AAF10 (-OpenChannel@CComposition@@IEAAJIK_K@Z.c)
+ *     ?OpenChannel@CComposition@@IEAAJIK_K@Z @ 0x180034B28 (-OpenChannel@CComposition@@IEAAJIK_K@Z.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??_ECChannelContext@@EEAAPEAXI@Z @ 0x1800AA280 (--_ECChannelContext@@EEAAPEAXI@Z.c)
- *     ??0CResourceTable@@QEAA@IPEAVCProcessAttribution@@@Z @ 0x1800AB0E4 (--0CResourceTable@@QEAA@IPEAVCProcessAttribution@@@Z.c)
- *     ??0CChannelContext@@IEAA@IKPEAVCProcessAttribution@@PEAVCConnection@@@Z @ 0x1800AB150 (--0CChannelContext@@IEAA@IKPEAVCProcessAttribution@@PEAVCConnection@@@Z.c)
- *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x1800AB428 (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
- *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800ABA18 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??_ECChannelContext@@UEAAPEAXI@Z @ 0x180033C60 (--_ECChannelContext@@UEAAPEAXI@Z.c)
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800358E8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
+ *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180035A2C (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
+ *     ??0CResourceTable@@QEAA@IPEAVCProcessAttribution@@@Z @ 0x180035D58 (--0CResourceTable@@QEAA@IPEAVCProcessAttribution@@@Z.c)
+ *     ??0CChannelContext@@IEAA@IKPEAVCProcessAttribution@@PEAVCConnection@@@Z @ 0x180035DB4 (--0CChannelContext@@IEAA@IKPEAVCProcessAttribution@@PEAVCConnection@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CChannelContext::Create(
@@ -21,11 +21,11 @@ __int64 __fastcall CChannelContext::Create(
         struct CConnection *a4,
         struct CChannelContext **a5)
 {
-  unsigned int v7; // ebx
+  unsigned int v7; // esi
   int ProcessAttribution; // eax
   CChannelContext *v10; // rax
   unsigned int v11; // ecx
-  CChannelContext *v12; // rsi
+  CChannelContext *v12; // rbx
   CResourceTable *v13; // rax
   CResourceTable *v14; // rax
   unsigned int v15; // ecx
@@ -35,10 +35,10 @@ __int64 __fastcall CChannelContext::Create(
 
   v7 = 0;
   v18[0] = 0LL;
-  ProcessAttribution = CProcessAttributionManager::GetProcessAttribution(qword_1803E5C98, a2, a3, v18);
+  ProcessAttribution = CProcessAttributionManager::GetProcessAttribution(lpMem, a2, a3, v18);
   if ( ProcessAttribution < 0 )
     ModuleFailFastForHRESULT((unsigned int)ProcessAttribution, retaddr);
-  v10 = (CChannelContext *)DefaultHeap::AllocClear(0x60uLL);
+  v10 = (CChannelContext *)DefaultHeap::AllocClear(0x58uLL);
   if ( !v10 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
   v12 = CChannelContext::CChannelContext(v10, a1, a2, v18[0], a4);
@@ -52,15 +52,17 @@ __int64 __fastcall CChannelContext::Create(
     if ( v14 )
     {
       (**(void (__fastcall ***)(CResourceTable *))v14)(v14);
-      *((_QWORD *)v12 + 4) = v16;
+      *((_QWORD *)v12 + 3) = v16;
       *a5 = v12;
+      v12 = 0LL;
     }
     else
     {
       v7 = -2147024882;
       MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024882, 0x2Fu, 0LL);
-      CChannelContext::`vector deleting destructor'(v12, 1);
     }
+    if ( v12 )
+      CChannelContext::`vector deleting destructor'(v12, 1);
   }
   else
   {

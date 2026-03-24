@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceRitReEngaged @ 0x1C00C56B0
+ * XREFs of EtwTraceRitReEngaged @ 0x1C00B8720
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceRitReEngaged(__int64 a1)

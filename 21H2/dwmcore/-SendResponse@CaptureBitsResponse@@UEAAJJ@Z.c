@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SendResponse@CaptureBitsResponse@@UEAAJJ@Z @ 0x1801B9A60
+ * XREFs of ?SendResponse@CaptureBitsResponse@@UEAAJJ@Z @ 0x180193AB0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z @ 0x1800E7CE0 (-PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z.c)
- *     ?ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ @ 0x1801B9570 (-ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z @ 0x1800CF778 (-PostMessageToChannel@CChannelContext@@QEAAJPEBUMIL_MESSAGE@@@Z.c)
+ *     ?ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ @ 0x180178F88 (-ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ.c)
  */
 
 __int64 __fastcall CaptureBitsResponse::SendResponse(CaptureBitsResponse *this, int a2, __int64 a3)
@@ -21,24 +21,24 @@ __int64 __fastcall CaptureBitsResponse::SendResponse(CaptureBitsResponse *this, 
   v10 = 2;
   v11 = 0LL;
   v12 = 0LL;
-  LODWORD(v12) = *((_DWORD *)this + 411);
+  LODWORD(v12) = *((_DWORD *)this + 419);
   HIDWORD(v12) = a2;
   if ( a2 >= 0 )
   {
-    *(_QWORD *)((char *)&v11 + 4) = *((_QWORD *)this + 207);
-    HIDWORD(v11) = *((_DWORD *)this + 418);
+    *(_QWORD *)((char *)&v11 + 4) = *((_QWORD *)this + 211);
+    HIDWORD(v11) = *((_DWORD *)this + 426);
   }
   v5 = CChannelContext::PostMessageToChannel(*((CChannelContext **)this + 5), (const struct MIL_MESSAGE *)&v10, a3);
   v7 = v5;
   if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x77u);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x71u, 0LL);
   }
   else if ( a2 >= 0 )
   {
-    *((_QWORD *)this + 207) = 0LL;
+    *((_QWORD *)this + 211) = 0LL;
   }
-  v8 = (CLegacySurfaceManager *)(*((_QWORD *)this + 3) + 120LL);
+  v8 = (CLegacySurfaceManager *)(*((_QWORD *)this + 3) + 96LL);
   *((_BYTE *)this + 33) = 1;
   CLegacySurfaceManager::ReleaseCaptureBitsResponse(v8);
   return v7;

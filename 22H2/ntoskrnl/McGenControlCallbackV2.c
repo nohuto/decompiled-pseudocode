@@ -1,9 +1,12 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1403A1B90
+ * XREFs of McGenControlCallbackV2 @ 0x1403C5D70
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x1404F0E90 (McTemplateK0jq_EtwWriteTransfer.c)
  */
 
 void __stdcall McGenControlCallbackV2(
@@ -15,52 +18,71 @@ void __stdcall McGenControlCallbackV2(
         PEVENT_FILTER_DESCRIPTOR FilterData,
         PVOID CallbackContext)
 {
-  unsigned int v7; // r8d
-  unsigned __int8 v8; // cl
-  __int64 v9; // rdx
-  bool v10; // r11
-  int v11; // edx
-  int *v12; // rcx
-  int v13; // edx
+  unsigned int v8; // r8d
+  unsigned __int8 v9; // cl
+  __int64 v10; // rdx
+  bool v11; // r11
+  int v12; // edx
+  int *v13; // rcx
   int v14; // eax
+  int v15; // edx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 i; // rdi
+  int v19; // eax
 
-  if ( CallbackContext )
+  if ( !CallbackContext )
+    return;
+  if ( !ControlCode )
   {
-    if ( ControlCode )
+    v19 = *((unsigned __int16 *)CallbackContext + 21);
+    *((_DWORD *)CallbackContext + 9) = 0;
+    *((_BYTE *)CallbackContext + 40) = 0;
+    *((_QWORD *)CallbackContext + 2) = 0LL;
+    *((_QWORD *)CallbackContext + 3) = 0LL;
+    if ( !(_WORD)v19 )
+      return;
+    memset(*((void **)CallbackContext + 6), 0, 4LL * ((v19 - 1) / 32 + 1));
+LABEL_23:
+    if ( ControlCode != 1 )
+      return;
+    goto LABEL_13;
+  }
+  if ( ControlCode != 1 )
+    goto LABEL_23;
+  *((_BYTE *)CallbackContext + 40) = Level;
+  v8 = 0;
+  *((_QWORD *)CallbackContext + 3) = MatchAllKeyword;
+  *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
+  for ( *((_DWORD *)CallbackContext + 9) = 1; v8 < *((unsigned __int16 *)CallbackContext + 21); ++v8 )
+  {
+    v9 = *((_BYTE *)CallbackContext + 40);
+    v11 = 0;
+    if ( *(_BYTE *)(v8 + *((_QWORD *)CallbackContext + 8)) <= v9 || !v9 )
     {
-      if ( ControlCode == 1 )
+      v10 = *(_QWORD *)(*((_QWORD *)CallbackContext + 7) + 8LL * v8);
+      if ( !v10
+        || (v10 & *((_QWORD *)CallbackContext + 2)) != 0
+        && (v10 & *((_QWORD *)CallbackContext + 3)) == *((_QWORD *)CallbackContext + 3) )
       {
-        *((_BYTE *)CallbackContext + 40) = Level;
-        v7 = 0;
-        *((_QWORD *)CallbackContext + 3) = MatchAllKeyword;
-        *((_QWORD *)CallbackContext + 2) = MatchAnyKeyword;
-        for ( *((_DWORD *)CallbackContext + 9) = 1; v7 < *((unsigned __int16 *)CallbackContext + 21); ++v7 )
-        {
-          v8 = *((_BYTE *)CallbackContext + 40);
-          v9 = *(_QWORD *)(*((_QWORD *)CallbackContext + 7) + 8LL * v7);
-          v10 = (*(_BYTE *)(v7 + *((_QWORD *)CallbackContext + 8)) <= v8 || !v8)
-             && (!v9
-              || (v9 & *((_QWORD *)CallbackContext + 2)) != 0
-              && (v9 & *((_QWORD *)CallbackContext + 3)) == *((_QWORD *)CallbackContext + 3));
-          v11 = 1 << (v7 & 0x1F);
-          v12 = (int *)(*((_QWORD *)CallbackContext + 6) + 4 * ((unsigned __int64)v7 >> 5));
-          if ( v10 )
-            v13 = *v12 | v11;
-          else
-            v13 = *v12 & ~v11;
-          *v12 = v13;
-        }
+        v11 = 1;
       }
     }
+    v12 = 1 << (v8 & 0x1F);
+    v13 = (int *)(*((_QWORD *)CallbackContext + 6) + 4 * ((unsigned __int64)v8 >> 5));
+    v14 = *v13;
+    if ( v11 )
+      v15 = v14 | v12;
     else
-    {
-      v14 = *((unsigned __int16 *)CallbackContext + 21);
-      *((_DWORD *)CallbackContext + 9) = 0;
-      *((_BYTE *)CallbackContext + 40) = 0;
-      *((_QWORD *)CallbackContext + 2) = 0LL;
-      *((_QWORD *)CallbackContext + 3) = 0LL;
-      if ( (_WORD)v14 )
-        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v14 - 1) / 32 + 1));
-    }
+      v15 = v14 & ~v12;
+    *v13 = v15;
   }
+LABEL_13:
+  ExAcquireResourceSharedLite(&Resource, 1u);
+  for ( i = FsRtlTieringHeatData; (__int64 *)i != &FsRtlTieringHeatData; i = *(_QWORD *)i )
+  {
+    if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 1) != 0 )
+      McTemplateK0jq_EtwWriteTransfer(v17, v16, 0LL, i + 20, *(_DWORD *)(i + 36));
+  }
+  ExReleaseResourceLite(&Resource);
 }

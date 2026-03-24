@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedProperty @ 0x1406CC724
+ * XREFs of _CmGetDeviceInterfaceMappedProperty @ 0x1406B64C8
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x1406CCF40 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406B5060 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406C948C (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406CA034 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406B6A78 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406F9E98 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        int a1,
+        int a2,
+        int a3,
         __int64 a4,
         __int64 a5,
-        _DWORD *a6,
+        __int64 a6,
         __int64 a7,
-        unsigned int a8,
+        int a8,
         _DWORD *a9)
 {
   unsigned int DeviceInterfaceMappedPropertyFromRegValue; // r10d
@@ -31,7 +31,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
   *a9 = 0;
   if ( !a4 )
   {
-    v13 = &off_140A77E78;
+    v13 = &off_140983A08;
     while ( 1 )
     {
       v14 = *v13;
@@ -56,11 +56,11 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
                                                   a6,
                                                   a7,
                                                   a8,
-                                                  a9);
+                                                  (__int64)a9);
     if ( DeviceInterfaceMappedPropertyFromRegValue != -1073741802 )
       return DeviceInterfaceMappedPropertyFromRegValue;
 LABEL_6:
-    v15 = &off_140A78620;
+    v15 = &off_140983F00;
     v16 = 0;
     while ( 1 )
     {
@@ -78,7 +78,7 @@ LABEL_6:
       if ( v16 >= 4 )
         return DeviceInterfaceMappedPropertyFromRegValue;
     }
-    return (unsigned int)CmGetDeviceInterfaceMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, a9);
+    return (unsigned int)CmGetDeviceInterfaceMappedPropertyFromComposite(a1, a2, a3, a5, a6, a7, a8, (__int64)a9);
   }
   return DeviceInterfaceMappedPropertyFromRegValue;
 }

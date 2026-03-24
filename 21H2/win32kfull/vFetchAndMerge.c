@@ -1,10 +1,10 @@
 /*
- * XREFs of vFetchAndMerge @ 0x1C0142D3C
+ * XREFs of vFetchAndMerge @ 0x1C015235C
  * Callers:
- *     ?vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C0142BA0 (-vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
- *     ?vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C6BD0 (-vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ *     ?vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C01521C0 (-vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
+ *     ?vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C83E0 (-vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
  * Callees:
- *     ?MergePattern@@YAXPEAKJJJ@Z @ 0x1C02DA278 (-MergePattern@@YAXPEAKJJJ@Z.c)
+ *     ?MergePattern@@YAXPEAKJJJ@Z @ 0x1C02DBDE8 (-MergePattern@@YAXPEAKJJJ@Z.c)
  */
 
 void __fastcall vFetchAndMerge(__int64 a1)

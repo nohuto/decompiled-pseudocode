@@ -1,68 +1,68 @@
 /*
- * XREFs of PipSendTargetDeviceQueryRemoveNotification @ 0x14095E9F0
+ * XREFs of PipSendTargetDeviceQueryRemoveNotification @ 0x14073286C
  * Callers:
- *     PipProcessQueryRemovalInKernelMode @ 0x14095E754 (PipProcessQueryRemovalInKernelMode.c)
+ *     PipProcessQueryRemovalInKernelMode @ 0x1407325CC (PipProcessQueryRemovalInKernelMode.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnpNotifyTargetDeviceChange @ 0x14078B7C4 (PnpNotifyTargetDeviceChange.c)
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x14095E650 (PiSendTargetDeviceRemoveCanceledNotification.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1406E6FA0 (PnpNotifyTargetDeviceChange.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1408B9040 (PiSendTargetDeviceRemoveCanceledNotification.c)
  */
 
-__int64 __fastcall PipSendTargetDeviceQueryRemoveNotification(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+__int64 __fastcall PipSendTargetDeviceQueryRemoveNotification(__int64 a1, _QWORD **a2, unsigned int a3, __int64 a4)
 {
   unsigned int v8; // esi
-  unsigned int v9; // ebx
-  struct _DEVICE_OBJECT **i; // rdi
-  struct _DEVICE_OBJECT *v11; // rdx
-  _DWORD *DeviceNode; // rcx
+  int v9; // ebx
+  _QWORD **i; // rdi
+  _QWORD *v11; // rdx
+  __int64 v12; // rcx
   int v13; // r8d
-  __int64 v14; // rdx
-  _WORD *v15; // rdi
-  __int64 v17[7]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v15; // rdx
+  _WORD *v16; // rdi
+  _QWORD v17[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v17[0] = 0LL;
   v8 = 0;
   v9 = 0;
   if ( !a3 )
     return v8;
-  for ( i = (struct _DEVICE_OBJECT **)a2; ; ++i )
+  for ( i = a2; ; ++i )
   {
     v11 = *i;
     if ( *i )
+      v12 = *(_QWORD *)(v11[39] + 40LL);
+    else
+      v12 = 0LL;
+    if ( v12 )
     {
-      DeviceNode = v11->DeviceObjectExtension->DeviceNode;
-      if ( DeviceNode )
-      {
-        v13 = DeviceNode[75];
-        if ( (unsigned int)(v13 - 769) <= 3 || v13 == 788 )
-          goto LABEL_9;
-      }
+      v13 = *(_DWORD *)(v12 + 300);
+      if ( ((v13 - 769) & 0xFFFFFFEE) == 0 && v13 != 785 )
+        goto LABEL_9;
     }
     if ( *(_BYTE *)(a1 + 72) )
       break;
     v8 = PnpNotifyTargetDeviceChange(&GUID_TARGET_DEVICE_QUERY_REMOVE, v11, 0LL, v17);
     if ( (v8 & 0x80000000) != 0 )
-      goto LABEL_12;
+      goto LABEL_15;
 LABEL_9:
     if ( ++v9 >= a3 )
       return v8;
   }
   v8 = -1073741536;
-LABEL_12:
-  v14 = v17[0];
-  v15 = (_WORD *)(a4 + 8);
+LABEL_15:
+  v15 = v17[0];
+  v16 = (_WORD *)(a4 + 8);
   *(_DWORD *)a4 = 7;
-  if ( v14 )
+  if ( v15 )
   {
-    RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 8), (PCUNICODE_STRING)(v14 + 56));
+    RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 8), (PCUNICODE_STRING)(v15 + 56));
   }
   else
   {
-    memset(*(void **)(a4 + 16), 0, (unsigned __int16)*v15);
-    *v15 = 0;
+    memset(*(void **)(a4 + 16), 0, (unsigned __int16)*v16);
+    *v16 = 0;
   }
   if ( v9 )
-    PiSendTargetDeviceRemoveCanceledNotification(a2, v9);
+    PiSendTargetDeviceRemoveCanceledNotification(a2, (unsigned int)(v9 - 1));
   return v8;
 }

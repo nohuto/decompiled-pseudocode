@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetBooleanValue@DataSourceProxy@@MEAAJI_N@Z @ 0x1801E37A0
+ * XREFs of ?SetBooleanValue@DataSourceProxy@@MEAAJI_N@Z @ 0x180180A20
  * Callers:
  *     <none>
  * Callees:
- *     ??$SetProperty@_N@DataSourcePropertySet@@QEAAJIPEB_NW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801E223C (--$SetProperty@_N@DataSourcePropertySet@@QEAAJIPEB_NW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801E29BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
- *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801E305C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ *     ??$SetProperty@_N@DataSourcePropertySet@@QEAAJIPEB_NW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017FACC (--$SetProperty@_N@DataSourcePropertySet@@QEAAJIPEB_NW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x18017FFEC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801805B8 (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
  */
 
 __int64 __fastcall DataSourceProxy::SetBooleanValue(DataSourceProxy *this, int a2, char a3)

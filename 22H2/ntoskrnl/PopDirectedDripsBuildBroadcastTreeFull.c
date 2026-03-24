@@ -1,17 +1,16 @@
 /*
- * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FC00
+ * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x1408F8B10
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099FE48 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8D40 (PopDirectedDripsBuildBroadcastTreePartial.c)
  * Callees:
- *     PopFxIsDirectedPowerTransitionSupported @ 0x14058AA28 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140983A14 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099F4EC (PopDirectedDripsDiagTraceProblemDevice.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099FF4C (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsFlushDeviceQueue @ 0x1409A00D4 (PopDirectedDripsFlushDeviceQueue.c)
- *     PopDirectedDripsInsertQueueDevice @ 0x1409A010C (PopDirectedDripsInsertQueueDevice.c)
- *     PopDirectedDripsIsLikelySpecialDevice @ 0x1409A014C (PopDirectedDripsIsLikelySpecialDevice.c)
- *     PopDirectedDripsMarkDfxDevice @ 0x1409A0194 (PopDirectedDripsMarkDfxDevice.c)
- *     PopDirectedDripsVisitDevice @ 0x1409A02C0 (PopDirectedDripsVisitDevice.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x14056B070 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x1408F83DC (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x1408F8E40 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsFlushDeviceQueue @ 0x1408F8FD0 (PopDirectedDripsFlushDeviceQueue.c)
+ *     PopDirectedDripsInsertQueueDevice @ 0x1408F9008 (PopDirectedDripsInsertQueueDevice.c)
+ *     PopDirectedDripsIsLikelySpecialDevice @ 0x1408F9048 (PopDirectedDripsIsLikelySpecialDevice.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x1408F9090 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x1408F91C0 (PopDirectedDripsVisitDevice.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreeFull(__int64 a1, __int64 a2, char a3, _DWORD *a4)
@@ -53,11 +52,11 @@ __int64 __fastcall PopDirectedDripsBuildBroadcastTreeFull(__int64 a1, __int64 a2
         {
           v8 = v23[0];
           if ( (_QWORD *)v23[0] == v23 )
-            goto LABEL_24;
+            goto LABEL_23;
           if ( *(_QWORD **)(v23[0] + 8LL) != v23
             || (v9 = *(_QWORD *)v23[0], *(_QWORD *)(*(_QWORD *)v23[0] + 8LL) != v23[0]) )
           {
-LABEL_31:
+LABEL_30:
             __fastfail(3u);
           }
           v23[0] = *(_QWORD *)v23[0];
@@ -73,68 +72,65 @@ LABEL_31:
           v17 = v22;
           *(_DWORD *)(v8 + 32) |= 0x40000u;
           PopDirectedDripsDiagTraceProblemDevice(v11, a2, v17);
-LABEL_22:
+LABEL_21:
           v15 = 3221225659LL;
-LABEL_23:
+LABEL_22:
           PopDirectedDripsFlushDeviceQueue(v23, v13, v15);
-          goto LABEL_25;
+          goto LABEL_24;
         }
         if ( (a3 & 1) != 0 )
           break;
         v12 = 8;
-LABEL_17:
+LABEL_16:
         PopDirectedDripsDiagTraceProblemDevice(v8 - 728, a2, v12);
         if ( (a3 & 2) == 0 )
-          goto LABEL_22;
+          goto LABEL_21;
         v14 = PopDirectedDripsBuildPs4BroadcastTree(v8 - 728, v24, a2);
         v15 = (unsigned int)v14;
         if ( v14 < 0 )
-          goto LABEL_23;
+          goto LABEL_22;
         v16 = *(_QWORD *)(v8 - 728 + 776);
         v5 |= 2u;
         if ( v16 )
           *(_DWORD *)(v16 + 152) |= 0x10000u;
       }
       v25 = 0;
-      if ( !PopDirectedDripsIsPnpSoftwareDeviceNode(v11) )
-      {
-        if ( !v10 )
-          goto LABEL_14;
-        if ( !PopFxIsDirectedPowerTransitionSupported(v10, &v25) )
-          break;
-      }
+      if ( !v10 )
+        goto LABEL_14;
+      if ( !PopFxIsDirectedPowerTransitionSupported(v10, &v25) )
+        break;
       PopDirectedDripsMarkDfxDevice(v23, v24, v8, a2);
       v5 |= 1u;
     }
     if ( v25 == 2 )
     {
       v12 = 4;
-      goto LABEL_17;
+      goto LABEL_16;
     }
 LABEL_14:
-    v12 = (4 * (*(_DWORD *)(v8 + 32) & 2)) | 1;
-    goto LABEL_17;
+    v12 = 1;
+    goto LABEL_16;
   }
-LABEL_24:
+LABEL_23:
   v18 = 0;
-LABEL_25:
+LABEL_24:
   while ( 1 )
   {
     v19 = v24[0];
     if ( (_QWORD *)v24[0] == v24 )
       break;
     if ( *(_QWORD **)(v24[0] + 8LL) != v24 )
-      goto LABEL_31;
+      goto LABEL_30;
     v20 = *(_QWORD *)v24[0];
     if ( *(_QWORD *)(*(_QWORD *)v24[0] + 8LL) != v24[0] )
-      goto LABEL_31;
+      goto LABEL_30;
     v24[0] = *(_QWORD *)v24[0];
     *(_QWORD *)(v20 + 8) = v24;
     if ( v18 < 0 )
       *(_DWORD *)(v19 + 16) = *(_DWORD *)(v19 + 20);
+    *(_DWORD *)(v19 + 20) = 0;
     *(_QWORD *)(v19 + 8) = v19;
     *(_QWORD *)v19 = v19;
-    *(_DWORD *)(v19 + 20) = 0;
   }
   if ( v18 >= 0 )
     *a4 |= v5;

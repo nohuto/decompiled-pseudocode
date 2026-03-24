@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSizeHeapInternal @ 0x1405F30C0
+ * XREFs of RtlpHpSizeHeapInternal @ 0x140594B2C
  * Callers:
- *     RtlpHpExtrasGet @ 0x1405F2F0C (RtlpHpExtrasGet.c)
- *     RtlpHpSizeHeap @ 0x1405F3028 (RtlpHpSizeHeap.c)
+ *     RtlpHpExtrasGet @ 0x140594968 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x140594A84 (RtlpHpSizeHeap.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14022FB20 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegDescriptorValidate @ 0x140365700 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpSegSizeInternal @ 0x1405F32FC (RtlpHpSegSizeInternal.c)
- *     RtlpHpLargeAllocSize @ 0x1405F36B0 (RtlpHpLargeAllocSize.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402A2380 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1403422D0 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpSegSizeInternal @ 0x1405950C8 (RtlpHpSegSizeInternal.c)
+ *     RtlpHpLargeAllocSize @ 0x140595464 (RtlpHpLargeAllocSize.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeapInternal(__int128 *a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
@@ -34,12 +34,12 @@ __int64 __fastcall RtlpHpSizeHeapInternal(__int128 *a1, unsigned __int64 a2, uns
     if ( !v10 )
       return RtlpHpLargeAllocSize(a1, a2, a3, a4);
     v11 = v10 - 1;
-    if ( v11 == 2 )
-      return RtlpHpLargeAllocSize(a1, a2, a3, a4);
   }
-  v13 = RtlpHpSegDescriptorValidate((__int64)&a1[12 * v11 + 20], a2);
+  if ( v11 == 2 )
+    return RtlpHpLargeAllocSize(a1, a2, a3, a4);
+  v13 = RtlpHpSegDescriptorValidate((__int64)&a1[12 * v11 + 16], a2);
   if ( v13 )
-    return RtlpHpSegSizeInternal(v15 + (int)a1 + 320, v13, a2, v14, a4);
+    return RtlpHpSegSizeInternal(v15 + (int)a1 + 256, v13, a2, v14, a4);
   else
     return -1LL;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrLoadAlternateResourceModuleEx @ 0x1400F404C
+ * XREFs of LdrLoadAlternateResourceModuleEx @ 0x1400F406C
  * Callers:
- *     LdrpLoadResourceFromAlternativeModule @ 0x1400F3BCC (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpResSearchResourceMappedFile @ 0x1400FD9EC (LdrpResSearchResourceMappedFile.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1400F3BEC (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     LdrpKrnGetDataTableEntry @ 0x1400F3830 (LdrpKrnGetDataTableEntry.c)
- *     LdrpGetFromMUIMemCache @ 0x1400F4260 (LdrpGetFromMUIMemCache.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     DownLevelLangIDToLanguageName @ 0x140161010 (DownLevelLangIDToLanguageName.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x140174B20 (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrpMapResourceFile @ 0x140176BDC (LdrpMapResourceFile.c)
- *     LdrpGetResourceFileName @ 0x1401779A0 (LdrpGetResourceFileName.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x140177BD8 (LdrpVerifyAlternateResourceModuleEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1400F3850 (LdrpKrnGetDataTableEntry.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400F4280 (LdrpGetFromMUIMemCache.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     DownLevelLangIDToLanguageName @ 0x140161030 (DownLevelLangIDToLanguageName.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x140174B40 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpMapResourceFile @ 0x140176BFC (LdrpMapResourceFile.c)
+ *     LdrpGetResourceFileName @ 0x1401779C0 (LdrpGetResourceFileName.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x140177BF8 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
  */
 

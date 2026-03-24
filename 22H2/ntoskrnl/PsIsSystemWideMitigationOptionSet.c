@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsSystemWideMitigationOptionSet @ 0x1407E87B8
+ * XREFs of PsIsSystemWideMitigationOptionSet @ 0x1406A53D4
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

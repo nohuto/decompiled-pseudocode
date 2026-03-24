@@ -1,9 +1,9 @@
 /*
- * XREFs of PoGetRequesterOld @ 0x1404109EC
+ * XREFs of PoGetRequesterOld @ 0x1403F75E4
  * Callers:
- *     PoCaptureReasonContext @ 0x140209BF8 (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14034C66C (PoCaptureReasonContext.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PoGetRequesterOld(char a1, void *a2, __int64 a3)
@@ -11,17 +11,15 @@ LONG_PTR __fastcall PoGetRequesterOld(char a1, void *a2, __int64 a3)
   LONG_PTR result; // rax
   struct _KTHREAD *CurrentThread; // rdx
   _QWORD *Teb; // rdx
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v6; // rax
   __int16 v7; // ax
-  bool v8; // zf
-  char v9; // al
-  LONG_PTR v10; // rax
-  LONG_PTR v11; // [rsp+48h] [rbp+20h]
+  LONG_PTR v8; // rax
+  LONG_PTR v9; // [rsp+48h] [rbp+20h]
 
   result = (LONG_PTR)a2;
   if ( a1 )
   {
-    v11 = 0LL;
+    v9 = 0LL;
     CurrentThread = KeGetCurrentThread();
     if ( (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->ApcStateIndex == 1 )
       Teb = 0LL;
@@ -29,25 +27,22 @@ LONG_PTR __fastcall PoGetRequesterOld(char a1, void *a2, __int64 a3)
       Teb = CurrentThread->Teb;
     if ( Teb )
     {
-      if ( !KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[30] )
-        goto LABEL_16;
-      Process = KeGetCurrentThread()->ApcState.Process;
-      if ( !Process[1].Affinity.StaticBitmap[30] )
-        goto LABEL_16;
-      v7 = WORD2(Process[2].Affinity.StaticBitmap[20]);
-      if ( v7 == 332 || (v8 = v7 == 452, v9 = 0, v8) )
-        v9 = 1;
-      if ( v9 )
-        v10 = *((unsigned int *)Teb + 3032);
+      if ( KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]
+        && (v6 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]) != 0
+        && ((v7 = *(_WORD *)(v6 + 8), v7 == 332) || v7 == 452) )
+      {
+        v8 = *((unsigned int *)Teb + 3032);
+      }
       else
-LABEL_16:
-        v10 = Teb[740];
-      v11 = v10;
+      {
+        v8 = Teb[740];
+      }
+      v9 = v8;
     }
-    *(_DWORD *)a3 = (v11 != 0) + 1;
+    *(_DWORD *)a3 = (v9 != 0) + 1;
     *(_QWORD *)(a3 + 8) = KeGetCurrentThread()->ApcState.Process;
-    result = v11;
-    *(_DWORD *)(a3 + 40) = v11;
+    result = v9;
+    *(_DWORD *)(a3 + 40) = v9;
   }
   else
   {

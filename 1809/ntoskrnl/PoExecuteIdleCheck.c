@@ -1,16 +1,16 @@
 /*
- * XREFs of PoExecuteIdleCheck @ 0x1402D3730
+ * XREFs of PoExecuteIdleCheck @ 0x1402D3830
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
  *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PpmGetIdleConstrainedMask @ 0x1402D3E3C (PpmGetIdleConstrainedMask.c)
- *     PpmEventIdleDurationExpiration @ 0x1402E55FC (PpmEventIdleDurationExpiration.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PpmGetIdleConstrainedMask @ 0x1402D3F3C (PpmGetIdleConstrainedMask.c)
+ *     PpmEventIdleDurationExpiration @ 0x1402E56FC (PpmEventIdleDurationExpiration.c)
  */
 
 void __fastcall PoExecuteIdleCheck(unsigned __int64 a1)

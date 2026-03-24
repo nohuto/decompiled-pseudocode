@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSqmIsOptedIn @ 0x14092B664
+ * XREFs of DbgkpLkmdSqmIsOptedIn @ 0x140888754
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14092AC5C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
  */
 
 bool DbgkpLkmdSqmIsOptedIn()
@@ -22,18 +22,19 @@ bool DbgkpLkmdSqmIsOptedIn()
 
   KeyHandle = 0LL;
   ResultLength = 0;
-  ObjectAttributes.RootDirectory = 0LL;
+  HIDWORD(ObjectAttributes.RootDirectory) = 0;
+  *(_QWORD *)(&ObjectAttributes.Length + 1) = 0LL;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   v8 = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  v4[0] = 8388734LL;
   v4[1] = L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\SQMClient\\Windows";
   v5[1] = L"\\Registry\\Machine\\Software\\Microsoft\\SQMClient\\Windows";
   ValueName.Buffer = L"CEIPEnable";
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v4;
   KeyValueInformation = 0LL;
-  v4[0] = 8388734LL;
   v5[0] = 7209068LL;
   *(_QWORD *)&ValueName.Length = 1441812LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {

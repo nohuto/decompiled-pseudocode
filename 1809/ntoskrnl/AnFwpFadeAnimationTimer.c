@@ -4,11 +4,11 @@
  *     <none>
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     BgpGxDrawRectangle @ 0x14016EE10 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x14016F1C0 (BgpGetBitsPerPixel.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
  *     LogFwStat @ 0x14094F754 (LogFwStat.c)
  */
 
@@ -78,7 +78,7 @@ void __fastcall AnFwpFadeAnimationTimer(
   _BYTE v61[16]; // [rsp+40h] [rbp-38h] BYREF
 
   BgpFwAcquireLock();
-  if ( byte_1404C64F0 )
+  if ( byte_1404C64E1 )
   {
     LogFwStat(1LL, 6LL, 0LL);
     LogFwStat(1LL, 4LL, 0LL);
@@ -267,7 +267,7 @@ void __fastcall AnFwpFadeAnimationTimer(
     }
     else
     {
-      byte_1404C64F0 = 0;
+      byte_1404C64E1 = 0;
       KeCancelTimer(&Timer);
       KeSetEvent(&stru_1404DBDD0, 0, 0);
     }

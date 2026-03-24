@@ -1,12 +1,11 @@
 /*
- * XREFs of ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x180011500
+ * XREFs of ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x180012214
  * Callers:
- *     ?AddStateSettingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x180011354 (-AddStateSettingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_dele.c)
- *     ?AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x1801F0BD8 (-AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@.c)
+ *     ?AddStateSettingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCStateSettingDrawListEntry@@@Z @ 0x180012090 (-AddStateSettingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCStateSettingDrawListEntry@@@Z.c)
  * Callees:
- *     ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x18007E784 (-FlushBottomLayer@CBatchOptimizer@@AEAAXXZ.c)
- *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18007FFE0 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
- *     ?RecycleLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180080650 (-RecycleLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x180090D44 (-FlushBottomLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?RecycleLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180090F5C (-RecycleLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0320 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
  */
 
 void __fastcall CBatchOptimizer::AppendLayer(CBatchOptimizer *this)
@@ -16,5 +15,5 @@ void __fastcall CBatchOptimizer::AppendLayer(CBatchOptimizer *this)
     CBatchOptimizer::FlushBottomLayer(this);
     CBatchOptimizer::RecycleLayer(this, 0);
   }
-  *(_OWORD *)((char *)this + 520 * *((int *)this + (*((_DWORD *)this + 8))++ + 12) + 80) = *((_OWORD *)this + 1);
+  *(_OWORD *)((char *)this + 520 * *((int *)this + ++*((_DWORD *)this + 8) + 11) + 80) = *((_OWORD *)this + 1);
 }

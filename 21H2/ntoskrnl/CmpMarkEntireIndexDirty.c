@@ -1,54 +1,57 @@
 /*
- * XREFs of CmpMarkEntireIndexDirty @ 0x14065E97C
+ * XREFs of CmpMarkEntireIndexDirty @ 0x14087AE88
  * Callers:
- *     CmpLightWeightDuplicateParentLists @ 0x14065E5A4 (CmpLightWeightDuplicateParentLists.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x14087F2DC (CmpLightWeightDuplicateParentLists.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
  */
 
-__int64 __fastcall CmpMarkEntireIndexDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
+char __fastcall CmpMarkEntireIndexDirty(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
-  unsigned int v3; // ebp
-  __int64 CellFlat; // rax
+  unsigned int v2; // ebx
+  volatile signed __int64 *v4; // rbp
   _WORD *v5; // rdi
-  unsigned int i; // ebp
-  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+  char v6; // bl
+  int v7; // esi
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v8 = 0LL;
-  v3 = BugCheckParameter4;
-  HvpGetCellContextReinitialize(&v8);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, v3);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3);
-  v5 = (_WORD *)CellFlat;
-  ExAcquirePushLockExclusiveEx(BugCheckParameter3 + 80, 0LL);
-  if ( (int)HvpMarkCellDirty(BugCheckParameter3, v3) >= 0 && *v5 == 26994 )
+  v9 = 0xFFFFFFFFLL;
+  v2 = BugCheckParameter3;
+  v4 = (volatile signed __int64 *)(BugCheckParameter2 + 80);
+  v5 = (_WORD *)(*(__int64 (__fastcall **)(ULONG_PTR, ULONG_PTR, __int64 *))(BugCheckParameter2 + 8))(
+                  BugCheckParameter2,
+                  BugCheckParameter3,
+                  &v9);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)v4, 0LL);
+  v6 = HvpMarkCellDirty(BugCheckParameter2, v2, 1);
+  if ( v6 )
   {
-    for ( i = 0; i < (unsigned __int16)v5[1]; ++i )
+    if ( *v5 == 26994 && (v7 = 0, v5[1]) )
     {
-      if ( (int)HvpMarkCellDirty(BugCheckParameter3, *(unsigned int *)&v5[2 * i + 2]) < 0 )
-        break;
+      while ( 1 )
+      {
+        v6 = HvpMarkCellDirty(BugCheckParameter2, *(unsigned int *)&v5[2 * v7 + 2], 1);
+        if ( !v6 )
+          break;
+        if ( ++v7 >= (unsigned int)(unsigned __int16)v5[1] )
+          goto LABEL_6;
+      }
+    }
+    else
+    {
+LABEL_6:
+      v6 = 1;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter3 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(BugCheckParameter3 + 80);
-  KeAbPostRelease(BugCheckParameter3 + 80);
+  if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(BugCheckParameter2 + 80);
+  KeAbPostRelease(BugCheckParameter2 + 80);
   if ( v5 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v8);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, &v8);
-  }
-  return 0LL;
+    (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v9);
+  return v6;
 }

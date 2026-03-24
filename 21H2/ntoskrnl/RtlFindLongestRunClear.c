@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFindLongestRunClear @ 0x1405E5890
+ * XREFs of RtlFindLongestRunClear @ 0x140587110
  * Callers:
  *     <none>
  * Callees:
- *     RtlFindClearRuns @ 0x14020DD80 (RtlFindClearRuns.c)
+ *     RtlFindClearRuns @ 0x140364910 (RtlFindClearRuns.c)
  */
 
 ULONG __stdcall RtlFindLongestRunClear(PRTL_BITMAP BitMapHeader, PULONG StartingIndex)

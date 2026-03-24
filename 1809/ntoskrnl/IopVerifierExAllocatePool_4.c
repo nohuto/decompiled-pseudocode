@@ -1,13 +1,13 @@
 /*
- * XREFs of IopVerifierExAllocatePool_4 @ 0x140286B54
+ * XREFs of IopVerifierExAllocatePool_4 @ 0x140286C54
  * Callers:
- *     IopEnumerateEnvironmentVariablesTrEE @ 0x140821A20 (IopEnumerateEnvironmentVariablesTrEE.c)
- *     IopGetEnvironmentVariableSysEnv @ 0x140821EA0 (IopGetEnvironmentVariableSysEnv.c)
- *     IopGetEnvironmentVariableTrEE @ 0x140821FF0 (IopGetEnvironmentVariableTrEE.c)
- *     IopSetEnvironmentVariableSysEnv @ 0x140822620 (IopSetEnvironmentVariableSysEnv.c)
- *     IopSetEnvironmentVariableTrEE @ 0x140822730 (IopSetEnvironmentVariableTrEE.c)
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x140821A00 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableSysEnv @ 0x140821E80 (IopGetEnvironmentVariableSysEnv.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x140821FD0 (IopGetEnvironmentVariableTrEE.c)
+ *     IopSetEnvironmentVariableSysEnv @ 0x140822600 (IopSetEnvironmentVariableSysEnv.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x140822710 (IopSetEnvironmentVariableTrEE.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

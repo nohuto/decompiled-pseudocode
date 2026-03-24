@@ -1,186 +1,114 @@
 /*
- * XREFs of FsRtlpComputeShareableOplockState @ 0x140302370
+ * XREFs of FsRtlpComputeShareableOplockState @ 0x140206110
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpCancelOplockRHIrp @ 0x140360570 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BF5C4 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D2CD0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053E250 (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140766820 (FsRtlpOplockFsctrlInternal.c)
- *     FsRtlCheckUpperOplock @ 0x14093DC80 (FsRtlCheckUpperOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402D44D0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402D55B0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x140304D20 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140305140 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403752B0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403929CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x1404F0378 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlCheckUpperOplock @ 0x14088B900 (FsRtlCheckUpperOplock.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     <none>
  */
 
-char __fastcall FsRtlpComputeShareableOplockState(_QWORD *a1)
+__int64 __fastcall FsRtlpComputeShareableOplockState(__int64 a1)
 {
-  _UNKNOWN **v1; // rax
-  int *v2; // rbx
-  _QWORD *v4; // r9
-  int v5; // esi
-  _QWORD *v6; // rdx
-  __int64 ***v7; // r11
-  int v8; // ecx
-  bool v9; // zf
-  int v10; // ecx
-  __int64 **v11; // r10
-  int v12; // r8d
-  char v13; // r8
-  char v14; // dl
-  int v15; // ecx
-  int v17; // [rsp+3Ch] [rbp-35h] BYREF
-  _QWORD *v18; // [rsp+40h] [rbp-31h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-29h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-21h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v21[2]; // [rsp+58h] [rbp-19h] BYREF
-  _QWORD *v22; // [rsp+78h] [rbp+7h]
-  int v23; // [rsp+80h] [rbp+Fh]
-  int v24; // [rsp+84h] [rbp+13h]
-  int *v25; // [rsp+88h] [rbp+17h]
-  int v26; // [rsp+90h] [rbp+1Fh]
-  int v27; // [rsp+94h] [rbp+23h]
-  __int64 *v28; // [rsp+98h] [rbp+27h]
-  int v29; // [rsp+A0h] [rbp+2Fh]
-  int v30; // [rsp+A4h] [rbp+33h]
-  __int64 *v31; // [rsp+A8h] [rbp+37h]
-  int v32; // [rsp+B0h] [rbp+3Fh]
-  int v33; // [rsp+B4h] [rbp+43h]
-  _UNKNOWN *retaddr; // [rsp+D0h] [rbp+5Fh] BYREF
+  int v1; // eax
+  _QWORD *v2; // r10
+  _QWORD *v3; // r11
+  int v4; // r9d
+  __int64 result; // rax
+  __int64 *v6; // r10
+  int v7; // edx
+  char v8; // dl
+  char v9; // bl
+  int v10; // eax
 
-  v1 = &retaddr;
-  v2 = (int *)(a1 + 18);
-  if ( (unsigned int)dword_140C03768 > 5 )
+  v1 = *(_DWORD *)(a1 + 144);
+  v2 = (_QWORD *)(a1 + 40);
+  v3 = *(_QWORD **)(a1 + 40);
+  v4 = v1 & 0x1010000;
+  if ( v3 != (_QWORD *)(a1 + 40) )
+    goto LABEL_14;
+  if ( *(_QWORD *)(a1 + 56) != a1 + 56 || *(_QWORD *)(a1 + 72) != a1 + 72 )
   {
-    v24 = 0;
-    v27 = 0;
-    v22 = &v18;
-    v17 = *v2;
-    v18 = a1;
-    v25 = &v17;
-    v23 = 8;
-    v26 = 4;
-    LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                   (__int64)&dword_140C03768,
-                   (unsigned __int8 *)byte_14003A768,
-                   0LL,
-                   0LL,
-                   4u,
-                   v21);
-  }
-  v4 = (_QWORD *)a1[5];
-  v5 = *v2 & 0x1010000;
-  if ( v4 == a1 + 5 )
-  {
-    v6 = a1 + 7;
-    if ( (_QWORD *)*v6 == v6 )
+    if ( v3 == v2 )
     {
-      v1 = (_UNKNOWN **)(a1 + 9);
-      if ( *v1 == (_UNKNOWN *)v1 )
+LABEL_4:
+      if ( *(_QWORD *)(a1 + 56) != a1 + 56 )
+        goto LABEL_5;
+      if ( v3 == v2 )
       {
-        v8 = *v2 & 0x20 | 1;
-        goto LABEL_10;
-      }
-    }
-    v7 = (__int64 ***)(a1 + 9);
-    v8 = *v2 & 0x20 | 0x3000;
-    v9 = *v6 == (_QWORD)v6;
-    *v2 = v8;
-    if ( v9 )
-    {
-      v11 = *v7;
-      v12 = 0;
-      while ( v11 != (__int64 **)v7 )
-      {
-        if ( v12 )
+        v6 = *(__int64 **)(a1 + 72);
+        v7 = 0;
+        v1 = v1 & 0x20 | 0x3000;
+        *(_DWORD *)(a1 + 144) = v1;
+        if ( v6 == (__int64 *)(a1 + 72) )
+          goto LABEL_6;
+        while ( !v7 || (v6[6] & 0xF00000) == v7 )
         {
-          LODWORD(v1) = (_DWORD)v11[6] & 0xF00000;
-          if ( (_DWORD)v1 != v12 )
-          {
-            v8 = v8 & 0x20 | 0x3000;
-            goto LABEL_10;
-          }
+          v7 = v6[6] & 0xF00000;
+          v1 = *(_DWORD *)(a1 + 144) | v7;
+          *(_DWORD *)(a1 + 144) = v1;
+          v6 = (__int64 *)*v6;
+          if ( v6 == (__int64 *)(a1 + 72) )
+            goto LABEL_6;
         }
-        v12 = (_DWORD)v11[6] & 0xF00000;
-        v8 |= v12;
-        *v2 = v8;
-        v11 = (__int64 **)*v11;
-      }
-    }
-    goto LABEL_6;
-  }
-  v1 = (_UNKNOWN **)(a1 + 7);
-  if ( *v1 != (_UNKNOWN *)v1 || (v1 = (_UNKNOWN **)(a1 + 9), *v1 != (_UNKNOWN *)v1) )
-  {
-    v8 = *v2 & 0x20 | 0xB000;
-    goto LABEL_10;
-  }
-  v13 = 0;
-  v14 = 0;
-  do
-  {
-    v1 = (_UNKNOWN **)v4[2];
-    if ( *((_DWORD *)v1 + 6) == 590400 )
-    {
-      v13 = 1;
-    }
-    else
-    {
-      v14 = 1;
-      if ( !v13 )
-        goto LABEL_24;
-    }
-    if ( v14 )
-      goto LABEL_27;
-LABEL_24:
-    v4 = (_QWORD *)*v4;
-    LOBYTE(v1) = v13;
-  }
-  while ( v4 != a1 + 5 );
-  if ( v13 && v14 )
-  {
-LABEL_27:
-    v8 = *v2 & 0x20 | 0x1010;
-    goto LABEL_10;
-  }
-  v15 = *v2 & 0x20;
-  if ( v13 )
-    v8 = v15 | 0x1000;
-  else
-    v8 = v15 | 0x10;
-LABEL_10:
-  *v2 = v8;
+LABEL_5:
+        v1 = v1 & 0x20 | 0x3000;
 LABEL_6:
-  v10 = v5 | v8;
-  *v2 = v10;
-  if ( (unsigned int)dword_140C03768 > 5 )
-  {
-    v24 = 0;
-    v27 = 0;
-    v30 = 0;
-    v33 = 0;
-    v22 = &v18;
-    v25 = &v17;
-    v19 = a1[11];
-    v28 = &v19;
-    v20 = a1[12];
-    v31 = &v20;
-    v17 = v10;
-    v18 = a1;
-    v23 = 8;
-    v26 = 4;
-    v29 = 8;
-    v32 = 8;
-    LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                   (__int64)&dword_140C03768,
-                   (unsigned __int8 *)word_14003A6E2,
-                   0LL,
-                   0LL,
-                   6u,
-                   v21);
+        result = v4 | (unsigned int)v1;
+        *(_DWORD *)(a1 + 144) = result;
+        return result;
+      }
+LABEL_17:
+      v8 = 0;
+      v9 = 0;
+      do
+      {
+        if ( *(_DWORD *)(v3[2] + 24LL) == 590400 )
+        {
+          v8 = 1;
+          if ( v9 )
+            goto LABEL_20;
+        }
+        else
+        {
+          v9 = 1;
+          if ( v8 )
+            goto LABEL_20;
+        }
+        v3 = (_QWORD *)*v3;
+      }
+      while ( v3 != v2 );
+      if ( v8 && v9 )
+      {
+LABEL_20:
+        v1 = v1 & 0x20 | 0x1010;
+        goto LABEL_6;
+      }
+      v10 = v1 & 0x20;
+      if ( v8 )
+        v1 = v10 | 0x1000;
+      else
+        v1 = v10 | 0x10;
+      goto LABEL_6;
+    }
+LABEL_14:
+    if ( *(_QWORD *)(a1 + 56) != a1 + 56 || *(_QWORD *)(a1 + 72) != a1 + 72 )
+    {
+      v1 = v1 & 0x20 | 0xB000;
+      goto LABEL_6;
+    }
+    if ( v3 != v2 )
+      goto LABEL_17;
+    goto LABEL_4;
   }
-  return (char)v1;
+  result = v4 | v1 & 0x20 | 1u;
+  *(_DWORD *)(a1 + 144) = result;
+  return result;
 }

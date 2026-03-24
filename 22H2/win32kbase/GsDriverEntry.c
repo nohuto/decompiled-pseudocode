@@ -1,10 +1,10 @@
 /*
- * XREFs of GsDriverEntry @ 0x1C02DB010
+ * XREFs of GsDriverEntry @ 0x1C0297010
  * Callers:
  *     <none>
  * Callees:
- *     __security_init_cookie @ 0x1C02DB044 (__security_init_cookie.c)
- *     DriverEntry @ 0x1C02DEBB0 (DriverEntry.c)
+ *     __security_init_cookie @ 0x1C0297044 (__security_init_cookie.c)
+ *     DriverEntry @ 0x1C029A764 (DriverEntry.c)
  */
 
 NTSTATUS __stdcall GsDriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)

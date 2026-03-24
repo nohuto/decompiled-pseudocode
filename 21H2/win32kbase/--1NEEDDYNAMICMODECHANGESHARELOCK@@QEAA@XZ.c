@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002E400
+ * XREFs of ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C008261C
  * Callers:
- *     NtGdiGetDeviceCaps @ 0x1C002E300 (NtGdiGetDeviceCaps.c)
- *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C002EB80 (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
- *     GreGetDeviceCaps @ 0x1C00642D0 (GreGetDeviceCaps.c)
- *     NtGdiGetDeviceCapsAll @ 0x1C00CD460 (NtGdiGetDeviceCapsAll.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000CA70 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003B51C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
+ *     GreGetDeviceCaps @ 0x1C0091480 (GreGetDeviceCaps.c)
+ *     NtGdiGetDeviceCapsAll @ 0x1C0142390 (NtGdiGetDeviceCapsAll.c)
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 void __fastcall NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK(
@@ -14,19 +14,15 @@ void __fastcall NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK(
         __int64 a2,
         int a3)
 {
-  if ( *(_BYTE *)this )
+  __int64 v3; // rcx
+
+  if ( *(_DWORD *)this )
   {
-    if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      McTemplateK0pz_EtwWriteTransfer(
-        (_DWORD)this,
-        (unsigned int)&LockRelease,
-        a3,
-        (_DWORD)ghsemDynamicModeChange,
-        (__int64)L"ghsemDynamicModeChange");
+    EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, a3);
     if ( ghsemDynamicModeChange )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-      PsLeavePriorityRegion();
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+      PsLeavePriorityRegion(v3);
     }
   }
 }

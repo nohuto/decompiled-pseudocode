@@ -5,11 +5,11 @@
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiSystemVaToDynamicBitmap @ 0x1400F71E0 (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x14017E8C0 (MiBuildDynamicRegion.c)
- *     MiIssueNoPtesBugcheck @ 0x1402AD708 (MiIssueNoPtesBugcheck.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B68 (MiInitializeSystemWorkingSetList.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1400F7200 (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
+ *     MiIssueNoPtesBugcheck @ 0x1402AD808 (MiIssueNoPtesBugcheck.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
  *     InitializePagedPool @ 0x1409B7280 (InitializePagedPool.c)
  */
 

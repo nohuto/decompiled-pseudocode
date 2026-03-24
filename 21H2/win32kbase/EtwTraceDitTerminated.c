@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDitTerminated @ 0x1C014CB00
+ * XREFs of EtwTraceDitTerminated @ 0x1C0121D30
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDitTerminated(__int64 a1)

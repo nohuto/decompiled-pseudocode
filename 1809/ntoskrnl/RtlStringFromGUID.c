@@ -5,8 +5,8 @@
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  *     SepSecureBootSetRegistryKey @ 0x1409DC258 (SepSecureBootSetRegistryKey.c)
  *     PiInitFirmwareResources @ 0x1409DF1D0 (PiInitFirmwareResources.c)
- *     BapdpRegisterFwUpdateResults @ 0x1409F8DC8 (BapdpRegisterFwUpdateResults.c)
- *     RamdiskStart @ 0x1409F9D3C (RamdiskStart.c)
+ *     BapdpRegisterFwUpdateResults @ 0x1409F8DD8 (BapdpRegisterFwUpdateResults.c)
+ *     RamdiskStart @ 0x1409F9D4C (RamdiskStart.c)
  * Callees:
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  */

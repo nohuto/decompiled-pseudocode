@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDqObjectManagerHandleObjectEvent @ 0x1406F9440
+ * XREFs of PiDqObjectManagerHandleObjectEvent @ 0x1406F9420
  * Callers:
  *     PiPnpRtlObjectEventDispatch @ 0x140595C5C (PiPnpRtlObjectEventDispatch.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     PiDqObjectActionQueueEntryCreate @ 0x1406F9584 (PiDqObjectActionQueueEntryCreate.c)
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x14082ADCC (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     PiDqObjectActionQueueEntryCreate @ 0x1406F9564 (PiDqObjectActionQueueEntryCreate.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x14082ADAC (PiDqDeleteUserObjectFromLoadedHives.c)
  */
 
 void __fastcall PiDqObjectManagerHandleObjectEvent(__int64 a1, __int64 a2)

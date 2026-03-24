@@ -6,7 +6,7 @@
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
  *     PsGetEffectiveServerSilo @ 0x14008FD30 (PsGetEffectiveServerSilo.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
  */
 
 __int64 __fastcall PspEstimateNewProcessServerSilo(__int64 a1, __int64 a2, unsigned __int64 a3)

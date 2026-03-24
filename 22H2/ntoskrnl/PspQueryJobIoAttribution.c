@@ -1,9 +1,9 @@
 /*
- * XREFs of PspQueryJobIoAttribution @ 0x1406A0A9C
+ * XREFs of PspQueryJobIoAttribution @ 0x14065DC60
  * Callers:
- *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616CE0 (NtQueryInformationJobObject.c)
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x14020C244 (IoDiskIoAttributionQuery.c)
+ *     IoDiskIoAttributionQuery @ 0x1402E027C (IoDiskIoAttributionQuery.c)
  */
 
 __int64 __fastcall PspQueryJobIoAttribution(__int64 a1, __int64 a2)
@@ -22,9 +22,9 @@ __int64 __fastcall PspQueryJobIoAttribution(__int64 a1, __int64 a2)
   v9 = 0LL;
   v10 = 0LL;
   v11 = 0LL;
-  if ( *(_DWORD *)(a1 + 1560) )
+  if ( *(_DWORD *)(a1 + 1344) )
   {
-    IoDiskIoAttributionQuery(*(_QWORD *)(a1 + 1568), &v8, &v10);
+    IoDiskIoAttributionQuery(*(_QWORD *)(a1 + 1352), &v8, &v10);
     v4 = *((_QWORD *)&v9 + 1);
     *(_QWORD *)(a2 + 24) = *((_QWORD *)&v8 + 1);
     *(_QWORD *)(a2 + 32) = v9;

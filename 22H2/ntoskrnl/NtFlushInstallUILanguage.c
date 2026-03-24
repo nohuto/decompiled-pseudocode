@@ -1,19 +1,19 @@
 /*
- * XREFs of NtFlushInstallUILanguage @ 0x14085F640
+ * XREFs of NtFlushInstallUILanguage @ 0x1407CF9B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14060F5BC (MigrateOOBELanguageToInstallationLanguage.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     MUIInitializeResourceLock @ 0x14085F71C (MUIInitializeResourceLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x1405B9AE0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     MUIInitializeResourceLock @ 0x1407CFA8C (MUIInitializeResourceLock.c)
  */
 
 __int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // ebx
   KPROCESSOR_MODE PreviousMode; // dl
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rax
@@ -25,7 +25,11 @@ __int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
     return 3221225506LL;
   if ( PsUILanguageComitted )
-    return (unsigned __int16)PsInstallUILanguageId != a1 ? 0xC0000001 : 0;
+  {
+    if ( a1 == (unsigned __int16)PsInstallUILanguageId )
+      return 0LL;
+    return 3221225473LL;
+  }
   if ( MUIRefreshCachedUILock
     || (result = MUIInitializeResourceLock(&MUIRefreshCachedUILock), (result & 0xC0000000) != 0xC0000000) )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiUEventInit @ 0x140B42DC4
+ * XREFs of PiUEventInit @ 0x140A52E88
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 __fastcall PiUEventInit(int a1)
@@ -44,23 +44,23 @@ __int64 __fastcall PiUEventInit(int a1)
     PiUEventBroadcastEventQueueLock.Event.Header.SignalState = 0;
     do
     {
-      *(_QWORD *)((char *)&unk_140C5CF48 + v3) = (char *)&PiUEventDevInterfaceClientList + v3;
+      *(_QWORD *)((char *)&unk_140C44FC8 + v3) = (char *)&PiUEventDevInterfaceClientList + v3;
       *(_QWORD *)((char *)&PiUEventDevInterfaceClientList + v3) = (char *)&PiUEventDevInterfaceClientList + v3;
-      *(_QWORD *)((char *)&unk_140C5CE28 + v3) = (char *)&PiUEventDevInstanceClientList + v3;
+      *(_QWORD *)((char *)&unk_140C450A8 + v3) = (char *)&PiUEventDevInstanceClientList + v3;
       *(_QWORD *)((char *)&PiUEventDevInstanceClientList + v3) = (char *)&PiUEventDevInstanceClientList + v3;
-      *(_QWORD *)((char *)&unk_140C5D088 + v3) = (char *)&PiUEventDevInstancePropertyClientList + v3;
+      *(_QWORD *)((char *)&unk_140C44EE8 + v3) = (char *)&PiUEventDevInstancePropertyClientList + v3;
       *(_QWORD *)((char *)&PiUEventDevInstancePropertyClientList + v3) = (char *)&PiUEventDevInstancePropertyClientList
                                                                        + v3;
       v4 = (_QWORD *)((char *)&PiUEventDevHandleClientList + v3);
-      *(_QWORD *)((char *)&unk_140C5D168 + v3) = (char *)&PiUEventDevHandleClientList + v3;
+      *(_QWORD *)((char *)&unk_140C45288 + v3) = (char *)&PiUEventDevHandleClientList + v3;
       v3 += 16LL;
       *v4 = v4;
       --v2;
     }
     while ( v2 );
-    qword_140C5D068 = (__int64)&PiUEventUsermodeEventQueue;
+    qword_140C451C8 = (__int64)&PiUEventUsermodeEventQueue;
     PiUEventUsermodeEventQueue = &PiUEventUsermodeEventQueue;
-    qword_140C5D288 = (__int64)&PiUEventBroadcastEventQueue;
+    qword_140C45228 = (__int64)&PiUEventBroadcastEventQueue;
     PiUEventBroadcastEventQueue = &PiUEventBroadcastEventQueue;
     return (unsigned int)ExSubscribeWnfStateChange(
                            (__int64)&PiUEventMetaNotificationHandle,

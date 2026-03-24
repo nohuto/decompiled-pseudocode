@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RegisterForPnpNotification@FxIoTargetRemote@@QEAAJXZ @ 0x1C0075A58
+ * XREFs of ?RegisterForPnpNotification@FxIoTargetRemote@@QEAAJXZ @ 0x1C0068338
  * Callers:
- *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C002CAD0 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
+ *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C00670B0 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
  * Callees:
  *     <none>
  */

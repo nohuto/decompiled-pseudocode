@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDockIrpSetPower @ 0x1C00097C0
+ * XREFs of ACPIDockIrpSetPower @ 0x1C004A9D0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDockIrpSetDevicePower @ 0x1C0002734 (ACPIDockIrpSetDevicePower.c)
- *     ACPIDockIrpSetSystemPower @ 0x1C00097F4 (ACPIDockIrpSetSystemPower.c)
+ *     ACPIDockIrpSetDevicePower @ 0x1C002D924 (ACPIDockIrpSetDevicePower.c)
+ *     ACPIDockIrpSetSystemPower @ 0x1C004AA04 (ACPIDockIrpSetSystemPower.c)
  */
 
 __int64 __fastcall ACPIDockIrpSetPower(struct _DEVICE_OBJECT *a1, __int64 a2)

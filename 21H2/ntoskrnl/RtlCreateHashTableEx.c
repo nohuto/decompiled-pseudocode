@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateHashTableEx @ 0x1403A7700
+ * XREFs of RtlCreateHashTableEx @ 0x14039B010
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateHashTable @ 0x14021FB10 (RtlpCreateHashTable.c)
+ *     RtlpCreateHashTable @ 0x1403767E0 (RtlpCreateHashTable.c)
  */
 
 char __fastcall RtlCreateHashTableEx(PVOID *a1, unsigned int a2, int a3, int a4)

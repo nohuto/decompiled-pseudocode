@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C0103090
+ * XREFs of ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C0108B88
  * Callers:
- *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C0102C04 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
+ *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C0108758 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ struct tagPROCESS_HID_REQUEST *__fastcall AllocateHidProcessRequest(__int16 a1, 
 {
   struct tagPROCESS_HID_REQUEST *result; // rax
 
-  result = (struct tagPROCESS_HID_REQUEST *)Win32AllocPoolWithQuotaZInit(48LL, 1382576981LL);
+  result = (struct tagPROCESS_HID_REQUEST *)Win32AllocPoolWithQuota(48LL, 1382576981LL);
   if ( result )
   {
     *((_DWORD *)result + 5) &= 0xFFFFFFF0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGetDevicePowerState @ 0x14086F660
+ * XREFs of NtGetDevicePowerState @ 0x14086F640
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x14065C434 (PfpVolumeOpenAndVerify.c)
+ *     PfpVolumeOpenAndVerify @ 0x14065C414 (PfpVolumeOpenAndVerify.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PopLockGetDoDevicePowerState @ 0x1402DC0B4 (PopLockGetDoDevicePowerState.c)
+ *     PopLockGetDoDevicePowerState @ 0x1402DC1B4 (PopLockGetDoDevicePowerState.c)
  *     IoGetRelatedTargetDevice @ 0x1405A2CA4 (IoGetRelatedTargetDevice.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */

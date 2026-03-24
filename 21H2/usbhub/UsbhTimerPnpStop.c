@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhTimerPnpStop @ 0x1C003B400
+ * XREFs of UsbhTimerPnpStop @ 0x1C003C730
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhDmDisableTimer @ 0x1C003B01C (UsbhDmDisableTimer.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhDmDisableTimer @ 0x1C003C348 (UsbhDmDisableTimer.c)
  */
 
 void __fastcall UsbhTimerPnpStop(__int64 a1)

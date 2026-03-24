@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInSwapSingleProcess @ 0x14010C9A0
+ * XREFs of KiInSwapSingleProcess @ 0x14010C9C0
  * Callers:
  *     KiAttachProcess @ 0x140016BD0 (KiAttachProcess.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
@@ -7,8 +7,8 @@
  * Callees:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRequestProcessInSwap @ 0x14010CA60 (KiRequestProcessInSwap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRequestProcessInSwap @ 0x14010CA80 (KiRequestProcessInSwap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiInSwapSingleProcess(__int64 a1, __int64 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWaitForKeyedEvent @ 0x1401BBAD0
+ * XREFs of ZwWaitForKeyedEvent @ 0x1401BBAF0
  * Callers:
  *     <none>
  * Callees:

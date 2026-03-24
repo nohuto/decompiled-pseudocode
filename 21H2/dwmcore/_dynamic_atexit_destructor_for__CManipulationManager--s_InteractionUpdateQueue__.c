@@ -1,12 +1,13 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CManipulationManager::s_InteractionUpdateQueue__ @ 0x18010D760
+ * XREFs of _dynamic_atexit_destructor_for__CManipulationManager::s_InteractionUpdateQueue__ @ 0x1800F9920
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void dynamic_atexit_destructor_for__CManipulationManager::s_InteractionUpdateQueue__()
+// attributes: thunk
+void __fastcall dynamic_atexit_destructor_for__CManipulationManager::s_InteractionUpdateQueue__(__int64 a1, __int64 a2)
 {
-  CQueue<CResource *>::~CQueue<CResource *>(&CManipulationManager::s_InteractionUpdateQueue);
+  CQueue<CManipulationManager::InteractionUpdate *>::~CQueue<CManipulationManager::InteractionUpdate *>(a1, a2);
 }

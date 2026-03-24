@@ -3,8 +3,8 @@
  * Callers:
  *     BgpGxParseBitmap @ 0x14094E848 (BgpGxParseBitmap.c)
  * Callees:
- *     BgpGxMarkClean @ 0x14013BB68 (BgpGxMarkClean.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     BgpGxMarkClean @ 0x14013BB88 (BgpGxMarkClean.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 void __fastcall BgpGxCopyBitmapToRectangle(__int64 a1, __int64 a2)

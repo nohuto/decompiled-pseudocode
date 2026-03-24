@@ -1,7 +1,7 @@
 /*
- * XREFs of GrayExpYDIB_ExpCX @ 0x1C0261094
+ * XREFs of GrayExpYDIB_ExpCX @ 0x1C0269824
  * Callers:
- *     GrayExpandDIB_CY_ExpCX @ 0x1C0261B60 (GrayExpandDIB_CY_ExpCX.c)
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C026A330 (GrayExpandDIB_CY_ExpCX.c)
  * Callees:
  *     <none>
  */

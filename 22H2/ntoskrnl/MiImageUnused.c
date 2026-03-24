@@ -1,12 +1,12 @@
 /*
- * XREFs of MiImageUnused @ 0x140355444
+ * XREFs of MiImageUnused @ 0x140314D6C
  * Callers:
- *     MiCheckControlArea @ 0x14029FAA0 (MiCheckControlArea.c)
- *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
+ *     MiCheckControlArea @ 0x140295130 (MiCheckControlArea.c)
+ *     MiRelocateImageAgain @ 0x14066A858 (MiRelocateImageAgain.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)
@@ -26,21 +26,21 @@ int __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)
   *(_QWORD *)a3 = -1LL;
   if ( *(_QWORD *)(v4 + 32) )
   {
-    if ( a2 )
+    if ( a2 == 1 )
       v6 = 17;
     else
       v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
     LODWORD(v4) = *(_DWORD *)(a1 + 88);
     if ( (_DWORD)v4 != -1 )
     {
-      *(_QWORD *)a3 = *(unsigned int *)(a1 + 88);
+      *(_QWORD *)a3 = (unsigned int)v4;
       v7 = *(_DWORD *)(a1 + 92);
       *(_DWORD *)(a3 + 8) = (unsigned __int16)v7;
       *(_DWORD *)(a3 + 16) = (v7 >> 20) & 3;
       LODWORD(v4) = *(_DWORD *)(a1 + 56);
-      if ( (v4 & 0x20000000) != 0 )
+      if ( (v4 & 0x10000000) != 0 )
       {
-        LODWORD(v4) = v4 & 0xDFFFFFFF;
+        LODWORD(v4) = v4 & 0xEFFFFFFF;
         *(_DWORD *)(a1 + 56) = v4;
         *(_BYTE *)(a3 + 13) = BYTE2(v7) & 1;
         *(_BYTE *)(a3 + 12) = 1;
@@ -53,16 +53,19 @@ int __fastcall MiImageUnused(__int64 a1, int a2, __int64 a3)
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (v6 + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v11;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v11 = ~(unsigned __int16)(-1LL << (v6 + 1));
+            v12 = (v11 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v11;
+            if ( v12 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       LODWORD(v4) = v6;

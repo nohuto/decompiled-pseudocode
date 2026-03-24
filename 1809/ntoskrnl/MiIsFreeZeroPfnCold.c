@@ -3,11 +3,11 @@
  * Callers:
  *     MiConvertContiguousPages @ 0x1400117AC (MiConvertContiguousPages.c)
  *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
- *     MiReplenishPageSlist @ 0x1400EE380 (MiReplenishPageSlist.c)
- *     MiLargeFreePageToMdl @ 0x14012B8C8 (MiLargeFreePageToMdl.c)
- *     MiPurgePartitionStandby @ 0x140151DFC (MiPurgePartitionStandby.c)
- *     MiPruneStandbyPages @ 0x1402C0994 (MiPruneStandbyPages.c)
- *     MiAddColdPagesToHotRanges @ 0x1402CE94C (MiAddColdPagesToHotRanges.c)
+ *     MiReplenishPageSlist @ 0x1400EE3A0 (MiReplenishPageSlist.c)
+ *     MiLargeFreePageToMdl @ 0x14012B8E8 (MiLargeFreePageToMdl.c)
+ *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
+ *     MiPruneStandbyPages @ 0x1402C0A94 (MiPruneStandbyPages.c)
+ *     MiAddColdPagesToHotRanges @ 0x1402CEA4C (MiAddColdPagesToHotRanges.c)
  * Callees:
  *     <none>
  */

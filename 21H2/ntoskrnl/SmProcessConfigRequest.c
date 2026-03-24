@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x14085E334
+ * XREFs of SmProcessConfigRequest @ 0x1407CE9AC
  * Callers:
- *     SmSetStoreInformation @ 0x1406E5AA0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406BE524 (SmSetStoreInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     SmpSystemStoreCreate @ 0x14085E448 (SmpSystemStoreCreate.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmpSystemStoreCreate @ 0x1407CEAC0 (SmpSystemStoreCreate.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)
@@ -51,7 +51,7 @@ __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSO
       v12 = HIDWORD(v6);
       if ( (unsigned int)(v12 - 4) <= 0x1C && (((_DWORD)v12 - 1) & (unsigned int)v12) == 0 )
       {
-        dword_140C531D4 = v12;
+        dword_140C4ECBC = v12;
         return v4;
       }
     }
@@ -80,8 +80,8 @@ __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSO
   }
   else
   {
-    dword_140D321C0 = v8 & 0xC0 | dword_140D321C0 & 0xFFFFFF00 | ((unsigned int)v8 >> 2) & 0xF | (16 * (v8 & 3));
-    if ( (dword_140D321C0 & 3) != 0 )
+    dword_140D24180 = v8 & 0xC0 | dword_140D24180 & 0xFFFFFF00 | ((unsigned int)v8 >> 2) & 0xF | (16 * (v8 & 3));
+    if ( (dword_140D24180 & 3) != 0 )
       SmpSystemStoreCreate();
   }
   return v4;

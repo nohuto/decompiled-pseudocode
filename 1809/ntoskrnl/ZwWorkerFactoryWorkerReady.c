@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWorkerFactoryWorkerReady @ 0x1401B8190
+ * XREFs of ZwWorkerFactoryWorkerReady @ 0x1401B81B0
  * Callers:
  *     <none>
  * Callees:

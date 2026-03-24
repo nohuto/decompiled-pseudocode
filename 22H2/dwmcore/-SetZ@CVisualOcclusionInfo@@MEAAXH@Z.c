@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetZ@CVisualOcclusionInfo@@MEAAXH@Z @ 0x180106400
+ * XREFs of ?SetZ@CVisualOcclusionInfo@@MEAAXH@Z @ 0x1800E2230
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CVisualOcclusionInfo::SetZ(CVisualOcclusionInfo *this, int a2)
 {
-  *((_DWORD *)this + 8) = a2;
+  *((_DWORD *)this + 4) = a2;
 }

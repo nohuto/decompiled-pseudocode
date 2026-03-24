@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x140A74E48
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x140981800
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x140A746B4 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x14098107C (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x1403A0DCC (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     RtlCultureNameToLCID @ 0x140826300 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x1409BEDA0 (RtlLCIDToCultureName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1403A8298 (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     RtlCultureNameToLCID @ 0x14078EC20 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140916070 (RtlLCIDToCultureName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
@@ -45,18 +45,15 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
     if ( (v12 & 0x8000u) == 0LL )
     {
       v13 = *(_QWORD *)(a1 + 32);
-      if ( v13 )
+      if ( v13 && (int)v12 < *(unsigned __int16 *)(v13 + 6) )
+        v14 = (const WCHAR *)(*(_QWORD *)(v13 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v13 + 16) + 2 * v12));
+      else
+        v14 = 0LL;
+      if ( v14 )
       {
-        if ( (int)v12 < *(unsigned __int16 *)(v13 + 6) )
-        {
-          v14 = (const WCHAR *)(*(_QWORD *)(v13 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v13 + 16) + 2 * v12));
-          if ( v14 )
-          {
-            RtlInitUnicodeString(&DestinationString, v14);
-            if ( RtlCultureNameToLCID(&DestinationString.Length, &v24) )
-              return (_WORD)v24 == (unsigned __int16)v4;
-          }
-        }
+        RtlInitUnicodeString(&DestinationString, v14);
+        if ( RtlCultureNameToLCID(&DestinationString.Length, &v24) )
+          return (_WORD)v24 == (unsigned __int16)v4;
       }
     }
     return 0;
@@ -77,16 +74,14 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
           *(_DWORD *)&DestinationString.Length = 11141120;
           if ( RtlLCIDToCultureName(v19, &DestinationString) )
           {
-LABEL_22:
+LABEL_26:
             v20 = *(_QWORD *)(a1 + 32);
-            if ( !v20
-              || (v4 & 0x8000u) != 0LL
-              || (unsigned int)v4 >= *(unsigned __int16 *)(v20 + 6)
-              || (v21 = (const wchar_t *)(*(_QWORD *)(v20 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v20 + 16) + 2 * v4))) == 0LL
-              || wcsicmp(DestinationString.Buffer, v21) )
-            {
+            if ( v20 && (v4 & 0x8000u) == 0LL && (int)v4 < *(unsigned __int16 *)(v20 + 6) )
+              v21 = (const wchar_t *)(*(_QWORD *)(v20 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v20 + 16) + 2 * v4));
+            else
+              v21 = 0LL;
+            if ( !v21 || wcsicmp(DestinationString.Buffer, v21) )
               v5 = 0;
-            }
             if ( v8 )
               ExFreePoolWithTag(v8, 0);
             return v5;
@@ -100,24 +95,21 @@ LABEL_22:
       if ( (_WORD)v15 == a4 )
         return v5;
       v16 = *(_QWORD *)(a1 + 32);
-      if ( v16 )
+      if ( v16 && (int)v15 < *(unsigned __int16 *)(v16 + 6) )
+        v17 = (const WCHAR *)(*(_QWORD *)(v16 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v16 + 16) + 2 * v15));
+      else
+        v17 = 0LL;
+      if ( v17 )
       {
-        if ( (int)v15 < *(unsigned __int16 *)(v16 + 6) )
-        {
-          v17 = (const WCHAR *)(*(_QWORD *)(v16 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v16 + 16) + 2 * v15));
-          if ( v17 )
-          {
-            RtlInitUnicodeString(&DestinationString, v17);
-            goto LABEL_22;
-          }
-        }
+        RtlInitUnicodeString(&DestinationString, v17);
+        goto LABEL_26;
       }
     }
   }
   else if ( a3 == 2 && a4 >= 0 )
   {
     v22 = *(_QWORD *)(a1 + 24);
-    if ( a4 < (unsigned int)*(unsigned __int16 *)(v22 + 6) )
+    if ( a4 < (int)*(unsigned __int16 *)(v22 + 6) )
       return a2 == *(_QWORD *)(v22 + 16) + 28LL * a4;
   }
   return 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1409F058C
+ * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x140948180
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1F34 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409385B0 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     EtwpAllocateLbrData @ 0x1409F04CC (EtwpAllocateLbrData.c)
- *     EtwpReferenceLastBranchLookasideList @ 0x1409F050C (EtwpReferenceLastBranchLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     EtwpAllocateLbrData @ 0x1409480B4 (EtwpAllocateLbrData.c)
+ *     EtwpReferenceLastBranchLookasideList @ 0x140948100 (EtwpReferenceLastBranchLookasideList.c)
  */
 
 __int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 a2)
@@ -22,22 +22,22 @@ __int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 
     }
     else
     {
-      if ( (*(_DWORD *)(a1 + 816) & 0x8000) != 0 )
+      if ( (*(_DWORD *)(a1 + 832) & 0x8000) != 0 )
         return 3221226243LL;
-      if ( *(_QWORD *)(a1 + 1024) || (LbrData = EtwpAllocateLbrData(a1), LbrData >= 0) )
+      if ( *(_QWORD *)(a1 + 1008) || (LbrData = EtwpAllocateLbrData(a1), LbrData >= 0) )
       {
-        if ( **(_DWORD **)(a1 + 1024) )
+        if ( **(_DWORD **)(a1 + 1008) )
         {
           return (unsigned int)-1073741053;
         }
         else
         {
-          LbrData = ((__int64 (__fastcall *)(_QWORD))off_140C01DC0[0])(v4);
+          LbrData = ((__int64 (__fastcall *)(_QWORD))off_140C009B0[0])(v4);
           if ( LbrData >= 0 )
           {
             EtwpReferenceLastBranchLookasideList();
-            *(_DWORD *)(*(_QWORD *)(a1 + 1024) + 4LL) = v4;
-            _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x8000u);
+            *(_DWORD *)(*(_QWORD *)(a1 + 1008) + 4LL) = v4;
+            _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x8000u);
           }
         }
       }

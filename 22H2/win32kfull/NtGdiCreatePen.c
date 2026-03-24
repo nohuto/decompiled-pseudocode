@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCreatePen @ 0x1C00AECC0
+ * XREFs of NtGdiCreatePen @ 0x1C0026200
  * Callers:
  *     <none>
  * Callees:
- *     GreCreatePen @ 0x1C00AECD8 (GreCreatePen.c)
+ *     GreCreatePen @ 0x1C0026218 (GreCreatePen.c)
  */
 
 __int64 NtGdiCreatePen()

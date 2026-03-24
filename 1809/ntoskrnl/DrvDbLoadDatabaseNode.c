@@ -1,20 +1,20 @@
 /*
- * XREFs of DrvDbLoadDatabaseNode @ 0x1406D3170
+ * XREFs of DrvDbLoadDatabaseNode @ 0x1406D3150
  * Callers:
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E58 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbOpenContext @ 0x14073B1B8 (DrvDbOpenContext.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ADC (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140902ADC (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E38 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbOpenContext @ 0x14073B198 (DrvDbOpenContext.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ABC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140902ABC (DrvDbSetDriverDatabaseMappedProperty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     DrvDbUnloadDatabaseNode @ 0x1406D3430 (DrvDbUnloadDatabaseNode.c)
- *     _PnpCtxRegCreateTree @ 0x1406D3510 (_PnpCtxRegCreateTree.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x14075395C (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetSecurityDescriptor @ 0x140903B60 (DrvDbGetSecurityDescriptor.c)
- *     DrvDbInitializeDatabaseNodeVersion @ 0x140903EE8 (DrvDbInitializeDatabaseNodeVersion.c)
+ *     DrvDbUnloadDatabaseNode @ 0x1406D3410 (DrvDbUnloadDatabaseNode.c)
+ *     _PnpCtxRegCreateTree @ 0x1406D34F0 (_PnpCtxRegCreateTree.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x14075393C (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetSecurityDescriptor @ 0x140903B40 (DrvDbGetSecurityDescriptor.c)
+ *     DrvDbInitializeDatabaseNodeVersion @ 0x140903EC8 (DrvDbInitializeDatabaseNodeVersion.c)
  */
 
 __int64 __fastcall DrvDbLoadDatabaseNode(__int64 a1, __int64 a2)

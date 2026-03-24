@@ -1,15 +1,15 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02357E0
+ * XREFs of ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4F30
  * Callers:
- *     ?EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0235F90 (-EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAV.c)
+ *     ?EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F56E0 (-EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAV.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca68___ @ 0x1C0235408 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca6.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___ @ 0x1C023547C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c0237___ @ 0x1C02354F0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c023.c)
- *     ?EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0235568 (-EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02355D8 (-EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0235740 (-EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca68___ @ 0x1C01F4B58 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca6.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___ @ 0x1C01F4BCC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c0237___ @ 0x1C01F4C40 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c023.c)
+ *     ?EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4CB8 (-EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4D28 (-EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4E90 (-EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitUpdateCommands(
@@ -33,11 +33,11 @@ char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitUpdateComm
     *v10 = 16;
     *(_QWORD *)(v5 + 1) = 0LL;
     v5[3] = 0;
-    v5[1] = 40;
-    v5[2] = *((_DWORD *)this + 8);
-    v6 = *((_QWORD *)this + 16);
+    v5[1] = 41;
+    v5[2] = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 15);
     if ( v6 )
-      v7 = *(_DWORD *)(v6 + 32);
+      v7 = *(_DWORD *)(v6 + 24);
     else
       v7 = 0;
     v5[3] = v7;

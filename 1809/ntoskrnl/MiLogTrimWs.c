@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogTrimWs @ 0x140131028
+ * XREFs of MiLogTrimWs @ 0x140131048
  * Callers:
- *     MiTrimWorkingSet @ 0x140130E18 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140130E38 (MiTrimWorkingSet.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     MiFillLogProcessInfo @ 0x1401310D4 (MiFillLogProcessInfo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     MiFillLogProcessInfo @ 0x1401310F4 (MiFillLogProcessInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -102,7 +102,7 @@ void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
         v46 = 8;
         v49 = 4;
         v52 = 4;
-        TlgWriteEx(v14, &unk_14036DE05, 0LL, v13, 0LL, 0LL, 0xCu, &pData);
+        TlgWriteEx(v14, &unk_14036DF15, 0LL, v13, 0LL, 0LL, 0xCu, &pData);
       }
     }
   }

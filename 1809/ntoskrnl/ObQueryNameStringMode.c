@@ -1,31 +1,31 @@
 /*
- * XREFs of ObQueryNameStringMode @ 0x140660F70
+ * XREFs of ObQueryNameStringMode @ 0x140660F50
  * Callers:
  *     sub_140586D3C @ 0x140586D3C (sub_140586D3C.c)
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
  *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
  *     EtwpEnumerateAddressSpace @ 0x1405F5E18 (EtwpEnumerateAddressSpace.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
- *     PspInitializeFullProcessImageName @ 0x14065EB34 (PspInitializeFullProcessImageName.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
- *     IopQueryNameInternal @ 0x1406605C4 (IopQueryNameInternal.c)
- *     NtQueryObject @ 0x140660AD0 (NtQueryObject.c)
- *     CmpQueryNameString @ 0x140683674 (CmpQueryNameString.c)
- *     IopGraftName @ 0x1406AC28C (IopGraftName.c)
- *     IoRegisterDeviceInterface @ 0x1407099A0 (IoRegisterDeviceInterface.c)
- *     IopErrorLogThread @ 0x14070C3B0 (IopErrorLogThread.c)
- *     PnpBuildCmResourceList @ 0x14072E7E0 (PnpBuildCmResourceList.c)
- *     IopGetRelatedFileName @ 0x140819C2C (IopGetRelatedFileName.c)
- *     IopRaiseHardError @ 0x14081A4F0 (IopRaiseHardError.c)
- *     PiControlGetDeviceStack @ 0x14083B8D4 (PiControlGetDeviceStack.c)
- *     AlpcpGetPortNameInformation @ 0x14084AC30 (AlpcpGetPortNameInformation.c)
- *     MmGetFileNameForAddress @ 0x14084BC70 (MmGetFileNameForAddress.c)
- *     MmGetFileNameForSection @ 0x14084BD84 (MmGetFileNameForSection.c)
- *     ObGetObjectInformation @ 0x140861C80 (ObGetObjectInformation.c)
- *     SmKmFileInfoGetPath @ 0x1408ACB88 (SmKmFileInfoGetPath.c)
- *     SmKmStoreFileOpenVolume @ 0x1408AE300 (SmKmStoreFileOpenVolume.c)
- *     EtwpTraceHandle @ 0x1408B8C30 (EtwpTraceHandle.c)
- *     EtwpObjectHandleEnumCallback @ 0x1408BEC20 (EtwpObjectHandleEnumCallback.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
+ *     PspInitializeFullProcessImageName @ 0x14065EB14 (PspInitializeFullProcessImageName.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
+ *     IopQueryNameInternal @ 0x1406605A4 (IopQueryNameInternal.c)
+ *     NtQueryObject @ 0x140660AB0 (NtQueryObject.c)
+ *     CmpQueryNameString @ 0x140683654 (CmpQueryNameString.c)
+ *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
+ *     IoRegisterDeviceInterface @ 0x140709980 (IoRegisterDeviceInterface.c)
+ *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
+ *     PnpBuildCmResourceList @ 0x14072E7C0 (PnpBuildCmResourceList.c)
+ *     IopGetRelatedFileName @ 0x140819C0C (IopGetRelatedFileName.c)
+ *     IopRaiseHardError @ 0x14081A4D0 (IopRaiseHardError.c)
+ *     PiControlGetDeviceStack @ 0x14083B8B4 (PiControlGetDeviceStack.c)
+ *     AlpcpGetPortNameInformation @ 0x14084AC10 (AlpcpGetPortNameInformation.c)
+ *     MmGetFileNameForAddress @ 0x14084BC50 (MmGetFileNameForAddress.c)
+ *     MmGetFileNameForSection @ 0x14084BD64 (MmGetFileNameForSection.c)
+ *     ObGetObjectInformation @ 0x140861C60 (ObGetObjectInformation.c)
+ *     SmKmFileInfoGetPath @ 0x1408ACB68 (SmKmFileInfoGetPath.c)
+ *     SmKmStoreFileOpenVolume @ 0x1408AE2E0 (SmKmStoreFileOpenVolume.c)
+ *     EtwpTraceHandle @ 0x1408B8C10 (EtwpTraceHandle.c)
+ *     EtwpObjectHandleEnumCallback @ 0x1408BEC00 (EtwpObjectHandleEnumCallback.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -34,9 +34,9 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDB2C (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDB4C (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall ObQueryNameStringMode(char *a1, __int64 a2, unsigned int a3, _DWORD *a4, char a5)
@@ -284,7 +284,7 @@ LABEL_39:
         v37 = (_WORD *)(a2 + 16);
       }
       *(_DWORD *)v24 = *(_DWORD *)L"...";
-      v24[2] = asc_14076A4A0[2];
+      v24[2] = asc_14076A480[2];
       if ( v36 == v23 )
         v24 = v37 + 1;
 LABEL_68:

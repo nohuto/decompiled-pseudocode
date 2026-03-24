@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateEmergencyResources @ 0x140B64468
+ * XREFs of HalpDmaAllocateEmergencyResources @ 0x140A65F28
  * Callers:
- *     HalpDmaInit @ 0x140B64168 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     MmAllocateMappingAddress @ 0x14086C930 (MmAllocateMappingAddress.c)
- *     MmFreeMappingAddress @ 0x14086DC40 (MmFreeMappingAddress.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     MmAllocateMappingAddress @ 0x140691430 (MmAllocateMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x140767D20 (MmFreeMappingAddress.c)
  */
 
 __int64 __fastcall HalpDmaAllocateEmergencyResources(__int64 a1)
@@ -22,9 +22,9 @@ __int64 __fastcall HalpDmaAllocateEmergencyResources(__int64 a1)
   MemoryDescriptorList = (PMDL)HalpMmAllocCtxAlloc(a1, 56LL);
   if ( !MemoryDescriptorList )
     return 3221225626LL;
-  qword_140C70C68 = (PMDL)HalpMmAllocCtxAlloc(v1, 56LL);
-  v2 = qword_140C70C68;
-  if ( !qword_140C70C68 )
+  qword_140C53EF8 = (PMDL)HalpMmAllocCtxAlloc(v1, 56LL);
+  v2 = qword_140C53EF8;
+  if ( !qword_140C53EF8 )
   {
     v8 = MemoryDescriptorList;
 LABEL_10:
@@ -42,21 +42,21 @@ LABEL_10:
   *(_QWORD *)&v2->ByteCount = 4096LL;
   v3->MdlFlags |= 2u;
   v2->MdlFlags |= 2u;
-  MappingAddress = MmAllocateMappingAddress(0x1000uLL, 0x446C6148u);
+  MappingAddress = MmAllocateMappingAddress(0x1000uLL, 0x206C6148u);
   if ( !MappingAddress )
   {
     HalpMmAllocCtxFree(v4, (__int64)MemoryDescriptorList);
-    v8 = qword_140C70C68;
+    v8 = qword_140C53EF8;
     goto LABEL_10;
   }
-  qword_140C70C80 = MmAllocateMappingAddress(0x1000uLL, 0x446C6148u);
-  if ( qword_140C70C80 )
+  qword_140C53F10 = MmAllocateMappingAddress(0x1000uLL, 0x206C6148u);
+  if ( qword_140C53F10 )
   {
-    qword_140D12F58 = 0LL;
+    qword_140CF2798 = 0LL;
     return 0LL;
   }
   HalpMmAllocCtxFree(v5, (__int64)MemoryDescriptorList);
-  HalpMmAllocCtxFree(v7, (__int64)qword_140C70C68);
-  MmFreeMappingAddress(MappingAddress, 0x446C6148u);
+  HalpMmAllocCtxFree(v7, (__int64)qword_140C53EF8);
+  MmFreeMappingAddress(MappingAddress, 0x206C6148u);
   return 3221225626LL;
 }

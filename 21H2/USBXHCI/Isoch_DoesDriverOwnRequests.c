@@ -1,7 +1,7 @@
 /*
- * XREFs of Isoch_DoesDriverOwnRequests @ 0x1C0042180
+ * XREFs of Isoch_DoesDriverOwnRequests @ 0x1C0041280
  * Callers:
- *     Isoch_ProcessTransferCompletion @ 0x1C0042CD0 (Isoch_ProcessTransferCompletion.c)
+ *     Isoch_ProcessTransferCompletion @ 0x1C0041DC0 (Isoch_ProcessTransferCompletion.c)
  * Callees:
  *     <none>
  */

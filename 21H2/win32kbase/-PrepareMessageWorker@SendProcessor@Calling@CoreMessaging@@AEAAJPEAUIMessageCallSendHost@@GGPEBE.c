@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00A819C
+ * XREFs of ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C0098900
  * Callers:
- *     ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C00A801C (-PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADP.c)
- *     ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C00A80DC (-ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@P.c)
+ *     ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C0098780 (-PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADP.c)
+ *     ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C0098840 (-ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@P.c)
  * Callees:
- *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C00A82F4 (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
- *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C0241F6C (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
+ *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C0098A58 (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
+ *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C0200FB4 (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
  */
 
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
@@ -36,8 +36,8 @@ __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
   *((_WORD *)this + 75) = a4;
   v11 = *a5;
   v12 = a5 + 1;
-  *(_QWORD *)this = a5 + 1;
   *((_DWORD *)this + 20) = v11;
+  *(_QWORD *)this = a5 + 1;
   if ( (unsigned int)v11 <= 0x10 && (a7 || !(_DWORD)v11 || a6) )
   {
     *((_DWORD *)this + 31) = 0;
@@ -64,7 +64,7 @@ __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
           || (v11 = ((_DWORD)v11 + 3) & 0xFFFFFFFC, (int)v11 + 4 < (unsigned int)v11)
           || v13 + (_DWORD)v11 + 4 < v13 )
         {
-          *(_DWORD *)v8 = 7;
+          *(_DWORD *)v8 = 107;
           break;
         }
         ++*((_DWORD *)this + 31);

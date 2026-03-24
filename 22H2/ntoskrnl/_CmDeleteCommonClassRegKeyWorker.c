@@ -1,201 +1,199 @@
 /*
- * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x140A611A8
+ * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x140974E98
  * Callers:
- *     _CmDeleteCommonClassRegKey @ 0x140A6105C (_CmDeleteCommonClassRegKey.c)
+ *     _CmDeleteCommonClassRegKey @ 0x140974D4C (_CmDeleteCommonClassRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     _CmGetCommonClassRegKeyPath @ 0x1407881B4 (_CmGetCommonClassRegKeyPath.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140863068 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A42C (_SysCtxRegOpenCurrentUserKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1406BDDC0 (_CmGetCommonClassRegKeyPath.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072E318 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766378 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteCommonClassRegKeyWorker(__int64 a1, const WCHAR *a2, __int16 a3, int a4, char a5)
 {
-  int v7; // ebx
+  const WCHAR *v6; // rbx
   int v8; // r12d
-  unsigned int v9; // r14d
-  wchar_t *pszDest; // rax
-  int CommonClassRegKeyPath; // eax
-  int inited; // ebx
-  wchar_t *v13; // rdi
-  unsigned __int64 v14; // rax
+  unsigned __int64 v10; // rdi
+  wchar_t *pszDest; // r15
+  int CommonClassRegKeyPath; // ebx
   unsigned __int16 Length; // bx
-  const WCHAR *v17; // r14
-  HANDLE v18; // rcx
-  __int64 v19; // rcx
-  __int64 v20; // rax
-  __int64 v21; // r8
-  int v22; // eax
-  __int64 v23; // rax
-  __int64 v24; // r8
-  int v25; // r15d
-  __int64 v26; // rax
+  const WCHAR *v14; // rdi
+  char *v15; // rcx
+  _QWORD *v16; // rcx
+  char v17; // r13
+  __int64 v18; // rax
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rax
+  __int64 v22; // r8
+  int v23; // esi
+  __int64 v24; // rax
+  __int64 v25; // r8
+  int v26; // eax
   __int64 v27; // r8
-  int v28; // eax
-  __int64 v29; // r8
-  int v30; // [rsp+20h] [rbp-40h]
+  int v29; // [rsp+20h] [rbp-40h]
   size_t cchDest; // [rsp+30h] [rbp-30h]
-  HANDLE v32; // [rsp+40h] [rbp-20h] BYREF
+  char *v31; // [rsp+40h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v36; // [rsp+B0h] [rbp+50h] BYREF
-  int v37; // [rsp+B8h] [rbp+58h]
+  __int64 v35; // [rsp+B0h] [rbp+50h] BYREF
 
-  v37 = a4;
-  LODWORD(v36) = 0;
-  v32 = 0LL;
+  LODWORD(v35) = 0;
+  v6 = a2;
+  v31 = 0LL;
   Handle = 0LL;
-  v7 = a4;
   v8 = 4;
-  v9 = (a3 & 0x200) != 0 ? 320 : 200;
   DestinationString = 0LL;
-  pszDest = (wchar_t *)ExAllocatePool2(256LL, v9, 1380994640LL);
-  while ( 1 )
+  LODWORD(v10) = (a3 & 0x200) != 0 ? 320 : 200;
+  pszDest = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v10, 0x52504E50u);
+  if ( pszDest )
   {
-    v13 = pszDest;
-    if ( !pszDest )
+    while ( 1 )
     {
-      inited = -1073741801;
-      goto LABEL_7;
+      LODWORD(cchDest) = (unsigned int)v10 >> 1;
+      CommonClassRegKeyPath = CmGetCommonClassRegKeyPath(
+                                (unsigned int)v10 >> 1,
+                                v6,
+                                a3,
+                                a4,
+                                v29,
+                                pszDest,
+                                cchDest,
+                                &v35);
+      if ( CommonClassRegKeyPath != -1073741789 )
+        break;
+      ExFreePoolWithTag(pszDest, 0);
+      pszDest = 0LL;
+      v10 = 2LL * (unsigned int)v35;
+      if ( v10 > 0xFFFFFFFF )
+      {
+        CommonClassRegKeyPath = -1073741675;
+        goto LABEL_60;
+      }
+      pszDest = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v10, 0x52504E50u);
+      if ( !pszDest )
+        goto LABEL_7;
+      v6 = a2;
     }
-    LODWORD(cchDest) = v9 >> 1;
-    CommonClassRegKeyPath = CmGetCommonClassRegKeyPath(v9 >> 1, a2, a3, v7, v30, pszDest, cchDest, &v36);
-    inited = CommonClassRegKeyPath;
-    if ( CommonClassRegKeyPath != -1073741789 )
-      break;
-    ExFreePoolWithTag(v13, 0);
-    v13 = 0LL;
-    v14 = 2LL * (unsigned int)v36;
-    if ( v14 > 0xFFFFFFFF )
-    {
-      inited = -1073741675;
-      goto LABEL_7;
-    }
-    v9 = 2 * v36;
-    pszDest = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v14, 1380994640LL);
-    v7 = v37;
-  }
-  if ( CommonClassRegKeyPath < 0 )
-    goto LABEL_7;
-  if ( (a3 & 0x100) != 0 )
-  {
-    v17 = v13;
-    if ( a1 )
-      v19 = *(_QWORD *)(a1 + 224);
-    else
-      v19 = 0LL;
-    inited = SysCtxRegOpenCurrentUserKey(v19, 0LL, 0x2000000LL, &Handle);
-    if ( inited < 0 )
-      goto LABEL_7;
-    v18 = Handle;
-    v32 = Handle;
   }
   else
   {
-    inited = RtlInitUnicodeStringEx(&DestinationString, v13);
-    if ( inited < 0 )
-      goto LABEL_7;
+LABEL_7:
+    CommonClassRegKeyPath = -1073741801;
+  }
+  if ( CommonClassRegKeyPath < 0 )
+    goto LABEL_60;
+  if ( (a3 & 0x100) != 0 )
+  {
+    v14 = pszDest;
+    if ( a1 )
+      v16 = *(_QWORD **)(a1 + 224);
+    else
+      v16 = 0LL;
+    CommonClassRegKeyPath = SysCtxRegOpenCurrentUserKey(v16, 0, 0x2000000u, (__int64)&Handle);
+    if ( CommonClassRegKeyPath < 0 )
+      goto LABEL_60;
+    v15 = (char *)Handle;
+    v31 = (char *)Handle;
+  }
+  else
+  {
+    CommonClassRegKeyPath = RtlInitUnicodeStringEx(&DestinationString, pszDest);
+    if ( CommonClassRegKeyPath < 0 )
+      goto LABEL_60;
     Length = DestinationString.Length;
-    if ( DestinationString.Length >= v9
+    if ( DestinationString.Length >= (unsigned int)v10
       || DestinationString.Length <= 0x32u
-      || !RtlPrefixUnicodeString(
-            &`_CmDeleteDeviceContainerRegKeyWorker'::`2'::ObjectPathRootPrefix,
-            &DestinationString,
-            1u) )
+      || !RtlPrefixUnicodeString(&`_CmOpenDevicePanelRegKeyWorker'::`2'::ObjectPathRootPrefix, &DestinationString, 1u) )
     {
-      inited = -1073741811;
-      goto LABEL_7;
+      CommonClassRegKeyPath = -1073741811;
+      goto LABEL_60;
     }
-    v17 = v13 + 25;
+    v14 = pszDest + 25;
     DestinationString.MaximumLength -= 50;
-    DestinationString.Buffer = v13 + 25;
+    DestinationString.Buffer = pszDest + 25;
     DestinationString.Length = Length - 50;
     if ( RtlPrefixUnicodeString(&`_CmDeleteCommonClassRegKeyWorker'::`2'::ClassKeyPrefix, &DestinationString, 1u) )
     {
       v8 = 7;
-      v17 = v13 + 39;
+      v14 = pszDest + 39;
     }
     else if ( RtlPrefixUnicodeString(
-                &`_CmDeleteDeviceInterfaceRegKeyWorker'::`2'::DeviceClassesKeyPrefix,
+                &`_CmDeleteCommonClassRegKeyWorker'::`2'::DeviceClassesKeyPrefix,
                 &DestinationString,
                 1u) )
     {
       v8 = 8;
-      v17 = v13 + 47;
+      v14 = pszDest + 47;
     }
     else if ( RtlPrefixUnicodeString(
-                &`_CmDeleteDeviceInterfaceRegKeyWorker'::`2'::HardwareProfilesKeyPrefix,
+                &`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::HardwareProfilesKeyPrefix,
                 &DestinationString,
                 1u) )
     {
       v8 = 14;
-      v17 = v13 + 43;
+      v14 = pszDest + 43;
     }
-    inited = PnpCtxGetCachedContextBaseKey(a1, v8, (__int64)&v32);
-    if ( inited < 0 )
-      goto LABEL_7;
-    v18 = v32;
+    CommonClassRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, v8, (__int64)&v31);
+    if ( CommonClassRegKeyPath < 0 )
+      goto LABEL_60;
+    v15 = v31;
   }
+  v17 = a5;
   if ( a5 )
   {
-    if ( a1 && (v20 = *(_QWORD *)(a1 + 224)) != 0 )
-      v21 = *(_QWORD *)(v20 + 8);
+    if ( a1 && (v18 = *(_QWORD *)(a1 + 224)) != 0 )
+      v19 = *(_QWORD *)(v18 + 8);
     else
-      v21 = 0LL;
-    v22 = RegRtlDeleteTreeInternal(v18, v17, v21, 0);
+      v19 = 0LL;
+    v20 = RegRtlDeleteTreeInternal(v15, v14, v19, 0);
   }
   else
   {
-    if ( a1 && (v23 = *(_QWORD *)(a1 + 224)) != 0 )
-      v24 = *(_QWORD *)(v23 + 8);
+    if ( a1 && (v21 = *(_QWORD *)(a1 + 224)) != 0 )
+      v22 = *(_QWORD *)(v21 + 8);
     else
-      v24 = 0LL;
-    v22 = RegRtlDeleteKeyTransacted(v18, v17, v24);
+      v22 = 0LL;
+    v20 = RegRtlDeleteKeyTransacted(v15, v14, v22);
   }
-  v25 = v22;
-  if ( v22 && v22 != -1073741444 && v22 != -1073741772 )
-    goto LABEL_63;
-  if ( v8 == 8 && *(_BYTE *)(a1 + 4) )
+  v23 = v20;
+  if ( (!v20 || v20 == -1073741444 || v20 == -1073741772) && v8 == 8 && *(_BYTE *)(a1 + 4) )
   {
-    inited = PnpCtxGetCachedContextBaseKey(a1, 9, (__int64)&v32);
-    if ( inited < 0 )
-      goto LABEL_7;
-    v26 = *(_QWORD *)(a1 + 224);
-    if ( a5 )
+    CommonClassRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, 9, (__int64)&v31);
+    if ( CommonClassRegKeyPath < 0 )
+      goto LABEL_60;
+    v24 = *(_QWORD *)(a1 + 224);
+    if ( v17 )
     {
-      if ( v26 )
-        v27 = *(_QWORD *)(v26 + 8);
+      if ( v24 )
+        v25 = *(_QWORD *)(v24 + 8);
+      else
+        v25 = 0LL;
+      v26 = RegRtlDeleteTreeInternal(v31, v14, v25, 0);
+    }
+    else
+    {
+      if ( v24 )
+        v27 = *(_QWORD *)(v24 + 8);
       else
         v27 = 0LL;
-      v28 = RegRtlDeleteTreeInternal(v32, v17, v27, 0);
+      v26 = RegRtlDeleteKeyTransacted(v31, v14, v27);
     }
-    else
-    {
-      if ( v26 )
-        v29 = *(_QWORD *)(v26 + 8);
-      else
-        v29 = 0LL;
-      v28 = RegRtlDeleteKeyTransacted(v32, v17, v29);
-    }
-    if ( v25 == -1073741772 || v28 != -1073741772 )
-      v25 = v28;
+    if ( v23 == -1073741772 || v26 != -1073741772 )
+      v23 = v26;
   }
-  if ( v25 != -1073741444 )
-  {
-LABEL_63:
-    if ( v25 < 0 )
-      inited = v25;
-  }
-LABEL_7:
+  if ( (int)(v23 + 0x80000000) >= 0 && v23 != -1073741444 )
+    CommonClassRegKeyPath = v23;
+LABEL_60:
   if ( Handle )
     ZwClose(Handle);
-  if ( v13 )
-    ExFreePoolWithTag(v13, 0);
-  return (unsigned int)inited;
+  if ( pszDest )
+    ExFreePoolWithTag(pszDest, 0);
+  return (unsigned int)CommonClassRegKeyPath;
 }

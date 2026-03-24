@@ -6,8 +6,8 @@
  *     ExpCopyProcessInfo @ 0x1405FE390 (ExpCopyProcessInfo.c)
  *     PspQueryProcessAccountingInformationCallback @ 0x140600010 (PspQueryProcessAccountingInformationCallback.c)
  *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
- *     EtwpPsProvTraceProcess @ 0x14066C070 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

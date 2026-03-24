@@ -1,107 +1,98 @@
 /*
- * XREFs of ?DoDeferredPointerActivate@CTouchProcessor@@QEAAXUtagINPUTDEST@@_K@Z @ 0x1C01C2140
+ * XREFs of ?DoDeferredPointerActivate@CTouchProcessor@@QEAAXUtagINPUTDEST@@_K@Z @ 0x1C018DD90
  * Callers:
  *     <none>
  * Callees:
- *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0052DB0 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0056A68 (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9674 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C00B96E0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
- *     ?ThreadUnlockAndUnReference@CRefUnRefPointerMsgId@@QEAAXXZ @ 0x1C00B9720 (-ThreadUnlockAndUnReference@CRefUnRefPointerMsgId@@QEAAXXZ.c)
- *     ?LockExclusive@CInpLockGuard@@QEAAXXZ @ 0x1C00B9790 (-LockExclusive@CInpLockGuard@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ??0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00E3AD6 (--0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ??0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z @ 0x1C01B52E4 (--0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z.c)
- *     ??1CThreadLockInputDest@@QEAA@XZ @ 0x1C01B53BC (--1CThreadLockInputDest@@QEAA@XZ.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
- *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C01D1DD4 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z.c)
- *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01D8320 (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ApiSetEditionPointerActivate @ 0x1C0206FB8 (ApiSetEditionPointerActivate.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0043D04 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0043EC0 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C007CAC0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     PushW32ThreadLock @ 0x1C00859F4 (PushW32ThreadLock.c)
+ *     ??1CThreadLockInputDest@@QEAA@XZ @ 0x1C009D00C (--1CThreadLockInputDest@@QEAA@XZ.c)
+ *     ??0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z @ 0x1C009F974 (--0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC20 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCD08 (--0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD2DC (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CInpUnlockGuardExclusive@@QEAA@XZ @ 0x1C0187454 (--1CInpUnlockGuardExclusive@@QEAA@XZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z @ 0x1C019ABD8 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z.c)
+ *     ApiSetEditionPointerActivate @ 0x1C01CCA80 (ApiSetEditionPointerActivate.c)
+ *     PopW32ThreadLock @ 0x1C01FC5E0 (PopW32ThreadLock.c)
  */
 
-void __fastcall CTouchProcessor::DoDeferredPointerActivate(__int64 a1, __int64 a2, void *a3)
+void __fastcall CTouchProcessor::DoDeferredPointerActivate(__int64 a1, __int64 a2, __int64 a3)
 {
-  CTouchProcessor *v6; // rcx
-  struct CPointerMsgData *NonConstMsgData; // rax
-  struct CPointerMsgData *v8; // rdi
-  __int64 v9; // rax
-  __int64 v10; // rbx
-  __int64 v11; // rsi
-  __int64 v12; // r9
-  __int64 v13; // r8
-  __int128 v14; // xmm1
-  __int64 v15; // rdx
+  const struct CPointerInputFrame *v6; // rsi
+  __int64 v7; // rax
+  __int64 v8; // rdi
+  __int64 v9; // r8
+  __int128 v10; // xmm1
+  __int64 v11; // rdx
+  __int128 v12; // xmm0
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  __int128 v15; // xmm1
   __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int128 v24; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v25; // [rsp+48h] [rbp-B8h]
-  _OWORD v26[7]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v27[40]; // [rsp+C0h] [rbp-40h] BYREF
-  CInpLockGuard *v28; // [rsp+E8h] [rbp-18h]
-  _BYTE v29[48]; // [rsp+F0h] [rbp-10h] BYREF
-  _BYTE v30[64]; // [rsp+120h] [rbp+20h] BYREF
-  _BYTE v31[128]; // [rsp+160h] [rbp+60h] BYREF
+  __int128 v17; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-B8h]
+  _OWORD v19[7]; // [rsp+50h] [rbp-B0h] BYREF
+  PERESOURCE *v20[6]; // [rsp+C0h] [rbp-40h] BYREF
+  CInpLockGuard *v21[6]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v22[64]; // [rsp+120h] [rbp+20h] BYREF
+  _BYTE v23[128]; // [rsp+160h] [rbp+60h] BYREF
 
-  v25 = 0LL;
-  v24 = 0LL;
-  CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v29, (struct CInpLockGuard *)(a1 + 32), a3);
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(v6, (unsigned __int64)a3);
-  v8 = NonConstMsgData;
-  if ( NonConstMsgData )
+  v18 = 0LL;
+  v17 = 0LL;
+  CInpLockGuardExclusive::CInpLockGuardExclusive(
+    (CInpLockGuardExclusive *)v21,
+    (struct CInpLockGuard *)(a1 + 40),
+    (void *)a3);
+  if ( a3 )
   {
-    v9 = CTouchProcessor::ReferenceFrame(a1, *((unsigned int *)NonConstMsgData + 7));
-    v10 = v9;
-    if ( v9 )
+    v6 = CTouchProcessor::ReferenceFrame((CTouchProcessor *)a1, *(_DWORD *)(a3 + 28));
+    if ( v6 )
     {
-      if ( *((_DWORD *)v8 + 8) >= *(_DWORD *)(v9 + 48) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12852);
-      v11 = *(_QWORD *)(v10 + 240) + 480LL * *((unsigned int *)v8 + 8);
-      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v11) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12854);
-      if ( *((_WORD *)v8 + 8) != *(_WORD *)(v11 + 172) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12855);
-      if ( qword_1C0295450 )
-        qword_1C0295450(v10, &v24, CTouchProcessor::DereferencePointerInputFrame);
-      CInputDest::CInputDest((CInputDest *)v31, (const struct tagINPUTDEST *)a2);
-      CThreadLockInputDest::CThreadLockInputDest((CThreadLockInputDest *)v30, (struct CInputDest *)v31);
+      v7 = *(unsigned int *)(a3 + 32);
+      if ( (unsigned int)v7 >= *((_DWORD *)v6 + 12) )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12188);
+        v7 = *(unsigned int *)(a3 + 32);
+      }
+      v8 = *((_QWORD *)v6 + 17) + 480 * v7;
+      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v8) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12190);
+      if ( *(_WORD *)(a3 + 16) != *(_WORD *)(v8 + 172) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12191);
+      PushW32ThreadLock((__int64)v6, (__int64)&v17, (__int64)CTouchProcessor::DereferencePointerInputFrame);
+      CInputDest::CInputDest((CInputDest *)v23, (const struct tagINPUTDEST *)a2);
+      CThreadLockInputDest::CThreadLockInputDest((CThreadLockInputDest *)v22, (struct CInputDest *)v23);
       CInpUnlockGuardExclusive::CInpUnlockGuardExclusive(
-        (CInpUnlockGuardExclusive *)v27,
-        (struct CInpLockGuard *)(a1 + 32),
-        *(void **)(v11 + 16),
-        v12);
-      v13 = *(_QWORD *)(v11 + 16);
-      v14 = *(_OWORD *)(a2 + 16);
-      v15 = *(unsigned __int16 *)(v11 + 144);
-      v26[0] = *(_OWORD *)a2;
-      v16 = *(_OWORD *)(a2 + 32);
-      v26[1] = v14;
-      v17 = *(_OWORD *)(a2 + 48);
-      v26[2] = v16;
-      v18 = *(_OWORD *)(a2 + 64);
-      v26[3] = v17;
-      v19 = *(_OWORD *)(a2 + 80);
-      v26[4] = v18;
-      v20 = *(_OWORD *)(a2 + 96);
-      v26[5] = v19;
-      v26[6] = v20;
-      ApiSetEditionPointerActivate(v26, v15, v13, v11 + 160);
-      CInpLockGuard::LockExclusive(v28);
-      CRefUnRefPointerMsgId::ThreadUnlockAndUnReference((CRefUnRefPointerMsgId *)v27, v21, v22, v23);
-      CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v30);
-      if ( qword_1C0295460 )
-        qword_1C0295460(&v24);
-      CTouchProcessor::UnreferenceFrame(a1, v10);
-      CInputDest::SetEmpty((CInputDest *)v31);
+        (CInpUnlockGuardExclusive *)v20,
+        (struct CInpLockGuard *)(a1 + 40),
+        *(void **)(v8 + 16));
+      v9 = *(_QWORD *)(v8 + 16);
+      v10 = *(_OWORD *)(a2 + 16);
+      v11 = *(unsigned __int16 *)(v8 + 144);
+      v19[0] = *(_OWORD *)a2;
+      v12 = *(_OWORD *)(a2 + 32);
+      v19[1] = v10;
+      v13 = *(_OWORD *)(a2 + 48);
+      v19[2] = v12;
+      v14 = *(_OWORD *)(a2 + 64);
+      v19[3] = v13;
+      v15 = *(_OWORD *)(a2 + 80);
+      v19[4] = v14;
+      v16 = *(_OWORD *)(a2 + 96);
+      v19[5] = v15;
+      v19[6] = v16;
+      ApiSetEditionPointerActivate(v19, v11, v9, v8 + 160);
+      CInpUnlockGuardExclusive::~CInpUnlockGuardExclusive(v20);
+      CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v22);
+      PopW32ThreadLock(&v17);
+      CTouchProcessor::UnreferenceFrame(a1, (__int64)v6);
+      CInputDest::SetEmpty((CInputDest *)v23);
     }
   }
-  CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v29);
+  CInpLockGuardExclusive::~CInpLockGuardExclusive(v21);
 }

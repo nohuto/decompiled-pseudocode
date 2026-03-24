@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProcessAttributionNoRef@CWindowNode@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800FBA60
+ * XREFs of ?GetProcessAttributionNoRef@CWindowNode@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800E2FF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CProcessAttribution *__fastcall CWindowNode::GetProcessAttributionNoRef(CWindowNode *this)
 {
-  return (struct CProcessAttribution *)*((_QWORD *)this + 93);
+  return (struct CProcessAttribution *)*((_QWORD *)this + 79);
 }

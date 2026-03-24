@@ -1,5 +1,5 @@
 /*
- * XREFs of ??1RenderBuffer@CHolographicInteropTexture@@QEAA@XZ @ 0x18029B010
+ * XREFs of ??1RenderBuffer@CHolographicInteropTexture@@QEAA@XZ @ 0x180258AE0
  * Callers:
  *     <none>
  * Callees:

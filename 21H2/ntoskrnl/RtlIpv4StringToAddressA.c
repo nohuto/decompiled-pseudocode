@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv4StringToAddressA @ 0x14039E7C0
+ * XREFs of RtlIpv4StringToAddressA @ 0x140390F60
  * Callers:
- *     RtlIpv4StringToAddressExA @ 0x1405EB820 (RtlIpv4StringToAddressExA.c)
+ *     RtlIpv4StringToAddressExA @ 0x14058C210 (RtlIpv4StringToAddressExA.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     __isascii @ 0x1403E1A70 (__isascii.c)
- *     isdigit @ 0x1403E1A90 (isdigit.c)
- *     islower @ 0x1403E1AC0 (islower.c)
- *     isxdigit @ 0x1403E1B80 (isxdigit.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __isascii @ 0x1403D26B0 (__isascii.c)
+ *     isdigit @ 0x1403D26D0 (isdigit.c)
+ *     islower @ 0x1403D2700 (islower.c)
+ *     isxdigit @ 0x1403D27C0 (isxdigit.c)
  */
 
 NTSTATUS __stdcall RtlIpv4StringToAddressA(PCSTR S, BOOLEAN Strict, PCSTR *Terminator, struct in_addr *Addr)
@@ -24,12 +24,12 @@ NTSTATUS __stdcall RtlIpv4StringToAddressA(PCSTR S, BOOLEAN Strict, PCSTR *Termi
   unsigned int v15; // ecx
   NTSTATUS result; // eax
   __int64 v17; // rbx
-  int v18; // eax
-  int v19; // ecx
-  unsigned int v20; // ecx
-  int v21; // ebx
-  int v22; // ebx
-  int v23; // ebx
+  int v18; // ebx
+  int v19; // ebx
+  int v20; // ebx
+  int v21; // eax
+  int v22; // ecx
+  unsigned int v23; // ecx
   int v24; // eax
   int v25; // ecx
   unsigned int v28; // [rsp+30h] [rbp-20h] BYREF
@@ -109,52 +109,50 @@ NTSTATUS __stdcall RtlIpv4StringToAddressA(PCSTR S, BOOLEAN Strict, PCSTR *Termi
     goto LABEL_18;
   *v4 = v8;
   v17 = ((char *)v4 - (char *)&v28 + 4) >> 2;
-  if ( !v6 )
+  if ( v6 )
   {
-    v21 = v17 - 1;
-    if ( !v21 )
+    if ( (_DWORD)v17 != 4 )
+      goto LABEL_18;
+  }
+  v18 = v17 - 1;
+  if ( !v18 )
+  {
+    v23 = v28;
+    goto LABEL_32;
+  }
+  v19 = v18 - 1;
+  if ( !v19 )
+  {
+    if ( v28 <= 0xFF && v29 <= 0xFFFFFF )
     {
-      v20 = v28;
-      goto LABEL_28;
+      v22 = v28 << 24;
+      v21 = v29 & 0xFFFFFF;
+      goto LABEL_31;
     }
-    v22 = v21 - 1;
-    if ( v22 )
+    goto LABEL_18;
+  }
+  v20 = v19 - 1;
+  if ( !v20 )
+  {
+    if ( v28 <= 0xFF && v29 <= 0xFF && v30 <= 0xFFFF )
     {
-      v23 = v22 - 1;
-      if ( v23 )
-      {
-        if ( v23 == 1 )
-          goto LABEL_22;
-      }
-      else if ( v28 <= 0xFF && v29 <= 0xFF && v30 <= 0xFFFF )
-      {
-        v18 = (unsigned __int16)v30;
-        v19 = ((v28 << 8) | (unsigned __int8)v29) << 16;
-        goto LABEL_27;
-      }
-    }
-    else if ( v28 <= 0xFF && v29 <= 0xFFFFFF )
-    {
-      v19 = v28 << 24;
-      v18 = v29 & 0xFFFFFF;
-      goto LABEL_27;
+      v21 = (unsigned __int16)v30;
+      v22 = ((v28 << 8) | (unsigned __int8)v29) << 16;
+      goto LABEL_31;
     }
 LABEL_18:
     result = -1073741811;
     *Terminator = S;
     return result;
   }
-  if ( (_DWORD)v17 != 4 )
+  if ( v20 != 1 || v28 > 0xFF || v29 > 0xFF || v30 > 0xFF || v31 > 0xFF )
     goto LABEL_18;
-LABEL_22:
-  if ( v28 > 0xFF || v29 > 0xFF || v30 > 0xFF || v31 > 0xFF )
-    goto LABEL_18;
-  v18 = (unsigned __int8)v31;
-  v19 = ((unsigned __int8)v30 | (((v28 << 8) | (unsigned __int8)v29) << 8)) << 8;
-LABEL_27:
-  v20 = v18 | v19;
-LABEL_28:
+  v21 = (unsigned __int8)v31;
+  v22 = ((unsigned __int8)v30 | (((v28 << 8) | (unsigned __int8)v29) << 8)) << 8;
+LABEL_31:
+  v23 = v21 | v22;
+LABEL_32:
   *Terminator = S;
-  Addr->S_un.S_addr = _byteswap_ulong(v20);
+  Addr->S_un.S_addr = _byteswap_ulong(v23);
   return 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchCreateHwContext @ 0x1C00F5D30
+ * XREFs of VidSchCreateHwContext @ 0x1C00D3310
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001350C (VidSchiDriverNodeEngineToSchedulerNode.c)
- *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C003F7CC (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0011590 (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C0036FE8 (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
  */
 
 struct VIDSCH_HW_CONTEXT *__fastcall VidSchCreateHwContext(__int64 a1, __int64 a2)

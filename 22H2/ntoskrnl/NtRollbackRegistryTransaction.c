@@ -1,72 +1,70 @@
 /*
- * XREFs of NtRollbackRegistryTransaction @ 0x140A0EB40
+ * XREFs of NtRollbackRegistryTransaction @ 0x140733A80
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     CmpRollbackLightWeightTransaction @ 0x1407D0DB0 (CmpRollbackLightWeightTransaction.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140AF6380 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1406A5420 (CmpRollbackLightWeightTransaction.c)
  */
 
 __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v9; // ebx
-  NTSTATUS v10; // eax
-  PVOID v11; // rdi
-  PVOID Object; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v14; // [rsp+38h] [rbp-50h] BYREF
-  _OWORD v15[3]; // [rsp+48h] [rbp-40h] BYREF
+  struct _KTHREAD *CurrentThread; // rax
+  NTSTATUS v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  volatile signed __int32 *v9; // rdi
+  int v10; // ebx
+  PVOID Object; // [rsp+30h] [rbp-48h] BYREF
+  _OWORD v13[3]; // [rsp+38h] [rbp-40h] BYREF
 
-  v14 = 0LL;
-  memset(v15, 0, sizeof(v15));
-  CmpInitializeThreadInfo((__int64)&v14);
-  if ( (unsigned __int8)CmpAcquireShutdownRundown(v5, v4, v6) )
+  memset(v13, 0, sizeof(v13));
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     if ( a2 )
     {
-      v9 = -1073741811;
+      v10 = -1073741811;
     }
     else
     {
       Object = 0LL;
-      v10 = ObReferenceObjectByHandle(
-              Handle,
-              0x10u,
-              CmRegistryTransactionType,
-              KeGetCurrentThread()->PreviousMode,
-              &Object,
-              0LL);
-      v11 = Object;
-      v9 = v10;
-      if ( v10 >= 0 )
+      v5 = ObReferenceObjectByHandle(
+             Handle,
+             0x10u,
+             CmRegistryTransactionType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
+      v9 = (volatile signed __int32 *)Object;
+      v10 = v5;
+      if ( v5 >= 0 )
       {
-        CmpAttachToRegistryProcess(v15);
-        v9 = CmpRollbackLightWeightTransaction((__int64)v11);
-        CmpDetachFromRegistryProcess(v15);
-        if ( v9 >= 0 )
-          v9 = 0;
+        CmpAttachToRegistryProcess((__int64)v13, v6, v7, v8);
+        v10 = CmpRollbackLightWeightTransaction(v9);
+        KiUnstackDetachProcess((__int64)v13, 0);
+        if ( v10 >= 0 )
+          v10 = 0;
       }
-      if ( v11 )
-        ObfDereferenceObject(v11);
+      if ( v9 )
+        HalPutDmaAdapter((PADAPTER_OBJECT)v9);
     }
-    CmpReleaseShutdownRundown(v8, v7);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   else
   {
-    v9 = -1073741431;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return (unsigned int)-1073741431;
   }
-  CmCleanupThreadInfo((__int64 *)&v14);
-  return (unsigned int)v9;
+  return (unsigned int)v10;
 }

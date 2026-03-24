@@ -1,8 +1,8 @@
 /*
- * XREFs of PiCMConvertRegistryProperty @ 0x1407C1000
+ * XREFs of PiCMConvertRegistryProperty @ 0x14068DC1C
  * Callers:
- *     PiCMGetRegistryProperty @ 0x1407C0E04 (PiCMGetRegistryProperty.c)
- *     PiCMSetRegistryProperty @ 0x14096ABC4 (PiCMSetRegistryProperty.c)
+ *     PiCMGetRegistryProperty @ 0x14068DA00 (PiCMGetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x1408B0F90 (PiCMSetRegistryProperty.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +13,9 @@ __int64 __fastcall PiCMConvertRegistryProperty(int a1, _DWORD *a2)
   int v3; // ecx
   int v4; // ecx
   int v5; // ecx
-  int v6; // ecx
   int v7; // ecx
   int v8; // ecx
+  int v9; // ecx
   int v10; // ecx
   int v11; // ecx
   int v12; // ecx
@@ -162,51 +162,102 @@ __int64 __fastcall PiCMConvertRegistryProperty(int a1, _DWORD *a2)
     *a2 = 19;
     return v2;
   }
-  if ( a1 > 9 )
+  if ( a1 <= 10 )
   {
-    v5 = a1 - 10;
-    if ( !v5 )
+    if ( a1 == 10 )
     {
       *a2 = 10;
       return v2;
     }
-    v6 = v5 - 1;
-    if ( !v6 )
-    {
-      *a2 = 11;
-      return v2;
-    }
-    v7 = v6 - 1;
+    v7 = a1 - 1;
     if ( !v7 )
     {
-      *a2 = 12;
+      *a2 = 1;
       return v2;
     }
     v8 = v7 - 1;
     if ( !v8 )
     {
-      *a2 = 13;
+      *a2 = 2;
       return v2;
     }
-    v15 = v8 - 1;
+    v12 = v8 - 1;
+    if ( !v12 )
+    {
+      *a2 = 3;
+      return v2;
+    }
+    v13 = v12 - 1;
+    if ( !v13 )
+    {
+      *a2 = 4;
+      return v2;
+    }
+    v14 = v13 - 1;
+    if ( !v14 )
+    {
+      *a2 = 5;
+      return v2;
+    }
+    v15 = v14 - 1;
     if ( !v15 )
     {
-      *a2 = 14;
+      *a2 = 6;
       return v2;
     }
     v16 = v15 - 1;
     if ( !v16 )
     {
-      *a2 = 15;
+      *a2 = 7;
       return v2;
     }
     v17 = v16 - 1;
     if ( !v17 )
     {
+      *a2 = 8;
+      return v2;
+    }
+    if ( v17 == 1 )
+    {
+      *a2 = 9;
+      return v2;
+    }
+    return (unsigned int)-1073741811;
+  }
+  v3 = a1 - 11;
+  if ( !v3 )
+  {
+    *a2 = 11;
+    return v2;
+  }
+  v4 = v3 - 1;
+  if ( !v4 )
+  {
+    *a2 = 12;
+    return v2;
+  }
+  v5 = v4 - 1;
+  if ( v5 )
+  {
+    v9 = v5 - 1;
+    if ( !v9 )
+    {
+      *a2 = 14;
+      return v2;
+    }
+    v10 = v9 - 1;
+    if ( !v10 )
+    {
+      *a2 = 15;
+      return v2;
+    }
+    v11 = v10 - 1;
+    if ( !v11 )
+    {
       *a2 = 16;
       return v2;
     }
-    v24 = v17 - 1;
+    v24 = v11 - 1;
     if ( !v24 )
     {
       *a2 = 17;
@@ -219,59 +270,6 @@ __int64 __fastcall PiCMConvertRegistryProperty(int a1, _DWORD *a2)
     }
     return (unsigned int)-1073741811;
   }
-  if ( a1 == 9 )
-  {
-    *a2 = 9;
-    return v2;
-  }
-  if ( !a1 )
-    return (unsigned int)-1073741811;
-  v3 = a1 - 1;
-  if ( !v3 )
-  {
-    *a2 = 1;
-    return v2;
-  }
-  v4 = v3 - 1;
-  if ( v4 )
-  {
-    v10 = v4 - 1;
-    if ( !v10 )
-    {
-      *a2 = 3;
-      return v2;
-    }
-    v11 = v10 - 1;
-    if ( !v11 )
-    {
-      *a2 = 4;
-      return v2;
-    }
-    v12 = v11 - 1;
-    if ( !v12 )
-    {
-      *a2 = 5;
-      return v2;
-    }
-    v13 = v12 - 1;
-    if ( !v13 )
-    {
-      *a2 = 6;
-      return v2;
-    }
-    v14 = v13 - 1;
-    if ( !v14 )
-    {
-      *a2 = 7;
-      return v2;
-    }
-    if ( v14 == 1 )
-    {
-      *a2 = 8;
-      return v2;
-    }
-    return (unsigned int)-1073741811;
-  }
-  *a2 = 2;
+  *a2 = 13;
   return v2;
 }

@@ -1,52 +1,48 @@
 /*
- * XREFs of MmReleaseLoadLock @ 0x1406F5AF0
+ * XREFs of MmReleaseLoadLock @ 0x1406D1110
  * Callers:
- *     MmProtectDriverSection @ 0x14025D5E0 (MmProtectDriverSection.c)
- *     MmLockRegistryRecoverySections @ 0x140582708 (MmLockRegistryRecoverySections.c)
- *     MmWriteSystemImageTracepoint @ 0x1405A40C4 (MmWriteSystemImageTracepoint.c)
- *     MmChangeImageProtection @ 0x1406F5800 (MmChangeImageProtection.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiObtainSectionForDriver @ 0x1407603D4 (MiObtainSectionForDriver.c)
- *     MiSessionUnloadAllImages @ 0x140761DF8 (MiSessionUnloadAllImages.c)
- *     MmUnloadSystemImage @ 0x140762490 (MmUnloadSystemImage.c)
- *     MmBackSystemImageWithPagefile @ 0x14080F66C (MmBackSystemImageWithPagefile.c)
- *     MmEnumerateSystemImages @ 0x140814DC0 (MmEnumerateSystemImages.c)
- *     MiFlushDeferredRetpolineImageLoadEvents @ 0x14082CB2C (MiFlushDeferredRetpolineImageLoadEvents.c)
- *     MmFreeBootDriverInitializationCode @ 0x14084C1C8 (MmFreeBootDriverInitializationCode.c)
- *     MmAddVerifierSpecialThunks @ 0x140969FB0 (MmAddVerifierSpecialThunks.c)
- *     MmAddVerifierThunks @ 0x14096A0D0 (MmAddVerifierThunks.c)
- *     MiLoadHotPatch @ 0x140974020 (MiLoadHotPatch.c)
- *     MiLogHotPatchRundown @ 0x140975748 (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x14097723C (MiQueryProcessActivePatches.c)
- *     MiUnloadHotPatch @ 0x140977B70 (MiUnloadHotPatch.c)
- *     MiShutdownSystem @ 0x140A69FD8 (MiShutdownSystem.c)
- *     MmApplyVerifierToRunningImage @ 0x140A81214 (MmApplyVerifierToRunningImage.c)
- *     MmEnableOrDisableVerifierForDriver @ 0x140A812D0 (MmEnableOrDisableVerifierForDriver.c)
- *     VfAddVerifierEntry @ 0x140A9C668 (VfAddVerifierEntry.c)
- *     MiReloadBootLoadedDrivers @ 0x140B04F8C (MiReloadBootLoadedDrivers.c)
- *     MiFlushStrongCodeDriverLoadFailures @ 0x140B084F4 (MiFlushStrongCodeDriverLoadFailures.c)
- *     MiInitializeLoadedModuleList @ 0x140B09D6C (MiInitializeLoadedModuleList.c)
- *     MiInitializeRetpoline @ 0x140B0A4A8 (MiInitializeRetpoline.c)
- *     MmRegisterHotPatches @ 0x140B2F2BC (MmRegisterHotPatches.c)
- *     MmDiscardDriverSection @ 0x140B2FE74 (MmDiscardDriverSection.c)
- *     MmMarkHypercallPageRetpolineBit @ 0x140B5210C (MmMarkHypercallPageRetpolineBit.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F6F8 (MmWriteSystemImageTracepoint.c)
+ *     MmChangeImageProtection @ 0x1406D0DD0 (MmChangeImageProtection.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiObtainSectionForDriver @ 0x14075C358 (MiObtainSectionForDriver.c)
+ *     MmUnloadSystemImage @ 0x140772150 (MmUnloadSystemImage.c)
+ *     MiSessionUnloadAllImages @ 0x1407785DC (MiSessionUnloadAllImages.c)
+ *     MmBackSystemImageWithPagefile @ 0x140780A8C (MmBackSystemImageWithPagefile.c)
+ *     MmEnumerateSystemImages @ 0x140797DE0 (MmEnumerateSystemImages.c)
+ *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1407A5288 (MiFlushDeferredRetpolineImageLoadEvents.c)
+ *     MmFreeBootDriverInitializationCode @ 0x1407B3B08 (MmFreeBootDriverInitializationCode.c)
+ *     MmAddVerifierSpecialThunks @ 0x1408C6490 (MmAddVerifierSpecialThunks.c)
+ *     MmAddVerifierThunks @ 0x1408C65B0 (MmAddVerifierThunks.c)
+ *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
+ *     MiLogHotPatchRundown @ 0x1408CBFBC (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x1408CDEE8 (MiQueryProcessActivePatches.c)
+ *     MiUnloadHotPatch @ 0x1408CE7C8 (MiUnloadHotPatch.c)
+ *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
+ *     MmEnableVerifierForDriver @ 0x1409C5BB4 (MmEnableVerifierForDriver.c)
+ *     VfAddVerifierEntry @ 0x1409EC9D8 (VfAddVerifierEntry.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
+ *     MiFlushStrongCodeDriverLoadFailures @ 0x140A54464 (MiFlushStrongCodeDriverLoadFailures.c)
+ *     MiInitializeRetpoline @ 0x140A56538 (MiInitializeRetpoline.c)
+ *     MmRegisterHotPatch @ 0x140A9232C (MmRegisterHotPatch.c)
+ *     MmMarkHypercallPageRetpolineBit @ 0x140A925BC (MmMarkHypercallPageRetpolineBit.c)
+ *     MmDiscardDriverSection @ 0x140A92E70 (MmDiscardDriverSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
 _QWORD *__fastcall MmReleaseLoadLock(__int64 a1)
 {
   _QWORD *result; // rax
 
-  if ( dword_140C4F4A0-- == 1 )
+  if ( dword_140C4CCE0-- == 1 )
   {
-    qword_140C4F498 |= 1uLL;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4F490, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C4F490);
-    KeAbPostRelease((ULONG_PTR)&qword_140C4F490);
+    qword_140C4CCD8 |= 1uLL;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CCD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C4CCD0);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4CCD0);
     return KeLeaveCriticalRegionThread(a1);
   }
   return result;

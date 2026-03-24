@@ -1,18 +1,18 @@
 /*
- * XREFs of MiEmptyWorkingSetInitiate @ 0x140142200
+ * XREFs of MiEmptyWorkingSetInitiate @ 0x140142220
  * Callers:
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MmAdjustWorkingSetSizeEx @ 0x14013C044 (MmAdjustWorkingSetSizeEx.c)
- *     MiEmptyWorkingSet @ 0x1402A7A04 (MiEmptyWorkingSet.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7A20 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiEmptyTargetedWorkingSet @ 0x1402B2ED8 (MiEmptyTargetedWorkingSet.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
+ *     MiEmptyWorkingSet @ 0x1402A7B04 (MiEmptyWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7B20 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1402B2FD8 (MiEmptyTargetedWorkingSet.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetInitiate(__int64 a1, char a2, __int64 a3, __int64 a4)

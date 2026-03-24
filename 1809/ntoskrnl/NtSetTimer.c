@@ -1,11 +1,11 @@
 /*
- * XREFs of NtSetTimer @ 0x140140140
+ * XREFs of NtSetTimer @ 0x140140160
  * Callers:
  *     <none>
  * Callees:
  *     PoCaptureReasonContext @ 0x1400020AC (PoCaptureReasonContext.c)
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
- *     ExpSetTimer @ 0x140140298 (ExpSetTimer.c)
+ *     ExpSetTimer @ 0x1401402B8 (ExpSetTimer.c)
  */
 
 NTSTATUS __stdcall NtSetTimer(

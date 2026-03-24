@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmSetExitLatencySamplingPercentage @ 0x1405C8AFC
+ * XREFs of PpmSetExitLatencySamplingPercentage @ 0x1405676C4
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeFlushProcessWriteBuffers @ 0x1402F374C (KeFlushProcessWriteBuffers.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     KeFlushProcessWriteBuffers @ 0x14027AD04 (KeFlushProcessWriteBuffers.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
  */
 
 __int64 __fastcall PpmSetExitLatencySamplingPercentage(int *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall PpmSetExitLatencySamplingPercentage(int *a1)
 
   v2 = 0;
   v3 = 0;
-  PpmAcquireLock(&PopFxSystemLatencyLock);
+  PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
   if ( PpmExitLatencySamplingPercentageSet )
   {
     v2 = -1073741823;
@@ -37,6 +37,6 @@ __int64 __fastcall PpmSetExitLatencySamplingPercentage(int *a1)
       KeFlushProcessWriteBuffers(1);
     }
   }
-  PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
+  PpmReleaseLock(&PopFxSystemLatencyLock);
   return v2;
 }

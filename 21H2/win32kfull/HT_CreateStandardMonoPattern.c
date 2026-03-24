@@ -1,81 +1,77 @@
 /*
- * XREFs of HT_CreateStandardMonoPattern @ 0x1C013D000
+ * XREFs of HT_CreateStandardMonoPattern @ 0x1C001965C
  * Callers:
- *     ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C013CE28 (-bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ.c)
+ *     ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C0019A70 (-bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ.c)
  * Callees:
- *     pDCIAdjClr @ 0x1C0094724 (pDCIAdjClr.c)
- *     GetCachedSMP @ 0x1C013D0AC (GetCachedSMP.c)
- *     ComputeBytesPerScanLine @ 0x1C013D228 (ComputeBytesPerScanLine.c)
- *     HT_CreateHalftoneBrush @ 0x1C025DF88 (HT_CreateHalftoneBrush.c)
+ *     GetCachedSMP @ 0x1C0019708 (GetCachedSMP.c)
+ *     ComputeBytesPerScanLine @ 0x1C0019884 (ComputeBytesPerScanLine.c)
+ *     pDCIAdjClr @ 0x1C001C210 (pDCIAdjClr.c)
+ *     HT_CreateHalftoneBrush @ 0x1C0261318 (HT_CreateHalftoneBrush.c)
  */
 
-__int64 __fastcall HT_CreateStandardMonoPattern(__int64 a1, __int16 *a2)
+__int64 __fastcall HT_CreateStandardMonoPattern(int a1, __int16 *a2)
 {
   unsigned __int8 v2; // si
-  int v4; // r15d
   __int64 v5; // rax
   __int64 v6; // rdi
   int HalftoneBrush; // eax
   int v8; // ecx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int16 v12; // r10
-  unsigned __int16 v13; // ax
-  int v14; // r10d
-  __int64 v15; // r11
-  __int64 v16; // r8
-  __int16 v17; // cx
-  char v18; // al
-  _DWORD v19[2]; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-18h]
-  int *v21; // [rsp+50h] [rbp-10h]
-  int v22; // [rsp+A8h] [rbp+48h] BYREF
-  int v23; // [rsp+B0h] [rbp+50h]
-  unsigned int v24; // [rsp+B8h] [rbp+58h] BYREF
+  __int16 v10; // r8
+  __int16 v11; // r10
+  unsigned __int16 v12; // ax
+  int v13; // r10d
+  __int64 v14; // r11
+  __int64 v15; // rdx
+  char v16; // cl
+  __int16 v17; // ax
+  _DWORD v18[2]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v19; // [rsp+48h] [rbp-18h]
+  int *v20; // [rsp+50h] [rbp-10h]
+  int v21; // [rsp+A8h] [rbp+48h] BYREF
+  int v22; // [rsp+B0h] [rbp+50h]
+  unsigned int v23; // [rsp+B8h] [rbp+58h] BYREF
 
   v2 = *((_BYTE *)a2 + 3);
+  v22 = 0;
   v23 = 0;
-  v4 = a1;
-  v24 = 0;
   if ( v2 <= 0x76u )
   {
-    v22 = 0;
-    v5 = pDCIAdjClr(a1, 0LL, 0LL, 0, 0, 0, &v24);
+    v21 = 0;
+    v5 = pDCIAdjClr(a1, 0, 0, 0, 0, 0, (__int64)&v23);
     v6 = v5;
     if ( !v5 )
-      return v24;
+      return v23;
     if ( v2 >= 0x12u )
     {
-      v11 = *(unsigned __int16 *)(v5 + 166);
-      v12 = *(_WORD *)(v5 + 170);
-      BYTE2(v23) = *((_BYTE *)a2 + 2);
-      v10 = BYTE2(v23);
-      a2[4] = v11;
-      a2[5] = v12;
-      v13 = ComputeBytesPerScanLine(1LL, v10, v11);
-      v16 = *((_QWORD *)a2 + 2);
-      a2[3] = v13;
-      if ( !v16 )
+      v10 = *(_WORD *)(v5 + 166);
+      v11 = *(_WORD *)(v5 + 170);
+      BYTE2(v22) = *((_BYTE *)a2 + 2);
+      a2[4] = v10;
+      a2[5] = v11;
+      v12 = ComputeBytesPerScanLine(1LL);
+      v15 = *((_QWORD *)a2 + 2);
+      a2[3] = v12;
+      if ( !v15 )
       {
-        v8 = v14 * v13;
+        v8 = v13 * v12;
         goto LABEL_6;
       }
+      v16 = v14;
+      v19 = v14;
+      v20 = &v21;
       v17 = *a2;
-      v21 = &v22;
-      v18 = v15;
-      v20 = v15;
-      BYTE1(v22) = 118 - v2;
+      BYTE1(v21) = 118 - v2;
+      LOBYTE(v21) = 118 - v2;
       if ( (v17 & 2) != 0 )
-        v18 = v15 + 2;
-      LOBYTE(v22) = 118 - v2;
-      LOBYTE(v23) = v18;
-      v19[0] = 196864;
-      v19[1] = 100;
-      if ( ((unsigned __int8)v17 & (unsigned __int8)v15) == 0 )
-        LOBYTE(v23) = (v17 & 2) != 0 ? 11 : 9;
-      BYTE1(v23) = v15;
-      HIBYTE(v23) = 0;
-      HalftoneBrush = HT_CreateHalftoneBrush(v4, 0, (unsigned int)v19, v23, v16);
+        v16 = v14 + 2;
+      v18[0] = 196864;
+      LOBYTE(v22) = v16;
+      v18[1] = 100;
+      if ( ((unsigned __int8)v17 & (unsigned __int8)v14) == 0 )
+        LOBYTE(v22) = v16 | 8;
+      BYTE1(v22) = v14;
+      HIBYTE(v22) = 0;
+      HalftoneBrush = HT_CreateHalftoneBrush(a1, 0, (unsigned int)v18, v22, v15);
     }
     else
     {
@@ -83,9 +79,9 @@ __int64 __fastcall HT_CreateStandardMonoPattern(__int64 a1, __int16 *a2)
     }
     v8 = HalftoneBrush;
 LABEL_6:
-    v24 = v8;
+    v23 = v8;
     EngReleaseSemaphore(*(HSEMAPHORE *)(v6 + 8));
-    return v24;
+    return v23;
   }
   return 4294967269LL;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of SetIconMetrics @ 0x1C00761C4
+ * XREFs of SetIconMetrics @ 0x1C00E1F70
  * Callers:
- *     xxxInitWindowStation @ 0x1C003DB88 (xxxInitWindowStation.c)
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
- *     UserOnGreTextReady @ 0x1C0088E50 (UserOnGreTextReady.c)
- *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01C7950 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
+ *     xxxInitWindowStation @ 0x1C000C0B8 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
+ *     UserOnGreTextReady @ 0x1C00E5F8C (UserOnGreTextReady.c)
+ *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01D64B8 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
  * Callees:
- *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C0076194 (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
- *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00767A0 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
- *     ?GetLocalizedInt@@YAHIH@Z @ 0x1C0076814 (-GetLocalizedInt@@YAHIH@Z.c)
- *     GreMarkDeletableFont @ 0x1C0076A08 (GreMarkDeletableFont.c)
- *     UserSetFont @ 0x1C0078184 (UserSetFont.c)
- *     UserSetAltScaleFont @ 0x1C0078308 (UserSetAltScaleFont.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00E2534 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     ?GetLocalizedInt@@YAHIH@Z @ 0x1C00E25A8 (-GetLocalizedInt@@YAHIH@Z.c)
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C00E2648 (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
+ *     UserSetFont @ 0x1C00E276C (UserSetFont.c)
+ *     GreMarkDeletableFont @ 0x1C00E4074 (GreMarkDeletableFont.c)
+ *     UserSetAltScaleFont @ 0x1C00E40D4 (UserSetAltScaleFont.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetIconMetrics(struct _UNICODE_STRING *a1, unsigned int *a2)
 {
-  struct HLFONT__ **v4; // rbx
-  int v5; // esi
+  HSURF *v4; // rbx
+  int v5; // edi
   int v6; // edx
   int LocalizedInt; // eax
   int v8; // edx
@@ -28,13 +28,10 @@ __int64 __fastcall SetIconMetrics(struct _UNICODE_STRING *a1, unsigned int *a2)
   __int64 v10; // rdx
   signed int v11; // r8d
   int v12; // ecx
-  _BYTE v14[4]; // [rsp+40h] [rbp-98h] BYREF
-  int TWIPSMetricById; // [rsp+44h] [rbp-94h]
-  int v16; // [rsp+48h] [rbp-90h]
-  int v17; // [rsp+4Ch] [rbp-8Ch]
+  _DWORD v14[28]; // [rsp+40h] [rbp-98h] BYREF
 
-  memset_0(v14, 0, 0x6CuLL);
-  v4 = (struct HLFONT__ **)(GetSessionDpiMetrics() + 64);
+  memset(v14, 0, 0x6CuLL);
+  v4 = (HSURF *)(GetSessionDpiMetrics() + 64);
   v5 = UserSetFont(
          a1,
          (unsigned __int64)(a2 + 4) & ((unsigned __int128)-(__int128)(unsigned __int64)a2 >> 64),
@@ -43,14 +40,12 @@ __int64 __fastcall SetIconMetrics(struct _UNICODE_STRING *a1, unsigned int *a2)
   if ( v5 )
   {
     Get96DpiMetrics();
-    v5 = UserSetAltScaleFont((int)*v4);
+    v5 = UserSetAltScaleFont(*v4);
     if ( !v5 )
     {
-      GreMarkDeletableFont(*v4);
+      GreMarkDeletableFont((struct HLFONT__ *)*v4);
       GreDeleteObject(*v4);
       *v4 = 0LL;
-      InvalidateKMDpiMetricsCacheDPIMETRICS();
-      return 0LL;
     }
   }
   InvalidateKMDpiMetricsCacheDPIMETRICS();
@@ -59,12 +54,12 @@ __int64 __fastcall SetIconMetrics(struct _UNICODE_STRING *a1, unsigned int *a2)
   if ( !a2 )
   {
     FastGetProfileIntFromID(a1, 23LL, 66LL);
-    v17 = 0;
+    v14[3] = 0;
     LocalizedInt = GetLocalizedInt(0x71u, v6);
-    TWIPSMetricById = GetTWIPSMetricById(a1, 0x40u, LocalizedInt);
+    v14[1] = GetTWIPSMetricById(a1, 0x40u, LocalizedInt);
     v9 = GetLocalizedInt(0x72u, v8);
-    v16 = GetTWIPSMetricById(a1, 0x41u, v9);
-    a2 = (unsigned int *)v14;
+    v14[2] = GetTWIPSMetricById(a1, 0x41u, v9);
+    a2 = v14;
   }
   v10 = a2[1];
   v11 = a2[2];

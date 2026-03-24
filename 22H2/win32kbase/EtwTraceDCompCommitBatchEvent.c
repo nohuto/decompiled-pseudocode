@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDCompCommitBatchEvent @ 0x1C00C13F0
+ * XREFs of EtwTraceDCompCommitBatchEvent @ 0x1C005F430
  * Callers:
- *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0K_NAEAVCMilCommandBatchParser@12@PEAII@Z @ 0x1C00275C0 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0K_NAEAVCMilCommandBatc.c)
+ *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C005EE20 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
  * Callees:
- *     McTemplateK0qpq_EtwWriteTransfer @ 0x1C00DFD10 (McTemplateK0qpq_EtwWriteTransfer.c)
+ *     McTemplateK0qpq_EtwWriteTransfer @ 0x1C012667C (McTemplateK0qpq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDCompCommitBatchEvent(int a1, int a2, int a3)

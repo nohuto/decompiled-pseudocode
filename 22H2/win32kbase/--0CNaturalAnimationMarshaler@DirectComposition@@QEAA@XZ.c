@@ -1,18 +1,20 @@
 /*
- * XREFs of ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C020B6A4
+ * XREFs of ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3DB0
  * Callers:
- *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C002EB8C (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
- *     ??0CNotificationResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C003033C (--0CNotificationResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     <none>
  */
 
-LARGE_INTEGER *__fastcall DirectComposition::CNaturalAnimationMarshaler::CNaturalAnimationMarshaler(
-        LARGE_INTEGER *this)
+DirectComposition::CNaturalAnimationMarshaler *__fastcall DirectComposition::CNaturalAnimationMarshaler::CNaturalAnimationMarshaler(
+        DirectComposition::CNaturalAnimationMarshaler *this)
 {
-  DirectComposition::CNotificationResourceMarshaler::CNotificationResourceMarshaler(this, 112LL);
-  this->QuadPart = (LONGLONG)&DirectComposition::CNaturalAnimationMarshaler::`vftable';
-  this[22] = KeQueryPerformanceCounter(0LL);
-  this[23].QuadPart = 0LL;
-  this[24].LowPart = 0;
+  *(_QWORD *)((char *)this + 20) = 1LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 10) = 109;
+  *(_QWORD *)this = &DirectComposition::CNaturalAnimationMarshaler::`vftable';
+  *((_QWORD *)this + 22) = 0LL;
+  *((_DWORD *)this + 46) = 0;
+  *((LARGE_INTEGER *)this + 24) = KeQueryPerformanceCounter(0LL);
   return this;
 }

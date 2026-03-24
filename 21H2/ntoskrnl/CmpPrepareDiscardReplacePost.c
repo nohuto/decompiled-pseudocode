@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpPrepareDiscardReplacePost @ 0x14091CFF0
+ * XREFs of CmpPrepareDiscardReplacePost @ 0x1408764A0
  * Callers:
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14091CF4C (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1408763F8 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
  * Callees:
- *     CmpReferenceKeyControlBlock @ 0x14071B250 (CmpReferenceKeyControlBlock.c)
- *     CmpCloneToUnbackedKcb @ 0x140914D00 (CmpCloneToUnbackedKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x14086EADC (CmpCloneToUnbackedKcb.c)
  */
 
 __int64 __fastcall CmpPrepareDiscardReplacePost(ULONG_PTR a1, __int64 a2, __int64 a3)

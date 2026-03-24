@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlGetSectorSizeInformation @ 0x1407FA040
+ * XREFs of FsRtlGetSectorSizeInformation @ 0x1406B1F30
  * Callers:
- *     RawQueryVolumeInformation @ 0x14074C12C (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x14071B2AC (RawQueryVolumeInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     FsRtlIssueDeviceIoControl @ 0x1407FA460 (FsRtlIssueDeviceIoControl.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsRtlIssueDeviceIoControl @ 0x1406B2330 (FsRtlIssueDeviceIoControl.c)
  */
 
 __int64 __fastcall FsRtlGetSectorSizeInformation(PDEVICE_OBJECT DeviceObject, __int64 a2)
@@ -41,7 +41,7 @@ __int64 __fastcall FsRtlGetSectorSizeInformation(PDEVICE_OBJECT DeviceObject, __
   v26 = 0LL;
   v25 = 0LL;
   v19 = 0LL;
-  memset(v15, 0, 0x8CuLL);
+  memset(v15, 0, sizeof(v15));
   *(_OWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
   *(_DWORD *)(a2 + 24) = 0;
@@ -96,7 +96,6 @@ __int64 __fastcall FsRtlGetSectorSizeInformation(PDEVICE_OBJECT DeviceObject, __
         if ( v8 % v7 )
           v9 = 2;
         *(_DWORD *)(a2 + 16) = v9;
-        memset(v15, 0, sizeof(v15));
         if ( (int)FsRtlIssueDeviceIoControl(DeviceObject, 0x70048u, 0, v15, 0x90u, 0LL) >= 0 )
         {
           v11 = HIDWORD(v19);

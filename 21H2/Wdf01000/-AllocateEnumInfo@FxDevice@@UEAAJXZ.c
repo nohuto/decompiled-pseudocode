@@ -1,18 +1,18 @@
 /*
- * XREFs of ?AllocateEnumInfo@FxDevice@@UEAAJXZ @ 0x1C00694E0
+ * XREFs of ?AllocateEnumInfo@FxDevice@@UEAAJXZ @ 0x1C0051790
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateEnumInfo@FxPkgPnp@@QEAAJXZ @ 0x1C00231F8 (-AllocateEnumInfo@FxPkgPnp@@QEAAJXZ.c)
+ *     ?AllocateEnumInfo@FxPkgPnp@@QEAAJXZ @ 0x1C007F69C (-AllocateEnumInfo@FxPkgPnp@@QEAAJXZ.c)
  */
 
-__int64 __fastcall FxDevice::AllocateEnumInfo(FxDevice *this, __int64 a2, unsigned __int8 a3)
+int __fastcall FxDevice::AllocateEnumInfo(FxDevice *this)
 {
   FxPkgPnp *m_PkgPnp; // rcx
 
   m_PkgPnp = this->m_PkgPnp;
   if ( m_PkgPnp )
-    return FxPkgPnp::AllocateEnumInfo(m_PkgPnp, a2, a3);
+    return FxPkgPnp::AllocateEnumInfo(m_PkgPnp);
   else
-    return 0LL;
+    return 0;
 }

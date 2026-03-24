@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSetBit @ 0x14034E440
+ * XREFs of RtlSetBit @ 0x140304680
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,5 @@
 
 void __stdcall RtlSetBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
-  _BYTE *v2; // r8
-
-  v2 = (char *)BitMapHeader->Buffer + ((unsigned __int64)BitNumber >> 3);
-  *v2 |= 1 << (BitNumber & 7);
+  _bittestandset((signed __int32 *)BitMapHeader->Buffer, BitNumber);
 }

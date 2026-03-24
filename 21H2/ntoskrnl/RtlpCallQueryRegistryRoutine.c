@@ -1,21 +1,28 @@
 /*
- * XREFs of RtlpCallQueryRegistryRoutine @ 0x14078241C
+ * XREFs of RtlpCallQueryRegistryRoutine @ 0x140640F30
  * Callers:
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpQueryRegistryDirect @ 0x1406D09CC (RtlpQueryRegistryDirect.c)
- *     RtlpValidateKeyTrust @ 0x1406DAA38 (RtlpValidateKeyTrust.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlpQueryRegistryDirect @ 0x14063EC10 (RtlpQueryRegistryDirect.c)
+ *     RtlpValidateKeyTrust @ 0x1406B8E8C (RtlpValidateKeyTrust.c)
  */
 
-__int64 __fastcall RtlpCallQueryRegistryRoutine(void *a1, __int64 a2, _DWORD *a3, int *a4, __int64 a5, int a6, char a7)
+__int64 __fastcall RtlpCallQueryRegistryRoutine(
+        __int64 a1,
+        __int64 a2,
+        _DWORD *a3,
+        int *a4,
+        __int64 a5,
+        int a6,
+        char a7)
 {
   int v7; // r12d
   unsigned int v8; // ebx
   unsigned int v10; // r13d
   int v12; // eax
-  void *v13; // r11
+  __int64 v13; // r11
   unsigned __int64 v14; // r10
   unsigned int v15; // r8d
   unsigned int v16; // esi
@@ -34,11 +41,10 @@ __int64 __fastcall RtlpCallQueryRegistryRoutine(void *a1, __int64 a2, _DWORD *a3
   int v29; // ecx
   unsigned int *i; // rsi
   __int16 v31; // ax
-  int v32; // edx
-  unsigned int v33; // ebp
+  unsigned int v32; // ebp
   int RegistryDirect; // eax
-  unsigned int v36; // eax
-  unsigned int *v37; // rcx
+  unsigned int v35; // eax
+  unsigned int *v36; // rcx
 
   v7 = *a4;
   v8 = 0;
@@ -159,17 +165,16 @@ LABEL_12:
           i = (unsigned int *)((char *)i + 2);
         }
         while ( v31 );
-        v32 = *(_DWORD *)(a2 + 8);
-        v33 = (_DWORD)i - (_DWORD)v22;
-        if ( (v32 & 0x20) != 0 )
+        v32 = (_DWORD)i - (_DWORD)v22;
+        if ( (*(_DWORD *)(a2 + 8) & 0x20) != 0 )
         {
           if ( a7 )
           {
-            v29 = RtlpValidateKeyTrust(v13, v32);
+            v29 = RtlpValidateKeyTrust(v13);
             if ( v29 < 0 )
               return (unsigned int)v29;
           }
-          RegistryDirect = RtlpQueryRegistryDirect(1u, v22, v33, *(unsigned int **)(a2 + 24));
+          RegistryDirect = RtlpQueryRegistryDirect(1u, v22, v32, *(unsigned int **)(a2 + 24));
           *(_QWORD *)(a2 + 24) += 16LL;
         }
         else
@@ -178,7 +183,7 @@ LABEL_12:
                              v20,
                              1LL,
                              v22,
-                             v33,
+                             v32,
                              a5,
                              *(_QWORD *)(a2 + 24));
         }
@@ -193,17 +198,17 @@ LABEL_12:
     }
     if ( v10 == 2 )
     {
-      v36 = v16 - 2;
+      v35 = v16 - 2;
       if ( v16 - 2 <= 0xFFFA )
       {
-        v37 = v22;
+        v36 = v22;
         if ( v16 != 2 )
         {
-          while ( *(_WORD *)v37 != 37 )
+          while ( *(_WORD *)v36 != 37 )
           {
-            v37 = (unsigned int *)((char *)v37 + 2);
-            v36 -= 2;
-            if ( !v36 )
+            v36 = (unsigned int *)((char *)v36 + 2);
+            v35 -= 2;
+            if ( !v35 )
               goto LABEL_15;
           }
           if ( v7 > 0 )
@@ -223,7 +228,7 @@ LABEL_15:
   {
     if ( a7 )
     {
-      result = RtlpValidateKeyTrust(v13, v23);
+      result = RtlpValidateKeyTrust(v13);
       if ( (int)result < 0 )
         return result;
     }

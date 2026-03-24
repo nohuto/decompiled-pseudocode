@@ -1,155 +1,198 @@
 /*
- * XREFs of ?UpdateGammaRamp@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C01C4A20
+ * XREFs of ?UpdateGammaRamp@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C013F27C
  * Callers:
- *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAPEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@3@Z @ 0x1C01B9F4C (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIM.c)
- *     ?DmmUpdateGammaRampOnVidPnSource@@YAJQEAXIPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C01C486C (-DmmUpdateGammaRampOnVidPnSource@@YAJQEAXIPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?DmmUpdateGammaRampOnVidPnSource@@YAJQEAXIPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C013D928 (-DmmUpdateGammaRampOnVidPnSource@@YAJQEAXIPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAPEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@3@Z @ 0x1C0141570 (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAK1PEAPEAU_DXGK_SET_TIM.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0011924 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z @ 0x1C0012C4C (-Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z.c)
- *     ?SetGammaRamp@DMMVIDPNPRESENTPATH@@QEAAXPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C0013DE8 (-SetGammaRamp@DMMVIDPNPRESENTPATH@@QEAAXPEBUDXGK_GAMMA_RAMP@@@Z.c)
- *     ?IsValidGammaRamp@@YAEAEBU_D3DKMDT_GAMMA_RAMP@@@Z @ 0x1C006A640 (-IsValidGammaRamp@@YAEAEBU_D3DKMDT_GAMMA_RAMP@@@Z.c)
- *     ColorSpaceTransformCombine @ 0x1C0073F04 (ColorSpaceTransformCombine.c)
- *     ?IsDefaultGammaRamp@DXGK_GAMMA_RAMP@@QEBAEXZ @ 0x1C02C13F4 (-IsDefaultGammaRamp@DXGK_GAMMA_RAMP@@QEBAEXZ.c)
- *     ?GetDefaultColorSpaceTransform@DXGGLOBAL@@QEAAPEBUDXGK_GAMMA_RAMP@@XZ @ 0x1C030A6FC (-GetDefaultColorSpaceTransform@DXGGLOBAL@@QEAAPEBUDXGK_GAMMA_RAMP@@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C00083B8 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z @ 0x1C000B39C (-Initialize@DXGK_GAMMA_RAMP@@QEAAJW4_D3DDDI_GAMMARAMP_TYPE@@PEBX@Z.c)
+ *     ?SetGammaRamp@DMMVIDPNPRESENTPATH@@QEAAXPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C000B800 (-SetGammaRamp@DMMVIDPNPRESENTPATH@@QEAAXPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ *     ?IsValidGammaRamp@@YAEAEBU_D3DKMDT_GAMMA_RAMP@@@Z @ 0x1C000B94C (-IsValidGammaRamp@@YAEAEBU_D3DKMDT_GAMMA_RAMP@@@Z.c)
+ *     ColorSpaceTransformCombine @ 0x1C0061F74 (ColorSpaceTransformCombine.c)
+ *     ?IsDefaultGammaRamp@DXGK_GAMMA_RAMP@@QEBAEXZ @ 0x1C014289C (-IsDefaultGammaRamp@DXGK_GAMMA_RAMP@@QEBAEXZ.c)
+ *     ?GetDefaultColorSpaceTransform@DXGGLOBAL@@QEAAPEBUDXGK_GAMMA_RAMP@@XZ @ 0x1C0269BE4 (-GetDefaultColorSpaceTransform@DXGGLOBAL@@QEAAPEBUDXGK_GAMMA_RAMP@@XZ.c)
  */
 
 __int64 __fastcall DMMVIDPNPRESENTPATH::UpdateGammaRamp(DMMVIDPNPRESENTPATH *this)
 {
-  unsigned int v2; // r14d
-  __int64 v3; // rdi
-  __int64 v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rbx
-  __int64 v9; // rax
-  __int64 v10; // rbp
-  __int64 v11; // rbx
-  __int64 v12; // rbx
-  __int64 v14; // rcx
-  int v15; // ebp
-  __int64 v16; // rax
+  __int64 v2; // rbp
+  __int64 v3; // rdx
+  __int64 v4; // rdi
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  const void **DefaultColorSpaceTransform; // r14
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v12; // r15
+  __int64 v13; // rbx
+  __int64 v14; // rbx
+  const struct DXGK_GAMMA_RAMP *v15; // rdx
   __int64 v17; // rax
-  __int64 v18; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  int v23; // r15d
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rdx
+  __int64 v28; // rcx
   DXGGLOBAL *Global; // rax
-  const void **DefaultColorSpaceTransform; // rbp
-  __int64 v21; // r9
-  __int64 v22; // rax
-  ReferenceCounted *v23; // rbx
-  int v24; // eax
-  int v25; // eax
-  __int64 v26; // [rsp+50h] [rbp+8h] BYREF
+  size_t *v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // r9
+  size_t *v35; // rbx
+  __int64 v36; // rax
+  int v37; // eax
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  _QWORD *v40; // rax
+  int v41; // eax
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // rdx
+  __int64 v45; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = 0;
-  v3 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 11) + 96LL) + 128LL);
-  if ( v3 && !IsValidGammaRamp((const struct _D3DKMDT_GAMMA_RAMP *)(v3 + 16)) )
-    WdLogSingleEntry0(1LL);
-  v4 = *(_QWORD *)(*((_QWORD *)this + 12) + 96LL);
-  v5 = *(_QWORD *)(v4 + 40);
-  if ( !v5 )
+  LODWORD(v2) = 0;
+  v3 = *(_QWORD *)(*((_QWORD *)this + 11) + 96LL);
+  v4 = *(_QWORD *)(v3 + 128);
+  if ( v4 && !IsValidGammaRamp((const struct _D3DKMDT_GAMMA_RAMP *)(v4 + 16)) )
   {
-    WdLogSingleEntry0(1LL);
-    v5 = *(_QWORD *)(v4 + 40);
+    v17 = WdLogNewEntry5_WdAssertion(this, v3);
+    WdLogEvent5_WdAssertion(v17);
   }
-  v6 = *(_QWORD *)(v5 + 88);
-  v7 = *(_QWORD *)(v6 + 8);
-  if ( !v7 )
+  v5 = *(_QWORD *)(*((_QWORD *)this + 12) + 96LL);
+  v6 = *(_QWORD *)(v5 + 40);
+  if ( !v6 )
   {
-    WdLogSingleEntry0(1LL);
-    v7 = *(_QWORD *)(v6 + 8);
+    v18 = WdLogNewEntry5_WdAssertion(this, v3);
+    WdLogEvent5_WdAssertion(v18);
+    v6 = *(_QWORD *)(v5 + 40);
   }
-  if ( *(_QWORD *)(*(_QWORD *)(v7 + 16) + 2800LL) && v3 && DXGK_GAMMA_RAMP::IsDefaultGammaRamp((DXGK_GAMMA_RAMP *)v3) )
-    v3 = 0LL;
-  v8 = *(_QWORD *)(*((_QWORD *)this + 12) + 96LL);
-  v9 = *(_QWORD *)(v8 + 40);
-  if ( !v9 )
+  v7 = *(_QWORD *)(v6 + 88);
+  v8 = *(_QWORD *)(v7 + 8);
+  if ( !v8 )
   {
-    WdLogSingleEntry0(1LL);
-    v9 = *(_QWORD *)(v8 + 40);
+    v19 = WdLogNewEntry5_WdAssertion(this, v3);
+    WdLogEvent5_WdAssertion(v19);
+    v8 = *(_QWORD *)(v7 + 8);
   }
-  v10 = *(_QWORD *)(v9 + 88);
-  v11 = *(_QWORD *)(v10 + 8);
+  if ( *(_QWORD *)(*(_QWORD *)(v8 + 16) + 2704LL) && v4 && DXGK_GAMMA_RAMP::IsDefaultGammaRamp((DXGK_GAMMA_RAMP *)v4) )
+    v4 = 0LL;
+  DefaultColorSpaceTransform = 0LL;
+  v10 = *(_QWORD *)(*((_QWORD *)this + 12) + 96LL);
+  v11 = *(_QWORD *)(v10 + 40);
   if ( !v11 )
   {
-    WdLogSingleEntry0(1LL);
-    v11 = *(_QWORD *)(v10 + 8);
+    v20 = WdLogNewEntry5_WdAssertion(this, v3);
+    WdLogEvent5_WdAssertion(v20);
+    v11 = *(_QWORD *)(v10 + 40);
   }
-  v12 = *(_QWORD *)(v11 + 16);
-  if ( !v3 || (*(_DWORD *)(v12 + 2136) & 0x18) == 0 )
-    goto LABEL_13;
-  v14 = *((_QWORD *)this + 12);
-  v15 = 4;
-  v16 = *(_QWORD *)(v14 + 104);
-  if ( v16 )
+  v12 = *(_QWORD *)(v11 + 88);
+  v13 = *(_QWORD *)(v12 + 8);
+  if ( !v13 )
   {
-    _InterlockedAdd((volatile signed __int32 *)(v16 + 96), 1u);
-    v17 = *(_QWORD *)(v14 + 104);
+    v21 = WdLogNewEntry5_WdAssertion(this, v3);
+    WdLogEvent5_WdAssertion(v21);
+    v13 = *(_QWORD *)(v12 + 8);
   }
-  else
+  v14 = *(_QWORD *)(v13 + 16);
+  if ( v4 && (*(_DWORD *)(v14 + 2040) & 0x18) != 0 )
   {
-    v17 = 0LL;
-  }
-  v18 = *(_QWORD *)(v17 + 144);
-  v26 = v17;
-  if ( v18 )
-    v15 = *(_DWORD *)(v18 + 136);
-  if ( (((auto_rc<DMMVIDPNTARGETMODESET>::reset(&v26, 0LL), v15 == 12) || v15 == 32)
-     && (*(_DWORD *)(v12 + 2136) & 0x10) != 0
-     || v15 == 30 && (*(_DWORD *)(v12 + 2136) & 8) != 0)
-    && (Global = DXGGLOBAL_GetGlobal(),
-        (DefaultColorSpaceTransform = (const void **)DXGGLOBAL::GetDefaultColorSpaceTransform(Global)) != 0LL) )
-  {
-    v22 = operator new[](0x30uLL, 0x4B677844u, 256LL, v21);
-    v23 = (ReferenceCounted *)v22;
-    if ( v22 )
+    v22 = *((_QWORD *)this + 12);
+    v23 = 4;
+    v24 = *(_QWORD *)(v22 + 104);
+    if ( v24 )
     {
-      *(_WORD *)(v22 + 40) = 0;
-      *(_DWORD *)(v22 + 16) = 1;
-      *(_QWORD *)v22 = &ReferenceCounted::`vftable';
-      *(_DWORD *)(v22 + 8) = 1;
-      *(_QWORD *)v22 = &DXGK_GAMMA_RAMP::`vftable';
-      *(_QWORD *)(v22 + 24) = 0LL;
-      *(_QWORD *)(v22 + 32) = 0LL;
-      v24 = DXGK_GAMMA_RAMP::Initialize((DXGK_GAMMA_RAMP *)v22, D3DDDI_GAMMARAMP_MATRIX_3x4, 0LL);
-      v2 = v24;
-      if ( v24 >= 0 )
-      {
-        v25 = ColorSpaceTransformCombine(DefaultColorSpaceTransform + 2, (int *)(v3 + 16), (__int64)v23 + 16);
-        v2 = v25;
-        if ( v25 >= 0 )
-          DefaultColorSpaceTransform = (const void **)v23;
-        else
-          WdLogSingleEntry1(2LL, v25);
-      }
-      else
-      {
-        WdLogSingleEntry3(
-          2LL,
-          *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-          *(unsigned int *)(*((_QWORD *)this + 12) + 24LL),
-          v24);
-      }
+      _InterlockedIncrement((volatile signed __int32 *)(v24 + 96));
+      v25 = *(_QWORD *)(v22 + 104);
     }
     else
     {
-      WdLogSingleEntry2(
-        6LL,
-        *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-        *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
-      v2 = -1073741801;
-      v23 = 0LL;
+      v25 = 0LL;
     }
-    DMMVIDPNPRESENTPATH::SetGammaRamp(this, (const struct DXGK_GAMMA_RAMP *)DefaultColorSpaceTransform);
-    if ( v23 )
-      ReferenceCounted::Release(v23);
+    v26 = *(_QWORD *)(v25 + 144);
+    v45 = v25;
+    if ( v26 )
+      v23 = *(_DWORD *)(v26 + 136);
+    auto_rc<DMMVIDPNTARGETMODESET>::reset(&v45, 0LL);
+    if ( (v23 == 12 || v23 == 32) && (*(_DWORD *)(v14 + 2040) & 0x10) != 0
+      || v23 == 30 && (*(_DWORD *)(v14 + 2040) & 8) != 0 )
+    {
+      Global = DXGGLOBAL::GetGlobal(v28, v27);
+      DefaultColorSpaceTransform = (const void **)DXGGLOBAL::GetDefaultColorSpaceTransform(Global);
+    }
+  }
+  if ( !DefaultColorSpaceTransform )
+  {
+    v15 = (const struct DXGK_GAMMA_RAMP *)v4;
+LABEL_19:
+    DMMVIDPNPRESENTPATH::SetGammaRamp(this, v15);
+    return (unsigned int)v2;
+  }
+  if ( !v4 )
+  {
+    v15 = (const struct DXGK_GAMMA_RAMP *)DefaultColorSpaceTransform;
+    goto LABEL_19;
+  }
+  v30 = (size_t *)operator new[](0x30uLL, 0x4B677844u, PagedPool);
+  v35 = v30;
+  if ( v30 )
+  {
+    *((_WORD *)v30 + 20) = 0;
+    *v30 = (size_t)&ReferenceCounted::`vftable';
+    *v30 = (size_t)&DXGK_GAMMA_RAMP::`vftable';
+    *((_DWORD *)v30 + 2) = 1;
+    *((_DWORD *)v30 + 4) = 1;
+    v30[3] = 0LL;
+    v30[4] = 0LL;
   }
   else
   {
-LABEL_13:
-    DMMVIDPNPRESENTPATH::SetGammaRamp(this, (const struct DXGK_GAMMA_RAMP *)v3);
+    v35 = 0LL;
   }
-  return v2;
+  if ( v35 )
+  {
+    v37 = DXGK_GAMMA_RAMP::Initialize(v35, 4LL, 0LL);
+    v2 = v37;
+    if ( v37 >= 0 )
+    {
+      v41 = ColorSpaceTransformCombine(DefaultColorSpaceTransform + 2, (int *)(v4 + 16), (__int64)(v35 + 2));
+      v2 = v41;
+      if ( v41 >= 0 )
+        goto LABEL_45;
+      v40 = (_QWORD *)WdLogNewEntry5_WdError(v43, v42);
+      v40[3] = v2;
+    }
+    else
+    {
+      v40 = (_QWORD *)WdLogNewEntry5_WdError(v39, v38);
+      v40[3] = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+      v40[4] = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+      v40[5] = v2;
+    }
+    WdLogEvent5_WdError(v40);
+    goto LABEL_45;
+  }
+  v36 = WdLogNewEntry5_WdLowResource(v32, v31, v33, v34);
+  *(_QWORD *)(v36 + 24) = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+  *(_QWORD *)(v36 + 32) = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+  WdLogEvent5_WdLowResource(v36);
+  LODWORD(v2) = -1073741801;
+LABEL_45:
+  if ( (int)v2 >= 0 )
+    DefaultColorSpaceTransform = (const void **)v35;
+  DMMVIDPNPRESENTPATH::SetGammaRamp(this, (const struct DXGK_GAMMA_RAMP *)DefaultColorSpaceTransform);
+  if ( v35 )
+    ReferenceCounted::Release((ReferenceCounted *)v35, v44);
+  return (unsigned int)v2;
 }

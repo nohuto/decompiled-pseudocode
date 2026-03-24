@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcGetHeaderSize @ 0x14036A270
+ * XREFs of AlpcGetHeaderSize @ 0x1402813D0
  * Callers:
- *     AlpcGetMessageAttribute @ 0x14036A1D0 (AlpcGetMessageAttribute.c)
- *     AlpcInitializeMessageAttribute @ 0x14036A210 (AlpcInitializeMessageAttribute.c)
- *     AlpcpInitializeCompletionList @ 0x1407F5914 (AlpcpInitializeCompletionList.c)
+ *     AlpcGetMessageAttribute @ 0x140281330 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x140281370 (AlpcInitializeMessageAttribute.c)
+ *     AlpcpInitializeCompletionList @ 0x14067EC00 (AlpcpInitializeCompletionList.c)
  * Callees:
  *     <none>
  */

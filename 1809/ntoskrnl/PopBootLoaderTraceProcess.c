@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBootLoaderTraceProcess @ 0x1406DCF88
+ * XREFs of PopBootLoaderTraceProcess @ 0x1406DCF68
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     BapdWriteEtwEvents @ 0x1401786E8 (BapdWriteEtwEvents.c)
+ *     BapdWriteEtwEvents @ 0x140178708 (BapdWriteEtwEvents.c)
  *     BapdRecordFirmwareBootStats @ 0x14056F2A0 (BapdRecordFirmwareBootStats.c)
- *     EtwUnregister @ 0x140707390 (EtwUnregister.c)
+ *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
  */
 
 void PopBootLoaderTraceProcess()

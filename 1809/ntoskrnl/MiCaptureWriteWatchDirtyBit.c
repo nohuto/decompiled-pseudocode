@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCaptureWriteWatchDirtyBit @ 0x1401256BC
+ * XREFs of MiCaptureWriteWatchDirtyBit @ 0x1401256DC
  * Callers:
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiMakeCombineCandidateClean @ 0x140082B8C (MiMakeCombineCandidateClean.c)
- *     MiRevertValidPte @ 0x1400B2340 (MiRevertValidPte.c)
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  * Callees:
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
  *     MiLockVadCore @ 0x140087AD0 (MiLockVadCore.c)
- *     MiUnlockVadCore @ 0x140125748 (MiUnlockVadCore.c)
+ *     MiUnlockVadCore @ 0x140125768 (MiUnlockVadCore.c)
  */
 
 char __fastcall MiCaptureWriteWatchDirtyBit(__int64 a1, unsigned __int64 a2, __int64 a3)

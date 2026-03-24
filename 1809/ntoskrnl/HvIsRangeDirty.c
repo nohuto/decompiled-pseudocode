@@ -1,5 +1,5 @@
 /*
- * XREFs of HvIsRangeDirty @ 0x140800F44
+ * XREFs of HvIsRangeDirty @ 0x140800F24
  * Callers:
  *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
  * Callees:

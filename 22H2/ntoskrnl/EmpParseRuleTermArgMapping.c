@@ -1,9 +1,9 @@
 /*
- * XREFs of EmpParseRuleTermArgMapping @ 0x140B56C78
+ * XREFs of EmpParseRuleTermArgMapping @ 0x140A47370
  * Callers:
- *     EmpParseRuleTerm @ 0x140B55838 (EmpParseRuleTerm.c)
+ *     EmpParseRuleTerm @ 0x140A45F28 (EmpParseRuleTerm.c)
  * Callees:
- *     strtoul @ 0x1403D87D8 (strtoul.c)
+ *     strtoul @ 0x1403D0E00 (strtoul.c)
  */
 
 bool __fastcall EmpParseRuleTermArgMapping(char *Str, __int64 a2, int a3, int a4, int a5)
@@ -81,7 +81,7 @@ LABEL_10:
               v7 = v27;
               *(_DWORD *)(v5 + 4 * v12) = v18;
               if ( Str == v9 )
-                goto LABEL_61;
+                goto LABEL_60;
               v14 = 2;
               v12 = (unsigned int)(v12 + 1);
             }
@@ -113,7 +113,7 @@ LABEL_10:
             *(_DWORD *)(a2 + 4 * v19) = v20;
             v7 = v27;
             if ( Str == v9 )
-              goto LABEL_61;
+              goto LABEL_60;
             v14 = 5;
             ++v13;
           }
@@ -141,7 +141,7 @@ LABEL_39:
           {
             if ( (_DWORD)v12 == a3 && v13 == a4 && !a5 )
               goto LABEL_39;
-LABEL_61:
+LABEL_60:
             v11 = 1;
 LABEL_20:
             if ( v9 )
@@ -177,7 +177,7 @@ LABEL_63:
             *(_DWORD *)(a2 + 4 * v24) = v25;
             v7 = v27;
             if ( Str == v9 )
-              goto LABEL_61;
+              goto LABEL_60;
             v7 = v27 + 1;
             v14 = 8;
             ++v27;

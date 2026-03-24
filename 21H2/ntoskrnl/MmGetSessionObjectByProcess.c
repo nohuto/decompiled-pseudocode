@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetSessionObjectByProcess @ 0x14059973C
+ * XREFs of MmGetSessionObjectByProcess @ 0x14053E208
  * Callers:
- *     PspEstablishDfssHierarchy @ 0x1409B01E0 (PspEstablishDfssHierarchy.c)
+ *     PspEstablishDfssHierarchy @ 0x140908D28 (PspEstablishDfssHierarchy.c)
  * Callees:
  *     <none>
  */
@@ -14,5 +14,5 @@ __int64 __fastcall MmGetSessionObjectByProcess(__int64 a1)
   if ( !v1 || (*(_DWORD *)(a1 + 2172) & 0x1000) != 0 )
     return 0LL;
   else
-    return *(_QWORD *)(v1 + 64);
+    return *(_QWORD *)(v1 + 72);
 }

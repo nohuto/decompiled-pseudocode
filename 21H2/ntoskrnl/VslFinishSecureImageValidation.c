@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFinishSecureImageValidation @ 0x140550360
+ * XREFs of VslFinishSecureImageValidation @ 0x1404FE6F0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     VslFreePoolTransferObject @ 0x14054E1A8 (VslFreePoolTransferObject.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VslFreePoolTransferObject @ 0x1404FC510 (VslFreePoolTransferObject.c)
  */
 
 __int64 __fastcall VslFinishSecureImageValidation(
@@ -20,7 +20,7 @@ __int64 __fastcall VslFinishSecureImageValidation(
         _QWORD *a8,
         _DWORD *a9)
 {
-  int v13; // ebx
+  NTSTATUS v13; // ebx
   _QWORD v15[14]; // [rsp+30h] [rbp-81h] BYREF
 
   memset(v15, 0, 0x68uLL);

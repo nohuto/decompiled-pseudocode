@@ -1,76 +1,61 @@
 /*
- * XREFs of DelayedDestroyCacheDC @ 0x1C00A065C
+ * XREFs of DelayedDestroyCacheDC @ 0x1C00087FC
  * Callers:
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
- *     CleanupGDI @ 0x1C00A0060 (CleanupGDI.c)
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
+ *     CleanupGDI @ 0x1C0008ABC (CleanupGDI.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
  * Callees:
- *     GreLockVisRgn @ 0x1C0051080 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C0051170 (GreUnlockVisRgn.c)
- *     DestroyCacheDC @ 0x1C005D380 (DestroyCacheDC.c)
+ *     DestroyCacheDC @ 0x1C0008970 (DestroyCacheDC.c)
+ *     GreUnlockVisRgn @ 0x1C0039F20 (GreUnlockVisRgn.c)
+ *     GreLockVisRgn @ 0x1C003A140 (GreLockVisRgn.c)
  */
 
 __int64 __fastcall DelayedDestroyCacheDC(int a1)
 {
   int v2; // esi
-  __int64 v3; // rcx
-  char *v4; // rdi
-  __int64 *v5; // rbx
-  int v6; // eax
-  __int64 *v7; // rax
+  __int64 **v3; // rdi
+  __int64 *v4; // rbx
+  int v5; // eax
+  __int64 *v6; // rax
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v10; // rax
 
   v2 = 1;
-  GreLockVisRgn(*((_QWORD *)gpDispInfo + 5));
-  v4 = (char *)gpDispInfo + 24;
-  v5 = (__int64 *)*((_QWORD *)gpDispInfo + 3);
-  if ( !v5 )
+  GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+  v3 = (__int64 **)(gpDispInfo + 24);
+  v4 = *(__int64 **)(gpDispInfo + 24);
+  if ( !v4 )
   {
 LABEL_8:
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v3);
-    if ( CurrentProcessWin32Process )
-      CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
     *(_DWORD *)(CurrentProcessWin32Process + 12) &= ~0x200u;
-    return GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5));
+    return GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
   }
   do
   {
-    v6 = *((_DWORD *)v5 + 16);
-    if ( v6 >= 0 )
+    v5 = *((_DWORD *)v4 + 16);
+    if ( v5 >= 0 )
     {
-      if ( (v6 & 0x400000) == 0 )
+      if ( (v5 & 0x400000) == 0 )
         goto LABEL_4;
-LABEL_17:
-      DestroyCacheDC(v4, v5[1]);
+LABEL_12:
+      DestroyCacheDC(v3, v4[1]);
       goto LABEL_4;
     }
-    v10 = PsGetCurrentProcessWin32Process(v3);
-    if ( v10 )
-    {
-      v3 = -*(_QWORD *)v10;
-      v10 &= -(__int64)(*(_QWORD *)v10 != 0LL);
-    }
-    if ( v5[10] == v10 )
-    {
-      if ( !a1 )
-      {
-        v2 = 0;
-        goto LABEL_4;
-      }
-      goto LABEL_17;
-    }
+    if ( v4[10] != PsGetCurrentProcessWin32Process() )
+      goto LABEL_4;
+    if ( a1 )
+      goto LABEL_12;
+    v2 = 0;
 LABEL_4:
-    v7 = *(__int64 **)v4;
-    if ( v5 == *(__int64 **)v4 )
+    v6 = *v3;
+    if ( v4 == *v3 )
     {
-      v7 = (__int64 *)*v5;
-      v4 = (char *)v5;
+      v6 = (__int64 *)*v4;
+      v3 = (__int64 **)v4;
     }
-    v5 = v7;
+    v4 = v6;
   }
-  while ( v7 );
+  while ( v6 );
   if ( v2 )
     goto LABEL_8;
-  return GreUnlockVisRgn(*((_QWORD *)gpDispInfo + 5));
+  return GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
 }

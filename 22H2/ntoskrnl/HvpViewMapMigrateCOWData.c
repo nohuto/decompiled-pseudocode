@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewMapMigrateCOWData @ 0x140885494
+ * XREFs of HvpViewMapMigrateCOWData @ 0x140732D9C
  * Callers:
- *     HvpViewMapPromoteRangeToMapping @ 0x14074FF80 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140723F20 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     HvpViewMapMakeViewRangeWriteable @ 0x14067F49C (HvpViewMapMakeViewRangeWriteable.c)
- *     HvpViewMapMakeViewRangeReadOnly @ 0x14070AC14 (HvpViewMapMakeViewRangeReadOnly.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B0F4 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpAllExceptionsFatalFilter @ 0x140A1D340 (HvpAllExceptionsFatalFilter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvpViewMapMakeViewRangeWriteable @ 0x1405CCD5C (HvpViewMapMakeViewRangeWriteable.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x1407230D4 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140723208 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpAllExceptionsFatalFilter @ 0x140873610 (HvpAllExceptionsFatalFilter.c)
  */
 
 __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)

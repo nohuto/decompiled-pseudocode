@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_ErrorOnResettingPort @ 0x1C0011D40
+ * XREFs of HUBPSM20_ErrorOnResettingPort @ 0x1C0010920
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset @ 0x1C00061A8 (HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset.c)
+ *     HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset @ 0x1C0005A9C (HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset.c)
  */
 
 __int64 __fastcall HUBPSM20_ErrorOnResettingPort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

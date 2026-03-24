@@ -1,20 +1,20 @@
 /*
- * XREFs of XmMovsOp @ 0x140534190
+ * XREFs of XmMovsOp @ 0x1404E67F0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x140398FFC (XmGetStringAddress.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmGetStringAddress @ 0x1403C0A5C (XmGetStringAddress.c)
  */
 
 _WORD *__fastcall XmMovsOp(__int64 a1)
 {
   _WORD *result; // rax
   int v3; // edi
-  unsigned __int16 *StringAddress; // rax
+  int *StringAddress; // rax
   __int64 v5; // rcx
-  __int64 v6; // rax
+  int *v6; // rax
   int v7; // edx
 
   result = 0LL;
@@ -27,8 +27,8 @@ _WORD *__fastcall XmMovsOp(__int64 a1)
   {
     do
     {
-      StringAddress = (unsigned __int16 *)XmGetStringAddress(a1, *(_DWORD *)(a1 + 116), 6u);
-      XmSetSourceValue(a1, StringAddress);
+      StringAddress = XmGetStringAddress(a1, *(_DWORD *)(a1 + 116), 6u);
+      XmSetSourceValue(a1, (unsigned __int16 *)StringAddress);
       v6 = XmGetStringAddress(v5, 0, 7u);
       v7 = *(_DWORD *)(a1 + 108);
       *(_QWORD *)(a1 + 88) = v6;

@@ -1,11 +1,11 @@
 /*
- * XREFs of FxLibraryCommonDecommission @ 0x1C005FF88
+ * XREFs of FxLibraryCommonDecommission @ 0x1C00419C0
  * Callers:
- *     LibraryDecommission @ 0x1C0052CE0 (LibraryDecommission.c)
+ *     LibraryDecommission @ 0x1C002E140 (LibraryDecommission.c)
  * Callees:
- *     McGenEventUnregister_EtwUnregister @ 0x1C00603FC (McGenEventUnregister_EtwUnregister.c)
- *     UninitializeTelemetryAssertsKM @ 0x1C008FA38 (UninitializeTelemetryAssertsKM.c)
- *     FxUninitializeBugCheckDriverInfo @ 0x1C0091130 (FxUninitializeBugCheckDriverInfo.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C00423EC (McGenEventUnregister_EtwUnregister.c)
+ *     UninitializeTelemetryAssertsKM @ 0x1C008ED14 (UninitializeTelemetryAssertsKM.c)
+ *     FxUninitializeBugCheckDriverInfo @ 0x1C0090968 (FxUninitializeBugCheckDriverInfo.c)
  */
 
 __int64 __fastcall FxLibraryCommonDecommission()
@@ -13,7 +13,7 @@ __int64 __fastcall FxLibraryCommonDecommission()
   REGHANDLE RegHandle; // rcx
   unsigned __int64 *v1; // rcx
 
-  if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+  if ( WdfLdrDbgPrintOn )
   {
     DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
     DbgPrintEx(0x65u, 0, "LibraryDecommission: enter\n");
@@ -38,7 +38,7 @@ __int64 __fastcall FxLibraryCommonDecommission()
   FxLibraryGlobals.DriverTracker.m_Number = 0;
   FxUninitializeBugCheckDriverInfo();
   FxLibraryGlobals.FxDriverGlobalsListLock.m_DbgFlagIsInitialized = 0;
-  if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+  if ( WdfLdrDbgPrintOn )
   {
     DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
     DbgPrintEx(0x65u, 0, "LibraryDecommission: exit\n");

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCLegacyRemotingSwapChain@@MEAAPEAXI@Z @ 0x180109590
+ * XREFs of ??_GCLegacyRemotingSwapChain@@MEAAPEAXI@Z @ 0x1800E4580
  * Callers:
- *     ??_ECLegacyRemotingSwapChain@@OBI@EAAPEAXI@Z @ 0x1801215A0 (--_ECLegacyRemotingSwapChain@@OBI@EAAPEAXI@Z.c)
+ *     ??_ECLegacyRemotingSwapChain@@OBA@EAAPEAXI@Z @ 0x1800F7C00 (--_ECLegacyRemotingSwapChain@@OBA@EAAPEAXI@Z.c)
  * Callees:
- *     ??1CLegacyRemotingSwapChain@@MEAA@XZ @ 0x180109A38 (--1CLegacyRemotingSwapChain@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CLegacyRemotingSwapChain@@MEAA@XZ @ 0x1800E45BC (--1CLegacyRemotingSwapChain@@MEAA@XZ.c)
  */
 
 CLegacyRemotingSwapChain *__fastcall CLegacyRemotingSwapChain::`scalar deleting destructor'(
@@ -13,6 +13,6 @@ CLegacyRemotingSwapChain *__fastcall CLegacyRemotingSwapChain::`scalar deleting 
 {
   CLegacyRemotingSwapChain::~CLegacyRemotingSwapChain(this);
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x120uLL);
+    operator delete(this);
   return this;
 }

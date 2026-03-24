@@ -1,229 +1,209 @@
 /*
- * XREFs of DxgkCreateOverlay @ 0x1C03357F0
+ * XREFs of DxgkCreateOverlay @ 0x1C027B390
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C0007CA4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0023F34 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0024B68 (--1COREDEVICEACCESS@@QEAA@XZ.c)
- *     ??0DXGOVERLAYMUTEX@@QEAA@PEAVADAPTER_RENDER@@@Z @ 0x1C0024D2C (--0DXGOVERLAYMUTEX@@QEAA@PEAVADAPTER_RENDER@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?IsSupportOverlay@DXGDEVICE@@QEAAEXZ @ 0x1C00550FC (-IsSupportOverlay@DXGDEVICE@@QEAAEXZ.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C02E8E0C (-CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0004E20 (--1COREDEVICEACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C00088C4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??0DXGOVERLAYMUTEX@@QEAA@PEAVADAPTER_RENDER@@@Z @ 0x1C0025978 (--0DXGOVERLAYMUTEX@@QEAA@PEAVADAPTER_RENDER@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?IsSupportOverlay@DXGDEVICE@@QEAAEXZ @ 0x1C00476D0 (-IsSupportOverlay@DXGDEVICE@@QEAAEXZ.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C0254974 (-CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
  */
 
 __int64 __fastcall DxgkCreateOverlay(ULONG64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   struct DXGPROCESS *Current; // rsi
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  bool v8; // sf
-  _D3DKMT_CREATEOVERLAY *v9; // rax
-  struct ADAPTER_RENDER **v10; // rbx
-  __int64 hDevice; // rbx
-  __int64 v13; // r9
-  unsigned int v14; // r14d
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  _D3DKMT_CREATEOVERLAY *v13; // rax
+  __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 v16; // r8
-  bool v17; // sf
-  int v18; // ebx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  bool v21; // sf
+  struct ADAPTER_RENDER **v16; // rdi
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v21; // r9
+  int v22; // r14d
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  int v29; // edi
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
   size_t PrivateDriverDataSize; // rsi
-  void *v23; // r9
-  char *v24; // rdx
-  _DWORD *v25; // rdx
-  struct DXGDEVICE *v26; // [rsp+50h] [rbp-168h] BYREF
-  DXGDEVICE *v27; // [rsp+58h] [rbp-160h] BYREF
-  int v28; // [rsp+60h] [rbp-158h] BYREF
-  __int64 v29; // [rsp+68h] [rbp-150h]
-  char v30; // [rsp+70h] [rbp-148h]
-  _QWORD v31[2]; // [rsp+78h] [rbp-140h] BYREF
-  _BYTE v32[24]; // [rsp+88h] [rbp-130h] BYREF
-  _D3DKMT_CREATEOVERLAY v33; // [rsp+A0h] [rbp-118h] BYREF
-  _BYTE v34[160]; // [rsp+F0h] [rbp-C8h] BYREF
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  PVOID v37; // r9
+  _QWORD *v38; // rax
+  char *v39; // rdx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // rax
+  __int64 v43; // rdx
+  _DWORD *v44; // rdx
+  struct DXGDEVICE *v45; // [rsp+30h] [rbp-168h] BYREF
+  DXGDEVICE *v46; // [rsp+38h] [rbp-160h] BYREF
+  int v47; // [rsp+40h] [rbp-158h] BYREF
+  __int64 v48; // [rsp+48h] [rbp-150h]
+  char v49; // [rsp+50h] [rbp-148h]
+  _QWORD v50[2]; // [rsp+58h] [rbp-140h] BYREF
+  _BYTE v51[24]; // [rsp+68h] [rbp-130h] BYREF
+  _D3DKMT_CREATEOVERLAY v52; // [rsp+80h] [rbp-118h] BYREF
+  _BYTE v53[160]; // [rsp+D0h] [rbp-C8h] BYREF
 
-  v28 = -1;
-  v29 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v47 = -1;
+  v48 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v30 = 1;
-    v28 = 2022;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v49 = 1;
+    v47 = 2022;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2022);
   }
   else
   {
-    v30 = 0;
+    v49 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v28, 2022);
-  Current = DXGPROCESS::GetCurrent(v4);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v47, 2022LL);
+  Current = DXGPROCESS::GetCurrent(v5, v4, v6, v7);
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-    if ( !v30 )
-      return 3221225485LL;
-    v8 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_16:
-    if ( v8 )
-      McTemplateK0q_EtwWriteTransfer(v6, &EventProfilerExit, v7, v28);
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v11 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v11);
+LABEL_13:
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v47, v12);
+    if ( v49 )
+    {
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v47);
+    }
     return 3221225485LL;
   }
-  v9 = (_D3DKMT_CREATEOVERLAY *)a1;
+  v13 = (_D3DKMT_CREATEOVERLAY *)a1;
   if ( a1 >= MmUserProbeAddress )
-    v9 = (_D3DKMT_CREATEOVERLAY *)MmUserProbeAddress;
-  v33 = *v9;
-  v27 = 0LL;
-  DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v26, v33.hDevice, (struct _KTHREAD **)Current, &v27);
-  v10 = (struct ADAPTER_RENDER **)v27;
-  if ( !v27 )
+    v13 = (_D3DKMT_CREATEOVERLAY *)MmUserProbeAddress;
+  v52 = *v13;
+  v46 = 0LL;
+  DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE(
+    (DXGDEVICEBYHANDLE *)&v45,
+    HIDWORD(*(_QWORD *)&v52.VidPnSourceId),
+    (struct _KTHREAD **)Current,
+    &v46);
+  v16 = (struct ADAPTER_RENDER **)v46;
+  if ( !v46 )
   {
-    hDevice = v33.hDevice;
-    WdLogSingleEntry2(2LL, v33.hDevice, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid hDevice (0x%I64x) specified, returning 0x%I64x",
-      hDevice,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-    if ( v26 && _InterlockedExchangeAdd64((volatile signed __int64 *)v26 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v26 + 2), v26);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-    if ( !v30 )
-      return 3221225485LL;
-    LOBYTE(v6) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    v8 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-    goto LABEL_16;
+    v17 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v17 + 24) = v52.hDevice;
+    *(_QWORD *)(v17 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v17);
+    if ( v45 && _InterlockedExchangeAdd64((volatile signed __int64 *)v45 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v45 + 2), v45);
+    goto LABEL_13;
   }
-  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v31, v27);
-  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v34, (__int64)v10, 0, v13, 0);
-  v14 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v34, 0LL);
-  if ( (v14 & 0x80000000) != 0 )
+  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v50, v46);
+  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v53, (__int64)v16, 0, v21, 0);
+  v22 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v53, 0LL);
+  if ( v22 < 0 )
   {
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v34);
-    if ( v31[0] )
-      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v31);
-    if ( v26 && _InterlockedExchangeAdd64((volatile signed __int64 *)v26 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v26 + 2), v26);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-    if ( !v30 )
-      return v14;
-    v17 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_27:
-    if ( v17 )
-      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v28);
-    return v14;
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v53);
+    if ( v50[0] )
+      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v50);
+    if ( v45 && _InterlockedExchangeAdd64((volatile signed __int64 *)v45 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v45 + 2), v45);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v47, v23);
+    if ( v49 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v47);
+    return (unsigned int)v22;
   }
-  if ( !(*(unsigned int (**)(void))(*((_QWORD *)Current + 11) + 208LL))() )
+  if ( (*(unsigned int (**)(void))(*((_QWORD *)Current + 11) + 208LL))() )
   {
-    v18 = -1073741790;
-    WdLogSingleEntry1(4LL, -1073741790LL);
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v34);
-    if ( v31[0] )
-      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v31);
-    if ( v26 && _InterlockedExchangeAdd64((volatile signed __int64 *)v26 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v26 + 2), v26);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-    if ( !v30 )
-      return (unsigned int)v18;
-    LOBYTE(v19) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    v21 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-    goto LABEL_38;
-  }
-  if ( v33.OverlayInfo.PrivateDriverDataSize && v33.OverlayInfo.pPrivateDriverData )
-  {
-    PrivateDriverDataSize = v33.OverlayInfo.PrivateDriverDataSize;
-    v23 = (void *)operator new[](v33.OverlayInfo.PrivateDriverDataSize, 0x4B677844u, 256LL);
-    v33.OverlayInfo.pPrivateDriverData = v23;
-    if ( !v23 )
+    if ( v52.OverlayInfo.PrivateDriverDataSize && v52.OverlayInfo.pPrivateDriverData )
     {
-      v14 = -1073741801;
-      WdLogSingleEntry3(3LL, v10, (unsigned int)PrivateDriverDataSize, -1073741801LL);
-      COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v34);
-      if ( v31[0] )
-        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v31);
-      if ( v26 && _InterlockedExchangeAdd64((volatile signed __int64 *)v26 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v26 + 2), v26);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-      if ( !v30 )
-        return v14;
-      LOBYTE(v15) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-      v17 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-      goto LABEL_27;
+      PrivateDriverDataSize = v52.OverlayInfo.PrivateDriverDataSize;
+      v37 = operator new[](v52.OverlayInfo.PrivateDriverDataSize, 0x4B677844u, PagedPool);
+      v52.OverlayInfo.pPrivateDriverData = v37;
+      if ( !v37 )
+      {
+        v38 = (_QWORD *)WdLogNewEntry5_WdWarning(v35, v34, v36);
+        v38[3] = v16;
+        v38[4] = PrivateDriverDataSize;
+        v29 = -1073741801;
+        v38[5] = -1073741801LL;
+        WdLogEvent5_WdWarning(v38);
+        goto LABEL_29;
+      }
+      v39 = *(char **)(a1 + 48);
+      if ( &v39[PrivateDriverDataSize] < v39 || (unsigned __int64)&v39[PrivateDriverDataSize] > MmUserProbeAddress )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(v37, v39, PrivateDriverDataSize);
     }
-    v24 = *(char **)(a1 + 48);
-    if ( &v24[PrivateDriverDataSize] < v24 || (unsigned __int64)&v24[PrivateDriverDataSize] > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v23, v24, PrivateDriverDataSize);
+    else
+    {
+      v52.OverlayInfo.PrivateDriverDataSize = 0;
+      v52.OverlayInfo.pPrivateDriverData = 0LL;
+    }
+    if ( !DXGDEVICE::IsSupportOverlay((DXGDEVICE *)v16) )
+    {
+      v42 = WdLogNewEntry5_WdAssertion(v41, v40);
+      *(_QWORD *)(v42 + 24) = 638LL;
+      WdLogEvent5_WdAssertion(v42);
+    }
+    DXGOVERLAYMUTEX::DXGOVERLAYMUTEX((DXGOVERLAYMUTEX *)v51, v16[2]);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v51);
+    v29 = DXGDEVICE::CreateOverlay((DXGDEVICE *)v16, &v52);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v51, v43);
+    operator delete[](v52.OverlayInfo.pPrivateDriverData);
+    if ( v29 >= 0 )
+    {
+      v44 = (_DWORD *)(a1 + 64);
+      if ( a1 + 64 >= MmUserProbeAddress )
+        v44 = (_DWORD *)MmUserProbeAddress;
+      *v44 = v52.hOverlay;
+    }
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v51);
+    goto LABEL_29;
   }
-  else
-  {
-    v33.OverlayInfo.PrivateDriverDataSize = 0;
-    v33.OverlayInfo.pPrivateDriverData = 0LL;
-  }
-  if ( !DXGDEVICE::IsSupportOverlay((DXGDEVICE *)v10) )
-  {
-    WdLogSingleEntry1(1LL, 638LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDevice->IsSupportOverlay()", 638LL, 0LL, 0LL, 0LL, 0LL);
-  }
-  DXGOVERLAYMUTEX::DXGOVERLAYMUTEX((DXGOVERLAYMUTEX *)v32, v10[2]);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v32);
-  v18 = DXGDEVICE::CreateOverlay((DXGDEVICE *)v10, &v33);
-  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v32);
-  operator delete(v33.OverlayInfo.pPrivateDriverData);
-  if ( v18 >= 0 )
-  {
-    v25 = (_DWORD *)(a1 + 64);
-    if ( a1 + 64 >= MmUserProbeAddress )
-      v25 = (_DWORD *)MmUserProbeAddress;
-    *v25 = v33.hOverlay;
-  }
-  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v32);
-  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v34);
-  if ( v31[0] )
-    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v31);
-  if ( v26 && _InterlockedExchangeAdd64((volatile signed __int64 *)v26 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-    ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v26 + 2), v26);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28);
-  if ( v30 )
-  {
-    v21 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_38:
-    if ( v21 )
-      McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v28);
-  }
-  return (unsigned int)v18;
+  v28 = WdLogNewEntry5_WdEvent(v27, v26);
+  v29 = -1073741790;
+  *(_QWORD *)(v28 + 24) = -1073741790LL;
+  WdLogEvent5_WdEvent(v28);
+LABEL_29:
+  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v53);
+  if ( v50[0] )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v50);
+  if ( v45 && _InterlockedExchangeAdd64((volatile signed __int64 *)v45 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+    ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v45 + 2), v45);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v47, v30);
+  if ( v49 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v31, &EventProfilerExit, v32, v47);
+  return (unsigned int)v29;
 }

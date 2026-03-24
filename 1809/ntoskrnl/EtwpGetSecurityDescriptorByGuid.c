@@ -3,13 +3,13 @@
  * Callers:
  *     EtwpAllocGuidEntry @ 0x1405C0C8C (EtwpAllocGuidEntry.c)
  *     EtwpAccessCheckFromState @ 0x1405C558C (EtwpAccessCheckFromState.c)
- *     EtwpCheckGuidAccess @ 0x140656D24 (EtwpCheckGuidAccess.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x140725AFC (EtwpUpdateTrace.c)
+ *     EtwpCheckGuidAccess @ 0x140656D04 (EtwpCheckGuidAccess.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     EtwpGetGuidSecurityDescriptor @ 0x1405C6158 (EtwpGetGuidSecurityDescriptor.c)
  */
 

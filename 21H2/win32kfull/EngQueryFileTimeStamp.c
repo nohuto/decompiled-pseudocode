@@ -1,9 +1,9 @@
 /*
- * XREFs of EngQueryFileTimeStamp @ 0x1C027B6D0
+ * XREFs of EngQueryFileTimeStamp @ 0x1C027DB60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 LARGE_INTEGER __stdcall EngQueryFileTimeStamp(LPWSTR pwsz)
@@ -20,11 +20,11 @@ LARGE_INTEGER __stdcall EngQueryFileTimeStamp(LPWSTR pwsz)
   __int64 v11; // [rsp+B8h] [rbp+3Fh]
 
   FileHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v4.QuadPart = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
   v11 = 0LL;
+  DestinationString = 0LL;
   IoStatusBlock = 0LL;
   FileInformation = 0LL;
   v10 = 0LL;

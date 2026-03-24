@@ -1,24 +1,24 @@
 /*
- * XREFs of PoInitHiberServices @ 0x140745CB0
+ * XREFs of PoInitHiberServices @ 0x140745C90
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407455D4 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     EmClientQueryRuleState @ 0x1405653B0 (EmClientQueryRuleState.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopBcdClearPendingResume @ 0x140710FC8 (PopBcdClearPendingResume.c)
- *     PopBcdEstablishResumeObject @ 0x1407118A8 (PopBcdEstablishResumeObject.c)
- *     BcdCloseStore @ 0x140711A28 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x140712288 (BcdOpenStore.c)
- *     PopAcquireTransitionLock @ 0x14071E6C8 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14071E724 (PopReleaseTransitionLock.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
- *     PoDisableSleepStates @ 0x1408689E0 (PoDisableSleepStates.c)
- *     PoShutdownBugCheck @ 0x14086BEE0 (PoShutdownBugCheck.c)
+ *     PopBcdClearPendingResume @ 0x140710FA8 (PopBcdClearPendingResume.c)
+ *     PopBcdEstablishResumeObject @ 0x140711888 (PopBcdEstablishResumeObject.c)
+ *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140712268 (BcdOpenStore.c)
+ *     PopAcquireTransitionLock @ 0x14071E6A8 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14071E704 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
+ *     PoDisableSleepStates @ 0x1408689C0 (PoDisableSleepStates.c)
+ *     PoShutdownBugCheck @ 0x14086BEC0 (PoShutdownBugCheck.c)
  */
 
 void __fastcall PoInitHiberServices(char a1)

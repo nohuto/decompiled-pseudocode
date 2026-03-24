@@ -1,24 +1,23 @@
 /*
- * XREFs of SdbpCheckForMatch @ 0x140756F0C
+ * XREFs of SdbpCheckForMatch @ 0x140753F94
  * Callers:
- *     SdbpCheckKObject @ 0x140757368 (SdbpCheckKObject.c)
- *     SdbpCheckExe @ 0x140863760 (SdbpCheckExe.c)
+ *     SdbpCheckKObject @ 0x14075454C (SdbpCheckKObject.c)
+ *     SdbpCheckExe @ 0x1407D212C (SdbpCheckExe.c)
  * Callees:
- *     SdbReadWORDTag @ 0x14075617C (SdbReadWORDTag.c)
- *     SdbpMatchOsVersion @ 0x140757794 (SdbpMatchOsVersion.c)
- *     SdbpMatchList @ 0x140757A2C (SdbpMatchList.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbpGetExeEntryFlags @ 0x14084F0CC (SdbpGetExeEntryFlags.c)
+ *     SdbpMatchList @ 0x140754098 (SdbpMatchList.c)
+ *     SdbpMatchOsVersion @ 0x140754308 (SdbpMatchOsVersion.c)
+ *     SdbReadWORDTag @ 0x1407596BC (SdbReadWORDTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbpGetExeEntryFlags @ 0x1407C2320 (SdbpGetExeEntryFlags.c)
  */
 
 __int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, __int64 a6)
 {
-  unsigned int v6; // ebp
+  unsigned int v6; // r14d
   unsigned int v9; // ebx
   __int64 v10; // rdx
   int v12; // r15d
   BOOL v13; // r12d
-  __int64 result; // rax
   _DWORD *v15; // rdi
   unsigned int FirstTag; // eax
   unsigned int v17; // [rsp+88h] [rbp+20h] BYREF
@@ -53,7 +52,6 @@ __int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, __int64 a3, __int64 a4,
   }
   if ( !*(_DWORD *)(a4 + 80) || v13 )
     v12 = 0;
-  result = v9;
   *(_DWORD *)(a4 + 80) = v12;
-  return result;
+  return v9;
 }

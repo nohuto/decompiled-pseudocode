@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z @ 0x1802AC6A4
+ * XREFs of ??0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z @ 0x18025A838
  * Callers:
- *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x1802ACA2C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
+ *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18025AB4C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 CHolographicClient *__fastcall CHolographicClient::CHolographicClient(
@@ -11,11 +11,11 @@ CHolographicClient *__fastcall CHolographicClient::CHolographicClient(
         struct CHolographicInteropTaskQueue *a2,
         struct CHolographicInteropTaskQueue *a3)
 {
-  *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 4) = 0LL;
-  *(_QWORD *)this = &CHolographicClient::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CHolographicClient::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 2) = &CHolographicClient::`vftable'{for `IHolographicCompositorHost'};
+  *((_DWORD *)this + 2) = 0;
   *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 6) = 0LL;
   *((_QWORD *)this + 7) = 0LL;

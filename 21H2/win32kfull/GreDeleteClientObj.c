@@ -1,7 +1,7 @@
 /*
- * XREFs of GreDeleteClientObj @ 0x1C014A080
+ * XREFs of GreDeleteClientObj @ 0x1C0120AE0
  * Callers:
- *     NtGdiDeleteClientObj @ 0x1C014A060 (NtGdiDeleteClientObj.c)
+ *     NtGdiDeleteClientObj @ 0x1C0120AC0 (NtGdiDeleteClientObj.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalRegisterErrataCallbacks @ 0x140B0B970
+ * XREFs of HalRegisterErrataCallbacks @ 0x140A455B0
  * Callers:
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
+ *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
  * Callees:
- *     EmpProviderRegister @ 0x14082D070 (EmpProviderRegister.c)
+ *     EmpProviderRegister @ 0x14079CFE0 (EmpProviderRegister.c)
  */
 
 __int64 HalRegisterErrataCallbacks()
 {
   __int64 v1; // [rsp+40h] [rbp+8h] BYREF
 
-  return EmpProviderRegister(0LL, 0LL, 0, (__int64)&off_140003630, 6u, &v1);
+  return EmpProviderRegister(0LL, 0LL, 0, (__int64)&off_140005630, 6u, &v1);
 }

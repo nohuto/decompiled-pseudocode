@@ -1,245 +1,275 @@
 /*
- * XREFs of DxgkQueryMonitorTypeLockHeld @ 0x1C01D2410
+ * XREFs of DxgkQueryMonitorTypeLockHeld @ 0x1C015E400
  * Callers:
- *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAPEBU_D3DKMT_DISPLAYMODE@@PEAE@Z @ 0x1C01D2768 (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
- *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C01D31C8 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
- *     ?QueryMonitorType@@YAJAEBU_LUID@@IPEAW4_DMM_VIDPN_MONITOR_TYPE@@PEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@2PEAE3333@Z @ 0x1C02F28C8 (-QueryMonitorType@@YAJAEBU_LUID@@IPEAW4_DMM_VIDPN_MONITOR_TYPE@@PEAW4_D3DKMDT_VIDEO_OUTPUT_TECHN.c)
- *     ?ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@II_NPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C02F6A9C (-ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QE.c)
+ *     ?DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODELIST@@PEAE@Z @ 0x1C015D25C (-DxgkpGetDisplayModeList@@YAJPEAVDXGADAPTER@@AEAVCOREADAPTERACCESS@@EAEAU_D3DKMT_GETDISPLAYMODEL.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z @ 0x1C015DA44 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1@Z.c)
+ *     ?ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@II_NPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C025CEEC (-ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QE.c)
+ *     ?QueryMonitorType@@YAJAEBU_LUID@@IPEAW4_DMM_VIDPN_MONITOR_TYPE@@PEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@2PEAE333@Z @ 0x1C02977A0 (-QueryMonitorType@@YAJAEBU_LUID@@IPEAW4_DMM_VIDPN_MONITOR_TYPE@@PEAW4_D3DKMDT_VIDEO_OUTPUT_TECHN.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000F0C8 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000F304 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     MonitorReleaseMonitorHandle @ 0x1C01A05B4 (MonitorReleaseMonitorHandle.c)
- *     MonitorGetMonitorHandle @ 0x1C01A0DA4 (MonitorGetMonitorHandle.c)
- *     ?_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ @ 0x1C01A5490 (-_IsVirtualModeSupportDisabled@DXGMONITOR@@QEBA_NXZ.c)
- *     MonitorGetMonitorType @ 0x1C01B0AC4 (MonitorGetMonitorType.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007E24 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     MonitorGetMonitorHandle @ 0x1C0129A20 (MonitorGetMonitorHandle.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ @ 0x1C012A2E8 (-_IsVirtualModeSuportDisabled@DXGMONITOR@@QEAA_NXZ.c)
+ *     MonitorGetMonitorType @ 0x1C012BB78 (MonitorGetMonitorType.c)
+ *     MonitorReleaseMonitorHandle @ 0x1C012F96C (MonitorReleaseMonitorHandle.c)
  */
 
 __int64 __fastcall DxgkQueryMonitorTypeLockHeld(
         __int64 a1,
-        unsigned int a2,
+        __int64 a2,
         _DWORD *a3,
         _DWORD *a4,
         _DWORD *a5,
         _BYTE *a6,
         char *a7,
         bool *a8,
-        bool *a9,
-        _BYTE *a10)
+        bool *a9)
 {
-  __int64 v10; // rdi
-  __int64 v11; // rsi
-  bool *v14; // r15
-  bool *v15; // r12
-  _BYTE *v16; // rbx
-  __int64 v17; // rdi
-  __int64 v18; // rdi
-  struct DMMVIDEOPRESENTTARGET *TargetById; // rax
-  struct DMMVIDEOPRESENTTARGET *v20; // rsi
+  __int64 v9; // rbx
   int MonitorType; // edi
+  _DWORD *v12; // r9
+  unsigned int v13; // r10d
+  bool *v15; // r12
+  char v16; // r8
+  bool *v17; // r13
+  _BYTE *v18; // r14
+  _DWORD *v19; // rbp
+  __int64 v20; // rbx
+  __int64 v21; // rbx
+  struct DMMVIDEOPRESENTTARGET *TargetById; // rax
+  __int64 v23; // rdx
+  struct DMMVIDEOPRESENTTARGET *v24; // rcx
   __int64 result; // rax
-  unsigned int v23; // eax
-  __int64 v24; // r13
-  DXGMONITOR *v25; // rbx
-  char v26; // al
-  bool v27; // dl
-  bool v28; // cl
-  char v29; // al
-  char IsVirtualModeSupportDisabled; // si
+  __int64 v26; // rax
+  __int64 v27; // rbp
+  char v28; // al
+  __int64 v29; // r15
+  __int64 v30; // rax
   __int64 v31; // rax
-  char v32; // al
-  __int64 v33[9]; // [rsp+50h] [rbp-48h] BYREF
-  DXGMONITOR *v34; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int v35; // [rsp+A8h] [rbp+10h]
-  _DWORD *v36; // [rsp+B0h] [rbp+18h]
+  __int64 v32; // rdx
+  struct _FAST_MUTEX *v33; // rcx
+  __int64 v34; // rax
+  int MonitorInstance; // eax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  struct DXGMONITOR *v38; // rbp
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // r8
+  __int64 v43; // r9
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // r9
+  __int64 v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // rax
+  bool v51; // [rsp+30h] [rbp-58h]
+  char IsVirtualModeSuportDisabled; // [rsp+31h] [rbp-57h]
+  struct DXGMONITOR *v53; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v54; // [rsp+40h] [rbp-48h] BYREF
+  struct DMMVIDEOPRESENTTARGET *v55; // [rsp+48h] [rbp-40h]
+  struct HDXGMONITOR__ *v56; // [rsp+90h] [rbp+8h] BYREF
+  unsigned int v57; // [rsp+98h] [rbp+10h]
+  _DWORD *v58; // [rsp+A0h] [rbp+18h]
 
-  v36 = a3;
-  v35 = a2;
-  v10 = *(_QWORD *)(a1 + 2792);
-  v11 = a2;
-  if ( !v10 )
+  v58 = a3;
+  v57 = a2;
+  v9 = *(_QWORD *)(a1 + 2696);
+  MonitorType = 0;
+  v12 = a3;
+  v13 = a2;
+  if ( !v9 )
   {
-    WdLogSingleEntry2(2LL, a1, a2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkQueryMonitorTypeLockHeld is called on a render only adapter. (pAdapter = 0x%I64x, VidPn target Id = 0x%I64x)",
-      a1,
-      v11,
-      0LL,
-      0LL,
-      0LL);
+    v26 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v26 + 24) = a1;
+    *(_QWORD *)(v26 + 32) = v57;
+    WdLogEvent5_WdError(v26);
     return 3221225485LL;
   }
-  if ( a2 == -1 )
+  v15 = a9;
+  v16 = 1;
+  v17 = a8;
+  v18 = a6;
+  v19 = a5;
+  if ( a4 || a5 || a6 || a8 || a9 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkQueryMonitorTypeLockHeld is called with D3DDDI_ID_UNINITIALIZED (pAdapter = 0x%I64x)",
-      a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
-  }
-  v14 = a9;
-  v15 = a8;
-  v16 = a6;
-  if ( !a4 && !a5 && !a6 && !a8 && !a9 )
-    goto LABEL_18;
-  v17 = *(_QWORD *)(v10 + 104);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(v33, v17);
-  _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v17 + 120) + 72LL));
-  v18 = *(_QWORD *)(v17 + 120);
-  TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById((DMMVIDEOPRESENTTARGETSET *)v18, v11);
-  v20 = TargetById;
-  if ( !TargetById )
-  {
-    if ( v16 )
-      *v16 = 0;
-    if ( v15 )
-      *v15 = *(_BYTE *)(*(_QWORD *)(a1 + 2792) + 289LL);
-    if ( v14 )
-      *v14 = *(_BYTE *)(*(_QWORD *)(a1 + 2792) + 290LL);
-    goto LABEL_15;
-  }
-  if ( a4 )
-    *a4 = *((_DWORD *)TargetById + 20);
-  if ( a5 )
-    *a5 = *((_DWORD *)TargetById + 21);
-  if ( v16 )
-    *v16 = *((_BYTE *)TargetById + 405);
-  if ( v15 || v14 )
-  {
-    v23 = *((_DWORD *)TargetById + 6);
-    if ( v23 == -1 )
+    v20 = *(_QWORD *)(v9 + 88);
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v54, v20);
+    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v20 + 80) + 72LL));
+    v21 = *(_QWORD *)(v20 + 80);
+    TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById((DMMVIDEOPRESENTTARGETSET *)v21, v57);
+    v55 = TargetById;
+    v24 = TargetById;
+    if ( !TargetById )
     {
-LABEL_32:
-      WdLogSingleEntry2(2LL, v23, a1);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Fail to find virtualization state on VidPn Target 0x%I64x adapter 0x%I64x",
-        *((unsigned int *)v20 + 6),
-        a1,
-        0LL,
-        0LL,
-        0LL);
       if ( v18 )
-        ReferenceCounted::Release((ReferenceCounted *)(v18 + 64));
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v33[0] + 40));
-      return 3221225485LL;
+        *v18 = 0;
+      if ( v17 )
+        *v17 = *(_BYTE *)(*(_QWORD *)(a1 + 2696) + 249LL);
+      if ( v15 )
+        *v15 = *(_BYTE *)(*(_QWORD *)(a1 + 2696) + 250LL);
+      goto LABEL_14;
     }
-    v24 = *(_QWORD *)(a1 + 2792);
-    if ( !v24 )
+    if ( a4 )
+      *a4 = *((_DWORD *)TargetById + 20);
+    if ( v19 )
+      *v19 = *((_DWORD *)TargetById + 21);
+    if ( v18 )
+      *v18 = *((_BYTE *)TargetById + 405);
+    if ( !v17 && !v15 )
     {
-      WdLogSingleEntry1(2LL, 9372LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"The selected adapter is render-only",
-        9372LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v23 = *((_DWORD *)v20 + 6);
-      goto LABEL_32;
+LABEL_14:
+      if ( v21 )
+        ReferenceCounted::Release((ReferenceCounted *)(v21 + 64), v23);
+      DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v54 + 40), v23);
+      v13 = v57;
+      v16 = 1;
+      v12 = v58;
+      goto LABEL_17;
     }
-    MONITOR_MGR::AcquireMonitorShared(&v34, a1, v23);
-    v25 = v34;
-    if ( v34 )
+    v27 = *((unsigned int *)TargetById + 6);
+    v28 = 0;
+    LOBYTE(v23) = 0;
+    LOBYTE(v56) = 0;
+    v51 = 0;
+    if ( (_DWORD)v27 == -1 )
     {
-      if ( *((_DWORD *)v34 + 78) != 1 )
-        WdLogSingleEntry0(1LL);
-      IsVirtualModeSupportDisabled = DXGMONITOR::_IsVirtualModeSupportDisabled(v25);
-      ExReleaseResourceLite((PERESOURCE)((char *)v25 + 24));
-      KeLeaveCriticalRegion();
-      if ( IsVirtualModeSupportDisabled )
+      MonitorType = -1073741811;
+LABEL_51:
+      if ( MonitorType >= 0 )
       {
-        v27 = 1;
-        v28 = 1;
-        goto LABEL_43;
+        if ( v17 )
+          *v17 = v28 == 0;
+        if ( v15 )
+          *v15 = (_BYTE)v23 == 0;
+        goto LABEL_14;
       }
+LABEL_28:
+      v31 = WdLogNewEntry5_WdError(v24, v23);
+      *(_QWORD *)(v31 + 24) = *((unsigned int *)v55 + 6);
+      *(_QWORD *)(v31 + 32) = a1;
+      WdLogEvent5_WdError(v31);
+      if ( v21 )
+        ReferenceCounted::Release((ReferenceCounted *)(v21 + 64), v32);
+      DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v54 + 40), v32);
+      return (unsigned int)MonitorType;
+    }
+    v29 = *(_QWORD *)(a1 + 2696);
+    if ( !v29 )
+    {
+      v30 = WdLogNewEntry5_WdError(v24, v23);
+      *(_QWORD *)(v30 + 24) = 9262LL;
+      WdLogEvent5_WdError(v30);
+      MonitorType = -1073741811;
+      goto LABEL_28;
+    }
+    v33 = *(struct _FAST_MUTEX **)(v29 + 96);
+    IsVirtualModeSuportDisabled = 0;
+    if ( !v33 )
+    {
+      v34 = WdLogNewEntry5_WdError(0LL, v23);
+      *(_QWORD *)(v34 + 24) = a1;
+      WdLogEvent5_WdError(v34);
+      MonitorType = -1073741811;
+LABEL_39:
+      v37 = WdLogNewEntry5_WdAssertion(v24, v23);
+      *(_QWORD *)(v37 + 24) = MonitorType;
+      WdLogEvent5_WdAssertion(v37);
+LABEL_49:
+      v28 = (char)v56;
+      LOBYTE(v23) = v51;
+      goto LABEL_51;
+    }
+    v53 = 0LL;
+    MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v33, (unsigned int)v27, 1, &v53);
+    MonitorType = MonitorInstance;
+    if ( MonitorInstance == -1073741275 )
+    {
+      v36 = WdLogNewEntry5_WdDmmEvent(v24, v23);
+      *(_QWORD *)(v36 + 24) = v27;
+      *(_QWORD *)(v36 + 32) = a1;
+      WdLogEvent5_WdDmmEvent(v36);
     }
     else
     {
-      WdLogSingleEntry1(2LL, -1073741632LL);
-      RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v34);
+      if ( MonitorInstance >= 0 )
+      {
+        v38 = v53;
+        if ( !v53 || *((_DWORD *)v53 + 108) != 1 )
+        {
+          v39 = WdLogNewEntry5_WdAssertion(v24, v23);
+          WdLogEvent5_WdAssertion(v39);
+        }
+        if ( !v38 )
+        {
+          v40 = WdLogNewEntry5_WdAssertion(v24, v23);
+          WdLogEvent5_WdAssertion(v40);
+        }
+        KeEnterCriticalRegion();
+        ExAcquireResourceSharedLite((PERESOURCE)((char *)v38 + 296), 1u);
+        IsVirtualModeSuportDisabled = DXGMONITOR::_IsVirtualModeSuportDisabled(v38);
+        ExReleaseResourceLite((PERESOURCE)((char *)v38 + 296));
+        KeLeaveCriticalRegion();
+        MonitorType = 0;
+        goto LABEL_46;
+      }
+      if ( MonitorInstance != -1073741632 )
+      {
+LABEL_38:
+        if ( MonitorType < 0 )
+          goto LABEL_39;
+LABEL_46:
+        if ( IsVirtualModeSuportDisabled )
+        {
+          v51 = 1;
+          LOBYTE(v56) = 1;
+        }
+        else
+        {
+          v51 = *(_BYTE *)(v29 + 250) == 0;
+          LOBYTE(v56) = *(_BYTE *)(v29 + 249) == 0;
+        }
+        goto LABEL_49;
+      }
     }
-    v26 = *(_BYTE *)(v24 + 289);
-    v27 = v26 == 0;
-    v28 = *(_BYTE *)(v24 + 290) == 0;
-    if ( v26 && (*(_DWORD *)(v24 + 24) & 0x20) != 0 )
-    {
-      v29 = 0;
-LABEL_44:
-      if ( v15 )
-        *v15 = !v27;
-      if ( v14 )
-        *v14 = !v28;
-      if ( a10 )
-        *a10 = v29 ^ 1;
-      goto LABEL_15;
-    }
-LABEL_43:
-    v29 = 1;
-    goto LABEL_44;
+    MonitorType = 0;
+    goto LABEL_38;
   }
-LABEL_15:
-  if ( v18 )
-    ReferenceCounted::Release((ReferenceCounted *)(v18 + 64));
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v33[0] + 40));
-  a3 = v36;
-  LODWORD(v11) = v35;
-LABEL_18:
+LABEL_17:
   if ( a7 )
   {
-    v31 = *(_QWORD *)(a1 + 2792);
-    if ( *(_BYTE *)(v31 + 289) && *(_BYTE *)(v31 + 290)
-      || (v32 = 0, *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 216) + 64LL) + 40LL) + 28LL) >= 0x4003u) )
+    v41 = *(_QWORD *)(a1 + 2696);
+    if ( (!*(_BYTE *)(v41 + 249) || !*(_BYTE *)(v41 + 250))
+      && *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 216) + 64LL) + 40LL) + 28LL) < 0x4003u )
     {
-      v32 = 1;
+      v16 = 0;
     }
-    *a7 = v32;
+    *a7 = v16;
   }
-  MonitorType = 0;
-  if ( !a3 )
+  if ( !v12 )
     return (unsigned int)MonitorType;
-  v34 = 0LL;
-  result = MonitorGetMonitorHandle(a1, (unsigned int)v11, 0, &DxgkQueryMonitorTypeLockHeld, &v34);
+  v56 = 0LL;
+  result = MonitorGetMonitorHandle(a1, v13, 0LL, DxgkQueryMonitorTypeLockHeld, &v56);
   if ( (int)result >= 0 )
   {
-    MonitorType = MonitorGetMonitorType(v34, v36);
+    MonitorType = MonitorGetMonitorType(v56, v58, v42, v43);
     if ( MonitorType < 0 )
     {
-      WdLogSingleEntry2(2LL, (unsigned int)v11, a1);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Fail to find MonitorType on VidPn Target 0x%I64x adapter 0x%I64x",
-        (unsigned int)v11,
-        a1,
-        0LL,
-        0LL,
-        0LL);
+      v47 = WdLogNewEntry5_WdError(v45, v44);
+      *(_QWORD *)(v47 + 24) = v57;
+      *(_QWORD *)(v47 + 32) = a1;
+      WdLogEvent5_WdError(v47);
     }
-    if ( (int)MonitorReleaseMonitorHandle(a1, (__int64)v34, &DxgkQueryMonitorTypeLockHeld) < 0 )
+    if ( (int)MonitorReleaseMonitorHandle(a1, (__int64)v56, DxgkQueryMonitorTypeLockHeld, v46) < 0 )
     {
-      WdLogSingleEntry1(1LL, 3004LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(_Status)", 3004LL, 0LL, 0LL, 0LL, 0LL);
+      v50 = WdLogNewEntry5_WdAssertion(v49, v48);
+      *(_QWORD *)(v50 + 24) = 2981LL;
+      WdLogEvent5_WdAssertion(v50);
     }
     return (unsigned int)MonitorType;
   }

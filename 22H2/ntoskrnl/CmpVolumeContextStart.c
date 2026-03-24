@@ -1,67 +1,67 @@
 /*
- * XREFs of CmpVolumeContextStart @ 0x14084F880
+ * XREFs of CmpVolumeContextStart @ 0x1407D00A4
  * Callers:
- *     CmpVolumeContextCreate @ 0x14084F7E8 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCreate @ 0x1407D0020 (CmpVolumeContextCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B140 (ZwCreateFile.c)
- *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     IoVolumeDeviceToGuid @ 0x140701F50 (IoVolumeDeviceToGuid.c)
- *     IoVolumeDeviceToGuidPath @ 0x140701FE0 (IoVolumeDeviceToGuidPath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FA4C0 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CmpUuidCreate @ 0x14070D95C (CmpUuidCreate.c)
+ *     IoVolumeDeviceToGuid @ 0x140721590 (IoVolumeDeviceToGuid.c)
+ *     IoVolumeDeviceToGuidPath @ 0x140721620 (IoVolumeDeviceToGuidPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpVolumeContextStart(__int64 a1, __int64 a2, struct _DEVICE_OBJECT *a3)
 {
-  int v6; // ebx
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-9h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp+7h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+17h] BYREF
-  HANDLE FileHandle; // [rsp+D0h] [rbp+67h] BYREF
-  PVOID Object; // [rsp+D8h] [rbp+6Fh] BYREF
+  int v5; // ebx
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-9h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp+7h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp+17h] BYREF
+  PVOID Object; // [rsp+D8h] [rbp+67h] BYREF
+  HANDLE FileHandle; // [rsp+E0h] [rbp+6Fh] BYREF
 
   DestinationString = 0LL;
   FileHandle = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   RtlInitUnicodeString(&DestinationString, 0LL);
-  *(_QWORD *)(a1 + 16) = a2;
+  *(_QWORD *)(a1 + 16) = &CmpVolumeManager;
   if ( a3 )
   {
-    v6 = IoVolumeDeviceToGuid(a3, (GUID *)(a1 + 32));
-    if ( v6 >= 0 )
+    v5 = IoVolumeDeviceToGuid(a3, (GUID *)(a1 + 32));
+    if ( v5 >= 0 )
     {
-      v6 = IoVolumeDeviceToGuidPath(a3, (__int64)&DestinationString);
-      if ( v6 >= 0 )
+      v5 = IoVolumeDeviceToGuidPath(a3, (__int64)&DestinationString);
+      if ( v5 >= 0 )
       {
         ObjectAttributes.Length = 48;
         ObjectAttributes.RootDirectory = 0LL;
         ObjectAttributes.Attributes = 512;
         ObjectAttributes.ObjectName = &DestinationString;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        v6 = ZwCreateFile(&FileHandle, 0x180u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x40u, 0LL, 0);
-        if ( v6 >= 0 )
+        v5 = ZwCreateFile(&FileHandle, 0x180u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x40u, 0LL, 0);
+        if ( v5 >= 0 )
         {
           Object = 0LL;
-          v6 = ObReferenceObjectByHandle(FileHandle, 0x180u, *(POBJECT_TYPE *)CmIoFileObjectType, 0, &Object, 0LL);
+          v5 = ObReferenceObjectByHandle(FileHandle, 0x180u, *(POBJECT_TYPE *)CmIoFileObjectType, 0, &Object, 0LL);
           *(_QWORD *)(a1 + 48) = Object;
-          if ( v6 >= 0 )
-            v6 = 0;
+          if ( v5 >= 0 )
+            v5 = 0;
         }
       }
     }
   }
   else
   {
-    v6 = CmpUuidCreate((UUID *)(a1 + 32));
-    if ( v6 >= 0 )
-      v6 = 0;
+    v5 = CmpUuidCreate((UUID *)(a1 + 32));
+    if ( v5 >= 0 )
+      v5 = 0;
   }
   if ( FileHandle )
     ZwClose(FileHandle);
   if ( DestinationString.Buffer )
     ExFreePoolWithTag(DestinationString.Buffer, 0);
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

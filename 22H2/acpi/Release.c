@@ -1,33 +1,33 @@
 /*
- * XREFs of Release @ 0x1C0055870
+ * XREFs of Release @ 0x1C0022E60
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     PushFrame @ 0x1C0053C54 (PushFrame.c)
- *     ReleaseASLMutex @ 0x1C0054DF0 (ReleaseASLMutex.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     PushFrame @ 0x1C0022DD8 (PushFrame.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ReleaseASLMutex @ 0x1C002F32C (ReleaseASLMutex.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
-__int64 __fastcall Release(__int64 a1, __int64 *a2)
+__int64 __fastcall Release(struct _SLIST_ENTRY *a1, _QWORD *a2)
 {
   unsigned int v4; // edi
   __int64 v5; // rax
   __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // r14
-  __int16 v9; // si
+  __int64 v7; // r14
+  __int16 v8; // si
+  __int64 v9; // r8
+  __int64 v10; // rdx
   void *ObjectPath; // rsi
-  const void *ObjectTypeName; // rax
-  const void *v12; // r11
-  __int64 v13; // rdx
+  int ObjectTypeName; // eax
+  int v14; // r11d
   __int64 v15; // [rsp+68h] [rbp+10h] BYREF
 
-  v4 = ValidateArgTypes(a1, a2[10], 0, "O");
+  v4 = ValidateArgTypes((__int64)a1, a2[10], 0, "O");
   if ( !v4 )
   {
     v5 = a2[10];
@@ -36,35 +36,38 @@ __int64 __fastcall Release(__int64 a1, __int64 *a2)
     LOBYTE(v5) = gdwfAMLI;
     a2[8] = v6;
     if ( (v5 & 4) != 0 )
+    {
       _InterlockedIncrement((volatile signed __int32 *)(v6 + 112));
-    v7 = a2[8];
-    v8 = *(_QWORD *)(v7 + 96);
-    v9 = *(_WORD *)(v7 + 64) & 2;
-    if ( *(_WORD *)(v7 + 66) == 9 )
+      v6 = a2[8];
+    }
+    v7 = *(_QWORD *)(v6 + 96);
+    v8 = *(_WORD *)(v6 + 64) & 2;
+    if ( *(_WORD *)(v6 + 66) == 9 )
     {
       v4 = PushFrame(a1, 1179403602, 0x38u, (__int64)ParseRelease, &v15);
       if ( v4 )
       {
-        return (unsigned int)ReleaseASLMutex(a1, v8, v9 != 0);
+        LOBYTE(v9) = v8 != 0;
+        return (unsigned int)ReleaseASLMutex(a1, v7, v9);
       }
       else
       {
-        v13 = v15;
-        *(_QWORD *)(v15 + 32) = v8;
-        *(_QWORD *)(v13 + 40) = a2[11];
-        *(_QWORD *)(v13 + 48) = *(_QWORD *)(a2[8] + 16);
-        if ( v9 )
-          *(_DWORD *)(v13 + 16) = 0x10000;
+        v10 = v15;
+        *(_QWORD *)(v15 + 32) = v7;
+        *(_QWORD *)(v10 + 40) = a2[11];
+        *(_QWORD *)(v10 + 48) = *(_QWORD *)(a2[8] + 16LL);
+        if ( v8 )
+          *(_DWORD *)(v10 + 16) = 0x10000;
       }
     }
     else
     {
       v4 = -1072431095;
-      LogError(-1072431095);
-      AcpiDiagTraceAmlError(a1, -1072431095);
+      LogError(3222536201LL);
+      AcpiDiagTraceAmlError(a1, 3222536201LL);
       ObjectPath = (void *)GetObjectPath(a2[8]);
-      ObjectTypeName = (const void *)GetObjectTypeName(*(unsigned __int16 *)(a2[8] + 66));
-      PrintDebugMessage(173, v12, ObjectTypeName, 0LL, 0LL);
+      ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(a2[8] + 66LL));
+      PrintDebugMessage(173, v14, ObjectTypeName, 0, 0LL);
       if ( ObjectPath )
         ExFreePoolWithTag(ObjectPath, 0);
     }

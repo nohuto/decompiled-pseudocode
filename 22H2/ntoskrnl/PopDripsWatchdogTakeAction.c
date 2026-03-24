@@ -1,35 +1,35 @@
 /*
- * XREFs of PopDripsWatchdogTakeAction @ 0x1409A125C
+ * XREFs of PopDripsWatchdogTakeAction @ 0x1408FA6F0
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14099C520 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1408EF280 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293860 (VfIsVerifierEnabled.c)
- *     PpmIdlePrevetoWatchdog @ 0x1405852E0 (PpmIdlePrevetoWatchdog.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588D84 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDiagTraceCsDripsWatchdog @ 0x140591D78 (PopDiagTraceCsDripsWatchdog.c)
- *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140591F74 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
- *     PopDeviceConstraintsEnforced @ 0x1405A2BB0 (PopDeviceConstraintsEnforced.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408839B0 (DbgkWerCaptureLiveKernelDump.c)
- *     PopCheckTestsigningEnabled @ 0x140980710 (PopCheckTestsigningEnabled.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140984C44 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     VfIsVerifierEnabled @ 0x14032D0E0 (VfIsVerifierEnabled.c)
+ *     PpmIdlePrevetoWatchdog @ 0x140566A30 (PpmIdlePrevetoWatchdog.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405695C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x140570CC0 (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140570EBC (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     PopDeviceConstraintsEnforced @ 0x14057F224 (PopDeviceConstraintsEnforced.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopCheckTestsigningEnabled @ 0x1408E10EC (PopCheckTestsigningEnabled.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E46D4 (PopFxDestroyDripsBlockingDeviceList.c)
  */
 
 void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, int a3)
 {
   __int64 v5; // rcx
   unsigned int v6; // r13d
-  char v7; // r15
+  char v7; // r12
   __int128 *v8; // rdi
-  char v9; // r12
+  char v9; // r15
   unsigned __int16 *v10; // r14
-  __int64 v11; // r15
+  __int64 v11; // r12
   char v12; // r13
   int v13; // eax
   ULONG_PTR v14; // rdi
   ULONG_PTR v15; // r14
-  ULONG_PTR *v16; // r15
-  ULONG_PTR v17; // r15
+  ULONG_PTR *v16; // r12
+  ULONG_PTR v17; // r12
   __int64 v18; // rcx
   __int128 v19; // [rsp+60h] [rbp-10h] BYREF
   unsigned int v20; // [rsp+B0h] [rbp+40h] BYREF
@@ -181,7 +181,7 @@ void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, int a3)
       {
         if ( v9 )
         {
-          DbgkWerCaptureLiveKernelDump(L"DripsWatchdog", 351LL, 2LL, v14, *(unsigned int *)(v15 + 16), v17, 0LL, 0LL, 0);
+          DbgkWerCaptureLiveKernelDump(L"DripsWatchdog", 351, 2LL, v14, *(unsigned int *)(v15 + 16), v17, 0LL, 0LL, 0);
         }
         else if ( v6 )
         {
@@ -189,7 +189,7 @@ void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, int a3)
             v18 = *(_QWORD *)(PopFxProcessorPlugin + 104);
           else
             v18 = 0LL;
-          DbgkWerCaptureLiveKernelDump(L"DripsWatchdog", 351LL, 3LL, v6, v22, v18, 0LL, 0LL, 0);
+          DbgkWerCaptureLiveKernelDump(L"DripsWatchdog", 351, 3LL, v6, v22, v18, 0LL, 0LL, 0);
         }
       }
     }

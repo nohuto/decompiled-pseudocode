@@ -1,10 +1,10 @@
 /*
- * XREFs of UmfdQueryAdvanceWidths @ 0x1C001BA50
+ * XREFs of UmfdQueryAdvanceWidths @ 0x1C009A500
  * Callers:
  *     <none>
  * Callees:
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C001BC7C (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A610 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UmfdQueryAdvanceWidths(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, int a6)

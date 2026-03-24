@@ -3,7 +3,7 @@
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  *     PspJobClose @ 0x1406065F0 (PspJobClose.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x14068C750 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14068C730 (PspChangeJobMemoryUsageByProcess.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

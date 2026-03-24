@@ -1,12 +1,12 @@
 /*
- * XREFs of GetgSystemOemCodePage @ 0x1C00BE7D0
+ * XREFs of GetgSystemOemCodePage @ 0x1C0137500
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetgSystemOemCodePage(__int64 a1)
+void *GetgSystemOemCodePage()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 18746LL;
+  return &gSystemOemCodePage;
 }

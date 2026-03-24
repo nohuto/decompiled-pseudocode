@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00B7E10
+ * XREFs of ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00AA938
  * Callers:
- *     ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C00DD120 (-Connect@CConnection@DirectComposition@@QEAAJPEAX@Z.c)
+ *     ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C00AA79C (-Connect@CConnection@DirectComposition@@QEAAJPEAX@Z.c)
  * Callees:
- *     ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C0098354 (-EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z.c)
- *     ?TryAcquireExclusive@CCriticalSection@DirectComposition@@QEAA_NXZ @ 0x1C00B8040 (-TryAcquireExclusive@CCriticalSection@DirectComposition@@QEAA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C0085B98 (-EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z.c)
+ *     ?TryAcquireExclusive@CCriticalSection@DirectComposition@@QEAA_NXZ @ 0x1C00AAA84 (-TryAcquireExclusive@CCriticalSection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DirectComposition::CChannelGroup::OnConnectionReconnected(DirectComposition::CChannelGroup *this)

@@ -1,75 +1,74 @@
 /*
- * XREFs of ACPIRegReadAMLRegistryEntry @ 0x1C008D3EC
+ * XREFs of ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0
  * Callers:
- *     ACPIMapNamedTable @ 0x1C00018A0 (ACPIMapNamedTable.c)
- *     ACPILoadProcessDSDT @ 0x1C00A9710 (ACPILoadProcessDSDT.c)
- *     ACPILoadProcessRSDT @ 0x1C00A9AD4 (ACPILoadProcessRSDT.c)
+ *     ACPIMapNamedTable @ 0x1C0002990 (ACPIMapNamedTable.c)
+ *     ACPILoadProcessRSDT @ 0x1C00BE744 (ACPILoadProcessRSDT.c)
+ *     ACPILoadProcessDSDT @ 0x1C00BEC08 (ACPILoadProcessDSDT.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_s @ 0x1C000AEC4 (WPP_RECORDER_SF_s.c)
- *     WPP_RECORDER_SF_Ld @ 0x1C003BEF8 (WPP_RECORDER_SF_Ld.c)
- *     ACPIRegLocalCopyString @ 0x1C008D398 (ACPIRegLocalCopyString.c)
- *     ACPIRegReadEntireAcpiTable @ 0x1C008D6AC (ACPIRegReadEntireAcpiTable.c)
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
- *     OSOpenLargestSubkey @ 0x1C008DFF0 (OSOpenLargestSubkey.c)
- *     OSReadRegValue @ 0x1C008E6B0 (OSReadRegValue.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_s @ 0x1C0002C50 (WPP_RECORDER_SF_s.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Ld @ 0x1C005E480 (WPP_RECORDER_SF_Ld.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     ACPIRegLocalCopyString @ 0x1C008FEA8 (ACPIRegLocalCopyString.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
+ *     ACPIRegReadEntireAcpiTable @ 0x1C00B24BC (ACPIRegReadEntireAcpiTable.c)
+ *     OSOpenLargestSubkey @ 0x1C00B2AB4 (OSOpenLargestSubkey.c)
  */
 
 char __fastcall ACPIRegReadAMLRegistryEntry(__int64 *a1)
 {
   __int64 v1; // r15
   char v2; // r14
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v5; // rdi
-  char *v6; // rax
-  char *v7; // rax
-  int v8; // edx
-  int v9; // eax
-  int v10; // edx
-  int v11; // eax
-  int v12; // edx
-  int v13; // eax
-  int v14; // edx
-  int v15; // r8d
-  int v16; // r9d
-  int v18; // [rsp+20h] [rbp-20h]
+  _BYTE *v6; // rax
+  _BYTE *v7; // rax
+  int v8; // eax
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  int v14; // [rsp+20h] [rbp-20h]
+  __int64 v15; // [rsp+28h] [rbp-18h]
+  HANDLE Handle; // [rsp+98h] [rbp+58h] BYREF
 
   v1 = *a1;
+  Handle = 0LL;
   v2 = 0;
   if ( (AcpiOverrideAttributes & 0x10000) == 0 )
     return 0;
-  Pool2 = (char *)ExAllocatePool2(256LL, 89LL, 1399874369LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x59uLL, 0x53706341u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  qmemcpy(Pool2, "\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters\\", 68);
-  v6 = ACPIRegLocalCopyString(Pool2 + 68, v1, 4u);
+  memset(PoolWithTag, 0, 0x59uLL);
+  qmemcpy(v5, "\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters\\", 68);
+  v6 = (_BYTE *)ACPIRegLocalCopyString(v5 + 68, v1, 4LL);
   *v6 = 92;
-  v7 = ACPIRegLocalCopyString(v6 + 1, v1 + 10, 6u);
+  v7 = (_BYTE *)ACPIRegLocalCopyString(v6 + 1, v1 + 10, 6LL);
   *v7 = 92;
-  *ACPIRegLocalCopyString(v7 + 1, v1 + 16, 8u) = 0;
+  *(_BYTE *)ACPIRegLocalCopyString(v7 + 1, v1 + 16, 8LL) = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v8) = 2;
     WPP_RECORDER_SF_s(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v8,
-      11,
-      30,
-      (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-      (__int64)v5);
-  }
-  v9 = OSOpenHandle(v5);
-  if ( v9 >= 0 )
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0xBu,
+      0x1Eu,
+      (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+      v5);
+  v8 = OSOpenHandle(v5, 0LL, (__int64)&Handle);
+  if ( v8 >= 0 )
   {
-    v11 = OSOpenLargestSubkey(0LL);
-    if ( v11 >= 0 )
+    v10 = OSOpenLargestSubkey(Handle);
+    if ( v10 >= 0 )
     {
-      v13 = OSReadRegValue("Action");
-      if ( v13 < 0 )
+      if ( (int)OSReadRegValue("Action") < 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_Ld(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16, v18, v13, 4);
+          WPP_RECORDER_SF_Ld((__int64)WPP_GLOBAL_Control->DeviceExtension, v11, v12, v13, v14);
       }
       else if ( (int)ACPIRegReadEntireAcpiTable(0LL, a1) >= 0 )
       {
@@ -78,27 +77,29 @@ char __fastcall ACPIRegReadAMLRegistryEntry(__int64 *a1)
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v12) = 2;
-      WPP_RECORDER_SF_d(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v12,
-        11,
-        32,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-        v11);
+      LODWORD(v15) = v10;
+      WPP_RECORDER_SF_L(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0xBu,
+        0x20u,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+        v15);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v10) = 2;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v10,
-      11,
-      31,
-      (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-      v9);
+    LODWORD(v15) = v8;
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0xBu,
+      0x1Fu,
+      (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+      v15);
   }
   ExFreePoolWithTag(v5, 0);
+  if ( Handle )
+    ZwClose(Handle);
   return v2;
 }

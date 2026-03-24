@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AcquireVirtualGpuByLuid@DXGVIRTUALMACHINE@@QEAAPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAU_LUID@@@Z @ 0x1C0334CC4
+ * XREFs of ?AcquireVirtualGpuByLuid@DXGVIRTUALMACHINE@@QEAAPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAU_LUID@@@Z @ 0x1C00DCA94
  * Callers:
- *     ?VmBusProcessPacket@@YAXPEAX@Z @ 0x1C0372240 (-VmBusProcessPacket@@YAXPEAX@Z.c)
+ *     ?VmBusProcessPacketCblt@@YAXPEAX@Z @ 0x1C00DA290 (-VmBusProcessPacketCblt@@YAXPEAX@Z.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 struct DXGK_VIRTUAL_GPU_PARAV *__fastcall DXGVIRTUALMACHINE::AcquireVirtualGpuByLuid(
@@ -30,21 +30,21 @@ struct DXGK_VIRTUAL_GPU_PARAV *__fastcall DXGVIRTUALMACHINE::AcquireVirtualGpuBy
       if ( !*((_BYTE *)v8 + 154) )
       {
         v5 = i - 17;
-        _m_prefetchw(v8 + 46);
-        v9 = *((_DWORD *)v8 + 92);
+        _m_prefetchw(v8 + 43);
+        v9 = *((_DWORD *)v8 + 86);
         while ( v9 )
         {
           v10 = v9;
-          v9 = _InterlockedCompareExchange((volatile signed __int32 *)v8 + 92, v9 + 1, v9);
+          v9 = _InterlockedCompareExchange((volatile signed __int32 *)v8 + 86, v9 + 1, v9);
           if ( v10 == v9 )
-            goto LABEL_13;
+            goto LABEL_12;
         }
         v5 = 0LL;
       }
       break;
     }
   }
-LABEL_13:
+LABEL_12:
   ExReleasePushLockSharedEx(v2, 0LL);
   KeLeaveCriticalRegion();
   return (struct DXGK_VIRTUAL_GPU_PARAV *)v5;

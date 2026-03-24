@@ -1,28 +1,33 @@
 /*
- * XREFs of GetPciAddress @ 0x1C0034D68
+ * XREFs of GetPciAddress @ 0x1C002EC0C
  * Callers:
- *     GetPciAddressWorker @ 0x1C0034E20 (GetPciAddressWorker.c)
- *     PciConfigSpaceHandlerWorker @ 0x1C00360A0 (PciConfigSpaceHandlerWorker.c)
+ *     GetPciAddressWorker @ 0x1C0018A70 (GetPciAddressWorker.c)
  * Callees:
- *     GetPciAddressWorker @ 0x1C0034E20 (GetPciAddressWorker.c)
+ *     GetPciAddressWorker @ 0x1C0018A70 (GetPciAddressWorker.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall GetPciAddress(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v10; // rbx
+  char v11; // al
 
-  Pool2 = ExAllocatePool2(64LL, 72LL, 1181770561LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x46706341u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)Pool2 = a1;
-  dword_1C006F938 = 0;
+  memset(PoolWithTag, 0, 0x48uLL);
+  v11 = gdwfAMLI;
+  *(_QWORD *)v10 = a1;
+  dword_1C0082908 = 0;
   pszDest = 0;
-  if ( (gdwfAMLI & 4) != 0 )
+  if ( (v11 & 4) != 0 )
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 8));
-  *(_DWORD *)(Pool2 + 48) = -1;
-  *(_QWORD *)(Pool2 + 16) = a5;
-  *(_QWORD *)(Pool2 + 56) = a2;
-  *(_QWORD *)(Pool2 + 64) = a3;
-  *(_QWORD *)(Pool2 + 8) = a4;
-  return GetPciAddressWorker(a1, 0LL, 0LL);
+  v10[12] = -1;
+  *((_QWORD *)v10 + 2) = a5;
+  *((_QWORD *)v10 + 7) = a2;
+  *((_QWORD *)v10 + 8) = a3;
+  *((_QWORD *)v10 + 1) = a4;
+  return GetPciAddressWorker(a1, 0, 0LL, (unsigned __int16 *)v10);
 }

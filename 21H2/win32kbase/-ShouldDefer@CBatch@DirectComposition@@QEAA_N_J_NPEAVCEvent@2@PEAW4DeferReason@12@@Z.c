@@ -1,9 +1,11 @@
 /*
- * XREFs of ?ShouldDefer@CBatch@DirectComposition@@QEAA_N_J_NPEAVCEvent@2@PEAW4DeferReason@12@@Z @ 0x1C000C38C
+ * XREFs of ?ShouldDefer@CBatch@DirectComposition@@QEAA_N_J_NPEAVCEvent@2@PEAW4DeferReason@12@@Z @ 0x1C0059340
  * Callers:
- *     ?KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z @ 0x1C000C25C (-KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z.c)
+ *     ?BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z @ 0x1C0058F80 (-BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z.c)
+ *     ?KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z @ 0x1C01D38CC (-KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C000C9A4 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0059D60 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ?RecordBatchDeferred@WaitForCommitCompletionData@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@3@W4DeferReason@43@@Z @ 0x1C00B16C8 (-RecordBatchDeferred@WaitForCommitCompletionData@CApplicationChannel@DirectComposition@@QEAAXPEA.c)
  */
 
 bool __fastcall DirectComposition::CBatch::ShouldDefer(
@@ -15,20 +17,21 @@ bool __fastcall DirectComposition::CBatch::ShouldDefer(
 {
   __int64 v8; // rax
   __int64 v9; // rbp
-  int v10; // edi
+  unsigned int v10; // edi
   __int64 v11; // rax
   bool result; // al
   struct _KEVENT *v13; // rcx
-  void *v14; // rcx
-  unsigned int v15; // edx
-  DirectComposition::CEvent *v16; // rcx
-  char v17; // cl
+  __int64 v14; // rsi
+  void *v15; // rcx
+  unsigned int v16; // edx
+  DirectComposition::CEvent *v17; // rcx
+  char v18; // cl
   union _LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
   if ( *(_BYTE *)(*((_QWORD *)this + 1) + 49LL) )
   {
     v10 = 1;
-    goto LABEL_15;
+    goto LABEL_18;
   }
   if ( *(_BYTE *)(*((_QWORD *)this + 1) + 242LL) )
   {
@@ -40,7 +43,7 @@ LABEL_12:
 LABEL_14:
       KeSetEvent(v13, 1, 0);
     }
-    goto LABEL_15;
+    goto LABEL_18;
   }
   v8 = *((_QWORD *)this + 8);
   if ( v8 && a2 && v8 - a2 > 0 )
@@ -58,40 +61,51 @@ LABEL_14:
     v10 = 6;
     while ( v9 )
     {
-      v14 = *(void **)(v9 + 8);
+      v15 = *(void **)(v9 + 8);
       Timeout.QuadPart = 0LL;
-      if ( KeWaitForSingleObject(v14, UserRequest, 0, 0, &Timeout) )
+      if ( KeWaitForSingleObject(v15, UserRequest, 0, 0, &Timeout) )
       {
         v10 = 5;
         if ( !a4 )
-          goto LABEL_15;
-        goto LABEL_23;
+          goto LABEL_18;
+        goto LABEL_29;
       }
-      v16 = (DirectComposition::CEvent *)*((_QWORD *)this + 13);
-      v9 = *(_QWORD *)v16;
-      if ( v16 )
-        DirectComposition::CEvent::`scalar deleting destructor'(v16, v15);
+      v17 = (DirectComposition::CEvent *)*((_QWORD *)this + 13);
+      v9 = *(_QWORD *)v17;
+      if ( v17 )
+        DirectComposition::CEvent::`scalar deleting destructor'(v17, v16);
       *((_QWORD *)this + 13) = v9;
     }
     v11 = *((_QWORD *)this + 12);
     if ( !v11 )
       return 0;
-    v17 = *(_BYTE *)(v11 + 33);
-    if ( v17 )
+    v18 = *(_BYTE *)(v11 + 33);
+    if ( v18 )
     {
       if ( *(int *)(v11 + 36) <= 0 )
         return 0;
     }
-    if ( a4 && !v17 )
+    if ( a4 && !v18 )
     {
-LABEL_23:
+LABEL_29:
       v13 = (struct _KEVENT *)*((_QWORD *)a4 + 1);
       goto LABEL_14;
     }
   }
-LABEL_15:
+LABEL_18:
   if ( a3 )
-    *(_BYTE *)(*((_QWORD *)this + 1) + 49LL) = 1;
+  {
+    v14 = *((_QWORD *)this + 1);
+    if ( !*(_BYTE *)(v14 + 49) )
+    {
+      if ( (*(_BYTE *)(v14 + 241) & 4) != 0 )
+        DirectComposition::CApplicationChannel::WaitForCommitCompletionData::RecordBatchDeferred(
+          *(_QWORD *)(v14 + 720),
+          this,
+          v10);
+      *(_BYTE *)(v14 + 49) = 1;
+    }
+  }
   result = 1;
   *(_DWORD *)a5 = v10;
   return result;

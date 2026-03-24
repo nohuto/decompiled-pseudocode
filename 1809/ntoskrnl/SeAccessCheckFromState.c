@@ -2,12 +2,12 @@
  * XREFs of SeAccessCheckFromState @ 0x1400155F0
  * Callers:
  *     EtwpAccessCheckFromState @ 0x1405C558C (EtwpAccessCheckFromState.c)
- *     CmpCheckAdminAccess @ 0x1407F27A4 (CmpCheckAdminAccess.c)
+ *     CmpCheckAdminAccess @ 0x1407F2784 (CmpCheckAdminAccess.c)
  * Callees:
  *     SeAccessCheckFromStateEx @ 0x140015700 (SeAccessCheckFromStateEx.c)
  *     SepTokenFromAccessInformation @ 0x140015830 (SepTokenFromAccessInformation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 BOOLEAN __stdcall SeAccessCheckFromState(

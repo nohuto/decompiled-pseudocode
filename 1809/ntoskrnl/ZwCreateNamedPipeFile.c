@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateNamedPipeFile @ 0x1401B9750
+ * XREFs of ZwCreateNamedPipeFile @ 0x1401B9770
  * Callers:
  *     <none>
  * Callees:

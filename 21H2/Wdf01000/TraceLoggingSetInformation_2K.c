@@ -1,9 +1,9 @@
 /*
- * XREFs of TraceLoggingSetInformation_2K @ 0x1C00BDB78
+ * XREFs of TraceLoggingSetInformation_2K @ 0x1C00BC500
  * Callers:
- *     TraceLoggingRegisterEx_EtwRegister_2K @ 0x1C00BDAE0 (TraceLoggingRegisterEx_EtwRegister_2K.c)
+ *     RegisterTelemetryProvider @ 0x1C0060590 (RegisterTelemetryProvider.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TraceLoggingSetInformation_2K(

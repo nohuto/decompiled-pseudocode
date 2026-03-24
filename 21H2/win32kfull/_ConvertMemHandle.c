@@ -1,12 +1,12 @@
 /*
- * XREFs of _ConvertMemHandle @ 0x1C014641C
+ * XREFs of _ConvertMemHandle @ 0x1C012C040
  * Callers:
- *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C0145C84 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     NtUserConvertMemHandle @ 0x1C01463B0 (NtUserConvertMemHandle.c)
- *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C0219EB8 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A050 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002F788 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     NtUserConvertMemHandle @ 0x1C012BFD0 (NtUserConvertMemHandle.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015CBDC (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F1E4 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall ConvertMemHandle(void *Src, size_t Size, __int64 a3)

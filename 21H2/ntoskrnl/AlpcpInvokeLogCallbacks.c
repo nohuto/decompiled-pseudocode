@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpInvokeLogCallbacks @ 0x140967908
+ * XREFs of AlpcpInvokeLogCallbacks @ 0x1408C3B4C
  * Callers:
- *     AlpcpLogClosePort @ 0x14096799C (AlpcpLogClosePort.c)
- *     AlpcpLogConnectFail @ 0x140967A0C (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x140967A74 (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x140967AE4 (AlpcpLogConnectSuccess.c)
- *     AlpcpLogReceiveMessage @ 0x140967B4C (AlpcpLogReceiveMessage.c)
- *     AlpcpLogSendMessage @ 0x140967BBC (AlpcpLogSendMessage.c)
- *     AlpcpLogUnwait @ 0x140967C2C (AlpcpLogUnwait.c)
- *     AlpcpLogWaitForNewMessage @ 0x140967C94 (AlpcpLogWaitForNewMessage.c)
- *     AlpcpLogWaitForReply @ 0x140967D90 (AlpcpLogWaitForReply.c)
+ *     AlpcpLogClosePort @ 0x1408C3BE0 (AlpcpLogClosePort.c)
+ *     AlpcpLogConnectFail @ 0x1408C3C50 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x1408C3CB8 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1408C3D28 (AlpcpLogConnectSuccess.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3D90 (AlpcpLogReceiveMessage.c)
+ *     AlpcpLogSendMessage @ 0x1408C3E00 (AlpcpLogSendMessage.c)
+ *     AlpcpLogUnwait @ 0x1408C3E70 (AlpcpLogUnwait.c)
+ *     AlpcpLogWaitForNewMessage @ 0x1408C3ED8 (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpLogWaitForReply @ 0x1408C3FD4 (AlpcpLogWaitForReply.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall AlpcpInvokeLogCallbacks(__int64 a1, unsigned int a2)
+char __fastcall AlpcpInvokeLogCallbacks(__int64 a1, unsigned int a2)
 {
   PVOID *i; // rbx
 

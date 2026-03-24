@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C008B580
+ * XREFs of ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C001F780
  * Callers:
- *     GreGetRegionData @ 0x1C008B460 (GreGetRegionData.c)
- *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00E5FFE (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
+ *     GreGetRegionData @ 0x1C001F660 (GreGetRegionData.c)
+ *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C014BD94 (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
  * Callees:
  *     <none>
  */

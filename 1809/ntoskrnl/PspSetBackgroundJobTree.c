@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetBackgroundJobTree @ 0x1406C9D38
+ * XREFs of PspSetBackgroundJobTree @ 0x1406C9D18
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:

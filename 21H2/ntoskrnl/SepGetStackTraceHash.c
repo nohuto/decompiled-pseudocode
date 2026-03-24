@@ -1,20 +1,21 @@
 /*
- * XREFs of SepGetStackTraceHash @ 0x140374FC8
+ * XREFs of SepGetStackTraceHash @ 0x140596110
  * Callers:
- *     SepLogLpacAccessFailure @ 0x140374F38 (SepLogLpacAccessFailure.c)
+ *     SepLogLpacAccessFailure @ 0x140596228 (SepLogLpacAccessFailure.c)
+ *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     RtlWalkFrameChain @ 0x140295F90 (RtlWalkFrameChain.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041BBC0 (ZwQueryVirtualMemory.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
+ *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 ULONG __fastcall SepGetStackTraceHash(ULONG *a1)
 {
-  unsigned int v2; // esi
   ULONG result; // eax
-  unsigned __int16 v4; // bx
+  unsigned int v3; // esi
+  unsigned __int16 v4; // di
   int v5; // ecx
   ULONG v6; // ecx
   ULONG BackTraceHash; // [rsp+30h] [rbp-79h] BYREF
@@ -26,12 +27,14 @@ ULONG __fastcall SepGetStackTraceHash(ULONG *a1)
   memset(BackTrace, 0, sizeof(BackTrace));
   v9 = 0LL;
   MemoryInformation = 0LL;
-  v2 = 16;
   RtlCaptureStackBackTrace(2u, 0x10u, BackTrace, &BackTraceHash);
   result = RtlWalkFrameChain(BackTrace, 0x10u, 1u);
-  if ( result > 0x10 || (v2 = result) != 0 )
+  v3 = result;
+  v4 = 0;
+  if ( result > 0x10 )
+    v3 = 16;
+  if ( v3 )
   {
-    v4 = 0;
     do
     {
       if ( ZwQueryVirtualMemory(
@@ -53,7 +56,7 @@ ULONG __fastcall SepGetStackTraceHash(ULONG *a1)
       result = ++v4;
       BackTraceHash = v6;
     }
-    while ( v4 < v2 );
+    while ( v4 < v3 );
   }
   else
   {

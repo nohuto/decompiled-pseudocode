@@ -3,18 +3,18 @@
  * Callers:
  *     WmipDriverEntry @ 0x1409D4020 (WmipDriverEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555D0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 __int64 WmipInitializeSecurity()

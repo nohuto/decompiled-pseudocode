@@ -1,17 +1,17 @@
 /*
- * XREFs of SeQueryTrustedPlatformModuleInformation @ 0x1405B9510
+ * XREFs of SeQueryTrustedPlatformModuleInformation @ 0x140597420
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExSystemExceptionFilter @ 0x140865F70 (ExSystemExceptionFilter.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall SeQueryTrustedPlatformModuleInformation(int *a1, unsigned int a2, _DWORD *a3)
 {
-  unsigned int v4; // r10d
-  int v5; // ecx
+  unsigned int v3; // r10d
+  int v4; // eax
 
-  v4 = 0;
+  v3 = 0;
   if ( KeGetCurrentThread()->PreviousMode )
   {
     return (unsigned int)-1073741790;
@@ -19,14 +19,14 @@ __int64 __fastcall SeQueryTrustedPlatformModuleInformation(int *a1, unsigned int
   else if ( a2 >= 4 )
   {
     *a1 = 0;
-    v5 = 0;
+    v4 = 0;
     if ( SepOsLoaderTpmDriverLoaded )
     {
-      v5 = 1;
+      v4 = 1;
       *a1 = 1;
     }
     if ( PnpCoreDriverGroupLoadPhase > 2 )
-      *a1 = v5 | 2;
+      *a1 = v4 | 2;
   }
   else
   {
@@ -34,5 +34,5 @@ __int64 __fastcall SeQueryTrustedPlatformModuleInformation(int *a1, unsigned int
       *a3 = 4;
     return (unsigned int)-1073741820;
   }
-  return v4;
+  return v3;
 }

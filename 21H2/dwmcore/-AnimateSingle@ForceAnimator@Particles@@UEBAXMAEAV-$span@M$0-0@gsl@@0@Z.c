@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AnimateSingle@ForceAnimator@Particles@@UEBAXMAEAV?$span@M$0?0@gsl@@0@Z @ 0x18022A210
+ * XREFs of ?AnimateSingle@ForceAnimator@Particles@@UEBAXMAEAV?$span@M$0?0@gsl@@0@Z @ 0x1801DB500
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 float *__fastcall Particles::ForceAnimator::AnimateSingle(__int64 a1, float a2, __int64 a3, __int64 a4)

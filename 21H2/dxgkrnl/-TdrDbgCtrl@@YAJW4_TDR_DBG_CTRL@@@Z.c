@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z @ 0x1C03061E4
+ * XREFs of ?TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z @ 0x1C02658E8
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     ?_TdrIsTestMode@@YA_NXZ @ 0x1C0306D1C (-_TdrIsTestMode@@YA_NXZ.c)
+ *     ?_TdrIsTestMode@@YA_NXZ @ 0x1C026644C (-_TdrIsTestMode@@YA_NXZ.c)
  */
 
 __int64 __fastcall TdrDbgCtrl(int a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetDriverPathInformation @ 0x1405556C4
+ * XREFs of IopGetDriverPathInformation @ 0x14050081C
  * Callers:
- *     NtQueryVolumeInformationFile @ 0x140686AF0 (NtQueryVolumeInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x1406C9680 (NtQueryVolumeInformationFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     IopVerifyDriverObjectOnStack @ 0x140556648 (IopVerifyDriverObjectOnStack.c)
- *     ObReferenceObjectByName @ 0x1406C2D00 (ObReferenceObjectByName.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IopVerifyDriverObjectOnStack @ 0x140501728 (IopVerifyDriverObjectOnStack.c)
+ *     ObReferenceObjectByName @ 0x1406D9EC0 (ObReferenceObjectByName.c)
  */
 
 __int64 __fastcall IopGetDriverPathInformation(__int64 a1, __int64 a2, int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall IopGetDriverPathInformation(__int64 a1, __int64 a2, int a3)
   v13 = a2 + 8;
   v11[0] = *(_WORD *)(a2 + 4);
   v11[1] = v11[0];
-  result = ObReferenceObjectByName((unsigned int)v11, 64, 0, 0, (__int64)IoDriverObjectType, 0, 0, (__int64)&Object);
+  result = ObReferenceObjectByName((unsigned int)v11, 64, 0, 0, (__int64)IoDriverObjectType, 0, 0LL, (__int64)&Object);
   if ( (int)result >= 0 )
   {
     v6 = KeAcquireQueuedSpinLock(0xAuLL);

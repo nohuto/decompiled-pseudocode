@@ -1,28 +1,30 @@
 /*
- * XREFs of EtwpLogGroupMask @ 0x140827580
+ * XREFs of EtwpLogGroupMask @ 0x140792248
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14038BEF4 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpLogKernelTraceRundown @ 0x1409EED34 (EtwpLogKernelTraceRundown.c)
+ *     EtwpUpdateGroupMasks @ 0x140791F80 (EtwpUpdateGroupMasks.c)
+ *     EtwpLogKernelTraceRundown @ 0x14093DC30 (EtwpLogKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpLogGroupMask(__int64 a1, unsigned int a2, __int128 *a3, unsigned __int16 a4)
 {
-  __int128 v4; // xmm1
-  __int128 v5; // xmm0
-  _QWORD v6[2]; // [rsp+30h] [rbp-48h] BYREF
-  __m256i v7; // [rsp+40h] [rbp-38h] BYREF
-  int v8; // [rsp+60h] [rbp-18h]
+  __int128 v4; // xmm0
+  __int128 v5; // xmm1
+  _OWORD *v6; // [rsp+30h] [rbp-48h] BYREF
+  int v7; // [rsp+38h] [rbp-40h]
+  int v8; // [rsp+3Ch] [rbp-3Ch]
+  _OWORD v9[2]; // [rsp+40h] [rbp-38h] BYREF
+  int v10; // [rsp+60h] [rbp-18h]
 
-  v4 = a3[1];
-  *(_OWORD *)&v7.m256i_u64[1] = 0LL;
-  v8 = 85;
-  v5 = *a3;
-  v6[0] = &v7;
-  v6[1] = 36LL;
-  *(_OWORD *)v7.m256i_i8 = v5;
-  *(_OWORD *)&v7.m256i_u64[2] = v4;
-  EtwpLogKernelEvent((__int64)v6, a1, a2, 1u, a4, 0x401802u);
+  v4 = *a3;
+  v5 = a3[1];
+  v6 = v9;
+  v8 = 0;
+  v10 = 80;
+  v9[0] = v4;
+  v7 = 36;
+  v9[1] = v5;
+  EtwpLogKernelEvent((__int64)&v6, a1, a2, 1u, a4, 0x401802u);
 }

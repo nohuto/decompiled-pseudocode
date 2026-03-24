@@ -1,64 +1,67 @@
 /*
- * XREFs of MiStoreMarkLockedPagesModified @ 0x1403856F4
+ * XREFs of MiStoreMarkLockedPagesModified @ 0x1402B7890
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x140385584 (MmStoreProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x1402B7720 (MmStoreProbeAndLockPages.c)
  * Callees:
- *     MiCapturePageFileInfoInline @ 0x140232694 (MiCapturePageFileInfoInline.c)
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiCapturePageFileInfoInline @ 0x1402A2CF0 (MiCapturePageFileInfoInline.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiStoreMarkLockedPagesModified(_DWORD *a1)
+void __fastcall MiStoreMarkLockedPagesModified(_DWORD *a1, __int64 a2, __int64 a3)
 {
-  _QWORD *v1; // rdi
-  unsigned __int64 v2; // r14
-  __int64 v3; // rsi
-  unsigned __int64 v4; // rbp
-  __int64 v5; // rax
-  char v6; // cl
-  unsigned __int64 v7; // rbx
-  __int64 v8; // r15
+  _QWORD *v3; // rdi
+  unsigned __int64 v4; // rdx
+  unsigned __int64 v5; // r14
+  __int64 v6; // rsi
+  unsigned __int64 v7; // rbp
+  __int64 v8; // rax
+  char v9; // cl
+  unsigned __int64 v10; // rbx
+  __int64 v11; // r15
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  bool v13; // zf
+  int v15; // eax
+  bool v16; // zf
 
-  v1 = a1 + 12;
-  v2 = (unsigned __int64)&a1[2 * (((unsigned int)a1[10] + 4095LL + (unsigned __int64)((a1[8] + a1[11]) & 0xFFF)) >> 12)
-                           + 12];
-  while ( (unsigned __int64)v1 < v2 )
+  v3 = a1 + 12;
+  v4 = ((unsigned int)a1[10] + 4095LL + (unsigned __int64)((a1[8] + a1[11]) & 0xFFF)) >> 12;
+  v5 = (unsigned __int64)&a1[2 * v4 + 12];
+  while ( (unsigned __int64)v3 < v5 )
   {
-    v3 = 48LL * *v1 - 0x220000000000LL;
-    v4 = (unsigned __int8)MiLockPageInline(v3);
-    v5 = MiCapturePageFileInfoInline((unsigned __int64 *)(v3 + 16), 1, 0);
-    v6 = *(_BYTE *)(v3 + 34);
-    v7 = v5;
-    if ( (v6 & 0x10) == 0 )
-      *(_BYTE *)(v3 + 34) = v6 | 0x10;
-    v8 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
-    _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    v6 = 48LL * *v3 - 0x58000000000LL;
+    v7 = (unsigned __int8)MiLockPageInline(v6, v4, a3);
+    v8 = MiCapturePageFileInfoInline((unsigned __int64 *)(v6 + 16), 1, 0);
+    v9 = *(_BYTE *)(v6 + 34);
+    v10 = v8;
+    if ( (v9 & 0x10) == 0 )
+      *(_BYTE *)(v6 + 34) = v9 | 0x10;
+    v11 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v6 + 40) >> 39) & 0x3FFLL));
+    _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
+          v4 = -1LL << ((unsigned __int8)v7 + 1);
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-          v13 = (v12 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v12;
-          if ( v13 )
+          v15 = ~(unsigned __int16)v4;
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          a3 = (unsigned int)v15 & SchedulerAssist[5];
+          SchedulerAssist[5] = a3;
+          if ( v16 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v4);
-    if ( v7 )
-      MiReleasePageFileInfo(v8, v7, 0);
-    ++v1;
+    __writecr8(v7);
+    if ( v10 )
+      MiReleasePageFileInfo(v11, v10, 0);
+    ++v3;
   }
 }

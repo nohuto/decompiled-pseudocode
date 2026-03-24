@@ -1,28 +1,33 @@
 /*
- * XREFs of PopFxQueueWorkOrder @ 0x14028C0AC
+ * XREFs of PopFxQueueWorkOrder @ 0x140380F98
  * Callers:
- *     PopFxIdleComponent @ 0x140312DE0 (PopFxIdleComponent.c)
- *     PoFxCompleteDevicePowerNotRequired @ 0x14036E150 (PoFxCompleteDevicePowerNotRequired.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x14058AC48 (PopFxIssueComponentPerfStateChanges.c)
- *     PopFxIssueDirectedPowerTransition @ 0x14058AE84 (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxIdleComponent @ 0x140260A50 (PopFxIdleComponent.c)
+ *     PoFxCompleteDevicePowerNotRequired @ 0x1403A6FE0 (PoFxCompleteDevicePowerNotRequired.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14056B298 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x14056B4D4 (PopFxIssueDirectedPowerTransition.c)
  * Callees:
- *     PopFxQueueWorkItem @ 0x14028C10C (PopFxQueueWorkItem.c)
- *     PopFxAddRefDevice @ 0x1403122C4 (PopFxAddRefDevice.c)
+ *     ExTryQueueWorkItem @ 0x14023B710 (ExTryQueueWorkItem.c)
+ *     PopFxAddRefDevice @ 0x14025FFDC (PopFxAddRefDevice.c)
+ *     KeReleaseSemaphoreEx @ 0x140262770 (KeReleaseSemaphoreEx.c)
+ *     ExInterlockedInsertTailList @ 0x1402F86D0 (ExInterlockedInsertTailList.c)
  */
 
-__int64 __fastcall PopFxQueueWorkOrder(__int64 a1, ULONG_PTR a2)
+__int64 __fastcall PopFxQueueWorkOrder(__int64 a1, __int64 a2, ULONG_PTR a3)
 {
-  void *v2; // rdi
   __int64 result; // rax
+  _DWORD *v5; // r9
 
-  v2 = &PopFxSystemWorkPool;
-  if ( (*(_DWORD *)(a2 + 824) & 0x1000) != 0 )
-    v2 = &PopFxNoFaultSystemWorkPool;
-  result = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(a1 + 32));
+  result = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(a2 + 32));
   if ( (_DWORD)result == 1 )
   {
-    PopFxAddRefDevice(a2);
-    return PopFxQueueWorkItem(v2, a1);
+    if ( a3 )
+      PopFxAddRefDevice(a3);
+    result = ExTryQueueWorkItem(a2, 0x30u);
+    if ( !(_BYTE)result )
+    {
+      ExInterlockedInsertTailList(&stru_140C24850, (PLIST_ENTRY)a2, &Lock);
+      return KeReleaseSemaphoreEx((__int64)&unk_140C24860, 0LL, 1LL, v5, 0);
+    }
   }
   return result;
 }

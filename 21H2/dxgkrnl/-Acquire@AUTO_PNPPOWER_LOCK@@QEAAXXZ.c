@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0021D38
+ * XREFs of ?Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C001E444
  * Callers:
- *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C0021D08 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
- *     DpiMiracastQueryMiracastSupportForFDO @ 0x1C01EEF98 (DpiMiracastQueryMiracastSupportForFDO.c)
+ *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001E414 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
+ *     DpiMiracastQueryMiracastSupportForFDO @ 0x1C0176144 (DpiMiracastQueryMiracastSupportForFDO.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     DpiDisableD3Requests @ 0x1C01B4784 (DpiDisableD3Requests.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiDisableD3Requests @ 0x1C016EF24 (DpiDisableD3Requests.c)
  */
 
 void __fastcall AUTO_PNPPOWER_LOCK::Acquire(AUTO_PNPPOWER_LOCK *this)

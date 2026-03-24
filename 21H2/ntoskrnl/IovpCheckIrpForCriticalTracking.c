@@ -1,10 +1,10 @@
 /*
- * XREFs of IovpCheckIrpForCriticalTracking @ 0x140A8C014
+ * XREFs of IovpCheckIrpForCriticalTracking @ 0x1409D0448
  * Callers:
- *     VfIrpAllocateCallDriverData @ 0x140A8D11C (VfIrpAllocateCallDriverData.c)
+ *     VfIrpAllocateCallDriverData @ 0x1409D14B0 (VfIrpAllocateCallDriverData.c)
  * Callees:
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AA5A48 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AA5BCC (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07A8 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E092C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall IovpCheckIrpForCriticalTracking(__int64 a1)

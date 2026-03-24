@@ -1,25 +1,33 @@
 /*
- * XREFs of ACPICreatePhysicalDeviceLocationDescriptor @ 0x1C00A1C20
+ * XREFs of ACPICreatePhysicalDeviceLocationDescriptor @ 0x1C00A3418
  * Callers:
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0094310 (ACPIProcessPhysicalDeviceLocation.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall ACPICreatePhysicalDeviceLocationDescriptor(__int64 a1, __int64 *a2)
+__int64 __fastcall ACPICreatePhysicalDeviceLocationDescriptor(__int64 a1, _QWORD *a2)
 {
-  __int64 Pool2; // rdx
-  __int64 result; // rax
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v5; // rdi
+  unsigned int v6; // ebx
 
-  Pool2 = ExAllocatePool2(256LL, 152LL, 1114661697LL);
-  *a2 = Pool2;
-  result = 0LL;
-  if ( !Pool2 )
-    return 3221225626LL;
-  if ( a1 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x98uLL, 0x42706341u);
+  *a2 = PoolWithTag;
+  v5 = PoolWithTag;
+  v6 = 0;
+  if ( PoolWithTag )
   {
-    *(_OWORD *)(Pool2 + 16) = *(_OWORD *)a1;
-    *(_DWORD *)(Pool2 + 32) = *(_DWORD *)(a1 + 16);
+    memset(PoolWithTag, 0, 0x98uLL);
+    if ( a1 )
+    {
+      v5[1] = *(_OWORD *)a1;
+      *((_DWORD *)v5 + 8) = *(_DWORD *)(a1 + 16);
+    }
   }
-  return result;
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return v6;
 }

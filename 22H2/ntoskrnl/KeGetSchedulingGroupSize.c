@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetSchedulingGroupSize @ 0x140206E08
+ * XREFs of KeGetSchedulingGroupSize @ 0x1402DD93C
  * Callers:
- *     PspGetRateControlSize @ 0x140684F74 (PspGetRateControlSize.c)
- *     MiSessionObjectCreate @ 0x1407AA29C (MiSessionObjectCreate.c)
+ *     PspGetRateControlSize @ 0x14065CC70 (PspGetRateControlSize.c)
+ *     MiSessionObjectCreate @ 0x140786384 (MiSessionObjectCreate.c)
  * Callees:
  *     <none>
  */

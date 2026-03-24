@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qqcDqd @ 0x1C00629DC
+ * XREFs of WPP_IFR_SF_qqcDqd @ 0x1C0046D84
  * Callers:
- *     Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00C6D78 (Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue.c)
+ *     Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00C5C74 (Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqcDqd(

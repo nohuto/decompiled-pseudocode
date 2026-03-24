@@ -1,34 +1,37 @@
 /*
- * XREFs of NtDxgkPinResources @ 0x1C02F3440
+ * XREFs of NtDxgkPinResources @ 0x1C0171500
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02CE0E4 (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
- *     ?DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z @ 0x1C02E9B38 (-DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z @ 0x1C0171530 (-DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z @ 0x1C0221860 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z.c)
  */
 
-__int64 __fastcall NtDxgkPinResources(struct _D3DKMT_PINRESOURCES *a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtDxgkPinResources(struct _D3DKMT_PINRESOURCES *a1)
 {
-  __int64 v3; // rcx
-  unsigned int v4; // esi
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  unsigned int v3; // edi
+  __int64 v4; // r8
+  __int64 v5; // r9
   struct DXGPROCESS *Current; // rax
-  __int64 v6; // rdi
+  unsigned __int64 v8; // rbx
 
-  v4 = DxgkPinResourcesInternal(a1, a2, a3);
-  if ( v4 == -1073741811 )
+  v3 = DxgkPinResourcesInternal(a1);
+  if ( v3 == -1073741811 )
   {
-    if ( byte_1C0140157 )
+    if ( byte_1C00B1FF8 )
     {
-      Current = DXGPROCESS::GetCurrent(v3);
-      v6 = (__int64)Current;
+      Current = DXGPROCESS::GetCurrent(v2, v1, v4, v5);
+      v8 = (unsigned __int64)Current;
       if ( !Current || (*(unsigned int (**)(void))(*((_QWORD *)Current + 11) + 216LL))() )
       {
-        DxgCreateLiveDumpWithWdLogs2(0x193u, 2062LL, (__int64)KeGetCurrentThread(), v6, 0LL, 0LL);
-        byte_1C0140157 = 0;
+        DxgCreateLiveDumpWithWdLogs(0x193u, 0x80EuLL, (unsigned __int64)KeGetCurrentThread(), v8, 0LL, 0);
+        byte_1C00B1FF8 = 0;
       }
     }
   }
-  return v4;
+  return v3;
 }

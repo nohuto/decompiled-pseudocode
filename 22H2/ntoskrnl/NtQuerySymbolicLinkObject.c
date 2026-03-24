@@ -1,45 +1,39 @@
 /*
- * XREFs of NtQuerySymbolicLinkObject @ 0x1407AAB70
+ * XREFs of NtQuerySymbolicLinkObject @ 0x140666310
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x140843C80 (AdtpInitializeDriveLetters.c)
- *     IopStoreSystemPartitionInformation @ 0x140B3F574 (IopStoreSystemPartitionInformation.c)
- *     IopReassignSystemRoot @ 0x140B70E7C (IopReassignSystemRoot.c)
+ *     AdtpInitializeDriveLetters @ 0x14079EDE8 (AdtpInitializeDriveLetters.c)
+ *     IopStoreSystemPartitionInformation @ 0x140A615B8 (IopStoreSystemPartitionInformation.c)
+ *     IopReassignSystemRoot @ 0x140A700D8 (IopReassignSystemRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExRaiseAccessViolation @ 0x1408742B0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2, _DWORD *a3)
 {
-  KPROCESSOR_MODE PreviousMode; // r9
+  KPROCESSOR_MODE PreviousMode; // di
   __int64 v7; // rcx
   __int64 v8; // rcx
-  __int128 v9; // xmm0
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // rdx
-  __int64 v13; // rcx
+  __int64 v9; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  char *v15; // rdi
-  int v16; // edi
-  unsigned int MaximumLength; // eax
-  struct _KTHREAD *v18; // rcx
-  bool v19; // zf
-  PVOID Object; // [rsp+30h] [rbp-38h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-30h]
-  void *v23[2]; // [rsp+40h] [rbp-28h]
-  UNICODE_STRING Src; // [rsp+50h] [rbp-18h] BYREF
-  NTSTATUS v25; // [rsp+88h] [rbp+20h]
+  char *v11; // rdi
+  int v12; // edi
+  unsigned int v13; // eax
+  PVOID Object; // [rsp+30h] [rbp-48h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-40h]
+  void *Src[2]; // [rsp+40h] [rbp-38h] BYREF
+  void *v18[2]; // [rsp+50h] [rbp-28h]
+  NTSTATUS v19; // [rsp+98h] [rbp+20h]
 
-  *(_OWORD *)v23 = 0LL;
-  Src = 0LL;
+  *(_OWORD *)v18 = 0LL;
+  *(_OWORD *)Src = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -53,81 +47,60 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
     if ( a2 + 2 >= 0x7FFFFFFF0000LL )
       v8 = 0x7FFFFFFF0000LL;
     *(_WORD *)v8 = *(_WORD *)v8;
-    v9 = *(_OWORD *)a2;
-    *(_OWORD *)v23 = v9;
-    if ( WORD1(v9) )
-    {
-      v10 = (unsigned __int64)v23[1];
-      v11 = (unsigned __int64)v23[1] + WORD1(v9) - 1;
-      if ( v23[1] > (void *)v11 || v11 >= 0x7FFFFFFF0000LL )
-        ExRaiseAccessViolation();
-      v12 = (v11 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      do
-      {
-        *(_BYTE *)v10 = *(_BYTE *)v10;
-        v10 = (v10 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      }
-      while ( v10 != v12 );
-    }
+    *(_OWORD *)v18 = *(_OWORD *)a2;
+    ProbeForWrite((volatile void *)_mm_srli_si128(*(__m128i *)v18, 8).m128i_i64[0], WORD1(v18[0]), 1u);
     if ( a3 )
     {
-      v13 = (__int64)a3;
+      v9 = (__int64)a3;
       if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
-        v13 = 0x7FFFFFFF0000LL;
-      *(_DWORD *)v13 = *(_DWORD *)v13;
+        v9 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   else
   {
-    *(_OWORD *)v23 = *(_OWORD *)a2;
+    *(_OWORD *)v18 = *(_OWORD *)a2;
   }
   Object = 0LL;
-  v25 = ObReferenceObjectByHandle(Handle, 1u, ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
-  if ( v25 >= 0 )
+  v19 = ObReferenceObjectByHandle(Handle, 1u, ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
+  if ( v19 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v15 = (char *)Object;
+    v11 = (char *)Object;
     BugCheckParameter2 = (ULONG_PTR)Object - 32;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)Object - 32, 0LL);
-    if ( (*((_DWORD *)v15 + 7) & 0x10) != 0 )
-      RtlInitUnicodeString(&Src, &word_1408882A0);
+    if ( (*((_DWORD *)v11 + 7) & 0x10) != 0 )
+      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_1407D7A40);
     else
-      Src = *(UNICODE_STRING *)(v15 + 8);
-    v16 = *(_DWORD *)&Src.Length;
+      *(_OWORD *)Src = *(_OWORD *)(v11 + 8);
+    v12 = (int)Src[0];
     if ( a3 )
     {
-      if ( Src.MaximumLength <= WORD1(v23[0]) )
+      if ( WORD1(Src[0]) <= WORD1(v18[0]) )
       {
-        MaximumLength = Src.MaximumLength;
-LABEL_25:
-        memmove(v23[1], Src.Buffer, MaximumLength);
-        *(_WORD *)a2 = v16;
+        v13 = WORD1(Src[0]);
+LABEL_18:
+        memmove(v18[1], Src[1], v13);
+        *(_WORD *)a2 = v12;
         if ( a3 )
-          *a3 = HIWORD(v16);
-LABEL_27:
-        ExReleasePushLockEx((__int64 *)BugCheckParameter2, 0LL);
-        v18 = KeGetCurrentThread();
-        v19 = v18->KernelApcDisable++ == -1;
-        if ( v19
-          && ($C71981A45BEB2B45F82C232A7085991E *)v18->ApcState.ApcListHead[0].Flink != &v18->152
-          && !v18->SpecialApcDisable )
-        {
-          KiCheckForKernelApcDelivery();
-        }
-        ObfDereferenceObject(Object);
-        return (unsigned int)v25;
+          *a3 = HIWORD(v12);
+LABEL_20:
+        ExReleasePushLockEx(BugCheckParameter2, 0LL);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+        return (unsigned int)v19;
       }
     }
-    else if ( Src.Length <= WORD1(v23[0]) )
+    else if ( LOWORD(Src[0]) <= WORD1(v18[0]) )
     {
-      MaximumLength = Src.Length;
-      goto LABEL_25;
+      v13 = LOWORD(Src[0]);
+      goto LABEL_18;
     }
-    v25 = -1073741789;
+    v19 = -1073741789;
     if ( a3 )
-      *a3 = Src.MaximumLength;
-    goto LABEL_27;
+      *a3 = WORD1(Src[0]);
+    goto LABEL_20;
   }
-  return (unsigned int)v25;
+  return (unsigned int)v19;
 }

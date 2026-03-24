@@ -1,60 +1,60 @@
 /*
- * XREFs of MiPageTableLockIsContended @ 0x1402E6A30
+ * XREFs of MiPageTableLockIsContended @ 0x140288AE0
  * Callers:
- *     MiSharePages @ 0x1402161D0 (MiSharePages.c)
- *     MiDispatchFault @ 0x140237F10 (MiDispatchFault.c)
- *     NtUnlockVirtualMemory @ 0x140283040 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402A3000 (NtLockVirtualMemory.c)
- *     MiProbePacketContended @ 0x1402E6584 (MiProbePacketContended.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F155C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x140630CA0 (MiInsertViewOfPhysicalSection.c)
- *     MiVadRangeIsIoSpace @ 0x140631764 (MiVadRangeIsIoSpace.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632AA8 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiAddPagesToEnclave @ 0x140646A80 (MiAddPagesToEnclave.c)
- *     MiCommitEnclavePages @ 0x1406472A8 (MiCommitEnclavePages.c)
- *     MiDecommitHardwareEnclavePages @ 0x140647550 (MiDecommitHardwareEnclavePages.c)
- *     MiProtectEnclavePages @ 0x1406482B8 (MiProtectEnclavePages.c)
- *     MiWriteAwePtes @ 0x14064C62C (MiWriteAwePtes.c)
- *     MiScrubLargeMappedPage @ 0x14065E4AC (MiScrubLargeMappedPage.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MiDispatchFault @ 0x14020EEC0 (MiDispatchFault.c)
+ *     MiDeleteSystemPagableVm @ 0x140286100 (MiDeleteSystemPagableVm.c)
+ *     MiProbePacketContended @ 0x140288A88 (MiProbePacketContended.c)
+ *     MiRemoveMappedPtes @ 0x140288B80 (MiRemoveMappedPtes.c)
+ *     NtUnlockVirtualMemory @ 0x1402AE5C0 (NtUnlockVirtualMemory.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1402EB224 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiReplaceRotateWithDemandZero @ 0x1402EC974 (MiReplaceRotateWithDemandZero.c)
+ *     NtLockVirtualMemory @ 0x140339070 (NtLockVirtualMemory.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C6798 (MiInsertViewOfPhysicalSection.c)
+ *     MiAddPagesToEnclave @ 0x140549044 (MiAddPagesToEnclave.c)
+ *     MiCommitEnclavePages @ 0x1405496C4 (MiCommitEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549968 (MiDecommitHardwareEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14054AA70 (MiProtectEnclavePages.c)
+ *     MiFreePhysicalPages @ 0x14054BE84 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x14054E1D8 (MiWriteAwePtes.c)
+ *     MiScrubLargeMappedPage @ 0x1405639C8 (MiScrubLargeMappedPage.c)
  * Callees:
- *     MiGetPageTableLockBuffer @ 0x1403195F8 (MiGetPageTableLockBuffer.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiGetPageTableLockBuffer @ 0x1402DB688 (MiGetPageTableLockBuffer.c)
  */
 
 __int64 __fastcall MiPageTableLockIsContended(__int64 a1, unsigned __int64 a2)
 {
-  char v2; // al
-  char v3; // r8
-  unsigned __int64 v4; // rax
+  unsigned __int64 v2; // rdi
+  char v3; // al
+  unsigned __int64 v4; // rbx
   _KLOCK_QUEUE_HANDLE *SelfmapLockHandle; // rax
-  char v7; // al
   struct _KPRCB *CurrentPrcb; // rcx
-  bool v9; // zf
-  __int64 v10; // rcx
+  bool v8; // zf
   _DWORD *PageTableLockBuffer; // rax
-  struct _LIST_ENTRY *Flink; // rcx
-  __int64 v13; // rcx
-  int v14; // [rsp+38h] [rbp+10h] BYREF
+  struct _LIST_ENTRY *Flink; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  int v13; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = *(_BYTE *)(a1 + 184);
-  v14 = 0;
-  v3 = v2 & 7;
+  v2 = a2;
+  v3 = *(_BYTE *)(a1 + 184) & 7;
+  v13 = 0;
   if ( a2 == 0xFFFFF6FB7DBEDF68uLL )
   {
     if ( v3 )
     {
-      v7 = v2 & 7;
-      if ( v7 == 7 )
+      if ( v3 == 7 )
       {
         SelfmapLockHandle = &KeGetCurrentPrcb()->SelfmapLockHandle[1];
       }
       else
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v9 = v7 == 5;
+        v8 = v3 == 5;
         SelfmapLockHandle = CurrentPrcb->SelfmapLockHandle;
-        if ( !v9 )
+        if ( !v8 )
           SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[3];
       }
     }
@@ -62,45 +62,42 @@ __int64 __fastcall MiPageTableLockIsContended(__int64 a1, unsigned __int64 a2)
     {
       SelfmapLockHandle = &KeGetCurrentPrcb()->SelfmapLockHandle[2];
     }
-    return SelfmapLockHandle->LockQueue.Next != 0LL;
+    return SelfmapLockHandle->LockQueue.Next != 0;
   }
-  else
+  if ( !v3 )
   {
-    if ( a2 >= 0xFFFFF6FB7DBED000uLL )
+    if ( a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
     {
-      if ( v3 )
-      {
-        if ( a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-        {
-          PageTableLockBuffer = (_DWORD *)MiGetPageTableLockBuffer(a1, a2, &v14);
-          return (*PageTableLockBuffer >> v14 >> 1) & 1;
-        }
-      }
-      else if ( a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-      {
-        v10 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28] + 624);
-        if ( v10 )
-          return (*(_DWORD *)(v10 + 4 * ((a2 >> 3) & 0x1FF)) >> 30) & 1;
-      }
+      a2 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 608);
+      if ( a2 )
+        return (*(_DWORD *)(a2 + 4 * ((v2 >> 3) & 0x1FF)) >> 30) & 1;
     }
-    v4 = *(_QWORD *)a2;
-    if ( a2 >= 0xFFFFF6FB7DBED000uLL
-      && a2 <= 0xFFFFF6FB7DBED7F8uLL
-      && (MiFlags & 0x600000) != 0
-      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-      && (v4 & 1) != 0
-      && ((v4 & 0x20) == 0 || (v4 & 0x42) == 0) )
-    {
-      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-      if ( Flink )
-      {
-        v13 = *((_QWORD *)&Flink->Flink + ((a2 >> 3) & 0x1FF));
-        if ( (v13 & 0x20) != 0 )
-          v4 |= 0x20uLL;
-        if ( (v13 & 0x42) != 0 )
-          v4 |= 0x42uLL;
-      }
-    }
-    return (v4 >> 60) & 2;
+    goto LABEL_4;
   }
+  if ( a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
+  {
+    PageTableLockBuffer = (_DWORD *)MiGetPageTableLockBuffer(a1, a2, &v13);
+    return ((*PageTableLockBuffer >> v13) & 2) != 0;
+  }
+LABEL_4:
+  v4 = *(_QWORD *)v2;
+  if ( (unsigned int)MiPteInShadowRange(v2, a2)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v4 & 1) != 0
+    && ((v4 & 0x20) == 0 || (v4 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v11 = v4 | 0x20;
+      v12 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
+      if ( (v12 & 0x20) == 0 )
+        v11 = v4;
+      v4 = v11;
+      if ( (v12 & 0x42) != 0 )
+        v4 = v11 | 0x42;
+    }
+  }
+  return (v4 >> 60) & 2;
 }

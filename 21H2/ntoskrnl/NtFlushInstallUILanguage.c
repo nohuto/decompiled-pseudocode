@@ -1,14 +1,14 @@
 /*
- * XREFs of NtFlushInstallUILanguage @ 0x14085F580
+ * XREFs of NtFlushInstallUILanguage @ 0x1407CFA90
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x140642868 (MigrateOOBELanguageToInstallationLanguage.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     MUIInitializeResourceLock @ 0x14085F65C (MUIInitializeResourceLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x1405B9BA0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     MUIInitializeResourceLock @ 0x1407CFB6C (MUIInitializeResourceLock.c)
  */
 
 __int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)
@@ -45,7 +45,7 @@ __int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)
       v3 = MigrateOOBELanguageToInstallationLanguage();
     }
     ExReleaseResourceLite(MUIRefreshCachedUILock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v3;
   }
   return result;

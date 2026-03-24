@@ -1,10 +1,10 @@
 /*
- * XREFs of SepInitializeDebugOptions @ 0x140B6DCF4
+ * XREFs of SepInitializeDebugOptions @ 0x140A707F8
  * Callers:
- *     SeCodeIntegrityInitializePolicy @ 0x140B6D928 (SeCodeIntegrityInitializePolicy.c)
+ *     SeCodeIntegrityInitializePolicy @ 0x140A70758 (SeCodeIntegrityInitializePolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
  */
 
 __int64 SepInitializeDebugOptions()

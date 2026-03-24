@@ -1,13 +1,13 @@
 /*
- * XREFs of ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x18026BB08
+ * XREFs of ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x180024090
  * Callers:
- *     ?IsVailContainer@@YA_NXZ @ 0x18026BB8C (-IsVailContainer@@YA_NXZ.c)
- *     ?MilUnexpectedError@@YAXJPEBG@Z @ 0x18026BE1C (-MilUnexpectedError@@YAXJPEBG@Z.c)
+ *     ?IsVailContainer@@YA_NXZ @ 0x180023CFC (-IsVailContainer@@YA_NXZ.c)
+ *     ?MilUnexpectedError@@YAXJPEBG@Z @ 0x180216A00 (-MilUnexpectedError@@YAXJPEBG@Z.c)
  * Callees:
- *     ?RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z @ 0x18026BAA0 (-RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z.c)
+ *     ?RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z @ 0x180024114 (-RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z.c)
  */
 
-bool __fastcall RegGetHKLMDword(LPCWSTR lpSubKey, const WCHAR *a2, unsigned int *a3)
+bool __fastcall RegGetHKLMDword(LPCWSTR lpSubKey, const unsigned __int16 *a2, unsigned int *a3)
 {
   bool Dword; // bl
   HKEY hKey; // [rsp+58h] [rbp+20h] BYREF

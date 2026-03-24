@@ -1,8 +1,9 @@
 /*
- * XREFs of ?invert@Numerics@Foundation@Windows@@YA_NAEBUfloat4x4@123@PEAU4123@@Z @ 0x180072158
+ * XREFs of ?invert@Numerics@Foundation@Windows@@YA_NAEBUfloat4x4@123@PEAU4123@@Z @ 0x180080FE0
  * Callers:
- *     ?AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x180049720 (-AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800E8FC4 (-Invert@CMILMatrix@@QEAA_NXZ.c)
+ *     ?SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z @ 0x18003E07C (-SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z.c)
+ *     ?AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x1800911E0 (-AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z.c)
+ *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800D6204 (-Invert@CMILMatrix@@QEAA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -104,12 +105,14 @@ bool __fastcall Windows::Foundation::Numerics::invert(
     a2[1].m128_f32[0] = (float)(1.0 / v19) * v16;
     a2[2].m128_f32[0] = (float)(1.0 / v19) * v17;
     a2[3].m128_f32[0] = (float)(1.0 / v19) * v18;
-    a2->m128_f32[1] = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v9 * v45) - (float)(v10 * v46)) + (float)(v11 * v47)) ^ _xmm)
-                    * (float)(1.0 / v19);
     a2[1].m128_f32[1] = (float)((float)((float)(v9 * v35) - (float)(v12 * v46)) + (float)(v13 * v47))
                       * (float)(1.0 / v19);
-    a2[2].m128_f32[1] = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v10 * v35) - (float)(v12 * v45)) + (float)(v14 * v47)) ^ _xmm)
-                      * (float)(1.0 / v19);
+    a2[2].m128_i32[1] = COERCE_UNSIGNED_INT(
+                          (float)((float)((float)(v10 * v35) - (float)(v12 * v45)) + (float)(v14 * v47))
+                        * (float)(1.0 / v19)) ^ _xmm;
+    a2->m128_i32[1] = COERCE_UNSIGNED_INT(
+                        (float)((float)((float)(v9 * v45) - (float)(v10 * v46)) + (float)(v11 * v47))
+                      * (float)(1.0 / v19)) ^ _xmm;
     v21 = (float)(v8 * v36) - (float)(v7 * v37);
     a2[3].m128_f32[1] = (float)((float)((float)(v11 * v35) - (float)(v13 * v45)) + (float)(v14 * v46))
                       * (float)(1.0 / v19);
@@ -119,11 +122,9 @@ bool __fastcall Windows::Foundation::Numerics::invert(
     v25 = (float)(v7 * v41) - (float)(v38 * v36);
     v26 = (float)(v40 * v41) - (float)(v38 * v39);
     a2->m128_f32[2] = (float)((float)((float)(v21 * v45) - (float)(v22 * v46)) + (float)(v23 * v47)) * v20;
-    a2[1].m128_f32[2] = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v21 * v35) - (float)(v24 * v46)) + (float)(v25 * v47)) ^ _xmm)
-                      * v20;
+    a2[1].m128_i32[2] = COERCE_UNSIGNED_INT((float)((float)((float)(v21 * v35) - (float)(v24 * v46)) + (float)(v25 * v47)) * v20) ^ _xmm;
     a2[2].m128_f32[2] = (float)((float)((float)(v22 * v35) - (float)(v24 * v45)) + (float)(v26 * v47)) * v20;
-    a2[3].m128_f32[2] = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v23 * v35) - (float)(v25 * v45)) + (float)(v26 * v46)) ^ _xmm)
-                      * v20;
+    a2[3].m128_i32[2] = COERCE_UNSIGNED_INT((float)((float)((float)(v23 * v35) - (float)(v25 * v45)) + (float)(v26 * v46)) * v20) ^ _xmm;
     v27 = (float)(v4 * v36) - (float)(v42 * v37);
     v28 = (float)(v4 * v39) - (float)(v43 * v37);
     v29 = (float)(v42 * v39) - (float)(v43 * v36);
@@ -131,10 +132,8 @@ bool __fastcall Windows::Foundation::Numerics::invert(
     v31 = (float)(v42 * v41) - (float)(v44 * v36);
     v32 = (float)(v43 * v41) - (float)(v44 * v39);
     result = 1;
-    a2->m128_f32[3] = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v27 * v45) - (float)(v28 * v46)) + (float)(v29 * v47)) ^ _xmm)
-                    * v20;
-    a2[2].m128_f32[3] = COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v28 * v35) - (float)(v30 * v45)) + (float)(v32 * v47)) ^ _xmm)
-                      * v20;
+    a2->m128_i32[3] = COERCE_UNSIGNED_INT((float)((float)((float)(v27 * v45) - (float)(v28 * v46)) + (float)(v29 * v47)) * v20) ^ _xmm;
+    a2[2].m128_i32[3] = COERCE_UNSIGNED_INT((float)((float)((float)(v28 * v35) - (float)(v30 * v45)) + (float)(v32 * v47)) * v20) ^ _xmm;
     a2[1].m128_f32[3] = (float)((float)((float)(v27 * v35) - (float)(v30 * v46)) + (float)(v31 * v47)) * v20;
     a2[3].m128_f32[3] = (float)((float)((float)(v29 * v35) - (float)(v31 * v45)) + (float)(v32 * v46)) * v20;
   }

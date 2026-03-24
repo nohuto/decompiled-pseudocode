@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpKernelExpirationDateCacheProvider @ 0x140864400
+ * XREFs of ExpKernelExpirationDateCacheProvider @ 0x1407D39F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlTimeToTimeFields @ 0x1402D1A30 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SeCodeIntegrityGetBuildExpiryTime @ 0x140811D70 (SeCodeIntegrityGetBuildExpiryTime.c)
+ *     RtlTimeToTimeFields @ 0x14036E9A0 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SeCodeIntegrityGetBuildExpiryTime @ 0x1407D3A80 (SeCodeIntegrityGetBuildExpiryTime.c)
  */
 
 __int64 __fastcall ExpKernelExpirationDateCacheProvider(

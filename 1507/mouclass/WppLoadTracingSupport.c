@@ -1,1 +1,40 @@
-/*\n * XREFs of WppLoadTracingSupport @ 0x1C000BBF0\n * Callers:\n *     DriverEntry @ 0x1C000E390 (DriverEntry.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002AC0 (_guard_dispatch_icall_nop.c)\n */\n\nPVOID WppLoadTracingSupport()\n{\n  PVOID result; // rax\n  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF\n  unsigned int v2; // [rsp+50h] [rbp+8h] BYREF\n\n  v2 = 0;\n  RtlInitUnicodeString(&DestinationString, L"PsGetVersion");\n  pfnWppGetVersion = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);\n  RtlInitUnicodeString(&DestinationString, L"WmiTraceMessage");\n  pfnWppTraceMessage = (__int64)MmGetSystemRoutineAddress(&DestinationString);\n  RtlInitUnicodeString(&DestinationString, L"WmiQueryTraceInformation");\n  pfnWppQueryTraceInformation = (__int64)MmGetSystemRoutineAddress(&DestinationString);\n  result = pfnWppGetVersion;\n  WPPTraceSuite = 2;\n  if ( pfnWppGetVersion )\n    result = (PVOID)pfnWppGetVersion(&v2, 0LL, 0LL, 0LL);\n  if ( v2 >= 6 )\n  {\n    RtlInitUnicodeString(&DestinationString, L"EtwRegisterClassicProvider");\n    result = MmGetSystemRoutineAddress(&DestinationString);\n    pfnEtwRegisterClassicProvider = (__int64)result;\n    if ( result )\n    {\n      RtlInitUnicodeString(&DestinationString, L"EtwUnregister");\n      result = MmGetSystemRoutineAddress(&DestinationString);\n      pfnEtwUnregister = (__int64)result;\n      WPPTraceSuite = 4;\n    }\n  }\n  return result;\n}\n
+/*
+ * XREFs of WppLoadTracingSupport @ 0x1C000BBF0
+ * Callers:
+ *     DriverEntry @ 0x1C000E390 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002AC0 (_guard_dispatch_icall_nop.c)
+ */
+
+PVOID WppLoadTracingSupport()
+{
+  PVOID result; // rax
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v2; // [rsp+50h] [rbp+8h] BYREF
+
+  v2 = 0;
+  RtlInitUnicodeString(&DestinationString, L"PsGetVersion");
+  pfnWppGetVersion = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
+  RtlInitUnicodeString(&DestinationString, L"WmiTraceMessage");
+  pfnWppTraceMessage = (__int64)MmGetSystemRoutineAddress(&DestinationString);
+  RtlInitUnicodeString(&DestinationString, L"WmiQueryTraceInformation");
+  pfnWppQueryTraceInformation = (__int64)MmGetSystemRoutineAddress(&DestinationString);
+  result = pfnWppGetVersion;
+  WPPTraceSuite = 2;
+  if ( pfnWppGetVersion )
+    result = (PVOID)pfnWppGetVersion(&v2, 0LL, 0LL, 0LL);
+  if ( v2 >= 6 )
+  {
+    RtlInitUnicodeString(&DestinationString, L"EtwRegisterClassicProvider");
+    result = MmGetSystemRoutineAddress(&DestinationString);
+    pfnEtwRegisterClassicProvider = (__int64)result;
+    if ( result )
+    {
+      RtlInitUnicodeString(&DestinationString, L"EtwUnregister");
+      result = MmGetSystemRoutineAddress(&DestinationString);
+      pfnEtwUnregister = (__int64)result;
+      WPPTraceSuite = 4;
+    }
+  }
+  return result;
+}

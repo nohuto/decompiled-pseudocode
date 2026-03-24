@@ -1,126 +1,129 @@
 /*
- * XREFs of ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C013A078
+ * XREFs of ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C00CCE84
  * Callers:
- *     EngTextOut @ 0x1C0006070 (EngTextOut.c)
+ *     EngTextOut @ 0x1C00CBA80 (EngTextOut.c)
  * Callees:
- *     ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C013A234 (-bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z.c)
- *     STROBJ_bEnum @ 0x1C013A2C0 (STROBJ_bEnum.c)
- *     vGetPosInfo @ 0x1C02BDFD0 (vGetPosInfo.c)
+ *     ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C00CD060 (-bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z.c)
+ *     STROBJ_bEnum @ 0x1C00CD0F0 (STROBJ_bEnum.c)
+ *     vGetPosInfo @ 0x1C02BF650 (vGetPosInfo.c)
  */
 
 __int64 __fastcall STROBJ_bEnumCheckBounds(struct _STROBJ *a1, ULONG *pc, PGLYPHPOS *ppgpos, struct _RECTL *a4)
 {
+  PGLYPHPOS *v5; // rbp
   ULONG cGlyphs; // r15d
-  BOOL v8; // eax
-  unsigned int v9; // ebp
-  __int64 v10; // rbx
-  PGLYPHPOS v11; // rdx
-  unsigned int v12; // r13d
-  unsigned int v13; // esi
-  __int64 v14; // r10
-  ULONG v15; // r11d
-  struct _RECTL *v16; // rdx
-  __int64 v17; // rbp
-  PGLYPHPOS v18; // r8
+  BOOL v9; // eax
+  PGLYPHPOS v10; // r8
+  __int64 v11; // rbx
+  unsigned int v12; // esi
+  unsigned int v13; // r12d
+  PGLYPHPOS v14; // rbp
+  __int64 v15; // r10
+  ULONG v16; // r11d
+  int v17; // edx
+  __int64 v18; // rax
   LONG x; // ecx
-  LONG y; // r9d
-  GLYPHDEF *pgdf; // rax
-  GLYPHBITS *pgb; // r8
-  LONG v23; // ecx
-  LONG v24; // r9d
-  LONG v26; // [rsp+20h] [rbp-58h] BYREF
-  LONG v27; // [rsp+24h] [rbp-54h]
-  PGLYPHPOS v28; // [rsp+28h] [rbp-50h]
-  unsigned int v29; // [rsp+80h] [rbp+8h]
-  int v30; // [rsp+88h] [rbp+10h]
-  LONG left; // [rsp+90h] [rbp+18h]
+  LONG y; // r8d
+  __int64 v21; // rdx
+  GLYPHDEF *v22; // rax
+  GLYPHBITS *pgb; // rdx
+  LONG v24; // r8d
+  LONG v25; // r9d
+  LONG v27; // [rsp+20h] [rbp-58h] BYREF
+  LONG v28; // [rsp+24h] [rbp-54h]
+  PGLYPHPOS v29; // [rsp+28h] [rbp-50h]
+  __int64 v30; // [rsp+30h] [rbp-48h]
+  LONG left; // [rsp+80h] [rbp+8h]
+  int v32; // [rsp+88h] [rbp+10h]
+  unsigned int v34; // [rsp+90h] [rbp+18h]
 
+  v5 = ppgpos;
   while ( 1 )
   {
     cGlyphs = a1[1].cGlyphs;
-    v8 = STROBJ_bEnum(a1, pc, ppgpos);
-    v9 = *pc;
-    v10 = 0LL;
-    v11 = *ppgpos;
-    v12 = v8;
-    v28 = *ppgpos;
+    v9 = STROBJ_bEnum(a1, pc, v5);
+    v10 = *v5;
+    v11 = 0LL;
+    v12 = *pc;
     v13 = v9;
-    if ( v9 )
+    v29 = *v5;
+    if ( v12 )
+    {
+      v14 = v10;
+      do
+      {
+        if ( !(unsigned int)bGlyphOutOfBounds((struct ESTROBJ *)a1, &v14[v11], a4, cGlyphs + (unsigned int)v11) )
+          break;
+        v11 = (unsigned int)(v11 + 1);
+      }
+      while ( (unsigned int)v11 < v12 );
+      v5 = ppgpos;
+      v10 = v29;
+    }
+    if ( (unsigned int)v11 < v12 )
       break;
-LABEL_20:
-    if ( (unsigned int)v10 < v13 )
-      goto LABEL_3;
-    if ( !v12 )
+    if ( !v13 )
     {
       *pc = 0;
       return 0LL;
     }
   }
-  while ( 1 )
+  v15 = (unsigned int)(v11 + 1);
+  v16 = 1;
+  if ( (unsigned int)v15 < v12 )
   {
-    v13 = v9;
-    if ( !(unsigned int)bGlyphOutOfBounds((struct ESTROBJ *)a1, &v11[v10], a4, cGlyphs + (unsigned int)v10) )
-      break;
-    v11 = v28;
-    v10 = (unsigned int)(v10 + 1);
-    if ( (unsigned int)v10 >= v9 )
-      goto LABEL_20;
-  }
-LABEL_3:
-  v14 = (unsigned int)(v10 + 1);
-  v15 = 1;
-  if ( (unsigned int)v14 < v13 )
-  {
-    v16 = a4;
-    v29 = v13;
-    v13 = v9;
+    v17 = (__int64)a1[4].pwszOrg & 0x1400;
+    v32 = v17;
     left = a4->left;
-    v30 = (__int64)a1[4].pwszOrg & 0x1400;
+    v34 = v12;
     while ( 1 )
     {
-      v17 = v14;
-      v18 = v28;
-      x = v28[v14].ptl.x;
-      y = v28[v14].ptl.y;
-      v26 = x;
-      v27 = y;
-      if ( !v30 && (_DWORD)v14 + cGlyphs && a1->ulCharInc )
+      v18 = 3 * v15;
+      x = v10[v15].ptl.x;
+      y = v10[v15].ptl.y;
+      v28 = y;
+      v30 = 3 * v15;
+      v27 = x;
+      if ( !v17 )
       {
-        vGetPosInfo(a1, (unsigned int)v14 + cGlyphs, &v26);
-        y = v27;
-        x = v26;
-        v16 = a4;
-        v18 = v28;
+        v21 = (unsigned int)v15 + cGlyphs;
+        if ( (_DWORD)v21 )
+        {
+          if ( a1->ulCharInc )
+          {
+            vGetPosInfo(a1, v21, &v27);
+            x = v27;
+            v18 = v30;
+            y = v28;
+          }
+        }
       }
-      pgdf = v18[v17].pgdf;
-      pgb = pgdf->pgb;
-      v23 = pgdf->pgb->ptlOrigin.x + x;
-      v24 = pgdf->pgb->ptlOrigin.y + y;
-      if ( v23 < left
-        || pgb->sizlBitmap.cx + v23 > v16->right
-        || v24 < v16->top
-        || v24 + pgb->sizlBitmap.cy > v16->bottom )
-      {
+      v22 = (&v29->pgdf)[v18];
+      pgb = v22->pgb;
+      v24 = v22->pgb->ptlOrigin.y + y;
+      v25 = x + v22->pgb->ptlOrigin.x;
+      if ( v25 < left || v25 + pgb->sizlBitmap.cx > a4->right || v24 < a4->top || v24 + pgb->sizlBitmap.cy > a4->bottom )
         break;
-      }
-      v29 = v13;
-      ++v15;
-      v14 = (unsigned int)(v14 + 1);
-      if ( (unsigned int)v14 >= v13 )
-        goto LABEL_14;
+      v34 = v12;
+      ++v16;
+      v15 = (unsigned int)(v15 + 1);
+      if ( (unsigned int)v15 >= v12 )
+        goto LABEL_19;
+      v10 = v29;
+      v17 = v32;
     }
-    v13 = v29;
+    v12 = v34;
   }
-LABEL_14:
-  if ( v15 + (unsigned int)v10 < v13 )
-    v12 = 1;
-  a1[1].cGlyphs = v10 + v15 + cGlyphs;
-  *ppgpos += v10;
-  *pc = v15;
-  if ( ((__int64)a1[4].pwszOrg & 0x1400) == 0 && (cGlyphs || (_DWORD)v10) )
+LABEL_19:
+  if ( v16 + (unsigned int)v11 < v12 )
+    v13 = 1;
+  a1[1].cGlyphs = v11 + v16 + cGlyphs;
+  *v5 += v11;
+  *pc = v16;
+  if ( ((__int64)a1[4].pwszOrg & 0x1400) == 0 && (cGlyphs || (_DWORD)v11) )
   {
     if ( a1->ulCharInc )
-      vGetPosInfo(a1, cGlyphs + (unsigned int)v10, &(*ppgpos)->ptl);
+      vGetPosInfo(a1, cGlyphs + (unsigned int)v11, &(*v5)->ptl);
   }
-  return v12;
+  return v13;
 }

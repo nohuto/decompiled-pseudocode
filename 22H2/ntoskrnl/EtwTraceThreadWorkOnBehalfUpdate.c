@@ -1,13 +1,11 @@
 /*
- * XREFs of EtwTraceThreadWorkOnBehalfUpdate @ 0x140258390
+ * XREFs of EtwTraceThreadWorkOnBehalfUpdate @ 0x14021FC90
  * Callers:
- *     PspRevertContainerImpersonation @ 0x140259D1C (PspRevertContainerImpersonation.c)
- *     PsImpersonateContainerOfThread @ 0x140259DC0 (PsImpersonateContainerOfThread.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A9090 (NtWaitForWorkViaWorkerFactory.c)
+ *     PspRevertContainerImpersonation @ 0x14021FAA0 (PspRevertContainerImpersonation.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140258400 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwpLevelKeywordEnabled @ 0x140220B40 (EtwpLevelKeywordEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceThreadWorkOnBehalfUpdate(__int64 a1, __int64 a2)
@@ -31,20 +29,19 @@ void __fastcall EtwTraceThreadWorkOnBehalfUpdate(__int64 a1, __int64 a2)
     if ( (unsigned __int8)EtwpLevelKeywordEnabled(
                             *(_QWORD *)(EtwpPsProvRegHandle + 32) + 96LL,
                             a2,
-                            0x8000000000002000uLL,
-                            a1)
+                            0x8000000000002000uLL)
       || *(_BYTE *)(v5 + 101)
-      && (LOBYTE(v2) = 4, (unsigned __int8)EtwpLevelKeywordEnabled(*(_QWORD *)(v5 + 40) + 96LL, v2, v3, v4)) )
+      && (LOBYTE(v2) = 4, (unsigned __int8)EtwpLevelKeywordEnabled(*(_QWORD *)(v5 + 40) + 96LL, v2, v3)) )
     {
       if ( v4 )
-        v7 = *(_DWORD *)(v4 + 1232);
+        v7 = *(_DWORD *)(v4 + 1152);
       else
         v7 = 0;
       v9 = v7;
       UserData.Ptr = (ULONGLONG)&v9;
       *(_QWORD *)&UserData.Size = 4LL;
       if ( v6 )
-        v8 = *(_DWORD *)(v6 + 1232);
+        v8 = *(_DWORD *)(v6 + 1152);
       else
         v8 = 0;
       v10 = v8;

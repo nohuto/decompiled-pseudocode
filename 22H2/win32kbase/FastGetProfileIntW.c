@@ -1,13 +1,13 @@
 /*
- * XREFs of FastGetProfileIntW @ 0x1C0033AC0
+ * XREFs of FastGetProfileIntW @ 0x1C0010540
  * Callers:
- *     xxxRemoteConnect @ 0x1C00115D0 (xxxRemoteConnect.c)
- *     FastGetProfileIntsW @ 0x1C00618A0 (FastGetProfileIntsW.c)
- *     FastGetProfileIntFromID @ 0x1C0061E60 (FastGetProfileIntFromID.c)
- *     xxxUpdatePerUserAccessPackSettings @ 0x1C00A2650 (xxxUpdatePerUserAccessPackSettings.c)
+ *     FastGetProfileIntsW @ 0x1C000F360 (FastGetProfileIntsW.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C000F410 (xxxUpdatePerUserAccessPackSettings.c)
+ *     FastGetProfileIntFromID @ 0x1C0010400 (FastGetProfileIntFromID.c)
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     FastGetProfileStringW @ 0x1C0037000 (FastGetProfileStringW.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     FastGetProfileStringW @ 0x1C0010600 (FastGetProfileStringW.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FastGetProfileIntW(__int64 a1, __int64 a2, __int64 a3, ULONG a4, PULONG Value, int a6)

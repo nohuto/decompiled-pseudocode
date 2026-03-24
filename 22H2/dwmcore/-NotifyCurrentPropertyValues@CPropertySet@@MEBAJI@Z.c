@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyCurrentPropertyValues@CPropertySet@@MEBAJI@Z @ 0x1800FBD60
+ * XREFs of ?NotifyCurrentPropertyValues@CPropertySet@@MEBAJI@Z @ 0x18001F850
  * Callers:
  *     <none>
  * Callees:

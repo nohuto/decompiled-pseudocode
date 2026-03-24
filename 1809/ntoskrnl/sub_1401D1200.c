@@ -1,22 +1,14 @@
 /*
  * XREFs of sub_1401D1200 @ 0x1401D1200
  * Callers:
- *     sub_1401D11C0 @ 0x1401D11C0 (sub_1401D11C0.c)
+ *     KiFlushBhbDuringTrapEntryOrExitPreAlderLake @ 0x1401D11C0 (KiFlushBhbDuringTrapEntryOrExitPreAlderLake.c)
+ *     sub_1401D1240 @ 0x1401D1240 (sub_1401D1240.c)
  * Callees:
- *     <none>
+ *     sub_1401D1240 @ 0x1401D1240 (sub_1401D1240.c)
  */
 
-__int64 __fastcall sub_1401D1200(int a1)
+// attributes: thunk
+__int64 __fastcall sub_1401D1200(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v2; // rcx
-
-  LODWORD(result) = 7;
-  do
-    result = (unsigned int)(result - 1);
-  while ( (_DWORD)result );
-  v2 = (unsigned int)(a1 - 1);
-  if ( (_DWORD)v2 )
-    return sub_1401D11C0(v2);
-  return result;
+  return sub_1401D1240(a1);
 }

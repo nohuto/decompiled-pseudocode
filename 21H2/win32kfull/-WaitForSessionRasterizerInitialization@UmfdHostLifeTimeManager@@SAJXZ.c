@@ -1,17 +1,17 @@
 /*
- * XREFs of ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C001C5FC
+ * XREFs of ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B8E4
  * Callers:
- *     GreGetOutlineTextMetricsInternalW @ 0x1C0018120 (GreGetOutlineTextMetricsInternalW.c)
- *     GreGetCharSet @ 0x1C001C490 (GreGetCharSet.c)
- *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C001F138 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     xxxLW_LoadFonts @ 0x1C00EE740 (xxxLW_LoadFonts.c)
- *     NtGdiAddFontResourceW @ 0x1C00F9360 (NtGdiAddFontResourceW.c)
- *     GreWaitForTextReady @ 0x1C0122D20 (GreWaitForTextReady.c)
- *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C0288EC4 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
- *     NtGdiAddFontMemResourceEx @ 0x1C02AC7A0 (NtGdiAddFontMemResourceEx.c)
+ *     GreGetCharSet @ 0x1C009B770 (GreGetCharSet.c)
+ *     GreGetOutlineTextMetricsInternalW @ 0x1C009BA88 (GreGetOutlineTextMetricsInternalW.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A7460 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     xxxLW_LoadFonts @ 0x1C00E6470 (xxxLW_LoadFonts.c)
+ *     NtGdiAddFontResourceW @ 0x1C010E740 (NtGdiAddFontResourceW.c)
+ *     GreWaitForTextReady @ 0x1C0137610 (GreWaitForTextReady.c)
+ *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C028B274 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
+ *     NtGdiAddFontMemResourceEx @ 0x1C02AE030 (NtGdiAddFontMemResourceEx.c)
  * Callees:
- *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C001C660 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00C5360 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B948 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E411C (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
  */
 
 NTSTATUS UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization(void)

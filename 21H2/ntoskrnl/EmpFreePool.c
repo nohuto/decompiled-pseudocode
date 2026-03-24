@@ -1,10 +1,10 @@
 /*
- * XREFs of EmpFreePool @ 0x1402DCA4C
+ * XREFs of EmpFreePool @ 0x140374518
  * Callers:
- *     EmpEvaluateTargetRule @ 0x1402DC420 (EmpEvaluateTargetRule.c)
- *     EmpEvaluateNodeLink @ 0x1402DC668 (EmpEvaluateNodeLink.c)
+ *     EmpEvaluateTargetRule @ 0x140373ED8 (EmpEvaluateTargetRule.c)
+ *     EmpEvaluateNodeLink @ 0x14037411C (EmpEvaluateNodeLink.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EmpFreePool(void *a1, unsigned __int64 a2, unsigned int a3)

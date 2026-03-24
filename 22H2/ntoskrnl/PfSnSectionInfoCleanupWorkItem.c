@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x14075C7D0
+ * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x140632BE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PsSetCurrentThreadPrefetching @ 0x14075CDC0 (PsSetCurrentThreadPrefetching.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14075D4C8 (PfSnCleanupPrefetchSectionInfo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     PsSetCurrentThreadPrefetching @ 0x140633190 (PsSetCurrentThreadPrefetching.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x140633754 (PfSnCleanupPrefetchSectionInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1)
@@ -48,5 +48,5 @@ void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1)
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   PsSetCurrentThreadPrefetching(0);
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)v1);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)v1);
 }

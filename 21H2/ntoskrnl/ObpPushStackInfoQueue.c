@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpPushStackInfoQueue @ 0x1409863A0
+ * XREFs of ObpPushStackInfoQueue @ 0x1408DED00
  * Callers:
  *     <none>
  * Callees:
- *     ObpFreeWorkItemBlock @ 0x140985C14 (ObpFreeWorkItemBlock.c)
- *     ObpPushRefDerefInfo @ 0x140986190 (ObpPushRefDerefInfo.c)
+ *     ObpFreeWorkItemBlock @ 0x1408DE5C4 (ObpFreeWorkItemBlock.c)
+ *     ObpPushRefDerefInfo @ 0x1408DEB70 (ObpPushRefDerefInfo.c)
  */
 
 signed __int64 ObpPushStackInfoQueue()

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x1409CCE04
+ * XREFs of SepSetTokenUserAndGroups @ 0x1409231BC
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SepDuplicateSid @ 0x14066B730 (SepDuplicateSid.c)
- *     SepLogTokenSidManagement @ 0x1409C6834 (SepLogTokenSidManagement.c)
- *     SepCompareSidValuesBlocks @ 0x1409CC98C (SepCompareSidValuesBlocks.c)
- *     SepCreateSidValuesBlock @ 0x1409CCA34 (SepCreateSidValuesBlock.c)
- *     SepDereferenceSidValuesBlock @ 0x1409CCC54 (SepDereferenceSidValuesBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     SepDuplicateSid @ 0x140706DA0 (SepDuplicateSid.c)
+ *     SepLogTokenSidManagement @ 0x14091CE74 (SepLogTokenSidManagement.c)
+ *     SepCompareSidValuesBlocks @ 0x140922D88 (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x140922E30 (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x140923060 (SepDereferenceSidValuesBlock.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, unsigned int a3, __int64 a4, int a5)
@@ -75,7 +75,7 @@ __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, un
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v17 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v17 + 104);
     KeAbPostRelease(v17 + 104);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v15 = *(_QWORD *)(a1 + 216);
     if ( !v5 )
     {

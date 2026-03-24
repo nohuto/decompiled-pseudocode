@@ -1,124 +1,104 @@
 /*
- * XREFs of NtUserCompositionInputSinkLuidFromPoint @ 0x1C01CD990
+ * XREFs of NtUserCompositionInputSinkLuidFromPoint @ 0x1C01F6D70
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     RequestInputSinkInfoFromPoint @ 0x1C01E68AC (RequestInputSinkInfoFromPoint.c)
+ *     RequestInputSinkInfoFromPoint @ 0x1C0004CF4 (RequestInputSinkInfoFromPoint.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall NtUserCompositionInputSinkLuidFromPoint(
-        int a1,
-        __int64 *a2,
-        _QWORD *a3,
-        _QWORD *a4,
-        _OWORD *Address)
+__int64 __fastcall NtUserCompositionInputSinkLuidFromPoint(int a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _OWORD *Address)
 {
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  int v12; // ecx
+  __int64 v12; // rcx
   int v13; // ebx
-  __int64 v14; // rdx
-  ULONG64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
+  ULONG64 v14; // rcx
   __int64 CurrentProcess; // rax
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  ULONG64 v21; // rcx
+  ULONG64 v16; // rcx
   __int64 CurrentProcessWow64Process; // rax
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  int v26; // ebx
-  _OWORD *v27; // rdi
-  __int64 v28; // rax
-  unsigned int v30; // [rsp+50h] [rbp-D8h] BYREF
-  __int64 v31; // [rsp+54h] [rbp-D4h]
-  int v32; // [rsp+5Ch] [rbp-CCh]
-  __int64 v33; // [rsp+64h] [rbp-C4h]
-  __int64 v34; // [rsp+70h] [rbp-B8h]
-  __int128 v35; // [rsp+78h] [rbp-B0h]
-  __int128 v36; // [rsp+88h] [rbp-A0h]
-  __int128 v37; // [rsp+98h] [rbp-90h]
-  __int128 v38; // [rsp+A8h] [rbp-80h]
-  _OWORD v39[4]; // [rsp+E0h] [rbp-48h] BYREF
+  __int64 v18; // rcx
+  int v19; // ebx
+  _OWORD *v20; // rdi
+  __int64 v21; // rax
+  char v22; // dl
+  __int128 v24[13]; // [rsp+50h] [rbp-D8h] BYREF
 
   ExEnterCriticalRegionAndAcquireResourceExclusive(gpresDitCompositionInputSinkQuery);
-  EnterCrit(0LL, 0LL);
-  memset_0(&v30, 0, 0x70uLL);
+  EnterCrit(0LL, 1LL);
+  memset(v24, 0, 0x70uLL);
   if ( a1 != 6 && a1 )
   {
-    v12 = 87;
+    v12 = 87LL;
 LABEL_4:
     v13 = 0;
-    UserSetLastError(v12);
+    UserSetLastError(v12, v9, v11);
     goto LABEL_25;
   }
   CurrentProcess = PsGetCurrentProcess(v10, v9, v11);
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    v12 = 5;
+    v12 = 5LL;
     goto LABEL_4;
   }
-  v21 = (ULONG64)(a2 + 1);
-  if ( a2 + 1 < a2 || v21 > MmUserProbeAddress )
-    a2 = (__int64 *)MmUserProbeAddress;
-  v31 = *a2;
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v21, v19, v20);
+  v16 = (ULONG64)(a2 + 1);
+  if ( a2 + 1 < a2 || v16 > MmUserProbeAddress )
+    a2 = (_QWORD *)MmUserProbeAddress;
+  *(_QWORD *)((char *)v24 + 4) = *a2;
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v16);
   ProbeForWrite(a3, 8uLL, CurrentProcessWow64Process != 0 ? 1 : 4);
-  v26 = v30 | 1;
-  v30 |= 1u;
+  v19 = LODWORD(v24[0]) | 1;
+  LODWORD(v24[0]) |= 1u;
   if ( a4 )
   {
     ProbeForWrite(a4, 8uLL, 8u);
-    v26 |= 2u;
-    v30 = v26;
+    v19 |= 2u;
+    LODWORD(v24[0]) = v19;
     *a4 = 0LL;
   }
-  v27 = Address;
+  v20 = Address;
   if ( Address )
   {
-    v28 = PsGetCurrentProcessWow64Process(v24, v23, v25);
-    ProbeForWrite(Address, 0x40uLL, v28 != 0 ? 1 : 4);
-    v30 = v26 | 4;
-    memset_0(v39, 0, sizeof(v39));
-    *Address = v39[0];
-    Address[1] = v39[1];
-    Address[2] = v39[2];
-    Address[3] = v39[3];
+    v21 = PsGetCurrentProcessWow64Process(v18);
+    ProbeForWrite(Address, 0x40uLL, v21 != 0 ? 1 : 4);
+    LODWORD(v24[0]) = v19 | 4;
+    memset(&v24[9], 0, 0x40uLL);
+    *Address = v24[9];
+    Address[1] = v24[10];
+    Address[2] = v24[11];
+    Address[3] = v24[12];
   }
-  v32 = a1;
-  v13 = RequestInputSinkInfoFromPoint(&v30);
+  HIDWORD(v24[0]) = a1;
+  v13 = RequestInputSinkInfoFromPoint(v24);
   if ( v13 )
   {
-    v15 = MmUserProbeAddress;
+    v14 = MmUserProbeAddress;
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
       a3 = (_QWORD *)MmUserProbeAddress;
-    *a3 = v33;
-    v14 = v30;
-    if ( (v30 & 2) != 0 )
+    *a3 = *(_QWORD *)((char *)&v24[1] + 4);
+    v22 = v24[0];
+    if ( (v24[0] & 2) != 0 )
     {
-      v15 = MmUserProbeAddress;
+      v14 = MmUserProbeAddress;
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
         a4 = (_QWORD *)MmUserProbeAddress;
-      *a4 = v34;
+      *a4 = *(_QWORD *)&v24[2];
     }
-    if ( (v14 & 4) != 0 )
+    if ( (v22 & 4) != 0 )
     {
-      v15 = MmUserProbeAddress;
+      v14 = MmUserProbeAddress;
       if ( (unsigned __int64)Address >= MmUserProbeAddress )
-        v27 = (_OWORD *)MmUserProbeAddress;
-      *v27 = v35;
-      v27[1] = v36;
-      v27[2] = v37;
-      v27[3] = v38;
+        v20 = (_OWORD *)MmUserProbeAddress;
+      *v20 = *(__int128 *)((char *)&v24[2] + 8);
+      v20[1] = *(__int128 *)((char *)&v24[3] + 8);
+      v20[2] = *(__int128 *)((char *)&v24[4] + 8);
+      v20[3] = *(__int128 *)((char *)&v24[5] + 8);
     }
   }
 LABEL_25:
-  UserSessionSwitchLeaveCrit(v15, v14, v16, v17);
+  UserSessionSwitchLeaveCrit(v14);
   ExReleaseResourceAndLeaveCriticalRegion(gpresDitCompositionInputSinkQuery);
   return v13;
 }

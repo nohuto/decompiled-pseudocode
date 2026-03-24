@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCompressCallback @ 0x140AA2010
+ * XREFs of PopCompressCallback @ 0x140994570
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
  */
 
 __int64 __fastcall PopCompressCallback(ULONG_PTR a1)

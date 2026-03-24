@@ -1,41 +1,63 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x140630B30
+ * XREFs of MiExceptionForMappedVa @ 0x14052CF68
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A1680 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x14029B880 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiGetSessionVm @ 0x14029281C (MiGetSessionVm.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
 {
-  unsigned int v2; // ebx
-  char *AnyMultiplexedVm; // rsi
-  unsigned __int8 v4; // al
-  _QWORD *v5; // rdx
-  unsigned __int64 v6; // r8
+  unsigned int v1; // ebx
+  _QWORD *v3; // rsi
+  _KPROCESS *Process; // rbp
+  __int64 i; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  __int64 v9; // rdi
+  unsigned __int8 v10; // al
+  __int64 *v11; // rdx
+  unsigned __int64 v12; // r8
+  unsigned __int64 v13; // rcx
+  unsigned int v14; // ebx
 
-  v2 = 0;
-  AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  v4 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-  v5 = P;
-  while ( v5 )
+  v1 = 0;
+  v3 = &unk_140C4CD68;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  for ( i = (__int64)MiGetAnyMultiplexedVm(1); ; i = MiGetSessionVm() )
   {
-    v6 = v5[11] & 0xFFFFFFFFFFFFF000uLL;
-    if ( a1 < v6 + v5[4] )
+    v9 = i;
+    v10 = MiLockWorkingSetShared(i, v6, v7, v8);
+    v11 = (__int64 *)v3[2];
+    while ( v11 )
     {
-      if ( a1 >= v6 )
-        break;
-      v5 = (_QWORD *)*v5;
+      v12 = v11[11] & 0xFFFFFFFFFFFFF000uLL;
+      if ( a1 >= v12 + v11[4] )
+      {
+        v11 = (__int64 *)v11[1];
+      }
+      else
+      {
+        if ( a1 >= v12 )
+        {
+          v14 = *((_DWORD *)v11 + 14);
+          MiUnlockWorkingSetShared(v9, v10);
+          return (v14 >> 1) & 1;
+        }
+        v11 = (__int64 *)*v11;
+      }
     }
-    else
-    {
-      v5 = (_QWORD *)v5[1];
-    }
+    MiUnlockWorkingSetShared(v9, v10);
+    if ( v3 != (_QWORD *)&unk_140C4CD68 )
+      break;
+    v13 = Process[1].AffinityPadding[5];
+    if ( !v13 || (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+      break;
+    v3 = (_QWORD *)(v13 + 192);
   }
-  if ( v5 && (v5[7] & 2) != 0 )
-    v2 = 1;
-  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v4);
-  return v2;
+  return v1;
 }

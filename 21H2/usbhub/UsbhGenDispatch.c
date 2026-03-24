@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhGenDispatch @ 0x1C001C560
+ * XREFs of UsbhGenDispatch @ 0x1C001A1A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapBadIrp @ 0x1C002D620 (UsbhTrapBadIrp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapBadIrp @ 0x1C002EA30 (UsbhTrapBadIrp.c)
  */
 
 __int64 __fastcall UsbhGenDispatch(ULONG_PTR a1, IRP *a2)
@@ -28,12 +28,12 @@ __int64 __fastcall UsbhGenDispatch(ULONG_PTR a1, IRP *a2)
     }
     MajorFunction = CurrentStackLocation->MajorFunction;
     if ( (unsigned __int8)MajorFunction <= 0x1Bu )
-      return ((unsigned int (__fastcall *)(ULONG_PTR, IRP *))off_1C005DC98[2 * MajorFunction])(a1, a2);
+      return ((unsigned int (__fastcall *)(ULONG_PTR, IRP *))off_1C005F5A8[2 * MajorFunction])(a1, a2);
 LABEL_9:
     UsbhTrapBadIrp(a1, (ULONG_PTR)a2);
   }
   v5 = CurrentStackLocation->MajorFunction;
   if ( (unsigned __int8)v5 > 0x1Bu )
     goto LABEL_9;
-  return (unsigned int)off_1C005DE58[2 * v5](a1, (ULONG_PTR)a2);
+  return (unsigned int)off_1C005F768[2 * v5](a1, (ULONG_PTR)a2);
 }

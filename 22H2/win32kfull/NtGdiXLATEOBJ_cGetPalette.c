@@ -1,55 +1,59 @@
 /*
- * XREFs of NtGdiXLATEOBJ_cGetPalette @ 0x1C02CE1E0
+ * XREFs of NtGdiXLATEOBJ_cGetPalette @ 0x1C02B53F0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C02C6D88 (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
- *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02C7D6C (-bSafeCopyBits@@YAHPEAX0K@Z.c)
- *     XLATEOBJ_cGetPalette @ 0x1C02DC040 (XLATEOBJ_cGetPalette.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C013D588 (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0154D24 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     XLATEOBJ_cGetPalette @ 0x1C02BEC80 (XLATEOBJ_cGetPalette.c)
  */
 
 __int64 __fastcall NtGdiXLATEOBJ_cGetPalette(__int64 a1, ULONG a2, ULONG a3, char *a4)
 {
-  ULONG Palette; // esi
+  ULONG Palette; // edi
+  ULONG *v9; // rsi
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v11; // rbx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  XLATEOBJ *v14; // r12
-  unsigned int v16; // ebp
-  ULONG *v17; // rdi
+  struct UMPDOBJ *v12; // rbx
+  XLATEOBJ *v13; // r15
+  unsigned int v14; // r14d
 
   Palette = 0;
+  v9 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v11 = ThreadCurrentObj;
+  v12 = ThreadCurrentObj;
   if ( !ThreadCurrentObj )
-    return 0LL;
-  ++*((_DWORD *)ThreadCurrentObj + 109);
-  v14 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, a1);
-  if ( v14 && a4 )
+    return Palette;
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  v13 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, a1);
+  if ( v13 )
   {
-    if ( a3 > 0x9C4000 )
+    if ( !a4 )
     {
-      --*((_DWORD *)v11 + 109);
-      return 0LL;
+      v14 = 4 * a3;
+LABEL_7:
+      if ( v9 )
+      {
+        Palette = XLATEOBJ_cGetPalette(v13, a2, a3, v9);
+        if ( Palette )
+          Palette &= -((unsigned int)bSafeCopyBits(a4, v9, v14) != 0);
+        Win32FreePool(v9);
+      }
+      goto LABEL_11;
     }
-    v16 = 4 * a3;
-    if ( 4 * a3 )
-      v17 = (ULONG *)Win32AllocPool(v16, 1886221639LL, v12, v13);
-    else
-      v17 = 0LL;
-    if ( v17 )
+    if ( a3 <= 0x9C4000 )
     {
-      Palette = XLATEOBJ_cGetPalette(v14, a2, a3, v17);
-      if ( Palette )
-        Palette &= -((unsigned int)bSafeCopyBits(a4, v17, v16) != 0);
-      Win32FreePool(v17);
+      v14 = 4 * a3;
+      v9 = (ULONG *)PALLOCMEM2(4 * a3, 1886221639LL, 0);
+      goto LABEL_7;
     }
   }
-  --*((_DWORD *)v11 + 109);
+LABEL_11:
+  if ( v12 )
+    --*((_DWORD *)v12 + 105);
   return Palette;
 }

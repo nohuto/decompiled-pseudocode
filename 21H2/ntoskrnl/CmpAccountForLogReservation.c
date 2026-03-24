@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAccountForLogReservation @ 0x14074244C
+ * XREFs of CmpAccountForLogReservation @ 0x140767230
  * Callers:
- *     CmpTransInitializeTransaction @ 0x140741B7C (CmpTransInitializeTransaction.c)
- *     CmKtmNotification @ 0x140741CF0 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
+ *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall CmpAccountForLogReservation(__int64 a1, __int64 a2, char a3)
@@ -25,6 +25,6 @@ __int64 __fastcall CmpAccountForLogReservation(__int64 a1, __int64 a2, char a3)
     rgcbReservation = -rgcbReservation;
   appended = ClfsReserveAndAppendLog(v6, 0LL, 0, 0LL, 0LL, 1u, &rgcbReservation, 0, 0LL);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 128));
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return appended;
 }

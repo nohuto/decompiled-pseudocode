@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02359F0
+ * XREFs of ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F5130
  * Callers:
- *     ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0236070 (-SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCAppl.c)
+ *     ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F57C0 (-SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCAppl.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetBufferPr
     {
       v9 = *a4;
       *((_DWORD *)this + 4) |= 0x80u;
-      *(_QWORD *)((char *)this + 84) = v9;
+      *(_QWORD *)((char *)this + 76) = v9;
       goto LABEL_8;
     }
     return 3221225485LL;
@@ -35,7 +35,7 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetBufferPr
     return 3221225485LL;
   v8 = *(_OWORD *)a4;
   *((_DWORD *)this + 4) |= 0x400u;
-  *(_OWORD *)((char *)this + 68) = v8;
+  *(_OWORD *)((char *)this + 60) = v8;
 LABEL_8:
   *a6 = 1;
   return result;

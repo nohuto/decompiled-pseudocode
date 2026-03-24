@@ -1,83 +1,98 @@
 /*
- * XREFs of DxgCreateContextAllocationCB @ 0x1C01C9420
+ * XREFs of DxgCreateContextAllocationCB @ 0x1C0156AF0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     DpiGetDxgAdapter @ 0x1C00151D0 (DpiGetDxgAdapter.c)
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0015214 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C00067D8 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     DpiGetDxgAdapter @ 0x1C0013140 (DpiGetDxgAdapter.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgCreateContextAllocationCB(unsigned int *a1)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   __int64 DxgAdapter; // rax
-  __int64 v3; // r13
-  __int64 v4; // rbx
-  _QWORD *v5; // r9
-  unsigned int v6; // ebx
-  _BYTE v8[8]; // [rsp+88h] [rbp-70h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+90h] [rbp-68h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // r13
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  _QWORD *v11; // r9
+  unsigned int v12; // ebx
+  __int64 v14; // rax
+  _QWORD *v15; // rax
+  __int64 v16; // rax
+  _BYTE v17[8]; // [rsp+80h] [rbp-68h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+88h] [rbp-60h] BYREF
 
-  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v8);
+  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v17);
   if ( KeGetCurrentIrql() )
   {
-    WdLogSingleEntry1(1LL, 172LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"KeGetCurrentIrql() == PASSIVE_LEVEL",
-      172LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v14 + 24) = 160LL;
+    WdLogEvent5_WdAssertion(v14);
   }
-  DxgAdapter = DpiGetDxgAdapter(*((_QWORD *)a1 + 1));
-  v3 = DxgAdapter;
+  DxgAdapter = DpiGetDxgAdapter(*((_QWORD *)a1 + 1), v2);
+  v7 = DxgAdapter;
   if ( !DxgAdapter )
-    goto LABEL_17;
-  if ( !*(_QWORD *)(DxgAdapter + 2800) )
-    WdLogSingleEntry5(0LL, 275LL, 7LL, 0LL, 0LL, 0LL);
-  v4 = *((_QWORD *)a1 + 2);
-  if ( v4 )
+    goto LABEL_18;
+  if ( !*(_QWORD *)(DxgAdapter + 2704) )
   {
-    if ( !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v4 + 136)) )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, v4, 0LL, 0LL);
-    v5 = (_QWORD *)*((_QWORD *)a1 + 3);
-    if ( v5 )
+    v15 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v6, v5);
+    v15[3] = 275LL;
+    v15[4] = 7LL;
+    v15[5] = 0LL;
+    v15[6] = 0LL;
+    v15[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v15);
+  }
+  v8 = *((_QWORD *)a1 + 2);
+  if ( v8 )
+  {
+    if ( !*(_DWORD *)(v8 + 72) && !ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(v8 + 136)) )
     {
-      if ( *(int *)(v3 + 2424) >= 9472 )
-        v5 = (_QWORD *)*v5;
+      v16 = WdLogNewEntry5_WdCriticalError(v10, v9);
+      *(_QWORD *)(v16 + 24) = 275LL;
+      *(_QWORD *)(v16 + 32) = 4LL;
+      *(_QWORD *)(v16 + 40) = v8;
+      *(_OWORD *)(v16 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v16);
+    }
+    v11 = (_QWORD *)*((_QWORD *)a1 + 3);
+    if ( v11 )
+    {
+      if ( *(int *)(v7 + 2328) >= 9472 )
+        v11 = (_QWORD *)*v11;
     }
     else
     {
-      v5 = 0LL;
+      v11 = 0LL;
     }
-    v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, _QWORD *, _QWORD, _QWORD, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 2800) + 648LL) + 8LL) + 664LL))(
-           *(_QWORD *)(*(_QWORD *)(v3 + 2800) + 656LL),
-           a1[20],
-           *a1,
-           v4,
-           v5,
-           *((_QWORD *)a1 + 4),
-           *((_QWORD *)a1 + 5),
-           a1[12],
-           a1[13],
-           a1[14],
-           a1[15],
-           a1[16],
-           a1[17],
-           a1 + 18);
+    v12 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, _QWORD *, _QWORD, _QWORD, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int *))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 2704) + 640LL) + 8LL) + 656LL))(
+            *(_QWORD *)(*(_QWORD *)(v7 + 2704) + 648LL),
+            a1[20],
+            *a1,
+            v8,
+            v11,
+            *((_QWORD *)a1 + 4),
+            *((_QWORD *)a1 + 5),
+            a1[12],
+            a1[13],
+            a1[14],
+            a1[15],
+            a1[16],
+            a1[17],
+            a1 + 18);
   }
   else
   {
-LABEL_17:
-    v6 = -1073741811;
+LABEL_18:
+    v12 = -1073741811;
   }
-  if ( v8[0] )
+  if ( v17[0] )
     KeUnstackDetachProcess(&ApcState);
-  return v6;
+  return v12;
 }

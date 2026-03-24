@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Accelerate@CExpressionForce@@UEAAMPEAUIntegrationState@@M@Z @ 0x180265F20
+ * XREFs of ?Accelerate@CExpressionForce@@UEAAMPEAUIntegrationState@@M@Z @ 0x180214F30
  * Callers:
  *     <none>
  * Callees:
- *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180211050 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x1801BDC74 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
  */
 
 float __fastcall CExpressionForce::Accelerate(CExpressionForce *this, struct IntegrationState *a2, float a3)
@@ -13,9 +13,9 @@ float __fastcall CExpressionForce::Accelerate(CExpressionForce *this, struct Int
   MatrixSubchannelMaskInfo **v5; // rcx
   float v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = (wchar_t *)*((_QWORD *)this + 15);
-  v4 = (struct CExpressionValueStack *)*((_QWORD *)this + 14);
-  v5 = (MatrixSubchannelMaskInfo **)*((_QWORD *)this + 12);
+  v3 = (wchar_t *)*((_QWORD *)this + 16);
+  v4 = (struct CExpressionValueStack *)*((_QWORD *)this + 15);
+  v5 = (MatrixSubchannelMaskInfo **)*((_QWORD *)this + 13);
   v7 = 0.0;
   CConditionalExpression::GetValue(v5, v4, v3, &v7);
   return v7;

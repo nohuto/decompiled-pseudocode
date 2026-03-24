@@ -1,126 +1,84 @@
 /*
- * XREFs of GetMonitorPhysicalDimensions @ 0x1C0168270
+ * XREFs of GetMonitorPhysicalDimensions @ 0x1C01484C0
  * Callers:
- *     RIMGetMonitorPhysicalSize @ 0x1C018F900 (RIMGetMonitorPhysicalSize.c)
+ *     RIMGetMonitorPhysicalSize @ 0x1C0164770 (RIMGetMonitorPhysicalSize.c)
  * Callees:
- *     ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C001E1C0 (-UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z @ 0x1C00227A0 (-GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     UpdateMonitorDevices @ 0x1C001E2B0 (UpdateMonitorDevices.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall GetMonitorPhysicalDimensions(__int64 a1, unsigned int *a2, unsigned int *a3, _DWORD *a4, _QWORD *a5)
 {
-  __int64 v9; // rax
-  struct tagGRAPHICS_DEVICE *v10; // rax
-  struct tagGRAPHICS_DEVICE *v11; // rdx
-  unsigned int v12; // ebx
-  int v13; // esi
-  unsigned int v14; // edi
-  __int64 v15; // rbx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  int v19; // r8d
-  unsigned int v20; // ebx
-  __int64 v21; // rax
-  __int128 v23; // [rsp+30h] [rbp-D0h] BYREF
-  int v24; // [rsp+40h] [rbp-C0h]
-  char v25[8]; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v26; // [rsp+50h] [rbp-B0h]
-  PVOID P; // [rsp+58h] [rbp-A8h]
-  _DWORD v28[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v29; // [rsp+68h] [rbp-98h]
-  unsigned int v30; // [rsp+70h] [rbp-90h]
-  _DWORD v31[230]; // [rsp+74h] [rbp-8Ch] BYREF
+  unsigned int v6; // ebx
+  __int64 v7; // r15
+  wchar_t *v8; // rdi
+  int v9; // r14d
+  unsigned int v10; // ebp
+  int v11; // r8d
+  __int64 v13; // [rsp+30h] [rbp-418h]
+  _QWORD v17[118]; // [rsp+50h] [rbp-3F8h] BYREF
 
-  v9 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  if ( a1 )
-  {
-    v10 = *(struct tagGRAPHICS_DEVICE **)(v9 + 1264);
-    v11 = *(struct tagGRAPHICS_DEVICE **)(a1 + 2552);
-    if ( v10 && v10 == v11 )
-    {
-      v26 = 0;
-      P = 0LL;
-      EnsureMonitorDevices::UpdateMonitorDevicesOnGraphicsDevice((EnsureMonitorDevices *)v25, v11);
-      v12 = v26;
-      v13 = 0;
-      v14 = 0;
-      if ( v26 )
-      {
-        do
-        {
-          v24 = 0;
-          v23 = 0LL;
-          EnsureMonitorDevices::GetMonitorDevice(
-            (EnsureMonitorDevices *)v25,
-            v14,
-            (struct tagVIDEO_MONITOR_DEVICE *)&v23);
-          if ( (v23 & 3) == 3 )
-          {
-            memset(v31, 0, sizeof(v31));
-            v15 = *((_QWORD *)&v23 + 1);
-            v29 = *((_QWORD *)&v23 + 1);
-            v30 = DWORD1(v23);
-            v28[0] = -7;
-            v28[1] = 940;
-            DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v17, v16);
-            if ( (*(int (__fastcall **)(__int64, _QWORD, _DWORD *, _QWORD, _QWORD))(DxgkWin32kInterface + 264))(
-                   v29,
-                   v30,
-                   v28,
-                   0LL,
-                   0LL) >= 0 )
-            {
-              v13 = 1;
-              if ( v31[226] )
-              {
-                v19 = v31[227];
-                if ( v31[227] )
-                {
-                  *a2 = (v31[226] + 9) / 0xAu;
-                  *a3 = (v19 + 9) / 0xAu;
-                  if ( a4 )
-                    *a4 = DWORD1(v23);
-                  if ( a5 )
-                  {
-                    v21 = 2LL;
-                    do
-                    {
-                      *a5 = v15;
-                      --v21;
-                    }
-                    while ( v21 );
-                  }
-                  v20 = 0;
-                  goto LABEL_13;
-                }
-              }
-            }
-            v12 = v26;
-          }
-          ++v14;
-        }
-        while ( v14 < v12 );
-        v20 = -1073741823;
-        if ( v13 )
-          goto LABEL_13;
-      }
-      v20 = -1073741810;
-LABEL_13:
-      if ( P )
-        ExFreePoolWithTag(P, 0);
-    }
-    else
-    {
-      return (unsigned int)-1073741810;
-    }
-  }
-  else
-  {
+  UpdateMonitorDevices();
+  v6 = 0;
+  if ( !a1 )
     return (unsigned int)-1073741823;
+  v7 = *(_QWORD *)(a1 + 2576);
+  if ( !*(_DWORD *)(v7 + 216) )
+    return (unsigned int)-1073741810;
+  v8 = gpGraphicsDeviceList;
+  v9 = 0;
+  if ( !gpGraphicsDeviceList )
+    return (unsigned int)-1073741810;
+  while ( v8 != (wchar_t *)v7 )
+  {
+LABEL_13:
+    v8 = (wchar_t *)*((_QWORD *)v8 + 16);
+    if ( !v8 )
+      return (unsigned int)-1073741810;
   }
-  return v20;
+  v10 = 0;
+  if ( !*((_DWORD *)v8 + 54) )
+  {
+LABEL_12:
+    if ( v9 )
+      return (unsigned int)-1073741823;
+    goto LABEL_13;
+  }
+  while ( 1 )
+  {
+    v13 = *((_QWORD *)v8 + 28);
+    if ( (*(_BYTE *)(v13 + 20LL * v10) & 3) == 3 )
+    {
+      memset(&v17[1], 0, 0x3A4uLL);
+      v17[0] = 0x3ACFFFFFFF9LL;
+      v17[1] = *(_QWORD *)(v13 + 20LL * v10 + 8);
+      LODWORD(v17[2]) = *(_DWORD *)(v13 + 20LL * v10 + 4);
+      if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD *, _QWORD, _QWORD))qword_1C0250998)(
+                  v17[1],
+                  LODWORD(v17[2]),
+                  v17,
+                  0LL,
+                  0LL) >= 0 )
+      {
+        v9 = 1;
+        if ( HIDWORD(v17[115]) )
+        {
+          v11 = v17[116];
+          if ( LODWORD(v17[116]) )
+            break;
+        }
+      }
+    }
+    if ( ++v10 >= *((_DWORD *)v8 + 54) )
+      goto LABEL_12;
+  }
+  *a2 = (HIDWORD(v17[115]) + 9) / 0xAu;
+  *a3 = (v11 + 9) / 0xAu;
+  if ( a4 )
+    *a4 = *(_DWORD *)(*((_QWORD *)v8 + 28) + 20LL * v10 + 4);
+  if ( a5 )
+    *a5 = *(_QWORD *)(*((_QWORD *)v8 + 28) + 20LL * v10 + 8);
+  return v6;
 }

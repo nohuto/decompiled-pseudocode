@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCompletionSafeWrapper @ 0x14029FA90
+ * XREFs of KsepCompletionSafeWrapper @ 0x14029FB90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

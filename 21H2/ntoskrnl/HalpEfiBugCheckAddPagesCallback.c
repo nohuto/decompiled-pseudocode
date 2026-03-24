@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x1405104F0
+ * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x1404C4000
  * Callers:
  *     <none>
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14036FA30 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
  */
 
 void __fastcall HalpEfiBugCheckAddPagesCallback(
-        KBUGCHECK_CALLBACK_REASON Reason,
+        __int64 Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,
         _QWORD *ReasonSpecificData,
         ULONG ReasonSpecificDataLength)
@@ -36,7 +36,7 @@ void __fastcall HalpEfiBugCheckAddPagesCallback(
     for ( i = *v5; i < 9; ++i )
     {
       ++*v5;
-      MaximumProcessorCount = HalQueryMaximumProcessorCount();
+      MaximumProcessorCount = HalQueryMaximumProcessorCount(Reason);
       v8 = 0;
       v9 = MaximumProcessorCount;
       if ( MaximumProcessorCount )
@@ -44,6 +44,7 @@ void __fastcall HalpEfiBugCheckAddPagesCallback(
         v10 = 0LL;
         while ( 1 )
         {
+          Reason = HalpInterruptProcessorPcr;
           v11 = *(_QWORD *)(v10 + HalpInterruptProcessorPcr);
           if ( v11 )
           {

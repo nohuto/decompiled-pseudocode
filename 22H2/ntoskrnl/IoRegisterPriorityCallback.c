@@ -1,33 +1,36 @@
 /*
- * XREFs of IoRegisterPriorityCallback @ 0x14039FAC0
+ * XREFs of IoRegisterPriorityCallback @ 0x1403AEF50
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ExCompareExchangeCallBack @ 0x14039FB68 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEFD0 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     ExCompareExchangeCallBack @ 0x1403AEFFC (ExCompareExchangeCallBack.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14069ABC0 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IoRegisterPriorityCallback(unsigned __int64 a1, unsigned __int64 a2)
+__int64 __fastcall IoRegisterPriorityCallback(KSPIN_LOCK a1, KSPIN_LOCK a2)
 {
-  struct _EX_RUNDOWN_REF *Pool2; // rbx
+  KSPIN_LOCK *PoolWithTag; // rbx
   __int64 v5; // rsi
 
   if ( (*(_DWORD *)(a1 + 16) & 0x200) != 0 )
     return 3221227288LL;
-  Pool2 = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(64LL, 40LL, 1648586569LL);
-  if ( !Pool2 )
+  PoolWithTag = (KSPIN_LOCK *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62436F49u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  Pool2[2].Count = (unsigned __int64)Pool2;
-  Pool2[1].Count = (unsigned __int64)IopBoostThreadCallback;
-  Pool2[4].Count = a1;
-  Pool2[3].Count = a2;
-  ExInitializePushLock(Pool2);
+  PoolWithTag[2] = (KSPIN_LOCK)PoolWithTag;
+  PoolWithTag[1] = (KSPIN_LOCK)IopBoostThreadCallback;
+  PoolWithTag[4] = a1;
+  PoolWithTag[3] = a2;
+  ExInitializePushLock(PoolWithTag);
   v5 = 0LL;
   do
   {
-    if ( (unsigned __int8)ExCompareExchangeCallBack((char *)&IopUpdatePriorityCallbackRoutine + 8 * v5, Pool2, 0LL) )
+    if ( (unsigned __int8)ExCompareExchangeCallBack(
+                            (char *)&IopUpdatePriorityCallbackRoutine + 8 * v5,
+                            PoolWithTag,
+                            0LL) )
     {
       _InterlockedIncrement(&IopUpdatePriorityCallbackRoutineCount);
       *(_DWORD *)(a1 + 16) |= 0x200u;
@@ -36,6 +39,6 @@ __int64 __fastcall IoRegisterPriorityCallback(unsigned __int64 a1, unsigned __in
     v5 = (unsigned int)(v5 + 1);
   }
   while ( (unsigned int)v5 < 8 );
-  SC_ENV::Free(Pool2);
+  SC_ENV::Free(PoolWithTag);
   return 3221225485LL;
 }

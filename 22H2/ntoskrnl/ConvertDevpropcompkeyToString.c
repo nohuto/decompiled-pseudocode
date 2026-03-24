@@ -1,12 +1,12 @@
 /*
- * XREFs of ConvertDevpropcompkeyToString @ 0x140A6E164
+ * XREFs of ConvertDevpropcompkeyToString @ 0x14097F058
  * Callers:
- *     PnpConvertDevpropcompkeyArrayToString @ 0x1409588DC (PnpConvertDevpropcompkeyArrayToString.c)
- *     ConvertDevpropertyToString @ 0x140A6E2A0 (ConvertDevpropertyToString.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x1408A1CF0 (PnpConvertDevpropcompkeyArrayToString.c)
+ *     ConvertDevpropertyToString @ 0x14097F194 (ConvertDevpropertyToString.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140226370 (RtlStringCbPrintfExW.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     RtlStringCbPrintfExW @ 0x14024F030 (RtlStringCbPrintfExW.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
  */
 
 __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsigned int a3, unsigned int *a4)
@@ -86,6 +86,6 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
     }
   }
 LABEL_23:
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)v8;
 }

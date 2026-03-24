@@ -1,23 +1,23 @@
 /*
- * XREFs of KiPriQueueThreadPriorityChanged @ 0x140291EE4
+ * XREFs of KiPriQueueThreadPriorityChanged @ 0x14029F3A0
  * Callers:
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1402EBB58 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetBasePriorityThread @ 0x1402EBF30 (KeSetBasePriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x140258E60 (KeSetBasePriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1402E9944 (KeSetPriorityAndQuantumProcess.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiActivateWaiterPriQueue @ 0x1402EC8A4 (KiActivateWaiterPriQueue.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402EE104 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiProcessThreadWaitList @ 0x140340390 (KiProcessThreadWaitList.c)
+ *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14029F4FC (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterPriQueue @ 0x14029F6C4 (KiActivateWaiterPriQueue.c)
  */
 
-__int64 __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, __int64 a2)
+int __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, __int64 a2)
 {
   __int64 v2; // r8
   int v4; // edx
   bool v5; // r9
   __int64 v6; // r10
-  __int64 result; // rax
+  int result; // eax
   int v9; // edx
   __int64 v10; // rcx
   bool v11; // bl
@@ -48,6 +48,6 @@ __int64 __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, 
     result = KiActivateWaiterQueueWithNoLocks(a2, a1, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
   if ( CurrentPrcb->DeferredReadyListHead.Next )
-    return KiProcessThreadWaitList(CurrentPrcb, 1LL, 0LL, 0LL);
+    return KiProcessThreadWaitList((__int64)CurrentPrcb, 1u, 0, 0);
   return result;
 }

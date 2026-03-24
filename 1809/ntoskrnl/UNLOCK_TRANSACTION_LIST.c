@@ -5,7 +5,7 @@
  *     CmpRundownUnitOfWork @ 0x1405A92B8 (CmpRundownUnitOfWork.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 _QWORD *UNLOCK_TRANSACTION_LIST()

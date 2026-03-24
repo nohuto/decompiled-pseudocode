@@ -1,48 +1,48 @@
 /*
- * XREFs of ?Remove@?$CSortedVector@_K_K@NSInstrumentation@@QEAA_NAEB_K@Z @ 0x1C0080D84
+ * XREFs of ?Remove@?$CSortedVector@_K_K@NSInstrumentation@@QEAA_NAEB_K@Z @ 0x1C00FDE50
  * Callers:
- *     UmfdUnloadFontFileInternal @ 0x1C007C648 (UmfdUnloadFontFileInternal.c)
+ *     UmfdUnloadFontFileInternal @ 0x1C00FDDA8 (UmfdUnloadFontFileInternal.c)
  * Callees:
- *     ?LowerBound@?$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z @ 0x1C0080664 (-LowerBound@-$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ??1?$CAutoExclusiveCReaderWriterLock@VCPrioritizedWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C026A828 (--1-$CAutoExclusiveCReaderWriterLock@VCPrioritizedWriterLock@NSInstrumentation@@@NSInstrumentati.c)
- *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C0305FCC (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
+ *     ?LowerBound@?$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z @ 0x1C00FE058 (-LowerBound@-$CSortedVector@_K_K@NSInstrumentation@@QEBA_KAEB_K@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C02DCB98 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
  */
 
 char __fastcall NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int64>::Remove(__int64 a1, _QWORD *a2)
 {
+  volatile signed __int32 *v2; // rbx
   char v4; // di
-  unsigned __int64 v5; // rax
-  unsigned __int64 v6; // r8
-  _QWORD *v7; // rcx
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  char v5; // si
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // r8
+  _QWORD *v8; // rcx
 
-  v9 = a1;
+  v2 = (volatile signed __int32 *)UmfdFontFileLookup;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(a1, 0LL);
-  v4 = 1;
-  _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 16), 0, 1);
-  _InterlockedAdd((volatile signed __int32 *)(a1 + 28), 1u);
-  if ( *(_DWORD *)(a1 + 24) )
-    NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPlatformSingleWatierSignal *)(a1 + 8));
-  v5 = NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int64>::LowerBound(a1, a2);
-  v6 = *(_QWORD *)(a1 + 40);
-  if ( !v6 || v5 >= v6 )
+  ExAcquirePushLockExclusiveEx(v2, 0LL);
+  v4 = 0;
+  v5 = 1;
+  _InterlockedCompareExchange(v2 + 4, 0, 1);
+  _InterlockedAdd(v2 + 7, 1u);
+  if ( *((_DWORD *)v2 + 6) )
+    NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPlatformSingleWatierSignal *)(v2 + 2));
+  v6 = NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int64>::LowerBound(v2, a2);
+  v7 = *((_QWORD *)v2 + 5);
+  if ( !v7 || v6 >= v7 )
   {
-    v4 = 0;
+    v5 = 0;
     goto LABEL_7;
   }
-  v7 = (_QWORD *)(*(_QWORD *)(a1 + 48) + 16 * v5);
-  if ( *v7 == *a2 )
+  v8 = (_QWORD *)(*((_QWORD *)v2 + 6) + 16 * v6);
+  if ( *v8 == *a2 )
   {
-    memmove(v7, v7 + 2, 16 * (v6 - v5) - 16);
-    --*(_QWORD *)(a1 + 40);
+    memmove(v8, v8 + 2, 16 * (v7 - v6) - 16);
+    --*((_QWORD *)v2 + 5);
 LABEL_7:
-    NSInstrumentation::CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPrioritizedWriterLock>::~CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPrioritizedWriterLock>(&v9);
-    return v4;
+    v4 = v5;
   }
-  _InterlockedDecrement((volatile signed __int32 *)(a1 + 28));
-  ExReleasePushLockExclusiveEx(a1, 0LL);
+  _InterlockedDecrement(v2 + 7);
+  ExReleasePushLockExclusiveEx(v2, 0LL);
   KeLeaveCriticalRegion();
-  return 0;
+  return v4;
 }

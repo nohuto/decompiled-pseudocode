@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetDeviceTelemetryInfoFlags@FxDevice@@UEAAXW4FxDeviceInfoFlags@@@Z @ 0x1C000BBB0
+ * XREFs of ?SetDeviceTelemetryInfoFlags@FxDevice@@UEAAXW4FxDeviceInfoFlags@@@Z @ 0x1C000DAF0
  * Callers:
  *     <none>
  * Callees:

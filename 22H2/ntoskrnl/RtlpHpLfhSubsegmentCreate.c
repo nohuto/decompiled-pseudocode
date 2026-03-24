@@ -1,127 +1,158 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCreate @ 0x140316E10
+ * XREFs of RtlpHpLfhSubsegmentCreate @ 0x1402FF000
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADC90 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402BD4D0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpAcquireLockShared @ 0x140315948 (RtlpHpAcquireLockShared.c)
- *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x140316D64 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
- *     RtlpCalculateSubsegmentSizeIndex @ 0x14031708C (RtlpCalculateSubsegmentSizeIndex.c)
- *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x1403170BC (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
- *     RtlpHpLfhSubsegmentInitialize @ 0x140317170 (RtlpHpLfhSubsegmentInitialize.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     RtlpHpAcquireLockShared @ 0x1402873F4 (RtlpHpAcquireLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1402FF2C8 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1402FF37C (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x1402FF5F8 (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned int a3)
 {
-  int v6; // esi
-  int v7; // ebx
-  int v8; // eax
-  int v9; // ecx
-  unsigned int v10; // eax
+  __int64 v4; // rcx
+  int v7; // edi
+  unsigned int v8; // ebp
+  int v9; // eax
+  unsigned int v10; // r9d
   unsigned int v11; // edx
   unsigned int v12; // r8d
-  unsigned int v13; // esi
-  unsigned int v14; // eax
-  unsigned int v15; // r9d
-  unsigned int v16; // eax
-  KIRQL v17; // bp
-  __int64 v18; // r15
-  unsigned int v19; // ebx
-  unsigned int v20; // ecx
-  __int64 v21; // r14
-  struct _KTHREAD *CurrentThread; // rcx
-  bool v23; // zf
+  int v13; // ecx
+  unsigned int v14; // r10d
+  int v15; // eax
+  unsigned int v16; // ecx
+  unsigned int v17; // eax
+  unsigned int v18; // ecx
+  unsigned int v19; // ecx
+  unsigned int v20; // esi
+  KIRQL v21; // r14
+  __int64 v22; // rdi
+  unsigned int v23; // ebp
+  __int64 v24; // rbp
+  unsigned int v26; // edx
+  unsigned int v27; // ecx
+  unsigned int v28; // ecx
+  unsigned int v29; // ecx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v28; // edx
-  int v29; // [rsp+80h] [rbp+8h]
-  int v30; // [rsp+88h] [rbp+10h] BYREF
-  int v31; // [rsp+90h] [rbp+18h] BYREF
-  int v32; // [rsp+98h] [rbp+20h]
+  int v33; // edx
+  bool v34; // zf
+  int v35; // [rsp+30h] [rbp-58h] BYREF
+  int v36; // [rsp+34h] [rbp-54h]
+  int v37; // [rsp+90h] [rbp+8h]
+  int v38; // [rsp+A0h] [rbp+18h] BYREF
+  unsigned int v39; // [rsp+A8h] [rbp+20h]
 
-  v30 = 0;
-  v31 = 0;
-  v6 = (unsigned __int16)RtlpBucketBlockSizes[*(unsigned __int8 *)(a2 + 1)];
-  v29 = v6;
+  v4 = *(unsigned __int8 *)(a2 + 1);
+  v35 = 0;
+  v38 = 0;
+  v7 = (unsigned __int16)RtlpBucketBlockSizes[v4];
+  v37 = v7;
   if ( (RtlpHpLfhPerfFlags & 1) != 0 )
-    v7 = RtlpHpLfhBucketSubsegmentStatsUpdate(a1 + 64, *(unsigned __int8 *)(a2 + 1));
+    v8 = RtlpHpLfhBucketSubsegmentStatsUpdate(a1 + 64, (unsigned int)v4);
   else
-    v7 = 0;
-  v8 = RtlpHpLfhBucketComputeNewSubsegmentBlockCount(a2, v7);
-  v9 = (8 * (((unsigned __int64)(unsigned int)(2 * v8) + 63) >> 6) + 63) & 0xFFFFFFF0;
-  v10 = RtlpCalculateSubsegmentSizeIndex(v9 + 2 * ((unsigned int)(v6 * v8 + v9 + 4095) >> 12) + v6 * v8);
-  if ( v10 <= 0xC )
-    LOBYTE(v10) = 12;
-  v13 = 1 << v10;
-  if ( (RtlpHpLfhPerfFlags & 8) != 0 && v12 <= v11 >> 6 )
+    v8 = 0;
+  v9 = RtlpHpLfhBucketComputeNewSubsegmentBlockCount(a2, v8);
+  v10 = 7;
+  v11 = v7 * v9;
+  v12 = 18;
+  v13 = (8 * (((unsigned __int64)(unsigned int)(2 * v9) + 63) >> 6) + 63) & 0xFFFFFFF0;
+  v14 = v13 + 2 * ((unsigned int)(v7 * v9 + v13 + 4095) >> 12);
+  v15 = v14 + v11;
+  if ( v14 + v11 >= 0xF0000 )
+    v15 = 983040;
+  _BitScanReverse(&v16, v15 - 1);
+  v17 = 7;
+  v18 = v16 + 1;
+  if ( v18 > 7 )
+    v17 = v18;
+  v19 = 18;
+  if ( v17 < 0x12 )
+    v19 = v17;
+  if ( v19 <= 0xC )
+    LOBYTE(v19) = 12;
+  v20 = 1 << v19;
+  if ( (RtlpHpLfhPerfFlags & 8) != 0 && v14 <= v11 >> 6 )
   {
-    v14 = RtlpCalculateSubsegmentSizeIndex(v11);
-    if ( v14 <= v15 )
-      LOBYTE(v14) = v15;
-    v16 = 1 << v14;
-    if ( v13 > v16 )
-      v13 = v16;
+    if ( v11 >= 0xF0000 )
+      v11 = 983040;
+    _BitScanReverse(&v28, v11 - 1);
+    v29 = v28 + 1;
+    if ( v29 > 7 )
+      v10 = v29;
+    v39 = v10;
+    if ( v10 < 0x12 )
+      v12 = v10;
+    if ( v12 <= 0xC )
+      LOBYTE(v12) = 12;
+    if ( v20 > 1 << v12 )
+      v20 = 1 << v12;
   }
   if ( (a3 & 1) != 0 )
-    v17 = -1;
+    v21 = -1;
   else
-    v17 = RtlpHpAcquireLockShared((volatile LONG *)(a1 + 72), *(unsigned __int8 *)(a1 + 57));
-  v18 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, int *, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8)))(
+    v21 = RtlpHpAcquireLockShared((volatile LONG *)(a1 + 72), *(unsigned __int8 *)(a1 + 57));
+  v22 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, int *, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8)))(
           *(_QWORD *)a1,
-          v13,
+          v20,
           a3,
-          &v31,
-          &v30);
-  if ( v18 )
+          &v38,
+          &v35);
+  if ( v22 )
   {
-    if ( v7 && (RtlpHpLfhPerfFlags & 2) != 0 || (v31 & 1) != 0 )
+    if ( v8 && (RtlpHpLfhPerfFlags & 2) != 0 || (v38 & 1) != 0 )
     {
-      v19 = v13;
+      v23 = v20;
     }
     else
     {
-      v19 = 2 * v29;
-      v32 = 0;
-      if ( ((v19 - 1) & v19) != 0 )
+      v26 = 2 * v37;
+      v36 = 0;
+      if ( ((2 * v37 - 1) & (2 * v37)) != 0 )
       {
-        _BitScanReverse(&v20, v19);
-        v32 = v20 + 1;
-        v19 = 1 << (v20 + 1);
+        _BitScanReverse(&v27, v26);
+        v36 = v27 + 1;
+        v26 = 1 << (v27 + 1);
       }
-      if ( v19 <= 0x1000 )
-        v19 = 4096;
-      if ( v19 >= v13 )
-        v19 = v13;
+      if ( v26 <= 0x1000 )
+        v26 = 4096;
+      v23 = v20;
+      if ( v26 < v20 )
+        v23 = v26;
     }
     if ( ((int (__fastcall *)(_QWORD, __int64, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)))(
            *(_QWORD *)a1,
-           v18,
-           v19) < 0 )
+           v22,
+           v23) < 0 )
     {
-      v21 = 0LL;
-      ((void (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 16)))(
-        *(_QWORD *)a1,
-        v18,
-        v13,
-        a3);
+      v24 = 0LL;
     }
     else
     {
-      RtlpHpLfhSubsegmentInitialize(v18, v13, v19, v29, a1);
-      _InterlockedAdd64((volatile signed __int64 *)(a2 + 64), 1uLL);
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), *(unsigned __int16 *)(v18 + 34));
-      v21 = v18;
+      RtlpHpLfhSubsegmentInitialize(v22, v20, v23, v37, a1);
+      _InterlockedIncrement64((volatile signed __int64 *)(a2 + 64));
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), *(unsigned __int16 *)(v22 + 34));
+      v24 = v22;
+      v22 = 0LL;
     }
+    if ( v22 )
+      ((void (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 16)))(
+        *(_QWORD *)a1,
+        v22,
+        v20,
+        a3);
   }
   else
   {
-    v21 = 0LL;
+    v24 = 0LL;
   }
   if ( (a3 & 1) == 0 )
   {
@@ -130,33 +161,30 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned in
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v28 = ~(unsigned __int16)(-1LL << (v17 + 1));
-          v23 = (v28 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v28;
-          if ( v23 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v21 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v33 = ~(unsigned __int16)(-1LL << (v21 + 1));
+            v34 = (v33 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v33;
+            if ( v34 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
-      __writecr8(v17);
+      __writecr8(v21);
     }
     else
     {
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 72), 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 72));
       KeAbPostRelease(a1 + 72);
-      CurrentThread = KeGetCurrentThread();
-      v23 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v23
-        && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     }
   }
-  return v21;
+  return v24;
 }

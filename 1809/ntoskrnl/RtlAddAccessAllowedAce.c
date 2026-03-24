@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAddAccessAllowedAce @ 0x1406555A0
+ * XREFs of RtlAddAccessAllowedAce @ 0x140655580
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x1400DCB10 (RtlCheckTokenMembershipEx.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x140132CF8 (SepAppendAceToTokenDefaultDacl.c)
- *     SepInitProcessAuditSd @ 0x14017D0CC (SepInitProcessAuditSd.c)
- *     RtlCheckTokenCapability @ 0x1402ED9B0 (RtlCheckTokenCapability.c)
- *     WdipAccessCheck @ 0x14030DC54 (WdipAccessCheck.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140132D18 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepInitProcessAuditSd @ 0x14017D0EC (SepInitProcessAuditSd.c)
+ *     RtlCheckTokenCapability @ 0x1402EDAB0 (RtlCheckTokenCapability.c)
+ *     WdipAccessCheck @ 0x14030DD54 (WdipAccessCheck.c)
  *     ViInitializeLocalSystemDescriptor @ 0x14092647C (ViInitializeLocalSystemDescriptor.c)
  *     SepInitSystemDacls @ 0x1409AD07C (SepInitSystemDacls.c)
  *     SeMakeSystemToken @ 0x1409ADE18 (SeMakeSystemToken.c)
@@ -16,7 +16,7 @@
  *     IopCreateUmdfDirectory @ 0x1409D9F10 (IopCreateUmdfDirectory.c)
  *     ExpKeyedEventInitialization @ 0x1409DA2F8 (ExpKeyedEventInitialization.c)
  *     PopUmpoInitializeChannel @ 0x1409DBCC0 (PopUmpoInitializeChannel.c)
- *     IopApplySystemPartitionProt @ 0x1409F4F30 (IopApplySystemPartitionProt.c)
+ *     IopApplySystemPartitionProt @ 0x1409F4F40 (IopApplySystemPartitionProt.c)
  * Callees:
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
  */

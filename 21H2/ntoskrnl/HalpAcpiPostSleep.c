@@ -1,30 +1,30 @@
 /*
- * XREFs of HalpAcpiPostSleep @ 0x140A50388
+ * XREFs of HalpAcpiPostSleep @ 0x140995B2C
  * Callers:
- *     HaliAcpiSleep @ 0x140390D20 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     HalpRestoreNvsArea @ 0x140391648 (HalpRestoreNvsArea.c)
- *     HalpTimerEnableHypervisorTimer @ 0x1403916B0 (HalpTimerEnableHypervisorTimer.c)
- *     HalpTimerInitializeVpptClockTimer @ 0x140391724 (HalpTimerInitializeVpptClockTimer.c)
- *     HalpTimerSwitchStallSource @ 0x140391998 (HalpTimerSwitchStallSource.c)
- *     HalpTimerRestorePerformanceCounter @ 0x1403919F0 (HalpTimerRestorePerformanceCounter.c)
- *     HalpSetClockAfterSleep @ 0x140391A94 (HalpSetClockAfterSleep.c)
- *     HalpAcpiPmRegisterWrite @ 0x1403B2B00 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterAvailable @ 0x1403B2F00 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x1403B41A0 (HalpAcpiPmRegisterRead.c)
- *     HalpUnmapVirtualAddress @ 0x1403BF310 (HalpUnmapVirtualAddress.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpMapPhysicalMemory64 @ 0x140416FEC (HalpMapPhysicalMemory64.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpHvNotifyDebugDeviceAvailable @ 0x14050EE94 (HalpHvNotifyDebugDeviceAvailable.c)
- *     HalpRestoreDmaControllerState @ 0x140A5054C (HalpRestoreDmaControllerState.c)
- *     HalpInterruptReinitialize @ 0x140A505D4 (HalpInterruptReinitialize.c)
- *     HalpCheckFixedWakeSources @ 0x140A508E0 (HalpCheckFixedWakeSources.c)
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
- *     HalpResetSBF @ 0x140A54628 (HalpResetSBF.c)
- *     HalpSimpleCheck @ 0x140A62138 (HalpSimpleCheck.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C760 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14037CA20 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpRestoreNvsArea @ 0x140386924 (HalpRestoreNvsArea.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x14038698C (HalpTimerEnableHypervisorTimer.c)
+ *     HalpTimerInitializeVpptClockTimer @ 0x1403869FC (HalpTimerInitializeVpptClockTimer.c)
+ *     HalpTimerSwitchStallSource @ 0x140386C80 (HalpTimerSwitchStallSource.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x140386CD8 (HalpTimerRestorePerformanceCounter.c)
+ *     HalpSetClockAfterSleep @ 0x140386D7C (HalpSetClockAfterSleep.c)
+ *     HalpAcpiPmRegisterRead @ 0x140399640 (HalpAcpiPmRegisterRead.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpMapPhysicalMemory64 @ 0x1403EFE80 (HalpMapPhysicalMemory64.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpHvNotifyDebugDeviceAvailable @ 0x1404C2A74 (HalpHvNotifyDebugDeviceAvailable.c)
+ *     HalpRestoreDmaControllerState @ 0x140995CF0 (HalpRestoreDmaControllerState.c)
+ *     HalpInterruptReinitialize @ 0x140995D78 (HalpInterruptReinitialize.c)
+ *     HalpCheckFixedWakeSources @ 0x1409960B0 (HalpCheckFixedWakeSources.c)
+ *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
+ *     HalpResetSBF @ 0x14099B49C (HalpResetSBF.c)
+ *     HalpSimpleCheck @ 0x1409A81BC (HalpSimpleCheck.c)
  */
 
 char __fastcall HalpAcpiPostSleep(__int64 a1, __int64 a2, __int64 a3)
@@ -60,18 +60,18 @@ char __fastcall HalpAcpiPostSleep(__int64 a1, __int64 a2, __int64 a3)
     HalpCheckFixedWakeSources();
     if ( (int)HalpAcpiPmRegisterAvailable(0) >= 0 )
     {
-      HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4C078 >> 1, (__int64)v17, 2u, 0LL);
+      HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)v17, 2u, 0LL);
       v4 = v17[0];
       v16[0] = v17[0];
       if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
       {
-        HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4C078 >> 1, (__int64)v17, 2u, 0LL);
+        HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)v17, 2u, 0LL);
         v4 = v17[0] | v16[0];
       }
       v16[0] = v4 & 0xFBFF;
-      HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4C078 >> 1, (__int64)v16, 2u, 0LL);
+      HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)v16, 2u, 0LL);
       if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
-        HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4C078 >> 1, (__int64)v16, 2u, 0LL);
+        HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)v16, 2u, 0LL);
     }
   }
   v19 = -1;
@@ -122,7 +122,7 @@ char __fastcall HalpAcpiPostSleep(__int64 a1, __int64 a2, __int64 a3)
   HalpInterruptReinitialize(v3);
   if ( !HalpResumeFromHibernate )
   {
-    ((void (__fastcall *)(_QWORD))off_140C01E10)(((v3 >> 8) & 0xF) + 1);
+    ((void (__fastcall *)(_QWORD))off_140C007C0)(((v3 >> 8) & 0xF) + 1);
     if ( HalpHvCpuManager )
       HalpHvNotifyDebugDeviceAvailable();
   }
@@ -153,7 +153,7 @@ char __fastcall HalpAcpiPostSleep(__int64 a1, __int64 a2, __int64 a3)
   HalpTimerEnableHypervisorTimer();
   HalpPiix4Detect(0LL);
   if ( !HalpResumeFromHibernate )
-    ((void (__fastcall *)(_QWORD))off_140C01D10[0])(((v3 >> 8) & 0xF) + 1);
+    ((void (__fastcall *)(_QWORD))off_140C006C0[0])(((v3 >> 8) & 0xF) + 1);
   v6 = PmAcpiDispatchTable;
   LOBYTE(v6) = 1;
   (*(void (__fastcall **)(__int64))(PmAcpiDispatchTable + 8))(v6);

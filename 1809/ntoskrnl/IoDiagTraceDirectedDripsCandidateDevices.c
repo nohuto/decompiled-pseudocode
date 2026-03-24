@@ -1,9 +1,9 @@
 /*
- * XREFs of IoDiagTraceDirectedDripsCandidateDevices @ 0x14083CE10
+ * XREFs of IoDiagTraceDirectedDripsCandidateDevices @ 0x14083CDF0
  * Callers:
- *     PopDiagTraceDirectedDripsNotifyDevices @ 0x14087213C (PopDiagTraceDirectedDripsNotifyDevices.c)
+ *     PopDiagTraceDirectedDripsNotifyDevices @ 0x14087211C (PopDiagTraceDirectedDripsNotifyDevices.c)
  * Callees:
- *     PoDiagTraceDirectedDripsCandidateDevice @ 0x14086FA3C (PoDiagTraceDirectedDripsCandidateDevice.c)
+ *     PoDiagTraceDirectedDripsCandidateDevice @ 0x14086FA1C (PoDiagTraceDirectedDripsCandidateDevice.c)
  */
 
 ULONG_PTR IoDiagTraceDirectedDripsCandidateDevices()

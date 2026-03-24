@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801D9DD0
+ * XREFs of ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x18018EF6C
  * Callers:
- *     ?UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ @ 0x1801DA564 (-UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ.c)
+ *     ?UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ @ 0x18018F738 (-UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4F@@@Z @ 0x1801D98C8 (-CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4F@@@Z @ 0x18018EA68 (-CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4.c)
  */
 
 void __fastcall ClipPlaneIterator::GetMoreStandardClipPlanes(
@@ -12,11 +12,11 @@ void __fastcall ClipPlaneIterator::GetMoreStandardClipPlanes(
         struct D2D_VECTOR_4F *a2,
         unsigned int *a3)
 {
-  __int64 v3; // r9
-  int v7; // r10d
-  unsigned int v8; // r8d
-  unsigned int v9; // edi
-  unsigned int v10; // r11d
+  __int64 v3; // r10
+  int v7; // r11d
+  unsigned int v8; // r9d
+  unsigned int v9; // r8d
+  unsigned int v10; // edi
   __int64 v11; // r8
   unsigned int v12; // esi
   _DWORD *v13; // rcx
@@ -24,7 +24,7 @@ void __fastcall ClipPlaneIterator::GetMoreStandardClipPlanes(
   int v15; // xmm0_4
   int v16; // xmm1_4
   unsigned int v17; // edx
-  __int64 v18; // r11
+  __int64 v18; // r9
   __int64 v19; // rcx
   __int64 v20; // rax
   _QWORD *v21; // rdx
@@ -35,19 +35,19 @@ void __fastcall ClipPlaneIterator::GetMoreStandardClipPlanes(
   v3 = *((unsigned int *)this + 2);
   v7 = 1;
   v8 = *((_DWORD *)this + 12) - v3;
-  v9 = v8;
-  v10 = 3 - ((_DWORD)v3 != 0);
-  if ( v10 < v8 )
-    v9 = 3 - ((_DWORD)v3 != 0);
-  if ( (unsigned int)v3 + v9 >= *((_DWORD *)this + 12) - 1 )
+  v9 = 3 - ((_DWORD)v3 != 0);
+  v10 = v9;
+  if ( v9 >= v8 )
+    v10 = *((_DWORD *)this + 12) - v3;
+  if ( v10 + (unsigned int)v3 >= *((_DWORD *)this + 12) - 1 )
   {
     v7 = 0;
-    v9 = *((_DWORD *)this + 12) - v3;
-    if ( v10 + 1 < v8 )
-      v9 = v10 + 1;
+    v10 = *((_DWORD *)this + 12) - v3;
+    if ( v9 + 1 < v8 )
+      v10 = v9 + 1;
   }
   v11 = 0LL;
-  v12 = v7 + v9 + ((_DWORD)v3 != 0);
+  v12 = v7 + v10 + ((_DWORD)v3 != 0);
   if ( (_DWORD)v3 )
   {
     v13 = (_DWORD *)*((_QWORD *)this + 3);
@@ -61,7 +61,7 @@ void __fastcall ClipPlaneIterator::GetMoreStandardClipPlanes(
     v24[1] = v16;
   }
   v17 = 0;
-  if ( v9 )
+  if ( v10 )
   {
     v18 = *((_QWORD *)this + 3);
     do
@@ -72,18 +72,18 @@ void __fastcall ClipPlaneIterator::GetMoreStandardClipPlanes(
       ++v17;
       *(_OWORD *)&v23[2 * v20] = *(_OWORD *)(v18 + 8 * v19);
     }
-    while ( v17 < v9 );
+    while ( v17 < v10 );
   }
   if ( v7 )
   {
     v21 = (_QWORD *)*((_QWORD *)this + 3);
     v22 = 2 * v11;
     *(_QWORD *)&v24[2 * v22] = *v21;
-    *(_QWORD *)&v23[2 * v22] = v21[2 * v9 - 1 + 2 * (_DWORD)v3];
+    *(_QWORD *)&v23[2 * v22] = v21[2 * v10 - 1 + 2 * (_DWORD)v3];
   }
   ClipPlaneIterator::CalculateClipPlanesFromLineSegments(this, (struct ClipPlaneIterator::LineSegment *)v23, v12, a2);
   *a3 = v12;
-  *((_DWORD *)this + 2) += v9;
+  *((_DWORD *)this + 2) += v10;
   if ( *((_DWORD *)this + 2) >= *((_DWORD *)this + 12) )
     *((_DWORD *)this + 1) = 1;
 }

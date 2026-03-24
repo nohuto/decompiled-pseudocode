@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMapParametersInitialize @ 0x1406FC8B0
+ * XREFs of MiMapParametersInitialize @ 0x1406EBFB0
  * Callers:
- *     NtMapViewOfSection @ 0x1406FB000 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x140756C90 (MiMapViewOfSectionExCommon.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
- *     MmMapSecureViewOfSection @ 0x1407A6574 (MmMapSecureViewOfSection.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
+ *     MmMapSecureViewOfSection @ 0x140660E50 (MmMapSecureViewOfSection.c)
+ *     NtMapViewOfSection @ 0x1406EAD00 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiGetUserReservationHighestAddress @ 0x1406FC9C4 (MiGetUserReservationHighestAddress.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiGetUserReservationHighestAddress @ 0x1406EC0BC (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapParametersInitialize(
@@ -32,16 +32,16 @@ __int64 __fastcall MiMapParametersInitialize(
   *((_QWORD *)a1 + 11) = a3;
   v12 = (unsigned __int16)KeNumberNodes;
   v13 = a6 & 0x7F;
-  *((_BYTE *)a1 + 57) = KeGetCurrentThread()->PreviousMode;
+  *((_BYTE *)a1 + 104) = KeGetCurrentThread()->PreviousMode;
   *((_DWORD *)a1 + 13) = v13;
   if ( v13 > v12 )
     return 3221225485LL;
   *((_DWORD *)a1 + 10) = a6 & 0xFFFFFF80;
   *((_DWORD *)a1 + 11) = a7;
   if ( a4 )
-    *((_DWORD *)a1 + 15) |= 1u;
+    *((_DWORD *)a1 + 18) |= 1u;
   *((_QWORD *)a1 + 3) = a5;
-  if ( (*(_DWORD *)(v11 + 56) & 0x20) == 0 && (*((_DWORD *)a1 + 15) & 1) != 0 )
+  if ( (*(_DWORD *)(v11 + 56) & 0x20) == 0 && (*((_DWORD *)a1 + 18) & 1) != 0 )
     a8 = 0LL;
   *((_QWORD *)a1 + 1) = MiGetUserReservationHighestAddress(a3, a8);
   *((_QWORD *)a1 + 2) = 0x10000LL;

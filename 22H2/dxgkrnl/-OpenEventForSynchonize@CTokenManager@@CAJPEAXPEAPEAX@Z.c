@@ -1,8 +1,8 @@
 /*
- * XREFs of ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001687C
+ * XREFs of ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C001AB5C
  * Callers:
- *     ?OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z @ 0x1C00167D0 (-OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z.c)
- *     ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0077B40 (-GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z.c)
+ *     ?OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z @ 0x1C001AAB0 (-OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z.c)
+ *     ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0063BA0 (-GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z.c)
  * Callees:
  *     <none>
  */

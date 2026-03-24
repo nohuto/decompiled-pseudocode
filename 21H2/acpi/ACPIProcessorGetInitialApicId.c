@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIProcessorGetInitialApicId @ 0x1C00905D8
+ * XREFs of ACPIProcessorGetInitialApicId @ 0x1C00910B8
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C0004D10 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
  * Callees:
- *     AMLIGetNSObjectType @ 0x1C0001738 (AMLIGetNSObjectType.c)
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
  */
 
 __int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, int *a2)
@@ -41,7 +41,7 @@ __int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, int *a2)
   v28 = 0LL;
   v27 = 0;
   v6 = 1;
-  if ( (int)ACPIGet(a1, 1413565791, 268501000, 0LL, 0, 0LL, 0LL, (__int64)&v28, (__int64)&v27) >= 0 )
+  if ( (int)ACPIGet((__int64 *)a1, 1413565791, 268501000, 0LL, 0, 0LL, 0LL, (__int64)&v28, (__int64)&v27) >= 0 )
   {
     v8 = v28;
   }
@@ -58,13 +58,13 @@ __int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, int *a2)
   if ( !v8 )
     return 3221225473LL;
   v9 = *(_QWORD *)(a1 + 8);
-  v10 = (const char *)&unk_1C006FB8B;
-  v11 = (const char *)&unk_1C006FB8B;
+  v10 = byte_1C00701BA;
+  v11 = byte_1C00701BA;
   if ( (v9 & 0x200000000000LL) != 0 )
   {
-    v10 = *(const char **)(a1 + 608);
+    v10 = *(const char **)(a1 + 568);
     if ( (v9 & 0x400000000000LL) != 0 )
-      v11 = *(const char **)(a1 + 616);
+      v11 = *(const char **)(a1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -101,41 +101,41 @@ __int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, int *a2)
           if ( v18 == 9 )
           {
             if ( (unsigned __int8)v16 >= 0x10u
-              && ((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 760)) == 6
-               && _bittest64((const signed __int64 *)(a1 + 8), 0x24u)
+              && ((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 720)) == 6
+               && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0
                && *(_DWORD *)(v24 + 12) == v2
                || v6 && i) )
             {
-              goto LABEL_45;
+              goto LABEL_43;
             }
           }
           else if ( v18 == 11
                  && (unsigned __int8)v16 >= 0x28u
                  && ((unsigned int)IrqLibGicVersion < 3 || (unsigned __int8)v16 >= 0x4Cu)
-                 && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 760)) == 6
-                   && _bittest64((const signed __int64 *)(a1 + 8), 0x24u)
+                 && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 720)) == 6
+                   && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0
                    || (unsigned int)AMLIGetNSObjectType(v25) == 12)
                   && *(_DWORD *)(v24 + 8) == v2
                   || v6 && i) )
           {
             if ( v26 < 3 )
-LABEL_45:
+LABEL_43:
               v21 = *(_DWORD *)(v24 + 4);
             else
               v21 = (*(_QWORD *)(v24 + 68) >> 8) & 0xFF000000 | *(_DWORD *)(v24 + 68) & 0xFFFFFF;
-LABEL_25:
+LABEL_22:
             *a2 = v21;
             break;
           }
         }
         else if ( (unsigned __int8)v16 >= 8u
-               && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 760)) == 12
-                 || (unsigned int)AMLIGetNSObjectType(v20) == 6 && _bittest64((const signed __int64 *)(a1 + 8), 0x24u))
+               && (((unsigned int)AMLIGetNSObjectType(*(_QWORD *)(a1 + 720)) == 12
+                 || (unsigned int)AMLIGetNSObjectType(v20) == 6 && (*(_QWORD *)(a1 + 8) & 0x1000000000LL) != 0)
                 && *(unsigned __int8 *)(v19 + 2) == v2
                 || v6 && i) )
         {
           v21 = *(unsigned __int8 *)(v19 + 3);
-          goto LABEL_25;
+          goto LABEL_22;
         }
         v15 = v17;
       }
@@ -145,7 +145,7 @@ LABEL_25:
     if ( *a2 != -1 )
       break;
     if ( !v6 )
-      goto LABEL_29;
+      goto LABEL_26;
     if ( i )
       break;
   }
@@ -154,7 +154,7 @@ LABEL_25:
     ExFreePoolWithTag(v8, 0);
     v22 = *a2;
   }
-LABEL_29:
+LABEL_26:
   if ( v22 == -1 )
     return (unsigned int)-1073741823;
   return v3;

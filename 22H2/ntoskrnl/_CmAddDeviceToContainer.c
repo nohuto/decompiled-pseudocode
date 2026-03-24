@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmAddDeviceToContainer @ 0x14079BC88
+ * XREFs of _CmAddDeviceToContainer @ 0x140758914
  * Callers:
- *     PiDcUpdateDeviceContainerMembership @ 0x14079BAD0 (PiDcUpdateDeviceContainerMembership.c)
- *     _CmMoveBaseContainer @ 0x140A645C8 (_CmMoveBaseContainer.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14075875C (PiDcUpdateDeviceContainerMembership.c)
+ *     _CmMoveBaseContainer @ 0x140976504 (_CmMoveBaseContainer.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmAddDeviceToContainerWorker @ 0x1407956A8 (_CmAddDeviceToContainerWorker.c)
- *     _PnpObjectRaiseDevicesChangeEvent @ 0x140882850 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x140755470 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140758A70 (_CmAddDeviceToContainerWorker.c)
  */
 
 __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
@@ -19,9 +19,9 @@ __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __
   int v11; // eax
   int v12; // ebx
   int v13; // eax
-  _QWORD v15[12]; // [rsp+40h] [rbp-51h] BYREF
+  _QWORD v15[11]; // [rsp+40h] [rbp-51h] BYREF
 
-  memset(v15, 0, 0x58uLL);
+  memset(v15, 0, sizeof(v15));
   v9 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 504);
   v15[3] = a4;
   v15[2] = a3;
@@ -40,7 +40,7 @@ __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __
         return (unsigned int)-1073741595;
     }
   }
-  v11 = CmAddDeviceToContainerWorker(a1, a2, v15[2], (const WCHAR *)v15[3], &v15[4]);
+  v11 = CmAddDeviceToContainerWorker(a1, a2, v15[2], v15[3], (ULONG)&v15[4]);
   v12 = v11;
   if ( !v9 || (LODWORD(v15[0]) = v11, v13 = v9(a1, a2, 5LL), v13 == -1073741822) )
   {

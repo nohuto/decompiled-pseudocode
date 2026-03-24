@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSaveMergedKeys @ 0x1401BB110
+ * XREFs of ZwSaveMergedKeys @ 0x1401BB130
  * Callers:
- *     NtSaveMergedKeys @ 0x1407EA980 (NtSaveMergedKeys.c)
+ *     NtSaveMergedKeys @ 0x1407EA960 (NtSaveMergedKeys.c)
  * Callees:
  *     <none>
  */

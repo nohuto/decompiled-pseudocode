@@ -1,56 +1,53 @@
 /*
- * XREFs of RtlpLogHeapFailure @ 0x1405B4B5C
+ * XREFs of RtlpLogHeapFailure @ 0x1405934AC
  * Callers:
- *     RtlpHpFixedVsFree @ 0x1402018E0 (RtlpHpFixedVsFree.c)
- *     RtlpHpVsContextAllocateInternal @ 0x14024A090 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpAllocateHeap @ 0x14024D400 (RtlpHpAllocateHeap.c)
- *     RtlpHpVsContextFreeList @ 0x14024EDD0 (RtlpHpVsContextFreeList.c)
- *     RtlpHpSegMgrCommit @ 0x14024F060 (RtlpHpSegMgrCommit.c)
- *     RtlpHpVaMgrCtxQuery @ 0x14024FA60 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     ExAllocateHeapPool @ 0x1402AD2B0 (ExAllocateHeapPool.c)
- *     RtlpHpSegFree @ 0x140314F7C (RtlpHpSegFree.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315AE0 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
- *     RtlpHpVsContextFree @ 0x140323450 (RtlpHpVsContextFree.c)
- *     RtlpHpLargeFree @ 0x140323C8C (RtlpHpLargeFree.c)
- *     RtlpHpHeapCheckCommitLimit @ 0x1403244D8 (RtlpHpHeapCheckCommitLimit.c)
- *     RtlFreeHeap @ 0x14034C400 (RtlFreeHeap.c)
- *     RtlpFreeHeapInternal @ 0x14034C464 (RtlpFreeHeapInternal.c)
- *     RtlAllocateHeap @ 0x14034C4E0 (RtlAllocateHeap.c)
- *     RtlSizeHeap @ 0x1405A9DD0 (RtlSizeHeap.c)
- *     RtlpAllocateHeap @ 0x1405AB2D8 (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405ABC68 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x1405AC058 (RtlpCreateSplitBlock.c)
- *     RtlpCreateUCREntry @ 0x1405AC78C (RtlpCreateUCREntry.c)
- *     RtlpDeCommitFreeBlock @ 0x1405AC8CC (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1405AD0DC (RtlpFindAndCommitPages.c)
- *     RtlpFreeHeap @ 0x1405AD338 (RtlpFreeHeap.c)
- *     RtlpInitializeHeapSegment @ 0x1405AD98C (RtlpInitializeHeapSegment.c)
- *     RtlpInsertFreeBlock @ 0x1405ADC3C (RtlpInsertFreeBlock.c)
- *     RtlpInsertUCRBlock @ 0x1405ADF84 (RtlpInsertUCRBlock.c)
- *     RtlpProbeUserBufferSafe @ 0x1405AE04C (RtlpProbeUserBufferSafe.c)
- *     RtlpRemoveUCRBlock @ 0x1405AE0DC (RtlpRemoveUCRBlock.c)
- *     RtlpSizeHeapInternal @ 0x1405AE2FC (RtlpSizeHeapInternal.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405B4D88 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapListCompare @ 0x1405B57D4 (RtlpHeapListCompare.c)
- *     RtlpHpCheckAllocationSizeLimit @ 0x1405B5ED4 (RtlpHpCheckAllocationSizeLimit.c)
- *     RtlZeroHeap @ 0x1409BDF10 (RtlZeroHeap.c)
- *     RtlpDestroyHeapSegment @ 0x1409BE410 (RtlpDestroyHeapSegment.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140287430 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x140289ACC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x14028B1C0 (RtlpHpHeapCheckCommitLimit.c)
+ *     ExAllocateHeapPool @ 0x1402BC8A0 (ExAllocateHeapPool.c)
+ *     RtlpHpVsContextFreeInternal @ 0x1402BF150 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1402BF450 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextFree @ 0x1402C1E90 (RtlpHpVsContextFree.c)
+ *     RtlpHpFreeHeap @ 0x1402C2790 (RtlpHpFreeHeap.c)
+ *     RtlpHpSegFree @ 0x1402C2890 (RtlpHpSegFree.c)
+ *     RtlpHpLargeFree @ 0x1402FDE04 (RtlpHpLargeFree.c)
+ *     RtlpHpCheckAllocationSizeLimit @ 0x1402FE964 (RtlpHpCheckAllocationSizeLimit.c)
+ *     RtlFreeHeap @ 0x1402FEB60 (RtlFreeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1402FEBC4 (RtlpFreeHeapInternal.c)
+ *     RtlAllocateHeap @ 0x1402FEC50 (RtlAllocateHeap.c)
+ *     RtlpHpFixedVsFree @ 0x1403800B0 (RtlpHpFixedVsFree.c)
+ *     RtlSizeHeap @ 0x140586540 (RtlSizeHeap.c)
+ *     RtlpAllocateHeap @ 0x140588A70 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405893D0 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x1405897C0 (RtlpCreateSplitBlock.c)
+ *     RtlpCreateUCREntry @ 0x140589EE4 (RtlpCreateUCREntry.c)
+ *     RtlpDeCommitFreeBlock @ 0x14058A024 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x14058A878 (RtlpFindAndCommitPages.c)
+ *     RtlpFreeHeap @ 0x14058AAD4 (RtlpFreeHeap.c)
+ *     RtlpInitializeHeapSegment @ 0x14058B040 (RtlpInitializeHeapSegment.c)
+ *     RtlpInsertFreeBlock @ 0x14058B2EC (RtlpInsertFreeBlock.c)
+ *     RtlpInsertUCRBlock @ 0x14058B630 (RtlpInsertUCRBlock.c)
+ *     RtlpProbeUserBufferSafe @ 0x14058B6F8 (RtlpProbeUserBufferSafe.c)
+ *     RtlpRemoveUCRBlock @ 0x14058B788 (RtlpRemoveUCRBlock.c)
+ *     RtlpSizeHeapInternal @ 0x14058B998 (RtlpSizeHeapInternal.c)
+ *     RtlpAnalyzeHeapFailure @ 0x140593500 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapListCompare @ 0x140593F4C (RtlpHeapListCompare.c)
+ *     RtlZeroHeap @ 0x140915980 (RtlZeroHeap.c)
+ *     RtlpDestroyHeapSegment @ 0x140915E54 (RtlpDestroyHeapSegment.c)
  * Callees:
- *     RtlpHpHeapHandleError @ 0x1405B5104 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x14059386C (RtlpHpHeapHandleError.c)
  */
 
 void __fastcall RtlpLogHeapFailure(int a1, ULONG_PTR a2, ULONG_PTR a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  if ( qword_140C0C280 != a2 )
+  if ( qword_140C11920 != a2 )
   {
-    qword_140C0C298 = a5;
-    qword_140C0C2A0 = a6;
-    dword_140C0C278 = a1;
-    qword_140C0C280 = a2;
-    qword_140C0C288 = a3;
-    qword_140C0C290 = a4;
+    qword_140C11938 = a5;
+    qword_140C11940 = a6;
+    dword_140C11918 = a1;
+    qword_140C11920 = a2;
+    qword_140C11928 = a3;
+    qword_140C11930 = a4;
     RtlpHpHeapHandleError();
   }
 }

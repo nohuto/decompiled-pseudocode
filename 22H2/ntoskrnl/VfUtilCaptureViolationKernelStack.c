@@ -1,37 +1,36 @@
 /*
- * XREFs of VfUtilCaptureViolationKernelStack @ 0x140AC3490
+ * XREFs of VfUtilCaptureViolationKernelStack @ 0x1409C6400
  * Callers:
- *     CarWriteLivedump @ 0x1405D5D30 (CarWriteLivedump.c)
+ *     <none>
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x14034E3B0 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
- *     RtlCaptureContext @ 0x140428910 (RtlCaptureContext.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryCurrentStackInformation @ 0x140340240 (KeQueryCurrentStackInformation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
+ *     RtlCaptureContext @ 0x1404070D0 (RtlCaptureContext.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD *a2)
 {
-  char v5; // r14
+  char v5; // bp
   unsigned __int8 CurrentIrql; // si
   _DWORD *SchedulerAssist; // r9
-  __int64 v8; // rdx
-  int v9; // ecx
-  signed __int64 v10; // rdi
-  size_t v11; // r8
-  unsigned __int8 v12; // al
+  int v8; // ecx
+  signed __int64 v9; // rdi
+  size_t v10; // r8
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // rax
-  _DWORD *v14; // r9
-  int v15; // edx
-  bool v16; // zf
-  unsigned int v17; // [rsp+60h] [rbp+8h] BYREF
+  _DWORD *v13; // r9
+  int v14; // edx
+  bool v15; // zf
+  unsigned int v16; // [rsp+60h] [rbp+8h] BYREF
   void *Src; // [rsp+70h] [rbp+18h] BYREF
-  unsigned __int64 v19; // [rsp+78h] [rbp+20h] BYREF
+  unsigned __int64 v18; // [rsp+78h] [rbp+20h] BYREF
 
   Src = 0LL;
-  v19 = 0LL;
-  v17 = 0;
+  v18 = 0LL;
+  v16 = 0;
   if ( !ContextRecord )
     return 0;
   v5 = 1;
@@ -40,40 +39,40 @@ char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v8) = 0x8000;
-    else
-      v8 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   RtlCaptureContext(ContextRecord);
-  if ( !KeQueryCurrentStackInformation(&v17, (char **)&Src, &v19) || v17 <= 9 && (v9 = 929, _bittest(&v9, v17)) )
+  if ( !KeQueryCurrentStackInformation((char *)&v16, (struct _KPRCB **)&Src, &v18)
+    || v16 <= 9 && (v8 = 929, _bittest(&v8, v16)) )
   {
     v5 = 0;
   }
   else
   {
-    v10 = KeGetCurrentStackPointer() - (_BYTE *)Src;
+    v9 = KeGetCurrentStackPointer() - (_BYTE *)Src;
     memset(&VfRuleViolationStackSavedArea, 0, 0x6000uLL);
-    v11 = v19 - (_QWORD)Src;
-    if ( v19 - (unsigned __int64)Src > 0x6000 )
-      v11 = 24576LL;
-    memmove(&VfRuleViolationStackSavedArea, Src, v11);
+    v10 = v18 - (_QWORD)Src;
+    if ( v18 - (unsigned __int64)Src > 0x6000 )
+      v10 = 24576LL;
+    memmove(&VfRuleViolationStackSavedArea, Src, v10);
     *a2 = &VfRuleViolationStackSavedArea;
-    ContextRecord->Rsp = (unsigned __int64)&VfRuleViolationStackSavedArea + v10;
+    ContextRecord->Rsp = (unsigned __int64)&VfRuleViolationStackSavedArea + v9;
   }
   if ( KiIrqlFlags )
   {
-    v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v14 = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v16 = (v15 & v14[5]) == 0;
-      v14[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v11 = KeGetCurrentIrql();
+      if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v13 = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v15 = (v14 & v13[5]) == 0;
+        v13[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

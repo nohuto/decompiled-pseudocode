@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlSplitBaseMcb @ 0x140541550
+ * XREFs of FsRtlSplitBaseMcb @ 0x1404EF400
  * Callers:
- *     FsRtlSplitLargeMcb @ 0x1405416C0 (FsRtlSplitLargeMcb.c)
+ *     FsRtlSplitLargeMcb @ 0x1404EF580 (FsRtlSplitLargeMcb.c)
  * Callees:
- *     FsRtlFindLargeIndex @ 0x14022C700 (FsRtlFindLargeIndex.c)
- *     FsRtlAddEntry @ 0x14022C788 (FsRtlAddEntry.c)
+ *     FsRtlAddEntry @ 0x14029DB44 (FsRtlAddEntry.c)
+ *     FsRtlFindLargeIndex @ 0x14029DC7C (FsRtlFindLargeIndex.c)
  */
 
 BOOLEAN __stdcall FsRtlSplitBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Amount)
@@ -15,9 +15,9 @@ BOOLEAN __stdcall FsRtlSplitBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Amount
   __int64 v7; // rbx
   _DWORD *Mapping; // rdx
   int v9; // eax
-  __int64 v10; // r9
-  int v11; // r8d
-  int v12; // eax
+  __int64 v10; // r8
+  int v11; // r10d
+  int v12; // ecx
   int v13; // eax
   __int64 v15; // r8
   __int64 v16; // r11
@@ -55,7 +55,7 @@ LABEL_28:
         goto LABEL_15;
       v10 = v19 - 1;
       v11 = Mapping[2 * v10 + 1];
-      if ( v11 == -1 || (v19 != 1 ? (v12 = Mapping[2 * v19 - 4]) : (v12 = 0), !(Mapping[2 * v10] + v11 - v12)) )
+      if ( v11 == -1 || (v19 != 1 ? (v12 = Mapping[2 * v19 - 4]) : (v12 = 0), !(v11 + Mapping[2 * v10] - v12)) )
       {
         LODWORD(v7) = v19 - 1;
         goto LABEL_29;

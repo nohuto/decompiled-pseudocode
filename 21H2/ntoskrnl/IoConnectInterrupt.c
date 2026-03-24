@@ -1,10 +1,10 @@
 /*
- * XREFs of IoConnectInterrupt @ 0x140859030
+ * XREFs of IoConnectInterrupt @ 0x1407CBD00
  * Callers:
- *     DifIoConnectInterruptWrapper @ 0x14060D7A0 (DifIoConnectInterruptWrapper.c)
+ *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IopConnectInterruptFullySpecified @ 0x1408590B0 (IopConnectInterruptFullySpecified.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     IopConnectInterruptFullySpecified @ 0x1407CBD80 (IopConnectInterruptFullySpecified.c)
  */
 
 NTSTATUS __stdcall IoConnectInterrupt(

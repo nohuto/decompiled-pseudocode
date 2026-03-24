@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_StripSymbolicNamePrefix @ 0x1C0030B3C
+ * XREFs of HUBMISC_StripSymbolicNamePrefix @ 0x1C003049C
  * Callers:
- *     HUBPDO_GetHubName @ 0x1C0014F9C (HUBPDO_GetHubName.c)
- *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C0076BFC (HUBFDO_IoctlGetNodeConnectionName.c)
- *     HUBFDO_IoctlGetPortConnectorProperties @ 0x1C00778A0 (HUBFDO_IoctlGetPortConnectorProperties.c)
- *     WMI_AcquireHubName @ 0x1C0085ED8 (WMI_AcquireHubName.c)
- *     WMI_FireNotification @ 0x1C0086B48 (WMI_FireNotification.c)
+ *     HUBPDO_GetHubName @ 0x1C0014ADC (HUBPDO_GetHubName.c)
+ *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C007585C (HUBFDO_IoctlGetNodeConnectionName.c)
+ *     HUBFDO_IoctlGetPortConnectorProperties @ 0x1C00764F8 (HUBFDO_IoctlGetPortConnectorProperties.c)
+ *     WMI_AcquireHubName @ 0x1C0084268 (WMI_AcquireHubName.c)
+ *     WMI_FireNotification @ 0x1C0084F0C (WMI_FireNotification.c)
  * Callees:
  *     <none>
  */
@@ -13,12 +13,12 @@
 _WORD *__fastcall HUBMISC_StripSymbolicNamePrefix(unsigned __int16 *a1, _QWORD *a2)
 {
   _WORD *result; // rax
-  __int64 v3; // r8
-  __int64 v4; // rcx
+  __int64 v3; // r9
+  __int64 v4; // r8
 
   result = (_WORD *)*((_QWORD *)a1 + 1);
-  v3 = *a1;
-  v4 = 0LL;
+  v3 = 0LL;
+  v4 = *a1;
   if ( result )
   {
     if ( *result == 92 )
@@ -26,19 +26,19 @@ _WORD *__fastcall HUBMISC_StripSymbolicNamePrefix(unsigned __int16 *a1, _QWORD *
       while ( 1 )
       {
         ++result;
-        v3 -= 2LL;
+        v4 -= 2LL;
         if ( !*result )
           break;
         if ( *result == 92 )
         {
           ++result;
-          v3 -= 2LL;
+          v4 -= 2LL;
           break;
         }
       }
     }
-    v4 = v3;
+    v3 = v4;
   }
-  *a2 = v4;
+  *a2 = v3;
   return result;
 }

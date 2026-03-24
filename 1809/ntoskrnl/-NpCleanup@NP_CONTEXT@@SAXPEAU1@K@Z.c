@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14011DCB0
+ * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14011DCD0
  * Callers:
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14011DA64 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14011DA84 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_AllocateForwardProgressResources @ 0x1C001C834
+ * XREFs of HUBPDO_AllocateForwardProgressResources @ 0x1C0019FC4
  * Callers:
- *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001C970 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001A100 (HUBPDO_EvtDeviceUsageNotificationEx.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_AllocateForwardProgressResources(_QWORD *a1)
@@ -48,8 +48,8 @@ __int64 __fastcall HUBPDO_AllocateForwardProgressResources(_QWORD *a1)
       *(_QWORD *)(a1[1] + 1432LL),
       2u,
       5u,
-      0x97u,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+      0x83u,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v5);
   }
   return (unsigned int)v3;

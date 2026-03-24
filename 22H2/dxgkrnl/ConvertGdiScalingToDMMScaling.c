@@ -1,33 +1,38 @@
 /*
- * XREFs of ConvertGdiScalingToDMMScaling @ 0x1C0301650
+ * XREFs of ConvertGdiScalingToDMMScaling @ 0x1C0150558
  * Callers:
- *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_DXGK_DISPLAYMODE_INFO@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C01F434C (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
- *     ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C03BFE94 (-_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXG.c)
- *     ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03C0258 (-_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C014CDE4 (-_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXG.c)
+ *     ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C01504E0 (-_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_D3DKMT_DISPLAYMODE@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C025DA64 (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ConvertGdiScalingToDMMScaling(unsigned int a1, _DWORD *a2)
+__int64 __fastcall ConvertGdiScalingToDMMScaling(__int64 a1, _DWORD *a2, __int64 a3)
 {
-  unsigned int v3; // edx
+  __int64 v3; // rdi
+  unsigned int v5; // edx
+  __int64 v7; // rax
 
-  v3 = 1;
-  if ( a1 )
+  v3 = (unsigned int)a1;
+  v5 = 1;
+  if ( (_DWORD)a1 )
   {
-    if ( a1 == 1 )
+    if ( (_DWORD)a1 == 1 )
     {
       *a2 = 3;
-      return v3;
+      return v5;
     }
-    if ( a1 == 2 )
+    if ( (_DWORD)a1 == 2 )
     {
       *a2 = 2;
-      return v3;
+      return v5;
     }
-    WdLogSingleEntry1(3LL, a1);
-    v3 = 0;
+    v7 = WdLogNewEntry5_WdWarning(a1, 1LL, a3);
+    *(_QWORD *)(v7 + 24) = v3;
+    WdLogEvent5_WdWarning(v7);
+    v5 = 0;
   }
   *a2 = 253;
-  return v3;
+  return v5;
 }

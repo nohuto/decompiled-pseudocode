@@ -1,8 +1,8 @@
 /*
- * XREFs of Crashdump_ResetPipe @ 0x1C004CD40
+ * XREFs of Crashdump_ResetPipe @ 0x1C004A270
  * Callers:
- *     Crashdump_SendUrb @ 0x1C004CDC0 (Crashdump_SendUrb.c)
- *     Crashdump_SendUrbAsync @ 0x1C004CEB0 (Crashdump_SendUrbAsync.c)
+ *     Crashdump_SendUrb @ 0x1C004A2F0 (Crashdump_SendUrb.c)
+ *     Crashdump_SendUrbAsync @ 0x1C004A3E0 (Crashdump_SendUrbAsync.c)
  * Callees:
  *     <none>
  */

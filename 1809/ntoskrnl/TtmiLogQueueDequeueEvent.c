@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueDequeueEvent @ 0x1408846A4
+ * XREFs of TtmiLogQueueDequeueEvent @ 0x140884684
  * Callers:
- *     TtmiRetrieveEventFromQueue @ 0x140882444 (TtmiRetrieveEventFromQueue.c)
+ *     TtmiRetrieveEventFromQueue @ 0x140882424 (TtmiRetrieveEventFromQueue.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueDequeueEvent()
@@ -36,7 +36,7 @@ void TtmiLogQueueDequeueEvent()
       v7 = 8LL;
       v9 = 8LL;
       v11 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_140372443, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096D820, &unk_1403723BC, 0LL, 0LL, 5u, &pData);
     }
   }
 }

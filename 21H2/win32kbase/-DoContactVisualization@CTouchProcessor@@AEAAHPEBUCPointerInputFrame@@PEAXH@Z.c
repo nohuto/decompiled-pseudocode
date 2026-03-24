@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C01C4E8C
+ * XREFs of ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C018DB70
  * Callers:
- *     ?DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPointerInputFrame@@PEAXHHH@Z @ 0x1C01C4EF8 (-DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPoin.c)
+ *     ?DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPointerInputFrame@@PEAXHHH@Z @ 0x1C018DBDC (-DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPoin.c)
  * Callees:
- *     HMValidateHandle @ 0x1C0030A98 (HMValidateHandle.c)
- *     ApiSetEditionContactVisualization @ 0x1C02067A8 (ApiSetEditionContactVisualization.c)
+ *     HMValidateHandle @ 0x1C00424D0 (HMValidateHandle.c)
+ *     ApiSetEditionContactVisualization @ 0x1C01CAC04 (ApiSetEditionContactVisualization.c)
  */
 
 __int64 __fastcall CTouchProcessor::DoContactVisualization(
@@ -21,9 +21,9 @@ __int64 __fastcall CTouchProcessor::DoContactVisualization(
   {
     v7 = HMValidateHandle(a3, 0x13u);
     if ( v7 )
-      v4 = *(_DWORD *)(*(_QWORD *)(v7 + 472) + 808LL);
+      v4 = *(_DWORD *)(*(_QWORD *)(v7 + 480) + 760LL);
     else
       v4 = 1;
   }
-  return ApiSetEditionContactVisualization(*((_DWORD *)a2 + 12), *((_QWORD *)a2 + 30), a3, a4, v4);
+  return ApiSetEditionContactVisualization(*((_DWORD *)a2 + 12), *((_QWORD *)a2 + 17), a3, a4, v4);
 }

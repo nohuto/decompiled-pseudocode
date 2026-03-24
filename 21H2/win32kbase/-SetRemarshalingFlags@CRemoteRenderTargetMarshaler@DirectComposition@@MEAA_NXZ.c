@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CRemoteRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022E2D0
+ * XREFs of ?SetRemarshalingFlags@CRemoteRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EE9E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CRemoteRenderTargetMarshaler::SetRemarshaling
   bool v2; // zf
 
   v1 = *((_DWORD *)this + 4) | 0xA0;
-  v2 = *((_QWORD *)this + 15) == 0LL;
+  v2 = *((_QWORD *)this + 12) == 0LL;
   *((_DWORD *)this + 4) = v1;
   if ( !v2 )
     *((_DWORD *)this + 4) = v1 | 0x40;

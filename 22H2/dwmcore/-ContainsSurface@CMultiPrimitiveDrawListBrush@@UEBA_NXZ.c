@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ContainsSurface@CMultiPrimitiveDrawListBrush@@UEBA_NXZ @ 0x1801FD780
+ * XREFs of ?ContainsSurface@CMultiPrimitiveDrawListBrush@@UEBA_NXZ @ 0x18019E9A0
  * Callers:
  *     <none>
  * Callees:

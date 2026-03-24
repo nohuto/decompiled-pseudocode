@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DxgkCddPushWorkerThreadOfOwner@@YAXQEAX0PEAU_ETHREAD@@@Z @ 0x1C01EA710
+ * XREFs of ?DxgkCddPushWorkerThreadOfOwner@@YAXQEAX0PEAU_ETHREAD@@@Z @ 0x1C016D2F0
  * Callers:
  *     <none>
  * Callees:
- *     ?PushWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXPEAU_ETHREAD@@@Z @ 0x1C0005234 (-PushWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXPEAU_ETHREAD@@@Z.c)
+ *     ?PushWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXPEAU_ETHREAD@@@Z @ 0x1C0002A6C (-PushWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXPEAU_ETHREAD@@@Z.c)
  */
 
-void __fastcall DxgkCddPushWorkerThreadOfOwner(DXGADAPTER *a1, DXGADAPTER *a2, struct _ETHREAD *a3)
+void __fastcall DxgkCddPushWorkerThreadOfOwner(PERESOURCE *a1, PERESOURCE *a2, struct _ERESOURCE *a3)
 {
   if ( a1 )
     DXGADAPTER::PushWorkerThreadOfExclusiveOwner(a1, a3);

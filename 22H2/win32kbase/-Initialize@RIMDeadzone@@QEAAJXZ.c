@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Initialize@RIMDeadzone@@QEAAJXZ @ 0x1C019B738
+ * XREFs of ?Initialize@RIMDeadzone@@QEAAJXZ @ 0x1C016E1B4
  * Callers:
- *     RIMInitializeDeadzone @ 0x1C018A6C4 (RIMInitializeDeadzone.c)
+ *     RIMInitializeDeadzone @ 0x1C015EB10 (RIMInitializeDeadzone.c)
  * Callees:
- *     ?_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ @ 0x1C019BF5C (-_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ.c)
- *     ?_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C019C0CC (-_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
- *     ?_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C019C4D8 (-_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
- *     ApiSetGetUserHandedness @ 0x1C0207DA4 (ApiSetGetUserHandedness.c)
+ *     ?_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ @ 0x1C016E6F8 (-_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ.c)
+ *     ?_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C016E88C (-_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
+ *     ?_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C016E938 (-_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
+ *     ApiSetGetUserHandedness @ 0x1C01CF3D0 (ApiSetGetUserHandedness.c)
  */
 
 __int64 __fastcall RIMDeadzone::Initialize(RIMDeadzone *this)

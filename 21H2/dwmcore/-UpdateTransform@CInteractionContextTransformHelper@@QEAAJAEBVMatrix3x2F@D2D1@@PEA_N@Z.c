@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x1802AEA84
+ * XREFs of ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x18026BCF4
  * Callers:
- *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180273C70 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
+ *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180230F00 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     GetIndividualScales @ 0x1802ADD80 (GetIndividualScales.c)
- *     GetInverse @ 0x1802ADE64 (GetInverse.c)
- *     IsEqualMatrix @ 0x1802AE000 (IsEqualMatrix.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     GetIndividualScales @ 0x18026AFF0 (GetIndividualScales.c)
+ *     GetInverse @ 0x18026B0D4 (GetInverse.c)
+ *     IsEqualMatrix @ 0x18026B270 (IsEqualMatrix.c)
  */
 
 __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
@@ -55,7 +55,7 @@ __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
     v6 = *((_QWORD *)a2 + 2);
     v33 = *(_OWORD *)a2;
     v34 = v6;
-    Inverse = GetInverse((float *)&v33, (float *)&v36[1]);
+    Inverse = GetInverse((float *)&v33, (__int64)&v36[1]);
     if ( Inverse >= 0 )
     {
       v7 = *((_QWORD *)a2 + 2);
@@ -86,7 +86,7 @@ __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
         *(float *)&v39 = v13;
         *((float *)&v39 + 2) = *((float *)&v8 + 2) * (float)(1.0 / *((float *)&v30 + 1));
         v40[0] = v15.m128_f32[0];
-        Inverse = GetInverse((float *)&v39, (float *)&v37);
+        Inverse = GetInverse((float *)&v39, (__int64)&v37);
         if ( Inverse >= 0 )
         {
           DWORD2(v39) = 0;
@@ -100,7 +100,7 @@ __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
           v34 = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
           v40[1] = 0.0 - (float)(v16 * 0.0);
           v36[0] = _mm_unpacklo_ps(v15, v12).m128_u64[0];
-          Inverse = GetInverse((float *)&v33, (float *)&v35[1]);
+          Inverse = GetInverse((float *)&v33, (__int64)&v35[1]);
           if ( Inverse >= 0 )
           {
             *(_OWORD *)this = *(_OWORD *)a2;

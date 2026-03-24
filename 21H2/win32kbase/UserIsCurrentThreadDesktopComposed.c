@@ -1,17 +1,17 @@
 /*
- * XREFs of UserIsCurrentThreadDesktopComposed @ 0x1C00AC710
+ * XREFs of UserIsCurrentThreadDesktopComposed @ 0x1C0098F20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (*UserIsCurrentThreadDesktopComposed())(void)
 {
   __int64 (*result)(void); // rax
 
-  result = qword_1C029CA48;
-  if ( qword_1C029CA48 )
-    return (__int64 (*)(void))qword_1C029CA48();
+  result = qword_1C0257E28;
+  if ( qword_1C0257E28 )
+    return (__int64 (*)(void))qword_1C0257E28();
   return result;
 }

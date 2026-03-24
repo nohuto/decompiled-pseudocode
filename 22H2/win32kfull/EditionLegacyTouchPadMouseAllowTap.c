@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionLegacyTouchPadMouseAllowTap @ 0x1C01F69D0
+ * XREFs of EditionLegacyTouchPadMouseAllowTap @ 0x1C0213590
  * Callers:
  *     <none>
  * Callees:
- *     ?TPAAPShouldAllowNow@@YAHKH@Z @ 0x1C01F65C4 (-TPAAPShouldAllowNow@@YAHKH@Z.c)
+ *     ?TPAAPShouldAllowNow@@YAHKHH@Z @ 0x1C0213040 (-TPAAPShouldAllowNow@@YAHKHH@Z.c)
  */
 
 __int64 EditionLegacyTouchPadMouseAllowTap()

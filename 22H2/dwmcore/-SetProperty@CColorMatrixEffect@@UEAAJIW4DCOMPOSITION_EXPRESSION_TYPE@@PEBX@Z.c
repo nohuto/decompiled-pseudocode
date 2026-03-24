@@ -1,28 +1,31 @@
 /*
- * XREFs of ?SetProperty@CColorMatrixEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802584C0
+ * XREFs of ?SetProperty@CColorMatrixEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F5FF0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CColorMatrixEffect::SetProperty(__int64 *a1, int a2, int a3, float *a4)
+__int64 __fastcall CColorMatrixEffect::SetProperty(float *a1, int a2, int a3, float *a4)
 {
-  float v4; // xmm1_4
-  float *v5; // rbx
+  float *v4; // r10
+  float v5; // xmm1_4
   __int64 v6; // rax
   unsigned int v7; // ebx
 
-  if ( a3 == 18 && (v4 = *a4, (unsigned int)(a2 - 3) <= 0x13) && (v5 = (float *)a1 + (unsigned int)(a2 - 3) + 44) != 0LL )
+  v4 = a1;
+  if ( a3 == 18
+    && (v5 = *a4, (unsigned int)(a2 - 3) <= 0x13)
+    && (a1 += 4 * ((unsigned __int64)(unsigned int)(a2 - 3) >> 2) + ((a2 - 3) & 3) + 38) != 0LL )
   {
-    if ( *v5 != v4 )
+    if ( *a1 != v5 )
     {
-      v6 = *a1;
-      *v5 = v4;
-      (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v6 + 72))(a1, 0LL, 0LL);
+      v6 = *(_QWORD *)v4;
+      *a1 = v5;
+      (*(void (__fastcall **)(float *, _QWORD, _QWORD))(v6 + 72))(v4, 0LL, 0LL);
     }
-    return v5 == 0LL ? 0x80070057 : 0;
+    return 0;
   }
   else
   {

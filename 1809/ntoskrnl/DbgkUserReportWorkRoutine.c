@@ -1,23 +1,23 @@
 /*
- * XREFs of DbgkUserReportWorkRoutine @ 0x140810900
+ * XREFs of DbgkUserReportWorkRoutine @ 0x1408108E0
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x1400ACF00 (IoThreadToProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x1401B8310 (ZwSetInformationThread.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8470 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1401B8530 (ZwFreeVirtualMemory.c)
- *     ZwResumeThread @ 0x1401B8BB0 (ZwResumeThread.c)
- *     ZwCreateThreadEx @ 0x1401B98F0 (ZwCreateThreadEx.c)
+ *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1401B8330 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
+ *     ZwResumeThread @ 0x1401B8BD0 (ZwResumeThread.c)
+ *     ZwCreateThreadEx @ 0x1401B9910 (ZwCreateThreadEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     PsResumeThread @ 0x140676800 (PsResumeThread.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     PsResumeThread @ 0x1406767E0 (PsResumeThread.c)
  */
 
 LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
@@ -91,7 +91,7 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
   }
   else
   {
-    ZwSetInformationThread(ThreadHandle, ThreadPriorityBoost|0x20, &unk_140376060, 4u);
+    ZwSetInformationThread(ThreadHandle, ThreadPriorityBoost|0x20, &unk_140376170, 4u);
     ZwResumeThread(ThreadHandle, 0LL);
     ZwClose(ThreadHandle);
     ThreadHandle = 0LL;

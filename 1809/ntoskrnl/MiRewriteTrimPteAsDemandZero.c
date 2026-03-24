@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRewriteTrimPteAsDemandZero @ 0x14011AACC
+ * XREFs of MiRewriteTrimPteAsDemandZero @ 0x14011AAEC
  * Callers:
- *     MiWsleFree @ 0x1400B2C50 (MiWsleFree.c)
+ *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -9,9 +9,9 @@
  *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)

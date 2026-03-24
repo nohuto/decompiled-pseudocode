@@ -1,16 +1,16 @@
 /*
- * XREFs of IommuFlushDomainVaList @ 0x1409357D0
+ * XREFs of IommuFlushDomainVaList @ 0x140866840
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvFlushDeviceDomainVaList @ 0x140524BBC (IommupHvFlushDeviceDomainVaList.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403CFD40 (xKdEnumerateDebuggingDevices.c)
  */
 
-__int64 __fastcall IommuFlushDomainVaList(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+__int64 __fastcall IommuFlushDomainVaList(__int64 a1)
 {
-  if ( *(_DWORD *)(a1 + 8) != 2 )
+  if ( *(_BYTE *)(a1 + 44) )
     return 3221225711LL;
   if ( HalpHvIommu )
-    return IommupHvFlushDeviceDomainVaList(*(_DWORD *)(a1 + 48), *(_BYTE *)(a1 + 52), a3, a4);
+    return xKdEnumerateDebuggingDevices();
   return 3221225474LL;
 }

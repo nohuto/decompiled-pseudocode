@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TTSqm@@YAXUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C0204BEC
+ * XREFs of ?TTSqm@@YAXUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C02152A4
  * Callers:
- *     ?xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBUtagPOINTEREVENTINT@@2PEAU4@@Z @ 0x1C0205774 (-xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBU.c)
+ *     xxxPointerWindowHitTest @ 0x1C0217CF4 (xxxPointerWindowHitTest.c)
  * Callees:
- *     _TTPixelsToHm @ 0x1C016E64A (_TTPixelsToHm.c)
+ *     _TTPixelsToHm @ 0x1C0260690 (_TTPixelsToHm.c)
  */
 
 void __fastcall TTSqm(struct tagPOINT a1, const struct tagTOUCHTARGETINGCONTACT *a2)
@@ -26,8 +26,8 @@ void __fastcall TTSqm(struct tagPOINT a1, const struct tagTOUCHTARGETINGCONTACT 
     WinSqmAddToAverageDWORD(&SqmGlobalSessionGuid, 8657LL, v5 != 0 ? 0x3E8 : 0);
     if ( v5 )
     {
-      TTPixelsToHm(abs32(y), *((_DWORD *)a2 + 47));
-      v6 = TTPixelsToHm(abs32(x), *((_DWORD *)a2 + 46));
+      TTPixelsToHm(abs32(y), *((unsigned int *)a2 + 47));
+      v6 = TTPixelsToHm(abs32(x), *((unsigned int *)a2 + 46));
       WinSqmAddToAverageDWORD(&SqmGlobalSessionGuid, 8293LL, (unsigned int)(v6 + v7));
       v8 = 0LL;
       if ( x > 0 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnItemMessage@CMessageConversationHost@@UEAAJIIPEBX0I@Z @ 0x1801057A0
+ * XREFs of ?OnItemMessage@CMessageConversationHost@@UEAAJIIPEBX0I@Z @ 0x1800E1C90
  * Callers:
  *     <none>
  * Callees:

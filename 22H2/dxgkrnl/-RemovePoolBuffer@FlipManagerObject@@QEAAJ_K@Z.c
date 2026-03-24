@@ -1,22 +1,31 @@
 /*
- * XREFs of ?RemovePoolBuffer@FlipManagerObject@@QEAAJ_K@Z @ 0x1C00803A4
+ * XREFs of ?RemovePoolBuffer@FlipManagerObject@@QEAAJ_K@Z @ 0x1C0068B20
  * Callers:
- *     NtFlipObjectRemovePoolBuffer @ 0x1C00818A0 (NtFlipObjectRemovePoolBuffer.c)
+ *     NtFlipObjectRemovePoolBuffer @ 0x1C0069F00 (NtFlipObjectRemovePoolBuffer.c)
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?RemovePoolBuffer@CFlipManager@@QEAAJ_K@Z @ 0x1C0085338 (-RemovePoolBuffer@CFlipManager@@QEAAJ_K@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00118B4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C006C72C (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C006D570 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
  */
 
 __int64 __fastcall FlipManagerObject::RemovePoolBuffer(FlipManagerObject *this, unsigned __int64 a2)
 {
-  int v4; // ebx
+  CEndpointResourceStateManager *v4; // rcx
+  int v5; // ebx
+  struct CPoolBufferResourceState *ResourceState; // rax
+  CEndpointResourceStateManager *v7; // r8
 
-  v4 = CPushLock::AcquireLockExclusive((FlipManagerObject *)((char *)this + 40));
-  if ( v4 >= 0 )
+  v5 = CPushLock::AcquireLockExclusive((FlipManagerObject *)((char *)this + 40));
+  if ( v5 >= 0 )
   {
-    v4 = CFlipManager::RemovePoolBuffer((FlipManagerObject *)((char *)this + 32), a2);
+    v5 = 0;
+    ResourceState = CEndpointResourceStateManager::FindResourceState(v4, a2, (struct _LIST_ENTRY *)((char *)this + 88));
+    if ( ResourceState )
+      CEndpointResourceStateManager::RemovePoolBufferState(v7, ResourceState);
+    else
+      v5 = -1073741811;
     CPushLock::ReleaseLock((FlipManagerObject *)((char *)this + 40));
   }
-  return (unsigned int)v4;
+  return (unsigned int)v5;
 }

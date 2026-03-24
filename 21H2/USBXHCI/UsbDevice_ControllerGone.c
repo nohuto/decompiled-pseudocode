@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbDevice_ControllerGone @ 0x1C0045EA0
+ * XREFs of UsbDevice_ControllerGone @ 0x1C00459E0
  * Callers:
- *     Controller_InitiateRecovery @ 0x1C0031E70 (Controller_InitiateRecovery.c)
+ *     Controller_InitiateRecovery @ 0x1C0031F80 (Controller_InitiateRecovery.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UsbDevice_ControllerGone(__int64 a1)

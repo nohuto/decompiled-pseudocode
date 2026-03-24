@@ -1,39 +1,39 @@
 /*
- * XREFs of KdpPrompt @ 0x140A744CC
+ * XREFs of KdpPrompt @ 0x1409B9848
  * Callers:
- *     KdpTrap @ 0x140A6F1FC (KdpTrap.c)
+ *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
- *     KdpQuickMoveMemory @ 0x140A70244 (KdpQuickMoveMemory.c)
- *     KdLogDbgPrint @ 0x140A73FF0 (KdLogDbgPrint.c)
- *     KdpPromptString @ 0x140A74D24 (KdpPromptString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdLogDbgPrint @ 0x1409B9380 (KdLogDbgPrint.c)
+ *     KdpQuickMoveMemory @ 0x1409B9CF0 (KdpQuickMoveMemory.c)
+ *     KdpPromptString @ 0x1409BA898 (KdpPromptString.c)
  */
 
 __int64 __fastcall KdpPrompt(
-        char *a1,
+        unsigned __int64 a1,
         unsigned __int16 a2,
         volatile void *a3,
         unsigned __int16 a4,
         char a5,
         __int64 a6)
 {
-  char *v7; // rdi
+  unsigned __int64 v7; // rdi
   unsigned __int16 v8; // bx
   unsigned __int16 v9; // r14
   unsigned __int64 v10; // rcx
   void *v11; // rsp
-  char *v12; // r9
+  unsigned __int64 v12; // r9
   void *v13; // rsp
-  char *v14; // rcx
+  _BYTE *v14; // rcx
   char v15; // bl
   _BYTE v17[480]; // [rsp+0h] [rbp-400h] BYREF
   _BYTE v18[480]; // [rsp+200h] [rbp-200h] BYREF
   _WORD v19[2]; // [rsp+400h] [rbp+0h] BYREF
   int v20; // [rsp+404h] [rbp+4h]
-  char *v21; // [rsp+408h] [rbp+8h]
+  _BYTE *v21; // [rsp+408h] [rbp+8h]
   __int128 v22; // [rsp+410h] [rbp+10h] BYREF
   _BYTE *v23; // [rsp+420h] [rbp+20h]
 
@@ -50,13 +50,13 @@ __int64 __fastcall KdpPrompt(
   {
     if ( v8 )
     {
-      v10 = (unsigned __int64)&a1[v8];
-      if ( v10 > 0x7FFFFFFF0000LL || v10 < (unsigned __int64)v7 )
+      v10 = a1 + v8;
+      if ( v10 > 0x7FFFFFFF0000LL || v10 < v7 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     v11 = alloca(512LL);
     v23 = v18;
-    KdpQuickMoveMemory((__int64)v18, v7, v8);
+    KdpQuickMoveMemory(v18, v7, v8);
     v7 = v12;
     ProbeForWrite(a3, v9, 1u);
     v13 = alloca(512LL);
@@ -65,7 +65,7 @@ __int64 __fastcall KdpPrompt(
   }
   else
   {
-    v14 = (char *)a3;
+    v14 = a3;
   }
   v21 = v14;
   v19[0] = 0;
@@ -78,6 +78,6 @@ __int64 __fastcall KdpPrompt(
     ;
   KdExitDebugger(v15);
   if ( a5 == 1 )
-    KdpQuickMoveMemory((__int64)a3, v21, v19[0]);
+    KdpQuickMoveMemory(a3, v21, v19[0]);
   return v19[0];
 }

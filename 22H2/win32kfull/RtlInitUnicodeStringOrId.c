@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInitUnicodeStringOrId @ 0x1C001FB94
+ * XREFs of RtlInitUnicodeStringOrId @ 0x1C00254A4
  * Callers:
- *     xxxUpdateSystemIconsFromRegistry @ 0x1C001FD1C (xxxUpdateSystemIconsFromRegistry.c)
- *     ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00217E0 (-xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReaso.c)
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024CFC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     xxxLoadSysMenu @ 0x1C006272C (xxxLoadSysMenu.c)
- *     ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01AD9B4 (-xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ.c)
- *     ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0229648 (-xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z.c)
+ *     ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024700 (-xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReaso.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024954 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     xxxUpdateSystemIconsFromRegistry @ 0x1C0025790 (xxxUpdateSystemIconsFromRegistry.c)
+ *     xxxLoadSysMenu @ 0x1C0042D94 (xxxLoadSysMenu.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01DA898 (-xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ.c)
+ *     ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0244778 (-xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z.c)
  * Callees:
  *     <none>
  */

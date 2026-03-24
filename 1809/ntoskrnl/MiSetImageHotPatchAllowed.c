@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSetImageHotPatchAllowed @ 0x140857FE4
+ * XREFs of MiSetImageHotPatchAllowed @ 0x140857FC4
  * Callers:
  *     NtSetInformationVirtualMemory @ 0x1405F6680 (NtSetInformationVirtualMemory.c)
  * Callees:
@@ -11,7 +11,7 @@
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
  *     MiSetVadFlags @ 0x1400879E0 (MiSetVadFlags.c)
  *     MiImageVadHotPatchEligible @ 0x1405EE758 (MiImageVadHotPatchEligible.c)
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  */
 
 __int64 __fastcall MiSetImageHotPatchAllowed(unsigned __int64 a1)

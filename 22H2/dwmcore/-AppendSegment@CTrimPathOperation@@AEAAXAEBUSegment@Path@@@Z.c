@@ -1,48 +1,37 @@
 /*
- * XREFs of ?AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x180015858
+ * XREFs of ?AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x18025E1EC
  * Callers:
- *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1800153E0 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
- *     ?ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z @ 0x1800156FC (-ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z.c)
- *     ?TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1802AFAD8 (-TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
+ *     ?ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z @ 0x18025ED00 (-ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z.c)
+ *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F240 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
+ *     ?TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F2EC (-TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ??$insert@V?$span_iterator@$$CBE@details@gsl@@$0A@@?$vector@EV?$allocator@E@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$span_iterator@$$CBE@details@gsl@@1@Z @ 0x1800ABCD0 (--$insert@V-$span_iterator@$$CBE@details@gsl@@$0A@@-$vector@EV-$allocator@E@std@@@std@@QEAA-AV-$.c)
- *     ?GetSize@Segment@Path@@SAIW4SegmentType@2@@Z @ 0x1800F2B48 (-GetSize@Segment@Path@@SAIW4SegmentType@2@@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?GetSize@Segment@Path@@SAIW4SegmentType@2@@Z @ 0x18021F9F8 (-GetSize@Segment@Path@@SAIW4SegmentType@2@@Z.c)
+ *     ??$insert@V?$span_iterator@V?$span@$$CBE$0?0@gsl@@$0A@@details@gsl@@X@?$vector@EV?$allocator@E@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$span_iterator@V?$span@$$CBE$0?0@gsl@@$0A@@details@gsl@@1@Z @ 0x1802202C4 (--$insert@V-$span_iterator@V-$span@$$CBE$0-0@gsl@@$0A@@details@gsl@@X@-$vector@EV-$allocator@E@s.c)
  */
 
 void __fastcall CTrimPathOperation::AppendSegment(CTrimPathOperation *this, const struct Path::Segment *a2)
 {
-  CTrimPathOperation *v2; // rdi
   unsigned int Size; // eax
-  gsl::details *v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // r8
-  _QWORD v8[4]; // [rsp+30h] [rbp-48h] BYREF
-  _QWORD v9[5]; // [rsp+50h] [rbp-28h] BYREF
-  char v10; // [rsp+88h] [rbp+10h] BYREF
+  char *v5; // r8
+  __int128 v6; // xmm0
+  _QWORD v7[2]; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v8; // [rsp+40h] [rbp-20h] BYREF
+  __int128 v9; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v10; // [rsp+78h] [rbp+18h] BYREF
 
-  v2 = this;
-  LOBYTE(this) = *(_BYTE *)a2;
-  Size = Path::Segment::GetSize(this);
-  gsl::details::extent_type<-1>::extent_type<-1>(v8, Size);
-  v6 = v8[0];
-  if ( v8[0] == -1LL )
-  {
-    gsl::details::terminate(v5);
-    JUMPOUT(0x1800158DELL);
-  }
-  v7 = *((_QWORD *)v2 + 1);
-  v8[0] = a2;
-  v8[1] = (char *)a2 + v6;
-  v8[2] = (char *)a2 + v6;
-  v9[1] = (char *)a2 + v6;
-  v9[0] = a2;
-  v9[2] = a2;
-  std::vector<unsigned char>::insert<gsl::details::span_iterator<unsigned char const>,0>(
-    (_DWORD)v2,
-    (unsigned int)&v10,
-    v7,
-    (unsigned int)v9,
-    (__int64)v8);
+  Size = Path::Segment::GetSize(*(_BYTE *)a2);
+  v5 = (char *)*((_QWORD *)this + 1);
+  *((_QWORD *)&v8 + 1) = Size;
+  *(_QWORD *)&v8 = v7;
+  v6 = v8;
+  v7[0] = Size;
+  v8 = (unsigned __int64)v7;
+  v7[1] = a2;
+  v9 = v6;
+  std::vector<unsigned char>::insert<gsl::details::span_iterator<gsl::span<unsigned char const,-1>,0>,void>(
+    this,
+    &v10,
+    v5,
+    &v8,
+    &v9);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x1400CFD78
+ * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x1400CFD98
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KeSetPriorityBoost @ 0x1400CEEC0 (KeSetPriorityBoost.c)
- *     KiSetPriorityThread @ 0x1400CF620 (KiSetPriorityThread.c)
- *     KiApplyForegroundBoostThread @ 0x1400D7E4C (KiApplyForegroundBoostThread.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     KiInsertTimer2 @ 0x1400FC7E0 (KiInsertTimer2.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KeSetPriorityBoost @ 0x1400CEEE0 (KeSetPriorityBoost.c)
+ *     KiSetPriorityThread @ 0x1400CF640 (KiSetPriorityThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1400D7E6C (KiApplyForegroundBoostThread.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KiInsertTimer2 @ 0x1400FC800 (KiInsertTimer2.c)
  * Callees:
- *     KiSetVpThreadSystemWork @ 0x140299660 (KiSetVpThreadSystemWork.c)
+ *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
  */
 
 __int64 __fastcall KiHvEnlightenedGuestPriorityKick(__int64 a1, __int64 a2, int a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of VmInitSystem @ 0x140B1E5EC
+ * XREFs of VmInitSystem @ 0x140A47B1C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140B020A4 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x1402A03B0 (ExInitializeLookasideListExInternal.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ExRegisterHost @ 0x1408486C4 (ExRegisterHost.c)
+ *     ExInitializeLookasideListExInternal @ 0x14035E1E0 (ExInitializeLookasideListExInternal.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
  */
 
 __int64 __fastcall VmInitSystem(int a1, __int64 a2)
@@ -21,15 +21,15 @@ __int64 __fastcall VmInitSystem(int a1, __int64 a2)
   {
     if ( a1 == 2 )
     {
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(byte_140D05538, 0LL, 0LL);
-      VmpTraceLoggingProvider = (__int64)byte_140D05538;
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&qword_140CFB458, 0LL, 0LL);
+      VmpTraceLoggingProvider = (__int64)&qword_140CFB458;
     }
   }
   else
   {
-    v3[1] = 2;
+    v3[1] = 1;
     v4 = 512LL;
-    v3[0] = 1441800;
+    v3[0] = 1114120;
     v6 = 0LL;
     v5 = &VmpHostInterface;
     result = ExRegisterHost(&VmpExtensionHost, a2, (unsigned __int16 *)v3);

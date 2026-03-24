@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSchedulingGroupCpuRates @ 0x1402077B0
+ * XREFs of KeSetSchedulingGroupCpuRates @ 0x140287E30
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
  * Callees:
- *     KiAssignSchedulingGroupWeights @ 0x140207880 (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateMinimumWeight @ 0x14020794C (KiUpdateMinimumWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x140207CCC (KiUpdateCpuTargetByRate.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAssignSchedulingGroupWeights @ 0x140287F00 (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateMinimumWeight @ 0x140288170 (KiUpdateMinimumWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x140288290 (KiUpdateCpuTargetByRate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetSchedulingGroupCpuRates(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall KeSetSchedulingGroupCpuRates(__int64 a1, _QWORD *a2, _QWORD *
     LOBYTE(v5) = 1;
     *(_DWORD *)(v6 + 4) = v7 | 1;
     KiUpdateMinimumWeight(0LL, v5, *(_QWORD *)(*a2 + 96LL));
-    KiAssignSchedulingGroupWeights(0LL, 0LL);
+    KiAssignSchedulingGroupWeights(0LL, 0LL, *(_QWORD *)(*a2 + 96LL));
     v6 = *a2;
   }
   LOBYTE(v5) = 1;
@@ -41,7 +41,7 @@ __int64 __fastcall KeSetSchedulingGroupCpuRates(__int64 a1, _QWORD *a2, _QWORD *
   KiUpdateCpuTargetByRate(*a2, v5);
   LOBYTE(v8) = 1;
   if ( (unsigned __int8)KiUpdateMinimumWeight(1LL, v8, *(_QWORD *)(*a2 + 96LL)) )
-    KiAssignSchedulingGroupWeights(1LL, 0LL);
+    KiAssignSchedulingGroupWeights(1LL, 0LL, *(_QWORD *)(*a2 + 96LL));
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;

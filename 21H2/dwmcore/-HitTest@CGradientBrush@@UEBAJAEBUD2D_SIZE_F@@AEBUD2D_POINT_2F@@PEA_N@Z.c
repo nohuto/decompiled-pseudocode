@@ -1,11 +1,11 @@
 /*
- * XREFs of ?HitTest@CGradientBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18023A4C8
+ * XREFs of ?HitTest@CGradientBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1801E7180
  * Callers:
- *     ?HitTest@CGradientBrush@@$4PPPPPPPM@CA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1801060F0 (-HitTest@CGradientBrush@@$4PPPPPPPM@CA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
- *     ?HitTest@CGradientBrush@@$4PPPPPPPM@BA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180107790 (-HitTest@CGradientBrush@@$4PPPPPPPM@BA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CGradientBrush@@$4PPPPPPPM@CA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F5130 (-HitTest@CGradientBrush@@$4PPPPPPPM@CA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CGradientBrush@@$4PPPPPPPM@BA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F6800 (-HitTest@CGradientBrush@@$4PPPPPPPM@BA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?Contains@@YA_NAEBUD2D_RECT_F@@AEBUD2D_POINT_2F@@@Z @ 0x1800EB904 (-Contains@@YA_NAEBUD2D_RECT_F@@AEBUD2D_POINT_2F@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Contains@@YA_NAEBUD2D_RECT_F@@AEBUD2D_POINT_2F@@@Z @ 0x1800D41D0 (-Contains@@YA_NAEBUD2D_RECT_F@@AEBUD2D_POINT_2F@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGradientBrush::HitTest(
@@ -19,7 +19,7 @@ __int64 __fastcall CGradientBrush::HitTest(
   struct D2D_RECT_F v10; // [rsp+20h] [rbp-18h] BYREF
 
   *a4 = 0;
-  if ( !(*(unsigned __int8 (__fastcall **)(char *))(*((_QWORD *)this - 32) + 192LL))((char *)this - 256) )
+  if ( !(*(unsigned __int8 (__fastcall **)(char *))(*((_QWORD *)this - 26) + 208LL))((char *)this - 208) )
   {
     width = a2->width;
     v10.left = 0.0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??_GVIDSCH_CPU_WAITER@@QEAAPEAXI@Z @ 0x1C0033EA0
+ * XREFs of ??_GVIDSCH_CPU_WAITER@@QEAAPEAXI@Z @ 0x1C0029E6C
  * Callers:
- *     VidSchSubmitWaitFromCpu @ 0x1C0016C00 (VidSchSubmitWaitFromCpu.c)
+ *     VidSchSubmitWaitFromCpu @ 0x1C00018C0 (VidSchSubmitWaitFromCpu.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,14 @@
 /*
- * XREFs of ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C026B18C
+ * XREFs of ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C026D41C
  * Callers:
- *     ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C016EE38 (-GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z.c)
- *     CLIPOBJ_ppoGetPath @ 0x1C026B3E0 (CLIPOBJ_ppoGetPath.c)
- *     VerifierCLIPOBJ_ppoGetPath @ 0x1C029CA30 (VerifierCLIPOBJ_ppoGetPath.c)
+ *     CLIPOBJ_ppoGetPath @ 0x1C026D660 (CLIPOBJ_ppoGetPath.c)
+ *     ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C0293B60 (-GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z.c)
+ *     VerifierCLIPOBJ_ppoGetPath @ 0x1C029E140 (VerifierCLIPOBJ_ppoGetPath.c)
  * Callees:
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0138854 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02BFE30 (-bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0145D54 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02C1490 (-bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z.c)
  */
 
 struct _PATHOBJ *__fastcall XCLIPOBJ::ppoGetPath(XCLIPOBJ *this)
@@ -20,7 +21,7 @@ struct _PATHOBJ *__fastcall XCLIPOBJ::ppoGetPath(XCLIPOBJ *this)
   _BYTE v7[8]; // [rsp+B8h] [rbp-50h] BYREF
   __int64 v8; // [rsp+C0h] [rbp-48h]
 
-  result = (struct _PATHOBJ *)Win32AllocPool(80LL, 1869639751LL);
+  result = (struct _PATHOBJ *)PALLOCMEM2(0x50uLL, 1869639751LL, 0);
   v3 = 0LL;
   v4 = result;
   if ( result )

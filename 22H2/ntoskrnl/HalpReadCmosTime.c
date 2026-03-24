@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReadCmosTime @ 0x14033B81C
+ * XREFs of HalpReadCmosTime @ 0x14030D6B8
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033AF30 (HalQueryRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x14030CCC0 (HalQueryRealTimeClock.c)
  * Callees:
- *     HalpAcquireCmosSpinLockAndWait @ 0x14033B9D8 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x14030D84C (HalpAcquireCmosSpinLockAndWait.c)
  */
 
 __int64 __fastcall HalpReadCmosTime(_WORD *a1)
@@ -14,16 +14,15 @@ __int64 __fastcall HalpReadCmosTime(_WORD *a1)
   unsigned __int8 v5; // al
   unsigned __int8 v6; // al
   unsigned __int8 v7; // al
-  __int16 v8; // cx
-  unsigned __int8 v9; // al
-  unsigned __int8 v10; // r9
-  unsigned __int8 v11; // al
-  __int16 v12; // dx
-  __int16 v13; // cx
+  unsigned __int8 v8; // al
+  unsigned __int8 v9; // r9
+  unsigned __int8 v10; // al
+  __int16 v11; // dx
+  __int16 v12; // cx
   __int64 result; // rax
-  unsigned __int8 v15; // al
-  unsigned __int8 v16; // cl
-  unsigned __int8 v17; // al
+  unsigned __int8 v14; // al
+  unsigned __int8 v15; // cl
+  unsigned __int8 v16; // al
 
   HalpAcquireCmosSpinLockAndWait();
   a1[6] = 500;
@@ -44,34 +43,33 @@ __int64 __fastcall HalpReadCmosTime(_WORD *a1)
   a1[2] = (unsigned __int8)((v6 & 0xF) + 10 * (v6 >> 4));
   __outbyte(0x70u, 8u);
   v7 = __inbyte(0x71u);
-  v8 = HalpCmosCenturyOffset;
   a1[1] = (unsigned __int8)((v7 & 0xF) + 10 * (v7 >> 4));
-  if ( (v8 & 0x100) != 0 )
+  if ( (HalpCmosCenturyOffset & 0x100) != 0 )
   {
     __outbyte(0x70u, 0xAu);
-    v15 = __inbyte(0x71u);
-    v16 = v15;
+    v14 = __inbyte(0x71u);
+    v15 = v14;
     __outbyte(0x70u, 0xAu);
-    __outbyte(0x71u, v15 | 0x10);
+    __outbyte(0x71u, v14 | 0x10);
     __outbyte(0x70u, HalpCmosCenturyOffset);
-    v17 = __inbyte(0x71u);
-    v10 = v17;
+    v16 = __inbyte(0x71u);
+    v9 = v16;
     __outbyte(0x70u, 0xAu);
-    __outbyte(0x71u, v16);
+    __outbyte(0x71u, v15);
   }
   else
   {
-    __outbyte(0x70u, v8);
-    v9 = __inbyte(0x71u);
-    v10 = v9;
+    __outbyte(0x70u, HalpCmosCenturyOffset);
+    v8 = __inbyte(0x71u);
+    v9 = v8;
   }
   __outbyte(0x70u, 9u);
-  v11 = __inbyte(0x71u);
-  v12 = (unsigned __int8)((v11 & 0xF) + 10 * (v11 >> 4)) + 100 * (unsigned __int8)((v10 & 0xF) + 10 * (v10 >> 4));
-  v13 = v12 + 100;
-  if ( (unsigned __int16)(v12 - 1900) > 0x13u )
-    v13 = (unsigned __int8)((v11 & 0xF) + 10 * (v11 >> 4)) + 100 * (unsigned __int8)((v10 & 0xF) + 10 * (v10 >> 4));
-  *a1 = v13;
+  v10 = __inbyte(0x71u);
+  v11 = (unsigned __int8)((v10 & 0xF) + 10 * (v10 >> 4)) + 100 * (unsigned __int8)((v9 & 0xF) + 10 * (v9 >> 4));
+  v12 = v11 + 100;
+  if ( (unsigned __int16)(v11 - 1900) > 0x13u )
+    v12 = (unsigned __int8)((v10 & 0xF) + 10 * (v10 >> 4)) + 100 * (unsigned __int8)((v9 & 0xF) + 10 * (v9 >> 4));
+  *a1 = v12;
   result = (unsigned int)_InterlockedExchange(&HalpSystemHardwareLock, -1);
   if ( HalpSystemHardwareLockInterruptsEnabled )
     _enable();

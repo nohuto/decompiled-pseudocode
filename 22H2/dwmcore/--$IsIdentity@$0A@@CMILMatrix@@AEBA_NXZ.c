@@ -1,84 +1,43 @@
 /*
- * XREFs of ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0
+ * XREFs of ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0
  * Callers:
- *     ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000DFF0 (-GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
- *     ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x18000E188 (-CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z.c)
- *     ?UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z @ 0x180019834 (-UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z.c)
- *     ?GetTightBounds@CRoundedRectangleShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180058080 (-GetTightBounds@CRoundedRectangleShape@@UEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
- *     ?GetOptimizedRect@CDirtyRegion@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IAEBV2@PEAVCRegion@@PEBVCMILMatrix@@_NAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEBVCOcclusionContext@@@Z @ 0x180086240 (-GetOptimizedRect@CDirtyRegion@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
- *     ?SetDeviceTransform@COcclusionContext@@QEBAJPEBVCMILMatrix@@@Z @ 0x18008A898 (-SetDeviceTransform@COcclusionContext@@QEBAJPEBVCMILMatrix@@@Z.c)
- *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18008CC54 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
- *     ?Initialize@CCpuClipAntialiasSink@@AEAAJGPEBV?$CConvexPolygonEdgeMap@USinkRoutingInfo@CCpuClipAntialiasSink@@@@PEBVCShape@@AEBVCMILMatrix@@@Z @ 0x1800B15FC (-Initialize@CCpuClipAntialiasSink@@AEAAJGPEBV-$CConvexPolygonEdgeMap@USinkRoutingInfo@CCpuClipAn.c)
- *     ?GetTightBounds@CRegionShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800C6BC0 (-GetTightBounds@CRegionShape@@UEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
- *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x1801ADCF0 (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
- *     _anonymous_namespace_::DecomposeMatrix @ 0x1801AE1B4 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
- *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x1801F1F3C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
- *     ?IsIdentity@CMILMatrix@@QEBA_NXZ @ 0x18027062C (-IsIdentity@CMILMatrix@@QEBA_NXZ.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180014904 (-GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
+ *     ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x180014A5C (-CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z.c)
+ *     ?UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z @ 0x180019398 (-UpdateDeviceTransform@CDrawingContext@@AEAAXAEBVCMILMatrix@@PEA_N@Z.c)
+ *     ?SetDeviceTransform@COcclusionContext@@QEBAJPEBVCMILMatrix@@@Z @ 0x180076DE8 (-SetDeviceTransform@COcclusionContext@@QEBAJPEBVCMILMatrix@@@Z.c)
+ *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007A778 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180080AA0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ?GetTightBounds@CRectanglesShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800BB240 (-GetTightBounds@CRectanglesShape@@UEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSize.c)
+ *     ?GetTightBounds@CRegionShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800BB390 (-GetTightBounds@CRegionShape@@UEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
+ *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x180161C3C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x18022CCC8 (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D17C (_anonymous_namespace_--DecomposeMatrix.c)
  * Callees:
- *     ??$ProducesUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800621BC (--$ProducesUniformZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     <none>
  */
 
 char __fastcall CMILMatrix::IsIdentity<0>(__int64 a1)
 {
-  char v2; // al
-  char v3; // cl
-  __int64 v4; // r8
-  float v5; // xmm4_4
-  float v6; // xmm5_4
-  float v7; // xmm0_4
-  float v8; // xmm0_4
-  char v9; // al
-  float v10; // xmm0_4
-  char v11; // al
-  char v12; // cl
-  char result; // al
-
-  if ( (float)((float)((float)(COERCE_FLOAT(*(_DWORD *)(a1 + 12) & _xmm) * 61440.0)
-                     + (float)(COERCE_FLOAT(*(_DWORD *)(a1 + 28) & _xmm) * 61440.0))
-             + COERCE_FLOAT(*(_DWORD *)(a1 + 60) & _xmm)) == 1.0 )
+  if ( *(float *)a1 != 1.0
+    || *(float *)(a1 + 4) != 0.0
+    || *(float *)(a1 + 8) != 0.0
+    || *(float *)(a1 + 12) != 0.0
+    || *(float *)(a1 + 16) != 0.0
+    || *(float *)(a1 + 20) != 1.0
+    || *(float *)(a1 + 24) != 0.0
+    || *(float *)(a1 + 28) != 0.0
+    || *(float *)(a1 + 32) != 0.0
+    || *(float *)(a1 + 36) != 0.0
+    || *(float *)(a1 + 40) != 1.0
+    || *(float *)(a1 + 44) != 0.0
+    || *(float *)(a1 + 48) != 0.0
+    || *(float *)(a1 + 52) != 0.0
+    || *(float *)(a1 + 56) != 0.0
+    || *(float *)(a1 + 60) != 1.0 )
   {
-    v2 = *(_BYTE *)(a1 + 65);
-    v3 = 1;
-    *(_BYTE *)(a1 + 65) = v2 & 0xCF | 0x10;
+    return 0;
   }
-  else
-  {
-    v3 = 0;
-  }
-  if ( ((unsigned __int8)v3 & ((float)(COERCE_FLOAT(*(_DWORD *)(a1 + 44) & _xmm) * 61440.0) == 0.0)) == 0 )
-    return 0;
-  if ( *(float *)(a1 + 32) != 0.0 )
-    return 0;
-  if ( *(float *)(a1 + 36) != 0.0 )
-    return 0;
-  *(_BYTE *)(a1 + 65) = *(_BYTE *)(a1 + 65) & 0xF3 | 4;
-  if ( !CMILMatrix::ProducesUniformZ<0>(a1) )
-    return 0;
-  if ( (float)((float)((float)(COERCE_FLOAT(*(_DWORD *)(v4 + 28) & _xmm) * 61440.0)
-                     + (float)(COERCE_FLOAT(*(_DWORD *)(v4 + 12) & _xmm) * 61440.0))
-             + COERCE_FLOAT(*(_DWORD *)(v4 + 60) & _xmm)) != v6 )
-    return 0;
-  v7 = *(float *)(v4 + 4);
-  *(_BYTE *)(v4 + 65) = *(_BYTE *)(v4 + 65) & 0xCF | 0x10;
-  if ( v7 != v5 )
-    return 0;
-  if ( *(float *)(v4 + 16) != v5 )
-    return 0;
-  v8 = *(float *)v4;
-  v9 = *(_BYTE *)(v4 + 64) & 0x3F | 0x40;
-  *(_BYTE *)(v4 + 64) = v9;
-  if ( v8 != v6 )
-    return 0;
-  if ( *(float *)(v4 + 20) != v6 )
-    return 0;
-  v10 = *(float *)(v4 + 40);
-  v11 = v9 & 0xCF | 0x10;
-  *(_BYTE *)(v4 + 64) = v11;
-  if ( v10 != v6 || *(float *)(v4 + 48) != v5 || *(float *)(v4 + 52) != v5 || *(float *)(v4 + 56) != v5 )
-    return 0;
-  v12 = v11;
-  result = 1;
-  *(_BYTE *)(v4 + 64) = v12 & 0xFC | 1;
-  return result;
+  *(_WORD *)(a1 + 64) = 32085;
+  return 1;
 }

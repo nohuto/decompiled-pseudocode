@@ -1,9 +1,9 @@
 /*
- * XREFs of _BuildNameList @ 0x1C0104D40
+ * XREFs of _BuildNameList @ 0x1C0117134
  * Callers:
- *     NtUserBuildNameList @ 0x1C0104C30 (NtUserBuildNameList.c)
+ *     NtUserBuildNameList @ 0x1C0117020 (NtUserBuildNameList.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall BuildNameList(__int64 a1, _DWORD *a2, size_t a3, _DWORD *a4)
@@ -38,7 +38,7 @@ __int64 __fastcall BuildNameList(__int64 a1, _DWORD *a2, size_t a3, _DWORD *a4)
     v19 = 64;
     v20 = DesktopMapping;
     v9 = 32LL;
-    CurrentProcess = PsGetCurrentProcess(a1, a2);
+    CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
     v11 = (unsigned int)IsProcessDwm(CurrentProcess) == 0;
     v12 = DesktopMapping;
     if ( v11 )

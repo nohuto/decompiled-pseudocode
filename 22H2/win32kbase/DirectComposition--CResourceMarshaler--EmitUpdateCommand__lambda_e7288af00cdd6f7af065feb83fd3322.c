@@ -1,10 +1,10 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e7288af00cdd6f7af065feb83fd33220___ @ 0x1C0212C90
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e7288af00cdd6f7af065feb83fd33220___ @ 0x1C01E3D90
  * Callers:
- *     ?EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0213260 (-EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E41C0 (-EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     _lambda_e7288af00cdd6f7af065feb83fd33220_::operator() @ 0x1C0212D0C (_lambda_e7288af00cdd6f7af065feb83fd33220_--operator().c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     _lambda_e7288af00cdd6f7af065feb83fd33220_::operator() @ 0x1C01E3E0C (_lambda_e7288af00cdd6f7af065feb83fd33220_--operator().c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e7288af00cdd6f7af065feb83fd33220___(
@@ -23,8 +23,8 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
   *(_OWORD *)(v5 + 4) = 0LL;
   *(_QWORD *)(v5 + 20) = 0LL;
   *((_DWORD *)v5 + 7) = 0;
-  *((_DWORD *)v5 + 1) = 250;
-  *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 32);
+  *((_DWORD *)v5 + 1) = 259;
+  *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 24);
   lambda_e7288af00cdd6f7af065feb83fd33220_::operator()(a3);
   return 1;
 }

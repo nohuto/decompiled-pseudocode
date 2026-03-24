@@ -2,7 +2,7 @@
  * XREFs of InsertEventEntryInLookUpTable @ 0x140012AF4
  * Callers:
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
- *     PnpTraceInterruptUsage @ 0x14016DABC (PnpTraceInterruptUsage.c)
+ *     PnpTraceInterruptUsage @ 0x14016DADC (PnpTraceInterruptUsage.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     RunningHash @ 0x140012E2C (RunningHash.c)
@@ -12,11 +12,11 @@
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     EnableFlushTimer @ 0x140127D00 (EnableFlushTimer.c)
- *     CreateNewEventEntry @ 0x1401299D8 (CreateNewEventEntry.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     EnableFlushTimer @ 0x140127D20 (EnableFlushTimer.c)
+ *     CreateNewEventEntry @ 0x1401299F8 (CreateNewEventEntry.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

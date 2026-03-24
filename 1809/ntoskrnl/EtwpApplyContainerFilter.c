@@ -3,11 +3,11 @@
  * Callers:
  *     EtwpApplyScopeFilters @ 0x1405C42D0 (EtwpApplyScopeFilters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlUTF8ToUnicodeN @ 0x1406BD890 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406BD870 (RtlUTF8ToUnicodeN.c)
  */
 
 char __fastcall EtwpApplyContainerFilter(__int64 a1, _WORD *a2)

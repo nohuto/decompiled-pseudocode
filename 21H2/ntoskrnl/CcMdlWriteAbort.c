@@ -1,14 +1,15 @@
 /*
- * XREFs of CcMdlWriteAbort @ 0x14053BB80
+ * XREFs of CcMdlWriteAbort @ 0x1404EBB70
  * Callers:
  *     <none>
  * Callees:
- *     CcDecrementOpenCount @ 0x140282AF4 (CcDecrementOpenCount.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
@@ -20,12 +21,14 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
   struct _MDL *Next; // rsi
   __int64 v7; // rdx
   __int64 v8; // r8
+  _DWORD *v9; // r9
+  __int64 Partition; // rax
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
+  int v15; // eax
+  bool v16; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   MdlFlags = MdlChain->MdlFlags;
@@ -44,8 +47,9 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
   while ( Next );
   if ( v4 )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(SharedCacheMap[66] + 704LL), &LockHandle);
-    CcDecrementOpenCount((__int64)SharedCacheMap, v7, v8);
+    Partition = CcGetPartition(SharedCacheMap, v7, v8, v9);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
+    CcDecrementOpenCount((__int64)SharedCacheMap);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
@@ -57,10 +61,10 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v14 = (v13 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v13;
-          if ( v14 )
+          v15 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }

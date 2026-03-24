@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDeleteColorTransform @ 0x1C02B53A0
+ * XREFs of NtGdiDeleteColorTransform @ 0x1C02B7260
  * Callers:
  *     <none>
  * Callees:
- *     ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02B4748 (-GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z.c)
+ *     ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02B64EC (-GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z.c)
  */
 
 __int64 __fastcall NtGdiDeleteColorTransform(HDC a1, void *a2)

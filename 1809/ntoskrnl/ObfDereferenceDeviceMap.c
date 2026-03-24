@@ -1,15 +1,15 @@
 /*
- * XREFs of ObfDereferenceDeviceMap @ 0x1406719E0
+ * XREFs of ObfDereferenceDeviceMap @ 0x1406719C0
  * Callers:
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
  *     ObDereferenceDeviceMap @ 0x140608F0C (ObDereferenceDeviceMap.c)
- *     ObQueryDeviceMapInformation @ 0x140671560 (ObQueryDeviceMapInformation.c)
- *     ObSetCurrentProcessDeviceMap @ 0x1406A2CC4 (ObSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x1406A2DDC (SeGetTokenDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x1406B3600 (SepDeReferenceLogonSession.c)
- *     ObpSetDeviceMap @ 0x1406C699C (ObpSetDeviceMap.c)
- *     SepDeleteLogonSessionTrack @ 0x1406F71F8 (SepDeleteLogonSessionTrack.c)
- *     PspDeleteServerSiloGlobals @ 0x140887198 (PspDeleteServerSiloGlobals.c)
+ *     ObQueryDeviceMapInformation @ 0x140671540 (ObQueryDeviceMapInformation.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x1406A2CA4 (ObSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1406A2DBC (SeGetTokenDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
+ *     ObpSetDeviceMap @ 0x1406C697C (ObpSetDeviceMap.c)
+ *     SepDeleteLogonSessionTrack @ 0x1406F71D8 (SepDeleteLogonSessionTrack.c)
+ *     PspDeleteServerSiloGlobals @ 0x140887178 (PspDeleteServerSiloGlobals.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -17,7 +17,7 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

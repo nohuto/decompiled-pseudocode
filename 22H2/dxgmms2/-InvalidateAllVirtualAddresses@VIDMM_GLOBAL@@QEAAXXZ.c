@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E3BF4
+ * XREFs of ?InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00AF2EC
  * Callers:
- *     VidMmInvalidateAllVirtualAddresses @ 0x1C002D0E0 (VidMmInvalidateAllVirtualAddresses.c)
+ *     VidMmInvalidateAllVirtualAddresses @ 0x1C0022D60 (VidMmInvalidateAllVirtualAddresses.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0091AD8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0088380 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::InvalidateAllVirtualAddresses(VIDMM_GLOBAL *this)

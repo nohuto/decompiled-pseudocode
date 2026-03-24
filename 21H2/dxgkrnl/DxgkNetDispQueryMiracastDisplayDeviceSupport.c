@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkNetDispQueryMiracastDisplayDeviceSupport @ 0x1C01EE9B0
+ * XREFs of DxgkNetDispQueryMiracastDisplayDeviceSupport @ 0x1C0175BD0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01EECBC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0175F44 (DxgkMiracastQueryMiracastSupportInternal.c)
  */
 
 __int64 __fastcall DxgkNetDispQueryMiracastDisplayDeviceSupport(ULONG64 a1)

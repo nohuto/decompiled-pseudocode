@@ -1,34 +1,33 @@
 /*
- * XREFs of ViThunkCreateSharedExportInformation @ 0x140ABE010
+ * XREFs of ViThunkCreateSharedExportInformation @ 0x1409C21D8
  * Callers:
- *     VfThunkAddTargetNotify @ 0x140ABDF7C (VfThunkAddTargetNotify.c)
+ *     VfThunkAddTargetNotify @ 0x1409C2100 (VfThunkAddTargetNotify.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x140293420 (RtlNumberOfClearBits.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ViThunkFreeSharedThunksArray @ 0x140ABDF50 (ViThunkFreeSharedThunksArray.c)
- *     ViThunkSnapSharedExports @ 0x140ABE0E4 (ViThunkSnapSharedExports.c)
+ *     RtlNumberOfClearBits @ 0x140253060 (RtlNumberOfClearBits.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViThunkSnapSharedExports @ 0x1409C22AC (ViThunkSnapSharedExports.c)
+ *     ViThunkFreeSharedThunksArray @ 0x1409C2458 (ViThunkFreeSharedThunksArray.c)
  */
 
-__int64 __fastcall ViThunkCreateSharedExportInformation(__int64 a1, __int64 a2, __int64 a3, RTL_BITMAP *a4, void **a5)
+__int64 __fastcall ViThunkCreateSharedExportInformation(__int64 a1, __int64 a2, __int64 a3, RTL_BITMAP *a4, _QWORD *a5)
 {
-  unsigned int v8; // ebx
-  ULONG v9; // eax
-  __int64 v10; // rbp
-  void *Pool2; // rax
-  __int64 v12; // r8
+  unsigned int v9; // ebx
+  ULONG v10; // eax
+  ULONG v11; // ebp
+  PVOID PoolWithTag; // rax
 
-  v8 = 1;
-  v9 = RtlNumberOfClearBits(a4);
-  v10 = v9;
-  if ( v9 )
+  v9 = 1;
+  v10 = RtlNumberOfClearBits(a4);
+  v11 = v10;
+  if ( v10 )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, 24LL * v9, 0x54496656u);
-    *a5 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 32LL * v10, 0x54496656u);
+    *a5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, 24 * v10);
-      if ( !(unsigned int)ViThunkSnapSharedExports(a1, a2, v12, a4, v10, *a5) )
+      memset(PoolWithTag, 0, 32LL * v11);
+      if ( !(unsigned int)ViThunkSnapSharedExports(a1, a2, a3, a4, v11, *a5) )
         ViThunkFreeSharedThunksArray(a5);
     }
     else
@@ -40,5 +39,5 @@ __int64 __fastcall ViThunkCreateSharedExportInformation(__int64 a1, __int64 a2, 
   {
     *a5 = 0LL;
   }
-  return v8;
+  return v9;
 }

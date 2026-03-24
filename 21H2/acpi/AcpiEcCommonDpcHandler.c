@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiEcCommonDpcHandler @ 0x1C0052E34
+ * XREFs of AcpiEcCommonDpcHandler @ 0x1C0053754
  * Callers:
- *     ACPIEcGpeServiceRoutine @ 0x1C0052B80 (ACPIEcGpeServiceRoutine.c)
- *     ACPIEcGpioDpcRoutine @ 0x1C0052BA0 (ACPIEcGpioDpcRoutine.c)
+ *     ACPIEcGpeServiceRoutine @ 0x1C00534A0 (ACPIEcGpeServiceRoutine.c)
+ *     ACPIEcGpioDpcRoutine @ 0x1C00534C0 (ACPIEcGpioDpcRoutine.c)
  * Callees:
- *     ACPIEcLogAction @ 0x1C0053808 (ACPIEcLogAction.c)
- *     ACPIEcServiceDevice @ 0x1C0053A64 (ACPIEcServiceDevice.c)
+ *     ACPIEcLogAction @ 0x1C0054134 (ACPIEcLogAction.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
  */
 
 __int64 __fastcall AcpiEcCommonDpcHandler(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetDisableBoostProcess @ 0x1409614D0
+ * XREFs of KeSetDisableBoostProcess @ 0x1407341DC
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038CA8
+ * XREFs of HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0035C28
  * Callers:
- *     HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003694 (HUBHTX_ValidateAndCacheHubConfigDescriptor.c)
- *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C001663C (HUBPDO_ValidateConfigurationDescriptor.c)
- *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C002B87C (HUBDTX_ValidateAndCacheConfigDescriptor.c)
+ *     HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003064 (HUBHTX_ValidateAndCacheHubConfigDescriptor.c)
+ *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C0015138 (HUBPDO_ValidateConfigurationDescriptor.c)
+ *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C0028C00 (HUBDTX_ValidateAndCacheConfigDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     HUBDESC_InternalValidateCommonDescriptorHeader @ 0x1C0035ABC (HUBDESC_InternalValidateCommonDescriptorHeader.c)
- *     HUBDESC_InternalValidateConfigDescriptor @ 0x1C0035D4C (HUBDESC_InternalValidateConfigDescriptor.c)
- *     HUBDESC_InternalValidateLastInterface @ 0x1C0036228 (HUBDESC_InternalValidateLastInterface.c)
- *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C0036374 (HUBDESC_InternalValidateEndpointDescriptor.c)
- *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C00374D4 (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
- *     HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C0037F1C (HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor.c)
- *     HUBDESC_InternalValidateInterfaceDescriptor @ 0x1C00382D0 (HUBDESC_InternalValidateInterfaceDescriptor.c)
- *     HUBDESC_InternalValidateIADescriptor @ 0x1C0038864 (HUBDESC_InternalValidateIADescriptor.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBDESC_InternalValidateCommonDescriptorHeader @ 0x1C00329D4 (HUBDESC_InternalValidateCommonDescriptorHeader.c)
+ *     HUBDESC_InternalValidateConfigDescriptor @ 0x1C0032C6C (HUBDESC_InternalValidateConfigDescriptor.c)
+ *     HUBDESC_InternalValidateLastInterface @ 0x1C0033158 (HUBDESC_InternalValidateLastInterface.c)
+ *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C00332A4 (HUBDESC_InternalValidateEndpointDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C003440C (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C0034EA8 (HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor.c)
+ *     HUBDESC_InternalValidateInterfaceDescriptor @ 0x1C003525C (HUBDESC_InternalValidateInterfaceDescriptor.c)
+ *     HUBDESC_InternalValidateIADescriptor @ 0x1C00357E4 (HUBDESC_InternalValidateIADescriptor.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 char __fastcall HUBDESC_ValidateConfigurationDescriptorSet(
@@ -68,16 +68,18 @@ char __fastcall HUBDESC_ValidateConfigurationDescriptorSet(
   if ( !a1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(a4, 2u, 5u, 0x7Du, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+      WPP_RECORDER_SF_(a4, 2u, 5u, 0x7Bu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
     v12 = 60LL;
 LABEL_7:
     (*((void (__fastcall **)(_QWORD, __int64))a3 + 3))(*((_QWORD *)a3 + 5), v12);
-    goto LABEL_8;
+LABEL_8:
+    v13 = 0;
+    goto LABEL_45;
   }
   if ( (unsigned int)v5 < 9 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_dD(a4, 2u, 5u, 0x7Eu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v5, 9);
+      WPP_RECORDER_SF_dD(a4, 2u, 5u, 0x7Cu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v5, 9);
     v12 = 56LL;
     goto LABEL_7;
   }
@@ -98,7 +100,7 @@ LABEL_7:
     v17 = 0;
     if ( v14[1] == 4 )
     {
-      LODWORD(v19[16]) &= ~4u;
+      LODWORD(v19[16]) &= 0xFFFFFFF3;
       HUBDESC_InternalValidateInterfaceDescriptor(v14, (__int64)v19, v18, &v17, a4);
       if ( v17 == 1 )
         goto LABEL_8;
@@ -110,6 +112,7 @@ LABEL_7:
       switch ( v14[1] )
       {
         case 5u:
+          LODWORD(v19[16]) &= ~8u;
           HUBDESC_InternalValidateEndpointDescriptor(v14, (__int64)v19, v18, &v17, a4);
           break;
         case 0xBu:
@@ -139,22 +142,18 @@ LABEL_35:
   }
   v17 = 0;
   HUBDESC_InternalValidateLastInterface((__int64)v19, &v17, a4);
-  if ( v17 != 1 )
+  if ( v17 == 1 )
+    goto LABEL_8;
+  v13 = v15;
+  if ( v17 == 2 )
+    v13 = 0;
+  if ( WORD5(v19[12]) != a1[4] && (LOWORD(v19[0]) > 0x200u || WORD6(v19[0])) )
+    v13 = 0;
+  if ( !v13 )
   {
-    v13 = v15;
-    if ( v17 == 2 )
-      v13 = 0;
-    if ( WORD5(v19[12]) == a1[4] || LOWORD(v19[0]) <= 0x200u && !WORD6(v19[0]) )
-    {
-      if ( !v13 )
-        goto LABEL_44;
-      return v13;
-    }
+LABEL_45:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_(a4, 2u, 5u, 0x7Du, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   }
-LABEL_8:
-  v13 = 0;
-LABEL_44:
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(a4, 2u, 5u, 0x7Fu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
   return v13;
 }

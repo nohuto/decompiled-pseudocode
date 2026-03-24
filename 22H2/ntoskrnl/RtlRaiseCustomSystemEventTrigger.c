@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x1405B1030
+ * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x14058E520
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryWnfStateData @ 0x14041D460 (ZwQueryWnfStateData.c)
- *     ZwQueryWnfStateNameInformation @ 0x14041D480 (ZwQueryWnfStateNameInformation.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     RtlpCtAllocateMemory @ 0x1409C2148 (RtlpCtAllocateMemory.c)
- *     RtlpCtContextFree @ 0x1409C216C (RtlpCtContextFree.c)
- *     RtlpCtContextInit @ 0x1409C21C8 (RtlpCtContextInit.c)
- *     RtlpCtFreeMemory @ 0x1409C2290 (RtlpCtFreeMemory.c)
- *     RtlpCtQueueWorkItem @ 0x1409C2350 (RtlpCtQueueWorkItem.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1403FC6A0 (ZwQueryWnfStateData.c)
+ *     ZwQueryWnfStateNameInformation @ 0x1403FC6C0 (ZwQueryWnfStateNameInformation.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     RtlpCtAllocateMemory @ 0x1409194A8 (RtlpCtAllocateMemory.c)
+ *     RtlpCtContextFree @ 0x1409194CC (RtlpCtContextFree.c)
+ *     RtlpCtContextInit @ 0x140919528 (RtlpCtContextInit.c)
+ *     RtlpCtFreeMemory @ 0x1409195F0 (RtlpCtFreeMemory.c)
+ *     RtlpCtQueueWorkItem @ 0x1409196B4 (RtlpCtQueueWorkItem.c)
  */
 
 __int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
@@ -43,7 +43,7 @@ __int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
       }
       else
       {
-        Memory = RtlpCtAllocateMemory(4096LL);
+        Memory = RtlpCtAllocateMemory(0x1000uLL);
         if ( Memory )
         {
           WnfStateData = ZwQueryWnfStateData((__int64)&v7, 0LL);

@@ -1,202 +1,210 @@
 /*
- * XREFs of CmpInitHiveFromFile @ 0x1407122B0
+ * XREFs of CmpInitHiveFromFile @ 0x140670FA8
  * Callers:
- *     CmpCmdHiveOpen @ 0x14070AAD0 (CmpCmdHiveOpen.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
+ *     CmpCmdHiveOpen @ 0x140603588 (CmpCmdHiveOpen.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
- *     CmpCreateHive @ 0x14068A7FC (CmpCreateHive.c)
- *     CmpOpenHiveFile @ 0x140713F8C (CmpOpenHiveFile.c)
- *     CmpQueryFileSecurityDescriptor @ 0x140742D8C (CmpQueryFileSecurityDescriptor.c)
- *     CmpLogEvent @ 0x140911974 (CmpLogEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AB4138 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AB4178 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpIsHiveLoadUnloadRundownActive @ 0x140AB419C (CmpIsHiveLoadUnloadRundownActive.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x140672000 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
+ *     CmpLogEvent @ 0x14086B714 (CmpLogEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpInitHiveFromFile(
-        const UNICODE_STRING *a1,
+        PCUNICODE_STRING Source,
         int a2,
         _QWORD *a3,
         char *a4,
         unsigned int a5,
         __int64 a6,
-        int a7,
-        int a8,
+        __int64 a7,
+        __int64 a8,
         __int64 a9,
         void *a10)
 {
   _QWORD *v10; // r10
-  __int64 v11; // r8
-  HANDLE v14; // rsi
-  unsigned int v15; // ecx
-  HANDLE v16; // r14
-  int v17; // edi
-  signed int v18; // eax
-  unsigned int v19; // ebx
-  int v21; // r13d
-  signed int v22; // eax
-  signed int v23; // eax
-  unsigned int v24; // ebx
-  HANDLE v25; // r13
-  signed int v26; // eax
-  char v27; // bl
-  ULONG_PTR v28; // rcx
-  signed int FileSecurityDescriptor; // eax
-  signed int v30; // eax
-  signed int v31; // ebx
-  char v32; // [rsp+60h] [rbp-A0h]
-  char v33; // [rsp+61h] [rbp-9Fh]
-  char UnloadRundown; // [rsp+62h] [rbp-9Eh]
-  ULONG_PTR v35; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE Handle; // [rsp+70h] [rbp-90h]
-  int v37; // [rsp+78h] [rbp-88h]
-  int v38; // [rsp+7Ch] [rbp-84h] BYREF
-  __int64 v39; // [rsp+80h] [rbp-80h]
-  int v40; // [rsp+88h] [rbp-78h]
-  int v41; // [rsp+8Ch] [rbp-74h]
-  HANDLE v42; // [rsp+90h] [rbp-70h]
+  __int64 v12; // r8
+  HANDLE v14; // rdi
+  int v15; // ecx
+  HANDLE v16; // rsi
+  void *v17; // r12
+  int v18; // r14d
+  int v19; // eax
+  int FileSecurityDescriptor; // ebx
+  HANDLE v21; // r15
+  int Hive; // eax
+  struct _KTHREAD *CurrentThread; // rax
+  void *v25; // rbx
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  _DWORD *v28; // r9
+  char v29; // bl
+  ULONG_PTR v30; // rcx
+  int v31; // ebx
+  int v32; // r9d
+  int FileInformationClass; // [rsp+20h] [rbp-E0h]
+  char v34; // [rsp+60h] [rbp-A0h]
+  char v35; // [rsp+61h] [rbp-9Fh]
+  BOOLEAN v36; // [rsp+62h] [rbp-9Eh]
+  int v37; // [rsp+64h] [rbp-9Ch] BYREF
+  int v38; // [rsp+68h] [rbp-98h]
+  ULONG_PTR v39; // [rsp+70h] [rbp-90h] BYREF
+  HANDLE Handle; // [rsp+78h] [rbp-88h]
+  void *v41; // [rsp+80h] [rbp-80h]
+  HANDLE v42; // [rsp+88h] [rbp-78h]
+  __int64 v43; // [rsp+90h] [rbp-70h]
   HANDLE FileHandle; // [rsp+98h] [rbp-68h]
-  PVOID P; // [rsp+A0h] [rbp-60h]
-  _QWORD *v45; // [rsp+A8h] [rbp-58h]
-  int v46; // [rsp+B0h] [rbp-50h]
-  int v47; // [rsp+B4h] [rbp-4Ch]
-  __int64 v48; // [rsp+B8h] [rbp-48h] BYREF
-  char *v49; // [rsp+C0h] [rbp-40h]
-  __int64 v50; // [rsp+C8h] [rbp-38h]
-  __int128 v51; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 v52; // [rsp+E0h] [rbp-20h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F0h] [rbp-10h] BYREF
-  __int128 FileInformation; // [rsp+100h] [rbp+0h] BYREF
-  __int128 v55; // [rsp+110h] [rbp+10h]
-  __int64 v56; // [rsp+120h] [rbp+20h]
-  _OWORD v57[3]; // [rsp+128h] [rbp+28h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v58[2]; // [rsp+160h] [rbp+60h] BYREF
-  int *v59; // [rsp+180h] [rbp+80h]
-  __int64 v60; // [rsp+188h] [rbp+88h]
-  wchar_t *Buffer; // [rsp+190h] [rbp+90h]
-  _DWORD v62[2]; // [rsp+198h] [rbp+98h] BYREF
+  void *v45; // [rsp+A0h] [rbp-60h]
+  int v46; // [rsp+A8h] [rbp-58h]
+  int v47; // [rsp+ACh] [rbp-54h]
+  _QWORD *v48; // [rsp+B0h] [rbp-50h]
+  int v49; // [rsp+B8h] [rbp-48h]
+  int v50; // [rsp+BCh] [rbp-44h]
+  int v51; // [rsp+C0h] [rbp-40h]
+  __int64 v52; // [rsp+C8h] [rbp-38h] BYREF
+  char *v53; // [rsp+D0h] [rbp-30h]
+  __int64 v54; // [rsp+D8h] [rbp-28h]
+  __int128 v55; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v56; // [rsp+F0h] [rbp-10h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+100h] [rbp+0h] BYREF
+  __int128 FileInformation; // [rsp+110h] [rbp+10h] BYREF
+  __int128 v59; // [rsp+120h] [rbp+20h]
+  __int64 v60; // [rsp+130h] [rbp+30h]
+  _OWORD v61[3]; // [rsp+138h] [rbp+38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v62; // [rsp+170h] [rbp+70h] BYREF
+  _DWORD *v63; // [rsp+190h] [rbp+90h]
+  __int64 v64; // [rsp+198h] [rbp+98h]
+  wchar_t *Buffer; // [rsp+1A0h] [rbp+A0h]
+  _DWORD v66[2]; // [rsp+1A8h] [rbp+A8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v67; // [rsp+1B0h] [rbp+B0h] BYREF
+  int *v68; // [rsp+1D0h] [rbp+D0h]
+  int v69; // [rsp+1D8h] [rbp+D8h]
+  int v70; // [rsp+1DCh] [rbp+DCh]
 
-  v50 = a9;
-  v45 = a3;
+  v54 = a9;
   v10 = a3;
-  v11 = a6;
-  v49 = a4;
-  v38 = a2;
-  v39 = a6;
-  v51 = 0LL;
-  v41 = 0;
-  v52 = 0LL;
-  v47 = 0;
-  v35 = 0LL;
-  v40 = 0;
-  FileInformation = 0LL;
-  v56 = 0LL;
+  v41 = a10;
+  v48 = a3;
+  v12 = a6;
+  v53 = a4;
+  v51 = a2;
+  v43 = a6;
   v55 = 0LL;
+  v47 = 0;
+  v56 = 0LL;
+  v50 = 0;
+  v39 = 0LL;
+  v46 = 0;
+  FileInformation = 0LL;
+  v60 = 0LL;
+  v59 = 0LL;
   IoStatusBlock = 0LL;
-  memset(v57, 0, sizeof(v57));
-  if ( (unsigned int)dword_140C03868 > 4 )
+  memset(v61, 0, sizeof(v61));
+  if ( (unsigned int)dword_140C02130 > 4 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03868, 8LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02130, 8LL) )
     {
-      v60 = 2LL;
-      v59 = v62;
-      Buffer = a1->Buffer;
-      v62[0] = a1->Length;
-      v62[1] = 0;
+      v64 = 2LL;
+      v63 = v66;
+      Buffer = Source->Buffer;
+      v66[0] = Source->Length;
+      v66[1] = 0;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03868,
-        (unsigned __int8 *)&byte_140028C77,
+        (__int64)&dword_140C02130,
+        (unsigned __int8 *)byte_1400228CD,
         0LL,
         0LL,
         4u,
-        v58);
-      a4 = v49;
-      v10 = v45;
+        &v62);
+      a4 = v53;
+      v10 = v48;
     }
-    v11 = v39;
+    v12 = v43;
   }
-  v33 = 0;
+  v35 = 0;
   v14 = 0LL;
   v15 = (a5 >> 19) & 0x40;
-  UnloadRundown = 0;
+  v36 = 0;
   FileHandle = 0LL;
-  v46 = a2 & 0x8000;
+  v49 = a2 & 0x8000;
   v16 = 0LL;
   Handle = 0LL;
+  v17 = 0LL;
   v42 = 0LL;
-  v32 = 1;
-  P = 0LL;
+  v34 = 1;
+  v45 = 0LL;
   if ( (a2 & 0x8000) != 0 )
   {
-    v32 = 0;
-    v17 = v15 | ((a2 & 0x40000 | 0x10000u) >> 11);
+    v34 = 0;
+    v18 = v15 | ((a2 & 0x40000 | 0x10000u) >> 11);
   }
   else
   {
-    v17 = v15 | 2;
+    v18 = v15 | 2;
     if ( (a5 & 0x40000000) == 0 )
-      v17 = (a5 >> 19) & 0x40;
+      v18 = (a5 >> 19) & 0x40;
     if ( *a4 )
-      v17 |= 1u;
+      v18 |= 1u;
   }
   while ( 1 )
   {
     *v10 = 0LL;
-    v48 = 0LL;
-    v18 = CmpOpenHiveFile(a1, v17, v11, (__int64)&v48, 0LL, 0LL, (__int64)a10);
-    v19 = v18;
-    if ( v18 < 0 )
+    v52 = 0LL;
+    v19 = CmpOpenHiveFile(Source, v18, v12, (__int64)&v52, 0LL, 0LL);
+    FileSecurityDescriptor = v19;
+    if ( v19 < 0 )
     {
-      SetFailureLocation((__int64)a10, 0, 28, v18, 0x10u);
-LABEL_9:
-      if ( !UnloadRundown )
-        goto LABEL_10;
-LABEL_47:
-      CmpReleaseHiveLoadUnloadRundown();
-      goto LABEL_10;
+      SetFailureLocation((__int64)v41, 0, 28, v19, 16);
+      v21 = FileHandle;
+      goto LABEL_9;
     }
-    v21 = v17;
-    if ( v40 == 2 )
+    v37 = v18;
+    if ( v46 == 2 )
     {
-      v21 = v17 | 0x10;
-      v33 = 1;
+      v35 = 1;
+      v37 = v18 | 0x10;
     }
-    if ( !v46 )
+    v21 = FileHandle;
+    if ( !v49 )
     {
       FileSecurityDescriptor = CmpQueryFileSecurityDescriptor(FileHandle);
-      v19 = FileSecurityDescriptor;
       if ( FileSecurityDescriptor < 0 )
       {
-        SetFailureLocation((__int64)a10, 0, 28, FileSecurityDescriptor, 0x20u);
+        SetFailureLocation((__int64)v41, 0, 28, FileSecurityDescriptor, 32);
+        v17 = v45;
         goto LABEL_9;
       }
+      v17 = v45;
     }
     if ( (a5 & 0x10000000) != 0 )
     {
-      v37 = 1;
-      v30 = CmpOpenHiveFile(a1, v21, v39, 0LL, (__int64)P, 0LL, (__int64)a10);
-      v19 = v30;
-      if ( v30 < 0 )
+      v38 = 1;
+      Hive = CmpOpenHiveFile(Source, v37, v43, 0LL, (__int64)v17, 0LL);
+      FileSecurityDescriptor = Hive;
+      if ( Hive < 0 )
       {
         v14 = 0LL;
         Handle = 0LL;
-        if ( v32 )
+        if ( v34 )
         {
-          SetFailureLocation((__int64)a10, 0, 28, v30, 0x30u);
-          goto LABEL_9;
+          FileInformationClass = 48;
+          goto LABEL_78;
         }
       }
       else
@@ -206,16 +214,18 @@ LABEL_47:
     }
     else
     {
-      v37 = 2;
-      v22 = CmpOpenHiveFile(a1, v21, v39, 0LL, (__int64)P, 0LL, (__int64)a10);
-      v19 = v22;
-      if ( v22 < 0 )
+      v38 = 2;
+      FileSecurityDescriptor = CmpOpenHiveFile(Source, v37, v43, 0LL, (__int64)v17, 0LL);
+      if ( FileSecurityDescriptor < 0 )
       {
         v14 = 0LL;
         Handle = 0LL;
-        if ( v32 )
+        if ( v34 )
         {
-          SetFailureLocation((__int64)a10, 0, 28, v22, 0x40u);
+          FileInformationClass = 64;
+          v32 = FileSecurityDescriptor;
+LABEL_79:
+          SetFailureLocation((__int64)v41, 0, 28, v32, FileInformationClass);
           goto LABEL_9;
         }
       }
@@ -223,104 +233,87 @@ LABEL_47:
       {
         v14 = Handle;
       }
-      v23 = CmpOpenHiveFile(a1, v21, v39, 0LL, (__int64)P, 0LL, (__int64)a10);
-      v19 = v23;
-      if ( v23 < 0 )
-      {
-        v16 = 0LL;
-        v42 = 0LL;
-        if ( v32 )
-        {
-          SetFailureLocation((__int64)a10, 0, 28, v23, 0x50u);
-          goto LABEL_9;
-        }
-      }
-      else
+      Hive = CmpOpenHiveFile(Source, v37, v43, 0LL, (__int64)v17, 0LL);
+      FileSecurityDescriptor = Hive;
+      if ( Hive >= 0 )
       {
         v16 = v42;
+        goto LABEL_31;
+      }
+      v16 = 0LL;
+      v42 = 0LL;
+      if ( v34 )
+      {
+        FileInformationClass = 80;
+LABEL_78:
+        v32 = Hive;
+        goto LABEL_79;
       }
     }
-    v24 = v37;
-    if ( !v32 )
+LABEL_31:
+    if ( !v34 )
     {
-      if ( v37 == 2 )
+      if ( v38 != 2 )
       {
-        if ( v14 )
-        {
-          if ( v16 )
-            goto LABEL_34;
-          ZwClose(v14);
-          v14 = 0LL;
-          Handle = 0LL;
-        }
+        v38 = v14 != 0LL;
+        goto LABEL_35;
+      }
+      if ( v14 )
+      {
         if ( v16 )
-        {
-          ZwClose(v16);
-          v16 = 0LL;
-          v42 = 0LL;
-        }
-        v24 = 0;
+          goto LABEL_35;
+        ZwClose(v14);
+        v14 = 0LL;
+        Handle = 0LL;
       }
-      else if ( v37 == 1 )
+      if ( v16 )
       {
-        v24 = v14 != 0LL;
+        ZwClose(v16);
+        v16 = 0LL;
+        v42 = 0LL;
+      }
+      v38 = 0;
+    }
+LABEL_35:
+    if ( !v36 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
+      v36 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+      if ( !v36 )
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      v14 = Handle;
+      v16 = v42;
+      v21 = FileHandle;
+      v17 = v45;
+      if ( !v36 )
+      {
+        FileSecurityDescriptor = -1073741431;
+        goto LABEL_9;
       }
     }
-LABEL_34:
-    if ( !UnloadRundown )
+    v25 = v41;
+    *(_QWORD *)&v55 = v21;
+    *((_QWORD *)&v55 + 1) = v14;
+    v56 = (unsigned __int64)v16;
+    memset(v41, 0, 0x1B0uLL);
+    Hive = CmpCreateHive(
+             (unsigned int)&v39,
+             v35 == 0 ? 5 : 0,
+             v51,
+             v38,
+             0LL,
+             (__int64)&v55,
+             (__int64)Source,
+             a5,
+             0LL,
+             0LL,
+             v54,
+             (__int64)v25);
+    FileSecurityDescriptor = Hive;
+    if ( Hive != -1073741267 )
       break;
-    if ( (unsigned __int8)CmpIsHiveLoadUnloadRundownActive() )
-    {
-      v19 = -1073741431;
-      goto LABEL_47;
-    }
-LABEL_36:
-    v25 = FileHandle;
-    *(_QWORD *)&v51 = FileHandle;
-    *((_QWORD *)&v51 + 1) = v14;
-    v52 = (unsigned __int64)v16;
-    memset(a10, 0, 0x1B0uLL);
-    v26 = CmpCreateHive(&v35, v33 == 0 ? 5 : 0, v38, v24, 0LL, &v51, (__int64)a1, a5, 0LL, 0LL, v50, (__int64)a10);
-    v19 = v26;
-    if ( v26 != -1073741267 )
-    {
-      if ( v26 < 0 )
-      {
-        SetFailureLocation((__int64)a10, 0, 28, v26, 0x60u);
-      }
-      else
-      {
-        v27 = v33;
-        if ( !v33 && (*(_DWORD *)(v35 + 4112) & 0x800) != 0 )
-        {
-          CmpAttachToRegistryProcess(v57);
-          v31 = CmpFlushHive(v35, 0xCu);
-          CmpDetachFromRegistryProcess(v57);
-          if ( v31 < 0 )
-            SetFailureLocation((__int64)a10, 1, 1, v31, 0xE6u);
-          v27 = 0;
-        }
-        *(_QWORD *)(v35 + 1848) = ExAllocatePoolWithTag(PagedPool, a1->Length, 0x624E4D43u);
-        v28 = v35;
-        if ( *(_QWORD *)(v35 + 1848) )
-        {
-          *(_WORD *)(v35 + 1840) = a1->Length;
-          *(_WORD *)(v35 + 1842) = a1->Length;
-          memmove(*(void **)(v35 + 1848), a1->Buffer, a1->Length);
-          v28 = v35;
-        }
-        if ( (*(_DWORD *)(*(_QWORD *)(v28 + 64) + 4088LL) & 4) != 0 )
-          CmpLogEvent(&REG_EVENT_SELFHEAL);
-        if ( ZwQueryInformationFile(v25, &IoStatusBlock, &FileInformation, 0x28u, FileBasicInformation) >= 0 )
-          *(_QWORD *)(v35 + 4184) = v55;
-        *(_DWORD *)(v35 + 188) = HIDWORD(v48);
-        *v45 = v35;
-        *v49 = v27;
-        v19 = 0;
-      }
-      goto LABEL_9;
-    }
-    ZwClose(v25);
+    ZwClose(v21);
     FileHandle = 0LL;
     if ( v14 )
     {
@@ -328,36 +321,74 @@ LABEL_36:
       v14 = 0LL;
       Handle = 0LL;
     }
-    v11 = v39;
-    v10 = v45;
+    v12 = v43;
+    v10 = v48;
     if ( v16 )
     {
       ZwClose(v16);
-      v11 = v39;
+      v12 = v43;
       v16 = 0LL;
-      v10 = v45;
+      v10 = v48;
       v42 = 0LL;
     }
   }
-  UnloadRundown = CmpAcquireHiveLoadUnloadRundown();
-  if ( UnloadRundown )
-    goto LABEL_36;
-  v19 = -1073741431;
-LABEL_10:
-  if ( FileHandle )
-    ZwClose(FileHandle);
+  if ( Hive < 0 )
+  {
+    FileInformationClass = 96;
+    goto LABEL_78;
+  }
+  v29 = v35;
+  if ( !v35 && (*(_DWORD *)(v39 + 4152) & 0x800) != 0 )
+  {
+    CmpAttachToRegistryProcess((__int64)v61, v26, v27, v28);
+    v31 = CmpFlushHive(v39, 0xCu);
+    KiUnstackDetachProcess((__int64)v61, 0);
+    if ( v31 < 0 )
+      SetFailureLocation((__int64)v41, 1, 1, v31, 230);
+    v29 = 0;
+  }
+  *(_QWORD *)(v39 + 1840) = ExAllocatePoolWithTag(PagedPool, Source->Length, 0x624E4D43u);
+  v30 = v39;
+  if ( *(_QWORD *)(v39 + 1840) )
+  {
+    *(_WORD *)(v39 + 1832) = Source->Length;
+    *(_WORD *)(v39 + 1834) = Source->Length;
+    memmove(*(void **)(v39 + 1840), Source->Buffer, Source->Length);
+    v30 = v39;
+  }
+  if ( (*(_DWORD *)(*(_QWORD *)(v30 + 64) + 4088LL) & 4) != 0 )
+    CmpLogEvent(&REG_EVENT_SELFHEAL);
+  if ( ZwQueryInformationFile(v21, &IoStatusBlock, &FileInformation, 0x28u, FileBasicInformation) >= 0 )
+    *(_QWORD *)(v39 + 4224) = v59;
+  *(_DWORD *)(v39 + 184) = HIDWORD(v52);
+  *v48 = v39;
+  *v53 = v29;
+  FileSecurityDescriptor = 0;
+LABEL_9:
+  if ( v36 )
+  {
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v14 = Handle;
+    v16 = v42;
+    v21 = FileHandle;
+    v17 = v45;
+  }
+  if ( v21 )
+    ZwClose(v21);
   if ( v14 )
     ZwClose(v14);
   if ( v16 )
     ZwClose(v16);
-  if ( P )
-    ExFreePoolWithTag(P, 0);
-  if ( (unsigned int)dword_140C03868 > 4 && tlgKeywordOn((__int64)&dword_140C03868, 8LL) )
+  if ( v17 )
+    ExFreePoolWithTag(v17, 0);
+  if ( (unsigned int)dword_140C02130 > 4 && tlgKeywordOn((__int64)&dword_140C02130, 8LL) )
   {
-    v38 = v19;
-    v59 = &v38;
-    v60 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)byte_140028C4D, 0LL, 0LL, 3u, v58);
+    v70 = 0;
+    v68 = &v37;
+    v37 = FileSecurityDescriptor;
+    v69 = 4;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_1400228A3, 0LL, 0LL, 3u, &v67);
   }
-  return v19;
+  return (unsigned int)FileSecurityDescriptor;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ConvertNtStatusToAMLIStatus @ 0x1C002AF80
+ * XREFs of ConvertNtStatusToAMLIStatus @ 0x1C00103E0
  * Callers:
- *     PerformMutexDriverCallbacks @ 0x1C002AEB8 (PerformMutexDriverCallbacks.c)
- *     PerformNativeMethodCall @ 0x1C00659C8 (PerformNativeMethodCall.c)
+ *     PerformMutexDriverCallbacks @ 0x1C0010328 (PerformMutexDriverCallbacks.c)
+ *     PerformNativeMethodCall @ 0x1C0064750 (PerformNativeMethodCall.c)
  * Callees:
  *     <none>
  */

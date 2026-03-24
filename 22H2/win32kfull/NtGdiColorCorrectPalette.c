@@ -1,13 +1,13 @@
 /*
- * XREFs of NtGdiColorCorrectPalette @ 0x1C02CEE90
+ * XREFs of NtGdiColorCorrectPalette @ 0x1C02B60D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C00584C0 (-ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02D8DF8 (-ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C012045C (-ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z.c)
+ *     ?ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02BCBC8 (-ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
  */
 
 __int64 __fastcall NtGdiColorCorrectPalette(
@@ -20,58 +20,59 @@ __int64 __fastcall NtGdiColorCorrectPalette(
 {
   __int64 v6; // rdi
   unsigned int Entries; // ebx
-  unsigned int v10; // edx
+  __int64 v10; // rdx
   __int64 v11; // rax
-  __int64 v13; // [rsp+38h] [rbp-40h] BYREF
-  _QWORD v14[6]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v12; // rdx
+  __int64 v14; // [rsp+38h] [rbp-40h] BYREF
+  _QWORD v15[6]; // [rsp+40h] [rbp-38h] BYREF
 
   v6 = a4;
-  DCOBJ::DCOBJ((DCOBJ *)v14, a1);
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v13, a2);
+  DCOBJ::DCOBJ((DCOBJ *)v15, a1);
+  EPALOBJ::EPALOBJ((EPALOBJ *)&v14, a2);
   Entries = 0;
-  if ( !v14[0] || !v13 )
-    goto LABEL_22;
-  if ( (_DWORD)v6 )
+  if ( !v15[0] || !v14 )
+    goto LABEL_20;
+  if ( !(_DWORD)v6
+    || (v10 = *(unsigned int *)(v14 + 28), (unsigned int)v6 > (unsigned int)v10)
+    || (unsigned int)v6 > 0x3FFFFFFF
+    || a3 > (unsigned int)v10
+    || a3 + (unsigned int)v6 > (unsigned int)v10 )
   {
-    v10 = *(_DWORD *)(v13 + 28);
-    if ( (unsigned int)v6 <= v10 && (unsigned int)v6 <= 0x3FFFFFFF && a3 <= v10 && a3 + (unsigned int)v6 <= v10 )
+    EngSetLastError(0x57u);
+    DEC_SHARE_REF_CNT(v14, v12);
+    DCOBJ::~DCOBJ((DCOBJ *)v15);
+    return 0LL;
+  }
+  if ( (*(_DWORD *)(v15[0] + 120LL) & 1) != 0 )
+  {
+    if ( a6 )
     {
-      if ( (*(_DWORD *)(v14[0] + 120LL) & 1) != 0 )
+      if ( a6 == 1 )
       {
-        if ( a6 )
+        v11 = v6;
+        if ( 4 * v6 )
         {
-          if ( a6 == 1 )
-          {
-            v11 = v6;
-            if ( 4 * v6 )
-            {
-              if ( ((unsigned __int8)Address & 3) != 0 )
-                ExRaiseDatatypeMisalignment();
-              if ( (unsigned __int64)&Address[v11] > MmUserProbeAddress || &Address[v11] < Address )
-                *(_BYTE *)MmUserProbeAddress = 0;
-            }
-            Entries = XEPALOBJ::ulSetEntries((XEPALOBJ *)&v13, a3, v6, Address);
-          }
+          if ( ((unsigned __int8)Address & 3) != 0 )
+            ExRaiseDatatypeMisalignment();
+          if ( (unsigned __int64)&Address[v11] > MmUserProbeAddress || &Address[v11] < Address )
+            *(_BYTE *)MmUserProbeAddress = 0;
         }
-        else
-        {
-          ProbeForWrite(Address, 4LL * (unsigned int)v6, 4u);
-          Entries = XEPALOBJ::ulGetEntries((XEPALOBJ *)&v13, a3, v6, Address, 0);
-        }
-        goto LABEL_23;
+        Entries = XEPALOBJ::ulSetEntries((XEPALOBJ *)&v14, a3, v6, Address);
       }
-LABEL_22:
-      EngSetLastError(0x57u);
-LABEL_23:
-      if ( v13 )
-        DEC_SHARE_REF_CNT(v13);
-      DCOBJ::~DCOBJ((DCOBJ *)v14);
-      return Entries;
+    }
+    else
+    {
+      ProbeForWrite(Address, 4LL * (unsigned int)v6, 4u);
+      Entries = XEPALOBJ::ulGetEntries((XEPALOBJ *)&v14, a3, v6, Address, 0);
     }
   }
-  EngSetLastError(0x57u);
-  if ( v13 )
-    DEC_SHARE_REF_CNT(v13);
-  DCOBJ::~DCOBJ((DCOBJ *)v14);
-  return 0LL;
+  else
+  {
+LABEL_20:
+    EngSetLastError(0x57u);
+  }
+  if ( v14 )
+    DEC_SHARE_REF_CNT(v14, v10);
+  DCOBJ::~DCOBJ((DCOBJ *)v15);
+  return Entries;
 }

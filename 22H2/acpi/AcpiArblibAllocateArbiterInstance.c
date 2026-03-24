@@ -1,36 +1,34 @@
 /*
- * XREFs of AcpiArblibAllocateArbiterInstance @ 0x1C007CB74
+ * XREFs of AcpiArblibAllocateArbiterInstance @ 0x1C00ACD30
  * Callers:
- *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C00AD2D4 (AcpiArblibInitializeArbiter.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     RtlStringCchPrintfExW @ 0x1C000B730 (RtlStringCchPrintfExW.c)
- *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNSObjectNameSegment @ 0x1C00483A4 (AMLIGetNSObjectNameSegment.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
- *     AMLIReferenceHandleEx @ 0x1C0048A78 (AMLIReferenceHandleEx.c)
+ *     AMLIGetNSObjectNameSegment @ 0x1C000236C (AMLIGetNSObjectNameSegment.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     RtlStringCchPrintfW @ 0x1C00287E0 (RtlStringCchPrintfW.c)
+ *     RtlStringCchPrintfExW @ 0x1C0028C9C (RtlStringCchPrintfExW.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AMLIReferenceHandleEx @ 0x1C006364C (AMLIReferenceHandleEx.c)
  */
 
 wchar_t *__fastcall AcpiArblibAllocateArbiterInstance(__int64 a1, unsigned int a2)
 {
   int v4; // eax
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v6; // rbx
-  signed __int32 v7; // esi
+  signed __int32 v7; // ebp
   const wchar_t *v8; // rax
-  volatile signed __int32 *v10; // rbp
+  __int64 v10; // rsi
   __int64 v11; // rcx
-  volatile signed __int32 *v12; // rax
-  __int64 v13; // rdx
-  NTSTRSAFE_PWSTR v14; // r15
-  size_t v15; // rdi
-  unsigned int v16; // r14d
-  volatile signed __int32 *v17; // r12
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // rdx
-  __int64 v21; // rbp
+  __int64 v12; // rax
+  NTSTRSAFE_PWSTR v13; // r15
+  size_t v14; // rdi
+  unsigned int v15; // r14d
+  __int64 v16; // r12
+  __int64 v17; // rcx
+  __int64 v18; // rsi
   size_t pcchRemaining; // [rsp+90h] [rbp+18h] BYREF
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+98h] [rbp+20h] BYREF
 
@@ -39,12 +37,13 @@ wchar_t *__fastcall AcpiArblibAllocateArbiterInstance(__int64 a1, unsigned int a
   v4 = 74;
   if ( !_bittest(&v4, a2) )
     return 0LL;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 480LL, 1097884481LL);
-  v6 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag((POOL_TYPE)257, 0x1E0uLL, 0x41706341u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
+  memset(PoolWithTag, 0, 0x1E0uLL);
   v7 = _InterlockedExchangeAdd(&AcpiArbiterInstanceCount, 1u);
-  ppszDestEnd = Pool2;
+  ppszDestEnd = v6;
   pcchRemaining = 64LL;
   if ( a2 == 1 )
   {
@@ -61,48 +60,48 @@ wchar_t *__fastcall AcpiArblibAllocateArbiterInstance(__int64 a1, unsigned int a
     ExFreePoolWithTag(v6, 0);
     return 0LL;
   }
-  v10 = *(volatile signed __int32 **)(a1 + 760);
-  AMLIReferenceHandleEx((__int64)v10);
-  v12 = (volatile signed __int32 *)AMLIGetParent(v11);
-  v14 = ppszDestEnd;
+  v10 = *(_QWORD *)(a1 + 720);
+  AMLIReferenceHandleEx(v10);
+  v12 = AMLIGetParent(v11);
+  v13 = ppszDestEnd;
   if ( v12 )
   {
-    AMLIDereferenceHandleEx(v12, v13);
-    v15 = pcchRemaining;
+    AMLIDereferenceHandleEx(v12);
+    v14 = pcchRemaining;
     if ( pcchRemaining >= 5 )
     {
-      AMLIGetNSObjectNameSegment((__int64)v10);
-      RtlStringCchPrintfW(v14, v15, L"%C%C%C%C");
-      v16 = 4;
-      v15 -= 4LL;
-      v17 = (volatile signed __int32 *)AMLIGetParent((__int64)v10);
-      AMLIDereferenceHandleEx(v10, v18);
-      v19 = (__int64)v17;
+      AMLIGetNSObjectNameSegment(v10);
+      RtlStringCchPrintfW(v13, v14, L"%C%C%C%C");
+      v15 = 4;
+      v14 -= 4LL;
+      v16 = AMLIGetParent(v10);
+      AMLIDereferenceHandleEx(v10);
+      v17 = v16;
       while ( 1 )
       {
-        v21 = AMLIGetParent(v19);
-        if ( !v21 )
-          goto LABEL_18;
-        if ( v15 < 6 || v16 >= 0x40 )
+        v18 = AMLIGetParent(v17);
+        if ( !v18 )
+          goto LABEL_21;
+        if ( v14 < 6 || v15 >= 0x40 )
           break;
-        memmove(v14 + 5, v14, 2LL * v16);
-        v16 += 5;
-        v15 -= 5LL;
-        AMLIGetNSObjectNameSegment((__int64)v17);
-        RtlStringCchPrintfW(v14, 5uLL, L"%C%C%C%C");
-        v14[4] = 46;
-        AMLIDereferenceHandleEx(v17, v20);
-        v19 = v21;
-        v17 = (volatile signed __int32 *)v21;
+        memmove(v13 + 5, v13, 2LL * v15);
+        v15 += 5;
+        v14 -= 5LL;
+        AMLIGetNSObjectNameSegment(v16);
+        RtlStringCchPrintfW(v13, 5uLL, L"%C%C%C%C");
+        v13[4] = 46;
+        AMLIDereferenceHandleEx(v16);
+        v17 = v18;
+        v16 = v18;
       }
     }
   }
   else
   {
-    v15 = pcchRemaining;
+    v14 = pcchRemaining;
   }
-  RtlStringCchPrintfW(v14, v15, L"%x", (unsigned int)(v7 + 1));
-LABEL_18:
+  RtlStringCchPrintfW(v13, v14, L"%x", (unsigned int)(v7 + 1));
+LABEL_21:
   v6[63] = 0;
   return v6;
 }

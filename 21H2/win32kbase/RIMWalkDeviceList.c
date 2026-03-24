@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMWalkDeviceList @ 0x1C017F350
+ * XREFs of RIMWalkDeviceList @ 0x1C01522A0
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall RIMWalkDeviceList(__int64 a1, void (__fastcall *a2)(__int64 *, __int64))
@@ -14,7 +14,7 @@ void __fastcall RIMWalkDeviceList(__int64 a1, void (__fastcall *a2)(__int64 *, _
   RIMLockExclusive((__int64)&gObListLock);
   for ( i = (__int64 *)gObRimDevList; i != &gObRimDevList; i = (__int64 *)*i )
     a2(i - 2, a1);
-  qword_1C029A118 = 0LL;
+  qword_1C0255428 = 0LL;
   ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
 }

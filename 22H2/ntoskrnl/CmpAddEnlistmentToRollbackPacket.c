@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddEnlistmentToRollbackPacket @ 0x140A1E37C
+ * XREFs of CmpAddEnlistmentToRollbackPacket @ 0x140874B78
  * Callers:
- *     CmSnapshotRMTxArray @ 0x140699FE8 (CmSnapshotRMTxArray.c)
+ *     CmSnapshotRMTxArray @ 0x14066E8B8 (CmSnapshotRMTxArray.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     CmpAddPointerToRollbackPacket @ 0x140A1E3D0 (CmpAddPointerToRollbackPacket.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     CmpAddPointerToRollbackPacket @ 0x140874BCC (CmpAddPointerToRollbackPacket.c)
  */
 
-__int64 __fastcall CmpAddEnlistmentToRollbackPacket(__int64 a1, void *a2)
+__int64 __fastcall CmpAddEnlistmentToRollbackPacket(__int64 a1, struct _DMA_ADAPTER *a2)
 {
   int v4; // eax
   unsigned int v5; // ebx
@@ -24,6 +24,6 @@ __int64 __fastcall CmpAddEnlistmentToRollbackPacket(__int64 a1, void *a2)
   {
     return 0;
   }
-  ObfDereferenceObject(a2);
+  HalPutDmaAdapter(a2);
   return v5;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CDesktopTree@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800F8990
+ * XREFs of ?IsOfType@CDesktopTree@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E03A0
  * Callers:
  *     <none>
  * Callees:

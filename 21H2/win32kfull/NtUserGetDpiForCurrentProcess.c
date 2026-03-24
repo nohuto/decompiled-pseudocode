@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserGetDpiForCurrentProcess @ 0x1C0115050
+ * XREFs of NtUserGetDpiForCurrentProcess @ 0x1C01297A0
  * Callers:
  *     <none>
  * Callees:

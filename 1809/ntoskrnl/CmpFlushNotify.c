@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFlushNotify @ 0x1406927C8
+ * XREFs of CmpFlushNotify @ 0x1406927A8
  * Callers:
  *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpDeleteKeyObject @ 0x14063F520 (CmpDeleteKeyObject.c)
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
+ *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

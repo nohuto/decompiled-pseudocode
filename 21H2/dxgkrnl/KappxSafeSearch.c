@@ -1,7 +1,7 @@
 /*
- * XREFs of KappxSafeSearch @ 0x1C0386790
+ * XREFs of KappxSafeSearch @ 0x1C02C5A90
  * Callers:
- *     KappxParsePackageFullNameFromToken @ 0x1C03865C8 (KappxParsePackageFullNameFromToken.c)
+ *     KappxParsePackageFullNameFromToken @ 0x1C02C58D8 (KappxParsePackageFullNameFromToken.c)
  * Callees:
  *     <none>
  */

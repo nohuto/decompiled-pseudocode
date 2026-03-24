@@ -1,40 +1,50 @@
 /*
- * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14083D56C
+ * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8
  * Callers:
- *     CmShutdownSystem1 @ 0x14053EBD8 (CmShutdownSystem1.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     CmpRefreshHive @ 0x14090D9E8 (CmpRefreshHive.c)
- *     CmpSaveKeyByFileCopy @ 0x14090DF50 (CmpSaveKeyByFileCopy.c)
- *     CmReplaceKey @ 0x1409136B4 (CmReplaceKey.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
+ *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
+ *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x14087D8A0 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     CmpIsWriteQueueActive @ 0x14020AA74 (CmpIsWriteQueueActive.c)
- *     CmpAcquireWriteQueue @ 0x14020AA84 (CmpAcquireWriteQueue.c)
- *     CmpLockRegistryFreezeAware @ 0x140689388 (CmpLockRegistryFreezeAware.c)
- *     CmpWaitOnHiveWriteQueue @ 0x140919170 (CmpWaitOnHiveWriteQueue.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AB41E0 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AB41FC (HvLockHiveFlusherExclusive.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
+ *     PoIsInitializedStopWatch @ 0x140263FA8 (PoIsInitializedStopWatch.c)
+ *     CmpAcquireWriteQueue @ 0x1402C9670 (CmpAcquireWriteQueue.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x14087263C (CmpWaitOnHiveWriteQueue.c)
  */
 
 __int64 __fastcall CmpBecomeActiveFlusherAndReconciler(__int64 a1)
 {
-  _QWORD *v2; // rdi
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  volatile signed __int64 *v2; // rdi
+  _QWORD *v3; // rbp
+  char v4; // al
+  _QWORD *v6; // rdx
 
-  v2 = (_QWORD *)(a1 + 4208);
+  v2 = (volatile signed __int64 *)(a1 + 72);
+  v3 = (_QWORD *)(a1 + 4248);
   while ( 1 )
   {
     CmpLockRegistryFreezeAware(0);
-    HvLockHiveFlusherExclusive(a1);
-    if ( !CmpIsWriteQueueActive(v2) && !CmpIsWriteQueueActive((_QWORD *)(a1 + 4192)) )
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v2, 0LL);
+    if ( PoIsInitializedStopWatch(v3) )
+    {
+      v6 = v3;
+      goto LABEL_8;
+    }
+    if ( !PoIsInitializedStopWatch((_QWORD *)(a1 + 4232)) )
       break;
-    CmpWaitOnHiveWriteQueue(a1);
+    v6 = (_QWORD *)(a1 + 4232);
+LABEL_8:
+    CmpWaitOnHiveWriteQueue(a1, v6);
   }
-  CmpAcquireWriteQueue(v2);
-  CmpAcquireWriteQueue((_QWORD *)(a1 + 4192));
-  HvUnlockHiveFlusherExclusive(a1);
-  return CmpUnlockRegistry(v4, v3, v5, v6);
+  CmpAcquireWriteQueue(v3);
+  CmpAcquireWriteQueue((_QWORD *)(a1 + 4232));
+  v4 = _InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
+    ExfTryToWakePushLock(v2);
+  KeAbPostRelease((ULONG_PTR)v2);
+  return CmpUnlockRegistry();
 }

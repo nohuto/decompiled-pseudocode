@@ -1,18 +1,18 @@
 /*
- * XREFs of imp_WdfDeviceAddQueryInterface @ 0x1C002BCA0
+ * XREFs of imp_WdfDeviceAddQueryInterface @ 0x1C0041090
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C001C758 (-IsPdo@FxDevice@@QEAAEXZ.c)
- *     ?AddQueryInterface@FxPkgPnp@@QEAAXPEAUFxQueryInterface@@E@Z @ 0x1C002BEF4 (-AddQueryInterface@FxPkgPnp@@QEAAXPEAUFxQueryInterface@@E@Z.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     WPP_IFR_SF_qddd @ 0x1C0053A68 (WPP_IFR_SF_qddd.c)
- *     ??_GFxQueryInterface@@QEAAPEAXI@Z @ 0x1C005FD00 (--_GFxQueryInterface@@QEAAPEAXI@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C00019B8 (-IsPdo@FxDevice@@QEAAEXZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     WPP_IFR_SF_qddd @ 0x1C002F86C (WPP_IFR_SF_qddd.c)
+ *     ??_GFxQueryInterface@@QEAAPEAXI@Z @ 0x1C0041054 (--_GFxQueryInterface@@QEAAPEAXI@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?AddQueryInterface@FxPkgPnp@@QEAAXPEAUFxQueryInterface@@E@Z @ 0x1C007F280 (-AddQueryInterface@FxPkgPnp@@QEAAXPEAUFxQueryInterface@@E@Z.c)
  */
 
 __int64 __fastcall imp_WdfDeviceAddQueryInterface(
@@ -26,25 +26,22 @@ __int64 __fastcall imp_WdfDeviceAddQueryInterface(
   unsigned __int8 v8; // dl
   _INTERFACE *Interface; // r14
   unsigned __int8 SendQueryToParentStack; // r8
+  unsigned __int16 v11; // r9
   int _a3; // eax
-  ULONG Tag; // ecx
-  void *v13; // rax
+  FxQueryInterface *v13; // rbp
   unsigned __int8 v14; // r8
-  FxQueryInterface *v15; // r15
-  FxDevice *v16; // rax
-  unsigned __int64 Size; // r9
-  ULONG v18; // ecx
-  void *v19; // rax
-  FX_POOL **v20; // rax
-  unsigned __int16 v21; // r9
-  unsigned int v22; // edx
-  __m128i v23; // [rsp+50h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+88h] [rbp+28h]
-  FxDevice *pDevice; // [rsp+90h] [rbp+30h] BYREF
+  FxDevice *v15; // rax
+  FX_POOL **v16; // rax
+  void *retaddr; // [rsp+78h] [rbp+0h]
+  FxDevice *pDevice; // [rsp+80h] [rbp+8h] BYREF
 
   v4 = 0;
   pDevice = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   m_Globals = pDevice->m_Globals;
   if ( !Device )
     FxVerifierNullBugCheck(m_Globals, retaddr);
@@ -75,99 +72,86 @@ __int64 __fastcall imp_WdfDeviceAddQueryInterface(
     if ( SendQueryToParentStack && !FxDevice::IsPdo(pDevice) )
     {
       v4 = -1073741811;
-      v21 = 11;
-      goto LABEL_37;
+      v11 = 11;
+LABEL_14:
+      WPP_IFR_SF_qL(m_Globals, 2u, 2u, v11, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, 0xC000000D);
+      return v4;
     }
     if ( Interface || SendQueryToParentStack )
     {
       if ( !InterfaceConfig->ImportInterface )
-      {
-LABEL_9:
-        if ( Interface )
-        {
-          _a3 = Interface->Size;
-          if ( (unsigned __int16)_a3 < 0x20u )
-          {
-            v4 = -1073741811;
-            WPP_IFR_SF_qddd(
-              m_Globals,
-              0x20u,
-              2u,
-              0xEu,
-              WPP_FxQueryInterfaceAPI_cpp_Traceguids,
-              Device,
-              _a3,
-              32,
-              -1073741811);
-            return v4;
-          }
-        }
-        Tag = m_Globals->Tag;
-        v13 = retaddr;
-        v23.m128i_i64[0] = 0LL;
-        v23.m128i_i64[1] = 256LL;
-        if ( !m_Globals->FxPoolTrackingOn )
-          v13 = 0LL;
-        v15 = (FxQueryInterface *)FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v23, 0x38uLL, Tag, v13);
-        if ( !v15 )
-        {
-          v4 = -1073741670;
-          WPP_IFR_SF_qL(m_Globals, 2u, 2u, 0xFu, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, 0xC000009A);
-          return v4;
-        }
-        v16 = pDevice;
-        v15->m_ProcessRequest.m_Method = 0LL;
-        v15->m_Device = v16;
-        v15->m_Interface = 0LL;
-        v15->m_Entry.Next = 0LL;
-        v15->m_EmbeddedInterface = 0;
-        v15->m_SendQueryToParentStack = InterfaceConfig->SendQueryToParentStack;
-        v15->m_ImportInterface = InterfaceConfig->ImportInterface;
-        v15->m_ProcessRequest.m_Method = InterfaceConfig->EvtDeviceProcessQueryInterfaceRequest;
-        v15->m_InterfaceType = *InterfaceConfig->InterfaceType;
-        if ( Interface )
-        {
-          Size = Interface->Size;
-          v18 = m_Globals->Tag;
-          v19 = retaddr;
-          v23.m128i_i64[0] = 0LL;
-          v23.m128i_i64[1] = 256LL;
-          if ( !m_Globals->FxPoolTrackingOn )
-            v19 = 0LL;
-          v20 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v23, Size, v18, v19);
-          v15->m_Interface = (_INTERFACE *)v20;
-          if ( !v20 )
-          {
-            v4 = -1073741670;
-            WPP_IFR_SF_qL(m_Globals, 2u, 2u, 0x10u, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, 0xC000009A);
-            FxQueryInterface::`scalar deleting destructor'(v15, v22);
-            return v4;
-          }
-          memmove(v20, Interface, Interface->Size);
-          if ( !Interface->InterfaceReference )
-            v15->m_Interface->InterfaceReference = (void (__fastcall *)(void *))FxDeviceBase::AddChildList;
-          if ( !Interface->InterfaceDereference )
-            v15->m_Interface->InterfaceDereference = (void (__fastcall *)(void *))FxDeviceBase::AddChildList;
-        }
-        FxPkgPnp::AddQueryInterface(pDevice->m_PkgPnp, v15, v14);
-        return v4;
-      }
+        goto LABEL_23;
     }
     else if ( !InterfaceConfig->ImportInterface )
     {
       v4 = -1073741811;
-      v21 = 12;
-      goto LABEL_37;
+      v11 = 12;
+      goto LABEL_14;
     }
     if ( !InterfaceConfig->EvtDeviceProcessQueryInterfaceRequest )
     {
       v4 = -1073741811;
-      v21 = 13;
-LABEL_37:
-      WPP_IFR_SF_qL(m_Globals, 2u, 2u, v21, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, 0xC000000D);
-      return v4;
+      v11 = 13;
+      goto LABEL_14;
     }
-    goto LABEL_9;
+LABEL_23:
+    if ( Interface && (_a3 = Interface->Size, (unsigned __int16)_a3 < 0x20u) )
+    {
+      v4 = -1073741811;
+      WPP_IFR_SF_qddd(m_Globals, 0x20u, 2u, 0xEu, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, _a3, 32, -1073741811);
+    }
+    else
+    {
+      v13 = (FxQueryInterface *)FxPoolAllocator(
+                                  m_Globals,
+                                  &m_Globals->FxPoolFrameworks,
+                                  1u,
+                                  0x38uLL,
+                                  m_Globals->Tag,
+                                  retaddr);
+      if ( v13 )
+      {
+        v15 = pDevice;
+        v13->m_ProcessRequest.m_Method = 0LL;
+        v13->m_Device = v15;
+        v13->m_Interface = 0LL;
+        v13->m_Entry.Next = 0LL;
+        v13->m_EmbeddedInterface = 0;
+        v13->m_SendQueryToParentStack = InterfaceConfig->SendQueryToParentStack;
+        v13->m_ImportInterface = InterfaceConfig->ImportInterface;
+        v13->m_ProcessRequest.m_Method = InterfaceConfig->EvtDeviceProcessQueryInterfaceRequest;
+        v13->m_InterfaceType = *InterfaceConfig->InterfaceType;
+      }
+      else
+      {
+        v13 = 0LL;
+      }
+      if ( v13 )
+      {
+        if ( Interface )
+        {
+          v16 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, 1u, Interface->Size, m_Globals->Tag, retaddr);
+          v13->m_Interface = (_INTERFACE *)v16;
+          if ( !v16 )
+          {
+            v4 = -1073741670;
+            WPP_IFR_SF_qL(m_Globals, 2u, 2u, 0x10u, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, 0xC000009A);
+            FxQueryInterface::`scalar deleting destructor'(v13);
+            return v4;
+          }
+          memmove(v16, Interface, Interface->Size);
+          if ( !Interface->InterfaceReference )
+            v13->m_Interface->InterfaceReference = (void (__fastcall *)(void *))FxDeviceBase::AddChildList;
+          if ( !Interface->InterfaceDereference )
+            v13->m_Interface->InterfaceDereference = (void (__fastcall *)(void *))FxDeviceBase::AddChildList;
+        }
+        FxPkgPnp::AddQueryInterface(pDevice->m_PkgPnp, v13, v14);
+        return v4;
+      }
+      v4 = -1073741670;
+      WPP_IFR_SF_qL(m_Globals, 2u, 2u, 0xFu, WPP_FxQueryInterfaceAPI_cpp_Traceguids, Device, 0xC000009A);
+    }
+    return v4;
   }
   return result;
 }

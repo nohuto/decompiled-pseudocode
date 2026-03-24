@@ -1,24 +1,24 @@
 /*
- * XREFs of NtCreateWaitCompletionPacket @ 0x1407BAD10
+ * XREFs of NtCreateWaitCompletionPacket @ 0x1406783D0
  * Callers:
  *     <none>
  * Callees:
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateWaitCompletionPacket(__int64 *a1, int a2, __int64 a3)
+__int64 __fastcall NtCreateWaitCompletionPacket(__int64 *a1, ACCESS_MASK a2, int a3)
 {
   char PreviousMode; // di
   __int64 v6; // rcx
-  int inserted; // ecx
-  _BYTE *v8; // rcx
-  __int64 v10; // [rsp+20h] [rbp-68h]
+  int Object; // ecx
+  PADAPTER_OBJECT v8; // rcx
+  char *v10; // [rsp+20h] [rbp-68h]
   __int64 v11; // [rsp+58h] [rbp-30h] BYREF
-  PVOID Object[4]; // [rsp+60h] [rbp-28h] BYREF
+  PADAPTER_OBJECT DmaAdapter[4]; // [rsp+60h] [rbp-28h] BYREF
 
   v11 = 0LL;
-  Object[0] = 0LL;
+  DmaAdapter[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -27,26 +27,26 @@ __int64 __fastcall NtCreateWaitCompletionPacket(__int64 *a1, int a2, __int64 a3)
       v6 = (__int64)a1;
     *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  inserted = ObCreateObjectEx(
-               PreviousMode,
-               IopWaitCompletionPacketObjectType,
-               a3,
-               PreviousMode,
-               v10,
-               112,
-               0,
-               0,
-               Object,
-               0LL);
-  if ( inserted >= 0 )
+  Object = ObCreateObjectEx(
+             PreviousMode,
+             IopWaitCompletionPacketObjectType,
+             a3,
+             PreviousMode,
+             v10,
+             112,
+             0,
+             0,
+             DmaAdapter,
+             0LL);
+  if ( Object >= 0 )
   {
-    v8 = Object[0];
-    *((_QWORD *)Object[0] + 12) = 0LL;
-    v8[104] = 0;
-    *((_QWORD *)v8 + 11) = 0LL;
-    inserted = ObInsertObjectEx(v8, 0LL, a2, 0, 0, 0LL, &v11);
-    if ( inserted >= 0 )
+    v8 = DmaAdapter[0];
+    *(_QWORD *)&DmaAdapter[0][6].Version = 0LL;
+    LOBYTE(v8[6].DmaOperations) = 0;
+    v8[5].DmaOperations = 0LL;
+    Object = ObInsertObjectEx(v8, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v11);
+    if ( Object >= 0 )
       *a1 = v11;
   }
-  return (unsigned int)inserted;
+  return (unsigned int)Object;
 }

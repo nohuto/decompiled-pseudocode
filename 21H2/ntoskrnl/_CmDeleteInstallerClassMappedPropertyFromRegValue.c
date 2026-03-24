@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A2A470
+ * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140979760
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x140A2C51C (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1407310FC (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140789460 (_CmOpenInstallerClassRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
  */
 
 __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, __int64 a2, void *a3, __int64 a4)
@@ -34,7 +34,7 @@ __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, 
   KeyHandle = 0LL;
   v6 = 0;
   Handle = 0LL;
-  v9 = &off_140A39F60;
+  v9 = &off_1409856E0;
   v10 = 0LL;
   do
   {
@@ -100,7 +100,7 @@ LABEL_22:
       }
     }
     DestinationString = 0LL;
-    if ( RtlInitUnicodeStringEx(&DestinationString, &word_140867F00) >= 0 )
+    if ( RtlInitUnicodeStringEx(&DestinationString, &word_1407D7BA0) >= 0 )
       ZwDeleteValueKey(v5, &DestinationString);
     goto LABEL_32;
   }

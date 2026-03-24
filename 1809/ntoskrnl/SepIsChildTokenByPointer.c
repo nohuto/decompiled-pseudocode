@@ -1,7 +1,7 @@
 /*
- * XREFs of SepIsChildTokenByPointer @ 0x1406B92C8
+ * XREFs of SepIsChildTokenByPointer @ 0x1406B92A8
  * Callers:
- *     SeIsTokenAssignableToProcess @ 0x1406B9118 (SeIsTokenAssignableToProcess.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406B90F8 (SeIsTokenAssignableToProcess.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)

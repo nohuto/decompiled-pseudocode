@@ -1,20 +1,28 @@
 /*
- * XREFs of NtGdiEngGradientFill @ 0x1C02B18D0
+ * XREFs of NtGdiEngGradientFill @ 0x1C02B3070
  * Callers:
  *     <none>
  * Callees:
- *     EngGradientFill @ 0x1C00093E0 (EngGradientFill.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0123F3C (--1UMPDSURFOBJ@@QEAA@XZ.c)
- *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C0128EA0 (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
- *     ?CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z @ 0x1C0129004 (-CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z.c)
- *     ?CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z @ 0x1C0129030 (-CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z.c)
- *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C012914C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
- *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C01291B4 (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z @ 0x1C02B0A10 (-bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     EngGradientFill @ 0x1C00CF320 (EngGradientFill.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137DCC (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     ?CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z @ 0x1C013C558 (-CaptureRECTL@@YAXPEAPEAU_RECTL@@PEAU1@@Z.c)
+ *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C013D890 (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C013DA6C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C013DAD4 (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
+ *     ?CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z @ 0x1C013DBDC (-CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ??0ECLIPOBJTMPBOUNDED@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C016A1E8 (--0ECLIPOBJTMPBOUNDED@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ??1ECLIPOBJTMPBOUNDED@@QEAA@XZ @ 0x1C016D78C (--1ECLIPOBJTMPBOUNDED@@QEAA@XZ.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?bValid@ECLIPOBJTMPBOUNDED@@QEBA_NXZ @ 0x1C016D8EC (-bValid@ECLIPOBJTMPBOUNDED@@QEBA_NXZ.c)
+ *     Feature_2932140344__private_IsEnabledDeviceUsage @ 0x1C016D960 (Feature_2932140344__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z @ 0x1C02B1F10 (-bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiEngGradientFill(
@@ -29,135 +37,151 @@ __int64 __fastcall NtGdiEngGradientFill(
         POINTL *a9,
         ULONG ulMode)
 {
-  unsigned int v11; // edi
+  unsigned int v11; // r14d
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  UMPDOBJ *v14; // rsi
-  __int64 result; // rax
-  int v16; // ebx
-  ULONG nMesh; // r12d
-  __int64 v18; // rbx
-  __int64 v19; // r13
-  struct _TRIVERTEX *v20; // r15
-  void *pMesh; // r14
-  char *v22; // r10
-  void *v23; // rdx
-  CLIPOBJ *DDIOBJ; // rbx
-  XLATEOBJ *v25; // rax
-  unsigned int v26; // ebx
-  SURFOBJ *psoDest; // [rsp+50h] [rbp-118h]
-  POINTL *pptlDitherOrg; // [rsp+68h] [rbp-100h] BYREF
-  RECTL *prclExtents; // [rsp+70h] [rbp-F8h] BYREF
-  void *Src; // [rsp+78h] [rbp-F0h]
-  struct _TRIVERTEX *v31; // [rsp+80h] [rbp-E8h]
-  void *v32; // [rsp+88h] [rbp-E0h]
-  struct _CLIPOBJ *v33; // [rsp+90h] [rbp-D8h]
-  __int64 v34; // [rsp+98h] [rbp-D0h]
-  __int64 v35; // [rsp+A0h] [rbp-C8h]
-  struct _POINTL v36; // [rsp+A8h] [rbp-C0h] BYREF
-  struct UMPDOBJ *v37; // [rsp+B0h] [rbp-B8h]
-  struct _CLIPOBJ *v38; // [rsp+B8h] [rbp-B0h]
-  __int64 v39; // [rsp+C0h] [rbp-A8h]
-  _QWORD v40[8]; // [rsp+D0h] [rbp-98h] BYREF
-  struct _RECTL v41; // [rsp+110h] [rbp-58h] BYREF
+  struct UMPDOBJ *ThreadCurrentObj; // rsi
+  int v14; // ebx
+  ULONG nMesh; // r15d
+  __int64 v17; // rbx
+  struct _TRIVERTEX *v18; // r13
+  void *v19; // rax
+  void *pMesh; // r12
+  const void *v21; // r10
+  size_t v22; // r8
+  ULONG64 v23; // rcx
+  void *v24; // rdx
+  CLIPOBJ *v25; // rbx
+  XLATEOBJ *v26; // rax
+  XLATEOBJ *v27; // rax
+  struct _CLIPOBJ *DDIOBJ; // [rsp+58h] [rbp-1D0h]
+  SURFOBJ *psoDest; // [rsp+60h] [rbp-1C8h]
+  POINTL *pptlDitherOrg; // [rsp+68h] [rbp-1C0h] BYREF
+  RECTL *prclExtents; // [rsp+70h] [rbp-1B8h] BYREF
+  unsigned int Size; // [rsp+78h] [rbp-1B0h]
+  int Size_4; // [rsp+7Ch] [rbp-1ACh]
+  __int64 v35; // [rsp+80h] [rbp-1A8h]
+  void *Src; // [rsp+88h] [rbp-1A0h]
+  __int64 v37; // [rsp+90h] [rbp-198h]
+  struct _POINTL v38; // [rsp+98h] [rbp-190h] BYREF
+  struct _TRIVERTEX *v39; // [rsp+A0h] [rbp-188h]
+  void *v40; // [rsp+A8h] [rbp-180h]
+  struct UMPDOBJ *v41; // [rsp+B0h] [rbp-178h]
+  struct _CLIPOBJ *v42; // [rsp+B8h] [rbp-170h]
+  __int64 v43; // [rsp+C0h] [rbp-168h]
+  _QWORD v44[8]; // [rsp+D0h] [rbp-158h] BYREF
+  struct _RECTL v45; // [rsp+110h] [rbp-118h] BYREF
+  _BYTE v46[168]; // [rsp+120h] [rbp-108h] BYREF
+  CLIPOBJ *pco; // [rsp+1C8h] [rbp-60h]
 
-  v35 = a4;
-  v34 = a3;
-  v33 = a2;
-  v38 = a2;
-  v39 = a3;
+  v37 = a4;
+  v35 = a3;
+  v42 = a2;
+  v43 = a3;
   Src = a6;
   prclExtents = a8;
   pptlDitherOrg = a9;
-  v41 = 0LL;
-  v11 = 0;
-  v36 = 0LL;
+  v11 = 1;
+  Size_4 = 1;
+  v45 = 0LL;
+  v38 = 0LL;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v14 = ThreadCurrentObj;
-  v37 = ThreadCurrentObj;
+  v41 = ThreadCurrentObj;
+  if ( ThreadCurrentObj )
+  {
+    if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
+    {
+      if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
+        return 0LL;
+    }
+    else
+    {
+      ++*((_DWORD *)ThreadCurrentObj + 105);
+    }
+  }
   if ( !ThreadCurrentObj )
     return 0LL;
-  ++*((_DWORD *)ThreadCurrentObj + 105);
-  UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)v40, a1, (struct _SURFOBJ **)ThreadCurrentObj);
-  psoDest = (SURFOBJ *)v40[0];
-  if ( ulMode > 1 )
+  UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)v44, a1, (struct _SURFOBJ **)ThreadCurrentObj);
+  psoDest = (SURFOBJ *)v44[0];
+  if ( ulMode <= 1 )
   {
-    if ( ulMode == 2 )
-    {
-      v16 = 12;
-      nMesh = a7;
-      if ( a7 > 0x341555 )
-        goto LABEL_40;
-      goto LABEL_7;
-    }
-    goto LABEL_13;
-  }
-  v16 = 8;
-  nMesh = a7;
-  if ( a7 > 0x4E2000 )
-  {
-LABEL_13:
-    UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v40);
-    --*((_DWORD *)v14 + 105);
-    return 0LL;
-  }
-LABEL_7:
-  if ( nMesh && nVertex )
-  {
-    v18 = nMesh * v16;
-    if ( nVertex <= 0x271000 )
-    {
-      v19 = 16 * nVertex;
-      if ( (_DWORD)v19 )
-        v20 = (struct _TRIVERTEX *)Win32AllocPool((unsigned int)v19, 1886221639LL);
-      else
-        v20 = 0LL;
-      v31 = v20;
-      if ( (_DWORD)v18 )
-        pMesh = (void *)Win32AllocPool((unsigned int)v18, 1886221639LL);
-      else
-        pMesh = 0LL;
-      v32 = pMesh;
-      if ( !psoDest || !v35 || !Src || !v20 || !pMesh || !prclExtents || !pptlDitherOrg )
-        goto LABEL_33;
-      CaptureRECTL(&prclExtents, &v41);
-      CapturePOINTL(&pptlDitherOrg, &v36);
-      if ( &v22[v19] < v22 || (unsigned __int64)&v22[v19] > MmUserProbeAddress )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      memmove(v20, v22, (unsigned int)v19);
-      v23 = Src;
-      if ( (char *)Src + v18 < Src || (unsigned __int64)Src + v18 > MmUserProbeAddress )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      memmove(pMesh, v23, (unsigned int)v18);
-      if ( (unsigned int)bValidVertexMeshData(v20, (char *)pMesh, nVertex, nMesh, ulMode) )
-      {
-        DDIOBJ = UMPDOBJ::GetDDIOBJ(v14, v33, &psoDest->sizlBitmap);
-        v25 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)v14, v34);
-        v26 = EngGradientFill(psoDest, DDIOBJ, v25, v20, nVertex, pMesh, nMesh, prclExtents, pptlDitherOrg, ulMode);
-      }
-      else
-      {
-LABEL_33:
-        v26 = 0;
-      }
-      if ( v20 )
-        Win32FreePool(v20);
-      if ( pMesh )
-        Win32FreePool(pMesh);
-      UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v40);
-      result = v26;
-      goto LABEL_41;
-    }
+    v14 = 8;
+    nMesh = a7;
+    if ( a7 > 0x4E2000 )
+      goto LABEL_10;
   }
   else
   {
-    v11 = 1;
+    if ( ulMode != 2 )
+      goto LABEL_10;
+    v14 = 12;
+    nMesh = a7;
+    if ( a7 > 0x341555 )
+      goto LABEL_10;
   }
-LABEL_40:
-  UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v40);
-  result = v11;
-LABEL_41:
-  --*((_DWORD *)v14 + 105);
-  return result;
+  if ( nMesh && nVertex )
+  {
+    v17 = nMesh * v14;
+    if ( nVertex <= 0x271000 )
+    {
+      Size = 16 * nVertex;
+      v18 = (struct _TRIVERTEX *)PALLOCMEM2(16 * nVertex, 1886221639LL, 0);
+      v39 = v18;
+      v19 = PALLOCMEM2((unsigned int)v17, 1886221639LL, 0);
+      pMesh = v19;
+      v40 = v19;
+      if ( !psoDest || !v37 || !Src || !v18 || !v19 || !prclExtents || !pptlDitherOrg )
+        goto LABEL_37;
+      CaptureRECTL(&prclExtents, &v45);
+      CapturePOINTL(&pptlDitherOrg, &v38);
+      v22 = Size;
+      v23 = (ULONG64)v21 + Size;
+      if ( v23 < (unsigned __int64)v21 || v23 > MmUserProbeAddress )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(v18, v21, v22);
+      v24 = Src;
+      if ( (char *)Src + v17 < Src || (unsigned __int64)Src + v17 > MmUserProbeAddress )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(pMesh, v24, (unsigned int)v17);
+      if ( Size_4 && (unsigned int)bValidVertexMeshData(v18, (char *)pMesh, nVertex, nMesh, ulMode) )
+      {
+        DDIOBJ = UMPDOBJ::GetDDIOBJ(ThreadCurrentObj, a2, &psoDest->sizlBitmap);
+        if ( (unsigned int)Feature_2932140344__private_IsEnabledDeviceUsage() )
+        {
+          ECLIPOBJTMPBOUNDED::ECLIPOBJTMPBOUNDED((ECLIPOBJTMPBOUNDED *)v46, psoDest, DDIOBJ, 0LL);
+          if ( !ECLIPOBJTMPBOUNDED::bValid((ECLIPOBJTMPBOUNDED *)v46)
+            || (v25 = pco,
+                v26 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, v35),
+                !EngGradientFill(psoDest, v25, v26, v18, nVertex, pMesh, nMesh, prclExtents, pptlDitherOrg, ulMode)) )
+          {
+            v11 = 0;
+          }
+          ECLIPOBJTMPBOUNDED::~ECLIPOBJTMPBOUNDED((ECLIPOBJTMPBOUNDED *)v46);
+        }
+        else
+        {
+          v27 = (XLATEOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, v35);
+          v11 = EngGradientFill(psoDest, DDIOBJ, v27, v18, nVertex, pMesh, nMesh, prclExtents, pptlDitherOrg, ulMode);
+        }
+      }
+      else
+      {
+LABEL_37:
+        v11 = 0;
+      }
+      if ( v18 )
+        Win32FreePool(v18);
+      if ( pMesh )
+        Win32FreePool(pMesh);
+      goto LABEL_42;
+    }
+LABEL_10:
+    UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v44);
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+    return 0LL;
+  }
+LABEL_42:
+  UMPDSURFOBJ::~UMPDSURFOBJ((UMPDSURFOBJ *)v44);
+  UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+  return v11;
 }

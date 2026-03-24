@@ -1,12 +1,12 @@
 /*
- * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1406CB004
+ * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1406AC9A4
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 _QWORD *__fastcall ExEnableRaiseUMExceptionOnInvalidHandleClose(__int64 a1, int a2)

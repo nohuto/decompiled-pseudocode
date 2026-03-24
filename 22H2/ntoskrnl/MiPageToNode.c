@@ -1,14 +1,13 @@
 /*
- * XREFs of MiPageToNode @ 0x140617860
+ * XREFs of MiPageToNode @ 0x140329884
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x140A2BEFC (MiAddPhysicalMemoryChunks.c)
- *     MiMapNewPfns @ 0x140A2C980 (MiMapNewPfns.c)
- *     MiAddRuns @ 0x140A2DD64 (MiAddRuns.c)
- *     MiZeroHugeRangeCore @ 0x140A2DF6C (MiZeroHugeRangeCore.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
- *     MiCreateKernelHalSlabRange @ 0x140B49DA0 (MiCreateKernelHalSlabRange.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403F50CC (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiLargePagePromote @ 0x1403F6418 (MiLargePagePromote.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C547C (MiAddPhysicalMemoryChunks.c)
+ *     MiMapNewPfns @ 0x1408C5D24 (MiMapNewPfns.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
  */
 
 __int64 __fastcall MiPageToNode(ULONG_PTR a1)

@@ -1,286 +1,344 @@
 /*
- * XREFs of ?TdrInit@@YAXXZ @ 0x1C0221BF0
+ * XREFs of ?TdrInit@@YAXXZ @ 0x1C017B02C
  * Callers:
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?TdrHistoryInit@@YAXPEAU_TDR_HISTORY@@@Z @ 0x1C01DC7D0 (-TdrHistoryInit@@YAXPEAU_TDR_HISTORY@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?TdrHistoryInit@@YAXPEAU_TDR_HISTORY@@@Z @ 0x1C015DA80 (-TdrHistoryInit@@YAXPEAU_TDR_HISTORY@@@Z.c)
  */
 
 void TdrInit(void)
 {
-  int v0; // eax
+  volatile int v0; // ebx
   int v1; // eax
-  int v2; // eax
-  int v3; // eax
-  int v4; // eax
-  int v5; // eax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // rdi
   int v6; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned int v9; // [rsp+3Ch] [rbp-CCh] BYREF
-  unsigned int v10; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned int v11; // [rsp+44h] [rbp-C4h] BYREF
-  unsigned int v12; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned int v13; // [rsp+4Ch] [rbp-BCh] BYREF
-  unsigned int v14; // [rsp+50h] [rbp-B8h] BYREF
-  unsigned int v15; // [rsp+54h] [rbp-B4h] BYREF
-  int v16; // [rsp+58h] [rbp-B0h] BYREF
-  int v17; // [rsp+5Ch] [rbp-ACh] BYREF
-  int v18; // [rsp+60h] [rbp-A8h] BYREF
-  int v19; // [rsp+64h] [rbp-A4h] BYREF
-  int v20; // [rsp+68h] [rbp-A0h] BYREF
-  int v21; // [rsp+6Ch] [rbp-9Ch] BYREF
-  __int64 v22; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v23; // [rsp+78h] [rbp-90h] BYREF
-  int v24; // [rsp+80h] [rbp-88h]
-  const wchar_t *v25; // [rsp+88h] [rbp-80h]
-  unsigned int *v26; // [rsp+90h] [rbp-78h]
-  int v27; // [rsp+98h] [rbp-70h]
-  int *v28; // [rsp+A0h] [rbp-68h]
-  int v29; // [rsp+A8h] [rbp-60h]
-  __int64 v30; // [rsp+B0h] [rbp-58h]
-  int v31; // [rsp+B8h] [rbp-50h]
-  const wchar_t *v32; // [rsp+C0h] [rbp-48h]
-  unsigned int *v33; // [rsp+C8h] [rbp-40h]
-  int v34; // [rsp+D0h] [rbp-38h]
-  int *v35; // [rsp+D8h] [rbp-30h]
-  int v36; // [rsp+E0h] [rbp-28h]
-  __int64 v37; // [rsp+E8h] [rbp-20h]
-  int v38; // [rsp+F0h] [rbp-18h]
-  const wchar_t *v39; // [rsp+F8h] [rbp-10h]
-  unsigned int *v40; // [rsp+100h] [rbp-8h]
-  int v41; // [rsp+108h] [rbp+0h]
-  int *v42; // [rsp+110h] [rbp+8h]
-  int v43; // [rsp+118h] [rbp+10h]
-  __int64 v44; // [rsp+120h] [rbp+18h]
-  int v45; // [rsp+128h] [rbp+20h]
-  const wchar_t *v46; // [rsp+130h] [rbp+28h]
-  unsigned int *v47; // [rsp+138h] [rbp+30h]
-  int v48; // [rsp+140h] [rbp+38h]
-  int *v49; // [rsp+148h] [rbp+40h]
-  int v50; // [rsp+150h] [rbp+48h]
-  __int64 v51; // [rsp+158h] [rbp+50h]
-  int v52; // [rsp+160h] [rbp+58h]
-  const wchar_t *v53; // [rsp+168h] [rbp+60h]
-  unsigned int *v54; // [rsp+170h] [rbp+68h]
-  int v55; // [rsp+178h] [rbp+70h]
-  int *v56; // [rsp+180h] [rbp+78h]
-  int v57; // [rsp+188h] [rbp+80h]
-  __int64 v58; // [rsp+190h] [rbp+88h]
-  int v59; // [rsp+198h] [rbp+90h]
-  const wchar_t *v60; // [rsp+1A0h] [rbp+98h]
-  unsigned int *v61; // [rsp+1A8h] [rbp+A0h]
-  int v62; // [rsp+1B0h] [rbp+A8h]
-  int *v63; // [rsp+1B8h] [rbp+B0h]
-  int v64; // [rsp+1C0h] [rbp+B8h]
-  __int64 v65; // [rsp+1C8h] [rbp+C0h]
-  int v66; // [rsp+1D0h] [rbp+C8h]
-  const wchar_t *v67; // [rsp+1D8h] [rbp+D0h]
-  unsigned int *v68; // [rsp+1E0h] [rbp+D8h]
-  int v69; // [rsp+1E8h] [rbp+E0h]
-  __int64 *v70; // [rsp+1F0h] [rbp+E8h]
-  int v71; // [rsp+1F8h] [rbp+F0h]
-  __int64 v72; // [rsp+200h] [rbp+F8h]
-  int v73; // [rsp+208h] [rbp+100h]
-  const wchar_t *v74; // [rsp+210h] [rbp+108h]
-  unsigned int *v75; // [rsp+218h] [rbp+110h]
-  int v76; // [rsp+220h] [rbp+118h]
-  char *v77; // [rsp+228h] [rbp+120h]
-  int v78; // [rsp+230h] [rbp+128h]
-  __int64 v79; // [rsp+238h] [rbp+130h]
-  int v80; // [rsp+240h] [rbp+138h]
-  __int128 v81; // [rsp+248h] [rbp+140h]
-  __int128 v82; // [rsp+258h] [rbp+150h]
-  __int64 v83; // [rsp+268h] [rbp+160h]
+  int v7; // eax
+  int v8; // eax
+  int v9; // eax
+  int v10; // eax
+  int v11; // eax
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  unsigned int v25; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned int v26; // [rsp+3Ch] [rbp-CCh] BYREF
+  unsigned int v27; // [rsp+40h] [rbp-C8h] BYREF
+  unsigned int v28; // [rsp+44h] [rbp-C4h] BYREF
+  unsigned int v29; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned int v30; // [rsp+4Ch] [rbp-BCh] BYREF
+  unsigned int v31; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned int v32; // [rsp+54h] [rbp-B4h] BYREF
+  int v33; // [rsp+58h] [rbp-B0h] BYREF
+  int v34; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v35; // [rsp+60h] [rbp-A8h] BYREF
+  int v36; // [rsp+64h] [rbp-A4h] BYREF
+  int v37; // [rsp+68h] [rbp-A0h] BYREF
+  int v38; // [rsp+6Ch] [rbp-9Ch] BYREF
+  __int64 v39; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v40; // [rsp+78h] [rbp-90h] BYREF
+  int v41; // [rsp+80h] [rbp-88h]
+  const wchar_t *v42; // [rsp+88h] [rbp-80h]
+  unsigned int *v43; // [rsp+90h] [rbp-78h]
+  int v44; // [rsp+98h] [rbp-70h]
+  int *v45; // [rsp+A0h] [rbp-68h]
+  int v46; // [rsp+A8h] [rbp-60h]
+  __int64 v47; // [rsp+B0h] [rbp-58h]
+  int v48; // [rsp+B8h] [rbp-50h]
+  const wchar_t *v49; // [rsp+C0h] [rbp-48h]
+  unsigned int *v50; // [rsp+C8h] [rbp-40h]
+  int v51; // [rsp+D0h] [rbp-38h]
+  int *v52; // [rsp+D8h] [rbp-30h]
+  int v53; // [rsp+E0h] [rbp-28h]
+  __int64 v54; // [rsp+E8h] [rbp-20h]
+  int v55; // [rsp+F0h] [rbp-18h]
+  const wchar_t *v56; // [rsp+F8h] [rbp-10h]
+  unsigned int *v57; // [rsp+100h] [rbp-8h]
+  int v58; // [rsp+108h] [rbp+0h]
+  int *v59; // [rsp+110h] [rbp+8h]
+  int v60; // [rsp+118h] [rbp+10h]
+  __int64 v61; // [rsp+120h] [rbp+18h]
+  int v62; // [rsp+128h] [rbp+20h]
+  const wchar_t *v63; // [rsp+130h] [rbp+28h]
+  unsigned int *v64; // [rsp+138h] [rbp+30h]
+  int v65; // [rsp+140h] [rbp+38h]
+  int *v66; // [rsp+148h] [rbp+40h]
+  int v67; // [rsp+150h] [rbp+48h]
+  __int64 v68; // [rsp+158h] [rbp+50h]
+  int v69; // [rsp+160h] [rbp+58h]
+  const wchar_t *v70; // [rsp+168h] [rbp+60h]
+  unsigned int *v71; // [rsp+170h] [rbp+68h]
+  int v72; // [rsp+178h] [rbp+70h]
+  int *v73; // [rsp+180h] [rbp+78h]
+  int v74; // [rsp+188h] [rbp+80h]
+  __int64 v75; // [rsp+190h] [rbp+88h]
+  int v76; // [rsp+198h] [rbp+90h]
+  const wchar_t *v77; // [rsp+1A0h] [rbp+98h]
+  unsigned int *v78; // [rsp+1A8h] [rbp+A0h]
+  int v79; // [rsp+1B0h] [rbp+A8h]
+  int *v80; // [rsp+1B8h] [rbp+B0h]
+  int v81; // [rsp+1C0h] [rbp+B8h]
+  __int64 v82; // [rsp+1C8h] [rbp+C0h]
+  int v83; // [rsp+1D0h] [rbp+C8h]
+  const wchar_t *v84; // [rsp+1D8h] [rbp+D0h]
+  unsigned int *v85; // [rsp+1E0h] [rbp+D8h]
+  int v86; // [rsp+1E8h] [rbp+E0h]
+  __int64 *v87; // [rsp+1F0h] [rbp+E8h]
+  int v88; // [rsp+1F8h] [rbp+F0h]
+  __int64 v89; // [rsp+200h] [rbp+F8h]
+  int v90; // [rsp+208h] [rbp+100h]
+  const wchar_t *v91; // [rsp+210h] [rbp+108h]
+  unsigned int *v92; // [rsp+218h] [rbp+110h]
+  int v93; // [rsp+220h] [rbp+118h]
+  char *v94; // [rsp+228h] [rbp+120h]
+  int v95; // [rsp+230h] [rbp+128h]
+  __int64 v96; // [rsp+238h] [rbp+130h]
+  int v97; // [rsp+240h] [rbp+138h]
+  __int128 v98; // [rsp+248h] [rbp+140h]
+  __int128 v99; // [rsp+258h] [rbp+150h]
+  __int64 v100; // [rsp+268h] [rbp+160h]
 
-  v22 = 0x20000003CLL;
-  v13 = 0;
-  v8 = 0;
-  v9 = 0;
-  v16 = 3;
-  v25 = L"TdrLevel";
-  v26 = &v13;
-  v28 = &v16;
-  v10 = 0;
-  v17 = 2;
-  v32 = L"TdrDelay";
-  v18 = 2;
-  v33 = &v8;
-  v35 = &v17;
-  v39 = L"TdrDodPresentDelay";
-  v40 = &v9;
-  v42 = &v18;
-  v46 = L"TdrDodVSyncDelay";
-  v47 = &v10;
-  v49 = &v19;
-  v53 = L"TdrDdiDelay";
-  v54 = &v11;
-  v56 = &v20;
-  v60 = L"TdrLimitCount";
-  v61 = &v14;
-  v19 = 2;
-  v20 = 5;
-  v11 = 0;
-  v12 = 0;
-  v21 = 5;
-  v14 = 0;
-  v15 = 0;
-  v23 = 0LL;
-  v24 = 288;
-  v27 = 67108868;
-  v29 = 4;
-  v30 = 0LL;
-  v31 = 288;
-  v34 = 67108868;
-  v36 = 4;
-  v37 = 0LL;
-  v38 = 288;
-  v41 = 67108868;
-  v43 = 4;
-  v44 = 0LL;
-  v45 = 288;
-  v48 = 67108868;
-  v50 = 4;
-  v51 = 0LL;
-  v52 = 288;
-  v55 = 67108868;
-  v57 = 4;
-  v58 = 0LL;
-  v59 = 288;
-  v62 = 67108868;
-  v63 = &v21;
-  v64 = 4;
-  v67 = L"TdrLimitTime";
-  v66 = 288;
-  v68 = &v15;
-  v70 = &v22;
-  v74 = L"TdrDebugMode";
-  v75 = &v12;
-  v77 = (char *)&v22 + 4;
-  v69 = 67108868;
-  v71 = 4;
-  v73 = 288;
-  v76 = 67108868;
-  v78 = 4;
-  v83 = 0LL;
-  v65 = 0LL;
-  v72 = 0LL;
-  v79 = 0LL;
-  v80 = 0;
-  v81 = 0LL;
+  v33 = 3;
+  v30 = 0;
+  v26 = 0;
+  v27 = 0;
+  v42 = L"TdrLevel";
+  v0 = 2;
+  v34 = 2;
+  v35 = 2;
+  v43 = &v30;
+  v36 = 2;
+  v45 = &v33;
+  v49 = L"TdrDelay";
+  v50 = &v26;
+  v52 = &v34;
+  v56 = L"TdrDodPresentDelay";
+  v57 = &v27;
+  v59 = &v35;
+  v63 = L"TdrDodVSyncDelay";
+  v64 = &v28;
+  v66 = &v36;
+  v70 = L"TdrDdiDelay";
+  v71 = &v29;
+  v73 = &v37;
+  v77 = L"TdrLimitCount";
+  v78 = &v31;
+  v80 = &v38;
+  v28 = 0;
+  v37 = 5;
+  v29 = 0;
+  v25 = 0;
+  v38 = 5;
+  v31 = 0;
+  v39 = 0x20000003CLL;
+  v32 = 0;
+  v40 = 0LL;
+  v41 = 288;
+  v44 = 67108868;
+  v46 = 4;
+  v47 = 0LL;
+  v48 = 288;
+  v51 = 67108868;
+  v53 = 4;
+  v54 = 0LL;
+  v55 = 288;
+  v58 = 67108868;
+  v60 = 4;
+  v61 = 0LL;
+  v62 = 288;
+  v65 = 67108868;
+  v67 = 4;
+  v68 = 0LL;
+  v69 = 288;
+  v72 = 67108868;
+  v74 = 4;
+  v75 = 0LL;
+  v76 = 288;
+  v79 = 67108868;
+  v81 = 4;
+  v83 = 288;
+  v84 = L"TdrLimitTime";
+  v86 = 67108868;
+  v85 = &v32;
+  v87 = &v39;
+  v91 = L"TdrDebugMode";
+  v92 = &v25;
+  v94 = (char *)&v39 + 4;
+  v88 = 4;
+  v90 = 288;
+  v93 = 67108868;
+  v95 = 4;
+  v100 = 0LL;
   v82 = 0LL;
-  v0 = RtlQueryRegistryValuesEx(
+  v89 = 0LL;
+  v96 = 0LL;
+  v97 = 0;
+  v98 = 0LL;
+  v99 = 0LL;
+  v1 = RtlQueryRegistryValuesEx(
          0LL,
          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers",
-         &v23,
+         &v40,
          0LL,
          0LL);
-  if ( v0 < 0 )
+  v5 = v1;
+  if ( v1 < 0 )
   {
-    v13 = 3;
-    v8 = 2;
-    v9 = 2;
-    v10 = 2;
-    v11 = 5;
-    v12 = 2;
-    WdLogSingleEntry1(3LL, v0);
+    v30 = 3;
+    v26 = 2;
+    v27 = 2;
+    v28 = 2;
+    v29 = 5;
+    v25 = 2;
+    v16 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v16 + 24) = v5;
+    WdLogEvent5_WdWarning(v16);
   }
-  if ( v13 < 2 || v13 == 3 )
+  if ( v30 == 3 || v30 <= 1 )
   {
-    g_TdrConfig = v13;
+    g_TdrConfig = v30;
   }
   else
   {
     g_TdrConfig = 3;
-    WdLogSingleEntry2(3LL, v13, 3LL);
+    v17 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v17 + 24) = v30;
+    *(_QWORD *)(v17 + 32) = g_TdrConfig;
+    WdLogEvent5_WdWarning(v17);
   }
-  v1 = v8;
-  if ( v8 )
+  v6 = v26;
+  if ( v26 )
   {
-    if ( v8 > 0x384 )
-      v1 = 900;
-    dword_1C0140A74 = v1;
+    if ( v26 > 0x384 )
+      v6 = 900;
+    dword_1C00B3164 = v6;
   }
   else
   {
-    dword_1C0140A74 = 1;
+    dword_1C00B3164 = 1;
   }
-  if ( dword_1C0140A74 != v8 )
-    WdLogSingleEntry2(3LL, v8, (unsigned int)dword_1C0140A74);
-  v2 = v9;
-  if ( v9 )
+  if ( dword_1C00B3164 != v26 )
   {
-    if ( v9 > 0x384 )
-      v2 = 900;
-    dword_1C0140A78 = v2;
+    v18 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v18 + 24) = v26;
+    *(_QWORD *)(v18 + 32) = (unsigned int)dword_1C00B3164;
+    WdLogEvent5_WdWarning(v18);
+  }
+  v7 = v27;
+  if ( v27 )
+  {
+    if ( v27 > 0x384 )
+      v7 = 900;
+    dword_1C00B3168 = v7;
   }
   else
   {
-    dword_1C0140A78 = 1;
+    dword_1C00B3168 = 1;
   }
-  if ( dword_1C0140A78 != v9 )
-    WdLogSingleEntry2(3LL, v9, (unsigned int)dword_1C0140A78);
-  v3 = v10;
-  if ( v10 )
+  if ( dword_1C00B3168 != v27 )
   {
-    if ( v10 > 0x384 )
-      v3 = 900;
-    dword_1C0140A7C = v3;
+    v19 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v19 + 24) = v27;
+    *(_QWORD *)(v19 + 32) = (unsigned int)dword_1C00B3168;
+    WdLogEvent5_WdWarning(v19);
+  }
+  v8 = v28;
+  if ( v28 )
+  {
+    if ( v28 > 0x384 )
+      v8 = 900;
+    dword_1C00B316C = v8;
   }
   else
   {
-    dword_1C0140A7C = 1;
+    dword_1C00B316C = 1;
   }
-  if ( dword_1C0140A7C != v10 )
-    WdLogSingleEntry2(3LL, v10, (unsigned int)dword_1C0140A7C);
-  v4 = v11;
-  if ( v11 )
+  if ( dword_1C00B316C != v28 )
   {
-    if ( v11 > 0x384 )
-      v4 = 900;
-    dword_1C0140A80 = v4;
+    v20 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v20 + 24) = v28;
+    *(_QWORD *)(v20 + 32) = (unsigned int)dword_1C00B316C;
+    WdLogEvent5_WdWarning(v20);
+  }
+  v9 = v29;
+  if ( v29 )
+  {
+    if ( v29 > 0x384 )
+      v9 = 900;
+    dword_1C00B3170 = v9;
   }
   else
   {
-    dword_1C0140A80 = 1;
+    dword_1C00B3170 = 1;
   }
-  if ( dword_1C0140A80 != v11 )
-    WdLogSingleEntry2(3LL, v11, (unsigned int)dword_1C0140A80);
-  v5 = v14;
-  if ( v14 > 0x20 )
+  if ( dword_1C00B3170 != v29 )
   {
-    dword_1C0140A88 = 32;
+    v21 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v21 + 24) = v29;
+    *(_QWORD *)(v21 + 32) = (unsigned int)dword_1C00B3170;
+    WdLogEvent5_WdWarning(v21);
+  }
+  v10 = v31;
+  if ( v31 > 0x20 )
+  {
+    dword_1C00B3178 = 32;
   }
   else
   {
-    if ( !v14 )
-      v5 = 1;
-    dword_1C0140A88 = v5;
+    if ( !v31 )
+      v10 = 1;
+    dword_1C00B3178 = v10;
   }
-  if ( dword_1C0140A88 != v14 )
-    WdLogSingleEntry2(3LL, v14, (unsigned int)dword_1C0140A88);
-  v6 = v15;
-  v7 = 3600LL;
-  if ( v15 > 0xE10 )
+  if ( dword_1C00B3178 != v31 )
   {
-    dword_1C0140A8C = 3600;
+    v22 = WdLogNewEntry5_WdWarning(v3, v2, v4);
+    *(_QWORD *)(v22 + 24) = v31;
+    *(_QWORD *)(v22 + 32) = (unsigned int)dword_1C00B3178;
+    WdLogEvent5_WdWarning(v22);
+  }
+  v11 = v32;
+  v12 = 3600LL;
+  if ( v32 > 0xE10 )
+  {
+    dword_1C00B317C = 3600;
   }
   else
   {
-    if ( v15 < 5 )
-      v6 = 5;
-    dword_1C0140A8C = v6;
+    if ( v32 < 5 )
+      v11 = 5;
+    dword_1C00B317C = v11;
   }
-  if ( dword_1C0140A8C != v15 )
-    WdLogSingleEntry2(3LL, v15, (unsigned int)dword_1C0140A8C);
-  LOBYTE(v7) = 1;
-  byte_1C0140A84 = (unsigned __int8)WdIsDebuggerPresent(v7) != 0;
-  if ( v12 >= 2 && v12 - 2 > 1 )
-    g_TdrDebugMode = 2;
-  else
-    g_TdrDebugMode = v12;
-  if ( g_TdrDebugMode != v12 )
-    WdLogSingleEntry2(3LL, v12, g_TdrDebugMode);
+  if ( dword_1C00B317C != v32 )
+  {
+    v23 = WdLogNewEntry5_WdWarning(3600LL, v2, v4);
+    *(_QWORD *)(v23 + 24) = v32;
+    *(_QWORD *)(v23 + 32) = (unsigned int)dword_1C00B317C;
+    WdLogEvent5_WdWarning(v23);
+  }
+  LOBYTE(v12) = 1;
+  byte_1C00B3174 = (unsigned __int8)WdIsDebuggerPresent(v12) != 0;
+  if ( v25 <= 3 )
+    v0 = v25;
+  g_TdrDebugMode = v0;
+  if ( v0 != v25 )
+  {
+    v24 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v24 + 24) = v25;
+    *(_QWORD *)(v24 + 32) = g_TdrDebugMode;
+    WdLogEvent5_WdWarning(v24);
+  }
   TdrHistoryInit(&g_TdrHistory);
 }

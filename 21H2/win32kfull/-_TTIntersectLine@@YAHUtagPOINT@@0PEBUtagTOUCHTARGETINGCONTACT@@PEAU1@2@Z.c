@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C025BD94
+ * XREFs of ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C025F16C
  * Callers:
- *     TouchTargetingIntersectSegment @ 0x1C025C800 (TouchTargetingIntersectSegment.c)
- *     TouchTargetingRankForRectDeep @ 0x1C025CF50 (TouchTargetingRankForRectDeep.c)
+ *     TouchTargetingIntersectSegment @ 0x1C025FB40 (TouchTargetingIntersectSegment.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C0260240 (TouchTargetingRankForRectDeep.c)
  * Callees:
- *     ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C025BBDC (-_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z.c)
+ *     ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C025EFB8 (-_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z.c)
  */
 
 __int64 __fastcall _TTIntersectLine(

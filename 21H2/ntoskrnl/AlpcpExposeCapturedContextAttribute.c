@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpExposeCapturedContextAttribute @ 0x1406D8084
+ * XREFs of AlpcpExposeCapturedContextAttribute @ 0x140692930
  * Callers:
- *     AlpcpReceiveMessage @ 0x1407AC930 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1407AD040 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
  * Callees:
  *     <none>
  */
@@ -16,6 +16,7 @@ void __fastcall AlpcpExposeCapturedContextAttribute(int a1, _DWORD *a2, int a3, 
   __int64 v8; // rcx
   __int64 v9; // rax
   __int64 v10; // rcx
+  _DWORD *v11; // rcx
 
   if ( a4 )
   {
@@ -31,11 +32,12 @@ void __fastcall AlpcpExposeCapturedContextAttribute(int a1, _DWORD *a2, int a3, 
         v10 = v9 + 16;
         if ( !v5 )
           v10 = v9;
-        *(_DWORD *)(v10 + a4) = *a2;
-        *(_DWORD *)(v10 + a4 + 4) = a2[2];
-        *(_DWORD *)(v10 + a4 + 8) = a2[4];
-        *(_DWORD *)(v10 + a4 + 12) = a2[5];
-        *(_DWORD *)(v10 + a4 + 16) = a2[6];
+        v11 = (_DWORD *)(a4 + v10);
+        *v11 = *a2;
+        v11[1] = a2[2];
+        v11[2] = a2[4];
+        v11[3] = a2[5];
+        v11[4] = a2[6];
       }
       else
       {

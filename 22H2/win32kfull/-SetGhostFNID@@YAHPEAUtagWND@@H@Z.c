@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C01F3D78
+ * XREFs of ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C0004A30
  * Callers:
- *     ?xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F5128 (-xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z.c)
- *     ?xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F53F8 (-xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z.c)
+ *     xxxRegisterGhostWindow @ 0x1C0003A40 (xxxRegisterGhostWindow.c)
+ *     xxxRegisterSiblingFrostWindow @ 0x1C0209D20 (xxxRegisterSiblingFrostWindow.c)
  * Callees:
  *     <none>
  */

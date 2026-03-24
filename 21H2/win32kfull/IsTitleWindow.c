@@ -1,10 +1,10 @@
 /*
- * XREFs of IsTitleWindow @ 0x1C007D318
+ * XREFs of IsTitleWindow @ 0x1C0104E0C
  * Callers:
- *     GetInheritedMonitor @ 0x1C006F4F4 (GetInheritedMonitor.c)
- *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C007D1E4 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
+ *     GetInheritedMonitor @ 0x1C006C184 (GetInheritedMonitor.c)
+ *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C0104C70 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C007B728 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00675D0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
  */
 
 __int64 __fastcall IsTitleWindow(__int64 a1, int a2)

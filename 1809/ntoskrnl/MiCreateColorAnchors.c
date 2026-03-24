@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreateColorAnchors @ 0x14085CF84
+ * XREFs of MiCreateColorAnchors @ 0x14085CF64
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     MiGetClosestNodeWithProcessors @ 0x1402BB6E4 (MiGetClosestNodeWithProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1402BB7E4 (MiGetClosestNodeWithProcessors.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGetDumpRange @ 0x1402AE208
+ * XREFs of MmGetDumpRange @ 0x1402AE308
  * Callers:
- *     IoWriteCrashDump @ 0x1402804AC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x1402805AC (IoWriteCrashDump.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiRemoveFreePoolMemoryFromDump @ 0x1402AC710 (MiRemoveFreePoolMemoryFromDump.c)
- *     MiAddNonSecuredPagesToDump @ 0x1402ADA0C (MiAddNonSecuredPagesToDump.c)
- *     MiAddPhysicalPagesToCrashDump @ 0x1402ADADC (MiAddPhysicalPagesToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1402AE110 (MmAddRangeToCrashDump.c)
- *     MmRemoveSystemCacheFromDump @ 0x1402AE5AC (MmRemoveSystemCacheFromDump.c)
- *     MiRemoveEnclavePagesFromDump @ 0x1402BE648 (MiRemoveEnclavePagesFromDump.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiRemoveFreePoolMemoryFromDump @ 0x1402AC810 (MiRemoveFreePoolMemoryFromDump.c)
+ *     MiAddNonSecuredPagesToDump @ 0x1402ADB0C (MiAddNonSecuredPagesToDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x1402ADBDC (MiAddPhysicalPagesToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
+ *     MmRemoveSystemCacheFromDump @ 0x1402AE6AC (MmRemoveSystemCacheFromDump.c)
+ *     MiRemoveEnclavePagesFromDump @ 0x1402BE748 (MiRemoveEnclavePagesFromDump.c)
  */
 
 char __fastcall MmGetDumpRange(ULONG_PTR BugCheckParameter2, int a2, char a3)

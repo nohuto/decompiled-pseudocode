@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CProjectedShadow::s_cpHalfBlurAsset__ @ 0x18010DA10
+ * XREFs of _dynamic_atexit_destructor_for__CProjectedShadow::s_cpHalfBlurAsset__ @ 0x1800F9870
  * Callers:
  *     <none>
  * Callees:

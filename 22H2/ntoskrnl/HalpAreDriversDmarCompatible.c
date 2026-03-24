@@ -1,27 +1,31 @@
 /*
- * XREFs of HalpAreDriversDmarCompatible @ 0x14038EF58
+ * XREFs of HalpAreDriversDmarCompatible @ 0x1403790E4
  * Callers:
- *     HalpGetAdapter @ 0x140829354 (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x140763D6C (HalpGetAdapter.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x1407914F0 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x1406B2E60 (IoGetDevicePropertyData.c)
  */
 
-bool __fastcall HalpAreDriversDmarCompatible(struct _DEVICE_OBJECT *a1)
+char __fastcall HalpAreDriversDmarCompatible(struct _DEVICE_OBJECT *a1)
 {
-  char v1; // bl
-  ULONG v3; // [rsp+58h] [rbp+10h] BYREF
-  ULONG v4; // [rsp+60h] [rbp+18h] BYREF
-  int v5; // [rsp+68h] [rbp+20h] BYREF
+  char result; // al
+  ULONG v2; // [rsp+58h] [rbp+10h] BYREF
+  ULONG v3; // [rsp+60h] [rbp+18h] BYREF
+  int v4; // [rsp+68h] [rbp+20h] BYREF
 
-  v1 = 0;
-  v5 = 0;
   v4 = 0;
   v3 = 0;
-  if ( IoGetDevicePropertyData(a1, &DEVPKEY_Device_DmaRemappingPolicy, 0, 0, 4u, &v5, &v4, &v3) >= 0
-    && v3 == 7
-    && v4 == 4 )
-  {
-    return v5 == 2;
-  }
-  return v1;
+  v2 = 0;
+  if ( IoGetDevicePropertyData(a1, &DEVPKEY_Device_DmaRemappingPolicy, 0, 0, 4u, &v4, &v3, &v2) < 0 )
+    return 0;
+  if ( v2 != 7 )
+    return 0;
+  if ( v3 != 4 )
+    return 0;
+  if ( v4 < 0 )
+    return 0;
+  result = 1;
+  if ( v4 != 2 )
+    return 0;
+  return result;
 }

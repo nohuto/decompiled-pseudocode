@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCoherencyFlushAndPurgeCache @ 0x14027EF40
+ * XREFs of CcCoherencyFlushAndPurgeCache @ 0x1402EF550
  * Callers:
  *     <none>
  * Callees:
- *     MmOnlySystemCacheViewsPresent @ 0x1402518B0 (MmOnlySystemCacheViewsPresent.c)
- *     MmTrimSection @ 0x14027F03C (MmTrimSection.c)
- *     CcPurgeCacheSection @ 0x14027F0E0 (CcPurgeCacheSection.c)
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x1402EEC14 (MmOnlySystemCacheViewsPresent.c)
+ *     MmTrimSection @ 0x1402EF648 (MmTrimSection.c)
+ *     CcPurgeCacheSection @ 0x1402F0920 (CcPurgeCacheSection.c)
  */
 
 void __stdcall CcCoherencyFlushAndPurgeCache(
@@ -20,16 +20,18 @@ void __stdcall CcCoherencyFlushAndPurgeCache(
   __int64 v6; // rbp
   ULONG v10; // edi
   NTSTATUS v11; // edi
+  NTSTATUS Status; // ecx
+  BOOLEAN v13; // al
 
   v5 = 0;
   v6 = Length;
   v10 = (Flags >> 1) & 1 | 2;
   if ( (Flags & 1) != 0 )
   {
-    if ( (Flags & 4) != 0 || MmOnlySystemCacheViewsPresent((__int64)SectionObjectPointer) )
+    if ( (Flags & 4) != 0 || MmOnlySystemCacheViewsPresent(SectionObjectPointer) )
     {
       v11 = 0;
-      goto LABEL_4;
+      goto LABEL_5;
     }
   }
   else
@@ -37,16 +39,19 @@ void __stdcall CcCoherencyFlushAndPurgeCache(
     v10 = (Flags >> 1) & 1;
   }
   v11 = MmTrimSection(SectionObjectPointer, FileOffset, v6, v10);
-LABEL_4:
+LABEL_5:
   IoStatus->Status = v11;
-  CcFlushCachePriv((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, v6, 0, 0, (__int64)IoStatus);
+  CcFlushCachePriv((__int64)SectionObjectPointer, FileOffset, v6, 0LL, 0, (__int128 *)&IoStatus->0);
+  Status = IoStatus->Status;
   if ( IoStatus->Status >= 0 )
   {
-    if ( (Flags & 1) != 0
-      || (v5 = CcPurgeCacheSection(SectionObjectPointer, FileOffset, v6, 4u) == 0, IoStatus->Status >= 0) )
+    if ( (Flags & 1) == 0 )
     {
-      if ( v11 == 277 || v5 )
-        IoStatus->Status = 277;
+      v13 = CcPurgeCacheSection(SectionObjectPointer, FileOffset, v6, 4u);
+      Status = IoStatus->Status;
+      v5 = v13 == 0;
     }
+    if ( Status >= 0 && (v11 == 277 || v5) )
+      IoStatus->Status = 277;
   }
 }

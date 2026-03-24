@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetProperty@CPathGeometry@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180133540
+ * XREFs of ?GetProperty@CPathGeometry@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801E2770
  * Callers:
  *     <none>
  * Callees:
- *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1800AC08C (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetProperty@CGeometry@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180132010 (-GetProperty@CGeometry@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1801B1408 (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
+ *     ?GetProperty@CGeometry@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801B5A70 (-GetProperty@CGeometry@@UEAAJIPEAVCExpressionValue@@@Z.c)
  */
 
 __int64 __fastcall CPathGeometry::GetProperty(CPathGeometry *this, int a2, struct CExpressionValue *a3)
@@ -17,7 +17,7 @@ __int64 __fastcall CPathGeometry::GetProperty(CPathGeometry *this, int a2, struc
 
   if ( a2 == 4 )
   {
-    v6 = *((_QWORD *)this + 18);
+    v6 = *((_QWORD *)this + 17);
     *((_DWORD *)a3 + 18) = 11;
     *((_BYTE *)a3 + 76) = 1;
     Microsoft::WRL::ComPtr<CPathData>::operator=((__int64 *)a3 + 8, v6);

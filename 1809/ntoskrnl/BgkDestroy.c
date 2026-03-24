@@ -1,10 +1,10 @@
 /*
  * XREFs of BgkDestroy @ 0x140951A04
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkInitialize @ 0x1409FB8D0 (BgkInitialize.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkInitialize @ 0x1409FB8E0 (BgkInitialize.c)
  * Callees:
- *     BgkpDisableConsole @ 0x14027DC48 (BgkpDisableConsole.c)
+ *     BgkpDisableConsole @ 0x14027DD48 (BgkpDisableConsole.c)
  *     BgConsoleDestroyInterface @ 0x140950E9C (BgConsoleDestroyInterface.c)
  *     BgDisplayProgressIndicator @ 0x140951260 (BgDisplayProgressIndicator.c)
  *     BgDisplayBackgroundUpdate @ 0x140951670 (BgDisplayBackgroundUpdate.c)

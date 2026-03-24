@@ -1,8 +1,8 @@
 /*
- * XREFs of MNUpdateUAHMaxPopupWidths @ 0x1C0117B3C
+ * XREFs of MNUpdateUAHMaxPopupWidths @ 0x1C010293C
  * Callers:
- *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C00BF2D8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
- *     MNRefreshUAHCachedSizes @ 0x1C0117AEC (MNRefreshUAHCachedSizes.c)
+ *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C004C0B8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
+ *     MNRefreshUAHCachedSizes @ 0x1C01028EC (MNRefreshUAHCachedSizes.c)
  * Callees:
  *     <none>
  */

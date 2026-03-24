@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsPrimaryResource@CD2DResource@@$4PPPPPPPM@A@EBA_NXZ @ 0x18011EE00
+ * XREFs of ?IsPrimaryResource@CD2DResource@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F67E0
  * Callers:
  *     <none>
  * Callees:

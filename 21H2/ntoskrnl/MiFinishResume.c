@@ -1,42 +1,42 @@
 /*
- * XREFs of MiFinishResume @ 0x14038DF70
+ * XREFs of MiFinishResume @ 0x1403848A0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetNextPartition @ 0x140236710 (PsGetNextPartition.c)
- *     MiDereferencePageRunsEx @ 0x14023FD0C (MiDereferencePageRunsEx.c)
- *     MiReferencePageRuns @ 0x14023FF18 (MiReferencePageRuns.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MiPurgeZeroList @ 0x14038E01C (MiPurgeZeroList.c)
- *     MiPurgePartitionStandby @ 0x14038E4BC (MiPurgePartitionStandby.c)
+ *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
+ *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
+ *     MiDereferencePageRunsEx @ 0x1402C34F8 (MiDereferencePageRunsEx.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     MiPurgeZeroList @ 0x14038494C (MiPurgeZeroList.c)
+ *     MiPurgePartitionStandby @ 0x140385004 (MiPurgePartitionStandby.c)
  */
 
-LONG __fastcall MiFinishResume(unsigned int a1)
+LONG __fastcall MiFinishResume(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rsi
+  __int64 v5; // rsi
   void *i; // rcx
   _QWORD *NextPartition; // rax
-  _QWORD *v5; // rbx
-  __int64 v6; // rdi
+  _QWORD *v8; // rbx
+  __int64 v9; // rdi
 
-  v2 = MiReferencePageRuns((__int64)&MiSystemPartition, 0);
-  for ( i = 0LL; ; i = v5 )
+  v5 = MiReferencePageRuns((__int64)&MiSystemPartition, 0, a3, a4);
+  for ( i = 0LL; ; i = v8 )
   {
     NextPartition = PsGetNextPartition(i);
-    v5 = NextPartition;
+    v8 = NextPartition;
     if ( !NextPartition )
       break;
-    v6 = *NextPartition;
+    v9 = *NextPartition;
     if ( a1 )
     {
       MiPurgePartitionStandby(*NextPartition, a1);
-      *(_BYTE *)(v6 + 15588) = 0;
+      *(_BYTE *)(v9 + 4828) = 0;
     }
-    MiPurgeZeroList(v6);
+    MiPurgeZeroList(v9);
   }
-  if ( v2 )
-    MiDereferencePageRunsEx(v2, 1);
-  _InterlockedDecrement(&dword_140C53440);
-  stru_140C529E8.Parameter = (void *)-1LL;
-  return KeSetEvent(&stru_140C529D0, 0, 0);
+  if ( v5 )
+    MiDereferencePageRunsEx(v5, 1);
+  _InterlockedDecrement(&dword_140C4EED8);
+  stru_140C4E6E8.Parameter = (void *)-1LL;
+  return KeSetEvent(&stru_140C4E6D0, 0, 0);
 }

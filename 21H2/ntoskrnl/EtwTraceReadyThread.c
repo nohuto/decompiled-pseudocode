@@ -1,15 +1,16 @@
 /*
- * XREFs of EtwTraceReadyThread @ 0x14062E258
+ * XREFs of EtwTraceReadyThread @ 0x1405A7F70
  * Callers:
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiReadyOutSwappedThreads @ 0x1402112F8 (KiReadyOutSwappedThreads.c)
- *     KiFastReadyThread @ 0x140294574 (KiFastReadyThread.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiProcessThreadWaitList @ 0x140340390 (KiProcessThreadWaitList.c)
+ *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
+ *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
+ *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
+ *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
+ *     KiFastReadyThread @ 0x140278190 (KiFastReadyThread.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpCoverageSamplerReadyThread @ 0x1406371D4 (EtwpCoverageSamplerReadyThread.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x1405B0094 (EtwpCoverageSamplerReadyThread.c)
  */
 
 __int64 __fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)
@@ -28,7 +29,7 @@ __int64 __fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)
   int v17; // [rsp+40h] [rbp-10h]
   int v18; // [rsp+44h] [rbp-Ch]
 
-  v11 = *(_DWORD *)(a1 + 1232);
+  v11 = *(_DWORD *)(a1 + 1152);
   v5 = 5249538;
   v13 = a3;
   v12 = a2;
@@ -36,13 +37,13 @@ __int64 __fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)
   v6 = *(_QWORD *)(a1 + 184);
   v14 = ~*(_BYTE *)(a1 + 122) & 2 | KeGetPcr()->Prcb.DpcRequestSummary & 1;
   v7 = (*(_DWORD *)(v6 + 840) & 7) != 0 ? 4 : 0;
-  v8 = *(void (__noreturn **)())(a1 + 1312);
+  v8 = *(void (__noreturn **)())(a1 + 1232);
   v14 = (v7 | v14 & 0xFB) ^ ((8 * a4) ^ (v14 | v7)) & 8;
   if ( (a4 & 2) != 0 || v8 == KeSwapProcessOrStack || (char *)v8 == (char *)EtwpLogger )
   {
     v5 = 5245442;
   }
-  else if ( EtwpHostSiloState != -4572 && (*(_DWORD *)(EtwpHostSiloState + 4576) & 0x200) != 0 )
+  else if ( EtwpHostSiloState != -4548 && (*(_DWORD *)(EtwpHostSiloState + 4552) & 0x200) != 0 )
   {
     EtwpCoverageSamplerReadyThread(a1);
   }

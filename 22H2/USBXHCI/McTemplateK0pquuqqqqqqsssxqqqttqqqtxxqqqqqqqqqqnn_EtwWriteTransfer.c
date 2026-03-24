@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C004B6EC
+ * XREFs of McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C001A5E8
  * Callers:
- *     Etw_ControllerRundown @ 0x1C0013EFC (Etw_ControllerRundown.c)
+ *     Etw_ControllerRundown @ 0x1C0014964 (Etw_ControllerRundown.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer(
+__int64 __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
-        const GUID *a3,
+        __int64 a3,
         __int64 a4,
         char a5,
         char a6,
@@ -51,217 +51,217 @@ NTSTATUS __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTr
         int a41,
         __int64 a42)
 {
-  const char *v42; // r9
-  const char *v43; // rdx
-  const char *v45; // r8
-  __int64 v46; // rax
+  const char *v42; // rdx
+  __int64 v43; // rax
+  __int64 v44; // rcx
+  int v45; // ecx
+  const char *v46; // rdx
   __int64 v47; // rcx
   int v48; // ecx
-  __int64 v49; // rcx
-  __int64 v50; // rcx
-  int v51; // eax
-  struct _EVENT_DATA_DESCRIPTOR v53; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 *v54; // [rsp+48h] [rbp-C0h]
-  __int64 v55; // [rsp+50h] [rbp-B8h]
-  char *v56; // [rsp+58h] [rbp-B0h]
-  __int64 v57; // [rsp+60h] [rbp-A8h]
-  char *v58; // [rsp+68h] [rbp-A0h]
-  __int64 v59; // [rsp+70h] [rbp-98h]
-  char *v60; // [rsp+78h] [rbp-90h]
-  __int64 v61; // [rsp+80h] [rbp-88h]
-  char *v62; // [rsp+88h] [rbp-80h]
-  __int64 v63; // [rsp+90h] [rbp-78h]
-  char *v64; // [rsp+98h] [rbp-70h]
-  __int64 v65; // [rsp+A0h] [rbp-68h]
-  char *v66; // [rsp+A8h] [rbp-60h]
-  __int64 v67; // [rsp+B0h] [rbp-58h]
-  char *v68; // [rsp+B8h] [rbp-50h]
-  __int64 v69; // [rsp+C0h] [rbp-48h]
-  char *v70; // [rsp+C8h] [rbp-40h]
-  __int64 v71; // [rsp+D0h] [rbp-38h]
-  char *v72; // [rsp+D8h] [rbp-30h]
-  __int64 v73; // [rsp+E0h] [rbp-28h]
-  const char *v74; // [rsp+E8h] [rbp-20h]
-  int v75; // [rsp+F0h] [rbp-18h]
-  int v76; // [rsp+F4h] [rbp-14h]
-  const char *v77; // [rsp+F8h] [rbp-10h]
-  int v78; // [rsp+100h] [rbp-8h]
-  int v79; // [rsp+104h] [rbp-4h]
-  const char *v80; // [rsp+108h] [rbp+0h]
-  int v81; // [rsp+110h] [rbp+8h]
-  int v82; // [rsp+114h] [rbp+Ch]
-  char *v83; // [rsp+118h] [rbp+10h]
-  __int64 v84; // [rsp+120h] [rbp+18h]
-  char *v85; // [rsp+128h] [rbp+20h]
-  __int64 v86; // [rsp+130h] [rbp+28h]
-  char *v87; // [rsp+138h] [rbp+30h]
-  __int64 v88; // [rsp+140h] [rbp+38h]
-  char *v89; // [rsp+148h] [rbp+40h]
-  __int64 v90; // [rsp+150h] [rbp+48h]
-  char *v91; // [rsp+158h] [rbp+50h]
-  __int64 v92; // [rsp+160h] [rbp+58h]
-  char *v93; // [rsp+168h] [rbp+60h]
-  __int64 v94; // [rsp+170h] [rbp+68h]
-  char *v95; // [rsp+178h] [rbp+70h]
-  __int64 v96; // [rsp+180h] [rbp+78h]
-  char *v97; // [rsp+188h] [rbp+80h]
-  __int64 v98; // [rsp+190h] [rbp+88h]
-  char *v99; // [rsp+198h] [rbp+90h]
-  __int64 v100; // [rsp+1A0h] [rbp+98h]
-  char *v101; // [rsp+1A8h] [rbp+A0h]
-  __int64 v102; // [rsp+1B0h] [rbp+A8h]
-  char *v103; // [rsp+1B8h] [rbp+B0h]
-  __int64 v104; // [rsp+1C0h] [rbp+B8h]
-  char *v105; // [rsp+1C8h] [rbp+C0h]
-  __int64 v106; // [rsp+1D0h] [rbp+C8h]
-  char *v107; // [rsp+1D8h] [rbp+D0h]
-  __int64 v108; // [rsp+1E0h] [rbp+D8h]
-  char *v109; // [rsp+1E8h] [rbp+E0h]
-  __int64 v110; // [rsp+1F0h] [rbp+E8h]
-  char *v111; // [rsp+1F8h] [rbp+F0h]
-  __int64 v112; // [rsp+200h] [rbp+F8h]
-  char *v113; // [rsp+208h] [rbp+100h]
-  __int64 v114; // [rsp+210h] [rbp+108h]
-  char *v115; // [rsp+218h] [rbp+110h]
-  __int64 v116; // [rsp+220h] [rbp+118h]
-  char *v117; // [rsp+228h] [rbp+120h]
-  __int64 v118; // [rsp+230h] [rbp+128h]
-  char *v119; // [rsp+238h] [rbp+130h]
-  __int64 v120; // [rsp+240h] [rbp+138h]
-  char *v121; // [rsp+248h] [rbp+140h]
-  __int64 v122; // [rsp+250h] [rbp+148h]
-  char *v123; // [rsp+258h] [rbp+150h]
-  __int64 v124; // [rsp+260h] [rbp+158h]
-  char *v125; // [rsp+268h] [rbp+160h]
-  __int64 v126; // [rsp+270h] [rbp+168h]
-  __int64 v127; // [rsp+278h] [rbp+170h]
-  __int64 v128; // [rsp+280h] [rbp+178h]
-  __int64 v129; // [rsp+288h] [rbp+180h]
-  __int64 v130; // [rsp+290h] [rbp+188h]
-  __int64 v131; // [rsp+2D0h] [rbp+1C8h] BYREF
+  const char *v49; // rcx
+  int v50; // eax
+  _BYTE v52[16]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 *v53; // [rsp+40h] [rbp-C0h]
+  __int64 v54; // [rsp+48h] [rbp-B8h]
+  char *v55; // [rsp+50h] [rbp-B0h]
+  __int64 v56; // [rsp+58h] [rbp-A8h]
+  char *v57; // [rsp+60h] [rbp-A0h]
+  __int64 v58; // [rsp+68h] [rbp-98h]
+  char *v59; // [rsp+70h] [rbp-90h]
+  __int64 v60; // [rsp+78h] [rbp-88h]
+  char *v61; // [rsp+80h] [rbp-80h]
+  __int64 v62; // [rsp+88h] [rbp-78h]
+  char *v63; // [rsp+90h] [rbp-70h]
+  __int64 v64; // [rsp+98h] [rbp-68h]
+  char *v65; // [rsp+A0h] [rbp-60h]
+  __int64 v66; // [rsp+A8h] [rbp-58h]
+  char *v67; // [rsp+B0h] [rbp-50h]
+  __int64 v68; // [rsp+B8h] [rbp-48h]
+  char *v69; // [rsp+C0h] [rbp-40h]
+  __int64 v70; // [rsp+C8h] [rbp-38h]
+  char *v71; // [rsp+D0h] [rbp-30h]
+  __int64 v72; // [rsp+D8h] [rbp-28h]
+  const char *v73; // [rsp+E0h] [rbp-20h]
+  int v74; // [rsp+E8h] [rbp-18h]
+  int v75; // [rsp+ECh] [rbp-14h]
+  const char *v76; // [rsp+F0h] [rbp-10h]
+  int v77; // [rsp+F8h] [rbp-8h]
+  int v78; // [rsp+FCh] [rbp-4h]
+  const char *v79; // [rsp+100h] [rbp+0h]
+  int v80; // [rsp+108h] [rbp+8h]
+  int v81; // [rsp+10Ch] [rbp+Ch]
+  char *v82; // [rsp+110h] [rbp+10h]
+  __int64 v83; // [rsp+118h] [rbp+18h]
+  char *v84; // [rsp+120h] [rbp+20h]
+  __int64 v85; // [rsp+128h] [rbp+28h]
+  char *v86; // [rsp+130h] [rbp+30h]
+  __int64 v87; // [rsp+138h] [rbp+38h]
+  char *v88; // [rsp+140h] [rbp+40h]
+  __int64 v89; // [rsp+148h] [rbp+48h]
+  char *v90; // [rsp+150h] [rbp+50h]
+  __int64 v91; // [rsp+158h] [rbp+58h]
+  char *v92; // [rsp+160h] [rbp+60h]
+  __int64 v93; // [rsp+168h] [rbp+68h]
+  char *v94; // [rsp+170h] [rbp+70h]
+  __int64 v95; // [rsp+178h] [rbp+78h]
+  char *v96; // [rsp+180h] [rbp+80h]
+  __int64 v97; // [rsp+188h] [rbp+88h]
+  char *v98; // [rsp+190h] [rbp+90h]
+  __int64 v99; // [rsp+198h] [rbp+98h]
+  char *v100; // [rsp+1A0h] [rbp+A0h]
+  __int64 v101; // [rsp+1A8h] [rbp+A8h]
+  char *v102; // [rsp+1B0h] [rbp+B0h]
+  __int64 v103; // [rsp+1B8h] [rbp+B8h]
+  char *v104; // [rsp+1C0h] [rbp+C0h]
+  __int64 v105; // [rsp+1C8h] [rbp+C8h]
+  char *v106; // [rsp+1D0h] [rbp+D0h]
+  __int64 v107; // [rsp+1D8h] [rbp+D8h]
+  char *v108; // [rsp+1E0h] [rbp+E0h]
+  __int64 v109; // [rsp+1E8h] [rbp+E8h]
+  char *v110; // [rsp+1F0h] [rbp+F0h]
+  __int64 v111; // [rsp+1F8h] [rbp+F8h]
+  char *v112; // [rsp+200h] [rbp+100h]
+  __int64 v113; // [rsp+208h] [rbp+108h]
+  char *v114; // [rsp+210h] [rbp+110h]
+  __int64 v115; // [rsp+218h] [rbp+118h]
+  char *v116; // [rsp+220h] [rbp+120h]
+  __int64 v117; // [rsp+228h] [rbp+128h]
+  char *v118; // [rsp+230h] [rbp+130h]
+  __int64 v119; // [rsp+238h] [rbp+138h]
+  char *v120; // [rsp+240h] [rbp+140h]
+  __int64 v121; // [rsp+248h] [rbp+148h]
+  char *v122; // [rsp+250h] [rbp+150h]
+  __int64 v123; // [rsp+258h] [rbp+158h]
+  char *v124; // [rsp+260h] [rbp+160h]
+  __int64 v125; // [rsp+268h] [rbp+168h]
+  __int64 v126; // [rsp+270h] [rbp+170h]
+  __int64 v127; // [rsp+278h] [rbp+178h]
+  __int64 v128; // [rsp+280h] [rbp+180h]
+  __int64 v129; // [rsp+288h] [rbp+188h]
+  __int64 v130; // [rsp+2C8h] [rbp+1C8h] BYREF
 
-  v131 = a4;
-  v42 = a16;
-  v43 = a15;
-  v45 = a14;
-  v54 = &v131;
-  v56 = &a5;
-  v58 = &a6;
-  v60 = &a7;
-  v62 = &a8;
-  v64 = &a9;
-  v66 = &a10;
-  v68 = &a11;
-  v70 = &a12;
-  v72 = &a13;
-  v46 = -1LL;
-  v55 = 8LL;
-  v57 = 4LL;
-  v59 = 1LL;
-  v61 = 1LL;
-  v63 = 4LL;
-  v65 = 4LL;
-  v67 = 4LL;
-  v69 = 4LL;
-  v71 = 4LL;
-  v73 = 4LL;
+  v130 = a4;
+  v42 = a14;
+  v53 = &v130;
+  v54 = 8LL;
+  v55 = &a5;
+  v57 = &a6;
+  v59 = &a7;
+  v56 = 4LL;
+  v61 = &a8;
+  v63 = &a9;
+  v65 = &a10;
+  v67 = &a11;
+  v69 = &a12;
+  v71 = &a13;
+  v43 = -1LL;
+  v58 = 1LL;
+  v60 = 1LL;
+  v62 = 4LL;
+  v64 = 4LL;
+  v66 = 4LL;
+  v68 = 4LL;
+  v70 = 4LL;
+  v72 = 4LL;
   if ( a14 )
+  {
+    v44 = -1LL;
+    do
+      ++v44;
+    while ( a14[v44] );
+    v45 = v44 + 1;
+  }
+  else
+  {
+    v45 = 5;
+  }
+  v74 = v45;
+  v75 = 0;
+  if ( !a14 )
+    v42 = "NULL";
+  v73 = v42;
+  v46 = a15;
+  if ( a15 )
   {
     v47 = -1LL;
     do
       ++v47;
-    while ( a14[v47] );
+    while ( a15[v47] );
     v48 = v47 + 1;
   }
   else
   {
     v48 = 5;
   }
-  v75 = v48;
-  v76 = 0;
-  if ( !a14 )
-    v45 = "NULL";
-  v74 = v45;
-  if ( a15 )
-  {
-    v49 = -1LL;
-    do
-      ++v49;
-    while ( a15[v49] );
-    v50 = (unsigned int)(v49 + 1);
-  }
-  else
-  {
-    v50 = 5LL;
-  }
-  v78 = v50;
-  v79 = 0;
+  v77 = v48;
+  v49 = a16;
   if ( !a15 )
-    v43 = "NULL";
-  v77 = v43;
+    v46 = "NULL";
+  v78 = 0;
+  v76 = v46;
   if ( a16 )
   {
     do
-      ++v46;
-    while ( a16[v46] );
-    v51 = v46 + 1;
+      ++v43;
+    while ( a16[v43] );
+    v50 = v43 + 1;
   }
   else
   {
-    v51 = 5;
+    v50 = 5;
   }
-  v81 = v51;
-  v82 = 0;
-  v83 = &a17;
+  v80 = v50;
+  v81 = 0;
+  v82 = &a17;
+  v83 = 8LL;
+  v84 = &a18;
   if ( !a16 )
-    v42 = "NULL";
-  v80 = v42;
-  v85 = &a18;
-  v84 = 8LL;
-  v87 = &a19;
-  v86 = 4LL;
-  v89 = &a20;
-  v91 = &a21;
-  v93 = &a22;
-  v95 = &a23;
-  v97 = &a24;
-  v99 = &a25;
-  v101 = &a26;
-  v103 = &a27;
-  v105 = &a28;
-  v107 = &a29;
-  v109 = &a30;
-  v111 = &a31;
-  v113 = &a32;
-  v115 = &a33;
-  v117 = &a34;
-  v119 = &a35;
-  v121 = &a36;
-  v123 = &a37;
-  v125 = &a38;
-  v127 = a40;
-  v129 = a42;
-  v88 = 4LL;
-  v90 = 4LL;
-  v92 = 4LL;
-  v94 = 4LL;
-  v96 = 4LL;
-  v98 = 4LL;
-  v100 = 4LL;
-  v102 = 4LL;
-  v104 = 8LL;
-  v106 = 8LL;
-  v108 = 4LL;
-  v110 = 4LL;
-  v112 = 4LL;
-  v114 = 4LL;
-  v116 = 4LL;
-  v118 = 4LL;
-  v120 = 4LL;
-  v122 = 4LL;
-  v124 = 4LL;
-  v126 = 4LL;
-  v128 = 96LL;
-  v130 = 64LL;
-  return McGenEventWrite_EtwWriteTransfer(v50, &USBXHCI_ETW_EVENT_RUNDOWN_CONTROLLER_INFORMATION_V5, a3, 0x26u, &v53);
+    v49 = "NULL";
+  v79 = v49;
+  v86 = &a19;
+  v85 = 4LL;
+  v88 = &a20;
+  v90 = &a21;
+  v92 = &a22;
+  v94 = &a23;
+  v96 = &a24;
+  v98 = &a25;
+  v100 = &a26;
+  v102 = &a27;
+  v104 = &a28;
+  v106 = &a29;
+  v108 = &a30;
+  v110 = &a31;
+  v112 = &a32;
+  v114 = &a33;
+  v116 = &a34;
+  v118 = &a35;
+  v120 = &a36;
+  v122 = &a37;
+  v124 = &a38;
+  v126 = a40;
+  v128 = a42;
+  v87 = 4LL;
+  v89 = 4LL;
+  v91 = 4LL;
+  v93 = 4LL;
+  v95 = 4LL;
+  v97 = 4LL;
+  v99 = 4LL;
+  v101 = 4LL;
+  v103 = 8LL;
+  v105 = 8LL;
+  v107 = 4LL;
+  v109 = 4LL;
+  v111 = 4LL;
+  v113 = 4LL;
+  v115 = 4LL;
+  v117 = 4LL;
+  v119 = 4LL;
+  v121 = 4LL;
+  v123 = 4LL;
+  v125 = 4LL;
+  v127 = 44LL;
+  v129 = 64LL;
+  return McGenEventWrite_EtwWriteTransfer(v49, &USBXHCI_ETW_EVENT_RUNDOWN_CONTROLLER_INFORMATION_V4, a3, 38LL, v52);
 }

@@ -1,305 +1,278 @@
 /*
- * XREFs of DxgkCreateHwQueueInternal @ 0x1C031DCDC
+ * XREFs of DxgkCreateHwQueueInternal @ 0x1C0271958
  * Callers:
- *     DxgkCreateHwQueue @ 0x1C02311A0 (DxgkCreateHwQueue.c)
- *     ?VmBusCreateHwQueue@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037AD50 (-VmBusCreateHwQueue@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusCreateHwQueue@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023ED10 (-VmBusCreateHwQueue@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkCreateHwQueue @ 0x1C0271940 (DxgkCreateHwQueue.c)
  * Callees:
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     ??0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N2@Z @ 0x1C0004480 (--0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N2@Z.c)
- *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C00045AC (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0024B68 (--1COREDEVICEACCESS@@QEAA@XZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z @ 0x1C0316AC0 (-AllocateElements@-$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z.c)
- *     ?CreateHwQueue@DXGCONTEXT@@QEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAXPEAPEAVDXGHWQUEUE@@@Z @ 0x1C031701C (-CreateHwQueue@DXGCONTEXT@@QEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAXPEAPEAVDXGHWQUEUE@@@Z.c)
+ *     ??0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N@Z @ 0x1C0002BAC (--0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0004E20 (--1COREDEVICEACCESS@@QEAA@XZ.c)
+ *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C0004F90 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C00261B0 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??1?$PagedPoolZeroedArray@PEAVDXGCONTEXT@@$01@@QEAA@XZ @ 0x1C026CCB0 (--1-$PagedPoolZeroedArray@PEAVDXGCONTEXT@@$01@@QEAA@XZ.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z @ 0x1C026CDD4 (-AllocateElements@-$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z.c)
+ *     ?CreateHwQueue@DXGCONTEXT@@QEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAXPEAPEAVDXGHWQUEUE@@@Z @ 0x1C026CEDC (-CreateHwQueue@DXGCONTEXT@@QEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAXPEAPEAVDXGHWQUEUE@@@Z.c)
  */
 
-__int64 __fastcall DxgkCreateHwQueueInternal(struct _D3DKMT_CREATEHWQUEUE *a1, char a2, __int64 a3)
+__int64 __fastcall DxgkCreateHwQueueInternal(__int64 a1, char a2, __int64 a3)
 {
-  struct _D3DKMT_CREATEHWQUEUE *v4; // rsi
-  ULONG64 v5; // rcx
-  PVOID v6; // r15
-  __int128 *v7; // rax
-  unsigned int *p_PrivateDriverDataSize; // r12
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 Elements; // rax
-  size_t PrivateDriverDataSize; // r8
+  struct _D3DKMT_CREATEHWQUEUE *v4; // r12
+  __int64 v5; // rdx
+  ULONG64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  void *v9; // r15
+  struct _D3DKMT_CREATEHWQUEUE *v10; // rax
+  struct _D3DKMT_CREATEHWQUEUE *v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rdx
   __int64 v14; // rcx
   __int64 v15; // r8
-  char *pPrivateDriverData; // rdx
-  PVOID v17; // r10
-  __int64 v18; // rcx
-  struct DXGPROCESS *Current; // r8
-  __int64 CurrentProcess; // rax
-  __int64 v21; // rcx
-  DXGCONTEXT *v22; // r13
+  __int64 PrivateDriverDataSize; // rdx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  _QWORD *v21; // rax
+  __int64 v22; // rdx
   __int64 v23; // rcx
   __int64 v24; // r8
-  struct DXGDEVICE *v25; // rbx
-  __int64 v26; // r9
-  int v27; // ebx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  struct DXGHWQUEUE *v30; // rdx
-  _OWORD *p_hHwContext; // rax
-  __int64 v32; // rax
-  size_t v33; // r8
-  void *v34; // rcx
-  ULONG64 v35; // rax
-  __int64 v36; // [rsp+20h] [rbp-1C8h]
-  int v38; // [rsp+58h] [rbp-190h] BYREF
-  __int64 v39; // [rsp+60h] [rbp-188h]
-  char v40; // [rsp+68h] [rbp-180h]
-  struct DXGCONTEXT *v41; // [rsp+70h] [rbp-178h] BYREF
-  _QWORD v42[2]; // [rsp+78h] [rbp-170h] BYREF
-  struct _D3DKMT_CREATEHWQUEUE *v43; // [rsp+88h] [rbp-160h]
-  PVOID v44; // [rsp+90h] [rbp-158h]
-  struct DXGHWQUEUE *v45; // [rsp+98h] [rbp-150h] BYREF
-  _BYTE v46[16]; // [rsp+A0h] [rbp-148h] BYREF
-  struct _D3DKMT_CREATEHWQUEUE *v47; // [rsp+B0h] [rbp-138h]
-  __int128 v48; // [rsp+B8h] [rbp-130h] BYREF
-  __int128 v49; // [rsp+C8h] [rbp-120h]
-  __int128 v50; // [rsp+D8h] [rbp-110h]
-  __int64 v51; // [rsp+E8h] [rbp-100h]
-  char *v52; // [rsp+F0h] [rbp-F8h]
-  PVOID v53; // [rsp+F8h] [rbp-F0h]
-  PVOID P; // [rsp+100h] [rbp-E8h] BYREF
-  _BYTE v55[16]; // [rsp+108h] [rbp-E0h] BYREF
-  int v56; // [rsp+118h] [rbp-D0h]
-  _BYTE v57[160]; // [rsp+120h] [rbp-C8h] BYREF
+  void *v25; // rcx
+  size_t v26; // r8
+  char *pPrivateDriverData; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  struct DXGPROCESS *Current; // rbx
+  __int64 v31; // rbx
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // r9
+  __int64 v36; // rcx
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  DXGCONTEXT *v42; // r13
+  __int64 v43; // rax
+  __int64 hHwContext; // rcx
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // r8
+  struct DXGDEVICE *v48; // rbx
+  __int64 v49; // r9
+  int v50; // ebx
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  struct DXGHWQUEUE *v54; // rdx
+  __int64 v55; // rax
+  char *v56; // rcx
+  int v58; // [rsp+38h] [rbp-180h] BYREF
+  __int64 v59; // [rsp+40h] [rbp-178h]
+  char v60; // [rsp+48h] [rbp-170h]
+  struct DXGCONTEXT *v61; // [rsp+50h] [rbp-168h] BYREF
+  _QWORD v62[2]; // [rsp+58h] [rbp-160h] BYREF
+  struct _D3DKMT_CREATEHWQUEUE *v63; // [rsp+68h] [rbp-150h]
+  void *v64; // [rsp+70h] [rbp-148h]
+  struct DXGHWQUEUE *v65; // [rsp+78h] [rbp-140h] BYREF
+  _BYTE v66[16]; // [rsp+80h] [rbp-138h] BYREF
+  struct _D3DKMT_CREATEHWQUEUE v67; // [rsp+90h] [rbp-128h] BYREF
+  void *v68; // [rsp+C0h] [rbp-F8h]
+  void *v69[3]; // [rsp+C8h] [rbp-F0h] BYREF
+  int v70; // [rsp+E0h] [rbp-D8h]
+  _BYTE v71[160]; // [rsp+F0h] [rbp-C8h] BYREF
 
-  v4 = a1;
-  v47 = a1;
-  v38 = -1;
-  v39 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v4 = (struct _D3DKMT_CREATEHWQUEUE *)a1;
+  v58 = -1;
+  v59 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v40 = 1;
-    v38 = 2153;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 2153);
+    v60 = 1;
+    v58 = 2153;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2153);
   }
   else
   {
-    v40 = 0;
+    v60 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v38, 2153);
-  v48 = 0LL;
-  v49 = 0LL;
-  v50 = 0LL;
-  v43 = 0LL;
-  P = 0LL;
-  v56 = 0;
-  v6 = 0LL;
-  v44 = 0LL;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v58, 2153LL);
+  memset(&v67, 0, sizeof(v67));
+  v63 = 0LL;
+  v69[0] = 0LL;
+  v70 = 0;
+  v9 = 0LL;
+  v64 = 0LL;
   if ( a2 )
   {
-    v5 = MmUserProbeAddress;
-    v7 = (__int128 *)v4;
+    v6 = MmUserProbeAddress;
+    v10 = v4;
     if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-      v7 = (__int128 *)MmUserProbeAddress;
-    v48 = *v7;
-    v49 = v7[1];
-    v50 = v7[2];
-    v4 = (struct _D3DKMT_CREATEHWQUEUE *)&v48;
+      v10 = (struct _D3DKMT_CREATEHWQUEUE *)MmUserProbeAddress;
+    v67 = *v10;
+    v11 = &v67;
+    v63 = &v67;
   }
-  v43 = v4;
-  p_PrivateDriverDataSize = &v4->PrivateDriverDataSize;
-  if ( v4->pPrivateDriverData )
+  else
   {
-    if ( *p_PrivateDriverDataSize )
-      goto LABEL_20;
-LABEL_13:
-    WdLogSingleEntry1(3LL, 843LL);
-    if ( P != v55 && P )
-      ExFreePoolWithTag(P, 0);
-    P = 0LL;
-    v56 = 0;
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-    if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerExit, v10, v38);
+    v11 = v4;
+    v63 = v4;
+  }
+  if ( v11->pPrivateDriverData )
+  {
+    if ( v11->PrivateDriverDataSize )
+      goto LABEL_18;
+LABEL_14:
+    v12 = WdLogNewEntry5_WdWarning(v6, v5, v7);
+    *(_QWORD *)(v12 + 24) = 632LL;
+    WdLogEvent5_WdWarning(v12);
+    PagedPoolZeroedArray<DXGCONTEXT *,2>::~PagedPoolZeroedArray<DXGCONTEXT *,2>((__int64)v69);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v58, v13);
+    if ( v60 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerExit, v15, v58);
     return 3221225485LL;
   }
-  if ( *p_PrivateDriverDataSize )
-    goto LABEL_13;
-LABEL_20:
-  if ( *p_PrivateDriverDataSize )
+  if ( v11->PrivateDriverDataSize )
+    goto LABEL_14;
+LABEL_18:
+  PrivateDriverDataSize = v11->PrivateDriverDataSize;
+  if ( (_DWORD)PrivateDriverDataSize )
   {
     if ( a2 )
     {
-      Elements = PagedPoolZeroedArray<unsigned char,16>::AllocateElements((__int64 *)&P, *p_PrivateDriverDataSize);
-      PrivateDriverDataSize = v4->PrivateDriverDataSize;
-      if ( !Elements )
+      if ( !PagedPoolZeroedArray<unsigned char,16>::AllocateElements(v69, PrivateDriverDataSize) )
       {
-        WdLogSingleEntry3(3LL, v4->hHwContext, PrivateDriverDataSize, -1073741801LL);
-        if ( P != v55 && P )
-          ExFreePoolWithTag(P, 0);
-        P = 0LL;
-        v56 = 0;
-        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-        if ( v40 )
+        v21 = (_QWORD *)WdLogNewEntry5_WdWarning(v19, v18, v20);
+        v21[3] = v11->hHwContext;
+        v21[4] = v11->PrivateDriverDataSize;
+        v21[5] = -1073741801LL;
+        WdLogEvent5_WdWarning(v21);
+        PagedPoolZeroedArray<DXGCONTEXT *,2>::~PagedPoolZeroedArray<DXGCONTEXT *,2>((__int64)v69);
+        DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v58, v22);
+        if ( v60 )
         {
-          LOBYTE(v14) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-            McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerExit, v15, v38);
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+            McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v58);
         }
         return 3221225495LL;
       }
-      v51 = v4->PrivateDriverDataSize;
-      pPrivateDriverData = (char *)v4->pPrivateDriverData;
-      v52 = pPrivateDriverData;
-      v17 = P;
-      v53 = P;
-      if ( &pPrivateDriverData[PrivateDriverDataSize] < pPrivateDriverData
-        || (unsigned __int64)&pPrivateDriverData[PrivateDriverDataSize] > MmUserProbeAddress )
+      v25 = v69[0];
+      v68 = v69[0];
+      v26 = v11->PrivateDriverDataSize;
+      pPrivateDriverData = (char *)v11->pPrivateDriverData;
+      if ( &pPrivateDriverData[v26] < pPrivateDriverData
+        || (unsigned __int64)&pPrivateDriverData[v26] > MmUserProbeAddress )
       {
         *(_BYTE *)MmUserProbeAddress = 0;
       }
-      memmove(v17, pPrivateDriverData, PrivateDriverDataSize);
-      v6 = P;
-      v44 = P;
+      memmove(v25, pPrivateDriverData, v26);
+      v9 = v69[0];
+      v64 = v69[0];
     }
     else
     {
-      v6 = v4->pPrivateDriverData;
-      v44 = v6;
+      v9 = v11->pPrivateDriverData;
+      v64 = v9;
     }
   }
-  Current = DXGPROCESS::GetCurrent(v5);
+  Current = DXGPROCESS::GetCurrent(v6, PrivateDriverDataSize, v7, v8);
   if ( !Current )
   {
-    CurrentProcess = PsGetCurrentProcess(v18);
-    WdLogSingleEntry2(2LL, CurrentProcess, -1073741811LL);
-    v36 = PsGetCurrentProcess(v21);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"unexpected process 0x%I64x, returning 0x%I64x",
-      v36,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_46:
-    if ( P != v55 && P )
-      ExFreePoolWithTag(P, 0);
-    P = 0LL;
-    v56 = 0;
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-    if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v38);
+    v31 = WdLogNewEntry5_WdError(v29, v28);
+    *(_QWORD *)(v31 + 24) = PsGetCurrentProcess(v33, v32, v34, v35);
+    *(_QWORD *)(v31 + 32) = -1073741811LL;
+    v36 = v31;
+LABEL_32:
+    WdLogEvent5_WdError(v36);
+    goto LABEL_43;
+  }
+  if ( !(unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
+    v11->Flags.Value &= ~8u;
+  if ( (v11->Flags.Value & 8) != 0 && !g_OSTestSigningEnabled )
+  {
+    v39 = WdLogNewEntry5_WdError(v38, v37);
+    *(_QWORD *)(v39 + 24) = 688LL;
+    v36 = v39;
+    goto LABEL_32;
+  }
+  v61 = 0LL;
+  DXGCONTEXTBYHANDLE::DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v66, v11->hHwContext, Current, &v61, 0);
+  v42 = v61;
+  if ( !v61 )
+  {
+    v43 = WdLogNewEntry5_WdError(v41, v40);
+    hHwContext = v11->hHwContext;
+    *(_QWORD *)(v43 + 32) = -1073741811LL;
+LABEL_42:
+    *(_QWORD *)(v43 + 24) = hHwContext;
+    WdLogEvent5_WdError(v43);
+    DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v66);
+LABEL_43:
+    PagedPoolZeroedArray<DXGCONTEXT *,2>::~PagedPoolZeroedArray<DXGCONTEXT *,2>((__int64)v69);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v58, v45);
+    if ( v60 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v46, &EventProfilerExit, v47, v58);
     return 3221225485LL;
   }
-  if ( (v4->Flags.Value & 8) != 0 && !g_OSTestSigningEnabled )
+  if ( (*((_DWORD *)v61 + 105) & 0x10) == 0 )
   {
-    WdLogSingleEntry1(2LL, 894LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"NoKmdAccess can be used only with testsigning",
-      894LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_46;
+    v43 = WdLogNewEntry5_WdError(v41, v40);
+    hHwContext = v11->hHwContext;
+    goto LABEL_42;
   }
-  v41 = 0LL;
-  DXGCONTEXTBYHANDLE::DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v46, v4->hHwContext, Current, &v41, 0, 1);
-  v22 = v41;
-  if ( !v41 )
+  v48 = (struct DXGDEVICE *)*((_QWORD *)v61 + 2);
+  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v62, v48);
+  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v71, (__int64)v48, 0, v49, 0);
+  v50 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v71, 0LL);
+  if ( v50 >= 0 )
   {
-    WdLogSingleEntry2(2LL, v4->hHwContext, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid hHwContext (0x%I64x) specified, returning 0x%I64x",
-      v4->hHwContext,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_45:
-    DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v46);
-    goto LABEL_46;
-  }
-  if ( (*((_DWORD *)v41 + 101) & 0x10) == 0 )
-  {
-    WdLogSingleEntry1(2LL, v4->hHwContext);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot create HW queue on context (0x%x) that doesn't support hardware queues.",
-      v4->hHwContext,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_45;
-  }
-  v25 = (struct DXGDEVICE *)*((_QWORD *)v41 + 2);
-  DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v42, v25);
-  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v57, (__int64)v25, 0, v26, 0);
-  v27 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v57, 0LL);
-  if ( v27 >= 0 )
-  {
-    v45 = 0LL;
-    v27 = DXGCONTEXT::CreateHwQueue(v22, v4, v6, &v45);
-    if ( v27 >= 0 )
+    v65 = 0LL;
+    v50 = DXGCONTEXT::CreateHwQueue(v42, v11, v9, &v65);
+    if ( v50 >= 0 )
     {
-      v30 = v45;
-      if ( !*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v45 + 2) + 16LL) + 16LL) + 16LL) + 209LL)
-        && (v4->Flags.Value & 0x10) == 0 )
+      v54 = v65;
+      if ( !*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v65 + 2) + 16LL) + 16LL) + 16LL) + 209LL) )
       {
-        v4->hHwQueueProgressFence = *(_DWORD *)(*((_QWORD *)v45 + 6) + 40LL);
-        v4->HwQueueProgressFenceCPUVirtualAddress = *(void **)(*((_QWORD *)v30 + 6) + 56LL);
-        v4->HwQueueProgressFenceGPUVirtualAddress = *(_QWORD *)(*((_QWORD *)v30 + 6) + 48LL);
+        v11->hHwQueueProgressFence = *(_DWORD *)(*((_QWORD *)v65 + 6) + 40LL);
+        v11->HwQueueProgressFenceCPUVirtualAddress = *(void **)(*((_QWORD *)v54 + 6) + 56LL);
+        v11->HwQueueProgressFenceGPUVirtualAddress = *(_QWORD *)(*((_QWORD *)v54 + 6) + 48LL);
       }
-      v4->hHwQueue = *((_DWORD *)v30 + 6);
+      v11->hHwQueue = *((_DWORD *)v54 + 6);
       if ( a2 )
       {
-        p_hHwContext = &v47->hHwContext;
-        if ( (unsigned __int64)v47 >= MmUserProbeAddress )
-          p_hHwContext = (_OWORD *)MmUserProbeAddress;
-        *p_hHwContext = *(_OWORD *)&v4->hHwContext;
-        p_hHwContext[1] = *(_OWORD *)&v4->pPrivateDriverData;
-        p_hHwContext[2] = *(_OWORD *)&v4->HwQueueProgressFenceCPUVirtualAddress;
-        v32 = *p_PrivateDriverDataSize;
-        if ( (_DWORD)v32 )
+        if ( (unsigned __int64)v4 >= MmUserProbeAddress )
+          v4 = (struct _D3DKMT_CREATEHWQUEUE *)MmUserProbeAddress;
+        *(_OWORD *)&v4->hHwContext = *(_OWORD *)&v11->hHwContext;
+        *(_OWORD *)&v4->pPrivateDriverData = *(_OWORD *)&v11->pPrivateDriverData;
+        *(_OWORD *)&v4->HwQueueProgressFenceCPUVirtualAddress = *(_OWORD *)&v11->HwQueueProgressFenceCPUVirtualAddress;
+        v55 = v11->PrivateDriverDataSize;
+        if ( (_DWORD)v55 )
         {
-          v33 = (unsigned int)v32;
-          v34 = v4->pPrivateDriverData;
-          v35 = (ULONG64)v34 + v32;
-          if ( v35 > MmUserProbeAddress || v35 <= (unsigned __int64)v34 )
+          v56 = (char *)v11->pPrivateDriverData;
+          if ( (unsigned __int64)&v56[v55] > MmUserProbeAddress || &v56[v55] <= v56 )
             *(_BYTE *)MmUserProbeAddress = 0;
-          memmove(v34, v6, v33);
+          memmove(v56, v9, (unsigned int)v55);
         }
       }
     }
   }
-  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v57);
-  if ( v42[0] )
-    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v42);
-  DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v46);
-  if ( P != v55 && P )
-    ExFreePoolWithTag(P, 0);
-  P = 0LL;
-  v56 = 0;
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38);
-  if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v28, &EventProfilerExit, v29, v38);
-  return (unsigned int)v27;
+  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v71);
+  if ( v62[0] )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v62);
+  DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v66);
+  PagedPoolZeroedArray<DXGCONTEXT *,2>::~PagedPoolZeroedArray<DXGCONTEXT *,2>((__int64)v69);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v58, v51);
+  if ( v60 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v52, &EventProfilerExit, v53, v58);
+  return (unsigned int)v50;
 }

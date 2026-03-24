@@ -1,14 +1,14 @@
 /*
- * XREFs of CommonBuffer_Create @ 0x1C006E6D0
+ * XREFs of CommonBuffer_Create @ 0x1C006E368
  * Callers:
- *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006E9D0 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006D0A0 (Controller_WdfEvtDevicePrepareHardware.c)
  * Callees:
- *     Controller_IsSecureDevice @ 0x1C0005AD0 (Controller_IsSecureDevice.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     XilCoreCommonBuffer_Create @ 0x1C001591C (XilCoreCommonBuffer_Create.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Counter_CreateCommonBufferInstance @ 0x1C006E8E0 (Counter_CreateCommonBufferInstance.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilCoreCommonBuffer_Create @ 0x1C0015D00 (XilCoreCommonBuffer_Create.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Counter_CreateCommonBufferInstance @ 0x1C006E570 (Counter_CreateCommonBufferInstance.c)
  */
 
 __int64 __fastcall CommonBuffer_Create(__int64 a1, char a2, __int64 *a3)
@@ -31,10 +31,10 @@ __int64 __fastcall CommonBuffer_Create(__int64 a1, char a2, __int64 *a3)
 
   v21 = 0LL;
   v17 = 0LL;
-  LODWORD(v15) = 0;
+  v15 = 0LL;
   *(_QWORD *)&v16 = 56LL;
   v18 = 0x100000001LL;
-  v20 = off_1C0061298;
+  v20 = off_1C0060298;
   v19 = *(unsigned __int64 *)(a1 + 8);
   *((_QWORD *)&v16 + 1) = CommonBuffer_WdfEvtCleanupCallback;
   v14 = 0LL;
@@ -56,7 +56,7 @@ __int64 __fastcall CommonBuffer_Create(__int64 a1, char a2, __int64 *a3)
     v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             v21,
-            off_1C0061298);
+            off_1C0060298);
     *(_QWORD *)v10 = a1;
     *(_BYTE *)(v10 + 80) = a2;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -71,14 +71,14 @@ __int64 __fastcall CommonBuffer_Create(__int64 a1, char a2, __int64 *a3)
     KeInitializeEvent((PRKEVENT)(v10 + 24), NotificationEvent, 1u);
     if ( !Controller_IsSecureDevice(a1) )
     {
+      LODWORD(v14) = 24;
       v20 = 0LL;
-      *(_QWORD *)&v14 = 24LL;
       v17 = 0LL;
-      v18 = 0x100000001LL;
       v19 = v21;
-      v15 = 1LL;
-      *((_QWORD *)&v14 + 1) = CommonBuffer_RebalanceResourcesWorkItem;
       v16 = 0LL;
+      v18 = 0x100000001LL;
+      *((_QWORD *)&v14 + 1) = CommonBuffer_RebalanceResourcesWorkItem;
+      LOBYTE(v15) = 1;
       LODWORD(v16) = 56;
       v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int128 *, __int64))(WdfFunctions_01023 + 3032))(
               WdfDriverGlobals,

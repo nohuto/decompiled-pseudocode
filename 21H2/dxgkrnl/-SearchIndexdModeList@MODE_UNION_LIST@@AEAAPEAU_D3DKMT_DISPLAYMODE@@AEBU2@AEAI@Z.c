@@ -1,20 +1,21 @@
 /*
- * XREFs of ?SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z @ 0x1C01DE308
+ * XREFs of ?SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z @ 0x1C00DE354
  * Callers:
- *     ?AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C01DE2AC (-AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z.c)
+ *     ?AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C00DE2F8 (-AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z.c)
  * Callees:
- *     _CompareDisplayMode @ 0x1C018841C (_CompareDisplayMode.c)
+ *     _CompareDisplayMode @ 0x1C0120E6C (_CompareDisplayMode.c)
  */
 
 struct _D3DKMT_DISPLAYMODE *__fastcall MODE_UNION_LIST::SearchIndexdModeList(
         MODE_UNION_LIST *this,
-        struct _D3DKMT_DISPLAYMODE *a2,
+        const struct _D3DKMT_DISPLAYMODE *a2,
         unsigned int *a3)
 {
   unsigned int v3; // r10d
   __int64 v6; // rsi
   __int64 v7; // rbp
-  __int64 v8; // r9
+  __int64 v8; // r8
+  __int64 v9; // r9
   int v10; // r11d
   int v11; // edi
   __int64 v12; // r10
@@ -27,17 +28,17 @@ struct _D3DKMT_DISPLAYMODE *__fastcall MODE_UNION_LIST::SearchIndexdModeList(
   if ( v3
     && (v6 = *((_QWORD *)this + 4),
         v7 = *((_QWORD *)this + 1),
-        (int)CompareDisplayMode((int *)a2, (int *)(v7 + 44LL * *(unsigned int *)(v6 + 4LL * (v3 - 1)))) <= 0) )
+        (int)CompareDisplayMode(a2, v7 + 44LL * *(unsigned int *)(v6 + 4LL * (v3 - 1)), a3, 0LL) <= 0) )
   {
     v10 = v3 - 1;
-    v11 = v8;
-    v12 = (unsigned int)v8;
-    v13 = v8;
+    v11 = v9;
+    v12 = (unsigned int)v9;
+    v13 = v9;
     if ( v10 >= 0 )
     {
       do
       {
-        v14 = CompareDisplayMode((int *)a2, (int *)(v7 + 44LL * *(unsigned int *)(v6 + 4LL * ((v10 + v11) >> 1))));
+        v14 = CompareDisplayMode(a2, v7 + 44LL * *(unsigned int *)(v6 + 4LL * ((v10 + v11) >> 1)), v8, v9);
         v13 = v14;
         if ( !v14 )
           break;
@@ -55,7 +56,7 @@ struct _D3DKMT_DISPLAYMODE *__fastcall MODE_UNION_LIST::SearchIndexdModeList(
     *a3 = v12;
     if ( !v13 )
       return (struct _D3DKMT_DISPLAYMODE *)(v7 + 44LL * *(unsigned int *)(v6 + 4 * v12));
-    return (struct _D3DKMT_DISPLAYMODE *)v8;
+    return (struct _D3DKMT_DISPLAYMODE *)v9;
   }
   else
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeWaitPhysicalFaultCompletion @ 0x14029BB48
+ * XREFs of KeWaitPhysicalFaultCompletion @ 0x14029BC48
  * Callers:
- *     HvlNotifyPageHeat @ 0x14032BB38 (HvlNotifyPageHeat.c)
+ *     HvlNotifyPageHeat @ 0x14032BC38 (HvlNotifyPageHeat.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiEpfDrainCompletionQueue @ 0x14029BD54 (KiEpfDrainCompletionQueue.c)
- *     KiEpfStart @ 0x14029BDF4 (KiEpfStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiEpfDrainCompletionQueue @ 0x14029BE54 (KiEpfDrainCompletionQueue.c)
+ *     KiEpfStart @ 0x14029BEF4 (KiEpfStart.c)
  */
 
 __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)

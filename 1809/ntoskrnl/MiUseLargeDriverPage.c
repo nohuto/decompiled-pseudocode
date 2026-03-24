@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUseLargeDriverPage @ 0x140683280
+ * XREFs of MiUseLargeDriverPage @ 0x140683260
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -10,21 +10,21 @@
  *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
- *     MiIsRetpolineEnabled @ 0x1400DA550 (MiIsRetpolineEnabled.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MiMapWithLargePages @ 0x140183440 (MiMapWithLargePages.c)
- *     MiGetPageTablesForLargeMap @ 0x140183704 (MiGetPageTablesForLargeMap.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9218 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1402B8F20 (MiInitPerfMemoryFlags.c)
- *     MiRoundUpToPowerOf2SizeT @ 0x1402CB0F4 (MiRoundUpToPowerOf2SizeT.c)
- *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F6F74 (RtlPerformRetpolineRelocationsOnImage.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MiMapWithLargePages @ 0x140183460 (MiMapWithLargePages.c)
+ *     MiGetPageTablesForLargeMap @ 0x140183724 (MiGetPageTablesForLargeMap.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1402B9020 (MiInitPerfMemoryFlags.c)
+ *     MiRoundUpToPowerOf2SizeT @ 0x1402CB1F4 (MiRoundUpToPowerOf2SizeT.c)
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F7074 (RtlPerformRetpolineRelocationsOnImage.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     MiChargeSystemImageCommitment @ 0x14068321C (MiChargeSystemImageCommitment.c)
- *     LdrRelocateImageWithBias @ 0x14072A778 (LdrRelocateImageWithBias.c)
- *     MiUnmapLargeDriver @ 0x14085D99C (MiUnmapLargeDriver.c)
+ *     MiChargeSystemImageCommitment @ 0x1406831FC (MiChargeSystemImageCommitment.c)
+ *     LdrRelocateImageWithBias @ 0x14072A758 (LdrRelocateImageWithBias.c)
+ *     MiUnmapLargeDriver @ 0x14085D97C (MiUnmapLargeDriver.c)
  */
 
 char *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a3, const UNICODE_STRING *a4)

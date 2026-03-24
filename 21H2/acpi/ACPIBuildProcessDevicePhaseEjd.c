@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhaseEjd @ 0x1C00093E0
+ * XREFs of ACPIBuildProcessDevicePhaseEjd @ 0x1C001A5C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     ACPIDockIsDockDevice @ 0x1C000A480 (ACPIDockIsDockDevice.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     ACPIBuildDockExtension @ 0x1C0049E7C (ACPIBuildDockExtension.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIDockIsDockDevice @ 0x1C0020C40 (ACPIDockIsDockDevice.c)
+ *     ACPIBuildDockExtension @ 0x1C004B57C (ACPIBuildDockExtension.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDevicePhaseEjd(__int64 a1)
@@ -23,55 +23,58 @@ __int64 __fastcall ACPIBuildProcessDevicePhaseEjd(__int64 a1)
   _QWORD *v10; // rcx
   _QWORD *v11; // rax
   __int64 v12; // rdx
-  const char *v13; // rax
-  const char *v14; // r8
+  void *v13; // rax
+  void *v14; // r8
 
   v1 = *(_QWORD *)(a1 + 40);
   v3 = a1 + 80;
   *(_DWORD *)(a1 + 32) = (*(_BYTE *)(v1 + 8) & 2) != 0 ? 16 : 26;
   if ( *(_QWORD *)(a1 + 56) )
   {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
-    FreeDataBuffs(v3, 1LL);
+    dword_1C0082908 = 0;
+    pszDest = 0;
+    FreeDataBuffs(v3, 1u);
     KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
-    v10 = (_QWORD *)qword_1C00815C8;
-    v11 = (_QWORD *)(v1 + 848);
-    if ( *(__int64 **)qword_1C00815C8 != &AcpiUnresolvedEjectList )
+    v10 = (_QWORD *)qword_1C00823A8;
+    v11 = (_QWORD *)(v1 + 808);
+    if ( *(__int64 **)qword_1C00823A8 != &AcpiUnresolvedEjectList )
       __fastfail(3u);
-    *(_QWORD *)(v1 + 856) = qword_1C00815C8;
+    *(_QWORD *)(v1 + 816) = qword_1C00823A8;
     *v11 = &AcpiUnresolvedEjectList;
     *v10 = v11;
-    qword_1C00815C8 = v1 + 848;
+    qword_1C00823A8 = v1 + 808;
     KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
   }
-  if ( (unsigned __int8)ACPIDockIsDockDevice(*(_QWORD *)(v1 + 760)) )
+  if ( (unsigned __int8)ACPIDockIsDockDevice(*(_QWORD *)(v1 + 720)) )
   {
     if ( !*((_BYTE *)AcpiInformation + 132) )
     {
       v12 = *(_QWORD *)(v1 + 8);
-      v13 = (const char *)&unk_1C006FB8B;
-      v14 = (const char *)&unk_1C006FB8B;
+      v13 = &unk_1C00701BA;
+      v14 = &unk_1C00701BA;
       if ( (v12 & 0x200000000000LL) != 0 )
       {
-        v13 = *(const char **)(v1 + 608);
+        v13 = *(void **)(v1 + 568);
         if ( (v12 & 0x400000000000LL) != 0 )
-          v14 = *(const char **)(v1 + 616);
+          v14 = *(void **)(v1 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v12) = 2;
         WPP_RECORDER_SF_qss(
-          (__int64)WPP_GLOBAL_Control->DeviceExtension,
-          2u,
-          6u,
-          0x26u,
-          (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+          WPP_GLOBAL_Control->DeviceExtension,
+          v12,
+          6,
+          38,
+          (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
           v1,
-          v13,
-          v14);
+          (__int64)v13,
+          (__int64)v14);
+      }
       KeBugCheckEx(0xA5u, 0xCuLL, v1, *(_QWORD *)(a1 + 56), 0LL);
     }
     KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
-    v4 = ACPIBuildDockExtension(*(_QWORD *)(v1 + 760));
+    v4 = ACPIBuildDockExtension(*(_QWORD *)(v1 + 720));
     KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
   }
   else
@@ -79,13 +82,13 @@ __int64 __fastcall ACPIBuildProcessDevicePhaseEjd(__int64 a1)
     v4 = 0;
   }
   v5 = *(_QWORD *)(v1 + 8);
-  v6 = &unk_1C006FB8B;
-  v7 = &unk_1C006FB8B;
+  v6 = &unk_1C00701BA;
+  v7 = &unk_1C00701BA;
   if ( (v5 & 0x200000000000LL) != 0 )
   {
-    v6 = *(void **)(v1 + 608);
+    v6 = *(void **)(v1 + 568);
     if ( (v5 & 0x400000000000LL) != 0 )
-      v7 = *(void **)(v1 + 616);
+      v7 = *(void **)(v1 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -95,7 +98,7 @@ __int64 __fastcall ACPIBuildProcessDevicePhaseEjd(__int64 a1)
       v5,
       6,
       39,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       v4,
       v1,
       (__int64)v6,

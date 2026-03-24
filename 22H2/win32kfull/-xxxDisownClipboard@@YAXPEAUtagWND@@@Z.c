@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01FCC58
+ * XREFs of ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C0123548
  * Callers:
- *     xxxSetProcessWindowStation @ 0x1C0097700 (xxxSetProcessWindowStation.c)
- *     xxxDW_SendDestroyMessages @ 0x1C00EB160 (xxxDW_SendDestroyMessages.c)
+ *     xxxDW_SendDestroyMessages @ 0x1C007E67C (xxxDW_SendDestroyMessages.c)
+ *     xxxSetProcessWindowStation @ 0x1C0100210 (xxxSetProcessWindowStation.c)
  * Callees:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0018758 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FC35C (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FCDAC (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
- *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01FD6B0 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D410 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002F6E8 (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0030448 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C0123A94 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
  */
 
 void __fastcall xxxDisownClipboard(struct tagWND *a1)
@@ -17,10 +17,10 @@ void __fastcall xxxDisownClipboard(struct tagWND *a1)
   struct tagWINDOWSTATION *v2; // rax
   struct tagWINDOWSTATION *v3; // rbx
   __int64 v4; // rax
-  int v5; // r9d
+  int v5; // r8d
   int v6; // edx
-  _OWORD *v7; // r8
-  int v8; // esi
+  _OWORD *v7; // r9
+  int v8; // ebp
   __int64 v9; // rcx
   int v10; // r10d
   int v11; // eax
@@ -62,12 +62,13 @@ void __fastcall xxxDisownClipboard(struct tagWND *a1)
     }
     if ( a1 == *((struct tagWND **)v3 + 14) )
       HMAssignmentUnlock((char *)v3 + 112);
+    v11 = *((_DWORD *)v3 + 16);
     if ( v8 != *((_DWORD *)v3 + 34) )
     {
-      *((_DWORD *)v3 + 16) |= 0x40u;
+      v11 |= 0x40u;
       ++*((_DWORD *)v3 + 36);
+      *((_DWORD *)v3 + 16) = v11;
     }
-    v11 = *((_DWORD *)v3 + 16);
     *((_DWORD *)v3 + 34) = v8;
     if ( (v11 & 0x40) != 0 )
     {

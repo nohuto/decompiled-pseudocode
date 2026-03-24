@@ -4,7 +4,7 @@
  *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
  *     BgLibraryDestroy @ 0x14095349C (BgLibraryDestroy.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
  *     ResFwBackgroundTransition @ 0x140950360 (ResFwBackgroundTransition.c)
  *     BgpFwInitializeReservePool @ 0x140950508 (BgpFwInitializeReservePool.c)
  *     BgpFwLibraryDisable @ 0x140950F24 (BgpFwLibraryDisable.c)

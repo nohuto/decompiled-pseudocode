@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_qLLL @ 0x1C000A12C
+ * XREFs of WPP_RECORDER_SF_qLLL @ 0x1C0009E2C
  * Callers:
- *     HUBSM_FindAndSetTargetState @ 0x1C000A49C (HUBSM_FindAndSetTargetState.c)
- *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000AA98 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     HUBSM_FindAndSetTargetState @ 0x1C0009F9C (HUBSM_FindAndSetTargetState.c)
+ *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000A6B0 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_qLLL(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
@@ -31,7 +31,7 @@ __int64 WPP_RECORDER_SF_qLLL(__int64 a1, __int64 a2, __int64 a3, unsigned __int1
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_0cc843adf6153b7d46bf14e0910357bd_Traceguids,
+      &WPP_191605d54a133acb5ded6f763c07215a_Traceguids,
       a4,
       (__int64 *)va,
       8LL,
@@ -43,5 +43,5 @@ __int64 WPP_RECORDER_SF_qLLL(__int64 a1, __int64 a2, __int64 a3, unsigned __int1
       4LL,
       0LL);
   LOWORD(v7) = a4;
-  return WppAutoLogTrace(0LL, 4LL, 2LL, &WPP_0cc843adf6153b7d46bf14e0910357bd_Traceguids, v7, (__int64 *)va);
+  return WppAutoLogTrace(0LL, 4LL, 2LL, &WPP_191605d54a133acb5ded6f763c07215a_Traceguids, v7, (__int64 *)va);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessTimer@CPTPEngine@@MEAAJXZ @ 0x1C0202630
+ * XREFs of ?ProcessTimer@CPTPEngine@@MEAAJXZ @ 0x1C01C6F90
  * Callers:
  *     <none>
  * Callees:
- *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01FEFC8 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
- *     ?IsTouchpadActive@CPTPEngine@@AEAAHXZ @ 0x1C02018EC (-IsTouchpadActive@CPTPEngine@@AEAAHXZ.c)
- *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C0203EE0 (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
+ *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01C39D4 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
+ *     ?IsTouchpadActive@CPTPEngine@@AEAAHXZ @ 0x1C01C62A4 (-IsTouchpadActive@CPTPEngine@@AEAAHXZ.c)
+ *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C01C884C (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
  */
 
 __int64 __fastcall CPTPEngine::ProcessTimer(CPTPEngine *this)
@@ -14,11 +14,11 @@ __int64 __fastcall CPTPEngine::ProcessTimer(CPTPEngine *this)
   __int64 v4; // [rsp+30h] [rbp-38h]
   __int64 v5; // [rsp+50h] [rbp-18h]
 
-  *((_DWORD *)this + 978) = 0;
+  *((_DWORD *)this + 952) = 0;
   CPTPEngine::CancelMouseUpTimer(this, 1);
   if ( !(unsigned int)CPTPEngine::IsTouchpadActive(this) )
   {
-    *((_DWORD *)this + 984) |= 0x80000000;
+    *((_DWORD *)this + 958) |= 0x80000000;
     v5 = 0LL;
     v3 = 0LL;
     v4 = 0LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalStartNextProcessor @ 0x140377100
+ * XREFs of HalStartNextProcessor @ 0x1403A0DA0
  * Callers:
- *     HalpInterruptReinitialize @ 0x140A9550C (HalpInterruptReinitialize.c)
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     HalpInterruptReinitialize @ 0x140995D68 (HalpInterruptReinitialize.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031F8FC (HalpInterruptModel.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051AB14 (HalpInterruptStartBlockedProcessors.c)
- *     HalpInterruptStartProcessor @ 0x140A895A0 (HalpInterruptStartProcessor.c)
+ *     HalpInterruptModel @ 0x14037ADC4 (HalpInterruptModel.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1404D19FC (HalpInterruptStartBlockedProcessors.c)
+ *     HalpInterruptStartProcessor @ 0x140999F64 (HalpInterruptStartProcessor.c)
  */
 
 __int64 __fastcall HalStartNextProcessor(__int64 a1, unsigned int a2, unsigned int a3)

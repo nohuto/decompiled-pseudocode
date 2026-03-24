@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x1402A4AD4
+ * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4
  * Callers:
- *     KiInSwapProcesses @ 0x14010B320 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
  * Callees:
  *     KeFreezeProcess @ 0x140002940 (KeFreezeProcess.c)
  *     MiBeginProcessClean @ 0x140011D68 (MiBeginProcessClean.c)
@@ -9,12 +9,12 @@
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KeForceDetachProcess @ 0x140127F54 (KeForceDetachProcess.c)
- *     MiLogOutswappedProcessCommitReacquire @ 0x1402A3E9C (MiLogOutswappedProcessCommitReacquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x1402A3F9C (MiLogOutswappedProcessCommitReacquire.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

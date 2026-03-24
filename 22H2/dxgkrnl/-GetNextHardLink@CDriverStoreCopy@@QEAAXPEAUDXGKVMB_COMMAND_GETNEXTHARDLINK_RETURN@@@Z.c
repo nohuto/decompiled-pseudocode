@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetNextHardLink@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETNEXTHARDLINK_RETURN@@@Z @ 0x1C030C694
+ * XREFs of ?GetNextHardLink@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETNEXTHARDLINK_RETURN@@@Z @ 0x1C0263A2C
  * Callers:
- *     ?VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037F840 (-VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02427E0 (-VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00408CC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000C2B4 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
  */
 
 void __fastcall CDriverStoreCopy::GetNextHardLink(
@@ -14,7 +14,6 @@ void __fastcall CDriverStoreCopy::GetNextHardLink(
   char *v2; // rcx
   size_t **v4; // rbx
   size_t *v5; // rax
-  unsigned int v6; // r11d
 
   v2 = (char *)this + 1608;
   v4 = *(size_t ***)v2;
@@ -29,10 +28,10 @@ void __fastcall CDriverStoreCopy::GetNextHardLink(
   else
   {
     RtlStringCbCopyW((unsigned __int16 *)a2 + 266, 0x208uLL, (size_t *)((char *)v4 + 36));
-    RtlStringCbCopyW((unsigned __int16 *)a2 + 6, v6, v4[3]);
+    RtlStringCbCopyW((unsigned __int16 *)a2 + 6, 0x208uLL, v4[3]);
     *((_DWORD *)a2 + 1) = *((_DWORD *)v4 + 4);
     *((_DWORD *)a2 + 2) = *((_DWORD *)v4 + 5);
-    operator delete(v4);
+    operator delete[](v4);
     *(_DWORD *)a2 = 0;
   }
 }

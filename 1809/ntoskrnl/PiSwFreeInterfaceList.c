@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwFreeInterfaceList @ 0x1406D8328
+ * XREFs of PiSwFreeInterfaceList @ 0x1406D8308
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1406D6E78 (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x1406D808C (PiSwCompleteCreate.c)
- *     PiSwProcessRemove @ 0x1406D8B6C (PiSwProcessRemove.c)
- *     PiSwDeviceFree @ 0x1406D8C28 (PiSwDeviceFree.c)
+ *     PiSwIrpStartCreateWorker @ 0x1406D6E58 (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x1406D806C (PiSwCompleteCreate.c)
+ *     PiSwProcessRemove @ 0x1406D8B4C (PiSwProcessRemove.c)
+ *     PiSwDeviceFree @ 0x1406D8C08 (PiSwDeviceFree.c)
  * Callees:
- *     PiSwInterfaceFree @ 0x140835D80 (PiSwInterfaceFree.c)
+ *     PiSwInterfaceFree @ 0x140835D60 (PiSwInterfaceFree.c)
  */
 
 void __fastcall PiSwFreeInterfaceList(_QWORD **a1)

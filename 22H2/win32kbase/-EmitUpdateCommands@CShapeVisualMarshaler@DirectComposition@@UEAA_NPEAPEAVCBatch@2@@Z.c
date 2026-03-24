@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009C960
+ * XREFs of ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5CE0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C002B0C0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009C9C4 (-EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776d___ @ 0x1C0214A8C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776d___ @ 0x1C01E5A6C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776.c)
+ *     ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5C8C (-EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CShapeVisualMarshaler::EmitUpdateCommands(
         DirectComposition::CShapeVisualMarshaler *this,
-        struct DirectComposition::CBatch ***a2)
+        struct DirectComposition::CBatch **a2)
 {
   int v4; // eax
   char v5; // di
@@ -18,19 +18,19 @@ char __fastcall DirectComposition::CShapeVisualMarshaler::EmitUpdateCommands(
 
   if ( !DirectComposition::CVisualMarshaler::EmitUpdateCommands(this, a2) )
     return 0;
-  v4 = *((_DWORD *)this + 100);
+  v4 = *((_DWORD *)this + 98);
   v5 = 1;
   v7 = this;
   if ( (v4 & 1) != 0 )
   {
-    if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776d___(
-                             this,
-                             a2,
-                             &v7) )
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776d___(
+            (__int64)this,
+            (struct DirectComposition::CBatch ***)a2,
+            (__int64)&v7) )
       return 0;
-    *((_DWORD *)this + 100) &= ~1u;
+    *((_DWORD *)this + 98) &= ~1u;
   }
-  if ( !DirectComposition::CShapeVisualMarshaler::EmitShapes(this, (struct DirectComposition::CBatch **)a2) )
+  if ( !DirectComposition::CShapeVisualMarshaler::EmitShapes(this, (struct DirectComposition::CBatch ***)a2) )
     return 0;
   return v5;
 }

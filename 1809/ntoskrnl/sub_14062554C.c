@@ -4,9 +4,9 @@
  *     WbRemoveWarbirdProcess @ 0x140608988 (WbRemoveWarbirdProcess.c)
  *     WbDispatchOperation @ 0x140625364 (WbDispatchOperation.c)
  *     WbGetWarbirdProcess @ 0x140625584 (WbGetWarbirdProcess.c)
- *     WbCreateWarbirdProcess @ 0x1406CFA88 (WbCreateWarbirdProcess.c)
+ *     WbCreateWarbirdProcess @ 0x1406CFA68 (WbCreateWarbirdProcess.c)
  * Callees:
- *     WbFreeWarbirdProcess @ 0x14068FFB8 (WbFreeWarbirdProcess.c)
+ *     WbFreeWarbirdProcess @ 0x14068FF98 (WbFreeWarbirdProcess.c)
  */
 
 signed __int64 __fastcall sub_14062554C(volatile signed __int64 *a1)

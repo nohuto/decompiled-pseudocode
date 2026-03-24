@@ -1,13 +1,13 @@
 /*
- * XREFs of PopReadSystemAwayModePolicy @ 0x1407FD7F8
+ * XREFs of PopReadSystemAwayModePolicy @ 0x140773DA4
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PopOpenPowerKey @ 0x1403B1A2C (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x1403A7C8C (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
  */
 
 int PopReadSystemAwayModePolicy()
@@ -26,12 +26,12 @@ int PopReadSystemAwayModePolicy()
   v6 = 0;
   DestinationString = 0LL;
   KeyValueInformation = 0LL;
-  if ( byte_140C232D2 )
-    v0 = dword_140C036E8 != 0;
+  if ( byte_140C23E92 )
+    v0 = dword_140C002F0 != 0;
   result = PopOpenPowerKey((__int64)&KeyHandle);
   if ( result >= 0 )
   {
-    if ( byte_140C232D2 )
+    if ( byte_140C23E92 )
     {
       RtlInitUnicodeString(&DestinationString, L"AwayModeEnabled");
       if ( ZwQueryValueKey(
@@ -49,6 +49,6 @@ int PopReadSystemAwayModePolicy()
     }
     result = ZwClose(KeyHandle);
   }
-  byte_140C232D0 = v0;
+  byte_140C23E90 = v0;
   return result;
 }

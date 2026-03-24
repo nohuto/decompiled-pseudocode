@@ -1,859 +1,1073 @@
 /*
- * XREFs of ExpGetProcessInformation @ 0x1407432D0
+ * XREFs of ExpGetProcessInformation @ 0x14063E980
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x140225FB0 (RtlQueryPackageIdentity.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x140289ECC (PsIsProcessInSilo.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     MmGetSessionId @ 0x1402A3B20 (MmGetSessionId.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C000C (KeFlushProcessWriteBuffers.c)
- *     KeQueryValuesThread @ 0x1402C2C10 (KeQueryValuesThread.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeQueryUserSidToken @ 0x140714EB0 (SeQueryUserSidToken.c)
- *     PsQueryProcessAttributes @ 0x14071DE84 (PsQueryProcessAttributes.c)
- *     PsQueryProcessEnergyValues @ 0x1407424E0 (PsQueryProcessEnergyValues.c)
- *     ExpCopyProcessInfo @ 0x1407428D0 (ExpCopyProcessInfo.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     ExpGetNextProcessThread @ 0x140742D48 (ExpGetNextProcessThread.c)
- *     ExpSysInfoShouldSkipProcess @ 0x140742DE0 (ExpSysInfoShouldSkipProcess.c)
- *     ExGetNextProcess @ 0x140742E88 (ExGetNextProcess.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1407D620C (KeSynchronizeWithDynamicProcessors.c)
- *     ExIsRestrictedCaller @ 0x1407D8DA4 (ExIsRestrictedCaller.c)
- *     ExCheckFullProcessInformationAccess @ 0x1407E0FE8 (ExCheckFullProcessInformationAccess.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     SeSecurityAttributePresent @ 0x14024E430 (SeSecurityAttributePresent.c)
+ *     RtlQueryPackageIdentity @ 0x14024EE40 (RtlQueryPackageIdentity.c)
+ *     MmGetSessionId @ 0x140252DB0 (MmGetSessionId.c)
+ *     KeQueryValuesThread @ 0x140253930 (KeQueryValuesThread.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x14025C298 (PsIsProcessInSilo.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SmIsCompressionProcess @ 0x140304AD0 (SmIsCompressionProcess.c)
+ *     KeFlushProcessWriteBuffers @ 0x140343D14 (KeFlushProcessWriteBuffers.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsQueryProcessEnergyValues @ 0x1405E92D0 (PsQueryProcessEnergyValues.c)
+ *     ExpCopyProcessInfo @ 0x140618E80 (ExpCopyProcessInfo.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x1406544B4 (SeQueryUserSidToken.c)
+ *     ExIsRestrictedCaller @ 0x140686630 (ExIsRestrictedCaller.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x14068C184 (KeSynchronizeWithDynamicProcessors.c)
+ *     ExCheckFullProcessInformationAccess @ 0x14069DFCC (ExCheckFullProcessInformationAccess.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigned int *a3, _DWORD *a4, int a5)
+__int64 __fastcall ExpGetProcessInformation(int *a1, unsigned int a2, unsigned int *a3, _DWORD *a4, int a5)
 {
-  unsigned __int64 v6; // r13
-  int v7; // edx
-  bool v8; // cf
-  unsigned int v9; // ebx
-  unsigned __int8 PreviousMode; // di
-  int v11; // esi
-  PEPROCESS NextProcess; // r12
-  __int64 NextProcessThread; // rbx
-  unsigned int v14; // edi
-  __int64 v15; // rcx
-  int SessionId; // r14d
-  unsigned int v17; // r8d
-  __int64 v18; // r15
-  int v19; // eax
-  int v20; // eax
-  __int64 v21; // r14
-  __int64 v22; // rax
-  char *v23; // r15
-  unsigned int v24; // eax
-  int v25; // ecx
-  __int64 v26; // rcx
-  unsigned __int64 v27; // rcx
-  bool v28; // zf
-  unsigned __int64 v29; // rax
-  struct _KTHREAD *CurrentThread; // r14
-  struct _KPROCESS *v31; // rcx
-  unsigned __int64 *v32; // r12
-  int v33; // r15d
-  signed __int64 *p_Lock; // rdi
-  unsigned __int64 *i; // rsi
-  _DWORD *v36; // r14
-  char *v37; // rdi
-  struct _KPROCESS *v38; // rbx
+  int v6; // r13d
+  bool v7; // cf
+  unsigned int v8; // ebx
+  unsigned __int8 v9; // di
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  PEPROCESS v12; // rsi
+  __int64 v13; // rbx
+  __int64 v14; // r14
+  char *v15; // r13
+  signed __int64 *v16; // rsi
+  struct _DMA_ADAPTER *v17; // rdi
+  _QWORD *v18; // r15
+  __int64 v19; // rdi
+  PEPROCESS v20; // rbx
   unsigned __int64 DeepFreezeStartTime; // rax
-  int Flink_high; // eax
-  bool v41; // cl
-  int v42; // eax
-  unsigned int v43; // eax
-  _OWORD *v44; // rax
-  _OWORD *v45; // rcx
-  __int64 v46; // rdx
-  int v47; // eax
-  char v48; // cl
-  char *v49; // r13
-  __int64 *v50; // rax
-  unsigned int v51; // r9d
-  char *v52; // r12
-  _WORD *v53; // r8
-  _WORD *v54; // rdx
-  unsigned int v55; // eax
-  unsigned int v56; // ecx
-  size_t v57; // r15
-  unsigned int v58; // r14d
-  int v59; // ecx
+  bool v22; // cl
+  int v23; // eax
+  unsigned int v24; // eax
+  _OWORD *v25; // rax
+  _OWORD *v26; // rcx
+  __int64 v27; // rdx
+  unsigned int v28; // eax
+  char v29; // cl
+  int v30; // r12d
+  unsigned __int64 *p_Blink; // rdi
+  unsigned int v32; // r15d
+  __int64 v33; // rcx
+  int v34; // eax
+  unsigned __int64 v35; // rsi
+  char *PoolWithTag; // rax
+  void *v37; // rbx
+  __int64 *v38; // rcx
+  unsigned int v39; // r8d
+  char *v40; // r14
+  _WORD *v41; // r9
+  _WORD *v42; // rdx
+  unsigned __int64 v43; // rsi
+  unsigned int v44; // ebx
+  unsigned int v45; // eax
+  int *v46; // rcx
+  _QWORD *v47; // rbx
+  struct _KTHREAD *v48; // rdi
+  int v49; // r14d
+  __int64 *k; // rsi
+  __int64 v51; // rcx
+  bool v52; // zf
+  int SessionId; // ebx
+  __int64 v54; // r14
+  __int64 v55; // rdx
+  __int64 v56; // r8
+  _DWORD *v57; // r9
+  int v58; // eax
+  unsigned __int64 v59; // rcx
   __int64 v60; // rax
-  ULONG_PTR v61; // rsi
-  unsigned __int64 v62; // r12
-  size_t v63; // rdx
-  unsigned int v64; // r15d
-  int v65; // ecx
-  char *v66; // rcx
-  _LIST_ENTRY *v67; // rbx
-  int v68; // eax
-  int v69; // eax
+  __int64 v61; // r13
+  struct _KTHREAD *CurrentThread; // rsi
+  PEPROCESS v63; // r14
+  unsigned __int64 *v64; // r15
+  int v65; // r12d
+  unsigned __int64 *i; // rbx
+  unsigned int v67; // eax
+  unsigned int v68; // ebx
+  unsigned int v69; // r15d
+  unsigned __int64 v70; // rax
+  struct _KTHREAD *v71; // rsi
+  PEPROCESS v72; // r14
+  unsigned __int64 *v73; // r15
+  int v74; // r12d
+  unsigned __int64 *j; // rbx
+  _LIST_ENTRY *v76; // rdi
+  struct _DMA_ADAPTER *v77; // rsi
+  size_t v78; // r14
+  size_t v79; // r15
+  size_t v80; // rcx
+  unsigned int v81; // esi
+  unsigned int v82; // eax
+  unsigned int v83; // edx
+  unsigned int v84; // ecx
+  int v85; // eax
+  _LIST_ENTRY *Flink; // rdi
+  unsigned int v87; // edx
+  signed __int64 *p_Lock; // rbx
   __int64 result; // rax
-  signed __int32 v71[8]; // [rsp+0h] [rbp-608h] BYREF
-  int v72; // [rsp+30h] [rbp-5D8h]
-  int v73; // [rsp+34h] [rbp-5D4h]
-  char v74; // [rsp+38h] [rbp-5D0h]
-  int PackageIdentity; // [rsp+3Ch] [rbp-5CCh]
-  int v76; // [rsp+40h] [rbp-5C8h]
-  unsigned int v77; // [rsp+44h] [rbp-5C4h]
-  _BYTE v78[8]; // [rsp+48h] [rbp-5C0h] BYREF
-  PVOID v79; // [rsp+50h] [rbp-5B8h]
-  PVOID Object; // [rsp+58h] [rbp-5B0h]
-  struct _KPROCESS *v81; // [rsp+60h] [rbp-5A8h]
-  int v82; // [rsp+68h] [rbp-5A0h]
-  __int64 v83; // [rsp+70h] [rbp-598h]
-  char v84; // [rsp+78h] [rbp-590h]
-  int v85; // [rsp+84h] [rbp-584h]
-  char *v86; // [rsp+88h] [rbp-580h]
-  __int64 v87; // [rsp+90h] [rbp-578h]
-  void *v88; // [rsp+98h] [rbp-570h]
-  size_t Size; // [rsp+A0h] [rbp-568h] BYREF
-  unsigned int *v90; // [rsp+A8h] [rbp-560h]
-  __int64 v91; // [rsp+B0h] [rbp-558h] BYREF
-  __int64 v92; // [rsp+B8h] [rbp-550h] BYREF
-  PVOID P; // [rsp+C0h] [rbp-548h]
-  int v94; // [rsp+C8h] [rbp-540h]
-  char *v95; // [rsp+D0h] [rbp-538h]
-  __int64 *v96; // [rsp+D8h] [rbp-530h]
-  _WORD *v97; // [rsp+E0h] [rbp-528h]
-  char *v98; // [rsp+E8h] [rbp-520h]
-  unsigned __int64 *v99; // [rsp+F0h] [rbp-518h]
-  __int64 v100; // [rsp+F8h] [rbp-510h]
-  unsigned __int64 v101; // [rsp+100h] [rbp-508h]
-  int v102; // [rsp+108h] [rbp-500h]
-  int v103; // [rsp+110h] [rbp-4F8h]
-  __int64 CurrentServerSilo; // [rsp+138h] [rbp-4D0h]
-  _OWORD v105[2]; // [rsp+190h] [rbp-478h] BYREF
-  ULONG_PTR v106; // [rsp+1B0h] [rbp-458h]
-  struct _KTHREAD *v107; // [rsp+1B8h] [rbp-450h]
-  _QWORD v108[14]; // [rsp+1C0h] [rbp-448h] BYREF
-  _BYTE Src[80]; // [rsp+230h] [rbp-3D8h] BYREF
-  _OWORD v110[27]; // [rsp+280h] [rbp-388h] BYREF
-  _BYTE v111[144]; // [rsp+430h] [rbp-1D8h] BYREF
-  _BYTE v112[256]; // [rsp+4C0h] [rbp-148h] BYREF
+  signed __int32 v90[8]; // [rsp+0h] [rbp-658h] BYREF
+  int v91; // [rsp+40h] [rbp-618h]
+  unsigned int v92; // [rsp+44h] [rbp-614h]
+  unsigned int v93; // [rsp+48h] [rbp-610h]
+  int v94; // [rsp+4Ch] [rbp-60Ch]
+  char v95; // [rsp+50h] [rbp-608h]
+  PVOID Object; // [rsp+58h] [rbp-600h]
+  int v97; // [rsp+60h] [rbp-5F8h]
+  PEPROCESS Process; // [rsp+68h] [rbp-5F0h]
+  bool v99; // [rsp+70h] [rbp-5E8h]
+  bool v100; // [rsp+71h] [rbp-5E7h]
+  int v101; // [rsp+74h] [rbp-5E4h]
+  PVOID v102; // [rsp+78h] [rbp-5E0h]
+  int v103; // [rsp+80h] [rbp-5D8h]
+  int *v104; // [rsp+88h] [rbp-5D0h]
+  char v105; // [rsp+90h] [rbp-5C8h]
+  int v106; // [rsp+9Ch] [rbp-5BCh]
+  char *v107; // [rsp+A0h] [rbp-5B8h]
+  int *v108; // [rsp+B0h] [rbp-5A8h]
+  size_t Size; // [rsp+B8h] [rbp-5A0h]
+  unsigned int *v110; // [rsp+C0h] [rbp-598h]
+  PVOID P; // [rsp+C8h] [rbp-590h] BYREF
+  size_t v112; // [rsp+D0h] [rbp-588h] BYREF
+  size_t v113; // [rsp+D8h] [rbp-580h] BYREF
+  int v114; // [rsp+E0h] [rbp-578h]
+  __int64 v115; // [rsp+E8h] [rbp-570h]
+  __int64 *v116; // [rsp+F0h] [rbp-568h]
+  _WORD *v117; // [rsp+F8h] [rbp-560h]
+  char *v118; // [rsp+100h] [rbp-558h]
+  __int64 *v119; // [rsp+108h] [rbp-550h]
+  unsigned __int64 *v120; // [rsp+110h] [rbp-548h]
+  unsigned __int64 *v121; // [rsp+118h] [rbp-540h]
+  unsigned __int64 v122; // [rsp+120h] [rbp-538h]
+  HANDLE Handle; // [rsp+128h] [rbp-530h] BYREF
+  int *v124; // [rsp+130h] [rbp-528h]
+  int v125; // [rsp+138h] [rbp-520h]
+  int v126; // [rsp+140h] [rbp-518h]
+  __int64 CurrentServerSilo; // [rsp+168h] [rbp-4F0h]
+  struct _KTHREAD *v128; // [rsp+180h] [rbp-4D8h]
+  PEPROCESS v129; // [rsp+1C0h] [rbp-498h]
+  _OWORD v130[2]; // [rsp+1D0h] [rbp-488h] BYREF
+  struct _KTHREAD *v131; // [rsp+1F0h] [rbp-468h]
+  struct _DMA_ADAPTER *v132; // [rsp+1F8h] [rbp-460h]
+  struct _KTHREAD *v133; // [rsp+200h] [rbp-458h]
+  struct _KTHREAD *v134; // [rsp+208h] [rbp-450h]
+  _QWORD v135[14]; // [rsp+210h] [rbp-448h] BYREF
+  _BYTE Src[80]; // [rsp+280h] [rbp-3D8h] BYREF
+  _OWORD v137[27]; // [rsp+2D0h] [rbp-388h] BYREF
+  wchar_t v138[72]; // [rsp+480h] [rbp-1D8h] BYREF
+  wchar_t v139[128]; // [rsp+510h] [rbp-148h] BYREF
 
-  v94 = a5;
-  v100 = a1;
-  v90 = a3;
-  v91 = 130LL;
-  memset(v110, 0, sizeof(v110));
-  v6 = 0LL;
-  v85 = 0;
+  v114 = a5;
+  v124 = a1;
+  v110 = a3;
+  v112 = 130LL;
+  memset(v137, 0, sizeof(v137));
+  v106 = 0;
   LODWORD(Size) = 0;
-  v92 = 254LL;
-  v81 = 0LL;
-  memset(v108, 0, 0x68uLL);
-  v78[0] = 0;
-  Object = 0LL;
-  memset(v105, 0, sizeof(v105));
-  v73 = 0;
+  v113 = 254LL;
+  Process = 0LL;
+  memset(v135, 0, 0x68uLL);
+  v99 = 0;
+  v102 = 0LL;
+  memset(v130, 0, sizeof(v130));
+  v93 = 0;
   memset(Src, 0, 0x44uLL);
   if ( a3 )
     *a3 = 0;
-  v84 = v94 != 5;
-  v7 = 136;
-  if ( v94 == 5 )
-    v7 = 80;
-  v77 = v7;
-  v82 = v7;
-  v87 = v100;
-  v8 = a2 < 0x270;
+  v105 = v114 != 5;
+  v6 = 136;
+  if ( v114 == 5 )
+    v6 = 80;
+  v101 = v6;
+  v103 = v6;
+  v108 = v124;
+  v7 = a2 < 0x270;
   if ( a2 < 0x270 )
   {
     if ( !a3 )
       return 3221225476LL;
-    v8 = a2 < 0x270;
+    v7 = a2 < 0x270;
   }
-  v9 = v8 ? 0xC0000004 : 0;
-  v74 = 0;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a5 != 148 || (result = ExCheckFullProcessInformationAccess(PreviousMode), (int)result >= 0) )
+  v8 = v7 ? 0xC0000004 : 0;
+  v95 = 0;
+  v9 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  if ( a5 != 148 || (result = ExCheckFullProcessInformationAccess(v9), (int)result >= 0) )
   {
-    if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
-      v74 = 1;
-    v11 = 0;
-    PackageIdentity = 0;
+    if ( (unsigned int)ExIsRestrictedCaller(v9) )
+      v95 = 1;
+    v94 = 0;
     P = 0LL;
     KeFlushProcessWriteBuffers(1);
-    CurrentServerSilo = PsGetCurrentServerSilo();
-    NextProcess = (PEPROCESS)PsIdleProcess;
-    v79 = PsIdleProcess;
-    v81 = (struct _KPROCESS *)PsIdleProcess;
-    v72 = v9;
-    NextProcessThread = (__int64)Object;
-    v14 = v73;
-    v83 = v87;
+    CurrentServerSilo = PsGetCurrentServerSilo(v11, v10);
+    v12 = (PEPROCESS)PsIdleProcess;
+    Object = PsIdleProcess;
+    Process = (PEPROCESS)PsIdleProcess;
+    v91 = v8;
     while ( 1 )
     {
-      if ( !NextProcess )
+LABEL_103:
+      if ( !v12 )
       {
-        if ( v72 >= 0 && v83 && (*(_DWORD *)v83 = 0, v11 < 0) )
+        if ( v91 >= 0 && v108 && (*v108 = 0, v94 < 0) )
         {
-          v72 = v11;
+          v91 = v94;
         }
-        else if ( v90 )
+        else if ( v110 )
         {
-          *v90 = v14;
+          *v110 = v93;
         }
-        goto LABEL_212;
+        goto LABEL_206;
       }
-      if ( !ExpSysInfoShouldSkipProcess((__int64)NextProcess) && (!a4 || NextProcess != PsIdleProcess) )
+      if ( (v12[1].DirectoryTableBase & 0x400000000LL) != 0 )
       {
-        SessionId = MmGetSessionId(v15);
-        v102 = SessionId;
-        if ( (!a4 || SessionId == *a4) && PsIsProcessInSilo(NextProcess, CurrentServerSilo) )
-          break;
-      }
-LABEL_135:
-      if ( NextProcess == PsIdleProcess )
-        NextProcess = 0LL;
-      NextProcess = (PEPROCESS)ExGetNextProcess(NextProcess, v74);
-      v79 = NextProcess;
-      v81 = NextProcess;
-    }
-    v18 = v100 + v14;
-    v83 = v18;
-    v87 = v18;
-    v76 = 624;
-    v19 = v14 + 624;
-    if ( v14 + 624 < v14 )
-    {
-      v14 = v17;
-      v73 = v17;
-      v11 = -1073741675;
-    }
-    else
-    {
-      v14 += 624;
-      v73 = v19;
-      v11 = 0;
-    }
-    PackageIdentity = v11;
-    if ( v11 < 0 )
-    {
-      v72 = v11;
-      goto LABEL_212;
-    }
-    memset(v108, 0, 0x68uLL);
-    if ( v14 > a2 )
-    {
-      v72 = -1073741820;
-      if ( !v90 )
-        goto LABEL_212;
-      v21 = v83;
-    }
-    else
-    {
-      v20 = ExpCopyProcessInfo(v18, (__int64)NextProcess, v84, v108);
-      v11 = v20;
-      PackageIdentity = v20;
-      if ( v20 < 0 )
-      {
-        v72 = v20;
-        goto LABEL_212;
-      }
-      *(_QWORD *)v18 = 0LL;
-      *(_DWORD *)(v18 + 100) = SessionId;
-      v21 = v83;
-      *(_QWORD *)(v83 + 64) = 0LL;
-      *(_DWORD *)(v21 + 56) = 0;
-      if ( NextProcess == PsIdleProcess )
-        *(_QWORD *)(v21 + 96) = 0LL;
-      if ( NextProcess == (PEPROCESS)PsSecureSystemProcess )
-      {
-        v22 = qword_140C65CA8 << 12;
-        *(_QWORD *)(v21 + 144) = qword_140C65CA8 << 12;
-        *(_QWORD *)(v21 + 8) = v22;
-      }
-      if ( v11 < 0 )
-      {
-        v72 = v11;
-        goto LABEL_212;
-      }
-    }
-    v23 = (char *)(v21 + 256);
-    v86 = (char *)(v21 + 256);
-    NextProcessThread = ExpGetNextProcessThread((char *)NextProcess, 0LL);
-    for ( Object = (PVOID)NextProcessThread; ; Object = 0LL )
-    {
-      while ( 1 )
-      {
-        if ( !NextProcessThread )
+        if ( v12->Header.SignalState )
         {
-          v36 = v23;
-          v95 = v23;
-          v88 = v23 + 368;
-          v86 = v23 + 368;
-          if ( v72 < 0 )
-            goto LABEL_105;
-          PsQueryProcessAttributes((__int64)NextProcess, (__int64)v78, 0LL);
-          *(_QWORD *)(v23 + 52) = 0LL;
-          *((_DWORD *)v23 + 84) = 0;
-          v37 = v95;
-          *((_QWORD *)v95 + 43) = NextProcess[2].Affinity.StaticBitmap[12] << 12;
-          *((_QWORD *)v37 + 5) = v108[4];
-          *((_DWORD *)v37 + 12) = 0;
-          if ( v78[0] )
-            *((_DWORD *)v37 + 12) = 1;
-          v38 = v81;
-          DeepFreezeStartTime = v81[2].DeepFreezeStartTime;
-          if ( DeepFreezeStartTime )
-          {
-            *(_OWORD *)v37 = *(_OWORD *)DeepFreezeStartTime;
-            *((_OWORD *)v37 + 1) = *(_OWORD *)(DeepFreezeStartTime + 16);
-            *((_QWORD *)v37 + 4) = *(_QWORD *)(DeepFreezeStartTime + 32);
-          }
-          else
-          {
-            *(_OWORD *)v37 = 0LL;
-            *((_OWORD *)v37 + 1) = 0LL;
-            *((_QWORD *)v37 + 4) = 0LL;
-          }
-          Flink_high = HIDWORD(v38[2].Header.WaitListHead.Flink);
-          if ( (Flink_high & 0x1000) != 0 )
-          {
-            *((_DWORD *)v37 + 12) = *((_DWORD *)v37 + 12) & 0xFFFFFFE1 | 2;
-          }
-          else if ( v38 == (struct _KPROCESS *)PsSecureSystemProcess )
-          {
-            *((_DWORD *)v37 + 12) = *((_DWORD *)v37 + 12) & 0xFFFFFFE1 | 4;
-          }
-          else if ( (Flink_high & 0x40000000) != 0 )
-          {
-            *((_DWORD *)v37 + 12) = *((_DWORD *)v37 + 12) & 0xFFFFFFE1 | 6;
-          }
-          else
-          {
-            v41 = *((_QWORD *)&CmpRegistryProcess + 1) && v38 == *((struct _KPROCESS **)&CmpRegistryProcess + 1);
-            v78[1] = v41;
-            v42 = *((_DWORD *)v23 + 12);
-            if ( v41 )
-              v43 = v42 & 0xFFFFFFE1 | 8;
-            else
-              v43 = v42 & 0xFFFFFFE1;
-            *((_DWORD *)v23 + 12) = v43;
-          }
-          *((_QWORD *)v37 + 45) = v38[2].Affinity.StaticBitmap[6];
-          PsQueryProcessEnergyValues(v38, v110);
-          v44 = v37 + 64;
-          v45 = v110;
-          v46 = 2LL;
-          do
-          {
-            *v44 = *v45;
-            v44[1] = v45[1];
-            v44[2] = v45[2];
-            v44[3] = v45[3];
-            v44[4] = v45[4];
-            v44[5] = v45[5];
-            v44[6] = v45[6];
-            v44 += 8;
-            *(v44 - 1) = v45[7];
-            v45 += 8;
-            --v46;
-          }
-          while ( v46 );
-          *v44 = *v45;
-          if ( v38[1].Affinity.StaticBitmap[16] )
-            *((_DWORD *)v23 + 88) = *(_DWORD *)(v81[1].Affinity.StaticBitmap[16] + 1452);
-          else
-            *((_DWORD *)v23 + 88) = 0;
-          NextProcess = v81;
-          v79 = v81;
-          if ( v81->ProcessTimerDelay
-            || KeHeteroSystem
-            && ((v47 = KiProcessPolicyToQosMappingTable[(*(_DWORD *)&v81->0 >> 7) & 0xF], v47 != 7)
-             || HIBYTE(v81[1].ActiveProcessors.StaticBitmap[0]) != 1
-              ? (v48 = 0)
-              : (v48 = 1),
-                PpmPerfQosEnabled && (((v47 - 1) & 0xFFFFFFFA) == 0 || v48)) )
-          {
-            *((_DWORD *)v37 + 12) |= 0x20u;
-          }
-          v11 = PackageIdentity;
-          if ( PackageIdentity < 0 )
-          {
-            v72 = PackageIdentity;
-            NextProcessThread = (__int64)Object;
-          }
-          else
-          {
-            v36 = v95;
-            NextProcessThread = (__int64)Object;
-            v14 = v73;
-            v83 = v87;
-            v88 = v86;
-LABEL_105:
-            if ( a5 != 148 )
-            {
-LABEL_106:
-              v49 = (char *)v88;
-              goto LABEL_107;
-            }
-            v61 = PsReferencePrimaryTokenWithTag((__int64)NextProcess, 0x746C6644u);
-            v106 = v61;
-            SeQueryUserSidToken(v61, Src, 0x44u, (ULONG *)&Size);
-            v92 = 254LL;
-            v91 = 130LL;
-            PackageIdentity = RtlQueryPackageIdentity(v61, (int)v112, (int)&v92, (int)v111, (__int64)&v91, 0LL);
-            if ( PackageIdentity >= 0 )
-            {
-              v6 = v91;
-              v62 = v92;
-            }
-            else
-            {
-              v62 = 0LL;
-              v92 = 0LL;
-              v91 = 0LL;
-            }
-            ObFastDereferenceObject((signed __int64 *)v79 + 151, v61, 0x746C6644u);
-            v63 = (unsigned int)Size;
-            v64 = (Size + 7) & 0xFFFFFFF8;
-            v85 = v64;
-            v65 = v14 + v64;
-            if ( v64 + v14 < v14 )
-            {
-              v14 = -1;
-              v73 = -1;
-              v11 = -1073741675;
-            }
-            else
-            {
-              v14 += v64;
-              v73 = v65;
-              v11 = 0;
-            }
-            PackageIdentity = v11;
-            if ( v11 < 0 )
-            {
-              v72 = v11;
-            }
-            else
-            {
-              v76 += v64;
-              if ( v14 > a2 )
-              {
-                v72 = -1073741820;
-                if ( !v90 )
-                  goto LABEL_212;
-                v66 = (char *)v88;
-              }
-              else
-              {
-                v36[13] = 368;
-                memmove(v88, Src, v63);
-                v66 = (char *)v88 + v64;
-                v88 = v66;
-                v86 = v66;
-              }
-              if ( !v62 )
-                goto LABEL_151;
-              if ( v62 > 0xFFFFFFFF )
-              {
-                v72 = -1073741820;
-              }
-              else
-              {
-                v85 = v62;
-                v68 = v62 + v14;
-                if ( (unsigned int)v62 + v14 < v14 )
-                {
-                  v14 = -1;
-                  v73 = -1;
-                  v11 = -1073741675;
-                }
-                else
-                {
-                  v14 += v62;
-                  v73 = v68;
-                  v11 = 0;
-                }
-                PackageIdentity = v11;
-                if ( v11 < 0 )
-                {
-                  v72 = v11;
-                }
-                else
-                {
-                  v76 += v62;
-                  if ( v14 > a2 )
-                  {
-                    v72 = -1073741820;
-                    if ( !v90 )
-                      goto LABEL_212;
-                  }
-                  else
-                  {
-                    v36[14] = (_DWORD)v66 - (_DWORD)v36;
-                    memmove(v66, v112, (unsigned int)v62);
-                    v66 = (char *)v88 + (unsigned int)v62;
-                    v88 = v66;
-                    v86 = v66;
-                  }
-LABEL_151:
-                  if ( !v6 )
-                  {
-LABEL_152:
-                    NextProcess = (PEPROCESS)v79;
-                    goto LABEL_106;
-                  }
-                  if ( v6 > 0xFFFFFFFF )
-                  {
-                    v72 = -1073741820;
-                  }
-                  else
-                  {
-                    v85 = v6;
-                    v69 = v14 + v6;
-                    if ( v14 + (unsigned int)v6 < v14 )
-                    {
-                      v14 = -1;
-                      v73 = -1;
-                      v11 = -1073741675;
-                    }
-                    else
-                    {
-                      v14 += v6;
-                      v73 = v69;
-                      v11 = 0;
-                    }
-                    PackageIdentity = v11;
-                    if ( v11 < 0 )
-                    {
-                      v72 = v11;
-                    }
-                    else
-                    {
-                      v76 += v6;
-                      if ( v14 > a2 )
-                      {
-                        v72 = -1073741820;
-                        if ( !v90 )
-                          goto LABEL_212;
-                        goto LABEL_152;
-                      }
-                      v36[84] = (_DWORD)v66 - (_DWORD)v36;
-                      memmove(v66, v111, (unsigned int)v6);
-                      NextProcess = (PEPROCESS)v79;
-                      v49 = (char *)v88 + (unsigned int)v6;
-                      v86 = v49;
-LABEL_107:
-                      if ( NextProcess == PsIdleProcess )
-                      {
-LABEL_132:
-                        if ( v72 < 0 || (*(_DWORD *)v83 = v76, v11 >= 0) )
-                        {
-                          v6 = 0LL;
-                          goto LABEL_135;
-                        }
-                        v72 = v11;
-                      }
-                      else
-                      {
-                        if ( NextProcess == PsInitialSystemProcess )
-                        {
-                          v50 = &ExpSystemProcessName;
-                        }
-                        else if ( NextProcess == (PEPROCESS)PsSecureSystemProcess )
-                        {
-                          v50 = &ExpSecureSystemProcessName;
-                        }
-                        else if ( (HIDWORD(NextProcess[2].Header.WaitListHead.Flink) & 0x40000000) != 0 )
-                        {
-                          v50 = (__int64 *)L"$&";
-                        }
-                        else
-                        {
-                          PackageIdentity = PsGetAllocatedFullProcessImageNameEx((__int64)NextProcess);
-                          if ( PackageIdentity < 0 )
-                            v50 = (__int64 *)NextProcess[1].ActiveProcessors.StaticBitmap[2];
-                          else
-                            v50 = (__int64 *)P;
-                        }
-                        v96 = v50;
-                        v51 = *(unsigned __int16 *)v50;
-                        v85 = v51;
-                        v52 = v49;
-                        v98 = v49;
-                        LODWORD(Size) = v51;
-                        v53 = (_WORD *)v50[1];
-                        v54 = v53;
-                        v97 = v53;
-                        v55 = v51;
-                        v56 = v51;
-                        if ( a5 != 148 && v51 )
-                        {
-                          v54 = &v53[(unsigned __int64)v51 >> 1];
-                          v97 = v54;
-                          while ( v54 != v53 )
-                          {
-                            v97 = --v54;
-                            if ( *v54 == 92 )
-                            {
-                              v97 = ++v54;
-                              break;
-                            }
-                          }
-                          v51 -= 2 * (v54 - v53);
-                          v56 = v51;
-                          LODWORD(Size) = v51;
-                          v55 = v51;
-                        }
-                        v57 = v56;
-                        v58 = (v55 + 9) & 0xFFFFFFF8;
-                        v85 = v58;
-                        v59 = v14 + v58;
-                        if ( v58 + v14 < v14 )
-                        {
-                          v14 = -1;
-                          v73 = -1;
-                          v11 = -1073741675;
-                        }
-                        else
-                        {
-                          v14 += v58;
-                          v73 = v59;
-                          v11 = 0;
-                        }
-                        PackageIdentity = v11;
-                        if ( v11 >= 0 )
-                        {
-                          v76 += v58;
-                          if ( v14 > a2 )
-                          {
-                            v72 = -1073741820;
-                            if ( !v90 )
-                              goto LABEL_212;
-                          }
-                          else
-                          {
-                            if ( v51 )
-                            {
-                              memmove(v49, v54, v57);
-                              v52 = &v49[2 * (v57 >> 1)];
-                              v98 = v52;
-                            }
-                            *(_WORD *)v52 = 0;
-                            v52 += 2;
-                            v98 = v52;
-                          }
-                          if ( P )
-                          {
-                            ExFreePoolWithTag(P, 0);
-                            P = 0LL;
-                          }
-                          if ( v72 >= 0 )
-                          {
-                            v60 = v83;
-                            *(_WORD *)(v83 + 56) = (_WORD)v52 - (_WORD)v49 - 2;
-                            *(_WORD *)(v60 + 58) = v58;
-                            *(_QWORD *)(v60 + 64) = v49;
-                          }
-                          NextProcess = (PEPROCESS)v79;
-                          goto LABEL_132;
-                        }
-                        v72 = v11;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-LABEL_212:
-          if ( v79 && v79 != PsIdleProcess )
-            ObfDereferenceObjectWithTag(v79, 0x6E457350u);
-          if ( NextProcessThread && *(PVOID *)(NextProcessThread + 544) != PsIdleProcess )
-            ObfDereferenceObjectWithTag((PVOID)NextProcessThread, 0x6E457350u);
-          if ( P )
-            ExFreePoolWithTag(P, 0);
-          return (unsigned int)v72;
+          v85 = v12[1].ActiveProcessors.Bitmap[8];
+          v12 = Process;
+          Object = Process;
+          if ( !v85 && Process->ThreadListHead.Flink == &Process->ThreadListHead )
+            goto LABEL_82;
         }
-        v103 = *(_DWORD *)(NextProcessThread + 4);
-        if ( !(_BYTE)v103 )
+      }
+      if ( a4 && v12 == PsIdleProcess )
+        goto LABEL_82;
+      SessionId = MmGetSessionId((__int64)v12);
+      v125 = SessionId;
+      if ( a4 )
+      {
+        if ( SessionId != *a4 )
+          goto LABEL_82;
+      }
+      if ( !PsIsProcessInSilo(v12, CurrentServerSilo) )
+        goto LABEL_82;
+      v54 = (__int64)v124 + v93;
+      v104 = (int *)v54;
+      v108 = (int *)v54;
+      v97 = 624;
+      v32 = v93 + 624;
+      v92 = v93 + 624;
+      if ( v93 + 624 < v93 )
+      {
+        v32 = -1;
+        v92 = -1;
+        v93 = -1;
+        v30 = -1073741675;
+      }
+      else
+      {
+        v93 += 624;
+        v30 = 0;
+      }
+      v94 = v30;
+      if ( v30 < 0 )
+      {
+        v91 = v30;
+LABEL_206:
+        p_Blink = (unsigned __int64 *)v102;
+        goto LABEL_269;
+      }
+      memset(v135, 0, 0x68uLL);
+      if ( v32 > a2 )
+      {
+        v91 = -1073741820;
+        if ( !v110 )
+          goto LABEL_206;
+        v59 = 0LL;
+      }
+      else
+      {
+        v58 = ExpCopyProcessInfo(v54, (__int64)v12, v105, v135);
+        v30 = v58;
+        v94 = v58;
+        if ( v58 < 0 )
         {
-          v24 = v77 + v14;
-          if ( v77 + v14 < v14 )
-          {
-            v24 = -1;
-            v11 = -1073741675;
-          }
-          else
-          {
-            v11 = 0;
-          }
-          v73 = v24;
-          v14 = v24;
-          PackageIdentity = v11;
-          if ( v11 < 0 )
-          {
-            v72 = v11;
-            goto LABEL_212;
-          }
-          v76 += v77;
-          if ( v24 > a2 )
-          {
-            v72 = -1073741820;
-            if ( !v90 )
-              goto LABEL_212;
-          }
-          else
-          {
-            KeQueryValuesThread(NextProcessThread, (__int64)v105);
-            v25 = BYTE8(v105[0]);
-            if ( BYTE8(v105[0]) == 4 )
-            {
-              v76 -= v77;
-              v14 -= v77;
-              v73 = v14;
-            }
-            else
-            {
-              *((_DWORD *)v23 + 6) = v105[0];
-              *((_DWORD *)v23 + 17) = v25;
-              *((_DWORD *)v23 + 18) = BYTE9(v105[0]);
-              *((_DWORD *)v23 + 14) = SBYTE10(v105[0]);
-              *((_DWORD *)v23 + 15) = SBYTE11(v105[0]);
-              v26 = (unsigned int)KeMaximumIncrement;
-              *(_QWORD *)v23 = (unsigned int)KeMaximumIncrement
-                             * (unsigned __int64)*(unsigned int *)(NextProcessThread + 652);
-              *((_QWORD *)v23 + 1) = v26 * *(unsigned int *)(NextProcessThread + 732);
-              *((_QWORD *)v23 + 2) = *(_QWORD *)(NextProcessThread + 1152);
-              *((_DWORD *)v23 + 16) = *(_DWORD *)(NextProcessThread + 340);
-              *(_OWORD *)(v23 + 40) = *(_OWORD *)(NextProcessThread + 1224);
-              if ( (*(_DWORD *)(NextProcessThread + 116) & 0x400) != 0 )
-              {
-                v27 = *(_QWORD *)(NextProcessThread + 1312);
-              }
-              else
-              {
-                if ( (*(_DWORD *)(NextProcessThread + 1384) & 8) != 0
-                  || (v27 = *((_QWORD *)Object + 148),
-                      _InterlockedOr(v71, 0),
-                      (*(_DWORD *)(NextProcessThread + 1384) & 8) != 0) )
-                {
-                  v27 = 0LL;
-                }
-                NextProcess = v81;
-                v79 = v81;
-                v11 = PackageIdentity;
-                NextProcessThread = (__int64)Object;
-                v14 = v73;
-                v21 = v87;
-                v83 = v87;
-                v23 = v86;
-              }
-              v101 = v27;
-              if ( v74 && v27 > 0x7FFFFFFEFFFFLL )
-                *((_QWORD *)v23 + 4) = 0LL;
-              else
-                *((_QWORD *)v23 + 4) = v27;
-              if ( v94 != 5 )
-              {
-                v28 = v74 == 0;
-                if ( v74 )
-                {
-                  *((_QWORD *)v23 + 10) = 0LL;
-                  *((_QWORD *)v23 + 11) = 0LL;
-                }
-                else
-                {
-                  *((_QWORD *)v23 + 10) = *(_QWORD *)(NextProcessThread + 56);
-                  *((_QWORD *)v23 + 11) = *(_QWORD *)(NextProcessThread + 48);
-                  NextProcess = v81;
-                  v79 = v81;
-                  v11 = PackageIdentity;
-                  NextProcessThread = (__int64)Object;
-                  v14 = v73;
-                  v21 = v87;
-                  v83 = v87;
-                  v23 = v86;
-                }
-                v29 = *(_QWORD *)(NextProcessThread + 1312);
-                v101 = v29;
-                if ( v28 || v29 <= 0x7FFFFFFEFFFFLL )
-                  *((_QWORD *)v23 + 12) = v29;
-                else
-                  *((_QWORD *)v23 + 12) = 0LL;
-                *((_QWORD *)v23 + 13) = *(_QWORD *)(NextProcessThread + 240);
-                *((_QWORD *)v23 + 14) = 0LL;
-                *((_QWORD *)v23 + 15) = 0LL;
-                *((_QWORD *)v23 + 16) = 0LL;
-              }
-              ++*(_DWORD *)(v21 + 4);
-              if ( v11 < 0 )
-              {
-                v72 = v11;
-                goto LABEL_212;
-              }
-              v23 += v77;
-              v86 = v23;
-            }
-          }
+          v91 = v58;
+          goto LABEL_206;
         }
-        if ( NextProcess == PsIdleProcess )
-          break;
-        NextProcessThread = 0LL;
-        v99 = 0LL;
+        v59 = 0LL;
+        *(_QWORD *)v54 = 0LL;
+        *(_DWORD *)(v54 + 100) = SessionId;
+        *(_QWORD *)(v54 + 64) = 0LL;
+        *(_DWORD *)(v54 + 56) = 0;
+        if ( v12 == PsIdleProcess )
+          *(_QWORD *)(v54 + 96) = 0LL;
+        if ( v12 == (PEPROCESS)PsSecureSystemProcess )
+        {
+          v60 = qword_140C4E000 << 12;
+          *(_QWORD *)(v54 + 144) = qword_140C4E000 << 12;
+          *(_QWORD *)(v54 + 8) = v60;
+        }
+        if ( v30 < 0 )
+        {
+          v91 = v30;
+          goto LABEL_206;
+        }
+      }
+      v61 = v54 + 256;
+      v107 = (char *)(v54 + 256);
+      if ( v12 == PsIdleProcess )
+      {
+        Flink = v12->ThreadListHead.Flink;
+        if ( Flink == &v12->ThreadListHead )
+        {
+          p_Blink = 0LL;
+        }
+        else
+        {
+          p_Blink = (unsigned __int64 *)&Flink[-48].Blink;
+          ((void (*)(void))KeSynchronizeWithDynamicProcessors)();
+          v59 = 0LL;
+        }
+      }
+      else
+      {
+        p_Blink = 0LL;
+        v121 = 0LL;
         CurrentThread = KeGetCurrentThread();
-        v107 = CurrentThread;
-        v31 = v81;
-        v32 = &v81[1].ActiveProcessors.StaticBitmap[6];
-        v33 = 0;
+        v134 = CurrentThread;
+        v63 = Process;
+        v64 = &Process[1].ActiveProcessors.Bitmap[6];
+        v65 = 0;
         --CurrentThread->KernelApcDisable;
-        p_Lock = (signed __int64 *)&v31[1].Header.Lock;
-        ExAcquirePushLockSharedEx((ULONG_PTR)&v31[1], 0LL);
-        for ( i = (unsigned __int64 *)*((_QWORD *)Object + 167); i != v32; i = (unsigned __int64 *)*i )
+        ExAcquirePushLockSharedEx((ULONG_PTR)&v63[1], 0LL);
+        for ( i = (unsigned __int64 *)*v64; i != v64; i = (unsigned __int64 *)*i )
         {
-          NextProcessThread = (__int64)(i - 167);
-          v99 = i - 167;
-          if ( ObReferenceObjectSafeWithTag((__int64)(i - 167)) )
+          p_Blink = i - 157;
+          v121 = i - 157;
+          if ( ObReferenceObjectSafeWithTag((__int64)(i - 157)) )
           {
-            v33 = 1;
+            v65 = 1;
             break;
           }
         }
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v63[1].Header.Lock, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)&v63[1].Header.Lock);
+        KeAbPostRelease((ULONG_PTR)&v63[1]);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        v59 = 0LL;
+        if ( !v65 )
+        {
+          p_Blink = 0LL;
+          v121 = 0LL;
+        }
+        v12 = Process;
+        Object = Process;
+        v30 = v94;
+        v32 = v93;
+        v92 = v93;
+        v54 = (__int64)v108;
+        v104 = v108;
+        v61 = (__int64)v107;
+      }
+      v102 = p_Blink;
+      while ( p_Blink )
+      {
+        v126 = *((_DWORD *)p_Blink + 1);
+        if ( (_BYTE)v126 )
+        {
+          v56 = 0LL;
+        }
+        else
+        {
+          v67 = v32 + v101;
+          if ( v32 + v101 < v32 )
+          {
+            v67 = -1;
+            v30 = -1073741675;
+          }
+          else
+          {
+            v30 = 0;
+          }
+          v93 = v67;
+          v92 = v67;
+          v68 = v67;
+          v94 = v30;
+          if ( v30 < 0 )
+          {
+            v91 = v30;
+            goto LABEL_269;
+          }
+          v69 = v101;
+          v97 += v101;
+          if ( v67 > a2 )
+          {
+            v91 = -1073741820;
+            if ( !v110 )
+              goto LABEL_269;
+            v56 = 0LL;
+          }
+          else
+          {
+            KeQueryValuesThread((__int64)p_Blink, v130, v56, v57);
+            v59 = BYTE8(v130[0]);
+            if ( BYTE8(v130[0]) == 4 )
+            {
+              v97 -= v69;
+              v92 = v68 - v69;
+              v93 = v68 - v69;
+              v56 = 0LL;
+            }
+            else
+            {
+              *(_DWORD *)(v61 + 24) = v130[0];
+              *(_DWORD *)(v61 + 68) = v59;
+              *(_DWORD *)(v61 + 72) = BYTE9(v130[0]);
+              *(_DWORD *)(v61 + 56) = SBYTE10(v130[0]);
+              *(_DWORD *)(v61 + 60) = SBYTE11(v130[0]);
+              *(_QWORD *)v61 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*((unsigned int *)p_Blink + 163);
+              *(_QWORD *)(v61 + 8) = (unsigned int)KeMaximumIncrement
+                                   * (unsigned __int64)*((unsigned int *)p_Blink + 183);
+              *(_QWORD *)(v61 + 16) = p_Blink[134];
+              *(_DWORD *)(v61 + 64) = *((_DWORD *)p_Blink + 85);
+              *(_OWORD *)(v61 + 40) = *(_OWORD *)(p_Blink + 143);
+              v56 = 0LL;
+              if ( (*((_DWORD *)p_Blink + 29) & 0x400) != 0 )
+              {
+                v59 = p_Blink[154];
+              }
+              else
+              {
+                if ( (p_Blink[163] & 8) != 0
+                  || (v59 = *((_QWORD *)v102 + 138), _InterlockedOr(v90, 0), (p_Blink[163] & 8) != 0) )
+                {
+                  v59 = 0LL;
+                }
+                v12 = Process;
+                Object = Process;
+                v30 = v94;
+                p_Blink = (unsigned __int64 *)v102;
+                v92 = v93;
+                v54 = (__int64)v108;
+                v104 = v108;
+                v61 = (__int64)v107;
+              }
+              v122 = v59;
+              if ( v95 && v59 > 0x7FFFFFFEFFFFLL )
+                *(_QWORD *)(v61 + 32) = 0LL;
+              else
+                *(_QWORD *)(v61 + 32) = v59;
+              if ( v114 != 5 )
+              {
+                v59 = 0LL;
+                if ( v95 )
+                {
+                  *(_QWORD *)(v61 + 80) = 0LL;
+                  *(_QWORD *)(v61 + 88) = 0LL;
+                }
+                else
+                {
+                  *(_QWORD *)(v61 + 80) = p_Blink[7];
+                  *(_QWORD *)(v61 + 88) = p_Blink[6];
+                  v12 = Process;
+                  Object = Process;
+                  v30 = v94;
+                  p_Blink = (unsigned __int64 *)v102;
+                  v92 = v93;
+                  v54 = (__int64)v108;
+                  v104 = v108;
+                  v61 = (__int64)v107;
+                }
+                v70 = p_Blink[154];
+                v122 = v70;
+                if ( v95 && (v55 = 0x7FFFFFFEFFFFLL, v70 > 0x7FFFFFFEFFFFLL) )
+                  *(_QWORD *)(v61 + 96) = 0LL;
+                else
+                  *(_QWORD *)(v61 + 96) = v70;
+                *(_QWORD *)(v61 + 104) = p_Blink[30];
+                *(_QWORD *)(v61 + 112) = 0LL;
+                *(_QWORD *)(v61 + 120) = 0LL;
+                *(_QWORD *)(v61 + 128) = 0LL;
+                v56 = 0LL;
+              }
+              ++*(_DWORD *)(v54 + 4);
+              if ( v30 < 0 )
+              {
+                v91 = v30;
+                goto LABEL_269;
+              }
+              v61 += v69;
+              v107 = (char *)v61;
+            }
+          }
+        }
+        if ( v12 == PsIdleProcess )
+        {
+          v76 = (_LIST_ENTRY *)p_Blink[95];
+          if ( v76 != &v12->ThreadListHead )
+          {
+            p_Blink = (unsigned __int64 *)&v76[-48].Blink;
+            KeSynchronizeWithDynamicProcessors(v59, v55, 0LL);
+            goto LABEL_167;
+          }
+          p_Blink = 0LL;
+          v102 = 0LL;
+          v32 = v92;
+          v59 = 0LL;
+        }
+        else
+        {
+          p_Blink = 0LL;
+          v120 = 0LL;
+          v71 = KeGetCurrentThread();
+          v131 = v71;
+          v72 = Process;
+          v73 = &Process[1].ActiveProcessors.Bitmap[6];
+          v74 = 0;
+          --v71->KernelApcDisable;
+          ExAcquirePushLockSharedEx((ULONG_PTR)&v72[1], 0LL);
+          for ( j = (unsigned __int64 *)*((_QWORD *)v102 + 157); j != v73; j = (unsigned __int64 *)*j )
+          {
+            p_Blink = j - 157;
+            v120 = j - 157;
+            if ( ObReferenceObjectSafeWithTag((__int64)(j - 157)) )
+            {
+              v74 = 1;
+              break;
+            }
+          }
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v72[1].Header.Lock, 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)&v72[1].Header.Lock);
+          KeAbPostRelease((ULONG_PTR)&v72[1]);
+          KeLeaveCriticalRegionThread((__int64)v71);
+          ObfDereferenceObjectWithTag(v102, 0x6E457350u);
+          if ( !v74 )
+            p_Blink = 0LL;
+          v120 = p_Blink;
+          v12 = Process;
+          Object = Process;
+          v30 = v94;
+          v92 = v93;
+          v54 = (__int64)v108;
+          v104 = v108;
+          v61 = (__int64)v107;
+LABEL_167:
+          v102 = p_Blink;
+          v32 = v92;
+          v59 = 0LL;
+        }
+      }
+      v13 = v61;
+      v115 = v61;
+      v14 = v61;
+      v15 = (char *)(v61 + 368);
+      v107 = v15;
+      if ( v91 < 0 )
+        goto LABEL_48;
+      v16 = (signed __int64 *)&v12[1].Affinity.Bitmap[5];
+      v17 = (struct _DMA_ADAPTER *)ObFastReferenceObject(v16);
+      if ( v17 )
+      {
+        v18 = Object;
+      }
+      else
+      {
+        v128 = KeGetCurrentThread();
+        --v128->KernelApcDisable;
+        p_Lock = (signed __int64 *)&Process[1].Header.Lock;
+        ExAcquirePushLockSharedEx((ULONG_PTR)&Process[1], 0LL);
+        v17 = (struct _DMA_ADAPTER *)ObFastReferenceObjectLocked(v16);
         if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared(p_Lock);
         KeAbPostRelease((ULONG_PTR)p_Lock);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
-        ObfDereferenceObjectWithTag(Object, 0x6E457350u);
-        if ( !v33 )
-        {
-          NextProcessThread = 0LL;
-          v99 = 0LL;
-        }
-        NextProcess = v81;
-        v79 = v81;
-        v11 = PackageIdentity;
-        v14 = v73;
-        v21 = v87;
-        v83 = v87;
-        v23 = v86;
-LABEL_64:
-        Object = (PVOID)NextProcessThread;
+        KeLeaveCriticalRegionThread((__int64)v128);
+        v18 = &Process->Header.Lock;
+        v13 = v115;
       }
-      v67 = *(_LIST_ENTRY **)(NextProcessThread + 760);
-      if ( v67 != &NextProcess->ThreadListHead )
+      v99 = SeSecurityAttributePresent((__int64)v17, (__int64)&PspSysAppIdClaim);
+      ObFastDereferenceObject(v16, v17);
+      *(_QWORD *)(v13 + 52) = 0LL;
+      *(_DWORD *)(v13 + 336) = 0;
+      v19 = v115;
+      *(_QWORD *)(v115 + 344) = v18[293] << 12;
+      *(_QWORD *)(v19 + 40) = v135[4];
+      *(_DWORD *)(v19 + 48) = 0;
+      if ( v99 )
+        *(_DWORD *)(v19 + 48) = 1;
+      v20 = Process;
+      DeepFreezeStartTime = Process[2].DeepFreezeStartTime;
+      if ( DeepFreezeStartTime )
       {
-        NextProcessThread = (__int64)&v67[-48].Blink;
-        KeSynchronizeWithDynamicProcessors();
-        goto LABEL_64;
+        *(_OWORD *)v19 = *(_OWORD *)DeepFreezeStartTime;
+        *(_OWORD *)(v19 + 16) = *(_OWORD *)(DeepFreezeStartTime + 16);
+        *(_QWORD *)(v19 + 32) = *(_QWORD *)(DeepFreezeStartTime + 32);
       }
-      NextProcessThread = 0LL;
+      else
+      {
+        *(_OWORD *)v19 = 0LL;
+        *(_OWORD *)(v19 + 16) = 0LL;
+        *(_QWORD *)(v19 + 32) = 0LL;
+      }
+      if ( (HIDWORD(v20[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+      {
+        v24 = *(_DWORD *)(v19 + 48) & 0xFFFFFFE1 | 2;
+      }
+      else if ( v20 == (PEPROCESS)PsSecureSystemProcess )
+      {
+        v24 = *(_DWORD *)(v19 + 48) & 0xFFFFFFE1 | 4;
+      }
+      else if ( SmIsCompressionProcess(v20) )
+      {
+        v24 = *(_DWORD *)(v19 + 48) & 0xFFFFFFE1 | 6;
+      }
+      else
+      {
+        v22 = *((_QWORD *)&CmpRegistryProcess + 1) && v20 == *((PEPROCESS *)&CmpRegistryProcess + 1);
+        v100 = v22;
+        v23 = *(_DWORD *)(v19 + 48);
+        if ( v22 )
+          v24 = v23 & 0xFFFFFFE1 | 8;
+        else
+          v24 = v23 & 0xFFFFFFE1;
+      }
+      *(_DWORD *)(v19 + 48) = v24;
+      *(_QWORD *)(v19 + 360) = v20[2].Affinity.Bitmap[6];
+      PsQueryProcessEnergyValues(v20, v137);
+      v25 = (_OWORD *)(v19 + 64);
+      v26 = v137;
+      v27 = 2LL;
+      do
+      {
+        *v25 = *v26;
+        v25[1] = v26[1];
+        v25[2] = v26[2];
+        v25[3] = v26[3];
+        v25[4] = v26[4];
+        v25[5] = v26[5];
+        v25[6] = v26[6];
+        v25 += 8;
+        *(v25 - 1) = v26[7];
+        v26 += 8;
+        --v27;
+      }
+      while ( v27 );
+      *v25 = *v26;
+      if ( v20[1].Affinity.Bitmap[16] )
+        *(_DWORD *)(v14 + 352) = *(_DWORD *)(v20[1].Affinity.Bitmap[16] + 1236);
+      else
+        *(_DWORD *)(v14 + 352) = 0;
+      v12 = Process;
+      Object = Process;
+      if ( Process->ProcessTimerDelay
+        || KeHeteroSystem
+        && ((v28 = KiProcessPolicyToQosMappingTable[(*(_DWORD *)&Process->0 >> 7) & 7], v28 != 5)
+         || HIBYTE(Process[1].ActiveProcessors.Bitmap[0]) != 1
+          ? (v29 = 0)
+          : (v29 = 1),
+            PpmPerfQosEnabled && (v28 - 1 <= 1 || v29)) )
+      {
+        *(_DWORD *)(v19 + 48) |= 0x20u;
+      }
+      v30 = v94;
+      if ( v94 < 0 )
+      {
+        v91 = v94;
+        goto LABEL_206;
+      }
+      v13 = v115;
+      p_Blink = (unsigned __int64 *)v102;
+      v32 = v93;
+      v92 = v93;
+      v104 = v108;
+      v15 = v107;
+LABEL_48:
+      if ( a5 == 148 )
+      {
+        v77 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(v12);
+        v132 = v77;
+        SeQueryUserSidToken(v77, Src, 68LL);
+        v113 = 254LL;
+        v112 = 130LL;
+        v30 = 0;
+        v94 = RtlQueryPackageIdentity((int)v77, v139, &v113, v138, &v112, 0LL);
+        if ( v94 >= 0 )
+        {
+          v79 = v112;
+          v78 = v113;
+        }
+        else
+        {
+          v78 = 0LL;
+          v113 = 0LL;
+          v79 = 0LL;
+          v112 = 0LL;
+        }
+        ObFastDereferenceObject((signed __int64 *)Object + 151, v77);
+        v80 = (unsigned int)Size;
+        v81 = (Size + 7) & 0xFFFFFFF8;
+        v106 = v81;
+        v82 = v81 + v92;
+        if ( v81 + v92 < v92 )
+        {
+          v82 = -1;
+          v30 = -1073741675;
+        }
+        v93 = v82;
+        v92 = v82;
+        v83 = v82;
+        v94 = v30;
+        if ( v30 < 0 )
+        {
+          v91 = v30;
+        }
+        else
+        {
+          v97 += v81;
+          if ( v82 > a2 )
+          {
+            v91 = -1073741820;
+            if ( !v110 )
+              goto LABEL_269;
+          }
+          else
+          {
+            *(_DWORD *)(v13 + 52) = 368;
+            memmove(v15, Src, v80);
+            v83 = v92;
+            v15 += v81;
+            v107 = v15;
+          }
+          if ( v78 )
+          {
+            if ( v78 > 0xFFFFFFFF )
+            {
+              v91 = -1073741820;
+            }
+            else
+            {
+              v106 = v78;
+              if ( (unsigned int)v78 + v83 < v83 )
+              {
+                v84 = -1;
+                v92 = -1;
+                v93 = -1;
+                v30 = -1073741675;
+              }
+              else
+              {
+                v84 = v78 + v83;
+                v92 = v78 + v83;
+                v93 = v78 + v83;
+                v30 = 0;
+              }
+              v94 = v30;
+              if ( v30 >= 0 )
+              {
+                v97 += v78;
+                if ( v84 > a2 )
+                {
+                  v91 = -1073741820;
+                  if ( !v110 )
+                    goto LABEL_269;
+                }
+                else
+                {
+                  *(_DWORD *)(v13 + 56) = (_DWORD)v15 - v13;
+                  memmove(v15, v139, (unsigned int)v78);
+                  v84 = v92;
+                  v15 += (unsigned int)v78;
+                  v107 = v15;
+                }
+                goto LABEL_188;
+              }
+              v91 = v30;
+            }
+          }
+          else
+          {
+            v84 = v92;
+LABEL_188:
+            if ( !v79 )
+            {
+              v32 = v92;
+              v12 = (PEPROCESS)Object;
+              goto LABEL_49;
+            }
+            v87 = -1;
+            if ( v79 > 0xFFFFFFFF )
+            {
+              v91 = -1073741820;
+            }
+            else
+            {
+              v106 = v79;
+              if ( (unsigned int)v79 + v84 < v84 )
+              {
+                v92 = -1;
+                v93 = -1;
+                v30 = -1073741675;
+              }
+              else
+              {
+                v87 = v79 + v84;
+                v92 = v79 + v84;
+                v93 = v79 + v84;
+                v30 = 0;
+              }
+              v94 = v30;
+              if ( v30 >= 0 )
+              {
+                v97 += v79;
+                if ( v87 > a2 )
+                {
+                  v91 = -1073741820;
+                  if ( !v110 )
+                    goto LABEL_269;
+                  v32 = v92;
+                  v12 = (PEPROCESS)Object;
+                }
+                else
+                {
+                  *(_DWORD *)(v13 + 336) = (_DWORD)v15 - v13;
+                  memmove(v15, v138, (unsigned int)v79);
+                  v12 = (PEPROCESS)Object;
+                  v15 += (unsigned int)v79;
+                  v107 = v15;
+                  v32 = v92;
+                }
+                goto LABEL_49;
+              }
+              v91 = v30;
+            }
+          }
+        }
+LABEL_269:
+        if ( Object && Object != PsIdleProcess )
+          ObfDereferenceObjectWithTag(Object, 0x6E457350u);
+        if ( p_Blink && (PVOID)p_Blink[68] != PsIdleProcess )
+          ObfDereferenceObjectWithTag(p_Blink, 0x6E457350u);
+        if ( P )
+          ExFreePoolWithTag(P, 0);
+        return (unsigned int)v91;
+      }
+LABEL_49:
+      if ( v12 == PsIdleProcess )
+        goto LABEL_174;
+      if ( v12 == PsInitialSystemProcess )
+      {
+        v38 = &ExpSystemProcessName;
+      }
+      else if ( v12 == (PEPROCESS)PsSecureSystemProcess )
+      {
+        v38 = &ExpSecureSystemProcessName;
+      }
+      else if ( SmIsCompressionProcess(v12) )
+      {
+        v38 = (__int64 *)L"$&";
+      }
+      else
+      {
+        v34 = -1073741275;
+        if ( *(_QWORD *)&v12[2].Affinity.Count && (_QWORD)xmmword_140C1E080 )
+        {
+          v34 = ((__int64 (__fastcall *)(__int64, PVOID *))xmmword_140C1E080)(v33, &P);
+        }
+        else
+        {
+          v35 = v12[1].ActiveProcessors.Bitmap[2];
+          if ( v35 )
+          {
+            PoolWithTag = (char *)ExAllocatePoolWithTag(
+                                    NonPagedPoolNx,
+                                    *(unsigned __int16 *)(v35 + 2) + 16LL,
+                                    0x6E497350u);
+            v37 = PoolWithTag;
+            if ( PoolWithTag )
+            {
+              *(_OWORD *)PoolWithTag = *(_OWORD *)v35;
+              if ( *((_QWORD *)PoolWithTag + 1) )
+              {
+                *((_QWORD *)PoolWithTag + 1) = PoolWithTag + 16;
+                memmove(PoolWithTag + 16, *(const void **)(v35 + 8), *(unsigned __int16 *)(v35 + 2));
+              }
+              P = v37;
+              v34 = 0;
+            }
+            else
+            {
+              v34 = -1073741801;
+            }
+          }
+          v12 = (PEPROCESS)Object;
+        }
+        v94 = v34;
+        if ( v34 < 0 )
+          v38 = (__int64 *)v12[1].ActiveProcessors.Bitmap[2];
+        else
+          v38 = (__int64 *)P;
+      }
+      v116 = v38;
+      v39 = *(unsigned __int16 *)v38;
+      v106 = v39;
+      v40 = v15;
+      v118 = v15;
+      LODWORD(Size) = v39;
+      v41 = (_WORD *)v38[1];
+      v42 = v41;
+      v117 = v41;
+      if ( a5 != 148 && v39 )
+      {
+        v42 = &v41[(unsigned __int64)v39 >> 1];
+        v117 = v42;
+        while ( v42 != v41 )
+        {
+          v117 = --v42;
+          if ( *v42 == 92 )
+          {
+            v117 = ++v42;
+            break;
+          }
+        }
+        v39 -= 2 * (v42 - v41);
+        LODWORD(Size) = v39;
+      }
+      v43 = v39;
+      v44 = (v39 + 9) & 0xFFFFFFF8;
+      v106 = v44;
+      v45 = v44 + v32;
+      if ( v44 + v32 < v32 )
+      {
+        v45 = -1;
+        v30 = -1073741675;
+      }
+      else
+      {
+        v30 = 0;
+      }
+      v93 = v45;
+      v94 = v30;
+      if ( v30 < 0 )
+      {
+        v91 = v30;
+        goto LABEL_269;
+      }
+      v97 += v44;
+      if ( v45 > a2 )
+      {
+        v91 = -1073741820;
+        if ( !v110 )
+          goto LABEL_269;
+      }
+      else
+      {
+        if ( v39 )
+        {
+          memmove(v15, v42, v39);
+          v40 = &v15[2 * (v43 >> 1)];
+          v118 = v40;
+        }
+        *(_WORD *)v40 = 0;
+        v40 += 2;
+        v118 = v40;
+      }
+      if ( P )
+      {
+        ExFreePoolWithTag(P, 0);
+        P = 0LL;
+      }
+      if ( v91 < 0 )
+      {
+        v12 = (PEPROCESS)Object;
+LABEL_174:
+        v46 = v104;
+        goto LABEL_80;
+      }
+      v46 = v104;
+      *((_WORD *)v104 + 28) = (_WORD)v40 - (_WORD)v15 - 2;
+      *((_WORD *)v46 + 29) = v44;
+      *((_QWORD *)v46 + 8) = v15;
+      v12 = (PEPROCESS)Object;
+LABEL_80:
+      if ( v91 >= 0 )
+      {
+        *v46 = v97;
+        if ( v30 < 0 )
+        {
+          v91 = v30;
+          goto LABEL_269;
+        }
+      }
+LABEL_82:
+      if ( v12 == PsIdleProcess )
+        v12 = 0LL;
+      v47 = &v12->Header.Lock;
+      v129 = v12;
+      Handle = 0LL;
+      while ( 1 )
+      {
+        Object = 0LL;
+        v119 = 0LL;
+        v48 = KeGetCurrentThread();
+        v133 = v48;
+        v49 = 0;
+        --v48->SpecialApcDisable;
+        ExAcquirePushLockSharedEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
+        for ( k = (__int64 *)(v47 ? v47[137] : PsActiveProcessHead); k != &PsActiveProcessHead; k = (__int64 *)*k )
+        {
+          Object = k - 137;
+          v119 = k - 137;
+          if ( ObReferenceObjectSafeWithTag((__int64)(k - 137)) )
+          {
+            v49 = 1;
+            break;
+          }
+        }
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspActiveProcessLock, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)&PspActiveProcessLock);
+        KeAbPostRelease((ULONG_PTR)&PspActiveProcessLock);
+        v52 = v48->SpecialApcDisable++ == -1;
+        if ( v52 && ($C459BD0D405E8E46662177FB3D0A143F *)v48->ApcState.ApcListHead[0].Flink != &v48->152 )
+          KiCheckForKernelApcDelivery(v51);
+        if ( v47 )
+          ObfDereferenceObjectWithTag(v47, 0x6E457350u);
+        if ( v49 )
+        {
+          v12 = (PEPROCESS)Object;
+        }
+        else
+        {
+          v12 = 0LL;
+          Object = 0LL;
+          v119 = 0LL;
+        }
+        v47 = &v12->Header.Lock;
+        v129 = v12;
+        if ( !v12 )
+          break;
+        if ( (v12[1].DirectoryTableBase & 0x400000000000000LL) != 0 )
+        {
+          if ( !v95 )
+            goto LABEL_102;
+          if ( ObOpenObjectByPointer(v12, 0x200u, 0LL, 0x400u, (POBJECT_TYPE)PsProcessType, 1, &Handle) >= 0 )
+          {
+            ObCloseHandle(Handle, 0);
+LABEL_102:
+            Process = v12;
+            goto LABEL_103;
+          }
+        }
+      }
+      v12 = 0LL;
+      Object = 0LL;
+      Process = 0LL;
     }
   }
   return result;

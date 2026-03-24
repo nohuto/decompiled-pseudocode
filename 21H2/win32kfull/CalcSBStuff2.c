@@ -1,15 +1,15 @@
 /*
- * XREFs of CalcSBStuff2 @ 0x1C0065364
+ * XREFs of CalcSBStuff2 @ 0x1C0063B54
  * Callers:
- *     xxxGetScrollBarInfo @ 0x1C0064F60 (xxxGetScrollBarInfo.c)
- *     CalcSBStuff @ 0x1C0065248 (CalcSBStuff.c)
- *     SBCtlSetup @ 0x1C024155C (SBCtlSetup.c)
+ *     xxxGetScrollBarInfo @ 0x1C0062A90 (xxxGetScrollBarInfo.c)
+ *     CalcSBStuff @ 0x1C0063DA0 (CalcSBStuff.c)
+ *     SBCtlSetup @ 0x1C02455FC (SBCtlSetup.c)
  * Callees:
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     GetDpiForSystem @ 0x1C006878C (GetDpiForSystem.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063CBC (GetDpiForSystem.c)
  */
 
-__int64 __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
+INT __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
 {
   int *v4; // rax
   __int64 v7; // rcx
@@ -19,20 +19,18 @@ __int64 __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
   unsigned int DpiForSystem; // eax
   int v12; // ebp
   int v13; // r9d
-  int v14; // r11d
+  int v14; // r10d
   int v15; // r8d
-  int v16; // r10d
-  int v17; // eax
-  int v18; // edi
-  INT v19; // edi
-  int v20; // r14d
-  INT v21; // edx
-  INT v22; // eax
-  INT v23; // r9d
+  int v16; // eax
+  int v17; // edi
+  INT v18; // edi
+  int v19; // r14d
+  INT v20; // edx
+  INT v21; // eax
+  INT v22; // r9d
+  INT result; // eax
   INT v24; // edi
-  INT v25; // eax
-  int v26; // edx
-  __int64 result; // rax
+  int v25; // ecx
 
   v4 = a2 + 1;
   if ( a4 )
@@ -61,48 +59,45 @@ __int64 __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
   v14 = a1[4];
   v15 = a1[8];
   a1[3] = a3[3];
-  v16 = v15;
   a1[2] = a3[2];
-  v17 = *a3;
+  v16 = *a3;
   *a1 = *a3;
-  v18 = a3[1];
-  a1[1] = v18;
-  v19 = v18 - v17 + 1;
-  v20 = (v13 - v14) / 2;
-  if ( v20 >= v15 )
-    v20 = v15;
-  a1[10] = v13 - v20;
-  a1[9] = v20 + v14;
-  v21 = a3[2];
-  if ( v21 && v19 )
+  v17 = a3[1];
+  a1[1] = v17;
+  v18 = v17 - v16 + 1;
+  v19 = (v13 - v14) / 2;
+  if ( v19 >= v15 )
+    v19 = v15;
+  a1[10] = v13 - v19;
+  a1[9] = v19 + v14;
+  v20 = a3[2];
+  if ( v20 && v18 )
   {
-    v22 = EngMulDiv(v13 - v20 - (v20 + v14), v21, v19);
+    v21 = EngMulDiv(v13 - v19 - (v19 + v14), v20, v18);
     v14 = a1[4];
-    v16 = v22;
+    v15 = v21;
     v13 = a1[5];
-    if ( a1[8] / 2 > v22 )
-      v16 = a1[8] / 2;
-    a1[8] = v16;
-    v15 = v16;
+    if ( a1[8] / 2 > v21 )
+      v15 = a1[8] / 2;
+    a1[8] = v15;
   }
-  a1[15] = v20 + v14;
-  v23 = v13 - (v20 + v14) - v20 - v16;
-  a1[14] = v23;
-  if ( a3[2] )
+  a1[15] = v19 + v14;
+  v22 = v13 - (v19 + v14) - v19 - v15;
+  a1[14] = v22;
+  result = a3[2];
+  if ( result )
     v12 = a3[2];
-  v24 = v19 - v12;
+  v24 = v18 - v12;
   if ( v24 )
   {
-    v25 = EngMulDiv(a3[3] - *a3, v23, v24);
-    v15 = a1[8];
-    v26 = v25 + a1[15];
+    result = EngMulDiv(a3[3] - *a3, v22, v24);
+    v25 = a1[15] + result;
   }
   else
   {
-    v26 = v20 + v14 - 1;
+    v25 = v19 + v14 - 1;
   }
-  a1[13] = v26;
-  result = (unsigned int)(v15 + v26);
-  a1[12] = result;
+  a1[13] = v25;
+  a1[12] = a1[8] + v25;
   return result;
 }

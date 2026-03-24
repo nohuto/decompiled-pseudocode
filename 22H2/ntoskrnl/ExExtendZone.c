@@ -1,7 +1,7 @@
 /*
- * XREFs of ExExtendZone @ 0x14060C0D0
+ * XREFs of ExExtendZone @ 0x1405B6AF0
  * Callers:
- *     ExInterlockedExtendZone @ 0x14060C1C0 (ExInterlockedExtendZone.c)
+ *     ExInterlockedExtendZone @ 0x1405B6BD0 (ExInterlockedExtendZone.c)
  * Callees:
  *     <none>
  */

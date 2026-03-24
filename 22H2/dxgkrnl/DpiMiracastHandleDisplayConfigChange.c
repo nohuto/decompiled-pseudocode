@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiMiracastHandleDisplayConfigChange @ 0x1C0060070
+ * XREFs of DpiMiracastHandleDisplayConfigChange @ 0x1C0053570
  * Callers:
- *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C01E19B0 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
+ *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C0167EA8 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,21 +15,23 @@ void __fastcall DpiMiracastHandleDisplayConfigChange(__int64 a1, int a2, int a3,
   if ( a1 )
   {
     v5 = *(_QWORD *)(a1 + 64);
-    memset(&LockHandle, 0, sizeof(LockHandle));
     if ( v5 )
     {
       if ( *(_DWORD *)(v5 + 16) == 1953656900 && *(_DWORD *)(v5 + 20) == 2 )
       {
         KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-        v9 = *(_QWORD *)(v5 + 3248);
+        v9 = *(_QWORD *)(v5 + 3232);
         if ( v9 )
         {
           if ( !*(_DWORD *)(v9 + 680) )
+          {
             *(_DWORD *)(v9 + 680) = a2;
-          *(_DWORD *)(*(_QWORD *)(v5 + 3248) + 684LL) = a2;
-          *(_DWORD *)(*(_QWORD *)(v5 + 3248) + 688LL) = a3;
-          *(_DWORD *)(*(_QWORD *)(v5 + 3248) + 692LL) = a4;
-          *(_DWORD *)(*(_QWORD *)(v5 + 3248) + 696LL) = a5;
+            v9 = *(_QWORD *)(v5 + 3232);
+          }
+          *(_DWORD *)(v9 + 684) = a2;
+          *(_DWORD *)(*(_QWORD *)(v5 + 3232) + 688LL) = a3;
+          *(_DWORD *)(*(_QWORD *)(v5 + 3232) + 692LL) = a4;
+          *(_DWORD *)(*(_QWORD *)(v5 + 3232) + 696LL) = a5;
         }
         KeReleaseInStackQueuedSpinLock(&LockHandle);
       }

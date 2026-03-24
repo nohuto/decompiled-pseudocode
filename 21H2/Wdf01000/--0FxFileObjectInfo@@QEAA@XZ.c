@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0FxFileObjectInfo@@QEAA@XZ @ 0x1C00337C8
+ * XREFs of ??0FxFileObjectInfo@@QEAA@XZ @ 0x1C008D52C
  * Callers:
- *     ?Initialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0026654 (-Initialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?Initialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C008DC70 (-Initialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
  *     <none>
  */

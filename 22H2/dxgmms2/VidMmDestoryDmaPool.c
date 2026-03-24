@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmDestoryDmaPool @ 0x1C00178B0
+ * XREFs of VidMmDestoryDmaPool @ 0x1C00167F0
  * Callers:
  *     <none>
  * Callees:
- *     ??_GVIDMM_DMA_POOL@@QEAAPEAXI@Z @ 0x1C00178CC (--_GVIDMM_DMA_POOL@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_DMA_POOL@@QEAAPEAXI@Z @ 0x1C001680C (--_GVIDMM_DMA_POOL@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall VidMmDestoryDmaPool(void *a1, unsigned int a2)

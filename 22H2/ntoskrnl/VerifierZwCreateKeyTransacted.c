@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwCreateKeyTransacted @ 0x140AD13D0
+ * XREFs of VerifierZwCreateKeyTransacted @ 0x1409D4070
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwCreateKeyTransacted(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

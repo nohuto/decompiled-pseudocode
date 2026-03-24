@@ -1,16 +1,16 @@
 /*
- * XREFs of VfGetDmaAdapter @ 0x140AC7560
+ * XREFs of VfGetDmaAdapter @ 0x1409CBE70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IoGetDevicePropertyData @ 0x1407914F0 (IoGetDevicePropertyData.c)
- *     IoGetDmaAdapter @ 0x140829B90 (IoGetDmaAdapter.c)
- *     VF_ASSERT_IRQL @ 0x140AC56AC (VF_ASSERT_IRQL.c)
- *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC59DC (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
- *     VfIsPCIBus @ 0x140AC7E74 (VfIsPCIBus.c)
- *     ViHookDmaAdapter @ 0x140ACA520 (ViHookDmaAdapter.c)
- *     ViReleaseDmaAdapter @ 0x140ACAC1C (ViReleaseDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IoGetDevicePropertyData @ 0x1406B2E60 (IoGetDevicePropertyData.c)
+ *     IoGetDmaAdapter @ 0x1407643C0 (IoGetDmaAdapter.c)
+ *     VF_ASSERT_IRQL @ 0x1409CA0FC (VF_ASSERT_IRQL.c)
+ *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x1409CA424 (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
+ *     VfIsPCIBus @ 0x1409CC7F8 (VfIsPCIBus.c)
+ *     ViHookDmaAdapter @ 0x1409CEE9C (ViHookDmaAdapter.c)
+ *     ViReleaseDmaAdapter @ 0x1409CF530 (ViReleaseDmaAdapter.c)
  */
 
 struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
@@ -20,19 +20,19 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
 {
   struct _LIST_ENTRY *v6; // rax
   int v7; // eax
-  char v8; // bp
-  _QWORD *v9; // rax
-  _QWORD *v10; // rsi
-  __int64 v11; // rdi
+  _QWORD *v8; // rax
+  _QWORD *v9; // rdi
+  __int64 v10; // rax
+  __int64 v11; // rsi
   ULONG Type; // [rsp+40h] [rbp-28h] BYREF
   ULONG RequiredSize[3]; // [rsp+44h] [rbp-24h] BYREF
-  __int64 retaddr; // [rsp+68h] [rbp+0h]
+  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h]
   int Data; // [rsp+88h] [rbp+20h] BYREF
 
   Data = 0;
   RequiredSize[0] = 0;
   Type = 0;
-  if ( !ViVerifyDma || (unsigned int)VfIsPCIBus() )
+  if ( !ViVerifyDma || ViDMADisabledNoRebootNeeded == 1 || (unsigned int)VfIsPCIBus() )
     return IoGetDmaAdapter(PhysicalDeviceObject, DeviceDescription, NumberOfMapRegisters);
   if ( (MmVerifierData & 0x20000) == 0 )
     VF_ASSERT_IRQL(0);
@@ -46,37 +46,32 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
       ViReleaseDmaAdapter((__int64)v6);
     }
   }
-  if ( ViDoubleBufferDma && *NumberOfMapRegisters > 0x20 )
+  if ( *NumberOfMapRegisters > 0x20 )
     *NumberOfMapRegisters = 32;
-  v7 = ((__int64 (__fastcall *)(struct _KTHREAD *))off_140C01D20)(KeGetCurrentThread());
-  if ( v7 < 0 )
-  {
-    if ( v7 != -1073741275 )
-      return 0LL;
-    v8 = 1;
-  }
-  else
-  {
-    v8 = 0;
-  }
-  v9 = (_QWORD *)((__int64 (__fastcall *)(PDEVICE_OBJECT, struct _DEVICE_DESCRIPTION *, PULONG))pXdvIoGetDmaAdapter)(
+  v7 = ((__int64 (__fastcall *)(struct _KTHREAD *))off_140C00910)(KeGetCurrentThread());
+  if ( v7 < 0 && v7 != -1073741275 )
+    return 0LL;
+  v8 = (_QWORD *)((__int64 (__fastcall *)(PDEVICE_OBJECT, struct _DEVICE_DESCRIPTION *, PULONG))pXdvIoGetDmaAdapter)(
                    PhysicalDeviceObject,
                    DeviceDescription,
                    NumberOfMapRegisters);
-  v10 = v9;
-  if ( !v9 )
+  v9 = v8;
+  if ( !v8 )
     return 0LL;
-  v11 = ViHookDmaAdapter(v9, retaddr, v8);
-  if ( !v11 )
+  v10 = ViHookDmaAdapter(v8);
+  v11 = v10;
+  if ( !v10 )
   {
-    (*(void (__fastcall **)(_QWORD *))(v10[1] + 8LL))(v10);
+    (*(void (__fastcall **)(_QWORD *))(v9[1] + 8LL))(v9);
     return 0LL;
   }
+  *(_QWORD *)(v10 + 24) = PhysicalDeviceObject;
+  *(_QWORD *)(v10 + 40) = retaddr;
   if ( PhysicalDeviceObject
     && IoGetDevicePropertyData(PhysicalDeviceObject, &DEVPKEY_Device_Capabilities, 0, 0, 4u, &Data, RequiredSize, &Type) >= 0
     && (Data & 0x400) != 0 )
   {
-    *(_BYTE *)(v11 + 75) = 1;
+    *(_BYTE *)(v11 + 35) = 1;
   }
-  return (struct _DMA_ADAPTER *)(v11 + 16);
+  return (struct _DMA_ADAPTER *)v9;
 }

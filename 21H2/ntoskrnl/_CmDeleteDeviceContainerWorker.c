@@ -1,36 +1,33 @@
 /*
- * XREFs of _CmDeleteDeviceContainerWorker @ 0x140A25D48
+ * XREFs of _CmDeleteDeviceContainerWorker @ 0x14072BFD4
  * Callers:
- *     _CmDeleteDeviceContainer @ 0x140A25858 (_CmDeleteDeviceContainer.c)
+ *     _CmDeleteDeviceContainer @ 0x14072BE7C (_CmDeleteDeviceContainer.c)
  * Callees:
- *     _CmSetDeviceContainerMappedProperty @ 0x1406E7A78 (_CmSetDeviceContainerMappedProperty.c)
- *     _CmDeleteDeviceContainerRegKey @ 0x140A25980 (_CmDeleteDeviceContainerRegKey.c)
- *     _CmGetDeviceContainerMappedPropertyKeys @ 0x140A263D8 (_CmGetDeviceContainerMappedPropertyKeys.c)
- *     _CmRaiseDeleteEvent @ 0x140A27790 (_CmRaiseDeleteEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _CmGetDeviceContainerMappedPropertyKeys @ 0x14072BF40 (_CmGetDeviceContainerMappedPropertyKeys.c)
+ *     _CmSetDeviceContainerMappedProperty @ 0x14072C150 (_CmSetDeviceContainerMappedProperty.c)
+ *     _CmDeleteDeviceContainerRegKey @ 0x14072C1B4 (_CmDeleteDeviceContainerRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x14072DBA0 (_CmRaiseDeleteEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceContainerWorker(__int64 a1, __int64 a2, __int16 a3)
 {
-  int v3; // edi
-  int *v6; // r14
-  int v7; // ebx
+  int v3; // ebx
+  unsigned int *v6; // r14
+  int v7; // edi
   int v8; // eax
-  int v9; // edx
-  int v10; // ecx
-  int v11; // r8d
-  int v12; // r9d
-  void *Pool2; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  PVOID PoolWithTag; // rdi
   unsigned int v14; // ebp
   int DeviceContainerMappedPropertyKeys; // eax
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  unsigned __int64 v18; // r14
+  __int64 v16; // r14
+  int v17; // eax
   unsigned int v19; // r14d
-  __int64 v20; // rbp
-  int v21; // eax
-  unsigned int v23; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v20; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = 0;
   if ( a3 )
@@ -39,94 +36,94 @@ __int64 __fastcall CmDeleteDeviceContainerWorker(__int64 a1, __int64 a2, __int16
   }
   else
   {
-    v23 = 336;
-    v6 = (int *)&v23;
+    v20 = 336;
+    v6 = &v20;
     v7 = 0;
     while ( 1 )
     {
       v8 = CmDeleteDeviceContainerRegKey(a1, a2, *v6);
       if ( v8 )
       {
-        if ( v8 != -1073741772 && v8 != -1073741811 && v8 != -1073741637 )
+        if ( v8 != -1073741637 && v8 != -1073741772 && v8 != -1073741811 )
           break;
       }
       ++v7;
       ++v6;
       if ( v7 )
-        goto LABEL_11;
+        goto LABEL_6;
     }
     v3 = v8;
     if ( v8 < 0 )
       return (unsigned int)v3;
-LABEL_11:
-    Pool2 = 0LL;
+LABEL_6:
+    PoolWithTag = 0LL;
     v14 = 0;
-    v23 = 0;
-    while ( 1 )
+    v20 = 0;
+    do
     {
       DeviceContainerMappedPropertyKeys = CmGetDeviceContainerMappedPropertyKeys(
                                             v10,
                                             v9,
                                             v11,
                                             v12,
-                                            (__int64)Pool2,
+                                            (__int64)PoolWithTag,
                                             v14,
-                                            (__int64)&v23);
+                                            &v20);
+      v14 = v20;
       if ( DeviceContainerMappedPropertyKeys != -1073741789 )
-        break;
-      v14 = v23;
-      v18 = 20LL * v23;
-      if ( v18 > 0xFFFFFFFF )
+        goto LABEL_8;
+      v19 = 20 * v20;
+      if ( 20 * (unsigned __int64)v20 > 0xFFFFFFFF )
       {
         DeviceContainerMappedPropertyKeys = -1073741811;
-        goto LABEL_21;
+        goto LABEL_25;
       }
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v18, 1380994640LL);
-      if ( !Pool2 )
-      {
-        DeviceContainerMappedPropertyKeys = -1073741801;
-LABEL_21:
-        v3 = DeviceContainerMappedPropertyKeys;
-        goto LABEL_36;
-      }
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v19, 0x52504E50u);
     }
+    while ( PoolWithTag );
+    DeviceContainerMappedPropertyKeys = -1073741801;
+LABEL_8:
     if ( DeviceContainerMappedPropertyKeys && DeviceContainerMappedPropertyKeys != -1073741275 )
-      goto LABEL_21;
-    v19 = v23;
-    v20 = 0LL;
-    if ( v23 )
+    {
+LABEL_25:
+      v3 = DeviceContainerMappedPropertyKeys;
+      goto LABEL_16;
+    }
+    v16 = 0LL;
+    if ( v14 )
     {
       while ( 1 )
       {
-        v21 = CmSetDeviceContainerMappedProperty(5 * v20, v16, v17, 0LL, (__int64)Pool2 + 20 * v20);
-        if ( v21 )
+        v17 = CmSetDeviceContainerMappedProperty(5 * (int)v16, v9, v11, 0, (__int64)PoolWithTag + 20 * v16);
+        if ( v17 )
         {
-          if ( v21 != -1073741275 && v21 != -1073741790 && v21 != -1073741802 && v21 != -1073741637 )
+          if ( v17 != -1073741790 && v17 != -1073741275 && v17 != -1073741802 && v17 != -1073741637 )
             break;
         }
-        v20 = (unsigned int)(v20 + 1);
-        if ( (unsigned int)v20 >= v19 )
-          goto LABEL_31;
+        v16 = (unsigned int)(v16 + 1);
+        if ( (unsigned int)v16 >= v14 )
+          goto LABEL_13;
       }
-      v3 = v21;
+      v3 = v17;
     }
-LABEL_31:
+LABEL_13:
     if ( v3 >= 0 )
     {
-      DeviceContainerMappedPropertyKeys = CmDeleteDeviceContainerRegKey(a1, a2, 80);
-      if ( DeviceContainerMappedPropertyKeys
-        && DeviceContainerMappedPropertyKeys != -1073741772
-        && DeviceContainerMappedPropertyKeys != -1073741811 )
+      DeviceContainerMappedPropertyKeys = CmDeleteDeviceContainerRegKey(a1, a2, 80LL);
+      if ( !DeviceContainerMappedPropertyKeys
+        || DeviceContainerMappedPropertyKeys == -1073741772
+        || DeviceContainerMappedPropertyKeys == -1073741811 )
       {
-        goto LABEL_21;
+        CmRaiseDeleteEvent(a1, a2, 5LL);
+        goto LABEL_16;
       }
-      CmRaiseDeleteEvent(a1, a2, 5LL);
+      goto LABEL_25;
     }
-LABEL_36:
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+LABEL_16:
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   return (unsigned int)v3;
 }

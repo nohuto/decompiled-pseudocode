@@ -1,49 +1,52 @@
 /*
- * XREFs of CmpCreatePredefined @ 0x14083451C
+ * XREFs of CmpCreatePredefined @ 0x1407A7C88
  * Callers:
- *     CmpCreatePerfKeys @ 0x140834454 (CmpCreatePerfKeys.c)
+ *     CmpCreatePerfKeys @ 0x1407A7BC0 (CmpCreatePerfKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
- *     CmpCleanupParseContext @ 0x14067FE98 (CmpCleanupParseContext.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall CmpCreatePredefined(__int64 a1, const WCHAR *a2, struct _OBJECT_HANDLE_INFORMATION a3)
+_QWORD *__fastcall CmpCreatePredefined(__int64 a1, const WCHAR *a2, struct _OBJECT_HANDLE_INFORMATION a3)
 {
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
-  _QWORD v9[3]; // [rsp+58h] [rbp-A8h] BYREF
-  int v10; // [rsp+70h] [rbp-90h]
-  int v11; // [rsp+74h] [rbp-8Ch]
-  __int128 v12; // [rsp+78h] [rbp-88h]
+  _DWORD v9[2]; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v10; // [rsp+60h] [rbp-A0h]
+  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp-98h]
+  int v12; // [rsp+70h] [rbp-90h]
+  int v13; // [rsp+74h] [rbp-8Ch]
+  __int128 v14; // [rsp+78h] [rbp-88h]
   PVOID Object; // [rsp+88h] [rbp-78h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION v14[38]; // [rsp+90h] [rbp-70h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION v16[38]; // [rsp+90h] [rbp-70h] BYREF
 
-  v11 = 0;
+  v9[1] = 0;
+  v13 = 0;
   Handle = 0LL;
-  v9[0] = 48LL;
   DestinationString = 0LL;
-  memset(v14, 0, 0x128uLL);
-  v14[12].HandleAttributes = -1;
-  v14[19] = (struct _OBJECT_HANDLE_INFORMATION)&v14[18];
-  v14[18] = (struct _OBJECT_HANDLE_INFORMATION)&v14[18];
-  memset(&v14[27], 0, 0x50uLL);
-  v14[3].HandleAttributes = 16777217;
-  v14[0].HandleAttributes = 33;
-  v14[7] = a3;
+  memset(v16, 0, 0x128uLL);
+  v16[12].HandleAttributes = -1;
+  v16[19] = (struct _OBJECT_HANDLE_INFORMATION)&v16[18];
+  v16[18] = (struct _OBJECT_HANDLE_INFORMATION)&v16[18];
+  memset(&v16[27], 0, 0x50uLL);
+  v16[3].HandleAttributes = 16777217;
+  v16[0].HandleAttributes = 33;
+  v16[7] = a3;
   RtlInitUnicodeString(&DestinationString, a2);
-  v9[2] = &DestinationString;
-  v9[1] = a1;
-  v10 = 576;
-  v12 = 0LL;
-  if ( (int)ObOpenObjectByName((__int64)v9, (__int64)CmKeyObjectType, 0, 0LL, 131097, (__int64)v14, (__int64)&Handle) >= 0 )
+  p_DestinationString = &DestinationString;
+  v9[0] = 48;
+  v10 = a1;
+  v12 = 576;
+  v14 = 0LL;
+  if ( (int)ObOpenObjectByName((__int64)v9, (__int64)CmKeyObjectType, 0, 0LL, 131097, (__int64)v16, (__int64)&Handle) >= 0 )
   {
     ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL);
     ZwClose(Handle);
   }
-  return CmpCleanupParseContext(v14, 0LL);
+  return CmpCleanupParseContext((__int64)v16, 0);
 }

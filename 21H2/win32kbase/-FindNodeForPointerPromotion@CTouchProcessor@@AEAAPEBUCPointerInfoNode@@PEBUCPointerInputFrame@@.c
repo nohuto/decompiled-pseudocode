@@ -1,62 +1,56 @@
 /*
- * XREFs of ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C01C5678
+ * XREFs of ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C018E454
  * Callers:
- *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01C7310 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01900D0 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
  * Callees:
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00DC7A4 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE6CC (-IsPrimary@CPointerInfoNode@@QEBAHXZ.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE868 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ApiSetPointerPromotionGetCurrentPointerId @ 0x1C020E88C (ApiSetPointerPromotionGetCurrentPointerId.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CCF60 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C0197044 (-IsPrimary@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01971B4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ApiSetPointerPromotionGetCurrentPointerId @ 0x1C01CFDFC (ApiSetPointerPromotionGetCurrentPointerId.c)
  */
 
 const struct CPointerInfoNode *__fastcall CTouchProcessor::FindNodeForPointerPromotion(
         CTouchProcessor *this,
-        const struct CPointerInputFrame *a2,
-        __int64 a3)
+        const struct CPointerInputFrame *a2)
 {
   __int16 CurrentPointerId; // si
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  unsigned int v8; // ecx
-  unsigned int v9; // ebp
-  CPointerInfoNode *v10; // rbx
-  unsigned __int64 v11; // rcx
-  CPointerInfoNode *v12; // rcx
+  unsigned int v4; // ecx
+  unsigned int v5; // ebp
+  CPointerInfoNode *v6; // rbx
+  CPointerInfoNode *v7; // rcx
 
   CurrentPointerId = 0;
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2, a3) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
-  if ( *(_DWORD *)(*((_QWORD *)a2 + 32) + 24LL) == 7 )
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8906);
+  if ( *(_DWORD *)(*((_QWORD *)a2 + 19) + 24LL) == 7 )
     return 0LL;
-  if ( (*((_DWORD *)a2 + 57) & 4) == 0 )
+  if ( (*((_DWORD *)a2 + 31) & 4) == 0 )
   {
     CurrentPointerId = ApiSetPointerPromotionGetCurrentPointerId();
     if ( !CurrentPointerId )
       return 0LL;
   }
-  v8 = *((_DWORD *)a2 + 12);
-  v9 = 0;
-  v10 = (CPointerInfoNode *)*((_QWORD *)a2 + 30);
-  if ( !v8 )
+  v4 = *((_DWORD *)a2 + 12);
+  v5 = 0;
+  v6 = (CPointerInfoNode *)*((_QWORD *)a2 + 17);
+  if ( !v4 )
     return 0LL;
   while ( 1 )
   {
-    v11 = *((_QWORD *)a2 + 30) + 480LL * v8;
-    if ( (unsigned __int64)v10 >= v11 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v11, v5, v7);
-    if ( (unsigned int)CPointerInfoNode::IsValid(v10)
-      && (*(_DWORD *)v10 & 0x1000) == 0
-      && ((unsigned int)CPointerInfoNode::IsPrimary(v12) || CurrentPointerId == *((_WORD *)v10 + 86)) )
+    if ( (unsigned __int64)v6 >= *((_QWORD *)a2 + 17) + 480 * (unsigned __int64)v4 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8944);
+    if ( (unsigned int)CPointerInfoNode::IsValid(v6)
+      && (*(_DWORD *)v6 & 0x1000) == 0
+      && ((unsigned int)CPointerInfoNode::IsPrimary(v7) || CurrentPointerId == *((_WORD *)v6 + 86)) )
     {
       break;
     }
-    v8 = *((_DWORD *)a2 + 12);
-    ++v9;
-    v10 = (CPointerInfoNode *)((char *)v10 + 480);
-    if ( v9 >= v8 )
+    v4 = *((_DWORD *)a2 + 12);
+    ++v5;
+    v6 = (CPointerInfoNode *)((char *)v6 + 480);
+    if ( v5 >= v4 )
       return 0LL;
   }
-  return v10;
+  return v6;
 }

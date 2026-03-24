@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x1800AC260
+ * XREFs of ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x180033E40
  * Callers:
- *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x1800AB428 (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
+ *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180035A2C (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 CProcessAttributionManager::Record *__fastcall CProcessAttributionManager::Record::Record(
@@ -22,9 +22,9 @@ CProcessAttributionManager::Record *__fastcall CProcessAttributionManager::Recor
 
   *((_DWORD *)this + 30) = a2;
   *((_QWORD *)this + 14) = 0LL;
-  *((_QWORD *)this + 16) = 0LL;
   *((_QWORD *)this + 18) = 0LL;
   *((_QWORD *)this + 19) = 7LL;
+  *((_WORD *)this + 64) = 0;
   *(_OWORD *)((char *)this + 8) = 0LL;
   *((_DWORD *)this + 6) = 0;
   *((_DWORD *)this + 40) = a4;

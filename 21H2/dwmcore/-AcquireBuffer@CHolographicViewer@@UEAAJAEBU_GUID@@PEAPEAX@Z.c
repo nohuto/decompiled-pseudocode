@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AcquireBuffer@CHolographicViewer@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029C6E0
+ * XREFs of ?AcquireBuffer@CHolographicViewer@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18025A0E0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicViewer::AcquireBuffer(RTL_SRWLOCK *this, const struct _GUID *a2, void **a3)
@@ -42,14 +42,14 @@ __int64 __fastcall CHolographicViewer::AcquireBuffer(RTL_SRWLOCK *this, const st
         goto LABEL_10;
       v14 = 108;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, v14);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, v14, 0LL);
     goto LABEL_10;
   }
   v8 = (int)this[13].Ptr;
   v9 = -2005270527;
   if ( v8 == 3 )
     v9 = -2005270490;
-  MilInstrumentationCheckHR_MaybeFailFast(2289696806LL, 0LL, 0LL, v9, 0x68u);
+  MilInstrumentationCheckHR_MaybeFailFast(2289696806LL, 0LL, 0, v9, 0x68u, 0LL);
 LABEL_10:
   ReleaseSRWLockShared(v3);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v15);

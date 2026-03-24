@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00F61A4
+ * XREFs of ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00C15F8
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     xxxRetrievePointerInputMessage @ 0x1C01EB168 (xxxRetrievePointerInputMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxRetrievePointerInputMessage @ 0x1C01F06C8 (xxxRetrievePointerInputMessage.c)
  * Callees:
- *     CalcWakeMask @ 0x1C0057150 (CalcWakeMask.c)
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01DBF48 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     CalcWakeMask @ 0x1C00577A0 (CalcWakeMask.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0D20 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
  */
 
 __int64 __fastcall CheckCrossThreadInput(
@@ -15,37 +15,39 @@ __int64 __fastcall CheckCrossThreadInput(
         int *a4,
         struct tagQMSG **a5)
 {
-  int v9; // ebp
-  int v10; // eax
+  struct tagTHREADINFO *v9; // r11
+  int v10; // esi
+  int v11; // eax
   __int64 result; // rax
-  char v12; // al
+  char v13; // al
 
+  v9 = (struct tagTHREADINFO *)gptiCurrent;
   if ( *(_QWORD *)(gptiCurrent + 672LL)
     || *(struct tagQMSG **)(*(_QWORD *)(gptiCurrent + 432LL) + 80LL) != a2
     || a2 == (struct tagQMSG *)1 )
   {
     goto LABEL_7;
   }
-  v9 = *((_DWORD *)a2 + 25);
-  if ( (v9 & 0x20) != 0 )
+  v10 = *((_DWORD *)a2 + 25);
+  if ( (v10 & 0x20) != 0 )
   {
     *a3 = 0;
     *a5 = a2;
     return 0LL;
   }
-  if ( (v9 & 0x40) != 0
-    || (v10 = *((_DWORD *)a1 + 65)) == 0
-    || (v10 & 2) == 0
-    || (v12 = CalcWakeMask(*((_DWORD *)a2 + 6), *((_DWORD *)a2 + 6), 0),
-        (v12 & 2) == 0 || gptiCurrent == *((_QWORD *)a1 + 33)) )
+  if ( (v10 & 0x40) != 0
+    || (v11 = *((_DWORD *)a1 + 65)) == 0
+    || (v11 & 2) == 0
+    || (v13 = CalcWakeMask(*((_DWORD *)a2 + 6), *((_DWORD *)a2 + 6), 0),
+        (v13 & 2) == 0 || v9 == *((struct tagTHREADINFO **)a1 + 33)) )
   {
 LABEL_7:
-    *a3 = *((_QWORD *)a1 + 2) != gptiCurrent;
+    *a3 = *((_QWORD *)a1 + 2) != (_QWORD)v9;
     *a5 = 0LL;
     return 0LL;
   }
-  *((_DWORD *)a2 + 25) = v9 | 0x20;
-  ReassignInputMessage(gptiCurrent, *((struct tagTHREADINFO **)a1 + 33), a2);
+  *((_DWORD *)a2 + 25) = v10 | 0x20;
+  ReassignInputMessage(v9, *((struct tagTHREADINFO **)a1 + 33), a2);
   result = 1LL;
   *((_QWORD *)a2 + 2) = *(_QWORD *)a1;
   *a4 = 0;

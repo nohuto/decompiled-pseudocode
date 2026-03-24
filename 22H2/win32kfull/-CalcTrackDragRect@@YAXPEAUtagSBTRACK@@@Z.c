@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0228A60
+ * XREFs of ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0243B98
  * Callers:
- *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02291DC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
- *     xxxSBTrackInit @ 0x1C022A46C (xxxSBTrackInit.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02442D8 (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     xxxSBTrackInit @ 0x1C0245640 (xxxSBTrackInit.c)
  * Callees:
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
  */
 
 void __fastcall CalcTrackDragRect(struct tagSBTRACK *a1)
@@ -13,7 +13,7 @@ void __fastcall CalcTrackDragRect(struct tagSBTRACK *a1)
   int v2; // ebx
   __int64 v3; // rsi
   unsigned __int64 v4; // rdi
-  int DpiForSystem; // eax
+  unsigned int DpiForSystem; // eax
   int DpiDependentMetric; // eax
   __int64 v7; // rcx
   int v8; // edx

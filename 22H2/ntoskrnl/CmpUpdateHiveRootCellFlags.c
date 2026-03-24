@@ -1,63 +1,50 @@
 /*
- * XREFs of CmpUpdateHiveRootCellFlags @ 0x1407D8504
+ * XREFs of CmpUpdateHiveRootCellFlags @ 0x140698BD4
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x140655AB0 (HvpMarkCellDirty.c)
  */
 
-__int64 __fastcall CmpUpdateHiveRootCellFlags(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
+__int64 __fastcall CmpUpdateHiveRootCellFlags(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
+  signed __int64 *v2; // rdi
   unsigned int v3; // ebp
-  unsigned __int64 v4; // rsi
-  __int64 CellFlat; // rax
-  __int64 v6; // rsi
-  int v7; // ebp
-  __int64 v9; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v5; // rax
+  __int64 v6; // rbx
+  unsigned int v7; // ebx
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v9 = 0LL;
-  v3 = BugCheckParameter4;
-  HvpGetCellContextReinitialize(&v9);
-  v4 = KeAbPreAcquire(BugCheckParameter3 + 72, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(BugCheckParameter3 + 72), 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)(BugCheckParameter3 + 72), 0LL, v4, BugCheckParameter3 + 72);
-  if ( v4 )
-    *(_BYTE *)(v4 + 18) = 1;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, v3);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3, v3, (unsigned int *)&v9);
-  v6 = CellFlat;
-  if ( !CellFlat )
+  v2 = (signed __int64 *)(BugCheckParameter2 + 72);
+  v3 = BugCheckParameter3;
+  v9 = 0xFFFFFFFFLL;
+  ExAcquirePushLockSharedEx(BugCheckParameter2 + 72, 0LL);
+  v5 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, __int64 *))(BugCheckParameter2 + 8))(BugCheckParameter2, v3, &v9);
+  v6 = v5;
+  if ( v5 )
   {
-    v7 = -1073741670;
-    goto LABEL_14;
+    if ( (*(_BYTE *)(v5 + 2) & 0xC) != 0xC )
+    {
+      if ( !HvpMarkCellDirty(BugCheckParameter2, v3, 0) )
+      {
+        v7 = -1073741670;
+        goto LABEL_6;
+      }
+      *(_WORD *)(v6 + 2) |= 0xCu;
+    }
+    v7 = 0;
+LABEL_6:
+    (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v9);
+    goto LABEL_7;
   }
-  if ( (*(_BYTE *)(CellFlat + 2) & 0xC) != 0xC )
-  {
-    v7 = HvpMarkCellDirty(BugCheckParameter3, v3, 0);
-    if ( v7 < 0 )
-      goto LABEL_12;
-    *(_WORD *)(v6 + 2) |= 0xCu;
-  }
-  v7 = 0;
-LABEL_12:
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v9);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v9);
-LABEL_14:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(BugCheckParameter3 + 72), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(BugCheckParameter3 + 72));
-  KeAbPostRelease(BugCheckParameter3 + 72);
-  return (unsigned int)v7;
+  v7 = -1073741670;
+LABEL_7:
+  if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(v2);
+  KeAbPostRelease((ULONG_PTR)v2);
+  return v7;
 }

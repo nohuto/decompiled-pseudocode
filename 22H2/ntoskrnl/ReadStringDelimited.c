@@ -1,10 +1,10 @@
 /*
- * XREFs of ReadStringDelimited @ 0x1403E11E4
+ * XREFs of ReadStringDelimited @ 0x1403D965C
  * Callers:
- *     _input_s @ 0x1403E1374 (_input_s.c)
+ *     _input_s @ 0x1403D9814 (_input_s.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ReadString @ 0x1403E1024 (ReadString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ReadString @ 0x1403D94B4 (ReadString.c)
  */
 
 __int64 __fastcall ReadStringDelimited(
@@ -18,71 +18,72 @@ __int64 __fastcall ReadStringDelimited(
         __int64 a8,
         _DWORD *a9)
 {
-  unsigned __int8 v10; // r10
-  unsigned __int8 *v14; // rcx
-  char v15; // r11
-  unsigned __int8 *v16; // r9
+  unsigned __int8 *v10; // rdx
+  unsigned __int8 v13; // r10
+  char v14; // bl
+  unsigned __int8 *v15; // rcx
   bool v17; // zf
-  unsigned __int8 *v18; // r9
+  unsigned __int8 *v18; // r8
   unsigned __int8 i; // al
-  unsigned __int8 *v20; // rdx
-  unsigned __int8 v21; // cl
-  unsigned __int8 v22; // r8
-  unsigned __int64 v23; // rdx
-  unsigned __int8 v24; // al
-  int v26[4]; // [rsp+50h] [rbp-58h] BYREF
-  __int128 v27; // [rsp+60h] [rbp-48h]
+  unsigned __int8 v20; // cl
+  unsigned __int8 v21; // r11
+  unsigned __int8 v22; // r9
+  __int64 v23; // rax
+  unsigned __int64 v24; // rdx
+  int v25; // ecx
+  int v27[4]; // [rsp+50h] [rbp-58h] BYREF
+  __int128 v28; // [rsp+60h] [rbp-48h]
 
-  v10 = 0;
-  v14 = *a2;
-  v15 = a1 | 8;
-  *(_OWORD *)v26 = 0LL;
-  v16 = v14 + 1;
-  *a2 = v14 + 1;
-  v17 = v14[1] == 94;
-  v27 = 0LL;
+  v10 = *a2;
+  v13 = 0;
+  v14 = a1 | 8;
+  v15 = v10 + 1;
+  *a2 = v10 + 1;
+  v17 = v10[1] == 94;
+  *(_OWORD *)v27 = 0LL;
   if ( !v17 )
   {
-    v16 = v14;
-    v15 = a1;
+    v15 = v10;
+    v14 = a1;
   }
-  v18 = v16 + 1;
-  i = *v18;
-  if ( *v18 != 93 )
+  v28 = 0LL;
+  v18 = v15 + 1;
+  i = v15[1];
+  if ( i != 93 )
     goto LABEL_5;
-  v10 = 93;
-  HIBYTE(v26[2]) = 32;
-  for ( i = *++v18; i != 93; i = *v18 )
+  v13 = 93;
+  HIBYTE(v27[2]) = 32;
+  v18 = v15 + 2;
+  for ( i = v15[2]; i != 93; i = *v18 )
   {
 LABEL_5:
-    v20 = v18++;
-    if ( i == 45 && v10 && (v21 = *v18, *v18 != 93) )
+    if ( i == 45 && v13 && (v20 = v18[1], v20 != 93) )
     {
-      v18 = v20 + 2;
-      if ( v10 >= v21 )
+      v21 = v18[1];
+      v22 = v13;
+      if ( v13 >= v20 )
       {
-        v22 = v10;
-        v10 = v21;
+        v21 = v13;
+        v22 = v18[1];
       }
-      else
+      while ( v22 <= v21 )
       {
-        v22 = v21;
+        *((_BYTE *)v27 + ((unsigned __int64)v22 >> 3)) |= 1 << (v22 & 7);
+        ++v22;
       }
-      do
-      {
-        v23 = (unsigned __int64)v10 >> 3;
-        v24 = v10++;
-        *((_BYTE *)v26 + v23) |= 1 << (v24 & 7);
-      }
-      while ( v10 <= v22 );
-      v10 = 0;
+      v13 = 0;
+      v23 = 2LL;
     }
     else
     {
-      v10 = i;
-      *((_BYTE *)v26 + ((unsigned __int64)i >> 3)) |= 1 << (i & 7);
+      v13 = i;
+      v24 = (unsigned __int64)i >> 3;
+      v25 = *((char *)v27 + v24) | (1 << (i & 7));
+      v23 = 1LL;
+      *((_BYTE *)v27 + v24) = v25;
     }
+    v18 += v23;
   }
   *a2 = v18;
-  return ReadString(v15, (__int64)v26, a3, a4, a5, a6, File, a8, a9);
+  return ReadString(v14, (__int64)v27, a3, a4, a5, a6, File, a8, a9);
 }

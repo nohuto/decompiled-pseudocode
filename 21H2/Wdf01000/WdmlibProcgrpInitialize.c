@@ -1,40 +1,19 @@
 /*
- * XREFs of WdmlibProcgrpInitialize @ 0x1C00BD61C
+ * XREFs of WdmlibProcgrpInitialize @ 0x1C00BE458
  * Callers:
- *     ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0027B68 (-Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0090314 (-Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void WdmlibProcgrpInitialize(void)
 {
-  unsigned int SortKey; // eax
-  unsigned int v1; // ett
+  signed __int32 v0; // eax
+  signed __int32 v1; // ett
   _UNICODE_STRING ApiName; // [rsp+20h] [rbp-10h] BYREF
 
   ApiName = 0LL;
-  if ( _InterlockedCompareExchange(
-         (volatile signed __int32 *)&WPP_GLOBAL_WDF_Control.Queue.Wcb.WaitQueueEntry.SortKey,
-         1,
-         0) > 0 )
-  {
-    do
-    {
-      _m_prefetchw(&WPP_GLOBAL_WDF_Control.Queue.Wcb.NumberOfChannels);
-      SortKey = WPP_GLOBAL_WDF_Control.Queue.Wcb.WaitQueueEntry.SortKey;
-      do
-      {
-        v1 = SortKey;
-        SortKey = _InterlockedCompareExchange(
-                    (volatile signed __int32 *)&WPP_GLOBAL_WDF_Control.Queue.Wcb.WaitQueueEntry.SortKey,
-                    SortKey,
-                    SortKey);
-      }
-      while ( v1 != SortKey );
-    }
-    while ( SortKey != 2 );
-  }
-  else
+  if ( _InterlockedCompareExchange(&WdmlibProcgrpInitState, 1, 0) <= 0 )
   {
     RtlInitUnicodeString(&ApiName, L"KeGetCurrentProcessorNumberEx");
     PfnKeGetCurrentProcessorNumberEx = (unsigned int (__fastcall *)(_PROCESSOR_NUMBER *))MmGetSystemRoutineAddress(&ApiName);
@@ -49,9 +28,9 @@ void WdmlibProcgrpInitialize(void)
     if ( !PfnKeQueryMaximumProcessorCountEx )
       PfnKeQueryMaximumProcessorCountEx = (unsigned int (__fastcall *)(unsigned __int16))ProcgrpQueryMaximumProcessorCountEx;
     RtlInitUnicodeString(&ApiName, L"KeQueryMaximumProcessorCount");
-    PfnKeQueryMaximumProcessorCount = (unsigned int (__fastcall *)())MmGetSystemRoutineAddress(&ApiName);
-    if ( !PfnKeQueryMaximumProcessorCount )
-      PfnKeQueryMaximumProcessorCount = (unsigned int (__fastcall *)())ProcgrpQueryMaximumProcessorCount;
+    WPP_GLOBAL_WDF_Control.SecurityDescriptor = MmGetSystemRoutineAddress(&ApiName);
+    if ( !WPP_GLOBAL_WDF_Control.SecurityDescriptor )
+      WPP_GLOBAL_WDF_Control.SecurityDescriptor = ProcgrpQueryMaximumProcessorCount;
     RtlInitUnicodeString(&ApiName, L"KeQueryGroupAffinity");
     PfnKeQueryGroupAffinity = (unsigned __int64 (__fastcall *)(unsigned __int16))MmGetSystemRoutineAddress(&ApiName);
     if ( !PfnKeQueryGroupAffinity )
@@ -73,17 +52,17 @@ void WdmlibProcgrpInitialize(void)
     if ( !PfnKeGetProcessorIndexFromNumber )
       PfnKeGetProcessorIndexFromNumber = (unsigned int (__fastcall *)(_PROCESSOR_NUMBER *))ProcgrpGetProcessorIndexFromNumber;
     RtlInitUnicodeString(&ApiName, L"KeSetSystemAffinityThreadEx");
-    PfnKeSetSystemAffinityThreadEx = (unsigned __int64 (__fastcall *)(unsigned __int64))MmGetSystemRoutineAddress(&ApiName);
-    if ( !PfnKeSetSystemAffinityThreadEx )
-      PfnKeSetSystemAffinityThreadEx = ProcgrpSetSystemAffinityThreadEx;
+    WPP_GLOBAL_WDF_Control.DeviceLock.Header.WaitListHead.Flink = (_LIST_ENTRY *)MmGetSystemRoutineAddress(&ApiName);
+    if ( !WPP_GLOBAL_WDF_Control.DeviceLock.Header.WaitListHead.Flink )
+      WPP_GLOBAL_WDF_Control.DeviceLock.Header.WaitListHead.Flink = (_LIST_ENTRY *)ProcgrpSetSystemAffinityThreadEx;
     RtlInitUnicodeString(&ApiName, L"KeSetSystemGroupAffinityThread");
     PfnKeSetSystemGroupAffinityThread = (void (__fastcall *)(_GROUP_AFFINITY *, _GROUP_AFFINITY *))MmGetSystemRoutineAddress(&ApiName);
     if ( !PfnKeSetSystemGroupAffinityThread )
       PfnKeSetSystemGroupAffinityThread = ProcgrpSetSystemGroupAffinityThread;
     RtlInitUnicodeString(&ApiName, L"KeRevertToUserAffinityThreadEx");
-    PfnKeRevertToUserAffinityThreadEx = (void (__fastcall *)(unsigned __int64))MmGetSystemRoutineAddress(&ApiName);
-    if ( !PfnKeRevertToUserAffinityThreadEx )
-      PfnKeRevertToUserAffinityThreadEx = ProcgrpRevertToUserAffinityThreadEx;
+    *(_QWORD *)&WPP_GLOBAL_WDF_Control.DeviceLock.Header.Lock = MmGetSystemRoutineAddress(&ApiName);
+    if ( !*(_QWORD *)&WPP_GLOBAL_WDF_Control.DeviceLock.Header.Lock )
+      *(_QWORD *)&WPP_GLOBAL_WDF_Control.DeviceLock.Header.Lock = ProcgrpRevertToUserAffinityThreadEx;
     RtlInitUnicodeString(&ApiName, L"KeRevertToUserGroupAffinityThread");
     PfnKeRevertToUserGroupAffinityThread = (void (__fastcall *)(_GROUP_AFFINITY *))MmGetSystemRoutineAddress(&ApiName);
     if ( !PfnKeRevertToUserGroupAffinityThread )
@@ -92,6 +71,21 @@ void WdmlibProcgrpInitialize(void)
     PfnKeSetTargetProcessorDpcEx = (int (__fastcall *)(_KDPC *, _PROCESSOR_NUMBER *))MmGetSystemRoutineAddress(&ApiName);
     if ( !PfnKeSetTargetProcessorDpcEx )
       PfnKeSetTargetProcessorDpcEx = (int (__fastcall *)(_KDPC *, _PROCESSOR_NUMBER *))ProcgrpSetTargetProcessorDpcEx;
-    _InterlockedAdd((volatile signed __int32 *)&WPP_GLOBAL_WDF_Control.Queue.Wcb.WaitQueueEntry.SortKey, 1u);
+    _InterlockedAdd(&WdmlibProcgrpInitState, 1u);
+  }
+  else
+  {
+    do
+    {
+      _m_prefetchw((const void *)&WdmlibProcgrpInitState);
+      v0 = WdmlibProcgrpInitState;
+      do
+      {
+        v1 = v0;
+        v0 = _InterlockedCompareExchange(&WdmlibProcgrpInitState, v0, v0);
+      }
+      while ( v1 != v0 );
+    }
+    while ( v0 != 2 );
   }
 }

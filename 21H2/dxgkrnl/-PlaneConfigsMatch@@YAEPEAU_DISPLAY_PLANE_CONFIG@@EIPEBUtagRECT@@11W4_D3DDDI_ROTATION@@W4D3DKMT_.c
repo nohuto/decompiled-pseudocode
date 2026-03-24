@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PlaneConfigsMatch@@YAEPEAU_DISPLAY_PLANE_CONFIG@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@I@Z @ 0x1C015F12C
+ * XREFs of ?PlaneConfigsMatch@@YAEPEAU_DISPLAY_PLANE_CONFIG@@EIPEBUtagRECT@@11W4_D3DDDI_ROTATION@@W4D3DKMT_MULTIPLANE_OVERLAY_BLEND@@W4D3DDDI_COLOR_SPACE_TYPE@@I@Z @ 0x1C02136D8
  * Callers:
- *     ?ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ @ 0x1C015EEE8 (-ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ.c)
+ *     ?ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ @ 0x1C0210ADC (-ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,12 +19,12 @@ bool __fastcall PlaneConfigsMatch(
         unsigned int a10)
 {
   unsigned int v10; // r10d
-  char v11; // dl
+  char v12; // dl
 
   v10 = *((_DWORD *)a1 + 2);
   if ( !a2 )
     return (v10 & 1) == 0;
-  v11 = 1;
+  v12 = 1;
   if ( ((a3 ^ (unsigned __int8)(v10 >> 4)) & 1) != 0
     || ((a3 ^ (unsigned __int8)(v10 >> 4)) & 2) != 0
     || *((_DWORD *)a1 + 3) != a4->left
@@ -46,5 +46,5 @@ bool __fastcall PlaneConfigsMatch(
   {
     return 0;
   }
-  return v11;
+  return v12;
 }

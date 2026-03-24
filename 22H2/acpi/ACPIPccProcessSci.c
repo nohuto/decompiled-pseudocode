@@ -1,38 +1,48 @@
 /*
- * XREFs of ACPIPccProcessSci @ 0x1C0033B5C
+ * XREFs of ACPIPccProcessSci @ 0x1C005984C
  * Callers:
- *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0025DB0 (ACPIInterruptServiceRoutineDPC.c)
  * Callees:
- *     AcpiPccCommandComplete @ 0x1C0004760 (AcpiPccCommandComplete.c)
- *     AcpiPccPlatformNotification @ 0x1C003419C (AcpiPccPlatformNotification.c)
+ *     AcpiPccCommandComplete @ 0x1C0059B80 (AcpiPccCommandComplete.c)
+ *     AcpiPccPlatformNotification @ 0x1C005A034 (AcpiPccPlatformNotification.c)
  */
 
-void ACPIPccProcessSci()
+char ACPIPccProcessSci()
 {
+  _WORD *v0; // rax
   unsigned int i; // edi
-  _BYTE *v1; // rbx
+  _QWORD *v2; // rbx
 
+  LOBYTE(v0) = AcpiPccSciReferenceCount;
   if ( AcpiPccSciReferenceCount )
   {
-    if ( AcpiPccLegacySubspace
-      && *(_DWORD *)(AcpiPccLegacySubspace + 432)
-      && (**(_WORD **)(AcpiPccLegacySubspace + 56) & 2) != 0 )
+    LOBYTE(v0) = AcpiPccLegacySubspace;
+    if ( AcpiPccLegacySubspace )
     {
-      AcpiPccCommandComplete(AcpiPccLegacySubspace);
+      LODWORD(v0) = *(_DWORD *)(AcpiPccLegacySubspace + 432);
+      if ( (_DWORD)v0 )
+      {
+        LOWORD(v0) = **(_WORD **)(AcpiPccLegacySubspace + 56);
+        if ( ((unsigned __int8)v0 & 2) != 0 )
+          LOBYTE(v0) = AcpiPccCommandComplete(AcpiPccLegacySubspace);
+      }
     }
     if ( AcpiPccSubspaces )
     {
       for ( i = 0; i < AcpiPccSubspaceCount; ++i )
       {
-        v1 = (_BYTE *)(AcpiPccSubspaces + 656LL * i);
-        if ( ((*v1 + 1) & 0xFE) == 0 && *((_QWORD *)v1 + 7) )
+        v2 = (_QWORD *)(AcpiPccSubspaces + 648LL * i);
+        LOBYTE(v0) = *(_BYTE *)v2 + 1;
+        if ( ((unsigned __int8)v0 & 0xFE) == 0 && v2[7] )
         {
-          if ( *((_DWORD *)v1 + 108) && (**((_WORD **)v1 + 7) & 2) != 0 )
-            AcpiPccCommandComplete(AcpiPccSubspaces + 656LL * i);
-          if ( (**((_WORD **)v1 + 7) & 8) != 0 )
-            AcpiPccPlatformNotification(v1);
+          if ( *((_DWORD *)v2 + 108) && (*(_WORD *)v2[7] & 2) != 0 )
+            AcpiPccCommandComplete(AcpiPccSubspaces + 648LL * i);
+          v0 = (_WORD *)v2[7];
+          if ( (*v0 & 8) != 0 )
+            LOBYTE(v0) = AcpiPccPlatformNotification(v2);
         }
       }
     }
   }
+  return (char)v0;
 }

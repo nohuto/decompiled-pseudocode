@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSessionInputChange @ 0x1406DC520
+ * XREFs of PopSessionInputChange @ 0x1406DC500
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
- *     PopConsoleSessionPassiveInput @ 0x1406DC3C0 (PopConsoleSessionPassiveInput.c)
- *     PopConsoleSessionActiveInput @ 0x1406DC440 (PopConsoleSessionActiveInput.c)
- *     PopRemoteSessionActiveInput @ 0x1406DC4B4 (PopRemoteSessionActiveInput.c)
- *     PopGetDisplayTimeout @ 0x1406DC4F0 (PopGetDisplayTimeout.c)
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopDiagTraceSessionStates @ 0x1406DC770 (PopDiagTraceSessionStates.c)
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
+ *     PopConsoleSessionPassiveInput @ 0x1406DC3A0 (PopConsoleSessionPassiveInput.c)
+ *     PopConsoleSessionActiveInput @ 0x1406DC420 (PopConsoleSessionActiveInput.c)
+ *     PopRemoteSessionActiveInput @ 0x1406DC494 (PopRemoteSessionActiveInput.c)
+ *     PopGetDisplayTimeout @ 0x1406DC4D0 (PopGetDisplayTimeout.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
  */
 
 __int64 __fastcall PopSessionInputChange(unsigned int a1, char *a2, int *a3)

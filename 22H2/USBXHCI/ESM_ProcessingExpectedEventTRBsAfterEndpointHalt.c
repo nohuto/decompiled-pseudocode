@@ -1,17 +1,17 @@
 /*
- * XREFs of ESM_ProcessingExpectedEventTRBsAfterEndpointHalt @ 0x1C00517B0
+ * XREFs of ESM_ProcessingExpectedEventTRBsAfterEndpointHalt @ 0x1C004EB70
  * Callers:
  *     <none>
  * Callees:
- *     TR_ProcessExpectedEventTRBs @ 0x1C000FCE0 (TR_ProcessExpectedEventTRBs.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     TR_ProcessExpectedEventTRBs @ 0x1C000F538 (TR_ProcessExpectedEventTRBs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ESM_ProcessingExpectedEventTRBsAfterEndpointHalt(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rsi
-  unsigned int v3; // edi
+  __int64 v2; // rdi
+  unsigned int v3; // esi
 
   v1 = *(_QWORD *)(a1 + 960);
   if ( *(_BYTE *)(v1 + 37) )
@@ -27,7 +27,7 @@ __int64 __fastcall ESM_ProcessingExpectedEventTRBsAfterEndpointHalt(__int64 a1)
   }
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 2552))(
     WdfDriverGlobals,
-    *(_QWORD *)(v1 + 1304),
+    *(_QWORD *)(v1 + 1296),
     -20000000LL);
   return 1000LL;
 }

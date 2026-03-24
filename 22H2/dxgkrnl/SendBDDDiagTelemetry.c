@@ -1,18 +1,18 @@
 /*
- * XREFs of SendBDDDiagTelemetry @ 0x1C0022D1C
+ * XREFs of SendBDDDiagTelemetry @ 0x1C00242C8
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU_tlgWrapperBinary@@AEBU?$_tlgWrapperByVal@$03@@55533335@Z @ 0x1C0022F10 (--$Write@U-$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU_tlgWrapperBinary@@AEBU?$_tlgWrapperByVal@$03@@55533335@Z @ 0x1C00244BC (--$Write@U-$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall SendBDDDiagTelemetry(__int64 a1)
 {
-  __int64 Pool2; // rax
-  __int64 v3; // rbx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v3; // rbx
   __int64 v4; // rcx
   int v5; // ecx
   int v6; // r9d
@@ -26,21 +26,21 @@ void __fastcall SendBDDDiagTelemetry(__int64 a1)
   int v14; // [rsp+90h] [rbp-19h] BYREF
   int v15; // [rsp+94h] [rbp-15h] BYREF
   int v16; // [rsp+98h] [rbp-11h] BYREF
-  __int64 v17; // [rsp+A0h] [rbp-9h] BYREF
+  char *v17; // [rsp+A0h] [rbp-9h] BYREF
   __int16 v18; // [rsp+A8h] [rbp-1h]
   __int64 v19; // [rsp+B0h] [rbp+7h] BYREF
   int v20; // [rsp+B8h] [rbp+Fh]
   int v21; // [rsp+BCh] [rbp+13h]
-  __int64 v22; // [rsp+C0h] [rbp+17h]
+  PVOID v22; // [rsp+C0h] [rbp+17h]
   int v23; // [rsp+C8h] [rbp+1Fh]
   int v24; // [rsp+CCh] [rbp+23h]
   __int64 v25; // [rsp+D0h] [rbp+27h]
   __int64 v26; // [rsp+D8h] [rbp+2Fh]
   GUID ActivityId; // [rsp+E0h] [rbp+37h] BYREF
 
-  Pool2 = ExAllocatePool2(256LL, 34536LL, 1953656900LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x86E8uLL, 0x74727044u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v4 = *(_QWORD *)(a1 + 40);
     v21 = 0;
@@ -49,31 +49,31 @@ void __fastcall SendBDDDiagTelemetry(__int64 a1)
     v19 = 0LL;
     v20 = 0;
     v25 = 0LL;
-    v22 = Pool2;
+    v22 = PoolWithTag;
     v23 = 34536;
     if ( (*(int (__fastcall **)(__int64, __int64 *))(v4 + 408))(v4, &v19) >= 0 )
     {
       ActivityId = 0LL;
       EtwActivityIdControl(3u, &ActivityId);
-      if ( (unsigned int)dword_1C013F918 > 5 )
+      if ( (unsigned int)dword_1C00B1A90 > 5 )
       {
-        if ( tlgKeywordOn((__int64)&dword_1C013F918, 0x400000000000LL) )
+        if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000000LL) )
         {
-          v12 = *(_DWORD *)(v3 + 34528);
-          v7 = *(_BYTE *)(v3 + 34524);
-          v8 = *(_BYTE *)(v3 + 34520);
-          v9 = *(_BYTE *)(v3 + 34516);
-          v10 = *(_BYTE *)(v3 + 34504);
-          v13 = *(_DWORD *)(v3 + 34512);
-          v14 = *(_DWORD *)(v3 + 34508);
-          v15 = *(_DWORD *)(v3 + 34500);
-          v16 = *(_DWORD *)(v3 + 34496);
-          v17 = v3 + 34432;
+          v12 = v3[8632];
+          v7 = *((_BYTE *)v3 + 34524);
+          v8 = *((_BYTE *)v3 + 34520);
+          v9 = *((_BYTE *)v3 + 34516);
+          v10 = *((_BYTE *)v3 + 34504);
+          v13 = v3[8628];
+          v14 = v3[8627];
+          v15 = v3[8625];
+          v16 = v3[8624];
+          v17 = (char *)(v3 + 8608);
           v18 = 64;
           v11[0] = 1;
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<1>,_tlgWrapperBinary,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>>(
             v5,
-            (unsigned int)&unk_1C00A97D1,
+            (unsigned int)&unk_1C008091F,
             (unsigned int)&ActivityId,
             v6,
             (__int64)v11,
@@ -90,6 +90,6 @@ void __fastcall SendBDDDiagTelemetry(__int64 a1)
         }
       }
     }
-    ExFreePoolWithTag((PVOID)v3, 0x74727044u);
+    ExFreePoolWithTag(v3, 0x74727044u);
   }
 }

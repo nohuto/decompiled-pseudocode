@@ -1,15 +1,15 @@
 /*
- * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140A5D834
+ * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140970200
  * Callers:
- *     BiExportBcdObjects @ 0x140A5E514 (BiExportBcdObjects.c)
+ *     BiExportBcdObjects @ 0x140971AE8 (BiExportBcdObjects.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x140807480 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
- *     BiGetElement @ 0x140A5C9A0 (BiGetElement.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783ACC (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BiGetElement @ 0x14096F590 (BiGetElement.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int6
   _QWORD *v6; // r8
   int v7; // r9d
   __int64 v8; // rcx
-  _OWORD *Pool2; // rax
+  _OWORD *PoolWithTag; // rax
   void *v10; // rbp
   void *v11; // rdx
   __int64 v12; // r8
@@ -65,13 +65,13 @@ LABEL_6:
     else
     {
 LABEL_11:
-      Pool2 = (_OWORD *)ExAllocatePool2(258LL, v5 + 16LL, 1262764866LL);
-      v10 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5 + 16LL, 0x4B444342u);
+      v10 = PoolWithTag;
+      if ( PoolWithTag )
       {
         v11 = Src;
-        *Pool2 = *(_OWORD *)(a2 + 16);
-        memmove(Pool2 + 1, v11, v5);
+        *PoolWithTag = *(_OWORD *)(a2 + 16);
+        memmove(PoolWithTag + 1, v11, v5);
         v3 = BcdSetElementDataWithFlags(v14, 0x24000001u, v12, (__int64)v10, v5 + 16);
         ExFreePoolWithTag(v10, 0x4B444342u);
       }

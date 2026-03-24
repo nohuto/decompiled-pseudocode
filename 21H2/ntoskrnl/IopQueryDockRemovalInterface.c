@@ -1,34 +1,36 @@
 /*
- * XREFs of IopQueryDockRemovalInterface @ 0x1409587F0
+ * XREFs of IopQueryDockRemovalInterface @ 0x1408B2C18
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryDockRemovalInterface(struct _DEVICE_OBJECT *a1, _QWORD *a2)
 {
-  _WORD *Pool2; // rax
-  _WORD *v5; // rbx
+  _OWORD *PoolWithTag; // rax
+  void *v5; // rbx
   int v7; // edi
   _QWORD v8[9]; // [rsp+30h] [rbp-78h] BYREF
   GUID v9; // [rsp+78h] [rbp-30h] BYREF
 
   v9 = GUID_DOCK_INTERFACE;
-  Pool2 = (_WORD *)ExAllocatePool2(256LL, 48LL, 538996816LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x20207050u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *Pool2 = 48;
+  *PoolWithTag = 0LL;
+  PoolWithTag[1] = 0LL;
+  PoolWithTag[2] = 0LL;
+  *(_WORD *)PoolWithTag = 48;
   memset(v8, 0, sizeof(v8));
   LOWORD(v8[0]) = 2075;
   v8[1] = &v9;
   LODWORD(v8[2]) = 48;
-  v5[1] = 0;
   v8[3] = v5;
   v8[4] = 0LL;
   v7 = IopSynchronousCall(a1, (__int64)v8, -1073741637, 0LL, 0LL);

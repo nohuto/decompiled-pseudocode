@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCanTokenMatchAllPackageSid @ 0x1400A6E00
+ * XREFs of SepCanTokenMatchAllPackageSid @ 0x1400A6E20
  * Callers:
- *     SepMatchPackage @ 0x1400ABBAC (SepMatchPackage.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
+ *     SepMatchPackage @ 0x1400ABBCC (SepMatchPackage.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExpAcquireResourceSharedLite @ 0x140050960 (ExpAcquireResourceSharedLite.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6F88 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     ExAcquireFastResourceShared @ 0x140165B40 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166344 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6FA8 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     ExAcquireFastResourceShared @ 0x140165B60 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166364 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

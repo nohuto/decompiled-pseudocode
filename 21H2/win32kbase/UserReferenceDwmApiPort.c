@@ -1,14 +1,14 @@
 /*
- * XREFs of UserReferenceDwmApiPort @ 0x1C0090B20
+ * XREFs of UserReferenceDwmApiPort @ 0x1C0049490
  * Callers:
- *     NtDCompositionRegisterThumbnailVisual @ 0x1C0006AA0 (NtDCompositionRegisterThumbnailVisual.c)
- *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C0211E50 (NtDCompositionRegisterVirtualDesktopVisual.c)
- *     NtDCompositionSetChildRootVisual @ 0x1C0212060 (NtDCompositionSetChildRootVisual.c)
- *     ?EmitSetBlurredWallpaperSurface@CConnection@DirectComposition@@AEAAJPEBUResourceObject@2@PEBUtagRECT@@@Z @ 0x1C0212E40 (-EmitSetBlurredWallpaperSurface@CConnection@DirectComposition@@AEAAJPEBUResourceObject@2@PEBUtag.c)
+ *     NtDCompositionRegisterThumbnailVisual @ 0x1C0003B00 (NtDCompositionRegisterThumbnailVisual.c)
+ *     NtDCompositionSendDwmLpcMessage @ 0x1C00CDD20 (NtDCompositionSendDwmLpcMessage.c)
+ *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C01D28C0 (NtDCompositionRegisterVirtualDesktopVisual.c)
+ *     NtDCompositionSetChildRootVisual @ 0x1C01D2A00 (NtDCompositionSetChildRootVisual.c)
  * Callees:
- *     GreLockDwmState @ 0x1C0030A10 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C0030A50 (GreUnlockDwmState.c)
- *     GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C0090B90 (GreIsSemaphoreOwnedOrSharedByCurrentThread.c)
+ *     GreLockDwmState @ 0x1C0047770 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C00477B0 (GreUnlockDwmState.c)
+ *     GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C0049500 (GreIsSemaphoreOwnedOrSharedByCurrentThread.c)
  */
 
 PVOID UserReferenceDwmApiPort()

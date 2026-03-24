@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildMultiSzStringListString @ 0x1403CCB34
+ * XREFs of AdtpBuildMultiSzStringListString @ 0x1403C0C00
  * Callers:
- *     AdtpPackageParameters @ 0x1403CC5E8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
  * Callees:
- *     AdtpEtwBuildDashString @ 0x1406EB810 (AdtpEtwBuildDashString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     AdtpEtwBuildDashString @ 0x1406C3DA0 (AdtpEtwBuildDashString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD *a2, _BYTE *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD
   unsigned int v10; // ebx
   unsigned int i; // edx
   unsigned __int64 v12; // rsi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   unsigned int v14; // ecx
   __int64 v16; // r8
   unsigned int v17; // ecx
@@ -51,13 +51,13 @@ __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD
     return 3221225621LL;
   if ( (unsigned int)v12 > 0xFFFF )
     return 3221225485LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, (unsigned int)v12, 1799447891LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v12, 0x6B416553u);
+  if ( PoolWithTag )
   {
     *a3 = 1;
     if ( v7 )
     {
-      *Pool2 = 0x90009000A000DLL;
+      *PoolWithTag = 0x90009000A000DLL;
       v6 = 4;
     }
     v14 = 0;
@@ -69,11 +69,11 @@ __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD
         v18 = *(_WORD *)(v16 + *((_QWORD *)a1 + 1));
         if ( v18 )
         {
-          *((_WORD *)Pool2 + v6++) = v18;
+          *((_WORD *)PoolWithTag + v6++) = v18;
         }
         else
         {
-          *(_QWORD *)((char *)Pool2 + 2 * v6) = 0x90009000A000DLL;
+          *(_QWORD *)((char *)PoolWithTag + 2 * v6) = 0x90009000A000DLL;
           if ( v6 + 4 < v6 )
             return 3221225621LL;
           v6 += 4;
@@ -83,8 +83,8 @@ __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD
       }
       while ( v14 < v9 );
     }
-    *((_WORD *)Pool2 + v10 - 1) = 0;
-    *a2 = Pool2;
+    *((_WORD *)PoolWithTag + v10 - 1) = 0;
+    *a2 = PoolWithTag;
     a2[1] = (unsigned int)v12;
     return 0LL;
   }

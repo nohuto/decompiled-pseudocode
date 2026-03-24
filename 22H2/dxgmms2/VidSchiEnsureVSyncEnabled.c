@@ -1,136 +1,118 @@
 /*
- * XREFs of VidSchiEnsureVSyncEnabled @ 0x1C00ADC00
+ * XREFs of VidSchiEnsureVSyncEnabled @ 0x1C007EA50
  * Callers:
- *     VidSchiSubmitCommandPacketToQueue @ 0x1C0006E60 (VidSchiSubmitCommandPacketToQueue.c)
- *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007CC0 (VidSchSignalSyncObjectsFromGpu.c)
- *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DB3E (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0007740 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007C30 (VidSchSignalSyncObjectsFromGpu.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C003C024 (VidSchiSubmitCommandPacketToHwQueue.c)
  * Callees:
- *     ?IncrementNumberOfQueuedFlipPerSource@@YAXPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C00062F0 (-IncrementNumberOfQueuedFlipPerSource@@YAXPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     VidSchIsVSyncEnabled @ 0x1C00AE9A0 (VidSchIsVSyncEnabled.c)
+ *     ?IncrementNumberOfQueuedFlipPerSource@@YAXPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015500 (-IncrementNumberOfQueuedFlipPerSource@@YAXPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     VidSchIsVSyncEnabled @ 0x1C0079F70 (VidSchIsVSyncEnabled.c)
  */
 
 void __fastcall VidSchiEnsureVSyncEnabled(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rbp
-  char v5; // r12
-  unsigned int v6; // r15d
+  bool v4; // si
+  __int64 v5; // r14
+  __int64 v6; // rbp
   int v7; // eax
   __int64 v8; // rcx
-  int v9; // eax
-  unsigned int v10; // edx
-  __int64 v11; // r8
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rax
   __int64 v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // r10
-  unsigned int v15; // r9d
-  bool v16; // zf
-  int v17; // eax
-  char v18; // cl
-  int v19; // eax
-  __int64 v20; // r13
-  unsigned int v21; // r8d
-  void (__fastcall *v22)(_QWORD, _QWORD); // rax
-  void (__fastcall *v23)(_QWORD); // rax
+  __int64 v13; // r10
+  unsigned int v14; // r9d
+  bool v15; // zf
+  int v16; // eax
+  char v17; // cl
+  int v18; // eax
+  void (__fastcall *v19)(_QWORD); // rax
+  void (__fastcall *v20)(_QWORD); // rax
 
+  v4 = *(_QWORD *)(a1 + 96) != 0LL;
+  v5 = *(_QWORD *)(a2 + 32);
+  v6 = *(unsigned int *)(a1 + 160);
   if ( *(_QWORD *)(a1 + 96) )
   {
-    v5 = 1;
-    v20 = *(_QWORD *)(a2 + 32);
-    v4 = v20;
-    v6 = *(_DWORD *)(a1 + 160);
-    if ( *(_DWORD *)(a1 + 48) == 3 )
+    if ( *(_DWORD *)(a1 + 48) == 3 && *(_DWORD *)(*(_QWORD *)(v5 + 8 * v6 + 3104) + 33288LL) != -1 )
     {
-      v21 = *(_DWORD *)(*(_QWORD *)(v20 + 8LL * *(unsigned int *)(a1 + 160) + 3200) + 44328LL);
-      if ( v21 != -1 )
-      {
-        v22 = *(void (__fastcall **)(_QWORD, _QWORD))(v20 + 3056);
-        if ( v22 )
-          v22(*(_QWORD *)(v20 + 3120), v21);
-      }
+      v19 = *(void (__fastcall **)(_QWORD))(v5 + 2960);
+      if ( v19 )
+        v19(*(_QWORD *)(v5 + 3024));
     }
   }
-  else
-  {
-    v4 = *(_QWORD *)(a2 + 32);
-    v5 = 0;
-    v6 = *(_DWORD *)(a1 + 160);
-  }
   if ( (*(_DWORD *)(a1 + 272) & 0x1000000) != 0
-    && *(_DWORD *)(*(_QWORD *)(v4 + 8LL * *(unsigned int *)(a1 + 388) + 3200) + 44328LL) != -1 )
+    && *(_DWORD *)(*(_QWORD *)(v5 + 8LL * *(unsigned int *)(a1 + 388) + 3104) + 33288LL) != -1 )
   {
-    v23 = *(void (__fastcall **)(_QWORD))(v4 + 3056);
-    if ( v23 )
-      v23(*(_QWORD *)(v4 + 3120));
+    v20 = *(void (__fastcall **)(_QWORD))(v5 + 2960);
+    if ( v20 )
+      v20(*(_QWORD *)(v5 + 3024));
   }
   if ( *(_DWORD *)(a1 + 48) == 3 && *(_DWORD *)(a1 + 160) != -1 )
   {
-    v12 = *(_QWORD *)(a1 + 88);
-    if ( v12 )
-      v13 = *(_QWORD *)(v12 + 104);
+    v11 = *(_QWORD *)(a1 + 88);
+    if ( v11 )
+      v12 = *(_QWORD *)(v11 + 104);
     else
-      v13 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 40LL) + 8LL);
-    v14 = *(_QWORD *)(v13 + 32);
+      v12 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 40LL) + 8LL);
+    v13 = *(_QWORD *)(v12 + 32);
     if ( (*(_DWORD *)(a1 + 72) & 0x800000) != 0 )
-      v15 = ((unsigned __int16)*(_DWORD *)(a1 + 872) | (unsigned __int16)(*(_DWORD *)(a1 + 872) >> 10)) & 0x3FF;
+      v14 = ((unsigned __int16)*(_DWORD *)(a1 + 848) | (unsigned __int16)(*(_DWORD *)(a1 + 848) >> 10)) & 0x3FF;
     else
-      v15 = (1 << *(_DWORD *)(v14 + 152)) - 1;
-    v16 = !_BitScanForward((unsigned int *)&v17, v15);
-    v18 = -1;
-    if ( !v16 )
-      v18 = v17;
-    while ( v15 )
+      v14 = (1 << *(_DWORD *)(v13 + 144)) - 1;
+    v15 = !_BitScanForward((unsigned int *)&v16, v14);
+    v17 = -1;
+    if ( !v15 )
+      v17 = v16;
+    while ( v14 )
     {
       _InterlockedExchangeAdd(
-        (volatile signed __int32 *)(*(_QWORD *)(v14 + 8LL * *(unsigned int *)(a1 + 160) + 3200) + 288LL * v18 + 192),
+        (volatile signed __int32 *)(*(_QWORD *)(v13 + 8LL * *(unsigned int *)(a1 + 160) + 3104) + 216LL * v17 + 176),
         1u);
-      v19 = 1 << v18;
-      v18 = -1;
-      v15 &= ~v19;
-      v16 = !_BitScanForward((unsigned int *)&v19, v15);
-      if ( !v16 )
-        v18 = v19;
+      v18 = 1 << v17;
+      v17 = -1;
+      v14 &= ~v18;
+      v15 = !_BitScanForward((unsigned int *)&v18, v14);
+      if ( !v15 )
+        v17 = v18;
     }
   }
   v7 = *(_DWORD *)(a1 + 72);
-  if ( (v7 & 0x1000) == 0 || (v7 & 0x400) != 0 && (v7 & 0x800) == 0 || v6 == -1 )
-    return;
-  if ( (v7 & 0x40000) != 0 )
+  if ( (v7 & 0x1000) != 0 && ((v7 & 0x400) == 0 || (v7 & 0x800) != 0) && (_DWORD)v6 != -1 )
   {
-    if ( (v7 & 0x1000000) == 0 )
-      return;
-    _InterlockedIncrement((volatile signed __int32 *)(v4 + 736));
-    IncrementNumberOfQueuedFlipPerSource((struct _VIDSCH_GLOBAL *)v4, v6);
-    _InterlockedIncrement((volatile signed __int32 *)(a2 + 1572));
-    _InterlockedIncrement((volatile signed __int32 *)(a2 + 4LL * v6 + 1508));
-    goto LABEL_40;
-  }
-  _InterlockedIncrement((volatile signed __int32 *)(a2 + 4LL * v6 + 1444));
-  v8 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 32LL)
-                             + 8LL * *(unsigned int *)(*(_QWORD *)(a2 + 32) + 4LL))
-                 + 8LL * v6
-                 + 88);
-  if ( (*(_DWORD *)(a1 + 72) & 0x80u) == 0 )
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v4 + 8LL * v6 + 6480) + 8LL));
-  _InterlockedIncrement((volatile signed __int32 *)(v8 + 8));
-  v9 = *(_DWORD *)(a1 + 72);
-  if ( (v9 & 4) != 0 )
-  {
-    _InterlockedIncrement((volatile signed __int32 *)(v4 + 736));
-    IncrementNumberOfQueuedFlipPerSource((struct _VIDSCH_GLOBAL *)v4, v6);
-    _InterlockedIncrement((volatile signed __int32 *)(a2 + 1572));
-    _InterlockedIncrement((volatile signed __int32 *)(a2 + 4 * v11 + 1508));
-    if ( !v5 )
-      return;
-LABEL_40:
-    if ( (*(_DWORD *)(a2 + 48) & 2) != 0 || *(int *)(a1 + 392) >= 4 || *(_BYTE *)(v4 + 156) )
-      goto LABEL_49;
-    return;
-  }
-  if ( v5 && !*(_DWORD *)(a1 + 48) && (v9 & 0x4000) != 0 && (*(_DWORD *)(a2 + 48) & 2) != 0 )
-  {
-    v10 = v6;
-LABEL_49:
-    VidSchIsVSyncEnabled((struct _VIDSCH_GLOBAL *)v4, v10);
+    if ( (v7 & 0x40000) != 0 )
+    {
+      if ( (v7 & 0x1000000) != 0 )
+      {
+        _InterlockedIncrement((volatile signed __int32 *)(v5 + 728));
+        IncrementNumberOfQueuedFlipPerSource((struct _VIDSCH_GLOBAL *)v5, v6);
+        _InterlockedIncrement((volatile signed __int32 *)(a2 + 1572));
+        _InterlockedIncrement((volatile signed __int32 *)(a2 + 4 * v6 + 1508));
+        if ( (*(_DWORD *)(a2 + 48) & 2) != 0 || *(int *)(a1 + 392) >= 4 || *(_BYTE *)(v5 + 148) )
+LABEL_46:
+          VidSchIsVSyncEnabled(v5, v9, v10);
+      }
+    }
+    else
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(a2 + 4 * v6 + 1444));
+      v8 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 40) + 24LL)
+                                 + 8LL * *(unsigned int *)(*(_QWORD *)(a2 + 32) + 4LL))
+                     + 8 * v6
+                     + 88);
+      if ( (*(_DWORD *)(a1 + 72) & 0x80u) == 0 )
+        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v5 + 8 * v6 + 6352) + 8LL));
+      _InterlockedIncrement((volatile signed __int32 *)(v8 + 8));
+      if ( (*(_DWORD *)(a1 + 72) & 4) != 0 )
+      {
+        _InterlockedIncrement((volatile signed __int32 *)(v5 + 728));
+        IncrementNumberOfQueuedFlipPerSource((struct _VIDSCH_GLOBAL *)v5, v6);
+        _InterlockedIncrement((volatile signed __int32 *)(a2 + 1572));
+        _InterlockedIncrement((volatile signed __int32 *)(a2 + 4 * v6 + 1508));
+        if ( v4 && ((*(_DWORD *)(a2 + 48) & 2) != 0 || *(int *)(a1 + 392) >= 4 || *(_BYTE *)(v5 + 148)) )
+          goto LABEL_46;
+      }
+    }
   }
 }

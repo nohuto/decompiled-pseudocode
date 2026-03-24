@@ -1,5 +1,5 @@
 /*
- * XREFs of PspGetMemoryPartitionFromJobList @ 0x140889C48
+ * XREFs of PspGetMemoryPartitionFromJobList @ 0x140889C28
  * Callers:
  *     PspGetMemoryPartitionContext @ 0x14060D560 (PspGetMemoryPartitionContext.c)
  * Callees:
@@ -7,7 +7,7 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PspGetMemoryPartitionFromJobList(__int64 a1, unsigned __int64 a2, PVOID *a3)

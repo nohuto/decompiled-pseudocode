@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkDdiQueryPhysicalFunctionLuid @ 0x1C0359EAC
+ * XREFs of DxgkDdiQueryPhysicalFunctionLuid @ 0x1C0231598
  * Callers:
- *     ?DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z @ 0x1C0065810 (-DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z.c)
- *     DpiFdoDispatchIoctl @ 0x1C01E6840 (DpiFdoDispatchIoctl.c)
+ *     ?DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z @ 0x1C0058BD0 (-DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z.c)
+ *     DpiFdoDispatchIoctl @ 0x1C02C8F20 (DpiFdoDispatchIoctl.c)
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
  */
 
 void __fastcall DxgkDdiQueryPhysicalFunctionLuid(char *a1, int a2, struct _LUID *a3)
@@ -15,9 +15,9 @@ void __fastcall DxgkDdiQueryPhysicalFunctionLuid(char *a1, int a2, struct _LUID 
   DWORD LowPart; // [rsp+30h] [rbp-18h]
 
   v3 = a2 == 1;
-  v5 = (struct _LUID *)(a1 + 404);
+  v5 = (struct _LUID *)(a1 + 316);
   if ( v3 )
-    v5 = (struct _LUID *)(a1 + 4436);
+    v5 = (struct _LUID *)(a1 + 4316);
   RtlCopyLuid(a3, v5);
   if ( bTracingEnabled )
   {

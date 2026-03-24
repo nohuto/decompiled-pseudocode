@@ -1,85 +1,101 @@
 /*
- * XREFs of PspInitializeFullProcessImageName @ 0x1406B3468
+ * XREFs of PspInitializeFullProcessImageName @ 0x14070F8F4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A22D0 (MiReferenceControlAreaFileWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     PspSetProcessShortName @ 0x1407CE968 (PspSetProcessShortName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     PspSetProcessShortName @ 0x1407107D4 (PspSetProcessShortName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v4; // r14
+  void *v4; // rdi
+  ULONG_PTR v5; // rsi
   int NameStringMode; // eax
-  signed int v6; // edi
-  __int64 v7; // rax
-  void *v8; // rbx
-  __int64 Pool2; // rax
-  __int64 v11; // rcx
-  unsigned __int64 v12; // rax
-  unsigned int v13; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v14; // [rsp+38h] [rbp-C8h] BYREF
+  int v7; // ebx
+  char *v8; // rax
+  PVOID PoolWithTag; // rax
+  PVOID v11; // rax
+  __int64 v12; // rcx
+  unsigned __int64 v13; // rax
+  SIZE_T NumberOfBytes; // [rsp+30h] [rbp-D0h] BYREF
+  __int128 v15; // [rsp+38h] [rbp-C8h] BYREF
   void *Src[34]; // [rsp+50h] [rbp-B0h] BYREF
 
   memset(Src, 0, sizeof(Src));
+  v4 = 0LL;
   if ( (*(_DWORD *)(a2 + 2172) & 1) != 0 )
-    goto LABEL_16;
+    goto LABEL_17;
   if ( a1 )
   {
-    v4 = *(_QWORD *)(a1 + 176);
+    v5 = *(_QWORD *)(a1 + 176);
   }
   else
   {
-    v11 = *(_QWORD *)(a2 + 1304);
-    if ( !v11 )
-      goto LABEL_16;
-    v12 = MiSectionControlArea(v11);
-    v4 = MiReferenceControlAreaFileWithTag(v12, 0x746C6644u);
+    v12 = *(_QWORD *)(a2 + 1304);
+    if ( !v12 )
+    {
+      v7 = -1073741637;
+      goto LABEL_11;
+    }
+    v13 = MiSectionControlArea(v12);
+    v5 = MiReferenceControlAreaFile(v13);
   }
-  v14 = *(_OWORD *)(v4 + 88);
-  PspSetProcessShortName(a2, &v14);
-  v13 = 272;
-  NameStringMode = ObQueryNameStringMode(v4, (unsigned int)Src, 272, (unsigned int)&v13, 0);
-  v6 = NameStringMode;
+  v15 = *(_OWORD *)(v5 + 88);
+  PspSetProcessShortName(a2, &v15);
+  LODWORD(NumberOfBytes) = 272;
+  NameStringMode = ObQueryNameStringMode(v5, (unsigned int)Src, 272, (unsigned int)&NumberOfBytes, 0);
+  v7 = NameStringMode;
   if ( NameStringMode == -2147483643 || NameStringMode == -1073741789 || NameStringMode == -1073741820 )
   {
-    if ( v13 > 0x110 )
-    {
-      Pool2 = ExAllocatePool2(64LL, v13, 1850307408LL);
-      v8 = (void *)Pool2;
-      if ( Pool2 )
-      {
-        v6 = ObQueryNameStringMode(v4, Pool2, v13, (unsigned int)&v13, 0);
-        if ( v6 >= 0 )
-          goto LABEL_11;
-        ExFreePoolWithTag(v8, 0);
-      }
-    }
-LABEL_16:
-    v13 = 16;
-    v8 = (void *)ExAllocatePool2(64LL, 16LL, 1850307408LL);
-    v6 = v8 == 0LL ? 0xC0000017 : 0;
-    goto LABEL_11;
-  }
-  if ( NameStringMode < 0 )
-    goto LABEL_16;
-  if ( v13 - 17 > 0xFF )
-    goto LABEL_16;
-  v7 = ExAllocatePool2(64LL, v13, 1850307408LL);
-  v8 = (void *)v7;
-  if ( !v7 )
-    goto LABEL_16;
-  *(_OWORD *)v7 = *(_OWORD *)Src;
-  *(_QWORD *)(v7 + 8) = v7 + 16;
-  memmove((void *)(v7 + 16), Src[1], WORD1(Src[0]));
+    if ( (unsigned int)NumberOfBytes <= 0x110 )
+      goto LABEL_17;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x6E497350u);
+    v4 = PoolWithTag;
+    if ( !PoolWithTag )
+      goto LABEL_17;
+    v7 = ObQueryNameStringMode(v5, (_DWORD)PoolWithTag, NumberOfBytes, (unsigned int)&NumberOfBytes, 0);
+    if ( v7 >= 0 )
+      goto LABEL_12;
+    ExFreePoolWithTag(v4, 0);
 LABEL_11:
-  *(_QWORD *)(a2 + 1472) = v8;
-  return (unsigned int)v6;
+    if ( v7 >= 0 )
+      goto LABEL_12;
+    goto LABEL_17;
+  }
+  if ( NameStringMode >= 0 && (unsigned int)(NumberOfBytes - 17) <= 0xFF )
+  {
+    v8 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x6E497350u);
+    v4 = v8;
+    if ( v8 )
+    {
+      *(_OWORD *)v8 = *(_OWORD *)Src;
+      *((_QWORD *)v8 + 1) = v8 + 16;
+      memmove(v8 + 16, Src[1], WORD1(Src[0]));
+      goto LABEL_11;
+    }
+  }
+LABEL_17:
+  LODWORD(NumberOfBytes) = 16;
+  v11 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x6E497350u);
+  v4 = v11;
+  if ( v11 )
+  {
+    memset(v11, 0, (unsigned int)NumberOfBytes);
+    v7 = 0;
+  }
+  else
+  {
+    v7 = -1073741801;
+  }
+LABEL_12:
+  *(_QWORD *)(a2 + 1472) = v4;
+  return (unsigned int)v7;
 }

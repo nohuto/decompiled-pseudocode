@@ -3,7 +3,7 @@
  * Callers:
  *     CmpSetSystemBiosInformation @ 0x1409C25D4 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
  */
 
 char __fastcall CmpGetAcpiBiosVersion(__int64 a1, char *a2)

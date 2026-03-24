@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwLockVirtualMemory @ 0x14041C940
+ * XREFs of ZwLockVirtualMemory @ 0x1403FBBE0
  * Callers:
- *     CmSiLockViewOfSection @ 0x140207D4C (CmSiLockViewOfSection.c)
- *     SmKmVirtualLockCtxLockMemory @ 0x1405CC134 (SmKmVirtualLockCtxLockMemory.c)
+ *     CmSiLockViewOfSection @ 0x140362260 (CmSiLockViewOfSection.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x14059E7A0 (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
  *     <none>
  */

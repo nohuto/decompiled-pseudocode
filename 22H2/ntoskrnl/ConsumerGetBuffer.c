@@ -1,24 +1,21 @@
 /*
- * XREFs of ConsumerGetBuffer @ 0x140AA1734
+ * XREFs of ConsumerGetBuffer @ 0x14099492C
  * Callers:
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
  * Callees:
- *     PopHiberCheckForDebugBreak @ 0x140AA2F14 (PopHiberCheckForDebugBreak.c)
+ *     PopHiberCheckForDebugBreak @ 0x140994FFC (PopHiberCheckForDebugBreak.c)
  */
 
 unsigned __int64 __fastcall ConsumerGetBuffer(__int64 a1, unsigned int *a2, char a3)
 {
-  int v6; // eax
-  unsigned int v7; // edx
-  unsigned int v8; // ecx
-  unsigned int v9; // eax
-  __int64 v10; // r9
-  int v11; // eax
-  unsigned int v12; // edx
-  unsigned int v13; // ecx
-  unsigned int v14; // eax
+  int v6; // edx
+  unsigned int v7; // ecx
+  unsigned int v8; // r9d
   unsigned __int64 result; // rax
-  unsigned __int64 v16; // r8
+  int v10; // eax
+  unsigned int v11; // edx
+  unsigned int v12; // ecx
+  unsigned int v13; // eax
 
   while ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), 1, 0) )
   {
@@ -33,36 +30,34 @@ unsigned __int64 __fastcall ConsumerGetBuffer(__int64 a1, unsigned int *a2, char
   {
     v6 = *(_DWORD *)(a1 + 48);
     v7 = *(_DWORD *)(a1 + 40) - v6;
+    v8 = *a2;
     if ( !*(_QWORD *)(a1 + 16) )
     {
-      v8 = *(_DWORD *)(a1 + 32) - v6;
-      v9 = *a2;
-      if ( *a2 >= v8 )
-        v9 = v8;
-      *a2 = v9;
+      if ( v8 >= *(_DWORD *)(a1 + 32) - v6 )
+        v8 = *(_DWORD *)(a1 + 32) - v6;
+      *a2 = v8;
     }
-    v10 = *a2;
-    if ( (unsigned int)v10 <= v7 )
+    if ( v8 <= v7 )
       break;
     if ( (a3 & 1) != 0 )
-      goto LABEL_20;
+      goto LABEL_5;
     *(_DWORD *)(a1 + 24) = 0;
     do
     {
       _mm_pause();
       PopHiberCheckForDebugBreak();
-      v11 = *(_DWORD *)(a1 + 48);
-      v12 = *(_DWORD *)(a1 + 40) - v11;
+      v10 = *(_DWORD *)(a1 + 48);
+      v11 = *(_DWORD *)(a1 + 40) - v10;
       if ( !*(_QWORD *)(a1 + 16) )
       {
-        v13 = *(_DWORD *)(a1 + 32) - v11;
-        v14 = *a2;
-        if ( *a2 >= v13 )
-          v14 = v13;
-        *a2 = v14;
+        v12 = *(_DWORD *)(a1 + 32) - v10;
+        v13 = *a2;
+        if ( *a2 >= v12 )
+          v13 = v12;
+        *a2 = v13;
       }
     }
-    while ( *a2 > v12 );
+    while ( *a2 > v11 );
     while ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), 1, 0) )
     {
       do
@@ -73,16 +68,15 @@ unsigned __int64 __fastcall ConsumerGetBuffer(__int64 a1, unsigned int *a2, char
       while ( *(_DWORD *)(a1 + 24) );
     }
   }
-  if ( !(_DWORD)v10 )
+  if ( !v8 )
   {
-LABEL_20:
+LABEL_5:
     result = 0LL;
-    goto LABEL_23;
+    goto LABEL_6;
   }
-  v16 = *(_QWORD *)(a1 + 48);
-  result = *(_QWORD *)a1 + v16 % *(unsigned int *)(a1 + 8);
-  *(_QWORD *)(a1 + 48) = v16 + v10;
-LABEL_23:
+  result = *(_QWORD *)a1 + *(_QWORD *)(a1 + 48) % (unsigned __int64)*(unsigned int *)(a1 + 8);
+  *(_QWORD *)(a1 + 48) += v8;
+LABEL_6:
   *(_DWORD *)(a1 + 24) = 0;
   return result;
 }

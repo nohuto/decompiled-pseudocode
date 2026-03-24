@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSetTimer2 @ 0x140339520
+ * XREFs of NtSetTimer2 @ 0x140349130
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetTimer2 @ 0x140339550 (ExpSetTimer2.c)
+ *     ExpSetTimer2 @ 0x140349154 (ExpSetTimer2.c)
  */
 
 __int64 __fastcall NtSetTimer2(void *a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWalkWowStack @ 0x140201780
+ * XREFs of RtlpWalkWowStack @ 0x1402CCFC4
  * Callers:
- *     RtlpWalkFrameChain @ 0x140296110 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 char __fastcall RtlpWalkWowStack(
@@ -83,11 +83,8 @@ char __fastcall RtlpWalkWowStack(
     v18 = *(unsigned int *)(a7 + 4LL);
     if ( (unsigned int)v18 < v10 && a8 <= (unsigned int)v18 )
       break;
-    if ( v18 >= KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[5]
-      || (unsigned int)v18 < 0x10000 )
-    {
+    if ( v18 >= KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[5] || (unsigned int)v18 < 0x10000 )
       break;
-    }
     if ( v11 >= a6 )
       *(_QWORD *)(a1 + 8LL * (v11 - a6)) = *(unsigned int *)(a7 + 4LL);
     if ( a7 >= v17 || (v10 = v21, v17 >= v21) )

@@ -1,12 +1,12 @@
 /*
- * XREFs of GreScaleValues @ 0x1C029D9E4
+ * XREFs of GreScaleValues @ 0x1C029F0E0
  * Callers:
- *     NtGdiScaleValues @ 0x1C02AE610 (NtGdiScaleValues.c)
+ *     NtGdiScaleValues @ 0x1C02AFF20 (NtGdiScaleValues.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1C0139224 (-GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1C0147F44 (-GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreScaleValues(HDC a1, int *a2, unsigned int a3)

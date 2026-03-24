@@ -1,5 +1,5 @@
 /*
- * XREFs of ESM_AcknowledgingControllerResetCompleteInDisabled @ 0x1C004F390
+ * XREFs of ESM_AcknowledgingControllerResetCompleteInDisabled @ 0x1C004E900
  * Callers:
  *     <none>
  * Callees:

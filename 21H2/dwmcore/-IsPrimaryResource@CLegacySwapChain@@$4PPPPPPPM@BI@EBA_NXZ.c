@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsPrimaryResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NXZ @ 0x18010A070
+ * XREFs of ?IsPrimaryResource@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NXZ @ 0x1800F7A80
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 char __fastcall CLegacySwapChain::IsPrimaryResource(__int64 a1)
 {
-  return CDDisplaySwapChain::IsPrimaryResource((CDDisplaySwapChain *)(a1 - *(int *)(a1 - 4) - 24));
+  return CDesktopTree::IsDesktop((CDesktopTree *)(a1 - *(int *)(a1 - 4) - 24));
 }

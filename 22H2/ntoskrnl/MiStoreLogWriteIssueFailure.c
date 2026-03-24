@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteIssueFailure @ 0x14065C540
+ * XREFs of MiStoreLogWriteIssueFailure @ 0x140554724
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046D44A (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14032F960 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 a4, int a5, int a6)
@@ -14,41 +14,41 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 
   int v9; // r9d
   __int64 v10; // r10
   __int64 *v11; // r11
-  int v12; // [rsp+20h] [rbp-E0h]
-  int v13; // [rsp+28h] [rbp-D8h]
-  int v14; // [rsp+40h] [rbp-C0h] BYREF
-  int v15; // [rsp+44h] [rbp-BCh] BYREF
-  int v16; // [rsp+48h] [rbp-B8h] BYREF
-  int v17; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v18; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v19; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v20; // [rsp+60h] [rbp-A0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v21; // [rsp+70h] [rbp-90h] BYREF
-  int *v22; // [rsp+90h] [rbp-70h]
-  int v23; // [rsp+98h] [rbp-68h]
-  int v24; // [rsp+9Ch] [rbp-64h]
-  __int64 *v25; // [rsp+A0h] [rbp-60h]
-  int v26; // [rsp+A8h] [rbp-58h]
-  int v27; // [rsp+ACh] [rbp-54h]
-  __int64 *v28; // [rsp+B0h] [rbp-50h]
-  int v29; // [rsp+B8h] [rbp-48h]
-  int v30; // [rsp+BCh] [rbp-44h]
-  int *v31; // [rsp+C0h] [rbp-40h]
-  int v32; // [rsp+C8h] [rbp-38h]
-  int v33; // [rsp+CCh] [rbp-34h]
-  int *v34; // [rsp+D0h] [rbp-30h]
-  int v35; // [rsp+D8h] [rbp-28h]
-  int v36; // [rsp+DCh] [rbp-24h]
-  int *v37; // [rsp+E0h] [rbp-20h]
-  int v38; // [rsp+E8h] [rbp-18h]
-  int v39; // [rsp+ECh] [rbp-14h]
-  int *v40; // [rsp+F0h] [rbp-10h]
-  int v41; // [rsp+F8h] [rbp-8h]
-  int v42; // [rsp+FCh] [rbp-4h]
+  int v12; // [rsp+20h] [rbp-F8h]
+  int v13; // [rsp+28h] [rbp-F0h]
+  int v14; // [rsp+40h] [rbp-D8h] BYREF
+  int v15; // [rsp+44h] [rbp-D4h] BYREF
+  int v16; // [rsp+48h] [rbp-D0h] BYREF
+  int v17; // [rsp+4Ch] [rbp-CCh] BYREF
+  int v18; // [rsp+50h] [rbp-C8h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-C0h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-B8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v21; // [rsp+70h] [rbp-A8h] BYREF
+  int *v22; // [rsp+90h] [rbp-88h]
+  int v23; // [rsp+98h] [rbp-80h]
+  int v24; // [rsp+9Ch] [rbp-7Ch]
+  __int64 *v25; // [rsp+A0h] [rbp-78h]
+  int v26; // [rsp+A8h] [rbp-70h]
+  int v27; // [rsp+ACh] [rbp-6Ch]
+  __int64 *v28; // [rsp+B0h] [rbp-68h]
+  int v29; // [rsp+B8h] [rbp-60h]
+  int v30; // [rsp+BCh] [rbp-5Ch]
+  int *v31; // [rsp+C0h] [rbp-58h]
+  int v32; // [rsp+C8h] [rbp-50h]
+  int v33; // [rsp+CCh] [rbp-4Ch]
+  int *v34; // [rsp+D0h] [rbp-48h]
+  int v35; // [rsp+D8h] [rbp-40h]
+  int v36; // [rsp+DCh] [rbp-3Ch]
+  int *v37; // [rsp+E0h] [rbp-38h]
+  int v38; // [rsp+E8h] [rbp-30h]
+  int v39; // [rsp+ECh] [rbp-2Ch]
+  int *v40; // [rsp+F0h] [rbp-28h]
+  int v41; // [rsp+F8h] [rbp-20h]
+  int v42; // [rsp+FCh] [rbp-1Ch]
 
-  if ( *(_QWORD *)&qword_140C699E8 && **(_DWORD **)&qword_140C699E8 > 5u )
+  if ( *(_QWORD *)&qword_140C4EEE0 && **(_DWORD **)&qword_140C4EEE0 > 5u )
   {
-    if ( tlgKeywordOn(*(__int64 *)&qword_140C699E8, 2LL) )
+    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 2LL) )
     {
       v24 = 0;
       v27 = 0;
@@ -78,7 +78,7 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 
       v41 = 4;
       v14 = a1;
       v15 = a3;
-      tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&byte_140039981, v8, 1u, v12, v13, 9u, &v21);
+      tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&byte_140026B67, v8, 1u, v12, v13, 9u, &v21);
     }
   }
 }

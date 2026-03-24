@@ -1,18 +1,25 @@
 /*
- * XREFs of DwmAsyncChildStyleChange @ 0x1C006986C
+ * XREFs of DwmAsyncChildStyleChange @ 0x1C004E0F0
  * Callers:
- *     ComposeWindowIfNeeded @ 0x1C00202CC (ComposeWindowIfNeeded.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0068C00 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     xxxSetLayeredWindow @ 0x1C0082DD4 (xxxSetLayeredWindow.c)
- *     DecomposeWindowIfNeeded @ 0x1C00B3750 (DecomposeWindowIfNeeded.c)
- *     ComposeWindow @ 0x1C00B37D8 (ComposeWindow.c)
- *     UnsetLayeredWindow @ 0x1C00B3964 (UnsetLayeredWindow.c)
- *     xxxGetSystemMenu @ 0x1C00BC098 (xxxGetSystemMenu.c)
- *     xxxEnableMenuItem @ 0x1C00BC4A0 (xxxEnableMenuItem.c)
- *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00C20C0 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
+ *     DecomposeWindowIfNeeded @ 0x1C0035334 (DecomposeWindowIfNeeded.c)
+ *     ComposeWindow @ 0x1C00353BC (ComposeWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0035DC0 (xxxSetLayeredWindow.c)
+ *     xxxEnableMenuItem @ 0x1C0046FB0 (xxxEnableMenuItem.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00473F8 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00477F8 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxCalcClientRect @ 0x1C004A8A0 (xxxCalcClientRect.c)
+ *     ComposeWindowIfNeeded @ 0x1C004C300 (ComposeWindowIfNeeded.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxDoPaint @ 0x1C00534A8 (xxxDoPaint.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D840 (xxxSimpleDoSyncPaint.c)
+ *     InternalInvalidate3 @ 0x1C0074764 (InternalInvalidate3.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     ClearHungFlag @ 0x1C007BEC8 (ClearHungFlag.c)
+ *     xxxGetSystemMenu @ 0x1C00DC8C4 (xxxGetSystemMenu.c)
+ *     UnsetLayeredWindow @ 0x1C00EF178 (UnsetLayeredWindow.c)
+ *     xxxSetScrollBar @ 0x1C00F6058 (xxxSetScrollBar.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
  * Callees:
  *     <none>
  */

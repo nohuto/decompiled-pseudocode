@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSharedHandle@CHolographicInteropTexture@@UEAAJIIPEAPEAX@Z @ 0x18029B910
+ * XREFs of ?GetSharedHandle@CHolographicInteropTexture@@UEAAJIIPEAPEAX@Z @ 0x1802593C0
  * Callers:
  *     <none>
  * Callees:
@@ -17,13 +17,13 @@ __int64 __fastcall CHolographicInteropTexture::GetSharedHandle(
   __int64 v7; // r15
   unsigned int v8; // edi
 
-  v4 = this + 41;
+  v4 = this + 40;
   v5 = a3;
   v7 = a2;
   v8 = 0;
   *a4 = 0LL;
-  AcquireSRWLockShared(this + 41);
-  if ( (unsigned int)v7 >= HIDWORD(this[20].Ptr) || (unsigned int)v5 >= LODWORD(this[21].Ptr) )
+  AcquireSRWLockShared(this + 40);
+  if ( (unsigned int)v7 >= HIDWORD(this[19].Ptr) || (unsigned int)v5 >= LODWORD(this[20].Ptr) )
   {
     v8 = -2147024809;
   }
@@ -35,7 +35,7 @@ __int64 __fastcall CHolographicInteropTexture::GetSharedHandle(
       __debugbreak();
     }
     _mm_lfence();
-    *a4 = (void *)*((_QWORD *)this[v5 + 16].Ptr + 12 * v7 + 1);
+    *a4 = (void *)*((_QWORD *)this[v5 + 15].Ptr + 12 * v7 + 1);
   }
   ReleaseSRWLockShared(v4);
   return v8;

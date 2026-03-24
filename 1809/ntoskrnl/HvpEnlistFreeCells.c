@@ -2,10 +2,10 @@
  * XREFs of HvpEnlistFreeCells @ 0x1405F9800
  * Callers:
  *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14073CFFC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x14073CFDC (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
  *     HvpEnlistFreeCell @ 0x1405FAF0C (HvpEnlistFreeCell.c)
  */

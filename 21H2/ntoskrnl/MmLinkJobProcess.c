@@ -1,47 +1,46 @@
 /*
- * XREFs of MmLinkJobProcess @ 0x1406825AC
+ * XREFs of MmLinkJobProcess @ 0x14071FCB8
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1406822EC (PspEstablishJobHierarchy.c)
+ *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     MiRemoveSharedCommitNode @ 0x1406FC2F0 (MiRemoveSharedCommitNode.c)
- *     MiInsertSharedCommitNode @ 0x1406FC590 (MiInsertSharedCommitNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiRemoveSharedCommitNode @ 0x1406EB4E0 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x1406EB750 (MiInsertSharedCommitNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-char __fastcall MmLinkJobProcess(__int64 a1, __int64 a2)
+char __fastcall MmLinkJobProcess(__int64 a1, unsigned __int64 a2)
 {
   int inserted; // r15d
-  struct _KTHREAD *CurrentThread; // r13
+  __int64 v4; // r13
   volatile signed __int64 *v5; // r12
   _QWORD *v6; // rsi
-  _QWORD *i; // r14
+  _QWORD *v7; // r14
+  __int64 v8; // r13
   _QWORD *Pool; // rax
-  __int64 ***v9; // rax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rax
-  _QWORD *v13; // rdx
+  __int64 ***v10; // rax
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rdx
+  _QWORD *v13; // rax
   __int64 *v14; // rax
   __int64 *v15; // rcx
   __int64 *v16; // rsi
-  __int64 v17; // r14
-  bool v18; // zf
-  $CEA84C04E3712D858E5667A507841A2A *v19; // rax
+  _QWORD *v17; // r14
   __int64 *v20; // rcx
   __int64 *v21; // rax
-  __int64 j; // rsi
-  __int64 *v24; // [rsp+20h] [rbp-10h] BYREF
-  __int64 **v25; // [rsp+28h] [rbp-8h]
-  __int64 v27; // [rsp+78h] [rbp+48h]
+  unsigned __int64 i; // rsi
+  __int64 *v23; // [rsp+20h] [rbp-10h] BYREF
+  __int64 **v24; // [rsp+28h] [rbp-8h]
+  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp+48h]
 
   inserted = 0;
-  v25 = &v24;
-  v24 = (__int64 *)&v24;
+  v24 = &v23;
+  v23 = (__int64 *)&v23;
+  v4 = a1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   v5 = (volatile signed __int64 *)(a2 + 2352);
@@ -49,51 +48,49 @@ char __fastcall MmLinkJobProcess(__int64 a1, __int64 a2)
   if ( (*(_DWORD *)(a2 + 2172) & 0x10) == 0 )
   {
     v6 = (_QWORD *)(a2 + 2360);
-    for ( i = *(_QWORD **)(a2 + 2360); i != v6; i = (_QWORD *)*i )
+    v7 = *(_QWORD **)(a2 + 2360);
+    if ( v7 != (_QWORD *)(a2 + 2360) )
     {
-      v27 = i[2];
-      Pool = MiAllocatePool(256, 0x40uLL, 0x6E53694Du);
-      if ( !Pool )
+      while ( 1 )
       {
-        inserted = -1073741670;
-        break;
+        v8 = v7[2];
+        Pool = MiAllocatePool(256, 0x40uLL, 0x6E53694Du);
+        if ( !Pool )
+          break;
+        Pool[7] = v8;
+        Pool[4] = *(v7 - 1);
+        v10 = (__int64 ***)(Pool + 5);
+        v11 = v24;
+        if ( *v24 != (__int64 *)&v23 )
+          goto LABEL_35;
+        v10[1] = v24;
+        *v10 = &v23;
+        *v11 = v10;
+        v24 = (__int64 **)v10;
+        v7 = (_QWORD *)*v7;
+        if ( v7 == v6 )
+          goto LABEL_6;
       }
-      Pool[7] = v27;
-      Pool[4] = *(i - 1);
-      v9 = (__int64 ***)(Pool + 5);
-      v10 = v25;
-      if ( *v25 != (__int64 *)&v24 )
-        goto LABEL_40;
-      v9[1] = v25;
-      *v9 = &v24;
-      *v10 = v9;
-      v25 = (__int64 **)v9;
+      inserted = -1073741670;
+LABEL_6:
+      v4 = a1;
     }
-    v11 = (_QWORD *)*v6;
-    if ( (_QWORD *)*v6 != v6 )
-    {
-      do
-      {
-        MiRemoveSharedCommitNode(v11[2], a2, 1LL);
-        v11 = (_QWORD *)*v6;
-      }
-      while ( (_QWORD *)*v6 != v6 );
-      v5 = (volatile signed __int64 *)(a2 + 2352);
-    }
+    while ( (_QWORD *)*v6 != v6 )
+      MiRemoveSharedCommitNode(*(_QWORD **)(*v6 + 16LL), a2, 1);
     if ( inserted < 0 )
     {
       while ( 1 )
       {
-        v20 = v24;
-        if ( v24 == (__int64 *)&v24 )
+        v20 = v23;
+        if ( v23 == (__int64 *)&v23 )
           break;
-        if ( (__int64 **)v24[1] != &v24 )
-          goto LABEL_40;
-        v21 = (__int64 *)*v24;
-        if ( *(__int64 **)(*v24 + 8) != v24 )
-          goto LABEL_40;
-        v24 = (__int64 *)*v24;
-        v21[1] = (__int64)&v24;
+        if ( (__int64 **)v23[1] != &v23 )
+          goto LABEL_35;
+        v21 = (__int64 *)*v23;
+        if ( *(__int64 **)(*v23 + 8) != v23 )
+          goto LABEL_35;
+        v23 = (__int64 *)*v23;
+        v21[1] = (__int64)&v23;
         ExFreePoolWithTag(v20 - 5, 0);
       }
     }
@@ -102,63 +99,54 @@ char __fastcall MmLinkJobProcess(__int64 a1, __int64 a2)
       _InterlockedOr((volatile signed __int32 *)(a2 + 2172), 8u);
     }
   }
-  v12 = (_QWORD *)(a2 + 1480);
-  v13 = *(_QWORD **)(a1 + 48);
-  if ( *v13 != a1 + 40 )
-LABEL_40:
+  v12 = *(_QWORD **)(v4 + 48);
+  v13 = (_QWORD *)(a2 + 1480);
+  if ( *v12 != v4 + 40 )
+LABEL_35:
     __fastfail(3u);
-  *v12 = a1 + 40;
-  *(_QWORD *)(a2 + 1488) = v13;
-  *v13 = v12;
-  *(_QWORD *)(a1 + 48) = v12;
-  *(_QWORD *)(a2 + 1296) = a1;
+  *v13 = v4 + 40;
+  *(_QWORD *)(a2 + 1488) = v12;
+  *v12 = v13;
+  *(_QWORD *)(v4 + 48) = v13;
+  *(_QWORD *)(a2 + 1296) = v4;
   while ( 1 )
   {
-    v14 = v24;
-    if ( v24 == (__int64 *)&v24 )
+    v14 = v23;
+    if ( v23 == (__int64 *)&v23 )
       break;
-    if ( (__int64 **)v24[1] != &v24 )
-      goto LABEL_40;
-    v15 = (__int64 *)*v24;
-    if ( *(__int64 **)(*v24 + 8) != v24 )
-      goto LABEL_40;
-    v24 = (__int64 *)*v24;
-    v15[1] = (__int64)&v24;
+    if ( (__int64 **)v23[1] != &v23 )
+      goto LABEL_35;
+    v15 = (__int64 *)*v23;
+    if ( *(__int64 **)(*v23 + 8) != v23 )
+      goto LABEL_35;
+    v23 = (__int64 *)*v23;
+    v15[1] = (__int64)&v23;
     v16 = v14 - 5;
     if ( inserted >= 0 )
     {
-      v17 = v16[7];
+      v17 = (_QWORD *)v16[7];
       if ( v16[4] )
       {
         do
         {
-          inserted = MiInsertSharedCommitNode(v17, a2, 1LL);
+          inserted = MiInsertSharedCommitNode(v17, a2, 1);
           if ( inserted < 0 )
             break;
-          v18 = v16[4]-- == 1;
         }
-        while ( !v18 );
-        v5 = (volatile signed __int64 *)(a2 + 2352);
+        while ( v16[4]-- != 1 );
       }
     }
     ExFreePoolWithTag(v16, 0);
   }
   if ( inserted < 0 )
   {
-    for ( j = a2 + 2360; *(_QWORD *)j != j; MiRemoveSharedCommitNode(*(_QWORD *)(*(_QWORD *)j + 16LL), a2, 1LL) )
+    for ( i = a2 + 2360; *(_QWORD *)i != i; MiRemoveSharedCommitNode(*(_QWORD **)(*(_QWORD *)i + 16LL), a2, 1) )
       ;
     _InterlockedAnd((volatile signed __int32 *)(a2 + 2172), 0xFFFFFFF7);
     _InterlockedOr((volatile signed __int32 *)(a2 + 2172), 0x10u);
   }
   if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v5);
-  LOBYTE(v19) = KeAbPostRelease((ULONG_PTR)v5);
-  v18 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v18 )
-  {
-    v19 = &CurrentThread->152;
-    if ( ($CEA84C04E3712D858E5667A507841A2A *)v19->ApcState.ApcListHead[0].Flink != v19 )
-      LOBYTE(v19) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v19;
+  KeAbPostRelease((ULONG_PTR)v5);
+  return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 }

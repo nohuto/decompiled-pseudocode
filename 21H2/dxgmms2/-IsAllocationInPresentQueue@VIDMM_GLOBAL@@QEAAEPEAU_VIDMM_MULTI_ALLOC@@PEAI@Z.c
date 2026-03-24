@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00A963C
+ * XREFs of ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00B0BD8
  * Callers:
- *     VidMmIsAllocationInPresentQueue @ 0x1C002D340 (VidMmIsAllocationInPresentQueue.c)
- *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00A5CE0 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
+ *     VidMmIsAllocationInPresentQueue @ 0x1C0022E40 (VidMmIsAllocationInPresentQueue.c)
+ *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C0089E80 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
  * Callees:
- *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C0017D88 (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
+ *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C00159EC (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
  */
 
 char __fastcall VIDMM_GLOBAL::IsAllocationInPresentQueue(
@@ -13,25 +13,25 @@ char __fastcall VIDMM_GLOBAL::IsAllocationInPresentQueue(
         unsigned int *a3)
 {
   _VIDMM_GLOBAL_ALLOC_NONPAGED **v3; // r10
+  char v4; // r9
   bool HasOutstandingPresentReferences; // al
-  char v5; // r11
-  char v6; // cl
-  char v7; // r9
+  char v6; // r11
+  char v7; // cl
 
   v3 = a2;
-  if ( *((int *)a2 + 26) > 0 )
+  if ( *((int *)a2 + 26) <= 0 )
   {
-    v7 = 1;
+    HasOutstandingPresentReferences = _VIDMM_GLOBAL_ALLOC_NONPAGED::HasOutstandingPresentReferences(a2[12]);
+    v7 = v6;
+    if ( HasOutstandingPresentReferences )
+      v7 = 1;
+    v4 = v7;
   }
   else
   {
-    HasOutstandingPresentReferences = _VIDMM_GLOBAL_ALLOC_NONPAGED::HasOutstandingPresentReferences(a2[12]);
-    v6 = v5;
-    if ( HasOutstandingPresentReferences )
-      v6 = v5 + 1;
-    v7 = v6;
+    v4 = 1;
   }
   if ( a3 )
     *a3 = *((_DWORD *)v3[12] + 3);
-  return v7;
+  return v4;
 }

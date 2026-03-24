@@ -1,62 +1,60 @@
 /*
- * XREFs of vDynamicConvertNewSurfaceDCs @ 0x1C0061570
+ * XREFs of vDynamicConvertNewSurfaceDCs @ 0x1C000D7B0
  * Callers:
- *     bDynamicProcessAllDriverRealizations @ 0x1C00617A0 (bDynamicProcessAllDriverRealizations.c)
- *     pProcessDfbSurfacesInternal @ 0x1C0061CD0 (pProcessDfbSurfacesInternal.c)
+ *     bDynamicProcessAllDriverRealizations @ 0x1C000D9A0 (bDynamicProcessAllDriverRealizations.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C00BE530 (pProcessDfbSurfacesInternal.c)
  * Callees:
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C001CA20 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C0021710 (HmgDecrementShareReferenceCountEx.c)
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
- *     HmgSafeNextObjt @ 0x1C0061900 (HmgSafeNextObjt.c)
- *     HmgQueryAltLock @ 0x1C00C1310 (HmgQueryAltLock.c)
- *     HmgIncrementShareReferenceCount @ 0x1C00CB950 (HmgIncrementShareReferenceCount.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00CBE2C (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     HmgQueryAltLock @ 0x1C000CA10 (HmgQueryAltLock.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000CA70 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     HmgSafeNextObjt @ 0x1C000DB10 (HmgSafeNextObjt.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00204F8 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     HmgIncrementShareReferenceCount @ 0x1C002CD50 (HmgIncrementShareReferenceCount.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002E210 (HmgDecrementShareReferenceCountEx.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
  */
 
-__int64 __fastcall vDynamicConvertNewSurfaceDCs(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall vDynamicConvertNewSurfaceDCs(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rbx
-  __int64 v5; // rdx
+  __int64 v2; // rbx
+  __int64 v4; // rdx
   DC *Objt; // rax
-  int v7; // ecx
-  int v8; // r8d
-  DC *v9; // rdi
-  struct SURFACE **v10; // rbx
-  struct OBJECT *v11; // rsi
+  DC *v6; // rdi
+  __int64 v7; // rbx
+  struct OBJECT *v8; // rsi
 
-  v3 = 0LL;
-  GreAcquireHmgrSemaphore(a1, a2, a3);
+  v2 = 0LL;
+  GreAcquireHmgrSemaphore();
   while ( 1 )
   {
-    LOBYTE(v5) = 1;
-    Objt = (DC *)HmgSafeNextObjt(v3, v5);
-    v9 = Objt;
+    LOBYTE(v4) = 1;
+    Objt = (DC *)HmgSafeNextObjt(v2, v4);
+    v6 = Objt;
     if ( !Objt )
       break;
-    v10 = (struct SURFACE **)*((_QWORD *)Objt + 62);
-    if ( v10 )
+    v7 = *((_QWORD *)Objt + 62);
+    if ( v7 )
     {
-      v11 = v10[70];
-      if ( v11 )
+      v8 = *(struct OBJECT **)(v7 + 560);
+      if ( v8 )
       {
-        DC::pSurface(Objt, v10[70]);
-        *((_DWORD *)v9 + 79) |= 0xFu;
-        HmgIncrementShareReferenceCount(v11);
-        if ( (unsigned int)HmgQueryAltLock(*v10) == 1 )
+        DC::pSurface(Objt, *(struct SURFACE **)(v7 + 560));
+        *((_DWORD *)v6 + 79) |= 0xFu;
+        HmgIncrementShareReferenceCount(v8);
+        if ( (unsigned int)HmgQueryAltLock(*(_QWORD *)v7) == 1 )
         {
-          v10[70] = 0LL;
-          SURFACE::bDeleteSurface((SURFACE *)v10, 0, 0);
-          if ( v10 == (struct SURFACE **)a2 )
-            return GreReleaseHmgrSemaphore(v7, v5, v8);
+          *(_QWORD *)(v7 + 560) = 0LL;
+          SURFACE::bDeleteSurface(v7, 0, 0);
+          if ( v7 == a2 )
+            return GreReleaseHmgrSemaphore();
         }
         else
         {
-          HmgDecrementShareReferenceCountEx((unsigned int *)v10, 0LL);
+          HmgDecrementShareReferenceCountEx(v7, 0LL);
         }
       }
     }
-    v3 = *(_QWORD *)v9;
+    v2 = *(_QWORD *)v6;
   }
-  return GreReleaseHmgrSemaphore(v7, v5, v8);
+  return GreReleaseHmgrSemaphore();
 }

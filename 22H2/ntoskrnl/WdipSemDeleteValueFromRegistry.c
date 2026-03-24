@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemDeleteValueFromRegistry @ 0x14083436C
+ * XREFs of WdipSemDeleteValueFromRegistry @ 0x140795724
  * Callers:
- *     WdipSemLoadConfigInfo @ 0x14083193C (WdipSemLoadConfigInfo.c)
+ *     WdipSemLoadConfigInfo @ 0x1407940D8 (WdipSemLoadConfigInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
  */
 
 NTSTATUS __fastcall WdipSemDeleteValueFromRegistry(HANDLE KeyHandle)

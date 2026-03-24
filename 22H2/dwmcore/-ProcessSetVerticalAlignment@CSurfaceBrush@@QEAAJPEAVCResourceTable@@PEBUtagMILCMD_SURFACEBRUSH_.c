@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetVerticalAlignment@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETVERTICALALIGNMENT@@@Z @ 0x1800F0E3C
+ * XREFs of ?ProcessSetVerticalAlignment@CSurfaceBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SURFACEBRUSH_SETVERTICALALIGNMENT@@@Z @ 0x1800D0DAC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSurfaceBrush::ProcessSetVerticalAlignment(
@@ -15,8 +15,8 @@ __int64 __fastcall CSurfaceBrush::ProcessSetVerticalAlignment(
 
   v4 = a2;
   LODWORD(v4) = *((_DWORD *)a3 + 2);
-  return ((__int64 (__fastcall *)(char *, void *, struct CResourceTable **))xmmword_1803E4BD8)(
-           (char *)this + SDWORD2(xmmword_1803E4BD8),
+  return ((__int64 (__fastcall *)(char *, void *, struct CResourceTable **))xmmword_180346408)(
+           (char *)this + SDWORD2(xmmword_180346408),
            &CSurfaceBrush::sc_VerticalAlignment,
            &v4);
 }

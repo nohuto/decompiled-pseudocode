@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRegisterTraceLoggingProvider @ 0x140812368
+ * XREFs of CmpRegisterTraceLoggingProvider @ 0x14079E49C
  * Callers:
- *     CmInitSystem2 @ 0x140B3CD68 (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140A4B3D4 (CmInitSystem2.c)
  * Callees:
- *     TlgRegisterAggregateProviderEx @ 0x140803380 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407A501C (TlgRegisterAggregateProviderEx.c)
  */
 
 __int64 CmpRegisterTraceLoggingProvider()
 {
-  return TlgRegisterAggregateProviderEx(&dword_140C04390, 0LL, 0LL);
+  return TlgRegisterAggregateProviderEx(&dword_140C02130);
 }

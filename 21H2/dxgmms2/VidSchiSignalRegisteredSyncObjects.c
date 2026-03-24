@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiSignalRegisteredSyncObjects @ 0x1C0018A54
+ * XREFs of VidSchiSignalRegisteredSyncObjects @ 0x1C0015E0C
  * Callers:
- *     VidSchiMarkDeviceAsError @ 0x1C0018990 (VidSchiMarkDeviceAsError.c)
+ *     VidSchiMarkDeviceAsError @ 0x1C0015D40 (VidSchiMarkDeviceAsError.c)
  * Callees:
- *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0018B1C (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
- *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0034A2C (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015ED4 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002A928 (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  */
 
 void __fastcall VidSchiSignalRegisteredSyncObjects(struct HwQueueStagingList *a1, _QWORD *a2)
@@ -13,11 +13,11 @@ void __fastcall VidSchiSignalRegisteredSyncObjects(struct HwQueueStagingList *a1
   _QWORD *v5; // rbx
   __int64 v6; // rax
   _QWORD *v7; // rbx
-  _QWORD *v8; // r14
-  _QWORD **v9; // r14
-  _QWORD *v10; // rdi
-  _QWORD *v11; // rsi
-  _QWORD *v12; // rbx
+  _QWORD *v8; // rsi
+  _QWORD *v9; // rbx
+  _QWORD *v10; // r14
+  _QWORD **v11; // r14
+  _QWORD *v12; // rdi
   struct _VIDSCH_QUEUE_PACKET *v13; // rdx
   _QWORD *v14; // r15
   _QWORD **v15; // r15
@@ -44,23 +44,23 @@ void __fastcall VidSchiSignalRegisteredSyncObjects(struct HwQueueStagingList *a1
   v7 = (_QWORD *)a2[9];
   while ( v7 != a2 + 9 )
   {
-    v8 = v7;
+    v10 = v7;
     v7 = (_QWORD *)*v7;
-    v9 = (_QWORD **)(v8 + 80);
-    v10 = *v9;
-    while ( v10 != v9 )
+    v11 = (_QWORD **)(v10 + 80);
+    v12 = *v11;
+    while ( v12 != v11 )
     {
-      v13 = (struct _VIDSCH_QUEUE_PACKET *)(v10 - 4);
-      v10 = (_QWORD *)*v10;
+      v13 = (struct _VIDSCH_QUEUE_PACKET *)(v12 - 4);
+      v12 = (_QWORD *)*v12;
       VidSchiCompleteAllWaitsPacket(a1, v13);
     }
   }
-  v11 = a2 + 11;
-  v12 = (_QWORD *)a2[11];
-  while ( v12 != v11 )
+  v8 = a2 + 11;
+  v9 = (_QWORD *)a2[11];
+  while ( v9 != v8 )
   {
-    v14 = v12;
-    v12 = (_QWORD *)*v12;
+    v14 = v9;
+    v9 = (_QWORD *)*v9;
     v15 = (_QWORD **)(v14 + 4);
     v16 = *v15;
     while ( v16 != v15 )

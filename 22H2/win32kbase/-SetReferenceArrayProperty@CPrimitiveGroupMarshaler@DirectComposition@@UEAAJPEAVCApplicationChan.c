@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C0031320
+ * XREFs of ?SetReferenceArrayProperty@CPrimitiveGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C00603A0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResourceMarshalers@CPrimitiveGroupMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@AEAI@Z @ 0x1C002FCE8 (-ReleaseResourceMarshalers@CPrimitiveGroupMarshaler@DirectComposition@@AEAAXPEAVCApplicationChan.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
+ *     ?ReleaseResourceMarshalers@CPrimitiveGroupMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@AEAI@Z @ 0x1C0004E60 (-ReleaseResourceMarshalers@CPrimitiveGroupMarshaler@DirectComposition@@AEAAXPEAVCApplicationChan.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetReferenceArrayProperty(
@@ -17,101 +17,111 @@ __int64 __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetReferenceArra
         bool *a6)
 {
   int v6; // ebx
-  struct DirectComposition::CApplicationChannel *v8; // r10
-  unsigned int v10; // r11d
-  __int64 v11; // r9
-  int v12; // r9d
-  unsigned int v13; // ebp
-  __int64 v14; // rax
-  __int64 v16; // r9
-  int v17; // r9d
-  unsigned int v18; // ebp
-  __int64 v19; // rax
+  __int64 v10; // rbp
+  DirectComposition::CPrimitiveGroupMarshaler *v11; // rcx
+  unsigned int v12; // ebp
+  __int64 v13; // rax
+  __int64 v15; // rbp
+  DirectComposition::CPrimitiveGroupMarshaler *v16; // rcx
+  unsigned int v17; // ebp
+  __int64 v18; // rax
 
   v6 = 0;
-  v8 = a2;
-  v10 = -1073741811;
   if ( a5 && !a4 )
     v6 = -1073741811;
   if ( a3 )
   {
     if ( a3 == 1 )
     {
-      v16 = 0LL;
+      v15 = 0LL;
       if ( v6 >= 0 )
       {
-        while ( (unsigned int)v16 < a5 )
+        do
         {
-          if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(
-                                   *((unsigned int *)a4[v16] + 9),
-                                   128LL) )
-            return v10;
-          v16 = (unsigned int)(v17 + 1);
+          v16 = (DirectComposition::CPrimitiveGroupMarshaler *)(unsigned int)v15;
+          if ( (unsigned int)v15 >= a5 )
+            break;
+          if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v15] + 96LL))(
+                  a4[v15],
+                  126LL) )
+            v6 = -1073741811;
+          v15 = (unsigned int)(v15 + 1);
         }
-        DirectComposition::CPrimitiveGroupMarshaler::ReleaseResourceMarshalers(
-          this,
-          v8,
-          *((struct DirectComposition::CResourceMarshaler ***)this + 12),
-          (unsigned int *)this + 26);
-        if ( *((_DWORD *)this + 27) )
-          *((_DWORD *)this + 4) |= 0x80u;
-        v18 = 0;
-        if ( a5 )
+        while ( v6 >= 0 );
+        if ( v6 >= 0 )
         {
-          v19 = 0LL;
-          do
+          DirectComposition::CPrimitiveGroupMarshaler::ReleaseResourceMarshalers(
+            v16,
+            a2,
+            *((struct DirectComposition::CResourceMarshaler ***)this + 12),
+            (unsigned int *)this + 26);
+          if ( *((_DWORD *)this + 27) )
+            *((_DWORD *)this + 4) |= 0x80u;
+          v17 = 0;
+          if ( a5 )
           {
-            DirectComposition::CResourceMarshaler::AddRef(a4[v19]);
-            v19 = ++v18;
+            v18 = 0LL;
+            do
+            {
+              DirectComposition::CResourceMarshaler::AddRef(a4[v18]);
+              v18 = ++v17;
+            }
+            while ( v17 < a5 );
           }
-          while ( v18 < a5 );
+          *((_DWORD *)this + 27) = 0;
+          *((_QWORD *)this + 12) = a4;
+          *((_DWORD *)this + 26) = a5;
+          *a6 = 1;
         }
-        *((_DWORD *)this + 27) = 0;
-        *((_QWORD *)this + 12) = a4;
-        *((_DWORD *)this + 26) = a5;
-        *a6 = 1;
       }
     }
     else
     {
-      return v10;
+      return (unsigned int)-1073741811;
     }
   }
   else
   {
-    v11 = 0LL;
+    v10 = 0LL;
     if ( v6 >= 0 )
     {
-      while ( (unsigned int)v11 < a5 )
+      do
       {
-        if ( !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(
-                                 *((unsigned int *)a4[v11] + 9),
-                                 42LL) )
-          return v10;
-        v11 = (unsigned int)(v12 + 1);
+        v11 = (DirectComposition::CPrimitiveGroupMarshaler *)(unsigned int)v10;
+        if ( (unsigned int)v10 >= a5 )
+          break;
+        if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v10] + 96LL))(
+                a4[v10],
+                40LL) )
+          v6 = -1073741811;
+        v10 = (unsigned int)(v10 + 1);
       }
-      DirectComposition::CPrimitiveGroupMarshaler::ReleaseResourceMarshalers(
-        this,
-        v8,
-        *((struct DirectComposition::CResourceMarshaler ***)this + 10),
-        (unsigned int *)this + 22);
-      if ( *((_DWORD *)this + 23) )
-        *((_DWORD *)this + 4) |= 0x40u;
-      v13 = 0;
-      if ( a5 )
+      while ( v6 >= 0 );
+      if ( v6 >= 0 )
       {
-        v14 = 0LL;
-        do
+        DirectComposition::CPrimitiveGroupMarshaler::ReleaseResourceMarshalers(
+          v11,
+          a2,
+          *((struct DirectComposition::CResourceMarshaler ***)this + 10),
+          (unsigned int *)this + 22);
+        if ( *((_DWORD *)this + 23) )
+          *((_DWORD *)this + 4) |= 0x40u;
+        v12 = 0;
+        if ( a5 )
         {
-          DirectComposition::CResourceMarshaler::AddRef(a4[v14]);
-          v14 = ++v13;
+          v13 = 0LL;
+          do
+          {
+            DirectComposition::CResourceMarshaler::AddRef(a4[v13]);
+            v13 = ++v12;
+          }
+          while ( v12 < a5 );
         }
-        while ( v13 < a5 );
+        *((_DWORD *)this + 23) = 0;
+        *((_QWORD *)this + 10) = a4;
+        *((_DWORD *)this + 22) = a5;
+        *a6 = 1;
       }
-      *((_DWORD *)this + 23) = 0;
-      *((_QWORD *)this + 10) = a4;
-      *((_DWORD *)this + 22) = a5;
-      *a6 = 1;
     }
   }
   return (unsigned int)v6;

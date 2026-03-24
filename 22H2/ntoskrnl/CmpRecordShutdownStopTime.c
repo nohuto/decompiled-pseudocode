@@ -1,58 +1,56 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x140A1172C
+ * XREFs of CmpRecordShutdownStopTime @ 0x14086BFE0
  * Callers:
- *     CmShutdownSystem1 @ 0x140615C34 (CmShutdownSystem1.c)
+ *     CmShutdownSystem @ 0x14086B948 (CmShutdownSystem.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     RtlGetPersistedStateLocation @ 0x1406C5480 (RtlGetPersistedStateLocation.c)
- *     CmpReadBuildVersion @ 0x140A11500 (CmpReadBuildVersion.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     RtlGetPersistedStateLocation @ 0x1406B87A0 (RtlGetPersistedStateLocation.c)
+ *     CmpReadBuildLab @ 0x14086BE64 (CmpReadBuildLab.c)
  */
 
-__int64 CmpRecordShutdownStopTime()
+__int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  struct _PRIVILEGE_SET *v0; // rdi
-  WCHAR *Pool; // rax
-  WCHAR *v2; // rsi
+  struct _PRIVILEGE_SET *v4; // rdi
+  WCHAR *TransientPoolWithTag; // rax
+  WCHAR *v6; // rsi
   int PersistedStateLocation; // ebx
-  LARGE_INTEGER Data; // [rsp+40h] [rbp-19h] BYREF
-  LARGE_INTEGER PerformanceFrequency; // [rsp+48h] [rbp-11h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-9h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
+  LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp-19h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-11h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-1h] BYREF
   ULONG DataSize; // [rsp+C0h] [rbp+67h] BYREF
-  int v10; // [rsp+C8h] [rbp+6Fh] BYREF
-  HANDLE KeyHandle; // [rsp+D0h] [rbp+77h] BYREF
-  PVOID v12; // [rsp+D8h] [rbp+7Fh] BYREF
+  HANDLE KeyHandle; // [rsp+C8h] [rbp+6Fh] BYREF
+  PVOID v14; // [rsp+D0h] [rbp+77h] BYREF
+  LARGE_INTEGER Data; // [rsp+D8h] [rbp+7Fh] BYREF
 
   KeyHandle = 0LL;
   Data.QuadPart = 0LL;
-  v0 = 0LL;
+  v4 = 0LL;
   PerformanceFrequency.QuadPart = 0LL;
   DataSize = 0;
-  v10 = 0;
-  memset(&ObjectAttributes, 0, 44);
+  v14 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
-  v12 = 0LL;
-  Pool = (WCHAR *)CmpAllocatePool(256LL, 1040LL, 808996163LL);
-  v2 = Pool;
-  if ( Pool )
+  TransientPoolWithTag = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u, a4);
+  v6 = TransientPoolWithTag;
+  if ( TransientPoolWithTag )
   {
     PersistedStateLocation = RtlGetPersistedStateLocation(
                                L"ShutdownPath",
                                0LL,
                                L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\SHUTDOWN",
                                0,
-                               Pool,
+                               TransientPoolWithTag,
                                0x410u,
                                0LL);
     if ( PersistedStateLocation >= 0 )
     {
-      RtlInitUnicodeString(&DestinationString, v2);
+      RtlInitUnicodeString(&DestinationString, v6);
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.Length = 48;
@@ -70,27 +68,22 @@ __int64 CmpRecordShutdownStopTime()
           PersistedStateLocation = ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &PerformanceFrequency, 8u);
           if ( PersistedStateLocation >= 0 )
           {
-            PersistedStateLocation = CmpReadBuildVersion((struct _PRIVILEGE_SET **)&v12, &DataSize, &v10);
+            PersistedStateLocation = CmpReadBuildLab(&v14, &DataSize);
             if ( PersistedStateLocation < 0 )
             {
-              v0 = (struct _PRIVILEGE_SET *)v12;
+              v4 = (struct _PRIVILEGE_SET *)v14;
             }
             else
             {
-              RtlInitUnicodeString(&DestinationString, L"ShutdownStopTimePerfCounterCurrentBuildNumber");
-              v0 = (struct _PRIVILEGE_SET *)v12;
-              PersistedStateLocation = ZwSetValueKey(KeyHandle, &DestinationString, 0, 1u, v12, DataSize);
-              if ( PersistedStateLocation >= 0 )
-              {
-                RtlInitUnicodeString(&DestinationString, L"ShutdownStopTimePerfCounterUBR");
-                PersistedStateLocation = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &v10, 4u);
-              }
+              RtlInitUnicodeString(&DestinationString, L"ShutdownStopTimePerfCounterBuildLab");
+              v4 = (struct _PRIVILEGE_SET *)v14;
+              PersistedStateLocation = ZwSetValueKey(KeyHandle, &DestinationString, 0, 1u, v14, DataSize);
             }
           }
         }
       }
     }
-    CmSiFreeMemory((PPRIVILEGE_SET)v2);
+    CmSiFreeMemory((PPRIVILEGE_SET)v6);
   }
   else
   {
@@ -98,7 +91,7 @@ __int64 CmpRecordShutdownStopTime()
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( v0 )
-    CmSiFreeMemory(v0);
+  if ( v4 )
+    CmSiFreeMemory(v4);
   return (unsigned int)PersistedStateLocation;
 }

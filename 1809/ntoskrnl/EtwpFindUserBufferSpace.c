@@ -5,7 +5,7 @@
  * Callees:
  *     RtlFindNextAlignedForwardRunClear @ 0x140014BE4 (RtlFindNextAlignedForwardRunClear.c)
  *     RtlInterlockedSetClearRun @ 0x140014CE0 (RtlInterlockedSetClearRun.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8470 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall EtwpFindUserBufferSpace(__int64 a1, __int64 a2, int a3, PVOID *a4)

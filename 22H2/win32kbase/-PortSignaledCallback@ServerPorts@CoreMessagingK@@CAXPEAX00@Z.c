@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PortSignaledCallback@ServerPorts@CoreMessagingK@@CAXPEAX00@Z @ 0x1C00C2F80
+ * XREFs of ?PortSignaledCallback@ServerPorts@CoreMessagingK@@CAXPEAX00@Z @ 0x1C00732C0
  * Callers:
  *     <none>
  * Callees:
- *     ?DrainPort@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@@Z @ 0x1C0068B1C (-DrainPort@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@@Z.c)
- *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C006A6F0 (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
+ *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C004E5FC (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
+ *     ?DrainPort@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@@Z @ 0x1C0073060 (-DrainPort@ServerPorts@CoreMessagingK@@CAXPEAUServerPortInfo@2@@Z.c)
  */
 
 void __fastcall CoreMessagingK::ServerPorts::PortSignaledCallback(
@@ -26,5 +26,5 @@ void __fastcall CoreMessagingK::ServerPorts::PortSignaledCallback(
     }
   }
   if ( v5 )
-    KeReleaseMutex(Mutex, 0);
+    KeReleaseMutex(P, 0);
 }

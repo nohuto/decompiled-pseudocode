@@ -1,53 +1,59 @@
 /*
- * XREFs of ?Initialize@CManipulationContext@@QEAAJ_NK@Z @ 0x1801A4780
+ * XREFs of ?Initialize@CManipulationContext@@QEAAJ_NK@Z @ 0x180234450
  * Callers:
- *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x18019EF88 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
- *     ?ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019F664 (-ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
- *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1801A59E8 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
+ *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x180225620 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
+ *     ?ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180225CD4 (-ProcessFrameInputPreTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x1802354B4 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E596C (--0CInteractionProcessor@@QEAA@XZ.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z @ 0x18020C1A4 (-Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E0C94 (--0CInteractionProcessor@@QEAA@XZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z @ 0x1801C6124 (-Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-__int64 __fastcall CManipulationContext::Initialize(CManipulationContext *this, bool a2, int a3)
+__int64 __fastcall CManipulationContext::Initialize(CManipulationContext *this, char a2, int a3)
 {
-  char v6; // al
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbx
-  __int64 v9; // rcx
-  CInteractionRoot *v10; // rcx
-  void *retaddr; // [rsp+28h] [rbp+0h]
+  CInteractionRoot *v6; // rax
+  CInteractionRoot *v7; // rbx
+  CInteractionRoot *v8; // rcx
+  __int64 v9; // rdx
+  const void *retaddr; // [rsp+28h] [rbp+0h]
 
   *((_DWORD *)this + 26) = 0;
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 14);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 14);
   *((_DWORD *)this + 30) = 0;
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)this + 16);
-  v6 = *((_BYTE *)this + 28) & 0xFE;
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 16);
+  *((_BYTE *)this + 28) &= ~1u;
+  *((_BYTE *)this + 28) |= a2;
   *((_DWORD *)this + 8) = a3;
-  *((_BYTE *)this + 28) = a2 | v6;
-  v7 = DefaultHeap::AllocClear(0x568uLL);
-  v8 = v7;
-  if ( !v7 )
-    ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  memset_0(v7, 0, 0x568uLL);
-  *v8 = &CInteractionRoot::`vftable';
-  CInteractionProcessor::CInteractionProcessor((CInteractionProcessor *)(v8 + 3));
-  if ( *((_QWORD **)this + 17) != v8 )
+  v6 = (CInteractionRoot *)DefaultHeap::AllocClear(0x570uLL);
+  v7 = v6;
+  if ( !v6 )
+    ModuleFailFastForHRESULT(-2147024882, retaddr);
+  memset_0(v6, 0, 0x570uLL);
+  *((_QWORD *)v7 + 3) = 0LL;
+  *(_QWORD *)v7 = &CInteractionRoot::`vftable'{for `IInteractionResource'};
+  *((_DWORD *)v7 + 4) = 0;
+  *((_QWORD *)v7 + 1) = &CInteractionRoot::`vftable'{for `CMILRefCountBase'};
+  CInteractionProcessor::CInteractionProcessor((CInteractionRoot *)((char *)v7 + 32));
+  v8 = (CInteractionRoot *)*((_QWORD *)this + 17);
+  if ( v8 != v7 )
   {
-    (*(void (__fastcall **)(_QWORD *))*v8)(v8);
+    (**(void (__fastcall ***)(void *))v7)(v7);
     v9 = *((_QWORD *)this + 17);
-    *((_QWORD *)this + 17) = v8;
+    v8 = v7;
+    *((_QWORD *)this + 17) = v7;
     if ( v9 )
+    {
       (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 8LL))(v9);
+      v8 = (CInteractionRoot *)*((_QWORD *)this + 17);
+    }
   }
-  v10 = (CInteractionRoot *)*((_QWORD *)this + 17);
-  if ( v10 )
-    return CInteractionRoot::Initialize(v10, this, a2);
+  if ( v8 )
+    return CInteractionRoot::Initialize(v8, this, a2);
   else
     return 2147942414LL;
 }

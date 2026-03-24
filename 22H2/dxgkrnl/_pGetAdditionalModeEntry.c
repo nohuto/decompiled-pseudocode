@@ -1,18 +1,26 @@
 /*
- * XREFs of _pGetAdditionalModeEntry @ 0x1C02337E4
+ * XREFs of _pGetAdditionalModeEntry @ 0x1C019A558
  * Callers:
- *     ?GetAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C01D6970 (-GetAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_.c)
+ *     _pGetAdditionalTiming @ 0x1C019A3FC (_pGetAdditionalTiming.c)
  * Callees:
  *     <none>
  */
 
-_DWORD *__fastcall pGetAdditionalModeEntry(int a1, char a2)
+_DWORD *__fastcall pGetAdditionalModeEntry(__int64 a1, __int64 a2)
 {
+  char v2; // di
+  int v3; // ebx
   _DWORD *result; // rax
+  __int64 v5; // rax
 
-  if ( a1 == -2 )
-    WdLogSingleEntry0(1LL);
-  for ( result = qword_1C01421E0; result && (a1 != result[2] || a2 != *((_BYTE *)result + 12)); result = *(_DWORD **)result )
+  v2 = a2;
+  v3 = a1;
+  if ( (_DWORD)a1 == -2 )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v5);
+  }
+  for ( result = qword_1C00B3208; result && (v3 != result[2] || v2 != *((_BYTE *)result + 12)); result = *(_DWORD **)result )
     ;
   return result;
 }

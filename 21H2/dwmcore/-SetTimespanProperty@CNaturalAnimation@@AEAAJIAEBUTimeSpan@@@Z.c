@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetTimespanProperty@CNaturalAnimation@@AEAAJIAEBUTimeSpan@@@Z @ 0x180227AF8
+ * XREFs of ?SetTimespanProperty@CNaturalAnimation@@AEAAJIAEBUTimeSpan@@@Z @ 0x1801D92F0
  * Callers:
- *     ?SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802277E0 (-SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801D9010 (-SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z @ 0x180226094 (-EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z @ 0x1801D7A54 (-EnsureAccelerator@CNaturalAnimation@@AEAAXW4Enum@NaturalMotionAnimationType@@@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::SetTimespanProperty(CNaturalAnimation *this, int a2, const struct TimeSpan *a3)
 {
   unsigned int v3; // edi
-  __int64 v6; // rbx
-  void (__fastcall **v7)(__int64); // rax
+  float *v6; // rbx
+  void (__fastcall *v7)(float *); // rax
   float v8; // xmm1_4
   float v9; // xmm2_4
   float v10; // xmm0_4
@@ -37,26 +37,26 @@ __int64 __fastcall CNaturalAnimation::SetTimespanProperty(CNaturalAnimation *thi
       v15 = v10 + 6291456.25;
       v11 = (int)(LODWORD(v15) << 10) >> 11;
     }
-    *((_DWORD *)this + 104) = v11;
+    *((_DWORD *)this + 98) = v11;
   }
-  else if ( a2 == 50 )
+  else if ( a2 == 48 )
   {
     CNaturalAnimation::EnsureAccelerator((__int64)this, 2);
-    v6 = *((_QWORD *)this + 56);
+    v6 = (float *)*((_QWORD *)this + 53);
     if ( v6 )
-      (**(void (__fastcall ***)(__int64))v6)(v6);
-    v7 = *(void (__fastcall ***)(__int64))v6;
-    v8 = *(float *)(v6 + 28);
+      (**(void (__fastcall ***)(float *))v6)(v6);
+    v7 = *(void (__fastcall **)(float *))(*(_QWORD *)v6 + 8LL);
+    v8 = v6[9];
     v9 = 1.0 / (float)(*(float *)a3 / 1000.0);
-    *(float *)(v6 + 32) = v9;
-    *(float *)(v6 + 20) = v9 * v9;
-    *(float *)(v6 + 24) = (float)(v8 + v8) * v9;
-    v7[1](v6);
+    v6[10] = v9;
+    v6[7] = v9 * v9;
+    v6[8] = (float)(v8 + v8) * v9;
+    v7(v6);
   }
   else
   {
     v3 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0x450u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x436u, 0LL);
   }
   return v3;
 }

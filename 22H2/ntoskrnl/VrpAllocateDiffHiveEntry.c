@@ -1,45 +1,51 @@
 /*
- * XREFs of VrpAllocateDiffHiveEntry @ 0x14077CD48
+ * XREFs of VrpAllocateDiffHiveEntry @ 0x1405D69AC
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14077C688 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1405D6690 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  * Callees:
- *     KeInitializeWaitChain @ 0x14031C6F0 (KeInitializeWaitChain.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA330 (RtlUpcaseUnicodeChar.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInitializeWaitChain @ 0x14032D1A0 (KeInitializeWaitChain.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a2)
+_QWORD *__fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a2)
 {
-  __int64 Pool2; // rbx
-  __int64 v5; // rbp
-  WCHAR *v6; // rdi
-  WCHAR *v7; // r14
-  unsigned int v8; // eax
-  unsigned int v9; // eax
-  WCHAR v11; // [rsp+40h] [rbp+8h]
+  unsigned __int64 v4; // rdi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v6; // rbx
+  __int64 v7; // rbp
+  WCHAR *v8; // rdi
+  WCHAR *v9; // r14
+  unsigned int v10; // eax
+  unsigned int v11; // eax
+  WCHAR v13; // [rsp+40h] [rbp+8h]
 
-  Pool2 = ExAllocatePool2(256LL, *a1 + *(unsigned __int16 *)a2 + 68LL, 1734693462LL);
-  if ( Pool2 )
+  v4 = *(unsigned __int16 *)a2 + (unsigned __int64)*a1;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4 + 68, 0x67655256u);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v5 = 314159LL;
-    v6 = (WCHAR *)*((_QWORD *)a1 + 1);
-    v7 = &v6[(unsigned __int64)*a1 >> 1];
-    while ( v6 < v7 )
+    memset(PoolWithTag, 0, v4 + 68);
+    v7 = 314159LL;
+    v8 = (WCHAR *)*((_QWORD *)a1 + 1);
+    v9 = &v8[(unsigned __int64)*a1 >> 1];
+    while ( v8 < v9 )
     {
-      v11 = RtlUpcaseUnicodeChar(*v6++);
-      v5 = HIBYTE(v11) + 37 * ((unsigned __int8)v11 + 37 * v5);
+      v13 = RtlUpcaseUnicodeChar(*v8++);
+      v7 = HIBYTE(v13) + 37 * ((unsigned __int8)v13 + 37 * v7);
     }
-    *(_QWORD *)(Pool2 + 24) = 0LL;
-    *(_QWORD *)(Pool2 + 8) = v5;
-    *(_QWORD *)(Pool2 + 16) = 1LL;
-    KeInitializeWaitChain((_QWORD *)(Pool2 + 48));
-    v8 = *a1;
-    *(_WORD *)(Pool2 + 64) = v8;
-    memmove((void *)(Pool2 + 68), *((const void **)a1 + 1), v8);
-    v9 = *(unsigned __int16 *)a2;
-    *(_WORD *)(Pool2 + 66) = v9;
-    memmove((void *)(Pool2 + 2 * (((unsigned __int64)*(unsigned __int16 *)(Pool2 + 64) >> 1) + 34)), a2[1], v9);
+    v6[3] = 0LL;
+    v6[1] = v7;
+    v6[2] = 1LL;
+    KeInitializeWaitChain(v6 + 6);
+    v10 = *a1;
+    *((_WORD *)v6 + 32) = v10;
+    memmove((char *)v6 + 68, *((const void **)a1 + 1), v10);
+    v11 = *(unsigned __int16 *)a2;
+    *((_WORD *)v6 + 33) = v11;
+    memmove((char *)v6 + 2 * ((unsigned __int64)*((unsigned __int16 *)v6 + 32) >> 1) + 68, a2[1], v11);
   }
-  return Pool2;
+  return v6;
 }

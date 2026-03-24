@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFindNextForwardRunClearCapped @ 0x1405A8320
+ * XREFs of RtlFindNextForwardRunClearCapped @ 0x1405872F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,72 +8,69 @@
 
 __int64 __fastcall RtlFindNextForwardRunClearCapped(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4)
 {
-  unsigned int v4; // ebx
-  unsigned int v5; // r11d
-  unsigned int v6; // r10d
-  __int64 v9; // r15
-  unsigned int v10; // r8d
-  _DWORD *v11; // rdx
-  unsigned __int64 v12; // rsi
-  int v13; // r9d
-  _DWORD *i; // rax
-  unsigned int v15; // r9d
-  __int64 v16; // rcx
-  int v17; // eax
-  unsigned __int64 j; // rax
-  unsigned int *v19; // rax
-  unsigned int v20; // r8d
+  unsigned int v4; // esi
+  unsigned __int64 v5; // r10
+  unsigned int v7; // r9d
+  __int64 v8; // rdx
+  _DWORD *v9; // rdi
+  _DWORD *v10; // r8
+  unsigned int v11; // edx
+  int v12; // esi
+  _DWORD *v13; // r8
+  unsigned int i; // eax
 
   v4 = *(_DWORD *)a1;
-  v5 = 0;
-  v6 = a2;
-  if ( *(_DWORD *)a1 > a2 )
+  v5 = a2;
+  if ( *(_DWORD *)a1 <= a2 )
   {
-    v9 = *(_QWORD *)(a1 + 8);
-    v10 = 0;
-    v11 = (_DWORD *)(v9 + 4 * ((unsigned __int64)a2 >> 5));
-    v12 = v9 + 4 * ((unsigned __int64)(v4 - 1) >> 5);
-    v13 = ((1 << (v6 & 0x1F)) - 1) | *v11;
-    for ( i = v11 + 1; ; ++i )
-    {
-      v15 = ~v13;
-      if ( v15 )
-        break;
-      if ( (unsigned __int64)i > v12 )
-        goto LABEL_7;
-      v13 = *++v11;
-    }
-    _BitScanForward64((unsigned __int64 *)&v16, v15);
-    v6 = v16 + 32 * (((__int64)v11 - v9) >> 2);
-    if ( v6 > v4 )
-    {
-LABEL_7:
-      v6 = v4;
-      goto LABEL_18;
-    }
-    v17 = 1 << v16;
-    LODWORD(v16) = 32;
-    for ( j = ~(v15 | (v17 - 1)); !(_DWORD)j; j = *v19 )
-    {
-      if ( v10 > a3 )
-        goto LABEL_14;
-      v10 += 32;
-      v19 = v11 + 1;
-      if ( (unsigned __int64)(v11 + 1) > v12 )
-        goto LABEL_14;
-      ++v11;
-    }
-    _BitScanForward64((unsigned __int64 *)&v16, j);
-LABEL_14:
-    v20 = v4;
-    if ( 32 * (unsigned int)(((__int64)v11 - v9) >> 2) + (unsigned int)v16 <= v4 )
-      v20 = 32 * (((__int64)v11 - v9) >> 2) + v16;
-    v10 = v20 - v6;
-    if ( v10 > a3 )
-      v10 = a3;
-LABEL_18:
-    v5 = v10;
+    *a4 = a2;
+    return 0;
   }
-  *a4 = v6;
-  return v5;
+  v8 = *(_QWORD *)(a1 + 8);
+  v9 = (_DWORD *)(v8 + 4 * ((unsigned __int64)(v4 - 1) >> 5));
+  v10 = (_DWORD *)(v8 + 4 * (v5 >> 5));
+  if ( v10 != v9 && (*v10 | *((_DWORD *)qword_1400127A0 + (v5 & 0x1F))) == -1 )
+  {
+    LODWORD(v5) = v5 - (v5 & 0x1F) + 32;
+    for ( ++v10; v10 < v9 && *v10 == -1; ++v10 )
+      LODWORD(v5) = v5 + 32;
+  }
+  for ( ; (unsigned int)v5 < v4; LODWORD(v5) = v5 + 1 )
+  {
+    if ( !_bittest(*(const signed __int32 **)(a1 + 8), v5) )
+      break;
+  }
+  v11 = 0;
+  if ( v10 == v9 )
+    goto LABEL_19;
+  v12 = v5 & 0x1F;
+  if ( (*v10 & ~*((_DWORD *)qword_1400127A0 + (v5 & 0x1F))) != 0 )
+    goto LABEL_19;
+  v11 = 32 - v12;
+  if ( 32 - v12 < a3 )
+  {
+    v13 = v10 + 1;
+    while ( v13 < v9 && !*v13 )
+    {
+      ++v13;
+      v11 += 32;
+      if ( v11 >= a3 )
+        goto LABEL_23;
+    }
+LABEL_19:
+    for ( i = v11 + v5; i < *(_DWORD *)a1; ++v11 )
+    {
+      if ( _bittest(*(const signed __int32 **)(a1 + 8), i) )
+        break;
+      if ( v11 >= a3 )
+        break;
+      ++i;
+    }
+  }
+LABEL_23:
+  *a4 = v5;
+  v7 = v11;
+  if ( v11 > a3 )
+    return a3;
+  return v7;
 }

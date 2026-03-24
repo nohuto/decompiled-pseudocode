@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpDoReadTxRBigLogRecord @ 0x14091BF58
+ * XREFs of CmpDoReadTxRBigLogRecord @ 0x140875374
  * Callers:
- *     CmpRmReDoPhase @ 0x14091C3F0 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x140875820 (CmpRmReDoPhase.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpVerifyBigLogRecordChunk @ 0x14091C758 (CmpVerifyBigLogRecordChunk.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpVerifyBigLogRecordChunk @ 0x1405CCDD8 (CmpVerifyBigLogRecordChunk.c)
  */
 
 __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct _PRIVILEGE_SET **a4, _DWORD *a5)
 {
   unsigned int *v5; // rdi
-  NTSTATUS v6; // ebx
+  int v6; // ebx
   struct _LOOKASIDE_LIST_EX *v7; // r9
-  SIZE_T v8; // r12
+  SIZE_T v8; // r13
   struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
   struct _PRIVILEGE_SET *v10; // rsi
   struct _PRIVILEGE_SET *v11; // rax
-  int v12; // r13d
+  int v12; // r12d
   unsigned int v13; // r14d
   __int64 v14; // r15
   unsigned int v16; // [rsp+40h] [rbp-38h]
@@ -40,7 +40,7 @@ __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct
   plsnRecord.ullOffset = 0LL;
   peRecordType = 0;
   pcbBuffer = a3;
-  v6 = CmpVerifyBigLogRecordChunk(a2, a3);
+  v6 = CmpVerifyBigLogRecordChunk((int *)a2, a3);
   if ( v6 >= 0 )
   {
     v8 = v5[1];
@@ -68,10 +68,11 @@ __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct
           {
             if ( v13 )
               break;
-            v6 = 0;
             *v25 = v10;
+            v10 = 0LL;
+            v6 = 0;
             *a5 = v8;
-            return (unsigned int)v6;
+            goto LABEL_11;
           }
           peRecordType = 1;
           v6 = ClfsReadNextLogRecord(
@@ -86,7 +87,7 @@ __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct
           if ( v6 < 0 )
             goto LABEL_11;
           v5 = (unsigned int *)ppvBuffer;
-          v6 = CmpVerifyBigLogRecordChunk(ppvBuffer, pcbBuffer);
+          v6 = CmpVerifyBigLogRecordChunk((int *)ppvBuffer, pcbBuffer);
           if ( v6 < 0 )
             goto LABEL_11;
           v11 = v17;
@@ -95,7 +96,8 @@ __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct
       }
       v6 = -1073741762;
 LABEL_11:
-      CmSiFreeMemory(v10);
+      if ( v10 )
+        CmSiFreeMemory(v10);
     }
     else
     {

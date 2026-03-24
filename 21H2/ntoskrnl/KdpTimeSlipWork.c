@@ -1,16 +1,16 @@
 /*
- * XREFs of KdpTimeSlipWork @ 0x140A6F010
+ * XREFs of KdpTimeSlipWork @ 0x1409B8FB0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExReleaseTimeRefreshLock @ 0x1407D6CBC (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x1407D6F54 (ExAcquireTimeRefreshLock.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140A47884 (ExUpdateSystemTimeFromCmos.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x14098FDE4 (ExUpdateSystemTimeFromCmos.c)
  */
 
 __int64 KdpTimeSlipWork()
@@ -19,8 +19,8 @@ __int64 KdpTimeSlipWork()
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v5; // eax
-  bool v6; // zf
+  int v4; // eax
+  bool v5; // zf
 
   if ( ExAcquireTimeRefreshLock(0) )
   {
@@ -39,15 +39,15 @@ __int64 KdpTimeSlipWork()
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
-          v6 = (v5 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v5;
-          if ( v6 )
+          v4 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+          v5 = (v4 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v4;
+          if ( v5 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
     __writecr8(v0);
   }
-  return KiSetTimerEx((unsigned __int64)&KdpTimeSlipTimer, -1800000000LL, 0, 0, (__int64)&KdpTimeSlipDpc);
+  return KiSetTimerEx((__int64)&KdpTimeSlipTimer, -1800000000LL, 0, 0, (__int64)&KdpTimeSlipDpc);
 }

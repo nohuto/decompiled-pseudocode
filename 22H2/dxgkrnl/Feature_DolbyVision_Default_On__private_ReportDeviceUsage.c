@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_DolbyVision_Default_On__private_ReportDeviceUsage @ 0x1C0027360
+ * XREFs of Feature_DolbyVision_Default_On__private_ReportDeviceUsage @ 0x1C0028938
  * Callers:
- *     ?OnDescriptorUpdated@MonitorColorState@DxgMonitor@@QEAAXPEBUIMonitorDescriptor@2@@Z @ 0x1C0207988 (-OnDescriptorUpdated@MonitorColorState@DxgMonitor@@QEAAXPEBUIMonitorDescriptor@2@@Z.c)
+ *     ?_ParseEDIDForHDRParams@DXGMONITOR@@AEAAJXZ @ 0x1C0180F08 (-_ParseEDIDForHDRParams@DXGMONITOR@@AEAAJXZ.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_DolbyVision_Default_On__private_ReportDeviceUsage()

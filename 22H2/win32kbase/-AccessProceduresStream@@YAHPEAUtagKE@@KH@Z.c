@@ -1,33 +1,28 @@
 /*
- * XREFs of ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00E3A10
+ * XREFs of ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C01830F0
  * Callers:
- *     ?xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B67B0 (-xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     ?xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B6870 (-xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B6F90 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
- *     ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B73C0 (-xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01B7650 (-xxxUpdateModifierState@@YAXHH@Z.c)
- *     ProcessKeyboardInputWorker @ 0x1C01EA900 (ProcessKeyboardInputWorker.c)
+ *     ?xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0183BF0 (-xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0183CB0 (-xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01850C0 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0185460 (-xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01856D0 (-xxxUpdateModifierState@@YAXHH@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C01B0810 (ProcessKeyboardInputWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01B5B8C (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall AccessProceduresStream(struct tagKE *a1, unsigned int a2, signed int a3)
+__int64 __fastcall AccessProceduresStream(struct tagKE *a1, unsigned int a2, unsigned int a3)
 {
-  unsigned int v3; // edi
-  __int64 (__fastcall **i)(struct tagKE *, unsigned int, int); // rbx
+  unsigned int v3; // ebx
+  __int64 (__fastcall **i)(struct tagKE *, unsigned int, int); // rdi
 
   v3 = a3;
-  if ( (unsigned __int64)a3 >= 5 )
+  if ( a3 >= 5 )
     return 1LL;
-  for ( i = &off_1C02430B0[a3]; ; ++i )
+  for ( i = &off_1C020A620[a3]; (unsigned int)(*i)(a1, a2, ++v3); ++i )
   {
-    ++v3;
-    if ( !((unsigned int (__fastcall *)(struct tagKE *, _QWORD))*i)(a1, a2) )
-      break;
     if ( v3 >= 5 )
       return 1LL;
   }
-  InputTraceLogging::Keyboard::DropInput(11LL);
   return 0LL;
 }

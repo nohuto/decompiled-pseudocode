@@ -1,18 +1,16 @@
 /*
- * XREFs of PopOkayToQueueNextWorkItem @ 0x140368A78
+ * XREFs of PopOkayToQueueNextWorkItem @ 0x1402D1FF4
  * Callers:
- *     PopSetUserShutdownMarkerWorker @ 0x1407EC230 (PopSetUserShutdownMarkerWorker.c)
- *     PopClearUserShutdownMarkerWorker @ 0x1407EC280 (PopClearUserShutdownMarkerWorker.c)
- *     PopExternalMonitorUpdatedWorker @ 0x1407ED710 (PopExternalMonitorUpdatedWorker.c)
- *     PpmPerfTelemetryWorker @ 0x14080BBA0 (PpmPerfTelemetryWorker.c)
- *     PopBsdUpdateWorker @ 0x140810990 (PopBsdUpdateWorker.c)
- *     PopThermalStateTransitionWorker @ 0x1408647A0 (PopThermalStateTransitionWorker.c)
- *     PopRecordLidStateWorker @ 0x140989A30 (PopRecordLidStateWorker.c)
- *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x140989DA0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x1409967E4 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopNetRefreshTimerWorkerCallback @ 0x140998800 (PopNetRefreshTimerWorkerCallback.c)
- *     PopPreSleepNotifyWorker @ 0x14099D0B0 (PopPreSleepNotifyWorker.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140A6BCF0 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     PopBsdUpdateWorker @ 0x1405CF240 (PopBsdUpdateWorker.c)
+ *     PpmPerfTelemetryWorker @ 0x1406C0CC0 (PpmPerfTelemetryWorker.c)
+ *     PopClearUserShutdownMarkerWorker @ 0x14077A510 (PopClearUserShutdownMarkerWorker.c)
+ *     PopSetUserShutdownMarkerWorker @ 0x14077A560 (PopSetUserShutdownMarkerWorker.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x1407D5790 (PopExternalMonitorUpdatedWorker.c)
+ *     PopRecordLidStateWorker @ 0x1408E1400 (PopRecordLidStateWorker.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF4E4 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x1408F1F70 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopPreSleepNotifyWorker @ 0x1408F56C0 (PopPreSleepNotifyWorker.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x1409B2510 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
  * Callees:
  *     <none>
  */

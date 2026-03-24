@@ -1,98 +1,92 @@
 /*
- * XREFs of ExGetPoolTagInfo @ 0x1408312EC
+ * XREFs of ExGetPoolTagInfo @ 0x14070C78C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     EtwpPoolRunDown @ 0x1409EF5FC (EtwpPoolRunDown.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x14093E350 (EtwpPoolRunDown.c)
  * Callees:
- *     KeGenericCallDpcEx @ 0x1403C6090 (KeGenericCallDpcEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeGenericCallDpc @ 0x14035E460 (KeGenericCallDpc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetPoolTagInfo(_DWORD *a1, unsigned int a2, int *a3)
 {
   __int64 v6; // r15
   __int64 v7; // r14
-  unsigned __int64 v8; // rdx
-  __int64 Pool2; // rax
-  char *v10; // rbx
-  char *v11; // rdx
-  char *v12; // r9
+  SIZE_T v8; // rdx
+  char *PoolWithTag; // rax
+  _DWORD *v10; // rbx
+  _DWORD *v11; // rcx
+  _DWORD *v12; // rcx
   unsigned int v13; // eax
-  char *v14; // rdx
-  unsigned int v15; // ecx
-  unsigned int v16; // r11d
-  unsigned int v17; // r14d
-  unsigned int v18; // r10d
-  int v20; // [rsp+20h] [rbp-68h]
-  unsigned int v21; // [rsp+24h] [rbp-64h]
-  char *v22; // [rsp+28h] [rbp-60h]
-  _DWORD *v23; // [rsp+30h] [rbp-58h]
-  _QWORD v24[10]; // [rsp+38h] [rbp-50h] BYREF
+  unsigned int v14; // eax
+  unsigned int v15; // eax
+  int v17; // [rsp+20h] [rbp-68h]
+  unsigned int v18; // [rsp+24h] [rbp-64h]
+  _DWORD *v19; // [rsp+28h] [rbp-60h]
+  _DWORD *v20; // [rsp+30h] [rbp-58h]
+  _QWORD v21[10]; // [rsp+38h] [rbp-50h] BYREF
 
-  v21 = 0;
-  v23 = a1 + 2;
-  v20 = 8;
+  v18 = 0;
+  v20 = a1 + 2;
+  v17 = 8;
   *a1 = 0;
   v6 = PoolTrackTableSize;
   v7 = PoolTrackTableExpansionSize;
-  v8 = 80 * PoolTrackTableSize + 80 * PoolTrackTableExpansionSize;
-  if ( v8 < 80 * PoolTrackTableSize )
+  v8 = 56 * PoolTrackTableSize + 56 * PoolTrackTableExpansionSize;
+  if ( v8 < 56 * PoolTrackTableSize )
     return 3221225626LL;
-  Pool2 = ExAllocatePool2(64LL, v8, 1868983881LL);
-  v10 = (char *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x6F666E49u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v24[0] = Pool2;
-  v24[1] = PoolTrackTableSize;
-  v24[2] = Pool2 + 80 * PoolTrackTableSize;
-  v24[3] = v7;
-  KeGenericCallDpcEx((__int64)ExpGetPoolTagInfoTarget, (__int64)v24);
+  v21[0] = PoolWithTag;
+  v21[1] = PoolTrackTableSize;
+  v21[2] = &PoolWithTag[56 * PoolTrackTableSize];
+  v21[3] = v7;
+  KeGenericCallDpc((__int64)ExpGetPoolTagInfoTarget, (__int64)v21);
   v11 = v10;
-  v22 = v10;
-  v12 = &v10[80 * v7 + 80 * v6];
-  while ( v11 < v12 )
+  v19 = v10;
+  while ( v11 < &v10[14 * v7 + 14 * v6] )
   {
-    if ( !*(_DWORD *)v11 )
-      goto LABEL_9;
+    if ( !*v11 )
+      goto LABEL_6;
     ++*a1;
-    v13 = v20 + 40;
-    v20 = v13;
+    v13 = v17 + 40;
+    v17 = v13;
     if ( v13 < 0x28 )
     {
-      v21 = -1073741675;
+      v18 = -1073741675;
       break;
     }
     if ( a2 < v13 )
     {
-      v21 = -1073741820;
-LABEL_9:
-      v14 = v22;
-      goto LABEL_10;
+      v18 = -1073741820;
+LABEL_6:
+      v12 = v19;
+      goto LABEL_7;
     }
-    *v23 = *(_DWORD *)v22;
-    v14 = v22;
-    v15 = *((_DWORD *)v22 + 10);
-    v23[1] = v15;
-    v16 = *((_DWORD *)v22 + 12);
-    v23[2] = v16;
-    *((_QWORD *)v23 + 2) = *((_QWORD *)v22 + 4);
-    v17 = *((_DWORD *)v22 + 4);
-    v23[6] = v17;
-    v18 = *((_DWORD *)v22 + 6);
-    v23[7] = v18;
-    *((_QWORD *)v23 + 4) = *((_QWORD *)v22 + 1);
-    if ( v15 < v16 )
-      v23[1] = v16;
-    if ( v17 < v18 )
-      v23[6] = v18;
-    v23 += 10;
-LABEL_10:
-    v11 = v14 + 80;
-    v22 = v11;
+    *v20 = *v19;
+    v12 = v19;
+    v20[1] = v19[10];
+    v20[2] = v19[12];
+    *((_QWORD *)v20 + 2) = *((_QWORD *)v19 + 4);
+    v20[6] = v19[4];
+    v20[7] = v19[6];
+    *((_QWORD *)v20 + 4) = *((_QWORD *)v19 + 1);
+    v14 = v20[2];
+    if ( v20[1] < v14 )
+      v20[1] = v14;
+    v15 = v20[7];
+    if ( v20[6] < v15 )
+      v20[6] = v15;
+    v20 += 10;
+LABEL_7:
+    v11 = v12 + 14;
+    v19 = v11;
   }
   ExFreePoolWithTag(v10, 0);
   if ( a3 )
-    *a3 = v20;
-  return v21;
+    *a3 = v17;
+  return v18;
 }

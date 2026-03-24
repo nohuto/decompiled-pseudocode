@@ -1,89 +1,85 @@
 /*
- * XREFs of ?ConvertLegacyQDCDWMClonePath@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C016C8C0
+ * XREFs of ?ConvertLegacyQDCDWMClonePath@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C01605F8
  * Callers:
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C016CCBC (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
- *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03BB214 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C0144C54 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C02EAEDC (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
  * Callees:
- *     ?GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C0001880 (-GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C004ABF8 (-GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
- *     ?DxgkGetPreferredVidPnSourceList@@YAJAEBU_LUID@@IPEAI1@Z @ 0x1C016CAF0 (-DxgkGetPreferredVidPnSourceList@@YAJAEBU_LUID@@IPEAI1@Z.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z @ 0x1C0312E5C (-FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C000A170 (-GetHashBitShift@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
+ *     ?GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ @ 0x1C000A1C4 (-GetHashBitMask@DXGADAPTERSOURCEHASH@@QEAAIXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?DxgkGetPreferredVidPnSourceList@@YAJAEBU_LUID@@IPEAI1@Z @ 0x1C0160834 (-DxgkGetPreferredVidPnSourceList@@YAJAEBU_LUID@@IPEAI1@Z.c)
+ *     ?FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z @ 0x1C0269DC0 (-FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z.c)
  */
 
-__int64 __fastcall CCD_TOPOLOGY::ConvertLegacyQDCDWMClonePath(CCD_TOPOLOGY *this)
+__int64 __fastcall CCD_TOPOLOGY::ConvertLegacyQDCDWMClonePath(CCD_TOPOLOGY *this, __int64 a2)
 {
   struct DXGGLOBAL *Global; // rax
-  __int64 v3; // rcx
-  unsigned int v4; // edi
-  unsigned int v5; // r14d
+  __int64 v4; // rcx
+  unsigned int v5; // ebx
+  unsigned int v6; // r14d
   DXGADAPTERSOURCEHASH *i; // r15
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
-  struct _LUID *v8; // rbx
-  unsigned int v9; // r12d
-  unsigned int v10; // ebx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v11; // rax
-  const struct _LUID *v12; // r12
-  const struct _LUID *v13; // r13
-  unsigned int v14; // r14d
-  unsigned int j; // r15d
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v16; // rax
-  __int64 LowPart; // rdx
+  __int64 v9; // rdx
+  struct _LUID *v10; // rdi
+  unsigned int v11; // r14d
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v12; // rdi
+  unsigned int v13; // r15d
+  unsigned int j; // r12d
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
   __int64 v18; // r13
   unsigned int v19; // ecx
   int PreferredVidPnSourceList; // eax
-  __int64 v21; // r15
-  unsigned int k; // r15d
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v23; // rax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v24; // rdx
-  int v25; // eax
-  __int64 v26; // rcx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v27; // rax
-  unsigned int v29; // r12d
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r12
+  unsigned int k; // r12d
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v25; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v26; // rdx
+  int v27; // eax
+  __int64 v28; // rcx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v29; // rax
+  unsigned int v31; // r12d
+  __int64 v32; // rdx
+  __int64 v33; // rcx
   int AdapterAndSourceForHash; // r13d
-  unsigned int v31; // [rsp+58h] [rbp-69h] BYREF
-  struct _LUID v32; // [rsp+60h] [rbp-61h] BYREF
-  unsigned int v33[16]; // [rsp+68h] [rbp-59h] BYREF
-  unsigned int v34[16]; // [rsp+A8h] [rbp-19h] BYREF
+  __int64 v35; // rax
+  _QWORD *v36; // rax
+  _QWORD *v37; // rax
+  unsigned int v38; // [rsp+28h] [rbp-69h] BYREF
+  struct _LUID v39; // [rsp+30h] [rbp-61h] BYREF
+  unsigned int v40[16]; // [rsp+38h] [rbp-59h] BYREF
+  unsigned int v41[16]; // [rsp+78h] [rbp-19h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  v3 = *((_QWORD *)this + 8);
-  v4 = 0;
+  Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+  v4 = *((_QWORD *)this + 8);
   v5 = 0;
-  for ( i = (struct DXGGLOBAL *)((char *)Global + 1384); v5 < *(unsigned __int16 *)(v3 + 20); ++v5 )
+  v6 = 0;
+  for ( i = (struct DXGGLOBAL *)((char *)Global + 1272); v6 < *(unsigned __int16 *)(v4 + 20); ++v6 )
   {
-    PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(this, v5);
-    v8 = (struct _LUID *)PathDescriptor;
+    PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(this, v6);
+    v10 = (struct _LUID *)PathDescriptor;
     if ( *((_BYTE *)PathDescriptor + 129) )
     {
-      v9 = *((_DWORD *)PathDescriptor + 7);
-      if ( ((unsigned int)DXGADAPTERSOURCEHASH::GetHashBitMask(i) & v9) != 0 )
+      if ( ((unsigned int)DXGADAPTERSOURCEHASH::GetHashBitMask(i, v9) & *((_DWORD *)PathDescriptor + 7)) != 0 )
       {
-        v32 = 0LL;
-        v31 = 0;
-        v29 = v9 >> DXGADAPTERSOURCEHASH::GetHashBitShift(i);
-        AdapterAndSourceForHash = DXGADAPTERSOURCEHASH::FindAdapterAndSourceForHash(i, v29, &v32, &v31);
+        v39 = 0LL;
+        v38 = 0;
+        v31 = (unsigned int)v10[3].HighPart >> DXGADAPTERSOURCEHASH::GetHashBitShift(i);
+        AdapterAndSourceForHash = DXGADAPTERSOURCEHASH::FindAdapterAndSourceForHash(i, v31, &v39, &v38);
         if ( AdapterAndSourceForHash < 0 )
         {
-          WdLogSingleEntry1(2LL, v29);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed info for hash (0x%lx)",
-            v29,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v35 = WdLogNewEntry5_WdError(v33, v32);
+          *(_QWORD *)(v35 + 24) = v31;
+          WdLogEvent5_WdError(v35);
           return (unsigned int)AdapterAndSourceForHash;
         }
-        v8[3].HighPart &= ~(unsigned int)DXGADAPTERSOURCEHASH::GetHashBitMask(i);
-        v8[3].LowPart = v31;
-        v8[2] = v32;
+        v10[3].HighPart &= ~(unsigned int)DXGADAPTERSOURCEHASH::GetHashBitMask(i, v32);
+        v10[3].LowPart = v38;
+        v10[2] = v39;
       }
     }
     else
@@ -91,102 +87,91 @@ __int64 __fastcall CCD_TOPOLOGY::ConvertLegacyQDCDWMClonePath(CCD_TOPOLOGY *this
       *(_QWORD *)PathDescriptor &= 0xFFFFFFFFFF7DFFFFuLL;
       *((_QWORD *)PathDescriptor + 1) &= 0xFFFFFFFFFF7DFFFFuLL;
     }
-    v3 = *((_QWORD *)this + 8);
+    v4 = *((_QWORD *)this + 8);
   }
-  v10 = 0;
-  if ( !*(_WORD *)(v3 + 20) )
+  v11 = 0;
+  if ( !*(_WORD *)(v4 + 20) )
     return 0LL;
   while ( 1 )
   {
-    v11 = CCD_TOPOLOGY::GetPathDescriptor(this, v10);
-    v12 = (const struct _LUID *)v11;
-    if ( (*(_QWORD *)v11 & 0x4000000000000LL) != 0 )
+    v12 = CCD_TOPOLOGY::GetPathDescriptor(this, v11);
+    if ( (*(_QWORD *)v12 & 0x4000000000000LL) != 0 )
       break;
-LABEL_23:
-    v26 = *((_QWORD *)this + 8);
-    if ( ++v10 >= *(unsigned __int16 *)(v26 + 20) )
+LABEL_24:
+    v28 = *((_QWORD *)this + 8);
+    if ( ++v11 >= *(unsigned __int16 *)(v28 + 20) )
     {
-      if ( *(_WORD *)(v26 + 20) )
+      if ( *(_WORD *)(v28 + 20) )
       {
         do
         {
-          v27 = CCD_TOPOLOGY::GetPathDescriptor(this, v4++);
-          *(_QWORD *)v27 |= 0x4000000000000uLL;
+          v29 = CCD_TOPOLOGY::GetPathDescriptor(this, v5++);
+          *(_QWORD *)v29 |= 0x4000000000000uLL;
         }
-        while ( v4 < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) );
+        while ( v5 < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL) );
       }
       return 0LL;
     }
   }
-  v13 = (const struct _LUID *)((char *)v11 + 16);
-  v14 = 0;
-  for ( j = v10; j < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL); ++j )
+  v13 = 0;
+  for ( j = v11; j < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL); ++j )
   {
-    v16 = CCD_TOPOLOGY::GetPathDescriptor(this, j);
-    LowPart = v13->LowPart;
-    if ( __PAIR64__(v12[2].HighPart, LowPart) == *((_QWORD *)v16 + 2) )
+    v15 = CCD_TOPOLOGY::GetPathDescriptor(this, j);
+    if ( *((_DWORD *)v12 + 4) == *((_DWORD *)v15 + 4) )
     {
-      v18 = v14;
-      if ( v14 >= 0x10 )
+      v17 = *((unsigned int *)v15 + 5);
+      if ( *((_DWORD *)v12 + 5) == (_DWORD)v17 )
       {
-        WdLogSingleEntry4(2LL, v14, v12[2].HighPart, LowPart, -1073741811LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Total paths (0x%I64x) from adapter 0x%I64x%08I64x is larger than D3DKMDT_MAX_VIDPN_SOURCES, returning 0x%I64x.",
-          v14,
-          v12[2].HighPart,
-          v12[2].LowPart,
-          -1073741811LL,
-          0LL);
-        return 3221225485LL;
+        v18 = v13;
+        if ( v13 >= 0x10 )
+        {
+          v36 = (_QWORD *)WdLogNewEntry5_WdError(v17, v16);
+          v36[3] = v13;
+          v36[4] = *((int *)v12 + 5);
+          v36[5] = *((unsigned int *)v12 + 4);
+          v36[6] = -1073741811LL;
+          WdLogEvent5_WdError(v36);
+          return 3221225485LL;
+        }
+        if ( *((_BYTE *)v15 + 129) )
+          v19 = -1;
+        else
+          v19 = *((_DWORD *)v15 + 6);
+        v41[v13++] = v19;
+        v40[v18] = *((_DWORD *)v15 + 7);
       }
-      if ( *((_BYTE *)v16 + 129) )
-        v19 = -1;
-      else
-        v19 = *((_DWORD *)v16 + 6);
-      v34[v14++] = v19;
-      v33[v18] = *((_DWORD *)v16 + 7);
-      v13 = v12 + 2;
     }
   }
-  PreferredVidPnSourceList = DxgkGetPreferredVidPnSourceList(v13, v14, v33, v34);
-  v21 = PreferredVidPnSourceList;
+  PreferredVidPnSourceList = DxgkGetPreferredVidPnSourceList((const struct _LUID *)v12 + 2, v13, v40, v41);
+  v23 = PreferredVidPnSourceList;
   if ( PreferredVidPnSourceList >= 0 )
   {
-    for ( k = v10; k < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL); ++k )
+    for ( k = v11; k < *(unsigned __int16 *)(*((_QWORD *)this + 8) + 20LL); ++k )
     {
-      v23 = CCD_TOPOLOGY::GetPathDescriptor(this, k);
-      v24 = v23;
-      if ( v13->LowPart == *((_DWORD *)v23 + 4) && v12[2].HighPart == *((_DWORD *)v23 + 5) )
+      v25 = CCD_TOPOLOGY::GetPathDescriptor(this, k);
+      v26 = v25;
+      if ( *((_DWORD *)v12 + 4) == *((_DWORD *)v25 + 4) && *((_DWORD *)v12 + 5) == *((_DWORD *)v25 + 5) )
       {
-        v25 = 0;
-        if ( v14 )
+        v27 = 0;
+        if ( v13 )
         {
-          while ( v33[v25] != *((_DWORD *)v24 + 7) )
+          while ( v40[v27] != *((_DWORD *)v26 + 7) )
           {
-            if ( ++v25 >= v14 )
-              goto LABEL_21;
+            if ( ++v27 >= v13 )
+              goto LABEL_22;
           }
-          *((_DWORD *)v24 + 6) = v34[v25];
+          *((_DWORD *)v26 + 6) = v41[v27];
         }
-LABEL_21:
-        *(_QWORD *)v24 &= ~0x4000000000000uLL;
+LABEL_22:
+        *(_QWORD *)v26 &= ~0x4000000000000uLL;
       }
     }
-    goto LABEL_23;
+    goto LABEL_24;
   }
-  WdLogSingleEntry3(2LL, v12[2].HighPart, v13->LowPart, PreferredVidPnSourceList);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to get the preferred VidPn source list for adapter 0x%I64x%08I64x, Status = 0x%I64x",
-    v12[2].HighPart,
-    v13->LowPart,
-    v21,
-    0LL,
-    0LL);
-  return (unsigned int)v21;
+  v37 = (_QWORD *)WdLogNewEntry5_WdError(v22, v21);
+  v37[3] = *((int *)v12 + 5);
+  v37[4] = *((unsigned int *)v12 + 4);
+  v37[5] = v23;
+  WdLogEvent5_WdError(v37);
+  return (unsigned int)v23;
 }

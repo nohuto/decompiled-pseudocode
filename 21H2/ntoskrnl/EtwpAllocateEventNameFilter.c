@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAllocateEventNameFilter @ 0x1409F45F0
+ * XREFs of EtwpAllocateEventNameFilter @ 0x1409400B8
  * Callers:
- *     EtwpAllocateFilter @ 0x1406CEEB0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1407B8158 (EtwpAllocateFilter.c)
  * Callees:
- *     strnlen @ 0x1403E2F80 (strnlen.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpFreeEventNameFilter @ 0x1409F5070 (EtwpFreeEventNameFilter.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     strnlen @ 0x1403D3BD0 (strnlen.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpFreeEventNameFilter @ 0x140940B40 (EtwpFreeEventNameFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocateEventNameFilter(_DWORD *a1, _QWORD *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpAllocateEventNameFilter(_DWORD *a1, _QWORD *a2)
   unsigned int v5; // r14d
   __int64 v6; // r15
   __int64 v7; // r13
-  _BYTE *Pool2; // rsi
+  _BYTE *PoolWithTag; // rsi
   char *v10; // rbp
   char v11; // al
   __int64 v12; // rax
@@ -61,33 +61,33 @@ __int64 __fastcall EtwpAllocateEventNameFilter(_DWORD *a1, _QWORD *a2)
   if ( (unsigned int)v6 < 2 * v5 )
     return 3221225485LL;
   v7 = 24 * v5;
-  Pool2 = (_BYTE *)ExAllocatePool2(64LL, v7 + v6 + 40, 1182233669LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v7 + v6 + 40, 0x46777445u);
+  if ( !PoolWithTag )
     return 3221225495LL;
-  v10 = (char *)ExAllocatePool2(64LL, 256LL, 1182233669LL);
+  v10 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x100uLL, 0x46777445u);
   if ( !v10 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return 3221225495LL;
   }
-  *Pool2 = *(_BYTE *)(v4 + 17);
+  *PoolWithTag = *(_BYTE *)(v4 + 17);
   v11 = *(_BYTE *)(v4 + 16);
   if ( !v11 )
     v11 = -1;
-  Pool2[1] = v11;
+  PoolWithTag[1] = v11;
   v12 = *(_QWORD *)v4;
   if ( !*(_QWORD *)v4 )
     v12 = -1LL;
-  *((_QWORD *)Pool2 + 1) = v12;
-  *((_QWORD *)Pool2 + 2) = *(_QWORD *)(v4 + 8);
-  v37 = Pool2 + 40;
-  v39 = &Pool2[v7 + 40];
+  *((_QWORD *)PoolWithTag + 1) = v12;
+  *((_QWORD *)PoolWithTag + 2) = *(_QWORD *)(v4 + 8);
+  v37 = PoolWithTag + 40;
+  v39 = &PoolWithTag[v7 + 40];
   memmove(v39, (const void *)(v4 + 20), (unsigned int)v6);
-  *((_DWORD *)Pool2 + 6) = 0;
-  *((_QWORD *)Pool2 + 4) = v10;
-  *((_DWORD *)Pool2 + 7) = 1024;
+  *((_DWORD *)PoolWithTag + 6) = 0;
+  *((_QWORD *)PoolWithTag + 4) = v10;
+  *((_DWORD *)PoolWithTag + 7) = 1024;
   if ( (v10 + 256 >= v10 ? 0x20 : 0) != 0 )
-    memset64(v10, (unsigned __int64)(Pool2 + 24) | 1, v10 + 256 >= v10 ? 0x20 : 0);
+    memset64(v10, (unsigned __int64)(PoolWithTag + 24) | 1, v10 + 256 >= v10 ? 0x20 : 0);
   v35 = 0;
   v13 = 0;
   if ( v5 )
@@ -149,9 +149,9 @@ LABEL_40:
       v13 += v18;
       v37[1] = v21;
       v37[2] = v16;
-      v32 = *((_DWORD *)Pool2 + 7);
+      v32 = *((_DWORD *)PoolWithTag + 7);
       v38 = v21 & (-1LL << (v32 & 0x1F));
-      v33 = *((_QWORD *)Pool2 + 4);
+      v33 = *((_QWORD *)PoolWithTag + 4);
       v34 = (37
            * (BYTE6(v38)
             + 37
@@ -165,7 +165,7 @@ LABEL_40:
       *v31 = *(_QWORD *)(v33 + 8 * v34);
       v14 = v6 - 1;
       *(_QWORD *)(v33 + 8 * v34) = v31;
-      ++*((_DWORD *)Pool2 + 6);
+      ++*((_DWORD *)PoolWithTag + 6);
       ++v35;
       v37 = v31 + 3;
       if ( v35 >= v5 )
@@ -189,12 +189,12 @@ LABEL_39:
 LABEL_41:
   if ( v13 == (_DWORD)v6 )
   {
-    *a2 = Pool2;
+    *a2 = PoolWithTag;
   }
   else
   {
 LABEL_42:
-    EtwpFreeEventNameFilter(Pool2);
+    EtwpFreeEventNameFilter(PoolWithTag);
     return (unsigned int)-1073741811;
   }
   return v3;

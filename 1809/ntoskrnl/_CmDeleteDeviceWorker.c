@@ -1,26 +1,26 @@
 /*
- * XREFs of _CmDeleteDeviceWorker @ 0x1408F75DC
+ * XREFs of _CmDeleteDeviceWorker @ 0x1408F75BC
  * Callers:
- *     _CmDeleteDevice @ 0x1408F66C8 (_CmDeleteDevice.c)
+ *     _CmDeleteDevice @ 0x1408F66A8 (_CmDeleteDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
- *     _CmSetDeviceMappedProperty @ 0x1406E9454 (_CmSetDeviceMappedProperty.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x1406EA68C (_CmGetDeviceContainerIdFromBase.c)
- *     _CmGetMatchingDeviceList @ 0x140749958 (_CmGetMatchingDeviceList.c)
- *     _CmDeleteDeviceInterface @ 0x1408F67F4 (_CmDeleteDeviceInterface.c)
- *     _CmDeleteDeviceRegKey @ 0x1408F6FD4 (_CmDeleteDeviceRegKey.c)
- *     _CmRemoveDeviceFromContainer @ 0x1408F97B4 (_CmRemoveDeviceFromContainer.c)
- *     _CmRaiseDeleteEvent @ 0x1408FAEB4 (_CmRaiseDeleteEvent.c)
- *     _CmRemovePanelDevice @ 0x1408FC450 (_CmRemovePanelDevice.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x1408FDAE0 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x1406E9434 (_CmSetDeviceMappedProperty.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406EA66C (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetMatchingDeviceList @ 0x140749938 (_CmGetMatchingDeviceList.c)
+ *     _CmDeleteDeviceInterface @ 0x1408F67D4 (_CmDeleteDeviceInterface.c)
+ *     _CmDeleteDeviceRegKey @ 0x1408F6FB4 (_CmDeleteDeviceRegKey.c)
+ *     _CmRemoveDeviceFromContainer @ 0x1408F9794 (_CmRemoveDeviceFromContainer.c)
+ *     _CmRaiseDeleteEvent @ 0x1408FAE94 (_CmRaiseDeleteEvent.c)
+ *     _CmRemovePanelDevice @ 0x1408FC430 (_CmRemovePanelDevice.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1408FDAC0 (_CmGetDeviceMappedPropertyKeys.c)
  */
 
 __int64 __fastcall CmDeleteDeviceWorker(__int64 a1, const WCHAR *a2, __int16 a3)

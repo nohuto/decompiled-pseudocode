@@ -1,13 +1,13 @@
 /*
- * XREFs of ?pbrAllocBrush@BRUSHMEMOBJ@@AEAAPEAVBRUSH@@H@Z @ 0x1C008B6B4
+ * XREFs of ?pbrAllocBrush@BRUSHMEMOBJ@@AEAAPEAVBRUSH@@H@Z @ 0x1C007F57C
  * Callers:
- *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00636C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
- *     ??0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z @ 0x1C0063970 (--0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001BC50 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z @ 0x1C001BE90 (--0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z.c)
  * Callees:
- *     ?AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z @ 0x1C008B7F4 (-AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z.c)
- *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C009A610 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
- *     ?Allocate@?$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C009BB2C (-Allocate@-$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@IEAAPEAXXZ.c)
- *     ?FreeBrushMemory@@YAXPEAVBRUSH@@@Z @ 0x1C00ADAA4 (-FreeBrushMemory@@YAXPEAVBRUSH@@@Z.c)
+ *     ?AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z @ 0x1C007F6C0 (-AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z.c)
+ *     ?FreeBrushMemory@@YAXPEAVBRUSH@@@Z @ 0x1C0098070 (-FreeBrushMemory@@YAXPEAVBRUSH@@@Z.c)
+ *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C01133F8 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C013B9AC (-Allocate@-$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@IEAAPEAXXZ.c)
  */
 
 struct BRUSH *__fastcall BRUSHMEMOBJ::pbrAllocBrush(BRUSHMEMOBJ *this, int a2)
@@ -16,21 +16,21 @@ struct BRUSH *__fastcall BRUSHMEMOBJ::pbrAllocBrush(BRUSHMEMOBJ *this, int a2)
   ULONG_PTR v4; // rbx
 
   *((_DWORD *)this + 12) = 0;
-  if ( a2 )
+  if ( !a2 )
   {
-    if ( !*((_QWORD *)gpTypeIsolation + 3) )
+    if ( gpTypeIsolation[2] )
     {
-      v4 = 0LL;
-      goto LABEL_5;
+      v3 = NSInstrumentation::CTypeIsolation<40960,160>::Allocate();
+      goto LABEL_4;
     }
-    v3 = NSInstrumentation::CTypeIsolation<49152,192>::Allocate();
+LABEL_11:
+    v4 = 0LL;
+    goto LABEL_5;
   }
-  else
-  {
-    if ( !*((_QWORD *)gpTypeIsolation + 2) )
-      return 0LL;
-    v3 = NSInstrumentation::CTypeIsolation<40960,160>::Allocate();
-  }
+  if ( !gpTypeIsolation[3] )
+    goto LABEL_11;
+  v3 = NSInstrumentation::CTypeIsolation<49152,192>::Allocate();
+LABEL_4:
   v4 = v3;
 LABEL_5:
   if ( v4 )

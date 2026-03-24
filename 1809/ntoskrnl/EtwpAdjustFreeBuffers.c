@@ -5,7 +5,7 @@
  *     EtwpFlushActiveBuffers @ 0x1405C2178 (EtwpFlushActiveBuffers.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     EtwpAllocateFreeBuffers @ 0x1400DD134 (EtwpAllocateFreeBuffers.c)
+ *     EtwpAllocateFreeBuffers @ 0x1400DD154 (EtwpAllocateFreeBuffers.c)
  */
 
 __int64 __fastcall EtwpAdjustFreeBuffers(__int64 a1)

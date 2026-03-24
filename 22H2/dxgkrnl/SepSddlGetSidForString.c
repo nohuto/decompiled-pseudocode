@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSddlGetSidForString @ 0x1C03976D8
+ * XREFs of SepSddlGetSidForString @ 0x1C02C4D64
  * Callers:
- *     SepSddlGetAclForString @ 0x1C0397360 (SepSddlGetAclForString.c)
+ *     SepSddlGetAclForString @ 0x1C02C49D4 (SepSddlGetAclForString.c)
  * Callees:
- *     _wcsnicmp_0 @ 0x1C0023F02 (_wcsnicmp_0.c)
+ *     _wcsnicmp_0 @ 0x1C0024962 (_wcsnicmp_0.c)
  */
 
 __int64 __fastcall SepSddlGetSidForString(wchar_t *Str1, _QWORD *a2, _QWORD *a3)
@@ -15,9 +15,9 @@ __int64 __fastcall SepSddlGetSidForString(wchar_t *Str1, _QWORD *a2, _QWORD *a3)
   bool v10; // zf
 
   v3 = 0LL;
-  v4 = (unsigned int *)&unk_1C0140184;
+  v4 = (unsigned int *)&unk_1C00B2034;
   v5 = 0;
-  while ( wcsnicmp_0(Str1, (const wchar_t *)&unk_1C0140170 + 12 * v5 + 6, *v4) )
+  while ( wcsnicmp_0(Str1, (const wchar_t *)&unk_1C00B2020 + 12 * v5 + 6, *v4) )
   {
     ++v5;
     v4 += 6;
@@ -27,10 +27,10 @@ __int64 __fastcall SepSddlGetSidForString(wchar_t *Str1, _QWORD *a2, _QWORD *a3)
       goto LABEL_9;
     }
   }
-  v10 = *((_DWORD *)&unk_1C0140170 + 6 * v5 + 2) == 1;
-  *a3 = &Str1[*((unsigned int *)&unk_1C0140170 + 6 * v5 + 5)];
+  v10 = *((_DWORD *)&unk_1C00B2020 + 6 * v5 + 2) == 1;
+  *a3 = &Str1[*((unsigned int *)&unk_1C00B2020 + 6 * v5 + 5)];
   if ( !v10 || IoIsWdmVersionAvailable(1u, 0x20u) )
-    v3 = *(__int64 *)((char *)&SeExports->SeCreateTokenPrivilege + *((_QWORD *)&unk_1C0140170 + 3 * v5));
+    v3 = *(__int64 *)((char *)&SeExports->SeCreateTokenPrivilege + *((_QWORD *)&unk_1C00B2020 + 3 * v5));
   result = 0LL;
 LABEL_9:
   *a2 = v3;

@@ -1,245 +1,143 @@
 /*
- * XREFs of DpiGetDriverDataSizeFromVersion @ 0x1C0214F04
+ * XREFs of DpiGetDriverDataSizeFromVersion @ 0x1C0199620
  * Callers:
- *     DpiInitializeEx @ 0x1C02146B0 (DpiInitializeEx.c)
+ *     DpiInitializeEx @ 0x1C0198C4C (DpiInitializeEx.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall DpiGetDriverDataSizeFromVersion(int a1, unsigned int a2, int a3, int *a4)
 {
-  int v4; // eax
+  int v5; // eax
 
   *a4 = a3;
   if ( !a1 )
   {
-    if ( a2 >= 0x2001 )
+    if ( a2 < 0x2001 )
     {
-      if ( a2 >= 0x2002 )
+      *a4 = 496;
+    }
+    else if ( a2 < 0x2002 )
+    {
+      *a4 = 544;
+    }
+    else if ( a2 < 0x2003 )
+    {
+      *a4 = 552;
+    }
+    else if ( a2 < 0x3001 )
+    {
+      *a4 = 568;
+    }
+    else if ( a2 < 0x3002 )
+    {
+      *a4 = 576;
+    }
+    else if ( a2 < 0x3004 )
+    {
+      *a4 = 624;
+    }
+    else if ( a2 < 0x3005 )
+    {
+      *a4 = 632;
+    }
+    else if ( a2 < 0x300D )
+    {
+      *a4 = 656;
+    }
+    else if ( a2 < 0x4000 )
+    {
+      *a4 = 664;
+    }
+    else if ( a2 < 0x4002 )
+    {
+      *a4 = 696;
+    }
+    else if ( a2 >= 0x5000 )
+    {
+      if ( a2 < 0x6000 )
       {
-        if ( a2 >= 0x2003 )
-        {
-          if ( a2 >= 0x3001 )
-          {
-            if ( a2 >= 0x3002 )
-            {
-              if ( a2 >= 0x3004 )
-              {
-                if ( a2 >= 0x3005 )
-                {
-                  if ( a2 >= 0x300D )
-                  {
-                    if ( a2 >= 0x4000 )
-                    {
-                      if ( a2 >= 0x4002 )
-                      {
-                        if ( a2 >= 0x5000 )
-                        {
-                          if ( a2 >= 0x6000 )
-                          {
-                            if ( a2 >= 0x6002 )
-                            {
-                              if ( a2 >= 0x7000 )
-                              {
-                                if ( a2 >= 0x7002 )
-                                {
-                                  if ( a2 >= 0x7003 )
-                                  {
-                                    if ( a2 >= 0x7004 )
-                                    {
-                                      if ( a2 >= 0x8000 )
-                                      {
-                                        if ( a2 >= 0x9000 )
-                                        {
-                                          if ( a2 >= 0x9002 )
-                                          {
-                                            if ( a2 >= 0x9003 )
-                                            {
-                                              if ( a2 >= 0x9005 )
-                                              {
-                                                if ( a2 >= 0x9006 )
-                                                {
-                                                  if ( a2 >= 0xA001 )
-                                                  {
-                                                    if ( a2 >= 0xA002 )
-                                                    {
-                                                      if ( a2 >= 0xA005 )
-                                                      {
-                                                        if ( a2 >= 0xA007 )
-                                                        {
-                                                          if ( a2 >= 0xA009 )
-                                                          {
-                                                            if ( a2 >= 0xB002 )
-                                                            {
-                                                              if ( a2 >= 0xB003 )
-                                                              {
-                                                                if ( a2 >= 0xE003 )
-                                                                {
-                                                                  if ( a2 >= 0xF001 )
-                                                                  {
-                                                                    v4 = a3;
-                                                                    if ( a2 < 0xF003 )
-                                                                      v4 = 1288;
-                                                                    *a4 = v4;
-                                                                  }
-                                                                  else
-                                                                  {
-                                                                    *a4 = 1264;
-                                                                  }
-                                                                }
-                                                                else
-                                                                {
-                                                                  *a4 = 1232;
-                                                                }
-                                                              }
-                                                              else
-                                                              {
-                                                                *a4 = 1208;
-                                                              }
-                                                            }
-                                                            else
-                                                            {
-                                                              *a4 = 1192;
-                                                            }
-                                                          }
-                                                          else
-                                                          {
-                                                            *a4 = 1184;
-                                                          }
-                                                        }
-                                                        else
-                                                        {
-                                                          *a4 = 1176;
-                                                        }
-                                                      }
-                                                      else
-                                                      {
-                                                        *a4 = 1168;
-                                                      }
-                                                    }
-                                                    else
-                                                    {
-                                                      *a4 = 1160;
-                                                    }
-                                                  }
-                                                  else
-                                                  {
-                                                    *a4 = 1152;
-                                                  }
-                                                }
-                                                else
-                                                {
-                                                  *a4 = 1144;
-                                                }
-                                              }
-                                              else
-                                              {
-                                                *a4 = 1128;
-                                              }
-                                            }
-                                            else
-                                            {
-                                              *a4 = 1112;
-                                            }
-                                          }
-                                          else
-                                          {
-                                            *a4 = 1104;
-                                          }
-                                        }
-                                        else
-                                        {
-                                          *a4 = 1056;
-                                        }
-                                      }
-                                      else
-                                      {
-                                        *a4 = 1032;
-                                      }
-                                    }
-                                    else
-                                    {
-                                      *a4 = 1008;
-                                    }
-                                  }
-                                  else
-                                  {
-                                    *a4 = 952;
-                                  }
-                                }
-                                else
-                                {
-                                  *a4 = 936;
-                                }
-                              }
-                              else
-                              {
-                                *a4 = 880;
-                              }
-                            }
-                            else
-                            {
-                              *a4 = 864;
-                            }
-                          }
-                          else
-                          {
-                            *a4 = 832;
-                          }
-                        }
-                        else
-                        {
-                          *a4 = 712;
-                        }
-                      }
-                      else
-                      {
-                        *a4 = 696;
-                      }
-                    }
-                    else
-                    {
-                      *a4 = 664;
-                    }
-                  }
-                  else
-                  {
-                    *a4 = 656;
-                  }
-                }
-                else
-                {
-                  *a4 = 632;
-                }
-              }
-              else
-              {
-                *a4 = 624;
-              }
-            }
-            else
-            {
-              *a4 = 576;
-            }
-          }
-          else
-          {
-            *a4 = 568;
-          }
-        }
-        else
-        {
-          *a4 = 552;
-        }
+        *a4 = 832;
+      }
+      else if ( a2 < 0x6002 )
+      {
+        *a4 = 864;
+      }
+      else if ( a2 < 0x7000 )
+      {
+        *a4 = 880;
+      }
+      else if ( a2 < 0x7002 )
+      {
+        *a4 = 936;
+      }
+      else if ( a2 < 0x7003 )
+      {
+        *a4 = 952;
+      }
+      else if ( a2 < 0x7004 )
+      {
+        *a4 = 1008;
+      }
+      else if ( a2 < 0x8000 )
+      {
+        *a4 = 1032;
+      }
+      else if ( a2 < 0x9000 )
+      {
+        *a4 = 1056;
+      }
+      else if ( a2 < 0x9002 )
+      {
+        *a4 = 1104;
+      }
+      else if ( a2 < 0x9003 )
+      {
+        *a4 = 1112;
+      }
+      else if ( a2 < 0x9005 )
+      {
+        *a4 = 1128;
+      }
+      else if ( a2 < 0x9006 )
+      {
+        *a4 = 1144;
+      }
+      else if ( a2 < 0xA001 )
+      {
+        *a4 = 1152;
+      }
+      else if ( a2 < 0xA002 )
+      {
+        *a4 = 1160;
+      }
+      else if ( a2 < 0xA005 )
+      {
+        *a4 = 1168;
+      }
+      else if ( a2 < 0xA007 )
+      {
+        *a4 = 1176;
+      }
+      else if ( a2 < 0xA009 )
+      {
+        *a4 = 1184;
+      }
+      else if ( a2 < 0xB002 )
+      {
+        *a4 = 1192;
       }
       else
       {
-        *a4 = 544;
+        v5 = a3;
+        if ( a2 < 0xB003 )
+          v5 = 1208;
+        *a4 = v5;
       }
     }
     else
     {
-      *a4 = 496;
+      *a4 = 712;
     }
   }
   return 0LL;

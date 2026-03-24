@@ -1,14 +1,13 @@
 /*
- * XREFs of imp_WdfRequestCompleteWithInformation @ 0x1C0007410
+ * XREFs of imp_WdfRequestCompleteWithInformation @ 0x1C0007E10
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     Vf_VerifyRequestComplete @ 0x1C00C7064 (Vf_VerifyRequestComplete.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0007EE0 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     Vf_VerifyRequestComplete @ 0x1C00C5F60 (Vf_VerifyRequestComplete.c)
  */
 
 void __fastcall imp_WdfRequestCompleteWithInformation(
@@ -17,60 +16,64 @@ void __fastcall imp_WdfRequestCompleteWithInformation(
         int RequestStatus,
         unsigned __int64 Information)
 {
-  char m_Globals_high; // di
   __int64 Offset; // rcx
-  FxRequest *v8; // rbx
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  FxDeviceBase *m_DeviceBase; // rsi
-  const void *_a1; // rax
-  _FX_DRIVER_GLOBALS *v12; // r10
+  unsigned __int64 v7; // rbx
+  _FX_DRIVER_GLOBALS *v8; // rcx
+  FxDeviceBase *v9; // rdi
+  _FX_DRIVER_GLOBALS *v10; // rcx
+  char m_Globals_high; // al
+  const void *_a1; // rdx
   FxRequest *pRequest; // [rsp+68h] [rbp+10h] BYREF
 
-  m_Globals_high = 0;
   pRequest = 0LL;
   if ( !Request )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
   LOWORD(Offset) = 0;
-  v8 = (FxRequest *)(~Request & 0xFFFFFFFFFFFFFFF8uLL);
+  v7 = ~Request & 0xFFFFFFFFFFFFFFF8uLL;
   if ( (Request & 1) != 0 )
   {
-    Offset = LOWORD(v8->__vftable);
-    v8 = (FxRequest *)((char *)v8 - Offset);
+    Offset = *(unsigned __int16 *)v7;
+    v7 -= Offset;
   }
-  if ( v8->m_Type == 4104 )
+  if ( *(_WORD *)(v7 + 8) == 4104 )
   {
-    pRequest = v8;
+    pRequest = (FxRequest *)v7;
   }
   else
   {
-    FxObjectHandleGetPtrQI(v8, (void **)&pRequest, (void *)Request, 0x1008u, Offset);
-    v8 = pRequest;
+    FxObjectHandleGetPtrQI((FxObject *)v7, (void **)&pRequest, (void *)Request, 0x1008u, Offset);
+    v7 = (unsigned __int64)pRequest;
   }
-  m_Globals = v8->m_Globals;
-  if ( m_Globals->FxVerifierOn )
+  v8 = *(_FX_DRIVER_GLOBALS **)(v7 + 16);
+  if ( v8->FxVerifierOn )
   {
-    if ( Vf_VerifyRequestComplete(m_Globals, v8) < 0 )
+    if ( Vf_VerifyRequestComplete(v8, (FxRequest *)v7) < 0 )
       return;
-    v8 = pRequest;
+    v7 = (unsigned __int64)pRequest;
   }
-  v8->m_Irp.m_Irp->IoStatus.Information = Information;
-  m_DeviceBase = v8->m_DeviceBase;
-  if ( v8->m_Globals->FxVerboseOn )
+  *(_QWORD *)(*(_QWORD *)(v7 + 152) + 56LL) = Information;
+  v9 = *(FxDeviceBase **)(v7 + 96);
+  v10 = *(_FX_DRIVER_GLOBALS **)(v7 + 16);
+  if ( v10->FxVerboseOn )
   {
-    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(v8);
+    _a1 = (const void *)(v7 ^ 0xFFFFFFFFFFFFFFF8uLL);
+    if ( !*(_WORD *)(v7 + 10) )
+      _a1 = 0LL;
     WPP_IFR_SF_qqqd(
-      v12,
+      v10,
       5u,
       0x10u,
       0xBu,
       WPP_FxRequest_hpp_Traceguids,
       _a1,
-      v8->m_Irp.m_Irp,
-      v8->m_Irp.m_Irp->IoStatus.Information,
+      *(const void **)(v7 + 152),
+      *(_QWORD *)(*(_QWORD *)(v7 + 152) + 56LL),
       RequestStatus);
   }
-  if ( m_DeviceBase )
-    m_Globals_high = HIBYTE(m_DeviceBase[1].m_Globals);
-  v8->m_PriorityBoost = m_Globals_high;
-  FxRequest::CompleteInternal(v8, RequestStatus);
+  if ( v9 )
+    m_Globals_high = HIBYTE(v9[1].m_Globals);
+  else
+    m_Globals_high = 0;
+  *(_BYTE *)(v7 + 236) = m_Globals_high;
+  FxRequest::CompleteInternal((FxRequest *)v7, RequestStatus);
 }

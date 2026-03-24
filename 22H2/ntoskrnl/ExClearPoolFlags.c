@@ -1,9 +1,7 @@
 /*
- * XREFs of ExClearPoolFlags @ 0x140606CCC
+ * XREFs of ExClearPoolFlags @ 0x1405B3578
  * Callers:
- *     VfDriverRemoveDifVerification @ 0x140ACB778 (VfDriverRemoveDifVerification.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x140ADBD64 (VfSettingsApplyMiscellaneousChecks.c)
- *     ViPtPluginUnload @ 0x140AE01B0 (ViPtPluginUnload.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x1409E0450 (VfSettingsApplyMiscellaneousChecks.c)
  * Callees:
  *     <none>
  */

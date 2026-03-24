@@ -1,22 +1,24 @@
 /*
- * XREFs of ?OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ @ 0x1C006BA20
+ * XREFs of ?OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ @ 0x1C004E99C
  * Callers:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  * Callees:
- *     ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C006C6BC (-ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z.c)
+ *     ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C00AB554 (-ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z.c)
  */
 
 void __fastcall CAsyncKeyEventMonitor::OnKeyEvent(CAsyncKeyEventMonitor *this)
 {
+  CAsyncKeyEventMonitor *v1; // rbx
   unsigned __int64 v2; // rdx
 
-  ExAcquirePushLockExclusiveEx((char *)this + 96, 0LL);
-  if ( *(_DWORD *)this && *((_BYTE *)this + 88) )
+  v1 = gpAsyncKeyEventMonitor;
+  ExAcquirePushLockExclusiveEx((char *)gpAsyncKeyEventMonitor + 96, 0LL);
+  if ( *(_DWORD *)v1 && *((_BYTE *)v1 + 88) )
     CAsyncKeyEventMonitor::ReportGetAsyncKeyStateAnomaly(
-      this,
-      ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - *(_DWORD *)this);
+      v1,
+      ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - *(_DWORD *)v1);
   v2 = MEMORY[0xFFFFF78000000320] * MEMORY[0xFFFFF78000000004];
-  *((_BYTE *)this + 88) = 0;
-  *(_DWORD *)this = v2 >> 24;
-  ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
+  *((_BYTE *)v1 + 88) = 0;
+  *(_DWORD *)v1 = v2 >> 24;
+  ExReleasePushLockExclusiveEx((char *)v1 + 96, 0LL);
 }

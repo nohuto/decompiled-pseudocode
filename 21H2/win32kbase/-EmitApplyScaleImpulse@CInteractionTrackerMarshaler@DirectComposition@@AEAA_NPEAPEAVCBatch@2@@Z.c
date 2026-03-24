@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitApplyScaleImpulse@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022EFB0
+ * XREFs of ?EmitApplyScaleImpulse@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EF594
  * Callers:
- *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F9D8 (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFFAC (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitApplyScaleImpulse(
@@ -24,17 +24,17 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitApplyScaleI
       *(_DWORD *)v6 = 28;
       *(_OWORD *)(v4 + 4) = 0LL;
       *(_QWORD *)(v4 + 20) = 0LL;
-      *((_DWORD *)v4 + 1) = 199;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 24);
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 25);
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 26);
-      *((_DWORD *)v4 + 6) = *((_DWORD *)this + 27);
+      *((_DWORD *)v4 + 1) = 209;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 22);
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 23);
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 24);
+      *((_DWORD *)v4 + 6) = *((_DWORD *)this + 25);
       *((_DWORD *)this + 4) |= 0x80u;
+      *((_DWORD *)this + 22) = 0;
+      *((_DWORD *)this + 23) = 0;
       *((_DWORD *)this + 24) = 0;
       *((_DWORD *)this + 25) = 0;
-      *((_DWORD *)this + 26) = 0;
-      *((_DWORD *)this + 27) = 0;
     }
     else
     {

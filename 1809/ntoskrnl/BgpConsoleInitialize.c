@@ -3,17 +3,17 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpGetResolution @ 0x14013B8A0 (BgpGetResolution.c)
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpFwReleaseLock @ 0x14016F1E8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F238 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
- *     BgpConsoleSetPointSize @ 0x14018685C (BgpConsoleSetPointSize.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     BgpGetResolution @ 0x14013B8C0 (BgpGetResolution.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
+ *     BgpConsoleSetPointSize @ 0x14018687C (BgpConsoleSetPointSize.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     BgpFoGetFontHandle @ 0x1409502A4 (BgpFoGetFontHandle.c)
  *     BgpDisplayCharacterGetContext @ 0x140951948 (BgpDisplayCharacterGetContext.c)
  *     BgpConsoleClearScreenEx @ 0x140953578 (BgpConsoleClearScreenEx.c)
- *     BgpConsoleGetFontName @ 0x1409FB884 (BgpConsoleGetFontName.c)
+ *     BgpConsoleGetFontName @ 0x1409FB894 (BgpConsoleGetFontName.c)
  */
 
 __int64 __fastcall BgpConsoleInitialize(unsigned int a1, unsigned int a2, unsigned int a3)

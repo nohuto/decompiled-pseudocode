@@ -1,96 +1,104 @@
 /*
- * XREFs of xxxSetThreadDesktop @ 0x1C00A9A4C
+ * XREFs of xxxSetThreadDesktop @ 0x1C00D95C0
  * Callers:
- *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0099B78 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00A3BCC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     xxxRestoreCsrssThreadDesktop @ 0x1C00A64D0 (xxxRestoreCsrssThreadDesktop.c)
- *     xxxSetCsrssThreadDesktop @ 0x1C00A65F0 (xxxSetCsrssThreadDesktop.c)
- *     NtUserSetThreadDesktop @ 0x1C00AD6E0 (NtUserSetThreadDesktop.c)
- *     xxxNextWindow @ 0x1C01EE910 (xxxNextWindow.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C004639C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D8838 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C00D91B0 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00D9440 (xxxSetCsrssThreadDesktop.c)
+ *     NtUserSetThreadDesktop @ 0x1C00D9510 (NtUserSetThreadDesktop.c)
+ *     xxxNextWindow @ 0x1C01F412C (xxxNextWindow.c)
  * Callees:
- *     zzzSetDesktop @ 0x1C005DB40 (zzzSetDesktop.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     MapDesktop @ 0x1C0077E30 (MapDesktop.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00A898C (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
- *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00AC870 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
- *     MagContextThreadCallout @ 0x1C01C9610 (MagContextThreadCallout.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     MapDesktop @ 0x1C004EE50 (MapDesktop.c)
+ *     zzzSetDesktop @ 0x1C0065EC0 (zzzSetDesktop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     MagContextThreadCallout @ 0x1C01CC7B0 (MagContextThreadCallout.c)
  */
 
-__int64 __fastcall xxxSetThreadDesktop(void *a1, __int64 a2)
+__int64 __fastcall xxxSetThreadDesktop(void *a1, __int64 a2, __int64 a3)
 {
-  __int64 *v4; // rsi
-  __int64 v5; // rax
+  __int64 *v5; // rsi
+  __int64 v6; // rax
   __int64 result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // edx
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  tagQ *v13; // rax
-  __int64 v14; // rdx
-  _DWORD v15[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-20h]
-  __int64 v17; // [rsp+30h] [rbp-18h]
-  int v18; // [rsp+38h] [rbp-10h]
-  int v19; // [rsp+3Ch] [rbp-Ch]
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  int v14; // edx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  _DWORD v18[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v19; // [rsp+28h] [rbp-20h]
+  __int64 v20; // [rsp+30h] [rbp-18h]
+  int v21; // [rsp+38h] [rbp-10h]
+  int v22; // [rsp+3Ch] [rbp-Ch]
 
-  v4 = *(__int64 **)(gptiCurrent + 424LL);
+  v5 = *(__int64 **)(gptiCurrent + 424LL);
   if ( !a2 )
     goto LABEL_3;
-  v15[1] = 0;
-  v5 = *v4;
-  v15[0] = 1;
-  v16 = v5;
-  v17 = a2;
-  v18 = 0;
-  v19 = 1;
-  result = MapDesktop((__int64)v15);
+  v18[1] = 0;
+  v6 = *v5;
+  v18[0] = 1;
+  v19 = v6;
+  v20 = a2;
+  v21 = 0;
+  v22 = 1;
+  result = MapDesktop((__int64)v18);
   if ( (int)result >= 0 )
   {
 LABEL_3:
-    if ( PsGetCurrentProcess(a1, a2) != gpepCSRSS )
+    if ( PsGetCurrentProcess(a1, a2, a3) != gpepCSRSS )
     {
       if ( *(_DWORD *)(gptiCurrent + 896LL)
         || *(_DWORD *)(gptiCurrent + 680LL)
-        || (v11 = *(_QWORD *)(gptiCurrent + 456LL)) != 0
-        && (v12 = *(_QWORD *)(v11 + 216)) != 0
-        && *(_QWORD *)(v12 + 32) == gptiCurrent )
+        || (v12 = *(_QWORD *)(gptiCurrent + 456LL)) != 0
+        && (v13 = *(_QWORD *)(v12 + 216)) != 0
+        && *(_QWORD *)(v13 + 32) == gptiCurrent )
       {
-        UserSetLastError(170LL, v7);
+        UserSetLastError(170LL, v8, v9);
         return 2147483665LL;
       }
-      if ( !v4[42] && a1 )
+      if ( !v5[42] && a1 )
       {
-        LockObjectAssignment(v4 + 42, a2);
-        v4[49] = (__int64)a1;
+        LockObjectAssignment(v5 + 42, a2);
+        v5[49] = (__int64)a1;
       }
     }
-    if ( *(_QWORD *)(gptiCurrent + 456LL) != a2 )
+    v10 = *(_QWORD *)(gptiCurrent + 456LL);
+    if ( v10 != a2 )
     {
-      if ( (*(_DWORD *)(gptiCurrent + 1256LL) & 8) == 0
-        || (MagContextThreadCallout(gMagnContext, gptiCurrent, 0LL, 1LL), *(_QWORD *)(gptiCurrent + 456LL) != a2) )
+      if ( (*(_DWORD *)(gptiCurrent + 1232LL) & 8) != 0 )
       {
-        if ( tagQ::AreMultipleThreadsAttached(*(tagQ **)(gptiCurrent + 432LL)) )
+        MagContextThreadCallout(*(_QWORD *)&gMagnContext, gptiCurrent, 0LL, 1LL);
+        v10 = *(_QWORD *)(gptiCurrent + 456LL);
+      }
+      if ( v10 != a2 )
+      {
+        v11 = *(_QWORD *)(gptiCurrent + 432LL);
+        if ( *(_DWORD *)(v11 + 392) > 1u )
         {
-          v13 = (tagQ *)AllocQueue(0LL, 0LL);
-          if ( !v13 )
+          v15 = AllocQueue(0LL, 0LL);
+          if ( !v15 )
           {
-            UserSetLastError(8LL, v14);
+            UserSetLastError(8LL, v16, v17);
             return 3221225495LL;
           }
-          tagQ::zzzAttachToQueue(v13, gptiCurrent, 0LL);
+          ++*(_DWORD *)(v15 + 392);
+          zzzAttachToQueue(gptiCurrent, (struct tagQ *)v15, 0LL, 0);
         }
-        else if ( v9 == gpqForeground )
+        else if ( v11 == gpqForeground )
         {
           xxxSetForegroundWindow2(0LL, gptiCurrent, 0);
         }
-        else if ( !v8 )
+        else if ( !v10 )
         {
-          v10 = (gdwGTERMFlags & 1) - 1;
-          *(_DWORD *)(gptiCurrent + 760LL) = v10;
-          *(_DWORD *)(v9 + 384) = v10;
+          v14 = (gdwGTERMFlags & 1) - 1;
+          *(_DWORD *)(gptiCurrent + 760LL) = v14;
+          *(_DWORD *)(v11 + 384) = v14;
         }
       }
     }

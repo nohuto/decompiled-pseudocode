@@ -4,8 +4,8 @@
  *     VfAllocPoolNotification @ 0x140937DDC (VfAllocPoolNotification.c)
  *     VfFreePoolNotification @ 0x140937E9C (VfFreePoolNotification.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutEx @ 0x1400C99B0 (KeExpandKernelStackAndCalloutEx.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCC50 (RtlEnoughStackSpaceForStackCapture.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x1400C99D0 (KeExpandKernelStackAndCalloutEx.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCC70 (RtlEnoughStackSpaceForStackCapture.c)
  *     ViPoolLogStackCallout @ 0x140924960 (ViPoolLogStackCallout.c)
  */
 

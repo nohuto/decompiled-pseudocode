@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCheckAdminAccess @ 0x140A18EA0
+ * XREFs of CmpCheckAdminAccess @ 0x1405D9B08
  * Callers:
- *     CmpVEPerformOpenAccessCheck @ 0x1407BA948 (CmpVEPerformOpenAccessCheck.c)
- *     CmpVEExecuteCreateLogic @ 0x1407BA9F4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1405D94F8 (CmpVEPerformOpenAccessCheck.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406852C0 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140685510 (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheckFromState @ 0x1402286B0 (SeAccessCheckFromState.c)
- *     CmpBuildAdminInformation @ 0x140A18A0C (CmpBuildAdminInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheckFromState @ 0x14032F440 (SeAccessCheckFromState.c)
+ *     CmpBuildAdminInformation @ 0x1405D9BE0 (CmpBuildAdminInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCheckAdminAccess(
         ACCESS_MASK DesiredAccess,
         PSECURITY_DESCRIPTOR SecurityDescriptor,
-        __int64 *a3,
+        __int64 a3,
         BOOLEAN *a4)
 {
   int v7; // edi
@@ -27,7 +27,7 @@ __int64 __fastcall CmpCheckAdminAccess(
   AccessStatus = 0;
   PrimaryTokenInformation = 0LL;
   Privileges = 0LL;
-  v7 = CmpBuildAdminInformation((__int64 *)&PrimaryTokenInformation, a3);
+  v7 = CmpBuildAdminInformation(&PrimaryTokenInformation, a3);
   if ( v7 >= 0 )
   {
     *a4 = SeAccessCheckFromState(

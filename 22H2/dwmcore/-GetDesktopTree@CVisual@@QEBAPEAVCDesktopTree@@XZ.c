@@ -1,13 +1,11 @@
 /*
- * XREFs of ?GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ @ 0x18003A580
+ * XREFs of ?GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ @ 0x18003DFB4
  * Callers:
- *     ?ResetComposeTop@CWindowNode@@AEAAXXZ @ 0x1800AC920 (-ResetComposeTop@CWindowNode@@AEAAXXZ.c)
- *     ?GetBlurredWallpaperEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x1800B3790 (-GetBlurredWallpaperEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z.c)
- *     ?RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@@Z @ 0x1801EB2A8 (-RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion.c)
- *     ?SetNotificationMode@CCursorVisual@@QEAAXXZ @ 0x180228F58 (-SetNotificationMode@CCursorVisual@@QEAAXXZ.c)
+ *     ?SetSpriteImage@CWindowNode@@AEAAJPEAVISpriteImage@@@Z @ 0x1800D0F14 (-SetSpriteImage@CWindowNode@@AEAAJPEAVISpriteImage@@@Z.c)
+ *     ?RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x18018664C (-RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ @ 0x18003A684 (-GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ @ 0x18003E01C (-GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct CDesktopTree *__fastcall CVisual::GetDesktopTree(CVisual *this)
@@ -27,10 +25,10 @@ struct CDesktopTree *__fastcall CVisual::GetDesktopTree(CVisual *this)
       v4 = VisualTreeNoRef;
       if ( VisualTreeNoRef )
       {
-        if ( (*(unsigned __int8 (__fastcall **)(struct CVisualTree *))(*(_QWORD *)VisualTreeNoRef + 184LL))(VisualTreeNoRef) )
+        if ( (*(unsigned __int8 (__fastcall **)(struct CVisualTree *))(*(_QWORD *)VisualTreeNoRef + 200LL))(VisualTreeNoRef) )
           break;
       }
-      v2 = (CVisual *)*((_QWORD *)v2 + 11);
+      v2 = (CVisual *)*((_QWORD *)v2 + 10);
       if ( !v2 )
         return (struct CDesktopTree *)v1;
     }

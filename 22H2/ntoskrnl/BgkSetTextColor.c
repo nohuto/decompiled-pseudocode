@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkSetTextColor @ 0x14054EF60
+ * XREFs of BgkSetTextColor @ 0x1404FF540
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14054F028 (BgkpAcquireConsole.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x1404FF608 (BgkpAcquireConsole.c)
  */
 
 __int64 __fastcall BgkSetTextColor(unsigned int a1)
@@ -15,8 +15,8 @@ __int64 __fastcall BgkSetTextColor(unsigned int a1)
   v1 = a1;
   if ( a1 < 0x10 && (unsigned __int8)BgkpAcquireConsole() )
   {
-    (*(void (__fastcall **)(char *, _QWORD))(qword_140C6AC68 + 16))((char *)Palette + 4 * v1, 0LL);
-    ExReleaseRundownProtection_0(&stru_140C0BD38);
+    (*(void (__fastcall **)(char *, _QWORD))(qword_140C50B90 + 16))((char *)Palette + 4 * v1, 0LL);
+    ExReleaseRundownProtection(&stru_140C113B8);
   }
   return 0LL;
 }

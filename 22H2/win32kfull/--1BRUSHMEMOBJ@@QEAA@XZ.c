@@ -1,23 +1,23 @@
 /*
- * XREFs of ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C02D0E74
+ * XREFs of ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C015D778
  * Callers:
- *     ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02D0EC8 (-hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z.c)
- *     GreCreateDIBBrush @ 0x1C02D0F20 (GreCreateDIBBrush.c)
+ *     GreCreateDIBBrush @ 0x1C015D448 (GreCreateDIBBrush.c)
+ *     ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02B6F9C (-hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z.c)
  * Callees:
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-void __fastcall BRUSHMEMOBJ::~BRUSHMEMOBJ(BRUSHMEMOBJ *this)
+void __fastcall BRUSHMEMOBJ::~BRUSHMEMOBJ(BRUSHMEMOBJ *this, __int64 a2)
 {
-  _QWORD *v2; // rcx
+  _QWORD *v3; // rcx
 
-  v2 = *(_QWORD **)this;
-  if ( v2 )
+  v3 = *(_QWORD **)this;
+  if ( v3 )
   {
-    DEC_SHARE_REF_CNT(v2);
+    DEC_SHARE_REF_CNT(v3, a2);
     if ( !*((_DWORD *)this + 12) )
       bDeleteBrush(**(_QWORD **)this, 0LL, 0LL);
     *(_QWORD *)this = 0LL;
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)this + 16);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((char *)this + 16);
 }

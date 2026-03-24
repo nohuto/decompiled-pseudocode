@@ -1,18 +1,18 @@
 /*
- * XREFs of Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C001B660
+ * XREFs of Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C0016620
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     Endpoint_GetDequeuePointer @ 0x1C000CF0C (Endpoint_GetDequeuePointer.c)
- *     Endpoint_InitializeTransferRing @ 0x1C0013B04 (Endpoint_InitializeTransferRing.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     XilEndpoint_AcquireBuffer @ 0x1C001BA40 (XilEndpoint_AcquireBuffer.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C00102D0 (Endpoint_InitializeTransferRing.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     XilEndpoint_AcquireBuffer @ 0x1C00164E4 (XilEndpoint_AcquireBuffer.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 char __fastcall Endpoint_UcxEvtDefaultEndpointUpdate(__int64 a1, __int64 a2)
@@ -26,39 +26,40 @@ char __fastcall Endpoint_UcxEvtDefaultEndpointUpdate(__int64 a1, __int64 a2)
   __int64 v9; // rax
   int v10; // ebx
   __int64 v11; // rbp
-  __int64 v12; // r9
-  __int64 v13; // r9
+  __int64 v12; // r10
+  __int64 v13; // r10
   __int16 v14; // ax
   char v15; // al
   __int64 DequeuePointer; // rax
-  __int64 v17; // r9
+  __int64 v17; // r10
   int v19; // edx
   __int64 v20; // rax
-  _OWORD v21[2]; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v22; // [rsp+70h] [rbp-38h]
+  __int128 v21; // [rsp+40h] [rbp-68h] BYREF
+  _OWORD v22[2]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v23; // [rsp+70h] [rbp-38h]
 
-  memset(v21, 0, sizeof(v21));
-  v22 = 0LL;
-  LOWORD(v21[0]) = 40;
+  memset(v22, 0, sizeof(v22));
+  v23 = 0LL;
+  LOWORD(v22[0]) = 40;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _OWORD *))(WdfFunctions_01023 + 2128))(
     WdfDriverGlobals,
     a2,
-    v21);
-  v3 = *((_QWORD *)&v21[0] + 1);
+    v22);
+  v3 = *((_QWORD *)&v22[0] + 1);
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
-         *(_QWORD *)(*((_QWORD *)&v21[0] + 1) + 24LL),
-         off_1C00631A8);
+         *(_QWORD *)(*((_QWORD *)&v22[0] + 1) + 24LL),
+         off_1C00601A8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = *(unsigned __int8 *)(*(_QWORD *)(v4 + 16) + 135LL);
+    v5 = *(_DWORD *)(v3 + 32);
     LOBYTE(v5) = 4;
     WPP_RECORDER_SF_ddd(
       *(_QWORD *)(*(_QWORD *)v4 + 72LL),
       v5,
       13,
       31,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v4 + 16) + 135LL),
       *(_DWORD *)(v4 + 144),
       *(_DWORD *)(v3 + 32));
@@ -68,11 +69,11 @@ char __fastcall Endpoint_UcxEvtDefaultEndpointUpdate(__int64 a1, __int64 a2)
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C0063090);
+         off_1C0060090);
   memset((void *)(v8 + 8), 0, 0x70uLL);
   *(_QWORD *)v8 = v4;
   *(_DWORD *)(v8 + 16) = *(_DWORD *)(v3 + 32);
-  v9 = XilEndpoint_AcquireBuffer(v4, (*(_DWORD *)(v6 + 104) & 4) != 0 ? 2112 : 1056, v4, 829714501LL);
+  v9 = XilEndpoint_AcquireBuffer((_BYTE *)v4, (*(_DWORD *)(v6 + 104) & 4) != 0 ? 2112 : 1056, v4, 829714501);
   v10 = 0;
   *(_QWORD *)(v8 + 8) = v9;
   if ( v9 )
@@ -88,10 +89,10 @@ char __fastcall Endpoint_UcxEvtDefaultEndpointUpdate(__int64 a1, __int64 a2)
     *(_WORD *)(v13 + 6) = v14;
     *(_BYTE *)(v13 + 5) = 0;
     v15 = *(_BYTE *)(v4 + 99) & 3;
+    v21 = *(_OWORD *)(*(_QWORD *)v4 + 336LL);
     if ( v15 != 1 )
     {
-      if ( (*(_QWORD *)(*(_QWORD *)v4 + 336LL) & 0x10000000000000LL) == 0
-        || v15 != 3
+      if ( ((v15 == 3) & _bittest64((const signed __int64 *)&v21, 0x34u)) == 0
         || *(char *)(v4 + 98) >= 0
         || (v20 = *(_QWORD *)(v4 + 16), *(_WORD *)(v20 + 124) != 1529)
         || *(_WORD *)(v20 + 126) != 4353
@@ -128,7 +129,7 @@ char __fastcall Endpoint_UcxEvtDefaultEndpointUpdate(__int64 a1, __int64 a2)
         v19,
         13,
         32,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v4 + 16) + 135LL),
         *(_DWORD *)(v4 + 144));
     }

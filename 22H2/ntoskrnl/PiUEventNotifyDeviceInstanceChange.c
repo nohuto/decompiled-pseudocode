@@ -1,59 +1,53 @@
 /*
- * XREFs of PiUEventNotifyDeviceInstanceChange @ 0x14077E900
+ * XREFs of PiUEventNotifyDeviceInstanceChange @ 0x14076C16C
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1407825F0 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x14071A1F0 (PiUEventProcessEventWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PiUEventHashStringIntoBucket @ 0x14031CCD8 (PiUEventHashStringIntoBucket.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     PiUEventApplyAdditionalFilters @ 0x14077E9F0 (PiUEventApplyAdditionalFilters.c)
- *     PiUEventNotifyClient @ 0x14077EAEC (PiUEventNotifyClient.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PiUEventHashStringIntoBucket @ 0x140360B78 (PiUEventHashStringIntoBucket.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     PiUEventNotifyClient @ 0x14071B1F0 (PiUEventNotifyClient.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14071B414 (PiUEventApplyAdditionalFilters.c)
  */
 
 __int64 __fastcall PiUEventNotifyDeviceInstanceChange(__int64 a1)
 {
-  int v1; // edx
-  unsigned int v2; // r12d
-  int v4; // edx
-  __int128 *v5; // r15
-  unsigned int v6; // esi
-  _QWORD **v7; // r14
-  _QWORD *v8; // rbx
-  _QWORD *v10; // rbp
-  __int128 v11; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v1; // ebp
+  _QWORD *v3; // r15
+  unsigned int v4; // esi
+  _QWORD **v5; // r14
+  _QWORD *v6; // rdi
+  __int64 v8; // r13
+  _QWORD v9[7]; // [rsp+20h] [rbp-38h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 88);
-  v2 = 0;
-  v11 = 0LL;
-  v4 = v1 - 4;
-  if ( !v4 || (unsigned int)(v4 - 6) <= 1 )
+  v1 = 0;
+  if ( *(_DWORD *)(a1 + 88) == 4 || (unsigned int)(*(_DWORD *)(a1 + 88) - 10) <= 1 )
   {
     ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
-    v5 = &v11;
-    *(_QWORD *)&v11 = (char *)&PiUEventDevInstanceClientList
-                    + 16 * (unsigned int)PiUEventHashStringIntoBucket((PCWSTR)(a1 + 120));
-    v6 = 0;
-    *((_QWORD *)&v11 + 1) = &unk_140C5CEF0;
+    v3 = v9;
+    v9[0] = (char *)&PiUEventDevInstanceClientList + 16 * (unsigned int)PiUEventHashStringIntoBucket((PCWSTR)(a1 + 120));
+    v4 = 0;
+    v9[1] = &unk_140C45170;
     do
     {
-      v7 = *(_QWORD ***)v5;
-      v8 = **(_QWORD ***)v5;
-      while ( v8 != v7 )
+      v5 = (_QWORD **)*v3;
+      v6 = *(_QWORD **)*v3;
+      while ( v6 != v5 )
       {
-        v10 = v8;
-        v8 = (_QWORD *)*v8;
-        if ( v6 || !wcsicmp((const wchar_t *)(a1 + 120), *(const wchar_t **)(v10[3] + 16LL)) )
+        v8 = (__int64)v6;
+        v6 = (_QWORD *)*v6;
+        if ( v4 || !wcsicmp((const wchar_t *)(a1 + 120), *(const wchar_t **)(*(_QWORD *)(v8 + 24) + 16LL)) )
         {
-          if ( (unsigned __int8)PiUEventApplyAdditionalFilters(a1, v10) )
-            v2 = PiUEventNotifyClient(a1, v10);
+          if ( PiUEventApplyAdditionalFilters(a1, v8) )
+            v1 = PiUEventNotifyClient(a1, v8);
         }
       }
-      ++v6;
-      v5 = (__int128 *)((char *)v5 + 8);
+      ++v4;
+      ++v3;
     }
-    while ( v6 < 2 );
-    ExReleaseFastMutex(&PiUEventClientRegistrationListLock);
+    while ( v4 < 2 );
+    KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
   }
-  return v2;
+  return v1;
 }

@@ -1,69 +1,83 @@
 /*
- * XREFs of HvlSetHpetConfig @ 0x140545A40
+ * XREFs of HvlSetHpetConfig @ 0x1404F61E0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x14045EE8E (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHandleInsufficientMemory @ 0x14053FEF8 (HvlpHandleInsufficientMemory.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F1CE8 (HvlpHandleInsufficientMemory.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FA958 (HvlpHvStatusIsInsufficientMemory.c)
  */
 
-__int64 __fastcall HvlSetHpetConfig(ULONG a1, PHYSICAL_ADDRESS a2, char a3, _OWORD *a4)
+__int64 __fastcall HvlSetHpetConfig(__int64 a1, int a2, __int64 a3, char a4, _OWORD *a5)
 {
-  unsigned int v8; // edi
-  PHYSICAL_ADDRESS *v9; // rax
-  __int16 v10; // bx
+  unsigned int v9; // esi
+  _QWORD *v10; // rax
   __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  __int64 v12; // r9
+  unsigned __int16 v13; // bx
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  __int16 v16; // cx
+  __int64 v17; // r8
   __int64 result; // rax
-  PHYSICAL_ADDRESS *v15; // rbx
-  PHYSICAL_ADDRESS *v16; // rsi
-  __int128 v17; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-D0h]
-  __int64 v19; // [rsp+38h] [rbp-C8h]
-  __int128 v20; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-B0h]
-  __int64 v22; // [rsp+58h] [rbp-A8h]
-  _BYTE v23[2080]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD *v19; // rbx
+  _QWORD *v20; // rax
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  _OWORD *v23; // rdi
+  __int64 v24; // r9
+  __int128 v25; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v26; // [rsp+38h] [rbp-D0h]
+  __int128 v27; // [rsp+48h] [rbp-C0h] BYREF
+  __int128 v28; // [rsp+58h] [rbp-B0h]
+  _BYTE v29[2080]; // [rsp+68h] [rbp-A0h] BYREF
 
-  v18 = 0LL;
-  LODWORD(v19) = 0;
-  v21 = 0LL;
-  LODWORD(v22) = 0;
-  v17 = 0LL;
-  v20 = 0LL;
-  memset(v23, 0, 0x81FuLL);
-  v8 = 0;
+  v25 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
+  v28 = 0LL;
+  memset(v29, 0, sizeof(v29));
+  v9 = 0;
   while ( 1 )
   {
-    v9 = HvlpAcquireHypercallPage((__int64)&v17, 1, (__int64)v23, 40LL);
-    v9->LowPart = 6;
-    v9[2].LowPart = a1;
-    v9[3] = a2;
-    LOBYTE(v9[4].LowPart) = a3;
-    v10 = HvcallInitiateHypercall(111);
-    HvlpReleaseHypercallPage((__int64)&v17);
-    if ( !HvlpHvStatusIsInsufficientMemory(v10) )
+    v10 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v25, 1, (__int64)v29, 40LL);
+    v11 = *((_QWORD *)&v26 + 1);
+    *(_DWORD *)v10 = 6;
+    v10[1] = a1;
+    *((_DWORD *)v10 + 4) = a2;
+    v10[3] = a3;
+    *((_BYTE *)v10 + 32) = a4;
+    v13 = HvcallInitiateHypercall(111, v11, 0LL, v12);
+    HvlpReleaseHypercallPage((__int64)&v25);
+    if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory(v13, v14) )
       break;
-    result = HvlpHandleInsufficientMemory(v10, v11, v12, v13);
+    result = HvlpHandleInsufficientMemory(v16, v15, v17);
     if ( (int)result < 0 )
-      return result;
+      goto LABEL_8;
   }
-  if ( v10 )
+  if ( v13 )
     return 3221225473LL;
-  v15 = HvlpAcquireHypercallPage((__int64)&v17, 1, (__int64)v23, 8LL);
-  v16 = HvlpAcquireHypercallPage((__int64)&v20, 2, (__int64)&v23[16], 1032LL);
-  v15->LowPart = 7;
-  if ( (unsigned __int16)HvcallInitiateHypercall(123) )
-    v8 = -1073741823;
-  else
-    *a4 = *(_OWORD *)&v16->LowPart;
-  HvlpReleaseHypercallPage((__int64)&v20);
-  HvlpReleaseHypercallPage((__int64)&v17);
-  return v8;
+  result = 0LL;
+LABEL_8:
+  if ( (int)result >= 0 )
+  {
+    v19 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v25, 1, (__int64)v29, 8LL);
+    v20 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v27, 2, (__int64)&v29[16], 1032LL);
+    v21 = *((_QWORD *)&v28 + 1);
+    v22 = *((_QWORD *)&v26 + 1);
+    v23 = v20;
+    *(_DWORD *)v19 = 7;
+    if ( (unsigned __int16)HvcallInitiateHypercall(123, v22, v21, v24) )
+      v9 = -1073741823;
+    else
+      *a5 = *v23;
+    HvlpReleaseHypercallPage((__int64)&v27);
+    HvlpReleaseHypercallPage((__int64)&v25);
+    return v9;
+  }
+  return result;
 }

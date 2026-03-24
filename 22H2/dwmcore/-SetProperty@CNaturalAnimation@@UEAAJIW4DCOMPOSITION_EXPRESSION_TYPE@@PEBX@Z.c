@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023DE00
+ * XREFs of ?SetProperty@CNaturalAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801D8C40
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetScalarProperty@CNaturalAnimation@@AEAAJIM@Z @ 0x18023DED0 (-SetScalarProperty@CNaturalAnimation@@AEAAJIM@Z.c)
- *     ?SetTimespanProperty@CNaturalAnimation@@AEAAJIAEBUTimeSpan@@@Z @ 0x18023E100 (-SetTimespanProperty@CNaturalAnimation@@AEAAJIAEBUTimeSpan@@@Z.c)
- *     ?SetVector2Property@CNaturalAnimation@@AEAAJIAEBUD2DVector2@@@Z @ 0x18023E254 (-SetVector2Property@CNaturalAnimation@@AEAAJIAEBUD2DVector2@@@Z.c)
- *     ?SetVector3Property@CNaturalAnimation@@AEAAJIAEBUD2DVector3@@@Z @ 0x18023E2D8 (-SetVector3Property@CNaturalAnimation@@AEAAJIAEBUD2DVector3@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetScalarProperty@CNaturalAnimation@@AEAAJIM@Z @ 0x1801D8D10 (-SetScalarProperty@CNaturalAnimation@@AEAAJIM@Z.c)
+ *     ?SetTimespanProperty@CNaturalAnimation@@AEAAJIAEBUTimeSpan@@@Z @ 0x1801D8F20 (-SetTimespanProperty@CNaturalAnimation@@AEAAJIAEBUTimeSpan@@@Z.c)
+ *     ?SetVector2Property@CNaturalAnimation@@AEAAJIAEBUD2DVector2@@@Z @ 0x1801D9058 (-SetVector2Property@CNaturalAnimation@@AEAAJIAEBUD2DVector2@@@Z.c)
+ *     ?SetVector3Property@CNaturalAnimation@@AEAAJIAEBUD2DVector3@@@Z @ 0x1801D90DC (-SetVector3Property@CNaturalAnimation@@AEAAJIAEBUD2DVector3@@@Z.c)
  */
 
 __int64 __fastcall CNaturalAnimation::SetProperty(CNaturalAnimation *a1, unsigned int a2, int a3, float *a4)
@@ -24,33 +24,33 @@ __int64 __fastcall CNaturalAnimation::SetProperty(CNaturalAnimation *a1, unsigne
       v4 = v5;
       if ( v5 >= 0 )
         return v4;
-      v8 = 559;
+      v8 = 553;
       goto LABEL_14;
     case 35:
       v5 = CNaturalAnimation::SetVector2Property(a1, a2, (const struct D2DVector2 *)a4);
       v4 = v5;
       if ( v5 >= 0 )
         return v4;
-      v8 = 563;
+      v8 = 557;
       goto LABEL_14;
     case 42:
       v5 = CNaturalAnimation::SetTimespanProperty(a1, a2, (const struct TimeSpan *)a4);
       v4 = v5;
       if ( v5 >= 0 )
         return v4;
-      v8 = 571;
+      v8 = 565;
       goto LABEL_14;
     case 52:
       v5 = CNaturalAnimation::SetVector3Property(a1, a2, (const struct D2DVector3 *)a4);
       v4 = v5;
       if ( v5 >= 0 )
         return v4;
-      v8 = 567;
+      v8 = 561;
 LABEL_14:
       MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, v8, 0LL);
       return v4;
   }
   v4 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x23Fu, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x239u, 0LL);
   return v4;
 }

@@ -1,37 +1,33 @@
 /*
- * XREFs of DwmAsyncDirtySprite @ 0x1C0078024
+ * XREFs of DwmAsyncDirtySprite @ 0x1C0017644
  * Callers:
- *     ?bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z @ 0x1C0078BB0 (-bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z.c)
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C00D8400 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
- *     ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C02661A8 (-SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z.c)
+ *     ?bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z @ 0x1C001755C (-bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C00907A0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C026DC34 (-SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncDirtySprite(PVOID Object, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   unsigned int v8; // ebx
-  int v10; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v11; // [rsp+24h] [rbp-44h]
-  int v12; // [rsp+48h] [rbp-20h]
-  int v13; // [rsp+4Ch] [rbp-1Ch]
-  __int64 v14; // [rsp+50h] [rbp-18h]
-  __int64 v15; // [rsp+58h] [rbp-10h]
+  __int64 v9; // r8
+  __int64 v10; // r9
+  _QWORD v12[8]; // [rsp+20h] [rbp-48h] BYREF
 
   v8 = -1073741823;
-  IncrementDWMWindowUniqueness();
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset_0(&v10, 0, 0x40uLL);
-    v10 = 4194328;
-    v11 = 0x8000;
-    v15 = a5;
-    v12 = 1073741828;
-    v14 = a2;
-    v13 = a4;
-    EtwUpdateEvent(a2, 1073741828LL);
-    v8 = LpcRequestPort(Object, &v10);
+    memset(v12, 0, sizeof(v12));
+    LODWORD(v12[0]) = 4194328;
+    WORD2(v12[0]) = 0x8000;
+    v12[7] = a5;
+    LODWORD(v12[5]) = 1073741828;
+    v12[6] = a2;
+    HIDWORD(v12[5]) = a4;
+    EtwUpdateEvent(a2, 1073741828LL, v9, v10);
+    v8 = LpcRequestPort(Object, v12);
     ObfDereferenceObject(Object);
   }
   return v8;

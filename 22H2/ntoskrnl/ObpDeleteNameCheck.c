@@ -1,115 +1,119 @@
 /*
- * XREFs of ObpDeleteNameCheck @ 0x140740650
+ * XREFs of ObpDeleteNameCheck @ 0x1406F6EB0
  * Callers:
- *     ObpDereferenceNamedObject @ 0x14035B978 (ObpDereferenceNamedObject.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7110 (ObpIncrementHandleCountEx.c)
- *     ObOpenObjectByNameEx @ 0x1406ED090 (ObOpenObjectByNameEx.c)
- *     ObpDecrementHandleCount @ 0x140740464 (ObpDecrementHandleCount.c)
- *     ObMakeTemporaryObject @ 0x1407E1210 (ObMakeTemporaryObject.c)
+ *     ObpDereferenceNamedObject @ 0x14034C1A8 (ObpDereferenceNamedObject.c)
+ *     ObpIncrementHandleCountEx @ 0x140643680 (ObpIncrementHandleCountEx.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
+ *     ObMakeTemporaryObject @ 0x1406F62F0 (ObMakeTemporaryObject.c)
+ *     ObpDecrementHandleCount @ 0x1406F6CE4 (ObpDecrementHandleCount.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     PsDereferenceSiloContext @ 0x140369C20 (PsDereferenceSiloContext.c)
- *     ObpDeleteDirectoryEntry @ 0x140697854 (ObpDeleteDirectoryEntry.c)
- *     ObpLockDirectoryExclusive @ 0x140697B24 (ObpLockDirectoryExclusive.c)
- *     ObpDeleteSymbolicLinkName @ 0x140697B5C (ObpDeleteSymbolicLinkName.c)
- *     ObpUnlockDirectory @ 0x1406C32F8 (ObpUnlockDirectory.c)
- *     ObpLookupDirectoryEntry @ 0x1407B72E8 (ObpLookupDirectoryEntry.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ObpReleaseLookupContext @ 0x140347AE0 (ObpReleaseLookupContext.c)
+ *     ObpLockDirectoryExclusive @ 0x14034D1A0 (ObpLockDirectoryExclusive.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
+ *     ObpDeleteDirectoryEntry @ 0x1406F82C0 (ObpDeleteDirectoryEntry.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x1406F8330 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpDeleteSymbolicLinkName @ 0x1406F8970 (ObpDeleteSymbolicLinkName.c)
  */
 
 void __fastcall ObpDeleteNameCheck(__int64 a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // rbx
+  char v1; // al
+  __int64 v3; // rax
+  __int64 v4; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int32 *v5; // rbp
-  struct _KTHREAD *v6; // rax
-  ULONG_PTR v7; // rax
-  _QWORD *v8; // r8
-  _QWORD *v9; // rbx
-  struct _KTHREAD *v10; // rax
-  __int128 v11; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-28h]
+  struct _DMA_ADAPTER *v6; // rbp
+  char v7; // al
+  struct _KTHREAD *v8; // rax
+  struct _DMA_ADAPTER *v9; // r10
+  struct _DMA_ADAPTER *v11; // r14
+  struct _OBJECT_TYPE *v12; // r15
+  struct _DMA_ADAPTER *v13; // rax
+  __int64 v14[2]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-38h]
+  int v16; // [rsp+48h] [rbp-30h]
+  __int16 v17; // [rsp+4Ch] [rbp-2Ch]
+  __int16 v18; // [rsp+4Eh] [rbp-2Ah]
+  int v19; // [rsp+50h] [rbp-28h]
+  int v20; // [rsp+54h] [rbp-24h]
 
-  if ( (*(_BYTE *)(a1 + 26) & 2) != 0 )
+  v1 = *(_BYTE *)(a1 + 26);
+  v15 = 0LL;
+  v16 = 0;
+  v17 = 0;
+  v20 = 0;
+  if ( (v1 & 2) != 0 )
   {
-    v2 = ObpInfoMaskToOffset[*(_BYTE *)(a1 + 26) & 3];
-    v3 = a1 - v2;
-    if ( a1 != v2 )
+    v3 = ObpInfoMaskToOffset[v1 & 3];
+    v4 = a1 - v3;
+    if ( a1 != v3 )
     {
       while ( 1 )
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
-        v5 = *(volatile signed __int32 **)v3;
-        if ( !*(_QWORD *)v3 || (*(_BYTE *)(a1 + 27) & 0x10) != 0 || *(_QWORD *)(a1 + 8) )
+        v6 = *(struct _DMA_ADAPTER **)v4;
+        if ( !*(_QWORD *)v4 || ((*(_BYTE *)(a1 + 27) & 0x10) != 0 || *(_QWORD *)(a1 + 8) ? (v7 = 0) : (v7 = 1), !v7) )
         {
-          ExReleasePushLockEx((__int64 *)(a1 + 16), 0LL);
+          ExReleasePushLockEx(a1 + 16, 0LL);
           KeLeaveCriticalRegion();
           return;
         }
-        v12 = 0x10000000000LL;
-        v6 = KeGetCurrentThread();
-        v11 = (unsigned __int64)v5;
-        --v6->KernelApcDisable;
-        v7 = KeAbPreAcquire((__int64)(v5 + 74), 0LL);
-        if ( !_interlockedbittestandset64(v5 + 74, 0LL) )
-          break;
-        if ( v7 )
-          KeAbPostReleaseEx((ULONG_PTR)(v5 + 74), v7);
+        ObfReferenceObject(*(PVOID *)v4);
+        ExReleasePushLockEx(a1 + 16, 0LL);
         KeLeaveCriticalRegion();
-        *(_QWORD *)&v11 = 0LL;
-        BYTE5(v12) = 0;
-        ObfReferenceObject((PVOID)v5);
-        ExReleasePushLockEx((__int64 *)(a1 + 16), 0LL);
-        KeLeaveCriticalRegion();
-        ObpLockDirectoryExclusive((__int64)&v11, (__int64)v5);
-        v10 = KeGetCurrentThread();
-        --v10->KernelApcDisable;
+        v18 = 0;
+        v19 = -60876;
+        *(_OWORD *)v14 = 0LL;
+        ObpLockDirectoryExclusive((__int64)v14, v6);
+        v8 = KeGetCurrentThread();
+        --v8->KernelApcDisable;
         ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
-        if ( *(volatile signed __int32 **)v3 == v5 && (*(_BYTE *)(a1 + 27) & 0x10) == 0 && !*(_QWORD *)(a1 + 8) )
+        v9 = *(struct _DMA_ADAPTER **)v4;
+        if ( *(struct _DMA_ADAPTER **)v4 == v6 && (*(_BYTE *)(a1 + 27) & 0x10) == 0 && !*(_QWORD *)(a1 + 8) )
+          break;
+        ObpReleaseLookupContext((__int64)v14);
+        ExReleasePushLockEx(a1 + 16, 0LL);
+        KeLeaveCriticalRegion();
+        HalPutDmaAdapter(v6);
+      }
+      v11 = 0LL;
+      if ( !*(_DWORD *)(v4 + 24) )
+      {
+        v12 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 + 24) ^ (unsigned __int64)BYTE1(a1)];
+        if ( v12 == ObpSymbolicLinkObjectType )
         {
-          PsDereferenceSiloContext((void *)v5);
-          goto LABEL_11;
-        }
-        if ( (_QWORD)v11 )
-          ObpUnlockDirectory((__int64)&v11);
-        ExReleasePushLockEx((__int64 *)(a1 + 16), 0LL);
-        KeLeaveCriticalRegion();
-        PsDereferenceSiloContext((void *)v5);
-      }
-      if ( v7 )
-        *(_BYTE *)(v7 + 18) = 1;
-LABEL_11:
-      if ( *(_DWORD *)(v3 + 24) )
-      {
-        ExReleasePushLockEx((__int64 *)(a1 + 16), 0LL);
-        KeLeaveCriticalRegion();
-      }
-      else
-      {
-        if ( (POBJECT_TYPE)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 + 24) ^ (unsigned __int64)BYTE1(a1)] == ObpSymbolicLinkObjectType )
           ObpDeleteSymbolicLinkName(a1 + 48);
-        ObpLookupDirectoryEntry(v3 + 8, 0LL, &v11);
-        v8 = (_QWORD *)*((_QWORD *)&v11 + 1);
-        v9 = (_QWORD *)**((_QWORD **)&v11 + 1);
-        *(_QWORD *)(*(_QWORD *)(**((_QWORD **)&v11 + 1) + 8LL)
-                  - 48LL
-                  - ObpInfoMaskToOffset[*(_BYTE *)(*(_QWORD *)(**((_QWORD **)&v11 + 1) + 8LL) - 48LL + 26) & 3]) = 0LL;
-        *v8 = *v9;
-        *v9 = 0LL;
-        ExReleasePushLockEx((__int64 *)(a1 + 16), 0LL);
-        KeLeaveCriticalRegion();
-        if ( v9 )
-          ObpDeleteDirectoryEntry(v9, (void **)&v11);
+          v9 = *(struct _DMA_ADAPTER **)v4;
+        }
+        v13 = (struct _DMA_ADAPTER *)ObpLookupDirectoryEntryEx(
+                                       v9,
+                                       (unsigned __int16 *)(v4 + 8),
+                                       0,
+                                       0LL,
+                                       0,
+                                       (__int64)v14);
+        v11 = v13;
+        if ( v12 == ObpDirectoryObjectType )
+          ObfReferenceObject(v13);
+        else
+          v11 = 0LL;
+        ObpDeleteDirectoryEntry(v14);
       }
-      if ( (_QWORD)v11 )
-        ObpUnlockDirectory((__int64)&v11);
+      ObpReleaseLookupContext((__int64)v14);
+      ExReleasePushLockEx(a1 + 16, 0LL);
+      KeLeaveCriticalRegion();
+      HalPutDmaAdapter(v6);
+      if ( v11 )
+      {
+        ObpMarkDirectoryTreeTemporary(v11);
+        HalPutDmaAdapter(v11);
+      }
     }
   }
 }

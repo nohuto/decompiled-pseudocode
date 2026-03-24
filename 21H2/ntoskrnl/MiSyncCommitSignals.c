@@ -1,19 +1,18 @@
 /*
- * XREFs of MiSyncCommitSignals @ 0x1403CF698
+ * XREFs of MiSyncCommitSignals @ 0x1403BF928
  * Callers:
- *     MiReplenishLocalCommit @ 0x140240348 (MiReplenishLocalCommit.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiFreeMdlPageRun @ 0x1402C3410 (MiFreeMdlPageRun.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MiRemoveLockedPageCharge @ 0x1403377E0 (MiRemoveLockedPageCharge.c)
- *     MiComputeCommitThresholds @ 0x1403CF630 (MiComputeCommitThresholds.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiRemoveLockedPageCharge @ 0x14023AEB0 (MiRemoveLockedPageCharge.c)
+ *     MiReplenishLocalCommit @ 0x1402BA3E4 (MiReplenishLocalCommit.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiUnlockMdlWritePages @ 0x1403259E0 (MiUnlockMdlWritePages.c)
+ *     MiComputeCommitThresholds @ 0x1403BF8C0 (MiComputeCommitThresholds.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiSyncCommitSignals(__int64 a1, int a2)
@@ -33,12 +32,12 @@ int __fastcall MiSyncCommitSignals(__int64 a1, int a2)
   if ( a2 )
     LockHandle.OldIrql = 17;
   else
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 16040), &LockHandle);
-  v4 = *(_QWORD *)(a1 + 17256);
-  if ( v4 >= *(_QWORD *)(a1 + 16024) )
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 6248), &LockHandle);
+  v4 = *(_QWORD *)(a1 + 7464);
+  if ( v4 >= *(_QWORD *)(a1 + 6232) )
   {
     v8 = *(struct _KEVENT **)(a1 + 304);
-    if ( v4 < *(_QWORD *)(a1 + 16032) )
+    if ( v4 < *(_QWORD *)(a1 + 6240) )
     {
       if ( v8->Header.SignalState == 1 )
       {
@@ -50,8 +49,8 @@ int __fastcall MiSyncCommitSignals(__int64 a1, int a2)
     {
       if ( !v8->Header.SignalState )
         KeSetEvent(v8, 0, 0);
-      v4 = *(_QWORD *)(a1 + 16008);
-      if ( *(_QWORD *)(a1 + 17496) == v4 )
+      v4 = *(_QWORD *)(a1 + 6216);
+      if ( *(_QWORD *)(a1 + 7592) == v4 )
         LODWORD(v4) = KeSetEvent(*(PRKEVENT *)(a1 + 312), 0, 0);
     }
     v7 = *(struct _KEVENT **)(a1 + 296);

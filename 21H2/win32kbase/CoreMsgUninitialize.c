@@ -1,11 +1,11 @@
 /*
- * XREFs of CoreMsgUninitialize @ 0x1C00C35C8
+ * XREFs of CoreMsgUninitialize @ 0x1C00B4740
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ?Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ @ 0x1C00C36C4 (-Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ @ 0x1C00B483C (-Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS CoreMsgUninitialize()
@@ -18,10 +18,10 @@ NTSTATUS CoreMsgUninitialize()
 
   if ( CoreMessagingK::EntryLock::s_Initialized )
   {
-    if ( (unsigned int)dword_1C028D8C0 > 5 )
+    if ( (unsigned int)dword_1C024A450 > 5 )
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C028D8C0,
-        (unsigned __int8 *)dword_1C02663F6,
+        (__int64)&dword_1C024A450,
+        (unsigned __int8 *)dword_1C0223214,
         0LL,
         0LL,
         2u,
@@ -44,23 +44,23 @@ NTSTATUS CoreMsgUninitialize()
       ZwClose(CoreMessagingK::RegistrarClient::s_Port);
       CoreMessagingK::RegistrarClient::s_Port = 0LL;
     }
-    if ( Mutex )
+    if ( P )
     {
-      ExFreePoolWithTag(Mutex, 0x4C454D43u);
-      Mutex = 0LL;
+      ExFreePoolWithTag(P, 0x4C454D43u);
+      P = 0LL;
     }
     CoreMessagingK::EntryLock::s_Initialized = 0;
-    if ( (unsigned int)dword_1C028D8C0 > 5 )
+    if ( (unsigned int)dword_1C024A450 > 5 )
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C028D8C0,
-        (unsigned __int8 *)dword_1C02663D5,
+        (__int64)&dword_1C024A450,
+        (unsigned __int8 *)dword_1C022329D,
         0LL,
         0LL,
         2u,
         &v4);
-    v2 = qword_1C028D8E0;
-    qword_1C028D8E0 = 0LL;
-    dword_1C028D8C0 = 0;
+    v2 = qword_1C024A470;
+    qword_1C024A470 = 0LL;
+    dword_1C024A450 = 0;
     return EtwUnregister(v2);
   }
   return result;

@@ -1,17 +1,16 @@
 /*
- * XREFs of RIMIsEssentialUsage @ 0x1C0194698
+ * XREFs of RIMIsEssentialUsage @ 0x1C015EEFC
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C018C3A8 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161DCC (RIMPopulatePointerDevice.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall RIMIsEssentialUsage(unsigned __int16 a1)
 {
   unsigned int v1; // ebx
   unsigned __int16 v2; // ax
-  char v3; // dl
 
   v1 = 0;
   if ( a1 <= 0x4D30u )
@@ -52,21 +51,7 @@ LABEL_19:
   if ( a1 <= v2 )
     return 1;
 LABEL_20:
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v3 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v3 = 0;
-  }
-  if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v3,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      36,
-      (__int64)&WPP_f09de9e540bb38e019706b431a7ac68e_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 36, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
   return v1;
 }

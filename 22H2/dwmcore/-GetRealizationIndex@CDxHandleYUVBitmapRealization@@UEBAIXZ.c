@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetRealizationIndex@CDxHandleYUVBitmapRealization@@UEBAIXZ @ 0x180108DC4
+ * XREFs of ?GetRealizationIndex@CDxHandleYUVBitmapRealization@@UEBAIXZ @ 0x1800E38A4
  * Callers:
- *     ?GetRealizationIndex@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ @ 0x180123120 (-GetRealizationIndex@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ.c)
+ *     ?GetRealizationIndex@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ @ 0x1800F8A10 (-GetRealizationIndex@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ.c)
  * Callees:
  *     <none>
  */

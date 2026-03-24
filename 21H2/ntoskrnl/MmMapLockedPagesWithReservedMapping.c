@@ -1,23 +1,23 @@
 /*
- * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403D7610
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403C8A70
  * Callers:
- *     SmFpAllocate @ 0x14037DA00 (SmFpAllocate.c)
- *     sub_1403F9550 @ 0x1403F9550 (sub_1403F9550.c)
- *     HalpDmaAcquireBufferMappings @ 0x140456CC6 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140513544 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140513C1C (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x140562A80 (PnprCopyReservedMapping.c)
- *     PspIumFreePhysicalPages @ 0x1405E281C (PspIumFreePhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140A6804C (PnprMapPhysicalPages.c)
+ *     SmFpAllocate @ 0x1402E0D78 (SmFpAllocate.c)
+ *     sub_1403EA370 @ 0x1403EA370 (sub_1403EA370.c)
+ *     HalpDmaAcquireBufferMappings @ 0x1404C65A8 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404C7790 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C856C (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x14050F140 (PnprCopyReservedMapping.c)
+ *     PspIumFreePhysicalPages @ 0x140583DCC (PspIumFreePhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x1409ADBDC (PnprMapPhysicalPages.c)
  * Callees:
- *     MiLegitimatePageForDriversToMap @ 0x14021378C (MiLegitimatePageForDriversToMap.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     MiMapMdlCommon @ 0x1403D77D4 (MiMapMdlCommon.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402FFBEC (MiLegitimatePageForDriversToMap.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapMdlCommon @ 0x1403C8C44 (MiMapMdlCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
@@ -49,8 +49,8 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   v7 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
       + (unsigned __int64)MemoryDescriptorList->ByteCount
       + 4095) >> 12;
-  v9 = ExAcquireSpinLockShared(&dword_140C53050);
-  v10 = qword_140C53058;
+  v9 = ExAcquireSpinLockShared(&dword_140C4EBC0);
+  v10 = qword_140C4EBC8;
   v11 = (unsigned __int64)MappingAddress & 0xFFFFFFFFFFFFF000uLL;
   v12 = v9;
   while ( 1 )
@@ -68,7 +68,7 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
       break;
     v10 = *(_QWORD *)(v10 + 8);
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C53050);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EBC0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -113,9 +113,9 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
     for ( i = MemoryDescriptorList + 1; ; i = (PMDL)((char *)i + 8) )
     {
       Next = i->Next;
-      if ( i->Next <= (struct _MDL *)qword_140C50840
-        && (*(_QWORD *)(48LL * (_QWORD)Next - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0
-        && (int)MiLegitimatePageForDriversToMap(48LL * (_QWORD)Next - 0x220000000000LL) < 0 )
+      if ( i->Next <= (struct _MDL *)0xFFFFFFFFFLL
+        && (*(_QWORD *)(48LL * (_QWORD)Next - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0
+        && (int)MiLegitimatePageForDriversToMap(48LL * (_QWORD)Next - 0x58000000000LL) < 0 )
       {
         break;
       }

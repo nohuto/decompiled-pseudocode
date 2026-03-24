@@ -1,34 +1,32 @@
 /*
- * XREFs of AlpcpUnlockBlob @ 0x14073C150
+ * XREFs of AlpcpUnlockBlob @ 0x1405E7880
  * Callers:
- *     AlpcpPrepareViewForDelivery @ 0x14071A2D8 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpCaptureViewAttributeInternal @ 0x14071A76C (AlpcpCaptureViewAttributeInternal.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x14071A8C8 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpCreateView @ 0x14071C394 (AlpcpCreateView.c)
- *     NtAlpcImpersonateClientOfPort @ 0x14071CC10 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcViewDestroyProcedure @ 0x14071ED50 (AlpcViewDestroyProcedure.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x1407384E0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x14073B350 (AlpcpReceiveMessage.c)
- *     AlpcpExposeAttributes @ 0x14073C2B0 (AlpcpExposeAttributes.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpMapLegacyPortView @ 0x1407B9EC0 (AlpcpMapLegacyPortView.c)
- *     AlpcpCreateSectionView @ 0x1407BA274 (AlpcpCreateSectionView.c)
- *     AlpcpQueryRemoteView @ 0x1407C4AC4 (AlpcpQueryRemoteView.c)
- *     AlpcpExposeViewAttribute @ 0x1407CE0B4 (AlpcpExposeViewAttribute.c)
- *     AlpcSectionDeleteProcedure @ 0x1407D0270 (AlpcSectionDeleteProcedure.c)
- *     AlpcRegionDestroyProcedure @ 0x1407D1390 (AlpcRegionDestroyProcedure.c)
- *     AlpcpReleaseViewAttribute @ 0x1407DC078 (AlpcpReleaseViewAttribute.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1407E9350 (AlpcpMapLegacyPortRemoteView.c)
- *     AlpcpForceUnlinkSecureView @ 0x14097958C (AlpcpForceUnlinkSecureView.c)
+ *     AlpcpQueryRemoteView @ 0x1405DDA24 (AlpcpQueryRemoteView.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1405E4440 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpExposeAttributes @ 0x1405E8380 (AlpcpExposeAttributes.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcViewDestroyProcedure @ 0x14061E250 (AlpcViewDestroyProcedure.c)
+ *     AlpcpExposeViewAttribute @ 0x14067C218 (AlpcpExposeViewAttribute.c)
+ *     AlpcRegionDestroyProcedure @ 0x140685C80 (AlpcRegionDestroyProcedure.c)
+ *     AlpcSectionDeleteProcedure @ 0x14068C560 (AlpcSectionDeleteProcedure.c)
+ *     AlpcpReleaseViewAttribute @ 0x140697744 (AlpcpReleaseViewAttribute.c)
+ *     AlpcpCreateView @ 0x1406D9900 (AlpcpCreateView.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406DA940 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x1406DAC6C (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpPrepareViewForDelivery @ 0x1406DADA8 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpMapLegacyPortView @ 0x1406FFA18 (AlpcpMapLegacyPortView.c)
+ *     AlpcpCreateSectionView @ 0x1406FFE28 (AlpcpCreateSectionView.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x14076FFB0 (AlpcpMapLegacyPortRemoteView.c)
+ *     AlpcpForceUnlinkSecureView @ 0x1408C35C0 (AlpcpForceUnlinkSecureView.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpUnlockBlob(ULONG_PTR BugCheckParameter2)
@@ -36,8 +34,9 @@ void __fastcall AlpcpUnlockBlob(ULONG_PTR BugCheckParameter2)
   char v1; // dl
   int v3; // eax
   signed __int64 BugCheckParameter4; // rcx
-  __int64 v5; // rbp
-  void *v6; // rcx
+  __int64 v5; // rsi
+  union _SLIST_HEADER *v6; // rcx
+  void *v7; // rcx
 
   v1 = *(_BYTE *)(BugCheckParameter2 - 32);
   if ( (v1 & 1) != 0
@@ -63,21 +62,29 @@ void __fastcall AlpcpUnlockBlob(ULONG_PTR BugCheckParameter2)
     {
       if ( (*(_BYTE *)(BugCheckParameter2 - 32) & 2) != 0 )
       {
-        ExFreeToNPagedLookasideList(
-          (PPAGED_LOOKASIDE_LIST)&AlpcpLookasides + *(unsigned int *)(v5 + 8),
-          (PVOID)(BugCheckParameter2 - 48));
+        v6 = &AlpcpLookasides + 8 * (unsigned __int64)*(unsigned int *)(v5 + 8);
+        ++*((_DWORD *)&v6[1].HeaderX64 + 3);
+        if ( LOWORD(v6->Alignment) >= LOWORD(v6[1].Alignment) )
+        {
+          ++LODWORD(v6[2].Alignment);
+          ((void (__fastcall *)(ULONG_PTR))v6[3].Region)(BugCheckParameter2 - 48);
+        }
+        else
+        {
+          RtlpInterlockedPushEntrySList(v6, (PSLIST_ENTRY)(BugCheckParameter2 - 48));
+        }
       }
       else
       {
-        v6 = (void *)(BugCheckParameter2 - 48);
+        v7 = (void *)(BugCheckParameter2 - 48);
         if ( *(_QWORD *)(v5 + 48) )
-          (*((void (__fastcall **)(void *))&AlpcpLookasides + 16 * (unsigned __int64)*(unsigned int *)(v5 + 8) + 7))(v6);
+          (*((void (__fastcall **)(void *))&AlpcpLookasides + 16 * (unsigned __int64)*(unsigned int *)(v5 + 8) + 7))(v7);
         else
-          ExFreePoolWithTag(v6, *(_DWORD *)(v5 + 4));
+          ExFreePoolWithTag(v7, *(_DWORD *)(v5 + 4));
       }
     }
   }
-  else if ( BugCheckParameter2 )
+  else
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 - 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(BugCheckParameter2 - 16));

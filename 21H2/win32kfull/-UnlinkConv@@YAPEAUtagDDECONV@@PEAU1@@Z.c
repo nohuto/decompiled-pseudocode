@@ -1,48 +1,37 @@
 /*
- * XREFs of ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C021553C
+ * XREFs of ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C021B138
  * Callers:
- *     xxxDDETrackWindowDying @ 0x1C0218544 (xxxDDETrackWindowDying.c)
- *     xxxFreeDdeConv @ 0x1C0218788 (xxxFreeDdeConv.c)
+ *     xxxDDETrackWindowDying @ 0x1C021D538 (xxxDDETrackWindowDying.c)
+ *     xxxFreeDdeConv @ 0x1C021D748 (xxxFreeDdeConv.c)
  * Callees:
- *     InternalRemoveProp @ 0x1C0069510 (InternalRemoveProp.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
  */
 
-struct tagDDECONV *__fastcall UnlinkConv(struct tagDDECONV *a1)
+struct tagDDECONV *__fastcall UnlinkConv(struct tagDDECONV *a1, __int16 a2)
 {
-  __int64 v2; // r9
-  bool v3; // dl
+  __int64 v3; // rcx
   __int64 Prop; // rax
   __int64 v5; // rcx
   __int64 *v6; // rbx
   __int64 v7; // rcx
-  __int64 v8; // rbx
-  _QWORD v10[3]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // r9
+  __int64 v10; // rbx
+  _QWORD v12[3]; // [rsp+30h] [rbp-18h] BYREF
 
   *((_DWORD *)a1 + 20) |= 0x1000u;
-  v2 = *((_QWORD *)a1 + 5);
-  if ( !v2 )
+  v3 = *((_QWORD *)a1 + 5);
+  if ( !v3 )
     return 0LL;
-  v3 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v3,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      11,
-      4,
-      14,
-      11,
-      (__int64)&WPP_b8232c44b11d3b42055fa312fd74cb4b_Traceguids,
-      (char)a1);
-    v2 = *((_QWORD *)a1 + 5);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_q(v3, a2, 14, 11, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids, (char)a1);
+    v3 = *((_QWORD *)a1 + 5);
   }
-  Prop = GetProp(v2, (unsigned __int16)atomDDETrack, 1u);
+  Prop = GetProp(v3, (unsigned __int16)atomDDETrack, 1LL);
   if ( !Prop )
     return 0LL;
   v5 = 0LL;
@@ -56,19 +45,27 @@ struct tagDDECONV *__fastcall UnlinkConv(struct tagDDECONV *a1)
   v6 = (__int64 *)((char *)a1 + 24);
   if ( v5 )
   {
-    v10[0] = v5 + 24;
-    v10[1] = *v6;
-    HMAssignmentLock(v10, 0LL);
+    v12[0] = v5 + 24;
+    v12[1] = *v6;
+    HMAssignmentLock(v12);
   }
   else
   {
     v7 = *((_QWORD *)a1 + 5);
+    v8 = (unsigned __int16)atomDDETrack;
     if ( *v6 )
+    {
       InternalSetProp(v7, (unsigned __int16)atomDDETrack, *v6, 1u);
+    }
     else
-      InternalRemoveProp(v7, (unsigned __int16)atomDDETrack, 1u);
+    {
+      v9 = *(_QWORD *)(v7 + 144);
+      if ( atomDDETrack == word_1C033AF44 )
+        *(_QWORD *)(*(_QWORD *)(v7 + 40) + 312LL) = 0LL;
+      RealInternalRemoveProp(v9, v8, 1LL);
+    }
   }
-  v8 = HMAssignmentUnlock((char *)a1 + 24);
+  v10 = HMAssignmentUnlock((char *)a1 + 24);
   HMUnlockObject(a1);
-  return (struct tagDDECONV *)v8;
+  return (struct tagDDECONV *)v10;
 }

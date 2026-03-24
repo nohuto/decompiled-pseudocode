@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C00E70A2
+ * XREFs of ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C01C5F64
  * Callers:
- *     ?ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z @ 0x1C0202194 (-ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z.c)
- *     ?SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z @ 0x1C0203A40 (-SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z.c)
+ *     ?ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z @ 0x1C01C6840 (-ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z.c)
+ *     ?SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z @ 0x1C01C8184 (-SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ void __fastcall CPTPEngine::FixupGestureContact(CPTPEngine *this, struct PTPEngi
   unsigned int v5; // eax
   int v6; // ecx
 
-  *((_DWORD *)a2 + 8) = *((_DWORD *)this + 912);
-  v3 = *((_DWORD *)this + 913);
+  *((_DWORD *)a2 + 8) = *((_DWORD *)this + 888);
+  v3 = *((_DWORD *)this + 889);
   v4 = *((_DWORD *)a2 + 3);
   *((_DWORD *)a2 + 9) = v3;
   *((_QWORD *)a2 + 6) = *((_QWORD *)a2 + 4);

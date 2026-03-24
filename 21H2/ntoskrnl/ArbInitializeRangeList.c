@@ -1,15 +1,15 @@
 /*
- * XREFs of ArbInitializeRangeList @ 0x14090B3B0
+ * XREFs of ArbInitializeRangeList @ 0x1408670B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     RtlInvertRangeListEx @ 0x140839EF0 (RtlInvertRangeListEx.c)
- *     RtlAddRange @ 0x14083A010 (RtlAddRange.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
+ *     RtlAddRange @ 0x140764410 (RtlAddRange.c)
+ *     RtlInvertRangeListEx @ 0x1407B7960 (RtlInvertRangeListEx.c)
  */
 
-__int64 __fastcall ArbInitializeRangeList(__int64 a1, int a2, unsigned __int8 *a3, int a4)
+__int64 __fastcall ArbInitializeRangeList(__int64 a1, int a2, unsigned __int8 *a3, __int64 a4)
 {
   unsigned __int8 *v6; // rdi
   unsigned __int64 v7; // rsi
@@ -30,7 +30,7 @@ __int64 __fastcall ArbInitializeRangeList(__int64 a1, int a2, unsigned __int8 *a
   v7 = (unsigned __int64)&a3[20 * a2];
   if ( (unsigned __int64)a3 >= v7 )
   {
-LABEL_9:
+LABEL_10:
     v10 = RtlInvertRangeListEx(a4, (__int64)v13, 0, 0LL, 0LL);
     if ( v10 >= 0 )
       v10 = 0;
@@ -47,17 +47,15 @@ LABEL_9:
         if ( v10 < 0 )
           break;
         if ( v14 )
-        {
-          v10 = RtlAddRange((__int64)v13, v12, v12 + v14 - 1, 0, 3u, 0LL, 0LL);
-          if ( v10 < 0 )
-            break;
-        }
+          v10 = RtlAddRange((__int64)v13, v12, v12 + v14 - 1, 0, 3, 0LL, 0LL);
+        if ( v10 < 0 )
+          break;
       }
       v6 += 20;
       if ( (unsigned __int64)v6 >= v7 )
-        goto LABEL_9;
+        goto LABEL_10;
     }
   }
-  RtlFreeRangeList((__int64)v13);
+  RtlFreeRangeList(v13);
   return (unsigned int)v10;
 }

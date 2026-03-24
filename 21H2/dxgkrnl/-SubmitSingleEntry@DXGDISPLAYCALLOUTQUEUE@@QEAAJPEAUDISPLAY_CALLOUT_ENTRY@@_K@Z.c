@@ -1,15 +1,14 @@
 /*
- * XREFs of ?SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C030CFCC
+ * XREFs of ?SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C026BE18
  * Callers:
- *     ?RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02C218C (-RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_D.c)
- *     ?RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02C2338 (-RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SC.c)
- *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C030D550 (DxgkRequestAsyncDisplaySwitchCallout.c)
+ *     ?RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02143C8 (-RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_D.c)
+ *     ?RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021451C (-RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SC.c)
+ *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C026C320 (DxgkRequestAsyncDisplaySwitchCallout.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     DpiGdiAsyncDisplayCallout @ 0x1C0387084 (DpiGdiAsyncDisplayCallout.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     DpiGdiAsyncDisplayCallout @ 0x1C02C6574 (DpiGdiAsyncDisplayCallout.c)
  */
 
 __int64 __fastcall DXGDISPLAYCALLOUTQUEUE::SubmitSingleEntry(
@@ -19,38 +18,33 @@ __int64 __fastcall DXGDISPLAYCALLOUTQUEUE::SubmitSingleEntry(
 {
   DXGDISPLAYCALLOUTQUEUE **v6; // rdx
   int v7; // eax
-  __int64 v8; // rdi
-  _BYTE v10[24]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // rax
+  _BYTE v12[24]; // [rsp+20h] [rbp-18h] BYREF
 
   *((_BYTE *)a2 + 20) = 0;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v10, (struct DXGFASTMUTEX *const)this, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v10);
-  v6 = this[7];
-  if ( *v6 != (DXGDISPLAYCALLOUTQUEUE *)(this + 6) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, (struct DXGFASTMUTEX *const)this, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
+  v6 = this[6];
+  if ( *v6 != (DXGDISPLAYCALLOUTQUEUE *)(this + 5) )
     __fastfail(3u);
-  *(_QWORD *)a2 = this + 6;
+  *(_QWORD *)a2 = this + 5;
   *((_QWORD *)a2 + 1) = v6;
   *v6 = a2;
-  this[7] = (DXGDISPLAYCALLOUTQUEUE **)a2;
-  if ( this[8] || (DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10), v7 = DpiGdiAsyncDisplayCallout(a3), v8 = v7, v7 >= 0) )
+  this[6] = (DXGDISPLAYCALLOUTQUEUE **)a2;
+  if ( this[7]
+    || (DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12, (__int64)v6), v7 = DpiGdiAsyncDisplayCallout(a3), v9 = v7, v7 >= 0) )
   {
-    LODWORD(v8) = 0;
+    LODWORD(v9) = 0;
   }
   else
   {
-    WdLogSingleEntry1(2LL, v7);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed request an asynchronous Display Callout (Status == 0x%I64x)",
-      v8,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(v8, v6);
+    *(_QWORD *)(v10 + 24) = v9;
+    WdLogEvent5_WdError(v10);
   }
-  if ( v10[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10);
-  return (unsigned int)v8;
+  if ( v12[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12, (__int64)v6);
+  return (unsigned int)v9;
 }

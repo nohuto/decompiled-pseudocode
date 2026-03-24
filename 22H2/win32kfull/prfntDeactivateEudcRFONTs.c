@@ -1,55 +1,44 @@
 /*
- * XREFs of prfntDeactivateEudcRFONTs @ 0x1C0114FEC
+ * XREFs of prfntDeactivateEudcRFONTs @ 0x1C00A22E4
  * Callers:
- *     bUnloadEudcFont @ 0x1C0114E84 (bUnloadEudcFont.c)
+ *     bUnloadEudcFont @ 0x1C00A1D5C (bUnloadEudcFont.c)
  * Callees:
- *     vDeactivateEudcRFONTsWorker @ 0x1C013FC0C (vDeactivateEudcRFONTsWorker.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     vDeactivateEudcRFONTsWorker @ 0x1C016BD98 (vDeactivateEudcRFONTsWorker.c)
  */
 
-__int64 __fastcall prfntDeactivateEudcRFONTs(Gre::Base *a1)
+__int64 __fastcall prfntDeactivateEudcRFONTs(__int64 a1)
 {
-  __int64 v1; // rbp
-  struct Gre::Base::SESSION_GLOBALS *v3; // rdi
-  __int64 v4; // rbx
-  __int64 v5; // rdi
-  __int64 v6; // rcx
-  __int64 v7; // rsi
-  __int64 v8; // rcx
-  __int64 v9; // r14
-  __int64 v10; // r8
-  __int64 v12; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v2; // rdi
+  __int64 v3; // rcx
+  struct _FONTHASH **v4; // rbx
+  unsigned int v5; // esi
+  struct _FONTHASH *v6; // r8
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
-  v1 = 0LL;
-  v12 = 0LL;
-  v3 = Gre::Base::Globals(a1);
-  v4 = *((_QWORD *)v3 + 6);
-  GreAcquireSemaphore(v4);
-  v5 = *((_QWORD *)v3 + 3);
-  GreAcquireSemaphore(v5);
-  v7 = 0LL;
-  v8 = *(_QWORD *)(SGDGetSessionState(v6) + 32);
-  v9 = *(_QWORD *)(v8 + 20272);
-  if ( *(_DWORD *)(v9 + 24) )
+  v2 = 0LL;
+  v8 = 0LL;
+  v10 = ghsemPublicPFT;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  v9 = ghsemRFONTList;
+  GreAcquireSemaphore(ghsemRFONTList);
+  v4 = gpPFTPublic;
+  v5 = 0;
+  if ( *((_DWORD *)gpPFTPublic + 6) )
   {
     do
     {
-      v10 = *(_QWORD *)(v9 + 8 * v7 + 40);
-      if ( v10 )
-        vDeactivateEudcRFONTsWorker(v8, a1, v10, &v12);
-      v7 = (unsigned int)(v7 + 1);
+      v6 = v4[v5 + 5];
+      if ( v6 )
+        vDeactivateEudcRFONTsWorker(v3, a1, v6, &v8);
+      ++v5;
     }
-    while ( (unsigned int)v7 < *(_DWORD *)(v9 + 24) );
-    v1 = v12;
+    while ( v5 < *((_DWORD *)v4 + 6) );
+    v2 = v8;
   }
-  if ( v5 )
-  {
-    EtwTraceGreLockReleaseSemaphore(L"hsem");
-    GreReleaseSemaphoreInternal(v5);
-  }
-  if ( v4 )
-  {
-    EtwTraceGreLockReleaseSemaphore(L"hsem");
-    GreReleaseSemaphoreInternal(v4);
-  }
-  return v1;
+  SEMOBJ::vUnlock((SEMOBJ *)&v9);
+  SEMOBJ::vUnlock((SEMOBJ *)&v10);
+  return v2;
 }

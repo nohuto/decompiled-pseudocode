@@ -1,26 +1,22 @@
 /*
- * XREFs of ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000D184
+ * XREFs of ?CalcImageTransform@CCompositionSurfaceBitmap@@AEAA_NAEBUD2D_SIZE_F@@PEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180013B98
  * Callers:
- *     ?GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000C640 (-GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDraw.c)
- *     ?GetDirtyRegion@CCompositionSurfaceBitmap@@UEAAPEBVCRegion@@AEBUD2D_SIZE_F@@@Z @ 0x18000C910 (-GetDirtyRegion@CCompositionSurfaceBitmap@@UEAAPEBVCRegion@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?IsDrawListCacheDirty@CCompositionSurfaceBitmap@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x18000CCD0 (-IsDrawListCacheDirty@CCompositionSurfaceBitmap@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@.c)
- *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CD60 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
- *     ?AddOcclusionInformation@CCompositionSurfaceBitmap@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x18000CEE8 (-AddOcclusionInformation@CCompositionSurfaceBitmap@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@.c)
- *     ?DrawLetterboxingMargins@CCompositionSurfaceBitmap@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180226F54 (-DrawLetterboxingMargins@CCompositionSurfaceBitmap@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800133C0 (-GenerateDrawList@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDraw.c)
+ *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180013674 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
+ *     ?IsDrawListCacheDirty@CCompositionSurfaceBitmap@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x1800137D0 (-IsDrawListCacheDirty@CCompositionSurfaceBitmap@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@.c)
+ *     ?AddOcclusionInformation@CCompositionSurfaceBitmap@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x18001386C (-AddOcclusionInformation@CCompositionSurfaceBitmap@@UEAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@.c)
+ *     ?GetDirtyRegion@CCompositionSurfaceBitmap@@UEAAPEBVCRegion@@AEBUD2D_SIZE_F@@@Z @ 0x180013A00 (-GetDirtyRegion@CCompositionSurfaceBitmap@@UEAAPEBVCRegion@@AEBUD2D_SIZE_F@@@Z.c)
  * Callees:
- *     ?GetRenderingRealization@CCompositionSurfaceBitmap@@AEAAPEAVIBitmapRealization@@XZ @ 0x18000D268 (-GetRenderingRealization@CCompositionSurfaceBitmap@@AEAAPEAVIBitmapRealization@@XZ.c)
- *     ?GetSizePreference@CCompositionSurfaceBitmap@@QEBA?AW4SizePreference@@XZ @ 0x18000D29C (-GetSizePreference@CCompositionSurfaceBitmap@@QEBA-AW4SizePreference@@XZ.c)
- *     ?GetScaledLetterboxingMargins@CCompositionSurfaceBitmap@@AEBA_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000D2DC (-GetScaledLetterboxingMargins@CCompositionSurfaceBitmap@@AEBA_NPEAV-$TMilRect_@MUMilRectF@@UMil3.c)
- *     ?UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z @ 0x18000D3CC (-UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004B124 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B1068 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
- *     ?Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z @ 0x1800B10FC (-Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?PrependTranslate@CMILMatrix@@QEAAXMMM@Z @ 0x1800D8E88 (-PrependTranslate@CMILMatrix@@QEAAXMMM@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z @ 0x180013C58 (-UseLayoutSizeForBounds@CCompositionSurfaceBitmap@@AEBA_NAEBUD2D_SIZE_F@@@Z.c)
+ *     ?GetSizePreference@CCompositionSurfaceBitmap@@QEBA?AW4SizePreference@@XZ @ 0x180013C80 (-GetSizePreference@CCompositionSurfaceBitmap@@QEBA-AW4SizePreference@@XZ.c)
+ *     ?GetRenderingRealization@CCompositionSurfaceBitmap@@AEAAPEAVIBitmapRealization@@XZ @ 0x180013D40 (-GetRenderingRealization@CCompositionSurfaceBitmap@@AEAAPEAVIBitmapRealization@@XZ.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x180086EA0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D5188 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z @ 0x1802115D8 (-Set2DScaleAndOffset@CMILMatrix@@QEAAXMMMM@Z.c)
  */
 
 char __fastcall CCompositionSurfaceBitmap::CalcImageTransform(
@@ -29,25 +25,19 @@ char __fastcall CCompositionSurfaceBitmap::CalcImageTransform(
         CMILMatrix *a3,
         __int128 *a4)
 {
-  char v5; // di
+  char v5; // si
   struct IBitmapRealization *RenderingRealization; // r12
   int SizePreference; // r13d
-  char ScaledLetterboxingMargins; // r12
   float v12; // xmm6_4
-  float v14; // xmm4_4
-  float v15; // xmm3_4
-  float v16; // xmm2_4
-  float v17; // xmm1_4
-  float v18; // xmm4_4
-  float v19; // xmm2_4
-  float v20; // xmm1_4
-  float height; // xmm0_4
-  float v22; // xmm4_4
-  float v23; // xmm3_4
-  __int128 v24; // [rsp+48h] [rbp-89h] BYREF
-  _BYTE v25[80]; // [rsp+58h] [rbp-79h] BYREF
-  __int128 v26; // [rsp+A8h] [rbp-29h] BYREF
-  __int128 v27; // [rsp+B8h] [rbp-19h] BYREF
+  float v13; // xmm5_4
+  float height; // xmm4_4
+  float width; // xmm1_4
+  float v16; // xmm1_4
+  float v17; // xmm3_4
+  float v18; // xmm2_4
+  _OWORD v19[4]; // [rsp+48h] [rbp-59h] BYREF
+  __int16 v20; // [rsp+88h] [rbp-19h]
+  __int128 v21; // [rsp+98h] [rbp-9h] BYREF
 
   v5 = 0;
   RenderingRealization = CCompositionSurfaceBitmap::GetRenderingRealization(this);
@@ -59,74 +49,48 @@ char __fastcall CCompositionSurfaceBitmap::CalcImageTransform(
            RenderingRealization,
            a3,
            a4);
-    v27 = 0LL;
-    ScaledLetterboxingMargins = CCompositionSurfaceBitmap::GetScaledLetterboxingMargins(this, &v27);
-    v12 = 0.0;
-    if ( ScaledLetterboxingMargins )
-    {
-      CMILMatrix::PrependTranslate(a3, *(float *)&v27, *((float *)&v27 + 1), 0.0);
-      v5 = 1;
-    }
     if ( CCompositionSurfaceBitmap::UseLayoutSizeForBounds(this, a2) && SizePreference != 1 )
     {
-      v26 = 0LL;
-      v24 = *a4;
-      LODWORD(v14) = v24;
-      v15 = *((float *)&v24 + 1);
-      v16 = *((float *)&v24 + 2);
-      v17 = *((float *)&v24 + 3);
-      if ( ScaledLetterboxingMargins )
-      {
-        v14 = *(float *)&v24 - *(float *)&v27;
-        v15 = *((float *)&v24 + 1) - *((float *)&v27 + 1);
-        v16 = *((float *)&v24 + 2) + *((float *)&v27 + 2);
-        v17 = *((float *)&v24 + 3) + *((float *)&v27 + 3);
-        *(float *)&v24 = *(float *)&v24 - *(float *)&v27;
-        *((float *)&v24 + 1) = *((float *)&v24 + 1) - *((float *)&v27 + 1);
-        *((float *)&v24 + 2) = *((float *)&v24 + 2) + *((float *)&v27 + 2);
-        *((float *)&v24 + 3) = *((float *)&v24 + 3) + *((float *)&v27 + 3);
-      }
+      v21 = 0LL;
       if ( v5 )
-      {
-        CMILMatrix::Transform2DBoundsHelper<0>(a3, (struct MilRectF *)&v24);
-        v17 = *((float *)&v26 + 3);
-        v16 = *((float *)&v26 + 2);
-        v15 = *((float *)&v26 + 1);
-      }
+        CMILMatrix::Transform2DBoundsHelper<0>(a3);
       else
+        v21 = *a4;
+      if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v21) )
       {
-        *(_QWORD *)&v26 = __PAIR64__(LODWORD(v15), LODWORD(v14));
-        *((_QWORD *)&v26 + 1) = __PAIR64__(LODWORD(v17), LODWORD(v16));
-      }
-      if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v26) )
-      {
-        v19 = v16 - v18;
-        v20 = v17 - v15;
-        if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a2->width - v19) & _xmm) > 0.00390625
-          || COERCE_FLOAT(COERCE_UNSIGNED_INT(a2->height - v20) & _xmm) > 0.00390625 )
+        v12 = *((float *)&v21 + 2) - *(float *)&v21;
+        v13 = *((float *)&v21 + 3) - *((float *)&v21 + 1);
+        if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(a2->width - (float)(*((float *)&v21 + 2) - *(float *)&v21)) & _xmm) > 0.00390625
+          || COERCE_FLOAT(COERCE_UNSIGNED_INT(a2->height - v13) & _xmm) > 0.00390625 )
         {
-          CMILMatrix::SetToIdentity((CMILMatrix *)v25);
           height = a2->height;
-          v22 = a2->width / v19;
+          v19[1] = _xmm;
+          v19[3] = _xmm;
+          width = a2->width;
+          v19[0] = _xmm;
+          v19[2] = _xmm;
+          v20 = 32085;
+          v16 = width / v12;
           if ( SizePreference )
           {
-            v23 = 0.0;
-            if ( height < (float)(v22 * v20) )
+            v17 = 0.0;
+            v18 = 0.0;
+            if ( height < (float)(v16 * v13) )
             {
-              v22 = height / v20;
-              v12 = (float)(a2->width - (float)((float)(height / v20) * v19)) * 0.5;
+              v16 = height / v13;
+              v17 = (float)(a2->width - (float)((float)(height / v13) * v12)) * 0.5;
             }
             else
             {
-              v23 = (float)(height - (float)(v22 * v20)) * 0.5;
+              v18 = (float)(height - (float)(v16 * v13)) * 0.5;
             }
-            CMILMatrix::Set2DScaleAndOffset((CMILMatrix *)v25, v22, v22, v12, v23);
+            CMILMatrix::Set2DScaleAndOffset((CMILMatrix *)v19, v16, v16, v17, v18);
           }
           else
           {
-            CMILMatrix::SetScale((CMILMatrix *)v25, v22, height / v20, 1.0, 0.0, 0.0, 0.0);
+            CMILMatrix::SetScale((CMILMatrix *)v19, v16, height / v13, 1.0, 0.0, 0.0, 0.0);
           }
-          CMILMatrix::Multiply(a3, (const struct CMILMatrix *)v25);
+          CMILMatrix::Multiply(a3, (const struct CMILMatrix *)v19);
           return 1;
         }
       }
@@ -134,7 +98,17 @@ char __fastcall CCompositionSurfaceBitmap::CalcImageTransform(
   }
   else
   {
-    CMILMatrix::SetToIdentity(a3);
+    *(_QWORD *)a3 = 1065353216LL;
+    *((_QWORD *)a3 + 1) = 0LL;
+    *((_DWORD *)a3 + 4) = 0;
+    *(_QWORD *)((char *)a3 + 20) = 1065353216LL;
+    *(_QWORD *)((char *)a3 + 28) = 0LL;
+    *((_DWORD *)a3 + 9) = 0;
+    *((_QWORD *)a3 + 5) = 1065353216LL;
+    *((_QWORD *)a3 + 6) = 0LL;
+    *((_DWORD *)a3 + 14) = 0;
+    *((_DWORD *)a3 + 15) = 1065353216;
+    *((_WORD *)a3 + 32) = 32085;
     *((_QWORD *)a4 + 1) = 0LL;
     *(_QWORD *)a4 = 0LL;
   }

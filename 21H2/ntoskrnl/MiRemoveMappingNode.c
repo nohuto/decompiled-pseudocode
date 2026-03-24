@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMappingNode @ 0x1403864DC
+ * XREFs of MiRemoveMappingNode @ 0x14037A5F0
  * Callers:
- *     MmFreeMappingAddress @ 0x1407FA560 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x140768700 (MmFreeMappingAddress.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -25,8 +25,8 @@ unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, U
   bool v14; // zf
 
   v3 = (unsigned int)BugCheckParameter3;
-  v4 = ExAcquireSpinLockExclusive(&dword_140C53050);
-  v5 = (unsigned __int64 *)qword_140C53058;
+  v4 = ExAcquireSpinLockExclusive(&dword_140C4EBC0);
+  v5 = (unsigned __int64 *)qword_140C4EBC8;
   v6 = BugCheckParameter2 & 0xFFFFFFFFFFFFF000uLL;
   v7 = v4;
   while ( 1 )
@@ -44,8 +44,8 @@ unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, U
       break;
     v5 = (unsigned __int64 *)v5[1];
   }
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C53058, v5);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C53050);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4EBC8, v5);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EBC0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

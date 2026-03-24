@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpGetBitsPerPixel @ 0x14016F1C0
+ * XREFs of BgpGetBitsPerPixel @ 0x14016F1E0
  * Callers:
- *     BgpGxDrawRectangle @ 0x14016EE10 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x14016EE98 (GxpWriteFrameBufferPixels.c)
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
- *     BgpGxProcessQrCodeBitmap @ 0x140192BF4 (BgpGxProcessQrCodeBitmap.c)
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14016EEB8 (GxpWriteFrameBufferPixels.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x140192C14 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  *     LogFwReport @ 0x14094E514 (LogFwReport.c)
  *     AnFwConfigureProgressResources @ 0x14094E6DC (AnFwConfigureProgressResources.c)
  *     BgpGxReadRectangle @ 0x14094E98C (BgpGxReadRectangle.c)

@@ -1,19 +1,19 @@
 /*
- * XREFs of SeGetTokenDeviceMap @ 0x1406A2DDC
+ * XREFs of SeGetTokenDeviceMap @ 0x1406A2DBC
  * Callers:
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     ObpReferenceDeviceMap @ 0x140671AD0 (ObpReferenceDeviceMap.c)
- *     ObSetCurrentProcessDeviceMap @ 0x1406A2CC4 (ObSetCurrentProcessDeviceMap.c)
+ *     ObpReferenceDeviceMap @ 0x140671AB0 (ObpReferenceDeviceMap.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x1406A2CA4 (ObSetCurrentProcessDeviceMap.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x1401B9590 (ZwCreateDirectoryObject.c)
- *     ZwCreateSymbolicLinkObject @ 0x1401B98D0 (ZwCreateSymbolicLinkObject.c)
- *     ObfDereferenceDeviceMap @ 0x1406719E0 (ObfDereferenceDeviceMap.c)
- *     ObpSetDeviceMap @ 0x1406C699C (ObpSetDeviceMap.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x1401B95B0 (ZwCreateDirectoryObject.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1401B98F0 (ZwCreateSymbolicLinkObject.c)
+ *     ObfDereferenceDeviceMap @ 0x1406719C0 (ObfDereferenceDeviceMap.c)
+ *     ObpSetDeviceMap @ 0x1406C697C (ObpSetDeviceMap.c)
  */
 
 NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)

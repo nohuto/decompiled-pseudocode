@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x14024E7F8
+ * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x1402ADAF8
  * Callers:
- *     FsRtlpCancelOplockRHIrp @ 0x14024E6F0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpOplockCleanup @ 0x1402A30D0 (FsRtlpOplockCleanup.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14039F3B0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockCleanup @ 0x1402AD5D0 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x1402AD9F0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403930CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpOplockKeysEqual @ 0x1402A6AB0 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockKeysEqual @ 0x140355AE0 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
  */
 
 void __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
@@ -33,10 +33,10 @@ void __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
     {
       v6 = *v5;
       v7 = v3;
-      if ( *v5 != v5 || (*(_DWORD *)(a1 + 144) & 0x10000) != 0 )
+      if ( *v5 == v5 && (*(_DWORD *)(a1 + 144) & 0x10000) == 0 )
+        goto LABEL_17;
+      if ( !*((_BYTE *)v3 + 52) )
       {
-        if ( *((_BYTE *)v3 + 52) )
-          goto LABEL_7;
         if ( (*(_DWORD *)(a1 + 144) & 0x10000) != 0 )
           v6 = *(_QWORD **)(a1 + 120);
         v8 = (_QWORD *)(a1 + ((*(_DWORD *)(a1 + 144) & 0x10000) != 0 ? 120LL : 72LL));
@@ -48,16 +48,17 @@ void __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
           if ( !(unsigned __int8)FsRtlpOplockKeysEqual(v3[7], v9[3], 0LL) )
           {
             v4 = 0;
-            goto LABEL_7;
+            break;
           }
           v6 = (_QWORD *)*v6;
         }
-        if ( !v4 )
-          goto LABEL_7;
+        if ( v4 )
+        {
+LABEL_17:
+          v3 = (_QWORD *)v3[1];
+          FsRtlpRemoveAndCompleteWaitingIrp(v7);
+        }
       }
-      v3 = (_QWORD *)v3[1];
-      FsRtlpRemoveAndCompleteWaitingIrp(v7);
-LABEL_7:
       v3 = (_QWORD *)*v3;
     }
     while ( v3 != v1 );

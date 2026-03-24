@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpShutdownDevices @ 0x1409404FC
+ * XREFs of PnpShutdownDevices @ 0x14089B94C
  * Callers:
- *     IoShutdownSystem @ 0x140A651B8 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x1409AADD8 (IoShutdownSystem.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
- *     PipSetDevNodeUserFlags @ 0x140767220 (PipSetDevNodeUserFlags.c)
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x1407673E8 (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpCreateDeviceEventEntry @ 0x14078C4EC (PnpCreateDeviceEventEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PnpCreateDeviceEventEntry @ 0x1406E5E9C (PnpCreateDeviceEventEntry.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x14073913C (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     PipSetDevNodeUserFlags @ 0x14074C32C (PipSetDevNodeUserFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 PnpShutdownDevices()
@@ -37,7 +37,7 @@ __int64 PnpShutdownDevices()
   v0 = 0;
   if ( !PnpTearDownPnpStacksOnShutdown && (PopShutdownCleanly & 0x20) == 0 )
     return v0;
-  DeviceEventEntry = (GUID *)PnpCreateDeviceEventEntry(0x189u);
+  DeviceEventEntry = (GUID *)PnpCreateDeviceEventEntry(0x189uLL);
   if ( !DeviceEventEntry )
     return 3221225626LL;
   KeWaitForSingleObject(&PnpEventQueueEmpty, Executive, 0, 0, 0LL);
@@ -84,7 +84,7 @@ LABEL_19:
       }
     }
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v3 )
     {
       PnpInitializeTargetDeviceRemoveEvent(

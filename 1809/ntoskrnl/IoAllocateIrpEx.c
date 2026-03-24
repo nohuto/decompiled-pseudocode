@@ -1,18 +1,18 @@
 /*
- * XREFs of IoAllocateIrpEx @ 0x1400B9250
+ * XREFs of IoAllocateIrpEx @ 0x1400B9270
  * Callers:
- *     FsRtlGetFileExtents @ 0x14026E578 (FsRtlGetFileExtents.c)
+ *     FsRtlGetFileExtents @ 0x14026E678 (FsRtlGetFileExtents.c)
  *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     FsRtlQueryKernelEaFile @ 0x1406A5100 (FsRtlQueryKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x1406B2850 (FsRtlKernelFsControlFile.c)
- *     FsRtlSetKernelEaFile @ 0x1406C7EF0 (FsRtlSetKernelEaFile.c)
- *     FsRtlSetFileSize @ 0x1406CAA80 (FsRtlSetFileSize.c)
- *     FsRtlGetDirectImageOriginalBase @ 0x140814550 (FsRtlGetDirectImageOriginalBase.c)
- *     FsRtlQueryInformationFile @ 0x140815710 (FsRtlQueryInformationFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x1406A50E0 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x1406B2830 (FsRtlKernelFsControlFile.c)
+ *     FsRtlSetKernelEaFile @ 0x1406C7ED0 (FsRtlSetKernelEaFile.c)
+ *     FsRtlSetFileSize @ 0x1406CAA60 (FsRtlSetFileSize.c)
+ *     FsRtlGetDirectImageOriginalBase @ 0x140814530 (FsRtlGetDirectImageOriginalBase.c)
+ *     FsRtlQueryInformationFile @ 0x1408156F0 (FsRtlQueryInformationFile.c)
  *     VfIrpSendSynchronousIrp @ 0x140930534 (VfIrpSendSynchronousIrp.c)
  * Callees:
  *     IopAllocateIrpWithExtension @ 0x14000EB44 (IopAllocateIrpWithExtension.c)
- *     IopAllocateIrpPrivate @ 0x1400B92F0 (IopAllocateIrpPrivate.c)
+ *     IopAllocateIrpPrivate @ 0x1400B9310 (IopAllocateIrpPrivate.c)
  *     IovAllocateIrp @ 0x140923810 (IovAllocateIrp.c)
  */
 

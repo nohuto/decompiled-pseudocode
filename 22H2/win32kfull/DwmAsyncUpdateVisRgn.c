@@ -1,12 +1,11 @@
 /*
- * XREFs of DwmAsyncUpdateVisRgn @ 0x1C00C8480
+ * XREFs of DwmAsyncUpdateVisRgn @ 0x1C0039990
  * Callers:
- *     ?RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z @ 0x1C00C95FC (-RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z.c)
- *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00EC974 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C0039448 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncUpdateVisRgn(PVOID Object, __int64 a2, int a3, __int64 a4, int a5)
@@ -14,35 +13,28 @@ __int64 __fastcall DwmAsyncUpdateVisRgn(PVOID Object, __int64 a2, int a3, __int6
   int v8; // esi
   unsigned int v9; // ebx
   unsigned int v10; // r15d
-  _WORD v13[20]; // [rsp+30h] [rbp-D0h] BYREF
-  int v14; // [rsp+58h] [rbp-A8h]
-  __int64 v15; // [rsp+5Ch] [rbp-A4h]
-  unsigned int v16; // [rsp+64h] [rbp-9Ch]
-  int v17; // [rsp+68h] [rbp-98h]
-  int v18; // [rsp+6Ch] [rbp-94h]
-  unsigned int v19; // [rsp+70h] [rbp-90h]
-  _BYTE v20[620]; // [rsp+74h] [rbp-8Ch] BYREF
+  _DWORD v13[172]; // [rsp+30h] [rbp-D0h] BYREF
 
   v8 = -1073741823;
   if ( Object )
   {
-    memset_0(v13, 0, 0x2B0uLL);
+    memset(v13, 0, sizeof(v13));
     v9 = 0;
     do
     {
-      v14 = 1073741959;
+      v13[10] = 1073741953;
       v10 = 27;
-      v15 = a2;
-      v16 = v9;
-      v17 = a5;
+      *(_QWORD *)&v13[11] = a2;
+      v13[13] = v9;
+      v13[14] = a5;
       if ( a5 - v9 < 0x1B )
         v10 = a5 - v9;
-      v18 = a3;
-      v13[0] = 16 * v10 + 28;
-      v13[1] = 16 * v10 + 68;
-      v13[2] = 0x8000;
-      v19 = v10;
-      memmove(v20, (const void *)(a4 + 16LL * v9), 16LL * v10);
+      v13[15] = a3;
+      LOWORD(v13[0]) = 16 * v10 + 28;
+      HIWORD(v13[0]) = 16 * v10 + 68;
+      LOWORD(v13[1]) = 0x8000;
+      v13[16] = v10;
+      memmove(&v13[17], (const void *)(a4 + 16LL * v9), 16LL * v10);
       v8 = LpcRequestPort(Object, v13);
       if ( v8 < 0 )
         break;

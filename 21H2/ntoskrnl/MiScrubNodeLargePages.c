@@ -1,28 +1,28 @@
 /*
- * XREFs of MiScrubNodeLargePages @ 0x14097E8C8
+ * XREFs of MiScrubNodeLargePages @ 0x1408D87C8
  * Callers:
- *     MiScrubNode @ 0x1405C5550 (MiScrubNode.c)
+ *     MiScrubNode @ 0x14056404C (MiScrubNode.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x140268284 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x14026A574 (MiCreateUltraThreadContext.c)
- *     MiGetNextPageColor @ 0x1402EB3DC (MiGetNextPageColor.c)
- *     MiInitializePageColorBase @ 0x140339C20 (MiInitializePageColorBase.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiGetLargePageListHeadBase @ 0x1405AF190 (MiGetLargePageListHeadBase.c)
- *     MiScrubNodeLargePageList @ 0x1405AF6F0 (MiScrubNodeLargePageList.c)
+ *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
+ *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
+ *     MiGetNextPageColor @ 0x1402E5C08 (MiGetNextPageColor.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E65FC (MiDeleteUltraThreadContext.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiGetLargePageListHeadBase @ 0x140556B08 (MiGetLargePageListHeadBase.c)
+ *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
  */
 
 __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rbx
   __int64 result; // rax
-  __int64 *v6; // r8
+  __int64 *v6; // r9
   __int64 v7; // r15
   unsigned __int64 v8; // r11
-  _QWORD *v9; // rdx
+  _QWORD *v9; // r8
   __int64 v10; // r10
-  __int64 v11; // r9
+  __int64 v11; // rdx
   int v12; // esi
   unsigned int NextPageColor; // eax
   int v14; // r10d
@@ -30,7 +30,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
   unsigned int v16; // r12d
   _QWORD *v17; // r13
   int v18; // r11d
-  int i; // edi
+  unsigned int i; // edi
   unsigned int j; // r14d
   int k; // esi
   __int64 LargePageListHeadBase; // rax
@@ -56,7 +56,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
   v37 = 0LL;
   result = (__int64)memset(v38, 0, sizeof(v38));
   v6 = MiLargePageSizes;
-  v7 = *(_QWORD *)(a2 + 16) + 24512 * v3;
+  v7 = *(_QWORD *)(a2 + 16) + 4544 * v3;
   v8 = 0LL;
   v34 = v7;
   v9 = (_QWORD *)v7;
@@ -65,10 +65,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
   {
     v11 = *v9 + v9[1];
     if ( v11 )
-    {
-      result = v11 * *v6;
-      v8 += result;
-    }
+      v8 += *v6 * v11;
     v9 += 134;
     ++v6;
     --v10;
@@ -85,9 +82,9 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
     result = MiCreateUltraThreadContext((__int64)v38, NextPageColor, v14 + 7);
     if ( (_DWORD)result )
     {
-      v15 = dword_140C507C0;
+      v15 = dword_140C4DF80;
       v16 = 0;
-      v35 = dword_140C507C0;
+      v35 = dword_140C4DF80;
       v17 = (_QWORD *)v7;
       do
       {
@@ -102,7 +99,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
             {
               if ( !i && !v12 )
               {
-                _InterlockedIncrement((volatile signed __int32 *)(a2 + 16100));
+                _InterlockedIncrement((volatile signed __int32 *)(a2 + 6340));
                 v27 = 1;
               }
               for ( j = 0; j < MmNumberOfChannels; ++j )
@@ -148,8 +145,8 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
       }
       while ( v16 < 3 );
 LABEL_29:
-      if ( v27 )
-        _InterlockedDecrement((volatile signed __int32 *)(a2 + 16100));
+      if ( v27 == 1 )
+        _InterlockedDecrement((volatile signed __int32 *)(a2 + 6340));
       return MiDeleteUltraThreadContext((__int64)v38);
     }
   }

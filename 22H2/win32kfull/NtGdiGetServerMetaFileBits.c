@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiGetServerMetaFileBits @ 0x1C02D2ED0
+ * XREFs of NtGdiGetServerMetaFileBits @ 0x1C02B8210
  * Callers:
  *     <none>
  * Callees:
- *     ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C0138BF0 (--B-$HmgLockResultBase@VMETA@@@@QEBA_NXZ.c)
- *     ??0?$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C01406D8 (--0-$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
- *     ??1?$HmgLockResult@VMETA@@@@QEAA@XZ @ 0x1C0140724 (--1-$HmgLockResult@VMETA@@@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ??0?$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C016D23C (--0-$HmgLockResult@VMETA@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
+ *     ??1?$HmgLockResult@VMETA@@@@QEAA@XZ @ 0x1C016D288 (--1-$HmgLockResult@VMETA@@@@QEAA@XZ.c)
+ *     ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C016D2B8 (--B-$HmgLockResultBase@VMETA@@@@QEBA_NXZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetServerMetaFileBits(

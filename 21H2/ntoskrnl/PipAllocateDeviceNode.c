@@ -1,19 +1,20 @@
 /*
- * XREFs of PipAllocateDeviceNode @ 0x1406CFCE0
+ * XREFs of PipAllocateDeviceNode @ 0x14074E8E0
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     PipProcessEnumeratedChildDevice @ 0x14076FAB0 (PipProcessEnumeratedChildDevice.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
- *     PiInitializeDevice @ 0x14095975C (PiInitializeDevice.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     PipProcessEnumeratedChildDevice @ 0x14074555C (PipProcessEnumeratedChildDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PipAllocateDeviceNode(__int64 a1, __int64 a2)
+__int64 __fastcall PipAllocateDeviceNode(__int64 a1, void **a2)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   _QWORD *v5; // rax
   _QWORD *v6; // rax
   _QWORD *v7; // rax
@@ -23,51 +24,52 @@ __int64 __fastcall PipAllocateDeviceNode(__int64 a1, __int64 a2)
   _QWORD *v11; // rax
   _QWORD *v12; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 784LL, 1685024324LL);
-  *(_QWORD *)a2 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x310uLL, 0x646F6E44u);
+  *a2 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
   _InterlockedIncrement(&IopNumberDeviceNodes);
-  *(_DWORD *)(*(_QWORD *)a2 + 448LL) = -1;
-  *(_DWORD *)(*(_QWORD *)a2 + 452LL) = -1;
-  *(_DWORD *)(*(_QWORD *)a2 + 456LL) = -1;
-  *(_DWORD *)(*(_QWORD *)a2 + 460LL) = -1;
-  *(_WORD *)(*(_QWORD *)a2 + 464LL) = -1;
-  *(_DWORD *)(*(_QWORD *)a2 + 300LL) = 769;
-  *(_DWORD *)(*(_QWORD *)a2 + 600LL) = 0;
-  *(_DWORD *)(*(_QWORD *)a2 + 640LL) = 0;
-  *(_QWORD *)(*(_QWORD *)a2 + 648LL) = 0LL;
-  *(_DWORD *)(*(_QWORD *)a2 + 656LL) = 0;
-  *(_DWORD *)(*(_QWORD *)a2 + 660LL) = -1;
-  *(_WORD *)(*(_QWORD *)a2 + 466LL) = 0;
-  v5 = (_QWORD *)(*(_QWORD *)a2 + 488LL);
+  memset(*a2, 0, 0x310uLL);
+  *((_DWORD *)*a2 + 112) = -1;
+  *((_DWORD *)*a2 + 113) = -1;
+  *((_DWORD *)*a2 + 114) = -1;
+  *((_DWORD *)*a2 + 115) = -1;
+  *((_WORD *)*a2 + 232) = -1;
+  *((_DWORD *)*a2 + 75) = 769;
+  *((_DWORD *)*a2 + 150) = 0;
+  *((_DWORD *)*a2 + 160) = 0;
+  *((_QWORD *)*a2 + 81) = 0LL;
+  *((_DWORD *)*a2 + 164) = 0;
+  *((_DWORD *)*a2 + 165) = -1;
+  *((_WORD *)*a2 + 233) = 0;
+  v5 = (char *)*a2 + 488;
   v5[1] = v5;
   *v5 = v5;
-  v6 = (_QWORD *)(*(_QWORD *)a2 + 504LL);
+  v6 = (char *)*a2 + 504;
   v6[1] = v6;
   *v6 = v6;
   if ( a1 )
   {
-    *(_QWORD *)(*(_QWORD *)a2 + 32LL) = a1;
-    *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL) = *(_QWORD *)a2;
+    *((_QWORD *)*a2 + 4) = a1;
+    *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL) = *a2;
     *(_DWORD *)(a1 + 48) &= ~0x80u;
   }
-  v7 = (_QWORD *)(*(_QWORD *)a2 + 472LL);
+  v7 = (char *)*a2 + 472;
   v7[1] = v7;
   *v7 = v7;
-  v8 = (_QWORD *)(*(_QWORD *)a2 + 576LL);
+  v8 = (char *)*a2 + 576;
   v8[1] = v8;
   *v8 = v8;
-  v9 = (_QWORD *)(*(_QWORD *)a2 + 608LL);
+  v9 = (char *)*a2 + 608;
   v9[1] = v9;
   *v9 = v9;
-  v10 = (_QWORD *)(*(_QWORD *)a2 + 624LL);
+  v10 = (char *)*a2 + 624;
   v10[1] = v10;
   *v10 = v10;
-  v11 = (_QWORD *)(*(_QWORD *)a2 + 176LL);
+  v11 = (char *)*a2 + 176;
   v11[1] = v11;
   *v11 = v11;
-  v12 = (_QWORD *)(*(_QWORD *)a2 + 192LL);
+  v12 = (char *)*a2 + 192;
   v12[1] = v12;
   *v12 = v12;
   return 0LL;

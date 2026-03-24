@@ -1,20 +1,20 @@
 /*
- * XREFs of ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C0295CB8
+ * XREFs of ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C02981E4
  * Callers:
- *     NtGdiGetStringBitmapW @ 0x1C02979C0 (NtGdiGetStringBitmapW.c)
+ *     NtGdiGetStringBitmapW @ 0x1C0299140 (NtGdiGetStringBitmapW.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     ??1ESTROBJ@@QEAA@XZ @ 0x1C015E3BC (--1ESTROBJ@@QEAA@XZ.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     vStringBitmapTextOut @ 0x1C0297210 (vStringBitmapTextOut.c)
- *     ?ptlBaseLineAdjustSet@ESTROBJ@@QEAAXAEAU_POINTL@@@Z @ 0x1C02A5B1C (-ptlBaseLineAdjustSet@ESTROBJ@@QEAAXAEAU_POINTL@@@Z.c)
- *     ?vInitSimple@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAX@Z @ 0x1C02BDD14 (-vInitSimple@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAX@Z.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??1ESTROBJ@@QEAA@XZ @ 0x1C016BDB8 (--1ESTROBJ@@QEAA@XZ.c)
+ *     vStringBitmapTextOut @ 0x1C016C9BC (vStringBitmapTextOut.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?ptlBaseLineAdjustSet@ESTROBJ@@QEAAXAEAU_POINTL@@@Z @ 0x1C02A7948 (-ptlBaseLineAdjustSet@ESTROBJ@@QEAAXAEAU_POINTL@@@Z.c)
+ *     ?vInitSimple@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAX@Z @ 0x1C02BF3AC (-vInitSimple@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAX@Z.c)
  */
 
 __int64 __fastcall GreGetStringBitmapW(
@@ -36,7 +36,7 @@ __int64 __fastcall GreGetStringBitmapW(
   _DWORD *v16; // rbx
   int v17; // r8d
   int v18; // ecx
-  __int64 v19; // rax
+  GLYPHPOS *pgp; // rax
   int v21; // [rsp+28h] [rbp-D8h]
   int v22; // [rsp+30h] [rbp-D0h]
   void *v23; // [rsp+38h] [rbp-C8h]
@@ -47,17 +47,13 @@ __int64 __fastcall GreGetStringBitmapW(
   _QWORD v28[2]; // [rsp+60h] [rbp-A0h] BYREF
   _BYTE v29[32]; // [rsp+70h] [rbp-90h] BYREF
   __int64 v30; // [rsp+90h] [rbp-70h] BYREF
-  _DWORD v31[4]; // [rsp+A0h] [rbp-60h] BYREF
-  int v32; // [rsp+B0h] [rbp-50h]
-  int v33; // [rsp+B4h] [rbp-4Ch]
-  int v34; // [rsp+B8h] [rbp-48h]
-  __int64 v35; // [rsp+C0h] [rbp-40h]
-  int v36; // [rsp+D0h] [rbp-30h]
-  _QWORD *v37; // [rsp+D8h] [rbp-28h]
-  __int64 v38; // [rsp+E0h] [rbp-20h]
-  int *v39; // [rsp+170h] [rbp+70h]
-  int v40; // [rsp+188h] [rbp+88h]
-  int v41; // [rsp+18Ch] [rbp+8Ch]
+  STROBJ v31; // [rsp+A0h] [rbp-60h] BYREF
+  int v32; // [rsp+D0h] [rbp-30h]
+  _QWORD *v33; // [rsp+D8h] [rbp-28h]
+  __int64 v34; // [rsp+E0h] [rbp-20h]
+  int *v35; // [rsp+170h] [rbp+70h]
+  int v36; // [rsp+188h] [rbp+88h]
+  int v37; // [rsp+18Ch] [rbp+8Ch]
 
   DCOBJ::DCOBJ((DCOBJ *)v28, a1);
   if ( v28[0] )
@@ -68,35 +64,35 @@ __int64 __fastcall GreGetStringBitmapW(
     v24 = 0LL;
     if ( (unsigned int)RFONTOBJ::bInit((RFONTOBJ *)&v24, (struct XDCOBJ *)v28, 0, 2u) )
       GreAcquireSemaphore(*(_QWORD *)(v24 + 504));
-    if ( !v24 || (*(_DWORD *)(v24 + 88) & 2) != 0 || (v8 = *(_DWORD *)(v24 + 392), v8 | *(_DWORD *)(v28[0] + 1756LL)) )
+    if ( !v24 || (*(_DWORD *)(v24 + 88) & 2) != 0 || (v8 = *(_DWORD *)(v24 + 392), v8 | *(_DWORD *)(v28[0] + 1764LL)) )
     {
       v7 = 0;
       goto LABEL_36;
     }
-    v40 = 0;
-    ESTROBJ::vInitSimple((ESTROBJ *)v31, a2, v8, (struct XDCOBJ *)v28, (struct RFONTOBJ *)&v24, v21, v22, v23);
-    if ( (v40 & 4) == 0 )
+    v36 = 0;
+    ESTROBJ::vInitSimple((ESTROBJ *)&v31, a2, v8, (struct XDCOBJ *)v28, (struct RFONTOBJ *)&v24, v21, v22, v23);
+    if ( (v36 & 4) == 0 )
     {
       v7 = 0;
 LABEL_33:
-      ESTROBJ::~ESTROBJ((ESTROBJ *)v31);
+      ESTROBJ::~ESTROBJ((ESTROBJ *)&v31);
 LABEL_36:
       RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v24);
       goto LABEL_37;
     }
-    v9 = v34 - v32;
-    v10 = *(_QWORD *)(v38 + 24LL * (unsigned int)(v31[0] - 1) + 8);
-    v11 = v33
-        + (*(int *)(*(_QWORD *)(v38 + 8) + 16LL) >> 4)
+    v9 = v31.rclBkGround.bottom - v31.rclBkGround.top;
+    v10 = *(_QWORD *)(v34 + 24LL * (v31.cGlyphs - 1) + 8);
+    v11 = v31.rclBkGround.right
+        + (*(int *)(*(_QWORD *)(v34 + 8) + 16LL) >> 4)
         + ((*(_DWORD *)(v10 + 12) - *(_DWORD *)(v10 + 20)) >> 4)
-        - v31[3];
+        - v31.rclBkGround.left;
     v12 = (unsigned int)(v11 + 7) >> 3;
-    v13 = (v34 - v32) * v12;
+    v13 = (v31.rclBkGround.bottom - v31.rclBkGround.top) * v12;
     v7 = v13 + 8;
     if ( a5 < v13 + 8 )
       goto LABEL_33;
     memset((char *)a4 + 8, 0, v13);
-    v14 = (v40 & 0x1400) == 0;
+    v14 = (v36 & 0x1400) == 0;
     *((_DWORD *)a4 + 1) = v9;
     v15 = 0;
     *(_DWORD *)a4 = v11;
@@ -104,20 +100,20 @@ LABEL_36:
     v25 = 0LL;
     if ( !v14 )
     {
-      v15 = *v39;
-      if ( *v39 )
+      v15 = *v35;
+      if ( *v35 )
       {
-        if ( v15 == 1 )
+        if ( *v35 == 1 )
         {
           v16 = *(_DWORD **)(v24 + 720);
         }
-        else if ( v15 == 2 )
+        else if ( *v35 == 2 )
         {
           v16 = *(_DWORD **)(v24 + 728);
         }
         else
         {
-          v16 = v15 == 3
+          v16 = *v35 == 3
               ? *(_DWORD **)(v24 + 736)
               : *(_DWORD **)(*(_QWORD *)(v24 + 744) + 8LL * (unsigned int)(v15 - 4));
         }
@@ -127,18 +123,18 @@ LABEL_36:
           v18 = v16[80];
           if ( v17 < v16[79] - v18 )
             v18 = v16[79] - v17;
-          v19 = v35;
+          pgp = v31.pgp;
           v25.y = v18 >> 4;
           v27 = 0LL;
           if ( v18 >> 4 )
-            v19 = 0LL;
-          v35 = v19;
+            pgp = 0LL;
+          v31.pgp = pgp;
           RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v27);
         }
       }
     }
-    v41 = v15;
-    v36 = 0;
+    v37 = v15;
+    v32 = 0;
     v26 = v16;
     if ( v16 )
     {
@@ -147,10 +143,10 @@ LABEL_36:
         v7 = 0;
         goto LABEL_32;
       }
-      v37 = &v26;
+      v33 = &v26;
     }
-    ESTROBJ::ptlBaseLineAdjustSet((ESTROBJ *)v31, &v25);
-    vStringBitmapTextOut(v31, a4, v12);
+    ESTROBJ::ptlBaseLineAdjustSet((ESTROBJ *)&v31, &v25);
+    vStringBitmapTextOut(&v31, a4, v12);
 LABEL_32:
     v26 = 0LL;
     RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v26);

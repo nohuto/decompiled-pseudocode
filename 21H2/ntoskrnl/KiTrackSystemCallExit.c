@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTrackSystemCallExit @ 0x1409631D0
+ * XREFs of KiTrackSystemCallExit @ 0x1408BD210
  * Callers:
- *     KiSystemCall64 @ 0x140434000 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140411A00 (KiSystemCall64.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PerfInfoLogSysCallExit @ 0x1406303E0 (PerfInfoLogSysCallExit.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PerfInfoLogSysCallExit @ 0x1405AA3A0 (PerfInfoLogSysCallExit.c)
  */
 
 __int64 __fastcall KiTrackSystemCallExit(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall KiTrackSystemCallExit(__int64 a1, __int64 a2)
   {
     _InterlockedAdd(&KiSystemServiceTraceCallbacksActive, 1u);
     if ( *(_BYTE *)(a1 + 41) )
-      ((void (__fastcall *)(_QWORD, _QWORD, __int64, __int64 *, int, _QWORD))qword_140D070B8)(
+      ((void (__fastcall *)(_QWORD, _QWORD, __int64, __int64 *, int, _QWORD))qword_140CFCBA8)(
         *(_QWORD *)(a1 + 24),
         *(_QWORD *)(a1 + 56),
         1LL,

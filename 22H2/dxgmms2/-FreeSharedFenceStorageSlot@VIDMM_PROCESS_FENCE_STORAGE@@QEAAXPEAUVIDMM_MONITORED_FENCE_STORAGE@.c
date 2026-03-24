@@ -1,30 +1,31 @@
 /*
- * XREFs of ?FreeSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C00173CC
+ * XREFs of ?FreeSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0017198
  * Callers:
- *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C00172E8 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
+ *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C0015798 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
  * Callees:
- *     ??_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z @ 0x1C0017460 (--_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z @ 0x1C0015FF8 (--_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS_FENCE_STORAGE::FreeSharedFenceStorageSlot(
         KSPIN_LOCK *this,
-        struct VIDMM_MONITORED_FENCE_STORAGE *a2)
+        VIDMM_FENCE_STORAGE_PAGE **a2)
 {
-  _QWORD *v3; // rdi
-  __int64 v4; // rcx
-  _QWORD *v5; // rax
-  unsigned int v6; // edx
+  VIDMM_FENCE_STORAGE_PAGE *v3; // rdi
+  VIDMM_FENCE_STORAGE_PAGE *v4; // rcx
+  VIDMM_FENCE_STORAGE_PAGE **v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(this + 7, &LockHandle);
-  v3 = *(_QWORD **)a2;
-  v3[12] = *(_QWORD *)(*(_QWORD *)a2 + 96LL) & ~(1LL << ((unsigned __int64)*((unsigned int *)a2 + 4) >> 6));
-  v4 = *v3;
-  if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
+  v3 = *a2;
+  *((_QWORD *)v3 + 12) = *((_QWORD *)*a2 + 12) & ~(1LL << ((unsigned __int64)*((unsigned int *)a2 + 4) >> 6));
+  v4 = *(VIDMM_FENCE_STORAGE_PAGE **)v3;
+  if ( *(VIDMM_FENCE_STORAGE_PAGE **)(*(_QWORD *)v3 + 8LL) != v3
+    || (v5 = (VIDMM_FENCE_STORAGE_PAGE **)*((_QWORD *)v3 + 1), *v5 != v3) )
+  {
     __fastfail(3u);
+  }
   *v5 = v4;
-  *(_QWORD *)(v4 + 8) = v5;
+  *((_QWORD *)v4 + 1) = v5;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  VIDMM_FENCE_STORAGE_PAGE::`scalar deleting destructor'(v3, v6);
+  VIDMM_FENCE_STORAGE_PAGE::`scalar deleting destructor'(v3);
 }

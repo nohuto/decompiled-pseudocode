@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpResourceEnforcesOwnershipTransfer @ 0x1402AF060
+ * XREFs of ExpResourceEnforcesOwnershipTransfer @ 0x14034D1A0
  * Callers:
- *     ExReinitializeResourceLite @ 0x14021A5F0 (ExReinitializeResourceLite.c)
- *     ExpSetResourceOwnerPointerEx @ 0x14021A7D0 (ExpSetResourceOwnerPointerEx.c)
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x1402AEF40 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x140286C70 (ExpSetResourceOwnerPointerEx.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x1402F7920 (ExReinitializeResourceLite.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x14034D070 (ExReleaseResourceAndLeaveCriticalRegion.c)
  * Callees:
  *     <none>
  */

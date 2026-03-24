@@ -6,13 +6,13 @@
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     MiAllocateContiguousMemory @ 0x1400E64FC (MiAllocateContiguousMemory.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE60 (MiInsertPhysicalPteMapping.c)
- *     MmMapMdl @ 0x1402AD760 (MmMapMdl.c)
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
- *     MiFindLargePageMemory @ 0x14085D1A0 (MiFindLargePageMemory.c)
- *     MiGetFastLargePage @ 0x14085D44C (MiGetFastLargePage.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
+ *     MmMapMdl @ 0x1402AD860 (MmMapMdl.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiFindLargePageMemory @ 0x14085D180 (MiFindLargePageMemory.c)
+ *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
  * Callees:
  *     <none>
  */

@@ -1,35 +1,36 @@
 /*
- * XREFs of KiCheckVpBackingLongSpinWaitHypercall @ 0x14039EA10
+ * XREFs of KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20
  * Callers:
- *     KxWaitForSpinLockAndAcquire @ 0x140211E70 (KxWaitForSpinLockAndAcquire.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140220C30 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MiLockOwnedProtoPage @ 0x140273EE0 (MiLockOwnedProtoPage.c)
- *     KxWaitForLockChainValid @ 0x140282C20 (KxWaitForLockChainValid.c)
- *     KiWaitForContextSwap @ 0x140299240 (KiWaitForContextSwap.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeRemoveQueueEx @ 0x1402B7FA0 (KeRemoveQueueEx.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeFlushMultipleRangeTb @ 0x1402F3C40 (KeFlushMultipleRangeTb.c)
- *     KiIpiSendRequestEx @ 0x1402F42D4 (KiIpiSendRequestEx.c)
- *     ExpAcquireSpinLockExclusive @ 0x14030F870 (ExpAcquireSpinLockExclusive.c)
- *     MiLockPageTableInternal @ 0x14031DE00 (MiLockPageTableInternal.c)
- *     MiResolveProtoPteFault @ 0x14031EAA0 (MiResolveProtoPteFault.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     KeRemovePriQueue @ 0x14033D110 (KeRemovePriQueue.c)
- *     KeInsertPriQueue @ 0x1403462B0 (KeInsertPriQueue.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140366A20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KiIdleLoop @ 0x140424300 (KiIdleLoop.c)
- *     KxDispatchInterrupt @ 0x140428BA0 (KxDispatchInterrupt.c)
- *     SwapContext @ 0x140428D90 (SwapContext.c)
- *     PopHandleNextState @ 0x140A4B5A0 (PopHandleNextState.c)
+ *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
+ *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
+ *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
+ *     KxFlushEntireTb @ 0x14022F980 (KxFlushEntireTb.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402315C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MiMapPagesToZero @ 0x140234070 (MiMapPagesToZero.c)
+ *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiLockOwnedProtoPage @ 0x14031A320 (MiLockOwnedProtoPage.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
+ *     KiIpiSendRequestEx @ 0x14033B9A0 (KiIpiSendRequestEx.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiIdleLoop @ 0x140402950 (KiIdleLoop.c)
+ *     KxDispatchInterrupt @ 0x1404065E0 (KxDispatchInterrupt.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
+ *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
  * Callees:
  *     <none>
  */
 
-char KiCheckVpBackingLongSpinWaitHypercall()
+char __fastcall KiCheckVpBackingLongSpinWaitHypercall()
 {
   char v0; // dl
   int v2; // ecx
@@ -46,7 +47,7 @@ char KiCheckVpBackingLongSpinWaitHypercall()
       {
         if ( (*(_BYTE *)(*i + 35) & 1) != 0 )
         {
-          v4 = *(_QWORD *)(*i + 35000);
+          v4 = *(_QWORD *)(*i + 33976);
           if ( !v4 || !*(_BYTE *)(v4 + 65) || !*(_BYTE *)(v4 + 64) )
             break;
         }

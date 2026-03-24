@@ -1,10 +1,10 @@
 /*
- * XREFs of __GSHandlerCheckCommon @ 0x1C00D64C8
+ * XREFs of __GSHandlerCheckCommon @ 0x1C00C6BFC
  * Callers:
- *     __GSHandlerCheck @ 0x1C00D64A4 (__GSHandlerCheck.c)
- *     __GSHandlerCheck_SEH @ 0x1C00DD62C (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck @ 0x1C00C6BD8 (__GSHandlerCheck.c)
+ *     __GSHandlerCheck_SEH @ 0x1C00CE718 (__GSHandlerCheck_SEH.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall _GSHandlerCheckCommon(__int64 a1, __int64 a2)

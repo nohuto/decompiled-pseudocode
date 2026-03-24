@@ -1,40 +1,39 @@
 /*
- * XREFs of GreCreateSemaphoreInternal @ 0x1C0077FFC
+ * XREFs of GreCreateSemaphoreInternal @ 0x1C005C364
  * Callers:
- *     GreCreateSemaphore @ 0x1C0077EC0 (GreCreateSemaphore.c)
- *     EngCreateSemaphore @ 0x1C0077FE0 (EngCreateSemaphore.c)
- *     HmgCreate @ 0x1C007C9D4 (HmgCreate.c)
- *     ?bInitPathAlloc@@YAHXZ @ 0x1C00C3720 (-bInitPathAlloc@@YAHXZ.c)
- *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C01545DC (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
- *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C0154FD0 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
- *     EngInitializeSafeSemaphore @ 0x1C016A180 (EngInitializeSafeSemaphore.c)
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
- *     bInitPALOBJ @ 0x1C02DBCC4 (bInitPALOBJ.c)
+ *     EngCreateSemaphore @ 0x1C005C010 (EngCreateSemaphore.c)
+ *     GreCreateSemaphore @ 0x1C005C270 (GreCreateSemaphore.c)
+ *     HmgCreate @ 0x1C006BCFC (HmgCreate.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B9020 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C013D500 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
+ *     EngInitializeSafeSemaphore @ 0x1C014B370 (EngInitializeSafeSemaphore.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
+ *     bInitPALOBJ @ 0x1C02999B8 (bInitPALOBJ.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
- *     MultiUserGreTrackAddEngResource @ 0x1C00780A0 (MultiUserGreTrackAddEngResource.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     MultiUserGreTrackAddEngResource @ 0x1C005C400 (MultiUserGreTrackAddEngResource.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
  */
 
 __int64 __fastcall GreCreateSemaphoreInternal(char a1)
 {
   __int64 v2; // rax
   __int64 v3; // rbx
-  void *v4; // rsi
+  __int64 v4; // rsi
   __int64 v5; // rbp
   __int64 ThreadWin32Thread; // rax
 
-  v2 = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 68LL, 0x88uLL, 0x6D657347u);
+  v2 = Win32AllocPoolNonPaged(136LL, 1835365191LL);
   v3 = v2;
   if ( v2 )
   {
     v3 = v2 + 32;
-    v4 = (void *)v2;
+    v4 = v2;
     v5 = v2;
     if ( ExInitializeResourceLite((PERESOURCE)(v2 + 32)) < 0 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
+      Win32FreePool(v4);
       return 0LL;
     }
     else

@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfCxDeviceInitSetPowerPolicyEventCallbacks @ 0x1C0065BD0
+ * XREFs of imp_WdfCxDeviceInitSetPowerPolicyEventCallbacks @ 0x1C001B320
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_dd @ 0x1C0053078 (WPP_IFR_SF_dd.c)
- *     FxValiateCx @ 0x1C0065314 (FxValiateCx.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     FxValiateCx @ 0x1C004B104 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfCxDeviceInitSetPowerPolicyEventCallbacks(
@@ -15,18 +15,18 @@ void __fastcall imp_WdfCxDeviceInitSetPowerPolicyEventCallbacks(
         WDFCXDEVICE_INIT *CxDeviceInit,
         _WDFCX_POWER_POLICY_EVENT_CALLBACKS *CxPowerPolicyCallbacks)
 {
-  _FX_DRIVER_GLOBALS *v3; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   _FX_DRIVER_GLOBALS *ClientDriverGlobals; // rdi
   unsigned __int16 v7; // r9
   int (__fastcall *EvtCxDevicePreArmWakeFromSx)(WDFDEVICE__ *); // rax
   int (__fastcall *EvtCxDevicePreArmWakeFromSxWithReason)(WDFDEVICE__ *, unsigned __int8, unsigned __int8); // rcx
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v3 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   if ( !CxDeviceInit )
-    FxVerifierNullBugCheck(v3, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   ClientDriverGlobals = CxDeviceInit->ClientDriverGlobals;
-  if ( (int)FxValiateCx(ClientDriverGlobals, v3) >= 0 )
+  if ( FxValiateCx(ClientDriverGlobals, DriverName) >= 0 )
   {
     if ( !CxPowerPolicyCallbacks )
       FxVerifierNullBugCheck(ClientDriverGlobals, retaddr);

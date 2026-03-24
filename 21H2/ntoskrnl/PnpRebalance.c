@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpRebalance @ 0x14095A02C
+ * XREFs of PnpRebalance @ 0x1408B87A4
  * Callers:
- *     PnpProcessRebalance @ 0x140564C24 (PnpProcessRebalance.c)
- *     PnpAllocateResources @ 0x140747FB4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
+ *     PnpProcessRebalance @ 0x14051049C (PnpProcessRebalance.c)
+ *     PnpAllocateResources @ 0x14074FCE8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
  * Callees:
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1402D1EB4 (PnpDiagnosticTraceObjectWithStatus.c)
- *     PnpDiagnosticTraceObject @ 0x1402D2774 (PnpDiagnosticTraceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnpBuildCmResourceLists @ 0x14081FCD8 (PnpBuildCmResourceLists.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081FECC (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpFindBestConfiguration @ 0x14081FF24 (PnpFindBestConfiguration.c)
- *     IopCommitConfiguration @ 0x140854DB4 (IopCommitConfiguration.c)
- *     PnpTraceRebalanceResult @ 0x1409576F0 (PnpTraceRebalanceResult.c)
- *     PnpCancelStopDeviceSubtree @ 0x140959BF0 (PnpCancelStopDeviceSubtree.c)
- *     PnpFindRebalanceCandidates @ 0x140959C24 (PnpFindRebalanceCandidates.c)
- *     PnpStopDeviceSubtree @ 0x14095A388 (PnpStopDeviceSubtree.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x140364DE4 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpBuildCmResourceLists @ 0x14074F54C (PnpBuildCmResourceLists.c)
+ *     IopCommitConfiguration @ 0x140752640 (IopCommitConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x1407526E4 (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140753010 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpTraceRebalanceResult @ 0x1408B1DC4 (PnpTraceRebalanceResult.c)
+ *     PnpCancelStopDeviceSubtree @ 0x1408B8374 (PnpCancelStopDeviceSubtree.c)
+ *     PnpFindRebalanceCandidates @ 0x1408B83A8 (PnpFindRebalanceCandidates.c)
+ *     PnpStopDeviceSubtree @ 0x1408B8AE8 (PnpStopDeviceSubtree.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, char a4)
@@ -27,15 +27,15 @@ __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, char a4)
   __int64 v5; // rsi
   void *v6; // rcx
   unsigned __int16 *v9; // r12
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v11; // rdi
   int BestConfiguration; // ebx
-  unsigned int v13; // r15d
-  _DWORD *v14; // r12
+  unsigned int v13; // r12d
+  _DWORD *v14; // r15
   __int64 v15; // r13
   int v16; // eax
   unsigned int v17; // ecx
-  unsigned __int64 v18; // r12
+  unsigned __int64 v18; // r15
   _OWORD *v19; // rcx
   unsigned int v22; // [rsp+34h] [rbp-A5h] BYREF
   _QWORD *i; // [rsp+38h] [rbp-A1h]
@@ -58,16 +58,16 @@ __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, char a4)
   *((_QWORD *)&v28[3] + 1) = MEMORY[0xFFFFF78000000008];
   LOBYTE(v28[3]) = a4;
   PnpDiagnosticTraceObject(&KMPnPEvt_Rebalance_Start, (unsigned __int16 *)(a1 + 40));
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, (unsigned __int64)(unsigned int)IopNumberDeviceNodes << 6, 812674640LL);
-  v11 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int64)(unsigned int)IopNumberDeviceNodes << 6, 0x30706E50u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     LODWORD(v28[1]) = 2;
     BestConfiguration = -1073741670;
-    goto LABEL_16;
+    goto LABEL_17;
   }
   if ( (_DWORD)v5 )
-    memmove(Pool2, a2, v5 << 6);
+    memmove(PoolWithTag, a2, v5 << 6);
   v13 = 0;
   v14 = &v28[1];
   v22 = 0;
@@ -77,7 +77,7 @@ __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, char a4)
   v16 = (_DWORD)v11 + ((_DWORD)v5 << 6);
   for ( i = &v11[8 * v5]; ; v16 = (int)i )
   {
-    DWORD1(v28[0]) = v15;
+    ++DWORD1(v28[0]);
     v24 = v13;
     PnpFindRebalanceCandidates(v15, a1, v16, &v22, a4, (__int64)v28);
     v13 = v22;
@@ -88,11 +88,14 @@ __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, char a4)
       {
 LABEL_13:
         BestConfiguration = -1073741823;
-        *((_DWORD *)&v28[1] + v15) = 4 - (*(_DWORD *)(a1 + 300) != 779);
-LABEL_14:
+        if ( *(_DWORD *)(a1 + 300) == 777 )
+          *((_DWORD *)&v28[1] + v15) = 4;
+        else
+          *((_DWORD *)&v28[1] + v15) = 3;
+LABEL_15:
         PnpCancelStopDeviceSubtree((ULONG_PTR)IopRootDeviceNode);
         v18 = (unsigned __int64)i;
-        goto LABEL_15;
+        goto LABEL_16;
       }
       while ( v11[8 * (unsigned __int64)v17] != *(_QWORD *)(a1 + 32) )
       {
@@ -106,18 +109,18 @@ LABEL_14:
       *v14 = 5;
     if ( BestConfiguration != -1073739512 )
       BestConfiguration = -1073741823;
-LABEL_29:
+LABEL_28:
     v15 = (unsigned int)(v15 + 1);
     ++v14;
     if ( (unsigned int)v15 >= 2 )
-      goto LABEL_14;
+      goto LABEL_15;
   }
   BestConfiguration = PnpFindBestConfiguration((__int64)v11, (unsigned int)v5 + v22, (__int64)&v27);
   if ( BestConfiguration < 0 )
   {
     if ( !*v14 )
       *v14 = 6;
-    goto LABEL_29;
+    goto LABEL_28;
   }
   PnpStopDeviceSubtree(IopRootDeviceNode);
   IopCommitConfiguration((_QWORD **)&v27);
@@ -127,14 +130,12 @@ LABEL_29:
   PnpBuildCmResourceLists(v18, (unsigned __int64)&v11[8 * (unsigned __int64)((unsigned int)v5 + v13)], 1);
   if ( (_DWORD)v5 )
     memmove(v26, v11, Size);
-LABEL_15:
+LABEL_16:
   PnpFreeResourceRequirementsForAssignTable(v18, (unsigned __int64)&v11[8 * (unsigned __int64)((unsigned int)v5 + v13)]);
   ExFreePoolWithTag(v11, 0x30706E50u);
   v9 = (unsigned __int16 *)(a1 + 40);
-LABEL_16:
-  PnpTraceRebalanceResult(0, BestConfiguration, (int *)v28);
-  if ( DWORD1(v28[0]) == 1 )
-    PnpTraceRebalanceResult(1u, BestConfiguration, (int *)v28);
+LABEL_17:
+  PnpTraceRebalanceResult();
   v19 = *(_OWORD **)(a1 + 712);
   if ( BestConfiguration >= 0 )
   {

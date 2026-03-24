@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapArbitraryPage @ 0x14010E9F0
+ * XREFs of MiMapArbitraryPage @ 0x14010EA10
  * Callers:
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMapArbitraryPage(__int64 *a1, _QWORD *a2, __int64 a3, int a4, int a5)

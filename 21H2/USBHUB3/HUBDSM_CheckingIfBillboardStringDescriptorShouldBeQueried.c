@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C00200E0
+ * XREFs of HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C001FCD0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_LogBillboardEvent @ 0x1C002A548 (HUBDTX_LogBillboardEvent.c)
+ *     HUBDTX_LogBillboardEvent @ 0x1C0029E78 (HUBDTX_LogBillboardEvent.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried(__int64 a1)

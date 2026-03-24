@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlFindClearBitsAndSetEx @ 0x14008AB50
  * Callers:
- *     MiObtainSessionVa @ 0x1400F7284 (MiObtainSessionVa.c)
- *     RtlpHpFixedVsAllocate @ 0x140139450 (RtlpHpFixedVsAllocate.c)
- *     MiAllocatePagedPoolPages @ 0x140162C50 (MiAllocatePagedPoolPages.c)
- *     MiScanLeafNonPagedPool @ 0x1401637D0 (MiScanLeafNonPagedPool.c)
- *     MiReplenishNonPagedSlists @ 0x140163E84 (MiReplenishNonPagedSlists.c)
- *     ExpSaPageGroupAllocateMemory @ 0x140167B08 (ExpSaPageGroupAllocateMemory.c)
+ *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
+ *     RtlpHpFixedVsAllocate @ 0x140139470 (RtlpHpFixedVsAllocate.c)
+ *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
+ *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
+ *     MiReplenishNonPagedSlists @ 0x140163EA4 (MiReplenishNonPagedSlists.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x140167B28 (ExpSaPageGroupAllocateMemory.c)
  *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)

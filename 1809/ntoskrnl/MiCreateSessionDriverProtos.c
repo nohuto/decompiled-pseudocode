@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateSessionDriverProtos @ 0x14085F13C
+ * XREFs of MiCreateSessionDriverProtos @ 0x14085F11C
  * Callers:
- *     MiAddPrivateFixupEntryForSystemImage @ 0x140176A4C (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x140176A6C (MiAddPrivateFixupEntryForSystemImage.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiUnmapImageInSystemSpace @ 0x1406508AC (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     MiAllocatePerSessionProtos @ 0x1406C9210 (MiAllocatePerSessionProtos.c)
- *     MiDeleteSessionDriverProtos @ 0x1406E1A78 (MiDeleteSessionDriverProtos.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
+ *     MiDeleteSessionDriverProtos @ 0x1406E1A58 (MiDeleteSessionDriverProtos.c)
  */
 
 __int64 __fastcall MiCreateSessionDriverProtos(__int64 *a1, __int64 a2, __int64 a3)

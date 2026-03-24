@@ -8,9 +8,9 @@
  *     KiInitializeContextThread @ 0x14008A018 (KiInitializeContextThread.c)
  *     KeAbInitializeThreadState @ 0x14008A30C (KeAbInitializeThreadState.c)
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     MmCreateKernelStack @ 0x1400C9EF0 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400CA480 (MmDeleteKernelStack.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     MmCreateKernelStack @ 0x1400C9F10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400CA4A0 (MmDeleteKernelStack.c)
  */
 
 __int64 __fastcall KeInitThread(

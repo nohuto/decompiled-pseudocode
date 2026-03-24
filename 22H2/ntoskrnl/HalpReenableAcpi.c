@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReenableAcpi @ 0x140A9721C
+ * XREFs of HalpReenableAcpi @ 0x1409990E0
  * Callers:
- *     HalpPowerEarlyRestore @ 0x14051C690 (HalpPowerEarlyRestore.c)
- *     HaliAcpiSleep @ 0x140528000 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385840 (HaliAcpiSleep.c)
+ *     HalpPowerEarlyRestore @ 0x14038D390 (HalpPowerEarlyRestore.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpReenableAcpi(__int64 a1)

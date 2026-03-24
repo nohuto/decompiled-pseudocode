@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PowerPolDevicePowerRequestFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008AB60
+ * XREFs of ?PowerPolDevicePowerRequestFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0086A50
  * Callers:
  *     <none>
  * Callees:
- *     ?DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ @ 0x1C000DB44 (-DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ.c)
- *     ?PowerPolicyChildrenCanPowerUp@FxPkgPnp@@AEAAXXZ @ 0x1C0017F60 (-PowerPolicyChildrenCanPowerUp@FxPkgPnp@@AEAAXXZ.c)
- *     ?NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ @ 0x1C008EE08 (-NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ.c)
+ *     ?DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ @ 0x1C0010494 (-DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ.c)
+ *     ?PowerPolicyChildrenCanPowerUp@FxPkgPnp@@AEAAXXZ @ 0x1C00107D8 (-PowerPolicyChildrenCanPowerUp@FxPkgPnp@@AEAAXXZ.c)
+ *     ?NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ @ 0x1C008CC2C (-NotifyDeviceDirectedPoweredDown@FxPoxInterface@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolDevicePowerRequestFailed(FxPkgPnp *This)

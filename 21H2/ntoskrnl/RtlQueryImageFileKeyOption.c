@@ -1,23 +1,24 @@
 /*
- * XREFs of RtlQueryImageFileKeyOption @ 0x1406CC700
+ * XREFs of RtlQueryImageFileKeyOption @ 0x1406AEF00
  * Callers:
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403DCE64 (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     PspReadDfssConfigurationValues @ 0x1405DFE94 (PspReadDfssConfigurationValues.c)
- *     SepIsImageInMinTcbList @ 0x1406C2FDC (SepIsImageInMinTcbList.c)
- *     PspReadIFEONodeOptions @ 0x1406CC6A0 (PspReadIFEONodeOptions.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     PspReadOptionsMapFromIFEO @ 0x14070F040 (PspReadOptionsMapFromIFEO.c)
- *     PspReadIFEOPerfOptions @ 0x1407F6CE0 (PspReadIFEOPerfOptions.c)
- *     PspQueryComPlusRunUnderWoW @ 0x1407F8490 (PspQueryComPlusRunUnderWoW.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140835490 (RtlQueryImageFileExecutionOptions.c)
+ *     KiDisableFgBoostDecayRegistryChangeHandler @ 0x1405123E0 (KiDisableFgBoostDecayRegistryChangeHandler.c)
+ *     PspReadDfssConfigurationValues @ 0x140580DB8 (PspReadDfssConfigurationValues.c)
+ *     SepIsImageInMinTcbList @ 0x140602224 (SepIsImageInMinTcbList.c)
+ *     PspDetectComplusILImage @ 0x1406AEBE4 (PspDetectComplusILImage.c)
+ *     PspReadIFEONodeOptions @ 0x1406AECB8 (PspReadIFEONodeOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x1406AED10 (PspReadIFEOPerfOptions.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspReadOptionsMapFromIFEO @ 0x1406D9898 (PspReadOptionsMapFromIFEO.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x1407A8BA0 (RtlQueryImageFileExecutionOptions.c)
+ *     KiInitializeVelocity @ 0x140A4C6E8 (KiInitializeVelocity.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlUnicodeStringToInteger @ 0x140698DE0 (RtlUnicodeStringToInteger.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x140684670 (RtlUnicodeStringToInteger.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall RtlQueryImageFileKeyOption(
@@ -79,7 +80,7 @@ LABEL_15:
       if ( *((_DWORD *)p_KeyValueInformation + 2) > a5 )
       {
         ResultLength = *((_DWORD *)p_KeyValueInformation + 2);
-        goto LABEL_37;
+        goto LABEL_54;
       }
       a3 = *((_DWORD *)p_KeyValueInformation + 1);
       v10 = *((_DWORD *)p_KeyValueInformation + 2);
@@ -97,15 +98,18 @@ LABEL_15:
             if ( a4 )
             {
               *a4 = *((_DWORD *)p_KeyValueInformation + 3);
-              goto LABEL_26;
+LABEL_23:
+              if ( v22 && ((int)(v12 + 0x80000000) < 0 || v12 == -2147483643) )
+                *v22 = ResultLength;
+              goto LABEL_11;
             }
-LABEL_37:
-            v12 = -2147483643;
-            goto LABEL_26;
+            goto LABEL_54;
           }
-          goto LABEL_36;
+          goto LABEL_37;
         }
-        goto LABEL_55;
+LABEL_55:
+        v12 = -1073741788;
+        goto LABEL_11;
       }
       if ( v18 == 11 )
       {
@@ -117,23 +121,20 @@ LABEL_37:
             if ( a4 )
             {
               *(_QWORD *)a4 = *(_QWORD *)((char *)p_KeyValueInformation + 12);
-LABEL_26:
-              if ( v22 && ((int)(v12 + 0x80000000) < 0 || v12 == -2147483643) )
-                *v22 = ResultLength;
-              goto LABEL_11;
+              goto LABEL_23;
             }
-            goto LABEL_37;
+LABEL_54:
+            v12 = -2147483643;
+            goto LABEL_23;
           }
-          goto LABEL_36;
+          goto LABEL_37;
         }
-LABEL_55:
-        v12 = -1073741788;
-        goto LABEL_11;
+        goto LABEL_55;
       }
       if ( v18 != 1 )
       {
         v12 = -1073741788;
-        goto LABEL_26;
+        goto LABEL_23;
       }
       if ( a3 == 4 )
       {
@@ -148,9 +149,9 @@ LABEL_55:
               DestinationString.Length = *((_WORD *)p_KeyValueInformation + 4);
               DestinationString.MaximumLength = *((_WORD *)p_KeyValueInformation + 4);
               v12 = RtlUnicodeStringToInteger(&DestinationString, 0, a4);
-              goto LABEL_26;
+              goto LABEL_23;
             }
-            goto LABEL_37;
+            goto LABEL_54;
           }
           v12 = -2147483646;
 LABEL_11:
@@ -158,7 +159,7 @@ LABEL_11:
             ExFreePoolWithTag(v16, 0);
           return v12;
         }
-LABEL_36:
+LABEL_37:
         v12 = -1073741820;
         goto LABEL_11;
       }
@@ -171,15 +172,15 @@ LABEL_36:
         goto LABEL_55;
       ResultLength = *((_DWORD *)p_KeyValueInformation + 2);
       if ( !a4 )
-        goto LABEL_37;
+        goto LABEL_54;
       v19 = *((unsigned int *)p_KeyValueInformation + 2);
     }
     if ( (unsigned int)v19 <= v10 )
     {
       memmove(a4, (char *)p_KeyValueInformation + 12, v19);
-      goto LABEL_26;
+      goto LABEL_23;
     }
-    goto LABEL_37;
+    goto LABEL_54;
   }
   Length = a5 + 12;
 LABEL_7:

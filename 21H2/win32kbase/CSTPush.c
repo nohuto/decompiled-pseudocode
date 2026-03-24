@@ -1,7 +1,7 @@
 /*
- * XREFs of CSTPush @ 0x1C00C01D0
+ * XREFs of CSTPush @ 0x1C00B4E70
  * Callers:
- *     InitCreateSystemThreadsMsg @ 0x1C00C0170 (InitCreateSystemThreadsMsg.c)
+ *     InitCreateSystemThreadsMsg @ 0x1C00B4E10 (InitCreateSystemThreadsMsg.c)
  * Callees:
  *     <none>
  */

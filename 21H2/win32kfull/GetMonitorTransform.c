@@ -1,57 +1,66 @@
 /*
- * XREFs of GetMonitorTransform @ 0x1C009B038
+ * XREFs of GetMonitorTransform @ 0x1C0042784
  * Callers:
- *     GetNewMonitor @ 0x1C006F304 (GetNewMonitor.c)
- *     UpdateTopLevelWindowDPITransform @ 0x1C009AF58 (UpdateTopLevelWindowDPITransform.c)
- *     TransformVectorWithInputTargetPrecedence @ 0x1C010F7F8 (TransformVectorWithInputTargetPrecedence.c)
+ *     UpdateTopLevelWindowDPITransform @ 0x1C0042710 (UpdateTopLevelWindowDPITransform.c)
+ *     GetNewMonitor @ 0x1C006BF5C (GetNewMonitor.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C00F2CB8 (TransformVectorWithInputTargetPrecedence.c)
  * Callees:
- *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C006A59C (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
- *     GetMonitorRectForDpi @ 0x1C00B0924 (GetMonitorRectForDpi.c)
+ *     GetMonitorRectForDpiContext @ 0x1C00428B0 (GetMonitorRectForDpiContext.c)
+ *     IsChildWindowDpiBoundary @ 0x1C00706BC (IsChildWindowDpiBoundary.c)
  */
 
-__int64 __fastcall GetMonitorTransform(__int64 a1, const struct tagWND *a2, __int64 a3)
+__int64 __fastcall GetMonitorTransform(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int16 v6; // bx
-  __int64 v7; // rax
-  int v8; // ebp
-  int v9; // r14d
+  __int64 v6; // r8
+  unsigned __int16 v7; // di
+  __int64 v8; // rax
+  __int128 v9; // xmm0
   __int64 v10; // rax
+  int v11; // r14d
   __int64 result; // rax
-  float v12; // xmm4_4
-  int v13; // ecx
-  float v14; // xmm0_4
-  _DWORD v15[10]; // [rsp+20h] [rbp-28h] BYREF
+  float v13; // xmm4_4
+  int v14; // ecx
+  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = (*(_DWORD *)(*((_QWORD *)a2 + 5) + 288LL) >> 8) & 0x1FF;
+  v6 = *(unsigned int *)(*(_QWORD *)(a2 + 40) + 288LL);
+  v7 = (*(_DWORD *)(*(_QWORD *)(a2 + 40) + 288LL) >> 8) & 0x1FF;
+  if ( (*(_DWORD *)(*(_QWORD *)(a2 + 40) + 288LL) & 0xF) == 2 && (v6 & 0x20000000) != 0 )
+  {
+    if ( !a1 )
+      return 0LL;
+    v7 = *(_WORD *)(*(_QWORD *)(a1 + 40) + 68LL);
+  }
   if ( !a1 )
     return 0LL;
-  if ( !v6 )
-    return 0LL;
-  v7 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 456LL);
   if ( !v7 )
     return 0LL;
-  if ( (*(_DWORD *)(**(_QWORD **)(v7 + 8) + 64LL) & 1) == 0 )
+  v8 = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 456LL);
+  if ( !v8 )
     return 0LL;
-  GetMonitorRectForDpi(v15, a1, v6);
-  v8 = v15[1];
-  v9 = v15[0];
-  if ( *(_WORD *)(*(_QWORD *)(a1 + 40) + 60LL) == v6 && !IsChildWindowDpiBoundary(a2) )
+  if ( (*(_DWORD *)(**(_QWORD **)(v8 + 8) + 64LL) & 1) == 0 )
+    return 0LL;
+  v9 = *(_OWORD *)GetMonitorRectForDpiContext(&v15, a1, v6);
+  v10 = *(_QWORD *)(a1 + 40);
+  v15 = v9;
+  v11 = v9;
+  if ( *(_WORD *)(v10 + 64) == v7
+    && !(unsigned int)IsChildWindowDpiBoundary((struct tagWND *)a2)
+    && *(_QWORD *)(*(_QWORD *)(a1 + 40) + 28LL) == (_QWORD)v9 )
   {
-    v10 = *(_QWORD *)(a1 + 40);
-    if ( *(_DWORD *)(v10 + 28) == v9 && *(_DWORD *)(v10 + 32) == v8 )
-      return 0LL;
+    return 0LL;
   }
-  v12 = (float)v6;
-  v13 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 60LL);
+  v13 = (float)v7;
+  v14 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 64LL);
   *(_DWORD *)(a3 + 40) = 1065353216;
   *(_DWORD *)(a3 + 60) = 1065353216;
-  v14 = (float)v13 / v12;
-  *(float *)a3 = v14;
-  *(float *)(a3 + 20) = v14;
+  *(float *)&v9 = (float)v14 / v13;
+  *(_DWORD *)a3 = v9;
+  *(_DWORD *)(a3 + 20) = v9;
   result = 1LL;
   *(float *)(a3 + 48) = (float)*(int *)(*(_QWORD *)(a1 + 40) + 28LL)
-                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 60LL) * (float)v9) / v12);
+                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 64LL) * (float)v11) / v13);
   *(float *)(a3 + 52) = (float)*(int *)(*(_QWORD *)(a1 + 40) + 32LL)
-                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 60LL) * (float)v8) / v12);
+                      - (float)((float)((float)*(unsigned __int16 *)(*(_QWORD *)(a1 + 40) + 64LL) * (float)SDWORD1(v9))
+                              / v13);
   return result;
 }

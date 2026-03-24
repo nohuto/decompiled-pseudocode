@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfInterruptEnable @ 0x1C0082D70
+ * XREFs of imp_WdfInterruptEnable @ 0x1C0078610
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?ForceReconnect@FxInterrupt@@QEAAJXZ @ 0x1C008D278 (-ForceReconnect@FxInterrupt@@QEAAJXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?ForceReconnect@FxInterrupt@@QEAAJXZ @ 0x1C00896C8 (-ForceReconnect@FxInterrupt@@QEAAJXZ.c)
  */
 
 void __fastcall imp_WdfInterruptEnable(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFINTERRUPT__ *Interrupt)
@@ -14,7 +14,7 @@ void __fastcall imp_WdfInterruptEnable(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFIN
 
   pFxInterrupt = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)Interrupt,
     0x1027u,
     (void **)&pFxInterrupt);

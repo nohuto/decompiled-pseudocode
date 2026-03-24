@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C00DA830
+ * XREFs of ?vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C00D5170
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C02DB8EC (-vSrcAlignCopyMemory@@YAXPEAE0K@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C02DD4C0 (-vSrcAlignCopyMemory@@YAXPEAE0K@Z.c)
  */
 
 void __fastcall vSrcCopyS32D32Identity(struct BLTINFO *a1)

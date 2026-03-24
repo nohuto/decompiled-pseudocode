@@ -1,24 +1,24 @@
 /*
- * XREFs of ViFaultsAddAppNoDuplicates @ 0x140AD74AC
+ * XREFs of ViFaultsAddAppNoDuplicates @ 0x1409DCCE4
  * Callers:
- *     ViFaultsAddAllApps @ 0x140AD7354 (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllApps @ 0x1409DCB8C (ViFaultsAddAllApps.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ViFaultsIsAppTarget @ 0x140AD7A00 (ViFaultsIsAppTarget.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViFaultsIsAppTarget @ 0x1409DD234 (ViFaultsIsAppTarget.c)
  */
 
 __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
 {
   size_t v2; // rdi
   unsigned int v4; // ebp
-  __int64 Pool2; // rax
+  UNICODE_STRING *PoolWithTag; // rax
   UNICODE_STRING *v6; // rsi
   unsigned __int64 v7; // rbx
   UNICODE_STRING **v8; // rax
@@ -30,11 +30,11 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
 
   v2 = 2 * a2;
   v4 = 0;
-  Pool2 = ExAllocatePool2(64LL, 2 * a2 + 34, 0x41466656u);
-  v6 = (UNICODE_STRING *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(NonPagedPoolNx, 2 * a2 + 34, 0x41466656u);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove((void *)(Pool2 + 32), Src, v2);
+    memmove(&PoolWithTag[2], Src, v2);
     *(unsigned __int16 *)((char *)&v6[2].Length + v2) = 0;
     RtlInitUnicodeString(v6 + 1, &v6[2].Length);
     RtlUpcaseUnicodeString(v6 + 1, v6 + 1, 0);
@@ -45,27 +45,30 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
     }
     else
     {
-      v8 = (UNICODE_STRING **)qword_140C36CA8;
-      if ( *(PVOID **)qword_140C36CA8 != &ViFaultApplicationsList )
+      v8 = (UNICODE_STRING **)qword_140C1CB48;
+      if ( *(PVOID **)qword_140C1CB48 != &ViFaultApplicationsList )
         __fastfail(3u);
       *(_QWORD *)&v6->Length = &ViFaultApplicationsList;
       v6->Buffer = (wchar_t *)v8;
       *v8 = v6;
-      qword_140C36CA8 = (__int64)v6;
+      qword_140C1CB48 = (__int64)v6;
     }
-    KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
+    KxReleaseSpinLock(&ViFaultInjectionLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v7);

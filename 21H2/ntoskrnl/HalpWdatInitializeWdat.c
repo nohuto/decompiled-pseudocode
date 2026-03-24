@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWdatInitializeWdat @ 0x140522138
+ * XREFs of HalpWdatInitializeWdat @ 0x1404D4E18
  * Callers:
- *     HalpWdatInitialize @ 0x1405220C0 (HalpWdatInitialize.c)
+ *     HalpWdatInitialize @ 0x1404D4DA0 (HalpWdatInitialize.c)
  * Callees:
- *     WdInstrInitializeInstruction @ 0x14052CE20 (WdInstrInitializeInstruction.c)
+ *     WdInstrInitializeInstruction @ 0x1404DE784 (WdInstrInitializeInstruction.c)
  */
 
 __int64 __fastcall HalpWdatInitializeWdat(__int64 a1)

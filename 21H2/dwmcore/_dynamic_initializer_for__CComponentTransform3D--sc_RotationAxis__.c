@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_RotationAxis__ @ 0x180001AA0
+ * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_RotationAxis__ @ 0x180001890
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform3D::sc_RotationAxis__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D0248 = (unsigned __int64)CComponentTransform3D::SetRotationAxis;
-  qword_1803D0258 = v1;
+  xmmword_1803440F8 = (unsigned __int64)CComponentTransform3D::SetRotationAxis;
+  qword_180344108 = v1;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopIsRemoteDesktopEnabled @ 0x140980C14
+ * XREFs of PopIsRemoteDesktopEnabled @ 0x1408E12E4
  * Callers:
- *     PopDiagTraceCsResiliencyEnter @ 0x14059218C (PopDiagTraceCsResiliencyEnter.c)
- *     PopNetCheckAdaptiveCsState @ 0x1409966E4 (PopNetCheckAdaptiveCsState.c)
+ *     PopDiagTraceCsResiliencyEnter @ 0x1405710DC (PopDiagTraceCsResiliencyEnter.c)
+ *     PopNetCheckOpportunisticDs @ 0x14078E30C (PopNetCheckOpportunisticDs.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 char PopIsRemoteDesktopEnabled()
@@ -22,19 +22,20 @@ char PopIsRemoteDesktopEnabled()
   __int128 KeyValueInformation; // [rsp+90h] [rbp+37h] BYREF
   int v8; // [rsp+A0h] [rbp+47h]
 
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   ResultLength = 0;
   KeyHandle = 0LL;
+  v0 = 0;
   v4 = 0LL;
   v8 = 0;
-  v0 = 0;
   KeyValueInformation = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"fDenyTSConnections");
   RtlInitUnicodeString(&v4, L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &v4;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0

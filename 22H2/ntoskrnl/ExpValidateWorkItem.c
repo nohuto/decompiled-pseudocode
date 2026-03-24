@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpValidateWorkItem @ 0x1402B7E50
+ * XREFs of ExpValidateWorkItem @ 0x14023E058
  * Callers:
- *     ExQueueWorkItemFromIo @ 0x1402B75F0 (ExQueueWorkItemFromIo.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     ExpTryQueueWorkItem @ 0x1402B990C (ExpTryQueueWorkItem.c)
- *     ExQueueWorkItemEx @ 0x14030B180 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPrivatePool @ 0x14046B0EE (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemExFromIo @ 0x14060CC1C (ExQueueWorkItemExFromIo.c)
+ *     ExpTryQueueWorkItem @ 0x14023B73C (ExpTryQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemToPartition @ 0x140277F2C (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemFromIo @ 0x14030DB68 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItemEx @ 0x140343218 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x14038AE38 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x1405B6EA8 (ExQueueWorkItemExFromIo.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpValidateWorkItem(_QWORD *BugCheckParameter2, int a2)
@@ -22,8 +22,8 @@ __int64 __fastcall ExpValidateWorkItem(_QWORD *BugCheckParameter2, int a2)
   if ( (unsigned int)(a2 - 7) <= 0x18 || a2 >= 64 )
     KeBugCheckEx(0xE4u, 6uLL, (ULONG_PTR)BugCheckParameter2, a2, 0LL);
   v2 = BugCheckParameter2[2];
-  result = 0xFFFF800000000000uLL;
-  if ( v2 < 0xFFFF800000000000uLL )
+  result = 0x7FFFFFFF0000LL;
+  if ( v2 <= 0x7FFFFFFF0000LL )
     KeBugCheckEx(0xE4u, 7uLL, (ULONG_PTR)BugCheckParameter2, v2, 0LL);
   return result;
 }

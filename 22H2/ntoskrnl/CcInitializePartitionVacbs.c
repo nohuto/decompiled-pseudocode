@@ -1,15 +1,15 @@
 /*
- * XREFs of CcInitializePartitionVacbs @ 0x1403A0520
+ * XREFs of CcInitializePartitionVacbs @ 0x1403C2F88
  * Callers:
- *     CcInitializePartition @ 0x1403A00A0 (CcInitializePartition.c)
+ *     CcInitializePartition @ 0x1403C25C4 (CcInitializePartition.c)
  * Callees:
- *     CcGetVacbFromFreeList @ 0x14029F418 (CcGetVacbFromFreeList.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     CcSetVacbInFreeList @ 0x1402A0AE0 (CcSetVacbInFreeList.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     CcInsertVacbArray @ 0x1403C2248 (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x1403C2F10 (CcAllocateInitializeVacbArray.c)
- *     MmReserveViewInSystemCache @ 0x140845490 (MmReserveViewInSystemCache.c)
+ *     CcSetVacbInFreeList @ 0x14029027C (CcSetVacbInFreeList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     CcGetVacbFromFreeList @ 0x140293370 (CcGetVacbFromFreeList.c)
+ *     CcInsertVacbArray @ 0x140379604 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x14037A8AC (CcAllocateInitializeVacbArray.c)
+ *     MmReserveViewInSystemCache @ 0x1407BD104 (MmReserveViewInSystemCache.c)
  */
 
 char __fastcall CcInitializePartitionVacbs(__int64 a1)
@@ -20,12 +20,12 @@ char __fastcall CcInitializePartitionVacbs(__int64 a1)
   __int64 v5; // rax
   KIRQL v6; // bl
   KIRQL v7; // dl
-  __int64 InitializeVacbArray; // rbx
+  char *InitializeVacbArray; // rbx
   KIRQL v9; // bp
   KIRQL v11; // bl
 
   v1 = 1;
-  while ( *(_DWORD *)(a1 + 1248) < (unsigned int)CcMinimumFreeHighPriorityVacbs )
+  while ( *(_DWORD *)(a1 + 920) < (unsigned int)CcMinimumFreeHighPriorityVacbs )
   {
     v3 = KeAcquireQueuedSpinLock(4uLL);
     VacbFromFreeList = CcGetVacbFromFreeList(a1, 0);
@@ -54,7 +54,7 @@ char __fastcall CcInitializePartitionVacbs(__int64 a1)
       v9 = KeAcquireQueuedSpinLock(4uLL);
       CcInsertVacbArray(a1, InitializeVacbArray);
       if ( CcVacbArraysAllocated == 1 )
-        *(_DWORD *)(InitializeVacbArray + 4) = 1;
+        *((_DWORD *)InitializeVacbArray + 1) = 1;
       v7 = v9;
     }
     KeReleaseQueuedSpinLock(4uLL, v7);

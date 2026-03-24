@@ -1,27 +1,24 @@
 /*
- * XREFs of KeInvalidateRangeAllCaches @ 0x140460040
+ * XREFs of KeInvalidateRangeAllCaches @ 0x14051B030
  * Callers:
- *     KiFlushRangeAllCaches @ 0x140572260 (KiFlushRangeAllCaches.c)
- *     MiPersistMdl @ 0x14063E684 (MiPersistMdl.c)
- *     MiPersistPage @ 0x14063EA6C (MiPersistPage.c)
- *     MiTransferFileExtent @ 0x14063F8DC (MiTransferFileExtent.c)
+ *     KiFlushRangeAllCaches @ 0x140519AB0 (KiFlushRangeAllCaches.c)
+ *     MiPersistMemory @ 0x1405417AC (MiPersistMemory.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE40 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     KeInvalidateAllCaches @ 0x14036D4F0 (KeInvalidateAllCaches.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x140283F70 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KiIpiSendRequestEx @ 0x1402BC030 (KiIpiSendRequestEx.c)
+ *     KeInvalidateAllCaches @ 0x1403A4700 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
 {
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  __int64 v6; // rdx
-  unsigned __int8 v7; // al
+  unsigned __int8 v6; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v9; // r8
-  int v10; // eax
-  bool v11; // zf
+  _DWORD *v8; // r8
+  int v9; // eax
+  bool v10; // zf
 
   if ( Length < KiLargestCacheSize )
   {
@@ -30,25 +27,24 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 12 )
-        LODWORD(v6) = 4096;
-      else
-        v6 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-      SchedulerAssist[5] |= v6;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
     }
-    KiIpiSendRequestEx((__int64)KeGetCurrentPrcb(), 1, 0LL, 0LL, 7LL, 0LL, 0LL);
+    KiIpiSendRequestEx((__int64)KeGetCurrentPrcb(), 1, 0LL, 0, 7LL, 0LL, 0LL);
     if ( KiIrqlFlags )
     {
-      v7 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v9 = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v11 = (v10 & v9[5]) == 0;
-        v9[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v6 = KeGetCurrentIrql();
+        if ( v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v8 = CurrentPrcb->SchedulerAssist;
+          v9 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v10 = (v9 & v8[5]) == 0;
+          v8[5] &= v9;
+          if ( v10 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);

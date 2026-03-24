@@ -1,35 +1,35 @@
 /*
- * XREFs of SepValidateAndCopyGlobalEntry @ 0x1405B95BC
+ * XREFs of SepValidateAndCopyGlobalEntry @ 0x14059792C
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140225390 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x140226578 (SepGetSingletonEntryFromIndexNumber.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x14035B858 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140250DC4 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402D6890 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140597658 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepValidateAndCopyGlobalEntry(__int64 a1, _QWORD *a2)
 {
   int ProcUniqueLuidAndIndexFromAttributeInfo; // esi
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _QWORD *v5; // rbx
   _QWORD *v6; // rax
   unsigned int v7; // ecx
   __int64 SingletonEntryFromIndexNumber; // rbp
   unsigned __int64 v9; // rdi
-  unsigned __int8 v10; // cl
+  unsigned __int8 v10; // al
   struct _KPRCB *v11; // r10
   _DWORD *v12; // r8
   int v13; // eax
   bool v14; // zf
   __int64 v15; // rcx
   int v16; // eax
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
   int v20; // eax
@@ -42,13 +42,13 @@ __int64 __fastcall SepValidateAndCopyGlobalEntry(__int64 a1, _QWORD *a2)
   ProcUniqueLuidAndIndexFromAttributeInfo = SepGetProcUniqueLuidAndIndexFromAttributeInfo(a1, &v22, &v23);
   if ( ProcUniqueLuidAndIndexFromAttributeInfo >= 0 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 48LL, 1950442835LL);
-    v5 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x74416553u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 0;
-      Pool2[6] = 0;
-      v6 = Pool2 + 2;
+      *PoolWithTag = 0;
+      PoolWithTag[6] = 0;
+      v6 = PoolWithTag + 2;
       v7 = v22;
       v6[1] = v6;
       *v6 = v6;
@@ -69,16 +69,19 @@ __int64 __fastcall SepValidateAndCopyGlobalEntry(__int64 a1, _QWORD *a2)
         ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)SingletonEntryFromIndexNumber);
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-            v14 = (v20 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v20;
-            if ( v14 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+              v14 = (v20 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v20;
+              if ( v14 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
       }
@@ -87,16 +90,19 @@ __int64 __fastcall SepValidateAndCopyGlobalEntry(__int64 a1, _QWORD *a2)
         ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)SingletonEntryFromIndexNumber);
         if ( KiIrqlFlags )
         {
-          v10 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v10 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v11 = KeGetCurrentPrcb();
-            v12 = v11->SchedulerAssist;
-            v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-            v14 = (v13 & v12[5]) == 0;
-            v12[5] &= v13;
-            if ( v14 )
-              KiRemoveSystemWorkPriorityKick((__int64)v11);
+            v10 = KeGetCurrentIrql();
+            if ( v10 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v10 >= 2u )
+            {
+              v11 = KeGetCurrentPrcb();
+              v12 = v11->SchedulerAssist;
+              v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+              v14 = (v13 & v12[5]) == 0;
+              v12[5] &= v13;
+              if ( v14 )
+                KiRemoveSystemWorkPriorityKick((__int64)v11);
+            }
           }
         }
         ProcUniqueLuidAndIndexFromAttributeInfo = -1073741275;

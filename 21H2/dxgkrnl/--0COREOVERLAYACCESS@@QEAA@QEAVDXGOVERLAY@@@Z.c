@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0COREOVERLAYACCESS@@QEAA@QEAVDXGOVERLAY@@@Z @ 0x1C0056770
+ * XREFs of ??0COREOVERLAYACCESS@@QEAA@QEAVDXGOVERLAY@@@Z @ 0x1C0047634
  * Callers:
- *     DxgkFlipOverlay @ 0x1C032AE90 (DxgkFlipOverlay.c)
- *     DxgkGetOverlayState @ 0x1C032B480 (DxgkGetOverlayState.c)
- *     DxgkUpdateOverlay @ 0x1C032BB70 (DxgkUpdateOverlay.c)
+ *     DxgkFlipOverlay @ 0x1C027B8B0 (DxgkFlipOverlay.c)
+ *     DxgkGetOverlayState @ 0x1C027BD70 (DxgkGetOverlayState.c)
+ *     DxgkUpdateOverlay @ 0x1C027C370 (DxgkUpdateOverlay.c)
  * Callees:
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C000BD4C (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0007300 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
  */
 
 COREOVERLAYACCESS *__fastcall COREOVERLAYACCESS::COREOVERLAYACCESS(

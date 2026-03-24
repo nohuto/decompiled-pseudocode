@@ -1,15 +1,16 @@
 /*
- * XREFs of HalpTimerMeasureProcessorsWorker @ 0x14050F9E0
+ * XREFs of HalpTimerMeasureProcessorsWorker @ 0x1404C35C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KeStallExecutionProcessor @ 0x140303560 (KeStallExecutionProcessor.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     HalpTimerScaleCounter @ 0x1403A572C (HalpTimerScaleCounter.c)
- *     HalpFindTimer @ 0x1403ACEFC (HalpFindTimer.c)
- *     HalpTimerReadTimerPairWithLatencyLimit @ 0x1403BC1C4 (HalpTimerReadTimerPairWithLatencyLimit.c)
- *     HalpTimerDetermineValidTimerPairReadLatency @ 0x1403BC2A0 (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
+ *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x1403A9BD8 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x1403A9CBC (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
  */
 
 ULONG_PTR __fastcall HalpTimerMeasureProcessorsWorker(ULONG_PTR Argument)
@@ -21,34 +22,31 @@ ULONG_PTR __fastcall HalpTimerMeasureProcessorsWorker(ULONG_PTR Argument)
   KPCR *Pcr; // r14
   ULONG v7; // esi
   ULONG_PTR *Timer; // rbx
-  unsigned __int64 v9; // rcx
   unsigned int Latency; // esi
-  unsigned __int64 v11; // rax
-  __int64 v12; // r11
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // rcx
+  LONGLONG v10; // rbx
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // rcx
   LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp-48h] BYREF
-  int v17; // [rsp+70h] [rbp-8h]
-  LARGE_INTEGER v18; // [rsp+80h] [rbp+8h] BYREF
-  LARGE_INTEGER v19; // [rsp+88h] [rbp+10h] BYREF
-  LARGE_INTEGER v20; // [rsp+90h] [rbp+18h] BYREF
-  LARGE_INTEGER v21; // [rsp+98h] [rbp+20h] BYREF
+  int v15; // [rsp+70h] [rbp-8h]
+  LARGE_INTEGER v16; // [rsp+80h] [rbp+8h] BYREF
+  LARGE_INTEGER v17; // [rsp+88h] [rbp+10h] BYREF
+  LARGE_INTEGER v18; // [rsp+90h] [rbp+18h] BYREF
+  LARGE_INTEGER v19; // [rsp+98h] [rbp+20h] BYREF
 
+  v16.QuadPart = 0LL;
   v18.QuadPart = 0LL;
-  v20.QuadPart = 0LL;
   PerformanceFrequency.QuadPart = 0LL;
+  v17.QuadPart = 0LL;
   v19.QuadPart = 0LL;
-  v21.QuadPart = 0LL;
   v2 = *(_DWORD *)(Argument + 16);
-  v3 = v17;
+  v3 = v15;
   _disable();
   v4 = v3 & 0x200;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   Pcr = KeGetPcr();
   v7 = ActiveProcessorCount;
   Timer = HalpFindTimer(v2, 0, 0, 0, 1);
-  v9 = __readcr2();
-  __writecr2(v9);
+  HalpProcessorFence();
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)Argument, 0xFFFFFFFF) != 1 )
   {
     do
@@ -61,21 +59,21 @@ ULONG_PTR __fastcall HalpTimerMeasureProcessorsWorker(ULONG_PTR Argument)
       _mm_pause();
     KeQueryPerformanceCounter(&PerformanceFrequency);
     Latency = HalpTimerDetermineValidTimerPairReadLatency((__int64)Timer, HalpPerformanceCounter);
-    HalpTimerReadTimerPairWithLatencyLimit(Latency, (__int64)Timer, HalpPerformanceCounter, &v19, &v21);
+    HalpTimerReadTimerPairWithLatencyLimit(Latency, (__int64)Timer, HalpPerformanceCounter, &v17, &v19);
     _InterlockedIncrement((volatile signed __int32 *)(Argument + 4));
     while ( *(_DWORD *)(Argument + 8) != KeGetCurrentPrcb()->Number )
       _mm_pause();
-    HalpTimerReadTimerPairWithLatencyLimit(Latency, (__int64)Timer, HalpPerformanceCounter, &v18, &v20);
+    HalpTimerReadTimerPairWithLatencyLimit(Latency, (__int64)Timer, HalpPerformanceCounter, &v16, &v18);
     _InterlockedIncrement((volatile signed __int32 *)(Argument + 8));
     do
       _mm_pause();
     while ( !*(_DWORD *)(Argument + 12) );
-    v11 = HalpTimerScaleCounter(v20.QuadPart - v21.QuadPart, PerformanceFrequency.QuadPart, 1000000LL);
-    v13 = 1000000 * v12 / v11;
-    *(_QWORD *)Pcr->HalReserved = 10000 * ((v13 + 5000) / 0x2710);
-    v14 = 1000000 * ((v13 + 500000) / 0xF4240);
-    Pcr->StallScaleFactor = v14 / 0xF4240;
-    KeGetCurrentPrcb()->MHz = v14 / 0xF4240;
+    v10 = v16.QuadPart - v17.QuadPart;
+    v11 = 1000000 * v10 / HalpTimerScaleCounter(v18.QuadPart - v19.QuadPart, PerformanceFrequency.QuadPart, 1000000LL);
+    *(_QWORD *)Pcr->HalReserved = 10000 * ((v11 + 5000) / 0x2710);
+    v12 = 1000000 * ((v11 + 500000) / 0xF4240);
+    Pcr->StallScaleFactor = v12 / 0xF4240;
+    KeGetCurrentPrcb()->MHz = v12 / 0xF4240;
   }
   else
   {

@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
- *     MiFillGapAddresses @ 0x140186B0C (MiFillGapAddresses.c)
+ *     MiFillGapAddresses @ 0x140186B2C (MiFillGapAddresses.c)
  *     MiInitializeGapFrames @ 0x1409D2020 (MiInitializeGapFrames.c)
  */
 

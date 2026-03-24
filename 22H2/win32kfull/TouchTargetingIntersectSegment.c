@@ -1,10 +1,10 @@
 /*
- * XREFs of TouchTargetingIntersectSegment @ 0x1C024E24C
+ * XREFs of TouchTargetingIntersectSegment @ 0x1C025F580
  * Callers:
- *     ?OffsetInContact@@YAHUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@0@Z @ 0x1C01E4170 (-OffsetInContact@@YAHUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@0@Z.c)
- *     ?_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C024DAE4 (-_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@.c)
+ *     ?OffsetInContact@@YAHUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@0@Z @ 0x1C0214ADC (-OffsetInContact@@YAHUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@0@Z.c)
+ *     ?_TTUpdateRankWithSegment@@YAXJJJJPEAUtagPOINT@@PEAGUtagRECT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C025EEB0 (-_TTUpdateRankWithSegment@@YAXJJJJPEAUtagPOINT@@PEAGUtagRECT@@PEBUtagTOUCHTARGETINGCONTACT@@@Z.c)
  * Callees:
- *     ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C024D7DC (-_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z.c)
+ *     ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C025EBAC (-_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z.c)
  */
 
 __int64 __fastcall TouchTargetingIntersectSegment(
@@ -17,9 +17,9 @@ __int64 __fastcall TouchTargetingIntersectSegment(
   LONG x; // edi
   LONG v7; // ebx
   unsigned int v8; // r14d
-  LONG v9; // edx
+  LONG v9; // r8d
   LONG v10; // eax
-  LONG v11; // r8d
+  LONG v11; // edx
   LONG v12; // ecx
   LONG v13; // r10d
   LONG v14; // ecx
@@ -28,15 +28,15 @@ __int64 __fastcall TouchTargetingIntersectSegment(
   LONG v17; // ecx
   LONG v18; // ebp
   LONG v19; // eax
-  LONG v20; // r8d
+  LONG v20; // edx
   LONG v21; // ecx
   LONG v22; // eax
   int v23; // ebx
   int v24; // ebx
   int v25; // r9d
   int v26; // eax
-  int v27; // r8d
-  int v28; // r8d
+  int v27; // edx
+  int v28; // edx
   struct tagPOINT v30; // [rsp+30h] [rbp-38h] BYREF
   struct tagPOINT v31; // [rsp+38h] [rbp-30h] BYREF
   LONG v32; // [rsp+74h] [rbp+Ch]

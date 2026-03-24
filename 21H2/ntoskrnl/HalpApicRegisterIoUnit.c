@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpApicRegisterIoUnit @ 0x1403BD0FC
+ * XREFs of HalpApicRegisterIoUnit @ 0x1403AAC70
  * Callers:
- *     HalpApicDiscover @ 0x1403BD04C (HalpApicDiscover.c)
+ *     HalpApicDiscover @ 0x1403AABC0 (HalpApicDiscover.c)
  * Callees:
- *     HalpInterruptRegisterController @ 0x1403BDD00 (HalpInterruptRegisterController.c)
- *     HalRegisterPermanentAddressUsage @ 0x1403BE4F0 (HalRegisterPermanentAddressUsage.c)
- *     HalpApicGetCpuInfo @ 0x1403DD284 (HalpApicGetCpuInfo.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpInterruptRegisterController @ 0x1403AB844 (HalpInterruptRegisterController.c)
+ *     HalRegisterPermanentAddressUsage @ 0x1403AC030 (HalRegisterPermanentAddressUsage.c)
+ *     HalpApicGetCpuInfo @ 0x1403CDF38 (HalpApicGetCpuInfo.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 NTSTATUS __fastcall HalpApicRegisterIoUnit(LARGE_INTEGER PhysicalAddress, int a2, int a3)
@@ -26,29 +26,29 @@ NTSTATUS __fastcall HalpApicRegisterIoUnit(LARGE_INTEGER PhysicalAddress, int a2
   v12 = 0;
   v15 = 0;
   v13 = 0;
-  memset(v8, 0, sizeof(v8));
-  v6 = HIDWORD(v8[27]);
+  memset(v8, 0, 0xE8uLL);
+  v6 = HIDWORD(v8[26]);
   v9 = 0LL;
-  v8[25] = &v9;
+  v8[24] = &v9;
   v10 = 0LL;
-  v8[0] = 0xF000000001LL;
+  v8[0] = 0xE800000001LL;
   v11 = 0LL;
-  v8[26] = 0x200000030LL;
-  LODWORD(v8[27]) = a2;
+  v8[25] = 0x200000030LL;
+  LODWORD(v8[26]) = a2;
   if ( HalpApicX2Mode )
   {
     v8[15] = HalpApicConvertId;
-    HIDWORD(v8[28]) = 16;
-    LODWORD(v8[29]) = 0xFFFF;
+    HIDWORD(v8[27]) = 16;
+    LODWORD(v8[28]) = 0xFFFF;
     if ( !HalpApicGuestX2Mode )
-      v6 = HIDWORD(v8[27]) | 0x100;
+      v6 = HIDWORD(v8[26]) | 0x100;
     if ( (unsigned __int8)HalpApicGetCpuInfo(&v14, &v15, &v12, &v13, v8[0]) )
     {
       if ( v13 == 2 )
       {
         if ( v14 != 6 || v12 != 47 )
           goto LABEL_3;
-        LODWORD(v8[29]) = 255;
+        LODWORD(v8[28]) = 255;
       }
       if ( v13 == 1 )
       {
@@ -60,17 +60,17 @@ NTSTATUS __fastcall HalpApicRegisterIoUnit(LARGE_INTEGER PhysicalAddress, int a2
   }
   else
   {
-    HIDWORD(v8[28]) = 4;
+    HIDWORD(v8[27]) = 4;
     v8[7] = HalpApicSetLogicalId;
-    v6 = HIDWORD(v8[27]) | 4;
-    LODWORD(v8[29]) = 15;
+    v6 = HIDWORD(v8[26]) | 4;
+    LODWORD(v8[28]) = 15;
   }
 LABEL_3:
-  HIDWORD(v8[29]) = 96;
+  HIDWORD(v8[28]) = 96;
   v8[1] = HalpApicInitializeLocalUnit;
-  HIDWORD(v8[27]) = v6 | 0xFB;
+  HIDWORD(v8[26]) = v6 | 0xFB;
   v8[18] = HalpApicDeinitializeLocalUnit;
-  LODWORD(v8[28]) = 15;
+  LODWORD(v8[27]) = 15;
   v8[2] = HalpApicInitializeIoUnit;
   *(LARGE_INTEGER *)&v9 = PhysicalAddress;
   v8[3] = HalpApicSetPriority;

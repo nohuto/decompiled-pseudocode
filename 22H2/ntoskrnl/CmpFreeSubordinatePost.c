@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeSubordinatePost @ 0x140767DEC
+ * XREFs of CmpFreeSubordinatePost @ 0x1406815D0
  * Callers:
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     CmNotifyRunDown @ 0x14076EAF4 (CmNotifyRunDown.c)
- *     CmpPostApc @ 0x1407D5050 (CmpPostApc.c)
- *     CmpPostApcRunDown @ 0x140A0F7D0 (CmpPostApcRunDown.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     CmpPostApc @ 0x140681440 (CmpPostApc.c)
+ *     CmNotifyRunDown @ 0x1406C5510 (CmNotifyRunDown.c)
+ *     CmpPostApcRunDown @ 0x14086A1E0 (CmpPostApcRunDown.c)
  * Callees:
- *     CmpFreePostBlock @ 0x140768860 (CmpFreePostBlock.c)
+ *     CmpFreePostBlock @ 0x1406E0850 (CmpFreePostBlock.c)
  */
 
 _QWORD *__fastcall CmpFreeSubordinatePost(__int64 a1)
@@ -17,7 +17,7 @@ _QWORD *__fastcall CmpFreeSubordinatePost(__int64 a1)
   _QWORD *v4; // rcx
   _QWORD *v5; // rdx
   __int64 v6; // r8
-  _QWORD *v7; // rax
+  _QWORD *v7; // rdx
 
   v1 = (_QWORD **)(a1 + 32);
   result = *v1;

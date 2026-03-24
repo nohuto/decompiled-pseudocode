@@ -1,56 +1,55 @@
 /*
- * XREFs of ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C006E594
+ * XREFs of ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C00A2B2C
  * Callers:
- *     CleanupSensorExplicitly @ 0x1C006E510 (CleanupSensorExplicitly.c)
+ *     CleanupSensorExplicitly @ 0x1C00A2AA0 (CleanupSensorExplicitly.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C006E65C (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
- *     RIMUnregisterForInput @ 0x1C0071570 (RIMUnregisterForInput.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     RIMUnregisterForInput @ 0x1C0054610 (RIMUnregisterForInput.c)
+ *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C00A2BDC (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
  */
 
-void __fastcall CRIMBase::CleanupHandles(HANDLE *this)
+void __fastcall CRIMBase::CleanupHandles(CRIMBase *this)
 {
-  CRIMBase::SensorDispatcherObject *v1; // rbx
+  CRIMBase::SensorDispatcherObject *v1; // rdi
   CRIMBase::SensorDispatcherObject *v3; // rsi
-  HANDLE v4; // rdx
-  HANDLE *v5; // rdx
+  __int64 v4; // rcx
+  void *v5; // rcx
+  __int64 v6; // rcx
+  CRIMBase *v7; // rcx
 
-  v1 = (CRIMBase::SensorDispatcherObject *)(this + 21);
-  v3 = (CRIMBase::SensorDispatcherObject *)(this + 157);
+  v1 = (CRIMBase *)((char *)this + 152);
+  v3 = (CRIMBase *)((char *)this + 1240);
   while ( v1 != v3 )
   {
     CRIMBase::SensorDispatcherObject::CloseDispatcherHandles(v1);
     v1 = (CRIMBase::SensorDispatcherObject *)((char *)v1 + 64);
   }
-  if ( this[1] != (HANDLE)-1LL )
+  v4 = *((_QWORD *)this + 1);
+  if ( v4 != -1 )
   {
-    RIMUnregisterForInput();
-    ObCloseHandle(this[1], 1);
-    this[1] = (HANDLE)-1LL;
+    RIMUnregisterForInput(v4);
+    ObCloseHandle(*((HANDLE *)this + 1), 1);
+    *((_QWORD *)this + 1) = -1LL;
   }
-  if ( this[2] )
+  v5 = (void *)*((_QWORD *)this + 2);
+  if ( v5 )
   {
-    CPushLock::AcquireLockExclusive((CPushLock *)(this + 19));
-    ObfDereferenceObject(this[2]);
-    this[2] = 0LL;
-    CPushLock::ReleaseLock((CPushLock *)(this + 19));
+    ObfDereferenceObject(v5);
+    *((_QWORD *)this + 2) = 0LL;
   }
-  v4 = this[8];
-  if ( v4 && v4 != this[9] )
+  v6 = *((_QWORD *)this + 8);
+  if ( v6 && v6 != *((_QWORD *)this + 9) )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-    this[8] = 0LL;
+    Win32FreePool(v6);
+    *((_QWORD *)this + 8) = 0LL;
   }
-  v5 = (HANDLE *)this[9];
-  if ( v5 != this + 10 )
+  v7 = (CRIMBase *)*((_QWORD *)this + 9);
+  if ( v7 != (CRIMBase *)((char *)this + 80) )
   {
-    if ( v5 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
-    this[9] = 0LL;
+    Win32FreePool((__int64)v7);
+    *((_QWORD *)this + 9) = 0LL;
     *((_DWORD *)this + 14) = 0;
-    if ( this[8] )
-      this[8] = 0LL;
+    if ( *((_QWORD *)this + 8) )
+      *((_QWORD *)this + 8) = 0LL;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuDmaRemappingCapable @ 0x14051A990
+ * XREFs of HalpIommuDmaRemappingCapable @ 0x1403F0240
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuGetAcpiDeviceMapCount @ 0x14051B030 (HalpIommuGetAcpiDeviceMapCount.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x14051B7E4 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x1403F02A8 (HalpIommuGetAcpiDeviceMapCount.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404C9C64 (HalpIommuQueryAcpiDeviceMapping.c)
  */
 
 bool __fastcall HalpIommuDmaRemappingCapable(_DWORD *a1, unsigned int *a2)

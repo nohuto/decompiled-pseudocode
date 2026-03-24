@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpSlowFlushAddressSpaceTbEx @ 0x14054CEAC
+ * XREFs of HvlpSlowFlushAddressSpaceTbEx @ 0x1404FB108
  * Callers:
- *     HvlFlushAddressSpaceTb @ 0x14039DA34 (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403903EC (HvlFlushAddressSpaceTb.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpAffinityToHvProcessorSet @ 0x14054C8F0 (HvlpAffinityToHvProcessorSet.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1404FAB30 (HvlpAffinityToHvProcessorSet.c)
  */
 
 char __fastcall HvlpSlowFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3)
@@ -17,15 +17,11 @@ char __fastcall HvlpSlowFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3)
   _QWORD *v8; // rbx
   __int64 v9; // rax
   int v10; // eax
-  __int128 v12; // [rsp+28h] [rbp-F0h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-E0h]
-  __int64 v14; // [rsp+40h] [rbp-D8h]
-  _BYTE v15[192]; // [rsp+48h] [rbp-D0h] BYREF
+  _OWORD v12[2]; // [rsp+28h] [rbp-F0h] BYREF
+  _BYTE v13[192]; // [rsp+48h] [rbp-D0h] BYREF
 
-  v13 = 0LL;
-  LODWORD(v14) = 0;
-  v12 = 0LL;
-  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v12, 1, (__int64)v15, 96LL);
+  memset(v12, 0, sizeof(v12));
+  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v12, 1, (__int64)v13, 96LL);
   *v6 = a1;
   v7 = a3 == 0 ? 4 : 0;
   v8 = v6 + 2;
@@ -33,9 +29,9 @@ char __fastcall HvlpSlowFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3)
   if ( a1 )
     v9 = v7;
   v6[1] = v9;
-  v10 = HvlpAffinityToHvProcessorSet(a2, v6 + 2, (v12 & 2) != 0 ? 64 : 4064);
+  v10 = HvlpAffinityToHvProcessorSet(a2, v6 + 2, (v12[0] & 2) != 0 ? 64 : 4064);
   if ( v10 == -1 )
     v10 = HvlpAffinityToHvProcessorSet(0LL, v8, 0);
   HvcallInitiateHypercall(((v10 + 7) << 14) & 0x3FE0000 | 0x13);
-  return HvlpReleaseHypercallPage((__int64)&v12);
+  return HvlpReleaseHypercallPage((__int64)v12);
 }

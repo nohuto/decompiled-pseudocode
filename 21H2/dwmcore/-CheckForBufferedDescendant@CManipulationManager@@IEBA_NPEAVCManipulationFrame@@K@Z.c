@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CheckForBufferedDescendant@CManipulationManager@@IEBA_NPEAVCManipulationFrame@@K@Z @ 0x18017C198
+ * XREFs of ?CheckForBufferedDescendant@CManipulationManager@@IEBA_NPEAVCManipulationFrame@@K@Z @ 0x180224950
  * Callers:
- *     ?RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017F2CC (-RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180226F34 (-RouteFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAUIInteractionResource@@@Z @ 0x18017BD38 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@PEAUIInteractionResource@@@Z.c)
- *     ?Lookup@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBA?AV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@AEBI@Z @ 0x18017C900 (-Lookup@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@V.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z @ 0x1801D73A0 (--4-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulationContext@@@Z.c)
+ *     ?Lookup@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBA?AV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@AEBI@Z @ 0x180225060 (-Lookup@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@V.c)
  */
 
 bool __fastcall CManipulationManager::CheckForBufferedDescendant(
@@ -22,9 +22,9 @@ bool __fastcall CManipulationManager::CheckForBufferedDescendant(
   __int64 v9; // rcx
   char *v10; // r12
   __int64 *v11; // rax
-  __int64 v12; // r14
+  __int64 v12; // rsi
   __int64 (__fastcall ***v13)(_QWORD); // rax
-  char v14; // r14
+  char v14; // si
   __int64 v15; // r13
   __int64 (__fastcall ***v16)(_QWORD); // rax
   __int64 v18; // [rsp+20h] [rbp-28h] BYREF
@@ -41,7 +41,7 @@ bool __fastcall CManipulationManager::CheckForBufferedDescendant(
   LODWORD(v22) = 0;
   v7 = 0;
   v8 = this;
-  for ( i = *((_QWORD *)a2 + 31 * a3 + 49); v7 < *((_DWORD *)a2 + 4); ++v7 )
+  for ( i = *((_QWORD *)a2 + 31 * a3 + 23); v7 < *((_DWORD *)a2 + 4); ++v7 )
   {
     if ( v6 )
       break;
@@ -49,13 +49,13 @@ bool __fastcall CManipulationManager::CheckForBufferedDescendant(
     v18 = 0LL;
     v9 = 248LL * v7;
     v10 = (char *)a2 + v9;
-    if ( v7 == v4 || *(_QWORD *)((char *)a2 + v9 + 392) != -1LL )
+    if ( v7 == v4 || *(_QWORD *)((char *)a2 + v9 + 184) != -1LL )
       goto LABEL_10;
     v5 |= 1u;
     v11 = (__int64 *)CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::Lookup(
                        (char *)v8 + 184,
                        &v19,
-                       v10 + 372);
+                       v10 + 164);
     v12 = 0LL;
     if ( &v24 != v11 )
     {
@@ -64,12 +64,12 @@ bool __fastcall CManipulationManager::CheckForBufferedDescendant(
     }
     v24 = 0LL;
     v18 = v12;
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease(&v24);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v24);
     if ( v12
       && (v13 = (__int64 (__fastcall ***)(_QWORD))(*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v12 + 24LL))(
                                                     v12,
-                                                    *((unsigned int *)v10 + 93)),
-          *Microsoft::WRL::ComPtr<IInteractionResource>::operator=(&v22, v13)) )
+                                                    *((unsigned int *)v10 + 41)),
+          *Microsoft::WRL::ComPtr<CManipulationContext>::operator=(&v22, v13)) )
     {
       v14 = 0;
     }
@@ -81,7 +81,7 @@ LABEL_10:
     if ( (v5 & 1) != 0 )
     {
       v5 &= ~1u;
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease(&v19);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v19);
     }
     if ( !v14 )
     {
@@ -90,12 +90,12 @@ LABEL_10:
       {
         v6 = ((__int64 (*)(void))(*v22)[8])() == v15;
         v16 = (__int64 (__fastcall ***)(_QWORD))(*v22)[12](v22);
-        Microsoft::WRL::ComPtr<IInteractionResource>::operator=(&v22, v16);
+        Microsoft::WRL::ComPtr<CManipulationContext>::operator=(&v22, v16);
       }
       v4 = v23;
     }
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease(&v18);
-    Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v22);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v18);
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v22);
     v8 = this;
   }
   return v6;

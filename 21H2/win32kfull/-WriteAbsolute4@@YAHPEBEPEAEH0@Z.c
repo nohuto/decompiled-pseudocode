@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WriteAbsolute4@@YAHPEBEPEAEH0@Z @ 0x1C02CBDD0
+ * XREFs of ?WriteAbsolute4@@YAHPEBEPEAEH0@Z @ 0x1C02CD6B0
  * Callers:
- *     EncodeRLE4 @ 0x1C02CD808 (EncodeRLE4.c)
+ *     EncodeRLE4 @ 0x1C02CEFD4 (EncodeRLE4.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall WriteAbsolute4(const unsigned __int8 *Src, unsigned __int8 *a2, int a3, unsigned __int8 *a4)
@@ -42,7 +42,7 @@ __int64 __fastcall WriteAbsolute4(const unsigned __int8 *Src, unsigned __int8 *a
     v9 = a2 + 2;
     v10 = a3 + 1;
     memmove(a2 + 2, Src, (a3 + 1) >> 1);
-    v11 = &v9[(unsigned __int64)(v4 + 1) >> 1];
+    v11 = &v9[(v4 + 1) >> 1];
     result = v5;
     if ( (v10 & 2) != 0 )
       *v11 = 0;

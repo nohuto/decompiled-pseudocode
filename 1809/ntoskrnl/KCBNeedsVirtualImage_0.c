@@ -1,11 +1,11 @@
 /*
- * XREFs of KCBNeedsVirtualImage_0 @ 0x14026C2BC
+ * XREFs of KCBNeedsVirtualImage_0 @ 0x14026C3BC
  * Callers:
- *     CmQueryLayeredKey @ 0x14026BE18 (CmQueryLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x14026BF18 (CmQueryLayeredKey.c)
  *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
  * Callees:
- *     CmpIsKcbInsideVirtualizedHive @ 0x14063F500 (CmpIsKcbInsideVirtualizedHive.c)
- *     CmpIsSystemEntity @ 0x1406B1FF4 (CmpIsSystemEntity.c)
+ *     CmpIsKcbInsideVirtualizedHive @ 0x14063F4E0 (CmpIsKcbInsideVirtualizedHive.c)
+ *     CmpIsSystemEntity @ 0x1406B1FD4 (CmpIsSystemEntity.c)
  */
 
 bool __fastcall KCBNeedsVirtualImage_0(__int64 a1)

@@ -1,51 +1,50 @@
 /*
- * XREFs of XilEndpoint_Create @ 0x1C000B144
+ * XREFs of XilEndpoint_Create @ 0x1C00095C8
  * Callers:
- *     Endpoint_Create @ 0x1C006D664 (Endpoint_Create.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     XilEndpoint_CreateSecureObject @ 0x1C0038D80 (XilEndpoint_CreateSecureObject.c)
- *     XilEndpoint_FreeResources @ 0x1C0039044 (XilEndpoint_FreeResources.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     XilEndpoint_CreateSecureObject @ 0x1C00372EC (XilEndpoint_CreateSecureObject.c)
+ *     XilEndpoint_FreeResources @ 0x1C00375A8 (XilEndpoint_FreeResources.c)
  */
 
-__int64 __fastcall XilEndpoint_Create(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall XilEndpoint_Create(__int64 a1, int a2, int a3, int a4)
 {
   __int64 v4; // rbx
-  int v6; // r8d
+  int v6; // eax
   int SecureObject; // edi
-  unsigned int v9; // r8d
-  int v10; // edx
-  int v11; // r8d
-  int v12; // r9d
+  int v9; // edx
+  int v10; // r8d
+  int v11; // r9d
 
-  v4 = a1 + 1320;
-  *(_QWORD *)(a1 + 1352) = a1;
-  v6 = *(_DWORD *)(*(_QWORD *)a1 + 604LL);
+  v4 = a1 + 1312;
+  *(_QWORD *)(a1 + 1344) = a1;
+  v6 = *(_DWORD *)(*(_QWORD *)a1 + 556LL);
   if ( v6 )
   {
-    v9 = v6 - 1;
-    if ( v9 < 2 )
+    if ( (unsigned int)(v6 - 1) <= 1 )
     {
-      *(_BYTE *)(a1 + 1344) = 1;
+      *(_BYTE *)(a1 + 1336) = 1;
+      goto LABEL_10;
     }
-    else
-    {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, *(_QWORD *)a1, v9, a4);
-      if ( !KdRefreshDebuggerNotPresent() )
-        __debugbreak();
-    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, a2, a3, a4);
+    if ( !KdRefreshDebuggerNotPresent() )
+      __debugbreak();
+    LOBYTE(v6) = *(_BYTE *)(v4 + 24);
   }
   else
   {
-    *(_BYTE *)(a1 + 1344) = 0;
+    *(_BYTE *)(a1 + 1336) = 0;
   }
-  if ( !*(_BYTE *)(v4 + 24) )
+  if ( !(_BYTE)v6 )
   {
     *(_QWORD *)v4 = a1;
     *(_BYTE *)(v4 + 8) = 0;
-    return 0;
+    SecureObject = 0;
+    goto LABEL_5;
   }
+LABEL_10:
   SecureObject = XilEndpoint_CreateSecureObject(v4);
   if ( SecureObject >= 0 )
   {
@@ -54,9 +53,11 @@ __int64 __fastcall XilEndpoint_Create(__int64 a1, __int64 a2, __int64 a3, int a4
     return 0;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v10, v11, v12);
+    WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v9, v10, v11);
   if ( !KdRefreshDebuggerNotPresent() )
     __debugbreak();
-  XilEndpoint_FreeResources(v4);
+LABEL_5:
+  if ( SecureObject < 0 )
+    XilEndpoint_FreeResources(v4);
   return (unsigned int)SecureObject;
 }

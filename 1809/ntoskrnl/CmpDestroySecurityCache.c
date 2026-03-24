@@ -3,9 +3,9 @@
  * Callers:
  *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
  *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpDestroySecurityCache(__int64 a1)

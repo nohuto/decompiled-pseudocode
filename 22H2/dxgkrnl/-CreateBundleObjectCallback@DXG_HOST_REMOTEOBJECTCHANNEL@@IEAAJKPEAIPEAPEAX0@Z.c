@@ -1,15 +1,14 @@
 /*
- * XREFs of ?CreateBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJKPEAIPEAPEAX0@Z @ 0x1C034B230
+ * XREFs of ?CreateBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJKPEAIPEAPEAX0@Z @ 0x1C028AAA0
  * Callers:
- *     ?ProcessChannelMessage@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C034BA20 (-ProcessChannelMessage@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z.c)
+ *     ?ProcessChannelMessage@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C028B750 (-ProcessChannelMessage@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DxgkCreateBundleObjectInternal @ 0x1C0327010 (DxgkCreateBundleObjectInternal.c)
- *     ?ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C0376288 (-ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C023B42C (-ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
+ *     DxgkCreateBundleObjectInternal @ 0x1C0278054 (DxgkCreateBundleObjectInternal.c)
  */
 
 __int64 __fastcall DXG_HOST_REMOTEOBJECTCHANNEL::CreateBundleObjectCallback(
@@ -19,127 +18,141 @@ __int64 __fastcall DXG_HOST_REMOTEOBJECTCHANNEL::CreateBundleObjectCallback(
         void **a4,
         unsigned int *a5)
 {
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _QWORD *v11; // rcx
-  _BYTE *v12; // rax
-  _BYTE *v13; // rdx
+  void *v8; // rsi
+  DXGSHAREDVMOBJECT *v10; // rdi
+  __int64 v11; // r8
+  __int64 v12; // r9
+  _QWORD *v13; // rcx
+  _BYTE *v14; // rax
+  _BYTE *v15; // rdx
   int BundleObjectInternal; // eax
-  unsigned int v15; // ebx
-  void *v16; // rsi
-  __int64 v17; // rax
-  DXGSHAREDVMOBJECT *v18; // rdi
-  unsigned int v19; // eax
-  _DWORD v21[2]; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-A8h]
-  __int64 v23; // [rsp+60h] [rbp-A0h]
-  int v24; // [rsp+68h] [rbp-98h]
-  int v25; // [rsp+6Ch] [rbp-94h]
-  __int64 v26; // [rsp+70h] [rbp-90h]
-  __int64 v27; // [rsp+78h] [rbp-88h]
-  _QWORD v28[10]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v29[128]; // [rsp+D0h] [rbp-30h] BYREF
-  _BYTE v30[768]; // [rsp+150h] [rbp+50h] BYREF
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rbx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  DXGSHAREDVMOBJECT *v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rax
+  unsigned int v30; // eax
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // r9
+  __int64 v34; // rax
+  _DWORD v35[2]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v36; // [rsp+38h] [rbp-C8h]
+  __int64 v37; // [rsp+40h] [rbp-C0h]
+  int v38; // [rsp+48h] [rbp-B8h]
+  int v39; // [rsp+4Ch] [rbp-B4h]
+  __int64 v40; // [rsp+50h] [rbp-B0h]
+  __int64 v41; // [rsp+58h] [rbp-A8h]
+  _QWORD v42[10]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v43[128]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v44[768]; // [rsp+130h] [rbp+30h] BYREF
 
-  memset(v28, 0, sizeof(v28));
-  memset(v30, 0, sizeof(v30));
-  LODWORD(v28[0]) = a2;
-  v21[1] = 0;
-  v25 = 0;
-  v28[1] = a3;
-  memset(v29, 0, sizeof(v29));
+  v8 = 0LL;
+  v10 = 0LL;
+  memset(v42, 0, sizeof(v42));
+  memset(v44, 0, sizeof(v44));
+  v35[1] = 0;
+  v39 = 0;
+  LODWORD(v42[0]) = a2;
+  v42[1] = a3;
+  memset(v43, 0, sizeof(v43));
   if ( a2 )
   {
-    v10 = *((_QWORD *)this + 5);
-    v11 = v29;
-    v12 = &v30[8];
-    v9 = a2;
-    v13 = v30;
+    v12 = *((_QWORD *)this + 5);
+    v13 = v43;
+    v11 = a2;
+    v14 = &v44[8];
+    v15 = v44;
     do
     {
-      *v11 = v13;
-      v13 += 48;
-      *((_DWORD *)v12 - 2) = 48;
-      ++v11;
-      *(_QWORD *)v12 = 0LL;
-      *((_DWORD *)v12 + 4) = 0;
-      *((_QWORD *)v12 + 1) = 0LL;
-      *((_QWORD *)v12 + 3) = v10;
-      *((_QWORD *)v12 + 4) = 0LL;
-      v12 += 48;
-      --v9;
+      *v13 = v15;
+      v15 += 48;
+      *((_DWORD *)v14 - 2) = 48;
+      ++v13;
+      *(_QWORD *)v14 = 0LL;
+      *((_DWORD *)v14 + 4) = 0;
+      *((_QWORD *)v14 + 1) = 0LL;
+      *((_QWORD *)v14 + 3) = v12;
+      *((_QWORD *)v14 + 4) = 0LL;
+      v14 += 48;
+      --v11;
     }
-    while ( v9 );
+    while ( v11 );
   }
-  v28[2] = v29;
-  LOBYTE(v9) = 1;
-  v26 = *((_QWORD *)this + 4);
-  v21[0] = 48;
-  v28[4] = v21;
-  v22 = 0LL;
-  v24 = 512;
-  v23 = 0LL;
-  v27 = 0LL;
-  LODWORD(v28[5]) = 0x10000000;
-  BundleObjectInternal = DxgkCreateBundleObjectInternal(0LL, 0, v9, 0LL, (ULONG64)v28, (__int64)a4);
-  v15 = BundleObjectInternal;
-  if ( BundleObjectInternal >= 0 )
+  v42[2] = v43;
+  LOBYTE(v11) = 1;
+  v40 = *((_QWORD *)this + 4);
+  v35[0] = 48;
+  v42[4] = v35;
+  v36 = 0LL;
+  v38 = 512;
+  v37 = 0LL;
+  v41 = 0LL;
+  LODWORD(v42[5]) = 0x10000000;
+  BundleObjectInternal = DxgkCreateBundleObjectInternal(0LL, 0, v11, 0LL, (ULONG64)v42, (__int64)a4);
+  v20 = BundleObjectInternal;
+  if ( BundleObjectInternal < 0 )
   {
-    v16 = (void *)v28[9];
-    v17 = operator new[](0x20uLL, 0x4B677844u, 256LL);
-    v18 = (DXGSHAREDVMOBJECT *)v17;
-    if ( v17 )
-    {
-      *(_QWORD *)(v17 + 8) = 0LL;
-      *(_DWORD *)(v17 + 24) = 1;
-      *(_DWORD *)v17 = 16;
-      *(_QWORD *)(v17 + 16) = v16;
-      v19 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(**((_QWORD **)this + 1) + 56LL))(
-              *((_QWORD *)this + 1),
-              v17,
-              13LL);
-      if ( v19 )
-      {
-        *a5 = v19;
-      }
-      else
-      {
-        WdLogSingleEntry1(6LL, 376LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Failed to allocate NT shared object handle",
-          376LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v15 = -1073741801;
-        DXGSHAREDVMOBJECT::ReleaseReference(v18);
-      }
-    }
-    else
-    {
-      WdLogSingleEntry1(6LL, 365LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate DXGSHAREDVMOBJECT",
-        365LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v15 = -1073741801;
-      if ( v16 )
-        ObCloseHandle(v16, 0);
-    }
+    v21 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+    *(_QWORD *)(v21 + 24) = v20;
+    WdLogEvent5_WdWarning(v21);
+    goto LABEL_17;
+  }
+  v8 = (void *)v42[9];
+  v23 = (DXGSHAREDVMOBJECT *)operator new[](0x20uLL, 0x4B677844u, PagedPool);
+  v10 = v23;
+  if ( v23 )
+  {
+    *(_DWORD *)v23 = 0;
+    *((_QWORD *)v23 + 1) = 0LL;
+    *((_DWORD *)v23 + 4) = 0;
+    *((_DWORD *)v23 + 6) = 1;
   }
   else
   {
-    WdLogSingleEntry1(3LL, BundleObjectInternal);
+    v10 = 0LL;
   }
-  return v15;
+  if ( v10 )
+  {
+    *(_DWORD *)v10 = 16;
+    *((_QWORD *)v10 + 2) = v8;
+    v30 = (*(__int64 (__fastcall **)(_QWORD, DXGSHAREDVMOBJECT *, __int64))(**((_QWORD **)this + 1) + 56LL))(
+            *((_QWORD *)this + 1),
+            v10,
+            13LL);
+    if ( !v30 )
+    {
+      v34 = WdLogNewEntry5_WdLowResource(v31, v22, v32, v33);
+      *(_QWORD *)(v34 + 24) = 375LL;
+      WdLogEvent5_WdLowResource(v34);
+      LODWORD(v20) = -1073741801;
+LABEL_18:
+      if ( v10 )
+      {
+        DXGSHAREDVMOBJECT::ReleaseReference(v10, v22);
+        return (unsigned int)v20;
+      }
+      goto LABEL_11;
+    }
+    *a5 = v30;
+LABEL_17:
+    if ( (int)v20 >= 0 )
+      return (unsigned int)v20;
+    goto LABEL_18;
+  }
+  v28 = WdLogNewEntry5_WdLowResource(v25, v24, v26, v27);
+  *(_QWORD *)(v28 + 24) = 364LL;
+  WdLogEvent5_WdLowResource(v28);
+  LODWORD(v20) = -1073741801;
+LABEL_11:
+  if ( v8 )
+    ObCloseHandle(v8, 0);
+  return (unsigned int)v20;
 }

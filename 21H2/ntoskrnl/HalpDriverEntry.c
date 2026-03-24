@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDriverEntry @ 0x14081E150
+ * XREFs of HalpDriverEntry @ 0x1407AE100
  * Callers:
  *     <none>
  * Callees:
- *     HalpAddDevice @ 0x14081E300 (HalpAddDevice.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
+ *     HalpAddDevice @ 0x1407AE4B0 (HalpAddDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
  */
 
 NTSTATUS __fastcall HalpDriverEntry(PDRIVER_OBJECT DriverObject)

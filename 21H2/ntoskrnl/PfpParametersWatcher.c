@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpParametersWatcher @ 0x140989150
+ * XREFs of PfpParametersWatcher @ 0x1408E0C00
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwNotifyChangeKey @ 0x14041DB60 (ZwNotifyChangeKey.c)
- *     PfpParametersRead @ 0x14084FDCC (PfpParametersRead.c)
- *     PfSnParametersRead @ 0x14084FF94 (PfSnParametersRead.c)
- *     PfSnDetermineEnablePrefetcher @ 0x14086538C (PfSnDetermineEnablePrefetcher.c)
- *     PfpParametersPropagate @ 0x140989028 (PfpParametersPropagate.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
+ *     PfpParametersRead @ 0x1407BF11C (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x1407BF2F4 (PfSnParametersRead.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x1407D5630 (PfSnDetermineEnablePrefetcher.c)
+ *     PfpParametersPropagate @ 0x1408E0AD4 (PfpParametersPropagate.c)
  */
 
 void __fastcall PfpParametersWatcher(__int64 a1)
@@ -31,8 +31,8 @@ void __fastcall PfpParametersWatcher(__int64 a1)
   HANDLE KeyHandle; // [rsp+C0h] [rbp+67h] BYREF
 
   KeyHandle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v3 = (volatile signed __int64 *)(a1 + 504);
@@ -88,22 +88,17 @@ LABEL_8:
             PfpParametersPropagate((_DWORD *)a1);
             v7 = 1;
           }
-          if ( (int)PfSnParametersRead(a1) < 0 )
-          {
-            if ( !v7 )
-              goto LABEL_15;
-          }
-          else
+          if ( (int)PfSnParametersRead(a1) >= 0 )
           {
             PfSnDetermineEnablePrefetcher();
+            v7 = 1;
           }
-          if ( *(_QWORD *)a1 )
+          if ( v7 && *(_QWORD *)a1 )
             KeSetEvent(*(PRKEVENT *)a1, 0, 0);
         }
       }
     }
   }
-LABEL_15:
   if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v3);
   KeAbPostRelease((ULONG_PTR)v3);

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMirrorGatherBrownPages @ 0x140152540
+ * XREFs of MiMirrorGatherBrownPages @ 0x140152560
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiIsDecayPfn @ 0x140118BEC (MiIsDecayPfn.c)
- *     MiMirrorAddPagesToBrownList @ 0x14015279C (MiMirrorAddPagesToBrownList.c)
- *     MiMirrorNodeLargePages @ 0x140152B88 (MiMirrorNodeLargePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
+ *     MiMirrorAddPagesToBrownList @ 0x1401527BC (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMirrorGatherBrownPages(__int64 a1, __int64 a2, int a3, unsigned int a4)

@@ -1,85 +1,90 @@
 /*
- * XREFs of IrqpAllocateInstancePath @ 0x1C009D04C
+ * XREFs of IrqpAllocateInstancePath @ 0x1C00964E4
  * Callers:
- *     IrqTraceAffinityPolicy @ 0x1C009CEC0 (IrqTraceAffinityPolicy.c)
+ *     IrqTraceAffinityPolicy @ 0x1C0096174 (IrqTraceAffinityPolicy.c)
  * Callees:
  *     <none>
  */
 
-__int16 __fastcall IrqpAllocateInstancePath(PDEVICE_OBJECT Pdo, __int64 a2)
+__int64 __fastcall IrqpAllocateInstancePath(PDEVICE_OBJECT Pdo, __int64 a2)
 {
-  _WORD *Data; // rdi
+  PVOID Data; // rdi
   ULONG Size; // eax
-  __int16 result; // ax
-  __int64 v7; // rdx
-  _WORD *v8; // r8
-  __int16 v9; // ax
-  const wchar_t *v10; // rdx
-  __int64 v11; // r8
-  ULONG RequiredSize; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v6; // r8
+  _WORD *v7; // rax
+  __int64 result; // rax
+  __int64 v9; // rcx
+  __int16 v10; // cx
+  const wchar_t *v11; // rax
+  __int64 v12; // r8
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp+8h] BYREF
   ULONG Type; // [rsp+70h] [rbp+18h] BYREF
 
   Type = 0;
-  RequiredSize = 0;
+  LODWORD(NumberOfBytes) = 0;
   Data = 0LL;
   if ( !Pdo )
     goto LABEL_17;
-  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, 0, 0LL, &RequiredSize, &Type) == -1073741789 )
+  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, 0, 0LL, (PULONG)&NumberOfBytes, &Type) == -1073741789 )
   {
-    Size = RequiredSize;
-    if ( RequiredSize >= 0xFFFE )
+    Size = NumberOfBytes;
+    if ( (unsigned int)NumberOfBytes >= 0xFFFE )
       goto LABEL_6;
-    Data = (_WORD *)ExAllocatePool2(256LL, RequiredSize, 1232102209LL);
+    Data = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x49706341u);
     if ( !Data )
       goto LABEL_17;
   }
-  Size = RequiredSize;
+  Size = NumberOfBytes;
 LABEL_6:
-  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, Size, Data, &RequiredSize, &Type) < 0 )
+  if ( IoGetDevicePropertyData(Pdo, &DEVPKEY_Device_InstanceId, 0, 0, Size, Data, (PULONG)&NumberOfBytes, &Type) < 0 )
   {
     ExFreePoolWithTag(Data, 0);
+    Data = 0LL;
   }
-  else if ( Data )
+  if ( Data )
   {
-    result = 0x7FFF;
     *(_OWORD *)a2 = 0LL;
-    v7 = 0x7FFFLL;
-    v8 = Data;
-    while ( *Data )
+    v6 = 0x7FFFLL;
+    v7 = Data;
+    do
     {
-      ++Data;
-      if ( !--v7 )
-        return result;
+      if ( !*v7 )
+        break;
+      ++v7;
+      --v6;
     }
-    result = 0x7FFF - v7;
-    if ( a2 )
+    while ( v6 );
+    result = -v6;
+    v9 = (0x7FFF - v6) & -(__int64)(v6 != 0);
+    if ( v6 && a2 )
     {
-      *(_QWORD *)(a2 + 8) = v8;
-LABEL_14:
-      v9 = 2 * result;
-      *(_WORD *)a2 = v9;
-      result = v9 + 2;
-      *(_WORD *)(a2 + 2) = result;
+      *(_QWORD *)(a2 + 8) = Data;
+LABEL_15:
+      v10 = 2 * v9;
+      *(_WORD *)a2 = v10;
+      *(_WORD *)(a2 + 2) = v10 + 2;
       return result;
     }
     return result;
   }
 LABEL_17:
-  result = 0x7FFF;
-  v10 = &word_1C006FA08;
+  v11 = &word_1C006F7EC;
   *(_OWORD *)a2 = 0LL;
-  v11 = 0x7FFFLL;
-  while ( *v10 )
+  v12 = 0x7FFFLL;
+  do
   {
-    ++v10;
-    if ( !--v11 )
-      return result;
+    if ( !*v11 )
+      break;
+    ++v11;
+    --v12;
   }
-  result = 0x7FFF - v11;
-  if ( a2 )
+  while ( v12 );
+  result = -v12;
+  v9 = (0x7FFF - v12) & -(__int64)(v12 != 0);
+  if ( v12 && a2 )
   {
-    *(_QWORD *)(a2 + 8) = &word_1C006FA08;
-    goto LABEL_14;
+    *(_QWORD *)(a2 + 8) = &word_1C006F7EC;
+    goto LABEL_15;
   }
   return result;
 }

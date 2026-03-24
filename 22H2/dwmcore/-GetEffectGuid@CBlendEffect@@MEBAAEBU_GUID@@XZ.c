@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CBlendEffect@@MEBAAEBU_GUID@@XZ @ 0x180105BE0
+ * XREFs of ?GetEffectGuid@CBlendEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1E80
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbReleaseDatabaseNodeBaseKey @ 0x1406D2FE4
+ * XREFs of DrvDbReleaseDatabaseNodeBaseKey @ 0x1406D2FC4
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x1406D2C98 (DrvDbOpenObjectRegKey.c)
- *     DrvDbDeleteObjectRegKey @ 0x140900D6C (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetObjectList @ 0x140901F60 (DrvDbGetObjectList.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140900D4C (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetObjectList @ 0x140901F40 (DrvDbGetObjectList.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     DrvDbUnloadDatabaseNode @ 0x1406D3430 (DrvDbUnloadDatabaseNode.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     DrvDbUnloadDatabaseNode @ 0x1406D3410 (DrvDbUnloadDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbReleaseDatabaseNodeBaseKey(__int64 a1, __int64 a2, __int64 a3, void *a4)

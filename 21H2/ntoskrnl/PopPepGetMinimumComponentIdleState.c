@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepGetMinimumComponentIdleState @ 0x1405D5124
+ * XREFs of PopPepGetMinimumComponentIdleState @ 0x140574780
  * Callers:
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x1405CDDF8 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056C884 (PopFxSetDeviceAccountingCsPlatformState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetMinimumComponentIdleState(__int64 a1, unsigned int a2, char a3, unsigned int *a4)
@@ -52,20 +52,19 @@ char __fastcall PopPepGetMinimumComponentIdleState(__int64 a1, unsigned int a2, 
   if ( v10 == 2 )
   {
     v17 = 0;
-    v18 = *(_DWORD *)(208 * v5 + a1 + 380);
+    v18 = *(_DWORD *)(200 * v5 + a1 + 372);
     if ( v18 )
     {
-      while ( (v8 & *(_DWORD *)(*(_QWORD *)(208 * v5 + a1 + 392) + 24LL * v17 + 16)) != 0 )
+      do
       {
-        if ( ++v17 >= v18 )
-          goto LABEL_12;
+        if ( (v8 & *(_DWORD *)(*(_QWORD *)(200 * v5 + a1 + 376) + 24LL * v17 + 16)) == 0 )
+          break;
+        ++v17;
       }
-      goto LABEL_13;
+      while ( v17 < v18 );
     }
-LABEL_12:
     if ( v17 < v18 )
     {
-LABEL_13:
       *a4 = v17;
       return 1;
     }

@@ -1,126 +1,48 @@
 /*
- * XREFs of _anonymous_namespace_::RemoveForegroundActivate @ 0x1C005E09C
+ * XREFs of _anonymous_namespace_::RemoveForegroundActivate @ 0x1C003AEEC
  * Callers:
- *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C005D604 (_anonymous_namespace_--FAllowForegroundActivate.c)
- *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C005E3E8 (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
- *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00AE86C (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C003AFFC (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C003DA08 (_anonymous_namespace_--FAllowForegroundActivate.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C0120084 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
  * Callees:
- *     ?OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ @ 0x1C005D334 (-OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_DsDs @ 0x1C005E2C8 (WPP_RECORDER_AND_TRACE_SF_DsDs.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C00E5B60 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_SF_qsqs @ 0x1C003B888 (WPP_RECORDER_SF_qsqs.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
  */
 
-char anonymous_namespace_::RemoveForegroundActivate()
+char __fastcall anonymous_namespace_::RemoveForegroundActivate(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  _UNKNOWN **v0; // r8
-  char v1; // si
-  __int64 v2; // rdi
-  char v3; // bp
-  bool v4; // r15
-  int v5; // ebx
-  char ThreadId; // al
-  const char *v7; // rdx
-  const char *v8; // r10
-  const char *v9; // r9
-  int v10; // r8d
-  char v11; // dl
-  ForegroundLaunch *v13; // rcx
-  char v14; // dl
-  int v15; // [rsp+20h] [rbp-68h]
-  int v16; // [rsp+28h] [rbp-60h]
-  int v17; // [rsp+30h] [rbp-58h]
-  int v18; // [rsp+38h] [rbp-50h]
+  __int64 v4; // rbx
+  const char *v5; // rdx
+  const char *v6; // rcx
+  int v7; // edx
+  bool v8; // cl
+  char v9; // si
 
-  v0 = &WPP_RECORDER_INITIALIZED;
-  v1 = 1;
-  v2 = *(_QWORD *)(gptiCurrent + 424LL);
-  if ( (*(_DWORD *)(v2 + 12) & 0x40) != 0 )
+  v4 = *(_QWORD *)(gptiCurrent + 424LL);
+  if ( (*(_DWORD *)(v4 + 12) & 0x40) != 0 )
+    ClearAppStarting(*(_QWORD *)(gptiCurrent + 424LL));
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v13 = (ForegroundLaunch *)WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-      || (v14 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      v14 = 0;
-    }
-    if ( v14 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v0) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v14,
-        (_DWORD)v0,
-        (_DWORD)gFullLog,
-        4,
-        2,
-        10,
-        (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids,
-        *(_DWORD *)(v2 + 56));
-    }
-    ForegroundLaunch::OnFirstActivationAttempted(v13);
-    if ( (*(_DWORD *)(v2 + 12) & 0x40) != 0 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 54LL);
-    v0 = &WPP_RECORDER_INITIALIZED;
+    v5 = "Yes";
+    v6 = "Yes";
+    if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20) == 0 )
+      v6 = "No";
+    if ( (*(_DWORD *)(v4 + 12) & 0x100) == 0 )
+      v5 = "No";
+    WPP_RECORDER_SF_qsqs((_DWORD)v6, (_DWORD)v5, (unsigned int)"No", a4);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-    || (v3 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v3 = 0;
-  }
-  v4 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v5 = *(_DWORD *)(gptiCurrent + 488LL);
-    ThreadId = (unsigned __int8)PsGetThreadId((PETHREAD)*gptiCurrent);
-    v7 = "No";
-    v8 = "Yes";
-    v9 = "Yes";
-    LOBYTE(v10) = v4;
-    if ( (v5 & 0x20) == 0 )
-      v9 = "No";
-    if ( (*(_DWORD *)(v2 + 12) & 0x100) == 0 )
-      v8 = "No";
-    LOBYTE(v7) = v3;
-    WPP_RECORDER_AND_TRACE_SF_DsDs(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)v7,
-      v10,
-      (_DWORD)gFullLog,
-      v15,
-      v16,
-      v17,
-      v18,
-      *(_DWORD *)(v2 + 56),
-      (__int64)v8,
-      ThreadId,
-      (__int64)v9);
-    v0 = &WPP_RECORDER_INITIALIZED;
-  }
-  if ( (*(_DWORD *)(v2 + 12) & 0x100) == 0 && (*(_BYTE *)(gptiCurrent + 488LL) & 0x20) == 0 )
+  v7 = *(_DWORD *)(gptiCurrent + 488LL);
+  v8 = (*(_DWORD *)(v4 + 12) & 0x100) == 0;
+  if ( v8 && (v7 & 0x20) == 0 )
     return 0;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-    || (v11 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  v9 = 1;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v11 = 0;
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_(v8, v7, 2, 11, (__int64)&WPP_c5f688376d5d38c4c83ed2e0b189f019_Traceguids);
+    v7 = *(_DWORD *)(gptiCurrent + 488LL);
   }
-  if ( v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v0) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v11,
-      (_DWORD)v0,
-      (unsigned int)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids,
-      4,
-      2,
-      12,
-      (__int64)&WPP_998a63ff47c63414c5882e9b8cb70cf1_Traceguids);
-  }
-  *(_DWORD *)(gptiCurrent + 488LL) &= ~0x20u;
-  *(_DWORD *)(v2 + 12) &= ~0x100u;
-  return v1;
+  *(_DWORD *)(gptiCurrent + 488LL) = v7 & 0xFFFFFFDF;
+  *(_DWORD *)(v4 + 12) &= ~0x100u;
+  return v9;
 }

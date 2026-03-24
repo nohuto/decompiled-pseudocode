@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFreeWakeSource @ 0x14098F2F8
+ * XREFs of PopFreeWakeSource @ 0x1408E6A98
  * Callers:
- *     PopUnlinkWakeSources @ 0x14098F3B8 (PopUnlinkWakeSources.c)
- *     PopProcessDeviceWakeSource @ 0x140A51700 (PopProcessDeviceWakeSource.c)
- *     PopProcessWakeSourceWork @ 0x140A6B1E0 (PopProcessWakeSourceWork.c)
+ *     PopUpdateWakeSourceWorker @ 0x14056F1E0 (PopUpdateWakeSourceWorker.c)
+ *     PopProcessWakeSourceWork @ 0x1408E6B64 (PopProcessWakeSourceWork.c)
+ *     PopUnlinkWakeSources @ 0x1408E6CD8 (PopUnlinkWakeSources.c)
  * Callees:
- *     ExFreePoolEx @ 0x140246BB0 (ExFreePoolEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolEx @ 0x1402BDFC0 (ExFreePoolEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFreeWakeSource(_DWORD *P)
@@ -16,7 +16,6 @@ void __fastcall PopFreeWakeSource(_DWORD *P)
   void *v4; // rcx
   void *v5; // rcx
   void *v6; // rcx
-  void *v7; // rcx
 
   v1 = P[4];
   if ( v1 )
@@ -39,9 +38,6 @@ void __fastcall PopFreeWakeSource(_DWORD *P)
     v6 = (void *)*((_QWORD *)P + 8);
     if ( v6 )
       ExFreePoolWithTag(v6, 0x206D654Du);
-    v7 = (void *)*((_QWORD *)P + 13);
-    if ( v7 )
-      ExFreePoolWithTag(v7, 0x206D654Du);
   }
   ExFreePoolWithTag(P, 0x206D654Du);
 }

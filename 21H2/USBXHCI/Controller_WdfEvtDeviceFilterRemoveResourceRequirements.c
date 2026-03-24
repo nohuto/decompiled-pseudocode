@@ -1,59 +1,65 @@
 /*
- * XREFs of Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006F3C0
+ * XREFs of Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006E660
  * Callers:
  *     <none>
  * Callees:
- *     Interrupter_SetSecondaryInterrupterCount @ 0x1C0001904 (Interrupter_SetSecondaryInterrupterCount.c)
- *     WPP_RECORDER_SF_qq @ 0x1C001665C (WPP_RECORDER_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Interrupter_IoResList_GetMessageCountAndType @ 0x1C006F4C4 (Interrupter_IoResList_GetMessageCountAndType.c)
- *     Interrupter_FilterMessageDescriptors @ 0x1C006F628 (Interrupter_FilterMessageDescriptors.c)
- *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C00778E0 (Interrupter_DetermineSecondaryInterrupterCount.c)
- *     Interrupter_FilterAllMSIResources @ 0x1C00779A0 (Interrupter_FilterAllMSIResources.c)
+ *     Interrupter_SetSecondaryInterrupterCount @ 0x1C00058AC (Interrupter_SetSecondaryInterrupterCount.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0016398 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_IoResList_GetMessageCountAndType @ 0x1C006E764 (Interrupter_IoResList_GetMessageCountAndType.c)
+ *     Interrupter_FilterMessageDescriptors @ 0x1C006E8C8 (Interrupter_FilterMessageDescriptors.c)
+ *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C00764E0 (Interrupter_DetermineSecondaryInterrupterCount.c)
+ *     Interrupter_FilterAllMSIResources @ 0x1C00765A0 (Interrupter_FilterAllMSIResources.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceFilterRemoveResourceRequirements(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rbx
+  char v3; // di
+  int v4; // edx
   __int64 v5; // rbx
-  unsigned int v6; // edi
-  __int64 v8; // rcx
-  _DWORD v9[6]; // [rsp+40h] [rbp-18h] BYREF
-  char v10; // [rsp+70h] [rbp+18h] BYREF
-  unsigned int v11; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v6; // rbx
+  unsigned int v7; // edi
+  __int64 v9; // rcx
+  _DWORD v10[6]; // [rsp+40h] [rbp-18h] BYREF
+  char v11; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v12; // [rsp+78h] [rbp+20h] BYREF
 
-  v4 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+  v3 = a1;
+  v5 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00613D8)
+                     off_1C00603D8)
                  + 8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_qq(
-      *(_QWORD *)(v4 + 72),
-      4u,
-      4u,
-      0xD2u,
-      (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-      a1,
-      a2);
-  v5 = *(_QWORD *)(v4 + 128);
-  v6 = 0;
-  v10 = 0;
-  v9[0] = 0;
-  v11 = 0;
-  if ( (*(_QWORD *)(*(_QWORD *)(v5 + 8) + 336LL) & 0x200LL) != 0 )
   {
-    Interrupter_SetSecondaryInterrupterCount(v5, 0);
-    return (unsigned int)Interrupter_FilterAllMSIResources(v8, a2);
+    LOBYTE(v4) = 4;
+    WPP_RECORDER_SF_qq(
+      *(_QWORD *)(v5 + 72),
+      v4,
+      4,
+      209,
+      (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
+      v3,
+      a2);
+  }
+  v6 = *(_QWORD *)(v5 + 128);
+  v7 = 0;
+  v11 = 0;
+  v10[0] = 0;
+  v12 = 0;
+  if ( (*(_QWORD *)(*(_QWORD *)(v6 + 8) + 336LL) & 0x200LL) != 0 )
+  {
+    Interrupter_SetSecondaryInterrupterCount(v6, 0);
+    return (unsigned int)Interrupter_FilterAllMSIResources(v9, a2);
   }
   else
   {
-    Interrupter_IoResList_GetMessageCountAndType(a2, v9, &v11, &v10);
-    if ( v10 )
-      Interrupter_DetermineSecondaryInterrupterCount(v5, v11);
+    Interrupter_IoResList_GetMessageCountAndType(a2, v10, &v12, &v11);
+    if ( v11 )
+      Interrupter_DetermineSecondaryInterrupterCount(v6, v12);
     else
-      Interrupter_SetSecondaryInterrupterCount(v5, 0);
-    Interrupter_FilterMessageDescriptors(v5, a2, v9[0], (unsigned int)(*(_DWORD *)(v5 + 20) + 1));
+      Interrupter_SetSecondaryInterrupterCount(v6, 0);
+    Interrupter_FilterMessageDescriptors(v6, a2, v10[0], (unsigned int)(*(_DWORD *)(v6 + 20) + 1));
   }
-  return v6;
+  return v7;
 }

@@ -1,25 +1,28 @@
 /*
- * XREFs of ACPIAsyncAcquireGlobalLock @ 0x1C0039150
+ * XREFs of ACPIAsyncAcquireGlobalLock @ 0x1C000F580
  * Callers:
- *     ACPIIoctlAcquireGlobalLock @ 0x1C002F3BC (ACPIIoctlAcquireGlobalLock.c)
- *     GlobalLockEventHandler @ 0x1C00396B0 (GlobalLockEventHandler.c)
+ *     GlobalLockEventHandler @ 0x1C000F460 (GlobalLockEventHandler.c)
+ *     ACPIIoctlAcquireGlobalLock @ 0x1C005721C (ACPIIoctlAcquireGlobalLock.c)
  * Callees:
- *     ACPIAcquireHardwareGlobalLock @ 0x1C0004C30 (ACPIAcquireHardwareGlobalLock.c)
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     WPP_RECORDER_SF_i @ 0x1C002295C (WPP_RECORDER_SF_i.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall ACPIAsyncAcquireGlobalLock(__int64 a1)
 {
   KIRQL v2; // si
+  volatile signed __int32 *v3; // r8
+  signed __int32 v4; // edx
+  bool v5; // zf
+  signed __int32 v6; // eax
   void **i; // rax
-  void **v5; // rdi
-  _QWORD *v6; // rcx
-  char *v7; // rax
-  void **v8; // rdx
+  _QWORD *v9; // rcx
+  char *v10; // rax
+  void **v11; // rdx
+  void **v12; // rdi
 
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_i(
+    WPP_RECORDER_SF_q(
       WPP_GLOBAL_Control->DeviceExtension,
       4,
       3,
@@ -30,7 +33,7 @@ __int64 __fastcall ACPIAsyncAcquireGlobalLock(__int64 a1)
   {
     ++*((_DWORD *)AcpiInformation + 20);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qD(
+      WPP_RECORDER_SF_qd(
         WPP_GLOBAL_Control->DeviceExtension,
         4,
         3,
@@ -41,52 +44,66 @@ __int64 __fastcall ACPIAsyncAcquireGlobalLock(__int64 a1)
     return 0LL;
   }
   v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)AcpiInformation + 8);
-  if ( *((_UNKNOWN **)AcpiInformation + 6) == (_UNKNOWN *)((char *)AcpiInformation + 48)
-    && ACPIAcquireHardwareGlobalLock(*((volatile signed __int32 **)AcpiInformation + 5)) )
+  if ( *((_UNKNOWN **)AcpiInformation + 6) == (_UNKNOWN *)((char *)AcpiInformation + 48) )
   {
-    *((_QWORD *)AcpiInformation + 9) = a1;
-    *((_DWORD *)AcpiInformation + 20) = 1;
-    KeReleaseSpinLock((PKSPIN_LOCK)AcpiInformation + 8, v2);
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_i(
-        WPP_GLOBAL_Control->DeviceExtension,
-        4,
-        3,
-        12,
-        (__int64)&WPP_46fdfefd1e063d3591824ef1bcf3110e_Traceguids,
-        a1);
-    return 0LL;
+    v3 = (volatile signed __int32 *)*((_QWORD *)AcpiInformation + 5);
+    if ( *((_BYTE *)AcpiInformation + 84) )
+      goto LABEL_9;
+    v4 = *v3;
+    do
+    {
+      v6 = _InterlockedCompareExchange(v3, ((v4 & 2 | 4u) >> 1) | v4, v4);
+      v5 = v4 == v6;
+      v4 = v6;
+    }
+    while ( !v5 );
+    if ( (v6 & 2) == 0 )
+    {
+LABEL_9:
+      *((_QWORD *)AcpiInformation + 9) = a1;
+      *((_DWORD *)AcpiInformation + 20) = 1;
+      KeReleaseSpinLock((PKSPIN_LOCK)AcpiInformation + 8, v2);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_q(
+          WPP_GLOBAL_Control->DeviceExtension,
+          4,
+          3,
+          12,
+          (__int64)&WPP_46fdfefd1e063d3591824ef1bcf3110e_Traceguids,
+          a1);
+      return 0LL;
+    }
   }
   for ( i = (void **)*((_QWORD *)AcpiInformation + 6); ; i = (void **)*i )
   {
     if ( i == (void **)((char *)AcpiInformation + 48) )
     {
       *(_WORD *)(a1 + 10) = 1;
-      v6 = (_QWORD *)(a1 + 16);
-      v7 = (char *)AcpiInformation + 48;
-      v8 = (void **)*((_QWORD *)AcpiInformation + 7);
-      if ( *v8 != (char *)AcpiInformation + 48 )
+      v9 = (_QWORD *)(a1 + 16);
+      v10 = (char *)AcpiInformation + 48;
+      v11 = (void **)*((_QWORD *)AcpiInformation + 7);
+      if ( *v11 != (char *)AcpiInformation + 48 )
         __fastfail(3u);
-      *v6 = v7;
-      *(_QWORD *)(a1 + 24) = v8;
-      *v8 = v6;
-      *((_QWORD *)v7 + 1) = v6;
+      *v9 = v10;
+      *(_QWORD *)(a1 + 24) = v11;
+      *v11 = v9;
+      *((_QWORD *)v10 + 1) = v9;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_i(
+        WPP_RECORDER_SF_q(
           WPP_GLOBAL_Control->DeviceExtension,
           4,
           3,
           14,
           (__int64)&WPP_46fdfefd1e063d3591824ef1bcf3110e_Traceguids,
           a1);
-      goto LABEL_22;
+      goto LABEL_17;
     }
-    v5 = i - 2;
+    v12 = i - 2;
     if ( i - 2 == (void **)a1 )
       break;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_qD(
+    WPP_RECORDER_SF_qd(
       WPP_GLOBAL_Control->DeviceExtension,
       4,
       3,
@@ -94,8 +111,8 @@ __int64 __fastcall ACPIAsyncAcquireGlobalLock(__int64 a1)
       (__int64)&WPP_46fdfefd1e063d3591824ef1bcf3110e_Traceguids,
       a1,
       *(_WORD *)(a1 + 10));
-  ++*((_WORD *)v5 + 5);
-LABEL_22:
+  ++*((_WORD *)v12 + 5);
+LABEL_17:
   KeReleaseSpinLock((PKSPIN_LOCK)AcpiInformation + 8, v2);
   return 259LL;
 }

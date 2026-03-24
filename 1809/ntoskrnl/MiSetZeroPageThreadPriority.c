@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSetZeroPageThreadPriority @ 0x14019303C
+ * XREFs of MiSetZeroPageThreadPriority @ 0x14019305C
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, __int64 a2, unsigned int a3)

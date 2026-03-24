@@ -1,126 +1,142 @@
 /*
- * XREFs of ExpWaitForSpinLockSharedAndAcquire @ 0x140316B90
+ * XREFs of ExpWaitForSpinLockSharedAndAcquire @ 0x1402F3E80
  * Callers:
- *     MiLocateCombineBlock @ 0x140215B40 (MiLocateCombineBlock.c)
- *     MiZeroFault @ 0x140232300 (MiZeroFault.c)
- *     MiProbeAndLockPrepare @ 0x140234D90 (MiProbeAndLockPrepare.c)
- *     MiUserFault @ 0x140235870 (MiUserFault.c)
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiSynchronizeSystemVa @ 0x140261890 (MiSynchronizeSystemVa.c)
- *     MiAcquirePageListLock @ 0x140267280 (MiAcquirePageListLock.c)
- *     MiMakeSystemCacheRangeValid @ 0x140267740 (MiMakeSystemCacheRangeValid.c)
- *     MiAddWorkingSetEntries @ 0x14026BC00 (MiAddWorkingSetEntries.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DDF0 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
- *     MiSetVaAgeList @ 0x1402708C0 (MiSetVaAgeList.c)
- *     MiQueryAddressSpan @ 0x140273C40 (MiQueryAddressSpan.c)
- *     MiCommitExistingVad @ 0x140276910 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiLockPageListAndLastPage @ 0x140278E80 (MiLockPageListAndLastPage.c)
- *     MiEndingOffsetWithLock @ 0x140279D30 (MiEndingOffsetWithLock.c)
- *     MiRemoveWsle @ 0x14027B330 (MiRemoveWsle.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiGetControlAreaPtes @ 0x1402884F0 (MiGetControlAreaPtes.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     ExpRemoveTagForBigPages @ 0x140323630 (ExpRemoveTagForBigPages.c)
- *     ExpAddTagForBigPages @ 0x140331990 (ExpAddTagForBigPages.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046AE92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208210 (MiTrimOrAgeWorkingSet.c)
+ *     MiProbeAndLockPrepare @ 0x14020A2B0 (MiProbeAndLockPrepare.c)
+ *     MiUserFault @ 0x14020D730 (MiUserFault.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiMakeHyperRangeAccessible @ 0x14021B4A0 (MiMakeHyperRangeAccessible.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     MiSynchronizeSystemVa @ 0x1402922C0 (MiSynchronizeSystemVa.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140297B10 (MiMoveDirtyBitsToPfns.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14029F220 (MiMakeSystemCacheRangeValid.c)
+ *     MiOffsetToProtos @ 0x1402A11E0 (MiOffsetToProtos.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     ExpAddTagForBigPages @ 0x1402BC450 (ExpAddTagForBigPages.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5BA4 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  * Callees:
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CCC60 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CCC90 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x14038FA40 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390820 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall ExpWaitForSpinLockSharedAndAcquire(unsigned __int64 CurrentIrql, unsigned __int8 a2)
+__int64 __fastcall ExpWaitForSpinLockSharedAndAcquire(
+        unsigned __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        _DWORD *SchedulerAssist)
 {
-  volatile signed __int32 *v3; // rsi
-  unsigned int v4; // ebx
-  signed __int32 v5; // eax
-  signed __int32 v6; // edx
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v10; // eax
+  unsigned int v4; // esi
+  unsigned __int8 v5; // bl
+  volatile signed __int32 *v6; // r14
+  signed __int32 v7; // edi
+  struct _KPRCB *v8; // rbp
+  _DWORD *v9; // rcx
   bool v11; // zf
-  _DWORD *v12; // r9
-  __int64 v13; // rdx
+  signed __int32 v12; // eax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  int v15; // eax
+  int v16; // eax
+  int v17; // eax
 
-  v3 = (volatile signed __int32 *)CurrentIrql;
   v4 = 0;
-  _m_prefetchw((const void *)CurrentIrql);
-  v5 = *(_DWORD *)CurrentIrql;
-  do
+  v5 = a2;
+  v6 = (volatile signed __int32 *)a1;
+  while ( 1 )
   {
-    if ( v5 < 0 )
+    v7 = *v6;
+    while ( v7 < 0 )
     {
-      do
+      if ( (v7 & 0x40000000) == 0 )
       {
-        if ( (v5 & 0x40000000) == 0 )
-          _InterlockedOr(v3, 0x40000000u);
-        if ( a2 != 0xFF )
+        a1 = (unsigned int)v7;
+        LODWORD(a1) = v7 | 0x40000000;
+        v12 = _InterlockedCompareExchange(v6, v7 | 0x40000000, v7);
+        v11 = v7 == v12;
+        v7 = v12;
+        if ( !v11 )
+          continue;
+      }
+      if ( v5 != 0xFF )
+      {
+        if ( KiIrqlFlags )
         {
-          if ( KiIrqlFlags )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
-              && (unsigned __int8)CurrentIrql <= 0xFu
-              && a2 <= 0xFu
-              && (unsigned __int8)CurrentIrql >= 2u )
+            if ( CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              CurrentIrql = (unsigned int)a2 + 1;
+              a1 = (unsigned int)v5 + 1;
+              a2 = -1LL << (v5 + 1);
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v10 = ~(unsigned __int16)(-1LL << (a2 + 1));
-              v11 = (v10 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v10;
+              v15 = ~(unsigned __int16)a2;
+              v11 = (v15 & SchedulerAssist[5]) == 0;
+              a3 = (unsigned int)v15 & SchedulerAssist[5];
+              SchedulerAssist[5] = a3;
               if ( v11 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
-          __writecr8(a2);
         }
-        if ( (++v4 & HvlLongSpinCountMask) == 0
-          && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(CurrentIrql) )
+        __writecr8(v5);
+      }
+      if ( (++v4 & HvlLongSpinCountMask) == 0
+        && (HvlEnlightenments & 0x40) != 0
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, a2, a3, SchedulerAssist) )
+      {
+        HvlNotifyLongSpinWait(v4);
+      }
+      else
+      {
+        _mm_pause();
+      }
+      if ( v5 != 0xFF )
+      {
+        v5 = KeGetCurrentIrql();
+        __writecr8(2uLL);
+        if ( KiIrqlFlags )
         {
-          HvlNotifyLongSpinWait(v4);
-        }
-        else
-        {
-          _mm_pause();
-        }
-        if ( a2 != 0xFF )
-        {
-          a2 = KeGetCurrentIrql();
-          __writecr8(2uLL);
-          if ( KiIrqlFlags )
+          if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
           {
-            if ( (KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
-            {
-              v12 = KeGetCurrentPrcb()->SchedulerAssist;
-              if ( a2 == 2 )
-              {
-                LODWORD(v13) = 4;
-              }
-              else
-              {
-                CurrentIrql = (unsigned int)a2 + 1;
-                v13 = (-1LL << (a2 + 1)) & 4;
-              }
-              v12[5] |= v13;
-            }
+            a1 = (unsigned int)v5 + 1;
+            SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+            a2 = (-1LL << (v5 + 1)) & 4;
+            a3 = (unsigned int)a2 | SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
           }
         }
-        v5 = *v3;
       }
-      while ( *(int *)v3 < 0 );
+      v7 = *v6;
     }
-    CurrentIrql = (unsigned int)(v5 + 1);
-    v6 = v5;
-    LODWORD(CurrentIrql) = CurrentIrql & 0xBFFFFFFF;
-    v5 = _InterlockedCompareExchange(v3, CurrentIrql, v5);
+    v8 = KeGetCurrentPrcb();
+    v9 = v8->SchedulerAssist;
+    if ( v9 )
+    {
+      if ( v8->NestingLevel <= 1u )
+      {
+        v16 = v9[6];
+        v9[6] = v16 + 1;
+        if ( v16 == -1 )
+          KiRemoveSystemWorkPriorityKick(v8);
+      }
+    }
+    if ( v7 == _InterlockedCompareExchange(v6, (v7 + 1) & 0xBFFFFFFF, v7) )
+      break;
+    a1 = (unsigned __int64)v8->SchedulerAssist;
+    if ( a1 )
+    {
+      if ( v8->NestingLevel <= 1u )
+      {
+        v17 = *(_DWORD *)(a1 + 24) - 1;
+        *(_DWORD *)(a1 + 24) = v17;
+        if ( !v17 )
+          KiRemoveSystemWorkPriorityKick(v8);
+      }
+    }
   }
-  while ( v5 != v6 );
   return v4;
 }

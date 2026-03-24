@@ -1,32 +1,32 @@
 /*
- * XREFs of SeShutdownServerSilo @ 0x1409C8F90
+ * XREFs of SeShutdownServerSilo @ 0x14091C214
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x1409ACE68 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906288 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeReferenceLogonSessionDirect @ 0x1403704D0 (SepDeReferenceLogonSessionDirect.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409CFFC0 (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140348824 (SepDeReferenceLogonSessionDirect.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x14092381C (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeShutdownServerSilo(__int64 a1, __int64 a2)
 {
-  void *v4; // rcx
-  void *v5; // rcx
+  struct _DMA_ADAPTER *v4; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
   _QWORD *v6; // rcx
   void *v7; // rcx
   void *v8; // rcx
 
-  v4 = *(void **)(a2 + 16);
+  v4 = *(struct _DMA_ADAPTER **)(a2 + 16);
   if ( v4 )
   {
-    ObfDereferenceObject(v4);
+    HalPutDmaAdapter(v4);
     *(_QWORD *)(a2 + 16) = 0LL;
   }
-  v5 = *(void **)(a2 + 24);
+  v5 = *(struct _DMA_ADAPTER **)(a2 + 24);
   if ( v5 )
   {
-    ObfDereferenceObject(v5);
+    HalPutDmaAdapter(v5);
     *(_QWORD *)(a2 + 24) = 0LL;
   }
   if ( *(_QWORD *)a2 )

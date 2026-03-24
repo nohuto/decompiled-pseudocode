@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMSetProblem @ 0x14096AAD4
+ * XREFs of PiCMSetProblem @ 0x14072FAFC
  * Callers:
- *     PiCMDeviceAction @ 0x14096973C (PiCMDeviceAction.c)
- *     PiCMSetDeviceProblem @ 0x14096A9C8 (PiCMSetDeviceProblem.c)
+ *     PiCMSetDeviceProblem @ 0x14072F0C4 (PiCMSetDeviceProblem.c)
+ *     PiCMDeviceAction @ 0x14072F428 (PiCMDeviceAction.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x14041CE00 (ZwPlugPlayControl.c)
- *     _CmGetDeviceStatus @ 0x14079AA78 (_CmGetDeviceStatus.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x1403FC080 (ZwPlugPlayControl.c)
+ *     _CmGetDeviceStatus @ 0x140684C00 (_CmGetDeviceStatus.c)
  */
 
 __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
@@ -26,29 +26,28 @@ __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
   v14 = 0;
   if ( (unsigned int)(a3 - 1) > 1 )
     return 3221225485LL;
-  result = CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, SourceString, 0LL, &v14, &v13, &v9, v8);
-  if ( (int)result < 0 )
-    return result;
-  v7 = v13;
-  if ( a2 )
+  result = CmGetDeviceStatus(PiPnpRtlCtx, SourceString, 0, &v14, &v13, &v9, v8);
+  if ( (int)result >= 0 )
   {
-    if ( (v14 & 0x400) != 0 && v13 != a2 && a3 != 2 )
+    v7 = v13;
+    if ( a2 && (v14 & 0x400) != 0 && a3 != 2 && v13 != a2 )
       return 3221225485LL;
+    DestinationString = 0LL;
+    v12 = 0LL;
+    v11 = 0LL;
+    RtlInitUnicodeString(&DestinationString, SourceString);
+    DWORD1(v11) = 1024;
+    if ( a2 )
+    {
+      LODWORD(v11) = 1;
+      DWORD2(v11) = a2;
+    }
+    else
+    {
+      LODWORD(v11) = 2;
+      DWORD2(v11) = v7;
+    }
+    return ZwPlugPlayControl(14LL, (__int64)&DestinationString);
   }
-  DestinationString = 0LL;
-  v12 = 0LL;
-  v11 = 0LL;
-  RtlInitUnicodeString(&DestinationString, SourceString);
-  DWORD1(v11) = 1024;
-  if ( a2 )
-  {
-    LODWORD(v11) = 1;
-    DWORD2(v11) = a2;
-  }
-  else
-  {
-    LODWORD(v11) = 2;
-    DWORD2(v11) = v7;
-  }
-  return ZwPlugPlayControl(14LL, (__int64)&DestinationString);
+  return result;
 }

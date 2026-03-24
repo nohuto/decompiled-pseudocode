@@ -1,64 +1,54 @@
 /*
- * XREFs of WbCreateWarbirdProcess @ 0x1407E7C1C
+ * XREFs of WbCreateWarbirdProcess @ 0x1406A559C
  * Callers:
- *     WbGetWarbirdProcess @ 0x140763B10 (WbGetWarbirdProcess.c)
+ *     WbGetWarbirdProcess @ 0x1406C7E04 (WbGetWarbirdProcess.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     sub_140763D30 @ 0x140763D30 (sub_140763D30.c)
- *     WbAlloc @ 0x140763E98 (WbAlloc.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WbAlloc @ 0x1406C69C4 (WbAlloc.c)
+ *     sub_1406C7DCC @ 0x1406C7DCC (sub_1406C7DCC.c)
  */
 
 __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
 {
-  volatile signed __int64 *v4; // rdi
-  int v5; // esi
-  _QWORD *v6; // rbx
-  void *v8; // [rsp+50h] [rbp+18h] BYREF
+  int v4; // esi
 
-  v4 = 0LL;
-  v8 = 0LL;
-  v5 = WbAlloc(0xF0u, &v8);
-  if ( v5 < 0 )
+  v4 = WbAlloc(0xF0uLL);
+  if ( v4 >= 0 )
   {
-    v4 = (volatile signed __int64 *)v8;
+    memset(0LL, 0, 0xF0uLL);
+    ++MEMORY[0xE8];
+    MEMORY[0] = a1;
+    MEMORY[0x38] = 60;
+    v4 = 0;
+    MEMORY[0x28] = sub_1406826D0;
+    MEMORY[8] = 8LL;
+    MEMORY[0x10] = 0;
+    MEMORY[0x18] = 0LL;
+    MEMORY[0x20] = 10;
+    MEMORY[0x30] = 0LL;
+    MEMORY[0x50] = 0LL;
+    MEMORY[0x48] = 64LL;
+    MEMORY[0x40] = 64LL;
+    MEMORY[0xD8] = sub_14069CA40;
+    MEMORY[0xB8] = 8LL;
+    MEMORY[0xC0] = 0;
+    MEMORY[0xC8] = 0LL;
+    MEMORY[0xD0] = 10;
+    MEMORY[0xE0] = 0LL;
+    MEMORY[0x78] = sub_140688F30;
+    MEMORY[0x58] = 8LL;
+    MEMORY[0x60] = 0;
+    MEMORY[0x68] = 0LL;
+    MEMORY[0x70] = 10;
+    MEMORY[0x80] = 0LL;
+    MEMORY[0xA8] = sub_1405D89C0;
+    MEMORY[0x88] = 8LL;
+    MEMORY[0x90] = 0;
+    MEMORY[0x98] = 0LL;
+    MEMORY[0xA0] = 10;
+    MEMORY[0xB0] = 0LL;
+    *a2 = 0LL;
   }
-  else
-  {
-    v6 = v8;
-    memset(v8, 0, 0xF0uLL);
-    ++v6[29];
-    *v6 = a1;
-    *((_DWORD *)v6 + 14) = 60;
-    v5 = 0;
-    v6[5] = sub_1407BCA50;
-    v6[1] = 8LL;
-    *((_DWORD *)v6 + 4) = 0;
-    v6[3] = 0LL;
-    *((_DWORD *)v6 + 8) = 10;
-    v6[6] = 0LL;
-    v6[10] = 0LL;
-    v6[9] = v6 + 8;
-    v6[8] = v6 + 8;
-    v6[27] = sub_1407D6260;
-    v6[23] = 8LL;
-    *((_DWORD *)v6 + 48) = 0;
-    v6[25] = 0LL;
-    *((_DWORD *)v6 + 52) = 10;
-    v6[28] = 0LL;
-    v6[15] = sub_1407BF330;
-    v6[11] = 8LL;
-    *((_DWORD *)v6 + 24) = 0;
-    v6[13] = 0LL;
-    *((_DWORD *)v6 + 28) = 10;
-    v6[16] = 0LL;
-    v6[21] = sub_1407EB420;
-    v6[17] = 8LL;
-    *((_DWORD *)v6 + 36) = 0;
-    v6[19] = 0LL;
-    *((_DWORD *)v6 + 40) = 10;
-    v6[22] = 0LL;
-    *a2 = v6;
-  }
-  sub_140763D30(v4);
-  return (unsigned int)v5;
+  sub_1406C7DCC(0LL);
+  return (unsigned int)v4;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetDefaultUILanguage @ 0x14041DA20
+ * XREFs of ZwSetDefaultUILanguage @ 0x1403FCC40
  * Callers:
  *     <none>
  * Callees:

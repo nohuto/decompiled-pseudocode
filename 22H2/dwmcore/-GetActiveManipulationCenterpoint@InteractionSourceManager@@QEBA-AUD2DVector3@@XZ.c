@@ -1,16 +1,15 @@
 /*
- * XREFs of ?GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA?AUD2DVector3@@XZ @ 0x180274608
+ * XREFs of ?GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA?AUD2DVector3@@XZ @ 0x180212E7C
  * Callers:
- *     ?CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@W4ScrollAxis@@PEAM@Z @ 0x180231494 (-CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollStat.c)
- *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1802337D8 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ *     ?CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@W4ScrollAxis@@PEAM@Z @ 0x1801C8084 (-CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollStat.c)
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA380 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
- *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x180132B0E (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
- *     ?TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ @ 0x180275568 (-TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ.c)
+ *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x1801C9B34 (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
+ *     ?TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ @ 0x180213E24 (-TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ.c)
  */
 
 __int64 __fastcall InteractionSourceManager::GetActiveManipulationCenterpoint(InteractionSourceManager *a1, __int64 a2)
 {
-  InteractionSourceManager *v2; // rcx
   __int64 v3; // r10
   struct CManipulation *ActiveManipulation; // rax
   __int64 v5; // xmm0_8
@@ -19,9 +18,9 @@ __int64 __fastcall InteractionSourceManager::GetActiveManipulationCenterpoint(In
   *(_DWORD *)(a2 + 8) = 0;
   if ( InteractionSourceManager::HasActiveManipulation(a1) )
   {
-    ActiveManipulation = InteractionSourceManager::TryGetActiveManipulation(v2);
-    v5 = *(_QWORD *)((char *)ActiveManipulation + 316);
-    LODWORD(ActiveManipulation) = *((_DWORD *)ActiveManipulation + 81);
+    ActiveManipulation = InteractionSourceManager::TryGetActiveManipulation(a1);
+    v5 = *(_QWORD *)((char *)ActiveManipulation + 308);
+    LODWORD(ActiveManipulation) = *((_DWORD *)ActiveManipulation + 79);
     *(_QWORD *)v3 = v5;
     *(_DWORD *)(v3 + 8) = (_DWORD)ActiveManipulation;
     *(float *)v3 = *(float *)v3 * -1.0;

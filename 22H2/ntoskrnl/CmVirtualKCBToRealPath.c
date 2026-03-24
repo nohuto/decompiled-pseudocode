@@ -1,73 +1,73 @@
 /*
- * XREFs of CmVirtualKCBToRealPath @ 0x140A188B8
+ * XREFs of CmVirtualKCBToRealPath @ 0x14086FB28
  * Callers:
- *     CmpDoQueryKeyName @ 0x140208F88 (CmpDoQueryKeyName.c)
- *     CmQueryKey @ 0x1406D7280 (CmQueryKey.c)
- *     CmpVEExecuteOpenLogic @ 0x1406DD580 (CmpVEExecuteOpenLogic.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A4B4 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     CmpReportAuditVirtualizationEvent @ 0x140A1BAD4 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpDoQueryKeyName @ 0x140347BE0 (CmpDoQueryKeyName.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
+ *     CmpVEExecuteOpenLogic @ 0x1406CDD50 (CmpVEExecuteOpenLogic.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C78 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871DE8 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmVirtualKCBToRealPath(__int64 a1, UNICODE_STRING *a2, __int64 a3)
+__int64 __fastcall CmVirtualKCBToRealPath(__int64 a1, UNICODE_STRING *a2)
 {
   NTSTATUS appended; // ebx
-  UNICODE_STRING *v6; // rdi
-  unsigned int v7; // ebp
-  int v8; // edx
-  unsigned __int64 v9; // rcx
-  unsigned __int16 v10; // r14
-  __int64 Pool2; // rax
+  UNICODE_STRING *v5; // rdi
+  unsigned int v6; // ebp
+  int v7; // edx
+  unsigned __int64 v8; // rcx
+  unsigned __int16 v9; // r14
+  wchar_t *PoolWithTag; // rax
   UNICODE_STRING Source; // [rsp+20h] [rbp-28h] BYREF
-  UNICODE_STRING *v13; // [rsp+60h] [rbp+18h] BYREF
+  UNICODE_STRING *v12; // [rsp+60h] [rbp+18h] BYREF
 
   appended = -1073741670;
   if ( !CmpVEEnabled )
     return 3221225485LL;
-  v13 = 0LL;
-  CmpConstructNameWithStatus(a1, &v13, a3);
-  v6 = v13;
-  if ( v13 )
+  v12 = 0LL;
+  CmpConstructNameWithStatus(a1, &v12);
+  v5 = v12;
+  if ( v12 )
   {
-    v7 = 0;
-    v8 = 5;
-    v9 = 0LL;
-    while ( v13->Buffer[v9 / 2] != 92 || --v8 )
+    v6 = 0;
+    v7 = 5;
+    v8 = 0LL;
+    while ( v12->Buffer[v8 / 2] != 92 || --v7 )
     {
-      v9 = 2LL * ++v7;
-      if ( v9 >= v13->Length )
+      v8 = 2LL * ++v6;
+      if ( v8 >= v12->Length )
       {
         appended = -1073741811;
         goto LABEL_14;
       }
     }
-    v10 = v13->Length + 2 * (9 - v7);
-    Pool2 = ExAllocatePool2(256LL, v13->Length + 2 * (9 - v7), 1649298755LL);
-    a2->Buffer = (wchar_t *)Pool2;
-    if ( Pool2 )
+    v9 = v12->Length + 2 * (9 - v6);
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v12->Length + 2 * (9 - v6), 0x624E4D43u);
+    a2->Buffer = PoolWithTag;
+    if ( PoolWithTag )
     {
-      a2->MaximumLength = v10;
+      a2->MaximumLength = v9;
       a2->Length = 0;
-      Source = *v6;
+      Source = *v5;
       Source.Length = 18;
       appended = RtlAppendUnicodeStringToString(a2, &Source);
       if ( appended < 0
-        || (Source.Length = v6->Length - 2 * v7,
-            Source.Buffer += v7,
+        || (Source.Length = v5->Length - 2 * v6,
+            Source.Buffer += v6,
             appended = RtlAppendUnicodeStringToString(a2, &Source),
             appended < 0) )
       {
-        RtlFreeUnicodeString(a2);
+        RtlFreeAnsiString(a2);
       }
     }
 LABEL_14:
-    CmpFreeTransientPoolWithTag(v6, 0x624E4D43u);
+    CmpFreeTransientPoolWithTag(v5, 0x624E4D43u);
   }
   return (unsigned int)appended;
 }

@@ -1,58 +1,56 @@
 /*
- * XREFs of NtUserRegisterPointerInputTarget @ 0x1C01D9770
+ * XREFs of NtUserRegisterPointerInputTarget @ 0x1C0200730
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _RegisterPointerInputTarget @ 0x1C01C6FF8 (_RegisterPointerInputTarget.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _RegisterPointerInputTarget @ 0x1C01F2364 (_RegisterPointerInputTarget.c)
  */
 
-__int64 __fastcall NtUserRegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, int a4)
+__int64 __fastcall NtUserRegisterPointerInputTarget(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // ebx
-  __int64 v13; // rsi
-  __int64 v14; // rdx
-  int v15; // ecx
-  __int64 v16; // rax
+  __int64 v8; // rcx
+  int v9; // ebx
+  __int64 v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  __int64 v14; // rax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v7 = ValidateHwnd(a1);
-  v12 = 0;
-  v13 = v7;
+  v9 = 0;
+  v10 = v7;
   if ( v7 )
   {
-    if ( (unsigned __int8)Enforced(v9) && *(int *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) >= 0 )
+    if ( (unsigned __int8)Enforced(v8) && *(int *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) >= 0 )
     {
-      UserSetLastError(5);
+      UserSetLastError(5LL, v11, v12);
       EtwTraceUIPISystemError(*(_QWORD *)(gptiCurrent + 424LL), 0LL, 12LL);
     }
     else
     {
-      if ( gptiCurrent == *(_QWORD *)(v13 + 16) )
+      if ( gptiCurrent == *(_QWORD *)(v10 + 16) )
       {
-        if ( !a4 || (v16 = *(_QWORD *)(v13 + 40), *(char *)(v16 + 20) >= 0) && *(char *)(v16 + 19) >= 0 )
+        if ( !a4 || (v14 = *(_QWORD *)(v10 + 40), *(char *)(v14 + 20) >= 0) && *(char *)(v14 + 19) >= 0 )
         {
-          if ( (unsigned int)(a3 - 2) <= 1 )
+          if ( a3 - 2 <= 1 )
           {
-            v12 = RegisterPointerInputTarget(v13, v14, a3, a4);
+            v9 = RegisterPointerInputTarget(v10, v11, a3, a4);
             goto LABEL_14;
           }
         }
-        v15 = 87;
+        v13 = 87LL;
       }
       else
       {
-        v15 = 5;
+        v13 = 5LL;
       }
-      UserSetLastError(v15);
+      UserSetLastError(v13, v11, v12);
     }
   }
 LABEL_14:
-  UserSessionSwitchLeaveCrit(v9, v8, v10, v11);
-  return v12;
+  UserSessionSwitchLeaveCrit(v8);
+  return v9;
 }

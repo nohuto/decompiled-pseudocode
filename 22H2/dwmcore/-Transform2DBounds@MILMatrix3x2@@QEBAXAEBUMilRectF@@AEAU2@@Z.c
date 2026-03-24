@@ -1,25 +1,25 @@
 /*
- * XREFs of ?Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z @ 0x1800D9790
+ * XREFs of ?Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z @ 0x180014770
  * Callers:
- *     ?CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x18001716C (-CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
- *     ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D9750 (-ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x180013EB0 (-CreateHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
+ *     ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1801BE0D4 (-ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z.c)
  * Callees:
- *     ?TransformPoints@MILMatrix3x2@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z @ 0x1800D9884 (-TransformPoints@MILMatrix3x2@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?TransformPoints@MILMatrix3x2@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z @ 0x180014860 (-TransformPoints@MILMatrix3x2@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 void __fastcall MILMatrix3x2::Transform2DBounds(MILMatrix3x2 *this, const struct MilRectF *a2, struct MilRectF *a3)
 {
-  float v3; // xmm2_4
+  int v3; // xmm2_4
   int v4; // xmm1_4
-  float *v5; // rax
-  float v6; // xmm1_4
+  __int64 v5; // rax
+  int v6; // xmm4_4
   float *v7; // rcx
-  float v8; // xmm4_4
+  float v8; // xmm2_4
   unsigned int v9; // edx
-  float v10; // xmm0_4
+  float v10; // xmm1_4
   float v11; // xmm0_4
-  float v12; // [rsp+20h] [rbp-30h] BYREF
+  int v12; // [rsp+20h] [rbp-30h] BYREF
   float v13; // [rsp+24h] [rbp-2Ch]
   int v14; // [rsp+28h] [rbp-28h]
   _DWORD v15[2]; // [rsp+2Ch] [rbp-24h] BYREF
@@ -27,7 +27,7 @@ void __fastcall MILMatrix3x2::Transform2DBounds(MILMatrix3x2 *this, const struct
   int v17; // [rsp+38h] [rbp-18h]
   int v18; // [rsp+3Ch] [rbp-14h]
 
-  v3 = *(float *)a2;
+  v3 = *(_DWORD *)a2;
   v4 = *((_DWORD *)a2 + 2);
   v13 = *((float *)a2 + 1);
   *(float *)v15 = v13;
@@ -35,41 +35,39 @@ void __fastcall MILMatrix3x2::Transform2DBounds(MILMatrix3x2 *this, const struct
   v18 = v16;
   v12 = v3;
   v14 = v4;
-  *(float *)&v15[1] = v3;
+  v15[1] = v3;
   v17 = v4;
   MILMatrix3x2::TransformPoints(this, (const struct MilPoint2F *)&v12, (struct MilPoint2F *)&v12, 4u);
-  v6 = v13;
+  v6 = v12;
   v7 = (float *)v15;
-  v8 = v12;
+  v8 = v13;
   v9 = 1;
-  v5[1] = v13;
-  v5[3] = v6;
-  *v5 = v8;
-  v5[2] = v8;
+  *(float *)(v5 + 12) = v13;
+  *(_DWORD *)v5 = v6;
+  *(_DWORD *)(v5 + 8) = v6;
   do
   {
     v10 = *(v7 - 1);
-    if ( v8 > v10 )
+    if ( *(float *)v5 > v10 )
     {
-      *v5 = v10;
-      v8 = v10;
+      *(float *)v5 = v10;
     }
-    else if ( v10 > v5[2] )
+    else if ( v10 > *(float *)(v5 + 8) )
     {
-      v5[2] = v10;
+      *(float *)(v5 + 8) = v10;
     }
     v11 = *v7;
-    if ( v6 > *v7 )
+    if ( v8 > *v7 )
     {
-      v5[1] = v11;
-      v6 = v11;
+      v8 = *v7;
     }
-    else if ( v11 > v5[3] )
+    else if ( v11 > *(float *)(v5 + 12) )
     {
-      v5[3] = v11;
+      *(float *)(v5 + 12) = v11;
     }
     ++v9;
     v7 += 2;
   }
   while ( v9 < 4 );
+  *(float *)(v5 + 4) = v8;
 }

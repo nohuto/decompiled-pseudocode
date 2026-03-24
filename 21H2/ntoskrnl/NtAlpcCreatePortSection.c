@@ -1,17 +1,17 @@
 /*
- * XREFs of NtAlpcCreatePortSection @ 0x14066BAB0
+ * XREFs of NtAlpcCreatePortSection @ 0x1406D4210
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpCreateSection @ 0x14066BC7C (AlpcpCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x1407A59D8 (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     AlpcpCreateSection @ 0x1406D43DC (AlpcpCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, void *a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __int64 a4, _QWORD *a5, _QWORD *a6)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
@@ -19,7 +19,7 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
   __int64 v11; // rdx
   __int64 v12; // rcx
   KPROCESSOR_MODE v13; // r9
-  PVOID v14; // rsi
+  struct _DMA_ADAPTER *v14; // rsi
   ULONG_PTR v15; // rdi
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-18h] BYREF
   PVOID Object; // [rsp+38h] [rbp-10h] BYREF
@@ -50,18 +50,18 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
     Section = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v13, &Object, 0LL);
     if ( Section >= 0 )
     {
-      v14 = Object;
+      v14 = (struct _DMA_ADAPTER *)Object;
       Section = AlpcpCreateSection(Object, a4, (__int64)&BugCheckParameter2);
       if ( Section >= 0 )
       {
         v15 = BugCheckParameter2;
         *a5 = *(_QWORD *)(BugCheckParameter2 + 24);
         *a6 = *(_QWORD *)(v15 + 8);
-        AlpcpDereferenceBlobEx(v15);
+        AlpcpDereferenceBlobEx(v15, 1);
       }
-      ObfDereferenceObject(v14);
+      HalPutDmaAdapter(v14);
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)Section;
 }

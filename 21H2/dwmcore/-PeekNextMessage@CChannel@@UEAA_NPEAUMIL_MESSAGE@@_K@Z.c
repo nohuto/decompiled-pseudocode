@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PeekNextMessage@CChannel@@UEAA_NPEAUMIL_MESSAGE@@_K@Z @ 0x1800E9B70
+ * XREFs of ?PeekNextMessage@CChannel@@UEAA_NPEAUMIL_MESSAGE@@_K@Z @ 0x1800D4A30
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 char __fastcall CChannel::PeekNextMessage(CChannel *this, struct MIL_MESSAGE *a2, size_t a3)
@@ -36,7 +36,7 @@ char __fastcall CChannel::PeekNextMessage(CChannel *this, struct MIL_MESSAGE *a2
     if ( a3 >= 0x1C )
       a3 = 28LL;
     memcpy_0(a2, v9 + 2, a3);
-    DefaultHeap::Free(v9);
+    operator delete(v9);
     v7 = 1;
   }
   LeaveCriticalSection(v3);

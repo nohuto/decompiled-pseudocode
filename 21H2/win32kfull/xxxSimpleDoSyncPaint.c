@@ -1,95 +1,174 @@
 /*
- * XREFs of xxxSimpleDoSyncPaint @ 0x1C00720D0
+ * XREFs of xxxSimpleDoSyncPaint @ 0x1C006D840
  * Callers:
- *     xxxDispatchMessage @ 0x1C00429F0 (xxxDispatchMessage.c)
- *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C00490FC (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
- *     xxxInternalDoSyncPaint @ 0x1C0071E00 (xxxInternalDoSyncPaint.c)
- *     xxxGetUpdateRect @ 0x1C01071D4 (xxxGetUpdateRect.c)
- *     xxxGetUpdateRgn @ 0x1C0149BA0 (xxxGetUpdateRgn.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     xxxInternalDoSyncPaint @ 0x1C006D560 (xxxInternalDoSyncPaint.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C00F55A0 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ *     xxxGetUpdateRgn @ 0x1C010DFB4 (xxxGetUpdateRgn.c)
+ *     xxxGetUpdateRect @ 0x1C0117F40 (xxxGetUpdateRect.c)
  * Callees:
- *     ClearHungFlag @ 0x1C005F8F0 (ClearHungFlag.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     IsHungWindow @ 0x1C0076670 (IsHungWindow.c)
- *     xxxSendEraseBkgnd @ 0x1C00F0318 (xxxSendEraseBkgnd.c)
- *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F4854 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
- *     ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00F99D0 (-xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
- *     ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0151FD0 (-xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     IsHungWindow @ 0x1C00418B0 (IsHungWindow.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     DwmAsyncChildStyleChange @ 0x1C004E0F0 (DwmAsyncChildStyleChange.c)
+ *     DirtyVisRgnTrackers @ 0x1C004E570 (DirtyVisRgnTrackers.c)
+ *     ClearHungFlag @ 0x1C007BEC8 (ClearHungFlag.c)
+ *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F51F0 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
+ *     xxxSendEraseBkgnd @ 0x1C0104324 (xxxSendEraseBkgnd.c)
+ *     ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C010F540 (-xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     xxxRedrawHungWindow @ 0x1C02412D4 (xxxRedrawHungWindow.c)
  */
 
-void __fastcall xxxSimpleDoSyncPaint(struct tagWND *a1)
+char __fastcall xxxSimpleDoSyncPaint(struct tagWND *a1)
 {
-  struct tagWND *v1; // rbx
-  __int64 v2; // rdx
-  int v3; // edi
+  struct tagWND *v2; // rax
+  __int64 v3; // rax
+  int v4; // esi
+  int v5; // ebp
+  int v6; // edi
+  _DWORD *v7; // rax
+  int v8; // r14d
+  int v9; // r9d
+  int v10; // r8d
+  __int64 v11; // rdx
+  int v12; // edi
   HRGN NCUpdateRgn; // rax
-  HRGN v5; // rsi
-  __int64 v6; // rcx
-  HRGN v7; // rax
+  HRGN v14; // rsi
+  __int64 v15; // rcx
+  unsigned int v16; // ecx
+  int v17; // edx
+  unsigned int v18; // edi
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  void *v21; // rax
+  HRGN v22; // rax
 
-  v1 = a1;
-  while ( a1 )
+  v2 = a1;
+  if ( !a1 )
   {
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 27LL) & 2) != 0 )
-      return;
-    a1 = (struct tagWND *)*((_QWORD *)a1 + 13);
-  }
-  SetOrClrWF(0, v1, 0x240u, 1);
-  v2 = *((_QWORD *)v1 + 5);
-  v3 = (*(unsigned __int8 *)(v2 + 17) >> 2) & 2 | 1;
-  if ( (*(_BYTE *)(v2 + 17) & 2) == 0 )
-    v3 = (*(unsigned __int8 *)(v2 + 17) >> 2) & 2;
-  if ( v3 )
-  {
-    if ( (*(_BYTE *)(v2 + 31) & 0x10) != 0 )
+LABEL_4:
+    v3 = *((_QWORD *)a1 + 5);
+    v4 = *(_DWORD *)(v3 + 28);
+    v5 = *(_DWORD *)(v3 + 24);
+    v6 = *(_DWORD *)(v3 + 232);
+    *(_BYTE *)(v3 + 18) &= ~0x40u;
+    if ( (unsigned int)IsWindowDesktopComposed(a1) )
     {
-      if ( !*(_QWORD *)(v2 + 136) )
+      v7 = (_DWORD *)*((_QWORD *)a1 + 5);
+      v8 = v7[7];
+      v9 = v7[6];
+      v10 = v7[58];
+      if ( v4 != v8 )
       {
-        SetOrClrWF(0, v1, 0x102u, 1);
-        SetOrClrWF(0, v1, 0x104u, 1);
-        LOBYTE(v3) = v3 & 0xFE;
+        v16 = (v4 ^ v8) & 0xB1CF0000;
+        v17 = v16 != 0;
+        v18 = -v17 & 0xFFFFFFF0;
+LABEL_34:
+        if ( !v16 )
+          v8 = 0;
+        if ( !v17 )
+          goto LABEL_8;
+        goto LABEL_40;
       }
-      if ( *((_QWORD *)v1 + 2) == gptiCurrent )
+      if ( v5 == v9 && v6 == v10 )
+        goto LABEL_8;
+      if ( v5 != v9 )
       {
-        NCUpdateRgn = GetNCUpdateRgn(v1, 1);
-        v5 = NCUpdateRgn;
-        if ( (v3 & 2) != 0 && (*(_BYTE *)(*((_QWORD *)v1 + 5) + 17LL) & 8) != 0 )
-          xxxSendNCPaint(v1, NCUpdateRgn);
-        if ( (v3 & 1) != 0 )
+        v8 = v7[6];
+        v16 = (v5 ^ v9) & 0x4E27A9;
+        v17 = v16 != 0;
+        v18 = -v17 & 0xFFFFFFEC;
+        goto LABEL_34;
+      }
+      if ( ((v6 ^ v10) & 0x2E00300) != 0 )
+      {
+        v18 = -268435456;
+        v8 = v7[58];
+LABEL_40:
+        DirtyVisRgnTrackers(a1);
+        v21 = (void *)ReferenceDwmApiPort(v20, v19);
+        DwmAsyncChildStyleChange(v21, *(_QWORD *)a1, v18, v8);
+      }
+    }
+LABEL_8:
+    v11 = *((_QWORD *)a1 + 5);
+    v12 = (*(unsigned __int8 *)(v11 + 17) >> 2) & 2 | 1;
+    LOBYTE(v2) = *(_BYTE *)(v11 + 17) & 2;
+    if ( !(_BYTE)v2 )
+      v12 = (*(unsigned __int8 *)(v11 + 17) >> 2) & 2;
+    if ( v12 )
+    {
+      if ( (*(_BYTE *)(v11 + 31) & 0x10) != 0 )
+      {
+        if ( !*(_QWORD *)(v11 + 136) )
         {
-          v6 = *((_QWORD *)v1 + 5);
-          if ( (*(_BYTE *)(v6 + 17) & 8) != 0 )
-          {
-            DeleteMaybeSpecialRgn(v5);
-            v7 = GetNCUpdateRgn(v1, 0);
-            v6 = *((_QWORD *)v1 + 5);
-            v5 = v7;
-          }
-          if ( (*(_BYTE *)(v6 + 17) & 2) != 0 )
-          {
-            SetOrClrWF(0, v1, 0x102u, 1);
-            SetOrClrWF(0, v1, 0x104u, 1);
-            xxxSendEraseBkgnd(v1, 0LL, v5);
-          }
-          ClearHungFlag(v1, 0x308u);
+          SetOrClrWF(0, (__int64)a1, 0x102u, 1);
+          SetOrClrWF(0, (__int64)a1, 0x104u, 1);
+          LOBYTE(v12) = v12 & 0xFE;
         }
-        DeleteMaybeSpecialRgn(v5);
+        if ( *((_QWORD *)a1 + 2) == gptiCurrent )
+        {
+          NCUpdateRgn = GetNCUpdateRgn(a1, 1);
+          v14 = NCUpdateRgn;
+          if ( (v12 & 2) != 0 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 17LL) & 8) != 0 )
+            xxxSendNCPaint(a1, NCUpdateRgn);
+          if ( (v12 & 1) != 0 )
+          {
+            v15 = *((_QWORD *)a1 + 5);
+            if ( (*(_BYTE *)(v15 + 17) & 8) != 0 )
+            {
+              DeleteMaybeSpecialRgn(v14);
+              v22 = GetNCUpdateRgn(a1, 0);
+              v15 = *((_QWORD *)a1 + 5);
+              v14 = v22;
+            }
+            if ( (*(_BYTE *)(v15 + 17) & 2) != 0 )
+            {
+              SetOrClrWF(0, (__int64)a1, 0x102u, 1);
+              SetOrClrWF(0, (__int64)a1, 0x104u, 1);
+              xxxSendEraseBkgnd(a1, 0LL, v14);
+            }
+            ClearHungFlag(a1);
+          }
+          LOBYTE(v2) = DeleteMaybeSpecialRgn(v14);
+        }
+        else
+        {
+          v2 = (struct tagWND *)*((_QWORD *)a1 + 5);
+          if ( (*((_BYTE *)v2 + 31) & 0xC0) != 0x40 )
+          {
+            v2 = *(struct tagWND **)(grpdeskRitInput + 8LL);
+            if ( a1 != *((struct tagWND **)v2 + 3) )
+            {
+              LODWORD(v2) = IsHungWindow((__int64)a1);
+              if ( (_DWORD)v2 )
+              {
+                v2 = (struct tagWND *)*((_QWORD *)a1 + 5);
+                if ( (*((_BYTE *)v2 + 19) & 8) != 0 )
+                {
+                  ClearHungFlag(a1);
+                  LOBYTE(v2) = xxxRedrawHungWindow(a1);
+                }
+              }
+            }
+          }
+        }
       }
-      else if ( (*(_BYTE *)(*((_QWORD *)v1 + 5) + 31LL) & 0xC0) != 0x40
-             && v1 != *(struct tagWND **)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL)
-             && (unsigned int)IsHungWindow(v1)
-             && (*(_BYTE *)(*((_QWORD *)v1 + 5) + 19LL) & 8) != 0 )
+      else
       {
-        ClearHungFlag(v1, 0x308u);
-        xxxRedrawHungWindow(v1, 0LL);
+        SetOrClrWF(0, (__int64)a1, 0x108u, 1);
+        SetOrClrWF(0, (__int64)a1, 0x102u, 1);
+        SetOrClrWF(0, (__int64)a1, 0x680u, 1);
+        SetOrClrWF(0, (__int64)a1, 0x104u, 1);
+        LOBYTE(v2) = ClearHungFlag(a1);
       }
     }
-    else
-    {
-      SetOrClrWF(0, v1, 0x108u, 1);
-      SetOrClrWF(0, v1, 0x102u, 1);
-      SetOrClrWF(0, v1, 0x680u, 1);
-      SetOrClrWF(0, v1, 0x104u, 1);
-      ClearHungFlag(v1, 0x308u);
-    }
+    return (char)v2;
   }
+  while ( (*(_BYTE *)(*((_QWORD *)v2 + 5) + 27LL) & 2) == 0 )
+  {
+    v2 = (struct tagWND *)*((_QWORD *)v2 + 13);
+    if ( !v2 )
+      goto LABEL_4;
+  }
+  return (char)v2;
 }

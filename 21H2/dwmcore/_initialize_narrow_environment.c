@@ -1,7 +1,7 @@
 /*
- * XREFs of _initialize_narrow_environment @ 0x180101826
+ * XREFs of _initialize_narrow_environment @ 0x1800E8126
  * Callers:
- *     __scrt_dllmain_after_initialize_c @ 0x180100850 (__scrt_dllmain_after_initialize_c.c)
+ *     __scrt_dllmain_after_initialize_c @ 0x1800E7020 (__scrt_dllmain_after_initialize_c.c)
  * Callees:
  *     <none>
  */

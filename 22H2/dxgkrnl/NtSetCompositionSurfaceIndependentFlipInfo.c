@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C007BCC0
+ * XREFs of NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C001DA40
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C000F0A8 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00106D4 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0012F7C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ?SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z @ 0x1C007D114 (-SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C0010868 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C0010C88 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00170E4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     ?SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z @ 0x1C001DD0C (-SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall NtSetCompositionSurfaceIndependentFlipInfo(
@@ -21,7 +21,7 @@ __int64 __fastcall NtSetCompositionSurfaceIndependentFlipInfo(
         unsigned int a5,
         unsigned int a6,
         char *Src,
-        struct CCompositionSurface *a8)
+        int *a8)
 {
   unsigned __int64 *v10; // r10
   int v12; // ebx
@@ -30,21 +30,25 @@ __int64 __fastcall NtSetCompositionSurfaceIndependentFlipInfo(
   unsigned int v15; // eax
   unsigned int v16; // edx
   size_t v17; // r8
+  __int64 v18; // rdx
+  __int64 v19; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v19; // r8
-  int v21; // [rsp+44h] [rbp-94h] BYREF
-  struct CCompositionSurface *v22; // [rsp+48h] [rbp-90h] BYREF
-  PVOID Object; // [rsp+50h] [rbp-88h] BYREF
-  unsigned __int64 v24; // [rsp+58h] [rbp-80h]
-  unsigned int v25[16]; // [rsp+60h] [rbp-78h] BYREF
+  __int64 v21; // r8
+  int v23; // [rsp+44h] [rbp-A4h] BYREF
+  CCompositionSurface *v24; // [rsp+48h] [rbp-A0h] BYREF
+  PVOID Object; // [rsp+50h] [rbp-98h] BYREF
+  unsigned __int64 v26; // [rsp+58h] [rbp-90h]
+  void *v27; // [rsp+60h] [rbp-88h]
+  int *v28; // [rsp+68h] [rbp-80h]
+  unsigned int v29[16]; // [rsp+70h] [rbp-78h] BYREF
 
   v10 = a2;
-  Object = a1;
-  v22 = a8;
+  v27 = a1;
+  v28 = a8;
   v12 = 0;
   v13 = 0LL;
-  v24 = 0LL;
-  v21 = 0;
+  v26 = 0LL;
+  v23 = 0;
   if ( a2
     && Src
     && a6
@@ -58,11 +62,11 @@ __int64 __fastcall NtSetCompositionSurfaceIndependentFlipInfo(
     if ( v10 + 1 < v10 || (unsigned __int64)(v10 + 1) > MmUserProbeAddress )
       v10 = (unsigned __int64 *)MmUserProbeAddress;
     v13 = *v10;
-    v24 = *v10;
+    v26 = *v10;
     v17 = 4LL * v16;
     if ( &Src[v17] < Src || (unsigned __int64)&Src[v17] > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v25, Src, v17);
+    memmove(v29, Src, v17);
   }
   else
   {
@@ -71,19 +75,19 @@ __int64 __fastcall NtSetCompositionSurfaceIndependentFlipInfo(
   KeEnterCriticalRegion();
   if ( v12 >= 0 )
   {
-    Global = DXGGLOBAL::GetGlobal();
-    if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38069) + 560LL))() )
+    Global = DXGGLOBAL::GetGlobal(v19, v18);
+    if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))() )
     {
       Object = 0LL;
-      v12 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v19, (struct CompositionSurfaceObject **)&Object);
+      v12 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v21, (struct CompositionSurfaceObject **)&Object);
       if ( v12 >= 0 )
       {
-        v22 = 0LL;
-        v12 = CompositionSurfaceObject::LockForWrite((CompositionSurfaceObject *)Object, &v22);
+        v24 = 0LL;
+        v12 = CompositionSurfaceObject::LockForWrite((char *)Object, &v24);
         if ( v12 >= 0 )
         {
-          v12 = CCompositionSurface::SetIndependentFlip(v22, v13, a3 != 0, a4 != 0, a5, a6, v25, &v21);
-          CCompositionSurface::UnlockAndRelease(v22);
+          v12 = CCompositionSurface::SetIndependentFlip(v24, v13, a3 != 0, a4 != 0, a5, a6, v29, &v23);
+          CCompositionSurface::UnlockAndRelease(v24);
         }
         ObfDereferenceObject(Object);
       }
@@ -97,9 +101,9 @@ __int64 __fastcall NtSetCompositionSurfaceIndependentFlipInfo(
   {
     if ( a8 )
     {
-      if ( (struct CCompositionSurface *)((char *)a8 + 4) < a8 || (unsigned __int64)a8 + 4 > MmUserProbeAddress )
+      if ( a8 + 1 < a8 || (unsigned __int64)(a8 + 1) > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      *(_DWORD *)a8 = v21;
+      *a8 = v23;
     }
     else
     {

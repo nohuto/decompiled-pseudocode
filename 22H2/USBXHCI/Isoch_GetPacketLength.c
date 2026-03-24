@@ -1,9 +1,9 @@
 /*
- * XREFs of Isoch_GetPacketLength @ 0x1C00444B8
+ * XREFs of Isoch_GetPacketLength @ 0x1C0041848
  * Callers:
- *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
- *     Isoch_PrepareStage @ 0x1C0004B00 (Isoch_PrepareStage.c)
- *     Isoch_TransferUrb_MarkLatePackets @ 0x1C00452C4 (Isoch_TransferUrb_MarkLatePackets.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     Isoch_TransferUrb_MarkLatePackets @ 0x1C0042634 (Isoch_TransferUrb_MarkLatePackets.c)
  * Callees:
  *     <none>
  */

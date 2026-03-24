@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateZeroThreadContext @ 0x14017F64C
+ * XREFs of MiCreateZeroThreadContext @ 0x14017F66C
  * Callers:
- *     MiZeroNodePages @ 0x14017F3E0 (MiZeroNodePages.c)
- *     MiInitializePartitionThreads @ 0x140851E70 (MiInitializePartitionThreads.c)
+ *     MiZeroNodePages @ 0x14017F400 (MiZeroNodePages.c)
+ *     MiInitializePartitionThreads @ 0x140851E50 (MiInitializePartitionThreads.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
- *     MiCreateUltraThreadContext @ 0x14013CAC4 (MiCreateUltraThreadContext.c)
- *     MiInitializeColorTable @ 0x14016A4AC (MiInitializeColorTable.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
+ *     MiInitializeColorTable @ 0x14016A4CC (MiInitializeColorTable.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

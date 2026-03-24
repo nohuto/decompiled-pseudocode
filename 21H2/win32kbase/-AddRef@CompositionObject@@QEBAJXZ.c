@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CompositionObject@@QEBAJXZ @ 0x1C0210D00
+ * XREFs of ?AddRef@CompositionObject@@QEBAJXZ @ 0x1C0058260
  * Callers:
  *     <none>
  * Callees:

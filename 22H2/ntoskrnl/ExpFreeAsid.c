@@ -1,69 +1,64 @@
 /*
- * XREFs of ExpFreeAsid @ 0x14060D8A0
+ * XREFs of ExpFreeAsid @ 0x1405B8970
  * Callers:
- *     ExFreeSvmAsid @ 0x14036651C (ExFreeSvmAsid.c)
- *     IommupPasidDeviceDelete @ 0x14050E464 (IommupPasidDeviceDelete.c)
- *     ExFreeAsid @ 0x14060D0E8 (ExFreeAsid.c)
- *     ExpAssignPasid @ 0x140A01800 (ExpAssignPasid.c)
+ *     ExFreeSvmAsid @ 0x140321C8C (ExFreeSvmAsid.c)
+ *     ExpAssignPasid @ 0x140956CA4 (ExpAssignPasid.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
+void __fastcall ExpFreeAsid(unsigned int a1)
 {
-  _QWORD *v4; // rcx
-  __int64 v5; // rax
-  int v6; // ebx
-  LONG_PTR result; // rax
-  unsigned __int64 OldIrql; // rdi
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
-  struct _KLOCK_QUEUE_HANDLE v12; // [rsp+20h] [rbp-28h] BYREF
+  _KPROCESS *Process; // rbp
+  _QWORD *v3; // rax
+  bool v4; // zf
+  int v5; // edi
+  unsigned __int64 OldIrql; // rbx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *SchedulerAssist; // r8
+  int v10; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v12, 0, sizeof(v12));
-  KeAcquireInStackQueuedSpinLock(&qword_140C2D3D8, &v12);
-  v4 = (char *)qword_140C2D3D0 + 16 * a1;
-  v5 = v4[1] - 1LL;
-  v4[1] = v5;
-  if ( v5 )
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  Process = KeGetCurrentThread()->ApcState.Process;
+  KeAcquireInStackQueuedSpinLock(&qword_140C16958, &LockHandle);
+  v3 = (char *)qword_140C16950 + 16 * a1;
+  v4 = v3[1]-- == 1LL;
+  if ( v4 )
   {
-    v4[1] = v5 | 0x8000000000000000uLL;
-    v6 = 0;
+    *v3 = 0LL;
+    v5 = 1;
+    --dword_140C16948;
   }
   else
   {
-    *v4 = 0LL;
-    v6 = 1;
-    --dword_140C2D3C8;
+    v3[1] |= 0x8000000000000000uLL;
+    v5 = 0;
   }
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
-  OldIrql = v12.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v12.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v12.OldIrql + 1));
-      v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v4 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v4 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);
-  if ( v6 == 1 )
-  {
-    if ( a2 )
-      return ObfDereferenceObject(a2);
-  }
-  return result;
+  if ( v5 == 1 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)Process);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateSwapChainTelemetry@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAXW4SwapChainStat@CCompositionSurfaceInfo@@_N@Z @ 0x180015740
+ * XREFs of ?UpdateSwapChainTelemetry@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAXW4SwapChainStat@CCompositionSurfaceInfo@@_N@Z @ 0x180020224
  * Callers:
- *     ?UpdateSwapChainTelemetry@CGlobalCompositionSurfaceInfo@@UEAAXW4SwapChainStat@CCompositionSurfaceInfo@@_N@Z @ 0x180015730 (-UpdateSwapChainTelemetry@CGlobalCompositionSurfaceInfo@@UEAAXW4SwapChainStat@CCompositionSurfac.c)
- *     ?EnsureSwapChainTelemetryInitialized@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAG@Z @ 0x18006B75C (-EnsureSwapChainTelemetryInitialized@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAG@Z.c)
- *     ??1CBindInfo@CGlobalCompositionSurfaceInfo@@QEAA@XZ @ 0x1800C7E3C (--1CBindInfo@CGlobalCompositionSurfaceInfo@@QEAA@XZ.c)
+ *     ??1CBindInfo@CGlobalCompositionSurfaceInfo@@QEAA@XZ @ 0x180038524 (--1CBindInfo@CGlobalCompositionSurfaceInfo@@QEAA@XZ.c)
+ *     ?EnsureSwapChainTelemetryInitialized@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAG@Z @ 0x180038A94 (-EnsureSwapChainTelemetryInitialized@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAXPEAG@Z.c)
+ *     ?UpdateSwapChainTelemetry@CGlobalCompositionSurfaceInfo@@UEAAXW4SwapChainStat@CCompositionSurfaceInfo@@_N@Z @ 0x1801F92E0 (-UpdateSwapChainTelemetry@CGlobalCompositionSurfaceInfo@@UEAAXW4SwapChainStat@CCompositionSurfac.c)
  * Callees:
  *     <none>
  */
@@ -13,21 +13,21 @@ unsigned __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::UpdateSwap
         int a2,
         char a3)
 {
-  __int64 v3; // r10
+  __int64 v3; // r11
   unsigned __int64 result; // rax
 
-  if ( *(_QWORD *)(a1 + 288) )
+  if ( *(_QWORD *)(a1 + 232) )
   {
-    v3 = *((_QWORD *)g_pComposition + 76);
-    result = 2 * (a2 + 14LL);
+    v3 = *((_QWORD *)g_pComposition + 57);
+    result = 2LL * a2;
     if ( a3 )
     {
-      *(_QWORD *)(a1 + 16 * (a2 + 14LL)) = v3;
+      *(_QWORD *)(a1 + 16LL * a2 + 168) = v3;
     }
     else
     {
-      result = (v3 - *(_QWORD *)(a1 + 16 * (a2 + 14LL))) / (unsigned __int64)(g_qpcFrequency.QuadPart / 1000);
-      *(_QWORD *)(a1 + 16LL * a2 + 232) += result;
+      result = (v3 - *(_QWORD *)(a1 + 16LL * a2 + 168)) / (unsigned __int64)(g_qpcFrequency.QuadPart / 1000);
+      *(_QWORD *)(a1 + 16 * (a2 + 11LL)) += result;
     }
   }
   return result;

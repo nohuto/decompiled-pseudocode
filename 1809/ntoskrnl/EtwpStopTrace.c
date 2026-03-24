@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpStopTrace @ 0x140658FB0
+ * XREFs of EtwpStopTrace @ 0x140658F90
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
- *     EtwShutdown @ 0x1406DD260 (EtwShutdown.c)
- *     EtwWmitraceWorker @ 0x1408BD7A0 (EtwWmitraceWorker.c)
+ *     EtwShutdown @ 0x1406DD240 (EtwShutdown.c)
+ *     EtwWmitraceWorker @ 0x1408BD780 (EtwWmitraceWorker.c)
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D7850 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F97F0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D7870 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
  *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContext @ 0x140659E70 (EtwpAcquireLoggerContext.c)
- *     EtwpValidateLoggerInfo @ 0x140659F58 (EtwpValidateLoggerInfo.c)
- *     EtwpGetLoggerInfoFromContext @ 0x14065AAF0 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpFreeLoggerContext @ 0x1406C08C0 (EtwpFreeLoggerContext.c)
- *     EtwpStopLoggerInstance @ 0x1406CB874 (EtwpStopLoggerInstance.c)
- *     EtwpEventWriteTemplateSession @ 0x1408BB088 (EtwpEventWriteTemplateSession.c)
+ *     EtwpAcquireLoggerContext @ 0x140659E50 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x140659F38 (EtwpValidateLoggerInfo.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x14065AAD0 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
+ *     EtwpStopLoggerInstance @ 0x1406CB854 (EtwpStopLoggerInstance.c)
+ *     EtwpEventWriteTemplateSession @ 0x1408BB068 (EtwpEventWriteTemplateSession.c)
  */
 
 __int64 __fastcall EtwpStopTrace(__int64 a1, __int64 a2, char a3)

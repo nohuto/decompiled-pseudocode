@@ -1,211 +1,167 @@
 /*
- * XREFs of EtwpKernelTraceRundown @ 0x140827608
+ * XREFs of EtwpKernelTraceRundown @ 0x1407922CC
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14038BEF4 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwKernelMemoryRundown @ 0x1409E50C8 (EtwKernelMemoryRundown.c)
- *     EtwpLogKernelTraceRundown @ 0x1409EED34 (EtwpLogKernelTraceRundown.c)
+ *     EtwpUpdateGroupMasks @ 0x140791F80 (EtwpUpdateGroupMasks.c)
+ *     EtwKernelMemoryRundown @ 0x140935AA8 (EtwKernelMemoryRundown.c)
+ *     EtwpLogKernelTraceRundown @ 0x14093DC30 (EtwpLogKernelTraceRundown.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     EtwpOpenLogger @ 0x140227610 (EtwpOpenLogger.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     EtwpCloseLogger @ 0x1403C1EC0 (EtwpCloseLogger.c)
- *     KeTraceHgsPlusRundown @ 0x140576D58 (KeTraceHgsPlusRundown.c)
- *     MmLogQueryCombineStats @ 0x1407EAB4C (MmLogQueryCombineStats.c)
- *     EtwpProcessThreadImageRundown @ 0x140827860 (EtwpProcessThreadImageRundown.c)
- *     WmiTraceRundownNotify @ 0x14084A048 (WmiTraceRundownNotify.c)
- *     EtwpClockSourceRunDown @ 0x1409EEACC (EtwpClockSourceRunDown.c)
- *     EtwpExecutiveResourceConfigRunDown @ 0x1409EEC4C (EtwpExecutiveResourceConfigRunDown.c)
- *     EtwpLogMemInfoRundown @ 0x1409EEDA8 (EtwpLogMemInfoRundown.c)
- *     EtwpLogRefSetAutoMark @ 0x1409EF124 (EtwpLogRefSetAutoMark.c)
- *     EtwpObjectTypeRundown @ 0x1409EF4A0 (EtwpObjectTypeRundown.c)
- *     EtwpPoolRunDown @ 0x1409EF5FC (EtwpPoolRunDown.c)
- *     EtwpProcessorRundown @ 0x1409EF810 (EtwpProcessorRundown.c)
- *     EtwpSampledProfileRunDown @ 0x1409EFCC4 (EtwpSampledProfileRunDown.c)
- *     EtwpSpinLockConfigRunDown @ 0x1409EFE70 (EtwpSpinLockConfigRunDown.c)
- *     CmEtwRunDown @ 0x140A124D4 (CmEtwRunDown.c)
- *     MmIdentifyPhysicalMemory @ 0x140A2ED78 (MmIdentifyPhysicalMemory.c)
- *     MmPerfLogSessionRundown @ 0x140A32628 (MmPerfLogSessionRundown.c)
- *     MmLogSystemShareablePfnInfo @ 0x140A3FF28 (MmLogSystemShareablePfnInfo.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     EtwpOpenLogger @ 0x14025D3F8 (EtwpOpenLogger.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     EtwpCloseLogger @ 0x1403799A8 (EtwpCloseLogger.c)
+ *     EtwpProcessThreadImageRundown @ 0x1407924B8 (EtwpProcessThreadImageRundown.c)
+ *     WmiTraceRundownNotify @ 0x1407C1D04 (WmiTraceRundownNotify.c)
+ *     CmEtwRunDown @ 0x14086A3B8 (CmEtwRunDown.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C7108 (MmIdentifyPhysicalMemory.c)
+ *     MmPerfLogSessionRundown @ 0x1408C8C68 (MmPerfLogSessionRundown.c)
+ *     MmLogSystemShareablePfnInfo @ 0x1408D1840 (MmLogSystemShareablePfnInfo.c)
+ *     MmLogQueryCombineStats @ 0x1408D9C50 (MmLogQueryCombineStats.c)
+ *     EtwpClockSourceRunDown @ 0x14093D9BC (EtwpClockSourceRunDown.c)
+ *     EtwpExecutiveResourceConfigRunDown @ 0x14093DB48 (EtwpExecutiveResourceConfigRunDown.c)
+ *     EtwpLogMemInfoRundown @ 0x14093DCA4 (EtwpLogMemInfoRundown.c)
+ *     EtwpLogRefSetAutoMark @ 0x14093DEA4 (EtwpLogRefSetAutoMark.c)
+ *     EtwpObjectTypeRundown @ 0x14093E1F4 (EtwpObjectTypeRundown.c)
+ *     EtwpPoolRunDown @ 0x14093E350 (EtwpPoolRunDown.c)
+ *     EtwpProcessorRundown @ 0x14093E8DC (EtwpProcessorRundown.c)
+ *     EtwpSampledProfileRunDown @ 0x14093ED58 (EtwpSampledProfileRunDown.c)
+ *     EtwpSpinLockConfigRunDown @ 0x14093EF04 (EtwpSpinLockConfigRunDown.c)
  */
 
-BOOLEAN __fastcall EtwpKernelTraceRundown(
-        unsigned int *a1,
-        __int64 a2,
-        unsigned int a3,
-        unsigned __int8 a4,
-        __int64 a5,
-        int a6)
+BOOLEAN __fastcall EtwpKernelTraceRundown(int *a1, __int64 a2, unsigned int a3, unsigned __int8 a4, __int64 a5, int a6)
 {
   unsigned int v7; // esi
-  unsigned int v8; // r14d
+  unsigned int v8; // ebp
   BOOLEAN v10; // r12
   __int64 v11; // rax
   __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  int v15; // r9d
-  __int64 v16; // rbp
-  unsigned int v17; // eax
-  __int64 v18; // rdi
-  __int64 v20; // rdi
-  unsigned int v21; // r8d
-  __int64 v22; // r8
-  __int64 v23; // r9
-  char v24[56]; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int v25; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v13; // r8
+  int v14; // r9d
+  __int64 v15; // rdi
+  int v16; // ecx
+  __int64 v17; // rcx
+  int v18; // eax
+  int v19; // eax
+  int v21; // eax
+  char v22[56]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v23; // [rsp+80h] [rbp+18h] BYREF
 
-  v25 = a3;
+  v23 = a3;
   v7 = a4;
-  v24[0] = 0;
+  v22[0] = 0;
   v8 = a3;
   v10 = IoSetThreadHardErrorMode(0);
-  v11 = EtwpOpenLogger(v8, a2, 0, v24);
-  v16 = v11;
+  v11 = EtwpOpenLogger(v8, a2, 0, v22);
+  v15 = v11;
   if ( v11 )
   {
-    if ( !a1 )
+    if ( a1 )
     {
-      v18 = 4LL;
-      goto LABEL_13;
-    }
-    v13 = a1[1];
-    if ( (v13 & 0x20) != 0 && !(_BYTE)v7 )
-      EtwpLogRefSetAutoMark(0LL, v11);
-    if ( (*a1 & 0xC004) != 0 || (a1[4] & 0x40) != 0 || (*a1 & 1) != 0 || (*a1 & 2) != 0 || (a1[1] & 0x8000000) != 0 )
-    {
-      LOBYTE(v14) = v7;
-      EtwpProcessThreadImageRundown((_DWORD)a1, v16, v14, a5, a6);
-    }
-    v17 = *a1;
-    if ( (*a1 & 0x20000) != 0 )
-    {
-      if ( (a1[2] & 0x1000000) == 0 )
+      if ( (a1[1] & 0x20) != 0 && !(_BYTE)v7 )
+        EtwpLogRefSetAutoMark(0LL, v11);
+      v16 = *a1;
+      if ( (*a1 & 0xC004) != 0 || (a1[4] & 0x40) != 0 || (v16 & 1) != 0 || (v16 & 2) != 0 || (a1[1] & 0x8000000) != 0 )
       {
-        v15 = 0;
-LABEL_58:
-        v21 = v17 >> 17;
-        LOBYTE(v21) = (v17 & 0x20000) != 0;
-        CmEtwRunDown(a2, v8, v21, v15, v7);
-LABEL_12:
-        v18 = (__int64)(a1 + 1);
-        if ( (a1[1] & 2) != 0 )
+        LOBYTE(v13) = v7;
+        EtwpProcessThreadImageRundown((_DWORD)a1, v15, v13, a5, a6);
+        v16 = *a1;
+      }
+      v17 = v16 & 0x20000;
+      if ( (_DWORD)v17 || (a1[2] & 0x1000000) != 0 )
+      {
+        LOBYTE(v14) = *((_BYTE *)a1 + 11) & 1;
+        LOBYTE(v13) = (_DWORD)v17 != 0;
+        CmEtwRunDown(a2, v8, v13, v14, v7);
+      }
+      v18 = a1[1];
+      if ( (v18 & 2) != 0 )
+      {
+        LOBYTE(v13) = 1;
+        LOBYTE(v12) = v7;
+        EtwpSampledProfileRunDown(v15, v12, v13);
+        v18 = a1[1];
+      }
+      if ( (v18 & 0x400) != 0 )
+      {
+        LOBYTE(v12) = v7;
+        EtwpSampledProfileRunDown(v15, v12, 0LL);
+        v18 = a1[1];
+      }
+      if ( (v18 & 0x10000) != 0 )
+      {
+        LOBYTE(v12) = v7;
+        EtwpSpinLockConfigRunDown(v15, v12);
+        v18 = a1[1];
+      }
+      if ( (v18 & 0x20000) != 0 )
+      {
+        LOBYTE(v12) = v7;
+        EtwpExecutiveResourceConfigRunDown(v15, v12);
+        v18 = a1[1];
+      }
+      if ( (v18 & 0x400008) != 0 )
+      {
+        MmPerfLogSessionRundown(a2, v8, v7);
+        v18 = a1[1];
+      }
+      if ( (v18 & 0x8000049) != 0 )
+      {
+        LOBYTE(v12) = v7;
+        EtwpPoolRunDown(v15, v12);
+      }
+      if ( (a1[2] & 0x100000) != 0 )
+      {
+        LOBYTE(v12) = v7;
+        EtwpClockSourceRunDown(v15, v12);
+      }
+      v19 = a1[1];
+      if ( (_BYTE)v7 )
+      {
+        if ( (v19 & 0x8000000) != 0 )
         {
-          LOBYTE(v14) = 1;
-          LOBYTE(v12) = v7;
-          EtwpSampledProfileRunDown(v16, v12, v14);
-LABEL_14:
-          if ( (*(_DWORD *)v18 & 0x400) != 0 )
-          {
-            LOBYTE(v12) = v7;
-            EtwpSampledProfileRunDown(v16, v12, 0LL);
-          }
-          if ( (*(_DWORD *)v18 & 0x10000) != 0 )
-          {
-            LOBYTE(v12) = v7;
-            EtwpSpinLockConfigRunDown(v16, v12);
-          }
-          if ( (*(_DWORD *)v18 & 0x20000) != 0 )
-          {
-            LOBYTE(v12) = v7;
-            EtwpExecutiveResourceConfigRunDown(v16, v12);
-          }
-          if ( (*(_DWORD *)v18 & 0x400008) != 0 )
-            MmPerfLogSessionRundown(a2, v8, v7);
-          if ( (*(_DWORD *)v18 & 0x8000049) != 0 )
-          {
-            LOBYTE(v12) = v7;
-            EtwpPoolRunDown(v16, v12);
-          }
-          if ( (a1[2] & 0x100000) != 0 )
-          {
-            LOBYTE(v12) = v7;
-            EtwpClockSourceRunDown(v16, v12);
-          }
-          if ( (a1[5] & 0x180) != 0 )
-            KeTraceHgsPlusRundown(v7);
-LABEL_28:
-          if ( (_BYTE)v7 )
-          {
-            if ( a1 )
-            {
-              if ( (*(_DWORD *)v18 & 0x8000000) != 0 )
-              {
-                MmIdentifyPhysicalMemory(a2, v8, 645LL, 1LL);
-                MmLogSystemShareablePfnInfo(a2, v8);
-              }
-              if ( (*(_DWORD *)v18 & 0x20) != 0 )
-              {
-                LOBYTE(v13) = v7;
-                EtwpLogRefSetAutoMark(v13, v16);
-              }
-            }
-            goto LABEL_34;
-          }
-          if ( a1 )
-          {
-            if ( (*(_DWORD *)v18 & 0x8000000) != 0 )
-            {
-              MmLogSystemShareablePfnInfo(a2, v8);
-              MmIdentifyPhysicalMemory(a2, v8, 645LL, 1LL);
-            }
-            if ( (*(_DWORD *)v18 & 9) != 0 || (a1[5] & 0x40) != 0 )
-            {
-              EtwpLogMemInfoRundown(v16);
-              if ( (a1[5] & 0x40) != 0 )
-              {
-                v22 = 650LL;
-                v23 = 2LL;
-              }
-              else
-              {
-                v22 = 547LL;
-                v23 = 0LL;
-              }
-              MmIdentifyPhysicalMemory(a2, v8, v22, v23);
-            }
-            if ( (*(_DWORD *)v18 & 0x80000) != 0 )
-            {
-              MmLogQueryCombineStats(a2, &v25, 0LL);
-              v8 = v25;
-            }
-            if ( (*a1 & 0x200) != 0 )
-              WmiTraceRundownNotify(**(_QWORD **)(v16 + 1096), v8);
-            v20 = (__int64)(a1 + 4);
-            if ( (a1[4] & 0x8000) != 0 )
-            {
-              PopExecuteOnTargetProcessors((__int64)KeActiveProcessors, (__int64)PpmTracePerfIdleRundown, 0LL, 0LL);
-              goto LABEL_47;
-            }
-          }
-          else
-          {
-            v20 = 16LL;
-          }
-          if ( !a1 )
-          {
-LABEL_34:
-            EtwpCloseLogger(v8, a2, v24[0]);
-            return IoSetThreadHardErrorMode(v10);
-          }
-LABEL_47:
-          if ( (*(_DWORD *)v20 & 0x40) != 0 || (*(_DWORD *)v20 & 0x80u) != 0 )
-            EtwpObjectTypeRundown(v16, 0LL);
-          if ( (a1[2] & 0x10000) != 0 )
-            EtwpProcessorRundown(v16);
-          goto LABEL_34;
+          MmIdentifyPhysicalMemory(a2, v8, 645LL, 1LL);
+          MmLogSystemShareablePfnInfo(a2, v8);
+          v19 = a1[1];
         }
-LABEL_13:
-        if ( !a1 )
-          goto LABEL_28;
-        goto LABEL_14;
+        if ( (v19 & 0x20) != 0 )
+        {
+          LOBYTE(v17) = v7;
+          EtwpLogRefSetAutoMark(v17, v15);
+        }
+      }
+      else
+      {
+        if ( (v19 & 0x8000000) != 0 )
+        {
+          MmLogSystemShareablePfnInfo(a2, v8);
+          MmIdentifyPhysicalMemory(a2, v8, 645LL, 1LL);
+          v19 = a1[1];
+        }
+        if ( (v19 & 9) != 0 )
+        {
+          EtwpLogMemInfoRundown(v15);
+          MmIdentifyPhysicalMemory(a2, v8, 547LL, 0LL);
+          v19 = a1[1];
+        }
+        if ( (v19 & 0x80000) != 0 )
+        {
+          MmLogQueryCombineStats(a2, &v23, 0LL);
+          v8 = v23;
+        }
+        if ( (*a1 & 0x200) != 0 )
+          WmiTraceRundownNotify(**(_QWORD **)(v15 + 1080), v8);
+        v21 = a1[4];
+        if ( (v21 & 0x8000) != 0 )
+        {
+          PopExecuteOnTargetProcessors((__int64)KeActiveProcessors, (__int64)PpmTracePerfIdleRundown, 0LL, 0LL);
+          v21 = a1[4];
+        }
+        if ( (v21 & 0x40) != 0 || (v21 & 0x80u) != 0 )
+          EtwpObjectTypeRundown(v15, 0LL);
+        if ( (a1[2] & 0x10000) != 0 )
+          EtwpProcessorRundown(v15);
       }
     }
-    else if ( (a1[2] & 0x1000000) == 0 )
-    {
-      goto LABEL_12;
-    }
-    LOBYTE(v15) = 1;
-    goto LABEL_58;
+    EtwpCloseLogger(v8, a2, v22[0]);
   }
   return IoSetThreadHardErrorMode(v10);
 }

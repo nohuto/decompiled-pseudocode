@@ -1,21 +1,21 @@
 /*
- * XREFs of CmUnRegisterCallback @ 0x1407EB030
+ * XREFs of CmUnRegisterCallback @ 0x1407EB010
  * Callers:
- *     VrpDecrementSiloCount @ 0x140807A3C (VrpDecrementSiloCount.c)
- *     EtwpRegTraceEnableCallback @ 0x1408BC930 (EtwpRegTraceEnableCallback.c)
+ *     VrpDecrementSiloCount @ 0x140807A1C (VrpDecrementSiloCount.c)
+ *     EtwpRegTraceEnableCallback @ 0x1408BC910 (EtwpRegTraceEnableCallback.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
- *     ExBlockOnAddressPushLock @ 0x1401119F0 (ExBlockOnAddressPushLock.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
  */
 
 NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)

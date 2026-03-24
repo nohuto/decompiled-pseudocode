@@ -1,20 +1,20 @@
 /*
- * XREFs of SeExamineSacl @ 0x1408A06B0
+ * XREFs of SeExamineSacl @ 0x1408A0690
  * Callers:
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
  *     SeObjectReferenceAuditAlarm @ 0x1405C992C (SeObjectReferenceAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1406D93B0 (NtOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761E00 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     CmpExamineSaclForAuditEvent @ 0x1407F5148 (CmpExamineSaclForAuditEvent.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x14089C614 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0AA0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     SeExamineGlobalSacl @ 0x1408A390C (SeExamineGlobalSacl.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406D9390 (NtOpenObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761DE0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407F5128 (CmpExamineSaclForAuditEvent.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14089C5F4 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0A80 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
  * Callees:
  *     SepSidInToken @ 0x140013310 (SepSidInToken.c)
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1400A62E0 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1401214DC (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1400A6300 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1401214FC (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

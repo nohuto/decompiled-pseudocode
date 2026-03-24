@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CitpProgramIdCalculateHash@@YA_KPEBU_CIT_PROGRAM_ID@@@Z @ 0x1C00A5C58
+ * XREFs of ?CitpProgramIdCalculateHash@@YA_KPEBU_CIT_PROGRAM_ID@@@Z @ 0x1C008FABC
  * Callers:
- *     ?CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z @ 0x1C00A58B0 (-CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z @ 0x1C008F794 (-CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -79,7 +79,7 @@ unsigned __int64 __fastcall CitpProgramIdCalculateHash(unsigned __int8 **a1)
                 if ( v21 )
                 {
                   if ( v21 != 1 )
-                    goto LABEL_8;
+                    goto LABEL_12;
                   v4 = *v1++ + 37 * v4;
                 }
                 v4 = *v1++ + 37 * v4;
@@ -95,7 +95,7 @@ unsigned __int64 __fastcall CitpProgramIdCalculateHash(unsigned __int8 **a1)
       v4 = *v1 + 37 * v4;
     }
   }
-LABEL_8:
+LABEL_12:
   v10 = a1[1];
   if ( v10 )
   {

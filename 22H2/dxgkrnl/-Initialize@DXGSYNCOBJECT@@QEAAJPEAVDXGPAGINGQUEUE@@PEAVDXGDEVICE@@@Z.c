@@ -1,220 +1,173 @@
 /*
- * XREFs of ?Initialize@DXGSYNCOBJECT@@QEAAJPEAVDXGPAGINGQUEUE@@PEAVDXGDEVICE@@@Z @ 0x1C01B2A28
+ * XREFs of ?Initialize@DXGSYNCOBJECT@@QEAAJPEAVDXGPAGINGQUEUE@@PEAVDXGDEVICE@@@Z @ 0x1C00DCAA8
  * Callers:
- *     ?CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@_NPEAVDXGPAGINGQUEUE@@PEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C01A6A78 (-CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIO.c)
+ *     ?CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@_NPEAVDXGPAGINGQUEUE@@PEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C011A458 (-CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIO.c)
  * Callees:
- *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C000295C (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?AllocHandle@DXGGLOBAL@@QEAAIPEAXW4_HMGRENTRY_TYPE@@I@Z @ 0x1C00159D0 (-AllocHandle@DXGGLOBAL@@QEAAIPEAXW4_HMGRENTRY_TYPE@@I@Z.c)
- *     ?AllocHandleSafe@DXGPROCESS@@QEAAIPEAXW4_HMGRENTRY_TYPE@@@Z @ 0x1C0019198 (-AllocHandleSafe@DXGPROCESS@@QEAAIPEAXW4_HMGRENTRY_TYPE@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?AcquireReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z @ 0x1C0048EF0 (-AcquireReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z.c)
- *     ?ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z @ 0x1C0048FC0 (-ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT@@SAXPEAU1@@Z.c)
- *     ?InitializeAdapterObject@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@PEAVDXGDEVICE@@@Z @ 0x1C01A6E18 (-InitializeAdapterObject@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@PEAVDXGDEVICE@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?Initialize@DXGSYNCOBJECTCA@@QEAAJXZ @ 0x1C03500C4 (-Initialize@DXGSYNCOBJECTCA@@QEAAJXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C00085E0 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ??1DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C0008744 (--1DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ?AllocHandle@DXGGLOBAL@@QEAAIPEAXW4_HMGRENTRY_TYPE@@I@Z @ 0x1C00089F8 (-AllocHandle@DXGGLOBAL@@QEAAIPEAXW4_HMGRENTRY_TYPE@@I@Z.c)
+ *     ?AllocHandleSafe@DXGPROCESS@@QEAAIPEAXW4_HMGRENTRY_TYPE@@@Z @ 0x1C00090A0 (-AllocHandleSafe@DXGPROCESS@@QEAAIPEAXW4_HMGRENTRY_TYPE@@@Z.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C00261B0 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?InitializeAdapterObject@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@PEAVDXGDEVICE@@@Z @ 0x1C00DCDB4 (-InitializeAdapterObject@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@PEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Initialize@DXGSYNCOBJECTCA@@QEAAJXZ @ 0x1C0291454 (-Initialize@DXGSYNCOBJECTCA@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DXGSYNCOBJECT::Initialize(DXGSYNCOBJECT *this, struct DXGPAGINGQUEUE *a2, struct DXGDEVICE *a3)
 {
-  __int64 Pool2; // rbp
+  __int64 v6; // rdx
+  _DWORD *v7; // rcx
   struct DXGPROCESS *Current; // rax
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // eax
-  int v11; // eax
-  unsigned int v12; // ecx
+  char v9; // al
+  void *v10; // rcx
+  NTSTATUS v11; // eax
+  __int64 v12; // r8
+  __int64 v13; // rbx
+  __int64 v14; // rax
+  __int64 result; // rax
+  int v16; // eax
+  bool v17; // bp
+  __int64 v18; // r14
+  char v19; // bl
+  int v20; // edi
   struct DXGGLOBAL *Global; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r10
-  __int64 v16; // rax
-  __int64 v17; // r8
-  unsigned int v18; // edi
-  __int64 v19; // rax
-  int v20; // eax
-  int v21; // eax
-  struct DXGPROCESS *v22; // rax
-  int v24; // edx
-  _DWORD *v25; // rsi
-  int v26; // ecx
-  void *v27; // rcx
-  NTSTATUS v28; // eax
-  unsigned __int64 v29; // rax
-  int v30; // ecx
+  __int64 v22; // r8
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  int v26; // eax
+  unsigned __int64 v27; // rax
+  char v28; // cl
+  __int64 v29; // rcx
+  __int64 v30; // rdx
   __int64 v31; // rcx
-  int HandleInformation; // [rsp+28h] [rbp-50h]
-  _BYTE v33[16]; // [rsp+50h] [rbp-28h] BYREF
-  PVOID Object; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v32; // r8
+  __int64 v33; // r9
+  __int64 v34; // rdx
+  int v35; // eax
+  __int64 v36; // rax
+  _QWORD *v37; // rbx
+  int v38; // [rsp+28h] [rbp-50h]
+  _BYTE v39[16]; // [rsp+40h] [rbp-38h] BYREF
+  PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
-  Pool2 = 0LL;
-  Current = DXGPROCESS::GetCurrent();
-  if ( Current )
+  if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
   {
-    v8 = *((_DWORD *)Current + 106);
-    if ( (v8 & 0x10) != 0 && (v8 & 0x100) == 0 )
-      *((_DWORD *)this + 71) |= 4u;
-  }
-  if ( *((_DWORD *)this + 50) == 4 )
-  {
-    v26 = *((_DWORD *)Current + 106);
-    if ( (v26 & 0x10) == 0
-      && (v26 & 0x100) == 0
-      && ((*((_DWORD *)this + 71) & 2) != 0 || _bittest((const signed __int32 *)this + 51, 8u)) )
+    Current = DXGPROCESS::GetCurrent();
+    if ( *((_DWORD *)this + 48) == 4 )
     {
-      v27 = (void *)*((_QWORD *)this + 26);
-      Object = 0LL;
-      v28 = ObReferenceObjectByHandle(v27, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
-      v18 = v28;
-      *((_QWORD *)this + 11) = Object;
-      if ( v28 < 0 )
+      v9 = *((_BYTE *)Current + 347);
+      if ( (v9 & 2) == 0 && (v9 & 0x20) == 0 && (*((_BYTE *)this + 277) || (*((_DWORD *)this + 49) & 0x100) != 0) )
       {
-        WdLogSingleEntry1(3LL, v28);
-        return v18;
+        v10 = (void *)*((_QWORD *)this + 25);
+        Object = 0LL;
+        v11 = ObReferenceObjectByHandle(v10, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+        v7 = Object;
+        *((_QWORD *)this + 10) = Object;
+        v13 = v11;
+        if ( v11 < 0 )
+        {
+          v14 = WdLogNewEntry5_WdWarning(v7, v6, v12);
+          *(_QWORD *)(v14 + 24) = v13;
+          WdLogEvent5_WdWarning(v14);
+          return (unsigned int)v13;
+        }
       }
     }
   }
-  v9 = *((_DWORD *)this + 71);
-  if ( (v9 & 2) != 0 )
+  if ( !*((_BYTE *)this + 277) && (unsigned int)(*((_DWORD *)this + 48) - 5) <= 1 )
   {
-LABEL_16:
-    if ( (*((_DWORD *)this + 51) & 4) != 0 )
-      v20 = DXGSYNCOBJECTCA::Initialize(this);
+    v16 = *((_DWORD *)this + 49);
+    if ( (v16 & 0x80u) == 0 )
+    {
+      if ( (v16 & 4) != 0 )
+      {
+        v17 = 0;
+      }
+      else
+      {
+        v7 = *(_DWORD **)(*((_QWORD *)this + 39) + 16LL);
+        v17 = (v7[514] & 0x20) == 0;
+      }
+    }
     else
-      v20 = DXGADAPTERSYNCOBJECT::InitializeAdapterObject((DXGSYNCOBJECT *)((char *)this + 296), this, a3);
-    v18 = v20;
-    if ( v20 < 0 )
-      goto LABEL_21;
-    v21 = *((_DWORD *)this + 51);
-    if ( (v21 & 1) != 0 )
     {
-      v24 = *((_DWORD *)this + 71);
-      if ( (v21 & 2) == 0 || (v24 & 0x10) != 0 )
-      {
-        if ( (v24 & 0x10) != 0 )
-        {
-          v29 = (unsigned __int64)DXGPROCESS::GetCurrent();
-          v30 = *(_DWORD *)(v29 + 424);
-          if ( (v30 & 0x100) != 0 )
-            v31 = *(_QWORD *)(v29 + 608);
-          else
-            v31 = v29 & -(__int64)((v30 & 0x80u) != 0);
-          v25 = (_DWORD *)((char *)this + 80);
-          *((_DWORD *)this + 20) = DXGPROCESS::AllocHandleSafe(v31, (__int64)this, 8u);
-        }
-        else
-        {
-          DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v33);
-          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v33);
-          v25 = (_DWORD *)((char *)this + 80);
-          *((_DWORD *)this + 20) = DXGGLOBAL::AllocHandle(*((_QWORD *)this + 2), (__int64)this, 8u);
-          if ( v33[8] )
-            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v33);
-        }
-        if ( !*v25 )
-        {
-          v18 = -1073741801;
-          WdLogSingleEntry2(6LL, this, -1073741801LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262145,
-            -1,
-            (__int64)L"SyncObj 0x%I64x: Unable to create synchronization object handle, returning 0x%I64x",
-            (__int64)this,
-            -1073741801LL,
-            0LL,
-            0LL,
-            0LL);
-LABEL_21:
-          if ( Pool2 )
-          {
-            DXG_SIGNAL_GUEST_CPU_EVENT::ReleaseReference((struct DXG_SIGNAL_GUEST_CPU_EVENT *)Pool2);
-            *((_QWORD *)this + 26) = 0LL;
-          }
-          return v18;
-        }
-        *((_DWORD *)this + 68) = *v25;
-      }
+      v17 = 1;
     }
-    v22 = DXGPROCESS::GetCurrent();
-    WdLogSingleEntry3(4LL, this, *((unsigned int *)this + 20), v22);
-    goto LABEL_21;
-  }
-  v10 = *((_DWORD *)this + 50);
-  if ( v10 == 4 )
-  {
-    if ( (v9 & 4) != 0 )
-    {
-      if ( !*((_QWORD *)this + 26) )
-      {
-        WdLogSingleEntry1(2LL, 1676LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"WSL CPU event is NULL", 1676LL, 0LL, 0LL, 0LL, 0LL);
-        return (unsigned int)-1073741811;
-      }
-      Pool2 = ExAllocatePool2(64LL, 40LL, 1265072196LL);
-      if ( !Pool2 )
-      {
-        WdLogSingleEntry1(6LL, 1683LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Failed to allocate memory for DXG_SIGNAL_GUEST_CPU_EVENT",
-          1683LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        return (unsigned int)-1073741801;
-      }
-      *(_QWORD *)(Pool2 + 8) = *((_QWORD *)this + 26);
-      *(_BYTE *)(Pool2 + 17) = 1;
-      *(_BYTE *)(Pool2 + 19) = 1;
-      *((_QWORD *)this + 26) = Pool2;
-      DXG_SIGNAL_GUEST_CPU_EVENT::AcquireReference((struct DXG_SIGNAL_GUEST_CPU_EVENT *)Pool2);
-    }
-    goto LABEL_16;
-  }
-  if ( (unsigned int)(v10 - 5) > 1 )
-    goto LABEL_16;
-  v11 = *((_DWORD *)this + 51);
-  if ( (v11 & 0x80u) != 0 )
-  {
-    v12 = v9 | 1;
-  }
-  else
-  {
-    v12 = v9 & 0xFFFFFFFE;
-    if ( (v11 & 4) == 0 )
-      v12 |= (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 39) + 16LL) + 2280LL) & 0x20) == 0;
-  }
-  *((_DWORD *)this + 71) = v12;
-  Global = DXGGLOBAL::GetGlobal();
-  v15 = 0LL;
-  v16 = *((_QWORD *)Global + 33);
-  if ( *((_DWORD *)this + 50) != 6 )
-    v15 = *((_QWORD *)this + 26);
-  LOBYTE(HandleInformation) = *((_BYTE *)this + 284) & 1;
-  LOBYTE(v14) = *((_BYTE *)this + 204) & 1;
-  v17 = *((_DWORD *)this + 71) >> 5;
-  LOBYTE(v17) = (*((_DWORD *)this + 71) & 0x20) != 0;
-  v18 = (*(__int64 (__fastcall **)(char *, __int64, __int64, _QWORD, __int64, int))(*(_QWORD *)(v16 + 8) + 912LL))(
-          (char *)this + 128,
-          v14,
-          v17,
-          0LL,
-          v15,
-          HandleInformation);
-  if ( (v18 & 0x80000000) == 0 )
-  {
+    *((_BYTE *)this + 276) = v17;
+    if ( *((_DWORD *)this + 48) == 6 )
+      v18 = 0LL;
+    else
+      v18 = *((_QWORD *)this + 25);
+    v19 = *((_BYTE *)this + 280);
+    v20 = *((_DWORD *)this + 49);
+    Global = DXGGLOBAL::GetGlobal((__int64)v7, v6);
+    LOBYTE(v38) = v17;
+    LOBYTE(v22) = v19 != 0;
+    LOBYTE(v23) = v20 & 1;
+    result = (*(__int64 (__fastcall **)(char *, __int64, __int64, _QWORD, __int64, int))(*(_QWORD *)(*((_QWORD *)Global + 28) + 8LL)
+                                                                                       + 920LL))(
+               (char *)this + 120,
+               v23,
+               v22,
+               0LL,
+               v18,
+               v38);
+    if ( (int)result < 0 )
+      return result;
     if ( a2 )
-      v19 = *((_QWORD *)a2 + 4);
+      v24 = *((_QWORD *)a2 + 4);
     else
-      v19 = 0LL;
-    *((_QWORD *)this + 19) = v19;
-    goto LABEL_16;
+      v24 = 0LL;
+    *((_QWORD *)this + 18) = v24;
   }
-  return v18;
+  if ( (*((_DWORD *)this + 49) & 4) != 0 )
+    result = DXGSYNCOBJECTCA::Initialize(this);
+  else
+    result = DXGADAPTERSYNCOBJECT::InitializeAdapterObject((DXGSYNCOBJECT *)((char *)this + 296), this, a3);
+  if ( (int)result >= 0 )
+  {
+    v26 = *((_DWORD *)this + 49);
+    if ( (v26 & 1) != 0 && ((v26 & 2) == 0 || *((_BYTE *)this + 279)) )
+    {
+      if ( *((_BYTE *)this + 279) )
+      {
+        v27 = (unsigned __int64)DXGPROCESS::GetCurrent();
+        v28 = *(_BYTE *)(v27 + 347);
+        if ( (v28 & 0x20) != 0 )
+          v29 = *(_QWORD *)(v27 + 496);
+        else
+          v29 = v27 & -(__int64)((v28 & 0x10) != 0);
+        *((_DWORD *)this + 18) = DXGPROCESS::AllocHandleSafe(v29, (__int64)this, 8u);
+      }
+      else
+      {
+        DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v39, v25);
+        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v39);
+        *((_DWORD *)this + 18) = DXGGLOBAL::AllocHandle(*((_QWORD *)this + 2), (__int64)this, 8u);
+        DXGGLOBALSHAREMUTEX::~DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v39, v34);
+      }
+      v35 = *((_DWORD *)this + 18);
+      if ( !v35 )
+      {
+        v36 = WdLogNewEntry5_WdLowResource(v31, v30, v32, v33);
+        LODWORD(v13) = -1073741801;
+        *(_QWORD *)(v36 + 24) = this;
+        *(_QWORD *)(v36 + 32) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v36);
+        return (unsigned int)v13;
+      }
+      *((_DWORD *)this + 66) = v35;
+    }
+    v37 = (_QWORD *)WdLogNewEntry5_WdEvent();
+    v37[3] = this;
+    v37[4] = *((unsigned int *)this + 18);
+    v37[5] = DXGPROCESS::GetCurrent();
+    WdLogEvent5_WdEvent(v37);
+    return 0LL;
+  }
+  return result;
 }

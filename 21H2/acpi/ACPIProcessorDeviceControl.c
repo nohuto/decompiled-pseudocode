@@ -1,17 +1,17 @@
 /*
- * XREFs of ACPIProcessorDeviceControl @ 0x1C0095160
+ * XREFs of ACPIProcessorDeviceControl @ 0x1C009A990
  * Callers:
  *     <none>
  * Callees:
- *     AMLIGetNSObjectType @ 0x1C0001738 (AMLIGetNSObjectType.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     ACPIIoctlEvalControlMethod @ 0x1C001BC74 (ACPIIoctlEvalControlMethod.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     ACPIIoctlEnumChildren @ 0x1C001F2D4 (ACPIIoctlEnumChildren.c)
- *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002D9AC (ACPIIoctlAsyncEvalControlMethod.c)
- *     ACPIDispatchPowerIrpInvalid @ 0x1C002E1A0 (ACPIDispatchPowerIrpInvalid.c)
- *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005E240 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C000BAC4 (ACPIIoctlEvalControlMethod.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     ACPIIoctlEnumChildren @ 0x1C0013C10 (ACPIIoctlEnumChildren.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     ACPIDispatchPowerIrpInvalid @ 0x1C0031260 (ACPIDispatchPowerIrpInvalid.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005D55C (ACPIProcessorContainerGetLpiStatesIoctl.c)
  */
 
 __int64 __fastcall ACPIProcessorDeviceControl(ULONG_PTR a1, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall ACPIProcessorDeviceControl(ULONG_PTR a1, __int64 a2)
   unsigned int v12; // ecx
   int v14; // edi
   unsigned int v16; // ecx
-  __int64 *v17; // rcx
+  unsigned __int64 *v17; // rcx
   __int64 v18; // rcx
   int v19; // eax
   unsigned int v20; // ecx
@@ -96,7 +96,7 @@ LABEL_32:
     }
     else
     {
-      if ( (unsigned int)AMLIGetNSObjectType(*(_QWORD *)(DeviceExtension + 760)) != 12 )
+      if ( (unsigned int)AMLIGetNSObjectType(*(_QWORD *)(DeviceExtension + 720)) != 12 )
       {
         v19 = *(_DWORD *)(v6 + 196);
         *(_DWORD *)(v7 + 4) = 0;

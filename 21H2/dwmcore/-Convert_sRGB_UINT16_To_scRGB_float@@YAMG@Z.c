@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Convert_sRGB_UINT16_To_scRGB_float@@YAMG@Z @ 0x18026F4F4
+ * XREFs of ?Convert_sRGB_UINT16_To_scRGB_float@@YAMG@Z @ 0x18021EF84
  * Callers:
- *     ?GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B0F80 (-GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ *     ?GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AF40 (-GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpVpptAcknowledgeInterrupt @ 0x140509740
+ * XREFs of HalpVpptAcknowledgeInterrupt @ 0x1404C0650
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x140509E90 (HalpVpptUpdatePhysicalTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0D94 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
@@ -31,23 +31,34 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   bool v16; // zf
   LARGE_INTEGER v17; // [rsp+30h] [rbp+8h] BYREF
 
-  byte_140C628F8 = HalpAcquireHighLevelLock(&qword_140C628F0);
+  byte_140C4A738 = HalpAcquireHighLevelLock(&qword_140C4A730);
   InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
   (*(void (__fastcall **)(__int64))(v3 + 120))(InternalData);
-  if ( (unsigned __int8)((__int64 (*)(void))HalpVpptSkipApi)() )
-    goto LABEL_21;
-  if ( *(_QWORD *)&HalpVpptQueue == a1 )
+  if ( !(unsigned __int8)((__int64 (*)(void))HalpVpptSkipApi)() )
   {
+    if ( *(_QWORD *)&HalpVpptQueue != a1 )
+      goto LABEL_15;
     v4 = **(_QWORD **)&HalpVpptQueue;
-    if ( *(int **)(*(_QWORD *)&HalpVpptQueue + 8LL) != &HalpVpptQueue
-      || *(_QWORD *)(v4 + 8) != *(_QWORD *)&HalpVpptQueue )
+    if ( *(int **)(*(_QWORD *)&HalpVpptQueue + 8LL) == &HalpVpptQueue
+      && *(_QWORD *)(v4 + 8) == *(_QWORD *)&HalpVpptQueue )
     {
-      goto LABEL_19;
-    }
-    *(_QWORD *)&HalpVpptQueue = **(_QWORD **)&HalpVpptQueue;
-    *(_QWORD *)(v4 + 8) = &HalpVpptQueue;
-    if ( *(_QWORD *)(a1 + 40) )
-    {
+      *(_QWORD *)&HalpVpptQueue = **(_QWORD **)&HalpVpptQueue;
+      *(_QWORD *)(v4 + 8) = &HalpVpptQueue;
+      if ( !*(_QWORD *)(a1 + 40) )
+      {
+        *(_BYTE *)(a1 + 24) = 0;
+LABEL_15:
+        if ( *(int **)&HalpVpptQueue == &HalpVpptQueue )
+        {
+          v10 = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
+          (*(void (__fastcall **)(__int64))(v11 + 136))(v10);
+        }
+        else
+        {
+          HalpVpptUpdatePhysicalTimer();
+        }
+        goto LABEL_20;
+      }
       v17.QuadPart = 0LL;
       InterruptTimePrecise = RtlGetInterruptTimePrecise(&v17);
       v6 = *(_QWORD *)(a1 + 32);
@@ -74,42 +85,28 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
         *(_QWORD *)v8 = a1;
         goto LABEL_15;
       }
-LABEL_19:
-      __fastfail(3u);
     }
-    *(_BYTE *)(a1 + 24) = 0;
+    __fastfail(3u);
   }
-LABEL_15:
-  if ( *(int **)&HalpVpptQueue == &HalpVpptQueue )
-  {
-    if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) != 3 )
-    {
-      v10 = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
-      (*(void (__fastcall **)(__int64))(v11 + 136))(v10);
-    }
-  }
-  else
-  {
-    HalpVpptUpdatePhysicalTimer();
-  }
-LABEL_21:
-  v12 = (unsigned __int8)byte_140C628F8;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C628F0);
+LABEL_20:
+  v12 = (unsigned __int8)byte_140C4A738;
+  KxReleaseSpinLock(&qword_140C4A730);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v12 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-      v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v16 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v16 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v12);

@@ -1,8 +1,8 @@
 /*
- * XREFs of _anonymous_namespace_::ResetInteractionOutput @ 0x180039E00
+ * XREFs of _anonymous_namespace_::ResetInteractionOutput @ 0x1800B6078
  * Callers:
- *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x180039DD0 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
- *     ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180284590 (-GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z.c)
+ *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x1800B6048 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
+ *     ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180230350 (-GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z.c)
  * Callees:
  *     <none>
  */

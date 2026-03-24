@@ -1,19 +1,20 @@
 /*
- * XREFs of MiValidateMemoryRangeEntries @ 0x1407A4BCC
+ * XREFs of MiValidateMemoryRangeEntries @ 0x1406FA9AC
  * Callers:
- *     MmOutSwapVirtualAddresses @ 0x140652CBC (MmOutSwapVirtualAddresses.c)
- *     NtSetInformationVirtualMemory @ 0x1407A4530 (NtSetInformationVirtualMemory.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403504CC (MmOutSwapVirtualAddresses.c)
+ *     NtSetInformationVirtualMemory @ 0x1406FA310 (NtSetInformationVirtualMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiValidateMemoryRangeEntries(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall MiValidateMemoryRangeEntries(unsigned __int64 *a1, __int64 a2, unsigned __int64 *a3)
 {
-  _QWORD *v3; // r9
+  unsigned __int64 *v3; // r9
   unsigned __int64 v4; // r10
   unsigned __int64 v5; // rdx
-  __int64 v6; // rcx
-  unsigned __int64 v7; // rax
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rax
 
   v3 = a1;
   if ( a3 )
@@ -22,7 +23,7 @@ __int64 __fastcall MiValidateMemoryRangeEntries(_QWORD *a1, __int64 a2, unsigned
   v5 = (unsigned __int64)&a1[2 * a2];
   if ( (unsigned __int64)a1 >= v5 )
   {
-LABEL_9:
+LABEL_10:
     if ( a3 )
       *a3 = v4;
     return 1LL;
@@ -31,20 +32,23 @@ LABEL_9:
   {
     while ( 1 )
     {
-      v6 = v3[1];
-      if ( !v6 )
+      v6 = *v3;
+      if ( *v3 > 0x7FFFFFFEFFFFLL )
         return 0LL;
-      if ( (unsigned __int64)(*v3 + v6 - 1) < *v3 )
+      v7 = v3[1];
+      if ( !v7 )
         return 0LL;
-      if ( (unsigned __int64)(v6 + *v3 - 1LL) > 0x7FFFFFFEFFFFLL )
+      if ( v7 + v6 < v6 )
         return 0LL;
-      v7 = v4 + ((v6 + (unsigned __int64)(*(_DWORD *)v3 & 0xFFF) + 4095) >> 12);
-      if ( v7 < v4 )
+      if ( v7 + v6 - 1 > 0x7FFFFFFEFFFFLL )
+        return 0LL;
+      v8 = v4 + ((v7 + (*(_DWORD *)v3 & 0xFFF) + 4095LL) >> 12);
+      if ( v8 < v4 )
         return 0LL;
       v3 += 2;
-      v4 = v7;
+      v4 = v8;
       if ( (unsigned __int64)v3 >= v5 )
-        goto LABEL_9;
+        goto LABEL_10;
     }
   }
 }

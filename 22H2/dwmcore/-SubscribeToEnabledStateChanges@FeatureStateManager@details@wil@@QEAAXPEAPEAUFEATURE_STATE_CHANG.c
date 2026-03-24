@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SubscribeToEnabledStateChanges@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800B0314
+ * XREFs of ?SubscribeToEnabledStateChanges@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AE664
  * Callers:
- *     ?WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800B02E0 (-WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_.c)
+ *     ?WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AE480 (-WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_.c)
  * Callees:
- *     ?SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800B06C0 (-SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPT.c)
- *     wil_details_RtlRegisterFeatureConfigurationChangeNotification @ 0x180111914 (wil_details_RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     ?SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800B02E8 (-SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPT.c)
+ *     ?EnsureSubscribedToStateChangesUnderLock@FeatureStateManager@details@wil@@AEAA_NXZ @ 0x1800B0420 (-EnsureSubscribedToStateChangesUnderLock@FeatureStateManager@details@wil@@AEAA_NXZ.c)
  */
 
 void __fastcall wil::details::FeatureStateManager::SubscribeToEnabledStateChanges(
@@ -13,21 +13,15 @@ void __fastcall wil::details::FeatureStateManager::SubscribeToEnabledStateChange
         void (*a3)(void *),
         void *a4)
 {
-  RTL_SRWLOCK *v8; // rdi
+  RTL_SRWLOCK *v8; // rbx
 
   *a2 = 0LL;
   if ( LOBYTE(this->Ptr) )
   {
     v8 = this + 4;
     AcquireSRWLockExclusive(this + 4);
-    if ( this[18].Ptr
-      || (this[18].Ptr = 0LL,
-          !(unsigned int)wil_details_RtlRegisterFeatureConfigurationChangeNotification(
-                           _lambda_1ad7ecfab602a777ecf020873216a663_::_lambda_invoker_cdecl_,
-                           this)) )
-    {
+    if ( wil::details::FeatureStateManager::EnsureSubscribedToStateChangesUnderLock((wil::details::FeatureStateManager *)this) )
       wil::details_abi::SubscriptionList::SubscribeUnderLock((wil::details_abi::SubscriptionList *)&this[9], a2, a3, a4);
-    }
     if ( v8 )
       ReleaseSRWLockExclusive(v8);
   }

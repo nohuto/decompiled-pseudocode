@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpSlowFlushPasidAddressList @ 0x1402764E0
+ * XREFs of HvlpSlowFlushPasidAddressList @ 0x1402765E0
  * Callers:
- *     HvlSvmFlushPasid @ 0x140275BC0 (HvlSvmFlushPasid.c)
+ *     HvlSvmFlushPasid @ 0x140275CC0 (HvlSvmFlushPasid.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
- *     HvlpFlushPasidAddressSpace @ 0x1402763E0 (HvlpFlushPasidAddressSpace.c)
- *     HvlpCopyFlushVaList @ 0x1402795F8 (HvlpCopyFlushVaList.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvlpFlushPasidAddressSpace @ 0x1402764E0 (HvlpFlushPasidAddressSpace.c)
+ *     HvlpCopyFlushVaList @ 0x1402796F8 (HvlpCopyFlushVaList.c)
  */
 
 PSLIST_ENTRY __fastcall HvlpSlowFlushPasidAddressList(int a1, int a2, unsigned int a3, __int64 a4)

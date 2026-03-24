@@ -4,8 +4,8 @@
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
  *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9AC (MiAddExpansionNonPagedPool.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void MxConsumeLargePageSlush()

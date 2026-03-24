@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMoveScbThreadsToNewReadylist @ 0x140117350
+ * XREFs of KiMoveScbThreadsToNewReadylist @ 0x140117370
  * Callers:
- *     KeSetSchedulingGroupRankBias @ 0x140116408 (KeSetSchedulingGroupRankBias.c)
- *     KiResetScb @ 0x140116914 (KiResetScb.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140116428 (KeSetSchedulingGroupRankBias.c)
+ *     KiResetScb @ 0x140116934 (KiResetScb.c)
  * Callees:
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAddThreadToPrcbQueue @ 0x14011754C (KiAddThreadToPrcbQueue.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiAddThreadToPrcbQueue @ 0x14011756C (KiAddThreadToPrcbQueue.c)
  */
 
 __int64 __fastcall KiMoveScbThreadsToNewReadylist(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)

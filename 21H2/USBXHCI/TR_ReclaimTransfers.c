@@ -1,10 +1,10 @@
 /*
- * XREFs of TR_ReclaimTransfers @ 0x1C000BD60
+ * XREFs of TR_ReclaimTransfers @ 0x1C000BC5C
  * Callers:
- *     ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000CEA0 (ESM_ReclaimingTransfersAfterEndpointStop.c)
- *     ESM_RequeuingPendingTransfersAfterHaltClear @ 0x1C004F840 (ESM_RequeuingPendingTransfersAfterHaltClear.c)
+ *     ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000F270 (ESM_ReclaimingTransfersAfterEndpointStop.c)
+ *     ESM_RequeuingPendingTransfersAfterHaltClear @ 0x1C004ED20 (ESM_RequeuingPendingTransfersAfterHaltClear.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_ReclaimTransfers(__int64 a1)

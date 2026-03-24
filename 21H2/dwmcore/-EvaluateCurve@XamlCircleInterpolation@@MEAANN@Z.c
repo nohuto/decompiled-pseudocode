@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EvaluateCurve@XamlCircleInterpolation@@MEAANN@Z @ 0x1800FBC80
+ * XREFs of ?EvaluateCurve@XamlCircleInterpolation@@MEAANN@Z @ 0x1800E3110
  * Callers:
  *     <none>
  * Callees:
- *     sqrt @ 0x180101970 (sqrt.c)
+ *     sqrt @ 0x1800E81E0 (sqrt.c)
  */
 
 double __fastcall XamlCircleInterpolation::EvaluateCurve(XamlCircleInterpolation *this, double a2)

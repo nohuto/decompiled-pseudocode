@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwDeleteFile @ 0x14041D260
+ * XREFs of ZwDeleteFile @ 0x1403FBE00
  * Callers:
- *     DifZwDeleteFileWrapper @ 0x14061F620 (DifZwDeleteFileWrapper.c)
- *     NtEnableLastKnownGood @ 0x14080B090 (NtEnableLastKnownGood.c)
- *     KsepDeletePatchSdb @ 0x140964CB8 (KsepDeletePatchSdb.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x140B4FF80 (PiLastGoodRevertLastKnownDirectory.c)
+ *     NtEnableLastKnownGood @ 0x14077C3F0 (NtEnableLastKnownGood.c)
+ *     KsepDeletePatchSdb @ 0x1408C0C74 (KsepDeletePatchSdb.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140A908F0 (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
  *     <none>
  */

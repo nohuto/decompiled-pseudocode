@@ -1,134 +1,138 @@
 /*
- * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C
+ * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x140736198
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140766834 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140738574 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     PipRestoreDevNodeState @ 0x14025B96C (PipRestoreDevNodeState.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     PnpMarkDeviceForRemove @ 0x1403A0064 (PnpMarkDeviceForRemove.c)
- *     PnpUnlockMountableDevice @ 0x1403A01B0 (PnpUnlockMountableDevice.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1403A15FC (IopDecrementDeviceObjectHandleCount.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PiDmaGuardProcessPostRemove @ 0x1407669D4 (PiDmaGuardProcessPostRemove.c)
- *     IopReleaseDeviceResources @ 0x140766A5C (IopReleaseDeviceResources.c)
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14076BC20 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PnpDisableDeviceInterfaces @ 0x140810788 (PnpDisableDeviceInterfaces.c)
- *     PipConvertResolutionsToReservations @ 0x14085CA7C (PipConvertResolutionsToReservations.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PipRestoreDevNodeState @ 0x14036D7A0 (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     PnpMarkDeviceForRemove @ 0x140393BC4 (PnpMarkDeviceForRemove.c)
+ *     PnpUnlockMountableDevice @ 0x140393E18 (PnpUnlockMountableDevice.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x14039551C (IopDecrementDeviceObjectHandleCount.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PnpDisableDeviceInterfaces @ 0x14073601C (PnpDisableDeviceInterfaces.c)
+ *     PiDmaGuardProcessPostRemove @ 0x1407386D0 (PiDmaGuardProcessPostRemove.c)
+ *     IopReleaseDeviceResources @ 0x140738748 (IopReleaseDeviceResources.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipConvertResolutionsToReservations @ 0x1407CD718 (PipConvertResolutionsToReservations.c)
  */
 
-void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2, int a3)
+__int64 __fastcall PnpSurpriseRemoveLockedDeviceNode(__int64 MaxDataSize, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  int v3; // esi
-  struct _DEVICE_OBJECT *v4; // r12
-  int v8; // r14d
-  __int64 v9; // rbx
-  int v10; // eax
-  int v11; // ebx
-  __int64 v12; // rcx
-  int v13; // edx
+  int v4; // esi
+  struct _DEVICE_OBJECT *v5; // r12
+  unsigned int v6; // r13d
+  unsigned int v7; // r15d
+  int v9; // r14d
+  __int64 v10; // rbx
+  int v11; // eax
+  int v12; // ebx
+  __int64 v13; // rcx
   __int64 v14; // rax
   __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rbp
-  void *v18; // rbx
-  __int128 v19; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v16; // rcx
+  int v18; // eax
+  __int64 v19; // rbp
+  struct _DMA_ADAPTER *v20; // rbx
+  __int128 v21; // [rsp+20h] [rbp-38h] BYREF
 
-  v3 = *(_DWORD *)(MaxDataSize + 300);
-  v4 = *(struct _DEVICE_OBJECT **)(MaxDataSize + 32);
-  v8 = 768;
-  v19 = 0LL;
-  if ( v3 == 784 || v3 == 785 )
+  v4 = *(_DWORD *)(MaxDataSize + 300);
+  v5 = *(struct _DEVICE_OBJECT **)(MaxDataSize + 32);
+  v6 = a3;
+  v7 = a2;
+  v9 = 768;
+  v21 = 0LL;
+  if ( v4 == 782 || v4 == 783 )
   {
-    v8 = v3;
+    v9 = v4;
     PipRestoreDevNodeState(MaxDataSize);
-    v3 = *(_DWORD *)(MaxDataSize + 300);
+    v4 = *(_DWORD *)(MaxDataSize + 300);
   }
   *(_WORD *)(MaxDataSize + 466) = 0;
-  if ( v3 == 787 && v8 == 784 )
+  if ( v4 == 785 && v9 == 782 )
   {
-    PipClearDevNodeFlags(MaxDataSize, 16);
-    PipSetDevNodeState(MaxDataSize, 789);
-    return;
+    PipClearDevNodeFlags(MaxDataSize, 16LL);
+    return PipSetDevNodeState(MaxDataSize, 787);
   }
-  v9 = *(_QWORD *)(MaxDataSize + 8);
-  if ( v9 )
+  v10 = *(_QWORD *)(MaxDataSize + 8);
+  if ( v10 )
   {
     do
     {
-      v16 = *(_DWORD *)(v9 + 396);
-      v17 = *(_QWORD *)v9;
-      if ( (v16 & 0x10) != 0 )
+      v18 = *(_DWORD *)(v10 + 396);
+      v19 = *(_QWORD *)v10;
+      if ( (v18 & 0x10) != 0 )
       {
-        v16 &= ~0x10u;
-        *(_DWORD *)(v9 + 396) = v16;
+        v18 &= ~0x10u;
+        *(_DWORD *)(v10 + 396) = v18;
       }
-      if ( *(_QWORD *)(v9 + 416) || *(_QWORD *)(v9 + 544) || (v16 & 0x40) != 0 )
-        IopReleaseDeviceResources(v9, 0);
-      PipSetDevNodeState(v9, 789);
-      v9 = v17;
+      if ( *(_QWORD *)(v10 + 416) || *(_QWORD *)(v10 + 544) || (v18 & 0x40) != 0 )
+        IopReleaseDeviceResources(v10, 0LL);
+      PipSetDevNodeState(v10, 787);
+      v10 = v19;
     }
-    while ( v17 );
+    while ( v19 );
   }
-  if ( v3 == 780 && (*(_DWORD *)(MaxDataSize + 396) & 0x1000000) != 0 )
+  if ( v4 == 778 && (*(_DWORD *)(MaxDataSize + 396) & 0x1000000) != 0 )
   {
-    PnpMarkDeviceForRemove((ULONG_PTR)v4, 1, (ULONG_PTR *)&v19);
-    PnpUnlockMountableDevice((__int64)v4);
-    PipClearDevNodeFlags(MaxDataSize, 0x1000000);
+    PnpMarkDeviceForRemove((ULONG_PTR)v5, 1, (ULONG_PTR *)&v21);
+    PnpUnlockMountableDevice((__int64)v5);
+    PipClearDevNodeFlags(MaxDataSize, 0x1000000LL);
   }
-  v10 = *(_DWORD *)(MaxDataSize + 300);
-  if ( v10 < 769 || v10 > 772 && (v10 <= 778 || v10 == 780 || (unsigned int)(v10 - 787) > 3) )
+  v11 = *(_DWORD *)(MaxDataSize + 300);
+  if ( v11 < 769 || v11 > 770 && (v11 <= 776 || v11 == 778 || (unsigned int)(v11 - 785) > 3) )
   {
-    v11 = IopRemoveDevice(v4, 23);
-    PnpDisableDeviceInterfaces(MaxDataSize + 40);
-    if ( v11 >= 0 )
-      IopReleaseDeviceResources(MaxDataSize, 0);
-    v12 = MaxDataSize;
+    v12 = IopRemoveDevice(v5);
+    PnpDisableDeviceInterfaces((unsigned __int16 *)(MaxDataSize + 40));
+    if ( v12 >= 0 )
+      IopReleaseDeviceResources(MaxDataSize, 0LL);
+    v13 = MaxDataSize;
     if ( (*(_DWORD *)(MaxDataSize + 396) & 0x10) == 0 )
     {
-      v13 = 789;
+      LODWORD(a2) = 787;
 LABEL_13:
-      PipSetDevNodeState(v12, v13);
+      PipSetDevNodeState(v13, a2);
       goto LABEL_14;
     }
-    PipSetDevNodeState(MaxDataSize, 787);
-    v13 = 784;
-    if ( v8 == 784 )
+    PipSetDevNodeState(MaxDataSize, 785);
+    a2 = 782LL;
+    if ( v9 == 782 )
     {
-      v12 = MaxDataSize;
+      v13 = MaxDataSize;
       goto LABEL_13;
     }
   }
 LABEL_14:
-  if ( v3 == 780 )
+  if ( v4 == 778 )
   {
-    v18 = (void *)*((_QWORD *)&v19 + 1);
-    if ( *((_QWORD *)&v19 + 1) )
+    v20 = (struct _DMA_ADAPTER *)*((_QWORD *)&v21 + 1);
+    if ( *((_QWORD *)&v21 + 1) )
     {
-      IopDecrementDeviceObjectHandleCount(*((ULONG_PTR *)&v19 + 1));
-      ObfDereferenceObject(v18);
+      IopDecrementDeviceObjectHandleCount(*((ULONG_PTR *)&v21 + 1), a2, a3, a4);
+      HalPutDmaAdapter(v20);
     }
   }
-  if ( a2 && (*(_DWORD *)(MaxDataSize + 396) & 0x6000) == 0 )
-    PipSetDevNodeProblem(MaxDataSize, a2, a3);
+  if ( v7 && (*(_DWORD *)(MaxDataSize + 396) & 0x6000) == 0 )
+    PipSetDevNodeProblem(MaxDataSize, v7, v6);
+  *(_DWORD *)(MaxDataSize + 704) &= ~2u;
   if ( (*(_DWORD *)(MaxDataSize + 396) & 0x10) == 0 )
   {
     PnpAcquireDependencyRelationsLock(1);
     v14 = *(_QWORD *)(MaxDataSize + 32);
     if ( v14 )
-    {
       v15 = *(_QWORD *)(*(_QWORD *)(v14 + 312) + 80LL);
-      if ( v15 )
-        PipConvertResolutionsToReservations(v15);
-    }
+    else
+      v15 = 0LL;
+    if ( v15 )
+      PipConvertResolutionsToReservations(v15);
     ExReleaseResourceLite(&PiDependencyRelationsLock);
     PpDevNodeUnlockTree(0);
-    PipProcessRebuildPowerRelationsQueue();
+    PipProcessRebuildPowerRelationsQueue(v16);
   }
-  PiDmaGuardProcessPostRemove(MaxDataSize, a2, 0);
+  return PiDmaGuardProcessPostRemove(MaxDataSize);
 }

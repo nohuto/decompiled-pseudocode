@@ -1,32 +1,32 @@
 /*
- * XREFs of SepRmLsaConnectRequest @ 0x14082D52C
+ * XREFs of SepRmLsaConnectRequest @ 0x1407AD7F0
  * Callers:
- *     SepRmCommandServerThread @ 0x14082D2D0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD670 (SepRmCommandServerThread.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetProcessServerSilo @ 0x14028C060 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwAcceptConnectPort @ 0x14041A6E0 (ZwAcceptConnectPort.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenProcess @ 0x14041AB60 (ZwOpenProcess.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     ZwCompleteConnectPort @ 0x14041BAA0 (ZwCompleteConnectPort.c)
- *     ZwConnectPort @ 0x14041BAE0 (ZwConnectPort.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SepRmVerifyLsaProtectionLevel @ 0x14082D7D4 (SepRmVerifyLsaProtectionLevel.c)
- *     SepRmCleanupRmLsaState @ 0x1409C8E50 (SepRmCleanupRmLsaState.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsGetProcessServerSilo @ 0x14025C2E0 (PsGetProcessServerSilo.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwAcceptConnectPort @ 0x1403F9A60 (ZwAcceptConnectPort.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenProcess @ 0x1403F9EE0 (ZwOpenProcess.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     ZwCompleteConnectPort @ 0x1403FADE0 (ZwCompleteConnectPort.c)
+ *     ZwConnectPort @ 0x1403FAE20 (ZwConnectPort.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SepRmVerifyLsaProtectionLevel @ 0x1407ADA98 (SepRmVerifyLsaProtectionLevel.c)
+ *     SepRmCleanupRmLsaState @ 0x14091C0D4 (SepRmCleanupRmLsaState.c)
  */
 
 __int64 __fastcall SepRmLsaConnectRequest(__int64 a1)
 {
-  PVOID v1; // r14
+  struct _DMA_ADAPTER *v1; // r14
   NTSTATUS v2; // eax
   struct _LIST_ENTRY *ProcessServerSilo; // rbx
   char *v4; // rdi
@@ -34,37 +34,37 @@ __int64 __fastcall SepRmLsaConnectRequest(__int64 a1)
   __int64 v6; // rdx
   int Section; // esi
   struct _LIST_ENTRY *v8; // rbx
-  unsigned int v10; // ebx
-  HANDLE *v11; // r15
+  void *v9; // rcx
+  unsigned int v11; // ebx
   HANDLE ProcessHandle; // [rsp+50h] [rbp-81h] BYREF
   PVOID Object; // [rsp+58h] [rbp-79h] BYREF
   __int128 v14; // [rsp+60h] [rbp-71h]
   __int128 v15; // [rsp+70h] [rbp-61h]
   __int128 v16; // [rsp+80h] [rbp-51h]
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-41h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-31h] BYREF
-  int v19; // [rsp+D0h] [rbp-1h]
-  __int128 v20; // [rsp+D4h] [rbp+3h]
+  __int128 v18; // [rsp+A0h] [rbp-31h]
+  __int64 v19; // [rsp+B0h] [rbp-21h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-19h] BYREF
   __int64 v21; // [rsp+E8h] [rbp+17h]
   int v22; // [rsp+F0h] [rbp+1Fh]
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  *(_QWORD *)&v16 = 0LL;
-  DWORD2(v16) = 0;
   v21 = 0LL;
   v22 = 0;
-  ProcessHandle = 0LL;
+  v19 = 0LL;
   v14 = 0LL;
   v1 = 0LL;
-  memset(&ObjectAttributes.RootDirectory, 0, 40);
+  ProcessHandle = 0LL;
   v15 = 0LL;
-  v20 = 0LL;
+  memset(&ObjectAttributes.RootDirectory, 0, 40);
+  v16 = 0LL;
+  v18 = 0LL;
   DestinationString = 0LL;
   if ( ZwOpenProcess(&ProcessHandle, 0x28u, &ObjectAttributes, (PCLIENT_ID)(a1 + 8)) >= 0 )
   {
     Object = 0LL;
     v2 = ObReferenceObjectByHandle(ProcessHandle, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
-    v1 = Object;
+    v1 = (struct _DMA_ADAPTER *)Object;
     if ( v2 >= 0 )
     {
       ProcessServerSilo = (struct _LIST_ENTRY *)PsGetProcessServerSilo((__int64)Object);
@@ -73,7 +73,7 @@ __int64 __fastcall SepRmLsaConnectRequest(__int64 a1)
       {
         *(_QWORD *)v4 = ProcessHandle;
         SepRmVerifyLsaProtectionLevel(v4);
-        v19 = 24;
+        LODWORD(v18) = 24;
         IsHostSilo = PsIsHostSilo((__int64)ProcessServerSilo);
         if ( !IsHostSilo )
           ObfReferenceObjectWithTag(ProcessServerSilo, 0x74536553u);
@@ -110,22 +110,22 @@ __int64 __fastcall SepRmLsaConnectRequest(__int64 a1)
           }
         }
         SepRmCleanupRmLsaState(v4);
-        v11 = (HANDLE *)(v4 + 40);
-        if ( *v11 )
+        v9 = (void *)*((_QWORD *)v4 + 5);
+        if ( v9 )
         {
-          ZwClose(*v11);
-          *v11 = 0LL;
+          ZwClose(v9);
+          *((_QWORD *)v4 + 5) = 0LL;
         }
         if ( v1 )
-          ObfDereferenceObject(v1);
+          HalPutDmaAdapter(v1);
         return (unsigned int)Section;
       }
     }
     ZwClose(ProcessHandle);
   }
   Object = 0LL;
-  v10 = ZwAcceptConnectPort();
+  v11 = ZwAcceptConnectPort();
   if ( v1 )
-    ObfDereferenceObject(v1);
-  return v10;
+    HalPutDmaAdapter(v1);
+  return v11;
 }

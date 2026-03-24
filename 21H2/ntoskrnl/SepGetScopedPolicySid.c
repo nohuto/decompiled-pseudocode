@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetScopedPolicySid @ 0x1405F4288
+ * XREFs of SepGetScopedPolicySid @ 0x1405960C8
  * Callers:
- *     SeComputeCreatorDeniedRights @ 0x1402AC350 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     RtlFindAceByType @ 0x140349610 (RtlFindAceByType.c)
+ *     RtlFindAceByType @ 0x140352210 (RtlFindAceByType.c)
  */
 
 unsigned __int8 *__fastcall SepGetScopedPolicySid(__int64 a1)

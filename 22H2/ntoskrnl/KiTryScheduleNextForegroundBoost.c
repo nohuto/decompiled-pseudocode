@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTryScheduleNextForegroundBoost @ 0x1402B9B2C
+ * XREFs of KiTryScheduleNextForegroundBoost @ 0x140258628
  * Callers:
- *     KiQueueReadyThread @ 0x1402344F0 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x140258C10 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiScheduleNextForegroundBoost @ 0x1403D3B5C (KiScheduleNextForegroundBoost.c)
+ *     KiScheduleNextForegroundBoost @ 0x14030F47C (KiScheduleNextForegroundBoost.c)
  */
 
 char __fastcall KiTryScheduleNextForegroundBoost(__int64 a1)
@@ -13,7 +13,8 @@ char __fastcall KiTryScheduleNextForegroundBoost(__int64 a1)
   int v1; // eax
   char v2; // dl
 
-  if ( (KiVelocityFlags & 0x8000) == 0 )
+  LOBYTE(v1) = KiForegrounBoostVelocityFlag;
+  if ( !KiForegrounBoostVelocityFlag )
   {
     LOBYTE(v1) = *(_BYTE *)(*(_QWORD *)(a1 + 544) + 1850LL);
     if ( (_BYTE)v1 == 2 )

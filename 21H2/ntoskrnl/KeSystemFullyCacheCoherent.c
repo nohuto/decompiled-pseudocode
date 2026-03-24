@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSystemFullyCacheCoherent @ 0x14056F770
+ * XREFs of KeSystemFullyCacheCoherent @ 0x140519B60
  * Callers:
- *     HalpGetCacheCoherency @ 0x140846200 (HalpGetCacheCoherency.c)
+ *     HalpGetCacheCoherency @ 0x140764CFC (HalpGetCacheCoherency.c)
  * Callees:
  *     <none>
  */

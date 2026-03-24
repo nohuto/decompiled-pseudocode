@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSiProcessTupleStartFromHandle @ 0x14018ED34
+ * XREFs of CmSiProcessTupleStartFromHandle @ 0x14018ED54
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x1407572EC (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407572CC (CmpInitializeRegistryProcess.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)

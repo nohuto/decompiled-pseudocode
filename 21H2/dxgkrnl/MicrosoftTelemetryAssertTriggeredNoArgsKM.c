@@ -1,9 +1,10 @@
 /*
- * XREFs of MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C00823B0
+ * XREFs of MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C006F61C
  * Callers:
- *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C015FE30 (--1DXGSESSIONDATA@@QEAA@XZ.c)
+ *     ?_WritePath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C016047C (-_WritePath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     ?BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C01690F4 (-BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00823E0 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C006F64C (MicrosoftTelemetryAssertTriggeredWorker.c)
  */
 
 __int64 MicrosoftTelemetryAssertTriggeredNoArgsKM()

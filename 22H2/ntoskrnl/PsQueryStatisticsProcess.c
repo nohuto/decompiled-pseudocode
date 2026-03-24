@@ -1,47 +1,49 @@
 /*
- * XREFs of PsQueryStatisticsProcess @ 0x1407430C0
+ * XREFs of PsQueryStatisticsProcess @ 0x140619120
  * Callers:
- *     PspQueryProcessAccountingInformationCallback @ 0x1406A0FA0 (PspQueryProcessAccountingInformationCallback.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspEnforceLimitsProcessCallback @ 0x1406A3100 (PspEnforceLimitsProcessCallback.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
- *     ExpCopyProcessInfo @ 0x1407428D0 (ExpCopyProcessInfo.c)
- *     EtwTraceAppStateChange @ 0x140751F08 (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x1407528E0 (EtwpPsProvTraceProcess.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140616BE0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspEnforceLimitsProcessCallback @ 0x140617ED0 (PspEnforceLimitsProcessCallback.c)
+ *     ExpCopyProcessInfo @ 0x140618E80 (ExpCopyProcessInfo.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
+ *     EtwTraceAppStateChange @ 0x14062B3BC (EtwTraceAppStateChange.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KeQueryValuesThread @ 0x1402C2C10 (KeQueryValuesThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeQueryValuesThread @ 0x140253930 (KeQueryValuesThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
 {
-  unsigned int v4; // ebp
-  unsigned int v5; // r14d
-  unsigned int v6; // r15d
-  __int64 v7; // r12
-  __int64 v8; // r13
+  __int64 v4; // r8
+  _DWORD *v5; // r9
+  unsigned int v6; // ebp
+  unsigned int v7; // r14d
+  unsigned int v8; // r15d
+  __int64 v9; // r12
+  __int64 v10; // r13
   _QWORD *i; // rsi
-  __int64 v10; // rcx
+  __int64 v12; // rcx
   __int64 result; // rax
-  __int128 v12; // [rsp+20h] [rbp-58h] BYREF
-  __int128 v13; // [rsp+30h] [rbp-48h]
+  __int128 v14; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v15; // [rsp+30h] [rbp-48h]
   signed __int64 *BugCheckParameter2; // [rsp+88h] [rbp+10h]
   struct _KTHREAD *CurrentThread; // [rsp+90h] [rbp+18h]
 
   CurrentThread = KeGetCurrentThread();
-  BugCheckParameter2 = (signed __int64 *)(a1 + 2144);
+  v14 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v12 = 0LL;
-  v13 = 0LL;
+  v15 = 0LL;
+  BugCheckParameter2 = (signed __int64 *)(a1 + 2144);
   ExAcquirePushLockSharedEx(a1 + 2144, 0LL);
-  v4 = *(_DWORD *)(a1 + 892);
-  v5 = *(_DWORD *)(a1 + 896);
-  v6 = *(_DWORD *)(a1 + 900);
-  v7 = *(_QWORD *)(a1 + 1000);
-  v8 = *(_QWORD *)(a1 + 1008);
+  v6 = *(_DWORD *)(a1 + 892);
+  v7 = *(_DWORD *)(a1 + 896);
+  v8 = *(_DWORD *)(a1 + 900);
+  v9 = *(_QWORD *)(a1 + 1000);
+  v10 = *(_QWORD *)(a1 + 1008);
   a2[3] = *(_QWORD *)(a1 + 864);
   a2[4] = *(_QWORD *)(a1 + 872);
   a2[5] = *(_QWORD *)(a1 + 1552);
@@ -50,33 +52,33 @@ __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
   a2[8] = *(_QWORD *)(a1 + 1576);
   a2[9] = *(_QWORD *)(a1 + 1584);
   a2[10] = *(_QWORD *)(a1 + 1592);
-  for ( i = *(_QWORD **)(a1 + 1504); i != (_QWORD *)(a1 + 1504); v8 += *((_QWORD *)&v13 + 1) )
+  for ( i = *(_QWORD **)(a1 + 1504); i != (_QWORD *)(a1 + 1504); v10 += *((_QWORD *)&v15 + 1) )
   {
-    v4 += *((_DWORD *)i - 171);
-    v5 += *((_DWORD *)i - 151);
-    KeQueryValuesThread((__int64)(i - 167), (__int64)&v12);
-    a2[3] += *(i - 158);
-    a2[4] += *((unsigned int *)i - 249);
-    a2[5] += *(i - 55);
-    a2[6] += *(i - 54);
-    a2[7] += *(i - 53);
-    a2[8] += *(i - 52);
-    a2[9] += *(i - 51);
-    a2[10] += *(i - 50);
+    v6 += *((_DWORD *)i - 151);
+    v7 += *((_DWORD *)i - 131);
+    KeQueryValuesThread((__int64)(i - 157), &v14, v4, v5);
+    a2[3] += *(i - 148);
+    a2[4] += *((unsigned int *)i - 229);
+    a2[5] += *(i - 45);
+    a2[6] += *(i - 44);
+    a2[7] += *(i - 43);
+    a2[8] += *(i - 42);
+    a2[9] += *(i - 41);
+    a2[10] += *(i - 40);
     i = (_QWORD *)*i;
-    v6 += DWORD1(v12);
-    v7 += v13;
+    v8 += DWORD1(v14);
+    v9 += v15;
   }
   if ( _InterlockedCompareExchange64(BugCheckParameter2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(BugCheckParameter2);
   KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  v10 = (unsigned int)KeMaximumIncrement;
-  *a2 = (unsigned int)KeMaximumIncrement * (unsigned __int64)v4;
-  a2[1] = v10 * v5;
-  a2[2] = v10 * v6;
-  result = v7 * (unsigned int)v10;
+  v12 = (unsigned int)KeMaximumIncrement;
+  *a2 = (unsigned int)KeMaximumIncrement * (unsigned __int64)v6;
+  a2[1] = v12 * v7;
+  a2[2] = v12 * v8;
+  result = v9 * (unsigned int)v12;
   a2[11] = result;
-  a2[12] = v8 * v10;
+  a2[12] = v10 * v12;
   return result;
 }

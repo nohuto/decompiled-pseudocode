@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z @ 0x1C00BC120
+ * XREFs of ?bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z @ 0x1C00BEAA0
  * Callers:
  *     <none>
  * Callees:
- *     PATHOBJ_bEnum @ 0x1C0032D50 (PATHOBJ_bEnum.c)
+ *     PATHOBJ_bEnum @ 0x1C0025850 (PATHOBJ_bEnum.c)
  */
 
 BOOL __fastcall EPATHOBJ::bEnum(PATHOBJ *this, struct _PATHDATA *a2)

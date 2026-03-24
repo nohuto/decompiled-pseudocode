@@ -1,51 +1,46 @@
 /*
- * XREFs of ??0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@@Z @ 0x1801E6660
+ * XREFs of ??0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@@Z @ 0x18019EE78
  * Callers:
- *     ?Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@PEAPEAV1@@Z @ 0x1801E6810 (-Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@.c)
+ *     ?Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@PEAPEAV1@@Z @ 0x18019EFD0 (-Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$?0V?$span_iterator@PEAVCCompositionLight@@@details@gsl@@$0A@@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@QEAA@V?$span_iterator@PEAVCCompositionLight@@@details@gsl@@0AEBV?$allocator@PEAVCCompositionLight@@@1@@Z @ 0x1801E6580 (--$-0V-$span_iterator@PEAVCCompositionLight@@@details@gsl@@$0A@@-$vector@PEAVCCompositionLight@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$?0V?$span_iterator@V?$span@PEAVCCompositionLight@@$0?0@gsl@@$0A@@details@gsl@@X@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@QEAA@V?$span_iterator@V?$span@PEAVCCompositionLight@@$0?0@gsl@@$0A@@details@gsl@@0AEBV?$allocator@PEAVCCompositionLight@@@1@@Z @ 0x18019EDA8 (--$-0V-$span_iterator@V-$span@PEAVCCompositionLight@@$0-0@gsl@@$0A@@details@gsl@@X@-$vector@PEAV.c)
  */
 
 __int64 __fastcall CSpectreCallbackRenderer::CSpectreCallbackRenderer(
         __int64 a1,
         __int64 a2,
-        _OWORD *a3,
+        __int128 *a3,
         __int64 a4,
         int a5,
         int a6,
-        __int64 *a7)
+        _QWORD *a7)
 {
-  __int64 v10; // rax
-  __int128 v12; // [rsp+20h] [rbp-60h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-50h]
-  __int128 v14; // [rsp+40h] [rbp-40h]
-  __int64 v15; // [rsp+50h] [rbp-30h]
-  __int128 v16; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v17; // [rsp+70h] [rbp-10h]
+  __int128 v10; // xmm0
+  __int128 v11; // xmm1
+  _QWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v14[3]; // [rsp+30h] [rbp-18h] BYREF
 
   *(_DWORD *)(a1 + 16) = 0;
   *(_QWORD *)a1 = &CSpectreCallbackRenderer::`vftable'{for `ID2D1PrivateCompositorRenderer'};
-  *(_QWORD *)(a1 + 8) = &CSpectreCallbackRenderer::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *(_QWORD *)(a1 + 8) = &CSpectreCallbackRenderer::`vftable'{for `CMILRefCountBase'};
   *(_QWORD *)(a1 + 24) = a2;
   if ( a2 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)a2 + 8LL))(a2);
-  *(_OWORD *)(a1 + 32) = *a3;
-  *(_OWORD *)(a1 + 48) = a3[1];
+  v10 = *a3;
+  v14[1] = 0LL;
+  *(_OWORD *)(a1 + 32) = v10;
+  v13[0] = a7;
+  v11 = a3[1];
+  v14[0] = a7;
+  *(_OWORD *)(a1 + 48) = v11;
   *(_OWORD *)(a1 + 64) = a3[2];
   *(_OWORD *)(a1 + 80) = a3[3];
   *(_QWORD *)(a1 + 96) = *(_QWORD *)a4;
   *(_DWORD *)(a1 + 104) = *(_DWORD *)(a4 + 8);
+  v13[1] = *a7;
   *(_DWORD *)(a1 + 108) = a5;
   *(_DWORD *)(a1 + 112) = a6;
-  v10 = *a7;
-  *(_QWORD *)&v12 = a7[1];
-  v15 = v12;
-  *((_QWORD *)&v12 + 1) = v12 + 8 * v10;
-  v14 = v12;
-  v16 = v12;
-  v17 = *((_QWORD *)&v12 + 1);
-  v13 = v12;
-  std::vector<CCompositionLight *>::vector<CCompositionLight *>((__int64 *)(a1 + 120), &v12, &v16);
+  std::vector<CCompositionLight *>::vector<CCompositionLight *>((__int64 *)(a1 + 120), v14, v13);
   return a1;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOccluded@CLegacyRenderTarget@@UEBA_NXZ @ 0x1800FA2D0
+ * XREFs of ?IsOccluded@CLegacyRenderTarget@@UEBA_NXZ @ 0x1800E2290
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CLegacyRenderTarget::IsOccluded(CLegacyRenderTarget *this)
 {
-  return *((_BYTE *)this + 18469);
+  return *((_BYTE *)this + 18454);
 }

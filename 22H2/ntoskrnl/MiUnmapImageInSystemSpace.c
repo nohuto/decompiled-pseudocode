@@ -1,35 +1,37 @@
 /*
- * XREFs of MiUnmapImageInSystemSpace @ 0x1406ACB70
+ * XREFs of MiUnmapImageInSystemSpace @ 0x14066BB40
  * Callers:
- *     MiSetPagesModified @ 0x14062896C (MiSetPagesModified.c)
- *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
- *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
- *     MiParseComAndCetHeaders @ 0x1406AB9A4 (MiParseComAndCetHeaders.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiOpenHotPatchFile @ 0x140A3A3C0 (MiOpenHotPatchFile.c)
- *     MiCreateSessionDriverProtos @ 0x140A45E40 (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x140534FF0 (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     MiParseComAndCetHeaders @ 0x1407000C4 (MiParseComAndCetHeaders.c)
+ *     MiRelocateImage @ 0x140702D80 (MiRelocateImage.c)
+ *     MiGetSystemAddressForImage @ 0x14075E09C (MiGetSystemAddressForImage.c)
+ *     MiOpenHotPatchFile @ 0x1408CCB58 (MiOpenHotPatchFile.c)
+ *     MiPerformImageHotPatch @ 0x1408CCF14 (MiPerformImageHotPatch.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA828 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x140625D6C (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiUnmapViewOfSection @ 0x14071F030 (MiUnmapViewOfSection.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiRemoveFromSystemSpace @ 0x1402854CC (MiRemoveFromSystemSpace.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A864 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUnmapViewOfSection @ 0x14061E510 (MiUnmapViewOfSection.c)
  */
 
-void __fastcall MiUnmapImageInSystemSpace(__int64 a1)
+void __fastcall MiUnmapImageInSystemSpace(unsigned __int64 *a1)
 {
-  __int64 v2; // rcx
+  unsigned __int64 v1; // rdx
+  __int64 v3; // rcx
 
-  if ( *(_QWORD *)a1 <= 0x7FFFFFFEFFFFuLL )
+  v1 = *a1;
+  if ( *a1 <= 0x7FFFFFFEFFFFLL )
   {
-    MiUnmapViewOfSection((ULONG_PTR)KeGetCurrentThread()->ApcState.Process);
-    KiUnstackDetachProcess(($115DCDF994C6370D29323EAB0E0C9502 *)(a1 + 32));
+    MiUnmapViewOfSection((ULONG_PTR)KeGetCurrentThread()->ApcState.Process, v1, 0, 0LL);
+    KiUnstackDetachProcess((__int64)(a1 + 4), 0);
   }
   else
   {
-    MiRemoveFromSystemSpace(*(_QWORD *)a1, 1);
+    MiRemoveFromSystemSpace(qword_140C4CD68, v1, 1);
   }
-  v2 = *(_QWORD *)(a1 + 8);
-  if ( v2 )
-    MiReturnCrossPartitionControlAreaCharges(v2);
+  v3 = a1[1];
+  if ( v3 )
+    MiReturnCrossPartitionControlAreaCharges(v3);
 }

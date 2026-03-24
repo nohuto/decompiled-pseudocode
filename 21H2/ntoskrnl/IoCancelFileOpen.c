@@ -1,18 +1,18 @@
 /*
- * XREFs of IoCancelFileOpen @ 0x140935F60
+ * XREFs of IoCancelFileOpen @ 0x140893620
  * Callers:
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
  * Callees:
- *     IopCloseFileObjectExtension @ 0x14020B0A0 (IopCloseFileObjectExtension.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IopAllocateIrpMustSucceed @ 0x1402AA860 (IopAllocateIrpMustSucceed.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     IopDequeueIrpFromThread @ 0x1403489B0 (IopDequeueIrpFromThread.c)
- *     PoCallDriver @ 0x1403A6C60 (PoCallDriver.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     IopCloseFileObjectExtension @ 0x1402B9618 (IopCloseFileObjectExtension.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpMustSucceed @ 0x1403518E0 (IopAllocateIrpMustSucceed.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IopDequeueIrpFromThread @ 0x140353760 (IopDequeueIrpFromThread.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     PoCallDriver @ 0x14039A8F0 (PoCallDriver.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __stdcall IoCancelFileOpen(PDEVICE_OBJECT DeviceObject, PFILE_OBJECT FileObject)

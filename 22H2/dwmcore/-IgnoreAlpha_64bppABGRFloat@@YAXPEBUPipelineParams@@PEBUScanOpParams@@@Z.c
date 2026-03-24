@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IgnoreAlpha_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BE710
+ * XREFs of ?IgnoreAlpha_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021B950
  * Callers:
  *     <none>
  * Callees:
@@ -23,6 +23,6 @@ void __fastcall IgnoreAlpha_64bppABGRFloat(const struct PipelineParams *a1, cons
     v3 += 4;
     *(v3 - 3) = *(v2 - 3);
     *(v3 - 2) = *(v2 - 2);
-    *(v3 - 1) = word_1803E5048;
+    *(v3 - 1) = word_1803467A0;
   }
 }

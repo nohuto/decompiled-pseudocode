@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCompareActiveCrcEntries @ 0x14026AE50
+ * XREFs of MiCompareActiveCrcEntries @ 0x140368098
  * Callers:
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
  * Callees:
  *     <none>
  */
@@ -9,8 +9,9 @@
 __int64 __fastcall MiCompareActiveCrcEntries(_QWORD *a1, _QWORD *a2)
 {
   unsigned __int64 v2; // rax
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // rax
+  unsigned __int64 v3; // rax
+  unsigned int v4; // ecx
+  unsigned __int64 v5; // rax
 
   if ( *a1 >= *a2 )
   {
@@ -23,13 +24,15 @@ __int64 __fastcall MiCompareActiveCrcEntries(_QWORD *a1, _QWORD *a2)
     {
       v3 = a1[4];
       if ( v3 >= 0x100 )
-        LODWORD(v3) = *(_DWORD *)(v3 + 40) & 0x1F;
-      v4 = a2[4];
-      if ( v4 >= 0x100 )
-        LODWORD(v4) = *(_DWORD *)(v4 + 40) & 0x1F;
-      if ( (unsigned int)v3 <= (unsigned int)v4 )
+        v4 = *(_DWORD *)(v3 + 40) & 0x1F;
+      else
+        v4 = a1[4];
+      v5 = a2[4];
+      if ( v5 >= 0x100 )
+        LODWORD(v5) = *(_DWORD *)(v5 + 40) & 0x1F;
+      if ( v4 <= (unsigned int)v5 )
       {
-        if ( (unsigned int)v3 >= (unsigned int)v4 )
+        if ( v4 >= (unsigned int)v5 )
           return 0LL;
         return 0xFFFFFFFFLL;
       }

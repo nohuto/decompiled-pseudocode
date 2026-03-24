@@ -1,10 +1,10 @@
 /*
- * XREFs of Command_ReleaseHardware @ 0x1C0075B98
+ * XREFs of Command_ReleaseHardware @ 0x1C0074624
  * Callers:
- *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0077140 (Controller_WdfEvtDeviceReleaseHardware.c)
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0075D30 (Controller_WdfEvtDeviceReleaseHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     XilCommand_FreeResources @ 0x1C002FD28 (XilCommand_FreeResources.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     XilCommand_FreeResources @ 0x1C002FA3C (XilCommand_FreeResources.c)
  */
 
 void __fastcall Command_ReleaseHardware(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall Command_ReleaseHardware(__int64 a1)
         v2,
         7,
         14,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids);
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids);
     }
     if ( *(_QWORD *)(a1 + 80) != a1 + 80 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -34,7 +34,7 @@ void __fastcall Command_ReleaseHardware(__int64 a1)
         v2,
         7,
         15,
-        (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids);
+        (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids);
     }
     v3 = *(_QWORD *)(a1 + 16);
     if ( v3 && v3 != *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL) )

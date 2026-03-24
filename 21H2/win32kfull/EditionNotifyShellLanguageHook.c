@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionNotifyShellLanguageHook @ 0x1C011DA60
+ * XREFs of EditionNotifyShellLanguageHook @ 0x1C0133440
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C004DAF8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B900 (-xxxCallHook@@YAHH_K_JH@Z.c)
  */
 
 __int64 __fastcall EditionNotifyShellLanguageHook(__int64 a1, __int64 a2, int a3)

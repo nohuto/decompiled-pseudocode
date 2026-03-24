@@ -1,8 +1,7 @@
 /*
- * XREFs of ??1MLOCKFAST@@QEAA@XZ @ 0x1C026B51C
+ * XREFs of ??1MLOCKFAST@@QEAA@XZ @ 0x1C026D7A0
  * Callers:
- *     NtGdiMakeObjectUnXferable @ 0x1C0146B70 (NtGdiMakeObjectUnXferable.c)
- *     GreCancelDC @ 0x1C029E32C (GreCancelDC.c)
+ *     NtGdiMakeObjectUnXferable @ 0x1C011C8D0 (NtGdiMakeObjectUnXferable.c)
  * Callees:
  *     <none>
  */

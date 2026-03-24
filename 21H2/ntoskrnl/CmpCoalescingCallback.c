@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCoalescingCallback @ 0x14053F590
+ * XREFs of CmpCoalescingCallback @ 0x1404ECE30
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpEnableLazyFlush @ 0x1403B63D0 (CmpEnableLazyFlush.c)
- *     CmpForceFlushForCoalescing @ 0x140881450 (CmpForceFlushForCoalescing.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     CmpEnableLazyFlush @ 0x1403A7408 (CmpEnableLazyFlush.c)
+ *     CmpForceFlushForCoalescing @ 0x140876C60 (CmpForceFlushForCoalescing.c)
  */
 
 void __fastcall CmpCoalescingCallback(int a1)
@@ -25,7 +25,7 @@ void __fastcall CmpCoalescingCallback(int a1)
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         CmpForceFlushForCoalescing();
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       }
     }
     else

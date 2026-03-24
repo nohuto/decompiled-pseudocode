@@ -1,17 +1,18 @@
 /*
- * XREFs of memcpy_s @ 0x1800FA15C
+ * XREFs of memcpy_s @ 0x1800AFAC4
  * Callers:
- *     ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800F9FBC (-reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
- *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800FA0F4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
- *     ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x180197AF4 (--$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z.c)
- *     ??$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z @ 0x180197B68 (--$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z.c)
- *     ?GetThreadContext@ThreadFailureCallbackHolder@details@wil@@SA_NPEAUFailureInfo@3@PEAV123@PEAD_K@Z @ 0x180198CC4 (-GetThreadContext@ThreadFailureCallbackHolder@details@wil@@SA_NPEAUFailureInfo@3@PEAV123@PEAD_K@.c)
- *     ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x1801995D8 (-Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z.c)
- *     ?UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z @ 0x18019A880 (-UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z.c)
- *     ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x18019ABB4 (-Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z.c)
+ *     ?UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z @ 0x18001F260 (-UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z.c)
+ *     ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x1800AF3B0 (-Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z.c)
+ *     ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800AF464 (-reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800AF664 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
+ *     ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x1800AFA10 (-Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z.c)
+ *     ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x18014C9CC (--$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z.c)
+ *     ??$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z @ 0x18014CA40 (--$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z.c)
+ *     ?GetThreadContext@ThreadFailureCallbackHolder@details@wil@@SA_NPEAUFailureInfo@3@PEAV123@PEAD_K@Z @ 0x18014D694 (-GetThreadContext@ThreadFailureCallbackHolder@details@wil@@SA_NPEAUFailureInfo@3@PEAV123@PEAD_K@.c)
  * Callees:
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     _invalid_parameter_noinfo @ 0x1800E7E7E (_invalid_parameter_noinfo.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 errno_t __cdecl memcpy_s(
@@ -20,7 +21,7 @@ errno_t __cdecl memcpy_s(
         const void *const Source,
         const rsize_t SourceSize)
 {
-  int *v8; // rax
+  errno_t *v8; // rax
   errno_t v9; // ebx
 
   if ( !SourceSize )
@@ -36,16 +37,16 @@ errno_t __cdecl memcpy_s(
   if ( !Source )
   {
 LABEL_7:
-    v8 = _errno();
+    v8 = (errno_t *)_o__errno(Destination);
     v9 = 22;
 LABEL_9:
     *v8 = v9;
-    _invalid_parameter_noinfo();
+    invalid_parameter_noinfo();
     return v9;
   }
   if ( DestinationSize < SourceSize )
   {
-    v8 = _errno();
+    v8 = (errno_t *)_o__errno(Destination);
     v9 = 34;
     goto LABEL_9;
   }

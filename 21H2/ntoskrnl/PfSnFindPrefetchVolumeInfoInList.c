@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnFindPrefetchVolumeInfoInList @ 0x1407DFBDC
+ * XREFs of PfSnFindPrefetchVolumeInfoInList @ 0x1406C928C
  * Callers:
- *     PfSnPrefetchMetadata @ 0x1407DE1A8 (PfSnPrefetchMetadata.c)
- *     PfSnPopulateReadList @ 0x1407DF200 (PfSnPopulateReadList.c)
+ *     PfSnPrefetchMetadata @ 0x1406C8184 (PfSnPrefetchMetadata.c)
+ *     PfSnPopulateReadList @ 0x1406C8970 (PfSnPopulateReadList.c)
  * Callees:
- *     wcsncmp @ 0x1403E33F0 (wcsncmp.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
  */
 
 _QWORD *__fastcall PfSnFindPrefetchVolumeInfoInList(wchar_t *Str1, _QWORD *a2, int a3)
 {
   _QWORD *v3; // rbx
   __int64 v4; // rdi
-  __int64 v8; // rax
+  wchar_t v8; // cx
 
   v3 = (_QWORD *)*a2;
   v4 = 0LL;
@@ -21,8 +21,8 @@ _QWORD *__fastcall PfSnFindPrefetchVolumeInfoInList(wchar_t *Str1, _QWORD *a2, i
     {
       if ( !wcsncmp(Str1, (const wchar_t *)v3[2], *((unsigned int *)v3 + 6)) )
       {
-        v8 = *((unsigned int *)v3 + 6);
-        if ( a3 ? Str1[v8] == 0 : Str1[v8] == 92 )
+        v8 = Str1[*((unsigned int *)v3 + 6)];
+        if ( a3 ? v8 == 0 : v8 == 92 )
           break;
       }
       v3 = (_QWORD *)*v3;

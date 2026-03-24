@@ -1,24 +1,27 @@
 /*
- * XREFs of ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C015D164
+ * XREFs of ?pql@PFEOBJ@@QEAAPEAU_QUICKLOOKUP@@XZ @ 0x1C006407C
  * Callers:
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
- *     ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C02B4804 (-bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z.c)
+ *     ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C00634A8 (-bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
  */
 
 struct _QUICKLOOKUP *__fastcall PFEOBJ::pql(struct PFE **this)
 {
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  struct PFE *v1; // rdx
+  HSEMAPHORE v4; // [rsp+30h] [rbp+8h] BYREF
 
+  v1 = *this;
   if ( (*((_DWORD *)*this + 3) & 0x200) != 0 )
   {
-    v3 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 32) + 13272LL);
-    GreAcquireSemaphore(v3);
+    v4 = ghsemEUDC1;
+    GreAcquireSemaphore(ghsemEUDC1);
     *((_DWORD *)*this + 3) &= ~0x200u;
     bComputeQuickLookup(0LL, *this, 0);
-    SEMOBJ::vUnlock((SEMOBJ *)&v3);
+    SEMOBJ::vUnlock((SEMOBJ *)&v4);
+    v1 = *this;
   }
-  return (struct PFE *)((char *)*this + 104);
+  return (struct PFE *)((char *)v1 + 104);
 }

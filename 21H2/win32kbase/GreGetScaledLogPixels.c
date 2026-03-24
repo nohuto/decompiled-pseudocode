@@ -1,7 +1,7 @@
 /*
- * XREFs of GreGetScaledLogPixels @ 0x1C00CFD00
+ * XREFs of GreGetScaledLogPixels @ 0x1C00C0330
  * Callers:
- *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C0176BB0 (DxgkEngGetWindowGdiDpiScalingFactor.c)
+ *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C014A860 (DxgkEngGetWindowGdiDpiScalingFactor.c)
  * Callees:
  *     <none>
  */

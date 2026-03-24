@@ -1,13 +1,13 @@
 /*
- * XREFs of IcIsInterruptTypeSecondary @ 0x1C0099900
+ * XREFs of IcIsInterruptTypeSecondary @ 0x1C00934D8
  * Callers:
- *     ProcessorpFindIdtEntriesApic @ 0x1C0099330 (ProcessorpFindIdtEntriesApic.c)
- *     ProcessorpFindAffinitizedIdtEntries @ 0x1C00995A0 (ProcessorpFindAffinitizedIdtEntries.c)
- *     IrqArbAddAllocation @ 0x1C0099940 (IrqArbAddAllocation.c)
- *     AcpiUpdateInterruptProperties @ 0x1C00AE1B0 (AcpiUpdateInterruptProperties.c)
- *     IrqArbpFindSuitableRangeIsa @ 0x1C00B6D8C (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     ProcessorpFindIdtEntriesApic @ 0x1C0092F20 (ProcessorpFindIdtEntriesApic.c)
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C0093160 (ProcessorpFindAffinitizedIdtEntries.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C0096EE8 (IrqArbpFindSuitableRangeIsa.c)
+ *     AcpiUpdateInterruptProperties @ 0x1C00AF560 (AcpiUpdateInterruptProperties.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall IcIsInterruptTypeSecondary(unsigned int a1)

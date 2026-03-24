@@ -1,17 +1,17 @@
 /*
- * XREFs of ?RenderSeparableUpsample@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAEBUD3D11_VIEWPORT@@@Z @ 0x1801DDDDC
+ * XREFs of ?RenderSeparableUpsample@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAEBUD3D11_VIEWPORT@@@Z @ 0x180192F5C
  * Callers:
- *     ?RenderLayer@CResampleLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801DDAB0 (-RenderLayer@CResampleLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderLayer@CResampleLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x180192C74 (-RenderLayer@CResampleLayer@@IEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     floor @ 0x1801018EC (floor.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$?0USamplerMode@@$01$0?0$0A@@?$span@USamplerMode@@$0?0@gsl@@QEAA@AEBV?$span@USamplerMode@@$01@1@@Z @ 0x1801DCDBC (--$-0USamplerMode@@$01$0-0$0A@@-$span@USamplerMode@@$0-0@gsl@@QEAA@AEBV-$span@USamplerMode@@$01@.c)
- *     ?FillXBRPass1Buffer@@YAJPEAVCSurfaceShaderComposer@@II@Z @ 0x1801DD4E0 (-FillXBRPass1Buffer@@YAJPEAVCSurfaceShaderComposer@@II@Z.c)
- *     ?GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11PixelShader@@@Z @ 0x180289FAC (-GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11Pixel.c)
- *     ?RunShader@CSurfaceShaderComposer@@QEAAJPEAPEAUID3D11ShaderResourceView@@IAEBUD3D11_VIEWPORT@@W4Enum@BlendMode@@AEBV?$span@USamplerMode@@$0?0@gsl@@_NPEAUID3D11RenderTargetView@@PEAUID3D11PixelShader@@PEBUtagRECT@@4@Z @ 0x18028A088 (-RunShader@CSurfaceShaderComposer@@QEAAJPEAPEAUID3D11ShaderResourceView@@IAEBUD3D11_VIEWPORT@@W4.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     floor @ 0x1800E8198 (floor.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$?0USamplerMode@@$01X@?$span@USamplerMode@@$0?0@gsl@@QEAA@AEBV?$span@USamplerMode@@$01@1@@Z @ 0x18019200C (--$-0USamplerMode@@$01X@-$span@USamplerMode@@$0-0@gsl@@QEAA@AEBV-$span@USamplerMode@@$01@1@@Z.c)
+ *     ?FillXBRPass1Buffer@@YAJPEAVCSurfaceShaderComposer@@II@Z @ 0x1801926D8 (-FillXBRPass1Buffer@@YAJPEAVCSurfaceShaderComposer@@II@Z.c)
+ *     ?GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11PixelShader@@@Z @ 0x180248508 (-GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11Pixel.c)
+ *     ?RunShader@CSurfaceShaderComposer@@QEAAJPEAPEAUID3D11ShaderResourceView@@IAEBUD3D11_VIEWPORT@@W4Enum@BlendMode@@AEBV?$span@USamplerMode@@$0?0@gsl@@_NPEAUID3D11RenderTargetView@@PEAUID3D11PixelShader@@PEBUtagRECT@@4@Z @ 0x180248590 (-RunShader@CSurfaceShaderComposer@@QEAAJPEAPEAUID3D11ShaderResourceView@@IAEBUD3D11_VIEWPORT@@W4.c)
  */
 
 __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
@@ -48,22 +48,22 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
   __int64 v33; // rdx
   __int64 v34; // rax
   int v35; // r8d
-  __int16 v37; // [rsp+60h] [rbp-81h] BYREF
-  char v38; // [rsp+62h] [rbp-7Fh]
-  __int16 v39; // [rsp+64h] [rbp-7Dh] BYREF
-  char v40; // [rsp+66h] [rbp-7Bh]
-  __int16 v41; // [rsp+67h] [rbp-7Ah]
-  char v42; // [rsp+69h] [rbp-78h]
-  __int64 v43; // [rsp+70h] [rbp-71h] BYREF
-  __int64 v44; // [rsp+78h] [rbp-69h] BYREF
-  __int16 *v45; // [rsp+80h] [rbp-61h] BYREF
-  __int64 v46[2]; // [rsp+88h] [rbp-59h] BYREF
-  __int64 v47; // [rsp+98h] [rbp-49h] BYREF
-  const struct D3D11_VIEWPORT *v48; // [rsp+A0h] [rbp-41h]
-  __int64 v49; // [rsp+A8h] [rbp-39h] BYREF
-  _BYTE v50[24]; // [rsp+B0h] [rbp-31h] BYREF
-  _DWORD v51[6]; // [rsp+C8h] [rbp-19h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+138h] [rbp+57h]
+  __int16 v37; // [rsp+60h] [rbp-71h] BYREF
+  char v38; // [rsp+62h] [rbp-6Fh]
+  __int16 v39; // [rsp+64h] [rbp-6Dh] BYREF
+  char v40; // [rsp+66h] [rbp-6Bh]
+  __int16 v41; // [rsp+67h] [rbp-6Ah]
+  char v42; // [rsp+69h] [rbp-68h]
+  __int64 v43; // [rsp+70h] [rbp-61h] BYREF
+  __int64 v44; // [rsp+78h] [rbp-59h] BYREF
+  __int16 *v45; // [rsp+80h] [rbp-51h] BYREF
+  __int64 v46[2]; // [rsp+88h] [rbp-49h] BYREF
+  __int64 v47; // [rsp+98h] [rbp-39h] BYREF
+  const struct D3D11_VIEWPORT *v48; // [rsp+A0h] [rbp-31h]
+  __int64 v49; // [rsp+A8h] [rbp-29h] BYREF
+  _QWORD v50[3]; // [rsp+B0h] [rbp-21h] BYREF
+  _DWORD v51[6]; // [rsp+C8h] [rbp-9h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+128h] [rbp+57h]
 
   v7 = (float)*((int *)this + 6);
   v48 = a5;
@@ -74,7 +74,7 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
   v14 = *(_QWORD *)(v13 + 8);
   v44 = 0LL;
   v15 = *(__int64 (__fastcall **)(__int64, __int64, __int64 *))(v14 + 48);
-  v16 = (**(__int64 (__fastcall ***)(__int64, _BYTE *))v11)(v11, v50);
+  v16 = (**(__int64 (__fastcall ***)(__int64, _QWORD *))v11)(v11, v50);
   SurfacePixelShaderNoRef = v15(v13 + 8, v16, &v44);
   v18 = SurfacePixelShaderNoRef;
   if ( SurfacePixelShaderNoRef >= 0 )
@@ -90,14 +90,14 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
     v18 = SurfacePixelShaderNoRef;
     if ( SurfacePixelShaderNoRef < 0 )
     {
-      v19 = 526LL;
+      v19 = 541LL;
       goto LABEL_9;
     }
     SurfacePixelShaderNoRef = CSurfaceShaderComposer::GetSurfacePixelShaderNoRef(a2, 6LL, &v45);
     v18 = SurfacePixelShaderNoRef;
     if ( SurfacePixelShaderNoRef < 0 )
     {
-      v19 = 530LL;
+      v19 = 545LL;
       goto LABEL_9;
     }
     v51[4] = 0;
@@ -124,7 +124,7 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
     v18 = SurfacePixelShaderNoRef;
     if ( SurfacePixelShaderNoRef < 0 )
     {
-      v19 = 549LL;
+      v19 = 564LL;
       goto LABEL_9;
     }
     v27 = *((_QWORD *)this + 16);
@@ -132,7 +132,7 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
     v29 = *(_QWORD *)(v28 + 8);
     v43 = 0LL;
     v30 = *(__int64 (__fastcall **)(__int64, __int64, __int64 *))(v29 + 48);
-    v31 = (**(__int64 (__fastcall ***)(__int64, _BYTE *))v27)(v27, v50);
+    v31 = (**(__int64 (__fastcall ***)(__int64, _QWORD *))v27)(v27, v50);
     v32 = v30(v28 + 8, v31, &v43);
     v18 = v32;
     if ( v32 >= 0 )
@@ -153,7 +153,7 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
           v39 = v37;
           v41 = v37;
           v45 = &v39;
-          gsl::span<SamplerMode,-1>::span<SamplerMode,-1>((gsl::details *)v50, (__int64 *)&v45);
+          gsl::span<SamplerMode,-1>::span<SamplerMode,-1>(v50, (__int64 *)&v45);
           v32 = CSurfaceShaderComposer::RunShader(
                   (_DWORD)a2,
                   (unsigned int)&v49,
@@ -170,37 +170,37 @@ __int64 __fastcall CResampleLayer::RenderSeparableUpsample(
             v18 = 0;
             goto LABEL_20;
           }
-          v33 = 579LL;
+          v33 = 594LL;
         }
         else
         {
-          v33 = 565LL;
+          v33 = 580LL;
         }
       }
       else
       {
-        v33 = 561LL;
+        v33 = 576LL;
       }
     }
     else
     {
-      v33 = 555LL;
+      v33 = 570LL;
     }
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v33,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\resamplelayer.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\resamplelayer.cpp",
       (const char *)(unsigned int)v32);
 LABEL_20:
     wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v43);
     goto LABEL_21;
   }
-  v19 = 512LL;
+  v19 = 527LL;
 LABEL_9:
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v19,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\resamplelayer.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\resamplelayer.cpp",
     (const char *)(unsigned int)SurfacePixelShaderNoRef);
 LABEL_21:
   wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v44);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsImplicit@CompositionInputObject@@QEBAHXZ @ 0x1C00B5890
+ * XREFs of ?IsImplicit@CompositionInputObject@@QEBAHXZ @ 0x1C009C460
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CompositionInputObject::IsImplicit(CompositionInputObject *this)
 {
-  return *((_DWORD *)this + 46) & 1;
+  return *((_DWORD *)this + 48) & 1;
 }

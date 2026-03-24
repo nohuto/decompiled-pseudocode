@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFlushRangeAllCaches @ 0x140572260
+ * XREFs of KiFlushRangeAllCaches @ 0x140519AB0
  * Callers:
- *     KeFlushIoBuffers @ 0x140346DC0 (KeFlushIoBuffers.c)
+ *     KeFlushIoBuffers @ 0x1403007D0 (KeFlushIoBuffers.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeInvalidateRangeAllCaches @ 0x140460040 (KeInvalidateRangeAllCaches.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeInvalidateRangeAllCaches @ 0x14051B030 (KeInvalidateRangeAllCaches.c)
  */
 
 void __fastcall KiFlushRangeAllCaches(ULONG_PTR BugCheckParameter4, PVOID BaseAddress, ULONG Length, char a4, char a5)

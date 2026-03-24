@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocateModWriterEntry @ 0x1403498A8
+ * XREFs of MiAllocateModWriterEntry @ 0x140259DB8
  * Callers:
- *     MiMappedPageWriter @ 0x14038FA30 (MiMappedPageWriter.c)
- *     MiAllocateMappedWriterMdls @ 0x1403AF32C (MiAllocateMappedWriterMdls.c)
- *     MiCreatePagefile @ 0x1408355E4 (MiCreatePagefile.c)
+ *     MiMappedPageWriter @ 0x1403B70D0 (MiMappedPageWriter.c)
+ *     MiAllocateMappedWriterMdls @ 0x1403CBC50 (MiAllocateMappedWriterMdls.c)
+ *     MiCreatePagefile @ 0x1407B7A10 (MiCreatePagefile.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiChargeForWriteInProgressPage @ 0x140349914 (MiChargeForWriteInProgressPage.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiChargeForWriteInProgressPage @ 0x140259E24 (MiChargeForWriteInProgressPage.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-PVOID __fastcall MiAllocateModWriterEntry(__int64 a1, __int64 a2, int a3)
+void *__fastcall MiAllocateModWriterEntry(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
-  PVOID Pool; // rbx
+  void *Pool; // rbx
 
-  Pool = MiAllocatePool(64, 8 * a2 + 264, 0x65576D4Du);
+  Pool = (void *)MiAllocatePool(64LL, 8 * a2 + 264, 1700228429LL, a4);
   if ( Pool )
   {
     if ( (unsigned int)MiChargeForWriteInProgressPage(a1, a3 != 0) )

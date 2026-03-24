@@ -1,35 +1,80 @@
 /*
- * XREFs of ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0213B60
+ * XREFs of ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0197CB8
  * Callers:
- *     ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0213A20 (-AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESEN.c)
- *     ?CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C039FAA8 (-CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@.c)
+ *     ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0197B70 (-AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESEN.c)
+ *     ?CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E598C (-CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@.c)
  * Callees:
- *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000F0FC (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ?Add@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C002897C (-Add@-$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z.c)
+ *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007DB8 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ?Add@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C002313C (-Add@-$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z.c)
  */
 
 __int64 __fastcall DMMVIDEOPRESENTTARGETSET::AddTarget(
         DMMVIDEOPRESENTTARGETSET *this,
         struct DMMVIDEOPRESENTTARGET *a2)
 {
-  struct DMMVIDEOPRESENTTARGET *v4; // rax
+  int v2; // ebx
+  struct DMMVIDEOPRESENTTARGET *v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // ebx
+  int v9; // ebx
+  int v10; // ebx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  _QWORD *v14; // rax
+  __int64 v15; // rax
 
+  v2 = 0;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  v4 = (struct DMMVIDEOPRESENTTARGET *)IndexedSet<DMMVIDEOPRESENTTARGET>::FindById((__int64)this, *((_DWORD *)a2 + 6));
-  if ( v4 )
   {
-    if ( v4 != a2 )
+    v12 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    WdLogEvent5_WdAssertion(v12);
+  }
+  v5 = (struct DMMVIDEOPRESENTTARGET *)IndexedSet<DMMVIDEOPRESENTTARGET>::FindById((__int64)this, *((_DWORD *)a2 + 6));
+  if ( v5 )
+  {
+    LOBYTE(v2) = v5 != a2;
+    v8 = v2 + 1;
+  }
+  else
+  {
+    v7 = Set<DMMVIDEOPRESENTTARGET>::Add((__int64)this, (__int64)a2) != 0 ? 2 : 0;
+    v8 = v7 + 1;
+  }
+  v9 = v8 - 1;
+  if ( v9 )
+  {
+    v10 = v9 - 1;
+    if ( v10 )
     {
-      WdLogSingleEntry3(2LL, *((unsigned int *)a2 + 6), a2, this);
+      if ( v10 == 1 )
+      {
+        _InterlockedIncrement((volatile signed __int32 *)a2 + 18);
+        return 0LL;
+      }
+      else
+      {
+        v13 = WdLogNewEntry5_WdError(v7, v6);
+        WdLogEvent5_WdError(v13);
+        return 3221225473LL;
+      }
+    }
+    else
+    {
+      v14 = (_QWORD *)WdLogNewEntry5_WdError(v7, v6);
+      v14[3] = *((unsigned int *)a2 + 6);
+      v14[4] = a2;
+      v14[5] = this;
+      WdLogEvent5_WdError(v14);
       return 3223192370LL;
     }
   }
-  else if ( Set<DMMVIDEOPRESENTTARGET>::Add((__int64)this, (__int64)a2) )
+  else
   {
-    _InterlockedIncrement((volatile signed __int32 *)a2 + 18);
-    return 0LL;
+    v15 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v15 + 24) = a2;
+    *(_QWORD *)(v15 + 32) = this;
+    WdLogEvent5_WdError(v15);
+    return 3223192344LL;
   }
-  WdLogSingleEntry2(2LL, a2, this);
-  return 3223192344LL;
 }

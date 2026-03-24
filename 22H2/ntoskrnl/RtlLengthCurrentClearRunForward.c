@@ -1,75 +1,82 @@
 /*
- * XREFs of RtlLengthCurrentClearRunForward @ 0x140295680
+ * XREFs of RtlLengthCurrentClearRunForward @ 0x14033124C
  * Callers:
- *     MiFindFreePageFileSpace @ 0x1402945B4 (MiFindFreePageFileSpace.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140295338 (MiCoalescePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140330EC0 (MiCoalescePageFileBitmapsCache.c)
+ *     MiFindFreePageFileSpace @ 0x140333724 (MiFindFreePageFileSpace.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlLengthCurrentClearRunForward(int *a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall RtlLengthCurrentClearRunForward(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r9
-  int v5; // r8d
+  int v5; // esi
   _DWORD *v6; // r10
-  int v7; // edi
-  _DWORD *v8; // rax
-  _DWORD *v9; // r9
-  __int64 v10; // rbx
-  unsigned int v11; // edx
-  __int64 v12; // rcx
+  _DWORD *v7; // rax
+  _DWORD *v8; // r9
+  __int64 v9; // rbx
+  unsigned int v10; // edx
+  unsigned int v11; // r8d
+  unsigned __int64 v12; // rax
   char v13; // r8
   bool v14; // zf
-  unsigned int v15; // edx
-  int v17; // eax
-  char v18; // r8
+  __int64 v15; // rcx
+  unsigned int v16; // edx
+  unsigned __int64 v18; // rax
+  char v19; // r8
 
-  v3 = *((_QWORD *)a1 + 1);
-  v5 = *a1;
+  v3 = *(_QWORD *)(a1 + 8);
+  v5 = *(_DWORD *)a1 & 0x1F;
   v6 = (_DWORD *)(v3 + 4 * ((unsigned __int64)a2 >> 5));
-  v7 = *a1 & 0x1F;
-  v8 = (_DWORD *)(v3 + 4 * ((unsigned __int64)(unsigned int)(*a1 - 1) >> 5));
-  v9 = v8 - 1;
-  if ( !v7 )
-    v9 = v8;
-  v10 = a2 & 0x1F;
-  v11 = 0;
-  LODWORD(v12) = *v6 & ~*((_DWORD *)qword_1400166D0 + v10);
-  if ( v6 > v9 )
+  v7 = (_DWORD *)(v3 + 4 * ((unsigned __int64)(unsigned int)(*(_DWORD *)a1 - 1) >> 5));
+  v8 = v7 - 1;
+  if ( !v5 )
+    v8 = v7;
+  v9 = a2 & 0x1F;
+  v10 = 0;
+  v11 = ~*((_DWORD *)qword_1400127A0 + v9) & *v6;
+  if ( v6 > v8 )
   {
-LABEL_16:
-    if ( v7 )
+LABEL_18:
+    if ( v5 )
     {
-      if ( v11 )
-        LODWORD(v12) = v6[1];
-      v17 = *((_DWORD *)qword_1400166D0 + (v5 & 0x1F));
-      v18 = -1;
-      v14 = !_BitScanForward64((unsigned __int64 *)&v12, (unsigned int)v12 | ~v17);
+      if ( v10 )
+        v11 = v6[1];
+      v18 = v11 | ~*((_DWORD *)qword_1400127A0 + (*(_DWORD *)a1 & 0x1F));
+      v19 = -1;
+      v14 = !_BitScanForward64((unsigned __int64 *)&a1, v18);
       if ( !v14 )
-        v18 = v12;
-      v11 += v18;
+        v19 = a1;
+      v10 += v19;
     }
+  }
+  else if ( v11 )
+  {
+LABEL_5:
+    v12 = v11;
+    v13 = -1;
+    v14 = !_BitScanForward64((unsigned __int64 *)&v15, v12);
+    if ( !v14 )
+      v13 = v15;
+    v10 += v13;
   }
   else
   {
-    while ( !(_DWORD)v12 )
+    v11 = 0;
+    while ( 1 )
     {
-      v11 += 32;
-      if ( v11 >= a3 && v11 - (unsigned int)v10 >= a3 )
-        goto LABEL_8;
-      if ( v6 == v9 )
-        goto LABEL_16;
-      LODWORD(v12) = *++v6;
+      v10 += 32;
+      if ( v10 >= a3 && v10 - (unsigned int)v9 >= a3 )
+        break;
+      if ( v6 == v8 )
+        goto LABEL_18;
+      v11 = *++v6;
+      if ( *v6 )
+        goto LABEL_5;
     }
-    v13 = -1;
-    v14 = !_BitScanForward64((unsigned __int64 *)&v12, (unsigned int)v12);
-    if ( !v14 )
-      v13 = v12;
-    v11 += v13;
   }
-LABEL_8:
-  v15 = v11 - v10;
-  if ( v15 > a3 )
+  v16 = v10 - v9;
+  if ( v16 > a3 )
     return a3;
-  return v15;
+  return v16;
 }

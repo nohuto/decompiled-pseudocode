@@ -3,16 +3,16 @@
  * Callers:
  *     MiGetInPageSupportBlock @ 0x14002C610 (MiGetInPageSupportBlock.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4268 (MiMakeOutswappedPageResident.c)
- *     MiPfIssueCoalescedSupport @ 0x1402AEEA4 (MiPfIssueCoalescedSupport.c)
- *     MiGetReadyInPageBlock @ 0x14084F30C (MiGetReadyInPageBlock.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x1402AEFA4 (MiPfIssueCoalescedSupport.c)
+ *     MiGetReadyInPageBlock @ 0x14084F2EC (MiGetReadyInPageBlock.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 __int64 __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char a2)

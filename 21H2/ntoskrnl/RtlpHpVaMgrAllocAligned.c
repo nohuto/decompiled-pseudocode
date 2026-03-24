@@ -1,37 +1,25 @@
 /*
- * XREFs of RtlpHpVaMgrAllocAligned @ 0x14023D570
+ * XREFs of RtlpHpVaMgrAllocAligned @ 0x1402A4C9C
  * Callers:
- *     RtlpHpVaMgrRegionAllocate @ 0x14023CCE0 (RtlpHpVaMgrRegionAllocate.c)
- *     RtlpHpVaMgrAlloc @ 0x14023CDE0 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x1402A33F4 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402A3F84 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x140352090 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x14030AF2C (RtlpHpEnvAllocVA.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrAllocAligned(__int64 a1, int a2, int a3)
 {
-  unsigned int v3; // ebx
-  int v4; // r10d
-  unsigned int v5; // r11d
-  _DWORD *v6; // rcx
-  int v7; // r9d
-  __int64 v9; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int8 v3; // r11
+  int v4; // r9d
+  unsigned int v6; // [rsp+30h] [rbp-28h]
+  __int64 v7; // [rsp+60h] [rbp+8h] BYREF
 
-  v3 = *(unsigned __int8 *)(a1 + 46);
-  v4 = 0x2000;
-  v9 = 0LL;
-  v5 = (v3 >> 1) & 7;
-  if ( v5 >= 3 )
-  {
-    v4 = v5 < 4 ? 536879104 : 536883200;
-  }
-  else if ( v5 == 2 )
-  {
-    v4 = 541073408;
-  }
-  v6 = *(_DWORD **)(a1 + 24);
-  v7 = v4 | 0x40000;
-  if ( (v3 & 0x10) == 0 )
-    v7 = v4;
-  RtlpHpEnvAllocVA((unsigned int)&v9, a2, a3, v7, 4, *v6, v5);
-  return v9;
+  v3 = *(_BYTE *)(a1 + 46);
+  v7 = 0LL;
+  v6 = (v3 >> 1) & 3;
+  v4 = (v6 < 2 ? 0x2000 : 536883200) | 0x40000;
+  if ( (v3 & 8) == 0 )
+    v4 = v6 < 2 ? 0x2000 : 536883200;
+  RtlpHpEnvAllocVA((unsigned int)&v7, a2, a3, v4, 4, **(_DWORD **)(a1 + 24), v6);
+  return v7;
 }

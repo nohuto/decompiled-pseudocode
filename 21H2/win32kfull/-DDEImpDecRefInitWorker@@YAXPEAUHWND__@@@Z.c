@@ -1,35 +1,45 @@
 /*
- * XREFs of ?DDEImpDecRefInitWorker@@YAXPEAUHWND__@@@Z @ 0x1C01F0590
+ * XREFs of ?DDEImpDecRefInitWorker@@YAXPEAUHWND__@@@Z @ 0x1C01F5E80
  * Callers:
- *     NtUserfnDDEINIT @ 0x1C0200C50 (NtUserfnDDEINIT.c)
+ *     NtUserfnDDEINIT @ 0x1C0204B90 (NtUserfnDDEINIT.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     InternalRemoveProp @ 0x1C0069510 (InternalRemoveProp.c)
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
-void __fastcall DDEImpDecRefInitWorker(HWND a1)
+void __fastcall DDEImpDecRefInitWorker(unsigned __int64 a1)
 {
   __int64 v1; // rax
   __int64 v2; // rdi
   __int64 Prop; // rax
   __int64 v4; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  TOKEN_TYPE v8; // eax
+  void *v9; // rcx
 
-  v1 = HMValidateHandleNoSecure((int)a1, 1);
+  v1 = HMValidateHandleNoSecure(a1, 1);
   v2 = v1;
   if ( v1 )
   {
-    Prop = GetProp(v1, (unsigned __int16)atomDDEImp, 1u);
+    Prop = GetProp(v1, (unsigned __int16)atomDDEImp, 1LL);
     v4 = Prop;
     if ( Prop )
     {
       if ( (*(_WORD *)(Prop + 88))-- == 1 )
       {
-        InternalRemoveProp(v2, (unsigned __int16)atomDDEImp, 1u);
+        v6 = (unsigned __int16)atomDDEImp;
+        v7 = *(_QWORD *)(v2 + 144);
+        if ( atomDDEImp == word_1C033AF44 )
+          *(_QWORD *)(*(_QWORD *)(v2 + 40) + 312LL) = 0LL;
+        RealInternalRemoveProp(v7, v6, 1LL);
         if ( !*(_WORD *)(v4 + 90) )
         {
-          SeDeleteClientSecurity(v4 + 16);
-          Win32FreePool(v4);
+          v8 = SeTokenType(*(PACCESS_TOKEN *)(v4 + 32));
+          v9 = *(void **)(v4 + 32);
+          if ( v8 == TokenPrimary || v9 )
+            ObfDereferenceObject(v9);
+          Win32FreePool((void *)v4);
         }
       }
     }

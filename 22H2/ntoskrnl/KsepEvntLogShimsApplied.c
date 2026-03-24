@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepEvntLogShimsApplied @ 0x1403AF0FC
+ * XREFs of KsepEvntLogShimsApplied @ 0x140526E6C
  * Callers:
- *     KseDriverLoadImage @ 0x140694730 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14075AD50 (KseDriverLoadImage.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     KsepPoolAllocatePaged @ 0x140209ED0 (KsepPoolAllocatePaged.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     KsepPoolAllocatePaged @ 0x140371F2C (KsepPoolAllocatePaged.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsigned int a3)
@@ -27,17 +27,17 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
   int v14; // ebx
   unsigned int v15; // ecx
   ULONG v16; // eax
-  unsigned int v17; // [rsp+30h] [rbp-49h] BYREF
-  UNICODE_STRING Destination; // [rsp+38h] [rbp-41h] BYREF
-  unsigned __int16 *v19; // [rsp+48h] [rbp-31h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-19h]
-  __int64 v22; // [rsp+68h] [rbp-11h]
-  unsigned int *v23; // [rsp+70h] [rbp-9h]
-  __int64 v24; // [rsp+78h] [rbp-1h]
-  wchar_t *v25; // [rsp+80h] [rbp+7h]
-  int v26; // [rsp+88h] [rbp+Fh]
-  int v27; // [rsp+8Ch] [rbp+13h]
+  unsigned int v17; // [rsp+40h] [rbp-49h] BYREF
+  UNICODE_STRING Destination; // [rsp+48h] [rbp-41h] BYREF
+  unsigned __int16 *v19; // [rsp+58h] [rbp-31h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v21; // [rsp+70h] [rbp-19h]
+  __int64 v22; // [rsp+78h] [rbp-11h]
+  unsigned int *v23; // [rsp+80h] [rbp-9h]
+  __int64 v24; // [rsp+88h] [rbp-1h]
+  wchar_t *v25; // [rsp+90h] [rbp+7h]
+  int v26; // [rsp+98h] [rbp+Fh]
+  int v27; // [rsp+9Ch] [rbp+13h]
 
   v3 = 0;
   v19 = a1;
@@ -88,13 +88,13 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
                 if ( ++v14 >= v15 )
                 {
                   Buffer = Destination.Buffer;
-                  goto LABEL_16;
+                  goto LABEL_18;
                 }
               }
             }
             else
             {
-LABEL_16:
+LABEL_18:
               UserData.Ptr = *((_QWORD *)v12 + 1);
               v16 = *v12 + 2;
               v22 = 4LL;
@@ -106,18 +106,18 @@ LABEL_16:
               v25 = Buffer;
               UserData.Reserved = 0;
               v27 = 0;
-              EtwWrite(KseEtwHandle, &KseShimsApplied, 0LL, 4u, &UserData);
+              EtwWriteEx(KseEtwHandle, &KseShimsApplied, 0LL, 0, 0LL, 0LL, 4u, &UserData);
             }
           }
         }
       }
       ExFreePoolWithTag(v9, 0x6145534Bu);
-      _InterlockedIncrement(&dword_140C407C4);
+      _InterlockedIncrement(&dword_140C2AA84);
     }
     if ( Destination.Buffer )
     {
       ExFreePoolWithTag(Destination.Buffer, 0x6145534Bu);
-      _InterlockedIncrement(&dword_140C407C4);
+      _InterlockedIncrement(&dword_140C2AA84);
     }
   }
 }

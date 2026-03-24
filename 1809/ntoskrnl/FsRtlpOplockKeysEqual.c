@@ -3,13 +3,13 @@
  * Callers:
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlCheckOplockEx @ 0x1400B7C60 (FsRtlCheckOplockEx.c)
- *     FsRtlpOplockBreakToII @ 0x140130710 (FsRtlpOplockBreakToII.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133270 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E0EC (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168D80 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlOplockKeysEqual @ 0x14016A1B0 (FsRtlOplockKeysEqual.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
+ *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168DA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlOplockKeysEqual @ 0x14016A1D0 (FsRtlOplockKeysEqual.c)
  * Callees:
  *     IoGetOplockKeyContextEx @ 0x140019C10 (IoGetOplockKeyContextEx.c)
  */

@@ -1,17 +1,16 @@
 /*
- * XREFs of ExfReleasePushLock @ 0x140359E10
+ * XREFs of ExfReleasePushLock @ 0x1402F1440
  * Callers:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     DifExfReleasePushLockWrapper @ 0x140609FA0 (DifExfReleasePushLockWrapper.c)
- *     ExCovReadjustUnloadedModuleEntry @ 0x1406EB634 (ExCovReadjustUnloadedModuleEntry.c)
- *     PdcTaskClientRequest @ 0x1409C56F0 (PdcTaskClientRequest.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x140A02E2C (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovQueryInformation @ 0x140A0350C (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140A03DA4 (ExpCovResetInformation.c)
- *     ExpWorkerInitialization @ 0x140B240EC (ExpWorkerInitialization.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140773640 (ExCovReadjustUnloadedModuleEntry.c)
+ *     PdcTaskClientRequest @ 0x14091B9A0 (PdcTaskClientRequest.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1409570FC (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovQueryInformation @ 0x1409577DC (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x140958064 (ExpCovResetInformation.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockExclusive @ 0x140359EF0 (ExfReleasePushLockExclusive.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockExclusive @ 0x1402F1520 (ExfReleasePushLockExclusive.c)
  */
 
 __int64 __fastcall ExfReleasePushLock(_QWORD *a1)

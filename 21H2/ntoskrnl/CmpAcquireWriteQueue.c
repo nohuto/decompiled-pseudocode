@@ -1,19 +1,20 @@
 /*
- * XREFs of CmpAcquireWriteQueue @ 0x14020AA84
+ * XREFs of CmpAcquireWriteQueue @ 0x1402C9670
  * Callers:
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x14083D56C (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpAcquireReconcilerQueue @ 0x1406B6E7C (CmpAcquireReconcilerQueue.c)
+ *     CmpAcquireFlusherQueue @ 0x1406B6E98 (CmpAcquireFlusherQueue.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8 (CmpBecomeActiveFlusherAndReconciler.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall CmpAcquireWriteQueue(_QWORD *a1)
 {
   __int64 result; // rax
 
-  result = KeAbPreAcquire(a1, 0LL, 0LL);
+  result = KeAbPreAcquire((ULONG_PTR)a1);
   *a1 = KeGetCurrentThread();
   if ( result )
-    *(_BYTE *)(result + 18) = 1;
+    *(_BYTE *)(result + 26) |= 1u;
   return result;
 }

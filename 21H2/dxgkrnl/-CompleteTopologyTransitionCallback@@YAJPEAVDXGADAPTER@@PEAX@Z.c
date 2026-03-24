@@ -1,123 +1,133 @@
 /*
- * XREFs of ?CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01E17E0
+ * XREFs of ?CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01617D0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C000A6FC (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z @ 0x1C01A30A0 (-DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z.c)
- *     ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C01B4890 (-DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
- *     ?_CleanUpFromSimulatedMonitor@MONITOR_MGR@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01B6930 (-_CleanUpFromSimulatedMonitor@MONITOR_MGR@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     MonitorIsMonitorConnected @ 0x1C01E1978 (MonitorIsMonitorConnected.c)
- *     MonitorCreateSimulatedMonitor @ 0x1C03AFD5C (MonitorCreateSimulatedMonitor.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00024D8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C0124590 (-DmmGetVideoOutputTechnology@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
+ *     ?DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z @ 0x1C0124B5C (-DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z.c)
+ *     ?_CleanUpFromSimulatedMonitor@MONITOR_MGR@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0161968 (-_CleanUpFromSimulatedMonitor@MONITOR_MGR@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     MonitorIsMonitorConnected @ 0x1C0161DE4 (MonitorIsMonitorConnected.c)
+ *     MonitorCreateSimulatedMonitor @ 0x1C02F31C4 (MonitorCreateSimulatedMonitor.c)
  */
 
-__int64 __fastcall CompleteTopologyTransitionCallback(struct DXGADAPTER *this, _QWORD *a2)
+__int64 __fastcall CompleteTopologyTransitionCallback(struct DXGADAPTER *a1, _QWORD *a2)
 {
   struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v2; // r12
-  int v5; // eax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  __int64 v9; // rax
-  unsigned int v10; // esi
-  __int64 v11; // r15
-  __int64 v12; // r8
-  __int64 v13; // rax
-  MONITOR_MGR *v14; // rcx
-  _QWORD *v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  int v20; // [rsp+20h] [rbp-A9h]
-  int v21; // [rsp+30h] [rbp-99h]
-  _BYTE v22[4]; // [rsp+50h] [rbp-79h] BYREF
-  unsigned int v23; // [rsp+54h] [rbp-75h] BYREF
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v24; // [rsp+58h] [rbp-71h] BYREF
-  _BYTE v25[144]; // [rsp+60h] [rbp-69h] BYREF
+  int v5; // r8d
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  unsigned int v11; // ebx
+  __int64 v12; // rax
+  unsigned int v13; // esi
+  unsigned __int64 v14; // r15
+  int v15; // eax
+  __int64 v16; // rdx
+  MONITOR_MGR *v17; // rcx
+  __int64 v18; // rax
+  _QWORD *v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  int v31; // [rsp+20h] [rbp-99h]
+  int v32; // [rsp+30h] [rbp-89h]
+  _BYTE v33[4]; // [rsp+40h] [rbp-79h] BYREF
+  unsigned int v34; // [rsp+44h] [rbp-75h] BYREF
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY v35; // [rsp+48h] [rbp-71h] BYREF
+  _BYTE v36[144]; // [rsp+50h] [rbp-69h] BYREF
 
   v2 = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)a2[1];
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v25, this, 0LL);
-  v5 = COREADAPTERACCESS::AcquireExclusive((__int64)v25);
-  v8 = 0;
-  if ( v5 < 0 )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v36, a1, 0LL);
+  v6 = COREADAPTERACCESS::AcquireExclusive((__int64)v36, (unsigned int)(v5 + 1));
+  v11 = 0;
+  if ( v6 < 0 )
   {
-    if ( v5 == -1073741130 )
+    if ( v6 == -1073741130 )
     {
-      v16 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6);
-      v16[3] = this;
-      v16[4] = *((int *)this + 102);
-      v16[5] = *((unsigned int *)this + 101);
+      v20 = (_QWORD *)WdLogNewEntry5_WdTrace(v8, v7, v9, v10);
+      v20[3] = a1;
+      v20[4] = *((int *)a1 + 80);
+      v20[5] = *((unsigned int *)a1 + 79);
     }
     else
     {
-      v8 = v5;
+      v11 = v6;
     }
   }
   else
   {
-    v9 = *((_QWORD *)this + 349);
-    if ( v9 )
+    v12 = *((_QWORD *)a1 + 337);
+    if ( v12 )
     {
-      v10 = 0;
-      if ( *(_DWORD *)(v9 + 96) )
+      v13 = 0;
+      if ( *(_DWORD *)(v12 + 80) )
       {
         do
         {
-          v23 = -1;
-          v11 = 0LL;
+          v34 = -1;
+          v14 = 0LL;
           while ( 1 )
           {
-            v12 = v11++;
-            if ( (int)DmmEnumClientVidPnPathTargetsFromSource(this, v10, v12, &v23) < 0 || v23 == -1 )
+            v15 = DmmEnumClientVidPnPathTargetsFromSource(a1, v13, v14++, &v34);
+            if ( v15 < 0 || v34 == -1 )
               break;
-            v24 = D3DKMDT_VOT_UNINITIALIZED;
-            DmmGetVideoOutputTechnology(this, v23, 0LL, &v24);
-            if ( v24 == D3DKMDT_VOT_MIRACAST )
+            v35 = D3DKMDT_VOT_UNINITIALIZED;
+            DmmGetVideoOutputTechnology(a1, v34, 0LL, &v35);
+            if ( v35 == D3DKMDT_VOT_MIRACAST )
             {
               if ( *(_DWORD *)a2 || *((_DWORD *)a2 + 1) )
               {
-                WdLogSingleEntry1(1LL, 7991LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"(pTransContext->ActiveMiracastAdapterLuid.LowPart == 0) && (pTransContext->ActiveMiracastAdap"
-                            "terLuid.HighPart == 0)",
-                  7991LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
+                v27 = WdLogNewEntry5_WdAssertion(v22, v21);
+                *(_QWORD *)(v27 + 24) = 7547LL;
+                WdLogEvent5_WdAssertion(v27);
               }
-              *a2 = *(_QWORD *)((char *)this + 404);
+              *a2 = *(_QWORD *)((char *)a1 + 316);
             }
-            v22[0] = 0;
-            if ( (int)MonitorIsMonitorConnected(this, v23, 0LL, v22) >= 0 && !v22[0] )
+            v33[0] = 0;
+            if ( (int)MonitorIsMonitorConnected(a1, v34, 0LL, v33) >= 0 && !v33[0] )
             {
-              v19 = WdLogNewEntry5_WdTrace(v18, v17);
-              *(_QWORD *)(v19 + 24) = this;
-              *(_QWORD *)(v19 + 32) = v23;
-              MonitorCreateSimulatedMonitor(this, v20, 0, v21, (__int64)v2);
+              v28 = WdLogNewEntry5_WdTrace(v24, v23, v25, v26);
+              *(_QWORD *)(v28 + 24) = a1;
+              *(_QWORD *)(v28 + 32) = v34;
+              MonitorCreateSimulatedMonitor(a1, v31, 0, v32, (__int64)v2);
             }
           }
-          ++v10;
+          ++v13;
         }
-        while ( v10 < *(_DWORD *)(*((_QWORD *)this + 349) + 96LL) );
+        while ( v13 < *(_DWORD *)(*((_QWORD *)a1 + 337) + 80LL) );
       }
-      if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this) )
-        WdLogSingleEntry0(1LL);
-      v13 = *((_QWORD *)this + 349);
-      if ( v13 && (v14 = *(MONITOR_MGR **)(v13 + 112)) != 0LL )
-        MONITOR_MGR::_CleanUpFromSimulatedMonitor(v14, v2);
+      if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)a1) )
+      {
+        v29 = WdLogNewEntry5_WdAssertion(v17, v16);
+        WdLogEvent5_WdAssertion(v29);
+      }
+      v18 = *((_QWORD *)a1 + 337);
+      if ( v18 && (v17 = *(MONITOR_MGR **)(v18 + 96)) != 0LL )
+      {
+        MONITOR_MGR::_CleanUpFromSimulatedMonitor(v17, v2);
+      }
       else
-        WdLogSingleEntry1(2LL, this);
+      {
+        v30 = WdLogNewEntry5_WdError(v17, v16);
+        *(_QWORD *)(v30 + 24) = a1;
+        WdLogEvent5_WdError(v30);
+      }
     }
   }
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v25);
-  return v8;
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v36, v7);
+  return v11;
 }

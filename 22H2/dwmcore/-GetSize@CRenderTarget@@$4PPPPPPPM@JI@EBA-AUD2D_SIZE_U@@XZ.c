@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@CRenderTarget@@$4PPPPPPPM@JI@EBA?AUD2D_SIZE_U@@XZ @ 0x18011D760
+ * XREFs of ?GetSize@CRenderTarget@@$4PPPPPPPM@JI@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F5210
  * Callers:
  *     <none>
  * Callees:

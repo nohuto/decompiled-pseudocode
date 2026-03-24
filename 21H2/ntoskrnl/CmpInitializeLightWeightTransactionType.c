@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeLightWeightTransactionType @ 0x140862F14
+ * XREFs of CmpInitializeLightWeightTransactionType @ 0x1407A5634
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
  */
 
 __int64 CmpInitializeLightWeightTransactionType()
@@ -22,5 +22,5 @@ __int64 CmpInitializeLightWeightTransactionType()
   LODWORD(v1[1]) = 1179710;
   *(_QWORD *)((char *)&v1[1] + 4) = 0x1F003F00120018LL;
   *(_QWORD *)((char *)&v1[2] + 4) = 0x2000000001LL;
-  return ObCreateObjectTypeEx(&CmpTransactionTypeNameString, v1, 0LL, 0LL, &CmRegistryTransactionType);
+  return ObCreateObjectTypeEx(&CmpTransactionTypeNameString, v1, 0LL, 0LL, (__int64 *)&CmRegistryTransactionType);
 }

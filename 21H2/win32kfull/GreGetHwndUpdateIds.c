@@ -1,51 +1,49 @@
 /*
- * XREFs of GreGetHwndUpdateIds @ 0x1C026D470
+ * XREFs of GreGetHwndUpdateIds @ 0x1C026F750
  * Callers:
- *     NtUserHwndQueryRedirectionInfo @ 0x1C016CB60 (NtUserHwndQueryRedirectionInfo.c)
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C01FD200 (NtUserHwndQueryRedirectionInfo.c)
  * Callees:
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0084F94 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
- *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C00EDB94 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
- *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C00EDBC0 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C0119130 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C011915C (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
  */
 
 __int64 __fastcall GreGetHwndUpdateIds(HWND a1, _QWORD *a2, _QWORD *a3)
 {
   unsigned int v6; // esi
-  __int64 v7; // rbx
-  SFMLOGICALSURFACE *v8; // rbp
-  bool v9; // zf
+  __int64 v7; // rdx
+  __int64 v8; // rbx
+  SFMLOGICALSURFACE *v9; // rbp
   __int64 v10; // r8
-  __int64 v11; // rax
-  __int64 v13; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
 
   v6 = -1071775733;
   if ( g_pDwmState )
   {
     GreAcquireSemaphoreSharedInternal(ghsemDwmState);
     EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
-    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v13, a1, 0LL);
-    v7 = v13;
-    if ( v13 )
+    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v12, a1, 0LL);
+    v8 = v12;
+    if ( v12 )
     {
-      v8 = *(SFMLOGICALSURFACE **)(v13 + 144);
-      if ( v13 != -88 )
+      v9 = *(SFMLOGICALSURFACE **)(v12 + 168);
+      if ( v12 != -88 )
       {
         KeEnterCriticalRegion();
-        GreAcquirePushLockShared(v7 + 88);
+        GreAcquirePushLockShared(v8 + 88);
       }
-      if ( *((_QWORD *)v8 + 23) && (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(v8) )
+      v7 = *((_QWORD *)v9 + 23);
+      if ( v7 && (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(v9) )
       {
-        v9 = (SFMLOGICALSURFACE::uiDxPresentFlags(v8) & 2) == 0;
-        v11 = *(unsigned int *)(v10 + 68);
-        if ( !v9 )
-          v11 |= 0x8000000000000000uLL;
-        *a2 = v11;
+        if ( (SFMLOGICALSURFACE::uiDxPresentFlags(v9) & 2) != 0 )
+          v10 |= 0x8000000000000000uLL;
+        *a2 = v10;
         v6 = 0;
-        *a3 = *((_QWORD *)v8 + 35);
+        *a3 = *((_QWORD *)v9 + 35);
       }
-      if ( v7 != -88 )
+      if ( v8 != -88 )
       {
-        GreReleasePushLockShared(v7 + 88);
+        GreReleasePushLockShared(v8 + 88);
         KeLeaveCriticalRegion();
       }
     }
@@ -53,8 +51,8 @@ __int64 __fastcall GreGetHwndUpdateIds(HWND a1, _QWORD *a2, _QWORD *a3)
     {
       v6 = -1073741811;
     }
-    if ( v7 )
-      DEC_SHARE_REF_CNT(v7);
+    if ( v8 )
+      DEC_SHARE_REF_CNT(v8, v7);
     EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
     GreReleaseSemaphoreInternal(ghsemDwmState);
   }

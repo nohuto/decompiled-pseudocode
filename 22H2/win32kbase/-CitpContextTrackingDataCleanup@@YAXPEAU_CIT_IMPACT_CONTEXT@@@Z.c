@@ -1,18 +1,18 @@
 /*
- * XREFs of ?CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A44F0
+ * XREFs of ?CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CEDC
  * Callers:
- *     ?CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A44B0 (-CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ?CitpResetTracking@@YAJXZ @ 0x1C0234774 (-CitpResetTracking@@YAJXZ.c)
+ *     ?CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CD8C (-CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpResetTracking@@YAJXZ @ 0x1C01FE900 (-CitpResetTracking@@YAJXZ.c)
  * Callees:
- *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C00791EC (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
- *     ?CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C0079224 (-CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C008F0EC (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C008F128 (-CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z.c)
  */
 
 void __fastcall CitpContextTrackingDataCleanup(struct _CIT_IMPACT_CONTEXT *a1)
 {
   __int64 i; // rsi
-  char *v3; // rdx
+  __int64 v3; // rcx
   __int64 v4; // rdi
   _QWORD *v5; // rax
   __int64 v6; // rcx
@@ -39,17 +39,21 @@ void __fastcall CitpContextTrackingDataCleanup(struct _CIT_IMPACT_CONTEXT *a1)
     *(_QWORD *)(v4 + 24) = v4 + 16;
     *v5 = v5;
     CitpInteractionSummaryDelete((struct _CIT_INTERACTION_SUMMARY **)(v4 + 88));
-    CitpProgramIdCleanup((void **)(v4 + 40));
+    CitpProgramIdCleanup((struct _CIT_PROGRAM_ID *)(v4 + 40));
   }
   if ( *(_QWORD *)a1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *(char **)a1);
-  *(_QWORD *)a1 = 0LL;
+  {
+    Win32FreePool(*(_QWORD *)a1);
+    *(_QWORD *)a1 = 0LL;
+  }
   *((_DWORD *)a1 + 14) = 0;
   *((_DWORD *)a1 + 17) = 0;
-  v3 = (char *)*((_QWORD *)a1 + 11);
+  v3 = *((_QWORD *)a1 + 11);
   if ( v3 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
-  *((_QWORD *)a1 + 11) = 0LL;
+  {
+    Win32FreePool(v3);
+    *((_QWORD *)a1 + 11) = 0LL;
+  }
   *((_DWORD *)a1 + 18) = 0;
   *((_QWORD *)a1 + 10) = 0LL;
   *((_DWORD *)a1 + 19) = 0;

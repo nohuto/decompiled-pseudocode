@@ -1,73 +1,44 @@
 /*
- * XREFs of VidSchiCompletePendingFlipOnPlane @ 0x1C00183C4
+ * XREFs of VidSchiCompletePendingFlipOnPlane @ 0x1C003CDA8
  * Callers:
- *     VidSchUnwaitFlipQueue @ 0x1C0007760 (VidSchUnwaitFlipQueue.c)
- *     VidSchiProcessDpcVSyncCookie @ 0x1C000D460 (VidSchiProcessDpcVSyncCookie.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C00126D0 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiCompletePendingFlip @ 0x1C001830C (VidSchiCompletePendingFlip.c)
- *     ?VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0042F8C (-VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?VidSchiSubmitNextFlipRange@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C004AA00 (-VidSchiSubmitNextFlipRange@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002FF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C00057F0 (VidSchiProcessDpcVSyncCookie.c)
+ *     VidSchUnwaitFlipQueue @ 0x1C000D860 (VidSchUnwaitFlipQueue.c)
+ *     ?VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00386C4 (-VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiCompletePendingFlip @ 0x1C003CD10 (VidSchiCompletePendingFlip.c)
  * Callees:
- *     VidSchiCompleteFlipEntry @ 0x1C0010C40 (VidSchiCompleteFlipEntry.c)
- *     VidSchExitIndependentFlipInternal @ 0x1C003F95C (VidSchExitIndependentFlipInternal.c)
+ *     VidSchiCompleteFlipEntry @ 0x1C00041E0 (VidSchiCompleteFlipEntry.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C00348BC (VidSchExitIndependentFlipInternal.c)
  */
 
 __int64 __fastcall VidSchiCompletePendingFlipOnPlane(
-        __int64 a1,
+        struct HwQueueStagingList *a1,
         __int64 a2,
         unsigned int a3,
         __int64 a4,
-        unsigned int a5)
+        int a5)
 {
   __int64 v9; // rdx
   __int64 v10; // r8
-  unsigned int v11; // ecx
-  int v12; // edx
-  __int64 v14; // r9
-  char v15; // [rsp+28h] [rbp-30h]
-  _QWORD v16[3]; // [rsp+40h] [rbp-18h] BYREF
-  char v17; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v11; // r9
+  _QWORD v13[3]; // [rsp+40h] [rbp-18h] BYREF
+  char v14; // [rsp+78h] [rbp+20h] BYREF
 
-  if ( a4 )
+  if ( a4 && !*(_BYTE *)(a4 + 56) )
   {
-    if ( !*(_BYTE *)(a4 + 80) )
-    {
-      v9 = *(int *)(*(_QWORD *)(a2 + 8LL * a3 + 3200) + 288LL * *(unsigned int *)(a4 + 84) + 188);
-      if ( (int)v9 > -1 )
-      {
-        v10 = *(_QWORD *)(a2 + 3328) + 160 * v9;
-        if ( v10 )
-        {
-          if ( (unsigned int)(*(_DWORD *)(v10 + 112) - 1) <= 1 )
-          {
-            v16[0] = 0LL;
-            v14 = *(_QWORD *)(v10 + 8);
-            v17 = 0;
-            v15 = 0;
-            ((void (__fastcall *)(__int64, __int64, __int64, __int64, _DWORD, char, char *, _QWORD *))VidSchExitIndependentFlipInternal)(
-              a1,
-              a2,
-              v10,
-              v14,
-              0,
-              v15,
-              &v17,
-              v16);
-          }
-        }
-      }
-    }
-    if ( *(_BYTE *)(a2 + 59) )
-    {
-      v12 = *(_DWORD *)(a4 + 76);
-      v11 = ((_BYTE)v12 + 1) & 0x3F;
-    }
+    v9 = *(int *)(*(_QWORD *)(a2 + 8LL * a3 + 3104) + 216LL * *(unsigned int *)(a4 + 60) + 172);
+    if ( (int)v9 <= -1 )
+      v10 = 0LL;
     else
+      v10 = *(_QWORD *)(a2 + 3232) + 152 * v9;
+    if ( v10 && (unsigned int)(*(_DWORD *)(v10 + 112) - 1) <= 1 )
     {
-      v11 = 0;
-      v12 = 63;
+      v13[0] = 0LL;
+      v11 = *(_QWORD *)(v10 + 8);
+      v14 = 0;
+      VidSchExitIndependentFlipInternal(a1, a2, (_DWORD *)v10, v11, 0, 0, &v14, v13);
     }
-    VidSchiCompleteFlipEntry(a1, a2, a3, a4, v11, v12, a5, 0LL);
   }
+  VidSchiCompleteFlipEntry((__int64)a1, a2, a3, a4, 0, 63, a5, 0LL);
   return 0LL;
 }

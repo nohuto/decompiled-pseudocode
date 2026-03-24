@@ -1,616 +1,476 @@
 /*
- * XREFs of DxgkGetDeviceStateInternal @ 0x1C01C9BE0
+ * XREFs of DxgkGetDeviceStateInternal @ 0x1C0102270
  * Callers:
- *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018D7C (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
- *     DxgkGetDeviceState @ 0x1C01C9BA0 (DxgkGetDeviceState.c)
- *     NtDxgkUpdateTrackedWorkload @ 0x1C0360170 (NtDxgkUpdateTrackedWorkload.c)
+ *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0012950 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     DxgkGetDeviceState @ 0x1C0102230 (DxgkGetDeviceState.c)
+ *     NtDxgkUpdateTrackedWorkload @ 0x1C02BE8F0 (NtDxgkUpdateTrackedWorkload.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C0007CA4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000AF80 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z @ 0x1C00164A0 (-SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0040F6C (McTemplateK0pt_EtwWriteTransfer.c)
- *     McTemplateK0pqqqqxxt_EtwWriteTransfer @ 0x1C0049C1C (McTemplateK0pqqqqxxt_EtwWriteTransfer.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01CA0D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
- *     ?GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z @ 0x1C01E02D8 (-GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z.c)
- *     ?QueryLastCompletedPresentIdDWM@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS_DWM2@@@Z @ 0x1C023011E (-QueryLastCompletedPresentIdDWM@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS_DWM2@@@Z.c)
- *     ?QueryLastCompletedPresentId@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z @ 0x1C02EC614 (-QueryLastCompletedPresentId@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z.c)
- *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C031266C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?VmBusSendGetDeviceState@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_GETDEVICESTATE@@@Z @ 0x1C038943C (-VmBusSendGetDeviceState@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C00088C4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000903C (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A380 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqxx_EtwWriteTransfer @ 0x1C003A6F0 (McTemplateK0pqqqqxx_EtwWriteTransfer.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01059F0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?VmBusSendGetDeviceState@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_GETDEVICESTATE@@@Z @ 0x1C02492BC (-VmBusSendGetDeviceState@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3.c)
+ *     ?QueryLastCompletedPresentId@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z @ 0x1C02568B0 (-QueryLastCompletedPresentId@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z.c)
+ *     ?QueryLastCompletedPresentIdDWM@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS_DWM@@@Z @ 0x1C0256980 (-QueryLastCompletedPresentIdDWM@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS_DWM@@@Z.c)
+ *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C026962C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
  */
 
 __int64 __fastcall DxgkGetDeviceStateInternal(ULONG64 a1, char a2, __int64 a3)
 {
-  int v5; // r14d
-  __int64 v6; // rcx
+  int v5; // esi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
   __int64 CurrentProcess; // rax
   __int64 ProcessDxgProcess; // rax
-  struct DXGPROCESS *v9; // rdi
-  struct DXGPROCESS *v10; // r13
-  _D3DKMT_GETDEVICESTATE *v11; // rbx
-  _D3DKMT_GETDEVICESTATE *v12; // rax
-  volatile signed __int64 *v13; // rcx
-  volatile signed __int32 *v14; // rdx
-  struct DXGADAPTER *v15; // r8
-  D3DKMT_DEVICESTATE_TYPE v16; // ecx
-  D3DKMT_DEVICEPRESENT_STATE *p_PresentState; // rdx
-  unsigned int LastCompletedPresentIdDWM; // r13d
-  int v19; // ecx
-  __int64 v20; // rcx
-  bool v21; // al
-  int v22; // eax
-  D3DKMT_DEVICESTATE_TYPE v23; // eax
-  DXGGLOBAL **v24; // rbx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  struct DXGTHREAD *Current; // rax
-  struct _ETHREAD *CurrentThread; // rbx
-  KSPIN_LOCK *Global; // rax
-  D3DKMT_DEVICESTATE_TYPE StateType; // ecx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  __int64 v15; // r13
+  _D3DKMT_GETDEVICESTATE *v16; // rbx
+  _D3DKMT_GETDEVICESTATE *v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  volatile signed __int64 *v20; // rcx
+  __int64 v21; // r8
+  struct DXGADAPTER *v22; // rdx
+  __int64 v23; // rcx
+  D3DKMT_DEVICEPRESENT_STATE *p_PresentState; // r13
+  int v25; // ecx
+  int v26; // ecx
+  bool v27; // al
+  int v28; // ecx
+  int v29; // eax
+  int DeviceState; // r13d
+  __int64 v31; // rcx
+  DXGGLOBAL **v32; // rbx
+  volatile signed __int64 *v33; // rdx
   __int64 v34; // rcx
-  unsigned int CurrentProcessSessionId; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  D3DKMT_DEVICESTATE_TYPE v37; // eax
-  __int32 v38; // ecx
-  __int32 v39; // ecx
-  __int64 v40; // r10
-  __int64 v41; // rax
-  __int64 VidPnSourceId; // rcx
-  __int64 v43; // rax
-  UINT SyncRefreshCount; // eax
-  __int64 v45; // [rsp+20h] [rbp-148h]
-  __int64 v46; // [rsp+28h] [rbp-140h]
-  __int64 v47; // [rsp+30h] [rbp-138h]
-  __int64 v48; // [rsp+38h] [rbp-130h]
-  LARGE_INTEGER SyncQPCTime; // [rsp+40h] [rbp-128h]
-  LARGE_INTEGER SyncGPUTime; // [rsp+48h] [rbp-120h]
-  int v51; // [rsp+50h] [rbp-118h]
-  struct DXGDEVICE *v52; // [rsp+60h] [rbp-108h] BYREF
-  volatile signed __int32 *v53; // [rsp+68h] [rbp-100h]
-  __int64 v54; // [rsp+70h] [rbp-F8h] BYREF
-  int v55; // [rsp+78h] [rbp-F0h] BYREF
-  __int64 v56; // [rsp+80h] [rbp-E8h]
-  char v57; // [rsp+88h] [rbp-E0h]
-  struct DXGADAPTER *v58; // [rsp+90h] [rbp-D8h]
-  struct DXGDEVICE *v59; // [rsp+98h] [rbp-D0h] BYREF
-  volatile signed __int64 *v60; // [rsp+A0h] [rbp-C8h]
-  volatile signed __int64 *v61; // [rsp+A8h] [rbp-C0h]
-  struct DXGDEVICE *v62; // [rsp+B0h] [rbp-B8h]
-  DXGSESSIONMGR *v63; // [rsp+B8h] [rbp-B0h]
-  volatile signed __int64 *v64; // [rsp+C0h] [rbp-A8h]
-  _D3DKMT_GETDEVICESTATE v65; // [rsp+C8h] [rbp-A0h] BYREF
-  __int128 v66; // [rsp+100h] [rbp-68h] BYREF
-  __int128 v67; // [rsp+110h] [rbp-58h]
-  __int128 v68; // [rsp+120h] [rbp-48h]
-  __int64 v69; // [rsp+130h] [rbp-38h]
+  __int64 v35; // r8
+  int v37; // ecx
+  int v38; // ecx
+  __int64 v39; // rax
+  __int64 v40; // rcx
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  __int64 v44; // rax
+  struct DXGTHREAD *Current; // rax
+  __int64 v46; // rax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  __int64 v49; // r8
+  __int64 v50; // rax
+  __int64 v51; // rdx
+  D3DKMT_DEVICESTATE_TYPE StateType; // ecx
+  D3DKMT_DEVICESTATE_TYPE v53; // eax
+  int v54; // ecx
+  _QWORD *v55; // rdx
+  __int64 v56; // rax
+  __int64 v57; // rax
+  int v58; // ecx
+  __int64 v59; // rcx
+  __int64 v60; // rax
+  __int64 v61; // rcx
+  __int64 v62; // rax
+  __int64 v63; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v64; // [rsp+58h] [rbp-B0h]
+  char v65; // [rsp+60h] [rbp-A8h]
+  struct DXGDEVICE *v66; // [rsp+68h] [rbp-A0h]
+  __int64 v67; // [rsp+70h] [rbp-98h]
+  struct DXGADAPTER *v68; // [rsp+78h] [rbp-90h]
+  struct DXGDEVICE *v69; // [rsp+80h] [rbp-88h] BYREF
+  volatile signed __int64 *v70; // [rsp+88h] [rbp-80h]
+  volatile signed __int64 *v71; // [rsp+90h] [rbp-78h]
+  volatile signed __int64 *v72; // [rsp+98h] [rbp-70h]
+  _D3DKMT_GETDEVICESTATE v73; // [rsp+A0h] [rbp-68h] BYREF
+  int v74; // [rsp+120h] [rbp+18h] BYREF
+  struct DXGDEVICE *v75; // [rsp+128h] [rbp+20h] BYREF
 
-  v55 = -1;
+  LODWORD(v63) = -1;
   v5 = 0;
-  v56 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v64 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v57 = 1;
-    v55 = 2028;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v65 = 1;
+    LODWORD(v63) = 2028;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2028);
   }
   else
   {
-    v57 = 0;
+    v65 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v55, 2028);
-  LODWORD(v54) = 0;
-  CurrentProcess = PsGetCurrentProcess(v6);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v63, 2028LL);
+  v67 = 0LL;
+  CurrentProcess = PsGetCurrentProcess(v7, v6, v8, v9);
   ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
-  v9 = (struct DXGPROCESS *)ProcessDxgProcess;
-  if ( ProcessDxgProcess && (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) == 0 )
-    goto LABEL_5;
-  Current = DXGTHREAD::GetCurrent();
-  if ( Current )
+  v14 = ProcessDxgProcess;
+  if ( ProcessDxgProcess && (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) == 0
+    || (Current = DXGTHREAD::GetCurrent()) == 0LL
+    || (v15 = *((_QWORD *)Current + 1)) == 0 )
   {
-    v10 = (struct DXGPROCESS *)*((_QWORD *)Current + 3);
-    if ( v10 )
-      goto LABEL_6;
-LABEL_5:
-    v10 = v9;
-    goto LABEL_6;
+    v15 = v14;
+    if ( !v14 )
+    {
+      v46 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v46 + 24) = -1073741811LL;
+      WdLogEvent5_WdError(v46);
+      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v63, v47);
+      if ( !v65 || (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) == 0 )
+        return 3221225485LL;
+      goto LABEL_77;
+    }
   }
-  CurrentThread = KeGetCurrentThread();
-  Global = (KSPIN_LOCK *)DXGGLOBAL::GetGlobal();
-  v10 = DXGGLOBAL::SearchDxgThreadList(Global, CurrentThread);
-  if ( !v10 )
-  {
-    WdLogSingleEntry1(2LL, 2923LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Failed to find DXGPROCESS", 2923LL, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_5;
-  }
-LABEL_6:
-  if ( !v10 )
-  {
-    LastCompletedPresentIdDWM = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v55);
-    if ( !v57 || (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-      return LastCompletedPresentIdDWM;
-    goto LABEL_134;
-  }
-  memset(&v65, 0, sizeof(v65));
-  v11 = &v65;
+  memset(&v73, 0, sizeof(v73));
+  v16 = &v73;
   if ( a2 )
   {
-    v12 = (_D3DKMT_GETDEVICESTATE *)a1;
+    v17 = (_D3DKMT_GETDEVICESTATE *)a1;
     if ( a1 >= MmUserProbeAddress )
-      v12 = (_D3DKMT_GETDEVICESTATE *)MmUserProbeAddress;
-    v65 = *v12;
+      v17 = (_D3DKMT_GETDEVICESTATE *)MmUserProbeAddress;
+    v73 = *v17;
   }
   else
   {
-    v11 = (_D3DKMT_GETDEVICESTATE *)a1;
+    v16 = (_D3DKMT_GETDEVICESTATE *)a1;
   }
-  if ( !a2 || v11->StateType != D3DKMT_DEVICESTATE_RESET )
+  if ( !a2 || v16->StateType != D3DKMT_DEVICESTATE_RESET )
   {
-    v52 = 0LL;
-    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v59, v11->hDevice, (struct _KTHREAD **)v10, &v52);
-    v62 = v52;
-    if ( !v52 )
+    v75 = 0LL;
+    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v69, v16->hDevice, (struct _KTHREAD **)v15, &v75);
+    v66 = v75;
+    if ( v75 )
     {
-      LastCompletedPresentIdDWM = -1073741811;
-      WdLogSingleEntry2(2LL, v11->hDevice, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Invalid hDevice (0x%I64x) specified, returning 0x%I64x",
-        v11->hDevice,
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL);
-      if ( v59 && _InterlockedExchangeAdd64((volatile signed __int64 *)v59 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v59 + 2), v59);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v55);
-      if ( !v57 )
-        return LastCompletedPresentIdDWM;
-      v25 = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-        return LastCompletedPresentIdDWM;
-LABEL_134:
-      McTemplateK0q_EtwWriteTransfer(v25, &EventProfilerExit, v26, v55);
-      return LastCompletedPresentIdDWM;
-    }
-    v13 = *(volatile signed __int64 **)(*((_QWORD *)v52 + 2) + 16LL);
-    v58 = (struct DXGADAPTER *)v13;
-    v64 = v13;
-    v60 = v13 + 3;
-    _InterlockedIncrement64(v13 + 3);
-    v61 = v13 + 17;
-    KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx(v61, 0LL);
-    v14 = (volatile signed __int32 *)(v61 + 2);
-    v53 = (volatile signed __int32 *)(v61 + 2);
-    _InterlockedIncrement((volatile signed __int32 *)v61 + 4);
-    v15 = v58;
-    if ( !*((_BYTE *)v58 + 209) )
-      goto LABEL_15;
-    StateType = v11->StateType;
-    if ( ((StateType - 1) & 0xFFFFFFFA) != 0 || StateType == D3DKMT_DEVICESTATE_PRESENT )
-    {
-      if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) < 0x20u )
+      v20 = *(volatile signed __int64 **)(*((_QWORD *)v75 + 2) + 16LL);
+      v68 = (struct DXGADAPTER *)v20;
+      v72 = v20;
+      v71 = v20 + 3;
+      _InterlockedIncrement64(v20 + 3);
+      v70 = v20 + 17;
+      KeEnterCriticalRegion();
+      ExAcquirePushLockSharedEx(v70, 0LL);
+      v22 = v68;
+      if ( *((_BYTE *)v68 + 209) )
       {
-        v14 = v53;
-      }
-      else
-      {
-        v63 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-        if ( v63 )
+        StateType = v16->StateType;
+        if ( ((StateType - 1) & 0xFFFFFFFA) == 0 && StateType != D3DKMT_DEVICESTATE_PRESENT )
         {
-          CurrentProcessSessionId = PsGetCurrentProcessSessionId(v34);
-          SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                             v63,
-                                             CurrentProcessSessionId);
-        }
-        else
-        {
-          SessionDataForSpecifiedSession = 0LL;
-        }
-        v14 = v53;
-        if ( *((_DWORD *)SessionDataForSpecifiedSession + 4738) && v11->StateType == D3DKMT_DEVICESTATE_PRESENT_DWM )
-        {
-          v15 = v58;
-          goto LABEL_77;
-        }
-      }
-LABEL_15:
-      v16 = v11->StateType;
-      if ( v16 == D3DKMT_DEVICESTATE_EXECUTION )
-      {
-        p_PresentState = &v11->PresentState;
-        LastCompletedPresentIdDWM = 0;
-        LODWORD(v54) = 0;
-        if ( v11 == (_D3DKMT_GETDEVICESTATE *)-8LL )
-        {
-          WdLogSingleEntry1(1LL, 10068LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pExecutionState != NULL", 10068LL, 0LL, 0LL, 0LL, 0LL);
-          p_PresentState = 0LL;
-        }
-        v19 = *((_DWORD *)v52 + 152);
-        if ( v19 == 1 )
-        {
-          v15 = v52;
-          if ( (*((_BYTE *)v52 + 1901) & 1) != 0 )
+          LOBYTE(v5) = *((_DWORD *)v68 + 50) == 1;
+          v53 = v16->StateType;
+          if ( v5 )
           {
-            v20 = *(unsigned int *)(*((_QWORD *)v52 + 60) + 16LL);
-          }
-          else
-          {
-            LastCompletedPresentIdDWM = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v52 + 2) + 736LL)
-                                                                                                 + 8LL)
-                                                                                     + 192LL))(
-                                          *((_QWORD *)v52 + 100),
-                                          &v54);
-            v20 = (unsigned int)v54;
-            p_PresentState = &v11->PresentState;
-          }
-          v21 = (int)v20 < 0;
-          LODWORD(v20) = v20 & 0x7FFFFFFF;
-          LODWORD(v54) = v20;
-          if ( (LastCompletedPresentIdDWM & 0x80000000) != 0 )
-            goto LABEL_27;
-          if ( (_DWORD)v20 )
-          {
-            v20 = (unsigned int)(v20 - 2);
-            v15 = (struct DXGADAPTER *)0x1C0000000LL;
-            switch ( (int)v20 )
+            if ( v53 == D3DKMT_DEVICESTATE_EXECUTION )
             {
-              case 0:
-              case 9:
-              case 10:
-              case 11:
-                p_PresentState->VidPnSourceId = 5;
-                break;
-              case 4:
-                p_PresentState->VidPnSourceId = 6;
-                break;
-              case 5:
-                goto LABEL_120;
-              case 7:
-              case 8:
-              case 13:
-              case 14:
-              case 15:
-              case 16:
-              case 17:
-              case 22:
-                p_PresentState->VidPnSourceId = 7;
-                break;
-              case 12:
-              case 20:
-              case 23:
-              case 24:
-                goto LABEL_121;
-              default:
-                WdLogSingleEntry1(1LL, 10156LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"Unexpected device error!",
-                  10156LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-                v11->PresentState.VidPnSourceId = 5;
-                break;
-            }
-            goto LABEL_27;
-          }
-          if ( !v21 && !*((_BYTE *)v52 + 73) )
-          {
-            v22 = 1;
-LABEL_26:
-            p_PresentState->VidPnSourceId = v22;
-LABEL_27:
-            v14 = v53;
-            goto LABEL_28;
-          }
-        }
-        else
-        {
-          v20 = (unsigned int)(v19 - 2);
-          if ( (_DWORD)v20 )
-          {
-            v20 = (unsigned int)(v20 - 1);
-            if ( (_DWORD)v20 )
-            {
-              if ( (_DWORD)v20 == 1 )
-              {
-LABEL_121:
-                p_PresentState->VidPnSourceId = 4;
-              }
-              else
-              {
-                WdLogSingleEntry1(1LL, 10168LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"Unexpected device execution state!",
-                  10168LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-                v11->PresentState.VidPnSourceId = 4;
-              }
+              v16->PresentState.VidPnSourceId = 1;
+              DeviceState = v67;
             }
             else
             {
-LABEL_120:
-              p_PresentState->VidPnSourceId = 3;
+              DeviceState = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetDeviceState(
+                              (struct DXGADAPTER *)((char *)v68 + 4240),
+                              (struct DXGPROCESS *)v15,
+                              v75,
+                              v16);
             }
-            goto LABEL_27;
+            goto LABEL_26;
+          }
+          if ( v53 == D3DKMT_DEVICESTATE_EXECUTION )
+          {
+            v16->PresentState.VidPnSourceId = 4;
+            DeviceState = v67;
+            goto LABEL_26;
+          }
+LABEL_102:
+          DeviceState = -1073741130;
+          goto LABEL_26;
+        }
+      }
+      v23 = (unsigned int)v16->StateType;
+      if ( (_DWORD)v23 != 1 )
+      {
+        v37 = v23 - 2;
+        if ( v37 )
+        {
+          v38 = v37 - 2;
+          if ( v38 )
+          {
+            v54 = v38 - 1;
+            if ( !v54 )
+            {
+              if ( *((_DWORD *)v75 + 144) == 1 )
+              {
+                if ( DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(*((_QWORD *)v66 + 2) + 16LL)) )
+                {
+                  (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(v21 + 616) + 8LL) + 200LL))(*((_QWORD *)v75 + 96));
+                }
+                else
+                {
+                  *v55 = -1LL;
+                  v16->PresentState.PresentStats.PresentCount = 0;
+                  v16->PresentState.PresentStats.PresentRefreshCount = -1;
+                  v16->PresentState.PresentStats.SyncRefreshCount = 0;
+                  v16->PresentState.PresentStats.SyncQPCTime.QuadPart = 0LL;
+                }
+                DeviceState = v67;
+              }
+              else
+              {
+                DeviceState = -1073741130;
+              }
+              goto LABEL_26;
+            }
+            if ( v54 != 1 )
+            {
+              DeviceState = -1073741811;
+              goto LABEL_26;
+            }
+            if ( *((_DWORD *)v75 + 144) != 1 )
+            {
+              DeviceState = -1073741130;
+              goto LABEL_26;
+            }
+            DeviceState = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v66 + 2) + 616LL)
+                                                                                        + 8LL)
+                                                                            + 184LL))(
+                            *((_QWORD *)v75 + 96),
+                            v16->PresentState.VidPnSourceId,
+                            0LL);
+            v16->PresentQueueState.bQueuedPresentLimitReached = 0;
+            if ( DeviceState != -1071775486 )
+              goto LABEL_26;
+            v16->PresentQueueState.bQueuedPresentLimitReached = 1;
+            goto LABEL_25;
+          }
+          if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v66 + 2) + 16LL) + 200LL) != 1 )
+          {
+            DeviceState = -1073741130;
+            goto LABEL_26;
+          }
+          v39 = *((_QWORD *)v75 + 231);
+          if ( !v39
+            || (v40 = *(unsigned int *)(*(_QWORD *)(v39 + 2696) + 80LL),
+                v16->PresentState.VidPnSourceId < (unsigned int)v40) )
+          {
+            DeviceState = DXGDEVICE::QueryLastCompletedPresentIdDWM(
+                            v75,
+                            v16->PresentState.VidPnSourceId,
+                            &v16->PresentStateDWM.PresentStatsDWM);
+            goto LABEL_26;
           }
         }
-        v22 = 2;
+        else
+        {
+          if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v66 + 2) + 16LL) + 200LL) != 1 )
+            goto LABEL_102;
+          v44 = *((_QWORD *)v75 + 231);
+          if ( !v44
+            || (v40 = *(unsigned int *)(*(_QWORD *)(v44 + 2696) + 80LL),
+                v16->PresentState.VidPnSourceId < (unsigned int)v40) )
+          {
+            DeviceState = DXGDEVICE::QueryLastCompletedPresentId(
+                            v75,
+                            v16->PresentState.VidPnSourceId,
+                            &v16->PresentState.PresentStats);
+            goto LABEL_26;
+          }
+        }
+        v56 = WdLogNewEntry5_WdWarning(v40, v68, v21);
+        *(_QWORD *)(v56 + 24) = v16->PresentState.VidPnSourceId;
+        DeviceState = -1073741811;
+        *(_QWORD *)(v56 + 32) = -1073741811LL;
+        WdLogEvent5_WdWarning(v56);
         goto LABEL_26;
       }
-      v38 = v16 - 2;
-      if ( v38 )
+      p_PresentState = &v16->PresentState;
+      v74 = 0;
+      if ( v16 == (_D3DKMT_GETDEVICESTATE *)-8LL )
       {
-        v39 = v38 - 2;
-        if ( v39 )
+        v57 = WdLogNewEntry5_WdAssertion(v23, v68);
+        *(_QWORD *)(v57 + 24) = 9963LL;
+        WdLogEvent5_WdAssertion(v57);
+      }
+      v25 = *((_DWORD *)v75 + 144);
+      if ( v25 == 1 )
+      {
+        if ( (*((_BYTE *)v75 + 1869) & 1) != 0 )
         {
-          v20 = (unsigned int)(v39 - 1);
-          if ( (_DWORD)v20 )
+          v26 = *(_DWORD *)(*((_QWORD *)v75 + 56) + 16LL);
+        }
+        else
+        {
+          v5 = (*(__int64 (__fastcall **)(_QWORD, int *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v66 + 2) + 616LL) + 8LL)
+                                                        + 192LL))(
+                 *((_QWORD *)v75 + 96),
+                 &v74);
+          v26 = v74;
+        }
+        v27 = v26 < 0;
+        v28 = v26 & 0x7FFFFFFF;
+        v74 = v28;
+        if ( v5 < 0 )
+          goto LABEL_25;
+        if ( v28 )
+        {
+          v61 = (unsigned int)(v28 - 2);
+          switch ( (int)v61 )
           {
-            if ( (_DWORD)v20 == 1 )
-            {
-              v20 = *((unsigned int *)v52 + 152);
-              if ( (_DWORD)v20 == 1 )
-              {
-                LastCompletedPresentIdDWM = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v52 + 2) + 736LL) + 8LL)
-                                                                                              + 184LL))(
-                                              *((_QWORD *)v52 + 100),
-                                              v11->PresentState.VidPnSourceId,
-                                              0LL);
-                v11->PresentQueueState.bQueuedPresentLimitReached = 0;
-                v14 = v53;
-                if ( LastCompletedPresentIdDWM == -1071775486 )
-                {
-                  LastCompletedPresentIdDWM = 0;
-                  v11->PresentQueueState.bQueuedPresentLimitReached = 1;
-                }
-              }
-              else
-              {
-                LastCompletedPresentIdDWM = -1073741130;
-              }
-            }
-            else
-            {
-              LastCompletedPresentIdDWM = -1073741811;
-            }
+            case 0:
+            case 9:
+            case 10:
+            case 11:
+              p_PresentState->VidPnSourceId = 5;
+              break;
+            case 4:
+              p_PresentState->VidPnSourceId = 6;
+              break;
+            case 5:
+              goto LABEL_113;
+            case 7:
+            case 8:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 22:
+              p_PresentState->VidPnSourceId = 7;
+              break;
+            case 12:
+            case 20:
+            case 23:
+              goto LABEL_114;
+            default:
+              v62 = WdLogNewEntry5_WdAssertion(v61, 0x1C0000000uLL);
+              *(_QWORD *)(v62 + 24) = 10046LL;
+              WdLogEvent5_WdAssertion(v62);
+              v5 = -1073741823;
+              p_PresentState->VidPnSourceId = 5;
+              break;
           }
-          else
-          {
-            v20 = *((unsigned int *)v52 + 152);
-            if ( (_DWORD)v20 == 1 )
-            {
-              if ( DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(*((_QWORD *)v52 + 2) + 16LL)) )
-              {
-                (*(void (__fastcall **)(_QWORD, D3DKMT_DEVICEPAGEFAULT_STATE *))(*(_QWORD *)(*(_QWORD *)(v40 + 736) + 8LL)
-                                                                               + 200LL))(
-                  *((_QWORD *)v15 + 100),
-                  &v11->PageFaultState);
-                LastCompletedPresentIdDWM = v54;
-                goto LABEL_27;
-              }
-              v11->PageFaultState.FaultedPrimitiveAPISequenceNumber = -1LL;
-              v11->PresentState.PresentStats.PresentCount = 0;
-              v11->PresentState.PresentStats.PresentRefreshCount = -1;
-              v11->PresentState.PresentStats.SyncRefreshCount = 0;
-              v11->PresentState.PresentStats.SyncQPCTime.QuadPart = 0LL;
-              LastCompletedPresentIdDWM = v54;
-            }
-            else
-            {
-              LastCompletedPresentIdDWM = -1073741130;
-            }
-          }
-LABEL_28:
+          goto LABEL_25;
+        }
+        if ( !v27 )
+        {
+          v29 = 1;
+LABEL_24:
+          p_PresentState->VidPnSourceId = v29;
+LABEL_25:
+          DeviceState = v5;
+LABEL_26:
           if ( bTracingEnabled )
           {
-            v23 = v11->StateType;
-            if ( v23 == D3DKMT_DEVICESTATE_EXECUTION )
+            v31 = (unsigned int)(v16->StateType - 1);
+            if ( v16->StateType == D3DKMT_DEVICESTATE_EXECUTION )
             {
-              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-                goto LABEL_31;
-              LODWORD(v45) = v11->ExecutionState;
-              McTemplateK0pt_EtwWriteTransfer(
-                (REGHANDLE *)&DxgkControlGuid_Context,
-                &DeviceStateEvent,
-                (__int64)v15,
-                v52,
-                v45);
-LABEL_132:
-              v14 = v53;
-              goto LABEL_31;
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+                McTemplateK0pq_EtwWriteTransfer(v31, &DeviceStateEvent, v21, v75, v16->PresentState.VidPnSourceId);
             }
-            if ( v23 == D3DKMT_DEVICESTATE_PRESENT )
+            else if ( v16->StateType == D3DKMT_DEVICESTATE_PRESENT && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
             {
-              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-                goto LABEL_31;
-              v51 = 0;
-              SyncGPUTime = v11->PresentState.PresentStats.SyncGPUTime;
-              SyncQPCTime = v11->PresentState.PresentStats.SyncQPCTime;
-              SyncRefreshCount = v11->PresentState.PresentStats.SyncRefreshCount;
-              goto LABEL_128;
-            }
-            if ( v23 == D3DKMT_DEVICESTATE_PRESENT_DWM && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-            {
-              v51 = 1;
-              SyncGPUTime.QuadPart = 0LL;
-              SyncQPCTime = v11->PresentState.PresentStats.SyncGPUTime;
-              SyncRefreshCount = v11->PresentState.PresentStats.SyncQPCTime.LowPart;
-LABEL_128:
-              LODWORD(v48) = SyncRefreshCount;
-              LODWORD(v47) = v11->PresentState.PresentStats.PresentRefreshCount;
-              LODWORD(v46) = v11->PresentState.PresentStats.PresentCount;
-              LODWORD(v45) = v11->ExecutionState;
-              McTemplateK0pqqqqxxt_EtwWriteTransfer(
-                v20,
-                (__int64)v14,
-                (__int64)v15,
-                v52,
-                v45,
-                v46,
-                v47,
-                v48,
-                SyncQPCTime.QuadPart,
-                SyncGPUTime.QuadPart,
-                v51);
-              goto LABEL_132;
+              McTemplateK0pqqqqxx_EtwWriteTransfer(
+                v31,
+                &DevicePresentStateEvent,
+                v21,
+                v75,
+                v16->PresentState.VidPnSourceId,
+                v16->PresentState.PresentStats.PresentCount,
+                v16->PresentState.PresentStats.PresentRefreshCount,
+                v16->PresentState.PresentStats.SyncRefreshCount,
+                v16->PresentState.PresentStats.SyncQPCTime.QuadPart,
+                v16->PresentState.PresentStats.SyncGPUTime.QuadPart,
+                v63,
+                v64);
             }
           }
-LABEL_31:
-          if ( (LastCompletedPresentIdDWM & 0x80000000) == 0 && a2 )
+          if ( DeviceState >= 0 && a2 )
           {
             if ( a1 + 56 > MmUserProbeAddress || a1 + 56 <= a1 )
               *(_BYTE *)MmUserProbeAddress = 0;
-            *(_OWORD *)a1 = *(_OWORD *)&v11->hDevice;
-            *(_OWORD *)(a1 + 16) = *(_OWORD *)(&v11->PresentQueueState + 1);
-            *(_OWORD *)(a1 + 32) = *(_OWORD *)(&v11->PresentQueueState + 3);
-            *(_QWORD *)(a1 + 48) = *((_QWORD *)&v11->PresentQueueState + 5);
-            v24 = (DXGGLOBAL **)v58;
+            *(_OWORD *)a1 = *(_OWORD *)&v16->hDevice;
+            *(_OWORD *)(a1 + 16) = *(_OWORD *)(&v16->PresentQueueState + 1);
+            *(_OWORD *)(a1 + 32) = *(_OWORD *)(&v16->PresentQueueState + 3);
+            *(_QWORD *)(a1 + 48) = *((_QWORD *)&v16->PresentQueueState + 5);
+            v32 = (DXGGLOBAL **)v68;
           }
           else
           {
-            v24 = (DXGGLOBAL **)v58;
+            v32 = (DXGGLOBAL **)v68;
           }
-          _InterlockedDecrement(v14);
-          ExReleasePushLockSharedEx(v61, 0LL);
+          ExReleasePushLockSharedEx(v70, 0LL);
           KeLeaveCriticalRegion();
-          if ( _InterlockedExchangeAdd64(v60, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-            DXGGLOBAL::DestroyAdapter(v24[2], (struct DXGADAPTER *)v24);
-          if ( v59 && _InterlockedExchangeAdd64((volatile signed __int64 *)v59 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-            ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v59 + 2), v59);
-          DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v55);
-          if ( !v57 || (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) == 0 )
-            return LastCompletedPresentIdDWM;
-          goto LABEL_134;
-        }
-        v20 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v62 + 2) + 16LL) + 200LL) == 1;
-        if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v62 + 2) + 16LL) + 200LL) != 1 )
-        {
-          LastCompletedPresentIdDWM = -1073741130;
-          goto LABEL_28;
-        }
-        v41 = *((_QWORD *)v52 + 235);
-        if ( !v41
-          || (VidPnSourceId = v11->PresentState.VidPnSourceId,
-              (unsigned int)VidPnSourceId < *(_DWORD *)(*(_QWORD *)(v41 + 2920) + 96LL)) )
-        {
-          v66 = 0LL;
-          v67 = 0LL;
-          v68 = 0LL;
-          v69 = 0LL;
-          LastCompletedPresentIdDWM = DXGDEVICE::QueryLastCompletedPresentIdDWM(
-                                        v52,
-                                        v11->PresentState.VidPnSourceId,
-                                        (struct _D3DKMT_PRESENT_STATS_DWM2 *)&v66);
-          *((_QWORD *)&v11->PresentQueueState + 1) = *(_QWORD *)((char *)&v66 + 4);
-          v11->PresentStateDWM.PresentStatsDWM.PresentQPCTime.QuadPart = v67;
-          v11->PresentState.PresentStats.SyncQPCTime.LowPart = DWORD2(v67);
-          v11->PresentState.PresentStats.SyncGPUTime.QuadPart = v68;
-          v11->PresentStateDWM.PresentStatsDWM.CustomPresentDuration = DWORD2(v68);
-          goto LABEL_27;
-        }
-LABEL_104:
-        LastCompletedPresentIdDWM = -1073741811;
-        WdLogSingleEntry2(3LL, VidPnSourceId, -1073741811LL);
-        goto LABEL_27;
-      }
-      v20 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v62 + 2) + 16LL) + 200LL) == 1;
-      if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v62 + 2) + 16LL) + 200LL) == 1 )
-      {
-        v43 = *((_QWORD *)v52 + 235);
-        if ( !v43
-          || (VidPnSourceId = v11->PresentState.VidPnSourceId,
-              (unsigned int)VidPnSourceId < *(_DWORD *)(*(_QWORD *)(v43 + 2920) + 96LL)) )
-        {
-          LastCompletedPresentIdDWM = DXGDEVICE::QueryLastCompletedPresentId(
-                                        v52,
-                                        v11->PresentState.VidPnSourceId,
-                                        &v11->PresentState.PresentStats);
-          goto LABEL_27;
-        }
-        goto LABEL_104;
-      }
-LABEL_110:
-      LastCompletedPresentIdDWM = -1073741130;
-      goto LABEL_28;
-    }
-LABEL_77:
-    v20 = *((_DWORD *)v15 + 50) == 1;
-    v37 = v11->StateType;
-    if ( *((_DWORD *)v15 + 50) == 1 )
-    {
-      if ( v37 == D3DKMT_DEVICESTATE_EXECUTION )
-      {
-        if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) >= 0x20u )
-        {
-          LastCompletedPresentIdDWM = DXGDEVICE::GetDeviceExecutionState(v52, &v11->ExecutionState);
-        }
-        else
-        {
-          v11->PresentState.VidPnSourceId = 1;
-          LastCompletedPresentIdDWM = v54;
+          v33 = v71;
+          if ( _InterlockedExchangeAdd64(v71, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+            DXGGLOBAL::DestroyAdapter(v32[2], (struct DXGADAPTER *)v32);
+          if ( v69 && _InterlockedExchangeAdd64((volatile signed __int64 *)v69 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+            ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v69 + 2), v69);
+          DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v63, (__int64)v33);
+          if ( v65 )
+          {
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+              McTemplateK0q_EtwWriteTransfer(v34, &EventProfilerExit, v35, v63);
+          }
+          return (unsigned int)DeviceState;
         }
       }
       else
       {
-        LastCompletedPresentIdDWM = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetDeviceState(
-                                      (struct DXGADAPTER *)((char *)v15 + 4472),
-                                      v10,
-                                      v52,
-                                      v11);
+        v58 = v25 - 2;
+        if ( v58 )
+        {
+          v59 = (unsigned int)(v58 - 1);
+          if ( (_DWORD)v59 )
+          {
+            if ( (_DWORD)v59 == 1 )
+            {
+LABEL_114:
+              p_PresentState->VidPnSourceId = 4;
+            }
+            else
+            {
+              v60 = WdLogNewEntry5_WdAssertion(v59, v22);
+              *(_QWORD *)(v60 + 24) = 10059LL;
+              WdLogEvent5_WdAssertion(v60);
+              p_PresentState->VidPnSourceId = 4;
+              v5 = -1073741823;
+            }
+          }
+          else
+          {
+LABEL_113:
+            p_PresentState->VidPnSourceId = 3;
+          }
+          goto LABEL_25;
+        }
       }
-      goto LABEL_27;
+      v29 = 2;
+      goto LABEL_24;
     }
-    if ( v37 == D3DKMT_DEVICESTATE_EXECUTION )
-    {
-      v11->PresentState.VidPnSourceId = 4;
-      LastCompletedPresentIdDWM = v54;
-      goto LABEL_28;
-    }
-    goto LABEL_110;
+    v50 = WdLogNewEntry5_WdError(v19, v18);
+    *(_QWORD *)(v50 + 24) = v16->hDevice;
+    *(_QWORD *)(v50 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v50);
+    if ( v69 && _InterlockedExchangeAdd64((volatile signed __int64 *)v69 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v69 + 2), v69);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v63, v51);
+    if ( !v65 || (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) == 0 )
+      return 3221225485LL;
+LABEL_77:
+    McTemplateK0q_EtwWriteTransfer(v48, &EventProfilerExit, v49, v63);
+    return 3221225485LL;
   }
-  if ( !(*(unsigned int (**)(void))(*((_QWORD *)v10 + 11) + 208LL))() )
+  if ( !(*(unsigned int (**)(void))(*(_QWORD *)(v15 + 88) + 208LL))() )
     v5 = 1;
   *(_DWORD *)(a1 + 8) = v5;
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v55);
-  if ( v57 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v28, &EventProfilerExit, v29, v55);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v63, v41);
+  if ( v65 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v42, &EventProfilerExit, v43, v63);
   return 0LL;
 }

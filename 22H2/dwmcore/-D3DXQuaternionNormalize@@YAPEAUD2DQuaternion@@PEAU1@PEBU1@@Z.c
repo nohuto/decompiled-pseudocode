@@ -1,14 +1,14 @@
 /*
- * XREFs of ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x180023C48
+ * XREFs of ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x1800C78EC
  * Callers:
- *     EncodeTBNFrameToQuaternion @ 0x180006E14 (EncodeTBNFrameToQuaternion.c)
- *     ?SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180023BB0 (-SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
- *     _anonymous_namespace_::DecomposeMatrix @ 0x1801AE1B4 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x1802607B0 (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
+ *     EncodeTBNFrameToQuaternion @ 0x180021958 (EncodeTBNFrameToQuaternion.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800C77B0 (-SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
+ *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x1801FF69C (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D17C (_anonymous_namespace_--DecomposeMatrix.c)
  * Callees:
- *     WithinEpsilon_0 @ 0x180023D48 (WithinEpsilon_0.c)
- *     sqrtf_0 @ 0x18011B95C (sqrtf_0.c)
+ *     WithinEpsilon_0 @ 0x1800C79AC (WithinEpsilon_0.c)
+ *     sqrtf_0 @ 0x1800F3FDB (sqrtf_0.c)
  */
 
 struct D2DQuaternion *__fastcall D3DXQuaternionNormalize(struct D2DQuaternion *a1, const struct D2DQuaternion *a2)

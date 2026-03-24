@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpNumaQueryNodeDistance @ 0x1403B57B0
+ * XREFs of HalpNumaQueryNodeDistance @ 0x1403CEFB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 __int64 __fastcall HalpNumaQueryNodeDistance(unsigned __int16 a1, unsigned __int16 a2, _DWORD *a3)
 {
-  unsigned int v3; // r10d
+  unsigned int v3; // eax
   __int64 result; // rax
 
   v3 = *(_DWORD *)(HalpNumaConfig + 56);
@@ -16,6 +16,6 @@ __int64 __fastcall HalpNumaQueryNodeDistance(unsigned __int16 a1, unsigned __int
     return 3221226021LL;
   result = 0LL;
   *a3 = *(unsigned __int16 *)(*(_QWORD *)(HalpNumaConfig + 48)
-                            + 2LL * (*(_DWORD *)(HalpNumaConfig + 64) * a1 + (unsigned int)a2));
+                            + 2LL * (a1 * *(_DWORD *)(HalpNumaConfig + 64) + (unsigned int)a2));
   return result;
 }

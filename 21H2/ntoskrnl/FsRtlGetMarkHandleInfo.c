@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlGetMarkHandleInfo @ 0x140542128
+ * XREFs of FsRtlGetMarkHandleInfo @ 0x1404F01D8
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
  * Callees:
- *     IoIs32bitProcess @ 0x1402DF4A0 (IoIs32bitProcess.c)
+ *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
  */
 
 __int64 __fastcall FsRtlGetMarkHandleInfo(IRP *a1)
@@ -13,9 +13,9 @@ __int64 __fastcall FsRtlGetMarkHandleInfo(IRP *a1)
   struct _IRP *v4; // rcx
   struct _IRP *MasterIrp; // rax
   __int128 v7; // [rsp+20h] [rbp-28h] BYREF
-  int MdlAddress; // [rsp+30h] [rbp-18h]
+  __int64 v8; // [rsp+30h] [rbp-18h]
 
-  MdlAddress = 0;
+  v8 = 0LL;
   CurrentStackLocation = a1->Tail.Overlay.CurrentStackLocation;
   v7 = 0LL;
   Options = CurrentStackLocation->Parameters.Create.Options;
@@ -31,7 +31,7 @@ __int64 __fastcall FsRtlGetMarkHandleInfo(IRP *a1)
   if ( Options < 0xC )
     return 0LL;
   v4 = a1->AssociatedIrp.MasterIrp;
-  MdlAddress = (int)v4->MdlAddress;
+  LODWORD(v8) = v4->MdlAddress;
   LODWORD(v7) = *(_DWORD *)&v4->Type;
   *((_QWORD *)&v7 + 1) = *(int *)(&v4->Size + 1);
   MasterIrp = (struct _IRP *)&v7;

@@ -1,12 +1,12 @@
 /*
- * XREFs of CatError @ 0x1C004D748
+ * XREFs of CatError @ 0x1C0065CD0
  * Callers:
- *     AMLIAddNamespaceOverride @ 0x1C004A2C8 (AMLIAddNamespaceOverride.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     RtlStringCchCatA @ 0x1C003BDB4 (RtlStringCchCatA.c)
- *     RtlStringCchVPrintfA @ 0x1C0047280 (RtlStringCchVPrintfA.c)
- *     AMLIDebugger @ 0x1C004D650 (AMLIDebugger.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
+ *     RtlStringCchCatA @ 0x1C005E2F4 (RtlStringCchCatA.c)
+ *     RtlStringCchVPrintfA @ 0x1C0063134 (RtlStringCchVPrintfA.c)
+ *     AMLIDebugger @ 0x1C0065C80 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 __int64 CatError(const char *a1, ...)

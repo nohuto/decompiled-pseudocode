@@ -1,16 +1,16 @@
 /*
- * XREFs of MiValidVirtualizationFault @ 0x14046C2C2
+ * XREFs of MiValidVirtualizationFault @ 0x140548E9C
  * Callers:
- *     MiValidFault @ 0x140333340 (MiValidFault.c)
- *     MiLargePageFault @ 0x1406464DC (MiLargePageFault.c)
+ *     MiValidFault @ 0x140209710 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1405489F4 (MiLargePageFault.c)
  * Callees:
- *     MiCopyOnWrite @ 0x14026FC80 (MiCopyOnWrite.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPerformSafePdeWrite @ 0x1403C5E38 (MiPerformSafePdeWrite.c)
- *     MiFillVirtualFaultInfo @ 0x14046C214 (MiFillVirtualFaultInfo.c)
- *     MiGetVirtualFaultPageInfo @ 0x14046C28E (MiGetVirtualFaultPageInfo.c)
- *     MiCompleteSecureProcessFault @ 0x140645C08 (MiCompleteSecureProcessFault.c)
- *     MiSetFaultPacketDirectives @ 0x1406467CC (MiSetFaultPacketDirectives.c)
+ *     MiCopyOnWrite @ 0x14023EC70 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPerformSafePdeWrite @ 0x1403810DC (MiPerformSafePdeWrite.c)
+ *     MiCompleteSecureProcessFault @ 0x1405480C4 (MiCompleteSecureProcessFault.c)
+ *     MiFillVirtualFaultInfo @ 0x140548424 (MiFillVirtualFaultInfo.c)
+ *     MiGetVirtualFaultPageInfo @ 0x1405486AC (MiGetVirtualFaultPageInfo.c)
+ *     MiSetFaultPacketDirectives @ 0x140548E78 (MiSetFaultPacketDirectives.c)
  */
 
 __int64 __fastcall MiValidVirtualizationFault(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall MiValidVirtualizationFault(unsigned __int64 *a1, __int64 a2, 
   int v9; // r8d
   signed __int64 v10; // rbx
   unsigned int v12; // edi
-  unsigned __int64 v13; // rdx
+  unsigned __int64 v13; // rcx
   int v14; // eax
   unsigned int v15; // eax
   unsigned __int64 v16; // rax
@@ -38,22 +38,22 @@ __int64 __fastcall MiValidVirtualizationFault(unsigned __int64 *a1, __int64 a2, 
   v12 = 1;
   if ( (v9 & 0x20) != 0 )
   {
-    v13 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFFLL)
-        - 0x220000000000LL;
+    v13 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFLL)
+        - 0x58000000000LL;
     v18 = v13;
-    if ( !_bittest64((const signed __int64 *)(v13 + 40), 0x28u) && *(__int64 *)(v13 + 8) > 0 )
+    if ( (*(_QWORD *)(v13 + 40) & 0x1000000000LL) == 0 && *(__int64 *)(v13 + 8) > 0 )
     {
-      v14 = MiCopyOnWrite((__int64)(a3 << 25) >> 16, a3, 0xFFFFFFFFFFFFFFFFuLL, 0);
+      v14 = MiCopyOnWrite((__int64)(a3 << 25) >> 16, (ULONG_PTR *)a3, -1LL, 0);
       if ( v14 < 0 )
       {
-        MiSetFaultPacketDirectives(a1, (unsigned int)v14);
+        MiSetFaultPacketDirectives((__int64)a1, v14);
         return 0LL;
       }
       v17 = MI_READ_PTE_LOCK_FREE(a3);
-      v18 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFFLL)
-          - 0x220000000000LL;
+      v18 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFLL)
+          - 0x58000000000LL;
     }
-    v15 = MiCompleteSecureProcessFault(&v18, &v17);
+    v15 = MiCompleteSecureProcessFault((__int64 *)&v18, &v17, (__int64 *)(a2 + 48));
     v10 = v17;
     v12 = v15;
   }
@@ -66,7 +66,7 @@ __int64 __fastcall MiValidVirtualizationFault(unsigned __int64 *a1, __int64 a2, 
   if ( v12 )
   {
     v16 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17);
-    MiFillVirtualFaultInfo(VirtualFaultPageInfo, (v16 >> 12) & 0xFFFFFFFFFFLL, v10);
+    MiFillVirtualFaultInfo(VirtualFaultPageInfo, (v16 >> 12) & 0xFFFFFFFFFLL, v10);
   }
   return v12;
 }

@@ -1,27 +1,29 @@
 /*
- * XREFs of HalpMcaReportError @ 0x140503858
+ * XREFs of HalpMcaReportError @ 0x1404BA9E0
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403809E8 (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x140503C28 (HalpMceHandlerCore.c)
- *     HalpMceHandlerWithRendezvous @ 0x140503DD0 (HalpMceHandlerWithRendezvous.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A951E4 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0410 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x1404BAD14 (HalpMceHandlerCore.c)
+ *     HalpMceHandlerWithRendezvous @ 0x1404BAE68 (HalpMceHandlerWithRendezvous.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6F34 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140380C44 (HalpGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpTranslateToLegacyMcaException @ 0x140503F50 (HalpTranslateToLegacyMcaException.c)
- *     HalpShouldRecoveryBeAttempted @ 0x14051955C (HalpShouldRecoveryBeAttempted.c)
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
+ *     HalpGetCpuInfo @ 0x1403A0870 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpTranslateToLegacyMcaException @ 0x1404BAFE8 (HalpTranslateToLegacyMcaException.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1405BBA0C (WheapGetErrorSource.c)
  */
 
 __int64 __fastcall HalpMcaReportError(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 ErrorSource; // rax
   __int64 v7; // rbx
-  ULONG_PTR BugCheckParameter2[32]; // [rsp+30h] [rbp-D0h] BYREF
+  char CpuInfo; // al
+  unsigned __int8 v10[16]; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG_PTR BugCheckParameter2[32]; // [rsp+40h] [rbp-C0h] BYREF
 
+  v10[0] = 0;
   memset(BugCheckParameter2, 0, sizeof(BugCheckParameter2));
   if ( !a1 )
   {
@@ -35,7 +37,6 @@ __int64 __fastcall HalpMcaReportError(__int64 a1, __int64 a2, unsigned int a3)
         HIDWORD(BugCheckParameter2[4]),
         LODWORD(BugCheckParameter2[4]));
     }
-    memset(BugCheckParameter2, 0, sizeof(BugCheckParameter2));
     LODWORD(BugCheckParameter2[0]) = 1;
     BugCheckParameter2[1] = MEMORY[0xFFFFF78000000014];
     LODWORD(BugCheckParameter2[2]) = a3;
@@ -45,13 +46,9 @@ __int64 __fastcall HalpMcaReportError(__int64 a1, __int64 a2, unsigned int a3)
   }
   ErrorSource = WheapGetErrorSource(&WheapErrorSourceTable, *(unsigned int *)(a1 + 24));
   v7 = (ErrorSource + 96) & -(__int64)(ErrorSource != 0);
-  if ( HalpGetCpuVendor() == 1 )
-  {
-    if ( HalpMcaScalableRasSupported )
-      *(_DWORD *)(a1 + 12) |= 0x40u;
-    if ( a2 && !(unsigned __int8)HalpShouldRecoveryBeAttempted(*(unsigned int *)(a2 + 4), a2 + 40) )
-      *(_DWORD *)(a1 + 12) |= 0x100u;
-  }
+  CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, v10);
+  if ( (v10[0] & (unsigned __int8)-(CpuInfo != 0)) == 1 && HalpMcaScalableRasSupported )
+    *(_DWORD *)(a1 + 12) |= 0x40u;
   if ( v7 )
     PshedRetrieveErrorInfo(a1, v7);
   return WheaReportHwError(a1);

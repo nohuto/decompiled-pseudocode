@@ -1,19 +1,19 @@
 /*
- * XREFs of PsQueryStatisticsProcess @ 0x1407B81B0
+ * XREFs of PsQueryStatisticsProcess @ 0x140618CC0
  * Callers:
- *     PspRemoveProcessFromJobChain @ 0x140684158 (PspRemoveProcessFromJobChain.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x1406BED60 (PspQueryProcessAccountingInformationCallback.c)
- *     PspEnforceLimitsProcessCallback @ 0x140700200 (PspEnforceLimitsProcessCallback.c)
- *     EtwpPsProvTraceProcess @ 0x14070AFEC (EtwpPsProvTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x140712868 (EtwTraceAppStateChange.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     ExpCopyProcessInfo @ 0x1407B6430 (ExpCopyProcessInfo.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x140616398 (PspRemoveProcessFromJobChain.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140616780 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspEnforceLimitsProcessCallback @ 0x140617A70 (PspEnforceLimitsProcessCallback.c)
+ *     ExpCopyProcessInfo @ 0x140618A20 (ExpCopyProcessInfo.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeQueryValuesThread @ 0x140302C20 (KeQueryValuesThread.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeQueryValuesThread @ 0x1402540D0 (KeQueryValuesThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
@@ -54,17 +54,17 @@ __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
   a2[10] = *(_QWORD *)(a1 + 1592);
   for ( i = *(_QWORD **)(a1 + 1504); i != (_QWORD *)(a1 + 1504); v10 += *((_QWORD *)&v15 + 1) )
   {
-    v6 += *((_DWORD *)i - 171);
-    v7 += *((_DWORD *)i - 151);
-    KeQueryValuesThread((__int64)(i - 167), &v14, v4, v5);
-    a2[3] += *(i - 158);
-    a2[4] += *((unsigned int *)i - 249);
-    a2[5] += *(i - 55);
-    a2[6] += *(i - 54);
-    a2[7] += *(i - 53);
-    a2[8] += *(i - 52);
-    a2[9] += *(i - 51);
-    a2[10] += *(i - 50);
+    v6 += *((_DWORD *)i - 151);
+    v7 += *((_DWORD *)i - 131);
+    KeQueryValuesThread((__int64)(i - 157), &v14, v4, v5);
+    a2[3] += *(i - 148);
+    a2[4] += *((unsigned int *)i - 229);
+    a2[5] += *(i - 45);
+    a2[6] += *(i - 44);
+    a2[7] += *(i - 43);
+    a2[8] += *(i - 42);
+    a2[9] += *(i - 41);
+    a2[10] += *(i - 40);
     i = (_QWORD *)*i;
     v8 += DWORD1(v14);
     v9 += v15;

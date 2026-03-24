@@ -6,7 +6,7 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MxCreatePfn(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)

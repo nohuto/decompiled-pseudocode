@@ -1,44 +1,28 @@
 /*
- * XREFs of hCreateKernelEvent @ 0x1C00C2A90
+ * XREFs of hCreateKernelEvent @ 0x1C00B5CF0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
  */
 
 void *__fastcall hCreateKernelEvent(EVENT_TYPE EventType, BOOLEAN a2)
 {
   NTSTATUS v2; // eax
   int v3; // edx
-  int v4; // r8d
-  struct _OBJECT_ATTRIBUTES v6; // [rsp+50h] [rbp-38h] BYREF
-  void *v7; // [rsp+A0h] [rbp+18h] BYREF
+  struct _OBJECT_ATTRIBUTES v5; // [rsp+30h] [rbp-38h] BYREF
+  void *v6; // [rsp+80h] [rbp+18h] BYREF
 
-  memset(&v6.Length + 1, 0, 20);
-  memset(&v6.Attributes + 1, 0, 20);
-  v7 = 0LL;
-  v6.Length = 48;
-  v6.Attributes = 512;
-  v2 = ZwCreateEvent(&v7, 0x1F0003u, &v6, EventType, a2);
-  if ( v2 < 0 )
+  memset(&v5.Length + 1, 0, 20);
+  memset(&v5.Attributes + 1, 0, 20);
+  v6 = 0LL;
+  v5.Length = 48;
+  v5.Attributes = 512;
+  v2 = ZwCreateEvent(&v6, 0x1F0003u, &v5, EventType, a2);
+  if ( v2 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v3) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10000) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v4) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v3,
-        v4,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        17,
-        11,
-        (__int64)&WPP_afdc3993018130db7fa6d08e89ab931d_Traceguids,
-        v2);
-    }
+    LOBYTE(v3) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, v3, 17, 10, (__int64)&WPP_eb65e8752d313ccdb5208ac13de848c5_Traceguids, v2);
   }
-  return v7;
+  return v6;
 }

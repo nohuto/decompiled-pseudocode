@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpSetTimer2 @ 0x140339550
+ * XREFs of ExpSetTimer2 @ 0x140349154
  * Callers:
- *     NtSetIRTimer @ 0x1403394E0 (NtSetIRTimer.c)
- *     NtCancelTimer2 @ 0x140339500 (NtCancelTimer2.c)
- *     NtSetTimer2 @ 0x140339520 (NtSetTimer2.c)
+ *     NtCancelTimer2 @ 0x14032B800 (NtCancelTimer2.c)
+ *     NtSetIRTimer @ 0x14032BEB0 (NtSetIRTimer.c)
+ *     NtSetTimer2 @ 0x140349130 (NtSetTimer2.c)
  * Callees:
- *     ExpSetTimerObject2 @ 0x140339684 (ExpSetTimerObject2.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     ExpSetTimerObject2 @ 0x14034927C (ExpSetTimerObject2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -15,8 +15,8 @@ NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, __int64 a2, __int64 a3, unsigned
   __int64 v4; // rax
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
-  PVOID Object; // [rsp+50h] [rbp-28h] BYREF
-  __int128 v8; // [rsp+58h] [rbp-20h]
+  PVOID Object; // [rsp+48h] [rbp-30h] BYREF
+  __int128 v8; // [rsp+50h] [rbp-28h]
 
   v8 = 0LL;
   if ( a2 )

@@ -5,8 +5,8 @@
  * Callees:
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     IoInitializeIrp @ 0x14011A180 (IoInitializeIrp.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     IoInitializeIrp @ 0x14011A1A0 (IoInitializeIrp.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
  *     VfPacketCreateAndLock @ 0x14093F3F8 (VfPacketCreateAndLock.c)

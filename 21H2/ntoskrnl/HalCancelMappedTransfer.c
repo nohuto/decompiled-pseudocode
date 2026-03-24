@@ -1,9 +1,9 @@
 /*
- * XREFs of HalCancelMappedTransfer @ 0x140516D30
+ * XREFs of HalCancelMappedTransfer @ 0x1404CA300
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaControllerCancelTransfer @ 0x14051910C (HalpDmaControllerCancelTransfer.c)
+ *     HalpDmaControllerCancelTransfer @ 0x1404CE47C (HalpDmaControllerCancelTransfer.c)
  */
 
 __int64 __fastcall HalCancelMappedTransfer(__int64 a1, __int64 a2)

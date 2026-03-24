@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSendHeteroRescheduleIntRequestHelper @ 0x140298BF0
+ * XREFs of KiSendHeteroRescheduleIntRequestHelper @ 0x140298CF0
  * Callers:
- *     KiSendHeteroRescheduleIntRequest @ 0x140298B30 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140298C30 (KiSendHeteroRescheduleIntRequest.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA30 (KiAcquireThreadStateLock.c)
- *     KiCheckPreferredHeteroProcessor @ 0x1400D0C94 (KiCheckPreferredHeteroProcessor.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400D0CB4 (KiCheckPreferredHeteroProcessor.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiSendHeteroRescheduleIntRequestHelper(unsigned __int64 a1, _QWORD *a2, __int64 a3, __int64 a4)

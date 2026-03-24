@@ -1,37 +1,63 @@
 /*
- * XREFs of HalpIommuAcquireNewDomain @ 0x1403A90A4
+ * XREFs of HalpIommuAcquireNewDomain @ 0x1404CBA84
  * Callers:
- *     HalpIommuGetHardwareDomain @ 0x1403A8F5C (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C9534 (HalpIommuGetHardwareDomain.c)
  * Callees:
- *     HalpIommuGetDomainId @ 0x1403A9120 (HalpIommuGetDomainId.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2)
 {
-  int DomainId; // edx
-  unsigned int (__fastcall *v6)(_QWORD, __int64, _QWORD, _QWORD); // rax
-  int v8; // [rsp+58h] [rbp+20h] BYREF
+  KSPIN_LOCK *v5; // r15
+  unsigned int v6; // ebp
+  unsigned __int64 v7; // rsi
+  ULONG ClearBitsAndSet; // eax
+  __int64 (__fastcall *v9)(_QWORD, __int64, _QWORD, _QWORD); // rax
+  unsigned __int8 CurrentIrql; // cl
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v13; // eax
+  bool v14; // zf
 
-  v8 = 0;
-  if ( !HalpHvIommu )
+  if ( HalpHvIommu )
+    return 3221225659LL;
+  v5 = (KSPIN_LOCK *)(a1 + 432);
+  v6 = 0;
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 432));
+  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(a1 + 440), 1u, 0);
+  if ( ClearBitsAndSet == -1 )
   {
-    DomainId = 0;
-    if ( a3 )
-    {
-      *(_DWORD *)(a2 + 48) = *a3;
-    }
-    else
-    {
-      DomainId = HalpIommuGetDomainId(a1, &v8);
-      if ( DomainId < 0 )
-        return (unsigned int)DomainId;
-      *(_DWORD *)(a2 + 48) = v8;
-    }
-    v6 = *(unsigned int (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(a1 + 72);
-    if ( v6 )
-      return v6(*(_QWORD *)(a1 + 16), a2, 0LL, 0LL);
-    return (unsigned int)DomainId;
+    v6 = -1073741670;
   }
-  return 3221225659LL;
+  else
+  {
+    *(_DWORD *)(a2 + 24) = ClearBitsAndSet;
+    v9 = *(__int64 (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(a1 + 72);
+    if ( v9 )
+      v6 = v9(*(_QWORD *)(a1 + 16), a2, 0LL, 0LL);
+  }
+  KxReleaseSpinLock(v5);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(v7);
+  return v6;
 }

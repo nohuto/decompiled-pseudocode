@@ -1,71 +1,71 @@
 /*
- * XREFs of WbHeapExecuteCall @ 0x140763120
+ * XREFs of WbHeapExecuteCall @ 0x1406C63F8
  * Callers:
- *     WbDispatchOperation @ 0x140763928 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x1406C7BE4 (WbDispatchOperation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     WbGetHeapExecutedBlock @ 0x140762E28 (WbGetHeapExecutedBlock.c)
- *     sub_140762FB4 @ 0x140762FB4 (sub_140762FB4.c)
- *     WbGetTrapFrame @ 0x1407632EC (WbGetTrapFrame.c)
- *     sub_140763378 @ 0x140763378 (sub_140763378.c)
- *     sub_140763458 @ 0x140763458 (sub_140763458.c)
- *     WbSetTrapFrame @ 0x140763558 (WbSetTrapFrame.c)
- *     WbGetWarbirdThread @ 0x1407636B4 (WbGetWarbirdThread.c)
- *     sub_1407638F4 @ 0x1407638F4 (sub_1407638F4.c)
- *     WbValidateHeapExecuteCallArguments @ 0x140763EF4 (WbValidateHeapExecuteCallArguments.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     sub_1406C5D54 @ 0x1406C5D54 (sub_1406C5D54.c)
+ *     WbGetTrapFrame @ 0x1406C60A0 (WbGetTrapFrame.c)
+ *     sub_1406C612C @ 0x1406C612C (sub_1406C612C.c)
+ *     sub_1406C6230 @ 0x1406C6230 (sub_1406C6230.c)
+ *     WbSetTrapFrame @ 0x1406C65CC (WbSetTrapFrame.c)
+ *     WbGetHeapExecutedBlock @ 0x1406C6744 (WbGetHeapExecutedBlock.c)
+ *     sub_1406C68AC @ 0x1406C68AC (sub_1406C68AC.c)
+ *     WbGetWarbirdThread @ 0x1406C7890 (WbGetWarbirdThread.c)
+ *     sub_1406C7A80 @ 0x1406C7A80 (sub_1406C7A80.c)
  */
 
-__int64 __fastcall WbHeapExecuteCall(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall WbHeapExecuteCall(__int64 a1, _QWORD *a2, char *a3, unsigned int a4)
 {
   int HeapExecutedBlock; // ebx
   __int64 v9; // rdx
-  _KPROCESS *Process; // rcx
-  _KPROCESS *v11; // rcx
+  unsigned __int64 v10; // rax
+  unsigned __int64 v11; // rax
   __int16 v13; // ax
-  _KPROCESS *v14; // rcx
+  unsigned __int64 v14; // rax
   __int16 v15; // ax
   __int16 v16; // ax
-  _KPROCESS *v17; // rdx
+  unsigned __int64 v17; // rax
   __int64 v18; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v19; // [rsp+38h] [rbp-C8h] BYREF
   __int128 v20; // [rsp+40h] [rbp-C0h] BYREF
   __int64 v21; // [rsp+50h] [rbp-B0h]
-  _BYTE v22[336]; // [rsp+60h] [rbp-A0h] BYREF
+  int v22[84]; // [rsp+60h] [rbp-A0h] BYREF
 
   v19 = 0LL;
   v18 = 0LL;
   v21 = 0LL;
   v20 = 0LL;
   memset(v22, 0, sizeof(v22));
-  HeapExecutedBlock = WbValidateHeapExecuteCallArguments(a2, a4, v22);
+  HeapExecutedBlock = sub_1406C5D54((__int64)a2, a4, v22);
   if ( HeapExecutedBlock >= 0 )
   {
-    HeapExecutedBlock = WbGetHeapExecutedBlock(a1, (__int64)v22, &v19);
+    HeapExecutedBlock = WbGetHeapExecutedBlock(a1, v22, &v19);
     if ( HeapExecutedBlock >= 0 )
     {
       HeapExecutedBlock = WbGetWarbirdThread(a1, v9, &v18);
       if ( HeapExecutedBlock >= 0 )
       {
-        HeapExecutedBlock = WbGetTrapFrame(v18, &v20);
+        HeapExecutedBlock = WbGetTrapFrame(v18, (__int64)&v20);
         if ( HeapExecutedBlock >= 0 )
         {
-          HeapExecutedBlock = sub_140763458(v18, v19, DWORD2(v20), v20, v21);
+          HeapExecutedBlock = sub_1406C612C(v18, v19, *((__int64 *)&v20 + 1), v20, v21);
           if ( HeapExecutedBlock >= 0 )
           {
-            HeapExecutedBlock = sub_140763378(v22, v19, &v20, a2, a3, a4);
+            HeapExecutedBlock = sub_1406C6230((__int64)v22, v19, (__int64 *)&v20, a2, a3, a4);
             if ( HeapExecutedBlock >= 0 )
             {
-              Process = KeGetCurrentThread()->ApcState.Process;
-              if ( !Process[1].Affinity.StaticBitmap[30] )
+              v10 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+              if ( !v10 )
                 goto LABEL_8;
-              v13 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+              v13 = *(_WORD *)(v10 + 8);
               if ( v13 != 332 && v13 != 452 )
                 goto LABEL_8;
-              v14 = KeGetCurrentThread()->ApcState.Process;
-              if ( !v14[1].Affinity.StaticBitmap[30] )
+              v14 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+              if ( !v14 )
                 goto LABEL_18;
-              v15 = WORD2(v14[2].Affinity.StaticBitmap[20]);
+              v15 = *(_WORD *)(v14 + 8);
               if ( !v15 )
                 goto LABEL_18;
               if ( v15 != 332 )
@@ -86,14 +86,14 @@ LABEL_8:
               HeapExecutedBlock = WbSetTrapFrame(v18, &v20);
               if ( HeapExecutedBlock >= 0 )
               {
-                v11 = KeGetCurrentThread()->ApcState.Process;
-                if ( v11[1].Affinity.StaticBitmap[30] )
+                v11 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+                if ( v11 )
                 {
-                  v16 = WORD2(v11[2].Affinity.StaticBitmap[20]);
+                  v16 = *(_WORD *)(v11 + 8);
                   if ( v16 == 332 || v16 == 452 )
                   {
-                    v17 = KeGetCurrentThread()->ApcState.Process;
-                    if ( v17[1].Affinity.StaticBitmap[30] && WORD2(v17[2].Affinity.StaticBitmap[20]) == 332 )
+                    v17 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+                    if ( v17 && *(_WORD *)(v17 + 8) == 332 )
                       HeapExecutedBlock = DWORD2(v20);
                   }
                 }
@@ -105,7 +105,7 @@ LABEL_8:
     }
   }
 LABEL_11:
-  sub_1407638F4(a1, v18);
-  sub_140762FB4(a1, v19);
+  sub_1406C7A80(a1, v18);
+  sub_1406C68AC(a1, v19);
   return (unsigned int)HeapExecutedBlock;
 }

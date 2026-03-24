@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConnectInterrupt @ 0x140320AAC
+ * XREFs of KiConnectInterrupt @ 0x1403773AC
  * Callers:
- *     KeConnectInterrupt @ 0x140320874 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14037723C (KeConnectInterrupt.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KiAcquireInterruptConnectLock @ 0x140320CC0 (KiAcquireInterruptConnectLock.c)
- *     KiInsertInterruptObjectOrdered @ 0x1403A679C (KiInsertInterruptObjectOrdered.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KiAcquireInterruptConnectLock @ 0x140377530 (KiAcquireInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1405212E8 (KiInsertInterruptObjectOrdered.c)
  */
 
 __int64 __fastcall KiConnectInterrupt(__int64 a1)
@@ -21,11 +21,11 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
   _KIDTENTRY64 *v8; // rcx
   __int64 (__fastcall *v9)(); // rax
   char *v10; // r10
-  __int64 (__fastcall *v11)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16); // rax
-  __int64 v12; // r11
-  __int64 v13; // r10
-  unsigned __int8 v14; // bl
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 v11; // bl
+  __int64 (__fastcall *v13)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16); // rax
+  __int64 v14; // r11
+  __int64 v15; // r10
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v19; // eax
@@ -74,7 +74,7 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
         }
         v4 = 1;
         *(_BYTE *)(a1 + 95) = 1;
-        goto LABEL_27;
+        goto LABEL_14;
       }
       if ( (unsigned int)v1 >= 0x30 )
       {
@@ -87,8 +87,8 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
             {
               if ( *(__int64 (__fastcall **)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))(a1 + 80) == KiInterruptDispatch )
               {
-                v11 = (__int64 (__fastcall *)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))*((_QWORD *)v10 + 10);
-                if ( v11 == KiChainedDispatch || v11 == KiInterruptDispatch )
+                v13 = (__int64 (__fastcall *)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))*((_QWORD *)v10 + 10);
+                if ( v13 == KiInterruptDispatch || v13 == KiChainedDispatch )
                 {
                   *(_BYTE *)(a1 + 95) = 1;
                   v4 = 1;
@@ -100,12 +100,12 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
                     *((_QWORD *)v10 + 1) = v10 + 8;
                   }
                   KiInsertInterruptObjectOrdered(v10, a1);
-                  if ( !*(_BYTE *)(v13 + 93) )
+                  if ( !*(_BYTE *)(v15 + 93) )
                   {
                     if ( *(_BYTE *)(a1 + 93) )
                     {
-                      *(_QWORD *)(a1 + 80) = v12;
-LABEL_27:
+                      *(_QWORD *)(a1 + 80) = v14;
+LABEL_14:
                       KeGetCurrentPrcb()->InterruptObject[v1] = (void *)a1;
                     }
                   }
@@ -117,14 +117,14 @@ LABEL_27:
       }
     }
   }
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
-    v14 = v21[0];
+    v11 = v21[0];
     if ( v21[0] <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = v21[0];
+      v11 = v21[0];
       v19 = ~(unsigned __int16)(-1LL << (v21[0] + 1));
       v20 = (v19 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v19;
@@ -134,9 +134,9 @@ LABEL_27:
   }
   else
   {
-    v14 = v21[0];
+    v11 = v21[0];
   }
-  __writecr8(v14);
+  __writecr8(v11);
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);
   if ( v4 )
     return v2 != 0 ? 0x127 : 0;

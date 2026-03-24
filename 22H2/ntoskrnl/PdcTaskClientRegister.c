@@ -1,39 +1,41 @@
 /*
- * XREFs of PdcTaskClientRegister @ 0x140803728
+ * XREFs of PdcTaskClientRegister @ 0x140793838
  * Callers:
- *     PopDiagInitialize @ 0x140B38B18 (PopDiagInitialize.c)
- *     PopUserShutdownScenarioInitialize @ 0x140B51B74 (PopUserShutdownScenarioInitialize.c)
+ *     PopDiagInitialize @ 0x140A40148 (PopDiagInitialize.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     PdcPortOpenCommon @ 0x140857028 (PdcPortOpenCommon.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PdcPortOpenCommon @ 0x1407CF858 (PdcPortOpenCommon.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PdcTaskClientRegister(int a1, _QWORD *a2)
+__int64 __fastcall PdcTaskClientRegister(__int64 a1, __int64 a2)
 {
-  _DWORD *Pool2; // rax
-  _DWORD *v5; // rbx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v3; // rbx
+  int v4; // edx
+  int v5; // ecx
   unsigned int v6; // edi
-  int v8; // [rsp+20h] [rbp-38h]
-  int v9; // [rsp+28h] [rbp-30h]
-  int v10; // [rsp+38h] [rbp-20h]
-  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v8; // [rsp+68h] [rbp+10h] BYREF
 
-  *a2 = 0LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 64LL, 1667458128LL);
-  v5 = Pool2;
-  if ( Pool2 )
+  v8 = a2;
+  PopSleepStudyTaskClientActivator = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x63636450u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x40uLL);
-    v11 = 0LL;
-    *v5 = 1667458128;
-    v5[8] = a1;
-    v6 = PdcPortOpenCommon(a1, 4, (int)v5, (int)&v11, v8, v9, 0LL, v10, (__int64)(v5 + 10));
-    if ( v6 )
-      ExFreePoolWithTag(v5, 0);
-    else
-      *a2 = v5;
+    memset(PoolWithTag, 0, 0x40uLL);
+    v8 = 0LL;
+    *v3 = 1667458128;
+    v3[8] = 68;
+    v6 = PdcPortOpenCommon(v5, v4, (_DWORD)v3, (unsigned int)&v8);
+    if ( !v6 )
+    {
+      PopSleepStudyTaskClientActivator = (__int64)v3;
+      v3 = 0LL;
+    }
+    if ( v3 )
+      ExFreePoolWithTag(v3, 0);
   }
   else
   {

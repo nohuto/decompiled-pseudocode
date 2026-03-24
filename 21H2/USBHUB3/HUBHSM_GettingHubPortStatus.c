@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_GettingHubPortStatus @ 0x1C00083E0
+ * XREFs of HUBHSM_GettingHubPortStatus @ 0x1C00080D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_GetHubStatusUsingControlTransfer @ 0x1C0003420 (HUBHTX_GetHubStatusUsingControlTransfer.c)
+ *     HUBHTX_GetHubStatusUsingControlTransfer @ 0x1C0003254 (HUBHTX_GetHubStatusUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBHSM_GettingHubPortStatus(__int64 a1)

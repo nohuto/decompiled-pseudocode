@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x1406D6F24
+ * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140725194
  * Callers:
- *     CmpDoReconcileNextHive @ 0x1406D6E10 (CmpDoReconcileNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140725080 (CmpDoReconcileNextHive.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140689BB8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 char __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
@@ -15,7 +15,7 @@ char __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
   int v4; // r8d
   unsigned int v5; // ecx
   unsigned int v6; // eax
-  _BYTE *v7; // rdx
+  __int64 v7; // rdx
   unsigned __int64 UnbiasedInterruptTime; // rax
   __int64 v9; // r11
 
@@ -24,17 +24,17 @@ char __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
   if ( !CmpUserPresent )
     return 1;
   EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(a1);
-  if ( *(_DWORD *)(v3 + 180) >= EffectiveLogSizeCapForHive )
+  if ( *(_DWORD *)(v3 + 176) >= EffectiveLogSizeCapForHive )
     return 1;
-  v4 = *(_DWORD *)(v3 + 168);
+  v4 = *(_DWORD *)(v3 + 164);
   v5 = v2;
   if ( v4 == 1 )
     return 1;
   v6 = v2;
-  v7 = (_BYTE *)(v3 + 192);
+  v7 = v2;
   do
   {
-    if ( v6 != v4 && *v7 == (_BYTE)v2 )
+    if ( v6 != v4 && *(_BYTE *)(v7 + v3 + 188) == (_BYTE)v2 )
       ++v5;
     ++v6;
     ++v7;
@@ -42,7 +42,7 @@ char __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
   while ( v6 < 2 );
   if ( v5
     && (UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(),
-        UnbiasedInterruptTime < *(_QWORD *)(v9 + 4144) + 10000000 * (unsigned __int64)(unsigned int)dword_140C01B10) )
+        UnbiasedInterruptTime < *(_QWORD *)(v9 + 4184) + 10000000 * (unsigned __int64)(unsigned int)dword_140C004C0) )
   {
     return 0;
   }

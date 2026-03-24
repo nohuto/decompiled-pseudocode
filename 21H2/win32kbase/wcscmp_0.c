@@ -1,8 +1,8 @@
 /*
- * XREFs of wcscmp_0 @ 0x1C00DD7E3
+ * XREFs of wcscmp_0 @ 0x1C00CE8B3
  * Callers:
- *     RIMGetProductString @ 0x1C0193764 (RIMGetProductString.c)
- *     RIMVirtGetProductString @ 0x1C01970CC (RIMVirtGetProductString.c)
+ *     RIMGetProductString @ 0x1C015E6A4 (RIMGetProductString.c)
+ *     RIMVirtGetProductString @ 0x1C0160C78 (RIMVirtGetProductString.c)
  * Callees:
  *     <none>
  */

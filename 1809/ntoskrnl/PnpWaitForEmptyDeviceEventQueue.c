@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpWaitForEmptyDeviceEventQueue @ 0x14073C4D4
+ * XREFs of PnpWaitForEmptyDeviceEventQueue @ 0x14073C4B4
  * Callers:
  *     PipInitializeCoreDriversByGroup @ 0x1409CA988 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)

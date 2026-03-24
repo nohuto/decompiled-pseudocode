@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSuspendServices @ 0x1406DEC58
+ * XREFs of PopSuspendServices @ 0x1406DEC38
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FDC (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x140867FBC (PopDirectedDripsNotifyAppsAndServices.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140135A40 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x140135A60 (PopDiagTraceEventNoPayload.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     PopDispatchStateCallout @ 0x1406DDC80 (PopDispatchStateCallout.c)
+ *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
  */
 
 void __fastcall PopSuspendServices(_DWORD *a1, char a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInternEntryDereference @ 0x1407B3090
+ * XREFs of RtlInternEntryDereference @ 0x14067D894
  * Callers:
- *     PopEtEnergyContextSetState @ 0x1407B1188 (PopEtEnergyContextSetState.c)
- *     PoEnergyContextCleanup @ 0x1407B12D0 (PoEnergyContextCleanup.c)
- *     PopEtStringSet @ 0x1407B2ABC (PopEtStringSet.c)
- *     PopEtAggregateKeyCleanup @ 0x1407B2F88 (PopEtAggregateKeyCleanup.c)
- *     PopEtAppIdDereference @ 0x1407B2FD0 (PopEtAppIdDereference.c)
+ *     PopEtEnergyContextSetState @ 0x1406057C8 (PopEtEnergyContextSetState.c)
+ *     PoEnergyContextCleanup @ 0x14061410C (PoEnergyContextCleanup.c)
+ *     PopEtStringSet @ 0x140619D10 (PopEtStringSet.c)
+ *     PopEtAggregateKeyCleanup @ 0x14067D78C (PopEtAggregateKeyCleanup.c)
+ *     PopEtAppIdDereference @ 0x14067D864 (PopEtAppIdDereference.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlInternEntryDereference(__int64 a1, __int64 a2)

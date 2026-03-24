@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreateResidentPfnTemplate @ 0x140B2E9C0
+ * XREFs of MiCreateResidentPfnTemplate @ 0x140A38CD4
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
  *     <none>
  */
@@ -17,10 +17,10 @@ __int64 __fastcall MiCreateResidentPfnTemplate(__int64 a1)
   *(_BYTE *)(a1 + 34) = 6;
   *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0x3F | 0x40;
   v2 = *(_QWORD *)(a1 + 40);
-  *(_QWORD *)(a1 + 40) = v2 | 0x40000000000000LL;
+  *(_QWORD *)(a1 + 40) = v2 | 0x4000000000000LL;
   *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 24) & 0xC000000000000000uLL | 1;
   *(_WORD *)(a1 + 32) = 2;
-  result = 0x40010000000000LL;
-  *(_QWORD *)(a1 + 40) = v2 | 0x40010000000000LL;
+  result = 0x4001000000000LL;
+  *(_QWORD *)(a1 + 40) = v2 | 0x4001000000000LL;
   return result;
 }

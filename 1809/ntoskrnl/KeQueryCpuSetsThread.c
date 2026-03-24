@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetsThread @ 0x1402965C8
+ * XREFs of KeQueryCpuSetsThread @ 0x1402966C8
  * Callers:
- *     NtQueryInformationThread @ 0x14064A580 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KiGetThreadCpuSetMaskPointer @ 0x14008A73C (KiGetThreadCpuSetMaskPointer.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsThread(__int64 a1, _QWORD *a2, unsigned int a3)

@@ -1,157 +1,101 @@
 /*
- * XREFs of ?GetMouseCoordinateAbsolute@CMouseProcessor@@AEAAXJJKPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C01F730C
+ * XREFs of ?GetMouseCoordinateAbsolute@CMouseProcessor@@AEAAXJJKPEAUtagPOINT@@PEAU_SUBPIXELS@@_K2W4GetMouseCoordinateOptions@@@Z @ 0x1C006FB78
  * Callers:
- *     ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C00E61D2 (-GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z.c)
- *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01F90FC (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
+ *     ?GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z @ 0x1C006FA94 (-GetMouseCoord@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEAUtagPOINT@@PEAU_SUBPIXELS@@@Z.c)
+ *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01C0F00 (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
  * Callees:
- *     ?GetUnionRegion@Mouse@InputConfig@@SA?AUCInputSpaceRegion@@XZ @ 0x1C00644A0 (-GetUnionRegion@Mouse@InputConfig@@SA-AUCInputSpaceRegion@@XZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?GetPrimaryRegion@Mouse@InputConfig@@SA?AUCInputSpaceRegion@@XZ @ 0x1C01E3FA0 (-GetPrimaryRegion@Mouse@InputConfig@@SA-AUCInputSpaceRegion@@XZ.c)
+ *     ?GetUnionRect@Mouse@InputConfig@@SA?AUtagRECT@@XZ @ 0x1C006FD10 (-GetUnionRect@Mouse@InputConfig@@SA-AUtagRECT@@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?GetPrimaryRect@Mouse@InputConfig@@SA?AUtagRECT@@XZ @ 0x1C01B3450 (-GetPrimaryRect@Mouse@InputConfig@@SA-AUtagRECT@@XZ.c)
+ *     ApiSetEditionMagnificationMousePosition @ 0x1C01CC8CC (ApiSetEditionMagnificationMousePosition.c)
  */
 
-__int64 (*__fastcall CMouseProcessor::GetMouseCoordinateAbsolute(
+__int64 __fastcall CMouseProcessor::GetMouseCoordinateAbsolute(
         __int64 a1,
         int a2,
         int a3,
         char a4,
-        int *a5,
+        _DWORD *a5,
         _DWORD *a6,
-        unsigned int a7,
+        int a7,
         __int64 a8,
-        char a9))(void)
+        char a9)
 {
   char v13; // si
-  __m128i *UnionRegion; // rax
-  __int64 v15; // r9
+  struct tagRECT *UnionRect; // rax
+  __int64 v15; // rcx
   unsigned __int64 v16; // xmm0_8
-  unsigned __int64 v17; // r8
-  int v18; // eax
-  __int32 v19; // ecx
-  __int64 v20; // rdx
-  int v21; // ecx
-  __int64 v22; // rcx
-  __int64 (*result)(void); // rax
-  __int64 v24; // rdi
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rdi
-  __int64 v33; // rdx
-  __int64 v34; // rcx
-  __int64 v35; // r8
-  __int64 v36; // r9
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // rbx
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // r9
-  __int64 v45; // rdx
-  __int64 v46; // r8
-  __int64 v47; // r9
-  __int64 v48; // rbx
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v52; // r9
-  __int64 v53; // rdx
-  __int64 v54; // r8
-  __int64 v55; // r9
-  __int64 v56; // rdx
-  __int64 v57; // rcx
-  __int64 v58; // r8
-  __int64 v59; // r9
-  _OWORD v60[45]; // [rsp+20h] [rbp-5E8h] BYREF
-  _OWORD v61[45]; // [rsp+2F0h] [rbp-318h] BYREF
-  __m128i v62; // [rsp+5C0h] [rbp-48h]
+  int v17; // r8d
+  int v18; // edx
+  unsigned int v19; // r8d
+  int v20; // edx
+  unsigned int v21; // edx
+  __int64 result; // rax
+  char v23; // dl
+  __int64 v24; // rcx
+  struct tagRECT v25; // [rsp+20h] [rbp-58h] BYREF
+  struct tagRECT v26; // [rsp+30h] [rbp-48h] BYREF
 
   if ( (a4 & 2) != 0 )
   {
     v13 = 1;
-    UnionRegion = (__m128i *)InputConfig::Mouse::GetUnionRegion(v60);
+    UnionRect = InputConfig::Mouse::GetUnionRect(&v26);
   }
   else
   {
     v13 = 0;
-    UnionRegion = (__m128i *)InputConfig::Mouse::GetPrimaryRegion(v61);
+    UnionRect = InputConfig::Mouse::GetPrimaryRect(&v25);
   }
-  v62 = *UnionRegion;
-  v15 = v62.m128i_i64[0];
-  v16 = _mm_srli_si128(v62, 8).m128i_u64[0];
-  v17 = HIDWORD(v62.m128i_i64[0]);
-  v18 = a2 * (v16 - v62.m128i_i32[0]);
-  v19 = HIDWORD(v16) - v62.m128i_i32[1];
-  *a5 = v18;
-  if ( v18 < 0 )
+  v26 = *UnionRect;
+  v15 = *(_QWORD *)&v26.left;
+  v16 = _mm_srli_si128((__m128i)v26, 8).m128i_u64[0];
+  v17 = a2 * (v16 - v26.left);
+  v18 = HIDWORD(v16) - v26.top;
+  *a5 = v17;
+  if ( v17 < 0 )
   {
-    *a6 = -(unsigned __int16)-(__int16)v18;
-    v20 = -((unsigned int)-*a5 >> 16);
+    *a6 = -(unsigned __int16)-(__int16)v17;
+    v19 = -((unsigned int)-*a5 >> 16);
   }
   else
   {
-    *a6 = (unsigned __int16)v18;
-    v20 = HIWORD(*a5);
+    *a6 = (unsigned __int16)v17;
+    v19 = (unsigned __int16)HIWORD(*a5);
   }
-  v21 = a3 * v19;
-  *a5 = v20;
+  v20 = a3 * v18;
+  *a5 = v19;
+  a5[1] = v20;
+  if ( v20 < 0 )
+  {
+    a6[1] = -(unsigned __int16)-(__int16)v20;
+    v21 = -((unsigned int)-a5[1] >> 16);
+  }
+  else
+  {
+    a6[1] = (unsigned __int16)v20;
+    v21 = (unsigned __int16)HIWORD(a5[1]);
+  }
   a5[1] = v21;
-  if ( v21 < 0 )
-  {
-    a6[1] = -(unsigned __int16)-(__int16)v21;
-    v22 = -((unsigned int)-a5[1] >> 16);
-  }
-  else
-  {
-    a6[1] = (unsigned __int16)v21;
-    v22 = HIWORD(a5[1]);
-  }
-  a5[1] = v22;
   if ( v13 )
   {
     *a5 += v15;
-    a5[1] = v22 + v17;
+    a5[1] = v21 + HIDWORD(v15);
   }
-  v62.m128i_i64[0] = 0LL;
+  *(_QWORD *)&v26.left = 0LL;
   result = 0LL;
-  *(_QWORD *)(a1 + 52) = 0LL;
+  *(_QWORD *)(a1 + 60) = 0LL;
   if ( (a9 & 1) == 0 || (a4 & 0x20) != 0 )
-  {
-    result = qword_1C0296B90;
-    if ( qword_1C0296B90 )
-    {
-      result = (__int64 (*)(void))qword_1C0296B90();
-      if ( (int)result >= 0 )
-      {
-        result = (__int64 (*)(void))qword_1C0296B98;
-        if ( qword_1C0296B98 )
-          result = (__int64 (*)(void))qword_1C0296B98(a5);
-      }
-    }
-  }
+    result = ApiSetEditionMagnificationMousePosition(a5);
   if ( (a9 & 4) == 0 )
   {
-    v24 = SGDGetUserSessionState(v22, v20, v17, v15) + 14368;
-    v29 = *(unsigned int *)(SGDGetUserSessionState(v26, v25, v27, v28) + 14364);
-    *(_DWORD *)(v24 + 24 * v29) = a2 | 0xFFFF0000;
-    v32 = SGDGetUserSessionState(v29, 3 * v29, v30, v31) + 14368;
-    v37 = *(unsigned int *)(SGDGetUserSessionState(v34, v33, v35, v36) + 14364);
-    *(_DWORD *)(v32 + 24 * v37 + 4) = a3 | 0xFFFF0000;
-    v40 = SGDGetUserSessionState(v37, 3 * v37, v38, v39) + 14368;
-    v45 = 3LL * *(unsigned int *)(SGDGetUserSessionState(v42, v41, v43, v44) + 14364);
-    *(_DWORD *)(v40 + 8 * v45 + 8) = a7;
-    v48 = SGDGetUserSessionState(a7, v45, v46, v47) + 14368;
-    v53 = 3LL * *(unsigned int *)(SGDGetUserSessionState(v50, v49, v51, v52) + 14364);
-    *(_QWORD *)(v48 + 8 * v53 + 16) = a8;
-    LODWORD(v48) = ((unsigned __int8)*(_DWORD *)(SGDGetUserSessionState(a8, v53, v54, v55) + 14364) + 1) & 0x3F;
-    result = (__int64 (*)(void))SGDGetUserSessionState(v57, v56, v58, v59);
-    *((_DWORD *)result + 3591) = v48;
+    v23 = gptInd;
+    v24 = 3LL * (unsigned int)gptInd;
+    *((_DWORD *)&gaptMouse + 2 * v24) = a2 | 0xFFFF0000;
+    *((_DWORD *)&gaptMouse + 2 * v24 + 1) = a3 | 0xFFFF0000;
+    *((_DWORD *)&gaptMouse + 2 * v24 + 2) = a7;
+    *((_QWORD *)&gaptMouse + v24 + 2) = a8;
+    result = (v23 + 1) & 0x3F;
+    gptInd = (v23 + 1) & 0x3F;
   }
   return result;
 }

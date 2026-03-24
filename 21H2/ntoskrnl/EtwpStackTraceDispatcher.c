@@ -1,58 +1,80 @@
 /*
- * XREFs of EtwpStackTraceDispatcher @ 0x140460770
+ * XREFs of EtwpStackTraceDispatcher @ 0x1405A6F00
  * Callers:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403AB658 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpGetStackCaptureSettings @ 0x140460684 (EtwpGetStackCaptureSettings.c)
- *     EtwpQueueStackWalkApc @ 0x1406314E0 (EtwpQueueStackWalkApc.c)
- *     EtwpTraceStackWalk @ 0x140631A8C (EtwpTraceStackWalk.c)
+ *     MmCanThreadFault @ 0x14025F510 (MmCanThreadFault.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     EtwpQueueStackWalkApc @ 0x1405A6C40 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceStackWalk @ 0x1405A7134 (EtwpTraceStackWalk.c)
  */
 
-void __fastcall EtwpStackTraceDispatcher(__int64 a1, __int64 a2, struct _KTHREAD *a3, unsigned int a4)
+void __fastcall EtwpStackTraceDispatcher(unsigned int *a1, unsigned int *a2, struct _KTHREAD *a3, unsigned int a4)
 {
+  struct _KTHREAD *CurrentThread; // rdi
   unsigned int v5; // ebx
-  _KTHREAD *CurrentThread; // r8
-  unsigned __int8 CurrentIrql; // r14
-  int v10; // edx
-  char v11; // al
-  _BYTE v12[40]; // [rsp+30h] [rbp-28h] BYREF
-  char v13; // [rsp+78h] [rbp+20h] BYREF
+  struct _KTHREAD *v6; // rsi
+  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v10; // dl
+  unsigned __int8 v11; // r14
+  unsigned __int8 NestingLevel; // cl
 
-  v5 = a4;
   CurrentThread = KeGetCurrentThread();
-  CurrentIrql = KeGetCurrentIrql();
+  v5 = a4;
+  v6 = a3;
   if ( (a4 & 0x4000) == 0 || KeGetCurrentPrcb()->IdleThread != CurrentThread )
   {
     if ( !a3 )
-      a3 = CurrentThread;
-    if ( (a4 & 0x1000) != 0 )
+      v6 = CurrentThread;
+    if ( (a4 & 0x3000) != 0x1000 )
+      goto LABEL_29;
+    if ( (CurrentThread->MiscFlags & 0x400) != 0
+      || CurrentThread != v6
+      || (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 && (a4 & 0x4000000) == 0 )
     {
-      v12[0] = 0;
-      v13 = 0;
-      if ( (a4 & 0x2000) == 0 )
+      v5 = a4 & 0xFFFFEFFF;
+      goto LABEL_29;
+    }
+    CurrentIrql = ObGetCurrentIrql();
+    v10 = 2;
+    v11 = CurrentIrql;
+    if ( CurrentIrql < 2u )
+    {
+      if ( ((a1[208] & 0x1000000) == 0 || (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0)
+        && MmCanThreadFault()
+        && !BYTE6(CurrentThread[1].Queue)
+        && KeGetCurrentThread()->ApcStateIndex != 1
+        && (v5 & 0x1000000) == 0
+        && !_bittest((const signed __int32 *)&CurrentThread->116, 5u) )
       {
-        EtwpGetStackCaptureSettings(a3, (a4 & 0x4000000) != 0, (a4 & 0x8000) != 0, v12, &v13);
-        v11 = v13;
-        if ( (v5 & 0x1000000) != 0 )
-          v11 = 1;
-        if ( v12[0] )
-        {
-          if ( v11 )
-          {
-            v5 &= ~0x1000u;
-            LOBYTE(v10) = CurrentIrql;
-            EtwpQueueStackWalkApc((_DWORD)a3, v10, a1, 0, a2);
-          }
-        }
-        else
-        {
-          v5 &= ~0x1000u;
-        }
+        goto LABEL_29;
+      }
+      v5 &= ~0x1000u;
+    }
+    else
+    {
+      v5 &= ~0x1000u;
+      NestingLevel = KeGetCurrentPrcb()->NestingLevel;
+      if ( CurrentIrql == 2 )
+      {
+        if ( !NestingLevel )
+          goto LABEL_28;
+        goto LABEL_16;
+      }
+      if ( NestingLevel )
+      {
+LABEL_16:
+        if ( (v5 & 0x8000) == 0 || NestingLevel != 1 )
+          goto LABEL_29;
       }
     }
+    v10 = v11;
+LABEL_28:
+    EtwpQueueStackWalkApc((__int64)CurrentThread, v10, a1, a2);
+LABEL_29:
     if ( (v5 & 0x1800) != 0 )
-      EtwpTraceStackWalk(a1, v5, a3, a2);
+      EtwpTraceStackWalk(a1, v5, v6, a2);
   }
 }

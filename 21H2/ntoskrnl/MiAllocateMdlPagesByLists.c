@@ -1,14 +1,15 @@
 /*
- * XREFs of MiAllocateMdlPagesByLists @ 0x140324C60
+ * XREFs of MiAllocateMdlPagesByLists @ 0x140374714
  * Callers:
- *     MiFindPagesForMdl @ 0x1402652C4 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x1402E40DC (MiFindPagesForMdl.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140268408 (MiReleaseFreshPage.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x140339C20 (MiInitializePageColorBase.c)
- *     MiPageToChannel @ 0x1403B76EC (MiPageToChannel.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiPfnZeroingNeeded @ 0x140238B60 (MiPfnZeroingNeeded.c)
+ *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
+ *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiGetEnclavePage @ 0x14054A6D8 (MiGetEnclavePage.c)
  */
 
 __int64 __fastcall MiAllocateMdlPagesByLists(
@@ -20,242 +21,124 @@ __int64 __fastcall MiAllocateMdlPagesByLists(
         unsigned __int64 a6,
         int a7)
 {
-  __int64 v8; // r14
-  char v9; // r11
-  signed __int32 v10; // eax
-  unsigned int v11; // r15d
-  unsigned int v12; // esi
-  int v13; // edi
-  __int64 v14; // r10
-  unsigned __int64 *v15; // r13
-  int v16; // ebx
-  unsigned int v17; // r12d
-  unsigned __int64 Page; // rax
-  unsigned __int64 v19; // r14
-  __int64 v20; // rdx
-  __int64 v21; // rbx
-  int v22; // ecx
-  __int64 v23; // rdx
-  ULONG_PTR v24; // rsi
-  int v25; // ecx
-  char *v26; // r9
-  int v27; // ecx
-  char *v28; // r9
-  unsigned __int64 v29; // r12
-  int v30; // ecx
-  char *v31; // r9
-  int v32; // ebx
-  int v33; // edx
-  int v34; // edx
-  int v35; // edx
-  int v36; // eax
-  int v37; // edx
-  int v38; // eax
-  int v39; // edx
-  int v40; // eax
-  unsigned int v41; // edx
-  int v43; // eax
-  unsigned __int64 v44; // [rsp+38h] [rbp-60h]
-  __int64 v45; // [rsp+40h] [rbp-58h]
-  __int64 v46; // [rsp+48h] [rbp-50h]
-  __int128 v47; // [rsp+50h] [rbp-48h] BYREF
-  int v52; // [rsp+D0h] [rbp+38h]
+  unsigned __int64 v8; // r14
+  __int64 v9; // r13
+  __int64 v10; // r12
+  __int16 v11; // r11
+  signed __int32 v12; // eax
+  unsigned int v13; // r15d
+  unsigned int v14; // ecx
+  int v15; // ebx
+  __int64 v16; // r10
+  unsigned __int64 v17; // rdx
+  int v18; // r8d
+  int v19; // edx
+  unsigned __int64 EnclavePage; // rax
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  unsigned __int64 v23; // r12
+  __int64 v24; // rsi
+  BOOL v25; // eax
+  __int64 v26; // rcx
+  ULONG_PTR v27; // rdi
+  int v28; // eax
+  int v29; // edi
+  int v30; // edi
+  unsigned int v31; // esi
+  unsigned int v33; // [rsp+20h] [rbp-68h]
+  int v34; // [rsp+28h] [rbp-60h]
+  unsigned __int64 *v35; // [rsp+30h] [rbp-58h]
+  __int128 v36; // [rsp+38h] [rbp-50h] BYREF
+  int v41; // [rsp+C0h] [rbp+38h]
 
-  v8 = a1;
-  v44 = 0LL;
-  v45 = 0LL;
-  v47 = 0LL;
-  MiInitializePageColorBase(0LL, (unsigned int)(a7 + 1), &v47);
-  v10 = _InterlockedExchangeAdd((volatile signed __int32 *)v47, 1u);
-  v11 = 8;
-  v12 = HIDWORD(v47) | v10 & DWORD2(v47);
-  v13 = -1;
-  v15 = (unsigned __int64 *)(a2 + 8 * (((unsigned __int64)*(unsigned int *)(a2 + 40) >> 12) + 6));
-  v16 = 1;
-  v46 = KiProcessorBlock[*(unsigned int *)(v14 + 588)];
-  v52 = 1;
-  while ( 2 )
+  v8 = 0LL;
+  v9 = 0LL;
+  v10 = a1;
+  v36 = 0LL;
+  MiInitializePageColorBase(0LL, a7 + 1, (__int64)&v36);
+  v12 = _InterlockedExchangeAdd((volatile signed __int32 *)v36, 1u);
+  v13 = 8;
+  v14 = HIDWORD(v36) | v12 & DWORD2(v36);
+  v15 = -1;
+  v33 = v14;
+  v17 = *(unsigned int *)(a2 + 40);
+  v18 = v11 & 0x400;
+  *(_QWORD *)&v36 = KiProcessorBlock[*(unsigned int *)(v16 + 588)];
+  v34 = v18;
+  v35 = (unsigned __int64 *)(a2 + 48 + 8 * (v17 >> 12));
+  v19 = 1;
+  v41 = 1;
+  while ( 1 )
   {
-    if ( v16 )
+    if ( v19 == 1 )
     {
-      v52 = 0;
-      v11 = 2 * ((v9 & 1) == 0) + 8;
-    }
-    v17 = v11;
-    Page = MiGetPage(v8, v12, v11);
-    v19 = Page;
-    if ( Page == -1LL )
-    {
-      v29 = v44;
-      break;
-    }
-    v20 = 48 * Page;
-    v21 = 48 * Page - 0x220000000000LL;
-    if ( Page > a5 )
-    {
-      MiReleaseFreshPage(v20 - 0x220000000000LL);
-      v29 = v44;
       v41 = 0;
-      goto LABEL_57;
+      v13 = 2 * ((v11 & 1) == 0) + 8;
     }
-    if ( (*(_DWORD *)(v21 + 16) & 0x3E0LL) != 0
-      || (v22 = *(unsigned __int8 *)(v21 + 34) >> 6, v22 != a4)
-      && ((unsigned __int8)((1 << v22) | (1 << a4)) & (unsigned __int8)byte_140C50818) != 0 )
+    if ( v18 )
+      EnclavePage = MiGetEnclavePage(v10, 0LL);
+    else
+      EnclavePage = MiGetPage(v10, v14, v13);
+    v23 = EnclavePage;
+    if ( EnclavePage == -1LL )
     {
-      ++v45;
+      v14 = v33;
+LABEL_21:
+      v31 = 1;
+      goto LABEL_22;
     }
-    v23 = (unsigned __int128)(v20 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
-    v24 = ((unsigned __int64)v23 >> 63) + (v23 >> 3);
-    if ( v13 == -1 )
-      v13 = *((_DWORD *)MiSearchNumaNodeTable(((unsigned __int64)v23 >> 63) + (v23 >> 3)) + 2);
-    v25 = dword_140C506C8;
-    if ( dword_140C506C4 > (unsigned int)dword_140C506C8
-      || (v26 = (char *)qword_140C50708 + 16 * dword_140C506C4, v24 < *(_QWORD *)v26)
-      || dword_140C506C4 != dword_140C506C8 && v24 >= *((_QWORD *)v26 + 2) )
+    v24 = 48 * EnclavePage - 0x58000000000LL;
+    if ( EnclavePage > a5 )
+      break;
+    v25 = MiPfnZeroingNeeded(v24, a4);
+    v26 = v9 + 1;
+    if ( !v25 )
+      v26 = v9;
+    v9 = v26;
+    if ( v15 == -1 )
+      v15 = *((_DWORD *)MiSearchNumaNodeTable((v24 + 0x58000000000LL) / 48) + 2);
+    v27 = (v24 + 0x58000000000LL) / 48;
+    if ( *((_DWORD *)MiSearchNumaNodeTable(v27) + 2) == v15 )
     {
-      v37 = 0;
-      if ( dword_140C506C8 >= 0 )
-      {
-        do
-        {
-          v38 = (v37 + v25) >> 1;
-          v26 = (char *)qword_140C50708 + 16 * v38;
-          if ( v24 < *(_QWORD *)v26 )
-          {
-            if ( !v38 )
-              KeBugCheckEx(0x1Au, 0x6200uLL, v24, (ULONG_PTR)v26, 0LL);
-            v25 = v38 - 1;
-          }
-          else
-          {
-            if ( v38 == dword_140C506C8 || v24 < *((_QWORD *)v26 + 2) )
-            {
-              dword_140C506C4 = (v37 + v25) >> 1;
-              goto LABEL_14;
-            }
-            v37 = v38 + 1;
-          }
-        }
-        while ( v25 >= v37 );
-      }
-LABEL_75:
-      KeBugCheckEx(0x1Au, 0x6201uLL, v24, 0LL, 0LL);
-    }
-LABEL_14:
-    v9 = a3;
-    if ( *((_DWORD *)v26 + 2) == v13 )
-    {
-      if ( (*(_DWORD *)(v21 + 16) & 0x3E0LL) != 0 )
+      if ( (*(_DWORD *)(v24 + 16) & 0x3E0LL) != 0 )
       {
         if ( (a3 & 1) == 0 )
-          v11 &= ~2u;
+          v13 &= ~2u;
       }
       else
       {
-        v11 |= 2u;
+        v28 = v13 | 2;
         if ( (a3 & 1) == 0 )
-          v11 = v17;
+          v28 = v13;
+        v13 = v28;
       }
     }
     else
     {
-      v52 = 1;
+      v41 = 1;
     }
-    v27 = dword_140C506C8;
-    if ( dword_140C506C4 > (unsigned int)dword_140C506C8
-      || (v28 = (char *)qword_140C50708 + 16 * dword_140C506C4, v24 < *(_QWORD *)v28)
-      || dword_140C506C4 != dword_140C506C8 && v24 >= *((_QWORD *)v28 + 2) )
-    {
-      v39 = 0;
-      if ( dword_140C506C8 >= 0 )
-      {
-        while ( 1 )
-        {
-          v40 = (v39 + v27) >> 1;
-          v28 = (char *)qword_140C50708 + 16 * v40;
-          if ( v24 < *(_QWORD *)v28 )
-          {
-            if ( !v40 )
-              KeBugCheckEx(0x1Au, 0x6200uLL, v24, (ULONG_PTR)v28, 0LL);
-            v27 = v40 - 1;
-          }
-          else
-          {
-            if ( v40 == dword_140C506C8 || v24 < *((_QWORD *)v28 + 2) )
-            {
-              dword_140C506C4 = (v39 + v27) >> 1;
-              goto LABEL_22;
-            }
-            v39 = v40 + 1;
-          }
-          if ( v27 < v39 )
-            goto LABEL_75;
-        }
-      }
-      goto LABEL_75;
-    }
-LABEL_22:
-    v13 = *((_DWORD *)v28 + 2);
-    v29 = v44 + 1;
-    *v15++ = v19;
-    v30 = dword_140C506C8;
-    ++v44;
-    if ( dword_140C506C4 <= (unsigned int)dword_140C506C8 )
-    {
-      v31 = (char *)qword_140C50708 + 16 * dword_140C506C4;
-      if ( v24 >= *(_QWORD *)v31 && (dword_140C506C4 == dword_140C506C8 || v24 < *((_QWORD *)v31 + 2)) )
-        goto LABEL_26;
-    }
-    v35 = 0;
-    if ( dword_140C506C8 < 0 )
-      goto LABEL_75;
-    while ( 1 )
-    {
-      v36 = (v35 + v30) >> 1;
-      v31 = (char *)qword_140C50708 + 16 * v36;
-      if ( v24 < *(_QWORD *)v31 )
-      {
-        if ( !v36 )
-          KeBugCheckEx(0x1Au, 0x6200uLL, v24, (ULONG_PTR)v31, 0LL);
-        v30 = v36 - 1;
-        goto LABEL_37;
-      }
-      if ( v36 == dword_140C506C8 || v24 < *((_QWORD *)v31 + 2) )
-        break;
-      v35 = v36 + 1;
-LABEL_37:
-      if ( v30 < v35 )
-        goto LABEL_75;
-    }
-    dword_140C506C4 = (v35 + v30) >> 1;
-LABEL_26:
-    v32 = *((_DWORD *)v31 + 2);
-    if ( qword_140C50710 )
-    {
-      v43 = MiPageToChannel(v24);
-      v9 = a3;
-      v33 = v43;
-    }
-    else
-    {
-      v33 = 0;
-    }
-    v34 = dword_140C50738 & v19 | (v32 << byte_140C506CC) | (v33 << byte_140C506CD);
-    v12 = v34 & ~dword_140C506C0 | dword_140C506C0 & (v34 + 1);
-    if ( v29 < a6 )
-    {
-      v16 = v52;
-      v8 = a1;
-      continue;
-    }
-    break;
+    ++v8;
+    v15 = *((_DWORD *)MiSearchNumaNodeTable(v27) + 2);
+    *v35++ = v23;
+    v29 = *((_DWORD *)MiSearchNumaNodeTable(v27) + 2);
+    v30 = ((unsigned int)MiGetPfnChannel(v24) << byte_140C4DE8D) | dword_140C4DEF8 & v23 | (v29 << byte_140C4DE8C);
+    v14 = v30 & ~dword_140C4DE80 | dword_140C4DE80 & (v30 + 1);
+    v33 = v14;
+    if ( v8 >= a6 )
+      goto LABEL_21;
+    v19 = v41;
+    LOBYTE(v11) = a3;
+    v10 = a1;
+    v18 = v34;
   }
-  v41 = 1;
-LABEL_57:
-  if ( v29 )
-    *(_DWORD *)(v46 + 33360) = v12;
-  *(_DWORD *)(a2 + 40) += (_DWORD)v29 << 12;
-  if ( v45 )
+  MiReleaseFreshPage(v24, v21, v22);
+  v14 = v33;
+  v31 = 0;
+LABEL_22:
+  if ( v8 )
+    *(_DWORD *)(v36 + 32528) = v14;
+  *(_DWORD *)(a2 + 40) += (_DWORD)v8 << 12;
+  if ( v9 )
     *(_QWORD *)(a2 + 24) = 1LL;
-  return v41;
+  return v31;
 }

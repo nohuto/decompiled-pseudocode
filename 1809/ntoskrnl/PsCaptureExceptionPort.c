@@ -2,9 +2,9 @@
  * XREFs of PsCaptureExceptionPort @ 0x1405F7D1C
  * Callers:
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     DbgkForwardException @ 0x1406D68FC (DbgkForwardException.c)
- *     PspFreezeProcessWorker @ 0x14088B660 (PspFreezeProcessWorker.c)
- *     ExpRaiseHardError @ 0x1408D6900 (ExpRaiseHardError.c)
+ *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
+ *     PspFreezeProcessWorker @ 0x14088B640 (PspFreezeProcessWorker.c)
+ *     ExpRaiseHardError @ 0x1408D68E0 (ExpRaiseHardError.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)

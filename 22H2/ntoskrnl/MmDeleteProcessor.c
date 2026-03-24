@@ -1,25 +1,31 @@
 /*
- * XREFs of MmDeleteProcessor @ 0x140617C3C
+ * XREFs of MmDeleteProcessor @ 0x14052DF10
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
- *     MmInitializeProcessor @ 0x140A898EC (MmInitializeProcessor.c)
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     MmInitializeProcessor @ 0x14099F378 (MmInitializeProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiDeleteUltraThreadContext @ 0x140357B5C (MiDeleteUltraThreadContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmDeleteProcessor(__int64 a1)
 {
-  __int64 **v1; // rbx
+  unsigned __int64 v1; // rdx
+  void *v3; // rdi
 
-  v1 = *(__int64 ***)(a1 + 33592);
+  v1 = *(_QWORD *)(a1 + 33280);
   if ( v1 )
   {
-    MiReleasePtes((__int64)&qword_140C69A40, v1[1578], 1u);
-    MiDeleteUltraThreadContext((__int64)(v1 + 1544));
-    ExFreePoolWithTag(v1, 0);
-    *(_QWORD *)(a1 + 33592) = 0LL;
+    MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)(((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL), 0x40u);
+    *(_QWORD *)(a1 + 33280) = 0LL;
+  }
+  v3 = *(void **)(a1 + 32760);
+  if ( v3 )
+  {
+    MiDeleteUltraThreadContext((__int64)v3 + 12352);
+    ExFreePoolWithTag(v3, 0);
+    *(_QWORD *)(a1 + 32760) = 0LL;
   }
 }

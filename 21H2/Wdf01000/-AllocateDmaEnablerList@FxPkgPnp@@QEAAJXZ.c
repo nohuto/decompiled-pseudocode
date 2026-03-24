@@ -1,25 +1,22 @@
 /*
- * XREFs of ?AllocateDmaEnablerList@FxPkgPnp@@QEAAJXZ @ 0x1C0033248
+ * XREFs of ?AllocateDmaEnablerList@FxPkgPnp@@QEAAJXZ @ 0x1C0084D50
  * Callers:
- *     ?AllocateDmaEnablerList@FxDevice@@UEAAJXZ @ 0x1C0033220 (-AllocateDmaEnablerList@FxDevice@@UEAAJXZ.c)
+ *     ?AllocateDmaEnablerList@FxDevice@@UEAAJXZ @ 0x1C0050280 (-AllocateDmaEnablerList@FxDevice@@UEAAJXZ.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::AllocateDmaEnablerList(FxPkgPnp *this, __int64 a2, unsigned __int8 a3)
 {
   unsigned int v3; // ebx
   unsigned __int8 v6; // r8
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  void *v8; // rax
-  FX_POOL **v9; // rax
-  FxSpinLockTransactionedList *v10; // rcx
-  _QWORD *v11; // rax
-  __m128i v12; // [rsp+30h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+48h] [rbp+0h]
-  unsigned __int8 irql; // [rsp+50h] [rbp+8h] BYREF
+  FX_POOL **v7; // rax
+  FxSpinLockTransactionedList *v8; // rcx
+  _QWORD *v9; // rax
+  void *Caller; // [rsp+38h] [rbp+0h]
+  unsigned __int8 irql; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = 0;
   irql = 0;
@@ -28,34 +25,37 @@ __int64 __fastcall FxPkgPnp::AllocateDmaEnablerList(FxPkgPnp *this, __int64 a2, 
   FxNonPagedObject::Lock(this, &irql, a3);
   if ( !this->m_DmaEnablerList )
   {
-    m_Globals = this->m_Globals;
-    v8 = retaddr;
-    v12.m128i_i64[0] = 0LL;
-    v12.m128i_i64[1] = 64LL;
-    if ( !m_Globals->FxPoolTrackingOn )
-      v8 = 0LL;
-    v9 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v12, 0x48uLL, m_Globals->Tag, v8);
-    v10 = (FxSpinLockTransactionedList *)v9;
-    if ( v9 )
+    v7 = FxPoolAllocator(
+           this->m_Globals,
+           &this->m_Globals->FxPoolFrameworks,
+           ExDefaultNonPagedPoolType,
+           0x48uLL,
+           this->m_Globals->Tag,
+           Caller);
+    v8 = (FxSpinLockTransactionedList *)v7;
+    if ( v7 )
     {
-      *((_DWORD *)v9 + 12) = 0;
-      *((_WORD *)v9 + 26) = 0;
-      *((_BYTE *)v9 + 54) = 0;
-      v9[5] = 0LL;
-      v11 = v9 + 1;
-      v10->m_ListLock.m_Lock = 0LL;
-      v10->m_ListLock.m_DbgFlagIsInitialized = 1;
-      v11[1] = v11;
-      *v11 = v11;
-      v10->m_TransactionHead.Blink = &v10->m_TransactionHead;
-      v10->m_TransactionHead.Flink = &v10->m_TransactionHead;
-      v10->__vftable = (FxSpinLockTransactionedList_vtbl *)FxSpinLockTransactionedList::`vftable';
-      this->m_DmaEnablerList = v10;
+      *((_DWORD *)v7 + 12) = 0;
+      *((_WORD *)v7 + 26) = 0;
+      *((_BYTE *)v7 + 54) = 0;
+      v7[5] = 0LL;
+      v9 = v7 + 1;
+      v8->m_ListLock.m_Lock = 0LL;
+      v8->m_ListLock.m_DbgFlagIsInitialized = 1;
+      v9[1] = v9;
+      *v9 = v9;
+      v8->m_TransactionHead.Blink = &v8->m_TransactionHead;
+      v8->m_TransactionHead.Flink = &v8->m_TransactionHead;
+      v8->__vftable = (FxSpinLockTransactionedList_vtbl *)FxSpinLockTransactionedList::`vftable';
     }
     else
     {
-      v3 = -1073741670;
+      v8 = 0LL;
     }
+    if ( v8 )
+      this->m_DmaEnablerList = v8;
+    else
+      v3 = -1073741670;
   }
   FxNonPagedObject::Unlock(this, irql, v6);
   return v3;

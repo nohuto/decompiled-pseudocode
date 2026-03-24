@@ -1,76 +1,76 @@
 /*
- * XREFs of ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800A9100
+ * XREFs of ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180033848
  * Callers:
- *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800A8EE4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800332C4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
  * Callees:
- *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x180073594 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800F5274 (-DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ @ 0x180031BE8 (-DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?SetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@KPEAX@Z @ 0x180033968 (-SetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@KPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x18007A274 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
  */
 
 __int64 __fastcall CGdiSpriteBitmap::RegisterForSignaling(CGdiSpriteBitmap *this)
 {
-  char v1; // bp
-  signed int v2; // edi
-  __int64 v4; // r14
-  __int64 v5; // rbx
-  signed int LastError; // eax
-  unsigned int v8; // ecx
-  unsigned int v9; // ecx
-  signed int v10; // eax
-  unsigned int v11; // ecx
-  unsigned int v12; // [rsp+20h] [rbp-28h]
-  unsigned int v13; // [rsp+50h] [rbp+8h] BYREF
+  char v1; // si
+  unsigned int v2; // edi
+  __int64 v4; // rcx
+  int v5; // eax
+  int v6; // eax
+  unsigned int v7; // ecx
+  int v9; // eax
+  unsigned int v10; // ecx
+  __int64 v11; // [rsp+30h] [rbp-20h] BYREF
+  int v12; // [rsp+38h] [rbp-18h]
+  int v13; // [rsp+3Ch] [rbp-14h]
+  __int64 v14; // [rsp+40h] [rbp-10h]
+  __int64 v15; // [rsp+48h] [rbp-8h]
+  unsigned int v16; // [rsp+60h] [rbp+10h] BYREF
 
-  v1 = *((_BYTE *)this + 68);
+  v1 = *((_BYTE *)this + 129);
   v2 = 0;
-  v13 = 0;
-  if ( *((_BYTE *)this + 142) )
+  v16 = 0;
+  if ( *((_BYTE *)this + 127) )
   {
-    *((_BYTE *)this + 144) = 0;
-    goto LABEL_8;
+    v1 = 1;
   }
-  v4 = *((_QWORD *)this + 15);
-  if ( !*((_QWORD *)this + 44) )
+  else
   {
-    v5 = *((_QWORD *)this + 51);
-    SetLastError(0);
-    if ( (unsigned int)DwmHLSurfSetSignalOnDirty(*(_QWORD *)(v4 + 24), v5, *((_QWORD *)this + 52), 1LL) )
-      goto LABEL_4;
-    LastError = GetLastError();
-    v2 = LastError;
-    if ( LastError > 0 )
-      v2 = (unsigned __int16)LastError | 0x80070000;
-    if ( v2 >= 0 )
-      v2 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, &dword_180358AD0, 2u, v2, 0xFAu, 0LL);
-    v12 = 775;
-LABEL_17:
-    v13 = v2;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, &dword_180356BC8, 2u, v2, v12, 0LL);
-    goto LABEL_5;
+    v4 = *((_QWORD *)this + 11);
+    if ( *((_QWORD *)this + 49) )
+    {
+      v16 = 1;
+      v9 = CRedirectedGDISurface::SetInformation(v4, 1LL, 4LL, &v16);
+      v16 = v9;
+      v2 = v9;
+      if ( v9 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v10, &dword_1802DBFD0, 2u, v9, 0x3BCu, 0LL);
+        goto LABEL_7;
+      }
+      v1 = 1;
+    }
+    else
+    {
+      v5 = *((_DWORD *)this + 24);
+      v11 = 0LL;
+      v13 = v5;
+      v14 = *((_QWORD *)this + 57);
+      v15 = *((_QWORD *)this + 56);
+      v12 = 1;
+      v6 = CRedirectedGDISurface::SetInformation(v4, 4LL, 32LL, &v11);
+      v16 = v6;
+      v2 = v6;
+      if ( v6 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_1802DBFD0, 2u, v6, 0x3B4u, 0LL);
+        goto LABEL_7;
+      }
+    }
+    *((_BYTE *)this + 127) = 1;
   }
-  SetLastError(0);
-  if ( !(unsigned int)DwmHLSurfSetSignalOnDirty(*(_QWORD *)(v4 + 24), 0LL, qword_1803EA298, 1LL) )
-  {
-    v10 = GetLastError();
-    v2 = v10;
-    if ( v10 > 0 )
-      v2 = (unsigned __int16)v10 | 0x80070000;
-    if ( v2 >= 0 )
-      v2 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_180358AD0, 2u, v2, 0xE9u, 0LL);
-    v12 = 779;
-    goto LABEL_17;
-  }
-  v1 = 1;
-LABEL_4:
-  v13 = 0;
-  *((_BYTE *)this + 142) = 1;
   if ( v1 )
-LABEL_8:
     CGdiSpriteBitmap::DirtyFromAccum(this);
-LABEL_5:
-  TranslateDXGIorD3DErrorInContext(v2, 9, &v13);
-  return v13;
+LABEL_7:
+  TranslateDXGIorD3DErrorInContext(v2, 9LL, &v16);
+  return v16;
 }

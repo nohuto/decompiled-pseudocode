@@ -1,10 +1,10 @@
 /*
- * XREFs of ViPendingWorkerThread @ 0x140AD2F70
+ * XREFs of ViPendingWorkerThread @ 0x1409D5EB0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ViPendingCompleteAfterWait @ 0x140AD2BEC (ViPendingCompleteAfterWait.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ViPendingCompleteAfterWait @ 0x1409D5B34 (ViPendingCompleteAfterWait.c)
  */
 
 void __fastcall __noreturn ViPendingWorkerThread(_QWORD *StartContext)

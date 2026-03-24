@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_HasResetPipeCountReachedMaximum @ 0x1C0008480
+ * XREFs of HUBHSM_HasResetPipeCountReachedMaximum @ 0x1C0008170
  * Callers:
  *     <none>
  * Callees:

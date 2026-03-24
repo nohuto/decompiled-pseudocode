@@ -1,8 +1,9 @@
 /*
- * XREFs of KeQueryUnbiasedInterruptTime @ 0x1402235C0
+ * XREFs of KeQueryUnbiasedInterruptTime @ 0x14035ADE0
  * Callers:
- *     MiWorkingSetManager @ 0x14021D610 (MiWorkingSetManager.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     PopBatteryWorker @ 0x14077F710 (PopBatteryWorker.c)
  * Callees:
  *     <none>
  */

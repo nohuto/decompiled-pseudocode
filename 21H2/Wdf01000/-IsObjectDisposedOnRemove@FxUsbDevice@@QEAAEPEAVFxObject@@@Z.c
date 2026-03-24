@@ -1,13 +1,13 @@
 /*
- * XREFs of ?IsObjectDisposedOnRemove@FxUsbDevice@@QEAAEPEAVFxObject@@@Z @ 0x1C007D13C
+ * XREFs of ?IsObjectDisposedOnRemove@FxUsbDevice@@QEAAEPEAVFxObject@@@Z @ 0x1C00709A0
  * Callers:
- *     ?GetFxUrbTypeForRequest@FxUsbDevice@@QEAA?AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z @ 0x1C003956A (-GetFxUrbTypeForRequest@FxUsbDevice@@QEAA-AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z.c)
- *     ?CreateIsochUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@KPEAPEAUWDFMEMORY__@@PEAPEAU_URB@@@Z @ 0x1C007C744 (-CreateIsochUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@KPEAPEAUWDFMEMORY__@@PEAPEAU_URB@@.c)
- *     ?CreateUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFMEMORY__@@PEAPEAU_URB@@@Z @ 0x1C007C984 (-CreateUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFMEMORY__@@PEAPEAU_URB@@@Z.c)
+ *     ?CreateIsochUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@KPEAPEAUWDFMEMORY__@@PEAPEAU_URB@@@Z @ 0x1C006FF7C (-CreateIsochUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@KPEAPEAUWDFMEMORY__@@PEAPEAU_URB@@.c)
+ *     ?CreateUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFMEMORY__@@PEAPEAU_URB@@@Z @ 0x1C00701BC (-CreateUrb@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFMEMORY__@@PEAPEAU_URB@@@Z.c)
+ *     ?GetFxUrbTypeForRequest@FxUsbDevice@@QEAA?AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z @ 0x1C0070790 (-GetFxUrbTypeForRequest@FxUsbDevice@@QEAA-AW4_FX_URB_TYPE@@PEAVFxRequestBase@@@Z.c)
  * Callees:
- *     ?GetParentObjectReferenced@FxObject@@QEAAPEAV1@PEAX@Z @ 0x1C00194CC (-GetParentObjectReferenced@FxObject@@QEAAPEAV1@PEAX@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetParentObjectReferenced@FxObject@@QEAAPEAV1@PEAX@Z @ 0x1C005A01C (-GetParentObjectReferenced@FxObject@@QEAAPEAV1@PEAX@Z.c)
  */
 
 char __fastcall FxUsbDevice::IsObjectDisposedOnRemove(FxUsbDevice *this, FxDeviceBase *Object)
@@ -23,7 +23,7 @@ char __fastcall FxUsbDevice::IsObjectDisposedOnRemove(FxUsbDevice *this, FxDevic
 
   v4 = 0;
   v5 = Object;
-  FxObject::AddRef(Object, Object, 2380, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
+  FxObject::AddRef(Object, Object, 2399, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
   if ( v5 )
   {
     while ( v5 != this->m_DeviceBase )
@@ -36,14 +36,14 @@ char __fastcall FxUsbDevice::IsObjectDisposedOnRemove(FxUsbDevice *this, FxDevic
       if ( (v5->m_Type == 4104 || v5->QueryInterface(v5, (FxQueryInterfaceParams *)&v8) >= 0) && !BYTE1(v5[1].m_Refcnt) )
         break;
       ParentObjectReferenced = FxObject::GetParentObjectReferenced(v5, Object);
-      v5->Release(v5, Object, 2406, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
+      v5->Release(v5, Object, 2425, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
       v5 = (FxDeviceBase *)ParentObjectReferenced;
       if ( !ParentObjectReferenced )
         return v4;
     }
     v4 = 1;
     if ( v5 )
-      v5->Release(v5, Object, 2416, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
+      v5->Release(v5, Object, 2435, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbdevice.cpp");
   }
   return v4;
 }

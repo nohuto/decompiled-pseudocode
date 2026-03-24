@@ -1,43 +1,59 @@
 /*
- * XREFs of HalpHandleMachineCheck @ 0x140506BF4
+ * XREFs of HalpHandleMachineCheck @ 0x1404BA1EC
  * Callers:
- *     HalHandleMcheck @ 0x1405095D0 (HalHandleMcheck.c)
+ *     HalHandleMcheck @ 0x1404BCA60 (HalHandleMcheck.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x1402DA448 (KxTryToAcquireSpinLock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpMceHandler @ 0x14050770C (HalpMceHandler.c)
- *     HalpMceHandlerWithRendezvous @ 0x1405079C8 (HalpMceHandlerWithRendezvous.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpMceHandler @ 0x1404BACB0 (HalpMceHandler.c)
+ *     HalpMceHandlerWithRendezvous @ 0x1404BAF18 (HalpMceHandlerWithRendezvous.c)
  */
 
-void __fastcall HalpHandleMachineCheck(__int64 a1)
+__int64 __fastcall HalpHandleMachineCheck(__int64 a1)
 {
   __int64 i; // rbx
-  __int64 v3; // rdx
+  __int64 result; // rax
+  KIRQL v4; // al
+  __int64 v5; // rdx
+  unsigned __int64 v6; // rbx
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  bool v9; // zf
 
-  _InterlockedIncrement(&WheapCriticalStateRefCount);
-  if ( HalpMceBroadcast )
+  if ( !HalpMceBroadcast )
+    return HalpMceHandler(a1, 0LL);
+  for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; ; i = *(_QWORD *)(i + 176) )
   {
-    for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; ; i = *(_QWORD *)(i + 184) )
+    if ( !i )
+      return HalpMceHandlerWithRendezvous(a1);
+    if ( (((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))HalpWheaReadMsr)(*(_QWORD *)(i + 164), 378LL, 0LL) & 8) != 0 )
+      break;
+  }
+  v4 = KeAcquireSpinLockRaiseToDpc(&HalpMceLocalHandlingLock);
+  LOBYTE(v5) = 1;
+  v6 = v4;
+  HalpMceHandler(a1, v5);
+  KxReleaseSpinLock(&HalpMceLocalHandlingLock);
+  result = (unsigned int)KiIrqlFlags;
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      if ( !i )
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v6 <= 0xFu && (unsigned __int8)result >= 2u )
       {
-        HalpMceHandlerWithRendezvous(a1);
-        goto LABEL_11;
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v9 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
-      if ( (((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))HalpWheaReadMsr)(*(_QWORD *)(i + 172), 378LL, 0LL) & 8) != 0 )
-        break;
     }
-    while ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&HalpMceLocalHandlingLock) )
-      _mm_pause();
-    LOBYTE(v3) = 1;
-    HalpMceHandler(a1, v3);
-    KxReleaseSpinLock(&HalpMceLocalHandlingLock);
   }
-  else
-  {
-    HalpMceHandler(a1, 0LL);
-  }
-LABEL_11:
-  _InterlockedDecrement(&WheapCriticalStateRefCount);
+  __writecr8(v6);
+  return result;
 }

@@ -1,18 +1,16 @@
 /*
- * XREFs of RegisterPerUserKeyboardIndicators @ 0x1C003E74C
+ * XREFs of RegisterPerUserKeyboardIndicators @ 0x1C013278C
  * Callers:
- *     PrepareForLogoff @ 0x1C003DACC (PrepareForLogoff.c)
+ *     PrepareForLogoff @ 0x1C01326D0 (PrepareForLogoff.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall RegisterPerUserKeyboardIndicators(__int64 a1)
 {
-  __int64 v2; // rax
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  int v2; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = *(_DWORD *)L"0";
-  v2 = SGDGetUserSessionState(a1);
-  LOWORD(v4) = (*(_BYTE *)(v2 + 14028) & 2) + v4;
-  return FastWriteProfileStringW(a1, 13LL, L"InitialKeyboardIndicators", &v4);
+  v2 = *(_DWORD *)L"0";
+  LOWORD(v2) = (gafAsyncKeyState[36] & 2) + a0[0];
+  return FastWriteProfileStringW(a1, 13LL, L"InitialKeyboardIndicators", &v2);
 }

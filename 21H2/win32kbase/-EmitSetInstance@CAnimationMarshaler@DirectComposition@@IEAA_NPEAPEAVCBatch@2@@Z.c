@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetInstance@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AED9C
+ * XREFs of ?EmitSetInstance@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094D7C
  * Callers:
- *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEC20 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094C00 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationMarshaler::EmitSetInstance(
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitSetInstance(
   char *v3; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_BYTE *)this + 216) & 2) == 0 || (*((_DWORD *)this + 8) & 0x2000) != 0 )
+  if ( (*((_BYTE *)this + 208) & 2) == 0 || (*((_DWORD *)this + 8) & 0x2000) != 0 )
     return 1;
   v5 = 0LL;
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0xCuLL, &v5) )
@@ -22,7 +22,7 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitSetInstance(
     *(_DWORD *)v5 = 12;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 1) = 6;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 12);
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 10);
     *((_DWORD *)this + 8) |= 0x2000u;
     return 1;
   }

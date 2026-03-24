@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_LogLinkWindow@@YAXW4LogBeforeOrAfter@@PEAUtagWND@@11@Z @ 0x1C021C9CC
+ * XREFs of ?_LogLinkWindow@@YAXW4LogBeforeOrAfter@@PEAUtagWND@@11@Z @ 0x1C0222FDC
  * Callers:
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     UnlinkWindow @ 0x1C0072CAC (UnlinkWindow.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
+ *     UnlinkWindow @ 0x1C007E978 (UnlinkWindow.c)
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 int __fastcall _LogLinkWindow(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -19,7 +19,7 @@ int __fastcall _LogLinkWindow(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   v4 = &retaddr;
-  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+  if ( WPP_MAIN_CB.Queue.Wcb.DeviceContext )
   {
     LODWORD(v4) = IsTopLevelWindow((__int64)a2);
     if ( (_DWORD)v4 )

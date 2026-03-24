@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhFdoPnp_QueryPnpDeviceState @ 0x1C0042540
+ * XREFs of UsbhFdoPnp_QueryPnpDeviceState @ 0x1C00437F0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 NTSTATUS __fastcall UsbhFdoPnp_QueryPnpDeviceState(__int64 a1, PIRP Irp)
@@ -15,6 +15,7 @@ NTSTATUS __fastcall UsbhFdoPnp_QueryPnpDeviceState(__int64 a1, PIRP Irp)
   PDEVICE_OBJECT *v4; // rdi
   unsigned int v5; // ecx
   int v7; // [rsp+28h] [rbp-40h]
+  int v8; // [rsp+48h] [rbp-20h]
 
   v4 = (PDEVICE_OBJECT *)FdoExt(a1);
   Log(a1, 2, 1934650960, *((unsigned int *)v4 + 643), (__int64)Irp);
@@ -24,7 +25,7 @@ NTSTATUS __fastcall UsbhFdoPnp_QueryPnpDeviceState(__int64 a1, PIRP Irp)
       0,
       1u,
       0x10u,
-      (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids);
+      (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids);
   if ( *((_DWORD *)v4 + 643) )
   {
     v5 = *((_DWORD *)v4 + 643);
@@ -36,13 +37,14 @@ NTSTATUS __fastcall UsbhFdoPnp_QueryPnpDeviceState(__int64 a1, PIRP Irp)
         0,
         1u,
         0x11u,
-        (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids,
+        (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids,
         v7);
       v5 = *((_DWORD *)v4 + 643);
     }
+    LOBYTE(v8) = 0;
     Irp->IoStatus.Information |= v5;
     Irp->IoStatus.Status = 0;
-    UsbhException(a1, 0, 87, (_DWORD)Irp + 56, 8, 0, 0, usbfile_pnp_c, 2265, 0);
+    UsbhException(a1, 0, 87, (_DWORD)Irp + 56, 8, 0, 0, usbfile_pnp_c, 2265, v8);
   }
   ++Irp->CurrentLocation;
   ++Irp->Tail.Overlay.CurrentStackLocation;

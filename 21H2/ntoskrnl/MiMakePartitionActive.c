@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakePartitionActive @ 0x14036C978
+ * XREFs of MiMakePartitionActive @ 0x1402E5DA8
  * Callers:
- *     MiEnablePartitionMappedWrites @ 0x1406F9808 (MiEnablePartitionMappedWrites.c)
- *     MmCreateProcessAddressSpace @ 0x1407F17B4 (MmCreateProcessAddressSpace.c)
- *     MiInsertPageFileInList @ 0x14084B418 (MiInsertPageFileInList.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406D3284 (MiEnablePartitionMappedWrites.c)
+ *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
- *     MiSetSlabAllocatorPolicy @ 0x1403C3F28 (MiSetSlabAllocatorPolicy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiSetSlabAllocatorPolicy @ 0x1403B7458 (MiSetSlabAllocatorPolicy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMakePartitionActive(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall MiMakePartitionActive(__int64 a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C51F00, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
   if ( (*(_DWORD *)(a1 + 4) & 0x20) == 0 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -62,7 +62,7 @@ __int64 __fastcall MiMakePartitionActive(__int64 a1)
   if ( (unsigned int)MiChargeCommit(a1, 0xA0uLL, 0) )
   {
     *(_DWORD *)(a1 + 4) &= ~0x20u;
-    *(_QWORD *)(a1 + 16048) = 160LL;
+    *(_QWORD *)(a1 + 6256) = 160LL;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     v14 = LockHandle.OldIrql;
     if ( KiIrqlFlags )

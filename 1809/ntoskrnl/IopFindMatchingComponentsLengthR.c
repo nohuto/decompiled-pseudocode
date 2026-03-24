@@ -1,7 +1,7 @@
 /*
- * XREFs of IopFindMatchingComponentsLengthR @ 0x14081D4B8
+ * XREFs of IopFindMatchingComponentsLengthR @ 0x14081D498
  * Callers:
- *     IopSymlinkProcessReparse @ 0x1406AC230 (IopSymlinkProcessReparse.c)
+ *     IopSymlinkProcessReparse @ 0x1406AC210 (IopSymlinkProcessReparse.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of initialize_legacy_wide_specifiers @ 0x1801005D0
+ * XREFs of initialize_legacy_wide_specifiers @ 0x1800E6D90
  * Callers:
  *     <none>
  * Callees:
- *     __local_stdio_printf_options @ 0x1801005F4 (__local_stdio_printf_options.c)
- *     __local_stdio_scanf_options @ 0x180100604 (__local_stdio_scanf_options.c)
+ *     __local_stdio_printf_options @ 0x1800E6D5C (__local_stdio_printf_options.c)
+ *     __local_stdio_scanf_options @ 0x1800E6DB4 (__local_stdio_scanf_options.c)
  */
 
 __int64 initialize_legacy_wide_specifiers()

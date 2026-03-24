@@ -1,38 +1,45 @@
 /*
- * XREFs of SmKmAllocateMdlForLock @ 0x1403A6694
+ * XREFs of SmKmAllocateMdlForLock @ 0x140313600
  * Callers:
- *     SmFpPreAllocate @ 0x1403A6478 (SmFpPreAllocate.c)
- *     SmFpAllocate @ 0x14046592E (SmFpAllocate.c)
+ *     SmFpAllocate @ 0x1403130C8 (SmFpAllocate.c)
+ *     SmFpPreAllocate @ 0x1403C8964 (SmFpPreAllocate.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x14034350C (SmAcquireReleaseCharges.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SmAcquireReleaseCharges @ 0x14026C810 (SmAcquireReleaseCharges.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SmKmAllocateMdlForLock(__int64 a1, unsigned __int64 a2)
+_QWORD *__fastcall SmKmAllocateMdlForLock(unsigned __int64 a1)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v5; // rdi
-  __int64 Pool2; // rax
+  _QWORD *v2; // r14
+  int v3; // ebp
+  unsigned __int64 v4; // rdi
+  _QWORD *PoolWithTag; // rax
+  void *v6; // rbx
 
   v2 = 0LL;
-  if ( (unsigned int)SmAcquireReleaseCharges(a1, a2, 3, 0) )
+  v3 = SmAcquireReleaseCharges(a1, 3, 0);
+  if ( v3 )
   {
-    v5 = (a2 + 4095) >> 12;
-    Pool2 = ExAllocatePool2(64LL, 8 * v5 + 48, 1280339315LL);
-    if ( Pool2 )
+    v4 = (a1 + 4095) >> 12;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * v4 + 48, 0x4C506D73u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)Pool2 = 0LL;
-      *(_WORD *)(Pool2 + 10) = 0;
-      *(_QWORD *)(Pool2 + 32) = 0LL;
-      *(_DWORD *)(Pool2 + 44) = 0;
-      v2 = Pool2;
-      *(_WORD *)(Pool2 + 8) = 8 * (v5 + 6);
-      *(_DWORD *)(Pool2 + 40) = a2;
+      *PoolWithTag = 0LL;
+      v2 = PoolWithTag;
+      *((_WORD *)PoolWithTag + 4) = 8 * (v4 + 6);
+      v6 = 0LL;
+      *((_WORD *)PoolWithTag + 5) = 0;
+      v3 = 0;
+      PoolWithTag[4] = 0LL;
+      *((_DWORD *)PoolWithTag + 11) = 0;
+      *((_DWORD *)PoolWithTag + 10) = a1;
     }
-    else
-    {
-      SmAcquireReleaseCharges(a1, a2, 3, 1);
-    }
+    if ( v3 )
+      SmAcquireReleaseCharges(a1, 3, 1);
+    if ( v6 )
+      ExFreePoolWithTag(v6, 0);
   }
   return v2;
 }

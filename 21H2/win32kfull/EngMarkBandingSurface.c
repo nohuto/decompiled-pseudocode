@@ -1,41 +1,42 @@
 /*
- * XREFs of EngMarkBandingSurface @ 0x1C014F130
+ * XREFs of EngMarkBandingSurface @ 0x1C015EB10
  * Callers:
- *     NtGdiEngMarkBandingSurface @ 0x1C014F060 (NtGdiEngMarkBandingSurface.c)
+ *     NtGdiEngMarkBandingSurface @ 0x1C015EA40 (NtGdiEngMarkBandingSurface.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0027A2C (--1SURFREF@@QEAA@XZ.c)
- *     ?Feature_Servicing_GdiTelemetry_37785925__private_IsEnabled@@YAHXZ @ 0x1C015DDC8 (-Feature_Servicing_GdiTelemetry_37785925__private_IsEnabled@@YAHXZ.c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C015DE30 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C026AD30 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082FC8 (--1SURFREF@@QEAA@XZ.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C016A4AC (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     Feature_Servicing_GdiTelemetry_37785927__private_IsEnabledDeviceUsage @ 0x1C016B8AC (Feature_Servicing_GdiTelemetry_37785927__private_IsEnabledDeviceUsage.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C026CF90 (--0SURFREF@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngMarkBandingSurface(HSURF hsurf)
 {
   __int64 v2; // rdx
   __int64 v3; // rax
-  BOOL v4; // ebx
-  int v5; // ecx
-  _BYTE v7[32]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v8; // [rsp+50h] [rbp-18h]
+  __int64 v4; // rdx
+  BOOL v5; // ebx
+  int v6; // ecx
+  _BYTE v8[32]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v9; // [rsp+50h] [rbp-18h]
 
-  SURFREF::SURFREF((SURFREF *)v7);
+  SURFREF::SURFREF((SURFREF *)v8);
   LOBYTE(v2) = 5;
   v3 = HmgShareLockCheckIgnoreStockBit(hsurf, v2);
-  v4 = 0;
-  v8 = v3;
+  v5 = 0;
+  v9 = v3;
   if ( v3 )
   {
-    v5 = *(_DWORD *)(v3 + 112);
-    if ( (v5 & 0x200000) != 0 )
+    v6 = *(_DWORD *)(v3 + 112);
+    if ( (v6 & 0x200000) != 0 )
     {
-      v4 = 1;
-      *(_DWORD *)(v3 + 112) = v5 | 0x2000000;
+      v5 = 1;
+      *(_DWORD *)(v3 + 112) = v6 | 0x2000000;
     }
-    else if ( (unsigned int)Feature_Servicing_GdiTelemetry_37785925__private_IsEnabled() )
+    else if ( (unsigned int)Feature_Servicing_GdiTelemetry_37785927__private_IsEnabledDeviceUsage() )
     {
-      TraceLoggingWriteUnsupportedGdiUsage(2LL, *(unsigned int *)(v8 + 112), 0LL);
+      TraceLoggingWriteUnsupportedGdiUsage(2LL, *(unsigned int *)(v9 + 112), 0LL, 0LL, 0LL);
     }
   }
-  SURFREF::~SURFREF((SURFREF *)v7);
-  return v4;
+  SURFREF::~SURFREF((SURFREF *)v8, v4);
+  return v5;
 }

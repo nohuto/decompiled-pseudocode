@@ -1,120 +1,156 @@
 /*
- * XREFs of ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C02998F4
+ * XREFs of ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C001F170
  * Callers:
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
  * Callees:
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C007E7B4 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0131240 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C02651D4 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
- *     ?CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ @ 0x1C0298CB8 (-CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ.c)
- *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C0298DC4 (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
- *     ?bSandboxedCurrentProcess@@YAHXZ @ 0x1C0299B9C (-bSandboxedCurrentProcess@@YAHXZ.c)
- *     ??0PROXYPORT@@QEAA@_K@Z @ 0x1C02BF3B4 (--0PROXYPORT@@QEAA@_K@Z.c)
+ *     ??0PROXYPORT@@QEAA@_K@Z @ 0x1C011F3C0 (--0PROXYPORT@@QEAA@_K@Z.c)
+ *     ?CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ @ 0x1C015F800 (-CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C026CE38 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C02934DC (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall UMPDOBJ::bInit(UMPDOBJ *this)
 {
-  __int64 v2; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v4; // rsi
-  __int64 ThreadWin32Thread; // rax
-  _QWORD *v6; // rdi
-  int v7; // eax
-  unsigned __int64 v8; // rdx
-  UMPDOBJ *v9; // rcx
+  struct _KTHREAD *CurrentThread; // r14
+  _QWORD *v4; // rsi
+  __int64 v5; // rbp
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  _QWORD *ThreadWin32Thread; // rax
   __int64 v10; // rax
-  __int64 v11; // rax
-  struct _UMPDHEAP *v12; // rax
+  unsigned __int64 v11; // rdx
+  UMPDOBJ *v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  struct _UMPDHEAP *v15; // rax
   struct _UMPDHEAP *UMPDHeap; // rax
   unsigned int CurrentProcessId; // eax
-  bool v16; // zf
-  _QWORD *v17; // rbx
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  _BYTE v20[56]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v21; // [rsp+60h] [rbp+8h] BYREF
+  bool v18; // zf
+  struct _KTHREAD *v19; // rbp
+  __int64 v20; // rsi
+  __int64 v21; // rax
+  int v22; // ebx
+  __int64 v23; // rax
+  __int64 *v24; // rax
+  _QWORD *v25; // rax
+  _QWORD *v26; // rdi
+  __int64 v27; // rcx
+  unsigned int v28; // ebx
+  _BYTE v30[32]; // [rsp+20h] [rbp-48h] BYREF
+  UMPDOBJ *v31; // [rsp+40h] [rbp-28h]
+  __int64 v32; // [rsp+70h] [rbp+8h] BYREF
 
-  memset_0(this, 0, 0x1C0uLL);
-  *((_DWORD *)this + 111) = -1;
+  memset(this, 0, 0x1B0uLL);
+  *((_DWORD *)this + 107) = -1;
   *((_DWORD *)this + 9) = 1886221639;
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v2);
-  v4 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v4 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v6 = (_QWORD *)ThreadWin32Thread;
-  if ( !v4 || !ThreadWin32Thread )
-    return 0LL;
-  v7 = bSandboxedCurrentProcess();
-  *((_DWORD *)this + 110) = v7;
-  if ( v7 )
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
+  CurrentThread = KeGetCurrentThread();
+  v4 = 0LL;
+  v5 = CurrentProcessWin32Process;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentProcess = PsGetCurrentProcess(),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    v10 = v6[8];
-    if ( v10 )
+    ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v4 = (_QWORD *)*ThreadWin32Thread;
+  }
+  if ( !v5 || !v4 )
+    return 0LL;
+  v10 = PsGetCurrentProcessWin32Process();
+  v12 = (UMPDOBJ *)v10;
+  if ( v10 )
+    LODWORD(v10) = *(_DWORD *)(v10 + 264) | *(_DWORD *)(v10 + 12) & 0x80;
+  *((_DWORD *)this + 106) = v10;
+  if ( (_DWORD)v10 )
+  {
+    v13 = v4[8];
+    if ( v13 )
     {
-      *((_QWORD *)this + 51) = v10;
-      *(_DWORD *)(v10 + 56) = 0;
-      goto LABEL_10;
+      *((_QWORD *)this + 49) = v13;
+      *(_DWORD *)(v13 + 48) = 0;
+      goto LABEL_14;
     }
-    PROXYPORT::PROXYPORT((PROXYPORT *)&v21, v8);
-    v11 = v21;
-    if ( v21 )
+    PROXYPORT::PROXYPORT((PROXYPORT *)&v32, v11);
+    v14 = v32;
+    if ( v32 )
     {
-      *((_QWORD *)this + 51) = v21;
-      v6[8] = v11;
-LABEL_10:
-      *((_QWORD *)this + 3) = v6;
-      goto LABEL_18;
+      *((_QWORD *)this + 49) = v32;
+      v4[8] = v14;
+LABEL_14:
+      *((_QWORD *)this + 3) = v4;
+      goto LABEL_22;
     }
     return 0LL;
   }
-  if ( (_QWORD *)v6[5] == v6 + 5 )
+  if ( (_QWORD *)v4[5] == v4 + 5 )
   {
-    v12 = (struct _UMPDHEAP *)v6[7];
-    if ( !v12 )
+    v15 = (struct _UMPDHEAP *)v4[7];
+    if ( !v15 )
     {
-      UMPDHeap = UMPDOBJ::CreateUMPDHeap(v9);
+      UMPDHeap = UMPDOBJ::CreateUMPDHeap(v12);
       *((_QWORD *)this + 7) = UMPDHeap;
-      v6[7] = UMPDHeap;
-      goto LABEL_17;
+      v4[7] = UMPDHeap;
+      goto LABEL_21;
     }
-    *((_DWORD *)v12 + 6) = 0;
+    *((_DWORD *)v15 + 6) = 0;
   }
   else
   {
-    v12 = UMPDOBJ::CreateUMPDHeap(v9);
+    v15 = UMPDOBJ::CreateUMPDHeap(v12);
   }
-  *((_QWORD *)this + 7) = v12;
-LABEL_17:
+  *((_QWORD *)this + 7) = v15;
+LABEL_21:
   if ( !*((_QWORD *)this + 7) )
     return 0LL;
-LABEL_18:
-  HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v20);
-  if ( !HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v20, this, 0x11u, 10) )
+LABEL_22:
+  HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v30);
+  if ( v31 || !HmgInsertObjectInternal(this, 0xBu, 0x11u) )
   {
     UMPDOBJ::FreeNonCachedUserMem(this);
-    HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v20);
-    return 0LL;
+    v28 = 0;
   }
-  GreInitializePushLock((char *)this + 384);
-  *((_QWORD *)this + 52) = KeGetCurrentThread();
-  CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
-  v16 = *((_DWORD *)this + 110) == 0;
-  *((_DWORD *)this + 106) = CurrentProcessId & 0xFFFFFFFC;
-  if ( v16 )
+  else
   {
-    v17 = (_QWORD *)((char *)this + 40);
-    v18 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 40;
-    v19 = *(_QWORD *)v18;
-    if ( *(_QWORD *)(*(_QWORD *)v18 + 8LL) != v18 )
-      __fastfail(3u);
-    *v17 = v19;
-    v17[1] = v18;
-    *(_QWORD *)(v19 + 8) = v17;
-    *(_QWORD *)v18 = v17;
+    v31 = this;
+    *((_QWORD *)this + 50) = KeGetCurrentThread();
+    CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
+    v18 = *((_DWORD *)this + 106) == 0;
+    *((_DWORD *)this + 102) = CurrentProcessId & 0xFFFFFFFC;
+    if ( v18 )
+    {
+      v19 = KeGetCurrentThread();
+      v20 = 0LL;
+      if ( !(unsigned __int8)KeIsAttachedProcess()
+        || (v21 = PsGetCurrentProcess(),
+            v22 = PsGetProcessSessionIdEx(v21),
+            v23 = PsGetCurrentThreadProcess(),
+            v22 == (unsigned int)PsGetProcessSessionIdEx(v23)) )
+      {
+        v24 = (__int64 *)PsGetThreadWin32Thread(v19);
+        if ( v24 )
+          v20 = *v24;
+      }
+      v25 = (_QWORD *)(v20 + 40);
+      v26 = (_QWORD *)((char *)this + 40);
+      v27 = *(_QWORD *)(v20 + 40);
+      if ( *(_QWORD *)(v27 + 8) != v20 + 40 )
+        __fastfail(3u);
+      *v26 = v27;
+      v26[1] = v25;
+      *(_QWORD *)(v27 + 8) = v26;
+      *v25 = v26;
+    }
+    v28 = 1;
   }
-  HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v20);
-  return 1LL;
+  if ( v31 )
+    _InterlockedDecrement((volatile signed __int32 *)v31 + 3);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v30);
+  return v28;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of ?ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z @ 0x18021C1DC
+ * XREFs of ?ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z @ 0x18000E51C
  * Callers:
- *     ?Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVCVisual@@AEBUMilPointAndSizeF@@PEAPEAV1@@Z @ 0x1801F4380 (-Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVC.c)
- *     ?ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z @ 0x18021C1DC (-ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z @ 0x18000E51C (-ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVCVisual@@AEBUMilPointAndSizeF@@PEAPEAV1@@Z @ 0x18000EA70 (-Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVC.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z @ 0x18021C1DC (-ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z @ 0x18000E51C (-ContainEffectInChainInputs@CFilterEffect@@QEAAJW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFilterEffect::ContainEffectInChainInputs(__int64 a1, unsigned int a2)
 {
   int v2; // eax
   int v5; // ebx
-  __int64 v6; // rbp
-  __int64 v7; // rsi
-  __int64 v8; // r14
-  __int64 v9; // rcx
-  __int64 v10; // rcx
   __int64 result; // rax
+  __int64 v7; // rbp
+  __int64 v8; // rsi
+  __int64 v9; // r14
+  __int64 v10; // rcx
+  __int64 v11; // rcx
 
   v2 = *(_DWORD *)(a1 + 32);
   *(_DWORD *)(a1 + 32) = v2 ^ ((unsigned __int8)v2 ^ (unsigned __int8)(v2 + 2)) & 6;
@@ -31,30 +31,30 @@ __int64 __fastcall CFilterEffect::ContainEffectInChainInputs(__int64 a1, unsigne
     else
     {
       v5 = -2147467259;
-      if ( *(int *)(a1 + 152) > 0 )
+      if ( *(int *)(a1 + 128) > 0 )
       {
-        v6 = *(int *)(a1 + 152);
-        v7 = 0LL;
+        v7 = *(int *)(a1 + 128);
+        v8 = 0LL;
         do
         {
-          v8 = *(_QWORD *)(*(_QWORD *)(a1 + 144) + 8 * v7);
-          v9 = *(_QWORD *)(v8 + 24);
-          if ( v9 )
+          v9 = *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8 * v8);
+          v10 = *(_QWORD *)(v9 + 24);
+          if ( v10 )
           {
-            if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 56LL))(v9, 61LL) )
+            if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v10 + 56LL))(v10, 59LL) )
             {
-              v10 = *(_QWORD *)(v8 + 24);
-              if ( v10 )
+              v11 = *(_QWORD *)(v9 + 24);
+              if ( v11 )
               {
-                v5 = CFilterEffect::ContainEffectInChainInputs(v10, a2);
+                v5 = CFilterEffect::ContainEffectInChainInputs(v11, a2);
                 if ( v5 >= 0 )
                   break;
               }
             }
           }
-          ++v7;
+          ++v8;
         }
-        while ( v7 < v6 );
+        while ( v8 < v7 );
       }
     }
   }

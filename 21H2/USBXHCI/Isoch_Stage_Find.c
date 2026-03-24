@@ -1,13 +1,13 @@
 /*
- * XREFs of Isoch_Stage_Find @ 0x1C0007610
+ * XREFs of Isoch_Stage_Find @ 0x1C0002730
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDD @ 0x1C000B300 (WPP_RECORDER_SF_DDDD.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C000FA58 (StageQueue_ForwardScanGetNextStage.c)
- *     WPP_RECORDER_SF_DDDDD @ 0x1C003FF60 (WPP_RECORDER_SF_DDDDD.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C00401BC (WPP_RECORDER_SF_DDi.c)
- *     WPP_RECORDER_SF_DDqDD @ 0x1C0041A90 (WPP_RECORDER_SF_DDqDD.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C003F810 (WPP_RECORDER_SF_DDDDD.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDqDD @ 0x1C0040B40 (WPP_RECORDER_SF_DDqDD.c)
  */
 
 __int64 __fastcall Isoch_Stage_Find(__int64 a1, __int64 a2, __int64 a3)
@@ -38,7 +38,7 @@ LABEL_20:
     {
       v18 = HIDWORD(*(_QWORD *)a3);
       LOBYTE(v18) = 4;
-      WPP_RECORDER_SF_DDDD(
+      WPP_RECORDER_SF_dddd(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v18,
         14,
@@ -133,7 +133,7 @@ LABEL_24:
       {
         v21 = HIWORD(*(_DWORD *)(a2 + 12)) & 0x1F;
         LOBYTE(v21) = 5;
-        WPP_RECORDER_SF_DDDD(
+        WPP_RECORDER_SF_dddd(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v21,
           14,

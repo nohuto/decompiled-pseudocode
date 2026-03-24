@@ -1,48 +1,45 @@
 /*
- * XREFs of PnpAllocateWatchdog @ 0x14031E0B8
+ * XREFs of PnpAllocateWatchdog @ 0x140349334
  * Callers:
- *     PnpEnableWatchdog @ 0x14078652C (PnpEnableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x1406F0344 (PnpEnableWatchdog.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     PnpWatchdogTimerAllocate @ 0x140786588 (PnpWatchdogTimerAllocate.c)
+ *     PnpQueryWatchdogTimeout @ 0x1403493C8 (PnpQueryWatchdogTimeout.c)
+ *     PnpWatchdogTimerAllocate @ 0x1406F0420 (PnpWatchdogTimerAllocate.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpAllocateWatchdog(PCUNICODE_STRING SourceString)
+_QWORD *PnpAllocateWatchdog()
 {
-  __int64 v2; // rdi
-  __int64 v3; // rcx
-  __int64 v4; // rax
-  unsigned __int16 MaximumLength; // dx
-  _QWORD v7[3]; // [rsp+20h] [rbp-38h] BYREF
-  int v8; // [rsp+38h] [rbp-20h]
-  int v9; // [rsp+3Ch] [rbp-1Ch]
-  __int64 (__fastcall *v10)(); // [rsp+40h] [rbp-18h]
+  _QWORD *PoolWithTag; // rax
+  __int64 v1; // rcx
+  _QWORD *v2; // rbx
+  __int64 v3; // rax
+  _QWORD v5[3]; // [rsp+20h] [rbp-38h] BYREF
+  int WatchdogTimeout; // [rsp+38h] [rbp-20h]
+  int v7; // [rsp+3Ch] [rbp-1Ch]
+  void (__fastcall __noreturn *v8)(); // [rsp+40h] [rbp-18h]
 
-  v7[1] = 0LL;
-  v2 = 0LL;
-  v3 = 56LL;
-  if ( SourceString && SourceString->Length )
-    v3 = SourceString->MaximumLength + 56LL;
-  v7[0] = v3;
-  v7[2] = PnpWatchdogFirstChanceCallback;
-  v8 = PnpWatchdogTimeoutFirstChance;
-  v10 = PnpWatchdogSecondChanceCallback;
-  v9 = PnpWatchdogTimeoutSecondChance;
-  v4 = PnpWatchdogTimerAllocate(v7);
-  if ( v4 )
+  v5[1] = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x57647050u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v2 = v4 + 141;
-    *(_QWORD *)(v4 + 149) = v4;
-    if ( SourceString )
+    v5[0] = PoolWithTag;
+    LOBYTE(v1) = 1;
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    PoolWithTag[4] = 0LL;
+    v5[2] = PnpWatchdogWorkItem;
+    WatchdogTimeout = PnpQueryWatchdogTimeout(v1);
+    v8 = PnpWatchdogBugcheck;
+    v7 = PnpQueryWatchdogTimeout(0LL);
+    v3 = PnpWatchdogTimerAllocate(v5);
+    v2[1] = v3;
+    if ( !v3 )
     {
-      if ( SourceString->Length )
-      {
-        MaximumLength = SourceString->MaximumLength;
-        *(_OWORD *)(v4 + 181) = 0LL;
-        *(_WORD *)(v4 + 183) = MaximumLength;
-        *(_QWORD *)(v4 + 189) = v4 + 197;
-        RtlCopyUnicodeString((PUNICODE_STRING)(v4 + 181), SourceString);
-      }
+      ExFreePoolWithTag(v2, 0x57647050u);
+      return 0LL;
     }
   }
   return v2;

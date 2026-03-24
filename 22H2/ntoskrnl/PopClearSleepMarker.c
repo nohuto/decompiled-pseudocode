@@ -1,11 +1,11 @@
 /*
- * XREFs of PopClearSleepMarker @ 0x1409807E4
+ * XREFs of PopClearSleepMarker @ 0x140774334
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140AA6A10 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140990530 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D1F4 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F76F4 (PopBsdHandleRequest.c)
  */
 
 void PopClearSleepMarker()
@@ -13,6 +13,6 @@ void PopClearSleepMarker()
   PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   *(_QWORD *)&PopBsdPowerTransition = 0LL;
   BYTE8(PopBsdPowerTransition) &= 0xFu;
-  PopBsdHandleRequest(9u);
-  PopReleaseRwLock(&PopBsdUpdateLock);
+  PopBsdHandleRequest(8);
+  PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
 }

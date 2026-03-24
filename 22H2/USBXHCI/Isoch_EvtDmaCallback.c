@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
- *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
- *     TR_AttemptStateChange @ 0x1C0008150 (TR_AttemptStateChange.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
+ *     TR_AttemptStateChange @ 0x1C0001E00 (TR_AttemptStateChange.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Isoch_EvtDmaCallback(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

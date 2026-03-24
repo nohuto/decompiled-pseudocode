@@ -1,14 +1,14 @@
 /*
- * XREFs of ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x180182E68
+ * XREFs of ?InvalidateMCs@CManipulationContext@@SAXPEAUMCCollections@@PEAVCVisual@@PEAVCInteraction@@W4MidManipulationUpdateType@@PEAI@Z @ 0x180234890
  * Callers:
- *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18002AA00 (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DCC0 (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
  * Callees:
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180049584 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x1800EEDA4 (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
- *     ?FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH@Z @ 0x180182880 (-FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH.c)
- *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x180182958 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
- *     ?GetMCRoot@CManipulationContext@@CAPEAVCInteraction@@PEBV2@@Z @ 0x180182C20 (-GetMCRoot@CManipulationContext@@CAPEAVCInteraction@@PEBV2@@Z.c)
- *     ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180183070 (-IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009FEE0 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x180224D1C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
+ *     ?FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH@Z @ 0x180234330 (-FindManipulationContext@CManipulationContext@@CAPEAV1@PEBUMCCollections@@PEBVCInteraction@@PEAH.c)
+ *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x1802343F4 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
+ *     ?GetMCRoot@CManipulationContext@@CAPEAVCInteraction@@PEBV2@@Z @ 0x180234640 (-GetMCRoot@CManipulationContext@@CAPEAVCInteraction@@PEBV2@@Z.c)
+ *     ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180234AA0 (-IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z.c)
  */
 
 char __fastcall CManipulationContext::InvalidateMCs(
@@ -18,25 +18,25 @@ char __fastcall CManipulationContext::InvalidateMCs(
         int a4,
         _DWORD *a5)
 {
-  struct CManipulationContext *ManipulationContext; // rax
+  struct CInteraction *ManipulationContext; // rax
   int v8; // ecx
   __int64 v9; // rdx
   __int64 v10; // r8
-  struct CInteraction *MCRoot; // rax
+  const struct CInteraction *MCRoot; // rax
   int *v12; // r8
   char v13; // cl
-  struct CManipulationContext *v14; // rsi
+  struct CManipulationContext *v14; // r14
   const struct CInteraction *v15; // rbx
   bool *v16; // rdx
   const struct CVisual *v17; // r10
   bool *v18; // rdx
-  struct CInteraction *v19; // rax
+  const struct CInteraction *v19; // rax
   int *v20; // r8
   struct CManipulationContext *v21; // rax
   char v22; // al
   __int64 v23; // rax
   const struct CVisual *v24; // rcx
-  int v25; // esi
+  int v25; // r14d
   __int64 v26; // rbx
   __int64 v27; // rcx
   __int64 v28; // rcx
@@ -52,7 +52,7 @@ char __fastcall CManipulationContext::InvalidateMCs(
         return (char)ManipulationContext;
       goto LABEL_6;
     }
-    if ( !a3 || (*((_BYTE *)a3 + 192) & 0x10) != 0 )
+    if ( !a3 || (*((_BYTE *)a3 + 184) & 8) != 0 )
     {
 LABEL_6:
       v8 = 0;
@@ -61,7 +61,7 @@ LABEL_6:
         v9 = 0LL;
         do
         {
-          ManipulationContext = *(struct CManipulationContext **)(a1 + 24);
+          ManipulationContext = *(struct CInteraction **)(a1 + 24);
           v10 = *(_QWORD *)((char *)ManipulationContext + v9);
           if ( v10 )
           {
@@ -81,10 +81,7 @@ LABEL_6:
       return (char)ManipulationContext;
     }
     MCRoot = CManipulationContext::GetMCRoot(a3);
-    ManipulationContext = CManipulationContext::FindManipulationContext(
-                            (const struct MCCollections *)a1,
-                            (__int64)MCRoot,
-                            v12);
+    ManipulationContext = CManipulationContext::FindManipulationContext((const struct MCCollections *)a1, MCRoot, v12);
     if ( ManipulationContext )
     {
       v13 = *((_BYTE *)ManipulationContext + 28);
@@ -100,19 +97,26 @@ LABEL_6:
     v14 = 0LL;
     ManipulationContext = CVisual::GetInteractionInternal((CVisual *)a2);
     v15 = ManipulationContext;
-    if ( ManipulationContext
-      && ((*((_BYTE *)ManipulationContext + 192) & 0x10) == 0
-       || !a2[11]
-       || (ManipulationContext = CVisual::GetInteractionInternal(a2[11]), (v15 = ManipulationContext) != 0LL)
-       || (ManipulationContext = CManipulationContext::GetClosestInteractionAncestor(v17, v16),
-           (v15 = ManipulationContext) != 0LL)) )
+    if ( !ManipulationContext )
+      goto LABEL_34;
+    if ( (*((_BYTE *)ManipulationContext + 184) & 8) != 0 && a2[10] )
     {
+      ManipulationContext = CVisual::GetInteractionInternal(a2[10]);
+      v15 = ManipulationContext;
+      if ( ManipulationContext )
+        goto LABEL_25;
+      ManipulationContext = CManipulationContext::GetClosestInteractionAncestor(v17, v16);
+      v15 = ManipulationContext;
+    }
+    if ( v15 )
+    {
+LABEL_25:
       while ( !v14 )
       {
         if ( (unsigned int)CInteraction::GetTotalNumContacts(v15) )
         {
           v19 = CManipulationContext::GetMCRoot(v15);
-          v21 = CManipulationContext::FindManipulationContext((const struct MCCollections *)a1, (__int64)v19, v20);
+          v21 = CManipulationContext::FindManipulationContext((const struct MCCollections *)a1, v19, v20);
           v14 = v21;
           if ( v21 )
           {
@@ -124,7 +128,7 @@ LABEL_6:
             }
           }
         }
-        v23 = *((_QWORD *)v15 + 14);
+        v23 = *((_QWORD *)v15 + 13);
         v24 = 0LL;
         if ( v23 )
           v24 = *(const struct CVisual **)(v23 + 16);
@@ -134,20 +138,20 @@ LABEL_6:
         {
           if ( v14 )
             return (char)ManipulationContext;
-          goto LABEL_33;
+          goto LABEL_34;
         }
       }
     }
     else
     {
-LABEL_33:
+LABEL_34:
       v25 = 0;
       if ( *(int *)(a1 + 32) > 0 )
       {
         v26 = 0LL;
         do
         {
-          ManipulationContext = *(struct CManipulationContext **)(a1 + 24);
+          ManipulationContext = *(struct CInteraction **)(a1 + 24);
           v27 = *(_QWORD *)((char *)ManipulationContext + v26);
           if ( (*(_BYTE *)(v27 + 28) & 4) == 0 )
           {
@@ -156,7 +160,7 @@ LABEL_33:
                                             (const struct CVisual *)a2);
             if ( (_BYTE)ManipulationContext )
             {
-              ManipulationContext = *(struct CManipulationContext **)(a1 + 24);
+              ManipulationContext = *(struct CInteraction **)(a1 + 24);
               v28 = *(_QWORD *)((char *)ManipulationContext + v26);
               if ( v28 )
               {

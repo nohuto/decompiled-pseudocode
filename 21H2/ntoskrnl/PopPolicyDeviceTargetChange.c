@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPolicyDeviceTargetChange @ 0x140997FD0
+ * XREFs of PopPolicyDeviceTargetChange @ 0x1408F15D0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x1406E7890 (IoUnregisterPlugPlayNotificationEx.c)
- *     PopConnectToPolicyDevice @ 0x140858D04 (PopConnectToPolicyDevice.c)
- *     PopPolicyDeviceRemove @ 0x140997F58 (PopPolicyDeviceRemove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x14037FC30 (PnpUnregisterPlugPlayNotification.c)
+ *     PopConnectToPolicyDevice @ 0x1407C4368 (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceRemove @ 0x1408F155C (PopPolicyDeviceRemove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPolicyDeviceTargetChange(char *NotificationStructure, UNICODE_STRING *Context)
@@ -50,8 +50,8 @@ LABEL_14:
   PopReleaseRwLock((ULONG_PTR)&PopPolicyDeviceLock);
   if ( v4 )
   {
-    IoUnregisterPlugPlayNotificationEx(Context[1].Buffer);
-    ExFreePoolWithTag(Context, *((_DWORD *)&unk_140C04A84 + 8 * *(int *)&Context[1].Length));
+    PnpUnregisterPlugPlayNotification(Context[1].Buffer, 1);
+    ExFreePoolWithTag(Context, *((_DWORD *)&unk_140C032A4 + 8 * *(int *)&Context[1].Length));
   }
   return 0LL;
 }

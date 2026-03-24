@@ -1,9 +1,9 @@
 /*
- * XREFs of DispatchCtxtQueue @ 0x1C00106B0
+ * XREFs of DispatchCtxtQueue @ 0x1C0028960
  * Callers:
  *     <none>
  * Callees:
- *     RunContext @ 0x1C0010A50 (RunContext.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
  */
 
 void DispatchCtxtQueue()
@@ -15,29 +15,29 @@ void DispatchCtxtQueue()
 
   v0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
   v1 = gReadyQueue & 0xFD;
-  NewIrql = v0;
+  byte_1C00827B0 = v0;
   gReadyQueue &= ~2u;
-  if ( (__int64 *)qword_1C0081D68 != &qword_1C0081D68
+  if ( (__int64 *)qword_1C0082798 != &qword_1C0082798
     && ((__int64 *)RunningContextListHead == &RunningContextListHead || (gdwfAMLI & 4) != 0)
     && (v1 & 8) == 0 )
   {
     while ( 1 )
     {
-      v2 = qword_1C0081D68;
-      if ( (__int64 *)qword_1C0081D68 == &qword_1C0081D68 )
+      v2 = qword_1C0082798;
+      if ( (__int64 *)qword_1C0082798 == &qword_1C0082798 )
         break;
-      if ( *(__int64 **)(qword_1C0081D68 + 8) != &qword_1C0081D68
-        || (v3 = *(_QWORD *)qword_1C0081D68, *(_QWORD *)(*(_QWORD *)qword_1C0081D68 + 8LL) != qword_1C0081D68) )
+      if ( *(__int64 **)(qword_1C0082798 + 8) != &qword_1C0082798
+        || (v3 = *(_QWORD *)qword_1C0082798, *(_QWORD *)(*(_QWORD *)qword_1C0082798 + 8LL) != qword_1C0082798) )
       {
         __fastfail(3u);
       }
-      qword_1C0081D68 = *(_QWORD *)qword_1C0081D68;
-      *(_QWORD *)(v3 + 8) = &qword_1C0081D68;
+      qword_1C0082798 = *(_QWORD *)qword_1C0082798;
+      *(_QWORD *)(v3 + 8) = &qword_1C0082798;
       *(_DWORD *)(v2 + 32) &= ~0x40u;
       *(_QWORD *)(v2 + 8) = v2;
       *(_QWORD *)v2 = v2;
       RunContext((PSLIST_ENTRY)(v2 - 32));
     }
   }
-  KeReleaseSpinLock(&SpinLock, NewIrql);
+  KeReleaseSpinLock(&SpinLock, byte_1C00827B0);
 }

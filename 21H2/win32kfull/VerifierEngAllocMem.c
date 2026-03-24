@@ -1,18 +1,19 @@
 /*
- * XREFs of VerifierEngAllocMem @ 0x1C029CA60
+ * XREFs of VerifierEngAllocMem @ 0x1C029E170
  * Callers:
  *     <none>
  * Callees:
- *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029C964 (-VerifierRandomFailure@@YAHK@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029E070 (-VerifierRandomFailure@@YAHK@Z.c)
  */
 
 __int64 __fastcall VerifierEngAllocMem(char a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // ebx
-  __int64 v6; // rbp
+  __int64 v6; // r14
   unsigned int v7; // ebx
-  unsigned __int64 v8; // rcx
-  __int64 v9; // rax
+  unsigned int v8; // ebp
+  void *v9; // rax
   __int64 v10; // rbx
   __int64 *v11; // rax
 
@@ -31,30 +32,29 @@ __int64 __fastcall VerifierEngAllocMem(char a1, unsigned int a2, unsigned int a3
   v7 = v4 + 32;
   if ( v7 >= 0x2710000 )
     return 0LL;
-  v8 = (-(__int64)((a1 & 2) != 0) & 0xFFFFFFFFFFFFFF3CuLL) + 260;
-  if ( (a1 & 1) != 0 )
-    v9 = Win32AllocPoolWithPriorityZInit(v8, v7, a3, 40LL);
-  else
-    v9 = Win32AllocPoolWithPriority(v8, v7, a3, 40LL);
-  v10 = v9;
+  v8 = v7;
+  v9 = (void *)Win32AllocPoolWithPriority((a1 & 2) != 0 ? 512 : 33, v7, a3, 40LL);
+  v10 = (__int64)v9;
   if ( v9 )
   {
-    MultiUserGreTrackAddEngResource(v9, 2LL);
+    if ( (a1 & 1) != 0 )
+      memset(v9, 0, v8);
+    MultiUserGreTrackAddEngResource(v10, 2LL);
     v10 += 32LL;
     if ( (gvs & 8) != 0 )
     {
       *(_QWORD *)(v10 + 16) = v6;
       *(_DWORD *)(v10 + 24) = a3;
-      GreAcquireSemaphore(qword_1C032BFE0);
-      v11 = (__int64 *)qword_1C032BFF0;
-      if ( *(_UNKNOWN **)qword_1C032BFF0 != &unk_1C032BFE8 )
+      GreAcquireSemaphore(qword_1C0330CB0);
+      v11 = (__int64 *)qword_1C0330CC0;
+      if ( *(_UNKNOWN **)qword_1C0330CC0 != &unk_1C0330CB8 )
         __fastfail(3u);
-      *(_QWORD *)v10 = &unk_1C032BFE8;
+      *(_QWORD *)v10 = &unk_1C0330CB8;
       *(_QWORD *)(v10 + 8) = v11;
       *v11 = v10;
-      qword_1C032BFF0 = v10;
-      EtwTraceGreLockReleaseSemaphore(L"gvs.hsemPoolTracker", qword_1C032BFE0);
-      GreReleaseSemaphoreInternal(qword_1C032BFE0);
+      qword_1C0330CC0 = v10;
+      EtwTraceGreLockReleaseSemaphore(L"gvs.hsemPoolTracker", qword_1C0330CB0);
+      GreReleaseSemaphoreInternal(qword_1C0330CB0);
       v10 += 32LL;
     }
   }

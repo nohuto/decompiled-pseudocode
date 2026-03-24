@@ -1,17 +1,17 @@
 /*
- * XREFs of KeAreInterruptsEnabled @ 0x1400CACE4
+ * XREFs of KeAreInterruptsEnabled @ 0x1400CAD04
  * Callers:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IopfCompleteRequest @ 0x1400C10D0 (IopfCompleteRequest.c)
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     KeAreAllApcsDisabled @ 0x1400CAA70 (KeAreAllApcsDisabled.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     KeQueryCurrentStackInformation @ 0x1400CAB30 (KeQueryCurrentStackInformation.c)
- *     MiRetryNonPagedAllocation @ 0x1400CB3EC (MiRetryNonPagedAllocation.c)
- *     ObpDeferObjectDeletion @ 0x140125DB0 (ObpDeferObjectDeletion.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     MiTrimAllSystemPagableMemory @ 0x1402B3A90 (MiTrimAllSystemPagableMemory.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
+ *     MiRetryNonPagedAllocation @ 0x1400CB40C (MiRetryNonPagedAllocation.c)
+ *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1402B3B90 (MiTrimAllSystemPagableMemory.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  *     VfFastIoCheckState @ 0x140928F74 (VfFastIoCheckState.c)
  *     VfFastIoSnapState @ 0x14092904C (VfFastIoSnapState.c)
  *     VfAfterCallDriver @ 0x14092FEB4 (VfAfterCallDriver.c)

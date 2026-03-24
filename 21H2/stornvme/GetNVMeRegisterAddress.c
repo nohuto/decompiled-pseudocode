@@ -1,7 +1,7 @@
 /*
- * XREFs of GetNVMeRegisterAddress @ 0x1C000CA90
+ * XREFs of GetNVMeRegisterAddress @ 0x1C001CF0C
  * Callers:
- *     NVMeHwFindAdapter @ 0x1C000ACD0 (NVMeHwFindAdapter.c)
+ *     NVMeHwFindAdapter @ 0x1C000A790 (NVMeHwFindAdapter.c)
  * Callees:
  *     <none>
  */

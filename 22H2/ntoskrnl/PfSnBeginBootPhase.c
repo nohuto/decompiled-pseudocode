@@ -1,16 +1,16 @@
 /*
- * XREFs of PfSnBeginBootPhase @ 0x140A87910
+ * XREFs of PfSnBeginBootPhase @ 0x14099B274
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14074DA94 (PfSnSetPrefetcherInformation.c)
- *     PfPowerActionNotify @ 0x140A9FF34 (PfPowerActionNotify.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     PfSnSetPrefetcherInformation @ 0x140709C3C (PfSnSetPrefetcherInformation.c)
+ *     PfPowerActionNotify @ 0x140991198 (PfPowerActionNotify.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     PfSnUpdatePrefetcherFlags @ 0x14031EDC0 (PfSnUpdatePrefetcherFlags.c)
- *     EtwRegister @ 0x14078DD90 (EtwRegister.c)
- *     PfSnQueueEnablePrefetcherTimer @ 0x140863278 (PfSnQueueEnablePrefetcherTimer.c)
- *     PfSnDetermineEnablePrefetcher @ 0x1408663C0 (PfSnDetermineEnablePrefetcher.c)
- *     PfSnAllocateEnablePrefetcherTimer @ 0x140A91EA0 (PfSnAllocateEnablePrefetcherTimer.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     PfSnUpdatePrefetcherFlags @ 0x14032C830 (PfSnUpdatePrefetcherFlags.c)
+ *     EtwRegister @ 0x1407622D0 (EtwRegister.c)
+ *     PfSnQueueEnablePrefetcherTimer @ 0x1407D44F8 (PfSnQueueEnablePrefetcherTimer.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x1407D5550 (PfSnDetermineEnablePrefetcher.c)
+ *     PfSnAllocateEnablePrefetcherTimer @ 0x14099B360 (PfSnAllocateEnablePrefetcherTimer.c)
  */
 
 __int64 __fastcall PfSnBeginBootPhase(unsigned int a1)
@@ -28,7 +28,7 @@ __int64 __fastcall PfSnBeginBootPhase(unsigned int a1)
   v1 = 0;
   if ( !a1 )
   {
-    EtwRegister(&MS_Kernel_Prefetch_Provider, 0LL, 0LL, &qword_140C6A808);
+    EtwRegister(&MS_Kernel_Prefetch_Provider, 0LL, 0LL, &RegHandle);
     PfSnDetermineEnablePrefetcher();
     PfSnUpdatePrefetcherFlags(3, 1);
     v8 = -3000000000LL;
@@ -37,7 +37,7 @@ __int64 __fastcall PfSnBeginBootPhase(unsigned int a1)
   }
   v2 = a1 - 1;
   if ( !v2 )
-    goto LABEL_8;
+    goto LABEL_12;
   v3 = v2 - 1;
   if ( !v3 )
   {
@@ -52,7 +52,7 @@ LABEL_6:
   {
     if ( (PfSnUpdatePrefetcherFlags(8, 1) & 4) == 0 )
       return v1;
-LABEL_8:
+LABEL_12:
     v4 = 1;
     goto LABEL_6;
   }

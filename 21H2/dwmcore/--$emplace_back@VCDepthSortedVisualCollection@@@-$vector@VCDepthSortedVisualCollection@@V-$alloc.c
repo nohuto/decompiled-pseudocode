@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$emplace_back@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAAAEAVCDepthSortedVisualCollection@@$$QEAV2@@Z @ 0x1801B676C
+ * XREFs of ??$emplace_back@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAAAEAVCDepthSortedVisualCollection@@$$QEAV2@@Z @ 0x18019A6B0
  * Callers:
- *     ?PreComputePreSubgraph@CDepthSortingPreComputeHelper@@QEAAXPEAVCVisual@@@Z @ 0x1801B68CC (-PreComputePreSubgraph@CDepthSortingPreComputeHelper@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?PreComputePreSubgraph@CDepthSortingPreComputeHelper@@QEAAXPEAVCVisual@@@Z @ 0x18019A828 (-PreComputePreSubgraph@CDepthSortingPreComputeHelper@@QEAAXPEAVCVisual@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall std::vector<CDepthSortedVisualCollection>::emplace_back<CDept
   __int64 result; // rax
 
   v3 = a1[1];
-  if ( v3 == a1[2] )
+  if ( a1[2] == v3 )
     return std::vector<CDepthSortedVisualCollection>::_Emplace_reallocate<CDepthSortedVisualCollection>(a1, v3, a2);
   *(_QWORD *)v3 = 0LL;
   *(_QWORD *)(v3 + 8) = 0LL;

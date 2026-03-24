@@ -1,51 +1,87 @@
 /*
- * XREFs of ?PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z @ 0x1C0003AF8
+ * XREFs of ?PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z @ 0x1C0108CEC
  * Callers:
- *     PostDeviceNotification @ 0x1C0102FA4 (PostDeviceNotification.c)
+ *     PostDeviceNotification @ 0x1C0108AA0 (PostDeviceNotification.c)
  * Callees:
- *     PostInputMessage @ 0x1C00AB69C (PostInputMessage.c)
- *     AdjustPwndPtiPqForDelegation @ 0x1C00AC8D8 (AdjustPwndPtiPqForDelegation.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C004F520 (AdjustPwndPtiPqForDelegation.c)
+ *     PostInputMessage @ 0x1C0050880 (PostInputMessage.c)
  */
 
-__int64 __fastcall PostHidNotification(struct tagPROCESS_HID_REQUEST *a1, struct DEVICEINFO *a2, unsigned int a3)
+_BOOL8 __fastcall PostHidNotification(
+        struct tagPROCESS_HID_REQUEST *a1,
+        struct DEVICEINFO *a2,
+        int a3,
+        unsigned __int64 a4)
 {
-  __int64 v3; // r8
-  __int64 result; // rax
-  __int64 v6; // rax
+  __int64 v4; // r8
   __int64 v7; // rax
-  __int64 v8; // rcx
-  struct tagWND *v9; // [rsp+70h] [rbp-10h] BYREF
-  struct tagQ *v10; // [rsp+78h] [rbp-8h] BYREF
-  __int64 v11; // [rsp+90h] [rbp+10h] BYREF
-  unsigned int v12; // [rsp+A0h] [rbp+20h] BYREF
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int128 *v10; // r9
+  __int64 v11; // rax
+  __int128 *v12; // r8
+  __int64 v13; // rax
+  __int128 *v14; // rdx
+  __int64 v15; // rdx
+  struct tagWND *v17; // [rsp+78h] [rbp+27h] BYREF
+  __int64 v18; // [rsp+80h] [rbp+2Fh] BYREF
+  __int128 v19; // [rsp+88h] [rbp+37h]
+  __int64 v20; // [rsp+98h] [rbp+47h]
+  struct tagQ *v21; // [rsp+B8h] [rbp+67h] BYREF
+  int v22; // [rsp+C8h] [rbp+77h] BYREF
 
-  v12 = a3;
-  v3 = *((_QWORD *)a1 + 4);
-  if ( !v3 )
+  v22 = a3;
+  v4 = *((_QWORD *)a1 + 4);
+  if ( !v4 )
     return 1LL;
   if ( (*((_DWORD *)a1 + 5) & 4) == 0 )
     return 1LL;
-  v6 = *(_QWORD *)(v3 + 40);
-  v9 = (struct tagWND *)*((_QWORD *)a1 + 4);
-  if ( *(char *)(v6 + 20) < 0 )
+  v7 = *(_QWORD *)(v4 + 40);
+  v17 = (struct tagWND *)*((_QWORD *)a1 + 4);
+  if ( *(char *)(v7 + 20) < 0 )
     return 1LL;
-  if ( *(char *)(v6 + 19) < 0 )
+  if ( *(char *)(v7 + 19) < 0 )
     return 1LL;
-  v7 = *(_QWORD *)(v3 + 16);
-  v12 = 0;
-  v11 = v7;
-  v10 = *(struct tagQ **)(v7 + 432);
+  v8 = *(_QWORD *)(v4 + 16);
+  v22 = 0;
+  v18 = v8;
+  v21 = *(struct tagQ **)(v8 + 432);
   if ( !(unsigned int)AdjustPwndPtiPqForDelegation(
-                        (unsigned int)&v10,
-                        (unsigned int)&v9,
-                        (unsigned int)&v11,
-                        254,
+                        (__int64 *)&v21,
+                        (__int64 *)&v17,
+                        (struct tagTHREADINFO **)&v18,
+                        0xFEu,
                         0LL,
-                        (__int64)&v12) )
+                        &v22) )
     return 1LL;
-  v8 = a2 ? *(_QWORD *)a2 : 0LL;
-  result = PostInputMessage(v10, v9, 0xFEu, v8, 0, 0LL, 0LL, 0, 0LL, 0LL, 0LL, v12, v11);
-  if ( (_DWORD)result )
-    return 1LL;
-  return result;
+  v9 = *((_QWORD *)v21 + 15);
+  if ( v9 )
+    v9 = *(_QWORD *)(v9 + 16);
+  v10 = (__int128 *)gObjDummyLock;
+  if ( v9 )
+    v10 = (__int128 *)(v9 + 392);
+  v11 = *((_QWORD *)v21 + 11);
+  v12 = (__int128 *)gObjDummyLock;
+  if ( v11 )
+    v12 = (__int128 *)(v11 + 392);
+  v13 = *((_QWORD *)v21 + 12);
+  v14 = (__int128 *)gObjDummyLock;
+  if ( v13 )
+    v14 = (__int128 *)(v13 + 392);
+  v20 = *((_QWORD *)&gpsiLock + 2);
+  v20 = *((_QWORD *)v17 + 9);
+  v19 = gpsiLock;
+  v20 = *(_QWORD *)(v18 + 408);
+  v20 = *((_QWORD *)v21 + 2);
+  v20 = *((_QWORD *)v14 + 2);
+  v20 = *((_QWORD *)v12 + 2);
+  v20 = *((_QWORD *)v10 + 2);
+  v19 = *(_OWORD *)((char *)v17 + 56);
+  v19 = *(_OWORD *)(v18 + 392);
+  v19 = *(_OWORD *)v21;
+  v19 = *v14;
+  v19 = *v12;
+  v19 = *v10;
+  v15 = a2 ? *(_QWORD *)a2 : 0LL;
+  return (unsigned int)PostInputMessage(v21, v17, 0xFEu, a4, v15, 0, 0LL, 0LL, 0, 0LL, 0LL, 0LL, v22, v18) != 0;
 }

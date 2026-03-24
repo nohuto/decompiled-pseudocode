@@ -1,10 +1,12 @@
 /*
- * XREFs of xxxClientRimDevCallback @ 0x1C022CF1C
+ * XREFs of xxxClientRimDevCallback @ 0x1C012D8B4
  * Callers:
- *     RIMDevChangeDoUsermodeCallback @ 0x1C01CCE84 (RIMDevChangeDoUsermodeCallback.c)
+ *     RIMDevChangeDoUsermodeCallback @ 0x1C012D6D8 (RIMDevChangeDoUsermodeCallback.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall xxxClientRimDevCallback(
@@ -48,11 +50,15 @@ __int64 __fastcall xxxClientRimDevCallback(
   v20 = a8;
   v22 = a9;
   v23 = a10;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a8);
   LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a7);
   EtwTraceBeginCallback(118LL);
   v10 = KeUserModeCallback(118LL, v14, 56LL, &v13, &v24);
   EtwTraceEndCallback(118LL);
   LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&a7);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&a8);
   if ( v10 < 0 || v24 != 24 )
     return 0LL;
   v11 = (__int64 *)v13;

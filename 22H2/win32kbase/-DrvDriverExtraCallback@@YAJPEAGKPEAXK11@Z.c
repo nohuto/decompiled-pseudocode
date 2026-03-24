@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DrvDriverExtraCallback@@YAJPEAGKPEAXK11@Z @ 0x1C00C47A0
+ * XREFs of ?DrvDriverExtraCallback@@YAJPEAGKPEAXK11@Z @ 0x1C00B4530
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DrvDriverExtraCallback(

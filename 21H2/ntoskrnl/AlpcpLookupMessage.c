@@ -1,32 +1,33 @@
 /*
- * XREFs of AlpcpLookupMessage @ 0x1407ABD80
+ * XREFs of AlpcpLookupMessage @ 0x1405E6870
  * Callers:
- *     NtAlpcCancelMessage @ 0x140662130 (NtAlpcCancelMessage.c)
- *     NtAlpcOpenSenderThread @ 0x140663910 (NtAlpcOpenSenderThread.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1406652DC (AlpcpReplyLegacySynchronousRequest.c)
- *     NtAlpcOpenSenderProcess @ 0x1406657C0 (NtAlpcOpenSenderProcess.c)
- *     AlpcpAcceptConnectPort @ 0x140665B68 (AlpcpAcceptConnectPort.c)
- *     NtAlpcQueryInformationMessage @ 0x14066AA00 (NtAlpcQueryInformationMessage.c)
- *     AlpcpReceiveDirectMessagePort @ 0x1407A6A74 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpSendMessage @ 0x1407A9ED0 (AlpcpSendMessage.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1407B0A20 (NtAlpcImpersonateClientOfPort.c)
- *     LpcpCopyRequestData @ 0x140965C1C (LpcpCopyRequestData.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1409663D0 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcOpenSenderProcess @ 0x1405DFFA0 (NtAlpcOpenSenderProcess.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcQueryInformationMessage @ 0x14062D120 (NtAlpcQueryInformationMessage.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140693B70 (AlpcpReceiveDirectMessagePort.c)
+ *     NtAlpcOpenSenderThread @ 0x1406ACA40 (NtAlpcOpenSenderThread.c)
+ *     NtAlpcCancelMessage @ 0x1406C1650 (NtAlpcCancelMessage.c)
+ *     LpcpCopyRequestData @ 0x1408C1C4C (LpcpCopyRequestData.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2530 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ExHandleLogBadReference @ 0x14025032C (ExHandleLogBadReference.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExpLookupHandleTableEntry @ 0x140733340 (ExpLookupHandleTableEntry.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcReferenceBlobByHandle @ 0x1407A7EB0 (AlpcReferenceBlobByHandle.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407ED9FC (ExpBlockOnLockedHandleEntry.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcReferenceBlobByHandle @ 0x140660940 (AlpcReferenceBlobByHandle.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140685788 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
  */
 
-__int64 __fastcall AlpcpLookupMessage(__int64 a1, int a2, int a3, __int64 a4, ULONG_PTR *a5)
+__int64 __fastcall AlpcpLookupMessage(__int64 a1, __int64 a2, int a3, __int64 a4, ULONG_PTR *a5)
 {
+  int v5; // esi
   ULONG_PTR v8; // r14
   ULONG_PTR v9; // rbx
   char PreviousMode; // r12
@@ -39,19 +40,22 @@ __int64 __fastcall AlpcpLookupMessage(__int64 a1, int a2, int a3, __int64 a4, UL
   signed __int64 v17; // rax
   __int64 v19; // rdx
   __int64 v20; // rcx
-  ULONG_PTR v21; // rax
+  __int64 v21; // rax
   ULONG_PTR v22; // rdi
   signed __int32 v23; // eax
   signed __int32 v24[8]; // [rsp+0h] [rbp-48h] BYREF
 
-  if ( a2 < 0 )
+  v5 = a2;
+  if ( (int)a2 < 0 )
   {
     if ( a1 )
     {
       v20 = *(_QWORD *)(a1 + 16);
       if ( !v20 )
         return 3221226224LL;
-      v21 = AlpcReferenceBlobByHandle((_QWORD *)(v20 + 40), a2 & 0x7FFFFFFF, AlpcReserveType);
+      a2 = (unsigned int)a2;
+      LODWORD(a2) = a2 & 0x7FFFFFFF;
+      v21 = AlpcReferenceBlobByHandle(v20 + 40, a2, AlpcReserveType);
       v22 = v21;
       if ( !v21 )
         return 3221226224LL;
@@ -67,7 +71,7 @@ __int64 __fastcall AlpcpLookupMessage(__int64 a1, int a2, int a3, __int64 a4, UL
         goto LABEL_25;
       }
       AlpcpUnlockMessage(v13);
-      AlpcpDereferenceBlobEx(v22, 1);
+      AlpcpDereferenceBlobEx(v22);
       return 3221227272LL;
     }
     return 3221227266LL;
@@ -86,8 +90,7 @@ __int64 __fastcall AlpcpLookupMessage(__int64 a1, int a2, int a3, __int64 a4, UL
     return 3221227266LL;
   v9 = a2 & 0x3FFFFFF;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0x3FC) == 0
-    || (v11 = (signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v8, (unsigned int)v9)) == 0LL )
+  if ( (a2 & 0x3FC) == 0 || (v11 = (signed __int64 *)ExpLookupHandleTableEntry(v8, (unsigned int)v9)) == 0LL )
   {
 LABEL_31:
     ExHandleLogBadReference(v8, v9, PreviousMode);
@@ -103,12 +106,12 @@ LABEL_31:
         break;
       if ( !v12 )
         goto LABEL_31;
-      ExpBlockOnLockedHandleEntry(v8, v11, v12);
+      ExpBlockOnLockedHandleEntry(v8, v11);
     }
   }
   while ( v12 != _InterlockedCompareExchange64(v11, v12 - 1, v12) );
   v13 = (*v11 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( *(_DWORD *)(v13 + 0x108) != a2 || a3 && *(_DWORD *)(((*v11 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x110) != a3 )
+  if ( *(_DWORD *)(v13 + 0x108) != v5 || a3 && *(_DWORD *)(((*v11 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x110) != a3 )
     goto LABEL_40;
   _m_prefetchw((const void *)(v13 - 24));
   BugCheckParameter4 = *(_QWORD *)(v13 - 24);
@@ -152,7 +155,7 @@ LABEL_40:
   _InterlockedOr(v24, 0);
   if ( *(_QWORD *)(v8 + 48) )
     ExfUnblockPushLock((volatile __int64 *)(v8 + 48), 0LL);
-  if ( *(_DWORD *)(v13 + 264) != a2
+  if ( *(_DWORD *)(v13 + 264) != v5
     || a3 && *(_DWORD *)(v13 + 272) != a3
     || !*(_QWORD *)(v13 + 24) && !*(_QWORD *)(v13 + 16) )
   {

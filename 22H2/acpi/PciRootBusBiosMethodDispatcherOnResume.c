@@ -1,9 +1,9 @@
 /*
- * XREFs of PciRootBusBiosMethodDispatcherOnResume @ 0x1C0034770
+ * XREFs of PciRootBusBiosMethodDispatcherOnResume @ 0x1C0031AF0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C00346B4 (AcpiEvaluateOscMethodOnPciRootBus.c)
+ *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0011ABC (AcpiEvaluateOscMethodOnPciRootBus.c)
  */
 
 void __fastcall PciRootBusBiosMethodDispatcherOnResume(char *StartContext)

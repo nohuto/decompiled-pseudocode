@@ -1,11 +1,11 @@
 /*
- * XREFs of SecureDump_Get_SecureDumpHeader @ 0x1402866F0
+ * XREFs of SecureDump_Get_SecureDumpHeader @ 0x1402867F0
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x1408206EC (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x140820918 (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1408206CC (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1408208F8 (IopLiveDumpWriteDumpFileWithHvPages.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall SecureDump_Get_SecureDumpHeader(__int64 a1, _DWORD *a2, unsigned int a3)

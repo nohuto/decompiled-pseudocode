@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDbgTranslatePhysicalAddress @ 0x1402BADF8
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x1402BAEF8
  * Callers:
- *     MiDbgCopyMemory @ 0x1402BA650 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402BA750 (MiDbgCopyMemory.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeFlushSingleCurrentTb @ 0x140156EB8 (KeFlushSingleCurrentTb.c)
- *     MiCheckPhysicalAddressRange @ 0x1402BA38C (MiCheckPhysicalAddressRange.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1402BB1A4 (MiDbgUnTranslatePhysicalAddress.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
+ *     MiCheckPhysicalAddressRange @ 0x1402BA48C (MiCheckPhysicalAddressRange.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1402BB2A4 (MiDbgUnTranslatePhysicalAddress.c)
  */
 
 unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, char a2, __int64 a3)

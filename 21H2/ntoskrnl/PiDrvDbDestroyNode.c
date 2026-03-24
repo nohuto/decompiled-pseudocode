@@ -1,14 +1,13 @@
 /*
- * XREFs of PiDrvDbDestroyNode @ 0x14095BDAC
+ * XREFs of PiDrvDbDestroyNode @ 0x1408B5CF4
  * Callers:
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     PiDrvDbCreateNode @ 0x1408268AC (PiDrvDbCreateNode.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbCreateNode @ 0x1407A39CC (PiDrvDbCreateNode.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDrvDbDestroyNode(char *P)
@@ -32,10 +31,10 @@ void __fastcall PiDrvDbDestroyNode(char *P)
     *v4 = v3;
     v3[1] = (char *)v4;
   }
-  RtlFreeUnicodeString((PUNICODE_STRING)P + 1);
-  RtlFreeUnicodeString((PUNICODE_STRING)P + 2);
-  RtlFreeUnicodeString((PUNICODE_STRING)P + 3);
-  RtlFreeUnicodeString((PUNICODE_STRING)(P + 504));
+  RtlFreeAnsiString((PUNICODE_STRING)P + 1);
+  RtlFreeAnsiString((PUNICODE_STRING)P + 2);
+  RtlFreeAnsiString((PUNICODE_STRING)P + 3);
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 504));
   if ( P[192] )
     ExDeleteResourceLite((PERESOURCE)(P + 88));
   v5 = (void *)*((_QWORD *)P + 59);

@@ -1,113 +1,69 @@
 /*
- * XREFs of ProcessCompletionQueues @ 0x1C0003450
+ * XREFs of ProcessCompletionQueues @ 0x1C001C2B0
  * Callers:
- *     NVMeHwMSIInterrupt @ 0x1C0003330 (NVMeHwMSIInterrupt.c)
- *     NVMeHwInterrupt @ 0x1C00084E0 (NVMeHwInterrupt.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     NVMeHwInterrupt @ 0x1C000ADE0 (NVMeHwInterrupt.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  * Callees:
- *     NVMeCompletionDpcRoutine @ 0x1C00028F0 (NVMeCompletionDpcRoutine.c)
- *     NVMeMaskInterrupt @ 0x1C00210C4 (NVMeMaskInterrupt.c)
+ *     NVMeCompletionDpcRoutine @ 0x1C00030F0 (NVMeCompletionDpcRoutine.c)
+ *     NVMeMaskInterrupt @ 0x1C001A6F8 (NVMeMaskInterrupt.c)
  */
 
-__int64 __fastcall ProcessCompletionQueues(__int64 a1, unsigned __int16 a2, __int64 a3)
+__int64 __fastcall ProcessCompletionQueues(__int64 a1, unsigned __int16 a2, char a3)
 {
+  char v4; // di
+  __int64 v5; // r10
+  __int64 v6; // r10
   __int64 result; // rax
-  __int64 v5; // r9
-  char v6; // si
-  __int64 v7; // r8
-  _BOOL8 v8; // rbx
-  __int64 v9; // r10
-  __int64 v10; // rcx
-  unsigned int i; // ebp
-  __int64 v12; // r10
-  __int64 v13; // r10
-  signed __int32 v14[8]; // [rsp+0h] [rbp-38h] BYREF
-  _BOOL8 v15; // [rsp+20h] [rbp-18h]
-  int *v16; // [rsp+28h] [rbp-10h]
-  int v17; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v8; // r10
+  unsigned int i; // esi
+  __int64 v10; // r10
+  __int64 v11; // r10
+  __int64 v12; // rcx
 
-  result = *(unsigned int *)(a1 + 32);
-  if ( (result & 0x10) == 0 )
+  if ( *(_BYTE *)(a1 + 16) || a3 || (v4 = 0, (*(_DWORD *)(a1 + 108) & 1) != 0) )
+    v4 = 1;
+  if ( a2 == 0xFFFF || *(_WORD *)(a1 + 256) <= 1u )
   {
-    v5 = 1LL;
-    if ( *(_BYTE *)(a1 + 20) || (_BYTE)a3 || (*(_DWORD *)(a1 + 116) & 1) != 0 )
+    result = *(_QWORD *)(a1 + 432);
+    if ( (*(_WORD *)(result + 16LL * *(unsigned __int16 *)(a1 + 602) + 14) & 1) != *(_WORD *)(a1 + 604) )
     {
-      v6 = 1;
-      v8 = 0LL;
+      NVMeMaskInterrupt(a1, *(_WORD *)(a1 + 600));
+      if ( v4 )
+        result = NVMeCompletionDpcRoutine(v8 + 24, a1, v8, 0LL);
+      else
+        result = StorPortNotification(4098LL, a1, v8 + 24);
     }
-    else
+    for ( i = 0; ; ++i )
     {
-      v6 = 0;
-      v8 = (*(_DWORD *)(a1 + 64) & 0x4000) != 0;
-    }
-    if ( a2 == 0xFFFF || *(_WORD *)(a1 + 280) <= 1u )
-    {
-      result = *(_QWORD *)(a1 + 480);
-      if ( (*(_WORD *)(result + 16LL * *(unsigned __int16 *)(a1 + 650) + 14) & 1) != *(_WORD *)(a1 + 652) )
+      v12 = *(_QWORD *)(a1 + 784);
+      if ( !v12 )
+        break;
+      result = *(unsigned __int16 *)(a1 + 290);
+      if ( i >= (unsigned int)result )
+        break;
+      v10 = v12 + 344LL * i;
+      result = *(_QWORD *)v10;
+      if ( (*(_WORD *)(*(_QWORD *)v10 + 16LL * *(unsigned __int16 *)(v10 + 170) + 14) & 1) != *(_WORD *)(v10 + 172) )
       {
-        NVMeMaskInterrupt(a1, *(unsigned __int16 *)(a1 + 656), a3, 1LL);
-        if ( v6 )
-        {
-          result = NVMeCompletionDpcRoutine((int)v9 + 24, a1, v9, 0LL);
-        }
+        NVMeMaskInterrupt(a1, *(_WORD *)(v10 + 168));
+        if ( v4 )
+          result = NVMeCompletionDpcRoutine(v11 + 24, a1, v11, 0LL);
         else
-        {
-          v17 = 0;
-          v16 = &v17;
-          v15 = v8;
-          result = StorPortNotification(4098LL, a1, v9 + 24);
-        }
-      }
-      v10 = *(_QWORD *)(a1 + 880);
-      for ( i = 0; v10; ++i )
-      {
-        result = *(unsigned __int16 *)(a1 + 338);
-        if ( i >= (unsigned int)result )
-          break;
-        v12 = v10 + 392LL * i;
-        result = *(_QWORD *)v12;
-        if ( (*(_WORD *)(*(_QWORD *)v12 + 16LL * *(unsigned __int16 *)(v12 + 170) + 14) & 1) != *(_WORD *)(v12 + 172) )
-        {
-          NVMeMaskInterrupt(a1, *(unsigned __int16 *)(v12 + 176), a3, v5);
-          if ( v6 )
-          {
-            result = NVMeCompletionDpcRoutine((int)v13 + 24, a1, v13, 0LL);
-          }
-          else
-          {
-            v17 = 0;
-            v16 = &v17;
-            v15 = v8;
-            result = StorPortNotification(4098LL, a1, v13 + 24);
-          }
-        }
-        v10 = *(_QWORD *)(a1 + 880);
+          result = StorPortNotification(4098LL, a1, v11 + 24);
       }
     }
+  }
+  else
+  {
+    if ( a2 )
+      v5 = 344LL * a2 + *(_QWORD *)(a1 + 784) - 344LL;
     else
-    {
-      if ( a2 )
-        v7 = 392LL * a2 + *(_QWORD *)(a1 + 880) - 392LL;
-      else
-        v7 = a1 + 480;
-      if ( !*(_BYTE *)(a1 + 25) && (unsigned int)(*(_DWORD *)(a1 + 16) - 1) <= 1 )
-      {
-        *(_DWORD *)(*(_QWORD *)(a1 + 184) + 12LL) = 1 << *(_BYTE *)(v7 + 176);
-        _InterlockedOr(v14, 0);
-        *(_BYTE *)(a1 + 25) = 1;
-      }
-      if ( v6 )
-      {
-        return NVMeCompletionDpcRoutine((int)v7 + 24, a1, v7, 0LL);
-      }
-      else
-      {
-        v17 = 0;
-        v16 = &v17;
-        v15 = v8;
-        return StorPortNotification(4098LL, a1, v7 + 24);
-      }
-    }
+      v5 = a1 + 432;
+    NVMeMaskInterrupt(a1, *(_WORD *)(v5 + 168));
+    if ( v4 )
+      return NVMeCompletionDpcRoutine(v6 + 24, a1, v6, 0LL);
+    else
+      return StorPortNotification(4098LL, a1, v6 + 24);
   }
   return result;
 }

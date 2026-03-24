@@ -1,30 +1,35 @@
 /*
- * XREFs of DpiSessionCreateCallback @ 0x1C01EAE28
+ * XREFs of DpiSessionCreateCallback @ 0x1C016DA90
  * Callers:
- *     DxgkNotifySessionStateChange @ 0x1C01EAD20 (DxgkNotifySessionStateChange.c)
+ *     DxgkNotifySessionStateChange @ 0x1C016D980 (DxgkNotifySessionStateChange.c)
  * Callees:
- *     DpiFdoStartAdapterThread @ 0x1C0218580 (DpiFdoStartAdapterThread.c)
- *     DpiLdaValidateSystemChainStatus @ 0x1C0225820 (DpiLdaValidateSystemChainStatus.c)
+ *     DpiLdaValidateSystemChainStatus @ 0x1C019CB18 (DpiLdaValidateSystemChainStatus.c)
+ *     DpiFdoStartAdapterThread @ 0x1C019EAB0 (DpiFdoStartAdapterThread.c)
  */
 
 __int64 DpiSessionCreateCallback()
 {
-  unsigned int v0; // ebx
+  __int64 v0; // rbx
   NTSTATUS v2; // eax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
 
-  v0 = 0;
-  if ( !_InterlockedCompareExchange(&dword_1C01404A0, 1, 0) )
+  LODWORD(v0) = 0;
+  if ( !byte_1C00B2B14 )
   {
-    v2 = KeWaitForSingleObject(&stru_1C01404E8, Executive, 0, 0, 0LL);
+    byte_1C00B2B14 = 1;
+    v2 = KeWaitForSingleObject(&stru_1C00B2B60, Executive, 0, 0, 0LL);
     v0 = v2;
     if ( v2 )
     {
-      WdLogSingleEntry1(2LL, v2);
-      v0 = 0;
+      v5 = WdLogNewEntry5_WdError(v4, v3);
+      *(_QWORD *)(v5 + 24) = v0;
+      WdLogEvent5_WdError(v5);
+      LODWORD(v0) = 0;
     }
     DpiFdoStartAdapterThread(0LL);
     DpiLdaValidateSystemChainStatus();
-    _InterlockedExchange(&dword_1C01404A0, 2);
   }
-  return v0;
+  return (unsigned int)v0;
 }

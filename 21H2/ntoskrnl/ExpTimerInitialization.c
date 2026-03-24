@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpTimerInitialization @ 0x140AFF6B0
+ * XREFs of ExpTimerInitialization @ 0x140A3CD34
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
  */
 
 bool ExpTimerInitialization()
@@ -16,7 +16,7 @@ bool ExpTimerInitialization()
   _QWORD v3[16]; // [rsp+30h] [rbp-29h] BYREF
 
   ExpWakeTimerLock = 0LL;
-  qword_140C11738 = (__int64)&ExpWakeTimerList;
+  qword_140C16AE8 = (__int64)&ExpWakeTimerList;
   ExpWakeTimerList = (__int64)&ExpWakeTimerList;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Timer");

@@ -1,90 +1,96 @@
 /*
- * XREFs of MonitorFillMonitorDeviceInfo @ 0x1C0161AB8
+ * XREFs of MonitorFillMonitorDeviceInfo @ 0x1C0164858
  * Callers:
- *     ?DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C01B53E0 (-DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
+ *     ?DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C01646B8 (-DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000EFE8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?_FillMonitorDeviceInfo@DXGMONITOR@@QEBAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C0161C1C (-_FillMonitorDeviceInfo@DXGMONITOR@@QEBAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0009F18 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C012FAB0 (-_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
  */
 
-__int64 __fastcall MonitorFillMonitorDeviceInfo(__int64 a1, __int64 a2)
+__int64 __fastcall MonitorFillMonitorDeviceInfo(struct HDXGMONITOR__ *a1, __int64 a2)
 {
-  PZZWSTR v3; // rbx
-  NTSTATUS v4; // esi
-  __int64 v5; // rax
-  struct _DEVICE_OBJECT *v6; // rdx
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  PZZWSTR v6; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct _DEVICE_OBJECT *v9; // rdx
   NTSTATUS DeviceInterfaces; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  int v10; // eax
-  int v11; // ecx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  int v15; // edi
+  int v16; // eax
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rax
   PZZWSTR SymbolicLinkList; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 || !a2 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared(&SymbolicLinkList, a1);
-  v3 = SymbolicLinkList;
-  v4 = -1073741275;
-  if ( !SymbolicLinkList )
-  {
-    v13 = -1073741275LL;
-    v14 = 2LL;
-LABEL_23:
-    WdLogSingleEntry1(v14, v13);
-    goto LABEL_17;
-  }
-  if ( *((_DWORD *)SymbolicLinkList + 78) == 1 && !*(_BYTE *)(*((_QWORD *)SymbolicLinkList + 25) + 16LL) )
-  {
-    v13 = 1LL;
-    v14 = 7LL;
-    goto LABEL_23;
-  }
-  memset((void *)(a2 + 164), 0, 0x100uLL);
-  v5 = *((_QWORD *)v3 + 25);
-  v6 = *(struct _DEVICE_OBJECT **)(v5 + 8);
-  if ( !v6 || !*(_QWORD *)(v5 + 56) )
-  {
-LABEL_11:
-    v10 = DXGMONITOR::_FillMonitorDeviceInfo((DXGMONITOR *)v3, (struct DISPLAYCONFIG_TARGET_DEVICE_NAME *)a2);
-    if ( v10 == -1071841279 )
-    {
-      v10 = 0;
-    }
-    else if ( v10 < 0 )
-    {
-LABEL_16:
-      v4 = v10;
-      goto LABEL_17;
-    }
-    v11 = *(_DWORD *)(a2 + 20);
-    if ( (v11 & 1) == 0 && !*(_WORD *)(a2 + 36) )
-      *(_DWORD *)(a2 + 20) = v11 | 2;
-    goto LABEL_16;
-  }
   SymbolicLinkList = 0LL;
-  DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_MONITOR, v6, 0, &SymbolicLinkList);
-  v4 = DeviceInterfaces;
-  if ( DeviceInterfaces < 0 )
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, (struct DXGMONITOR **)&SymbolicLinkList);
+  if ( (int)result >= 0 )
   {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v9, v8) + 24) = DeviceInterfaces;
-    goto LABEL_17;
-  }
-  v4 = RtlStringCchCopyW((unsigned __int16 *)(a2 + 164), 0x80uLL, SymbolicLinkList);
-  ExFreePoolWithTag(SymbolicLinkList, 0);
-  if ( v4 >= 0 )
-  {
-    *(_WORD *)(a2 + 166) = 92;
-    goto LABEL_11;
-  }
-LABEL_17:
-  if ( v3 )
-  {
-    ExReleaseResourceLite((PERESOURCE)(v3 + 12));
+    v6 = SymbolicLinkList;
+    if ( !SymbolicLinkList )
+    {
+      v17 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v17);
+      v20 = WdLogNewEntry5_WdAssertion(v19, v18);
+      WdLogEvent5_WdAssertion(v20);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)(v6 + 148), 1u);
+    if ( *((_DWORD *)v6 + 108) == 1 && (*((_DWORD *)v6 + 10) & 0x10) == 0 )
+    {
+      v21 = WdLogNewEntry5_WdDmmEvent(v8, v7);
+      *(_QWORD *)(v21 + 24) = v6;
+      WdLogEvent5_WdDmmEvent(v21);
+      v15 = -1073741275;
+    }
+    else
+    {
+      memset((void *)(a2 + 164), 0, 0x100uLL);
+      v9 = (struct _DEVICE_OBJECT *)*((_QWORD *)v6 + 7);
+      if ( !v9 || !*((_QWORD *)v6 + 12) )
+        goto LABEL_13;
+      SymbolicLinkList = 0LL;
+      DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_MONITOR, v9, 0, &SymbolicLinkList);
+      v15 = DeviceInterfaces;
+      if ( DeviceInterfaces < 0 )
+      {
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(v12, v11, v13, v14) + 24) = DeviceInterfaces;
+      }
+      else
+      {
+        v15 = RtlStringCchCopyW((unsigned __int16 *)(a2 + 164), 0x80uLL, SymbolicLinkList);
+        ExFreePoolWithTag(SymbolicLinkList, 0);
+        if ( v15 >= 0 )
+        {
+          *(_WORD *)(a2 + 166) = 92;
+LABEL_13:
+          v15 = DXGMONITOR::_FillMonitorDeviceInfo((DXGMONITOR *)v6, (struct DISPLAYCONFIG_TARGET_DEVICE_NAME *)a2);
+          if ( v15 == -1071841279 )
+            v15 = 0;
+          if ( v15 >= 0 )
+          {
+            v16 = *(_DWORD *)(a2 + 20);
+            if ( (v16 & 1) == 0 && !*(_WORD *)(a2 + 36) )
+              *(_DWORD *)(a2 + 20) = v16 | 2;
+          }
+        }
+      }
+    }
+    ExReleaseResourceLite((PERESOURCE)(v6 + 148));
     KeLeaveCriticalRegion();
+    return (unsigned int)v15;
   }
-  return (unsigned int)v4;
+  return result;
 }

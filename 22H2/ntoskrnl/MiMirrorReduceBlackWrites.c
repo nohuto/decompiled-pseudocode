@@ -1,40 +1,38 @@
 /*
- * XREFs of MiMirrorReduceBlackWrites @ 0x1406280D0
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140385580
  * Callers:
- *     MiMirrorBlackPhase @ 0x140626C54 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x1403F36E4 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14026EAB0 (MiIsDecayPfn.c)
- *     MiMirrorOmitPagesFromCopy @ 0x1406272F8 (MiMirrorOmitPagesFromCopy.c)
- *     MiMirrorNodeLargePages @ 0x14064F574 (MiMirrorNodeLargePages.c)
+ *     MiIsDecayPfn @ 0x14031034C (MiIsDecayPfn.c)
+ *     MiMirrorNodeLargePages @ 0x14038521C (MiMirrorNodeLargePages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x14038576C (MiMirrorOmitPagesFromCopy.c)
  */
 
-__int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
 {
   int v2; // eax
   __int64 v3; // r13
   __int64 v4; // rcx
   int v5; // edx
   __int64 v6; // rdi
-  unsigned int v7; // r12d
-  __int64 v8; // r8
-  unsigned int v9; // ebp
-  __int64 v10; // r14
-  unsigned __int64 v11; // r14
-  _QWORD *v12; // r15
-  unsigned __int64 v13; // rsi
-  unsigned __int64 v14; // rsi
-  __int64 v16; // [rsp+20h] [rbp-58h]
-  __int64 v17; // [rsp+28h] [rbp-50h]
-  unsigned int v19; // [rsp+88h] [rbp+10h]
-  int v20; // [rsp+90h] [rbp+18h]
-  int v21; // [rsp+98h] [rbp+20h]
+  unsigned int v7; // r15d
+  __int64 v8; // rbp
+  __int64 v9; // r14
+  ULONG_PTR v10; // r14
+  unsigned __int64 v11; // r9
+  unsigned __int64 v12; // rsi
+  __int64 v13; // rsi
+  __int64 v15; // [rsp+20h] [rbp-58h]
+  int v17; // [rsp+88h] [rbp+10h]
+  int v18; // [rsp+90h] [rbp+18h]
+  __int64 v19; // [rsp+98h] [rbp+20h]
 
   v2 = *(_DWORD *)(a2 + 8);
   v3 = a1;
   v4 = *(_QWORD *)a2;
   v5 = *(_DWORD *)(a2 + 12);
-  v17 = v4;
-  v21 = v5;
+  v15 = v4;
+  v18 = v5;
   if ( (v2 & 8) != 0 )
   {
     v6 = 1LL;
@@ -46,74 +44,69 @@ __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
       v6 = 1LL;
   }
   v7 = 0;
-  v8 = 0x3FFFFFFFFFLL;
-  v9 = 0;
-  v20 = 0;
-  v19 = 0;
+  v17 = 0;
+  v8 = 0LL;
 LABEL_6:
-  v16 = v6;
+  v19 = v6;
   while ( 1 )
   {
     while ( 1 )
     {
       if ( v6 > 1 )
-        v10 = 88LL * v7 + v3 + 2944;
+        v9 = v3 + 40LL * v7 + 2432;
       else
-        v10 = *(_QWORD *)(v3 + 8 * v6 + 2496) + 88LL * v9;
-      v11 = *(_QWORD *)(v10 + 16);
-      if ( v11 != v8 )
+        v9 = *(_QWORD *)(v3 + 8 * v6 + 2176) + 40 * v8;
+      v10 = *(_QWORD *)(v9 + 16);
+      if ( v10 != 0xFFFFFFFFFLL )
       {
         while ( 1 )
         {
-          v12 = (_QWORD *)(48 * v11 - 0x220000000000LL);
-          if ( v6 == 2 && MiIsDecayPfn(v11) )
+          if ( v6 == 2 && MiIsDecayPfn(v10) )
           {
-            v13 = v12[2];
-            if ( qword_140C65C40 && (v13 & 0x10) == 0 )
-              v13 &= ~qword_140C65C40;
-            v14 = (v13 >> 12) & 0xFFFFFFFFFFLL;
-            if ( v14 == v11 )
+            v12 = *(_QWORD *)(v11 + 48 * v10 + 16);
+            if ( qword_140C4DF40 && (v12 & 0x10) == 0 )
+              v12 &= ~qword_140C4DF40;
+            v13 = (v12 >> 12) & 0xFFFFFFFFFLL;
+            if ( v13 == v10 )
               goto LABEL_21;
             do
             {
-              MiMirrorOmitPagesFromCopy(v17, v14, 1uLL);
-              v14 = *(_QWORD *)(48 * v14 - 0x220000000000LL) & 0xFFFFFFFFFFLL;
+              MiMirrorOmitPagesFromCopy(v15, v13, 1LL);
+              v13 = *(_QWORD *)(48 * v13 - 0x58000000000LL) & 0xFFFFFFFFFLL;
             }
-            while ( v14 != v11 );
-            v6 = v16;
+            while ( v13 != v10 );
+            v6 = v19;
           }
           else
           {
-            MiMirrorOmitPagesFromCopy(v17, v11, 1uLL);
+            MiMirrorOmitPagesFromCopy(v15, v10, 1LL);
           }
-          v8 = 0x3FFFFFFFFFLL;
+          v11 = 0xFFFFFA8000000000uLL;
 LABEL_21:
-          v11 = *v12 & 0xFFFFFFFFFFLL;
-          if ( v11 == v8 )
+          v10 = *(_QWORD *)(v11 + 48 * v10) & 0xFFFFFFFFFLL;
+          if ( v10 == 0xFFFFFFFFFLL )
           {
-            v9 = v19;
-            v7 = v20;
+            v7 = v17;
             v3 = a1;
-            v5 = v21;
+            v5 = v18;
             break;
           }
         }
       }
       if ( v6 > 1 )
         break;
-      v19 = ++v9;
-      if ( v9 >= 3 * dword_140C65BFC )
+      v8 = (unsigned int)(v8 + 1);
+      if ( (unsigned int)v8 >= dword_140C4DEFC )
       {
-        v9 = 0;
-        v19 = 0;
+        v8 = 0LL;
         break;
       }
     }
     if ( !v6 )
-      return MiMirrorNodeLargePages(v17, v3, 1LL);
+      return MiMirrorNodeLargePages(v15, v3, 1);
     if ( v6 == 2 )
     {
-      v20 = ++v7;
+      v17 = ++v7;
       if ( v7 != v5 )
         continue;
     }

@@ -2,7 +2,7 @@
  * XREFs of EtwpWaitForBufferReferenceCount @ 0x1405C1CE0
  * Callers:
  *     EtwpFlushActiveBuffers @ 0x1405C2178 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1408BE038 (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x1408BE018 (EtwpBufferingModeFlush.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  */

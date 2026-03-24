@@ -1,20 +1,20 @@
 /*
- * XREFs of EditionOpenInputDesktopEntryPoint @ 0x1C00CE790
+ * XREFs of EditionOpenInputDesktopEntryPoint @ 0x1C000EA00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     CloseProtectedHandle @ 0x1C00A6598 (CloseProtectedHandle.c)
- *     _GetProcessWindowStation @ 0x1C00CEC40 (_GetProcessWindowStation.c)
- *     OpenDesktopCompletion @ 0x1C00D0E3C (OpenDesktopCompletion.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
+ *     OpenDesktopCompletion @ 0x1C0011364 (OpenDesktopCompletion.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C00D93E8 (CloseProtectedHandle.c)
  */
 
 HANDLE __fastcall EditionOpenInputDesktopEntryPoint(unsigned int a1, int a2, int a3)
 {
   KPROCESSOR_MODE AccessMode; // si
-  void **v7; // rdx
+  __int64 v7; // rdx
   __int64 ProcessWindowStation; // rax
-  __int64 v9; // rcx
+  void **v9; // rdx
   void *v10; // rbx
   __int64 CurrentProcess; // rax
   NTSTATUS v12; // eax
@@ -29,10 +29,10 @@ HANDLE __fastcall EditionOpenInputDesktopEntryPoint(unsigned int a1, int a2, int
 
   Handle = 0LL;
   AccessMode = 1;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( !grpdeskRitInput )
     goto LABEL_25;
-  ProcessWindowStation = GetProcessWindowStation(&DestinationString);
+  ProcessWindowStation = GetProcessWindowStation(&DestinationString, v7);
   if ( !ProcessWindowStation )
   {
     v18 = 5LL;
@@ -43,17 +43,17 @@ HANDLE __fastcall EditionOpenInputDesktopEntryPoint(unsigned int a1, int a2, int
     v18 = 1LL;
     goto LABEL_14;
   }
-  v7 = (void **)grpdeskRitInput;
+  v9 = (void **)grpdeskRitInput;
   if ( gbDesktopLocked )
-    v7 = (void **)gspdeskShouldBeForeground;
-  v10 = *v7;
-  if ( !*v7 )
+    v9 = (void **)gspdeskShouldBeForeground;
+  v10 = *v9;
+  if ( !*v9 )
   {
 LABEL_25:
     v18 = 110LL;
     goto LABEL_14;
   }
-  CurrentProcess = PsGetCurrentProcess(v9, v7);
+  CurrentProcess = PsGetCurrentProcess();
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
   {
     AccessMode = 0;
@@ -80,13 +80,13 @@ LABEL_13:
     Handle = 0LL;
     v18 = RtlNtStatusToDosError(v17);
 LABEL_14:
-    UserSetLastError(v18, (__int64)v7);
+    UserSetLastError(v18);
     goto LABEL_11;
   }
   v13 = OpenDesktopCompletion(v10, Handle, a1);
   if ( v13 < 0 || !(unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
   {
-    CloseProtectedHandle(Handle, 1);
+    CloseProtectedHandle(Handle);
     if ( v13 >= 0 )
       v13 = -1073741801;
     v17 = v13;

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@@Z @ 0x1800C5520
+ * XREFs of ?NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@@Z @ 0x1800BE2E8
  * Callers:
- *     ?NotifyCurrentPropertyValues@CComponentTransform2D@@MEBAJI@Z @ 0x1800C4E70 (-NotifyCurrentPropertyValues@CComponentTransform2D@@MEBAJI@Z.c)
- *     ?NotifyCurrentPropertyValues@CRectangleGeometry@@MEBAJI@Z @ 0x1800C4EB0 (-NotifyCurrentPropertyValues@CRectangleGeometry@@MEBAJI@Z.c)
- *     ?NotifyCurrentPropertyValues@CComponentTransform3D@@MEBAJI@Z @ 0x1800C50D0 (-NotifyCurrentPropertyValues@CComponentTransform3D@@MEBAJI@Z.c)
- *     ?NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z @ 0x180243260 (-NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CComponentTransform3D@@MEBAJI@Z @ 0x1800BDFA0 (-NotifyCurrentPropertyValues@CComponentTransform3D@@MEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CComponentTransform2D@@MEBAJI@Z @ 0x1801B8AA0 (-NotifyCurrentPropertyValues@CComponentTransform2D@@MEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CRectangleGeometry@@MEBAJI@Z @ 0x1801E86D0 (-NotifyCurrentPropertyValues@CRectangleGeometry@@MEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z @ 0x1801F17E0 (-NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z.c)
  * Callees:
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180048504 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcmp_0 @ 0x180105173 (memcmp_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180065DA4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     memcmp_0 @ 0x1800F47CF (memcmp_0.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::NotifyCurrentPropertyValuesImpl(
@@ -42,7 +42,7 @@ __int64 __fastcall CPropertyChangeResource::NotifyCurrentPropertyValuesImpl(
         v6 = v11;
         if ( v11 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x264u);
+          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x264u, 0LL);
           return v6;
         }
       }

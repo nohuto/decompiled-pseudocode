@@ -1,19 +1,19 @@
 /*
  * XREFs of NtQuerySymbolicLinkObject @ 0x140625E20
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x140737754 (AdtpInitializeDriveLetters.c)
+ *     AdtpInitializeDriveLetters @ 0x140737734 (AdtpInitializeDriveLetters.c)
  *     IopStoreSystemPartitionInformation @ 0x1409D62F4 (IopStoreSystemPartitionInformation.c)
  *     IopReassignSystemRoot @ 0x1409DB7D0 (IopReassignSystemRoot.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQuerySymbolicLinkObject(HANDLE SymLinkObjHandle, PUNICODE_STRING LinkTarget, PULONG DataWritten)
@@ -68,7 +68,7 @@ NTSTATUS __stdcall NtQuerySymbolicLinkObject(HANDLE SymLinkObjHandle, PUNICODE_S
     BugCheckParameter2 = (ULONG_PTR)Object - 32;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)Object - 32, 0LL);
     if ( (*((_DWORD *)v12 + 7) & 0x10) != 0 )
-      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_140766570);
+      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_140766550);
     else
       *(_OWORD *)Src = *(_OWORD *)(v12 + 8);
     v13 = (int)Src[0];

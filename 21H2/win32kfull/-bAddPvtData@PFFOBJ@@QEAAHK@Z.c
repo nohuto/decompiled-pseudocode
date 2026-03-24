@@ -1,25 +1,25 @@
 /*
- * XREFs of ?bAddPvtData@PFFOBJ@@QEAAHK@Z @ 0x1C02B9C28
+ * XREFs of ?bAddPvtData@PFFOBJ@@QEAAHK@Z @ 0x1C02BB8CC
  * Callers:
- *     ?chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z @ 0x1C0011E94 (-chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z.c)
- *     ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00E2784 (--0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTC.c)
- *     ??0PFFMEMOBJ@@QEAA@PEAVPFF@@KKPEAVPFT@@@Z @ 0x1C010F37C (--0PFFMEMOBJ@@QEAA@PEAVPFF@@KKPEAVPFT@@@Z.c)
+ *     ?chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z @ 0x1C00A20D8 (-chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z.c)
+ *     ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0115378 (--0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTC.c)
+ *     ??0PFFMEMOBJ@@QEAA@PEAVPFF@@KKPEAVPFT@@@Z @ 0x1C0125490 (--0PFFMEMOBJ@@QEAA@PEAVPFF@@KKPEAVPFT@@@Z.c)
  * Callees:
- *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C02BA560 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C02BBF94 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
  */
 
 __int64 __fastcall PFFOBJ::bAddPvtData(PFFOBJ *this, char a2)
 {
-  struct tagPvtData *v4; // r8
+  struct tagPvtData *v4; // rax
   __int64 result; // rax
-  __int64 v6; // rbx
+  __int64 v6; // rsi
   int v7; // edi
   unsigned int CurrentThreadId; // eax
 
   v4 = PFFOBJ::pPvtDataMatch(this);
   if ( v4 )
   {
-    result = 1LL;
     if ( (a2 & 0x2C) != 0 )
       ++*((_DWORD *)v4 + 1);
     else
@@ -27,9 +27,9 @@ __int64 __fastcall PFFOBJ::bAddPvtData(PFFOBJ *this, char a2)
     *((_DWORD *)v4 + 2) |= a2 & 0x3C;
 LABEL_6:
     *((_DWORD *)this + 2) = 1;
-    return result;
+    return 1LL;
   }
-  result = Win32AllocPoolZInit(56LL, 1886811207LL);
+  result = (__int64)PALLOCMEM2(0x38uLL, 1886811207LL, 1);
   v6 = result;
   if ( result )
   {
@@ -46,7 +46,6 @@ LABEL_6:
       PushThreadGuardedObject(v6 + 24, *(_QWORD *)this, CleanupPvtData);
     *(_QWORD *)(v6 + 16) = *(_QWORD *)(*(_QWORD *)this + 144LL);
     *(_QWORD *)(*(_QWORD *)this + 144LL) = v6;
-    result = 1LL;
     goto LABEL_6;
   }
   return result;

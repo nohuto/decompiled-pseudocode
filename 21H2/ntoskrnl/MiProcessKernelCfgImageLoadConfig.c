@@ -1,13 +1,13 @@
 /*
- * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x14075C330
+ * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x14075CF74
  * Callers:
- *     MiProcessLoadConfigForDriver @ 0x14075C2E0 (MiProcessLoadConfigForDriver.c)
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiProcessLoadConfigForDriver @ 0x14075CD3C (MiProcessLoadConfigForDriver.c)
+ *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
  * Callees:
- *     MiSetImageProtection @ 0x14027E128 (MiSetImageProtection.c)
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     MiCheckForDiscardableLongJumpTable @ 0x1405B52C0 (MiCheckForDiscardableLongJumpTable.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x14096C6C4 (MiLogStrongCodeDriverLoadFailure.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     MiSetImageProtection @ 0x1402E67C8 (MiSetImageProtection.c)
+ *     MiCheckForDiscardableLongJumpTable @ 0x140553940 (MiCheckForDiscardableLongJumpTable.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x1408C7FCC (MiLogStrongCodeDriverLoadFailure.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
 
   v9 = 0;
   v2 = a2;
-  if ( (MiFlags & 0x40000) == 0 )
+  if ( (MiFlags & 0x80000) == 0 )
     return 0LL;
   LOBYTE(a2) = 1;
   v5 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), a2, 10, (int)&v9);
@@ -36,15 +36,15 @@ LABEL_14:
       v8 = *(_QWORD **)(v6 + 120);
       if ( v8 )
       {
-        if ( v2 && !(unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v6 + 120), 8, 4LL) )
+        if ( v2 && !(unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v6 + 120), 8u) )
         {
           MiLogStrongCodeDriverLoadFailure("CfgUnwritableLoadConfig");
-          dword_140C4F3D0 = 104;
+          dword_140C4CC18 = 104;
           return 3221225595LL;
         }
         *v8 = &guard_dispatch_icall;
         if ( v2 && *(_QWORD *)(v2 + 16) )
-          MiSetImageProtection(a1, (unsigned __int64)v8, 8, 256LL);
+          MiSetImageProtection(a1, (unsigned __int64)v8, 8u);
       }
     }
     if ( *(_DWORD *)v6 >= 0xC0u && (*(_DWORD *)(v6 + 144) & 0x10000) != 0 )
@@ -54,14 +54,14 @@ LABEL_14:
     }
     return 0LL;
   }
-  if ( !v2 || (unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v5 + 112), 8, 4LL) )
+  if ( !v2 || (unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v5 + 112), 8u) )
   {
     *v7 = guard_check_icall;
     if ( v2 && *(_QWORD *)(v2 + 16) )
-      MiSetImageProtection(a1, (unsigned __int64)v7, 8, 256LL);
+      MiSetImageProtection(a1, (unsigned __int64)v7, 8u);
     goto LABEL_14;
   }
   MiLogStrongCodeDriverLoadFailure("CfgUnwritableLoadConfig");
-  dword_140C4F3D0 = 103;
+  dword_140C4CC18 = 103;
   return 3221225595LL;
 }

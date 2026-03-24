@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCGenericInkTipPointSource@@EEAAPEAXI@Z @ 0x1802644B0
+ * XREFs of ??_GCGenericInkTipPointSource@@EEAAPEAXI@Z @ 0x180202E50
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 CGenericInkTipPointSource *__fastcall CGenericInkTipPointSource::`scalar deleting destructor'(

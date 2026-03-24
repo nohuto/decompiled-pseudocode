@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAddPagesToEnclave @ 0x1402BC7E4
+ * XREFs of MiAddPagesToEnclave @ 0x1402BC8E4
  * Callers:
- *     MiCommitEnclavePages @ 0x1402BCE34 (MiCommitEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x1402BCF34 (MiCommitEnclavePages.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -13,20 +13,20 @@
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D7E8 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBC0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131840 (MiReleasePteCopyList.c)
- *     KeAddEnclavePage @ 0x14028F6B4 (KeAddEnclavePage.c)
- *     MiGetPageForEnclave @ 0x1402BDECC (MiGetPageForEnclave.c)
- *     MiInitializeEnclavePfn @ 0x1402BDF30 (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x1402BE6D8 (MiReserveEnclavePages.c)
- *     MiReturnEnclavePage @ 0x1402BE7E0 (MiReturnEnclavePage.c)
- *     MiWriteEnclavePte @ 0x1402BE928 (MiWriteEnclavePte.c)
- *     MiReturnReservedEnclavePages @ 0x14085A6E0 (MiReturnReservedEnclavePages.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
+ *     KeAddEnclavePage @ 0x14028F7B4 (KeAddEnclavePage.c)
+ *     MiGetPageForEnclave @ 0x1402BDFCC (MiGetPageForEnclave.c)
+ *     MiInitializeEnclavePfn @ 0x1402BE030 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x1402BE7D8 (MiReserveEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x1402BE8E0 (MiReturnEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x1402BEA28 (MiWriteEnclavePte.c)
+ *     MiReturnReservedEnclavePages @ 0x14085A6C0 (MiReturnReservedEnclavePages.c)
  */
 
 __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PTR a3, ULONG_PTR a4, unsigned int a5)

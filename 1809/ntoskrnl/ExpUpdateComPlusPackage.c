@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpUpdateComPlusPackage @ 0x1408CCD78
+ * XREFs of ExpUpdateComPlusPackage @ 0x1408CCD58
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall ExpUpdateComPlusPackage(int a1)

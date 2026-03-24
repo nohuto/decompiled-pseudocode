@@ -1,11 +1,11 @@
 /*
- * XREFs of ViTriageSameDriversFromDump @ 0x1409F87E4
+ * XREFs of ViTriageSameDriversFromDump @ 0x1409F87F4
  * Callers:
  *     VfTriageSystem @ 0x1409DB150 (VfTriageSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     TriageGetLoaderEntry @ 0x14032C420 (TriageGetLoaderEntry.c)
- *     TriageGetDriverCount @ 0x1409FA768 (TriageGetDriverCount.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     TriageGetLoaderEntry @ 0x14032C520 (TriageGetLoaderEntry.c)
+ *     TriageGetDriverCount @ 0x1409FA778 (TriageGetDriverCount.c)
  */
 
 __int64 __fastcall ViTriageSameDriversFromDump(__int64 a1, __int64 a2)

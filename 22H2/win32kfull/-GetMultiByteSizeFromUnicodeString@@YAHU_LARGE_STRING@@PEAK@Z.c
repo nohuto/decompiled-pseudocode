@@ -1,31 +1,24 @@
 /*
- * XREFs of ?GetMultiByteSizeFromUnicodeString@@YAHU_LARGE_STRING@@PEAK@Z @ 0x1C013CF38
+ * XREFs of ?GetMultiByteSizeFromUnicodeString@@YAHU_LARGE_STRING@@PEAK@Z @ 0x1C0169610
  * Callers:
- *     SfnINLPCREATESTRUCT @ 0x1C0023990 (SfnINLPCREATESTRUCT.c)
+ *     SfnINLPCREATESTRUCT @ 0x1C0020F50 (SfnINLPCREATESTRUCT.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetMultiByteSizeFromUnicodeString(__int64 a1, ULONG *a2)
+_BOOL8 __fastcall GetMultiByteSizeFromUnicodeString(__int64 a1, ULONG *a2)
 {
-  ULONG v2; // r8d
-  unsigned int v4; // edi
-  unsigned int v5; // edx
+  ULONG v3; // ecx
+  unsigned int v4; // edx
+  unsigned int v5; // eax
 
-  v2 = *(_DWORD *)a1;
-  v4 = 0;
   *a2 = 0;
-  RtlUnicodeToMultiByteSize(a2, *(PCWCH *)(a1 + 8), v2);
+  RtlUnicodeToMultiByteSize(a2, *(PCWCH *)(a1 + 8), *(_DWORD *)a1);
+  v3 = *a2;
+  v4 = -1;
   v5 = *a2 + 2;
-  if ( v5 < *a2 )
-  {
-    *a2 = -1;
-    return 0LL;
-  }
-  else
-  {
-    *a2 = v5;
-    LOBYTE(v4) = v5 < 0x7FFFFFFF;
-    return v4;
-  }
+  if ( v5 >= *a2 )
+    v4 = *a2 + 2;
+  *a2 = v4;
+  return v5 >= v3 && v4 < 0x7FFFFFFF;
 }

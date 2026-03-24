@@ -1,17 +1,16 @@
 /*
- * XREFs of ?DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z @ 0x1802153C8
+ * XREFs of ?DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z @ 0x1801AFF74
  * Callers:
- *     _lambda_c032fb9048ad168ba2bd3d1dd4629f64_::_lambda_invoker_cdecl_ @ 0x1802143D0 (_lambda_c032fb9048ad168ba2bd3d1dd4629f64_--_lambda_invoker_cdecl_.c)
+ *     _lambda_3440248c42f2751644268d737f23a18f_::_lambda_invoker_cdecl_ @ 0x1801AF0D0 (_lambda_3440248c42f2751644268d737f23a18f_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ?TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x18003E94C (-TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z @ 0x1801BAD6C (-SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z.c)
- *     ?FailFast_UnexpectedMsg@in1diag3@details@wil@@YAXPEAXIPEBD1ZZ @ 0x18021551C (-FailFast_UnexpectedMsg@in1diag3@details@wil@@YAXPEAXIPEBD1ZZ.c)
+ *     ?TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x18003528C (-TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z @ 0x180166A20 (-SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z.c)
+ *     ?FailFast_UnexpectedMsg@in1diag3@details@wil@@YAXPEAXIPEBD1ZZ @ 0x1801B00D0 (-FailFast_UnexpectedMsg@in1diag3@details@wil@@YAXPEAXIPEBD1ZZ.c)
  */
 
 void __fastcall CAnimationLoggingManager::DeferredSendDebugStart(
@@ -21,62 +20,73 @@ void __fastcall CAnimationLoggingManager::DeferredSendDebugStart(
         unsigned int a4)
 {
   __int64 v6; // rcx
-  struct CResource *ResourceWithoutType; // rax
-  struct CResource *v9; // rdi
+  struct CResource *ResourceWithoutType; // rbx
   struct CAnimationLoggingManager::ResourceDebugInfo *DebugInfoForResource; // rax
-  struct CAnimationLoggingManager::ResourceDebugInfo *v11; // rbx
-  __int64 v12; // rax
-  DiagnosticCallbacksManager *v13; // rsi
-  int v14; // eax
+  struct CAnimationLoggingManager::ResourceDebugInfo *v10; // rdi
+  __int64 v11; // rax
+  DiagnosticCallbacksManager *v12; // rsi
+  int v13; // eax
+  __int64 v14; // rcx
   const char *v15; // [rsp+20h] [rbp-98h]
-  unsigned int v16; // [rsp+20h] [rbp-98h]
-  _BYTE v17[64]; // [rsp+30h] [rbp-88h] BYREF
-  __int64 v18; // [rsp+70h] [rbp-48h] BYREF
-  int v19; // [rsp+78h] [rbp-40h]
-  char v20; // [rsp+7Ch] [rbp-3Ch]
+  _BYTE v16[64]; // [rsp+30h] [rbp-88h] BYREF
+  __int64 v17; // [rsp+70h] [rbp-48h]
+  int v18; // [rsp+78h] [rbp-40h]
+  char v19; // [rsp+7Ch] [rbp-3Ch]
   wil::details::in1diag3 *retaddr; // [rsp+B8h] [rbp+0h]
 
   v6 = *((_QWORD *)this + 6);
   if ( v6 )
+    ResourceWithoutType = CResourceTable::GetResourceWithoutType(*(CResourceTable **)(v6 + 24), a2);
+  else
+    ResourceWithoutType = 0LL;
+  if ( ResourceWithoutType )
   {
-    ResourceWithoutType = CResourceTable::GetResourceWithoutType(*(CResourceTable **)(v6 + 32), a2);
-    v9 = ResourceWithoutType;
-    if ( ResourceWithoutType )
+    DebugInfoForResource = CAnimationLoggingManager::TryGetDebugInfoForResource(this, ResourceWithoutType);
+    v10 = DebugInfoForResource;
+    if ( DebugInfoForResource )
     {
-      DebugInfoForResource = CAnimationLoggingManager::TryGetDebugInfoForResource(this, ResourceWithoutType);
-      v11 = DebugInfoForResource;
-      if ( DebugInfoForResource )
+      if ( *((_DWORD *)DebugInfoForResource + 10) )
       {
-        if ( *((_DWORD *)DebugInfoForResource + 10) )
+        memset_0(v16, 0, sizeof(v16));
+        v11 = *((_QWORD *)this + 2);
+        v17 = 0LL;
+        v18 = 18;
+        v19 = 0;
+        v12 = *(DiagnosticCallbacksManager **)(v11 + 1088);
+        if ( (*(int (__fastcall **)(struct CResource *, _QWORD, _BYTE *))(*(_QWORD *)ResourceWithoutType + 144LL))(
+               ResourceWithoutType,
+               a4,
+               v16) < 0 )
         {
-          memset_0(v17, 0, sizeof(v17));
-          v12 = *((_QWORD *)this + 2);
-          v18 = 0LL;
-          v19 = 18;
-          v20 = 0;
-          v13 = *(DiagnosticCallbacksManager **)(v12 + 1248);
-          if ( (*(int (__fastcall **)(struct CResource *, _QWORD, _BYTE *))(*(_QWORD *)v9 + 136LL))(v9, a4, v17) < 0 )
-            wil::details::in1diag3::FailFast_UnexpectedMsg(
-              retaddr,
-              (void *)0x126,
-              (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
-              "Unexpectedly failed to get property.",
-              v15);
-          v14 = DiagnosticCallbacksManager::SendDebugStart(
-                  v13,
-                  *((_DWORD *)v11 + 10),
-                  *((_DWORD *)v11 + 11),
-                  a3,
-                  a4,
-                  (const struct CExpressionValue *)v17);
-          if ( v14 < 0 )
-            wil::details::in1diag3::FailFast_Hr(
-              retaddr,
-              288LL,
-              (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
-              (const char *)(unsigned int)v14,
-              v16);
-          Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v18);
+          wil::details::in1diag3::FailFast_UnexpectedMsg(
+            retaddr,
+            (void *)0x13A,
+            (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
+            "Unexpectedly failed to get property.",
+            v15);
+          JUMPOUT(0x1801B00C9LL);
+        }
+        v13 = DiagnosticCallbacksManager::SendDebugStart(
+                v12,
+                *((_DWORD *)v10 + 10),
+                *((_DWORD *)v10 + 11),
+                a3,
+                a4,
+                (const struct CExpressionValue *)v16);
+        if ( v13 < 0 )
+        {
+          wil::details::in1diag3::FailFast_Hr(
+            retaddr,
+            (void *)0x134,
+            (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
+            (const char *)(unsigned int)v13);
+          __debugbreak();
+        }
+        v14 = v17;
+        if ( v17 )
+        {
+          v17 = 0LL;
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
         }
       }
     }

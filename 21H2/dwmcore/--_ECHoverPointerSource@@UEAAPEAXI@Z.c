@@ -1,22 +1,24 @@
 /*
- * XREFs of ??_ECHoverPointerSource@@UEAAPEAXI@Z @ 0x1801F5CC0
+ * XREFs of ??_ECHoverPointerSource@@UEAAPEAXI@Z @ 0x1800201C4
  * Callers:
- *     ??_ECHoverPointerSource@@W7EAAPEAXI@Z @ 0x180107390 (--_ECHoverPointerSource@@W7EAAPEAXI@Z.c)
+ *     ??_ECHoverPointerSource@@W7EAAPEAXI@Z @ 0x1800F6710 (--_ECHoverPointerSource@@W7EAAPEAXI@Z.c)
  * Callees:
- *     ??1CResource@@MEAA@XZ @ 0x180049CEC (--1CResource@@MEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A0EAC (--1CResource@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CHoverPointerSource *__fastcall CHoverPointerSource::`vector deleting destructor'(CHoverPointerSource *this, char a2)
 {
+  unsigned int v4; // r8d
+
   CResource::~CResource((CHoverPointerSource *)((char *)this + 8));
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x50, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

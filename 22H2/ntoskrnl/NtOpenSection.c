@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenSection @ 0x14068C8B0
+ * XREFs of NtOpenSection @ 0x1406775E0
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenSection(_QWORD *a1, int a2, int a3)

@@ -1,55 +1,48 @@
 /*
- * XREFs of GreSetHwndPresentFlags @ 0x1C02680D4
+ * XREFs of GreSetHwndPresentFlags @ 0x1C026FAD4
  * Callers:
- *     NtUserHwndSetRedirectionInfo @ 0x1C01D4DA0 (NtUserHwndSetRedirectionInfo.c)
+ *     NtUserHwndSetRedirectionInfo @ 0x1C01FD190 (NtUserHwndSetRedirectionInfo.c)
  * Callees:
- *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C000B164 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C0118DDC (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
  */
 
-__int64 __fastcall GreSetHwndPresentFlags(Gre::Base *a1, int a2)
+__int64 __fastcall GreSetHwndPresentFlags(HWND a1, int a2)
 {
   unsigned int v4; // esi
-  Gre::Base *v5; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v6; // rbp
-  Gre::Base *v7; // rcx
-  __int64 v8; // rbx
-  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rbx
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = -1071775733;
-  if ( IsDwmActive(a1) )
+  if ( g_pDwmState )
   {
-    v6 = Gre::Base::Globals(v5);
-    GreAcquireSemaphoreSharedInternal(*((_QWORD *)v6 + 9));
-    EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v6 + 9));
-    if ( IsDwmActive(v7) )
+    GreAcquireSemaphoreSharedInternal(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
+    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v8, a1, 0LL);
+    v6 = v8;
+    if ( v8 )
     {
-      DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v10, (HWND)a1, 0LL);
-      v8 = v10;
-      if ( v10 )
+      if ( v8 != -88 )
       {
-        if ( v10 != -88 )
-        {
-          KeEnterCriticalRegion();
-          GreAcquirePushLockShared(v8 + 88);
-        }
-        v4 = 0;
-        *(_DWORD *)(*(_QWORD *)(v8 + 144) + 212LL) = a2;
-        if ( v8 != -88 )
-        {
-          GreReleasePushLockShared(v8 + 88);
-          KeLeaveCriticalRegion();
-        }
+        KeEnterCriticalRegion();
+        GreAcquirePushLockShared(v6 + 88);
       }
-      else
+      v4 = 0;
+      *(_DWORD *)(*(_QWORD *)(v6 + 168) + 212LL) = a2;
+      if ( v6 != -88 )
       {
-        v4 = -1073741811;
+        GreReleasePushLockShared(v6 + 88);
+        KeLeaveCriticalRegion();
       }
-      if ( v8 )
-        DEC_SHARE_REF_CNT(v8);
     }
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v6 + 9));
+    else
+    {
+      v4 = -1073741811;
+    }
+    if ( v6 )
+      DEC_SHARE_REF_CNT(v6, v5);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+    GreReleaseSemaphoreInternal(ghsemDwmState);
   }
   return v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCSharedSectionAnimationPrimitiveBuffer@@UEAAPEAXI@Z @ 0x1800E64D0
+ * XREFs of ??_GCSharedSectionAnimationPrimitiveBuffer@@UEAAPEAXI@Z @ 0x180029DB0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CSharedSectionAnimationPrimitiveBuffer@@UEAA@XZ @ 0x1800E650C (--1CSharedSectionAnimationPrimitiveBuffer@@UEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CSharedSectionAnimationPrimitiveBuffer@@UEAA@XZ @ 0x180029DEC (--1CSharedSectionAnimationPrimitiveBuffer@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CSharedSectionAnimationPrimitiveBuffer *__fastcall CSharedSectionAnimationPrimitiveBuffer::`scalar deleting destructor'(

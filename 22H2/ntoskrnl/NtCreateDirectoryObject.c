@@ -1,13 +1,13 @@
 /*
- * XREFs of NtCreateDirectoryObject @ 0x1407F1B70
+ * XREFs of NtCreateDirectoryObject @ 0x1406868C0
  * Callers:
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
- *     ExpInitializeCallbacks @ 0x140B6C95C (ExpInitializeCallbacks.c)
- *     IopCreateRootDirectories @ 0x140B6DEE4 (IopCreateRootDirectories.c)
- *     IopCreateUmdfDirectory @ 0x140B6DFD4 (IopCreateUmdfDirectory.c)
- *     CreateSystemRootLink @ 0x140B6F884 (CreateSystemRootLink.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
+ *     IopCreateRootDirectories @ 0x140A5B394 (IopCreateRootDirectories.c)
+ *     IopCreateUmdfDirectory @ 0x140A5D080 (IopCreateUmdfDirectory.c)
+ *     ExpInitializeCallbacks @ 0x140A6E368 (ExpInitializeCallbacks.c)
+ *     CreateSystemRootLink @ 0x140A6F6AC (CreateSystemRootLink.c)
  * Callees:
- *     ObpCreateDirectoryObject @ 0x1407F1B90 (ObpCreateDirectoryObject.c)
+ *     ObpCreateDirectoryObject @ 0x1406868E0 (ObpCreateDirectoryObject.c)
  */
 
 __int64 __fastcall NtCreateDirectoryObject(__int64 a1)

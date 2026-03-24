@@ -1,153 +1,120 @@
 /*
- * XREFs of MmIdentifyPhysicalMemory @ 0x140A2ED78
+ * XREFs of MmIdentifyPhysicalMemory @ 0x1408C7108
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140827608 (EtwpKernelTraceRundown.c)
- *     EtwpSetMark @ 0x1409E6960 (EtwpSetMark.c)
+ *     EtwpKernelTraceRundown @ 0x1407922CC (EtwpKernelTraceRundown.c)
+ *     EtwpSetMark @ 0x14093742C (EtwpSetMark.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x14023CC20 (MiIdentifyPfnWrapper.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiReferencePageRuns @ 0x1403570E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1403575C8 (MiDereferencePageRuns.c)
- *     MiPfnsWorthTrying @ 0x1403BB034 (MiPfnsWorthTrying.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwTraceSiloDcEvent @ 0x1405FD5B0 (EtwTraceSiloDcEvent.c)
- *     MiReferencePagePartition @ 0x140629674 (MiReferencePagePartition.c)
+ *     MiReferencePageRuns @ 0x14022F500 (MiReferencePageRuns.c)
+ *     MiIdentifyPfnWrapper @ 0x1402C9880 (MiIdentifyPfnWrapper.c)
+ *     MiDereferencePageRuns @ 0x14037E930 (MiDereferencePageRuns.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A80D0 (EtwTraceSiloDcEvent.c)
  */
 
-__int64 __fastcall MmIdentifyPhysicalMemory(__int64 a1, unsigned int a2, unsigned __int16 a3, int a4)
+__int64 __fastcall MmIdentifyPhysicalMemory(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
-  unsigned int v4; // esi
+  unsigned int v4; // edi
   __int64 v5; // rbx
-  char v6; // r14
-  __int64 v7; // rdi
-  unsigned int v8; // r12d
-  unsigned int *v9; // r13
-  unsigned __int64 v10; // rbx
-  __int64 v11; // r13
-  int v12; // r15d
-  __int64 v13; // rsi
-  char v14; // al
-  __int64 v15; // r14
-  int v18; // [rsp+34h] [rbp-65h]
-  __int128 v20; // [rsp+40h] [rbp-59h] BYREF
-  char *v21; // [rsp+50h] [rbp-49h]
-  int v22; // [rsp+58h] [rbp-41h] BYREF
-  int v23; // [rsp+5Ch] [rbp-3Dh]
-  int v24; // [rsp+60h] [rbp-39h]
-  __int64 v25; // [rsp+68h] [rbp-31h]
-  __int128 v26; // [rsp+70h] [rbp-29h] BYREF
-  __int64 v27; // [rsp+80h] [rbp-19h]
-  unsigned __int64 v28; // [rsp+88h] [rbp-11h]
-  unsigned int *v29; // [rsp+90h] [rbp-9h]
-  __int128 v30; // [rsp+A0h] [rbp+7h] BYREF
+  int v6; // r13d
+  unsigned int v7; // esi
+  __int64 v8; // r8
+  _DWORD *v9; // r9
+  unsigned int *v10; // r15
+  unsigned __int64 v11; // rbx
+  unsigned __int64 v12; // r12
+  __int64 v13; // r15
+  __int64 v14; // rdi
+  __int64 v15; // rax
+  __int64 v16; // r14
+  unsigned __int16 v18; // [rsp+30h] [rbp-49h]
+  __int128 v20; // [rsp+38h] [rbp-41h] BYREF
+  char *v21; // [rsp+48h] [rbp-31h]
+  int v22; // [rsp+50h] [rbp-29h]
+  __int64 v23; // [rsp+58h] [rbp-21h]
+  unsigned __int64 v24; // [rsp+60h] [rbp-19h]
+  unsigned int *v25; // [rsp+68h] [rbp-11h]
+  _QWORD v26[3]; // [rsp+70h] [rbp-9h] BYREF
+  __int128 v27; // [rsp+88h] [rbp+Fh] BYREF
 
-  v22 = 0;
+  v23 = a1;
+  v26[0] = 0LL;
   v4 = a2;
-  v25 = a1;
   v5 = a1;
   v21 = 0LL;
-  v27 = 0LL;
-  v24 = a4;
+  v22 = (int)a4;
+  v18 = a3;
   v20 = 0LL;
-  v6 = a4;
-  v7 = 0LL;
-  v30 = 0LL;
-  v26 = 0LL;
-  v8 = 0;
-  v29 = (unsigned int *)MiReferencePageRuns((__int64)MiSystemPartition, 0);
-  v9 = v29;
-  v18 = 0;
-  if ( *v29 )
+  v6 = (int)a4;
+  v27 = 0LL;
+  v7 = 0;
+  v25 = (unsigned int *)MiReferencePageRuns((__int64)&MiSystemPartition, 0, a3, a4);
+  v10 = v25;
+  if ( *v25 )
   {
-    while ( 1 )
+    do
     {
-      v10 = 48LL * *(_QWORD *)&v9[4 * v8 + 4] - 0x220000000000LL;
-      v28 = v10 + 48LL * *(_QWORD *)&v9[4 * v8 + 6];
-      if ( v10 >= v28 )
-        goto LABEL_28;
-      v11 = v25;
-      v12 = v6 & 1;
-      v23 = v12;
-      do
+      v11 = 48LL * *(_QWORD *)&v10[4 * v7 + 4] - 0x58000000000LL;
+      v12 = v11 + 48LL * *(_QWORD *)&v10[4 * v7 + 6];
+      v24 = v12;
+      if ( v11 < v12 )
       {
-        v13 = 1LL;
-        if ( v12 && !_bittest64((const signed __int64 *)(v10 + 40), 0x28u) && (*(_BYTE *)(v10 + 34) & 7) != 6 )
-          goto LABEL_26;
-        v20 = 0LL;
-        v21 = 0LL;
-        v13 = MiIdentifyPfnWrapper(v10, (__int64)&v20);
-        if ( (v6 & 2) == 0 )
-          goto LABEL_14;
-        if ( v7 )
+        v13 = v23;
+        do
         {
-          if ( *(_WORD *)v7 == ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FF) )
-            goto LABEL_12;
-          PsDereferencePartition(*(_QWORD *)(v7 + 200));
-        }
-        v7 = MiReferencePagePartition(v10, 0);
-        if ( !v7 )
-          goto LABEL_13;
-LABEL_12:
-        if ( MiPfnsWorthTrying(v7, v10, 1LL, 0, &v22) )
-        {
-LABEL_13:
-          v14 = v20;
-          *(_QWORD *)&v20 = v20 | 0x1000000000000000LL;
-          goto LABEL_15;
-        }
-LABEL_14:
-        v14 = v20;
-LABEL_15:
-        if ( (!v12 || (v14 & 0x70) == 0x60) && v13 )
-        {
-          v15 = v13;
-          do
+          v14 = 1LL;
+          if ( !v6 || (*(_QWORD *)(v11 + 40) & 0x1000000000LL) != 0 || (*(_BYTE *)(v11 + 34) & 7) == 6 )
           {
-            *(_QWORD *)&v30 = &v20;
-            *((_QWORD *)&v30 + 1) = 24LL;
-            EtwTraceSiloDcEvent((__int64)&v30, 1u, v11, a2, a3, 0x401804u);
-            ++*((_QWORD *)&v20 + 1);
-            if ( (v20 & 0xF) == 2 )
+            v20 = 0LL;
+            v21 = 0LL;
+            v15 = MiIdentifyPfnWrapper(v11, (__int64)&v20, v8, v9);
+            v14 = v15;
+            if ( !v6 || (v20 & 0x70) == 0x60 )
             {
-              v21 += 8;
+              if ( v15 )
+              {
+                v16 = v15;
+                *(_QWORD *)&v27 = &v20;
+                *((_QWORD *)&v27 + 1) = 24LL;
+                do
+                {
+                  EtwTraceSiloDcEvent((__int64)&v27, 1u, v13, a2, v18, 0x401802u);
+                  ++*((_QWORD *)&v20 + 1);
+                  if ( (v20 & 0xF) == 2 )
+                  {
+                    v21 += 8;
+                  }
+                  else if ( v21 && v21 != MmBadPointer )
+                  {
+                    v21 += 4096;
+                  }
+                  --v16;
+                }
+                while ( v16 );
+                v12 = v24;
+                v6 = v22;
+              }
             }
-            else if ( v21 && v21 != MmBadPointer )
-            {
-              v21 += 4096;
-            }
-            --v15;
           }
-          while ( v15 );
-          v12 = v23;
-          v6 = v24;
+          v11 += 48 * v14;
         }
-LABEL_26:
-        v10 += 48 * v13;
+        while ( v11 < v12 );
+        v10 = v25;
       }
-      while ( v10 < v28 );
-      v8 = v18;
-      v9 = v29;
-LABEL_28:
-      v18 = ++v8;
-      if ( v8 >= *v9 )
-      {
-        v5 = v25;
-        v4 = a2;
-        break;
-      }
+      ++v7;
     }
+    while ( v7 < *v10 );
+    v5 = v23;
+    v4 = a2;
   }
-  MiDereferencePageRuns((__int64)v9);
-  if ( (v6 & 1) == 0 )
+  MiDereferencePageRuns((__int64)v10);
+  if ( !v6 )
   {
-    LODWORD(v26) = v26 & 0xFFFFFFE0;
-    *((_QWORD *)&v26 + 1) = MmPfnDatabase;
-    v27 = MxPfnAllocation;
-    *(_QWORD *)&v30 = &v26;
-    *((_QWORD *)&v30 + 1) = 24LL;
-    EtwTraceSiloDcEvent((__int64)&v30, 1u, v5, v4, 0x27Bu, 0x401804u);
+    LODWORD(v26[0]) &= 0xFFFFFFE0;
+    v26[1] = MmPfnDatabase;
+    v26[2] = MxPfnAllocation;
+    *(_QWORD *)&v27 = v26;
+    *((_QWORD *)&v27 + 1) = 24LL;
+    EtwTraceSiloDcEvent((__int64)&v27, 1u, v5, v4, 0x27Bu, 0x401802u);
   }
-  if ( v7 )
-    PsDereferencePartition(*(_QWORD *)(v7 + 200));
   return 0LL;
 }

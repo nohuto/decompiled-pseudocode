@@ -1,129 +1,121 @@
 /*
- * XREFs of PspGetContextThreadInternal @ 0x140770CE4
+ * XREFs of PspGetContextThreadInternal @ 0x1406C0C14
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     WbGetTrapFrame @ 0x1407632EC (WbGetTrapFrame.c)
- *     WbSetTrapFrame @ 0x140763558 (WbSetTrapFrame.c)
- *     PspInitializeThunkContext @ 0x14077070C (PspInitializeThunkContext.c)
- *     PspWow64GetContextThread @ 0x1407A069C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0968 (PspWow64SetContextThread.c)
- *     NtGetContextThread @ 0x1407E2070 (NtGetContextThread.c)
- *     PsGetContextThread @ 0x1408A6050 (PsGetContextThread.c)
- *     PspPicoGetContextThreadEx @ 0x1409B5C10 (PspPicoGetContextThreadEx.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     PspWow64SetContextThread @ 0x14067A140 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x14067A4EC (PspWow64GetContextThread.c)
+ *     NtGetContextThread @ 0x1406A0CD0 (NtGetContextThread.c)
+ *     PspInitializeThunkContext @ 0x1406C07E0 (PspInitializeThunkContext.c)
+ *     WbGetTrapFrame @ 0x1406C60A0 (WbGetTrapFrame.c)
+ *     WbSetTrapFrame @ 0x1406C65CC (WbSetTrapFrame.c)
+ *     PsGetContextThread @ 0x14090B4F0 (PsGetContextThread.c)
+ *     PspPicoGetContextThreadEx @ 0x14090C350 (PspPicoGetContextThreadEx.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E894 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     RtlInitializeExtendedContext @ 0x14030D1D0 (RtlInitializeExtendedContext.c)
- *     RtlGetExtendedContextLength @ 0x14030D250 (RtlGetExtendedContextLength.c)
- *     RtlpSanitizeContextFlags @ 0x14030D55C (RtlpSanitizeContextFlags.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PspGetSetContextSpecialApc @ 0x1404285E0 (PspGetSetContextSpecialApc.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpReadExtendedContext @ 0x1407703F0 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x1407A11A4 (RtlpWriteExtendedContext.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x14032BE90 (KeInitializeGate.c)
+ *     RtlGetExtendedContextLength @ 0x14033F480 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x14033F500 (RtlInitializeExtendedContext.c)
+ *     RtlpSanitizeContextFlags @ 0x14033F584 (RtlpSanitizeContextFlags.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PspGetSetContextSpecialApc @ 0x140406E10 (PspGetSetContextSpecialApc.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpWriteExtendedContext @ 0x14067A7B8 (RtlpWriteExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1406C0FC0 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall PspGetContextThreadInternal(struct _KTHREAD *a1, __int64 a2, char a3, char a4, char a5)
+__int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
 {
-  struct _KTHREAD *CurrentThread; // r15
+  struct _KTHREAD *CurrentThread; // r12
   __int64 result; // rax
   __int64 v11; // rsi
-  bool v12; // zf
-  __int64 v13; // rax
+  __int64 v12; // rax
+  unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // rcx
+  void *v15; // rsp
   void *v16; // rsp
-  void *v17; // rsp
-  __int64 v18; // rcx
-  unsigned int v19; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v20; // [rsp+44h] [rbp+4h] BYREF
-  __int64 v21; // [rsp+48h] [rbp+8h] BYREF
-  struct _KEVENT v22[16]; // [rsp+50h] [rbp+10h] BYREF
-  _OWORD v23[2]; // [rsp+1D0h] [rbp+190h] BYREF
+  int v17; // ecx
+  unsigned int v18; // [rsp+40h] [rbp+0h] BYREF
+  unsigned int v19; // [rsp+44h] [rbp+4h] BYREF
+  __int64 v20; // [rsp+48h] [rbp+8h] BYREF
+  _QWORD v21[48]; // [rsp+50h] [rbp+10h] BYREF
+  __int128 v22; // [rsp+1D0h] [rbp+190h] BYREF
+  __int64 v23; // [rsp+1E0h] [rbp+1A0h]
 
-  v21 = 0LL;
-  memset(v22, 0, sizeof(v22));
-  v20 = 0;
-  memset(v23, 0, sizeof(v23));
+  v20 = 0LL;
+  memset(v21, 0, sizeof(v21));
+  v19 = 0;
+  v22 = 0LL;
+  v23 = 0LL;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
-    v13 = a2 + 48;
+    v12 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
-      v13 = 0x7FFFFFFF0000LL;
-    v19 = *(_DWORD *)v13;
+      v12 = 0x7FFFFFFF0000LL;
+    v18 = *(_DWORD *)v12;
   }
   else
   {
-    v19 = *(_DWORD *)(a2 + 48);
+    v18 = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags(&v19, a3);
+  result = RtlpSanitizeContextFlags(&v18, a3);
   if ( (int)result >= 0 )
   {
     if ( a3 )
     {
-      result = RtlGetExtendedContextLength(v19, (__int64)&v20);
+      result = RtlGetExtendedContextLength(v18, (__int64)&v19);
       if ( (int)result < 0 )
         return result;
-      v14 = v20 + 15LL;
-      if ( v14 <= v20 )
-        v14 = 0xFFFFFFFFFFFFFF0LL;
-      v15 = v14 & 0xFFFFFFFFFFFFFFF0uLL;
-      v16 = alloca(v15);
-      v17 = alloca(v15);
-      *(_QWORD *)&v22[5].Header.Lock = &v19;
-      result = RtlInitializeExtendedContext((__int64)&v19, v19, (__int64)&v21);
+      v13 = v19 + 15LL;
+      if ( v13 <= v19 )
+        v13 = 0xFFFFFFFFFFFFFF0LL;
+      v14 = v13 & 0xFFFFFFFFFFFFFFF0uLL;
+      v15 = alloca(v14);
+      v16 = alloca(v14);
+      v21[15] = &v18;
+      result = RtlInitializeExtendedContext((__int64)&v18, v18, (__int64)&v20);
       if ( (int)result < 0 )
         return result;
-      v11 = v21;
-      *(_QWORD *)&v22[5].Header.Lock = v21 - 1232;
-      result = RtlpReadExtendedContext(v18, 0, v21, v19, a2, v23);
+      v11 = v20;
+      v21[15] = v20 - 1232;
+      result = RtlpReadExtendedContext(v17, 0, v20, v18, a2, (__int64)&v22);
       if ( (int)result < 0 )
         return result;
     }
     else
     {
-      *(_QWORD *)&v22[5].Header.Lock = a2;
+      v21[15] = a2;
       v11 = a2 + 1232;
     }
-    if ( a4 && (a1->MiscFlags & 0x400) != 0 )
+    if ( a4 && (*(_DWORD *)(a1 + 116) & 0x400) != 0 )
       return 3221225520LL;
-    LOBYTE(v22[3].Header.WaitListHead.Blink) = a4;
-    if ( a1 == CurrentThread )
+    LOBYTE(v21[11]) = a4;
+    if ( (struct _KTHREAD *)a1 == CurrentThread )
     {
-      v22[2].Header.WaitListHead.Blink = 0LL;
-      *(_QWORD *)&v22[3].Header.Lock = a1;
-      BYTE1(v22[3].Header.WaitListHead.Blink) = BYTE1(v22[3].Header.WaitListHead.Blink) & 0xFC | (2 * (a5 & 1));
+      v21[8] = 0LL;
+      v21[9] = a1;
+      BYTE1(v21[11]) = BYTE1(v21[11]) & 0xFC | (2 * (a5 & 1));
       --CurrentThread->SpecialApcDisable;
-      PspGetSetContextSpecialApc((__int64)v22, 0LL, 0LL, &v22[2].Header.WaitListHead.Blink);
-      v12 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v12
-        && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      PspGetSetContextSpecialApc((__int64)v21, 0LL, 0LL, &v21[8]);
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     }
     else
     {
-      BYTE1(v22[3].Header.WaitListHead.Blink) = BYTE1(v22[3].Header.WaitListHead.Blink) & 0xFD | (2 * (a5 & 1)) | 1;
-      KeInitializeEvent(&v22[4], NotificationEvent, 0);
-      KeInitializeApc((__int64)v22, (__int64)a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
-      if ( !(unsigned __int8)KeInsertQueueApc((__int64)v22, 0LL, a1, 2u) )
+      BYTE1(v21[11]) = BYTE1(v21[11]) & 0xFD | (2 * (a5 & 1)) | 1;
+      KeInitializeGate((__int64)&v21[12]);
+      KeInitializeApc((__int64)v21, a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
+      if ( !KeInsertQueueApc((__int64)v21, 0LL, a1, 2) )
         return 3221225473LL;
-      KeWaitForSingleObject(&v22[4], Executive, 0, 0, 0LL);
+      KeWaitForGate((__int64)&v21[12], 0);
     }
-    result = HIDWORD(v22[3].Header.WaitListHead.Blink);
-    if ( SHIDWORD(v22[3].Header.WaitListHead.Blink) >= 0 && *(_QWORD *)&v22[5].Header.Lock != a2 )
-      return RtlpWriteExtendedContext(
-               v22[5].Header.LockNV,
-               (int)a2 + 1232,
-               (unsigned int)v23,
-               *(_DWORD *)(*(_QWORD *)&v22[5].Header.Lock + 48LL),
-               v11);
+    result = HIDWORD(v21[11]);
+    if ( v21[11] >= 0 && v21[15] != a2 )
+      return RtlpWriteExtendedContext(v21[15], a2 + 1232, (__int64)&v22, *(_DWORD *)(v21[15] + 48LL), v11);
   }
   return result;
 }

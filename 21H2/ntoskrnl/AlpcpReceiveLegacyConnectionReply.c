@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpReceiveLegacyConnectionReply @ 0x1406640F0
+ * XREFs of AlpcpReceiveLegacyConnectionReply @ 0x1405DDB60
  * Callers:
- *     NtSecureConnectPort @ 0x140664220 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
  * Callees:
- *     AlpcpQueryRemoteView @ 0x140663FAC (AlpcpQueryRemoteView.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpReadMessageData @ 0x1407A7B20 (AlpcpReadMessageData.c)
- *     AlpcpReceiveSynchronousReply @ 0x1407AD8F0 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1407F58C4 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpQueryRemoteView @ 0x1405DDA24 (AlpcpQueryRemoteView.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1405E3A5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveLegacyConnectionReply(
@@ -27,35 +27,35 @@ __int64 __fastcall AlpcpReceiveLegacyConnectionReply(
   __int16 v14; // r14
   unsigned int v15; // eax
   ULONG_PTR v16; // rcx
-  ULONG_PTR v18; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-38h] BYREF
   _BYTE v19[16]; // [rsp+38h] [rbp-30h] BYREF
   __int64 v20; // [rsp+48h] [rbp-20h]
 
   v8 = a2;
   LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
-  v18 = 0LL;
+  BugCheckParameter2 = 0LL;
   v9 = *a1;
-  v10 = AlpcpReceiveSynchronousReply((int)a1, a2, (int)&v18, 0, 0LL);
+  v10 = AlpcpReceiveSynchronousReply((int)a1, a2, (int)&BugCheckParameter2, 0, 0LL);
   RemoteView = v10;
   if ( !v10 )
   {
     if ( a4 )
     {
-      LODWORD(v20) = 0;
+      v20 = 0LL;
       RemoteView = AlpcpQueryRemoteView(v9, a4, (__int64)v19);
       if ( RemoteView < 0 )
       {
-        v16 = v18;
+        v16 = BugCheckParameter2;
 LABEL_17:
         AlpcpUnlockMessage(v16);
         return (unsigned int)RemoteView;
       }
       *(_QWORD *)(a5 + 40) = v20;
     }
-    v12 = v18;
+    v12 = BugCheckParameter2;
     if ( a6 )
     {
-      v13 = *(_QWORD *)(v18 + 144);
+      v13 = *(_QWORD *)(BugCheckParameter2 + 144);
       if ( v13 )
       {
         *(_DWORD *)a6 = 24;

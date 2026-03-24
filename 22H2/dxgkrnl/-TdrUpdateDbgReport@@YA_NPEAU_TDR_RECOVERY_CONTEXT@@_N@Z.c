@@ -1,15 +1,15 @@
 /*
- * XREFs of ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F850
+ * XREFs of ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266910
  * Callers:
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030E0D0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030EBC0 (-TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrCompleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N1@Z @ 0x1C030EDD0 (-TdrCompleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N1@Z.c)
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F310 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265110 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265C60 (-TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrCompleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N1@Z @ 0x1C0265E90 (-TdrCompleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N1@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02663B0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
- *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F19C (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C030F79C (-TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z.c)
- *     ?TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F7EC (-TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     DpiIsRfxVgpuDevice @ 0x1C0399420 (DpiIsRfxVgpuDevice.c)
+ *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0266244 (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C0266868 (-TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z.c)
+ *     ?TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02668B8 (-TdrUpdateDbgBuffer@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     DpiIsRfxVgpuDevice @ 0x1C02C6F7C (DpiIsRfxVgpuDevice.c)
  */
 
 char __fastcall TdrUpdateDbgReport(struct _TDR_RECOVERY_CONTEXT *a1, char a2)
@@ -18,14 +18,22 @@ char __fastcall TdrUpdateDbgReport(struct _TDR_RECOVERY_CONTEXT *a1, char a2)
   char v3; // r10
   __int64 v5; // rcx
   __int64 v6; // r8
-  __int64 v8; // r9
-  __int64 v9; // r10
-  __int64 v10; // r11
-  bool v11; // r8
+  __int64 v8; // rdi
+  __int64 v9; // r9
+  __int64 v10; // r10
+  bool v11; // r11
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // rax
-  unsigned int v15; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  unsigned int v23; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = *((_QWORD *)a1 + 4);
   v3 = a2;
@@ -41,46 +49,56 @@ char __fastcall TdrUpdateDbgReport(struct _TDR_RECOVERY_CONTEXT *a1, char a2)
     if ( (unsigned __int8)DpiIsRfxVgpuDevice(v5) )
       return 0;
   }
-  if ( !*((_QWORD *)a1 + 355) || v3 )
+  v8 = *((_QWORD *)a1 + 354);
+  if ( !v8 || v3 )
   {
     TdrGetDbgOwnerTag(a1);
-    v15 = 0;
-    TdrRetrieveSecondaryBucketingKey(a1, &v15);
-    if ( v8 )
-      v11 = *(_QWORD *)(v8 + 2928) == 0LL;
+    v23 = 0;
+    TdrRetrieveSecondaryBucketingKey(a1, &v23);
+    if ( v9 )
+      v11 = *(_QWORD *)(v9 + 2704) == 0LL;
     else
       v11 = 0;
     if ( *((_DWORD *)a1 + 4) == 6 )
-      v12 = (unsigned int)(*((_BYTE *)a1 + 2820) != 0) + 321;
+      v12 = (unsigned int)(*((_BYTE *)a1 + 2812) != 0) + 321;
     else
       v12 = 279LL;
-    if ( v8 )
-      v13 = *(_QWORD *)(v8 + 216);
+    if ( v9 )
+      v13 = *(_QWORD *)(v9 + 216);
     else
       v13 = 0LL;
-    v14 = WdDbgReportRecreate(v13, v12, a1, v9, v15, *((_QWORD *)a1 + 351), v11, v10, 0);
-    *((_QWORD *)a1 + 355) = v14;
+    v14 = WdDbgReportRecreate(v13, v12, a1, v10, v23, *((_QWORD *)a1 + 350), v11, v8, 0);
+    *((_QWORD *)a1 + 354) = v14;
     if ( !v14 )
     {
-      WdLogSingleEntry1(2LL, a1);
+      v17 = WdLogNewEntry5_WdError(v16, v15);
+      *(_QWORD *)(v17 + 24) = a1;
+LABEL_21:
+      WdLogEvent5_WdError(v17);
       return 0;
     }
-    if ( !(unsigned __int8)WdDbgReportQueryInfo(v14, (char *)a1 + 128) )
-      WdLogSingleEntry1(2LL, a1);
+    if ( !(unsigned __int8)WdDbgReportQueryInfo(v14, (char *)a1 + 120) )
+    {
+      v20 = WdLogNewEntry5_WdError(v19, v18);
+      *(_QWORD *)(v20 + 24) = a1;
+      WdLogEvent5_WdError(v20);
+    }
   }
-  if ( *((_QWORD *)a1 + 356) )
+  if ( *((_QWORD *)a1 + 355) )
   {
-    if ( *((_QWORD *)a1 + 357) )
+    if ( *((_QWORD *)a1 + 356) )
     {
       TdrUpdateDbgBuffer(a1);
       if ( !(unsigned __int8)WdDbgReportSecondaryData(
+                               *((_QWORD *)a1 + 354),
                                *((_QWORD *)a1 + 355),
-                               *((_QWORD *)a1 + 356),
-                               *((unsigned int *)a1 + 714)) )
+                               *((unsigned int *)a1 + 712)) )
       {
-        *((_DWORD *)a1 + 29) |= 0x80000000;
-        WdLogSingleEntry2(2LL, a1, *((_QWORD *)a1 + 357));
-        return 0;
+        *((_DWORD *)a1 + 27) |= 0x80000000;
+        v17 = WdLogNewEntry5_WdError(v22, v21);
+        *(_QWORD *)(v17 + 24) = a1;
+        *(_QWORD *)(v17 + 32) = *((_QWORD *)a1 + 356);
+        goto LABEL_21;
       }
     }
   }

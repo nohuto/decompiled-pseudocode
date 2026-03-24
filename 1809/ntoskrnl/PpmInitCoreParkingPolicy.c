@@ -12,9 +12,9 @@ _BYTE *PpmInitCoreParkingPolicy()
   _BYTE *result; // rax
 
   v0 = 2LL;
-  byte_14040E854 = 100;
-  byte_14040F2FC = 100;
-  result = &unk_14040F2FE;
+  byte_14040E874 = 100;
+  byte_14040F31C = 100;
+  result = &unk_14040F31E;
   do
   {
     *(result - 2728) = 100;
@@ -25,15 +25,15 @@ _BYTE *PpmInitCoreParkingPolicy()
     --v0;
   }
   while ( v0 );
-  word_14040E848 = 0;
-  word_14040F2F0 = 0;
-  dword_14040E850 = 1;
-  dword_14040F2F8 = 1;
-  dword_14040E84C = 1;
-  dword_14040F2F4 = 1;
-  word_14040E844 = 24902;
-  word_14040F2EC = 24902;
-  byte_14040E846 = 20;
-  byte_14040F2EE = 20;
+  word_14040E868 = 0;
+  word_14040F310 = 0;
+  dword_14040E870 = 1;
+  dword_14040F318 = 1;
+  dword_14040E86C = 1;
+  dword_14040F314 = 1;
+  word_14040E864 = 24902;
+  word_14040F30C = 24902;
+  byte_14040E866 = 20;
+  byte_14040F30E = 20;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0255540
+ * XREFs of ?HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C02587D4
  * Callers:
- *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C025547C (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
+ *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C0258710 (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memcmp @ 0x1C0159400 (memcmp.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?TraceLoggingIntObjUsageSummaryEvent@@YAXPEAUtagINTOBJTELEMETRYSTATE@@GGU_GUID@@1_K@Z @ 0x1C021E740 (-TraceLoggingIntObjUsageSummaryEvent@@YAXPEAUtagINTOBJTELEMETRYSTATE@@GGU_GUID@@1_K@Z.c)
- *     ?ProcessGetAppSessionGuid@@YA?AU_GUID@@PEAUtagPROCESSINFO@@@Z @ 0x1C0255858 (-ProcessGetAppSessionGuid@@YA-AU_GUID@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?UpdateIntObjUsage@@YAXPEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@_K@Z @ 0x1C02558B8 (-UpdateIntObjUsage@@YAXPEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYP.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memcmp @ 0x1C0165DD0 (memcmp.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?TraceLoggingIntObjUsageSummaryEvent@@YAXPEAUtagINTOBJTELEMETRYSTATE@@GGU_GUID@@1_K@Z @ 0x1C0224EBC (-TraceLoggingIntObjUsageSummaryEvent@@YAXPEAUtagINTOBJTELEMETRYSTATE@@GGU_GUID@@1_K@Z.c)
+ *     ?ProcessGetAppSessionGuid@@YA?AU_GUID@@PEAUtagPROCESSINFO@@@Z @ 0x1C0258AEC (-ProcessGetAppSessionGuid@@YA-AU_GUID@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?UpdateIntObjUsage@@YAXPEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@_K@Z @ 0x1C0258B4C (-UpdateIntObjUsage@@YAXPEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYP.c)
  */
 
 __int64 __fastcall HandleIntObjUsageTelemetry(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
@@ -24,7 +24,7 @@ __int64 __fastcall HandleIntObjUsageTelemetry(__int64 a1, __int64 a2, __int64 a3
   struct tagINTOBJTELEMETRYSTATE *v17; // rcx
   __int64 v18; // rax
   __int64 v19; // r8
-  __int64 v20; // rdx
+  __int16 v20; // dx
   __int64 v21; // xmm1_8
   int v22; // eax
   _QWORD v24[4]; // [rsp+30h] [rbp-A9h] BYREF
@@ -65,12 +65,12 @@ LABEL_14:
     {
       if ( gmsInputEndTime < gmsInputStartTime )
       {
-        v17 = (dword_1C033BD14 & 2) != 0 ? (struct tagINTOBJTELEMETRYSTATE *)0x30 : 0LL;
+        v17 = (dword_1C03419EC & 2) != 0 ? (struct tagINTOBJTELEMETRYSTATE *)0x30 : 0LL;
         *(struct tagINTOBJTELEMETRYSTATE near **)((char *)&gIntObjTelemetryState + (_QWORD)v17 + 40) = (struct tagINTOBJTELEMETRYSTATE near *)(*(char **)((char *)&gIntObjTelemetryState + (_QWORD)v17 + 40) + v11 - gmsInputStartTime);
       }
-      v18 = *(_QWORD *)(a1 + 544);
+      v18 = *(_QWORD *)(a1 + 552);
       v19 = *(unsigned __int16 *)(v18 + 112);
-      v20 = *(unsigned __int16 *)(v18 + 110);
+      v20 = *(_WORD *)(v18 + 110);
       *(GUID *)&v25[1] = gLastTargetAppSessionGuid;
       *(GUID *)&v24[1] = gLastForegroundAppSessionGuid;
       TraceLoggingIntObjUsageSummaryEvent(v17, v20, v19, (struct _GUID *)&v24[1], (struct _GUID *)&v25[1], v12);

@@ -1,12 +1,12 @@
 /*
- * XREFs of DpiInitialize @ 0x1C005FDD0
+ * XREFs of DpiInitialize @ 0x1C00238E0
  * Callers:
  *     <none>
  * Callees:
- *     DpiInitializeInternal @ 0x1C0029B28 (DpiInitializeInternal.c)
+ *     DpiInitializeInternal @ 0x1C00239B8 (DpiInitializeInternal.c)
  */
 
-__int64 __fastcall DpiInitialize(void *a1, const UNICODE_STRING *a2, _QWORD *a3)
+__int64 __fastcall DpiInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
-  return DpiInitializeInternal(a1, a2, a3, 0);
+  return DpiInitializeInternal(a1, a2, a3, 0LL);
 }

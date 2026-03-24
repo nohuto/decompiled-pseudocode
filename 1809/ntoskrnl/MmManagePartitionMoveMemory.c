@@ -1,10 +1,10 @@
 /*
- * XREFs of MmManagePartitionMoveMemory @ 0x140860AA4
+ * XREFs of MmManagePartitionMoveMemory @ 0x140860A84
  * Callers:
  *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
  * Callees:
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE84 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
  */
 
 __int64 __fastcall MmManagePartitionMoveMemory(ULONG_PTR **a1, ULONG_PTR **a2, __int64 a3, KPROCESSOR_MODE a4)

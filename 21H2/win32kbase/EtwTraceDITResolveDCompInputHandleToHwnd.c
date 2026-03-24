@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDITResolveDCompInputHandleToHwnd @ 0x1C0007080
+ * XREFs of EtwTraceDITResolveDCompInputHandleToHwnd @ 0x1C0003400
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppxq_EtwWriteTransfer @ 0x1C015047C (McTemplateK0ppxq_EtwWriteTransfer.c)
+ *     McTemplateK0ppxq_EtwWriteTransfer @ 0x1C0125E40 (McTemplateK0ppxq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDITResolveDCompInputHandleToHwnd(int a1, int a2, int a3, char a4)

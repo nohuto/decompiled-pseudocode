@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01E3DC4
+ * XREFs of ?GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01B3288
  * Callers:
- *     RIMSetDeviceOutputConfig @ 0x1C018FED8 (RIMSetDeviceOutputConfig.c)
+ *     RIMSetDeviceOutputConfig @ 0x1C0164B4C (RIMSetDeviceOutputConfig.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +13,9 @@ char __fastcall InputConfig::GetPointerDeviceConfig(
         struct CLockedInputSpaceRegion *a4)
 {
   char v4; // di
-  char *v8; // rax
+  __int64 v8; // rax
   CInputConfig *v9; // r13
-  CInputConfig *v10; // rcx
+  CInputConfig *v10; // rbx
   CInputConfig *i; // r15
   _QWORD **v12; // rbx
   _QWORD **v13; // rax
@@ -25,11 +25,9 @@ char __fastcall InputConfig::GetPointerDeviceConfig(
   v4 = 0;
   if ( *((_DWORD *)a2 + 6) == 7 )
   {
-    v8 = (char *)*((_QWORD *)gpInputConfig + 3);
-    if ( !v8 )
-      v8 = (char *)gpInputConfig + 32;
-    *(_QWORD *)a3 = v8;
     v4 = 1;
+    v8 = *((_QWORD *)gpInputConfig + 3);
+    *(_QWORD *)a3 = v8;
     *(_QWORD *)a4 = v8 + 24;
   }
   else
@@ -38,23 +36,21 @@ char __fastcall InputConfig::GetPointerDeviceConfig(
     KeEnterCriticalRegion();
     ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
     v10 = *(CInputConfig **)v9;
-    for ( i = **(CInputConfig ***)v9; ; i = *(CInputConfig **)i )
+    for ( i = **(CInputConfig ***)v9; v10 != v9; i = *(CInputConfig **)i )
     {
-      v12 = 0LL;
-      if ( v10 != v9 )
-        v12 = (_QWORD **)((char *)v10 + 16);
+      v12 = (_QWORD **)((char *)v10 + 16);
       if ( !v12 )
         break;
-      if ( *((_DWORD *)v12 + 363) )
+      if ( *((_DWORD *)v12 + 355) )
       {
-        if ( *((_DWORD *)a1 + 334) )
+        if ( *((_DWORD *)a1 + 336) )
         {
-          if ( *((_DWORD *)a1 + 338) == 4 )
+          if ( *((_DWORD *)a1 + 340) == 4 )
           {
             if ( ((_DWORD)v12[1] & 1) != 0 )
             {
-              v13 = v12 + 92;
-LABEL_29:
+              v13 = v12 + 90;
+LABEL_26:
               *(_QWORD *)a3 = v12;
               v4 = 1;
               *(_QWORD *)a4 = v13;
@@ -65,17 +61,17 @@ LABEL_29:
           {
             KeEnterCriticalRegion();
             ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
-            for ( j = v12[182]; ; j = (_QWORD *)*j )
+            for ( j = v12[178]; ; j = (_QWORD *)*j )
             {
               v15 = 0LL;
-              if ( j != v12 + 182 )
+              if ( j != v12 + 178 )
                 v15 = j + 2;
               if ( !v15 )
                 break;
               if ( (v15[4] & 2) != 0
-                && v15[9] == *((_DWORD *)a1 + 467)
-                && v15[10] == *((_DWORD *)a1 + 468)
-                && v15[11] == *((_DWORD *)a1 + 470) )
+                && v15[9] == *((_DWORD *)a1 + 469)
+                && v15[10] == *((_DWORD *)a1 + 470)
+                && v15[11] == *((_DWORD *)a1 + 472) )
               {
                 *(_QWORD *)a3 = v12;
                 v4 = 1;
@@ -92,7 +88,7 @@ LABEL_29:
         else if ( ((_DWORD)v12[1] & 1) != 0 )
         {
           v13 = v12 + 3;
-          goto LABEL_29;
+          goto LABEL_26;
         }
       }
       v10 = i;

@@ -2,7 +2,7 @@
  * XREFs of PopAvlDeleteStatsForPowerRequest @ 0x14058883C
  * Callers:
  *     PopStatsDeletePowerRequest @ 0x140589BBC (PopStatsDeletePowerRequest.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE3C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
  * Callees:
  *     PoUninitializeStopWatch @ 0x140001E10 (PoUninitializeStopWatch.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)

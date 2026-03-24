@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAlpcOpenSenderProcess @ 0x14041B780
+ * XREFs of ZwAlpcOpenSenderProcess @ 0x1403FAB00
  * Callers:
- *     PopUmpoProcessMessage @ 0x1407A6F88 (PopUmpoProcessMessage.c)
+ *     <none>
  * Callees:
  *     <none>
  */

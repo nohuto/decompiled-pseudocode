@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvIsExternalMonitorActive @ 0x1C00BCAD4
+ * XREFs of DrvIsExternalMonitorActive @ 0x1C009A2E8
  * Callers:
- *     UpdateExternalMonitorConnectedStatus @ 0x1C00BCA40 (UpdateExternalMonitorConnectedStatus.c)
+ *     UpdateExternalMonitorConnectedStatus @ 0x1C009A254 (UpdateExternalMonitorConnectedStatus.c)
  * Callees:
- *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C00BCD1C (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
- *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C00BCDF4 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C009A540 (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
+ *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C009A654 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall DrvIsExternalMonitorActive(_BYTE *a1)
@@ -16,9 +16,9 @@ __int64 __fastcall DrvIsExternalMonitorActive(_BYTE *a1)
   __int64 v4; // r9
   __int64 v5; // rax
   int v6; // eax
-  _BYTE v8[432]; // [rsp+20h] [rbp-1D8h] BYREF
-  unsigned int v9; // [rsp+1D0h] [rbp-28h]
-  __int64 v10; // [rsp+1D8h] [rbp-20h]
+  _BYTE v8[400]; // [rsp+20h] [rbp-1B8h] BYREF
+  unsigned int v9; // [rsp+1B0h] [rbp-28h]
+  __int64 v10; // [rsp+1B8h] [rbp-20h]
 
   memset(v8, 0, sizeof(v8));
   v9 = 0;
@@ -32,7 +32,7 @@ __int64 __fastcall DrvIsExternalMonitorActive(_BYTE *a1)
     {
       while ( 1 )
       {
-        v4 = 216LL * v3;
+        v4 = 200LL * v3;
         v5 = *(_QWORD *)(v4 + v10);
         if ( v5 < 0 && (v5 & 0x1000000000000000LL) == 0 && (v5 & 0x800000000000000LL) == 0 )
         {

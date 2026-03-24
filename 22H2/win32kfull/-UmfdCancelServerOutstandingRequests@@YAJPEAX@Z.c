@@ -1,23 +1,23 @@
 /*
- * XREFs of ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00A5A70
+ * XREFs of ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F4448
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
- *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5928 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F42D8 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
  * Callees:
- *     ?DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00B6EA0 (-DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ.c)
- *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C0307468 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
+ *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DF014 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
  */
 
-CMultipleConsumerWorkQueue::CWaitableWorkItem *__fastcall UmfdCancelServerOutstandingRequests(CWorkItemQueue **a1)
+PSLIST_ENTRY __fastcall UmfdCancelServerOutstandingRequests(union _SLIST_HEADER **a1)
 {
-  CMultipleConsumerWorkQueue::CWaitableWorkItem *result; // rax
+  PSLIST_ENTRY result; // rax
 
   while ( 1 )
   {
-    result = CWorkItemQueue::DequeueWorkItem(*a1);
+    result = ExpInterlockedPopEntrySList(*a1 + 1);
     if ( !result )
       break;
-    CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel(result);
+    *((_DWORD *)&result->Next + 2) = 2;
+    CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel((CMultipleConsumerWorkQueue::CWaitableWorkItem *)result);
   }
   return result;
 }

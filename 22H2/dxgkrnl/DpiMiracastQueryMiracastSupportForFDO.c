@@ -1,100 +1,88 @@
 /*
- * XREFs of DpiMiracastQueryMiracastSupportForFDO @ 0x1C0206800
+ * XREFs of DpiMiracastQueryMiracastSupportForFDO @ 0x1C0174FC4
  * Callers:
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C020667C (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0174DC4 (DxgkMiracastQueryMiracastSupportInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001D928 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
- *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001D958 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
- *     ?Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C002395C (-Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
- *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0023BA4 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
- *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C0023CB0 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C001E840 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C001E898 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001FBB8 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
+ *     ?Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C001FBE8 (-Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001FCD4 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DpiMiracastQueryMiracastSupportForFDO(struct _IO_REMOVE_LOCK *a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  char v7; // bp
-  __int64 v8; // rcx
-  _WORD *v9; // rcx
+  __int64 v5; // rdx
+  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *v7; // rcx
+  char v8; // bp
+  struct _LIST_ENTRY *Flink; // rcx
+  struct _LIST_ENTRY **p_Blink; // rcx
   char v11; // cl
-  struct _IO_REMOVE_LOCK *v12; // [rsp+50h] [rbp-28h] BYREF
-  char v13; // [rsp+58h] [rbp-20h]
-  _BYTE v14[16]; // [rsp+60h] [rbp-18h] BYREF
+  __int64 v13; // rax
+  __int64 v14; // rax
+  struct _IO_REMOVE_LOCK *v15; // [rsp+30h] [rbp-28h] BYREF
+  char v16; // [rsp+38h] [rbp-20h]
+  _BYTE v17[24]; // [rsp+40h] [rbp-18h] BYREF
 
   v2 = 0;
-  v12 = a1;
+  v15 = a1;
   *(_DWORD *)a2 = 0;
-  v13 = 0;
-  AUTO_PNPPOWER_LOCK::AUTO_PNPPOWER_LOCK((AUTO_PNPPOWER_LOCK *)v14, (struct _COMMON_PNP_CONTEXT *)a1);
-  if ( AUTO_REMOVE_LOCK::Acquire(&v12) < 0 )
+  v16 = 0;
+  AUTO_PNPPOWER_LOCK::AUTO_PNPPOWER_LOCK((AUTO_PNPPOWER_LOCK *)v17, (struct _COMMON_PNP_CONTEXT *)a1);
+  if ( AUTO_REMOVE_LOCK::Acquire(&v15) < 0 )
   {
     v2 = -1073741637;
   }
   else
   {
-    AUTO_PNPPOWER_LOCK::Acquire((AUTO_PNPPOWER_LOCK *)v14);
-    v5 = *(_QWORD *)&a1[122].Common.RemoveEvent.Header.Lock;
-    if ( v5 )
+    AUTO_PNPPOWER_LOCK::Acquire((AUTO_PNPPOWER_LOCK *)v17);
+    Blink = a1[121].Common.RemoveEvent.Header.WaitListHead.Blink;
+    if ( Blink )
     {
-      v6 = *(_QWORD *)(v5 + 2920);
-      if ( v6 )
+      v7 = Blink[168].Blink;
+      if ( v7 )
       {
-        v7 = *(_BYTE *)(v6 + 290);
-        v8 = *(_QWORD *)(v5 + 2928);
-        if ( v8 )
+        v8 = BYTE2(v7[15].Blink);
+        Flink = Blink[169].Flink;
+        if ( Flink )
         {
-          v9 = (_WORD *)(v8 + 640);
+          p_Blink = &Flink[32].Blink;
         }
         else
         {
-          WdLogSingleEntry1(2LL, 1312LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"The selected adapter is display only adapter",
-            1312LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          v9 = 0LL;
+          v14 = WdLogNewEntry5_WdError(0LL, v5);
+          *(_QWORD *)(v14 + 24) = 1287LL;
+          WdLogEvent5_WdError(v14);
+          Blink = a1[121].Common.RemoveEvent.Header.WaitListHead.Blink;
+          p_Blink = 0LL;
         }
-        if ( *(int *)(*(_QWORD *)&a1[122].Common.RemoveEvent.Header.Lock + 2820LL) >= 2000 )
+        if ( SHIDWORD(Blink[162].Flink) >= 2000 )
         {
-          if ( v7 )
+          if ( v8 )
             *(_BYTE *)a2 = 1;
-          if ( LODWORD(a1[94].Common.RemoveEvent.Header.WaitListHead.Blink) >= 2 && v9 && *v9 && v7 )
+          if ( a1[94].Common.RemoveEvent.Header.LockNV >= 2u && p_Blink && *(_WORD *)p_Blink && v8 )
             *(_BYTE *)(a2 + 1) = 1;
         }
-        if ( a1[101].Common.RemoveEvent.Header.LockNV != -1 && *(_WORD *)&a1[152].Common.Removed )
+        if ( LODWORD(a1[100].Common.RemoveEvent.Header.WaitListHead.Blink) != -1
+          && LOWORD(a1[153].Common.RemoveEvent.Header.WaitListHead.Blink) )
         {
-          v11 = a1[101].Common.IoCount & 1;
+          v11 = BYTE4(a1[100].Common.RemoveEvent.Header.WaitListHead.Flink) & 1;
           *(_BYTE *)(a2 + 2) = 1;
           *(_BYTE *)(a2 + 3) = v11;
         }
       }
       else
       {
-        WdLogSingleEntry1(2LL, 1289LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"The selected adapter is render-only",
-          1289LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v13 = WdLogNewEntry5_WdError(0LL, v5);
+        *(_QWORD *)(v13 + 24) = 1264LL;
+        WdLogEvent5_WdError(v13);
         v2 = -1073741811;
       }
     }
   }
-  AUTO_PNPPOWER_LOCK::Release((AUTO_PNPPOWER_LOCK *)v14);
-  AUTO_REMOVE_LOCK::Release((PVOID *)&v12);
+  AUTO_PNPPOWER_LOCK::Release((AUTO_PNPPOWER_LOCK *)v17);
+  AUTO_REMOVE_LOCK::Release((PVOID *)&v15);
   return v2;
 }

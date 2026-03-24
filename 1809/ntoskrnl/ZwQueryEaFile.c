@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryEaFile @ 0x1401BA930
+ * XREFs of ZwQueryEaFile @ 0x1401BA950
  * Callers:
  *     <none>
  * Callees:

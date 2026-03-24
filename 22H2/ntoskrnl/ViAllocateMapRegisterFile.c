@@ -1,120 +1,124 @@
 /*
- * XREFs of ViAllocateMapRegisterFile @ 0x140AC8C84
+ * XREFs of ViAllocateMapRegisterFile @ 0x1409CD5D4
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140AC5B90 (VfAllocateAdapterChannel.c)
- *     VfBuildScatterGatherList @ 0x140AC6650 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x140AC7800 (VfGetScatterGatherList.c)
- *     VfHalAllocateMapRegisters @ 0x140AC7D60 (VfHalAllocateMapRegisters.c)
+ *     VfAllocateAdapterChannel @ 0x1409CA5D0 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x1409CB010 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x1409CC100 (VfGetScatterGatherList.c)
+ *     VfHalAllocateMapRegisters @ 0x1409CC650 (VfHalAllocateMapRegisters.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     ExInterlockedInsertHeadList @ 0x1403519A0 (ExInterlockedInsertHeadList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ViAllocateFromContiguousMemory @ 0x140AC8B8C (ViAllocateFromContiguousMemory.c)
- *     ViFreeToContiguousMemory @ 0x140AC9D34 (ViFreeToContiguousMemory.c)
- *     ViInitializePadding @ 0x140ACA6E4 (ViInitializePadding.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     ExInterlockedInsertHeadList @ 0x1402F8650 (ExInterlockedInsertHeadList.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViAllocateFromContiguousMemory @ 0x1409CD4DC (ViAllocateFromContiguousMemory.c)
+ *     ViFreeToContiguousMemory @ 0x1409CE660 (ViFreeToContiguousMemory.c)
+ *     ViInitializePadding @ 0x1409CEFFC (ViInitializePadding.c)
  */
 
 char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // edi
-  __int64 Pool2; // rax
-  char *v5; // rbx
+  SIZE_T v4; // rsi
+  char *PoolWithTag; // rax
+  char *v6; // rbx
   PMDL Mdl; // rsi
-  __int64 v7; // rax
-  struct _MDL *v8; // r15
-  __int64 *v9; // r14
-  __int64 v10; // rax
+  PVOID v8; // rax
+  struct _MDL *v9; // r15
+  __int64 *v10; // r14
   __int64 v11; // rax
   __int64 v12; // rax
+  PVOID v13; // rax
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  PVOID v14; // rax
-  int v16; // edi
-  PVOID *v17; // r14
-  void *v18; // rcx
+  PVOID v15; // rax
+  int v17; // edi
+  PVOID *v18; // r14
+  void *v19; // rcx
 
   v3 = a2;
-  if ( a2 + *(_DWORD *)(a1 + 192) <= 0x20 )
+  if ( a2 + *(_DWORD *)(a1 + 160) <= 0x20 )
   {
     if ( a2 )
     {
-      Pool2 = ExAllocatePool2(64LL, 32 * (a2 - 1) + 120, 0x566C6148u);
-      v5 = (char *)Pool2;
-      if ( Pool2 )
+      v4 = 32 * (a2 - 1) + 120;
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x566C6148u);
+      v6 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_DWORD *)(Pool2 + 28) = v3;
+        memset(PoolWithTag, 0, (unsigned int)v4);
+        *((_DWORD *)v6 + 7) = v3;
         Mdl = IoAllocateMdl(0LL, v3 << 12, 0, 0, 0LL);
         if ( Mdl )
         {
-          v7 = ExAllocatePool2(64LL, (unsigned __int64)v3 << 12, 0x566C6148u);
-          *((_QWORD *)v5 + 9) = v7;
-          if ( v7 )
+          v8 = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned __int64)v3 << 12, 0x566C6148u);
+          *((_QWORD *)v6 + 9) = v8;
+          if ( v8 )
           {
-            v8 = Mdl + 1;
-            v9 = (__int64 *)(v5 + 104);
+            v9 = Mdl + 1;
+            v10 = (__int64 *)(v6 + 104);
             do
             {
-              v10 = ViAllocateFromContiguousMemory(a1, *((_DWORD *)v5 + 7) - v3);
-              *v9 = v10;
-              if ( v10 )
+              v11 = ViAllocateFromContiguousMemory(a1, *((_DWORD *)v6 + 7) - v3);
+              *v10 = v11;
+              if ( v11 )
               {
-                v11 = 344LL;
+                v12 = 312LL;
               }
               else
               {
-                v12 = ExAllocatePool2(72LL, 0x3000uLL, 0x566C6148u);
-                *v9 = v12;
-                if ( !v12 )
+                v13 = ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, 0x3000uLL, 0x566C6148u);
+                *v10 = (__int64)v13;
+                if ( !v13 )
                   goto LABEL_14;
-                v11 = 348LL;
+                v12 = 316LL;
               }
-              _InterlockedIncrement((volatile signed __int32 *)(v11 + a1));
-              ViInitializePadding(*v9, 12288LL, 0LL, 0LL);
-              PhysicalAddress = MmGetPhysicalAddress((PVOID)(*v9 + 4096));
-              v9 += 4;
-              v8->Next = (struct _MDL *)((unsigned __int64)PhysicalAddress.QuadPart >> 12);
-              v8 = (struct _MDL *)((char *)v8 + 8);
+              _InterlockedIncrement((volatile signed __int32 *)(v12 + a1));
+              ViInitializePadding(*v10, 12288LL, 0LL, 0LL);
+              PhysicalAddress = MmGetPhysicalAddress((PVOID)(*v10 + 4096));
+              v10 += 4;
+              v9->Next = (struct _MDL *)((unsigned __int64)PhysicalAddress.QuadPart >> 12);
+              v9 = (struct _MDL *)((char *)v9 + 8);
               --v3;
             }
             while ( v3 );
             Mdl->MdlFlags |= 2u;
-            v14 = MmMapLockedPagesSpecifyCache(Mdl, 0, MmCached, 0LL, 0, 0x40000010u);
-            *((_QWORD *)v5 + 8) = v14;
-            if ( v14 )
+            v15 = MmMapLockedPagesSpecifyCache(Mdl, 0, MmCached, 0LL, 0, 0x40000010u);
+            *((_QWORD *)v6 + 8) = v15;
+            if ( v15 )
             {
-              *((_QWORD *)v5 + 10) = 0LL;
-              *((_QWORD *)v5 + 7) = Mdl;
-              *(_DWORD *)v5 = -1393569779;
-              ExInterlockedInsertHeadList((PLIST_ENTRY)(a1 + 136), (PLIST_ENTRY)(v5 + 8), (PKSPIN_LOCK)(a1 + 152));
-              return v5;
+              *((_QWORD *)v6 + 10) = 0LL;
+              *((_QWORD *)v6 + 7) = Mdl;
+              *(_DWORD *)v6 = -1393569779;
+              ExInterlockedInsertHeadList((PLIST_ENTRY)(a1 + 104), (PLIST_ENTRY)(v6 + 8), (PKSPIN_LOCK)(a1 + 120));
+              return v6;
             }
           }
         }
 LABEL_14:
-        v16 = *((_DWORD *)v5 + 7);
-        if ( v16 )
+        v17 = *((_DWORD *)v6 + 7);
+        if ( v17 )
         {
-          v17 = (PVOID *)(v5 + 104);
+          v18 = (PVOID *)(v6 + 104);
           do
           {
-            if ( !*v17 )
+            if ( !*v18 )
               break;
-            if ( !(unsigned int)ViFreeToContiguousMemory(a1, *v17, (unsigned int)(*((_DWORD *)v5 + 7) - v16)) )
-              ExFreePoolWithTag(*v17, 0);
-            v17 += 4;
-            --v16;
+            if ( !(unsigned int)ViFreeToContiguousMemory(a1, *v18, (unsigned int)(*((_DWORD *)v6 + 7) - v17)) )
+              ExFreePoolWithTag(*v18, 0);
+            v18 += 4;
+            --v17;
           }
-          while ( v16 );
+          while ( v17 );
         }
         if ( Mdl )
           IoFreeMdl(Mdl);
-        v18 = (void *)*((_QWORD *)v5 + 9);
-        if ( v18 )
-          ExFreePoolWithTag(v18, 0);
-        ExFreePoolWithTag(v5, 0);
+        v19 = (void *)*((_QWORD *)v6 + 9);
+        if ( v19 )
+          ExFreePoolWithTag(v19, 0);
+        ExFreePoolWithTag(v6, 0);
       }
     }
   }

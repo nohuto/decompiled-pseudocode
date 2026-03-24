@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DesiresTearing@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x1802B11C0
+ * XREFs of ?DesiresTearing@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x180263100
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDxHandleBitmapRealization::DesiresTearing(CDxHandleBitmapRealization *this)
 {
-  return (*((_DWORD *)this - 32) & 0x800) != 0;
+  return (*((_DWORD *)this - 29) & 0x800) != 0;
 }

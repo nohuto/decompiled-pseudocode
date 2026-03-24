@@ -1,40 +1,37 @@
 /*
- * XREFs of PspProcessOpen @ 0x1406B8120
+ * XREFs of PspProcessOpen @ 0x1406078E0
  * Callers:
  *     <none>
  * Callees:
- *     PspIsParentProcess @ 0x1402268CC (PspIsParentProcess.c)
- *     PsTestProtectedProcessIncompatibility @ 0x1406B8204 (PsTestProtectedProcessIncompatibility.c)
+ *     PspIsParentProcess @ 0x140251BF0 (PspIsParentProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x1406079D8 (PsTestProtectedProcessIncompatibility.c)
  */
 
-__int64 __fastcall PspProcessOpen(__int64 a1, char a2, __int64 a3, __int64 a4, int *a5)
+__int64 __fastcall PspProcessOpen(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4, int *a5)
 {
   bool IsParentProcess; // al
-  unsigned int v9; // r10d
-  __int64 v10; // rcx
-  int v11; // edx
+  __int64 v9; // r9
+  unsigned int v10; // r10d
+  unsigned int v11; // ecx
+  int v12; // edx
 
   IsParentProcess = PspIsParentProcess(a3, a4);
-  v10 = v9 & 0xFFFFFFFE;
+  v11 = v10 & 0xFFFFFFFE;
   if ( !IsParentProcess )
-    v10 = v9;
-  if ( ((unsigned int)v10 & *a5) != 0 )
-  {
-    LOBYTE(v10) = a2;
-    if ( (unsigned __int8)PsTestProtectedProcessIncompatibility(v10, a3, a4) )
-      return 3221225506LL;
-  }
-  if ( *(_QWORD *)(a4 + 2240) && !*(_QWORD *)(a3 + 2240) && a2 && (~DWORD2(xmmword_140C381A0) & *a5) != 0 )
+    v11 = v10;
+  if ( (v11 & *a5) != 0 && (unsigned __int8)PsTestProtectedProcessIncompatibility(a2, a3, v9) )
     return 3221225506LL;
-  v11 = *a5;
+  if ( *(_QWORD *)(a4 + 2240) && !*(_QWORD *)(a3 + 2240) && a2 && (~DWORD2(xmmword_140C1E080) & *a5) != 0 )
+    return 3221225506LL;
+  v12 = *a5;
   if ( (*a5 & 1) != 0 && a2 == 1 && (*(_DWORD *)(a4 + 2172) & 0x8000000) != 0 )
     return 3221225506LL;
   if ( (*a5 & 0x28) == 40 || (*a5 & 0x400) != 0 )
   {
-    v11 |= 0x1000u;
-    *a5 = v11;
+    v12 |= 0x1000u;
+    *a5 = v12;
   }
-  if ( (v11 & 0x200) != 0 )
-    *a5 = v11 | 0x2000;
+  if ( (v12 & 0x200) != 0 )
+    *a5 = v12 | 0x2000;
   return 0LL;
 }

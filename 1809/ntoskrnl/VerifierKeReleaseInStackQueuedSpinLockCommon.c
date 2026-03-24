@@ -4,7 +4,7 @@
  *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140939E30 (VerifierKeReleaseInStackQueuedSpinLock.c)
  *     VerifierKeReleaseInStackQueuedSpinLockNoReboot @ 0x14093A070 (VerifierKeReleaseInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
  *     ViKeLowerIrqlSanityChecks @ 0x14093AF18 (ViKeLowerIrqlSanityChecks.c)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnmapLargePages @ 0x1403A111C
+ * XREFs of MiUnmapLargePages @ 0x1403952E4
  * Callers:
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     MiRemoveFromSystemSpace @ 0x14026D048 (MiRemoveFromSystemSpace.c)
- *     MiInsertInSystemSpace @ 0x14026D460 (MiInsertInSystemSpace.c)
- *     MiUnmapLargeDriver @ 0x1409835EC (MiUnmapLargeDriver.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x140304E4C (MiRemoveFromSystemSpace.c)
+ *     MiUnmapLargeDriver @ 0x1408DA744 (MiUnmapLargeDriver.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiReturnSystemVa @ 0x14026DAB0 (MiReturnSystemVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
-unsigned __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   int v3; // ebp
   unsigned __int64 v4; // rsi
@@ -22,7 +22,8 @@ unsigned __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __in
   unsigned __int64 v8; // r12
   unsigned __int64 v10; // rbx
   int v11; // r15d
-  bool v12; // zf
+  __int64 v12; // r8
+  bool v13; // zf
 
   v3 = 13;
   v4 = a2;
@@ -44,23 +45,23 @@ unsigned __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __in
         if ( (unsigned int)MiPteHasShadow() )
         {
           v11 = 1;
-          if ( !HIBYTE(word_140C51864) )
+          if ( !HIBYTE(word_140C4E008) )
           {
-            v12 = (ZeroPte & 1) == 0;
+            v13 = (ZeroPte & 1) == 0;
             goto LABEL_14;
           }
         }
         else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         {
-          v12 = (ZeroPte & 1) == 0;
+          v13 = (ZeroPte & 1) == 0;
 LABEL_14:
-          if ( !v12 )
+          if ( !v13 )
             v10 = ZeroPte | 0x8000000000000000uLL;
         }
       }
       *v7 = v10;
       if ( v11 )
-        MiWritePteShadow((__int64)v7, v10);
+        MiWritePteShadow((__int64)v7, v10, v12);
       ++v7;
     }
     v4 = (v4 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;

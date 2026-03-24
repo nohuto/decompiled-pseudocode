@@ -1,40 +1,40 @@
 /*
- * XREFs of ?CreateSharedHandleFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@PEAPEAXW4D3D11_FENCE_FLAG@@@Z @ 0x1800D0118
+ * XREFs of ?CreateSharedHandleFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAUID3D11Fence@@PEAPEAXW4D3D11_FENCE_FLAG@@@Z @ 0x18002D088
  * Callers:
- *     ?InitSystemDevice@CD3DDevice@@AEAAJXZ @ 0x1800D0044 (-InitSystemDevice@CD3DDevice@@AEAAJXZ.c)
- *     ?CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z @ 0x18028D4A4 (-CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z.c)
+ *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x18002AC38 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
+ *     ?CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z @ 0x18023EC28 (-CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateSharedHandleFence(
         CD3DDevice *this,
         const struct CResourceTag *a2,
-        __int64 a3,
+        struct ID3D11Fence *a3,
         struct ID3D11Fence **a4,
         void **a5,
         enum D3D11_FENCE_FLAG a6)
 {
-  void **v7; // rsi
+  void **v7; // r14
   __int64 v9; // r8
   __int64 *v10; // rcx
   __int64 v11; // rax
   int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   unsigned int v14; // ebx
   int v15; // eax
-  __int64 v16; // rcx
+  unsigned int v16; // ecx
   struct ID3D11Fence *v17; // rax
   struct ID3D11Fence *v19; // [rsp+50h] [rbp+18h] BYREF
 
-  v19 = (struct ID3D11Fence *)a3;
+  v19 = a3;
   *a4 = 0LL;
   v7 = a5;
   v9 = a6 | 2u;
   *a5 = 0LL;
-  v10 = (__int64 *)*((_QWORD *)this + 69);
+  v10 = (__int64 *)*((_QWORD *)this + 74);
   v11 = *v10;
   v19 = 0LL;
   v12 = (*(__int64 (__fastcall **)(__int64 *, _QWORD, __int64, GUID *, struct ID3D11Fence **))(v11 + 544))(
@@ -46,7 +46,7 @@ __int64 __fastcall CD3DDevice::CreateSharedHandleFence(
   v14 = v12;
   if ( v12 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x753u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x918u, 0LL);
   }
   else
   {
@@ -59,7 +59,7 @@ __int64 __fastcall CD3DDevice::CreateSharedHandleFence(
     v14 = v15;
     if ( v15 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x758u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x91Du, 0LL);
     }
     else
     {
@@ -73,6 +73,6 @@ __int64 __fastcall CD3DDevice::CreateSharedHandleFence(
       *a4 = v17;
     }
   }
-  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v19);
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>(&v19);
   return v14;
 }

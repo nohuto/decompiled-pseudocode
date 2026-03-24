@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_Dq @ 0x1C002B38C
+ * XREFs of WPP_RECORDER_SF_Dq @ 0x1C002ACAC
  * Callers:
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002C0D0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002B9E0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Dq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -20,7 +20,7 @@ __int64 WPP_RECORDER_SF_Dq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_f631619360663f684a1deb181f774097_Traceguids,
+      &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       21LL,
       (__int64 *)va,
       4LL,
@@ -28,5 +28,5 @@ __int64 WPP_RECORDER_SF_Dq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a
       8LL,
       0LL);
   LOWORD(v7) = 21;
-  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_f631619360663f684a1deb181f774097_Traceguids, v7, (__int64 *)va);
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v7, (__int64 *)va);
 }

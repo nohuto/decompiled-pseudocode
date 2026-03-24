@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpFileGetClrVersion @ 0x1408EC6B4
+ * XREFs of AslpFileGetClrVersion @ 0x1408EC694
  * Callers:
- *     AslpFileGetClrVersionAttribute @ 0x1408EC88C (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetClrVersionAttribute @ 0x1408EC86C (AslpFileGetClrVersionAttribute.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     AslpFileGetImageNtHeader @ 0x1408ED14C (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x1408EDADC (AslpImageRvaToVa.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x1408ED12C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x1408EDABC (AslpImageRvaToVa.c)
  */
 
 __int64 __fastcall AslpFileGetClrVersion(_BYTE *a1, __int64 a2)

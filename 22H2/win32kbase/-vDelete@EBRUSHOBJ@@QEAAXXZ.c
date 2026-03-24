@@ -1,9 +1,10 @@
 /*
- * XREFs of ?vDelete@EBRUSHOBJ@@QEAAXXZ @ 0x1C0088990
+ * XREFs of ?vDelete@EBRUSHOBJ@@QEAAXXZ @ 0x1C00BCD10
  * Callers:
- *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00C68C0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?bDeleteDC@XDCOBJ@@QEAAHH@Z @ 0x1C007C740 (-bDeleteDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00B9C00 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
  * Callees:
- *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C00892E0 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0068010 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
  */
 
 void __fastcall EBRUSHOBJ::vDelete(EBRUSHOBJ *this)
@@ -16,7 +17,7 @@ void __fastcall EBRUSHOBJ::vDelete(EBRUSHOBJ *this)
   if ( v2 )
   {
     if ( _InterlockedExchangeAdd(v2, 0xFFFFFFFF) == 1 )
-      RBRUSH::vFreeOrCacheRBrush(v2, 1LL);
+      RBRUSH::vFreeOrCacheRBrush(v2, 1);
     *((_QWORD *)this + 4) = 0LL;
   }
   v3 = *((_QWORD *)this + 1);
@@ -24,7 +25,7 @@ void __fastcall EBRUSHOBJ::vDelete(EBRUSHOBJ *this)
   {
     v4 = (volatile signed __int32 *)(v3 - 16);
     if ( _InterlockedExchangeAdd(v4, 0xFFFFFFFF) == 1 )
-      RBRUSH::vFreeOrCacheRBrush(v4, 0LL);
+      RBRUSH::vFreeOrCacheRBrush(v4, 0);
     *((_QWORD *)this + 1) = 0LL;
   }
 }

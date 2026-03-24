@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncRegisterSharedThumbnailVisualApiExt @ 0x1C00120D0
+ * XREFs of DwmAsyncRegisterSharedThumbnailVisualApiExt @ 0x1C0007D40
  * Callers:
  *     <none>
  * Callees:
- *     DwmAsyncRegisterSharedThumbnailVisual @ 0x1C0012114 (DwmAsyncRegisterSharedThumbnailVisual.c)
+ *     DwmAsyncRegisterSharedThumbnailVisual @ 0x1C0007D80 (DwmAsyncRegisterSharedThumbnailVisual.c)
  */
 
 __int64 __fastcall DwmAsyncRegisterSharedThumbnailVisualApiExt(

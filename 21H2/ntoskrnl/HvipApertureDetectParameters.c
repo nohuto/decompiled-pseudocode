@@ -1,58 +1,56 @@
 /*
- * XREFs of HvipApertureDetectParameters @ 0x1405F2D28
+ * XREFs of HvipApertureDetectParameters @ 0x140594784
  * Callers:
- *     HviEnterKernelAperture @ 0x1405F2C80 (HviEnterKernelAperture.c)
+ *     HviEnterKernelAperture @ 0x1405946DC (HviEnterKernelAperture.c)
  * Callees:
- *     HviIsHypervisorVendorMicrosoft @ 0x1403BF790 (HviIsHypervisorVendorMicrosoft.c)
- *     HviGetHypervisorFeatures @ 0x1403BF8B0 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x140647B00 (HviGetHardwareFeatures.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1403AF7D0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1405BEF70 (HviGetHardwareFeatures.c)
  */
 
 char HvipApertureDetectParameters()
 {
   bool v5; // di
   char v6; // si
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  char v14; // bl
-  __int128 v16; // [rsp+20h] [rbp-50h]
-  __int128 v17; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v18; // [rsp+50h] [rbp-20h] BYREF
+  char v12; // bl
+  __int128 v14; // [rsp+20h] [rbp-50h]
+  __int128 v15; // [rsp+40h] [rbp-30h] BYREF
+  __int128 v16; // [rsp+50h] [rbp-20h] BYREF
 
   _RAX = 0LL;
   __asm { cpuid }
   v5 = 0;
-  v18 = 0LL;
+  v16 = 0LL;
   if ( (_DWORD)_RBX != 1970169159 || (_DWORD)_RDX != 1231384169 || (v6 = 1, (_DWORD)_RCX != 1818588270) )
     v6 = 0;
-  v16 = 0LL;
-  v17 = 0LL;
-  HviGetHypervisorFeatures(&v17);
-  _RAX = (unsigned __int64)v17 >> 44;
-  if ( (v17 & 0x100000000000LL) != 0 )
+  v14 = 0LL;
+  v15 = 0LL;
+  HviGetHypervisorFeatures(&v15);
+  _RAX = (unsigned __int64)v15 >> 44;
+  if ( (v15 & 0x100000000000LL) != 0 )
   {
-    LOBYTE(_RAX) = HviIsHypervisorVendorMicrosoft(v8, v7);
+    LOBYTE(_RAX) = HviIsHypervisorVendorMicrosoft();
     if ( (_BYTE)_RAX )
     {
       _RAX = 1073741831LL;
       __asm { cpuid }
-      BYTE8(v16) = _RCX;
+      BYTE8(v14) = _RCX;
     }
   }
-  if ( (BYTE8(v16) & 1) != 0 )
+  if ( (BYTE8(v14) & 1) != 0 )
   {
-    v14 = 0;
-    LOBYTE(_RAX) = HviGetHardwareFeatures(&v18);
-    v5 = (v18 & 0x8000) != 0;
+    v12 = 0;
+    LOBYTE(_RAX) = HviGetHardwareFeatures(&v16);
+    v5 = (v16 & 0x8000) != 0;
   }
   else
   {
-    v14 = 1;
+    v12 = 1;
   }
-  byte_140D04924 = v6;
-  byte_140C0D790 = v14;
-  byte_140D04926 = v5;
-  byte_140D04925 = 1;
+  byte_140CFA38C = v6;
+  byte_140C12D22 = v12;
+  byte_140CFA38E = v5;
+  byte_140CFA38D = 1;
   return _RAX;
 }

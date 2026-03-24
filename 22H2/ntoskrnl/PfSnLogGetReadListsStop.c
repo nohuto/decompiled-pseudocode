@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogGetReadListsStop @ 0x14074D444
+ * XREFs of PfSnLogGetReadListsStop @ 0x140680E28
  * Callers:
- *     PfSnPrefetchSections @ 0x14074D088 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSections @ 0x140680A8C (PfSnPrefetchSections.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogGetReadListsStop(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall PfSnLogGetReadListsStop(__int64 a1)
   __int64 v10; // [rsp+70h] [rbp+37h]
   __int64 v11; // [rsp+78h] [rbp+3Fh]
 
-  if ( a1 && qword_140C6A808 && EtwEventEnabled(qword_140C6A808, &PfSnEvt_GetReadLists_Stop) )
+  if ( a1 && RegHandle && EtwEventEnabled(RegHandle, &PfSnEvt_GetReadLists_Stop) )
   {
     v2 = -1LL;
     do
@@ -37,6 +37,6 @@ void __fastcall PfSnLogGetReadListsStop(__int64 a1)
     v7 = 0;
     v9 = 4LL;
     v11 = 4LL;
-    EtwWrite(qword_140C6A808, &PfSnEvt_GetReadLists_Stop, 0LL, 4u, &UserData);
+    EtwWrite(RegHandle, &PfSnEvt_GetReadLists_Stop, 0LL, 4u, &UserData);
   }
 }

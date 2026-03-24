@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagTraceDevicePassiveCooling @ 0x1C0048564
+ * XREFs of AcpiDiagTraceDevicePassiveCooling @ 0x1C0049BB8
  * Callers:
- *     ACPIThermalReevaluateConstraintsWorker @ 0x1C002CA60 (ACPIThermalReevaluateConstraintsWorker.c)
+ *     ACPIThermalReevaluateConstraintsWorker @ 0x1C002DB00 (ACPIThermalReevaluateConstraintsWorker.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTraceDevicePassiveCooling(__int64 a1, char a2)
@@ -25,7 +25,7 @@ void __fastcall AcpiDiagTraceDevicePassiveCooling(__int64 a1, char a2)
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( AcpiDiagHandle
     && EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_DEVICE_PASSIVE_COOLING)
-    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), (__int64)&DestinationString, 1) >= 0 )
+    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&DestinationString) >= 0 )
   {
     v3 = DestinationString.Length >> 1;
     UserData.Ptr = (unsigned __int64)&v3;

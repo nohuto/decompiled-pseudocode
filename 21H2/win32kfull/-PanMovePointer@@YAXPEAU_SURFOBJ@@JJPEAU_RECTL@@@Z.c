@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z @ 0x1C0293550
+ * XREFs of ?PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z @ 0x1C0295B30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0293B40 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
- *     ?vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C0294E54 (-vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0294FAC (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0296120 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
+ *     ?vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C02973D0 (-vPanningUpdate@@YAXPEAU_PANDEV@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0297528 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall PanMovePointer(struct _SURFOBJ *a1, LONG a2, unsigned int a3, struct _RECTL *a4)
@@ -60,14 +60,11 @@ void __fastcall PanMovePointer(struct _SURFOBJ *a1, LONG a2, unsigned int a3, st
   if ( v10 > v14 )
   {
     *((_DWORD *)dhpdev + 7) = v10;
+    v12 = 1;
     *((_DWORD *)dhpdev + 5) = v10 - *((_DWORD *)dhpdev + 1);
-LABEL_15:
-    vPanningUpdate((struct _PANDEV *)dhpdev, v11, 0LL);
-    goto LABEL_16;
   }
   if ( v12 )
-    goto LABEL_15;
-LABEL_16:
+    vPanningUpdate((struct _PANDEV *)dhpdev, v11, 0LL);
   PANDEVLOCK::vUnLock((PANDEVLOCK *)&v15);
   PanSynchronize(dhpdev, 0LL);
   PANDEVLOCK::vUnLock((PANDEVLOCK *)&v15);

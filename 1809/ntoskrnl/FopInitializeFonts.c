@@ -1,16 +1,16 @@
 /*
- * XREFs of FopInitializeFonts @ 0x1409FA984
+ * XREFs of FopInitializeFonts @ 0x1409FA994
  * Callers:
- *     BgpFoInitialize @ 0x1409FA888 (BgpFoInitialize.c)
+ *     BgpFoInitialize @ 0x1409FA898 (BgpFoInitialize.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140179E68 (FioFwReadUlongAtOffset.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x140179E88 (FioFwReadUlongAtOffset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     FopFreeFontData @ 0x1409511C0 (FopFreeFontData.c)
- *     FopReadMappingTable @ 0x1409FAAAC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x1409FAC7C (FopValidateFontNameTable.c)
- *     BgpRasInitializeRasterizer @ 0x1409FAF70 (BgpRasInitializeRasterizer.c)
- *     FopGetTableOffsetAndSize @ 0x1409FB2D8 (FopGetTableOffsetAndSize.c)
+ *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
+ *     BgpRasInitializeRasterizer @ 0x1409FAF80 (BgpRasInitializeRasterizer.c)
+ *     FopGetTableOffsetAndSize @ 0x1409FB2E8 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall FopInitializeFonts(__int64 a1)

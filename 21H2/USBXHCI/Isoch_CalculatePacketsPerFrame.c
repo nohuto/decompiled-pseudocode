@@ -1,7 +1,7 @@
 /*
- * XREFs of Isoch_CalculatePacketsPerFrame @ 0x1C000160C
+ * XREFs of Isoch_CalculatePacketsPerFrame @ 0x1C0001E40
  * Callers:
- *     Isoch_Initialize @ 0x1C006B570 (Isoch_Initialize.c)
+ *     Isoch_Initialize @ 0x1C006A320 (Isoch_Initialize.c)
  * Callees:
  *     <none>
  */

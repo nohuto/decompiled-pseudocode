@@ -1,70 +1,72 @@
 /*
- * XREFs of AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x14073A000
+ * XREFs of AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1405DF47C
  * Callers:
- *     AlpcpDispatchCloseMessage @ 0x1407157B8 (AlpcpDispatchCloseMessage.c)
- *     AlpcpDispatchNewMessage @ 0x140739DE0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchCloseMessage @ 0x1405DF2D0 (AlpcpDispatchCloseMessage.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x140337570 (ObReferenceObjectSafe.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1407DB308 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectSafe @ 0x1402F1E80 (ObReferenceObjectSafe.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406980C4 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
  */
 
-__int64 __fastcall AlpcpReferenceAndLockTargetPortsAndCommunicationInfo(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall AlpcpReferenceAndLockTargetPortsAndCommunicationInfo(__int64 a1, __int64 *a2, __int64 *a3)
 {
-  __int64 v4; // rsi
+  __int64 *v4; // rsi
   int v6; // ebx
-  _DWORD *v7; // rdi
-  _DWORD *v8; // rbx
+  int v7; // ebx
+  __int64 v8; // rbx
+  __int64 v9; // rdi
   __int64 result; // rax
 
-  v4 = *(_QWORD *)(a1 + 16);
+  v4 = *(__int64 **)(a1 + 16);
   v6 = (*(_DWORD *)(a1 + 416) >> 1) & 3;
-  ExAcquirePushLockSharedEx(v4 - 16, 0LL);
-  if ( v6 == 2 )
+  ExAcquirePushLockSharedEx((ULONG_PTR)(v4 - 2), 0LL);
+  v7 = v6 - 1;
+  if ( v7 )
   {
-    v7 = *(_DWORD **)v4;
-    v8 = *(_DWORD **)(v4 + 8);
-  }
-  else if ( v6 == 1 )
-  {
-    v7 = *(_DWORD **)v4;
-    v8 = *(_DWORD **)v4;
+    if ( v7 == 1 )
+    {
+      v8 = *v4;
+      v9 = v4[1];
+      goto LABEL_4;
+    }
+    v8 = v4[2];
   }
   else
   {
-    v7 = *(_DWORD **)(v4 + 16);
-    v8 = v7;
+    v8 = *v4;
   }
-  if ( v7 && !ObReferenceObjectSafe((__int64)v7) )
-    v7 = 0LL;
-  if ( v8 && !ObReferenceObjectSafe((__int64)v8) )
-    v8 = 0LL;
-  if ( v7 && v8 )
+  v9 = v8;
+LABEL_4:
+  if ( v8 )
+    v8 &= -(__int64)(ObReferenceObjectSafe(v8) != 0);
+  if ( v9 )
+    v9 &= -(__int64)(ObReferenceObjectSafe(v9) != 0);
+  if ( v8 && v9 )
   {
-    ExAcquirePushLockSharedEx((ULONG_PTR)(v7 + 88), 0LL);
-    if ( v8 != v7 )
-      ExAcquirePushLockSharedEx((ULONG_PTR)(v8 + 88), 0LL);
-    if ( (v7[104] & 0x20) == 0 && (v8[104] & 0x20) == 0 )
+    ExAcquirePushLockSharedEx(v8 + 352, 0LL);
+    if ( v9 != v8 )
+      ExAcquirePushLockSharedEx(v9 + 352, 0LL);
+    if ( (*(_DWORD *)(v8 + 416) & 0x20) == 0 && (*(_DWORD *)(v9 + 416) & 0x20) == 0 )
     {
-      *a2 = v7;
+      *a2 = v8;
       result = 0LL;
-      *a3 = v8;
+      *a3 = v9;
       return result;
     }
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v4, v7, v8);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v4, v8, v9);
   }
   else
   {
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 - 16), 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)(v4 - 16));
-    KeAbPostRelease(v4 - 16);
-    if ( v7 )
-      ObfDereferenceObject(v7);
+    if ( _InterlockedCompareExchange64(v4 - 2, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(v4 - 2);
+    KeAbPostRelease((ULONG_PTR)(v4 - 2));
     if ( v8 )
-      ObfDereferenceObject(v8);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v8);
+    if ( v9 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)v9);
   }
   return 3221225527LL;
 }

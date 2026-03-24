@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMapNewPfns @ 0x14084D3C0
+ * XREFs of MiMapNewPfns @ 0x14084D3A0
  * Callers:
- *     MiAddPhysicalMemory @ 0x14084C8B4 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiLockDynamicMemoryShared @ 0x1400A8914 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1400A8940 (MiUnlockDynamicMemoryShared.c)
- *     MiIncreaseCommitLimits @ 0x140187E68 (MiIncreaseCommitLimits.c)
- *     KeConfigureDynamicMemory @ 0x14028DA04 (KeConfigureDynamicMemory.c)
- *     MiInitializeDynamicPfns @ 0x1402A6604 (MiInitializeDynamicPfns.c)
+ *     MiLockDynamicMemoryShared @ 0x1400A8934 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1400A8960 (MiUnlockDynamicMemoryShared.c)
+ *     MiIncreaseCommitLimits @ 0x140187E88 (MiIncreaseCommitLimits.c)
+ *     KeConfigureDynamicMemory @ 0x14028DB04 (KeConfigureDynamicMemory.c)
+ *     MiInitializeDynamicPfns @ 0x1402A6704 (MiInitializeDynamicPfns.c)
  */
 
 __int64 __fastcall MiMapNewPfns(unsigned __int64 a1, __int64 a2, unsigned __int16 a3, int a4, __int64 a5)

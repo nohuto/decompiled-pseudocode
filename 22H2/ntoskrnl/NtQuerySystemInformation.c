@@ -1,81 +1,46 @@
 /*
- * XREFs of NtQuerySystemInformation @ 0x140726800
+ * XREFs of NtQuerySystemInformation @ 0x1406C9CB0
  * Callers:
- *     HalpTimerConfigureQpcBypass @ 0x1403B2A74 (HalpTimerConfigureQpcBypass.c)
- *     AlpcpInitSystem @ 0x14085AB18 (AlpcpInitSystem.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403CD6AC (HalpTimerConfigureQpcBypass.c)
+ *     AlpcpInitSystem @ 0x1407CDF6C (AlpcpInitSystem.c)
  * Callees:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  */
 
-__int64 __fastcall NtQuerySystemInformation(int a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall NtQuerySystemInformation(__int64 a1)
 {
-  __int16 *v6; // rdx
-  bool v8; // zf
-  __int64 v9; // r8
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v17; // ecx
+  __int16 *p_Group; // r10
   __int16 Group; // [rsp+40h] [rbp+8h] BYREF
 
-  v6 = 0LL;
+  p_Group = 0LL;
   Group = 0;
-  if ( a1 > 108 )
+  if ( (int)a1 < 74 || (int)a1 >= 83 )
   {
-    v11 = a1 - 121;
-    if ( !v11 )
-      return 3221225475LL;
-    v12 = v11 - 20;
-    if ( v12 )
+    switch ( (int)a1 )
     {
-      v13 = v12 - 39;
-      if ( !v13 )
+      case 8:
+      case 23:
+      case 42:
+      case 61:
+      case 83:
+      case 100:
+      case 108:
+      case 141:
+        Group = KeGetCurrentPrcb()->Group;
+        goto LABEL_7;
+      case 73:
+LABEL_7:
+        p_Group = &Group;
+        return ExpQuerySystemInformation(a1, p_Group);
+      case 107:
+      case 121:
+      case 180:
+      case 210:
+      case 211:
         return 3221225475LL;
-      v14 = v13 - 30;
-      if ( !v14 )
-        return 3221225475LL;
-      v15 = v14 - 1;
-      if ( !v15 )
-        return 3221225475LL;
-      v16 = v15 - 11;
-      if ( !v16 )
-        return 3221225475LL;
-      v17 = v16 - 9;
-      if ( !v17 )
-        return 3221225475LL;
-      v8 = v17 == 7;
-      goto LABEL_11;
+      default:
+        return ExpQuerySystemInformation(a1, p_Group);
     }
-    goto LABEL_22;
   }
-  switch ( a1 )
-  {
-    case 108:
-    case 8:
-    case 23:
-    case 42:
-    case 61:
-      goto LABEL_22;
-    case 73:
-LABEL_23:
-      v9 = 2LL;
-      v6 = &Group;
-      return ExpQuerySystemInformation((unsigned int)a1, v6, v9, a2, a3, a4);
-    case 83:
-    case 100:
-LABEL_22:
-      Group = KeGetCurrentPrcb()->Group;
-      goto LABEL_23;
-  }
-  v8 = a1 == 107;
-LABEL_11:
-  if ( !v8 )
-  {
-    v9 = 0LL;
-    return ExpQuerySystemInformation((unsigned int)a1, v6, v9, a2, a3, a4);
-  }
-  return 3221225475LL;
+  return ExpQuerySystemInformation(a1, p_Group);
 }

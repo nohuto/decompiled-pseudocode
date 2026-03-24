@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetLightInfo@CCompositionAmbientLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x180107200
+ * XREFs of ?GetLightInfo@CCompositionAmbientLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x1800E28D0
  * Callers:
  *     <none>
  * Callees:
@@ -18,13 +18,13 @@ __int64 __fastcall CCompositionAmbientLight::GetLightInfo(
   __int64 v7; // rdx
 
   *(_DWORD *)a4 = 0;
-  v4 = (float *)((char *)this + 272);
+  v4 = (float *)((char *)this + 264);
   v5 = this - a4;
   v6 = (float *)((char *)a4 + 4);
   v7 = 4LL;
   do
   {
-    *v6 = *(float *)((char *)v6 + v5 + 252) * *v4;
+    *v6 = *(float *)((char *)v6 + v5 + 244) * *v4;
     ++v6;
     --v7;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of GreCreateDIBitmapComp @ 0x1C014A20C
+ * XREFs of GreCreateDIBitmapComp @ 0x1C0122004
  * Callers:
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     NtGdiCreateDIBitmapInternal @ 0x1C00F2040 (NtGdiCreateDIBitmapInternal.c)
+ *     NtGdiCreateDIBitmapInternal @ 0x1C00A9FA0 (NtGdiCreateDIBitmapInternal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
  * Callees:
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026DCC (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026E10 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
- *     GreSetDIBitsInternal @ 0x1C014A310 (GreSetDIBitsInternal.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018C00 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018F2C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreSetDIBitsInternal @ 0x1C0122108 (GreSetDIBitsInternal.c)
  */
 
 HSURF __fastcall GreCreateDIBitmapComp(
@@ -27,6 +27,7 @@ HSURF __fastcall GreCreateDIBitmapComp(
   unsigned int v14; // esi
   HSURF CompatibleBitmapInternal; // rax
   HSURF v16; // rdi
+  DYNAMICMODECHANGESHARELOCK *v18; // rcx
 
   v11 = a7;
   if ( a7 > 2 || a6 && *a6 >= 0x28u && (unsigned int)(a6[4] - 4) <= 1 )
@@ -51,7 +52,7 @@ HSURF __fastcall GreCreateDIBitmapComp(
       }
       DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&a7);
       GreDeleteObject(v16);
-      DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&a7);
+      DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v18);
     }
   }
   return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserExcludeUpdateRgn @ 0x1C014D520
+ * XREFs of NtUserExcludeUpdateRgn @ 0x1C015C550
  * Callers:
  *     <none>
  * Callees:
- *     _ExcludeUpdateRgn @ 0x1C00C4B2C (_ExcludeUpdateRgn.c)
+ *     _ExcludeUpdateRgn @ 0x1C0043070 (_ExcludeUpdateRgn.c)
  */
 
 __int64 __fastcall NtUserExcludeUpdateRgn(HDC a1, __int64 a2)
@@ -12,7 +12,7 @@ __int64 __fastcall NtUserExcludeUpdateRgn(HDC a1, __int64 a2)
   __int64 v5; // rcx
   unsigned int updated; // ebx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v4 = (struct tagWND *)ValidateHwnd(a2);
   updated = 0;
   if ( v4 && a1 )

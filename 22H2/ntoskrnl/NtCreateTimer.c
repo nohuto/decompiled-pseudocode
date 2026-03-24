@@ -1,103 +1,96 @@
 /*
- * XREFs of NtCreateTimer @ 0x1407C6B20
+ * XREFs of NtCreateTimer @ 0x1406C5B20
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PsInsertVirtualizedTimer @ 0x140356060 (PsInsertVirtualizedTimer.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PsInsertVirtualizedTimer @ 0x14031B20C (PsInsertVirtualizedTimer.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateTimer(__int64 *a1, int a2, __int64 a3, TIMER_TYPE a4)
+__int64 __fastcall NtCreateTimer(__int64 *a1, ACCESS_MASK a2, int a3, TIMER_TYPE a4)
 {
-  char PreviousMode; // r14
-  __int64 v8; // rcx
+  char PreviousMode; // si
+  __int64 v7; // rcx
   int inserted; // ecx
-  struct _KTIMER *v10; // rbx
-  __int64 v11; // r9
-  _KPROCESS *Process; // rsi
+  char *v9; // rbx
+  __int64 v10; // r9
+  KSPIN_LOCK *v11; // r13
+  _KPROCESS *Process; // r15
   unsigned __int64 v14; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v16; // rax
-  bool v17; // zf
-  __int64 v18; // [rsp+20h] [rbp-68h]
-  PVOID DeferredContext; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-30h] BYREF
+  __int64 v16; // r12
+  char *v17; // [rsp+20h] [rbp-78h]
+  PVOID DeferredContext; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-38h]
 
   DeferredContext = 0LL;
-  v20 = 0LL;
-  if ( (unsigned int)a4 <= SynchronizationTimer )
+  v19 = 0LL;
+  if ( (unsigned int)a4 > SynchronizationTimer )
+    return 3221225714LL;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
   {
-    PreviousMode = KeGetCurrentThread()->PreviousMode;
-    if ( PreviousMode )
-    {
-      v8 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-        v8 = (__int64)a1;
-      *(_QWORD *)v8 = *(_QWORD *)v8;
-    }
-    inserted = ObCreateObjectEx(
-                 PreviousMode,
-                 ExTimerObjectType,
-                 a3,
-                 PreviousMode,
-                 v18,
-                 328,
-                 0,
-                 0,
-                 &DeferredContext,
-                 0LL);
-    if ( inserted < 0 )
-      return (unsigned int)inserted;
-    v10 = (struct _KTIMER *)DeferredContext;
+    v7 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
+      v7 = (__int64)a1;
+    *(_QWORD *)v7 = *(_QWORD *)v7;
+  }
+  inserted = ObCreateObjectEx(PreviousMode, ExTimerObjectType, a3, PreviousMode, v17, 328, 0, 0, &DeferredContext, 0LL);
+  if ( inserted >= 0 )
+  {
+    v9 = (char *)DeferredContext;
     KeInitializeDpc((PRKDPC)((char *)DeferredContext + 160), (PKDEFERRED_ROUTINE)ExpTimerDpcRoutine, DeferredContext);
-    KeInitializeTimerEx(v10, a4);
-    *(_QWORD *)&v10[1].Header.Lock = 0LL;
-    LOBYTE(v10[4].Dpc) = 0;
-    *(_QWORD *)&v10[4].Header.Lock = 0LL;
-    v10[4].Header.WaitListHead.Flink = 0LL;
-    v10[4].DueTime.QuadPart = 0LL;
+    KeInitializeTimerEx((PKTIMER)v9, a4);
+    v11 = (KSPIN_LOCK *)(v9 + 64);
+    *((_QWORD *)v9 + 8) = 0LL;
+    v9[304] = 0;
+    *((_QWORD *)v9 + 32) = 0LL;
+    *((_QWORD *)v9 + 33) = 0LL;
+    v20 = (__int64)(v9 + 280);
+    *((_QWORD *)v9 + 35) = 0LL;
     if ( PreviousMode )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
       if ( (*(_DWORD *)&Process->0 & 0x10) != 0 )
       {
-        v14 = Process[1].Affinity.StaticBitmap[16];
-        LOBYTE(v11) = 0;
+        v14 = Process[1].Affinity.Bitmap[16];
+        LOBYTE(v10) = 0;
         if ( v14 )
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->SpecialApcDisable;
+          v16 = v14 + 56;
           ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
-          LOBYTE(v11) = (*(_DWORD *)(v14 + 1536) & 0x40000) != 0 && *(_DWORD *)(v14 + 1048);
+          LOBYTE(v10) = (*(_DWORD *)(v14 + 1320) & 0x40000) != 0 && *(_DWORD *)(v14 + 856);
         }
-        v10 = (struct _KTIMER *)DeferredContext;
-        PsInsertVirtualizedTimer(
-          (KSPIN_LOCK *)Process,
-          (_QWORD *)DeferredContext + 36,
-          (KSPIN_LOCK *)DeferredContext + 8,
-          v11,
-          (KSPIN_LOCK **)DeferredContext + 35);
-        if ( !v14 )
-          goto LABEL_10;
-        ExReleaseResourceLite((PERESOURCE)(v14 + 56));
-        v16 = KeGetCurrentThread();
-        v17 = v16->SpecialApcDisable++ == -1;
-        if ( v17 && ($C71981A45BEB2B45F82C232A7085991E *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
-          KiCheckForKernelApcDelivery();
+        else
+        {
+          v16 = 56LL;
+        }
+        v9 = (char *)DeferredContext;
+        PsInsertVirtualizedTimer((KSPIN_LOCK *)Process, (_QWORD *)DeferredContext + 36, v11, v10, (KSPIN_LOCK **)v20);
+        if ( v14 )
+        {
+          ExReleaseResourceLite((PERESOURCE)v16);
+          KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+          v9 = (char *)DeferredContext;
+        }
       }
-      v10 = (struct _KTIMER *)DeferredContext;
+      else
+      {
+        v9 = (char *)DeferredContext;
+      }
     }
-LABEL_10:
-    inserted = ObInsertObjectEx((char *)v10, 0LL, a2, 0, 0, 0LL, &v20);
+    inserted = ObInsertObjectEx((PADAPTER_OBJECT)v9, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v19);
     if ( inserted >= 0 )
-      *a1 = v20;
-    return (unsigned int)inserted;
+      *a1 = v19;
   }
-  return 3221225714LL;
+  return (unsigned int)inserted;
 }

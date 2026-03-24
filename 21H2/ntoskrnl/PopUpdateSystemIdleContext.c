@@ -1,113 +1,68 @@
 /*
- * XREFs of PopUpdateSystemIdleContext @ 0x140819D40
+ * XREFs of PopUpdateSystemIdleContext @ 0x1408F12A4
  * Callers:
- *     PopInitSIdle @ 0x140819CB8 (PopInitSIdle.c)
+ *     PopInitSIdle @ 0x14078CAA8 (PopInitSIdle.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x140369100 (PopIdleCancelAoAcDozeS4Timer.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x1405DC298 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopPulseSystemIdleEvent @ 0x1406E8E9C (PopPulseSystemIdleEvent.c)
- *     PopFilterCapabilities @ 0x1407628C0 (PopFilterCapabilities.c)
- *     PopAcquireAdaptiveLock @ 0x1407EF098 (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EF120 (PopReleaseAdaptiveLock.c)
- *     PopDiagTraceSystemIdleContextUpdate @ 0x140819F40 (PopDiagTraceSystemIdleContextUpdate.c)
- *     PopIsDozeSupported @ 0x140989788 (PopIsDozeSupported.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140381D44 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14057C218 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
+ *     PopPulseSystemIdleEvent @ 0x14078E950 (PopPulseSystemIdleEvent.c)
+ *     PopDiagTraceSystemIdleContextUpdate @ 0x1408EB8CC (PopDiagTraceSystemIdleContextUpdate.c)
  */
 
 void __fastcall PopUpdateSystemIdleContext(int a1)
 {
-  char v2; // bp
-  int v3; // ebx
-  int v4; // r14d
-  int v5; // r15d
+  int v2; // ebp
+  int v3; // r14d
+  unsigned __int64 v4; // r15
+  int v5; // ebx
   int v6; // edi
-  unsigned __int64 v7; // r12
-  char v8; // cl
-  int v9; // ebx
-  int v10; // r9d
-  int v11; // [rsp+30h] [rbp-78h]
-  _BYTE v12[80]; // [rsp+40h] [rbp-68h] BYREF
+  _BYTE v7[80]; // [rsp+30h] [rbp-68h] BYREF
 
-  memset(v12, 0, 0x4CuLL);
+  memset(v7, 0, 0x4CuLL);
   if ( !PopPlatformAoAc )
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_PowerEventProcessorSystemIdle__private_reporting,
-      0x16F54A4u,
-      0,
-      0,
-      (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-      1u,
-      v11);
+    KeBugCheckEx(0xA0u, 0xAuLL, 0x101uLL, 0LL, 0LL);
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemIdleLock);
-  v2 = 0;
-  if ( (PopFullWake & 3) != 0 )
+  v2 = PopSystemIdleContext;
+  v3 = dword_140C0F214;
+  v4 = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
+  PopFilterCapabilities(&PopCapabilities, (__int64)v7);
+  if ( (PopFullWake & 3) != 0 || (PopSimulate & 0x1000000) != 0 )
   {
-    PopAcquireAdaptiveLock(1);
-    if ( !(_BYTE)PopAdaptiveBootContext || (BYTE8(PopAdaptiveBootContext) & 8) == 0 )
+    v5 = *((_DWORD *)PopPolicy + 15);
+    if ( v5 )
     {
-      PopReleaseAdaptiveLock();
-      goto LABEL_6;
+      v6 = 1;
+      goto LABEL_9;
     }
-    PopReleaseAdaptiveLock();
+LABEL_8:
+    v5 = 0;
+    v6 = 5;
+    goto LABEL_9;
   }
-  v2 = 1;
-LABEL_6:
-  v3 = PopSimulate;
-  v4 = PopSystemIdleContext;
-  v5 = dword_140C095F4;
-  v6 = 0;
-  v7 = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
-  PopFilterCapabilities(&PopCapabilities, (__int64)v12);
-  v8 = 0;
-  if ( (v3 & 0x1000000) == 0 )
-    v8 = v2;
-  if ( v8 )
-  {
-    v6 = dword_140C232E0;
-    if ( dword_140C232E0 )
-    {
-      v9 = 4;
-    }
-    else
-    {
-      v9 = 5;
-      v6 = 0;
-    }
-  }
-  else
-  {
-    if ( PopPlatformAoAc )
-    {
-      if ( *((_DWORD *)PopPolicy + 15) )
-        v6 = *((_DWORD *)PopPolicy + 15);
-    }
-    else if ( *((_DWORD *)PopPolicy + 15) && (v12[3] || v12[4] || v12[5]) )
-    {
-      v6 = *((_DWORD *)PopPolicy + 15);
-    }
-    else if ( *((_DWORD *)PopPolicy + 22) && (unsigned __int8)PopIsDozeSupported(v12) )
-    {
-      v6 = v10;
-    }
-    v9 = v6 != 0 ? 1 : 5;
-  }
+  v5 = dword_140C23EA0;
+  if ( !dword_140C23EA0 )
+    goto LABEL_8;
+  v6 = 4;
+LABEL_9:
   if ( a1 == 1 || a1 == 4 )
     PopPulseSystemIdleEvent(3u);
   if ( a1 == 3 )
   {
     PopIdleCancelAoAcDozeS4Timer(6u);
-    if ( byte_140C22731 )
+    if ( byte_140C233B1 )
       PopIdleArmAoAcDozeS4Timer();
   }
-  PopSystemIdleContext = v9;
-  dword_140C095F4 = v6;
-  qword_140C09720 = v7;
-  dword_140C09728 = a1;
-  dword_140C0972C = v4;
-  dword_140C09730 = v5;
-  PopDiagTraceSystemIdleContextUpdate(a1, v4, v5, v9, v6);
+  PopSystemIdleContext = v6;
+  dword_140C0F214 = v5;
+  qword_140C0F340 = v4;
+  dword_140C0F348 = a1;
+  dword_140C0F34C = v2;
+  dword_140C0F350 = v3;
+  PopDiagTraceSystemIdleContextUpdate(a1, v2, v3, v6, v5);
   PopReleaseRwLock((ULONG_PTR)&PopSystemIdleLock);
 }

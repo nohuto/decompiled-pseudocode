@@ -1,10 +1,10 @@
 /*
- * XREFs of ExfReleasePushLockSharedEx @ 0x14010756C
+ * XREFs of ExfReleasePushLockSharedEx @ 0x14010758C
  * Callers:
- *     ExReleaseAutoExpandPushLockShared @ 0x1401073F0 (ExReleaseAutoExpandPushLockShared.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x140107410 (ExReleaseAutoExpandPushLockShared.c)
  * Callees:
  *     ExpWakePushLock @ 0x1400915F0 (ExpWakePushLock.c)
- *     ExpAeStopMeasurement @ 0x140107628 (ExpAeStopMeasurement.c)
+ *     ExpAeStopMeasurement @ 0x140107648 (ExpAeStopMeasurement.c)
  */
 
 void __fastcall ExfReleasePushLockSharedEx(signed __int64 *a1, _QWORD *a2)

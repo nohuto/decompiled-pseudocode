@@ -1,13 +1,13 @@
 /*
- * XREFs of VslInitializeEnclave @ 0x140932454
+ * XREFs of VslInitializeEnclave @ 0x14088FB9C
  * Callers:
- *     PsInitializeVsmEnclave @ 0x1409B4318 (PsInitializeVsmEnclave.c)
+ *     PsInitializeVsmEnclave @ 0x14090DF50 (PsInitializeVsmEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslInitializeEnclave(
@@ -20,7 +20,7 @@ __int64 __fastcall VslInitializeEnclave(
         _DWORD *a7)
 {
   __int64 result; // rax
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   __int64 *v13[10]; // [rsp+30h] [rbp-B1h] BYREF
   _QWORD v14[14]; // [rsp+80h] [rbp-61h] BYREF
 
@@ -35,7 +35,7 @@ __int64 __fastcall VslInitializeEnclave(
     v14[6] = a6;
     v14[1] = a1;
     v14[2] = a2;
-    v12 = VslpEnterIumSecureMode(2u, 49, 0, (__int64)v14);
+    v12 = VslpEnterIumSecureMode(2u, 48, 0, (__int64)v14);
     if ( v12 >= 0 )
       *a7 = v14[2];
     VslpUnlockPagesForTransfer(v13);

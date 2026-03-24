@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C024C488
+ * XREFs of ?GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C025D9EC
  * Callers:
- *     ClientFrame @ 0x1C024C51C (ClientFrame.c)
+ *     ClientFrame @ 0x1C025DA80 (ClientFrame.c)
  * Callees:
  *     <none>
  */

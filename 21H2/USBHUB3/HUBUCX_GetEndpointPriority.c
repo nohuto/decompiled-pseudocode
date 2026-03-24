@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBUCX_GetEndpointPriority @ 0x1C0024BD0
+ * XREFs of HUBUCX_GetEndpointPriority @ 0x1C0024790
  * Callers:
- *     HUBUCX_CreateEndpointsInUCX @ 0x1C0024D34 (HUBUCX_CreateEndpointsInUCX.c)
+ *     HUBUCX_CreateEndpointsInUCX @ 0x1C0024900 (HUBUCX_CreateEndpointsInUCX.c)
  * Callees:
  *     <none>
  */
@@ -43,44 +43,47 @@ __int64 __fastcall HUBUCX_GetEndpointPriority(__int64 a1, __int64 a2, __int64 a3
   if ( v12 )
   {
     v17 = a2 + 40;
-    while ( v17 != a3 )
+    do
     {
+      if ( v17 == a3 )
+        break;
       v18 = *(_QWORD *)(v17 + 32);
       if ( (*(_BYTE *)(v18 + 3) & 3) == 2 && (*(_BYTE *)(v18 + 2) & 0x80) == v13 )
         ++v10;
       ++v11;
       v17 += 72LL;
-      if ( v11 >= v12 )
-        goto LABEL_10;
     }
-    goto LABEL_11;
+    while ( v11 < v12 );
   }
-LABEL_10:
-  if ( v11 == v12 )
-    return (unsigned int)-1073741275;
-LABEL_11:
-  v19 = 0;
-  v20 = *(_QWORD *)(a1 + 2688);
-  while ( 1 )
+  if ( v11 != v12 )
   {
-    v21 = *(_WORD *)(v20 + 20LL * v19);
-    if ( v21 == *(unsigned __int8 *)(*(_QWORD *)(a1 + 2016) + 5LL) || v21 == -1 )
+    v19 = 0;
+    v20 = *(_QWORD *)(a1 + 2688);
+    while ( 1 )
     {
-      v22 = *(_WORD *)(v20 + 20LL * v19 + 2);
-      if ( v22 == v15 || v22 == -1 )
+      v21 = *(_WORD *)(v20 + 20LL * v19);
+      if ( v21 == *(unsigned __int8 *)(*(_QWORD *)(a1 + 2016) + 5LL) || v21 == -1 )
       {
-        v23 = *(_WORD *)(v20 + 20LL * v19 + 4);
-        if ( (v23 == v16 || v23 == -1)
-          && (*(_DWORD *)(v20 + 20LL * v19 + 8) == 0) == v13
-          && *(_WORD *)(v20 + 20LL * v19 + 12) == v10 )
+        v22 = *(_WORD *)(v20 + 20LL * v19 + 2);
+        if ( v22 == v15 || v22 == -1 )
         {
-          break;
+          v23 = *(_WORD *)(v20 + 20LL * v19 + 4);
+          if ( (v23 == v16 || v23 == -1)
+            && (*(_DWORD *)(v20 + 20LL * v19 + 8) == 0) == v13
+            && *(_WORD *)(v20 + 20LL * v19 + 12) == v10 )
+          {
+            break;
+          }
         }
       }
+      if ( ++v19 >= v4 )
+        return (unsigned int)-1073741275;
     }
-    if ( ++v19 >= v4 )
-      return (unsigned int)-1073741275;
+    *a4 = *(_DWORD *)(v20 + 20LL * v19 + 16);
   }
-  *a4 = *(_DWORD *)(v20 + 20LL * v19 + 16);
+  else
+  {
+    return (unsigned int)-1073741275;
+  }
   return v5;
 }

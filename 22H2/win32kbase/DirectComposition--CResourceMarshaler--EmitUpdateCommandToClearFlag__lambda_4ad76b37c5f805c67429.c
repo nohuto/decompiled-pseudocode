@@ -1,9 +1,9 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommandToClearFlag__lambda_4ad76b37c5f805c67429e5a989919464___ @ 0x1C0224068
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommandToClearFlag__lambda_4ad76b37c5f805c67429e5a989919464___ @ 0x1C01EA234
  * Callers:
- *     ?EmitUpdateCommands@CVisualSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009DA60 (-EmitUpdateCommands@CVisualSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CVisualSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EA2A0 (-EmitUpdateCommands@CVisualSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char DirectComposition::CResourceMarshaler::EmitUpdateCommandToClearFlag__lambda_4ad76b37c5f805c67429e5a989919464___(
@@ -28,8 +28,8 @@ char DirectComposition::CResourceMarshaler::EmitUpdateCommandToClearFlag__lambda
     v4 = (char *)v6;
     *(_DWORD *)v6 = 12;
     *(_QWORD *)(v4 + 4) = 0LL;
-    *((_DWORD *)v4 + 1) = 424;
-    *((_DWORD *)v4 + 2) = *(_DWORD *)(a1 + 32);
+    *((_DWORD *)v4 + 1) = 438;
+    *((_DWORD *)v4 + 2) = *(_DWORD *)(a1 + 24);
     *(_DWORD *)(a1 + 16) &= ~0x400u;
     return 1;
   }

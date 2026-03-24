@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qsD @ 0x1C00546EC
+ * XREFs of WPP_RECORDER_SF_qsD @ 0x1C0054FBC
  * Callers:
- *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AE324 (ExternalRequestBiosNameDeviceAssociation.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AF6D4 (ExternalRequestBiosNameDeviceAssociation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qsD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6, const char *a7)

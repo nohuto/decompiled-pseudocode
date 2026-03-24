@@ -1,11 +1,11 @@
 /*
- * XREFs of VfDevObjIsDeviceRemoved @ 0x140A916B8
+ * XREFs of VfDevObjIsDeviceRemoved @ 0x1409D5FD8
  * Callers:
- *     VfWmiVerifyIrpStackUpward @ 0x140AA6CA0 (VfWmiVerifyIrpStackUpward.c)
+ *     VfWmiVerifyIrpStackUpward @ 0x1409E3620 (VfWmiVerifyIrpStackUpward.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1402D81DC (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x1402D8518 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14045F6C8 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x140371B24 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A25D4 (VfAvlInitializeLockContext.c)
  */
 
 char VfDevObjIsDeviceRemoved()

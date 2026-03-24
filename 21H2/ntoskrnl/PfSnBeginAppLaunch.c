@@ -1,27 +1,27 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x1407DCCD8
+ * XREFs of PfSnBeginAppLaunch @ 0x1406CC0AC
  * Callers:
- *     PfProcessCreateNotification @ 0x1407DCC40 (PfProcessCreateNotification.c)
- *     PfSnAppLaunchScenarioControl @ 0x140988EE4 (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x1406CC014 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1408E08C0 (PfSnAppLaunchScenarioControl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PfCalculateProcessHash @ 0x1407DB510 (PfCalculateProcessHash.c)
- *     PfSnFindImageFileName @ 0x1407DC598 (PfSnFindImageFileName.c)
- *     PfSnIsHostingApplication @ 0x1407DC5E4 (PfSnIsHostingApplication.c)
- *     PfSnScanCommandLine @ 0x1407DC6F4 (PfSnScanCommandLine.c)
- *     PfSnCheckModernApp @ 0x1407DCA0C (PfSnCheckModernApp.c)
- *     PfSnCheckScenario @ 0x1407DCF18 (PfSnCheckScenario.c)
- *     PfSnBeginScenario @ 0x1407DCF7C (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x1407DD250 (PfSnLogScenarioDecision.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfSnFindImageFileName @ 0x1406CB524 (PfSnFindImageFileName.c)
+ *     PfSnIsHostingApplication @ 0x1406CB570 (PfSnIsHostingApplication.c)
+ *     PfSnScanCommandLine @ 0x1406CB680 (PfSnScanCommandLine.c)
+ *     PfSnCheckModernApp @ 0x1406CB998 (PfSnCheckModernApp.c)
+ *     PfSnBeginScenario @ 0x1406CBBC4 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x1406CBE9C (PfSnLogScenarioDecision.c)
+ *     PfSnCheckScenario @ 0x1406CC2B8 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x1406CC490 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, unsigned __int16 *a2, int a3)
 {
   void *v6; // rdi
-  int v7; // r14d
+  unsigned int v7; // r14d
   int v8; // ebx
   const void *ImageFileName; // rdx
   __int64 v10; // rax
@@ -31,13 +31,13 @@ __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, unsigned __int16 *a2, int a3)
   int v14; // ecx
   int v16; // eax
   int v17; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v18; // [rsp+48h] [rbp-B8h] BYREF
+  size_t v18; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v19; // [rsp+50h] [rbp-B0h] BYREF
   int v20; // [rsp+54h] [rbp-ACh] BYREF
   int v21; // [rsp+58h] [rbp-A8h] BYREF
   __int128 v22; // [rsp+60h] [rbp-A0h] BYREF
   wchar_t SubStr[32]; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int8 v24[256]; // [rsp+B0h] [rbp-50h] BYREF
+  wchar_t v24[128]; // [rsp+B0h] [rbp-50h] BYREF
 
   v21 = 0;
   v19 = 0;
@@ -49,16 +49,16 @@ __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, unsigned __int16 *a2, int a3)
   v7 = 0;
   v8 = PfSnCheckScenario(0LL, &v21);
   if ( v8 < 0 )
-    goto LABEL_19;
+    goto LABEL_17;
   if ( !a2 )
   {
-    v16 = PfCalculateProcessHash(a1, (unsigned __int64)&v18);
+    v16 = PfCalculateProcessHash(a1, &v18);
     v6 = (void *)v18;
     v8 = v16;
     if ( v16 < 0 )
     {
-LABEL_19:
-      PfSnLogScenarioDecision((unsigned int)SubStr, 0, 0, 15, 15, v8, -1LL);
+LABEL_17:
+      PfSnLogScenarioDecision((__int64)SubStr, 0, 0, 15, 15, v8, -1LL);
       goto LABEL_14;
     }
     a2 = (unsigned __int16 *)v18;
@@ -68,7 +68,7 @@ LABEL_19:
   if ( !ImageFileName )
   {
     v8 = -1073741811;
-    goto LABEL_19;
+    goto LABEL_17;
   }
   v10 = v19;
   if ( v19 >= 0x1D )
@@ -81,12 +81,12 @@ LABEL_19:
   IsHostingApplication = PfSnIsHostingApplication(SubStr);
   v8 = PfSnScanCommandLine(&v17, IsHostingApplication);
   if ( v8 < 0 )
-    goto LABEL_19;
+    goto LABEL_17;
   *(_DWORD *)&SubStr[30] += v17;
   v18 = 256LL;
   v8 = PfSnCheckModernApp(&v20, &v17, v24, &v18);
   if ( v8 < 0 )
-    goto LABEL_19;
+    goto LABEL_17;
   v14 = *(_DWORD *)&SubStr[30];
   if ( v20 )
   {
@@ -97,9 +97,9 @@ LABEL_19:
     WORD1(v22) = v18;
   }
   *(_DWORD *)&SubStr[30] = a3 + v14;
-  if ( (dword_140C54790 & 0x20) != 0 || v21 == 2 )
+  if ( (dword_140C50550 & 0x20) != 0 || v21 == 2 )
     v7 |= 2u;
-  v8 = PfSnBeginScenario(a1, (unsigned int)SubStr, 0, v7, (__int64)&v22);
+  v8 = PfSnBeginScenario(a1, (unsigned __int8 *)SubStr, 0, v7, (const void **)&v22);
   if ( v8 >= 0 )
     v8 = 0;
 LABEL_14:

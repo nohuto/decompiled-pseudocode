@@ -1,11 +1,11 @@
 /*
- * XREFs of WRITE_PM1_ENABLE @ 0x1C00390B4
+ * XREFs of WRITE_PM1_ENABLE @ 0x1C00269B0
  * Callers:
- *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
- *     PciExpressWakeControl @ 0x1C0034860 (PciExpressWakeControl.c)
- *     ACPIEnableInitializeACPI @ 0x1C0036910 (ACPIEnableInitializeACPI.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0025DB0 (ACPIInterruptServiceRoutineDPC.c)
+ *     PciExpressWakeControl @ 0x1C005A5D0 (PciExpressWakeControl.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WRITE_PM1_ENABLE(__int16 a1)

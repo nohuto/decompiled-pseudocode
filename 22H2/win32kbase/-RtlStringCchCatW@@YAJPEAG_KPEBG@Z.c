@@ -1,42 +1,39 @@
 /*
- * XREFs of ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0036928
+ * XREFs of ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00C2E14
  * Callers:
- *     ?GetSpriteFillColor@@YAKXZ @ 0x1C003668C (-GetSpriteFillColor@@YAKXZ.c)
- *     ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00CA81C (-GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00C2BA0 (-GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?GetSpriteFillColor@@YAKXZ @ 0x1C00C7470 (-GetSpriteFillColor@@YAKXZ.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x1C00369DC (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW @ 0x1C00C7764 (RtlStringCopyWorkerW.c)
  */
 
-__int64 __fastcall RtlStringCchCatW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3)
+__int64 __fastcall RtlStringCchCatW(unsigned __int16 *a1, __int64 a2, size_t *a3)
 {
-  __int64 v5; // r9
-  unsigned __int16 *v6; // rax
-  unsigned int v7; // edx
-  __int64 v8; // r8
-  size_t v10; // [rsp+20h] [rbp-18h]
+  signed int v3; // r9d
+  __int64 v5; // rcx
+  unsigned __int16 *i; // rax
+  __int64 v7; // rax
+  size_t v9; // [rsp+20h] [rbp-18h]
 
+  v3 = 0;
   if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
+    goto LABEL_9;
+  v5 = a2;
+  for ( i = a1; v5; --v5 )
   {
-    return (unsigned int)-1073741811;
+    if ( !*i )
+      break;
+    ++i;
   }
+  v3 = v5 == 0 ? 0xC000000D : 0;
+  if ( v5 )
+    v7 = a2 - v5;
   else
-  {
-    v5 = a2;
-    v6 = a1;
-    do
-    {
-      if ( !*v6 )
-        break;
-      ++v6;
-      --v5;
-    }
-    while ( v5 );
-    v7 = v5 == 0 ? 0xC000000D : 0;
-    if ( v5 )
-    {
-      v8 = (a2 - v5) & -(__int64)(v5 != 0);
-      return (unsigned int)RtlStringCopyWorkerW(&a1[v8], a2 - v8, (size_t *)v8, a3, v10);
-    }
-  }
-  return v7;
+LABEL_9:
+    v7 = 0LL;
+  if ( v3 >= 0 )
+    return (unsigned int)RtlStringCopyWorkerW(&a1[v7], a2 - v7, a3, (STRSAFE_PCNZWCH)a3, v9);
+  return (unsigned int)v3;
 }

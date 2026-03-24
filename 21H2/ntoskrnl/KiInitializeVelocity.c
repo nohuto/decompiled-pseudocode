@@ -1,107 +1,62 @@
 /*
- * XREFs of KiInitializeVelocity @ 0x140B29BDC
+ * XREFs of KiInitializeVelocity @ 0x140A4C6E8
  * Callers:
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     KiGetDisableFgBoostDecayRegKeyHandle @ 0x1403B50F4 (KiGetDisableFgBoostDecayRegKeyHandle.c)
+ *     Feature_DisableLowQosTimerResolution__private_ReportDeviceUsage @ 0x1403F245C (Feature_DisableLowQosTimerResolution__private_ReportDeviceUsage.c)
+ *     Feature_ReduceTimerWakes__private_ReportDeviceUsage @ 0x1403F24C4 (Feature_ReduceTimerWakes__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage @ 0x1403F252C (Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistAllowRealTime__private_ReportDeviceUsage @ 0x1403F2594 (Feature_SchedulerAssistAllowRealTime__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistEnableBAM__private_ReportDeviceUsage @ 0x1403F25FC (Feature_SchedulerAssistEnableBAM__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistForegroundBoostBias__private_ReportDeviceUsage @ 0x1403F2664 (Feature_SchedulerAssistForegroundBoostBias__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistHRTimer__private_ReportDeviceUsage @ 0x1403F26CC (Feature_SchedulerAssistHRTimer__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistLongSpinWait__private_ReportDeviceUsage @ 0x1403F2734 (Feature_SchedulerAssistLongSpinWait__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistPreemptionPriorityKick__private_ReportDeviceUsage @ 0x1403F279C (Feature_SchedulerAssistPreemptionPriorityKick__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistReflectPriority__private_ReportDeviceUsage @ 0x1403F2804 (Feature_SchedulerAssistReflectPriority__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistSystemIrql__private_ReportDeviceUsage @ 0x1403F286C (Feature_SchedulerAssistSystemIrql__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAssistThreadFlag__private_ReportDeviceUsage @ 0x1403F28D4 (Feature_SchedulerAssistThreadFlag__private_ReportDeviceUsage.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406AEF00 (RtlQueryImageFileKeyOption.c)
  */
 
-__int64 (__fastcall *KiInitializeVelocity())(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
+NTSTATUS KiInitializeVelocity()
 {
-  __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD); // rax
-  int v1; // [rsp+30h] [rbp-18h]
-  int v2; // [rsp+30h] [rbp-18h]
-  int v3; // [rsp+30h] [rbp-18h]
-  int v4; // [rsp+30h] [rbp-18h]
-  int v5; // [rsp+30h] [rbp-18h]
-  int v6; // [rsp+30h] [rbp-18h]
-  int v7; // [rsp+30h] [rbp-18h]
-  int v8; // [rsp+30h] [rbp-18h]
-  int v9; // [rsp+30h] [rbp-18h]
+  NTSTATUS result; // eax
+  ULONG v1; // ecx
+  ULONG v2; // [rsp+40h] [rbp+8h] BYREF
 
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAssistPreemptionPriorityKick__private_reporting,
-    0xD245DCu,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v1);
+  Feature_SchedulerAssistReflectPriority__private_ReportDeviceUsage();
+  Feature_SchedulerAssistPreemptionPriorityKick__private_ReportDeviceUsage();
   KiVelocityFlags |= 2u;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAssistThreadFlag__private_reporting,
-    0xCE8A33u,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v2);
+  Feature_SchedulerAssistThreadFlag__private_ReportDeviceUsage();
   KiVelocityFlags |= 4u;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAssistEnableBAM__private_reporting,
-    0xDE148Cu,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v3);
+  Feature_SchedulerAssistForegroundBoostBias__private_ReportDeviceUsage();
+  Feature_SchedulerAssistEnableBAM__private_ReportDeviceUsage();
   KiVelocityFlags |= 0x10u;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAssistSystemIrql__private_reporting,
-    0xFDEFC5u,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v4);
+  Feature_SchedulerAssistSystemIrql__private_ReportDeviceUsage();
   KiVelocityFlags |= 0x200u;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAssistHRTimer__private_reporting,
-    0xDF826Fu,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v5);
+  Feature_SchedulerAssistHRTimer__private_ReportDeviceUsage();
   KiVelocityFlags |= 0x40u;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAggressiveForegroundBoost__private_reporting,
-    0xDEF75Cu,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v6);
+  Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage();
   KiForegroundBoostTicks = 1;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_SchedulerAssistAllowRealTime__private_reporting,
-    0xE4A238u,
-    0,
-    0,
-    (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-    1u,
-    v7);
+  Feature_SchedulerAssistAllowRealTime__private_ReportDeviceUsage();
   KiVelocityFlags |= 0x80u;
-  result = wil_details_FeatureReporting_ReportUsageToService(
-             (__int64)&Feature_SchedulerAssistLongSpinWait__private_reporting,
-             0xFDEFDFu,
-             0,
-             0,
-             (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-             1u,
-             v8);
+  Feature_SchedulerAssistLongSpinWait__private_ReportDeviceUsage();
   KiVelocityFlags |= 0x400u;
-  if ( KiSchedulerForegroundBoostDecayPolicy != 1 )
+  Feature_ReduceTimerWakes__private_ReportDeviceUsage();
+  KiVelocityFlags |= 0x2000u;
+  Feature_DisableLowQosTimerResolution__private_ReportDeviceUsage();
+  v2 = 0;
+  result = KiGetDisableFgBoostDecayRegKeyHandle();
+  if ( result >= 0 )
   {
-    result = wil_details_FeatureReporting_ReportUsageToService(
-               (__int64)&Feature_SchedulerRemoveForegroundBoostDecay__private_reporting,
-               0x122938Eu,
-               0,
-               0,
-               (__int64)&Feature_HgsPlusParkingSupportRequired_logged_traits,
-               1u,
-               v9);
-    KiVelocityFlags |= 0x8000u;
+    result = RtlQueryImageFileKeyOption(KiDisableFgBoostDecayRegistryHandle, L"DisableFGBoostDecay", 4, &v2, 4u, 0LL);
+    v1 = v2;
+    if ( result < 0 )
+      v1 = 0;
+    v2 = v1;
+    if ( v1 )
+      KiForegrounBoostVelocityFlag = 1;
   }
   return result;
 }

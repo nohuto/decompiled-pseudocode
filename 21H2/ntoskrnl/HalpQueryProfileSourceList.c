@@ -1,104 +1,70 @@
 /*
- * XREFs of HalpQueryProfileSourceList @ 0x14050B88C
+ * XREFs of HalpQueryProfileSourceList @ 0x1404BF010
  * Callers:
- *     HalpQueryProfileInformation @ 0x1407FCE14 (HalpQueryProfileInformation.c)
+ *     EmonQueryInformation @ 0x140376BF0 (EmonQueryInformation.c)
+ *     Amd64QueryInformation @ 0x1404DDDA0 (Amd64QueryInformation.c)
+ *     DefaultQueryInformation @ 0x1408647F0 (DefaultQueryInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KeIsEmptyAffinityEx @ 0x140292F90 (KeIsEmptyAffinityEx.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
  */
 
-__int64 __fastcall HalpQueryProfileSourceList(unsigned int a1, __int64 a2, unsigned int *a3)
+__int64 __fastcall HalpQueryProfileSourceList(
+        _QWORD *a1,
+        __int64 a2,
+        int a3,
+        unsigned int a4,
+        __int64 a5,
+        unsigned int *a6)
 {
-  int v3; // r15d
-  unsigned int v4; // edi
-  _DWORD *v5; // r12
-  unsigned __int8 v8; // al
-  __int64 v9; // rbx
-  unsigned __int8 v10; // si
-  unsigned int v11; // esi
-  __int64 v12; // r8
-  unsigned int v13; // r8d
+  unsigned int v6; // r13d
+  _DWORD *v10; // r14
+  _QWORD *v11; // rbx
+  __int64 v12; // rdx
+  rsize_t v13; // rdx
   unsigned int v14; // edi
   __int64 v15; // rcx
-  __int64 v16; // rdx
-  unsigned int v17; // ebx
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // rax
-  _DWORD *SchedulerAssist; // r9
-  int v21; // edx
-  bool v22; // zf
-  unsigned __int8 v25; // [rsp+68h] [rbp+10h]
 
-  v3 = HalpProfileSourceDescriptorCount;
-  v4 = a1;
-  *a3 = 0;
-  v5 = 0LL;
-  v8 = HalpAcquireHighLevelLock(&HalpProfileSourceDescriptorListLock);
-  v9 = HalpProfileSourceDescriptorListHead;
-  v10 = v8;
-  v25 = v8;
-  if ( (__int64 *)HalpProfileSourceDescriptorListHead != &HalpProfileSourceDescriptorListHead )
+  v6 = a4;
+  v10 = 0LL;
+  *a6 = 0;
+  v11 = (_QWORD *)*a1;
+  if ( (_QWORD *)*a1 != a1 )
   {
-    v11 = v4;
     do
     {
-      if ( !v3 )
+      if ( !a3 )
         break;
-      if ( !(unsigned int)KeIsEmptyAffinityEx((_WORD *)(v9 + 24)) )
+      if ( !(unsigned int)KeIsEmptyAffinityEx((_WORD *)v11 + 12) )
       {
         v12 = -1LL;
         do
           ++v12;
-        while ( *(_WORD *)(*(_QWORD *)(v9 + 288) + 2 * v12) );
-        v13 = v12 + 1;
+        while ( *(_WORD *)(v11[24] + 2 * v12) );
+        v13 = (unsigned int)(v12 + 1);
         v14 = (2 * v13 + 31) & 0xFFFFFFF8;
-        if ( v14 <= v11 )
+        if ( v14 <= v6 )
         {
-          v15 = HalpProfileIntervalLimits;
-          *(_DWORD *)a2 = v14;
-          *(_DWORD *)(a2 + 4) = *(_DWORD *)(v9 - 8);
-          v16 = *(unsigned __int8 *)(v9 + 20);
-          *(_DWORD *)(a2 + 8) = *(_DWORD *)(v15 + 8 * v16 + 4);
-          *(_DWORD *)(a2 + 12) = *(_DWORD *)(v15 + 8 * v16);
-          *(_QWORD *)(a2 + 16) = 0LL;
-          wcscpy_s((wchar_t *)(a2 + 24), v13, *(const wchar_t **)(v9 + 288));
-          v5 = (_DWORD *)a2;
-          a2 += v14;
-          v11 -= v14;
+          *(_DWORD *)a5 = v14;
+          *(_DWORD *)(a5 + 4) = *((_DWORD *)v11 - 2);
+          v15 = *((unsigned __int8 *)v11 + 20);
+          *(_DWORD *)(a5 + 8) = *(_DWORD *)(a2 + 8 * v15 + 4);
+          *(_DWORD *)(a5 + 12) = *(_DWORD *)(a2 + 8 * v15);
+          *(_QWORD *)(a5 + 16) = 0LL;
+          wcscpy_s((wchar_t *)(a5 + 24), v13, (const wchar_t *)v11[24]);
+          v10 = (_DWORD *)a5;
+          a5 += v14;
+          v6 -= v14;
         }
-        *a3 += v14;
-        --v3;
+        *a6 += v14;
+        --a3;
       }
-      v9 = *(_QWORD *)v9;
+      v11 = (_QWORD *)*v11;
     }
-    while ( (__int64 *)v9 != &HalpProfileSourceDescriptorListHead );
-    v10 = v25;
-    v4 = a1;
-    if ( v5 )
-      *v5 = 0;
+    while ( v11 != a1 );
+    v6 = a4;
+    if ( v10 )
+      *v10 = 0;
   }
-  v17 = v4 < *a3 ? 0xC0000004 : 0;
-  KxReleaseSpinLock(&HalpProfileSourceDescriptorListLock);
-  if ( KiIrqlFlags )
-  {
-    if ( (KiIrqlFlags & 1) != 0 )
-    {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << (v10 + 1));
-        v22 = (v21 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v21;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-      }
-    }
-  }
-  __writecr8(v10);
-  return v17;
+  return v6 < *a6 ? 0xC0000004 : 0;
 }

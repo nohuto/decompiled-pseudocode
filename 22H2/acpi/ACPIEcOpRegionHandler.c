@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcOpRegionHandler @ 0x1C0002BC0
+ * XREFs of ACPIEcOpRegionHandler @ 0x1C0053540
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIEcQueueEcIrp @ 0x1C0024F44 (ACPIEcQueueEcIrp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIEcQueueEcIrp @ 0x1C00535D0 (ACPIEcQueueEcIrp.c)
  */
 
 __int64 __fastcall ACPIEcOpRegionHandler(

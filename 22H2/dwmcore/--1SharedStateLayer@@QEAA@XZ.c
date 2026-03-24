@@ -1,5 +1,5 @@
 /*
- * XREFs of ??1SharedStateLayer@@QEAA@XZ @ 0x18020A5E0
+ * XREFs of ??1SharedStateLayer@@QEAA@XZ @ 0x1800C0160
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall SharedStateLayer::~SharedStateLayer(SharedStateLayer *this)
 {
-  wil::com_ptr_t<CExternalEffectGraph,wil::err_returncode_policy>::~com_ptr_t<CExternalEffectGraph,wil::err_returncode_policy>((__int64 *)this + 4);
+  wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::~com_ptr_t<CRenderingEffect,wil::err_returncode_policy>((char *)this + 32);
 }

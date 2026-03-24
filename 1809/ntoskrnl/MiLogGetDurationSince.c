@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLogGetDurationSince @ 0x1402A91AC
+ * XREFs of MiLogGetDurationSince @ 0x1402A92AC
  * Callers:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
- *     MiAllocateContiguousMemory @ 0x1400E64FC (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
  * Callees:
  *     <none>
  */

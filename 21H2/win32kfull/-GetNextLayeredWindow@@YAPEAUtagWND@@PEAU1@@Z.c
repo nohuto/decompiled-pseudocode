@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00203AC
+ * XREFs of ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004C3DC
  * Callers:
- *     TrackLayeredZorder @ 0x1C001F3C8 (TrackLayeredZorder.c)
- *     ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C001F45C (-ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z.c)
+ *     TrackLayeredZorder @ 0x1C00BD768 (TrackLayeredZorder.c)
+ *     ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C00BD7F0 (-ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z.c)
  * Callees:
- *     IsDesktopWindow @ 0x1C00205C0 (IsDesktopWindow.c)
- *     IsMessageParentWindow @ 0x1C0020620 (IsMessageParentWindow.c)
- *     ?GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0020640 (-GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     IsDesktopWindow @ 0x1C004C5F0 (IsDesktopWindow.c)
+ *     IsMessageParentWindow @ 0x1C004C650 (IsMessageParentWindow.c)
+ *     ?GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004C670 (-GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z.c)
  */
 
 struct tagWND *__fastcall GetNextLayeredWindow(struct tagWND *a1)

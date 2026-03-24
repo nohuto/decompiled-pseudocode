@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSerializeBoot @ 0x140761F90
+ * XREFs of NtSerializeBoot @ 0x140761F70
  * Callers:
  *     <none>
  * Callees:
- *     PnpSerializeBoot @ 0x140192D98 (PnpSerializeBoot.c)
+ *     PnpSerializeBoot @ 0x140192DB8 (PnpSerializeBoot.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  */
 

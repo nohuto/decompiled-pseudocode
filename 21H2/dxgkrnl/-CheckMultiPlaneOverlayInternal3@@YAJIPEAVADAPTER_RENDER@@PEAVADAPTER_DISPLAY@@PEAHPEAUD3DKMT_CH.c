@@ -1,23 +1,20 @@
 /*
- * XREFs of ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C015E960
+ * XREFs of ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02526D4
  * Callers:
- *     ?CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@IPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@_NPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C015DFB4 (-CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@.c)
- *     ?CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAVCIFlipPresentHistoryTokenData@@_NPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAUtagRECT@@@Z @ 0x1C0319174 (-CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAVCIFlipPresentHistoryTokenData@@_NPE.c)
+ *     ?CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@IPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@_NPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0252E98 (-CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@.c)
+ *     ?CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAUtagRECT@@@Z @ 0x1C02A36C8 (-CheckAndUpdateMultiPlaneOverlayFromInternalState@@YA_NIIPEAU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOK.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?SupportCheckMultiPlaneOverlaySupport3@DXGADAPTER@@QEBAEXZ @ 0x1C001E0AC (-SupportCheckMultiPlaneOverlaySupport3@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_RENDER@@@Z @ 0x1C015ED50 (-LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXI.c)
- *     ?ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ @ 0x1C015EEE8 (-ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ.c)
- *     ?CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C015F208 (-CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
- *     ?GetCheckMultiPlaneOverlayArgsUnsafe@ADAPTER_DISPLAY@@QEAAXIIPEAPEAVDXGALLOCATION@@PEAIPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@1PEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@@Z @ 0x1C015F6B0 (-GetCheckMultiPlaneOverlayArgsUnsafe@ADAPTER_DISPLAY@@QEAAXIIPEAPEAVDXGALLOCATION@@PEAIPEAU_D3DK.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@PEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@$02@@QEAAPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@I@Z @ 0x1C015FA00 (-AllocateElements@-$PagedPoolZeroedArray@PEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SO.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@$02@@QEAAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@I@Z @ 0x1C015FA4C (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURC.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@PEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C015FA98 (-AllocateElements@-$PagedPoolZeroedArray@PEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAP.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3@@$02@@QEAAPEAU_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3@@I@Z @ 0x1C015FB14 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3@@$02@@QEAAPEAU_.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C015FB90 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAU.c)
- *     ?CallCheckMultiPlaneOverlaySupport1DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E3988 (-CallCheckMultiPlaneOverlaySupport1DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
- *     ?CallCheckMultiPlaneOverlaySupport2DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E3BFC (-CallCheckMultiPlaneOverlaySupport2DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ @ 0x1C0210ADC (-ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ.c)
+ *     ?GetCheckMultiPlaneOverlayArgsUnsafe@ADAPTER_DISPLAY@@QEAAXIIPEAPEAVDXGALLOCATION@@PEAIPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@1PEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@@Z @ 0x1C02128F4 (-GetCheckMultiPlaneOverlayArgsUnsafe@ADAPTER_DISPLAY@@QEAAXIIPEAPEAVDXGALLOCATION@@PEAIPEAU_D3DK.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@PEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C02519A8 (-AllocateElements@-$PagedPoolZeroedArray@PEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAP.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@I@Z @ 0x1C0251AB8 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@$02@@QEAAPEAU.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3@@$02@@QEAAPEAU_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3@@I@Z @ 0x1C0251B40 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3@@$02@@QEAAPEAU_.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@$02@@QEAAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@I@Z @ 0x1C0251BC8 (-AllocateElements@-$PagedPoolZeroedArray@U_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURC.c)
+ *     ?CallCheckMultiPlaneOverlaySupport1DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0251D5C (-CallCheckMultiPlaneOverlaySupport1DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
+ *     ?CallCheckMultiPlaneOverlaySupport2DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0251FD8 (-CallCheckMultiPlaneOverlaySupport2DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
+ *     ?CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0252244 (-CallCheckMultiPlaneOverlaySupport3DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAP.c)
+ *     ?LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_RENDER@@@Z @ 0x1C0255734 (-LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXI.c)
  */
 
 __int64 __fastcall CheckMultiPlaneOverlayInternal3(
@@ -29,301 +26,331 @@ __int64 __fastcall CheckMultiPlaneOverlayInternal3(
 {
   __int64 v6; // rax
   __int64 v7; // rsi
-  unsigned int v8; // ebx
+  unsigned int v8; // edi
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // rdi
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rdx
-  __int64 v19; // rcx
+  _QWORD *v12; // rax
+  __int64 v13; // rcx
+  unsigned int v14; // edi
+  _QWORD *v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 *v19; // rbx
   __int64 v20; // r8
-  __int64 v21; // r9
-  void **v22; // r14
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  struct DXGALLOCATION **v27; // r13
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **v32; // rax
-  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v33; // rcx
-  __int64 *v34; // rdx
-  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *v35; // r8
-  __int64 v36; // r9
-  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *v37; // rcx
-  __int64 v38; // rdx
-  unsigned __int8 v39; // al
-  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *v40; // r8
-  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *v41; // r10
-  unsigned int v42; // edx
-  __int64 v43; // rdi
-  unsigned int v44; // ebx
-  void **v45; // rdx
-  signed __int64 v46; // r13
-  __int64 v47; // r8
-  unsigned __int8 v48; // al
-  __int64 v49; // rcx
-  ADAPTER_DISPLAY *v50; // rsi
-  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v51; // r13
-  unsigned int v52; // ebx
-  __int64 v54; // rax
+  _QWORD *v21; // rax
+  __int64 v22; // rcx
+  _QWORD *v23; // rbx
+  __int64 v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  void **v28; // r14
+  _QWORD *v29; // rax
+  __int64 v30; // rcx
+  _QWORD *v31; // rbx
+  __int64 v32; // rdx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  struct DXGALLOCATION **v36; // r12
+  _QWORD *v37; // rax
+  __int64 v38; // rcx
+  _QWORD *v39; // rbx
+  __int64 v40; // rdx
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  _QWORD *v44; // rbx
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **v47; // rax
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *v48; // r10
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v49; // rcx
+  D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 **p_pPlaneAttributes; // rdx
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *v51; // r8
+  __int64 v52; // r9
+  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *v53; // r8
+  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *v54; // rcx
   __int64 v55; // rdx
   __int64 v56; // rax
-  __int64 v57; // rdx
-  __int64 v58; // rax
-  __int64 v59; // rdx
-  __int64 v60; // rax
-  __int64 v61; // rdx
-  __int64 CurrentProcess; // rax
-  unsigned int v63[2]; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v64[2]; // [rsp+58h] [rbp-A8h] BYREF
-  ADAPTER_DISPLAY *v65; // [rsp+60h] [rbp-A0h]
-  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v66; // [rsp+68h] [rbp-98h]
-  struct ADAPTER_RENDER *v67; // [rsp+70h] [rbp-90h]
-  unsigned int v68; // [rsp+78h] [rbp-88h]
-  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **v69; // [rsp+80h] [rbp-80h]
-  PVOID v70; // [rsp+88h] [rbp-78h] BYREF
-  char v71; // [rsp+90h] [rbp-70h] BYREF
-  int v72; // [rsp+A8h] [rbp-58h]
-  PVOID P; // [rsp+B0h] [rbp-50h] BYREF
-  char v74; // [rsp+B8h] [rbp-48h] BYREF
-  int v75; // [rsp+D0h] [rbp-30h]
-  PVOID v76; // [rsp+D8h] [rbp-28h] BYREF
-  char v77; // [rsp+E0h] [rbp-20h] BYREF
-  int v78; // [rsp+F8h] [rbp-8h]
-  PVOID v79; // [rsp+100h] [rbp+0h] BYREF
-  char v80; // [rsp+108h] [rbp+8h] BYREF
-  int v81; // [rsp+120h] [rbp+20h]
-  PVOID v82; // [rsp+130h] [rbp+30h] BYREF
-  char v83; // [rsp+138h] [rbp+38h] BYREF
-  int v84; // [rsp+1BCh] [rbp+BCh]
-  PVOID v85; // [rsp+1C0h] [rbp+C0h] BYREF
-  char v86; // [rsp+1C8h] [rbp+C8h] BYREF
-  int v87; // [rsp+228h] [rbp+128h]
-  PVOID v88; // [rsp+230h] [rbp+130h] BYREF
-  char v89; // [rsp+238h] [rbp+138h] BYREF
-  int v90; // [rsp+340h] [rbp+240h]
+  unsigned int v57; // eax
+  void **v58; // rdx
+  __int64 v59; // rcx
+  __int64 v60; // rbx
+  __int64 v61; // rax
+  unsigned int v62; // edi
+  __int64 v63; // rax
+  signed __int64 v64; // r12
+  __int64 v65; // r8
+  __int64 v66; // rax
+  struct _KTHREAD **v67; // rsi
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v68; // r12
+  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *v70; // [rsp+40h] [rbp-C0h] BYREF
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *v71; // [rsp+48h] [rbp-B8h] BYREF
+  ADAPTER_DISPLAY *v72; // [rsp+50h] [rbp-B0h]
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v73; // [rsp+58h] [rbp-A8h]
+  struct ADAPTER_RENDER *v74; // [rsp+60h] [rbp-A0h]
+  unsigned int v75; // [rsp+68h] [rbp-98h]
+  struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **v76; // [rsp+70h] [rbp-90h]
+  PVOID P; // [rsp+78h] [rbp-88h] BYREF
+  char v78; // [rsp+80h] [rbp-80h] BYREF
+  int v79; // [rsp+98h] [rbp-68h]
+  PVOID v80; // [rsp+A0h] [rbp-60h] BYREF
+  char v81; // [rsp+A8h] [rbp-58h] BYREF
+  int v82; // [rsp+C0h] [rbp-40h]
+  PVOID v83; // [rsp+C8h] [rbp-38h] BYREF
+  char v84; // [rsp+D0h] [rbp-30h] BYREF
+  int v85; // [rsp+E8h] [rbp-18h]
+  PVOID v86; // [rsp+F0h] [rbp-10h] BYREF
+  char v87; // [rsp+F8h] [rbp-8h] BYREF
+  int v88; // [rsp+110h] [rbp+10h]
+  PVOID v89; // [rsp+120h] [rbp+20h] BYREF
+  char v90; // [rsp+128h] [rbp+28h] BYREF
+  int v91; // [rsp+1ACh] [rbp+ACh]
+  PVOID v92; // [rsp+1B0h] [rbp+B0h] BYREF
+  char v93; // [rsp+1B8h] [rbp+B8h] BYREF
+  int v94; // [rsp+218h] [rbp+118h]
+  PVOID v95; // [rsp+220h] [rbp+120h] BYREF
+  char v96; // [rsp+228h] [rbp+128h] BYREF
+  int v97; // [rsp+330h] [rbp+230h]
 
   *a4 = 0;
   v6 = *((_QWORD *)a2 + 2);
-  v7 = *((unsigned int *)a3 + 24);
-  v67 = a2;
-  v68 = a1;
-  v8 = v7 * *(_DWORD *)(v6 + 2632);
-  v65 = a3;
-  v85 = 0LL;
-  v87 = 0;
-  *(_QWORD *)v64 = PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,3>::AllocateElements(&v85, v8);
-  if ( *(_QWORD *)v64 )
+  v7 = *((unsigned int *)a3 + 20);
+  v74 = a2;
+  v75 = a1;
+  v8 = v7 * *(_DWORD *)(v6 + 2536);
+  v72 = a3;
+  v92 = 0LL;
+  v94 = 0;
+  v71 = (struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,3>::AllocateElements(
+                                                            &v92,
+                                                            v8);
+  if ( v71 )
   {
-    v79 = 0LL;
-    v81 = 0;
-    v66 = (struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
-                                                               &v79,
+    v86 = 0LL;
+    v88 = 0;
+    v73 = (struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
+                                                               &v86,
                                                                v8);
-    v88 = 0LL;
-    v90 = 0;
-    v15 = PagedPoolZeroedArray<_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,3>::AllocateElements(&v88, v8);
-    if ( v15 )
+    v95 = 0LL;
+    v97 = 0;
+    v19 = (D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 *)PagedPoolZeroedArray<_D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,3>::AllocateElements(
+                                                     &v95,
+                                                     v8);
+    if ( v19 )
     {
-      v76 = 0LL;
-      v78 = 0;
-      v22 = (void **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(&v76, v8);
-      if ( v22 )
+      v83 = 0LL;
+      v85 = 0;
+      v28 = (void **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(&v83, v8);
+      if ( v28 )
       {
-        P = 0LL;
-        v75 = 0;
-        v27 = (struct DXGALLOCATION **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
-                                         &P,
+        v80 = 0LL;
+        v82 = 0;
+        v36 = (struct DXGALLOCATION **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
+                                         &v80,
                                          v8);
-        if ( v27 )
+        if ( v36 )
         {
-          v82 = 0LL;
-          v84 = 0;
-          *(_QWORD *)v63 = PagedPoolZeroedArray<_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE,3>::AllocateElements(
-                             &v82,
-                             (unsigned int)v7);
-          if ( *(_QWORD *)v63 )
+          v89 = 0LL;
+          v91 = 0;
+          v70 = (struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *)PagedPoolZeroedArray<_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE,3>::AllocateElements(
+                                                                                    &v89,
+                                                                                    v7);
+          if ( v70 )
           {
-            v70 = 0LL;
-            v72 = 0;
-            v32 = (struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **)PagedPoolZeroedArray<_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE *,3>::AllocateElements(
-                                                                                       &v70,
-                                                                                       (unsigned int)v7);
-            v69 = v32;
+            P = 0LL;
+            v79 = 0;
+            v47 = (struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **)PagedPoolZeroedArray<_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 *,3>::AllocateElements(
+                                                                                       &P,
+                                                                                       v7);
+            v48 = v71;
+            v76 = v47;
             if ( v8 )
             {
-              v33 = v66;
-              v34 = (__int64 *)(*(_QWORD *)v64 + 24LL);
-              v35 = *(struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **)v64;
-              v36 = v8;
+              v49 = v73;
+              p_pPlaneAttributes = &v71->pPlaneAttributes;
+              v51 = v71;
+              v52 = v8;
               do
               {
-                *v33 = v35++;
-                *v34 = v15;
-                ++v33;
-                v15 += 88LL;
-                v34 += 4;
-                --v36;
+                *v49 = v51++;
+                *p_pPlaneAttributes = v19;
+                ++v49;
+                ++v19;
+                p_pPlaneAttributes += 4;
+                --v52;
               }
-              while ( v36 );
+              while ( v52 );
             }
+            v53 = v70;
             if ( (_DWORD)v7 )
             {
-              v37 = *(struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **)v63;
-              v38 = v7;
+              v54 = v70;
+              v55 = v7;
               do
               {
-                *v32++ = v37++;
-                --v38;
+                *v47++ = v54++;
+                --v55;
               }
-              while ( v38 );
+              while ( v55 );
             }
-            v63[0] = 0;
-            v64[0] = 0;
-            v39 = DXGADAPTER::SupportCheckMultiPlaneOverlaySupport3(*((DXGADAPTER **)v67 + 2));
-            v42 = -1;
-            if ( !v39 )
-              v42 = v68;
-            ADAPTER_DISPLAY::GetCheckMultiPlaneOverlayArgsUnsafe(v65, v42, v8, v27, v63, v41, v64, v40);
-            v43 = v63[0];
-            if ( v63[0] > v8 )
+            LODWORD(v70) = 0;
+            LODWORD(v71) = 0;
+            v56 = *((_QWORD *)v74 + 2);
+            if ( *(_QWORD *)(v56 + 928) && *(_BYTE *)(v56 + 2642) )
+              v57 = -1;
+            else
+              v57 = v75;
+            ADAPTER_DISPLAY::GetCheckMultiPlaneOverlayArgsUnsafe(
+              (struct _KTHREAD **)v72,
+              v57,
+              v8,
+              v36,
+              (unsigned int *)&v70,
+              v48,
+              (unsigned int *)&v71,
+              v53);
+            v60 = (unsigned int)v70;
+            if ( (unsigned int)v70 > v8 )
             {
-              WdLogSingleEntry1(1LL, 9983LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"ActualPlaneCount <= MaxPlanes",
-                9983LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
+              v61 = WdLogNewEntry5_WdAssertion(v59, v58);
+              *(_QWORD *)(v61 + 24) = 9983LL;
+              WdLogEvent5_WdAssertion(v61);
             }
-            v44 = v64[0];
-            if ( v64[0] > (unsigned int)v7 )
+            v62 = (unsigned int)v71;
+            if ( (unsigned int)v71 > (unsigned int)v7 )
             {
-              WdLogSingleEntry1(1LL, 9984LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"ActualPostCompositionCount <= NumVidPnSources",
-                9984LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
+              v63 = WdLogNewEntry5_WdAssertion(v59, v58);
+              *(_QWORD *)(v63 + 24) = 9984LL;
+              WdLogEvent5_WdAssertion(v63);
             }
-            if ( (_DWORD)v43 )
+            if ( (_DWORD)v60 )
             {
-              v45 = v22;
-              v46 = (char *)v27 - (char *)v22;
-              v47 = v43;
+              v58 = v28;
+              v64 = (char *)v36 - (char *)v28;
+              v65 = v60;
               do
               {
-                *v45 = *(void **)((*(_QWORD **)((char *)v45 + v46))[6] + 16LL);
-                ++v45;
-                --v47;
+                *v58 = *(void **)((*(_QWORD **)((char *)v58 + v64))[6] + 16LL);
+                ++v58;
+                --v65;
               }
-              while ( v47 );
+              while ( v65 );
             }
-            v48 = DXGADAPTER::SupportCheckMultiPlaneOverlaySupport3(*((DXGADAPTER **)v67 + 2));
-            v50 = v65;
-            v51 = v66;
-            if ( v48 )
+            v66 = *((_QWORD *)v74 + 2);
+            if ( *(_QWORD *)(v66 + 928) && *(_BYTE *)(v66 + 2642) )
             {
-              CallCheckMultiPlaneOverlaySupport3DDI(v43, v66, v22, v44, v69, v65, a4, a5);
+              v67 = (struct _KTHREAD **)v72;
+              v68 = v73;
+              CallCheckMultiPlaneOverlaySupport3DDI(v60, (unsigned __int64)v73, v28, v62, v76, v72, a4, a5);
             }
-            else if ( (unsigned int)v43 <= *(_DWORD *)(v49 + 2632) )
+            else
             {
-              if ( *(_QWORD *)(v49 + 984) )
-                CallCheckMultiPlaneOverlaySupport2DDI(v43, v66, v22, v65, a4, a5);
-              else
-                CallCheckMultiPlaneOverlaySupport1DDI(v43, v66, v22, v65, a4, a5);
+              v67 = (struct _KTHREAD **)v72;
+              v68 = v73;
+              if ( (unsigned int)v60 <= *(_DWORD *)(v66 + 2536) )
+              {
+                if ( *(_QWORD *)(v66 + 896) )
+                  CallCheckMultiPlaneOverlaySupport2DDI((unsigned int)v60, (unsigned __int64)v73, v28, v72, a4, a5);
+                else
+                  CallCheckMultiPlaneOverlaySupport1DDI((unsigned int)v60, (unsigned __int64)v73, v28, v72, a4, a5);
+              }
             }
             if ( *a4 == 1
-              && ADAPTER_DISPLAY::ConfigChangesOnMultipleOutputs(v50)
-              && !*(_BYTE *)(*((_QWORD *)v67 + 2) + 2740LL) )
+              && ADAPTER_DISPLAY::ConfigChangesOnMultipleOutputs(v67, (__int64)v58)
+              && !*(_BYTE *)(*((_QWORD *)v74 + 2) + 2644LL) )
             {
               *a4 = 0;
               a5->Value = a5->Value & 0xFFFFFFE0 | 0x10;
             }
-            LogCheckMutiplaneOverlaySupport(0, *a4, v43, v51, v22, v44, v69, v67);
-            v52 = 0;
-            if ( v70 != &v71 && v70 )
-              ExFreePoolWithTag(v70, 0);
-            v70 = 0LL;
-            v72 = 0;
+            LogCheckMutiplaneOverlaySupport(0, *a4, v60, v68, v28, v62, v76, v74);
+            v14 = 0;
+            if ( P != &v78 && P )
+              ExFreePoolWithTag(P, 0);
+            P = 0LL;
+            v79 = 0;
           }
           else
           {
-            CurrentProcess = PsGetCurrentProcess(v29, v28, v30, v31);
-            v52 = -1073741801;
-            WdLogSingleEntry3(3LL, v7, -1073741801LL, CurrentProcess);
+            v14 = -1073741801;
+            v44 = (_QWORD *)WdLogNewEntry5_WdWarning(v42, v41, v43);
+            v44[3] = v7;
+            v44[4] = -1073741801LL;
+            v44[5] = PsGetCurrentProcess(v46, v45);
+            WdLogEvent5_WdWarning(v44);
           }
-          if ( v82 != &v83 && v82 )
-            ExFreePoolWithTag(v82, 0);
-          v82 = 0LL;
-          v84 = 0;
+          if ( v89 != &v90 && v89 )
+            ExFreePoolWithTag(v89, 0);
+          v89 = 0LL;
+          v91 = 0;
         }
         else
         {
-          v60 = PsGetCurrentProcess(v24, v23, v25, v26);
-          v61 = v8;
-          v52 = -1073741801;
-          WdLogSingleEntry3(3LL, v61, -1073741801LL, v60);
+          v37 = (_QWORD *)WdLogNewEntry5_WdWarning(v34, v33, v35);
+          v38 = v8;
+          v14 = -1073741801;
+          v39 = v37;
+          v37[3] = v38;
+          v37[4] = -1073741801LL;
+          v37[5] = PsGetCurrentProcess(v38, v40);
+          WdLogEvent5_WdWarning(v39);
         }
-        if ( P != &v74 && P )
-          ExFreePoolWithTag(P, 0);
-        P = 0LL;
-        v75 = 0;
+        if ( v80 != &v81 && v80 )
+          ExFreePoolWithTag(v80, 0);
+        v80 = 0LL;
+        v82 = 0;
       }
       else
       {
-        v58 = PsGetCurrentProcess(v19, v18, v20, v21);
-        v59 = v8;
-        v52 = -1073741801;
-        WdLogSingleEntry3(3LL, v59, -1073741801LL, v58);
+        v29 = (_QWORD *)WdLogNewEntry5_WdWarning(v26, v25, v27);
+        v30 = v8;
+        v14 = -1073741801;
+        v31 = v29;
+        v29[3] = v30;
+        v29[4] = -1073741801LL;
+        v29[5] = PsGetCurrentProcess(v30, v32);
+        WdLogEvent5_WdWarning(v31);
       }
-      if ( v76 != &v77 && v76 )
-        ExFreePoolWithTag(v76, 0);
-      v76 = 0LL;
-      v78 = 0;
+      if ( v83 != &v84 && v83 )
+        ExFreePoolWithTag(v83, 0);
+      v83 = 0LL;
+      v85 = 0;
     }
     else
     {
-      v56 = PsGetCurrentProcess(v14, v13, v16, v17);
-      v57 = v8;
-      v52 = -1073741801;
-      WdLogSingleEntry3(3LL, v57, -1073741801LL, v56);
+      v21 = (_QWORD *)WdLogNewEntry5_WdWarning(v18, v17, v20);
+      v22 = v8;
+      v14 = -1073741801;
+      v23 = v21;
+      v21[3] = v22;
+      v21[4] = -1073741801LL;
+      v21[5] = PsGetCurrentProcess(v22, v24);
+      WdLogEvent5_WdWarning(v23);
     }
-    if ( v88 != &v89 && v88 )
-      ExFreePoolWithTag(v88, 0);
-    v88 = 0LL;
-    v90 = 0;
-    if ( v79 != &v80 && v79 )
-      ExFreePoolWithTag(v79, 0);
-    v79 = 0LL;
-    v81 = 0;
+    if ( v95 != &v96 && v95 )
+      ExFreePoolWithTag(v95, 0);
+    v95 = 0LL;
+    v97 = 0;
+    if ( v86 != &v87 && v86 )
+      ExFreePoolWithTag(v86, 0);
+    v86 = 0LL;
+    v88 = 0;
   }
   else
   {
-    v54 = PsGetCurrentProcess(v10, v9, v11, v12);
-    v55 = v8;
-    v52 = -1073741801;
-    WdLogSingleEntry3(3LL, v55, -1073741801LL, v54);
+    v12 = (_QWORD *)WdLogNewEntry5_WdWarning(v10, v9, v11);
+    v13 = v8;
+    v14 = -1073741801;
+    v15 = v12;
+    v12[3] = v13;
+    v12[4] = -1073741801LL;
+    v12[5] = PsGetCurrentProcess(v13, v16);
+    WdLogEvent5_WdWarning(v15);
   }
-  if ( v85 != &v86 && v85 )
-    ExFreePoolWithTag(v85, 0);
-  return v52;
+  if ( v92 != &v93 && v92 )
+    ExFreePoolWithTag(v92, 0);
+  return v14;
 }

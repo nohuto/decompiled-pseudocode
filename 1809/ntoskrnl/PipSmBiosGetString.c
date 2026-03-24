@@ -3,7 +3,7 @@
  * Callers:
  *     PipInitComputerIds @ 0x1409C8C60 (PipInitComputerIds.c)
  * Callees:
- *     strchr @ 0x140196EA0 (strchr.c)
+ *     strchr @ 0x140196EC0 (strchr.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  */
 

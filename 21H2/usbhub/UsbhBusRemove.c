@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhBusRemove @ 0x1C0036560
+ * XREFs of UsbhBusRemove @ 0x1C0037880
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 void __fastcall UsbhBusRemove(struct _DEVICE_OBJECT *a1, __int64 a2)

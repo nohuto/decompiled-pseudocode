@@ -1,11 +1,9 @@
 /*
- * XREFs of ?MapViewOfAllocation@VIDMM_PROCESS_HEAP@@UEAAPEAXPEAX_K1H@Z @ 0x1C00F1D30
+ * XREFs of ?MapViewOfAllocation@VIDMM_PROCESS_HEAP@@UEAAPEAXPEAX_K1H@Z @ 0x1C00CD300
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 char *__fastcall VIDMM_PROCESS_HEAP::MapViewOfAllocation(
@@ -15,41 +13,50 @@ char *__fastcall VIDMM_PROCESS_HEAP::MapViewOfAllocation(
         __int64 a4,
         int a5)
 {
-  __int64 v5; // r14
-  __int64 CurrentProcess; // rax
+  __int64 *v5; // rax
+  __int64 v6; // rdi
+  __int64 v9; // rbx
   __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rcx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  _QWORD *v13; // rax
   __int64 v14; // rbx
-  void *v15; // rsi
-  int v16; // r12d
-  __int64 v17; // rcx
-  int v18; // eax
-  __int64 v19; // rcx
-  ULONG_PTR v20; // rax
-  __int64 v21; // rbx
-  __int64 v22; // rdi
-  __int64 v23; // rsi
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  __int64 v25; // rdx
-  char *v26; // r14
-  __int64 v27; // rbx
-  NTSTATUS v28; // eax
-  char *v29; // r14
-  __int64 v30; // rcx
-  __int64 v32; // [rsp+60h] [rbp-10h] BYREF
-  PVOID MappedBase; // [rsp+B0h] [rbp+40h] BYREF
-  ULONG_PTR ViewSize; // [rsp+B8h] [rbp+48h] BYREF
-  __int64 v35; // [rsp+C8h] [rbp+58h] BYREF
+  void *v15; // r12
+  int v16; // r14d
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  int v19; // r14d
+  __int64 v20; // rax
+  ULONG_PTR v21; // rax
+  __int64 v22; // rbx
+  __int64 CurrentProcess; // rax
+  char *v24; // rdi
+  __int64 v25; // rbx
+  NTSTATUS v26; // eax
+  __int64 v27; // rcx
+  __int64 v28; // r14
+  char *v29; // rdi
+  __int64 v30; // rax
+  ULONG_PTR ViewSize[2]; // [rsp+50h] [rbp-10h] BYREF
+  PVOID MappedBase; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v34; // [rsp+A8h] [rbp+48h] BYREF
+  __int64 v35; // [rsp+B8h] [rbp+58h] BYREF
 
   v35 = a4;
-  v5 = 0LL;
+  v5 = (__int64 *)*((_QWORD *)this + 1);
+  v6 = 0LL;
   MappedBase = 0LL;
-  CurrentProcess = PsGetCurrentProcess(this, a2, a3, a4);
-  v13 = *((_QWORD *)this + 1);
-  if ( CurrentProcess != *(_QWORD *)v13 )
-    WdLogSingleEntry5(0LL, 270LL, 30LL, 0LL, 0LL, 0LL);
+  v9 = *v5;
+  if ( PsGetCurrentProcess(this, a2, a3) != v9 )
+  {
+    v13 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v11, v10);
+    v13[3] = 270LL;
+    v13[4] = 30LL;
+    v13[5] = 0LL;
+    v13[6] = 0LL;
+    v13[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v13);
+  }
   if ( (*(_DWORD *)a2 & 1) != 0 )
   {
     v14 = a3;
@@ -58,79 +65,68 @@ char *__fastcall VIDMM_PROCESS_HEAP::MapViewOfAllocation(
   }
   else
   {
-    v13 = a2[1];
+    v11 = a2[1];
     v16 = 4;
     v14 = a3 + a2[2];
-    v15 = *(void **)(v13 + 88);
-    if ( ((*(_DWORD *)(v13 + 80) - 4) & 0xFFFFFFFD) != 0 )
+    v15 = *(void **)(v11 + 88);
+    if ( ((*(_DWORD *)(v11 + 80) - 4) & 0xFFFFFFFD) != 0 )
       v16 = 1028;
   }
-  ViewSize = (ULONG_PTR)v15;
-  v32 = v14;
+  v34 = v14;
   if ( (VIDMM_GLOBAL::_Config & 0x200) != 0 )
   {
-    _InterlockedIncrement(&dword_1C006E834);
-    WdLogSingleEntry1(6LL, 2344LL);
-    DxgkLogInternalTriageEvent(v17, 262145LL);
-    v18 = -1073741823;
+    _InterlockedIncrement(&dword_1C0050784);
+    v17 = WdLogNewEntry5_WdLowResource(v11);
+    *(_QWORD *)(v17 + 24) = 2369LL;
+    WdLogEvent5_WdLowResource(v17);
+    v19 = -1073741823;
   }
   else
   {
-    v22 = v35;
-    v23 = PsGetCurrentProcess(v13, v10, v11, v12);
-    VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-    v25 = v23;
-    v15 = (void *)ViewSize;
-    v18 = (*((__int64 (__fastcall **)(ULONG_PTR, __int64, PVOID *, _QWORD, __int64, __int64 *, __int64 *, int, _DWORD, int))VirtualMemoryInterface
-           + 3))(
-            ViewSize,
-            v25,
-            &MappedBase,
-            0LL,
-            v22,
-            &v32,
-            &v35,
-            2,
-            0,
-            v16);
-    if ( v18 >= 0 )
+    CurrentProcess = PsGetCurrentProcess(v11, v10, v12);
+    v19 = MmMapViewOfSection(v15, CurrentProcess, &MappedBase, 0LL, v35, &v34, &v35, 2, 0, v16);
+    if ( v19 >= 0 )
     {
-      v26 = (char *)MappedBase;
+      v24 = (char *)MappedBase;
       *(_DWORD *)a2 |= 2u;
-      v27 = v14 - v32;
-      a2[11] = v26;
-      return &v26[v27];
+      v25 = v14 - v34;
+      a2[11] = v24;
+      return &v24[v25];
     }
   }
-  _InterlockedIncrement(&dword_1C006E834);
-  WdLogSingleEntry2(6LL, a5, v18);
-  DxgkLogInternalTriageEvent(v19, 262145LL);
+  _InterlockedIncrement(&dword_1C0050784);
+  v20 = WdLogNewEntry5_WdLowResource(v18);
+  *(_QWORD *)(v20 + 24) = a5;
+  *(_QWORD *)(v20 + 32) = v19;
+  WdLogEvent5_WdLowResource(v20);
   if ( a5 )
     return (char *)MappedBase;
   if ( (*(_DWORD *)a2 & 1) != 0 )
   {
-    v20 = a2[7];
-    v21 = 0LL;
+    v21 = a2[7];
+    v22 = 0LL;
   }
   else
   {
-    v21 = a2[2];
-    v20 = *(_QWORD *)(a2[1] + 40LL);
+    v22 = a2[2];
+    v21 = *(_QWORD *)(a2[1] + 40LL);
   }
-  ViewSize = v20;
-  v28 = MmMapViewInSystemSpace(v15, &MappedBase, &ViewSize);
-  if ( v28 < 0 )
+  ViewSize[0] = v21;
+  v26 = MmMapViewInSystemSpace(v15, &MappedBase, ViewSize);
+  v28 = v26;
+  if ( v26 < 0 )
   {
-    _InterlockedIncrement(&dword_1C006E834);
-    WdLogSingleEntry1(6LL, v28);
-    DxgkLogInternalTriageEvent(v30, 262145LL);
+    _InterlockedIncrement(&dword_1C0050784);
+    v30 = WdLogNewEntry5_WdLowResource(v27);
+    *(_QWORD *)(v30 + 24) = v28;
+    WdLogEvent5_WdLowResource(v30);
   }
   else
   {
     v29 = (char *)MappedBase;
     *(_DWORD *)a2 |= 4u;
     a2[11] = v29;
-    return &v29[v21 + a3];
+    return &v29[v22 + a3];
   }
-  return (char *)v5;
+  return (char *)v6;
 }

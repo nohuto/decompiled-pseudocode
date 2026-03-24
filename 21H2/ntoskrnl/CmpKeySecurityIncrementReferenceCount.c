@@ -1,23 +1,26 @@
 /*
- * XREFs of CmpKeySecurityIncrementReferenceCount @ 0x140417378
+ * XREFs of CmpKeySecurityIncrementReferenceCount @ 0x1403F07DC
  * Callers:
- *     CmpReferenceSecurityNode @ 0x140657894 (CmpReferenceSecurityNode.c)
- *     CmpCheckKey @ 0x1407C6580 (CmpCheckKey.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x1405CCAF8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpReferenceSecurityNode @ 0x1405CCCC8 (CmpReferenceSecurityNode.c)
+ *     CmpCheckKey @ 0x1405F11F0 (CmpCheckKey.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14066CCFC (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall CmpKeySecurityIncrementReferenceCount(__int64 a1, ULONG_PTR a2, unsigned int a3)
+__int64 __fastcall CmpKeySecurityIncrementReferenceCount(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4)
 {
-  unsigned int v3; // r9d
-  __int64 result; // rax
+  unsigned int v4; // r10d
+  unsigned int v5; // eax
 
-  v3 = *(_DWORD *)(a1 + 12);
-  result = 0LL;
-  if ( !v3 )
+  v4 = 0;
+  if ( !a4 && !*(_DWORD *)(a1 + 12) )
     KeBugCheckEx(0x51u, 4uLL, 6uLL, a2, a3);
-  if ( v3 + 1 < v3 )
-    return 3221225621LL;
-  *(_DWORD *)(a1 + 12) = v3 + 1;
-  return result;
+  v5 = *(_DWORD *)(a1 + 12);
+  if ( v5 + 1 < v5 )
+    return (unsigned int)-1073741675;
+  else
+    *(_DWORD *)(a1 + 12) = v5 + 1;
+  return v4;
 }

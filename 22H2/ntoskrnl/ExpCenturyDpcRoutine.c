@@ -1,49 +1,44 @@
 /*
- * XREFs of ExpCenturyDpcRoutine @ 0x140605DE0
+ * XREFs of ExpCenturyDpcRoutine @ 0x1402F3000
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine9 @ 0x14042B010 (KiCustomAccessRoutine9.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine9 @ 0x140409810 (KiCustomAccessRoutine9.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void __fastcall ExpCenturyDpcRoutine(
-        struct _KDPC *Dpc,
-        PVOID DeferredContext,
-        unsigned __int64 SystemArgument1,
-        unsigned __int64 SystemArgument2)
+void __fastcall ExpCenturyDpcRoutine(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
-  _QWORD *v8; // rdi
+  __int64 v8; // rcx
   __int64 v9; // rdi
-  _DWORD v10[80]; // [rsp+0h] [rbp-158h] BYREF
-  _DWORD *v11; // [rsp+140h] [rbp-18h]
+  _DWORD v10[86]; // [rsp+0h] [rbp-168h] BYREF
+  _DWORD *v11; // [rsp+158h] [rbp-10h]
 
   v11 = v10;
-  memset(&v10[32], 0, 0x62uLL);
-  if ( (__int64)DeferredContext >> 47 != -1 && (__int64)DeferredContext >> 47 != 0 )
+  memset(&v10[40], 0, 0x62uLL);
+  if ( a2 >> 47 != -1 && a2 >> 47 != 0 )
   {
     v10[12] = 0;
-    Dpc->Type = 0;
-    Dpc->DeferredContext = (PVOID)(SystemArgument2 >> 8);
-    *(_QWORD *)((char *)&v10[54] + 2) = SystemArgument1;
-    *(_QWORD *)((char *)&v10[52] + 2) = __ROL8__(DeferredContext, SystemArgument1);
-    *(_QWORD *)((char *)&v10[34] + 2) = __ROR8__(Dpc, SystemArgument1);
-    Dpc->SystemArgument1 = (PVOID)((unsigned __int64)Dpc->SystemArgument1 ^ SystemArgument2);
-    Dpc->SystemArgument2 = (PVOID)((unsigned __int64)Dpc->SystemArgument2 ^ SystemArgument1);
-    KiCustomAccessRoutine9((unsigned int *)DeferredContext);
+    *(_BYTE *)a1 = 0;
+    *(_QWORD *)(a1 + 32) = a4 >> 8;
+    *(_QWORD *)((char *)&v10[62] + 2) = a3;
+    *(_QWORD *)((char *)&v10[60] + 2) = __ROL8__(a2, a3);
+    *(_QWORD *)((char *)&v10[42] + 2) = __ROR8__(a1, a3);
+    *(_QWORD *)(a1 + 40) ^= a4;
+    *(_QWORD *)(a1 + 48) ^= a3;
+    KiCustomAccessRoutine9(a2);
   }
-  v8 = &PspHostSiloGlobals;
-  if ( DeferredContext )
-    v8 = (_QWORD *)*((_QWORD *)DeferredContext + 186);
-  v9 = v8[157];
+  v9 = *((_QWORD *)PsGetServerSiloGlobals(a2) + 133);
   if ( _InterlockedIncrement((volatile signed __int32 *)(v9 + 928)) == 1 )
   {
-    if ( DeferredContext )
-      ObfReferenceObjectWithTag(DeferredContext, 0x53707845u);
+    if ( !PsIsHostSilo(v8) )
+      ObfReferenceObjectWithTag((PVOID)a2, 0x53707845u);
     ExQueueWorkItem((PWORK_QUEUE_ITEM)(v9 + 736), DelayedWorkQueue);
   }
 }

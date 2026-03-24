@@ -3,9 +3,9 @@
  * Callers:
  *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  */
 
 unsigned __int8 VfDevObjMarkDeviceRemoved()

@@ -1,15 +1,15 @@
 /*
- * XREFs of IoIsValidNameGraftingBuffer @ 0x1409375D0
+ * XREFs of IoIsValidNameGraftingBuffer @ 0x140894DF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041DDE0 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041E420 (ZwQuerySymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FC960 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1403FCF80 (ZwQuerySymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 BOOLEAN __stdcall IoIsValidNameGraftingBuffer(PIRP Irp, PREPARSE_DATA_BUFFER ReparseBuffer)
@@ -18,8 +18,8 @@ BOOLEAN __stdcall IoIsValidNameGraftingBuffer(PIRP Irp, PREPARSE_DATA_BUFFER Rep
   unsigned int Length; // edx
   USHORT SubstituteNameLength; // ax
   WCHAR v6; // cx
-  wchar_t *Pool2; // rax
-  wchar_t *v9; // r14
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v8; // r14
   NTSTATUS v10; // ebx
   USHORT v11; // ax
   WCHAR v12; // cx
@@ -49,30 +49,25 @@ BOOLEAN __stdcall IoIsValidNameGraftingBuffer(PIRP Irp, PREPARSE_DATA_BUFFER Rep
     if ( v6 != 46 && v6 != 63 )
       return 0;
   }
-  if ( SubstituteNameLength <= 0x10u )
+  if ( SubstituteNameLength > 0x10u
+    && ReparseBuffer->MountPointReparseBuffer.PathBuffer[0] == 92
+    && *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 5) == 63
+    && ReparseBuffer->SymbolicLinkReparseBuffer.PathBuffer[0] == 63
+    && *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 7) == 92
+    && LOWORD(ReparseBuffer[1].ReparseTag) == 85
+    && HIWORD(ReparseBuffer[1].ReparseTag) == 78
+    && ReparseBuffer[1].ReparseDataLength == 67
+    && ReparseBuffer[1].Reserved == 92 )
   {
-    if ( SubstituteNameLength <= 0xCu
-      || ReparseBuffer->MountPointReparseBuffer.PathBuffer[0] != 92
-      || *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 5) != 63
-      || ReparseBuffer->SymbolicLinkReparseBuffer.PathBuffer[0] != 63
-      || *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 7) != 92 )
-    {
-      goto LABEL_47;
-    }
-    goto LABEL_23;
+    return 0;
   }
-  if ( ReparseBuffer->MountPointReparseBuffer.PathBuffer[0] != 92
-    || *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 5) != 63
-    || ReparseBuffer->SymbolicLinkReparseBuffer.PathBuffer[0] != 63
-    || *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 7) != 92 )
+  if ( SubstituteNameLength > 0xCu
+    && ReparseBuffer->MountPointReparseBuffer.PathBuffer[0] == 92
+    && *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 5) == 63
+    && ReparseBuffer->SymbolicLinkReparseBuffer.PathBuffer[0] == 63
+    && *((_WORD *)&ReparseBuffer->GenericReparseBuffer + 7) == 92
+    && HIWORD(ReparseBuffer[1].ReparseTag) == 58 )
   {
-    goto LABEL_47;
-  }
-  if ( LOWORD(ReparseBuffer[1].ReparseTag) != 85 || HIWORD(ReparseBuffer[1].ReparseTag) != 78 )
-  {
-LABEL_23:
-    if ( HIWORD(ReparseBuffer[1].ReparseTag) != 58 )
-      goto LABEL_47;
     *(_DWORD *)(&LinkTarget.MaximumLength + 1) = 0;
     *(&ObjectAttributes.Length + 1) = 0;
     *(_OWORD *)SourceString = *(_OWORD *)L"\\??\\C:";
@@ -85,50 +80,45 @@ LABEL_23:
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes) < 0 )
-      goto LABEL_47;
-    Pool2 = (wchar_t *)ExAllocatePool2(64LL, 520LL, 538996553LL);
-    v9 = Pool2;
-    if ( Pool2 )
+    if ( ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes) >= 0 )
     {
-      LinkTarget.Buffer = Pool2;
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x208uLL, 0x20206F49u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
+      {
+        ZwClose(LinkHandle);
+        return 0;
+      }
+      LinkTarget.Buffer = PoolWithTag;
       *(_DWORD *)&LinkTarget.Length = 34078720;
       v10 = ZwQuerySymbolicLinkObject(LinkHandle, &LinkTarget, 0LL);
       ZwClose(LinkHandle);
-      if ( v10 < 0
-        || *LinkTarget.Buffer != 92
-        || LinkTarget.Buffer[1] != 68
-        || LinkTarget.Buffer[2] != 101
-        || LinkTarget.Buffer[3] != 118
-        || LinkTarget.Buffer[4] != 105
-        || LinkTarget.Buffer[5] != 99
-        || LinkTarget.Buffer[6] != 101
-        || LinkTarget.Buffer[7] != 92
-        || LinkTarget.Buffer[8] != 76
-        || LinkTarget.Buffer[9] != 97
-        || LinkTarget.Buffer[10] != 110
-        || LinkTarget.Buffer[14] != 82
-        || LinkTarget.Buffer[15] != 101
-        || LinkTarget.Buffer[16] != 100
-        || LinkTarget.Buffer[17] != 105
-        || LinkTarget.Buffer[18] != 114
-        || LinkTarget.Buffer[23] != 114
-        || LinkTarget.Buffer[24] != 92 )
+      if ( v10 >= 0
+        && *LinkTarget.Buffer == 92
+        && LinkTarget.Buffer[1] == 68
+        && LinkTarget.Buffer[2] == 101
+        && LinkTarget.Buffer[3] == 118
+        && LinkTarget.Buffer[4] == 105
+        && LinkTarget.Buffer[5] == 99
+        && LinkTarget.Buffer[6] == 101
+        && LinkTarget.Buffer[7] == 92
+        && LinkTarget.Buffer[8] == 76
+        && LinkTarget.Buffer[9] == 97
+        && LinkTarget.Buffer[10] == 110
+        && LinkTarget.Buffer[14] == 82
+        && LinkTarget.Buffer[15] == 101
+        && LinkTarget.Buffer[16] == 100
+        && LinkTarget.Buffer[17] == 105
+        && LinkTarget.Buffer[18] == 114
+        && LinkTarget.Buffer[23] == 114
+        && LinkTarget.Buffer[24] == 92 )
       {
-        ExFreePoolWithTag(v9, 0);
-        goto LABEL_47;
+        ExFreePoolWithTag(v8, 0);
+        return 0;
       }
-      ExFreePoolWithTag(v9, 0);
+      ExFreePoolWithTag(v8, 0);
     }
-    else
-    {
-      ZwClose(LinkHandle);
-    }
-    return 0;
   }
-  if ( ReparseBuffer[1].ReparseDataLength == 67 && ReparseBuffer[1].Reserved == 92 )
-    return 0;
-LABEL_47:
   v11 = ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameLength;
   if ( v11 < 0xCu )
     return 0;

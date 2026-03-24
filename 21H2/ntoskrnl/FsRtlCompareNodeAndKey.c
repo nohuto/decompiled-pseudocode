@@ -1,25 +1,27 @@
 /*
- * XREFs of FsRtlCompareNodeAndKey @ 0x14021D7F0
+ * XREFs of FsRtlCompareNodeAndKey @ 0x14029FEA8
  * Callers:
- *     FsRtlAddToTunnelCacheEx @ 0x140694B30 (FsRtlAddToTunnelCacheEx.c)
- *     FsRtlFindInTunnelCacheEx @ 0x140694E60 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1406889F0 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x140688B60 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
 LONG __fastcall FsRtlCompareNodeAndKey(__int64 a1, unsigned __int64 a2, const UNICODE_STRING *a3, char a4)
 {
+  const UNICODE_STRING *v6; // rsi
   LONG result; // eax
 
   if ( *(_QWORD *)(a1 + 48) < a2 )
     return -1;
   if ( *(_QWORD *)(a1 + 48) > a2 )
     return 1;
-  result = RtlCompareUnicodeString((PCUNICODE_STRING)(a1 + 8 * (*(_DWORD *)(a1 + 56) & 2 | 8LL)), a3, 1u);
+  v6 = (const UNICODE_STRING *)(a1 + 8 * (*(_DWORD *)(a1 + 56) & 2 | 8LL));
+  result = RtlCompareUnicodeString(v6, a3, 1u);
   if ( !result )
   {
     if ( a4 )
-      return RtlCompareUnicodeString((PCUNICODE_STRING)(a1 + 8 * (*(_DWORD *)(a1 + 56) & 2 | 8LL)), a3, 0);
+      return RtlCompareUnicodeString(v6, a3, 0);
   }
   return result;
 }

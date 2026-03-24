@@ -1,11 +1,11 @@
 /*
  * XREFs of IovFreeIrpPrivate @ 0x1409241EC
  * Callers:
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     IopCompleteRequest @ 0x1400BFCF0 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1400C10D0 (IopfCompleteRequest.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
  * Callees:
- *     IopFreeIrp @ 0x1400B9680 (IopFreeIrp.c)
+ *     IopFreeIrp @ 0x1400B96A0 (IopFreeIrp.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     VfIoFreeIrp @ 0x14093027C (VfIoFreeIrp.c)
  */

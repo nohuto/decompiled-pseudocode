@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DoesBelongToForegroundThread@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C01B54E4
+ * XREFs of ?DoesBelongToForegroundThread@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0182C64
  * Callers:
- *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z @ 0x1C01D0C24 (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z.c)
+ *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z @ 0x1C0199E3C (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z.c)
  * Callees:
- *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C0057318 (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
- *     ?IsIndependentInputWindow@CInputDest@@QEBA_NXZ @ 0x1C01B5760 (-IsIndependentInputWindow@CInputDest@@QEBA_NXZ.c)
- *     ApiSetEditionGetCompositionInputWindowUIOwner @ 0x1C020619C (ApiSetEditionGetCompositionInputWindowUIOwner.c)
+ *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C004597C (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     ?IsIndependentInputWindow@CInputDest@@QEBA_NXZ @ 0x1C00AA6E8 (-IsIndependentInputWindow@CInputDest@@QEBA_NXZ.c)
+ *     ApiSetEditionGetCompositionInputWindowUIOwner @ 0x1C01CB874 (ApiSetEditionGetCompositionInputWindowUIOwner.c)
  */
 
 bool __fastcall CInputDest::DoesBelongToForegroundThread(__int64 a1)

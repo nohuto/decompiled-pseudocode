@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDisableUserModeNotifications @ 0x140561598
+ * XREFs of PnpDisableUserModeNotifications @ 0x14050DA9C
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x140558380 (IoRevokeHandlesForProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x140506E50 (IoRevokeHandlesForProcess.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
  */
 
 void __fastcall PnpDisableUserModeNotifications(struct _LIST_ENTRY *a1, __int64 a2)
@@ -25,12 +25,12 @@ void __fastcall PnpDisableUserModeNotifications(struct _LIST_ENTRY *a1, __int64 
       ExAcquireFastMutex(*(PFAST_MUTEX *)&i->Contention);
       if ( *(_QWORD *)&i->OldIrql == *(_QWORD *)(a2 + 1088) && i->Event.Header.WaitListHead.Flink == a1 )
         LOBYTE(i->Event.Header.WaitListHead.Blink) = 1;
-      ExReleaseFastMutex(*(PFAST_MUTEX *)&i->Contention);
+      KeReleaseGuardedMutex(*(PKGUARDED_MUTEX *)&i->Contention);
     }
     v6 += 16;
     v4 += 2;
     --v5;
   }
   while ( v5 );
-  ExReleaseFastMutex(&PiUEventClientRegistrationListLock);
+  KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
 }

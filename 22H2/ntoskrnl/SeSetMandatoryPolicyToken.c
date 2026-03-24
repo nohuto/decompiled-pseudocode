@@ -1,15 +1,15 @@
 /*
- * XREFs of SeSetMandatoryPolicyToken @ 0x1407F0D88
+ * XREFs of SeSetMandatoryPolicyToken @ 0x1406EF250
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B5719C (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SeMakeAnonymousLogonToken @ 0x140B5742C (SeMakeAnonymousLogonToken.c)
- *     SeMakeSystemToken @ 0x140B576DC (SeMakeSystemToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
+ *     SeMakeSystemToken @ 0x140A47F10 (SeMakeSystemToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140A484C0 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140A4874C (SeMakeAnonymousLogonToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SeSetMandatoryPolicyToken(__int64 a1, _DWORD *a2)

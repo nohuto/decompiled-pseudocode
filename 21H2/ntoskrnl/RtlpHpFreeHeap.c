@@ -1,76 +1,92 @@
 /*
- * XREFs of RtlpHpFreeHeap @ 0x140364128
+ * XREFs of RtlpHpFreeHeap @ 0x140342100
  * Callers:
- *     ExpResizeBigPageTable @ 0x1402129C0 (ExpResizeBigPageTable.c)
- *     ExAllocateContiguousHeapPool @ 0x140214694 (ExAllocateContiguousHeapPool.c)
- *     ExPoolCleanupExpansionTable @ 0x140216A4C (ExPoolCleanupExpansionTable.c)
- *     ExAllocateHeapPool @ 0x1403497C0 (ExAllocateHeapPool.c)
- *     ExpHpCompactionRoutine @ 0x140363EF0 (ExpHpCompactionRoutine.c)
- *     RtlpHpMetadataFree @ 0x140370C00 (RtlpHpMetadataFree.c)
- *     RtlpHpAllocateHeap @ 0x1403713DC (RtlpHpAllocateHeap.c)
- *     ExGetBigPoolInfo @ 0x14063A8C0 (ExGetBigPoolInfo.c)
- *     ExpFreeHeapSpecialPool @ 0x1406423A4 (ExpFreeHeapSpecialPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140295320 (ExAllocateContiguousHeapPool.c)
+ *     RtlpHpMetadataFree @ 0x1402A5660 (RtlpHpMetadataFree.c)
+ *     RtlpHpAllocateHeap @ 0x1402A5E94 (RtlpHpAllocateHeap.c)
+ *     ExpHpCompactionRoutine @ 0x1402FAA50 (ExpHpCompactionRoutine.c)
+ *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
+ *     ExPoolCleanupExpansionTable @ 0x140389790 (ExPoolCleanupExpansionTable.c)
+ *     ExGetBigPoolInfo @ 0x1405B375C (ExGetBigPoolInfo.c)
+ *     ExpFreeHeapSpecialPool @ 0x1405BA0E0 (ExpFreeHeapSpecialPool.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14022FB20 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegFree @ 0x140364794 (RtlpHpSegFree.c)
- *     RtlpHpLargeFree @ 0x140370928 (RtlpHpLargeFree.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpHpExtrasGet @ 0x1405F2F0C (RtlpHpExtrasGet.c)
- *     RtlpHpSizeHeap @ 0x1405F3028 (RtlpHpSizeHeap.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402A2380 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeFree @ 0x1402A54E8 (RtlpHpLargeFree.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpSegFree @ 0x140342200 (RtlpHpSegFree.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasGet @ 0x140594968 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x140594A84 (RtlpHpSizeHeap.c)
  */
 
-__int64 __fastcall RtlpHpFreeHeap(__int128 *a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall RtlpHpFreeHeap(__m128i *a1, unsigned __int64 a2, int a3)
 {
-  unsigned int v4; // ebx
-  unsigned int v5; // esi
-  int v7; // ecx
-  int v9; // eax
+  int v3; // eax
+  __int32 v5; // ecx
+  unsigned int v6; // edi
+  int v8; // ebp
   _QWORD *HeapManager; // rax
   __int64 v11; // rax
-  char v13; // al
-  int v14; // eax
-  __int128 v15; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v12; // rax
+  char v13; // cl
+  int v14; // ecx
+  __m128i v15; // [rsp+30h] [rbp-18h] BYREF
 
-  v4 = 0;
-  v5 = *((_DWORD *)a1 + 5) & 0x11000001 | a3;
-  v7 = *((_DWORD *)a1 + 55);
-  if ( v7 && v7 == KeGetCurrentThread()[1].CurrentRunTime )
-    v5 |= 1u;
-  if ( (v5 & 0x1000000) != 0
-    || !*((_DWORD *)a1 + 6)
-    || (a4 = RtlpHpExtrasGet(a1, a2, v5, 0LL), (unsigned __int64)(a4 - 1) > 0xFFFFFFFFFFFFFFFDuLL)
-    || (v13 = *(_BYTE *)(a4 + 2), (v13 & 0xF) == 0)
-    || (v14 = v13 & 0xF) != 0
-    && (_WORD)v14 == 1
-    && (int)((__int64 (__fastcall *)(__int128 *, __int64, __int64, __int64))CLFS_LSN_NULL_EXT)(a1, a2, 3LL, a4 + 16) >= 0 )
+  v3 = a1[1].m128i_i32[1] & 0x11000001;
+  v5 = a1[13].m128i_i32[3];
+  v6 = v3 | a3;
+  if ( v5 && v5 == KeGetCurrentThread()[1].CurrentRunTime )
+    v6 |= 1u;
+  if ( (v6 & 0x1000000) == 0 )
   {
-    if ( (*((_DWORD *)a1 + 5) & 0x10000000) != 0 && RtlpHpSizeHeap(a1, a2, v5, a4) == -1 )
+    if ( a1[1].m128i_i32[2] )
     {
-      RtlpLogHeapFailure(9, (_DWORD)a1, a2, 0, 0LL, 0LL);
+      v12 = RtlpHpExtrasGet(a1, a2, v6, 0LL);
+      if ( (unsigned __int64)(v12 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+      {
+        v13 = *(_BYTE *)(v12 + 2);
+        if ( (v13 & 0xF) != 0 )
+        {
+          v14 = v13 & 0xF;
+          if ( !v14
+            || (_WORD)v14 != 1
+            || (int)((__int64 (__fastcall *)(__m128i *, unsigned __int64, __int64, __int64))RtlpInterceptorRoutines)(
+                      a1,
+                      a2,
+                      3LL,
+                      v12 + 16) < 0 )
+          {
+            return 0LL;
+          }
+        }
+      }
+    }
+  }
+  if ( (a1[1].m128i_i32[1] & 0x10000000) != 0 && RtlpHpSizeHeap(a1, a2, v6) == -1 )
+  {
+    RtlpLogHeapFailure(9, (_DWORD)a1, a2, 0, 0LL, 0LL);
+    return 0LL;
+  }
+  else
+  {
+    if ( (_WORD)a2 )
+    {
+      v8 = 0;
     }
     else
     {
-      if ( (_WORD)a2 )
-      {
-        v9 = 0;
-      }
-      else
-      {
-        v15 = *a1;
-        HeapManager = RtlpHpEnvGetHeapManager(&v15);
-        v11 = RtlCSparseBitmapBitmaskRead(
-                (__int64)(HeapManager + 2),
-                2 * ((unsigned __int64)(a2 - HeapManager[1]) >> 20));
-        if ( !v11 || (v9 = v11 - 1, v9 == 2) )
-        {
-          LOBYTE(v4) = RtlpHpLargeFree(a1, a2, v5) != 0;
-          return v4;
-        }
-      }
-      return (unsigned int)RtlpHpSegFree(&a1[12 * v9 + 20], a2, v5);
+      v15 = *a1;
+      HeapManager = RtlpHpEnvGetHeapManager(&v15);
+      v11 = RtlCSparseBitmapBitmaskRead((__int64)(HeapManager + 2), 2 * ((a2 - HeapManager[1]) >> 20));
+      if ( !v11 )
+        return RtlpHpLargeFree(a1, a2, v6) != 0;
+      v8 = v11 - 1;
+      if ( (_DWORD)v11 == 3 )
+        return RtlpHpLargeFree(a1, a2, v6) != 0;
     }
+    return RtlpHpSegFree(&a1[12 * v8 + 16], a2, v6);
   }
-  return v4;
 }

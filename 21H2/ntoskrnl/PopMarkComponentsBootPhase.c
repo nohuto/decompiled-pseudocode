@@ -1,26 +1,25 @@
 /*
- * XREFs of PopMarkComponentsBootPhase @ 0x140A4F19C
+ * XREFs of PopMarkComponentsBootPhase @ 0x1409991F0
  * Callers:
- *     PopSaveHiberContext @ 0x140A4B9E0 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x1409937A0 (PopSaveHiberContext.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     RtlMarkHiberPhase @ 0x14038D4F0 (RtlMarkHiberPhase.c)
- *     PoSetHiberRange @ 0x14038DBE0 (PoSetHiberRange.c)
- *     MmIsAddressValid @ 0x14038DE50 (MmIsAddressValid.c)
- *     HvlMarkHiberPhase @ 0x1403992E8 (HvlMarkHiberPhase.c)
- *     DifMarkHiberPhase @ 0x14039936C (DifMarkHiberPhase.c)
- *     FirstEntrySList @ 0x140429870 (FirstEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfIsVerifierExtensionEnabled @ 0x1405FDEEC (VfIsVerifierExtensionEnabled.c)
- *     BgkResumePrepare @ 0x140A4E794 (BgkResumePrepare.c)
- *     KdMarkHiberPhase @ 0x140A4E854 (KdMarkHiberPhase.c)
- *     PopMarkHiberPhase @ 0x140A4ED84 (PopMarkHiberPhase.c)
- *     MmMarkHiberPhase @ 0x140A4EEAC (MmMarkHiberPhase.c)
- *     KeMarkHiberPhase @ 0x140A4F3AC (KeMarkHiberPhase.c)
- *     MiConvertHiberPhasePages @ 0x140A4FE40 (MiConvertHiberPhasePages.c)
+ *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     FirstEntrySList @ 0x140407920 (FirstEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvlMarkHiberPhase @ 0x1404F7EB0 (HvlMarkHiberPhase.c)
+ *     MmIsAddressValid @ 0x140536B70 (MmIsAddressValid.c)
+ *     RtlMarkHiberPhase @ 0x140592CE4 (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x1405A06E4 (VfIsVerifierExtensionEnabled.c)
+ *     MiConvertHiberPhasePages @ 0x140994F28 (MiConvertHiberPhasePages.c)
+ *     BgkResumePrepare @ 0x1409961D8 (BgkResumePrepare.c)
+ *     KdMarkHiberPhase @ 0x1409AEEF8 (KdMarkHiberPhase.c)
+ *     KeMarkHiberPhase @ 0x1409AEF88 (KeMarkHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x1409B061C (MmMarkHiberPhase.c)
+ *     PopMarkHiberPhase @ 0x1409B15C8 (PopMarkHiberPhase.c)
  */
 
-void __fastcall PopMarkComponentsBootPhase(unsigned int *Address)
+void __fastcall PopMarkComponentsBootPhase(PVOID Address)
 {
   PVOID *i; // rbx
   PSLIST_ENTRY j; // rbx
@@ -28,7 +27,7 @@ void __fastcall PopMarkComponentsBootPhase(unsigned int *Address)
   _QWORD *v5; // rbx
   PVOID *m; // rbx
 
-  if ( !byte_140C22C01 )
+  if ( !byte_140C23881 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);
@@ -40,9 +39,9 @@ void __fastcall PopMarkComponentsBootPhase(unsigned int *Address)
       if ( MmIsAddressValid(i[10]) )
         PoSetHiberRange(0LL, 0x10000u, i[10], *((unsigned __int16 *)i + 37), 0x6E72654Bu);
     }
-    for ( j = FirstEntrySList(&stru_140C54840); j; j = j->Next )
-      KeMarkHiberPhase(j[-1].Next);
-    ((void (__fastcall *)(_QWORD))off_140C01BF8[0])(0LL);
+    for ( j = FirstEntrySList(&stru_140C506A0); j; j = j->Next )
+      KeMarkHiberPhase(*((PVOID *)&j[-1].Next + 1));
+    ((void (__fastcall *)(_QWORD))off_140C005A8[0])(0LL);
     PopMarkHiberPhase(Address);
     KdMarkHiberPhase();
     if ( (unsigned int)VfIsVerifierEnabled() )
@@ -52,7 +51,6 @@ void __fastcall PopMarkComponentsBootPhase(unsigned int *Address)
       if ( (unsigned int)VfIsVerifierExtensionEnabled() == 1 && ViFnExtensionHiberFunc )
         PoSetHiberRange(0LL, 0x10000u, ViFnExtensionHiberFunc, 0LL, 0x72696656u);
     }
-    DifMarkHiberPhase();
     BgkResumePrepare(0LL);
     RtlMarkHiberPhase();
     HvlMarkHiberPhase();
@@ -73,7 +71,7 @@ void __fastcall PopMarkComponentsBootPhase(unsigned int *Address)
     for ( m = (PVOID *)PopThermal; m != &PopThermal; m = (PVOID *)*m )
       PoSetHiberRange(0LL, 0x10000u, m, 0x420uLL, 0x6D726854u);
     if ( (PopSimulateHiberBugcheck & 0x100) == 0 )
-      MiConvertHiberPhasePages(Address + 8);
+      MiConvertHiberPhasePages((__int64)Address + 32);
     *((_BYTE *)Address + 3) = 1;
   }
   *((_BYTE *)Address + 28) = 1;

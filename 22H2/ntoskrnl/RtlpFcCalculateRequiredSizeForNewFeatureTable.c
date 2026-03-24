@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409C7CD4
+ * XREFs of RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140919D78
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C820C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A534 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpFcCompareFeatureToUpdate @ 0x1409C7F64 (RtlpFcCompareFeatureToUpdate.c)
- *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C8094 (RtlpFcDoesFeatureHaveUniqueState.c)
- *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x1409C80CC (RtlpFcIsUpdateModifyingOrAddingFeature.c)
- *     RtlpFcUpdateFeature @ 0x1409C816C (RtlpFcUpdateFeature.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x14091A00C (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x14091A118 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x14091A170 (RtlpFcIsUpdateModifyingOrAddingFeature.c)
+ *     RtlpFcUpdateFeature @ 0x14091A4C0 (RtlpFcUpdateFeature.c)
  */
 
 NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(
@@ -17,27 +17,29 @@ NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(
         unsigned __int64 a3,
         ULONGLONG *a4)
 {
-  ULONGLONG v4; // r11
-  ULONGLONG v5; // r15
-  unsigned __int64 v6; // rbx
-  __int128 *v10; // rsi
-  ULONGLONG v11; // r12
-  __int64 v12; // rdi
+  ULONGLONG v4; // r10
+  ULONGLONG v5; // rbp
+  unsigned __int64 v6; // r11
+  _DWORD *v10; // rdi
+  ULONGLONG v11; // r15
+  __int64 v12; // rbx
   int v13; // eax
   __int64 v14; // rdx
+  int v15; // eax
   char IsUpdateModifyingOrAddingFeature; // al
-  ULONGLONG v16; // r9
-  __int64 v17; // r11
-  __int64 v18; // r9
-  unsigned __int64 v19; // rbp
-  char v20; // al
-  __int64 v21; // r9
-  ULONGLONG v22; // r11
-  ULONGLONG v23; // rcx
+  ULONGLONG v17; // r10
+  ULONGLONG v18; // rcx
+  __int64 v19; // r9
+  unsigned __int64 v20; // rsi
+  char v21; // al
+  __int64 v22; // r9
+  ULONGLONG v23; // r10
+  ULONGLONG v24; // rcx
   NTSTATUS result; // eax
-  __int64 v25; // rdx
-  unsigned __int64 v26; // rax
-  __int128 v27; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v26; // rdx
+  unsigned __int64 v27; // rax
+  __int64 v28; // [rsp+20h] [rbp-58h] BYREF
+  int v29; // [rsp+28h] [rbp-50h]
 
   v4 = 0LL;
   v5 = 0LL;
@@ -45,7 +47,7 @@ NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(
   if ( a1 )
   {
     v4 = (unsigned int)*a1;
-    v10 = (__int128 *)(a1 + 1);
+    v10 = a1 + 1;
     v11 = v4;
     if ( *a1 )
     {
@@ -53,30 +55,35 @@ NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(
       do
       {
         if ( v6 >= a3 )
-          goto LABEL_21;
-        v13 = RtlpFcCompareFeatureToUpdate(v10, v12, a3, v4);
+          goto LABEL_22;
+        v13 = RtlpFcCompareFeatureToUpdate(v10, v12);
         if ( v13 )
         {
           if ( v13 != 1 )
           {
             ++v5;
-            ++v10;
+            v10 += 3;
             continue;
           }
           IsUpdateModifyingOrAddingFeature = RtlpFcIsUpdateModifyingOrAddingFeature(v12);
-          v4 = v17 + 1;
+          v18 = v17 + 1;
           if ( !IsUpdateModifyingOrAddingFeature )
-            v4 = v16;
+            v18 = v17;
+          v4 = v18;
         }
         else
         {
           if ( (*(_DWORD *)(v12 + 28) & 4) != 0
-            || (v27 = *v10, RtlpFcUpdateFeature(&v27, v14), !(unsigned __int8)RtlpFcDoesFeatureHaveUniqueState(&v27)) )
+            || (v15 = v10[2],
+                v28 = *(_QWORD *)v10,
+                v29 = v15,
+                RtlpFcUpdateFeature(&v28, v14),
+                !(unsigned __int8)RtlpFcDoesFeatureHaveUniqueState(&v28)) )
           {
             --v4;
           }
           ++v5;
-          ++v10;
+          v10 += 3;
         }
         ++v6;
         v12 += 32LL;
@@ -86,32 +93,32 @@ NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(
   }
   if ( v6 < a3 )
   {
-    v18 = a2 + 32 * v6;
-    v19 = a3 - v6;
+    v19 = a2 + 32 * v6;
+    v20 = a3 - v6;
     do
     {
-      v20 = RtlpFcIsUpdateModifyingOrAddingFeature(v18);
-      v23 = v22 + 1;
-      if ( !v20 )
-        v23 = v22;
-      v18 = v21 + 32;
-      v4 = v23;
-      --v19;
+      v21 = RtlpFcIsUpdateModifyingOrAddingFeature(v19);
+      v24 = v23 + 1;
+      if ( !v21 )
+        v24 = v23;
+      v19 = v22 + 32;
+      v4 = v24;
+      --v20;
     }
-    while ( v19 );
+    while ( v20 );
   }
-LABEL_21:
+LABEL_22:
   if ( v4 )
   {
-    result = RtlULongLongMult(v4, 0x10uLL, a4);
+    result = RtlULongLongMult(v4, 0xCuLL, a4);
     if ( result >= 0 )
     {
-      v25 = -1LL;
-      v26 = *a4 + 4;
-      if ( v26 >= *a4 )
-        v25 = *a4 + 4;
-      result = v26 < *a4 ? 0xC0000095 : 0;
-      *a4 = v25;
+      v26 = -1LL;
+      v27 = *a4 + 4;
+      if ( v27 >= *a4 )
+        v26 = *a4 + 4;
+      result = v27 < *a4 ? 0xC0000095 : 0;
+      *a4 = v26;
     }
   }
   else

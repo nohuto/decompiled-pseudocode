@@ -1,9 +1,9 @@
 /*
- * XREFs of GreMarkDeletableRgn @ 0x1C009DCC0
+ * XREFs of GreMarkDeletableRgn @ 0x1C0087320
  * Callers:
  *     <none>
  * Callees:
- *     HmgMarkDeletable @ 0x1C009DCF0 (HmgMarkDeletable.c)
+ *     HmgMarkDeletable @ 0x1C0087350 (HmgMarkDeletable.c)
  */
 
 __int64 __fastcall GreMarkDeletableRgn(__int64 a1)

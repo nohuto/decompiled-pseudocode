@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1407D53FC
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x140792E60
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14038BEF4 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpUpdateKernelGroupsWork @ 0x1407D53D0 (EtwpUpdateKernelGroupsWork.c)
- *     EtwDereferenceSpinLockCounters @ 0x1409EC038 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1409EC094 (EtwReferenceSpinLockCounters.c)
- *     EtwpCoverageSamplerStart @ 0x1409F3488 (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x1409F3774 (EtwpCoverageSamplerStop.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x140791EC0 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwpUpdateGroupMasks @ 0x140791F80 (EtwpUpdateGroupMasks.c)
+ *     EtwDereferenceSpinLockCounters @ 0x14093CEA4 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x14093CF00 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x1409471DC (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409474A8 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     EtwpEnableKernelTrace @ 0x1407D5610 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1407D5984 (EtwpDisableKernelTrace.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PspGetNextSilo @ 0x140617F50 (PspGetNextSilo.c)
+ *     EtwpEnableKernelTrace @ 0x140793068 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1407932FC (EtwpDisableKernelTrace.c)
  */
 
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)
@@ -22,14 +22,14 @@ __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsig
   __int64 v3; // r15
   __int64 v4; // r14
   __int64 v6; // rsi
-  __int64 v7; // r8
-  __int64 v8; // rcx
-  __int128 *v9; // rdx
-  __int64 v10; // r9
-  bool v11; // zf
+  __int64 v7; // rdx
+  __int64 v8; // r9
+  __int64 v9; // rcx
+  __int128 *v10; // rdx
+  __int64 v11; // r8
   _DWORD *v12; // rbx
-  __int128 v13; // xmm1
-  void *i; // rcx
+  void *v13; // rcx
+  __int128 v14; // xmm1
   void *NextSilo; // rax
   __int64 v16; // rdx
   __int128 *v17; // rcx
@@ -60,65 +60,64 @@ __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsig
   KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
   v6 = 8LL;
   if ( (unsigned int)v3 < 8
-    && ((unsigned int)v4 >= *(_DWORD *)(a1 + 16) || (*(_QWORD *)(*(_QWORD *)(a1 + 456) + 8 * v4) & 1) != 0) )
+    && ((unsigned int)v4 >= *(_DWORD *)(a1 + 16) ? (LOBYTE(v7) = 1) : (v7 = *(_QWORD *)(*(_QWORD *)(a1 + 456) + 8 * v4)),
+        (v7 & 1) != 0) )
   {
     v24 = -2147483611;
   }
   else
   {
-    v7 = 10LL;
-    v8 = a1 - (_QWORD)&v32 + 4284;
+    v8 = 10LL;
+    v9 = a1 - (_QWORD)&v32 + 4260;
     v32 = 0LL;
     v33 = 0LL;
     do
     {
-      v9 = &v32;
-      v10 = 8LL;
+      v10 = &v32;
+      v11 = 8LL;
       do
       {
-        *(_DWORD *)v9 |= *(_DWORD *)((char *)v9 + v8);
-        v9 = (__int128 *)((char *)v9 + 4);
-        --v10;
+        *(_DWORD *)v10 |= *(_DWORD *)((char *)v10 + v9);
+        v10 = (__int128 *)((char *)v10 + 4);
+        --v11;
       }
-      while ( v10 );
-      v8 += 32LL;
-      --v7;
+      while ( v11 );
+      v9 += 32LL;
+      --v8;
     }
-    while ( v7 );
-    v11 = EtwpBootPhase == 0;
-    v12 = (_DWORD *)(a1 + 4252);
-    v13 = v33;
-    *(_OWORD *)(a1 + 4252) = v32;
-    *(_OWORD *)(a1 + 4268) = v13;
-    if ( !v11 )
+    while ( v8 );
+    v12 = (_DWORD *)(a1 + 4228);
+    v13 = 0LL;
+    v14 = v33;
+    *(_OWORD *)(a1 + 4228) = v32;
+    *(_OWORD *)(a1 + 4244) = v14;
+    while ( 1 )
     {
-      for ( i = 0LL; ; i = v27 )
+      NextSilo = PspGetNextSilo(v13, 1);
+      if ( !NextSilo )
+        break;
+      v26 = *((_QWORD *)PsGetServerSiloGlobals((__int64)NextSilo) + 108);
+      if ( v26 )
       {
-        NextSilo = PspGetNextSilo(i, 1);
-        if ( !NextSilo )
-          break;
-        v26 = *((_QWORD *)PsGetServerSiloGlobals((__int64)NextSilo) + 108);
-        if ( v26 )
+        v28 = 8LL;
+        v29 = v26 - (_QWORD)&v32;
+        v30 = &v32;
+        do
         {
-          v28 = 8LL;
-          v29 = v26 - (_QWORD)&v32;
-          v30 = &v32;
-          do
-          {
-            *(_DWORD *)v30 |= *(_DWORD *)((char *)v30 + v29 + 4252);
-            v30 = (__int128 *)((char *)v30 + 4);
-            --v28;
-          }
-          while ( v28 );
+          *(_DWORD *)v30 |= *(_DWORD *)((char *)v30 + v29 + 4228);
+          v30 = (__int128 *)((char *)v30 + 4);
+          --v28;
         }
+        while ( v28 );
       }
+      v13 = v27;
     }
     v16 = EtwpHostSiloState - (_QWORD)&v32;
     v17 = &v32;
     v18 = 8LL;
     do
     {
-      *(_DWORD *)v17 |= *(_DWORD *)((char *)v17 + v16 + 4252);
+      *(_DWORD *)v17 |= *(_DWORD *)((char *)v17 + v16 + 4228);
       v17 = (__int128 *)((char *)v17 + 4);
       --v18;
     }
@@ -141,16 +140,16 @@ __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsig
     {
       do
       {
-        v31 = ~*(_DWORD *)((char *)v12 + (_QWORD)&v34 - a1 - 4252);
+        v31 = ~*(_DWORD *)((char *)v12 + (_QWORD)&v34 - a1 - 4228);
         *v12 &= v31;
         v12[8 * v3 + 8] &= v31;
-        *(_DWORD *)((char *)v12++ + (_QWORD)&v32 - a1 - 4252) &= v31;
+        *(_DWORD *)((char *)v12++ + (_QWORD)&v32 - a1 - 4228) &= v31;
         --v6;
       }
       while ( v6 );
     }
     PerfGlobalGroupMask[0] = v32;
-    xmmword_140D1EAD0 = v33;
+    xmmword_140CFC490 = v33;
     if ( (BYTE4(v32) & 4) != 0 )
       _interlockedbittestandset(&KiCpuTracingFlags, 0);
     else

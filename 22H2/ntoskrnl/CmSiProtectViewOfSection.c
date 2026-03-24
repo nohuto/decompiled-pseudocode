@@ -1,17 +1,17 @@
 /*
- * XREFs of CmSiProtectViewOfSection @ 0x140296B88
+ * XREFs of CmSiProtectViewOfSection @ 0x140361F3C
  * Callers:
- *     HvpViewMapMakeViewRangeWriteable @ 0x14067F49C (HvpViewMapMakeViewRangeWriteable.c)
- *     HvpViewMapMakeViewRangeValid @ 0x140689AA4 (HvpViewMapMakeViewRangeValid.c)
- *     HvpViewMapCreateView @ 0x140689F1C (HvpViewMapCreateView.c)
- *     HvpViewMapMakeViewRangeReadOnly @ 0x14070AC14 (HvpViewMapMakeViewRangeReadOnly.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B0F4 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x140750C18 (HvpViewMapMakeViewRangeUnCOWByCaller.c)
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407C3BD4 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x14082B0D8 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x140885B00 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMakeViewRangeWriteable @ 0x1405CCD5C (HvpViewMapMakeViewRangeWriteable.c)
+ *     HvpViewMapCreateView @ 0x140722C04 (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140722CF4 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x140722F7C (HvpViewMapMakeViewRangeUnCOWByCaller.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x1407230D4 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140723208 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140724C90 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140734084 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x1407AE35C (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
  * Callees:
- *     ZwProtectVirtualMemory @ 0x14041B0A0 (ZwProtectVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x1403FA420 (ZwProtectVirtualMemory.c)
  */
 
 __int64 __fastcall CmSiProtectViewOfSection(

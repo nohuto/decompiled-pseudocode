@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBID_BuildDeviceID @ 0x1C001B9CC
+ * XREFs of HUBID_BuildDeviceID @ 0x1C001B484
  * Callers:
- *     HUBPDO_AssignPDOIds @ 0x1C007A95C (HUBPDO_AssignPDOIds.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1C000BFF4 (RtlUnicodeStringPrintf.c)
- *     HUBID_AssignIDString @ 0x1C001B784 (HUBID_AssignIDString.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     HUBID_AssignIDString @ 0x1C001B228 (HUBID_AssignIDString.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall HUBID_BuildDeviceID(__int64 a1, __int64 a2)

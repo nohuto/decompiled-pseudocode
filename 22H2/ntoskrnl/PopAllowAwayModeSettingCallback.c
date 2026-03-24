@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAllowAwayModeSettingCallback @ 0x1408649A0
+ * XREFs of PopAllowAwayModeSettingCallback @ 0x1407D3F20
  * Callers:
  *     <none>
  * Callees:
- *     PopSetSystemState @ 0x14058DFAC (PopSetSystemState.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopSetSystemState @ 0x1403A57C0 (PopSetSystemState.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -13,15 +13,14 @@ __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a
   unsigned int v6; // ebx
   __int64 v7; // rdx
   __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v9; // r9
 
   v6 = -1073741811;
   PopAcquirePolicyLock((_DWORD)a1);
-  v10 = *(_QWORD *)&GUID_ALLOW_AWAYMODE.Data1 - *a1;
+  v9 = *(_QWORD *)&GUID_ALLOW_AWAYMODE.Data1 - *a1;
   if ( *(_QWORD *)&GUID_ALLOW_AWAYMODE.Data1 == *a1 )
-    v10 = *(_QWORD *)GUID_ALLOW_AWAYMODE.Data4 - a1[1];
-  if ( !v10 )
+    v9 = *(_QWORD *)GUID_ALLOW_AWAYMODE.Data4 - a1[1];
+  if ( !v9 )
   {
     v8 = 4LL;
     if ( a3 == 4 )
@@ -30,18 +29,18 @@ __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a
       {
         if ( *a2 )
         {
-          byte_140C3D912 = 1;
+          byte_140C23352 = 1;
         }
         else
         {
-          byte_140C3D912 = 0;
-          if ( byte_140C3D911 )
+          byte_140C23352 = 0;
+          if ( byte_140C23351 )
             PopSetSystemState(4, 7u);
         }
         v6 = 0;
       }
     }
   }
-  PopReleasePolicyLock(v8, v7, v9);
+  PopReleasePolicyLock(v8, v7);
   return v6;
 }

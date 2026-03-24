@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0236BB0
+ * XREFs of ?SetIntegerProperty@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F6300
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0099660 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
+ *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009E600 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
  */
 
 __int64 __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetIntegerProperty(
@@ -19,7 +19,7 @@ __int64 __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetInte
   if ( a3 != 1 )
     return DirectComposition::CPropertyChangeResourceMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
   *((_DWORD *)this + 4) |= 0x100u;
-  *((_DWORD *)this + 22) = a4;
+  *((_DWORD *)this + 20) = a4;
   result = 0LL;
   *a5 = 1;
   return result;

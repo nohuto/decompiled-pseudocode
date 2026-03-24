@@ -1,12 +1,14 @@
 /*
- * XREFs of UserIsUserCritSecInExclusive @ 0x1C012F890
+ * XREFs of UserIsUserCritSecInExclusive @ 0x1C0043E60
  * Callers:
- *     <none>
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0043DC4 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0043E10 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?Detach@UserAtomicCheck@@QEAAXXZ @ 0x1C011C69C (-Detach@UserAtomicCheck@@QEAAXXZ.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     <none>
  */
 
-_BOOL8 __fastcall UserIsUserCritSecInExclusive(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_BOOL8 UserIsUserCritSecInExclusive()
 {
-  return IS_USERCRIT_OWNED_EXCLUSIVE(a1, a2, a3, a4);
+  return ExIsResourceAcquiredExclusiveLite(gpresUser) == 1;
 }

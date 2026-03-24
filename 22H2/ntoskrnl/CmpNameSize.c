@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpNameSize @ 0x1407B6F6C
+ * XREFs of CmpNameSize @ 0x1406774AC
  * Callers:
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmpAddValueKeyNew @ 0x140709FE8 (CmpAddValueKeyNew.c)
- *     CmpCreateHiveRootCell @ 0x14087495C (CmpCreateHiveRootCell.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpAddValueKeyTombstone @ 0x140A163B4 (CmpAddValueKeyTombstone.c)
- *     CmpCreateRootNode @ 0x140B3ABDC (CmpCreateRootNode.c)
+ *     CmpHKeyNodeSize @ 0x1404EC6F4 (CmpHKeyNodeSize.c)
+ *     CmpAddValueKeyNew @ 0x140657630 (CmpAddValueKeyNew.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x14078DAF0 (CmpCreateHiveRootCell.c)
+ *     CmpAddValueKeyTombstone @ 0x14086E53C (CmpAddValueKeyTombstone.c)
+ *     CmpCreateRootNode @ 0x140A5B0B4 (CmpCreateRootNode.c)
  * Callees:
  *     <none>
  */

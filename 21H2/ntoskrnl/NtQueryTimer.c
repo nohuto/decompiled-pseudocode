@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryTimer @ 0x1409FB600
+ * XREFs of NtQueryTimer @ 0x14094F210
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeQueryTimerDueTime @ 0x14056DF08 (KeQueryTimerDueTime.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeQueryTimerDueTime @ 0x140515E08 (KeQueryTimerDueTime.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
@@ -19,7 +19,7 @@ __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int 
   __int64 v13; // r8
   _DWORD *v14; // r9
   NTSTATUS v15; // r15d
-  char v16; // r12
+  int v16; // r12d
   __int64 v17; // rbx
   __int64 v18; // rdi
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
@@ -55,10 +55,10 @@ __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int 
   v15 = ObReferenceObjectByHandle(Handle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
   if ( v15 >= 0 )
   {
-    v16 = *((_BYTE *)Object + 4);
+    v16 = *((_DWORD *)Object + 1);
     v17 = MEMORY[0xFFFFF78000000008];
     v18 = KeQueryTimerDueTime((__int64)Object, v12, v13, v14) - v17;
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( PreviousMode )
     {
       *(_BYTE *)(a3 + 8) = v16;

@@ -1,14 +1,13 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x140630060
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x1405383D0
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C90C (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopLiveDumpAddPfnDatabase @ 0x140A9A1D0 (IopLiveDumpAddPfnDatabase.c)
- *     IopLiveDumpAddSessionSpaceStructure @ 0x140A9A280 (IopLiveDumpAddSessionSpaceStructure.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BE64 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B6D8 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409ACB98 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1409ACF2C (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MiAddPartitionDataToCrashDump @ 0x14062F470 (MiAddPartitionDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MiAddPartitionDataToCrashDump @ 0x140537878 (MiAddPartitionDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, _QWORD, __int64), char a2)
@@ -27,7 +26,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   v2 = 0;
   if ( (a2 & 1) != 0 )
   {
-    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140C65CA0 + 1));
+    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 0x30000000000LL);
     if ( v5 < 0 )
       v2 = v5;
   }
@@ -58,10 +57,10 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 0x10) != 0 )
   {
-    v11 = (__int64 *)qword_140C69A00;
-    while ( v11 != &qword_140C69A00 )
+    v11 = (__int64 *)qword_140C4EF00;
+    while ( v11 != &qword_140C4EF00 )
     {
-      v12 = MmAddRangeToCrashDump(a1, v11 - 15, 832LL);
+      v12 = MmAddRangeToCrashDump(a1, v11 - 16, 20480LL);
       v11 = (__int64 *)*v11;
       if ( v12 < 0 )
         v2 = v12;

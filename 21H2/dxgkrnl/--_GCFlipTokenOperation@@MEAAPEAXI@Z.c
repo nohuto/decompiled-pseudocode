@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCFlipTokenOperation@@MEAAPEAXI@Z @ 0x1C007C350
+ * XREFs of ??_GCFlipTokenOperation@@MEAAPEAXI@Z @ 0x1C006A9F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C007ECCC (--1CFlipTokenOperation@@MEAA@XZ.c)
+ *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C006BE9C (--1CFlipTokenOperation@@MEAA@XZ.c)
  */
 
 CFlipTokenOperation *__fastcall CFlipTokenOperation::`scalar deleting destructor'(CFlipTokenOperation *P, char a2)

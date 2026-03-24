@@ -1,19 +1,19 @@
 /*
- * XREFs of xxxMinimizeHungWindow @ 0x1C023DBB8
+ * XREFs of xxxMinimizeHungWindow @ 0x1C023F190
  * Callers:
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C00699A0 (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z @ 0x1C0049254 (-xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z.c)
  * Callees:
- *     SetVisible @ 0x1C001FE88 (SetVisible.c)
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0049764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C007B728 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     xxxShowOwnedWindows @ 0x1C00CB710 (xxxShowOwnedWindows.c)
- *     ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C00CDA30 (-xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z.c)
- *     xxxSendMinRectMessages @ 0x1C010DD14 (xxxSendMinRectMessages.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     xxxDrawAnimatedRects @ 0x1C023DA38 (xxxDrawAnimatedRects.c)
+ *     ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C0027BBC (-xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z.c)
+ *     xxxShowOwnedWindows @ 0x1C002C1D4 (xxxShowOwnedWindows.c)
+ *     SetVisible @ 0x1C004BD40 (SetVisible.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00675D0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C0072764 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     xxxSendMinRectMessages @ 0x1C0124CA8 (xxxSendMinRectMessages.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     xxxDrawAnimatedRects @ 0x1C023F004 (xxxDrawAnimatedRects.c)
  */
 
 __int64 __fastcall xxxMinimizeHungWindow(struct tagWND *a1)
@@ -30,13 +30,13 @@ __int64 __fastcall xxxMinimizeHungWindow(struct tagWND *a1)
   {
     if ( (gdwPUDFlags & 0x10000) != 0 )
     {
-      xxxSendMinRectMessages((unsigned __int64 *)a1, (__int64)&v5);
+      xxxSendMinRectMessages((unsigned __int64 *)a1, (struct _LARGE_STRING *)&v5);
       if ( !IsRectEmptyInl(&v5) )
         xxxDrawAnimatedRects(a1, 3, (struct tagRECT *)(*((_QWORD *)a1 + 5) + 88LL), &v5);
     }
     SetVisible(a1, 0);
     RectRgnIndirect = GreCreateRectRgnIndirect(*((_QWORD *)a1 + 5) + 88LL);
-    xxxShowOwnedWindows((__int64)a1, 1u, RectRgnIndirect);
+    xxxShowOwnedWindows((__int64)a1, 1, RectRgnIndirect);
     zzzLockDisplayAreaAndInvalidateDCCache((__int64)a1, 1, 0LL);
     xxxRedrawWindow(0LL, 0LL, RectRgnIndirect, 133);
     GreDeleteObject(RectRgnIndirect);

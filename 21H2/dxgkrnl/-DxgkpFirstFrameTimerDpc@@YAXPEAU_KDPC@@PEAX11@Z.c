@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkpFirstFrameTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0049C80
+ * XREFs of ?DxgkpFirstFrameTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C003ECB0
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessFirstFrameTimer@DXGADAPTER@@QEAAXXZ @ 0x1C004417C (-ProcessFirstFrameTimer@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ProcessFirstFrameTimer@DXGADAPTER@@QEAAXXZ @ 0x1C0038B34 (-ProcessFirstFrameTimer@DXGADAPTER@@QEAAXXZ.c)
  */
 
 void __fastcall DxgkpFirstFrameTimerDpc(

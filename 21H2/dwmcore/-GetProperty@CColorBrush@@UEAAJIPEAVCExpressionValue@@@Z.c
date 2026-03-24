@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetProperty@CColorBrush@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800C5180
+ * XREFs of ?GetProperty@CColorBrush@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800BDF30
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CColorBrush::GetProperty(CColorBrush *this, int a2, struct CExpressionValue *a3)
@@ -30,14 +30,14 @@ __int64 __fastcall CColorBrush::GetProperty(CColorBrush *this, int a2, struct CE
     v6 = *v5;
     if ( a2 == **(_DWORD **)v5 )
       break;
-    if ( ++v5 == &CComponentTransform2D::k_rgAnimDef )
+    if ( ++v5 == (const struct AnimationHelper::AnimatedProperty *const near *const *)&unk_1802754E8 )
       goto LABEL_11;
   }
   if ( !v6 )
   {
 LABEL_11:
     v4 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0LL, -2147024809, 0x21u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, -2147024809, 0x21u, 0LL);
     return v4;
   }
   v7 = *((_DWORD *)v6 + 1);

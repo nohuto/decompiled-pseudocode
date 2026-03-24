@@ -1,15 +1,16 @@
 /*
- * XREFs of ?bGetNtoW_Win31@@YAHPEAVMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KH@Z @ 0x1C01113B4
+ * XREFs of ?bGetNtoW_Win31@@YAHPEAVMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KH@Z @ 0x1C005F448
  * Callers:
- *     ?bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KQEAU_POINTL@@H@Z @ 0x1C01116A4 (-bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KQEAU_POINTL@@H@Z.c)
+ *     ?bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KQEAU_POINTL@@H@Z @ 0x1C005EB68 (-bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KQEAU_POINTL@@H@Z.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0113D6C (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
- *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0113DB0 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bIs1@EFLOAT@@QEBAHXZ @ 0x1C015F292 (-bIs1@EFLOAT@@QEBAHXZ.c)
- *     ?lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z @ 0x1C0303A20 (-lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0099DF4 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C0099E30 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ?vAbs@EFLOAT@@QEAAXXZ @ 0x1C009E914 (-vAbs@EFLOAT@@QEAAXXZ.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z @ 0x1C01583A8 (-lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bGetNtoW_Win31(
@@ -21,96 +22,88 @@ __int64 __fastcall bGetNtoW_Win31(
         int a6)
 {
   __int64 v6; // r10
-  struct IFIOBJ *v7; // r13
-  int v9; // r8d
-  int v11; // r14d
-  char v12; // r12
+  unsigned int v7; // edi
+  int v10; // r8d
+  int v11; // r13d
+  char v12; // r15
   LONG lfHeight; // ebx
-  int v14; // r15d
-  __int16 *v15; // rax
-  int v16; // ecx
-  float v17; // xmm3_4
-  float v18; // xmm2_4
-  float v19; // xmm7_4
-  unsigned int *v20; // rbx
-  int v21; // r14d
+  int v14; // r12d
+  struct IFIOBJ *v15; // r11
+  __int16 *v16; // rax
+  __int64 v17; // rcx
+  float v18; // xmm3_4
+  float v19; // xmm4_4
+  float v20; // xmm7_4
+  unsigned int *v21; // rbx
   int lfWidth; // eax
-  __int16 *v23; // rcx
+  __int64 v23; // rdx
   float v24; // xmm6_4
-  unsigned int CurrentThreadDpiAwarenessContext; // eax
+  char CurrentThreadDpiAwarenessContext; // al
   __int64 v26; // rcx
-  int v27; // esi
-  unsigned int v28; // eax
-  int v29; // eax
+  int v27; // r14d
+  int v28; // r15d
+  char v29; // al
   int v30; // ebx
   int v31; // ecx
-  __int16 *v32; // rax
-  int v33; // xmm1_4
-  __int64 v35; // rax
-  float v36; // xmm1_4
-  int *v37; // rcx
-  int v38; // edx
-  float v39; // xmm2_4
-  float v40; // xmm0_4
-  float v41; // xmm4_4
-  int v42; // edx
-  float v43; // xmm4_4
-  __int16 *v44; // r13
-  int v45; // r14d
-  int v46; // esi
-  int v47; // ecx
-  unsigned int v48; // r8d
-  float v49; // xmm1_4
-  float v50; // xmm4_4
-  int v51; // eax
-  float v52; // xmm5_4
-  float v53; // xmm1_4
-  float v54; // xmm3_4
-  unsigned int v55; // eax
-  unsigned int v56; // eax
+  struct IFIOBJ *v32; // r8
+  __int64 v33; // rax
+  int v34; // xmm1_4
+  __int64 v36; // r14
+  int v37; // r10d
+  int v38; // r8d
+  __int64 v39; // rcx
+  float v40; // xmm5_4
+  float v41; // xmm2_4
+  __int64 v42; // rax
+  __int64 v43; // rax
+  int v44; // r9d
+  __int64 v45; // rax
+  float v46; // xmm1_4
+  int v47; // eax
+  int IsZero; // eax
+  LONG DefaultWorldHeight; // eax
+  int v50; // edx
+  unsigned int v51; // eax
+  unsigned int v52; // eax
   int lfOrientation; // eax
-  __m128i v58; // xmm0
-  __int32 v59; // eax
-  __int128 v60; // xmm1
-  int v61; // eax
-  __int128 v62; // xmm0
-  __int64 v63; // [rsp+28h] [rbp-C9h] BYREF
-  __int64 v64; // [rsp+30h] [rbp-C1h] BYREF
-  __int64 v65; // [rsp+38h] [rbp-B9h]
-  struct tagLOGFONTW *v66; // [rsp+40h] [rbp-B1h]
-  struct IFIOBJ *v67; // [rsp+48h] [rbp-A9h]
-  unsigned int *v68; // [rsp+50h] [rbp-A1h] BYREF
-  struct MATRIX *v69; // [rsp+58h] [rbp-99h] BYREF
-  int v70; // [rsp+64h] [rbp-8Dh]
-  _DWORD v71[6]; // [rsp+68h] [rbp-89h] BYREF
-  __int64 v72; // [rsp+80h] [rbp-71h]
-  int v73; // [rsp+88h] [rbp-69h]
-  __int128 v74; // [rsp+90h] [rbp-61h] BYREF
-  __int128 v75; // [rsp+A0h] [rbp-51h]
-  int v76; // [rsp+B0h] [rbp-41h]
+  __m128i v54; // xmm0
+  __int32 v55; // eax
+  __int128 v56; // xmm1
+  int v57; // eax
+  __int128 v58; // xmm0
+  __int64 v59; // [rsp+28h] [rbp-A9h] BYREF
+  __int64 v60; // [rsp+30h] [rbp-A1h] BYREF
+  struct IFIOBJ *v61; // [rsp+38h] [rbp-99h]
+  struct tagLOGFONTW *v62; // [rsp+40h] [rbp-91h]
+  unsigned int *v63; // [rsp+48h] [rbp-89h] BYREF
+  struct MATRIX *v64; // [rsp+50h] [rbp-81h] BYREF
+  int v65; // [rsp+5Ch] [rbp-75h]
+  _DWORD v66[6]; // [rsp+60h] [rbp-71h] BYREF
+  __int64 v67; // [rsp+78h] [rbp-59h]
+  int v68; // [rsp+80h] [rbp-51h]
+  _OWORD v69[2]; // [rsp+88h] [rbp-49h] BYREF
+  int v70; // [rsp+A8h] [rbp-29h]
 
   v6 = *(_QWORD *)a4;
-  v67 = a3;
-  v7 = a3;
-  v66 = a2;
-  LODWORD(v65) = 0;
-  v9 = 1;
-  if ( *(float *)(v6 + 452) == 0.0 || EFLOAT::bIsZero((EFLOAT *)(v6 + 456)) )
+  v7 = 0;
+  v61 = a3;
+  v62 = a2;
+  v10 = 1;
+  if ( *(float *)(v6 + 452) == 0.0 || (IsZero = EFLOAT::bIsZero((EFLOAT *)(v6 + 456)), v11 = v10, IsZero) )
     v11 = 0;
-  else
-    v11 = v9;
-  LODWORD(v65) = v11;
   if ( (a5 & 2) != 0 || !v11 && (*(_DWORD *)(*(_QWORD *)(v6 + 976) + 340LL) & 0x1000) != 0 )
     v12 = 0;
   else
-    v12 = v9;
+    v12 = v10;
   lfHeight = a2->lfHeight;
-  v14 = v9;
+  v14 = v10;
   if ( !a2->lfHeight )
-    lfHeight = lGetDefaultWorldHeight(a4);
-  if ( *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 19500LL)
-    && !_wcsicmp(v66->lfFaceName, L"MS Shell Dlg")
-    && !a6 )
+  {
+    DefaultWorldHeight = lGetDefaultWorldHeight(a4);
+    a2 = v62;
+    lfHeight = DefaultWorldHeight;
+  }
+  if ( gbShellFontCompatible && !_wcsicmp(a2->lfFaceName, L"MS Shell Dlg") && !a6 )
   {
     if ( lfHeight > 0 )
     {
@@ -127,214 +120,210 @@ __int64 __fastcall bGetNtoW_Win31(
         }
       }
     }
+    else if ( (unsigned int)(lfHeight + 12) > 3 )
+    {
+      if ( (unsigned int)(lfHeight + 15) <= 2 )
+        lfHeight = -13;
+    }
     else
     {
-      if ( (unsigned int)(lfHeight + 12) <= 3 )
-      {
-        lfHeight = -11;
-LABEL_36:
-        v15 = *(__int16 **)v7;
-        goto LABEL_37;
-      }
-      if ( (unsigned int)(lfHeight + 15) <= 2 )
-      {
-        lfHeight = -13;
-        goto LABEL_36;
-      }
+      lfHeight = -11;
     }
   }
-  v15 = *(__int16 **)v7;
+  v15 = v61;
+  v16 = *(__int16 **)v61;
   if ( lfHeight > 0 )
   {
-    v16 = v15[30] + v15[31];
-    goto LABEL_13;
-  }
-LABEL_37:
-  v16 = v15[28];
-  lfHeight = -lfHeight;
-LABEL_13:
-  v17 = (float)lfHeight / (float)v16;
-  v18 = v17;
-  *((float *)a1 + 3) = v17;
-  if ( !v12 )
-  {
-    v19 = *(float *)&v63;
-    goto LABEL_15;
-  }
-  v35 = *(_QWORD *)a4;
-  if ( v11 )
-  {
-    v19 = *(float *)(v35 + 452);
-    v36 = *(float *)(v35 + 456);
+    v17 = (unsigned int)(v16[30] + v16[31]);
   }
   else
   {
-    v37 = *(int **)(v35 + 976);
-    v38 = v37[85];
-    if ( (v38 & 0x1000) != 0 )
-    {
-      v19 = *(float *)&v63;
-      v36 = *(float *)&v64;
-      goto LABEL_59;
-    }
-    if ( (v38 & 2) == 0 )
-    {
-      v39 = (float)v37[84];
-      v40 = (float)v37[80];
-      v19 = (float)v37[83] / (float)v37[79];
-      *(float *)&v63 = v19;
-      v36 = v39 / v40;
-      *(float *)&v64 = v39 / v40;
-      goto LABEL_59;
-    }
-    v19 = *(float *)(v35 + 320) * 0.0625;
-    v36 = *(float *)(v35 + 332) * 0.0625;
+    v17 = (unsigned int)v16[28];
+    lfHeight = -lfHeight;
   }
-  *(float *)&v63 = v19;
-  *(float *)&v64 = v36;
-LABEL_59:
-  v14 = EFLOAT::bIs1((EFLOAT *)&v63);
-  v18 = v41;
-  if ( !(unsigned int)EFLOAT::bIs1((EFLOAT *)&v64) )
-    v18 = v36 * v43;
-  if ( v18 < 0.0 )
-    LODWORD(v18) ^= _xmm;
-  if ( v42 )
-    *((_DWORD *)a1 + 3) ^= _xmm;
-LABEL_15:
-  v20 = *(unsigned int **)(*(_QWORD *)a4 + 48LL);
-  v68 = v20;
-  if ( !v20 )
-    return 0LL;
-  v21 = v14;
-  lfWidth = v66->lfWidth;
-  if ( lfWidth )
+  v18 = (float)lfHeight / (float)(int)v17;
+  v19 = v18;
+  *((float *)a1 + 3) = v18;
+  if ( v12 )
   {
-    v44 = *(__int16 **)v7;
-    LODWORD(v63) = 0;
-    v45 = 1;
-    v46 = abs32(lfWidth);
-    v47 = v44[38];
-    LODWORD(v64) = v46;
-    v48 = 6;
-    v49 = (float)v46;
-    v50 = (float)v47 * v18;
+    v45 = *(_QWORD *)a4;
+    if ( v11 )
+    {
+      v20 = *(float *)(v45 + 452);
+      v46 = *(float *)(v45 + 456);
+    }
+    else
+    {
+      v17 = *(_QWORD *)(v45 + 976);
+      v50 = *(_DWORD *)(v17 + 340);
+      if ( (v50 & 0x1000) != 0 )
+      {
+        v20 = *(float *)&v59;
+        v46 = *(float *)&v59;
+      }
+      else if ( (v50 & 2) != 0 )
+      {
+        v20 = *(float *)(v45 + 320) * 0.0625;
+        v46 = *(float *)(v45 + 332) * 0.0625;
+      }
+      else
+      {
+        v20 = (float)*(int *)(v17 + 332) / (float)*(int *)(v17 + 316);
+        v46 = (float)*(int *)(v17 + 336) / (float)*(int *)(v17 + 320);
+      }
+    }
+    if ( v20 != 1.0 )
+      v14 = 0;
+    v47 = 0;
+    if ( v46 != 1.0 )
+      v18 = v18 * v46;
+    if ( v18 < 0.0 )
+      LODWORD(v18) ^= _xmm;
+    LOBYTE(v47) = v46 < 0.0;
+    if ( v47 )
+      *((_DWORD *)a1 + 3) ^= _xmm;
+  }
+  else
+  {
+    v20 = *(float *)&v59;
+  }
+  v21 = *(unsigned int **)(*(_QWORD *)a4 + 48LL);
+  v63 = v21;
+  if ( v21 )
+  {
+    lfWidth = v62->lfWidth;
+    if ( !lfWidth )
+      goto LABEL_17;
+    v36 = *(_QWORD *)v15;
+    v37 = 1;
+    v38 = abs32(lfWidth);
+    v39 = (unsigned int)*(__int16 *)(*(_QWORD *)v15 + 76LL);
+    LODWORD(v59) = v38;
+    v40 = (float)(int)v39;
+    v41 = (float)(int)v39 * v18;
+    *(float *)&v60 = (float)v38;
     if ( v12 )
     {
       if ( !v14 )
       {
-        v49 = v49 * v19;
-        v51 = bFToL(v49, (int *)&v64, 6u);
-        v46 = v64;
-        v45 = v51;
+        *(float *)&v60 = (float)v38 * v20;
+        bFToL(v39, &v59, 6LL);
       }
-      if ( v49 < 0.0 )
-        LODWORD(v49) ^= _xmm;
-      if ( v46 < 0 )
-        v46 = -v46;
+      EFLOAT::vAbs((EFLOAT *)&v60);
+      if ( v38 < 0 )
+        v38 = -v38;
     }
-    if ( (unsigned int)bFToL(v50, (int *)&v63, v48) && (int)v63 > 0 && v45 && v46 / 256 < (int)v63
-      || (v21 = v14, (*((_DWORD *)v44 + 12) & 4) != 0) )
+    *(float *)&v59 = v41;
+    v17 = (unsigned int)(unsigned __int8)(SLODWORD(v41) >> 23) - 118;
+    if ( (int)v17 <= 40 )
     {
-      v7 = v67;
-      v21 = v14;
-      v53 = v49 / v52;
-LABEL_85:
-      v24 = v53;
-      goto LABEL_28;
+      v42 = LODWORD(v41) & 0x7FFFFF | 0x800000LL;
+      if ( (int)v17 < 0 )
+        v43 = v42 >> (118 - (unsigned __int8)(SLODWORD(v41) >> 23));
+      else
+        v43 = v42 << ((unsigned __int8)(SLODWORD(v41) >> 23) - 118);
+      v17 = (v43 + 0x80000000LL) >> 32;
+      v44 = -((unsigned __int64)(v43 + 0x80000000LL) >> 32);
+      if ( v41 >= 0.0 )
+        v44 = (unsigned __int64)(v43 + 0x80000000LL) >> 32;
+      if ( v44 > 0 )
+      {
+        if ( v37 )
+        {
+          v17 = 256LL;
+          if ( v38 / 256 < v44 )
+            goto LABEL_44;
+        }
+      }
     }
-    v7 = v67;
-  }
-  v23 = *(__int16 **)v7;
-  if ( (*(_DWORD *)(*(_QWORD *)v7 + 48LL) & 4) != 0 )
-  {
-    v24 = v17;
-    if ( !v21 )
+    if ( (*(_DWORD *)(v36 + 48) & 4) != 0 )
     {
-      v54 = v17 * v19;
-      v24 = v54;
-      if ( v54 < 0.0 )
-        LODWORD(v24) = LODWORD(v54) ^ _xmm;
+LABEL_44:
+      v24 = *(float *)&v60 / v40;
+    }
+    else
+    {
+LABEL_17:
+      v23 = *(_QWORD *)v15;
+      if ( (*(_DWORD *)(*(_QWORD *)v15 + 48LL) & 4) != 0 )
+      {
+        v24 = v19;
+        if ( !v14 )
+        {
+          *(float *)&v59 = v19 * v20;
+          EFLOAT::vAbs((EFLOAT *)&v59);
+          v24 = *(float *)&v59;
+        }
+      }
+      else
+      {
+        v24 = v18;
+      }
+      v59 = *(_QWORD *)(v23 + 128);
+      CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v17);
+      v26 = v21[10];
+      v27 = 96;
+      if ( (v26 & 1) == 0 || (v28 = 96, (CurrentThreadDpiAwarenessContext & 0xFu) - 1 <= 1) )
+        v28 = v21[544];
+      v29 = W32GetCurrentThreadDpiAwarenessContext(v26);
+      if ( (v21[10] & 1) == 0 || (v29 & 0xFu) - 1 <= 1 )
+        v27 = v21[545];
+      if ( v28 == v27 || v11 )
+      {
+        v30 = HIDWORD(v59);
+        v31 = v59;
+      }
+      else
+      {
+        v51 = PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&v63);
+        v30 = v51 * HIDWORD(v59);
+        v52 = PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v63);
+        v31 = v52 * v59;
+      }
+      if ( v31 != v30 )
+        v24 = (float)((float)v30 * v24) / (float)v31;
+    }
+    if ( !v14 )
+      v24 = v24 / v20;
+    *(float *)a1 = v24;
+    v32 = v61;
+    *((_QWORD *)a1 + 2) = 0LL;
+    *(_QWORD *)((char *)a1 + 4) = 0LL;
+    v64 = a1;
+    v33 = *(_QWORD *)v32;
+    v65 = 0;
+    if ( (*(_DWORD *)(v33 + 48) & 4) == 0 )
+      goto LABEL_32;
+    lfOrientation = v62->lfOrientation;
+    if ( !lfOrientation )
+      goto LABEL_32;
+    v54 = (__m128i)COERCE_UNSIGNED_INT((float)lfOrientation);
+    v67 = 0LL;
+    v68 = 0;
+    *(float *)v54.m128i_i32 = *(float *)v54.m128i_i32 / 10.0;
+    v66[0] = efCos((unsigned int)_mm_cvtsi128_si32(v54));
+    v66[3] = v66[0];
+    v55 = efSin((unsigned int)_mm_cvtsi128_si32(v54));
+    v56 = *((_OWORD *)a1 + 1);
+    v66[4] = 0;
+    v66[5] = 0;
+    v54.m128i_i32[0] = v55;
+    v57 = *((_DWORD *)a1 + 8);
+    v66[1] = v54.m128i_i32[0];
+    v66[2] = v54.m128i_i32[0] ^ _xmm;
+    v58 = *(_OWORD *)a1;
+    v70 = v57;
+    v69[1] = v56;
+    v69[0] = v58;
+    if ( EXFORMOBJ::bMultiply((EXFORMOBJ *)&v64, (struct MATRIX *)v69, (struct MATRIX *)v66, 0) )
+    {
+LABEL_32:
+      v34 = *((_DWORD *)a1 + 3) ^ _xmm;
+      *((_DWORD *)a1 + 1) ^= _xmm;
+      *((_DWORD *)a1 + 3) = v34;
+      EXFORMOBJ::vComputeAccelFlags((EXFORMOBJ *)&v64, 8u);
+      return 1;
     }
   }
-  else
-  {
-    v24 = v18;
-  }
-  v64 = *((_QWORD *)v23 + 16);
-  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v23);
-  v26 = v20[10];
-  if ( (v26 & 1) != 0 && (v26 = (CurrentThreadDpiAwarenessContext & 0xF) - 1, (unsigned int)v26 > 1) )
-    v27 = (CurrentThreadDpiAwarenessContext >> 8) & 0x1FF;
-  else
-    v27 = v20[536];
-  v28 = W32GetCurrentThreadDpiAwarenessContext(v26);
-  if ( (v20[10] & 1) != 0 && (v28 & 0xF) - 1 > 1 )
-    v29 = (v28 >> 8) & 0x1FF;
-  else
-    v29 = v20[537];
-  if ( v27 == v29 || (_DWORD)v65 )
-  {
-    v30 = HIDWORD(v64);
-    v31 = v64;
-  }
-  else
-  {
-    v55 = PDEVOBJ::ulLogPixelsX((PDEVOBJ *)&v68);
-    v30 = v55 * HIDWORD(v64);
-    v56 = PDEVOBJ::ulLogPixelsY((PDEVOBJ *)&v68);
-    v31 = v56 * v64;
-  }
-  if ( v31 != v30 )
-  {
-    v53 = (float)((float)v30 * v24) / (float)v31;
-    goto LABEL_85;
-  }
-LABEL_28:
-  if ( !v21 )
-    v24 = v24 / v19;
-  *(float *)a1 = v24;
-  *((_DWORD *)a1 + 4) = 0;
-  *((_DWORD *)a1 + 5) = 0;
-  *((_DWORD *)a1 + 1) = 0;
-  *((_DWORD *)a1 + 2) = 0;
-  v70 = 0;
-  v32 = *(__int16 **)v7;
-  v69 = a1;
-  if ( (*((_DWORD *)v32 + 12) & 4) == 0 )
-    goto LABEL_31;
-  lfOrientation = v66->lfOrientation;
-  if ( !lfOrientation )
-    goto LABEL_31;
-  v72 = 0LL;
-  v73 = 0;
-  v58 = (__m128i)COERCE_UNSIGNED_INT((float)lfOrientation);
-  v76 = 0;
-  *(float *)v58.m128i_i32 = *(float *)v58.m128i_i32 / 10.0;
-  v74 = 0LL;
-  v75 = 0LL;
-  v71[0] = efCos((unsigned int)_mm_cvtsi128_si32(v58));
-  v71[3] = v71[0];
-  v59 = efSin((unsigned int)_mm_cvtsi128_si32(v58));
-  v60 = *((_OWORD *)a1 + 1);
-  v71[4] = 0;
-  v71[5] = 0;
-  v58.m128i_i32[0] = v59;
-  v61 = *((_DWORD *)a1 + 8);
-  v71[1] = v58.m128i_i32[0];
-  v71[2] = v58.m128i_i32[0] ^ _xmm;
-  v62 = *(_OWORD *)a1;
-  v76 = v61;
-  v75 = v60;
-  v74 = v62;
-  if ( EXFORMOBJ::bMultiply((EXFORMOBJ *)&v69, (struct MATRIX *)&v74, (struct MATRIX *)v71, 0) )
-  {
-LABEL_31:
-    v33 = *((_DWORD *)a1 + 3) ^ _xmm;
-    *((_DWORD *)a1 + 1) ^= _xmm;
-    *((_DWORD *)a1 + 3) = v33;
-    EXFORMOBJ::vComputeAccelFlags((EXFORMOBJ *)&v69, 8u);
-    return 1LL;
-  }
-  return 0LL;
+  return v7;
 }

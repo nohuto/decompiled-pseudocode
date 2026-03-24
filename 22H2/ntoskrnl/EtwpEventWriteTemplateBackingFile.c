@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEventWriteTemplateBackingFile @ 0x1409E3B30
+ * XREFs of EtwpEventWriteTemplateBackingFile @ 0x140939C6C
  * Callers:
- *     EtwpRealtimeSaveBuffer @ 0x1407F61BC (EtwpRealtimeSaveBuffer.c)
- *     EtwpRealtimeRestoreState @ 0x140853118 (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1406A1ABC (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeRestoreState @ 0x1407C891C (EtwpRealtimeRestoreState.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateBackingFile(

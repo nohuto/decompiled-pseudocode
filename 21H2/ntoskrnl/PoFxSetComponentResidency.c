@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxSetComponentResidency @ 0x1405CACD0
+ * XREFs of PoFxSetComponentResidency @ 0x140569250
  * Callers:
- *     DifPoFxSetComponentResidencyWrapper @ 0x140619B10 (DifPoFxSetComponentResidencyWrapper.c)
+ *     <none>
  * Callees:
- *     PopDiagTraceFxComponentResidency @ 0x1405D209C (PopDiagTraceFxComponentResidency.c)
- *     PopPepComponentSetResidency @ 0x1405D4D6C (PopPepComponentSetResidency.c)
+ *     PopDiagTraceFxComponentResidency @ 0x140571D2C (PopDiagTraceFxComponentResidency.c)
+ *     PopPepComponentSetResidency @ 0x140574388 (PopPepComponentSetResidency.c)
  */
 
 __int64 __fastcall PoFxSetComponentResidency(__int64 a1, unsigned int a2, __int64 a3)

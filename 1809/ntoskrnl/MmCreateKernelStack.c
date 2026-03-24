@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCreateKernelStack @ 0x1400C9EF0
+ * XREFs of MmCreateKernelStack @ 0x1400C9F10
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9C00 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9C20 (KiExpandKernelStackAndCalloutOnStackSegment.c)
  *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
- *     KeUserModeCallback @ 0x140646480 (KeUserModeCallback.c)
- *     KeAllocateCalloutStackEx @ 0x14070CCC0 (KeAllocateCalloutStackEx.c)
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KeUserModeCallback @ 0x140646460 (KeUserModeCallback.c)
+ *     KeAllocateCalloutStackEx @ 0x14070CCA0 (KeAllocateCalloutStackEx.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
@@ -15,12 +15,12 @@
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiAllocateKernelStackPages @ 0x1400B5640 (MiAllocateKernelStackPages.c)
- *     MiMarkPfnTradable @ 0x14013D924 (MiMarkPfnTradable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1402BB664 (MiLogKernelStackEvent.c)
+ *     MiAllocateKernelStackPages @ 0x1400B5660 (MiAllocateKernelStackPages.c)
+ *     MiMarkPfnTradable @ 0x14013D944 (MiMarkPfnTradable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1402BB764 (MiLogKernelStackEvent.c)
  */
 
 __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, unsigned __int64 a3)

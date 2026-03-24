@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PspSendJobNotification @ 0x140137D9C (PspSendJobNotification.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
  *     PspLockJobShared @ 0x1405FE128 (PspLockJobShared.c)
@@ -17,9 +17,9 @@
  *     PspLockJobMemoryLimitsShared @ 0x1405FE360 (PspLockJobMemoryLimitsShared.c)
  *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
  *     PspRateControlLimitFlag @ 0x140600714 (PspRateControlLimitFlag.c)
- *     PspSendReliableJobNotification @ 0x1406B96D8 (PspSendReliableJobNotification.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C6FA4 (PspTerminateAllProcessesInJobHierarchy.c)
- *     PspSendNoWakeChargeLimitNotification @ 0x14088A124 (PspSendNoWakeChargeLimitNotification.c)
+ *     PspSendReliableJobNotification @ 0x1406B96B8 (PspSendReliableJobNotification.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C6F84 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PspSendNoWakeChargeLimitNotification @ 0x14088A104 (PspSendNoWakeChargeLimitNotification.c)
  */
 
 __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)

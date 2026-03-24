@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x1402794B4
+ * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x1402795B4
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x1402751A0 (HvlSendSyntheticClusterIpi.c)
- *     HvlParkedVirtualProcessors @ 0x140276B6C (HvlParkedVirtualProcessors.c)
- *     HvlFlushAddressSpaceTb @ 0x1402794DC (HvlFlushAddressSpaceTb.c)
- *     HvlFlushRangeListTb @ 0x140279548 (HvlFlushRangeListTb.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1402752A0 (HvlSendSyntheticClusterIpi.c)
+ *     HvlParkedVirtualProcessors @ 0x140276C6C (HvlParkedVirtualProcessors.c)
+ *     HvlFlushAddressSpaceTb @ 0x1402795DC (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushRangeListTb @ 0x140279648 (HvlFlushRangeListTb.c)
  * Callees:
  *     <none>
  */

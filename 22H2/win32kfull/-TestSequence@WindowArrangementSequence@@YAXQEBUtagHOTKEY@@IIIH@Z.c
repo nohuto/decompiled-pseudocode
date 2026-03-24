@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TestSequence@WindowArrangementSequence@@YAXQEBUtagHOTKEY@@IIIH@Z @ 0x1C0050780
+ * XREFs of ?TestSequence@WindowArrangementSequence@@YAXQEBUtagHOTKEY@@IIIH@Z @ 0x1C010548C
  * Callers:
- *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00500BC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     xxxDoHotKeyStuff @ 0x1C0104F50 (xxxDoHotKeyStuff.c)
  * Callees:
- *     ?ArrangementHotKey@NotifyShell@@YAXW4ARRANGEMENT_HOTKEY_DISAMBIGUATION@@_J@Z @ 0x1C021CF88 (-ArrangementHotKey@NotifyShell@@YAXW4ARRANGEMENT_HOTKEY_DISAMBIGUATION@@_J@Z.c)
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C01245E0 (_anonymous_namespace_--NotifyShellSimplePayload.c)
  */
 
 void __fastcall WindowArrangementSequence::TestSequence(
@@ -13,19 +13,19 @@ void __fastcall WindowArrangementSequence::TestSequence(
         unsigned __int16 a4,
         unsigned int a5)
 {
-  int v6; // eax
-  __int64 v7; // rcx
-  bool v8; // zf
+  int v5; // eax
+  bool v6; // zf
+  __int64 v7; // r8
 
   if ( this )
   {
-    if ( (a4 | ((unsigned __int16)a2 << 16)) == *(_QWORD *)(SGDGetUserSessionState(this) + 13784) )
+    if ( (((unsigned __int16)a2 << 16) | a4) == qword_1C0339AC0 )
       return;
-    v6 = *(_QWORD *)this == gptiRit && (unsigned int)(*((_DWORD *)this + 10) - 16) <= 8;
-    if ( WindowArrangementSequence::fWindowArrangementSequenceInProgress == v6 )
+    v5 = *(_QWORD *)this == gptiRit && (unsigned int)(*((_DWORD *)this + 8) - 16) <= 0xD;
+    if ( WindowArrangementSequence::fWindowArrangementSequenceInProgress == v5 )
       return;
-    WindowArrangementSequence::fWindowArrangementSequenceInProgress = v6;
-    v8 = v6 == 0;
+    WindowArrangementSequence::fWindowArrangementSequenceInProgress = v5;
+    v6 = v5 == 0;
     goto LABEL_19;
   }
   if ( a5 )
@@ -38,9 +38,9 @@ void __fastcall WindowArrangementSequence::TestSequence(
     }
     if ( !WindowArrangementSequence::fWindowArrangementSequenceInProgress )
       return;
-    v8 = (a3 & 0xE) == 0;
+    v6 = (a3 & 0xE) == 0;
 LABEL_19:
-    if ( !v8 )
+    if ( !v6 )
       return;
 LABEL_20:
     v7 = 1LL;
@@ -50,7 +50,7 @@ LABEL_20:
   {
     v7 = 2LL;
 LABEL_21:
-    NotifyShell::ArrangementHotKey(v7, 8LL);
+    anonymous_namespace_::NotifyShellSimplePayload(0LL, 3LL, v7);
     WindowArrangementSequence::fWindowArrangementSequenceInProgress = 0;
   }
 }

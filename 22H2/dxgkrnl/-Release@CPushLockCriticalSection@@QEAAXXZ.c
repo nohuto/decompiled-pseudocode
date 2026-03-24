@@ -1,11 +1,10 @@
 /*
- * XREFs of ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00190C0
+ * XREFs of ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0012CB0
  * Callers:
- *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0017760 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
- *     ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C0017AA0 (-DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ.c)
- *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018D7C (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
- *     ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0019388 (-PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
- *     ?ReferenceAdapter@CAdapterCollection@@QEAAJU_LUID@@PEAPEAVCAdapter@@@Z @ 0x1C0078204 (-ReferenceAdapter@CAdapterCollection@@QEAAJU_LUID@@PEAPEAVCAdapter@@@Z.c)
+ *     ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C000F100 (-DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ.c)
+ *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0012950 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00134C8 (-PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0013790 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
  * Callees:
  *     <none>
  */

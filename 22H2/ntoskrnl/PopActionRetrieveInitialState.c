@@ -1,10 +1,10 @@
 /*
- * XREFs of PopActionRetrieveInitialState @ 0x14058F3E0
+ * XREFs of PopActionRetrieveInitialState @ 0x14038CCC4
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopVerifySystemPowerState @ 0x14082580C (PopVerifySystemPowerState.c)
- *     PopFastS4Check @ 0x1409809A4 (PopFastS4Check.c)
+ *     PopFastS4Check @ 0x1407799C0 (PopFastS4Check.c)
+ *     PopVerifySystemPowerState @ 0x14078B828 (PopVerifySystemPowerState.c)
  */
 
 __int64 __fastcall PopActionRetrieveInitialState(_DWORD *a1, _DWORD *a2, _DWORD *a3, _BYTE *a4)
@@ -15,12 +15,12 @@ __int64 __fastcall PopActionRetrieveInitialState(_DWORD *a1, _DWORD *a2, _DWORD 
   __int64 result; // rax
 
   v4 = a1;
-  if ( (unsigned int)(qword_140C3CE24 - 4) <= 2 )
+  if ( (unsigned int)(qword_140C23A44 - 4) <= 2 )
   {
     *a1 = 6;
     *a2 = 6;
   }
-  else if ( (_DWORD)qword_140C3CE24 == 7 )
+  else if ( (_DWORD)qword_140C23A44 == 7 )
   {
     *a2 = 5;
     PopVerifySystemPowerState(a2, 0LL);
@@ -36,14 +36,14 @@ __int64 __fastcall PopActionRetrieveInitialState(_DWORD *a1, _DWORD *a2, _DWORD 
   if ( *v4 > *a2 )
     *a2 = *v4;
   *a4 = 1;
-  if ( *v4 == 6 || dword_140C3CE2C < 0 && (unsigned int)(dword_140C3CE34 - 1) <= 1 )
+  if ( *v4 == 6 || dword_140C23A4C < 0 && (unsigned int)(dword_140C23A54 - 1) <= 1 )
     *a4 = 0;
   if ( (unsigned __int8)PopFastS4Check() )
   {
     *v4 = *a2;
-    dword_140C3CE2C &= ~0x10000000u;
+    dword_140C23A4C &= ~0x10000000u;
   }
-  if ( (dword_140C3CE2C & 0x10000000) == 0 )
+  if ( (dword_140C23A4C & 0x10000000) == 0 )
     v4 = a2;
   result = (unsigned int)*v4;
   *a3 = result;

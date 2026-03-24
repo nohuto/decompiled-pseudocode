@@ -1,75 +1,100 @@
 /*
- * XREFs of HalpConnectThermalInterrupt @ 0x14037C510
+ * XREFs of HalpConnectThermalInterrupt @ 0x1404D14F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x14037CCA0 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptGetIdentifiers @ 0x14037D2B0 (HalpInterruptGetIdentifiers.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D8C0 (HalpInterruptSetIdtEntry.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A1FAC (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptGetPriority @ 0x1403A397C (HalpInterruptGetPriority.c)
+ *     HalpInterruptGetIdentifiers @ 0x1403C9950 (HalpInterruptGetIdentifiers.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D19C8 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpConnectThermalInterrupt(ULONG_PTR BugCheckParameter4)
 {
-  ULONG_PTR v1; // rbx
+  unsigned int Number; // ecx
   __int64 result; // rax
-  ULONG_PTR v3; // rdi
-  int v4; // r8d
-  int v5; // r9d
-  KPCR *Pcr; // rsi
+  __int64 v4; // rsi
+  __int64 v5; // r9
+  KPCR *Pcr; // rdi
   ULONG_PTR v7; // r10
-  int v8; // [rsp+98h] [rbp+28h] BYREF
-  unsigned int v9; // [rsp+A0h] [rbp+30h] BYREF
-  int v10; // [rsp+A4h] [rbp+34h]
+  int v8; // [rsp+30h] [rbp-40h] BYREF
+  int v9; // [rsp+34h] [rbp-3Ch]
+  int v10; // [rsp+38h] [rbp-38h]
+  int v11; // [rsp+3Ch] [rbp-34h]
+  int v12; // [rsp+40h] [rbp-30h]
+  int v13; // [rsp+44h] [rbp-2Ch]
+  int v14; // [rsp+48h] [rbp-28h]
+  int v15; // [rsp+4Ch] [rbp-24h]
+  int v16; // [rsp+50h] [rbp-20h]
+  __int64 v17; // [rsp+54h] [rbp-1Ch]
+  int v18; // [rsp+5Ch] [rbp-14h]
+  int v19; // [rsp+60h] [rbp-10h]
+  int Priority; // [rsp+64h] [rbp-Ch]
+  int v21; // [rsp+98h] [rbp+28h] BYREF
+  unsigned int v22; // [rsp+A0h] [rbp+30h] BYREF
+  int v23; // [rsp+A4h] [rbp+34h]
 
-  v1 = BugCheckParameter4;
-  LODWORD(BugCheckParameter4) = KeGetPcr()->Prcb.Number;
-  v8 = 0;
-  result = HalpInterruptGetIdentifiers(BugCheckParameter4, &v8, 0LL);
+  v9 = 0;
+  v15 = 0;
+  v17 = 0LL;
+  v18 = 0;
+  Number = KeGetPcr()->Prcb.Number;
+  v21 = 0;
+  result = HalpInterruptGetIdentifiers(Number, &v21, 0LL);
   if ( (int)result >= 0 )
   {
-    v3 = HalpInterruptController;
-    v9 = *(_DWORD *)(HalpInterruptController + 256);
-    v10 = -2;
-    if ( *(_DWORD *)(HalpInterruptController + 240) == 2 && HalpInterruptFindLines(&v9) )
+    v4 = HalpInterruptController;
+    v22 = *(_DWORD *)(HalpInterruptController + 232);
+    v23 = -2;
+    if ( *(_DWORD *)(HalpInterruptController + 216) == 2 && HalpInterruptFindLines(&v22) )
     {
       Pcr = KeGetPcr();
-      if ( BYTE1(Pcr->HalReserved[5]) )
-      {
-        if ( HalpInterruptThermalServiceRoutine != v1 )
-        {
-          HalpInterruptSetProblemEx(0, 36, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 3441);
-          return 3221226021LL;
-        }
-      }
-      else
+      if ( !BYTE1(Pcr->HalReserved[5]) )
       {
         if ( HalpInterruptThermalServiceRoutine )
         {
-          if ( HalpInterruptThermalServiceRoutine != v1 )
+          if ( HalpInterruptThermalServiceRoutine != BugCheckParameter4 )
           {
             HalpInterruptSetProblemEx(
               0,
               36,
               0,
               (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c",
-              3412);
-            KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, v7, v1);
+              3391);
+            KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, v7, BugCheckParameter4);
           }
         }
         else
         {
-          HalpInterruptThermalServiceRoutine = v1;
+          HalpInterruptThermalServiceRoutine = BugCheckParameter4;
         }
-        LOBYTE(v4) = 12;
-        HalpInterruptSetIdtEntry(205, (unsigned int)HalpInterruptThermalService, v4, v5, -1LL);
+        HalpInterruptSetIdtEntry(0xCDu, (int)HalpInterruptThermalService, 12, v5, -1LL);
         BYTE1(Pcr->HalReserved[5]) = 1;
+        goto LABEL_8;
       }
-      HalpInterruptGetPriority(v3);
-      return HalpInterruptSetLineStateInternal(v3, &v9);
+      if ( HalpInterruptThermalServiceRoutine == BugCheckParameter4 )
+      {
+LABEL_8:
+        v9 = 0;
+        v15 = 0;
+        v17 = 0LL;
+        v18 = 0;
+        v12 = -1;
+        v16 = v21;
+        v8 = 1;
+        v10 = 1;
+        v11 = 16;
+        v13 = 1;
+        v14 = 4;
+        v19 = 205;
+        Priority = HalpInterruptGetPriority(v4, 0xCDu);
+        return HalpInterruptSetLineStateInternal(v4, (__int64)&v22, (__int64)&v8);
+      }
+      HalpInterruptSetProblemEx(0, 36, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 3421);
+      return 3221226021LL;
     }
     else
     {

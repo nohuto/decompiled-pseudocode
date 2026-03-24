@@ -1,10 +1,10 @@
 /*
- * XREFs of DCompositionIsVailContainer @ 0x1C0209194
+ * XREFs of DCompositionIsVailContainer @ 0x1C01D1F48
  * Callers:
- *     ?CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C0223110 (-CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEA.c)
- *     ?CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ @ 0x1C02232B0 (-CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ.c)
+ *     ?CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ @ 0x1C01E9260 (-CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ.c)
+ *     ?CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C01F7D10 (-CreateSection@CCrossContainerGuestReadWriteSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEA.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 DCompositionIsVailContainer()
@@ -17,7 +17,7 @@ __int64 DCompositionIsVailContainer()
   _BYTE KeyValueInformation[12]; // [rsp+90h] [rbp+37h] BYREF
   int v7; // [rsp+9Ch] [rbp+43h]
 
-  if ( !byte_1C029762D )
+  if ( !byte_1C0258669 )
   {
     DestinationString = 0LL;
     RtlInitUnicodeString(
@@ -36,10 +36,10 @@ __int64 DCompositionIsVailContainer()
       RtlInitUnicodeString(&ValueName, L"IsVailContainer");
       ResultLength = 0;
       if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
-        byte_1C029762C = v7 != 0;
+        byte_1C0258668 = v7 != 0;
       ZwClose(KeyHandle);
     }
-    byte_1C029762D = 1;
+    byte_1C0258669 = 1;
   }
-  return (unsigned __int8)byte_1C029762C;
+  return (unsigned __int8)byte_1C0258668;
 }

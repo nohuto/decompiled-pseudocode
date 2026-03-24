@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1?$HmgLockResult@VDRVOBJ@@@@QEAA@XZ @ 0x1C00D2E04
+ * XREFs of ??1?$HmgLockResult@VDRVOBJ@@@@QEAA@XZ @ 0x1C00CBB0C
  * Callers:
- *     EngDeleteDriverObj @ 0x1C016B1A0 (EngDeleteDriverObj.c)
- *     EngLockDriverObj @ 0x1C016B2C0 (EngLockDriverObj.c)
- *     EngUnlockDriverObj @ 0x1C016B320 (EngUnlockDriverObj.c)
+ *     EngDeleteDriverObj @ 0x1C014C420 (EngDeleteDriverObj.c)
+ *     EngLockDriverObj @ 0x1C014C550 (EngLockDriverObj.c)
+ *     EngUnlockDriverObj @ 0x1C014C5A0 (EngUnlockDriverObj.c)
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
  */
 
 void __fastcall HmgLockResult<DRVOBJ>::~HmgLockResult<DRVOBJ>(_QWORD *a1)

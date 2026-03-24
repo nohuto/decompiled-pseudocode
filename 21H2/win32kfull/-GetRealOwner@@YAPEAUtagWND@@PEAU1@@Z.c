@@ -1,27 +1,27 @@
 /*
- * XREFs of ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0082690
+ * XREFs of ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00385DC
  * Callers:
- *     ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0081868 (-ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z.c)
- *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0081C18 (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
- *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0107F54 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035300 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0036800 (-ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z.c)
+ *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0036BFC (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
  * Callees:
  *     <none>
  */
 
 struct tagWND *__fastcall GetRealOwner(struct tagWND *a1)
 {
-  struct tagWND *v1; // rax
-  struct tagWND *v2; // rdx
+  __int64 v1; // rax
+  __int64 v2; // rdx
   bool i; // zf
 
-  v1 = (struct tagWND *)*((_QWORD *)a1 + 15);
-  v2 = (struct tagWND *)*((_QWORD *)a1 + 13);
-  for ( i = a1 == v1; !i; i = v1 == v2 )
+  v1 = *((_QWORD *)a1 + 15);
+  v2 = *((_QWORD *)a1 + 13);
+  for ( i = a1 == (struct tagWND *)v1; !i; i = v1 == v2 )
   {
-    a1 = v1;
+    a1 = (struct tagWND *)v1;
     if ( !v1 )
       break;
-    v1 = (struct tagWND *)*((_QWORD *)v1 + 13);
+    v1 = *(_QWORD *)(v1 + 104);
   }
   return a1;
 }

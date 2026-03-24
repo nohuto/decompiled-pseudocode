@@ -1,22 +1,24 @@
 /*
- * XREFs of RtlQueryImageFileKeyOption @ 0x1406B6070
+ * XREFs of RtlQueryImageFileKeyOption @ 0x140691EB0
  * Callers:
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403B27FC (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     PspReadDfssConfigurationValues @ 0x1405A37C4 (PspReadDfssConfigurationValues.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspReadOptionsMapFromIFEO @ 0x1406B7160 (PspReadOptionsMapFromIFEO.c)
- *     SepIsImageInMinTcbList @ 0x1406B9D88 (SepIsImageInMinTcbList.c)
- *     RtlQueryImageFileExecutionOptions @ 0x1408555A0 (RtlQueryImageFileExecutionOptions.c)
- *     PspQueryComPlusRunUnderWoW @ 0x1409B13A8 (PspQueryComPlusRunUnderWoW.c)
- *     PspReadIFEOPerfOptions @ 0x1409B145C (PspReadIFEOPerfOptions.c)
+ *     KiDisableFgBoostDecayRegistryChangeHandler @ 0x140512320 (KiDisableFgBoostDecayRegistryChangeHandler.c)
+ *     PspReadDfssConfigurationValues @ 0x140580CF8 (PspReadDfssConfigurationValues.c)
+ *     SepIsImageInMinTcbList @ 0x140602224 (SepIsImageInMinTcbList.c)
+ *     PspDetectComplusILImage @ 0x140691B94 (PspDetectComplusILImage.c)
+ *     PspReadIFEONodeOptions @ 0x140691C68 (PspReadIFEONodeOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x140691CC0 (PspReadIFEOPerfOptions.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     PspReadOptionsMapFromIFEO @ 0x140707168 (PspReadOptionsMapFromIFEO.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x1407A8FD0 (RtlQueryImageFileExecutionOptions.c)
+ *     KiInitializeVelocity @ 0x140A4C6E8 (KiInitializeVelocity.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlUnicodeStringToInteger @ 0x14079EA50 (RtlUnicodeStringToInteger.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall RtlQueryImageFileKeyOption(
@@ -32,8 +34,8 @@ NTSTATUS __fastcall RtlQueryImageFileKeyOption(
   __int128 *p_KeyValueInformation; // rdi
   NTSTATUS v12; // ebx
   ULONG Length; // ebx
-  __int64 i; // rdx
-  void *Pool2; // rax
+  SIZE_T i; // rdx
+  PVOID PoolWithQuotaTag; // rax
   void *v16; // r12
   NTSTATUS v17; // eax
   int v18; // ecx
@@ -72,13 +74,13 @@ NTSTATUS __fastcall RtlQueryImageFileKeyOption(
       goto LABEL_7;
     }
     v16 = 0LL;
-LABEL_14:
+LABEL_15:
     if ( !a3 )
     {
       if ( *((_DWORD *)p_KeyValueInformation + 2) > a5 )
       {
         ResultLength = *((_DWORD *)p_KeyValueInformation + 2);
-        goto LABEL_31;
+        goto LABEL_54;
       }
       a3 = *((_DWORD *)p_KeyValueInformation + 1);
       v10 = *((_DWORD *)p_KeyValueInformation + 2);
@@ -88,20 +90,25 @@ LABEL_14:
     {
       if ( v18 == 4 )
       {
-        if ( a3 != 4 )
-          goto LABEL_55;
-        if ( v10 == 4 && *((_DWORD *)p_KeyValueInformation + 2) == 4 )
+        if ( a3 == 4 )
         {
-          ResultLength = 4;
-          if ( a4 )
+          if ( v10 == 4 && *((_DWORD *)p_KeyValueInformation + 2) == 4 )
           {
-            *a4 = *((_DWORD *)p_KeyValueInformation + 3);
-            goto LABEL_25;
+            ResultLength = 4;
+            if ( a4 )
+            {
+              *a4 = *((_DWORD *)p_KeyValueInformation + 3);
+LABEL_23:
+              if ( v22 && ((int)(v12 + 0x80000000) < 0 || v12 == -2147483643) )
+                *v22 = ResultLength;
+              goto LABEL_11;
+            }
+            goto LABEL_54;
           }
-          goto LABEL_31;
+          goto LABEL_37;
         }
-LABEL_30:
-        v12 = -1073741820;
+LABEL_55:
+        v12 = -1073741788;
         goto LABEL_11;
       }
       if ( v18 == 11 )
@@ -114,25 +121,20 @@ LABEL_30:
             if ( a4 )
             {
               *(_QWORD *)a4 = *(_QWORD *)((char *)p_KeyValueInformation + 12);
-LABEL_25:
-              if ( v22 && ((int)(v12 + 0x80000000) < 0 || v12 == -2147483643) )
-                *v22 = ResultLength;
-              goto LABEL_11;
+              goto LABEL_23;
             }
-LABEL_31:
+LABEL_54:
             v12 = -2147483643;
-            goto LABEL_25;
+            goto LABEL_23;
           }
-          goto LABEL_30;
+          goto LABEL_37;
         }
-LABEL_55:
-        v12 = -1073741788;
-        goto LABEL_11;
+        goto LABEL_55;
       }
       if ( v18 != 1 )
       {
         v12 = -1073741788;
-        goto LABEL_25;
+        goto LABEL_23;
       }
       if ( a3 == 4 )
       {
@@ -147,9 +149,9 @@ LABEL_55:
               DestinationString.Length = *((_WORD *)p_KeyValueInformation + 4);
               DestinationString.MaximumLength = *((_WORD *)p_KeyValueInformation + 4);
               v12 = RtlUnicodeStringToInteger(&DestinationString, 0, a4);
-              goto LABEL_25;
+              goto LABEL_23;
             }
-            goto LABEL_31;
+            goto LABEL_54;
           }
           v12 = -2147483646;
 LABEL_11:
@@ -157,7 +159,9 @@ LABEL_11:
             ExFreePoolWithTag(v16, 0);
           return v12;
         }
-        goto LABEL_30;
+LABEL_37:
+        v12 = -1073741820;
+        goto LABEL_11;
       }
       v19 = *((unsigned int *)p_KeyValueInformation + 2);
       ResultLength = *((_DWORD *)p_KeyValueInformation + 2);
@@ -168,29 +172,35 @@ LABEL_11:
         goto LABEL_55;
       ResultLength = *((_DWORD *)p_KeyValueInformation + 2);
       if ( !a4 )
-        goto LABEL_31;
+        goto LABEL_54;
       v19 = *((unsigned int *)p_KeyValueInformation + 2);
     }
     if ( (unsigned int)v19 <= v10 )
     {
       memmove(a4, (char *)p_KeyValueInformation + 12, v19);
-      goto LABEL_25;
+      goto LABEL_23;
     }
-    goto LABEL_31;
+    goto LABEL_54;
   }
   Length = a5 + 12;
 LABEL_7:
   for ( i = Length; ; i = ResultLength )
   {
-    Pool2 = (void *)ExAllocatePool2(65LL, i, 1799976018LL);
-    v16 = Pool2;
-    if ( !Pool2 )
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, i, 0x6B497452u);
+    v16 = PoolWithQuotaTag;
+    if ( !PoolWithQuotaTag )
       break;
-    p_KeyValueInformation = (__int128 *)Pool2;
-    v17 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Pool2, Length, &ResultLength);
+    p_KeyValueInformation = (__int128 *)PoolWithQuotaTag;
+    v17 = ZwQueryValueKey(
+            KeyHandle,
+            &DestinationString,
+            KeyValuePartialInformation,
+            PoolWithQuotaTag,
+            Length,
+            &ResultLength);
     v12 = v17;
     if ( v17 >= 0 )
-      goto LABEL_14;
+      goto LABEL_15;
     if ( v17 != -2147483643 )
       goto LABEL_11;
     ExFreePoolWithTag(v16, 0);

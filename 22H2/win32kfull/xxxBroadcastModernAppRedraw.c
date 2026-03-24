@@ -1,10 +1,10 @@
 /*
- * XREFs of xxxBroadcastModernAppRedraw @ 0x1C01F5E20
+ * XREFs of xxxBroadcastModernAppRedraw @ 0x1C021E0C0
  * Callers:
  *     <none>
  * Callees:
- *     xxxBroadcastDisplaySettingsChange @ 0x1C004A790 (xxxBroadcastDisplaySettingsChange.c)
- *     HandleDisplayChangeForInactiveDesktops @ 0x1C00BBFF0 (HandleDisplayChangeForInactiveDesktops.c)
+ *     HandleDisplayChangeForInactiveDesktops @ 0x1C002B300 (HandleDisplayChangeForInactiveDesktops.c)
+ *     xxxBroadcastDisplaySettingsChange @ 0x1C00FF6F0 (xxxBroadcastDisplaySettingsChange.c)
  */
 
 __int64 xxxBroadcastModernAppRedraw()
@@ -14,7 +14,7 @@ __int64 xxxBroadcastModernAppRedraw()
   result = grpdeskRitInput;
   if ( grpdeskRitInput )
   {
-    xxxBroadcastDisplaySettingsChange(grpdeskRitInput, 0, 0, 0);
+    xxxBroadcastDisplaySettingsChange(grpdeskRitInput, 0, 0);
     return HandleDisplayChangeForInactiveDesktops(grpdeskRitInput, 0);
   }
   return result;

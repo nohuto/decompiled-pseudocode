@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDeviceNeedsResetOnResumeInS0 @ 0x1C00219E0
+ * XREFs of HUBDSM_CheckingIfDeviceNeedsResetOnResumeInS0 @ 0x1C0021590
  * Callers:
  *     <none>
  * Callees:

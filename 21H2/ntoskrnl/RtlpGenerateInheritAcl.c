@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGenerateInheritAcl @ 0x140728DA0
+ * XREFs of RtlpGenerateInheritAcl @ 0x14065C860
  * Callers:
- *     RtlpInheritAcl2 @ 0x140727FB0 (RtlpInheritAcl2.c)
+ *     RtlpInheritAcl2 @ 0x14065CF30 (RtlpInheritAcl2.c)
  * Callees:
- *     RtlFindAceByType @ 0x140349610 (RtlFindAceByType.c)
- *     RtlpGenerateInheritedAce @ 0x140728F70 (RtlpGenerateInheritedAce.c)
+ *     RtlFindAceByType @ 0x140352210 (RtlFindAceByType.c)
+ *     RtlpGenerateInheritedAce @ 0x14065CA30 (RtlpGenerateInheritedAce.c)
  */
 
 __int64 __fastcall RtlpGenerateInheritAcl(
@@ -28,13 +28,13 @@ __int64 __fastcall RtlpGenerateInheritAcl(
   unsigned __int16 *v16; // rbx
   unsigned int v17; // esi
   unsigned int v19; // ebp
-  __int64 v20; // r12
-  int v21; // r15d
-  int v22; // r13d
+  __int64 v20; // r15
+  int v21; // r12d
+  __int64 v22; // r13
   __int64 result; // rax
   char v24; // [rsp+70h] [rbp-58h]
   __int64 v25[10]; // [rsp+74h] [rbp-54h] BYREF
-  char v26; // [rsp+D0h] [rbp+8h] BYREF
+  __int64 v26; // [rsp+D0h] [rbp+8h] BYREF
   char v27; // [rsp+D8h] [rbp+10h]
   char v28; // [rsp+E0h] [rbp+18h]
   __int64 v29; // [rsp+E8h] [rbp+20h]
@@ -47,19 +47,19 @@ __int64 __fastcall RtlpGenerateInheritAcl(
   v17 = 0;
   v25[0] = 0LL;
   v19 = 0;
-  v26 = 0;
+  LOBYTE(v26) = 0;
   v24 = 0;
   *a15 = 0;
   if ( *(_WORD *)(a1 + 4) )
   {
     v20 = a14;
-    v21 = a11;
-    v22 = a10;
+    v21 = a10;
+    v22 = a9;
     while ( 1 )
     {
       if ( *(_BYTE *)v16 == 17 )
       {
-        if ( v21 == 3 )
+        if ( a11 == 3 )
         {
           if ( RtlFindAceByType(v20, 17, 0LL) )
           {
@@ -72,7 +72,18 @@ LABEL_21:
             return result;
           }
 LABEL_5:
-          result = RtlpGenerateInheritedAce(v16, a5, a6, a7, a8, a9, v22, (__int64)v25, v20, (__int64)v25 + 4, &v26);
+          result = RtlpGenerateInheritedAce(
+                     v16,
+                     a5,
+                     a6,
+                     a7,
+                     a8,
+                     v22,
+                     v21,
+                     (__int64)v25,
+                     v20,
+                     (__int64)v25 + 4,
+                     (__int64)&v26);
           if ( (_DWORD)result == -1073741789 )
           {
             v24 = 1;
@@ -81,14 +92,14 @@ LABEL_5:
           {
             return result;
           }
-          if ( v26 )
+          if ( (_BYTE)v26 )
             *a15 = 1;
           v15 += LODWORD(v25[0]);
           if ( LODWORD(v25[0]) > v17 || (v17 -= LODWORD(v25[0]), v17 <= HIDWORD(v25[0])) )
             v17 = HIDWORD(v25[0]);
         }
       }
-      else if ( v21 != 3 )
+      else if ( a11 != 3 )
       {
         goto LABEL_5;
       }

@@ -1,66 +1,65 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A899C
+ * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409420CC
  * Callers:
- *     EtwpCovSampCaptureUserAddresses @ 0x1408A8C2C (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140942A0C (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x14041191C (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureBufferIsEmpty @ 0x140469912 (EtwpCovSampCaptureBufferIsEmpty.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x14046998C (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408A894C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampProcessMapAddresses @ 0x1408A9F32 (EtwpCovSampProcessMapAddresses.c)
- *     EtwpCovSampStackHashCheck @ 0x1408AA23C (EtwpCovSampStackHashCheck.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     EtwpCovSampCaptureBufferIsEmpty @ 0x1405AE5A8 (EtwpCovSampCaptureBufferIsEmpty.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1405AE624 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE6E8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x140941EE4 (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x140945890 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x140945D64 (EtwpCovSampStackHashCheck.c)
  */
 
 void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
+  __int64 v4; // rbx
   __int64 v5; // rdx
   unsigned __int64 v6; // rcx
   __int16 v7; // ax
-  unsigned int v8; // ecx
-  int v9; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v10; // [rsp+70h] [rbp+18h] BYREF
+  int v8; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+70h] [rbp+18h] BYREF
 
-  v9 = 0;
+  v8 = 0;
   v3 = 0LL;
-  v10 = 0LL;
+  v9 = 0LL;
+  v4 = a2;
   if ( !EtwpCovSampCaptureBufferIsEmpty(a2) )
   {
-    if ( (int)EtwpCovSampAcquireSamplerRundown(&v10) >= 0
-      && !(unsigned int)EtwpCovSampStackHashCheck(a1, v5, a2 + 64, *(unsigned __int16 *)(a2 + 62)) )
+    if ( (int)EtwpCovSampAcquireSamplerRundown(&v9) < 0
+      || (unsigned int)EtwpCovSampStackHashCheck(a1, v5, v4 + 64, *(unsigned __int16 *)(v4 + 62))
+      || (v6 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[1]) == 0 )
     {
-      v6 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.StaticBitmap[1];
-      if ( v6 )
-      {
-        v3 = v10;
-        EtwpCovSampProcessMapAddresses(
-          v6,
-          v10 + 16,
-          a2 + 64,
-          *(unsigned __int16 *)(a2 + 62),
-          a2 + 64,
-          *(unsigned __int16 *)(a2 + 60),
-          (__int64)&v9);
-        v7 = v9;
-        v8 = *(_DWORD *)(a2 + 56) & 0xFFFFFFF4;
-        *(_DWORD *)(a2 + 56) = v8;
-        *(_WORD *)(a2 + 62) = v7;
-        if ( v7 )
-          *(_DWORD *)(a2 + 56) = v8 | 4;
-        EtwpCovSampCaptureBufferQueue(a1, a2);
-        goto LABEL_11;
-      }
+      v3 = v9;
     }
-    v3 = v10;
+    else
+    {
+      v3 = v9;
+      EtwpCovSampProcessMapAddresses(
+        v6,
+        v9 + 16,
+        v4 + 64,
+        *(unsigned __int16 *)(v4 + 62),
+        v4 + 64,
+        *(unsigned __int16 *)(v4 + 60),
+        (__int64)&v8);
+      v7 = v8;
+      *(_DWORD *)(v4 + 56) &= 0xFFFFFFF4;
+      *(_WORD *)(v4 + 62) = v7;
+      if ( v7 )
+        *(_DWORD *)(v4 + 56) |= 4u;
+      EtwpCovSampCaptureBufferQueue(a1, v4);
+      v4 = 0LL;
+    }
   }
-  if ( a2 )
-    EtwpCovSampCaptureBufferRelease(a1, a2);
-LABEL_11:
+  if ( v4 )
+    EtwpCovSampCaptureBufferRelease(a1, v4);
   if ( v3 )
   {
-    ExReleaseRundownProtection_0(&stru_140C31CA0);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&stru_140C198C0);
     KeLeaveCriticalRegion();
   }
 }

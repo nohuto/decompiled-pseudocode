@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z @ 0x1C03073D0
+ * XREFs of ?GetElapsed@TimeInterval@DripsBlockerTrackingHelper@@SA_K_K@Z @ 0x1C02C3BC4
  * Callers:
- *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C0303528 (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
- *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C0303620 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
- *     ?Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ @ 0x1C03078EC (-Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ.c)
+ *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02BFDCC (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02BFEC4 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ @ 0x1C02C4128 (-Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ.c)
  * Callees:
- *     ?RtlULongLongMult@@YAJ_K0PEA_K@Z @ 0x1C0024E3C (-RtlULongLongMult@@YAJ_K0PEA_K@Z.c)
+ *     ?RtlULongLongMult@@YAJ_K0PEA_K@Z @ 0x1C004EBEC (-RtlULongLongMult@@YAJ_K0PEA_K@Z.c)
  */
 
 __int64 __fastcall DripsBlockerTrackingHelper::TimeInterval::GetElapsed(__int64 a1)

@@ -1,15 +1,15 @@
 /*
  * XREFs of MiUpdateControlAreaCommitCount @ 0x140095F94
  * Callers:
- *     MiSetPagesModified @ 0x1402AA6EC (MiSetPagesModified.c)
+ *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
  *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
  *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
  * Callees:
  *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1400938C4 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateControlAreaCommitCount(__int64 a1, unsigned __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpCheckTscSync @ 0x140278188
+ * XREFs of HvlpCheckTscSync @ 0x140278288
  * Callers:
- *     HvlPhase2Initialize @ 0x1401932E4 (HvlPhase2Initialize.c)
- *     HvlpPowerStateCallback @ 0x140271280 (HvlpPowerStateCallback.c)
+ *     HvlPhase2Initialize @ 0x140193304 (HvlPhase2Initialize.c)
+ *     HvlpPowerStateCallback @ 0x140271380 (HvlpPowerStateCallback.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
- *     HvlpWriteEventLog @ 0x140278938 (HvlpWriteEventLog.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvlpWriteEventLog @ 0x140278A38 (HvlpWriteEventLog.c)
  */
 
 PSLIST_ENTRY HvlpCheckTscSync()

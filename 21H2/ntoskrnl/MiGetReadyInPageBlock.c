@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetReadyInPageBlock @ 0x14096D038
+ * XREFs of MiGetReadyInPageBlock @ 0x1408C85B4
  * Callers:
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
  * Callees:
- *     MiFreeInPageSupportBlock @ 0x14027456C (MiFreeInPageSupportBlock.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     MiLocateVadEvent @ 0x1402EE0C8 (MiLocateVadEvent.c)
- *     MiGetInPageSupportBlock @ 0x14033C424 (MiGetInPageSupportBlock.c)
- *     MiInitializeInPageSupport @ 0x14033C4D0 (MiInitializeInPageSupport.c)
+ *     MiGetInPageSupportBlock @ 0x14023EF24 (MiGetInPageSupportBlock.c)
+ *     MiInitializeInPageSupport @ 0x14023EFE0 (MiInitializeInPageSupport.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     MiFreeInPageSupportBlock @ 0x1402FC8DC (MiFreeInPageSupportBlock.c)
+ *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
  */
 
-__int64 __fastcall MiGetReadyInPageBlock(__int64 a1)
+ULONG_PTR __fastcall MiGetReadyInPageBlock(__int64 a1)
 {
   __int64 VadEvent; // rsi
-  __int64 v2; // rbx
-  __int64 v3; // rdi
+  ULONG_PTR v2; // rbx
+  PSLIST_ENTRY v3; // rdi
 
   VadEvent = MiLocateVadEvent(a1, 8LL);
   v2 = *(_QWORD *)(VadEvent + 8);
@@ -25,7 +25,7 @@ __int64 __fastcall MiGetReadyInPageBlock(__int64 a1)
     {
       MiFreeInPageSupportBlock((PSLIST_ENTRY)v2);
       *(_QWORD *)(VadEvent + 8) = v3;
-      v2 = v3;
+      v2 = (ULONG_PTR)v3;
       break;
     }
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);

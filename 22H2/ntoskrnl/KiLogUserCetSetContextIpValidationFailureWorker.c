@@ -1,28 +1,28 @@
 /*
- * XREFs of KiLogUserCetSetContextIpValidationFailureWorker @ 0x140975760
+ * XREFs of KiLogUserCetSetContextIpValidationFailureWorker @ 0x1405CEFB0
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB298 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1405D1528 (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiLogUserCetSetContextIpValidationFailureWorker(_QWORD *P)
 {
   __int64 v1; // rbx
-  $115DCDF994C6370D29323EAB0E0C9502 v3; // [rsp+30h] [rbp-48h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-48h] BYREF
 
   v1 = P[5];
-  memset(&v3, 0, sizeof(v3));
-  KiStackAttachProcess((_KPROCESS *)v1, 0, (__int64)&v3);
+  memset(&ApcState, 0, sizeof(ApcState));
+  KeStackAttachProcess((PRKPROCESS)v1, &ApcState);
   EtwTimLogUserCetSetContextIpValidationFailure(*((_DWORD *)P + 8), v1, P[6], *((_DWORD *)P + 14), *((_DWORD *)P + 15));
-  KiUnstackDetachProcess(&v3);
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v1 + 1112));
-  ObfDereferenceObject((PVOID)v1);
+  KeUnstackDetachProcess(&ApcState);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v1 + 1112));
+  HalPutDmaAdapter((PADAPTER_OBJECT)v1);
   ExFreePoolWithTag(P, 0);
 }

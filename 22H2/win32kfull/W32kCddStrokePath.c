@@ -1,9 +1,9 @@
 /*
- * XREFs of W32kCddStrokePath @ 0x1C02703D0
+ * XREFs of W32kCddStrokePath @ 0x1C0148EB0
  * Callers:
  *     <none>
  * Callees:
- *     EngStrokePath @ 0x1C000D350 (EngStrokePath.c)
+ *     EngStrokePath @ 0x1C0148F20 (EngStrokePath.c)
  */
 
 BOOL __fastcall W32kCddStrokePath(

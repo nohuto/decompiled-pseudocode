@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpFlushRangeListTbEx @ 0x140279ACC
+ * XREFs of HvlpFlushRangeListTbEx @ 0x140279BCC
  * Callers:
- *     HvlFlushRangeListTb @ 0x140279548 (HvlFlushRangeListTb.c)
+ *     HvlFlushRangeListTb @ 0x140279648 (HvlFlushRangeListTb.c)
  * Callees:
- *     HvlpCountFlushVaList @ 0x1402796C8 (HvlpCountFlushVaList.c)
- *     HvlpFastFlushListTbEx @ 0x1402798F8 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x140279F24 (HvlpSlowFlushListTbEx.c)
+ *     HvlpCountFlushVaList @ 0x1402797C8 (HvlpCountFlushVaList.c)
+ *     HvlpFastFlushListTbEx @ 0x1402799F8 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x14027A024 (HvlpSlowFlushListTbEx.c)
  */
 
 _UNKNOWN **__fastcall HvlpFlushRangeListTbEx(

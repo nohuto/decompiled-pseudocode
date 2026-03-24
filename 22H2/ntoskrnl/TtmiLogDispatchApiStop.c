@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDispatchApiStop @ 0x1409A8104
+ * XREFs of TtmiLogDispatchApiStop @ 0x140902824
  * Callers:
- *     TtmDispatchApi @ 0x1409A603C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409006E4 (TtmDispatchApi.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogDispatchApiStop(int a1, int a2)
@@ -26,9 +26,9 @@ void __fastcall TtmiLogDispatchApiStop(int a1, int a2)
   int v16; // [rsp+88h] [rbp+3Fh]
   int v17; // [rsp+8Ch] [rbp+43h]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v11 = 0;
@@ -43,13 +43,7 @@ void __fastcall TtmiLogDispatchApiStop(int a1, int a2)
       v16 = 4;
       v6 = a1;
       v7 = a2;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D53948,
-        (unsigned __int8 *)&byte_140033E9F,
-        0LL,
-        0LL,
-        5u,
-        &v8);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002C05D, 0LL, 0LL, 5u, &v8);
     }
   }
 }

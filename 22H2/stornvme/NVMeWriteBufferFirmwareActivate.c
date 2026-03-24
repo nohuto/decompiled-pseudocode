@@ -1,13 +1,13 @@
 /*
- * XREFs of NVMeWriteBufferFirmwareActivate @ 0x1C0018138
+ * XREFs of NVMeWriteBufferFirmwareActivate @ 0x1C0015964
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
- *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C0018240 (NVMeWriteBufferFirmwareActivateCompletion.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
+ *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C0015A60 (NVMeWriteBufferFirmwareActivateCompletion.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0014B34 (IsFirmwareActivateWithoutResetEnabled.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0013E0C (IsFirmwareActivateWithoutResetEnabled.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall NVMeWriteBufferFirmwareActivate(__int64 a1, __int64 a2)
@@ -29,12 +29,12 @@ __int64 __fastcall NVMeWriteBufferFirmwareActivate(__int64 a1, __int64 a2)
   v9 = *(unsigned __int8 *)(v6 + 2);
   v10 = SrbExtension;
   v11 = 0;
-  if ( (unsigned __int8)v9 <= (unsigned __int8)((*(_BYTE *)(*(_QWORD *)(a1 + 1840) + 260LL) >> 1) & 7) )
+  if ( (unsigned __int8)v9 <= (unsigned __int8)((*(_BYTE *)(*(_QWORD *)(a1 + 1624) + 260LL) >> 1) & 7) )
   {
     *(_BYTE *)(SrbExtension + 4253) = *(_BYTE *)(SrbExtension + 4253) & 0xFC | 1;
     SrbAssignQueueId(a1, v5);
     if ( IsFirmwareActivateWithoutResetEnabled(a1) )
-      v11 = (*(_DWORD *)(a1 + 32) & 0x400) == 0;
+      v11 = (*(_DWORD *)(a1 + 24) & 0x400) == 0;
     *(_BYTE *)(v10 + 4096) = 16;
     v12 = *(_DWORD *)(v10 + 4136) ^ (*(_DWORD *)(v10 + 4136) ^ v9) & 7;
     if ( v11 )

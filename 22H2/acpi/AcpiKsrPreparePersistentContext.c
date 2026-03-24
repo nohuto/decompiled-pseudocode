@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiKsrPreparePersistentContext @ 0x1C008B1E0
+ * XREFs of AcpiKsrPreparePersistentContext @ 0x1C00B15F0
  * Callers:
- *     AcpiKsrCallback @ 0x1C008B190 (AcpiKsrCallback.c)
+ *     AcpiKsrCallback @ 0x1C00B15A0 (AcpiKsrCallback.c)
  * Callees:
  *     <none>
  */

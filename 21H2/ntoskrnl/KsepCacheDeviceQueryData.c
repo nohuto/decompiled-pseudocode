@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCacheDeviceQueryData @ 0x140856C80
+ * XREFs of KsepCacheDeviceQueryData @ 0x1407C7C38
  * Callers:
- *     KsepDbCacheQueryDeviceData @ 0x140856C0C (KsepDbCacheQueryDeviceData.c)
+ *     KsepDbCacheQueryDeviceData @ 0x1407C7BC4 (KsepDbCacheQueryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 const UNICODE_STRING *__fastcall KsepCacheDeviceQueryData(__int64 a1, const WCHAR *a2)

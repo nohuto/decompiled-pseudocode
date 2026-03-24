@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaGetTranslationEntries @ 0x1403CE07C
+ * XREFs of HalpDmaGetTranslationEntries @ 0x1403BBFE0
  * Callers:
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403CDDB0 (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaCommitScatterMapBuffers @ 0x14051314C (HalpDmaCommitScatterMapBuffers.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x1404C7234 (HalpDmaCommitScatterMapBuffers.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpDmaAllocateNewTranslationBuffer @ 0x140512EF0 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x1404C6FD8 (HalpDmaAllocateNewTranslationBuffer.c)
  */
 
 __int64 __fastcall HalpDmaGetTranslationEntries(__int64 a1, int a2, unsigned int a3)

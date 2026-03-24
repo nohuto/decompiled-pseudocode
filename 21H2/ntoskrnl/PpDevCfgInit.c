@@ -1,141 +1,116 @@
 /*
- * XREFs of PpDevCfgInit @ 0x140B0ED44
+ * XREFs of PpDevCfgInit @ 0x140A52024
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PipOpenServiceEnumKeys @ 0x14067B470 (PipOpenServiceEnumKeys.c)
- *     RtlIsStateSeparationEnabled @ 0x140699680 (RtlIsStateSeparationEnabled.c)
- *     PiDevCfgQueryObjectProperties @ 0x140746CCC (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgSetObjectProperty @ 0x14077139C (PiDevCfgSetObjectProperty.c)
- *     PiDmEnumObjectsWithCallback @ 0x140779850 (PiDmEnumObjectsWithCallback.c)
- *     _PnpCtxRegQueryValue @ 0x14082EB54 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x14082EBA4 (_PnpCtxRegOpenKey.c)
- *     PpDevCfgRequestDeviceInstall @ 0x14094F7C0 (PpDevCfgRequestDeviceInstall.c)
- *     PiDrvDbEnumNodes @ 0x14095BE50 (PiDrvDbEnumNodes.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14095CDBC (PiDrvDbQuerySyncNodesUpdated.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406350E8 (PiDmEnumObjectsWithCallback.c)
+ *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
+ *     RtlIsStateSeparationEnabled @ 0x1406B7BC0 (RtlIsStateSeparationEnabled.c)
+ *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14073CE44 (PiDevCfgQueryObjectProperties.c)
+ *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
+ *     PiDevCfgSetObjectProperty @ 0x1407452EC (PiDevCfgSetObjectProperty.c)
+ *     PiDrvDbEnumNodes @ 0x1408B5D98 (PiDrvDbEnumNodes.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x1408B6AF4 (PiDrvDbQuerySyncNodesUpdated.c)
  */
 
 __int64 PpDevCfgInit()
 {
-  char v0; // r14
+  char v0; // di
   __int64 v1; // rcx
-  int ObjectProperties; // edi
+  int ObjectProperties; // ebx
   int v3; // eax
   char v4; // al
-  int v5; // esi
-  int v6; // ebx
-  __int64 v7; // rcx
+  __int64 v5; // rcx
   int SyncNodesUpdated; // eax
-  int v10; // [rsp+30h] [rbp-D8h]
-  int v11; // [rsp+68h] [rbp-A0h] BYREF
-  int v12; // [rsp+6Ch] [rbp-9Ch] BYREF
-  unsigned int v13; // [rsp+70h] [rbp-98h] BYREF
-  int v14; // [rsp+74h] [rbp-94h] BYREF
-  int v15; // [rsp+78h] [rbp-90h] BYREF
-  int v16; // [rsp+7Ch] [rbp-8Ch] BYREF
-  int v17; // [rsp+80h] [rbp-88h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
-  HANDLE v19; // [rsp+90h] [rbp-78h] BYREF
-  UNICODE_STRING v20; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v21[16]; // [rsp+A8h] [rbp-60h] BYREF
+  int v8; // [rsp+30h] [rbp-D8h]
+  int v9; // [rsp+68h] [rbp-A0h] BYREF
+  int v10; // [rsp+6Ch] [rbp-9Ch] BYREF
+  int v11; // [rsp+70h] [rbp-98h] BYREF
+  int v12; // [rsp+74h] [rbp-94h] BYREF
+  unsigned int v13; // [rsp+78h] [rbp-90h] BYREF
+  int v14; // [rsp+7Ch] [rbp-8Ch] BYREF
+  HANDLE Handle; // [rsp+80h] [rbp-88h] BYREF
+  HANDLE v16; // [rsp+88h] [rbp-80h] BYREF
+  UNICODE_STRING v17; // [rsp+90h] [rbp-78h] BYREF
+  _QWORD v18[16]; // [rsp+A8h] [rbp-60h] BYREF
 
-  v12 = 0;
-  v15 = 0;
+  v10 = 0;
+  v11 = 0;
   v0 = 0;
-  LOWORD(v11) = 0;
-  *(_DWORD *)(&v20.MaximumLength + 1) = 0;
-  v19 = 0LL;
+  LOWORD(v9) = 0;
+  *(_DWORD *)(&v17.MaximumLength + 1) = 0;
+  v16 = 0LL;
   Handle = 0LL;
   v14 = 0;
-  memset(v21, 0, 0x78uLL);
-  LODWORD(v21[1]) = 7;
-  v21[0] = DEVPKEY_DriverDatabase_ConfigMode;
-  LODWORD(v21[3]) = 4;
-  v21[2] = &v12;
-  v21[5] = DEVPKEY_DriverDatabase_ConfigOptions;
-  LODWORD(v21[6]) = 7;
-  v21[7] = &v15;
-  LODWORD(v21[8]) = 4;
-  v21[12] = &v11;
-  v21[10] = DEVPKEY_DriverDatabase_Updated;
-  LODWORD(v21[11]) = 17;
-  LODWORD(v21[13]) = 1;
-  ObjectProperties = PiDevCfgQueryObjectProperties(v1, (int)L"SYSTEM", 7, 0LL, (__int64)v21, 3u);
+  v12 = 0;
+  memset(v18, 0, 0x78uLL);
+  v18[0] = DEVPKEY_DriverDatabase_ConfigMode;
+  LODWORD(v18[1]) = 7;
+  v18[2] = &v10;
+  LODWORD(v18[3]) = 4;
+  v18[5] = DEVPKEY_DriverDatabase_ConfigOptions;
+  LODWORD(v18[6]) = 7;
+  v18[7] = &v11;
+  v18[10] = DEVPKEY_DriverDatabase_Updated;
+  v18[12] = &v9;
+  LODWORD(v18[8]) = 4;
+  LODWORD(v18[11]) = 17;
+  LODWORD(v18[13]) = 1;
+  ObjectProperties = PiDevCfgQueryObjectProperties(v1, (__int64)L"SYSTEM", 7u, 0LL, (__int64)v18, 3u);
   if ( ObjectProperties >= 0 )
   {
-    if ( SLODWORD(v21[4]) >= 0 )
-      v12 = (v12 & 3) != 0 ? v12 : 0;
+    if ( SLODWORD(v18[4]) >= 0 )
+      v10 = (v10 & 3) != 0 ? v10 : 0;
     else
-      v12 = 3;
-    v3 = v15;
-    *(_DWORD *)&v20.Length = 1835034;
-    if ( SLODWORD(v21[9]) < 0 )
+      v10 = 3;
+    v3 = v11;
+    *(_DWORD *)&v17.Length = 1835034;
+    if ( SLODWORD(v18[9]) < 0 )
       v3 = 0;
-    v15 = v3;
-    v4 = v11;
-    if ( SLODWORD(v21[14]) < 0 )
+    v11 = v3;
+    v4 = v9;
+    if ( SLODWORD(v18[14]) < 0 )
       v4 = 0;
-    LOBYTE(v11) = v4;
-    v20.Buffer = L"DeviceInstall";
-    if ( PipOpenServiceEnumKeys(&v20, 0x20019u, &v19, 0LL, 0) >= 0 )
+    LOBYTE(v9) = v4;
+    v17.Buffer = L"DeviceInstall";
+    if ( PipOpenServiceEnumKeys(&v17, 0x20019u, &v16, 0LL, 0) >= 0 )
     {
-      v5 = 1;
-      v6 = 0;
-      v16 = 1;
-      v17 = 0;
-      if ( (int)PnpCtxRegOpenKey(
-                  *(__int64 *)&PiPnpRtlCtx,
-                  (__int64)v19,
-                  (__int64)L"Parameters",
-                  0,
-                  0x20019u,
-                  (__int64)&Handle) >= 0 )
+      if ( (int)PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, (int)v16, (int)L"Parameters", 0, 131097, (__int64)&Handle) >= 0 )
       {
-        if ( RtlIsStateSeparationEnabled() )
-        {
-          v13 = 4;
-          if ( (int)PnpCtxRegQueryValue(v7, Handle, L"DeviceInstallMode", &v14, &v16, &v13) < 0
-            || v14 != 4
-            || (v5 = v16, v13 != 4) )
-          {
-            v5 = 0;
-          }
-        }
         v13 = 4;
-        if ( (int)PnpCtxRegQueryValue(v7, Handle, L"DriverUpdatesPending", &v14, &v17, &v13) >= 0
-          && v14 == 4
-          && v13 == 4 )
+        if ( (int)PnpCtxRegQueryValue(v5, Handle, L"DriverUpdatesPending", &v12, &v14, &v13) >= 0
+          && v12 == 4
+          && v13 == 4
+          && v14 )
         {
-          v6 = v17;
+          v8 = 0;
+          ZwUpdateWnfStateData((__int64)&WNF_PNPC_DEVICE_INSTALL_REQUESTED, 0LL);
         }
         ZwClose(Handle);
       }
-      ZwClose(v19);
-      if ( v5 )
-      {
-        PiDevCfgFlags |= 2u;
-        if ( v6 )
-          PpDevCfgRequestDeviceInstall();
-      }
+      ZwClose(v16);
+      PiDevCfgFlags |= 2u;
     }
-    PiDevCfgMode = v12;
-    PiDevCfgOptions = v15;
-    if ( v12 )
+    PiDevCfgMode = v10;
+    PiDevCfgOptions = v11;
+    if ( v10 )
     {
-      if ( (PiDevCfgFlags & 2) == 0 || (v15 & 0x20) != 0 )
+      if ( (PiDevCfgFlags & 2) == 0 || (v11 & 0x20) != 0 )
       {
-        SyncNodesUpdated = PiDrvDbQuerySyncNodesUpdated(0, (char *)&v11 + 1);
-        v0 = BYTE1(v11);
+        SyncNodesUpdated = PiDrvDbQuerySyncNodesUpdated(0, (char *)&v9 + 1);
+        v0 = BYTE1(v9);
         if ( SyncNodesUpdated >= 0 )
         {
-          if ( BYTE1(v11) )
+          if ( BYTE1(v9) )
             PiDevCfgFlags |= 1u;
         }
       }
-      if ( (_BYTE)v11 == 0xFF )
+      if ( (_BYTE)v9 == 0xFF )
         PiDevCfgFlags |= 1u;
     }
     if ( (PiDevCfgFlags & 1) != 0 )
@@ -148,14 +123,14 @@ __int64 PpDevCfgInit()
                              0LL);
         if ( ObjectProperties >= 0 )
         {
-          if ( (_BYTE)v11 == 0xFF )
+          if ( (_BYTE)v9 == 0xFF )
             PiDevCfgSetObjectProperty(
               *(__int64 *)&PiPnpRtlCtx,
               0LL,
               (__int64)L"SYSTEM",
               7u,
               0LL,
-              v10,
+              v8,
               (__int64)DEVPKEY_DriverDatabase_Updated,
               0,
               0LL,

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiQueueDeviceRequest @ 0x14083C808
+ * XREFs of PiQueueDeviceRequest @ 0x14083C7E8
  * Callers:
- *     PiCMDeleteDevice @ 0x1408371A8 (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x140837998 (PiCMDeviceAction.c)
- *     PiControlStartDevice @ 0x14083C0E0 (PiControlStartDevice.c)
+ *     PiCMDeleteDevice @ 0x140837188 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x140837978 (PiCMDeviceAction.c)
+ *     PiControlStartDevice @ 0x14083C0C0 (PiControlStartDevice.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     PnpRequestDeviceAction @ 0x14015EFE4 (PnpRequestDeviceAction.c)
- *     PnpDeleteDeviceActionRequest @ 0x14015F85C (PnpDeleteDeviceActionRequest.c)
- *     PnpCancelDeviceActionRequest @ 0x1402897F8 (PnpCancelDeviceActionRequest.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x140289850 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
+ *     PnpDeleteDeviceActionRequest @ 0x14015F87C (PnpDeleteDeviceActionRequest.c)
+ *     PnpCancelDeviceActionRequest @ 0x1402898F8 (PnpCancelDeviceActionRequest.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x140289950 (PnpRemoveDeviceActionRequestFromQueue.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  */
 

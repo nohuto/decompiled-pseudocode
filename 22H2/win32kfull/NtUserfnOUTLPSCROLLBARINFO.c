@@ -1,52 +1,50 @@
 /*
- * XREFs of NtUserfnOUTLPSCROLLBARINFO @ 0x1C01E2C00
+ * XREFs of NtUserfnOUTLPSCROLLBARINFO @ 0x1C0206220
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnOUTLPSCROLLBARINFO(__int64 a1, __int64 a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
 {
-  unsigned int v8; // esi
-  _BYTE *v10; // rdx
-  __int64 v12; // [rsp+30h] [rbp-88h]
-  __int128 v13; // [rsp+48h] [rbp-70h] BYREF
-  __int128 v14; // [rsp+58h] [rbp-60h]
-  __int128 v15; // [rsp+68h] [rbp-50h]
-  __int64 v16; // [rsp+78h] [rbp-40h]
-  int v17; // [rsp+80h] [rbp-38h]
+  int v7; // eax
+  __int64 v9; // [rsp+30h] [rbp-68h]
+  __int128 v10; // [rsp+48h] [rbp-50h] BYREF
+  __int128 v11; // [rsp+58h] [rbp-40h]
+  __int128 v12; // [rsp+68h] [rbp-30h]
+  __int64 v13; // [rsp+78h] [rbp-20h]
+  int v14; // [rsp+80h] [rbp-18h]
 
-  v8 = a2;
+  v10 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v16 = 0LL;
-  v17 = 0;
-  PtiCurrentShared(a1, a2, a3, a4);
-  v10 = (_BYTE *)a4;
+  v14 = 0;
   if ( a4 >= MmUserProbeAddress )
-    v10 = (_BYTE *)MmUserProbeAddress;
-  *v10 = *v10;
-  v10[59] = v10[59];
-  v13 = *(_OWORD *)a4;
-  v14 = *(_OWORD *)(a4 + 16);
-  v15 = *(_OWORD *)(a4 + 32);
-  v16 = *(_QWORD *)(a4 + 48);
-  v17 = *(_DWORD *)(a4 + 56);
-  v12 = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *, __int64))&WPP_MAIN_CB.SectorSize
-         + ((a6 + 6) & 0x1F)))(
-          a1,
-          v8,
-          a3,
-          &v13,
-          a5);
-  *(_OWORD *)a4 = v13;
-  *(_OWORD *)(a4 + 16) = v14;
-  *(_OWORD *)(a4 + 32) = v15;
-  *(_QWORD *)(a4 + 48) = v16;
-  *(_DWORD *)(a4 + 56) = v17;
-  return v12;
+    *(_DWORD *)MmUserProbeAddress = 0;
+  *(_OWORD *)a4 = *(_OWORD *)a4;
+  *(_OWORD *)(a4 + 16) = *(_OWORD *)(a4 + 16);
+  *(_OWORD *)(a4 + 32) = *(_OWORD *)(a4 + 32);
+  *(_QWORD *)(a4 + 48) = *(_QWORD *)(a4 + 48);
+  v7 = *(_DWORD *)(a4 + 56);
+  *(_DWORD *)(a4 + 56) = v7;
+  v10 = *(_OWORD *)a4;
+  v11 = *(_OWORD *)(a4 + 16);
+  v12 = *(_OWORD *)(a4 + 32);
+  v13 = *(_QWORD *)(a4 + 48);
+  v14 = v7;
+  v9 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int128 *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
+         a1,
+         a2,
+         a3,
+         &v10,
+         a5);
+  *(_OWORD *)a4 = v10;
+  *(_OWORD *)(a4 + 16) = v11;
+  *(_OWORD *)(a4 + 32) = v12;
+  *(_QWORD *)(a4 + 48) = v13;
+  *(_DWORD *)(a4 + 56) = v14;
+  return v9;
 }

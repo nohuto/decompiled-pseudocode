@@ -1,15 +1,15 @@
 /*
- * XREFs of strncmp @ 0x140194DE0
+ * XREFs of strncmp @ 0x140194E00
  * Callers:
- *     HvlDebuggerSupportInitialize @ 0x140193EF4 (HvlDebuggerSupportInitialize.c)
- *     RtlLookupImageSectionByName @ 0x1402F3F30 (RtlLookupImageSectionByName.c)
- *     EtwpApplyPredicate @ 0x140318910 (EtwpApplyPredicate.c)
+ *     HvlDebuggerSupportInitialize @ 0x140193F14 (HvlDebuggerSupportInitialize.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4030 (RtlLookupImageSectionByName.c)
+ *     EtwpApplyPredicate @ 0x140318A10 (EtwpApplyPredicate.c)
  *     KiGetCpuVendor @ 0x14056F6EC (KiGetCpuVendor.c)
- *     RtlValidateCorrelationVector @ 0x140896860 (RtlValidateCorrelationVector.c)
- *     ApiSetpFindImageSection @ 0x1408DD7B4 (ApiSetpFindImageSection.c)
- *     AslpFileHasSecuromWrapper @ 0x1408ED5E8 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x1408EDA58 (AslpHasStarForceWrapper.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3E04 (BiGetObjectReferenceFromEfiEntry.c)
+ *     RtlValidateCorrelationVector @ 0x140896840 (RtlValidateCorrelationVector.c)
+ *     ApiSetpFindImageSection @ 0x1408DD794 (ApiSetpFindImageSection.c)
+ *     AslpFileHasSecuromWrapper @ 0x1408ED5C8 (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x1408EDA38 (AslpHasStarForceWrapper.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3DE4 (BiGetObjectReferenceFromEfiEntry.c)
  *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:

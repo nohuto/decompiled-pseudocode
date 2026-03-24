@@ -1,89 +1,78 @@
 /*
- * XREFs of NtUserSetCoreWindowPartner @ 0x1C01DB350
+ * XREFs of NtUserSetCoreWindowPartner @ 0x1C0004E60
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0028D5C (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0220420 (-RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
- *     ?xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C022054C (-xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     ?xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0004FDC (-xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C00322D8 (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     ?RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C023D550 (-RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
  */
 
-__int64 __fastcall NtUserSetCoreWindowPartner(HWND a1, int a2, int a3)
+__int64 __fastcall NtUserSetCoreWindowPartner(HWND a1, int a2, __int64 a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rbx
-  int v11; // eax
-  int v12; // ecx
-  struct tagWND *v13; // rsi
-  __int64 v14; // rcx
-  struct tagWND *v15; // rax
-  struct tagWND *v16; // rbp
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  _QWORD v24[3]; // [rsp+20h] [rbp-48h] BYREF
-  _QWORD v25[6]; // [rsp+38h] [rbp-30h] BYREF
-  struct tagWND *v26; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v6; // rbx
+  struct tagWND *v7; // rsi
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  struct tagWND *v10; // rax
+  struct tagWND *v11; // rbp
+  __int64 v13; // rcx
+  _QWORD v14[3]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD v15[6]; // [rsp+38h] [rbp-30h] BYREF
+  struct tagWND *v16; // [rsp+88h] [rbp+20h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  if ( (a2 & 0xFFFFFFFD) == 0 )
+  EnterCrit(0LL, 1LL);
+  if ( (a2 & 0xFFFFFFFD) != 0 )
   {
-    v10 = 0LL;
-    v26 = 0LL;
-    LOBYTE(v11) = ValidateHWNDND(a1, &v26);
-    if ( v11 )
-    {
-      v13 = v26;
-      v14 = *((_QWORD *)v26 + 2);
-      if ( gptiCurrent != v14 || !(unsigned int)IsImmersiveAppRestricted(*(_QWORD *)(v14 + 424)) )
-      {
-        v12 = 5;
-        goto LABEL_5;
-      }
-      v15 = (struct tagWND *)HMValidateHandleNoSecure(a3, 1);
-      v16 = v15;
-      if ( v15 )
-      {
-        if ( !a2 )
-        {
-          LOBYTE(v10) = (int)CoreWindowProp::RemoveComponent(v15, v13) >= 0;
-          goto LABEL_14;
-        }
-        if ( a2 == 2 )
-        {
-          v24[0] = *(_QWORD *)(gptiCurrent + 416LL);
-          *(_QWORD *)(gptiCurrent + 416LL) = v24;
-          v24[2] = 0LL;
-          v25[2] = 0LL;
-          v24[1] = v13;
-          HMLockObject(v13);
-          v25[0] = *(_QWORD *)(gptiCurrent + 416LL);
-          *(_QWORD *)(gptiCurrent + 416LL) = v25;
-          v25[1] = v16;
-          HMLockObject(v16);
-          LOBYTE(v10) = (int)CoreWindowProp::xxxSetHost(v13, v16) >= 0;
-          ThreadUnlock1(v18, v17, v19);
-          ThreadUnlock1(v21, v20, v22);
-          goto LABEL_14;
-        }
-      }
-    }
-    v12 = 87;
-LABEL_5:
-    UserSetLastError(v12);
-    goto LABEL_14;
+    UserSetLastError(87LL);
+    v6 = 0LL;
+    goto LABEL_9;
   }
-  UserSetLastError(87);
-  v10 = 0LL;
-LABEL_14:
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-  return v10;
+  v6 = 0LL;
+  v16 = 0LL;
+  if ( !(unsigned int)ValidateHWNDND(a1, &v16) )
+    goto LABEL_10;
+  v7 = v16;
+  v8 = *((_QWORD *)v16 + 2);
+  if ( gptiCurrent != v8 || !(unsigned int)IsImmersiveAppRestricted(*(_QWORD *)(v8 + 424)) )
+  {
+    v13 = 5LL;
+    goto LABEL_11;
+  }
+  LOBYTE(v9) = 1;
+  v10 = (struct tagWND *)HMValidateHandleNoSecure(a3, v9);
+  v11 = v10;
+  if ( !v10 )
+    goto LABEL_10;
+  if ( !a2 )
+  {
+    LOBYTE(v6) = (int)CoreWindowProp::RemoveComponent(v10, v7) >= 0;
+    goto LABEL_9;
+  }
+  if ( a2 != 2 )
+  {
+LABEL_10:
+    v13 = 87LL;
+LABEL_11:
+    UserSetLastError(v13);
+    goto LABEL_9;
+  }
+  v14[0] = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = v14;
+  v14[2] = 0LL;
+  v15[2] = 0LL;
+  v14[1] = v7;
+  HMLockObject(v7);
+  v15[0] = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = v15;
+  v15[1] = v11;
+  HMLockObject(v11);
+  LOBYTE(v6) = (int)CoreWindowProp::xxxSetHost(v7, v11) >= 0;
+  ThreadUnlock1();
+  ThreadUnlock1();
+LABEL_9:
+  UserSessionSwitchLeaveCrit();
+  return v6;
 }

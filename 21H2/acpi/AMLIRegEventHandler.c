@@ -1,19 +1,19 @@
 /*
- * XREFs of AMLIRegEventHandler @ 0x1C00292D8
+ * XREFs of AMLIRegEventHandler @ 0x1C002C19C
  * Callers:
- *     RegisterOperationRegionHandler @ 0x1C009F5F8 (RegisterOperationRegionHandler.c)
- *     UnRegisterOperationRegionHandler @ 0x1C00B0ED4 (UnRegisterOperationRegionHandler.c)
- *     OSInitializeCallbacks @ 0x1C00BEDD4 (OSInitializeCallbacks.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C00B1C74 (UnRegisterOperationRegionHandler.c)
+ *     OSInitializeCallbacks @ 0x1C00BF128 (OSInitializeCallbacks.c)
  * Callees:
- *     RegEventHandler @ 0x1C00294BC (RegEventHandler.c)
- *     RegRSAccess @ 0x1C00294E4 (RegRSAccess.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     Simulator_Free_Arguments @ 0x1C0064DF4 (Simulator_Free_Arguments.c)
- *     Simulator_Pre_RegEventHandler @ 0x1C006539C (Simulator_Pre_RegEventHandler.c)
- *     Simulator_TestNotifyRet @ 0x1C0065578 (Simulator_TestNotifyRet.c)
- *     RegOpcodeHandler @ 0x1C0066F34 (RegOpcodeHandler.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     RegEventHandler @ 0x1C002C390 (RegEventHandler.c)
+ *     RegRSAccess @ 0x1C002C3B8 (RegRSAccess.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     Simulator_Free_Arguments @ 0x1C0063B74 (Simulator_Free_Arguments.c)
+ *     Simulator_Pre_RegEventHandler @ 0x1C006411C (Simulator_Pre_RegEventHandler.c)
+ *     Simulator_TestNotifyRet @ 0x1C00642F8 (Simulator_TestNotifyRet.c)
+ *     RegOpcodeHandler @ 0x1C0065B80 (RegOpcodeHandler.c)
  */
 
 __int64 AMLIRegEventHandler(unsigned int a1, unsigned int a2, ...)
@@ -22,8 +22,8 @@ __int64 AMLIRegEventHandler(unsigned int a1, unsigned int a2, ...)
   __int64 v3; // rsi
   __int64 v5; // r10
   __int64 v6; // r11
-  unsigned int v8; // eax
-  __int64 *v9; // rcx
+  __int64 *v8; // rcx
+  unsigned int v9; // eax
   unsigned int v10; // ebx
   __int64 result; // rax
   __int64 v12; // r9
@@ -42,11 +42,11 @@ __int64 AMLIRegEventHandler(unsigned int a1, unsigned int a2, ...)
   v16 = va_arg(va2, _QWORD);
   v2 = v16;
   v3 = 0LL;
-  dword_1C0081AC8 = 0;
+  dword_1C0082908 = 0;
   v5 = v16;
   v6 = v14;
   v13[0] = 0LL;
-  byte_1C0081ACC = 0;
+  pszDest = 0;
   if ( g_SimulatorCallbackObject )
   {
     result = Simulator_Pre_RegEventHandler(a1, a2, (unsigned int)va, (unsigned int)va1, (__int64)v13);
@@ -56,107 +56,108 @@ __int64 AMLIRegEventHandler(unsigned int a1, unsigned int a2, ...)
     v6 = v14;
     v3 = v13[0];
   }
-  if ( a1 > 0xB )
+  if ( a1 <= 0xB )
   {
-    if ( a1 != 12 )
+    if ( a1 == 11 )
     {
-      switch ( a1 )
+      v8 = &ghDestroyObj;
+      goto LABEL_10;
+    }
+    if ( a1 > 6 )
+    {
+      if ( a1 != 7 )
       {
-        case 0xDu:
-          v9 = &ghMapTable;
-          goto LABEL_18;
-        case 0xEu:
-          v9 = (__int64 *)&ghGetAcpiTableVersion;
-          goto LABEL_18;
-        case 0xFu:
-          v9 = (__int64 *)&ghCheckOsiString;
-          goto LABEL_18;
-        case 0x10u:
-          v9 = &ghMutexObject;
-          goto LABEL_18;
-        case 0x11u:
-          v9 = &ghQueryDLMSupportHandler;
-          goto LABEL_18;
-        case 0x12u:
-          v9 = &ghLoadTable;
-          goto LABEL_18;
-      }
-      if ( a1 != 19 )
-      {
-        if ( a1 == 20 )
+        if ( a1 == 8 )
         {
-          v9 = &ghNativeMethodEvalObject;
-          goto LABEL_18;
+          v8 = &qword_1C00828E8;
         }
-        goto LABEL_51;
+        else if ( a1 == 9 )
+        {
+          v8 = &qword_1C00828F8;
+        }
+        else
+        {
+          v8 = (__int64 *)&ghCreate;
+        }
+        goto LABEL_10;
       }
-      v9 = &ghUnloadTable;
-LABEL_18:
-      v8 = RegEventHandler(v9, v6, v5);
-      goto LABEL_19;
+      LOBYTE(v2) = 1;
     }
-    v12 = 0x80000000LL;
-LABEL_53:
-    v8 = RegOpcodeHandler(a2, v6, v5, v12);
-LABEL_19:
-    v10 = v8;
-    if ( v8 == 32772 )
-      v10 = 259;
-    goto LABEL_21;
-  }
-  if ( a1 == 11 )
-  {
-    v9 = &ghDestroyObj;
-    goto LABEL_18;
-  }
-  if ( a1 > 6 )
-  {
-    switch ( a1 )
+    else
     {
-      case 7u:
-        LOBYTE(v2) = 1;
-LABEL_7:
-        v8 = RegRSAccess(a2, v6, v5, v2);
-        goto LABEL_19;
-      case 8u:
-        v9 = (__int64 *)&qword_1C0081AA8;
-        break;
-      case 9u:
-        v9 = &qword_1C0081AB8;
-        break;
-      default:
-        v9 = (__int64 *)&ghCreate;
-        break;
+      if ( a1 != 6 )
+      {
+        if ( a1 != 1 )
+        {
+          switch ( a1 )
+          {
+            case 2u:
+              v8 = &ghNotify;
+              goto LABEL_10;
+            case 3u:
+              v8 = &ghFatal;
+LABEL_10:
+              v9 = RegEventHandler(v8, v6, v5);
+              goto LABEL_11;
+            case 4u:
+              v8 = (__int64 *)&ghValidateTable;
+              goto LABEL_10;
+            case 5u:
+              v8 = (__int64 *)&ghGlobalLock;
+              goto LABEL_10;
+          }
+          goto LABEL_51;
+        }
+        v12 = 0LL;
+        goto LABEL_53;
+      }
+      v2 = 0LL;
     }
-    goto LABEL_18;
+    v9 = RegRSAccess(a2, v6, v5, v2);
+    goto LABEL_11;
   }
   switch ( a1 )
   {
-    case 6u:
-      v2 = 0LL;
-      goto LABEL_7;
-    case 1u:
-      v12 = 0LL;
-      goto LABEL_53;
-    case 2u:
-      v9 = &ghNotify;
-      goto LABEL_18;
-    case 3u:
-      v9 = &ghFatal;
-      goto LABEL_18;
-    case 4u:
-      v9 = (__int64 *)&ghValidateTable;
-      goto LABEL_18;
-    case 5u:
-      v9 = (__int64 *)&ghGlobalLock;
-      goto LABEL_18;
+    case 0xCu:
+      v12 = 0x80000000LL;
+LABEL_53:
+      v9 = RegOpcodeHandler(a2, v6, v5, v12);
+LABEL_11:
+      v10 = v9;
+      if ( v9 == 32772 )
+        v10 = 259;
+      goto LABEL_13;
+    case 0xDu:
+      v8 = &ghMapTable;
+      goto LABEL_10;
+    case 0xEu:
+      v8 = (__int64 *)&ghGetAcpiTableVersion;
+      goto LABEL_10;
+    case 0xFu:
+      v8 = (__int64 *)&ghCheckOsiString;
+      goto LABEL_10;
+    case 0x10u:
+      v8 = &ghMutexObject;
+      goto LABEL_10;
+    case 0x11u:
+      v8 = &ghQueryDLMSupportHandler;
+      goto LABEL_10;
+    case 0x12u:
+      v8 = &ghLoadTable;
+      goto LABEL_10;
+    case 0x13u:
+      v8 = &ghUnloadTable;
+      goto LABEL_10;
+    case 0x14u:
+      v8 = &ghNativeMethodEvalObject;
+      goto LABEL_10;
   }
 LABEL_51:
   v10 = -1072431091;
-  LogError(3222536205LL);
-  AcpiDiagTraceAmlError(0LL, 3222536205LL);
+  LogError(-1072431091);
+  AcpiDiagTraceAmlError(0LL, -1072431091);
   PrintDebugMessage(164, a1, 0, 0, 0LL);
-LABEL_21:
+LABEL_13:
   if ( g_SimulatorCallbackObject )
   {
     if ( v3 )

@@ -1,100 +1,96 @@
 /*
- * XREFs of bSetDevPreviewRect @ 0x1C0284260
+ * XREFs of bSetDevPreviewRect @ 0x1C0285B2C
  * Callers:
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01EC5FC (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0210F44 (xxxDrawDragRectEx.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C006EC20 (-bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     GreDeleteSprite @ 0x1C00C8F74 (GreDeleteSprite.c)
- *     GreCreateSprite @ 0x1C00CD35C (GreCreateSprite.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     vSpDwmGetMiniWinInfoForNonWindowSprite @ 0x1C0135688 (vSpDwmGetMiniWinInfoForNonWindowSprite.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     DwmAsyncSendWindowArrangingData @ 0x1C026D7B8 (DwmAsyncSendWindowArrangingData.c)
- *     bMoveDevPreviewRect @ 0x1C028407C (bMoveDevPreviewRect.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C00295AC (-bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z.c)
+ *     GreCreateSprite @ 0x1C003874C (GreCreateSprite.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     GreDeleteSprite @ 0x1C00EF0D8 (GreDeleteSprite.c)
+ *     vSpDwmGetMiniWinInfoForNonWindowSprite @ 0x1C0131850 (vSpDwmGetMiniWinInfoForNonWindowSprite.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     DwmAsyncSendWindowArrangingData @ 0x1C0274F30 (DwmAsyncSendWindowArrangingData.c)
+ *     bMoveDevPreviewRect @ 0x1C028594C (bMoveDevPreviewRect.c)
  */
 
-__int64 __fastcall bSetDevPreviewRect(HDEV a1, __int64 a2, char a3, __int64 a4, __int64 a5)
+__int64 __fastcall bSetDevPreviewRect(HDEV a1, struct _RECTL *a2, char a3, __int64 a4, __int64 a5)
 {
-  unsigned int v7; // esi
-  struct Gre::Base::SESSION_GLOBALS *v8; // rbx
-  HDEV v9; // rbx
-  bool v10; // r15
-  __int64 v11; // rcx
-  int v12; // ebp
-  HWND v13; // rdx
+  unsigned int v8; // edi
+  bool v9; // r15
+  __int64 v10; // rcx
+  int v11; // esi
+  HWND v12; // rdx
   void *Sprite; // rax
-  void *v15; // rax
-  void *v16; // r8
-  int v18; // [rsp+38h] [rbp-130h]
-  int v19; // [rsp+40h] [rbp-128h]
-  int v20; // [rsp+48h] [rbp-120h]
-  __int64 v21; // [rsp+50h] [rbp-118h]
-  HDEV v24; // [rsp+70h] [rbp-F8h] BYREF
-  _BYTE v25[8]; // [rsp+78h] [rbp-F0h] BYREF
-  __int64 v26; // [rsp+80h] [rbp-E8h] BYREF
-  _BYTE v27[8]; // [rsp+88h] [rbp-E0h] BYREF
-  _BYTE v28[144]; // [rsp+90h] [rbp-D8h] BYREF
+  void *v14; // rax
+  void *v15; // r8
+  int v17; // [rsp+38h] [rbp-C8h]
+  int v18; // [rsp+40h] [rbp-C0h]
+  int v19; // [rsp+48h] [rbp-B8h]
+  __int64 v20; // [rsp+50h] [rbp-B0h]
+  HDEV v22; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v23[8]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v24; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v25[16]; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE v26[144]; // [rsp+90h] [rbp-70h] BYREF
 
-  v7 = 1;
-  v24 = a1;
-  v8 = Gre::Base::Globals((Gre::Base *)a1);
-  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)v27, *((HSEMAPHORE *)v8 + 10));
-  v26 = *((_QWORD *)v8 + 15);
-  GreAcquireSemaphore(v26);
-  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v25, (struct PDEVOBJ *)&v24);
-  v9 = a1 + 297;
-  v10 = *((_DWORD *)a1 + 296) && *(_DWORD *)v9;
-  bCleanupSpriteStateRects(a1, (struct _SPRITESTATE *)(a1 + 20));
-  v12 = a3 & 1;
+  v22 = a1;
+  v8 = 1;
+  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)v25, ghsemDynamicModeChange);
+  v24 = ghsemGreLock;
+  GreAcquireSemaphore(ghsemGreLock);
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v23, (struct PDEVOBJ *)&v22);
+  v9 = *((_DWORD *)a1 + 298) && *((_DWORD *)a1 + 299);
+  bCleanupSpriteStateRects(a1, (struct _SPRITESTATE *)(a1 + 22));
+  v11 = a3 & 1;
   if ( a2 )
   {
-    *(_DWORD *)v9 = v12;
-    memset_0(v28, 0, 0x88uLL);
-    vSpDwmGetMiniWinInfoForNonWindowSprite((__int64)v28, 0LL);
+    *((_DWORD *)a1 + 299) = v11;
+    memset(v26, 0, 0x88uLL);
+    vSpDwmGetMiniWinInfoForNonWindowSprite((__int64)v26, 0LL);
     Sprite = GreCreateSprite(
-               (Gre::Base *)a1,
-               v13,
+               a1,
+               v12,
                0LL,
-               (struct tagMINIWINDOWINFO *)v28,
+               (struct tagMINIWINDOWINFO *)v26,
                0x9900u,
                a3 & 1,
                1,
-               (unsigned int)v13 & v18,
-               (unsigned int)v13 & v19,
-               (unsigned int)v13 & v20,
-               (unsigned __int16 *)((unsigned __int64)v13 & v21));
-    *((_QWORD *)a1 + 155) = Sprite;
+               (unsigned int)v12 & v17,
+               (unsigned int)v12 & v18,
+               (unsigned int)v12 & v19,
+               (unsigned __int16 *)((unsigned __int64)v12 & v20));
+    *((_QWORD *)a1 + 156) = Sprite;
     if ( Sprite )
     {
-      *((_DWORD *)a1 + 296) = 1;
-      *(_DWORD *)v9 = v12;
+      *((_DWORD *)a1 + 298) = 1;
+      *((_DWORD *)a1 + 299) = v11;
       if ( (a3 & 4) == 0 )
-        bMoveDevPreviewRect((Gre::Base *)a1, a2, 1, a4, a5);
+        bMoveDevPreviewRect(a1, a2, 1, a4, a5);
     }
     else
     {
-      v7 = 0;
+      v8 = 0;
     }
   }
-  else if ( v10 )
+  else if ( v9 )
   {
-    v15 = (void *)UserReferenceDwmApiPort(v11);
-    DwmAsyncSendWindowArrangingData(v15, 2, a4, 0LL, a5);
+    v14 = (void *)UserReferenceDwmApiPort(v10);
+    DwmAsyncSendWindowArrangingData(v14, 2, a4, 0LL, a5);
   }
-  if ( !*((_DWORD *)a1 + 296) )
+  if ( !*((_DWORD *)a1 + 298) )
   {
-    v16 = (void *)*((_QWORD *)a1 + 155);
-    if ( v16 )
+    v15 = (void *)*((_QWORD *)a1 + 156);
+    if ( v15 )
     {
-      GreDeleteSprite((Gre::Base *)a1, 0LL, v16, *(_DWORD *)v9);
-      *((_QWORD *)a1 + 155) = 0LL;
+      GreDeleteSprite(a1, 0LL, v15, *((_DWORD *)a1 + 299));
+      *((_QWORD *)a1 + 156) = 0LL;
     }
   }
-  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v25);
-  SEMOBJ::vUnlock((SEMOBJ *)&v26);
-  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)v27);
-  return v7;
+  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v23);
+  SEMOBJ::vUnlock((SEMOBJ *)&v24);
+  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)v25);
+  return v8;
 }

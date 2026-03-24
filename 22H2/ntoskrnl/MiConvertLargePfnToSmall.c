@@ -1,17 +1,16 @@
 /*
- * XREFs of MiConvertLargePfnToSmall @ 0x14038E00C
+ * XREFs of MiConvertLargePfnToSmall @ 0x1403F5648
  * Callers:
- *     MiInitializeMdlBatchPages @ 0x1402F9310 (MiInitializeMdlBatchPages.c)
- *     MiDemoteValidLargePageOneLevel @ 0x14038DB24 (MiDemoteValidLargePageOneLevel.c)
- *     MiInitializeMdlSinglePage @ 0x14046B40C (MiInitializeMdlSinglePage.c)
+ *     MiInitializeMdlLeafPfns @ 0x140354C1C (MiInitializeMdlLeafPfns.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403B9BC8 (MiDemoteValidLargePageOneLevel.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F52A8 (MiConvertEntireLargePageToSmall.c)
  * Callees:
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
+ *     MiSetPfnTbFlushStamp @ 0x14023FAD0 (MiSetPfnTbFlushStamp.c)
  */
 
 unsigned __int64 __fastcall MiConvertLargePfnToSmall(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  char v4; // al
-  char v5; // al
+  char v5; // dl
   __int64 v6; // rax
   unsigned __int64 result; // rax
   bool v8; // zf
@@ -21,9 +20,8 @@ unsigned __int64 __fastcall MiConvertLargePfnToSmall(__int64 a1, __int64 a2, __i
   __int64 v12; // [rsp+40h] [rbp-18h]
   unsigned __int64 v13; // [rsp+48h] [rbp-10h]
 
-  v4 = *(_BYTE *)(a2 + 34);
   *(_BYTE *)(a2 + 35) &= 0xF8u;
-  v5 = v4 & 0xEF;
+  v5 = *(_BYTE *)(a2 + 34) & 0xEF;
   *(_BYTE *)(a2 + 34) = v5;
   if ( a2 != a1 )
   {
@@ -31,8 +29,8 @@ unsigned __int64 __fastcall MiConvertLargePfnToSmall(__int64 a1, __int64 a2, __i
     *(_QWORD *)(a2 + 16) = *(_QWORD *)(a1 + 16);
   }
   v6 = *(_QWORD *)(a2 + 40);
-  *(_BYTE *)(a2 + 36) &= 0xFCu;
-  result = v6 & 0xFFFFFEFFFFFFFFFFuLL;
+  *(_BYTE *)(a2 + 39) &= 0xFCu;
+  result = v6 & 0xFFFFFFEFFFFFFFFFuLL;
   v12 = 0LL;
   v13 = result;
   v10 = 0LL;

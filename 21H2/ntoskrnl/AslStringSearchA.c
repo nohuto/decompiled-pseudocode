@@ -1,7 +1,7 @@
 /*
- * XREFs of AslStringSearchA @ 0x140A14AA8
+ * XREFs of AslStringSearchA @ 0x1409679A4
  * Callers:
- *     SdbpCheckMatchingTextEntry @ 0x140A11614 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 __int64 __fastcall AslStringSearchA(__int64 a1, unsigned int a2, _BYTE *a3, unsigned int a4)
 {
   __int64 v4; // r10
-  unsigned int i; // r11d
+  unsigned int v7; // r11d
   unsigned int v8; // r8d
   unsigned int v9; // edx
   _BYTE *v10; // rdi
@@ -17,10 +17,11 @@ __int64 __fastcall AslStringSearchA(__int64 a1, unsigned int a2, _BYTE *a3, unsi
   v4 = 0LL;
   if ( a2 && a4 <= a2 )
   {
-    for ( i = 0; i + a4 <= a2; ++i )
+    v7 = 0;
+    while ( 1 )
     {
       v8 = 0;
-      v9 = i;
+      v9 = v7;
       if ( a4 )
       {
         v10 = a3;
@@ -28,21 +29,21 @@ __int64 __fastcall AslStringSearchA(__int64 a1, unsigned int a2, _BYTE *a3, unsi
         {
           if ( !*(_BYTE *)(v9 + a1) && ++v9 >= a2 )
             return v4;
-          if ( *(_BYTE *)(v9 + a1) != *v10 )
-            break;
-          ++v8;
-          ++v10;
-          ++v9;
-          if ( v8 >= a4 )
-            goto LABEL_11;
+          if ( *(_BYTE *)(v9 + a1) == *v10 )
+          {
+            ++v8;
+            ++v10;
+            ++v9;
+            if ( v8 < a4 )
+              continue;
+          }
+          break;
         }
       }
-      else
-      {
-LABEL_11:
-        if ( v8 == a4 )
-          return a1 + i;
-      }
+      if ( v8 == a4 )
+        return a1 + v7;
+      if ( ++v7 + a4 > a2 )
+        return v4;
     }
   }
   return v4;

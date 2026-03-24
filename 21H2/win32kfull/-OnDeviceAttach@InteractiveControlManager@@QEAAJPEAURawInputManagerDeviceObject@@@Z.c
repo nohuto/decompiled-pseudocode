@@ -1,18 +1,18 @@
 /*
- * XREFs of ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F594
+ * XREFs of ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02525A8
  * Callers:
- *     EditionDevicePnpNotification @ 0x1C0102A40 (EditionDevicePnpNotification.c)
- *     Win32kRIMDevChangeCallback @ 0x1C01CD100 (Win32kRIMDevChangeCallback.c)
+ *     EditionDevicePnpNotification @ 0x1C0107A80 (EditionDevicePnpNotification.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C012D670 (Win32kRIMDevChangeCallback.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@@Z @ 0x1C024E5E8 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@@-$_tlgWriteTemplate@$$A6AJPEBU_.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?InsertDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C024F520 (-InsertDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
- *     ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C02536EC (--0InteractiveControlDevice@@QEAA@XZ.c)
- *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0253B4C (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
- *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0254100 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0254A34 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
- *     ?SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C0254A88 (-SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4.c)
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0254F34 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@@Z @ 0x1C02515FC (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@@-$_tlgWriteTemplate@$$A6AJPEBU_.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?InsertDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C0252534 (-InsertDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C025695C (--0InteractiveControlDevice@@QEAA@XZ.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256DD4 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0257390 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0257D08 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
+ *     ?SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C0257D58 (-SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C02581F8 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
  */
 
 __int64 __fastcall InteractiveControlManager::OnDeviceAttach(
@@ -28,103 +28,101 @@ __int64 __fastcall InteractiveControlManager::OnDeviceAttach(
   int v10; // ebx
   InteractiveControlDevice *v11; // rdi
   int inserted; // eax
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // r14
-  int v16; // eax
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v20; // [rsp+70h] [rbp+40h] BYREF
-  __int64 v21; // [rsp+78h] [rbp+48h] BYREF
+  __int64 v13; // r14
+  int v14; // eax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v18; // [rsp+70h] [rbp+40h] BYREF
+  __int64 v19; // [rsp+78h] [rbp+48h] BYREF
 
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
-    v20 = (__int64)a2 + 296;
-    v21 = (__int64)"InteractiveControlManager::OnDeviceAttach entry";
+    v18 = (__int64)a2 + 296;
+    v19 = (__int64)"InteractiveControlManager::OnDeviceAttach entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapBuffer<_UNICODE_STRING>>(
       (__int64)this,
-      byte_1C02F191E,
+      byte_1C02F44B9,
       a3,
       a4,
-      (void **)&v21,
-      (unsigned __int16 **)&v20);
+      (void **)&v19,
+      (unsigned __int16 **)&v18);
   }
-  v6 = (InteractiveControlDevice *)Win32AllocPoolZInit(400LL, 1819440195LL);
+  v6 = (InteractiveControlDevice *)Win32AllocPool(400LL, 1819440195LL);
   v9 = v6;
   if ( !v6 )
   {
     v10 = -1073741670;
-    goto LABEL_19;
+    goto LABEL_20;
   }
   v11 = InteractiveControlDevice::InteractiveControlDevice(v6);
   inserted = InteractiveControlDevice::Initialize(v11, a2);
   v10 = inserted;
   if ( inserted < 0 )
   {
-    if ( (unsigned int)dword_1C03262C0 <= 2 )
-    {
-LABEL_16:
-      if ( v11 )
-        InteractiveControlDevice::Deinitialize(v11);
-      Win32FreePool(v9);
-      goto LABEL_19;
-    }
-LABEL_7:
-    LODWORD(v20) = inserted;
-    v21 = (__int64)"Function failed.";
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F15F5,
-      v13,
-      v14,
-      (void **)&v21,
-      (__int64)&v20);
-    goto LABEL_16;
-  }
-  inserted = InteractiveControlManager::InsertDevice(this, (void **)v11);
-  v10 = inserted;
-  if ( inserted < 0 )
-  {
-    if ( (unsigned int)dword_1C03262C0 <= 2 )
+    if ( (unsigned int)dword_1C032B2F8 <= 2 )
       goto LABEL_16;
     goto LABEL_7;
   }
-  v15 = *((_QWORD *)a2 + 53);
-  RIMUnlockExclusive(v15 + 104);
-  InteractiveControlDevice::SetBackgroundAccessor(v11, *((struct tagWND **)this + 2), *((_DWORD *)this + 6));
-  InteractiveControlDevice::SetFocus(v11, *(_QWORD *)this, *((unsigned int *)this + 2), 1LL);
-  if ( !*((_DWORD *)this + 2) )
+  inserted = InteractiveControlManager::InsertDevice(this, (void **)v11);
+  v10 = inserted;
+  if ( inserted >= 0 )
   {
-    v16 = InteractiveControlDevice::SetComponentResolution(v11, 3LL, *((unsigned int *)this + 7), (char *)this + 32);
-    v10 = v16;
-    if ( v16 < 0 && (unsigned int)dword_1C03262C0 > 2 )
+    v13 = *((_QWORD *)a2 + 53);
+    RIMUnlockExclusive(v13 + 104);
+    InteractiveControlDevice::SetBackgroundAccessor(v11, *((struct tagWND **)this + 2), *((_DWORD *)this + 6));
+    InteractiveControlDevice::SetFocus(v11, *(_QWORD *)this, *((unsigned int *)this + 2), 1LL);
+    if ( !*((_DWORD *)this + 2) )
     {
-      LODWORD(v20) = v16;
-      v21 = (__int64)"Function failed.";
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-        (__int64)&dword_1C03262C0,
-        byte_1C02F15F5,
-        v17,
-        v18,
-        (void **)&v21,
-        (__int64)&v20);
+      v14 = InteractiveControlDevice::SetComponentResolution(v11, 3LL, *((unsigned int *)this + 7), (char *)this + 32);
+      v10 = v14;
+      if ( v14 < 0 && (unsigned int)dword_1C032B2F8 > 2 )
+      {
+        LODWORD(v18) = v14;
+        v19 = (__int64)"Function failed.";
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
+          (__int64)&dword_1C032B2F8,
+          byte_1C02F4190,
+          v15,
+          v16,
+          (void **)&v19,
+          (__int64)&v18);
+      }
     }
-  }
-  RIMLockExclusive(v15 + 104);
-  if ( v10 < 0 )
+    RIMLockExclusive(v13 + 104);
     goto LABEL_16;
-LABEL_19:
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  }
+  if ( (unsigned int)dword_1C032B2F8 > 2 )
   {
-    LODWORD(v20) = v10;
-    v21 = (__int64)"InteractiveControlManager::OnDeviceAttach exit";
+LABEL_7:
+    LODWORD(v18) = inserted;
+    v19 = (__int64)"Function failed.";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F1582,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F4190,
       v7,
       v8,
-      (void **)&v21,
-      (__int64)&v20);
+      (void **)&v19,
+      (__int64)&v18);
+  }
+LABEL_16:
+  if ( v10 < 0 )
+  {
+    if ( v11 )
+      InteractiveControlDevice::Deinitialize(v11);
+    Win32FreePool(v9);
+  }
+LABEL_20:
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
+  {
+    LODWORD(v18) = v10;
+    v19 = (__int64)"InteractiveControlManager::OnDeviceAttach exit";
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F411D,
+      v7,
+      v8,
+      (void **)&v19,
+      (__int64)&v18);
   }
   return (unsigned int)v10;
 }

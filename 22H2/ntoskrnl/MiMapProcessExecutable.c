@@ -1,15 +1,14 @@
 /*
- * XREFs of MiMapProcessExecutable @ 0x1407A35A0
+ * XREFs of MiMapProcessExecutable @ 0x1406FC5E0
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406FBB04 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFillPteHierarchy @ 0x14028ADD0 (MiFillPteHierarchy.c)
- *     MmMapViewOfSectionEx @ 0x14032A17C (MmMapViewOfSectionEx.c)
- *     PsMapSystemDlls @ 0x1407A36D8 (PsMapSystemDlls.c)
- *     MiCommitInitialVadMetadataBits @ 0x1407A436C (MiCommitInitialVadMetadataBits.c)
- *     MiCfgInitializeProcess @ 0x1407A4FC4 (MiCfgInitializeProcess.c)
- *     MiSessionCreate @ 0x1407A95BC (MiSessionCreate.c)
+ *     MiFillPteHierarchy @ 0x14028CAF0 (MiFillPteHierarchy.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MmMapViewOfSectionEx @ 0x1403529F0 (MmMapViewOfSectionEx.c)
+ *     MiCfgInitializeProcess @ 0x1406FC70C (MiCfgInitializeProcess.c)
+ *     PsMapSystemDlls @ 0x1406FC94C (PsMapSystemDlls.c)
+ *     MiSessionCreate @ 0x14078610C (MiSessionCreate.c)
  */
 
 __int64 __fastcall MiMapProcessExecutable(__int64 a1, __int64 a2, unsigned int *a3)
@@ -17,92 +16,89 @@ __int64 __fastcall MiMapProcessExecutable(__int64 a1, __int64 a2, unsigned int *
   int v3; // eax
   int v5; // ebx
   unsigned int v7; // eax
-  __int64 v8; // r12
-  __int64 result; // rax
-  unsigned int v10; // edi
-  unsigned __int64 v11; // rcx
-  BOOL v12; // r14d
-  unsigned int v13; // ebx
+  __int64 v8; // r15
+  int v9; // eax
+  unsigned __int64 v10; // rcx
+  int v11; // ebx
+  unsigned int v12; // edi
+  unsigned int v13; // esi
   int v14; // eax
-  unsigned __int64 v15; // rcx
-  char v16; // al
-  __int64 v17; // [rsp+58h] [rbp-21h]
-  __int64 v18; // [rsp+70h] [rbp-9h] BYREF
-  __int64 v19; // [rsp+78h] [rbp-1h] BYREF
-  __int64 v20; // [rsp+80h] [rbp+7h]
-  _OWORD v21[2]; // [rsp+88h] [rbp+Fh] BYREF
-  unsigned __int64 v22; // [rsp+E8h] [rbp+6Fh] BYREF
-  __int64 v23; // [rsp+F8h] [rbp+7Fh] BYREF
+  int v15; // eax
+  __int64 result; // rax
+  unsigned __int64 v17; // rcx
+  char v18; // al
+  __int64 v19; // [rsp+60h] [rbp-9h] BYREF
+  __int64 v20; // [rsp+68h] [rbp-1h] BYREF
+  __int64 v21; // [rsp+70h] [rbp+7h]
+  _OWORD v22[2]; // [rsp+78h] [rbp+Fh] BYREF
+  unsigned __int64 v23; // [rsp+D8h] [rbp+6Fh] BYREF
+  __int64 v24; // [rsp+E8h] [rbp+7Fh] BYREF
 
   v3 = *(_DWORD *)(a2 + 56);
   v5 = a2;
-  memset(v21, 0, sizeof(v21));
+  memset(v22, 0, sizeof(v22));
   if ( (v3 & 0x20) == 0 )
     return 3221225545LL;
   if ( (*a3 & 0x80u) == 0 || (result = MiSessionCreate(a1), (int)result >= 0) )
   {
     v7 = *a3;
+    v24 = 0LL;
     v23 = 0LL;
-    v22 = 0LL;
-    v18 = 0LL;
     v8 = 4LL;
-    v19 = 5LL;
-    v20 = 32LL;
-    result = MmMapViewOfSectionEx(
-               v5,
-               a1,
-               (int)&v22,
-               (__int64)&v18,
-               (__int64)&v23,
-               (unsigned __int8)(v7 & 0x10) << 25,
-               4,
-               &v19,
-               1,
-               0,
-               0LL,
-               v17,
-               0x2000000);
-    v10 = result;
-    if ( (int)result >= 0 )
+    v19 = 0LL;
+    v20 = 5LL;
+    v21 = 32LL;
+    v9 = MmMapViewOfSectionEx(
+           v5,
+           a1,
+           (int)&v23,
+           (__int64)&v19,
+           (__int64)&v24,
+           (unsigned __int8)(v7 & 0x10) << 25,
+           4,
+           &v20,
+           1,
+           0,
+           0LL);
+    v10 = v23;
+    v11 = v9;
+    *(_QWORD *)(a1 + 1312) = v23;
+    if ( v9 >= 0 )
     {
-      v11 = v22;
-      v12 = 0;
-      *(_QWORD *)(a1 + 1312) = v22;
-      v13 = *a3;
+      v12 = *a3;
+      v13 = 0;
       if ( (*a3 & 0x10) != 0 )
       {
-        MiFillPteHierarchy(v11, (unsigned __int64 *)v21);
-        while ( 1 )
+        MiFillPteHierarchy(v10, (unsigned __int64 *)v22);
+        do
         {
-          v15 = *(&v20 + v8--);
-          v16 = MI_READ_PTE_LOCK_FREE(v15);
-          if ( (v16 & 1) == 0 )
-          {
-LABEL_18:
-            *a3 = v13 & 0xFFFFFFEF;
-            goto LABEL_5;
-          }
-          if ( v16 < 0 )
+          v17 = *(&v21 + v8--);
+          v18 = MI_READ_PTE_LOCK_FREE(v17);
+          if ( (v18 & 1) == 0 )
             break;
-          if ( v8 == 1 )
-            goto LABEL_18;
+          if ( v18 < 0 )
+          {
+            v13 = 1;
+            break;
+          }
         }
-        v12 = (v13 & 0x20) != 0;
+        while ( v8 != 1 );
+        if ( v13 )
+          v13 &= -((v12 & 0x20) != 0);
+        else
+          *a3 = v12 & 0xFFFFFFEF;
       }
-LABEL_5:
-      result = PsMapSystemDlls(a1, v12);
-      if ( (int)result >= 0 )
+      v14 = PsMapSystemDlls(a1, v13);
+      if ( v14 < 0 )
+        v11 = v14;
+      if ( v11 >= 0 )
       {
-        result = MiCfgInitializeProcess(a1);
-        if ( (int)result >= 0 )
-        {
-          v14 = MiCommitInitialVadMetadataBits();
-          if ( v14 < 0 )
-            return (unsigned int)v14;
-          return v10;
-        }
+        v15 = MiCfgInitializeProcess(a1);
+        if ( v15 < 0 )
+          return (unsigned int)v15;
       }
     }
+    return (unsigned int)v11;
   }
   return result;
 }

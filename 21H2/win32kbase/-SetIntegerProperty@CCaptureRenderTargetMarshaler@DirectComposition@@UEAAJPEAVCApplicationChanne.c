@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0235C20
+ * XREFs of ?SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F5370
  * Callers:
- *     ?SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0236110 (-SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApp.c)
+ *     ?SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F5860 (-SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApp.c)
  * Callees:
  *     <none>
  */
@@ -21,18 +21,18 @@ __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetIntegerP
   v6 = a3 - 4;
   if ( !v6 )
   {
-    if ( (a4 != 0) == *((_BYTE *)this + 64) )
+    if ( (a4 != 0) == *((_BYTE *)this + 56) )
       return v5;
     *((_DWORD *)this + 4) |= 0x800u;
-    *((_BYTE *)this + 64) = a4 != 0;
+    *((_BYTE *)this + 56) = a4 != 0;
     goto LABEL_8;
   }
   if ( v6 == 1 )
   {
-    if ( (a4 != 0) == *((_BYTE *)this + 65) )
+    if ( (a4 != 0) == *((_BYTE *)this + 57) )
       return v5;
     *((_DWORD *)this + 4) |= 0x200u;
-    *((_BYTE *)this + 65) = a4 != 0;
+    *((_BYTE *)this + 57) = a4 != 0;
 LABEL_8:
     *a5 = 1;
     return v5;

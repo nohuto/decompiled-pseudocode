@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z @ 0x1C0032E78
+ * XREFs of ??0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z @ 0x1C003A7D0
  * Callers:
- *     ?Add@FxChildList@@QEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@PEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@PEAK@Z @ 0x1C001207C (-Add@FxChildList@@QEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@PEAU_WDF_CHILD_ADDRESS_.c)
- *     ?Clone@FxDeviceDescriptionEntry@@QEAAPEAU1@PEAU_LIST_ENTRY@@@Z @ 0x1C005B98C (-Clone@FxDeviceDescriptionEntry@@QEAAPEAU1@PEAU_LIST_ENTRY@@@Z.c)
+ *     ?Add@FxChildList@@QEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@PEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@PEAK@Z @ 0x1C003A8B4 (-Add@FxChildList@@QEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@PEAU_WDF_CHILD_ADDRESS_.c)
+ *     ?Clone@FxDeviceDescriptionEntry@@QEAAPEAU1@PEAU_LIST_ENTRY@@@Z @ 0x1C003ABB0 (-Clone@FxDeviceDescriptionEntry@@QEAAPEAU1@PEAU_LIST_ENTRY@@@Z.c)
  * Callees:
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
  */
 
 void __fastcall FxDeviceDescriptionEntry::FxDeviceDescriptionEntry(
@@ -13,18 +13,16 @@ void __fastcall FxDeviceDescriptionEntry::FxDeviceDescriptionEntry(
         unsigned int IdentificationDescriptionSize,
         unsigned int AddressDescriptionSize)
 {
-  _WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER *v5; // rcx
-  _WDF_CHILD_ADDRESS_DESCRIPTION_HEADER *v6; // rax
+  _WDF_CHILD_ADDRESS_DESCRIPTION_HEADER *v5; // rcx
 
-  v5 = (_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER *)&this[1];
-  this->m_IdentificationDescription = v5;
-  v5->IdentificationDescriptionSize = IdentificationDescriptionSize;
+  this->m_IdentificationDescription = (_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER *)&this[1];
+  LODWORD(this[1].m_DescriptionLink.Flink) = IdentificationDescriptionSize;
   if ( AddressDescriptionSize )
   {
-    v6 = (_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER *)((char *)v5
+    v5 = (_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER *)((char *)this->m_IdentificationDescription
                                                  + ((IdentificationDescriptionSize + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
-    this->m_AddressDescription = v6;
-    v6->AddressDescriptionSize = AddressDescriptionSize;
+    this->m_AddressDescription = v5;
+    v5->AddressDescriptionSize = AddressDescriptionSize;
   }
   *(_WORD *)&this->m_FoundInLastScan = 0;
   this->m_PendingDeleteOnScanEnd = 0;

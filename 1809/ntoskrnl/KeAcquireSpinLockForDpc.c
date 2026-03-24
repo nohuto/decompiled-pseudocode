@@ -1,5 +1,5 @@
 /*
- * XREFs of KeAcquireSpinLockForDpc @ 0x140290B90
+ * XREFs of KeAcquireSpinLockForDpc @ 0x140290C90
  * Callers:
  *     <none>
  * Callees:

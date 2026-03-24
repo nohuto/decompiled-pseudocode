@@ -1,15 +1,15 @@
 /*
- * XREFs of xxxSetCsrssThreadDesktop @ 0x1C00A65F0
+ * XREFs of xxxSetCsrssThreadDesktop @ 0x1C00D9440
  * Callers:
- *     xxxSetInformationThread @ 0x1C00A6350 (xxxSetInformationThread.c)
- *     xxxQueryInformationThread @ 0x1C00FC914 (xxxQueryInformationThread.c)
- *     xxxHardErrorControl @ 0x1C023CD7C (xxxHardErrorControl.c)
+ *     xxxQueryInformationThread @ 0x1C00D8398 (xxxQueryInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D9030 (xxxSetInformationThread.c)
+ *     xxxHardErrorControl @ 0x1C0241E6C (xxxHardErrorControl.c)
  * Callees:
- *     xxxDispatchMessage @ 0x1C00429F0 (xxxDispatchMessage.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxInternalGetMessage @ 0x1C00A4B4C (xxxInternalGetMessage.c)
- *     CloseProtectedHandle @ 0x1C00A6598 (CloseProtectedHandle.c)
- *     xxxSetThreadDesktop @ 0x1C00A9A4C (xxxSetThreadDesktop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     CloseProtectedHandle @ 0x1C00D93E8 (CloseProtectedHandle.c)
+ *     xxxSetThreadDesktop @ 0x1C00D95C0 (xxxSetThreadDesktop.c)
+ *     xxxInternalGetMessage @ 0x1C00D9FB0 (xxxInternalGetMessage.c)
  */
 
 NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
@@ -21,7 +21,8 @@ NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
   NTSTATUS result; // eax
   ULONG v9; // eax
   __int64 v10; // rdx
-  _OWORD v11[3]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v11; // r8
+  _OWORD v12[3]; // [rsp+40h] [rbp-38h] BYREF
 
   if ( (Object[12] & 8) != 0 )
     return -1073741823;
@@ -34,7 +35,7 @@ NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
     if ( v5 < 0 )
     {
       v9 = RtlNtStatusToDosError(v5);
-      UserSetLastError(v9, v10);
+      UserSetLastError(v9, v10, v11);
       if ( *a2 )
         ObfDereferenceObject(*a2);
     }
@@ -45,9 +46,9 @@ NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
       {
         if ( v7 )
         {
-          memset(v11, 0, sizeof(v11));
-          while ( (unsigned int)xxxInternalGetMessage(v11, 0LL, 0, 0, 3, 0) )
-            xxxDispatchMessage((__int64)v11);
+          memset(v12, 0, sizeof(v12));
+          while ( (unsigned int)xxxInternalGetMessage((unsigned int)v12, 0, 0, 0, 3, 0) )
+            xxxDispatchMessage((__int64)v12);
         }
         v6 = xxxSetThreadDesktop(0LL, Object);
         if ( v6 < 0 )

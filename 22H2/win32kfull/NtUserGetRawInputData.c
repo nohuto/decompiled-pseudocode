@@ -1,106 +1,95 @@
 /*
- * XREFs of NtUserGetRawInputData @ 0x1C01543B0
+ * XREFs of NtUserGetRawInputData @ 0x1C00032C0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtUserGetRawInputData(__int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4, int a5)
+__int64 __fastcall NtUserGetRawInputData(__int64 a1, int a2, _QWORD *a3, unsigned int *a4, int a5)
 {
-  _QWORD *v6; // r15
-  int v7; // r14d
-  unsigned int v9; // esi
-  unsigned int v10; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // rax
-  _QWORD *v14; // r12
-  int v15; // ecx
-  unsigned int *v16; // rax
-  int v17; // r14d
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  _BYTE v23[44]; // [rsp+20h] [rbp-78h] BYREF
-  unsigned int v24; // [rsp+4Ch] [rbp-4Ch]
+  __int64 v9; // rdx
+  unsigned int v10; // esi
+  __int64 v11; // rax
+  unsigned int v12; // ebx
+  _QWORD *v13; // r12
+  unsigned int *v14; // rax
+  int v15; // r14d
+  _BYTE v17[40]; // [rsp+58h] [rbp-40h] BYREF
 
-  v6 = a3;
-  v7 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v23);
-  v9 = 24;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v17);
+  v10 = 24;
   if ( a5 != 24 )
-    goto LABEL_2;
-  v13 = HMValidateHandle(a1, 0x12u);
-  v11 = v13;
-  v10 = 0;
-  if ( !v13 || (v14 = (_QWORD *)(v13 + 32), (v15 = *(_DWORD *)(v13 + 32)) != 0) && (unsigned int)(v15 - 1) > 1 )
+    goto LABEL_22;
+  LOBYTE(v9) = 18;
+  v11 = HMValidateHandle(a1, v9);
+  v12 = 0;
+  if ( !v11 || (v13 = (_QWORD *)(v11 + 32), *(_DWORD *)(v11 + 32) > 2u) )
   {
-    UserSetLastError(6);
-    v10 = -1;
-    goto LABEL_28;
+    UserSetLastError(6LL);
+    v12 = -1;
+    goto LABEL_17;
   }
-  v12 = 268435459LL;
-  if ( v7 == 268435459 )
+  if ( a2 == 268435459 )
   {
-    v9 = *(_DWORD *)(v13 + 36);
+    v10 = *(_DWORD *)(v11 + 36);
+    goto LABEL_6;
   }
-  else if ( v7 != 268435461 )
+  if ( a2 != 268435461 )
   {
-LABEL_2:
-    v10 = -1;
-    UserSetLastError(87);
-    goto LABEL_28;
+LABEL_22:
+    v12 = -1;
+    UserSetLastError(87LL);
+    goto LABEL_17;
   }
-  if ( v6 )
+LABEL_6:
+  if ( a3 )
   {
-    v16 = a4;
+    v14 = a4;
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      v16 = (unsigned int *)MmUserProbeAddress;
-    v24 = *v16;
-    if ( v24 < v9 )
+      v14 = (unsigned int *)MmUserProbeAddress;
+    if ( *v14 < v10 )
     {
-      v10 = -1;
+      v12 = -1;
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
         a4 = (unsigned int *)MmUserProbeAddress;
-      *a4 = v9;
-      UserSetLastError(122);
+      *a4 = v10;
+      UserSetLastError(122LL);
     }
     else
     {
-      v17 = v7 - 268435459;
-      if ( v17 )
+      v15 = a2 - 268435459;
+      if ( v15 )
       {
-        if ( v17 == 2 )
+        if ( v15 == 2 )
         {
-          if ( (unsigned __int64)v6 >= MmUserProbeAddress )
-            v6 = (_QWORD *)MmUserProbeAddress;
-          *(_OWORD *)v6 = *(_OWORD *)v14;
-          v6[2] = v14[2];
+          if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+            a3 = (_QWORD *)MmUserProbeAddress;
+          *(_OWORD *)a3 = *(_OWORD *)v13;
+          a3[2] = v13[2];
         }
       }
       else
       {
-        ProbeForWrite(v6, v9, 4u);
-        memmove(v6, v14, v9);
+        ProbeForWrite(a3, v10, 4u);
+        memmove(a3, v13, v10);
       }
-      v10 = v9;
+      v12 = v10;
     }
   }
   else
   {
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
       a4 = (unsigned int *)MmUserProbeAddress;
-    *a4 = v9;
+    *a4 = v10;
   }
-LABEL_28:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v23, v11, v12);
-  UserSessionSwitchLeaveCrit(v19, v18, v20, v21);
-  return v10;
+LABEL_17:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v17);
+  UserSessionSwitchLeaveCrit();
+  return v12;
 }

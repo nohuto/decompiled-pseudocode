@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpRealtimeNotifyConsumers @ 0x1406C9BB4
+ * XREFs of EtwpRealtimeNotifyConsumers @ 0x1406C9B94
  * Callers:
  *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
  * Callees:
@@ -9,10 +9,10 @@
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpRealtimeInjectEtwBuffer @ 0x1405C19BC (EtwpRealtimeInjectEtwBuffer.c)
- *     EtwpGetMaxTrackingEventBufferSize @ 0x1406C9CC0 (EtwpGetMaxTrackingEventBufferSize.c)
- *     EtwpAddDebugInfoEvents @ 0x1406FE120 (EtwpAddDebugInfoEvents.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x1407021C0 (EtwpInitializeProviderInfoBuffer.c)
- *     EtwpAddBinaryInfoEvents @ 0x1408BDEBC (EtwpAddBinaryInfoEvents.c)
+ *     EtwpGetMaxTrackingEventBufferSize @ 0x1406C9CA0 (EtwpGetMaxTrackingEventBufferSize.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406FE100 (EtwpAddDebugInfoEvents.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x1407021A0 (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1408BDE9C (EtwpAddBinaryInfoEvents.c)
  */
 
 __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)

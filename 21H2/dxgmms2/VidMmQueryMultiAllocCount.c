@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmQueryMultiAllocCount @ 0x1C0019050
+ * XREFs of VidMmQueryMultiAllocCount @ 0x1C00162C0
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryMultiAllocCount@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00D9210 (-QueryMultiAllocCount@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z.c)
+ *     ?QueryMultiAllocCount@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00B2B4C (-QueryMultiAllocCount@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z.c)
  */
 
 __int64 __fastcall VidMmQueryMultiAllocCount(VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_ALLOC *a2)

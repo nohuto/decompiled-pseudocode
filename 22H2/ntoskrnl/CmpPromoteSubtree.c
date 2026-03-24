@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpPromoteSubtree @ 0x140A26C60
+ * XREFs of CmpPromoteSubtree @ 0x14072A0A8
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmpPromoteSubtreeForKcbStack @ 0x14088088C (CmpPromoteSubtreeForKcbStack.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D21DC (CmpInitializeKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20448 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x140A206D0 (CmpSubtreeEnumeratorCleanup.c)
- *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A20750 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A208E8 (CmpSubtreeEnumeratorStartForKcbStack.c)
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A20924 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
- *     CmpKeyEnumStackNotifyPromotion @ 0x140A241D4 (CmpKeyEnumStackNotifyPromotion.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A25E84 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140A262C8 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A269A0 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A26B3C (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x14072A170 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x14072A710 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072A84C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14072AE74 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorInitialize @ 0x14072B148 (CmpSubtreeEnumeratorInitialize.c)
+ *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140876798 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140876828 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x14087AC2C (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14087FF84 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1408805CC (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140880768 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  */
 
 __int64 __fastcall CmpPromoteSubtree(__int64 a1, __int16 *a2)
@@ -25,68 +25,78 @@ __int64 __fastcall CmpPromoteSubtree(__int64 a1, __int16 *a2)
   __int16 v4; // r14
   int v5; // eax
   int v6; // ebx
-  __int16 *v7; // rdi
-  __int16 *v8; // rsi
-  __int64 v9; // r9
-  __int64 v10; // r15
-  int v11; // eax
-  __int16 *v13; // [rsp+20h] [rbp-59h] BYREF
-  __int64 v14; // [rsp+28h] [rbp-51h] BYREF
-  _QWORD v15[14]; // [rsp+30h] [rbp-49h] BYREF
+  __int64 v8; // rdi
+  __int64 v9; // rsi
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // r15
+  int v13; // eax
+  bool v14; // sf
+  __int64 v15; // [rsp+20h] [rbp-59h] BYREF
+  __int64 v16; // [rsp+28h] [rbp-51h] BYREF
+  _QWORD v17[14]; // [rsp+30h] [rbp-49h] BYREF
 
-  v14 = 0LL;
-  v13 = 0LL;
-  memset((char *)v15 + 2, 0, 0x66uLL);
-  LOWORD(v15[0]) = -2;
-  CmpInitializeKeyNodeStack(&v15[2]);
+  memset(v17, 0, 0x68uLL);
+  v16 = 0LL;
+  v15 = 0LL;
+  CmpSubtreeEnumeratorInitialize(v17);
   if ( a1 )
   {
     v4 = *(_WORD *)(a1 + 2);
-    v5 = CmpSubtreeEnumeratorStartForKcbStack((__int64)v15, a1);
+    v5 = CmpSubtreeEnumeratorStartForKcbStack(v17, a1);
   }
   else
   {
     v4 = *a2;
-    v5 = CmpSubtreeEnumeratorStartForKeyNodeStack((__int64)v15, a2);
+    v5 = CmpSubtreeEnumeratorStartForKeyNodeStack(v17, a2);
   }
   v6 = v5;
   if ( v5 >= 0 )
   {
     while ( 1 )
     {
-      v6 = CmpSubtreeEnumeratorAdvance((__int64)v15);
+      v6 = CmpSubtreeEnumeratorAdvance(v17);
       if ( v6 == -2147483622 )
-        break;
+      {
+        v6 = 0;
+        goto LABEL_6;
+      }
       if ( v6 < 0 )
-        goto LABEL_18;
-      CmpSubtreeEnumeratorGetCurrentKeyStacks((__int16 *)v15, &v14, &v13);
-      v7 = v13;
-      v8 = *(__int16 **)(408LL * SLOWORD(v15[0]) + v15[12] - 392);
-      v10 = *(_QWORD *)(CmpKeyNodeStackGetEntryAtLayerHeight((__int64)v13, v4) + 16);
-      if ( v14 )
+        goto LABEL_6;
+      CmpSubtreeEnumeratorGetCurrentKeyStacks(v17, &v16, &v15);
+      v8 = v15;
+      v9 = *(_QWORD *)(408LL * SLOWORD(v17[0]) + v17[12] - 392);
+      v12 = *(_QWORD *)(CmpKeyNodeStackGetEntryAtLayerHeight(v15, v4) + 16);
+      if ( v16 )
+        break;
+      if ( v11 )
       {
-        v11 = CmpPromoteSingleKeyFromKcbStacks(v9, v14, 1);
+        LOBYTE(v10) = 1;
+        v13 = CmpPromoteSingleKeyFromParentKcbAndChildKeyNode(v11, v8, v10);
+        goto LABEL_12;
       }
-      else if ( v9 )
+      v6 = CmpPartialPromoteSingleKeyFromKeyNodeStacks(v9, v8);
+      if ( v6 >= 0 )
       {
-        v11 = CmpPromoteSingleKeyFromParentKcbAndChildKeyNode(v9, v7, 1);
+        v6 = CmpFullPromoteSingleKeyFromKeyNodeStacks(v9, v8);
+        if ( v6 >= 0 )
+          v6 = 0;
       }
-      else
-      {
-        v6 = CmpPartialPromoteSingleKeyFromKeyNodeStacks(v8, (__int64)v7);
-        if ( v6 < 0 )
-          goto LABEL_18;
-        v11 = CmpFullPromoteSingleKeyFromKeyNodeStacks((__int64)v8, v7);
-      }
-      v6 = v11;
-      if ( v11 < 0 )
-        goto LABEL_18;
-      if ( !v10 )
-        CmpKeyEnumStackNotifyPromotion((__int16 *)(v15[12] + 56LL + 408LL * (SLOWORD(v15[0]) - 1)));
-    }
-    v6 = 0;
-  }
+      v14 = v6 < 0;
 LABEL_18:
-  CmpSubtreeEnumeratorCleanup((__int64)v15);
+      if ( v14 )
+        goto LABEL_6;
+      if ( !v12 )
+        CmpKeyEnumStackNotifyPromotion(v17[12] + 56LL + 408LL * (SLOWORD(v17[0]) - 1));
+    }
+    LOBYTE(v10) = 1;
+    v13 = CmpPromoteSingleKeyFromKcbStacks(v11, v16, v10);
+LABEL_12:
+    v6 = v13;
+    v14 = v13 < 0;
+    goto LABEL_18;
+  }
+LABEL_6:
+  CmpSubtreeEnumeratorCleanup(v17);
   return (unsigned int)v6;
 }

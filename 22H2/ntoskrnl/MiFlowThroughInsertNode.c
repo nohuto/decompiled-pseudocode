@@ -1,15 +1,16 @@
 /*
- * XREFs of MiFlowThroughInsertNode @ 0x140369588
+ * XREFs of MiFlowThroughInsertNode @ 0x14032951C
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x1402E1B40 (MiFinishMdlForMappedFileFault.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C334 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
+ *     MiFinishMdlForMappedFileFault @ 0x14029AAFC (MiFinishMdlForMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FCB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyImageExtentContents @ 0x140540074 (MiCopyImageExtentContents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetPagingFileOffset @ 0x14033A2B0 (MiGetPagingFileOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
@@ -22,7 +23,7 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
   __int64 v9; // rbx
   KIRQL v10; // al
   _QWORD *v11; // rdx
-  unsigned __int64 v12; // r9
+  _QWORD *v12; // r9
   bool v13; // r8
   unsigned __int64 v14; // rsi
   unsigned __int64 v15; // rcx
@@ -42,13 +43,13 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
   }
   else
   {
-    PagingFileOffset = MiGetPagingFileOffset((unsigned __int64)&v22);
-    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8 * ((a2[5] >> 43) & 0x3FFLL)) + 8LL * (v2 >> 12) + 17056);
+    PagingFileOffset = MiGetPagingFileOffset(&v22);
+    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((a2[5] >> 39) & 0x3FFLL)) + 8LL * (v2 >> 12) + 6944);
     *(_QWORD *)(a1 + 336) = v9;
     *(_QWORD *)(a1 + 344) = PagingFileOffset;
     v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v9 + 232));
     v11 = *(_QWORD **)(v9 + 240);
-    v12 = a1 + 352;
+    v12 = (_QWORD *)(a1 + 352);
     v13 = 0;
     v14 = v10;
     if ( v11 )
@@ -56,7 +57,7 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
       v15 = *(_QWORD *)(a1 + 344);
       while ( 1 )
       {
-        if ( v15 > *(v11 - 1) || v15 >= *(v11 - 1) && v12 > (unsigned __int64)v11 )
+        if ( v15 > *(v11 - 1) || v15 >= *(v11 - 1) && v12 > v11 )
         {
           v16 = (_QWORD *)v11[1];
           if ( !v16 )
@@ -78,16 +79,19 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 232));
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-        v21 = (v20 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v20;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+          v21 = (v20 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v20;
+          if ( v21 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v14);

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C0086298
+ * XREFs of ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00E4D78
  * Callers:
- *     bInitStockFontsInternal @ 0x1C03B31F8 (bInitStockFontsInternal.c)
- *     bInitOneStockFont @ 0x1C03B38D0 (bInitOneStockFont.c)
- *     InitializeDefaultFamilyFonts @ 0x1C03B392C (InitializeDefaultFamilyFonts.c)
- *     hfontInitDefaultGuiFont @ 0x1C03B3AAC (hfontInitDefaultGuiFont.c)
+ *     bInitStockFontsInternal @ 0x1C0392344 (bInitStockFontsInternal.c)
+ *     bInitOneStockFont @ 0x1C0392854 (bInitOneStockFont.c)
+ *     InitializeDefaultFamilyFonts @ 0x1C03928B0 (InitializeDefaultFamilyFonts.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03929F0 (hfontInitDefaultGuiFont.c)
  * Callees:
  *     <none>
  */

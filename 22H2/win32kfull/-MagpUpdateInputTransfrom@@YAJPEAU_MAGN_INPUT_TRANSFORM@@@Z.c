@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01A2E40
+ * XREFs of ?MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01CC1C8
  * Callers:
- *     MagSetLensContextInformation @ 0x1C01A3870 (MagSetLensContextInformation.c)
+ *     MagSetLensContextInformation @ 0x1C01CCC94 (MagSetLensContextInformation.c)
  * Callees:
- *     _SetMagnificationInputTransform @ 0x1C005AE40 (_SetMagnificationInputTransform.c)
+ *     _SetMagnificationInputTransform @ 0x1C00EB340 (_SetMagnificationInputTransform.c)
  */
 
-__int64 __fastcall MagpUpdateInputTransfrom(struct _MAGN_INPUT_TRANSFORM *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MagpUpdateInputTransfrom(struct _MAGN_INPUT_TRANSFORM *a1, __int64 a2, __int64 a3)
 {
-  return (unsigned int)SetMagnificationInputTransform((__int128 *)a1, a2, a3, a4) == 0 ? 0xC0000001 : 0;
+  return (unsigned int)SetMagnificationInputTransform((__int128 *)a1, a2, a3) == 0 ? 0xC0000001 : 0;
 }

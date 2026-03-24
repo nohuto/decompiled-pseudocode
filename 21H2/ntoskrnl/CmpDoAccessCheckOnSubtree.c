@@ -1,48 +1,46 @@
 /*
- * XREFs of CmpDoAccessCheckOnSubtree @ 0x140AB4A4C
+ * XREFs of CmpDoAccessCheckOnSubtree @ 0x140871AC4
  * Callers:
- *     CmDumpKeyToFile @ 0x14090C1BC (CmDumpKeyToFile.c)
- *     CmRestoreKey @ 0x14090C34C (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14090CFF8 (CmSaveMergedKeys.c)
- *     CmpDumpKeyToBuffer @ 0x140AB48B4 (CmpDumpKeyToBuffer.c)
+ *     CmDumpKey @ 0x14087BD18 (CmDumpKey.c)
+ *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     CmpFindSubKeyByNumber @ 0x1406BF278 (CmpFindSubKeyByNumber.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmpCheckKeyAccess @ 0x140918174 (CmpCheckKeyAccess.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmpCheckKeyAccess @ 0x140871724 (CmpCheckKeyAccess.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnSubtree(
-        ULONG_PTR BugCheckParameter3,
+        __int64 a1,
         unsigned int a2,
-        char a3,
+        __int64 a3,
         struct _LOOKASIDE_LIST_EX *a4,
         int a5)
 {
   int SubKeyByNumber; // ebx
   unsigned int *TransientPoolWithTag; // rax
   void *v9; // r14
-  __int64 v10; // rbp
+  __int64 v10; // r15
   unsigned int *v11; // rdi
-  ULONG_PTR v12; // rdx
-  ULONG_PTR v13; // rdx
-  _DWORD *CellFlat; // rax
+  __int64 v12; // rdx
+  _DWORD *v13; // rax
+  _DWORD *v14; // rsi
   unsigned int v15; // r8d
   unsigned int v16; // eax
-  unsigned int v18; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v17; // rax
+  unsigned int v19; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD v20[2]; // [rsp+38h] [rbp-30h] BYREF
 
-  v19 = 0xFFFFFFFFLL;
-  v18 = 0;
+  v20[0] = -1;
+  v19 = 0;
+  v20[1] = 0;
   if ( (a5 & 0xFFFFFFFC) != 0 )
   {
     return (unsigned int)-1073741811;
   }
-  else if ( a3 )
+  else
   {
     TransientPoolWithTag = (unsigned int *)CmpAllocateTransientPoolWithTag(PagedPool, 0x2800uLL, 0x74634D43u, a4);
     v9 = TransientPoolWithTag;
@@ -59,53 +57,48 @@ __int64 __fastcall CmpDoAccessCheckOnSubtree(
         {
           v12 = *v11;
           *((_BYTE *)v11 + 16) = 1;
-          SubKeyByNumber = CmpCheckKeyAccess(BugCheckParameter3, v12);
+          SubKeyByNumber = CmpCheckKeyAccess(a1, v12);
           if ( SubKeyByNumber < 0 )
             break;
         }
-        v13 = *v11;
-        if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-          CellFlat = (_DWORD *)HvpGetCellFlat(BugCheckParameter3, v13, &v19);
-        else
-          CellFlat = (_DWORD *)HvpGetCellPaged(BugCheckParameter3, v13, (unsigned int *)&v19);
-        if ( !CellFlat )
+        v13 = (_DWORD *)(*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8))(a1, *v11, v20);
+        v14 = v13;
+        if ( !v13 )
         {
           SubKeyByNumber = -1073741670;
           break;
         }
         v15 = v11[3];
-        if ( v15 >= CellFlat[5] + CellFlat[6] )
+        if ( v15 >= v13[5] + v13[6] )
         {
-          --v10;
           v11 -= 5;
+          v17 = -1LL;
         }
         else
         {
-          SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter3, CellFlat, v15, &v18);
+          SubKeyByNumber = CmpFindSubKeyByNumber(a1, v13, v15, &v19);
           if ( SubKeyByNumber < 0 )
-            goto LABEL_26;
-          v16 = v18;
-          if ( v18 == -1 || (++v11[3], ++v10, v11 += 5, v10 == 512) )
+            goto LABEL_19;
+          v16 = v19;
+          if ( v19 == -1 || (++v11[3], v11 += 5, v10 == 511) )
           {
             SubKeyByNumber = -1073741670;
-LABEL_26:
-            if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-              HvpReleaseCellFlat(BugCheckParameter3, &v19);
-            else
-              HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v19);
-            break;
+            goto LABEL_19;
           }
           v11[3] = 0;
           *v11 = v16;
+          v17 = 1LL;
           *((_BYTE *)v11 + 16) = 0;
         }
-        if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(BugCheckParameter3, &v19);
-        else
-          HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v19);
+        v10 += v17;
+        (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v20);
         if ( v10 < 0 )
         {
           SubKeyByNumber = 0;
+          v14 = 0LL;
+LABEL_19:
+          if ( v14 )
+            (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v20);
           break;
         }
       }
@@ -115,10 +108,6 @@ LABEL_26:
     {
       return (unsigned int)-1073741670;
     }
-  }
-  else
-  {
-    return 0;
   }
   return (unsigned int)SubKeyByNumber;
 }

@@ -1,53 +1,91 @@
 /*
- * XREFs of PopNewWakeInfo @ 0x140A517EC
+ * XREFs of PopNewWakeInfo @ 0x14099852C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     PopReleaseWakeSourceSpinLock @ 0x1403965EC (PopReleaseWakeSourceSpinLock.c)
- *     PopAcquireWakeSourceSpinLock @ 0x140396620 (PopAcquireWakeSourceSpinLock.c)
- *     PopWakeInfoDereference @ 0x140397184 (PopWakeInfoDereference.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     PopWakeInfoDereference @ 0x14038BA18 (PopWakeInfoDereference.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14038BD14 (PopReleaseWakeSourceSpinLock.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14038BD48 (PopAcquireWakeSourceSpinLock.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 LONG PopNewWakeInfo()
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v1; // rbx
+  _QWORD *v2; // rax
+  _QWORD *v3; // rax
   LONG result; // eax
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  _QWORD *v7; // rcx
+  _QWORD *v8; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  Pool2 = ExAllocatePool2(64LL, 88LL, 544040269LL);
-  v1 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x206D654Du);
+  v1 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 16) = 1;
-    *(_QWORD *)(Pool2 + 32) = Pool2 + 24;
-    *(_QWORD *)(Pool2 + 24) = Pool2 + 24;
-    *(_BYTE *)(Pool2 + 80) = 1;
-    *(_QWORD *)(Pool2 + 8) = Pool2;
-    *(_QWORD *)Pool2 = Pool2;
-    PopAcquireWakeSourceSpinLock(&LockHandle);
+    memset(PoolWithTag, 0, 0xB0uLL);
+    *(_DWORD *)(v1 + 16) = 1;
+    *(_QWORD *)(v1 + 32) = v1 + 24;
+    *(_QWORD *)(v1 + 24) = v1 + 24;
+    *(_QWORD *)(v1 + 8) = v1;
+    *(_QWORD *)v1 = v1;
+  }
+  PopAcquireWakeSourceSpinLock(&LockHandle);
+  v2 = (_QWORD *)PopPendingWakeInfo;
+  if ( PopPendingWakeInfo )
+  {
+    v5 = PopWakeInfoList;
+    if ( *(__int64 **)(PopWakeInfoList + 8) != &PopWakeInfoList )
+      goto LABEL_15;
+    PopPendingWakeInfo = 0LL;
+    ++PopWakeInfoCount;
+    *v2 = PopWakeInfoList;
+    v2[1] = &PopWakeInfoList;
+    *(_QWORD *)(v5 + 8) = v2;
+    PopWakeInfoList = (__int64)v2;
+  }
+  v3 = (_QWORD *)PopCurrentWakeInfo;
+  if ( PopCurrentWakeInfo )
+  {
+    v6 = PopWakeInfoList;
+    if ( *(__int64 **)(PopWakeInfoList + 8) != &PopWakeInfoList )
+      goto LABEL_15;
+    PopCurrentWakeInfo = 0LL;
+    ++PopWakeInfoCount;
+    *v3 = PopWakeInfoList;
+    v3[1] = &PopWakeInfoList;
+    *(_QWORD *)(v6 + 8) = v3;
+    PopWakeInfoList = (__int64)v3;
+  }
+  if ( v1 )
+  {
     PopCurrentWakeInfo = v1;
     if ( PopWakeInfoCount == 1 )
     {
-      v3 = (_QWORD *)qword_140C23758;
-      v4 = *(_QWORD **)(qword_140C23758 + 8);
-      if ( *(__int64 **)qword_140C23758 != &PopWakeInfoList || *v4 != qword_140C23758 )
-        __fastfail(3u);
-      qword_140C23758 = *(_QWORD *)(qword_140C23758 + 8);
-      *v4 = &PopWakeInfoList;
-      v3[1] = v3;
-      *v3 = v3;
-      PopWakeInfoDereference((__int64)v3);
-      --PopWakeInfoCount;
+      v7 = (_QWORD *)qword_140C24368;
+      v8 = *(_QWORD **)(qword_140C24368 + 8);
+      if ( *(__int64 **)qword_140C24368 == &PopWakeInfoList && *v8 == qword_140C24368 )
+      {
+        qword_140C24368 = *(_QWORD *)(qword_140C24368 + 8);
+        *v8 = &PopWakeInfoList;
+        v7[1] = v7;
+        *v7 = v7;
+        PopWakeInfoDereference((__int64)v7);
+        --PopWakeInfoCount;
+        goto LABEL_7;
+      }
+LABEL_15:
+      __fastfail(3u);
     }
-    PopWakeSourceWorkState = 0;
-    PopReleaseWakeSourceSpinLock(&LockHandle);
   }
+LABEL_7:
+  PopReleaseWakeSourceSpinLock(&LockHandle);
   result = KeResetEvent(&PopWakeSourceAvailable);
   PopFixedWakeSourceMask = 0;
   return result;

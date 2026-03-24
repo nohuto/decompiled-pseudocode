@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z @ 0x1802AFEF0
+ * XREFs of ?UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z @ 0x180219E34
  * Callers:
- *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x1802AFE70 (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
+ *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x180219DBC (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
  * Callees:
  *     <none>
  */

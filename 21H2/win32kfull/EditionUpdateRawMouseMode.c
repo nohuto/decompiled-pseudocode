@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionUpdateRawMouseMode @ 0x1C00ABF30
+ * XREFs of EditionUpdateRawMouseMode @ 0x1C0052580
  * Callers:
  *     <none>
  * Callees:
- *     UpdateRawMouseMode @ 0x1C00ABF48 (UpdateRawMouseMode.c)
+ *     UpdateRawMouseMode @ 0x1C00525A8 (UpdateRawMouseMode.c)
  */
 
 __int64 __fastcall EditionUpdateRawMouseMode(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of bCvtPts1 @ 0x1C0019D34
+ * XREFs of bCvtPts1 @ 0x1C003D1D0
  * Callers:
- *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C001B2A4 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
- *     GreGetClipBox @ 0x1C001BC60 (GreGetClipBox.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z @ 0x1C0094520 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z.c)
+ *     GreGetClipBox @ 0x1C003A0D0 (GreGetClipBox.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C003BA94 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z @ 0x1C0082660 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z.c)
  * Callees:
- *     bFToL @ 0x1C009B150 (bFToL.c)
+ *     bFToL @ 0x1C0081930 (bFToL.c)
  */
 
 __int64 __fastcall bCvtPts1(unsigned __int64 a1, _DWORD *a2, __int64 a3)

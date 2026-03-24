@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgOpenDriverConfiguration @ 0x14087E4B8
+ * XREFs of PiDevCfgOpenDriverConfiguration @ 0x140737DE0
  * Callers:
- *     PiDevCfgQueryDriverNode @ 0x14087DDB0 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14095F2B8 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x140738C94 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7698 (PiDevCfgQueryIncludedDriverNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
  */
 
 __int64 __fastcall PiDevCfgOpenDriverConfiguration(void *a1, const WCHAR *a2, HANDLE *a3)
@@ -18,24 +18,26 @@ __int64 __fastcall PiDevCfgOpenDriverConfiguration(void *a1, const WCHAR *a2, HA
   HANDLE KeyHandle; // [rsp+70h] [rbp+10h] BYREF
 
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   DestinationString.Buffer = L"Configurations";
   ObjectAttributes.RootDirectory = a1;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = &DestinationString;
   *(_DWORD *)&DestinationString.Length = 1966108;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   v5 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v5 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, a2);
     v6 = KeyHandle;
+    *(&ObjectAttributes.Length + 1) = 0;
     *(&ObjectAttributes.Attributes + 1) = 0;
     *a3 = 0LL;
     ObjectAttributes.RootDirectory = v6;
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
     ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v5 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);

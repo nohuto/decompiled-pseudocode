@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GDXGPROCESS@@MEAAPEAXI@Z @ 0x1C001CDB0
+ * XREFs of ??_GDXGPROCESS@@MEAAPEAXI@Z @ 0x1C0006970
  * Callers:
  *     <none>
  * Callees:
- *     ??1DXGPROCESS@@MEAA@XZ @ 0x1C019A588 (--1DXGPROCESS@@MEAA@XZ.c)
+ *     ??1DXGPROCESS@@MEAA@XZ @ 0x1C0114970 (--1DXGPROCESS@@MEAA@XZ.c)
  */
 
 DXGPROCESS *__fastcall DXGPROCESS::`scalar deleting destructor'(DXGPROCESS *P, char a2)

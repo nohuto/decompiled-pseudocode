@@ -1,12 +1,11 @@
 /*
- * XREFs of ?SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z @ 0x1800FD46C
+ * XREFs of ?SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z @ 0x1800B0580
  * Callers:
- *     ?UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z @ 0x18007B808 (-UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z.c)
- *     ??1CTelemetryFrameStatistics@@QEAA@XZ @ 0x1801D6A24 (--1CTelemetryFrameStatistics@@QEAA@XZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18006FCF0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x180153AB4 (--1CPartitionVerticalBlankScheduler@@UEAA@XZ.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     GetProcessAndSessionId @ 0x1800FD4DC (GetProcessAndSessionId.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U1@U2@U2@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@344333@Z @ 0x1801D6934 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@U1@U2@U2@U1@U1@U1@@-$_tlgWriteTemp.c)
+ *     GetProcessAndSessionId @ 0x1800B05EC (GetProcessAndSessionId.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U1@U2@U2@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@344333@Z @ 0x180161EC4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@U1@U2@U2@U1@U1@U1@@-$_tlgWriteTemp.c)
  */
 
 void __fastcall CTelemetryFrameStatistics::SendFrameStatisticsTelemetry(CTelemetryFrameStatistics *this, __int64 a2)
@@ -36,7 +35,9 @@ void __fastcall CTelemetryFrameStatistics::SendFrameStatisticsTelemetry(CTelemet
   if ( *((_DWORD *)this + 8) )
   {
     GetProcessAndSessionId(&v23, &v22);
-    if ( (unsigned int)dword_1803D1270 > 5 && tlgKeywordOn((__int64)&dword_1803D1270, 0x400000000000LL) )
+    if ( (unsigned int)dword_180344E80 > 5
+      && (qword_180344E90 & 0x400000000000LL) != 0
+      && (qword_180344E98 & 0x400000000000LL) == qword_180344E98 )
     {
       v5 = *((_DWORD *)this + 9);
       v24 = *((_DWORD *)this + 11);
@@ -72,7 +73,7 @@ void __fastcall CTelemetryFrameStatistics::SendFrameStatisticsTelemetry(CTelemet
       v21[0] = v13 / v7;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
         v12,
-        (unsigned int)&unk_18036FC10,
+        (unsigned int)&unk_1802E7A4E,
         v9,
         v4,
         (__int64)&v23,

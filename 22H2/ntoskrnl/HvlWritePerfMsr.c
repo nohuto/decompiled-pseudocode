@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlWritePerfMsr @ 0x140540830
+ * XREFs of HvlWritePerfMsr @ 0x1404F2490
  * Callers:
  *     <none>
  * Callees:
- *     HvlpWritePerfRegister @ 0x140542768 (HvlpWritePerfRegister.c)
+ *     HvlpWritePerfRegister @ 0x1404F4038 (HvlpWritePerfRegister.c)
  */
 
 __int64 __fastcall HvlWritePerfMsr(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

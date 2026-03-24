@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpWaitForEmptyDeviceActionQueue @ 0x14073C500
+ * XREFs of PnpWaitForEmptyDeviceActionQueue @ 0x14073C4E0
  * Callers:
  *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
  *     PnpWaitForDevicesToStart @ 0x1409CA968 (PnpWaitForDevicesToStart.c)

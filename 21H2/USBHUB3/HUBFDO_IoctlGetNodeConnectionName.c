@@ -1,18 +1,18 @@
 /*
- * XREFs of HUBFDO_IoctlGetNodeConnectionName @ 0x1C0076BFC
+ * XREFs of HUBFDO_IoctlGetNodeConnectionName @ 0x1C007585C
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C0078740 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBMISC_GetDeviceInterfacePath @ 0x1C00309D4 (HUBMISC_GetDeviceInterfacePath.c)
- *     HUBMISC_GetActivityIdIrp @ 0x1C0030B10 (HUBMISC_GetActivityIdIrp.c)
- *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0030B3C (HUBMISC_StripSymbolicNamePrefix.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     HUBFDO_IoctlValidateParameters @ 0x1C0075D84 (HUBFDO_IoctlValidateParameters.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMISC_GetDeviceInterfacePath @ 0x1C0030334 (HUBMISC_GetDeviceInterfacePath.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0030470 (HUBMISC_GetActivityIdIrp.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C003049C (HUBMISC_StripSymbolicNamePrefix.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00749E4 (HUBFDO_IoctlValidateParameters.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlGetNodeConnectionName(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -47,7 +47,7 @@ __int64 __fastcall HUBFDO_IoctlGetNodeConnectionName(__int64 a1, __int64 a2, uns
   v10 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                     WdfDriverGlobals,
                     v9,
-                    off_1C0067198);
+                    off_1C0066170);
   DeviceInterfacePath = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, unsigned __int64, void **, _QWORD))(WdfFunctions_01015 + 2160))(
                           WdfDriverGlobals,
                           a2,
@@ -75,7 +75,7 @@ __int64 __fastcall HUBFDO_IoctlGetNodeConnectionName(__int64 a1, __int64 a2, uns
                                                                                                  + 1616))(
                                    WdfDriverGlobals,
                                    v12,
-                                   off_1C00670F8)
+                                   off_1C00660D0)
                                + 48) == v8 )
       {
         break;
@@ -92,7 +92,7 @@ __int64 __fastcall HUBFDO_IoctlGetNodeConnectionName(__int64 a1, __int64 a2, uns
                                                                                                   + 1616))(
                                     WdfDriverGlobals,
                                     v12,
-                                    off_1C00670F8)
+                                    off_1C00660D0)
                                 + 24)
                     + 1632LL) & 2) != 0 )
     {
@@ -140,7 +140,7 @@ LABEL_14:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v22 = DeviceInterfacePath;
-    WPP_RECORDER_SF_d(v10[315], 2u, 3u, 0x31u, (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids, v22);
+    WPP_RECORDER_SF_d(v10[315], 2u, 3u, 0x2Du, (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids, v22);
   }
 LABEL_17:
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )

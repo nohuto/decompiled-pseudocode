@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingDevicePanelList @ 0x14082B9F8
+ * XREFs of _CmGetMatchingDevicePanelList @ 0x1407B02D0
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x14082B900 (_PnpDispatchDevicePanel.c)
+ *     _PnpDispatchDevicePanel @ 0x1407B0020 (_PnpDispatchDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmGetMatchingDevicePanelListWorker @ 0x14082BF10 (_CmGetMatchingDevicePanelListWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmGetMatchingDevicePanelListWorker @ 0x1407B05C0 (_CmGetMatchingDevicePanelListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingDevicePanelList(

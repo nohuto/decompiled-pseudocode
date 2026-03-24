@@ -1,17 +1,17 @@
 /*
- * XREFs of ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00CE218
+ * XREFs of ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00282E8
  * Callers:
- *     _anonymous_namespace_::ComputeWindowToActivate @ 0x1C00CD884 (_anonymous_namespace_--ComputeWindowToActivate.c)
- *     _lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_ @ 0x1C00CD9C0 (_lambda_18e42bef8aab6193ee3628fe412f6142_--_lambda_invoker_cdecl_.c)
- *     _lambda_9e1c073be7703093e3ca0af05debe537_::operator() @ 0x1C00CDCFC (_lambda_9e1c073be7703093e3ca0af05debe537_--operator().c)
- *     _lambda_1a8a671d465f8785bc97c99107a222a3_::_lambda_invoker_cdecl_ @ 0x1C00CE070 (_lambda_1a8a671d465f8785bc97c99107a222a3_--_lambda_invoker_cdecl_.c)
- *     _lambda_b12a9ee524689ad3f22c234f981ca7cb_::_lambda_invoker_cdecl_ @ 0x1C00CE100 (_lambda_b12a9ee524689ad3f22c234f981ca7cb_--_lambda_invoker_cdecl_.c)
- *     _lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_ @ 0x1C00CE180 (_lambda_dc07bf9eeab06415d9a9c521953e95b1_--_lambda_invoker_cdecl_.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
+ *     _lambda_18e42bef8aab6193ee3628fe412f6142_::_lambda_invoker_cdecl_ @ 0x1C0027980 (_lambda_18e42bef8aab6193ee3628fe412f6142_--_lambda_invoker_cdecl_.c)
+ *     _anonymous_namespace_::ComputeWindowToActivate @ 0x1C00279F0 (_anonymous_namespace_--ComputeWindowToActivate.c)
+ *     _lambda_1a8a671d465f8785bc97c99107a222a3_::_lambda_invoker_cdecl_ @ 0x1C0027DA0 (_lambda_1a8a671d465f8785bc97c99107a222a3_--_lambda_invoker_cdecl_.c)
+ *     _lambda_beb7e60510a54e82b7f39bd19dd130e9_::_lambda_invoker_cdecl_ @ 0x1C0027E30 (_lambda_beb7e60510a54e82b7f39bd19dd130e9_--_lambda_invoker_cdecl_.c)
+ *     _lambda_9e1c073be7703093e3ca0af05debe537_::operator() @ 0x1C0027ECC (_lambda_9e1c073be7703093e3ca0af05debe537_--operator().c)
+ *     _lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_ @ 0x1C0028250 (_lambda_dc07bf9eeab06415d9a9c521953e95b1_--_lambda_invoker_cdecl_.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
  * Callees:
- *     ?IsWindowHolographicForHitTest@@YAHQEAUtagWND@@@Z @ 0x1C006D450 (-IsWindowHolographicForHitTest@@YAHQEAUtagWND@@@Z.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C006D740 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0077038 (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     GetWindowCloakState @ 0x1C004DC0C (GetWindowCloakState.c)
+ *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0066ACC (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     IsWindowHolographicForHitTest @ 0x1C006B850 (IsWindowHolographicForHitTest.c)
  */
 
 bool __fastcall IsWindowActivateable(const struct tagWND *a1)

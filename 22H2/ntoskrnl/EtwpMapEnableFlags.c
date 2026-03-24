@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpMapEnableFlags @ 0x1407FC7A0
+ * XREFs of EtwpMapEnableFlags @ 0x1406A3370
  * Callers:
- *     EtwpGetLoggerInfoFromContext @ 0x1407F91F0 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpUpdateGroupMasks @ 0x1408274E8 (EtwpUpdateGroupMasks.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140860054 (EtwQueryPerformanceTraceInformation.c)
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407129F4 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpUpdateGroupMasks @ 0x140791F80 (EtwpUpdateGroupMasks.c)
+ *     EtwpInitializeSiloAllowedGroupMask @ 0x1407D5120 (EtwpInitializeSiloAllowedGroupMask.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937EBC (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */
@@ -12,27 +12,25 @@
 unsigned __int64 __fastcall EtwpMapEnableFlags(__int64 a1, char a2)
 {
   __int64 *v2; // r9
-  __int64 v4; // r11
+  __int64 v4; // r10
   unsigned __int64 result; // rax
-  unsigned int v6; // r10d
-  unsigned __int64 v7; // rcx
+  unsigned __int64 v6; // rcx
 
   v2 = EtwpEnableFlagMap;
   v4 = 8LL;
   do
   {
-    if ( a2 )
+    if ( a2 == 1 )
     {
-      v6 = *(_DWORD *)v2;
       if ( a1 )
       {
-        result = (unsigned __int64)v6 >> 29;
-        if ( (v6 & *(_DWORD *)(a1 + 4 * result) & 0x1FFFFFFF) != 0 )
+        result = (unsigned __int64)*(unsigned int *)v2 >> 29;
+        if ( (*(_DWORD *)v2 & *(_DWORD *)(a1 + 4 * result) & 0x1FFFFFFF) != 0 )
         {
-          v7 = *((unsigned int *)v2 + 1);
+          v6 = *((unsigned int *)v2 + 1);
 LABEL_11:
-          result = v7 >> 29;
-          *(_DWORD *)(a1 + 4 * (v7 >> 29)) |= v7 & 0x1FFFFFFF;
+          result = v6 >> 29;
+          *(_DWORD *)(a1 + 4 * (v6 >> 29)) |= v6 & 0x1FFFFFFF;
         }
       }
     }
@@ -41,7 +39,7 @@ LABEL_11:
       result = (unsigned __int64)*((unsigned int *)v2 + 1) >> 29;
       if ( (*((_DWORD *)v2 + 1) & *(_DWORD *)(a1 + 4 * result) & 0x1FFFFFFF) != 0 )
       {
-        v7 = *(unsigned int *)v2;
+        v6 = *(unsigned int *)v2;
         goto LABEL_11;
       }
     }

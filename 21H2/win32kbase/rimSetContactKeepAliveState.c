@@ -1,9 +1,9 @@
 /*
- * XREFs of rimSetContactKeepAliveState @ 0x1C01B2848
+ * XREFs of rimSetContactKeepAliveState @ 0x1C017CD74
  * Callers:
- *     rimInsertSimulatedContactKeepAliveStateInFrame @ 0x1C01B1008 (rimInsertSimulatedContactKeepAliveStateInFrame.c)
+ *     rimInsertSimulatedContactKeepAliveStateInFrame @ 0x1C017B8E4 (rimInsertSimulatedContactKeepAliveStateInFrame.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall rimSetContactKeepAliveState(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -14,16 +14,16 @@ __int64 __fastcall rimSetContactKeepAliveState(__int64 a1, __int64 a2, __int64 a
   __int64 result; // rax
 
   v4 = a2 + 2344;
-  if ( !*(_QWORD *)(a1 + 784) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+  if ( !*(_QWORD *)(a1 + 736) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1773);
   v9 = *(_DWORD *)(a2 + 32);
   if ( (v9 & 2) == 0 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1774);
     v9 = *(_DWORD *)(a2 + 32);
   }
   if ( (v9 & 4) != 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1775);
   *(_OWORD *)v4 = *(_OWORD *)(a2 + 2584);
   *(_OWORD *)(v4 + 16) = *(_OWORD *)(a2 + 2600);
   *(_OWORD *)(v4 + 32) = *(_OWORD *)(a2 + 2616);

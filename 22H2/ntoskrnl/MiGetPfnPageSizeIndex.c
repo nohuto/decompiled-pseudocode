@@ -1,24 +1,25 @@
 /*
- * XREFs of MiGetPfnPageSizeIndex @ 0x1402E88E0
+ * XREFs of MiGetPfnPageSizeIndex @ 0x1403F6158
  * Callers:
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiGetFreeLargePage @ 0x1402D8720 (MiGetFreeLargePage.c)
- *     MiGetFastLargePages @ 0x1402E86FC (MiGetFastLargePages.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiProcessPageGroupInfo @ 0x14032F370 (MiProcessPageGroupInfo.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x1403899D0 (MiInitializeLargeMdlLeafPfns.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
- *     MiActivePageClaimCandidate @ 0x1403BB598 (MiActivePageClaimCandidate.c)
- *     MiFindLargeNodePage @ 0x14061D6D8 (MiFindLargeNodePage.c)
- *     MiMirrorRemoveInactivePages @ 0x140628334 (MiMirrorRemoveInactivePages.c)
- *     MiUpdateLargePageSectionPfns @ 0x140628FEC (MiUpdateLargePageSectionPfns.c)
- *     MiFreeContiguousLargePageRun @ 0x140649E28 (MiFreeContiguousLargePageRun.c)
- *     MiGetPagesRemainingInResidentPage @ 0x14064F2B4 (MiGetPagesRemainingInResidentPage.c)
- *     MiTransferPartitionPageRun @ 0x14065B674 (MiTransferPartitionPageRun.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14065D55C (MiCoalesceActivePagesIntoFree.c)
- *     MiFreeLargePages @ 0x1406682C0 (MiFreeLargePages.c)
- *     MiScrubLargePageRegions @ 0x140A46480 (MiScrubLargePageRegions.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
+ *     MiActivePageClaimCandidate @ 0x140282D80 (MiActivePageClaimCandidate.c)
+ *     MiIdentifyPfn @ 0x1402C9940 (MiIdentifyPfn.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1402EF1FC (MiTryUnlinkNodeLargePage.c)
+ *     MiZeroInParallelWorker @ 0x140357570 (MiZeroInParallelWorker.c)
+ *     MiFindLargeNodePage @ 0x1403947D0 (MiFindLargeNodePage.c)
+ *     MiUpdateLargePageSectionPfns @ 0x1403F382C (MiUpdateLargePageSectionPfns.c)
+ *     MiZeroWithSystemPtes @ 0x1403F48B8 (MiZeroWithSystemPtes.c)
+ *     MiZeroWithUltraSpace @ 0x1403F4B98 (MiZeroWithUltraSpace.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x1403F6038 (MiGetPagesRemainingInResidentPage.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6188 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetFastLargePages @ 0x1403F71A0 (MiGetFastLargePages.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140533F28 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiMirrorRemoveInactivePages @ 0x140534CB4 (MiMirrorRemoveInactivePages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055D99C (MiAllocateLargeZeroPages.c)
+ *     MiAssembleLargePagePfnList @ 0x14055DD60 (MiAssembleLargePagePfnList.c)
+ *     MiFreeLargePages @ 0x14055E3D8 (MiFreeLargePages.c)
+ *     MiTransferPartitionPageRun @ 0x140562D50 (MiTransferPartitionPageRun.c)
  * Callees:
  *     <none>
  */
@@ -27,9 +28,9 @@ __int64 __fastcall MiGetPfnPageSizeIndex(__int64 a1)
 {
   __int64 result; // rax
 
-  if ( !_bittest64((const signed __int64 *)(a1 + 40), 0x28u) )
+  if ( (*(_QWORD *)(a1 + 40) & 0x1000000000LL) == 0 )
     return 0xFFFFFFFFLL;
-  result = 3 - (*(_BYTE *)(a1 + 36) & 3u);
+  result = 3 - (*(_BYTE *)(a1 + 39) & 3u);
   if ( (_DWORD)result == 3 )
     return 0xFFFFFFFFLL;
   return result;

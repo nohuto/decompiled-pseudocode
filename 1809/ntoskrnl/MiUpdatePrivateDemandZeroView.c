@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUpdatePrivateDemandZeroView @ 0x1402A5AB8
+ * XREFs of MiUpdatePrivateDemandZeroView @ 0x1402A5BB8
  * Callers:
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  * Callees:
@@ -12,11 +12,11 @@
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiIncreaseUsedPtesCount @ 0x140110044 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiUpdatePrivateDemandZeroView(__int64 a1, __int64 a2, int a3)

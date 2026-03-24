@@ -1,1 +1,74 @@
-/*\n * XREFs of MouseAddDevice @ 0x1C000B2F0\n * Callers:\n *     <none>\n * Callees:\n *     MouseAddDeviceEx @ 0x1C000B420 (MouseAddDeviceEx.c)\n *     MouCreateClassObject @ 0x1C000B850 (MouCreateClassObject.c)\n */\n\n__int64 __fastcall MouseAddDevice(struct _DRIVER_OBJECT *IoObject, PDEVICE_OBJECT PhysicalDeviceObject)\n{\n  __int64 result; // rax\n  char *DeviceExtension; // rbx\n  PDEVICE_OBJECT v6; // rax\n  NTSTATUS v7; // esi\n  _DWORD *ErrorLogEntry; // rax\n  PDEVICE_OBJECT SourceDevice; // [rsp+60h] [rbp+18h]\n\n  result = MouCreateClassObject(IoObject, 0);\n  if ( (int)result >= 0 )\n  {\n    DeviceExtension = (char *)SourceDevice->DeviceExtension;\n    v6 = IoAttachDeviceToDeviceStack(SourceDevice, PhysicalDeviceObject);\n    *((_QWORD *)DeviceExtension + 2) = v6;\n    if ( v6 )\n    {\n      *((_QWORD *)DeviceExtension + 3) = PhysicalDeviceObject;\n      *((_WORD *)DeviceExtension + 32) = 1;\n      *((_DWORD *)DeviceExtension + 43) = 1;\n      *((_DWORD *)DeviceExtension + 44) = 1;\n      PoSetPowerState(SourceDevice, DevicePowerState, (POWER_STATE)1);\n      *(_QWORD *)(DeviceExtension + 268) = 0LL;\n      DeviceExtension[345] = 0;\n      *((_QWORD *)DeviceExtension + 35) = 0LL;\n      DeviceExtension[288] = 0;\n      *((_QWORD *)DeviceExtension + 37) = 0LL;\n      *((_DWORD *)DeviceExtension + 76) = 0;\n      SourceDevice->Flags |= 0x2000u;\n      SourceDevice->Flags &= ~0x80u;\n      v7 = IoRegisterDeviceInterface(\n             PhysicalDeviceObject,\n             &GUID_DEVINTERFACE_MOUSE,\n             0LL,\n             (PUNICODE_STRING)(DeviceExtension + 88));\n      if ( v7 < 0 )\n      {\n        IoDetachDevice(*((PDEVICE_OBJECT *)DeviceExtension + 2));\n        *((_QWORD *)DeviceExtension + 2) = 0LL;\n        IoDeleteDevice(SourceDevice);\n      }\n      else\n      {\n        return (unsigned int)MouseAddDeviceEx(DeviceExtension, 0LL, 0LL);\n      }\n      return (unsigned int)v7;\n    }\n    else\n    {\n      ErrorLogEntry = IoAllocateErrorLogEntry(IoObject, 0x30u);\n      if ( ErrorLogEntry )\n      {\n        ErrorLogEntry[3] = -1073414129;\n        *ErrorLogEntry = 0;\n        *((_QWORD *)ErrorLogEntry + 3) = 0LL;\n        ErrorLogEntry[4] = 0;\n        ErrorLogEntry[5] = -1073741667;\n        IoWriteErrorLogEntry(ErrorLogEntry);\n      }\n      IoDeleteDevice(SourceDevice);\n      return 3221225629LL;\n    }\n  }\n  return result;\n}\n
+/*
+ * XREFs of MouseAddDevice @ 0x1C000B2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseAddDeviceEx @ 0x1C000B420 (MouseAddDeviceEx.c)
+ *     MouCreateClassObject @ 0x1C000B850 (MouCreateClassObject.c)
+ */
+
+__int64 __fastcall MouseAddDevice(struct _DRIVER_OBJECT *IoObject, PDEVICE_OBJECT PhysicalDeviceObject)
+{
+  __int64 result; // rax
+  char *DeviceExtension; // rbx
+  PDEVICE_OBJECT v6; // rax
+  NTSTATUS v7; // esi
+  _DWORD *ErrorLogEntry; // rax
+  PDEVICE_OBJECT SourceDevice; // [rsp+60h] [rbp+18h]
+
+  result = MouCreateClassObject(IoObject, 0);
+  if ( (int)result >= 0 )
+  {
+    DeviceExtension = (char *)SourceDevice->DeviceExtension;
+    v6 = IoAttachDeviceToDeviceStack(SourceDevice, PhysicalDeviceObject);
+    *((_QWORD *)DeviceExtension + 2) = v6;
+    if ( v6 )
+    {
+      *((_QWORD *)DeviceExtension + 3) = PhysicalDeviceObject;
+      *((_WORD *)DeviceExtension + 32) = 1;
+      *((_DWORD *)DeviceExtension + 43) = 1;
+      *((_DWORD *)DeviceExtension + 44) = 1;
+      PoSetPowerState(SourceDevice, DevicePowerState, (POWER_STATE)1);
+      *(_QWORD *)(DeviceExtension + 268) = 0LL;
+      DeviceExtension[345] = 0;
+      *((_QWORD *)DeviceExtension + 35) = 0LL;
+      DeviceExtension[288] = 0;
+      *((_QWORD *)DeviceExtension + 37) = 0LL;
+      *((_DWORD *)DeviceExtension + 76) = 0;
+      SourceDevice->Flags |= 0x2000u;
+      SourceDevice->Flags &= ~0x80u;
+      v7 = IoRegisterDeviceInterface(
+             PhysicalDeviceObject,
+             &GUID_DEVINTERFACE_MOUSE,
+             0LL,
+             (PUNICODE_STRING)(DeviceExtension + 88));
+      if ( v7 < 0 )
+      {
+        IoDetachDevice(*((PDEVICE_OBJECT *)DeviceExtension + 2));
+        *((_QWORD *)DeviceExtension + 2) = 0LL;
+        IoDeleteDevice(SourceDevice);
+      }
+      else
+      {
+        return (unsigned int)MouseAddDeviceEx(DeviceExtension, 0LL, 0LL);
+      }
+      return (unsigned int)v7;
+    }
+    else
+    {
+      ErrorLogEntry = IoAllocateErrorLogEntry(IoObject, 0x30u);
+      if ( ErrorLogEntry )
+      {
+        ErrorLogEntry[3] = -1073414129;
+        *ErrorLogEntry = 0;
+        *((_QWORD *)ErrorLogEntry + 3) = 0LL;
+        ErrorLogEntry[4] = 0;
+        ErrorLogEntry[5] = -1073741667;
+        IoWriteErrorLogEntry(ErrorLogEntry);
+      }
+      IoDeleteDevice(SourceDevice);
+      return 3221225629LL;
+    }
+  }
+  return result;
+}

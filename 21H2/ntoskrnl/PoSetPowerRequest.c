@@ -1,17 +1,36 @@
 /*
- * XREFs of PoSetPowerRequest @ 0x140369FB0
+ * XREFs of PoSetPowerRequest @ 0x140281F70
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x1403698C4 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402840A8 (PopApplyLegacyPowerRequestFlags.c)
  * Callees:
- *     PopPowerRequestReferenceAcquire @ 0x14036A2C8 (PopPowerRequestReferenceAcquire.c)
+ *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
  */
 
 NTSTATUS __stdcall PoSetPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Type)
 {
-  __int32 v2; // edx
+  unsigned int v2; // eax
+  __int32 v3; // edx
+  __int32 v5; // edx
 
-  if ( Type && (v2 = Type - 1) != 0 && (unsigned int)(v2 - 1) >= 2 )
-    return -1073741637;
-  else
-    return PopPowerRequestReferenceAcquire(PowerRequest);
+  v2 = 0;
+  if ( Type == PowerRequestDisplayRequired )
+    return PoSetPowerRequestInternal(PowerRequest, v2);
+  v3 = Type - 1;
+  if ( !v3 )
+  {
+    v2 = 1;
+    return PoSetPowerRequestInternal(PowerRequest, v2);
+  }
+  v5 = v3 - 1;
+  if ( !v5 )
+  {
+    v2 = 2;
+    return PoSetPowerRequestInternal(PowerRequest, v2);
+  }
+  if ( v5 == 1 )
+  {
+    v2 = 3;
+    return PoSetPowerRequestInternal(PowerRequest, v2);
+  }
+  return -1073741637;
 }

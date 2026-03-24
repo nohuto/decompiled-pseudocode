@@ -1,11 +1,11 @@
 /*
- * XREFs of ?make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA?AUquaternion@123@AEBUfloat3@123@M@Z @ 0x18024733C
+ * XREFs of ?make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA?AUquaternion@123@AEBUfloat3@123@M@Z @ 0x1801E1CF4
  * Callers:
- *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x180244B44 (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
- *     ?GetRandomUnitDir@@YA?AUfloat3@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@AEBU1234@1_N@Z @ 0x180247718 (-GetRandomUnitDir@@YA-AUfloat3@Numerics@Foundation@Windows@@AEAV-$mersenne_twister_engine@I$0CA@.c)
+ *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x1801DF4EC (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
+ *     ?GetRandomUnitDir@@YA?AUfloat3@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@AEBU1234@1_N@Z @ 0x1801E2070 (-GetRandomUnitDir@@YA-AUfloat3@Numerics@Foundation@Windows@@AEAV-$mersenne_twister_engine@I$0CA@.c)
  * Callees:
- *     cosf_0 @ 0x18011B8A8 (cosf_0.c)
- *     sinf_0 @ 0x18011B944 (sinf_0.c)
+ *     cosf_0 @ 0x1800F3F93 (cosf_0.c)
+ *     sinf_0 @ 0x1800F3FCF (sinf_0.c)
  */
 
 float *__fastcall Windows::Foundation::Numerics::make_quaternion_from_axis_angle(float *a1, float *a2, float a3)

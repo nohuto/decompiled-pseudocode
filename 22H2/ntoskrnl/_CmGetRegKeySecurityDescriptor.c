@@ -1,25 +1,25 @@
 /*
- * XREFs of _CmGetRegKeySecurityDescriptor @ 0x14086F758
+ * XREFs of _CmGetRegKeySecurityDescriptor @ 0x14077EC1C
  * Callers:
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x14086F6AC (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140882DB4 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x14076E240 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140770520 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x1402979B0 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710FF0 (RtlLengthSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140782500 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
- *     RtlValidSecurityDescriptor @ 0x1407B52C0 (RtlValidSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF640 (RtlSetGroupSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x1403482A0 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1406D7CC0 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406D8E90 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406EFA00 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406EFA60 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140767A50 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
@@ -29,10 +29,10 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
   ULONG v6; // ebx
   ULONG v7; // ebx
   ULONG v8; // ebx
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v10; // rsi
   ULONG v11; // eax
-  void *v12; // rax
+  PVOID v12; // rax
   void *v13; // rdi
   struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
   struct _SID_IDENTIFIER_AUTHORITY v16; // [rsp+40h] [rbp-41h] BYREF
@@ -89,11 +89,11 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
     v8 = RtlLengthSid(Sid) + v7 + 32;
     if ( a1 )
       v8 += RtlLengthSid(v4) + 8;
-    Pool2 = (ACL *)ExAllocatePool2(256LL, v8, 1380994640LL);
-    v10 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v8, 0x52504E50u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Acl = RtlCreateAcl(Pool2, v8, 2u);
+      Acl = RtlCreateAcl(PoolWithTag, v8, 2u);
       if ( Acl >= 0 )
       {
         Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 983103, Sid, 0);
@@ -130,7 +130,7 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
                           }
                           else
                           {
-                            v12 = (void *)ExAllocatePool2(256LL, v11, 1380994640LL);
+                            v12 = ExAllocatePoolWithTag(PagedPool, v11, 0x52504E50u);
                             v13 = v12;
                             if ( v12 )
                             {
@@ -138,10 +138,13 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
                                       SecurityDescriptor,
                                       v12,
                                       (PULONG)IdentifierAuthority.Value);
-                              if ( Acl < 0 )
-                                ExFreePoolWithTag(v13, 0);
-                              else
+                              if ( Acl >= 0 )
+                              {
                                 *a2 = v13;
+                                v13 = 0LL;
+                              }
+                              if ( v13 )
+                                ExFreePoolWithTag(v13, 0);
                             }
                             else
                             {

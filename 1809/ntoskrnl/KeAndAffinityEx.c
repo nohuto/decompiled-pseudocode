@@ -1,22 +1,22 @@
 /*
- * XREFs of KeAndAffinityEx @ 0x1400DC6E0
+ * XREFs of KeAndAffinityEx @ 0x1400DC700
  * Callers:
  *     PpmParkSteerInterrupts @ 0x140063570 (PpmParkSteerInterrupts.c)
  *     PpmPerfApplyDomainStates @ 0x140063AC0 (PpmPerfApplyDomainStates.c)
- *     KiGetDeepIdleProcessors @ 0x1400DBEFC (KiGetDeepIdleProcessors.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1400DBF90 (KeQueryLogicalProcessorRelationship.c)
- *     PpmPerfApplyDomainState @ 0x140112900 (PpmPerfApplyDomainState.c)
- *     PpmParkReportParkedCores @ 0x140122330 (PpmParkReportParkedCores.c)
- *     KeIsSubsetAffinityEx @ 0x14028E2D0 (KeIsSubsetAffinityEx.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4594 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4DB0 (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmUpdateIdleDomains @ 0x1402D6020 (PpmUpdateIdleDomains.c)
- *     PspSetEffectiveJobLimits @ 0x1406B9984 (PspSetEffectiveJobLimits.c)
- *     KeInitializeProfile @ 0x1408444C4 (KeInitializeProfile.c)
- *     PsUpdateActiveProcessAffinity @ 0x1408888E0 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinitySafe @ 0x140889074 (PspSetProcessAffinitySafe.c)
+ *     KiGetDeepIdleProcessors @ 0x1400DBF1C (KiGetDeepIdleProcessors.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1400DBFB0 (KeQueryLogicalProcessorRelationship.c)
+ *     PpmPerfApplyDomainState @ 0x140112920 (PpmPerfApplyDomainState.c)
+ *     PpmParkReportParkedCores @ 0x140122350 (PpmParkReportParkedCores.c)
+ *     KeIsSubsetAffinityEx @ 0x14028E3D0 (KeIsSubsetAffinityEx.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4EB0 (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmUpdateIdleDomains @ 0x1402D6120 (PpmUpdateIdleDomains.c)
+ *     PspSetEffectiveJobLimits @ 0x1406B9964 (PspSetEffectiveJobLimits.c)
+ *     KeInitializeProfile @ 0x1408444A4 (KeInitializeProfile.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1408888C0 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinitySafe @ 0x140889054 (PspSetProcessAffinitySafe.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeAndAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

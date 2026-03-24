@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateCrcList @ 0x1406D4688
+ * XREFs of MiAllocateCrcList @ 0x1406D4668
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     MiGetAvailablePagesBelowPriority @ 0x140030FC4 (MiGetAvailablePagesBelowPriority.c)
- *     MiGetPrivatePageCount @ 0x14013E6F0 (MiGetPrivatePageCount.c)
+ *     MiGetPrivatePageCount @ 0x14013E710 (MiGetPrivatePageCount.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

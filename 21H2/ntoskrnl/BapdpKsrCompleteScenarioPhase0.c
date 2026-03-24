@@ -1,9 +1,9 @@
 /*
- * XREFs of BapdpKsrCompleteScenarioPhase0 @ 0x1406388D0
+ * XREFs of BapdpKsrCompleteScenarioPhase0 @ 0x1405B20A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall BapdpKsrCompleteScenarioPhase0(int a1, int a2)

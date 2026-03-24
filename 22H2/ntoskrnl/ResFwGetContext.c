@@ -1,39 +1,39 @@
 /*
- * XREFs of ResFwGetContext @ 0x140AF3010
+ * XREFs of ResFwGetContext @ 0x1409F1298
  * Callers:
- *     BgGetContext @ 0x140AF226C (BgGetContext.c)
+ *     BgGetContext @ 0x1409F1248 (BgGetContext.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdlEx @ 0x1403547F0 (MmAllocatePagesForMdlEx.c)
  */
 
 __int64 __fastcall ResFwGetContext(__int64 *a1)
 {
   char *v1; // rbx
-  __int64 result; // rax
-  char v4; // al
-  int v5; // ecx
-  unsigned int v6; // r14d
-  unsigned int v7; // ebp
+  char v3; // al
+  int v4; // ecx
+  unsigned int v5; // r14d
+  unsigned int v6; // ebp
   PMDL PagesForMdl; // rax
-  PMDL v9; // rdi
+  PMDL v8; // rdi
   char *MappedSystemVa; // rdx
-  __int64 v11; // r8
+  __int64 v10; // r8
+  __int64 result; // rax
 
   v1 = 0LL;
   if ( !a1 )
     return 3221225485LL;
-  v4 = dword_140C0E4B0;
+  v3 = dword_140C134F0;
   *a1 = 0LL;
-  if ( (v4 & 1) == 0 )
+  if ( (v3 & 1) == 0 )
     return 3221225473LL;
-  v5 = dword_140C0E4CC;
-  if ( dword_140C0E4D0 >= (unsigned int)dword_140C0E4CC )
-    v5 = dword_140C0E4D0;
-  v6 = (dword_140C0E4DC + v5 + dword_140C0E4D8 + 20479) & 0xFFFFF000;
-  v7 = ((v6 >> 3) + 4095) & 0xFFFFF000;
-  PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, 0LL, v6 + v7, MmCached, 5u);
-  v9 = PagesForMdl;
+  v4 = dword_140C1350C;
+  if ( dword_140C13510 >= (unsigned int)dword_140C1350C )
+    v4 = dword_140C13510;
+  v5 = (dword_140C1351C + v4 + dword_140C13518 + 20479) & 0xFFFFF000;
+  v6 = ((v5 >> 3) + 4095) & 0xFFFFF000;
+  PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, 0LL, v5 + v6, MmCached, 5u);
+  v8 = PagesForMdl;
   if ( PagesForMdl )
   {
     if ( (PagesForMdl->MdlFlags & 5) != 0 )
@@ -45,17 +45,17 @@ __int64 __fastcall ResFwGetContext(__int64 *a1)
   {
     MappedSystemVa = 0LL;
   }
-  v11 = qword_140C0E4E0;
-  *(_QWORD *)(qword_140C0E4E0 + 8) = v9;
-  *(_QWORD *)(v11 + 16) = MappedSystemVa;
+  v10 = qword_140C13520;
+  *(_QWORD *)(qword_140C13520 + 8) = v8;
+  *(_QWORD *)(v10 + 16) = MappedSystemVa;
   if ( MappedSystemVa )
-    v1 = &MappedSystemVa[v7];
-  *(_DWORD *)(v11 + 24) = MappedSystemVa != 0LL ? v6 + v7 : 0;
-  *(_DWORD *)(v11 + 248) = MappedSystemVa != 0LL ? v6 : 0;
-  *(_QWORD *)(v11 + 240) = v1;
-  BgpAnimationRegionSave = qword_140C0E570;
-  BgpTextRegionSave = qword_140C0E578;
+    v1 = &MappedSystemVa[v6];
+  *(_DWORD *)(v10 + 24) = MappedSystemVa != 0LL ? v5 + v6 : 0;
+  *(_DWORD *)(v10 + 248) = MappedSystemVa != 0LL ? v5 : 0;
+  *(_QWORD *)(v10 + 240) = v1;
+  BgpAnimationRegionSave = qword_140C135B0;
+  BgpTextRegionSave = qword_140C135B8;
   result = 0LL;
-  *a1 = v11;
+  *a1 = v10;
   return result;
 }

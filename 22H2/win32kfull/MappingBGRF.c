@@ -1,18 +1,18 @@
 /*
- * XREFs of MappingBGRF @ 0x1C0262D64
+ * XREFs of MappingBGRF @ 0x1C026B6C4
  * Callers:
- *     BltDIB_CY @ 0x1C025E160 (BltDIB_CY.c)
- *     ExpandDIB_CY @ 0x1C025F1F0 (ExpandDIB_CY.c)
- *     ExpandDIB_CY_ExpCX @ 0x1C025FB80 (ExpandDIB_CY_ExpCX.c)
- *     FastExpAA_CY @ 0x1C0260A70 (FastExpAA_CY.c)
- *     GrayExpandDIB_CY @ 0x1C02613F0 (GrayExpandDIB_CY.c)
- *     GrayExpandDIB_CY_ExpCX @ 0x1C0261B60 (GrayExpandDIB_CY_ExpCX.c)
- *     GrayShrinkDIB_CY @ 0x1C0262650 (GrayShrinkDIB_CY.c)
- *     RepDIB_CY @ 0x1C0262E90 (RepDIB_CY.c)
- *     ShrinkDIB_CY @ 0x1C0263610 (ShrinkDIB_CY.c)
- *     ShrinkDIB_CY_SrkCX @ 0x1C0263DB0 (ShrinkDIB_CY_SrkCX.c)
- *     SkipDIB_CY @ 0x1C02647C0 (SkipDIB_CY.c)
- *     TileDIB_CY @ 0x1C0264A30 (TileDIB_CY.c)
+ *     ShrinkDIB_CY_SrkCX @ 0x1C00012D0 (ShrinkDIB_CY_SrkCX.c)
+ *     BltDIB_CY @ 0x1C00C7480 (BltDIB_CY.c)
+ *     RepDIB_CY @ 0x1C013A930 (RepDIB_CY.c)
+ *     ExpandDIB_CY @ 0x1C02679A0 (ExpandDIB_CY.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C0268310 (ExpandDIB_CY_ExpCX.c)
+ *     FastExpAA_CY @ 0x1C0269200 (FastExpAA_CY.c)
+ *     GrayExpandDIB_CY @ 0x1C0269B90 (GrayExpandDIB_CY.c)
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C026A330 (GrayExpandDIB_CY_ExpCX.c)
+ *     GrayShrinkDIB_CY @ 0x1C026AFC0 (GrayShrinkDIB_CY.c)
+ *     ShrinkDIB_CY @ 0x1C026BC20 (ShrinkDIB_CY.c)
+ *     SkipDIB_CY @ 0x1C026C400 (SkipDIB_CY.c)
+ *     TileDIB_CY @ 0x1C026C670 (TileDIB_CY.c)
  * Callees:
  *     <none>
  */

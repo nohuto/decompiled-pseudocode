@@ -3,13 +3,13 @@
  * Callers:
  *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405902D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
- *     PiDmGetObjectConstraintList @ 0x1406D2424 (PiDmGetObjectConstraintList.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406DACF4 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiDmGetObjectConstraintList @ 0x1406D2404 (PiDmGetObjectConstraintList.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406DACD4 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)

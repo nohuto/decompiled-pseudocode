@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpEnterStateChangeEventMessageLog @ 0x14084A5B8
+ * XREFs of AlpcpEnterStateChangeEventMessageLog @ 0x14084A598
  * Callers:
  *     AlpcpReceiveLegacyMessage @ 0x140613E70 (AlpcpReceiveLegacyMessage.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
@@ -12,9 +12,9 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     AlpcpAllocateSnapshotMessageLog @ 0x14084A374 (AlpcpAllocateSnapshotMessageLog.c)
- *     AlpcpLocateMessageLog @ 0x14084A764 (AlpcpLocateMessageLog.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     AlpcpAllocateSnapshotMessageLog @ 0x14084A354 (AlpcpAllocateSnapshotMessageLog.c)
+ *     AlpcpLocateMessageLog @ 0x14084A744 (AlpcpLocateMessageLog.c)
  */
 
 __int64 __fastcall AlpcpEnterStateChangeEventMessageLog(__int64 a1)

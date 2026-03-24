@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiGetTextExtent @ 0x1C02AD990
+ * XREFs of NtGdiGetTextExtent @ 0x1C02AF250
  * Callers:
  *     <none>
  * Callees:
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
-__int64 __fastcall NtGdiGetTextExtent(HDC a1, const void *a2, signed int a3, struct _POINTL *a4, unsigned int a5)
+__int64 __fastcall NtGdiGetTextExtent(HDC a1, const void *a2, signed int a3, struct _POINTL *a4, char a5)
 {
   struct _POINTL *v5; // r14
   __int64 v6; // r13

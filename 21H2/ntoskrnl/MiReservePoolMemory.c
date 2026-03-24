@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReservePoolMemory @ 0x14024D0D4
+ * XREFs of MiReservePoolMemory @ 0x1402B2E74
  * Callers:
- *     MmAllocatePoolMemory @ 0x14035225C (MmAllocatePoolMemory.c)
- *     MmAllocateSecurePoolMemory @ 0x14059A86C (MmAllocateSecurePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x14030B0D8 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140544DC0 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiObtainSessionVa @ 0x14024D180 (MiObtainSessionVa.c)
- *     MiObtainSystemVa @ 0x14026B32C (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x14026B354 (MiObtainDynamicVa.c)
- *     MiMarkSystemVaAllocated @ 0x140599050 (MiMarkSystemVaAllocated.c)
+ *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x1402B3808 (MiObtainDynamicVa.c)
+ *     MiObtainSessionVa @ 0x1402B41B4 (MiObtainSessionVa.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DC70 (MiMarkSystemVaAllocated.c)
  */
 
 __int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, int a2, unsigned __int64 a3, unsigned int a4)
@@ -21,14 +21,14 @@ __int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, int a2, unsigned __i
     switch ( a2 )
     {
       case 5:
-        return MiObtainDynamicVa(qword_140C506E0 + 120LL * a4, (unsigned int)v4);
+        return MiObtainDynamicVa(&SListHead[11 * a4 + 4], (unsigned int)v4);
       case 6:
         return MiObtainSystemVa((unsigned int)v4);
       case 1:
         v6 = MiObtainSessionVa((unsigned int)v4);
         if ( v6 )
           _InterlockedExchangeAdd(
-            (volatile signed __int32 *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25] + 796),
+            (volatile signed __int32 *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 868),
             v4);
         return v6;
       case 15:

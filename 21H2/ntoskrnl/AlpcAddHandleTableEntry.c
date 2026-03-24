@@ -1,28 +1,28 @@
 /*
- * XREFs of AlpcAddHandleTableEntry @ 0x1407A5530
+ * XREFs of AlpcAddHandleTableEntry @ 0x1406627C8
  * Callers:
- *     AlpcpCreateSection @ 0x14066BC7C (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406CBB84 (AlpcpCreateReserve.c)
- *     AlpcpCreateSecurityContext @ 0x1407A74A4 (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateReserve @ 0x1406B0D14 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSection @ 0x1406D43DC (AlpcpCreateSection.c)
  * Callees:
- *     ExFreeToPagedLookasideList @ 0x140203D50 (ExFreeToPagedLookasideList.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AlpcpReleasePushLockExclusive @ 0x140965BB0 (AlpcpReleasePushLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpReleasePushLockExclusive @ 0x1408C1BC0 (AlpcpReleasePushLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcAddHandleTableEntry(__int64 a1, _QWORD *a2)
 {
   ULONG_PTR v2; // rbp
-  unsigned __int64 v5; // rax
+  unsigned __int64 v5; // rsi
   unsigned __int64 v6; // rbx
   _QWORD *v7; // rcx
-  __int64 v8; // rsi
+  unsigned __int64 v8; // rsi
   __int64 v9; // rbx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v12; // r14
   __int64 v13; // rbx
 
@@ -48,19 +48,19 @@ __int64 __fastcall AlpcAddHandleTableEntry(__int64 a1, _QWORD *a2)
   {
 LABEL_5:
     v8 = 2 * v5;
-    if ( 2 * v5 < 0x1FFFFFFFFFFFFFFFLL )
+    if ( v8 < 0x1FFFFFFFFFFFFFFFLL )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, 16 * v5, 1632136257LL);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v8, 0x61486C41u);
       v9 = -1LL;
-      v12 = Pool2;
-      if ( Pool2 )
+      v12 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memset(Pool2, 0, 8 * v8);
+        memset(PoolWithTag, 0, 8 * v8);
         memmove(v12, *(const void **)a1, 8LL * *(_QWORD *)(a1 + 16));
         v13 = *(_QWORD *)(a1 + 16);
         *((_QWORD *)v12 + v13) = *a2;
         if ( *(_QWORD *)(a1 + 16) == 16LL )
-          ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140CF5B80, *(PVOID *)a1);
+          ExFreeToNPagedLookasideList(&stru_140CEC000, *(PVOID *)a1);
         else
           ExFreePoolWithTag(*(PVOID *)a1, 0x61486C41u);
         *(_QWORD *)a1 = v12;

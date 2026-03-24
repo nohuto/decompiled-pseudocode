@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMDeleteDeviceKey @ 0x1408375AC
+ * XREFs of PiCMDeleteDeviceKey @ 0x14083758C
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
  *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
  *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
- *     PiCMConvertDeviceKeyType @ 0x1406A7570 (PiCMConvertDeviceKeyType.c)
- *     _RegRtlEnumKey @ 0x1406F97E8 (_RegRtlEnumKey.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
- *     _CmDeleteDeviceRegKey @ 0x1408F6FD4 (_CmDeleteDeviceRegKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
+ *     PiCMConvertDeviceKeyType @ 0x1406A7550 (PiCMConvertDeviceKeyType.c)
+ *     _RegRtlEnumKey @ 0x1406F97C8 (_RegRtlEnumKey.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     _CmDeleteDeviceRegKey @ 0x1408F6FB4 (_CmDeleteDeviceRegKey.c)
  */
 
 __int64 __fastcall PiCMDeleteDeviceKey(

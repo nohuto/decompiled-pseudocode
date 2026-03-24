@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpFreeMappingResources @ 0x1408200F0
+ * XREFs of IopLiveDumpFreeMappingResources @ 0x1408200D0
  * Callers:
- *     IopLiveDumpAllocateMappingResources @ 0x14081FEA8 (IopLiveDumpAllocateMappingResources.c)
- *     IopLiveDumpReleaseResources @ 0x1408203B0 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x14081FE88 (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpReleaseResources @ 0x140820390 (IopLiveDumpReleaseResources.c)
  * Callees:
- *     IoFreeMdl @ 0x1400E0B40 (IoFreeMdl.c)
+ *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmReleaseDumpHibernateResources @ 0x1406E019C (MmReleaseDumpHibernateResources.c)
+ *     MmReleaseDumpHibernateResources @ 0x1406E017C (MmReleaseDumpHibernateResources.c)
  */
 
 void __fastcall IopLiveDumpFreeMappingResources(__int64 a1)

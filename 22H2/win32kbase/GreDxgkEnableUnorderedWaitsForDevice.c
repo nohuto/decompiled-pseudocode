@@ -1,17 +1,12 @@
 /*
- * XREFs of GreDxgkEnableUnorderedWaitsForDevice @ 0x1C000F280
+ * XREFs of GreDxgkEnableUnorderedWaitsForDevice @ 0x1C014AC70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GreDxgkEnableUnorderedWaitsForDevice(unsigned int a1, char a2)
+__int64 GreDxgkEnableUnorderedWaitsForDevice()
 {
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v5; // rdx
-
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface();
-  LOBYTE(v5) = a2;
-  return (*(__int64 (__fastcall **)(_QWORD, __int64))(DxgkWin32kInterface + 424))(a1, v5);
+  return ((__int64 (*)(void))qword_1C0250A38)();
 }

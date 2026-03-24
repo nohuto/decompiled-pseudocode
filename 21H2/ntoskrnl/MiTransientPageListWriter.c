@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransientPageListWriter @ 0x1405B04A4
+ * XREFs of MiTransientPageListWriter @ 0x140557C80
  * Callers:
- *     MiSystemFault @ 0x140279590 (MiSystemFault.c)
+ *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int64 a2)
@@ -20,26 +20,26 @@ __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int
   int v11; // edx
   bool v12; // zf
 
-  v4 = ExAcquireSpinLockShared(&dword_140C51DE0);
-  v5 = (_QWORD *)qword_140C51DE8;
+  v4 = ExAcquireSpinLockShared(&dword_140C4E560);
+  v5 = (_QWORD *)qword_140C4E568;
   v6 = 0;
   v7 = v4;
   while ( v5 )
   {
-    if ( a1 <= v5[7] )
+    if ( a1 > v5[7] )
+    {
+      v5 = (_QWORD *)v5[1];
+    }
+    else
     {
       if ( a1 >= v5[7] )
         break;
       v5 = (_QWORD *)*v5;
     }
-    else
-    {
-      v5 = (_QWORD *)v5[1];
-    }
   }
   if ( v5 && (!v5[4] || a2 < v5[5] || a2 > v5[6]) )
     v5 = 0LL;
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C51DE0);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4E560);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

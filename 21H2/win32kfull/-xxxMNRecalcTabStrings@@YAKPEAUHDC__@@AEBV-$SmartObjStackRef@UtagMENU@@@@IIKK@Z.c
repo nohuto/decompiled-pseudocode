@@ -1,152 +1,148 @@
 /*
- * XREFs of ?xxxMNRecalcTabStrings@@YAKPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@IIKK@Z @ 0x1C0249BAC
+ * XREFs of ?xxxMNRecalcTabStrings@@YAKPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@IIKK@Z @ 0x1C024E8C0
  * Callers:
- *     xxxMNCompute @ 0x1C00BEB88 (xxxMNCompute.c)
+ *     xxxMNCompute @ 0x1C0047C44 (xxxMNCompute.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     GetDpiForSystem @ 0x1C006878C (GetDpiForSystem.c)
- *     CALL_LPK @ 0x1C00B9BC8 (CALL_LPK.c)
- *     xxxClientGetTextExtentPointW @ 0x1C00B9F08 (xxxClientGetTextExtentPointW.c)
- *     GetDPIMetrics @ 0x1C00BE974 (GetDPIMetrics.c)
- *     MNGetpItemFromIndex @ 0x1C00BF0D8 (MNGetpItemFromIndex.c)
- *     MNIsOwnerDrawItem @ 0x1C00BF45C (MNIsOwnerDrawItem.c)
- *     GetOemBitmapInfoForDpi @ 0x1C00C3124 (GetOemBitmapInfoForDpi.c)
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     FindCharPosition @ 0x1C025AE7C (FindCharPosition.c)
+ *     MNGetpItemFromIndex @ 0x1C0048164 (MNGetpItemFromIndex.c)
+ *     MNIsOwnerDrawItem @ 0x1C0048C58 (MNIsOwnerDrawItem.c)
+ *     GetDpiForSystem @ 0x1C0063CBC (GetDpiForSystem.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     GetDPIMetrics @ 0x1C00E0DEC (GetDPIMetrics.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010748C (GetOemBitmapInfoForDpi.c)
+ *     CALL_LPK @ 0x1C01594AC (CALL_LPK.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0159810 (xxxClientGetTextExtentPointW.c)
+ *     FindCharPosition @ 0x1C025E24C (FindCharPosition.c)
  */
 
 __int64 __fastcall xxxMNRecalcTabStrings(HDC a1, __int64 a2, unsigned int a3, unsigned int a4, int a5, int a6)
 {
   unsigned int v6; // edi
-  unsigned int v8; // ebp
-  __int64 v10; // rcx
-  int v11; // r13d
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // rbx
-  __int64 v15; // rcx
-  int v16; // r8d
-  int v17; // r11d
-  int v18; // r9d
-  __int64 v19; // r12
-  int CharPosition; // r15d
-  int v21; // r10d
+  int v8; // r15d
+  unsigned int v9; // ebp
+  __int64 v11; // rcx
+  int v12; // r13d
+  unsigned int v13; // r12d
+  __int64 v14; // rcx
+  __int64 v15; // rbx
+  __int64 v16; // r8
+  __int64 v17; // rcx
+  int v18; // r8d
+  int v19; // r11d
+  int v20; // r9d
+  __int64 v21; // rcx
+  int v22; // r10d
   __int64 ThreadWin32Thread; // rax
-  int v23; // eax
-  __int64 v24; // r8
-  __int64 v25; // r10
-  WCHAR *v26; // rdx
-  int v27; // r8d
-  __int64 v28; // rdx
-  __int64 v29; // rcx
+  int v24; // eax
+  unsigned int v25; // r8d
+  __int64 v26; // r10
+  WCHAR *v27; // rdx
+  __int64 v28; // rcx
   __int64 DPIMetrics; // rax
+  __int64 v30; // rcx
   unsigned int v31; // eax
-  __int64 v32; // rcx
-  unsigned int v33; // r8d
-  unsigned int v34; // r8d
-  int DpiForSystem; // eax
+  unsigned int DpiForSystem; // eax
   char *OemBitmapInfoForDpi; // rbx
-  __int64 v37; // rdx
-  __int64 v38; // rcx
-  __int64 v39; // rcx
-  __int64 v40; // rax
-  int v41; // r8d
-  unsigned int v43; // [rsp+30h] [rbp-48h]
-  struct _POINTL v44; // [rsp+38h] [rbp-40h] BYREF
-  int v47; // [rsp+A0h] [rbp+28h]
+  __int64 v34; // rcx
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  int v37; // r8d
+  struct _POINTL v39; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v40; // [rsp+38h] [rbp-40h]
+  int CharPosition; // [rsp+88h] [rbp+10h]
 
   v6 = a3;
-  v8 = 0;
-  v47 = a6 + a5;
+  v8 = a6 + a5;
+  v9 = 0;
   if ( a3 < *(_DWORD *)(*(_QWORD *)(**(_QWORD **)a2 + 40LL) + 44LL) && a3 <= a4 )
   {
-    v10 = *(_QWORD *)(a2 + 16);
-    v11 = 0;
-    v43 = a3;
-    if ( !v10 )
-      v10 = **(_QWORD **)a2;
-    v14 = MNGetpItemFromIndex(v10, a3);
+    v11 = *(_QWORD *)(a2 + 16);
+    v12 = 0;
+    v13 = a3;
+    if ( !v11 )
+      v11 = **(_QWORD **)a2;
+    v15 = MNGetpItemFromIndex(v11, a3);
     if ( v6 < a4 )
     {
       while ( 1 )
       {
-        if ( !v14 )
+        if ( !v15 )
         {
 LABEL_22:
           v6 = a3;
           goto LABEL_23;
         }
-        v15 = *(_QWORD *)(a2 + 16);
-        if ( !v15 )
-          v15 = **(_QWORD **)a2;
-        v16 = MNIsOwnerDrawItem(v15, (_DWORD **)v14);
-        v17 = 0;
-        *(_DWORD *)(*(_QWORD *)v14 + 80LL) = v18;
-        v19 = *(_QWORD *)(v14 + 24);
-        if ( v19 )
+        v17 = *(_QWORD *)(a2 + 16);
+        if ( !v17 )
+          v17 = **(_QWORD **)a2;
+        v18 = MNIsOwnerDrawItem(v17, (_DWORD **)v15, v16);
+        v19 = 0;
+        *(_DWORD *)(*(_QWORD *)v15 + 80LL) = v20;
+        v21 = *(_QWORD *)(v15 + 24);
+        v40 = v21;
+        if ( v21 )
         {
-          if ( *(_DWORD *)(*(_QWORD *)v14 + 48LL) )
+          if ( *(_DWORD *)(*(_QWORD *)v15 + 48LL) )
             break;
         }
-        if ( v16 )
+        if ( v18 )
           goto LABEL_28;
 LABEL_17:
-        v31 = v17 + v47;
-        v32 = *(_QWORD *)(a2 + 16);
-        if ( v17 + v47 <= (int)v8 )
-          v31 = v8;
-        v33 = ++v43;
-        v8 = v31;
-        if ( !v32 )
-          v32 = **(_QWORD **)a2;
-        v14 = MNGetpItemFromIndex(v32, v33);
-        if ( v34 >= a4 )
+        v30 = *(_QWORD *)(a2 + 16);
+        v31 = v19 + v8;
+        if ( v19 + v8 <= (int)v9 )
+          v31 = v9;
+        ++v13;
+        v9 = v31;
+        if ( !v30 )
+          v30 = **(_QWORD **)a2;
+        v15 = MNGetpItemFromIndex(v30, v13);
+        if ( v13 >= a4 )
           goto LABEL_22;
       }
-      if ( !v16 )
+      if ( !v18 )
       {
-        v44 = 0LL;
-        CharPosition = FindCharPosition(v19, 9LL);
-        if ( CharPosition < v21 )
+        v39 = 0LL;
+        CharPosition = FindCharPosition(v21, 9LL);
+        if ( CharPosition < v22 )
         {
           ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-          v23 = CALL_LPK(ThreadWin32Thread);
-          v26 = (WCHAR *)(v25 + 2);
-          v27 = *(_DWORD *)(v24 + 48) - CharPosition - 1;
-          if ( v23 )
-            xxxClientGetTextExtentPointW(a1, v26, v27, &v44);
+          v24 = CALL_LPK(ThreadWin32Thread);
+          v27 = (WCHAR *)(v26 + 2);
+          if ( v24 )
+            xxxClientGetTextExtentPointW(a1, v27, v25, &v39);
           else
-            GreGetTextExtentW(a1, v26, v27, (struct tagSIZE *)&v44, 1u);
-          DPIMetrics = GetDPIMetrics(v29, v28);
-          v17 = *(_DWORD *)(DPIMetrics + 8) + v44.x;
+            GreGetTextExtentW(a1, v27, v25, (struct tagSIZE *)&v39, 1);
+          DPIMetrics = GetDPIMetrics(v28);
+          v19 = *(_DWORD *)(DPIMetrics + 8) + v39.x;
         }
         goto LABEL_17;
       }
 LABEL_28:
-      ++v11;
+      ++v12;
       goto LABEL_17;
     }
 LABEL_23:
-    if ( v11 != a4 - v6 )
+    if ( v12 != a4 - v6 )
     {
-      DpiForSystem = GetDpiForSystem(v13, v12);
+      DpiForSystem = GetDpiForSystem(v14);
       OemBitmapInfoForDpi = GetOemBitmapInfoForDpi(63LL, DpiForSystem);
-      v8 += *(_DWORD *)(GetDPIMetrics(v38, v37) + 8) + *((__int16 *)OemBitmapInfoForDpi + 2);
+      v9 += *(_DWORD *)(GetDPIMetrics(v34) + 8) + *((__int16 *)OemBitmapInfoForDpi + 2);
     }
-    v39 = *(_QWORD *)(a2 + 16);
-    if ( !v39 )
-      v39 = **(_QWORD **)a2;
+    v35 = *(_QWORD *)(a2 + 16);
+    if ( !v35 )
+      v35 = **(_QWORD **)a2;
     while ( 1 )
     {
-      v40 = MNGetpItemFromIndex(v39, v6);
-      if ( v6 >= a4 || !v40 )
+      v36 = MNGetpItemFromIndex(v35, v6);
+      if ( v6 >= a4 || !v36 )
         break;
       ++v6;
-      *(_DWORD *)(*(_QWORD *)v40 + 72LL) = v41;
-      v39 = *(_QWORD *)(a2 + 16);
-      if ( !v39 )
-        v39 = **(_QWORD **)a2;
+      *(_DWORD *)(*(_QWORD *)v36 + 72LL) = v37;
+      v35 = *(_QWORD *)(a2 + 16);
+      if ( !v35 )
+        v35 = **(_QWORD **)a2;
     }
   }
-  return v8;
+  return v9;
 }

@@ -2,16 +2,16 @@
  * XREFs of SepProbeAndCaptureString_U @ 0x1405BB684
  * Callers:
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     NtCloseObjectAuditAlarm @ 0x1406ADAA0 (NtCloseObjectAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1406C47E0 (NtPrivilegedServiceAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1406D93B0 (NtOpenObjectAuditAlarm.c)
- *     NtDeleteObjectAuditAlarm @ 0x140706FA0 (NtDeleteObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x14071B430 (NtPrivilegeObjectAuditAlarm.c)
+ *     NtCloseObjectAuditAlarm @ 0x1406ADA80 (NtCloseObjectAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x1406C47C0 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406D9390 (NtOpenObjectAuditAlarm.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140706F80 (NtDeleteObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14071B410 (NtPrivilegeObjectAuditAlarm.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SepProbeAndCaptureString_U(unsigned __int64 a1, __int64 a2)

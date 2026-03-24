@@ -3,8 +3,8 @@
  * Callers:
  *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
  *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
  */
 

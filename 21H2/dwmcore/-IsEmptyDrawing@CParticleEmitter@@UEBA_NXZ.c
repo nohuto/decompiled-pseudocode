@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmptyDrawing@CParticleEmitter@@UEBA_NXZ @ 0x18022B5F0
+ * XREFs of ?IsEmptyDrawing@CParticleEmitter@@UEBA_NXZ @ 0x1801DC740
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CParticleEmitter::IsEmptyDrawing(CParticleEmitterVisual **this)
 {
-  return CParticleEmitterVisual::IsEmptyDrawing(this[9]);
+  return CParticleEmitterVisual::IsEmptyDrawing(this[8]);
 }

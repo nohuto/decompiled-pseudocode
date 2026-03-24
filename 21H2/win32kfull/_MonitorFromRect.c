@@ -1,55 +1,49 @@
 /*
- * XREFs of _MonitorFromRect @ 0x1C007B570
+ * XREFs of _MonitorFromRect @ 0x1C0042310
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0048C48 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     xxxCheckFullScreen @ 0x1C0061F88 (xxxCheckFullScreen.c)
- *     GetNewMonitor @ 0x1C006F304 (GetNewMonitor.c)
- *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C007B464 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
- *     _GetWindowPlacement @ 0x1C007C658 (_GetWindowPlacement.c)
- *     CkptUpdate @ 0x1C007CA54 (CkptUpdate.c)
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     ?xxxProcessTopologyChange@CRecalcProp@@AEAA?AW4ProcessRecalcResult@@PEAUtagWND@@PEAVCRecalcContext@@@Z @ 0x1C00AF100 (-xxxProcessTopologyChange@CRecalcProp@@AEAA-AW4ProcessRecalcResult@@PEAUtagWND@@PEAVCRecalcConte.c)
- *     _anonymous_namespace_::GetPreviousMonitorInfo @ 0x1C00B02C8 (_anonymous_namespace_--GetPreviousMonitorInfo.c)
- *     ?xxxProcessPreemptiveDpiChange@@YAXPEAUtagWND@@PEAUtagCVR@@@Z @ 0x1C00BA5DC (-xxxProcessPreemptiveDpiChange@@YAXPEAUtagWND@@PEAUtagCVR@@@Z.c)
- *     CreateSpb @ 0x1C00C92A0 (CreateSpb.c)
- *     CitGetWindowInfo @ 0x1C00CB860 (CitGetWindowInfo.c)
- *     xxxSetWindowPlacement @ 0x1C01045D8 (xxxSetWindowPlacement.c)
- *     ?xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOptions@1@K@Z @ 0x1C015B0AC (-xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOption.c)
- *     ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01DE8CC (-DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z.c)
- *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01E1818 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
- *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z @ 0x1C020BFC8 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z.c)
- *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C020E1A8 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
- *     xxxSetInternalWindowPos @ 0x1C02108F0 (xxxSetInternalWindowPos.c)
- *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C022F9FC (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
- *     ?xxxFullscreenRestore@CRecalcState@@QEAA?AW4ProcessRecalcResult@@PEAUtagWND@@AEBVCMonitorTopology@@@Z @ 0x1C023B3FC (-xxxFullscreenRestore@CRecalcState@@QEAA-AW4ProcessRecalcResult@@PEAUtagWND@@AEBVCMonitorTopolog.c)
- *     ?xxxRestore@CRecalcState@@QEAA?AW4ProcessRecalcResult@@PEAUtagWND@@@Z @ 0x1C023B694 (-xxxRestore@CRecalcState@@QEAA-AW4ProcessRecalcResult@@PEAUtagWND@@@Z.c)
- *     ?xxxApplyWindowPos@AdvancedWindowPos@@YAXPEAUtagWND@@AEBUWINDOWPOSANDSTATE@1@@Z @ 0x1C024ADB8 (-xxxApplyWindowPos@AdvancedWindowPos@@YAXPEAUtagWND@@AEBUWINDOWPOSANDSTATE@1@@Z.c)
- *     ?xxxVerticalMaximize@AdvancedWindowPos@@YAXPEAUtagWND@@@Z @ 0x1C024BDB4 (-xxxVerticalMaximize@AdvancedWindowPos@@YAXPEAUtagWND@@@Z.c)
+ *     _GetWindowPlacement @ 0x1C0040F18 (_GetWindowPlacement.c)
+ *     CkptUpdate @ 0x1C0041368 (CkptUpdate.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042200 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     GetNewMonitor @ 0x1C006BF5C (GetNewMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxCheckFullScreen @ 0x1C007C5FC (xxxCheckFullScreen.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
+ *     xxxSetWindowPlacement @ 0x1C011A428 (xxxSetWindowPlacement.c)
+ *     CitGetWindowInfo @ 0x1C011A9B0 (CitGetWindowInfo.c)
+ *     CreateSpb @ 0x1C0161F90 (CreateSpb.c)
+ *     ?ExtendArrangedRectangleByFrameMargin@@YAXPEAUtagWND@@PEAUtagSIZERECT@@@Z @ 0x1C01CFDFC (-ExtendArrangedRectangleByFrameMargin@@YAXPEAUtagWND@@PEAUtagSIZERECT@@@Z.c)
+ *     DetectNewMonitor @ 0x1C01E50D4 (DetectNewMonitor.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01E7108 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     xxxSetInternalWindowPos @ 0x1C020930C (xxxSetInternalWindowPos.c)
+ *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAU_MOVESIZEDATA@@@Z @ 0x1C020D830 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxEndSetWindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@1K@Z @ 0x1C020DF30 (-xxxEndSetWindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@1K@Z.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020EF28 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0236330 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     _MonitorFromPoint @ 0x1C007B350 (_MonitorFromPoint.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C007B728 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     GetScreenRectForDpi @ 0x1C00B06C4 (GetScreenRectForDpi.c)
- *     GetMonitorRectForDpi @ 0x1C00B0924 (GetMonitorRectForDpi.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     _MonitorFromPoint @ 0x1C0042100 (_MonitorFromPoint.c)
+ *     GetScreenRectForDpiContext @ 0x1C00425B4 (GetScreenRectForDpiContext.c)
+ *     GetMonitorRectForDpiContext @ 0x1C00428B0 (GetMonitorRectForDpiContext.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00675D0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MonitorFromRect(struct tagRECT *a1, unsigned int a2, unsigned int CurrentThreadDpiAwarenessContext)
 {
   __int64 v6; // r13
   __int64 DispInfo; // r12
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  unsigned int v11; // r14d
+  __int128 *ScreenRectForDpiContext; // rax
+  __int128 v10; // xmm0
+  __int64 v11; // rax
   __int64 v12; // rdi
-  int v13; // r15d
+  int v13; // r14d
   __int64 v14; // rcx
   unsigned int v15; // esi
   __int64 v16; // rdi
   unsigned int v17; // esi
-  unsigned __int16 v18; // r14
+  __int128 v18; // xmm0
   LONG right; // eax
   int v20; // ecx
   unsigned int v21; // ecx
@@ -60,23 +54,23 @@ __int64 __fastcall MonitorFromRect(struct tagRECT *a1, unsigned int a2, unsigned
   unsigned int v26; // ecx
   __int64 v27; // rdi
   unsigned __int64 v28; // rsi
-  LONG v29; // edx
-  int v30; // eax
+  __int128 *MonitorRectForDpiContext; // rax
+  LONG v30; // ecx
   int v31; // eax
-  __int64 v32; // rdx
-  LONG v33; // eax
-  int v34; // ecx
-  LONG v35; // eax
-  unsigned __int64 v36; // rdx
-  unsigned __int64 v37; // rdx
-  unsigned __int16 v38; // [rsp+20h] [rbp-60h]
-  LONG v39; // [rsp+28h] [rbp-58h] BYREF
-  LONG v40; // [rsp+2Ch] [rbp-54h]
-  LONG v41; // [rsp+30h] [rbp-50h]
-  int v42; // [rsp+34h] [rbp-4Ch]
-  __int128 v43; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v44; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v45; // [rsp+60h] [rbp-20h] BYREF
+  int v32; // eax
+  __int64 v33; // rcx
+  LONG v34; // eax
+  int v35; // edx
+  LONG v36; // eax
+  unsigned __int64 v37; // rcx
+  unsigned __int64 v38; // rcx
+  __int128 v39; // [rsp+20h] [rbp-59h] BYREF
+  __int128 v40; // [rsp+30h] [rbp-49h]
+  _BYTE v41[16]; // [rsp+40h] [rbp-39h] BYREF
+  _BYTE v42[16]; // [rsp+50h] [rbp-29h] BYREF
+  _BYTE v43[16]; // [rsp+60h] [rbp-19h] BYREF
+  _BYTE v44[16]; // [rsp+70h] [rbp-9h] BYREF
+  __int128 v45; // [rsp+80h] [rbp+7h] BYREF
 
   v45 = 0LL;
   v6 = 0LL;
@@ -87,19 +81,19 @@ __int64 __fastcall MonitorFromRect(struct tagRECT *a1, unsigned int a2, unsigned
     return MonitorFromPoint(*(_QWORD *)&a1->left, a2, CurrentThreadDpiAwarenessContext);
   if ( !CurrentThreadDpiAwarenessContext )
   {
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v10, v9);
+    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
     if ( (CurrentThreadDpiAwarenessContext & 0xF) != 2
-      && (!*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456)
-       || (*(_DWORD *)(**(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL)
-                     + 64LL) & 1) == 0) )
+      && (!*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 456)
+       || (*(_DWORD *)(**(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 456) + 8LL) + 64LL) & 1) == 0) )
     {
       CurrentThreadDpiAwarenessContext = 18;
     }
   }
-  v11 = CurrentThreadDpiAwarenessContext >> 8;
-  v38 = v11 & 0x1FF;
-  GetScreenRectForDpi(&v43, v11 & 0x1FF);
-  if ( a1->left <= (int)v43 && a1->top <= SDWORD1(v43) && a1->right >= SDWORD2(v43) && a1->bottom >= SHIDWORD(v43) )
+  ScreenRectForDpiContext = (__int128 *)GetScreenRectForDpiContext(v41, CurrentThreadDpiAwarenessContext);
+  v10 = *ScreenRectForDpiContext;
+  v11 = *(_QWORD *)ScreenRectForDpiContext;
+  v40 = v10;
+  if ( a1->left <= (int)v11 && a1->top <= SHIDWORD(v11) && a1->right >= SDWORD2(v40) && a1->bottom >= SHIDWORD(v40) )
     return *(_QWORD *)(GetDispInfo() + 96);
   v12 = *(_QWORD *)(DispInfo + 104);
   v13 = 0;
@@ -109,9 +103,8 @@ __int64 __fastcall MonitorFromRect(struct tagRECT *a1, unsigned int a2, unsigned
     {
       if ( (*(_DWORD *)(*(_QWORD *)(v12 + 40) + 24LL) & 1) != 0 )
       {
-        GetMonitorRectForDpi(&v44, v12, v38);
-        v43 = v44;
-        if ( (unsigned int)IntersectRect(&v45, &a1->left, (int *)&v43) )
+        v39 = *(_OWORD *)GetMonitorRectForDpiContext(v42, v12, CurrentThreadDpiAwarenessContext);
+        if ( (unsigned int)IntersectRect(&v45, a1, &v39) )
         {
           v14 = v45 - *(_QWORD *)&a1->left;
           if ( (_QWORD)v45 == *(_QWORD *)&a1->left )
@@ -145,47 +138,47 @@ __int64 __fastcall MonitorFromRect(struct tagRECT *a1, unsigned int a2, unsigned
       {
         v16 = *(_QWORD *)(DispInfo + 104);
         v17 = -1;
-        if ( !v16 )
-          return v6;
-        v18 = v11 & 0x1FF;
-        while ( (*(_DWORD *)(*(_QWORD *)(v16 + 40) + 24LL) & 1) == 0 )
+        while ( 1 )
         {
-LABEL_55:
-          v16 = *(_QWORD *)(v16 + 56);
           if ( !v16 )
             return v6;
+          if ( (*(_DWORD *)(*(_QWORD *)(v16 + 40) + 24LL) & 1) != 0 )
+            break;
+LABEL_54:
+          v16 = *(_QWORD *)(v16 + 56);
         }
-        GetMonitorRectForDpi(&v39, v16, v18);
+        v18 = *(_OWORD *)GetMonitorRectForDpiContext(v43, v16, CurrentThreadDpiAwarenessContext);
         right = a1->right;
-        if ( right > v39 )
+        v39 = v18;
+        if ( right > (int)v18 )
         {
-          if ( a1->left < v41 )
+          if ( a1->left < SDWORD2(v18) )
           {
             v21 = 0;
-            goto LABEL_45;
+            goto LABEL_44;
           }
-          v20 = a1->left - v41;
+          v20 = a1->left - DWORD2(v18);
         }
         else
         {
-          v20 = v39 - right;
+          v20 = v18 - right;
         }
         v21 = v20 + 1;
-LABEL_45:
+LABEL_44:
         if ( v21 < v17 )
         {
           bottom = a1->bottom;
-          if ( bottom > v40 )
+          if ( bottom > SDWORD1(v18) )
           {
             top = a1->top;
-            if ( top >= v42 )
-              v23 = top - v42 + 1;
+            if ( top >= SHIDWORD(v18) )
+              v23 = top - HIDWORD(v18) + 1;
             else
               v23 = 0;
           }
           else
           {
-            v23 = v40 - bottom + 1;
+            v23 = DWORD1(v18) - bottom + 1;
           }
           v25 = v21 * v21;
           if ( v25 < v17 && v25 + v23 < v17 )
@@ -198,7 +191,7 @@ LABEL_45:
             }
           }
         }
-        goto LABEL_55;
+        goto LABEL_54;
       }
       v27 = *(_QWORD *)(DispInfo + 104);
       v28 = -1LL;
@@ -211,47 +204,48 @@ LABEL_45:
 LABEL_75:
         v27 = *(_QWORD *)(v27 + 56);
       }
-      GetMonitorRectForDpi(&v39, v27, v38);
-      v29 = a1->right;
-      if ( v29 > v39 )
+      MonitorRectForDpiContext = (__int128 *)GetMonitorRectForDpiContext(v44, v27, CurrentThreadDpiAwarenessContext);
+      v30 = a1->right;
+      v39 = *MonitorRectForDpiContext;
+      if ( v30 > (int)v39 )
       {
-        if ( a1->left < v41 )
+        if ( a1->left < SDWORD2(v39) )
         {
-          v31 = 0;
+          v32 = 0;
 LABEL_65:
-          v32 = v31;
-          if ( v31 < v28 )
+          v33 = v32;
+          if ( v32 < v28 )
           {
-            v33 = a1->bottom;
-            if ( v33 > v40 )
+            v34 = a1->bottom;
+            if ( v34 > SDWORD1(v39) )
             {
-              v35 = a1->top;
-              v34 = v35 >= v42 ? v35 - v42 + 1 : 0;
+              v36 = a1->top;
+              v35 = v36 >= SHIDWORD(v39) ? v36 - HIDWORD(v39) + 1 : 0;
             }
             else
             {
-              v34 = v40 - v33 + 1;
+              v35 = DWORD1(v39) - v34 + 1;
             }
-            v36 = v32 * v32;
-            if ( v36 < v28 && v34 + v36 < v28 )
+            v37 = v33 * v33;
+            if ( v37 < v28 && v35 + v37 < v28 )
             {
-              v37 = v34 * (__int64)v34 + v36;
-              if ( v37 < v28 )
+              v38 = v35 * (__int64)v35 + v37;
+              if ( v38 < v28 )
               {
-                v28 = v37;
+                v28 = v38;
                 v6 = v27;
               }
             }
           }
           goto LABEL_75;
         }
-        v30 = a1->left - v41;
+        v31 = a1->left - DWORD2(v39);
       }
       else
       {
-        v30 = v39 - v29;
+        v31 = v39 - v30;
       }
-      v31 = v30 + 1;
+      v32 = v31 + 1;
       goto LABEL_65;
     }
     return *(_QWORD *)(GetDispInfo() + 96);

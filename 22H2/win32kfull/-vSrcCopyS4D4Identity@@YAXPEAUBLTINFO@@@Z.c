@@ -1,16 +1,16 @@
 /*
- * XREFs of ?vSrcCopyS4D4Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C02EA750
+ * XREFs of ?vSrcCopyS4D4Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C0152850
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall vSrcCopyS4D4Identity(struct BLTINFO *a1)
 {
   unsigned __int8 v1; // r9
   int v3; // ebp
-  _BYTE *v4; // rdi
+  _BYTE *v4; // rbx
   char *v5; // r14
   _BYTE *v6; // r15
   int v7; // eax
@@ -101,9 +101,9 @@ void __fastcall vSrcCopyS4D4Identity(struct BLTINFO *a1)
         if ( (v15 & 1) != 0 )
         {
           v18 = v1 & 0xF;
-LABEL_31:
+LABEL_32:
           v17 |= v18;
-          goto LABEL_34;
+          goto LABEL_35;
         }
         v19 = 16 * v1;
       }
@@ -112,13 +112,13 @@ LABEL_31:
         if ( (v15 & 1) != 0 )
         {
           v18 = v1 >> 4;
-          goto LABEL_31;
+          goto LABEL_32;
         }
         v19 = v1 & 0xF0;
       }
       *v14-- = v17 | v19;
       v17 = 0;
-LABEL_34:
+LABEL_35:
       --v13;
       LOBYTE(v15) = v15 - 1;
     }

@@ -1,63 +1,59 @@
 /*
- * XREFs of NtSetCompositionSurfaceAnalogExclusive @ 0x1C007B8A0
+ * XREFs of NtSetCompositionSurfaceAnalogExclusive @ 0x1C0065B80
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C000F0A8 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
- *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C00106D4 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
- *     DxgkGetSessionTokenManager @ 0x1C00108B0 (DxgkGetSessionTokenManager.c)
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0012F7C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkGetSessionTokenManager @ 0x1C000ED40 (DxgkGetSessionTokenManager.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C0010868 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C0010C88 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00170E4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtSetCompositionSurfaceAnalogExclusive(void *a1, int a2)
 {
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   struct DXGGLOBAL *Global; // rax
-  struct CCompositionSurface *v5; // rbx
-  __int64 v6; // r8
-  int SessionTokenManager; // eax
+  __int64 v7; // r8
   int v8; // edi
   CCompositionSurface *v9; // rcx
-  struct CCompositionSurface *v11; // [rsp+50h] [rbp+18h] BYREF
-  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v10; // rdx
+  CCompositionSurface *v11; // rbx
+  PVOID Object; // [rsp+40h] [rbp+18h] BYREF
+  CCompositionSurface *v14; // [rsp+48h] [rbp+20h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38069) + 560LL))() )
+  Object = 0LL;
+  KeEnterCriticalRegion();
+  Global = DXGGLOBAL::GetGlobal(v5, v4);
+  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))() )
   {
-    v5 = 0LL;
-    Object = 0LL;
-    v11 = 0LL;
-    KeEnterCriticalRegion();
-    if ( a2
-      || (SessionTokenManager = DxgkGetSessionTokenManager(&v11),
-          v5 = v11,
-          v8 = SessionTokenManager,
-          SessionTokenManager >= 0) )
+    v8 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v7, (struct CompositionSurfaceObject **)&Object);
+    if ( v8 >= 0 )
     {
-      v8 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v6, (struct CompositionSurfaceObject **)&Object);
+      v14 = 0LL;
+      v8 = CompositionSurfaceObject::LockForWrite((char *)Object, &v14);
       if ( v8 >= 0 )
       {
-        v11 = 0LL;
-        v8 = CompositionSurfaceObject::LockForWrite((CompositionSurfaceObject *)Object, &v11);
-        if ( v8 >= 0 )
+        v9 = v14;
+        *((_BYTE *)v14 + 88) = a2 != 0;
+        CCompositionSurface::UnlockAndRelease(v9);
+        v14 = 0LL;
+        if ( !a2 && (int)DxgkGetSessionTokenManager(&v14, v10) >= 0 )
         {
-          v9 = v11;
-          *((_BYTE *)v11 + 113) = a2 != 0;
-          CCompositionSurface::UnlockAndRelease(v9);
-          if ( !a2 )
-            (*(void (__fastcall **)(struct CCompositionSurface *))(*(_QWORD *)v5 + 128LL))(v5);
+          v11 = v14;
+          (*(void (__fastcall **)(CCompositionSurface *))(*(_QWORD *)v14 + 120LL))(v14);
+          (*(void (__fastcall **)(CCompositionSurface *))(*(_QWORD *)v11 + 8LL))(v11);
         }
-        ObfDereferenceObject(Object);
       }
+      ObfDereferenceObject(Object);
     }
-    if ( v5 )
-      (*(void (__fastcall **)(struct CCompositionSurface *))(*(_QWORD *)v5 + 8LL))(v5);
-    KeLeaveCriticalRegion();
   }
   else
   {
-    return (unsigned int)-1073741790;
+    v8 = -1073741790;
   }
+  KeLeaveCriticalRegion();
   return (unsigned int)v8;
 }
